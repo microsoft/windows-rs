@@ -773,6 +773,75 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub dwDefaultDetailLevel: u32,
     pub szDialogBoxCaption: windows_core::PSTR,
 }
+#[cfg(feature = "windef")]
+impl PDH_BROWSE_DLG_CONFIG_A {
+    pub fn bIncludeInstanceIndex(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_bIncludeInstanceIndex(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn bSingleCounterPerAdd(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_bSingleCounterPerAdd(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn bSingleCounterPerDialog(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_bSingleCounterPerDialog(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn bLocalCountersOnly(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_bLocalCountersOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn bWildCardInstances(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_bWildCardInstances(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn bHideDetailBox(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_bHideDetailBox(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn bInitializePath(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_bInitializePath(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn bDisableMachineSelection(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_bDisableMachineSelection(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn bIncludeCostlyObjects(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_bIncludeCostlyObjects(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn bShowObjectBrowser(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_bShowObjectBrowser(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn bReserved(&self) -> u32 {
+        self._bitfield >> 10
+    }
+    pub fn set_bReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -787,6 +856,75 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub CallBackStatus: PDH_STATUS,
     pub dwDefaultDetailLevel: u32,
     pub szDialogBoxCaption: windows_core::PSTR,
+}
+#[cfg(all(feature = "windef", feature = "winnt"))]
+impl PDH_BROWSE_DLG_CONFIG_HA {
+    pub fn bIncludeInstanceIndex(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_bIncludeInstanceIndex(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn bSingleCounterPerAdd(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_bSingleCounterPerAdd(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn bSingleCounterPerDialog(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_bSingleCounterPerDialog(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn bLocalCountersOnly(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_bLocalCountersOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn bWildCardInstances(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_bWildCardInstances(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn bHideDetailBox(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_bHideDetailBox(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn bInitializePath(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_bInitializePath(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn bDisableMachineSelection(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_bDisableMachineSelection(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn bIncludeCostlyObjects(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_bIncludeCostlyObjects(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn bShowObjectBrowser(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_bShowObjectBrowser(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn bReserved(&self) -> u32 {
+        self._bitfield >> 10
+    }
+    pub fn set_bReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
@@ -803,6 +941,75 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub dwDefaultDetailLevel: u32,
     pub szDialogBoxCaption: windows_core::PWSTR,
 }
+#[cfg(all(feature = "windef", feature = "winnt"))]
+impl PDH_BROWSE_DLG_CONFIG_HW {
+    pub fn bIncludeInstanceIndex(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_bIncludeInstanceIndex(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn bSingleCounterPerAdd(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_bSingleCounterPerAdd(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn bSingleCounterPerDialog(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_bSingleCounterPerDialog(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn bLocalCountersOnly(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_bLocalCountersOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn bWildCardInstances(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_bWildCardInstances(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn bHideDetailBox(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_bHideDetailBox(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn bInitializePath(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_bInitializePath(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn bDisableMachineSelection(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_bDisableMachineSelection(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn bIncludeCostlyObjects(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_bIncludeCostlyObjects(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn bShowObjectBrowser(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_bShowObjectBrowser(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn bReserved(&self) -> u32 {
+        self._bitfield >> 10
+    }
+    pub fn set_bReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default)]
@@ -817,6 +1024,75 @@ pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub CallBackStatus: PDH_STATUS,
     pub dwDefaultDetailLevel: u32,
     pub szDialogBoxCaption: windows_core::PWSTR,
+}
+#[cfg(feature = "windef")]
+impl PDH_BROWSE_DLG_CONFIG_W {
+    pub fn bIncludeInstanceIndex(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_bIncludeInstanceIndex(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn bSingleCounterPerAdd(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_bSingleCounterPerAdd(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn bSingleCounterPerDialog(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_bSingleCounterPerDialog(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn bLocalCountersOnly(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_bLocalCountersOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn bWildCardInstances(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_bWildCardInstances(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn bHideDetailBox(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_bHideDetailBox(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn bInitializePath(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_bInitializePath(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn bDisableMachineSelection(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_bDisableMachineSelection(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn bIncludeCostlyObjects(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_bIncludeCostlyObjects(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn bShowObjectBrowser(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_bShowObjectBrowser(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn bReserved(&self) -> u32 {
+        self._bitfield >> 10
+    }
+    pub fn set_bReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

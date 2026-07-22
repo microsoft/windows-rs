@@ -58,6 +58,20 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Like [`from_borrowed_context`](Self::from_borrowed_context), but first sets
+    /// the device-context DPI so drawing coordinates are in device-independent
+    /// pixels at `dpi` (96 = 1:1). On-demand surface bridges — such as reactor's
+    /// `CanvasImageSource`, which draws into a physical-pixel atlas — use this so
+    /// content stays crisp at high DPI without exposing the raw context.
+    pub fn from_borrowed_context_with_dpi(
+        context: &'a ID2D1DeviceContext,
+        offset: Matrix3x2,
+        dpi: f32,
+    ) -> Self {
+        unsafe { context.SetDpi(dpi, dpi) };
+        Self::from_borrowed_context(context, offset)
+    }
+
     /// Clears the entire session to the given color.
     pub fn clear(&self, color: ColorF) {
         let c: D2D_COLOR_F = color.into();
@@ -302,6 +316,37 @@ impl<'a> DrawingSession<'a> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }
 
+    /// Creates a bitmap from a buffer of 32-bit premultiplied BGRA pixels.
+    ///
+    /// The pixels are laid out row by row with no padding (`width * 4` bytes per
+    /// row, `width * height * 4` bytes total). This is the natural path for
+    /// uploading CPU-generated or decoded images — for example shell icons — into
+    /// a drawable bitmap. Use [`create_bitmap_with_alpha`](Self::create_bitmap_with_alpha)
+    /// to select a different [`AlphaMode`].
+    pub fn create_bitmap(&self, pixels: &[u8], width: u32, height: u32) -> Result<Bitmap> {
+        Bitmap::from_bytes(
+            self.context,
+            pixels,
+            width,
+            height,
+            AlphaMode::Premultiplied,
+        )
+    }
+
+    /// Creates a bitmap from a buffer of 32-bit BGRA pixels with an explicit
+    /// [`AlphaMode`].
+    ///
+    /// See [`create_bitmap`](Self::create_bitmap) for the pixel layout.
+    pub fn create_bitmap_with_alpha(
+        &self,
+        pixels: &[u8],
+        width: u32,
+        height: u32,
+        alpha: AlphaMode,
+    ) -> Result<Bitmap> {
+        Bitmap::from_bytes(self.context, pixels, width, height, alpha)
+    }
+
     /// Sets the current transform.
     pub fn set_transform(&self, transform: &Matrix3x2) {
         let m = match &self.mode {
@@ -312,7 +357,7 @@ impl<'a> DrawingSession<'a> {
     }
 
     /// Returns the current transform.
-    pub fn get_transform(&self) -> Matrix3x2 {
+    pub fn transform(&self) -> Matrix3x2 {
         let mut transform = Matrix3x2::default();
         unsafe { self.context.GetTransform(&mut transform) };
         match &self.mode {
@@ -327,7 +372,7 @@ impl<'a> DrawingSession<'a> {
 
     /// Apply a transform for the duration of the closure, then restore the previous one.
     pub fn with_transform(&self, transform: &Matrix3x2, f: impl FnOnce()) {
-        let prev = self.get_transform();
+        let prev = self.transform();
         self.set_transform(transform);
         f();
         self.set_transform(&prev);

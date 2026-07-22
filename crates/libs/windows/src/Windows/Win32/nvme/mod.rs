@@ -24,6 +24,86 @@ impl Default for ACTIVE_LATENCY_CONFIGURATION_0 {
 pub struct ACTIVE_LATENCY_CONFIGURATION_0_0 {
     pub _bitfield: u16,
 }
+impl ACTIVE_LATENCY_CONFIGURATION_0_0 {
+    pub fn Read0(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Read0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Write0(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Write0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Trim0(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Trim0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Read1(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Read1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn Write1(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Write1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Trim1(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Trim1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn Read2(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Read2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn Write2(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Write2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn Trim2(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_Trim2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn Read3(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_Read3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u16) << 9);
+    }
+    pub fn Write3(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_Write3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u16) << 10);
+    }
+    pub fn Trim3(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_Trim3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 12
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct BUCKET_COUNTER {
@@ -37,10 +117,110 @@ pub struct BUCKET_COUNTER {
 pub struct DEBUG_BIT_FIELD {
     pub _bitfield: u16,
 }
+impl DEBUG_BIT_FIELD {
+    pub fn Read0(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Read0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Write0(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Write0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Trim0(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Trim0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Read1(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Read1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn Write1(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Write1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Trim1(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Trim1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn Read2(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Read2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn Write2(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Write2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn Trim2(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_Trim2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn Read3(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_Read3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u16) << 9);
+    }
+    pub fn Write3(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_Write3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u16) << 10);
+    }
+    pub fn Trim3(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_Trim3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 12
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSSD_POWER_STATE_DESCRIPTOR {
     pub _bitfield: u8,
+}
+impl DSSD_POWER_STATE_DESCRIPTOR {
+    pub fn NvmePowerState(&self) -> u8 {
+        (self._bitfield << 3) >> 3
+    }
+    pub fn set_NvmePowerState(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn Reserved(&self) -> u8 {
+        (self._bitfield << 1) >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 5)) | ((value & 3) << 5);
+    }
+    pub fn ValidDSSDPowerState(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_ValidDSSDPowerState(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -83,6 +263,32 @@ pub const GUID_WCS_DEVICE_SMART_ATTRIBUTES: windows_core::GUID = windows_core::G
 pub struct IO_COMMAND_SET_VECTOR {
     pub _bitfield: u64,
 }
+impl IO_COMMAND_SET_VECTOR {
+    pub fn NVMCommandSet(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NVMCommandSet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn KVCommandSet(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_KVCommandSet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn ZNCommandSet(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ZNCommandSet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(2305843009213693951 << 3)) | ((value & 2305843009213693951) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LATENCY_MONITOR_FEATURE_STATUS {
@@ -109,6 +315,32 @@ impl Default for LATENCY_MONITOR_FEATURE_STATUS_0 {
 pub struct LATENCY_MONITOR_FEATURE_STATUS_0_0 {
     pub _bitfield: u8,
 }
+impl LATENCY_MONITOR_FEATURE_STATUS_0_0 {
+    pub fn FeatureEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FeatureEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn ActiveLatencyMode(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ActiveLatencyMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn ActiveMeasuredLatency(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ActiveMeasuredLatency(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct LATENCY_STAMP {
@@ -129,6 +361,86 @@ pub struct LATENCY_STAMP {
 #[derive(Clone, Copy, Default)]
 pub struct LATENCY_STAMP_UNITS {
     pub _bitfield: u16,
+}
+impl LATENCY_STAMP_UNITS {
+    pub fn Read0(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Read0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Write0(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Write0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Trim0(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Trim0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Read1(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Read1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn Write1(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Write1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Trim1(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Trim1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn Read2(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Read2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn Write2(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Write2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn Trim2(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_Trim2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn Read3(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_Read3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u16) << 9);
+    }
+    pub fn Write3(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_Write3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u16) << 10);
+    }
+    pub fn Trim3(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_Trim3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 12
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -348,6 +660,32 @@ impl Default for NVMEOF_CONNECT_COMMAND_0 {
 pub struct NVMEOF_CONNECT_COMMAND_0_0 {
     pub _bitfield: u8,
 }
+impl NVMEOF_CONNECT_COMMAND_0_0 {
+    pub fn PriorityClass(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_PriorityClass(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn SqFlowControlDisable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SqFlowControlDisable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn IoQueueDeletion(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_IoQueueDeletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVMEOF_CONNECT_DATA {
@@ -415,6 +753,32 @@ impl Default for NVMEOF_CONNECT_RESPONSE_0_0_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVMEOF_CONNECT_RESPONSE_0_0_0_0 {
     pub _bitfield: u16,
+}
+impl NVMEOF_CONNECT_RESPONSE_0_0_0_0 {
+    pub fn Obsolete(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Obsolete(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn ATR(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ATR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn ASCR(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ASCR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
 }
 pub const NVMEOF_DHCHAP_PREFIX_V1: windows_core::PCSTR = windows_core::s!("DHHC-1:");
 pub const NVMEOF_DHCHAP_PROTOCOL_ID: u32 = 1;
@@ -504,6 +868,20 @@ impl Default for NVMEOF_PROPERTY_GET_COMMAND {
 pub struct NVMEOF_PROPERTY_GET_COMMAND_0 {
     pub _bitfield: u8,
 }
+impl NVMEOF_PROPERTY_GET_COMMAND_0 {
+    pub fn PropertySize(&self) -> u8 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_PropertySize(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_PROPERTY_GET_RESPONSE {
@@ -558,6 +936,20 @@ impl Default for NVMEOF_PROPERTY_SET_COMMAND {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVMEOF_PROPERTY_SET_COMMAND_0 {
     pub _bitfield: u8,
+}
+impl NVMEOF_PROPERTY_SET_COMMAND_0 {
+    pub fn PropertySize(&self) -> u8 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_PropertySize(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -667,6 +1059,20 @@ impl Default for NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
 pub struct NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
     pub _bitfield: u64,
 }
+impl NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
+    pub fn Reserved0(&self) -> u64 {
+        (self._bitfield << 52) >> 52
+    }
+    pub fn set_Reserved0(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !4095) | (value & 4095);
+    }
+    pub fn ACQB(&self) -> u64 {
+        self._bitfield >> 12
+    }
+    pub fn set_ACQB(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4503599627370495 << 12)) | ((value & 4503599627370495) << 12);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_ADMIN_QUEUE_ATTRIBUTES {
@@ -683,6 +1089,32 @@ impl Default for NVME_ADMIN_QUEUE_ATTRIBUTES {
 pub struct NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
     pub _bitfield: u32,
 }
+impl NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
+    pub fn ASQS(&self) -> u32 {
+        (self._bitfield << 20) >> 20
+    }
+    pub fn set_ASQS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !4095) | (value & 4095);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 16) >> 28
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+    pub fn ACQS(&self) -> u32 {
+        (self._bitfield << 4) >> 20
+    }
+    pub fn set_ACQS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4095 << 16)) | ((value & 4095) << 16);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 28
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 28)) | ((value & 15) << 28);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
@@ -698,6 +1130,20 @@ impl Default for NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
     pub _bitfield: u64,
+}
+impl NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
+    pub fn Reserved0(&self) -> u64 {
+        (self._bitfield << 52) >> 52
+    }
+    pub fn set_Reserved0(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !4095) | (value & 4095);
+    }
+    pub fn ASQB(&self) -> u64 {
+        self._bitfield >> 12
+    }
+    pub fn set_ASQB(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4503599627370495 << 12)) | ((value & 4503599627370495) << 12);
+    }
 }
 pub type NVME_AMS_OPTION = i32;
 pub const NVME_AMS_ROUND_ROBIN: NVME_AMS_OPTION = 0;
@@ -745,6 +1191,26 @@ pub struct NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
     pub _bitfield: u32,
     pub Reserved1: u32,
 }
+impl NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn IdleTransitionPowerState(&self) -> u32 {
+        (self._bitfield << 24) >> 27
+    }
+    pub fn set_IdleTransitionPowerState(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+    pub fn IdleTimePriorToTransition(&self) -> u32 {
+        self._bitfield >> 8
+    }
+    pub fn set_IdleTimePriorToTransition(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_BOOT_PARTITION_INFORMATION {
@@ -760,6 +1226,38 @@ impl Default for NVME_BOOT_PARTITION_INFORMATION {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_BOOT_PARTITION_INFORMATION_0 {
     pub _bitfield: u32,
+}
+impl NVME_BOOT_PARTITION_INFORMATION_0 {
+    pub fn BPSZ(&self) -> u32 {
+        (self._bitfield << 17) >> 17
+    }
+    pub fn set_BPSZ(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !32767) | (value & 32767);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 8) >> 23
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(511 << 15)) | ((value & 511) << 15);
+    }
+    pub fn BRS(&self) -> u32 {
+        (self._bitfield << 6) >> 30
+    }
+    pub fn set_BRS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 24)) | ((value & 3) << 24);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 1) >> 27
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 26)) | ((value & 31) << 26);
+    }
+    pub fn ABPID(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_ABPID(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -795,6 +1293,20 @@ impl Default for NVME_CDW0_FEATURE_DSSD_POWER_STATE {
 pub struct NVME_CDW0_FEATURE_DSSD_POWER_STATE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW0_FEATURE_DSSD_POWER_STATE_0 {
+    pub fn DSSDPowerState(&self) -> u32 {
+        (self._bitfield << 25) >> 25
+    }
+    pub fn set_DSSDPowerState(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 7
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
@@ -810,6 +1322,20 @@ impl Default for NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
+    pub fn Enabled(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_Enabled(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
 }
 pub type NVME_CDW0_FEATURE_ERROR_INJECTION = NVME_CDW11_FEATURE_ERROR_INJECTION;
 #[repr(C)]
@@ -828,10 +1354,38 @@ impl Default for NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
 pub struct NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
+    pub fn EOLBehavior(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_EOLBehavior(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW0_RESERVATION_PERSISTENCE {
     pub _bitfield: u32,
+}
+impl NVME_CDW0_RESERVATION_PERSISTENCE {
+    pub fn PTPL(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PTPL(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -849,6 +1403,20 @@ impl Default for NVME_CDW10_ABORT {
 pub struct NVME_CDW10_ABORT_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_ABORT_0 {
+    pub fn SQID(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_SQID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn CID(&self) -> u32 {
+        (self._bitfield << 8) >> 16
+    }
+    pub fn set_CID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 8)) | ((value & 65535) << 8);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_CREATE_IO_QUEUE {
@@ -864,6 +1432,20 @@ impl Default for NVME_CDW10_CREATE_IO_QUEUE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW10_CREATE_IO_QUEUE_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW10_CREATE_IO_QUEUE_0 {
+    pub fn QID(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_QID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn QSIZE(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_QSIZE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -881,6 +1463,20 @@ impl Default for NVME_CDW10_DATASET_MANAGEMENT {
 pub struct NVME_CDW10_DATASET_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_DATASET_MANAGEMENT_0 {
+    pub fn NR(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_NR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_DELETE_IO_QUEUE {
@@ -897,6 +1493,20 @@ impl Default for NVME_CDW10_DELETE_IO_QUEUE {
 pub struct NVME_CDW10_DELETE_IO_QUEUE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_DELETE_IO_QUEUE_0 {
+    pub fn QID(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_QID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_DEVICE_SELF_TEST {
@@ -912,6 +1522,20 @@ impl Default for NVME_CDW10_DEVICE_SELF_TEST {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW10_DEVICE_SELF_TEST_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW10_DEVICE_SELF_TEST_0 {
+    pub fn STC(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_STC(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -939,6 +1563,20 @@ impl Default for NVME_CDW10_DISCOVERY_INFO_MGMT {
 pub struct NVME_CDW10_DISCOVERY_INFO_MGMT_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_DISCOVERY_INFO_MGMT_0 {
+    pub fn TAS(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_TAS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_FIRMWARE_ACTIVATE {
@@ -954,6 +1592,32 @@ impl Default for NVME_CDW10_FIRMWARE_ACTIVATE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW10_FIRMWARE_ACTIVATE_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW10_FIRMWARE_ACTIVATE_0 {
+    pub fn FS(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_FS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn AA(&self) -> u32 {
+        (self._bitfield << 26) >> 29
+    }
+    pub fn set_AA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 3)) | ((value & 7) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 1) >> 7
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 6)) | ((value & 33554431) << 6);
+    }
+    pub fn BPID(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_BPID(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -976,6 +1640,50 @@ impl Default for NVME_CDW10_FORMAT_NVM {
 pub struct NVME_CDW10_FORMAT_NVM_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_FORMAT_NVM_0 {
+    pub fn LBAF(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_LBAF(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn MS(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_MS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn PI(&self) -> u32 {
+        (self._bitfield << 24) >> 29
+    }
+    pub fn set_PI(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn PIL(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_PIL(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn SES(&self) -> u32 {
+        (self._bitfield << 20) >> 29
+    }
+    pub fn set_SES(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 9)) | ((value & 7) << 9);
+    }
+    pub fn ZF(&self) -> u32 {
+        (self._bitfield << 18) >> 30
+    }
+    pub fn set_ZF(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 12)) | ((value & 3) << 12);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 14
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(262143 << 14)) | ((value & 262143) << 14);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_FEATURES {
@@ -991,6 +1699,26 @@ impl Default for NVME_CDW10_GET_FEATURES {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW10_GET_FEATURES_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW10_GET_FEATURES_0 {
+    pub fn FID(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_FID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn SEL(&self) -> u32 {
+        (self._bitfield << 21) >> 29
+    }
+    pub fn set_SEL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 8)) | ((value & 7) << 8);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 11
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2097151 << 11)) | ((value & 2097151) << 11);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1008,6 +1736,32 @@ impl Default for NVME_CDW10_GET_LOG_PAGE {
 pub struct NVME_CDW10_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_GET_LOG_PAGE_0 {
+    pub fn LID(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_LID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn NUMD(&self) -> u32 {
+        (self._bitfield << 4) >> 20
+    }
+    pub fn set_NUMD(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4095 << 16)) | ((value & 4095) << 16);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 28
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 28)) | ((value & 15) << 28);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_LOG_PAGE_V121 {
@@ -1023,6 +1777,26 @@ impl Default for NVME_CDW10_GET_LOG_PAGE_V121 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW10_GET_LOG_PAGE_V121_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW10_GET_LOG_PAGE_V121_0 {
+    pub fn LID(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_LID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn NUMDL(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_NUMDL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1040,6 +1814,38 @@ impl Default for NVME_CDW10_GET_LOG_PAGE_V13 {
 pub struct NVME_CDW10_GET_LOG_PAGE_V13_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_GET_LOG_PAGE_V13_0 {
+    pub fn LID(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_LID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn LSP(&self) -> u32 {
+        (self._bitfield << 20) >> 28
+    }
+    pub fn set_LSP(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 17) >> 29
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 12)) | ((value & 7) << 12);
+    }
+    pub fn RAE(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_RAE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn NUMDL(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_NUMDL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_LOG_PAGE_V20 {
@@ -1056,6 +1862,32 @@ impl Default for NVME_CDW10_GET_LOG_PAGE_V20 {
 pub struct NVME_CDW10_GET_LOG_PAGE_V20_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_GET_LOG_PAGE_V20_0 {
+    pub fn LID(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_LID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn LSP(&self) -> u32 {
+        (self._bitfield << 17) >> 25
+    }
+    pub fn set_LSP(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(127 << 8)) | ((value & 127) << 8);
+    }
+    pub fn RAE(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_RAE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn NUMDL(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_NUMDL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_IDENTIFY {
@@ -1071,6 +1903,26 @@ impl Default for NVME_CDW10_IDENTIFY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW10_IDENTIFY_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW10_IDENTIFY_0 {
+    pub fn CNS(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_CNS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn CNTID(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_CNTID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 pub const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_512_BYTES_OF_HEADER: u32 = 3;
 pub const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_LOG_DATA: u32 = 1;
@@ -1094,6 +1946,38 @@ impl Default for NVME_CDW10_RESERVATION_ACQUIRE {
 pub struct NVME_CDW10_RESERVATION_ACQUIRE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_RESERVATION_ACQUIRE_0 {
+    pub fn RACQA(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_RACQA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn IEKEY(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_IEKEY(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 24) >> 28
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn RTYPE(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_RTYPE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_REGISTER {
@@ -1110,6 +1994,32 @@ impl Default for NVME_CDW10_RESERVATION_REGISTER {
 pub struct NVME_CDW10_RESERVATION_REGISTER_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_RESERVATION_REGISTER_0 {
+    pub fn RREGA(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_RREGA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn IEKEY(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_IEKEY(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 2) >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 4)) | ((value & 67108863) << 4);
+    }
+    pub fn CPTPL(&self) -> u32 {
+        self._bitfield >> 30
+    }
+    pub fn set_CPTPL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 30)) | ((value & 3) << 30);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_RELEASE {
@@ -1125,6 +2035,38 @@ impl Default for NVME_CDW10_RESERVATION_RELEASE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW10_RESERVATION_RELEASE_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW10_RESERVATION_RELEASE_0 {
+    pub fn RRELA(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_RRELA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn IEKEY(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_IEKEY(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 24) >> 28
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn RTYPE(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_RTYPE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1158,6 +2100,44 @@ impl Default for NVME_CDW10_SANITIZE {
 pub struct NVME_CDW10_SANITIZE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_SANITIZE_0 {
+    pub fn SANACT(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_SANACT(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn AUSE(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AUSE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn OWPASS(&self) -> u32 {
+        (self._bitfield << 24) >> 28
+    }
+    pub fn set_OWPASS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn OIPBP(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_OIPBP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn NDAS(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_NDAS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 10
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_SECURITY_SEND_RECEIVE {
@@ -1174,6 +2154,26 @@ impl Default for NVME_CDW10_SECURITY_SEND_RECEIVE {
 pub struct NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn SPSP(&self) -> u32 {
+        (self._bitfield << 8) >> 16
+    }
+    pub fn set_SPSP(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 8)) | ((value & 65535) << 8);
+    }
+    pub fn SECP(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_SECP(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_SET_FEATURES {
@@ -1189,6 +2189,26 @@ impl Default for NVME_CDW10_SET_FEATURES {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW10_SET_FEATURES_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW10_SET_FEATURES_0 {
+    pub fn FID(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_FID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 1) >> 9
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8388607 << 8)) | ((value & 8388607) << 8);
+    }
+    pub fn SV(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_SV(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1221,6 +2241,32 @@ impl Default for NVME_CDW11_CREATE_IO_CQ {
 pub struct NVME_CDW11_CREATE_IO_CQ_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_CREATE_IO_CQ_0 {
+    pub fn PC(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn IEN(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_IEN(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 16) >> 18
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
+    pub fn IV(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_IV(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_CREATE_IO_SQ {
@@ -1236,6 +2282,32 @@ impl Default for NVME_CDW11_CREATE_IO_SQ {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_CREATE_IO_SQ_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_CREATE_IO_SQ_0 {
+    pub fn PC(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn QPRIO(&self) -> u32 {
+        (self._bitfield << 29) >> 30
+    }
+    pub fn set_QPRIO(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 1)) | ((value & 3) << 1);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 16) >> 19
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
+    pub fn CQID(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_CQID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1253,6 +2325,32 @@ impl Default for NVME_CDW11_DATASET_MANAGEMENT {
 pub struct NVME_CDW11_DATASET_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_DATASET_MANAGEMENT_0 {
+    pub fn IDR(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IDR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn IDW(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_IDW(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn AD(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AD(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_DIRECTIVE_RECEIVE {
@@ -1269,6 +2367,26 @@ impl Default for NVME_CDW11_DIRECTIVE_RECEIVE {
 pub struct NVME_CDW11_DIRECTIVE_RECEIVE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_DIRECTIVE_RECEIVE_0 {
+    pub fn DOPER(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_DOPER(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn DTYPE(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_DTYPE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn DSPEC(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_DSPEC(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_DIRECTIVE_SEND {
@@ -1284,6 +2402,26 @@ impl Default for NVME_CDW11_DIRECTIVE_SEND {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_DIRECTIVE_SEND_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_DIRECTIVE_SEND_0 {
+    pub fn DOPER(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_DOPER(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn DTYPE(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_DTYPE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn DSPEC(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_DSPEC(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1332,6 +2470,38 @@ impl Default for NVME_CDW11_FEATURE_ARBITRATION {
 pub struct NVME_CDW11_FEATURE_ARBITRATION_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_ARBITRATION_0 {
+    pub fn AB(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_AB(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 27
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+    pub fn LPW(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_LPW(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn MPW(&self) -> u32 {
+        (self._bitfield << 8) >> 24
+    }
+    pub fn set_MPW(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 16)) | ((value & 255) << 16);
+    }
+    pub fn HPW(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_HPW(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
@@ -1347,6 +2517,86 @@ impl Default for NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
+    pub fn CriticalWarnings(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_CriticalWarnings(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn NsAttributeNotices(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_NsAttributeNotices(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn FwActivationNotices(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_FwActivationNotices(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn TelemetryLogNotices(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_TelemetryLogNotices(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn ANAChangeNotices(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_ANAChangeNotices(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn PredictableLogChangeNotices(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_PredictableLogChangeNotices(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn LBAStatusNotices(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_LBAStatusNotices(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn EnduranceEventNotices(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_EnduranceEventNotices(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn NormalNVMSubsystemShutdown(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_NormalNVMSubsystemShutdown(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 5) >> 21
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2047 << 16)) | ((value & 2047) << 16);
+    }
+    pub fn ZoneDescriptorNotices(&self) -> bool {
+        (self._bitfield >> 27) & 1 != 0
+    }
+    pub fn set_ZoneDescriptorNotices(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 1) >> 29
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 28)) | ((value & 7) << 28);
+    }
+    pub fn DiscoveryLogPageChange(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_DiscoveryLogPageChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1364,6 +2614,20 @@ impl Default for NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
 pub struct NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
+    pub fn APSTE(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_APSTE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
@@ -1379,6 +2643,20 @@ impl Default for NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !2147483647) | (value & 2147483647);
+    }
+    pub fn Clear(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_Clear(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1396,6 +2674,20 @@ impl Default for NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
 pub struct NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !2147483647) | (value & 2147483647);
+    }
+    pub fn Clear(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_Clear(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
@@ -1411,6 +2703,20 @@ impl Default for NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !2147483647) | (value & 2147483647);
+    }
+    pub fn Enable(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_Enable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1428,6 +2734,20 @@ impl Default for NVME_CDW11_FEATURE_ERROR_INJECTION {
 pub struct NVME_CDW11_FEATURE_ERROR_INJECTION_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_ERROR_INJECTION_0 {
+    pub fn NUM(&self) -> u32 {
+        (self._bitfield << 25) >> 25
+    }
+    pub fn set_NUM(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 7
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ERROR_RECOVERY {
@@ -1443,6 +2763,26 @@ impl Default for NVME_CDW11_FEATURE_ERROR_RECOVERY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
+    pub fn TLER(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_TLER(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn DULBE(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_DULBE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 17
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(32767 << 17)) | ((value & 32767) << 17);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1460,10 +2800,38 @@ impl Default for NVME_CDW11_FEATURE_GET_HOST_METADATA {
 pub struct NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
+    pub fn GDHM(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_GDHM(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_HOST_IDENTIFIER {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_HOST_IDENTIFIER {
+    pub fn EXHID(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EXHID(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1481,6 +2849,26 @@ impl Default for NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
 pub struct NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
+    pub fn EHM(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EHM(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MR(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
@@ -1496,6 +2884,26 @@ impl Default for NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
+    pub fn THR(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_THR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn TIME(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_TIME(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1513,6 +2921,26 @@ impl Default for NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
 pub struct NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
+    pub fn IV(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_IV(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn CD(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_CD(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 17
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(32767 << 17)) | ((value & 32767) << 17);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
@@ -1528,6 +2956,20 @@ impl Default for NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
+    pub fn IOCSCI(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_IOCSCI(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1545,6 +2987,20 @@ impl Default for NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
 pub struct NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
+    pub fn NUM(&self) -> u32 {
+        (self._bitfield << 26) >> 26
+    }
+    pub fn set_NUM(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !63) | (value & 63);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
@@ -1560,6 +3016,20 @@ impl Default for NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
+    pub fn NOPPME(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NOPPME(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1577,6 +3047,20 @@ impl Default for NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
 pub struct NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
+    pub fn NSQ(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_NSQ(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn NCQ(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_NCQ(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_POWER_MANAGEMENT {
@@ -1592,6 +3076,20 @@ impl Default for NVME_CDW11_FEATURE_POWER_MANAGEMENT {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
+    pub fn PS(&self) -> u32 {
+        (self._bitfield << 27) >> 27
+    }
+    pub fn set_PS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1609,15 +3107,75 @@ impl Default for NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
 pub struct NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 2) >> 2
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !1073741823) | (value & 1073741823);
+    }
+    pub fn EOLBehavior(&self) -> u32 {
+        self._bitfield >> 30
+    }
+    pub fn set_EOLBehavior(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 30)) | ((value & 3) << 30);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
+    pub fn Reserved(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn REGPRE(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_REGPRE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn RESREL(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_RESREL(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn RESPRE(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_RESPRE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
+    pub fn PTPL(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PTPL(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1635,6 +3193,26 @@ impl Default for NVME_CDW11_FEATURE_SET_HOST_METADATA {
 pub struct NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 19) >> 19
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !8191) | (value & 8191);
+    }
+    pub fn EA(&self) -> u32 {
+        (self._bitfield << 17) >> 30
+    }
+    pub fn set_EA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 13)) | ((value & 3) << 13);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 15
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(131071 << 15)) | ((value & 131071) << 15);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
@@ -1650,6 +3228,32 @@ impl Default for NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
+    pub fn SAVE(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SAVE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn NSS(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NSS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn MOD(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_MOD(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1667,6 +3271,32 @@ impl Default for NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
 pub struct NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
+    pub fn TMPTH(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_TMPTH(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn TMPSEL(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_TMPSEL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn THSEL(&self) -> u32 {
+        (self._bitfield << 10) >> 30
+    }
+    pub fn set_THSEL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 20)) | ((value & 3) << 20);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 22
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 22)) | ((value & 1023) << 22);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
@@ -1683,6 +3313,20 @@ impl Default for NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
 pub struct NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
+    pub fn WCE(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_WCE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
@@ -1698,6 +3342,20 @@ impl Default for NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
+    pub fn DN(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DN(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1719,6 +3377,20 @@ impl Default for NVME_CDW11_GET_LOG_PAGE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_GET_LOG_PAGE_0 {
+    pub fn NUMDU(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_NUMDU(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn LogSpecificIdentifier(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_LogSpecificIdentifier(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1743,6 +3415,26 @@ pub struct NVME_CDW11_IDENTIFY_0 {
 pub struct NVME_CDW11_IDENTIFY_1 {
     pub _bitfield: u32,
 }
+impl NVME_CDW11_IDENTIFY_1 {
+    pub fn CNSID(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_CNSID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        (self._bitfield << 8) >> 24
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 16)) | ((value & 255) << 16);
+    }
+    pub fn CSI(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_CSI(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_RESERVATION_REPORT {
@@ -1758,6 +3450,20 @@ impl Default for NVME_CDW11_RESERVATION_REPORT {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW11_RESERVATION_REPORT_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW11_RESERVATION_REPORT_0 {
+    pub fn EDS(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EDS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1812,6 +3518,20 @@ impl Default for NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
 pub struct NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
+    pub fn NSR(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_NSR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_SEND {
@@ -1838,6 +3558,32 @@ impl Default for NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
+    pub fn ENDIR(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ENDIR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 25
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+    pub fn DTYPE(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_DTYPE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1893,6 +3639,50 @@ impl Default for NVME_CDW12_READ_WRITE {
 pub struct NVME_CDW12_READ_WRITE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW12_READ_WRITE_0 {
+    pub fn NLB(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_NLB(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn DTYPE(&self) -> u32 {
+        (self._bitfield << 8) >> 28
+    }
+    pub fn set_DTYPE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 6) >> 30
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 24)) | ((value & 3) << 24);
+    }
+    pub fn PRINFO(&self) -> u32 {
+        (self._bitfield << 2) >> 28
+    }
+    pub fn set_PRINFO(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 26)) | ((value & 15) << 26);
+    }
+    pub fn FUA(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_FUA(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    }
+    pub fn LR(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_LR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_VERIFYCOMMAND {
@@ -1909,6 +3699,38 @@ impl Default for NVME_CDW12_VERIFYCOMMAND {
 pub struct NVME_CDW12_VERIFYCOMMAND_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW12_VERIFYCOMMAND_0 {
+    pub fn NLB(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_NLB(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 6) >> 22
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 16)) | ((value & 1023) << 16);
+    }
+    pub fn PRINFO(&self) -> u32 {
+        (self._bitfield << 2) >> 28
+    }
+    pub fn set_PRINFO(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 26)) | ((value & 15) << 26);
+    }
+    pub fn FUA(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_FUA(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    }
+    pub fn LR(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_LR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_ZONE_APPEND {
@@ -1924,6 +3746,44 @@ impl Default for NVME_CDW12_ZONE_APPEND {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW12_ZONE_APPEND_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW12_ZONE_APPEND_0 {
+    pub fn NLB(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_NLB(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 7) >> 23
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(511 << 16)) | ((value & 511) << 16);
+    }
+    pub fn PIREMAP(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_PIREMAP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn PRINFO(&self) -> u32 {
+        (self._bitfield << 2) >> 28
+    }
+    pub fn set_PRINFO(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 26)) | ((value & 15) << 26);
+    }
+    pub fn FUA(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_FUA(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    }
+    pub fn LR(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_LR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1951,6 +3811,20 @@ impl Default for NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn HMDLLA(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_HMDLLA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1986,6 +3860,32 @@ pub struct NVME_CDW13_READ_WRITE_0 {
 pub struct NVME_CDW13_READ_WRITE_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_CDW13_READ_WRITE_0_0 {
+    pub fn AccessFrequency(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_AccessFrequency(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn AccessLatency(&self) -> u8 {
+        (self._bitfield << 2) >> 6
+    }
+    pub fn set_AccessLatency(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn SequentialRequest(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_SequentialRequest(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Incompressible(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Incompressible(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
@@ -2002,6 +3902,32 @@ impl Default for NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
 pub struct NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
+    pub fn ZRA(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_ZRA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn ZRASpecific(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_ZRASpecific(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Partial(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_Partial(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 17
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(32767 << 17)) | ((value & 32767) << 17);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_ZONE_MANAGEMENT_SEND {
@@ -2017,6 +3943,26 @@ impl Default for NVME_CDW13_ZONE_MANAGEMENT_SEND {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
+    pub fn ZSA(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_ZSA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn SelectAll(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_SelectAll(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 9
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8388607 << 9)) | ((value & 8388607) << 9);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2061,6 +4007,32 @@ impl Default for NVME_CDW14_GET_LOG_PAGE {
 pub struct NVME_CDW14_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW14_GET_LOG_PAGE_0 {
+    pub fn UUIDIndex(&self) -> u32 {
+        (self._bitfield << 25) >> 25
+    }
+    pub fn set_UUIDIndex(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 9) >> 16
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 7)) | ((value & 65535) << 7);
+    }
+    pub fn OT(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_OT(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn CommandSetIdentifier(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_CommandSetIdentifier(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW14_GET_LOG_PAGE_V20 {
@@ -2077,6 +4049,32 @@ impl Default for NVME_CDW14_GET_LOG_PAGE_V20 {
 pub struct NVME_CDW14_GET_LOG_PAGE_V20_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW14_GET_LOG_PAGE_V20_0 {
+    pub fn UUIDIndex(&self) -> u32 {
+        (self._bitfield << 25) >> 25
+    }
+    pub fn set_UUIDIndex(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 9) >> 16
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 7)) | ((value & 65535) << 7);
+    }
+    pub fn OffsetType(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_OffsetType(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn CommandSetIdentifier(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_CommandSetIdentifier(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW14_IDENTIFY {
@@ -2092,6 +4090,20 @@ impl Default for NVME_CDW14_IDENTIFY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW14_IDENTIFY_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW14_IDENTIFY_0 {
+    pub fn UUIDIndex(&self) -> u32 {
+        (self._bitfield << 25) >> 25
+    }
+    pub fn set_UUIDIndex(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 7
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2136,6 +4148,20 @@ impl Default for NVME_CDW15_READ_WRITE {
 pub struct NVME_CDW15_READ_WRITE_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW15_READ_WRITE_0 {
+    pub fn ELBAT(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_ELBAT(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn ELBATM(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_ELBATM(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW15_VERIFY_COMMAND {
@@ -2152,6 +4178,20 @@ impl Default for NVME_CDW15_VERIFY_COMMAND {
 pub struct NVME_CDW15_VERIFY_COMMAND_0 {
     pub _bitfield: u32,
 }
+impl NVME_CDW15_VERIFY_COMMAND_0 {
+    pub fn ELBAT(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_ELBAT(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn ELBATM(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_ELBATM(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CDW15_ZONE_APPEND {
@@ -2167,6 +4207,20 @@ impl Default for NVME_CDW15_ZONE_APPEND {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CDW15_ZONE_APPEND_0 {
     pub _bitfield: u32,
+}
+impl NVME_CDW15_ZONE_APPEND_0 {
+    pub fn LBAT(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_LBAT(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn LBATM(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_LBATM(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2747,6 +4801,38 @@ impl Default for NVME_COMMAND_DWORD0 {
 pub struct NVME_COMMAND_DWORD0_0 {
     pub _bitfield: u32,
 }
+impl NVME_COMMAND_DWORD0_0 {
+    pub fn OPC(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_OPC(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn FUSE(&self) -> u32 {
+        (self._bitfield << 22) >> 30
+    }
+    pub fn set_FUSE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 18) >> 28
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 10)) | ((value & 15) << 10);
+    }
+    pub fn PSDT(&self) -> u32 {
+        (self._bitfield << 16) >> 30
+    }
+    pub fn set_PSDT(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
+    }
+    pub fn CID(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_CID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_EFFECTS_DATA {
@@ -2762,6 +4848,98 @@ impl Default for NVME_COMMAND_EFFECTS_DATA {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_COMMAND_EFFECTS_DATA_0 {
     pub _bitfield: u32,
+}
+impl NVME_COMMAND_EFFECTS_DATA_0 {
+    pub fn CSUPP(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CSUPP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn LBCC(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_LBCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn NCC(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_NCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn NIC(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_NIC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn CCC(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_CCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 16) >> 21
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
+    }
+    pub fn CSE(&self) -> u32 {
+        (self._bitfield << 13) >> 29
+    }
+    pub fn set_CSE(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 16)) | ((value & 7) << 16);
+    }
+    pub fn UUIDSelectionSupported(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_UUIDSelectionSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn CSPNamespace(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_CSPNamespace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn CSPController(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_CSPController(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn CSPNVMSet(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_CSPNVMSet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn CSPEnduranceGroup(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_CSPEnduranceGroup(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn CSPDomain(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_CSPDomain(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    }
+    pub fn CSPNVMSubsystem(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_CSPNVMSubsystem(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn CSPReserved(&self) -> u32 {
+        self._bitfield >> 26
+    }
+    pub fn set_CSPReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 26)) | ((value & 63) << 26);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2799,10 +4977,80 @@ impl Default for NVME_COMMAND_STATUS {
 pub struct NVME_COMMAND_STATUS_0 {
     pub _bitfield: u16,
 }
+impl NVME_COMMAND_STATUS_0 {
+    pub fn P(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_P(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn SC(&self) -> u16 {
+        (self._bitfield << 7) >> 8
+    }
+    pub fn set_SC(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(255 << 1)) | ((value & 255) << 1);
+    }
+    pub fn SCT(&self) -> u16 {
+        (self._bitfield << 4) >> 13
+    }
+    pub fn set_SCT(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 9)) | ((value & 7) << 9);
+    }
+    pub fn CRD(&self) -> u16 {
+        (self._bitfield << 2) >> 14
+    }
+    pub fn set_CRD(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 12)) | ((value & 3) << 12);
+    }
+    pub fn M(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_M(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u16) << 14);
+    }
+    pub fn DNR(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_DNR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
     pub _bitfield: u32,
+}
+impl NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
+    pub fn AsyncEventType(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_AsyncEventType(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 27
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+    pub fn AsyncEventInfo(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_AsyncEventInfo(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn LogPage(&self) -> u32 {
+        (self._bitfield << 8) >> 24
+    }
+    pub fn set_LogPage(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 16)) | ((value & 255) << 16);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2814,6 +5062,20 @@ pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     pub _bitfield: u32,
+}
+impl NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
+    pub fn NSA(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_NSA(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2883,6 +5145,20 @@ impl Default for NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
 pub struct NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
     pub _bitfield: u32,
 }
+impl NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
+    pub fn CQH(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_CQH(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CONTEXT_ATTRIBUTES {
@@ -2898,6 +5174,56 @@ impl Default for NVME_CONTEXT_ATTRIBUTES {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CONTEXT_ATTRIBUTES_0 {
     pub _bitfield: u32,
+}
+impl NVME_CONTEXT_ATTRIBUTES_0 {
+    pub fn AccessFrequency(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_AccessFrequency(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn AccessLatency(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_AccessLatency(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+    pub fn SequentialReadRange(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_SequentialReadRange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn SequentialWriteRange(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_SequentialWriteRange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn WritePrepare(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_WritePrepare(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 8) >> 19
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8191 << 11)) | ((value & 8191) << 11);
+    }
+    pub fn CommandAccessSize(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_CommandAccessSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2915,6 +5241,164 @@ impl Default for NVME_CONTROLLER_CAPABILITIES {
 pub struct NVME_CONTROLLER_CAPABILITIES_0 {
     pub _bitfield: u64,
 }
+impl NVME_CONTROLLER_CAPABILITIES_0 {
+    pub fn MQES(&self) -> u64 {
+        (self._bitfield << 48) >> 48
+    }
+    pub fn set_MQES(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn CQR(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_CQR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
+    }
+    pub fn AMS_WeightedRoundRobinWithUrgent(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_AMS_WeightedRoundRobinWithUrgent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
+    }
+    pub fn AMS_VendorSpecific(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_AMS_VendorSpecific(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
+    }
+    pub fn Reserved0(&self) -> u64 {
+        (self._bitfield << 40) >> 59
+    }
+    pub fn set_Reserved0(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(31 << 19)) | ((value & 31) << 19);
+    }
+    pub fn TO(&self) -> u64 {
+        (self._bitfield << 32) >> 56
+    }
+    pub fn set_TO(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+    pub fn DSTRD(&self) -> u64 {
+        (self._bitfield << 28) >> 60
+    }
+    pub fn set_DSTRD(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 32)) | ((value & 15) << 32);
+    }
+    pub fn NSSRS(&self) -> bool {
+        (self._bitfield >> 36) & 1 != 0
+    }
+    pub fn set_NSSRS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
+    }
+    pub fn CSS_NVM(&self) -> bool {
+        (self._bitfield >> 37) & 1 != 0
+    }
+    pub fn set_CSS_NVM(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
+    }
+    pub fn CSS_Reserved0(&self) -> bool {
+        (self._bitfield >> 38) & 1 != 0
+    }
+    pub fn set_CSS_Reserved0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value as u64) << 38);
+    }
+    pub fn CSS_Reserved1(&self) -> bool {
+        (self._bitfield >> 39) & 1 != 0
+    }
+    pub fn set_CSS_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value as u64) << 39);
+    }
+    pub fn CSS_Reserved2(&self) -> bool {
+        (self._bitfield >> 40) & 1 != 0
+    }
+    pub fn set_CSS_Reserved2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value as u64) << 40);
+    }
+    pub fn CSS_Reserved3(&self) -> bool {
+        (self._bitfield >> 41) & 1 != 0
+    }
+    pub fn set_CSS_Reserved3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value as u64) << 41);
+    }
+    pub fn CSS_Reserved4(&self) -> bool {
+        (self._bitfield >> 42) & 1 != 0
+    }
+    pub fn set_CSS_Reserved4(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value as u64) << 42);
+    }
+    pub fn CSS_MultipleIo(&self) -> bool {
+        (self._bitfield >> 43) & 1 != 0
+    }
+    pub fn set_CSS_MultipleIo(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value as u64) << 43);
+    }
+    pub fn CSS_AdminOnly(&self) -> bool {
+        (self._bitfield >> 44) & 1 != 0
+    }
+    pub fn set_CSS_AdminOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value as u64) << 44);
+    }
+    pub fn BPS(&self) -> bool {
+        (self._bitfield >> 45) & 1 != 0
+    }
+    pub fn set_BPS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value as u64) << 45);
+    }
+    pub fn CPS(&self) -> u64 {
+        (self._bitfield << 16) >> 62
+    }
+    pub fn set_CPS(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(3 << 46)) | ((value & 3) << 46);
+    }
+    pub fn MPSMIN(&self) -> u64 {
+        (self._bitfield << 12) >> 60
+    }
+    pub fn set_MPSMIN(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 48)) | ((value & 15) << 48);
+    }
+    pub fn MPSMAX(&self) -> u64 {
+        (self._bitfield << 8) >> 60
+    }
+    pub fn set_MPSMAX(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 52)) | ((value & 15) << 52);
+    }
+    pub fn PMRS(&self) -> bool {
+        (self._bitfield >> 56) & 1 != 0
+    }
+    pub fn set_PMRS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 56)) | ((value as u64) << 56);
+    }
+    pub fn CMBS(&self) -> bool {
+        (self._bitfield >> 57) & 1 != 0
+    }
+    pub fn set_CMBS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 57)) | ((value as u64) << 57);
+    }
+    pub fn NSSS(&self) -> bool {
+        (self._bitfield >> 58) & 1 != 0
+    }
+    pub fn set_NSSS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 58)) | ((value as u64) << 58);
+    }
+    pub fn CRWMS(&self) -> bool {
+        (self._bitfield >> 59) & 1 != 0
+    }
+    pub fn set_CRWMS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 59)) | ((value as u64) << 59);
+    }
+    pub fn CRIMS(&self) -> bool {
+        (self._bitfield >> 60) & 1 != 0
+    }
+    pub fn set_CRIMS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 60)) | ((value as u64) << 60);
+    }
+    pub fn Reserved2(&self) -> u64 {
+        self._bitfield >> 61
+    }
+    pub fn set_Reserved2(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(7 << 61)) | ((value & 7) << 61);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_CONFIGURATION {
@@ -2930,6 +5414,68 @@ impl Default for NVME_CONTROLLER_CONFIGURATION {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CONTROLLER_CONFIGURATION_0 {
     pub _bitfield: u32,
+}
+impl NVME_CONTROLLER_CONFIGURATION_0 {
+    pub fn EN(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EN(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 28) >> 29
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn CSS(&self) -> u32 {
+        (self._bitfield << 25) >> 29
+    }
+    pub fn set_CSS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 4)) | ((value & 7) << 4);
+    }
+    pub fn MPS(&self) -> u32 {
+        (self._bitfield << 21) >> 28
+    }
+    pub fn set_MPS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 7)) | ((value & 15) << 7);
+    }
+    pub fn AMS(&self) -> u32 {
+        (self._bitfield << 18) >> 29
+    }
+    pub fn set_AMS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 11)) | ((value & 7) << 11);
+    }
+    pub fn SHN(&self) -> u32 {
+        (self._bitfield << 16) >> 30
+    }
+    pub fn set_SHN(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
+    }
+    pub fn IOSQES(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_IOSQES(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn IOCQES(&self) -> u32 {
+        (self._bitfield << 8) >> 28
+    }
+    pub fn set_IOCQES(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
+    }
+    pub fn CRIME(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_CRIME(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 25
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(127 << 25)) | ((value & 127) << 25);
+    }
 }
 pub const NVME_CONTROLLER_ID_DYN: u32 = 65535;
 pub const NVME_CONTROLLER_ID_MAX: u32 = 65519;
@@ -2962,6 +5508,26 @@ impl Default for NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
     pub _bitfield: u32,
 }
+impl NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
+    pub fn BIR(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_BIR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 20) >> 23
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(511 << 3)) | ((value & 511) << 3);
+    }
+    pub fn OFST(&self) -> u32 {
+        self._bitfield >> 12
+    }
+    pub fn set_OFST(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
@@ -2977,6 +5543,56 @@ impl Default for NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
     pub _bitfield: u32,
+}
+impl NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
+    pub fn SQS(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SQS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn CQS(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CQS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn LISTS(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_LISTS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn RDS(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_RDS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn WDS(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_WDS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 24) >> 29
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn SZU(&self) -> u32 {
+        (self._bitfield << 20) >> 28
+    }
+    pub fn set_SZU(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn SZ(&self) -> u32 {
+        self._bitfield >> 12
+    }
+    pub fn set_SZ(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
+    }
 }
 pub const NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_NAME: NVME_CONTROLLER_METADATA_ELEMENT_TYPES = 8;
 pub const NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_VERSION: NVME_CONTROLLER_METADATA_ELEMENT_TYPES = 9;
@@ -3057,6 +5673,50 @@ impl Default for NVME_CONTROLLER_STATUS {
 pub struct NVME_CONTROLLER_STATUS_0 {
     pub _bitfield: u32,
 }
+impl NVME_CONTROLLER_STATUS_0 {
+    pub fn RDY(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_RDY(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn CFS(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CFS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn SHST(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_SHST(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn NSSRO(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_NSSRO(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn PP(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_PP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn ST(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_ST(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 7
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
+    }
+}
 pub type NVME_CONTROLLER_TYPE = i32;
 pub const NVME_CPS_CONTROLLER_SCOPE: NVME_CPS_VALUE = 1;
 pub const NVME_CPS_DOMAIN_SCOPE: NVME_CPS_VALUE = 2;
@@ -3090,10 +5750,38 @@ impl Default for NVME_DEVICE_SELF_TEST_LOG {
 pub struct NVME_DEVICE_SELF_TEST_LOG_0 {
     pub _bitfield: u8,
 }
+impl NVME_DEVICE_SELF_TEST_LOG_0 {
+    pub fn Status(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Status(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_1 {
     pub _bitfield: u8,
+}
+impl NVME_DEVICE_SELF_TEST_LOG_1 {
+    pub fn CompletePercent(&self) -> u8 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_CompletePercent(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -3114,15 +5802,75 @@ pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
     pub _bitfield: u8,
 }
+impl NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
+    pub fn Result(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Result(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn CodeValue(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_CodeValue(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
     pub _bitfield: u8,
 }
+impl NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
+    pub fn NSIDValid(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NSIDValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn FLBAValid(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_FLBAValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn SCTValid(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SCTValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn SCValid(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SCValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
     pub _bitfield: u8,
+}
+impl NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
+    pub fn AdditionalInfo(&self) -> u8 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_AdditionalInfo(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3135,6 +5883,26 @@ pub struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
 pub struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
     pub _bitfield: u8,
     pub Reserved1: [u8; 31],
+}
+impl NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
+    pub fn Identify(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Identify(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Streams(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Streams(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
 }
 impl Default for NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
     fn default() -> Self {
@@ -3223,6 +5991,38 @@ impl Default for NVME_DISCOVERY_ENTRY_0 {
 pub struct NVME_DISCOVERY_ENTRY_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_DISCOVERY_ENTRY_0_0 {
+    pub fn SecureChannel(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_SecureChannel(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn SqFlowControlDisable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SqFlowControlDisable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn ZeroHostIdSupport(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ZeroHostIdSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn AuthAndSecureChannel(&self) -> u8 {
+        (self._bitfield << 2) >> 6
+    }
+    pub fn set_AuthAndSecureChannel(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_DISCOVERY_ENTRY_1 {
@@ -3238,6 +6038,32 @@ impl Default for NVME_DISCOVERY_ENTRY_1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DISCOVERY_ENTRY_1_0 {
     pub _bitfield: u16,
+}
+impl NVME_DISCOVERY_ENTRY_1_0 {
+    pub fn DuplicateReturnedInfo(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DuplicateReturnedInfo(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn ExplicitPersistentConnectionSupport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ExplicitPersistentConnectionSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn NoCDCConnectivity(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_NoCDCConnectivity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3270,6 +6096,32 @@ impl Default for NVME_DISCOVERY_HEADER_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DISCOVERY_HEADER_0_0 {
     pub _bitfield: u8,
+}
+impl NVME_DISCOVERY_HEADER_0_0 {
+    pub fn Extended(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Extended(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn PortLocal(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PortLocal(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn AllSubsystems(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AllSubsystems(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
 }
 pub type NVME_DISCOVERY_INFO_ENTITY_TYPES = i32;
 pub const NVME_DISCOVERY_INFO_ENTITY_TYPE_CDC: NVME_DISCOVERY_INFO_ENTITY_TYPES = 3;
@@ -3318,6 +6170,56 @@ impl Default for NVME_DISCOVERY_INFO_MGMT_HEADER_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_DISCOVERY_INFO_MGMT_HEADER_0_0 {
     pub _bitfield: u16,
+}
+impl NVME_DISCOVERY_INFO_MGMT_HEADER_0_0 {
+    pub fn NQN(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NQN(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn TSAS(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_TSAS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn TRSVCID(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_TRSVCID(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn ADRFAM(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ADRFAM(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn TRTYPE(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_TRTYPE(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn PORTID(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_PORTID(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn TRADDR(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_TRADDR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 7
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(511 << 7)) | ((value & 511) << 7);
+    }
 }
 pub type NVME_DISCOVERY_INFO_MGMT_TASK = i32;
 pub const NVME_DISCOVERY_INFO_MGMT_TASK_DEREGISTER: NVME_DISCOVERY_INFO_MGMT_TASK = 1;
@@ -3369,6 +6271,26 @@ impl Default for NVME_ERROR_INFO_LOG {
 pub struct NVME_ERROR_INFO_LOG_0 {
     pub _bitfield: u16,
 }
+impl NVME_ERROR_INFO_LOG_0 {
+    pub fn Byte(&self) -> u16 {
+        (self._bitfield << 8) >> 8
+    }
+    pub fn set_Byte(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Bit(&self) -> u16 {
+        (self._bitfield << 5) >> 13
+    }
+    pub fn set_Bit(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 8)) | ((value & 7) << 8);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 11
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(31 << 11)) | ((value & 31) << 11);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_ERROR_INJECTION_ENTRY {
@@ -3397,6 +6319,26 @@ impl Default for NVME_ERROR_INJECTION_ENTRY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ERROR_INJECTION_ENTRY_0_0 {
     pub _bitfield: u8,
+}
+impl NVME_ERROR_INJECTION_ENTRY_0_0 {
+    pub fn Enable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Enable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn SingleInstance(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SingleInstance(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
 }
 pub type NVME_ERROR_INJECTION_TYPES = i32;
 pub const NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_CPU_CONTROLLER_HANG: NVME_ERROR_INJECTION_TYPES = 1;
@@ -3466,6 +6408,38 @@ impl Default for NVME_EXTENDED_DISCOVERY_ENTRY_0 {
 pub struct NVME_EXTENDED_DISCOVERY_ENTRY_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_EXTENDED_DISCOVERY_ENTRY_0_0 {
+    pub fn SecureChannel(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_SecureChannel(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn SqFlowControlDisable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SqFlowControlDisable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn ZeroHostIdSupport(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ZeroHostIdSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn AuthAndSecureChannel(&self) -> u8 {
+        (self._bitfield << 2) >> 6
+    }
+    pub fn set_AuthAndSecureChannel(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NVME_EXTENDED_DISCOVERY_ENTRY_1 {
@@ -3481,6 +6455,32 @@ impl Default for NVME_EXTENDED_DISCOVERY_ENTRY_1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_EXTENDED_DISCOVERY_ENTRY_1_0 {
     pub _bitfield: u16,
+}
+impl NVME_EXTENDED_DISCOVERY_ENTRY_1_0 {
+    pub fn DuplicateReturnedInfo(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DuplicateReturnedInfo(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn ExplicitPersistentConnectionSupport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ExplicitPersistentConnectionSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn NoCDCConnectivity(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_NoCDCConnectivity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
 }
 pub const NVME_EXTENDED_HOST_IDENTIFIER_SIZE: u32 = 16;
 #[repr(C)]
@@ -3586,6 +6586,92 @@ pub const NVME_FEATURE_WRITE_ATOMICITY: NVME_FEATURES = 10;
 pub struct NVME_FID_SUPPORTED_AND_EFFECTS {
     pub _bitfield: u32,
 }
+impl NVME_FID_SUPPORTED_AND_EFFECTS {
+    pub fn FSUPP(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FSUPP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn UDCC(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_UDCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn NCC(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_NCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn NIC(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_NIC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn CCC(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_CCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 13) >> 18
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16383 << 5)) | ((value & 16383) << 5);
+    }
+    pub fn UUIDSelectionSupported(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_UUIDSelectionSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn FSPNamespace(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_FSPNamespace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn FSPController(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_FSPController(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn FSPNVMSet(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_FSPNVMSet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn FSPEnduranceGroup(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_FSPEnduranceGroup(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn FSPDomain(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_FSPDomain(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    }
+    pub fn FSPNVMSubsystem(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_FSPNVMSubsystem(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn FSPReserved(&self) -> u32 {
+        self._bitfield >> 26
+    }
+    pub fn set_FSPReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 26)) | ((value & 63) << 26);
+    }
+}
 pub type NVME_FIRMWARE_ACTIVATE_ACTIONS = i32;
 pub const NVME_FIRMWARE_ACTIVATE_ACTION_ACTIVATE: NVME_FIRMWARE_ACTIVATE_ACTIONS = 2;
 pub const NVME_FIRMWARE_ACTIVATE_ACTION_ACTIVATE_BOOT_PARTITION: NVME_FIRMWARE_ACTIVATE_ACTIONS = 7;
@@ -3611,6 +6697,32 @@ impl Default for NVME_FIRMWARE_SLOT_INFO_LOG {
 pub struct NVME_FIRMWARE_SLOT_INFO_LOG_0 {
     pub _bitfield: u8,
 }
+impl NVME_FIRMWARE_SLOT_INFO_LOG_0 {
+    pub fn ActiveSlot(&self) -> u8 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_ActiveSlot(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved0(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Reserved0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn PendingActivateSlot(&self) -> u8 {
+        (self._bitfield << 1) >> 5
+    }
+    pub fn set_PendingActivateSlot(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 4)) | ((value & 7) << 4);
+    }
+    pub fn Reserved1(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 pub type NVME_FUSED_OPERATION_CODES = i32;
 pub const NVME_FUSED_OPERATION_FIRST_CMD: NVME_FUSED_OPERATION_CODES = 1;
 pub const NVME_FUSED_OPERATION_NORMAL: NVME_FUSED_OPERATION_CODES = 0;
@@ -3625,6 +6737,32 @@ pub struct NVME_GET_FEATURE_TIMESTAMP {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_GET_FEATURE_TIMESTAMP_0 {
     pub _bitfield: u64,
+}
+impl NVME_GET_FEATURE_TIMESTAMP_0 {
+    pub fn Timestamp(&self) -> u64 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_Timestamp(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !281474976710655) | (value & 281474976710655);
+    }
+    pub fn Synch(&self) -> bool {
+        (self._bitfield >> 48) & 1 != 0
+    }
+    pub fn set_Synch(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 48)) | ((value as u64) << 48);
+    }
+    pub fn Origin(&self) -> u64 {
+        (self._bitfield << 12) >> 61
+    }
+    pub fn set_Origin(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(7 << 49)) | ((value & 7) << 49);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 52
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4095 << 52)) | ((value & 4095) << 52);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3678,6 +6816,44 @@ impl Default for NVME_HEALTH_INFO_LOG_0 {
 pub struct NVME_HEALTH_INFO_LOG_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_HEALTH_INFO_LOG_0_0 {
+    pub fn AvailableSpaceLow(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_AvailableSpaceLow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn TemperatureThreshold(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_TemperatureThreshold(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn ReliabilityDegraded(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ReliabilityDegraded(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn ReadOnly(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ReadOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn VolatileMemoryBackupDeviceFailed(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_VolatileMemoryBackupDeviceFailed(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_HOST_BEHAVIOR_SUPPORT_DATA {
@@ -3708,6 +6884,38 @@ pub type NVME_HOST_METADATA_ELEMENT_ACTIONS = i32;
 pub struct NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
     pub _bitfield: u32,
     pub EVAL: [u8; 1],
+}
+impl NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
+    pub fn ET(&self) -> u32 {
+        (self._bitfield << 26) >> 26
+    }
+    pub fn set_ET(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !63) | (value & 63);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+    pub fn ER(&self) -> u32 {
+        (self._bitfield << 20) >> 28
+    }
+    pub fn set_ER(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 16) >> 28
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+    pub fn ELEN(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_ELEN(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 impl Default for NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
     fn default() -> Self {
@@ -3860,120 +7068,1026 @@ impl Default for NVME_IDENTIFY_CONTROLLER_DATA {
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_0 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_0 {
+    pub fn MultiPorts(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MultiPorts(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn MultiControllers(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MultiControllers(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn SRIOV(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SRIOV(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn ANAR(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ANAR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_1 {
     pub _bitfield: u32,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_1 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn NamespaceAttributeChanged(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_NamespaceAttributeChanged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn FirmwareActivation(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_FirmwareActivation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn Reserved1(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn AsymmetricAccessChanged(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_AsymmetricAccessChanged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn PredictableLatencyAggregateLogChanged(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_PredictableLatencyAggregateLogChanged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn LbaStatusChanged(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_LbaStatusChanged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn EnduranceGroupAggregateLogChanged(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_EnduranceGroupAggregateLogChanged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn NormalNvmSubsystemShutdown(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_NormalNvmSubsystemShutdown(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        (self._bitfield << 5) >> 21
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2047 << 16)) | ((value & 2047) << 16);
+    }
+    pub fn ZoneInformation(&self) -> bool {
+        (self._bitfield >> 27) & 1 != 0
+    }
+    pub fn set_ZoneInformation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    }
+    pub fn Reserved3(&self) -> u32 {
+        (self._bitfield << 1) >> 29
+    }
+    pub fn set_Reserved3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 28)) | ((value & 7) << 28);
+    }
+    pub fn DiscoveryLogChanged(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_DiscoveryLogChanged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_10 {
     pub _bitfield: u16,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_10 {
+    pub fn Supported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Supported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_11 {
     pub _bitfield: u32,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_11 {
+    pub fn CryptoErase(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CryptoErase(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn BlockErase(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_BlockErase(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Overwrite(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Overwrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 3) >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 3)) | ((value & 67108863) << 3);
+    }
+    pub fn NDI(&self) -> bool {
+        (self._bitfield >> 29) & 1 != 0
+    }
+    pub fn set_NDI(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u32) << 29);
+    }
+    pub fn NODMMAS(&self) -> u32 {
+        self._bitfield >> 30
+    }
+    pub fn set_NODMMAS(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 30)) | ((value & 3) << 30);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_12 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_12 {
+    pub fn OptimizedState(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_OptimizedState(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn NonOptimizedState(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NonOptimizedState(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn InaccessibleState(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_InaccessibleState(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn PersistentLossState(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PersistentLossState(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn ChangeState(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ChangeState(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn StaticANAGRPID(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_StaticANAGRPID(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn SupportNonZeroANAGRPID(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_SupportNonZeroANAGRPID(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_13 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_13 {
+    pub fn RequiredEntrySize(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_RequiredEntrySize(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn MaxEntrySize(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_MaxEntrySize(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_14 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_14 {
+    pub fn RequiredEntrySize(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_RequiredEntrySize(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn MaxEntrySize(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_MaxEntrySize(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_15 {
     pub _bitfield: u16,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_15 {
+    pub fn Compare(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Compare(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn WriteUncorrectable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_WriteUncorrectable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn DatasetManagement(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DatasetManagement(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn WriteZeroes(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_WriteZeroes(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn FeatureField(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_FeatureField(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Reservations(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Reservations(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn Timestamp(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Timestamp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn Verify(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Verify(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_16 {
     pub _bitfield: u16,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_16 {
+    pub fn CompareAndWrite(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CompareAndWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_17 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_17 {
+    pub fn FormatApplyToAll(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FormatApplyToAll(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn SecureEraseApplyToAll(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SecureEraseApplyToAll(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn CryptographicEraseSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_CryptographicEraseSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn FormatSupportNSIDAllF(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_FormatSupportNSIDAllF(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_18 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_18 {
+    pub fn Present(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Present(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn FlushBehavior(&self) -> u8 {
+        (self._bitfield << 5) >> 6
+    }
+    pub fn set_FlushBehavior(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 1)) | ((value & 3) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_19 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_19 {
+    pub fn CommandFormatInSpec(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CommandFormatInSpec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_2 {
     pub _bitfield: u32,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_2 {
+    pub fn HostIdentifier128Bit(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_HostIdentifier128Bit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn NOPSPMode(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NOPSPMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn NVMSets(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_NVMSets(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ReadRecoveryLevels(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevels(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn EnduranceGroups(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_EnduranceGroups(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn PredictableLatencyMode(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_PredictableLatencyMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn TBKAS(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_TBKAS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn NamespaceGranularity(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_NamespaceGranularity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn SQAssociations(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_SQAssociations(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn UUIDList(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_UUIDList(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn MultiDomainSubsystem(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_MultiDomainSubsystem(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn FixedCapacityManagement(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_FixedCapacityManagement(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn VariableCapacityManagement(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_VariableCapacityManagement(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn DeleteEnduranceGroup(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_DeleteEnduranceGroup(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn DeleteNVMSet(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_DeleteNVMSet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn ELBAS(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_ELBAS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_20 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_20 {
+    pub fn WriteProtect(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_WriteProtect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn UntilPowerCycle(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_UntilPowerCycle(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Permanent(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Permanent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_21 {
     pub _bitfield: u32,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_21 {
+    pub fn SGLSupported(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_SGLSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn KeyedSGLData(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_KeyedSGLData(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 16) >> 19
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
+    pub fn BitBucketDescrSupported(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_BitBucketDescrSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn ByteAlignedContiguousPhysicalBuffer(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_ByteAlignedContiguousPhysicalBuffer(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn SGLLengthLargerThanDataLength(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_SGLLengthLargerThanDataLength(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn MPTRSGLDescriptor(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_MPTRSGLDescriptor(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn AddressFieldSGLDataBlock(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_AddressFieldSGLDataBlock(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn TransportSGLData(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_TransportSGLData(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 22
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 22)) | ((value & 1023) << 22);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_22 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_22 {
+    pub fn StaticControllerModel(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_StaticControllerModel(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_23 {
     pub _bitfield: u16,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_23 {
+    pub fn IOQueueDeletion(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IOQueueDeletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_3 {
     pub _bitfield: u16,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_3 {
+    pub fn ReadRecoveryLevel0(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn ReadRecoveryLevel1(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn ReadRecoveryLevel2(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn ReadRecoveryLevel3(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn ReadRecoveryLevel4(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel4(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn ReadRecoveryLevel5(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel5(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn ReadRecoveryLevel6(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel6(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn ReadRecoveryLevel7(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel7(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn ReadRecoveryLevel8(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel8(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn ReadRecoveryLevel9(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel9(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u16) << 9);
+    }
+    pub fn ReadRecoveryLevel10(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel10(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u16) << 10);
+    }
+    pub fn ReadRecoveryLevel11(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel11(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    }
+    pub fn ReadRecoveryLevel12(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel12(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn ReadRecoveryLevel13(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel13(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    }
+    pub fn ReadRecoveryLevel14(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel14(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u16) << 14);
+    }
+    pub fn ReadRecoveryLevel15(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_ReadRecoveryLevel15(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_4 {
     pub _bitfield: u16,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_4 {
+    pub fn SecurityCommands(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SecurityCommands(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn FormatNVM(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_FormatNVM(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn FirmwareCommands(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_FirmwareCommands(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn NamespaceCommands(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_NamespaceCommands(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn DeviceSelfTest(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DeviceSelfTest(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Directives(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Directives(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn NVMeMICommands(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_NVMeMICommands(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn VirtualizationMgmt(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_VirtualizationMgmt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn DoorBellBufferConfig(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_DoorBellBufferConfig(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn GetLBAStatus(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_GetLBAStatus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u16) << 9);
+    }
+    pub fn CommandFeatureLockdown(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_CommandFeatureLockdown(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u16) << 10);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 11
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(31 << 11)) | ((value & 31) << 11);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_5 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_5 {
+    pub fn Slot1ReadOnly(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Slot1ReadOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn SlotCount(&self) -> u8 {
+        (self._bitfield << 4) >> 5
+    }
+    pub fn set_SlotCount(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn ActivationWithoutReset(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ActivationWithoutReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_6 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_6 {
+    pub fn SmartPagePerNamespace(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SmartPagePerNamespace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn CommandEffectsLog(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CommandEffectsLog(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn LogPageExtendedData(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_LogPageExtendedData(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn TelemetrySupport(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_TelemetrySupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn PersistentEventLog(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_PersistentEventLog(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn SupportedLogPages(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SupportedLogPages(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn TelemetryDataArea4(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_TelemetryDataArea4(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Reserved1(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_7 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_7 {
+    pub fn CommandFormatInSpec(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CommandFormatInSpec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_8 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_CONTROLLER_DATA_8 {
+    pub fn Supported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Supported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_9 {
     pub _bitfield: u32,
+}
+impl NVME_IDENTIFY_CONTROLLER_DATA_9 {
+    pub fn RPMBUnitCount(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_RPMBUnitCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn AuthenticationMethod(&self) -> u32 {
+        (self._bitfield << 26) >> 29
+    }
+    pub fn set_AuthenticationMethod(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 3)) | ((value & 7) << 3);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 16) >> 22
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 6)) | ((value & 1023) << 6);
+    }
+    pub fn TotalSize(&self) -> u32 {
+        (self._bitfield << 8) >> 24
+    }
+    pub fn set_TotalSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 16)) | ((value & 255) << 16);
+    }
+    pub fn AccessSize(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_AccessSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4038,45 +8152,255 @@ impl Default for NVME_IDENTIFY_NAMESPACE_DATA {
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_0 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_NAMESPACE_DATA_0 {
+    pub fn ThinProvisioning(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ThinProvisioning(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn NameSpaceAtomicWriteUnit(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NameSpaceAtomicWriteUnit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn DeallocatedOrUnwrittenError(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DeallocatedOrUnwrittenError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn SkipReuseUI(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SkipReuseUI(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn NameSpaceIoOptimization(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_NameSpaceIoOptimization(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_1 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_NAMESPACE_DATA_1 {
+    pub fn LbaFormatIndex(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_LbaFormatIndex(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn MetadataInExtendedDataLBA(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_MetadataInExtendedDataLBA(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn LbaFormatIndexMS(&self) -> u8 {
+        (self._bitfield << 1) >> 6
+    }
+    pub fn set_LbaFormatIndexMS(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 5)) | ((value & 3) << 5);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_2 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_NAMESPACE_DATA_2 {
+    pub fn MetadataInExtendedDataLBA(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MetadataInExtendedDataLBA(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn MetadataInSeparateBuffer(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MetadataInSeparateBuffer(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_3 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_NAMESPACE_DATA_3 {
+    pub fn ProtectionInfoType1(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ProtectionInfoType1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn ProtectionInfoType2(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ProtectionInfoType2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn ProtectionInfoType3(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ProtectionInfoType3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn InfoAtBeginningOfMetadata(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_InfoAtBeginningOfMetadata(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn InfoAtEndOfMetadata(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_InfoAtEndOfMetadata(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_4 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_NAMESPACE_DATA_4 {
+    pub fn ProtectionInfoTypeEnabled(&self) -> u8 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_ProtectionInfoTypeEnabled(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn InfoAtBeginningOfMetadata(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_InfoAtBeginningOfMetadata(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_5 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_NAMESPACE_DATA_5 {
+    pub fn SharedNameSpace(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SharedNameSpace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_6 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_NAMESPACE_DATA_6 {
+    pub fn PercentageRemained(&self) -> u8 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_PercentageRemained(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Supported(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Supported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_7 {
     pub _bitfield: u8,
 }
+impl NVME_IDENTIFY_NAMESPACE_DATA_7 {
+    pub fn ReadBehavior(&self) -> u8 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_ReadBehavior(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn WriteZeroes(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_WriteZeroes(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn GuardFieldWithCRC(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_GuardFieldWithCRC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_8 {
     pub _bitfield: u8,
+}
+impl NVME_IDENTIFY_NAMESPACE_DATA_8 {
+    pub fn WriteProtected(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_WriteProtected(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4131,10 +8455,44 @@ impl Default for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 {
     pub _bitfield: u16,
 }
+impl NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 {
+    pub fn VariableZoneCapacity(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_VariableZoneCapacity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn ZoneExcursions(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ZoneExcursions(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
     pub _bitfield: u16,
+}
+impl NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
+    pub fn ReadAcrossZoneBoundaries(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ReadAcrossZoneBoundaries(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4189,6 +8547,20 @@ pub struct NVME_LBA_FORMAT_0 {
     pub LBADS: u8,
     pub _bitfield: u8,
 }
+impl NVME_LBA_FORMAT_0 {
+    pub fn RP(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_RP(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_LBA_RANGE {
@@ -4222,6 +8594,26 @@ impl Default for NVME_LBA_RANGET_TYPE_ENTRY {
 pub struct NVME_LBA_RANGET_TYPE_ENTRY_0 {
     pub _bitfield: u8,
 }
+impl NVME_LBA_RANGET_TYPE_ENTRY_0 {
+    pub fn MayOverwritten(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MayOverwritten(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Hidden(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Hidden(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 pub type NVME_LBA_RANGE_TYPES = i32;
 pub const NVME_LBA_RANGE_TYPE_CACHE: NVME_LBA_RANGE_TYPES = 3;
 pub const NVME_LBA_RANGE_TYPE_FILESYSTEM: NVME_LBA_RANGE_TYPES = 1;
@@ -4245,10 +8637,50 @@ impl Default for NVME_LBA_ZONE_FORMAT {
 pub struct NVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG {
     pub _bitfield: u16,
 }
+impl NVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG {
+    pub fn EstablishContextAndRead512BytesOfHeaderSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EstablishContextAndRead512BytesOfHeaderSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_LID_SUPPORTED_AND_EFFECTS {
     pub _bitfield: u32,
+}
+impl NVME_LID_SUPPORTED_AND_EFFECTS {
+    pub fn LSUPP(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_LSUPP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn IOS(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_IOS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 16) >> 18
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
+    pub fn LIDSpecific(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_LIDSpecific(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 pub type NVME_LOG_PAGES = i32;
 pub const NVME_LOG_PAGE_ASYMMETRIC_NAMESPACE_ACCESS: NVME_LOG_PAGES = 12;
@@ -4312,6 +8744,86 @@ pub const NVME_NUM_UUID_LIST_ENTRIES: u32 = 128;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS {
     pub _bitfield: u32,
+}
+impl NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS {
+    pub fn CSUPP(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CSUPP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn UDCC(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_UDCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn NCC(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_NCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn NIC(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_NIC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn CCC(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_CCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 12) >> 17
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(32767 << 5)) | ((value & 32767) << 5);
+    }
+    pub fn CSPNamespace(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_CSPNamespace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn CSPController(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_CSPController(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn CSPNVMSet(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_CSPNVMSet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn CSPEnduranceGroup(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_CSPEnduranceGroup(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn CSPDomain(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_CSPDomain(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    }
+    pub fn CSPNVMSubsystem(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_CSPNVMSubsystem(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn CSPReserved(&self) -> u32 {
+        self._bitfield >> 26
+    }
+    pub fn set_CSPReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 26)) | ((value & 63) << 26);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4394,6 +8906,38 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_0 {
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
     pub _bitfield: u16,
 }
+impl NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
+    pub fn MctpOverSMBusSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MctpOverSMBusSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn MctpOverPcieVDMSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MctpOverPcieVDMSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn BasicMgmtCommandSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_BasicMgmtCommandSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(4095 << 3)) | ((value & 4095) << 3);
+    }
+    pub fn CompliesWithSpec(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompliesWithSpec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
@@ -4409,6 +8953,50 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
     pub _bitfield: u16,
+}
+impl NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
+    pub fn Supported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Supported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn DEACBitSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DEACBitSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn FUABitSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_FUABitSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn NvmeIo5Met(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_NvmeIo5Met(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn NvmeIo6Met(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_NvmeIo6Met(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(1023 << 5)) | ((value & 1023) << 5);
+    }
+    pub fn CompliesWithSpec(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompliesWithSpec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4426,6 +9014,50 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_2 {
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
     pub _bitfield: u16,
 }
+impl NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
+    pub fn Supported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Supported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn CryptoEraseSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CryptoEraseSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn BlockEraseSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_BlockEraseSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn OverwriteSupported(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_OverwriteSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn DeallocateLbaSupported(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DeallocateLbaSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(1023 << 5)) | ((value & 1023) << 5);
+    }
+    pub fn CompliesWithSpec(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompliesWithSpec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
@@ -4441,6 +9073,32 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
     pub _bitfield: u16,
+}
+impl NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
+    pub fn Supported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Supported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn AttribDeallocateSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AttribDeallocateSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 2)) | ((value & 8191) << 2);
+    }
+    pub fn CompliesWithSpec(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompliesWithSpec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4458,6 +9116,44 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_4 {
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
     pub _bitfield: u16,
 }
+impl NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
+    pub fn Supported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Supported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn SingleLBASupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SingleLBASupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn MaxLBASupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_MaxLBASupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn NvmeIo14Met(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_NvmeIo14Met(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(2047 << 4)) | ((value & 2047) << 4);
+    }
+    pub fn CompliesWithSpec(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompliesWithSpec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
@@ -4473,6 +9169,26 @@ impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
     pub _bitfield: u16,
+}
+impl NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
+    pub fn CWFusedSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CWFusedSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 1)) | ((value & 16383) << 1);
+    }
+    pub fn CompliesWithSpec(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompliesWithSpec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 pub const NVME_OCP_DEVICE_CAPABILITIES_LOG_VERSION_1: u32 = 1;
 pub const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_0: u32 = 0;
@@ -4579,6 +9295,20 @@ impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
     pub _bitfield: u8,
+}
+impl NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
+    pub fn BasedOnTimestamp(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_BasedOnTimestamp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 pub const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: u32 = 1;
 #[repr(C, packed(1))]
@@ -4716,6 +9446,38 @@ impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
 pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
+    pub fn CPINSIDValue(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CPINSIDValue(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn CPINSIDBlocked(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CPINSIDBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn LockingEnabled(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_LockingEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn SUMOwner(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SUMOwner(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 pub const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: u32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -4835,6 +9597,104 @@ pub struct NVME_POWER_STATE_DESC {
     pub _bitfield7: u8,
     pub Reserved9: [u8; 9],
 }
+impl NVME_POWER_STATE_DESC {
+    pub fn MPS(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_MPS(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn NOPS(&self) -> bool {
+        (self._bitfield1 >> 1) & 1 != 0
+    }
+    pub fn set_NOPS(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield1 >> 2
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(63 << 2)) | ((value & 63) << 2);
+    }
+    pub fn RRT(&self) -> u8 {
+        (self._bitfield2 << 3) >> 3
+    }
+    pub fn set_RRT(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !31) | (value & 31);
+    }
+    pub fn Reserved2(&self) -> u8 {
+        self._bitfield2 >> 5
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn RRL(&self) -> u8 {
+        (self._bitfield3 << 3) >> 3
+    }
+    pub fn set_RRL(&mut self, value: u8) {
+        self._bitfield3 = (self._bitfield3 & !31) | (value & 31);
+    }
+    pub fn Reserved3(&self) -> u8 {
+        self._bitfield3 >> 5
+    }
+    pub fn set_Reserved3(&mut self, value: u8) {
+        self._bitfield3 = (self._bitfield3 & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn RWT(&self) -> u8 {
+        (self._bitfield4 << 3) >> 3
+    }
+    pub fn set_RWT(&mut self, value: u8) {
+        self._bitfield4 = (self._bitfield4 & !31) | (value & 31);
+    }
+    pub fn Reserved4(&self) -> u8 {
+        self._bitfield4 >> 5
+    }
+    pub fn set_Reserved4(&mut self, value: u8) {
+        self._bitfield4 = (self._bitfield4 & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn RWL(&self) -> u8 {
+        (self._bitfield5 << 3) >> 3
+    }
+    pub fn set_RWL(&mut self, value: u8) {
+        self._bitfield5 = (self._bitfield5 & !31) | (value & 31);
+    }
+    pub fn Reserved5(&self) -> u8 {
+        self._bitfield5 >> 5
+    }
+    pub fn set_Reserved5(&mut self, value: u8) {
+        self._bitfield5 = (self._bitfield5 & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn Reserved6(&self) -> u8 {
+        (self._bitfield6 << 2) >> 2
+    }
+    pub fn set_Reserved6(&mut self, value: u8) {
+        self._bitfield6 = (self._bitfield6 & !63) | (value & 63);
+    }
+    pub fn IPS(&self) -> u8 {
+        self._bitfield6 >> 6
+    }
+    pub fn set_IPS(&mut self, value: u8) {
+        self._bitfield6 = (self._bitfield6 & !(3 << 6)) | ((value & 3) << 6);
+    }
+    pub fn APW(&self) -> u8 {
+        (self._bitfield7 << 5) >> 5
+    }
+    pub fn set_APW(&mut self, value: u8) {
+        self._bitfield7 = (self._bitfield7 & !7) | (value & 7);
+    }
+    pub fn Reserved8(&self) -> u8 {
+        (self._bitfield7 << 2) >> 5
+    }
+    pub fn set_Reserved8(&mut self, value: u8) {
+        self._bitfield7 = (self._bitfield7 & !(7 << 3)) | ((value & 7) << 3);
+    }
+    pub fn APS(&self) -> u8 {
+        self._bitfield7 >> 6
+    }
+    pub fn set_APS(&mut self, value: u8) {
+        self._bitfield7 = (self._bitfield7 & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 impl Default for NVME_POWER_STATE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4861,6 +9721,20 @@ impl Default for NVME_PRP_ENTRY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_PRP_ENTRY_0 {
     pub _bitfield: u64,
+}
+impl NVME_PRP_ENTRY_0 {
+    pub fn Reserved0(&self) -> u64 {
+        (self._bitfield << 62) >> 62
+    }
+    pub fn set_Reserved0(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn PBAO(&self) -> u64 {
+        self._bitfield >> 2
+    }
+    pub fn set_PBAO(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4611686018427387903 << 2)) | ((value & 4611686018427387903) << 2);
+    }
 }
 pub const NVME_PSDT_XFER_PRP: u32 = 0;
 pub const NVME_PSDT_XFER_RESERVED: u32 = 3;
@@ -4889,6 +9763,20 @@ impl Default for NVME_REGISTERED_CONTROLLER_DATA {
 pub struct NVME_REGISTERED_CONTROLLER_DATA_0 {
     pub _bitfield: u8,
 }
+impl NVME_REGISTERED_CONTROLLER_DATA_0 {
+    pub fn HoldReservation(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_HoldReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
@@ -4908,6 +9796,20 @@ impl Default for NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
     pub _bitfield: u8,
+}
+impl NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
+    pub fn HoldReservation(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_HoldReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -5037,6 +9939,32 @@ pub const NVME_SANITIZE_OPERATION_SUCCEEDED_WITH_FORCED_DEALLOCATION: NVME_SANIT
 pub struct NVME_SANITIZE_STATUS {
     pub _bitfield: u16,
 }
+impl NVME_SANITIZE_STATUS {
+    pub fn MostRecentSanitizeOperationStatus(&self) -> u16 {
+        (self._bitfield << 13) >> 13
+    }
+    pub fn set_MostRecentSanitizeOperationStatus(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn NumberCompletedPassesOfOverwrite(&self) -> u16 {
+        (self._bitfield << 9) >> 12
+    }
+    pub fn set_NumberCompletedPassesOfOverwrite(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 3)) | ((value & 15) << 3);
+    }
+    pub fn GlobalDataErased(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_GlobalDataErased(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_SANITIZE_STATUS_LOG {
@@ -5119,6 +10047,20 @@ impl Default for NVME_SGL_BITBUCKET_DESC_0 {
 pub struct NVME_SGL_BITBUCKET_DESC_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_SGL_BITBUCKET_DESC_0_0 {
+    pub fn SubType(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_SubType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Type(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_SGL_DATABLOCK_DESC {
@@ -5148,6 +10090,20 @@ impl Default for NVME_SGL_DATABLOCK_DESC_0 {
 pub struct NVME_SGL_DATABLOCK_DESC_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_SGL_DATABLOCK_DESC_0_0 {
+    pub fn SubType(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_SubType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Type(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_SGL_DESC {
@@ -5174,6 +10130,20 @@ impl Default for NVME_SGL_DESC_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_SGL_DESC_0_0 {
     pub _bitfield: u8,
+}
+impl NVME_SGL_DESC_0_0 {
+    pub fn SubType(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_SubType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Type(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 pub type NVME_SGL_DESC_SUBTYPE = i32;
 pub type NVME_SGL_DESC_TYPE = i32;
@@ -5206,6 +10176,20 @@ impl Default for NVME_SGL_KEYDATABLOCK_DESC_0 {
 pub struct NVME_SGL_KEYDATABLOCK_DESC_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_SGL_KEYDATABLOCK_DESC_0_0 {
+    pub fn SubType(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_SubType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Type(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_SGL_LASTSEG_DESC {
@@ -5234,6 +10218,20 @@ impl Default for NVME_SGL_LASTSEG_DESC_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_SGL_LASTSEG_DESC_0_0 {
     pub _bitfield: u8,
+}
+impl NVME_SGL_LASTSEG_DESC_0_0 {
+    pub fn SubType(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_SubType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Type(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5264,6 +10262,20 @@ impl Default for NVME_SGL_SEGMENT_DESC_0 {
 pub struct NVME_SGL_SEGMENT_DESC_0_0 {
     pub _bitfield: u8,
 }
+impl NVME_SGL_SEGMENT_DESC_0_0 {
+    pub fn SubType(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_SubType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Type(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_SGL_TRANSPORTDATA_DESC {
@@ -5292,6 +10304,20 @@ impl Default for NVME_SGL_TRANSPORTDATA_DESC_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_SGL_TRANSPORTDATA_DESC_0_0 {
     pub _bitfield: u8,
+}
+impl NVME_SGL_TRANSPORTDATA_DESC_0_0 {
+    pub fn SubType(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_SubType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Type(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 pub const NVME_STATE_ZSC: ZONE_STATE = 4;
 pub const NVME_STATE_ZSE: ZONE_STATE = 1;
@@ -5452,6 +10478,20 @@ impl Default for NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
 pub struct NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
     pub _bitfield: u32,
 }
+impl NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
+    pub fn SQT(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_SQT(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVME_SUPPORTED_LOG_PAGES_LOG {
@@ -5530,6 +10570,20 @@ pub struct NVME_UUID_LIST_ENTRY {
     pub Reserved1: [u8; 15],
     pub UUID: [u8; 16],
 }
+impl NVME_UUID_LIST_ENTRY {
+    pub fn IdentifierAssociation(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_IdentifierAssociation(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 impl Default for NVME_UUID_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5560,6 +10614,26 @@ impl Default for NVME_VERSION {
 pub struct NVME_VERSION_0 {
     pub _bitfield: u32,
 }
+impl NVME_VERSION_0 {
+    pub fn TER(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_TER(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn MNR(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_MNR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn MJR(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_MJR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES {
@@ -5585,6 +10659,26 @@ impl Default for NVME_WCS_DEVICE_CAPABILITIES_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES_0_0 {
     pub _bitfield: u32,
+}
+impl NVME_WCS_DEVICE_CAPABILITIES_0_0 {
+    pub fn PanicAEN(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PanicAEN(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn PanicCFS(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PanicCFS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5636,6 +10730,50 @@ impl Default for NVME_WCS_DEVICE_RESET_ACTION_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_WCS_DEVICE_RESET_ACTION_0_0 {
     pub _bitfield: u8,
+}
+impl NVME_WCS_DEVICE_RESET_ACTION_0_0 {
+    pub fn ControllerReset(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ControllerReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn NVMeSubsystemReset(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NVMeSubsystemReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn PCIeFLR(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_PCIeFLR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn PERST(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PERST(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn PowerCycle(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_PowerCycle(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn PCIeConventionalHotReset(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_PCIeConventionalHotReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5749,15 +10887,75 @@ impl Default for NVME_ZONE_DESCRIPTOR {
 pub struct NVME_ZONE_DESCRIPTOR_0 {
     pub _bitfield: u8,
 }
+impl NVME_ZONE_DESCRIPTOR_0 {
+    pub fn ZT(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_ZT(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ZONE_DESCRIPTOR_1 {
     pub _bitfield: u8,
 }
+impl NVME_ZONE_DESCRIPTOR_1 {
+    pub fn Reserved2(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn ZS(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_ZS(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVME_ZONE_DESCRIPTOR_2 {
     pub _bitfield: u8,
+}
+impl NVME_ZONE_DESCRIPTOR_2 {
+    pub fn ZFC(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ZFC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn FZR(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_FZR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn RZR(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_RZR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved(&self) -> u8 {
+        (self._bitfield << 1) >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 3)) | ((value & 15) << 3);
+    }
+    pub fn ZDEV(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_ZDEV(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -5814,6 +11012,56 @@ impl Default for NVM_RESERVATION_CAPABILITIES {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVM_RESERVATION_CAPABILITIES_0 {
     pub _bitfield: u8,
+}
+impl NVM_RESERVATION_CAPABILITIES_0 {
+    pub fn PersistThroughPowerLoss(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PersistThroughPowerLoss(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn WriteExclusiveReservation(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_WriteExclusiveReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn ExclusiveAccessReservation(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ExclusiveAccessReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn WriteExclusiveRegistrantsOnlyReservation(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_WriteExclusiveRegistrantsOnlyReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn ExclusiveAccessRegistrantsOnlyReservation(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ExclusiveAccessRegistrantsOnlyReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn WriteExclusiveAllRegistrantsReservation(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_WriteExclusiveAllRegistrantsReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn ExclusiveAccessAllRegistrantsReservation(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_ExclusiveAccessAllRegistrantsReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

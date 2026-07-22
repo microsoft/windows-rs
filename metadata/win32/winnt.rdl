@@ -558,7 +558,15 @@ mod Windows {
             Anonymous: union {
                 UnwindData: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Flag: 2,
+                        FunctionLength: 11,
+                        RegF: 3,
+                        RegI: 4,
+                        H: 1,
+                        CR: 2,
+                        FrameSize: 9,
+                    },
                 },
             },
         }
@@ -1205,7 +1213,12 @@ mod Windows {
             OemNameOffset: u32,
             Flags: union {
                 Anonymous: struct {
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        Unloaded: 1,
+                        BootDriver: 1,
+                        HotPatch: 1,
+                        Reserved: 13,
+                    },
                 },
                 AsUInt16: u16,
             },
@@ -1218,7 +1231,12 @@ mod Windows {
             NumberOfDrivers: u16,
             Flags: union {
                 Anonymous: struct {
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        ReportOverflowed: 1,
+                        PartialReport: 1,
+                        IncludeBootDrivers: 1,
+                        Reserved: 13,
+                    },
                 },
                 AsUInt16: u16,
             },
@@ -1757,7 +1775,14 @@ mod Windows {
             cbProcSize: u32,
             cdwLocals: u32,
             cdwParams: u16,
-            _bitfield: u16,
+            _bitfield: u16 {
+                cbProlog: 8,
+                cbRegs: 3,
+                fHasSEH: 1,
+                fUseBP: 1,
+                reserved: 1,
+                cbFrame: 2,
+            },
         }
         const FRAME_FPO: u32 = 0;
         const FRAME_NONFPO: u32 = 3;
@@ -2139,7 +2164,11 @@ mod Windows {
             NewInst: u32,
         }
         struct IMAGE_ARCHITECTURE_HEADER {
-            _bitfield: u32,
+            _bitfield: u32 {
+                AmaskValue: 1,
+                _: 7,
+                AmaskShift: 8,
+            },
             FirstEntryRVA: u32,
         }
         #[encoding("ansi")]
@@ -2168,19 +2197,33 @@ mod Windows {
         union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
             HeaderData: u32,
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    FunctionLength: 18,
+                    Version: 2,
+                    ExceptionDataPresent: 1,
+                    EpilogInHeader: 1,
+                    EpilogCount: 5,
+                    CodeWords: 5,
+                },
             },
         }
         union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
             EpilogScopeData: u32,
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    EpilogStartOffset: 18,
+                    Res0: 4,
+                    EpilogStartIndex: 10,
+                },
             },
         }
         union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
             ExtendedHeaderData: u32,
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    ExtendedEpilogCount: 16,
+                    ExtendedCodeWords: 8,
+                },
             },
         }
         struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
@@ -2188,7 +2231,17 @@ mod Windows {
             Anonymous: union {
                 UnwindData: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Flag: 2,
+                        FunctionLength: 11,
+                        Ret: 2,
+                        H: 1,
+                        Reg: 3,
+                        R: 1,
+                        L: 1,
+                        C: 1,
+                        StackAdjust: 10,
+                    },
                 },
             },
         }
@@ -2299,7 +2352,12 @@ mod Windows {
         }
         struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
             FuncStart: u32,
-            _bitfield: u32,
+            _bitfield: u32 {
+                PrologLen: 8,
+                FuncLen: 22,
+                ThirtyTwoBit: 1,
+                ExceptionFlag: 1,
+            },
         }
         struct IMAGE_COFF_SYMBOLS_HEADER {
             NumberOfSymbols: u32,
@@ -2381,7 +2439,10 @@ mod Windows {
             Attributes: union {
                 AllAttributes: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        RvaBased: 1,
+                        ReservedAttributes: 31,
+                    },
                 },
             },
             DllNameRVA: u32,
@@ -2599,7 +2660,13 @@ mod Windows {
             Anonymous: union {
                 Value: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        MachineX86: 1,
+                        MachineAmd64: 1,
+                        MachineArm: 1,
+                        MachineArm64: 1,
+                        MachineArm64EC: 1,
+                    },
                 },
             },
         }
@@ -2796,7 +2863,12 @@ mod Windows {
         const IMAGE_HOT_PATCH_INFO_FLAG_PATCHORDERCRITICAL: u32 = 1;
         struct IMAGE_HOT_PATCH_MACHINE {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    _x86: 1,
+                    Amd64: 1,
+                    Arm64: 1,
+                    Amd64EC: 1,
+                },
             },
         }
         const IMAGE_HOT_PATCH_NONE: u32 = 0;
@@ -2809,11 +2881,21 @@ mod Windows {
         }
         #[packed(1)]
         struct IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION {
-            _bitfield: u32,
+            _bitfield: u32 {
+                PageRelativeOffset: 10,
+                IndirectCall: 1,
+                RegisterIndex: 5,
+                ImportType: 1,
+                IATIndex: 15,
+            },
         }
         #[packed(1)]
         struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-            _bitfield: u32,
+            _bitfield: u32 {
+                PageRelativeOffset: 12,
+                IndirectCall: 1,
+                IATIndex: 19,
+            },
         }
         #[arch(X64)]
         type IMAGE_IMPORT_CONTROL_TRANSFER_RELOCATION = IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION;
@@ -2831,7 +2913,13 @@ mod Windows {
         }
         #[packed(1)]
         struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-            _bitfield: u16,
+            _bitfield: u16 {
+                PageRelativeOffset: 12,
+                IndirectCall: 1,
+                RexWPrefix: 1,
+                CfgCheck: 1,
+                Reserved: 1,
+            },
         }
         struct IMAGE_LINENUMBER {
             Type: #[packed(2)] union {
@@ -3440,7 +3528,10 @@ mod Windows {
         struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        NameOffset: 31,
+                        NameIsString: 1,
+                    },
                 },
                 Name: u32,
                 Id: u16,
@@ -3448,7 +3539,10 @@ mod Windows {
             Anonymous2: union {
                 OffsetToData: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        OffsetToDirectory: 31,
+                        DataIsDirectory: 1,
+                    },
                 },
             },
         }
@@ -3579,7 +3673,10 @@ mod Windows {
         const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: u32 = 17;
         #[packed(1)]
         struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
-            _bitfield: u16,
+            _bitfield: u16 {
+                PageRelativeOffset: 12,
+                RegisterNumber: 4,
+            },
         }
         #[packed(2)]
         struct IMAGE_SYMBOL {
@@ -3700,7 +3797,11 @@ mod Windows {
             Anonymous: union {
                 Characteristics: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved0: 20,
+                        Alignment: 4,
+                        Reserved1: 8,
+                    },
                 },
             },
         }
@@ -3714,7 +3815,11 @@ mod Windows {
             Anonymous: union {
                 Characteristics: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved0: 20,
+                        Alignment: 4,
+                        Reserved1: 8,
+                    },
                 },
             },
         }
@@ -3789,7 +3894,11 @@ mod Windows {
                 Ordinal: u16,
                 Hint: u16,
             },
-            _bitfield: u16,
+            _bitfield: u16 {
+                Type: 2,
+                NameType: 3,
+                Reserved: 11,
+            },
         }
         #[repr(i32)]
         enum IMPORT_OBJECT_NAME_TYPE {
@@ -4282,7 +4391,11 @@ mod Windows {
             Anonymous: union {
                 AllFlags: u16,
                 Anonymous: struct {
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        UseWrss: 1,
+                        PopShadowStackOne: 1,
+                        Unused: 14,
+                    },
                 },
             },
             Fill: [u16; 2],
@@ -4559,7 +4672,18 @@ mod Windows {
                     BaseHi: u8,
                 },
                 Bits: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        BaseMid: 8,
+                        Type: 5,
+                        Dpl: 2,
+                        Pres: 1,
+                        LimitHi: 4,
+                        Sys: 1,
+                        Reserved_0: 1,
+                        Default_Big: 1,
+                        Granularity: 1,
+                        BaseHi: 8,
+                    },
                 },
             },
         }
@@ -4779,7 +4903,10 @@ mod Windows {
         const MEM_DIFFERENT_IMAGE_BASE_OK: u32 = 8388608;
         struct MEM_EXTENDED_PARAMETER {
             Anonymous: struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Type: 8,
+                    Reserved: 56,
+                },
             },
             Anonymous2: union {
                 ULong64: u64,
@@ -5730,7 +5857,10 @@ mod Windows {
             DefaultDCValue: u32,
             Flags: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SupportTimeParameter: 1,
+                        Reserved: 31,
+                    },
                 },
                 AsUlong: u32,
             },
@@ -6250,7 +6380,11 @@ mod Windows {
             Flags: union {
                 AsWORD: u16,
                 Anonymous: struct {
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        AllowScaling: 1,
+                        Disabled: 1,
+                        Reserved: 14,
+                    },
                 },
             },
             PolicyCount: u32,
@@ -6279,7 +6413,12 @@ mod Windows {
                 Flags: union {
                     AsBYTE: u8,
                     Anonymous: struct {
-                        _bitfield: u8,
+                        _bitfield: u8 {
+                            NoDomainAccounting: 1,
+                            IncreasePolicy: 2,
+                            DecreasePolicy: 2,
+                            Reserved: 3,
+                        },
                     },
                 },
             },
@@ -6309,7 +6448,10 @@ mod Windows {
             Revision: u32,
             DynamicThrottle: u8,
             Spare: [u8; 3],
-            _bitfield: u32,
+            _bitfield: u32 {
+                DisableCStates: 1,
+                Reserved: 31,
+            },
             PolicyCount: u32,
             Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
         }
@@ -6320,7 +6462,11 @@ mod Windows {
             DemotePercent: u8,
             PromotePercent: u8,
             Spare: [u8; 2],
-            _bitfield: u32,
+            _bitfield: u32 {
+                AllowDemotion: 1,
+                AllowPromotion: 1,
+                Reserved: 30,
+            },
         }
         const PROCESSOR_PPC_601: u32 = 601;
         const PROCESSOR_PPC_603: u32 = 603;
@@ -6372,7 +6518,13 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        EnableBottomUpRandomization: 1,
+                        EnableForceRelocateImages: 1,
+                        EnableHighEntropy: 1,
+                        DisallowStrippedImages: 1,
+                        ReservedFlags: 28,
+                    },
                 },
             },
         }
@@ -6380,7 +6532,14 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        MicrosoftSignedOnly: 1,
+                        StoreSignedOnly: 1,
+                        MitigationOptIn: 1,
+                        AuditMicrosoftSignedOnly: 1,
+                        AuditStoreSignedOnly: 1,
+                        ReservedFlags: 27,
+                    },
                 },
             },
         }
@@ -6388,7 +6547,12 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        NoChildProcessCreation: 1,
+                        AuditNoChildProcessCreation: 1,
+                        AllowSecureProcessCreation: 1,
+                        ReservedFlags: 29,
+                    },
                 },
             },
         }
@@ -6396,7 +6560,14 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        EnableControlFlowGuard: 1,
+                        EnableExportSuppression: 1,
+                        StrictMode: 1,
+                        EnableXfg: 1,
+                        EnableXfgAuditMode: 1,
+                        ReservedFlags: 27,
+                    },
                 },
             },
         }
@@ -6404,7 +6575,11 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Enable: 1,
+                        DisableAtlThunkEmulation: 1,
+                        ReservedFlags: 30,
+                    },
                 },
             },
             Permanent: BOOLEAN,
@@ -6413,7 +6588,13 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ProhibitDynamicCode: 1,
+                        AllowThreadOptOut: 1,
+                        AllowRemoteDowngrade: 1,
+                        AuditProhibitDynamicCode: 1,
+                        ReservedFlags: 28,
+                    },
                 },
             },
         }
@@ -6421,7 +6602,10 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DisableExtensionPoints: 1,
+                        ReservedFlags: 31,
+                    },
                 },
             },
         }
@@ -6429,7 +6613,11 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DisableNonSystemFonts: 1,
+                        AuditNonSystemFontLoading: 1,
+                        ReservedFlags: 30,
+                    },
                 },
             },
         }
@@ -6437,7 +6625,14 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        NoRemoteImages: 1,
+                        NoLowMandatoryLabelImages: 1,
+                        PreferSystem32Images: 1,
+                        AuditNoRemoteImages: 1,
+                        AuditNoLowMandatoryLabelImages: 1,
+                        ReservedFlags: 27,
+                    },
                 },
             },
         }
@@ -6445,7 +6640,21 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        EnableExportAddressFilter: 1,
+                        AuditExportAddressFilter: 1,
+                        EnableExportAddressFilterPlus: 1,
+                        AuditExportAddressFilterPlus: 1,
+                        EnableImportAddressFilter: 1,
+                        AuditImportAddressFilter: 1,
+                        EnableRopStackPivot: 1,
+                        AuditRopStackPivot: 1,
+                        EnableRopCallerCheck: 1,
+                        AuditRopCallerCheck: 1,
+                        EnableRopSimExec: 1,
+                        AuditRopSimExec: 1,
+                        ReservedFlags: 20,
+                    },
                 },
             },
         }
@@ -6477,7 +6686,11 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        EnforceRedirectionTrust: 1,
+                        AuditRedirectionTrust: 1,
+                        ReservedFlags: 30,
+                    },
                 },
             },
         }
@@ -6485,7 +6698,10 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        EnableSehop: 1,
+                        ReservedFlags: 31,
+                    },
                 },
             },
         }
@@ -6493,7 +6709,14 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SmtBranchTargetIsolation: 1,
+                        IsolateSecurityDomain: 1,
+                        DisablePageCombine: 1,
+                        SpeculativeStoreBypassDisable: 1,
+                        RestrictCoreSharing: 1,
+                        ReservedFlags: 27,
+                    },
                 },
             },
         }
@@ -6501,7 +6724,11 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        RaiseExceptionOnInvalidHandleReference: 1,
+                        HandleExceptionsPermanentlyEnabled: 1,
+                        ReservedFlags: 30,
+                    },
                 },
             },
         }
@@ -6509,7 +6736,13 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DisallowWin32kSystemCalls: 1,
+                        AuditDisallowWin32kSystemCalls: 1,
+                        DisallowFsctlSystemCalls: 1,
+                        AuditDisallowFsctlSystemCalls: 1,
+                        ReservedFlags: 28,
+                    },
                 },
             },
         }
@@ -6517,7 +6750,10 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        FilterId: 4,
+                        ReservedFlags: 28,
+                    },
                 },
             },
         }
@@ -6525,7 +6761,10 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        EnablePointerAuthUserIp: 1,
+                        ReservedFlags: 31,
+                    },
                 },
             },
         }
@@ -6533,7 +6772,19 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        EnableUserShadowStack: 1,
+                        AuditUserShadowStack: 1,
+                        SetContextIpValidation: 1,
+                        AuditSetContextIpValidation: 1,
+                        EnableUserShadowStackStrictMode: 1,
+                        BlockNonCetBinaries: 1,
+                        BlockNonCetBinariesNonEhcont: 1,
+                        AuditBlockNonCetBinaries: 1,
+                        CetDynamicApisOutOfProcOnly: 1,
+                        SetContextIpValidationRelaxedMode: 1,
+                        ReservedFlags: 22,
+                    },
                 },
             },
         }
@@ -6985,7 +7236,10 @@ mod Windows {
         union RATE_QUOTA_LIMIT {
             RateData: u32,
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    RatePercent: 7,
+                    Reserved0: 25,
+                },
             },
         }
         const READ_CONTROL: u32 = 131072;
@@ -8064,8 +8318,14 @@ mod Windows {
                 Region: u64,
             },
             HeaderArm64: struct {
-                _bitfield1: u64,
-                _bitfield2: u64,
+                _bitfield1: u64 {
+                    Depth: 16,
+                    Sequence: 48,
+                },
+                _bitfield2: u64 {
+                    Reserved: 4,
+                    NextEntry: 60,
+                },
             },
         }
         #[align(16)]
@@ -8076,8 +8336,14 @@ mod Windows {
                 Region: u64,
             },
             HeaderX64: struct {
-                _bitfield1: u64,
-                _bitfield2: u64,
+                _bitfield1: u64 {
+                    Depth: 16,
+                    Sequence: 48,
+                },
+                _bitfield2: u64 {
+                    Reserved: 4,
+                    NextEntry: 60,
+                },
             },
         }
         #[arch(X86)]
@@ -8522,7 +8788,13 @@ mod Windows {
                     Anonymous: union {
                         AllFlags: u8,
                         Anonymous: struct {
-                            _bitfield: u8,
+                            _bitfield: u8 {
+                                Parked: 1,
+                                Allocated: 1,
+                                AllocatedToTargetProcess: 1,
+                                RealTime: 1,
+                                ReservedFlags: 4,
+                            },
                         },
                     },
                     Anonymous2: union {
@@ -8701,7 +8973,15 @@ mod Windows {
         }
         const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19;
         struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-            _bitfield: u32,
+            _bitfield: u32 {
+                Machine: 16,
+                KernelMode: 1,
+                UserMode: 1,
+                Native: 1,
+                Process: 1,
+                WoW64Container: 1,
+                ReservedZero0: 11,
+            },
         }
         #[repr(i32)]
         enum SharedVirtualDiskHandleState {
@@ -9134,7 +9414,11 @@ mod Windows {
             u: union {
                 Flags: u32,
                 s: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        LongFunction: 1,
+                        Persistent: 1,
+                        Private: 30,
+                    },
                 },
             },
             CallbackPriority: TP_CALLBACK_PRIORITY,
@@ -9590,7 +9874,18 @@ mod Windows {
                     BaseHi: u8,
                 },
                 Bits: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        BaseMid: 8,
+                        Type: 5,
+                        Dpl: 2,
+                        Pres: 1,
+                        LimitHi: 4,
+                        Sys: 1,
+                        Reserved_0: 1,
+                        Default_Big: 1,
+                        Granularity: 1,
+                        BaseHi: 8,
+                    },
                 },
             },
         }
@@ -9676,7 +9971,10 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Za: 1,
+                        ReservedFlags: 31,
+                    },
                 },
             },
             Reserved: [u32; 6],
@@ -9692,7 +9990,10 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Sm: 1,
+                        ReservedFlags: 31,
+                    },
                 },
             },
             Reserved: [u32; 4],
@@ -9762,7 +10063,11 @@ mod Windows {
             Anonymous: union {
                 ControlFlags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        OptimizedSave: 1,
+                        CompactionEnabled: 1,
+                        ExtendedFeatureDisable: 1,
+                    },
                 },
             },
             Features: [XSTATE_FEATURE; 64],
@@ -9784,7 +10089,9 @@ mod Windows {
                     Anonymous: union {
                         Arm64Flags: u16,
                         Anonymous: struct {
-                            _bitfield: u16,
+                            _bitfield: u16 {
+                                SmeFa64: 1,
+                            },
                         },
                     },
                     SupportedSmeVectorLengths: u8,

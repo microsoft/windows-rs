@@ -771,10 +771,110 @@ pub struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
     pub _bitfield: u32,
 }
+impl KERB_CLOUD_KERBEROS_DEBUG_DATA {
+    pub fn EnabledByPolicy(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnabledByPolicy(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AsRepCallbackPresent(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AsRepCallbackPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn AsRepCallbackUsed(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AsRepCallbackUsed(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn CloudReferralTgtAvailable(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_CloudReferralTgtAvailable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn SpnOracleConfigured(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SpnOracleConfigured(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn KdcProxyPresent(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_KdcProxyPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn PublicKeyCredsPresent(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_PublicKeyCredsPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn PasswordKeysPresent(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_PasswordKeysPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn PasswordPresent(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_PasswordPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn AsRepSourceCred(&self) -> u32 {
+        (self._bitfield << 15) >> 24
+    }
+    pub fn set_AsRepSourceCred(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 9)) | ((value & 255) << 9);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
     pub _bitfield: u32,
+}
+impl KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
+    pub fn EnabledByPolicy(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnabledByPolicy(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AsRepCallbackPresent(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AsRepCallbackPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn AsRepCallbackUsed(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AsRepCallbackUsed(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn CloudReferralTgtAvailable(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_CloudReferralTgtAvailable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn SpnOracleConfigured(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SpnOracleConfigured(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn KdcProxyPresent(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_KdcProxyPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
 }
 pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1;
 #[repr(C)]

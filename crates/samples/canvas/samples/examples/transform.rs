@@ -4,6 +4,7 @@
 
 use std::cell::Cell;
 use windows_canvas::*;
+use windows_reactor::DrawContext;
 
 thread_local! {
     static FRAME: Cell<u64> = const { Cell::new(0) };

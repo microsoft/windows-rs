@@ -292,6 +292,14 @@ impl Default for EVENT_PROPERTY_INFO_3 {
 pub struct EVENT_PROPERTY_INFO_3_0 {
     pub _bitfield: u32,
 }
+impl EVENT_PROPERTY_INFO_3_0 {
+    pub fn Tags(&self) -> u32 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Tags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !268435455) | (value & 268435455);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_0 {
@@ -614,6 +622,21 @@ impl Default for TRACE_EVENT_INFO_2 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_EVENT_INFO_2_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "evntprov")]
+impl TRACE_EVENT_INFO_2_0 {
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Tags(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Tags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

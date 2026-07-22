@@ -188,7 +188,9 @@ source* — emitting only what is **directly expressed in the source language**:
   `_Ret_*`, the `_z_` string forms.
 - **`__declspec`** — `uuid(...)`, `noreturn`, `align(n)`, `dllimport`, `deprecated`.
 - **Language constructs** — `const`, scoped enums, `#pragma pack` / declared
-  alignment, unions, bitfield widths, `typedef`, calling conventions.
+  alignment, unions, bitfield storage layout, `typedef`, calling conventions. (Bit-fields
+  are coalesced into backing storage units, with each member's name/offset/width emitted
+  as a C-like block on the backing field — see [Bit-field member scraping](#bit-field-member-scraping).)
 - **Header signal macros** — `DEFINE_ENUM_FLAG_OPERATORS(E)` (a genuine flags-enum
   signal, not a guess).
 - **IDL attributes** (COM) — `[in]`/`[out]`/`[retval]`/`[size_is]`/`[iid_is]`/… .
@@ -766,6 +768,48 @@ None of these block use of the crate.
 - **IDL as the COM source of truth (future direction).** Parsing `.idl` (or `midl` output)
   directly would recover the pointer-shape attributes headers don't express as SAL
   (`[unique]`/`[length_is]`/`[iid_is]`), keeping the header path for flat C APIs.
+
+## Bit-field member scraping
+
+libclang reports each bit-field member's name (`Cursor::name`) and width
+(`bit_field_width()`, i.e. `clang_getFieldDeclBitWidth`), and the running bit-offset
+within a storage unit is derivable as the scrape packs them. Consecutive bit-fields are
+coalesced into an integer field named `_bitfield` (`_bitfield1`/`_bitfield2`/… for
+multiple runs), because the winmd format has no bit-field concept.
+
+`struct.rs` accumulates, per backing field, a `(name, offset, width)` tuple for every
+logical member — the offset is `unit_size * 8 - remaining_bits` captured *before* the
+width is subtracted — and emits them as a C-like block on the backing field
+(`Struct::write_fields`), reconstructing anonymous padding (`_: n`) from any gap between
+consecutive offsets:
+
+```text
+_bitfield: u32 {
+    Usage: 1,
+    RGB_Range: 1,
+    Nominal_Range: 2,
+    Reserved: 26,
+},
+```
+
+The RDL reader turns each named member into a
+`NativeBitfieldAttribute(name, offset, length)` custom attribute on the field (one
+instance per member), following Microsoft's win32metadata convention so the
+representation round-trips through `windows-metadata` as opaque attribute payload.
+
+Two details keep the metadata faithful:
+
+- **Anonymous padding bit-fields** (`int : 4;`) consume bits — so a following member
+  gets the correct offset — but carry no name, so they emit no attribute (and thus no
+  accessor).
+- **Signedness is not recorded per member.** It is derived downstream from the backing
+  field's own declared type (a bit-field run keeps its declared integer type), so a
+  signed backing sign-extends on read.
+
+`windows-bindgen` reads these attributes to generate typed get/set accessors alongside
+the raw `pub _bitfield` field — see
+[`windows-bindgen`](windows-bindgen.md#generating-bit-field-accessors) for the downstream
+half. Scrape coverage lives in `crates/tests/libs/clang/input/bitfields.h`.
 
 ## Flat `Windows.Win32` namespace collisions (module flattening)
 

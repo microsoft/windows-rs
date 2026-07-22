@@ -65,7 +65,16 @@ mod Windows {
             MciStatus: struct {
                 McaErrorCode: u16,
                 ModelErrorCode: u16,
-                _bitfield: u32,
+                _bitfield: u32 {
+                    OtherInformation: 25,
+                    ContextCorrupt: 1,
+                    AddressValid: 1,
+                    MiscValid: 1,
+                    ErrorEnabled: 1,
+                    UncorrectedError: 1,
+                    StatusOverFlow: 1,
+                    Valid: 1,
+                },
             },
             QuadPart: u64,
         }
@@ -74,7 +83,16 @@ mod Windows {
             MciStats: struct {
                 McaCod: u16,
                 MsCod: u16,
-                _bitfield: u32,
+                _bitfield: u32 {
+                    OtherInfo: 25,
+                    Damage: 1,
+                    AddressValid: 1,
+                    MiscValid: 1,
+                    Enabled: 1,
+                    UnCorrected: 1,
+                    OverFlow: 1,
+                    Valid: 1,
+                },
             },
             QuadPart: u64,
         }

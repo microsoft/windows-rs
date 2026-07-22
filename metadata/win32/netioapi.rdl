@@ -370,7 +370,16 @@ mod Windows {
             AccessType: NET_IF_ACCESS_TYPE,
             DirectionType: NET_IF_DIRECTION_TYPE,
             InterfaceAndOperStatusFlags: struct {
-                _bitfield: BOOLEAN,
+                _bitfield: BOOLEAN {
+                    HardwareInterface: 1,
+                    FilterInterface: 1,
+                    ConnectorPresent: 1,
+                    NotAuthenticated: 1,
+                    NotMediaConnected: 1,
+                    Paused: 1,
+                    LowPower: 1,
+                    EndPointInterface: 1,
+                },
             },
             OperStatus: IF_OPER_STATUS,
             AdminStatus: NET_IF_ADMIN_STATUS,
@@ -488,7 +497,10 @@ mod Windows {
             State: NL_NEIGHBOR_STATE,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: BOOLEAN,
+                    _bitfield: BOOLEAN {
+                        IsRouter: 1,
+                        IsUnreachable: 1,
+                    },
                 },
                 Flags: u8,
             },

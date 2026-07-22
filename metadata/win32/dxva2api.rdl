@@ -102,7 +102,15 @@ mod Windows {
         struct DXVA2_ExtendedFormat {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SampleFormat: 8,
+                        VideoChromaSubsampling: 4,
+                        NominalRange: 3,
+                        VideoTransferMatrix: 3,
+                        VideoLighting: 4,
+                        VideoPrimaries: 5,
+                        VideoTransferFunction: 5,
+                    },
                 },
                 value: u32,
             },

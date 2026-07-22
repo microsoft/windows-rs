@@ -137,3 +137,14 @@ build.
 
 `cargo check -p windows-window` and `cargo clippy -p windows-window
 --all-targets`. The `canvas/standalone` sample exercises it end to end.
+
+### Future work
+
+- **Adopt the family `use super::*;` import convention.** The other companion crates
+  ([`windows-reactor`](windows-reactor.md),
+  [`windows-composition`](windows-composition.md),
+  [`windows-canvas`](windows-canvas.md)) glob crate-root re-exports with a single
+  `use super::*;` per module instead of `use crate::…`. This crate is small and has
+  only a stray `use crate::…`; normalizing it (re-exporting any shared internals at
+  the crate root as `pub(crate)` so the glob covers them) keeps the family
+  consistent.

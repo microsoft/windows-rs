@@ -125,9 +125,10 @@ fn app(cx: &mut RenderCx) -> Element {
                 && height > 0
             {
                 unsafe {
-                    _ = state
+                    state
                         .swap_chain
-                        .ResizeBuffers(0, width, height, DXGI_FORMAT_UNKNOWN, 0);
+                        .ResizeBuffers(0, width, height, DXGI_FORMAT_UNKNOWN, 0)
+                        .unwrap();
                 }
             }
         })

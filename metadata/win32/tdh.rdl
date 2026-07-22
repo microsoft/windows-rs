@@ -54,7 +54,9 @@ mod Windows {
             Anonymous4: union {
                 Reserved: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Tags: 28,
+                    },
                 },
             },
         }
@@ -220,7 +222,10 @@ mod Windows {
             Anonymous3: union {
                 Flags: TEMPLATE_FLAGS,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved: 4,
+                        Tags: 28,
+                    },
                 },
             },
             EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],

@@ -22,6 +22,20 @@ pub fn yml() {
                 first = false;
             }
 
+            if name == "windows-composition" {
+                // The `system` and `lifted` stacks are mutually exclusive, so
+                // `--all-features` won't compile; check each stack on its own.
+                writeln!(
+                    yml,
+                    r"      - name: Check {name}
+        run:  cargo check -p {name}
+      - name: Check {name} (lifted)
+        run:  cargo check -p {name} --no-default-features --features lifted"
+                )
+                .unwrap();
+                continue;
+            }
+
             writeln!(
                 yml,
                 r"      - name: Check {name}

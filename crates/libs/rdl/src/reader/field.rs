@@ -4,6 +4,22 @@ pub struct Field {
     pub attrs: Vec<syn::Attribute>,
     pub name: syn::Ident,
     pub ty: FieldType,
+    /// The bit-field members packed into this field when it is a backing storage
+    /// unit written in the concise C-like block form (`_bitfield: u8 { a: 1, b: 2 }`).
+    /// Empty for an ordinary field. Each member carries only a width; its offset is
+    /// implicit (the cumulative width of the preceding members, including anonymous
+    /// padding), and the encoder materializes a `NativeBitfieldAttribute(name, offset,
+    /// width)` per *named* member. The backing integer type is the field's own `ty`.
+    pub bitfields: Vec<BitfieldMember>,
+}
+
+/// One member of a bit-field backing unit written in the C-like block form. A
+/// `None` name is an anonymous padding member (`_: 4`) that advances the offset of
+/// the following members but produces no accessor.
+#[derive(Debug, Clone)]
+pub struct BitfieldMember {
+    pub name: Option<syn::Ident>,
+    pub width: u32,
 }
 
 /// The type of a field: either a normal named type, or an inline anonymous
@@ -36,16 +52,62 @@ impl syn::parse::Parse for Field {
         // The type position may be an inline anonymous nested struct/union,
         // optionally preceded by its own attributes.
         let inner_attrs = input.call(syn::Attribute::parse_outer)?;
-        let ty = if input.peek(syn::Token![struct]) || input.peek(syn::Token![union]) {
-            FieldType::Nested(Box::new(NestedRecord::parse(input, inner_attrs)?))
+        let (ty, bitfields) = if input.peek(syn::Token![struct]) || input.peek(syn::Token![union]) {
+            (
+                FieldType::Nested(Box::new(NestedRecord::parse(input, inner_attrs)?)),
+                vec![],
+            )
         } else if inner_attrs.is_empty() {
-            FieldType::Type(Box::new(input.parse()?))
+            let ty = FieldType::Type(Box::new(input.parse()?));
+            // A backing integer field may be followed by a `{ … }` block listing its
+            // bit-field members in the concise C-like form.
+            let bitfields = if input.peek(syn::token::Brace) {
+                parse_bitfield_block(input)?
+            } else {
+                vec![]
+            };
+            (ty, bitfields)
         } else {
             return Err(input
                 .error("attributes are only allowed on an inline nested struct/union field type"));
         };
 
-        Ok(Self { attrs, name, ty })
+        Ok(Self {
+            attrs,
+            name,
+            ty,
+            bitfields,
+        })
+    }
+}
+
+/// Parses a `{ member, member, … }` bit-field block where each member is either
+/// `Name: width` (a named member projected as an accessor) or `_: width` (anonymous
+/// padding that only advances the offset).
+fn parse_bitfield_block(input: syn::parse::ParseStream) -> syn::Result<Vec<BitfieldMember>> {
+    let content;
+    syn::braced!(content in input);
+    let members = content
+        .parse_terminated(<BitfieldMember as syn::parse::Parse>::parse, syn::Token![,])?
+        .into_iter()
+        .collect();
+    Ok(members)
+}
+
+impl syn::parse::Parse for BitfieldMember {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let name = if input.peek(syn::Token![_]) {
+            input.parse::<syn::Token![_]>()?;
+            None
+        } else {
+            Some(input.parse::<syn::Ident>()?)
+        };
+        input.parse::<syn::Token![:]>()?;
+        let width: syn::LitInt = input.parse()?;
+        Ok(Self {
+            name,
+            width: width.base10_parse()?,
+        })
     }
 }
 

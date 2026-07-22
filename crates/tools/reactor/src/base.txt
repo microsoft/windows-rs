@@ -1,25 +1,4 @@
-Microsoft::UI::Composition::CompositionAnimation
-Microsoft::UI::Composition::CompositionEasingFunction
-Microsoft::UI::Composition::CompositionObject
-Microsoft::UI::Composition::Compositor
-Microsoft::UI::Composition::CubicBezierEasingFunction
-Microsoft::UI::Composition::ICompositionAnimation2::put_Target
-Microsoft::UI::Composition::ICompositionAnimationBase
-Microsoft::UI::Composition::ICompositionObject2::put_ImplicitAnimations
-Microsoft::UI::Composition::ICompositionObject::{get_Compositor, StartAnimation}
-Microsoft::UI::Composition::ICompositor2::CreateImplicitAnimationCollection
-Microsoft::UI::Composition::ICompositor::{CreateScalarKeyFrameAnimation, CreateVector3KeyFrameAnimation, CreateLinearEasingFunction, CreateCubicBezierEasingFunction}
-Microsoft::UI::Composition::IKeyFrameAnimation::{put_Duration, InsertExpressionKeyFrameWithEasingFunction}
-Microsoft::UI::Composition::IScalarKeyFrameAnimation::InsertKeyFrameWithEasingFunction
-Microsoft::UI::Composition::IVector3KeyFrameAnimation::InsertKeyFrameWithEasingFunction
-Microsoft::UI::Composition::IVisual::{put_CenterPoint, get_Scale}
-Microsoft::UI::Composition::ImplicitAnimationCollection
-Microsoft::UI::Composition::KeyFrameAnimation
-Microsoft::UI::Composition::LinearEasingFunction
-Microsoft::UI::Composition::ScalarKeyFrameAnimation
 Microsoft::UI::Composition::SystemBackdrops::MicaKind
-Microsoft::UI::Composition::Vector3KeyFrameAnimation
-Microsoft::UI::Composition::Visual
 Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
 Microsoft::UI::Dispatching::DispatcherQueueHandler
 Microsoft::UI::Dispatching::DispatcherQueuePriority
@@ -105,7 +84,7 @@ Microsoft::UI::Xaml::Controls::IDatePicker::SelectedDateChanged
 Microsoft::UI::Xaml::Controls::IDatePickerSelectedValueChangedEventArgs::get_NewDate
 Microsoft::UI::Xaml::Controls::IExpander::{put_Header, Expanding, Collapsed}
 Microsoft::UI::Xaml::Controls::IFlyout::put_Content
-Microsoft::UI::Xaml::Controls::IGrid::{get_RowDefinitions, get_ColumnDefinitions}
+Microsoft::UI::Xaml::Controls::IGrid::{get_RowDefinitions, get_ColumnDefinitions, put_Padding}
 Microsoft::UI::Xaml::Controls::IHyperlinkButton::put_NavigateUri
 Microsoft::UI::Xaml::Controls::IImage::put_Source
 Microsoft::UI::Xaml::Controls::IInfoBar::Closed
@@ -236,6 +215,7 @@ Microsoft::UI::Xaml::GridLength
 Microsoft::UI::Xaml::GridUnitType
 Microsoft::UI::Xaml::HorizontalAlignment
 Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::GetElementVisual
+Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::SetElementChildVisual
 Microsoft::UI::Xaml::IApplication::get_Resources
 Microsoft::UI::Xaml::IApplicationOverrides
 Microsoft::UI::Xaml::IDragEventArgs::{put_AcceptedOperation, get_DataView, get_DragUIOverride, GetDeferral}

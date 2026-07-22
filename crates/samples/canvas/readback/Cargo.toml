@@ -1,0 +1,13 @@
+[package]
+name = "canvas_readback"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-canvas = { workspace = true }
+windows-core = { workspace = true }
+windows-numerics = { workspace = true, features = ["std"] }
+
+[lints]
+workspace = true

@@ -93,7 +93,20 @@ mod Windows {
         struct HIDP_KEYBOARD_MODIFIER_STATE {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        LeftControl: 1,
+                        LeftShift: 1,
+                        LeftAlt: 1,
+                        LeftGUI: 1,
+                        RightControl: 1,
+                        RightShift: 1,
+                        RightAlt: 1,
+                        RigthGUI: 1,
+                        CapsLock: 1,
+                        ScollLock: 1,
+                        NumLock: 1,
+                        Reserved: 21,
+                    },
                 },
                 ul: u32,
             },
@@ -106,7 +119,11 @@ mod Windows {
             NumberOfChildren: u16,
             NextSibling: u16,
             FirstChild: u16,
-            _bitfield: u32,
+            _bitfield: u32 {
+                CollectionType: 8,
+                IsAlias: 1,
+                Reserved: 23,
+            },
             UserContext: *mut void,
         }
         #[packed(4)]
@@ -118,7 +135,11 @@ mod Windows {
             NumberOfChildren: u16,
             NextSibling: u16,
             FirstChild: u16,
-            _bitfield: u32,
+            _bitfield: u32 {
+                CollectionType: 8,
+                IsAlias: 1,
+                Reserved: 23,
+            },
             UserContext: *mut void,
         }
         const HIDP_LINK_COLLECTION_ROOT: u16 = 65535;

@@ -143,17 +143,41 @@ mod Windows {
         union PSAPI_WORKING_SET_BLOCK {
             Flags: usize,
             Anonymous: struct {
-                _bitfield: usize,
+                _bitfield: usize {
+                    Protection: 5,
+                    ShareCount: 3,
+                    Shared: 1,
+                    Reserved: 3,
+                    VirtualPage: 52,
+                },
             },
         }
         union PSAPI_WORKING_SET_EX_BLOCK {
             Flags: usize,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: usize,
+                    _bitfield: usize {
+                        Valid: 1,
+                        ShareCount: 3,
+                        Win32Protection: 11,
+                        Shared: 1,
+                        Node: 6,
+                        Locked: 1,
+                        LargePage: 1,
+                        Reserved: 7,
+                        Bad: 1,
+                        ReservedUlong: 32,
+                    },
                 },
                 Invalid: struct {
-                    _bitfield: usize,
+                    _bitfield: usize {
+                        Valid: 1,
+                        Reserved0: 14,
+                        Shared: 1,
+                        Reserved1: 15,
+                        Bad: 1,
+                        ReservedUlong: 32,
+                    },
                 },
             },
         }

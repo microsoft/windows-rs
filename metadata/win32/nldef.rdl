@@ -44,7 +44,16 @@ mod Windows {
             NlincCategoryStateMax = 4,
         }
         struct NL_INTERFACE_OFFLOAD_ROD {
-            _bitfield: BOOLEAN,
+            _bitfield: BOOLEAN {
+                NlChecksumSupported: 1,
+                NlOptionsSupported: 1,
+                TlDatagramChecksumSupported: 1,
+                TlStreamChecksumSupported: 1,
+                TlStreamOptionsSupported: 1,
+                FastPathCompatible: 1,
+                TlLargeSendOffloadSupported: 1,
+                TlGiantSendOffloadSupported: 1,
+            },
         }
         #[repr(i32)]
         enum NL_LINK_LOCAL_ADDRESS_BEHAVIOR {

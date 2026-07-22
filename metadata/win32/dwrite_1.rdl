@@ -45,7 +45,15 @@ mod Windows {
             expansionMinimum: f32,
             expansionMaximum: f32,
             compressionMaximum: f32,
-            _bitfield: u32,
+            _bitfield: u32 {
+                expansionPriority: 8,
+                compressionPriority: 8,
+                allowResidualExpansion: 1,
+                allowResidualCompression: 1,
+                applyToLeadingEdge: 1,
+                applyToTrailingEdge: 1,
+                reserved: 12,
+            },
         }
         #[repr(i32)]
         enum DWRITE_OUTLINE_THRESHOLD {
@@ -469,7 +477,16 @@ mod Windows {
             isoScriptNumber: u32,
             clusterLookahead: u32,
             justificationCharacter: u32,
-            _bitfield: u32,
+            _bitfield: u32 {
+                restrictCaretToClusters: 1,
+                usesWordDividers: 1,
+                isDiscreteWriting: 1,
+                isBlockWriting: 1,
+                isDistributedWithinCluster: 1,
+                isConnectedWriting: 1,
+                isCursiveWriting: 1,
+                reserved: 25,
+            },
         }
         #[repr(i32)]
         enum DWRITE_TEXT_ANTIALIAS_MODE {

@@ -355,6 +355,26 @@ impl Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
 pub struct D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
     pub _bitfield: u32,
 }
+impl D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
+    pub fn ProtectionEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ProtectionEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn OverlayOrFullscreenRequired(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_OverlayOrFullscreenRequired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: windows_core::GUID = windows_core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -4685,6 +4705,44 @@ pub struct D3D11_VIDEO_PROCESSOR_CAPS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
     pub _bitfield: u32,
+}
+impl D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
+    pub fn Usage(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Usage(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn RGB_Range(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_RGB_Range(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn YCbCr_Matrix(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_YCbCr_Matrix(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn YCbCr_xvYCC(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_YCbCr_xvYCC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Nominal_Range(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_Nominal_Range(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]

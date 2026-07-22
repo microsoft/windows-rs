@@ -701,6 +701,14 @@ pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
 pub struct HTTP_PROPERTY_FLAGS {
     pub _bitfield: u32,
 }
+impl HTTP_PROPERTY_FLAGS {
+    pub fn Present(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Present(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PROTECTION_LEVEL_INFO {

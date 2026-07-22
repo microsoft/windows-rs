@@ -1,6 +1,7 @@
 use super::*;
 
 /// Coordinates variables, transitions, and storyboards.
+#[derive(Clone)]
 pub struct Manager(pub(crate) IUIAnimationManager2);
 
 impl Manager {

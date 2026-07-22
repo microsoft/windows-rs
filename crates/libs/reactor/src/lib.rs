@@ -15,6 +15,8 @@ mod app;
 mod app_shim;
 mod backend;
 mod bootstrap;
+#[cfg(feature = "canvas")]
+mod canvas_bridge;
 mod diagnostics;
 mod drag;
 mod element;
@@ -54,6 +56,10 @@ pub use bindings::VerticalAlignment;
 pub use bindings::VirtualKey;
 pub use bindings::VirtualKeyModifiers;
 pub use bootstrap::*;
+#[cfg(feature = "canvas")]
+pub use canvas_bridge::{
+    CanvasImageSource, CanvasSwapChain, DrawContext, animated_canvas, animated_canvas_with_device,
+};
 pub use drag::*;
 pub use element::*;
 pub use engine::*;

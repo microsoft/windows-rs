@@ -366,6 +366,8 @@ impl CppStruct {
             constants
         };
 
+        let bitfields = self.write_bitfield_accessors(config, cfg);
+
         let mut tokens = quote! {
             #repr
             #cfg
@@ -373,6 +375,7 @@ impl CppStruct {
             pub #struct_or_union #name
             #fields
             #constants
+            #bitfields
             #manual_clone
             #default
         };
@@ -560,6 +563,212 @@ impl CppStruct {
         {
             Some((_, Value::I32(n))) if *n > 0 => Some(*n as usize),
             _ => None,
+        }
+    }
+
+    /// Generates typed get/set accessors for any field that carries
+    /// `NativeBitfieldAttribute` records (a `_bitfield*` backing integer produced
+    /// by coalescing C bit-fields). Each attribute contributes one logical member
+    /// `(name, offset, length)`; a width-1 member projects as `bool`, wider members
+    /// project as the backing field's own integer type (sign-extended on read when
+    /// that type is signed). The raw `_bitfield*` field is left public and untouched,
+    /// so blitting and manual masking keep working. Emitted only for the ergonomic
+    /// (non-`sys`) projection.
+    fn write_bitfield_accessors(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
+        if config.bindgen.style.is_sys() {
+            return quote! {};
+        }
+
+        let mut accessors = Vec::new();
+
+        for field in self.def.fields() {
+            let bitfields: Vec<_> = field
+                .attributes()
+                .filter(|attr| attr.name() == "NativeBitfieldAttribute")
+                .collect();
+
+            if bitfields.is_empty() {
+                continue;
+            }
+
+            let field_ident = to_ident(field.name());
+            let Some(backing) =
+                BitfieldBacking::from_type(&field.field_type(Some(self), config.reader))
+            else {
+                continue;
+            };
+
+            for attr in bitfields {
+                let values = attr.value();
+                let (
+                    Some((_, Value::Utf8(member))),
+                    Some((_, Value::I64(offset))),
+                    Some((_, Value::I64(length))),
+                ) = (values.first(), values.get(1), values.get(2))
+                else {
+                    continue;
+                };
+
+                accessors.push(backing.write_accessor(
+                    &field_ident,
+                    member,
+                    *offset as u32,
+                    *length as u32,
+                ));
+            }
+        }
+
+        if accessors.is_empty() {
+            return quote! {};
+        }
+
+        let name = to_ident(self.name);
+        quote! {
+            #cfg
+            impl #name {
+                #(#accessors)*
+            }
+        }
+    }
+}
+
+/// The integer type backing a coalesced bit-field, resolved to the tokens bindgen
+/// needs to emit accessors: the field's own (possibly signed) primitive, its
+/// unsigned counterpart (used for masking so signed backings never overflow a mask
+/// literal), the bit width, and whether it is signed.
+struct BitfieldBacking {
+    prim: TokenStream,
+    uprim: TokenStream,
+    bits: u32,
+    signed: bool,
+}
+
+impl BitfieldBacking {
+    fn from_type(ty: &Type) -> Option<Self> {
+        let (prim, uprim, bits, signed) = match ty {
+            Type::U8 => (quote! { u8 }, quote! { u8 }, 8, false),
+            Type::I8 => (quote! { i8 }, quote! { u8 }, 8, true),
+            Type::U16 => (quote! { u16 }, quote! { u16 }, 16, false),
+            Type::I16 => (quote! { i16 }, quote! { u16 }, 16, true),
+            Type::U32 => (quote! { u32 }, quote! { u32 }, 32, false),
+            Type::I32 => (quote! { i32 }, quote! { u32 }, 32, true),
+            Type::U64 => (quote! { u64 }, quote! { u64 }, 64, false),
+            Type::I64 => (quote! { i64 }, quote! { u64 }, 64, true),
+            _ => return None,
+        };
+        Some(Self {
+            prim,
+            uprim,
+            bits,
+            signed,
+        })
+    }
+
+    /// Emits the `get`/`set` pair for one logical member at `offset` (bits from the
+    /// low end of the backing field) with `width` bits. Identity shifts (`<< 0` /
+    /// `>> 0`) are elided so the output stays clean and clippy's `identity_op` lint
+    /// is satisfied.
+    fn write_accessor(
+        &self,
+        field: &TokenStream,
+        member: &str,
+        offset: u32,
+        width: u32,
+    ) -> TokenStream {
+        let getter = to_ident(member);
+        let setter = to_ident(&format!("set_{member}"));
+        let prim = &self.prim;
+
+        if width == 1 {
+            // Single-bit members project as `bool`.
+            let get_body = if offset == 0 {
+                quote! { self.#field & 1 != 0 }
+            } else {
+                let o = Literal::u32_unsuffixed(offset);
+                quote! { (self.#field >> #o) & 1 != 0 }
+            };
+            let (clear, place) = if offset == 0 {
+                (quote! { !1 }, quote! { value as #prim })
+            } else {
+                let o = Literal::u32_unsuffixed(offset);
+                (quote! { !(1 << #o) }, quote! { (value as #prim) << #o })
+            };
+            return quote! {
+                pub fn #getter(&self) -> bool {
+                    #get_body
+                }
+                pub fn #setter(&mut self, value: bool) {
+                    self.#field = (self.#field & #clear) | (#place);
+                }
+            };
+        }
+
+        // Multi-bit read: shift the member's top bit to the backing type's sign
+        // position, then shift back down. A signed backing uses an arithmetic right
+        // shift (sign-extending); an unsigned backing a logical shift (zero-extending).
+        // Both isolate exactly the member's bits.
+        let hi = self.bits - offset - width;
+        let lo = self.bits - width;
+        let get_body = match (hi, lo) {
+            (0, 0) => quote! { self.#field },
+            (0, _) => {
+                let lo = Literal::u32_unsuffixed(lo);
+                quote! { self.#field >> #lo }
+            }
+            _ => {
+                let hi = Literal::u32_unsuffixed(hi);
+                let lo = Literal::u32_unsuffixed(lo);
+                quote! { (self.#field << #hi) >> #lo }
+            }
+        };
+
+        let mask_val: u64 = if width >= 64 {
+            u64::MAX
+        } else {
+            (1u64 << width) - 1
+        };
+        let mask = Literal::u64_unsuffixed(mask_val);
+
+        // The clear mask (`!(mask << offset)`) and the shifted value are computed in
+        // the unsigned counterpart for a signed backing, so the mask literal never
+        // overflows; the identity casts are elided for unsigned backings to keep
+        // clippy's `unnecessary_cast` happy.
+        let clear = if offset == 0 {
+            quote! { !#mask }
+        } else {
+            let o = Literal::u32_unsuffixed(offset);
+            quote! { !(#mask << #o) }
+        };
+        let setter_body = if self.signed {
+            let uprim = &self.uprim;
+            let place = if offset == 0 {
+                quote! { value as #uprim & #mask }
+            } else {
+                let o = Literal::u32_unsuffixed(offset);
+                quote! { (value as #uprim & #mask) << #o }
+            };
+            quote! {
+                self.#field = ((self.#field as #uprim & #clear) | (#place)) as #prim;
+            }
+        } else {
+            let place = if offset == 0 {
+                quote! { value & #mask }
+            } else {
+                let o = Literal::u32_unsuffixed(offset);
+                quote! { (value & #mask) << #o }
+            };
+            quote! {
+                self.#field = (self.#field & #clear) | (#place);
+            }
+        };
+
+        quote! {
+            pub fn #getter(&self) -> #prim {
+                #get_body
+            }
+            pub fn #setter(&mut self, value: #prim) {
+                #setter_body
+            }
         }
     }
 }

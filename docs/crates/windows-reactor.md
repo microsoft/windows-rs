@@ -179,15 +179,25 @@ is shorthand for `move || set.call(value)`:
 ## Graphics integration
 
 For custom 2D drawing, host a [`windows-canvas`](windows-canvas.md) surface with
-`animated_canvas(draw)` (enable the `reactor` feature on `windows-canvas`). It
-returns a `SwapChainPanel` element that redraws every frame and recovers from
-device loss automatically — see the `canvas` samples. For content that is static
-between updates, `CanvasImageSource` instead draws *on demand* into a
+`animated_canvas(draw)` (enable reactor's `canvas` feature, which pulls in
+`windows-canvas`). It returns a `SwapChainPanel` element that redraws every frame
+and recovers from device loss automatically — see the `canvas` samples. To render on
+a device the app already created and shares across many surfaces, use
+`animated_canvas_with_device(device, draw)` with a cloneable
+`windows_canvas::GpuDevice` (a clone shares the same underlying devices). For content
+that is static between updates, `CanvasImageSource` instead draws *on demand* into a
 `SurfaceImageSource` shown with the `Image` widget, redrawing only when you call
 `draw`; `Image::on_mounted` yields an `ImageHandle` whose
 `on_rasterization_scale_changed` reports the host DPI scale so the surface stays
-crisp across monitor moves (see the canvas `image_source` sample). For raw
-Direct3D, the `swap_chain_panel` sample drives a `SwapChainPanel` with
+crisp across monitor moves (see the canvas `image_source` sample). For an on-demand
+surface that still presents through a *swap chain* (lower latency than a
+`SurfaceImageSource`, but only when the data changes), `CanvasSwapChain` hosts a
+composition swap chain on a `SwapChainPanel`: create it in the panel's `on_mounted`,
+store it in `use_ref`, and `draw` from a `use_effect` on data change — idle when
+nothing changes (see the canvas `chart` sample). `animated_canvas`,
+`CanvasImageSource`, and `CanvasSwapChain` are all reactor exports (they own the
+WinUI element harness), built on the safe drawing surface `windows-canvas` provides.
+For raw Direct3D, the `swap_chain_panel` sample drives a `SwapChainPanel` with
 `on_rendering`.
 
 ## Web content integration
@@ -807,61 +817,80 @@ landed; *(gap)* items are still outstanding.
    masked it by reshuffling which panels survived. Fixed by adding an
    `on_unmounted` teardown that clears the state cell, dropping the `RenderState`
    in place (revoking the subscription and releasing the swap chain). Regression:
-   `test_canvas::animated_canvas_installs_unmount_teardown`.
+   `test_reactor::animated_canvas_installs_unmount_teardown`.
 
 4. **On-demand D2D drawing surface pulls in the raw `windows` crate *(fixed)*.**
    Drawing on-demand content (a surface that repaints on a data change rather than
    every frame) into reactor's `SurfaceImageSource` used to require hand-rolled
    D3D11/D2D/DXGI/DirectWrite plus a hand-managed shared `ID2D1Device`. This is now
-   covered by [`windows-canvas`](windows-canvas.md)'s `CanvasImageSource` (under its
-   `reactor` feature): create it from a canvas `GpuDevice`, draw with the safe
-   canvas `DrawingSession` API, and hand `image_source()` to `Image::new` — no raw
-   `windows` crate. It complements `animated_canvas` (continuous, swap-chain) with
-   an on-demand path that only redraws when you call `draw`. Internally it drives
-   reactor's `SurfaceImageSource` widget through a *borrowed* `DrawingSession` (the
-   surface owns the `BeginDraw`/`EndDraw` bracket). To keep the surface crisp,
+   covered by `CanvasImageSource` (a reactor export under reactor's `canvas`
+   feature, built on [`windows-canvas`](windows-canvas.md)): create it from a canvas
+   `GpuDevice`, draw with the safe canvas `DrawingSession` API, and hand
+   `image_source()` to `Image::new` — no raw `windows` crate. It complements
+   `animated_canvas` (continuous, swap-chain) with an on-demand path that only
+   redraws when you call `draw`. Internally it drives reactor's `SurfaceImageSource`
+   widget through a *borrowed* `DrawingSession` (the surface owns the
+   `BeginDraw`/`EndDraw` bracket, and canvas exposes
+   `DrawingSession::from_borrowed_context_with_dpi` so the private `SetDpi` binding
+   stays inside `windows-canvas`). To keep the surface crisp,
    `Image::on_mounted` yields an `ImageHandle` whose
    `on_rasterization_scale_changed` reports the host element's DPI scale (read from
    `XamlRoot.RasterizationScale` after `FrameworkElement.Loaded`, and again on
    `XamlRoot.Changed`); pass that scale to `CanvasImageSource::new`. See the canvas
    `image_source` sample.
 
-5. **No general composition-interop seam for hosting GPU / Direct2D content
-   *(gap)*.** Hosting GPU-drawn content requires reaching the
-   `Microsoft.UI.Composition` layer (WinUI 3's own compositor, *not* the system
-   `Windows.UI.Composition` projected by the `windows` crate — the two stacks are
-   non-interoperable) *under an arbitrary reactor element*: attach a
+5. **Composition-interop seam for hosting composition content *(fixed)*.**
+   Hosting custom composition content requires reaching the
+   `Microsoft.UI.Composition` layer (WinUI 3's own *lifted* compositor, *not* the
+   system `Windows.UI.Composition` projected by the `windows` crate — the two
+   stacks are non-interoperable) *under an arbitrary reactor element*: attach a
    custom `Visual` (`ElementCompositionPreview.SetElementChildVisual`), obtain the
    `Compositor` that owns the element's visual so it can build *same-compositor*
    child visuals, and read the element's rasterization (DPI) scale so the
    composition surface is crisp. Reactor already drives this plumbing internally
    for its opacity/scale transitions — `ElementCompositionPreview::GetElementVisual`
-   plus `Visual.Compositor()` (`backend/winui/mod.rs:603`, `:612`, `:667`) — but it
-   is `pub(crate)` and single-purpose. The composition-visual pieces still aren't
-   bound: `SetElementChildVisual` is absent from `bindings.rs` (only
-   `GetElementVisual` is). The DPI-scale piece, by contrast, is now covered:
-   `IXamlRoot::RasterizationScale` is bound (for the `CanvasImageSource` scale hook
-   above) and reachable from any element via `IUIElement::XamlRoot()`. The
-   dedicated `SwapChainPanel` widget (`widgets/swap_chain_panel.rs`) already covers
-   the DXGI-swap-chain case via `ISwapChainPanelNative::SetSwapChain`, but there is
-   no seam for the *composition-visual* case — hosting a custom composition island
-   (custom-drawn / off-thread animated content) under a plain host element. Filling
-   this means exposing three `Backend` methods — `element_compositor(host)`,
-   `element_rasterization_scale(host)` (default `1.0`), and
-   `set_element_child_visual(host, visual)` — binding `SetElementChildVisual`, and
-   returning `E_INVALIDARG` (not `panic!`) for an unknown control id.
+   plus `Visual.Compositor()` — but that path is `pub(crate)` and single-purpose.
 
-   This seam is **blocked on a `Microsoft.UI.Composition` wrapper crate.** The seam
-   is only useful if a caller can *build* a same-compositor child `Visual`, but those
-   types live in `Microsoft.UI.winmd` (WinAppSDK) — they are not in the `windows`
-   crate, and reactor's own flat/minimal composition bindings are `pub(crate)`, so no
-   out-of-crate app can construct one. Rather than bake a demo visual into the
-   library, this work is deferred until a [`windows-composition`](windows-composition.md)
-   crate exists to project `Microsoft.UI.Composition` safely (the same way
-   [`windows-canvas`](windows-canvas.md) projects Direct2D/DXGI). Once that crate
-   lands, reactor exposes the three `Backend` methods above and callers build visuals
-   with `windows-composition`. See [`windows-composition.md`](windows-composition.md)
-   for the plan.
+   This now ships as the [`CompositionHost`](../../crates/libs/reactor/src/widgets/composition_host.rs)
+   widget (`composition_host()`), the composition-visual counterpart of the
+   `SwapChainPanel` widget (which covers the DXGI-swap-chain case). Its
+   `on_mounted` hands back a `CompositionHostHandle` — an opaque wrapper over the
+   native element's `IInspectable`. Because `windows-composition` is now a required
+   reactor dependency, the handle exposes **typed** methods directly:
+   `compositor() -> Compositor` (`GetElementVisual` → the element's `Compositor`),
+   `set_child_visual(&Visual)` (`SetElementChildVisual`), and
+   `on_rasterization_scale_changed()`
+   (via `IUIElement::XamlRoot` → `IXamlRoot::RasterizationScale`, default `1.0`).
+   The `ElementCompositionPreview` plumbing stays in reactor (it owns the
+   `Microsoft.UI.Xaml` bindings); the host is backed by a plain stretching `Grid`,
+   so no new `ControlKind` or native control type is needed.
+
+   The **safe, typed** composition API lives in the sibling
+   [`windows-composition`](windows-composition.md) crate, whose single wrapper
+   surface compiles against *either* the system stack (`system` feature, default)
+   *or* the lifted stack (`lifted` feature). Reactor requires it with
+   `features = ["lifted"]`, so the handle returns the same
+   `Compositor`/`Visual`/`SpriteVisual`/… types used for standalone system hosting —
+   there is only **one** composition wrapper to learn and maintain (reactor no
+   longer carries its own binding slice, and no extension trait import is needed).
+   See the [`reactor/composition`](../../crates/samples/reactor/composition) samples
+   (`circles`, `host`, `animation`, `dpi`, `toggle`) for the end-to-end flow.
+
+   > **Dependency direction (flipped).** `windows-reactor` *requires*
+   > `windows-composition` (pinned to its `lifted` stack — its transition/animation
+   > engine is composition-based) and *optionally* depends on `windows-canvas` behind
+   > its `canvas` feature, so its handle returns typed `windows_composition::Compositor`
+   > / `windows_composition::Visual` directly and the canvas/composition bridges live
+   > here in reactor rather than in those crates. This replaced an earlier design
+   > where the dependency ran the other way (`windows-composition[reactor]` →
+   > `windows-reactor`) and callers imported a `CompositionHostExt` trait. The flip
+   > lets `windows-composition`/`windows-canvas` drop their `reactor` feature and
+   > raw-seam accessors, and makes reactor the single owner of the WinUI element
+   > harness — at the cost of reactor pulling in `windows-composition` unconditionally
+   > (and `windows-canvas` when `canvas` is enabled). The mutually-exclusive
+   > composition-stack CI constraint is unaffected: a `system` consumer and a `lifted`
+   > consumer still can never share one unified build (see
+   > [`windows-composition.md`](windows-composition.md)).
 
 6. **Templated list stays blank when it grows from empty *(fixed)*.** Previously,
    eager realization queued `Realize` requests for rows `0..count` only at *mount*,
@@ -911,6 +940,41 @@ landed; *(gap)* items are still outstanding.
    Verified end-to-end by the `Reconciler_Mount_VirtualList` self-test fixture: a
    300-row `ListView` realizes its first row and keeps the realized set bounded well
    below the total, proving containers are recycled rather than fully materialized.
+
+8. **On-demand swap-chain host *(fixed — Gap A)*.** Reactor has a *continuous*
+   swap-chain host (`animated_canvas`, presenting every vsync via
+   `CompositionTarget::Rendering`) and an *on-demand* `SurfaceImageSource` host
+   (`CanvasImageSource`, see #4). Previously there was no *on-demand swap-chain*
+   host: a data-driven view — e.g. a live chart that repaints only when its data
+   changes — that wants swap-chain presentation latency **without** a render loop
+   burning power every frame while the data is idle had to fall back to a
+   hand-rolled `SwapChainPanel` + DXGI swap chain on the raw `windows` crate (with
+   the attendant cross-`windows-core` bridging when the rest of the app is on
+   `windows-canvas`).
+
+   This now ships as [`CanvasSwapChain`](../../crates/libs/reactor/src/canvas_bridge.rs)
+   (a reactor export under the `canvas` feature), the swap-chain counterpart of
+   `CanvasImageSource`. It reuses the building blocks that already existed on both
+   sides: [`windows-canvas`](windows-canvas.md)'s `SwapChain` does the full
+   composition-swap-chain lifecycle (`CreateSwapChainForComposition`, `set_target`
+   via `CreateBitmapFromDxgiSurface`, `resize`/`ResizeBuffers`, `set_dpi`,
+   `set_composition_scale`, `begin_draw`/`present`, device-lost flag), and reactor's
+   `SwapChainPanelHandle` exposes `from_native`, `set_swap_chain`,
+   `clear_swap_chain`, `composition_scale()`,
+   `on_composition_scale_changed`, plus `SwapChainPanel::on_mounted`/`on_unmounted`/
+   `on_resize`. `CanvasSwapChain` ties them together behind an **imperative redraw
+   handle**: create it inside the panel's `on_mounted` (the native control must
+   exist before a swap chain can attach) with `CanvasSwapChain::new` (canvas-owned
+   device) or `with_device` (a shared app-wide `GpuDevice`), store it in hook state
+   (`use_ref`), and present with `draw(|ctx| …)` — from `on_mounted` for the first
+   frame and from a `use_effect((deps,), …)` on later data changes. `resize` and
+   `set_scale` keep the surface sized and crisp; device loss is recovered inside a
+   single `draw` call by rebuilding the swap chain (on the shared device, or a fresh
+   one for `new`), and `draw` returns an error only if that recovery fails or a hard
+   present error occurs — a lost frame is never reported as drawn. When the data is
+   idle nothing is drawn, so an idle surface costs no GPU work. Sample:
+   `cargo run -p canvas_chart`. Tracked from the canvas side in
+   [`windows-canvas` §7](windows-canvas.md).
 
 ### Future work — C# reactor parity
 
@@ -1009,6 +1073,21 @@ sampling-based [`windows-animation`](windows-animation.md) is intentionally *not
 the fit here — it targets immediate-mode canvas drawing (see that crate's *Future
 work*).
 
+Reactor's transition/animation engine (`backend/winui/mod.rs`) drives *lifted*
+`Microsoft.UI.Composition` types through the safe wrappers in
+[`windows-composition`](windows-composition.md), which is a **required** dependency
+pinned to its `lifted` stack (the only stack reactor can host — see
+[windows-composition.md](windows-composition.md)). The engine gets a backing visual
+from the Xaml seam (`ElementCompositionPreview.GetElementVisual`, still in
+`tool_reactor`'s [`base.txt`](../../crates/tools/reactor/src/base.txt)), wraps it
+with `windows_composition::Visual::from_host`, and then drives implicit-animation
+collections, easing functions, scalar/vector key frames, and expression key frames
+entirely through `windows-composition`'s wrappers. `base.txt` therefore no longer
+carries its own `Microsoft::UI::Composition::*` binding slice — only the Xaml
+seam (`ElementCompositionPreview`, `CompositionTarget::Rendering`) and the boundary
+`Visual` ABI type remain. This removed the ~210-line duplicate binding slice that
+previously lived alongside the public `windows-composition` surface.
+
 #### 7. Navigation framework *(medium)*
 
 Present: the `navigation_view` control wrapper.
@@ -1041,6 +1120,29 @@ Missing: a gesture-recognition and drag-and-drop layer (the C# `Reconciler.Gestu
   panels.
 - **Feature modules** — Markdown rendering, charting, and docking are whole
   optional subsystems in the C# project with no Rust equivalent yet.
+
+#### 11. Public test backend *(medium)*
+
+Present: the crate exposes the `Backend` trait (`backend/mod.rs`) that the reconciler
+drives, and a `test` Cargo feature. A recording backend that captures the reconciler's
+output as an inspectable list of operations — `RecordingBackend` plus an `Op` enum —
+already exists and is exercised in-tree, but it lives in the **internal** `test_reactor`
+crate (`crates/tests/libs/reactor/src/lib.rs`), not in the published `windows-reactor`.
+
+External consumers who want to unit-test their reactor components headlessly (assert
+"this state change produced these control mutations", à la React's
+`react-test-renderer`) therefore have to reimplement a recording `Backend` from scratch —
+a real consumer hand-rolls exactly that. This is a **library** capability, not just an
+in-tree testing convenience: the whole point of the `Backend` trait being public is to
+let consumers drive the reconciler without a live WinUI runtime, and a canonical test
+double completes that story.
+
+The work is to promote `RecordingBackend` + `Op` into the `windows-reactor` crate behind
+the existing `test` feature (matching `RenderCx::for_test`, which is already
+`#[cfg(feature = "test")]`), keeping them out of default builds. The current in-tree copy
+becomes a re-export. While doing so, fix the **stale doc comment** on the `Backend` trait
+(`backend/mod.rs`: "Implemented by `RecordingBackend` for tests") — it references a type
+that does not exist in the crate today, which will become true once the type is promoted.
 
 #### Suggested sequencing
 

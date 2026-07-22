@@ -51,7 +51,18 @@ mod Windows {
             Anonymous2: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DdnsEnabled: 1,
+                        RegisterAdapterSuffix: 1,
+                        Dhcpv4Enabled: 1,
+                        ReceiveOnly: 1,
+                        NoMulticast: 1,
+                        Ipv6OtherStatefulConfig: 1,
+                        NetbiosOverTcpipEnabled: 1,
+                        Ipv4Enabled: 1,
+                        Ipv6Enabled: 1,
+                        Ipv6ManagedAddressConfigurationSupported: 1,
+                    },
                 },
             },
             Mtu: u32,

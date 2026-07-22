@@ -416,7 +416,9 @@ mod Windows {
             PerformanceParamMax = 6,
         }
         struct HTTP_PROPERTY_FLAGS {
-            _bitfield: u32,
+            _bitfield: u32 {
+                Present: 1,
+            },
         }
         struct HTTP_PROTECTION_LEVEL_INFO {
             Flags: HTTP_PROPERTY_FLAGS,

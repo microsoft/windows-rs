@@ -44,6 +44,7 @@ widget_modules! {
     color_picker,
     combo_box,
     command_bar,
+    composition_host,
     content_dialog,
     date_picker,
     drop_down_button,

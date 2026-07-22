@@ -1,0 +1,136 @@
+// Filter for windows-composition's bindings (Windows.UI.Composition, the SYSTEM
+// stack). tool_composition generates two modules from this single filter:
+//
+//   * bindings.rs        — the system stack, verbatim from this filter.
+//   * bindings_lifted.rs — the lifted Microsoft.UI.Composition stack, derived by
+//                          dropping every `// region: system-only` block and
+//                          rewriting `Windows.UI.Composition.` to
+//                          `Microsoft.UI.Composition.`.
+//
+// One filter is the single source of truth for both stacks; the wrapper source
+// (visual.rs, shape.rs, ...) is compiled against whichever module the crate's
+// features select (see docs/crates/windows-composition.md). Prune or extend the
+// safe surface by editing this file, then re-run cargo run -p tool_composition.
+//
+// The system stack — unlike lifted Microsoft.UI.Composition — can host a visual
+// tree directly in an HWND via ICompositorDesktopInterop::CreateDesktopWindowTarget,
+// with no WinUI / Windows App SDK dependency. Those standalone-hosting entries are
+// marked `// region: system-only` and excluded from the lifted surface.
+
+Windows.UI.Composition.Compositor
+// region: system-only
+// Standalone activation of a compositor. Lifted composition has no standalone
+// activation; a reactor app obtains its compositor from the host element.
+Windows.UI.Composition.Compositor::CreateInstance
+// endregion
+Windows.UI.Composition.ICompositor::{CreateContainerVisual, CreateSpriteVisual, CreateColorBrushWithColor, CreateScopedBatch, CreateScalarKeyFrameAnimation, CreateVector3KeyFrameAnimation, CreateLinearEasingFunction, CreateCubicBezierEasingFunction}
+Windows.UI.Composition.ICompositor2::{CreateNineGridBrush, CreateImplicitAnimationCollection}
+Windows.UI.Composition.ICompositor5::{CreateShapeVisual, CreateSpriteShapeWithGeometry, CreateContainerShape, CreateEllipseGeometry}
+
+Windows.UI.Composition.CompositionObject
+Windows.UI.Composition.ICompositionObject::{get_Compositor, StartAnimation}
+Windows.UI.Composition.ICompositionObject2::{put_ImplicitAnimations}
+
+// region: system-only
+// A dispatcher queue must exist on the thread before the compositor is created.
+// The current-thread factory (CreateDispatcherQueueController) is not in this
+// repo's Win32 metadata, so stack.rs declares it directly; we only need the type.
+// (Lifted composition runs on the reactor/WinUI dispatcher, so this is not part
+// of the lifted surface.)
+Windows.System.DispatcherQueueController
+// endregion
+
+Windows.UI.Composition.Visual
+Windows.UI.Composition.IVisual::{put_Offset, get_Offset, put_Size, get_Size, put_Opacity, get_Opacity, put_IsVisible, get_IsVisible, put_AnchorPoint, put_CenterPoint, put_Scale, get_Scale, put_BorderMode, get_Parent}
+Windows.UI.Composition.IVisual2::{put_RelativeSizeAdjustment, put_RelativeOffsetAdjustment, put_ParentForTransform}
+Windows.UI.Composition.CompositionBorderMode
+
+Windows.UI.Composition.ContainerVisual
+Windows.UI.Composition.IContainerVisual::{get_Children}
+
+Windows.UI.Composition.VisualCollection
+Windows.UI.Composition.IVisualCollection::{get_Count, InsertAtTop, InsertAtBottom, Remove, RemoveAll}
+
+Windows.UI.Composition.SpriteVisual
+Windows.UI.Composition.ISpriteVisual::{put_Brush}
+
+Windows.UI.Composition.CompositionBrush
+Windows.UI.Composition.CompositionColorBrush
+Windows.UI.Composition.ICompositionColorBrush::{put_Color, get_Color}
+
+// Nine-grid brush: a stretchable border used for the tile-selection highlight.
+Windows.UI.Composition.CompositionNineGridBrush
+Windows.UI.Composition.ICompositionNineGridBrush::{SetInsetsWithValues, put_IsCenterHollow, put_Source}
+
+// Shapes: composition-drawn geometry used to render the neighbor-count dots.
+Windows.UI.Composition.ShapeVisual
+Windows.UI.Composition.IShapeVisual::{get_Shapes}
+Windows.UI.Composition.CompositionShape
+Windows.UI.Composition.CompositionShapeCollection
+Windows.UI.Composition.ICompositionShape::{put_Offset}
+Windows.UI.Composition.CompositionSpriteShape
+Windows.UI.Composition.ICompositionSpriteShape::{put_FillBrush}
+Windows.UI.Composition.CompositionContainerShape
+Windows.UI.Composition.ICompositionContainerShape::{get_Shapes}
+Windows.UI.Composition.CompositionGeometry
+Windows.UI.Composition.CompositionEllipseGeometry
+Windows.UI.Composition.ICompositionEllipseGeometry::{put_Radius}
+
+// Animations: key-frame animations drive both the reactor transition engine
+// (implicit + explicit property animations, with easing and expression key
+// frames) and the composition "reveal" scale bounce.
+Windows.UI.Composition.CompositionAnimation
+Windows.UI.Composition.ICompositionAnimation2::{put_Target}
+Windows.UI.Composition.ICompositionAnimationBase
+Windows.UI.Composition.KeyFrameAnimation
+Windows.UI.Composition.IKeyFrameAnimation::{put_Duration, put_DelayTime, put_IterationBehavior, put_IterationCount, InsertExpressionKeyFrameWithEasingFunction}
+Windows.UI.Composition.ScalarKeyFrameAnimation
+Windows.UI.Composition.IScalarKeyFrameAnimation::{InsertKeyFrameWithEasingFunction}
+Windows.UI.Composition.Vector3KeyFrameAnimation
+Windows.UI.Composition.IVector3KeyFrameAnimation::{InsertKeyFrame, InsertKeyFrameWithEasingFunction}
+Windows.UI.Composition.AnimationIterationBehavior
+
+// Easing functions shape a key frame's interpolation curve.
+Windows.UI.Composition.CompositionEasingFunction
+Windows.UI.Composition.LinearEasingFunction
+Windows.UI.Composition.CubicBezierEasingFunction
+
+// Implicit animations: a target-name → animation map applied to a visual so
+// property changes animate automatically. The `IMap` projection it exposes is
+// referenced from windows-collections rather than re-generated here.
+Windows.UI.Composition.ImplicitAnimationCollection
+
+// Scoped batch: groups the mine animations so completion could be observed.
+Windows.UI.Composition.CompositionScopedBatch
+Windows.UI.Composition.ICompositionScopedBatch::{End}
+Windows.UI.Composition.CompositionBatchTypes
+
+// region: system-only
+// Standalone HWND hosting: the desktop target and its root visual. Lifted
+// composition has no standalone HWND target; a reactor app attaches its root
+// visual to a host element via ElementCompositionPreview instead.
+Windows.UI.Composition.CompositionTarget
+Windows.UI.Composition.ICompositionTarget::{put_Root, get_Root}
+Windows.UI.Composition.Desktop.DesktopWindowTarget
+Windows.Win32.ICompositorDesktopInterop::{CreateDesktopWindowTarget}
+// endregion
+
+// region: system-only
+// Canvas bridge: draw Direct2D content into a composition surface, then paint a
+// visual with it via a surface brush. The graphics-device and drawing-surface
+// interop (ICompositorInterop / ICompositionDrawingSurfaceInterop) exists only on
+// the system stack — lifted Microsoft.UI.Composition has no D2D-surface interop
+// metadata — so the whole bridge is system-only.
+Windows.UI.Composition.ICompositor::{CreateSurfaceBrushWithSurface}
+Windows.UI.Composition.CompositionSurfaceBrush
+Windows.UI.Composition.CompositionGraphicsDevice
+Windows.UI.Composition.ICompositionGraphicsDevice::{CreateDrawingSurface}
+Windows.UI.Composition.CompositionDrawingSurface
+Windows.UI.Composition.ICompositionSurface
+Windows.Graphics.DirectX.DirectXPixelFormat
+Windows.Graphics.DirectX.DirectXAlphaMode
+Windows.Win32.ICompositorInterop::{CreateGraphicsDevice}
+Windows.Win32.ICompositionDrawingSurfaceInterop::{BeginDraw, EndDraw, Resize}
+// endregion
+
+Windows.UI.Color

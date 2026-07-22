@@ -11,19 +11,48 @@ mod Windows {
         }
         type OPENTYPE_TAG = u32;
         struct SCRIPT_ANALYSIS {
-            _bitfield: u16,
+            _bitfield: u16 {
+                eScript: 10,
+                fRTL: 1,
+                fLayoutRTL: 1,
+                fLinkBefore: 1,
+                fLinkAfter: 1,
+                fLogicalOrder: 1,
+                fNoGlyphIndex: 1,
+            },
             s: SCRIPT_STATE,
         }
         type SCRIPT_CACHE = *mut void;
         struct SCRIPT_CHARPROP {
-            _bitfield: u16,
+            _bitfield: u16 {
+                fCanGlyphAlone: 1,
+                reserved: 15,
+            },
         }
         struct SCRIPT_CONTROL {
-            _bitfield: u32,
+            _bitfield: u32 {
+                uDefaultLanguage: 16,
+                fContextDigits: 1,
+                fInvertPreBoundDir: 1,
+                fInvertPostBoundDir: 1,
+                fLinkStringBefore: 1,
+                fLinkStringAfter: 1,
+                fNeutralOverride: 1,
+                fNumericOverride: 1,
+                fLegacyBidiClass: 1,
+                fMergeNeutralItems: 1,
+                fUseStandardBidi: 1,
+                fReserved: 6,
+            },
         }
         struct SCRIPT_DIGITSUBSTITUTE {
-            _bitfield1: u32,
-            _bitfield2: u32,
+            _bitfield1: u32 {
+                NationalDigitLanguage: 16,
+                TraditionalDigitLanguage: 16,
+            },
+            _bitfield2: u32 {
+                DigitSubstitute: 8,
+            },
             dwReserved: u32,
         }
         const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0;
@@ -66,14 +95,50 @@ mod Windows {
             SCRIPT_JUSTIFY_ARABIC_SEEN_M = 15,
         }
         struct SCRIPT_LOGATTR {
-            _bitfield: u8,
+            _bitfield: u8 {
+                fSoftBreak: 1,
+                fWhiteSpace: 1,
+                fCharStop: 1,
+                fWordStop: 1,
+                fInvalid: 1,
+                fReserved: 3,
+            },
         }
         struct SCRIPT_PROPERTIES {
-            _bitfield1: u32,
-            _bitfield2: u32,
+            _bitfield1: u32 {
+                langid: 16,
+                fNumeric: 1,
+                fComplex: 1,
+                fNeedsWordBreaking: 1,
+                fNeedsCaretInfo: 1,
+                bCharSet: 8,
+                fControl: 1,
+                fPrivateUseArea: 1,
+                fNeedsCharacterJustify: 1,
+                fInvalidGlyph: 1,
+            },
+            _bitfield2: u32 {
+                fInvalidLogAttr: 1,
+                fCDM: 1,
+                fAmbiguousCharSet: 1,
+                fClusterSizeVaries: 1,
+                fRejectInvalid: 1,
+            },
         }
         struct SCRIPT_STATE {
-            _bitfield: u16,
+            _bitfield: u16 {
+                uBidiLevel: 5,
+                fOverrideDirection: 1,
+                fInhibitSymSwap: 1,
+                fCharShape: 1,
+                fDigitSubstitute: 1,
+                fInhibitLigate: 1,
+                fDisplayZWG: 1,
+                fArabicNumContext: 1,
+                fGcpClusters: 1,
+                fReserved: 1,
+                fEngineReserved: 2,
+            },
         }
         type SCRIPT_STRING_ANALYSIS = *mut void;
         struct SCRIPT_TABDEF {
@@ -85,7 +150,14 @@ mod Windows {
         const SCRIPT_TAG_UNKNOWN: u32 = 0;
         const SCRIPT_UNDEFINED: u32 = 0;
         struct SCRIPT_VISATTR {
-            _bitfield: u16,
+            _bitfield: u16 {
+                uJustification: 4,
+                fClusterStart: 1,
+                fDiacritic: 1,
+                fZeroWidth: 1,
+                fReserved: 1,
+                fShapeReserved: 8,
+            },
         }
         const SGCM_RTL: u32 = 1;
         const SIC_ASCIIDIGIT: u32 = 2;

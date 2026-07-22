@@ -407,7 +407,9 @@ mod Windows {
             LoggerNameOffset: u32,
             Anonymous2: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        VersionNumber: 8,
+                    },
                 },
                 V2Control: u32,
             },
@@ -415,7 +417,12 @@ mod Windows {
             FilterDesc: PEVENT_FILTER_DESCRIPTOR,
             Anonymous3: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Wow: 1,
+                        QpcDeltaTracking: 1,
+                        LargeMdlPages: 1,
+                        ExcludeKernelStack: 1,
+                    },
                 },
                 V2Options: u64,
             },

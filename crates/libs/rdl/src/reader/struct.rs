@@ -157,6 +157,23 @@ impl Encoder<'_> {
                 &field.attrs,
                 &[],
             )?;
+
+            // A backing bit-field unit written in the C-like block form materializes one
+            // `NativeBitfieldAttribute` per named member; the offset is the cumulative
+            // width of the preceding members (anonymous padding advances it but emits no
+            // attribute).
+            let mut bit_offset = 0u32;
+            for member in &field.bitfields {
+                if let Some(name) = &member.name {
+                    self.emit_bitfield_attribute(
+                        metadata::writer::HasAttribute::Field(field_id),
+                        &name.unraw_to_string(),
+                        bit_offset,
+                        member.width,
+                    );
+                }
+                bit_offset += member.width;
+            }
         }
 
         // Encode the deferred nested children (depth-first) now that the parent's

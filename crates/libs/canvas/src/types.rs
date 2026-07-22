@@ -1,5 +1,31 @@
 use super::*;
 
+/// How the alpha channel of a bitmap's pixels is interpreted.
+///
+/// These are the alpha modes windows-canvas exposes for its 32-bit BGRA
+/// bitmaps. `Premultiplied` is the mode produced by most GPU drawing and the
+/// natural choice for composited content; `Ignore` treats the bitmap as opaque.
+/// (Direct2D also defines a straight/unpremultiplied mode, but it is not
+/// supported for the `B8G8R8A8_UNORM` format used here.)
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
+pub enum AlphaMode {
+    /// Color components are premultiplied by the alpha value. This is the most
+    /// common mode for GPU compositing and the one produced by most drawing.
+    #[default]
+    Premultiplied,
+    /// The alpha channel is ignored and the bitmap is treated as opaque.
+    Ignore,
+}
+
+impl AlphaMode {
+    pub(crate) fn to_abi(self) -> D2D1_ALPHA_MODE {
+        match self {
+            Self::Premultiplied => D2D1_ALPHA_MODE_PREMULTIPLIED,
+            Self::Ignore => D2D1_ALPHA_MODE_IGNORE,
+        }
+    }
+}
+
 /// A rectangle defined by its edges.
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct Rect {

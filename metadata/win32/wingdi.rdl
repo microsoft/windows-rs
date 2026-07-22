@@ -620,7 +620,13 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        advancedColorSupported: 1,
+                        advancedColorEnabled: 1,
+                        wideColorEnforced: 1,
+                        advancedColorForceDisabled: 1,
+                        reserved: 28,
+                    },
                 },
                 value: u32,
             },
@@ -631,7 +637,17 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        advancedColorSupported: 1,
+                        advancedColorActive: 1,
+                        reserved1: 1,
+                        advancedColorLimitedByPolicy: 1,
+                        highDynamicRangeSupported: 1,
+                        highDynamicRangeUserEnabled: 1,
+                        wideColorSupported: 1,
+                        wideColorUserEnabled: 1,
+                        reserved: 24,
+                    },
                 },
                 value: u32,
             },
@@ -643,7 +659,12 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        isSpecializationEnabled: 1,
+                        isSpecializationAvailableForMonitor: 1,
+                        isSpecializationAvailableForSystem: 1,
+                        reserved: 29,
+                    },
                 },
                 value: u32,
             },
@@ -683,7 +704,10 @@ mod Windows {
             Anonymous: union {
                 modeInfoIdx: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        cloneGroupId: 16,
+                        sourceModeInfoIdx: 16,
+                    },
                 },
             },
             statusFlags: u32,
@@ -696,7 +720,10 @@ mod Windows {
             Anonymous: union {
                 modeInfoIdx: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        desktopModeInfoIdx: 16,
+                        targetModeInfoIdx: 16,
+                    },
                 },
             },
             outputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
@@ -757,7 +784,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        enableAdvancedColor: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -766,7 +796,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        enableHdr: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -775,7 +808,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        isSpecializationEnabled: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -787,7 +823,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        bootPersistenceOn: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -796,7 +835,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        enableWcg: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -816,7 +858,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        disableMonitorVirtualResolution: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -838,7 +883,12 @@ mod Windows {
         struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        friendlyNameFromEdid: 1,
+                        friendlyNameForced: 1,
+                        edidIdsValid: 1,
+                        reserved: 29,
+                    },
                 },
                 value: u32,
             },
@@ -898,7 +948,11 @@ mod Windows {
             totalSize: DISPLAYCONFIG_2DREGION,
             Anonymous: union {
                 AdditionalSignalInfo: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        videoStandard: 16,
+                        vSyncFreqDivider: 6,
+                        reserved: 10,
+                    },
                 },
                 videoStandard: u32,
             },

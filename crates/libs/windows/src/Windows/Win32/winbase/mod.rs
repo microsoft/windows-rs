@@ -3729,6 +3729,56 @@ pub struct COMSTAT {
     pub cbInQue: u32,
     pub cbOutQue: u32,
 }
+impl COMSTAT {
+    pub fn fCtsHold(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_fCtsHold(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn fDsrHold(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_fDsrHold(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn fRlsdHold(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_fRlsdHold(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn fXoffHold(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_fXoffHold(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn fXoffSent(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_fXoffSent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn fEof(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_fEof(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn fTxim(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_fTxim(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn fReserved(&self) -> u32 {
+        self._bitfield >> 7
+    }
+    pub fn set_fReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
+    }
+}
 pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = 2;
 pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = 1;
 pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = 6;
@@ -3979,6 +4029,92 @@ pub struct DCB {
     pub EofChar: i8,
     pub EvtChar: i8,
     pub wReserved1: u16,
+}
+impl DCB {
+    pub fn fBinary(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_fBinary(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn fParity(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_fParity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn fOutxCtsFlow(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_fOutxCtsFlow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn fOutxDsrFlow(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_fOutxDsrFlow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn fDtrControl(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_fDtrControl(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn fDsrSensitivity(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_fDsrSensitivity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn fTXContinueOnXoff(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_fTXContinueOnXoff(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn fOutX(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_fOutX(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn fInX(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_fInX(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn fErrorChar(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_fErrorChar(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn fNull(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_fNull(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn fRtsControl(&self) -> u32 {
+        (self._bitfield << 18) >> 30
+    }
+    pub fn set_fRtsControl(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 12)) | ((value & 3) << 12);
+    }
+    pub fn fAbortOnError(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_fAbortOnError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn fDummy2(&self) -> u32 {
+        self._bitfield >> 15
+    }
+    pub fn set_fDummy2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(131071 << 15)) | ((value & 131071) << 15);
+    }
 }
 pub const DDD_EXACT_MATCH_ON_REMOVE: u32 = 4;
 pub const DDD_LUID_BROADCAST_DRIVE: u32 = 16;
@@ -4951,6 +5087,20 @@ impl Default for PROCESS_CREATION_SME_VECTOR_LENGTH_0 {
 pub struct PROCESS_CREATION_SME_VECTOR_LENGTH_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_CREATION_SME_VECTOR_LENGTH_0_0 {
+    pub fn VectorLength(&self) -> u32 {
+        (self._bitfield << 8) >> 8
+    }
+    pub fn set_VectorLength(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !16777215) | (value & 16777215);
+    }
+    pub fn FlagsReserved(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_FlagsReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_CREATION_SVE_VECTOR_LENGTH {
@@ -4966,6 +5116,20 @@ impl Default for PROCESS_CREATION_SVE_VECTOR_LENGTH {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_CREATION_SVE_VECTOR_LENGTH_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_CREATION_SVE_VECTOR_LENGTH_0 {
+    pub fn VectorLength(&self) -> u32 {
+        (self._bitfield << 8) >> 8
+    }
+    pub fn set_VectorLength(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !16777215) | (value & 16777215);
+    }
+    pub fn FlagsReserved(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_FlagsReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
 }
 pub const PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: u32 = 2;
 pub const PROCESS_DEP_ENABLE: u32 = 1;
@@ -5306,6 +5470,20 @@ impl Default for UMS_SYSTEM_THREAD_INFORMATION_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     pub _bitfield: u32,
+}
+impl UMS_SYSTEM_THREAD_INFORMATION_0_0 {
+    pub fn IsUmsSchedulerThread(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsUmsSchedulerThread(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn IsUmsWorkerThread(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_IsUmsWorkerThread(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
 }
 #[cfg(feature = "winnt")]
 #[repr(transparent)]

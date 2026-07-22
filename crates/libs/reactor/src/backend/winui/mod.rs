@@ -618,25 +618,18 @@ fn style_target_for_handle(handle: &Handle) -> Option<(&'static str, bindings::I
     }
 }
 
-// Composition animation helpers. Both `set_implicit_transitions` and
-// `run_property_animation` reach the element's Visual via
-// `ElementCompositionPreview::GetElementVisual`.
-
-fn anim_duration_to_timespan(d: std::time::Duration) -> TimeSpan {
-    TimeSpan::try_from(d).unwrap_or(TimeSpan::MAX)
-}
+// Composition animation helpers. Both `apply_implicit_transitions` and
+// `run_property_animation_inner` reach the element's backing composition
+// `Visual` via `ElementCompositionPreview::GetElementVisual` and drive it
+// through windows-composition's safe wrappers.
 
 fn easing_for(
-    compositor: &bindings::ICompositor,
+    compositor: &windows_composition::Compositor,
     easing: Easing,
-) -> Result<bindings::CompositionEasingFunction> {
-    use Easing;
+) -> windows_composition::CompositionEasingFunction {
     // Control points match the CSS-standard ease-{out,in,in-out} curves.
     let (p1, p2) = match easing {
-        Easing::Linear => {
-            let lin = compositor.CreateLinearEasingFunction()?;
-            return lin.cast::<bindings::CompositionEasingFunction>();
-        }
+        Easing::Linear => return compositor.create_linear_easing_function(),
         Easing::EaseOut => (
             windows_numerics::Vector2 { x: 0.0, y: 0.0 },
             windows_numerics::Vector2 { x: 0.58, y: 1.0 },
@@ -650,108 +643,90 @@ fn easing_for(
             windows_numerics::Vector2 { x: 0.58, y: 1.0 },
         ),
     };
-    let cubic = compositor.CreateCubicBezierEasingFunction(p1, p2)?;
-    cubic.cast::<bindings::CompositionEasingFunction>()
+    compositor.create_cubic_bezier_easing_function(p1, p2)
+}
+
+/// Wraps an element's backing composition visual for the animation engine.
+fn element_visual(ui: &bindings::UIElement) -> Result<windows_composition::Visual> {
+    let raw = bindings::ElementCompositionPreview::GetElementVisual(ui)?;
+    windows_composition::Visual::from_host(raw.into())
 }
 
 fn apply_implicit_transitions(
     ui: &bindings::UIElement,
     transitions: Option<ImplicitTransitions>,
 ) -> Result<()> {
-    use Easing;
-    let visual = bindings::ElementCompositionPreview::GetElementVisual(ui)?;
-    let obj2 = visual.cast::<bindings::ICompositionObject2>()?;
+    let visual = element_visual(ui)?;
     // No transitions, or every slot empty: clear the implicit-animation collection.
     let Some(t) = transitions.filter(|t| !t.is_empty()) else {
-        obj2.SetImplicitAnimations(None)?;
+        visual.set_implicit_animations(None);
         return Ok(());
     };
-    let compositor = visual
-        .cast::<bindings::ICompositionObject>()?
-        .Compositor()?;
-    let icomp = compositor.cast::<bindings::ICompositor>()?;
-    let icomp2 = compositor.cast::<bindings::ICompositor2>()?;
-    let collection = icomp2.CreateImplicitAnimationCollection()?;
-    let map = collection
-        .cast::<windows_collections::IMap<windows_core::HSTRING, bindings::ICompositionAnimationBase>>(
-        )?;
+    let compositor = visual.compositor();
+    let collection = compositor.create_implicit_animation_collection();
 
     // Animate from `this.StartingValue` to `this.FinalValue` over `duration`.
     // The DSL transition types only expose duration, so easing is fixed to
     // EaseOut — the standard XAML implicit-transition curve.
-    let insert = |target: &str, duration: std::time::Duration, is_scalar: bool| -> Result<()> {
-        let easing = easing_for(&icomp, Easing::EaseOut)?;
-        let target_hs = windows_core::HSTRING::from(target);
-        let final_expr = "this.FinalValue";
-        let anim_base: bindings::ICompositionAnimationBase = if is_scalar {
-            let a = icomp.CreateScalarKeyFrameAnimation()?;
-            let kfa = a.cast::<bindings::IKeyFrameAnimation>()?;
-            kfa.SetDuration(anim_duration_to_timespan(duration))?;
-            kfa.InsertExpressionKeyFrameWithEasingFunction(1.0, final_expr, &easing)?;
-            let anim2 = a.cast::<bindings::ICompositionAnimation2>()?;
-            anim2.SetTarget(target)?;
-            a.cast::<bindings::ICompositionAnimationBase>()?
+    let insert = |target: &str, duration: std::time::Duration, is_scalar: bool| {
+        let easing = easing_for(&compositor, Easing::EaseOut);
+        if is_scalar {
+            let a = compositor.create_scalar_key_frame_animation();
+            a.set_duration(duration);
+            a.insert_expression_key_frame_with_easing(1.0, "this.FinalValue", &easing);
+            a.set_target(target);
+            collection.insert(target, &a);
         } else {
-            let a = icomp.CreateVector3KeyFrameAnimation()?;
-            let kfa = a.cast::<bindings::IKeyFrameAnimation>()?;
-            kfa.SetDuration(anim_duration_to_timespan(duration))?;
-            kfa.InsertExpressionKeyFrameWithEasingFunction(1.0, final_expr, &easing)?;
-            let anim2 = a.cast::<bindings::ICompositionAnimation2>()?;
-            anim2.SetTarget(target)?;
-            a.cast::<bindings::ICompositionAnimationBase>()?
-        };
-        map.Insert(&target_hs, &anim_base)?;
-        Ok(())
+            let a = compositor.create_vector3_key_frame_animation();
+            a.set_duration(duration);
+            a.insert_expression_key_frame_with_easing(1.0, "this.FinalValue", &easing);
+            a.set_target(target);
+            collection.insert(target, &a);
+        }
     };
 
     if let Some(s) = t.opacity {
-        insert("Opacity", s.duration, true)?;
+        insert("Opacity", s.duration, true);
     }
     if let Some(s) = t.rotation {
-        insert("RotationAngleInDegrees", s.duration, true)?;
+        insert("RotationAngleInDegrees", s.duration, true);
     }
     if let Some(v) = t.scale {
-        insert("Scale", v.duration, false)?;
+        insert("Scale", v.duration, false);
     }
     if let Some(v) = t.translation {
         // KNOWN LIMITATION: `Offset` collides with XAML layout; the
         // correct target is the synthetic `Translation` channel.
-        insert("Offset", v.duration, false)?;
+        insert("Offset", v.duration, false);
     }
-    obj2.SetImplicitAnimations(&collection)?;
+    visual.set_implicit_animations(Some(&collection));
     Ok(())
 }
 
 fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) -> Result<()> {
-    let visual = bindings::ElementCompositionPreview::GetElementVisual(ui)?;
-    let visual_obj = visual.cast::<bindings::ICompositionObject>()?;
-    let compositor = visual_obj.Compositor()?;
-    let icomp = compositor.cast::<bindings::ICompositor>()?;
+    let visual = element_visual(ui)?;
+    let compositor = visual.compositor();
 
     if let Some(opacity) = cfg.opacity {
-        let a = icomp.CreateScalarKeyFrameAnimation()?;
-        let ia = a.cast::<bindings::IScalarKeyFrameAnimation>()?;
-        a.cast::<bindings::IKeyFrameAnimation>()?
-            .SetDuration(anim_duration_to_timespan(cfg.duration))?;
-        let easing = easing_for(&icomp, cfg.easing)?;
-        ia.InsertKeyFrameWithEasingFunction(1.0, opacity as f32, &easing)?;
-        let anim = a.cast::<bindings::CompositionAnimation>()?;
-        visual_obj.StartAnimation("Opacity", &anim)?;
+        let a = compositor.create_scalar_key_frame_animation();
+        a.set_duration(cfg.duration);
+        let easing = easing_for(&compositor, cfg.easing);
+        a.insert_key_frame_with_easing(1.0, opacity as f32, &easing);
+        visual.start_animation("Opacity", &a);
     }
     if let Some(scale) = cfg.scale {
         // Pivot scale around the element's centre. KNOWN LIMITATION:
         // before the first layout pass ActualWidth/Height are 0 and the
         // previous CenterPoint is reused.
-        let iv = visual.cast::<bindings::IVisual>()?;
         if let Ok(fe) = ui.cast::<bindings::IFrameworkElement>() {
             let w = fe.ActualWidth().unwrap_or(0.0) as f32;
             let h = fe.ActualHeight().unwrap_or(0.0) as f32;
             if w > 0.0 && h > 0.0 {
-                diag::dropped(iv.SetCenterPoint(windows_numerics::Vector3 {
+                visual.set_center_point(windows_numerics::Vector3 {
                     x: w / 2.0,
                     y: h / 2.0,
                     z: 0.0,
-                }));
+                });
             } else {
                 diag::warn(format_args!(
                     "animation: skipping CenterPoint — element not yet laid out"
@@ -759,14 +734,12 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
             }
         }
         // Preserve current Scale.Z; cfg.scale is a uniform X/Y scalar.
-        let current_z = iv.Scale().map_or(1.0, |v| v.z);
-        let a = icomp.CreateVector3KeyFrameAnimation()?;
-        let ia = a.cast::<bindings::IVector3KeyFrameAnimation>()?;
-        a.cast::<bindings::IKeyFrameAnimation>()?
-            .SetDuration(anim_duration_to_timespan(cfg.duration))?;
-        let easing = easing_for(&icomp, cfg.easing)?;
+        let current_z = visual.scale().z;
+        let a = compositor.create_vector3_key_frame_animation();
+        a.set_duration(cfg.duration);
+        let easing = easing_for(&compositor, cfg.easing);
         let s = scale as f32;
-        ia.InsertKeyFrameWithEasingFunction(
+        a.insert_key_frame_with_easing(
             1.0,
             windows_numerics::Vector3 {
                 x: s,
@@ -774,9 +747,8 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
                 z: current_z,
             },
             &easing,
-        )?;
-        let anim = a.cast::<bindings::CompositionAnimation>()?;
-        visual_obj.StartAnimation("Scale", &anim)?;
+        );
+        visual.start_animation("Scale", &a);
     }
     Ok(())
 }
@@ -1024,6 +996,9 @@ fn set_padding(handle: &Handle, thickness: Thickness) -> Result<bool> {
         Handle::StackPanel(h) => h.SetPadding(thickness)?,
         Handle::TextBlock(h) => h.SetPadding(thickness)?,
         Handle::RichTextBlock(h) => h.SetPadding(thickness)?,
+        // `Grid` is a `Panel`, not a `Control`, so it has no `IControl::SetPadding`;
+        // its padding lives on the `IGrid` interface instead.
+        Handle::Grid(h) => h.cast::<bindings::IGrid>()?.SetPadding(thickness)?,
         _ => {
             if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
                 ctl.SetPadding(thickness)?;

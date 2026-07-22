@@ -472,10 +472,26 @@ mod Windows {
                 Flags: u32,
             },
             IPv4AH: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Md5: 2,
+                    Sha_1: 2,
+                    Transport: 2,
+                    Tunnel: 2,
+                    Send: 2,
+                    Receive: 2,
+                },
             },
             IPv4ESP: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Des: 2,
+                    Reserved: 2,
+                    TripleDes: 2,
+                    NullEsp: 2,
+                    Transport: 2,
+                    Tunnel: 2,
+                    Send: 2,
+                    Receive: 2,
+                },
             },
         }
         struct NDIS_IP_OPER_STATE {
@@ -979,7 +995,12 @@ mod Windows {
         struct NDIS_TCP_CONNECTION_OFFLOAD {
             Header: NDIS_OBJECT_HEADER,
             Encapsulation: u32,
-            _bitfield: u32,
+            _bitfield: u32 {
+                SupportIPv4: 2,
+                SupportIPv6: 2,
+                SupportIPv6ExtensionHeaders: 2,
+                SupportSack: 2,
+            },
             TcpConnectionOffloadCapacity: u32,
             Flags: u32,
         }
@@ -987,19 +1008,41 @@ mod Windows {
         struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
             IPv4Transmit: struct {
                 Encapsulation: u32,
-                _bitfield: u32,
+                _bitfield: u32 {
+                    IpOptionsSupported: 2,
+                    TcpOptionsSupported: 2,
+                    TcpChecksum: 2,
+                    UdpChecksum: 2,
+                    IpChecksum: 2,
+                },
             },
             IPv4Receive: struct {
                 Encapsulation: u32,
-                _bitfield: u32,
+                _bitfield: u32 {
+                    IpOptionsSupported: 2,
+                    TcpOptionsSupported: 2,
+                    TcpChecksum: 2,
+                    UdpChecksum: 2,
+                    IpChecksum: 2,
+                },
             },
             IPv6Transmit: struct {
                 Encapsulation: u32,
-                _bitfield: u32,
+                _bitfield: u32 {
+                    IpExtensionHeadersSupported: 2,
+                    TcpOptionsSupported: 2,
+                    TcpChecksum: 2,
+                    UdpChecksum: 2,
+                },
             },
             IPv6Receive: struct {
                 Encapsulation: u32,
-                _bitfield: u32,
+                _bitfield: u32 {
+                    IpExtensionHeadersSupported: 2,
+                    TcpOptionsSupported: 2,
+                    TcpChecksum: 2,
+                    UdpChecksum: 2,
+                },
             },
         }
         struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
@@ -1007,7 +1050,10 @@ mod Windows {
                 Encapsulation: u32,
                 MaxOffLoadSize: u32,
                 MinSegmentCount: u32,
-                _bitfield: u32,
+                _bitfield: u32 {
+                    TcpOptions: 2,
+                    IpOptions: 2,
+                },
             },
         }
         struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
@@ -1020,7 +1066,10 @@ mod Windows {
                 Encapsulation: u32,
                 MaxOffLoadSize: u32,
                 MinSegmentCount: u32,
-                _bitfield: u32,
+                _bitfield: u32 {
+                    IpExtensionHeadersSupported: 2,
+                    TcpOptionsSupported: 2,
+                },
             },
         }
         struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {

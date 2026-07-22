@@ -13,8 +13,7 @@ fn main() -> Result<()> {
 
     let device = GpuDevice::new()?;
     let (width, height) = window.client_size();
-    let mut chain =
-        unsafe { device.create_swap_chain_for_hwnd(window.hwnd(), width as u32, height as u32)? };
+    let mut chain = device.create_swap_chain_for_window(&window, width as u32, height as u32)?;
 
     run_with(|| {
         let width = chain.width() as f32;

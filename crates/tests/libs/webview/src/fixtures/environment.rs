@@ -26,7 +26,7 @@ pub fn with_options_creates_environment(harness: &Harness) {
         return;
     };
 
-    let Ok(controller) = (unsafe { environment.create_controller(window.hwnd()) }) else {
+    let Ok(controller) = environment.create_controller(&window) else {
         harness.check("Environment_Controller", false);
         return;
     };

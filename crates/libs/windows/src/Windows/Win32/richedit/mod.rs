@@ -1285,6 +1285,45 @@ pub struct TABLECELLPARMS {
     pub crBackPat: super::COLORREF,
     pub crForePat: super::COLORREF,
 }
+#[cfg(feature = "windef")]
+impl TABLECELLPARMS {
+    pub fn nVertAlign(&self) -> u16 {
+        (self._bitfield << 14) >> 14
+    }
+    pub fn set_nVertAlign(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn fMergeTop(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_fMergeTop(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn fMergePrev(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_fMergePrev(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn fVertical(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_fVertical(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn fMergeStart(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_fMergeStart(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn fMergeCont(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_fMergeCont(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABLEROWPARMS {
@@ -1299,6 +1338,44 @@ pub struct TABLEROWPARMS {
     pub cpStartRow: i32,
     pub bTableLevel: u8,
     pub iCell: u8,
+}
+impl TABLEROWPARMS {
+    pub fn nAlignment(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_nAlignment(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn fRTL(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_fRTL(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn fKeep(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_fKeep(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn fKeepFollow(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_fKeepFollow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn fWrap(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_fWrap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn fIdentCells(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_fIdentCells(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
 }
 pub type TEXTMODE = i32;
 #[repr(C)]

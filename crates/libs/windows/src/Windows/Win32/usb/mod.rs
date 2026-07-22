@@ -240,6 +240,56 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub ClientDataBufferLAOut: PHYSICAL_ADDRESS,
     pub ClientDataBufferVAOut: *mut core::ffi::c_void,
 }
+impl USBD_ENDPOINT_OFFLOAD_INFORMATION {
+    pub fn RootHubPortNumber(&self) -> u32 {
+        (self._bitfield1 << 24) >> 24
+    }
+    pub fn set_RootHubPortNumber(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !255) | (value & 255);
+    }
+    pub fn RouteString(&self) -> u32 {
+        (self._bitfield1 << 4) >> 12
+    }
+    pub fn set_RouteString(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !(1048575 << 8)) | ((value & 1048575) << 8);
+    }
+    pub fn Speed(&self) -> u32 {
+        self._bitfield1 >> 28
+    }
+    pub fn set_Speed(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !(15 << 28)) | ((value & 15) << 28);
+    }
+    pub fn UsbDeviceAddress(&self) -> u32 {
+        (self._bitfield2 << 24) >> 24
+    }
+    pub fn set_UsbDeviceAddress(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !255) | (value & 255);
+    }
+    pub fn SlotId(&self) -> u32 {
+        (self._bitfield2 << 16) >> 24
+    }
+    pub fn set_SlotId(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn MultiTT(&self) -> bool {
+        (self._bitfield2 >> 16) & 1 != 0
+    }
+    pub fn set_MultiTT(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn LSOrFSDeviceConnectedToTTHub(&self) -> bool {
+        (self._bitfield2 >> 17) & 1 != 0
+    }
+    pub fn set_LSOrFSDeviceConnectedToTTHub(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield2 >> 18
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !(16383 << 18)) | ((value & 16383) << 18);
+    }
+}
 impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -263,6 +313,56 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     pub EventRingSegmentVA: *mut core::ffi::c_void,
     pub EventRingSize: usize,
     pub EventRingInitialCycleBit: u32,
+}
+impl USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
+    pub fn RootHubPortNumber(&self) -> u32 {
+        (self._bitfield1 << 24) >> 24
+    }
+    pub fn set_RootHubPortNumber(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !255) | (value & 255);
+    }
+    pub fn RouteString(&self) -> u32 {
+        (self._bitfield1 << 4) >> 12
+    }
+    pub fn set_RouteString(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !(1048575 << 8)) | ((value & 1048575) << 8);
+    }
+    pub fn Speed(&self) -> u32 {
+        self._bitfield1 >> 28
+    }
+    pub fn set_Speed(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !(15 << 28)) | ((value & 15) << 28);
+    }
+    pub fn UsbDeviceAddress(&self) -> u32 {
+        (self._bitfield2 << 24) >> 24
+    }
+    pub fn set_UsbDeviceAddress(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !255) | (value & 255);
+    }
+    pub fn SlotId(&self) -> u32 {
+        (self._bitfield2 << 16) >> 24
+    }
+    pub fn set_SlotId(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn MultiTT(&self) -> bool {
+        (self._bitfield2 >> 16) & 1 != 0
+    }
+    pub fn set_MultiTT(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn LSOrFSDeviceConnectedToTTHub(&self) -> bool {
+        (self._bitfield2 >> 17) & 1 != 0
+    }
+    pub fn set_LSOrFSDeviceConnectedToTTHub(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield2 >> 18
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !(16383 << 18)) | ((value & 16383) << 18);
+    }
 }
 impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     fn default() -> Self {
@@ -734,6 +834,21 @@ pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub MS_PageIndex: u8,
     pub MS_FeatureDescriptorIndex: u16,
     pub Reserved3: u16,
+}
+#[cfg(feature = "usbspec")]
+impl _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
+    pub fn Recipient(&self) -> u8 {
+        (self._bitfield << 3) >> 3
+    }
+    pub fn set_Recipient(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
 }
 #[cfg(feature = "usbspec")]
 impl Default for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {

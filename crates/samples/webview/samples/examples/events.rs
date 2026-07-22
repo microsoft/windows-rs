@@ -36,11 +36,11 @@ fn main() -> Result<()> {
             })?,
             webview.on_new_window_requested(|args| {
                 println!("blocking new window for: {}", args.uri());
-                _ = args.set_handled(true);
+                args.set_handled(true).unwrap();
             })?,
             webview.on_permission_requested(|args| {
                 println!("denying {:?} permission for {}", args.kind(), args.uri());
-                _ = args.set_state(PermissionState::Deny);
+                args.set_state(PermissionState::Deny).unwrap();
             })?,
             webview.on_window_close_requested(|| {
                 println!("page requested window close");

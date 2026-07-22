@@ -547,10 +547,98 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
 pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
     pub _bitfield: u32,
 }
+impl NDIS_IPSEC_OFFLOAD_V1_1 {
+    pub fn Md5(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_Md5(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Sha_1(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_Sha_1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn Transport(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_Transport(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn Tunnel(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_Tunnel(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+    pub fn Send(&self) -> u32 {
+        (self._bitfield << 22) >> 30
+    }
+    pub fn set_Send(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
+    }
+    pub fn Receive(&self) -> u32 {
+        (self._bitfield << 20) >> 30
+    }
+    pub fn set_Receive(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 10)) | ((value & 3) << 10);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub _bitfield: u32,
+}
+impl NDIS_IPSEC_OFFLOAD_V1_2 {
+    pub fn Des(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_Des(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn TripleDes(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_TripleDes(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn NullEsp(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_NullEsp(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+    pub fn Transport(&self) -> u32 {
+        (self._bitfield << 22) >> 30
+    }
+    pub fn set_Transport(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
+    }
+    pub fn Tunnel(&self) -> u32 {
+        (self._bitfield << 20) >> 30
+    }
+    pub fn set_Tunnel(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 10)) | ((value & 3) << 10);
+    }
+    pub fn Send(&self) -> u32 {
+        (self._bitfield << 18) >> 30
+    }
+    pub fn set_Send(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 12)) | ((value & 3) << 12);
+    }
+    pub fn Receive(&self) -> u32 {
+        (self._bitfield << 16) >> 30
+    }
+    pub fn set_Receive(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "objectheader"))]
@@ -1089,6 +1177,33 @@ pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
+#[cfg(feature = "objectheader")]
+impl NDIS_TCP_CONNECTION_OFFLOAD {
+    pub fn SupportIPv4(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_SupportIPv4(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn SupportIPv6(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_SupportIPv6(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn SupportIPv6ExtensionHeaders(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_SupportIPv6ExtensionHeaders(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn SupportSack(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_SupportSack(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 pub const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1104,11 +1219,75 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
+impl NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    pub fn IpOptionsSupported(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_IpOptionsSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn TcpOptionsSupported(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn TcpChecksum(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_TcpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn UdpChecksum(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_UdpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+    pub fn IpChecksum(&self) -> u32 {
+        (self._bitfield << 22) >> 30
+    }
+    pub fn set_IpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
+}
+impl NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    pub fn IpOptionsSupported(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_IpOptionsSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn TcpOptionsSupported(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn TcpChecksum(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_TcpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn UdpChecksum(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_UdpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+    pub fn IpChecksum(&self) -> u32 {
+        (self._bitfield << 22) >> 30
+    }
+    pub fn set_IpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1116,11 +1295,63 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
+impl NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub fn IpExtensionHeadersSupported(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_IpExtensionHeadersSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn TcpOptionsSupported(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn TcpChecksum(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_TcpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn UdpChecksum(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_UdpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
+}
+impl NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    pub fn IpExtensionHeadersSupported(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_IpExtensionHeadersSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn TcpOptionsSupported(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn TcpChecksum(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_TcpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn UdpChecksum(&self) -> u32 {
+        (self._bitfield << 24) >> 30
+    }
+    pub fn set_UdpChecksum(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1134,6 +1365,20 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
+}
+impl NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    pub fn TcpOptions(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_TcpOptions(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn IpOptions(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_IpOptions(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1155,6 +1400,20 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
+}
+impl NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    pub fn IpExtensionHeadersSupported(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_IpExtensionHeadersSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn TcpOptionsSupported(&self) -> u32 {
+        (self._bitfield << 28) >> 30
+    }
+    pub fn set_TcpOptionsSupported(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]

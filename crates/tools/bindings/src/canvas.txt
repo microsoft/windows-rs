@@ -3,9 +3,12 @@
 
 --filter
     D2DERR_RECREATE_TARGET
+    E_INVALIDARG
+    E_FAIL
     GENERIC_READ
     CLSID_D2D1Shadow
     D2D1_ALPHA_MODE_PREMULTIPLIED
+    D2D1_ALPHA_MODE_IGNORE
     D2D1_BEZIER_SEGMENT
     D2D1_FIGURE_BEGIN_FILLED
     D2D1_FIGURE_BEGIN_HOLLOW
@@ -14,6 +17,7 @@
     D2D1_GRADIENT_STOP
     ID2D1SimplifiedGeometrySink::{BeginFigure, EndFigure, Close}
     D2D1_BITMAP_OPTIONS_CANNOT_DRAW
+    D2D1_BITMAP_OPTIONS_CPU_READ
     D2D1_BITMAP_OPTIONS_TARGET
     D2D1_BITMAP_PROPERTIES1
     D2D1_CAP_STYLE_FLAT
@@ -35,10 +39,13 @@
     D2D1_LINE_JOIN_MITER
     D2D1_LINE_JOIN_ROUND
     D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES
+    D2D1_MAP_OPTIONS_READ
+    D2D1_MAPPED_RECT
     D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES
     D2D1_ROUNDED_RECT
     D2D1CreateFactory
-    ID2D1Bitmap::GetSize
+    ID2D1Bitmap::{GetSize, CopyFromBitmap}
+    ID2D1Bitmap1::{Map, Unmap}
     ID2D1Device::CreateDeviceContext
     ID2D1DeviceContext::{CreateBitmap, CreateBitmapFromDxgiSurface, CreateBitmapFromWicBitmap, CreateEffect, SetTarget, GetTarget, DrawBitmap, DrawImage}
     ID2D1Effect::{SetInput, GetOutput}

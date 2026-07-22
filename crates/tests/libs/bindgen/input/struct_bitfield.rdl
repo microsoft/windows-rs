@@ -1,0 +1,35 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Flags {
+        _bitfield: u8 {
+            HardwareInterface: 1,
+            FilterInterface: 1,
+            ConnectorPresent: 1,
+            Kind: 3,
+        },
+    }
+    struct Wide {
+        _bitfield: u32 {
+            Low: 4,
+            Mid: 20,
+            High: 8,
+        },
+    }
+    struct Signed {
+        _bitfield: i32 {
+            Delta: 4,
+            Flag: 1,
+        },
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute NativeBitfieldAttribute {
+                fn(name: String, offset: i64, length: i64);
+            }
+        }
+    }
+}

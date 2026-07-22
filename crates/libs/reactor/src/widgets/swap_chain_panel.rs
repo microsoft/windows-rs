@@ -1,14 +1,22 @@
 use super::*;
-use std::cell::RefCell;
 use std::rc::Rc;
 
-/// Opaque handle to the native `SwapChainPanel` control, passed to the
 /// Opaque handle to the native `SwapChainPanel` control, passed to the
 /// [`on_mounted`](SwapChainPanel::on_mounted) callback.
 #[derive(Clone)]
 pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
 impl SwapChainPanelHandle {
+    /// Wraps the native `SwapChainPanel` element for a control created outside
+    /// the [`swap_chain_panel()`] widget — for example, a [`CustomElement`] that
+    /// creates a `ControlKind::SwapChainPanel` and obtains its native object via
+    /// [`Backend::get_native_element`](crate::Backend::get_native_element). This
+    /// lets such a host attach a `windows-canvas` swap chain or a raw DXGI swap
+    /// chain to the panel.
+    pub fn from_native(native: windows_core::IInspectable) -> Self {
+        Self(native)
+    }
+
     /// Attach a DXGI swap chain (created with `CreateSwapChainForComposition`).
     ///
     /// # Safety contract
@@ -17,6 +25,15 @@ impl SwapChainPanelHandle {
     pub fn set_swap_chain(&self, swap_chain: &impl Interface) -> Result<()> {
         let native: bindings::ISwapChainPanelNative = self.0.cast()?;
         unsafe { native.SetSwapChain(swap_chain.as_raw()).ok() }
+    }
+
+    /// Detach any swap chain previously attached to the panel, clearing its
+    /// presented content. Use when a host stops rendering (for example, a
+    /// [`CustomElement`] switching to a software fallback) without destroying
+    /// the panel.
+    pub fn clear_swap_chain(&self) -> Result<()> {
+        let native: bindings::ISwapChainPanelNative = self.0.cast()?;
+        unsafe { native.SetSwapChain(std::ptr::null_mut()).ok() }
     }
 
     /// Returns the current composition scale (DPI scale factor) as `(scale_x, scale_y)`.
@@ -119,22 +136,18 @@ impl SwapChainPanel {
             // Subscribe to SizeChanged on the FrameworkElement.
             if let Ok(fe) = native.cast::<bindings::IFrameworkElement>() {
                 let f = f.clone();
-                // Store the revoker so the subscription lives as long as the control.
-                let revoker: Rc<RefCell<Option<windows_core::EventRevoker>>> =
-                    Rc::new(RefCell::new(None));
-                let r = fe.SizeChanged(move |_sender, args| {
+                if let Ok(revoker) = fe.SizeChanged(move |_sender, args| {
                     if let Some(args) = args.as_ref()
                         && let Ok(s) = args.NewSize()
                     {
                         f(s.width as f64, s.height as f64);
                     }
-                });
-                if let Ok(revoker_val) = r {
-                    *revoker.borrow_mut() = Some(revoker_val);
-                    // Leak the Rc so the subscription outlives this scope.
-                    // The revoker prevent leaks — it revokes on Drop when
-                    // the control is destroyed.
-                    std::mem::forget(revoker);
+                }) {
+                    // Fire-and-forget for the element's lifetime. `into_token`
+                    // drops the revoker's strong reference to the element (unlike
+                    // `forget`, which would pin the element alive forever); the
+                    // handler is torn down when WinUI destroys the element.
+                    let _ = revoker.into_token();
                 }
             }
         }));

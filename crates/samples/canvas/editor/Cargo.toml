@@ -5,8 +5,8 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-canvas = { workspace = true, features = ["reactor"] }
-windows-reactor = { workspace = true }
+windows-canvas = { workspace = true }
+windows-reactor = { workspace = true, features = ["canvas"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

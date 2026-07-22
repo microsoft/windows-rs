@@ -14,6 +14,7 @@ reactor = ["dep:windows-reactor", "dep:windows-future"]
 
 [dependencies]
 windows-core = { workspace = true }
+windows-window = { workspace = true }
 
 [dependencies.windows-reactor]
 workspace = true

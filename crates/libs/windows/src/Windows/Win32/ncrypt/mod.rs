@@ -319,6 +319,20 @@ pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub cbWrappingKey: u32,
     pub cbIsolatedKey: u32,
 }
+impl NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
+    pub fn PerBootKey(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PerBootKey(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 pub const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_CURRENT_VERSION: u32 = 0;
 pub const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_V0: u32 = 0;
 pub const NCRYPT_EXPORT_LEGACY_FLAG: u32 = 2048;

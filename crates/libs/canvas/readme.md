@@ -24,4 +24,4 @@ fn main() -> Result<()> {
 }
 ```
 
-Core types: `GpuDevice`, `SwapChain`, `DrawingSession`, `PathBuilder`, `TextFormat`, `Bitmap`, and the `Paint` trait. With the `reactor` feature enabled, `animated_canvas()` drives a per-frame render loop on the UI thread with automatic device-lost recovery, and `CanvasImageSource` provides an on-demand surface that repaints only when its data changes. See the [canvas guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md) for the full API and samples.
+Core types: `GpuDevice`, `SwapChain`, `DrawingSession`, `PathBuilder`, `TextFormat`, `Bitmap`, and the `Paint` trait. To host a canvas inside a [`windows-reactor`](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) window, enable reactor's `canvas` feature: `animated_canvas()` drives a per-frame render loop on the UI thread with automatic device-lost recovery, and `CanvasImageSource` provides an on-demand surface that repaints only when its data changes. See the [canvas guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md) for the full API and samples.

@@ -97,7 +97,11 @@ mod Windows {
         struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ProtectionEnabled: 1,
+                        OverlayOrFullscreenRequired: 1,
+                        Reserved: 30,
+                    },
                 },
                 Value: u32,
             },

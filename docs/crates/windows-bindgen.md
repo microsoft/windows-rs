@@ -744,3 +744,118 @@ two `write()` bodies gives the realistic numbers:
    enumerators (`IEnumXxx`'s Next/Skip/Reset/Clone) mirroring `IIterable` →
    `BufferedIterator`, and broader string in/out sugar, leveraging the existing
    `remap()` substrate.
+
+### Generating bit-field accessors
+
+Win32 structs frequently pack several logical members into one storage unit with C
+bit-fields:
+
+```c
+typedef struct _MIB_IF_ROW2 {
+    // ...
+    struct {
+        BOOLEAN HardwareInterface : 1;
+        BOOLEAN FilterInterface : 1;
+        BOOLEAN ConnectorPresent : 1;
+        // ...
+    } InterfaceAndOperStatusFlags;
+} MIB_IF_ROW2;
+```
+
+Because the winmd format has no bit-field concept, the scrape coalesces each run of
+bit-fields into a single backing integer field named `_bitfield` (or
+`_bitfield1`/`_bitfield2`/… when a struct has several runs); see
+[`windows-clang`](windows-clang.md#known-limitations-and-future-work). The backing
+field is emitted verbatim and kept `pub` for FFI transparency and blitting:
+
+```rust,ignore
+pub struct MIB_IF_ROW2 {
+    // ...
+    pub _bitfield: u8,
+}
+```
+
+There are roughly **189** such `pub _bitfield: uN` fields across the generated
+`windows` crate. On its own the backing field forces consumers to mask and shift by
+hand and re-derive each member's width and offset from the original C header — e.g.
+reading `HardwareInterface` as `flags._bitfield & 1` — which is error-prone (wrong
+shift/mask, sign handling) and defeats the point of a typed projection.
+
+bindgen therefore also generates a typed getter/setter pair per logical member, driven
+by a two-crate pipeline:
+
+1. **`windows-clang` — scrape and emit the per-member layout.** As the scrape coalesces
+   a run of bit-fields, it records each member's name (`Cursor::name`), bit-offset
+   within the storage unit (`unit_size * 8 - remaining_bits` before the width is
+   subtracted), and width (`bit_field_width()`), and emits them as
+   **`NativeBitfieldAttribute(name, offset, length)`** custom attributes on the backing
+   `_bitfield` field — one instance per logical member, following Microsoft's own
+   win32metadata convention. Anonymous padding bit-fields (`int : 4;`) consume bits (so
+   later members get the right offset) but emit no attribute. Signedness is *not*
+   recorded per member — it is derived from the backing field's own declared type. See
+   [`windows-clang`](windows-clang.md#bit-field-member-scraping).
+
+2. **`windows-bindgen` — generate the accessors** (`types/cpp_struct.rs`). For every
+   `NativeBitfieldAttribute` on a field (non-`sys` styles only), emit a getter/setter
+   pair alongside the raw backing field:
+
+   ```rust,ignore
+   impl MIB_IF_ROW2 {
+       pub fn HardwareInterface(&self) -> bool {
+           self._bitfield & 1 != 0
+       }
+       pub fn set_HardwareInterface(&mut self, value: bool) {
+           self._bitfield = (self._bitfield & !1) | (value as u8);
+       }
+       // FilterInterface at offset 1, ConnectorPresent at offset 2, …
+   }
+   ```
+
+   Rules: a width-1 member projects as `bool`; wider members project as the backing
+   integer type. The read shifts the member's top bit to the backing type's sign
+   position and back (`(field << hi) >> lo`), so a signed backing sign-extends
+   (arithmetic shift) and an unsigned backing zero-extends. The write clears the member's
+   bits with `!(mask << offset)` and OR-s the masked value in; a signed backing does the
+   masking in the unsigned counterpart so the mask literal cannot overflow. Identity
+   shifts (`<< 0` / `>> 0`) are elided so the output is clippy-clean under `-D warnings`.
+   The generation is pure codegen off the attribute — no metadata-model change beyond
+   reading it — and is fully backwards compatible (the raw `_bitfield` field stays, so
+   existing hand-masking keeps working).
+
+The RDL spelling is a C-like bit-field block on the backing field
+(`_bitfield: u8 { HardwareInterface: 1, … }`, see [`windows-rdl`](windows-rdl.md));
+regenerate the corpus and the `windows`/`windows-sys` crates via `tool_win32` +
+`tool_package`. Test coverage: `crates/tests/libs/clang/input/bitfields.h`
+(scrape → RDL) and `crates/tests/libs/bindgen/input/struct_bitfield.rdl`
+(RDL → accessors).
+
+### Consuming APIs outside the default projection
+
+The published `windows` crate projects only **public, documented** APIs, gated behind
+Cargo features. Two consumer situations fall outside it; both are solved by
+`windows-bindgen` (and `windows-rdl`) rather than by expanding the `windows` crate, and
+are called out here so consumers reach for the right tool:
+
+- **Public API behind a feature you don't want the whole crate for.** APIs such as
+  `IPropertyStore` / `PROPVARIANT` (`Win32_System_Com_StructuredStorage` +
+  `Win32_System_Variant`) are present in the default metadata but require enabling
+  broad features. A consumer that wants just those types — without pulling the feature
+  surface (and compile cost) they belong to — can run `windows-bindgen` with a filter
+  naming exactly those types (see [Filters](#filters)) and get a minimal, self-contained
+  module. This is the intended escape hatch, not a gap in the `windows` crate.
+
+- **Undocumented / internal APIs not in the metadata at all.** APIs that Windows does
+  not ship in public metadata (private COM interfaces, internal exports) will never be
+  in the `windows` crate by design. The supported path is to **author the metadata
+  yourself** with [`windows-rdl`](windows-rdl.md) (a small `.rdl` describing the
+  interface/struct/function) and feed it to `windows-bindgen` — the same pipeline the
+  in-tree crates use, just with a consumer-owned source of truth. This is not
+  theoretical: `windows-reactor` does exactly this in
+  `crates/tools/reactor/src/extras.rdl`, which declares private COM interfaces
+  (`IWindowNative`, `ISwapChainPanelNative`, `ISurfaceImageSourceNativeWithD2D`) and
+  bootstrap DLL exports (`MddBootstrapInitialize2`) that are absent from Windows
+  metadata, then loads them via `windows_rdl::Reader::new().input("…/extras.rdl")`
+  alongside the standard winmd inputs (`crates/tools/reactor/src/main.rs`). Consumers
+  needing private APIs (e.g. `StateRepository`, `IApplicationResolver`,
+  `GetProcessUIContextInformation`) follow the same recipe. This keeps the `unsafe` FFI
+  surface generated and typed rather than hand-transcribed.

@@ -328,7 +328,10 @@ mod Windows {
         }
         #[packed(1)]
         struct USB_DEVICE_STATE {
-            _bitfield: u32,
+            _bitfield: u32 {
+                DeviceConnected: 1,
+                DeviceStarted: 1,
+            },
         }
         #[packed(1)]
         struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
@@ -351,7 +354,9 @@ mod Windows {
         }
         #[packed(1)]
         struct USB_HUB_CAPABILITIES {
-            _bitfield: u32,
+            _bitfield: u32 {
+                HubIs2xCapable: 1,
+            },
         }
         struct USB_HUB_CAPABILITIES_EX {
             CapabilityFlags: USB_HUB_CAP_FLAGS,
@@ -360,7 +365,16 @@ mod Windows {
         union USB_HUB_CAP_FLAGS {
             ul: u32,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    HubIsHighSpeedCapable: 1,
+                    HubIsHighSpeed: 1,
+                    HubIsMultiTtCapable: 1,
+                    HubIsMultiTt: 1,
+                    HubIsRoot: 1,
+                    HubIsArmedWakeOnConnect: 1,
+                    HubIsBusPowered: 1,
+                    ReservedMBZ: 25,
+                },
             },
         }
         #[packed(1)]
@@ -479,7 +493,13 @@ mod Windows {
         union USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
             ul: u32,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    DeviceIsOperatingAtSuperSpeedOrHigher: 1,
+                    DeviceIsSuperSpeedCapableOrHigher: 1,
+                    DeviceIsOperatingAtSuperSpeedPlusOrHigher: 1,
+                    DeviceIsSuperSpeedPlusCapableOrHigher: 1,
+                    ReservedMBZ: 28,
+                },
             },
         }
         #[packed(1)]
@@ -543,14 +563,25 @@ mod Windows {
         union USB_PORT_PROPERTIES {
             ul: u32,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    PortIsUserConnectable: 1,
+                    PortIsDebugCapable: 1,
+                    PortHasMultipleCompanions: 1,
+                    PortConnectorIsTypeC: 1,
+                    ReservedMBZ: 28,
+                },
             },
         }
         #[packed(1)]
         union USB_PROTOCOLS {
             ul: u32,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Usb110: 1,
+                    Usb200: 1,
+                    Usb300: 1,
+                    ReservedMBZ: 29,
+                },
             },
         }
         const USB_REGISTER_FOR_TRANSPORT_BANDWIDTH_CHANGE: u32 = 2;

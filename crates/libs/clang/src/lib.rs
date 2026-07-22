@@ -1972,6 +1972,7 @@ mod tests {
                 name: "value".to_string(),
                 ty: metadata::Type::ValueName(metadata::TypeName::named("", "InnerType")),
                 nested: None,
+                bitfields: vec![],
             }],
             is_union: true,
             packing: None,
@@ -1981,6 +1982,7 @@ mod tests {
             name: "Anonymous".to_string(),
             ty: metadata::Type::Void,
             nested: Some(Box::new(nested)),
+            bitfields: vec![],
         };
 
         let mut refs = HashSet::new();

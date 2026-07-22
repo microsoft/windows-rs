@@ -15,7 +15,12 @@ mod Windows {
             B: u8,
         }
         struct BM_REQUEST_TYPE_0 {
-            _bitfield: u8,
+            _bitfield: u8 {
+                Recipient: 2,
+                Reserved: 3,
+                Type: 2,
+                Dir: 1,
+            },
         }
         #[packed(1)]
         struct EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
@@ -93,14 +98,35 @@ mod Windows {
         union USB_20_PORT_CHANGE {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    ConnectStatusChange: 1,
+                    PortEnableDisableChange: 1,
+                    SuspendChange: 1,
+                    OverCurrentIndicatorChange: 1,
+                    ResetChange: 1,
+                    Reserved2: 11,
+                },
             },
         }
         #[packed(1)]
         union USB_20_PORT_STATUS {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CurrentConnectStatus: 1,
+                    PortEnabledDisabled: 1,
+                    Suspend: 1,
+                    OverCurrent: 1,
+                    Reset: 1,
+                    L1: 1,
+                    Reserved0: 2,
+                    PortPower: 1,
+                    LowSpeedDeviceAttached: 1,
+                    HighSpeedDeviceAttached: 1,
+                    PortTestMode: 1,
+                    PortIndicatorControl: 1,
+                    Reserved1: 3,
+                },
             },
         }
         const USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 204;
@@ -126,14 +152,33 @@ mod Windows {
         union USB_30_PORT_CHANGE {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    ConnectStatusChange: 1,
+                    Reserved2: 2,
+                    OverCurrentIndicatorChange: 1,
+                    ResetChange: 1,
+                    BHResetChange: 1,
+                    PortLinkStateChange: 1,
+                    PortConfigErrorChange: 1,
+                    Reserved3: 8,
+                },
             },
         }
         #[packed(1)]
         union USB_30_PORT_STATUS {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CurrentConnectStatus: 1,
+                    PortEnabledDisabled: 1,
+                    Reserved0: 1,
+                    OverCurrent: 1,
+                    Reset: 1,
+                    PortLinkState: 4,
+                    PortPower: 1,
+                    NegotiatedDeviceSpeed: 3,
+                    Reserved1: 3,
+                },
             },
         }
         const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1;
@@ -225,7 +270,11 @@ mod Windows {
             VconnPower: #[packed(1)] union {
                 AsUshort: u16,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        VConnPowerNeededForFullFunctionality: 3,
+                        Reserved: 12,
+                        NoVconnPowerRequired: 1,
+                    },
                 },
             },
             bmConfigured: [u8; 32],
@@ -261,7 +310,11 @@ mod Windows {
             bmAttributes: #[packed(1)] union {
                 AsUlong: u32,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        GetFirmwareImageHashSupport: 1,
+                        DisallowFirmwareUpdateSupport: 1,
+                        Reserved: 30,
+                    },
                 },
             },
         }
@@ -277,7 +330,12 @@ mod Windows {
             bmCapabilities: #[packed(1)] union {
                 AsUshort: u16,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        BatteryCharging: 1,
+                        USBPowerDelivery: 1,
+                        USBTypeCCurrent: 1,
+                        Reserved: 13,
+                    },
                 },
             },
             wMinVoltage: u16,
@@ -308,7 +366,22 @@ mod Windows {
             bmAttributes: #[packed(1)] union {
                 AsUlong: u32,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved1: 1,
+                        BatteryCharging: 1,
+                        USBPowerDelivery: 1,
+                        Provider: 1,
+                        Consumer: 1,
+                        ChargingPolicy: 1,
+                        TypeCCurrent: 1,
+                        Reserved2: 1,
+                        ACSupply: 1,
+                        Battery: 1,
+                        Other: 1,
+                        NumBatteries: 3,
+                        UsesVbus: 1,
+                        Reserved3: 17,
+                    },
                 },
             },
             bmProviderPorts: u16,
@@ -322,7 +395,15 @@ mod Windows {
         union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
             AsUlong32: u32,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    SublinkSpeedAttrID: 4,
+                    LaneSpeedExponent: 2,
+                    SublinkTypeMode: 1,
+                    SublinkTypeDir: 1,
+                    Reserved: 6,
+                    LinkProtocol: 2,
+                    LaneSpeedMantissa: 16,
+                },
             },
         }
         const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX: u32 = 0;
@@ -345,13 +426,22 @@ mod Windows {
             bmAttributes: #[packed(1)] union {
                 AsUlong: u32,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SublinkSpeedAttrCount: 5,
+                        SublinkSpeedIDCount: 4,
+                        Reserved: 23,
+                    },
                 },
             },
             wFunctionalitySupport: #[packed(1)] union {
                 AsUshort: u16,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        SublinkSpeedAttrID: 4,
+                        Reserved: 4,
+                        MinRxLaneCount: 4,
+                        MinTxLaneCount: 4,
+                    },
                 },
             },
             wReserved: u16,
@@ -387,7 +477,17 @@ mod Windows {
             bmAttributes: #[packed(1)] union {
                 AsUlong: u32,
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved: 1,
+                        LPMCapable: 1,
+                        BESLAndAlternateHIRDSupported: 1,
+                        BaselineBESLValid: 1,
+                        DeepBESLValid: 1,
+                        Reserved1: 3,
+                        BaselineBESL: 4,
+                        DeepBESL: 4,
+                        Reserved2: 16,
+                    },
                 },
             },
         }
@@ -458,7 +558,14 @@ mod Windows {
         union USB_DEVICE_STATUS {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    SelfPowered: 1,
+                    RemoteWakeup: 1,
+                    U1Enable: 1,
+                    U2Enable: 1,
+                    LtmEnable: 1,
+                    Reserved: 11,
+                },
             },
         }
         #[repr(i32)]
@@ -483,7 +590,10 @@ mod Windows {
         union USB_ENDPOINT_STATUS {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Halt: 1,
+                    Reserved: 15,
+                },
             },
         }
         const USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE: u32 = 1024;
@@ -527,7 +637,11 @@ mod Windows {
         union USB_FUNCTION_SUSPEND_OPTIONS {
             AsUchar: u8,
             Anonymous: struct {
-                _bitfield: u8,
+                _bitfield: u8 {
+                    PowerState: 1,
+                    RemoteWakeEnabled: 1,
+                    Reserved: 6,
+                },
             },
         }
         const USB_GETSTATUS_LTM_ENABLE: u32 = 16;
@@ -545,19 +659,32 @@ mod Windows {
         }
         #[packed(1)]
         struct USB_HIGH_SPEED_MAXPACKET_0 {
-            _bitfield: u16,
+            _bitfield: u16 {
+                MaxPacket: 11,
+                HSmux: 2,
+                Reserved: 3,
+            },
         }
         union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
             AsUchar8: u8,
             Anonymous: struct {
-                _bitfield: u8,
+                _bitfield: u8 {
+                    ConnectRemoteWakeEnable: 1,
+                    DisconnectRemoteWakeEnable: 1,
+                    OverCurrentRemoteWakeEnable: 1,
+                    Reserved0: 5,
+                },
             },
         }
         #[packed(1)]
         union USB_HUB_CHANGE {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    LocalPowerChange: 1,
+                    OverCurrentChange: 1,
+                    Reserved: 14,
+                },
             },
         }
         #[packed(1)]
@@ -574,7 +701,11 @@ mod Windows {
         union USB_HUB_STATUS {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    LocalPowerLost: 1,
+                    OverCurrent: 1,
+                    Reserved: 14,
+                },
             },
         }
         #[packed(1)]
@@ -628,7 +759,11 @@ mod Windows {
         union USB_INTERFACE_STATUS {
             AsUshort16: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    RemoteWakeupCapable: 1,
+                    RemoteWakeupEnabled: 1,
+                    Reserved: 14,
+                },
             },
         }
         const USB_OTG_DESCRIPTOR_TYPE: u32 = 9;
@@ -643,7 +778,13 @@ mod Windows {
         union USB_PORT_EXT_STATUS {
             AsUlong32: u32,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    RxSublinkSpeedID: 4,
+                    TxSublinkSpeedID: 4,
+                    RxLaneCount: 4,
+                    TxLaneCount: 4,
+                    Reserved: 16,
+                },
             },
         }
         #[packed(1)]
@@ -727,10 +868,17 @@ mod Windows {
             bmAttributes: union {
                 AsUchar: u8,
                 Bulk: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        MaxStreams: 5,
+                        Reserved1: 3,
+                    },
                 },
                 Isochronous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        Mult: 2,
+                        Reserved2: 5,
+                        SspCompanion: 1,
+                    },
                 },
             },
             wBytesPerInterval: u16,

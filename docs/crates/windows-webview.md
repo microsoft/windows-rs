@@ -29,10 +29,11 @@ multi-threaded apartment. The samples pair this with
 
 ```rust,ignore
 use windows_webview::*;
+use windows_window::Window;
 
-fn host(window: HWND) -> Result<()> {
+fn host(window: &Window) -> Result<()> {
     let environment = Environment::new()?;
-    let controller = unsafe { environment.create_controller(window)? };
+    let controller = environment.create_controller(window)?;
     let webview = controller.webview()?;
     webview.navigate("https://github.com/microsoft/windows-rs")?;
     Ok(())
@@ -701,6 +702,25 @@ manually ensuring the Evergreen runtime is installed. This is a developer-experi
 use, and could either extend `windows-reactor-setup` or ship as a small
 `windows-webview-setup` companion.
 
+#### 8. Align the reactor dependency direction with canvas/composition *(low)*
+
+`windows-webview` currently owns its reactor bridge: it *optionally* depends on
+`windows-reactor` behind its own `reactor` feature, and `webview()` lives in
+`src/reactor.rs` here. Since the composition/canvas **dependency flip**, those two
+crates run the opposite way — `windows-reactor` optionally depends on them (behind
+its `composition` / `canvas` features) and owns the bridge, so reactor is the single
+owner of the WinUI element harness (see
+[`windows-reactor.md`](windows-reactor.md) and
+[`windows-composition.md`](windows-composition.md)). Webview is the last family
+member still using the older direction. Flipping it too — moving `webview()` into
+reactor behind a `webview` feature and dropping this crate's `reactor` feature +
+`reactor_bindings.rs`/`WebView2Handle` raw seam — would make all three content
+surfaces consistent (reactor as the hub) and let webview's default build stay lean.
+The catch is webview's *second bindgen pass* (`tool_webview`'s `reactor.txt` →
+`reactor_bindings.rs`): that WinRT slice would have to move to reactor's own bindgen
+inputs, so the flip is more mechanical here than it was for canvas/composition. Worth
+doing for consistency once the canvas/composition flip has settled.
+
 #### How it fits with reactor and canvas
 
 webview is already a first-class reactor content surface (the `reactor` feature),
@@ -732,3 +752,14 @@ objects / IPC (§2) and the app-relevant events — context menus and authentica
 self-contained add-on that can land whenever a concrete need arises, behind the
 same minimal-binding pattern the crate already uses; the DevTools protocol (§3)
 already landed that way.
+
+#### Housekeeping — module import convention
+
+The wrapper modules should follow the family convention of a single `use super::*;`
+per module (globbing crate-root re-exports) rather than `use crate::…` or explicit
+per-type imports — the pattern [`windows-reactor`](windows-reactor.md),
+[`windows-composition`](windows-composition.md), and
+[`windows-canvas`](windows-canvas.md) use throughout. A few `use crate::…`
+stragglers remain here; normalizing them (re-exporting any shared internals at the
+crate root as `pub(crate)` so the glob covers them) would make the crate consistent
+with the rest of the family.
