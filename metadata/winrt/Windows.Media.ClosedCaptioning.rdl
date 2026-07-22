@@ -34,10 +34,10 @@ mod Windows {
                 TwentyFivePercent = 3,
                 ZeroPercent = 4,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IClosedCaptionPropertiesStatics2, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IClosedCaptionPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IClosedCaptionPropertiesStatics2, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ClosedCaptionProperties {}
             #[repr(i32)]
@@ -61,11 +61,11 @@ mod Windows {
                 Cursive = 6,
                 SmallCapitals = 7,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IClosedCaptionThemeStatics, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             class ClosedCaptionTheme {
                 IClosedCaptionTheme,
             }
@@ -105,8 +105,8 @@ mod Windows {
                 event PropertiesChanged: super::super::Foundation::EventHandler<Object>;
             }
             #[guid(0xd3974055_b9b5_52a4_b655_30661f73d1c1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionTheme)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionTheme)]
             interface IClosedCaptionTheme {
                 #[get]
                 Id: String;
@@ -138,8 +138,8 @@ mod Windows {
                 RegionOpacity: ClosedCaptionOpacity;
             }
             #[guid(0x0938ae0f_214e_5760_88c9_bb3f1b54f3c7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionTheme)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionTheme)]
             interface IClosedCaptionThemeStatics {
                 fn GetAvailableThemes(&self) -> [ClosedCaptionTheme];
                 fn GetSelectedTheme(&self) -> ClosedCaptionTheme;

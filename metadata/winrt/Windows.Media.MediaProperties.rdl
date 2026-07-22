@@ -2,13 +2,13 @@
 mod Windows {
     mod Media {
         mod MediaProperties {
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IAudioEncodingPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::Static(IAudioEncodingPropertiesStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AudioEncodingProperties {
                 IAudioEncodingProperties,
                 IMediaEncodingProperties,
@@ -24,36 +24,36 @@ mod Windows {
                 Medium = 2,
                 Low = 3,
             }
-            #[Windows::Foundation::Metadata::Static(IAv1ProfileIdsStatics, 983040, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAv1ProfileIdsStatics, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Av1ProfileIds {}
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             class ContainerEncodingProperties {
                 IContainerEncodingProperties,
                 IMediaEncodingProperties,
                 IContainerEncodingProperties2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IH264ProfileIdsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            class H264ProfileIds {}
             #[Windows::Foundation::Metadata::Threading(Both)]
+            class H264ProfileIds {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
-            #[Windows::Foundation::Metadata::Static(IHevcProfileIdsStatics, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IHevcProfileIdsStatics, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class HevcProfileIds {}
             #[guid(0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             interface IAudioEncodingProperties: IMediaEncodingProperties {
                 #[set]
                 Bitrate: u32;
@@ -80,8 +80,8 @@ mod Windows {
                 IsSpatial: bool;
             }
             #[guid(0x87600341_748c_4f8d_b0fd_10caf08ff087)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             interface IAudioEncodingProperties3 {
                 fn Copy(&self) -> AudioEncodingProperties;
             }
@@ -96,15 +96,15 @@ mod Windows {
                 fn CreateWma(&self, sampleRate: u32, channelCount: u32, bitrate: u32) -> AudioEncodingProperties;
             }
             #[guid(0x7489316f_77a0_433d_8ed5_4040280e8665)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             interface IAudioEncodingPropertiesStatics2 {
                 fn CreateAlac(&self, sampleRate: u32, channelCount: u32, bitsPerSample: u32) -> AudioEncodingProperties;
                 fn CreateFlac(&self, sampleRate: u32, channelCount: u32, bitsPerSample: u32) -> AudioEncodingProperties;
             }
             #[guid(0x98f10d79_13ea_49ff_be70_2673db69702c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEncodingProperties)]
             interface IAudioEncodingPropertiesWithFormatUserData {
                 fn SetFormatUserData(&self, value: [u8]);
                 fn GetFormatUserData(&self, value: &mut [u8]);
@@ -139,8 +139,8 @@ mod Windows {
                 ProfessionalChromaSubsampling422BitDepth12: i32;
             }
             #[guid(0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ContainerEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContainerEncodingProperties)]
             interface IContainerEncodingProperties: IMediaEncodingProperties {}
             #[guid(0xb272c029_ae26_4819_baad_ad7a49b0a876)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -174,8 +174,8 @@ mod Windows {
                 MultiviewHigh: i32;
             }
             #[guid(0x1e50d280_2aa7_53c1_973f_2189fa656f53)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HevcProfileIds)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HevcProfileIds)]
             interface IHevcProfileIdsStatics {
                 #[get]
                 MainChromaSubsampling420BitDepth8: i32;
@@ -236,22 +236,22 @@ mod Windows {
                 Height: u32;
             }
             #[guid(0xc854a2df_c923_469b_ac8e_6a9f3c1cd9e3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ImageEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageEncodingProperties)]
             interface IImageEncodingProperties2 {
                 fn Copy(&self) -> ImageEncodingProperties;
             }
             #[guid(0x257c68dc_8b99_439e_aa59_913a36161297)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ImageEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageEncodingProperties)]
             interface IImageEncodingPropertiesStatics {
                 fn CreateJpeg(&self) -> ImageEncodingProperties;
                 fn CreatePng(&self) -> ImageEncodingProperties;
                 fn CreateJpegXR(&self) -> ImageEncodingProperties;
             }
             #[guid(0xf6c25b29_3824_46b0_956e_501329e1be3c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ImageEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageEncodingProperties)]
             interface IImageEncodingPropertiesStatics2 {
                 fn CreateUncompressed(&self, format: MediaPixelFormat) -> ImageEncodingProperties;
                 fn CreateBmp(&self) -> ImageEncodingProperties;
@@ -263,8 +263,8 @@ mod Windows {
                 fn CreateHeif(&self) -> ImageEncodingProperties;
             }
             #[guid(0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfile {
                 #[set]
                 Audio: AudioEncodingProperties;
@@ -280,8 +280,8 @@ mod Windows {
                 Container: ContainerEncodingProperties;
             }
             #[guid(0x349b3e0a_4035_488e_9877_85632865ed10)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfile2 {
                 fn SetAudioTracks(&self, value: super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>);
                 fn GetAudioTracks(&self) -> super::super::Foundation::Collections::IVector<super::Core::AudioStreamDescriptor>;
@@ -296,8 +296,8 @@ mod Windows {
                 fn GetTimedMetadataTracks(&self) -> super::super::Foundation::Collections::IVector<super::Core::TimedMetadataStreamDescriptor>;
             }
             #[guid(0x197f352c_2ede_4a45_a896_817a4854f8fe)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfileStatics {
                 fn CreateM4a(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
                 fn CreateMp3(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
@@ -310,15 +310,15 @@ mod Windows {
                 fn CreateFromStreamAsync(&self, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<MediaEncodingProfile>;
             }
             #[guid(0xce8de74f_6af4_4288_8fe2_79adf1f79a43)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfileStatics2 {
                 fn CreateWav(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
                 fn CreateAvi(&self, quality: VideoEncodingQuality) -> MediaEncodingProfile;
             }
             #[guid(0x90dac5aa_cf76_4294_a9ed_1a1420f51f6b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingProfile)]
             interface IMediaEncodingProfileStatics3 {
                 fn CreateAlac(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
                 fn CreateFlac(&self, quality: AudioEncodingQuality) -> MediaEncodingProfile;
@@ -344,8 +344,8 @@ mod Windows {
                 Subtype: String;
             }
             #[guid(0x37b6580e_a171_4464_ba5a_53189e48c1c8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingSubtypes)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingSubtypes)]
             interface IMediaEncodingSubtypesStatics {
                 #[get]
                 Aac: String;
@@ -429,8 +429,8 @@ mod Windows {
                 Yv12: String;
             }
             #[guid(0x4b7cd23d_42ff_4d33_8531_0626bee4b52d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingSubtypes)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingSubtypes)]
             interface IMediaEncodingSubtypesStatics2 {
                 #[get]
                 Vp9: String;
@@ -442,8 +442,8 @@ mod Windows {
                 D16: String;
             }
             #[guid(0xba2414e4_883d_464e_a44f_097da08ef7ff)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingSubtypes)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingSubtypes)]
             interface IMediaEncodingSubtypesStatics3 {
                 #[get]
                 Alac: String;
@@ -458,8 +458,8 @@ mod Windows {
                 P010: String;
             }
             #[guid(0x5ad4a007_ffce_4760_9828_5d0c99637e6a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingSubtypes)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaEncodingSubtypes)]
             interface IMediaEncodingSubtypesStatics5 {
                 #[get]
                 Heif: String;
@@ -485,8 +485,8 @@ mod Windows {
                 Av1: String;
             }
             #[guid(0xd2d0fee5_8929_401d_ac78_7d357e378163)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaRatio)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaRatio)]
             interface IMediaRatio {
                 #[set]
                 Numerator: u32;
@@ -498,8 +498,8 @@ mod Windows {
                 Denominator: u32;
             }
             #[guid(0xa461ff85_e57a_4128_9b21_d5331b04235c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Mpeg2ProfileIds)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Mpeg2ProfileIds)]
             interface IMpeg2ProfileIdsStatics {
                 #[get]
                 Simple: i32;
@@ -513,8 +513,8 @@ mod Windows {
                 High: i32;
             }
             #[guid(0x51cd30d3_d690_4cfa_97f4_4a398e9db420)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataEncodingProperties)]
             interface ITimedMetadataEncodingProperties {
                 fn SetFormatUserData(&self, value: [u8]);
                 fn GetFormatUserData(&self, value: &mut [u8]);
@@ -530,8 +530,8 @@ mod Windows {
                 fn CreateVobSub(&self, formatUserData: [u8]) -> TimedMetadataEncodingProperties;
             }
             #[guid(0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             interface IVideoEncodingProperties: IMediaEncodingProperties {
                 #[set]
                 Bitrate: u32;
@@ -551,8 +551,8 @@ mod Windows {
                 PixelAspectRatio: MediaRatio;
             }
             #[guid(0xf743a1ef_d465_4290_a94b_ef0f1528f8e3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             interface IVideoEncodingProperties2 {
                 fn SetFormatUserData(&self, value: [u8]);
                 fn GetFormatUserData(&self, value: &mut [u8]);
@@ -576,8 +576,8 @@ mod Windows {
                 SphericalVideoFrameFormat: SphericalVideoFrameFormat;
             }
             #[guid(0x4959080f_272f_4ece_a4df_c0ccdb33d840)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             interface IVideoEncodingProperties5 {
                 fn Copy(&self) -> VideoEncodingProperties;
             }
@@ -590,14 +590,14 @@ mod Windows {
                 fn CreateUncompressed(&self, subtype: String, width: u32, height: u32) -> VideoEncodingProperties;
             }
             #[guid(0xcf1ebd5d_49fe_4d00_b59a_cfa4dfc51944)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             interface IVideoEncodingPropertiesStatics2 {
                 fn CreateHevc(&self) -> VideoEncodingProperties;
             }
             #[guid(0x65b46685_60da_5e51_91a2_b38c4763b872)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEncodingProperties)]
             interface IVideoEncodingPropertiesStatics3 {
                 fn CreateVp9(&self) -> VideoEncodingProperties;
                 fn CreateAv1(&self) -> VideoEncodingProperties;
@@ -614,42 +614,42 @@ mod Windows {
                 Profile2ChromaSubsampling420BitDepth12: i32;
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IImageEncodingPropertiesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IImageEncodingPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IImageEncodingPropertiesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IImageEncodingPropertiesStatics3, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ImageEncodingProperties {
                 IImageEncodingProperties,
                 IMediaEncodingProperties,
                 IImageEncodingProperties2,
             }
-            #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics4, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingProfileStatics4, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class MediaEncodingProfile {
                 IMediaEncodingProfile,
                 IMediaEncodingProfile2,
                 IMediaEncodingProfile3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics7, 983040, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics6, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics6, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMediaEncodingSubtypesStatics7, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaEncodingSubtypes {}
             #[repr(u32)]
             #[flags]
@@ -666,19 +666,19 @@ mod Windows {
                 Bgra8 = 1,
                 P010 = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::HasVariant]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaPropertySet {
                 super::super::Foundation::Collections::IMap<GUID, Object>,
                 super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<GUID, Object>>,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaRatio {
                 IMediaRatio,
@@ -697,10 +697,10 @@ mod Windows {
                 Bmp = 0,
                 Bgra8 = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMpeg2ProfileIdsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Mpeg2ProfileIds {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -716,23 +716,23 @@ mod Windows {
                 SideBySide = 1,
                 TopBottom = 2,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ITimedMetadataEncodingPropertiesStatics, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ITimedMetadataEncodingPropertiesStatics, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedMetadataEncodingProperties {
                 IMediaEncodingProperties,
                 ITimedMetadataEncodingProperties,
             }
-            #[Windows::Foundation::Metadata::Static(IVideoEncodingPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Static(IVideoEncodingPropertiesStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IVideoEncodingPropertiesStatics3, 983040, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IVideoEncodingPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IVideoEncodingPropertiesStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IVideoEncodingPropertiesStatics3, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoEncodingProperties {
                 IVideoEncodingProperties,
                 IMediaEncodingProperties,
@@ -755,11 +755,11 @@ mod Windows {
                 Uhd2160p = 8,
                 Uhd4320p = 9,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
-            #[Windows::Foundation::Metadata::Static(IVp9ProfileIdsStatics, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IVp9ProfileIdsStatics, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Vp9ProfileIds {}
         }
     }

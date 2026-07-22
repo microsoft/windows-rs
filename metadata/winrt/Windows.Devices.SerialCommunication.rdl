@@ -9,8 +9,8 @@ mod Windows {
                 IErrorReceivedEventArgs,
             }
             #[guid(0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ErrorReceivedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ErrorReceivedEventArgs)]
             interface IErrorReceivedEventArgs {
                 #[get]
                 Error: SerialError;
@@ -23,8 +23,8 @@ mod Windows {
                 PinChange: SerialPinChange;
             }
             #[guid(0xe187ccc6_2210_414f_b65a_f5553a03372a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SerialDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SerialDevice)]
             interface ISerialDevice: super::super::Foundation::IClosable {
                 BaudRate: u32;
                 BreakSignalState: bool;
@@ -69,16 +69,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<SerialDevice>;
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PinChangedEventArgs {
                 IPinChangedEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ISerialDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class SerialDevice {
                 ISerialDevice,
                 super::super::Foundation::IClosable,

@@ -36,8 +36,8 @@ mod Windows {
                     SessionId: String;
                 }
                 #[guid(0xde350a50_a6d4_5be2_8b9a_09d3d39ea780)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowConfiguration)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowConfiguration)]
                 interface IPrintWorkflowConfiguration2 {
                     fn AbortPrintFlow(&self, reason: PrintWorkflowJobAbortReason);
                 }
@@ -52,8 +52,8 @@ mod Windows {
                     fn Start(&self);
                 }
                 #[guid(0xbbe38247_9c1b_4dd3_9b2b_c80468d941b3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowForegroundSetupRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowForegroundSetupRequestedEventArgs)]
                 interface IPrintWorkflowForegroundSetupRequestedEventArgs {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetUserPrintTicketAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>;
@@ -69,8 +69,8 @@ mod Windows {
                     Session: PrintWorkflowJobUISession;
                 }
                 #[guid(0xc5ec6ad8_20c9_5d51_8507_2734b46f96c5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobBackgroundSession)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobBackgroundSession)]
                 interface IPrintWorkflowJobBackgroundSession {
                     #[get]
                     Status: PrintWorkflowSessionStatus;
@@ -85,9 +85,9 @@ mod Windows {
                     event JobIssueDetected: super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobIssueDetectedEventArgs>;
                 }
                 #[guid(0x5757086c_edcc_5a94_90ec_a0a87c1115e7)]
-                #[Windows::Foundation::Metadata::Experimental]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobBackgroundSession)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobBackgroundSession)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintWorkflowJobBackgroundSession3 {
                     event JobStatusChanged: super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPrinterJobStatusChangedEventArgs>;
                 }
@@ -109,8 +109,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x0ae16fba_5398_5eba_b472_978650186a9a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobNotificationEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobNotificationEventArgs)]
                 interface IPrintWorkflowJobNotificationEventArgs {
                     #[get]
                     Configuration: PrintWorkflowConfiguration;
@@ -146,8 +146,8 @@ mod Windows {
                     PrintWorkflowJobSession: PrintWorkflowJobBackgroundSession;
                 }
                 #[guid(0x00c8736b_7637_5687_a302_0f664d2aac65)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobUISession)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobUISession)]
                 interface IPrintWorkflowJobUISession {
                     #[get]
                     Status: PrintWorkflowSessionStatus;
@@ -156,22 +156,22 @@ mod Windows {
                     fn Start(&self);
                 }
                 #[guid(0xa8529368_9174_5c78_9fdb_894a82e92ada)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobUISession)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowJobUISession)]
                 interface IPrintWorkflowJobUISession2 {
                     event VirtualPrinterUIDataAvailable: super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowVirtualPrinterUIEventArgs>;
                 }
                 #[guid(0xe3a9f883_6a2d_489b_bc1f_7aab44249622)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintWorkflowObjectModelProvider {}
                 #[guid(0xc36c8a6a_8a2a_419a_b3c3_2090e6bfab2f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowObjectModelSourceFileContent)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowObjectModelSourceFileContent)]
                 interface IPrintWorkflowObjectModelSourceFileContent {}
                 #[guid(0x93b1b903_f013_56d6_b708_99ac2ccb12ee)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowObjectModelSourceFileContent)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowObjectModelSourceFileContent)]
                 interface IPrintWorkflowObjectModelSourceFileContentFactory {
                     fn CreateInstance(&self, xpsStream: super::super::super::Storage::Streams::IInputStream) -> PrintWorkflowObjectModelSourceFileContent;
                 }
@@ -180,8 +180,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowObjectModelTargetPackage)]
                 interface IPrintWorkflowObjectModelTargetPackage {}
                 #[guid(0x40604b62_0ae4_51f1_818f_731dc0b005ab)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlConverter)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlConverter)]
                 interface IPrintWorkflowPdlConverter {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ConvertPdlAsync(&self, printTicket: super::PrintTicket::WorkflowPrintTicket, inputStream: super::super::super::Storage::Streams::IInputStream, outputStream: super::super::super::Storage::Streams::IOutputStream) -> super::super::super::Foundation::IAsyncAction;
@@ -194,16 +194,16 @@ mod Windows {
                     fn ConvertPdlAsync(&self, printTicket: super::PrintTicket::WorkflowPrintTicket, inputStream: super::super::super::Storage::Streams::IInputStream, outputStream: super::super::super::Storage::Streams::IOutputStream, hostBasedProcessingOperations: PdlConversionHostBasedProcessingOperations) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x6b556b4f_3756_5da6_b1f7_8f9e89f629fb)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlConverter)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintWorkflowPdlConverter3 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ConvertPdlFromObjectModelAsync(&self, printTicket: super::PrintTicket::WorkflowPrintTicket, objectModelProvider: IPrintWorkflowObjectModelProvider, outputStream: super::super::super::Storage::Streams::IOutputStream, hostBasedProcessingOperations: PdlConversionHostBasedProcessingOperations) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xd4ad6b50_1547_5991_a0ef_e2ee20211518)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlDataAvailableEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlDataAvailableEventArgs)]
                 interface IPrintWorkflowPdlDataAvailableEventArgs {
                     #[get]
                     Configuration: PrintWorkflowConfiguration;
@@ -232,22 +232,22 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x8d692147_6c62_5e31_a0e7_d49f92c111c0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlModificationRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlModificationRequestedEventArgs)]
                 interface IPrintWorkflowPdlModificationRequestedEventArgs2 {
                     fn CreateJobOnPrinterWithAttributes(&self, jobAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>, targetContentType: String, operationAttributes: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, super::super::super::Devices::Printers::IppAttributeValue>>, jobAttributesMergePolicy: PrintWorkflowAttributesMergePolicy, operationAttributesMergePolicy: PrintWorkflowAttributesMergePolicy) -> PrintWorkflowPdlTargetStream;
                     fn CreateJobOnPrinterWithAttributesBuffer(&self, jobAttributesBuffer: super::super::super::Storage::Streams::IBuffer, targetContentType: String, operationAttributesBuffer: super::super::super::Storage::Streams::IBuffer, jobAttributesMergePolicy: PrintWorkflowAttributesMergePolicy, operationAttributesMergePolicy: PrintWorkflowAttributesMergePolicy) -> PrintWorkflowPdlTargetStream;
                 }
                 #[guid(0x1f50a7d4_db49_5d3e_ba27_b366cb25cd7e)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlModificationRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::Experimental]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 interface IPrintWorkflowPdlModificationRequestedEventArgs3 {
                     fn DisableIppCompressionForJob(&self);
                 }
                 #[guid(0x92f7fc41_32b8_56ab_845e_b1e68b3aedd5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlSourceContent)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlSourceContent)]
                 interface IPrintWorkflowPdlSourceContent {
                     #[get]
                     ContentType: String;
@@ -256,15 +256,15 @@ mod Windows {
                     fn GetContentFileAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>;
                 }
                 #[guid(0xa742dfe5_1ee3_52a9_9f9f_2e2043180fd1)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlTargetStream)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPdlTargetStream)]
                 interface IPrintWorkflowPdlTargetStream {
                     fn GetOutputStream(&self) -> super::super::super::Storage::Streams::IOutputStream;
                     fn CompleteStreamSubmission(&self, status: PrintWorkflowSubmittedStatus);
                 }
                 #[guid(0x12009f94_0d14_5443_bc09_250311ce570b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPrinterJob)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPrinterJob)]
                 interface IPrintWorkflowPrinterJob {
                     #[get]
                     JobId: i32;
@@ -293,9 +293,9 @@ mod Windows {
                     fn GetPassthroughJobOperationAttributes(&self) -> super::super::super::Foundation::Collections::IMap<String, super::super::super::Devices::Printers::IppAttributeValue>;
                 }
                 #[guid(0x4a6275b9_be67_5718_921a_348c56f9d25f)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowPrinterJobStatusChangedEventArgs)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintWorkflowPrinterJobStatusChangedEventArgs {
                     #[get]
                     PrinterJob: PrintWorkflowPrinterJob;
@@ -313,8 +313,8 @@ mod Windows {
                     fn GetSourceSpoolDataAsXpsObjectModel(&self) -> PrintWorkflowObjectModelSourceFileContent;
                 }
                 #[guid(0x72e55ece_e406_4b74_84e1_3ff3fdcdaf70)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowSpoolStreamContent)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowSpoolStreamContent)]
                 interface IPrintWorkflowSpoolStreamContent {
                     fn GetInputStream(&self) -> super::super::super::Storage::Streams::IInputStream;
                 }
@@ -334,8 +334,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x2e4e6216_3be1_5f0f_5c81_a5a2bd4eab0e)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowSubmittedOperation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowSubmittedOperation)]
                 interface IPrintWorkflowSubmittedOperation {
                     fn Complete(&self, status: PrintWorkflowSubmittedStatus);
                     #[get]
@@ -344,8 +344,8 @@ mod Windows {
                     XpsContent: PrintWorkflowSourceContent;
                 }
                 #[guid(0x29da276c_0a73_5aed_4f3d_970d3251f057)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowTarget)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowTarget)]
                 interface IPrintWorkflowTarget {
                     #[get]
                     TargetAsStream: PrintWorkflowStreamTarget;
@@ -353,8 +353,8 @@ mod Windows {
                     TargetAsXpsObjectModelPackage: PrintWorkflowObjectModelTargetPackage;
                 }
                 #[guid(0x5739d868_9d86_4052_b0cb_f310becd59bb)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowTriggerDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowTriggerDetails)]
                 interface IPrintWorkflowTriggerDetails {
                     #[get]
                     PrintWorkflowSession: PrintWorkflowBackgroundSession;
@@ -409,8 +409,8 @@ mod Windows {
                     VirtualPrinterSession: PrintWorkflowVirtualPrinterSession;
                 }
                 #[guid(0x334dbbca_bf10_585f_b7e0_58c4aa43a03f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowVirtualPrinterUIEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowVirtualPrinterUIEventArgs)]
                 interface IPrintWorkflowVirtualPrinterUIEventArgs {
                     #[get]
                     Configuration: PrintWorkflowConfiguration;
@@ -429,9 +429,9 @@ mod Windows {
                     Operation: PrintWorkflowSubmittedOperation;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowXpsObjectModelProvider)]
                 #[Windows::Foundation::Metadata::Experimental]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 interface IPrintWorkflowXpsObjectModelProvider {}
                 #[repr(u32)]
                 #[flags]
@@ -451,14 +451,14 @@ mod Windows {
                     MergePreferPsaOnConflict = 1,
                     DoNotMergeWithPrintTicket = 2,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 class PrintWorkflowBackgroundSession {
                     IPrintWorkflowBackgroundSession,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowBackgroundSetupRequestedEventArgs {
                     IPrintWorkflowBackgroundSetupRequestedEventArgs,
@@ -469,8 +469,8 @@ mod Windows {
                     IPrintWorkflowConfiguration,
                     IPrintWorkflowConfiguration2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowForegroundSession {
                     IPrintWorkflowForegroundSession,
@@ -521,8 +521,8 @@ mod Windows {
                     OutputAreaFull = 9,
                     JobPrintingError = 10,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintWorkflowJobNotificationEventArgs {
                     IPrintWorkflowJobNotificationEventArgs,
                 }
@@ -543,16 +543,16 @@ mod Windows {
                     IPrintWorkflowJobUISession,
                     IPrintWorkflowJobUISession2,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::Activatable(IPrintWorkflowObjectModelSourceFileContentFactory, 851968, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowObjectModelSourceFileContent {
                     IPrintWorkflowObjectModelSourceFileContent,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowObjectModelTargetPackage {
                     IPrintWorkflowObjectModelTargetPackage,
                 }
@@ -576,8 +576,8 @@ mod Windows {
                 class PrintWorkflowPdlDataAvailableEventArgs {
                     IPrintWorkflowPdlDataAvailableEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintWorkflowPdlModificationRequestedEventArgs {
                     IPrintWorkflowPdlModificationRequestedEventArgs,
                     IPrintWorkflowPdlModificationRequestedEventArgs2,
@@ -593,8 +593,8 @@ mod Windows {
                 class PrintWorkflowPdlTargetStream {
                     IPrintWorkflowPdlTargetStream,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintWorkflowPrinterJob {
                     IPrintWorkflowPrinterJob,
                     IPrintWorkflowPrinterJob2,
@@ -608,9 +608,9 @@ mod Windows {
                     InProgress = 2,
                     Completed = 3,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 class PrintWorkflowPrinterJobStatusChangedEventArgs {
                     IPrintWorkflowPrinterJobStatusChangedEventArgs,
                 }
@@ -623,33 +623,33 @@ mod Windows {
                     Closed = 3,
                     PdlDataAvailableForModification = 4,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowSourceContent {
                     IPrintWorkflowSourceContent,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowSpoolStreamContent {
                     IPrintWorkflowSpoolStreamContent,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowStreamTarget {
                     IPrintWorkflowStreamTarget,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowSubmittedEventArgs {
                     IPrintWorkflowSubmittedEventArgs,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowSubmittedOperation {
                     IPrintWorkflowSubmittedOperation,
                 }
@@ -666,15 +666,15 @@ mod Windows {
                 class PrintWorkflowTarget {
                     IPrintWorkflowTarget,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowTriggerDetails {
                     IPrintWorkflowTriggerDetails,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 class PrintWorkflowUIActivatedEventArgs {
                     IPrintWorkflowUIActivatedEventArgs,
                     super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser,
@@ -688,23 +688,23 @@ mod Windows {
                     JobFailed = 2,
                     UserCanceled = 3,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintWorkflowUILauncher {
                     IPrintWorkflowUILauncher,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintWorkflowVirtualPrinterDataAvailableEventArgs {
                     IPrintWorkflowVirtualPrinterDataAvailableEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintWorkflowVirtualPrinterSession {
                     IPrintWorkflowVirtualPrinterSession,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintWorkflowVirtualPrinterTriggerDetails {
                     IPrintWorkflowVirtualPrinterTriggerDetails,
                 }
@@ -713,15 +713,15 @@ mod Windows {
                 class PrintWorkflowVirtualPrinterUIEventArgs {
                     IPrintWorkflowVirtualPrinterUIEventArgs,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 class PrintWorkflowXpsDataAvailableEventArgs {
                     IPrintWorkflowXpsDataAvailableEventArgs,
                 }
-                #[Windows::Foundation::Metadata::Experimental]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::Activatable(1245184, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintWorkflowXpsObjectModelProvider {

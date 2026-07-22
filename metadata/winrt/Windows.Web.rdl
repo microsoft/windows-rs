@@ -8,16 +8,16 @@ mod Windows {
             fn UriToStreamAsync(&self, uri: super::Foundation::Uri) -> super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>;
         }
         #[guid(0xfe616766_bf27_4064_87b7_6563bb11ce2e)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(WebError)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(WebError)]
         interface IWebErrorStatics {
             fn GetStatus(&self, hresult: i32) -> WebErrorStatus;
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::Static(IWebErrorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class WebError {}
         #[repr(i32)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]

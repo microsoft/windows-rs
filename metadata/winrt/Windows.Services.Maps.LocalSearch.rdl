@@ -4,9 +4,9 @@ mod Windows {
         mod Maps {
             mod LocalSearch {
                 #[guid(0xf49399f5_8261_4321_9974_ef92d49a8dca)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LocalCategories)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalCategories)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ILocalCategoriesStatics {
                     #[get]
                     BankAndCreditUnions: String;
@@ -26,9 +26,9 @@ mod Windows {
                     Shop: String;
                 }
                 #[guid(0xbb0fe9ab_4502_4f2c_94a9_0d60de0e2163)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocation)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
                 interface ILocalLocation {
                     #[get]
                     Address: super::MapAddress;
@@ -58,9 +58,9 @@ mod Windows {
                     HoursOfOperation: super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>;
                 }
                 #[guid(0xd09b6cc6_f338_4191_9fd8_5440b9a68f52)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationFinderResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationFinderResult)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ILocalLocationFinderResult {
                     #[get]
                     LocalLocations: super::super::super::Foundation::Collections::IVectorView<LocalLocation>;
@@ -68,17 +68,17 @@ mod Windows {
                     Status: LocalLocationFinderStatus;
                 }
                 #[guid(0xd2ef7344_a0de_48ca_81a8_07c7dcfd37ab)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationFinder)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
                 interface ILocalLocationFinderStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FindLocalLocationsAsync(&self, searchTerm: String, searchArea: super::super::super::Devices::Geolocation::Geocircle, localCategory: String, maxResults: u32) -> super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>;
                 }
                 #[guid(0x23548c72_a1c7_43f1_a4f0_1091c39ec640)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationHoursOfOperationItem)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ILocalLocationHoursOfOperationItem {
                     #[get]
                     Day: super::super::super::Globalization::DayOfWeek;
@@ -88,9 +88,9 @@ mod Windows {
                     Span: super::super::super::Foundation::TimeSpan;
                 }
                 #[guid(0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationRatingInfo)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
                 interface ILocalLocationRatingInfo {
                     #[get]
                     AggregateRating: super::super::super::Foundation::IReference<f64>;
@@ -100,35 +100,35 @@ mod Windows {
                     ProviderIdentifier: String;
                 }
                 #[guid(0xdd1ca9a7_a9c6_491b_bc09_e80fcea48ee6)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfoHelper)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfoHelper)]
                 interface IPlaceInfoHelperStatics {
                     fn CreateFromLocalLocation(&self, location: LocalLocation) -> super::PlaceInfo;
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ILocalCategoriesStatics, 65536, "Windows.Services.Maps.LocalSearchContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                class LocalCategories {}
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                class LocalCategories {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class LocalLocation {
                     ILocalLocation,
                     ILocalLocation2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ILocalLocationFinderStatics, 65536, "Windows.Services.Maps.LocalSearchContract")]
-                class LocalLocationFinder {}
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class LocalLocationFinder {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class LocalLocationFinderResult {
                     ILocalLocationFinderResult,
                 }
@@ -145,24 +145,24 @@ mod Windows {
                     NetworkFailure = 6,
                     NotSupported = 7,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class LocalLocationHoursOfOperationItem {
                     ILocalLocationHoursOfOperationItem,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class LocalLocationRatingInfo {
                     ILocalLocationRatingInfo,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 262144)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IPlaceInfoHelperStatics, 262144, "Windows.Services.Maps.LocalSearchContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IPlaceInfoHelperStatics, 262144, "Windows.Services.Maps.LocalSearchContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PlaceInfoHelper {}
             }
         }

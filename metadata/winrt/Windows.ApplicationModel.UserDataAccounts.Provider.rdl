@@ -4,8 +4,8 @@ mod Windows {
         mod UserDataAccounts {
             mod Provider {
                 #[guid(0x5f200037_f6ef_4ec3_8630_012c59c1149f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountPartnerAccountInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountPartnerAccountInfo)]
                 interface IUserDataAccountPartnerAccountInfo {
                     #[get]
                     DisplayName: String;
@@ -15,8 +15,8 @@ mod Windows {
                     AccountKind: UserDataAccountProviderPartnerAccountKind;
                 }
                 #[guid(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderAddAccountOperation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderAddAccountOperation)]
                 interface IUserDataAccountProviderAddAccountOperation: IUserDataAccountProviderOperation {
                     #[get]
                     ContentKinds: super::UserDataAccountContentKinds;
@@ -31,28 +31,28 @@ mod Windows {
                     Kind: UserDataAccountProviderOperationKind;
                 }
                 #[guid(0x6235dc15_bfcb_41e1_9957_9759a28846cc)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderResolveErrorsOperation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderResolveErrorsOperation)]
                 interface IUserDataAccountProviderResolveErrorsOperation: IUserDataAccountProviderOperation {
                     #[get]
                     UserDataAccountId: String;
                     fn ReportCompleted(&self);
                 }
                 #[guid(0x92034db7_8648_4f30_acfa_3002658ca80d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderSettingsOperation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderSettingsOperation)]
                 interface IUserDataAccountProviderSettingsOperation: IUserDataAccountProviderOperation {
                     #[get]
                     UserDataAccountId: String;
                     fn ReportCompleted(&self);
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class UserDataAccountPartnerAccountInfo {
                     IUserDataAccountPartnerAccountInfo,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class UserDataAccountProviderAddAccountOperation {
                     IUserDataAccountProviderAddAccountOperation,
                     IUserDataAccountProviderOperation,
@@ -70,8 +70,8 @@ mod Windows {
                     Exchange = 0,
                     PopOrImap = 1,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class UserDataAccountProviderResolveErrorsOperation {
                     IUserDataAccountProviderResolveErrorsOperation,
                     IUserDataAccountProviderOperation,

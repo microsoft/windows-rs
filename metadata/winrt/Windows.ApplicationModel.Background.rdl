@@ -2,10 +2,10 @@
 mod Windows {
     mod ApplicationModel {
         mod Background {
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(IActivitySensorTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ActivitySensorTrigger {
                 IActivitySensorTrigger,
                 IBackgroundTrigger,
@@ -21,24 +21,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(BackgroundAlarmApplicationContract, 65536)]
             #[Windows::Foundation::Metadata::Static(IAlarmApplicationManagerStatics, 65536, "Windows.ApplicationModel.Background.BackgroundAlarmApplicationContract")]
             class AlarmApplicationManager {}
+            #[Windows::Foundation::Metadata::Activatable(IAppBroadcastTriggerFactory, 65536, "Windows.Media.Capture.AppBroadcastContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Media::Capture::AppBroadcastContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(IAppBroadcastTriggerFactory, 65536, "Windows.Media.Capture.AppBroadcastContract")]
             class AppBroadcastTrigger {
                 IAppBroadcastTrigger,
                 IBackgroundTrigger,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Media::Capture::AppBroadcastContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppBroadcastTriggerProviderInfo {
                 IAppBroadcastTriggerProviderInfo,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ApplicationTrigger {
                 IApplicationTrigger,
                 IBackgroundTrigger,
@@ -59,8 +59,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppointmentStoreNotificationTrigger {
                 IAppointmentStoreNotificationTrigger,
                 IBackgroundTrigger,
@@ -86,16 +86,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct BackgroundAlarmApplicationContract {}
-            #[Windows::Foundation::Metadata::Static(IBackgroundExecutionManagerStatics3, 851968, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Static(IBackgroundExecutionManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBackgroundExecutionManagerStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBackgroundExecutionManagerStatics3, 851968, "Windows.Foundation.UniversalApiContract")]
             class BackgroundExecutionManager {}
-            #[Windows::Foundation::Metadata::Static(IBackgroundTaskBuilderStatics, 983040, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772168)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Static(IBackgroundTaskBuilderStatics, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class BackgroundTaskBuilder {
                 IBackgroundTaskBuilder,
@@ -125,44 +125,44 @@ mod Windows {
                 EnergySaver = 11,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class BackgroundTaskCompletedEventArgs {
                 IBackgroundTaskCompletedEventArgs,
             }
             #[guid(0x5b38e929_a086_46a7_a678_439135822bcf)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             delegate fn BackgroundTaskCompletedEventHandler(sender: BackgroundTaskRegistration, args: BackgroundTaskCompletedEventArgs);
-            #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class BackgroundTaskDeferral {
                 IBackgroundTaskDeferral,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class BackgroundTaskProgressEventArgs {
                 IBackgroundTaskProgressEventArgs,
             }
             #[guid(0x46e0683c_8a88_4c99_804c_76897f6277a6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             delegate fn BackgroundTaskProgressEventHandler(sender: BackgroundTaskRegistration, args: BackgroundTaskProgressEventArgs);
-            #[Windows::Foundation::Metadata::Static(IBackgroundTaskRegistrationStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IBackgroundTaskRegistrationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IBackgroundTaskRegistrationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBackgroundTaskRegistrationStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class BackgroundTaskRegistration {
                 IBackgroundTaskRegistration,
                 IBackgroundTaskRegistration2,
                 IBackgroundTaskRegistration3,
                 IBackgroundTaskRegistration4,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::Activatable(IBackgroundTaskRegistrationGroupFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class BackgroundTaskRegistrationGroup {
                 IBackgroundTaskRegistrationGroup,
             }
@@ -173,11 +173,11 @@ mod Windows {
                 Cpu = 1,
                 Network = 2,
             }
-            #[Windows::Foundation::Metadata::Static(IBackgroundWorkCostStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IBackgroundWorkCostStatics2, 983040, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772172)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IBackgroundWorkCostStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBackgroundWorkCostStatics2, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BackgroundWorkCost {}
             #[repr(i32)]
@@ -187,9 +187,9 @@ mod Windows {
                 Medium = 1,
                 High = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothLEAdvertisementPublisherTrigger {
                 IBluetoothLEAdvertisementPublisherTrigger,
@@ -197,9 +197,9 @@ mod Windows {
                 IBluetoothLEAdvertisementPublisherTrigger2,
                 IBluetoothLEAdvertisementPublisherTrigger3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BluetoothLEAdvertisementWatcherTrigger {
                 IBluetoothLEAdvertisementWatcherTrigger,
@@ -207,36 +207,36 @@ mod Windows {
                 IBluetoothLEAdvertisementWatcherTrigger2,
                 IBluetoothLEAdvertisementWatcherTrigger3,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CachedFileUpdaterTrigger {
                 ICachedFileUpdaterTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CachedFileUpdaterTriggerDetails {
                 ICachedFileUpdaterTriggerDetails,
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             class ChatMessageNotificationTrigger {
                 IChatMessageNotificationTrigger,
                 IBackgroundTrigger,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageReceivedNotificationTrigger {
                 IChatMessageReceivedNotificationTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::CommunicationBlocking::CommunicationBlockingContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::CommunicationBlocking::CommunicationBlockingContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CommunicationBlockingAppSetAsActiveTrigger {
@@ -245,29 +245,29 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ContactStoreNotificationTrigger {
                 IContactStoreNotificationTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::Activatable(IContentPrefetchTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IContentPrefetchTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class ContentPrefetchTrigger {
                 IContentPrefetchTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::Activatable(524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             class ConversationalAgentTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::Activatable(ICustomSystemEventTriggerFactory, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class CustomSystemEventTrigger {
@@ -280,27 +280,27 @@ mod Windows {
                 Once = 0,
                 Always = 1,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IDeviceConnectionChangeTriggerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDeviceConnectionChangeTriggerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class DeviceConnectionChangeTrigger {
                 IDeviceConnectionChangeTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-            #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(IDeviceManufacturerNotificationTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class DeviceManufacturerNotificationTrigger {
                 IDeviceManufacturerNotificationTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class DeviceServicingTrigger {
                 IDeviceServicingTrigger,
                 IBackgroundTrigger,
@@ -314,9 +314,9 @@ mod Windows {
                 LowBattery = 3,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class DeviceUseTrigger {
                 IDeviceUseTrigger,
                 IBackgroundTrigger,
@@ -328,8 +328,8 @@ mod Windows {
                 IDeviceWatcherTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class EmailStoreNotificationTrigger {
@@ -345,33 +345,33 @@ mod Windows {
                 OverBudget = 3,
             }
             #[Windows::Foundation::Metadata::Activatable(IGattCharacteristicNotificationTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(IGattCharacteristicNotificationTriggerFactory2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class GattCharacteristicNotificationTrigger {
                 IGattCharacteristicNotificationTrigger,
                 IBackgroundTrigger,
                 IGattCharacteristicNotificationTrigger2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IGattServiceProviderTriggerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IGattServiceProviderTriggerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class GattServiceProviderTrigger {
                 IGattServiceProviderTrigger,
                 IBackgroundTrigger,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class GattServiceProviderTriggerResult {
                 IGattServiceProviderTriggerResult,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class GeovisitTrigger {
                 IGeovisitTrigger,
                 IBackgroundTrigger,
@@ -390,8 +390,8 @@ mod Windows {
                 MinimumReportInterval: u32;
             }
             #[guid(0xa72691c3_3837_44f7_831b_0132cc872bc3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ActivitySensorTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivitySensorTrigger)]
             interface IActivitySensorTriggerFactory {
                 fn Create(&self, reportIntervalInMilliseconds: u32) -> ActivitySensorTrigger;
             }
@@ -406,8 +406,8 @@ mod Windows {
                 fn GetAccessStatus(&self) -> AlarmAccessStatus;
             }
             #[guid(0x74d4f496_8d37_44ec_9481_2a0b9854eb48)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Media::Capture::AppBroadcastContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastTrigger)]
             interface IAppBroadcastTrigger: IBackgroundTrigger {
                 #[set]
                 ProviderInfo: AppBroadcastTriggerProviderInfo;
@@ -415,8 +415,8 @@ mod Windows {
                 ProviderInfo: AppBroadcastTriggerProviderInfo;
             }
             #[guid(0x280b9f44_22f4_4618_a02e_e7e411eb7238)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Media::Capture::AppBroadcastContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastTrigger)]
             interface IAppBroadcastTriggerFactory {
                 fn CreateAppBroadcastTrigger(&self, providerKey: String) -> AppBroadcastTrigger;
             }
@@ -453,8 +453,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationTrigger)]
             interface IApplicationTrigger: IBackgroundTrigger {
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("RequestAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAsync(&self) -> super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>;
                 #[Windows::Foundation::Metadata::Overload("RequestAsyncWithArguments")]
                 fn RequestAsync(&self, arguments: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>;
@@ -474,14 +474,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IBackgroundCondition {}
             #[guid(0xe826ea58_66a9_4d41_83d4_b4c18c87b846)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundExecutionManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundExecutionManager)]
             interface IBackgroundExecutionManagerStatics {
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("RequestAccessAsync")]
-                fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>;
                 #[Windows::Foundation::Metadata::Overload("RequestAccessForApplicationAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>;
                 #[Windows::Foundation::Metadata::Overload("RemoveAccess")]
                 fn RemoveAccess(&self);
@@ -501,8 +501,8 @@ mod Windows {
                 fn RequestAccessKindAsync(&self, requestedAccess: BackgroundAccessRequestKind, reason: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundExecutionManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundExecutionManager)]
             interface IBackgroundExecutionManagerStatics3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessKindForModernStandbyAsync(&self, requestedAccess: BackgroundAccessRequestKind, reason: String) -> super::super::Foundation::IAsyncOperation<bool>;
@@ -518,8 +518,8 @@ mod Windows {
                 fn Run(&self, taskInstance: IBackgroundTaskInstance);
             }
             #[guid(0x0351550e_3e64_4572_a93a_84075a37c917)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskBuilder)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskBuilder)]
             interface IBackgroundTaskBuilder {
                 #[set]
                 TaskEntryPoint: String;
@@ -552,8 +552,8 @@ mod Windows {
                 IsNetworkRequested: bool;
             }
             #[guid(0x4755e522_cba2_4e35_bd16_a6da7f1c19aa)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskBuilder)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskBuilder)]
             interface IBackgroundTaskBuilder4 {
                 TaskGroup: BackgroundTaskRegistrationGroup;
             }
@@ -579,16 +579,16 @@ mod Windows {
                 IsRunningTaskInStandbySupported: bool;
             }
             #[guid(0x565d25cf_f209_48f4_9967_2b184f7bfbf0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskCompletedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskCompletedEventArgs)]
             interface IBackgroundTaskCompletedEventArgs {
                 #[get]
                 InstanceId: GUID;
                 fn CheckResult(&self);
             }
             #[guid(0x93cc156d_af27_4dd3_846e_24ee40cadd25)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskDeferral)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskDeferral)]
             interface IBackgroundTaskDeferral {
                 fn Complete(&self);
             }
@@ -651,8 +651,8 @@ mod Windows {
                 TaskGroup: BackgroundTaskRegistrationGroup;
             }
             #[guid(0x169c09c9_b0de_5576_a05b_a02067989879)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskRegistration)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskRegistration)]
             interface IBackgroundTaskRegistration4 {
                 #[get]
                 TaskLastThrottledInStandbyTimestamp: super::super::Foundation::DateTime;
@@ -679,15 +679,15 @@ mod Windows {
                 fn CreateWithName(&self, id: String, name: String) -> BackgroundTaskRegistrationGroup;
             }
             #[guid(0x4c542f69_b000_42ba_a093_6a563c65e3f8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskRegistration)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskRegistration)]
             interface IBackgroundTaskRegistrationStatics {
                 #[get]
                 AllTasks: super::super::Foundation::Collections::IMapView<GUID, IBackgroundTaskRegistration>;
             }
             #[guid(0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskRegistration)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTaskRegistration)]
             interface IBackgroundTaskRegistrationStatics2 {
                 #[get]
                 AllTaskGroups: super::super::Foundation::Collections::IMapView<String, BackgroundTaskRegistrationGroup>;
@@ -697,15 +697,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IBackgroundTrigger {}
             #[guid(0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundWorkCost)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundWorkCost)]
             interface IBackgroundWorkCostStatics {
                 #[get]
                 CurrentBackgroundWorkCost: BackgroundWorkCostValue;
             }
             #[guid(0xd868c976_81f6_57c8_ab2b_400b749e21d6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundWorkCost)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundWorkCost)]
             interface IBackgroundWorkCostStatics2 {
                 #[get]
                 AppEnergyUseLevel: EnergyUseLevel;
@@ -722,8 +722,8 @@ mod Windows {
                 Advertisement: super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement;
             }
             #[guid(0xaa28d064_38f4_597d_b597_4e55588c6503)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisherTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisherTrigger)]
             interface IBluetoothLEAdvertisementPublisherTrigger2 {
                 PreferredTransmitPowerLevelInDBm: super::super::Foundation::IReference<i16>;
                 UseExtendedFormat: bool;
@@ -753,8 +753,8 @@ mod Windows {
                 AdvertisementFilter: super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter;
             }
             #[guid(0x39b56799_eb39_5ab6_9932_aa9e4549604d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcherTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcherTrigger)]
             interface IBluetoothLEAdvertisementWatcherTrigger2 {
                 AllowExtendedAdvertisements: bool;
             }
@@ -790,12 +790,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageReceivedNotificationTrigger)]
             interface IChatMessageReceivedNotificationTrigger: IBackgroundTrigger {}
             #[guid(0xfb91f28a_16a5_486d_974c_7835a8477be2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CommunicationBlockingAppSetAsActiveTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::CommunicationBlocking::CommunicationBlockingContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CommunicationBlockingAppSetAsActiveTrigger)]
             interface ICommunicationBlockingAppSetAsActiveTrigger: IBackgroundTrigger {}
             #[guid(0xc833419b_4705_4571_9a16_06b997bf9c96)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ContactStoreNotificationTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactStoreNotificationTrigger)]
             interface IContactStoreNotificationTrigger: IBackgroundTrigger {}
             #[guid(0x710627ee_04fa_440b_80c0_173202199e5d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -826,8 +826,8 @@ mod Windows {
                 fn Create(&self, triggerId: String, recurrence: CustomSystemEventTriggerRecurrence) -> CustomSystemEventTrigger;
             }
             #[guid(0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceConnectionChangeTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceConnectionChangeTrigger)]
             interface IDeviceConnectionChangeTrigger: IBackgroundTrigger {
                 #[get]
                 DeviceId: String;
@@ -836,16 +836,16 @@ mod Windows {
                 MaintainConnection: bool;
             }
             #[guid(0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceConnectionChangeTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceConnectionChangeTrigger)]
             interface IDeviceConnectionChangeTriggerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>;
             }
             #[guid(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceManufacturerNotificationTrigger)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IDeviceManufacturerNotificationTrigger: IBackgroundTrigger {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
@@ -855,9 +855,9 @@ mod Windows {
                 fn get_OneShot(&self) -> bool;
             }
             #[guid(0x7955de75_25bb_4153_a1a2_3029fcabb652)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceManufacturerNotificationTrigger)]
-            #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceManufacturerNotificationTrigger)]
             interface IDeviceManufacturerNotificationTriggerFactory {
                 #[Windows::Foundation::Metadata::Deprecated("DeviceManufacturerNotificationTrigger is deprecated and might not work on all platforms", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                 fn Create(&self, triggerQualifier: String, oneShot: bool) -> DeviceManufacturerNotificationTrigger;
@@ -866,26 +866,26 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DeviceServicingTrigger)]
             interface IDeviceServicingTrigger: IBackgroundTrigger {
+                #[Windows::Foundation::Metadata::DefaultOverload]
                 #[Windows::Foundation::Metadata::Overload("RequestAsyncSimple")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::DefaultOverload]
                 fn RequestAsync(&self, deviceId: String, expectedDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("RequestAsyncWithArguments")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAsync(&self, deviceId: String, expectedDuration: super::super::Foundation::TimeSpan, arguments: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
             }
             #[guid(0x0da68011_334f_4d57_b6ec_6dca64b412e4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceUseTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceUseTrigger)]
             interface IDeviceUseTrigger: IBackgroundTrigger {
-                #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::Overload("RequestAsyncSimple")]
                 #[Windows::Foundation::Metadata::DefaultOverload]
-                fn RequestAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
+                #[Windows::Foundation::Metadata::Overload("RequestAsyncSimple")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
                 #[Windows::Foundation::Metadata::DefaultOverload]
                 #[Windows::Foundation::Metadata::Overload("RequestAsyncWithArguments")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAsync(&self, deviceId: String, arguments: String) -> super::super::Foundation::IAsyncOperation<DeviceTriggerResult>;
             }
             #[guid(0xa4617fdd_8573_4260_befc_5bec89cb693d)]
@@ -897,8 +897,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(EmailStoreNotificationTrigger)]
             interface IEmailStoreNotificationTrigger: IBackgroundTrigger {}
             #[guid(0xe25f8fc8_0696_474f_a732_f292b0cebc5d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicNotificationTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicNotificationTrigger)]
             interface IGattCharacteristicNotificationTrigger: IBackgroundTrigger {
                 #[get]
                 Characteristic: super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic;
@@ -911,8 +911,8 @@ mod Windows {
                 EventTriggeringMode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode;
             }
             #[guid(0x57ba1995_b143_4575_9f6b_fd59d93ace1a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicNotificationTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicNotificationTrigger)]
             interface IGattCharacteristicNotificationTriggerFactory {
                 #[Windows::Foundation::Metadata::Overload("Create")]
                 fn Create(&self, characteristic: super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic) -> GattCharacteristicNotificationTrigger;
@@ -925,8 +925,8 @@ mod Windows {
                 fn Create(&self, characteristic: super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic, eventTriggeringMode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> GattCharacteristicNotificationTrigger;
             }
             #[guid(0xddc6a3e9_1557_4bd8_8542_468aa0c696f6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderTrigger)]
             interface IGattServiceProviderTrigger {
                 #[get]
                 TriggerId: String;
@@ -938,8 +938,8 @@ mod Windows {
                 AdvertisingParameters: super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters;
             }
             #[guid(0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderTriggerResult)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderTriggerResult)]
             interface IGattServiceProviderTriggerResult {
                 #[get]
                 Trigger: GattServiceProviderTrigger;
@@ -955,8 +955,8 @@ mod Windows {
                 fn CreateAsync(&self, triggerId: String, serviceUuid: GUID) -> super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>;
             }
             #[guid(0x4818edaa_04e1_4127_9a4c_19351b8a80a4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GeovisitTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GeovisitTrigger)]
             interface IGeovisitTrigger: IBackgroundTrigger {
                 MonitoringScope: super::super::Devices::Geolocation::VisitMonitoringScope;
             }
@@ -968,8 +968,8 @@ mod Windows {
                 TriggerType: LocationTriggerType;
             }
             #[guid(0x1106bb07_ff69_4e09_aa8b_1384ea475e98)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LocationTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LocationTrigger)]
             interface ILocationTriggerFactory {
                 fn Create(&self, triggerType: LocationTriggerType) -> LocationTrigger;
             }
@@ -992,32 +992,32 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaProcessingTrigger)]
             interface IMediaProcessingTrigger: IBackgroundTrigger {
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("RequestAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAsync(&self) -> super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>;
                 #[Windows::Foundation::Metadata::Overload("RequestAsyncWithArguments")]
                 fn RequestAsync(&self, arguments: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>;
             }
             #[guid(0xe756c791_3001_4de5_83c7_de61d88831d0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorHotspotAuthenticationTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorHotspotAuthenticationTrigger)]
             interface INetworkOperatorHotspotAuthenticationTrigger: IBackgroundTrigger {}
             #[guid(0x90089cc6_63cd_480c_95d1_6e6aef801e4a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorNotificationTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorNotificationTrigger)]
             interface INetworkOperatorNotificationTrigger: IBackgroundTrigger {
                 #[get]
                 NetworkAccountId: String;
             }
             #[guid(0x0a223e00_27d7_4353_adb9_9265aaea579d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorNotificationTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorNotificationTrigger)]
             interface INetworkOperatorNotificationTriggerFactory {
                 fn Create(&self, networkAccountId: String) -> NetworkOperatorNotificationTrigger;
             }
             #[guid(0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::Calls::Background::CallsBackgroundContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneTrigger)]
             #[Windows::Foundation::Metadata::PreviousContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 65536, 196608)]
             interface IPhoneTrigger: IBackgroundTrigger {
                 #[get]
@@ -1026,21 +1026,21 @@ mod Windows {
                 TriggerType: super::Calls::Background::PhoneTriggerType;
             }
             #[guid(0xa0d93cda_5fc1_48fb_a546_32262040157b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::Calls::Background::CallsBackgroundContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneTrigger)]
             #[Windows::Foundation::Metadata::PreviousContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 65536, 196608)]
             interface IPhoneTriggerFactory {
                 fn Create(&self, r#type: super::Calls::Background::PhoneTriggerType, oneShot: bool) -> PhoneTrigger;
             }
             #[guid(0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationTrigger)]
             interface IPushNotificationTriggerFactory {
                 fn Create(&self, applicationId: String) -> PushNotificationTrigger;
             }
             #[guid(0x986d0d6a_b2f6_467f_a978_a44091c11a66)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RcsEndUserMessageAvailableTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RcsEndUserMessageAvailableTrigger)]
             interface IRcsEndUserMessageAvailableTrigger: IBackgroundTrigger {}
             #[guid(0xe8c4cae2_0b53_4464_9394_fd875654de64)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1056,16 +1056,16 @@ mod Windows {
             }
             #[guid(0xf237f327_5181_4f24_96a7_700a4e5fac62)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorAuthenticationTrigger)]
             #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationTrigger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorAuthenticationTrigger)]
             interface ISecondaryAuthenticationFactorAuthenticationTrigger: IBackgroundTrigger {}
             #[guid(0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SensorDataThresholdTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SensorDataThresholdTrigger)]
             interface ISensorDataThresholdTrigger: IBackgroundTrigger {}
             #[guid(0x921fe675_7df0_4da3_97b3_e544ee857fe6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SensorDataThresholdTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SensorDataThresholdTrigger)]
             interface ISensorDataThresholdTriggerFactory {
                 fn Create(&self, threshold: super::super::Devices::Sensors::ISensorDataThreshold) -> SensorDataThresholdTrigger;
             }
@@ -1077,20 +1077,20 @@ mod Windows {
                 TriggerType: super::super::Devices::SmartCards::SmartCardTriggerType;
             }
             #[guid(0x63bf54c3_89c1_4e00_a9d3_97c629269dad)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SmartCardTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Devices::SmartCards::SmartCardBackgroundTriggerContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SmartCardTrigger)]
             interface ISmartCardTriggerFactory {
                 fn Create(&self, triggerType: super::super::Devices::SmartCards::SmartCardTriggerType) -> SmartCardTrigger;
             }
             #[guid(0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SmsMessageReceivedTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SmsMessageReceivedTrigger)]
             interface ISmsMessageReceivedTriggerFactory {
                 fn Create(&self, filterRules: super::super::Devices::Sms::SmsFilterRules) -> SmsMessageReceivedTrigger;
             }
             #[guid(0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SocketActivityTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SocketActivityTrigger)]
             interface ISocketActivityTrigger {
                 #[get]
                 IsWakeFromLowPowerSupported: bool;
@@ -1106,28 +1106,28 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryContentChangedTrigger)]
             interface IStorageLibraryContentChangedTrigger: IBackgroundTrigger {}
             #[guid(0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryContentChangedTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryContentChangedTrigger)]
             interface IStorageLibraryContentChangedTriggerStatics {
                 fn Create(&self, storageLibrary: super::super::Storage::StorageLibrary) -> StorageLibraryContentChangedTrigger;
                 fn CreateFromLibraries(&self, storageLibraries: super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>) -> StorageLibraryContentChangedTrigger;
             }
             #[guid(0xc15fb476_89c5_420b_abd3_fb3030472128)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SystemCondition)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemCondition)]
             interface ISystemCondition: IBackgroundCondition {
                 #[get]
                 ConditionType: SystemConditionType;
             }
             #[guid(0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SystemCondition)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemCondition)]
             interface ISystemConditionFactory {
                 fn Create(&self, conditionType: SystemConditionType) -> SystemCondition;
             }
             #[guid(0x1d80c776_3748_4463_8d7e_276dc139ac1c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SystemTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemTrigger)]
             interface ISystemTrigger: IBackgroundTrigger {
                 #[get]
                 OneShot: bool;
@@ -1150,8 +1150,8 @@ mod Windows {
                 OneShot: bool;
             }
             #[guid(0x38c682fe_9b54_45e6_b2f3_269b87a6f734)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimeTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimeTrigger)]
             interface ITimeTriggerFactory {
                 fn Create(&self, freshnessTime: u32, oneShot: bool) -> TimeTrigger;
             }
@@ -1162,8 +1162,8 @@ mod Windows {
                 fn Create(&self, applicationId: String) -> ToastNotificationActionTrigger;
             }
             #[guid(0x81c6faad_8797_4785_81b4_b0cccb73d1d9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationHistoryChangedTrigger)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationHistoryChangedTrigger)]
             interface IToastNotificationHistoryChangedTriggerFactory {
                 fn Create(&self, applicationId: String) -> ToastNotificationHistoryChangedTrigger;
             }
@@ -1173,10 +1173,10 @@ mod Windows {
             interface IUserNotificationChangedTriggerFactory {
                 fn Create(&self, notificationKinds: super::super::UI::Notifications::NotificationKinds) -> UserNotificationChangedTrigger;
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(ILocationTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LocationTrigger {
                 ILocationTrigger,
                 IBackgroundTrigger,
@@ -1186,8 +1186,8 @@ mod Windows {
             enum LocationTriggerType {
                 Geofence = 0,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(IMaintenanceTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class MaintenanceTrigger {
@@ -1196,8 +1196,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaProcessingTrigger {
                 IMediaProcessingTrigger,
                 IBackgroundTrigger,
@@ -1210,109 +1210,109 @@ mod Windows {
                 DisabledByPolicy = 2,
                 UnknownError = 3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MobileBroadbandDeviceServiceNotificationTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MobileBroadbandPcoDataChangeTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MobileBroadbandPinLockStateChangeTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MobileBroadbandRadioStateChangeTrigger {
                 IBackgroundTrigger,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MobileBroadbandRegistrationStateChangeTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class NetworkOperatorDataUsageTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class NetworkOperatorHotspotAuthenticationTrigger {
                 INetworkOperatorHotspotAuthenticationTrigger,
                 IBackgroundTrigger,
             }
             #[Windows::Foundation::Metadata::Activatable(INetworkOperatorNotificationTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(MTA)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class NetworkOperatorNotificationTrigger {
                 INetworkOperatorNotificationTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentAppCanMakePaymentTrigger {
                 IBackgroundTrigger,
             }
+            #[Windows::Foundation::Metadata::Activatable(IPhoneTriggerFactory, 65536, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::Calls::Background::CallsBackgroundContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(IPhoneTriggerFactory, 65536, "Windows.ApplicationModel.Calls.CallsPhoneContract")]
             #[Windows::Foundation::Metadata::PreviousContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 65536, 196608)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PhoneTrigger {
                 IPhoneTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(IPushNotificationTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::Activatable(IPushNotificationTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class PushNotificationTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class RcsEndUserMessageAvailableTrigger {
                 IRcsEndUserMessageAvailableTrigger,
                 IBackgroundTrigger,
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class RfcommConnectionTrigger {
                 IRfcommConnectionTrigger,
                 IBackgroundTrigger,
             }
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationTrigger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationTrigger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             class SecondaryAuthenticationFactorAuthenticationTrigger {
                 ISecondaryAuthenticationFactorAuthenticationTrigger,
                 IBackgroundTrigger,
@@ -1325,32 +1325,32 @@ mod Windows {
                 ISensorDataThresholdTrigger,
                 IBackgroundTrigger,
             }
+            #[Windows::Foundation::Metadata::Activatable(ISmartCardTriggerFactory, 65536, "Windows.Devices.SmartCards.SmartCardBackgroundTriggerContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Devices::SmartCards::SmartCardBackgroundTriggerContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-            #[Windows::Foundation::Metadata::Activatable(ISmartCardTriggerFactory, 65536, "Windows.Devices.SmartCards.SmartCardBackgroundTriggerContract")]
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class SmartCardTrigger {
                 ISmartCardTrigger,
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(ISmsMessageReceivedTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SmsMessageReceivedTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SocketActivityTrigger {
                 IBackgroundTrigger,
                 ISocketActivityTrigger,
             }
             #[Windows::Foundation::Metadata::Activatable(IStorageLibraryChangeTrackerTriggerFactory, 393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class StorageLibraryChangeTrackerTrigger {
                 IBackgroundTrigger,
@@ -1361,10 +1361,10 @@ mod Windows {
                 IStorageLibraryContentChangedTrigger,
                 IBackgroundTrigger,
             }
+            #[Windows::Foundation::Metadata::Activatable(ISystemConditionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::Activatable(ISystemConditionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             class SystemCondition {
                 ISystemCondition,
                 IBackgroundCondition,
@@ -1383,8 +1383,8 @@ mod Windows {
                 BackgroundWorkCostNotHigh = 8,
             }
             #[Windows::Foundation::Metadata::Activatable(ISystemTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
             class SystemTrigger {
                 ISystemTrigger,
@@ -1410,10 +1410,10 @@ mod Windows {
                 PowerStateChange = 14,
                 DefaultSignInAccountChange = 15,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TetheringEntitlementCheckTrigger {
                 IBackgroundTrigger,
             }
@@ -1426,25 +1426,25 @@ mod Windows {
                 IBackgroundTrigger,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IToastNotificationActionTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(IToastNotificationActionTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             class ToastNotificationActionTrigger {
                 IBackgroundTrigger,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(MTA)]
             #[Windows::Foundation::Metadata::Activatable(IToastNotificationHistoryChangedTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class ToastNotificationHistoryChangedTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(IUserNotificationChangedTriggerFactory, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class UserNotificationChangedTrigger {
                 IBackgroundTrigger,
             }
@@ -1455,10 +1455,10 @@ mod Windows {
             class WiFiOnDemandHotspotConnectTrigger {
                 IBackgroundTrigger,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::Activatable(983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class WiFiOnDemandHotspotUpdateMetadataTrigger {
                 IBackgroundTrigger,
             }

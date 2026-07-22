@@ -3,8 +3,8 @@ mod Windows {
     mod Web {
         mod Syndication {
             #[guid(0x71e8f969_526e_4001_9a91_e84f83161ab1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationAttribute)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationAttribute)]
             interface ISyndicationAttribute {
                 Name: String;
                 Namespace: String;
@@ -44,33 +44,33 @@ mod Windows {
                 fn RetrieveFeedAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>;
             }
             #[guid(0x2ec4b32c_a79b_4114_b29a_05dffbafb9a4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationClient)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationClient)]
             interface ISyndicationClientFactory {
                 fn CreateSyndicationClient(&self, serverCredential: super::super::Security::Credentials::PasswordCredential) -> SyndicationClient;
             }
             #[guid(0x4641fefe_0e55_40d0_b8d0_6a2ccba9fc7c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationContent)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationContent)]
             interface ISyndicationContent: ISyndicationText + ISyndicationNode {
                 SourceUri: super::super::Foundation::Uri;
             }
             #[guid(0x3d2fbb93_9520_4173_9388_7e2df324a8a0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationContent)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationContent)]
             interface ISyndicationContentFactory {
                 fn CreateSyndicationContent(&self, text: String, r#type: SyndicationTextType) -> SyndicationContent;
                 fn CreateSyndicationContentWithSourceUri(&self, sourceUri: super::super::Foundation::Uri) -> SyndicationContent;
             }
             #[guid(0x1fbb2361_45c7_4833_8aa0_be5f3b58a7f4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationError)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationError)]
             interface ISyndicationErrorStatics {
                 fn GetStatus(&self, hresult: i32) -> SyndicationErrorStatus;
             }
             #[guid(0x7ffe3cd2_5b66_4d62_8403_1bc10d910d6b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationFeed)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationFeed)]
             interface ISyndicationFeed: ISyndicationNode {
                 #[get]
                 Authors: super::super::Foundation::Collections::IVector<SyndicationPerson>;
@@ -118,14 +118,14 @@ mod Windows {
                 Version: String;
             }
             #[guid(0xa34083e3_1e26_4dbc_ba9d_1ab84beff97b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationGenerator)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationGenerator)]
             interface ISyndicationGeneratorFactory {
                 fn CreateSyndicationGenerator(&self, text: String) -> SyndicationGenerator;
             }
             #[guid(0x548db883_c384_45c1_8ae8_a378c4ec486c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationItem)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationItem)]
             interface ISyndicationItem: ISyndicationNode {
                 #[get]
                 Authors: super::super::Foundation::Collections::IVector<SyndicationPerson>;
@@ -156,14 +156,14 @@ mod Windows {
                 fn LoadFromXml(&self, itemDocument: super::super::Data::Xml::Dom::XmlDocument);
             }
             #[guid(0x251d434f_7db8_487a_85e4_10d191e66ebb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationItem)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationItem)]
             interface ISyndicationItemFactory {
                 fn CreateSyndicationItem(&self, title: String, content: SyndicationContent, uri: super::super::Foundation::Uri) -> SyndicationItem;
             }
             #[guid(0x27553abd_a10e_41b5_86bd_9759086eb0c5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationLink)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SyndicationLink)]
             interface ISyndicationLink: ISyndicationNode {
                 Length: u32;
                 MediaType: String;
@@ -233,47 +233,47 @@ mod Windows {
                 BytesRetrieved: u32,
                 TotalBytesToRetrieve: u32,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationAttributeFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationAttribute {
                 ISyndicationAttribute,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(ISyndicationCategoryFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Activatable(ISyndicationCategoryFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationCategory {
                 ISyndicationCategory,
                 ISyndicationNode,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationClientFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationClient {
                 ISyndicationClient,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationContentFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationContent {
                 ISyndicationContent,
                 ISyndicationText,
                 ISyndicationNode,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ISyndicationErrorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
@@ -289,11 +289,11 @@ mod Windows {
                 UnsupportedFormat = 5,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationFeedFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationFeed {
                 ISyndicationFeed,
                 ISyndicationNode,
@@ -308,60 +308,60 @@ mod Windows {
                 Rss091 = 4,
                 Atom03 = 5,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(ISyndicationGeneratorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(ISyndicationGeneratorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationGenerator {
                 ISyndicationGenerator,
                 ISyndicationNode,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationItemFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationItem {
                 ISyndicationItem,
                 ISyndicationNode,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationLinkFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationLink {
                 ISyndicationLink,
                 ISyndicationNode,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationNodeFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationNode {
                 ISyndicationNode,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationPersonFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationPerson {
                 ISyndicationPerson,
                 ISyndicationNode,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(ISyndicationTextFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SyndicationText {
                 ISyndicationText,

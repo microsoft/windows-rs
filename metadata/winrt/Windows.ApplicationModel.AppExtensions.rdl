@@ -3,9 +3,9 @@ mod Windows {
     mod ApplicationModel {
         mod AppExtensions {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             class AppExtension {
                 IAppExtension,
                 IAppExtension2,
@@ -17,44 +17,44 @@ mod Windows {
                 IAppExtensionCatalog,
                 IAppExtensionCatalog2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppExtensionPackageInstalledEventArgs {
                 IAppExtensionPackageInstalledEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppExtensionPackageStatusChangedEventArgs {
                 IAppExtensionPackageStatusChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppExtensionPackageUninstallingEventArgs {
                 IAppExtensionPackageUninstallingEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppExtensionPackageUpdatedEventArgs {
                 IAppExtensionPackageUpdatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppExtensionPackageUpdatingEventArgs {
                 IAppExtensionPackageUpdatingEventArgs,
             }
             #[guid(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
             interface IAppExtension {
                 #[get]
                 Id: String;
@@ -72,8 +72,8 @@ mod Windows {
                 fn GetPublicFolderAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFolder>;
             }
             #[guid(0xab3b15f0_14f9_4b9f_9419_a349a242ef38)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
             interface IAppExtension2 {
                 #[get]
                 AppUserModelId: String;
@@ -87,8 +87,8 @@ mod Windows {
                 fn GetPublicFolder(&self) -> super::super::Storage::StorageFolder;
             }
             #[guid(0x97872032_8426_4ad1_9084_92e88c2da200)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
             interface IAppExtensionCatalog {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppExtension>>;
@@ -107,14 +107,14 @@ mod Windows {
                 fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<AppExtension>;
             }
             #[guid(0x3c36668a_5f18_4f0b_9ce5_cab61d196f11)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
             interface IAppExtensionCatalogStatics {
                 fn Open(&self, appExtensionName: String) -> AppExtensionCatalog;
             }
             #[guid(0x39e59234_3351_4a8d_9745_e7d3dd45bc48)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageInstalledEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageInstalledEventArgs)]
             interface IAppExtensionPackageInstalledEventArgs {
                 #[get]
                 AppExtensionName: String;
@@ -124,8 +124,8 @@ mod Windows {
                 Extensions: super::super::Foundation::Collections::IVectorView<AppExtension>;
             }
             #[guid(0x1ce17433_1153_44fd_87b1_8ae1050303df)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageStatusChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageStatusChangedEventArgs)]
             interface IAppExtensionPackageStatusChangedEventArgs {
                 #[get]
                 AppExtensionName: String;
@@ -133,8 +133,8 @@ mod Windows {
                 Package: super::Package;
             }
             #[guid(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageUninstallingEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageUninstallingEventArgs)]
             interface IAppExtensionPackageUninstallingEventArgs {
                 #[get]
                 AppExtensionName: String;

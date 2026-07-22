@@ -4,18 +4,18 @@ mod Windows {
         mod Wallet {
             mod System {
                 #[guid(0x522e2bff_96a2_4a17_8d19_fe1d9f837561)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WalletItemSystemStore)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IWalletItemSystemStore {
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetItemsAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>;
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn DeleteAsync(&self, item: super::WalletItem) -> super::super::super::Foundation::IAsyncAction;
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ImportItemAsync(&self, stream: super::super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::super::Foundation::IAsyncOperation<super::WalletItem>;
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                     fn GetAppStatusForItem(&self, item: super::WalletItem) -> WalletItemAppAssociation;
@@ -25,8 +25,8 @@ mod Windows {
                 }
                 #[guid(0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WalletItemSystemStore)]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore2 is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WalletItemSystemStore)]
                 interface IWalletItemSystemStore2 {
                     #[special]
                     #[Windows::Foundation::Metadata::Deprecated("IWalletItemSystemStore2 is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
@@ -36,33 +36,33 @@ mod Windows {
                     fn remove_ItemsChanged(&self, cookie: super::super::super::Foundation::EventRegistrationToken);
                 }
                 #[guid(0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0)]
-                #[Windows::Foundation::Metadata::Deprecated("IWalletManagerSystemStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("IWalletManagerSystemStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WalletManagerSystem)]
                 interface IWalletManagerSystemStatics {
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Deprecated("IWalletManagerSystemStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RequestStoreAsync(&self) -> super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>;
                 }
                 #[repr(i32)]
-                #[Windows::Foundation::Metadata::Deprecated("WalletItemAppAssociation is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("WalletItemAppAssociation is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 enum WalletItemAppAssociation {
                     None = 0,
                     AppInstalled = 1,
                     AppNotInstalled = 2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("WalletItemSystemStore is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class WalletItemSystemStore {
                     IWalletItemSystemStore,
                     IWalletItemSystemStore2,
                 }
-                #[Windows::Foundation::Metadata::Static(IWalletManagerSystemStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("WalletManagerSystem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 917504, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IWalletManagerSystemStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 class WalletManagerSystem {}
             }
         }

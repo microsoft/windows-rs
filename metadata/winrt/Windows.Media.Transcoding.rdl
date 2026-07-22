@@ -35,8 +35,8 @@ mod Windows {
                 fn PrepareStreamTranscodeAsync(&self, source: super::super::Storage::Streams::IRandomAccessStream, destination: super::super::Storage::Streams::IRandomAccessStream, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
             }
             #[guid(0x40531d74_35e0_4f04_8574_ca8bc4e5a082)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaTranscoder)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaTranscoder)]
             interface IMediaTranscoder2 {
                 fn PrepareMediaStreamSourceTranscodeAsync(&self, source: super::Core::IMediaSource, destination: super::super::Storage::Streams::IRandomAccessStream, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
                 #[set]
@@ -45,8 +45,8 @@ mod Windows {
                 VideoProcessingAlgorithm: MediaVideoProcessingAlgorithm;
             }
             #[guid(0x05f25dce_994f_4a34_9d68_97ccce1730d6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PrepareTranscodeResult)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrepareTranscodeResult)]
             interface IPrepareTranscodeResult {
                 #[get]
                 CanTranscode: bool;
@@ -56,10 +56,10 @@ mod Windows {
                 fn TranscodeAsync(&self) -> super::super::Foundation::IAsyncActionWithProgress<f64>;
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaTranscoder {
                 IMediaTranscoder,
                 IMediaTranscoder2,
@@ -72,8 +72,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PrepareTranscodeResult {
                 IPrepareTranscodeResult,
             }

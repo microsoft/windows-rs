@@ -2,12 +2,12 @@
 mod Windows {
     mod Globalization {
         mod DateTimeFormatting {
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IDateTimeFormatterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(IDateTimeFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDateTimeFormatterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class DateTimeFormatter {
                 IDateTimeFormatter,
                 IDateTimeFormatter2,
@@ -89,8 +89,8 @@ mod Windows {
                 fn CreateDateTimeFormatterDateTimeContext(&self, yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String, calendar: String, clock: String) -> DateTimeFormatter;
             }
             #[guid(0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DateTimeFormatter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DateTimeFormatter)]
             interface IDateTimeFormatterStatics {
                 #[get]
                 LongDate: DateTimeFormatter;

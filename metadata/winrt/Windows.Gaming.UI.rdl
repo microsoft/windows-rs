@@ -2,11 +2,11 @@
 mod Windows {
     mod Gaming {
         mod UI {
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IGameBarStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class GameBar {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -14,24 +14,24 @@ mod Windows {
                 Voice = 0,
                 Text = 1,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
             class GameChatMessageReceivedEventArgs {
                 IGameChatMessageReceivedEventArgs,
             }
-            #[Windows::Foundation::Metadata::Static(IGameChatOverlayStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IGameChatOverlayStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             class GameChatOverlay {
                 IGameChatOverlay,
             }
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct GameChatOverlayContract {}
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Gaming.UI.GameChatOverlayContract")]
             #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class GameChatOverlayMessageSource {
                 IGameChatOverlayMessageSource,
@@ -85,8 +85,8 @@ mod Windows {
                 Origin: GameChatMessageOrigin;
             }
             #[guid(0xfbc64865_f6fc_4a48_ae07_03ac6ed43704)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
             interface IGameChatOverlay {
                 DesiredPosition: GameChatOverlayPosition;
                 fn AddMessage(&self, sender: String, message: String, origin: GameChatMessageOrigin);
@@ -99,8 +99,8 @@ mod Windows {
                 fn SetDelayBeforeClosingAfterMessageReceived(&self, value: super::super::Foundation::TimeSpan);
             }
             #[guid(0x89acf614_7867_49f7_9687_25d9dbf444d1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
             interface IGameChatOverlayStatics {
                 fn GetDefault(&self) -> GameChatOverlay;
             }

@@ -4,8 +4,8 @@ mod Windows {
         mod UI {
             mod Interop {
                 #[guid(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlAcceleratorKeyPressedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlAcceleratorKeyPressedEventArgs)]
                 interface IWebViewControlAcceleratorKeyPressedEventArgs {
                     #[get]
                     EventType: super::super::super::UI::Core::CoreAcceleratorKeyEventType;
@@ -18,8 +18,8 @@ mod Windows {
                     Handled: bool;
                 }
                 #[guid(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlMoveFocusRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlMoveFocusRequestedEventArgs)]
                 interface IWebViewControlMoveFocusRequestedEventArgs {
                     #[get]
                     Reason: WebViewControlMoveFocusReason;
@@ -41,8 +41,8 @@ mod Windows {
                     event ProcessExited: super::super::super::Foundation::TypedEventHandler<WebViewControlProcess, Object>;
                 }
                 #[guid(0x47b65cf9_a2d2_453c_b097_f6779d4b8e02)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlProcess)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlProcess)]
                 interface IWebViewControlProcessFactory {
                     fn CreateWithOptions(&self, processOptions: WebViewControlProcessOptions) -> WebViewControlProcess;
                 }
@@ -97,8 +97,8 @@ mod Windows {
                     super::IWebViewControl2,
                     IWebViewControlSite2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 class WebViewControlAcceleratorKeyPressedEventArgs {
                     IWebViewControlAcceleratorKeyPressedEventArgs,
                 }
@@ -120,9 +120,9 @@ mod Windows {
                 class WebViewControlMoveFocusRequestedEventArgs {
                     IWebViewControlMoveFocusRequestedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(IWebViewControlProcessFactory, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 class WebViewControlProcess {
                     IWebViewControlProcess,
@@ -134,9 +134,9 @@ mod Windows {
                     Disabled = 1,
                     Enabled = 2,
                 }
+                #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-                #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
                 class WebViewControlProcessOptions {
                     IWebViewControlProcessOptions,
                 }

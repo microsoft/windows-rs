@@ -3,18 +3,18 @@ mod Windows {
     mod UI {
         mod Text {
             mod Core {
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class CoreTextCompositionCompletedEventArgs {
                     ICoreTextCompositionCompletedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class CoreTextCompositionSegment {
                     ICoreTextCompositionSegment,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class CoreTextCompositionStartedEventArgs {
                     ICoreTextCompositionStartedEventArgs,
                 }
@@ -24,8 +24,8 @@ mod Windows {
                     ICoreTextEditContext,
                     ICoreTextEditContext2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class CoreTextFormatUpdatingEventArgs {
                     ICoreTextFormatUpdatingEventArgs,
                 }
@@ -152,8 +152,8 @@ mod Windows {
                 class CoreTextSelectionRequestedEventArgs {
                     ICoreTextSelectionRequestedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class CoreTextSelectionUpdatingEventArgs {
                     ICoreTextSelectionUpdatingEventArgs,
                 }
@@ -163,9 +163,9 @@ mod Windows {
                     Succeeded = 0,
                     Failed = 1,
                 }
-                #[Windows::Foundation::Metadata::Static(ICoreTextServicesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ICoreTextServicesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 class CoreTextServicesConstants {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -222,8 +222,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0xbf6608af_4041_47c3_b263_a918eb5eaef2)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextEditContext)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextEditContext)]
                 interface ICoreTextEditContext {
                     Name: String;
                     InputScope: CoreTextInputScope;
@@ -251,8 +251,8 @@ mod Windows {
                     event NotifyFocusLeaveCompleted: super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, Object>;
                 }
                 #[guid(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextFormatUpdatingEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextFormatUpdatingEventArgs)]
                 interface ICoreTextFormatUpdatingEventArgs {
                     #[get]
                     Range: CoreTextRange;
@@ -291,8 +291,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x676de624_cd3d_4bcd_bf01_7f7110954511)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextLayoutRequest)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextLayoutRequest)]
                 interface ICoreTextLayoutRequest2 {
                     #[get]
                     LayoutBoundsVisualPixels: CoreTextLayoutBounds;
@@ -314,8 +314,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextSelectionRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextSelectionRequestedEventArgs)]
                 interface ICoreTextSelectionRequestedEventArgs {
                     #[get]
                     Request: CoreTextSelectionRequest;
@@ -347,8 +347,8 @@ mod Windows {
                     fn GetForCurrentView(&self) -> CoreTextServicesManager;
                 }
                 #[guid(0x91859a46_eccf_47a4_8ae7_098a9c6fbb15)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextServicesConstants)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextServicesConstants)]
                 interface ICoreTextServicesStatics {
                     #[get]
                     HiddenCharacter: Char16;
@@ -365,8 +365,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextTextRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextTextRequestedEventArgs)]
                 interface ICoreTextTextRequestedEventArgs {
                     #[get]
                     Request: CoreTextTextRequest;

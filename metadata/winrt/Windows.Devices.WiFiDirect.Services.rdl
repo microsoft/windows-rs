@@ -21,8 +21,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Overload("ConnectAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ConnectAsync(&self) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Overload("ConnectAsyncWithPin")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ConnectAsync(&self, pin: String) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
                 }
                 #[guid(0xa4aa1ee1_9d8f_4f4f_93ee_7ddea2e37f46)]
@@ -48,11 +48,11 @@ mod Windows {
                     event SessionRequested: super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, WiFiDirectServiceSessionRequestedEventArgs>;
                     event AutoAcceptSessionConnected: super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>;
                     event AdvertisementStatusChanged: super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, Object>;
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Overload("ConnectAsync")]
-                    fn ConnectAsync(&self, deviceInfo: super::super::Enumeration::DeviceInformation) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ConnectAsync(&self, deviceInfo: super::super::Enumeration::DeviceInformation) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
                     #[Windows::Foundation::Metadata::Overload("ConnectAsyncWithPin")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn ConnectAsync(&self, deviceInfo: super::super::Enumeration::DeviceInformation, pin: String) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>;
                     fn Start(&self);
                     fn Stop(&self);
@@ -73,8 +73,8 @@ mod Windows {
                     SessionInfo: super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0x8bdb7cfe_97d9_45a2_8e99_db50910fb6a6)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectServiceProvisioningInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectServiceProvisioningInfo)]
                 interface IWiFiDirectServiceProvisioningInfo {
                     #[get]
                     SelectedConfigurationMethod: WiFiDirectServiceConfigurationMethod;
@@ -91,8 +91,8 @@ mod Windows {
                     Protocol: WiFiDirectServiceIPProtocol;
                 }
                 #[guid(0x81142163_e426_47cb_8640_e1b3588bf26f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectServiceSession)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectServiceSession)]
                 interface IWiFiDirectServiceSession: super::super::super::Foundation::IClosable {
                     #[get]
                     ServiceName: String;
@@ -124,8 +124,8 @@ mod Windows {
                     DeferredSessionInfo: super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0xa0e27c8b_50cb_4a58_9bcf_e472b99fba04)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectServiceSessionRequest)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectServiceSessionRequest)]
                 interface IWiFiDirectServiceSessionRequest: super::super::super::Foundation::IClosable {
                     #[get]
                     DeviceInformation: super::super::Enumeration::DeviceInformation;
@@ -141,8 +141,8 @@ mod Windows {
                     fn GetSessionRequest(&self) -> WiFiDirectServiceSessionRequest;
                 }
                 #[guid(0x7db40045_fd74_4688_b725_5dce86acf233)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectService)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectService)]
                 interface IWiFiDirectServiceStatics {
                     #[Windows::Foundation::Metadata::Overload("GetSelector")]
                     fn GetSelector(&self, serviceName: String) -> String;
@@ -151,10 +151,10 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FromIdAsync(&self, deviceId: String) -> super::super::super::Foundation::IAsyncOperation<WiFiDirectService>;
                 }
-                #[Windows::Foundation::Metadata::Static(IWiFiDirectServiceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IWiFiDirectServiceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 class WiFiDirectService {
                     IWiFiDirectService,
                 }
@@ -166,16 +166,16 @@ mod Windows {
                     Stopped = 2,
                     Aborted = 3,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::Activatable(IWiFiDirectServiceAdvertiserFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class WiFiDirectServiceAdvertiser {
                     IWiFiDirectServiceAdvertiser,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
                     IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs,
                 }
@@ -201,28 +201,28 @@ mod Windows {
                     Tcp = 6,
                     Udp = 17,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class WiFiDirectServiceProvisioningInfo {
                     IWiFiDirectServiceProvisioningInfo,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class WiFiDirectServiceRemotePortAddedEventArgs {
                     IWiFiDirectServiceRemotePortAddedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class WiFiDirectServiceSession {
                     IWiFiDirectServiceSession,
                     super::super::super::Foundation::IClosable,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class WiFiDirectServiceSessionDeferredEventArgs {
                     IWiFiDirectServiceSessionDeferredEventArgs,
                 }
@@ -236,16 +236,16 @@ mod Windows {
                     SystemFailure = 4,
                     NoResponseFromRemote = 5,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class WiFiDirectServiceSessionRequest {
                     IWiFiDirectServiceSessionRequest,
                     super::super::super::Foundation::IClosable,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class WiFiDirectServiceSessionRequestedEventArgs {
                     IWiFiDirectServiceSessionRequestedEventArgs,
                 }

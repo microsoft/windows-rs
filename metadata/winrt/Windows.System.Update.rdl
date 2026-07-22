@@ -35,8 +35,8 @@ mod Windows {
                 IsInteractive: bool;
             }
             #[guid(0xb2d3fcef_2971_51be_b41a_8bd703bb701a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SystemUpdateManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemUpdateManager)]
             interface ISystemUpdateManagerStatics {
                 fn IsSupported(&self) -> bool;
                 #[get]
@@ -84,8 +84,8 @@ mod Windows {
                 InsufficientBattery = 3,
                 UpdateBlocked = 4,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SystemUpdateItem {
                 ISystemUpdateItem,
             }
@@ -107,10 +107,10 @@ mod Windows {
             class SystemUpdateLastErrorInfo {
                 ISystemUpdateLastErrorInfo,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(ISystemUpdateManagerStatics, 393216, "Windows.System.SystemManagementContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ISystemUpdateManagerStatics, 393216, "Windows.System.SystemManagementContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SystemUpdateManager {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]

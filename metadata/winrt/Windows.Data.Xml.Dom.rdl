@@ -3,8 +3,8 @@ mod Windows {
     mod Data {
         mod Xml {
             mod Dom {
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DtdEntity {
                     IDtdEntity,
                     IXmlNode,
@@ -20,8 +20,8 @@ mod Windows {
                     IXmlNodeSelector,
                 }
                 #[guid(0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DtdEntity)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DtdEntity)]
                 interface IDtdEntity: IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {
                     #[get]
                     PublicId: Object;
@@ -31,8 +31,8 @@ mod Windows {
                     NotationName: Object;
                 }
                 #[guid(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DtdNotation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DtdNotation)]
                 interface IDtdNotation: IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {
                     #[get]
                     PublicId: Object;
@@ -50,8 +50,8 @@ mod Windows {
                     Value: String;
                 }
                 #[guid(0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlCDataSection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlCDataSection)]
                 interface IXmlCDataSection: IXmlText + IXmlCharacterData + IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {}
                 #[guid(0x132e42ab_4e36_4df6_b1c8_0ce62fd88b26)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -66,12 +66,12 @@ mod Windows {
                     fn ReplaceData(&self, offset: u32, count: u32, data: String);
                 }
                 #[guid(0xbca474d5_b61f_4611_9cac_2e92e3476d47)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlComment)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlComment)]
                 interface IXmlComment: IXmlCharacterData + IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {}
                 #[guid(0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 interface IXmlDocument: IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {
                     #[get]
                     Doctype: XmlDocumentType;
@@ -96,12 +96,12 @@ mod Windows {
                     fn ImportNode(&self, node: IXmlNode, deep: bool) -> IXmlNode;
                 }
                 #[guid(0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocumentFragment)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocumentFragment)]
                 interface IXmlDocumentFragment: IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {}
                 #[guid(0x6cd0e74e_ee65_4489_9ebf_ca43e87ba637)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 interface IXmlDocumentIO {
                     #[Windows::Foundation::Metadata::Overload("LoadXml")]
                     fn LoadXml(&self, xml: String);
@@ -111,8 +111,8 @@ mod Windows {
                     fn SaveToFileAsync(&self, file: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x5d034661_7bd8_4ad5_9ebf_81e6347263b1)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 interface IXmlDocumentIO2 {
                     #[Windows::Foundation::Metadata::Overload("LoadXmlFromBuffer")]
                     fn LoadXmlFromBuffer(&self, buffer: super::super::super::Storage::Streams::IBuffer);
@@ -120,20 +120,20 @@ mod Windows {
                     fn LoadXmlFromBuffer(&self, buffer: super::super::super::Storage::Streams::IBuffer, loadSettings: XmlLoadSettings);
                 }
                 #[guid(0x5543d254_d757_4b79_9539_232b18f50bf1)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlDocument)]
                 interface IXmlDocumentStatics {
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Overload("LoadFromUriAsync")]
-                    fn LoadFromUriAsync(&self, uri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn LoadFromUriAsync(&self, uri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
                     #[Windows::Foundation::Metadata::Overload("LoadFromUriWithSettingsAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn LoadFromUriAsync(&self, uri: super::super::super::Foundation::Uri, loadSettings: XmlLoadSettings) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
                     #[Windows::Foundation::Metadata::Overload("LoadFromFileAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn LoadFromFileAsync(&self, file: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Overload("LoadFromFileWithSettingsAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn LoadFromFileAsync(&self, file: super::super::super::Storage::IStorageFile, loadSettings: XmlLoadSettings) -> super::super::super::Foundation::IAsyncOperation<XmlDocument>;
                 }
                 #[guid(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7)]
@@ -154,8 +154,8 @@ mod Windows {
                     fn HasFeature(&self, feature: String, #[Windows::Foundation::Metadata::Variant] version: Object) -> bool;
                 }
                 #[guid(0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlElement)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlElement)]
                 interface IXmlElement: IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {
                     #[get]
                     TagName: String;
@@ -173,8 +173,8 @@ mod Windows {
                     fn GetAttributeNodeNS(&self, #[Windows::Foundation::Metadata::Variant] namespaceUri: Object, localName: String) -> XmlAttribute;
                 }
                 #[guid(0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlEntityReference)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlEntityReference)]
                 interface IXmlEntityReference: IXmlNode + IXmlNodeSelector + IXmlNodeSerializer {}
                 #[guid(0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -187,8 +187,8 @@ mod Windows {
                     ElementContentWhiteSpace: bool;
                 }
                 #[guid(0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlNamedNodeMap)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlNamedNodeMap)]
                 interface IXmlNamedNodeMap: super::super::super::Foundation::Collections::IVectorView<IXmlNode> + super::super::super::Foundation::Collections::IIterable<IXmlNode> {
                     #[get]
                     Length: u32;
@@ -241,8 +241,8 @@ mod Windows {
                     Prefix: Object;
                 }
                 #[guid(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XmlNodeList)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XmlNodeList)]
                 interface IXmlNodeList: super::super::super::Foundation::Collections::IVectorView<IXmlNode> + super::super::super::Foundation::Collections::IIterable<IXmlNode> {
                     #[get]
                     Length: u32;
@@ -300,8 +300,8 @@ mod Windows {
                     IXmlNodeSerializer,
                     IXmlNodeSelector,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class XmlCDataSection {
                     IXmlCDataSection,
                     IXmlText,
@@ -310,8 +310,8 @@ mod Windows {
                     IXmlNodeSerializer,
                     IXmlNodeSelector,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class XmlComment {
                     IXmlComment,
                     IXmlCharacterData,
@@ -319,12 +319,12 @@ mod Windows {
                     IXmlNodeSerializer,
                     IXmlNodeSelector,
                 }
-                #[Windows::Foundation::Metadata::Static(IXmlDocumentStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+                #[Windows::Foundation::Metadata::Static(IXmlDocumentStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class XmlDocument {
                     IXmlDocument,
                     IXmlNode,
@@ -333,24 +333,24 @@ mod Windows {
                     IXmlDocumentIO,
                     IXmlDocumentIO2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class XmlDocumentFragment {
                     IXmlDocumentFragment,
                     IXmlNode,
                     IXmlNodeSerializer,
                     IXmlNodeSelector,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class XmlDocumentType {
                     IXmlDocumentType,
                     IXmlNode,
                     IXmlNodeSerializer,
                     IXmlNodeSelector,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class XmlDomImplementation {
                     IXmlDomImplementation,
                 }
@@ -362,8 +362,8 @@ mod Windows {
                     IXmlNodeSerializer,
                     IXmlNodeSelector,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class XmlEntityReference {
                     IXmlEntityReference,
                     IXmlNode,
@@ -371,9 +371,9 @@ mod Windows {
                     IXmlNodeSelector,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class XmlLoadSettings {
                     IXmlLoadSettings,
                 }
@@ -391,8 +391,8 @@ mod Windows {
                     super::super::super::Foundation::Collections::IVectorView<IXmlNode>,
                     super::super::super::Foundation::Collections::IIterable<IXmlNode>,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class XmlProcessingInstruction {
                     IXmlProcessingInstruction,
                     IXmlNode,

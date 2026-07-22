@@ -3,24 +3,24 @@ mod Windows {
     mod Services {
         mod Cortana {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
-            #[Windows::Foundation::Metadata::Static(ICortanaActionableInsightsStatics, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICortanaActionableInsightsStatics, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CortanaActionableInsights {
                 ICortanaActionableInsights,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CortanaActionableInsightsOptions {
                 ICortanaActionableInsightsOptions,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::Deprecated("CortanaPermission is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Deprecated("CortanaPermission is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             enum CortanaPermission {
                 BrowsingHistory = 0,
                 Calendar = 1,
@@ -35,32 +35,32 @@ mod Windows {
                 PhoneCall = 10,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::Deprecated("CortanaPermissionsChangeResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Deprecated("CortanaPermissionsChangeResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             enum CortanaPermissionsChangeResult {
                 Success = 0,
                 Unavailable = 1,
                 DisabledByPolicy = 2,
             }
-            #[Windows::Foundation::Metadata::Deprecated("CortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ICortanaPermissionsManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Deprecated("CortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICortanaPermissionsManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             class CortanaPermissionsManager {
                 ICortanaPermissionsManager,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
-            #[Windows::Foundation::Metadata::Deprecated("CortanaSettings is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
-            #[Windows::Foundation::Metadata::Static(ICortanaSettingsStatics, 196608, "Windows.System.SystemManagementContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::System::SystemManagementContract, 196608)]
+            #[Windows::Foundation::Metadata::Deprecated("CortanaSettings is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICortanaSettingsStatics, 196608, "Windows.System.SystemManagementContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CortanaSettings {
                 ICortanaSettings,
             }
             #[guid(0x951ec6b1_fc83_586d_8b84_2452c8981625)]
-            #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(CortanaActionableInsights)]
             interface ICortanaActionableInsights {
                 #[special]
@@ -69,35 +69,35 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn IsAvailableAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsForImageAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 fn ShowInsightsForImageAsync(&self, imageStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::Overload("ShowInsightsForImageWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
-                fn ShowInsightsForImageAsync(&self, imageStream: super::super::Storage::Streams::IRandomAccessStreamReference, options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("ShowInsightsForImageWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowInsightsForImageAsync(&self, imageStream: super::super::Storage::Streams::IRandomAccessStreamReference, options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsForTextAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowInsightsForTextAsync(&self, text: String) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::Overload("ShowInsightsForTextWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Overload("ShowInsightsForTextWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowInsightsForTextAsync(&self, text: String, options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("ShowInsightsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowInsightsAsync(&self, datapackage: super::super::ApplicationModel::DataTransfer::DataPackage) -> super::super::Foundation::IAsyncAction;
-                #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::Overload("ShowInsightsWithOptionsAsync")]
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsights is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Overload("ShowInsightsWithOptionsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowInsightsAsync(&self, datapackage: super::super::ApplicationModel::DataTransfer::DataPackage, options: CortanaActionableInsightsOptions) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xaac2bbcf_9782_5420_b81e_7ae56af31815)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CortanaActionableInsightsOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CortanaActionableInsightsOptions)]
             interface ICortanaActionableInsightsOptions {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("CortanaActionableInsightsOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
@@ -129,11 +129,11 @@ mod Windows {
             interface ICortanaPermissionsManager {
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 fn IsSupported(&self) -> bool;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ArePermissionsGrantedAsync(&self, permissions: super::super::Foundation::Collections::IIterable<CortanaPermission>) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GrantPermissionsAsync(&self, permissions: super::super::Foundation::Collections::IIterable<CortanaPermission>) -> super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>;
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaPermissionsManager is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -149,8 +149,8 @@ mod Windows {
             }
             #[guid(0x54d571a7_8062_40f4_abe7_dedfd697b019)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::System::SystemManagementContract, 196608)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CortanaSettings)]
             #[Windows::Foundation::Metadata::Deprecated("ICortanaSettings is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CortanaSettings)]
             interface ICortanaSettings {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaSettings is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
@@ -163,9 +163,9 @@ mod Windows {
                 fn put_IsVoiceActivationEnabled(&self, value: bool);
             }
             #[guid(0x8b2ccd7e_2ec0_446d_9285_33f07ce8ac04)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CortanaSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::System::SystemManagementContract, 196608)]
             #[Windows::Foundation::Metadata::Deprecated("ICortanaSettingsStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CortanaSettings)]
             interface ICortanaSettingsStatics {
                 #[Windows::Foundation::Metadata::Deprecated("ICortanaSettingsStatics is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.System.SystemManagementContract")]
                 fn IsSupported(&self) -> bool;

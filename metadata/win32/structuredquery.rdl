@@ -53,10 +53,10 @@ mod Windows {
         interface IEntity: IUnknown {
             fn Name(&self, #[retval] ppszName: *mut PWSTR) -> HRESULT;
             fn Base(&self, #[retval] pBaseEntity: *mut IEntity) -> HRESULT;
-            fn Relationships(&self, riid: *const GUID, #[retval] #[iid_is] pRelationships: *mut *mut void) -> HRESULT;
+            fn Relationships(&self, riid: *const GUID, #[iid_is] #[retval] pRelationships: *mut *mut void) -> HRESULT;
             fn GetRelationship(&self, pszRelationName: PCWSTR, #[retval] pRelationship: *mut IRelationship) -> HRESULT;
-            fn MetaData(&self, riid: *const GUID, #[retval] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
-            fn NamedEntities(&self, riid: *const GUID, #[retval] #[iid_is] pNamedEntities: *mut *mut void) -> HRESULT;
+            fn MetaData(&self, riid: *const GUID, #[iid_is] #[retval] pMetaData: *mut *mut void) -> HRESULT;
+            fn NamedEntities(&self, riid: *const GUID, #[iid_is] #[retval] pNamedEntities: *mut *mut void) -> HRESULT;
             fn GetNamedEntity(&self, pszValue: PCWSTR, #[retval] ppNamedEntity: *mut INamedEntity) -> HRESULT;
             fn DefaultPhrase(&self, #[retval] ppszPhrase: *mut PWSTR) -> HRESULT;
         }
@@ -97,14 +97,14 @@ mod Windows {
         }
         #[guid(0xa879e3c4_af77_44fb_8f37_ebd1487cf920)]
         interface IQueryParserManager: IUnknown {
-            fn CreateLoadedParser(&self, pszCatalog: PCWSTR, langidForKeywords: LANGID, riid: *const GUID, #[retval] #[iid_is] ppQueryParser: *mut *mut void) -> HRESULT;
+            fn CreateLoadedParser(&self, pszCatalog: PCWSTR, langidForKeywords: LANGID, riid: *const GUID, #[iid_is] #[retval] ppQueryParser: *mut *mut void) -> HRESULT;
             fn InitializeOptions(&self, fUnderstandNQS: BOOL, fAutoWildCard: BOOL, pQueryParser: IQueryParser) -> HRESULT;
             fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, pOptionValue: *const PROPVARIANT) -> HRESULT;
         }
         #[guid(0xd6ebc66b_8921_4193_afdd_a1789fb7ff57)]
         interface IQuerySolution: IConditionFactory {
             fn GetQuery(&self, #[opt] ppQueryNode: *mut ICondition, #[opt] ppMainType: *mut IEntity) -> HRESULT;
-            fn GetErrors(&self, riid: *const GUID, #[retval] #[iid_is] ppParseErrors: *mut *mut void) -> HRESULT;
+            fn GetErrors(&self, riid: *const GUID, #[iid_is] #[retval] ppParseErrors: *mut *mut void) -> HRESULT;
             fn GetLexicalData(&self, ppszInputString: *mut PWSTR, #[opt] ppTokens: *mut ITokenCollection, #[opt] plcid: *mut LCID, #[opt] ppWordBreaker: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x2769280b_5108_498c_9c7f_a51239b63147)]
@@ -112,7 +112,7 @@ mod Windows {
             fn Name(&self, #[retval] ppszName: *mut PWSTR) -> HRESULT;
             fn IsReal(&self, #[retval] pIsReal: *mut BOOL) -> HRESULT;
             fn Destination(&self, #[retval] pDestinationEntity: *mut IEntity) -> HRESULT;
-            fn MetaData(&self, riid: *const GUID, #[retval] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
+            fn MetaData(&self, riid: *const GUID, #[iid_is] #[retval] pMetaData: *mut *mut void) -> HRESULT;
             fn DefaultPhrase(&self, #[retval] ppszPhrase: *mut PWSTR) -> HRESULT;
         }
         #[guid(0xca3fdca2_bfbe_4eed_90d7_0caef0a1bda1)]
@@ -121,10 +121,10 @@ mod Windows {
         }
         #[guid(0x8cf89bcb_394c_49b2_ae28_a59dd4ed7f68)]
         interface ISchemaProvider: IUnknown {
-            fn Entities(&self, riid: *const GUID, #[retval] #[iid_is] pEntities: *mut *mut void) -> HRESULT;
+            fn Entities(&self, riid: *const GUID, #[iid_is] #[retval] pEntities: *mut *mut void) -> HRESULT;
             fn RootEntity(&self, #[retval] pRootEntity: *mut IEntity) -> HRESULT;
             fn GetEntity(&self, pszEntityName: PCWSTR, #[retval] pEntity: *mut IEntity) -> HRESULT;
-            fn MetaData(&self, riid: *const GUID, #[retval] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
+            fn MetaData(&self, riid: *const GUID, #[iid_is] #[retval] pMetaData: *mut *mut void) -> HRESULT;
             fn Localize(&self, lcid: LCID, pSchemaLocalizerSupport: ISchemaLocalizerSupport) -> HRESULT;
             fn SaveBinary(&self, pszSchemaBinaryPath: PCWSTR) -> HRESULT;
             fn LookupAuthoredNamedEntity(&self, pEntity: IEntity, pszInputString: PCWSTR, pTokenCollection: ITokenCollection, cTokensBegin: u32, pcTokensLength: *mut u32, ppszValue: *mut PWSTR) -> HRESULT;

@@ -73,8 +73,8 @@ mod Windows {
                 event VectorChanged: VectorChangedEventHandler<T>;
             }
             #[guid(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c)]
-            #[Windows::Foundation::Metadata::HasVariant]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            #[Windows::Foundation::Metadata::HasVariant]
             interface IPropertySet: IObservableMap<String, Object> + IMap<String, Object> + IIterable<IKeyValuePair<String, Object>>{}
             #[guid(0x575933df_34fe_4480_af15_07691f3d5d9b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
@@ -113,9 +113,9 @@ mod Windows {
             #[guid(0x179517f3_94ee_41f8_bddc_768a895544f3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
             delegate fn MapChangedEventHandler<K, V>(sender: IObservableMap<K, V>, event: IMapChangedEventArgs<K>);
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.FoundationContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.FoundationContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PropertySet {
@@ -125,20 +125,20 @@ mod Windows {
                 IIterable<IKeyValuePair<String, Object>>,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.FoundationContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class StringMap {
                 IMap<String, String>,
                 IIterable<IKeyValuePair<String, String>>,
                 IObservableMap<String, String>,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.FoundationContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ValueSet {
                 IPropertySet,
                 IObservableMap<String, Object>,

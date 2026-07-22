@@ -10,8 +10,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Overload("AuthenticateWithCallbackUriAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn AuthenticateAsync(&self, options: WebAuthenticationOptions, requestUri: super::super::super::Foundation::Uri, callbackUri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>;
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Overload("AuthenticateWithoutCallbackUriAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn AuthenticateAsync(&self, options: WebAuthenticationOptions, requestUri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>;
                     fn GetCurrentApplicationCallbackUri(&self) -> super::super::super::Foundation::Uri;
                 }
@@ -25,8 +25,8 @@ mod Windows {
                     fn AuthenticateAndContinue(&self, requestUri: super::super::super::Foundation::Uri, callbackUri: super::super::super::Foundation::Uri);
                     #[Windows::Foundation::Metadata::Overload("AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue")]
                     fn AuthenticateAndContinue(&self, requestUri: super::super::super::Foundation::Uri, callbackUri: super::super::super::Foundation::Uri, continuationData: super::super::super::Foundation::Collections::ValueSet, options: WebAuthenticationOptions);
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Overload("AuthenticateSilentlyAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn AuthenticateSilentlyAsync(&self, requestUri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>;
                     #[Windows::Foundation::Metadata::Overload("AuthenticateSilentlyWithOptionsAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
@@ -50,10 +50,10 @@ mod Windows {
                     EcdsaP256 = 1,
                     AnyExisting = 2,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IWebAuthenticationBrokerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IWebAuthenticationBrokerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IWebAuthenticationBrokerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class WebAuthenticationBroker {}
                 #[repr(u32)]
                 #[flags]

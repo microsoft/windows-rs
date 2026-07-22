@@ -14,14 +14,14 @@ mod Windows {
                 event PushNotificationReceived: super::super::Foundation::TypedEventHandler<PushNotificationChannel, PushNotificationReceivedEventArgs>;
             }
             #[guid(0xa4c45704_1182_42c7_8890_f563c4890dc4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManagerForUser)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManagerForUser)]
             interface IPushNotificationChannelManagerForUser {
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("CreatePushNotificationChannelForApplicationAsync")]
-                fn CreatePushNotificationChannelForApplicationAsync(&self) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreatePushNotificationChannelForApplicationAsync(&self) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[Windows::Foundation::Metadata::Overload("CreatePushNotificationChannelForApplicationAsyncWithId")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreatePushNotificationChannelForApplicationAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
@@ -43,24 +43,24 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManager)]
             interface IPushNotificationChannelManagerStatics {
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("CreatePushNotificationChannelForApplicationAsync")]
-                fn CreatePushNotificationChannelForApplicationAsync(&self) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreatePushNotificationChannelForApplicationAsync(&self) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[Windows::Foundation::Metadata::Overload("CreatePushNotificationChannelForApplicationAsyncWithId")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreatePushNotificationChannelForApplicationAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<PushNotificationChannel>;
             }
             #[guid(0xb444a65d_a7e9_4b28_950e_f375a907f9df)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManager)]
             interface IPushNotificationChannelManagerStatics2 {
                 fn GetForUser(&self, user: super::super::System::User) -> PushNotificationChannelManagerForUser;
             }
             #[guid(0x4701fefe_0ede_4a3f_ae78_bfa471496925)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelManager)]
             interface IPushNotificationChannelManagerStatics3 {
                 fn GetDefault(&self) -> PushNotificationChannelManagerForUser;
             }
@@ -93,8 +93,8 @@ mod Windows {
                 RawNotification: RawNotification;
             }
             #[guid(0x1a227281_3b79_42ac_9963_22ab00d4f0b7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RawNotification)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RawNotification)]
             interface IRawNotification {
                 #[get]
                 Content: String;
@@ -109,8 +109,8 @@ mod Windows {
                 ChannelId: String;
             }
             #[guid(0x62737dde_8a73_424c_ab44_5635f40a96e5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RawNotification)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RawNotification)]
             interface IRawNotification3 {
                 #[get]
                 ContentBytes: super::super::Storage::Streams::IBuffer;
@@ -120,22 +120,22 @@ mod Windows {
             class PushNotificationChannel {
                 IPushNotificationChannel,
             }
-            #[Windows::Foundation::Metadata::Static(IPushNotificationChannelManagerStatics4, 655360, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IPushNotificationChannelManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IPushNotificationChannelManagerStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::Static(IPushNotificationChannelManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            class PushNotificationChannelManager {}
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IPushNotificationChannelManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IPushNotificationChannelManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IPushNotificationChannelManagerStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IPushNotificationChannelManagerStatics4, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            class PushNotificationChannelManager {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PushNotificationChannelManagerForUser {
                 IPushNotificationChannelManagerForUser,
                 IPushNotificationChannelManagerForUser2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PushNotificationChannelsRevokedEventArgs {
                 IPushNotificationChannelsRevokedEventArgs,
             }

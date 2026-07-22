@@ -11,15 +11,15 @@ mod Windows {
                     fn OnMessage(&self, message: String, direction: McpMessageDirection, filterResponse: McpMessageFilterResponse);
                 }
                 #[guid(0x8127e075_4652_5645_b2eb_0e5772ee5c6f)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IMcpMessageFilterExperimental2 {
                     fn Initialize(&self, clientProcessIdentifier: String, clientProcessId: u32, serverProcessIdentifier: String, serverProcessId: u32, serverId: String) -> bool;
                     fn OnMessage(&self, message: String, direction: McpMessageDirection, filterResponse: McpMessageFilterResponse);
                 }
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(McpMessageFilterResponse)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IMcpMessageFilterResponse {}
                 #[guid(0xe215b5f2_cb02_56cf_aab0_84aef65d1665)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
@@ -36,15 +36,15 @@ mod Windows {
                     fn Reject(&self, reason: String);
                 }
                 #[repr(i32)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                #[Windows::Foundation::Metadata::Experimental]
                 enum McpMessageDirection {
                     ClientToServer = 0,
                     ServerToClient = 1,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
                 #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
                 class McpMessageFilterResponse {
                     IMcpMessageFilterResponse,
                 }

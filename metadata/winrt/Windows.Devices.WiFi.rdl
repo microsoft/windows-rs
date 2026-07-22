@@ -23,8 +23,8 @@ mod Windows {
                 fn Disconnect(&self);
             }
             #[guid(0x5bc4501d_81e4_453d_9430_1fcafbadd6b6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiAdapter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiAdapter)]
             interface IWiFiAdapter2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetWpsConfigurationAsync(&self, availableNetwork: WiFiAvailableNetwork) -> super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>;
@@ -38,15 +38,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAdaptersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>;
                 fn GetDeviceSelector(&self) -> String;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<WiFiAdapter>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<WiFiAccessStatus>;
             }
             #[guid(0x26e96246_183e_4704_9826_71b4a2f0f668)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiAvailableNetwork)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiAvailableNetwork)]
             interface IWiFiAvailableNetwork {
                 #[get]
                 Uptime: super::super::Foundation::TimeSpan;
@@ -79,8 +79,8 @@ mod Windows {
                 ConnectionStatus: WiFiConnectionStatus;
             }
             #[guid(0x9524ded2_5911_445e_8194_be4f1a704895)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiNetworkReport)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiNetworkReport)]
             interface IWiFiNetworkReport {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
@@ -99,15 +99,15 @@ mod Windows {
                 fn Connect(&self) -> WiFiOnDemandHotspotConnectionResult;
             }
             #[guid(0x911794a1_6c82_5de3_8a4a_f9ff22a4957a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotConnectionResult)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotConnectionResult)]
             interface IWiFiOnDemandHotspotConnectionResult {
                 #[get]
                 Status: WiFiOnDemandHotspotConnectStatus;
             }
             #[guid(0x18dc7115_a04e_507c_bbaf_b78369d29fa7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotNetwork)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotNetwork)]
             interface IWiFiOnDemandHotspotNetwork {
                 fn GetProperties(&self) -> WiFiOnDemandHotspotNetworkProperties;
                 fn UpdateProperties(&self, newProperties: WiFiOnDemandHotspotNetworkProperties);
@@ -115,8 +115,8 @@ mod Windows {
                 Id: GUID;
             }
             #[guid(0xc810a1f2_c81d_5852_be50_e4bd4d81e98d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotNetworkProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotNetworkProperties)]
             interface IWiFiOnDemandHotspotNetworkProperties {
                 DisplayName: String;
                 Availability: WiFiOnDemandHotspotAvailability;
@@ -133,8 +133,8 @@ mod Windows {
                 fn GetOrCreateById(&self, networkId: GUID) -> WiFiOnDemandHotspotNetwork;
             }
             #[guid(0x67b49871_17ee_42d1_b14f_5a11f1226fb5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiWpsConfigurationResult)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiWpsConfigurationResult)]
             interface IWiFiWpsConfigurationResult {
                 #[get]
                 Status: WiFiWpsConfigurationStatus;
@@ -149,17 +149,17 @@ mod Windows {
                 DeniedByUser = 2,
                 DeniedBySystem = 3,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IWiFiAdapterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class WiFiAdapter {
                 IWiFiAdapter,
                 IWiFiAdapter2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class WiFiAvailableNetwork {
                 IWiFiAvailableNetwork,
             }
@@ -170,9 +170,9 @@ mod Windows {
                 WpsPin = 1,
                 WpsPushButton = 2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class WiFiConnectionResult {
                 IWiFiConnectionResult,
             }
@@ -194,8 +194,8 @@ mod Windows {
                 Infrastructure = 1,
                 Adhoc = 2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class WiFiNetworkReport {
                 IWiFiNetworkReport,
@@ -249,15 +249,15 @@ mod Windows {
             class WiFiOnDemandHotspotConnectionResult {
                 IWiFiOnDemandHotspotConnectionResult,
             }
-            #[Windows::Foundation::Metadata::Static(IWiFiOnDemandHotspotNetworkStatics, 983040, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IWiFiOnDemandHotspotNetworkStatics, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class WiFiOnDemandHotspotNetwork {
                 IWiFiOnDemandHotspotNetwork,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class WiFiOnDemandHotspotNetworkProperties {
                 IWiFiOnDemandHotspotNetworkProperties,
             }

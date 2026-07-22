@@ -3,8 +3,8 @@ mod Windows {
     mod ApplicationModel {
         mod PackageExtensions {
             #[guid(0xda70c957_7ead_5c3b_9cf0_cc43faf474b4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtension)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtension)]
             interface IPackageExtension {
                 #[get]
                 Id: String;
@@ -55,8 +55,8 @@ mod Windows {
                 Extensions: super::super::Foundation::Collections::IVectorView<PackageExtension>;
             }
             #[guid(0xb8fee20a_680d_5942_876c_5de12df1083c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageStatusChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageStatusChangedEventArgs)]
             interface IPackageExtensionPackageStatusChangedEventArgs {
                 #[get]
                 PackageExtensionName: String;
@@ -64,8 +64,8 @@ mod Windows {
                 Package: super::Package;
             }
             #[guid(0x3b8e9cb7_c539_554d_bb33_a84c0bfa3f50)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageUninstallingEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageUninstallingEventArgs)]
             interface IPackageExtensionPackageUninstallingEventArgs {
                 #[get]
                 PackageExtensionName: String;
@@ -84,48 +84,48 @@ mod Windows {
                 Extensions: super::super::Foundation::Collections::IVectorView<PackageExtension>;
             }
             #[guid(0x27ae2ce1_a1d3_532e_8e7e_8b43782fce09)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageUpdatingEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageUpdatingEventArgs)]
             interface IPackageExtensionPackageUpdatingEventArgs {
                 #[get]
                 PackageExtensionName: String;
                 #[get]
                 Package: super::Package;
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PackageExtension {
                 IPackageExtension,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IPackageExtensionCatalogStatics, 1114112, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PackageExtensionCatalog {
                 IPackageExtensionCatalog,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PackageExtensionPackageInstalledEventArgs {
                 IPackageExtensionPackageInstalledEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PackageExtensionPackageStatusChangedEventArgs {
                 IPackageExtensionPackageStatusChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PackageExtensionPackageUninstallingEventArgs {
                 IPackageExtensionPackageUninstallingEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PackageExtensionPackageUpdatedEventArgs {
                 IPackageExtensionPackageUpdatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PackageExtensionPackageUpdatingEventArgs {
                 IPackageExtensionPackageUpdatingEventArgs,
             }

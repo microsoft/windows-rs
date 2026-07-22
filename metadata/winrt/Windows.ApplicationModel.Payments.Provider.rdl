@@ -28,8 +28,8 @@ mod Windows {
                     Current: PaymentAppManager;
                 }
                 #[guid(0x62581da0_26a5_4e9b_a6eb_66606cf001d3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransaction)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransaction)]
                 interface IPaymentTransaction {
                     #[get]
                     PaymentRequest: super::PaymentRequest;
@@ -45,41 +45,41 @@ mod Windows {
                     fn Reject(&self);
                 }
                 #[guid(0x060e3276_d30c_4817_95a2_df7ae9273b56)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransactionAcceptResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransactionAcceptResult)]
                 interface IPaymentTransactionAcceptResult {
                     #[get]
                     Status: super::PaymentRequestCompletionStatus;
                 }
                 #[guid(0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransaction)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransaction)]
                 interface IPaymentTransactionStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FromIdAsync(&self, id: String) -> super::super::super::Foundation::IAsyncOperation<PaymentTransaction>;
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PaymentAppCanMakePaymentTriggerDetails {
                     IPaymentAppCanMakePaymentTriggerDetails,
                 }
-                #[Windows::Foundation::Metadata::Static(IPaymentAppManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IPaymentAppManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PaymentAppManager {
                     IPaymentAppManager,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IPaymentTransactionStatics, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 class PaymentTransaction {
                     IPaymentTransaction,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PaymentTransactionAcceptResult {
                     IPaymentTransactionAcceptResult,
                 }

@@ -4,57 +4,57 @@ mod Windows {
         mod Input {
             mod Inking {
                 mod Core {
+                    #[Windows::Foundation::Metadata::Activatable(ICoreIncrementalInkStrokeFactory, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
-                    #[Windows::Foundation::Metadata::Activatable(ICoreIncrementalInkStrokeFactory, 327680, "Windows.Foundation.UniversalApiContract")]
                     class CoreIncrementalInkStroke {
                         ICoreIncrementalInkStroke,
                     }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Static(ICoreInkIndependentInputSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     class CoreInkIndependentInputSource {
                         ICoreInkIndependentInputSource,
                         ICoreInkIndependentInputSource2,
                     }
-                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     class CoreInkPresenterHost {
                         ICoreInkPresenterHost,
                     }
                     #[repr(i32)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     enum CoreWetStrokeDisposition {
                         Inking = 0,
                         Completed = 1,
                         Canceled = 2,
                     }
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     class CoreWetStrokeUpdateEventArgs {
                         ICoreWetStrokeUpdateEventArgs,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::Static(ICoreWetStrokeUpdateSourceStatics, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(ICoreWetStrokeUpdateSourceStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     class CoreWetStrokeUpdateSource {
                         ICoreWetStrokeUpdateSource,
                     }
                     #[guid(0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreIncrementalInkStroke)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreIncrementalInkStroke)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreIncrementalInkStroke {
                         fn AppendInkPoints(&self, inkPoints: super::super::super::super::Foundation::Collections::IIterable<super::InkPoint>) -> super::super::super::super::Foundation::Rect;
@@ -67,16 +67,16 @@ mod Windows {
                         BoundingRect: super::super::super::super::Foundation::Rect;
                     }
                     #[guid(0xd7c59f46_8da8_4f70_9751_e53bb6df4596)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CoreIncrementalInkStroke)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     interface ICoreIncrementalInkStrokeFactory {
                         fn Create(&self, drawingAttributes: super::InkDrawingAttributes, pointTransform: super::super::super::super::Foundation::Numerics::Matrix3x2) -> CoreIncrementalInkStroke;
                     }
                     #[guid(0x39b38da9_7639_4499_a5b5_191d00e35b16)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CoreInkIndependentInputSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     interface ICoreInkIndependentInputSource {
                         event PointerEntering: super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>;
                         event PointerHovering: super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>;
@@ -89,32 +89,32 @@ mod Windows {
                         InkPresenter: super::InkPresenter;
                     }
                     #[guid(0x2846b012_0b59_5bb9_a3c5_becb7cf03a33)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreInkIndependentInputSource)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 851968)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreInkIndependentInputSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreInkIndependentInputSource2 {
                         PointerCursor: super::super::super::Core::CoreCursor;
                     }
                     #[guid(0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CoreInkIndependentInputSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreInkIndependentInputSourceStatics {
                         fn Create(&self, inkPresenter: super::InkPresenter) -> CoreInkIndependentInputSource;
                     }
                     #[guid(0x396e89e6_7d55_4617_9e58_68c70c9169b9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CoreInkPresenterHost)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreInkPresenterHost {
                         #[get]
                         InkPresenter: super::InkPresenter;
                         RootVisual: super::super::super::Composition::ContainerVisual;
                     }
                     #[guid(0xfb07d14c_3380_457a_a987_991357896c1b)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CoreWetStrokeUpdateEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICoreWetStrokeUpdateEventArgs {
                         #[get]
                         NewInkPoints: super::super::super::super::Foundation::Collections::IVector<super::InkPoint>;
@@ -123,9 +123,9 @@ mod Windows {
                         Disposition: CoreWetStrokeDisposition;
                     }
                     #[guid(0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CoreWetStrokeUpdateSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     interface ICoreWetStrokeUpdateSource {
                         event WetStrokeStarting: super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>;
                         event WetStrokeContinuing: super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>;

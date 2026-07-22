@@ -9,8 +9,8 @@ mod Windows {
                 Name: String;
             }
             #[guid(0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsEffectSource {}
         }
     }

@@ -8,14 +8,14 @@ mod Windows {
                 struct AutomationAnnotationTypeRegistration {
                     LocalId: i32,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 struct AutomationRemoteOperationOperandId {
                     Value: i32,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class AutomationRemoteOperationResult {
                     IAutomationRemoteOperationResult,
                 }
@@ -29,16 +29,16 @@ mod Windows {
                     UnhandledException = 3,
                     ExecutionFailure = 4,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Static(ICoreAutomationRegistrarStatics, 131072, "Windows.UI.UIAutomation.UIAutomationContract")]
-                class CoreAutomationRegistrar {}
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class CoreAutomationRegistrar {}
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.UI.UIAutomation.UIAutomationContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class CoreAutomationRemoteOperation {
                     ICoreAutomationRemoteOperation,
@@ -51,9 +51,9 @@ mod Windows {
                     ICoreAutomationRemoteOperationContext,
                 }
                 #[guid(0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AutomationRemoteOperationResult)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IAutomationRemoteOperationResult {
                     #[get]
                     Status: AutomationRemoteOperationStatus;
@@ -73,9 +73,9 @@ mod Windows {
                     fn get_IsComThreadingRequired(&self) -> bool;
                 }
                 #[guid(0x3e50129b_d6dc_5680_b580_ffff78300304)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreAutomationRegistrar)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreAutomationRegistrar)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICoreAutomationRegistrarStatics {
                     fn RegisterAnnotationType(&self, guid: GUID) -> AutomationAnnotationTypeRegistration;
                     fn UnregisterAnnotationType(&self, registration: AutomationAnnotationTypeRegistration);
@@ -92,16 +92,16 @@ mod Windows {
                     fn Execute(&self, bytecodeBuffer: [u8]) -> AutomationRemoteOperationResult;
                 }
                 #[guid(0xeefaf86f_e953_5099_8ce9_dca813482ba0)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAutomationRemoteOperation)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 interface ICoreAutomationRemoteOperation2 {
                     fn ImportConnectionBoundObject(&self, operandId: AutomationRemoteOperationOperandId, connectionBoundObject: super::AutomationConnectionBoundObject);
                 }
                 #[guid(0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAutomationRemoteOperationContext)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICoreAutomationRemoteOperationContext {
                     fn GetOperand(&self, id: AutomationRemoteOperationOperandId) -> Object;
                     #[Windows::Foundation::Metadata::Overload("SetOperand")]
@@ -117,9 +117,9 @@ mod Windows {
                     fn IsExtensionSupported(&self, extensionId: GUID) -> bool;
                 }
                 #[guid(0x5c8a091d_94cc_5b33_afdb_678cded2bd54)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationClientSession)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 interface IRemoteAutomationClientSession {
                     fn Start(&self);
                     fn Stop(&self);
@@ -139,9 +139,9 @@ mod Windows {
                     fn CreateInstance2(&self, name: String, sessionId: GUID) -> RemoteAutomationClientSession;
                 }
                 #[guid(0xea3319a8_e3a8_5dc6_adf8_044e46b14af5)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationConnectionRequestedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IRemoteAutomationConnectionRequestedEventArgs {
                     #[get]
                     LocalPipeName: String;
@@ -149,17 +149,17 @@ mod Windows {
                     RemoteProcessId: u32;
                 }
                 #[guid(0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationDisconnectedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 interface IRemoteAutomationDisconnectedEventArgs {
                     #[get]
                     LocalPipeName: String;
                 }
                 #[guid(0xe6e8945e_0c11_5028_9ae3_c2771288b6b7)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationServer)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 interface IRemoteAutomationServerStatics {
                     fn ReportSession(&self, sessionId: GUID);
                 }
@@ -173,34 +173,34 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn UnregisterAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
+                #[Windows::Foundation::Metadata::Activatable(IRemoteAutomationClientSessionFactory, 131072, "Windows.UI.UIAutomation.UIAutomationContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
-                #[Windows::Foundation::Metadata::Activatable(IRemoteAutomationClientSessionFactory, 131072, "Windows.UI.UIAutomation.UIAutomationContract")]
                 class RemoteAutomationClientSession {
                     IRemoteAutomationClientSession,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class RemoteAutomationConnectionRequestedEventArgs {
                     IRemoteAutomationConnectionRequestedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class RemoteAutomationDisconnectedEventArgs {
                     IRemoteAutomationDisconnectedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IRemoteAutomationServerStatics, 131072, "Windows.UI.UIAutomation.UIAutomationContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class RemoteAutomationServer {}
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class RemoteAutomationWindow {
                     IRemoteAutomationWindow,

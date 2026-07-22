@@ -3,16 +3,16 @@ mod Windows {
     mod Web {
         mod Http {
             mod Diagnostics {
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IHttpDiagnosticProviderStatics, 65536, "Windows.Web.Http.Diagnostics.HttpDiagnosticsContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpDiagnosticProvider {
                     IHttpDiagnosticProvider,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpDiagnosticProviderRequestResponseCompletedEventArgs {
                     IHttpDiagnosticProviderRequestResponseCompletedEventArgs,
                 }
@@ -22,8 +22,8 @@ mod Windows {
                 class HttpDiagnosticProviderRequestResponseTimestamps {
                     IHttpDiagnosticProviderRequestResponseTimestamps,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpDiagnosticProviderRequestSentEventArgs {
                     IHttpDiagnosticProviderRequestSentEventArgs,
@@ -51,9 +51,9 @@ mod Windows {
                     Fetch = 11,
                     Beacon = 12,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
                 class HttpDiagnosticSourceLocation {
                     IHttpDiagnosticSourceLocation,
                 }
@@ -90,8 +90,8 @@ mod Windows {
                     SourceLocations: super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>;
                 }
                 #[guid(0xe0afde10_55cf_4c01_91d4_a20557d849f0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProviderRequestResponseTimestamps)]
                 #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProviderRequestResponseTimestamps)]
                 interface IHttpDiagnosticProviderRequestResponseTimestamps {
                     #[get]
                     CacheCheckedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;

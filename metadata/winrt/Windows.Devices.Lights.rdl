@@ -3,8 +3,8 @@ mod Windows {
     mod Devices {
         mod Lights {
             #[guid(0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Lamp)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Lamp)]
             interface ILamp: super::super::Foundation::IClosable {
                 #[get]
                 DeviceId: String;
@@ -16,8 +16,8 @@ mod Windows {
                 event AvailabilityChanged: super::super::Foundation::TypedEventHandler<Lamp, LampAvailabilityChangedEventArgs>;
             }
             #[guid(0x7ace9787_c8a0_4e95_a1e0_d58676538649)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LampArray)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampArray)]
             interface ILampArray {
                 #[get]
                 DeviceId: String;
@@ -65,23 +65,23 @@ mod Windows {
                 event AvailabilityChanged: super::super::Foundation::TypedEventHandler<LampArray, Object>;
             }
             #[guid(0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LampArray)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampArray)]
             interface ILampArrayStatics {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<LampArray>;
             }
             #[guid(0x4f6e3ded_07a2_499d_9260_67e304532ba4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LampAvailabilityChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampAvailabilityChangedEventArgs)]
             interface ILampAvailabilityChangedEventArgs {
                 #[get]
                 IsAvailable: bool;
             }
             #[guid(0x30bb521c_0acf_49da_8c10_150b9cf62713)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LampInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampInfo)]
             interface ILampInfo {
                 #[get]
                 Index: i32;
@@ -113,18 +113,18 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<Lamp>;
             }
-            #[Windows::Foundation::Metadata::Static(ILampStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ILampStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Lamp {
                 ILamp,
                 super::super::Foundation::IClosable,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ILampArrayStatics, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             class LampArray {
                 ILampArray,
                 ILampArray2,
@@ -147,9 +147,9 @@ mod Windows {
                 Microphone = 12,
                 Speaker = 13,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LampAvailabilityChangedEventArgs {
                 ILampAvailabilityChangedEventArgs,
             }

@@ -15,8 +15,8 @@ mod Windows {
                     SupportProvider: String;
                 }
                 #[guid(0x080cca7c_637c_48c4_b728_f9273812db8e)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SmbiosInformation)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SmbiosInformation)]
                 interface ISmbiosInformationStatics {
                     #[get]
                     SerialNumber: String;
@@ -41,8 +41,8 @@ mod Windows {
                     SystemFirmwareVersion: String;
                 }
                 #[guid(0xef750974_c422_45d7_a44d_5c1c0043a2b3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SystemSupportInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemSupportInfo)]
                 interface ISystemSupportInfoStatics {
                     #[get]
                     LocalSystemEdition: String;
@@ -56,31 +56,31 @@ mod Windows {
                     #[get]
                     LocalDeviceInfo: SystemSupportDeviceInfo;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class OemSupportInfo {
                     IOemSupportInfo,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(ISmbiosInformationStatics, 65536, "Windows.System.Profile.SystemManufacturers.SystemManufacturersContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISmbiosInformationStatics, 65536, "Windows.System.Profile.SystemManufacturers.SystemManufacturersContract")]
                 class SmbiosInformation {}
                 #[Windows::Foundation::Metadata::ApiContract]
                 #[Windows::Foundation::Metadata::ContractVersion(196608)]
                 struct SystemManufacturersContract {}
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class SystemSupportDeviceInfo {
                     ISystemSupportDeviceInfo,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
-                #[Windows::Foundation::Metadata::Static(ISystemSupportInfoStatics, 131072, "Windows.System.Profile.SystemManufacturers.SystemManufacturersContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISystemSupportInfoStatics, 131072, "Windows.System.Profile.SystemManufacturers.SystemManufacturersContract")]
                 #[Windows::Foundation::Metadata::Static(ISystemSupportInfoStatics2, 196608, "Windows.System.Profile.SystemManufacturers.SystemManufacturersContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class SystemSupportInfo {}
             }
         }

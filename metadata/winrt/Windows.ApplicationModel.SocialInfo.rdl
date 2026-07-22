@@ -3,9 +3,9 @@ mod Windows {
     mod ApplicationModel {
         mod SocialInfo {
             #[guid(0x0b6a985a_d59d_40be_980c_488a2ab30a83)]
+            #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedChildItem)]
-            #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             interface ISocialFeedChildItem {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedChildItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
@@ -64,8 +64,8 @@ mod Windows {
             }
             #[guid(0x4f1392ab_1f72_4d33_b695_de3e1db60317)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedItem)]
             #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedItem)]
             interface ISocialFeedItem {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
@@ -129,9 +129,9 @@ mod Windows {
                 fn put_Style(&self, value: SocialFeedItemStyle);
             }
             #[guid(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedSharedItem)]
-            #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SocialFeedSharedItem)]
             interface ISocialFeedSharedItem {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
@@ -162,9 +162,9 @@ mod Windows {
                 fn get_Thumbnail(&self) -> SocialItemThumbnail;
             }
             #[guid(0x5cbf831a_3f08_497f_917f_57e09d84b141)]
+            #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(SocialItemThumbnail)]
-            #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             interface ISocialItemThumbnail {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
@@ -189,9 +189,9 @@ mod Windows {
                 fn SetImageAsync(&self, image: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SocialUserInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SocialUserInfo)]
             interface ISocialUserInfo {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("ISocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
@@ -227,16 +227,16 @@ mod Windows {
                 ISocialFeedChildItem,
             }
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Deprecated("SocialFeedContent is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SocialFeedContent {
                 ISocialFeedContent,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Deprecated("SocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("SocialFeedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SocialFeedItem {
                 ISocialFeedItem,
@@ -249,30 +249,30 @@ mod Windows {
                 Photo = 1,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::Deprecated("SocialFeedKind is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("SocialFeedKind is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             enum SocialFeedKind {
                 HomeFeed = 0,
                 ContactFeed = 1,
                 Dashboard = 2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SocialFeedSharedItem is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SocialFeedSharedItem {
                 ISocialFeedSharedItem,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::Deprecated("SocialFeedUpdateMode is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("SocialFeedUpdateMode is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             enum SocialFeedUpdateMode {
                 Append = 0,
                 Replace = 1,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(131072)]
             #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(131072)]
             struct SocialInfoContract {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
@@ -283,17 +283,17 @@ mod Windows {
                 VisibleWithCount = 2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SocialItemThumbnail is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SocialItemThumbnail {
                 ISocialItemThumbnail,
             }
-            #[Windows::Foundation::Metadata::Deprecated("SocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(SocialInfoContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("SocialUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.SocialInfo.SocialInfoContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SocialUserInfo {
                 ISocialUserInfo,
             }

@@ -11,15 +11,15 @@ mod Windows {
                     fn SetThumbnailAsync(&self, bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(InkWorkspaceHostedAppManager)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewInkWorkspaceContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InkWorkspaceHostedAppManager)]
                 interface IInkWorkspaceHostedAppManagerStatics {
                     fn GetForCurrentApp(&self) -> InkWorkspaceHostedAppManager;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewInkWorkspaceContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Static(IInkWorkspaceHostedAppManagerStatics, 65536, "Windows.ApplicationModel.Preview.InkWorkspace.PreviewInkWorkspaceContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class InkWorkspaceHostedAppManager {
                     IInkWorkspaceHostedAppManager,
                 }

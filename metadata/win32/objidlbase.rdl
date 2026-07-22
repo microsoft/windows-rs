@@ -177,7 +177,7 @@ mod Windows {
         interface IAgileObject: IUnknown {}
         #[guid(0xc03f6a43_65a4_9818_987e_e0b810d2a6f2)]
         interface IAgileReference: IUnknown {
-            fn Resolve(&self, riid: *const GUID, #[retval] #[iid_is] ppvObjectReference: *mut *mut void) -> HRESULT;
+            fn Resolve(&self, riid: *const GUID, #[iid_is] #[retval] ppvObjectReference: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0000002a_0000_0000_c000_000000000046)]
         interface IAsyncManager: IUnknown {

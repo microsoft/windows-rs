@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x39e050c3_4e74_441a_8dc0_b81104df949c)]
         interface IUserConsentVerifierInterop: IInspectable {
-            fn RequestVerificationForWindowAsync(&self, appWindow: HWND, message: HSTRING, riid: *const GUID, #[retval] #[iid_is] asyncOperation: *mut *mut void) -> HRESULT;
+            fn RequestVerificationForWindowAsync(&self, appWindow: HWND, message: HSTRING, riid: *const GUID, #[iid_is] #[retval] asyncOperation: *mut *mut void) -> HRESULT;
         }
     }
 }

@@ -2,18 +2,18 @@
 mod Windows {
     mod Media {
         mod Casting {
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CastingConnection {
                 ICastingConnection,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CastingConnectionErrorOccurredEventArgs {
                 ICastingConnectionErrorOccurredEventArgs,
             }
@@ -37,33 +37,33 @@ mod Windows {
                 Disconnecting = 3,
                 Connecting = 4,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Static(ICastingDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICastingDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CastingDevice {
                 ICastingDevice,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CastingDevicePicker {
                 ICastingDevicePicker,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CastingDevicePickerFilter {
                 ICastingDevicePickerFilter,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             class CastingDeviceSelectedEventArgs {
                 ICastingDeviceSelectedEventArgs,
             }
@@ -76,16 +76,16 @@ mod Windows {
                 Video = 2,
                 Picture = 4,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CastingSource {
                 ICastingSource,
             }
             #[guid(0xcd951653_c2f1_4498_8b78_5fb4cd3640dd)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CastingConnection)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingConnection)]
             interface ICastingConnection: super::super::Foundation::IClosable {
                 #[get]
                 State: CastingConnectionState;
@@ -100,8 +100,8 @@ mod Windows {
                 fn DisconnectAsync(&self) -> super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>;
             }
             #[guid(0xa7fb3c69_8719_4f00_81fb_961863c79a32)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CastingConnectionErrorOccurredEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingConnectionErrorOccurredEventArgs)]
             interface ICastingConnectionErrorOccurredEventArgs {
                 #[get]
                 ErrorStatus: CastingConnectionErrorStatus;
@@ -109,8 +109,8 @@ mod Windows {
                 Message: String;
             }
             #[guid(0xde721c83_4a43_4ad1_a6d2_2492a796c3f2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevice)]
             interface ICastingDevice {
                 #[get]
                 Id: String;
@@ -123,8 +123,8 @@ mod Windows {
                 fn CreateCastingConnection(&self) -> CastingConnection;
             }
             #[guid(0xdcd39924_0591_49be_aacb_4b82ee756a95)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevicePicker)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevicePicker)]
             interface ICastingDevicePicker {
                 #[get]
                 Filter: CastingDevicePickerFilter;
@@ -139,8 +139,8 @@ mod Windows {
                 fn Hide(&self);
             }
             #[guid(0xbe8c619c_b563_4354_ae33_9fdaad8c6291)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevicePickerFilter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevicePickerFilter)]
             interface ICastingDevicePickerFilter {
                 SupportsAudio: bool;
                 SupportsVideo: bool;

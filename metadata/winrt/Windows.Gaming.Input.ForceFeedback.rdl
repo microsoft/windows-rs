@@ -3,10 +3,10 @@ mod Windows {
     mod Gaming {
         mod Input {
             mod ForceFeedback {
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::Activatable(IConditionForceEffectFactory, 196608, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class ConditionForceEffect {
                     IForceFeedbackEffect,
@@ -20,11 +20,11 @@ mod Windows {
                     Inertia = 2,
                     Friction = 3,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class ConstantForceEffect {
                     IForceFeedbackEffect,
                     IConstantForceEffect,
@@ -53,16 +53,16 @@ mod Windows {
                     EffectStorageFull = 1,
                     EffectNotSupported = 2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class ForceFeedbackMotor {
                     IForceFeedbackMotor,
                 }
                 #[guid(0x32d1ea68_3695_4e69_85c0_cd1944189140)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ConditionForceEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ConditionForceEffect)]
                 interface IConditionForceEffect: IForceFeedbackEffect {
                     #[get]
                     Kind: ConditionForceEffectKind;
@@ -75,8 +75,8 @@ mod Windows {
                     fn CreateInstance(&self, effectKind: ConditionForceEffectKind) -> ConditionForceEffect;
                 }
                 #[guid(0x9bfa0140_f3c7_415c_b068_0f068734bce0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ConstantForceEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ConstantForceEffect)]
                 interface IConstantForceEffect: IForceFeedbackEffect {
                     fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan);
                     fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, attackGain: f32, sustainGain: f32, releaseGain: f32, startDelay: super::super::super::Foundation::TimeSpan, attackDuration: super::super::super::Foundation::TimeSpan, sustainDuration: super::super::super::Foundation::TimeSpan, releaseDuration: super::super::super::Foundation::TimeSpan, repeatCount: u32);
@@ -116,8 +116,8 @@ mod Windows {
                     fn TryUnloadEffectAsync(&self, effect: IForceFeedbackEffect) -> super::super::super::Foundation::IAsyncOperation<bool>;
                 }
                 #[guid(0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PeriodicForceEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PeriodicForceEffect)]
                 interface IPeriodicForceEffect: IForceFeedbackEffect {
                     #[get]
                     Kind: PeriodicForceEffectKind;
@@ -125,8 +125,8 @@ mod Windows {
                     fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackGain: f32, sustainGain: f32, releaseGain: f32, startDelay: super::super::super::Foundation::TimeSpan, attackDuration: super::super::super::Foundation::TimeSpan, sustainDuration: super::super::super::Foundation::TimeSpan, releaseDuration: super::super::super::Foundation::TimeSpan, repeatCount: u32);
                 }
                 #[guid(0x6f62eb1a_9851_477b_b318_35ecaa15070f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PeriodicForceEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PeriodicForceEffect)]
                 interface IPeriodicForceEffectFactory {
                     fn CreateInstance(&self, effectKind: PeriodicForceEffectKind) -> PeriodicForceEffect;
                 }
@@ -139,8 +139,8 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::Activatable(IPeriodicForceEffectFactory, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PeriodicForceEffect {
                     IForceFeedbackEffect,
@@ -155,11 +155,11 @@ mod Windows {
                     SawtoothWaveUp = 3,
                     SawtoothWaveDown = 4,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class RampForceEffect {
                     IForceFeedbackEffect,
                     IRampForceEffect,

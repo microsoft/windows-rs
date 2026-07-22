@@ -3,10 +3,10 @@ mod Windows {
     mod Devices {
         mod Display {
             mod Core {
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IDisplayAdapterStatics, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IDisplayAdapterStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class DisplayAdapter {
                     IDisplayAdapter,
                     IDisplayAdapter2,
@@ -23,8 +23,8 @@ mod Windows {
                     Bpc14 = 16,
                     Bpc16 = 32,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayDevice {
                     IDisplayDevice,
                     IDisplayDevice2,
@@ -35,15 +35,15 @@ mod Windows {
                 enum DisplayDeviceCapability {
                     FlipOverride = 0,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayFence {
                     IDisplayFence,
                 }
-                #[Windows::Foundation::Metadata::Static(IDisplayManagerStatics, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IDisplayManagerStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class DisplayManager {
                     IDisplayManager,
                     IDisplayManager2,
@@ -55,8 +55,8 @@ mod Windows {
                 class DisplayManagerChangedEventArgs {
                     IDisplayManagerChangedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayManagerDisabledEventArgs {
                     IDisplayManagerDisabledEventArgs,
                 }
@@ -73,8 +73,8 @@ mod Windows {
                     EnforceSourceOwnership = 1,
                     VirtualRefreshRateAware = 2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayManagerPathsFailedOrInvalidatedEventArgs {
                     IDisplayManagerPathsFailedOrInvalidatedEventArgs,
                 }
@@ -87,8 +87,8 @@ mod Windows {
                     TargetStale = 3,
                     RemoteSessionNotSupported = 4,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayManagerResultWithState {
                     IDisplayManagerResultWithState,
                 }
@@ -105,16 +105,16 @@ mod Windows {
                     None = 0,
                     OnlyPreferredResolution = 1,
                 }
-                #[Windows::Foundation::Metadata::Static(IDisplayMuxDeviceStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IDisplayMuxDeviceStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class DisplayMuxDevice {
                     IDisplayMuxDevice,
                     super::super::super::Foundation::IClosable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayPath {
                     IDisplayPath,
                     IDisplayPath2,
@@ -155,10 +155,10 @@ mod Windows {
                     VerticalSyncsPerPresentation: i32,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IDisplayPrimaryDescriptionFactory, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IDisplayPrimaryDescriptionStatics, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IDisplayPrimaryDescriptionStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class DisplayPrimaryDescription {
                     IDisplayPrimaryDescription,
                 }
@@ -170,8 +170,8 @@ mod Windows {
                     Clockwise180Degrees = 2,
                     Clockwise270Degrees = 3,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayScanout {
                     IDisplayScanout,
                 }
@@ -219,8 +219,8 @@ mod Windows {
                     FailIfStateChanged = 1,
                     ValidateTopologyOnly = 2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayStateOperationResult {
                     IDisplayStateOperationResult,
                 }
@@ -236,8 +236,8 @@ mod Windows {
                     ModesNotSupported = 6,
                     RemoteSessionNotSupported = 7,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplaySurface {
                     IDisplaySurface,
                 }
@@ -254,8 +254,8 @@ mod Windows {
                     TemporaryPersisted = 2,
                     PathPersisted = 3,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayTask {
                     IDisplayTask,
                     IDisplayTask2,
@@ -266,8 +266,8 @@ mod Windows {
                     IDisplayTaskPool,
                     IDisplayTaskPool2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class DisplayTaskResult {
                     IDisplayTaskResult,
                 }
@@ -282,10 +282,10 @@ mod Windows {
                 class DisplayView {
                     IDisplayView,
                 }
-                #[Windows::Foundation::Metadata::Static(IDisplayWireFormatStatics, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(IDisplayWireFormatFactory, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IDisplayWireFormatStatics, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class DisplayWireFormat {
                     IDisplayWireFormat,
@@ -321,8 +321,8 @@ mod Windows {
                     Intensity = 4,
                 }
                 #[guid(0xa56f5287_f000_5f2e_b5ac_3783a2b69af5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
                 interface IDisplayAdapter {
                     #[get]
                     Id: super::super::super::Graphics::DisplayAdapterId;
@@ -342,8 +342,8 @@ mod Windows {
                     Properties: super::super::super::Foundation::Collections::IMapView<GUID, Object>;
                 }
                 #[guid(0x9ab49b18_b3c7_5546_8374_a9127111edd8)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
                 interface IDisplayAdapter2 {
                     #[get]
                     IsIndirectDisplayDevice: bool;
@@ -351,8 +351,8 @@ mod Windows {
                     PreferredRenderAdapter: DisplayAdapter;
                 }
                 #[guid(0x1dac3cda_481f_5469_8470_82c4ba680a28)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
                 interface IDisplayAdapterStatics {
                     fn FromId(&self, id: super::super::super::Graphics::DisplayAdapterId) -> DisplayAdapter;
                 }
@@ -369,14 +369,14 @@ mod Windows {
                     fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> bool;
                 }
                 #[guid(0x3fefe50c_0940_54bd_a02f_f9c7a536ad60)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayDevice)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayDevice)]
                 interface IDisplayDevice2 {
                     fn CreateSimpleScanoutWithDirtyRectsAndOptions(&self, source: DisplaySource, surface: DisplaySurface, subresourceIndex: u32, syncInterval: u32, dirtyRects: super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>, options: DisplayScanoutOptions) -> DisplayScanout;
                 }
                 #[guid(0x41c86ce5_b18f_573f_9d59_70463115e4cc)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayDevice)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayDevice)]
                 interface IDisplayDeviceRenderAdapter {
                     #[get]
                     RenderAdapterId: super::super::super::Graphics::DisplayAdapterId;
@@ -385,8 +385,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(DisplayFence)]
                 interface IDisplayFence {}
                 #[guid(0x4ed9245b_15ec_56e2_9072_7fe5084a31a7)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
                 interface IDisplayManager {
                     fn GetCurrentTargets(&self) -> super::super::super::Foundation::Collections::IVectorView<DisplayTarget>;
                     fn GetCurrentAdapters(&self) -> super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>;
@@ -405,8 +405,8 @@ mod Windows {
                     fn Stop(&self);
                 }
                 #[guid(0xe001ec1e_7eb1_597f_9a30_14d3fe3714cd)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
                 interface IDisplayManager2 {
                     fn TryReadCurrentStateForModeQuery(&self) -> DisplayManagerResultWithState;
                 }
@@ -417,22 +417,22 @@ mod Windows {
                     fn CreateDisplayDeviceForIndirectAdapter(&self, indirectAdapter: DisplayAdapter, renderAdapter: DisplayAdapter) -> DisplayDevice;
                 }
                 #[guid(0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerChangedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerChangedEventArgs)]
                 interface IDisplayManagerChangedEventArgs {
                     Handled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x8726dde4_6793_5973_a11f_5ffbc93fdb90)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerDisabledEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerDisabledEventArgs)]
                 interface IDisplayManagerDisabledEventArgs {
                     Handled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0xf0cf3f6f_42fa_59a2_b297_26e1713de848)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerEnabledEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerEnabledEventArgs)]
                 interface IDisplayManagerEnabledEventArgs {
                     Handled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
@@ -456,8 +456,8 @@ mod Windows {
                     State: DisplayState;
                 }
                 #[guid(0x2b6b9446_b999_5535_9d69_53f092c780a1)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
                 interface IDisplayManagerStatics {
                     fn Create(&self, options: DisplayManagerOptions) -> DisplayManager;
                 }
@@ -519,8 +519,8 @@ mod Windows {
                     fn FromIdAsync(&self, deviceInterfaceId: String) -> super::super::super::Foundation::IAsyncOperation<DisplayMuxDevice>;
                 }
                 #[guid(0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPath)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPath)]
                 interface IDisplayPath {
                     #[get]
                     View: DisplayView;
@@ -549,8 +549,8 @@ mod Windows {
                     PhysicalPresentationRate: super::super::super::Foundation::IReference<DisplayPresentationRate>;
                 }
                 #[guid(0x872591d2_d533_50ff_a85e_06696194b77c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPrimaryDescription)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPrimaryDescription)]
                 interface IDisplayPrimaryDescription {
                     #[get]
                     Width: u32;
@@ -579,12 +579,12 @@ mod Windows {
                 interface IDisplayPrimaryDescriptionStatics {
                     fn CreateWithProperties(&self, extraProperties: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<GUID, Object>>, width: u32, height: u32, pixelFormat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorSpace: super::super::super::Graphics::DirectX::DirectXColorSpace, isStereo: bool, multisampleDescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> DisplayPrimaryDescription;
                 }
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayScanout)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayScanout)]
                 interface IDisplayScanout {}
                 #[guid(0xecd15fc1_eadc_51bc_971d_3bc628db2dd4)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySource)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySource)]
                 interface IDisplaySource {
                     #[get]
                     AdapterId: super::super::super::Graphics::DisplayAdapterId;
@@ -593,16 +593,16 @@ mod Windows {
                     fn GetMetadata(&self, Key: GUID) -> super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0x71e18952_b321_5af4_bfe8_03fbea31e40d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySource)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySource)]
                 interface IDisplaySource2 {
                     #[get]
                     Status: DisplaySourceStatus;
                     event StatusChanged: super::super::super::Foundation::TypedEventHandler<DisplaySource, Object>;
                 }
                 #[guid(0x08129321_11b5_5cb2_99f8_e90b479a8a1d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayState)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayState)]
                 interface IDisplayState {
                     #[get]
                     IsReadOnly: bool;
@@ -614,8 +614,8 @@ mod Windows {
                     Views: super::super::super::Foundation::Collections::IVectorView<DisplayView>;
                     #[get]
                     Properties: super::super::super::Foundation::Collections::IMap<GUID, Object>;
-                    #[Windows::Foundation::Metadata::Overload("ConnectTarget")]
                     #[Windows::Foundation::Metadata::DefaultOverload]
+                    #[Windows::Foundation::Metadata::Overload("ConnectTarget")]
                     fn ConnectTarget(&self, target: DisplayTarget) -> DisplayPath;
                     #[Windows::Foundation::Metadata::Overload("ConnectTargetToView")]
                     fn ConnectTarget(&self, target: DisplayTarget, view: DisplayView) -> DisplayPath;
@@ -628,20 +628,20 @@ mod Windows {
                     fn Clone(&self) -> DisplayState;
                 }
                 #[guid(0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayStateOperationResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayStateOperationResult)]
                 interface IDisplayStateOperationResult {
                     #[get]
                     Status: DisplayStateOperationStatus;
                     #[get]
                     ExtendedErrorCode: HRESULT;
                 }
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySurface)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySurface)]
                 interface IDisplaySurface {}
                 #[guid(0xaec57c6f_47b4_546b_987c_e73fa791fe3a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTarget)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTarget)]
                 interface IDisplayTarget {
                     #[get]
                     Adapter: DisplayAdapter;
@@ -697,8 +697,8 @@ mod Windows {
                     fn TryExecuteTask(&self, task: DisplayTask) -> DisplayTaskResult;
                 }
                 #[guid(0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTaskResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTaskResult)]
                 interface IDisplayTaskResult {
                     #[get]
                     PresentStatus: DisplayPresentStatus;
@@ -736,8 +736,8 @@ mod Windows {
                     Properties: super::super::super::Foundation::Collections::IMapView<GUID, Object>;
                 }
                 #[guid(0xb2efc8d5_09d6_55e6_ad22_9014b3d25229)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayWireFormat)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayWireFormat)]
                 interface IDisplayWireFormatFactory {
                     fn CreateInstance(&self, pixelEncoding: DisplayWireFormatPixelEncoding, bitsPerChannel: i32, colorSpace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrMetadata: DisplayWireFormatHdrMetadata) -> DisplayWireFormat;
                 }

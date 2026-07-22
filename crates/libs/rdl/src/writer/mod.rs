@@ -594,7 +594,7 @@ fn write_custom_attributes_except<'a>(
     index: &windows_metadata::reader::Index,
     exclude: &[&str],
 ) -> Result<Vec<TokenStream>, Error> {
-    attributes
+    let mut rendered = attributes
         .filter(|attr| {
             !(namespace_starts_with(attr.namespace(), "System")
                 || exclude.contains(&attr.name())
@@ -668,7 +668,14 @@ fn write_custom_attributes_except<'a>(
                 quote! { #[#name_ts(#(#args),*)] }
             })
         })
-        .collect()
+        .collect::<Result<Vec<TokenStream>, Error>>()?;
+
+    // Custom attribute order is semantically insignificant in ECMA-335, and the raw
+    // CustomAttribute-table order varies between SDK/Contracts builds even when the attribute set
+    // is unchanged. Sort by rendered text so the snapshot is canonical — a version bump only diffs
+    // when the attribute set actually changes — matching how impls/enum fields/layout are sorted.
+    rendered.sort_by_key(|ts| ts.to_string());
+    Ok(rendered)
 }
 
 /// Writes an enum attribute argument as its variant name by looking up the integer

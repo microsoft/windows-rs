@@ -11,8 +11,8 @@ mod Windows {
             Value: u64,
         }
         #[guid(0xcaff7902_670c_4181_a624_da977203b845)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         interface IGeometrySource2D {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         struct PointInt32 {

@@ -2,8 +2,8 @@
 mod Windows {
     mod Storage {
         mod FileProperties {
-            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
             class BasicProperties {
                 IBasicProperties,
                 IStorageItemExtraProperties,
@@ -13,11 +13,11 @@ mod Windows {
                 IDocumentProperties,
                 IStorageItemExtraProperties,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IGeotagHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class GeotagHelper {}
             #[guid(0xd05d55db_785e_4a66_be02_9beec58aea81)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -42,8 +42,8 @@ mod Windows {
                 Comment: String;
             }
             #[guid(0x41493244_2524_4655_86a6_ed16f5fc716b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GeotagHelper)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GeotagHelper)]
             interface IGeotagHelperStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetGeotagAsync(&self, file: super::IStorageFile) -> super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>;
@@ -53,8 +53,8 @@ mod Windows {
                 fn SetGeotagAsync(&self, file: super::IStorageFile, geopoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x523c9424_fcff_4275_afee_ecdb9ab47973)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ImageProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageProperties)]
             interface IImageProperties: IStorageItemExtraProperties {
                 Rating: u32;
                 #[get]
@@ -77,8 +77,8 @@ mod Windows {
                 PeopleNames: super::super::Foundation::Collections::IVectorView<String>;
             }
             #[guid(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MusicProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MusicProperties)]
             interface IMusicProperties: IStorageItemExtraProperties {
                 Album: String;
                 Artist: String;
@@ -105,8 +105,8 @@ mod Windows {
                 Year: u32;
             }
             #[guid(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemContentProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemContentProperties)]
             interface IStorageItemContentProperties: IStorageItemExtraProperties {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetMusicPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<MusicProperties>;
@@ -129,8 +129,8 @@ mod Windows {
                 fn SavePropertiesAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemThumbnail)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemThumbnail)]
             interface IThumbnailProperties {
                 #[get]
                 OriginalWidth: u32;

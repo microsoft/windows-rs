@@ -2,11 +2,11 @@
 mod Windows {
     mod UI {
         mod Input {
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Composable(IAttachableInputObjectFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class AttachableInputObject {
                 IAttachableInputObject,
                 super::super::Foundation::IClosable,
@@ -35,8 +35,8 @@ mod Windows {
                 Rearranging = 5,
                 Completed = 6,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class DraggingEventArgs {
                 IDraggingEventArgs,
                 IDraggingEventArgs2,
@@ -48,16 +48,16 @@ mod Windows {
                 Continuing = 1,
                 Completed = 2,
             }
-            #[Windows::Foundation::Metadata::Static(IEdgeGestureStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IEdgeGestureStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(STA)]
             class EdgeGesture {
                 IEdgeGesture,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             class EdgeGestureEventArgs {
                 IEdgeGestureEventArgs,
             }
@@ -76,10 +76,10 @@ mod Windows {
                 DeniedByUser = 2,
                 DeniedBySystem = 3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class GestureRecognizer {
                 IGestureRecognizer,
                 IGestureRecognizer2,
@@ -107,8 +107,8 @@ mod Windows {
                 CrossSlide = 32768,
                 ManipulationMultipleFingerPanning = 65536,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class HoldingEventArgs {
                 IHoldingEventArgs,
                 IHoldingEventArgs2,
@@ -120,13 +120,13 @@ mod Windows {
                 Completed = 1,
                 Canceled = 2,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AttachableInputObject)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAttachableInputObject {}
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AttachableInputObject)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAttachableInputObjectFactory {}
             #[guid(0xe9374738_6f88_41d9_8720_78e08e398349)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -140,15 +140,15 @@ mod Windows {
                 CrossSlidingState: CrossSlidingState;
             }
             #[guid(0xeefb7d48_c070_59f3_8dab_bcaf621d8687)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CrossSlidingEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CrossSlidingEventArgs)]
             interface ICrossSlidingEventArgs2 {
                 #[get]
                 ContactCount: u32;
             }
             #[guid(0x1c905384_083c_4bd3_b559_179cddeb33ec)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DraggingEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DraggingEventArgs)]
             interface IDraggingEventArgs {
                 #[get]
                 PointerDeviceType: super::super::Devices::Input::PointerDeviceType;
@@ -158,15 +158,15 @@ mod Windows {
                 DraggingState: DraggingState;
             }
             #[guid(0x71efdbf9_382a_55ca_b4b9_008123c1bf1a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DraggingEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DraggingEventArgs)]
             interface IDraggingEventArgs2 {
                 #[get]
                 ContactCount: u32;
             }
             #[guid(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(EdgeGesture)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EdgeGesture)]
             interface IEdgeGesture {
                 event Starting: super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>;
                 event Completed: super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>;
@@ -180,14 +180,14 @@ mod Windows {
                 Kind: EdgeGestureKind;
             }
             #[guid(0xbc6a8519_18ee_4043_9839_4fc584d60a14)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(EdgeGesture)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EdgeGesture)]
             interface IEdgeGestureStatics {
                 fn GetForCurrentView(&self) -> EdgeGesture;
             }
             #[guid(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GestureRecognizer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GestureRecognizer)]
             interface IGestureRecognizer {
                 GestureSettings: GestureSettings;
                 #[get]
@@ -261,18 +261,18 @@ mod Windows {
                 CurrentContactCount: u32;
             }
             #[guid(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(InputActivationListener)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputActivationListener)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IInputActivationListener {
                 #[get]
                 State: InputActivationState;
                 event InputActivationChanged: super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>;
             }
             #[guid(0x7699b465_1dcf_5791_b4b9_6cafbeed2056)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(InputActivationListenerActivationChangedEventArgs)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             interface IInputActivationListenerActivationChangedEventArgs {
                 #[get]
                 State: InputActivationState;
@@ -286,8 +286,8 @@ mod Windows {
                 event KeyUp: super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>;
             }
             #[guid(0xf9f63ba2_ceba_4755_8a7e_14c0ffecd239)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardDeliveryInterceptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardDeliveryInterceptor)]
             interface IKeyboardDeliveryInterceptorStatics {
                 fn GetForCurrentView(&self) -> KeyboardDeliveryInterceptor;
             }
@@ -305,8 +305,8 @@ mod Windows {
                 Velocities: ManipulationVelocities;
             }
             #[guid(0xf0c0dce7_30a9_5b96_886f_6560a85e4757)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationCompletedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationCompletedEventArgs)]
             interface IManipulationCompletedEventArgs2 {
                 #[get]
                 ContactCount: u32;
@@ -388,9 +388,9 @@ mod Windows {
             }
             #[guid(0x79a29f4d_32a6_5aa5_a999_42b0b420c66d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(PhysicalGestureRecognizer)]
             #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IPhysicalGestureRecognizer {
                 #[get]
                 IsActive: bool;
@@ -444,8 +444,8 @@ mod Windows {
                 PhysicalPosition: super::super::Foundation::Point;
             }
             #[guid(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PointerPointProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PointerPointProperties)]
             interface IPointerPointProperties {
                 #[get]
                 Pressure: f32;
@@ -502,8 +502,8 @@ mod Windows {
                 ZDistance: super::super::Foundation::IReference<f32>;
             }
             #[guid(0xa506638d_2a1a_413e_bc75_9f38381cc069)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PointerPoint)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PointerPoint)]
             interface IPointerPointStatics {
                 #[Windows::Foundation::Metadata::Overload("GetCurrentPoint")]
                 fn GetCurrentPoint(&self, pointerId: u32) -> PointerPoint;
@@ -523,8 +523,8 @@ mod Windows {
                 fn TransformBounds(&self, rect: super::super::Foundation::Rect) -> super::super::Foundation::Rect;
             }
             #[guid(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PointerVisualizationSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PointerVisualizationSettings)]
             interface IPointerVisualizationSettings {
                 #[set]
                 IsContactFeedbackEnabled: bool;
@@ -536,8 +536,8 @@ mod Windows {
                 IsBarrelButtonFeedbackEnabled: bool;
             }
             #[guid(0x68870edb_165b_4214_b4f3_584eca8c8a69)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PointerVisualizationSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PointerVisualizationSettings)]
             interface IPointerVisualizationSettingsStatics {
                 fn GetForCurrentView(&self) -> PointerVisualizationSettings;
             }
@@ -573,8 +573,8 @@ mod Windows {
                 Contact: RadialControllerScreenContact;
             }
             #[guid(0x3d577ef3_3cee_11e6_b535_001bdc06ab3b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerButtonClickedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerButtonClickedEventArgs)]
             interface IRadialControllerButtonClickedEventArgs2 {
                 #[get]
                 SimpleHapticsController: super::super::Devices::Haptics::SimpleHapticsController;
@@ -607,16 +607,16 @@ mod Windows {
                 SimpleHapticsController: super::super::Devices::Haptics::SimpleHapticsController;
             }
             #[guid(0xa6b79ecb_6a52_4430_910c_56370a9d6b42)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerConfiguration)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerConfiguration)]
             interface IRadialControllerConfiguration {
                 fn SetDefaultMenuItems(&self, buttons: super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>);
                 fn ResetToDefaultMenuItems(&self);
                 fn TrySelectDefaultMenuItem(&self, r#type: RadialControllerSystemMenuItemKind) -> bool;
             }
             #[guid(0x3d577ef7_3cee_11e6_b535_001bdc06ab3b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerConfiguration)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerConfiguration)]
             interface IRadialControllerConfiguration2 {
                 #[set]
                 ActiveControllerWhenMenuIsSuppressed: RadialController;
@@ -628,8 +628,8 @@ mod Windows {
                 IsMenuSuppressed: bool;
             }
             #[guid(0x79b6b0e5_069a_4486_a99d_8db772b9642f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerConfiguration)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerConfiguration)]
             interface IRadialControllerConfigurationStatics {
                 fn GetForCurrentView(&self) -> RadialControllerConfiguration;
             }
@@ -654,8 +654,8 @@ mod Windows {
                 Contact: RadialControllerScreenContact;
             }
             #[guid(0x3d577ef4_3cee_11e6_b535_001bdc06ab3b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerControlAcquiredEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerControlAcquiredEventArgs)]
             interface IRadialControllerControlAcquiredEventArgs2 {
                 #[get]
                 IsButtonPressed: bool;
@@ -663,8 +663,8 @@ mod Windows {
                 SimpleHapticsController: super::super::Devices::Haptics::SimpleHapticsController;
             }
             #[guid(0x8506b35d_f640_4412_aba0_bad077e5ea8a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenu)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenu)]
             interface IRadialControllerMenu {
                 #[get]
                 Items: super::super::Foundation::Collections::IVector<RadialControllerMenuItem>;
@@ -683,15 +683,15 @@ mod Windows {
                 event Invoked: super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, Object>;
             }
             #[guid(0x249e0887_d842_4524_9df8_e0d647edc887)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenuItem)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenuItem)]
             interface IRadialControllerMenuItemStatics {
                 fn CreateFromIcon(&self, displayText: String, icon: super::super::Storage::Streams::RandomAccessStreamReference) -> RadialControllerMenuItem;
                 fn CreateFromKnownIcon(&self, displayText: String, value: RadialControllerMenuKnownIcon) -> RadialControllerMenuItem;
             }
             #[guid(0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenuItem)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerMenuItem)]
             interface IRadialControllerMenuItemStatics2 {
                 #[Windows::Foundation::Metadata::Overload("CreateFromFontGlyph")]
                 fn CreateFromFontGlyph(&self, displayText: String, glyph: String, fontFamily: String) -> RadialControllerMenuItem;
@@ -699,8 +699,8 @@ mod Windows {
                 fn CreateFromFontGlyph(&self, displayText: String, glyph: String, fontFamily: String, fontUri: super::super::Foundation::Uri) -> RadialControllerMenuItem;
             }
             #[guid(0x206aa435_e651_11e5_bf62_2c27d7404e85)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerRotationChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerRotationChangedEventArgs)]
             interface IRadialControllerRotationChangedEventArgs {
                 #[get]
                 RotationDeltaInDegrees: f64;
@@ -717,8 +717,8 @@ mod Windows {
                 SimpleHapticsController: super::super::Devices::Haptics::SimpleHapticsController;
             }
             #[guid(0x206aa434_e651_11e5_bf62_2c27d7404e85)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerScreenContact)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerScreenContact)]
             interface IRadialControllerScreenContact {
                 #[get]
                 Bounds: super::super::Foundation::Rect;
@@ -733,8 +733,8 @@ mod Windows {
                 Contact: RadialControllerScreenContact;
             }
             #[guid(0x3d577ef1_3cee_11e6_b535_001bdc06ab3b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerScreenContactContinuedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerScreenContactContinuedEventArgs)]
             interface IRadialControllerScreenContactContinuedEventArgs2 {
                 #[get]
                 IsButtonPressed: bool;
@@ -742,8 +742,8 @@ mod Windows {
                 SimpleHapticsController: super::super::Devices::Haptics::SimpleHapticsController;
             }
             #[guid(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerScreenContactEndedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerScreenContactEndedEventArgs)]
             interface IRadialControllerScreenContactEndedEventArgs {
                 #[get]
                 IsButtonPressed: bool;
@@ -758,8 +758,8 @@ mod Windows {
                 Contact: RadialControllerScreenContact;
             }
             #[guid(0x3d577ef0_3cee_11e6_b535_001bdc06ab3b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerScreenContactStartedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerScreenContactStartedEventArgs)]
             interface IRadialControllerScreenContactStartedEventArgs2 {
                 #[get]
                 IsButtonPressed: bool;
@@ -791,8 +791,8 @@ mod Windows {
             }
             #[guid(0x59b893a9_73bc_52b5_ba41_82511b2cb46c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(SystemButtonEventController)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISystemButtonEventController {
                 event SystemFunctionButtonPressed: super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>;
                 event SystemFunctionButtonReleased: super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>;
@@ -800,8 +800,8 @@ mod Windows {
                 event SystemFunctionLockIndicatorChanged: super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>;
             }
             #[guid(0x632fb07b_20bd_5e15_af4a_00dbf2064ffa)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SystemButtonEventController)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemButtonEventController)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISystemButtonEventControllerStatics {
                 fn CreateForDispatcherQueue(&self, queue: super::super::System::DispatcherQueue) -> SystemButtonEventController;
@@ -816,8 +816,8 @@ mod Windows {
                 Handled: bool;
             }
             #[guid(0xcd040608_fcf9_585c_beab_f1d2eaf364ab)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SystemFunctionLockChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemFunctionLockChangedEventArgs)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISystemFunctionLockChangedEventArgs {
                 #[get]
@@ -827,9 +827,9 @@ mod Windows {
                 Handled: bool;
             }
             #[guid(0xb212b94e_7a6f_58ae_b304_bae61d0371b9)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SystemFunctionLockIndicatorChangedEventArgs)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISystemFunctionLockIndicatorChangedEventArgs {
                 #[get]
                 Timestamp: u64;
@@ -849,8 +849,8 @@ mod Windows {
                 TapCount: u32;
             }
             #[guid(0x294388f2_177e_51d5_be56_ee0866fa968c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TappedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TappedEventArgs)]
             interface ITappedEventArgs2 {
                 #[get]
                 ContactCount: u32;
@@ -858,8 +858,8 @@ mod Windows {
             #[guid(0x28c13cdd_e068_549f_89c6_1a440c6fc327)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TouchpadGesturesController)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITouchpadGesturesController {
                 Enabled: bool;
                 SupportedGestures: TouchpadGlobalGestureKinds;
@@ -870,34 +870,34 @@ mod Windows {
             }
             #[guid(0x207ef171_1a73_51cd_a694_8840e09dbafa)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::ExclusiveTo(TouchpadGesturesController)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITouchpadGesturesControllerStatics {
                 fn IsSupported(&self) -> bool;
                 fn CreateForProcess(&self) -> TouchpadGesturesController;
             }
             #[guid(0x6edad206_e4e3_5f39_9d13_8575e8e2a12b)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Experimental]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TouchpadGlobalActionEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TouchpadGlobalActionEventArgs)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITouchpadGlobalActionEventArgs {
                 #[get]
                 Action: TouchpadGlobalAction;
                 #[get]
                 PointerDevice: super::super::Devices::Input::PointerDevice;
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class InputActivationListener: AttachableInputObject {
                 IInputActivationListener,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class InputActivationListenerActivationChangedEventArgs {
                 IInputActivationListenerActivationChangedEventArgs,
             }
@@ -910,8 +910,8 @@ mod Windows {
                 ActivatedNotForeground = 2,
                 ActivatedInForeground = 3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IKeyboardDeliveryInterceptorStatics, 131072, "Windows.Foundation.UniversalApiContract")]
             class KeyboardDeliveryInterceptor {
                 IKeyboardDeliveryInterceptor,
@@ -929,14 +929,14 @@ mod Windows {
                 Rotation: f32,
                 Expansion: f32,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class ManipulationInertiaStartingEventArgs {
                 IManipulationInertiaStartingEventArgs,
                 IManipulationInertiaStartingEventArgs2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class ManipulationStartedEventArgs {
                 IManipulationStartedEventArgs,
                 IManipulationStartedEventArgs2,
@@ -959,18 +959,18 @@ mod Windows {
                 IMouseWheelParameters,
             }
             #[Windows::Foundation::Metadata::Activatable(1245184, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Experimental]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class PhysicalGestureRecognizer {
                 IPhysicalGestureRecognizer,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IPointerPointStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::Static(IPointerPointStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class PointerPoint {
                 IPointerPoint,
                 IPointerPointPhysicalPosition,
@@ -997,71 +997,71 @@ mod Windows {
                 XButton2Released = 10,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IPointerVisualizationSettingsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IPointerVisualizationSettingsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class PointerVisualizationSettings {
                 IPointerVisualizationSettings,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-            #[Windows::Foundation::Metadata::Static(IRadialControllerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IRadialControllerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
             class RadialController {
                 IRadialController,
                 IRadialController2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerButtonClickedEventArgs {
                 IRadialControllerButtonClickedEventArgs,
                 IRadialControllerButtonClickedEventArgs2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerButtonHoldingEventArgs {
                 IRadialControllerButtonHoldingEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerButtonPressedEventArgs {
                 IRadialControllerButtonPressedEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class RadialControllerButtonReleasedEventArgs {
                 IRadialControllerButtonReleasedEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IRadialControllerConfigurationStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::Static(IRadialControllerConfigurationStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IRadialControllerConfigurationStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
             class RadialControllerConfiguration {
                 IRadialControllerConfiguration,
                 IRadialControllerConfiguration2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerControlAcquiredEventArgs {
                 IRadialControllerControlAcquiredEventArgs,
                 IRadialControllerControlAcquiredEventArgs2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerMenu {
                 IRadialControllerMenu,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::Static(IRadialControllerMenuItemStatics, 196608, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IRadialControllerMenuItemStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IRadialControllerMenuItemStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IRadialControllerMenuItemStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
             class RadialControllerMenuItem {
                 IRadialControllerMenuItem,
             }
@@ -1078,9 +1078,9 @@ mod Windows {
                 InkThickness = 7,
                 PenType = 8,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerRotationChangedEventArgs {
                 IRadialControllerRotationChangedEventArgs,
                 IRadialControllerRotationChangedEventArgs2,
@@ -1091,9 +1091,9 @@ mod Windows {
             class RadialControllerScreenContact {
                 IRadialControllerScreenContact,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerScreenContactContinuedEventArgs {
                 IRadialControllerScreenContactContinuedEventArgs,
                 IRadialControllerScreenContactContinuedEventArgs2,
@@ -1105,8 +1105,8 @@ mod Windows {
                 IRadialControllerScreenContactEndedEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RadialControllerScreenContactStartedEventArgs {
                 IRadialControllerScreenContactStartedEventArgs,
                 IRadialControllerScreenContactStartedEventArgs2,
@@ -1120,35 +1120,35 @@ mod Windows {
                 Volume = 3,
                 NextPreviousTrack = 4,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
             class RightTappedEventArgs {
                 IRightTappedEventArgs,
                 IRightTappedEventArgs2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Static(ISystemButtonEventControllerStatics, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ISystemButtonEventControllerStatics, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class SystemButtonEventController: AttachableInputObject {
                 ISystemButtonEventController,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class SystemFunctionButtonEventArgs {
                 ISystemFunctionButtonEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class SystemFunctionLockChangedEventArgs {
                 ISystemFunctionLockChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class SystemFunctionLockIndicatorChangedEventArgs {
                 ISystemFunctionLockIndicatorChangedEventArgs,
             }
@@ -1158,20 +1158,20 @@ mod Windows {
                 ITappedEventArgs,
                 ITappedEventArgs2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ITouchpadGesturesControllerStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class TouchpadGesturesController {
                 ITouchpadGesturesController,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum TouchpadGlobalAction {
                 ThreeFingerTap = 0,
                 FourFingerTap = 1,
@@ -1183,11 +1183,11 @@ mod Windows {
                 FourFingerRelease = 7,
                 FiveFingerRelease = 8,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
-            #[Windows::Foundation::Metadata::Experimental]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class TouchpadGlobalActionEventArgs {
                 ITouchpadGlobalActionEventArgs,
             }

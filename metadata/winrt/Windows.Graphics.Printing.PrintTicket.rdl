@@ -67,8 +67,8 @@ mod Windows {
                     SelectionType: PrintTicketFeatureSelectionType;
                 }
                 #[guid(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketOption)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketOption)]
                 interface IPrintTicketOption {
                     #[get]
                     Name: String;
@@ -127,8 +127,8 @@ mod Windows {
                     fn GetValueAsString(&self) -> String;
                 }
                 #[guid(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicket)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicket)]
                 interface IWorkflowPrintTicket {
                     #[get]
                     Name: String;
@@ -179,8 +179,8 @@ mod Windows {
                 }
                 #[guid(0x966d1166_d9c7_569e_b7d8_f2b341c8f976)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicket)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IWorkflowPrintTicketFactory {
                     fn CreateInstance(&self, printerName: String, printTicketStream: super::super::super::Storage::Streams::IInputStream) -> WorkflowPrintTicket;
                 }
@@ -193,15 +193,15 @@ mod Windows {
                     #[get]
                     ExtendedError: HRESULT;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintTicketCapabilities {
                     IPrintTicketCapabilities,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintTicketFeature {
                     IPrintTicketFeature,
                 }
@@ -211,9 +211,9 @@ mod Windows {
                     PickOne = 0,
                     PickMany = 1,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintTicketOption {
                     IPrintTicketOption,
                 }
@@ -224,21 +224,21 @@ mod Windows {
                     NumericString = 1,
                     String = 2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintTicketParameterDefinition {
                     IPrintTicketParameterDefinition,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintTicketParameterInitializer {
                     IPrintTicketParameterInitializer,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintTicketValue {
                     IPrintTicketValue,
                 }
@@ -251,13 +251,13 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::Activatable(IWorkflowPrintTicketFactory, 1245184, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class WorkflowPrintTicket {
                     IWorkflowPrintTicket,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class WorkflowPrintTicketValidationResult {
                     IWorkflowPrintTicketValidationResult,

@@ -3,8 +3,8 @@ mod Windows {
     mod AI {
         mod Actions {
             mod Hosting {
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class ActionCatalog {
                     IActionCatalog,
                     IActionCatalog2,
@@ -21,19 +21,19 @@ mod Windows {
                     IActionDefinition5,
                     super::super::super::Foundation::IClosable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class ActionEntityRegistrationInfo {
                     IActionEntityRegistrationInfo,
                     super::super::super::Foundation::IClosable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class ActionInstance {
                     IActionInstance,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class ActionInstanceDisplayInfo {
                     IActionInstanceDisplayInfo,
                 }
@@ -45,15 +45,15 @@ mod Windows {
                     super::super::super::Foundation::IClosable,
                 }
                 #[guid(0xdbe7c537_66ea_5394_9085_4fc19d78375c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
                 interface IActionCatalog {
                     fn GetAllActions(&self) -> [ActionDefinition];
                     event Changed: super::super::super::Foundation::TypedEventHandler<ActionCatalog, Object>;
                 }
                 #[guid(0x370360b1_a14b_5ea8_b611_b5f70342ba44)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
                 interface IActionCatalog2 {
                     #[Windows::Foundation::Metadata::Overload("GetActionsForInputs")]
                     fn GetActionsForInputs(&self, inputEntities: [super::ActionEntity]) -> [ActionInstance];
@@ -94,8 +94,8 @@ mod Windows {
                     SchemaVersion: u32;
                 }
                 #[guid(0x89c9a7e0_4bfd_55f4_9eed_dce2250114fa)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
                 interface IActionDefinition3 {
                     #[get]
                     PackageRelativeApplicationId: String;
@@ -108,15 +108,15 @@ mod Windows {
                     IsCurrentlyAvailable: bool;
                 }
                 #[guid(0x5bea33ef_d325_53a8_8db3_0d771f4d1e54)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
                 #[Windows::Foundation::Metadata::Experimental]
-                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 393216)]
                 interface IActionDefinition5 {
                     fn GetIconFullPath(&self, qualifierValues: super::super::super::Foundation::Collections::PropertySet) -> String;
                 }
                 #[guid(0xc3b92bdb_03c3_5a9e_b049_002fa0405699)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityRegistrationInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityRegistrationInfo)]
                 interface IActionEntityRegistrationInfo {
                     Name: String;
                     Kind: super::ActionEntityKind;
@@ -134,8 +134,8 @@ mod Windows {
                     fn InvokeAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xfcfdce21_678b_5602_b9dc_2f4533a6f4b2)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ActionInstanceDisplayInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionInstanceDisplayInfo)]
                 interface IActionInstanceDisplayInfo {
                     #[get]
                     Description: String;

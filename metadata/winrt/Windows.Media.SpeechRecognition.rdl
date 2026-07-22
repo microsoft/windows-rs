@@ -3,15 +3,15 @@ mod Windows {
     mod Media {
         mod SpeechRecognition {
             #[guid(0xe3d069bb_e30c_5e18_424b_7fbe81f8fbd0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechContinuousRecognitionCompletedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechContinuousRecognitionCompletedEventArgs)]
             interface ISpeechContinuousRecognitionCompletedEventArgs {
                 #[get]
                 Status: SpeechRecognitionResultStatus;
             }
             #[guid(0x19091e1e_6e7e_5a46_40fb_76594f786504)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechContinuousRecognitionResultGeneratedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechContinuousRecognitionResultGeneratedEventArgs)]
             interface ISpeechContinuousRecognitionResultGeneratedEventArgs {
                 #[get]
                 Result: SpeechRecognitionResult;
@@ -21,11 +21,11 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechContinuousRecognitionSession)]
             interface ISpeechContinuousRecognitionSession {
                 AutoStopSilenceTimeout: super::super::Foundation::TimeSpan;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("StartAsync")]
-                fn StartAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartAsync(&self) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("StartWithModeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StartAsync(&self, mode: SpeechContinuousRecognitionMode) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StopAsync(&self) -> super::super::Foundation::IAsyncAction;
@@ -54,29 +54,29 @@ mod Windows {
                 Probability: SpeechRecognitionConstraintProbability;
             }
             #[guid(0xb5031a8f_85ca_4fa4_b11a_474fc41b3835)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionGrammarFileConstraint)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionGrammarFileConstraint)]
             interface ISpeechRecognitionGrammarFileConstraint: ISpeechRecognitionConstraint {
                 #[get]
                 GrammarFile: super::super::Storage::StorageFile;
             }
             #[guid(0x3da770eb_c479_4c27_9f19_89974ef392d1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionGrammarFileConstraint)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionGrammarFileConstraint)]
             interface ISpeechRecognitionGrammarFileConstraintFactory {
                 fn Create(&self, file: super::super::Storage::StorageFile) -> SpeechRecognitionGrammarFileConstraint;
                 fn CreateWithTag(&self, file: super::super::Storage::StorageFile, tag: String) -> SpeechRecognitionGrammarFileConstraint;
             }
             #[guid(0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionHypothesis)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionHypothesis)]
             interface ISpeechRecognitionHypothesis {
                 #[get]
                 Text: String;
             }
             #[guid(0x55161a7a_8023_5866_411d_1213bb271476)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionHypothesisGeneratedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionHypothesisGeneratedEventArgs)]
             interface ISpeechRecognitionHypothesisGeneratedEventArgs {
                 #[get]
                 Hypothesis: SpeechRecognitionHypothesis;
@@ -132,8 +132,8 @@ mod Windows {
                 PhraseDuration: super::super::Foundation::TimeSpan;
             }
             #[guid(0xaae1da9b_7e32_4c1f_89fe_0c65f486f52e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionSemanticInterpretation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognitionSemanticInterpretation)]
             interface ISpeechRecognitionSemanticInterpretation {
                 #[get]
                 Properties: super::super::Foundation::Collections::IMapView<String, super::super::Foundation::Collections::IVectorView<String>>;
@@ -192,14 +192,14 @@ mod Windows {
                 event HypothesisGenerated: super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>;
             }
             #[guid(0x60c488dd_7fb8_4033_ac70_d046f64818e1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizer)]
             interface ISpeechRecognizerFactory {
                 fn Create(&self, language: super::super::Globalization::Language) -> SpeechRecognizer;
             }
             #[guid(0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizerStateChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizerStateChangedEventArgs)]
             interface ISpeechRecognizerStateChangedEventArgs {
                 #[get]
                 State: SpeechRecognizerState;
@@ -216,8 +216,8 @@ mod Windows {
                 SupportedGrammarLanguages: super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>;
             }
             #[guid(0x1d1b0d95_7565_4ef9_a2f3_ba15162a96cf)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizer)]
             interface ISpeechRecognizerStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TrySetSystemSpeechLanguageAsync(&self, speechLanguage: super::super::Globalization::Language) -> super::super::Foundation::IAsyncOperation<bool>;
@@ -231,17 +231,17 @@ mod Windows {
                 BabbleTimeout: super::super::Foundation::TimeSpan;
             }
             #[guid(0x7888d641_b92b_44ba_a25f_d1864630641f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizerUIOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechRecognizerUIOptions)]
             interface ISpeechRecognizerUIOptions {
                 ExampleText: String;
                 AudiblePrompt: String;
                 IsReadBackEnabled: bool;
                 ShowConfirmation: bool;
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SpeechContinuousRecognitionCompletedEventArgs {
                 ISpeechContinuousRecognitionCompletedEventArgs,
@@ -252,17 +252,17 @@ mod Windows {
                 Default = 0,
                 PauseOnRecognition = 1,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SpeechContinuousRecognitionResultGeneratedEventArgs {
                 ISpeechContinuousRecognitionResultGeneratedEventArgs,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SpeechContinuousRecognitionSession {
                 ISpeechContinuousRecognitionSession,
             }
@@ -277,9 +277,9 @@ mod Windows {
                 TooFast = 5,
                 TooSlow = 6,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognitionCompilationResult {
                 ISpeechRecognitionCompilationResult,
             }
@@ -307,44 +307,44 @@ mod Windows {
                 VoiceCommandDefinition = 3,
             }
             #[Windows::Foundation::Metadata::Activatable(ISpeechRecognitionGrammarFileConstraintFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class SpeechRecognitionGrammarFileConstraint {
                 ISpeechRecognitionGrammarFileConstraint,
                 ISpeechRecognitionConstraint,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SpeechRecognitionHypothesis {
                 ISpeechRecognitionHypothesis,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SpeechRecognitionHypothesisGeneratedEventArgs {
                 ISpeechRecognitionHypothesisGeneratedEventArgs,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(ISpeechRecognitionListConstraintFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognitionListConstraint {
                 ISpeechRecognitionListConstraint,
                 ISpeechRecognitionConstraint,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognitionQualityDegradingEventArgs {
                 ISpeechRecognitionQualityDegradingEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognitionResult {
                 ISpeechRecognitionResult,
                 ISpeechRecognitionResult2,
@@ -371,15 +371,15 @@ mod Windows {
                 Dictation = 1,
                 FormFilling = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognitionSemanticInterpretation {
                 ISpeechRecognitionSemanticInterpretation,
             }
+            #[Windows::Foundation::Metadata::Activatable(ISpeechRecognitionTopicConstraintFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Activatable(ISpeechRecognitionTopicConstraintFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognitionTopicConstraint {
                 ISpeechRecognitionTopicConstraint,
@@ -391,12 +391,12 @@ mod Windows {
                 ISpeechRecognitionVoiceCommandDefinitionConstraint,
                 ISpeechRecognitionConstraint,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(ISpeechRecognizerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ISpeechRecognizerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(ISpeechRecognizerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ISpeechRecognizerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ISpeechRecognizerStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
             class SpeechRecognizer {
                 ISpeechRecognizer,
@@ -414,21 +414,21 @@ mod Windows {
                 SpeechDetected = 5,
                 Paused = 6,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognizerStateChangedEventArgs {
                 ISpeechRecognizerStateChangedEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class SpeechRecognizerTimeouts {
                 ISpeechRecognizerTimeouts,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechRecognizerUIOptions {
                 ISpeechRecognizerUIOptions,
             }

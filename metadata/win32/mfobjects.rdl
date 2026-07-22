@@ -18,7 +18,7 @@ mod Windows {
         }
         #[guid(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67)]
         interface IMFActivate: IMFAttributes {
-            fn ActivateObject(&self, riid: *const GUID, #[retval] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn ActivateObject(&self, riid: *const GUID, #[iid_is] #[retval] ppv: *mut *mut void) -> HRESULT;
             fn ShutdownObject(&self) -> HRESULT;
             fn DetachObject(&self) -> HRESULT;
         }
