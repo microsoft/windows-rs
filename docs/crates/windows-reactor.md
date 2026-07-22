@@ -99,6 +99,8 @@ without globals or `thread_local!`. The most common:
 - **`use_resource(fetcher, deps)` → `Resource<T>`** — async data loading with
   loading/error states; a `Resource` converts straight into an `Element`.
 - **`use_context(&context)`** — read a value provided higher in the tree.
+- **`use_open_window()`** — returns an opener for launching secondary top-level
+  windows (see [Multiple windows](#multiple-windows)).
 
 ```rust,ignore
 fn counter(cx: &mut RenderCx) -> Element {
@@ -176,6 +178,47 @@ the same stable identity for hot paths. For the common case of a unit event
 is shorthand for `move || set.call(value)`:
 `button("Reset").on_click(set_count.setter(0))`.
 
+## Multiple windows
+
+`App::run` opens the primary window, but an app can open additional top-level
+windows at runtime with the `ReactorWindow` builder. Each window hosts its own
+independent reactor tree — its own hooks, state, and render function — while
+sharing the one UI thread and message loop (WinUI is single-threaded apartment,
+so every window runs on the same thread).
+
+```rust,ignore
+fn app(cx: &mut RenderCx) -> Element {
+    button("Open counter window")
+        .on_click(|| {
+            // Opens immediately on the UI thread and returns a handle.
+            let _ = ReactorWindow::new()
+                .title("Counter")
+                .inner_size(320.0, 220.0)
+                .render(counter); // counter: Fn(&mut RenderCx) -> Element
+        })
+        .into()
+}
+```
+
+`ReactorWindow` mirrors the `App` window options (`title`, `inner_size`,
+`inner_constraints`, `presenter`, `fullscreen`, `backdrop`, `icon`). `.render(f)`
+takes a `Fn(&mut RenderCx) -> Element`; `.open(factory)` takes any `Component`.
+Both run synchronously on the current UI thread — unlike `App::run` there is no
+`Send` bound — and return `Result<WindowHandle>`.
+
+- **`WindowHandle`** keeps the secondary window's host alive. Call `.close()` to
+  close and drop it. Dropping the handle does *not* close the window — the
+  registry owns it until it is closed by the user or via `.close()`.
+- **Last-window-close exits.** Reactor tracks every open window; when the *last*
+  one closes (whether the primary or a secondary), the process exits. Closing any
+  earlier window just drops that window.
+- **`cx.use_open_window()`** returns a small `Copy` opener you can capture into
+  handlers as an ergonomic alternative to naming `ReactorWindow` directly;
+  `opener.render(f)` / `opener.open(factory)` open a default-configured window.
+
+Per-window themes are not yet available — the requested color scheme is currently
+app-global (see [Future work](#2-multi-window-system-tray-and-pickers)).
+
 ## Graphics integration
 
 For custom 2D drawing, host a [`windows-canvas`](windows-canvas.md) surface with
@@ -217,7 +260,8 @@ tree is the best reference:
 
 - **`samples`** — the smallest app plus an `examples/` folder with ~90 focused
   per-control and per-hook examples (`counter`, `calculator`, `navigation_view`,
-  `list_view`, `content_dialog`, `color_picker`, and many more).
+  `list_view`, `content_dialog`, `color_picker`, `secondary_window`, and many
+  more).
 - **`apps`** — complete applications: `notepad`, `solitaire`, `minesweeper`,
   `tictactoe`, `dotsweeper`.
 - **`gallery`** — a WinUI-gallery-style shell with navigation across many controls.
@@ -1003,7 +1047,7 @@ The C# framework exposes ~50. Notable missing groups:
 - **Window / system** — `use_window_size`, `use_breakpoint`, `use_dpi`,
   `use_window`/`use_window_state`/`use_is_active`, `use_window_position`,
   `use_displays`, `use_closing_guard`, `use_file_picker`/`use_folder_picker`,
-  `use_window_drag_move`, `use_tray_icon`, `use_open_window`.
+  `use_window_drag_move`, `use_tray_icon`.
 - **Theme / a11y / environment** — `use_is_dark_theme`, `use_high_contrast`,
   `use_reduced_motion`, `use_announce`, `use_intl`, `use_persisted`.
 - **Focus** — `use_focus`, `use_focus_trap`, `use_element_focus`,
@@ -1015,13 +1059,16 @@ Each is independently shippable.
 
 #### 2. Multi-window, system tray, and pickers *(high)*
 
-Present: a single `App` window builder (`title`, `inner_size`, `backdrop`,
-`presenter`, `fullscreen`).
+Present: the primary `App` window builder (`title`, `inner_size`, `backdrop`,
+`presenter`, `fullscreen`) plus runtime **secondary windows** — `ReactorWindow`
+/ `use_open_window` open independent same-thread top-level windows, each with its
+own reactor tree, tracked in a registry that exits the process when the last
+window closes (see [Multiple windows](#multiple-windows)).
 
-Missing: secondary windows (`ReactorWindow` / `use_open_window`), tray icons,
-window drag-move, multi-display awareness, window position/state persistence,
-close-guard confirmation, and file/folder pickers. These turn the crate from
-"single-window app shell" into a general desktop-app framework.
+Missing: per-window themes, cross-thread windows, tray icons, window drag-move,
+multi-display awareness, window position/state persistence, close-guard
+confirmation, and file/folder pickers. These turn the crate from "single-window
+app shell" into a general desktop-app framework.
 
 #### 3. Commanding *(medium-high)*
 
