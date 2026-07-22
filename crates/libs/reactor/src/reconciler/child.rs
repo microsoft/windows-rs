@@ -3,51 +3,27 @@ use std::borrow::Cow;
 
 use super::*;
 
+/// Update the child at `index` in place. Returns the control now occupying that
+/// slot: the same id, a replacement id (when `update` remounts a subtree whose
+/// root kind changed), or `None` when the child rendered away (e.g. `Empty`).
 fn update_child_tracked<B: Backend + 'static>(
     reconciler: &mut Reconciler<B>,
     parent: ControlId,
     index: usize,
     old: &Element,
     new: &Element,
-) {
-    let Some(old_id) = reconciler.child_at(parent, index) else {
-        return;
-    };
+) -> Option<ControlId> {
+    let old_id = reconciler.child_at(parent, index)?;
     match reconciler.update(old, new, old_id) {
         Some(nid) if nid != old_id => {
             reconciler.replace_child_tracked(parent, index, nid);
+            Some(nid)
         }
-        Some(_) => {}
+        Some(nid) => Some(nid),
         None => {
             reconciler.remove_child_tracked(parent, index);
+            None
         }
-    }
-}
-
-/// Update a matched keyed child in place, preserving the middle-region skip
-/// accounting (`debug_elements_skipped`) used by the reconciler's tests. Split
-/// out so the keyed placement loop can update a control at whatever live index
-/// it currently occupies.
-fn update_matched<B: Backend + 'static>(
-    reconciler: &mut Reconciler<B>,
-    parent: ControlId,
-    index: usize,
-    old_el: &Element,
-    new_el: &Element,
-) {
-    if reconciler.child_at(parent, index).is_none() {
-        return;
-    }
-    if can_skip_update(old_el, new_el) {
-        let child_id = reconciler.child_at(parent, index);
-        let state_dirty = child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
-        if state_dirty {
-            update_child_tracked(reconciler, parent, index, old_el, new_el);
-        } else {
-            reconciler.debug_elements_skipped += 1;
-        }
-    } else {
-        update_child_tracked(reconciler, parent, index, old_el, new_el);
     }
 }
 
@@ -416,7 +392,6 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
         let Some(&ctrl) = old_ctrl.get(&old_rel) else {
             continue;
         };
-        placed[i] = Some(ctrl);
         let old_el = old.get(old_start + old_rel).unwrap();
 
         // Non-LIS matched items move to just before the anchor. `move_child_tracked`
@@ -434,9 +409,20 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
             reconciler.move_child_tracked(parent, from, to);
         }
 
-        if let Some(cur) = live_index(reconciler, parent, ctrl) {
-            update_matched(reconciler, parent, cur, old_el, new_el);
-        }
+        // Update in place at the control's current live index, then record what
+        // now occupies that slot as this item's anchor. The update can replace
+        // the control (a component re-rendering to a different root widget yields
+        // a new `ControlId`) or drop it entirely (rendering `Empty`), so the item
+        // to the left must anchor on the *current* id, or on this item's own
+        // successor when nothing remains. The middle patch deliberately has no
+        // `can_skip_update` fast-path of its own: routing unconditionally through
+        // `update` keeps skip accounting, the forced-rerender guard, and theme
+        // re-resolution in the single place they are defined, so a reordered
+        // survivor can never be wrongly skipped.
+        placed[i] = match live_index(reconciler, parent, ctrl) {
+            Some(cur) => update_child_tracked(reconciler, parent, cur, old_el, new_el).or(anchor),
+            None => anchor,
+        };
     }
 }
 

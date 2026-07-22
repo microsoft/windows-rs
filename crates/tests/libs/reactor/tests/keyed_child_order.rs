@@ -8,11 +8,13 @@
 //! both correctness (final order) and move count (never exceeds the
 //! LIS-optimal minimum).
 
+use std::cell::Cell;
 use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    ControlId, Element, ElementExt, Prop, PropValue, Reconciler, text_block, vstack,
+    Component, ControlId, Element, ElementExt, Prop, PropValue, Reconciler, RenderCx, component,
+    rich_edit_box, text_block, vstack,
 };
 
 fn keyed(items: &[&str]) -> Element {
@@ -299,5 +301,181 @@ fn exhaustive_pure_reorderings_of_five() {
             assert_eq!(out.inserts, 0);
             assert_structural(old, new, &out);
         }
+    }
+}
+
+// --- Coverage for keyed *component* children, whose live control identity is
+// --- not guaranteed stable across a reconcile and which may need a forced
+// --- re-render — cases the `&str`/`text_block` suite above cannot express
+// --- because a host element always updates in place with the same `ControlId`.
+
+fn text_of(r: &Reconciler<RecordingBackend>, id: ControlId) -> String {
+    r.backend
+        .ops
+        .iter()
+        .rev()
+        .find_map(|op| match op {
+            Op::SetProp {
+                id: i,
+                prop: Prop::Text,
+                value: PropValue::Str(s),
+            } if *i == id => Some(s.clone()),
+            _ => None,
+        })
+        .expect("every live child has a Text op")
+}
+
+fn live_labels(r: &Reconciler<RecordingBackend>, root: ControlId) -> Vec<String> {
+    r.backend
+        .children_of(root)
+        .iter()
+        .map(|&id| text_of(r, id))
+        .collect()
+}
+
+#[derive(Clone, PartialEq, Debug)]
+struct KindProps {
+    label: String,
+    alt: bool,
+}
+
+struct KindRow;
+
+impl Component<KindProps> for KindRow {
+    fn render(&self, p: &KindProps, _cx: &mut RenderCx) -> Element {
+        // Both kinds emit `Prop::Text`, so `text_of` can identify the control
+        // whichever is live; flipping `alt` changes the root widget kind and
+        // therefore the control's `ControlId` on the next update.
+        if p.alt {
+            rich_edit_box(p.label.clone()).into()
+        } else {
+            text_block(p.label.clone()).into()
+        }
+    }
+}
+
+fn kind_stack(items: &[(&str, bool)]) -> Element {
+    let children: Vec<Element> = items
+        .iter()
+        .map(|(k, alt)| {
+            component(
+                KindRow,
+                KindProps {
+                    label: (*k).to_string(),
+                    alt: *alt,
+                },
+            )
+            .with_key(*k)
+        })
+        .collect();
+    let mut s = vstack(children);
+    s.key = Some("root".to_string());
+    s.into()
+}
+
+#[test]
+fn component_root_kind_change_during_reorder_preserves_order() {
+    // A matched keyed component in the middle region changes its root widget
+    // kind on re-render (`text_block` -> `rich_edit_box`), so `update` remounts
+    // it with a fresh `ControlId`. A sibling reordered to sit before it must
+    // anchor on the *current* control, not the id captured prior to the update.
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let old = kind_stack(&[("a", false), ("b", false), ("c", false), ("d", false)]);
+    let root = r
+        .reconcile(None, &old, None, Rc::new(|| {}))
+        .expect("mount");
+
+    // Rotate `d` to the front (a genuine move) while `a` — the item `d` now
+    // anchors before — simultaneously flips its root kind.
+    let new = kind_stack(&[("d", false), ("a", true), ("b", false), ("c", false)]);
+    r.reconcile(Some(&old), &new, Some(root), Rc::new(|| {}));
+
+    assert_eq!(live_labels(&r, root), ["d", "a", "b", "c"]);
+}
+
+#[derive(Clone, PartialEq, Debug)]
+struct CountProps {
+    label: String,
+}
+
+struct CountRow {
+    renders: Rc<Cell<u32>>,
+}
+
+impl Component<CountProps> for CountRow {
+    fn render(&self, p: &CountProps, _cx: &mut RenderCx) -> Element {
+        self.renders.set(self.renders.get() + 1);
+        text_block(p.label.clone()).into()
+    }
+}
+
+fn count_stack(target: &Rc<Cell<u32>>, items: &[&str]) -> Element {
+    let children: Vec<Element> = items
+        .iter()
+        .map(|k| {
+            let renders = if *k == "t" {
+                Rc::clone(target)
+            } else {
+                Rc::new(Cell::new(0))
+            };
+            component(
+                CountRow { renders },
+                CountProps {
+                    label: (*k).to_string(),
+                },
+            )
+            .with_key(*k)
+        })
+        .collect();
+    let mut s = vstack(children);
+    s.key = Some("root".to_string());
+    s.into()
+}
+
+#[test]
+fn forced_rerender_reaches_reordered_middle_component() {
+    // Baseline: a plain reorder of a structurally-identical component must be
+    // skipped (its props are unchanged, so `should_update` is `false`).
+    {
+        let renders = Rc::new(Cell::new(0));
+        let mut r = Reconciler::new(RecordingBackend::new());
+        let old = count_stack(&renders, &["t", "x", "y"]);
+        let root = r
+            .reconcile(None, &old, None, Rc::new(|| {}))
+            .expect("mount");
+
+        renders.set(0);
+        let new = count_stack(&renders, &["x", "y", "t"]);
+        r.reconcile(Some(&old), &new, Some(root), Rc::new(|| {}));
+        assert_eq!(
+            renders.get(),
+            0,
+            "an unchanged component must be skipped when no re-render is forced"
+        );
+    }
+
+    // Forced: with `force_component_rerender` set and the target seeded into
+    // `forced_components`, the same reorder must re-render the component even
+    // though it lands in the middle region — matching the prefix/suffix paths.
+    {
+        let renders = Rc::new(Cell::new(0));
+        let mut r = Reconciler::new(RecordingBackend::new());
+        let old = count_stack(&renders, &["t", "x", "y"]);
+        let root = r
+            .reconcile(None, &old, None, Rc::new(|| {}))
+            .expect("mount");
+
+        let target_id = r.backend.children_of(root)[0];
+        renders.set(0);
+        r.force_component_rerender = true;
+        r.forced_components.insert(target_id);
+
+        let new = count_stack(&renders, &["x", "y", "t"]);
+        r.reconcile(Some(&old), &new, Some(root), Rc::new(|| {}));
+        assert_eq!(
+            renders.get(),
+            1,
+            "a forced component must re-render even when reordered through the middle region"
+        );
     }
 }
