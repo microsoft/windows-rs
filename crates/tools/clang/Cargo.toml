@@ -1,5 +1,5 @@
 [package]
-name = "tool_wdk"
+name = "tool_clang"
 version = "0.0.0"
 edition = "2024"
 rust-version = "1.95"

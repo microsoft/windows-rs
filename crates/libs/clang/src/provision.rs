@@ -228,8 +228,9 @@ fn nuget_root() -> PathBuf {
 /// layout so the same pinned corpus regenerates from a global-cache restore
 /// (`<root>/<id>/<version>/`, what `dotnet`/PackageReference and a local cache produce) or a
 /// flat restore (`<root>/<Id>.<Version>/`, what `nuget restore -PackagesDirectory` produces). The
-/// content under each (`c/Include/...`, `c/um/...`) is
-/// identical. When neither is present the pinned nupkg is fetched from nuget.org into the
+/// content under each is identical; callers index into the package-specific subtree they need
+/// (e.g. the SDK's `c/Include/...` or WebView2's `build/native/include/...`). When neither is
+/// present the pinned nupkg is fetched from nuget.org into the
 /// global-cache layout on demand, so a fresh checkout needs no prior `nuget restore`.
 pub fn nuget_package(id: &str, version: &str) -> PathBuf {
     let root = nuget_root();
@@ -270,8 +271,9 @@ fn fetch_nuget_package(id: &str, version: &str, dest: &Path) {
         .arg(dest)
         .status()
         .unwrap_or_else(|e| panic!("failed to run `tar` to extract `{id}` {version}: {e}"));
+    let extracted_any = std::fs::read_dir(dest).is_ok_and(|mut entries| entries.next().is_some());
     assert!(
-        status.success() && dest.join("c").is_dir(),
+        status.success() && extracted_any,
         "tar failed to extract the pinned NuGet package `{id}` {version} into `{}`.\n\
          Restore it manually into the NuGet global cache:\n  \
          nuget install {id} -Version {version} -OutputDirectory \"{}\"",

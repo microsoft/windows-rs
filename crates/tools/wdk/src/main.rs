@@ -31,15 +31,19 @@ const OFFREG_PRELUDE: &str = "crates/tools/wdk/src/offreg_prelude.h";
 
 /// Pinned WDK version. The corpus is generated against the `Microsoft.Windows.WDK.x64`
 /// NuGet package at this exact version, restored into the NuGet global cache. This is the
-/// latest servicing build of the `10.0.28000` marketing line that matches [`SDK_VERSION`];
-/// the WDK's servicing build lags the SDK's, so it is pinned independently.
+/// latest servicing build of the `10.0.28000` marketing line that matches the SDK; the
+/// WDK's servicing build lags the SDK's, so it is pinned independently here.
 const WDK_VERSION: &str = "10.0.28000.1839";
 
-/// Pinned Windows SDK version, shared with `tool_win32` (its `um`/`shared`/`ucrt` headers
-/// and `ntdll.lib` complete the WDK translation unit). Must match `tool_win32`'s
-/// `SDK_VERSION` so the shared types the exclusion reference resolves against are the same
-/// ones this scrape sees.
-const SDK_VERSION: &str = "10.0.28000.2270";
+/// The pinned Windows SDK version — the SDK's `um`/`shared`/`ucrt` headers and `ntdll.lib`
+/// complete the WDK translation unit, so this scrape must build against the *same* SDK as
+/// `tool_win32` (the shared types its exclusion reference resolves against must be identical).
+/// `tool_win32` is the single owner of that pin, so rather than duplicate the literal it is
+/// read back from `tool_win32`'s `SDK_VERSION`; a silent drift is therefore impossible, and if
+/// that constant is ever moved or renamed this fails loudly.
+fn sdk_version() -> String {
+    helpers::read_str_const("crates/tools/win32/src/main.rs", "SDK_VERSION")
+}
 
 /// The marketing SDK folder nested inside both package `c/Include` trees.
 const INCLUDE_DIR: &str = "10.0.28000.0";
@@ -199,11 +203,12 @@ fn arch_defines(name: &str) -> Vec<String> {
 /// own `shared`), then the shared Windows SDK headers (`shared`, `um`, `ucrt`) that complete
 /// the translation unit. Order is fixed so the parse is deterministic.
 fn include_args() -> Vec<String> {
+    let sdk_version = sdk_version();
     let wdk = nuget_package("microsoft.windows.wdk.x64", WDK_VERSION)
         .join("c")
         .join("Include")
         .join(INCLUDE_DIR);
-    let sdk = nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
+    let sdk = nuget_package("microsoft.windows.sdk.cpp", &sdk_version)
         .join("c")
         .join("Include")
         .join(INCLUDE_DIR);
@@ -228,7 +233,7 @@ fn include_args() -> Vec<String> {
 /// kernel-mode tree (`offreg.lib`). The symbol → DLL mapping is arch-invariant, so the x64 libs
 /// serve the canonical corpus and every additional arch pass.
 fn lib_dirs() -> Vec<String> {
-    let sdk = nuget_package("microsoft.windows.sdk.cpp.x64", SDK_VERSION)
+    let sdk = nuget_package("microsoft.windows.sdk.cpp.x64", &sdk_version())
         .join("c")
         .join("um")
         .join("x64");
