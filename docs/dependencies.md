@@ -72,6 +72,9 @@ documented in [`crates/libs/bindgen/default/readme.md`](../crates/libs/bindgen/d
   or downloads from nuget.org (`NUGET_PACKAGES` overrides the cache).
 - **`tool_wdk` needs the SDK headers too**, so it reads `SDK_VERSION` back from `tool_win32`
   rather than carry its own copy; `WDK_VERSION` is its own pin.
+- The "marketing" include/lib folder nested in each package (e.g. `10.0.28000.0`) is **derived**
+  from the version via `helpers::marketing_dir` (first three components + `.0`), so the version
+  is the single edit — never a second folder constant to keep in sync.
 - **To update:** bump the owning constant, run `cargo run -p tool_<win32|wdk|winrt>`, and commit
   the regenerated `.rdl` snapshot(s) and `.winmd`.
 
@@ -180,6 +183,5 @@ owner and read back everywhere else.
 2. **Two NuGet download helpers.** `nuget_package` and `reactor-setup`'s staging duplicate the
    download/extract logic. The split is intentional (`reactor-setup` must stay dependency-free),
    but the shared glue is not factored out.
-3. **Minor naming drift.** The SDK include-dir constant is `SDK_INCLUDE_DIR` in `tool_win32` but
-   `INCLUDE_DIR` in `tool_wdk`; the NuGet id is a named const in `tool_winrt` (`CONTRACTS_ID`) but
-   inlined in `tool_win32`/`tool_wdk`.
+3. **Minor naming drift.** The NuGet package id is a named const in `tool_winrt`
+   (`CONTRACTS_ID`) but inlined in `tool_win32`/`tool_wdk`.

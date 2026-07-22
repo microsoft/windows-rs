@@ -42,9 +42,6 @@ const METADATA_SEED: &str = "metadata/metadata.rdl";
 /// it is a deliberate, reviewable change: restore the new packages and regenerate.
 const SDK_VERSION: &str = "10.0.28000.2270";
 
-/// The marketing SDK folder nested inside the NuGet package's `c/Include` tree.
-const SDK_INCLUDE_DIR: &str = "10.0.28000.0";
-
 // libclang provisioning (pinned version, wheel URLs, resource-header component) lives in
 // `windows-clang` so every clang consumer shares one download cache; see
 // `windows_clang::ensure_libclang` / `windows_clang::clang_resource_dir`.
@@ -859,7 +856,7 @@ fn sdk_include_dirs() -> Vec<String> {
     let base = nuget_package("microsoft.windows.sdk.cpp", SDK_VERSION)
         .join("c")
         .join("Include")
-        .join(SDK_INCLUDE_DIR);
+        .join(helpers::marketing_dir(SDK_VERSION));
     ["ucrt", "um", "shared", "winrt", "cppwinrt"]
         .iter()
         .map(|seg| base.join(seg).to_string_lossy().replace('\\', "/"))

@@ -119,6 +119,23 @@ fn str_const(text: &str, name: &str) -> Option<String> {
     None
 }
 
+/// Derives the "marketing" SDK/WDK include-and-lib folder name from a four-part package
+/// version. The NuGet packages nest their headers under a folder that is the version's first
+/// three components with a `.0` fourth component (e.g. `10.0.28000.2270` → `10.0.28000.0`),
+/// regardless of the package's servicing build. Deriving it means the package version is the
+/// single edit needed to bump the SDK/WDK — the folder is never a second constant to keep in
+/// sync. Panics if `version` does not have at least three dot-separated components.
+pub fn marketing_dir(version: &str) -> String {
+    let mut parts = version.split('.');
+    let major = parts.next();
+    let minor = parts.next();
+    let build = parts.next();
+    match (major, minor, build) {
+        (Some(major), Some(minor), Some(build)) => format!("{major}.{minor}.{build}.0"),
+        _ => panic!("`{version}` is not a `major.minor.build[.revision]` version"),
+    }
+}
+
 pub fn set_thread_ui_language() {
     // Enables testing without pulling in a dependency on the `windows` crate.
     windows_link::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(flags : u32, language : *const u16, _ : *mut u32) -> i32);
@@ -161,5 +178,14 @@ const MULTI: &str =
             Some("https://example/clang-1.2.3.tar")
         );
         assert_eq!(str_const(src, "MISSING"), None);
+    }
+
+    #[test]
+    fn marketing_dir_zeroes_the_revision() {
+        use super::marketing_dir;
+        assert_eq!(marketing_dir("10.0.28000.2270"), "10.0.28000.0");
+        assert_eq!(marketing_dir("10.0.28000.1839"), "10.0.28000.0");
+        // A three-part version (no revision) is still normalized to a `.0` fourth component.
+        assert_eq!(marketing_dir("10.0.22621"), "10.0.22621.0");
     }
 }

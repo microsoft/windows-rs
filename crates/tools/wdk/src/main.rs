@@ -45,9 +45,6 @@ fn sdk_version() -> String {
     helpers::read_str_const("crates/tools/win32/src/main.rs", "SDK_VERSION")
 }
 
-/// The marketing SDK folder nested inside both package `c/Include` trees.
-const INCLUDE_DIR: &str = "10.0.28000.0";
-
 /// Arch-neutral clang arguments shared by every architecture pass. Parse as C++ (for
 /// `extern "C"`, `__declspec`, SAL). The per-arch target triple and the arch-selection
 /// macros are supplied separately (see [`arch_defines`]); the kernel-mode headers never pull
@@ -207,11 +204,11 @@ fn include_args() -> Vec<String> {
     let wdk = nuget_package("microsoft.windows.wdk.x64", WDK_VERSION)
         .join("c")
         .join("Include")
-        .join(INCLUDE_DIR);
+        .join(helpers::marketing_dir(WDK_VERSION));
     let sdk = nuget_package("microsoft.windows.sdk.cpp", &sdk_version)
         .join("c")
         .join("Include")
-        .join(INCLUDE_DIR);
+        .join(helpers::marketing_dir(&sdk_version));
     let dirs = [
         wdk.join("km"),
         wdk.join("shared"),
@@ -240,7 +237,7 @@ fn lib_dirs() -> Vec<String> {
     let wdk = nuget_package("microsoft.windows.wdk.x64", WDK_VERSION)
         .join("c")
         .join("Lib")
-        .join(INCLUDE_DIR)
+        .join(helpers::marketing_dir(WDK_VERSION))
         .join("km")
         .join("x64");
     [sdk, wdk]
