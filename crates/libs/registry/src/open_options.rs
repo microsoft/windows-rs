@@ -57,6 +57,26 @@ impl<'a> OpenOptions<'a> {
         self
     }
 
+    /// Accesses the 32-bit view of the registry on a 64-bit system (`KEY_WOW64_32KEY`).
+    ///
+    /// This lets a 64-bit process open a key under the `WOW6432Node` redirected
+    /// view, or a 32-bit process explicitly target that view. Mutually exclusive
+    /// with [`wow64_64`](Self::wow64_64); the last call wins.
+    pub fn wow64_32(&mut self) -> &mut Self {
+        self.access = (self.access & !KEY_WOW64_64KEY) | KEY_WOW64_32KEY;
+        self
+    }
+
+    /// Accesses the 64-bit view of the registry on a 64-bit system (`KEY_WOW64_64KEY`).
+    ///
+    /// This lets a 32-bit (WOW64) process bypass registry redirection and open a
+    /// key in the native 64-bit view. Mutually exclusive with
+    /// [`wow64_32`](Self::wow64_32); the last call wins.
+    pub fn wow64_64(&mut self) -> &mut Self {
+        self.access = (self.access & !KEY_WOW64_32KEY) | KEY_WOW64_64KEY;
+        self
+    }
+
     /// Opens a registry key with the options provided by `self`.
     pub fn open<T: AsRef<str>>(&self, path: T) -> Result<Key> {
         let mut handle = null_mut();
