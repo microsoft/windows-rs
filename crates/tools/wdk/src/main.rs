@@ -107,8 +107,8 @@ fn main() {
     }
 
     // Provision + validate the pinned toolchain before scraping: fetch the pinned libclang
-    // wheel on demand (shared cache with `tool_win32`) and assert the loaded version, so a
-    // fresh checkout regenerates without a manual `pip install` / `LIBCLANG_PATH`. The pinned
+    // NuGet package on demand (shared cache with `tool_win32`) and assert the loaded version, so a
+    // fresh checkout regenerates without a manual `nuget restore` / `LIBCLANG_PATH`. The pinned
     // SDK/WDK NuGet packages are likewise fetched on first use by `nuget_package`.
     ensure_libclang();
     assert_libclang_version();

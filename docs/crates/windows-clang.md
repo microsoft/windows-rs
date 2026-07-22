@@ -661,23 +661,24 @@ renamed, so no generated-stub plumbing leaks onto the public surface.
 ## Toolchain provisioning
 
 The `provision` module fetches the pinned libclang and NuGet packages the scrapers
-depend on, so a fresh checkout regenerates without a manual `pip install` /
-`nuget restore`. It is shared by every consumer (`tool_win32`, `tool_wdk`, …) rather
-than duplicated per tool:
+depend on, so a fresh checkout regenerates without a manual `nuget restore`. It is
+shared by every consumer (`tool_win32`, `tool_wdk`, …) rather than duplicated per tool:
 
-- `ensure_libclang()` — respects an explicit `LIBCLANG_PATH`; otherwise downloads the
-  pinned host-arch `libclang` wheel and points `LIBCLANG_PATH` at it. Call it once at
-  the start of `main`, before the first libclang load.
+- `ensure_libclang()` — respects an explicit `LIBCLANG_PATH`; otherwise fetches the
+  pinned host-arch `libclang.runtime.win-<arch>` NuGet package (`dotnet/clangsharp`) via
+  `nuget_package` and points `LIBCLANG_PATH` at its `runtimes/<rid>/native/`. Call it once
+  at the start of `main`, before the first libclang load.
 - `assert_libclang_version()` — fails fast if the loaded libclang does not match the
   pinned `LIBCLANG_VERSION` (clang's capture behavior drifts across versions).
 - `clang_resource_dir()` — resolves a `-resource-dir` of version-matched builtin
   headers (needed only for the non-x64 arch passes), fetching them on first use.
 - `nuget_package(id, version)` — resolves a restored NuGet package (global-cache or
   flat `<Id>.<Version>` layout), fetching the pinned nupkg from nuget.org on a miss.
-  The SDK/WDK version pins stay in each tool since they diverge.
+  Used for libclang and the SDK/WDK/WebView2 pins alike; those version pins stay in each
+  tool since they diverge.
 
-The download cache is keyed by version under `target/windows-clang/`, so all tools
-share one libclang wheel and one resource-header extract.
+libclang comes from the shared NuGet global cache; the resource-header extract is cached
+by version under `target/windows-clang/`, so all tools share one extract.
 
 ## Differences from the win32metadata reference
 

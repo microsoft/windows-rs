@@ -14,19 +14,18 @@ use windows_clang::LIBCLANG_VERSION;
 /// fetch that exact build).
 const PROVISION: &str = "crates/libs/clang/src/provision.rs";
 
-/// The pinned download URLs, all of which must embed [`LIBCLANG_VERSION`].
-const PINNED_URLS: &[&str] = &[
-    "LIBCLANG_WHEEL_URL_X64",
-    "LIBCLANG_WHEEL_URL_ARM64",
-    "CLANG_RESOURCE_URL",
-];
+/// The pinned download URL(s), which must embed [`LIBCLANG_VERSION`]. The `libclang.dll` itself
+/// now comes from the `libclang.runtime.win-<arch>` NuGet packages fetched by version (no URL to
+/// drift); only the clang resource-header component is a literal URL.
+const PINNED_URLS: &[&str] = &["CLANG_RESOURCE_URL"];
 
 /// Workflows whose Windows jobs install LLVM/Clang via `KyleMayes/install-llvm-action` to build
 /// and test the clang-based crates; the major version they pin must match [`LIBCLANG_VERSION`].
 /// (Only Windows steps are checked: any `install-llvm-action` step guarded by
 /// `runner.os == 'Linux'` is skipped, since a Linux runner would only *consume* already-generated
 /// code, never scrape, and so need not match the scraping clang. `gen.yml` is absent: its scrapers
-/// self-provision the pinned libclang wheel via `windows_clang::ensure_libclang`, so that workflow
+/// self-provision the pinned libclang via `windows_clang::ensure_libclang` (the
+/// `libclang.runtime.win-<arch>` NuGet package), so that workflow installs no LLVM at all.)
 /// installs no LLVM at all.)
 const WORKFLOWS: &[&str] = &[".github/workflows/clippy.yml", ".github/workflows/test.yml"];
 
