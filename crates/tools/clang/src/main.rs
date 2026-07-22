@@ -23,10 +23,11 @@ const PINNED_URLS: &[&str] = &[
 
 /// Workflows whose Windows jobs install LLVM/Clang via `KyleMayes/install-llvm-action` to build
 /// and test the clang-based crates; the major version they pin must match [`LIBCLANG_VERSION`].
-/// (The Linux job in `test.yml` pins a newer LLVM on purpose — it only *consumes* already-
-/// generated code, never scrapes — so its `version:` is guarded by `runner.os == 'Linux'` and
-/// skipped here. `gen.yml` is absent: its scrapers self-provision the pinned libclang wheel via
-/// `windows_clang::ensure_libclang`, so that workflow installs no LLVM at all.)
+/// (Only Windows steps are checked: any `install-llvm-action` step guarded by
+/// `runner.os == 'Linux'` is skipped, since a Linux runner would only *consume* already-generated
+/// code, never scrape, and so need not match the scraping clang. `gen.yml` is absent: its scrapers
+/// self-provision the pinned libclang wheel via `windows_clang::ensure_libclang`, so that workflow
+/// installs no LLVM at all.)
 const WORKFLOWS: &[&str] = &[".github/workflows/clippy.yml", ".github/workflows/test.yml"];
 
 fn main() {
