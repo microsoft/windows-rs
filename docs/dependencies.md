@@ -36,7 +36,7 @@ stays a clean libclang library and is **not** a shared home for SDK/runtime vers
 | WinUI / Windows App SDK metadata (`.winmd` corpus) | `2.1.3` | `WINDOWS_APP_SDK_VERSION` — `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed corpus |
 | Windows App SDK runtime | `2.1.3` | `RUNTIME_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) + committed bootstrap DLLs | `tool_reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
 | WebView2 runtime projection | `1.0.4022.49` | `WEBVIEW2_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool_reactor` guard: `== WEBVIEW2_VERSION` |
-| LLVM / libclang (CI) | `18` (Windows), `20` (Linux) | `version:` — `clippy.yml`, `gen.yml`, `test.yml` | `KyleMayes/install-llvm-action` | `tool_clang`: Windows `version:` `== LIBCLANG_VERSION` major |
+| LLVM / libclang (CI) | `18` (Windows), `20` (Linux) | `version:` — `clippy.yml`, `test.yml` | `KyleMayes/install-llvm-action` | `tool_clang`: Windows `version:` `== LIBCLANG_VERSION` major |
 
 ## Toolchain: libclang
 
@@ -48,11 +48,14 @@ silently change the generated corpus.
   LLVM `CLANG_RESOURCE_URL` all embed that string.
 - **Obtained:** if `LIBCLANG_PATH` is unset, `ensure_libclang` downloads the pinned wheel from
   PyPI into `target/windows-clang/`; non-x64 passes also fetch version-matched LLVM resource
-  headers. `LIBCLANG_PATH` / `CLANG_RESOURCE_DIR` override for offline machines.
-- **CI:** LLVM via `KyleMayes/install-llvm-action@v2` — `18` on Windows (corpus generators,
-  matched to `LIBCLANG_VERSION`), `20` on Linux (consumes generated code only).
+  headers. `LIBCLANG_PATH` / `CLANG_RESOURCE_DIR` override for offline machines. All three
+  scrapers call it, so their `gen.yml` jobs need no LLVM install — they always parse with the
+  pinned `18.1.1`, in CI and on a fresh checkout alike.
+- **CI:** the `gen.yml` scrapers self-provision (above). `clippy.yml` and `test.yml` install LLVM
+  via `KyleMayes/install-llvm-action@v2` to *build and test* the clang-based crates — `18` on
+  Windows (matched to `LIBCLANG_VERSION`), `20` on Linux (consumes generated code only).
 - **Validated by `tool_clang`:** asserts the wheel/resource URLs embed `LIBCLANG_VERSION` and
-  that each Windows-job `version:` equals its major. Writes nothing.
+  that each Windows-job `version:` (`clippy.yml`, `test.yml`) equals its major. Writes nothing.
 - **To update:** bump `LIBCLANG_VERSION`, the wheel URLs, `CLANG_RESOURCE_URL`, and the Windows
   `version:` in the workflows; run `tool_clang` (must pass) and regenerate all corpora.
 
@@ -95,6 +98,9 @@ WebView2 ships only C/C++ SDK headers, so `windows-webview` is scraped from them
 
 - **Headers are downloaded, not vendored:** `tool_webview` fetches the pinned NuGet package via
   `nuget_package` and parses the headers from it. A bump is a one-line `WEBVIEW2_VERSION` edit.
+- **Pinned libclang:** like `tool_win32`/`tool_wdk`, `tool_webview` calls `ensure_libclang` +
+  `assert_libclang_version`, so it parses with the exact pinned `18.1.1` (its `gen.yml` job needs
+  no LLVM install — only the SDK include paths for the system headers `WebView2.h` pulls in).
 - **Runtime projection:** bump `WEBVIEW2_VER` in `reactor-setup`; it must equal
   `WEBVIEW2_VERSION` — `tool_reactor` asserts this.
 - **`Core.winmd`** is refreshed into the reactor corpus by `tool_reactor` at `WEBVIEW2_VERSION`

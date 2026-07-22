@@ -21,15 +21,13 @@ const PINNED_URLS: &[&str] = &[
     "CLANG_RESOURCE_URL",
 ];
 
-/// Workflows whose Windows jobs install LLVM/Clang via `KyleMayes/install-llvm-action`; the
-/// major version they pin must match [`LIBCLANG_VERSION`]. (The Linux job in `test.yml` pins a
-/// newer LLVM on purpose — it only *consumes* already-generated code, never scrapes — so its
-/// `version:` is guarded by `runner.os == 'Linux'` and skipped here.)
-const WORKFLOWS: &[&str] = &[
-    ".github/workflows/clippy.yml",
-    ".github/workflows/gen.yml",
-    ".github/workflows/test.yml",
-];
+/// Workflows whose Windows jobs install LLVM/Clang via `KyleMayes/install-llvm-action` to build
+/// and test the clang-based crates; the major version they pin must match [`LIBCLANG_VERSION`].
+/// (The Linux job in `test.yml` pins a newer LLVM on purpose — it only *consumes* already-
+/// generated code, never scrapes — so its `version:` is guarded by `runner.os == 'Linux'` and
+/// skipped here. `gen.yml` is absent: its scrapers self-provision the pinned libclang wheel via
+/// `windows_clang::ensure_libclang`, so that workflow installs no LLVM at all.)
+const WORKFLOWS: &[&str] = &[".github/workflows/clippy.yml", ".github/workflows/test.yml"];
 
 fn main() {
     // 1. Each pinned download URL must reference the pinned version, so a version bump that

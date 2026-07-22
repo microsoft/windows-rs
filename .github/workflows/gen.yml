@@ -45,15 +45,6 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           update-packages: false
-      - name: Install LLVM and Clang
-        if: matrix.tool == 'webview'
-        uses: KyleMayes/install-llvm-action@v2
-        with:
-          version: "18"
-      - name: Set LIBCLANG_PATH
-        if: matrix.tool == 'webview'
-        run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
-        shell: bash
       - uses: Swatinem/rust-cache@v2
         with:
           key: ${{ matrix.tool }}

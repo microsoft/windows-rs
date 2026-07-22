@@ -11,6 +11,13 @@ const WEBVIEW2_VERSION: &str = "1.0.4022.49";
 fn main() {
     let time = std::time::Instant::now();
 
+    // Like `tool_win32`/`tool_wdk`, provision and pin libclang before the first parse: download
+    // the exact `LIBCLANG_VERSION` wheel on demand (unless `LIBCLANG_PATH` is set) and assert the
+    // loaded version, so the WebView2 corpus is generated against the same clang everywhere — in
+    // CI and on a fresh checkout — instead of whatever LLVM happens to be installed.
+    ensure_libclang();
+    assert_libclang_version();
+
     // The pinned NuGet package lays the C/C++ headers out under `build/native`: the core API and
     // options header live in `include/`, while the COM<->WinRT bridge header sits in
     // `include-winrt/`.
