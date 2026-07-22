@@ -15,12 +15,21 @@ pub enum RequestedTheme {
     Dark,
 }
 
-/// Set the application theme. Queued if the root element isn't attached yet.
+/// Set the theme on the active window (app-global theme, v1).
+///
+/// If that window's root element isn't attached yet, the request is queued and
+/// applied when it attaches. This is a no-op if no window has been registered
+/// yet, so call it from within a running app (an event handler, effect, or
+/// render) rather than before [`App::run`].
 pub fn set_requested_theme(theme: RequestedTheme) {
     let _ = with_active_host(|h| h.set_requested_theme(theme));
 }
 
-/// Apply or remove the window backdrop material at runtime.
+/// Apply or remove the backdrop material on the active window.
+///
+/// This is a no-op if no window has been registered yet, so call it from within
+/// a running app (an event handler, effect, or render) rather than before
+/// [`App::run`].
 pub fn set_backdrop(backdrop: Option<Backdrop>) {
     let _ = with_active_host(|h| h.apply_backdrop(backdrop));
 }
