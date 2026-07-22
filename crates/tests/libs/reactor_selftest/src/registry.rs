@@ -2,7 +2,7 @@ use crate::fixtures::reconciler::FixtureFuture;
 use crate::fixtures::{
     all_layouts, backdrop, controls, controls_extended, dynamic, error_boundary, event_detachment,
     grid_attached, hooks, image_scale, interactions, layout, pointer_input, prop_updates,
-    reconciler, reconciler_stress, timers, tooltip, universal_props,
+    reconciler, reconciler_stress, secondary_window, timers, tooltip, universal_props,
 };
 use crate::harness::Harness;
 
@@ -379,5 +379,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     (
         "UniversalProp_OpacityTransition",
         universal_props::opacity_transition,
+    ),
+    // ── Secondary window support (#4703) ───────────────────────────────
+    (
+        "SecondaryWindow_OpenRenderClose",
+        secondary_window::open_close_secondary,
     ),
 ];

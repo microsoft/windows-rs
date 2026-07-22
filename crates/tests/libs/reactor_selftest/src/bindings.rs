@@ -17515,6 +17515,12 @@ impl IWindow {
                 .ok()
         }
     }
+    pub(crate) fn Close(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
     pub(crate) fn SetTitleBar<P0>(&self, titlebar: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<UIElement>,
@@ -17567,7 +17573,7 @@ pub struct IWindow_Vtbl {
     VisibilityChanged: usize,
     RemoveVisibilityChanged: usize,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    Close: usize,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTitleBar: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,

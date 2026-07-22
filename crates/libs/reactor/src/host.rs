@@ -4,16 +4,6 @@ use std::rc::Rc;
 use super::*;
 use bindings::*;
 
-thread_local! {
-    static ROOT_FRAMEWORK_ELEMENT: RefCell<Option<FrameworkElement>> = const { RefCell::new(None) };
-    static ROOT_WINDOW: RefCell<Option<Window>> = const { RefCell::new(None) };
-    /// Queued theme; applied once `ROOT_FRAMEWORK_ELEMENT` is available.
-    static PENDING_THEME: Cell<Option<ElementTheme>> = const { Cell::new(None) };
-    /// TitleBar height option requested before `ROOT_WINDOW` was set. Applied once
-    /// the window becomes available in `post_render`.
-    static PENDING_TALL: Cell<Option<bool>> = const { Cell::new(None) };
-}
-
 /// Requested application theme, matching `Microsoft.UI.Xaml.ElementTheme`.
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]
 pub enum RequestedTheme {
@@ -27,36 +17,77 @@ pub enum RequestedTheme {
 
 /// Set the application theme. Queued if the root element isn't attached yet.
 pub fn set_requested_theme(theme: RequestedTheme) {
-    let element_theme = match theme {
-        RequestedTheme::Light => ElementTheme::Light,
-        RequestedTheme::Dark => ElementTheme::Dark,
-        _ => ElementTheme::Default,
-    };
-
-    ROOT_FRAMEWORK_ELEMENT.with(|cell| {
-        if let Some(ife) = cell.borrow().as_ref() {
-            let _ = ife.SetRequestedTheme(element_theme);
-            update_titlebar_theme();
-        } else {
-            PENDING_THEME.with(|p| p.set(Some(element_theme)));
-        }
-    });
+    let _ = with_active_host(|h| h.set_requested_theme(theme));
 }
 
-fn update_titlebar_theme() {
-    ROOT_FRAMEWORK_ELEMENT.with(|cell| {
-        if let Some(ife) = cell.borrow().as_ref()
-            && let Ok(theme) = ife.ActualTheme()
+/// Apply or remove the window backdrop material at runtime.
+pub fn set_backdrop(backdrop: Option<Backdrop>) {
+    let _ = with_active_host(|h| h.apply_backdrop(backdrop));
+}
+
+/// Per-window state shared between a [`ReactorHost`], its `post_render` attach
+/// closure, and its backend. Holds the window plus the content root and any
+/// theme / title-bar requests queued before the root element exists.
+///
+/// Keeping this per host (rather than in thread-locals) is what lets multiple
+/// windows coexist on one UI thread without clobbering each other.
+pub(crate) struct HostWindowState {
+    window: Window,
+    root_fe: RefCell<Option<FrameworkElement>>,
+    /// Queued theme; applied once `root_fe` is available.
+    pending_theme: Cell<Option<ElementTheme>>,
+    /// Title-bar height option requested before the title bar was wired.
+    pending_tall: Cell<Option<bool>>,
+}
+
+impl HostWindowState {
+    fn new(window: Window) -> Rc<Self> {
+        Rc::new(Self {
+            window,
+            root_fe: RefCell::new(None),
+            pending_theme: Cell::new(None),
+            pending_tall: Cell::new(None),
+        })
+    }
+
+    fn window(&self) -> &Window {
+        &self.window
+    }
+
+    /// Record the content root once attached, flushing any queued theme.
+    fn set_root(&self, fe: FrameworkElement) {
+        if let Some(theme) = self.pending_theme.take() {
+            let _ = fe.SetRequestedTheme(theme);
+        }
+        *self.root_fe.borrow_mut() = Some(fe);
+        self.update_titlebar_theme();
+    }
+
+    pub(crate) fn set_requested_theme(&self, theme: RequestedTheme) {
+        let element_theme = match theme {
+            RequestedTheme::Light => ElementTheme::Light,
+            RequestedTheme::Dark => ElementTheme::Dark,
+            _ => ElementTheme::Default,
+        };
+        if let Some(fe) = self.root_fe.borrow().as_ref() {
+            let _ = fe.SetRequestedTheme(element_theme);
+            self.update_titlebar_theme();
+        } else {
+            self.pending_theme.set(Some(element_theme));
+        }
+    }
+
+    fn update_titlebar_theme(&self) {
+        if let Some(fe) = self.root_fe.borrow().as_ref()
+            && let Ok(theme) = fe.ActualTheme()
         {
             let titlebar_theme = match theme {
                 ElementTheme::Dark => TitleBarTheme::Dark,
                 ElementTheme::Light => TitleBarTheme::Light,
                 _ => TitleBarTheme::UseDefaultAppMode,
             };
-
-            let _ = ROOT_WINDOW.with(|wcell| -> Option<()> {
-                let window = wcell.borrow();
-                let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;
+            let _ = (|| -> Option<()> {
+                let window_2 = self.window.cast::<IWindow2>().ok()?;
                 let app_window = window_2.AppWindow().ok()?;
                 let titlebar = app_window
                     .TitleBar()
@@ -64,46 +95,42 @@ fn update_titlebar_theme() {
                     .cast::<IAppWindowTitleBar3>()
                     .ok()?;
                 titlebar.SetPreferredTheme(titlebar_theme).ok()
-            });
+            })();
         }
-    });
-}
-
-pub fn set_titlebar_height(tall: bool) {
-    let applied = ROOT_WINDOW.with(|wcell| -> Option<()> {
-        let window = wcell.borrow();
-        let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;
-        let app_window = window_2.AppWindow().ok()?;
-        let titlebar = app_window
-            .TitleBar()
-            .ok()?
-            .cast::<IAppWindowTitleBar2>()
-            .ok()?;
-        let option = if tall {
-            TitleBarHeightOption::Tall
-        } else {
-            TitleBarHeightOption::Standard
-        };
-        titlebar.SetPreferredHeightOption(option).ok()
-    });
-    if applied.is_none() {
-        PENDING_TALL.with(|p| p.set(Some(tall)));
     }
-}
 
-/// Apply or remove the window backdrop material at runtime.
-pub fn set_backdrop(backdrop: Option<Backdrop>) {
-    ROOT_WINDOW.with(|cell| {
-        if let Some(window) = cell.borrow().as_ref() {
-            if let Some(b) = backdrop {
-                let _ = b.apply_to(window);
+    pub(crate) fn set_titlebar_height(&self, tall: bool) {
+        let applied = (|| -> Option<()> {
+            let window_2 = self.window.cast::<IWindow2>().ok()?;
+            let app_window = window_2.AppWindow().ok()?;
+            let titlebar = app_window
+                .TitleBar()
+                .ok()?
+                .cast::<IAppWindowTitleBar2>()
+                .ok()?;
+            let option = if tall {
+                TitleBarHeightOption::Tall
             } else {
-                if let Ok(w2) = window.cast::<IWindow2>() {
-                    let _ = w2.SetSystemBackdrop(None);
-                }
-            }
+                TitleBarHeightOption::Standard
+            };
+            titlebar.SetPreferredHeightOption(option).ok()
+        })();
+        if applied.is_none() {
+            self.pending_tall.set(Some(tall));
         }
-    });
+    }
+
+    fn take_pending_tall(&self) -> Option<bool> {
+        self.pending_tall.take()
+    }
+
+    pub(crate) fn set_backdrop(&self, backdrop: Option<Backdrop>) {
+        if let Some(b) = backdrop {
+            let _ = b.apply_to(&self.window);
+        } else if let Ok(w2) = self.window.cast::<IWindow2>() {
+            let _ = w2.SetSystemBackdrop(None);
+        }
+    }
 }
 
 /// Top-level window presenter (`AppWindowPresenterKind`).
@@ -161,7 +188,7 @@ impl Backdrop {
 /// a `Microsoft.UI.Xaml.Window`.
 pub struct ReactorHost {
     render_host: RenderHost<WinUIBackend, WinUIDispatcher>,
-    window: Window,
+    state: Rc<HostWindowState>,
     presenter: Cell<PresenterKind>,
     backdrop: Cell<Option<Backdrop>>,
     icon: RefCell<Option<String>>,
@@ -190,18 +217,19 @@ impl ReactorHost {
         F: FnOnce(&mut Reconciler<WinUIBackend>),
     {
         let (window, resolved_dip_size, initial_dpi) = create_window(title, size, constraints)?;
+        let state = HostWindowState::new(window);
         let dispatcher = WinUIDispatcher::for_current_thread()?;
         let marshaller = dispatcher.marshaller();
-        let render_host = RenderHost::new(WinUIBackend::new(), root, dispatcher);
+        let backend = WinUIBackend::new();
+        backend.set_window_state(Rc::clone(&state));
+        let render_host = RenderHost::new(backend, root, dispatcher);
         render_host.set_marshaller(Some(marshaller));
         render_host.set_inner_size(resolved_dip_size);
         render_host.set_dpi(initial_dpi);
         render_host.with_reconciler_mut(configure);
 
-        let attach_for_post_render = AttachState {
-            window: window.clone(),
-            render_host: render_host.clone_inner(),
-        };
+        let render_host_for_post = render_host.clone_inner();
+        let state_for_post = Rc::clone(&state);
         let last_attached: Rc<Cell<Option<ControlId>>> = Rc::new(Cell::new(None));
         let last_attached_for_hook = Rc::clone(&last_attached);
         let subscribed = Rc::new(Cell::new(false));
@@ -209,52 +237,44 @@ impl ReactorHost {
             if last_attached_for_hook.get() == new_id {
                 return;
             }
-            let state = &attach_for_post_render;
             match new_id {
                 Some(rid) => {
-                    if let Some(ui) = state.render_host.with_backend(|b| b.get_ui_element(rid)) {
+                    if let Some(ui) = render_host_for_post.with_backend(|b| b.get_ui_element(rid)) {
                         let ui_element: UIElement = ui.cast().unwrap();
-                        let _ = state.window.SetContent(&ui_element);
+                        let _ = state_for_post.window().SetContent(&ui_element);
                         last_attached_for_hook.set(Some(rid));
 
                         if !subscribed.get() {
                             subscribed.set(true);
-                            ROOT_WINDOW
-                                .with(|cell| *cell.borrow_mut() = Some(state.window.clone()));
                             if let Ok(fe) = ui_element.cast::<FrameworkElement>() {
                                 subscribe_actual_theme_changed(
                                     &fe,
-                                    state.render_host.clone_inner(),
+                                    render_host_for_post.clone_inner(),
+                                    Rc::clone(&state_for_post),
                                 );
                                 subscribe_size_and_dpi(
                                     &fe,
-                                    state.render_host.clone_inner(),
-                                    state.window.clone(),
+                                    render_host_for_post.clone_inner(),
+                                    state_for_post.window().clone(),
                                     constraints,
                                 );
-                                ROOT_FRAMEWORK_ELEMENT
-                                    .with(|cell| *cell.borrow_mut() = Some(fe.clone()));
-
-                                // Apply any theme that was requested before the
-                                // root element existed (e.g. from a first-mount
-                                // use_effect).
-                                if let Some(theme) = PENDING_THEME.with(|p| p.take()) {
-                                    let _ = fe.SetRequestedTheme(theme);
-                                    update_titlebar_theme();
-                                }
+                                // Records the root and flushes any theme that
+                                // was requested before it existed (e.g. from a
+                                // first-mount use_effect).
+                                state_for_post.set_root(fe);
                             }
                         }
 
                         // Wire TitleBar to window on every root change (mirrors C# mount behavior).
-                        if let Some(tb) = state.render_host.with_backend(|b| b.find_titlebar()) {
-                            let _ = state.window.SetExtendsContentIntoTitleBar(true);
+                        if let Some(tb) = render_host_for_post.with_backend(|b| b.find_titlebar()) {
+                            let _ = state_for_post.window().SetExtendsContentIntoTitleBar(true);
                             if let Ok(tb_ui) = tb.cast::<UIElement>() {
-                                let _ = state.window.SetTitleBar(&tb_ui);
+                                let _ = state_for_post.window().SetTitleBar(&tb_ui);
                             }
                             // SetPreferredHeightOption is silently ignored unless
                             // ExtendsContentIntoTitleBar is already true.
-                            if let Some(tall) = PENDING_TALL.with(|p| p.take()) {
-                                set_titlebar_height(tall);
+                            if let Some(tall) = state_for_post.take_pending_tall() {
+                                state_for_post.set_titlebar_height(tall);
                             }
                         }
                     }
@@ -269,7 +289,7 @@ impl ReactorHost {
 
         Ok(Self {
             render_host,
-            window,
+            state,
             presenter: Cell::new(PresenterKind::Default),
             backdrop: Cell::new(None),
             icon: RefCell::new(None),
@@ -288,6 +308,21 @@ impl ReactorHost {
         self.backdrop.set(Some(backdrop));
     }
 
+    /// Set (or, with `None`, clear) this window's backdrop at runtime.
+    pub fn apply_backdrop(&self, backdrop: Option<Backdrop>) {
+        self.state.set_backdrop(backdrop);
+    }
+
+    /// Set this window's content-root theme (light / dark / system default).
+    pub fn set_requested_theme(&self, theme: RequestedTheme) {
+        self.state.set_requested_theme(theme);
+    }
+
+    /// Set this window's title-bar height option (tall / standard).
+    pub fn set_titlebar_height(&self, tall: bool) {
+        self.state.set_titlebar_height(tall);
+    }
+
     /// Set the window icon from a path to an `.ico` file, used for the
     /// title-bar and taskbar. Must be called before [`Self::activate`].
     pub fn set_icon(&self, path: impl Into<String>) {
@@ -298,7 +333,7 @@ impl ReactorHost {
         let presenter = self.presenter.get();
         let backdrop = self.backdrop.get();
         let icon = self.icon.borrow().clone();
-        let window = self.window.clone();
+        let window = self.state.window().clone();
         let handler = DispatcherQueueHandler::new(move || {
             fault::catch("activate", || {
                 let mut hwnd: HWND = HWND::default();
@@ -344,7 +379,7 @@ impl ReactorHost {
     }
 
     pub fn window(&self) -> &Window {
-        &self.window
+        self.state.window()
     }
 
     pub fn stats(&self) -> RenderStats {
@@ -486,7 +521,6 @@ fn create_window(
     })?;
 
     app_window.SetPresenterByKind(AppWindowPresenterKind::Overlapped)?;
-    set_requested_theme(RequestedTheme::Default);
 
     let outer_size = app_window.Size()?;
     let inner_size = app_window_2.ClientSize()?;
@@ -570,6 +604,7 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
 fn subscribe_actual_theme_changed(
     fe: &FrameworkElement,
     render_host: RenderHost<WinUIBackend, WinUIDispatcher>,
+    state: Rc<HostWindowState>,
 ) {
     update_color_scheme_from(fe);
 
@@ -577,7 +612,7 @@ fn subscribe_actual_theme_changed(
         .ActualThemeChanged(move |sender, _| {
             if let Some(fe) = sender.as_ref() {
                 update_color_scheme_from(fe);
-                update_titlebar_theme();
+                state.update_titlebar_theme();
             }
             render_host.with_reconciler_mut(|r| r.notify_theme_changed());
             render_host.request_render();
@@ -594,9 +629,4 @@ fn update_color_scheme_from(fe: &FrameworkElement) {
         };
         set_current_color_scheme(scheme);
     }
-}
-
-struct AttachState {
-    window: Window,
-    render_host: RenderHost<WinUIBackend, WinUIDispatcher>,
 }

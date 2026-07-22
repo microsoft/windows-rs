@@ -14,6 +14,7 @@ pub mod pointer_input;
 pub mod prop_updates;
 pub mod reconciler;
 pub mod reconciler_stress;
+pub mod secondary_window;
 pub mod timers;
 pub mod tooltip;
 pub mod universal_props;
