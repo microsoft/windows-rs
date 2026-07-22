@@ -36,7 +36,7 @@ stays a clean libclang library and is **not** a shared home for SDK/runtime vers
 | WinUI / Windows App SDK metadata (`.winmd` corpus) | `2.1.3` | `WINDOWS_APP_SDK_VERSION` — `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed corpus |
 | Windows App SDK runtime | `2.1.3` | `RUNTIME_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) + committed bootstrap DLLs | `tool_reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
 | WebView2 runtime projection | `1.0.4022.49` | `WEBVIEW2_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool_reactor` guard: `== WEBVIEW2_VERSION` |
-| LLVM / libclang (CI) | `18` (Windows) | `version:` — `clippy.yml`, `test.yml` | `KyleMayes/install-llvm-action` | `tool_clang`: Windows `version:` `== LIBCLANG_VERSION` major |
+| LLVM / libclang (CI) | `18` (Windows) | `version:` — `test.yml` | `KyleMayes/install-llvm-action` | `tool_clang`: Windows `version:` `== LIBCLANG_VERSION` major |
 
 ## Toolchain: libclang
 
@@ -53,15 +53,18 @@ silently change the generated corpus.
   passes also fetch version-matched LLVM resource headers. `LIBCLANG_PATH` / `CLANG_RESOURCE_DIR`
   override for offline machines. All three scrapers call it, so their `gen.yml` jobs need no LLVM
   install — they always parse with the pinned `18.1.3`, in CI and on a fresh checkout alike.
-- **CI:** the `gen.yml` scrapers self-provision (above). `clippy.yml` and `test.yml` install LLVM
-  via `KyleMayes/install-llvm-action@v2` to *build and test* the clang-based crates — `18` on
-  Windows, matched to `LIBCLANG_VERSION`. Both workflows run Windows-only matrices, so this is the
-  only LLVM CI installs; the Linux CI jobs (e.g. `no-default-features.yml`) build code that needs
-  no libclang.
+- **CI:** the `gen.yml` scrapers self-provision (above), and `clippy.yml` installs no LLVM either —
+  `cargo clippy` never loads libclang (clang-sys's `runtime` feature dlopens it only when a test
+  actually parses). Only `test.yml` installs LLVM via `KyleMayes/install-llvm-action@v2` (`18` on
+  Windows, matched to `LIBCLANG_VERSION`), because its `cargo test` runs the `test_clang` suite,
+  which loads libclang at runtime through the ambient `LIBCLANG_PATH`. `test.yml` runs a
+  Windows-only matrix, so this is the only LLVM CI install; the Linux CI jobs (e.g.
+  `no-default-features.yml`) build code that needs no libclang.
 - **Validated by `tool_clang`:** asserts the `CLANG_RESOURCE_URL` embeds `LIBCLANG_VERSION` and
-  that each Windows-job `version:` (`clippy.yml`, `test.yml`) equals its major. Writes nothing.
-- **To update:** bump `LIBCLANG_VERSION`, `CLANG_RESOURCE_URL`, and the Windows `version:` in the
-  workflows (only when the major changes); run `tool_clang` (must pass) and regenerate all corpora.
+  that any Windows-job `version:` (`test.yml`; `clippy.yml` is still scanned as a defensive guard)
+  equals its major. Writes nothing.
+- **To update:** bump `LIBCLANG_VERSION`, `CLANG_RESOURCE_URL`, and the Windows `version:` in
+  `test.yml` (only when the major changes); run `tool_clang` (must pass) and regenerate all corpora.
   A newer `libclang.runtime.*` version is picked up by the version bump alone — no URL to touch.
 
 ## Windows SDK, WDK, and WinRT contracts

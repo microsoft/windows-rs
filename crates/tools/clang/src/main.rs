@@ -19,14 +19,18 @@ const PROVISION: &str = "crates/libs/clang/src/provision.rs";
 /// drift); only the clang resource-header component is a literal URL.
 const PINNED_URLS: &[&str] = &["CLANG_RESOURCE_URL"];
 
-/// Workflows whose Windows jobs install LLVM/Clang via `KyleMayes/install-llvm-action` to build
-/// and test the clang-based crates; the major version they pin must match [`LIBCLANG_VERSION`].
-/// (Only Windows steps are checked: any `install-llvm-action` step guarded by
-/// `runner.os == 'Linux'` is skipped, since a Linux runner would only *consume* already-generated
+/// Workflows whose Windows jobs may install LLVM/Clang via `KyleMayes/install-llvm-action` to
+/// build and test the clang-based crates; the major version they pin must match
+/// [`LIBCLANG_VERSION`]. (Only Windows steps are checked: any `install-llvm-action` step guarded
+/// by `runner.os == 'Linux'` is skipped, since a Linux runner would only *consume* already-generated
 /// code, never scrape, and so need not match the scraping clang. `gen.yml` is absent: its scrapers
 /// self-provision the pinned libclang via `windows_clang::ensure_libclang` (the
-/// `libclang.runtime.win-<arch>` NuGet package), so that workflow installs no LLVM at all.)
-/// installs no LLVM at all.)
+/// `libclang.runtime.win-<arch>` NuGet package), so that workflow installs no LLVM at all.
+/// `clippy.yml` no longer installs LLVM either — `cargo clippy` never loads libclang (clang-sys's
+/// `runtime` feature dlopens it only when a test actually parses) — but it is kept here as a
+/// defensive guard so that reintroducing a mismatched `install-llvm-action` step fails loudly.
+/// `test.yml` still installs it: its `cargo test` runs the `test_clang` suite, which loads
+/// libclang at runtime via the ambient `LIBCLANG_PATH`.)
 const WORKFLOWS: &[&str] = &[".github/workflows/clippy.yml", ".github/workflows/test.yml"];
 
 fn main() {
