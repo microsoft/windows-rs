@@ -206,9 +206,11 @@ takes a `Fn(&mut RenderCx) -> Element`; `.open(factory)` takes any `Component`.
 Both run synchronously on the current UI thread — unlike `App::run` there is no
 `Send` bound — and return `Result<WindowHandle>`.
 
-- **`WindowHandle`** keeps the secondary window's host alive. Call `.close()` to
-  close and drop it. Dropping the handle does *not* close the window — the
-  registry owns it until it is closed by the user or via `.close()`.
+- **`WindowHandle`** is a control handle for an open window — the registry owns
+  the window's host, so the handle is just an identifier. Call `.close()` to
+  close the window; *dropping the handle does nothing* and never affects the
+  window's lifetime. The handle is `!Send`/`!Sync`: WinUI windows can only be
+  controlled from the UI thread that opened them.
 - **Last-window-close exits.** Reactor tracks every open window; when the *last*
   one closes (whether the primary or a secondary), the process exits. Closing any
   earlier window just drops that window.

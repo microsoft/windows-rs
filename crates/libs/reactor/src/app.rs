@@ -1,4 +1,5 @@
 use std::cell::RefCell;
+use std::marker::PhantomData;
 use std::panic::AssertUnwindSafe;
 use std::sync::{Arc, Mutex};
 
@@ -77,17 +78,23 @@ where
 }
 
 /// A handle to an open reactor window. The window registry owns the host, so
-/// dropping the handle does not close the window; call [`WindowHandle::close`]
-/// to close it programmatically.
+/// this is purely an identifier used to control the window (e.g.
+/// [`WindowHandle::close`]) — it is not the owner, and dropping it neither
+/// closes the window nor affects its lifetime.
+///
+/// The handle is `!Send`/`!Sync`: WinUI is single-threaded-apartment and the
+/// registry is thread-local, so a window can only be controlled from the UI
+/// thread that opened it.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WindowHandle {
     key: u64,
+    _not_send: PhantomData<*const ()>,
 }
 
 impl WindowHandle {
     /// Close this window. The window's `Closed` event removes it from the
     /// registry; if it was the last open window the process exits (matching
-    /// [`App::run`] semantics).
+    /// [`App::run`] semantics). A no-op if the window has already closed.
     pub fn close(&self) {
         let window = WINDOW_REGISTRY
             .with(|reg| reg.borrow().get(self.key).map(|host| host.window().clone()));
@@ -110,12 +117,20 @@ pub(crate) fn register_host(host: ReactorHost) -> Result<WindowHandle> {
     match window.Closed(move |_, _| on_window_closed(key)) {
         Ok(revoker) => {
             revoker.into_token();
-            Ok(WindowHandle { key })
+            Ok(WindowHandle {
+                key,
+                _not_send: PhantomData,
+            })
         }
         Err(err) => {
+            // Unwind the registration, then close the (already-activated) window
+            // so a wiring failure can't leave a visible but untracked window
+            // open. Closing is safe here: the `Closed` handler was never wired,
+            // so it won't re-enter `on_window_closed`.
             let (removed, empty) = WINDOW_REGISTRY.with(|reg| reg.borrow_mut().remove(key));
             drop(removed);
             let _ = empty;
+            let _ = window.Close();
             Err(err)
         }
     }
