@@ -156,6 +156,10 @@ pub struct WinUIBackend {
     /// Registry of theme brush bindings per control, so they can be
     /// re-resolved when the app theme changes (dark ↔ light).
     theme_brush_registry: RefCell<FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>>,
+    /// This host's window state, used to apply window-level props (e.g. the
+    /// title-bar height) to the correct window when multiple hosts share a
+    /// UI thread. `None` for non-window backends (tests use `RecordingBackend`).
+    window_state: RefCell<Option<Rc<HostWindowState>>>,
     next_id: RefCell<u32>,
 }
 
@@ -230,8 +234,15 @@ impl WinUIBackend {
             menu_click_handlers: RefCell::new(FxHashMap::default()),
             command_bar_flyout_handlers: RefCell::new(FxHashMap::default()),
             theme_brush_registry: RefCell::new(FxHashMap::default()),
+            window_state: RefCell::new(None),
             next_id: RefCell::new(0),
         }
+    }
+
+    /// Attach this backend to its host's window state so window-level props
+    /// (e.g. title-bar height) target the correct window.
+    pub(crate) fn set_window_state(&self, state: Rc<HostWindowState>) {
+        *self.window_state.borrow_mut() = Some(state);
     }
     pub fn get_ui_element(&self, id: ControlId) -> Option<windows_core::IInspectable> {
         self.controls
@@ -1462,7 +1473,9 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 (Prop::Tall, PropValue::Bool(v), Handle::TitleBar(_)) => {
-                    set_titlebar_height(*v);
+                    if let Some(state) = self.window_state.borrow().as_ref() {
+                        state.set_titlebar_height(*v);
+                    }
                     Ok(())
                 }
                 (Prop::IsBackButtonVisible, PropValue::Bool(v), Handle::NavigationView(nv)) => {

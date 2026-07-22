@@ -553,39 +553,68 @@ pub trait SendDispatcher: Send + Sync + 'static {
     ) -> bool;
 }
 
+/// Process-wide unique identifier for a [`RenderHost`]/[`RenderCx`] pair.
+///
+/// Multiple hosts (e.g. secondary windows) can share one UI thread, so the
+/// UI-thread rerender hooks are keyed by this id rather than a single slot.
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
+pub struct HostId(u64);
+
+impl HostId {
+    /// Allocate the next unique host id.
+    pub fn next() -> Self {
+        use std::sync::atomic::AtomicU64;
+        static COUNTER: AtomicU64 = AtomicU64::new(1);
+        Self(COUNTER.fetch_add(1, std::sync::atomic::Ordering::Relaxed))
+    }
+}
+
 thread_local! {
-    // UI thread's rerender hook, installed by `RenderHost::set_marshaller`.
-    // Single-host-per-thread; replace with a per-host registry if
-    // multi-host-per-thread is added.
-    static UI_RERENDER: RefCell<Option<Rc<dyn Fn()>>> = const { RefCell::new(None) };
+    // UI thread's per-host rerender hooks, installed by
+    // `RenderHost::set_marshaller`. Keyed by `HostId` so multiple hosts
+    // (secondary windows) can coexist on one UI thread and each async state
+    // write re-renders the host that owns it.
+    static UI_RERENDER: RefCell<rustc_hash::FxHashMap<HostId, Rc<dyn Fn()>>> =
+        RefCell::new(rustc_hash::FxHashMap::default());
 }
 
-/// Install (or clear) the UI thread's rerender hook.
-pub fn set_ui_rerender(rerender: Option<Rc<dyn Fn()>>) {
+/// Install (or clear) the UI-thread rerender hook for `id`.
+pub fn set_ui_rerender(id: HostId, rerender: Option<Rc<dyn Fn()>>) {
     UI_RERENDER.with(|r| {
-        *r.borrow_mut() = rerender;
-    });
-}
-
-/// Request a rerender on the UI thread the marshaller targets.
-pub fn request_ui_rerender_on_ui_thread() {
-    UI_RERENDER.with(|r| {
-        if let Some(rr) = r.borrow().as_ref() {
-            rr();
+        let mut map = r.borrow_mut();
+        match rerender {
+            Some(rr) => {
+                map.insert(id, rr);
+            }
+            None => {
+                map.remove(&id);
+            }
         }
     });
 }
 
-/// RAII guard around `set_ui_rerender`; clears the thread-local on drop.
+/// Request a rerender of host `id` on the UI thread the marshaller targets.
+pub fn request_ui_rerender_on_ui_thread(id: HostId) {
+    // Clone the closure out before invoking so the thread-local is not
+    // borrowed across the (re-entrant-capable) call.
+    let rerender = UI_RERENDER.with(|r| r.borrow().get(&id).cloned());
+    if let Some(rr) = rerender {
+        rr();
+    }
+}
+
+/// RAII guard around `set_ui_rerender`; clears the host's hook on drop.
 #[must_use = "the guard restores UI_RERENDER on drop; binding it to `_` drops it immediately"]
 pub struct UiRerenderGuard {
+    id: HostId,
     _not_send: std::marker::PhantomData<*const ()>,
 }
 
 impl UiRerenderGuard {
-    pub fn install(rerender: Rc<dyn Fn()>) -> Self {
-        set_ui_rerender(Some(rerender));
+    pub fn install(id: HostId, rerender: Rc<dyn Fn()>) -> Self {
+        set_ui_rerender(id, Some(rerender));
         Self {
+            id,
             _not_send: std::marker::PhantomData,
         }
     }
@@ -593,7 +622,7 @@ impl UiRerenderGuard {
 
 impl Drop for UiRerenderGuard {
     fn drop(&mut self) {
-        set_ui_rerender(None);
+        set_ui_rerender(self.id, None);
     }
 }
 

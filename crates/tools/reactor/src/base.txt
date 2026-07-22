@@ -226,7 +226,7 @@ Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
 Microsoft::UI::Xaml::IUIElement::{put_AllowDrop, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, PointerPressed, PointerReleased, PointerMoved, PointerEntered, PointerExited, Tapped, RightTapped, DragEnter, DragLeave, DragOver, Drop}
 Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}
-Microsoft::UI::Xaml::IWindow::{put_Title, put_Content, put_ExtendsContentIntoTitleBar, SetTitleBar, Activate, Closed}
+Microsoft::UI::Xaml::IWindow::{put_Title, put_Content, put_ExtendsContentIntoTitleBar, SetTitleBar, Activate, Close, Closed}
 Microsoft::UI::Xaml::IWindowEventArgs::{}
 Microsoft::UI::Xaml::IXamlRoot::{get_RasterizationScale, Changed}
 Microsoft::UI::Xaml::Input::IKeyboardAccelerator::{put_Key, put_Modifiers, Invoked}

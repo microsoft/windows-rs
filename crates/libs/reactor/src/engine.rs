@@ -358,6 +358,8 @@ pub struct AsyncSetState<T: Send + 'static> {
     /// nested under a parent whose element tree is unchanged.
     dirty: Arc<AtomicBool>,
     type_name: &'static str,
+    /// Owning host, so the marshalled write re-renders the correct host.
+    host_id: HostId,
     _marker: std::marker::PhantomData<fn(T)>,
 }
 
@@ -368,6 +370,7 @@ impl<T: Send + 'static> Clone for AsyncSetState<T> {
             marshaller: self.marshaller.clone(),
             dirty: Arc::clone(&self.dirty),
             type_name: self.type_name,
+            host_id: self.host_id,
             _marker: std::marker::PhantomData,
         }
     }
@@ -388,6 +391,7 @@ impl<T: Send + Clone + PartialEq + 'static> AsyncSetState<T> {
         let cell = Arc::clone(&self.cell);
         let dirty = Arc::clone(&self.dirty);
         let type_name = self.type_name;
+        let host_id = self.host_id;
         self.marshaller.dispatch(move || {
             let mut slot = cell.lock().unwrap();
             let prev = slot.downcast_ref::<T>().unwrap_or_else(|| {
@@ -404,7 +408,7 @@ impl<T: Send + Clone + PartialEq + 'static> AsyncSetState<T> {
             // Mark the owning component dirty so the reconciler does not skip
             // it; a bare rerender request only re-renders the root.
             dirty.store(true, Ordering::Relaxed);
-            request_ui_rerender_on_ui_thread();
+            request_ui_rerender_on_ui_thread(host_id);
         });
     }
 }
@@ -499,6 +503,9 @@ pub struct RenderCx {
     /// reconciler via [`Self::set_dpi_cell`]; updated by the host when the
     /// window moves across monitors.
     dpi: Rc<Cell<u32>>,
+    /// Identifies the owning host so off-thread [`AsyncSetState`] writes route
+    /// their rerender request to the correct host on the UI thread.
+    host_id: HostId,
 }
 
 impl fmt::Debug for RenderCx {
@@ -525,6 +532,7 @@ impl RenderCx {
             marshaller: None,
             inner_size: Rc::new(Cell::new(WindowSize::default())),
             dpi: Rc::new(Cell::new(96)),
+            host_id: HostId::next(),
         }
     }
 
@@ -564,6 +572,11 @@ impl RenderCx {
 
     pub fn hook_count(&self) -> usize {
         self.hooks.borrow().len()
+    }
+
+    /// The owning host's id. Used to route off-thread rerender requests.
+    pub fn host_id(&self) -> HostId {
+        self.host_id
     }
 
     fn set_request_rerender(&mut self, request_rerender: Rc<dyn Fn()>) {
@@ -650,6 +663,7 @@ impl RenderCx {
             marshaller,
             dirty: Arc::clone(&self.state_dirty),
             type_name,
+            host_id: self.host_id,
             _marker: std::marker::PhantomData,
         };
 
@@ -1271,12 +1285,23 @@ struct RenderHostInner<B: Backend, D: Dispatcher> {
     stats_accum: StatsAccumulator,
     inner_size: Rc<Cell<WindowSize>>,
     dpi: Rc<Cell<u32>>,
+    /// Owning host id, mirrored from the `RenderCx` so `set_marshaller` can
+    /// install/clear this host's UI-thread rerender hook, and `Drop` can
+    /// remove it when the host (e.g. a secondary window) is torn down.
+    host_id: HostId,
+}
+
+impl<B: Backend, D: Dispatcher> Drop for RenderHostInner<B, D> {
+    fn drop(&mut self) {
+        set_ui_rerender(self.host_id, None);
+    }
 }
 
 impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
     pub fn new(backend: B, root: Box<dyn Component>, dispatcher: D) -> Self {
         let mut reconciler = Reconciler::new(backend);
         let mut render_cx = RenderCx::new(Rc::new(|| {}));
+        let host_id = render_cx.host_id();
 
         let inner_size = Rc::new(Cell::new(WindowSize::default()));
         let dpi = Rc::new(Cell::new(96_u32));
@@ -1302,6 +1327,7 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
                 stats_accum: StatsAccumulator::new(),
                 inner_size,
                 dpi,
+                host_id,
             }),
         }
     }
@@ -1332,9 +1358,9 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
                     request_render(&strong);
                 }
             });
-            set_ui_rerender(Some(rerender));
+            set_ui_rerender(self.inner.host_id, Some(rerender));
         } else {
-            set_ui_rerender(None);
+            set_ui_rerender(self.inner.host_id, None);
         }
     }
 

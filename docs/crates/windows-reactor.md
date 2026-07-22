@@ -99,6 +99,8 @@ without globals or `thread_local!`. The most common:
 - **`use_resource(fetcher, deps)` → `Resource<T>`** — async data loading with
   loading/error states; a `Resource` converts straight into an `Element`.
 - **`use_context(&context)`** — read a value provided higher in the tree.
+- **`use_open_window()`** — returns an opener for launching secondary top-level
+  windows (see [Multiple windows](#multiple-windows)).
 
 ```rust,ignore
 fn counter(cx: &mut RenderCx) -> Element {
@@ -176,6 +178,49 @@ the same stable identity for hot paths. For the common case of a unit event
 is shorthand for `move || set.call(value)`:
 `button("Reset").on_click(set_count.setter(0))`.
 
+## Multiple windows
+
+`App::run` opens the primary window, but an app can open additional top-level
+windows at runtime with the `ReactorWindow` builder. Each window hosts its own
+independent reactor tree — its own hooks, state, and render function — while
+sharing the one UI thread and message loop (WinUI is single-threaded apartment,
+so every window runs on the same thread).
+
+```rust,ignore
+fn app(cx: &mut RenderCx) -> Element {
+    button("Open counter window")
+        .on_click(|| {
+            // Opens immediately on the UI thread and returns a handle.
+            let _ = ReactorWindow::new()
+                .title("Counter")
+                .inner_size(320.0, 220.0)
+                .render(counter); // counter: Fn(&mut RenderCx) -> Element
+        })
+        .into()
+}
+```
+
+`ReactorWindow` mirrors the `App` window options (`title`, `inner_size`,
+`inner_constraints`, `presenter`, `fullscreen`, `backdrop`, `icon`). `.render(f)`
+takes a `Fn(&mut RenderCx) -> Element`; `.open(factory)` takes any `Component`.
+Both run synchronously on the current UI thread — unlike `App::run` there is no
+`Send` bound — and return `Result<WindowHandle>`.
+
+- **`WindowHandle`** is a control handle for an open window — the registry owns
+  the window's host, so the handle is just an identifier. Call `.close()` to
+  close the window; *dropping the handle does nothing* and never affects the
+  window's lifetime. The handle is `!Send`/`!Sync`: WinUI windows can only be
+  controlled from the UI thread that opened them.
+- **Last-window-close exits.** Reactor tracks every open window; when the *last*
+  one closes (whether the primary or a secondary), the process exits. Closing any
+  earlier window just drops that window.
+- **`cx.use_open_window()`** returns a small `Copy` opener you can capture into
+  handlers as an ergonomic alternative to naming `ReactorWindow` directly;
+  `opener.render(f)` / `opener.open(factory)` open a default-configured window.
+
+Per-window themes are not yet available — the requested color scheme is currently
+app-global (see [Future work](#2-multi-window-system-tray-and-pickers)).
+
 ## Graphics integration
 
 For custom 2D drawing, host a [`windows-canvas`](windows-canvas.md) surface with
@@ -217,7 +262,8 @@ tree is the best reference:
 
 - **`samples`** — the smallest app plus an `examples/` folder with ~90 focused
   per-control and per-hook examples (`counter`, `calculator`, `navigation_view`,
-  `list_view`, `content_dialog`, `color_picker`, and many more).
+  `list_view`, `content_dialog`, `color_picker`, `secondary_window`, and many
+  more).
 - **`apps`** — complete applications: `notepad`, `solitaire`, `minesweeper`,
   `tictactoe`, `dotsweeper`.
 - **`gallery`** — a WinUI-gallery-style shell with navigation across many controls.
@@ -522,6 +568,11 @@ Both stacks are framework-dependent and bootstrap into the **same** installed
 WinAppSDK 2.0 runtime (`Microsoft.WindowsAppRuntime.2`), so the XAML/WinUI layer is
 identical — only the language runtime above it (native Rust vs .NET CoreCLR) differs.
 
+**Memory stability.** A 120 s soak (`--percent 50`, 1117 renders) held
+`Avg Memory 190.0 MB` / `Peak 190.8 MB` — a 0.8 MB spread across two minutes — with
+`Avg Elements Created: 0`, confirming the reconciler reuses every control in steady
+state and leaks nothing per render.
+
 #### Event-handler rebind (why there is no trampoline)
 
 Inline handlers (`button("x").on_click(|| …)`) allocate a fresh `Callback` every
@@ -610,19 +661,46 @@ measurement on representative trees before investing.
    (the un-memoized reducer + dispatch `Rc`s). `use_callback` is now only needed
    for handlers that close over render-derived data (where deps must gate the
    rebuild).
-3. **`diff_props` is O(n²) per control *(low–medium)*.** `find_prop`/`find_event`
-   (`widget.rs`) are linear scans called inside the per-binding loop. Fine for the
-   handful of bindings most controls carry; profile the binding-count distribution
-   on real trees before considering sorted bindings / a small-map.
-4. **Silently-dropped props *(partly fixed)*.** Unsupported `(prop, control)`
-   combos hit `diag::unhandled_modifier` (`backend/winui/diag.rs`), which both
-   floods debug output per control creation and silently no-ops a prop the author
-   thinks applies. The `Padding`-on-`TextBlock`/`StackPanel` case was a real gap —
+3. **`diff_props` is O(n²) per control *(measured — negligible, closed)*.**
+   `find_prop`/`find_event` (`widget.rs`) are linear scans called inside the
+   per-binding loop, so `diff_props` is O(n²) in a control's binding count.
+   Instrumenting the call with a binding-count histogram over the
+   `test_reactor_perf` grid (`--percent 100`, ~150k calls) settled the question:
+   **99.8 % of calls carry exactly 4 bindings, mean 4.00, max 6.** That is at
+   most ~36 `Prop`/`Event` enum comparisons per control — nanoseconds, three-plus
+   orders of magnitude below the ~2.4 µs COM property set that dominates each
+   diffed element (item 5). The macro numbers agree: diff time scales *linearly*
+   with the diffed-element count (~3.3–5.4 µs/element across 10/50/100 %), with no
+   superlinear term. Sorted bindings / a small-map would add complexity for no
+   measurable gain, so the lead is closed; revisit only if a control type ever
+   grows a large, dynamically-sized binding list.
+4. **Silently-dropped props *(audited — no reachable gap, closed)*.** Unsupported
+   `(prop, control)` combos hit `diag::unhandled_modifier` /
+   `diag::unhandled_prop` (`backend/winui/diag.rs`), which warn in debug and no-op
+   in release. The `Padding`-on-`TextBlock`/`StackPanel` case was a real gap —
    both types own a `Padding` property WinUI supports, but the bindings filter and
    `set_padding` only covered `Control`/`Border`; `set_padding` now also casts to
-   `ITextBlock`/`IRichTextBlock`/`IStackPanel`. Remaining work: audit the rest of
-   the dropped set and either support each combo or surface it once rather than
-   per-control.
+   `ITextBlock`/`IRichTextBlock`/`IStackPanel`. The remaining drop set was then
+   audited exhaustively (every `set_*` modifier fallback plus the catch-all
+   `unhandled_prop` arm cross-referenced against which widgets actually emit each
+   prop):
+   - **Every reachable drop is semantically correct.** `Background`/`Padding` are
+     the only props a user can attach to an arbitrary element via shared
+     `Modifiers`; `set_background`/`set_padding` cover every element WinUI gives
+     that property (`Border`/`Panel`/`Control`/`TextBlock`/`Grid`), so a drop only
+     fires on an element that genuinely lacks it (e.g. `.padding()` on a `Canvas`
+     or a shape) — the correct no-op, surfaced by the debug diagnostic.
+   - **`BorderBrush`/`BorderThickness`** are emitted only by `border.rs` (→ `Border`)
+     and `text_box.rs` (→ `TextBox`, a `Control`), so they never reach the drop.
+   - The one dispatch inconsistency — `set_font_weight` omits `RichTextBlock` while
+     `set_font_size`/`set_font_family` include it — is **unreachable**: the
+     `RichTextBlock` widget never emits `Prop::FontWeight`, and the minimal
+     `IRichTextBlock` binding does not even expose `SetFontWeight`. Not fixable
+     without a filter change, and there is no demand.
+
+   This is why the full self-test (127 fixtures) emits zero reactor warnings under
+   `check_no_reactor_warnings`: no widget can route a prop to a control that drops
+   it. The `unhandled_*` branches are defense-in-depth, not a latent-bug backlog.
 5. **Per-prop WinUI set cost *(measured — no steady-state lever)*.** `set_prop`
    was instrumented to time each call keyed by `Prop` and run against the
    `test_reactor_perf` grid (the headless self-test does not commit to the WinUI
@@ -1003,7 +1081,7 @@ The C# framework exposes ~50. Notable missing groups:
 - **Window / system** — `use_window_size`, `use_breakpoint`, `use_dpi`,
   `use_window`/`use_window_state`/`use_is_active`, `use_window_position`,
   `use_displays`, `use_closing_guard`, `use_file_picker`/`use_folder_picker`,
-  `use_window_drag_move`, `use_tray_icon`, `use_open_window`.
+  `use_window_drag_move`, `use_tray_icon`.
 - **Theme / a11y / environment** — `use_is_dark_theme`, `use_high_contrast`,
   `use_reduced_motion`, `use_announce`, `use_intl`, `use_persisted`.
 - **Focus** — `use_focus`, `use_focus_trap`, `use_element_focus`,
@@ -1015,13 +1093,16 @@ Each is independently shippable.
 
 #### 2. Multi-window, system tray, and pickers *(high)*
 
-Present: a single `App` window builder (`title`, `inner_size`, `backdrop`,
-`presenter`, `fullscreen`).
+Present: the primary `App` window builder (`title`, `inner_size`, `backdrop`,
+`presenter`, `fullscreen`) plus runtime **secondary windows** — `ReactorWindow`
+/ `use_open_window` open independent same-thread top-level windows, each with its
+own reactor tree, tracked in a registry that exits the process when the last
+window closes (see [Multiple windows](#multiple-windows)).
 
-Missing: secondary windows (`ReactorWindow` / `use_open_window`), tray icons,
-window drag-move, multi-display awareness, window position/state persistence,
-close-guard confirmation, and file/folder pickers. These turn the crate from
-"single-window app shell" into a general desktop-app framework.
+Missing: per-window themes, cross-thread windows, tray icons, window drag-move,
+multi-display awareness, window position/state persistence, close-guard
+confirmation, and file/folder pickers. These turn the crate from "single-window
+app shell" into a general desktop-app framework.
 
 #### 3. Commanding *(medium-high)*
 

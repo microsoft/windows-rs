@@ -26,12 +26,15 @@ fn async_setter_from_off_thread_marshals_back_and_persists() {
 
     let rerenders = Rc::new(Cell::new(0_u32));
     let rerenders_c = Rc::clone(&rerenders);
-    let _ui_guard = UiRerenderGuard::install(Rc::new(move || {
-        rerenders_c.set(rerenders_c.get() + 1);
-    }));
 
     let mut cx = RenderCx::for_test();
     cx.set_marshaller(Some(marshaller));
+    let _ui_guard = UiRerenderGuard::install(
+        cx.host_id(),
+        Rc::new(move || {
+            rerenders_c.set(rerenders_c.get() + 1);
+        }),
+    );
     cx.begin_render();
     let (initial, set) = cx.use_async_state(0_i32);
     assert_eq!(initial, 0);
@@ -66,10 +69,10 @@ fn async_setter_marks_owning_component_dirty_for_rerender() {
     // by the reconciler's `can_skip_update` path and never observes the new
     // value until an unrelated `use_state` change forces it to re-render.
     let dispatcher = ChannelDispatcher::new();
-    let _ui_guard = UiRerenderGuard::install(Rc::new(|| {}));
 
     let mut cx = RenderCx::for_test();
     cx.set_marshaller(Some(dispatcher.marshaller()));
+    let _ui_guard = UiRerenderGuard::install(cx.host_id(), Rc::new(|| {}));
     cx.begin_render();
     let (_, set) = cx.use_async_state(0_i32);
 
@@ -94,10 +97,10 @@ fn async_setter_marks_owning_component_dirty_for_rerender() {
 #[test]
 fn async_setter_equal_value_does_not_mark_dirty() {
     let dispatcher = ChannelDispatcher::new();
-    let _ui_guard = UiRerenderGuard::install(Rc::new(|| {}));
 
     let mut cx = RenderCx::for_test();
     cx.set_marshaller(Some(dispatcher.marshaller()));
+    let _ui_guard = UiRerenderGuard::install(cx.host_id(), Rc::new(|| {}));
     cx.begin_render();
     let (_, set) = cx.use_async_state(7_i32);
 
@@ -117,12 +120,15 @@ fn async_setter_equal_value_does_not_trigger_rerender() {
 
     let rerenders = Rc::new(Cell::new(0_u32));
     let rerenders_c = Rc::clone(&rerenders);
-    let _ui_guard = UiRerenderGuard::install(Rc::new(move || {
-        rerenders_c.set(rerenders_c.get() + 1);
-    }));
 
     let mut cx = RenderCx::for_test();
     cx.set_marshaller(Some(marshaller));
+    let _ui_guard = UiRerenderGuard::install(
+        cx.host_id(),
+        Rc::new(move || {
+            rerenders_c.set(rerenders_c.get() + 1);
+        }),
+    );
     cx.begin_render();
     let (_, set) = cx.use_async_state("hi".to_string());
 
@@ -165,10 +171,10 @@ fn use_ui_marshaller_returns_send_sync_handle() {
 #[test]
 fn async_state_multiple_setters_target_same_slot() {
     let dispatcher = ChannelDispatcher::new();
-    let _ui_guard = UiRerenderGuard::install(Rc::new(|| {}));
 
     let mut cx = RenderCx::for_test();
     cx.set_marshaller(Some(dispatcher.marshaller()));
+    let _ui_guard = UiRerenderGuard::install(cx.host_id(), Rc::new(|| {}));
     cx.begin_render();
 
     let (_, set) = cx.use_async_state(0_i32);
@@ -182,4 +188,38 @@ fn async_state_multiple_setters_target_same_slot() {
     cx.begin_render();
     let (v, _) = cx.use_async_state(0_i32);
     assert_eq!(v, 2);
+}
+
+#[test]
+fn async_writes_route_rerender_to_owning_host() {
+    // Two hosts share one UI thread (as secondary windows do). An off-thread
+    // async write to host A must re-render *only* host A, not host B. This
+    // guards the per-`HostId` rerender registry that replaced the former
+    // single-host-per-thread `UI_RERENDER` slot.
+    let dispatcher = ChannelDispatcher::new();
+
+    let mut cx_a = RenderCx::for_test();
+    cx_a.set_marshaller(Some(dispatcher.marshaller()));
+    let mut cx_b = RenderCx::for_test();
+    cx_b.set_marshaller(Some(dispatcher.marshaller()));
+    assert_ne!(cx_a.host_id(), cx_b.host_id());
+
+    let a_rerenders = Rc::new(Cell::new(0_u32));
+    let a_c = Rc::clone(&a_rerenders);
+    let b_rerenders = Rc::new(Cell::new(0_u32));
+    let b_c = Rc::clone(&b_rerenders);
+    let _guard_a =
+        UiRerenderGuard::install(cx_a.host_id(), Rc::new(move || a_c.set(a_c.get() + 1)));
+    let _guard_b =
+        UiRerenderGuard::install(cx_b.host_id(), Rc::new(move || b_c.set(b_c.get() + 1)));
+
+    cx_a.begin_render();
+    let (_, set_a) = cx_a.use_async_state(0_i32);
+
+    // Write on host A from a background thread, then drain on the UI thread.
+    thread::spawn(move || set_a.call(1)).join().unwrap();
+    dispatcher.drain();
+
+    assert_eq!(a_rerenders.get(), 1, "host A must re-render");
+    assert_eq!(b_rerenders.get(), 0, "host B must not re-render");
 }
