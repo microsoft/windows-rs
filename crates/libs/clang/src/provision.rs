@@ -1,121 +1,89 @@
 //! On-demand provisioning of the pinned libclang and NuGet packages the header
 //! scrapers depend on, shared by every clang consumer (`tool_win32`, `tool_wdk`, …)
-//! so a fresh checkout regenerates without a manual `pip install` / `nuget restore`.
+//! so a fresh checkout regenerates without a manual `nuget restore`.
 //!
-//! libclang is a clang concern, so the version, wheel URLs, and resource-header
-//! component are pinned here beside [`clang`](crate::clang) / [`Clang`](crate::Clang)
-//! and the download cache is shared across tools (they all pin the same
-//! [`LIBCLANG_VERSION`]). The NuGet helper is a generic *fetch a pinned package by
-//! id + version* utility both scrapers need; the SDK/WDK version pins stay in each
-//! tool since they diverge.
+//! libclang is a clang concern, so the version, package ids, and resource-header
+//! component are pinned here beside [`clang`](crate::clang) / [`Clang`](crate::Clang).
+//! libclang itself is fetched through the shared NuGet helper (the
+//! `libclang.runtime.win-<arch>` package), the same *fetch a pinned package by id +
+//! version* utility the scrapers use for the SDK/WDK/WebView2 pins; those version pins
+//! stay in each tool since they diverge.
 
 use std::path::{Path, PathBuf};
 
-/// Pinned libclang version the corpora are generated against (the reproducible PyPI
-/// `libclang` wheel; CI installs the same with `pip install libclang==<this>`). clang's
-/// macro-capture behavior shifts between major versions, so the version is asserted at
-/// startup against the loaded libclang to keep the scrape deterministic.
-pub const LIBCLANG_VERSION: &str = "18.1.1";
+/// Pinned libclang version the corpora are generated against (the reproducible
+/// `libclang.runtime.win-<arch>` NuGet package from the .NET Foundation's `dotnet/clangsharp`
+/// project). clang's macro-capture behavior shifts between major versions, so the version is
+/// asserted at startup against the loaded libclang to keep the scrape deterministic.
+pub const LIBCLANG_VERSION: &str = "18.1.3";
 
 /// Pinned LLVM release component that ships the clang builtin *resource headers*
 /// (`intrin.h`, the `__stddef`/`__stdarg`/x86/arm intrinsic headers, …), version-matched
-/// to [`LIBCLANG_VERSION`]. The reproducible `libclang` wheel ships only `libclang.dll`,
+/// to [`LIBCLANG_VERSION`]. The reproducible `libclang` NuGet package ships only `libclang.dll`,
 /// with no resource headers; on x64 nothing in the closure needs them, but on `aarch64`
 /// MSVC's `intrin.h` declares `void __cdecl __prefetch(const void*)` which conflicts with
 /// clang's aarch64 compiler builtin of the same name — clang's own `intrin.h` (absent from
-/// the wheel) is what reconciles it. These headers are fetched on demand and cached, then
+/// the package) is what reconciles it. These headers are fetched on demand and cached, then
 /// passed as `-resource-dir` for the non-x64 arch passes. The component tarball (~22 MB) is
 /// pinned to the exact `llvmorg-<ver>` tag so the multi-arch scrape stays deterministic.
 const CLANG_RESOURCE_URL: &str =
-    "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.1/clang-18.1.1.src.tar.xz";
+    "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.3/clang-18.1.3.src.tar.xz";
 
-/// Pinned `libclang` wheel URLs (PyPI `files.pythonhosted.org`, version-matched to
-/// [`LIBCLANG_VERSION`]). These are the reproducible Windows wheels the corpora are generated
-/// against — the same builds `pip install libclang=={LIBCLANG_VERSION}` resolves — pinned by
-/// immutable content URL so [`ensure_libclang`] can fetch the host-arch `libclang.dll` on a fresh
-/// checkout with no manual `pip install` / `LIBCLANG_PATH`. A wheel is a zip laying the DLL at
-/// `clang/native/libclang.dll`; `tar` (ships with Windows) extracts it.
-const LIBCLANG_WHEEL_URL_X64: &str = "https://files.pythonhosted.org/packages/0b/2d/3f480b1e1d31eb3d6de5e3ef641954e5c67430d5ac93b7fa7e07589576c7/libclang-18.1.1-py2.py3-none-win_amd64.whl";
-const LIBCLANG_WHEEL_URL_ARM64: &str = "https://files.pythonhosted.org/packages/71/cf/e01dc4cc79779cd82d77888a88ae2fa424d93b445ad4f6c02bfc18335b70/libclang-18.1.1-py2.py3-none-win_arm64.whl";
+/// Pinned `libclang.dll` NuGet packages (`dotnet/clangsharp`'s `libclang.runtime.win-<arch>`,
+/// version-matched to [`LIBCLANG_VERSION`]), one per host arch. These are the reproducible
+/// Windows builds the corpora are generated against, fetched through [`nuget_package`] — the same
+/// pinned-package path the SDK/WDK/WebView2 dependencies use — so [`ensure_libclang`] can stage
+/// the host-arch `libclang.dll` on a fresh checkout with no manual install or `LIBCLANG_PATH`. The
+/// package lays the DLL at `runtimes/<rid>/native/libclang.dll`. This replaces the PyPI `libclang`
+/// wheel, which is unmaintained (frozen at 18.1.1 since 2024); the .NET Foundation packages track
+/// current LLVM.
+const LIBCLANG_PKG_X64: &str = "libclang.runtime.win-x64";
+const LIBCLANG_PKG_ARM64: &str = "libclang.runtime.win-arm64";
 
-/// Shared, untracked download cache under the workspace `target` directory. All clang
-/// consumers pin the same [`LIBCLANG_VERSION`], so keying the cache by version (not by tool)
-/// lets `tool_win32`, `tool_wdk`, … reuse one libclang wheel and one resource-header extract.
+/// Shared, untracked download cache under the workspace `target` directory for the clang
+/// resource-header extract. Keyed by [`LIBCLANG_VERSION`] (not by tool) so `tool_win32`,
+/// `tool_wdk`, … reuse one resource-header extract. (`libclang.dll` itself lives in the shared
+/// NuGet global cache, fetched by [`ensure_libclang`] via [`nuget_package`].)
 const CACHE_ROOT: &str = "target/windows-clang";
 
 /// Ensures libclang is loadable without manual setup. An explicit `LIBCLANG_PATH` is always
-/// respected (offline machines, custom builds); otherwise the pinned host-arch `libclang`
-/// wheel is downloaded and cached under `target/windows-clang/libclang/<ver>`, and
-/// `LIBCLANG_PATH` is pointed at the extracted `libclang.dll`. Must run before the first
+/// respected (offline machines, custom builds); otherwise the pinned host-arch
+/// `libclang.runtime.win-<arch>` NuGet package is fetched into the shared NuGet global cache and
+/// `LIBCLANG_PATH` is pointed at its `libclang.dll`. Must run before the first
 /// libclang load ([`assert_libclang_version`]) — `clang-sys` reads `LIBCLANG_PATH` at load time.
 pub fn ensure_libclang() {
     if std::env::var_os("LIBCLANG_PATH").is_some() {
         return;
     }
-    let cache = PathBuf::from(CACHE_ROOT)
-        .join("libclang")
-        .join(LIBCLANG_VERSION);
-    let native = libclang_native_dir(&cache);
-    if !native.join("libclang.dll").is_file() {
-        fetch_libclang(&cache);
-    }
+    let (id, rid) = if cfg!(target_arch = "x86_64") {
+        (LIBCLANG_PKG_X64, "win-x64")
+    } else if cfg!(target_arch = "aarch64") {
+        (LIBCLANG_PKG_ARM64, "win-arm64")
+    } else {
+        // Only x64/arm64 `libclang.runtime.win-<arch>` packages are pinned; a 32-bit host would
+        // be handed a 64-bit `libclang.dll` it cannot load. Fail loudly instead of guessing — the
+        // scrapers only ever run host-arch, and `LIBCLANG_PATH` can still override for exotic hosts.
+        panic!(
+            "windows-clang provisions the pinned libclang only for x86_64 and aarch64 Windows \
+             hosts; set `LIBCLANG_PATH` to a libclang {LIBCLANG_VERSION} build to run elsewhere."
+        );
+    };
+    // `nuget_package` fetches + caches on demand in the shared NuGet global cache, and the
+    // package lays `libclang.dll` at `runtimes/<rid>/native/`.
+    let native = nuget_package(id, LIBCLANG_VERSION)
+        .join("runtimes")
+        .join(rid)
+        .join("native");
+    assert!(
+        native.join("libclang.dll").is_file(),
+        "`{}` is missing `libclang.dll`",
+        native.display()
+    );
     // SAFETY: called at the very start of `main`, before any libclang load or worker thread
     // is spawned, so no other thread can be reading the environment concurrently.
     unsafe {
         std::env::set_var("LIBCLANG_PATH", &native);
     }
-}
-
-/// The directory holding `libclang.dll` inside an extracted wheel: the wheel lays its data
-/// payload under `libclang-<ver>.data/platlib/clang/native/`. Kept deterministic (pinned by
-/// version) so [`ensure_libclang`] can both probe the cache and set `LIBCLANG_PATH` without a
-/// filesystem search.
-fn libclang_native_dir(cache: &Path) -> PathBuf {
-    cache
-        .join(format!("libclang-{LIBCLANG_VERSION}.data"))
-        .join("platlib")
-        .join("clang")
-        .join("native")
-}
-
-/// Downloads the pinned host-arch [`libclang`](LIBCLANG_WHEEL_URL_X64) wheel and extracts its
-/// `native` payload (`libclang.dll` and the sibling files clang-sys expects next to it) into
-/// `<cache>`. Pure tooling glue around `curl` + `tar` (both ship with Windows); any failure
-/// panics with the command that failed so a developer can run it by hand.
-fn fetch_libclang(cache: &Path) {
-    std::fs::create_dir_all(cache)
-        .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", cache.display()));
-
-    let url = if cfg!(target_arch = "aarch64") {
-        LIBCLANG_WHEEL_URL_ARM64
-    } else {
-        LIBCLANG_WHEEL_URL_X64
-    };
-    let archive = TempFile::new(&format!("libclang-{LIBCLANG_VERSION}.whl"));
-    let status = system_tool("curl.exe")
-        .args(["-sSL", url, "-o"])
-        .arg(archive.path())
-        .status()
-        .unwrap_or_else(|e| panic!("failed to run `curl` to fetch the libclang wheel: {e}"));
-    assert!(status.success(), "curl failed to download {url}");
-
-    // A wheel is a zip; extract just the `native` payload. `--strip-components` is unreliable
-    // for a single deep member under Windows `bsdtar`, so extract the member at its natural
-    // (version-pinned) path and read the DLL from `libclang_native_dir`.
-    let member = format!("libclang-{LIBCLANG_VERSION}.data/platlib/clang/native");
-    let status = system_tool("tar.exe")
-        .arg("-xf")
-        .arg(archive.path())
-        .arg("-C")
-        .arg(cache)
-        .arg(&member)
-        .status()
-        .unwrap_or_else(|e| panic!("failed to run `tar` to extract the libclang wheel: {e}"));
-    assert!(
-        status.success() && libclang_native_dir(cache).join("libclang.dll").is_file(),
-        "tar failed to extract `{member}/libclang.dll` into `{}`",
-        cache.display()
-    );
 }
 
 /// Asserts the loaded libclang matches the pinned [`LIBCLANG_VERSION`]. clang's
@@ -125,21 +93,21 @@ pub fn assert_libclang_version() {
     let version = crate::clang_version().unwrap_or_else(|e| {
         panic!(
             "failed to load libclang: {e}\n\
-             Install the pinned libclang and point `LIBCLANG_PATH` at it:\n  \
-             pip install libclang=={LIBCLANG_VERSION}"
+             Point `LIBCLANG_PATH` at a libclang {LIBCLANG_VERSION} build, or let the tool fetch \
+             the pinned `libclang.runtime.win-<arch>` NuGet package automatically."
         )
     });
     assert!(
         version_is_pinned(&version, LIBCLANG_VERSION),
         "libclang version mismatch: the corpus is pinned to {LIBCLANG_VERSION} but the loaded \
-         libclang reports `{version}`.\nPoint `LIBCLANG_PATH` at the pinned build:\n  \
-         pip install libclang=={LIBCLANG_VERSION}"
+         libclang reports `{version}`.\nUnset `LIBCLANG_PATH` to use the pinned \
+         `libclang.runtime.win-<arch>` NuGet build, or point it at a matching libclang."
     );
 }
 
-/// Returns `true` when `reported` (e.g. `"clang version 18.1.1"`) contains `pinned` as a whole
-/// version token — bounded by non-`[0-9.]` on both sides — so a prefix like `18.1.1` does **not**
-/// spuriously match `18.1.10`.
+/// Returns `true` when `reported` (e.g. `"clang version 18.1.3"`) contains `pinned` as a whole
+/// version token — bounded by non-`[0-9.]` on both sides — so a prefix like `18.1.3` does **not**
+/// spuriously match `18.1.30`.
 fn version_is_pinned(reported: &str, pinned: &str) -> bool {
     reported.match_indices(pinned).any(|(i, _)| {
         let before_ok = reported[..i]

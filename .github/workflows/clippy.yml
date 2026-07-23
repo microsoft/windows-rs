@@ -39,13 +39,6 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: x86_64-pc-windows-msvc
-      - name: Install LLVM and Clang
-        uses: KyleMayes/install-llvm-action@v2
-        with:
-          version: "18"
-      - name: Set LIBCLANG_PATH
-        run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
-        shell: bash
       - uses: Swatinem/rust-cache@v2
       - name: Check
         # Exclusions (both due to --all-targets feature-unification across the workspace):
