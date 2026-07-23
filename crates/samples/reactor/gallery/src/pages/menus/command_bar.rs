@@ -14,15 +14,15 @@ pub fn command_bar_page(_: &(), cx: &mut RenderCx) -> Element {
                     command_bar(vec![
                         CommandBarCommandDef::Button {
                             label: "Add".into(),
-                            icon: Some(Symbol::Add),
+                            icon: Some(Symbol::Add.into()),
                         },
                         CommandBarCommandDef::Button {
                             label: "Edit".into(),
-                            icon: Some(Symbol::Edit),
+                            icon: Some(Symbol::Edit.into()),
                         },
                         CommandBarCommandDef::Button {
                             label: "Delete".into(),
-                            icon: Some(Symbol::Delete),
+                            icon: Some(Symbol::Delete.into()),
                         },
                     ])
                     .on_click({
@@ -39,15 +39,15 @@ pub fn command_bar_page(_: &(), cx: &mut RenderCx) -> Element {
                 command_bar(vec![
                     CommandBarCommandDef::Button {
                         label: "Add".into(),
-                        icon: Some(Symbol::Add),
+                        icon: Some(Symbol::Add.into()),
                     },
                     CommandBarCommandDef::Button {
                         label: "Edit".into(),
-                        icon: Some(Symbol::Edit),
+                        icon: Some(Symbol::Edit.into()),
                     },
                     CommandBarCommandDef::Button {
                         label: "Delete".into(),
-                        icon: Some(Symbol::Delete),
+                        icon: Some(Symbol::Delete.into()),
                     },
                 ]),
                 r#"command_bar(vec![CommandBarCommandDef::Button { label, icon }])"#,

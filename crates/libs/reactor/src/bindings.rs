@@ -802,6 +802,61 @@ unsafe impl Send for AutomationProperties {}
 unsafe impl Sync for AutomationProperties {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct BitmapIcon(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    BitmapIcon,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    BitmapIcon,
+    IconElement,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl BitmapIcon {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IBitmapIconFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IBitmapIconFactory<R, F: FnOnce(&IBitmapIconFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<BitmapIcon, IBitmapIconFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for BitmapIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IBitmapIcon>();
+}
+unsafe impl windows_core::Interface for BitmapIcon {
+    type Vtable = <IBitmapIcon as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBitmapIcon as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for BitmapIcon {
+    type Target = IBitmapIcon;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for BitmapIcon {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.BitmapIcon";
+}
+unsafe impl Send for BitmapIcon {}
+unsafe impl Sync for BitmapIcon {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapImage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     BitmapImage,
@@ -3346,6 +3401,61 @@ impl windows_core::RuntimeName for FontFamily {
 }
 unsafe impl Send for FontFamily {}
 unsafe impl Sync for FontFamily {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct FontIcon(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    FontIcon,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    FontIcon,
+    IconElement,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl FontIcon {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IFontIconFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IFontIconFactory<R, F: FnOnce(&IFontIconFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<FontIcon, IFontIconFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for FontIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IFontIcon>();
+}
+unsafe impl windows_core::Interface for FontIcon {
+    type Vtable = <IFontIcon as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IFontIcon as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for FontIcon {
+    type Target = IFontIcon;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for FontIcon {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.FontIcon";
+}
+unsafe impl Send for FontIcon {}
+unsafe impl Sync for FontIcon {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FontWeight {
@@ -4661,6 +4771,69 @@ pub struct IAutomationPropertiesStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         AutomationHeadingLevel,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IBitmapIcon,
+    IBitmapIcon_Vtbl,
+    0xc370bc29_805b_5bad_b615_ec640e579dbb
+);
+impl windows_core::RuntimeType for IBitmapIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IBitmapIcon {
+    pub(crate) fn SetUriSource<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<Uri>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetUriSource)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetShowAsMonochrome(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetShowAsMonochrome)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IBitmapIcon_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    UriSource: usize,
+    pub SetUriSource: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    ShowAsMonochrome: usize,
+    pub SetShowAsMonochrome:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IBitmapIconFactory,
+    IBitmapIconFactory_Vtbl,
+    0xb43b5ddc_cdb5_5ad6_8ac1_2fcca33be39e
+);
+impl windows_core::RuntimeType for IBitmapIconFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IBitmapIconFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -7719,6 +7892,73 @@ pub struct IFontFamilyFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstanceWithName: unsafe extern "system" fn(
         *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IFontIcon,
+    IFontIcon_Vtbl,
+    0x6eba5ed9_d233_5f5e_91a8_f5134292658a
+);
+impl windows_core::RuntimeType for IFontIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IFontIcon {
+    pub(crate) fn SetGlyph(&self, value: &str) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetGlyph)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetFontFamily<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FontFamily>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetFontFamily)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IFontIcon_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Glyph: usize,
+    pub SetGlyph: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    FontSize: usize,
+    SetFontSize: usize,
+    FontFamily: usize,
+    pub SetFontFamily: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IFontIconFactory,
+    IFontIconFactory_Vtbl,
+    0xaa9a24fe_bef8_564a_b200_694cd6f6ba4e
+);
+impl windows_core::RuntimeType for IFontIconFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IFontIconFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,

@@ -1224,8 +1224,8 @@ impl Backend for WinUIBackend {
                     let tb = string_as_textblock(s)?;
                     cc.SetContent(&tb)
                 }
-                (Prop::Icon, PropValue::I32(v), Handle::Button(b)) => {
-                    let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(Symbol(*v))?;
+                (Prop::Icon, PropValue::Icon(icon), Handle::Button(b)) => {
+                    let icon_elem = build_icon_element(icon)?;
                     let cc = b.cast::<bindings::IContentControl>()?;
                     // If the button already has an icon+text StackPanel layout,
                     // replace just the icon child (index 0) to preserve the text.
@@ -1239,8 +1239,8 @@ impl Backend for WinUIBackend {
                         }
                     }
                     let use_icon_only = if let Ok(existing) = cc.Content() {
-                        // Already in icon-only mode (existing is a SymbolIcon).
-                        existing.cast::<bindings::ISymbolIcon>().is_ok()
+                        // Already in icon-only mode (existing content is an IconElement).
+                        existing.cast::<bindings::IIconElement>().is_ok()
                             || existing
                                 .cast::<bindings::ITextBlock>()
                                 .ok()
@@ -1264,6 +1264,27 @@ impl Backend for WinUIBackend {
                         }
                         cc.SetContent(&panel)
                     }
+                }
+                (Prop::Icon, PropValue::Unset, Handle::Button(b)) => {
+                    let cc = b.cast::<bindings::IContentControl>()?;
+                    let Ok(existing) = cc.Content() else {
+                        return Ok(());
+                    };
+                    // icon+text StackPanel layout: unwrap back to just the text
+                    // child (index 1), discarding the icon.
+                    if let Ok(panel) = existing.cast::<bindings::IPanel>() {
+                        let children = panel.Children()?;
+                        if children.Size()? >= 2 {
+                            let text_child = children.GetAt(1)?;
+                            children.Clear()?;
+                            return cc.SetContent(&text_child);
+                        }
+                    }
+                    // icon-only layout: clear the content entirely.
+                    if existing.cast::<bindings::IIconElement>().is_ok() {
+                        return cc.SetContent(None::<&windows_core::IInspectable>);
+                    }
+                    Ok(())
                 }
                 (Prop::StyleVariant, PropValue::I32(v), Handle::Button(b)) => {
                     let fe = b.cast::<bindings::IFrameworkElement>()?;
@@ -1697,8 +1718,8 @@ impl Backend for WinUIBackend {
                     for def in items {
                         let item = bindings::SelectorBarItem::new()?;
                         item.SetText(&def.text)?;
-                        if let Some(sym) = &def.icon {
-                            let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
+                        if let Some(icon) = &def.icon {
+                            let icon_elem = build_icon_element(icon)?;
                             item.SetIcon(&icon_elem)?;
                         }
                         vec.Append(&item)?;
