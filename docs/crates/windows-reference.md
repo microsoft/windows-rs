@@ -2,10 +2,10 @@
 
 > A stock implementation of the WinRT `IReference<T>` interface.
 
-- 📦 [crates.io](https://crates.io/crates/windows-reference)
-- 📖 [docs.rs](https://docs.rs/windows-reference)
-- 🚀 [Getting started](../../crates/libs/reference/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reference)
+- [crates.io](https://crates.io/crates/windows-reference)
+- [docs.rs](https://docs.rs/windows-reference)
+- [Getting started](../../crates/libs/reference/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reference)
 
 Many Windows APIs use `IReference<T>` to box an optional or by-reference value
 (the WinRT equivalent of `Nullable<T>`). `windows-reference` provides a ready

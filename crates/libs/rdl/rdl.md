@@ -1,8 +1,15 @@
-# Rust Definition Language (RDL) Documentation
+# RDL
 
-RDL provides a Rust-like syntax for defining Windows types and APIs. It serves as an interface definition language for generating bindings and implementations for use with any language across the Windows ecosystem.
+> A Rust-like source format for Windows metadata.
 
-## Quick Start
+- [windows-rdl crate docs](../../../docs/crates/windows-rdl.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
+
+`windows-rdl` parses RDL (Rust Definition Language), a small Rust-like syntax for
+Windows APIs. It emits ECMA-335 `.winmd` metadata for `windows-bindgen`. It also writes
+canonical RDL from `.winmd` files.
+
+## Getting started
 
 ```rust
 #[winrt]
@@ -32,9 +39,9 @@ mod Contoso {
 }
 ```
 
-## Language Reference
+## RDL syntax
 
-### Basic Syntax
+### Basic syntax
 
 #### Comments
 
@@ -45,15 +52,14 @@ mod Contoso {
    use C-style syntax */
 ```
 
----
-
 ### Attributes
 
 #### `#[winrt]`
 
-The `#[winrt]` attribute marks a module as containing WinRT types. When applied to a module, it enables WinRT-specific features like generic interfaces, generic delegates, and WinRT-style arrays.
+Use `#[winrt]` on a module that declares WinRT types. It enables generic interfaces,
+generic delegates, and WinRT arrays.
 
-**Syntax:**
+Syntax:
 
 ```rust
 #[winrt]
@@ -62,7 +68,7 @@ mod ModuleName {
 }
 ```
 
-**Example:**
+Example:
 
 ```rust
 #[winrt]
@@ -72,14 +78,13 @@ mod Contoso {
     }
 }
 ```
-
----
 
 #### `#[win32]`
 
-The `#[win32]` attribute marks a module as containing Win32 types. When applied to a module, it enables Win32-specific features like fixed-size arrays and union types.
+Use `#[win32]` on a module that declares Win32 types. It enables fixed arrays and
+unions.
 
-**Syntax:**
+Syntax:
 
 ```rust
 #[win32]
@@ -88,7 +93,7 @@ mod ModuleName {
 }
 ```
 
-**Example:**
+Example:
 
 ```rust
 #[win32]
@@ -99,15 +104,13 @@ mod Contoso {
 }
 ```
 
----
+### Type definitions
 
-### Type Definitions
+#### Modules and namespaces
 
-#### Modules (Namespaces)
+Modules group types and APIs. A top-level module maps to a metadata namespace.
 
-Modules provide a way to group types and APIs, simulating namespaces.
-
-**Syntax:**
+Syntax:
 
 ```rust
 mod ModuleName {
@@ -117,7 +120,7 @@ mod ModuleName {
 
 Modules may be nested.
 
-**Example:**
+Example:
 
 ```rust
 #[winrt]
@@ -143,13 +146,11 @@ mod Contoso {
 }
 ```
 
----
-
 #### Enums
 
-Enums define a set of named constants.
+Enums define named constants.
 
-**Syntax:**
+Syntax:
 
 ```rust
 #[repr(type)]
@@ -159,9 +160,10 @@ enum EnumName {
 }
 ```
 
-The `#[repr(type)]` attribute specifies the underlying integer type. Supported types include `i8`, `u8`, `i16`, `u16`, `i32`, `u32`, `i64`, and `u64`.
+`#[repr(type)]` sets the underlying integer type. Supported types are `i8`, `u8`, `i16`,
+`u16`, `i32`, `u32`, `i64`, and `u64`.
 
-**Example:**
+Example:
 
 ```rust
 #[repr(i32)]
@@ -173,13 +175,11 @@ enum SprocketStatus {
 }
 ```
 
----
-
 #### Structs
 
-Structs define composite data types with named fields.
+Structs define data types with named fields.
 
-**Syntax:**
+Syntax:
 
 ```rust
 struct StructName {
@@ -188,7 +188,7 @@ struct StructName {
 }
 ```
 
-**Example:**
+Example:
 
 ```rust
 struct Sprocket {
@@ -197,11 +197,12 @@ struct Sprocket {
 }
 ```
 
-**Fixed-Size Arrays (Win32):**
+Fixed-size arrays in Win32:
 
-In a `#[win32]`-annotated module, structs can include fixed-size arrays. This is useful for low-level data structures like buffers.
+In a `#[win32]` module, structs can include fixed-size arrays. Use them for buffers and
+other fixed-layout data.
 
-**Syntax:**
+Syntax:
 
 ```rust
 struct StructName {
@@ -210,7 +211,7 @@ struct StructName {
 }
 ```
 
-**Example:**
+Example:
 
 ```rust
 #[win32]
@@ -224,13 +225,11 @@ mod Contoso {
 }
 ```
 
----
-
 #### Unions
 
-Unions define a type where all fields share the same memory location. All fields start at offset zero, which makes unions useful for representing data that can be interpreted in multiple ways.
+Unions define fields that share one memory location. All fields start at offset zero.
 
-**Syntax:**
+Syntax:
 
 ```rust
 union UnionName {
@@ -238,7 +237,7 @@ union UnionName {
 }
 ```
 
-**Example:**
+Example:
 
 ```rust
 union SprocketHandle {
@@ -248,13 +247,11 @@ union SprocketHandle {
 }
 ```
 
----
-
 #### Interfaces
 
-Interfaces define contracts for method implementations.
+Interfaces define method contracts.
 
-**Syntax:**
+Syntax:
 
 ```rust
 interface InterfaceName {
@@ -262,9 +259,10 @@ interface InterfaceName {
 }
 ```
 
-Methods use the `fn` keyword and require `&self` as the first parameter. Return type is specified with `->` (omit for void/no return).
+Methods use `fn` and require `&self` as the first parameter. Use `->` for a return type.
+Omit it for void.
 
-**Example:**
+Example:
 
 ```rust
 interface ISprocket {
@@ -274,11 +272,12 @@ interface ISprocket {
 }
 ```
 
-**Generic Interfaces (WinRT):**
+Generic interfaces in WinRT:
 
-In a `#[winrt]`-annotated module, interfaces can have type parameters. This is essential for WinRT collections and event handlers.
+In a `#[winrt]` module, interfaces can have type parameters. WinRT collections and event
+handlers use them.
 
-**Syntax:**
+Syntax:
 
 ```rust
 interface InterfaceName<Type1, Type2> {
@@ -286,7 +285,7 @@ interface InterfaceName<Type1, Type2> {
 }
 ```
 
-**Example:**
+Example:
 
 ```rust
 #[winrt]
@@ -301,19 +300,17 @@ mod Contoso {
 }
 ```
 
----
-
 #### Delegates
 
-Delegates define callable types. These are essentially function pointers with method-like semantics.
+Delegates define callable types with method-like semantics.
 
-**Syntax:**
+Syntax:
 
 ```rust
 delegate fn DelegateName(Parameter: Type) -> ReturnType;
 ```
 
-**Example:**
+Example:
 
 ```rust
 #[winrt]
@@ -324,17 +321,17 @@ mod Contoso {
 }
 ```
 
-**Generic Delegates (WinRT):**
+Generic delegates in WinRT:
 
-In a `#[winrt]`-annotated module, delegates can also have type parameters.
+In a `#[winrt]` module, delegates can also have type parameters.
 
-**Syntax:**
+Syntax:
 
 ```rust
 delegate fn DelegateName<Type1, ...>(Parameter: Type1, ...) -> ReturnType;
 ```
 
-**Example:**
+Example:
 
 ```rust
 #[winrt]
@@ -345,8 +342,6 @@ mod Contoso {
 }
 ```
 
----
-
 #### Classes (WinRT)
 
 ```rust
@@ -356,9 +351,10 @@ class ClassName : BaseClassName {
 }
 ```
 
-Classes may optionally extend a base class. The first interface in the list is the default interface.
+Classes can extend a base class. The first interface in the list is the default
+interface.
 
-**Example:**
+Example:
 
 ```rust
 #[winrt]
@@ -384,15 +380,14 @@ mod Contoso {
 }
 ```
 
-The `#[activatable(...)]` attribute on the class enables default construction. The first interface in the list is the default interface. The `#[activatable(...)]` and `#[statics(...)]` attributes on interfaces mark them as factory and statics interfaces, respectively.
-
----
+`#[activatable(...)]` on a class enables default construction. `#[activatable(...)]` and
+`#[statics(...)]` on interfaces mark factory and statics interfaces.
 
 #### Attributes
 
-Attributes define custom metadata annotations. Each constructor is defined with the `fn` keyword and a parameter list.
+Attributes define metadata annotations. Each constructor uses `fn` and a parameter list.
 
-**Syntax:**
+Syntax:
 
 ```rust
 attribute AttributeName {
@@ -400,7 +395,7 @@ attribute AttributeName {
 }
 ```
 
-**Example:**
+Example:
 
 ```rust
 #[winrt]
@@ -414,19 +409,17 @@ mod Contoso {
 }
 ```
 
----
-
 #### Constants
 
-Constants define named values of a primitive type or `GUID`.
+Constants define named primitive values or `GUID` values.
 
-**Syntax:**
+Syntax:
 
 ```rust
 const Name: Type = value;
 ```
 
-**Example:**
+Example:
 
 ```rust
 #[win32]
@@ -439,22 +432,22 @@ mod Contoso {
 }
 ```
 
----
-
 #### Functions
 
-Functions declare external function signatures provided by another library. The `#[link]` attribute specifies the library name and ABI.
+Functions declare external signatures from another library. The `#[link]` attribute sets
+the library name and ABI.
 
-**Syntax:**
+Syntax:
 
 ```rust
 #[link(name = "library", abi = "[system|C]")]
 fn FunctionName(Parameter: Type, ...) -> ReturnType;
 ```
 
-The `#[link(name = "...")]` attribute specifies the library that provides the API, while `#[link(abi = "...")]` specifies the ABI (either `"system"` or `"C"`).
+`#[link(name = "...")]` names the library that provides the API. `#[link(abi = "...")]`
+sets the ABI: `"system"` or `"C"`.
 
-**Example:**
+Example:
 
 ```rust
 #[win32]
@@ -471,28 +464,26 @@ mod Contoso {
 }
 ```
 
----
+#### Parameter direction attributes
 
-#### Parameter Direction Attributes
+Parameters can carry direction and optional attributes that map to Win32 SAL
+annotations. These attributes control generated binding behavior.
 
-Parameters may carry direction and optional attributes that correspond to Win32 SAL annotations.
-These attributes control how the parameter is treated in generated bindings.
+| Attribute | Meaning | Corresponding SAL |
+|-----------|---------|-------------------|
+| `#[in]` | Input parameter. Data flows into the function. | `_In_`, `_In_z_`, and related forms |
+| `#[out]` | Output parameter. Data flows out of the function. | `_Out_`, `_Out_z_`, and related forms |
+| `#[opt]` | Parameter is optional and can be `NULL`. | `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, and related forms |
 
-| Attribute | Meaning                                                    | Corresponding SAL                          |
-|-----------|------------------------------------------------------------|--------------------------------------------|
-| `#[in]`   | Input parameter (data flows into the function)             | `_In_`, `_In_z_`, …                        |
-| `#[out]`  | Output parameter (data flows out of the function)          | `_Out_`, `_Out_z_`, …                      |
-| `#[opt]`  | Parameter is optional and may be `NULL`                    | `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, …  |
+When neither `#[in]` nor `#[out]` is set, the reader infers direction from the type:
+mutable pointers and references (`*mut T`, `&mut T`) default to `#[out]`. Everything
+else defaults to `#[in]`. Use explicit attributes only when the SAL annotation differs
+from the inferred direction.
 
-When neither `#[in]` nor `#[out]` is specified, the direction is inferred from the type:
-mutable pointers and references (`*mut T`, `&mut T`) default to `#[out]`, and everything else
-defaults to `#[in]`.  Explicit attributes are only needed when the SAL annotation differs from
-what would be inferred.
+When `#[in]` and `#[out]` appear on one parameter, they map to `_Inout_`. The parameter
+is both input and output.
 
-When both `#[in]` and `#[out]` appear on the same parameter (corresponding to `_Inout_`),
-the parameter is treated as both input and output.
-
-**Example:**
+Example:
 
 ```rust
 #[win32]
@@ -519,25 +510,23 @@ mod Windows {
 }
 ```
 
-When clang parses C/C++ headers that use SAL annotations (such as those from the Windows SDK),
-the direction attributes are extracted automatically and emitted in the generated RDL.
-Supported SAL macros include `_In_`, `_Out_`, `_Inout_`, `_In_opt_`, `_Out_opt_`,
-`_Inout_opt_`, `_Outptr_`, `_COM_Outptr_`, `_In_reads_`, `_Out_writes_`, and their
-opt/z/bytes variants.
+When `windows-clang` parses Windows SDK headers, it extracts SAL annotations
+automatically. It emits the matching direction attributes in generated RDL. Supported
+SAL macros include `_In_`, `_Out_`, `_Inout_`, `_In_opt_`, `_Out_opt_`, `_Inout_opt_`,
+`_Outptr_`, `_COM_Outptr_`, `_In_reads_`, `_Out_writes_`, and their opt, z, and bytes
+variants.
 
----
+### Array types
 
-### Array Types
+#### WinRT arrays
 
-#### WinRT Arrays (Dynamic Arrays)
+WinRT arrays are dynamic arrays managed by the runtime. RDL supports three forms:
 
-WinRT-style arrays are dynamic arrays managed by the runtime. There are three ways to use them:
+1. Input arrays - passed as read-only input.
+2. Output arrays - allocated by the callee and freed by the caller with `CoTaskMemFree`.
+3. Return arrays - returned from methods and managed with `CoTaskMemFree`.
 
-1. **Input arrays** - Passed as input, like slices in Rust (read-only)
-2. **Output arrays** - Allocated by the callee, freed by the caller using `CoTaskMemFree`
-3. **Return arrays** - Returned from methods, also managed with `CoTaskMemFree`
-
-**Example:**
+Example:
 
 ```rust
 #[winrt]
@@ -560,15 +549,15 @@ mod Contoso {
 }
 ```
 
-Note that WinRT arrays only work in `#[winrt]` annotated modules. For fixed-size arrays, see the next section.
+WinRT arrays only work in `#[winrt]` modules. Use fixed-size arrays for `#[win32]`
+modules.
 
----
+#### Fixed-size arrays
 
-#### Fixed-Size Arrays (Win32)
+Fixed-size arrays have a compile-time size. They can appear in struct fields and method
+parameters in `#[win32]` modules.
 
-Fixed-size arrays have a compile-time known size. They can appear in struct fields and method parameters, but only in `#[win32]` modules.
-
-**Example:**
+Example:
 
 ```rust
 #[win32]
@@ -590,9 +579,7 @@ mod Contoso {
 
 WinRT does not support fixed arrays.
 
----
-
-### Built-in Types
+### Built-in types
 
 | RDL Type   | Description                        |
 |------------|------------------------------------|
@@ -613,9 +600,7 @@ WinRT does not support fixed arrays.
 | `GUID`     | Globally unique identifier         |
 | `HRESULT`  | Windows error code                 |
 
----
-
-### Pointer and Reference Types
+### Pointer and reference types
 
 | RDL Type     | Description                   |
 |--------------|-------------------------------|
@@ -623,5 +608,3 @@ WinRT does not support fixed arrays.
 | `*const T`   | Const raw pointer to T        |
 | `&mut T`     | Mutable reference to T        |
 | `&T`         | Const reference to T          |
-
----

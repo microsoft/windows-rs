@@ -2,10 +2,10 @@
 
 > The C++/WinRT compiler, bundled for use from Rust.
 
-- 📦 [crates.io](https://crates.io/crates/cppwinrt)
-- 📖 [docs.rs](https://docs.rs/cppwinrt)
-- 🚀 [Getting started](../../crates/libs/cppwinrt/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/cppwinrt)
+- [crates.io](https://crates.io/crates/cppwinrt)
+- [docs.rs](https://docs.rs/cppwinrt)
+- [Getting started](../../crates/libs/cppwinrt/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/cppwinrt)
 
 `cppwinrt` packages the [C++/WinRT](https://github.com/microsoft/cppwinrt)
 compiler so it can be invoked from a Rust build. It is a thin wrapper that runs

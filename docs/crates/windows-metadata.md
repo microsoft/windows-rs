@@ -2,10 +2,10 @@
 
 > A low-level reader and writer for the ECMA-335 metadata format.
 
-- 📦 [crates.io](https://crates.io/crates/windows-metadata)
-- 📖 [docs.rs](https://docs.rs/windows-metadata)
-- 🚀 [Getting started](../../crates/libs/metadata/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/metadata)
+- [crates.io](https://crates.io/crates/windows-metadata)
+- [docs.rs](https://docs.rs/windows-metadata)
+- [Getting started](../../crates/libs/metadata/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/metadata)
 
 `windows-metadata` reads and writes the ECMA-335 metadata format used by .NET,
 WinRT, and the Win32 metadata. It is the foundation
@@ -34,20 +34,20 @@ every arch is emitted once as arch-neutral; a type that diverges is split into
 per-arch copies, each tagged with a `SupportedArchitectureAttribute` (spelled
 `#[arch(X86|X64|Arm64)]` in RDL).
 
-The collapse-or-split decision is structural, driven by `type_sig()` — a hash of
+The collapse-or-split decision is structural, driven by `type_sig()` - a hash of
 everything that can legitimately differ between architectures:
 
-- **fields** — name, type, and constant value (so an enum whose members hold
+- **fields** - name, type, and constant value (so an enum whose members hold
   different per-arch values splits instead of silently dropping the divergent values);
-- **method signatures** — Win32 callbacks and WinRT delegates have no fields and
+- **method signatures** - Win32 callbacks and WinRT delegates have no fields and
   diverge *only* in their `Invoke` signature, so a fields-only signature would wrongly
   collapse arch-divergent callbacks into one untagged copy;
-- **layout** — `#pragma pack` and `ClassLayout`;
-- **`AlignmentAttribute`** — `__declspec(align(N))` raised alignment is encoded
+- **layout** - `#pragma pack` and `ClassLayout`;
+- **`AlignmentAttribute`** - `__declspec(align(N))` raised alignment is encoded
   *only* by that attribute (`ClassLayout` can only *lower* alignment), so a type that
   differs solely in forced over-alignment must fold the attribute into the signature or
   the divergent copy is lost;
-- **flags** — the type's attribute flags.
+- **flags** - the type's attribute flags.
 
 Types present on only a *subset* of arches still go through the same structural split,
 so a type that is present on x64+arm64 (but not x86) and *diverges* between those two
@@ -69,7 +69,7 @@ Notable invariants in the ECMA-335 tables:
 
 - The `HasSemantics` coded index and the `Property`/`Event`/`MethodSemantics` tables
   are emitted only when non-empty, and `MethodSemantics` rows are sorted by
-  `Association` — strict readers reject an unsorted table.
+  `Association` - strict readers reject an unsorted table.
 - `write_index` asserts on the run-list one-past-end sentinel rather than silently
   wrapping to `0` for a target table with exactly 65535 rows (the guard lives on the
   write side so the reader's width threshold stays ECMA-conformant for external

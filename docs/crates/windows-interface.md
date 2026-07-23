@@ -2,10 +2,10 @@
 
 > The `#[interface]` macro for declaring COM interfaces in Rust.
 
-- 📦 [crates.io](https://crates.io/crates/windows-interface)
-- 📖 [docs.rs](https://docs.rs/windows-interface)
-- 🚀 [Getting started](../../crates/libs/interface/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/interface)
+- [crates.io](https://crates.io/crates/windows-interface)
+- [docs.rs](https://docs.rs/windows-interface)
+- [Getting started](../../crates/libs/interface/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/interface)
 
 `windows-interface` provides the `#[interface]` attribute macro used to declare a
 COM interface as a Rust trait. It is **part of [`windows-core`](windows-core.md)**
@@ -16,7 +16,7 @@ this crate directly. The generated code refers to `windows-core` for `IUnknown`,
 the vtable layout, and `QueryInterface` support.
 
 See [`windows-core`](windows-core.md) for how to declare an interface and pair it
-with [`#[implement]`](windows-implement.md) — including a worked example and the
+with [`#[implement]`](windows-implement.md) - including a worked example and the
 `interface_decl!` declarative alternative for builds without the proc macros.
 
 ---

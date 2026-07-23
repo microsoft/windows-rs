@@ -2,13 +2,13 @@
 
 > The umbrella crate for calling Windows APIs from Rust.
 
-- 📦 [crates.io](https://crates.io/crates/windows)
-- 📖 [docs.rs](https://docs.rs/windows)
-- 🚀 [Getting started](../../crates/libs/windows/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/windows)
+- [crates.io](https://crates.io/crates/windows)
+- [docs.rs](https://docs.rs/windows)
+- [Getting started](../../crates/libs/windows/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/windows)
 
-The `windows` crate projects the entire Windows API surface — Win32, COM, and
-WinRT — into idiomatic Rust, generated from the official Windows metadata. It is
+The `windows` crate projects the entire Windows API surface - Win32, COM, and
+WinRT - into idiomatic Rust, generated from the official Windows metadata. It is
 large, so APIs are gated behind Cargo features named after their namespace; you
 enable only the modules you use. The [API reference](https://docs.rs/windows)
 shows which feature enables a given type or function.

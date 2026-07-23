@@ -2,10 +2,10 @@
 
 > Simple, safe access to the Windows thread pool.
 
-- 📦 [crates.io](https://crates.io/crates/windows-threading)
-- 📖 [docs.rs](https://docs.rs/windows-threading)
-- 🚀 [Getting started](../../crates/libs/threading/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/threading)
+- [crates.io](https://crates.io/crates/windows-threading)
+- [docs.rs](https://docs.rs/windows-threading)
+- [Getting started](../../crates/libs/threading/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/threading)
 
 `windows-threading` exposes the Windows thread pool through a small, safe API.
 `submit` runs a closure on a pool thread, `for_each` runs a closure over an

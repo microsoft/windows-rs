@@ -26,7 +26,7 @@ unsafe {
 ```
 
 In addition to declaring the function, the macro also emits a `pub type`
-alias of the same name describing the function's signature. This is handy
+alias of the same name describing the function's signature. This is useful
 when you need to store or pass around the function pointer (for example,
 after resolving the symbol at runtime via `GetProcAddress`):
 

@@ -2,18 +2,18 @@
 
 > Simple, safe, and efficient access to the Windows registry.
 
-- 📦 [crates.io](https://crates.io/crates/windows-registry)
-- 📖 [docs.rs](https://docs.rs/windows-registry)
-- 🚀 [Getting started](../../crates/libs/registry/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/registry)
+- [crates.io](https://crates.io/crates/windows-registry)
+- [docs.rs](https://docs.rs/windows-registry)
+- [Getting started](../../crates/libs/registry/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/registry)
 
 `windows-registry` wraps the Win32 registry APIs behind a small, safe surface.
-Start from one of the predefined roots — `CURRENT_USER`, `LOCAL_MACHINE`, or
-`CLASSES_ROOT` — then `create` or `open` keys and read or write typed values. The
+Start from one of the predefined roots - `CURRENT_USER`, `LOCAL_MACHINE`, or
+`CLASSES_ROOT` - then `create` or `open` keys and read or write typed values. The
 `options()` builder adds fine-grained control, including transactions, volatile
 keys, additional access rights, and the registry redirection view:
 `wow64_32()` targets the 32-bit (`WOW6432Node`) view and `wow64_64()` the native
-64-bit view. The two views are mutually exclusive — the last call wins.
+64-bit view. The two views are mutually exclusive - the last call wins.
 
 ---
 

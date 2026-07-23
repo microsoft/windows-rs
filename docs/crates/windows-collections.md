@@ -2,13 +2,13 @@
 
 > Stock WinRT collection types backed by Rust containers.
 
-- 📦 [crates.io](https://crates.io/crates/windows-collections)
-- 📖 [docs.rs](https://docs.rs/windows-collections)
-- 🚀 [Getting started](../../crates/libs/collections/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/collections)
+- [crates.io](https://crates.io/crates/windows-collections)
+- [docs.rs](https://docs.rs/windows-collections)
+- [Getting started](../../crates/libs/collections/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/collections)
 
 `windows-collections` provides ready-made implementations of the WinRT collection
-interfaces — `IIterable`, `IVector`, `IVectorView`, `IMap`, and `IMapView` — so
+interfaces - `IIterable`, `IVector`, `IVectorView`, `IMap`, and `IMapView` - so
 you can hand a Rust `Vec` or `BTreeMap` to an API that expects a WinRT collection.
 
 ---
@@ -32,11 +32,11 @@ the buffer near 2 KB regardless of element size.
 
 This batching applies to **maps too**: `IMap`/`IMapView`/`IObservableMap` implement
 `IIterable<IKeyValuePair<K, V>>`, so `for pair in &map` drives the same
-`BufferedIterator` (yielding `IKeyValuePair` items) — there is no separate, slower
+`BufferedIterator` (yielding `IKeyValuePair` items) - there is no separate, slower
 map path. A map iteration still costs more than a vector of scalars, but not because
 of the iterator: `GetMany` over `IVector<Int32>` bulk-copies the values inline,
 whereas over a map it returns a block of `IKeyValuePair` COM objects (one `AddRef`
-each) and reading every `pair.Value()`/`Key()` remains a per-pair ABI crossing — the
+each) and reading every `pair.Value()`/`Key()` remains a per-pair ABI crossing - the
 `IMap` ABI offers no bulk key/value read. Separately, the *component-side* stock map
 iterator snapshots its entries once at `First()` so each step is O(1) rather than
 re-walking the tree, keeping a full traversal linear.

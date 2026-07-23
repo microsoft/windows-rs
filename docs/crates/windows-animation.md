@@ -2,22 +2,22 @@
 
 > A safe wrapper around the Windows Animation Manager (`IUIAnimationManager`).
 
-- 📦 Not published to crates.io
-- 🚀 [Getting started](../../crates/libs/animation/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
-- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
+- Not published to crates.io
+- [Getting started](../../crates/libs/animation/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
+- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
 
 `windows-animation` wraps the Win32 Windows Animation Manager COM APIs in safe
-Rust types. A `Manager` owns animation `Variable`s — each a smoothly animated
+Rust types. A `Manager` owns animation `Variable`s. Each one is a smoothly animated
 `f64`. You describe motion with a `Transition` from a `TransitionLibrary`,
 optionally group transitions into a `Storyboard`, and schedule them. The crate
 computes interpolated values only; it does not draw anything. Within the UI family
 ([`windows-reactor`](windows-reactor.md), [`windows-canvas`](windows-canvas.md),
 [`windows-webview`](windows-webview.md), [`windows-window`](windows-window.md)) it
-is the animation engine for **immediate-mode** rendering — you sample
+is the animation engine for immediate-mode rendering. You sample
 `variable.value()` each frame from a draw loop such as canvas's `animated_canvas`.
-See [*How it fits with canvas and reactor*](#how-it-fits-with-canvas-and-reactor)
-for why reactor instead animates on Composition.
+See [How it fits with canvas and reactor](#how-it-fits-with-canvas-and-reactor)
+for why reactor animates on Composition instead.
 
 ## Getting started
 
@@ -53,11 +53,11 @@ it once per frame before reading values.
 
 `TransitionLibrary` is the factory for the built-in transitions:
 
-- **`linear(duration, final_value)`** — constant-rate move to `final_value`.
+- **`linear(duration, final_value)`** - constant-rate move to `final_value`.
 - **`accelerate_decelerate(duration, final_value, acceleration_ratio,
-  deceleration_ratio)`** — eases in then out; the two ratios are fractions of the
-  duration and must sum to ≤ 1.0.
-- **`instantaneous(final_value)`** — jumps immediately to `final_value`.
+  deceleration_ratio)`** - eases in then out. The two ratios are fractions of the
+  duration and must sum to 1.0 or less.
+- **`instantaneous(final_value)`** - jumps immediately to `final_value`.
 
 `manager.schedule_transition(&variable, &transition, start_time)` applies a single
 transition directly, which is all you need for simple one-shot animations.
@@ -66,7 +66,7 @@ transition directly, which is all you need for simple one-shot animations.
 
 A `Storyboard` groups several transitions so they start together or chain off one
 another. `add_transition` returns a `Keyframe` marking that transition's end, and
-`add_transition_at_keyframe` starts another transition at that point — so a value
+`add_transition_at_keyframe` starts another transition at that point, so a value
 can begin animating exactly when an earlier one finishes.
 
 ```rust,no_run
@@ -133,100 +133,19 @@ COM API (`IUIAnimationManager2` and friends), created via `CoCreateInstance`.
 
 Run `cargo test -p windows-animation`; see also the workspace test crates.
 
-### Future work — UIAnimation parity and family fit
+### How it fits with canvas and reactor
 
-`windows-animation` wraps a deliberately thin slice of the Win32 Windows
-Animation Manager (`IUIAnimationManager2` and friends). The bindings filter
-(`crates/tools/bindings/src/animation.txt`) pulls in only three transitions and a
-handful of methods; the underlying COM interfaces expose much more. This section
-catalogs the gaps and — more importantly — clarifies how this crate fits alongside
-[`windows-canvas`](windows-canvas.md) and [`windows-reactor`](windows-reactor.md),
-which each have their own animation story.
-
-Ordered roughly by impact; "present" notes what already exists.
-
-#### 1. Transition types *(high)*
-
-Present: `linear`, `accelerate_decelerate`, `instantaneous`.
-
-`IUIAnimationTransitionLibrary2` offers a much larger easing set, none of which is
-wrapped yet: **constant** (hold), **discrete** (delay then jump), **linear from
-speed**, **sinusoidal** (from range / from velocity), **reversal**, **cubic**
-(target value + target velocity), **smooth stop**, **parabolic from
-acceleration**, and **cubic-bézier** (arbitrary CSS-style easing curve). Custom
-interpolators are also possible via `IUIAnimationInterpolator2`. This easing
-vocabulary is exactly what a higher-level animation layer needs.
-
-#### 2. Vector and integer variables *(high)*
-
-Present: scalar `f64` variables only.
-
-Missing: **vector variables** (`CreateAnimationVectorVariable`, `GetVectorValue`)
-that animate a `Vector2`/`Vector3`/RGBA color as one time-synchronized unit
-instead of 2–4 separate variables, and **integer variables** (`GetIntegerValue`)
-for stepped motion. Vector variables pair directly with
-[`windows-numerics`](windows-numerics.md) and canvas drawing (animate a position
-or color in a single variable).
-
-#### 3. Variable richness *(medium)*
-
-Present: `value()`, `copy_curve()`.
-
-Missing: final value, previous value, and current **velocity**; min/max **bounds**
-(clamping); rounding mode; **tags** (`GetVariableFromTag`); and `ConnectVariable`
-for dependent/derived animations.
-
-#### 4. Manager and storyboard control *(medium)*
-
-Present: `update(time)`, `schedule_transition`, and storyboard
-add/keyframe/`schedule`.
-
-Missing:
-
-- **Status** — manager IDLE/BUSY status and a status-changed callback, so a host
-  can stop ticking when nothing is animating.
-- **`EstimateNextEventTime`** — when to next wake the timer, avoiding a per-frame
-  poll while idle.
-- **Lifecycle** — pause / resume / abandon / shutdown; storyboard **looping**
-  (`RepeatBetweenKeyframes`), hold, elapsed time, conclude / finish / abandon, and
-  per-storyboard status callbacks; priority comparison for conflicting
-  storyboards.
-- **`SetAnimationMode`** — the global enable/disable switch that implements
-  "reduced motion" for accessibility (relates to a reactor
-  `use_reduced_motion`-style hook).
-
-#### 5. Timer integration *(low)*
-
-`IUIAnimationTimer` / `IUIAnimationTimerUpdateHandler` would let the engine drive
-updates from a clock instead of the caller threading `update(time)` through its own
-frame loop.
-
-#### How it fits with canvas and reactor
-
-There are three animation technologies in this family, and keeping their roles
-distinct is the point of this note:
+This family has three animation technologies with distinct roles:
 
 - **`windows-animation` (UIAnimation Manager)** computes interpolated values that
-  you **sample each frame** (`update(time)` → `value()`). That is a perfect match
-  for **immediate-mode** rendering — specifically `windows-canvas`'s
-  `animated_canvas` per-frame draw loop. The `clock` canvas sample currently does
-  its easing math by hand; a richer transition library (§1) plus vector variables
-  (§2), wired into the frame loop, would replace that with declarative motion. This
-  crate is the recommended animation engine for canvas.
-- **`windows-reactor` implicit transitions** use **Windows.UI.Composition**, which
-  runs animations off-thread on retained visuals — the correct model for a
-  declarative, re-rendering UI (you do not want to re-render every frame to
-  animate). Reactor's animation gaps (keyframes, stagger, interaction states — see
-  the `windows-reactor` *Future work* §6) are best filled with a Composition-based
-  layer, not by sampling here.
+  you sample each frame (`update(time)` then `value()`). This matches immediate-mode
+  rendering, such as `windows-canvas`'s `animated_canvas` per-frame draw loop. It is
+  the animation engine for canvas and raw Win32 or DirectComposition.
+- **`windows-reactor` implicit transitions** use Windows.UI.Composition. It runs
+  animations off-thread on retained visuals. This is the model for a declarative,
+  re-rendering UI, where you do not re-render every frame to animate.
 - **Bridging caveat.** `Variable::copy_curve` targets `IDCompositionAnimation`
-  (**DirectComposition**, the Win32 composition engine), *not*
-  Windows.UI.Composition (the WinRT engine WinUI/reactor uses); the two are
-  distinct. So `windows-animation` plugs cleanly into canvas and raw
-  Win32/DirectComposition, but does **not** drop directly into the reactor visual
-  tree.
-
-Net: position `windows-animation` as the animation engine for `windows-canvas`
-(and raw Win32 / DirectComposition); keep reactor animation on Composition. The
-concrete next step on the canvas side is a small helper that drives animated
-variables from `animated_canvas`'s frame loop.
+  (DirectComposition, the Win32 composition engine), not Windows.UI.Composition (the
+  WinRT engine WinUI and reactor use). The two are distinct. So `windows-animation`
+  plugs into canvas and raw Win32 or DirectComposition, but does not drop directly
+  into the reactor visual tree.

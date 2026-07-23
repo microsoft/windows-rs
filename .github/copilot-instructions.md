@@ -13,14 +13,14 @@ and report back.
 
 Cargo workspace (`resolver = "3"`). Members are globbed from:
 
-- `crates/libs/*` — the published/library crates (`windows`, `windows-sys`,
+- `crates/libs/*` - the published/library crates (`windows`, `windows-sys`,
   `windows-core`, plus `windows-bindgen`, `metadata`, `rdl`, `riddle`, and the
   newer `reactor`/`canvas`/`webview`/`window` crates). See `docs/readme.md` for
   the full categorized crate index, and `docs/crates/<crate>.md` per crate.
-- `crates/tools/*` — code generators and CI helpers, run via `cargo run -p tool_*`.
-- `crates/tests/*/*` — test crates; `crates/tests/libs/<crate>` mirrors each
+- `crates/tools/*` - code generators and CI helpers, run via `cargo run -p tool_*`.
+- `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors each
   library crate (e.g. `test_reactor`, `test_webview`). Crate names are `test_<dir>`.
-- `crates/samples/*/*` — runnable examples.
+- `crates/samples/*/*` - runnable examples.
 
 The crates fall into rough groups (see `docs/readme.md` for the authoritative list):
 core & errors (`windows-core`, `windows-result`, `windows-strings`); values &
@@ -54,7 +54,7 @@ cargo test -p <crate> <test_name_substring>
 ```
 
 CI sets `RUSTFLAGS: -D warnings`, so any warning fails the build. Workspace-wide
-lints are configured in the root `Cargo.toml` (`[workspace.lints]`) — clippy lints
+lints are configured in the root `Cargo.toml` (`[workspace.lints]`) - clippy lints
 like `uninlined_format_args`, `redundant_clone`, and `semicolon_if_nothing_returned`
 are promoted to warnings and therefore enforced.
 
@@ -108,16 +108,15 @@ The core `windows` / `windows-sys` crates are generated from Windows metadata
 `windows-rdl`, and `riddle` support reading/authoring that metadata. The reactor /
 canvas / webview pipelines layer on top:
 
-1. **`tool_reactor`** — reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd`
-   metadata → generates `generated.rs`, `generated_set_prop.rs`,
+1. **`tool_reactor`** - reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd`
+   metadata -> generates `generated.rs`, `generated_set_prop.rs`,
    `generated_attach_event.rs`, and `generated.txt` filter entries.
 
-2. **`tool_bindings`** — reads filter `.txt` files from `crates/tools/bindings/src/`
-   → runs `windows-bindgen` → generates `bindings.rs` in each crate:
+2. **`tool_bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs `windows-bindgen` -> generates `bindings.rs` in each crate:
    - `crates/libs/canvas/src/bindings.rs` (from `canvas.txt`)
    - `crates/libs/time/src/bindings.rs`, `numerics`, `reference`, etc.
 
-3. **`tool_package`** — generates the published `windows` and `windows-sys` package
+3. **`tool_package`** - generates the published `windows` and `windows-sys` package
    crates using `--package` mode (per-namespace files + Cargo.toml features).
 
 4. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
@@ -126,7 +125,7 @@ canvas / webview pipelines layer on top:
 
 ### Crate relationships
 
-- `windows-core` is the foundation — almost everything depends on it.
+- `windows-core` is the foundation - almost everything depends on it.
 - `windows` is the umbrella crate that re-exports from `windows-core`,
   `windows-numerics`, `windows-time`, `windows-collections`, `windows-reference`, etc.
 - `windows-reactor` depends on `windows-core` (not `windows`) and uses minimal
@@ -156,8 +155,8 @@ canvas / webview pipelines layer on top:
 
 - **Panics**: Use `panic!` only for invariant violations. Use `diag::` helpers
   for missing features (warn in debug, no-op in release).
-- **`.unwrap()` over `.expect("...")`** — the panic hook provides full context.
-- **No `thread_local!` in app code** — use reactor hooks (`use_state`, `use_ref`)
+- **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
+- **No `thread_local!` in app code** - use reactor hooks (`use_state`, `use_ref`)
   instead. `thread_local!` is reserved for framework plumbing.
 - **Test naming**: Unit tests in `test_reactor`, integration tests in
   `test_reactor_selftest`. Canvas tests use WARP software rendering.
@@ -166,9 +165,9 @@ canvas / webview pipelines layer on top:
 
 The `docs/` folder has one page per crate:
 
-- **`docs/crates/<crate>.md`** — a single page per crate covering both usage and internals (how the crate is built and maintained: codegen pipeline, generated files, conventions). It links to the crate's own `readme.md` for the user-facing intro and quick example.
-- **`crates/libs/<crate>/readme.md`** — the user-facing introduction with a quick example (also the crates.io / docs.rs landing).
-- **`docs/readme.md`** — the documentation hub and crate index.
+- **`docs/crates/<crate>.md`** - a single page per crate covering both usage and internals (how the crate is built and maintained: codegen pipeline, generated files, conventions). It links to the crate's own `readme.md` for the user-facing intro and quick example.
+- **`crates/libs/<crate>/readme.md`** - the user-facing introduction with a quick example (also the crates.io / docs.rs landing).
+- **`docs/readme.md`** - the documentation hub and crate index.
 
 `docs/` also holds `contributing.md`, `code_of_conduct.md`, and `security.md`.
 

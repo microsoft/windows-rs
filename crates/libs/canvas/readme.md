@@ -1,6 +1,6 @@
 ## Windows Canvas
 
-Windows Canvas is a safe, fast 2D graphics library for Rust developers, backed by Direct2D (with Direct3D 11, DXGI, DirectWrite, and WIC). All COM interfaces are private implementation details — you work only with Rust types.
+Windows Canvas is a safe, fast 2D graphics library for Rust developers, backed by Direct2D (with Direct3D 11, DXGI, DirectWrite, and WIC). All COM interfaces are private implementation details - you work only with Rust types.
 
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Canvas guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md)

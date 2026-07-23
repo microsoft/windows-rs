@@ -2,10 +2,10 @@
 
 > The `#[implement]` macro for implementing COM and WinRT interfaces in Rust.
 
-- 📦 [crates.io](https://crates.io/crates/windows-implement)
-- 📖 [docs.rs](https://docs.rs/windows-implement)
-- 🚀 [Getting started](../../crates/libs/implement/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/implement)
+- [crates.io](https://crates.io/crates/windows-implement)
+- [docs.rs](https://docs.rs/windows-implement)
+- [Getting started](../../crates/libs/implement/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/implement)
 
 `windows-implement` provides the `#[implement]` attribute macro that lets a Rust
 type implement one or more COM or WinRT interfaces. It is **part of
@@ -14,7 +14,7 @@ Rust requires procedural macros to ship in their own `proc-macro` crate.
 `windows-core` re-exports it behind the default `proc-macros` feature, so you
 depend on `windows-core` and rarely name this crate directly.
 
-See [`windows-core`](windows-core.md) for how to declare and implement interfaces —
+See [`windows-core`](windows-core.md) for how to declare and implement interfaces -
 including a worked example, the `cast`/identity model, and the `implement_decl!`
 declarative alternative for builds without the proc macros.
 

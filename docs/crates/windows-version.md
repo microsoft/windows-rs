@@ -2,13 +2,13 @@
 
 > Reliable OS version information without an application manifest.
 
-- 📦 [crates.io](https://crates.io/crates/windows-version)
-- 📖 [docs.rs](https://docs.rs/windows-version)
-- 🚀 [Getting started](../../crates/libs/version/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/version)
+- [crates.io](https://crates.io/crates/windows-version)
+- [docs.rs](https://docs.rs/windows-version)
+- [Getting started](../../crates/libs/version/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/version)
 
 `windows-version` reports the real operating system version even when the process
-has no version manifest — useful for feature detection. `OsVersion` implements
+has no version manifest - useful for feature detection. `OsVersion` implements
 `Ord`, so you can compare against a minimum build, and `is_server` distinguishes
 Windows Server releases.
 

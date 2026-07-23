@@ -1,10 +1,10 @@
 ## RDL generator for C/C++ headers
 
 The [windows-clang](https://crates.io/crates/windows-clang) crate scrapes C/C++
-headers with libclang and emits **RDL** (Rust Definition Language) source — the
+headers with libclang and emits **RDL** (Rust Definition Language) source - the
 text format understood by [windows-rdl](https://crates.io/crates/windows-rdl). It
-is the header-facing front end of the Win32 metadata pipeline: headers → RDL
-(this crate) → `.winmd` (windows-rdl).
+is the header-facing front end of the Win32 metadata pipeline: headers to RDL
+(this crate) to `.winmd` (windows-rdl).
 
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)

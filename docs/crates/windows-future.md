@@ -2,10 +2,10 @@
 
 > Stock async types for Windows APIs.
 
-- 📦 [crates.io](https://crates.io/crates/windows-future)
-- 📖 [docs.rs](https://docs.rs/windows-future)
-- 🚀 [Getting started](../../crates/libs/future/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/future)
+- [crates.io](https://crates.io/crates/windows-future)
+- [docs.rs](https://docs.rs/windows-future)
+- [Getting started](../../crates/libs/future/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/future)
 
 `windows-future` provides `IAsyncOperation` and the related WinRT async
 interfaces, with conveniences for producing and consuming them from Rust. Use

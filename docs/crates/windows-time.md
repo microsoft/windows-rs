@@ -2,10 +2,10 @@
 
 > WinRT `TimeSpan` and `DateTime` with idiomatic Rust conversions.
 
-- 📦 [crates.io](https://crates.io/crates/windows-time)
-- 📖 [docs.rs](https://docs.rs/windows-time)
-- 🚀 [Getting started](../../crates/libs/time/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/time)
+- [crates.io](https://crates.io/crates/windows-time)
+- [docs.rs](https://docs.rs/windows-time)
+- [Getting started](../../crates/libs/time/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/time)
 
 `windows-time` provides the two WinRT time primitives as plain `#[repr(C)]` Rust
 types: `TimeSpan` (a duration, stored as 100-nanosecond ticks) and `DateTime`
@@ -33,7 +33,7 @@ the matching `time_point`. That works only because those chrono types are a
 single `int64_t` and therefore bit-for-bit ABI-compatible with the WinRT struct.
 
 Rust has no equivalent. `core::time::Duration` is `{ u64 seconds, u32 nanos }`
-(96 bits, unsigned) — it can't represent negative `TimeSpan` values and isn't
+(96 bits, unsigned) - it can't represent negative `TimeSpan` values and isn't
 ABI-compatible with `i64`, and `std::time::SystemTime` is opaque and
 platform-defined. So the ABI struct stays a single `i64`, and `windows-time`
 provides explicit conversions to and from the `std` types instead of aliasing

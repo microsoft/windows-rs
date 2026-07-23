@@ -6,7 +6,7 @@ like [ILSpy](https://github.com/icsharpcode/ILSpy).
 
 Generated in-house by `tool_win32` (`cargo run -p tool_win32`) directly from the
 Windows SDK C/C++ headers via `windows-clang`, with `windows-metadata` performing the
-per-architecture merge. The committed `metadata/win32/*.rdl` corpus is the
+per-architecture merge. The committed `metadata/win32/*.rdl` files are the
 human-reviewable snapshot; this winmd is derived from it.
 
 - Headers: `Microsoft.Windows.SDK.CPP` / `Microsoft.Windows.SDK.CPP.<arch>`
@@ -17,7 +17,7 @@ human-reviewable snapshot; this winmd is derived from it.
 Generated in-house by `tool_wdk` (`cargo run -p tool_wdk`) from the WDK kernel-mode
 headers, in the same flat `Windows.Win32` namespace and *additive* over
 `Windows.Win32.winmd` (types the Win32 winmd already defines are dropped). The
-committed `metadata/wdk/*.rdl` corpus is the snapshot.
+committed `metadata/wdk/*.rdl` files are the snapshot.
 
 - Headers: `Microsoft.Windows.WDK.x64`
 - Version: `10.0.28000.1839` (pinned in `crates/tools/wdk/src/main.rs`)

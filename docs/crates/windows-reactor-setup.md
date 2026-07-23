@@ -2,14 +2,14 @@
 
 > A build-script helper that stages the Windows App SDK runtime for reactor apps.
 
-- 📦 Not published to crates.io
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor-setup)
+- Not published to crates.io
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor-setup)
 
 `windows-reactor-setup` is used from the `build.rs` of a
 [`windows-reactor`](windows-reactor.md) application. It downloads and stages the
 Windows App SDK runtime bootstrap files next to the built executable so the app
 can start WinUI 3, and writes the required application manifest. Choose the helper
-that matches your deployment model — for example a framework-dependent app or a
+that matches your deployment model - for example a framework-dependent app or a
 self-contained one.
 
 ```rust,ignore
@@ -39,15 +39,15 @@ installer/bootstrapper.
 `Microsoft.Web.WebView2` NuGet package and copies the per-architecture
 `native_uap` build next to the executable. The XAML `WebView2` control used by
 [`windows-webview`](windows-webview.md)'s `reactor` feature loads that WinRT
-projection assembly at runtime, and — unlike the COM-only `webview2loader.dll`
-supplied by the Evergreen runtime — it is not present on the machine by default.
+projection assembly at runtime, and - unlike the COM-only `webview2loader.dll`
+supplied by the Evergreen runtime - it is not present on the machine by default.
 Bundling it unconditionally keeps reactor apps that host a WebView2 working with
 no extra build step. The allow-list of WindowsAppSDK runtime files lives in
 `assets/runtime.txt`.
 
 The framework-dependent bootstrap DLLs committed under `bootstrap/<arch>/` are
-**not hand-copied** — `tool_reactor` refreshes them from the same pinned
-`Microsoft.WindowsAppSDK.Foundation` package it uses for the `.winmd` corpus, and
+**not hand-copied** - `tool_reactor` refreshes them from the same pinned
+`Microsoft.WindowsAppSDK.Foundation` package it uses for the `.winmd` metadata, and
 `gen.yml` fails on any drift. See [dependencies](../dependencies.md#winui--windows-app-sdk).
 
 ### Testing

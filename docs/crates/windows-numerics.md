@@ -2,10 +2,10 @@
 
 > Graphics-oriented vector and matrix math from `Windows.Foundation.Numerics`.
 
-- 📦 [crates.io](https://crates.io/crates/windows-numerics)
-- 📖 [docs.rs](https://docs.rs/windows-numerics)
-- 🚀 [Getting started](../../crates/libs/numerics/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/numerics)
+- [crates.io](https://crates.io/crates/windows-numerics)
+- [docs.rs](https://docs.rs/windows-numerics)
+- [Getting started](../../crates/libs/numerics/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/numerics)
 
 `windows-numerics` provides the POD math value types used by Direct2D,
 composition, and other graphics APIs: `Vector2`, `Vector3`, `Vector4`,

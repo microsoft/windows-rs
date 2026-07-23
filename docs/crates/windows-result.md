@@ -2,16 +2,16 @@
 
 > Efficient Windows error handling and propagation for Win32, COM, and WinRT.
 
-- 📦 [crates.io](https://crates.io/crates/windows-result)
-- 📖 [docs.rs](https://docs.rs/windows-result)
-- 🚀 [Getting started](../../crates/libs/result/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/result)
+- [crates.io](https://crates.io/crates/windows-result)
+- [docs.rs](https://docs.rs/windows-result)
+- [Getting started](../../crates/libs/result/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/result)
 
 `windows-result` is the error layer shared by the windows-* crates. Its building
 blocks are `HRESULT` (a Windows status code, with `.ok()` to convert into a
 `Result`), `Error` (a rich error carrying an `HRESULT` and a message), and
-`Result<T>`. It also wraps the other Windows status representations — `BOOL`,
-`WIN32_ERROR`, and `NTSTATUS` — so they convert cleanly into an `Error`.
+`Result<T>`. It also wraps the other Windows status representations - `BOOL`,
+`WIN32_ERROR`, and `NTSTATUS` - so they convert cleanly into an `Error`.
 
 ---
 
@@ -31,7 +31,7 @@ add COM error-info support and are gated on `windows` (and disabled under the
 
 Run `cargo test -p windows-result`; see also the workspace test crates.
 
-### Future work — error-type scope
+### Future work - error-type scope
 
 `windows-result` currently exports five status types: `HRESULT`, `BOOL`,
 `WIN32_ERROR`, `NTSTATUS`, and `RPC_STATUS`. The last three were promoted here in
@@ -39,16 +39,16 @@ Run `cargo test -p windows-result`; see also the workspace test crates.
 error types to `windows-result`"). It's worth re-examining whether all of them
 earn a place in a focused *error* crate, or whether some should revert to being
 generated per-namespace by `windows-bindgen`. As of this writing the promoted
-types are committed but **have not shipped** — the last published version is
+types are committed but **have not shipped** - the last published version is
 `0.4.1` (2025-10-06), and #3783 landed 2025-10-09 without a version bump.
 
 A survey of the source metadata (the RDL files under `metadata/`, which are the
-authoritative API surface — the "everything" `windows`/`windows-sys` crates are a
+authoritative API surface - the "everything" `windows`/`windows-sys` crates are a
 poor gauge) shows how often each type is actually returned by an API:
 
 | Type | Fn returns | Files | Notes |
 |------|-----------:|------:|-------|
-| `HRESULT` | 26,841 | 374 | Foundational — `Error`/`Result` are built on it. Non-negotiable. |
+| `HRESULT` | 26,841 | 374 | Foundational - `Error`/`Result` are built on it. Non-negotiable. |
 | `BOOL` | 4,277 | 569 | Ubiquitous ABI primitive, but not an error type. |
 | `NTSTATUS` | 1,319 | 18 | Driver/native APIs; strongest of the promoted status types. |
 | `RPC_STATUS` | 289 | 7 | RPC only; no hand-written consumer in the repo. |
@@ -61,7 +61,7 @@ Findings that motivate the re-examination:
   u32 = 5`), and classic Win32-error-returning functions use `LSTATUS` (= `i32`,
   e.g. `RegCloseKey -> LSTATUS`). Its only real consumer in the repo is a single
   internal helper in `windows-registry` (`win32_error()` in `registry/src/lib.rs`)
-  that computes `WIN32_ERROR(x).to_hresult()` — the `HRESULT_FROM_WIN32`
+  that computes `WIN32_ERROR(x).to_hresult()` - the `HRESULT_FROM_WIN32`
   conversion. That conversion is genuinely useful, but it does not require a
   public exported newtype; the API surface never hands you a `WIN32_ERROR`.
 - **The repo already leaves a long tail of equally-legitimate status types
@@ -69,19 +69,19 @@ Findings that motivate the re-examination:
   `SQLRETURN` (182), `MMRESULT` (161), `SECURITY_STATUS` (161), `LSTATUS` (129),
   `PDH_STATUS` (98). Promoting `RPC_STATUS` (289) and `WIN32_ERROR` (0) while
   leaving these generated is a somewhat arbitrary line.
-- **`NTSTATUS` and `RPC_STATUS` have no hand-written consumer** — outside the
+- **`NTSTATUS` and `RPC_STATUS` have no hand-written consumer** - outside the
   generated `windows`/`windows-sys` crates, their only references are the
   bindgen remap machinery and their own definitions. `NTSTATUS` at least has a
   large, meaningful API footprint; `RPC_STATUS` is niche.
 
 Directions to weigh:
 
-1. **Keep as-is** — one canonical definition shared across namespaces avoids the
+1. **Keep as-is** - one canonical definition shared across namespaces avoids the
    per-namespace duplication and feature-gated conversions that made up the bulk
    of the #3783 diff (the ~12K-line `Win32/Foundation` change).
-2. **Trim to a focused error crate** — keep `HRESULT` (and arguably `NTSTATUS`,
+2. **Trim to a focused error crate** - keep `HRESULT` (and arguably `NTSTATUS`,
    the strongest of the rest); revert `WIN32_ERROR`/`RPC_STATUS` to generated
-   types, and express the Win32→HRESULT conversion `windows-registry` needs as a
+   types, and express the Win32 to HRESULT conversion `windows-registry` needs as a
    helper rather than a promoted newtype. Note `BOOL` is an ABI primitive rather
    than an error type, so it fits an *error* crate least on thematic grounds even
    though it predates #3783.

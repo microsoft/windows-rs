@@ -2,14 +2,14 @@
 
 > A simple, safe way to implement Windows services in Rust.
 
-- 📦 [crates.io](https://crates.io/crates/windows-services)
-- 📖 [docs.rs](https://docs.rs/windows-services)
-- 🚀 [Getting started](../../crates/libs/services/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/services)
+- [crates.io](https://crates.io/crates/windows-services)
+- [docs.rs](https://docs.rs/windows-services)
+- [Getting started](../../crates/libs/services/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/services)
 
 `windows-services` lets you write a Windows service process with a builder. Use
 `Service::new` to declare which control commands the service accepts (`can_stop`,
-`can_pause`, …), then `run` to hand control to the service control manager. Your
+`can_pause`), then `run` to hand control to the service control manager. Your
 closure receives the service handle and each incoming command.
 
 ---

@@ -2,13 +2,13 @@
 
 > Zero-overhead raw bindings (externs, structs, constants) for Windows APIs.
 
-- 📦 [crates.io](https://crates.io/crates/windows-sys)
-- 📖 [docs.rs](https://docs.rs/windows-sys)
-- 🚀 [Getting started](../../crates/libs/sys/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
+- [crates.io](https://crates.io/crates/windows-sys)
+- [docs.rs](https://docs.rs/windows-sys)
+- [Getting started](../../crates/libs/sys/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
 
 `windows-sys` is the minimal, fastest-compiling projection of the Windows API. It
-contains only raw function declarations, structs, and constants — no traits,
+contains only raw function declarations, structs, and constants - no traits,
 helpers, or wrappers. Choose it when compile time matters most and you are
 comfortable working with raw pointers and unsafe calls; otherwise prefer the
 richer [`windows`](windows.md) crate. As with `windows`, APIs are gated behind

@@ -2,10 +2,10 @@
 
 > The Windows metadata compiler.
 
-- 📦 [crates.io](https://crates.io/crates/riddle)
-- 📖 [docs.rs](https://docs.rs/riddle)
-- 🚀 [Getting started](../../crates/libs/riddle/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/riddle)
+- [crates.io](https://crates.io/crates/riddle)
+- [docs.rs](https://docs.rs/riddle)
+- [Getting started](../../crates/libs/riddle/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/riddle)
 
 `riddle` is the command-line Windows metadata compiler. It reads
 [RDL](windows-rdl.md) source and emits ECMA-335 `.winmd` files, acting as the
