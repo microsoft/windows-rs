@@ -55,6 +55,20 @@ pub fn ensure_libclang() {
     if std::env::var_os("LIBCLANG_PATH").is_some() {
         return;
     }
+    let native = libclang_dir();
+    // SAFETY: called at the very start of `main`, before any libclang load or worker thread
+    // is spawned, so no other thread can be reading the environment concurrently.
+    unsafe {
+        std::env::set_var("LIBCLANG_PATH", &native);
+    }
+}
+
+/// Resolves (fetching on demand) the directory holding the pinned host-arch `libclang.dll`,
+/// *without* mutating the environment. [`ensure_libclang`] wraps this to set `LIBCLANG_PATH` for
+/// the scrapers; CI's `test.yml` instead reads it via `tool_clang path` to export `LIBCLANG_PATH`
+/// from a workflow step, keeping the `unsafe` [`set_var`](std::env::set_var) off the multithreaded
+/// `cargo test` runner.
+pub fn libclang_dir() -> PathBuf {
     let (id, rid) = if cfg!(target_arch = "x86_64") {
         (LIBCLANG_PKG_X64, "win-x64")
     } else if cfg!(target_arch = "aarch64") {
@@ -79,11 +93,7 @@ pub fn ensure_libclang() {
         "`{}` is missing `libclang.dll`",
         native.display()
     );
-    // SAFETY: called at the very start of `main`, before any libclang load or worker thread
-    // is spawned, so no other thread can be reading the environment concurrently.
-    unsafe {
-        std::env::set_var("LIBCLANG_PATH", &native);
-    }
+    native
 }
 
 /// Asserts the loaded libclang matches the pinned [`LIBCLANG_VERSION`]. clang's

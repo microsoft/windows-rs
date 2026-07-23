@@ -668,6 +668,13 @@ shared by every consumer (`tool_win32`, `tool_wdk`, …) rather than duplicated 
   pinned host-arch `libclang.runtime.win-<arch>` NuGet package (`dotnet/clangsharp`) via
   `nuget_package` and points `LIBCLANG_PATH` at its `runtimes/<rid>/native/`. Call it once
   at the start of `main`, before the first libclang load.
+- `libclang_dir()` — the resolution behind `ensure_libclang` (fetch the pinned package,
+  return its `native/` directory) *without* mutating the environment. `ensure_libclang`
+  sets `LIBCLANG_PATH` via `unsafe set_var`, safe at a single-threaded `main` start but not
+  from cargo's multi-threaded test runner. So CI's `test.yml` exports `LIBCLANG_PATH` from a
+  workflow step — `echo "LIBCLANG_PATH=$(cargo run -q -p tool_clang -- path)"`, where
+  `tool_clang path` prints `libclang_dir()` — for the `test_clang` suite. No CI job installs
+  LLVM, so the pin can follow the latest `libclang.runtime.*` NuGet package.
 - `assert_libclang_version()` — fails fast if the loaded libclang does not match the
   pinned `LIBCLANG_VERSION` (clang's capture behavior drifts across versions).
 - `clang_resource_dir()` — resolves a `-resource-dir` of version-matched builtin
@@ -769,18 +776,6 @@ None of these block use of the crate.
 - **IDL as the COM source of truth (future direction).** Parsing `.idl` (or `midl` output)
   directly would recover the pointer-shape attributes headers don't express as SAL
   (`[unique]`/`[length_is]`/`[iid_is]`), keeping the header path for flat C APIs.
-- **libclang major upgrades are capped at LLVM 21 by CI's `install-llvm-action` (future direction).**
-  `libclang.dll` is provisioned everywhere from the `libclang.runtime.win-<arch>` NuGet packages,
-  which already ship 22.1.8 and track current LLVM. But `test.yml` still installs LLVM through
-  `KyleMayes/install-llvm-action` to supply libclang for the runtime `test_clang` suite, and that
-  action has **no Windows asset for LLVM 22+** — so the pin can only be bumped as far as 21.x today.
-  dotnet/clangsharp itself doesn't use `install-llvm-action`; it consumes its own NuGet packages.
-  The clean unblock is to make `test.yml` self-provision libclang from the same NuGet package
-  `gen.yml` uses (via `ensure_libclang`), dropping `install-llvm-action` and its version ceiling
-  entirely. The wrinkle is that `ensure_libclang` sets `LIBCLANG_PATH` via `unsafe set_var`, which
-  is safe at a tool's single-threaded `main` start but not from cargo's multi-threaded test runner —
-  so the CI job should resolve the NuGet-cached DLL and export `LIBCLANG_PATH` as a workflow step
-  (not from inside the tests).
 
 ## Bit-field member scraping
 

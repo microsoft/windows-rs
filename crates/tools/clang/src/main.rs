@@ -3,37 +3,41 @@
 //! tree stays clean, and any inconsistency in how libclang is pinned fails the run loudly.
 //!
 //! The metadata scrapers (`tool_win32`/`tool_wdk`/`tool_winrt`/`tool_webview`) all parse with
-//! the pinned libclang, so a drift between `LIBCLANG_VERSION`, the download URLs that fetch it,
-//! and the LLVM version CI installs would silently change the generated corpus. This tool is
-//! the paired guardian of that pin, exactly as `tool_win32` guards the SDK pin and `tool_wdk`
-//! reads it back from `tool_win32`.
+//! the pinned libclang, so a drift between `LIBCLANG_VERSION` and the download URLs that fetch it
+//! would silently change the generated corpus. This tool is the paired guardian of that pin,
+//! exactly as `tool_win32` guards the SDK pin and `tool_wdk` reads it back from `tool_win32`.
 
+use std::path::Path;
 use windows_clang::LIBCLANG_VERSION;
 
 /// The `windows-clang` source declaring the libclang pin (version + the download URLs that
 /// fetch that exact build).
 const PROVISION: &str = "crates/libs/clang/src/provision.rs";
 
-/// The pinned download URL(s), which must embed [`LIBCLANG_VERSION`]. The `libclang.dll` itself
-/// now comes from the `libclang.runtime.win-<arch>` NuGet packages fetched by version (no URL to
-/// drift); only the clang resource-header component is a literal URL.
+/// The pinned download URL(s), which must embed [`LIBCLANG_VERSION`]. `libclang.dll` comes from the
+/// `libclang.runtime.win-<arch>` NuGet packages fetched by version (no URL to drift); only the
+/// clang resource-header component is a literal URL.
 const PINNED_URLS: &[&str] = &["CLANG_RESOURCE_URL"];
 
-/// Workflows whose Windows jobs may install LLVM/Clang via `KyleMayes/install-llvm-action` to
-/// build and test the clang-based crates; the major version they pin must match
-/// [`LIBCLANG_VERSION`]. (Only Windows steps are checked: any `install-llvm-action` step guarded
-/// by `runner.os == 'Linux'` is skipped, since a Linux runner would only *consume* already-generated
-/// code, never scrape, and so need not match the scraping clang. `gen.yml` is absent: its scrapers
-/// self-provision the pinned libclang via `windows_clang::ensure_libclang` (the
-/// `libclang.runtime.win-<arch>` NuGet package), so that workflow installs no LLVM at all.
-/// `clippy.yml` no longer installs LLVM either — `cargo clippy` never loads libclang (clang-sys's
-/// `runtime` feature dlopens it only when a test actually parses) — but it is kept here as a
-/// defensive guard so that reintroducing a mismatched `install-llvm-action` step fails loudly.
-/// `test.yml` still installs it: its `cargo test` runs the `test_clang` suite, which loads
-/// libclang at runtime via the ambient `LIBCLANG_PATH`.)
+/// Workflows scanned for a `KyleMayes/install-llvm-action` Windows step. CI self-provisions
+/// libclang from NuGet, so none install LLVM today; this is a defensive guard: if such a step were
+/// reintroduced, its major must match [`LIBCLANG_VERSION`] (a Linux-guarded step is ignored — a
+/// Linux runner only consumes generated code, never scrapes).
 const WORKFLOWS: &[&str] = &[".github/workflows/clippy.yml", ".github/workflows/test.yml"];
 
 fn main() {
+    // `tool_clang path` prints the directory holding the pinned `libclang.dll` (respecting an
+    // existing `LIBCLANG_PATH`). CI's `test.yml` captures it into `LIBCLANG_PATH` for the
+    // `test_clang` suite, so the multithreaded test runner never has to call the `unsafe` `set_var`.
+    if std::env::args().nth(1).as_deref() == Some("path") {
+        if let Some(dir) = std::env::var_os("LIBCLANG_PATH") {
+            println!("{}", Path::new(&dir).display());
+        } else {
+            println!("{}", windows_clang::libclang_dir().display());
+        }
+        return;
+    }
+
     // 1. Each pinned download URL must reference the pinned version, so a version bump that
     //    forgets a URL fails here rather than silently fetching a stale libclang.
     for name in PINNED_URLS {
@@ -45,8 +49,7 @@ fn main() {
         );
     }
 
-    // 2. Every Windows CI job that installs LLVM must pin the same major as LIBCLANG_VERSION,
-    //    since the `tool_webview` scrape (and the clippy/test builds) parse with that clang.
+    // 2. Guard against a reintroduced `install-llvm-action` whose major disagrees with the pin.
     let major = LIBCLANG_VERSION
         .split('.')
         .next()
@@ -61,7 +64,7 @@ fn main() {
         }
     }
 
-    println!("clang pin OK: libclang {LIBCLANG_VERSION}, CI LLVM major {major}");
+    println!("clang pin OK: libclang {LIBCLANG_VERSION}");
 }
 
 /// The `version: "N"` value of every `KyleMayes/install-llvm-action` step in a workflow that is
