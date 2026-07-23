@@ -15,7 +15,7 @@ use std::path::{Path, PathBuf};
 /// `libclang.runtime.win-<arch>` NuGet package from the .NET Foundation's `dotnet/clangsharp`
 /// project). clang's macro-capture behavior shifts between major versions, so the version is
 /// asserted at startup against the loaded libclang to keep the scrape deterministic.
-pub const LIBCLANG_VERSION: &str = "18.1.3";
+pub const LIBCLANG_VERSION: &str = "21.1.8";
 
 /// Pinned LLVM release component that ships the clang builtin *resource headers*
 /// (`intrin.h`, the `__stddef`/`__stdarg`/x86/arm intrinsic headers, …), version-matched
@@ -27,7 +27,7 @@ pub const LIBCLANG_VERSION: &str = "18.1.3";
 /// passed as `-resource-dir` for the non-x64 arch passes. The component tarball (~22 MB) is
 /// pinned to the exact `llvmorg-<ver>` tag so the multi-arch scrape stays deterministic.
 const CLANG_RESOURCE_URL: &str =
-    "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.3/clang-18.1.3.src.tar.xz";
+    "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/clang-21.1.8.src.tar.xz";
 
 /// Pinned `libclang.dll` NuGet packages (`dotnet/clangsharp`'s `libclang.runtime.win-<arch>`,
 /// version-matched to [`LIBCLANG_VERSION`]), one per host arch. These are the reproducible
@@ -105,9 +105,9 @@ pub fn assert_libclang_version() {
     );
 }
 
-/// Returns `true` when `reported` (e.g. `"clang version 18.1.3"`) contains `pinned` as a whole
-/// version token — bounded by non-`[0-9.]` on both sides — so a prefix like `18.1.3` does **not**
-/// spuriously match `18.1.30`.
+/// Returns `true` when `reported` (e.g. `"clang version 21.1.8"`) contains `pinned` as a whole
+/// version token — bounded by non-`[0-9.]` on both sides — so a prefix like `21.1.8` does **not**
+/// spuriously match `21.1.80`.
 fn version_is_pinned(reported: &str, pinned: &str) -> bool {
     reported.match_indices(pinned).any(|(i, _)| {
         let before_ok = reported[..i]

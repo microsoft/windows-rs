@@ -28,7 +28,7 @@ stays a clean libclang library and is **not** a shared home for SDK/runtime vers
 
 | Dependency | Version | Owner (pin) | Obtained by | Kept honest by |
 | --- | --- | --- | --- | --- |
-| libclang | `18.1.3` | `LIBCLANG_VERSION` — `crates/libs/clang/src/provision.rs` | download (NuGet: `libclang.runtime.win-<arch>` + LLVM release headers) | `tool_clang` validator + runtime assert |
+| libclang | `21.1.8` | `LIBCLANG_VERSION` — `crates/libs/clang/src/provision.rs` | download (NuGet: `libclang.runtime.win-<arch>` + LLVM release headers) | `tool_clang` validator + runtime assert |
 | Windows SDK | `10.0.28000.2270` | `SDK_VERSION` — `crates/tools/win32/src/main.rs` | download (NuGet) | `tool_win32` zero-diff regen |
 | Windows WDK | `10.0.28000.1839` | `WDK_VERSION` — `crates/tools/wdk/src/main.rs` | download (NuGet) | `tool_wdk` zero-diff regen; reads `SDK_VERSION` from `tool_win32` |
 | SDK Contracts (WinRT) | `10.0.28000.2270` | `CONTRACTS_VERSION` — `crates/tools/winrt/src/main.rs` | download (NuGet) | `tool_winrt` zero-diff regen |
@@ -36,7 +36,7 @@ stays a clean libclang library and is **not** a shared home for SDK/runtime vers
 | WinUI / Windows App SDK metadata (`.winmd` corpus) | `2.1.3` | `WINDOWS_APP_SDK_VERSION` — `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed corpus |
 | Windows App SDK runtime | `2.1.3` | `RUNTIME_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) + committed bootstrap DLLs | `tool_reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
 | WebView2 runtime projection | `1.0.4022.49` | `WEBVIEW2_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool_reactor` guard: `== WEBVIEW2_VERSION` |
-| LLVM / libclang (CI) | `18` (Windows) | `version:` — `test.yml` | `KyleMayes/install-llvm-action` | `tool_clang`: Windows `version:` `== LIBCLANG_VERSION` major |
+| LLVM / libclang (CI) | `21` (Windows) | `version:` — `test.yml` | `KyleMayes/install-llvm-action` | `tool_clang`: Windows `version:` `== LIBCLANG_VERSION` major |
 
 ## Toolchain: libclang
 
@@ -44,7 +44,7 @@ The header scrapers (`tool_win32`, `tool_wdk`, `tool_webview`) parse C/C++ with 
 version is pinned because clang's macro-capture behavior drifts across majors, which would
 silently change the generated corpus.
 
-- **Owner:** `provision.rs` declares `LIBCLANG_VERSION = "18.1.3"`. `libclang.dll` comes from the
+- **Owner:** `provision.rs` declares `LIBCLANG_VERSION = "21.1.8"`. `libclang.dll` comes from the
   `libclang.runtime.win-<arch>` NuGet packages (`dotnet/clangsharp`, .NET Foundation) fetched at
   that version; the LLVM `CLANG_RESOURCE_URL` embeds it too.
 - **Obtained:** if `LIBCLANG_PATH` is unset, `ensure_libclang` fetches the pinned
@@ -52,10 +52,10 @@ silently change the generated corpus.
   the SDK/WDK/WebView2 pins) and points `LIBCLANG_PATH` at its `runtimes/<rid>/native/`; non-x64
   passes also fetch version-matched LLVM resource headers. `LIBCLANG_PATH` / `CLANG_RESOURCE_DIR`
   override for offline machines. All three scrapers call it, so their `gen.yml` jobs need no LLVM
-  install — they always parse with the pinned `18.1.3`, in CI and on a fresh checkout alike.
+  install — they always parse with the pinned `21.1.8`, in CI and on a fresh checkout alike.
 - **CI:** the `gen.yml` scrapers self-provision (above), and `clippy.yml` installs no LLVM either —
   `cargo clippy` never loads libclang (clang-sys's `runtime` feature dlopens it only when a test
-  actually parses). Only `test.yml` installs LLVM via `KyleMayes/install-llvm-action@v2` (`18` on
+  actually parses). Only `test.yml` installs LLVM via `KyleMayes/install-llvm-action@v2` (`21` on
   Windows, matched to `LIBCLANG_VERSION`), because its `cargo test` runs the `test_clang` suite,
   which loads libclang at runtime through the ambient `LIBCLANG_PATH`. `test.yml` runs a
   Windows-only matrix, so this is the only LLVM CI install; the Linux CI jobs (e.g.
@@ -66,6 +66,10 @@ silently change the generated corpus.
 - **To update:** bump `LIBCLANG_VERSION`, `CLANG_RESOURCE_URL`, and the Windows `version:` in
   `test.yml` (only when the major changes); run `tool_clang` (must pass) and regenerate all corpora.
   A newer `libclang.runtime.*` version is picked up by the version bump alone — no URL to touch.
+  Note the current ceiling is LLVM **21**: `test.yml`'s `KyleMayes/install-llvm-action` has no
+  Windows asset for LLVM 22+, though the `libclang.runtime.win-<arch>` NuGet package already ships
+  22.1.8. Going past 21 requires making `test.yml` self-provision libclang from that NuGet package
+  (as `gen.yml` already does) instead of installing LLVM — see windows-clang.md's future-work note.
 
 ## Windows SDK, WDK, and WinRT contracts
 
@@ -107,7 +111,7 @@ WebView2 ships only C/C++ SDK headers, so `windows-webview` is scraped from them
 - **Headers are downloaded, not vendored:** `tool_webview` fetches the pinned NuGet package via
   `nuget_package` and parses the headers from it. A bump is a one-line `WEBVIEW2_VERSION` edit.
 - **Pinned libclang:** like `tool_win32`/`tool_wdk`, `tool_webview` calls `ensure_libclang` +
-  `assert_libclang_version`, so it parses with the exact pinned `18.1.3` (its `gen.yml` job needs
+  `assert_libclang_version`, so it parses with the exact pinned `21.1.8` (its `gen.yml` job needs
   no LLVM install — only the SDK include paths for the system headers `WebView2.h` pulls in).
 - **Runtime projection:** bump `WEBVIEW2_VER` in `reactor-setup`; it must equal
   `WEBVIEW2_VERSION` — `tool_reactor` asserts this.

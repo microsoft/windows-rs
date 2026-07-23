@@ -5018,6 +5018,7 @@ mod Windows {
             ImageBase: u64,
         }
         const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766;
+        const NOP_FUNCTION: u32 = 0;
         struct NOTIFY_USER_POWER_SETTING {
             Guid: GUID,
         }
