@@ -6,7 +6,7 @@ use windows_rdl::*;
 // bump is a one-line edit that re-fetches a byte-stable corpus. `tool_reactor` reads
 // `WEBVIEW2_VERSION` back and fails loudly if `windows-reactor-setup` drifts from it.
 const WEBVIEW2_PKG: &str = "Microsoft.Web.WebView2";
-const WEBVIEW2_VERSION: &str = "1.0.4022.49";
+const WEBVIEW2_VERSION: &str = "1.0.4078.44";
 
 fn main() {
     let time = std::time::Instant::now();

@@ -4,12 +4,12 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 
 const RUNTIME_PKG: &str = "Microsoft.WindowsAppSDK.Runtime";
-const RUNTIME_VER: &str = "2.1.3";
+const RUNTIME_VER: &str = "2.3.1";
 const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
 const APP_MANIFEST: &str = include_str!("../assets/app.manifest");
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
 const WEBVIEW2_PKG: &str = "Microsoft.Web.WebView2";
-const WEBVIEW2_VER: &str = "1.0.4022.49";
+const WEBVIEW2_VER: &str = "1.0.4078.44";
 const WEBVIEW2_CORE_DLL: &str = "Microsoft.Web.WebView2.Core.dll";
 
 fn assert_windows() {
