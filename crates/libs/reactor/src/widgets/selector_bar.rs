@@ -5,8 +5,8 @@ use super::*;
 pub struct SelectorBarItemDef {
     /// Display text.
     pub text: String,
-    /// Optional symbol icon.
-    pub icon: Option<Symbol>,
+    /// Optional icon.
+    pub icon: Option<Icon>,
 }
 
 impl SelectorBarItemDef {
@@ -17,8 +17,8 @@ impl SelectorBarItemDef {
         }
     }
 
-    pub fn icon(mut self, icon: Symbol) -> Self {
-        self.icon = Some(icon);
+    pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
+        self.icon = Some(icon.into());
         self
     }
 }

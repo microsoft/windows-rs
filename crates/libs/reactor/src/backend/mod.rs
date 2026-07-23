@@ -268,6 +268,7 @@ pub enum PropValue {
     U16(u16),
     Bool(bool),
     I32(i32),
+    Icon(Icon),
     Thickness(Thickness),
     Color(Color),
     Unset,

@@ -52,6 +52,7 @@ widget_modules! {
     flyout,
     grid,
     hyperlink_button,
+    icon,
     image,
     info_badge,
     info_bar,
