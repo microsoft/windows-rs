@@ -36,7 +36,7 @@ stays a clean libclang library and is **not** a shared home for SDK/runtime vers
 | WinUI / Windows App SDK metadata (`.winmd` corpus) | `2.1.3` | `WINDOWS_APP_SDK_VERSION` — `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed corpus |
 | Windows App SDK runtime | `2.1.3` | `RUNTIME_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) + committed bootstrap DLLs | `tool_reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
 | WebView2 runtime projection | `1.0.4022.49` | `WEBVIEW2_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool_reactor` guard: `== WEBVIEW2_VERSION` |
-| LLVM / libclang (CI) | `21.1.8` | `LIBCLANG_VERSION` — `crates/libs/clang/src/provision.rs` | download (NuGet) via `tool_clang path` | `tool_clang`: `CLANG_RESOURCE_URL` embeds it; workflows scanned as a defensive guard |
+| LLVM / libclang (CI) | `21.1.8` | `LIBCLANG_VERSION` — `crates/libs/clang/src/provision.rs` | download (NuGet) via `tool_clang path` | `tool_clang`: `CLANG_RESOURCE_URL` embeds it |
 
 ## Toolchain: libclang
 
@@ -59,8 +59,7 @@ silently change the generated corpus.
   `LIBCLANG_PATH` from the same pin via `echo "LIBCLANG_PATH=$(cargo run -q -p tool_clang -- path)"
   >> "$GITHUB_ENV"`. `tool_clang path` prints `windows_clang::libclang_dir()`, keeping the `unsafe`
   `set_var` off the multithreaded test runner. The Linux CI jobs build code that needs no libclang.
-- **Validated by `tool_clang`:** asserts the `CLANG_RESOURCE_URL` embeds `LIBCLANG_VERSION`, and
-  guards against a reintroduced `install-llvm-action` step whose major disagrees with the pin.
+- **Validated by `tool_clang`:** asserts the `CLANG_RESOURCE_URL` embeds `LIBCLANG_VERSION`.
   Writes nothing.
 - **To update:** bump `LIBCLANG_VERSION` and `CLANG_RESOURCE_URL`; run `tool_clang` (must pass) and
   regenerate all corpora. A newer `libclang.runtime.*` version is picked up by the version bump
@@ -185,7 +184,7 @@ Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{i
 | `tool_wdk` | `WDK_VERSION`; SDK sync | zero-diff regen; reads `tool_win32`'s `SDK_VERSION` |
 | `tool_winrt` | `CONTRACTS_VERSION` | zero-diff regen of `Windows.winmd` |
 | `tool_webview` | `WEBVIEW2_VERSION` | zero-diff regen of `webview/src/bindings.rs` |
-| `tool_clang` | `LIBCLANG_VERSION` ↔ URLs ↔ CI LLVM | pure-check assertions |
+| `tool_clang` | `LIBCLANG_VERSION` ↔ `CLANG_RESOURCE_URL` | pure-check assertion |
 | `tool_reactor` | `WINDOWS_APP_SDK_VERSION`; reactor-setup sync | zero-diff regen of the winmd corpus + bindings + bootstrap DLLs; guard reads reactor-setup constants |
 
 All cross-file reads go through `helpers::read_str_const`, so each pin is declared once by its
