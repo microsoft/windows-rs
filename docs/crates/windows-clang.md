@@ -124,7 +124,7 @@ Everything generic to *any* header scrape lives in `windows-clang`:
   `LIBCLANG_VERSION` wheel, fetched + cached on first use), `clang_resource_dir`, and
   `nuget_package` (restore a pinned NuGet package into the global cache).
 - **Parse + emit** — the `clang()` builder (target, args, `input`/`input_str`, `scope`,
-  `scope_headers`, `import_library`, `drop_lib_less`), header partitioning
+  `scope_headers`, `exclude_headers`, `import_library`, `drop_lib_less`), header partitioning
   (`write_by_header`), and the per-kind cursor→RDL modules.
 - **Multi-arch orchestration** — the `Clang::scrape` terminal, `Arch` (clang triple +
   `SupportedArchitecture` bits + per-target defines), `ScrapePlan` (the orchestration-only
@@ -411,6 +411,15 @@ an empty `#[library("")]` would otherwise force `windows-bindgen` to emit
 by `tool_win32`; unit-test fixtures that supply no import libraries leave it off so
 they still emit their functions.
 
+A whole header can be dropped from the corpus with the opt-in `exclude_headers` flag. Because
+scope is directory-based (`um`/`shared`), a header that lives under the SDK include tree is
+otherwise unconditionally in scope even when its contents are not Windows APIs. `tool_win32`
+uses this to drop `intsafe.h` (`EXCLUDE_HEADERS = &["intsafe.h"]`) — a header of inline
+safe-integer-math helpers (`UIntAdd`, never exported so never in metadata) whose only scraped
+output was standard C limit macros (`INT32_MAX`, `UINT8_MAX`, …) and intsafe's internal
+`*_ERROR` sentinels. The whole partition is dropped before the reachability sweep, which is
+safe because those constants are leaf values nothing else references.
+
 The import-library list (`IMPORT_LIBS` in `main.rs`) is ordered by resolution priority (first-wins):
 per-DLL host libraries (`kernel32.lib`) first, the `api-ms-win-*` apiset umbrella
 (`onecore.lib`, `onecoreuap.lib`) next, and `vertdll.lib` — the VBS-enclave runtime —
@@ -677,8 +686,11 @@ shared by every consumer (`tool_win32`, `tool_wdk`, …) rather than duplicated 
   LLVM, so the pin can follow the latest `libclang.runtime.*` NuGet package.
 - `assert_libclang_version()` — fails fast if the loaded libclang does not match the
   pinned `LIBCLANG_VERSION` (clang's capture behavior drifts across versions).
-- `clang_resource_dir()` — resolves a `-resource-dir` of version-matched builtin
-  headers (needed only for the non-x64 arch passes), fetching them on first use.
+- `clang_resource_dir()` — resolves a `-resource-dir` of the pinned clang builtin headers
+  (needed only for the non-x64 arch passes), fetched on first use via a blobless, shallow,
+  sparse `git` checkout of `clang/lib/Headers` at the `llvmorg-<LIBCLANG_VERSION>` tag. The
+  DLL (NuGet) and the headers (git tag) are both derived from the one `LIBCLANG_VERSION`
+  const, so they can never drift.
 - `nuget_package(id, version)` — resolves a restored NuGet package (global-cache or
   flat `<Id>.<Version>` layout), fetching the pinned nupkg from nuget.org on a miss.
   Used for libclang and the SDK/WDK/WebView2 pins alike; those version pins stay in each

@@ -711,10 +711,6 @@ pub use inspectable::*;
 pub mod interlockedapi;
 #[cfg(feature = "interlockedapi")]
 pub use interlockedapi::*;
-#[cfg(feature = "intsafe")]
-pub mod intsafe;
-#[cfg(feature = "intsafe")]
-pub use intsafe::*;
 #[cfg(feature = "intshcut")]
 pub mod intshcut;
 #[cfg(feature = "intshcut")]

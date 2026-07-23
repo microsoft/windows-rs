@@ -3,21 +3,14 @@
 //! tree stays clean, and any inconsistency in how libclang is pinned fails the run loudly.
 //!
 //! The metadata scrapers (`tool_win32`/`tool_wdk`/`tool_winrt`/`tool_webview`) all parse with
-//! the pinned libclang, so a drift between `LIBCLANG_VERSION` and the download URLs that fetch it
-//! would silently change the generated corpus. This tool is the paired guardian of that pin,
-//! exactly as `tool_win32` guards the SDK pin and `tool_wdk` reads it back from `tool_win32`.
+//! the pinned libclang, so a drift between the loaded `libclang.dll` and the clang builtin
+//! resource headers would silently change the generated corpus. Both are keyed off the single
+//! `LIBCLANG_VERSION` const (the NuGet DLL by version, the headers by the derived `llvmorg-<ver>`
+//! git tag), so this tool confirms that pin loads and self-provisions rather than checking a
+//! version literal for drift — there is only one to bump.
 
 use std::path::Path;
 use windows_clang::LIBCLANG_VERSION;
-
-/// The `windows-clang` source declaring the libclang pin (version + the download URLs that
-/// fetch that exact build).
-const PROVISION: &str = "crates/libs/clang/src/provision.rs";
-
-/// The pinned download URL(s), which must embed [`LIBCLANG_VERSION`]. `libclang.dll` comes from the
-/// `libclang.runtime.win-<arch>` NuGet packages fetched by version (no URL to drift); only the
-/// clang resource-header component is a literal URL.
-const PINNED_URLS: &[&str] = &["CLANG_RESOURCE_URL"];
 
 fn main() {
     // `tool_clang path` prints the directory holding the pinned `libclang.dll` (respecting an
@@ -32,16 +25,10 @@ fn main() {
         return;
     }
 
-    // Each pinned download URL must reference the pinned version, so a version bump that
-    // forgets a URL fails here rather than silently fetching a stale libclang.
-    for name in PINNED_URLS {
-        let url = helpers::read_str_const(PROVISION, name);
-        assert!(
-            url.contains(LIBCLANG_VERSION),
-            "libclang pin drift: `{name}` in `{PROVISION}` does not reference \
-             LIBCLANG_VERSION `{LIBCLANG_VERSION}`:\n  {url}"
-        );
-    }
+    // Fetch + load the pinned `libclang.dll` and assert it reports `LIBCLANG_VERSION`. This is the
+    // same provisioning the scrapers run, so a broken/missing pin fails here rather than mid-scrape.
+    windows_clang::ensure_libclang();
+    windows_clang::assert_libclang_version();
 
     println!("clang pin OK: libclang {LIBCLANG_VERSION}");
 }

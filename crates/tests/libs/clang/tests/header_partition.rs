@@ -93,6 +93,47 @@ fn partition_by_defining_header() {
     assert!(b.contains("-> usize"), "b.rdl:\n{b}");
 }
 
+// `exclude_headers` drops a named header's whole partition even though nothing else scopes it
+// out — the mechanism `tool_win32` uses to keep `intsafe.h` (inline safe-math helpers whose only
+// scraped output is standard C limit macros) out of the corpus. `a.h` is a leaf (its `AThing` is
+// referenced by nothing), so excluding it must delete `a.rdl` while leaving `b.rdl` and the
+// shared header it depends on completely intact.
+#[test]
+fn exclude_headers_drops_partition() {
+    let scratch = format!("{}/header_exclude", env!("OUT_DIR"));
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let mut clang = windows_clang::clang();
+    clang
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .library("test.dll")
+        .exclude_headers(["a.h"])
+        .input("partition_input/a.h")
+        .input("partition_input/b.h");
+
+    clang.write_by_header("Test", &[], &scratch).unwrap();
+
+    // The excluded header produces no partition at all.
+    assert!(
+        !std::path::Path::new(&format!("{scratch}/a.rdl")).exists(),
+        "excluded header `a.h` must not produce `a.rdl`"
+    );
+
+    // Its sibling and the shared header it references are untouched.
+    let b = read(&scratch, "b");
+    let shared = read(&scratch, "shared");
+    assert!(b.contains("fn BThing"), "b.rdl:\n{b}");
+    assert!(
+        shared.contains("type HFOO = *mut void"),
+        "shared.rdl:\n{shared}"
+    );
+}
+
 // Reachability-by-reference scope sweep. `scope_api/api.h` is in scope; it `#include`s
 // the out-of-scope `scope_crt/crt.h` and references `APITYPE` from it. With
 // `scope(["scope_api"])`, every in-scope declaration is emitted, but an out-of-scope

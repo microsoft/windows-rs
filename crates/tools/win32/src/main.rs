@@ -106,6 +106,15 @@ const ROOT: &str = "Windows.Win32";
 /// `EXCEPTION_DISPOSITION` — survive because in-scope APIs reference them).
 const SCOPE: &[&str] = &["um", "shared"];
 
+/// In-scope headers dropped wholesale because they carry no genuine Windows API surface. `intsafe.h`
+/// is a bundle of inline safe-integer-arithmetic helpers (`UIntAdd`, `SizeTMult`, … — inline, never
+/// exported, so never in metadata); the only thing the scraper captures from it is standard C
+/// type-limit macros (`INT32_MAX`, `UINT8_MAX`, `DWORD_MAX`, …) and its internal `*_ERROR`
+/// sentinels — none of which are Windows APIs, and several of which libclang can only truncate to a
+/// degenerate `-1` (`UINT32_MAX`, `INT64_MAX`, …). Excluding the header keeps that noise out of the
+/// corpus (and makes the multi-arch scrape robust to clang's `stdint.h` drifting across versions).
+const EXCLUDE_HEADERS: &[&str] = &["intsafe.h"];
+
 /// Architectures to scrape and arch-merge. The committed RDL corpus is always x64-canonical; any
 /// additional arch listed here (`arm64`, `x86`) is scraped to a throwaway winmd and folded in via
 /// `SupportedArchitecture` so symbols that exist on only a subset of arches are tagged.
@@ -804,7 +813,8 @@ fn main() {
         .args(include_args)
         .drop_lib_less(true)
         .scope(SCOPE.iter().copied())
-        .scope_headers(scope_headers.iter().copied());
+        .scope_headers(scope_headers.iter().copied())
+        .exclude_headers(EXCLUDE_HEADERS.iter().copied());
     for source in &sources {
         clang.input_str(source);
     }

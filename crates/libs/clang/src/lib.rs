@@ -690,6 +690,14 @@ pub struct Clang {
     /// sweep. The projection headers such a header transitively pulls stay out of scope
     /// unless named here too.
     scope_headers: HashSet<String>,
+    /// Defining-header stems (as in [`write_by_header`](Self::write_by_header)) whose partitions
+    /// are dropped entirely, even though they are in [`scope`](Self::scope). Use this for an
+    /// in-scope SDK header that contributes no genuine API surface — e.g. `intsafe.h`, a bundle of
+    /// inline safe-integer-math helpers whose only scraped output is standard C type-limit macros
+    /// (`INT32_MAX`, `UINT8_MAX`, …) and internal `*_ERROR` sentinels. The drop happens before the
+    /// reachability sweep, so an excluded header never acts as a root; it is safe only for headers
+    /// nothing in-scope references (leaf constants). Empty (the default) drops nothing.
+    exclude_headers: HashSet<String>,
     /// Symbol allowlist for a targeted extraction. When non-empty, [`write`](Self::write)
     /// emits only the named functions (and their transitive type/const closure,
     /// deduplicated against the reference winmd) and suppresses every other root. Empty
@@ -922,6 +930,25 @@ impl Clang {
         self
     }
 
+    /// Drops the partitions of the named headers (by file name; the stem is taken as in
+    /// [`write_by_header`](Self::write_by_header)) even though they are in [`scope`](Self::scope).
+    /// Use this to suppress an in-scope SDK header that carries no genuine API surface — e.g.
+    /// `intsafe.h`, whose scraped output is nothing but standard C type-limit macros and internal
+    /// `*_ERROR` sentinels. Safe only for headers nothing in-scope references (leaf constants).
+    pub fn exclude_headers<I, S>(&mut self, headers: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for header in headers {
+            let stem = header_stem_to_namespace(header.as_ref());
+            if !stem.is_empty() {
+                self.exclude_headers.insert(stem);
+            }
+        }
+        self
+    }
+
     /// Restricts emission to an allowlist of function symbols. When one or more
     /// symbols are set, [`write`](Self::write) emits only those functions as roots —
     /// their transitive type/const closure still resolves (either to the reference
@@ -1119,6 +1146,14 @@ impl Clang {
                     args: &arg_refs,
                 },
             )?;
+        }
+
+        // Drop excluded in-scope partitions (headers named via `exclude_headers`, e.g. `intsafe.h`)
+        // before the sweep, so an excluded header is never a reachability root. Safe because these
+        // headers carry only leaf constants that no in-scope declaration references.
+        if !self.exclude_headers.is_empty() {
+            collectors.retain(|stem, _| !self.exclude_headers.contains(stem));
+            scope_in.retain(|stem, _| !self.exclude_headers.contains(stem));
         }
 
         // Reachability-by-reference sweep: when a scope is declared, drop every
