@@ -6,6 +6,7 @@
 use windows_core::Interface as _;
 
 use windows_reactor::Element;
+use windows_reactor::Icon;
 use windows_reactor::Symbol;
 use windows_reactor::vstack;
 use windows_reactor::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
@@ -484,6 +485,38 @@ pub fn button_icon_glyph_change_preserves_text(h: Harness) -> FixtureFuture {
         h.check(
             "Interaction_ButtonIconGlyph_TextPreserved",
             h.find_text("Action").is_some(),
+        );
+    })
+}
+
+/// Verify that the non-`Symbol` [`Icon`](windows_reactor::Icon) kinds construct
+/// and attach real WinUI elements: `Icon::font` yields a `FontIcon` and
+/// `Icon::bitmap` yields a `BitmapIcon`. Element presence proves the whole
+/// `build_icon_element` path ran — factory activation, the `SetGlyph` /
+/// `SetUriSource` setters, and the cast to `IconElement` — without erroring.
+pub fn button_bitmap_and_font_icons(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|_cx| {
+            vstack((
+                button("Starred").icon(Icon::font("\u{E734}")),
+                // A syntactically valid package URI; the image need not resolve
+                // for the BitmapIcon element itself to be created and attached.
+                button("Repo").icon(Icon::bitmap("ms-appx:///Assets/logo.png")),
+            ))
+            .into()
+        }));
+        h.render().await;
+
+        let font_icons = h.find_all::<crate::bindings::FontIcon>(&|_| true);
+        h.check(
+            "Interaction_ButtonIcon_FontIconCreated",
+            font_icons.len() == 1,
+        );
+
+        let bitmap_icons = h.find_all::<crate::bindings::BitmapIcon>(&|_| true);
+        h.check(
+            "Interaction_ButtonIcon_BitmapIconCreated",
+            bitmap_icons.len() == 1,
         );
     })
 }
