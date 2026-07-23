@@ -668,6 +668,13 @@ shared by every consumer (`tool_win32`, `tool_wdk`, …) rather than duplicated 
   pinned host-arch `libclang.runtime.win-<arch>` NuGet package (`dotnet/clangsharp`) via
   `nuget_package` and points `LIBCLANG_PATH` at its `runtimes/<rid>/native/`. Call it once
   at the start of `main`, before the first libclang load.
+- `libclang_dir()` — the resolution behind `ensure_libclang` (fetch the pinned package,
+  return its `native/` directory) *without* mutating the environment. `ensure_libclang`
+  sets `LIBCLANG_PATH` via `unsafe set_var`, safe at a single-threaded `main` start but not
+  from cargo's multi-threaded test runner. So CI's `test.yml` exports `LIBCLANG_PATH` from a
+  workflow step — `echo "LIBCLANG_PATH=$(cargo run -q -p tool_clang -- path)"`, where
+  `tool_clang path` prints `libclang_dir()` — for the `test_clang` suite. No CI job installs
+  LLVM, so the pin can follow the latest `libclang.runtime.*` NuGet package.
 - `assert_libclang_version()` — fails fast if the loaded libclang does not match the
   pinned `LIBCLANG_VERSION` (clang's capture behavior drifts across versions).
 - `clang_resource_dir()` — resolves a `-resource-dir` of version-matched builtin

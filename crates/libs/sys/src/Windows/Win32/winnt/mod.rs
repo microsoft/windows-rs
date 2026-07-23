@@ -6652,6 +6652,7 @@ pub struct NON_PAGED_DEBUG_INFO {
     pub ImageBase: u64,
 }
 pub const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766;
+pub const NOP_FUNCTION: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct NOTIFY_USER_POWER_SETTING {

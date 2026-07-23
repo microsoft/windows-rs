@@ -457,6 +457,15 @@ impl<'a> Parser<'a> {
                         *kind == CXToken_Literal
                             && (spelling.starts_with('"') || spelling.starts_with("L\""))
                     });
+                    // Skip macros with a 128-bit integer literal (MSVC `i128`/`ui128`
+                    // suffix, e.g. `#define INT128_MAX 170141183460469231731687303715884105727i128`
+                    // in `intsafe.h`, which clang accepts under `-fms-extensions`). The metadata
+                    // `Value` type has no 128-bit variant and `clang_getEnumConstantDeclValue`
+                    // returns a 64-bit `long long`, so the batch evaluator would silently
+                    // truncate such a constant to a wrong value (`INT128_MAX` -> `-1`).
+                    let body_has_int128_literal = tokens.iter().skip(1).any(|(kind, spelling)| {
+                        *kind == CXToken_Literal && spelling.to_ascii_lowercase().ends_with("i128")
+                    });
                     // A valid integer constant expression has balanced delimiters.
                     // A macro whose replacement list has unbalanced parentheses or
                     // braces (e.g. a `#define ...END... }, };` initializer tail) is,
@@ -468,7 +477,11 @@ impl<'a> Parser<'a> {
                     // evaluator also recovers from any residual swallow, but this
                     // cheap pre-filter keeps that rare and fast.)
                     let body_is_balanced = tokens_balanced(tokens.iter().skip(1));
-                    if !body_has_non_type_keyword && !body_has_string_literal && body_is_balanced {
+                    if !body_has_non_type_keyword
+                        && !body_has_string_literal
+                        && !body_has_int128_literal
+                        && body_is_balanced
+                    {
                         // The token parser returned None for a candidate
                         // object-like macro.  Defer to the batch evaluator.
                         self.pending_macros.push(child.name());

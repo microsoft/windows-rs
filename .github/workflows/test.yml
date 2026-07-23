@@ -59,15 +59,6 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: ${{ matrix.target }}
-      - name: Install LLVM and Clang (Windows)
-        if: runner.os == 'Windows'
-        uses: KyleMayes/install-llvm-action@v2
-        with:
-          version: "18"
-      - name: Set LIBCLANG_PATH (Windows)
-        if: runner.os == 'Windows'
-        run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
-        shell: bash
       - name: Install .NET 9 x86 runtime
         # The windows-2025-vs2026 image ships .NET 9 only for x64/arm64; the
         # i686 csharp_client test launches a win-x86 process that needs the
@@ -81,6 +72,12 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           key: ${{ matrix.target }}
+      - name: Provision libclang (Windows)
+        # Export LIBCLANG_PATH from the pinned NuGet build (the same one the scrapers use) for the
+        # test_clang suite. After rust-cache so the tool_clang build is cache-accelerated.
+        if: runner.os == 'Windows'
+        run: echo "LIBCLANG_PATH=$(cargo run -q -p tool_clang -- path)" >> "$GITHUB_ENV"
+        shell: bash
       - name: Test
         # windows-composition and its `system` consumers (test_composition, the composition samples)
         # are excluded here: windows-reactor now requires windows-composition's `lifted` stack, so the
