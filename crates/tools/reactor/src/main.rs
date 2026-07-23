@@ -23,7 +23,7 @@ const WINMD_DIR: &str = "crates/tools/reactor/winmd";
 /// those components ship the `.winmd` [`refresh_winmd`] copies into [`WINMD_DIR`]. It equals the
 /// runtime `windows-reactor-setup` stages (`RUNTIME_VER`, asserted in
 /// [`assert_reactor_setup_pins`]), so one edit updates metadata and runtime together.
-const WINDOWS_APP_SDK_VERSION: &str = "2.1.3";
+const WINDOWS_APP_SDK_VERSION: &str = "2.3.1";
 
 fn main() {
     let time = std::time::Instant::now();
