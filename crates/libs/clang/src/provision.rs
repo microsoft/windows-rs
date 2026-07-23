@@ -140,7 +140,7 @@ fn version_is_pinned(reported: &str, pinned: &str) -> bool {
 /// has no builtin conflict, so its committed corpus is generated without a resource dir and stays
 /// byte-identical). A `CLANG_RESOURCE_DIR` environment override is honored for air-gapped/offline
 /// machines that pre-stage the headers; otherwise they are pulled with a blobless, shallow, sparse
-/// `git` checkout of [`CLANG_RESOURCE_REPO`] into `target/windows-clang/clang-resource/<ver>`. The
+/// `git` checkout of the LLVM repo into `target/windows-clang/clang-resource/<ver>`. The
 /// cache is keyed by the pinned version, so a populated cache short-circuits.
 pub fn clang_resource_dir() -> String {
     if let Ok(dir) = std::env::var("CLANG_RESOURCE_DIR") {
