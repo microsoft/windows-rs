@@ -1265,6 +1265,27 @@ impl Backend for WinUIBackend {
                         cc.SetContent(&panel)
                     }
                 }
+                (Prop::Icon, PropValue::Unset, Handle::Button(b)) => {
+                    let cc = b.cast::<bindings::IContentControl>()?;
+                    let Ok(existing) = cc.Content() else {
+                        return Ok(());
+                    };
+                    // icon+text StackPanel layout: unwrap back to just the text
+                    // child (index 1), discarding the icon.
+                    if let Ok(panel) = existing.cast::<bindings::IPanel>() {
+                        let children = panel.Children()?;
+                        if children.Size()? >= 2 {
+                            let text_child = children.GetAt(1)?;
+                            children.Clear()?;
+                            return cc.SetContent(&text_child);
+                        }
+                    }
+                    // icon-only layout: clear the content entirely.
+                    if existing.cast::<bindings::IIconElement>().is_ok() {
+                        return cc.SetContent(None::<&windows_core::IInspectable>);
+                    }
+                    Ok(())
+                }
                 (Prop::StyleVariant, PropValue::I32(v), Handle::Button(b)) => {
                     let fe = b.cast::<bindings::IFrameworkElement>()?;
                     let style_key = match *v {

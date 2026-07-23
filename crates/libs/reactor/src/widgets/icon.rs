@@ -10,7 +10,9 @@ use super::*;
 pub enum Icon {
     /// A built-in system glyph from the [`Symbol`] enum (WinUI `SymbolIcon`).
     Symbol(Symbol),
-    /// An image loaded from a URI — PNG, JPG, SVG, etc. (WinUI `BitmapIcon`).
+    /// A raster image loaded from a URI — PNG, JPG, or other bitmap formats
+    /// (WinUI `BitmapIcon`). Note that `BitmapIcon` does not render SVG; use an
+    /// `ImageIcon` with an `SvgImageSource` for vector artwork.
     ///
     /// The URI may be an app package path (`ms-appx:///Assets/logo.png`) or an
     /// absolute `http(s)` URL. Rendered in full color (not tinted monochrome).

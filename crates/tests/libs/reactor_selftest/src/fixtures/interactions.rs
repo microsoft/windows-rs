@@ -520,3 +520,57 @@ pub fn button_bitmap_and_font_icons(h: Harness) -> FixtureFuture {
         );
     })
 }
+
+/// Verify that removing a button's icon (`Some(Icon)` → `None`) actually clears
+/// the previously-applied `IconElement` and restores the plain text label. This
+/// exercises the `(Prop::Icon, PropValue::Unset, Handle::Button)` backend arm.
+pub fn button_icon_removal_clears_icon(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|cx| {
+            let (removed, set) = cx.use_state(false);
+            let mut b = button("Action").on_click(move || set.call(!removed));
+            if !removed {
+                b = b.icon(Symbol::Favorite);
+            }
+            vstack((b, text_block(format!("removed={removed}")))).into()
+        }));
+        h.render().await;
+
+        // Initial state: one SymbolIcon plus the "Action" text label.
+        h.check(
+            "Interaction_ButtonIconRemoval_InitialIconPresent",
+            h.find_all::<crate::bindings::SymbolIcon>(&|_| true).len() == 1,
+        );
+        h.check(
+            "Interaction_ButtonIconRemoval_InitialTextPresent",
+            h.find_text("Action").is_some(),
+        );
+
+        // Click — the icon is removed (Some → None).
+        let btn = h
+            .find_all::<crate::bindings::Button>(&|_| true)
+            .into_iter()
+            .next()
+            .unwrap();
+        let peer = crate::bindings::ButtonAutomationPeer::CreateInstanceWithOwner(&btn).unwrap();
+        let pat = peer
+            .cast::<crate::bindings::IAutomationPeer>()
+            .unwrap()
+            .GetPattern(crate::bindings::PatternInterface::Invoke)
+            .unwrap();
+        let invoke: crate::bindings::IInvokeProvider = pat.cast().unwrap();
+        invoke.Invoke().unwrap();
+        h.render().await;
+
+        // After removal: no SymbolIcon remains, and the text label is preserved.
+        h.check(
+            "Interaction_ButtonIconRemoval_IconCleared",
+            h.find_all::<crate::bindings::SymbolIcon>(&|_| true)
+                .is_empty(),
+        );
+        h.check(
+            "Interaction_ButtonIconRemoval_TextPreserved",
+            h.find_text("Action").is_some(),
+        );
+    })
+}

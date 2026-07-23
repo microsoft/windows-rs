@@ -191,6 +191,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         interactions::button_bitmap_and_font_icons,
     ),
     (
+        "Interaction_ButtonIcon_Removal",
+        interactions::button_icon_removal_clears_icon,
+    ),
+    (
         "Pointer_Injection_Gesture",
         pointer_input::pointer_injection_gesture,
     ),
