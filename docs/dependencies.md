@@ -28,7 +28,7 @@ stays a clean libclang library and is **not** a shared home for SDK/runtime vers
 
 | Dependency | Version | Owner (pin) | Obtained by | Kept honest by |
 | --- | --- | --- | --- | --- |
-| libclang | `21.1.8` | `LIBCLANG_VERSION` — `crates/libs/clang/src/provision.rs` | download (NuGet: `libclang.runtime.win-<arch>` + LLVM release headers) | `tool_clang` validator + runtime assert |
+| libclang | `22.1.8` | `LIBCLANG_VERSION` — `crates/libs/clang/src/provision.rs` | download (NuGet: `libclang.runtime.win-<arch>` + `git` sparse checkout of LLVM headers) | `tool_clang` validator + runtime assert |
 | Windows SDK | `10.0.28000.2270` | `SDK_VERSION` — `crates/tools/win32/src/main.rs` | download (NuGet) | `tool_win32` zero-diff regen |
 | Windows WDK | `10.0.28000.1839` | `WDK_VERSION` — `crates/tools/wdk/src/main.rs` | download (NuGet) | `tool_wdk` zero-diff regen; reads `SDK_VERSION` from `tool_win32` |
 | SDK Contracts (WinRT) | `10.0.28000.2270` | `CONTRACTS_VERSION` — `crates/tools/winrt/src/main.rs` | download (NuGet) | `tool_winrt` zero-diff regen |
@@ -36,7 +36,7 @@ stays a clean libclang library and is **not** a shared home for SDK/runtime vers
 | WinUI / Windows App SDK metadata (`.winmd` corpus) | `2.3.1` | `WINDOWS_APP_SDK_VERSION` — `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed corpus |
 | Windows App SDK runtime | `2.3.1` | `RUNTIME_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) + committed bootstrap DLLs | `tool_reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
 | WebView2 runtime projection | `1.0.4078.44` | `WEBVIEW2_VER` — `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool_reactor` guard: `== WEBVIEW2_VERSION` |
-| LLVM / libclang (CI) | `21.1.8` | `LIBCLANG_VERSION` — `crates/libs/clang/src/provision.rs` | download (NuGet) via `tool_clang path` | `tool_clang`: `CLANG_RESOURCE_URL` embeds it |
+| LLVM / libclang (CI) | `22.1.8` | `LIBCLANG_VERSION` — `crates/libs/clang/src/provision.rs` | download (NuGet) via `tool_clang path` | `tool_clang`: loads the pin and asserts its version |
 
 ## Toolchain: libclang
 
@@ -44,26 +44,30 @@ The header scrapers (`tool_win32`, `tool_wdk`, `tool_webview`) parse C/C++ with 
 version is pinned because clang's macro-capture behavior drifts across majors, which would
 silently change the generated corpus.
 
-- **Owner:** `provision.rs` declares `LIBCLANG_VERSION = "21.1.8"`. `libclang.dll` comes from the
+- **Owner:** `provision.rs` declares `LIBCLANG_VERSION = "22.1.8"`. `libclang.dll` comes from the
   `libclang.runtime.win-<arch>` NuGet packages (`dotnet/clangsharp`, .NET Foundation) fetched at
-  that version; the LLVM `CLANG_RESOURCE_URL` embeds it too.
+  that version. The paired clang builtin *resource headers* (needed only for the non-x64 arch
+  passes, to reconcile the aarch64 `__prefetch` builtin) come from a blobless, shallow, sparse
+  `git` checkout of `clang/lib/Headers` at the derived `llvmorg-<ver>` tag — so the DLL and headers
+  are the *same* single-const pin and can never drift.
 - **Obtained:** if `LIBCLANG_PATH` is unset, `ensure_libclang` fetches the pinned
   `libclang.runtime.win-<arch>` package via `nuget_package` (the shared NuGet global cache, same as
   the SDK/WDK/WebView2 pins) and points `LIBCLANG_PATH` at its `runtimes/<rid>/native/`; non-x64
-  passes also fetch version-matched LLVM resource headers. `LIBCLANG_PATH` / `CLANG_RESOURCE_DIR`
+  passes also fetch the pinned LLVM resource headers via `git`. `LIBCLANG_PATH` / `CLANG_RESOURCE_DIR`
   override for offline machines. All three scrapers call it, so their `gen.yml` jobs need no LLVM
-  install — they always parse with the pinned `21.1.8`, in CI and on a fresh checkout alike.
+  install — they always parse with the pinned `22.1.8`, in CI and on a fresh checkout alike.
 - **CI:** every workflow self-provisions the pinned libclang from NuGet — no CI job installs LLVM.
   The `gen.yml` scrapers call `ensure_libclang`; `clippy.yml` loads no libclang at all (`cargo
   clippy` never parses); and `test.yml`, whose `test_clang` suite loads libclang at runtime, exports
   `LIBCLANG_PATH` from the same pin via `echo "LIBCLANG_PATH=$(cargo run -q -p tool_clang -- path)"
   >> "$GITHUB_ENV"`. `tool_clang path` prints `windows_clang::libclang_dir()`, keeping the `unsafe`
   `set_var` off the multithreaded test runner. The Linux CI jobs build code that needs no libclang.
-- **Validated by `tool_clang`:** asserts the `CLANG_RESOURCE_URL` embeds `LIBCLANG_VERSION`.
-  Writes nothing.
-- **To update:** bump `LIBCLANG_VERSION` and `CLANG_RESOURCE_URL`; run `tool_clang` (must pass) and
-  regenerate all corpora. A newer `libclang.runtime.*` version is picked up by the version bump
-  alone — no URL to touch, and no prebuilt-asset ceiling (currently 22.1.8 is available).
+- **Validated by `tool_clang`:** fetches, loads, and version-asserts the pin (the same provisioning
+  the scrapers run). Writes nothing.
+- **To update:** bump `LIBCLANG_VERSION` — a single const that drives both the NuGet DLL and the
+  `llvmorg-<ver>` git tag for the headers, so there is nothing else to touch. Run `tool_clang` (must
+  pass) and regenerate all corpora. No prebuilt-asset ceiling: the DLL comes from NuGet and the
+  headers from a git tag, both of which track current LLVM.
 
 ## Windows SDK, WDK, and WinRT contracts
 

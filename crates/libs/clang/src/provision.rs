@@ -15,19 +15,22 @@ use std::path::{Path, PathBuf};
 /// `libclang.runtime.win-<arch>` NuGet package from the .NET Foundation's `dotnet/clangsharp`
 /// project). clang's macro-capture behavior shifts between major versions, so the version is
 /// asserted at startup against the loaded libclang to keep the scrape deterministic.
-pub const LIBCLANG_VERSION: &str = "21.1.8";
+pub const LIBCLANG_VERSION: &str = "22.1.8";
 
-/// Pinned LLVM release component that ships the clang builtin *resource headers*
-/// (`intrin.h`, the `__stddef`/`__stdarg`/x86/arm intrinsic headers, …), version-matched
-/// to [`LIBCLANG_VERSION`]. The reproducible `libclang` NuGet package ships only `libclang.dll`,
-/// with no resource headers; on x64 nothing in the closure needs them, but on `aarch64`
-/// MSVC's `intrin.h` declares `void __cdecl __prefetch(const void*)` which conflicts with
-/// clang's aarch64 compiler builtin of the same name — clang's own `intrin.h` (absent from
-/// the package) is what reconciles it. These headers are fetched on demand and cached, then
-/// passed as `-resource-dir` for the non-x64 arch passes. The component tarball (~22 MB) is
-/// pinned to the exact `llvmorg-<ver>` tag so the multi-arch scrape stays deterministic.
-const CLANG_RESOURCE_URL: &str =
-    "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/clang-21.1.8.src.tar.xz";
+/// LLVM source repository supplying the clang builtin *resource headers* (`intrin.h`, the
+/// `__stddef`/`__stdarg`/x86/arm intrinsic headers, …). The reproducible `libclang` NuGet
+/// package ships only `libclang.dll` with no resource headers; on x64 nothing in the closure
+/// needs them, but on `aarch64` MSVC's `intrin.h` declares `void __cdecl __prefetch(const void*)`
+/// which conflicts with clang's aarch64 compiler builtin of the same name — clang's own
+/// `intrin.h` (absent from the package) is what reconciles it. These headers are fetched on
+/// demand and cached, then passed as `-resource-dir` for the non-x64 arch passes.
+///
+/// LLVM stopped publishing the small per-component `clang-<ver>.src.tar.xz` after 21.x (22.x
+/// ships only the ~130 MB `llvm-project` monorepo tarball), so the headers are pulled with a
+/// blobless, shallow, sparse `git` checkout of just `clang/lib/Headers` at the tag
+/// `llvmorg-{LIBCLANG_VERSION}` (~8 MB). The tag is derived from [`LIBCLANG_VERSION`], so a bump
+/// is a single-const edit and the DLL and headers can never drift apart.
+const CLANG_RESOURCE_REPO: &str = "https://github.com/llvm/llvm-project";
 
 /// Pinned `libclang.dll` NuGet packages (`dotnet/clangsharp`'s `libclang.runtime.win-<arch>`,
 /// version-matched to [`LIBCLANG_VERSION`]), one per host arch. These are the reproducible
@@ -41,7 +44,7 @@ const LIBCLANG_PKG_X64: &str = "libclang.runtime.win-x64";
 const LIBCLANG_PKG_ARM64: &str = "libclang.runtime.win-arm64";
 
 /// Shared, untracked download cache under the workspace `target` directory for the clang
-/// resource-header extract. Keyed by [`LIBCLANG_VERSION`] (not by tool) so `tool_win32`,
+/// resource-header checkout. Keyed by [`LIBCLANG_VERSION`] (not by tool) so `tool_win32`,
 /// `tool_wdk`, … reuse one resource-header extract. (`libclang.dll` itself lives in the shared
 /// NuGet global cache, fetched by [`ensure_libclang`] via [`nuget_package`].)
 const CACHE_ROOT: &str = "target/windows-clang";
@@ -132,14 +135,13 @@ fn version_is_pinned(reported: &str, pinned: &str) -> bool {
     })
 }
 
-/// Resolves a clang `-resource-dir` whose `include/` holds the version-matched
-/// [`LIBCLANG_VERSION`] builtin headers, fetching and caching them on first use. Used only
-/// for the non-x64 arch passes (x64 has no builtin conflict, so its committed corpus is
-/// generated without a resource dir and stays byte-identical). A `CLANG_RESOURCE_DIR`
-/// environment override is honored for air-gapped/offline machines that pre-stage the
-/// headers; otherwise the pinned `CLANG_RESOURCE_URL` component is downloaded with `curl`
-/// and extracted with `tar` into `target/windows-clang/clang-resource/<ver>` (both tools ship
-/// with Windows). The cache is keyed by the pinned version, so a populated cache short-circuits.
+/// Resolves a clang `-resource-dir` whose `include/` holds the [`LIBCLANG_VERSION`] builtin
+/// headers, fetching and caching them on first use. Used only for the non-x64 arch passes (x64
+/// has no builtin conflict, so its committed corpus is generated without a resource dir and stays
+/// byte-identical). A `CLANG_RESOURCE_DIR` environment override is honored for air-gapped/offline
+/// machines that pre-stage the headers; otherwise they are pulled with a blobless, shallow, sparse
+/// `git` checkout of the LLVM repo into `target/windows-clang/clang-resource/<ver>`. The
+/// cache is keyed by the pinned version, so a populated cache short-circuits.
 pub fn clang_resource_dir() -> String {
     if let Ok(dir) = std::env::var("CLANG_RESOURCE_DIR") {
         return dir.replace('\\', "/");
@@ -153,40 +155,68 @@ pub fn clang_resource_dir() -> String {
     cache.to_string_lossy().replace('\\', "/")
 }
 
-/// Downloads the pinned clang resource-header component and extracts its `lib/Headers`
-/// subtree straight into `<cache>/include`. Pure tooling glue around `curl` + `tar`; any
-/// failure panics with the command that failed so a developer can run it by hand.
+/// Pulls clang's `lib/Headers` subtree for the pinned `llvmorg-<ver>` tag straight into
+/// `<cache>/include` via a blobless, shallow, sparse `git` checkout — nothing but that one
+/// directory is materialized (~8 MB), and the whole monorepo history is filtered out. Pure
+/// tooling glue around `git`; any failure panics with the step that failed so a developer can
+/// run it by hand.
 fn fetch_clang_resource_headers(cache: &Path) {
+    std::fs::create_dir_all(cache)
+        .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", cache.display()));
     let include = cache.join("include");
-    std::fs::create_dir_all(&include)
-        .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", include.display()));
+    let work = cache.join("_git");
+    if work.exists() {
+        std::fs::remove_dir_all(&work).ok();
+    }
+    let tag = format!("llvmorg-{LIBCLANG_VERSION}");
 
-    let archive = TempFile::new(&format!("clang-{LIBCLANG_VERSION}.src.tar.xz"));
-    let status = system_tool("curl.exe")
-        .args(["-sSL", CLANG_RESOURCE_URL, "-o"])
-        .arg(archive.path())
+    let status = system_tool("git.exe")
+        .args([
+            "clone",
+            "--filter=blob:none",
+            "--no-checkout",
+            "--depth",
+            "1",
+            "--branch",
+            &tag,
+            CLANG_RESOURCE_REPO,
+        ])
+        .arg(&work)
         .status()
-        .unwrap_or_else(|e| panic!("failed to run `curl` to fetch clang resource headers: {e}"));
+        .unwrap_or_else(|e| panic!("failed to run `git clone` for clang resource headers: {e}"));
     assert!(
         status.success(),
-        "curl failed to download {CLANG_RESOURCE_URL}"
+        "git clone of {CLANG_RESOURCE_REPO} @ {tag} failed"
     );
 
-    // The component lays its builtin headers under `clang-<ver>.src/lib/Headers`; strip
-    // those three leading path components so they land directly in `<cache>/include`.
-    let subdir = format!("clang-{LIBCLANG_VERSION}.src/lib/Headers");
-    let status = system_tool("tar.exe")
-        .arg("-xf")
-        .arg(archive.path())
-        .arg("-C")
-        .arg(&include)
-        .arg("--strip-components=3")
-        .arg(&subdir)
-        .status()
-        .unwrap_or_else(|e| panic!("failed to run `tar` to extract clang resource headers: {e}"));
+    for args in [
+        &["sparse-checkout", "set", "--no-cone", "clang/lib/Headers"][..],
+        &["checkout"][..],
+    ] {
+        let status = system_tool("git.exe")
+            .arg("-C")
+            .arg(&work)
+            .args(args)
+            .status()
+            .unwrap_or_else(|e| panic!("failed to run `git {}`: {e}", args.join(" ")));
+        assert!(status.success(), "git {} failed", args.join(" "));
+    }
+
+    let headers = work.join("clang").join("lib").join("Headers");
+    if include.exists() {
+        std::fs::remove_dir_all(&include).ok();
+    }
+    std::fs::rename(&headers, &include).unwrap_or_else(|e| {
+        panic!(
+            "failed to move `{}` -> `{}`: {e}",
+            headers.display(),
+            include.display()
+        )
+    });
+    std::fs::remove_dir_all(&work).ok();
     assert!(
-        status.success() && include.join("intrin.h").is_file(),
-        "tar failed to extract `{subdir}` into `{}`",
+        include.join("intrin.h").is_file(),
+        "clang resource headers missing `intrin.h` after checkout into `{}`",
         include.display()
     );
 }
