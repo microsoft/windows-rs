@@ -125,6 +125,13 @@ becomes an `Element` via `.into()`. Containers take a tuple of children:
   `caption`, …).
 - **Buttons:** `button(content)` with `.on_click(..)`, `.accent()`, `.subtle()`,
   `.enabled(..)`, `.icon(..)`, `.flyout(..)`, `.menu_flyout(..)`.
+- **Icons:** any control that takes an icon (`button`, `NavViewItem`,
+  command-bar buttons, `selector_bar_item`) accepts `impl Into<Icon>`. `Icon` has
+  three kinds — `Symbol(Symbol)` for a built-in system glyph (a bare `Symbol`
+  converts automatically, so `.icon(Symbol::Home)` keeps working),
+  `Icon::bitmap(uri)` for an image (`BitmapIcon`), and `Icon::font(glyph)` /
+  `Icon::font_family(glyph, family)` for a font glyph (`FontIcon`). Sample:
+  `cargo run -p reactor_samples --example icon_elements`.
 - **Layout:** `vstack((..))` / `hstack((..))` with `.spacing(..)`; `grid((..))`
   with `.rows([..])` / `.columns([..])` (using `GridLength::STAR`,
   `GridLength::Auto`) and per-child `.grid_row(n)` / `.grid_column(n)`.

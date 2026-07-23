@@ -25,7 +25,7 @@ pub struct Button {
     pub content: String,
     pub is_enabled: bool,
     pub style: ButtonStyle,
-    pub icon: Option<Symbol>,
+    pub icon: Option<Icon>,
     pub on_click: Option<Callback<()>>,
     pub flyout: Option<FlyoutDef>,
     pub menu_flyout_items: Option<Vec<MenuItemDef>>,
@@ -52,8 +52,8 @@ impl Widget for Button {
             Prop::Content,
             PropValue::Str(self.content.clone()),
         ));
-        if let Some(v) = self.icon {
-            out.push(Binding::Prop(Prop::Icon, PropValue::I32(v.0)));
+        if let Some(v) = &self.icon {
+            out.push(Binding::Prop(Prop::Icon, PropValue::Icon(v.clone())));
         }
         if let Some(v) = &self.menu_flyout_items {
             out.push(Binding::Prop(
@@ -119,8 +119,8 @@ impl Button {
         self
     }
 
-    pub fn icon(mut self, sym: Symbol) -> Self {
-        self.icon = Some(sym);
+    pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
+        self.icon = Some(icon.into());
         self
     }
 
