@@ -6,6 +6,7 @@
 use windows_core::Interface as _;
 
 use windows_reactor::Element;
+use windows_reactor::Icon;
 use windows_reactor::Symbol;
 use windows_reactor::vstack;
 use windows_reactor::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
@@ -483,6 +484,92 @@ pub fn button_icon_glyph_change_preserves_text(h: Harness) -> FixtureFuture {
         );
         h.check(
             "Interaction_ButtonIconGlyph_TextPreserved",
+            h.find_text("Action").is_some(),
+        );
+    })
+}
+
+/// Verify that the non-`Symbol` [`Icon`](windows_reactor::Icon) kinds construct
+/// and attach real WinUI elements: `Icon::font` yields a `FontIcon` and
+/// `Icon::bitmap` yields a `BitmapIcon`. Element presence proves the whole
+/// `build_icon_element` path ran — factory activation, the `SetGlyph` /
+/// `SetUriSource` setters, and the cast to `IconElement` — without erroring.
+pub fn button_bitmap_and_font_icons(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|_cx| {
+            vstack((
+                button("Starred").icon(Icon::font("\u{E734}")),
+                // A syntactically valid package URI; the image need not resolve
+                // for the BitmapIcon element itself to be created and attached.
+                button("Repo").icon(Icon::bitmap("ms-appx:///Assets/logo.png")),
+            ))
+            .into()
+        }));
+        h.render().await;
+
+        let font_icons = h.find_all::<crate::bindings::FontIcon>(&|_| true);
+        h.check(
+            "Interaction_ButtonIcon_FontIconCreated",
+            font_icons.len() == 1,
+        );
+
+        let bitmap_icons = h.find_all::<crate::bindings::BitmapIcon>(&|_| true);
+        h.check(
+            "Interaction_ButtonIcon_BitmapIconCreated",
+            bitmap_icons.len() == 1,
+        );
+    })
+}
+
+/// Verify that removing a button's icon (`Some(Icon)` → `None`) actually clears
+/// the previously-applied `IconElement` and restores the plain text label. This
+/// exercises the `(Prop::Icon, PropValue::Unset, Handle::Button)` backend arm.
+pub fn button_icon_removal_clears_icon(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|cx| {
+            let (removed, set) = cx.use_state(false);
+            let mut b = button("Action").on_click(move || set.call(!removed));
+            if !removed {
+                b = b.icon(Symbol::Favorite);
+            }
+            vstack((b, text_block(format!("removed={removed}")))).into()
+        }));
+        h.render().await;
+
+        // Initial state: one SymbolIcon plus the "Action" text label.
+        h.check(
+            "Interaction_ButtonIconRemoval_InitialIconPresent",
+            h.find_all::<crate::bindings::SymbolIcon>(&|_| true).len() == 1,
+        );
+        h.check(
+            "Interaction_ButtonIconRemoval_InitialTextPresent",
+            h.find_text("Action").is_some(),
+        );
+
+        // Click — the icon is removed (Some → None).
+        let btn = h
+            .find_all::<crate::bindings::Button>(&|_| true)
+            .into_iter()
+            .next()
+            .unwrap();
+        let peer = crate::bindings::ButtonAutomationPeer::CreateInstanceWithOwner(&btn).unwrap();
+        let pat = peer
+            .cast::<crate::bindings::IAutomationPeer>()
+            .unwrap()
+            .GetPattern(crate::bindings::PatternInterface::Invoke)
+            .unwrap();
+        let invoke: crate::bindings::IInvokeProvider = pat.cast().unwrap();
+        invoke.Invoke().unwrap();
+        h.render().await;
+
+        // After removal: no SymbolIcon remains, and the text label is preserved.
+        h.check(
+            "Interaction_ButtonIconRemoval_IconCleared",
+            h.find_all::<crate::bindings::SymbolIcon>(&|_| true)
+                .is_empty(),
+        );
+        h.check(
+            "Interaction_ButtonIconRemoval_TextPreserved",
             h.find_text("Action").is_some(),
         );
     })

@@ -36,6 +36,30 @@ pub(super) fn string_as_textblock(s: &str) -> Result<bindings::TextBlock> {
     Ok(tb)
 }
 
+/// Builds the WinUI `IconElement` for an [`Icon`], dispatching to the matching
+/// concrete type: `SymbolIcon`, `BitmapIcon`, or `FontIcon`.
+pub(super) fn build_icon_element(icon: &Icon) -> Result<bindings::IconElement> {
+    match icon {
+        Icon::Symbol(sym) => bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?.cast(),
+        Icon::Bitmap { uri } => {
+            let bitmap_icon = bindings::BitmapIcon::new()?;
+            bitmap_icon.SetUriSource(&bindings::Uri::CreateUri(uri)?)?;
+            // Render the source image in full color rather than tinting it to
+            // the foreground brush (the WinUI default for a BitmapIcon).
+            bitmap_icon.SetShowAsMonochrome(false)?;
+            bitmap_icon.cast()
+        }
+        Icon::Font { glyph, family } => {
+            let font_icon = bindings::FontIcon::new()?;
+            font_icon.SetGlyph(glyph)?;
+            if let Some(family) = family {
+                font_icon.SetFontFamily(&bindings::FontFamily::CreateInstanceWithName(family)?)?;
+            }
+            font_icon.cast()
+        }
+    }
+}
+
 pub(super) fn build_nav_view_item(item: &NavViewItem) -> Result<windows_core::IInspectable> {
     if item.is_header {
         let h = bindings::NavigationViewItemHeader::new()?;
@@ -53,8 +77,8 @@ pub(super) fn build_nav_view_item(item: &NavViewItem) -> Result<windows_core::II
     nv_item
         .cast::<bindings::IFrameworkElement>()?
         .SetTag(&tag_inspectable)?;
-    if let Some(sym) = &item.icon {
-        let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
+    if let Some(icon) = &item.icon {
+        let icon_elem = build_icon_element(icon)?;
         nv_item.SetIcon(&icon_elem)?;
     }
     if !item.children.is_empty() {
@@ -164,8 +188,8 @@ pub(super) fn build_command_bar_element(
         CommandBarCommandDef::Button { label, icon } => {
             let btn = bindings::AppBarButton::new()?;
             btn.SetLabel(label)?;
-            if let Some(sym) = icon {
-                let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
+            if let Some(icon) = icon {
+                let icon_elem = build_icon_element(icon)?;
                 btn.SetIcon(&icon_elem)?;
             }
             btn.cast()
@@ -173,8 +197,8 @@ pub(super) fn build_command_bar_element(
         CommandBarCommandDef::Toggle { label, icon } => {
             let btn = bindings::AppBarToggleButton::new()?;
             btn.SetLabel(label)?;
-            if let Some(sym) = icon {
-                let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
+            if let Some(icon) = icon {
+                let icon_elem = build_icon_element(icon)?;
                 btn.SetIcon(&icon_elem)?;
             }
             btn.cast()

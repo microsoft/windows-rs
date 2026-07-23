@@ -4,7 +4,7 @@ use super::*;
 pub struct NavViewItem {
     pub content: String,
     pub tag: Option<String>,
-    pub icon: Option<Symbol>,
+    pub icon: Option<Icon>,
     pub is_header: bool,
     pub children: Vec<Self>,
 }
@@ -26,8 +26,8 @@ impl NavViewItem {
         self.tag = Some(s.into());
         self
     }
-    pub fn icon(mut self, s: Symbol) -> Self {
-        self.icon = Some(s);
+    pub fn icon(mut self, icon: impl Into<Icon>) -> Self {
+        self.icon = Some(icon.into());
         self
     }
     pub fn child(mut self, item: Self) -> Self {
