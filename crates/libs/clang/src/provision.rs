@@ -55,10 +55,18 @@ pub fn ensure_libclang() {
     if std::env::var_os("LIBCLANG_PATH").is_some() {
         return;
     }
-    let (id, rid) = if cfg!(target_arch = "aarch64") {
+    let (id, rid) = if cfg!(target_arch = "x86_64") {
+        (LIBCLANG_PKG_X64, "win-x64")
+    } else if cfg!(target_arch = "aarch64") {
         (LIBCLANG_PKG_ARM64, "win-arm64")
     } else {
-        (LIBCLANG_PKG_X64, "win-x64")
+        // Only x64/arm64 `libclang.runtime.win-<arch>` packages are pinned; a 32-bit host would
+        // be handed a 64-bit `libclang.dll` it cannot load. Fail loudly instead of guessing — the
+        // scrapers only ever run host-arch, and `LIBCLANG_PATH` can still override for exotic hosts.
+        panic!(
+            "windows-clang provisions the pinned libclang only for x86_64 and aarch64 Windows \
+             hosts; set `LIBCLANG_PATH` to a libclang {LIBCLANG_VERSION} build to run elsewhere."
+        );
     };
     // `nuget_package` fetches + caches on demand in the shared NuGet global cache, and the
     // package lays `libclang.dll` at `runtimes/<rid>/native/`.
