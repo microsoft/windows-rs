@@ -5,9 +5,9 @@
 - [windows-rdl crate docs](../../../docs/crates/windows-rdl.md)
 - [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
 
-`windows-rdl` parses RDL (Rust Definition Language), a small Rust-like syntax for
-Windows APIs. It emits ECMA-335 `.winmd` metadata for `windows-bindgen`. It also writes
-canonical RDL from `.winmd` files.
+`windows-rdl` parses RDL (Rust Definition Language), a small Rust-like syntax for Windows APIs. It
+emits ECMA-335 `.winmd` metadata for `windows-bindgen`. It also writes canonical RDL from `.winmd`
+files.
 
 ## Getting started
 
@@ -56,8 +56,8 @@ mod Contoso {
 
 #### `#[winrt]`
 
-Use `#[winrt]` on a module that declares WinRT types. It enables generic interfaces,
-generic delegates, and WinRT arrays.
+Use `#[winrt]` on a module that declares WinRT types. It enables generic interfaces, generic
+delegates, and WinRT arrays.
 
 Syntax:
 
@@ -81,8 +81,7 @@ mod Contoso {
 
 #### `#[win32]`
 
-Use `#[win32]` on a module that declares Win32 types. It enables fixed arrays and
-unions.
+Use `#[win32]` on a module that declares Win32 types. It enables fixed arrays and unions.
 
 Syntax:
 
@@ -160,8 +159,8 @@ enum EnumName {
 }
 ```
 
-`#[repr(type)]` sets the underlying integer type. Supported types are `i8`, `u8`, `i16`,
-`u16`, `i32`, `u32`, `i64`, and `u64`.
+`#[repr(type)]` sets the underlying integer type. Supported types are `i8`, `u8`, `i16`, `u16`,
+`i32`, `u32`, `i64`, and `u64`.
 
 Example:
 
@@ -199,8 +198,8 @@ struct Sprocket {
 
 Fixed-size arrays in Win32:
 
-In a `#[win32]` module, structs can include fixed-size arrays. Use them for buffers and
-other fixed-layout data.
+In a `#[win32]` module, structs can include fixed-size arrays. Use them for buffers and other
+fixed-layout data.
 
 Syntax:
 
@@ -259,8 +258,8 @@ interface InterfaceName {
 }
 ```
 
-Methods use `fn` and require `&self` as the first parameter. Use `->` for a return type.
-Omit it for void.
+Methods use `fn` and require `&self` as the first parameter. Use `->` for a return type. Omit it for
+void.
 
 Example:
 
@@ -274,8 +273,8 @@ interface ISprocket {
 
 Generic interfaces in WinRT:
 
-In a `#[winrt]` module, interfaces can have type parameters. WinRT collections and event
-handlers use them.
+In a `#[winrt]` module, interfaces can have type parameters. WinRT collections and event handlers
+use them.
 
 Syntax:
 
@@ -351,8 +350,7 @@ class ClassName : BaseClassName {
 }
 ```
 
-Classes can extend a base class. The first interface in the list is the default
-interface.
+Classes can extend a base class. The first interface in the list is the default interface.
 
 Example:
 
@@ -434,8 +432,8 @@ mod Contoso {
 
 #### Functions
 
-Functions declare external signatures from another library. The `#[link]` attribute sets
-the library name and ABI.
+Functions declare external signatures from another library. The `#[link]` attribute sets the library
+name and ABI.
 
 Syntax:
 
@@ -444,8 +442,8 @@ Syntax:
 fn FunctionName(Parameter: Type, ...) -> ReturnType;
 ```
 
-`#[link(name = "...")]` names the library that provides the API. `#[link(abi = "...")]`
-sets the ABI: `"system"` or `"C"`.
+`#[link(name = "...")]` names the library that provides the API. `#[link(abi = "...")]` sets the
+ABI: `"system"` or `"C"`.
 
 Example:
 
@@ -466,8 +464,8 @@ mod Contoso {
 
 #### Parameter direction attributes
 
-Parameters can carry direction and optional attributes that map to Win32 SAL
-annotations. These attributes control generated binding behavior.
+Parameters can carry direction and optional attributes that map to Win32 SAL annotations. These
+attributes control generated binding behavior.
 
 | Attribute | Meaning | Corresponding SAL |
 |-----------|---------|-------------------|
@@ -475,13 +473,12 @@ annotations. These attributes control generated binding behavior.
 | `#[out]` | Output parameter. Data flows out of the function. | `_Out_`, `_Out_z_`, and related forms |
 | `#[opt]` | Parameter is optional and can be `NULL`. | `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, and related forms |
 
-When neither `#[in]` nor `#[out]` is set, the reader infers direction from the type:
-mutable pointers and references (`*mut T`, `&mut T`) default to `#[out]`. Everything
-else defaults to `#[in]`. Use explicit attributes only when the SAL annotation differs
-from the inferred direction.
+When neither `#[in]` nor `#[out]` is set, the reader infers direction from the type: mutable
+pointers and references (`*mut T`, `&mut T`) default to `#[out]`. Everything else defaults to
+`#[in]`. Use explicit attributes only when the SAL annotation differs from the inferred direction.
 
-When `#[in]` and `#[out]` appear on one parameter, they map to `_Inout_`. The parameter
-is both input and output.
+When `#[in]` and `#[out]` appear on one parameter, they map to `_Inout_`. The parameter is both
+input and output.
 
 Example:
 
@@ -510,11 +507,10 @@ mod Windows {
 }
 ```
 
-When `windows-clang` parses Windows SDK headers, it extracts SAL annotations
-automatically. It emits the matching direction attributes in generated RDL. Supported
-SAL macros include `_In_`, `_Out_`, `_Inout_`, `_In_opt_`, `_Out_opt_`, `_Inout_opt_`,
-`_Outptr_`, `_COM_Outptr_`, `_In_reads_`, `_Out_writes_`, and their opt, z, and bytes
-variants.
+When `windows-clang` parses Windows SDK headers, it extracts SAL annotations automatically. It emits
+the matching direction attributes in generated RDL. Supported SAL macros include `_In_`, `_Out_`,
+`_Inout_`, `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, `_Outptr_`, `_COM_Outptr_`, `_In_reads_`,
+`_Out_writes_`, and their opt, z, and bytes variants.
 
 ### Array types
 
@@ -549,13 +545,12 @@ mod Contoso {
 }
 ```
 
-WinRT arrays only work in `#[winrt]` modules. Use fixed-size arrays for `#[win32]`
-modules.
+WinRT arrays only work in `#[winrt]` modules. Use fixed-size arrays for `#[win32]` modules.
 
 #### Fixed-size arrays
 
-Fixed-size arrays have a compile-time size. They can appear in struct fields and method
-parameters in `#[win32]` modules.
+Fixed-size arrays have a compile-time size. They can appear in struct fields and method parameters
+in `#[win32]` modules.
 
 Example:
 

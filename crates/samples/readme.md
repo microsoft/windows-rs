@@ -1,18 +1,17 @@
 # Samples
 
-Runnable examples for the `windows-*` family of crates, grouped to mirror the
-[crate index](../../docs/readme.md).
+Runnable examples for the `windows-*` family of crates, grouped to mirror the [crate
+index](../../docs/readme.md).
 
 Samples come in two shapes:
 
-- **Umbrella crates** (named `<group>_samples`) collect many small, focused
-  programs under an `examples/` folder. Run one with
-  `cargo run -p <crate> --example <name>`.
-- **Standalone crates** are a single self-contained program (often with their own
-  build script, manifest, or assets). Run one with `cargo run -p <crate>`.
+- **Umbrella crates** (named `<group>_samples`) collect many small, focused programs under an
+  `examples/` folder. Run one with `cargo run -p <crate> --example <name>`.
+- **Standalone crates** are a single self-contained program (often with their own build script,
+  manifest, or assets). Run one with `cargo run -p <crate>`.
 
-The samples compile against the latest, usually pre-release, versions of the
-crates. To browse the samples for a published release, use its tag - for example
+The samples compile against the latest, usually pre-release, versions of the crates. To browse the
+samples for a published release, use its tag - for example
 <https://github.com/microsoft/windows-rs/tree/0.60.0/crates/samples>.
 
 ## Core & error handling
@@ -65,9 +64,9 @@ crates. To browse the samples for a published release, use its tag - for example
 ## Whole-API projection
 
 These exercise the umbrella [`windows`](../../docs/crates/windows.md) and
-[`windows-sys`](../../docs/crates/windows-sys.md) crates, which project the entire
-Windows API surface. For new projects, prefer the focused crates above or generate
-a minimal binding with [windows-bindgen](../../docs/crates/windows-bindgen.md).
+[`windows-sys`](../../docs/crates/windows-sys.md) crates, which project the entire Windows API
+surface. For new projects, prefer the focused crates above or generate a minimal binding with
+[windows-bindgen](../../docs/crates/windows-bindgen.md).
 
 | Crate | Sample | Run |
 | --- | --- | --- |
@@ -79,5 +78,5 @@ a minimal binding with [windows-bindgen](../../docs/crates/windows-bindgen.md).
 ---
 
 Many of these samples were inspired by or originally appeared in Kenny's
-[articles](https://kennykerrca.wordpress.com/articles/) and
-[Pluralsight courses](https://www.pluralsight.com/authors/kenny-kerr).
+[articles](https://kennykerrca.wordpress.com/articles/) and [Pluralsight
+courses](https://www.pluralsight.com/authors/kenny-kerr).

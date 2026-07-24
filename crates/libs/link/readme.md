@@ -1,6 +1,7 @@
 ## Linking for Windows
 
-The [windows-link](https://crates.io/crates/windows-link) crate provides the `link` macro that simplifies linking. The `link` macro uses `raw-dylib` and thus does not require import lib files.
+The [windows-link](https://crates.io/crates/windows-link) crate provides the `link` macro that
+simplifies linking. The `link` macro uses `raw-dylib` and thus does not require import lib files.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
@@ -25,10 +26,9 @@ unsafe {
 }
 ```
 
-In addition to declaring the function, the macro also emits a `pub type`
-alias of the same name describing the function's signature. This is useful
-when you need to store or pass around the function pointer (for example,
-after resolving the symbol at runtime via `GetProcAddress`):
+In addition to declaring the function, the macro also emits a `pub type` alias of the same name
+describing the function's signature. This is useful when you need to store or pass around the
+function pointer (for example, after resolving the symbol at runtime via `GetProcAddress`):
 
 ```rust,no_run
 windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);

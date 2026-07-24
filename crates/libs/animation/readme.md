@@ -1,9 +1,12 @@
 ## Windows Animation
 
-Windows Animation is a safe Rust wrapper around the Windows Animation Manager (`IUIAnimationManager`). It provides variable interpolation with multiple transition types - smoothly animated values and storyboard sequencing, independent of any UI or rendering framework.
+Windows Animation is a safe Rust wrapper around the Windows Animation Manager
+(`IUIAnimationManager`). It provides variable interpolation with multiple transition types -
+smoothly animated values and storyboard sequencing, independent of any UI or rendering framework.
 
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Animation guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-animation.md)
+* [Animation
+  guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-animation.md)
 
 ```rust,no_run
 use windows_animation::*;
@@ -28,4 +31,6 @@ fn main() -> Result<()> {
 }
 ```
 
-Key types: `Manager`, `TransitionLibrary`, and `Variable`. See the [animation guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-animation.md) for how this layer fits alongside reactor and canvas animation.
+Key types: `Manager`, `TransitionLibrary`, and `Variable`. See the [animation
+guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-animation.md) for how
+this layer fits alongside reactor and canvas animation.
