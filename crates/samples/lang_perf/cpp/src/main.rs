@@ -82,7 +82,7 @@ fn component_file() -> &'static str {
 mod tests {
     #[test]
     fn interop() {
-        super::stage_component("langperf_cpp.dll");
+        super::stage_component(super::component_file());
         let hr = unsafe { super::lang_perf_cpp(200) };
         assert!(hr >= 0, "lang_perf_cpp failed: {hr:#010x}");
     }

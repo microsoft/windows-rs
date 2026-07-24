@@ -185,6 +185,6 @@ fn component_file() -> &'static str {
 mod tests {
     #[test]
     fn interop() {
-        super::run(200, "langperf_rust.dll").unwrap();
+        super::run(200, super::component_file()).unwrap();
     }
 }
