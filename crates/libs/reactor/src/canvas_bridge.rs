@@ -102,7 +102,7 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
 
 /// Create an animated canvas that renders on a caller-provided [`GpuDevice`].
 ///
-/// Use this to drive the canvas from a device the app already created — for
+/// Use this to drive the canvas from a device the app already created - for
 /// example a process-wide device shared across several surfaces. Because
 /// `GpuDevice` is [`Clone`] and a clone shares the same underlying graphics
 /// device, one device can back many surfaces. Each surface built by the loop
@@ -251,8 +251,8 @@ fn animated_canvas_impl(
 /// An on-demand Direct2D drawing surface hosted in a reactor UI.
 ///
 /// Where [`animated_canvas`] presents a new frame every vsync via a swap chain,
-/// `CanvasImageSource` draws only when you ask — on a data change, a resize, or a
-/// theme switch — into a `SurfaceImageSource`. It is the right tool for content
+/// `CanvasImageSource` draws only when you ask - on a data change, a resize, or a
+/// theme switch - into a `SurfaceImageSource`. It is the right tool for content
 /// that is static between updates (charts, diagrams, a rendered document page)
 /// where a continuous render loop would waste power.
 ///
@@ -279,9 +279,9 @@ pub struct CanvasImageSource {
 }
 
 impl CanvasImageSource {
-    /// Create a surface `width`×`height` device-independent pixels in size,
+    /// Create a surface `width`x`height` device-independent pixels in size,
     /// backed by `device`. `scale` is the host element's rasterization (DPI)
-    /// scale — `1.0` at 96 DPI, `2.0` at 192 DPI — so the surface is allocated at
+    /// scale - `1.0` at 96 DPI, `2.0` at 192 DPI - so the surface is allocated at
     /// physical-pixel resolution and stays crisp. Draw into it, then display it at
     /// the same DIP size.
     pub fn new(device: &GpuDevice, width: f32, height: f32, scale: f32) -> Result<Self> {
@@ -303,7 +303,7 @@ impl CanvasImageSource {
     ///
     /// Coordinates in `f` are in device-independent pixels with the surface origin
     /// at `(0, 0)`; the DPI scale and the shared-atlas offset are handled for you.
-    /// Returns `Ok(false)` if the GPU device was lost — recreate the device
+    /// Returns `Ok(false)` if the GPU device was lost - recreate the device
     /// (e.g. [`GpuDevice::new_or_warp`]), call [`set_device`](Self::set_device),
     /// and draw again.
     pub fn draw(&self, clear: ColorF, f: impl FnOnce(&DrawingSession<'_>)) -> Result<bool> {
@@ -438,8 +438,8 @@ impl SwapChainState {
 ///
 /// This is the swap-chain counterpart of [`CanvasImageSource`]. Where
 /// [`animated_canvas`] presents a new frame *every vsync*, `CanvasSwapChain`
-/// presents only when you call [`draw`](Self::draw) — on a data change, a
-/// resize, or a DPI change — while still using a composition swap chain for
+/// presents only when you call [`draw`](Self::draw) - on a data change, a
+/// resize, or a DPI change - while still using a composition swap chain for
 /// low-latency presentation. It is the right tool for a data-driven view (for
 /// example a live chart) that repaints when its data changes but would waste
 /// power running a continuous render loop while idle.
@@ -475,7 +475,7 @@ pub struct CanvasSwapChain {
 }
 
 impl CanvasSwapChain {
-    /// Creates a `width`×`height` device-independent-pixel surface on `panel`,
+    /// Creates a `width`x`height` device-independent-pixel surface on `panel`,
     /// backed by a canvas-owned [`GpuDevice`]. On device loss the device is
     /// recreated automatically. `scale` is the host element's rasterization
     /// (DPI) scale (see [`SwapChainPanelHandle::composition_scale`]).
@@ -542,9 +542,9 @@ impl CanvasSwapChain {
     /// If the GPU device is lost the swap chain is rebuilt once (on the same
     /// shared device, or a fresh one for [`new`](Self::new)) and the frame is
     /// drawn again, so a single `draw` call recovers transparently. Returns an
-    /// error only if drawing genuinely failed — a hard present error, or device
+    /// error only if drawing genuinely failed - a hard present error, or device
     /// loss that could not be recovered (the rebuild failed or the redraw was
-    /// still device-lost) — so a lost frame is never reported as drawn.
+    /// still device-lost) - so a lost frame is never reported as drawn.
     pub fn draw(&self, f: impl Fn(&DrawContext<'_>)) -> Result<()> {
         let mut state = self.inner.borrow_mut();
         match state.present_frame(&f) {
@@ -562,7 +562,7 @@ impl CanvasSwapChain {
         }
     }
 
-    /// Resizes the surface to `width`×`height` device-independent pixels. A
+    /// Resizes the surface to `width`x`height` device-independent pixels. A
     /// no-op if the size is unchanged. Redraw with [`draw`](Self::draw) after.
     ///
     /// The stored size is updated only after the swap chain resizes

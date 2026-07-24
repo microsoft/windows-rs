@@ -12,7 +12,7 @@ use super::*;
 ///
 /// The single flat `Apis` container (which holds every function and constant) is **split** into
 /// one `Apis` container per target namespace, routing each member by name. Every embedded type
-/// reference — `extends`, field types, method signatures, and interface impls — is rewritten
+/// reference (`extends`, field types, method signatures, and interface impls) is rewritten
 /// through the same map. References whose name is not in the map (external types, the
 /// `Windows.Win32.Metadata` attribute types) pass through unchanged.
 #[derive(Default)]

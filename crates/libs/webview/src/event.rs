@@ -373,7 +373,7 @@ impl KeyEventKind {
 }
 
 /// An accelerator (browser-level) key press, delivered to a
-/// [`Controller::on_accelerator_key_pressed`] handler before the page sees it —
+/// [`Controller::on_accelerator_key_pressed`] handler before the page sees it -
 /// the place to implement application keyboard shortcuts. Call
 /// [`set_handled(true)`](Self::set_handled) to stop WebView2 from acting on the
 /// key.

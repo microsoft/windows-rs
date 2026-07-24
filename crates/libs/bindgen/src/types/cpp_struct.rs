@@ -89,8 +89,8 @@ impl CppStruct {
         write_simple_cfg(self, config)
     }
 
-    // A `typedef Y X;` whose target `Y` is a named struct or interface — e.g.
-    // `typedef GUID IID;` or `typedef IUnknown *LPUNKNOWN;` — is represented in
+    // A `typedef Y X;` whose target `Y` is a named struct or interface - e.g.
+    // `typedef GUID IID;` or `typedef IUnknown *LPUNKNOWN;` - is represented in
     // metadata as a single-field `Value: Y` struct carrying `NativeTypedefAttribute`.
     // Primitive- and void-typed typedefs are already collapsed by `is_handle` and
     // `is_void_typedef`; this covers the remaining non-primitive case, which must
@@ -110,7 +110,7 @@ impl CppStruct {
     }
 
     // A native typedef whose underlying type is (possibly through a chain of further
-    // native typedefs) a fixed-size array — e.g. `WINBIO_STRING = [u16; 256]`. Such an
+    // native typedefs) a fixed-size array - e.g. `WINBIO_STRING = [u16; 256]`. Such an
     // alias has no `Default` impl, so a struct field of this type cannot derive it.
     fn resolves_to_fixed_array(&self, reader: &Reader) -> bool {
         if !self.is_native_typedef(reader) {
@@ -131,7 +131,7 @@ impl CppStruct {
     }
 
     // A native typedef whose underlying type is (possibly through a chain of further
-    // native typedefs) a pointer — e.g. `LPCTSTR = PCSTR = *const u8`. Such an alias
+    // native typedefs) a pointer - e.g. `LPCTSTR = PCSTR = *const u8`. Such an alias
     // has no `Default` impl, so a struct field of this type cannot derive it.
     fn resolves_to_pointer(&self, reader: &Reader) -> bool {
         if !self.is_native_typedef(reader) {

@@ -349,7 +349,7 @@ where
 }
 
 // IMPORTANT: Do not expose methods that return mutable access to the contents of
-// `StaticComObject`. Doing so would violate our safety invariants — for example, a `DerefMut`
+// `StaticComObject`. Doing so would violate our safety invariants - for example, a `DerefMut`
 // impl would be unsound.
 impl<T> StaticComObject<T>
 where

@@ -68,7 +68,7 @@ thread_local! {
 }
 
 /// Run `f` with the active (primary) [`ReactorHost`] for the current thread, if
-/// any. The active host is the first window opened on the thread — theme and
+/// any. The active host is the first window opened on the thread - theme and
 /// backdrop free functions target it (app-global theme, v1).
 pub fn with_active_host<F, R>(f: F) -> Option<R>
 where
@@ -79,7 +79,7 @@ where
 
 /// A handle to an open reactor window. The window registry owns the host, so
 /// this is purely an identifier used to control the window (e.g.
-/// [`WindowHandle::close`]) — it is not the owner, and dropping it neither
+/// [`WindowHandle::close`]) - it is not the owner, and dropping it neither
 /// closes the window nor affects its lifetime.
 ///
 /// The handle is `!Send`/`!Sync`: WinUI is single-threaded-apartment and the
@@ -225,7 +225,7 @@ impl App {
     }
 
     /// Set a handler invoked when a panic is caught at a reactor callback
-    /// boundary — an event handler, a timer tick, or the render pass. Without a
+    /// boundary - an event handler, a timer tick, or the render pass. Without a
     /// handler such panics are logged and execution continues (a panic that
     /// reaches WinUI's `extern "system"` delegate boundary would otherwise abort
     /// the process). The handler runs on the UI thread and does not replace

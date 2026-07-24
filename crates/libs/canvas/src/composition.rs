@@ -3,7 +3,7 @@
 //! Draw Direct2D content into a `windows-composition`
 //! [`CompositionDrawingSurface`] and paint a composition visual with it. This
 //! mirrors Win2D's `CanvasComposition`: the app owns the composition graph
-//! (graphics device → drawing surface → surface brush → visual) and this bridge
+//! (graphics device -> drawing surface -> surface brush -> visual) and this bridge
 //! only lends the Direct2D drawing.
 //!
 //! ```ignore
@@ -53,7 +53,7 @@ pub trait CanvasCompositionExt {
     /// Coordinates in `f` are in pixels with the surface origin at `(0, 0)`; the
     /// backing-atlas offset is applied for you. The surface content is undefined
     /// on entry, so clear it or draw over the whole surface (there is no implicit
-    /// clear — matching Win2D). Returns `Ok(false)` if the GPU device was lost —
+    /// clear - matching Win2D). Returns `Ok(false)` if the GPU device was lost -
     /// recreate the device, graphics device, and surface, then draw again.
     fn draw(&self, f: impl FnOnce(&DrawingSession<'_>)) -> Result<bool>;
 }

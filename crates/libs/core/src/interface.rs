@@ -6,7 +6,7 @@ use core::mem::{MaybeUninit, forget, transmute_copy};
 use core::ptr::NonNull;
 
 /// Debug-only diagnostic helper: reports a `cast` whose `QueryInterface` returned the
-/// same interface pointer it started from — i.e. the source already exposes the target
+/// same interface pointer it started from - i.e. the source already exposes the target
 /// interface, so the cast is redundant (use `Deref` or `.into()` instead). Compiled in
 /// only in debug builds when `RUSTFLAGS=--cfg windows_cast_diagnostics` is set.
 #[cfg(all(debug_assertions, windows_cast_diagnostics))]
@@ -156,7 +156,7 @@ pub unsafe trait Interface: Sized + Clone {
     /// the protocol.
     ///
     /// The `QueryInterface` implementation _does not_ `AddRef` the object. The caller must
-    /// guarantee the liveness of the COM object — typically by tying the lifetime of the
+    /// guarantee the liveness of the COM object - typically by tying the lifetime of the
     /// `IUnknown*` used for the call to the lifetime of the returned `&dyn Any`.
     ///
     /// This method preserves type safety and relies on these invariants:

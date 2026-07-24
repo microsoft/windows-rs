@@ -7,7 +7,7 @@ pub struct CppConst {
     /// Architecture bits of the parent unscoped enum when this constant is an enum member;
     /// `0` for a free-standing constant. Enum-member fields are themselves arch-neutral (the
     /// `SupportedArchitecture` tag sits on the enum type), so an arch-divergent member must
-    /// inherit the enum's arches — otherwise the neutral member collides with a same-named
+    /// inherit the enum's arches - otherwise the neutral member collides with a same-named
     /// arch-specific macro constant on the complementary architecture.
     pub enum_arches: i32,
     /// `true` when this constant is a member of an unscoped enum. Such a member is always
@@ -189,9 +189,9 @@ impl CppConst {
                 // Constants of a bare-alias type must drop the `Self(value)` newtype constructor.
                 // Unscoped (C-style) enums are emitted as bare `pub type = <int>` aliases in every
                 // style (see `cpp_enum`), so their constants are plain integers everywhere. A native
-                // typedef that projects as a transparent `pub type` alias — a handle-of-handle
+                // typedef that projects as a transparent `pub type` alias - a handle-of-handle
                 // (`HCERTCHAINENGINE = HANDLE`) or pointer alias (`PESILO = *mut ...`) in every
-                // style, and any handle in `--sys`/`--minimal` — likewise cannot be a tuple
+                // style, and any handle in `--sys`/`--minimal` - likewise cannot be a tuple
                 // constructor. `write_newtype_wrap` still wraps the value through whatever concrete
                 // newtype the alias resolves to (`HANDLE(value)` for a handle-of-handle), skipping
                 // the bare-alias layers.

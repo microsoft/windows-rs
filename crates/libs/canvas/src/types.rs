@@ -206,7 +206,7 @@ impl Paint for RadialGradient {
     }
 }
 
-/// A gradient stop (position 0.0–1.0 along the gradient axis).
+/// A gradient stop (position 0.0-1.0 along the gradient axis).
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GradientStop {
     /// Position along the gradient axis, from 0.0 to 1.0.

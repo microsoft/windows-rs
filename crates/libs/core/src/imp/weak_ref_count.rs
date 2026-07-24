@@ -185,14 +185,14 @@ impl TearOff {
             }
 
             // Only directly respond to queries for the the tear-off's strong interface. This is
-            // effectively a self-query.
+            // a self-query.
             if *iid == IWeakReferenceSource::IID {
                 *interface = ptr;
                 this.strong_count.add_ref();
                 return HRESULT(0);
             }
 
-            // As the tear-off is sharing the identity of the object, simply delegate any remaining
+            // As the tear-off is sharing the identity of the object, delegate any remaining
             // queries to the object.
             this.query_interface(iid, interface)
         }

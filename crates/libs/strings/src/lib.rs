@@ -10,9 +10,9 @@
 // process heap (so HSTRINGs interoperate with native code); elsewhere it uses the Rust
 // global allocator.
 //
-// `BSTR` and the `bindings` module are inherently Win32 — `BSTR` is part of the OLE
+// `BSTR` and the `bindings` module are inherently Win32 - `BSTR` is part of the OLE
 // Automation ABI and must use `SysAllocStringLen`/`SysFreeString` so callers across the
-// FFI boundary can free strings allocated here — and therefore stay gated to Windows.
+// FFI boundary can free strings allocated here - and therefore stay gated to Windows.
 
 extern crate alloc;
 use alloc::string::String;

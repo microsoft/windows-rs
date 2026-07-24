@@ -9,7 +9,7 @@ use rustc_hash::FxHashMap;
 
 use super::*;
 
-// ─── impl_rc_fn_wrapper! macro ──────────────────────────────────────────
+// impl_rc_fn_wrapper! macro
 
 /// Generate an `Rc`-pointer-equal newtype around `dyn Fn(...)`. Provides
 /// `new`, `Clone`, `Debug` (pointer-formatted), and `PartialEq`/`Eq`
@@ -119,7 +119,7 @@ macro_rules! impl_arc_fn_wrapper {
     };
 }
 
-// ─── Callback ───────────────────────────────────────────────────────────
+// Callback
 
 impl_rc_fn_wrapper! {
     /// Cheap-to-clone reference-counted callback. Two clones of the same
@@ -214,7 +214,7 @@ impl IntoUnitCallback for Callback<()> {
     }
 }
 
-// ─── Keyboard ───────────────────────────────────────────────────────────
+// Keyboard
 
 /// A single keyboard shortcut bound to an element via
 /// [`Modifiers`]`.keyboard_accelerators`.
@@ -239,7 +239,7 @@ impl KeyboardAccelerator {
     }
 }
 
-// ─── Context ────────────────────────────────────────────────────────────
+// Context
 
 /// Process-wide unique identifier for a [`Context`] of any value type.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
@@ -418,7 +418,7 @@ impl PartialEq for ProviderElement {
     }
 }
 
-// ─── Resource ───────────────────────────────────────────────────────────
+// Resource
 
 /// Represents the lifecycle of an async data fetch.
 #[derive(Clone, Debug, PartialEq)]
@@ -488,7 +488,7 @@ impl<T> Resource<T> {
     }
 }
 
-/// Builder returned by [`Resource::view()`] — call `.loading()` or `.error()`
+/// Builder returned by [`Resource::view()`] - call `.loading()` or `.error()`
 /// to override defaults before converting to [`Element`] via `.into()`.
 pub struct ResourceView<'a, T, F>
 where

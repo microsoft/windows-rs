@@ -112,7 +112,7 @@ impl Encoder<'_> {
 
         let params = self.collect_params(&item.sig)?;
 
-        // Delegates are always WinRT – validate that all parameter and return types are WinRT.
+        // Delegates are always WinRT - validate that all parameter and return types are WinRT.
         for arg in &item.sig.inputs {
             if let syn::FnArg::Typed(pt) = arg {
                 let ty = self.encode_type(&pt.ty)?;

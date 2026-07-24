@@ -28,7 +28,7 @@ impl PreferredColorScheme {
     }
 }
 
-/// A WebView2 browser profile — the on-disk identity (name, path, private mode)
+/// A WebView2 browser profile - the on-disk identity (name, path, private mode)
 /// shared by every `WebView` created with it, plus its colour scheme, download
 /// folder, and browsing-data controls. Obtain it with [`WebView::profile`].
 pub struct Profile(pub(crate) ICoreWebView2Profile);

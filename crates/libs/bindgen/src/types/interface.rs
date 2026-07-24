@@ -242,7 +242,7 @@ impl Interface {
         let vtbl = {
             let core = config.write_core();
 
-            // Drop trailing usize slots — nothing indexes past the last real
+            // Drop trailing usize slots - nothing indexes past the last real
             // method, so they waste space and compile time.
             let methods_for_vtbl: &[MethodOrName<Method>] = {
                 let last_real = methods
@@ -417,7 +417,7 @@ impl Interface {
             // factory interfaces (those referenced from the class via
             // Activatable/Static/Composable) are already exposed through the class, and
             // exclusive `--implement` interfaces (like overrides) are meant to be *implemented*
-            // via the `_Impl` trait — not called. In both cases we suppress the caller-side
+            // via the `_Impl` trait - not called. In both cases we suppress the caller-side
             // method wrapper to avoid dead code.
             let minimal = config.bindgen.style.is_minimal();
             let suppress_methods = is_exclusive
@@ -840,7 +840,7 @@ impl Dependencies for Interface {
             Type::Interface(interface).combine(dependencies, reader);
         }
 
-        // Different specializations of Interface may have different generics...
+        // Different specializations of Interface may have different generics.
         for ty in &self.generics {
             ty.combine(dependencies, reader);
         }

@@ -177,7 +177,7 @@ impl LayoutAnimationConfig {
     }
 }
 
-/// One-shot property animation (opacity / scale / …) driven by
+/// One-shot property animation (opacity / scale / ...) driven by
 /// `Backend::run_property_animation`.
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct AnimationConfig {
@@ -484,7 +484,7 @@ pub struct Modifiers {
     pub pointer_handlers: Option<Box<PointerHandlers>>,
     pub allow_drop: Option<bool>,
     pub drag_handlers: Option<Box<DragHandlers>>,
-    /// Fast-path for grid row/column placement — avoids the `AttachedProps`
+    /// Fast-path for grid row/column placement - avoids the `AttachedProps`
     /// HashMap + Box + thread_local overhead for the most common attached prop.
     pub grid: Option<GridPlacement>,
     pub resources: HashMap<String, String>,

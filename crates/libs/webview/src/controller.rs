@@ -40,7 +40,7 @@ impl Color {
     }
 }
 
-/// Configures a [`Controller`] at creation time — its profile, whether it runs
+/// Configures a [`Controller`] at creation time - its profile, whether it runs
 /// in private mode, and the colour painted before content loads. Build one with
 /// the fluent setters and pass it to
 /// [`Environment::create_controller_with_options`].

@@ -1,17 +1,17 @@
-//! Reader for COFF *import libraries* — the SDK `.lib` archives such as
+//! Reader for COFF *import libraries* - the SDK `.lib` archives such as
 //! `kernel32.lib`.
 //!
 //! A header declares *that* a function exists, but not *which* DLL exports it.
 //! That last piece of truth lives in the import libraries the SDK ships
 //! alongside the headers: each exported symbol is recorded in a "short import"
 //! archive member that names both the symbol and its implementing DLL. Reading
-//! it directly is faithful to the SDK and needs no hand-curated mapping.
+//! it directly matches the SDK and needs no hand-curated mapping.
 //!
 //! This module only parses the archive; it does not decide *which* libraries to
 //! read. A per-DLL library (`kernel32.lib`) maps every symbol to the real DLL
 //! (`KERNEL32.dll`), whereas the umbrella/apiset libraries (`onecore.lib`,
-//! `mincore.lib`, …) map the same symbols to virtual `api-ms-win-*.dll` apiset
-//! names, so callers building a symbol → DLL index should prefer the per-DLL
+//! `mincore.lib`, ...) map the same symbols to virtual `api-ms-win-*.dll` apiset
+//! names, so callers building a symbol -> DLL index should prefer the per-DLL
 //! libraries.
 
 use crate::Error;
@@ -45,7 +45,7 @@ const SIZE_OF_DATA_OFFSET: usize = 12;
 ///
 /// The archive's bookkeeping members (the linker symbol indexes named `/` and
 /// the long-name table named `//`) and any full COFF objects (the import
-/// descriptor, null thunk, …) carry no `symbol → DLL` fact and are skipped.
+/// descriptor, null thunk, ...) carry no `symbol -> DLL` fact and are skipped.
 /// Imports are returned in archive order; duplicates are preserved so the
 /// caller can apply its own conflict policy.
 pub fn read(bytes: &[u8]) -> Result<Vec<Import>, Error> {

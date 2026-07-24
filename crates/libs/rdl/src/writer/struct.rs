@@ -10,7 +10,7 @@ use windows_metadata::AsRow;
 /// C anonymous-member case) are emitted inline within it; any nested type that
 /// is instead referenced through an array/pointer (or not referenced at all) is
 /// hoisted to a flat top-level sibling using the `windows-bindgen` naming scheme
-/// (`OUTER_0`, `OUTER_0_0`, …) and appears as an additional entry in the list.
+/// (`OUTER_0`, `OUTER_0_0`, ...) and appears as an additional entry in the list.
 pub fn write_struct_items(
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
@@ -57,7 +57,7 @@ fn write_record(
 ) -> Result<TokenStream, Error> {
     let nested: Vec<metadata::reader::TypeDef> = item.index().nested(*item).collect();
 
-    // The leaf names referenced *directly* (bare) by a field — these are inlined.
+    // The leaf names referenced *directly* (bare) by a field - these are inlined.
     let bare: HashSet<String> = item
         .fields()
         .filter_map(|field| match field.ty() {
@@ -126,8 +126,8 @@ fn write_record(
     let keyword = struct_keyword(item);
     let packed_attr = write_packed_attr(item);
     let align_attr = write_align_attr(item);
-    // A nested type's architecture is always that of its enclosing type — it cannot
-    // diverge — so the `#[arch]` is redundant noise on an inline nested record and is
+    // A nested type's architecture is always that of its enclosing type - it cannot
+    // diverge - so the `#[arch]` is redundant noise on an inline nested record and is
     // emitted only on top-level types. The reader re-derives it from the parent.
     let arch_attr = if inline {
         quote! {}
@@ -280,7 +280,7 @@ fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32,
 
 /// Renders the members of a bit-field block, inserting anonymous padding (`_: n`)
 /// for any leading or interior gap so the reader recomputes each member's implicit
-/// offset (the cumulative width of the preceding members) faithfully.
+/// offset (the cumulative width of the preceding members).
 fn write_bitfield_block(members: &[(String, u32, u32)]) -> Vec<TokenStream> {
     let mut out = vec![];
     let mut cursor = 0u32;
@@ -359,7 +359,7 @@ fn write_packed_attr_value(packing: Option<u16>) -> TokenStream {
 /// Emits an `#[align(N)]` token stream if the type carries an
 /// `AlignmentAttribute` (forced over-alignment from `__declspec(align(N))` /
 /// `alignas(N)`), otherwise returns an empty token stream. Unlike packing,
-/// forced alignment is *not* inherited by nested helper types — each type
+/// forced alignment is *not* inherited by nested helper types - each type
 /// carries its own attribute.
 fn write_align_attr(item: &metadata::reader::TypeDef) -> TokenStream {
     let Some(attribute) = item.find_attribute("AlignmentAttribute") else {

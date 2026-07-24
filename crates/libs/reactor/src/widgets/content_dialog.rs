@@ -1,6 +1,6 @@
 use super::*;
 
-/// `Microsoft.UI.Xaml.Controls.ContentDialog` — modal popup with up to
+/// `Microsoft.UI.Xaml.Controls.ContentDialog` - modal popup with up to
 /// three buttons (primary / secondary / close). Not part of the visual
 /// tree: when `is_open` flips to true the backend calls `ShowAsync` and
 /// raises `on_closed(result)` once the user dismisses it.
@@ -87,7 +87,7 @@ impl Widget for ContentDialog {
     widget_header!(ControlKind::ContentDialog);
     fn bindings(&self) -> PropBindings {
         let mut out = generated::content_dialog_bindings(self);
-        // Closed event needs ContentDialogResult wrapping (i32 → enum).
+        // Closed event needs ContentDialogResult wrapping (i32 -> enum).
         let closed_cb = self.on_closed.clone().map(|cb| {
             EventHandler::I32(Callback::new(move |i: i32| {
                 cb.invoke(ContentDialogResult::from_i32(i));

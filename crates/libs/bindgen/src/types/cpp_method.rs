@@ -166,7 +166,7 @@ impl CppMethod {
                 } else {
                     // A non-retval HRESULT method returns raw `-> HRESULT` on the
                     // consumer side so success codes other than S_OK (S_FALSE,
-                    // DXGI_STATUS_OCCLUDED, …) survive; callers append `.ok()` for a
+                    // DXGI_STATUS_OCCLUDED, ...) survive; callers append `.ok()` for a
                     // `Result`. The `_Impl` producer side still uses `Result<()>` so
                     // implementers keep `?` (the upcall converts it back to HRESULT).
                     return_hint = ReturnHint::HResult;

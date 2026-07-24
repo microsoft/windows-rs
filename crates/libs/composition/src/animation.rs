@@ -170,7 +170,7 @@ impl Animation for Vector3KeyFrameAnimation {
     }
 }
 
-/// A map of property-name → animation applied to a visual so that changes to
+/// A map of property-name -> animation applied to a visual so that changes to
 /// those properties animate automatically.
 ///
 /// Create one with

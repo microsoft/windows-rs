@@ -476,7 +476,7 @@ fn gen_into_static(inputs: &ImplementInputs) -> syn::ImplItem {
 /// Generates `From<Foo>` conversions to `IUnknown`, `IInspectable`, and each declared
 /// interface (shorthand for `ComObject::new(value).into_interface()`).
 ///
-/// Only the declared interface chain roots get a conversion — the macro can't see an
+/// Only the declared interface chain roots get a conversion - the macro can't see an
 /// interface's parents. For a base interface, go through the child:
 /// `IFoo3::from(value).into()`.
 fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {

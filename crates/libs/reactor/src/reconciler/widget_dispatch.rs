@@ -299,7 +299,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     fn apply_attached(&mut self, id: ControlId, attached: Option<&AttachedProps>) {
         let Some(att) = attached else { return };
-        // GridPlacement is now on Modifiers::grid — handled by apply_modifiers.
+        // GridPlacement is now on Modifiers::grid - handled by apply_modifiers.
         if let Some(p) = att.get::<CanvasPosition>() {
             self.apply_canvas_position(id, *p);
         }
@@ -330,7 +330,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    /// Unconditionally emits all four grid attached props — used in the diff
+    /// Unconditionally emits all four grid attached props - used in the diff
     /// path to clear stale values when placement changes or is removed.
     pub fn apply_grid_placement_full(&mut self, id: ControlId, p: GridPlacement) {
         self.backend
@@ -347,7 +347,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn apply_canvas_position(&mut self, id: ControlId, p: CanvasPosition) {
-        // Canvas defaults are 0.0 — only emit when non-zero on mount;
+        // Canvas defaults are 0.0 - only emit when non-zero on mount;
         // the diff path always emits to overwrite the previous value.
         if p.left != 0.0 {
             self.backend
@@ -369,7 +369,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         old: Option<&AttachedProps>,
         new: Option<&AttachedProps>,
     ) {
-        // GridPlacement is now on Modifiers::grid — handled by diff_modifiers.
+        // GridPlacement is now on Modifiers::grid - handled by diff_modifiers.
 
         let old_canvas = old.and_then(|a| a.get::<CanvasPosition>()).copied();
         let new_canvas = new.and_then(|a| a.get::<CanvasPosition>()).copied();

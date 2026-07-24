@@ -42,9 +42,9 @@
 //! }
 //! ```
 //!
-//! - `Foo` is the user-defined implementer type — declared **separately**, before invoking
+//! - `Foo` is the user-defined implementer type - declared **separately**, before invoking
 //!   the macro.
-//! - `Foo_Impl` is the wrapper that the macro defines. Visibility (`pub`, `pub(crate)`, …)
+//! - `Foo_Impl` is the wrapper that the macro defines. Visibility (`pub`, `pub(crate)`, ...)
 //!   may be supplied before the ident; it defaults to private.
 //! - Each list entry is just the interface ident. The associated `_Vtbl` type is reached
 //!   through `<IFoo as Interface>::Vtable`, so it does not need to be spelled out, and
@@ -54,7 +54,7 @@
 //! ## Generic implementer types
 //!
 //! For generic implementers like `StockIterable<T>` that implement generic interfaces such
-//! as `IIterable<T>`, the macro accepts a leading `<G…>` generic-parameter list and a
+//! as `IIterable<T>`, the macro accepts a leading `<G...>` generic-parameter list and a
 //! mandatory trailing `where` clause. Each interface entry is then spelled out as a full
 //! type rather than a bare ident:
 //!
@@ -72,8 +72,8 @@
 //!
 //! Generic invocations differ from non-generic ones in two emission details:
 //!
-//! - per-interface vtables are stored as **associated constants** on `impl<G…> Foo_Impl<G…>`
-//!   (an in-`fn` `const C: T = …;` cannot reference outer generic parameters; an associated
+//! - per-interface vtables are stored as **associated constants** on `impl<G...> Foo_Impl<G...>`
+//!   (an in-`fn` `const C: T = ...;` cannot reference outer generic parameters; an associated
 //!   constant can),
 //! - `into_outer` is *not* `const fn` (a generic `fn` cannot be `const fn` while reading
 //!   associated constants whose values depend on `Self`'s type arguments), and there is no
@@ -81,18 +81,18 @@
 //!
 //! ## Generated items
 //!
-//! - `struct Foo_Impl` — `#[repr(C)]` with leading `base: ComposeBase`, `identity:
+//! - `struct Foo_Impl` - `#[repr(C)]` with leading `base: ComposeBase`, `identity:
 //!   &'static IInspectable_Vtbl`, one `&'static IFace_Vtbl` field per interface (named
 //!   after the interface ident), then `this: Foo`, `count: WeakRefCount`.
-//! - `impl Foo { fn into_outer, fn into_static }` — the same shape as the proc-macro.
+//! - `impl Foo { fn into_outer, fn into_static }` - the same shape as the proc-macro.
 //!   Vtables are stored as const-promoted `&'static` references to `const fn` results;
 //!   this avoids needing to synthesize per-interface const identifiers.
 //! - `impl Deref<Target=Foo> for Foo_Impl`.
 //! - `impl IUnknownImpl for Foo_Impl` with a `QueryInterface` that handles, in order:
-//!   - `IUnknown` / `IInspectable` / `IAgileObject` → identity vtable,
-//!   - each declared interface IID → that interface's vtable,
-//!   - `IMarshal` (Windows only) → standard marshaler,
-//!   - `DYNAMIC_CAST_IID` → `&dyn Any` write,
+//!   - `IUnknown` / `IInspectable` / `IAgileObject` -> identity vtable,
+//!   - each declared interface IID -> that interface's vtable,
+//!   - `IMarshal` (Windows only) -> standard marshaler,
+//!   - `DYNAMIC_CAST_IID` -> `&dyn Any` write,
 //!   - weak-reference tear-off,
 //!   - aggregation fall-through to the inner non-delegating `IInspectable`.
 //! - `impl ComObjectInner for Foo`.
@@ -107,7 +107,7 @@
 /// syntax and scope.
 #[macro_export]
 macro_rules! implement_decl {
-    // Generic form: `impl<G, …> Name as Vis Name_Impl : [Iface<…>, …] where …`.
+    // Generic form: `impl<G, ...> Name as Vis Name_Impl : [Iface<...>, ...] where ...`.
     //
     // Listed before the non-generic arm so that a leading `<` reliably steers here.
     // The `where` clause is required and is forwarded verbatim to every emitted impl
@@ -140,7 +140,7 @@ macro_rules! implement_decl {
         }
     };
 
-    // Non-generic form: `impl Name as Vis Name_Impl : [Iface, …]`.
+    // Non-generic form: `impl Name as Vis Name_Impl : [Iface, ...]`.
     (
         impl $name:ident as $impl_vis:vis $impl_name:ident : [
             $( $iface:ident ),+ $(,)?
@@ -205,12 +205,12 @@ macro_rules! __implement_decl_first_iface {
 // --- Main accumulator: walks the interface list, accumulating struct fields, the
 // `into_outer` initializer list, and `(iface, vtbl)` pairs for the `QueryInterface` body.
 //
-// **Important — macro hygiene.** The accumulator carries only *data* tokens (idents,
+// **Important - macro hygiene.** The accumulator carries only *data* tokens (idents,
 // types) so that all references to `self`, `iid`, and the `'found` label end up emitted
 // from a single macro invocation (the base arm). If those references were generated in
 // the recursive arm and shipped across invocations via a metavariable, each invocation
 // would attach a fresh expansion-site hygiene context to them, and the base arm's
-// `fn QueryInterface(&self, iid: ..., …) { 'found: { ... } }` declarations would not
+// `fn QueryInterface(&self, iid: ..., ...) { 'found: { ... } }` declarations would not
 // unify with the references in the spliced tokens.
 //
 // The `offset:` token list is a unary counter (`()` per pointer-slot of offset). Each
@@ -356,7 +356,7 @@ macro_rules! __implement_decl_struct {
 //
 // Emits every `IUnknownImpl` method except the `type Impl` associated type (which differs
 // per arm). Both the generic and non-generic base arms invoke this so the reference-count
-// methods and — more importantly — the `QueryInterface`/identity routing exist in exactly
+// methods and the `QueryInterface`/identity routing exist in exactly
 // one place. That routing is security-sensitive (it decides which vtable a given IID maps
 // to) and must never drift between the two arms.
 //
@@ -492,7 +492,7 @@ macro_rules! __implement_decl_iunknown_methods {
 // generic-parameter / `where`-clause plumbing: `Compose`, `From<Foo>` for `IUnknown` and
 // `IInspectable`, and `ComObjectInterface` for `IUnknown` and `IInspectable`. The
 // non-generic arm invokes this with an empty `gen`/`wc`, which expands to `impl<>`,
-// `Foo<>`, and an empty `where` — all accepted by the compiler.
+// `Foo<>`, and an empty `where` - all accepted by the compiler.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_shared_tail {
@@ -583,7 +583,7 @@ macro_rules! __implement_decl_offset_negate {
 // `__implement_decl_offset_negate!` (the vtable `OFFSET` const generic) and
 // `__implement_decl_index_plus_two!` (the `AsImpl` pointer adjustment), replacing two
 // hand-written 16-arm lookup tables with one recursive count. There is no fixed interface
-// cap anymore — the sum grows with the input.
+// cap anymore - the sum grows with the input.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_count_units {
@@ -823,7 +823,7 @@ macro_rules! __implement_decl_g_struct {
             consts: {
                 $($consts)*
                 // Per-chain vtable lives as an associated constant on the generic
-                // `impl Foo_Impl<G…>` block. Associated constants are allowed to
+                // `impl Foo_Impl<G...>` block. Associated constants are allowed to
                 // reference the outer impl's generic parameters; an in-function
                 // `const C: ... = ...;` would not be (E0401).
                 #[allow(non_upper_case_globals)]
@@ -949,8 +949,8 @@ macro_rules! __implement_decl_g_struct {
 
 // --- Per-interface impls ----------------------------------------------------------------
 //
-// Emits `From<Foo<G…>> for IFace`, `ComObjectInterface<IFace> for Foo_Impl<G…>`, and
-// `AsImpl<Foo<G…>> for IFace`, mirroring the per-interface emission in `implement_decl!`.
+// Emits `From<Foo<G...>> for IFace`, `ComObjectInterface<IFace> for Foo_Impl<G...>`, and
+// `AsImpl<Foo<G...>> for IFace`, mirroring the per-interface emission in `implement_decl!`.
 
 #[doc(hidden)]
 #[macro_export]

@@ -59,7 +59,7 @@ impl Encoder<'_> {
     /// `TypeDef` for a nested record (`None` for a top-level type).
     ///
     /// The record's own attributes (`#[packed]`/`#[align]`/`#[arch]`) are applied
-    /// immediately after its `TypeDef` is created, before any nested child — so
+    /// immediately after its `TypeDef` is created, before any nested child - so
     /// the `ClassLayout` table stays sorted by parent (types are created in
     /// pre-order, parent before child). All of the record's own fields are then
     /// pushed contiguously *before* any nested child `TypeDef`, so the metadata

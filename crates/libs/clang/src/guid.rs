@@ -18,15 +18,15 @@ pub(crate) fn is_guid_type(ty: &Type) -> bool {
 /// Parse a GUID struct initializer from the AST using `clang_Cursor_Evaluate`.
 ///
 /// This handles cases where macro constants or expressions are used in the
-/// GUID initializer (e.g. 7zip's `Z7_DEFINE_GUID` pattern) — the compiler
+/// GUID initializer (e.g. 7zip's `Z7_DEFINE_GUID` pattern) - the compiler
 /// evaluates the expressions after macro expansion so the values are always
 /// available regardless of how the initializer was spelled in source.
 ///
 /// The VarDecl cursor for a GUID variable has the shape:
 /// - `CXCursor_InitListExpr` (top-level, containing 4 children):
-///   - `CXCursor_IntegerLiteral` × 3 (data1, data2, data3)
+///   - `CXCursor_IntegerLiteral` x 3 (data1, data2, data3)
 ///   - `CXCursor_InitListExpr` (data4, containing 8 children):
-///     - `CXCursor_IntegerLiteral` × 8
+///     - `CXCursor_IntegerLiteral` x 8
 pub(crate) fn parse_guid_initializer_ast(cursor: &Cursor) -> Option<String> {
     // Find the top-level InitListExpr child of the VarDecl.
     let init_list = cursor
@@ -44,7 +44,7 @@ pub(crate) fn parse_guid_initializer_ast(cursor: &Cursor) -> Option<String> {
     let data2 = children[1].evaluate_unsigned()?;
     let data3 = children[2].evaluate_unsigned()?;
 
-    // Range-check: data1 ≤ u32, data2/data3 ≤ u16.
+    // Range-check: data1 <= u32, data2/data3 <= u16.
     if data1 > u32::MAX as u64 || data2 > u16::MAX as u64 || data3 > u16::MAX as u64 {
         return None;
     }
@@ -94,7 +94,7 @@ pub(crate) fn parse_guid_initializer_ast(cursor: &Cursor) -> Option<String> {
 ///
 /// Scans past the `=` token, then collects exactly 11 integer literals from
 /// the balanced `{ ... { ... } }` initializer: `data1` (u32), `data2` (u16),
-/// `data3` (u16), and `data4[0..8]` (8 × u8).
+/// `data3` (u16), and `data4[0..8]` (8 x u8).
 ///
 /// Returns the UUID in standard `"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` format,
 /// or `None` if the token sequence does not match the expected shape.
@@ -116,7 +116,7 @@ pub(crate) fn parse_guid_initializer_tokens(tokens: &[(CXTokenKind, String)]) ->
     format_guid_from_values(&values)
 }
 
-/// Parse a `DEFINE_GUID(name, l, w1, w2, b1, …, b8)` (or the
+/// Parse a `DEFINE_GUID(name, l, w1, w2, b1, ..., b8)` (or the
 /// `DEFINE_OLEGUID(name, l, w1, w2)` shorthand) macro-expansion token stream into
 /// the GUID constant's name and its standard hyphenated UUID string.
 ///
@@ -198,7 +198,7 @@ pub(crate) fn format_guid_from_values(values: &[u64]) -> Option<String> {
     let data2 = values[1];
     let data3 = values[2];
 
-    // Range-check: data1 ≤ u32, data2/data3 ≤ u16, data4 bytes ≤ u8.
+    // Range-check: data1 <= u32, data2/data3 <= u16, data4 bytes <= u8.
     if data1 > u32::MAX as u64 || data2 > u16::MAX as u64 || data3 > u16::MAX as u64 {
         return None;
     }

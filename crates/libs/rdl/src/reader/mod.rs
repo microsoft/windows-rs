@@ -206,8 +206,8 @@ impl Reader {
 }
 
 /// Parses a single `.rdl` file and returns the names of every type, function, and constant
-/// it defines under `namespace`. This is a pure syntactic walk — cross-file references are
-/// not resolved — so it succeeds even on a partition that references types defined elsewhere.
+/// it defines under `namespace`. This is a pure syntactic walk - cross-file references are
+/// not resolved - so it succeeds even on a partition that references types defined elsewhere.
 pub(crate) fn item_names(path: &str, namespace: &str) -> Result<Vec<String>, Error> {
     let input = expand_rdl_files(std::slice::from_ref(&path.to_string()), &[])?;
     let mut index = Index::new();
@@ -399,7 +399,7 @@ fn validate_use_declarations(
     Ok(())
 }
 
-/// Parses a `syn::LitInt` as a `u128`, supporting both `0x…` hex and decimal literals.
+/// Parses a `syn::LitInt` as a `u128`, supporting both `0x...` hex and decimal literals.
 /// Underscore separators (e.g. `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3`) are accepted.
 pub(super) fn parse_guid_u128(lit: &syn::LitInt) -> Result<u128, ()> {
     let s: String = lit
@@ -709,7 +709,7 @@ impl Encoder<'_> {
                     && tp.path.segments.len() == 1
                     && matches!(tp.path.segments[0].arguments, syn::PathArguments::None) =>
             {
-                // A primitive (`u16`, `i32`, …) resolves independently of namespace.
+                // A primitive (`u16`, `i32`, ...) resolves independently of namespace.
                 if let Ok(resolved) = self.encode_type(ty)
                     && !matches!(
                         resolved,
@@ -776,7 +776,7 @@ impl Encoder<'_> {
     /// Encodes an integer constant for an unsigned target type of the given bit
     /// width, accepting both a plain literal and a *negated* literal. A negated
     /// literal models a C cast such as `(UINT)-1`, whose value is the two's-
-    /// complement bit pattern (`0xFFFF_FFFF`) — well-defined for unsigned types and
+    /// complement bit pattern (`0xFFFF_FFFF`) - well-defined for unsigned types and
     /// the idiom behind sentinels like `MCI_ALL_DEVICE_ID`. The result is masked to
     /// `bits` so `-1` becomes `0xFF`/`0xFFFF`/`0xFFFF_FFFF`/`u64::MAX` for an
     /// 8/16/32/64-bit target.
@@ -814,7 +814,7 @@ impl Encoder<'_> {
     /// Encodes an integer constant for a *signed* target type of the given bit width,
     /// reinterpreting the literal's bit pattern in two's complement. This accepts both
     /// negated literals (`-1`) and positive literals that overflow the signed range
-    /// because the source spelled the bit pattern directly — e.g. an `HRESULT`
+    /// because the source spelled the bit pattern directly - e.g. an `HRESULT`
     /// (`i32`) macro that evaluates to `2147745792` (`0x8004_4000`) is the negative
     /// value `-2147221504`. In-range values are unchanged; the result is sign-extended
     /// to `i64` for the caller to narrow.
@@ -1047,9 +1047,9 @@ impl Encoder<'_> {
 
         // Core-type fallback: a bare `GUID`/`HRESULT`/`Type` the closure does not define
         // itself maps to the ecosystem's canonical type (the COM/WinRT convention the
-        // editorial pipeline relies on). When the faithful scrape *does* define its own
+        // hand-curated pipeline relies on). When the win32 scrape *does* define its own
         // `GUID`/`HRESULT` (guiddef.h / winerror.h), the resolution above already returned
-        // it, so this never fires — keeping the faithful win32 metadata self-contained.
+        // it, so this never fires - keeping the win32 metadata self-contained.
         if ty.segments.len() == 1 {
             match name.as_str() {
                 "Type" => return Ok(metadata::Type::class_named("System", "Type")),
@@ -1075,7 +1075,7 @@ impl Encoder<'_> {
     ///
     /// WinRT types may not refer to non-WinRT types in fields, parameters, return types,
     /// or anywhere else.  Primitive types and generic type parameters are always valid.
-    /// Named types (structs, enums, interfaces, …) are checked against the local index
+    /// Named types (structs, enums, interfaces, ...) are checked against the local index
     /// first, then against any loaded reference metadata.
     fn validate_type_is_winrt<S: Spanned + quote::ToTokens>(
         &self,
@@ -1116,7 +1116,7 @@ impl Encoder<'_> {
             metadata::Type::Array(inner) | metadata::Type::ArrayFixed(inner, _) => {
                 self.validate_type_is_winrt(span, inner)?;
             }
-            // Primitives (Bool, I8, U8, …), String, Object, Void, Generic, … are always OK.
+            // Primitives (Bool, I8, U8, ...), String, Object, Void, Generic, ... are always OK.
             _ => {}
         }
 
@@ -1127,8 +1127,8 @@ impl Encoder<'_> {
 /// Parses a `#[arch(...)]` expression into an architecture bitmask.
 ///
 /// Accepts:
-/// - A single identifier: `X86` → 1, `X64` → 2, `Arm64` → 4.
-/// - A bitwise-OR combination: `X86 | X64` → 3, `X64 | Arm64` → 6, etc.
+/// - A single identifier: `X86` -> 1, `X64` -> 2, `Arm64` -> 4.
+/// - A bitwise-OR combination: `X86 | X64` -> 3, `X64 | Arm64` -> 6, etc.
 ///
 /// Returns `None` when the expression contains an unknown architecture name or an
 /// unsupported expression form.
@@ -1156,9 +1156,9 @@ pub(crate) fn parse_arch_bitmask(expr: &syn::Expr) -> Option<i32> {
 }
 
 /// Maps a well-known architecture name to its bitmask bit.
-///   `X86`   → 1
-///   `X64`   → 2
-///   `Arm64` → 4
+///   `X86`   -> 1
+///   `X64`   -> 2
+///   `Arm64` -> 4
 fn arch_name_to_bits(name: &str) -> Option<i32> {
     match name {
         "X86" => Some(1),
@@ -1210,7 +1210,7 @@ pub(crate) fn parse_fn_inputs(
         let fork = content.fork();
         let _ = fork.call(syn::Attribute::parse_outer);
         if fork.peek(syn::Token![...]) {
-            // It's variadic — consume the attrs and dots from the real stream.
+            // It's variadic - consume the attrs and dots from the real stream.
             let attrs = content.call(syn::Attribute::parse_outer)?;
             let dots: syn::Token![...] = content.parse()?;
             variadic = Some(syn::Variadic {
@@ -1226,7 +1226,7 @@ pub(crate) fn parse_fn_inputs(
             break;
         }
 
-        // Regular fn arg — syn handles inner attrs itself.
+        // Regular fn arg - syn handles inner attrs itself.
         let arg: syn::FnArg = content.parse()?;
         args.push_value(arg);
 

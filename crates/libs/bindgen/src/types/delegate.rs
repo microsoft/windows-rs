@@ -42,12 +42,12 @@ impl Delegate {
         );
 
         // Suppress `new()` / `Invoke()` for delegates that are exclusively used
-        // as event handler parameters — the event-add wrapper inlines the
+        // as event handler parameters - the event-add wrapper inlines the
         // DelegateBox construction directly. Safe when:
         // 1. No broad namespace filter (hand-written code might call these)
         // 2. The delegate only appears as a parameter in add_* event methods
         // 3. In non-minimal mode, the delegate wasn't explicitly listed in the
-        //    filter (explicit inclusion means the caller may use it directly —
+        //    filter (explicit inclusion means the caller may use it directly -
         //    e.g. windows-collections calls .Invoke() on its event delegates).
         //    In minimal mode, event wrappers always inline construction so
         //    explicit filter listing doesn't imply direct usage.
@@ -62,7 +62,7 @@ impl Delegate {
                 || !config.filter.direct_types.contains(&delegate_key));
         let invoke_method = if config.bindgen.style.is_minimal() {
             // In minimal mode, delegates are invoked by the framework, not
-            // user code — suppress the public Invoke() wrapper entirely.
+            // user code - suppress the public Invoke() wrapper entirely.
             quote! {}
         } else {
             invoke
@@ -129,7 +129,7 @@ impl Delegate {
             }
         };
 
-        // Event-only delegates never need `new()` — the event-add wrapper
+        // Event-only delegates never need `new()` - the event-add wrapper
         // inlines the DelegateBox construction directly.
         let new_method = if is_event_only {
             quote! {}

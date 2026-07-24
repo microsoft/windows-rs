@@ -5,14 +5,14 @@ use super::*;
 /// Scans all top-level `CXCursor_TypedefDecl` cursors in the translation unit
 /// (including those inside `extern "C"` / `extern "C++"` linkage-spec blocks)
 /// and records the first typedef that directly aliases each tagged struct or
-/// enum as `tag_name → typedef_name`.
+/// enum as `tag_name -> typedef_name`.
 ///
 /// This handles the common C idiom:
 /// ```c
 /// typedef struct _TEST { int value; } TEST, *PTEST;
 /// ```
 /// Here `_TEST` is the internal struct tag and `TEST` is the intended public
-/// name.  The map entry `"_TEST" → "TEST"` is used by the code generator to
+/// name.  The map entry `"_TEST" -> "TEST"` is used by the code generator to
 /// replace every occurrence of `_TEST` with `TEST` in the emitted RDL.
 pub(crate) fn build_tag_rename_map(tu: &TranslationUnit) -> HashMap<String, String> {
     let mut map = HashMap::new();
@@ -111,7 +111,7 @@ fn builtin_int_repr(kind: CXTypeKind) -> Option<&'static str> {
     })
 }
 
-/// Inspect a single cursor for tag→typedef rename candidates and recurse
+/// Inspect a single cursor for tag->typedef rename candidates and recurse
 /// into `CXCursor_LinkageSpec` blocks.
 pub(crate) fn collect_typedef_renames(cursor: Cursor, map: &mut HashMap<String, String>) {
     if cursor.kind() == CXCursor_LinkageSpec {
@@ -133,7 +133,7 @@ pub(crate) fn collect_typedef_renames(cursor: Cursor, map: &mut HashMap<String, 
     if inner.kind() == CXType_Record || inner.kind() == CXType_Enum {
         let tag_name = inner.ty().name();
         let typedef_name = cursor.name();
-        // Collapse the tag→typedef idiom when this typedef defines the record/enum inline
+        // Collapse the tag->typedef idiom when this typedef defines the record/enum inline
         // (`typedef struct _T {...} T;`) or aliases a private tag named with the `_`/`tag`
         // prefix idiom (`struct tagVARIANT {...}; typedef struct tagVARIANT VARIANT;`). A
         // typedef aliasing an already-public tag from elsewhere (e.g. dwrite's `typedef
@@ -156,8 +156,8 @@ pub(crate) fn collect_typedef_renames(cursor: Cursor, map: &mut HashMap<String, 
     }
 }
 
-/// Walk the translation unit and insert `key → synthetic_name` entries into
-/// `tag_rename` for every nested struct/union type — whether named or anonymous.
+/// Walk the translation unit and insert `key -> synthetic_name` entries into
+/// `tag_rename` for every nested struct/union type - whether named or anonymous.
 ///
 /// For named types the tag name is used as the key (since `to_type()` resolves
 /// `CXType_Record` by the declaration's spelling).  For anonymous types the
@@ -190,7 +190,7 @@ pub(crate) fn visit_for_nested_names(cursor: Cursor, tag_rename: &mut HashMap<St
     let kind = cursor.kind();
     if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && cursor.is_definition() {
         let tag_name = cursor.name();
-        // Skip anonymous top-level types – they have no outer name to derive from.
+        // Skip anonymous top-level types - they have no outer name to derive from.
         if is_anonymous_name(&tag_name) {
             return;
         }
@@ -205,7 +205,7 @@ pub(crate) fn visit_for_nested_names(cursor: Cursor, tag_rename: &mut HashMap<St
 ///
 /// `index` counts **all** nested struct/union definitions in order, matching
 /// the writer's convention so that a type round-tripped through
-/// clang → RDL → winmd → RDL produces names consistent with what the
+/// clang -> RDL -> winmd -> RDL produces names consistent with what the
 /// writer would have generated.
 pub(crate) fn assign_nested_child_names(
     outer_name: &str,

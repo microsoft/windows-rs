@@ -1,6 +1,6 @@
 use super::*;
 
-/// Filter entry parser — Rust `use`-style path syntax.
+/// Filter entry parser - Rust `use`-style path syntax.
 ///
 /// Grammar:
 /// ```text
@@ -15,7 +15,7 @@ use super::*;
 /// `Ns::Type::{a, b}` includes only the named methods.
 ///
 /// Flattens grouped paths into a list of fully-qualified entries:
-///   `A::B::{C, D::E}` → `["A::B::C", "A::B::D::E"]`
+///   `A::B::{C, D::E}` -> `["A::B::C", "A::B::D::E"]`
 ///
 /// A parsed filter entry after flattening.
 #[derive(Debug, Clone)]
@@ -206,7 +206,7 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         kind,
     };
 
-    // Single segment: bare name (e.g. "CloseHandle") — search all namespaces
+    // Single segment: bare name (e.g. "CloseHandle") - search all namespaces
     if segments.len() == 1 {
         let name = &segments[0];
         // Search all namespaces for this name
@@ -259,7 +259,7 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         // Look up the type
         let ns_map = reader.get(ns_candidate.as_str());
         if ns_map.is_none() || ns_map.unwrap().get(type_seg.as_str()).is_none() {
-            // Type not found in this namespace — try shorter namespace
+            // Type not found in this namespace - try shorter namespace
             continue;
         }
 

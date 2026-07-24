@@ -21,9 +21,9 @@ impl Callback {
         if name.is_empty() {
             return Ok(None);
         }
-        // Legacy (editorial-namespace) mode excludes internal, underscore-prefixed
+        // Legacy (hand-curated namespace) mode excludes internal, underscore-prefixed
         // function-pointer typedefs (CRT/system callbacks that win32metadata omits).
-        // Faithful per-header mode emits them: they are part of the source surface and
+        // Per-header mode emits them: they are part of the source surface and
         // are referenced by the functions that take them, so dropping them would leave
         // a dangling reference.
         if parser.header_root.is_none() && name.starts_with('_') {
@@ -53,8 +53,8 @@ impl Callback {
 
         let return_type = fn_type.fn_result_type().to_type(parser);
 
-        // The parameter declarations — names, SAL annotations, and (for two-level
-        // typedefs) the calling convention — live on the cursor's `ParmDecl` children.
+        // The parameter declarations - names, SAL annotations, and (for two-level
+        // typedefs) the calling convention - live on the cursor's `ParmDecl` children.
         // Single-level pointer/function typedefs carry them directly; a two-level typedef
         // (`typedef RET (CONV *NAME)(ARGS); typedef NAME PNAME;`, as with winnt.h's
         // `TP_SIMPLE_CALLBACK` / `PTP_SIMPLE_CALLBACK`) carries them on the base
@@ -89,7 +89,7 @@ impl Callback {
         // Recover an explicitly-stated `__cdecl` / `__fastcall` convention from the
         // declaration's source tokens (clang erases it from the type on 64-bit targets).
         // The platform default (`CALLBACK` / `WINAPI` / `__stdcall`) is left as `None`: the
-        // reader encodes it as `CallingConvention.Winapi`, which is faithful on every
+        // reader encodes it as `CallingConvention.Winapi`, which is correct on every
         // architecture. The `param_source` tokens carry the convention in both the
         // single-level and two-level cases.
         let calling_convention =

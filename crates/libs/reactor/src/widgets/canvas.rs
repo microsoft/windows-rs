@@ -1,6 +1,6 @@
 use super::*;
 
-/// W5 — `Microsoft.UI.Xaml.Controls.Canvas`. Free-positioning panel
+/// W5 - `Microsoft.UI.Xaml.Controls.Canvas`. Free-positioning panel
 /// where each child is placed via the [`CanvasPosition`] attached
 /// property (`canvas_left` / `canvas_top` on [`Element`]).
 #[derive(Clone, Default, Debug, PartialEq)]

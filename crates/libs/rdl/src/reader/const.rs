@@ -38,7 +38,7 @@ impl Encoder<'_> {
         let name = item.name.to_string();
         let ty = self.encode_type(&item.ty)?;
 
-        // A property-key constant is spelled `#[guid(0x…)] const NAME: PROPERTYKEY = pid;`:
+        // A property-key constant is spelled `#[guid(0x...)] const NAME: PROPERTYKEY = pid;`:
         // the `fmtid` rides on the `#[guid]` attribute and the value is the `pid`. It is
         // distinguished from an ordinary GUID constant (whose value is the GUID itself,
         // written inline) by carrying a `#[guid]` attribute on a non-GUID struct type.
@@ -47,8 +47,8 @@ impl Encoder<'_> {
         match &ty {
             // A GUID-typed constant is encoded as a `GuidAttribute` blob on the field
             // (the win32metadata representation bindgen reads), not an ECMA `Constant`.
-            // Match both the WinRT `System.Guid` and the faithful Win32 `GUID` struct
-            // (guiddef.h), which resolves to the closure's own `…Win32.GUID`.
+            // Match both the WinRT `System.Guid` and the Win32 `GUID` struct
+            // (guiddef.h), which resolves to the closure's own `...Win32.GUID`.
             windows_metadata::Type::ValueName(tn)
                 if tn == ("System", "Guid") || tn.name == "GUID" =>
             {
@@ -65,7 +65,7 @@ impl Encoder<'_> {
 
     /// Encodes a `PROPERTYKEY`/`DEVPROPKEY` constant as a field carrying a `GuidAttribute`
     /// (the `fmtid`) plus an ordinary `u32` `Constant` (the `pid`). This reuses the two
-    /// structured primitives that already round-trip faithfully instead of a bespoke
+    /// structured primitives that already round-trip exactly instead of a bespoke
     /// struct-initializer string.
     fn encode_const_property_key(
         &mut self,

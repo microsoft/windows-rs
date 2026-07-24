@@ -10,7 +10,7 @@ fn method_included_by_set(method: MethodDef, method_set: &MethodSet) -> bool {
 }
 
 /// Computes the bottom-up type closure for a precise (non-broad, non-package)
-/// filter — the projection whose seeds are the exact types and methods named in
+/// filter - the projection whose seeds are the exact types and methods named in
 /// the [`Filter`].
 ///
 /// Starting from those seeds, this walks method signatures recursively to
@@ -29,7 +29,7 @@ impl TypeClosure {
     pub fn build(reader: &Reader, filter: &mut Filter, references: &References) -> TypeMap {
         let mut types = TypeMap::new();
 
-        // 1. Process interface method entries — for each requested interface,
+        // 1. Process interface method entries - for each requested interface,
         //    include the interface itself and walk the signatures of requested
         //    methods to pull in their dependent types.
         for ((namespace, name), method_set) in &filter.requested_interfaces {
@@ -81,7 +81,7 @@ impl TypeClosure {
 
                 // Unscoped (C-style) enum variants are standalone `Enum_Member`
                 // constants, not associated consts, so they must be pulled into the
-                // closure explicitly — otherwise the enum is a bare `pub type` alias
+                // closure explicitly - otherwise the enum is a bare `pub type` alias
                 // with no values. The recorded variant set decides which come along
                 // (`All`, a subset, or an empty shell); enums reached only as a
                 // dependency record no set and stay name-only. Individually requested
@@ -180,7 +180,7 @@ impl CombineClosure for Type {
         };
 
         // Insert the type and stop on repeats to avoid infinite recursion. Core
-        // types (`GUID`, `HRESULT`, `BOOL`, `PCWSTR`, `IUnknown`, …) carry an empty
+        // types (`GUID`, `HRESULT`, `BOOL`, `PCWSTR`, `IUnknown`, ...) carry an empty
         // namespace; they are still inserted so a standalone `--sys` crate emits
         // their local definitions (`write_no_deps`). Non-sys crates carry them in
         // the map harmlessly because `write_no_deps` only emits when
@@ -256,7 +256,7 @@ impl CombineClosure for Type {
             }
             Self::Interface(_iface) => {
                 // For interfaces pulled in as dependencies (not explicitly
-                // requested), we only need the struct/IID/hierarchy — no need
+                // requested), we only need the struct/IID/hierarchy - no need
                 // to recursively pull in all their method signature types.
                 // The hierarchy is handled by the caller.
                 Self::Object.combine_closure(types, reader, references);

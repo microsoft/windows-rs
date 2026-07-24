@@ -8,7 +8,7 @@ pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
 impl SwapChainPanelHandle {
     /// Wraps the native `SwapChainPanel` element for a control created outside
-    /// the [`swap_chain_panel()`] widget — for example, a [`CustomElement`] that
+    /// the [`swap_chain_panel()`] widget - for example, a [`CustomElement`] that
     /// creates a `ControlKind::SwapChainPanel` and obtains its native object via
     /// [`Backend::get_native_element`](crate::Backend::get_native_element). This
     /// lets such a host attach a `windows-canvas` swap chain or a raw DXGI swap
@@ -66,7 +66,7 @@ impl SwapChainPanelHandle {
     }
 }
 
-/// Built-in widget for `Microsoft.UI.Xaml.Controls.SwapChainPanel` — hosts
+/// Built-in widget for `Microsoft.UI.Xaml.Controls.SwapChainPanel` - hosts
 /// custom Direct3D / Direct2D rendering inside a WinUI 3 XAML tree.
 ///
 /// Use [`on_mounted`](SwapChainPanel::on_mounted) to receive a
@@ -110,7 +110,7 @@ impl SwapChainPanel {
     /// Callback invoked just before the native control is destroyed, while it
     /// still exists. Use this to tear down resources bound to the panel (for
     /// example, stop and join a render thread that presents into its swap
-    /// chain) before the panel — and its swap chain — go away.
+    /// chain) before the panel - and its swap chain - go away.
     pub fn on_unmounted(mut self, f: impl Fn(SwapChainPanelHandle) + 'static) -> Self {
         self.unmounted = Some(Callback::new(move |native: Option<_>| {
             if let Some(native) = native {

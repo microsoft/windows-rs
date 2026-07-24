@@ -1,14 +1,12 @@
 //! Thin shim around `proc_macro2` and `quote` for the bindgen emitter.
 //!
-//! Previously this module reimplemented the `quote!` macro on top of a
-//! `TokenStream(pub String)` (~1050 LOC). It now delegates to the upstream
-//! `quote` crate so the emitter operates on real token trees.
+//! It delegates to the upstream `quote` crate so the emitter operates on real
+//! token trees.
 
 pub use proc_macro2::{Literal, TokenStream};
 pub use quote::{ToTokens, quote};
 
-/// Extension methods on `TokenStream` that match the API of the previous
-/// hand-rolled `TokenStream(String)` wrapper.
+/// Extension methods on `TokenStream` used by the emitter.
 pub trait TokenStreamExt {
     /// Append another stream of tokens to this one.
     ///
@@ -21,8 +19,7 @@ pub trait TokenStreamExt {
     /// identifiers like `Foo_Vtbl` from a parent name.
     fn join(&self, suffix: &str) -> TokenStream;
 
-    /// Convert into an owned `String`. Equivalent to [`ToString::to_string`],
-    /// preserved as an alias for legacy call sites.
+    /// Convert into an owned `String`. Equivalent to [`ToString::to_string`].
     fn into_string(self) -> String;
 }
 
@@ -67,7 +64,7 @@ pub fn to_ident(name: &str) -> TokenStream {
 /// Convert a PascalCase or camelCase name to snake_case.
 ///
 /// Used in minimal mode to emit struct field names that conform to Rust
-/// naming conventions (e.g. `TopLeft` → `top_left`, `A` → `a`).
+/// naming conventions (e.g. `TopLeft` -> `top_left`, `A` -> `a`).
 pub fn to_snake_case(name: &str) -> String {
     let mut result = String::with_capacity(name.len() + 4);
     for (i, c) in name.chars().enumerate() {

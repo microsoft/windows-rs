@@ -59,13 +59,13 @@ use super::*;
 /// --etc path/to/file.txt
 /// ```
 ///
-/// That said, some internal crates in the `windows-rs` repo do this as well; you can see examples in
-/// the `crates/tools/bindings/src` directory where filter `.txt` files are read and processed.
+/// The in-repo crates use this convention; see the filter `.txt` files in
+/// `crates/tools/bindings/src`.
 ///
 /// ## Method-level filtering
 ///
 /// Filters can target individual methods, properties, and events on an
-/// interface, class, or struct — in any style.  The syntax looks like
+/// interface, class, or struct - in any style.  The syntax looks like
 /// `Namespace.Type::Member`.  You can also use `Property.Name`
 /// or `Event.Name` sugar to target a getter/setter pair or an event pair.
 ///

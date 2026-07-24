@@ -39,7 +39,7 @@ impl Interface {
     /// declaration order (see the reversal note near the end of this function).
     pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Self, Error> {
         let tag_name = cursor.name();
-        // Use the public typedef alias if one exists (e.g. `_IFoo` → `IFoo`).
+        // Use the public typedef alias if one exists (e.g. `_IFoo` -> `IFoo`).
         let name = parser
             .tag_rename
             .get(&tag_name)
@@ -81,7 +81,7 @@ impl Interface {
 
             // Old-style `DECLARE_INTERFACE_` headers redeclare the entire inherited method
             // chain in each derived interface. Those redeclarations override base-class
-            // virtuals and reuse their vtable slots, so skip them — the emitted `base__`
+            // virtuals and reuse their vtable slots, so skip them - the emitted `base__`
             // vtable already reconstructs the full inherited chain. Emitting them again
             // would double the inherited slots and corrupt the vtable layout.
             if child.overrides_base_method() {
@@ -102,7 +102,7 @@ impl Interface {
             let mut params = parse_params(&child, &midl_param_annotations, parser);
 
             // Recover the `ComOutPtr` (`#[iid_is]`) marker on caller-chosen-type COM methods
-            // (`GetService`, `Activate`, `CreateInstance`, …) that the SDK headers leave
+            // (`GetService`, `Activate`, `CreateInstance`, ...) that the SDK headers leave
             // unannotated, from the signature shape. See [`infer_iid_is`] for the gate.
             infer_iid_is(&mut params, &return_type);
 
@@ -141,10 +141,10 @@ impl Interface {
     ///
     /// Produces:
     /// ```text
-    /// #[guid(0x…)] | #[no_guid]
+    /// #[guid(0x...)] | #[no_guid]
     /// interface Name [: Base] {
-    ///     fn Method(&self, params…) [-> RetType];
-    ///     …
+    ///     fn Method(&self, params...) [-> RetType];
+    ///     ...
     /// }
     /// ```
     pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
@@ -209,7 +209,7 @@ impl Interface {
 /// a COM interface declares a method whose identifier collides with one of
 /// those macros (e.g. `ID2D1RenderTarget::DrawText`), libclang reports the
 /// expanded spelling (`DrawTextA`). If `macro_defs` holds an alias whose sole
-/// replacement token is the expanded name, the base identifier is the faithful
+/// replacement token is the expanded name, the base identifier is the real
 /// member name and is restored. Free functions are unaffected: their real
 /// exported symbols already are the `A`/`W` names.
 fn demacro_member_name(name: String, parser: &Parser<'_>) -> String {

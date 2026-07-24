@@ -6,7 +6,7 @@ use core::marker::PhantomData;
 /// On Windows this wraps an `IAgileReference` obtained from `RoGetAgileReference`,
 /// which marshals the object into the appropriate apartment on `resolve`.
 /// On non-Windows targets there is no apartment model, so all interface pointers
-/// are inherently agile; `AgileReference` simply holds an `IUnknown` reference and
+/// are inherently agile; `AgileReference` holds an `IUnknown` reference and
 /// `resolve` round-trips it back to the requested interface via `QueryInterface`.
 #[repr(transparent)]
 #[derive(Clone, PartialEq, Eq)]

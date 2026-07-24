@@ -3,7 +3,7 @@ use super::*;
 /// Shared GPU device.
 ///
 /// A `GpuDevice` bundles the Direct3D 11, Direct2D, DXGI, and DirectWrite
-/// objects that back all canvas rendering. It is cheap to [`Clone`] — a clone
+/// objects that back all canvas rendering. It is cheap to [`Clone`] - a clone
 /// shares the *same* underlying devices (the fields are reference-counted COM
 /// pointers), so cloning is the intended way to drive many independent surfaces
 /// (swap chains, image sources, bitmaps) from one device. Create the device
@@ -99,7 +99,7 @@ impl GpuDevice {
     ///
     /// The target renders headlessly (no window or composition surface) and its
     /// pixels can be copied back to CPU memory with
-    /// [`RenderTarget::read_pixels`] — the canvas equivalent of Win2D's
+    /// [`RenderTarget::read_pixels`] - the canvas equivalent of Win2D's
     /// `CanvasRenderTarget`. Use it for thumbnails, tray/notification icons,
     /// tests, or any pipeline that consumes finished pixels rather than
     /// presenting on screen.

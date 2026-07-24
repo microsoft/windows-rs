@@ -74,7 +74,7 @@ pub(crate) struct Parser<'a> {
     /// references resolve to the *defining header* of the referenced declaration
     /// (`<root>.<HeaderStem>`) instead of consulting [`ref_map`](Self::ref_map),
     /// and every declaration is emitted into its own header partition. This is the
-    /// faithful, source-expressed partitioning that replaces editorial namespaces.
+    /// source-expressed partitioning that replaces the hand-curated namespaces.
     pub header_root: Option<&'a str>,
     pub library: &'a str,
     /// Per-symbol DLL overrides recovered from the SDK import libraries; a
@@ -105,27 +105,27 @@ pub(crate) struct Parser<'a> {
     pub pending_opaque: Vec<(String, String)>,
     /// Enum names for which `DEFINE_ENUM_FLAG_OPERATORS(X)` was seen.
     pub flag_enums: HashSet<String>,
-    /// IID variables: maps interface name → UUID string (e.g. `"IFoo"` → `"23170f69-40c1-278a-0000-000300010000"`).
+    /// IID variables: maps interface name -> UUID string (e.g. `"IFoo"` -> `"23170f69-40c1-278a-0000-000300010000"`).
     /// Populated from `extern "C" const GUID IID_XXX = { ... };` variable declarations.
     pub iid_vars: HashMap<String, String>,
     /// Object-like macro definitions, mapping each macro name to the spellings of
     /// its replacement-list tokens.  Used to resolve calling-convention macros
-    /// (e.g. `WINAPI` → `__stdcall`) back to the underlying compiler keyword,
+    /// (e.g. `WINAPI` -> `__stdcall`) back to the underlying compiler keyword,
     /// transitively, regardless of which header defined them.
     pub macro_defs: &'a HashMap<String, Vec<String>>,
     /// Reverse map from a function's macro-expanded export symbol to the source
     /// (pre-expansion) spelling it is declared under, derived from object-like alias
     /// macros (`#define RtlGenRandom SystemFunction036`,
     /// `#define EnumProcesses K32EnumProcesses`). clang reports the expanded export name
-    /// for such a declaration, losing both the documented name and — because the
-    /// convention keyword no longer anchors on the name token — the calling convention;
+    /// for such a declaration, losing both the documented name and - because the
+    /// convention keyword no longer anchors on the name token - the calling convention;
     /// [`Fn::parse`] consults this map to recover both, emitting the function under its
     /// documented name with the raw export recorded as the P/Invoke import name.
     ///
     /// ANSI/Unicode charset-selection macros (`#define GetWindowText GetWindowTextA`) are
-    /// deliberately excluded: those select a `-A`/`-W` variant rather than forwarding to a
+    /// excluded: those select a `-A`/`-W` variant rather than forwarding to a
     /// differently-named export, and the reference metadata emits only the explicit
-    /// `…A`/`…W` functions, never the bare name.
+    /// `...A`/`...W` functions, never the bare name.
     pub alias_map: HashMap<String, String>,
     /// Symbol allowlist. When non-empty, only functions whose name is listed are
     /// emitted as roots and every other root (types, consts, macros, GUIDs) is
@@ -200,7 +200,7 @@ impl<'a> Parser<'a> {
     }
 
     /// Inserts a parsed function into `collector`, unless [`drop_lib_less`](Self::drop_lib_less)
-    /// is set and the function resolved to an empty import library — in which case it is a
+    /// is set and the function resolved to an empty import library - in which case it is a
     /// lib-less residue the reference metadata omits (inline intrinsic, header-only
     /// presence-check, RPC internal, or a DLL export with no SDK import library) and is dropped.
     fn insert_fn(&self, item: Fn, collector: &mut Collector) {
@@ -226,13 +226,13 @@ impl<'a> Parser<'a> {
         // still arrives through `pending_typedefs` (drained after the walk) and is
         // deduplicated against the reference winmd, so a handful of symbols can be
         // carved out of an enormous header without emitting its whole surface. Gated
-        // on a non-empty allowlist, so the default corpus scrape is unaffected.
+        // on a non-empty allowlist, so the default scrape is unaffected.
         //
         // Closure limitation: `pending_typedefs` schedules only *typedef'd* and
         // *callback* dependencies (see `cx.rs`'s `CXType_Typedef` arm and the drain in
         // `process_tu`), not bare `struct`/`enum` *tag* references. A closure that
         // reaches a record/enum type which is neither in the reference winmd nor named
-        // through a typedef would leave a dangling reference — but that fails loudly at
+        // through a typedef would leave a dangling reference - but that fails loudly at
         // the `reader()` compile step (`validate_use_declarations`), never silently. For
         // the current allowlist (`RtlGetVersion`, whose closure is entirely Win32) this
         // does not arise; extend the drain, or add the type to the reference, before
@@ -266,7 +266,7 @@ impl<'a> Parser<'a> {
                 self.process_nested_types(child, collector, extern_c)?;
                 // A directly-inlined anonymous record (the C anonymous aggregate
                 // idiom) is emitted inline by its enclosing record as
-                // `Anonymous: struct { … }` (see `Struct::parse`), so it must not
+                // `Anonymous: struct { ... }` (see `Struct::parse`), so it must not
                 // also be hoisted to a top-level `{Outer}_{n}` sibling. Its own
                 // non-anonymous nested descendants were still collected above.
                 if child.is_anonymous_record() || is_named_instance_record(&child) {
@@ -300,7 +300,7 @@ impl<'a> Parser<'a> {
             // anywhere in the translation unit, is a genuinely opaque type referenced
             // through a pointer (e.g. `struct NDR_ALLOC_ALL_NODES_CONTEXT;`). Emit it as
             // an empty struct so those pointer references resolve. Handle tags (`<name>__`)
-            // are excluded — they back the DECLARE_HANDLE idiom and emit as `*mut void`.
+            // are excluded - they back the DECLARE_HANDLE idiom and emit as `*mut void`.
             CXCursor_StructDecl | CXCursor_UnionDecl
                 if !child.is_definition() && !child.has_definition() =>
             {
@@ -366,7 +366,7 @@ impl<'a> Parser<'a> {
                 let mut e = Enum::parse(child)?;
                 let tag = e.name.clone();
                 // Use the public typedef alias if one exists (e.g. `_EXCEPTION_DISPOSITION`
-                // → `EXCEPTION_DISPOSITION`), matching how references and structs resolve
+                // -> `EXCEPTION_DISPOSITION`), matching how references and structs resolve
                 // the name. Without this the enum definition would keep its internal tag
                 // while every reference uses the alias, leaving a dangling type.
                 if !is_anonymous_name(&e.name)
@@ -389,7 +389,7 @@ impl<'a> Parser<'a> {
                     // If DEFINE_ENUM_FLAG_OPERATORS was seen before the enum
                     // definition (unusual but possible), mark it now. The macro may key
                     // on either the internal tag or the renamed public name, so check
-                    // both — the flags/enum merge renames `_FOO` to `FOO` before this.
+                    // both - the flags/enum merge renames `_FOO` to `FOO` before this.
                     if self.flag_enums.contains(&e.name) || self.flag_enums.contains(&tag) {
                         e.flags = true;
                     }
@@ -413,7 +413,7 @@ impl<'a> Parser<'a> {
                 }
             }
             CXCursor_FunctionDecl if !child.is_definition() => {
-                // Skip MIDL-generated marshaling plumbing — the `_Proxy`/`_Stub` method
+                // Skip MIDL-generated marshaling plumbing - the `_Proxy`/`_Stub` method
                 // thunks (`is_midl_proxy_stub`) and the per-type `_User*` wire-marshaling
                 // helpers (`is_midl_user_marshal_stub`): RPC internals, not public API.
                 if !is_midl_proxy_stub(&child, self.libraries) && !is_midl_user_marshal_stub(&child)
@@ -471,7 +471,7 @@ impl<'a> Parser<'a> {
                     // braces (e.g. a `#define ...END... }, };` initializer tail) is,
                     // once interpolated into the batch evaluator's synthetic
                     // `enum { __rdl_eval_X = (X) };`, able to swallow the enum
-                    // declarations that follow it up to a matching delimiter —
+                    // declarations that follow it up to a matching delimiter -
                     // silently dropping every constant emitted after it. Reject
                     // such macros so they cannot poison their neighbours. (The
                     // evaluator also recovers from any residual swallow, but this
@@ -508,7 +508,7 @@ impl<'a> Parser<'a> {
                     && lp == "("
                 {
                     let enum_name = enum_name.clone();
-                    // The flags/enum merge (and the inline tag→typedef idiom) may rename
+                    // The flags/enum merge (and the inline tag->typedef idiom) may rename
                     // the enum before it is inserted, while `DEFINE_ENUM_FLAG_OPERATORS`
                     // can key on the internal tag (`_SVGIO`); resolve the argument to the
                     // enum's emitted public name so the mark lands on the right type.
@@ -527,7 +527,7 @@ impl<'a> Parser<'a> {
             // Detect `DEFINE_GUID(name, ...)` / `DEFINE_OLEGUID(name, ...)` macro
             // invocations and emit them as named GUID constants. Without `INITGUID`
             // these expand to a valueless `extern const GUID name` declaration, so the
-            // faithful value lives only in the macro arguments parsed here.
+            // value lives only in the macro arguments parsed here.
             CXCursor_MacroExpansion
                 if matches!(child.name().as_str(), "DEFINE_GUID" | "DEFINE_OLEGUID") =>
             {
@@ -539,7 +539,7 @@ impl<'a> Parser<'a> {
                     // An `IID_<Interface>` GUID associates a UUID with an interface
                     // whose C++ declaration carries no `__declspec(uuid(...))`. Reading
                     // it here (from the macro arguments) keeps the association
-                    // independent of `INITGUID`/definition mode — the same UUID the
+                    // independent of `INITGUID`/definition mode - the same UUID the
                     // initialized-variable path below would see, but always available.
                     if let Some(iface_name) = name.strip_prefix("IID_") {
                         self.iid_vars
@@ -553,7 +553,7 @@ impl<'a> Parser<'a> {
             }
             // Detect `DEFINE_PROPERTYKEY(name, ...)` / `DEFINE_DEVPROPKEY(name, ...)` macro
             // invocations. Both expand to a `{ { fmtid }, pid }` initializer for a
-            // `PROPERTYKEY`/`DEVPROPKEY` (a GUID plus a `u32`), so the faithful value lives in
+            // `PROPERTYKEY`/`DEVPROPKEY` (a GUID plus a `u32`), so the value lives in
             // the macro arguments parsed here. The `fmtid` is emitted as a `#[guid]` attribute
             // and the `pid` as an ordinary integer constant.
             CXCursor_MacroExpansion
@@ -615,8 +615,8 @@ impl<'a> Parser<'a> {
     /// every `CXCursor_StructDecl` or `CXCursor_UnionDecl` definition found
     /// there, whether named or anonymous.
     ///
-    /// This lifts nested struct/union type declarations — i.e. structs or
-    /// unions declared *inside* another struct or union body — into the
+    /// This lifts nested struct/union type declarations - i.e. structs or
+    /// unions declared *inside* another struct or union body - into the
     /// top-level collector before the outer type is processed.  Without this
     /// step the outer struct's field types would reference names that have
     /// never been added to the collector, producing dangling type references.
@@ -685,16 +685,16 @@ pub struct Clang {
     /// Explicitly requested headers (by stem) that are in-scope regardless of their SDK
     /// directory. The directory-based [`scope`](Self::scope) covers the bulk `um`/`shared`
     /// closure; a header named here is treated as in-scope even when it lives outside those
-    /// directories — e.g. the WinRT C-ABI interop headers under `winrt/` (`roerrorapi.h`,
-    /// `roapi.h`) — so its own declarations are emitted as roots rather than dropped by the
+    /// directories - e.g. the WinRT C-ABI interop headers under `winrt/` (`roerrorapi.h`,
+    /// `roapi.h`) - so its own declarations are emitted as roots rather than dropped by the
     /// sweep. The projection headers such a header transitively pulls stay out of scope
     /// unless named here too.
     scope_headers: HashSet<String>,
     /// Defining-header stems (as in [`write_by_header`](Self::write_by_header)) whose partitions
     /// are dropped entirely, even though they are in [`scope`](Self::scope). Use this for an
-    /// in-scope SDK header that contributes no genuine API surface — e.g. `intsafe.h`, a bundle of
+    /// in-scope SDK header that contributes no genuine API surface - e.g. `intsafe.h`, a bundle of
     /// inline safe-integer-math helpers whose only scraped output is standard C type-limit macros
-    /// (`INT32_MAX`, `UINT8_MAX`, …) and internal `*_ERROR` sentinels. The drop happens before the
+    /// (`INT32_MAX`, `UINT8_MAX`, ...) and internal `*_ERROR` sentinels. The drop happens before the
     /// reachability sweep, so an excluded header never acts as a root; it is safe only for headers
     /// nothing in-scope references (leaf constants). Empty (the default) drops nothing.
     exclude_headers: HashSet<String>,
@@ -705,13 +705,13 @@ pub struct Clang {
     symbols: HashSet<String>,
     /// When `true`, functions that resolve to an empty import library are dropped rather than
     /// emitted with `#[library("")]`. See [`Parser::drop_lib_less`]. `tool_win32` sets this so
-    /// the corpus carries no lib-less function (matching the reference metadata); off by default
+    /// the output carries no lib-less function (matching the reference metadata); off by default
     /// so unit-test fixtures that supply no import libraries keep emitting their functions.
     drop_lib_less: bool,
     /// Resolution `.winmd` inputs (e.g. `Windows.winmd`) consulted *only* to classify types
     /// declared in the `ABI::Windows::*` C++/WinRT projection namespace during a per-header
-    /// scrape. Unlike [`input`](Self::input) winmds — which are an *exclusion* base whose every
-    /// entity is skipped from emission — these are never excluded and never emitted; their type
+    /// scrape. Unlike [`input`](Self::input) winmds - which are an *exclusion* base whose every
+    /// entity is skipped from emission - these are never excluded and never emitted; their type
     /// names merely tell the scraper which `ABI` declarations are true WinRT projections (mapped
     /// to a cross-winmd reference) versus Win32 COM interop entities (scraped into flat Win32).
     /// Empty (the default) leaves the `ABI` namespace skipped entirely.
@@ -780,7 +780,7 @@ impl Clang {
 
     /// Drops functions that resolve to an empty import library instead of emitting them with
     /// `#[library("")]`. Use when scraping against a full SDK import-library set (`tool_win32`),
-    /// so the corpus carries no lib-less residue — inline intrinsics, header-only presence-checks,
+    /// so the output carries no lib-less residue - inline intrinsics, header-only presence-checks,
     /// RPC internals, and DLL exports the SDK ships no import library for, none of which can lower
     /// to a working `link!`, matching the reference metadata. Leave off (the default) when no
     /// import libraries are supplied, so every declared function is still emitted.
@@ -800,10 +800,10 @@ impl Clang {
         self
     }
 
-    /// Adds a symbol → DLL mapping that overrides the fallback [`library`] for
+    /// Adds a symbol -> DLL mapping that overrides the fallback [`library`] for
     /// matching functions.
     ///
-    /// This is the faithful function → DLL truth headers do not carry; build the
+    /// This is the function -> DLL mapping headers do not carry; build the
     /// map from the SDK import libraries with [`import_library`] (or feed one
     /// directly), preferring the per-DLL libraries (`kernel32.lib`) over the
     /// umbrella/apiset libraries so symbols resolve to their real DLL rather
@@ -822,7 +822,7 @@ impl Clang {
         self
     }
 
-    /// Reads a COFF import library (`.lib`) and adds every symbol → DLL mapping
+    /// Reads a COFF import library (`.lib`) and adds every symbol -> DLL mapping
     /// it declares, so functions are stamped with the DLL that actually exports
     /// them. Existing mappings win, so earlier (more specific) libraries take
     /// precedence over later ones.
@@ -896,7 +896,7 @@ impl Clang {
     /// to treat only the SDK API headers as in-scope. A declaration whose defining
     /// header path contains one of these segments (as a `/<seg>/` directory) is
     /// emitted unconditionally; any other declaration (C-runtime under `ucrt`, the
-    /// MSVC toolset `include`, …) is emitted only when transitively referenced by an
+    /// MSVC toolset `include`, ...) is emitted only when transitively referenced by an
     /// in-scope declaration, and otherwise dropped. Leaving this empty emits the
     /// entire parse closure unchanged.
     pub fn scope<I, S>(&mut self, scope: I) -> &mut Self
@@ -913,8 +913,8 @@ impl Clang {
     /// Marks specific headers (by file name; the stem is taken as in
     /// [`write_by_header`](Self::write_by_header)) as in-scope regardless of their SDK
     /// directory, complementing the directory-based [`scope`](Self::scope). Use this to
-    /// pull a hand-picked header out of an otherwise out-of-scope directory — e.g. the
-    /// WinRT interop ABI headers under `winrt/` (`roerrorapi.h`, `roapi.h`) — without
+    /// pull a hand-picked header out of an otherwise out-of-scope directory - e.g. the
+    /// WinRT interop ABI headers under `winrt/` (`roerrorapi.h`, `roapi.h`) - without
     /// bringing the whole directory (the winmd-generated projection headers) into scope.
     pub fn scope_headers<I, S>(&mut self, headers: I) -> &mut Self
     where
@@ -932,7 +932,7 @@ impl Clang {
 
     /// Drops the partitions of the named headers (by file name; the stem is taken as in
     /// [`write_by_header`](Self::write_by_header)) even though they are in [`scope`](Self::scope).
-    /// Use this to suppress an in-scope SDK header that carries no genuine API surface — e.g.
+    /// Use this to suppress an in-scope SDK header that carries no genuine API surface - e.g.
     /// `intsafe.h`, whose scraped output is nothing but standard C type-limit macros and internal
     /// `*_ERROR` sentinels. Safe only for headers nothing in-scope references (leaf constants).
     pub fn exclude_headers<I, S>(&mut self, headers: I) -> &mut Self
@@ -950,9 +950,9 @@ impl Clang {
     }
 
     /// Restricts emission to an allowlist of function symbols. When one or more
-    /// symbols are set, [`write`](Self::write) emits only those functions as roots —
+    /// symbols are set, [`write`](Self::write) emits only those functions as roots -
     /// their transitive type/const closure still resolves (either to the reference
-    /// winmd or emitted as follow-up typedefs) — and suppresses every other root
+    /// winmd or emitted as follow-up typedefs) - and suppresses every other root
     /// (types, consts, macros, GUIDs). This carves a handful of symbols out of an
     /// enormous header (e.g. `RtlGetVersion` from the WDK's `wdm.h`) without dragging
     /// in the header's whole surface. Empty (the default) leaves emission unrestricted.
@@ -995,14 +995,14 @@ impl Clang {
     /// `partitions` is an allowlist of header stems (e.g. `["Wingdi", "Tlhelp32"]`); only
     /// those files are *written*, while cross-header references still resolve globally by
     /// bare name within the flat namespace. An empty allowlist emits every defining header
-    /// in the parse — faithful but only viable for small, self-contained inputs, since the
+    /// in the parse - viable only for small, self-contained inputs, since the
     /// full `windows.h` closure spans the whole SDK.
     ///
-    /// This is the faithful, source-expressed metadata that replaces editorial namespaces:
+    /// This is the source-expressed metadata that replaces the hand-curated namespaces:
     /// the headers are parsed once, every entity is canonically deduplicated by clang USR
     /// (so a declaration repeated across headers is emitted exactly once), and the defining
     /// header only chooses which file the entity is written to. No reference winmd, claims,
-    /// per-header namespaces, or two-pass ownership table is involved — ownership and
+    /// per-header namespaces, or two-pass ownership table is involved - ownership and
     /// resolution both come from the clang cursor.
     ///
     /// A `.winmd` input (via [`input`](Self::input)) is treated as an *exclusion reference*
@@ -1087,7 +1087,7 @@ impl Clang {
         // share the flat root namespace, so a skipped entity's references resolve against
         // the base by bare name once both are loaded together. The base is split into type
         // and value names so the exclusion below can be category-matched (functions and
-        // constants live on the base's `Apis` class, so `iter_items` — not `iter` — is
+        // constants live on the base's `Apis` class, so `iter_items` - not `iter` - is
         // required to see them). No winmd input (the `tool_win32` case) leaves both empty
         // and emission is unrestricted.
         let reference = self.load_reference()?;
@@ -1113,7 +1113,7 @@ impl Clang {
         let winrt_types = self.load_winrt_types()?;
 
         let mut collectors: BTreeMap<String, Collector> = BTreeMap::new();
-        // Per-partition scope flag (defining-header stem → in-scope), accumulated while
+        // Per-partition scope flag (defining-header stem -> in-scope), accumulated while
         // bucketing so the reachability sweep below knows which partitions are roots.
         let mut scope_in: BTreeMap<String, bool> = BTreeMap::new();
 
@@ -1159,8 +1159,8 @@ impl Clang {
         // Reachability-by-reference sweep: when a scope is declared, drop every
         // out-of-scope declaration that no in-scope declaration transitively references
         // (the C-runtime / compiler-toolset closure that `windows.h` pulls in). The
-        // genuine cross-over types (`size_t`, `va_list`, `EXCEPTION_DISPOSITION`, …)
-        // survive automatically because in-scope APIs reference them — no allowlist.
+        // genuine cross-over types (`size_t`, `va_list`, `EXCEPTION_DISPOSITION`, ...)
+        // survive automatically because in-scope APIs reference them - no allowlist.
         if !self.scope.is_empty() {
             sweep_unreferenced(&mut collectors, &scope_in);
         }
@@ -1190,7 +1190,7 @@ impl Clang {
         // winmds are read together: bindgen projects the enum's members through the newtype
         // constructor `MODE(n)`, but value-position `MODE` resolves to the Win32 constant, so
         // the whole-surface build fails to compile. Drop the colliding WDK type in favour of
-        // the already-defined Win32 name — but only when no *retained* WDK item still
+        // the already-defined Win32 name - but only when no *retained* WDK item still
         // references it, so a referenced cross-kind clash (the WDK `CALLBACK_FUNCTION` callback
         // reached via `type PCALLBACK_FUNCTION = *mut CALLBACK_FUNCTION`, colliding with the
         // Win32 `CALLBACK_FUNCTION` constant) is preserved and does not dangle. The
@@ -1238,7 +1238,7 @@ impl Clang {
         // same name and value. Legacy Win32 headers expose such values twice: once as a
         // typed enumerator (`D3DFORMAT::D3DFMT_X8R8G8B8` in d3d9types.h,
         // `OLEMISC::OLEMISC_ACTSLIKELABEL` in oleidl.h) and once as a loose object-like
-        // macro in an unrelated header (mfapi.h, olectl.h) — the former often a transient
+        // macro in an unrelated header (mfapi.h, olectl.h) - the former often a transient
         // `#define`/`#undef` scaffold that libclang still reports as a macro definition.
         // The bare `u32` copy is a redundant, weaker-typed duplicate of the canonical
         // enumerator, so drop it. Constrained to an exact name + value match and to
@@ -1287,7 +1287,7 @@ impl Clang {
     /// Walk a parsed translation unit once, routing every top-level declaration to
     /// the collector of its defining-header partition. Unlike [`process_tu`], there
     /// is no header filter (every declaration is emitted, in its own partition) and
-    /// no `ref_map` suppression — resolution is by defining header, threaded through
+    /// no `ref_map` suppression - resolution is by defining header, threaded through
     /// [`Parser::header_root`].
     fn process_tu_by_header(
         &self,
@@ -1302,8 +1302,8 @@ impl Clang {
             allow,
             winrt_types,
         } = *pass;
-        // Error-tolerant diagnostics. An error in an *emitted* header — one that is in
-        // scope, so its declarations are scraped into the corpus — is a real defect and
+        // Error-tolerant diagnostics. An error in an *emitted* header - one that is in
+        // scope, so its declarations are scraped into the output - is a real defect and
         // still aborts the whole scrape, preserving the loud-failure guarantee. An error
         // in a transitive-only include (a header pulled in solely to name a few types but
         // never itself emitted, e.g. a `winrt\` C++/WinRT projection header an interop
@@ -1347,7 +1347,7 @@ impl Clang {
         // closure lives in the single flat `Windows.Win32` namespace (`root`); the
         // defining header only selects which `<stem>.rdl` file the entity is written to.
         //
-        // `extern "C"` linkage blocks are flattened: a single `extern "C" { … }` opened in
+        // `extern "C"` linkage blocks are flattened: a single `extern "C" { ... }` opened in
         // one header can wrap declarations pulled in (via `#include`) from many others, so
         // each enclosed declaration is routed by *its own* defining header. Handle-tag
         // structs (`<name>__`, the DECLARE_HANDLE idiom) are dropped: they carry no payload
@@ -1360,7 +1360,7 @@ impl Clang {
         flatten_decls(tu.cursor(), false, false, None, abi, &mut decls);
 
         // Deduplicate by canonical identity. For each entity keep the most informative
-        // cursor — a definition outranks a forward declaration — so a record routes to the
+        // cursor - a definition outranks a forward declaration - so a record routes to the
         // header that *defines* it rather than one that merely forward-declares it. The key
         // is the USR; entities clang gives no USR (e.g. anonymous types) fall back to the
         // canonical cursor's unique source location.
@@ -1466,7 +1466,7 @@ impl Clang {
             }
         }
 
-        // The set of every entity name now emitted across all files — the canonical owners
+        // The set of every entity name now emitted across all files - the canonical owners
         // that follow-up consts and opaque placeholders must defer to. A flat-layout enum
         // contributes both its type name and every member name, since its members are
         // emitted as top-level constants: a macro sharing a member's name would collide
@@ -1530,7 +1530,7 @@ impl Clang {
     }
 
     /// Loads the [`resolution_input`](Self::resolution_input) winmds and returns the set of every
-    /// type's `Namespace.Name`, backtick-arity-stripped (`IMapView`2` → `IMapView`). This membership
+    /// type's `Namespace.Name`, backtick-arity-stripped (`IMapView`2` -> `IMapView`). This membership
     /// set classifies declarations in the `ABI::Windows::*` C++/WinRT projection namespace during a
     /// per-header scrape; empty when no resolution winmd is configured.
     fn load_winrt_types(&self) -> Result<HashSet<String>, Error> {
@@ -1564,16 +1564,16 @@ impl Clang {
         let parsed = self.parse_inputs()?;
         let arg_refs: Vec<&str> = parsed.args.iter().map(String::as_str).collect();
 
-        // Pass 1 — discover ownership. Walk the cached TUs once per spec with the
+        // Pass 1 - discover ownership. Walk the cached TUs once per spec with the
         // upstream-only reference to learn which *type* names each namespace emits,
-        // building a global in-house `name → namespace` table. The expensive macro
+        // building a global in-house `name -> namespace` table. The expensive macro
         // re-evaluation is skipped here: it only yields `const`s, which are never the
         // target of a cross-namespace *type* reference, so it is not needed to know
         // ownership.
         //
         // A name emitted by more than one namespace is a namespace-local typedef
         // artifact (e.g. the pointer aliases `LPVOID`/`LPWORD` that every namespace
-        // re-emits), not an authoritative cross-namespace owner — those must keep
+        // re-emits), not an authoritative cross-namespace owner - those must keep
         // resolving locally, so a conflicting name is dropped from the table (`None`).
         let mut owners: HashMap<String, Option<String>> = HashMap::new();
         for spec in specs {
@@ -1601,7 +1601,7 @@ impl Clang {
             .filter_map(|(name, owner)| owner.map(|ns| (name, ns)))
             .collect();
 
-        // Pass 2 — emit. Resolve cross-namespace references against the in-house table
+        // Pass 2 - emit. Resolve cross-namespace references against the in-house table
         // first (upstream as fallback for names not yet built in-house) and run the full
         // macro evaluation. Where upstream and in-house agree the output is unchanged;
         // the table is what lets resolution survive once the upstream reference is dropped.
@@ -1694,7 +1694,7 @@ impl Clang {
                     // `#define EXTERN_C extern "C"` (e.g. `STDAPI`/`WINAPI` functions)
                     // reports its *spelling* location at the macro definition, which is
                     // typically an unfiltered header (winnt.h, combaseapi.h). Fall back
-                    // to its *expansion* location — where the macro is invoked — which
+                    // to its *expansion* location - where the macro is invoked - which
                     // is the API header, so accept it when that matches the main file or
                     // the spec's filter.
                     let passes_expansion = child.kind() == CXCursor_LinkageSpec && {
@@ -1772,7 +1772,7 @@ struct ParsedInputs {
 /// from the set (a Win32 COM interop entity such as `IActivatableClassRegistration`), and
 /// a name *present* in the set (a true `Windows.winmd` projection) is left for a
 /// cross-winmd reference. Class/function templates in the ABI namespace (the open generic
-/// interface definitions) are always skipped — only concrete declarations are captured.
+/// interface definitions) are always skipped - only concrete declarations are captured.
 fn flatten_decls(
     parent: Cursor,
     in_linkage: bool,
@@ -1807,9 +1807,9 @@ fn flatten_decls(
                 // path starts empty; `ABI` itself is stripped from the WinRT namespace.
                 flatten_decls(child, in_linkage, in_interop_ns, Some(""), winrt_types, out);
             } else if in_interop_ns || child.name() == "Windows" {
-                // The hand-authored `Windows::*` C++ interop namespace — e.g.
+                // The hand-authored `Windows::*` C++ interop namespace - e.g.
                 // `Windows::Storage::Streams::IBufferByteAccess` (robuffer.h) and
-                // `Windows::Foundation::IMemoryBufferByteAccess` (memorybuffer.h) — routed to the
+                // `Windows::Foundation::IMemoryBufferByteAccess` (memorybuffer.h) - routed to the
                 // flat root (matching how win32metadata maps them to `Windows.Win32.System.WinRT`).
                 // Every other top-level namespace (`std`/`Concurrency`/`Microsoft` C++ support
                 // libraries) is left alone.
@@ -1818,7 +1818,7 @@ fn flatten_decls(
         } else if let (Some(path), Some(set)) = (abi_ns, winrt_types) {
             // A declaration inside `ABI`. Skip the open generic templates (their concrete
             // instantiations are reached through references, not as declarations) and skip any
-            // name that is a true `Windows.winmd` projection — only Win32 COM interop entities
+            // name that is a true `Windows.winmd` projection - only Win32 COM interop entities
             // absent from the winmd are captured into the flat root.
             if matches!(
                 child.kind(),
@@ -1851,8 +1851,8 @@ fn flatten_decls(
 /// `struct X__ { int unused; }; typedef struct X__ *X`, so the genuine tag is empty or
 /// has a single primitive-`int` field and is never emitted as a type of its own (the
 /// handle typedef itself emits `*mut void`). MIDL also tags real *value* structs with the
-/// same `<name>__` convention (`typedef struct X__ { … } X`), but those carry
-/// record/typedef/multiple fields — keep them so the `<name>` typedef they back resolves.
+/// same `<name>__` convention (`typedef struct X__ { ... } X`), but those carry
+/// record/typedef/multiple fields - keep them so the `<name>` typedef they back resolves.
 ///
 /// The same drop applies to a MIDL file-scope handle placeholder
 /// (`struct __MIDL___MIDL_itf_* { int unused; }`, [`is_midl_placeholder_tag`]): it is the
@@ -1870,11 +1870,11 @@ fn is_handle_tag_struct(child: &Cursor) -> bool {
 
 /// MIDL generates a pair of per-method marshaling thunks for every COM interface
 /// method in the `*_p.c` proxy file that the generated header pulls in
-/// (`IDispatch_Invoke_Proxy`, `IDispatch_Invoke_Stub`, the `_Remote*` variants, …).
+/// (`IDispatch_Invoke_Proxy`, `IDispatch_Invoke_Stub`, the `_Remote*` variants, ...).
 /// These are RPC plumbing, not part of the public API the `.idl` declares, and they
 /// pollute the scrape only because we read the post-MIDL header rather than the IDL.
 ///
-/// They are recognised by the MIDL naming convention — a `_Proxy`/`_Stub` suffix —
+/// They are recognised by the MIDL naming convention - a `_Proxy`/`_Stub` suffix -
 /// together with the generated explicit `This` first parameter that a flat C API
 /// never has, *and* the absence of an exporting DLL: a handful of these thunks
 /// (`IUnknown_QueryInterface_Proxy`, `IUnknown_AddRef_Proxy`,
@@ -1899,7 +1899,7 @@ fn is_midl_proxy_stub(cursor: &Cursor, libraries: &HashMap<String, String>) -> b
 /// MIDL generates a quartet of wire-marshaling helpers for every user-marshaled type
 /// (`CLIPFORMAT_UserSize`/`_UserMarshal`/`_UserUnmarshal`/`_UserFree`, plus the `64`
 /// variants the 64-bit stubs use). They are invoked only by the generated stub code to
-/// serialize a value onto the RPC wire — never by application code — so the reference
+/// serialize a value onto the RPC wire - never by application code - so the reference
 /// metadata omits the whole category, even for the handful a runtime DLL (e.g.
 /// `ole32.dll`) genuinely exports. They are recognised by the fixed suffix set together
 /// with the mandatory leading `unsigned long *` marshaling-flags parameter that no flat
@@ -1971,7 +1971,7 @@ fn enum_member_eq(member: i64, constant: i128) -> bool {
 }
 
 /// Wraps a collector's items in the nested `mod` path for `namespace`, producing the
-/// RDL source for a single namespace (e.g. `#[win32] mod Windows { mod Win32 { … } }`).
+/// RDL source for a single namespace (e.g. `#[win32] mod Windows { mod Win32 { ... } }`).
 fn emit_module(namespace: &str, collector: &Collector) -> Result<String, Error> {
     let parts: Vec<&str> = namespace.split('.').collect();
     let mut output = format!("#[win32] mod {} {{", parts[0]);

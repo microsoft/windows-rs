@@ -19,21 +19,21 @@
 //!
 //! The macro emits:
 //!
-//! - `struct IFoo(IUnknown)` — a `#[repr(transparent)]` struct wrapping the parent.
-//! - `unsafe impl Interface for IFoo` — with the IID constant.
-//! - `impl Deref for IFoo` — to reach parent-interface methods.
-//! - `impl IFoo { fn GetValue(...) }` — safe wrapper that calls through the vtable.
-//! - `trait IFoo_Impl: Sized` — the trait that `#[implement]` users must implement on
+//! - `struct IFoo(IUnknown)` - a `#[repr(transparent)]` struct wrapping the parent.
+//! - `unsafe impl Interface for IFoo` - with the IID constant.
+//! - `impl Deref for IFoo` - to reach parent-interface methods.
+//! - `impl IFoo { fn GetValue(...) }` - safe wrapper that calls through the vtable.
+//! - `trait IFoo_Impl: Sized` - the trait that `#[implement]` users must implement on
 //!   their `Foo_Impl` type.
-//! - `struct IFoo_Vtbl` — the vtable layout, with a `new::<Identity, OFFSET>()` constructor
+//! - `struct IFoo_Vtbl` - the vtable layout, with a `new::<Identity, OFFSET>()` constructor
 //!   and a `matches(iid)` helper used by `QueryInterface`.
 //! - `Clone`, `PartialEq`, `Eq`, `Debug`, and `From<IFoo> for IUnknown` implementations.
 //!
 //! ## Naming conventions
 //!
-//! - `IFoo` — the interface struct, usable as a COM pointer.
-//! - `IFoo_Vtbl` — the vtable struct (hidden from docs).
-//! - `IFoo_Impl` — the implementation trait; see `windows-implement` for who implements it.
+//! - `IFoo` - the interface struct, usable as a COM pointer.
+//! - `IFoo_Vtbl` - the vtable struct (hidden from docs).
+//! - `IFoo_Impl` - the implementation trait; see `windows-implement` for who implements it.
 //!
 //! ## Relationship to `windows-implement`
 //!

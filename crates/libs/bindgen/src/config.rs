@@ -25,7 +25,7 @@ pub struct Config<'a> {
     /// `Self` is only substituted when the referenced generics match exactly.
     pub self_generics: Vec<Type>,
     /// Namespaces that emit nothing in this package layout and so are pruned (no module,
-    /// no Cargo feature) — see `write_package`. A `#[cfg(feature = ...)]` gate must never
+    /// no Cargo feature) - see `write_package`. A `#[cfg(feature = ...)]` gate must never
     /// name one of these, so `Cfg::write` drops them: a type referencing a pruned namespace
     /// has already degraded (e.g. a `windows-sys` interface pointer becomes `*mut c_void`),
     /// so there is no real dependency to gate on. Empty (and inert) outside `--sys` package
@@ -82,8 +82,8 @@ impl Config<'_> {
     /// Emits the `RuntimeType::NAME` constant for a value type (struct/enum).
     /// Value types are never implemented as COM objects, so NAME is only useful
     /// when the type appears as a generic argument in an implemented
-    /// parameterized interface; minimal bindings skip it (the trait default —
-    /// an empty name — is sufficient).
+    /// parameterized interface; minimal bindings skip it (the trait default -
+    /// an empty name - is sufficient).
     pub fn write_value_name_const(&self, type_name: TypeName) -> TokenStream {
         if self.bindgen.style.is_minimal() {
             quote! {}
@@ -97,7 +97,7 @@ impl Config<'_> {
 
     /// Returns the visibility to emit on a generated item. With `--dead-code`
     /// this is `pub(crate)` so the compiler's dead-code lint can flag unused
-    /// bindings (a `pub` item in a non-public module is not linted — see
+    /// bindings (a `pub` item in a non-public module is not linted - see
     /// <https://github.com/rust-lang/rust/issues/157961>); otherwise `pub`.
     pub fn item_vis(&self) -> TokenStream {
         if self.bindgen.dead_code {

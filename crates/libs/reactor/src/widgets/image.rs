@@ -13,7 +13,7 @@ impl ImageHandle {
     /// window moves to a monitor with different scaling).
     ///
     /// The scale is `1.0` at 96 DPI, `1.5` at 150%, `2.0` at 192 DPI. Multiply a
-    /// device-independent size by it to allocate a crisp on-demand surface — pass
+    /// device-independent size by it to allocate a crisp on-demand surface - pass
     /// the result as the `scale` argument to `CanvasImageSource::new`. The scale
     /// is only available once the control is loaded, so it is delivered through
     /// this callback rather than returned directly.

@@ -11,39 +11,39 @@ use super::*;
 /// `CXToken_Comment` tokens that match the known MIDL attribute names.
 ///
 /// When no annotation is detected, all fields remain `false` and direction defaults are
-/// inferred from the parameter's type (mutable pointer/reference → Out, everything else → In),
+/// inferred from the parameter's type (mutable pointer/reference -> Out, everything else -> In),
 /// matching the reader's `parse_param_attributes` logic.
 #[derive(Debug, Default, Clone)]
 pub struct ParamAnnotation {
-    /// The parameter is annotated as an input (`_In_`, `_In_opt_`, `_Inout_`, `[in]`, …).
+    /// The parameter is annotated as an input (`_In_`, `_In_opt_`, `_Inout_`, `[in]`, ...).
     pub in_param: bool,
-    /// The parameter is annotated as an output (`_Out_`, `_Out_opt_`, `_Inout_`, `[out]`, …).
+    /// The parameter is annotated as an output (`_Out_`, `_Out_opt_`, `_Inout_`, `[out]`, ...).
     pub out_param: bool,
-    /// The parameter may be `NULL` / absent (`_In_opt_`, `_Out_opt_`, `[optional]`, …).
+    /// The parameter may be `NULL` / absent (`_In_opt_`, `_Out_opt_`, `[optional]`, ...).
     pub optional: bool,
     /// The parameter is a retval (`[retval]` MIDL comment annotation).
     pub retval: bool,
-    /// The parameter is reserved and must be zero/null (`_Reserved_`) → `Reserved`.
+    /// The parameter is reserved and must be zero/null (`_Reserved_`) -> `Reserved`.
     pub reserved: bool,
-    /// The parameter is a COM out-pointer (`_COM_Outptr_` and variants) → `ComOutPtr`.
+    /// The parameter is a COM out-pointer (`_COM_Outptr_` and variants) -> `ComOutPtr`.
     pub com_out_ptr: bool,
     /// A speculative `_COM_Outptr_` recovered from a bare identifier *token* (the
     /// abstract-virtual COM-method case, where clang does not attach the SAL as a
     /// `ParmDecl` `AnnotateAttr` and the MIDL comment omits `[iid_is]`). Unlike
     /// `com_out_ptr`, this is promoted to a real `ComOutPtr` in [`parse_params`] only
     /// when the pointee is `void` (the caller-chosen-type idiom, e.g. `GetParent`);
-    /// a concrete interface pointee (e.g. `EnumAdapters` → `IDXGIAdapter**`) stays
-    /// faithfully typed, matching the canonical projection.
+    /// a concrete interface pointee (e.g. `EnumAdapters` -> `IDXGIAdapter**`) keeps
+    /// its declared type, matching the canonical projection.
     pub com_out_ptr_token: bool,
     /// The parameter is a *pure* null-terminated string (`_In_z_`, `_In_opt_z_`,
-    /// `_Out_z_`, `_Inout_z_`, `_Inout_opt_z_`) — the `_z_` SAL contract with no explicit
+    /// `_Out_z_`, `_Inout_z_`, `_Inout_opt_z_`) - the `_z_` SAL contract with no explicit
     /// element count. A raw `WCHAR*`/`char*` so annotated is promoted to the canonical
     /// `PWSTR`/`PCWSTR`/`PSTR`/`PCSTR` wrapper in [`super::cx::param_metadata_type`]. The
-    /// *counted* `_*_reads_z_`/`_*_writes_z_`/`_*_updates_z_` variants deliberately do not
-    /// set this — they carry a `NativeArrayInfo` and stay raw pointers. See ledger #5.
+    /// *counted* `_*_reads_z_`/`_*_writes_z_`/`_*_updates_z_` variants do not
+    /// set this - they carry a `NativeArrayInfo` and stay raw pointers.
     pub null_terminated: bool,
     /// Buffer/array size reference captured from a SAL `_*_reads_`/`_*_writes_`/
-    /// `_*_updates_` macro argument, before parameter-name → index resolution.
+    /// `_*_updates_` macro argument, before parameter-name -> index resolution.
     pub size: Option<SalSize>,
     /// Resolved array/size attribute, emitted before the direction attributes by
     /// [`param_attrs_for_annotation`].  Populated by [`resolve_param_array_info`].
@@ -65,12 +65,12 @@ impl ParamAnnotation {
 }
 
 /// A buffer/array size argument captured from a SAL count/byte macro, before
-/// parameter-name → index resolution.
+/// parameter-name -> index resolution.
 #[derive(Debug, Clone)]
 pub enum SalSizeArg {
     /// An integer-literal element count or byte count (`_Out_writes_(8)`).
     Const(i32),
-    /// A bare identifier — a parameter name (later resolved to a 0-based index) or,
+    /// A bare identifier - a parameter name (later resolved to a 0-based index) or,
     /// for struct fields, a sibling field name (`_In_reads_(count)`).
     Name(String),
 }
@@ -79,8 +79,8 @@ pub enum SalSizeArg {
 /// `_*_updates_` macro.
 #[derive(Debug, Clone)]
 pub struct SalSize {
-    /// `true` for `*_bytes_*` macros (→ `MemorySize`); `false` for element-count
-    /// macros (→ `NativeArrayInfo`).
+    /// `true` for `*_bytes_*` macros (-> `MemorySize`); `false` for element-count
+    /// macros (-> `NativeArrayInfo`).
     pub bytes: bool,
     /// The (first) size argument expression.
     pub arg: SalSizeArg,
@@ -89,11 +89,11 @@ pub struct SalSize {
 /// A resolved array/size attribute ready to emit as RDL.
 #[derive(Debug, Clone)]
 pub enum ArrayInfo {
-    /// `NativeArrayInfo(CountParamIndex = N)` — element count given by another parameter.
+    /// `NativeArrayInfo(CountParamIndex = N)` - element count given by another parameter.
     CountParamIndex(i16),
-    /// `NativeArrayInfo(CountConst = N)` — fixed element count.
+    /// `NativeArrayInfo(CountConst = N)` - fixed element count.
     CountConst(i32),
-    /// `MemorySize(BytesParamIndex = N)` — byte count given by another parameter.
+    /// `MemorySize(BytesParamIndex = N)` - byte count given by another parameter.
     BytesParamIndex(i16),
 }
 
@@ -140,11 +140,11 @@ pub fn extract_method_annotation(
 ///
 /// Two annotation sources are tried in priority order:
 ///
-/// 1. **SAL annotations** — `CXCursor_AnnotateAttr` and `CXCursor_UnexposedAttr` children of
+/// 1. **SAL annotations** - `CXCursor_AnnotateAttr` and `CXCursor_UnexposedAttr` children of
 ///    the cursor, produced by `__attribute__((annotate("_In_")))` portable stubs or by
 ///    `__declspec(SAL_*)` on Windows/MSVC targets.
 ///
-/// 2. **MIDL block-comment annotations** — checked separately via
+/// 2. **MIDL block-comment annotations** - checked separately via
 ///    [`scan_method_param_annotations`] on the parent method/function's token stream,
 ///    because the ParmDecl extent does not include the leading `/* [in] */` comment.
 ///    Call sites should merge the result of this function with the MIDL scan:
@@ -184,7 +184,7 @@ pub fn extract_param_annotation(cursor: &Cursor, tu: &TranslationUnit) -> ParamA
 
 /// Split a SAL annotation spelling into its macro name and optional argument list.
 ///
-/// `"_In_reads_(count)"` → `("_In_reads_", Some("count"))`, `"_In_"` → `("_In_", None)`.
+/// `"_In_reads_(count)"` -> `("_In_reads_", Some("count"))`, `"_In_"` -> `("_In_", None)`.
 fn split_sal_annotation(s: &str) -> (&str, Option<&str>) {
     match s.find('(') {
         Some(open) if s.ends_with(')') => (&s[..open], Some(&s[open + 1..s.len() - 1])),
@@ -196,7 +196,7 @@ fn split_sal_annotation(s: &str) -> (&str, Option<&str>) {
 ///
 /// Returns `None` for non-sizing macros, for a missing argument, and for argument
 /// expressions that are not a simple integer literal or identifier (e.g. `cb * 2`).
-/// Faithful metadata only asserts a size when the source expresses it unambiguously.
+/// The metadata asserts a size only when the source expresses it unambiguously.
 fn capture_sal_size(name: &str, arg: Option<&str>) -> Option<SalSize> {
     let bytes = sal_size_kind(name)?;
     // `_*_to_`/`_*_part_` variants take two arguments; the buffer extent is the first.
@@ -209,8 +209,8 @@ fn capture_sal_size(name: &str, arg: Option<&str>) -> Option<SalSize> {
 
 /// Classify a SAL macro name as a buffer-size annotation.
 ///
-/// Returns `Some(true)` for byte-sized buffers (`*_bytes_*` → `MemorySize`),
-/// `Some(false)` for element-count buffers (`*_reads_`/`*_writes_`/`*_updates_` →
+/// Returns `Some(true)` for byte-sized buffers (`*_bytes_*` -> `MemorySize`),
+/// `Some(false)` for element-count buffers (`*_reads_`/`*_writes_`/`*_updates_` ->
 /// `NativeArrayInfo`), and `None` for non-sizing macros.
 fn sal_size_kind(name: &str) -> Option<bool> {
     let is_size =
@@ -220,11 +220,11 @@ fn sal_size_kind(name: &str) -> Option<bool> {
 
 /// Parse a single SAL size argument into a [`SalSizeArg`].
 ///
-/// Accepts a decimal/hex integer literal (→ `Const`) or a bare C identifier
-/// (→ `Name`).  A count held in an in/out pointer parameter is written `*param`
-/// in SAL (e.g. `_Out_writes_to_(*Length, …)`); the referenced parameter is the
+/// Accepts a decimal/hex integer literal (-> `Const`) or a bare C identifier
+/// (-> `Name`).  A count held in an in/out pointer parameter is written `*param`
+/// in SAL (e.g. `_Out_writes_to_(*Length, ...)`); the referenced parameter is the
 /// pointer itself, so a leading dereference is stripped before matching.
-/// Anything else (arithmetic, casts, member access, …) returns `None`.
+/// Anything else (arithmetic, casts, member access, ...) returns `None`.
 fn parse_size_arg(s: &str) -> Option<SalSizeArg> {
     let s = s.trim();
     if let Some(n) = parse_int_literal(s) {
@@ -265,7 +265,7 @@ fn is_c_identifier(s: &str) -> bool {
 /// anonymous; the direction annotation is taken from the SAL attribute when
 /// present, otherwise from `midl_annotations` (positional MIDL comment fallback);
 /// the type is mapped via [`param_metadata_type`] (SAL-driven pointer const-ness,
-/// alias unwrapping — ledger #4 in `docs/crates/windows-rdl.md`); and a
+/// alias unwrapping); and a
 /// `_COM_Outptr_`/`[iid_is]` output (`ComOutPtr`) is erased to `void**` because
 /// the concrete pointee is redundant (the caller selects it via the sibling
 /// `REFIID`, and bindgen's `QueryInterface<T>()`/`Resolve<T>()` keys off the
@@ -274,10 +274,10 @@ fn is_c_identifier(s: &str) -> bool {
 /// to a `Void` pointee), whether depth-encoded (`PtrMut(Void, 2)`) or nested.
 ///
 /// This is the shape of a caller-chosen-type COM out-pointer (`GetParent`,
-/// `QueryInterface`, …): the concrete type is selected at runtime via a sibling
+/// `QueryInterface`, ...): the concrete type is selected at runtime via a sibling
 /// `REFIID`, so a `_COM_Outptr_` on such a slot is a real `ComOutPtr`. A concrete
-/// interface pointee (`IDXGIAdapter**` → `*mut IDXGIAdapter`) is not this shape and
-/// stays faithfully typed.
+/// interface pointee (`IDXGIAdapter**` -> `*mut IDXGIAdapter`) is not this shape and
+/// keeps its declared type.
 fn is_void_double_ptr(ty: &metadata::Type) -> bool {
     let mut depth = 0usize;
     let mut cur = ty;
@@ -303,7 +303,7 @@ fn is_hresult(ty: &metadata::Type) -> bool {
     matches!(ty, metadata::Type::ValueName(tn) if tn.name == "HRESULT")
 }
 
-/// Returns `true` when `ty` is a single-indirection `*const GUID` — the `REFIID`/`REFCLSID`
+/// Returns `true` when `ty` is a single-indirection `*const GUID` - the `REFIID`/`REFCLSID`
 /// shape a caller-chosen-type COM creator uses to select its out-pointer's type. (`IID` and
 /// friends are already collapsed to `GUID` by [`super::canon`].)
 fn is_const_guid_ptr(ty: &metadata::Type) -> bool {
@@ -311,17 +311,17 @@ fn is_const_guid_ptr(ty: &metadata::Type) -> bool {
         if matches!(inner.as_ref(), metadata::Type::ValueName(tn) if tn.name == "GUID"))
 }
 
-/// Returns `true` when `ty` is a single-indirection out-pointer to a *base* COM interface —
+/// Returns `true` when `ty` is a single-indirection out-pointer to a *base* COM interface -
 /// `*mut IUnknown` or `*mut IInspectable`. Some caller-chosen-type creators
 /// (`DWriteCreateFactory`, the `GetService` service-locators, OLE DB's
 /// `CreateTableWithConstraints`) spell their `[iid_is]`-selected out-parameter as the base
 /// interface `IUnknown**`/`IInspectable**` in the SDK header instead of the canonical
-/// `void**` — an upstream header inconsistency. At the ABI a COM interface pointer is itself
+/// `void**` - an upstream header inconsistency. At the ABI a COM interface pointer is itself
 /// a pointer, so `*mut IUnknown` is the same shape as `*mut *mut void`; recovering the marker
 /// here lets bindgen project the ergonomic `QueryInterface` generic rather than a manual
 /// `iid` + untyped `-> Result<IUnknown>` that forces a caller `.cast()`. A *concretely* typed
-/// out (`IDWriteFactory**`, `IActivateAudioInterfaceAsyncOperation**`) is deliberately **not**
-/// matched — there the `riid` selects a *different* object and the out must stay typed.
+/// out (`IDWriteFactory**`, `IActivateAudioInterfaceAsyncOperation**`) is **not**
+/// matched - there the `riid` selects a *different* object and the out must stay typed.
 fn is_base_interface_out_ptr(ty: &metadata::Type) -> bool {
     let metadata::Type::PtrMut(inner, 1) = ty else {
         return false;
@@ -336,32 +336,32 @@ fn is_base_interface_out_ptr(ty: &metadata::Type) -> bool {
 ///
 /// Some QueryInterface-idiom creators (`DCompositionCreateDevice`, `D3D11CreateDevice`'s
 /// interop factories, the `OleCreate*`/`OleLoad*` family, the property-system `PS*`
-/// functions, …) ship in the SDK headers with **no** `_COM_Outptr_` SAL and **no** MIDL
+/// functions, ...) ship in the SDK headers with **no** `_COM_Outptr_` SAL and **no** MIDL
 /// `[iid_is]` comment, so [`parse_params`] leaves the `void**` out-parameter a bare,
 /// caller-opaque `*mut *mut c_void`. This recovers the marker from the surrounding
 /// signature shape rather than a per-parameter annotation, so the projected surface matches
 /// the annotated creators (`-> Result<T>` via `QueryInterface`) instead of a raw double
 /// pointer.
 ///
-/// The gate is deliberately narrow, so it is a *promotion* of a genuine idiom and never a
+/// The gate is narrow, so it is a *promotion* of a genuine idiom and never a
 /// lossy guess: the function must return `HRESULT`, a `*const GUID` parameter must be named
 /// `riid`/`iid`/`riidltf` (the `REFIID` convention), and the promoted parameter must be a
-/// caller-chosen-type output with no array/buffer length (`size`/`array` unset) — either a
+/// caller-chosen-type output with no array/buffer length (`size`/`array` unset) - either a
 /// `*mut *mut void` ([`is_void_double_ptr`]) or a base-interface `*mut IUnknown`/
 /// `*mut IInspectable` ([`is_base_interface_out_ptr`]). The `HRESULT`-return + `riid`-*name*
 /// requirement is what excludes the buffer-style GUID-out functions whose GUID parameter is
 /// *data*, not a type selector (`DsReplicaGetInfoW`'s `puuidForSourceDsaObjGuid`,
 /// `RpcServerInqIf`'s `MgrTypeUuid`, `WlanQueryInterface`'s `pInterfaceGuid`,
-/// `TdhCreatePayloadFilter`'s `ProviderGuid` — all returning `u32`/`RPC_STATUS`/`TDHSTATUS`,
+/// `TdhCreatePayloadFilter`'s `ProviderGuid` - all returning `u32`/`RPC_STATUS`/`TDHSTATUS`,
 /// not `HRESULT`). The array/length exclusion is what excludes the caller-chosen-type *array
-/// enumerators* (`IEnumObjects::Next(celt, riid, size_is(celt) void **rgelt, …)`) whose
-/// `void**` is a counted array, not a single-object out-pointer — promoting those to a
+/// enumerators* (`IEnumObjects::Next(celt, riid, size_is(celt) void **rgelt, ...)`) whose
+/// `void**` is a counted array, not a single-object out-pointer - promoting those to a
 /// `ComOutPtr` generic produces broken codegen (the projection would drop the array/count
 /// parameter it still references). Restricting the base-interface arm to the *bare* base
 /// spelling (never a concretely typed `IFoo**`) is what excludes the creators whose `riid`
 /// selects a *different* object than the fixed-type out-pointer (`ActivateAudioInterfaceAsync`'s
 /// `IActivateAudioInterfaceAsyncOperation**`, `RoGetAgileReference`'s `IAgileReference**`).
-/// Adjacency is *not* required — the OLE family has several parameters between the `riid` and
+/// Adjacency is *not* required - the OLE family has several parameters between the `riid` and
 /// the out-pointer. Only sets the marker (never clears one) and only on a not-already-`In`
 /// out-pointer, so it composes with the SAL/MIDL promotion in [`parse_params`].
 pub(crate) fn infer_iid_is(params: &mut [Param], return_type: &metadata::Type) {
@@ -421,8 +421,8 @@ pub(crate) fn parse_params(
         let mut ty = param_metadata_type(&child.ty(), &annotation, parser);
         // Promote a speculative `_COM_Outptr_` token to a real `ComOutPtr` only when the
         // pointee is `void**` (the caller-chosen-type idiom): a concrete interface
-        // pointee (e.g. `EnumAdapters` → `IDXGIAdapter**`) has no sibling `REFIID` to
-        // select the type and must stay faithfully typed, matching the canonical
+        // pointee (e.g. `EnumAdapters` -> `IDXGIAdapter**`) has no sibling `REFIID` to
+        // select the type and must keep it, matching the canonical
         // projection (`EnumAdapters -> Result<IDXGIAdapter>` vs `GetParent<T>`).
         if annotation.com_out_ptr_token && is_void_double_ptr(&ty) {
             annotation.com_out_ptr = true;
@@ -436,7 +436,7 @@ pub(crate) fn parse_params(
         // An inline fixed-size array parameter (`T name[N]`) decays to a pointer in
         // `param_metadata_type`; record its length as a `CountConst` so bindgen can
         // reconstruct the `&[T; N]` safe wrapper, matching the reference. Only when the
-        // array's role is unambiguous — an explicit `[in]`/`[out]` direction or a `const`
+        // array's role is unambiguous - an explicit `[in]`/`[out]` direction or a `const`
         // (input) pointer: the reference leaves an unannotated raw output buffer (e.g. ICU
         // `ucnv_getStarters`) a bare pointer with no count. A SAL count, if any, takes
         // precedence and is resolved by `resolve_param_array_info` below.
@@ -463,8 +463,8 @@ pub(crate) fn parse_params(
 ///
 /// Parameter-name size references are resolved to 0-based parameter indices in
 /// declaration order; integer-literal counts become `CountConst`.  References that
-/// name no parameter — and constant byte counts, which have no bindgen sink — are
-/// dropped, keeping the metadata faithful to what resolves unambiguously.
+/// name no parameter - and constant byte counts, which have no bindgen sink - are
+/// dropped, so the metadata asserts only what resolves unambiguously.
 pub fn resolve_param_array_info(params: &mut [Param]) {
     let index_of: HashMap<&str, i16> = params
         .iter()
@@ -505,8 +505,8 @@ pub fn resolve_param_array_info(params: &mut [Param]) {
 /// `/* [retval][out] */` immediately before each parameter's type in the source text.
 /// Because this comment falls outside the `ParmDecl` cursor's extent, it cannot be
 /// detected by tokenising individual `ParmDecl` cursors.  Instead, this function
-/// tokenises the entire method or function extent — which is already done in
-/// `interface.rs` for propget/propput detection — and maps each comment to its
+/// tokenises the entire method or function extent - which is already done in
+/// `interface.rs` for propget/propput detection - and maps each comment to its
 /// corresponding parameter by position in the token stream.
 ///
 /// In addition to the block comments, a `_COM_Outptr_` SAL macro that survives as a
@@ -573,11 +573,11 @@ pub fn scan_method_param_annotations(
             // `ParmDecl` `AnnotateAttr` (the abstract-virtual COM-method case): the
             // block comment then carries only `[out]`/`[retval]`, never `[iid_is]`, so
             // the out-pointer would otherwise miss its `ComOutPtr` marker. Record the
-            // token speculatively — `parse_params` promotes it to a real `ComOutPtr`
+            // token speculatively - `parse_params` promotes it to a real `ComOutPtr`
             // (`#[iid_is]`) only for a `void**` pointee (the caller-chosen-type idiom,
             // e.g. DXGI `GetParent`/`GetBuffer`), driving bindgen's generic
             // `GetParent<T>() -> Result<T>` projection; a concrete interface pointee
-            // (e.g. `EnumAdapters` → `IDXGIAdapter**`) stays faithfully typed.
+            // (e.g. `EnumAdapters` -> `IDXGIAdapter**`) keeps its declared type.
             //
             // The ComOutPtr marker, the (definitional) output direction, and the
             // optionality are recovered here: a `_COM_Outptr_` is always an
@@ -587,7 +587,7 @@ pub fn scan_method_param_annotations(
             // (`_COM_Outptr_opt_`, `_COM_Outptr_opt_result_maybenull_`) additionally mark
             // the slot optional; `optional` is orthogonal to the deferred
             // `void**`-vs-concrete `ComOutPtr` decision (`com_out_ptr_token`, promoted in
-            // `parse_params`), so capture it here — otherwise a `_COM_Outptr_opt_`
+            // `parse_params`), so capture it here - otherwise a `_COM_Outptr_opt_`
             // out-pointer recovered from the token stream (e.g. `D3D11CreateDevice`
             // `ppDevice`/`ppImmediateContext`) would silently drop its `[Optional]`.
             // Retval, if any, still comes from the MIDL block comment.
@@ -645,7 +645,7 @@ pub fn apply_midl_param_comment(comment: &str, annotation: &mut ParamAnnotation)
         annotation.optional = true;
     }
     // `[iid_is]` marks an interface out-pointer whose IID is supplied by a sibling
-    // `REFIID` parameter — the QueryInterface / Resolve / CoCreateInstance idiom.
+    // `REFIID` parameter - the QueryInterface / Resolve / CoCreateInstance idiom.
     // MIDL-generated vtable declarations express this only through the block comment
     // (there is no `_COM_Outptr_` SAL on the abstract method), so map an `[iid_is]`
     // output to the same `ComOutPtr` marker `_COM_Outptr_` yields. This is what drives
@@ -659,7 +659,7 @@ pub fn apply_midl_param_comment(comment: &str, annotation: &mut ParamAnnotation)
 /// Map a SAL macro name to the corresponding [`ParamAnnotation`] flags.
 ///
 /// Only the most common Win32 SAL macros are handled.  Unknown names are silently
-/// ignored so that non-SAL `__attribute__((annotate(…)))` annotations on parameters
+/// ignored so that non-SAL `__attribute__((annotate(...)))` annotations on parameters
 /// do not cause spurious errors.
 fn apply_sal_string(sal: &str, annotation: &mut ParamAnnotation) {
     match sal {
@@ -754,7 +754,7 @@ fn apply_sal_string(sal: &str, annotation: &mut ParamAnnotation) {
     }
 
     // Orthogonal markers, independent of direction.  `_Reserved_` asserts no
-    // direction (faithful: the type-inferred default applies); every `_COM_Outptr_`
+    // direction (the type-inferred default applies); every `_COM_Outptr_`
     // variant additionally marks the parameter as a COM out-pointer.
     if sal == "_Reserved_" {
         annotation.reserved = true;
@@ -782,7 +782,7 @@ fn apply_sal_string(sal: &str, annotation: &mut ParamAnnotation) {
 /// `#[opt]`, and `#[retval]` that should be placed before the parameter name.
 ///
 /// The emission rules mirror those of [`writer::write_params`] so that the
-/// clang → RDL → winmd → RDL roundtrip is stable: attributes emitted here are
+/// clang -> RDL -> winmd -> RDL roundtrip is stable: attributes emitted here are
 /// the same attributes that the writer would re-emit after encoding into winmd.
 ///
 /// When `annotation` has no flags set (no SAL or MIDL annotation was detected),
@@ -808,7 +808,7 @@ pub fn param_attrs_for_annotation(
     let mut attrs = vec![];
 
     // Custom Foundation.Metadata attributes are emitted before the direction
-    // attributes, matching the writer's ordering so the clang → RDL → winmd → RDL
+    // attributes, matching the writer's ordering so the clang -> RDL -> winmd -> RDL
     // roundtrip is stable.
     if let Some(array) = &annotation.array {
         attrs.push(array_info_attr(array));
@@ -821,7 +821,7 @@ pub fn param_attrs_for_annotation(
     // A COM out-pointer originates from an `[iid_is]` MIDL annotation (or the
     // `_COM_Outptr_` SAL that yields the same shape). Emit it under the IDL/SAL
     // source spelling `#[iid_is]`; the RDL reader maps it to the metadata
-    // `ComOutPtrAttribute`, keeping the committed corpus a literal mirror of the
+    // `ComOutPtrAttribute`, keeping the committed metadata a literal mirror of the
     // header while the metadata-vocabulary mapping lives in one place downstream.
     if annotation.com_out_ptr {
         attrs.push(quote! { #[iid_is] });
@@ -854,8 +854,8 @@ pub fn param_attrs_for_annotation(
 
 /// Detect whether a function declaration is marked no-return.
 ///
-/// Recognises `__declspec(noreturn)` / `[[noreturn]]` — which fold into the function
-/// type spelling (`void (int) __attribute__((noreturn))`) — and the
+/// Recognises `__declspec(noreturn)` / `[[noreturn]]` - which fold into the function
+/// type spelling (`void (int) __attribute__((noreturn))`) - and the
 /// `_Analysis_noreturn_` SAL annotation, which appears as an `AnnotateAttr` child.
 /// Both lower to the `DoesNotReturn` attribute, which bindgen renders as `-> !`.
 pub fn detect_does_not_return(cursor: &Cursor) -> bool {

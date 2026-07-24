@@ -315,7 +315,7 @@ mod tests {
     fn build_interface_string_literal_types() {
         use windows_metadata::TypeName;
 
-        // Single-arg generic: IIterable<I32> — literal variant-name encoding, no backtick
+        // Single-arg generic: IIterable<I32> - literal variant-name encoding, no backtick
         let iter_ty = Type::ClassName(TypeName {
             namespace: "Windows.Foundation.Collections".to_string(),
             name: "IIterable".to_string(),
@@ -335,7 +335,7 @@ mod tests {
             "Test.ISingle:get_Items(PtrMut(Windows.Foundation.Collections.IIterable<I32>,1),Void);"
         );
 
-        // Two-arg generic: IKeyValuePair<String,I32> — args joined with ","
+        // Two-arg generic: IKeyValuePair<String,I32> - args joined with ","
         let kvp_ty = Type::ClassName(TypeName {
             namespace: "Windows.Foundation.Collections".to_string(),
             name: "IKeyValuePair".to_string(),

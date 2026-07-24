@@ -134,7 +134,7 @@ impl Method {
     }
 
     /// Like `write_upcall`, but assumes the inner closure returns nothing and
-    /// the boxed `Invoke` should simply return `S_OK`. Used by event-handler
+    /// the boxed `Invoke` returns `S_OK`. Used by event-handler
     /// delegates generated under `--minimal`.
     pub fn write_upcall_no_return(
         &self,
@@ -472,7 +472,7 @@ impl Method {
             matches!(param.ireference_inner(config.reader), Some(Type::String))
         };
 
-        // In minimal mode, HSTRING input params accept `&str` directly — the generated
+        // In minimal mode, HSTRING input params accept `&str` directly - the generated
         // method body handles the conversion to HSTRING internally.
         let is_string_param =
             |param: &Param| -> bool { config.bindgen.style.minimal_string_input(param) };
@@ -888,7 +888,7 @@ impl Method {
 
                     let event_where_clause = {
                         // Drop Send when the delegate is locally generated
-                        // under minimal mode — we inline the DelegateBox and
+                        // under minimal mode - we inline the DelegateBox and
                         // bypass the delegate's new() bounds. When the delegate
                         // is referenced (external crate), its new() still
                         // requires Send so we must keep the bound here too.
@@ -922,7 +922,7 @@ impl Method {
                         // Inline DelegateBox construction directly instead of
                         // calling Delegate::new(). This decouples the event
                         // wrapper's Send bound from the delegate constructor's
-                        // bound — the wrapper's own where clause is the sole
+                        // bound - the wrapper's own where clause is the sole
                         // authority on whether F must be Send.
                         let boxed_name: TokenStream =
                             format!("{}Box", trim_tick(d.def.name())).parse().unwrap();

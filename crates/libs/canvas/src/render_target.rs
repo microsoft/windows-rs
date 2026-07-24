@@ -66,7 +66,7 @@ impl RenderTarget {
     ///
     /// The target is fixed at 96 DPI, so device-independent pixels map 1:1 to
     /// device pixels: draw using pixel coordinates. Returns an error if the GPU
-    /// device was lost during drawing — recreate the [`GpuDevice`] and target and
+    /// device was lost during drawing - recreate the [`GpuDevice`] and target and
     /// retry.
     pub fn draw(&self, f: impl FnOnce(&DrawingSession<'_>)) -> Result<()> {
         self.device_lost_flag.set(false);
