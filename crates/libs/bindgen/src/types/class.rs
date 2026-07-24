@@ -72,7 +72,7 @@ impl Class {
 
             // In minimal mode, compose() is only needed when the class is being
             // subclassed (aggregated), which requires --implement on one of its
-            // interfaces — including overridable interfaces declared via
+            // interfaces - including overridable interfaces declared via
             // OverridableAttribute (e.g. IApplicationOverrides).
             let needs_compose = config.implement.is_some_and(|imp| {
                 required_interfaces

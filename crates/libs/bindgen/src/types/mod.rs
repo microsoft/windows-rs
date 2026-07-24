@@ -147,8 +147,8 @@ impl Type {
     /// the same `sort_key`. Such collisions only arise in `--flat` layouts, where
     /// collapsing namespaces lands two same-name types in one bucket (e.g.
     /// `D3DFMT_P8` defined as both the `D3DFORMAT` enum and a raw `u32`). Ordering
-    /// by the underlying metadata row — whose `(file, pos)` is stable across runs
-    /// for identical inputs — makes the resulting collapse deterministic.
+    /// by the underlying metadata row - whose `(file, pos)` is stable across runs
+    /// for identical inputs - makes the resulting collapse deterministic.
     fn row_key(&self) -> (usize, usize) {
         let row = match self {
             Self::CppFn(ty) => Some(ty.method.to_row()),
@@ -211,7 +211,7 @@ impl Type {
         }
 
         // The Win32 core types are matched by name alone so that the win32metadata
-        // namespaces (e.g. `Windows.Win32.Foundation.HRESULT`), the in-house faithful
+        // namespaces (e.g. `Windows.Win32.Foundation.HRESULT`), the in-house
         // metadata's flat namespace (`Windows.Win32.HRESULT`), and the published
         // package's per-header namespaces (`Windows.guiddef.GUID`, produced by the
         // package remapper) all resolve to the same hard-coded core type. These C
@@ -242,21 +242,21 @@ impl Type {
                 "RPC_STATUS" => return Remap::Type(Self::RPC_STATUS),
                 "EventRegistrationToken" => return Remap::Type(Self::I64),
 
-                // `LARGE_INTEGER` / `ULARGE_INTEGER` are faithfully scraped as unions
+                // `LARGE_INTEGER` / `ULARGE_INTEGER` are scraped as unions
                 // (their `QuadPart` / `LowPart`+`HighPart` overlay), but the reference
                 // winmd and every published `windows` / `windows-sys` binding collapse
-                // them to their 64-bit scalar. Remap at gen time — like `CHAR` / `BOOLEAN`
-                // above — so the in-house union metadata stays faithful while consumers see
-                // the ergonomic `i64` / `u64`.
+                // them to their 64-bit scalar. Remap at gen time - like `CHAR` / `BOOLEAN`
+                // above - so the in-house metadata keeps the union layout while consumers
+                // see the ergonomic `i64` / `u64`.
                 "LARGE_INTEGER" => return Remap::Type(Self::I64),
                 "ULARGE_INTEGER" => return Remap::Type(Self::U64),
                 _ => {}
             }
         }
 
-        // Numerics substitutions swap a faithful Win32 struct for its
+        // Numerics substitutions swap a Win32 struct for its
         // layout-identical `Windows.Foundation.Numerics` projection (an ergonomic
-        // gen-time choice — the winmd keeps the D2D/D3D struct). These must be
+        // gen-time choice - the winmd keeps the D2D/D3D struct). These must be
         // matched by name, not shape: the same `{ f32; f32 }` layout is reused
         // under many names that map to *different* Numerics types.
         //
@@ -743,7 +743,7 @@ impl Type {
     }
 
     /// Returns `true` when `write_abi` emits `*mut core::ffi::c_void` for this
-    /// type — i.e. the ABI representation is a raw COM/HSTRING pointer rather
+    /// type - i.e. the ABI representation is a raw COM/HSTRING pointer rather
     /// than the Rust type itself or `MaybeUninit<Self>`.
     pub fn has_pointer_abi(&self) -> bool {
         matches!(
@@ -1214,7 +1214,7 @@ fn write_full_cfg(ty: &impl Dependencies, config: &Config) -> (Cfg, TokenStream)
 
 /// Emit a `#[cfg(target_arch = ...)]` attribute when a metadata row carries
 /// a `[SupportedArchitectureAttribute]`. Independent of `--package` /
-/// `--flat` layout — the generated arch gate is always meaningful.
+/// `--flat` layout - the generated arch gate is always meaningful.
 pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
     write_arch_bits(row.arches())
 }

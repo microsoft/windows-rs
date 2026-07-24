@@ -111,7 +111,7 @@ enum Style {
     Default,
     /// Raw / sys-style bindings.
     Sys {
-        /// When `true`, emit `extern { fn … }` instead of `link!` macros.
+        /// When `true`, emit `extern { fn ... }` instead of `link!` macros.
         extern_fns: bool,
     },
     /// Minimal-mode bindings (drop class wrappers, inherited forwarders,
@@ -185,7 +185,7 @@ impl Style {
     /// Whether **handle** structs are emitted as a bare `pub type X = <underlying>` alias rather
     /// than a newtype wrapper. Both sys and minimal bindings collapse them; this is why their
     /// handle constants also drop the `Self(value)` constructor (see `cpp_const`). (Unscoped enums
-    /// are collapsed to bare aliases in *every* style — that decision lives in `cpp_enum`, not
+    /// are collapsed to bare aliases in *every* style - that decision lives in `cpp_enum`, not
     /// here.)
     fn emit_bare_typedef(self) -> bool {
         self.is_sys() || self.is_minimal()
@@ -372,7 +372,7 @@ impl Bindgen {
     #[track_caller]
     pub fn write(&self) {
         // Validate up front so we fail fast before any expensive plumbing
-        // (link string, input vec, references, reader, …) runs.
+        // (link string, input vec, references, reader, ...) runs.
         assert!(
             !self.output.is_empty(),
             "output is required (call `.output()` or pass `--out`)"
@@ -696,7 +696,7 @@ fn flat_module_namespace(namespace: &str) -> &str {
 /// Derives the cargo-feature name for a `--package` namespace.
 ///
 /// Win32 namespaces are flat (`Windows.Win32.<header>`) with globally unique
-/// header stems, so the feature is just the stem — the `Win32_` prefix
+/// header stems, so the feature is just the stem - the `Win32_` prefix
 /// would be redundant. The `Win32` umbrella module and the hierarchical
 /// WinRT namespaces keep their full path (after `Windows.`) joined with `_`.
 fn namespace_feature(namespace: &str) -> String {

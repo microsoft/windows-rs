@@ -31,7 +31,7 @@ impl CppEnum {
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
         // An unscoped (C-style) enum is logically just a set of global integer constants, not a
-        // distinct type — the original C API takes the underlying integer (e.g. `D3D11CreateDevice`
+        // distinct type - the original C API takes the underlying integer (e.g. `D3D11CreateDevice`
         // takes a `u32`, not a `D3D11_CREATE_DEVICE_FLAG`). So in every style it is projected as a
         // bare `pub type X = <underlying>` alias with plain integer constants (see `cpp_const`),
         // rather than a newtype wrapper. Scoped enums (`ScopedEnumAttribute`, e.g. WinRT enums and

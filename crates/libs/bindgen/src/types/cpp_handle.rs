@@ -1,6 +1,6 @@
 use super::*;
 
-// Does `ty` resolve — directly or through a chain of native-typedef handles — to a callback
+// Does `ty` resolve - directly or through a chain of native-typedef handles - to a callback
 // (delegate)? A typedef whose Value field is a delegate satisfies `is_handle` (delegates are
 // treated as primitive), so callback aliases like `FONTENUMPROC = FONTENUMPROCA = ... = Option<fn>`
 // would otherwise be newtype-wrapped. Handle chains bottoming out in a raw pointer/scalar (`HWND`)
@@ -23,9 +23,9 @@ impl Config<'_> {
     pub fn typedef_emits_bare(&self, def: TypeDef) -> bool {
         let ty = def.underlying_type_ext(self.reader);
 
-        // A typedef that transitively aliases a callback (delegate) — directly
+        // A typedef that transitively aliases a callback (delegate) - directly
         // (`AMGETERRORTEXTPROC = AMGETERRORTEXTPROCA`) or through a chain of further typedefs
-        // (`FONTENUMPROC = FONTENUMPROCA = OLDFONTENUMPROCA = Option<fn...>`) — is emitted as a
+        // (`FONTENUMPROC = FONTENUMPROCA = OLDFONTENUMPROCA = Option<fn...>`) - is emitted as a
         // transparent alias rather than a wrapper newtype, matching --sys/--minimal. Newtyping a
         // callback adds no type safety and deriving `PartialEq` over the wrapped function pointer
         // triggers `unpredictable_function_pointer_comparisons`.
@@ -33,16 +33,16 @@ impl Config<'_> {
 
         // A typedef whose underlying type is *itself* a named handle (`GLOBALHANDLE = HANDLE`,
         // `HCURSOR = HICON`, `SQLHWND = HWND`, `HOLEMENU = HGLOBAL`) is emitted as a transparent
-        // alias rather than nesting one handle newtype inside another — matching --sys/--minimal.
+        // alias rather than nesting one handle newtype inside another - matching --sys/--minimal.
         // Base handles, whose underlying is a raw pointer/scalar (`HANDLE = *mut void`, `HWND`),
         // keep the newtype (with its `Default` impl). Primitive-backed handles like
         // `JET_GRBIT` (underlying `u32`) are unaffected: their underlying is not a handle struct, so
-        // they keep the newtype their tuple-constructed constants (`JET_GRBIT(…)`) require.
+        // they keep the newtype their tuple-constructed constants (`JET_GRBIT(...)`) require.
         let aliases_handle = matches!(&ty, Type::CppStruct(inner) if inner.is_handle(self.reader));
 
         // A typedef whose underlying type is a pointer to a *named* type (`PCOMPRESSOR_HANDLE =
         // *mut COMPRESSOR_HANDLE`, `PTRUSTEE_A = *mut TRUSTEE_A`, `PACCESS_RIGHTS = *mut u32`) is a
-        // pointer alias, not a handle — emit it as a transparent alias rather than wrapping the
+        // pointer alias, not a handle - emit it as a transparent alias rather than wrapping the
         // pointer in a newtype, matching --sys/--minimal. Genuine base handles point to void
         // (`HANDLE = *mut void`, `HWND = *mut void`) and keep their newtype (with its `Default`
         // impl), so pointers to void are excluded here.
@@ -51,7 +51,7 @@ impl Config<'_> {
             Type::PtrMut(inner, _) | Type::PtrConst(inner, _) if !matches!(inner.as_ref(), Type::Void)
         );
 
-        // Unscoped (C-style) enums are always projected as bare aliases — see `cpp_enum`, which is
+        // Unscoped (C-style) enums are always projected as bare aliases - see `cpp_enum`, which is
         // the only caller that passes an enum `def` here (scoped enums keep their newtype and never
         // reach this function). So enums take the bare branch in every style, not just sys/minimal.
         let is_enum = def.category() == windows_metadata::reader::TypeCategory::Enum;

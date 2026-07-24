@@ -22,7 +22,7 @@ impl std::ops::Deref for Reader {
 impl Reader {
     pub fn new(files: Vec<File>, sys: bool) -> Self {
         // Build a `'static` metadata index that owns the parsed winmd files for the lifetime
-        // of the process. This is the single sanctioned leak point — all subsequent
+        // of the process. This is the single sanctioned leak point - all subsequent
         // `TypeDef<'static>`, `Field<'static>`, etc. values reference data owned by it.
         let index: &'static windows_metadata::reader::Index =
             windows_metadata::reader::Index::new(files).leak();

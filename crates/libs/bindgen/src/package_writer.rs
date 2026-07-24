@@ -111,7 +111,7 @@ impl Config<'_> {
         let trees = tree.flatten_trees();
 
         // In the flat `windows-sys` package a namespace of pure COM interfaces emits
-        // nothing — sys renders no interfaces — leaving an empty module file and a dead
+        // nothing - sys renders no interfaces - leaving an empty module file and a dead
         // Cargo feature. Collect those prunable namespaces so their module declaration,
         // file, feature, and any dependency-list references are all suppressed.
         let mut prunable = BTreeSet::new();
@@ -323,9 +323,9 @@ impl Config<'_> {
         write_to_file(&toml_path, toml);
     }
 
-    /// Records every namespace whose module would be empty in this package layout —
+    /// Records every namespace whose module would be empty in this package layout -
     /// its own types all emit nothing (a `windows-sys` namespace of pure COM
-    /// interfaces) and every nested child is likewise prunable — into `prunable`.
+    /// interfaces) and every nested child is likewise prunable - into `prunable`.
     /// Returns whether `tree` itself is prunable so the recursion can fold children.
     fn collect_prunable(&self, tree: &TypeTree, prunable: &mut BTreeSet<&'static str>) -> bool {
         let config = self.with_namespace(tree.namespace);

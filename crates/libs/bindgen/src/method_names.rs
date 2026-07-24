@@ -1,13 +1,13 @@
 use super::*;
 
 /// Returns the overload-disambiguated Rust name produced by an
-/// `[overload("…")]` attribute on a non-`SpecialName` method, if any.
+/// `[overload("...")]` attribute on a non-`SpecialName` method, if any.
 ///
 /// This is the same value `--filter` should accept for individually
 /// addressing a renamed overload (e.g. `InsertKeyFrameWithEasingFunction`
 /// rather than the shared metadata name `InsertKeyFrame`). `SpecialName`
 /// methods (property/event accessors) and "generated" overload suffixes
-/// like `InsertKeyFrame2` are skipped — those are handled by the existing
+/// like `InsertKeyFrame2` are skipped - those are handled by the existing
 /// raw-name + sugar paths in `filter.rs`.
 pub fn method_overload_name(row: MethodDef) -> Option<String> {
     if row.flags().contains(MethodAttributes::SpecialName) {
@@ -19,7 +19,7 @@ pub fn method_overload_name(row: MethodDef) -> Option<String> {
         if let Value::Utf8(overload) = arg {
             if let Some(suffix) = overload.strip_prefix(name) {
                 if suffix.parse::<u32>().is_ok() {
-                    // Generated `Name2`/`Name3` overload — not a real
+                    // Generated `Name2`/`Name3` overload - not a real
                     // rename, so no disambiguated handle to filter on.
                     return None;
                 }

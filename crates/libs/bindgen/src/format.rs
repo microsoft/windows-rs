@@ -250,7 +250,7 @@ impl StrPipe for String {
     }
 }
 
-/// Collapse `name (` → `name(` after an identifier character.
+/// Collapse `name (` -> `name(` after an identifier character.
 fn collapse_space_before_paren(s: String) -> String {
     let bytes = s.as_bytes();
     let mut out = String::with_capacity(s.len());
@@ -259,7 +259,7 @@ fn collapse_space_before_paren(s: String) -> String {
         if bytes[i] == b' ' && i + 1 < bytes.len() && bytes[i + 1] == b'(' && i > 0 {
             let prev = bytes[i - 1];
             if prev.is_ascii_alphanumeric() || prev == b'_' {
-                // Drop the space: `name (` → `name(`.
+                // Drop the space: `name (` -> `name(`.
                 i += 1;
                 continue;
             }
