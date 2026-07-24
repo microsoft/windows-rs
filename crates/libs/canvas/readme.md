@@ -1,6 +1,8 @@
 ## Windows Canvas
 
-Windows Canvas is a safe, fast 2D graphics library for Rust developers, backed by Direct2D (with Direct3D 11, DXGI, DirectWrite, and WIC). All COM interfaces are private implementation details — you work only with Rust types.
+Windows Canvas is a safe, fast 2D graphics library for Rust developers, backed by Direct2D (with
+Direct3D 11, DXGI, DirectWrite, and WIC). All COM interfaces are private implementation details -
+you work only with Rust types.
 
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Canvas guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md)
@@ -24,4 +26,11 @@ fn main() -> Result<()> {
 }
 ```
 
-Core types: `GpuDevice`, `SwapChain`, `DrawingSession`, `PathBuilder`, `TextFormat`, `Bitmap`, and the `Paint` trait. To host a canvas inside a [`windows-reactor`](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) window, enable reactor's `canvas` feature: `animated_canvas()` drives a per-frame render loop on the UI thread with automatic device-lost recovery, and `CanvasImageSource` provides an on-demand surface that repaints only when its data changes. See the [canvas guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md) for the full API and samples.
+Core types: `GpuDevice`, `SwapChain`, `DrawingSession`, `PathBuilder`, `TextFormat`, `Bitmap`, and
+the `Paint` trait. To host a canvas inside a
+[`windows-reactor`](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md)
+window, enable reactor's `canvas` feature: `animated_canvas()` drives a per-frame render loop on the
+UI thread with automatic device-lost recovery, and `CanvasImageSource` provides an on-demand surface
+that repaints only when its data changes. See the [canvas
+guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md) for the
+full API and samples.

@@ -2,29 +2,26 @@
 
 > Core COM and WinRT type support shared by the windows-* crates.
 
-- 📦 [crates.io](https://crates.io/crates/windows-core)
-- 📖 [docs.rs](https://docs.rs/windows-core)
-- 🚀 [Getting started](../../crates/libs/core/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/core)
+- [crates.io](https://crates.io/crates/windows-core)
+- [docs.rs](https://docs.rs/windows-core)
+- [Getting started](../../crates/libs/core/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/core)
 
-`windows-core` is the foundation that nearly every other crate builds on. It
-provides the COM/WinRT runtime machinery — `IUnknown`, `IInspectable`, the
-`Interface` trait, reference counting, agile references, and weak references —
-along with `GUID` and re-exports of the [result](windows-result.md) and
-[string](windows-strings.md) types.
+`windows-core` is the foundation that nearly every other crate builds on. It provides the COM/WinRT
+runtime machinery - `IUnknown`, `IInspectable`, the `Interface` trait, reference counting, agile
+references, and weak references - along with `GUID` and re-exports of the
+[result](windows-result.md) and [string](windows-strings.md) types.
 
-It is also where you **declare and implement** your own COM and WinRT interfaces.
-The `#[interface]` and `#[implement]` macros live in the separate
-[`windows-interface`](windows-interface.md) and
-[`windows-implement`](windows-implement.md) crates only because Rust requires
-procedural macros to ship in their own `proc-macro` crate. They are part of
-`windows-core` — re-exported from it behind the default `proc-macros` feature and
-documented here rather than as standalone crates.
+It is also where you **declare and implement** your own COM and WinRT interfaces. The `#[interface]`
+and `#[implement]` macros live in the separate [`windows-interface`](windows-interface.md) and
+[`windows-implement`](windows-implement.md) crates only because Rust requires procedural macros to
+ship in their own `proc-macro` crate. They are part of `windows-core` - re-exported from it behind
+the default `proc-macros` feature and documented here rather than as standalone crates.
 
 ## Declaring and implementing interfaces
 
-Declare a COM interface as an `unsafe trait` deriving from `IUnknown` with
-`#[interface]` and its GUID, then provide a Rust type for it with `#[implement]`:
+Declare a COM interface as an `unsafe trait` deriving from `IUnknown` with `#[interface]` and its
+GUID, then provide a Rust type for it with `#[implement]`:
 
 ```rust
 use windows_core::*;
@@ -56,41 +53,37 @@ fn main() {
 }
 ```
 
-`#[interface]` generates the vtable, the safe caller-side wrappers, and the
-`IValue_Impl` trait. `#[implement]` generates the `Value_Impl` wrapper that carries
-the vtable pointers and reference count; you write the methods in
-`impl IValue_Impl for Value_Impl`. Converting the struct `.into()` an interface
-yields a reference-counted COM object, and `cast` moves between interfaces on the
-same object.
+`#[interface]` generates the vtable, the safe caller-side wrappers, and the `IValue_Impl` trait.
+`#[implement]` generates the `Value_Impl` wrapper that carries the vtable pointers and reference
+count; you write the methods in `impl IValue_Impl for Value_Impl`. Converting the struct `.into()`
+an interface yields a reference-counted COM object, and `cast` moves between interfaces on the same
+object.
 
 ## Without the proc macros
 
-Disabling the default `proc-macros` feature drops the `syn`/`quote`/`proc-macro2`
-build dependencies. The `interface_decl!` and `implement_decl!` declarative
-`macro_rules!` macros then cover the common case — an always-agile type
-implementing one or more `IUnknown`-derived interfaces — without proc macros. They
-are more verbose (every identifier and the IID must be spelled out) and narrower in
-scope; see the `interface_macro` and `implement_macro` module docs for the grammar
-and limits. `windows-core` uses them internally so it can build with `proc-macros`
+Disabling the default `proc-macros` feature drops the `syn`/`quote`/`proc-macro2` build
+dependencies. The `interface_decl!` and `implement_decl!` declarative `macro_rules!` macros then
+cover the common case - an always-agile type implementing one or more `IUnknown`-derived
+interfaces - without proc macros. They are more verbose (every identifier and the IID must be
+spelled out) and narrower in scope; see the `interface_macro` and `implement_macro` module docs for
+the grammar and limits. `windows-core` uses them internally so it can build with `proc-macros`
 disabled.
 
 ---
 
 ## Internal documentation
 
-The remainder of this page covers how the crate is built and maintained. It is
-for contributors and is **not needed to use `windows-core`**.
+The remainder of this page covers how the crate is built and maintained. It is for contributors and
+is **not needed to use `windows-core`**.
 
 ### How it's built
 
-`src/bindings.rs` is generated by `tool_bindings` from
-`crates/tools/bindings/src/core.txt`. The hand-written modules
-(`agile_reference`, `com_object`, `compose`, `event`, …) provide the COM runtime
+`src/bindings.rs` is generated by `tool_bindings` from `crates/tools/bindings/src/core.txt`. The
+hand-written modules (`agile_reference`, `com_object`, `compose`, `event`) provide the COM runtime
 support. The `#[implement]`/`#[interface]` proc macros are re-exported from the
-[`windows-implement`](windows-implement.md)/[`windows-interface`](windows-interface.md)
-crates behind the `proc-macros` feature, and the `implement_macro`/`interface_macro`
-modules supply the `implement_decl!`/`interface_decl!` declarative equivalents used
-when that feature is off.
+[`windows-implement`](windows-implement.md)/[`windows-interface`](windows-interface.md) crates
+behind the `proc-macros` feature, and the `implement_macro`/`interface_macro` modules supply the
+`implement_decl!`/`interface_decl!` declarative equivalents used when that feature is off.
 
 ### Testing
 
