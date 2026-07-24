@@ -63,10 +63,11 @@ object.
 
 Disabling the default `proc-macros` feature drops the `syn`/`quote`/`proc-macro2` build
 dependencies. The `interface_decl!` and `implement_decl!` declarative `macro_rules!` macros then
-cover the common case - an always-agile type implementing one or more `IUnknown`-derived interfaces
-- without proc macros. They are more verbose (every identifier and the IID must be spelled out) and
-narrower in scope; see the `interface_macro` and `implement_macro` module docs for the grammar and
-limits. `windows-core` uses them internally so it can build with `proc-macros` disabled.
+cover the common case - an always-agile type implementing one or more `IUnknown`-derived
+interfaces - without proc macros. They are more verbose (every identifier and the IID must be
+spelled out) and narrower in scope; see the `interface_macro` and `implement_macro` module docs for
+the grammar and limits. `windows-core` uses them internally so it can build with `proc-macros`
+disabled.
 
 ---
 

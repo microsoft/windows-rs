@@ -255,8 +255,7 @@ use it through `tool_package`.
 
 `tool_win32` scrapes x64, arm64, and x86 into separate RDL sets. Then `merge_arch_rdl` combines them
 into one winmd. A type with the same shape on every architecture is emitted once. A type that
-differs by architecture is split into
-per-architecture copies tagged `#[arch(X86|X64|Arm64)]`.
+differs by architecture is split into per-architecture copies tagged `#[arch(X86|X64|Arm64)]`.
 
 The merge compares type structure through [`windows-metadata`](windows-metadata.md).
 `merge_arch_rdl` handles orchestration. It reads each architecture's RDL, runs the merge, and writes

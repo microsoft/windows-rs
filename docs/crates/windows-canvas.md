@@ -194,16 +194,15 @@ session.draw_text("Hello", &format, &Rect::from_xywh(0.0, 0.0, w, h), &brush);
 ## Transforms, bitmaps, and effects
 
 - **Transforms:** Use `set_transform(&Matrix3x2)` and `transform()`. Use
-  `with_transform(&matrix, |s| { .. })` for scoped transforms. Matrix types come
-from `windows-numerics`.
+  `with_transform(&matrix, |s| { .. })` for scoped transforms. Matrix types come from
+  `windows-numerics`.
 - **Bitmaps:** Use `load_bitmap(path)` to decode an image file. Use
   `create_bitmap(pixels, width, height)` to upload premultiplied BGRA pixels. Use
   `create_bitmap_with_alpha` to select the `AlphaMode`. Then use
   `draw_bitmap(&bitmap, &Rect, opacity)` or `draw_image(&bitmap)`.
-- **Off-screen targets:** Use `create_bitmap_target()` with
-  `with_target(&bitmap, |s| { .. })`. Use `GpuDevice::create_render_target` for
-a target with CPU readback. Use `create_shadow(&bitmap)` and `draw_effect(&effect)` for drop shadows
-and effects.
+- **Off-screen targets:** Use `create_bitmap_target()` with `with_target(&bitmap, |s| { .. })`. Use
+  `GpuDevice::create_render_target` for a target with CPU readback. Use `create_shadow(&bitmap)` and
+  `draw_effect(&effect)` for drop shadows and effects.
 
 ## Samples
 

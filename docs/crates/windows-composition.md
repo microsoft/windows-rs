@@ -218,9 +218,9 @@ Win2D's `CanvasComposition`. This crate owns the composition half.
   `DrawingSession::from_borrowed_context(context, offset)`.
 
 The Direct2D drawing lives in `windows-canvas` behind its `composition` feature. Import
-`windows_canvas::CanvasCompositionExt` to use
-`device.create_graphics_device(&compositor)` and `surface.draw(|session| ...)`.
-The draw method returns `Result<bool>`. `Ok(false)` means device loss.
+`windows_canvas::CanvasCompositionExt` to use `device.create_graphics_device(&compositor)` and
+`surface.draw(|session| ...)`. The draw method returns `Result<bool>`. `Ok(false)` means device
+loss.
 
 The bridge is system-only. Lifted `Microsoft.UI.Composition` has no Direct2D surface interop
 metadata. The related filter entries are inside the `system-only` region, and the wrappers use

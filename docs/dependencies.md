@@ -89,8 +89,8 @@ documented in [`crates/libs/bindgen/default/readme.md`](../crates/libs/bindgen/d
 - The "marketing" include/lib folder nested in each package (e.g. `10.0.28000.0`) is **derived**
   from the version via `helpers::marketing_dir` (first three components + `.0`), so the version is
   the single edit - never a second folder constant to keep in sync.
-- **To update:** bump the owning constant, run `cargo run -p tool_<win32|wdk|winrt>`, and commit
-the regenerated `.rdl` snapshot(s) and `.winmd`.
+- **To update:** bump the owning constant, run `cargo run -p tool_<win32|wdk|winrt>`, and commit the
+  regenerated `.rdl` snapshot(s) and `.winmd`.
 
 `CONTRACTS_VERSION` happens to share the `10.0.28000` build number with `SDK_VERSION`, but it is a
 distinct NuGet package with its own pin - the two are not coupled and can diverge.

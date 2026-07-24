@@ -1,6 +1,6 @@
 # windows-webview
 
-> A safe Rust wrapper around the [WebView2](https://aka.ms/webview2) COM APIs for hosting the Microsoft Edge browser in a window.
+> A safe Rust wrapper around the [WebView2](https://aka.ms/webview2) COM APIs for hosting the Microsoft Edge (Chromium) browser in a window.
 
 - [crates.io](https://crates.io/crates/windows-webview)
 - [docs.rs](https://docs.rs/windows-webview)

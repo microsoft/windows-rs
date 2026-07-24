@@ -142,11 +142,11 @@ Spacing values use `Thickness` (with `Thickness::uniform(..)`).
 
 ## Handling events
 
-Event handlers take closures. `button(..).on_click(move || ...)` is the most
-common. Pointer and keyboard handlers live on `ElementExt`: `.on_tapped(..)`,
-`.on_pointer_pressed(..)`, `.on_pointer_released(..)`, `.on_pointer_moved(..)`,
-`.on_pointer_entered(..)`, `.on_pointer_exited(..)`, `.keyboard_accelerator(..)`. You can pass a
-`SetState` or `Dispatch` directly wherever a handler is expected (through `IntoCallback`).
+Event handlers take closures. `button(..).on_click(move || ...)` is the most common. Pointer and
+keyboard handlers live on `ElementExt`: `.on_tapped(..)`, `.on_pointer_pressed(..)`,
+`.on_pointer_released(..)`, `.on_pointer_moved(..)`, `.on_pointer_entered(..)`,
+`.on_pointer_exited(..)`, `.keyboard_accelerator(..)`. You can pass a `SetState` or `Dispatch`
+directly wherever a handler is expected (through `IntoCallback`).
 
 ### Handler identity
 
@@ -163,14 +163,12 @@ text_box(text).on_text_changed(move |value| set_text.call(value))
 
 This is not only cosmetic. Setters from `use_state` and `use_reducer` are memoized per hook slot.
 Passing one straight through hands the reconciler the same handler identity each render, so the diff
-can skip the whole control. An
-inline closure (`move |v| set.call(v)`) allocates a fresh identity every render,
-so the control is always re-diffed and its WinUI event re-bound.
+can skip the whole control. An inline closure (`move |v| set.call(v)`) allocates a fresh identity
+every render, so the control is always re-diffed and its WinUI event re-bound.
 
 When a handler must compute a value or run extra logic, wrap it in `cx.use_callback(deps, ...)` to
 memoize it and recover a stable identity for hot paths. For a unit event (`on_click`) that stores a
-fixed or pre-computed value,
-`SetState::setter(value)` is shorthand for `move || set.call(value)`:
+fixed or pre-computed value, `SetState::setter(value)` is shorthand for `move || set.call(value)`:
 `button("Reset").on_click(set_count.setter(0))`.
 
 ## Multiple windows
@@ -375,11 +373,10 @@ It handles failures by where they happen:
 - Failures inside UI-thread callbacks (render, event handlers, timers, `on_rendering`) go to one
   reactor-owned fault boundary, not a `Result`. Reactor catches panics at the entry points it owns
   (`Callback::invoke`, the `DispatcherTimer` tick, `on_rendering`, and the render pass) and delivers
-  them
-  to a developer-supplied `App::on_fault(|fault| ...)` hook (default:
-log-and-continue). The catch is context-aware: a callback that panics during a render pass is left
-to propagate so `error_boundary` can recover the subtree first. Only panics outside render, or
-escaping every boundary, reach `on_fault`. This lives in `fault.rs`.
+  them to a developer-supplied `App::on_fault(|fault| ...)` hook (default: log-and-continue). The
+  catch is context-aware: a callback that panics during a render pass is left to propagate so
+  `error_boundary` can recover the subtree first. Only panics outside render, or escaping every
+  boundary, reach `on_fault`. This lives in `fault.rs`.
 - Best-effort backend property application uses one helper: `diag::warn` (with `diag::dropped`,
   which reports the dropped `Result`'s call site through `#[track_caller]`). It warns in debug and
   is a no-op in release.

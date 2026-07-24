@@ -99,8 +99,8 @@ cargo run --release -p lang_perf_rust -- --iterations 10000000
 cargo run --release -p lang_perf_cpp  -- --iterations 10000000
 ```
 
-Each consumer accepts `--component rust|cpp` to call a selected implementation.
-Build `lang_perf_cpp` first, or run the matrix script.
+Each consumer accepts `--component rust|cpp` to call a selected implementation. Build
+`lang_perf_cpp` first, or run the matrix script.
 
 ```pwsh
 cargo build --release -p lang_perf_cpp

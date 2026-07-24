@@ -43,11 +43,10 @@ run(); // blocking, event-driven message loop
 - **`style(WS_*)` / `ex_style(WS_EX_*)`** override the window styles (raw `u32`). They default to
   `WS_OVERLAPPEDWINDOW` and none - pass Win32 style constants for custom chrome (e.g.
   `WS_EX_NOREDIRECTIONBITMAP` for a DirectComposition target).
-- **`on_message(|hwnd, message, wparam, lparam| -> Option<isize>)`** handles raw
-window messages; return `Some(result)` to handle a message or `None` to fall through to default
-processing.
-- **`on_resize(|width, height|)`** is a convenience for `WM_SIZE`, giving the new
-client size in pixels.
+- **`on_message(|hwnd, message, wparam, lparam| -> Option<isize>)`** handles raw window messages;
+  return `Some(result)` to handle a message or `None` to fall through to default processing.
+- **`on_resize(|width, height|)`** is a convenience for `WM_SIZE`, giving the new client size in
+  pixels.
 
 Handlers are detached while they run, so a handler that triggers reentrant dispatch (for example
 calling `SetWindowPos`, which synchronously sends `WM_WINDOWPOSCHANGING` / `WM_SIZE`) won't re-enter

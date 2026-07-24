@@ -77,7 +77,14 @@ release so the scrape is deterministic (see `tool_win32`).
 - `tool_webview` - scrapes the WebView2 headers into `WebView2.rdl`.
 - `test_clang` - golden fixtures that pin the header -> RDL behavior.
 
-## Scraper layering: one crate, two levels
+---
+
+## Internal documentation
+
+The rest of this page covers how the crate is built and maintained. It is for contributors and is
+not needed to use `windows-clang`.
+
+### Scraper layering: one crate, two levels
 
 `windows-clang` is the single crate a scraper depends on. It is *not* a thin libclang FFI shim. It
 is a scraping toolkit with a clean two-level API, layered on the metadata crates below it:
@@ -104,12 +111,12 @@ for either and picks the terminal that fits its output:
   packages -> include/lib dirs), configure a `clang()` builder (TU sources, include args, scope,
   import libraries), and call `.scrape` with a small [`ScrapePlan`].
 
-The two terminals share the builder because the multi-arch scrape *is* a single-arch scrape replayed
-- so every parse knob (headers, args, scope, import libraries, `drop_lib_less`) is set once, on the
-  builder that owns it, and `scrape` only layers on the per-arch target, defines, and (for a
-  multi-arch run) the builtin `-resource-dir`.
+The two terminals share the builder because the multi-arch scrape *is* a single-arch scrape
+replayed - so every parse knob (headers, args, scope, import libraries, `drop_lib_less`) is set
+once, on the builder that owns it, and `scrape` only layers on the per-arch target, defines, and
+(for a multi-arch run) the builtin `-resource-dir`.
 
-### What lives where, and why
+#### What lives where, and why
 
 Everything generic to *any* header scrape lives in `windows-clang`:
 
@@ -136,7 +143,7 @@ coordinates `clang()`, `merge_arch_rdl`, and `reader()`, belongs here rather tha
 crate that would sit on top of clang only to add a thread pool. Making it a terminal on the same
 builder gives every consumer one dependency and one mental model: *use `windows-clang` to scrape*.
 
-## Internals
+### Code organization
 
 The scraper is organized by declaration kind: `cx` wraps `clang-sys` (the AST
 cursor/translation-unit types), `canon` holds the header-derived -> canonical type remaps, and
@@ -161,7 +168,7 @@ Because `windows-clang` reuses `windows_rdl::emit`, the RDL it produces is spell
 the RDL the winmd -> RDL writer produces - the round-trip `headers to RDL to winmd to RDL`
 converges, which the golden tests enforce.
 
-## Source-expressed metadata
+### Source-expressed metadata
 
 The scrape differs from win32metadata's design. win32metadata aims to be *higher level* than the
 headers. It synthesizes friendly constructs (loose constants promoted to enums, handle lifetimes,
@@ -176,8 +183,8 @@ source, emitting only what is **directly expressed in the source language**:
 - **`__declspec`** - `uuid(<guid>)`, `noreturn`, `align(n)`, `dllimport`, `deprecated`.
 - **Language constructs** - `const`, scoped enums, `#pragma pack` / declared alignment, unions,
   bitfield storage layout, `typedef`, calling conventions. (Bit-fields are coalesced into backing
-  storage units, with each member's name/offset/width emitted as a C-like block on the backing field
-  - see [Bit-field member scraping](#bit-field-member-scraping).)
+  storage units, with each member's name/offset/width emitted as a C-like block on the backing
+  field - see [Bit-field member scraping](#bit-field-member-scraping).)
 - **Header signal macros** - `DEFINE_ENUM_FLAG_OPERATORS(E)` (a genuine flags-enum signal, not a
   guess).
 - **IDL attributes** (COM) - `[in]`/`[out]`/`[retval]`/`[size_is]`/`[iid_is]`, and more.
@@ -197,7 +204,7 @@ because scalar collapse is *opt-in*: `fundamental_scalar` / `pointer_sized_abi` 
 curated allowlists of names that collapse to a Rust primitive (`DWORD` -> `u32`); everything else
 stays a distinct `NativeTypedef`, and `HANDLE` is recognized structurally.
 
-### Header-derived signatures that look less ergonomic are not defects
+#### Header-derived signatures that look less ergonomic are not defects
 
 Because the scrape emits only what the source expresses, some signatures look lower-level than the
 hand-curated `windows` crate. These are **correct**: the extra ergonomics in `windows` come from
@@ -228,7 +235,7 @@ None of these is a scrape gap. `_COM_Outptr_opt_` preserves its `[Optional]` fla
 `crates/tests/libs/clang/input/interface_outptr_opt.h`. The four cases above follow the headers by
 design.
 
-### Overloaded virtual methods are emitted in reverse (MSVC vtable order)
+#### Overloaded virtual methods are emitted in reverse (MSVC vtable order)
 
 A COM/C++ interface method's position in the metadata **is** its vtable slot - bindgen lays the
 generated function pointers out in emission order, so the order the scraper records must match the
@@ -260,7 +267,7 @@ sample. Very few methods are affected (overloaded pure-virtual COM methods are r
 DirectComposition, a few Direct2D SVG and DirectWrite interfaces). Covered by
 `crates/tests/libs/clang/input/interface_overload.h`.
 
-### Base-interface `_COM_Outptr_` creators: promoted by name gate
+#### Base-interface `_COM_Outptr_` creators: promoted by name gate
 
 A creator like `DWriteCreateFactory(_In_ REFIID iid, _COM_Outptr_ IUnknown **factory)`
 (`um/dwrite.h`) is a caller-chosen-type factory whose out-parameter *should* have been declared
@@ -295,20 +302,20 @@ selects a *different* object than the out-pointer (`ActivateAudioInterfaceAsync`
 their concrete type and a call-site `.cast()`. Guarded by the `iid_infer` `test_clang` fixture
 (`CreateFactory`/`CreateInspectable` positive, `CreateTyped` -> `IFoo**` negative).
 
-### UNICODE is not defined
+#### UNICODE is not defined
 
 The translation unit is built *without* `UNICODE`/`_UNICODE` (only `SECURITY_WIN32` is predefined).
-This is measured, not accidental: defining `UNICODE` drops 71 real exported functions and adds none
-- every family whose bare, unsuffixed name is the ANSI export guarded by a `#define name nameW`
-  alias (the whole winldap `ldap_*` family, bare-ANSI wininet functions) disappears because the bare
-  name macro-expands to the `*W` symbol before clang sees it. The only upside is that generic
-  text-mapped *typedef aliases* would flip Unicode-first (`LPTSTR` -> `PWSTR`) - alias spellings, no
-  new symbols. The no-`UNICODE` scrape captures both the bare-ANSI and explicit `*W` declarations as
-  distinct symbols, so it is strictly higher-coverage. (win32metadata achieves Unicode-first without
-  the loss by scraping ANSI and Unicode in separate passes and merging - a much larger change than a
-  compile flag.)
+This is measured, not accidental: defining `UNICODE` drops 71 real exported functions and adds
+none - every family whose bare, unsuffixed name is the ANSI export guarded by a `#define name nameW`
+alias (the whole winldap `ldap_*` family, bare-ANSI wininet functions) disappears because the bare
+name macro-expands to the `*W` symbol before clang sees it. The only upside is that generic
+text-mapped *typedef aliases* would flip Unicode-first (`LPTSTR` -> `PWSTR`) - alias spellings, no
+new symbols. The no-`UNICODE` scrape captures both the bare-ANSI and explicit `*W` declarations as
+distinct symbols, so it is strictly higher-coverage. (win32metadata achieves Unicode-first without
+the loss by scraping ANSI and Unicode in separate passes and merging - a much larger change than a
+compile flag.)
 
-## Partitioning: by defining header, not metadata namespace
+### Partitioning: by defining header, not metadata namespace
 
 The Windows SDK is a **flat C namespace**: symbol names are globally unique (a probe over the
 reference winmd found only 8 of 34,552 type names - 0.02% - in more than one namespace, all
@@ -330,7 +337,7 @@ The exporting **DLL is kept as a per-function attribute** (`#[library("<dll>")]`
 import libs), so per-DLL truth survives as *data*. Any friendlier grouping (the legacy `windows`
 module layout, per-DLL views) becomes an optional downstream map over the flat namespace.
 
-### Redundant constants that duplicate an enumerator are dropped
+#### Redundant constants that duplicate an enumerator are dropped
 
 A handful of legacy headers expose the *same* value twice: once as a typed enumerator and once as a
 loose object-like macro in an unrelated header. The bare macro copy is a weaker-typed duplicate of
@@ -350,7 +357,7 @@ never removed). The typed enumerator is the canonical projection and survives un
 names globally unique without a curated exclusion list (`enum_member_values` / `const_integer_bits`
 / `enum_member_eq` in `lib.rs`).
 
-## The Win32 metadata: tool_win32
+### The Win32 metadata: tool_win32
 
 ```text
    Windows SDK --> clang / libclang --> one RDL file per header --> Reader --> per-arch winmd
@@ -397,7 +404,7 @@ at load; ordering it after the apiset umbrella lets them resolve to their loadab
 `api-ms-win-core-synch`/`-enclave` contract, leaving `vertdll.lib` to stamp only genuinely
 enclave-only residue (`EnclaveSealData`, and more).
 
-### WinRT interop headers and the `ABI::Windows::*` split
+#### WinRT interop headers and the `ABI::Windows::*` split
 
 A handful of SDK headers declare Win32 COM entry points whose signatures reach into the
 `ABI::Windows::*` C++/WinRT projection namespace - e.g. `roregistrationapi.h`'s
@@ -469,12 +476,12 @@ re-exported from `windows-collections`); `windows-sys`, which reads only the Win
 degrades an unresolvable WinRT reference type to the opaque COM pointer (`*mut c_void`) - the same
 representation it already gives every interface (`windows-bindgen`, `types::from_metadata_type`).
 
-## The WDK metadata: tool_wdk
+### The WDK metadata: tool_wdk
 
-`cargo run -p tool_wdk` builds `Windows.Wdk.winmd` the same way `tool_win32` builds the Win32 winmd
-- a whole-header scrape, not a symbol allowlist. Both tools drive the *same*
-  [`scrape`](#scraper-layering-one-crate-two-levels) terminal from plain `const` slices in `main.rs`
-  (`crates/tools/wdk/src/main.rs`); the WDK is just that builder configured for three things:
+`cargo run -p tool_wdk` builds `Windows.Wdk.winmd` the same way `tool_win32` builds the Win32
+winmd - a whole-header scrape, not a symbol allowlist. Both tools drive the *same*
+[`scrape`](#scraper-layering-one-crate-two-levels) terminal from plain `const` slices in `main.rs`
+(`crates/tools/wdk/src/main.rs`); the WDK is just that builder configured for three things:
 
 - **Same flat `Windows.Win32` namespace.** The WDK surface is emitted into the *global, not-WinRT*
   namespace shared with Win32, so a WDK entity referencing a Win32 type (`NTSTATUS`,
@@ -526,7 +533,7 @@ the bootstrap consumers against the in-house winmd - a `*mut`/`*const` mismatch 
 that a rule has strayed. The preserve-sets are the entire curated surface; everything else is
 derived from the header text.
 
-### Structural rules vs. one name-keyed policy table
+#### Structural rules vs. one name-keyed policy table
 
 The core discipline that keeps the type-mapping surface auditable: **structural whenever the
 behaviour is uniform, name-keyed only where structure genuinely can't disambiguate.** The integer
@@ -550,11 +557,11 @@ The generic void-pointer aliases (`PVOID`/`LPVOID` and related aliases) are a th
 `void_pointer_alias`, collapsing *everywhere* (like `fundamental_scalar`), so a `void*` data pointer
 collapses while a `void*` handle (`HANDLE`) stays named structurally.
 
-## Type remapping - one canon surface
+### Type remapping - one canon surface
 
-Every place a header-derived type is rewritten is split across **two layers**. Keeping them straight
-- and consolidating Layer A into one ordered module - is what keeps the type-mapping surface
-  auditable.
+Every place a header-derived type is rewritten is split across **two layers**. Keeping them
+straight - and consolidating Layer A into one ordered module - is what keeps the type-mapping
+surface auditable.
 
 **Layer A - `windows-clang` (headers -> winmd).** The source-preserving rules live in a single
 `canon.rs` with one declared precedence order: universal rules (`resolve_typedef`, every site) then
@@ -592,7 +599,7 @@ by the same rank.
   still lacks the const wrappers, and it should be removed when `tool_package` stops using that
   reference winmd.
 
-## Namespaced scrapes and the convergence path
+### Namespaced scrapes and the convergence path
 
 The universal string normalisations (#9/#10) are gated to the **flat** per-header scrape
 (`header_root.is_some()`). A *namespaced* scrape - `tool_webview`, which scrapes `WebView2*.h` into
@@ -603,7 +610,7 @@ re-qualifies a canonical string alias present in `ref_map` to the `ref_map` name
 definition still resolves. `test_clang` exercises **both** modes so the carve-out gating cannot
 silently regress.
 
-## Scrape reliability
+### Scrape reliability
 
 Every type, constant, and function in the metadata is derived from the SDK headers. The single
 exception is the hand-authored attribute seed `metadata.rdl`. The `windows-clang` diff is
@@ -618,7 +625,7 @@ MIDL compiler-internal names are filtered as a category: the `_User*` wire-marsh
 file-scope placeholder tags are all recognised and dropped or renamed, so no generated-stub plumbing
 leaks onto the public surface.
 
-## Toolchain provisioning
+### Toolchain provisioning
 
 The `provision` module fetches the pinned libclang and NuGet packages the scrapers depend on, so a
 fresh checkout regenerates without a manual `nuget restore`. It is shared by every consumer
@@ -648,7 +655,7 @@ fresh checkout regenerates without a manual `nuget restore`. It is shared by eve
 libclang comes from the shared NuGet global cache; the resource-header extract is cached by version
 under `target/windows-clang/`, so all tools share one extract.
 
-## Differences from the win32metadata reference
+### Differences from the win32metadata reference
 
 The in-house metadata follows the SDK headers, so it differs from Microsoft's curated
 [win32metadata](https://github.com/microsoft/win32metadata) winmd in several deliberate,
@@ -662,9 +669,9 @@ consequence of the source-first approach above.
   stem is already unambiguous). WinRT keeps its dotted path joined with `_`
   (`Foundation_Collections`).
 - **Unscoped C enums are bare integer aliases** in every style (`pub type X = i32;` plus bare
-  `pub const` members); scoped enums (WinRT enums, C++ `enum class`) stay newtypes.
-  Flag enums rely on the underlying integer's native `|`/`&`/`!`, so no `BitOr`/`BitAnd`
-impls are emitted. Call sites drop `.0` and tuple construction.
+  `pub const` members); scoped enums (WinRT enums, C++ `enum class`) stay newtypes. Flag enums rely
+  on the underlying integer's native `|`/`&`/`!`, so no `BitOr`/`BitAnd` impls are emitted. Call
+  sites drop `.0` and tuple construction.
 - **Handles carry no `is_invalid()`, no `Owned<T>`/`Free`.** Those came from curated win32metadata
   attributes that cannot be inferred from headers. Check `.0.is_null()` for null-sentinel handles or
   `== INVALID_HANDLE_VALUE` for the `-1` family, and free with an explicit
@@ -688,7 +695,7 @@ impls are emitted. Call sites drop `.0` and tuple construction.
   projection is simpler (raw pointers, no COM ergonomics) but follows the same flat-feature and
   bare-alias rules.
 
-## Known limitations
+### Known limitations
 
 - **Coverage is the `HEADERS` list.** The metadata covers exactly the headers listed in
   `tool_win32`/`tool_wdk`'s `HEADERS`/`SOURCE_HEADERS` consts; a missing API is usually a one-line
@@ -722,7 +729,7 @@ impls are emitted. Call sites drop `.0` and tuple construction.
   reference win32metadata carries these because it manually curates the parameter<->type association
   the C headers don't express.
 
-## Bit-field member scraping
+### Bit-field member scraping
 
 libclang reports each bit-field member's name (`Cursor::name`) and width (`bit_field_width()`, i.e.
 `clang_getFieldDeclBitWidth`), and the running bit-offset within a storage unit is derivable as the
@@ -730,10 +737,10 @@ scrape packs them. Consecutive bit-fields are coalesced into an integer field na
 (`_bitfield1`/`_bitfield2` and so on for multiple runs), because the winmd format has no bit-field
 concept.
 
-`struct.rs` accumulates, per backing field, a `(name, offset, width)` tuple for every logical member
-- the offset is `unit_size * 8 - remaining_bits` captured *before* the width is subtracted - and
-  emits them as a C-like block on the backing field (`Struct::write_fields`), reconstructing
-  anonymous padding (`_: n`) from any gap between consecutive offsets:
+`struct.rs` accumulates, per backing field, a `(name, offset, width)` tuple for every logical
+member - the offset is `unit_size * 8 - remaining_bits` captured *before* the width is subtracted -
+and emits them as a C-like block on the backing field (`Struct::write_fields`), reconstructing
+anonymous padding (`_: n`) from any gap between consecutive offsets:
 
 ```text
 _bitfield: u32 {
@@ -760,7 +767,7 @@ Two details keep the metadata aligned with the headers:
 `pub _bitfield` field - see [`windows-bindgen`](windows-bindgen.md#generating-bit-field-accessors)
 for the downstream half. Scrape coverage lives in `crates/tests/libs/clang/input/bitfields.h`.
 
-## Flat `Windows.Win32` namespace collisions (module flattening)
+### Flat `Windows.Win32` namespace collisions (module flattening)
 
 The module-flattening work (published `windows`/`windows-sys` re-export every per-header stem via
 `pub use <stem>::*` from a single `Win32` container so the public path is `windows::Win32::<Type>`)
@@ -815,3 +822,10 @@ collisions do not exist.
 Net: the flat `Windows.Win32` surface is collision-free except for `Network` (intentionally
 ambiguous, reachable via its stems) and the protective `None` prelude re-export; the core-vs-`Win32`
 collisions (`WIN32_ERROR`, `NTSTATUS`, `RPC_STATUS`) are gone.
+
+### Testing
+
+`test_clang` holds golden fixtures that pin the header-to-RDL behavior. It exercises both the
+namespaced (`write`) and flat per-header (`write_by_header`) scrape modes so a mode-specific
+carve-out cannot silently regress. Fixture headers live in `crates/tests/libs/clang/input/`. CI
+exports `LIBCLANG_PATH` from `tool_clang path` so the suite loads the pinned libclang.

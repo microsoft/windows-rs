@@ -245,9 +245,29 @@ regenerates each crate's `bindings.rs` from a `.txt` filter. The
 [`gen.yml`](https://github.com/microsoft/windows-rs/blob/master/.github/workflows/gen.yml) workflow
 runs the tools and rejects any diff.
 
-## Internals
+## Consuming APIs outside the default projection
 
-`windows-bindgen` is handwritten. It is the generator that other crates use. It reads ECMA-335
+The published `windows` crate projects public, documented APIs behind Cargo features. Some consumers
+need a smaller slice or an API that is not in public metadata.
+
+Use `windows-bindgen` for these cases instead of expanding the `windows` crate.
+
+- If the API is public but belongs to a broad feature, generate a small binding set with a filter.
+  For example, a crate can select `IPropertyStore` and `PROPVARIANT` without enabling the full
+  feature surface that contains them.
+- If the API is not in public metadata, author metadata with [`windows-rdl`](windows-rdl.md). Then
+  feed that metadata to `windows-bindgen`. This keeps the FFI surface generated and typed.
+
+---
+
+## Internal documentation
+
+The rest of this page covers how the crate is built and maintained. It is for contributors and is
+not needed to use `windows-bindgen`.
+
+### How it's built
+
+`windows-bindgen` is hand-written. It is the generator that other crates use. It reads ECMA-335
 metadata through [`windows-metadata`](windows-metadata.md). The bundled metadata inputs live in
 `crates/libs/bindgen/default`.
 
@@ -255,9 +275,6 @@ Two tools drive it in this repository:
 
 - `tool_bindings` reads the per-crate `.txt` filters in `crates/tools/bindings/src`.
 - `tool_package` produces the published `windows` and `windows-sys` crates.
-
-Dedicated test crates cover the generator and related metadata tools: `test_bindgen`, `test_rdl`,
-and `test_clang`.
 
 ### Output policies
 
@@ -372,15 +389,7 @@ See [`windows-rdl`](windows-rdl.md) for RDL input. Test coverage lives in
 `crates/tests/libs/clang/input/bitfields.h` and
 `crates/tests/libs/bindgen/input/struct_bitfield.rdl`.
 
-## Consuming APIs outside the default projection
+### Testing
 
-The published `windows` crate projects public, documented APIs behind Cargo features. Some consumers
-need a smaller slice or an API that is not in public metadata.
-
-Use `windows-bindgen` for these cases instead of expanding the `windows` crate.
-
-- If the API is public but belongs to a broad feature, generate a small binding set with a filter.
-  For example, a crate can select `IPropertyStore` and `PROPVARIANT` without enabling the full
-  feature surface that contains them.
-- If the API is not in public metadata, author metadata with [`windows-rdl`](windows-rdl.md). Then
-  feed that metadata to `windows-bindgen`. This keeps the FFI surface generated and typed.
+Dedicated test crates cover the generator and related metadata tools: `test_bindgen`, `test_rdl`,
+and `test_clang`.
