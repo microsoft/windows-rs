@@ -288,7 +288,7 @@ impl Records {
             valid_tables |= 1 << 0x18; // MethodSemantics
         }
 
-        // The table stream header...
+        // The table stream header.
 
         let mut buffer = Vec::new();
         buffer.write_u32(0); // Reserved
@@ -303,7 +303,7 @@ impl Records {
         }
         buffer.write_u64(sorted_tables); // Sorted
 
-        // Followed by the length of each of the valid tables...
+        // The length of each valid table.
 
         buffer.write_u32(self.Module.len().try_into().unwrap());
         buffer.write_u32(self.TypeRef.len().try_into().unwrap());
@@ -340,7 +340,7 @@ impl Records {
         buffer.write_u32(self.NestedClass.len().try_into().unwrap());
         buffer.write_u32(self.GenericParam.len().try_into().unwrap());
 
-        // Followed by each table's rows...
+        // Each table's rows.
 
         for r in &self.Module {
             buffer.write_u16(r.Generation);

@@ -58,9 +58,9 @@ impl Merger {
     /// Adds an architecture-tagged input winmd file.
     ///
     /// `arch` is a bitmask indicating which architecture this file was built for:
-    ///   - `1` → X86
-    ///   - `2` → X64
-    ///   - `4` → Arm64
+    ///   - `1` -> X86
+    ///   - `2` -> X64
+    ///   - `4` -> Arm64
     ///
     /// When `merge()` is called, types present in **all** arch-tagged inputs get
     /// no `SupportedArchitectureAttribute`; types present only in a **subset** get
@@ -129,25 +129,21 @@ impl Merger {
             for copies in groups.values() {
                 let (idx, ty, _) = copies[0];
                 if ty.category() == reader::TypeCategory::Class {
-                    // The apis container (constants + functions): union members so
-                    // arch-divergent constants/functions are each kept and tagged. This
-                    // applies whether the container is present on every arch or only a
-                    // subset — `write_type_arch_merged` tags each member neutral only when
-                    // it spans every arch in the run (`all_arches_mask`), else per-arch.
+                    // Apis container (constants + functions): union the members so
+                    // arch-divergent ones are each kept and tagged. `write_type_arch_merged`
+                    // tags a member neutral only when it spans every arch in the run
+                    // (`all_arches_mask`), else per-arch.
                     write_type_arch_merged(&mut file, idx, ty, copies, all_arches_mask);
                 } else {
                     // A value type. Group the per-arch copies by structural signature and
                     // emit one copy per distinct shape, tagged with the union of the arch
-                    // bits of every copy sharing that shape. This coalesces arches that are
-                    // structurally identical (e.g. `ARM64_NT_CONTEXT` is byte-identical on
-                    // x64 and x86) into a single `SupportedArchitecture(x64|x86)` definition
-                    // instead of duplicate copies, and — crucially — splits a shape that
-                    // diverges across the arches it appears on (the CONTEXT class) instead of
-                    // collapsing it to `copies[0]` and dropping the other arch's layout. A
-                    // group that ends up spanning every arch in the run is written
-                    // arch-neutral (`Some(0)`); anything narrower keeps its subset tag,
-                    // whether that subset is a shape split or a type present on only some
-                    // arches to begin with.
+                    // bits of the copies sharing that shape. Arches with an identical shape
+                    // (e.g. `ARM64_NT_CONTEXT` is byte-identical on x64 and x86) collapse to
+                    // one `SupportedArchitecture(x64|x86)` definition; a shape that diverges
+                    // across arches (the CONTEXT class) is split per shape instead of
+                    // collapsing to `copies[0]` and dropping the other layout. A group
+                    // spanning every arch in the run is written arch-neutral (`Some(0)`);
+                    // anything narrower keeps its subset tag.
                     let mut by_sig: Vec<(String, &reader::Index, reader::TypeDef, i32)> = vec![];
                     for (cidx, c, bits) in copies {
                         let sig = type_sig(cidx, *c);
@@ -216,9 +212,9 @@ fn read_inputs(inputs: &[String]) -> Result<Vec<reader::File>, Error> {
 /// Writes a `TypeDef` (and its nested types) from `index` into `file`.
 ///
 /// `arch_override` controls the `SupportedArchitectureAttribute` on the TypeDef:
-///   - `None`     → copy attributes as-is (plain merge, no arch logic)
-///   - `Some(0)`  → drop any existing `SupportedArchitectureAttribute`
-///   - `Some(n)`  → drop existing and write `SupportedArchitecture(n)`
+///   - `None`     -> copy attributes as-is (plain merge, no arch logic)
+///   - `Some(0)`  -> drop any existing `SupportedArchitectureAttribute`
+///   - `Some(n)`  -> drop existing and write `SupportedArchitecture(n)`
 fn write_type(
     file: &mut writer::File,
     index: &reader::Index,
@@ -449,8 +445,8 @@ fn write_type_arch_merged(
 /// in shape (the CONTEXT class) so they are emitted per-arch instead of collapsed to one.
 ///
 /// Methods are included so that reference TypeDefs whose divergence lives entirely in a
-/// method signature rather than in fields — Win32 callbacks and WinRT delegates, whose
-/// shape is the `Invoke` signature — are correctly detected as arch-divergent.
+/// method signature rather than in fields (Win32 callbacks and WinRT delegates, whose
+/// shape is the `Invoke` signature) are correctly detected as arch-divergent.
 ///
 /// Field constant values are included so an enum whose members hold different per-arch
 /// values does not collapse (which would silently drop the divergent values), matching
@@ -486,7 +482,7 @@ fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
     // referencing a nested type looks identical across arches even when the nested
     // type's own shape diverges (e.g. `HSTRING_HEADER`'s inline union is `[24]` on
     // 64-bit and `[20]` on x86). Recurse into the nested subtree so such divergence
-    // surfaces in the enclosing type's signature — the arch merge then splits the
+    // surfaces in the enclosing type's signature, so the arch merge then splits the
     // enclosing type per arch (hoisting `#[arch]` up to it) instead of collapsing to
     // one neutral copy and silently dropping the other arch's nested shape.
     let nested: Vec<String> = index

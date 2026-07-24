@@ -39,7 +39,7 @@ impl<const LEN: usize> STREAM_HEADER<LEN> {
 
 impl File {
     pub fn into_stream(mut self) -> Vec<u8> {
-        // Flatten sorted records...
+        // Flatten sorted records.
 
         self.records.Constant.extend(self.Constant.values());
 
@@ -51,7 +51,7 @@ impl File {
             .GenericParam
             .extend(self.GenericParam.values().flatten());
 
-        // Test sorted order...
+        // Check sorted order.
 
         debug_assert!(
             self.records
@@ -88,7 +88,7 @@ impl File {
                 .is_sorted()
         );
 
-        // Serialize...
+        // Serialize the heaps and tables.
 
         let mut strings = self.strings.into_stream();
         let mut blobs = self.blobs.into_stream();

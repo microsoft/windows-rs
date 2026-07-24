@@ -4,9 +4,9 @@ use super::*;
 ///
 /// `Index` indexes the contained [`File`]s in two parallel ways, built once at construction:
 ///
-/// 1. **Types**: `(namespace, name) → TypeDef`s — the raw ECMA-335 view, where the special
+/// 1. **Types**: `(namespace, name) -> TypeDef`s, the raw ECMA-335 view, where the special
 ///    Win32 `Apis` class appears verbatim and nested types are tracked separately.
-/// 2. **Items**: `(namespace, name) → Item`s — a higher-level view in which the Win32
+/// 2. **Items**: `(namespace, name) -> Item`s, a higher-level view in which the Win32
 ///    `Apis` class is expanded so that its `MethodDef`s become [`Item::Fn`] entries and its
 ///    `Field`s become [`Item::Const`] entries, while every other type becomes [`Item::Type`].
 ///
@@ -86,8 +86,7 @@ impl Index {
         };
 
         // Stage 2: build the item map. The Win32 `Apis` class is expanded into its methods and
-        // fields; every other type contributes a single `Item::Type` entry. This mirrors the
-        // logic of the previously-separate `ItemIndex`.
+        // fields; every other type contributes a single `Item::Type` entry.
         let mut items: HashMap<String, HashMap<String, Vec<RawItem>>> = HashMap::new();
 
         for (namespace, name, ty) in index.iter() {
