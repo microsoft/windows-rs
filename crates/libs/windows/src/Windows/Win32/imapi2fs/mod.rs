@@ -97,8 +97,8 @@ impl DFileSystemImageImportEvents_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DFileSystemImageImportEvents {}
-pub const DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE: u32 = 256;
-pub const DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT: u32 = 257;
+pub const DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE: i32 = 256;
+pub const DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT: i32 = 257;
 pub const Emulation12MFloppy: EmulationType = 1;
 pub const Emulation144MFloppy: EmulationType = 2;
 pub const Emulation288MFloppy: EmulationType = 3;
@@ -2901,11 +2901,11 @@ impl IIsoImageManager_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IIsoImageManager {}
-pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32;
+pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: i32 = 32;
 pub const IMAPI2FS_FullVersion_STR: windows_core::PCSTR = windows_core::s!("1.0");
 pub const IMAPI2FS_FullVersion_WSTR: windows_core::PCWSTR = windows_core::w!("1.0");
-pub const IMAPI2FS_MajorVersion: u32 = 1;
-pub const IMAPI2FS_MinorVersion: u32 = 0;
+pub const IMAPI2FS_MajorVersion: i32 = 1;
+pub const IMAPI2FS_MinorVersion: i32 = 0;
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IProgressItem, IProgressItem_Vtbl, 0x2c941fd5_975b_59be_a960_9a2a262853a5);
 #[cfg(feature = "oaidl")]

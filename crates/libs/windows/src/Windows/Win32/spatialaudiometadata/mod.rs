@@ -700,8 +700,8 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
 }
 #[cfg(feature = "spatialaudioclient")]
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamForMetadata {}
-pub const SPATIAL_AUDIO_POSITION: u32 = 200;
-pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200;
+pub const SPATIAL_AUDIO_POSITION: i32 = 200;
+pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: i32 = 200;
 pub const SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER: i32 = -2004286956;
 pub const SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED: i32 = -2004286969;
 pub const SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED: i32 = -2004286968;

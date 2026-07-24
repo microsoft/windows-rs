@@ -2,22 +2,22 @@
 mod Windows {
     mod Win32 {
         const DA_ERR: i32 = -1;
-        const DA_LAST: u32 = 2147483647;
-        const DPAMM_DELETE: u32 = 2;
-        const DPAMM_INSERT: u32 = 3;
-        const DPAMM_MERGE: u32 = 1;
-        const DPAM_INTERSECT: u32 = 8;
-        const DPAM_NORMAL: u32 = 2;
-        const DPAM_SORTED: u32 = 1;
-        const DPAM_UNION: u32 = 4;
+        const DA_LAST: i32 = 2147483647;
+        const DPAMM_DELETE: i32 = 2;
+        const DPAMM_INSERT: i32 = 3;
+        const DPAMM_MERGE: i32 = 1;
+        const DPAM_INTERSECT: i32 = 8;
+        const DPAM_NORMAL: i32 = 2;
+        const DPAM_SORTED: i32 = 1;
+        const DPAM_UNION: i32 = 4;
         struct DPASTREAMINFO {
             iPos: i32,
             pvItem: *mut void,
         }
-        const DPAS_INSERTAFTER: u32 = 4;
-        const DPAS_INSERTBEFORE: u32 = 2;
-        const DPAS_SORTED: u32 = 1;
-        const DPA_APPEND: u32 = 2147483647;
+        const DPAS_INSERTAFTER: i32 = 4;
+        const DPAS_INSERTBEFORE: i32 = 2;
+        const DPAS_SORTED: i32 = 1;
+        const DPA_APPEND: i32 = 2147483647;
         #[library("COMCTL32.dll")]
         extern fn DPA_Clone(hdpa: *const _DPA, #[in] #[out] #[opt] hdpaNew: *mut _DPA) -> HDPA;
         #[library("COMCTL32.dll")]
@@ -57,7 +57,7 @@ mod Windows {
         extern fn DPA_SetPtr(#[in] #[out] hdpa: *mut _DPA, i: i32, #[opt] p: *const void) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn DPA_Sort(#[in] #[out] hdpa: *mut _DPA, pfnCompare: PFNDACOMPARE, lParam: LPARAM) -> BOOL;
-        const DSA_APPEND: u32 = 2147483647;
+        const DSA_APPEND: i32 = 2147483647;
         #[library("COMCTL32.dll")]
         extern fn DSA_Clone(hdsa: *const _DSA) -> HDSA;
         #[library("COMCTL32.dll")]

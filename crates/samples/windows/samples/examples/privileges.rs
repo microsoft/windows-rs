@@ -3,12 +3,12 @@ fn main() -> windows::core::Result<()> {
 
     unsafe {
         let mut token = HANDLE::default();
-        OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &mut token).ok()?;
+        OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY as u32, &mut token).ok()?;
 
         let mut bytes_required = 0;
         _ = GetTokenInformation(token, TokenPrivileges, None, 0, &mut bytes_required);
 
-        let buffer = LocalAlloc(LPTR, bytes_required as usize);
+        let buffer = LocalAlloc(LPTR as u32, bytes_required as usize);
         if buffer.0.is_null() {
             return Err(Error::from_thread());
         }

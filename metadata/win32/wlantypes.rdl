@@ -25,18 +25,18 @@ mod Windows {
             DOT11_AUTH_ALGO_IHV_START = -2147483648,
             DOT11_AUTH_ALGO_IHV_END = -1,
         }
-        const DOT11_AUTH_ALGORITHM_OPEN_SYSTEM: u32 = 1;
-        const DOT11_AUTH_ALGORITHM_OWE: u32 = 10;
-        const DOT11_AUTH_ALGORITHM_RSNA: u32 = 6;
-        const DOT11_AUTH_ALGORITHM_RSNA_PSK: u32 = 7;
-        const DOT11_AUTH_ALGORITHM_SHARED_KEY: u32 = 2;
-        const DOT11_AUTH_ALGORITHM_WPA: u32 = 3;
-        const DOT11_AUTH_ALGORITHM_WPA3: u32 = 8;
-        const DOT11_AUTH_ALGORITHM_WPA3_ENT: u32 = 11;
-        const DOT11_AUTH_ALGORITHM_WPA3_ENT_192: u32 = 8;
-        const DOT11_AUTH_ALGORITHM_WPA3_SAE: u32 = 9;
-        const DOT11_AUTH_ALGORITHM_WPA_NONE: u32 = 5;
-        const DOT11_AUTH_ALGORITHM_WPA_PSK: u32 = 4;
+        const DOT11_AUTH_ALGORITHM_OPEN_SYSTEM: i32 = 1;
+        const DOT11_AUTH_ALGORITHM_OWE: i32 = 10;
+        const DOT11_AUTH_ALGORITHM_RSNA: i32 = 6;
+        const DOT11_AUTH_ALGORITHM_RSNA_PSK: i32 = 7;
+        const DOT11_AUTH_ALGORITHM_SHARED_KEY: i32 = 2;
+        const DOT11_AUTH_ALGORITHM_WPA: i32 = 3;
+        const DOT11_AUTH_ALGORITHM_WPA3: i32 = 8;
+        const DOT11_AUTH_ALGORITHM_WPA3_ENT: i32 = 11;
+        const DOT11_AUTH_ALGORITHM_WPA3_ENT_192: i32 = 8;
+        const DOT11_AUTH_ALGORITHM_WPA3_SAE: i32 = 9;
+        const DOT11_AUTH_ALGORITHM_WPA_NONE: i32 = 5;
+        const DOT11_AUTH_ALGORITHM_WPA_PSK: i32 = 4;
         struct DOT11_AUTH_CIPHER_PAIR {
             AuthAlgoId: DOT11_AUTH_ALGORITHM,
             CipherAlgoId: DOT11_CIPHER_ALGORITHM,
@@ -71,13 +71,13 @@ mod Windows {
             OILength: u16,
             OI: [u8; 5],
         }
-        const DOT11_OI_MAX_LENGTH: u32 = 5;
-        const DOT11_OI_MIN_LENGTH: u32 = 3;
+        const DOT11_OI_MAX_LENGTH: i32 = 5;
+        const DOT11_OI_MIN_LENGTH: i32 = 3;
         struct DOT11_SSID {
             uSSIDLength: u32,
             ucSSID: [u8; 32],
         }
-        const DOT11_SSID_MAX_LENGTH: u32 = 32;
+        const DOT11_SSID_MAX_LENGTH: i32 = 32;
         struct DOT11_VENUEINFO {
             VenueGroup: u8,
             VenueType: u8,

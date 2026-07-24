@@ -33,11 +33,11 @@ mod Windows {
             fn GetDragDropEffect(&self, fDrag: BOOL, grfKeyState: u32, pdwEffect: *mut u32) -> HRESULT;
             fn GetContextMenu(&self, seltype: u16, lpoleobj: IOleObject, lpchrg: *mut CHARRANGE, lphmenu: *mut HMENU) -> HRESULT;
         }
-        const RECO_COPY: u32 = 2;
-        const RECO_CUT: u32 = 3;
-        const RECO_DRAG: u32 = 4;
-        const RECO_DROP: u32 = 1;
-        const RECO_PASTE: u32 = 0;
+        const RECO_COPY: i32 = 2;
+        const RECO_CUT: i32 = 3;
+        const RECO_DRAG: i32 = 4;
+        const RECO_DROP: i32 = 1;
+        const RECO_PASTE: i32 = 0;
         struct REOBJECT {
             cbStruct: u32,
             cp: i32,
@@ -50,34 +50,34 @@ mod Windows {
             dwFlags: u32,
             dwUser: u32,
         }
-        const REO_ALIGNTORIGHT: u32 = 256;
-        const REO_BELOWBASELINE: u32 = 2;
-        const REO_BLANK: u32 = 16;
-        const REO_CANROTATE: u32 = 128;
+        const REO_ALIGNTORIGHT: i32 = 256;
+        const REO_BELOWBASELINE: i32 = 2;
+        const REO_BLANK: i32 = 16;
+        const REO_CANROTATE: i32 = 128;
         const REO_CP_SELECTION: u32 = 4294967295;
-        const REO_DONTNEEDPALETTE: u32 = 32;
-        const REO_DYNAMICSIZE: u32 = 8;
-        const REO_GETMETAFILE: u32 = 4194304;
-        const REO_GETOBJ_ALL_INTERFACES: u32 = 7;
-        const REO_GETOBJ_NO_INTERFACES: u32 = 0;
-        const REO_GETOBJ_POLEOBJ: u32 = 1;
-        const REO_GETOBJ_POLESITE: u32 = 4;
-        const REO_GETOBJ_PSTG: u32 = 2;
-        const REO_HILITED: u32 = 16777216;
-        const REO_INPLACEACTIVE: u32 = 33554432;
-        const REO_INVERTEDSELECT: u32 = 4;
+        const REO_DONTNEEDPALETTE: i32 = 32;
+        const REO_DYNAMICSIZE: i32 = 8;
+        const REO_GETMETAFILE: i32 = 4194304;
+        const REO_GETOBJ_ALL_INTERFACES: i32 = 7;
+        const REO_GETOBJ_NO_INTERFACES: i32 = 0;
+        const REO_GETOBJ_POLEOBJ: i32 = 1;
+        const REO_GETOBJ_POLESITE: i32 = 4;
+        const REO_GETOBJ_PSTG: i32 = 2;
+        const REO_HILITED: i32 = 16777216;
+        const REO_INPLACEACTIVE: i32 = 33554432;
+        const REO_INVERTEDSELECT: i32 = 4;
         const REO_IOB_SELECTION: u32 = 4294967295;
         const REO_IOB_USE_CP: u32 = 4294967294;
         const REO_LINK: u32 = 2147483648;
-        const REO_LINKAVAILABLE: u32 = 8388608;
-        const REO_NULL: u32 = 0;
-        const REO_OPEN: u32 = 67108864;
-        const REO_OWNERDRAWSELECT: u32 = 64;
-        const REO_READWRITEMASK: u32 = 2047;
-        const REO_RESIZABLE: u32 = 1;
-        const REO_SELECTED: u32 = 134217728;
-        const REO_STATIC: u32 = 1073741824;
-        const REO_USEASBACKGROUND: u32 = 1024;
-        const REO_WRAPTEXTAROUND: u32 = 512;
+        const REO_LINKAVAILABLE: i32 = 8388608;
+        const REO_NULL: i32 = 0;
+        const REO_OPEN: i32 = 67108864;
+        const REO_OWNERDRAWSELECT: i32 = 64;
+        const REO_READWRITEMASK: i32 = 2047;
+        const REO_RESIZABLE: i32 = 1;
+        const REO_SELECTED: i32 = 134217728;
+        const REO_STATIC: i32 = 1073741824;
+        const REO_USEASBACKGROUND: i32 = 1024;
+        const REO_WRAPTEXTAROUND: i32 = 512;
     }
 }

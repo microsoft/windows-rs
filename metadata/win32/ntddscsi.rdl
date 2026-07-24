@@ -1,12 +1,12 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ATA_FLAGS_48BIT_COMMAND: u32 = 8;
-        const ATA_FLAGS_DATA_IN: u32 = 2;
-        const ATA_FLAGS_DATA_OUT: u32 = 4;
-        const ATA_FLAGS_DRDY_REQUIRED: u32 = 1;
-        const ATA_FLAGS_NO_MULTIPLE: u32 = 32;
-        const ATA_FLAGS_USE_DMA: u32 = 16;
+        const ATA_FLAGS_48BIT_COMMAND: i32 = 8;
+        const ATA_FLAGS_DATA_IN: i32 = 2;
+        const ATA_FLAGS_DATA_OUT: i32 = 4;
+        const ATA_FLAGS_DRDY_REQUIRED: i32 = 1;
+        const ATA_FLAGS_NO_MULTIPLE: i32 = 32;
+        const ATA_FLAGS_USE_DMA: i32 = 16;
         struct ATA_PASS_THROUGH_DIRECT {
             Length: u16,
             AtaFlags: u16,
@@ -65,9 +65,9 @@ mod Windows {
             PreviousTaskFile: [u8; 8],
             CurrentTaskFile: [u8; 8],
         }
-        const BOOT_PARTITION_FUNCTION_ACTIVATE: u32 = 2;
-        const BOOT_PARTITION_FUNCTION_DOWNLOAD: u32 = 1;
-        const BOOT_PARTITION_FUNCTION_GET_INFO: u32 = 3;
+        const BOOT_PARTITION_FUNCTION_ACTIVATE: i32 = 2;
+        const BOOT_PARTITION_FUNCTION_DOWNLOAD: i32 = 1;
+        const BOOT_PARTITION_FUNCTION_GET_INFO: i32 = 3;
         struct BOOT_PARTITION_REQUEST_BLOCK {
             Version: u32,
             Size: u32,
@@ -76,17 +76,17 @@ mod Windows {
             DataBufferOffset: u32,
             DataBufferLength: u32,
         }
-        const BOOT_PARTITION_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1;
-        const BOOT_PARTITION_STATUS_ERROR: u32 = 1;
-        const BOOT_PARTITION_STATUS_ILLEGAL_REQUEST: u32 = 2;
-        const BOOT_PARTITION_STATUS_INPUT_BUFFER_TOO_BIG: u32 = 4;
-        const BOOT_PARTITION_STATUS_INVALID_ALIGNMENT: u32 = 8;
-        const BOOT_PARTITION_STATUS_INVALID_IMAGE: u32 = 7;
-        const BOOT_PARTITION_STATUS_INVALID_PARAMETER: u32 = 3;
-        const BOOT_PARTITION_STATUS_INVALID_SLOT: u32 = 6;
-        const BOOT_PARTITION_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 5;
-        const BOOT_PARTITION_STATUS_SUCCESS: u32 = 0;
-        const BOOT_PARTITION_STATUS_WRITE_PROHIBITED: u32 = 9;
+        const BOOT_PARTITION_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
+        const BOOT_PARTITION_STATUS_ERROR: i32 = 1;
+        const BOOT_PARTITION_STATUS_ILLEGAL_REQUEST: i32 = 2;
+        const BOOT_PARTITION_STATUS_INPUT_BUFFER_TOO_BIG: i32 = 4;
+        const BOOT_PARTITION_STATUS_INVALID_ALIGNMENT: i32 = 8;
+        const BOOT_PARTITION_STATUS_INVALID_IMAGE: i32 = 7;
+        const BOOT_PARTITION_STATUS_INVALID_PARAMETER: i32 = 3;
+        const BOOT_PARTITION_STATUS_INVALID_SLOT: i32 = 6;
+        const BOOT_PARTITION_STATUS_OUTPUT_BUFFER_TOO_SMALL: i32 = 5;
+        const BOOT_PARTITION_STATUS_SUCCESS: i32 = 0;
+        const BOOT_PARTITION_STATUS_WRITE_PROHIBITED: i32 = 9;
         #[encoding("ansi")]
         const DD_SCSI_DEVICE_NAME: String = "\\Device\\ScsiPort";
         struct DSM_NOTIFICATION_REQUEST_BLOCK {
@@ -110,11 +110,11 @@ mod Windows {
             BaseName: [u16; 15],
             DriverFullPath: NTSCSI_UNICODE_STRING,
         }
-        const DUMP_DRIVER_NAME_LENGTH: u32 = 15;
-        const DUMP_EX_FLAG_DRIVER_FULL_PATH_SUPPORT: u32 = 8;
-        const DUMP_EX_FLAG_RESUME_SUPPORT: u32 = 4;
-        const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: u32 = 1;
-        const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: u32 = 2;
+        const DUMP_DRIVER_NAME_LENGTH: i32 = 15;
+        const DUMP_EX_FLAG_DRIVER_FULL_PATH_SUPPORT: i32 = 8;
+        const DUMP_EX_FLAG_RESUME_SUPPORT: i32 = 4;
+        const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: i32 = 1;
+        const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: i32 = 2;
         struct DUMP_POINTERS {
             AdapterObject: *mut _ADAPTER_OBJECT,
             MappedRegisterBase: *mut void,
@@ -157,14 +157,14 @@ mod Windows {
             Version: u32,
             Size: u32,
         }
-        const DUMP_POINTERS_VERSION_1: u32 = 1;
-        const DUMP_POINTERS_VERSION_2: u32 = 2;
-        const DUMP_POINTERS_VERSION_3: u32 = 3;
-        const DUMP_POINTERS_VERSION_4: u32 = 4;
-        const FILE_DEVICE_SCSI: u32 = 27;
-        const FIRMWARE_FUNCTION_ACTIVATE: u32 = 3;
-        const FIRMWARE_FUNCTION_DOWNLOAD: u32 = 2;
-        const FIRMWARE_FUNCTION_GET_INFO: u32 = 1;
+        const DUMP_POINTERS_VERSION_1: i32 = 1;
+        const DUMP_POINTERS_VERSION_2: i32 = 2;
+        const DUMP_POINTERS_VERSION_3: i32 = 3;
+        const DUMP_POINTERS_VERSION_4: i32 = 4;
+        const FILE_DEVICE_SCSI: i32 = 27;
+        const FIRMWARE_FUNCTION_ACTIVATE: i32 = 3;
+        const FIRMWARE_FUNCTION_DOWNLOAD: i32 = 2;
+        const FIRMWARE_FUNCTION_GET_INFO: i32 = 1;
         struct FIRMWARE_REQUEST_BLOCK {
             Version: u32,
             Size: u32,
@@ -173,33 +173,33 @@ mod Windows {
             DataBufferOffset: u32,
             DataBufferLength: u32,
         }
-        const FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1;
-        const FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1;
-        const FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4;
-        const FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2;
-        const FIRMWARE_REQUEST_FLAG_REPLACE_AND_SWITCH_UPON_RESET: u32 = 536870912;
-        const FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: u32 = 1073741824;
+        const FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
+        const FIRMWARE_REQUEST_FLAG_CONTROLLER: i32 = 1;
+        const FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: i32 = 4;
+        const FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: i32 = 2;
+        const FIRMWARE_REQUEST_FLAG_REPLACE_AND_SWITCH_UPON_RESET: i32 = 536870912;
+        const FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: i32 = 1073741824;
         const FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648;
-        const FIRMWARE_REQUEST_FLAG_SWITCH_TO_FIRMWARE_WITHOUT_RESET: u32 = 268435456;
-        const FIRMWARE_STATUS_COMMAND_ABORT: u32 = 133;
-        const FIRMWARE_STATUS_CONTROLLER_ERROR: u32 = 16;
-        const FIRMWARE_STATUS_DEVICE_ERROR: u32 = 64;
-        const FIRMWARE_STATUS_END_OF_MEDIA: u32 = 134;
-        const FIRMWARE_STATUS_ERROR: u32 = 1;
-        const FIRMWARE_STATUS_ID_NOT_FOUND: u32 = 131;
-        const FIRMWARE_STATUS_ILLEGAL_LENGTH: u32 = 135;
-        const FIRMWARE_STATUS_ILLEGAL_REQUEST: u32 = 2;
-        const FIRMWARE_STATUS_INPUT_BUFFER_TOO_BIG: u32 = 4;
-        const FIRMWARE_STATUS_INTERFACE_CRC_ERROR: u32 = 128;
-        const FIRMWARE_STATUS_INVALID_IMAGE: u32 = 7;
-        const FIRMWARE_STATUS_INVALID_PARAMETER: u32 = 3;
-        const FIRMWARE_STATUS_INVALID_SLOT: u32 = 6;
-        const FIRMWARE_STATUS_MEDIA_CHANGE: u32 = 130;
-        const FIRMWARE_STATUS_MEDIA_CHANGE_REQUEST: u32 = 132;
-        const FIRMWARE_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 5;
-        const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: u32 = 32;
-        const FIRMWARE_STATUS_SUCCESS: u32 = 0;
-        const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129;
+        const FIRMWARE_REQUEST_FLAG_SWITCH_TO_FIRMWARE_WITHOUT_RESET: i32 = 268435456;
+        const FIRMWARE_STATUS_COMMAND_ABORT: i32 = 133;
+        const FIRMWARE_STATUS_CONTROLLER_ERROR: i32 = 16;
+        const FIRMWARE_STATUS_DEVICE_ERROR: i32 = 64;
+        const FIRMWARE_STATUS_END_OF_MEDIA: i32 = 134;
+        const FIRMWARE_STATUS_ERROR: i32 = 1;
+        const FIRMWARE_STATUS_ID_NOT_FOUND: i32 = 131;
+        const FIRMWARE_STATUS_ILLEGAL_LENGTH: i32 = 135;
+        const FIRMWARE_STATUS_ILLEGAL_REQUEST: i32 = 2;
+        const FIRMWARE_STATUS_INPUT_BUFFER_TOO_BIG: i32 = 4;
+        const FIRMWARE_STATUS_INTERFACE_CRC_ERROR: i32 = 128;
+        const FIRMWARE_STATUS_INVALID_IMAGE: i32 = 7;
+        const FIRMWARE_STATUS_INVALID_PARAMETER: i32 = 3;
+        const FIRMWARE_STATUS_INVALID_SLOT: i32 = 6;
+        const FIRMWARE_STATUS_MEDIA_CHANGE: i32 = 130;
+        const FIRMWARE_STATUS_MEDIA_CHANGE_REQUEST: i32 = 132;
+        const FIRMWARE_STATUS_OUTPUT_BUFFER_TOO_SMALL: i32 = 5;
+        const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: i32 = 32;
+        const FIRMWARE_STATUS_SUCCESS: i32 = 0;
+        const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: i32 = 129;
         struct HYBRID_DEMOTE_BY_SIZE {
             Version: u32,
             Size: u32,
@@ -215,11 +215,11 @@ mod Windows {
             DirtyLowThreshold: u32,
             DirtyHighThreshold: u32,
         }
-        const HYBRID_FUNCTION_DEMOTE_BY_SIZE: u32 = 19;
-        const HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM: u32 = 16;
-        const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: u32 = 17;
-        const HYBRID_FUNCTION_GET_INFO: u32 = 1;
-        const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: u32 = 18;
+        const HYBRID_FUNCTION_DEMOTE_BY_SIZE: i32 = 19;
+        const HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM: i32 = 16;
+        const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: i32 = 17;
+        const HYBRID_FUNCTION_GET_INFO: i32 = 1;
+        const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: i32 = 18;
         struct HYBRID_INFORMATION {
             Version: u32,
             Size: u32,
@@ -269,13 +269,13 @@ mod Windows {
             DataBufferOffset: u32,
             DataBufferLength: u32,
         }
-        const HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1;
-        const HYBRID_REQUEST_INFO_STRUCTURE_VERSION: u32 = 1;
-        const HYBRID_STATUS_ENABLE_REFCOUNT_HOLD: u32 = 16;
-        const HYBRID_STATUS_ILLEGAL_REQUEST: u32 = 1;
-        const HYBRID_STATUS_INVALID_PARAMETER: u32 = 2;
-        const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 3;
-        const HYBRID_STATUS_SUCCESS: u32 = 0;
+        const HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION: i32 = 1;
+        const HYBRID_REQUEST_INFO_STRUCTURE_VERSION: i32 = 1;
+        const HYBRID_STATUS_ENABLE_REFCOUNT_HOLD: i32 = 16;
+        const HYBRID_STATUS_ILLEGAL_REQUEST: i32 = 1;
+        const HYBRID_STATUS_INVALID_PARAMETER: i32 = 2;
+        const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: i32 = 3;
+        const HYBRID_STATUS_SUCCESS: i32 = 0;
         struct IDE_IO_CONTROL {
             HeaderLength: u32,
             Signature: [u8; 8],
@@ -284,11 +284,11 @@ mod Windows {
             ReturnStatus: u32,
             DataLength: u32,
         }
-        const IOCTL_ATA_MINIPORT: u32 = 315444;
-        const IOCTL_ATA_PASS_THROUGH: u32 = 315436;
-        const IOCTL_ATA_PASS_THROUGH_DIRECT: u32 = 315440;
-        const IOCTL_IDE_PASS_THROUGH: u32 = 315432;
-        const IOCTL_MINIPORT_PROCESS_SERVICE_IRP: u32 = 315448;
+        const IOCTL_ATA_MINIPORT: i32 = 315444;
+        const IOCTL_ATA_PASS_THROUGH: i32 = 315436;
+        const IOCTL_ATA_PASS_THROUGH_DIRECT: i32 = 315440;
+        const IOCTL_IDE_PASS_THROUGH: i32 = 315432;
+        const IOCTL_MINIPORT_PROCESS_SERVICE_IRP: i32 = 315448;
         #[encoding("ansi")]
         const IOCTL_MINIPORT_SIGNATURE_BOOT_PARTITION: String = "BOOTPINF";
         #[encoding("ansi")]
@@ -313,27 +313,27 @@ mod Windows {
         const IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: String = "SETPROTO";
         #[encoding("ansi")]
         const IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: String = "SETTEMPT";
-        const IOCTL_MPIO_PASS_THROUGH_PATH: u32 = 315452;
-        const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT: u32 = 315456;
-        const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT_EX: u32 = 315472;
-        const IOCTL_MPIO_PASS_THROUGH_PATH_EX: u32 = 315468;
-        const IOCTL_SCSI_BASE: u32 = 4;
-        const IOCTL_SCSI_FREE_DUMP_POINTERS: u32 = 266276;
-        const IOCTL_SCSI_GET_ADDRESS: u32 = 266264;
-        const IOCTL_SCSI_GET_CAPABILITIES: u32 = 266256;
-        const IOCTL_SCSI_GET_DUMP_POINTERS: u32 = 266272;
-        const IOCTL_SCSI_GET_INQUIRY_DATA: u32 = 266252;
-        const IOCTL_SCSI_MINIPORT: u32 = 315400;
-        const IOCTL_SCSI_MINIPORT_BOOT_PARTITION: u32 = 1771408;
-        const IOCTL_SCSI_MINIPORT_DIAGNOSTIC: u32 = 1771776;
-        const IOCTL_SCSI_MINIPORT_FIRMWARE: u32 = 1771392;
-        const IOCTL_SCSI_MINIPORT_HYBRID: u32 = 1771040;
-        const IOCTL_SCSI_MINIPORT_NVCACHE: u32 = 1771008;
-        const IOCTL_SCSI_PASS_THROUGH: u32 = 315396;
-        const IOCTL_SCSI_PASS_THROUGH_DIRECT: u32 = 315412;
-        const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: u32 = 315464;
-        const IOCTL_SCSI_PASS_THROUGH_EX: u32 = 315460;
-        const IOCTL_SCSI_RESCAN_BUS: u32 = 266268;
+        const IOCTL_MPIO_PASS_THROUGH_PATH: i32 = 315452;
+        const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT: i32 = 315456;
+        const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT_EX: i32 = 315472;
+        const IOCTL_MPIO_PASS_THROUGH_PATH_EX: i32 = 315468;
+        const IOCTL_SCSI_BASE: i32 = 4;
+        const IOCTL_SCSI_FREE_DUMP_POINTERS: i32 = 266276;
+        const IOCTL_SCSI_GET_ADDRESS: i32 = 266264;
+        const IOCTL_SCSI_GET_CAPABILITIES: i32 = 266256;
+        const IOCTL_SCSI_GET_DUMP_POINTERS: i32 = 266272;
+        const IOCTL_SCSI_GET_INQUIRY_DATA: i32 = 266252;
+        const IOCTL_SCSI_MINIPORT: i32 = 315400;
+        const IOCTL_SCSI_MINIPORT_BOOT_PARTITION: i32 = 1771408;
+        const IOCTL_SCSI_MINIPORT_DIAGNOSTIC: i32 = 1771776;
+        const IOCTL_SCSI_MINIPORT_FIRMWARE: i32 = 1771392;
+        const IOCTL_SCSI_MINIPORT_HYBRID: i32 = 1771040;
+        const IOCTL_SCSI_MINIPORT_NVCACHE: i32 = 1771008;
+        const IOCTL_SCSI_PASS_THROUGH: i32 = 315396;
+        const IOCTL_SCSI_PASS_THROUGH_DIRECT: i32 = 315412;
+        const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: i32 = 315464;
+        const IOCTL_SCSI_PASS_THROUGH_EX: i32 = 315460;
+        const IOCTL_SCSI_RESCAN_BUS: i32 = 266268;
         struct IO_SCSI_CAPABILITIES {
             Length: u32,
             MaximumTransferLength: u32,
@@ -344,17 +344,17 @@ mod Windows {
             AdapterScansDown: BOOLEAN,
             AdapterUsesPio: BOOLEAN,
         }
-        const MINIPORT_DSM_NOTIFICATION_VERSION: u32 = 1;
-        const MINIPORT_DSM_NOTIFICATION_VERSION_1: u32 = 1;
-        const MINIPORT_DSM_NOTIFY_FLAG_BEGIN: u32 = 1;
-        const MINIPORT_DSM_NOTIFY_FLAG_END: u32 = 2;
-        const MINIPORT_DSM_PROFILE_CRASHDUMP_FILE: u32 = 3;
-        const MINIPORT_DSM_PROFILE_HIBERNATION_FILE: u32 = 2;
-        const MINIPORT_DSM_PROFILE_PAGE_FILE: u32 = 1;
-        const MINIPORT_DSM_PROFILE_UNKNOWN: u32 = 0;
-        const MPIO_IOCTL_FLAG_INVOLVE_DSM: u32 = 4;
-        const MPIO_IOCTL_FLAG_USE_PATHID: u32 = 1;
-        const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: u32 = 2;
+        const MINIPORT_DSM_NOTIFICATION_VERSION: i32 = 1;
+        const MINIPORT_DSM_NOTIFICATION_VERSION_1: i32 = 1;
+        const MINIPORT_DSM_NOTIFY_FLAG_BEGIN: i32 = 1;
+        const MINIPORT_DSM_NOTIFY_FLAG_END: i32 = 2;
+        const MINIPORT_DSM_PROFILE_CRASHDUMP_FILE: i32 = 3;
+        const MINIPORT_DSM_PROFILE_HIBERNATION_FILE: i32 = 2;
+        const MINIPORT_DSM_PROFILE_PAGE_FILE: i32 = 1;
+        const MINIPORT_DSM_PROFILE_UNKNOWN: i32 = 0;
+        const MPIO_IOCTL_FLAG_INVOLVE_DSM: i32 = 4;
+        const MPIO_IOCTL_FLAG_USE_PATHID: i32 = 1;
+        const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: i32 = 2;
         struct MPIO_PASS_THROUGH_PATH {
             PassThrough: SCSI_PASS_THROUGH,
             Version: u32,
@@ -439,29 +439,29 @@ mod Windows {
             MpStorageDiagnosticTargetTypeHbaFirmware = 3,
             MpStorageDiagnosticTargetTypeMax = 4,
         }
-        const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16;
-        const NRB_FUNCTION_FLUSH_NVCACHE: u32 = 20;
-        const NRB_FUNCTION_NVCACHE_INFO: u32 = 236;
-        const NRB_FUNCTION_NVCACHE_POWER_MODE_RETURN: u32 = 1;
-        const NRB_FUNCTION_NVCACHE_POWER_MODE_SET: u32 = 0;
-        const NRB_FUNCTION_NVSEPARATED_FLUSH: u32 = 193;
-        const NRB_FUNCTION_NVSEPARATED_INFO: u32 = 192;
-        const NRB_FUNCTION_NVSEPARATED_WB_DISABLE: u32 = 194;
-        const NRB_FUNCTION_NVSEPARATED_WB_REVERT_DEFAULT: u32 = 195;
-        const NRB_FUNCTION_PASS_HINT_PAYLOAD: u32 = 224;
-        const NRB_FUNCTION_QUERY_ASCENDER_STATUS: u32 = 208;
-        const NRB_FUNCTION_QUERY_CACHE_MISS: u32 = 19;
-        const NRB_FUNCTION_QUERY_HYBRID_DISK_STATUS: u32 = 209;
-        const NRB_FUNCTION_QUERY_PINNED_SET: u32 = 18;
-        const NRB_FUNCTION_REMOVE_LBAS_PINNED_SET: u32 = 17;
-        const NRB_FUNCTION_SPINDLE_STATUS: u32 = 229;
-        const NRB_ILLEGAL_REQUEST: u32 = 1;
-        const NRB_INPUT_DATA_OVERRUN: u32 = 3;
-        const NRB_INPUT_DATA_UNDERRUN: u32 = 4;
-        const NRB_INVALID_PARAMETER: u32 = 2;
-        const NRB_OUTPUT_DATA_OVERRUN: u32 = 5;
-        const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6;
-        const NRB_SUCCESS: u32 = 0;
+        const NRB_FUNCTION_ADD_LBAS_PINNED_SET: i32 = 16;
+        const NRB_FUNCTION_FLUSH_NVCACHE: i32 = 20;
+        const NRB_FUNCTION_NVCACHE_INFO: i32 = 236;
+        const NRB_FUNCTION_NVCACHE_POWER_MODE_RETURN: i32 = 1;
+        const NRB_FUNCTION_NVCACHE_POWER_MODE_SET: i32 = 0;
+        const NRB_FUNCTION_NVSEPARATED_FLUSH: i32 = 193;
+        const NRB_FUNCTION_NVSEPARATED_INFO: i32 = 192;
+        const NRB_FUNCTION_NVSEPARATED_WB_DISABLE: i32 = 194;
+        const NRB_FUNCTION_NVSEPARATED_WB_REVERT_DEFAULT: i32 = 195;
+        const NRB_FUNCTION_PASS_HINT_PAYLOAD: i32 = 224;
+        const NRB_FUNCTION_QUERY_ASCENDER_STATUS: i32 = 208;
+        const NRB_FUNCTION_QUERY_CACHE_MISS: i32 = 19;
+        const NRB_FUNCTION_QUERY_HYBRID_DISK_STATUS: i32 = 209;
+        const NRB_FUNCTION_QUERY_PINNED_SET: i32 = 18;
+        const NRB_FUNCTION_REMOVE_LBAS_PINNED_SET: i32 = 17;
+        const NRB_FUNCTION_SPINDLE_STATUS: i32 = 229;
+        const NRB_ILLEGAL_REQUEST: i32 = 1;
+        const NRB_INPUT_DATA_OVERRUN: i32 = 3;
+        const NRB_INPUT_DATA_UNDERRUN: i32 = 4;
+        const NRB_INVALID_PARAMETER: i32 = 2;
+        const NRB_OUTPUT_DATA_OVERRUN: i32 = 5;
+        const NRB_OUTPUT_DATA_UNDERRUN: i32 = 6;
+        const NRB_SUCCESS: i32 = 0;
         struct NTSCSI_UNICODE_STRING {
             Length: u16,
             MaximumLength: u16,
@@ -547,8 +547,8 @@ mod Windows {
             WriteCacheTypeEffective: u8,
             ParameterReserve1: [u8; 3],
         }
-        const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1;
-        const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1;
+        const NV_SEP_CACHE_PARAMETER_VERSION: i32 = 1;
+        const NV_SEP_CACHE_PARAMETER_VERSION_1: i32 = 1;
         #[repr(i32)]
         enum NV_SEP_WRITE_CACHE_TYPE {
             NVSEPWriteCacheTypeUnknown = 0,
@@ -654,10 +654,10 @@ mod Windows {
             NextInquiryDataOffset: u32,
             InquiryData: [u8; 1],
         }
-        const SCSI_IOCTL_DATA_BIDIRECTIONAL: u32 = 3;
-        const SCSI_IOCTL_DATA_IN: u32 = 1;
-        const SCSI_IOCTL_DATA_OUT: u32 = 0;
-        const SCSI_IOCTL_DATA_UNSPECIFIED: u32 = 2;
+        const SCSI_IOCTL_DATA_BIDIRECTIONAL: i32 = 3;
+        const SCSI_IOCTL_DATA_IN: i32 = 1;
+        const SCSI_IOCTL_DATA_OUT: i32 = 0;
+        const SCSI_IOCTL_DATA_UNSPECIFIED: i32 = 2;
         struct SCSI_PASS_THROUGH {
             Length: u16,
             ScsiStatus: u8,
@@ -808,7 +808,7 @@ mod Windows {
             BPID: u8,
             Reserved0: [u8; 3],
         }
-        const STORAGE_BOOT_PARTITION_ACTIVATE_STRUCTURE_VERSION: u32 = 1;
+        const STORAGE_BOOT_PARTITION_ACTIVATE_STRUCTURE_VERSION: i32 = 1;
         struct STORAGE_BOOT_PARTITION_DOWNLOAD {
             Version: u32,
             Size: u32,
@@ -817,8 +817,8 @@ mod Windows {
             BufferSize: u64,
             ImageBuffer: [u8; 1],
         }
-        const STORAGE_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: u32 = 1;
-        const STORAGE_BOOT_PARTITION_GET_INFO_STRUCTURE_VERSION_V1: u32 = 1;
+        const STORAGE_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
+        const STORAGE_BOOT_PARTITION_GET_INFO_STRUCTURE_VERSION_V1: i32 = 1;
         struct STORAGE_BOOT_PARTITION_INFO {
             Version: u32,
             Size: u32,
@@ -838,13 +838,13 @@ mod Windows {
             Reserved: u32,
             DataBuffer: [u8; 1],
         }
-        const STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL: u32 = 1;
-        const STORAGE_DIAGNOSTIC_STATUS_INVALID_PARAMETER: u32 = 3;
-        const STORAGE_DIAGNOSTIC_STATUS_INVALID_SIGNATURE: u32 = 4;
-        const STORAGE_DIAGNOSTIC_STATUS_INVALID_TARGET_TYPE: u32 = 5;
-        const STORAGE_DIAGNOSTIC_STATUS_MORE_DATA: u32 = 6;
-        const STORAGE_DIAGNOSTIC_STATUS_SUCCESS: u32 = 0;
-        const STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION: u32 = 2;
+        const STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL: i32 = 1;
+        const STORAGE_DIAGNOSTIC_STATUS_INVALID_PARAMETER: i32 = 3;
+        const STORAGE_DIAGNOSTIC_STATUS_INVALID_SIGNATURE: i32 = 4;
+        const STORAGE_DIAGNOSTIC_STATUS_INVALID_TARGET_TYPE: i32 = 5;
+        const STORAGE_DIAGNOSTIC_STATUS_MORE_DATA: i32 = 6;
+        const STORAGE_DIAGNOSTIC_STATUS_SUCCESS: i32 = 0;
+        const STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION: i32 = 2;
         struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
             Version: u32,
             Size: u32,
@@ -869,7 +869,7 @@ mod Windows {
             SlotToActivate: u8,
             Reserved0: [u8; 3],
         }
-        const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: u32 = 1;
+        const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: i32 = 1;
         struct STORAGE_FIRMWARE_DOWNLOAD {
             Version: u32,
             Size: u32,
@@ -877,8 +877,8 @@ mod Windows {
             BufferSize: u64,
             ImageBuffer: [u8; 0],
         }
-        const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: u32 = 1;
-        const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: u32 = 2;
+        const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
+        const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: i32 = 2;
         struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
             Version: u32,
             Size: u32,
@@ -899,9 +899,9 @@ mod Windows {
             Reserved: u32,
             Slot: [STORAGE_FIRMWARE_SLOT_INFO; 0],
         }
-        const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255;
-        const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: u32 = 1;
-        const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: u32 = 2;
+        const STORAGE_FIRMWARE_INFO_INVALID_SLOT: i32 = 255;
+        const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: i32 = 1;
+        const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: i32 = 2;
         struct STORAGE_FIRMWARE_INFO_V2 {
             Version: u32,
             Size: u32,
@@ -930,7 +930,7 @@ mod Windows {
             Reserved: [u8; 6],
             Revision: [u8; 16],
         }
-        const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16;
+        const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: i32 = 16;
         const ScsiRawInterfaceGuid: GUID = 0x53f56309_b6bf_11d0_94f2_00a0c91efb8b;
         const WmiScsiAddressGuid: GUID = 0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b;
         struct _ADAPTER_OBJECT {}

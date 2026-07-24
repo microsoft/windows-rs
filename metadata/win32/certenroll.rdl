@@ -74,7 +74,7 @@ mod Windows {
         const CCspInformation: GUID = 0x884e2007_217d_11da_b2a4_000e7bbb2b09;
         const CCspInformations: GUID = 0x884e2008_217d_11da_b2a4_000e7bbb2b09;
         const CCspStatus: GUID = 0x884e2009_217d_11da_b2a4_000e7bbb2b09;
-        const CERTENROLL_INDEX_BASE: u32 = 0;
+        const CERTENROLL_INDEX_BASE: i32 = 0;
         #[repr(i32)]
         enum CERTENROLL_OBJECTID {
             XCN_OID_NONE = 0,

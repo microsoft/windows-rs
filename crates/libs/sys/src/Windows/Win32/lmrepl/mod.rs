@@ -88,11 +88,11 @@ impl Default for REPL_EDIR_INFO_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REPL_EXPORT_EXTENT_INFOLEVEL: u32 = 1001;
-pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: u32 = 1000;
-pub const REPL_EXTENT_FILE: u32 = 1;
-pub const REPL_EXTENT_TREE: u32 = 2;
-pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002;
+pub const REPL_EXPORT_EXTENT_INFOLEVEL: i32 = 1001;
+pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: i32 = 1000;
+pub const REPL_EXTENT_FILE: i32 = 1;
+pub const REPL_EXTENT_TREE: i32 = 2;
+pub const REPL_GUARDTIME_INFOLEVEL: i32 = 1002;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REPL_IDIR_INFO_0 {
@@ -157,17 +157,17 @@ pub struct REPL_INFO_1002 {
 pub struct REPL_INFO_1003 {
     pub rp1003_random: u32,
 }
-pub const REPL_INTEGRITY_FILE: u32 = 1;
-pub const REPL_INTEGRITY_TREE: u32 = 2;
-pub const REPL_INTERVAL_INFOLEVEL: u32 = 1000;
-pub const REPL_PULSE_INFOLEVEL: u32 = 1001;
-pub const REPL_RANDOM_INFOLEVEL: u32 = 1003;
-pub const REPL_ROLE_BOTH: u32 = 3;
-pub const REPL_ROLE_EXPORT: u32 = 1;
-pub const REPL_ROLE_IMPORT: u32 = 2;
-pub const REPL_STATE_NEVER_REPLICATED: u32 = 3;
-pub const REPL_STATE_NO_MASTER: u32 = 1;
-pub const REPL_STATE_NO_SYNC: u32 = 2;
-pub const REPL_STATE_OK: u32 = 0;
-pub const REPL_UNLOCK_FORCE: u32 = 1;
-pub const REPL_UNLOCK_NOFORCE: u32 = 0;
+pub const REPL_INTEGRITY_FILE: i32 = 1;
+pub const REPL_INTEGRITY_TREE: i32 = 2;
+pub const REPL_INTERVAL_INFOLEVEL: i32 = 1000;
+pub const REPL_PULSE_INFOLEVEL: i32 = 1001;
+pub const REPL_RANDOM_INFOLEVEL: i32 = 1003;
+pub const REPL_ROLE_BOTH: i32 = 3;
+pub const REPL_ROLE_EXPORT: i32 = 1;
+pub const REPL_ROLE_IMPORT: i32 = 2;
+pub const REPL_STATE_NEVER_REPLICATED: i32 = 3;
+pub const REPL_STATE_NO_MASTER: i32 = 1;
+pub const REPL_STATE_NO_SYNC: i32 = 2;
+pub const REPL_STATE_OK: i32 = 0;
+pub const REPL_UNLOCK_FORCE: i32 = 1;
+pub const REPL_UNLOCK_NOFORCE: i32 = 0;

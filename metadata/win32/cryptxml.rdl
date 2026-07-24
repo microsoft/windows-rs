@@ -18,16 +18,16 @@ mod Windows {
             pvPaddingInfo: *mut void,
             pvExtraInfo: *mut void,
         }
-        const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID: u32 = 3;
-        const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID: u32 = 4;
-        const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: u32 = 2;
-        const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: u32 = 1;
+        const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID: i32 = 3;
+        const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID: i32 = 4;
+        const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: i32 = 2;
+        const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: i32 = 1;
         struct CRYPT_XML_BLOB {
             dwCharset: CRYPT_XML_CHARSET,
             cbData: u32,
             pbData: *mut u8,
         }
-        const CRYPT_XML_BLOB_MAX: u32 = 2147483640;
+        const CRYPT_XML_BLOB_MAX: i32 = 2147483640;
         #[repr(i32)]
         enum CRYPT_XML_CHARSET {
             CRYPT_XML_CHARSET_AUTO = 0,
@@ -57,8 +57,8 @@ mod Windows {
             pfnClose: PFN_CRYPT_XML_DATA_PROVIDER_CLOSE,
         }
         type CRYPT_XML_DIGEST = *mut void;
-        const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: u32 = 1;
-        const CRYPT_XML_DIGEST_VALUE_MAX: u32 = 128;
+        const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: i32 = 1;
+        const CRYPT_XML_DIGEST_VALUE_MAX: i32 = 128;
         struct CRYPT_XML_DOC_CTXT {
             cbSize: u32,
             hDocCtxt: HCRYPTXML,
@@ -86,17 +86,17 @@ mod Windows {
         const CRYPT_XML_E_UNEXPECTED_XML: HRESULT = -2146885360;
         const CRYPT_XML_E_UNRESOLVED_REFERENCE: HRESULT = -2146885368;
         const CRYPT_XML_E_VERIFY_FAILED: HRESULT = -2146885363;
-        const CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY: u32 = 1;
-        const CRYPT_XML_FLAG_ALWAYS_RETURN_ENCODED_OBJECT: u32 = 1073741824;
-        const CRYPT_XML_FLAG_CREATE_REFERENCE_AS_OBJECT: u32 = 1;
-        const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: u32 = 268435456;
-        const CRYPT_XML_FLAG_ECDSA_DSIG11: u32 = 67108864;
-        const CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: u32 = 134217728;
-        const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: u32 = 536870912;
+        const CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY: i32 = 1;
+        const CRYPT_XML_FLAG_ALWAYS_RETURN_ENCODED_OBJECT: i32 = 1073741824;
+        const CRYPT_XML_FLAG_CREATE_REFERENCE_AS_OBJECT: i32 = 1;
+        const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: i32 = 268435456;
+        const CRYPT_XML_FLAG_ECDSA_DSIG11: i32 = 67108864;
+        const CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: i32 = 134217728;
+        const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: i32 = 536870912;
         const CRYPT_XML_FLAG_NO_SERIALIZE: u32 = 2147483648;
-        const CRYPT_XML_GROUP_ID_HASH: u32 = 1;
-        const CRYPT_XML_GROUP_ID_SIGN: u32 = 2;
-        const CRYPT_XML_ID_MAX: u32 = 256;
+        const CRYPT_XML_GROUP_ID_HASH: i32 = 1;
+        const CRYPT_XML_GROUP_ID_SIGN: i32 = 2;
+        const CRYPT_XML_ID_MAX: i32 = 256;
         struct CRYPT_XML_ISSUER_SERIAL {
             wszIssuer: PCWSTR,
             wszSerial: PCWSTR,
@@ -117,11 +117,11 @@ mod Windows {
             CRYPT_XML_KEYINFO_SPEC_ENCODED = 1,
             CRYPT_XML_KEYINFO_SPEC_PARAM = 2,
         }
-        const CRYPT_XML_KEYINFO_TYPE_CUSTOM: u32 = 5;
-        const CRYPT_XML_KEYINFO_TYPE_KEYNAME: u32 = 1;
-        const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: u32 = 2;
-        const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: u32 = 3;
-        const CRYPT_XML_KEYINFO_TYPE_X509DATA: u32 = 4;
+        const CRYPT_XML_KEYINFO_TYPE_CUSTOM: i32 = 5;
+        const CRYPT_XML_KEYINFO_TYPE_KEYNAME: i32 = 1;
+        const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: i32 = 2;
+        const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: i32 = 3;
+        const CRYPT_XML_KEYINFO_TYPE_X509DATA: i32 = 4;
         struct CRYPT_XML_KEY_DSA_KEY_VALUE {
             P: CRYPT_XML_DATA_BLOB,
             Q: CRYPT_XML_DATA_BLOB,
@@ -167,10 +167,10 @@ mod Windows {
                 Custom: CRYPT_XML_BLOB,
             },
         }
-        const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: u32 = 4;
-        const CRYPT_XML_KEY_VALUE_TYPE_DSA: u32 = 1;
-        const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: u32 = 3;
-        const CRYPT_XML_KEY_VALUE_TYPE_RSA: u32 = 2;
+        const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: i32 = 4;
+        const CRYPT_XML_KEY_VALUE_TYPE_DSA: i32 = 1;
+        const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: i32 = 3;
+        const CRYPT_XML_KEY_VALUE_TYPE_RSA: i32 = 2;
         struct CRYPT_XML_OBJECT {
             cbSize: u32,
             hObject: HCRYPTXML,
@@ -180,7 +180,7 @@ mod Windows {
             Manifest: CRYPT_XML_REFERENCES,
             Encoded: CRYPT_XML_BLOB,
         }
-        const CRYPT_XML_OBJECTS_MAX: u32 = 256;
+        const CRYPT_XML_OBJECTS_MAX: i32 = 256;
         struct CRYPT_XML_PROPERTY {
             dwPropId: CRYPT_XML_PROPERTY_ID,
             pvValue: *const void,
@@ -209,7 +209,7 @@ mod Windows {
             cReference: u32,
             rgpReference: *mut PCRYPT_XML_REFERENCE,
         }
-        const CRYPT_XML_REFERENCES_MAX: u32 = 32760;
+        const CRYPT_XML_REFERENCES_MAX: i32 = 32760;
         struct CRYPT_XML_SIGNATURE {
             cbSize: u32,
             hSignature: HCRYPTXML,
@@ -220,8 +220,8 @@ mod Windows {
             cObject: u32,
             rgpObject: *mut PCRYPT_XML_OBJECT,
         }
-        const CRYPT_XML_SIGNATURES_MAX: u32 = 16;
-        const CRYPT_XML_SIGNATURE_VALUE_MAX: u32 = 2048;
+        const CRYPT_XML_SIGNATURES_MAX: i32 = 16;
+        const CRYPT_XML_SIGNATURE_VALUE_MAX: i32 = 2048;
         struct CRYPT_XML_SIGNED_INFO {
             cbSize: u32,
             wszId: PCWSTR,
@@ -231,25 +231,25 @@ mod Windows {
             rgpReference: *mut PCRYPT_XML_REFERENCE,
             Encoded: CRYPT_XML_BLOB,
         }
-        const CRYPT_XML_SIGN_ADD_KEYVALUE: u32 = 1;
+        const CRYPT_XML_SIGN_ADD_KEYVALUE: i32 = 1;
         struct CRYPT_XML_STATUS {
             cbSize: u32,
             dwErrorStatus: u32,
             dwInfoStatus: u32,
         }
-        const CRYPT_XML_STATUS_DIGESTING: u32 = 4;
-        const CRYPT_XML_STATUS_DIGEST_VALID: u32 = 8;
-        const CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: u32 = 2;
-        const CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: u32 = 131072;
-        const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: u32 = 1;
-        const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: u32 = 4;
-        const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: u32 = 8;
-        const CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: u32 = 65536;
-        const CRYPT_XML_STATUS_INTERNAL_REFERENCE: u32 = 1;
-        const CRYPT_XML_STATUS_KEY_AVAILABLE: u32 = 2;
-        const CRYPT_XML_STATUS_NO_ERROR: u32 = 0;
+        const CRYPT_XML_STATUS_DIGESTING: i32 = 4;
+        const CRYPT_XML_STATUS_DIGEST_VALID: i32 = 8;
+        const CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: i32 = 2;
+        const CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: i32 = 131072;
+        const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: i32 = 1;
+        const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: i32 = 4;
+        const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: i32 = 8;
+        const CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: i32 = 65536;
+        const CRYPT_XML_STATUS_INTERNAL_REFERENCE: i32 = 1;
+        const CRYPT_XML_STATUS_KEY_AVAILABLE: i32 = 2;
+        const CRYPT_XML_STATUS_NO_ERROR: i32 = 0;
         const CRYPT_XML_STATUS_OPENED_TO_ENCODE: u32 = 2147483648;
-        const CRYPT_XML_STATUS_SIGNATURE_VALID: u32 = 65536;
+        const CRYPT_XML_STATUS_SIGNATURE_VALID: i32 = 65536;
         struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
             cbSize: u32,
             cTransformInfo: u32,
@@ -262,11 +262,11 @@ mod Windows {
             dwFlags: u32,
             pfnCreateTransform: PFN_CRYPT_XML_CREATE_TRANSFORM,
         }
-        const CRYPT_XML_TRANSFORM_MAX: u32 = 16;
-        const CRYPT_XML_TRANSFORM_ON_NODESET: u32 = 2;
-        const CRYPT_XML_TRANSFORM_ON_STREAM: u32 = 1;
-        const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: u32 = 4;
-        const CRYPT_XML_URI_MAX: u32 = 8192;
+        const CRYPT_XML_TRANSFORM_MAX: i32 = 16;
+        const CRYPT_XML_TRANSFORM_ON_NODESET: i32 = 2;
+        const CRYPT_XML_TRANSFORM_ON_STREAM: i32 = 1;
+        const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: i32 = 4;
+        const CRYPT_XML_URI_MAX: i32 = 8192;
         struct CRYPT_XML_X509DATA {
             cX509Data: u32,
             rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,
@@ -282,12 +282,12 @@ mod Windows {
                 Custom: CRYPT_XML_BLOB,
             },
         }
-        const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: u32 = 4;
-        const CRYPT_XML_X509DATA_TYPE_CRL: u32 = 5;
-        const CRYPT_XML_X509DATA_TYPE_CUSTOM: u32 = 6;
-        const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: u32 = 1;
-        const CRYPT_XML_X509DATA_TYPE_SKI: u32 = 2;
-        const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: u32 = 3;
+        const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: i32 = 4;
+        const CRYPT_XML_X509DATA_TYPE_CRL: i32 = 5;
+        const CRYPT_XML_X509DATA_TYPE_CUSTOM: i32 = 6;
+        const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: i32 = 1;
+        const CRYPT_XML_X509DATA_TYPE_SKI: i32 = 2;
+        const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: i32 = 3;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlAddObject(hSignatureOrObject: HCRYPTXML, dwFlags: u32, #[len_param(3)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, pEncoded: *const CRYPT_XML_BLOB, ppObject: *mut *mut CRYPT_XML_OBJECT) -> HRESULT;
         #[library("CRYPTXML.dll")]

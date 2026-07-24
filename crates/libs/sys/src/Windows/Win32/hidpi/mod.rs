@@ -43,7 +43,7 @@ windows_link::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(c
 #[cfg(feature = "hidusage")]
 windows_link::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *const i8, reportlength : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_UsageListDifference(previoususagelist : *const u16, currentusagelist : *const u16, breakusagelist : *mut u16, makeusagelist : *mut u16, usagelistlength : u32) -> windows_sys::core::NTSTATUS);
-pub const FACILITY_HID_ERROR_CODE: u32 = 17;
+pub const FACILITY_HID_ERROR_CODE: i32 = 17;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct HIDP_BUTTON_ARRAY_DATA {
@@ -285,7 +285,7 @@ pub const HIDP_STATUS_NOT_IMPLEMENTED: i32 = -1072627680;
 pub const HIDP_STATUS_NOT_VALUE_ARRAY: i32 = -1072627701;
 pub const HIDP_STATUS_NULL: i32 = -2146369535;
 pub const HIDP_STATUS_REPORT_DOES_NOT_EXIST: i32 = -1072627696;
-pub const HIDP_STATUS_SUCCESS: u32 = 1114112;
+pub const HIDP_STATUS_SUCCESS: i32 = 1114112;
 pub const HIDP_STATUS_USAGE_NOT_FOUND: i32 = -1072627708;
 pub const HIDP_STATUS_VALUE_OUT_OF_RANGE: i32 = -1072627707;
 #[repr(C)]

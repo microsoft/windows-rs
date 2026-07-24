@@ -837,9 +837,9 @@ pub unsafe fn SQLTablesW(hstmt: super::SQLHSTMT, szcatalogname: Option<&[super::
         )
     }
 }
-pub const SQL_C_TCHAR: u32 = 1;
+pub const SQL_C_TCHAR: i32 = 1;
 pub const SQL_C_WCHAR: i32 = -8;
-pub const SQL_SQLSTATE_SIZEW: u32 = 10;
+pub const SQL_SQLSTATE_SIZEW: i32 = 10;
 pub const SQL_WCHAR: i32 = -8;
 pub const SQL_WLONGVARCHAR: i32 = -10;
 pub const SQL_WVARCHAR: i32 = -9;

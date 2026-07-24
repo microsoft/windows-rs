@@ -1,17 +1,17 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ADDURL_SILENT: u32 = 1;
-        const AD_APPLY_ALL: u32 = 7;
-        const AD_APPLY_BUFFERED_REFRESH: u32 = 16;
-        const AD_APPLY_DYNAMICREFRESH: u32 = 32;
-        const AD_APPLY_FORCE: u32 = 8;
-        const AD_APPLY_HTMLGEN: u32 = 2;
-        const AD_APPLY_REFRESH: u32 = 4;
-        const AD_APPLY_SAVE: u32 = 1;
-        const AD_GETWP_BMP: u32 = 0;
-        const AD_GETWP_IMAGE: u32 = 1;
-        const AD_GETWP_LAST_APPLIED: u32 = 2;
+        const ADDURL_SILENT: i32 = 1;
+        const AD_APPLY_ALL: i32 = 7;
+        const AD_APPLY_BUFFERED_REFRESH: i32 = 16;
+        const AD_APPLY_DYNAMICREFRESH: i32 = 32;
+        const AD_APPLY_FORCE: i32 = 8;
+        const AD_APPLY_HTMLGEN: i32 = 2;
+        const AD_APPLY_REFRESH: i32 = 4;
+        const AD_APPLY_SAVE: i32 = 1;
+        const AD_GETWP_BMP: i32 = 0;
+        const AD_GETWP_IMAGE: i32 = 1;
+        const AD_GETWP_LAST_APPLIED: i32 = 2;
         #[repr(i32)]
         enum AUTOCOMPLETELISTOPTIONS {
             ACLO_NONE = 0,
@@ -34,38 +34,38 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn AssocGetDetailsOfPropKey(psf: IShellFolder, pidl: *const ITEMIDLIST, pkey: *const PROPERTYKEY, pv: *mut VARIANT, #[opt] pfFoundPropKey: *mut BOOL) -> HRESULT;
         extern fn BFFCALLBACK(hwnd: HWND, uMsg: u32, lParam: LPARAM, lpData: LPARAM) -> i32;
-        const BFFM_ENABLEOK: u32 = 1125;
-        const BFFM_INITIALIZED: u32 = 1;
-        const BFFM_IUNKNOWN: u32 = 5;
-        const BFFM_SELCHANGED: u32 = 2;
-        const BFFM_SETEXPANDED: u32 = 1130;
-        const BFFM_SETOKTEXT: u32 = 1129;
-        const BFFM_SETSELECTION: u32 = 1126;
-        const BFFM_SETSELECTIONA: u32 = 1126;
-        const BFFM_SETSELECTIONW: u32 = 1127;
-        const BFFM_SETSTATUSTEXT: u32 = 1124;
-        const BFFM_SETSTATUSTEXTA: u32 = 1124;
-        const BFFM_SETSTATUSTEXTW: u32 = 1128;
-        const BFFM_VALIDATEFAILED: u32 = 3;
-        const BFFM_VALIDATEFAILEDA: u32 = 3;
-        const BFFM_VALIDATEFAILEDW: u32 = 4;
-        const BIF_BROWSEFILEJUNCTIONS: u32 = 65536;
-        const BIF_BROWSEFORCOMPUTER: u32 = 4096;
-        const BIF_BROWSEFORPRINTER: u32 = 8192;
-        const BIF_BROWSEINCLUDEFILES: u32 = 16384;
-        const BIF_BROWSEINCLUDEURLS: u32 = 128;
-        const BIF_DONTGOBELOWDOMAIN: u32 = 2;
-        const BIF_EDITBOX: u32 = 16;
-        const BIF_NEWDIALOGSTYLE: u32 = 64;
-        const BIF_NONEWFOLDERBUTTON: u32 = 512;
-        const BIF_NOTRANSLATETARGETS: u32 = 1024;
-        const BIF_RETURNFSANCESTORS: u32 = 8;
-        const BIF_RETURNONLYFSDIRS: u32 = 1;
-        const BIF_SHAREABLE: u32 = 32768;
-        const BIF_STATUSTEXT: u32 = 4;
-        const BIF_UAHINT: u32 = 256;
-        const BIF_USENEWUI: u32 = 80;
-        const BIF_VALIDATE: u32 = 32;
+        const BFFM_ENABLEOK: i32 = 1125;
+        const BFFM_INITIALIZED: i32 = 1;
+        const BFFM_IUNKNOWN: i32 = 5;
+        const BFFM_SELCHANGED: i32 = 2;
+        const BFFM_SETEXPANDED: i32 = 1130;
+        const BFFM_SETOKTEXT: i32 = 1129;
+        const BFFM_SETSELECTION: i32 = 1126;
+        const BFFM_SETSELECTIONA: i32 = 1126;
+        const BFFM_SETSELECTIONW: i32 = 1127;
+        const BFFM_SETSTATUSTEXT: i32 = 1124;
+        const BFFM_SETSTATUSTEXTA: i32 = 1124;
+        const BFFM_SETSTATUSTEXTW: i32 = 1128;
+        const BFFM_VALIDATEFAILED: i32 = 3;
+        const BFFM_VALIDATEFAILEDA: i32 = 3;
+        const BFFM_VALIDATEFAILEDW: i32 = 4;
+        const BIF_BROWSEFILEJUNCTIONS: i32 = 65536;
+        const BIF_BROWSEFORCOMPUTER: i32 = 4096;
+        const BIF_BROWSEFORPRINTER: i32 = 8192;
+        const BIF_BROWSEINCLUDEFILES: i32 = 16384;
+        const BIF_BROWSEINCLUDEURLS: i32 = 128;
+        const BIF_DONTGOBELOWDOMAIN: i32 = 2;
+        const BIF_EDITBOX: i32 = 16;
+        const BIF_NEWDIALOGSTYLE: i32 = 64;
+        const BIF_NONEWFOLDERBUTTON: i32 = 512;
+        const BIF_NOTRANSLATETARGETS: i32 = 1024;
+        const BIF_RETURNFSANCESTORS: i32 = 8;
+        const BIF_RETURNONLYFSDIRS: i32 = 1;
+        const BIF_SHAREABLE: i32 = 32768;
+        const BIF_STATUSTEXT: i32 = 4;
+        const BIF_UAHINT: i32 = 256;
+        const BIF_USENEWUI: i32 = 80;
+        const BIF_VALIDATE: i32 = 32;
         struct BROWSEINFOA {
             hwndOwner: HWND,
             pidlRoot: LPCITEMIDLIST,
@@ -104,7 +104,7 @@ mod Windows {
             },
             fMenuEnumFilter: u32,
         }
-        const CABINETSTATE_VERSION: u32 = 2;
+        const CABINETSTATE_VERSION: i32 = 2;
         #[library("SHELL32.dll")]
         extern fn CDefFolderMenu_Create2(#[opt] pidlFolder: *const ITEMIDLIST, #[opt] hwnd: HWND, cidl: u32, #[len_param(2)] #[opt] apidl: *const LPCITEMIDLIST, #[opt] psf: IShellFolder, #[opt] pfn: LPFNDFMCALLBACK, nKeys: u32, #[len_param(6)] #[opt] ahkeys: *const HKEY, ppcm: *mut IContextMenu) -> HRESULT;
         #[packed(1)]
@@ -114,7 +114,7 @@ mod Windows {
         }
         #[library("SHELL32.dll")]
         extern fn CIDLData_CreateFromIDArray(pidlFolder: *const ITEMIDLIST, cidl: u32, #[len_param(1)] #[opt] apidl: *const LPCITEMIDLIST, ppdtobj: *mut IDataObject) -> HRESULT;
-        const CMDID_INTSHORTCUTCREATE: u32 = 1;
+        const CMDID_INTSHORTCUTCREATE: i32 = 1;
         #[packed(1)]
         struct COMPONENT {
             dwSize: u32,
@@ -137,9 +137,9 @@ mod Windows {
             fEnableComponents: BOOL,
             fActiveDesktop: BOOL,
         }
-        const COMPONENT_DEFAULT_LEFT: u32 = 65535;
-        const COMPONENT_DEFAULT_TOP: u32 = 65535;
-        const COMPONENT_TOP: u32 = 1073741823;
+        const COMPONENT_DEFAULT_LEFT: i32 = 65535;
+        const COMPONENT_DEFAULT_TOP: i32 = 65535;
+        const COMPONENT_TOP: i32 = 1073741823;
         #[packed(1)]
         struct COMPPOS {
             dwSize: u32,
@@ -163,28 +163,28 @@ mod Windows {
             dwHeight: u32,
             dwItemState: u32,
         }
-        const COMP_ELEM_ALL: u32 = 32767;
-        const COMP_ELEM_CHECKED: u32 = 2;
-        const COMP_ELEM_CURITEMSTATE: u32 = 16384;
-        const COMP_ELEM_DIRTY: u32 = 4;
-        const COMP_ELEM_FRIENDLYNAME: u32 = 1024;
-        const COMP_ELEM_NOSCROLL: u32 = 8;
-        const COMP_ELEM_ORIGINAL_CSI: u32 = 4096;
-        const COMP_ELEM_POS_LEFT: u32 = 16;
-        const COMP_ELEM_POS_TOP: u32 = 32;
-        const COMP_ELEM_POS_ZINDEX: u32 = 256;
-        const COMP_ELEM_RESTORED_CSI: u32 = 8192;
-        const COMP_ELEM_SIZE_HEIGHT: u32 = 128;
-        const COMP_ELEM_SIZE_WIDTH: u32 = 64;
-        const COMP_ELEM_SOURCE: u32 = 512;
-        const COMP_ELEM_SUBSCRIBEDURL: u32 = 2048;
-        const COMP_ELEM_TYPE: u32 = 1;
-        const COMP_TYPE_CFHTML: u32 = 4;
-        const COMP_TYPE_CONTROL: u32 = 3;
-        const COMP_TYPE_HTMLDOC: u32 = 0;
-        const COMP_TYPE_MAX: u32 = 4;
-        const COMP_TYPE_PICTURE: u32 = 1;
-        const COMP_TYPE_WEBSITE: u32 = 2;
+        const COMP_ELEM_ALL: i32 = 32767;
+        const COMP_ELEM_CHECKED: i32 = 2;
+        const COMP_ELEM_CURITEMSTATE: i32 = 16384;
+        const COMP_ELEM_DIRTY: i32 = 4;
+        const COMP_ELEM_FRIENDLYNAME: i32 = 1024;
+        const COMP_ELEM_NOSCROLL: i32 = 8;
+        const COMP_ELEM_ORIGINAL_CSI: i32 = 4096;
+        const COMP_ELEM_POS_LEFT: i32 = 16;
+        const COMP_ELEM_POS_TOP: i32 = 32;
+        const COMP_ELEM_POS_ZINDEX: i32 = 256;
+        const COMP_ELEM_RESTORED_CSI: i32 = 8192;
+        const COMP_ELEM_SIZE_HEIGHT: i32 = 128;
+        const COMP_ELEM_SIZE_WIDTH: i32 = 64;
+        const COMP_ELEM_SOURCE: i32 = 512;
+        const COMP_ELEM_SUBSCRIBEDURL: i32 = 2048;
+        const COMP_ELEM_TYPE: i32 = 1;
+        const COMP_TYPE_CFHTML: i32 = 4;
+        const COMP_TYPE_CONTROL: i32 = 3;
+        const COMP_TYPE_HTMLDOC: i32 = 0;
+        const COMP_TYPE_MAX: i32 = 4;
+        const COMP_TYPE_PICTURE: i32 = 1;
+        const COMP_TYPE_WEBSITE: i32 = 2;
         struct CSFV {
             cbSize: u32,
             pshf: IShellFolder,
@@ -194,69 +194,69 @@ mod Windows {
             pfnCallback: LPFNVIEWCALLBACK,
             fvm: FOLDERVIEWMODE,
         }
-        const CSIDL_ADMINTOOLS: u32 = 48;
-        const CSIDL_ALTSTARTUP: u32 = 29;
-        const CSIDL_APPDATA: u32 = 26;
-        const CSIDL_BITBUCKET: u32 = 10;
-        const CSIDL_CDBURN_AREA: u32 = 59;
-        const CSIDL_COMMON_ADMINTOOLS: u32 = 47;
-        const CSIDL_COMMON_ALTSTARTUP: u32 = 30;
-        const CSIDL_COMMON_APPDATA: u32 = 35;
-        const CSIDL_COMMON_DESKTOPDIRECTORY: u32 = 25;
-        const CSIDL_COMMON_DOCUMENTS: u32 = 46;
-        const CSIDL_COMMON_FAVORITES: u32 = 31;
-        const CSIDL_COMMON_MUSIC: u32 = 53;
-        const CSIDL_COMMON_OEM_LINKS: u32 = 58;
-        const CSIDL_COMMON_PICTURES: u32 = 54;
-        const CSIDL_COMMON_PROGRAMS: u32 = 23;
-        const CSIDL_COMMON_STARTMENU: u32 = 22;
-        const CSIDL_COMMON_STARTUP: u32 = 24;
-        const CSIDL_COMMON_TEMPLATES: u32 = 45;
-        const CSIDL_COMMON_VIDEO: u32 = 55;
-        const CSIDL_COMPUTERSNEARME: u32 = 61;
-        const CSIDL_CONNECTIONS: u32 = 49;
-        const CSIDL_CONTROLS: u32 = 3;
-        const CSIDL_COOKIES: u32 = 33;
-        const CSIDL_DESKTOP: u32 = 0;
-        const CSIDL_DESKTOPDIRECTORY: u32 = 16;
-        const CSIDL_DRIVES: u32 = 17;
-        const CSIDL_FAVORITES: u32 = 6;
-        const CSIDL_FLAG_CREATE: u32 = 32768;
-        const CSIDL_FLAG_DONT_UNEXPAND: u32 = 8192;
-        const CSIDL_FLAG_DONT_VERIFY: u32 = 16384;
-        const CSIDL_FLAG_MASK: u32 = 65280;
-        const CSIDL_FLAG_NO_ALIAS: u32 = 4096;
-        const CSIDL_FLAG_PER_USER_INIT: u32 = 2048;
-        const CSIDL_FONTS: u32 = 20;
-        const CSIDL_HISTORY: u32 = 34;
-        const CSIDL_INTERNET: u32 = 1;
-        const CSIDL_INTERNET_CACHE: u32 = 32;
-        const CSIDL_LOCAL_APPDATA: u32 = 28;
-        const CSIDL_MYDOCUMENTS: u32 = 5;
-        const CSIDL_MYMUSIC: u32 = 13;
-        const CSIDL_MYPICTURES: u32 = 39;
-        const CSIDL_MYVIDEO: u32 = 14;
-        const CSIDL_NETHOOD: u32 = 19;
-        const CSIDL_NETWORK: u32 = 18;
-        const CSIDL_PERSONAL: u32 = 5;
-        const CSIDL_PRINTERS: u32 = 4;
-        const CSIDL_PRINTHOOD: u32 = 27;
-        const CSIDL_PROFILE: u32 = 40;
-        const CSIDL_PROGRAMS: u32 = 2;
-        const CSIDL_PROGRAM_FILES: u32 = 38;
-        const CSIDL_PROGRAM_FILESX86: u32 = 42;
-        const CSIDL_PROGRAM_FILES_COMMON: u32 = 43;
-        const CSIDL_PROGRAM_FILES_COMMONX86: u32 = 44;
-        const CSIDL_RECENT: u32 = 8;
-        const CSIDL_RESOURCES: u32 = 56;
-        const CSIDL_RESOURCES_LOCALIZED: u32 = 57;
-        const CSIDL_SENDTO: u32 = 9;
-        const CSIDL_STARTMENU: u32 = 11;
-        const CSIDL_STARTUP: u32 = 7;
-        const CSIDL_SYSTEM: u32 = 37;
-        const CSIDL_SYSTEMX86: u32 = 41;
-        const CSIDL_TEMPLATES: u32 = 21;
-        const CSIDL_WINDOWS: u32 = 36;
+        const CSIDL_ADMINTOOLS: i32 = 48;
+        const CSIDL_ALTSTARTUP: i32 = 29;
+        const CSIDL_APPDATA: i32 = 26;
+        const CSIDL_BITBUCKET: i32 = 10;
+        const CSIDL_CDBURN_AREA: i32 = 59;
+        const CSIDL_COMMON_ADMINTOOLS: i32 = 47;
+        const CSIDL_COMMON_ALTSTARTUP: i32 = 30;
+        const CSIDL_COMMON_APPDATA: i32 = 35;
+        const CSIDL_COMMON_DESKTOPDIRECTORY: i32 = 25;
+        const CSIDL_COMMON_DOCUMENTS: i32 = 46;
+        const CSIDL_COMMON_FAVORITES: i32 = 31;
+        const CSIDL_COMMON_MUSIC: i32 = 53;
+        const CSIDL_COMMON_OEM_LINKS: i32 = 58;
+        const CSIDL_COMMON_PICTURES: i32 = 54;
+        const CSIDL_COMMON_PROGRAMS: i32 = 23;
+        const CSIDL_COMMON_STARTMENU: i32 = 22;
+        const CSIDL_COMMON_STARTUP: i32 = 24;
+        const CSIDL_COMMON_TEMPLATES: i32 = 45;
+        const CSIDL_COMMON_VIDEO: i32 = 55;
+        const CSIDL_COMPUTERSNEARME: i32 = 61;
+        const CSIDL_CONNECTIONS: i32 = 49;
+        const CSIDL_CONTROLS: i32 = 3;
+        const CSIDL_COOKIES: i32 = 33;
+        const CSIDL_DESKTOP: i32 = 0;
+        const CSIDL_DESKTOPDIRECTORY: i32 = 16;
+        const CSIDL_DRIVES: i32 = 17;
+        const CSIDL_FAVORITES: i32 = 6;
+        const CSIDL_FLAG_CREATE: i32 = 32768;
+        const CSIDL_FLAG_DONT_UNEXPAND: i32 = 8192;
+        const CSIDL_FLAG_DONT_VERIFY: i32 = 16384;
+        const CSIDL_FLAG_MASK: i32 = 65280;
+        const CSIDL_FLAG_NO_ALIAS: i32 = 4096;
+        const CSIDL_FLAG_PER_USER_INIT: i32 = 2048;
+        const CSIDL_FONTS: i32 = 20;
+        const CSIDL_HISTORY: i32 = 34;
+        const CSIDL_INTERNET: i32 = 1;
+        const CSIDL_INTERNET_CACHE: i32 = 32;
+        const CSIDL_LOCAL_APPDATA: i32 = 28;
+        const CSIDL_MYDOCUMENTS: i32 = 5;
+        const CSIDL_MYMUSIC: i32 = 13;
+        const CSIDL_MYPICTURES: i32 = 39;
+        const CSIDL_MYVIDEO: i32 = 14;
+        const CSIDL_NETHOOD: i32 = 19;
+        const CSIDL_NETWORK: i32 = 18;
+        const CSIDL_PERSONAL: i32 = 5;
+        const CSIDL_PRINTERS: i32 = 4;
+        const CSIDL_PRINTHOOD: i32 = 27;
+        const CSIDL_PROFILE: i32 = 40;
+        const CSIDL_PROGRAMS: i32 = 2;
+        const CSIDL_PROGRAM_FILES: i32 = 38;
+        const CSIDL_PROGRAM_FILESX86: i32 = 42;
+        const CSIDL_PROGRAM_FILES_COMMON: i32 = 43;
+        const CSIDL_PROGRAM_FILES_COMMONX86: i32 = 44;
+        const CSIDL_RECENT: i32 = 8;
+        const CSIDL_RESOURCES: i32 = 56;
+        const CSIDL_RESOURCES_LOCALIZED: i32 = 57;
+        const CSIDL_SENDTO: i32 = 9;
+        const CSIDL_STARTMENU: i32 = 11;
+        const CSIDL_STARTUP: i32 = 7;
+        const CSIDL_SYSTEM: i32 = 37;
+        const CSIDL_SYSTEMX86: i32 = 41;
+        const CSIDL_TEMPLATES: i32 = 21;
+        const CSIDL_WINDOWS: i32 = 36;
         #[library("SHELL32.dll")]
         extern fn DAD_AutoScroll(hwnd: HWND, pad: *mut AUTO_SCROLL_DATA, pptNow: *const POINT) -> BOOL;
         #[library("SHELL32.dll")]
@@ -316,22 +316,22 @@ mod Windows {
         const DFM_CMD_RENAME: u32 = 4294967283;
         const DFM_CMD_VIEWDETAILS: u32 = 4294967287;
         const DFM_CMD_VIEWLIST: u32 = 4294967288;
-        const DFM_GETDEFSTATICID: u32 = 14;
-        const DFM_GETHELPTEXT: u32 = 5;
-        const DFM_GETHELPTEXTW: u32 = 11;
-        const DFM_GETVERBA: u32 = 16;
-        const DFM_GETVERBW: u32 = 15;
-        const DFM_INVOKECOMMAND: u32 = 2;
-        const DFM_INVOKECOMMANDEX: u32 = 12;
-        const DFM_MAPCOMMANDNAME: u32 = 13;
-        const DFM_MERGECONTEXTMENU: u32 = 1;
-        const DFM_MERGECONTEXTMENU_BOTTOM: u32 = 17;
-        const DFM_MERGECONTEXTMENU_TOP: u32 = 10;
-        const DFM_MODIFYQCMFLAGS: u32 = 18;
-        const DFM_VALIDATECMD: u32 = 9;
-        const DFM_WM_DRAWITEM: u32 = 7;
-        const DFM_WM_INITMENUPOPUP: u32 = 8;
-        const DFM_WM_MEASUREITEM: u32 = 6;
+        const DFM_GETDEFSTATICID: i32 = 14;
+        const DFM_GETHELPTEXT: i32 = 5;
+        const DFM_GETHELPTEXTW: i32 = 11;
+        const DFM_GETVERBA: i32 = 16;
+        const DFM_GETVERBW: i32 = 15;
+        const DFM_INVOKECOMMAND: i32 = 2;
+        const DFM_INVOKECOMMANDEX: i32 = 12;
+        const DFM_MAPCOMMANDNAME: i32 = 13;
+        const DFM_MERGECONTEXTMENU: i32 = 1;
+        const DFM_MERGECONTEXTMENU_BOTTOM: i32 = 17;
+        const DFM_MERGECONTEXTMENU_TOP: i32 = 10;
+        const DFM_MODIFYQCMFLAGS: i32 = 18;
+        const DFM_VALIDATECMD: i32 = 9;
+        const DFM_WM_DRAWITEM: i32 = 7;
+        const DFM_WM_INITMENUPOPUP: i32 = 8;
+        const DFM_WM_MEASUREITEM: i32 = 6;
         #[packed(1)]
         struct DROPDESCRIPTION {
             r#type: DROPIMAGETYPE,
@@ -356,9 +356,9 @@ mod Windows {
             DROPIMAGE_WARNING = 7,
             DROPIMAGE_NOIMAGE = 8,
         }
-        const DVASPECT_COPY: u32 = 3;
-        const DVASPECT_LINK: u32 = 4;
-        const DVASPECT_SHORTNAME: u32 = 2;
+        const DVASPECT_COPY: i32 = 3;
+        const DVASPECT_LINK: i32 = 4;
+        const DVASPECT_SHORTNAME: i32 = 2;
         #[library("SHELL32.dll")]
         extern fn DriveType(iDrive: i32) -> i32;
         const EXP_DARWIN_ID_SIG: u32 = 2684354566;
@@ -392,33 +392,33 @@ mod Windows {
             swzTarget: [u16; 260],
         }
         const EXP_SZ_LINK_SIG: u32 = 2684354561;
-        const FCIDM_BROWSERFIRST: u32 = 40960;
-        const FCIDM_BROWSERLAST: u32 = 48896;
-        const FCIDM_GLOBALFIRST: u32 = 32768;
-        const FCIDM_GLOBALLAST: u32 = 40959;
-        const FCIDM_MENU_EDIT: u32 = 32832;
-        const FCIDM_MENU_EXPLORE: u32 = 33104;
-        const FCIDM_MENU_FAVORITES: u32 = 33136;
-        const FCIDM_MENU_FILE: u32 = 32768;
-        const FCIDM_MENU_FIND: u32 = 33088;
-        const FCIDM_MENU_HELP: u32 = 33024;
-        const FCIDM_MENU_TOOLS: u32 = 32960;
-        const FCIDM_MENU_TOOLS_SEP_GOTO: u32 = 32961;
-        const FCIDM_MENU_VIEW: u32 = 32896;
-        const FCIDM_MENU_VIEW_SEP_OPTIONS: u32 = 32897;
-        const FCIDM_SHVIEWFIRST: u32 = 0;
-        const FCIDM_SHVIEWLAST: u32 = 32767;
-        const FCSM_CLSID: u32 = 8;
-        const FCSM_FLAGS: u32 = 64;
-        const FCSM_ICONFILE: u32 = 16;
-        const FCSM_INFOTIP: u32 = 4;
-        const FCSM_LOGO: u32 = 32;
-        const FCSM_VIEWID: u32 = 1;
-        const FCSM_WEBVIEWTEMPLATE: u32 = 2;
-        const FCS_FLAG_DRAGDROP: u32 = 2;
-        const FCS_FORCEWRITE: u32 = 2;
-        const FCS_READ: u32 = 1;
-        const FCS_WRITE: u32 = 3;
+        const FCIDM_BROWSERFIRST: i32 = 40960;
+        const FCIDM_BROWSERLAST: i32 = 48896;
+        const FCIDM_GLOBALFIRST: i32 = 32768;
+        const FCIDM_GLOBALLAST: i32 = 40959;
+        const FCIDM_MENU_EDIT: i32 = 32832;
+        const FCIDM_MENU_EXPLORE: i32 = 33104;
+        const FCIDM_MENU_FAVORITES: i32 = 33136;
+        const FCIDM_MENU_FILE: i32 = 32768;
+        const FCIDM_MENU_FIND: i32 = 33088;
+        const FCIDM_MENU_HELP: i32 = 33024;
+        const FCIDM_MENU_TOOLS: i32 = 32960;
+        const FCIDM_MENU_TOOLS_SEP_GOTO: i32 = 32961;
+        const FCIDM_MENU_VIEW: i32 = 32896;
+        const FCIDM_MENU_VIEW_SEP_OPTIONS: i32 = 32897;
+        const FCIDM_SHVIEWFIRST: i32 = 0;
+        const FCIDM_SHVIEWLAST: i32 = 32767;
+        const FCSM_CLSID: i32 = 8;
+        const FCSM_FLAGS: i32 = 64;
+        const FCSM_ICONFILE: i32 = 16;
+        const FCSM_INFOTIP: i32 = 4;
+        const FCSM_LOGO: i32 = 32;
+        const FCSM_VIEWID: i32 = 1;
+        const FCSM_WEBVIEWTEMPLATE: i32 = 2;
+        const FCS_FLAG_DRAGDROP: i32 = 2;
+        const FCS_FORCEWRITE: i32 = 2;
+        const FCS_READ: i32 = 1;
+        const FCS_WRITE: i32 = 3;
         #[repr(i32)]
         enum FD_FLAGS {
             FD_CLSID = 1,
@@ -477,19 +477,19 @@ mod Windows {
             dwProductFileAttributes: u32,
             rgdwFileAttributes: [u32; 1],
         }
-        const GIL_ASYNC: u32 = 32;
-        const GIL_CHECKSHIELD: u32 = 512;
-        const GIL_DEFAULTICON: u32 = 64;
-        const GIL_DONTCACHE: u32 = 16;
-        const GIL_FORCENOSHIELD: u32 = 1024;
-        const GIL_FORSHELL: u32 = 2;
-        const GIL_FORSHORTCUT: u32 = 128;
-        const GIL_NOTFILENAME: u32 = 8;
-        const GIL_OPENICON: u32 = 1;
-        const GIL_PERCLASS: u32 = 4;
-        const GIL_PERINSTANCE: u32 = 2;
-        const GIL_SHIELD: u32 = 512;
-        const GIL_SIMULATEDOC: u32 = 1;
+        const GIL_ASYNC: i32 = 32;
+        const GIL_CHECKSHIELD: i32 = 512;
+        const GIL_DEFAULTICON: i32 = 64;
+        const GIL_DONTCACHE: i32 = 16;
+        const GIL_FORCENOSHIELD: i32 = 1024;
+        const GIL_FORSHELL: i32 = 2;
+        const GIL_FORSHORTCUT: i32 = 128;
+        const GIL_NOTFILENAME: i32 = 8;
+        const GIL_OPENICON: i32 = 1;
+        const GIL_PERCLASS: i32 = 4;
+        const GIL_PERINSTANCE: i32 = 2;
+        const GIL_SHIELD: i32 = 512;
+        const GIL_SIMULATEDOC: i32 = 1;
         const GPFIDL_ALTNAME: i32 = 1;
         const GPFIDL_DEFAULT: i32 = 0;
         type GPFIDL_FLAGS = i32;
@@ -529,8 +529,8 @@ mod Windows {
             fn GetDesktopItemBySource(&self, pwszSource: PCWSTR, #[in] #[out] pcomp: *mut COMPONENT, dwReserved: u32) -> HRESULT;
         }
         const IDO_SHGIOI_DEFAULT: u32 = 4294967292;
-        const IDO_SHGIOI_LINK: u32 = 268435454;
-        const IDO_SHGIOI_SHARE: u32 = 268435455;
+        const IDO_SHGIOI_LINK: i32 = 268435454;
+        const IDO_SHGIOI_SHARE: i32 = 268435455;
         const IDO_SHGIOI_SLOWFILE: u32 = 4294967293;
         #[guid(0x2a342fc2_7b26_11d0_8ca9_00a0c92dbfe8)]
         interface IDockingWindowSite: IOleWindow {
@@ -633,11 +633,11 @@ mod Windows {
         const ISHCUTCMDID_DOWNLOADICON: i32 = 0;
         const ISHCUTCMDID_INTSHORTCUTCREATE: i32 = 1;
         const ISHCUTCMDID_SETUSERAWURL: i32 = 3;
-        const IS_FULLSCREEN: u32 = 2;
-        const IS_NORMAL: u32 = 1;
-        const IS_SPLIT: u32 = 4;
-        const IS_VALIDSIZESTATEBITS: u32 = 7;
-        const IS_VALIDSTATEBITS: i32 = -1073741817;
+        const IS_FULLSCREEN: i32 = 2;
+        const IS_NORMAL: i32 = 1;
+        const IS_SPLIT: i32 = 4;
+        const IS_VALIDSIZESTATEBITS: i32 = 7;
+        const IS_VALIDSTATEBITS: u32 = 3221225479;
         #[guid(0x09f656a2_41af_480c_88f7_16cc0d164615)]
         interface ISearchContext: IUnknown {
             fn GetSearchUrl(&self, pbstrSearchUrl: *mut BSTR) -> HRESULT;
@@ -789,11 +789,11 @@ mod Windows {
         type LPSHELLSTATEW = *mut SHELLSTATEW;
         type LPSHFOLDERCUSTOMSETTINGS = *mut SHFOLDERCUSTOMSETTINGS;
         type LPWALLPAPEROPT = *mut WALLPAPEROPT;
-        const MAX_COLUMN_DESC_LEN: u32 = 128;
-        const MAX_COLUMN_NAME_LEN: u32 = 80;
-        const MM_ADDSEPARATOR: u32 = 1;
-        const MM_DONTREMOVESEPS: u32 = 4;
-        const MM_SUBMENUSHAVEIDS: u32 = 2;
+        const MAX_COLUMN_DESC_LEN: i32 = 128;
+        const MAX_COLUMN_NAME_LEN: i32 = 80;
+        const MM_ADDSEPARATOR: i32 = 1;
+        const MM_DONTREMOVESEPS: i32 = 4;
+        const MM_SUBMENUSHAVEIDS: i32 = 2;
         struct NRESARRAY {
             cItems: u32,
             nr: [NETRESOURCE; 1],
@@ -829,11 +829,11 @@ mod Windows {
             uCodePage: u32,
         }
         const NT_FE_CONSOLE_PROPS_SIG: u32 = 2684354564;
-        const NUM_POINTS: u32 = 3;
-        const OFASI_EDIT: u32 = 1;
-        const OFASI_OPENDESKTOP: u32 = 2;
+        const NUM_POINTS: i32 = 3;
+        const OFASI_EDIT: i32 = 1;
+        const OFASI_OPENDESKTOP: i32 = 2;
         const OI_ASYNC: u32 = 4294962926;
-        const OI_DEFAULT: u32 = 0;
+        const OI_DEFAULT: i32 = 0;
         struct OPENASINFO {
             pcszFile: PCWSTR,
             pcszClass: PCWSTR,
@@ -845,81 +845,81 @@ mod Windows {
         type PBROWSEINFOA = *mut BROWSEINFOA;
         type PBROWSEINFOW = *mut BROWSEINFOW;
         const PCS_FATAL: u32 = 2147483648;
-        const PCS_PATHTOOLONG: u32 = 8;
-        const PCS_REMOVEDCHAR: u32 = 2;
-        const PCS_REPLACEDCHAR: u32 = 1;
-        const PCS_TRUNCATED: u32 = 4;
+        const PCS_PATHTOOLONG: i32 = 8;
+        const PCS_REMOVEDCHAR: i32 = 2;
+        const PCS_REPLACEDCHAR: i32 = 1;
+        const PCS_TRUNCATED: i32 = 4;
         type PDETAILSINFO = *mut DETAILSINFO;
         type PDFMICS = *mut DFMICS;
-        const PDTIMER_PAUSE: u32 = 2;
-        const PDTIMER_RESET: u32 = 1;
-        const PDTIMER_RESUME: u32 = 3;
-        const PIDISF_CACHEDSTICKY: u32 = 2;
-        const PIDISF_CACHEIMAGES: u32 = 16;
-        const PIDISF_FOLLOWALLLINKS: u32 = 32;
-        const PIDISF_RECENTLYCHANGED: u32 = 1;
-        const PIDISM_DONTWATCH: u32 = 2;
-        const PIDISM_GLOBAL: u32 = 0;
-        const PIDISM_WATCH: u32 = 1;
-        const PIDISR_NEEDS_ADD: u32 = 1;
-        const PIDISR_NEEDS_DELETE: u32 = 3;
-        const PIDISR_NEEDS_UPDATE: u32 = 2;
-        const PIDISR_UP_TO_DATE: u32 = 0;
-        const PID_INTSITE_AUTHOR: u32 = 3;
-        const PID_INTSITE_CODEPAGE: u32 = 18;
-        const PID_INTSITE_COMMENT: u32 = 8;
-        const PID_INTSITE_CONTENTCODE: u32 = 11;
-        const PID_INTSITE_CONTENTLEN: u32 = 10;
-        const PID_INTSITE_DESCRIPTION: u32 = 7;
-        const PID_INTSITE_FLAGS: u32 = 9;
-        const PID_INTSITE_ICONFILE: u32 = 21;
-        const PID_INTSITE_ICONINDEX: u32 = 20;
-        const PID_INTSITE_LASTMOD: u32 = 5;
-        const PID_INTSITE_LASTVISIT: u32 = 4;
-        const PID_INTSITE_RECURSE: u32 = 12;
-        const PID_INTSITE_ROAMED: u32 = 34;
-        const PID_INTSITE_SUBSCRIPTION: u32 = 14;
-        const PID_INTSITE_TITLE: u32 = 16;
-        const PID_INTSITE_TRACKING: u32 = 19;
-        const PID_INTSITE_URL: u32 = 15;
-        const PID_INTSITE_VISITCOUNT: u32 = 6;
-        const PID_INTSITE_WATCH: u32 = 13;
-        const PID_INTSITE_WHATSNEW: u32 = 2;
-        const PID_IS_AUTHOR: u32 = 11;
-        const PID_IS_COMMENT: u32 = 13;
-        const PID_IS_DESCRIPTION: u32 = 12;
-        const PID_IS_HOTKEY: u32 = 6;
-        const PID_IS_ICONFILE: u32 = 9;
-        const PID_IS_ICONINDEX: u32 = 8;
-        const PID_IS_NAME: u32 = 4;
-        const PID_IS_ROAMED: u32 = 15;
-        const PID_IS_SHOWCMD: u32 = 7;
-        const PID_IS_URL: u32 = 2;
-        const PID_IS_WHATSNEW: u32 = 10;
-        const PID_IS_WORKINGDIR: u32 = 5;
-        const PIFDEFFILESIZE: u32 = 80;
-        const PIFDEFPATHSIZE: u32 = 64;
-        const PIFMAXFILEPATH: u32 = 260;
-        const PIFNAMESIZE: u32 = 30;
-        const PIFPARAMSSIZE: u32 = 64;
-        const PIFSHDATASIZE: u32 = 64;
-        const PIFSHPROGSIZE: u32 = 64;
-        const PIFSTARTLOCSIZE: u32 = 63;
+        const PDTIMER_PAUSE: i32 = 2;
+        const PDTIMER_RESET: i32 = 1;
+        const PDTIMER_RESUME: i32 = 3;
+        const PIDISF_CACHEDSTICKY: i32 = 2;
+        const PIDISF_CACHEIMAGES: i32 = 16;
+        const PIDISF_FOLLOWALLLINKS: i32 = 32;
+        const PIDISF_RECENTLYCHANGED: i32 = 1;
+        const PIDISM_DONTWATCH: i32 = 2;
+        const PIDISM_GLOBAL: i32 = 0;
+        const PIDISM_WATCH: i32 = 1;
+        const PIDISR_NEEDS_ADD: i32 = 1;
+        const PIDISR_NEEDS_DELETE: i32 = 3;
+        const PIDISR_NEEDS_UPDATE: i32 = 2;
+        const PIDISR_UP_TO_DATE: i32 = 0;
+        const PID_INTSITE_AUTHOR: i32 = 3;
+        const PID_INTSITE_CODEPAGE: i32 = 18;
+        const PID_INTSITE_COMMENT: i32 = 8;
+        const PID_INTSITE_CONTENTCODE: i32 = 11;
+        const PID_INTSITE_CONTENTLEN: i32 = 10;
+        const PID_INTSITE_DESCRIPTION: i32 = 7;
+        const PID_INTSITE_FLAGS: i32 = 9;
+        const PID_INTSITE_ICONFILE: i32 = 21;
+        const PID_INTSITE_ICONINDEX: i32 = 20;
+        const PID_INTSITE_LASTMOD: i32 = 5;
+        const PID_INTSITE_LASTVISIT: i32 = 4;
+        const PID_INTSITE_RECURSE: i32 = 12;
+        const PID_INTSITE_ROAMED: i32 = 34;
+        const PID_INTSITE_SUBSCRIPTION: i32 = 14;
+        const PID_INTSITE_TITLE: i32 = 16;
+        const PID_INTSITE_TRACKING: i32 = 19;
+        const PID_INTSITE_URL: i32 = 15;
+        const PID_INTSITE_VISITCOUNT: i32 = 6;
+        const PID_INTSITE_WATCH: i32 = 13;
+        const PID_INTSITE_WHATSNEW: i32 = 2;
+        const PID_IS_AUTHOR: i32 = 11;
+        const PID_IS_COMMENT: i32 = 13;
+        const PID_IS_DESCRIPTION: i32 = 12;
+        const PID_IS_HOTKEY: i32 = 6;
+        const PID_IS_ICONFILE: i32 = 9;
+        const PID_IS_ICONINDEX: i32 = 8;
+        const PID_IS_NAME: i32 = 4;
+        const PID_IS_ROAMED: i32 = 15;
+        const PID_IS_SHOWCMD: i32 = 7;
+        const PID_IS_URL: i32 = 2;
+        const PID_IS_WHATSNEW: i32 = 10;
+        const PID_IS_WORKINGDIR: i32 = 5;
+        const PIFDEFFILESIZE: i32 = 80;
+        const PIFDEFPATHSIZE: i32 = 64;
+        const PIFMAXFILEPATH: i32 = 260;
+        const PIFNAMESIZE: i32 = 30;
+        const PIFPARAMSSIZE: i32 = 64;
+        const PIFSHDATASIZE: i32 = 64;
+        const PIFSHPROGSIZE: i32 = 64;
+        const PIFSTARTLOCSIZE: i32 = 63;
         type POPENASINFO = *mut OPENASINFO;
         type PPROPPRG = *mut PROPPRG;
-        const PRF_DONTFINDLNK: u32 = 8;
-        const PRF_FIRSTDIRDEF: u32 = 4;
-        const PRF_REQUIREABSOLUTE: u32 = 16;
-        const PRF_TRYPROGRAMEXTENSIONS: u32 = 3;
-        const PRF_VERIFYEXISTS: u32 = 1;
-        const PROGDLG_AUTOTIME: u32 = 2;
-        const PROGDLG_MARQUEEPROGRESS: u32 = 32;
-        const PROGDLG_MODAL: u32 = 1;
-        const PROGDLG_NOCANCEL: u32 = 64;
-        const PROGDLG_NOMINIMIZE: u32 = 8;
-        const PROGDLG_NOPROGRESSBAR: u32 = 16;
-        const PROGDLG_NORMAL: u32 = 0;
-        const PROGDLG_NOTIME: u32 = 4;
+        const PRF_DONTFINDLNK: i32 = 8;
+        const PRF_FIRSTDIRDEF: i32 = 4;
+        const PRF_REQUIREABSOLUTE: i32 = 16;
+        const PRF_TRYPROGRAMEXTENSIONS: i32 = 3;
+        const PRF_VERIFYEXISTS: i32 = 1;
+        const PROGDLG_AUTOTIME: i32 = 2;
+        const PROGDLG_MARQUEEPROGRESS: i32 = 32;
+        const PROGDLG_MODAL: i32 = 1;
+        const PROGDLG_NOCANCEL: i32 = 64;
+        const PROGDLG_NOMINIMIZE: i32 = 8;
+        const PROGDLG_NOPROGRESSBAR: i32 = 16;
+        const PROGDLG_NORMAL: i32 = 0;
+        const PROGDLG_NOTIME: i32 = 4;
         #[packed(1)]
         struct PROPPRG {
             flPrg: u16,
@@ -972,16 +972,16 @@ mod Windows {
             id: u32,
             fFlags: u32,
         }
-        const QCMINFO_PLACE_AFTER: u32 = 1;
-        const QCMINFO_PLACE_BEFORE: u32 = 0;
-        const QIF_CACHED: u32 = 1;
-        const QIF_DONTEXPANDFOLDER: u32 = 2;
-        const QITIPF_DEFAULT: u32 = 0;
-        const QITIPF_LINKNOTARGET: u32 = 2;
-        const QITIPF_LINKUSETARGET: u32 = 4;
-        const QITIPF_SINGLELINE: u32 = 16;
-        const QITIPF_USENAME: u32 = 1;
-        const QITIPF_USESLOWTIP: u32 = 8;
+        const QCMINFO_PLACE_AFTER: i32 = 1;
+        const QCMINFO_PLACE_BEFORE: i32 = 0;
+        const QIF_CACHED: i32 = 1;
+        const QIF_DONTEXPANDFOLDER: i32 = 2;
+        const QITIPF_DEFAULT: i32 = 0;
+        const QITIPF_LINKNOTARGET: i32 = 2;
+        const QITIPF_LINKUSETARGET: i32 = 4;
+        const QITIPF_SINGLELINE: i32 = 16;
+        const QITIPF_USENAME: i32 = 1;
+        const QITIPF_USESLOWTIP: i32 = 8;
         #[repr(i32)]
         enum RESTRICTIONS {
             REST_NONE = 0,
@@ -1162,49 +1162,49 @@ mod Windows {
             SCNRT_ENABLE = 0,
             SCNRT_DISABLE = 1,
         }
-        const SFVM_ADDPROPERTYPAGES: u32 = 47;
-        const SFVM_BACKGROUNDENUM: u32 = 32;
-        const SFVM_BACKGROUNDENUMDONE: u32 = 48;
-        const SFVM_COLUMNCLICK: u32 = 24;
-        const SFVM_DEFITEMCOUNT: u32 = 26;
-        const SFVM_DEFVIEWMODE: u32 = 27;
-        const SFVM_DIDDRAGDROP: u32 = 36;
-        const SFVM_FSNOTIFY: u32 = 14;
-        const SFVM_GETANIMATION: u32 = 68;
-        const SFVM_GETBUTTONINFO: u32 = 5;
-        const SFVM_GETBUTTONS: u32 = 6;
-        const SFVM_GETDETAILSOF: u32 = 23;
-        const SFVM_GETHELPTEXT: u32 = 3;
-        const SFVM_GETHELPTOPIC: u32 = 63;
-        const SFVM_GETNOTIFY: u32 = 49;
-        const SFVM_GETPANE: u32 = 59;
-        const SFVM_GETSORTDEFAULTS: u32 = 53;
-        const SFVM_GETTOOLTIPTEXT: u32 = 4;
-        const SFVM_GETZONE: u32 = 58;
+        const SFVM_ADDPROPERTYPAGES: i32 = 47;
+        const SFVM_BACKGROUNDENUM: i32 = 32;
+        const SFVM_BACKGROUNDENUMDONE: i32 = 48;
+        const SFVM_COLUMNCLICK: i32 = 24;
+        const SFVM_DEFITEMCOUNT: i32 = 26;
+        const SFVM_DEFVIEWMODE: i32 = 27;
+        const SFVM_DIDDRAGDROP: i32 = 36;
+        const SFVM_FSNOTIFY: i32 = 14;
+        const SFVM_GETANIMATION: i32 = 68;
+        const SFVM_GETBUTTONINFO: i32 = 5;
+        const SFVM_GETBUTTONS: i32 = 6;
+        const SFVM_GETDETAILSOF: i32 = 23;
+        const SFVM_GETHELPTEXT: i32 = 3;
+        const SFVM_GETHELPTOPIC: i32 = 63;
+        const SFVM_GETNOTIFY: i32 = 49;
+        const SFVM_GETPANE: i32 = 59;
+        const SFVM_GETSORTDEFAULTS: i32 = 53;
+        const SFVM_GETTOOLTIPTEXT: i32 = 4;
+        const SFVM_GETZONE: i32 = 58;
         struct SFVM_HELPTOPIC_DATA {
             wszHelpFile: [u16; 260],
             wszHelpTopic: [u16; 260],
         }
-        const SFVM_INITMENUPOPUP: u32 = 7;
-        const SFVM_INVOKECOMMAND: u32 = 2;
-        const SFVM_MERGEMENU: u32 = 1;
+        const SFVM_INITMENUPOPUP: i32 = 7;
+        const SFVM_INVOKECOMMAND: i32 = 2;
+        const SFVM_MERGEMENU: i32 = 1;
         struct SFVM_PROPPAGE_DATA {
             dwReserved: u32,
             pfn: LPFNADDPROPSHEETPAGE,
             lParam: LPARAM,
         }
-        const SFVM_QUERYFSNOTIFY: u32 = 25;
-        const SFVM_SETISFV: u32 = 39;
-        const SFVM_SIZE: u32 = 57;
-        const SFVM_THISIDLIST: u32 = 41;
-        const SFVM_UNMERGEMENU: u32 = 28;
-        const SFVM_UPDATESTATUSBAR: u32 = 31;
-        const SFVM_WINDOWCREATED: u32 = 15;
-        const SFVSOC_INVALIDATE_ALL: u32 = 1;
-        const SFVSOC_NOSCROLL: u32 = 2;
-        const SFVS_SELECT_ALLITEMS: u32 = 1;
-        const SFVS_SELECT_INVERT: u32 = 2;
-        const SFVS_SELECT_NONE: u32 = 0;
+        const SFVM_QUERYFSNOTIFY: i32 = 25;
+        const SFVM_SETISFV: i32 = 39;
+        const SFVM_SIZE: i32 = 57;
+        const SFVM_THISIDLIST: i32 = 41;
+        const SFVM_UNMERGEMENU: i32 = 28;
+        const SFVM_UPDATESTATUSBAR: i32 = 31;
+        const SFVM_WINDOWCREATED: i32 = 15;
+        const SFVSOC_INVALIDATE_ALL: i32 = 1;
+        const SFVSOC_NOSCROLL: i32 = 2;
+        const SFVS_SELECT_ALLITEMS: i32 = 1;
+        const SFVS_SELECT_INVERT: i32 = 2;
+        const SFVS_SELECT_NONE: i32 = 0;
         struct SFV_CREATE {
             cbSize: u32,
             pshf: IShellFolder,
@@ -1237,7 +1237,7 @@ mod Windows {
             psl: IShellLinkA,
             pszAppID: PCWSTR,
         }
-        const SHARD_PATH: u32 = 2;
+        const SHARD_PATH: i32 = 2;
         #[library("SHELL32.dll")]
         extern fn SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnAddPage: LPFNADDPROPSHEETPAGE, lParam: LPARAM) -> u32;
         #[library("SHELL32.dll")]
@@ -1258,50 +1258,50 @@ mod Windows {
         extern fn SHBrowseForFolderW(lpbi: *const BROWSEINFOW) -> LPITEMIDLIST;
         #[library("SHELL32.dll")]
         extern fn SHCLSIDFromString(psz: PCWSTR, pclsid: *mut GUID) -> HRESULT;
-        const SHCNEE_MSI_CHANGE: u32 = 4;
-        const SHCNEE_MSI_UNINSTALL: u32 = 5;
-        const SHCNEE_ORDERCHANGED: u32 = 2;
-        const SHCNE_ALLEVENTS: u32 = 2147483647;
-        const SHCNE_ASSOCCHANGED: u32 = 134217728;
-        const SHCNE_ATTRIBUTES: u32 = 2048;
-        const SHCNE_CREATE: u32 = 2;
-        const SHCNE_DELETE: u32 = 4;
-        const SHCNE_DISKEVENTS: u32 = 145439;
-        const SHCNE_DRIVEADD: u32 = 256;
-        const SHCNE_DRIVEADDGUI: u32 = 65536;
-        const SHCNE_DRIVEREMOVED: u32 = 128;
-        const SHCNE_EXTENDED_EVENT: u32 = 67108864;
-        const SHCNE_FREESPACE: u32 = 262144;
-        const SHCNE_GLOBALEVENTS: u32 = 201687520;
+        const SHCNEE_MSI_CHANGE: i32 = 4;
+        const SHCNEE_MSI_UNINSTALL: i32 = 5;
+        const SHCNEE_ORDERCHANGED: i32 = 2;
+        const SHCNE_ALLEVENTS: i32 = 2147483647;
+        const SHCNE_ASSOCCHANGED: i32 = 134217728;
+        const SHCNE_ATTRIBUTES: i32 = 2048;
+        const SHCNE_CREATE: i32 = 2;
+        const SHCNE_DELETE: i32 = 4;
+        const SHCNE_DISKEVENTS: i32 = 145439;
+        const SHCNE_DRIVEADD: i32 = 256;
+        const SHCNE_DRIVEADDGUI: i32 = 65536;
+        const SHCNE_DRIVEREMOVED: i32 = 128;
+        const SHCNE_EXTENDED_EVENT: i32 = 67108864;
+        const SHCNE_FREESPACE: i32 = 262144;
+        const SHCNE_GLOBALEVENTS: i32 = 201687520;
         const SHCNE_INTERRUPT: u32 = 2147483648;
-        const SHCNE_MEDIAINSERTED: u32 = 32;
-        const SHCNE_MEDIAREMOVED: u32 = 64;
-        const SHCNE_MKDIR: u32 = 8;
-        const SHCNE_NETSHARE: u32 = 512;
-        const SHCNE_NETUNSHARE: u32 = 1024;
-        const SHCNE_RENAMEFOLDER: u32 = 131072;
-        const SHCNE_RENAMEITEM: u32 = 1;
-        const SHCNE_RMDIR: u32 = 16;
-        const SHCNE_SERVERDISCONNECT: u32 = 16384;
-        const SHCNE_UPDATEDIR: u32 = 4096;
-        const SHCNE_UPDATEIMAGE: u32 = 32768;
-        const SHCNE_UPDATEITEM: u32 = 8192;
-        const SHCNF_DWORD: u32 = 3;
-        const SHCNF_FLUSH: u32 = 4096;
-        const SHCNF_FLUSHNOWAIT: u32 = 12288;
-        const SHCNF_IDLIST: u32 = 0;
-        const SHCNF_NOTIFYRECURSIVE: u32 = 65536;
-        const SHCNF_PATH: u32 = 1;
-        const SHCNF_PATHA: u32 = 1;
-        const SHCNF_PATHW: u32 = 5;
-        const SHCNF_PRINTER: u32 = 2;
-        const SHCNF_PRINTERA: u32 = 2;
-        const SHCNF_PRINTERW: u32 = 6;
-        const SHCNF_TYPE: u32 = 255;
-        const SHCNRF_InterruptLevel: u32 = 1;
-        const SHCNRF_NewDelivery: u32 = 32768;
-        const SHCNRF_RecursiveInterrupt: u32 = 4096;
-        const SHCNRF_ShellLevel: u32 = 2;
+        const SHCNE_MEDIAINSERTED: i32 = 32;
+        const SHCNE_MEDIAREMOVED: i32 = 64;
+        const SHCNE_MKDIR: i32 = 8;
+        const SHCNE_NETSHARE: i32 = 512;
+        const SHCNE_NETUNSHARE: i32 = 1024;
+        const SHCNE_RENAMEFOLDER: i32 = 131072;
+        const SHCNE_RENAMEITEM: i32 = 1;
+        const SHCNE_RMDIR: i32 = 16;
+        const SHCNE_SERVERDISCONNECT: i32 = 16384;
+        const SHCNE_UPDATEDIR: i32 = 4096;
+        const SHCNE_UPDATEIMAGE: i32 = 32768;
+        const SHCNE_UPDATEITEM: i32 = 8192;
+        const SHCNF_DWORD: i32 = 3;
+        const SHCNF_FLUSH: i32 = 4096;
+        const SHCNF_FLUSHNOWAIT: i32 = 12288;
+        const SHCNF_IDLIST: i32 = 0;
+        const SHCNF_NOTIFYRECURSIVE: i32 = 65536;
+        const SHCNF_PATH: i32 = 1;
+        const SHCNF_PATHA: i32 = 1;
+        const SHCNF_PATHW: i32 = 5;
+        const SHCNF_PRINTER: i32 = 2;
+        const SHCNF_PRINTERA: i32 = 2;
+        const SHCNF_PRINTERW: i32 = 6;
+        const SHCNF_TYPE: i32 = 255;
+        const SHCNRF_InterruptLevel: i32 = 1;
+        const SHCNRF_NewDelivery: i32 = 32768;
+        const SHCNRF_RecursiveInterrupt: i32 = 4096;
+        const SHCNRF_ShellLevel: i32 = 2;
         #[packed(1)]
         struct SHChangeDWORDAsIDList {
             cb: u16,
@@ -1362,28 +1362,28 @@ mod Windows {
             dwDescriptionId: u32,
             clsid: GUID,
         }
-        const SHDID_COMPUTER_AUDIO: u32 = 19;
-        const SHDID_COMPUTER_CDROM: u32 = 10;
-        const SHDID_COMPUTER_DRIVE35: u32 = 5;
-        const SHDID_COMPUTER_DRIVE525: u32 = 6;
-        const SHDID_COMPUTER_FIXED: u32 = 8;
-        const SHDID_COMPUTER_IMAGING: u32 = 18;
-        const SHDID_COMPUTER_NETDRIVE: u32 = 9;
-        const SHDID_COMPUTER_OTHER: u32 = 12;
-        const SHDID_COMPUTER_RAMDISK: u32 = 11;
-        const SHDID_COMPUTER_REMOVABLE: u32 = 7;
-        const SHDID_COMPUTER_SHAREDDOCS: u32 = 20;
-        const SHDID_FS_DIRECTORY: u32 = 3;
-        const SHDID_FS_FILE: u32 = 2;
-        const SHDID_FS_OTHER: u32 = 4;
-        const SHDID_MOBILE_DEVICE: u32 = 21;
-        const SHDID_NET_DOMAIN: u32 = 13;
-        const SHDID_NET_OTHER: u32 = 17;
-        const SHDID_NET_RESTOFNET: u32 = 16;
-        const SHDID_NET_SERVER: u32 = 14;
-        const SHDID_NET_SHARE: u32 = 15;
-        const SHDID_REMOTE_DESKTOP_DRIVE: u32 = 22;
-        const SHDID_ROOT_REGITEM: u32 = 1;
+        const SHDID_COMPUTER_AUDIO: i32 = 19;
+        const SHDID_COMPUTER_CDROM: i32 = 10;
+        const SHDID_COMPUTER_DRIVE35: i32 = 5;
+        const SHDID_COMPUTER_DRIVE525: i32 = 6;
+        const SHDID_COMPUTER_FIXED: i32 = 8;
+        const SHDID_COMPUTER_IMAGING: i32 = 18;
+        const SHDID_COMPUTER_NETDRIVE: i32 = 9;
+        const SHDID_COMPUTER_OTHER: i32 = 12;
+        const SHDID_COMPUTER_RAMDISK: i32 = 11;
+        const SHDID_COMPUTER_REMOVABLE: i32 = 7;
+        const SHDID_COMPUTER_SHAREDDOCS: i32 = 20;
+        const SHDID_FS_DIRECTORY: i32 = 3;
+        const SHDID_FS_FILE: i32 = 2;
+        const SHDID_FS_OTHER: i32 = 4;
+        const SHDID_MOBILE_DEVICE: i32 = 21;
+        const SHDID_NET_DOMAIN: i32 = 13;
+        const SHDID_NET_OTHER: i32 = 17;
+        const SHDID_NET_RESTOFNET: i32 = 16;
+        const SHDID_NET_SERVER: i32 = 14;
+        const SHDID_NET_SHARE: i32 = 15;
+        const SHDID_REMOTE_DESKTOP_DRIVE: i32 = 22;
+        const SHDID_ROOT_REGITEM: i32 = 1;
         #[library("SHELL32.dll")]
         extern fn SHDefExtractIconA(pszIconFile: PCSTR, iIndex: i32, uFlags: u32, #[opt] phiconLarge: *mut HICON, #[opt] phiconSmall: *mut HICON, nIconSize: u32) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -1451,8 +1451,8 @@ mod Windows {
                 fSpareFlags: 9,
             },
         }
-        const SHELLSTATEVERSION_IE4: u32 = 9;
-        const SHELLSTATEVERSION_WIN2K: u32 = 10;
+        const SHELLSTATEVERSION_IE4: i32 = 9;
+        const SHELLSTATEVERSION_WIN2K: i32 = 10;
         #[packed(1)]
         struct SHELLSTATEW {
             _bitfield1: BOOL {
@@ -1491,9 +1491,9 @@ mod Windows {
                 fSpareFlags: 9,
             },
         }
-        const SHELLSTATE_SIZE_IE4: u32 = 24;
-        const SHELLSTATE_SIZE_NT4: u32 = 20;
-        const SHELLSTATE_SIZE_WIN95: u32 = 12;
+        const SHELLSTATE_SIZE_IE4: i32 = 24;
+        const SHELLSTATE_SIZE_NT4: i32 = 20;
+        const SHELLSTATE_SIZE_WIN95: i32 = 12;
         #[repr(u32)]
         #[flags]
         enum SHELL_LINK_DATA_FLAGS {
@@ -1530,10 +1530,10 @@ mod Windows {
         }
         const SHFMT_CANCEL: u32 = 4294967294;
         const SHFMT_ERROR: u32 = 4294967295;
-        const SHFMT_ID_DEFAULT: u32 = 65535;
+        const SHFMT_ID_DEFAULT: i32 = 65535;
         const SHFMT_NOFORMAT: u32 = 4294967293;
-        const SHFMT_OPT_FULL: u32 = 1;
-        const SHFMT_OPT_SYSONLY: u32 = 2;
+        const SHFMT_OPT_FULL: i32 = 1;
+        const SHFMT_OPT_SYSONLY: i32 = 2;
         struct SHFOLDERCUSTOMSETTINGS {
             dwSize: u32,
             dwMask: u32,
@@ -1561,9 +1561,9 @@ mod Windows {
         extern fn SHFormatDrive(hwnd: HWND, drive: u32, fmtID: u32, options: u32) -> u32;
         #[library("SHELL32.dll")]
         extern fn SHFree(#[opt] pv: *const void);
-        const SHGDFIL_DESCRIPTIONID: u32 = 3;
-        const SHGDFIL_FINDDATA: u32 = 1;
-        const SHGDFIL_NETRESOURCE: u32 = 2;
+        const SHGDFIL_DESCRIPTIONID: i32 = 3;
+        const SHGDFIL_FINDDATA: i32 = 1;
+        const SHGDFIL_NETRESOURCE: i32 = 2;
         #[repr(i32)]
         enum SHGFP_TYPE {
             SHGFP_TYPE_CURRENT = 0,
@@ -1631,22 +1631,22 @@ mod Windows {
         extern fn SHLoadInProc(rclsid: *const GUID) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHMapPIDLToSystemImageListIndex(pshf: IShellFolder, pidl: *const ITEMIDLIST, #[opt] piIndexSel: *mut i32) -> i32;
-        const SHOP_FILEPATH: u32 = 2;
-        const SHOP_PRINTERNAME: u32 = 1;
-        const SHOP_VOLUMEGUID: u32 = 4;
+        const SHOP_FILEPATH: i32 = 2;
+        const SHOP_PRINTERNAME: i32 = 1;
+        const SHOP_VOLUMEGUID: i32 = 4;
         #[library("SHELL32.dll")]
         extern fn SHObjectProperties(#[opt] hwnd: HWND, shopObjectType: u32, pszObjectName: PCWSTR, #[opt] pszPropertyPage: PCWSTR) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHOpenFolderAndSelectItems(pidlFolder: *const ITEMIDLIST, cidl: u32, #[len_param(1)] #[opt] apidl: *const LPCITEMIDLIST, dwFlags: u32) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHOpenWithDialog(#[opt] hwndParent: HWND, poainfo: *const OPENASINFO) -> HRESULT;
-        const SHPPFW_ASKDIRCREATE: u32 = 2;
-        const SHPPFW_DEFAULT: u32 = 1;
-        const SHPPFW_DIRCREATE: u32 = 1;
-        const SHPPFW_IGNOREFILENAME: u32 = 4;
-        const SHPPFW_MEDIACHECKONLY: u32 = 16;
-        const SHPPFW_NONE: u32 = 0;
-        const SHPPFW_NOWRITECHECK: u32 = 8;
+        const SHPPFW_ASKDIRCREATE: i32 = 2;
+        const SHPPFW_DEFAULT: i32 = 1;
+        const SHPPFW_DIRCREATE: i32 = 1;
+        const SHPPFW_IGNOREFILENAME: i32 = 4;
+        const SHPPFW_MEDIACHECKONLY: i32 = 16;
+        const SHPPFW_NONE: i32 = 0;
+        const SHPPFW_NOWRITECHECK: i32 = 8;
         #[library("SHELL32.dll")]
         extern fn SHParseDisplayName(pszName: PCWSTR, #[opt] pbc: IBindCtx, ppidl: *mut LPITEMIDLIST, sfgaoIn: SFGAOF, #[opt] psfgaoOut: *mut SFGAOF) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -1681,39 +1681,39 @@ mod Windows {
         extern fn SHUpdateImageW(pszHashItem: PCWSTR, iIndex: i32, uFlags: u32, iImageIndex: i32);
         #[library("SHELL32.dll")]
         extern fn SHValidateUNC(#[opt] hwndOwner: HWND, #[in] #[out] pszFile: PWSTR, fConnect: u32) -> BOOL;
-        const SIOM_ICONINDEX: u32 = 2;
-        const SIOM_OVERLAYINDEX: u32 = 1;
-        const SIOM_RESERVED_DEFAULT: u32 = 3;
-        const SIOM_RESERVED_LINK: u32 = 1;
-        const SIOM_RESERVED_SHARED: u32 = 0;
-        const SIOM_RESERVED_SLOWFILE: u32 = 2;
-        const SSF_AUTOCHECKSELECT: u32 = 8388608;
-        const SSF_DESKTOPHTML: u32 = 512;
-        const SSF_DONTPRETTYPATH: u32 = 2048;
-        const SSF_DOUBLECLICKINWEBVIEW: u32 = 128;
-        const SSF_FILTER: u32 = 65536;
-        const SSF_HIDDENFILEEXTS: u32 = 4;
-        const SSF_HIDEICONS: u32 = 16384;
-        const SSF_ICONSONLY: u32 = 16777216;
-        const SSF_MAPNETDRVBUTTON: u32 = 4096;
-        const SSF_NOCONFIRMRECYCLE: u32 = 32768;
-        const SSF_NONETCRAWLING: u32 = 1048576;
-        const SSF_SEPPROCESS: u32 = 524288;
-        const SSF_SERVERADMINUI: u32 = 4;
-        const SSF_SHOWALLOBJECTS: u32 = 1;
-        const SSF_SHOWATTRIBCOL: u32 = 256;
-        const SSF_SHOWCOMPCOLOR: u32 = 8;
-        const SSF_SHOWEXTENSIONS: u32 = 2;
-        const SSF_SHOWINFOTIP: u32 = 8192;
-        const SSF_SHOWSTARTPAGE: u32 = 4194304;
-        const SSF_SHOWSTATUSBAR: u32 = 67108864;
-        const SSF_SHOWSUPERHIDDEN: u32 = 262144;
-        const SSF_SHOWSYSFILES: u32 = 32;
-        const SSF_SHOWTYPEOVERLAY: u32 = 33554432;
-        const SSF_SORTCOLUMNS: u32 = 16;
-        const SSF_STARTPANELON: u32 = 2097152;
-        const SSF_WEBVIEW: u32 = 131072;
-        const SSF_WIN95CLASSIC: u32 = 1024;
+        const SIOM_ICONINDEX: i32 = 2;
+        const SIOM_OVERLAYINDEX: i32 = 1;
+        const SIOM_RESERVED_DEFAULT: i32 = 3;
+        const SIOM_RESERVED_LINK: i32 = 1;
+        const SIOM_RESERVED_SHARED: i32 = 0;
+        const SIOM_RESERVED_SLOWFILE: i32 = 2;
+        const SSF_AUTOCHECKSELECT: i32 = 8388608;
+        const SSF_DESKTOPHTML: i32 = 512;
+        const SSF_DONTPRETTYPATH: i32 = 2048;
+        const SSF_DOUBLECLICKINWEBVIEW: i32 = 128;
+        const SSF_FILTER: i32 = 65536;
+        const SSF_HIDDENFILEEXTS: i32 = 4;
+        const SSF_HIDEICONS: i32 = 16384;
+        const SSF_ICONSONLY: i32 = 16777216;
+        const SSF_MAPNETDRVBUTTON: i32 = 4096;
+        const SSF_NOCONFIRMRECYCLE: i32 = 32768;
+        const SSF_NONETCRAWLING: i32 = 1048576;
+        const SSF_SEPPROCESS: i32 = 524288;
+        const SSF_SERVERADMINUI: i32 = 4;
+        const SSF_SHOWALLOBJECTS: i32 = 1;
+        const SSF_SHOWATTRIBCOL: i32 = 256;
+        const SSF_SHOWCOMPCOLOR: i32 = 8;
+        const SSF_SHOWEXTENSIONS: i32 = 2;
+        const SSF_SHOWINFOTIP: i32 = 8192;
+        const SSF_SHOWSTARTPAGE: i32 = 4194304;
+        const SSF_SHOWSTATUSBAR: i32 = 67108864;
+        const SSF_SHOWSUPERHIDDEN: i32 = 262144;
+        const SSF_SHOWSYSFILES: i32 = 32;
+        const SSF_SHOWTYPEOVERLAY: i32 = 33554432;
+        const SSF_SORTCOLUMNS: i32 = 16;
+        const SSF_STARTPANELON: i32 = 2097152;
+        const SSF_WEBVIEW: i32 = 131072;
+        const SSF_WIN95CLASSIC: i32 = 1024;
         #[encoding("utf-16")]
         const STR_PARSE_PARTIAL_IDLIST: String = "ParseOriginalItem";
         #[encoding("utf-16")]
@@ -1732,23 +1732,23 @@ mod Windows {
         extern fn SignalFileOpen(pidl: *const ITEMIDLIST) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn StgMakeUniqueName(pstgParent: IStorage, pszFileSpec: PCWSTR, grfMode: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-        const VALIDATEUNC_CONNECT: u32 = 1;
-        const VALIDATEUNC_NOUI: u32 = 2;
-        const VALIDATEUNC_PERSIST: u32 = 8;
-        const VALIDATEUNC_PRINT: u32 = 4;
-        const VALIDATEUNC_VALID: u32 = 15;
+        const VALIDATEUNC_CONNECT: i32 = 1;
+        const VALIDATEUNC_NOUI: i32 = 2;
+        const VALIDATEUNC_PERSIST: i32 = 8;
+        const VALIDATEUNC_PRINT: i32 = 4;
+        const VALIDATEUNC_VALID: i32 = 15;
         #[packed(1)]
         struct WALLPAPEROPT {
             dwSize: u32,
             dwStyle: u32,
         }
-        const WPSTYLE_CENTER: u32 = 0;
-        const WPSTYLE_CROPTOFIT: u32 = 4;
-        const WPSTYLE_KEEPASPECT: u32 = 3;
-        const WPSTYLE_MAX: u32 = 6;
-        const WPSTYLE_SPAN: u32 = 5;
-        const WPSTYLE_STRETCH: u32 = 2;
-        const WPSTYLE_TILE: u32 = 1;
+        const WPSTYLE_CENTER: i32 = 0;
+        const WPSTYLE_CROPTOFIT: i32 = 4;
+        const WPSTYLE_KEEPASPECT: i32 = 3;
+        const WPSTYLE_MAX: i32 = 6;
+        const WPSTYLE_SPAN: i32 = 5;
+        const WPSTYLE_STRETCH: i32 = 2;
+        const WPSTYLE_TILE: i32 = 1;
         #[library("SHELL32.dll")]
         extern fn Win32DeleteFile(pszPath: PCWSTR) -> BOOL;
         #[library("SHELL32.dll")]

@@ -202,7 +202,7 @@ pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: 
     windows_core::link!("authz.dll" "system" fn AuthzUnregisterSecurityEventSource(dwflags : u32, pheventprovider : *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::BOOL);
     unsafe { AuthzUnregisterSecurityEventSource(dwflags, pheventprovider as _) }
 }
-pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: u32 = 1;
+pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub *mut core::ffi::c_void);
@@ -269,11 +269,11 @@ impl Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8;
+pub const AUTHZ_COMPUTE_PRIVILEGES: i32 = 8;
 pub type AUTHZ_CONTEXT_INFORMATION_CLASS = i32;
-pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1;
-pub const AUTHZ_GENERATE_FAILURE_AUDIT: u32 = 2;
-pub const AUTHZ_GENERATE_SUCCESS_AUDIT: u32 = 1;
+pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: i32 = 1;
+pub const AUTHZ_GENERATE_FAILURE_AUDIT: i32 = 2;
+pub const AUTHZ_GENERATE_SUCCESS_AUDIT: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
@@ -286,17 +286,17 @@ pub struct AUTHZ_INIT_INFO {
     pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
     pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
 }
-pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1;
-pub const AUTHZ_NO_ALLOC_STRINGS: u32 = 4;
-pub const AUTHZ_NO_FAILURE_AUDIT: u32 = 2;
-pub const AUTHZ_NO_SUCCESS_AUDIT: u32 = 1;
+pub const AUTHZ_INIT_INFO_VERSION_V1: i32 = 1;
+pub const AUTHZ_NO_ALLOC_STRINGS: i32 = 4;
+pub const AUTHZ_NO_FAILURE_AUDIT: i32 = 2;
+pub const AUTHZ_NO_SUCCESS_AUDIT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_core::PWSTR,
     pub dwOffset: u32,
 }
-pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4;
+pub const AUTHZ_REQUIRE_S4U_LOGON: i32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub *mut core::ffi::c_void);
@@ -305,9 +305,9 @@ impl Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: u32 = 2;
-pub const AUTHZ_RM_FLAG_NO_AUDIT: u32 = 1;
-pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: u32 = 4;
+pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: i32 = 2;
+pub const AUTHZ_RM_FLAG_NO_AUDIT: i32 = 1;
+pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
@@ -319,7 +319,7 @@ pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub Options: windows_core::PWSTR,
     pub ServerSpn: windows_core::PWSTR,
 }
-pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1;
+pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
@@ -347,15 +347,15 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1;
-pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1;
+pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: i32 = 1;
+pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub pName: windows_core::PWSTR,
 }
-pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: u32 = 1;
+pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
@@ -373,14 +373,14 @@ pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OP
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 0;
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 4;
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 1;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: i32 = 6;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: i32 = 4;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: i32 = 1;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: i32 = 0;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: i32 = 16;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: i32 = 5;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: i32 = 3;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
@@ -414,8 +414,8 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AUTHZ_SECURITY_ATTRIBUTE_VALID_FLAGS: u32 = 3;
-pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: u32 = 2;
+pub const AUTHZ_SECURITY_ATTRIBUTE_VALID_FLAGS: i32 = 3;
+pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: i32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub *mut core::ffi::c_void);
@@ -430,7 +430,7 @@ pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = 3;
 pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = 0;
 pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = 4;
 pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = 1;
-pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2;
+pub const AUTHZ_SKIP_TOKEN_GROUPS: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
@@ -460,9 +460,9 @@ impl Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AUTHZ_VALID_OBJECT_ACCESS_AUDIT_FLAGS: u32 = 23;
-pub const AUTHZ_VALID_RM_INIT_FLAGS: u32 = 7;
-pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16;
+pub const AUTHZ_VALID_OBJECT_ACCESS_AUDIT_FLAGS: i32 = 23;
+pub const AUTHZ_VALID_RM_INIT_FLAGS: i32 = 7;
+pub const AUTHZ_WPD_CATEGORY_FLAG: i32 = 16;
 pub const AuthzAuditEventInfoAdditionalInfo: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = 5;
 pub const AuthzAuditEventInfoFlags: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = 1;
 pub const AuthzAuditEventInfoObjectName: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = 4;

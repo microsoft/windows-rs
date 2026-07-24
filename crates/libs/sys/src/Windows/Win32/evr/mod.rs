@@ -8,7 +8,7 @@ windows_link::link!("evr.dll" "C" fn MFCreateVideoSampleFromSurface(punksurface 
 pub type EVRFilterConfigPrefs = i32;
 pub const EVRFilterConfigPrefs_EnableQoS: EVRFilterConfigPrefs = 1;
 pub const EVRFilterConfigPrefs_Mask: EVRFilterConfigPrefs = 1;
-pub const MFEVRDLL: u32 = 0;
+pub const MFEVRDLL: i32 = 0;
 pub const MFVP_MESSAGE_BEGINSTREAMING: MFVP_MESSAGE_TYPE = 3;
 pub const MFVP_MESSAGE_CANCELSTEP: MFVP_MESSAGE_TYPE = 7;
 pub const MFVP_MESSAGE_ENDOFSTREAM: MFVP_MESSAGE_TYPE = 5;

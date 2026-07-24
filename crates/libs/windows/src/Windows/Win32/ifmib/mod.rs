@@ -1,5 +1,5 @@
-pub const MAXLEN_IFDESCR: u32 = 256;
-pub const MAXLEN_PHYSADDR: u32 = 8;
+pub const MAXLEN_IFDESCR: i32 = 256;
+pub const MAXLEN_PHYSADDR: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IFNUMBER {

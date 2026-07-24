@@ -14,8 +14,8 @@ mod Windows {
             EffectivePowerModeMixedReality = 6,
         }
         extern fn EFFECTIVE_POWER_MODE_CALLBACK(Mode: EFFECTIVE_POWER_MODE, #[opt] Context: *const void);
-        const EFFECTIVE_POWER_MODE_V1: u32 = 1;
-        const EFFECTIVE_POWER_MODE_V2: u32 = 2;
+        const EFFECTIVE_POWER_MODE_V1: i32 = 1;
+        const EFFECTIVE_POWER_MODE_V2: i32 = 2;
         #[library("POWRPROF.dll")]
         extern fn PowerGetActiveScheme(#[opt] UserRootPowerKey: HKEY, ActivePolicyGuid: *mut *mut GUID) -> u32;
         #[library("POWRPROF.dll")]

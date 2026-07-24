@@ -1,17 +1,17 @@
-pub const AMDDS_ALL: u32 = 255;
-pub const AMDDS_DCIPS: u32 = 1;
-pub const AMDDS_DEFAULT: u32 = 255;
-pub const AMDDS_NONE: u32 = 0;
-pub const AMDDS_PRIMARY: u32 = 3;
-pub const AMDDS_PS: u32 = 2;
-pub const AMDDS_RGB: u32 = 84;
-pub const AMDDS_RGBFLP: u32 = 64;
-pub const AMDDS_RGBOFF: u32 = 16;
-pub const AMDDS_RGBOVR: u32 = 4;
-pub const AMDDS_YUV: u32 = 168;
-pub const AMDDS_YUVFLP: u32 = 128;
-pub const AMDDS_YUVOFF: u32 = 32;
-pub const AMDDS_YUVOVR: u32 = 8;
+pub const AMDDS_ALL: i32 = 255;
+pub const AMDDS_DCIPS: i32 = 1;
+pub const AMDDS_DEFAULT: i32 = 255;
+pub const AMDDS_NONE: i32 = 0;
+pub const AMDDS_PRIMARY: i32 = 3;
+pub const AMDDS_PS: i32 = 2;
+pub const AMDDS_RGB: i32 = 84;
+pub const AMDDS_RGBFLP: i32 = 64;
+pub const AMDDS_RGBOFF: i32 = 16;
+pub const AMDDS_RGBOVR: i32 = 4;
+pub const AMDDS_YUV: i32 = 168;
+pub const AMDDS_YUVFLP: i32 = 128;
+pub const AMDDS_YUVOFF: i32 = 32;
+pub const AMDDS_YUVOVR: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_FRAMESTEP_STEP {
@@ -1003,7 +1003,7 @@ impl IQualProp_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IQualProp {}
-pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140;
+pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
 #[repr(C)]
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1019,7 +1019,7 @@ impl Default for MPEG1VIDEOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SIZE_PREHEADER: u32 = 48;
+pub const SIZE_PREHEADER: i32 = 48;
 #[repr(C)]
 #[cfg(feature = "wingdi")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1076,12 +1076,12 @@ pub struct VIDEOINFOHEADER {
     pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: super::BITMAPINFOHEADER,
 }
-pub const iBLUE: u32 = 2;
-pub const iEGA_COLORS: u32 = 16;
-pub const iGREEN: u32 = 1;
-pub const iMASK_COLORS: u32 = 3;
-pub const iMAXBITS: u32 = 8;
-pub const iPALETTE: u32 = 8;
-pub const iPALETTE_COLORS: u32 = 256;
-pub const iRED: u32 = 0;
-pub const iTRUECOLOR: u32 = 16;
+pub const iBLUE: i32 = 2;
+pub const iEGA_COLORS: i32 = 16;
+pub const iGREEN: i32 = 1;
+pub const iMASK_COLORS: i32 = 3;
+pub const iMAXBITS: i32 = 8;
+pub const iPALETTE: i32 = 8;
+pub const iPALETTE_COLORS: i32 = 256;
+pub const iRED: i32 = 0;
+pub const iTRUECOLOR: i32 = 16;

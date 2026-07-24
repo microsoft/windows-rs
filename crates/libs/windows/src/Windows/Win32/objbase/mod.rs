@@ -389,20 +389,20 @@ pub unsafe fn StgOpenLayoutDocfile(pwcsdfname: *const super::OLECHAR, grfmode: u
         StgOpenLayoutDocfile(pwcsdfname, grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-pub const ASYNC_MODE_COMPATIBILITY: u32 = 1;
-pub const ASYNC_MODE_DEFAULT: u32 = 0;
+pub const ASYNC_MODE_COMPATIBILITY: i32 = 1;
+pub const ASYNC_MODE_DEFAULT: i32 = 0;
 pub type COINIT = i32;
 pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 pub const COINIT_DISABLE_OLE1DDE: COINIT = 4;
 pub const COINIT_MULTITHREADED: COINIT = 0;
 pub const COINIT_SPEED_OVER_MEMORY: COINIT = 8;
 pub type COMSD = i32;
-pub const MARSHALINTERFACE_MIN: u32 = 500;
+pub const MARSHALINTERFACE_MIN: i32 = 500;
 pub const SD_ACCESSPERMISSIONS: COMSD = 1;
 pub const SD_ACCESSRESTRICTIONS: COMSD = 3;
 pub const SD_LAUNCHPERMISSIONS: COMSD = 0;
 pub const SD_LAUNCHRESTRICTIONS: COMSD = 2;
-pub const STGTY_REPEAT: u32 = 256;
-pub const STG_LAYOUT_INTERLEAVED: u32 = 1;
-pub const STG_LAYOUT_SEQUENTIAL: u32 = 0;
+pub const STGTY_REPEAT: i32 = 256;
+pub const STG_LAYOUT_INTERLEAVED: i32 = 1;
+pub const STG_LAYOUT_SEQUENTIAL: i32 = 0;
 pub const STG_TOEND: u32 = 4294967295;

@@ -202,9 +202,9 @@ pub const CFSEPCHAR: u32 = 43;
 pub type DRIVERMSGPROC = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 pub type DRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: super::HDRVR, param2: u32, param3: super::LPARAM, param4: super::LPARAM) -> super::LRESULT>;
-pub const DRVCNF_CANCEL: u32 = 0;
-pub const DRVCNF_OK: u32 = 1;
-pub const DRVCNF_RESTART: u32 = 2;
+pub const DRVCNF_CANCEL: i32 = 0;
+pub const DRVCNF_OK: i32 = 1;
+pub const DRVCNF_RESTART: i32 = 2;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DRVCONFIGINFO {
@@ -220,25 +220,25 @@ pub struct DRVCONFIGINFOEX {
     pub lpszDCIAliasName: windows_core::PCWSTR,
     pub dnDevNode: u32,
 }
-pub const DRV_CANCEL: u32 = 0;
-pub const DRV_CLOSE: u32 = 4;
-pub const DRV_CONFIGURE: u32 = 7;
-pub const DRV_DISABLE: u32 = 5;
-pub const DRV_ENABLE: u32 = 2;
-pub const DRV_EXITSESSION: u32 = 11;
-pub const DRV_FREE: u32 = 6;
-pub const DRV_INSTALL: u32 = 9;
-pub const DRV_LOAD: u32 = 1;
-pub const DRV_MCI_FIRST: u32 = 2048;
-pub const DRV_MCI_LAST: u32 = 6143;
-pub const DRV_OK: u32 = 1;
-pub const DRV_OPEN: u32 = 3;
-pub const DRV_POWER: u32 = 15;
-pub const DRV_QUERYCONFIGURE: u32 = 8;
-pub const DRV_REMOVE: u32 = 10;
-pub const DRV_RESERVED: u32 = 2048;
-pub const DRV_RESTART: u32 = 2;
-pub const DRV_USER: u32 = 16384;
+pub const DRV_CANCEL: i32 = 0;
+pub const DRV_CLOSE: i32 = 4;
+pub const DRV_CONFIGURE: i32 = 7;
+pub const DRV_DISABLE: i32 = 5;
+pub const DRV_ENABLE: i32 = 2;
+pub const DRV_EXITSESSION: i32 = 11;
+pub const DRV_FREE: i32 = 6;
+pub const DRV_INSTALL: i32 = 9;
+pub const DRV_LOAD: i32 = 1;
+pub const DRV_MCI_FIRST: i32 = 2048;
+pub const DRV_MCI_LAST: i32 = 6143;
+pub const DRV_OK: i32 = 1;
+pub const DRV_OPEN: i32 = 3;
+pub const DRV_POWER: i32 = 15;
+pub const DRV_QUERYCONFIGURE: i32 = 8;
+pub const DRV_REMOVE: i32 = 10;
+pub const DRV_RESERVED: i32 = 2048;
+pub const DRV_RESTART: i32 = 2;
+pub const DRV_USER: i32 = 16384;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FOURCC(pub u32);
@@ -274,23 +274,23 @@ pub struct MMCKINFO {
     pub dwDataOffset: u32,
     pub dwFlags: u32,
 }
-pub const MMIOERR_ACCESSDENIED: u32 = 268;
-pub const MMIOERR_BASE: u32 = 256;
-pub const MMIOERR_CANNOTCLOSE: u32 = 260;
-pub const MMIOERR_CANNOTEXPAND: u32 = 264;
-pub const MMIOERR_CANNOTOPEN: u32 = 259;
-pub const MMIOERR_CANNOTREAD: u32 = 261;
-pub const MMIOERR_CANNOTSEEK: u32 = 263;
-pub const MMIOERR_CANNOTWRITE: u32 = 262;
-pub const MMIOERR_CHUNKNOTFOUND: u32 = 265;
-pub const MMIOERR_FILENOTFOUND: u32 = 257;
-pub const MMIOERR_INVALIDFILE: u32 = 272;
-pub const MMIOERR_NETWORKERROR: u32 = 270;
-pub const MMIOERR_OUTOFMEMORY: u32 = 258;
-pub const MMIOERR_PATHNOTFOUND: u32 = 267;
-pub const MMIOERR_SHARINGVIOLATION: u32 = 269;
-pub const MMIOERR_TOOMANYOPENFILES: u32 = 271;
-pub const MMIOERR_UNBUFFERED: u32 = 266;
+pub const MMIOERR_ACCESSDENIED: i32 = 268;
+pub const MMIOERR_BASE: i32 = 256;
+pub const MMIOERR_CANNOTCLOSE: i32 = 260;
+pub const MMIOERR_CANNOTEXPAND: i32 = 264;
+pub const MMIOERR_CANNOTOPEN: i32 = 259;
+pub const MMIOERR_CANNOTREAD: i32 = 261;
+pub const MMIOERR_CANNOTSEEK: i32 = 263;
+pub const MMIOERR_CANNOTWRITE: i32 = 262;
+pub const MMIOERR_CHUNKNOTFOUND: i32 = 265;
+pub const MMIOERR_FILENOTFOUND: i32 = 257;
+pub const MMIOERR_INVALIDFILE: i32 = 272;
+pub const MMIOERR_NETWORKERROR: i32 = 270;
+pub const MMIOERR_OUTOFMEMORY: i32 = 258;
+pub const MMIOERR_PATHNOTFOUND: i32 = 267;
+pub const MMIOERR_SHARINGVIOLATION: i32 = 269;
+pub const MMIOERR_TOOMANYOPENFILES: i32 = 271;
+pub const MMIOERR_UNBUFFERED: i32 = 266;
 #[repr(C, packed(1))]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
@@ -318,47 +318,47 @@ impl Default for MMIOINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MMIOM_CLOSE: u32 = 4;
-pub const MMIOM_OPEN: u32 = 3;
-pub const MMIOM_READ: u32 = 0;
-pub const MMIOM_RENAME: u32 = 6;
-pub const MMIOM_SEEK: u32 = 2;
-pub const MMIOM_USER: u32 = 32768;
-pub const MMIOM_WRITE: u32 = 1;
-pub const MMIOM_WRITEFLUSH: u32 = 5;
+pub const MMIOM_CLOSE: i32 = 4;
+pub const MMIOM_OPEN: i32 = 3;
+pub const MMIOM_READ: i32 = 0;
+pub const MMIOM_RENAME: i32 = 6;
+pub const MMIOM_SEEK: i32 = 2;
+pub const MMIOM_USER: i32 = 32768;
+pub const MMIOM_WRITE: i32 = 1;
+pub const MMIOM_WRITEFLUSH: i32 = 5;
 #[cfg(feature = "minwindef")]
 pub type MMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_core::PCSTR, umsg: u32, lparam1: super::LPARAM, lparam2: super::LPARAM) -> super::LRESULT>;
-pub const MMIO_ALLOCBUF: u32 = 65536;
-pub const MMIO_COMPAT: u32 = 0;
-pub const MMIO_CREATE: u32 = 4096;
-pub const MMIO_CREATELIST: u32 = 64;
-pub const MMIO_CREATERIFF: u32 = 32;
-pub const MMIO_DEFAULTBUFFER: u32 = 8192;
-pub const MMIO_DELETE: u32 = 512;
-pub const MMIO_DENYNONE: u32 = 64;
-pub const MMIO_DENYREAD: u32 = 48;
-pub const MMIO_DENYWRITE: u32 = 32;
-pub const MMIO_DIRTY: u32 = 268435456;
-pub const MMIO_EMPTYBUF: u32 = 16;
-pub const MMIO_EXCLUSIVE: u32 = 16;
-pub const MMIO_EXIST: u32 = 16384;
-pub const MMIO_FHOPEN: u32 = 16;
-pub const MMIO_FINDCHUNK: u32 = 16;
-pub const MMIO_FINDLIST: u32 = 64;
-pub const MMIO_FINDPROC: u32 = 262144;
-pub const MMIO_FINDRIFF: u32 = 32;
-pub const MMIO_GETTEMP: u32 = 131072;
-pub const MMIO_GLOBALPROC: u32 = 268435456;
-pub const MMIO_INSTALLPROC: u32 = 65536;
-pub const MMIO_PARSE: u32 = 256;
-pub const MMIO_READ: u32 = 0;
-pub const MMIO_READWRITE: u32 = 2;
-pub const MMIO_REMOVEPROC: u32 = 131072;
-pub const MMIO_RWMODE: u32 = 3;
-pub const MMIO_SHAREMODE: u32 = 112;
-pub const MMIO_TOUPPER: u32 = 16;
-pub const MMIO_UNICODEPROC: u32 = 16777216;
-pub const MMIO_WRITE: u32 = 1;
+pub const MMIO_ALLOCBUF: i32 = 65536;
+pub const MMIO_COMPAT: i32 = 0;
+pub const MMIO_CREATE: i32 = 4096;
+pub const MMIO_CREATELIST: i32 = 64;
+pub const MMIO_CREATERIFF: i32 = 32;
+pub const MMIO_DEFAULTBUFFER: i32 = 8192;
+pub const MMIO_DELETE: i32 = 512;
+pub const MMIO_DENYNONE: i32 = 64;
+pub const MMIO_DENYREAD: i32 = 48;
+pub const MMIO_DENYWRITE: i32 = 32;
+pub const MMIO_DIRTY: i32 = 268435456;
+pub const MMIO_EMPTYBUF: i32 = 16;
+pub const MMIO_EXCLUSIVE: i32 = 16;
+pub const MMIO_EXIST: i32 = 16384;
+pub const MMIO_FHOPEN: i32 = 16;
+pub const MMIO_FINDCHUNK: i32 = 16;
+pub const MMIO_FINDLIST: i32 = 64;
+pub const MMIO_FINDPROC: i32 = 262144;
+pub const MMIO_FINDRIFF: i32 = 32;
+pub const MMIO_GETTEMP: i32 = 131072;
+pub const MMIO_GLOBALPROC: i32 = 268435456;
+pub const MMIO_INSTALLPROC: i32 = 65536;
+pub const MMIO_PARSE: i32 = 256;
+pub const MMIO_READ: i32 = 0;
+pub const MMIO_READWRITE: i32 = 2;
+pub const MMIO_REMOVEPROC: i32 = 131072;
+pub const MMIO_RWMODE: i32 = 3;
+pub const MMIO_SHAREMODE: i32 = 112;
+pub const MMIO_TOUPPER: i32 = 16;
+pub const MMIO_UNICODEPROC: i32 = 16777216;
+pub const MMIO_WRITE: i32 = 1;
 pub type NPDRVCONFIGINFO = *mut DRVCONFIGINFO;
 pub type NPDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
 pub type NPMMCKINFO = *mut MMCKINFO;
@@ -369,6 +369,6 @@ pub type PDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
 pub type PMMCKINFO = *mut MMCKINFO;
 #[cfg(feature = "minwindef")]
 pub type PMMIOINFO = *mut MMIOINFO;
-pub const SEEK_CUR: u32 = 1;
-pub const SEEK_END: u32 = 2;
-pub const SEEK_SET: u32 = 0;
+pub const SEEK_CUR: i32 = 1;
+pub const SEEK_END: i32 = 2;
+pub const SEEK_SET: i32 = 0;

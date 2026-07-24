@@ -1,57 +1,57 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const EVEN_PARITY: u32 = 2;
+        const EVEN_PARITY: i32 = 2;
         const GUID_DEVINTERFACE_COMPORT: GUID = 0x86e0d1e0_8089_11d0_9ce4_08003e301f73;
         const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: GUID = 0x4d36e978_e325_11ce_bfc1_08002be10318;
-        const IOCTL_INTERNAL_SERENUM_REMOVE_SELF: u32 = 3604999;
-        const IOCTL_SERIAL_APPLY_DEFAULT_CONFIGURATION: u32 = 1769632;
-        const IOCTL_SERIAL_CLEAR_STATS: u32 = 1769616;
-        const IOCTL_SERIAL_CLR_DTR: u32 = 1769512;
-        const IOCTL_SERIAL_CLR_RTS: u32 = 1769524;
-        const IOCTL_SERIAL_CONFIG_SIZE: u32 = 1769600;
-        const IOCTL_SERIAL_GET_BAUD_RATE: u32 = 1769552;
-        const IOCTL_SERIAL_GET_CHARS: u32 = 1769560;
-        const IOCTL_SERIAL_GET_COMMCONFIG: u32 = 1769604;
-        const IOCTL_SERIAL_GET_COMMSTATUS: u32 = 1769580;
-        const IOCTL_SERIAL_GET_DTRRTS: u32 = 1769592;
-        const IOCTL_SERIAL_GET_HANDFLOW: u32 = 1769568;
-        const IOCTL_SERIAL_GET_LINE_CONTROL: u32 = 1769556;
-        const IOCTL_SERIAL_GET_MODEMSTATUS: u32 = 1769576;
-        const IOCTL_SERIAL_GET_MODEM_CONTROL: u32 = 1769620;
-        const IOCTL_SERIAL_GET_PROPERTIES: u32 = 1769588;
-        const IOCTL_SERIAL_GET_STATS: u32 = 1769612;
-        const IOCTL_SERIAL_GET_TIMEOUTS: u32 = 1769504;
-        const IOCTL_SERIAL_GET_WAIT_MASK: u32 = 1769536;
-        const IOCTL_SERIAL_IMMEDIATE_CHAR: u32 = 1769496;
-        const IOCTL_SERIAL_INTERNAL_BASIC_SETTINGS: u32 = 1769484;
-        const IOCTL_SERIAL_INTERNAL_CANCEL_WAIT_WAKE: u32 = 1769480;
-        const IOCTL_SERIAL_INTERNAL_DO_WAIT_WAKE: u32 = 1769476;
-        const IOCTL_SERIAL_INTERNAL_RESTORE_SETTINGS: u32 = 1769488;
-        const IOCTL_SERIAL_PURGE: u32 = 1769548;
-        const IOCTL_SERIAL_RESET_DEVICE: u32 = 1769516;
-        const IOCTL_SERIAL_SET_BAUD_RATE: u32 = 1769476;
-        const IOCTL_SERIAL_SET_BREAK_OFF: u32 = 1769492;
-        const IOCTL_SERIAL_SET_BREAK_ON: u32 = 1769488;
-        const IOCTL_SERIAL_SET_CHARS: u32 = 1769564;
-        const IOCTL_SERIAL_SET_COMMCONFIG: u32 = 1769608;
-        const IOCTL_SERIAL_SET_DTR: u32 = 1769508;
-        const IOCTL_SERIAL_SET_FIFO_CONTROL: u32 = 1769628;
-        const IOCTL_SERIAL_SET_HANDFLOW: u32 = 1769572;
-        const IOCTL_SERIAL_SET_INTERVAL_TIMER_RESOLUTION: u32 = 1769636;
-        const IOCTL_SERIAL_SET_LINE_CONTROL: u32 = 1769484;
-        const IOCTL_SERIAL_SET_MODEM_CONTROL: u32 = 1769624;
-        const IOCTL_SERIAL_SET_QUEUE_SIZE: u32 = 1769480;
-        const IOCTL_SERIAL_SET_RTS: u32 = 1769520;
-        const IOCTL_SERIAL_SET_TIMEOUTS: u32 = 1769500;
-        const IOCTL_SERIAL_SET_WAIT_MASK: u32 = 1769540;
-        const IOCTL_SERIAL_SET_XOFF: u32 = 1769528;
-        const IOCTL_SERIAL_SET_XON: u32 = 1769532;
-        const IOCTL_SERIAL_WAIT_ON_MASK: u32 = 1769544;
-        const IOCTL_SERIAL_XOFF_COUNTER: u32 = 1769584;
-        const MARK_PARITY: u32 = 3;
-        const NO_PARITY: u32 = 0;
-        const ODD_PARITY: u32 = 1;
+        const IOCTL_INTERNAL_SERENUM_REMOVE_SELF: i32 = 3604999;
+        const IOCTL_SERIAL_APPLY_DEFAULT_CONFIGURATION: i32 = 1769632;
+        const IOCTL_SERIAL_CLEAR_STATS: i32 = 1769616;
+        const IOCTL_SERIAL_CLR_DTR: i32 = 1769512;
+        const IOCTL_SERIAL_CLR_RTS: i32 = 1769524;
+        const IOCTL_SERIAL_CONFIG_SIZE: i32 = 1769600;
+        const IOCTL_SERIAL_GET_BAUD_RATE: i32 = 1769552;
+        const IOCTL_SERIAL_GET_CHARS: i32 = 1769560;
+        const IOCTL_SERIAL_GET_COMMCONFIG: i32 = 1769604;
+        const IOCTL_SERIAL_GET_COMMSTATUS: i32 = 1769580;
+        const IOCTL_SERIAL_GET_DTRRTS: i32 = 1769592;
+        const IOCTL_SERIAL_GET_HANDFLOW: i32 = 1769568;
+        const IOCTL_SERIAL_GET_LINE_CONTROL: i32 = 1769556;
+        const IOCTL_SERIAL_GET_MODEMSTATUS: i32 = 1769576;
+        const IOCTL_SERIAL_GET_MODEM_CONTROL: i32 = 1769620;
+        const IOCTL_SERIAL_GET_PROPERTIES: i32 = 1769588;
+        const IOCTL_SERIAL_GET_STATS: i32 = 1769612;
+        const IOCTL_SERIAL_GET_TIMEOUTS: i32 = 1769504;
+        const IOCTL_SERIAL_GET_WAIT_MASK: i32 = 1769536;
+        const IOCTL_SERIAL_IMMEDIATE_CHAR: i32 = 1769496;
+        const IOCTL_SERIAL_INTERNAL_BASIC_SETTINGS: i32 = 1769484;
+        const IOCTL_SERIAL_INTERNAL_CANCEL_WAIT_WAKE: i32 = 1769480;
+        const IOCTL_SERIAL_INTERNAL_DO_WAIT_WAKE: i32 = 1769476;
+        const IOCTL_SERIAL_INTERNAL_RESTORE_SETTINGS: i32 = 1769488;
+        const IOCTL_SERIAL_PURGE: i32 = 1769548;
+        const IOCTL_SERIAL_RESET_DEVICE: i32 = 1769516;
+        const IOCTL_SERIAL_SET_BAUD_RATE: i32 = 1769476;
+        const IOCTL_SERIAL_SET_BREAK_OFF: i32 = 1769492;
+        const IOCTL_SERIAL_SET_BREAK_ON: i32 = 1769488;
+        const IOCTL_SERIAL_SET_CHARS: i32 = 1769564;
+        const IOCTL_SERIAL_SET_COMMCONFIG: i32 = 1769608;
+        const IOCTL_SERIAL_SET_DTR: i32 = 1769508;
+        const IOCTL_SERIAL_SET_FIFO_CONTROL: i32 = 1769628;
+        const IOCTL_SERIAL_SET_HANDFLOW: i32 = 1769572;
+        const IOCTL_SERIAL_SET_INTERVAL_TIMER_RESOLUTION: i32 = 1769636;
+        const IOCTL_SERIAL_SET_LINE_CONTROL: i32 = 1769484;
+        const IOCTL_SERIAL_SET_MODEM_CONTROL: i32 = 1769624;
+        const IOCTL_SERIAL_SET_QUEUE_SIZE: i32 = 1769480;
+        const IOCTL_SERIAL_SET_RTS: i32 = 1769520;
+        const IOCTL_SERIAL_SET_TIMEOUTS: i32 = 1769500;
+        const IOCTL_SERIAL_SET_WAIT_MASK: i32 = 1769540;
+        const IOCTL_SERIAL_SET_XOFF: i32 = 1769528;
+        const IOCTL_SERIAL_SET_XON: i32 = 1769532;
+        const IOCTL_SERIAL_WAIT_ON_MASK: i32 = 1769544;
+        const IOCTL_SERIAL_XOFF_COUNTER: i32 = 1769584;
+        const MARK_PARITY: i32 = 3;
+        const NO_PARITY: i32 = 0;
+        const ODD_PARITY: i32 = 1;
         type PSERENUM_PORT_DESC = *mut SERENUM_PORT_DESC;
         type PSERENUM_PORT_PARAMETERS = *mut SERENUM_PORT_PARAMETERS;
         extern fn PSERENUM_READPORT(SerPortAddress: *const void) -> u8;
@@ -191,19 +191,19 @@ mod Windows {
         const SERIAL_ERROR_OVERRUN: u32 = 4;
         const SERIAL_ERROR_PARITY: u32 = 16;
         const SERIAL_ERROR_QUEUEOVERRUN: u32 = 8;
-        const SERIAL_EV_BREAK: u32 = 64;
-        const SERIAL_EV_CTS: u32 = 8;
-        const SERIAL_EV_DSR: u32 = 16;
-        const SERIAL_EV_ERR: u32 = 128;
-        const SERIAL_EV_EVENT1: u32 = 2048;
-        const SERIAL_EV_EVENT2: u32 = 4096;
-        const SERIAL_EV_PERR: u32 = 512;
-        const SERIAL_EV_RING: u32 = 256;
-        const SERIAL_EV_RLSD: u32 = 32;
-        const SERIAL_EV_RX80FULL: u32 = 1024;
-        const SERIAL_EV_RXCHAR: u32 = 1;
-        const SERIAL_EV_RXFLAG: u32 = 2;
-        const SERIAL_EV_TXEMPTY: u32 = 4;
+        const SERIAL_EV_BREAK: i32 = 64;
+        const SERIAL_EV_CTS: i32 = 8;
+        const SERIAL_EV_DSR: i32 = 16;
+        const SERIAL_EV_ERR: i32 = 128;
+        const SERIAL_EV_EVENT1: i32 = 2048;
+        const SERIAL_EV_EVENT2: i32 = 4096;
+        const SERIAL_EV_PERR: i32 = 512;
+        const SERIAL_EV_RING: i32 = 256;
+        const SERIAL_EV_RLSD: i32 = 32;
+        const SERIAL_EV_RX80FULL: i32 = 1024;
+        const SERIAL_EV_RXCHAR: i32 = 1;
+        const SERIAL_EV_RXFLAG: i32 = 2;
+        const SERIAL_EV_TXEMPTY: i32 = 4;
         const SERIAL_FLOW_INVALID: u32 = 2147483424;
         struct SERIAL_HANDFLOW {
             ControlHandShake: u32,
@@ -233,10 +233,10 @@ mod Windows {
         const SERIAL_PCF_SPECIALCHARS: u32 = 256;
         const SERIAL_PCF_TOTALTIMEOUTS: u32 = 64;
         const SERIAL_PCF_XONXOFF: u32 = 16;
-        const SERIAL_PURGE_RXABORT: u32 = 2;
-        const SERIAL_PURGE_RXCLEAR: u32 = 8;
-        const SERIAL_PURGE_TXABORT: u32 = 1;
-        const SERIAL_PURGE_TXCLEAR: u32 = 4;
+        const SERIAL_PURGE_RXABORT: i32 = 2;
+        const SERIAL_PURGE_RXCLEAR: i32 = 8;
+        const SERIAL_PURGE_TXABORT: i32 = 1;
+        const SERIAL_PURGE_TXCLEAR: i32 = 4;
         struct SERIAL_QUEUE_SIZE {
             InSize: u32,
             OutSize: u32,
@@ -299,9 +299,9 @@ mod Windows {
             Counter: i32,
             XoffChar: u8,
         }
-        const SPACE_PARITY: u32 = 4;
-        const STOP_BITS_1_5: u32 = 1;
-        const STOP_BITS_2: u32 = 2;
-        const STOP_BIT_1: u32 = 0;
+        const SPACE_PARITY: i32 = 4;
+        const STOP_BITS_1_5: i32 = 1;
+        const STOP_BITS_2: i32 = 2;
+        const STOP_BIT_1: i32 = 0;
     }
 }

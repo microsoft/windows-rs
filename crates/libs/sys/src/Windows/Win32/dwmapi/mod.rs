@@ -121,9 +121,9 @@ pub const DWMWCP_DONOTROUND: DWM_WINDOW_CORNER_PREFERENCE = 1;
 pub const DWMWCP_ROUND: DWM_WINDOW_CORNER_PREFERENCE = 2;
 pub const DWMWCP_ROUNDSMALL: DWM_WINDOW_CORNER_PREFERENCE = 3;
 pub type DWMWINDOWATTRIBUTE = i32;
-pub const DWM_BB_BLURREGION: u32 = 2;
-pub const DWM_BB_ENABLE: u32 = 1;
-pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4;
+pub const DWM_BB_BLURREGION: i32 = 2;
+pub const DWM_BB_ENABLE: i32 = 1;
+pub const DWM_BB_TRANSITIONONMAXIMIZED: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
@@ -139,11 +139,11 @@ impl Default for DWM_BLURBEHIND {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DWM_CLOAKED_APP: u32 = 1;
-pub const DWM_CLOAKED_INHERITED: u32 = 4;
-pub const DWM_CLOAKED_SHELL: u32 = 2;
-pub const DWM_EC_DISABLECOMPOSITION: u32 = 0;
-pub const DWM_EC_ENABLECOMPOSITION: u32 = 1;
+pub const DWM_CLOAKED_APP: i32 = 1;
+pub const DWM_CLOAKED_INHERITED: i32 = 4;
+pub const DWM_CLOAKED_SHELL: i32 = 2;
+pub const DWM_EC_DISABLECOMPOSITION: i32 = 0;
+pub const DWM_EC_ENABLECOMPOSITION: i32 = 1;
 pub type DWM_FRAME_COUNT = u64;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1;
 #[repr(C, packed(1))]
@@ -159,7 +159,7 @@ pub struct DWM_PRESENT_PARAMETERS {
     pub eSampling: DWM_SOURCE_FRAME_SAMPLING,
 }
 pub type DWM_SHOWCONTACT = u32;
-pub const DWM_SIT_DISPLAYFRAME: u32 = 1;
+pub const DWM_SIT_DISPLAYFRAME: i32 = 1;
 pub type DWM_SOURCE_FRAME_SAMPLING = i32;
 pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = 1;
 pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = 2;
@@ -221,11 +221,11 @@ pub struct DWM_TIMING_INFO {
     pub cPixelsDrawn: u64,
     pub cBuffersEmpty: DWM_FRAME_COUNT,
 }
-pub const DWM_TNP_OPACITY: u32 = 4;
-pub const DWM_TNP_RECTDESTINATION: u32 = 1;
-pub const DWM_TNP_RECTSOURCE: u32 = 2;
-pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16;
-pub const DWM_TNP_VISIBLE: u32 = 8;
+pub const DWM_TNP_OPACITY: i32 = 4;
+pub const DWM_TNP_RECTDESTINATION: i32 = 1;
+pub const DWM_TNP_RECTSOURCE: i32 = 2;
+pub const DWM_TNP_SOURCECLIENTAREAONLY: i32 = 16;
+pub const DWM_TNP_VISIBLE: i32 = 8;
 pub type DWM_WINDOW_CORNER_PREFERENCE = i32;
 pub type GESTURE_TYPE = i32;
 pub const GT_PEN_DOUBLETAP: GESTURE_TYPE = 1;

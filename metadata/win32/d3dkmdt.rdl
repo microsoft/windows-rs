@@ -7,12 +7,12 @@ mod Windows {
             cy: u32,
         }
         type D3DKMDT_ADAPTER = *mut void;
-        const D3DKMDT_BITS_PER_COMPONENT_06: u32 = 1;
-        const D3DKMDT_BITS_PER_COMPONENT_08: u32 = 2;
-        const D3DKMDT_BITS_PER_COMPONENT_10: u32 = 4;
-        const D3DKMDT_BITS_PER_COMPONENT_12: u32 = 8;
-        const D3DKMDT_BITS_PER_COMPONENT_14: u32 = 16;
-        const D3DKMDT_BITS_PER_COMPONENT_16: u32 = 32;
+        const D3DKMDT_BITS_PER_COMPONENT_06: i32 = 1;
+        const D3DKMDT_BITS_PER_COMPONENT_08: i32 = 2;
+        const D3DKMDT_BITS_PER_COMPONENT_10: i32 = 4;
+        const D3DKMDT_BITS_PER_COMPONENT_12: i32 = 8;
+        const D3DKMDT_BITS_PER_COMPONENT_14: i32 = 16;
+        const D3DKMDT_BITS_PER_COMPONENT_16: i32 = 32;
         #[repr(i32)]
         enum D3DKMDT_COLOR_BASIS {
             D3DKMDT_CB_UNINITIALIZED = 0,
@@ -37,8 +37,8 @@ mod Windows {
             D3DKMDT_COMPUTE_PREEMPTION_THREAD_BOUNDARY = 400,
             D3DKMDT_COMPUTE_PREEMPTION_SHADER_BOUNDARY = 500,
         }
-        const D3DKMDT_DIMENSION_NOTSPECIFIED: i32 = -2;
-        const D3DKMDT_DIMENSION_UNINITIALIZED: i32 = -1;
+        const D3DKMDT_DIMENSION_NOTSPECIFIED: u32 = 4294967294;
+        const D3DKMDT_DIMENSION_UNINITIALIZED: u32 = 4294967295;
         #[repr(i32)]
         enum D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {
             D3DKMDT_EPT_UNINITIALIZED = 0,
@@ -48,14 +48,14 @@ mod Windows {
             D3DKMDT_EPT_ROTATION = 4,
             D3DKMDT_EPT_NOPIVOT = 5,
         }
-        const D3DKMDT_FREQUENCY_NOTSPECIFIED: i32 = -2;
+        const D3DKMDT_FREQUENCY_NOTSPECIFIED: u32 = 4294967294;
         struct D3DKMDT_FREQUENCY_RANGE {
             MinVSyncFreq: D3DDDI_RATIONAL,
             MaxVSyncFreq: D3DDDI_RATIONAL,
             MinHSyncFreq: D3DDDI_RATIONAL,
             MaxHSyncFreq: D3DDDI_RATIONAL,
         }
-        const D3DKMDT_FREQUENCY_UNINITIALIZED: i32 = -1;
+        const D3DKMDT_FREQUENCY_UNINITIALIZED: u32 = 4294967295;
         struct D3DKMDT_GAMMA_RAMP {
             Type: D3DDDI_GAMMARAMP_TYPE,
             DataSize: usize,
@@ -129,9 +129,9 @@ mod Windows {
         type D3DKMDT_HVIDPNSOURCEMODESET = *mut void;
         type D3DKMDT_HVIDPNTARGETMODESET = *mut void;
         type D3DKMDT_HVIDPNTOPOLOGY = *mut void;
-        const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: u32 = 256;
-        const D3DKMDT_MAX_OVERLAYS: u32 = 4;
-        const D3DKMDT_MAX_OVERLAYS_BITCOUNT: u32 = 2;
+        const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: i32 = 256;
+        const D3DKMDT_MAX_OVERLAYS: i32 = 4;
+        const D3DKMDT_MAX_OVERLAYS_BITCOUNT: i32 = 2;
         #[repr(i32)]
         enum D3DKMDT_MODE_PREFERENCE {
             D3DKMDT_MP_UNINITIALIZED = 0,
@@ -234,8 +234,8 @@ mod Windows {
             GraphicsPreemptionGranularity: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY,
             ComputePreemptionGranularity: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY,
         }
-        const D3DKMDT_ROTATION_SUPPORT_MASK: u32 = 255;
-        const D3DKMDT_SCALING_SUPPORT_MASK: u32 = 31;
+        const D3DKMDT_ROTATION_SUPPORT_MASK: i32 = 255;
+        const D3DKMDT_SCALING_SUPPORT_MASK: i32 = 31;
         struct D3DKMDT_SHADOWSURFACEDATA {
             Width: u32,
             Height: u32,
@@ -719,7 +719,7 @@ mod Windows {
             },
             VerticalSyncWidth: u16,
         }
-        const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: u32 = 20;
+        const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: i32 = 20;
         type DXGKARG_CALIBRATEGPUCLOCK = DXGK_GPUCLOCKDATA;
         #[repr(i32)]
         enum DXGKARG_FENCESTORAGEVALUETYPE {
@@ -747,9 +747,9 @@ mod Windows {
             DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE = 3,
             DXGKMDT_FORCE_ULONG = -1,
         }
-        const DXGKMDT_I2C_DEVICE_TRANSMITS_DATA_LENGTH: u32 = 1;
-        const DXGKMDT_I2C_NO_FLAGS: u32 = 0;
-        const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: u32 = 16;
+        const DXGKMDT_I2C_DEVICE_TRANSMITS_DATA_LENGTH: i32 = 1;
+        const DXGKMDT_I2C_NO_FLAGS: i32 = 0;
+        const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: i32 = 16;
         #[packed(1)]
         struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -817,7 +817,7 @@ mod Windows {
             cbParametersSize: u32,
             abParameters: [u8; 4056],
         }
-        const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: u32 = 4056;
+        const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: i32 = 4056;
         #[packed(1)]
         struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
             rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -873,7 +873,7 @@ mod Windows {
         struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
             abEncryptedParameters: [u8; 256],
         }
-        const DXGKMDT_OPM_ENCRYPTED_PARAMETERS_SIZE: u32 = 256;
+        const DXGKMDT_OPM_ENCRYPTED_PARAMETERS_SIZE: i32 = 256;
         const DXGKMDT_OPM_GET_ACP_AND_CGMSA_SIGNALING: GUID = 0x6629a591_3b79_4cf3_924a_11e8e7811671;
         const DXGKMDT_OPM_GET_ACTUAL_OUTPUT_FORMAT: GUID = 0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc;
         const DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL: GUID = 0x1957210a_7766_452a_b99a_d27aed54f03a;
@@ -883,7 +883,7 @@ mod Windows {
         const DXGKMDT_OPM_GET_CONNECTOR_TYPE: GUID = 0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da;
         const DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: GUID = 0x99c5ceff_5f1d_4879_81c1_c52443c9482b;
         const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: GUID = 0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5;
-        const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: u32 = 4056;
+        const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: i32 = 4056;
         #[packed(1)]
         struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
             omac: DXGKMDT_OPM_OMAC,
@@ -905,7 +905,7 @@ mod Windows {
         struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
             abKeySelectionVector: [u8; 5],
         }
-        const DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: u32 = 5;
+        const DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: i32 = 5;
         #[repr(i32)]
         enum DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {
             DXGKMDT_OPM_HDCP_OFF = 0,
@@ -935,7 +935,7 @@ mod Windows {
         struct DXGKMDT_OPM_OMAC {
             abOMAC: [u8; 16],
         }
-        const DXGKMDT_OPM_OMAC_SIZE: u32 = 16;
+        const DXGKMDT_OPM_OMAC_SIZE: i32 = 16;
         #[repr(i32)]
         enum DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION {
             DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED = 0,
@@ -979,7 +979,7 @@ mod Windows {
             DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP = 32,
             DXGKMDT_OPM_PROTECTION_TYPE_MASK = -2147483585,
         }
-        const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: u32 = 4;
+        const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: i32 = 4;
         struct DXGKMDT_OPM_RANDOM_NUMBER {
             abRandomNumber: [u8; 16],
         }
@@ -989,7 +989,7 @@ mod Windows {
             cbRequestedInformationSize: u32,
             abRequestedInformation: [u8; 4076],
         }
-        const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: u32 = 4076;
+        const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: i32 = 4076;
         const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: GUID = 0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee;
         #[packed(1)]
         struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
@@ -1081,7 +1081,7 @@ mod Windows {
             DxgkBacklightOptimizationDimmed = 3,
             DxgkBacklightOptimizationEDR = 4,
         }
-        const DXGK_BIND_TABLE_ENTRY_UNKNOWN: i32 = -1;
+        const DXGK_BIND_TABLE_ENTRY_UNKNOWN: u32 = 4294967295;
         struct DXGK_BRIGHTNESS_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
@@ -1107,7 +1107,7 @@ mod Windows {
             CurrentBrightnessMillinits: u32,
             TargetBrightnessMillinits: u32,
         }
-        const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: u32 = 16;
+        const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: i32 = 16;
         #[packed(1)]
         struct DXGK_BRIGHTNESS_NIT_RANGE {
             MinimumLevelMillinit: u32,
@@ -1279,8 +1279,8 @@ mod Windows {
             BiosVersion: [u16; 32],
             GpuArchitecture: [u16; 32],
         }
-        const DXGK_MAX_GPUVERSION_NAME_LENGTH: u32 = 32;
-        const DXGK_MAX_METADATA_NAME_LENGTH: u32 = 32;
+        const DXGK_MAX_GPUVERSION_NAME_LENGTH: i32 = 32;
+        const DXGK_MAX_METADATA_NAME_LENGTH: i32 = 32;
         #[packed(1)]
         union DXGK_MONITORLINKINFO_CAPABILITIES {
             Anonymous: #[packed(1)] struct {
@@ -1361,7 +1361,7 @@ mod Windows {
             DXGK_PAGE_FAULT_AND_STALL = 256,
             DXGK_PAGE_FAULT_FIRST_INVALID = 512,
         }
-        const DXGK_PRIMITIVE_API_SEQUENCE_NUMBER_UNKNOWN: i32 = -1;
+        const DXGK_PRIMITIVE_API_SEQUENCE_NUMBER_UNKNOWN: u64 = 18446744073709551615;
         #[repr(i32)]
         enum DXGK_RENDER_PIPELINE_STAGE {
             DXGK_RENDER_PIPELINE_STAGE_UNKNOWN = 0,
@@ -1378,7 +1378,7 @@ mod Windows {
             TimingId: u32,
             DetailTiming: DISPLAYID_DETAILED_TIMING_TYPE_I,
         }
-        const DXGK_VALID_FAULT_AND_STALL_FLAGS: u32 = 268;
+        const DXGK_VALID_FAULT_AND_STALL_FLAGS: i32 = 268;
         type PD3DKMDT_WIRE_FORMAT_AND_PREFERENCE = *mut D3DKMDT_WIRE_FORMAT_AND_PREFERENCE;
         type PDXGKMDT_OPM_CONFIGURE_PARAMETERS = *mut DXGKMDT_OPM_CONFIGURE_PARAMETERS;
         type PDXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS = *mut DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS;

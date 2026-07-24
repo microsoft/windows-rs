@@ -185,9 +185,9 @@ mod Windows {
         extern fn SQLTablesA(hstmt: SQLHSTMT, #[len_param(2)] #[opt] szCatalogName: *const SQLCHAR, cbCatalogName: SQLSMALLINT, #[len_param(4)] #[opt] szSchemaName: *const SQLCHAR, cbSchemaName: SQLSMALLINT, #[len_param(6)] #[opt] szTableName: *const SQLCHAR, cbTableName: SQLSMALLINT, #[len_param(8)] #[opt] szTableType: *const SQLCHAR, cbTableType: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLTablesW(hstmt: SQLHSTMT, #[len_param(2)] #[opt] szCatalogName: *const SQLWCHAR, cchCatalogName: SQLSMALLINT, #[len_param(4)] #[opt] szSchemaName: *const SQLWCHAR, cchSchemaName: SQLSMALLINT, #[len_param(6)] #[opt] szTableName: *const SQLWCHAR, cchTableName: SQLSMALLINT, #[len_param(8)] #[opt] szTableType: *const SQLWCHAR, cchTableType: SQLSMALLINT) -> SQLRETURN;
-        const SQL_C_TCHAR: u32 = 1;
+        const SQL_C_TCHAR: i32 = 1;
         const SQL_C_WCHAR: i32 = -8;
-        const SQL_SQLSTATE_SIZEW: u32 = 10;
+        const SQL_SQLSTATE_SIZEW: i32 = 10;
         const SQL_WCHAR: i32 = -8;
         const SQL_WLONGVARCHAR: i32 = -10;
         const SQL_WVARCHAR: i32 = -9;

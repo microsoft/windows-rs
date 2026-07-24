@@ -1,11 +1,11 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3;
-        const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: u32 = 5;
-        const EVENT_ACTIVITY_CTRL_GET_ID: u32 = 1;
-        const EVENT_ACTIVITY_CTRL_GET_SET_ID: u32 = 4;
-        const EVENT_ACTIVITY_CTRL_SET_ID: u32 = 2;
+        const EVENT_ACTIVITY_CTRL_CREATE_ID: i32 = 3;
+        const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: i32 = 5;
+        const EVENT_ACTIVITY_CTRL_GET_ID: i32 = 1;
+        const EVENT_ACTIVITY_CTRL_GET_SET_ID: i32 = 4;
+        const EVENT_ACTIVITY_CTRL_SET_ID: i32 = 2;
         struct EVENT_DATA_DESCRIPTOR {
             Ptr: u64,
             Size: u32,
@@ -18,11 +18,11 @@ mod Windows {
                 },
             },
         }
-        const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: u32 = 1;
-        const EVENT_DATA_DESCRIPTOR_TYPE_NONE: u32 = 0;
-        const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2;
-        const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: u32 = 4;
-        const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3;
+        const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: i32 = 1;
+        const EVENT_DATA_DESCRIPTOR_TYPE_NONE: i32 = 0;
+        const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: i32 = 2;
+        const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: i32 = 4;
+        const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: i32 = 3;
         struct EVENT_DESCRIPTOR {
             Id: u16,
             Version: u8,
@@ -69,7 +69,7 @@ mod Windows {
         const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160;
         const EVENT_FILTER_TYPE_EVENT_NAME: u32 = 2147484672;
         const EVENT_FILTER_TYPE_EXECUTABLE_NAME: u32 = 2147483656;
-        const EVENT_FILTER_TYPE_NONE: u32 = 0;
+        const EVENT_FILTER_TYPE_NONE: i32 = 0;
         const EVENT_FILTER_TYPE_PACKAGE_APP_ID: u32 = 2147483680;
         const EVENT_FILTER_TYPE_PACKAGE_ID: u32 = 2147483664;
         const EVENT_FILTER_TYPE_PAYLOAD: u32 = 2147483904;
@@ -89,10 +89,10 @@ mod Windows {
             EventProviderSetReserved2 = 4,
             MaxEventInfo = 5,
         }
-        const EVENT_MAX_LEVEL: u32 = 255;
-        const EVENT_MIN_LEVEL: u32 = 0;
-        const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2;
-        const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1;
+        const EVENT_MAX_LEVEL: i32 = 255;
+        const EVENT_MIN_LEVEL: i32 = 0;
+        const EVENT_WRITE_FLAG_INPRIVATE: i32 = 2;
+        const EVENT_WRITE_FLAG_NO_FAULTING: i32 = 1;
         #[library("ADVAPI32.dll")]
         extern fn EventActivityIdControl(ControlCode: u32, #[in] #[out] ActivityId: *mut GUID) -> u32;
         #[library("ADVAPI32.dll")]
@@ -113,13 +113,13 @@ mod Windows {
         extern fn EventWriteString(RegHandle: REGHANDLE, Level: u8, Keyword: u64, String: PCWSTR) -> u32;
         #[library("ADVAPI32.dll")]
         extern fn EventWriteTransfer(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR, #[opt] ActivityId: *const GUID, #[opt] RelatedActivityId: *const GUID, UserDataCount: u32, #[len_param(4)] #[opt] UserData: *const EVENT_DATA_DESCRIPTOR) -> u32;
-        const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128;
-        const MAX_EVENT_FILTERS_COUNT: u32 = 13;
-        const MAX_EVENT_FILTER_DATA_SIZE: u32 = 1024;
-        const MAX_EVENT_FILTER_EVENT_ID_COUNT: u32 = 64;
-        const MAX_EVENT_FILTER_EVENT_NAME_SIZE: u32 = 4096;
-        const MAX_EVENT_FILTER_PAYLOAD_SIZE: u32 = 4096;
-        const MAX_EVENT_FILTER_PID_COUNT: u32 = 8;
+        const MAX_EVENT_DATA_DESCRIPTORS: i32 = 128;
+        const MAX_EVENT_FILTERS_COUNT: i32 = 13;
+        const MAX_EVENT_FILTER_DATA_SIZE: i32 = 1024;
+        const MAX_EVENT_FILTER_EVENT_ID_COUNT: i32 = 64;
+        const MAX_EVENT_FILTER_EVENT_NAME_SIZE: i32 = 4096;
+        const MAX_EVENT_FILTER_PAYLOAD_SIZE: i32 = 4096;
+        const MAX_EVENT_FILTER_PID_COUNT: i32 = 8;
         type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
         extern fn PENABLECALLBACK(SourceId: *const GUID, IsEnabled: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: *const EVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: *mut void);
         type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;

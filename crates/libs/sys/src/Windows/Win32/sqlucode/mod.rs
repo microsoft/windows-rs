@@ -182,9 +182,9 @@ windows_link::link!("odbc32.dll" "system" fn SQLTablePrivilegesW(hstmt : super::
 windows_link::link!("odbc32.dll" "system" fn SQLTablesA(hstmt : super::SQLHSTMT, szcatalogname : *const super::SQLCHAR, cbcatalogname : super::SQLSMALLINT, szschemaname : *const super::SQLCHAR, cbschemaname : super::SQLSMALLINT, sztablename : *const super::SQLCHAR, cbtablename : super::SQLSMALLINT, sztabletype : *const super::SQLCHAR, cbtabletype : super::SQLSMALLINT) -> super::SQLRETURN);
 #[cfg(feature = "sqltypes")]
 windows_link::link!("odbc32.dll" "system" fn SQLTablesW(hstmt : super::SQLHSTMT, szcatalogname : *const super::SQLWCHAR, cchcatalogname : super::SQLSMALLINT, szschemaname : *const super::SQLWCHAR, cchschemaname : super::SQLSMALLINT, sztablename : *const super::SQLWCHAR, cchtablename : super::SQLSMALLINT, sztabletype : *const super::SQLWCHAR, cchtabletype : super::SQLSMALLINT) -> super::SQLRETURN);
-pub const SQL_C_TCHAR: u32 = 1;
+pub const SQL_C_TCHAR: i32 = 1;
 pub const SQL_C_WCHAR: i32 = -8;
-pub const SQL_SQLSTATE_SIZEW: u32 = 10;
+pub const SQL_SQLSTATE_SIZEW: i32 = 10;
 pub const SQL_WCHAR: i32 = -8;
 pub const SQL_WLONGVARCHAR: i32 = -10;
 pub const SQL_WVARCHAR: i32 = -9;

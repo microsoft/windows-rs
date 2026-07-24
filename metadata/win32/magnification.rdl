@@ -15,11 +15,11 @@ mod Windows {
         struct MAGTRANSFORM {
             v: [[f32; 3]; 3],
         }
-        const MS_CLIPAROUNDCURSOR: u32 = 2;
-        const MS_INVERTCOLORS: u32 = 4;
-        const MS_SHOWMAGNIFIEDCURSOR: u32 = 1;
-        const MW_FILTERMODE_EXCLUDE: u32 = 0;
-        const MW_FILTERMODE_INCLUDE: u32 = 1;
+        const MS_CLIPAROUNDCURSOR: i32 = 2;
+        const MS_INVERTCOLORS: i32 = 4;
+        const MS_SHOWMAGNIFIEDCURSOR: i32 = 1;
+        const MW_FILTERMODE_EXCLUDE: i32 = 0;
+        const MW_FILTERMODE_INCLUDE: i32 = 1;
         #[library("MAGNIFICATION.dll")]
         extern fn MagGetColorEffect(hwnd: HWND, pEffect: *mut MAGCOLOREFFECT) -> BOOL;
         #[library("MAGNIFICATION.dll")]

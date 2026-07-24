@@ -31,30 +31,30 @@ mod Windows {
             dwCtrlWakeupMask: u32,
             dwControlKeyState: u32,
         }
-        const CTRL_BREAK_EVENT: u32 = 1;
-        const CTRL_CLOSE_EVENT: u32 = 2;
-        const CTRL_C_EVENT: u32 = 0;
-        const CTRL_LOGOFF_EVENT: u32 = 5;
-        const CTRL_SHUTDOWN_EVENT: u32 = 6;
+        const CTRL_BREAK_EVENT: i32 = 1;
+        const CTRL_CLOSE_EVENT: i32 = 2;
+        const CTRL_C_EVENT: i32 = 0;
+        const CTRL_LOGOFF_EVENT: i32 = 5;
+        const CTRL_SHUTDOWN_EVENT: i32 = 6;
         #[library("KERNEL32.dll")]
         extern fn ClosePseudoConsole(hPC: HPCON);
         #[library("KERNEL32.dll")]
         extern fn CreatePseudoConsole(size: COORD, hInput: HANDLE, hOutput: HANDLE, dwFlags: u32, phPC: *mut HPCON) -> HRESULT;
-        const DISABLE_NEWLINE_AUTO_RETURN: u32 = 8;
-        const ENABLE_AUTO_POSITION: u32 = 256;
-        const ENABLE_ECHO_INPUT: u32 = 4;
-        const ENABLE_EXTENDED_FLAGS: u32 = 128;
-        const ENABLE_INSERT_MODE: u32 = 32;
-        const ENABLE_LINE_INPUT: u32 = 2;
-        const ENABLE_LVB_GRID_WORLDWIDE: u32 = 16;
-        const ENABLE_MOUSE_INPUT: u32 = 16;
-        const ENABLE_PROCESSED_INPUT: u32 = 1;
-        const ENABLE_PROCESSED_OUTPUT: u32 = 1;
-        const ENABLE_QUICK_EDIT_MODE: u32 = 64;
-        const ENABLE_VIRTUAL_TERMINAL_INPUT: u32 = 512;
-        const ENABLE_VIRTUAL_TERMINAL_PROCESSING: u32 = 4;
-        const ENABLE_WINDOW_INPUT: u32 = 8;
-        const ENABLE_WRAP_AT_EOL_OUTPUT: u32 = 2;
+        const DISABLE_NEWLINE_AUTO_RETURN: i32 = 8;
+        const ENABLE_AUTO_POSITION: i32 = 256;
+        const ENABLE_ECHO_INPUT: i32 = 4;
+        const ENABLE_EXTENDED_FLAGS: i32 = 128;
+        const ENABLE_INSERT_MODE: i32 = 32;
+        const ENABLE_LINE_INPUT: i32 = 2;
+        const ENABLE_LVB_GRID_WORLDWIDE: i32 = 16;
+        const ENABLE_MOUSE_INPUT: i32 = 16;
+        const ENABLE_PROCESSED_INPUT: i32 = 1;
+        const ENABLE_PROCESSED_OUTPUT: i32 = 1;
+        const ENABLE_QUICK_EDIT_MODE: i32 = 64;
+        const ENABLE_VIRTUAL_TERMINAL_INPUT: i32 = 512;
+        const ENABLE_VIRTUAL_TERMINAL_PROCESSING: i32 = 4;
+        const ENABLE_WINDOW_INPUT: i32 = 8;
+        const ENABLE_WRAP_AT_EOL_OUTPUT: i32 = 2;
         #[library("KERNEL32.dll")]
         extern fn FreeConsole() -> BOOL;
         #[library("KERNEL32.dll")]
@@ -69,7 +69,7 @@ mod Windows {
         type PALLOC_CONSOLE_RESULT = *mut ALLOC_CONSOLE_RESULT;
         type PCONSOLE_READCONSOLE_CONTROL = *mut CONSOLE_READCONSOLE_CONTROL;
         extern fn PHANDLER_ROUTINE(CtrlType: u32) -> BOOL;
-        const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1;
+        const PSEUDOCONSOLE_INHERIT_CURSOR: i32 = 1;
         #[library("KERNEL32.dll")]
         extern fn PeekConsoleInputA(hConsoleInput: HANDLE, #[len_param(2)] lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]

@@ -38,8 +38,8 @@ pub const NCRYPT_KEY_PROTECTION_CERT_HASHID: windows_sys::core::PCWSTR = windows
 pub const NCRYPT_KEY_PROTECTION_LOCAL_LOGON: windows_sys::core::PCWSTR = windows_sys::core::w!("logon");
 pub const NCRYPT_KEY_PROTECTION_LOCAL_MACHINE: windows_sys::core::PCWSTR = windows_sys::core::w!("machine");
 pub const NCRYPT_KEY_PROTECTION_LOCAL_USER: windows_sys::core::PCWSTR = windows_sys::core::w!("user");
-pub const NCRYPT_NAMED_DESCRIPTOR_FLAG: u32 = 1;
-pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: u32 = 1;
+pub const NCRYPT_NAMED_DESCRIPTOR_FLAG: i32 = 1;
+pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "ncrypt")]
 #[derive(Clone, Copy)]
@@ -67,7 +67,7 @@ impl Default for NCRYPT_PROTECT_STREAM_INFO_EX {
     }
 }
 pub type NCRYPT_STREAM_HANDLE = *mut core::ffi::c_void;
-pub const NCRYPT_UNPROTECT_NO_DECRYPT: u32 = 1;
+pub const NCRYPT_UNPROTECT_NO_DECRYPT: i32 = 1;
 #[cfg(feature = "ncrypt")]
 pub type PFNCryptStreamOutputCallback = Option<unsafe extern "system" fn(pvcallbackctxt: *const core::ffi::c_void, pbdata: *const u8, cbdata: usize, ffinal: windows_sys::core::BOOL) -> super::SECURITY_STATUS>;
 #[cfg(feature = "ncrypt")]

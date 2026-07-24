@@ -43,4 +43,4 @@ where
     windows_core::link!("kernel32.dll" "system" fn OpenPrivateNamespaceW(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::HANDLE);
     unsafe { OpenPrivateNamespaceW(lpboundarydescriptor, lpaliasprefix.param().abi()) }
 }
-pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1;
+pub const PRIVATE_NAMESPACE_FLAG_DESTROY: i32 = 1;

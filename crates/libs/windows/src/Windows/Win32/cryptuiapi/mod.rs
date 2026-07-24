@@ -88,10 +88,10 @@ impl Default for CERT_SELECTUI_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_ACCEPT_DECLINE_STYLE: u32 = 64;
-pub const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: u32 = 262144;
-pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: u32 = 4;
-pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: u32 = 32768;
+pub const CRYPTUI_ACCEPT_DECLINE_STYLE: i32 = 64;
+pub const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: i32 = 262144;
+pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: i32 = 4;
+pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: i32 = 32768;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -102,22 +102,22 @@ pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub pwszTitle: windows_core::PCWSTR,
     pub pszInitUsageOID: windows_core::PCSTR,
 }
-pub const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15;
-pub const CRYPTUI_DISABLE_ADDTOSTORE: u32 = 16;
-pub const CRYPTUI_DISABLE_EDITPROPERTIES: u32 = 4;
-pub const CRYPTUI_DISABLE_EXPORT: u32 = 8192;
-pub const CRYPTUI_DISABLE_HTMLLINK: u32 = 65536;
-pub const CRYPTUI_DISABLE_ISSUERSTATEMENT: u32 = 131072;
-pub const CRYPTUI_DONT_OPEN_STORES: u32 = 256;
-pub const CRYPTUI_ENABLE_ADDTOSTORE: u32 = 32;
-pub const CRYPTUI_ENABLE_EDITPROPERTIES: u32 = 8;
-pub const CRYPTUI_ENABLE_REVOCATION_CHECKING: u32 = 2048;
-pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN: u32 = 32768;
-pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: u32 = 2048;
-pub const CRYPTUI_ENABLE_REVOCATION_CHECK_END_CERT: u32 = 16384;
-pub const CRYPTUI_HIDE_DETAILPAGE: u32 = 2;
-pub const CRYPTUI_HIDE_HIERARCHYPAGE: u32 = 1;
-pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: u32 = 128;
+pub const CRYPTUI_CERT_MGR_TAB_MASK: i32 = 15;
+pub const CRYPTUI_DISABLE_ADDTOSTORE: i32 = 16;
+pub const CRYPTUI_DISABLE_EDITPROPERTIES: i32 = 4;
+pub const CRYPTUI_DISABLE_EXPORT: i32 = 8192;
+pub const CRYPTUI_DISABLE_HTMLLINK: i32 = 65536;
+pub const CRYPTUI_DISABLE_ISSUERSTATEMENT: i32 = 131072;
+pub const CRYPTUI_DONT_OPEN_STORES: i32 = 256;
+pub const CRYPTUI_ENABLE_ADDTOSTORE: i32 = 32;
+pub const CRYPTUI_ENABLE_EDITPROPERTIES: i32 = 8;
+pub const CRYPTUI_ENABLE_REVOCATION_CHECKING: i32 = 2048;
+pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN: i32 = 32768;
+pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: i32 = 2048;
+pub const CRYPTUI_ENABLE_REVOCATION_CHECK_END_CERT: i32 = 16384;
+pub const CRYPTUI_HIDE_DETAILPAGE: i32 = 2;
+pub const CRYPTUI_HIDE_HIERARCHYPAGE: i32 = 1;
+pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -125,13 +125,13 @@ pub struct CRYPTUI_INITDIALOG_STRUCT {
     pub lParam: super::LPARAM,
     pub pCertContext: super::PCCERT_CONTEXT,
 }
-pub const CRYPTUI_ONLY_OPEN_ROOT_STORE: u32 = 512;
-pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: u32 = 32;
-pub const CRYPTUI_SELECT_FRIENDLYNAME_COLUMN: u32 = 8;
-pub const CRYPTUI_SELECT_INTENDEDUSE_COLUMN: u32 = 4;
-pub const CRYPTUI_SELECT_ISSUEDBY_COLUMN: u32 = 2;
-pub const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u32 = 1;
-pub const CRYPTUI_SELECT_LOCATION_COLUMN: u32 = 16;
+pub const CRYPTUI_ONLY_OPEN_ROOT_STORE: i32 = 512;
+pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: i32 = 32;
+pub const CRYPTUI_SELECT_FRIENDLYNAME_COLUMN: i32 = 8;
+pub const CRYPTUI_SELECT_INTENDEDUSE_COLUMN: i32 = 4;
+pub const CRYPTUI_SELECT_ISSUEDBY_COLUMN: i32 = 2;
+pub const CRYPTUI_SELECT_ISSUEDTO_COLUMN: i32 = 1;
+pub const CRYPTUI_SELECT_LOCATION_COLUMN: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
 #[derive(Clone, Copy)]
@@ -216,10 +216,10 @@ impl Default for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_WARN_REMOTE_TRUST: u32 = 4096;
-pub const CRYPTUI_WARN_UNTRUSTED_ROOT: u32 = 1024;
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: u32 = 1;
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: u32 = 2;
+pub const CRYPTUI_WARN_REMOTE_TRUST: i32 = 4096;
+pub const CRYPTUI_WARN_UNTRUSTED_ROOT: i32 = 1024;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: i32 = 1;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
@@ -234,7 +234,7 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: u32 = 1;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy)]
@@ -263,7 +263,7 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: u32 = 1;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
@@ -276,7 +276,7 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -291,8 +291,8 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub psAuthenticated: super::PCRYPT_ATTRIBUTES,
     pub psUnauthenticated: super::PCRYPT_ATTRIBUTES,
 }
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4;
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: u32 = 2;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: i32 = 4;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
@@ -339,8 +339,8 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: u32 = 3;
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: u32 = 1;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: i32 = 3;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
@@ -349,8 +349,8 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub pwszProvName: windows_core::PWSTR,
     pub dwProvType: u32,
 }
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: u32 = 2;
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: u32 = 2;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: i32 = 2;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug)]
@@ -367,8 +367,8 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: u32 = 2;
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: u32 = 1;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: i32 = 2;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
@@ -379,18 +379,18 @@ pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub pwszPassword: windows_core::PCWSTR,
     pub fStrongEncryption: windows_core::BOOL,
 }
-pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: u32 = 1;
-pub const CRYPTUI_WIZ_EXPORT_CERT_STORE: u32 = 4;
-pub const CRYPTUI_WIZ_EXPORT_CERT_STORE_CERTIFICATES_ONLY: u32 = 5;
-pub const CRYPTUI_WIZ_EXPORT_CRL_CONTEXT: u32 = 3;
-pub const CRYPTUI_WIZ_EXPORT_CTL_CONTEXT: u32 = 2;
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_BASE64: u32 = 4;
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_CRL: u32 = 6;
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_CTL: u32 = 7;
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_DER: u32 = 1;
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_PFX: u32 = 2;
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_PKCS7: u32 = 3;
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5;
+pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: i32 = 1;
+pub const CRYPTUI_WIZ_EXPORT_CERT_STORE: i32 = 4;
+pub const CRYPTUI_WIZ_EXPORT_CERT_STORE_CERTIFICATES_ONLY: i32 = 5;
+pub const CRYPTUI_WIZ_EXPORT_CRL_CONTEXT: i32 = 3;
+pub const CRYPTUI_WIZ_EXPORT_CTL_CONTEXT: i32 = 2;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_BASE64: i32 = 4;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_CRL: i32 = 6;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_CTL: i32 = 7;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_DER: i32 = 1;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_PFX: i32 = 2;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_PKCS7: i32 = 3;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: i32 = 5;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
@@ -423,11 +423,11 @@ impl Default for CRYPTUI_WIZ_EXPORT_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_WIZ_IMPORT_ALLOW_CERT: u32 = 131072;
-pub const CRYPTUI_WIZ_IMPORT_ALLOW_CRL: u32 = 262144;
-pub const CRYPTUI_WIZ_IMPORT_ALLOW_CTL: u32 = 524288;
-pub const CRYPTUI_WIZ_IMPORT_NO_CHANGE_DEST_STORE: u32 = 65536;
-pub const CRYPTUI_WIZ_IMPORT_REMOTE_DEST_STORE: u32 = 4194304;
+pub const CRYPTUI_WIZ_IMPORT_ALLOW_CERT: i32 = 131072;
+pub const CRYPTUI_WIZ_IMPORT_ALLOW_CRL: i32 = 262144;
+pub const CRYPTUI_WIZ_IMPORT_ALLOW_CTL: i32 = 524288;
+pub const CRYPTUI_WIZ_IMPORT_NO_CHANGE_DEST_STORE: i32 = 65536;
+pub const CRYPTUI_WIZ_IMPORT_REMOTE_DEST_STORE: i32 = 4194304;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
@@ -460,14 +460,14 @@ impl Default for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT: u32 = 2;
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: u32 = 5;
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CRL_CONTEXT: u32 = 4;
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CTL_CONTEXT: u32 = 3;
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_FILE: u32 = 1;
-pub const CRYPTUI_WIZ_IMPORT_TO_CURRENTUSER: u32 = 2097152;
-pub const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: u32 = 1048576;
-pub const CRYPTUI_WIZ_NO_UI: u32 = 1;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT: i32 = 2;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: i32 = 5;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CRL_CONTEXT: i32 = 4;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CTL_CONTEXT: i32 = 3;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_FILE: i32 = 1;
+pub const CRYPTUI_WIZ_IMPORT_TO_CURRENTUSER: i32 = 2097152;
+pub const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: i32 = 1048576;
+pub const CRYPTUI_WIZ_NO_UI: i32 = 1;
 #[cfg(feature = "windef")]
 pub type PCCRYPTUI_CERT_MGR_STRUCT = *const CRYPTUI_CERT_MGR_STRUCT;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]

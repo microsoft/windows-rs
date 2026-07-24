@@ -1,13 +1,13 @@
-pub const EXITEVENT_CERTDENIED: u32 = 4;
-pub const EXITEVENT_CERTIMPORTED: u32 = 512;
-pub const EXITEVENT_CERTISSUED: u32 = 1;
-pub const EXITEVENT_CERTPENDING: u32 = 2;
-pub const EXITEVENT_CERTRETRIEVEPENDING: u32 = 16;
-pub const EXITEVENT_CERTREVOKED: u32 = 8;
-pub const EXITEVENT_CRLISSUED: u32 = 32;
-pub const EXITEVENT_INVALID: u32 = 0;
-pub const EXITEVENT_SHUTDOWN: u32 = 64;
-pub const EXITEVENT_STARTUP: u32 = 128;
+pub const EXITEVENT_CERTDENIED: i32 = 4;
+pub const EXITEVENT_CERTIMPORTED: i32 = 512;
+pub const EXITEVENT_CERTISSUED: i32 = 1;
+pub const EXITEVENT_CERTPENDING: i32 = 2;
+pub const EXITEVENT_CERTRETRIEVEPENDING: i32 = 16;
+pub const EXITEVENT_CERTREVOKED: i32 = 8;
+pub const EXITEVENT_CRLISSUED: i32 = 32;
+pub const EXITEVENT_INVALID: i32 = 0;
+pub const EXITEVENT_SHUTDOWN: i32 = 64;
+pub const EXITEVENT_STARTUP: i32 = 128;
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertExit, ICertExit_Vtbl, 0xe19ae1a0_7364_11d0_8816_00a0c903b83c);
 #[cfg(feature = "oaidl")]

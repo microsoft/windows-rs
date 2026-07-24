@@ -21,8 +21,8 @@ mod Windows {
         const DEVICEDISPLAY_DISCOVERYMETHOD_WSD: String = "WSD";
         #[encoding("utf-16")]
         const DEVICEDISPLAY_DISCOVERYMETHOD_WUSB: String = "WUSB";
-        const FD_Visibility_Default: u32 = 0;
-        const FD_Visibility_Hidden: u32 = 1;
+        const FD_Visibility_Default: i32 = 0;
+        const FD_Visibility_Hidden: i32 = 1;
         const FMTID_Device: GUID = 0x78c34fc8_104a_4aca_9ea4_524d52996e57;
         const FMTID_DeviceInterface: GUID = 0x53808008_07bb_4661_bc3c_b5953e708560;
         const FMTID_FD: GUID = 0x904b03a2_471d_423c_a584_f3483238a146;
@@ -322,9 +322,9 @@ mod Windows {
         const PNPX_DEVICECATEGORY_STORAGE: String = "Storage";
         #[encoding("utf-16")]
         const PNPX_DEVICECATEGORY_TELEPHONE: String = "Phones";
-        const PNPX_INSTALLSTATE_FAILED: u32 = 3;
-        const PNPX_INSTALLSTATE_INSTALLED: u32 = 1;
-        const PNPX_INSTALLSTATE_INSTALLING: u32 = 2;
-        const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0;
+        const PNPX_INSTALLSTATE_FAILED: i32 = 3;
+        const PNPX_INSTALLSTATE_INSTALLED: i32 = 1;
+        const PNPX_INSTALLSTATE_INSTALLING: i32 = 2;
+        const PNPX_INSTALLSTATE_NOTINSTALLED: i32 = 0;
     }
 }

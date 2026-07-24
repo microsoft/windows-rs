@@ -7,7 +7,7 @@ mod Windows {
             AEC_CAPTURE_STREAM = 0,
             AEC_REFERENCE_STREAM = 1,
         }
-        const AEC_MAX_SYSTEM_MODES: u32 = 6;
+        const AEC_MAX_SYSTEM_MODES: i32 = 6;
         #[repr(i32)]
         enum AEC_SYSTEM_MODE {
             SINGLE_CHANNEL_AEC = 0,
@@ -419,14 +419,14 @@ mod Windows {
             _msoBegin = 0,
             _msoCurrent = 1,
         }
-        const SYSFXUI_DONOTSHOW_BASSBOOST: u32 = 8;
-        const SYSFXUI_DONOTSHOW_BASSMANAGEMENT: u32 = 4;
-        const SYSFXUI_DONOTSHOW_CHANNELPHANTOMING: u32 = 128;
-        const SYSFXUI_DONOTSHOW_HEADPHONEVIRTUALIZATION: u32 = 16;
-        const SYSFXUI_DONOTSHOW_LOUDNESSEQUALIZATION: u32 = 1;
-        const SYSFXUI_DONOTSHOW_ROOMCORRECTION: u32 = 2;
-        const SYSFXUI_DONOTSHOW_SPEAKERFILLING: u32 = 64;
-        const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: u32 = 32;
+        const SYSFXUI_DONOTSHOW_BASSBOOST: i32 = 8;
+        const SYSFXUI_DONOTSHOW_BASSMANAGEMENT: i32 = 4;
+        const SYSFXUI_DONOTSHOW_CHANNELPHANTOMING: i32 = 128;
+        const SYSFXUI_DONOTSHOW_HEADPHONEVIRTUALIZATION: i32 = 16;
+        const SYSFXUI_DONOTSHOW_LOUDNESSEQUALIZATION: i32 = 1;
+        const SYSFXUI_DONOTSHOW_ROOMCORRECTION: i32 = 2;
+        const SYSFXUI_DONOTSHOW_SPEAKERFILLING: i32 = 64;
+        const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: i32 = 32;
         struct TOC_DESCRIPTOR {
             guidID: GUID,
             wStreamNumber: u16,
@@ -440,8 +440,8 @@ mod Windows {
             qwEndPacketOffset: u64,
             qwRepresentativeFrameTime: u64,
         }
-        const TOC_ENTRY_MAX_TITLE_SIZE: u32 = 65535;
-        const TOC_MAX_DESCRIPTION_SIZE: u32 = 65535;
+        const TOC_ENTRY_MAX_TITLE_SIZE: i32 = 65535;
+        const TOC_MAX_DESCRIPTION_SIZE: i32 = 65535;
         #[repr(i32)]
         enum TOC_POS_TYPE {
             TOC_POS_INHEADER = 0,
@@ -465,11 +465,11 @@ mod Windows {
             WMV_DYNAMIC_RESOLUTION = 2,
             WMV_DYNAMIC_COMPLEXITY = 4,
         }
-        const WM_CODEC_ONEPASS_CBR: u32 = 1;
-        const WM_CODEC_ONEPASS_VBR: u32 = 2;
-        const WM_CODEC_TWOPASS_CBR: u32 = 4;
-        const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: u32 = 16;
-        const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: u32 = 8;
+        const WM_CODEC_ONEPASS_CBR: i32 = 1;
+        const WM_CODEC_ONEPASS_VBR: i32 = 2;
+        const WM_CODEC_TWOPASS_CBR: i32 = 4;
+        const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: i32 = 16;
+        const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: i32 = 8;
         #[encoding("utf-16")]
         const g_wszSpeechFormatCaps: String = "SpeechFormatCap";
         #[encoding("utf-16")]

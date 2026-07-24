@@ -1,6 +1,6 @@
-pub const EC_SNDDEV_IN_ERROR: u32 = 512;
-pub const EC_SNDDEV_OUT_ERROR: u32 = 513;
-pub const EC_SND_DEVICE_ERROR_BASE: u32 = 512;
+pub const EC_SNDDEV_IN_ERROR: i32 = 512;
+pub const EC_SNDDEV_OUT_ERROR: i32 = 513;
+pub const EC_SND_DEVICE_ERROR_BASE: i32 = 512;
 pub type SNDDEV_ERR = i32;
 pub const SNDDEV_ERROR_AddBuffer: SNDDEV_ERR = 13;
 pub const SNDDEV_ERROR_Close: SNDDEV_ERR = 2;

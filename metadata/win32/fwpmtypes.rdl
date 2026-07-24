@@ -38,9 +38,9 @@ mod Windows {
             providerKey: *mut GUID,
             layerKey: GUID,
         }
-        const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536;
-        const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144;
-        const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: u32 = 131072;
+        const FWPM_CALLOUT_FLAG_PERSISTENT: i32 = 65536;
+        const FWPM_CALLOUT_FLAG_REGISTERED: i32 = 262144;
+        const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: i32 = 131072;
         struct FWPM_CALLOUT_SUBSCRIPTION0 {
             enumTemplate: *mut FWPM_CALLOUT_ENUM_TEMPLATE0,
             flags: u32,
@@ -82,7 +82,7 @@ mod Windows {
             bytesTransferredTotal: u64,
             startSysTime: FILETIME,
         }
-        const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1;
+        const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: i32 = 1;
         struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
             connectionId: u64,
             flags: u32,
@@ -108,10 +108,10 @@ mod Windows {
             FWPM_ENGINE_TXN_WATCHDOG_TIMEOUT_IN_MSEC = 5,
             FWPM_ENGINE_OPTION_MAX = 6,
         }
-        const FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND: u32 = 4;
-        const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: u32 = 2;
-        const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: u32 = 1;
-        const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0;
+        const FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND: i32 = 4;
+        const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: i32 = 2;
+        const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: i32 = 1;
+        const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: i32 = 0;
         struct FWPM_FIELD0 {
             fieldKey: *mut GUID,
             r#type: FWPM_FIELD_TYPE,
@@ -165,22 +165,22 @@ mod Windows {
             actionMask: u32,
             calloutKey: *mut GUID,
         }
-        const FWPM_FILTER_FLAG_BOOTTIME: u32 = 2;
-        const FWPM_FILTER_FLAG_CLEAR_ACTION_RIGHT: u32 = 8;
-        const FWPM_FILTER_FLAG_DISABLED: u32 = 32;
-        const FWPM_FILTER_FLAG_GAMEOS_ONLY: u32 = 512;
-        const FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT: u32 = 4;
-        const FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: u32 = 128;
-        const FWPM_FILTER_FLAG_INDEXED: u32 = 64;
-        const FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: u32 = 2048;
-        const FWPM_FILTER_FLAG_NONE: u32 = 0;
-        const FWPM_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: u32 = 16;
-        const FWPM_FILTER_FLAG_PERSISTENT: u32 = 1;
-        const FWPM_FILTER_FLAG_RESERVED0: u32 = 4096;
-        const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192;
-        const FWPM_FILTER_FLAG_RESERVED2: u32 = 16384;
-        const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024;
-        const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256;
+        const FWPM_FILTER_FLAG_BOOTTIME: i32 = 2;
+        const FWPM_FILTER_FLAG_CLEAR_ACTION_RIGHT: i32 = 8;
+        const FWPM_FILTER_FLAG_DISABLED: i32 = 32;
+        const FWPM_FILTER_FLAG_GAMEOS_ONLY: i32 = 512;
+        const FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT: i32 = 4;
+        const FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: i32 = 128;
+        const FWPM_FILTER_FLAG_INDEXED: i32 = 64;
+        const FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: i32 = 2048;
+        const FWPM_FILTER_FLAG_NONE: i32 = 0;
+        const FWPM_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: i32 = 16;
+        const FWPM_FILTER_FLAG_PERSISTENT: i32 = 1;
+        const FWPM_FILTER_FLAG_RESERVED0: i32 = 4096;
+        const FWPM_FILTER_FLAG_RESERVED1: i32 = 8192;
+        const FWPM_FILTER_FLAG_RESERVED2: i32 = 16384;
+        const FWPM_FILTER_FLAG_SILENT_MODE: i32 = 1024;
+        const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: i32 = 256;
         struct FWPM_FILTER_SUBSCRIPTION0 {
             enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
             flags: u32,
@@ -198,10 +198,10 @@ mod Windows {
         struct FWPM_LAYER_ENUM_TEMPLATE0 {
             reserved: u64,
         }
-        const FWPM_LAYER_FLAG_BUFFERED: u32 = 8;
-        const FWPM_LAYER_FLAG_BUILTIN: u32 = 2;
-        const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: u32 = 4;
-        const FWPM_LAYER_FLAG_KERNEL: u32 = 1;
+        const FWPM_LAYER_FLAG_BUFFERED: i32 = 8;
+        const FWPM_LAYER_FLAG_BUILTIN: i32 = 2;
+        const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: i32 = 4;
+        const FWPM_LAYER_FLAG_KERNEL: i32 = 1;
         struct FWPM_LAYER_STATISTICS1 {
             layerId: GUID,
             classifyPermitCount: u32,
@@ -379,20 +379,20 @@ mod Windows {
             numFilterConditions: u32,
             filterCondition: *mut FWPM_FILTER_CONDITION0,
         }
-        const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32;
-        const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: u32 = 8192;
-        const FWPM_NET_EVENT_FLAG_ENTERPRISE_ID_SET: u32 = 2048;
-        const FWPM_NET_EVENT_FLAG_IP_PROTOCOL_SET: u32 = 1;
-        const FWPM_NET_EVENT_FLAG_IP_VERSION_SET: u32 = 256;
-        const FWPM_NET_EVENT_FLAG_LOCAL_ADDR_SET: u32 = 2;
-        const FWPM_NET_EVENT_FLAG_LOCAL_PORT_SET: u32 = 8;
-        const FWPM_NET_EVENT_FLAG_PACKAGE_ID_SET: u32 = 1024;
-        const FWPM_NET_EVENT_FLAG_POLICY_FLAGS_SET: u32 = 4096;
-        const FWPM_NET_EVENT_FLAG_REAUTH_REASON_SET: u32 = 512;
-        const FWPM_NET_EVENT_FLAG_REMOTE_ADDR_SET: u32 = 4;
-        const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16;
-        const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128;
-        const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64;
+        const FWPM_NET_EVENT_FLAG_APP_ID_SET: i32 = 32;
+        const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: i32 = 8192;
+        const FWPM_NET_EVENT_FLAG_ENTERPRISE_ID_SET: i32 = 2048;
+        const FWPM_NET_EVENT_FLAG_IP_PROTOCOL_SET: i32 = 1;
+        const FWPM_NET_EVENT_FLAG_IP_VERSION_SET: i32 = 256;
+        const FWPM_NET_EVENT_FLAG_LOCAL_ADDR_SET: i32 = 2;
+        const FWPM_NET_EVENT_FLAG_LOCAL_PORT_SET: i32 = 8;
+        const FWPM_NET_EVENT_FLAG_PACKAGE_ID_SET: i32 = 1024;
+        const FWPM_NET_EVENT_FLAG_POLICY_FLAGS_SET: i32 = 4096;
+        const FWPM_NET_EVENT_FLAG_REAUTH_REASON_SET: i32 = 512;
+        const FWPM_NET_EVENT_FLAG_REMOTE_ADDR_SET: i32 = 4;
+        const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: i32 = 16;
+        const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: i32 = 128;
+        const FWPM_NET_EVENT_FLAG_USER_ID_SET: i32 = 64;
         struct FWPM_NET_EVENT_HEADER0 {
             timeStamp: FILETIME,
             flags: u32,
@@ -523,8 +523,8 @@ mod Windows {
             remotePrincipalGroupSids: *mut PWSTR,
             saTrafficType: IPSEC_TRAFFIC_TYPE,
         }
-        const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2;
-        const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1;
+        const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: i32 = 2;
+        const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: i32 = 1;
         struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
             failureErrorCode: u32,
             failurePoint: IPSEC_FAILURE_POINT,
@@ -574,8 +574,8 @@ mod Windows {
             remotePrincipalGroupSids: *mut PWSTR,
             providerContextKey: *mut GUID,
         }
-        const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1;
-        const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2;
+        const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: i32 = 1;
+        const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: i32 = 2;
         struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
             failureErrorCode: u32,
             failurePoint: IPSEC_FAILURE_POINT,
@@ -628,12 +628,12 @@ mod Windows {
             filterId: u64,
             layerId: u16,
         }
-        const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: u32 = 8;
-        const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: u32 = 4;
-        const FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW: u32 = 16;
-        const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2;
-        const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1;
-        const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32;
+        const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: i32 = 8;
+        const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: i32 = 4;
+        const FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW: i32 = 16;
+        const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: i32 = 2;
+        const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: i32 = 1;
+        const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: i32 = 32;
         struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
             spi: IPSEC_SA_SPI,
         }
@@ -769,8 +769,8 @@ mod Windows {
             providerKey: *mut GUID,
             providerContextType: FWPM_PROVIDER_CONTEXT_TYPE,
         }
-        const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2;
-        const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1;
+        const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: i32 = 2;
+        const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: i32 = 1;
         struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
             enumTemplate: *mut FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0,
             flags: u32,
@@ -797,8 +797,8 @@ mod Windows {
         struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
             reserved: u64,
         }
-        const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16;
-        const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1;
+        const FWPM_PROVIDER_FLAG_DISABLED: i32 = 16;
+        const FWPM_PROVIDER_FLAG_PERSISTENT: i32 = 1;
         struct FWPM_PROVIDER_SUBSCRIPTION0 {
             enumTemplate: *mut FWPM_PROVIDER_ENUM_TEMPLATE0,
             flags: u32,
@@ -825,8 +825,8 @@ mod Windows {
         struct FWPM_SESSION_ENUM_TEMPLATE0 {
             reserved: u64,
         }
-        const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1;
-        const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456;
+        const FWPM_SESSION_FLAG_DYNAMIC: i32 = 1;
+        const FWPM_SESSION_FLAG_RESERVED: i32 = 268435456;
         struct FWPM_STATISTICS1 {
             numLayerStatistics: u32,
             layerStatistics: *mut FWPM_LAYER_STATISTICS1,
@@ -880,14 +880,14 @@ mod Windows {
         struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
             providerKey: *mut GUID,
         }
-        const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1;
+        const FWPM_SUBLAYER_FLAG_PERSISTENT: i32 = 1;
         struct FWPM_SUBLAYER_SUBSCRIPTION0 {
             enumTemplate: *mut FWPM_SUBLAYER_ENUM_TEMPLATE0,
             flags: u32,
             sessionKey: GUID,
         }
-        const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: u32 = 1;
-        const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: u32 = 2;
+        const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: i32 = 1;
+        const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: i32 = 2;
         struct FWPM_SYSTEM_PORTS0 {
             numTypes: u32,
             types: *mut FWPM_SYSTEM_PORTS_BY_TYPE0,
@@ -933,7 +933,7 @@ mod Windows {
             FWPM_VSWITCH_EVENT_FILTER_ENGINE_REORDER = 4,
             FWPM_VSWITCH_EVENT_MAX = 5,
         }
-        const IKEEXT_CERT_HASH_LEN: u32 = 20;
+        const IKEEXT_CERT_HASH_LEN: i32 = 20;
         type PDL_ADDRESS_TYPE = *mut DL_ADDRESS_TYPE;
     }
 }

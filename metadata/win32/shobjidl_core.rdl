@@ -68,29 +68,29 @@ mod Windows {
             AVS_SNAPPED = 2,
             AVS_FULLSCREEN_PORTRAIT = 3,
         }
-        const ARCONTENT_AUDIOCD: u32 = 4;
-        const ARCONTENT_AUTOPLAYMUSIC: u32 = 256;
-        const ARCONTENT_AUTOPLAYPIX: u32 = 128;
-        const ARCONTENT_AUTOPLAYVIDEO: u32 = 512;
-        const ARCONTENT_AUTORUNINF: u32 = 2;
-        const ARCONTENT_BLANKBD: u32 = 8192;
-        const ARCONTENT_BLANKCD: u32 = 16;
-        const ARCONTENT_BLANKDVD: u32 = 32;
-        const ARCONTENT_BLURAY: u32 = 16384;
-        const ARCONTENT_CAMERASTORAGE: u32 = 32768;
-        const ARCONTENT_CUSTOMEVENT: u32 = 65536;
-        const ARCONTENT_DVDAUDIO: u32 = 4096;
-        const ARCONTENT_DVDMOVIE: u32 = 8;
-        const ARCONTENT_MASK: u32 = 131070;
-        const ARCONTENT_NONE: u32 = 0;
-        const ARCONTENT_PHASE_FINAL: u32 = 1073741824;
-        const ARCONTENT_PHASE_MASK: u32 = 1879048192;
-        const ARCONTENT_PHASE_PRESNIFF: u32 = 268435456;
-        const ARCONTENT_PHASE_SNIFFING: u32 = 536870912;
-        const ARCONTENT_PHASE_UNKNOWN: u32 = 0;
-        const ARCONTENT_SVCD: u32 = 2048;
-        const ARCONTENT_UNKNOWNCONTENT: u32 = 64;
-        const ARCONTENT_VCD: u32 = 1024;
+        const ARCONTENT_AUDIOCD: i32 = 4;
+        const ARCONTENT_AUTOPLAYMUSIC: i32 = 256;
+        const ARCONTENT_AUTOPLAYPIX: i32 = 128;
+        const ARCONTENT_AUTOPLAYVIDEO: i32 = 512;
+        const ARCONTENT_AUTORUNINF: i32 = 2;
+        const ARCONTENT_BLANKBD: i32 = 8192;
+        const ARCONTENT_BLANKCD: i32 = 16;
+        const ARCONTENT_BLANKDVD: i32 = 32;
+        const ARCONTENT_BLURAY: i32 = 16384;
+        const ARCONTENT_CAMERASTORAGE: i32 = 32768;
+        const ARCONTENT_CUSTOMEVENT: i32 = 65536;
+        const ARCONTENT_DVDAUDIO: i32 = 4096;
+        const ARCONTENT_DVDMOVIE: i32 = 8;
+        const ARCONTENT_MASK: i32 = 131070;
+        const ARCONTENT_NONE: i32 = 0;
+        const ARCONTENT_PHASE_FINAL: i32 = 1073741824;
+        const ARCONTENT_PHASE_MASK: i32 = 1879048192;
+        const ARCONTENT_PHASE_PRESNIFF: i32 = 268435456;
+        const ARCONTENT_PHASE_SNIFFING: i32 = 536870912;
+        const ARCONTENT_PHASE_UNKNOWN: i32 = 0;
+        const ARCONTENT_SVCD: i32 = 2048;
+        const ARCONTENT_UNKNOWNCONTENT: i32 = 64;
+        const ARCONTENT_VCD: i32 = 1024;
         #[repr(i32)]
         enum ASSOCIATIONLEVEL {
             AL_MACHINE = 0,
@@ -174,23 +174,23 @@ mod Windows {
             BFO_USE_IE_STATUSBAR = 131072,
             BFO_QUERY_ALL = 4294967295,
         }
-        const BSIM_STATE: u32 = 1;
-        const BSIM_STYLE: u32 = 2;
-        const BSIS_ALWAYSGRIPPER: u32 = 2;
-        const BSIS_AUTOGRIPPER: u32 = 0;
-        const BSIS_FIXEDORDER: u32 = 1024;
-        const BSIS_LEFTALIGN: u32 = 4;
-        const BSIS_LOCKED: u32 = 256;
-        const BSIS_NOCAPTION: u32 = 64;
-        const BSIS_NOCONTEXTMENU: u32 = 16;
-        const BSIS_NODROPTARGET: u32 = 32;
-        const BSIS_NOGRIPPER: u32 = 1;
-        const BSIS_PREFERNOLINEBREAK: u32 = 128;
-        const BSIS_PRESERVEORDERDURINGLAYOUT: u32 = 512;
-        const BSIS_SINGLECLICK: u32 = 8;
-        const BSSF_NOTITLE: u32 = 2;
-        const BSSF_UNDELETEABLE: u32 = 4096;
-        const BSSF_VISIBLE: u32 = 1;
+        const BSIM_STATE: i32 = 1;
+        const BSIM_STYLE: i32 = 2;
+        const BSIS_ALWAYSGRIPPER: i32 = 2;
+        const BSIS_AUTOGRIPPER: i32 = 0;
+        const BSIS_FIXEDORDER: i32 = 1024;
+        const BSIS_LEFTALIGN: i32 = 4;
+        const BSIS_LOCKED: i32 = 256;
+        const BSIS_NOCAPTION: i32 = 64;
+        const BSIS_NOCONTEXTMENU: i32 = 16;
+        const BSIS_NODROPTARGET: i32 = 32;
+        const BSIS_NOGRIPPER: i32 = 1;
+        const BSIS_PREFERNOLINEBREAK: i32 = 128;
+        const BSIS_PRESERVEORDERDURINGLAYOUT: i32 = 512;
+        const BSIS_SINGLECLICK: i32 = 8;
+        const BSSF_NOTITLE: i32 = 2;
+        const BSSF_UNDELETEABLE: i32 = 4096;
+        const BSSF_VISIBLE: i32 = 1;
         #[repr(u32)]
         #[flags]
         enum CATEGORYINFO_FLAGS {
@@ -215,20 +215,20 @@ mod Windows {
             CATSORT_DEFAULT = 0,
             CATSORT_NAME = 1,
         }
-        const CDB2GVF_ADDSHIELD: u32 = 64;
-        const CDB2GVF_ALLOWPREVIEWPANE: u32 = 4;
-        const CDB2GVF_ISFILESAVE: u32 = 2;
-        const CDB2GVF_ISFOLDERPICKER: u32 = 32;
-        const CDB2GVF_NOINCLUDEITEM: u32 = 16;
-        const CDB2GVF_NOSELECTVERB: u32 = 8;
-        const CDB2GVF_SHOWALLFILES: u32 = 1;
-        const CDB2N_CONTEXTMENU_DONE: u32 = 1;
-        const CDB2N_CONTEXTMENU_START: u32 = 2;
-        const CDBOSC_KILLFOCUS: u32 = 1;
-        const CDBOSC_RENAME: u32 = 3;
-        const CDBOSC_SELCHANGE: u32 = 2;
-        const CDBOSC_SETFOCUS: u32 = 0;
-        const CDBOSC_STATECHANGE: u32 = 4;
+        const CDB2GVF_ADDSHIELD: i32 = 64;
+        const CDB2GVF_ALLOWPREVIEWPANE: i32 = 4;
+        const CDB2GVF_ISFILESAVE: i32 = 2;
+        const CDB2GVF_ISFOLDERPICKER: i32 = 32;
+        const CDB2GVF_NOINCLUDEITEM: i32 = 16;
+        const CDB2GVF_NOSELECTVERB: i32 = 8;
+        const CDB2GVF_SHOWALLFILES: i32 = 1;
+        const CDB2N_CONTEXTMENU_DONE: i32 = 1;
+        const CDB2N_CONTEXTMENU_START: i32 = 2;
+        const CDBOSC_KILLFOCUS: i32 = 1;
+        const CDBOSC_RENAME: i32 = 3;
+        const CDBOSC_SELCHANGE: i32 = 2;
+        const CDBOSC_SETFOCUS: i32 = 0;
+        const CDBOSC_STATECHANGE: i32 = 4;
         #[repr(u32)]
         #[flags]
         enum CDCONTROLSTATEF {
@@ -249,32 +249,32 @@ mod Windows {
         const CMDSTR_VIEWLISTA: String = "ViewList";
         #[encoding("utf-16")]
         const CMDSTR_VIEWLISTW: String = "ViewList";
-        const CMF_ASYNCVERBSTATE: u32 = 1024;
-        const CMF_CANRENAME: u32 = 16;
-        const CMF_DEFAULTONLY: u32 = 1;
-        const CMF_DISABLEDVERBS: u32 = 512;
-        const CMF_DONOTPICKDEFAULT: u32 = 8192;
-        const CMF_EXPLORE: u32 = 4;
-        const CMF_EXTENDEDVERBS: u32 = 256;
-        const CMF_ITEMMENU: u32 = 128;
-        const CMF_NODEFAULT: u32 = 32;
-        const CMF_NORMAL: u32 = 0;
-        const CMF_NOVERBS: u32 = 8;
-        const CMF_OPTIMIZEFORINVOKE: u32 = 2048;
+        const CMF_ASYNCVERBSTATE: i32 = 1024;
+        const CMF_CANRENAME: i32 = 16;
+        const CMF_DEFAULTONLY: i32 = 1;
+        const CMF_DISABLEDVERBS: i32 = 512;
+        const CMF_DONOTPICKDEFAULT: i32 = 8192;
+        const CMF_EXPLORE: i32 = 4;
+        const CMF_EXTENDEDVERBS: i32 = 256;
+        const CMF_ITEMMENU: i32 = 128;
+        const CMF_NODEFAULT: i32 = 32;
+        const CMF_NORMAL: i32 = 0;
+        const CMF_NOVERBS: i32 = 8;
+        const CMF_OPTIMIZEFORINVOKE: i32 = 2048;
         const CMF_RESERVED: u32 = 4294901760;
-        const CMF_SYNCCASCADEMENU: u32 = 4096;
-        const CMF_VERBSONLY: u32 = 2;
-        const CMIC_MASK_ASYNCOK: u32 = 1048576;
-        const CMIC_MASK_CONTROL_DOWN: u32 = 1073741824;
-        const CMIC_MASK_FLAG_LOG_USAGE: u32 = 67108864;
-        const CMIC_MASK_FLAG_NO_UI: u32 = 1024;
-        const CMIC_MASK_HOTKEY: u32 = 32;
-        const CMIC_MASK_NOASYNC: u32 = 256;
-        const CMIC_MASK_NOZONECHECKS: u32 = 8388608;
-        const CMIC_MASK_NO_CONSOLE: u32 = 32768;
-        const CMIC_MASK_PTINVOKE: u32 = 536870912;
-        const CMIC_MASK_SHIFT_DOWN: u32 = 268435456;
-        const CMIC_MASK_UNICODE: u32 = 16384;
+        const CMF_SYNCCASCADEMENU: i32 = 4096;
+        const CMF_VERBSONLY: i32 = 2;
+        const CMIC_MASK_ASYNCOK: i32 = 1048576;
+        const CMIC_MASK_CONTROL_DOWN: i32 = 1073741824;
+        const CMIC_MASK_FLAG_LOG_USAGE: i32 = 67108864;
+        const CMIC_MASK_FLAG_NO_UI: i32 = 1024;
+        const CMIC_MASK_HOTKEY: i32 = 32;
+        const CMIC_MASK_NOASYNC: i32 = 256;
+        const CMIC_MASK_NOZONECHECKS: i32 = 8388608;
+        const CMIC_MASK_NO_CONSOLE: i32 = 32768;
+        const CMIC_MASK_PTINVOKE: i32 = 536870912;
+        const CMIC_MASK_SHIFT_DOWN: i32 = 268435456;
+        const CMIC_MASK_UNICODE: i32 = 16384;
         struct CMINVOKECOMMANDINFO {
             cbSize: u32,
             fMask: u32,
@@ -368,7 +368,7 @@ mod Windows {
             CPVIEW_CATEGORY = 1,
             CPVIEW_HOME = 1,
         }
-        const CSIDL_FLAG_PFTI_TRACKTARGET: u32 = 16384;
+        const CSIDL_FLAG_PFTI_TRACKTARGET: i32 = 16384;
         #[repr(u32)]
         #[flags]
         enum DATAOBJ_GET_ITEM_FLAGS {
@@ -378,31 +378,31 @@ mod Windows {
             DOGIF_NO_URL = 4,
             DOGIF_ONLY_IF_ONE = 8,
         }
-        const DBIF_VIEWMODE_FLOATING: u32 = 2;
-        const DBIF_VIEWMODE_NORMAL: u32 = 0;
-        const DBIF_VIEWMODE_TRANSPARENT: u32 = 4;
-        const DBIF_VIEWMODE_VERTICAL: u32 = 1;
-        const DBIMF_ADDTOFRONT: u32 = 512;
-        const DBIMF_ALWAYSGRIPPER: u32 = 4096;
-        const DBIMF_BKCOLOR: u32 = 64;
-        const DBIMF_BREAK: u32 = 256;
-        const DBIMF_DEBOSSED: u32 = 32;
-        const DBIMF_FIXED: u32 = 1;
-        const DBIMF_FIXEDBMP: u32 = 4;
-        const DBIMF_NOGRIPPER: u32 = 2048;
-        const DBIMF_NOMARGINS: u32 = 8192;
-        const DBIMF_NORMAL: u32 = 0;
-        const DBIMF_TOPALIGN: u32 = 1024;
-        const DBIMF_UNDELETEABLE: u32 = 16;
-        const DBIMF_USECHEVRON: u32 = 128;
-        const DBIMF_VARIABLEHEIGHT: u32 = 8;
-        const DBIM_ACTUAL: u32 = 8;
-        const DBIM_BKCOLOR: u32 = 64;
-        const DBIM_INTEGRAL: u32 = 4;
-        const DBIM_MAXSIZE: u32 = 2;
-        const DBIM_MINSIZE: u32 = 1;
-        const DBIM_MODEFLAGS: u32 = 32;
-        const DBIM_TITLE: u32 = 16;
+        const DBIF_VIEWMODE_FLOATING: i32 = 2;
+        const DBIF_VIEWMODE_NORMAL: i32 = 0;
+        const DBIF_VIEWMODE_TRANSPARENT: i32 = 4;
+        const DBIF_VIEWMODE_VERTICAL: i32 = 1;
+        const DBIMF_ADDTOFRONT: i32 = 512;
+        const DBIMF_ALWAYSGRIPPER: i32 = 4096;
+        const DBIMF_BKCOLOR: i32 = 64;
+        const DBIMF_BREAK: i32 = 256;
+        const DBIMF_DEBOSSED: i32 = 32;
+        const DBIMF_FIXED: i32 = 1;
+        const DBIMF_FIXEDBMP: i32 = 4;
+        const DBIMF_NOGRIPPER: i32 = 2048;
+        const DBIMF_NOMARGINS: i32 = 8192;
+        const DBIMF_NORMAL: i32 = 0;
+        const DBIMF_TOPALIGN: i32 = 1024;
+        const DBIMF_UNDELETEABLE: i32 = 16;
+        const DBIMF_USECHEVRON: i32 = 128;
+        const DBIMF_VARIABLEHEIGHT: i32 = 8;
+        const DBIM_ACTUAL: i32 = 8;
+        const DBIM_BKCOLOR: i32 = 64;
+        const DBIM_INTEGRAL: i32 = 4;
+        const DBIM_MAXSIZE: i32 = 2;
+        const DBIM_MINSIZE: i32 = 1;
+        const DBIM_MODEFLAGS: i32 = 32;
+        const DBIM_TITLE: i32 = 16;
         const DBPC_SELECTFIRST: u32 = 4294967295;
         const DBPC_SELECTLAST: u32 = 4294967294;
         #[repr(i32)]
@@ -561,14 +561,14 @@ mod Windows {
         const E_PREVIEWHANDLER_NOTFOUND: HRESULT = -2042494973;
         const EnumerableObjectCollection: GUID = 0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a;
         const ExecuteUnknown: GUID = 0xe44e9428_bdbc_4987_a099_40dc8fd255e7;
-        const FCT_ADDTOEND: u32 = 4;
-        const FCT_CONFIGABLE: u32 = 2;
-        const FCT_MERGE: u32 = 1;
-        const FCW_INTERNETBAR: u32 = 6;
-        const FCW_PROGRESS: u32 = 8;
-        const FCW_STATUS: u32 = 1;
-        const FCW_TOOLBAR: u32 = 2;
-        const FCW_TREE: u32 = 3;
+        const FCT_ADDTOEND: i32 = 4;
+        const FCT_CONFIGABLE: i32 = 2;
+        const FCT_MERGE: i32 = 1;
+        const FCW_INTERNETBAR: i32 = 6;
+        const FCW_PROGRESS: i32 = 8;
+        const FCW_STATUS: i32 = 1;
+        const FCW_TOOLBAR: i32 = 2;
+        const FCW_TREE: i32 = 3;
         #[repr(i32)]
         enum FDAP {
             FDAP_BOTTOM = 0,
@@ -637,22 +637,22 @@ mod Windows {
             FP_LEFT = 3,
             FP_RIGHT = 4,
         }
-        const FOFX_ADDUNDORECORD: u32 = 536870912;
-        const FOFX_COPYASDOWNLOAD: u32 = 1073741824;
-        const FOFX_DONTDISPLAYDESTPATH: u32 = 134217728;
+        const FOFX_ADDUNDORECORD: i32 = 536870912;
+        const FOFX_COPYASDOWNLOAD: i32 = 1073741824;
+        const FOFX_DONTDISPLAYDESTPATH: i32 = 134217728;
         const FOFX_DONTDISPLAYLOCATIONS: u32 = 2147483648;
-        const FOFX_DONTDISPLAYSOURCEPATH: u32 = 67108864;
-        const FOFX_EARLYFAILURE: u32 = 1048576;
-        const FOFX_KEEPNEWERFILE: u32 = 4194304;
-        const FOFX_MOVEACLSACROSSVOLUMES: u32 = 33554432;
-        const FOFX_NOCOPYHOOKS: u32 = 8388608;
-        const FOFX_NOMINIMIZEBOX: u32 = 16777216;
-        const FOFX_NOSKIPJUNCTIONS: u32 = 65536;
-        const FOFX_PREFERHARDLINK: u32 = 131072;
-        const FOFX_PRESERVEFILEEXTENSIONS: u32 = 2097152;
-        const FOFX_RECYCLEONDELETE: u32 = 524288;
-        const FOFX_REQUIREELEVATION: u32 = 268435456;
-        const FOFX_SHOWELEVATIONPROMPT: u32 = 262144;
+        const FOFX_DONTDISPLAYSOURCEPATH: i32 = 67108864;
+        const FOFX_EARLYFAILURE: i32 = 1048576;
+        const FOFX_KEEPNEWERFILE: i32 = 4194304;
+        const FOFX_MOVEACLSACROSSVOLUMES: i32 = 33554432;
+        const FOFX_NOCOPYHOOKS: i32 = 8388608;
+        const FOFX_NOMINIMIZEBOX: i32 = 16777216;
+        const FOFX_NOSKIPJUNCTIONS: i32 = 65536;
+        const FOFX_PREFERHARDLINK: i32 = 131072;
+        const FOFX_PRESERVEFILEEXTENSIONS: i32 = 2097152;
+        const FOFX_RECYCLEONDELETE: i32 = 524288;
+        const FOFX_REQUIREELEVATION: i32 = 268435456;
+        const FOFX_SHOWELEVATIONPROMPT: i32 = 262144;
         #[repr(u32)]
         #[flags]
         enum FOLDERFLAGS {
@@ -733,17 +733,17 @@ mod Windows {
         const FileSaveDialog: GUID = 0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b;
         const FrameworkInputPane: GUID = 0xd5120aa3_46ba_44c5_822d_ca8092c1fc72;
         const FreeSpaceCategorizer: GUID = 0xb5607793_24ac_44c7_82e2_831726aa6cb7;
-        const GCS_HELPTEXT: u32 = 1;
-        const GCS_HELPTEXTA: u32 = 1;
-        const GCS_HELPTEXTW: u32 = 5;
-        const GCS_UNICODE: u32 = 4;
-        const GCS_VALIDATE: u32 = 2;
-        const GCS_VALIDATEA: u32 = 2;
-        const GCS_VALIDATEW: u32 = 6;
-        const GCS_VERB: u32 = 0;
-        const GCS_VERBA: u32 = 0;
-        const GCS_VERBICONW: u32 = 20;
-        const GCS_VERBW: u32 = 4;
+        const GCS_HELPTEXT: i32 = 1;
+        const GCS_HELPTEXTA: i32 = 1;
+        const GCS_HELPTEXTW: i32 = 5;
+        const GCS_UNICODE: i32 = 4;
+        const GCS_VALIDATE: i32 = 2;
+        const GCS_VALIDATEA: i32 = 2;
+        const GCS_VALIDATEW: i32 = 6;
+        const GCS_VERB: i32 = 0;
+        const GCS_VERBA: i32 = 0;
+        const GCS_VERBICONW: i32 = 20;
+        const GCS_VERBW: i32 = 4;
         #[library("SHELL32.dll")]
         extern fn GetCurrentProcessExplicitAppUserModelID(AppID: *mut PWSTR) -> HRESULT;
         #[repr(u32)]
@@ -1075,20 +1075,20 @@ mod Windows {
             fn Drop(&self, pDataObject: IDataObject, ppt: *const POINT, dwEffect: u32) -> HRESULT;
             fn Show(&self, fShow: BOOL) -> HRESULT;
         }
-        const IEIFLAG_ASPECT: u32 = 4;
-        const IEIFLAG_ASYNC: u32 = 1;
-        const IEIFLAG_CACHE: u32 = 2;
-        const IEIFLAG_GLEAM: u32 = 16;
-        const IEIFLAG_NOBORDER: u32 = 256;
-        const IEIFLAG_NOSTAMP: u32 = 128;
-        const IEIFLAG_OFFLINE: u32 = 8;
-        const IEIFLAG_ORIGSIZE: u32 = 64;
-        const IEIFLAG_QUALITY: u32 = 512;
-        const IEIFLAG_REFRESH: u32 = 1024;
-        const IEIFLAG_SCREEN: u32 = 32;
-        const IEIT_PRIORITY_NORMAL: u32 = 268435456;
-        const IEI_PRIORITY_MAX: u32 = 2147483647;
-        const IEI_PRIORITY_MIN: u32 = 0;
+        const IEIFLAG_ASPECT: i32 = 4;
+        const IEIFLAG_ASYNC: i32 = 1;
+        const IEIFLAG_CACHE: i32 = 2;
+        const IEIFLAG_GLEAM: i32 = 16;
+        const IEIFLAG_NOBORDER: i32 = 256;
+        const IEIFLAG_NOSTAMP: i32 = 128;
+        const IEIFLAG_OFFLINE: i32 = 8;
+        const IEIFLAG_ORIGSIZE: i32 = 64;
+        const IEIFLAG_QUALITY: i32 = 512;
+        const IEIFLAG_REFRESH: i32 = 1024;
+        const IEIFLAG_SCREEN: i32 = 32;
+        const IEIT_PRIORITY_NORMAL: i32 = 268435456;
+        const IEI_PRIORITY_MAX: i32 = 2147483647;
+        const IEI_PRIORITY_MIN: i32 = 0;
         #[guid(0x973810ae_9599_4b88_9e4d_6ee98c9552da)]
         interface IEnumAssocHandlers: IUnknown {
             fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut IAssocHandler, #[opt] pceltFetched: *mut u32) -> HRESULT;
@@ -1807,11 +1807,11 @@ mod Windows {
         interface IQueryContinue: IUnknown {
             fn QueryContinue(&self) -> HRESULT;
         }
-        const IRTIR_TASK_FINISHED: u32 = 4;
-        const IRTIR_TASK_NOT_RUNNING: u32 = 0;
-        const IRTIR_TASK_PENDING: u32 = 3;
-        const IRTIR_TASK_RUNNING: u32 = 1;
-        const IRTIR_TASK_SUSPENDED: u32 = 2;
+        const IRTIR_TASK_FINISHED: i32 = 4;
+        const IRTIR_TASK_NOT_RUNNING: i32 = 0;
+        const IRTIR_TASK_PENDING: i32 = 3;
+        const IRTIR_TASK_RUNNING: i32 = 1;
+        const IRTIR_TASK_SUSPENDED: i32 = 2;
         #[guid(0xa9521922_0812_4d44_9ec3_7fd38c726f3d)]
         interface IRegTreeItem: IUnknown {
             fn GetCheckState(&self, pbCheck: *mut BOOL) -> HRESULT;
@@ -1838,8 +1838,8 @@ mod Windows {
             fn Resume(&self) -> HRESULT;
             fn IsRunning(&self) -> u32;
         }
-        const ISIOI_ICONFILE: u32 = 1;
-        const ISIOI_ICONINDEX: u32 = 2;
+        const ISIOI_ICONFILE: i32 = 1;
+        const ISIOI_ICONINDEX: i32 = 2;
         #[guid(0xa0ffbc28_5482_4366_be27_3e81e78e06c2)]
         interface ISearchFolderItemFactory: IUnknown {
             fn SetDisplayName(&self, pszDisplayName: PCWSTR) -> HRESULT;
@@ -2110,15 +2110,15 @@ mod Windows {
             fn UngroupChildFromParent(&self, childProcessHandle: HANDLE) -> HRESULT;
         }
         const ITSAT_DEFAULT_LPARAM: usize = 18446744073709551615;
-        const ITSAT_DEFAULT_PRIORITY: u32 = 268435456;
-        const ITSAT_MAX_PRIORITY: u32 = 2147483647;
-        const ITSAT_MIN_PRIORITY: u32 = 0;
-        const ITSSFLAG_COMPLETE_ON_DESTROY: u32 = 0;
-        const ITSSFLAG_FLAGS_MASK: u32 = 3;
-        const ITSSFLAG_KILL_ON_DESTROY: u32 = 1;
-        const ITSS_THREAD_DESTROY_DEFAULT_TIMEOUT: u32 = 10000;
-        const ITSS_THREAD_TERMINATE_TIMEOUT: i32 = -1;
-        const ITSS_THREAD_TIMEOUT_NO_CHANGE: i32 = -2;
+        const ITSAT_DEFAULT_PRIORITY: i32 = 268435456;
+        const ITSAT_MAX_PRIORITY: i32 = 2147483647;
+        const ITSAT_MIN_PRIORITY: i32 = 0;
+        const ITSSFLAG_COMPLETE_ON_DESTROY: i32 = 0;
+        const ITSSFLAG_FLAGS_MASK: i32 = 3;
+        const ITSSFLAG_KILL_ON_DESTROY: i32 = 1;
+        const ITSS_THREAD_DESTROY_DEFAULT_TIMEOUT: i32 = 10000;
+        const ITSS_THREAD_TERMINATE_TIMEOUT: u32 = 4294967295;
+        const ITSS_THREAD_TIMEOUT_NO_CHANGE: u32 = 4294967294;
         #[guid(0x56fdf342_fd6d_11d0_958a_006097c9a090)]
         interface ITaskbarList: IUnknown {
             fn HrInit(&self) -> HRESULT;
@@ -2445,8 +2445,8 @@ mod Windows {
         const NetworkConnections: GUID = 0x7007acc7_3202_11d1_aad2_00805fc1270e;
         const NetworkExplorerFolder: GUID = 0xf02c1a0d_be21_4350_88b0_7367fc96ef3c;
         const NetworkPlaces: GUID = 0x208d2c60_3aea_1069_a2d7_08002b30309d;
-        const OF_CAP_CANCLOSE: u32 = 2;
-        const OF_CAP_CANSWITCHTO: u32 = 1;
+        const OF_CAP_CANCLOSE: i32 = 2;
+        const OF_CAP_CANSWITCHTO: i32 = 1;
         #[repr(u32)]
         enum OPPROGDLGF {
             OPPROGDLG_DEFAULT = 0,
@@ -2535,71 +2535,71 @@ mod Windows {
         type PSMINFO = *mut SMINFO;
         const PackageDebugSettings: GUID = 0xb1aec16f_2383_4852_b0e9_8f0b1dc66b4d;
         const PropertiesUI: GUID = 0xd912f8cf_0396_4915_884e_fb425d32943b;
-        const SBSP_ABSOLUTE: u32 = 0;
-        const SBSP_ACTIVATE_NOFOCUS: u32 = 524288;
-        const SBSP_ALLOW_AUTONAVIGATE: u32 = 65536;
-        const SBSP_CALLERUNTRUSTED: u32 = 8388608;
-        const SBSP_CREATENOHISTORY: u32 = 1048576;
-        const SBSP_DEFBROWSER: u32 = 0;
-        const SBSP_DEFMODE: u32 = 0;
-        const SBSP_EXPLOREMODE: u32 = 32;
-        const SBSP_FEEDNAVIGATION: u32 = 536870912;
-        const SBSP_HELPMODE: u32 = 64;
+        const SBSP_ABSOLUTE: i32 = 0;
+        const SBSP_ACTIVATE_NOFOCUS: i32 = 524288;
+        const SBSP_ALLOW_AUTONAVIGATE: i32 = 65536;
+        const SBSP_CALLERUNTRUSTED: i32 = 8388608;
+        const SBSP_CREATENOHISTORY: i32 = 1048576;
+        const SBSP_DEFBROWSER: i32 = 0;
+        const SBSP_DEFMODE: i32 = 0;
+        const SBSP_EXPLOREMODE: i32 = 32;
+        const SBSP_FEEDNAVIGATION: i32 = 536870912;
+        const SBSP_HELPMODE: i32 = 64;
         const SBSP_INITIATEDBYHLINKFRAME: u32 = 2147483648;
-        const SBSP_KEEPSAMETEMPLATE: u32 = 131072;
-        const SBSP_KEEPWORDWHEELTEXT: u32 = 262144;
-        const SBSP_NAVIGATEBACK: u32 = 16384;
-        const SBSP_NAVIGATEFORWARD: u32 = 32768;
-        const SBSP_NEWBROWSER: u32 = 2;
-        const SBSP_NOAUTOSELECT: u32 = 67108864;
-        const SBSP_NOTRANSFERHIST: u32 = 128;
-        const SBSP_OPENMODE: u32 = 16;
-        const SBSP_PARENT: u32 = 8192;
-        const SBSP_PLAYNOSOUND: u32 = 2097152;
-        const SBSP_REDIRECT: u32 = 1073741824;
-        const SBSP_RELATIVE: u32 = 4096;
-        const SBSP_SAMEBROWSER: u32 = 1;
-        const SBSP_TRUSTEDFORACTIVEX: u32 = 268435456;
-        const SBSP_TRUSTFIRSTDOWNLOAD: u32 = 16777216;
-        const SBSP_UNTRUSTEDFORDOWNLOAD: u32 = 33554432;
-        const SBSP_WRITENOHISTORY: u32 = 134217728;
+        const SBSP_KEEPSAMETEMPLATE: i32 = 131072;
+        const SBSP_KEEPWORDWHEELTEXT: i32 = 262144;
+        const SBSP_NAVIGATEBACK: i32 = 16384;
+        const SBSP_NAVIGATEFORWARD: i32 = 32768;
+        const SBSP_NEWBROWSER: i32 = 2;
+        const SBSP_NOAUTOSELECT: i32 = 67108864;
+        const SBSP_NOTRANSFERHIST: i32 = 128;
+        const SBSP_OPENMODE: i32 = 16;
+        const SBSP_PARENT: i32 = 8192;
+        const SBSP_PLAYNOSOUND: i32 = 2097152;
+        const SBSP_REDIRECT: i32 = 1073741824;
+        const SBSP_RELATIVE: i32 = 4096;
+        const SBSP_SAMEBROWSER: i32 = 1;
+        const SBSP_TRUSTEDFORACTIVEX: i32 = 268435456;
+        const SBSP_TRUSTFIRSTDOWNLOAD: i32 = 16777216;
+        const SBSP_UNTRUSTEDFORDOWNLOAD: i32 = 33554432;
+        const SBSP_WRITENOHISTORY: i32 = 134217728;
         type SFGAOF = u32;
-        const SFGAO_BROWSABLE: u32 = 134217728;
-        const SFGAO_CANCOPY: u32 = 1;
-        const SFGAO_CANDELETE: u32 = 32;
-        const SFGAO_CANLINK: u32 = 4;
-        const SFGAO_CANMONIKER: u32 = 4194304;
-        const SFGAO_CANMOVE: u32 = 2;
-        const SFGAO_CANRENAME: u32 = 16;
-        const SFGAO_CAPABILITYMASK: u32 = 375;
-        const SFGAO_COMPRESSED: u32 = 67108864;
+        const SFGAO_BROWSABLE: i32 = 134217728;
+        const SFGAO_CANCOPY: i32 = 1;
+        const SFGAO_CANDELETE: i32 = 32;
+        const SFGAO_CANLINK: i32 = 4;
+        const SFGAO_CANMONIKER: i32 = 4194304;
+        const SFGAO_CANMOVE: i32 = 2;
+        const SFGAO_CANRENAME: i32 = 16;
+        const SFGAO_CAPABILITYMASK: i32 = 375;
+        const SFGAO_COMPRESSED: i32 = 67108864;
         const SFGAO_CONTENTSMASK: u32 = 2147483648;
-        const SFGAO_DISPLAYATTRMASK: u32 = 1032192;
-        const SFGAO_DROPTARGET: u32 = 256;
-        const SFGAO_ENCRYPTED: u32 = 8192;
-        const SFGAO_FILESYSANCESTOR: u32 = 268435456;
-        const SFGAO_FILESYSTEM: u32 = 1073741824;
-        const SFGAO_FOLDER: u32 = 536870912;
-        const SFGAO_GHOSTED: u32 = 32768;
-        const SFGAO_HASPROPSHEET: u32 = 64;
-        const SFGAO_HASSTORAGE: u32 = 4194304;
+        const SFGAO_DISPLAYATTRMASK: i32 = 1032192;
+        const SFGAO_DROPTARGET: i32 = 256;
+        const SFGAO_ENCRYPTED: i32 = 8192;
+        const SFGAO_FILESYSANCESTOR: i32 = 268435456;
+        const SFGAO_FILESYSTEM: i32 = 1073741824;
+        const SFGAO_FOLDER: i32 = 536870912;
+        const SFGAO_GHOSTED: i32 = 32768;
+        const SFGAO_HASPROPSHEET: i32 = 64;
+        const SFGAO_HASSTORAGE: i32 = 4194304;
         const SFGAO_HASSUBFOLDER: u32 = 2147483648;
-        const SFGAO_HIDDEN: u32 = 524288;
-        const SFGAO_ISSLOW: u32 = 16384;
-        const SFGAO_LINK: u32 = 65536;
-        const SFGAO_NEWCONTENT: u32 = 2097152;
-        const SFGAO_NONENUMERATED: u32 = 1048576;
+        const SFGAO_HIDDEN: i32 = 524288;
+        const SFGAO_ISSLOW: i32 = 16384;
+        const SFGAO_LINK: i32 = 65536;
+        const SFGAO_NEWCONTENT: i32 = 2097152;
+        const SFGAO_NONENUMERATED: i32 = 1048576;
         const SFGAO_PKEYSFGAOMASK: u32 = 2164539392;
-        const SFGAO_PLACEHOLDER: u32 = 2048;
-        const SFGAO_READONLY: u32 = 262144;
-        const SFGAO_REMOVABLE: u32 = 33554432;
-        const SFGAO_SHARE: u32 = 131072;
-        const SFGAO_STORAGE: u32 = 8;
-        const SFGAO_STORAGEANCESTOR: u32 = 8388608;
-        const SFGAO_STORAGECAPMASK: u32 = 1891958792;
-        const SFGAO_STREAM: u32 = 4194304;
-        const SFGAO_SYSTEM: u32 = 4096;
-        const SFGAO_VALIDATE: u32 = 16777216;
+        const SFGAO_PLACEHOLDER: i32 = 2048;
+        const SFGAO_READONLY: i32 = 262144;
+        const SFGAO_REMOVABLE: i32 = 33554432;
+        const SFGAO_SHARE: i32 = 131072;
+        const SFGAO_STORAGE: i32 = 8;
+        const SFGAO_STORAGEANCESTOR: i32 = 8388608;
+        const SFGAO_STORAGECAPMASK: i32 = 1891958792;
+        const SFGAO_STREAM: i32 = 4194304;
+        const SFGAO_SYSTEM: i32 = 4096;
+        const SFGAO_VALIDATE: i32 = 16777216;
         #[repr(i32)]
         enum SHARE_ROLE {
             SHARE_ROLE_INVALID = -1,
@@ -2616,8 +2616,8 @@ mod Windows {
         extern fn SHAssocEnumHandlersForProtocolByApplication(protocol: PCWSTR, riid: *const GUID, #[iid_is] enumHandlers: *mut *mut void) -> HRESULT;
         const SHCIDS_ALLFIELDS: u32 = 2147483648;
         const SHCIDS_BITMASK: u32 = 4294901760;
-        const SHCIDS_CANONICALONLY: u32 = 268435456;
-        const SHCIDS_COLUMNMASK: u32 = 65535;
+        const SHCIDS_CANONICALONLY: i32 = 268435456;
+        const SHCIDS_COLUMNMASK: i32 = 65535;
         #[repr(u32)]
         enum SHCONTF {
             SHCONTF_CHECKING_FOR_CHILDREN = 16,
@@ -2771,41 +2771,41 @@ mod Windows {
             SLR_UPDATE_MACHINE_AND_SID = 4096,
             SLR_NO_OBJECT_ID = 8192,
         }
-        const SMAE_CONTRACTED: u32 = 2;
-        const SMAE_EXPANDED: u32 = 1;
-        const SMAE_USER: u32 = 4;
-        const SMAE_VALID: u32 = 7;
+        const SMAE_CONTRACTED: i32 = 2;
+        const SMAE_EXPANDED: i32 = 1;
+        const SMAE_USER: i32 = 4;
+        const SMAE_VALID: i32 = 7;
         struct SMCSHCHANGENOTIFYSTRUCT {
             lEvent: i32,
             pidl1: LPCITEMIDLIST,
             pidl2: LPCITEMIDLIST,
         }
-        const SMC_AUTOEXPANDCHANGE: u32 = 66;
-        const SMC_CHEVRONEXPAND: u32 = 25;
-        const SMC_CHEVRONGETTIP: u32 = 47;
-        const SMC_CREATE: u32 = 2;
-        const SMC_DEFAULTICON: u32 = 22;
-        const SMC_DEMOTE: u32 = 17;
-        const SMC_DISPLAYCHEVRONTIP: u32 = 42;
-        const SMC_EXITMENU: u32 = 3;
-        const SMC_GETAUTOEXPANDSTATE: u32 = 65;
-        const SMC_GETBKCONTEXTMENU: u32 = 68;
-        const SMC_GETCONTEXTMENUMODIFIER: u32 = 67;
-        const SMC_GETINFO: u32 = 5;
-        const SMC_GETOBJECT: u32 = 7;
-        const SMC_GETSFINFO: u32 = 6;
-        const SMC_GETSFOBJECT: u32 = 8;
-        const SMC_INITMENU: u32 = 1;
-        const SMC_NEWITEM: u32 = 23;
-        const SMC_OPEN: u32 = 69;
-        const SMC_PROMOTE: u32 = 18;
-        const SMC_REFRESH: u32 = 16;
-        const SMC_SETSFOBJECT: u32 = 45;
-        const SMC_SFDDRESTRICTED: u32 = 48;
-        const SMC_SFEXEC: u32 = 9;
-        const SMC_SFEXEC_MIDDLE: u32 = 49;
-        const SMC_SFSELECTITEM: u32 = 10;
-        const SMC_SHCHANGENOTIFY: u32 = 46;
+        const SMC_AUTOEXPANDCHANGE: i32 = 66;
+        const SMC_CHEVRONEXPAND: i32 = 25;
+        const SMC_CHEVRONGETTIP: i32 = 47;
+        const SMC_CREATE: i32 = 2;
+        const SMC_DEFAULTICON: i32 = 22;
+        const SMC_DEMOTE: i32 = 17;
+        const SMC_DISPLAYCHEVRONTIP: i32 = 42;
+        const SMC_EXITMENU: i32 = 3;
+        const SMC_GETAUTOEXPANDSTATE: i32 = 65;
+        const SMC_GETBKCONTEXTMENU: i32 = 68;
+        const SMC_GETCONTEXTMENUMODIFIER: i32 = 67;
+        const SMC_GETINFO: i32 = 5;
+        const SMC_GETOBJECT: i32 = 7;
+        const SMC_GETSFINFO: i32 = 6;
+        const SMC_GETSFOBJECT: i32 = 8;
+        const SMC_INITMENU: i32 = 1;
+        const SMC_NEWITEM: i32 = 23;
+        const SMC_OPEN: i32 = 69;
+        const SMC_PROMOTE: i32 = 18;
+        const SMC_REFRESH: i32 = 16;
+        const SMC_SETSFOBJECT: i32 = 45;
+        const SMC_SFDDRESTRICTED: i32 = 48;
+        const SMC_SFEXEC: i32 = 9;
+        const SMC_SFEXEC_MIDDLE: i32 = 49;
+        const SMC_SFSELECTITEM: i32 = 10;
+        const SMC_SHCHANGENOTIFY: i32 = 46;
         struct SMDATA {
             dwMask: u32,
             dwFlags: u32,
@@ -2820,29 +2820,29 @@ mod Windows {
             psf: IShellFolder,
             pvUserData: *mut void,
         }
-        const SMDM_HMENU: u32 = 2;
-        const SMDM_SHELLFOLDER: u32 = 1;
-        const SMDM_TOOLBAR: u32 = 4;
+        const SMDM_HMENU: i32 = 2;
+        const SMDM_SHELLFOLDER: i32 = 1;
+        const SMDM_TOOLBAR: i32 = 4;
         struct SMINFO {
             dwMask: u32,
             dwType: u32,
             dwFlags: u32,
             iIcon: i32,
         }
-        const SMINIT_AUTOEXPAND: u32 = 256;
-        const SMINIT_AUTOTOOLTIP: u32 = 512;
-        const SMINIT_CACHED: u32 = 16;
-        const SMINIT_DEFAULT: u32 = 0;
-        const SMINIT_DROPONCONTAINER: u32 = 1024;
-        const SMINIT_HORIZONTAL: u32 = 536870912;
-        const SMINIT_RESTRICT_DRAGDROP: u32 = 2;
-        const SMINIT_TOPLEVEL: u32 = 4;
-        const SMINIT_VERTICAL: u32 = 268435456;
-        const SMINV_ID: u32 = 8;
-        const SMINV_REFRESH: u32 = 1;
-        const SMSET_BOTTOM: u32 = 536870912;
-        const SMSET_DONTOWN: u32 = 1;
-        const SMSET_TOP: u32 = 268435456;
+        const SMINIT_AUTOEXPAND: i32 = 256;
+        const SMINIT_AUTOTOOLTIP: i32 = 512;
+        const SMINIT_CACHED: i32 = 16;
+        const SMINIT_DEFAULT: i32 = 0;
+        const SMINIT_DROPONCONTAINER: i32 = 1024;
+        const SMINIT_HORIZONTAL: i32 = 536870912;
+        const SMINIT_RESTRICT_DRAGDROP: i32 = 2;
+        const SMINIT_TOPLEVEL: i32 = 4;
+        const SMINIT_VERTICAL: i32 = 268435456;
+        const SMINV_ID: i32 = 8;
+        const SMINV_REFRESH: i32 = 1;
+        const SMSET_BOTTOM: i32 = 536870912;
+        const SMSET_DONTOWN: i32 = 1;
+        const SMSET_TOP: i32 = 268435456;
         struct SORTCOLUMN {
             propkey: PROPERTYKEY,
             direction: SORTDIRECTION,
@@ -3078,7 +3078,7 @@ mod Windows {
             TBPF_ERROR = 4,
             TBPF_PAUSED = 8,
         }
-        const THBN_CLICKED: u32 = 6144;
+        const THBN_CLICKED: i32 = 6144;
         struct THUMBBUTTON {
             dwMask: THUMBBUTTONMASK,
             iId: u32,

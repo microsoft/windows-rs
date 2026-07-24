@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         const CONTROL_C_EXIT: i32 = -1073741510;
-        const CREATE_PROCESS_DEBUG_EVENT: u32 = 3;
+        const CREATE_PROCESS_DEBUG_EVENT: i32 = 3;
         struct CREATE_PROCESS_DEBUG_INFO {
             hFile: HANDLE,
             hProcess: HANDLE,
@@ -15,7 +15,7 @@ mod Windows {
             lpImageName: *mut void,
             fUnicode: u16,
         }
-        const CREATE_THREAD_DEBUG_EVENT: u32 = 2;
+        const CREATE_THREAD_DEBUG_EVENT: i32 = 2;
         struct CREATE_THREAD_DEBUG_INFO {
             hThread: HANDLE,
             lpThreadLocalBase: *mut void,
@@ -43,7 +43,7 @@ mod Windows {
         const EXCEPTION_ARRAY_BOUNDS_EXCEEDED: i32 = -1073741684;
         const EXCEPTION_BREAKPOINT: i32 = -2147483645;
         const EXCEPTION_DATATYPE_MISALIGNMENT: i32 = -2147483646;
-        const EXCEPTION_DEBUG_EVENT: u32 = 1;
+        const EXCEPTION_DEBUG_EVENT: i32 = 1;
         struct EXCEPTION_DEBUG_INFO {
             ExceptionRecord: EXCEPTION_RECORD,
             dwFirstChance: u32,
@@ -67,11 +67,11 @@ mod Windows {
         const EXCEPTION_PRIV_INSTRUCTION: i32 = -1073741674;
         const EXCEPTION_SINGLE_STEP: i32 = -2147483644;
         const EXCEPTION_STACK_OVERFLOW: i32 = -1073741571;
-        const EXIT_PROCESS_DEBUG_EVENT: u32 = 5;
+        const EXIT_PROCESS_DEBUG_EVENT: i32 = 5;
         struct EXIT_PROCESS_DEBUG_INFO {
             dwExitCode: u32,
         }
-        const EXIT_THREAD_DEBUG_EVENT: u32 = 4;
+        const EXIT_THREAD_DEBUG_EVENT: i32 = 4;
         struct EXIT_THREAD_DEBUG_INFO {
             dwExitCode: u32,
         }
@@ -125,27 +125,27 @@ mod Windows {
             FindExSearchLimitToDevices = 2,
             FindExSearchMaxSearchOp = 3,
         }
-        const FIND_FIRST_EX_CASE_SENSITIVE: u32 = 1;
-        const FIND_FIRST_EX_LARGE_FETCH: u32 = 2;
-        const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: u32 = 4;
+        const FIND_FIRST_EX_CASE_SENSITIVE: i32 = 1;
+        const FIND_FIRST_EX_LARGE_FETCH: i32 = 2;
+        const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: i32 = 4;
         #[repr(i32)]
         enum GET_FILEEX_INFO_LEVELS {
             GetFileExInfoStandard = 0,
             GetFileExMaxInfoLevel = 1,
         }
-        const LHND: u32 = 66;
-        const LMEM_DISCARDABLE: u32 = 3840;
-        const LMEM_DISCARDED: u32 = 16384;
-        const LMEM_FIXED: u32 = 0;
-        const LMEM_INVALID_HANDLE: u32 = 32768;
-        const LMEM_LOCKCOUNT: u32 = 255;
-        const LMEM_MODIFY: u32 = 128;
-        const LMEM_MOVEABLE: u32 = 2;
-        const LMEM_NOCOMPACT: u32 = 16;
-        const LMEM_NODISCARD: u32 = 32;
-        const LMEM_VALID_FLAGS: u32 = 3954;
-        const LMEM_ZEROINIT: u32 = 64;
-        const LOAD_DLL_DEBUG_EVENT: u32 = 6;
+        const LHND: i32 = 66;
+        const LMEM_DISCARDABLE: i32 = 3840;
+        const LMEM_DISCARDED: i32 = 16384;
+        const LMEM_FIXED: i32 = 0;
+        const LMEM_INVALID_HANDLE: i32 = 32768;
+        const LMEM_LOCKCOUNT: i32 = 255;
+        const LMEM_MODIFY: i32 = 128;
+        const LMEM_MOVEABLE: i32 = 2;
+        const LMEM_NOCOMPACT: i32 = 16;
+        const LMEM_NODISCARD: i32 = 32;
+        const LMEM_VALID_FLAGS: i32 = 3954;
+        const LMEM_ZEROINIT: i32 = 64;
+        const LOAD_DLL_DEBUG_EVENT: i32 = 6;
         struct LOAD_DLL_DEBUG_INFO {
             hFile: HANDLE,
             lpBaseOfDll: *mut void,
@@ -154,8 +154,8 @@ mod Windows {
             lpImageName: *mut void,
             fUnicode: u16,
         }
-        const LOCKFILE_EXCLUSIVE_LOCK: u32 = 2;
-        const LOCKFILE_FAIL_IMMEDIATELY: u32 = 1;
+        const LOCKFILE_EXCLUSIVE_LOCK: i32 = 2;
+        const LOCKFILE_FAIL_IMMEDIATELY: i32 = 1;
         type LPCONTEXT = PCONTEXT;
         type LPCREATE_PROCESS_DEBUG_INFO = *mut CREATE_PROCESS_DEBUG_INFO;
         type LPCREATE_THREAD_DEBUG_INFO = *mut CREATE_THREAD_DEBUG_INFO;
@@ -176,15 +176,15 @@ mod Windows {
         type LPSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
         type LPSYSTEMTIME = *mut SYSTEMTIME;
         type LPTHREAD_START_ROUTINE = PTHREAD_START_ROUTINE;
-        const LPTR: u32 = 64;
+        const LPTR: i32 = 64;
         type LPUNLOAD_DLL_DEBUG_INFO = *mut UNLOAD_DLL_DEBUG_INFO;
         type LPWIN32_FIND_DATA = LPWIN32_FIND_DATAA;
         type LPWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
         type LPWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
-        const NONZEROLHND: u32 = 2;
-        const NONZEROLPTR: u32 = 0;
+        const NONZEROLHND: i32 = 2;
+        const NONZEROLPTR: i32 = 0;
         const NUMA_NO_PREFERRED_NODE: u32 = 4294967295;
-        const OUTPUT_DEBUG_STRING_EVENT: u32 = 8;
+        const OUTPUT_DEBUG_STRING_EVENT: i32 = 8;
         struct OUTPUT_DEBUG_STRING_INFO {
             lpDebugStringData: PSTR,
             fUnicode: u16,
@@ -235,12 +235,12 @@ mod Windows {
                 },
             },
         }
-        const PROCESS_HEAP_ENTRY_BUSY: u32 = 4;
-        const PROCESS_HEAP_ENTRY_DDESHARE: u32 = 32;
-        const PROCESS_HEAP_ENTRY_MOVEABLE: u32 = 16;
-        const PROCESS_HEAP_REGION: u32 = 1;
-        const PROCESS_HEAP_SEG_ALLOC: u32 = 8;
-        const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2;
+        const PROCESS_HEAP_ENTRY_BUSY: i32 = 4;
+        const PROCESS_HEAP_ENTRY_DDESHARE: i32 = 32;
+        const PROCESS_HEAP_ENTRY_MOVEABLE: i32 = 16;
+        const PROCESS_HEAP_REGION: i32 = 1;
+        const PROCESS_HEAP_SEG_ALLOC: i32 = 8;
+        const PROCESS_HEAP_UNCOMMITTED_RANGE: i32 = 2;
         type PSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
         type PSYSTEMTIME = *mut SYSTEMTIME;
         extern fn PTHREAD_START_ROUTINE(lpThreadParameter: *mut void) -> u32;
@@ -267,7 +267,7 @@ mod Windows {
                 SimpleReasonString: PWSTR,
             },
         }
-        const RIP_EVENT: u32 = 9;
+        const RIP_EVENT: i32 = 9;
         struct RIP_INFO {
             dwError: u32,
             dwType: u32,
@@ -277,7 +277,7 @@ mod Windows {
             lpSecurityDescriptor: *mut void,
             bInheritHandle: BOOL,
         }
-        const STILL_ACTIVE: u32 = 259;
+        const STILL_ACTIVE: i32 = 259;
         struct SYSTEMTIME {
             wYear: u16,
             wMonth: u16,
@@ -288,7 +288,7 @@ mod Windows {
             wSecond: u16,
             wMilliseconds: u16,
         }
-        const UNLOAD_DLL_DEBUG_EVENT: u32 = 7;
+        const UNLOAD_DLL_DEBUG_EVENT: i32 = 7;
         struct UNLOAD_DLL_DEBUG_INFO {
             lpBaseOfDll: *mut void,
         }

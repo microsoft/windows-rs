@@ -4,7 +4,7 @@ windows_link::link!("shell32.dll" "system" fn SHAddDefaultPropertiesByExt(pszext
 windows_link::link!("shell32.dll" "system" fn SHCreateDefaultPropertiesOp(psi : *mut core::ffi::c_void, ppfileop : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHSetDefaultProperties(hwnd : super::HWND, psi : *mut core::ffi::c_void, dwfileopflags : u32, pfops : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub const ACDD_VISIBLE: u32 = 1;
+pub const ACDD_VISIBLE: i32 = 1;
 pub const AccessibilityDockingService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
 pub const AlphabeticalCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
 pub const ApplicationAssociationRegistrationUI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1968106d_f3b5_44cf_890e_116fcb9ecef1);
@@ -36,8 +36,8 @@ pub const FolderViewHost: windows_sys::core::GUID = windows_sys::core::GUID::fro
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct IControlMarkup(pub u8);
-pub const IDD_WIZEXTN_FIRST: u32 = 20480;
-pub const IDD_WIZEXTN_LAST: u32 = 20736;
+pub const IDD_WIZEXTN_FIRST: i32 = 20480;
+pub const IDD_WIZEXTN_LAST: i32 = 20736;
 pub const IENamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -83,7 +83,7 @@ pub const NSTCEHT_ONITEMLABEL: NSTCEHITTEST = 4;
 pub const NSTCEHT_ONITEMRIGHT: NSTCEHITTEST = 32;
 pub const NSTCEHT_ONITEMSTATEICON: NSTCEHITTEST = 64;
 pub const NSTCEHT_ONITEMTABBUTTON: NSTCEHITTEST = 4096;
-pub const NSTCS2_ALLMASK: u32 = 7;
+pub const NSTCS2_ALLMASK: i32 = 7;
 pub const NSTCS2_DEFAULT: NSTCSTYLE2 = 0;
 pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = 4;
 pub const NSTCS2_DISPLAYPINNEDONLY: NSTCSTYLE2 = 8;
@@ -109,12 +109,12 @@ pub const SESF_PAUSED_DUE_TO_USER_REQUEST: SYNC_ENGINE_STATE_FLAGS = 256;
 pub const SESF_SERVICE_QUOTA_EXCEEDED_LIMIT: SYNC_ENGINE_STATE_FLAGS = 2;
 pub const SESF_SERVICE_QUOTA_NEARING_LIMIT: SYNC_ENGINE_STATE_FLAGS = 1;
 pub const SESF_SERVICE_UNAVAILABLE: SYNC_ENGINE_STATE_FLAGS = 128;
-pub const SHPWHF_ANYLOCATION: u32 = 256;
-pub const SHPWHF_NOFILESELECTOR: u32 = 4;
-pub const SHPWHF_NONETPLACECREATE: u32 = 2;
-pub const SHPWHF_NORECOMPRESS: u32 = 1;
-pub const SHPWHF_USEMRU: u32 = 8;
-pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536;
+pub const SHPWHF_ANYLOCATION: i32 = 256;
+pub const SHPWHF_NOFILESELECTOR: i32 = 4;
+pub const SHPWHF_NONETPLACECREATE: i32 = 2;
+pub const SHPWHF_NORECOMPRESS: i32 = 1;
+pub const SHPWHF_USEMRU: i32 = 8;
+pub const SHPWHF_VALIDATEVIAWEBFOLDERS: i32 = 65536;
 pub const SID_SCommandBarState: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb99eaa5c_3850_4400_bc33_2ce534048bf8);
 pub const SV3CVW3_DEFAULT: SV3CVW3_FLAGS = 0;
 pub type SV3CVW3_FLAGS = u32;

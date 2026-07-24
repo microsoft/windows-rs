@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const PATHCCH_MAX_CCH: u32 = 32768;
+        const PATHCCH_MAX_CCH: i32 = 32768;
         #[repr(u32)]
         #[flags]
         enum PATHCCH_OPTIONS {
@@ -60,6 +60,9 @@ mod Windows {
         extern fn PathIsUNCEx(pszPath: PCWSTR, ppszServer: *mut PCWSTR) -> BOOL;
         #[encoding("utf-16")]
         const VOLUME_PREFIX: String = "\\\\?\\Volume";
+        #[arch(X64 | Arm64)]
+        const VOLUME_PREFIX_LEN: u64 = 10;
+        #[arch(X86)]
         const VOLUME_PREFIX_LEN: u32 = 10;
     }
 }

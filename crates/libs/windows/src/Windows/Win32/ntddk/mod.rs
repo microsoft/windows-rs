@@ -758,9 +758,9 @@ pub struct ARBITER_CONFLICT_INFO {
     pub Start: u64,
     pub End: u64,
 }
-pub const ARBITER_FLAG_BOOT_CONFIG: u32 = 1;
-pub const ARBITER_FLAG_OTHER_ENUM: u32 = 4;
-pub const ARBITER_FLAG_ROOT_ENUM: u32 = 2;
+pub const ARBITER_FLAG_BOOT_CONFIG: i32 = 1;
+pub const ARBITER_FLAG_OTHER_ENUM: i32 = 4;
+pub const ARBITER_FLAG_ROOT_ENUM: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug)]
@@ -827,7 +827,7 @@ impl Default for ARBITER_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ARBITER_PARTIAL: u32 = 1;
+pub const ARBITER_PARTIAL: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb", feature = "wdm"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1055,9 +1055,9 @@ impl Default for CPE_DRIVER_INFO {
     }
 }
 pub const CPE_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x4e292f96_d843_4a55_a8c2_d481f27ebeee);
-pub const CP_GET_ERROR: u32 = 2;
-pub const CP_GET_NODATA: u32 = 1;
-pub const CP_GET_SUCCESS: u32 = 0;
+pub const CP_GET_ERROR: i32 = 2;
+pub const CP_GET_NODATA: i32 = 1;
+pub const CP_GET_SUCCESS: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1106,7 +1106,7 @@ impl CXL_BUS_OSC_CONTROL_FIELD_0_0 {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
-pub const CXL_BUS_OSC_METHOD_CAPABILITY_REVISION: u32 = 1;
+pub const CXL_BUS_OSC_METHOD_CAPABILITY_REVISION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CXL_BUS_OSC_SUPPORT_FIELD {
@@ -1176,7 +1176,7 @@ pub const CbusConfiguration: BUS_DATA_TYPE = 3;
 pub const CdromController: CONFIGURATION_TYPE = 15;
 pub const CentralProcessor: CONFIGURATION_TYPE = 1;
 pub const ClosedPage: WHEA_OFFLINE_ERRS = 5;
-pub const CmResourceTypeMaximum: u32 = 8;
+pub const CmResourceTypeMaximum: i32 = 8;
 pub const Cmos: BUS_DATA_TYPE = 0;
 pub const ConfigurationSpaceUndefined: BUS_DATA_TYPE = -1;
 pub const Cxl11Support: CXL_PROTOCOL_VERSION = 1;
@@ -1201,12 +1201,12 @@ pub const CxlDvsecMld: CXL_DVSEC_IDS = 9;
 pub const CxlDvsecRegisterLocator: CXL_DVSEC_IDS = 8;
 pub const CxlDvsecTestCapability: CXL_DVSEC_IDS = 10;
 pub const CxlOscControlBitMemoryErrorReportingControl: CXL_OSC_CONTROL_BITS = 1;
-pub const DBG_DEVICE_FLAG_BARS_MAPPED: u32 = 2;
-pub const DBG_DEVICE_FLAG_HAL_SCRATCH_ALLOCATED: u32 = 1;
-pub const DBG_DEVICE_FLAG_HOST_VISIBLE_ALLOCATED: u32 = 32;
-pub const DBG_DEVICE_FLAG_SCRATCH_ALLOCATED: u32 = 4;
-pub const DBG_DEVICE_FLAG_SYNTHETIC: u32 = 16;
-pub const DBG_DEVICE_FLAG_UNCACHED_MEMORY: u32 = 8;
+pub const DBG_DEVICE_FLAG_BARS_MAPPED: i32 = 2;
+pub const DBG_DEVICE_FLAG_HAL_SCRATCH_ALLOCATED: i32 = 1;
+pub const DBG_DEVICE_FLAG_HOST_VISIBLE_ALLOCATED: i32 = 32;
+pub const DBG_DEVICE_FLAG_SCRATCH_ALLOCATED: i32 = 4;
+pub const DBG_DEVICE_FLAG_SYNTHETIC: i32 = 16;
+pub const DBG_DEVICE_FLAG_UNCACHED_MEMORY: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEBUGGING_DEVICE_IN_USE {
@@ -1847,7 +1847,7 @@ pub struct DISK_SIGNATURE_0_0 {
 pub struct DISK_SIGNATURE_0_1 {
     pub DiskId: windows_core::GUID,
 }
-pub const DOE_DISCOVERY_LENGTH: u32 = 3;
+pub const DOE_DISCOVERY_LENGTH: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DOE_DISCOVERY_REQUEST {
@@ -1988,7 +1988,7 @@ impl DOE_HEADER_2_0 {
         self._bitfield = (self._bitfield & !(16383 << 18)) | ((value & 16383) << 18);
     }
 }
-pub const DOE_HEADER_COUNT: u32 = 2;
+pub const DOE_HEADER_COUNT: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DOE_OBJECT_HEADER {
@@ -2011,37 +2011,37 @@ impl Default for DOE_OBJECT_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOE_READ_DELAY: u32 = 10000;
-pub const DO_BOOT_CRITICAL: u32 = 536870912;
-pub const DO_DEVICE_HAS_NAME: u32 = 64;
-pub const DO_DEVICE_IRP_REQUIRES_EXTENSION: u32 = 134217728;
-pub const DO_DISALLOW_EXECUTE: u32 = 8388608;
-pub const DO_FORCE_NEITHER_IO: u32 = 524288;
-pub const DO_LONG_TERM_REQUESTS: u32 = 512;
-pub const DO_LOW_PRIORITY_FILESYSTEM: u32 = 65536;
-pub const DO_NEVER_LAST_DEVICE: u32 = 1024;
-pub const DO_SUPPORTS_TRANSACTIONS: u32 = 262144;
-pub const DO_SYSTEM_BOOT_PARTITION: u32 = 256;
-pub const DO_SYSTEM_CRITICAL_PARTITION: u32 = 4194304;
-pub const DO_SYSTEM_SYSTEM_PARTITION: u32 = 2097152;
-pub const DO_VOLUME_DEVICE_OBJECT: u32 = 1048576;
+pub const DOE_READ_DELAY: i32 = 10000;
+pub const DO_BOOT_CRITICAL: i32 = 536870912;
+pub const DO_DEVICE_HAS_NAME: i32 = 64;
+pub const DO_DEVICE_IRP_REQUIRES_EXTENSION: i32 = 134217728;
+pub const DO_DISALLOW_EXECUTE: i32 = 8388608;
+pub const DO_FORCE_NEITHER_IO: i32 = 524288;
+pub const DO_LONG_TERM_REQUESTS: i32 = 512;
+pub const DO_LOW_PRIORITY_FILESYSTEM: i32 = 65536;
+pub const DO_NEVER_LAST_DEVICE: i32 = 1024;
+pub const DO_SUPPORTS_TRANSACTIONS: i32 = 262144;
+pub const DO_SYSTEM_BOOT_PARTITION: i32 = 256;
+pub const DO_SYSTEM_CRITICAL_PARTITION: i32 = 4194304;
+pub const DO_SYSTEM_SYSTEM_PARTITION: i32 = 2097152;
+pub const DO_VOLUME_DEVICE_OBJECT: i32 = 1048576;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type DRIVER_REINITIALIZE = Option<unsafe extern "system" fn(driverobject: *const super::DRIVER_OBJECT, context: *const core::ffi::c_void, count: u32)>;
-pub const DRIVER_VERIFIER_FORCE_IRQL_CHECKING: u32 = 2;
-pub const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: u32 = 4;
-pub const DRIVER_VERIFIER_IO_CHECKING: u32 = 16;
-pub const DRIVER_VERIFIER_SPECIAL_POOLING: u32 = 1;
+pub const DRIVER_VERIFIER_FORCE_IRQL_CHECKING: i32 = 2;
+pub const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: i32 = 4;
+pub const DRIVER_VERIFIER_IO_CHECKING: i32 = 16;
+pub const DRIVER_VERIFIER_SPECIAL_POOLING: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DRIVER_VERIFIER_THUNK_PAIRS {
     pub PristineRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
     pub NewRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
 }
-pub const DRIVER_VERIFIER_TRACK_POOL_ALLOCATIONS: u32 = 8;
-pub const DRVO_BOOTREINIT_REGISTERED: u32 = 32;
-pub const DRVO_INITIALIZED: u32 = 16;
-pub const DRVO_LEGACY_RESOURCES: u32 = 64;
-pub const DRVO_REINIT_REGISTERED: u32 = 8;
+pub const DRIVER_VERIFIER_TRACK_POOL_ALLOCATIONS: i32 = 8;
+pub const DRVO_BOOTREINIT_REGISTERED: i32 = 32;
+pub const DRVO_INITIALIZED: i32 = 16;
+pub const DRVO_LEGACY_RESOURCES: i32 = 64;
+pub const DRVO_REINIT_REGISTERED: i32 = 8;
 pub const DiskController: CONFIGURATION_TYPE = 13;
 pub const DiskPeripheral: CONFIGURATION_TYPE = 25;
 pub const DisplayController: CONFIGURATION_TYPE = 19;
@@ -2068,24 +2068,24 @@ pub struct ERROR_SOURCE_INFO {
     pub ErrorCount: u32,
     pub ErrorSourceId: u32,
 }
-pub const ERRTYP_BUS: u32 = 16;
-pub const ERRTYP_CACHE: u32 = 6;
-pub const ERRTYP_FLOW: u32 = 9;
-pub const ERRTYP_FUNCTION: u32 = 7;
-pub const ERRTYP_IMPROPER: u32 = 18;
-pub const ERRTYP_INTERNAL: u32 = 1;
-pub const ERRTYP_LOSSOFLOCKSTEP: u32 = 20;
-pub const ERRTYP_MAP: u32 = 17;
-pub const ERRTYP_MEM: u32 = 4;
-pub const ERRTYP_PARITY: u32 = 22;
-pub const ERRTYP_PATHERROR: u32 = 24;
-pub const ERRTYP_POISONED: u32 = 26;
-pub const ERRTYP_PROTOCOL: u32 = 23;
-pub const ERRTYP_RESPONSE: u32 = 21;
-pub const ERRTYP_SELFTEST: u32 = 8;
-pub const ERRTYP_TIMEOUT: u32 = 25;
-pub const ERRTYP_TLB: u32 = 5;
-pub const ERRTYP_UNIMPL: u32 = 19;
+pub const ERRTYP_BUS: i32 = 16;
+pub const ERRTYP_CACHE: i32 = 6;
+pub const ERRTYP_FLOW: i32 = 9;
+pub const ERRTYP_FUNCTION: i32 = 7;
+pub const ERRTYP_IMPROPER: i32 = 18;
+pub const ERRTYP_INTERNAL: i32 = 1;
+pub const ERRTYP_LOSSOFLOCKSTEP: i32 = 20;
+pub const ERRTYP_MAP: i32 = 17;
+pub const ERRTYP_MEM: i32 = 4;
+pub const ERRTYP_PARITY: i32 = 22;
+pub const ERRTYP_PATHERROR: i32 = 24;
+pub const ERRTYP_POISONED: i32 = 26;
+pub const ERRTYP_PROTOCOL: i32 = 23;
+pub const ERRTYP_RESPONSE: i32 = 21;
+pub const ERRTYP_SELFTEST: i32 = 8;
+pub const ERRTYP_TIMEOUT: i32 = 25;
+pub const ERRTYP_TLB: i32 = 5;
+pub const ERRTYP_UNIMPL: i32 = 19;
 pub type EXPAND_STACK_CALLOUT = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
 pub type EXTENDED_AGP_REGISTER = i32;
 pub const EXTINT_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xfe84086e_b557_43cf_ac1b_17982e078470);
@@ -2102,17 +2102,17 @@ pub struct FILE_ATTRIBUTE_TAG_INFORMATION {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
 }
-pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_DEPRECATED: u32 = 512;
-pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_EX: u32 = 16384;
-pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_DEPRECATED: u32 = 768;
-pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_EX: u32 = 32768;
-pub const FILE_CHARACTERISTICS_PROPAGATED: u32 = 327951;
-pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_DEPRECATED: u32 = 768;
-pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_EX: u32 = 49152;
-pub const FILE_DISPOSITION_DELETE: u32 = 1;
-pub const FILE_DISPOSITION_DO_NOT_DELETE: u32 = 0;
-pub const FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK: u32 = 4;
-pub const FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE: u32 = 16;
+pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_DEPRECATED: i32 = 512;
+pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_EX: i32 = 16384;
+pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_DEPRECATED: i32 = 768;
+pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_EX: i32 = 32768;
+pub const FILE_CHARACTERISTICS_PROPAGATED: i32 = 327951;
+pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_DEPRECATED: i32 = 768;
+pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_EX: i32 = 49152;
+pub const FILE_DISPOSITION_DELETE: i32 = 1;
+pub const FILE_DISPOSITION_DO_NOT_DELETE: i32 = 0;
+pub const FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK: i32 = 4;
+pub const FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_DISPOSITION_INFORMATION {
@@ -2123,8 +2123,8 @@ pub struct FILE_DISPOSITION_INFORMATION {
 pub struct FILE_DISPOSITION_INFORMATION_EX {
     pub Flags: u32,
 }
-pub const FILE_DISPOSITION_ON_CLOSE: u32 = 8;
-pub const FILE_DISPOSITION_POSIX_SEMANTICS: u32 = 2;
+pub const FILE_DISPOSITION_ON_CLOSE: i32 = 8;
+pub const FILE_DISPOSITION_POSIX_SEMANTICS: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION {
@@ -2235,58 +2235,58 @@ pub struct FILE_VALID_DATA_LENGTH_INFORMATION {
     pub ValidDataLength: i64,
 }
 pub const FIRMWARE_ERROR_RECORD_REFERENCE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x81212a96_09ed_4996_9471_8d729c8e69ed);
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_16GB: u32 = 6;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1GB: u32 = 2;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1MB: u32 = 9;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_256MB: u32 = 0;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_2GB: u32 = 3;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_32GB: u32 = 7;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_4GB: u32 = 4;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_512MB: u32 = 1;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_8GB: u32 = 5;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_16MB: u32 = 4;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_1MB: u32 = 0;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_2MB: u32 = 1;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_4MB: u32 = 2;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_8MB: u32 = 3;
-pub const FPB_MEM_VECTOR_GRANULARITY_1B: u32 = 8;
-pub const FPB_RID_VECTOR_GRANULARITY_256RIDS: u32 = 5;
-pub const FPB_RID_VECTOR_GRANULARITY_64RIDS: u32 = 3;
-pub const FPB_RID_VECTOR_GRANULARITY_8RIDS: u32 = 0;
-pub const FPB_VECTOR_SELECT_MEM_HIGH: u32 = 2;
-pub const FPB_VECTOR_SELECT_MEM_LOW: u32 = 1;
-pub const FPB_VECTOR_SELECT_RID: u32 = 0;
-pub const FPB_VECTOR_SIZE_SUPPORTED_1KBITS: u32 = 2;
-pub const FPB_VECTOR_SIZE_SUPPORTED_256BITS: u32 = 0;
-pub const FPB_VECTOR_SIZE_SUPPORTED_2KBITS: u32 = 3;
-pub const FPB_VECTOR_SIZE_SUPPORTED_4KBITS: u32 = 4;
-pub const FPB_VECTOR_SIZE_SUPPORTED_512BITS: u32 = 1;
-pub const FPB_VECTOR_SIZE_SUPPORTED_8KBITS: u32 = 5;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_16GB: i32 = 6;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1GB: i32 = 2;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1MB: i32 = 9;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_256MB: i32 = 0;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_2GB: i32 = 3;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_32GB: i32 = 7;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_4GB: i32 = 4;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_512MB: i32 = 1;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_8GB: i32 = 5;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_16MB: i32 = 4;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_1MB: i32 = 0;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_2MB: i32 = 1;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_4MB: i32 = 2;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_8MB: i32 = 3;
+pub const FPB_MEM_VECTOR_GRANULARITY_1B: i32 = 8;
+pub const FPB_RID_VECTOR_GRANULARITY_256RIDS: i32 = 5;
+pub const FPB_RID_VECTOR_GRANULARITY_64RIDS: i32 = 3;
+pub const FPB_RID_VECTOR_GRANULARITY_8RIDS: i32 = 0;
+pub const FPB_VECTOR_SELECT_MEM_HIGH: i32 = 2;
+pub const FPB_VECTOR_SELECT_MEM_LOW: i32 = 1;
+pub const FPB_VECTOR_SELECT_RID: i32 = 0;
+pub const FPB_VECTOR_SIZE_SUPPORTED_1KBITS: i32 = 2;
+pub const FPB_VECTOR_SIZE_SUPPORTED_256BITS: i32 = 0;
+pub const FPB_VECTOR_SIZE_SUPPORTED_2KBITS: i32 = 3;
+pub const FPB_VECTOR_SIZE_SUPPORTED_4KBITS: i32 = 4;
+pub const FPB_VECTOR_SIZE_SUPPORTED_512BITS: i32 = 1;
+pub const FPB_VECTOR_SIZE_SUPPORTED_8KBITS: i32 = 5;
 pub const FloatingPointProcessor: CONFIGURATION_TYPE = 2;
 pub const FloppyDiskPeripheral: CONFIGURATION_TYPE = 26;
 pub const GENERIC_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x3e62a467_ab40_409a_a698_f362d464b38f);
 pub const GENERIC_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe71254e8_c1b9_4940_ab76_909703a4320f);
-pub const GENPROC_FLAGS_CORRECTED: u32 = 8;
-pub const GENPROC_FLAGS_OVERFLOW: u32 = 4;
-pub const GENPROC_FLAGS_PRECISEIP: u32 = 2;
-pub const GENPROC_FLAGS_RESTARTABLE: u32 = 1;
-pub const GENPROC_OP_DATAREAD: u32 = 1;
-pub const GENPROC_OP_DATAWRITE: u32 = 2;
-pub const GENPROC_OP_GENERIC: u32 = 0;
-pub const GENPROC_OP_INSTRUCTIONEXE: u32 = 3;
-pub const GENPROC_PROCERRTYPE_BUS: u32 = 4;
-pub const GENPROC_PROCERRTYPE_CACHE: u32 = 1;
-pub const GENPROC_PROCERRTYPE_MAE: u32 = 8;
-pub const GENPROC_PROCERRTYPE_TLB: u32 = 2;
-pub const GENPROC_PROCERRTYPE_UNKNOWN: u32 = 0;
-pub const GENPROC_PROCISA_ARM32: u32 = 4;
-pub const GENPROC_PROCISA_ARM64: u32 = 8;
-pub const GENPROC_PROCISA_IPF: u32 = 1;
-pub const GENPROC_PROCISA_X64: u32 = 2;
-pub const GENPROC_PROCISA_X86: u32 = 0;
-pub const GENPROC_PROCTYPE_ARM: u32 = 2;
-pub const GENPROC_PROCTYPE_IPF: u32 = 1;
-pub const GENPROC_PROCTYPE_XPF: u32 = 0;
+pub const GENPROC_FLAGS_CORRECTED: i32 = 8;
+pub const GENPROC_FLAGS_OVERFLOW: i32 = 4;
+pub const GENPROC_FLAGS_PRECISEIP: i32 = 2;
+pub const GENPROC_FLAGS_RESTARTABLE: i32 = 1;
+pub const GENPROC_OP_DATAREAD: i32 = 1;
+pub const GENPROC_OP_DATAWRITE: i32 = 2;
+pub const GENPROC_OP_GENERIC: i32 = 0;
+pub const GENPROC_OP_INSTRUCTIONEXE: i32 = 3;
+pub const GENPROC_PROCERRTYPE_BUS: i32 = 4;
+pub const GENPROC_PROCERRTYPE_CACHE: i32 = 1;
+pub const GENPROC_PROCERRTYPE_MAE: i32 = 8;
+pub const GENPROC_PROCERRTYPE_TLB: i32 = 2;
+pub const GENPROC_PROCERRTYPE_UNKNOWN: i32 = 0;
+pub const GENPROC_PROCISA_ARM32: i32 = 4;
+pub const GENPROC_PROCISA_ARM64: i32 = 8;
+pub const GENPROC_PROCISA_IPF: i32 = 1;
+pub const GENPROC_PROCISA_X64: i32 = 2;
+pub const GENPROC_PROCISA_X86: i32 = 0;
+pub const GENPROC_PROCTYPE_ARM: i32 = 2;
+pub const GENPROC_PROCTYPE_IPF: i32 = 1;
+pub const GENPROC_PROCTYPE_XPF: i32 = 0;
 pub const GUID_ECP_CREATE_USER_PROCESS: windows_core::GUID = windows_core::GUID::from_u128(0xe0e429ff_6ddc_4e65_aab6_45d05a038a08);
 pub const GartHigh: EXTENDED_AGP_REGISTER = 5;
 pub const GartLow: EXTENDED_AGP_REGISTER = 4;
@@ -2320,9 +2320,9 @@ pub struct HAL_CALLBACKS {
     pub BusCheck: super::PCALLBACK_OBJECT,
 }
 pub const HAL_CMC_DISABLED: u32 = 0;
-pub const HAL_CMC_INTERRUPTS_BASED: i32 = -1;
+pub const HAL_CMC_INTERRUPTS_BASED: u32 = 4294967295;
 pub const HAL_CPE_DISABLED: u32 = 0;
-pub const HAL_CPE_INTERRUPTS_BASED: i32 = -1;
+pub const HAL_CPE_INTERRUPTS_BASED: u32 = 4294967295;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -2357,7 +2357,7 @@ pub struct HAL_DISPATCH {
     pub HalFfaRegisterNotification: pHalFfaRegisterNotification,
     pub HalFfaUnregisterNotification: pHalFfaUnregisterNotification,
 }
-pub const HAL_DISPATCH_VERSION: u32 = 7;
+pub const HAL_DISPATCH_VERSION: i32 = 7;
 pub type HAL_DISPLAY_BIOS_INFORMATION = i32;
 pub type HAL_DMA_CRASH_DUMP_REGISTER_TYPE = i32;
 #[repr(C)]
@@ -2404,20 +2404,20 @@ pub struct HAL_MCA_INTERFACE {
     pub Unlock: PHALMCAINTERFACEUNLOCK,
     pub ReadRegister: PHALMCAINTERFACEREADREGISTER,
 }
-pub const HAL_MCA_INTERRUPTS_BASED: i32 = -1;
+pub const HAL_MCA_INTERRUPTS_BASED: u32 = 4294967295;
 pub const HAL_MCE_DISABLED: u32 = 0;
 pub const HAL_MCE_INTERRUPTS_BASED: u32 = 4294967295;
-pub const HAL_PLATFORM_ACPI_TABLES_CACHED: u32 = 32;
-pub const HAL_PLATFORM_DISABLE_PTCG: u32 = 4;
-pub const HAL_PLATFORM_DISABLE_UC_MAIN_MEMORY: u32 = 8;
-pub const HAL_PLATFORM_DISABLE_WRITE_COMBINING: u32 = 1;
-pub const HAL_PLATFORM_ENABLE_WRITE_COMBINING_MMIO: u32 = 16;
+pub const HAL_PLATFORM_ACPI_TABLES_CACHED: i32 = 32;
+pub const HAL_PLATFORM_DISABLE_PTCG: i32 = 4;
+pub const HAL_PLATFORM_DISABLE_UC_MAIN_MEMORY: i32 = 8;
+pub const HAL_PLATFORM_DISABLE_WRITE_COMBINING: i32 = 1;
+pub const HAL_PLATFORM_ENABLE_WRITE_COMBINING_MMIO: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_PLATFORM_INFORMATION {
     pub PlatformFlags: u32,
 }
-pub const HAL_PMU_NOTIFCATION_CALLBACK_VERSION: u32 = 1;
+pub const HAL_PMU_NOTIFCATION_CALLBACK_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_PMU_NOTIFICATION {
@@ -2467,7 +2467,7 @@ impl Default for HAL_REGISTER_PMU_NOTIFICATION_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HAL_REGISTER_PMU_NOTIFICATION_INPUT_VERSION: u32 = 1;
+pub const HAL_REGISTER_PMU_NOTIFICATION_INPUT_VERSION: i32 = 1;
 pub type HAL_SET_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2476,7 +2476,7 @@ pub struct HAL_UNREGISTER_PMU_NOTIFICATION_INPUT {
     pub Size: u16,
     pub OwnerTag: u32,
 }
-pub const HAL_UNREGISTER_PMU_NOTIFICATION_INPUT_VERSION: u32 = 1;
+pub const HAL_UNREGISTER_PMU_NOTIFICATION_INPUT_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2581,7 +2581,7 @@ pub const HalSetPsciSuspendMode: HAL_SET_INFORMATION_CLASS = 17;
 pub const HalSetResetParkDisposition: HAL_SET_INFORMATION_CLASS = 16;
 pub const HalSetSwInterruptHandler: HAL_SET_INFORMATION_CLASS = 22;
 pub const HalUnregisterPmuNotification: HAL_SET_INFORMATION_CLASS = 25;
-pub const IMAGE_ADDRESSING_MODE_32BIT: u32 = 3;
+pub const IMAGE_ADDRESSING_MODE_32BIT: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "filter", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2597,27 +2597,27 @@ impl Default for IMAGE_INFO_EX {
     }
 }
 pub const INIT_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcc5263e8_9308_454a_89d0_340bd39bc98e);
-pub const INJECT_ERRTYPE_MEMORY_CORRECTABLE: u32 = 8;
-pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLEFATAL: u32 = 32;
-pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLENONFATAL: u32 = 16;
-pub const INJECT_ERRTYPE_PCIEXPRESS_CORRECTABLE: u32 = 64;
-pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLEFATAL: u32 = 256;
-pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLENONFATAL: u32 = 128;
-pub const INJECT_ERRTYPE_PLATFORM_CORRECTABLE: u32 = 512;
-pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLEFATAL: u32 = 2048;
-pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLENONFATAL: u32 = 1024;
+pub const INJECT_ERRTYPE_MEMORY_CORRECTABLE: i32 = 8;
+pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLEFATAL: i32 = 32;
+pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLENONFATAL: i32 = 16;
+pub const INJECT_ERRTYPE_PCIEXPRESS_CORRECTABLE: i32 = 64;
+pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLEFATAL: i32 = 256;
+pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLENONFATAL: i32 = 128;
+pub const INJECT_ERRTYPE_PLATFORM_CORRECTABLE: i32 = 512;
+pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLEFATAL: i32 = 2048;
+pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLENONFATAL: i32 = 1024;
 pub const INJECT_ERRTYPE_PLATFORM_VENDOR_DEFINED: u32 = 2147483648;
-pub const INJECT_ERRTYPE_PROCESSOR_CORRECTABLE: u32 = 1;
-pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: u32 = 4;
-pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: u32 = 2;
+pub const INJECT_ERRTYPE_PROCESSOR_CORRECTABLE: i32 = 1;
+pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: i32 = 4;
+pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: i32 = 2;
 pub const INTEL_ADDRESS_TRANSLATION_PRM_HANDLER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x1de4055d_d2f3_4e11_b7d9_7d6c19173fee);
 #[cfg(target_arch = "x86")]
 pub type INTERLOCKED_RESULT = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type INTERLOCKED_RESULT = i32;
-pub const IOCTL_IPMI_INTERNAL_RECORD_SEL_EVENT: u32 = 2232320;
-pub const IO_ATTACH_DEVICE: u32 = 1024;
-pub const IO_CHECK_CREATE_PARAMETERS: u32 = 512;
+pub const IOCTL_IPMI_INTERNAL_RECORD_SEL_EVENT: i32 = 2232320;
+pub const IO_ATTACH_DEVICE: i32 = 1024;
+pub const IO_CHECK_CREATE_PARAMETERS: i32 = 512;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2689,12 +2689,12 @@ impl IO_FOEXT_SILO_PARAMETERS_0_0 {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
-pub const IO_IGNORE_SHARE_ACCESS_CHECK: u32 = 2048;
+pub const IO_IGNORE_SHARE_ACCESS_CHECK: i32 = 2048;
 pub type IO_QUERY_DEVICE_DATA_FORMAT = i32;
 pub const IO_USE_AMBIENT_SILO: PESILO = 1 as _;
 pub const IPF_PROCESSOR_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe429faf1_3cb7_11d4_bca7_0080c73c8881);
 pub const IPF_SAL_RECORD_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x6f3380d1_6eb0_497f_a578_4d4c65a71617);
-pub const IPMI_IOCTL_INDEX: u32 = 1024;
+pub const IPMI_IOCTL_INDEX: i32 = 1024;
 pub const IPMI_MSR_DUMP_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x1c15b445_9b06_4667_ac25_33c056b88803);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -2711,37 +2711,37 @@ impl Default for IPMI_OS_SEL_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IPMI_OS_SEL_RECORD_MASK: u32 = 65535;
-pub const IPMI_OS_SEL_RECORD_SIGNATURE: u32 = 1381192527;
+pub const IPMI_OS_SEL_RECORD_MASK: i32 = 65535;
+pub const IPMI_OS_SEL_RECORD_SIGNATURE: i32 = 1381192527;
 pub type IPMI_OS_SEL_RECORD_TYPE = i32;
-pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1;
-pub const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1;
-pub const IRP_MN_COMPLETE: u32 = 4;
-pub const IRP_MN_COMPLETE_MDL: u32 = 6;
-pub const IRP_MN_COMPLETE_MDL_DPC: u32 = 7;
-pub const IRP_MN_COMPRESSED: u32 = 8;
-pub const IRP_MN_DPC: u32 = 1;
-pub const IRP_MN_FLUSH_AND_PURGE: u32 = 1;
-pub const IRP_MN_FLUSH_DATA_ONLY: u32 = 2;
-pub const IRP_MN_FLUSH_DATA_SYNC_ONLY: u32 = 4;
-pub const IRP_MN_FLUSH_NO_SYNC: u32 = 3;
-pub const IRP_MN_KERNEL_CALL: u32 = 4;
-pub const IRP_MN_LOAD_FILE_SYSTEM: u32 = 3;
-pub const IRP_MN_LOCK: u32 = 1;
-pub const IRP_MN_MDL: u32 = 2;
-pub const IRP_MN_MDL_DPC: u32 = 3;
-pub const IRP_MN_MOUNT_VOLUME: u32 = 1;
-pub const IRP_MN_NORMAL: u32 = 0;
-pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY: u32 = 2;
-pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY_EX: u32 = 3;
-pub const IRP_MN_QUERY_DIRECTORY: u32 = 1;
-pub const IRP_MN_QUERY_LEGACY_BUS_INFORMATION: u32 = 24;
-pub const IRP_MN_TRACK_LINK: u32 = 4;
-pub const IRP_MN_UNLOCK_ALL: u32 = 3;
-pub const IRP_MN_UNLOCK_ALL_BY_KEY: u32 = 4;
-pub const IRP_MN_UNLOCK_SINGLE: u32 = 2;
-pub const IRP_MN_USER_FS_REQUEST: u32 = 0;
-pub const IRP_MN_VERIFY_VOLUME: u32 = 2;
+pub const IPMI_OS_SEL_RECORD_VERSION: i32 = 1;
+pub const IPMI_OS_SEL_RECORD_VERSION_1: i32 = 1;
+pub const IRP_MN_COMPLETE: i32 = 4;
+pub const IRP_MN_COMPLETE_MDL: i32 = 6;
+pub const IRP_MN_COMPLETE_MDL_DPC: i32 = 7;
+pub const IRP_MN_COMPRESSED: i32 = 8;
+pub const IRP_MN_DPC: i32 = 1;
+pub const IRP_MN_FLUSH_AND_PURGE: i32 = 1;
+pub const IRP_MN_FLUSH_DATA_ONLY: i32 = 2;
+pub const IRP_MN_FLUSH_DATA_SYNC_ONLY: i32 = 4;
+pub const IRP_MN_FLUSH_NO_SYNC: i32 = 3;
+pub const IRP_MN_KERNEL_CALL: i32 = 4;
+pub const IRP_MN_LOAD_FILE_SYSTEM: i32 = 3;
+pub const IRP_MN_LOCK: i32 = 1;
+pub const IRP_MN_MDL: i32 = 2;
+pub const IRP_MN_MDL_DPC: i32 = 3;
+pub const IRP_MN_MOUNT_VOLUME: i32 = 1;
+pub const IRP_MN_NORMAL: i32 = 0;
+pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY: i32 = 2;
+pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY_EX: i32 = 3;
+pub const IRP_MN_QUERY_DIRECTORY: i32 = 1;
+pub const IRP_MN_QUERY_LEGACY_BUS_INFORMATION: i32 = 24;
+pub const IRP_MN_TRACK_LINK: i32 = 4;
+pub const IRP_MN_UNLOCK_ALL: i32 = 3;
+pub const IRP_MN_UNLOCK_ALL_BY_KEY: i32 = 4;
+pub const IRP_MN_UNLOCK_SINGLE: i32 = 2;
+pub const IRP_MN_USER_FS_REQUEST: i32 = 0;
+pub const IRP_MN_VERIFY_VOLUME: i32 = 2;
 pub const IncorrectDdrVersion: WHEA_OFFLINE_ERRS = 10;
 pub const IndicatorBlink: PCI_EXPRESS_INDICATOR_STATE = 2;
 pub const IndicatorOff: PCI_EXPRESS_INDICATOR_STATE = 3;
@@ -2784,25 +2784,25 @@ impl Default for KARM64_VFP_STATE {
 pub type KD_CALLBACK_ACTION = i32;
 pub type KD_NAMESPACE_ENUM = i32;
 #[cfg(target_arch = "x86")]
-pub const KERNEL_LARGE_STACK_COMMIT: u32 = 12288;
+pub const KERNEL_LARGE_STACK_COMMIT: i32 = 12288;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const KERNEL_LARGE_STACK_COMMIT: u32 = 24576;
+pub const KERNEL_LARGE_STACK_COMMIT: i32 = 24576;
 #[cfg(target_arch = "aarch64")]
-pub const KERNEL_LARGE_STACK_COMMIT: u32 = 32768;
+pub const KERNEL_LARGE_STACK_COMMIT: i32 = 32768;
 #[cfg(target_arch = "x86")]
-pub const KERNEL_LARGE_STACK_SIZE: u32 = 61440;
+pub const KERNEL_LARGE_STACK_SIZE: i32 = 61440;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const KERNEL_LARGE_STACK_SIZE: u32 = 73728;
+pub const KERNEL_LARGE_STACK_SIZE: i32 = 73728;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const KERNEL_MCA_EXCEPTION_STACK_SIZE: u32 = 8192;
+pub const KERNEL_MCA_EXCEPTION_STACK_SIZE: i32 = 8192;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const KERNEL_SHADOW_STACK_SIZE: u32 = 4096;
+pub const KERNEL_SHADOW_STACK_SIZE: i32 = 4096;
 #[cfg(target_arch = "x86")]
-pub const KERNEL_STACK_SIZE: u32 = 12288;
+pub const KERNEL_STACK_SIZE: i32 = 12288;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const KERNEL_STACK_SIZE: u32 = 24576;
+pub const KERNEL_STACK_SIZE: i32 = 24576;
 #[cfg(target_arch = "aarch64")]
-pub const KERNEL_STACK_SIZE: u32 = 32768;
+pub const KERNEL_STACK_SIZE: i32 = 32768;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERNEL_USER_TIMES {
@@ -3837,9 +3837,9 @@ pub struct KTRAP_FRAME_2_0 {
     pub X18: u64,
 }
 #[cfg(target_arch = "aarch64")]
-pub const KTRAP_FRAME_ARGUMENTS: u32 = 80;
+pub const KTRAP_FRAME_ARGUMENTS: i32 = 80;
 #[cfg(target_arch = "aarch64")]
-pub const KTRAP_FRAME_SIGNATURE: u32 = 1886540875;
+pub const KTRAP_FRAME_SIGNATURE: i32 = 1886540875;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
@@ -3906,9 +3906,9 @@ impl KUMS_CONTEXT_HEADER_0_0 {
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const KUMS_UCH_VOLATILE_BIT: u32 = 0;
+pub const KUMS_UCH_VOLATILE_BIT: i32 = 0;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const KUMS_UCH_VOLATILE_MASK: u32 = 1;
+pub const KUMS_UCH_VOLATILE_MASK: u64 = 1;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
@@ -4589,12 +4589,12 @@ pub const L1_4us_8us: PCI_EXPRESS_L1_EXIT_LATENCY = 3;
 pub const L1_8us_16us: PCI_EXPRESS_L1_EXIT_LATENCY = 4;
 pub const L1_Above64us: PCI_EXPRESS_L1_EXIT_LATENCY = 7;
 pub const L1_Below1us: PCI_EXPRESS_L1_EXIT_LATENCY = 0;
-pub const LINKSPEED_MTS_16000: u32 = 16000;
-pub const LINKSPEED_MTS_2500: u32 = 2500;
-pub const LINKSPEED_MTS_32000: u32 = 32000;
-pub const LINKSPEED_MTS_5000: u32 = 5000;
-pub const LINKSPEED_MTS_64000: u32 = 64000;
-pub const LINKSPEED_MTS_8000: u32 = 8000;
+pub const LINKSPEED_MTS_16000: i32 = 16000;
+pub const LINKSPEED_MTS_2500: i32 = 2500;
+pub const LINKSPEED_MTS_32000: i32 = 32000;
+pub const LINKSPEED_MTS_5000: i32 = 5000;
+pub const LINKSPEED_MTS_64000: i32 = 64000;
+pub const LINKSPEED_MTS_8000: i32 = 8000;
 pub const LinePeripheral: CONFIGURATION_TYPE = 35;
 pub const LocationTypeFileSystem: STATE_LOCATION_TYPE = 1;
 pub const LocationTypeMaximum: STATE_LOCATION_TYPE = 2;
@@ -4610,12 +4610,12 @@ impl Default for MAP_REGISTER_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MAXIMUM_DEBUG_BARS: u32 = 6;
+pub const MAXIMUM_DEBUG_BARS: i32 = 6;
 #[cfg(target_arch = "x86")]
-pub const MAXIMUM_EXPANSION_SIZE: u32 = 59392;
+pub const MAXIMUM_EXPANSION_SIZE: i32 = 59392;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const MAXIMUM_EXPANSION_SIZE: u32 = 71680;
-pub const MAX_SEL_RAW_EVENT_PAYLOAD_LENGTH: u32 = 256;
+pub const MAXIMUM_EXPANSION_SIZE: i32 = 71680;
+pub const MAX_SEL_RAW_EVENT_PAYLOAD_LENGTH: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "mce", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
@@ -4777,7 +4777,7 @@ impl Default for MCI_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MCI_STATUS: u32 = 2068;
+pub const MCI_STATUS: i32 = 2068;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_AMD_BITS {
@@ -5074,9 +5074,9 @@ impl MEMORY_DEFECT_FLAGS_0 {
 pub const MEMORY_ERROR_EXT_SECTION_AMD_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x0d3a4a3b_774a_4c72_95e2_152d43180374);
 pub const MEMORY_ERROR_EXT_SECTION_INTEL_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe16edb28_6113_4263_a41d_e53f8de78751);
 pub const MEMORY_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa5bc1114_6f64_4ede_b863_3e83ed7c83b1);
-pub const MM_ADD_PHYSICAL_MEMORY_ALREADY_ZEROED: u32 = 1;
-pub const MM_ADD_PHYSICAL_MEMORY_HUGE_PAGES_ONLY: u32 = 4;
-pub const MM_ADD_PHYSICAL_MEMORY_LARGE_PAGES_ONLY: u32 = 2;
+pub const MM_ADD_PHYSICAL_MEMORY_ALREADY_ZEROED: i32 = 1;
+pub const MM_ADD_PHYSICAL_MEMORY_HUGE_PAGES_ONLY: i32 = 4;
+pub const MM_ADD_PHYSICAL_MEMORY_LARGE_PAGES_ONLY: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "usb")]
 #[derive(Clone, Copy)]
@@ -5102,23 +5102,23 @@ impl Default for MM_COPY_ADDRESS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MM_COPY_MEMORY_PHYSICAL: u32 = 1;
-pub const MM_COPY_MEMORY_VIRTUAL: u32 = 2;
-pub const MM_GET_CACHE_ATTRIBUTE_IO_SPACE: u32 = 1;
-pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_ALL_PARTITIONS: u32 = 2;
-pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_FILE_ONLY: u32 = 1;
+pub const MM_COPY_MEMORY_PHYSICAL: i32 = 1;
+pub const MM_COPY_MEMORY_VIRTUAL: i32 = 2;
+pub const MM_GET_CACHE_ATTRIBUTE_IO_SPACE: i32 = 1;
+pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_ALL_PARTITIONS: i32 = 2;
+pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_FILE_ONLY: i32 = 1;
 #[cfg(target_arch = "x86")]
 pub const MM_LOWEST_USER_ADDRESS: usize = 65536;
-pub const MM_REMOVE_PHYSICAL_MEMORY_BAD_ONLY: u32 = 1;
+pub const MM_REMOVE_PHYSICAL_MEMORY_BAD_ONLY: i32 = 1;
 pub type MM_ROTATE_DIRECTION = i32;
-pub const MM_SECURE_EXCLUSIVE: u32 = 1;
-pub const MM_SECURE_NO_CHANGE: u32 = 2;
-pub const MM_SECURE_NO_INHERIT: u32 = 8;
-pub const MM_SECURE_USER_MODE_ONLY: u32 = 4;
-pub const MM_SYSTEM_PARTITION_OBJECT: u32 = 0;
+pub const MM_SECURE_EXCLUSIVE: i32 = 1;
+pub const MM_SECURE_NO_CHANGE: i32 = 2;
+pub const MM_SECURE_NO_INHERIT: i32 = 8;
+pub const MM_SECURE_USER_MODE_ONLY: i32 = 4;
+pub const MM_SYSTEM_PARTITION_OBJECT: i32 = 0;
 #[cfg(target_arch = "x86")]
 pub const MM_SYSTEM_SPACE_END: u32 = 4294967295;
-pub const MM_SYSTEM_VIEW_EXCEPTIONS_FOR_INPAGE_ERRORS: u32 = 1;
+pub const MM_SYSTEM_VIEW_EXCEPTIONS_FOR_INPAGE_ERRORS: i32 = 1;
 pub const MPIConfiguration: BUS_DATA_TYPE = 8;
 pub const MPSAConfiguration: BUS_DATA_TYPE = 9;
 pub const MRLClosed: PCI_EXPRESS_MRL_STATE = 0;
@@ -5154,10 +5154,10 @@ pub const MonitorPeripheral: CONFIGURATION_TYPE = 29;
 pub const MultiFunctionAdapter: CONFIGURATION_TYPE = 12;
 pub const NMI_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x5bad89ff_b7e6_42c9_814a_cf2485d6e98a);
 pub const NMI_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe71254e7_c1b9_4940_ab76_909703a4320f);
-pub const NX_SUPPORT_POLICY_ALWAYSOFF: u32 = 0;
-pub const NX_SUPPORT_POLICY_ALWAYSON: u32 = 1;
-pub const NX_SUPPORT_POLICY_OPTIN: u32 = 2;
-pub const NX_SUPPORT_POLICY_OPTOUT: u32 = 3;
+pub const NX_SUPPORT_POLICY_ALWAYSOFF: i32 = 0;
+pub const NX_SUPPORT_POLICY_ALWAYSON: i32 = 1;
+pub const NX_SUPPORT_POLICY_OPTIN: i32 = 2;
+pub const NX_SUPPORT_POLICY_OPTOUT: i32 = 3;
 pub const NetworkController: CONFIGURATION_TYPE = 18;
 pub const NetworkPeripheral: CONFIGURATION_TYPE = 36;
 pub const NoAspmSupport: PCI_EXPRESS_ASPM_SUPPORT = 0;
@@ -5174,14 +5174,14 @@ pub struct OPLOCK_KEY_CONTEXT {
     pub TargetOplockKey: windows_core::GUID,
     pub Reserved: u32,
 }
-pub const OPLOCK_KEY_FLAG_PARENT_KEY: u32 = 1;
-pub const OPLOCK_KEY_FLAG_TARGET_KEY: u32 = 2;
-pub const OPLOCK_KEY_VERSION_WIN7: u32 = 1;
-pub const OPLOCK_KEY_VERSION_WIN8: u32 = 2;
-pub const OSC_CAPABILITIES_MASKED: u32 = 16;
-pub const OSC_FIRMWARE_FAILURE: u32 = 2;
-pub const OSC_UNRECOGNIZED_REVISION: u32 = 8;
-pub const OSC_UNRECOGNIZED_UUID: u32 = 4;
+pub const OPLOCK_KEY_FLAG_PARENT_KEY: i32 = 1;
+pub const OPLOCK_KEY_FLAG_TARGET_KEY: i32 = 2;
+pub const OPLOCK_KEY_VERSION_WIN7: i32 = 1;
+pub const OPLOCK_KEY_VERSION_WIN8: i32 = 2;
+pub const OSC_CAPABILITIES_MASKED: i32 = 16;
+pub const OSC_FIRMWARE_FAILURE: i32 = 2;
+pub const OSC_UNRECOGNIZED_REVISION: i32 = 8;
+pub const OSC_UNRECOGNIZED_UUID: i32 = 4;
 pub const OtherController: CONFIGURATION_TYPE = 24;
 pub const OtherPeripheral: CONFIGURATION_TYPE = 34;
 pub type PACPI_DEBUGGING_DEVICE_IN_USE = *mut ACPI_DEBUGGING_DEVICE_IN_USE;
@@ -5271,15 +5271,15 @@ pub type PBDCB_STATUS_UPDATE_TYPE = *mut BDCB_STATUS_UPDATE_TYPE;
 pub type PBOOT_DRIVER_CALLBACK_FUNCTION = *mut BOOT_DRIVER_CALLBACK_FUNCTION;
 pub type PBUS_DATA_TYPE = *mut BUS_DATA_TYPE;
 pub type PBUS_HANDLER = *mut _BUS_HANDLER;
-pub const PCCARD_DEVICE_PCI: u32 = 16;
-pub const PCCARD_DUP_LEGACY_BASE: u32 = 6;
-pub const PCCARD_MAP_ERROR: u32 = 1;
-pub const PCCARD_MAP_ZERO: u32 = 2;
-pub const PCCARD_NO_CONTROLLERS: u32 = 7;
-pub const PCCARD_NO_LEGACY_BASE: u32 = 5;
-pub const PCCARD_NO_PIC: u32 = 4;
-pub const PCCARD_NO_TIMER: u32 = 3;
-pub const PCCARD_SCAN_DISABLED: u32 = 1;
+pub const PCCARD_DEVICE_PCI: i32 = 16;
+pub const PCCARD_DUP_LEGACY_BASE: i32 = 6;
+pub const PCCARD_MAP_ERROR: i32 = 1;
+pub const PCCARD_MAP_ZERO: i32 = 2;
+pub const PCCARD_NO_CONTROLLERS: i32 = 7;
+pub const PCCARD_NO_LEGACY_BASE: i32 = 5;
+pub const PCCARD_NO_PIC: i32 = 4;
+pub const PCCARD_NO_TIMER: i32 = 3;
+pub const PCCARD_SCAN_DISABLED: i32 = 1;
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "winnt"))]
 pub type PCDEBUG_DEVICE_DESCRIPTOR = *const DEBUG_DEVICE_DESCRIPTOR;
 #[repr(C)]
@@ -5305,14 +5305,14 @@ pub const PCIConfiguration: BUS_DATA_TYPE = 4;
 pub const PCIEXPRESS_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xd995e954_bbc1_430f_ad91_b44dcb3c6f35);
 pub const PCIE_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe96eca99_53e2_4f52_9be7_d2dbe9508ed0);
 pub const PCIXBUS_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xc5753963_3b84_4095_bf78_eddad3f9c9dd);
-pub const PCIXBUS_ERRTYPE_ADDRESSPARITY: u32 = 6;
-pub const PCIXBUS_ERRTYPE_BUSTIMEOUT: u32 = 4;
-pub const PCIXBUS_ERRTYPE_COMMANDPARITY: u32 = 7;
-pub const PCIXBUS_ERRTYPE_DATAPARITY: u32 = 1;
-pub const PCIXBUS_ERRTYPE_MASTERABORT: u32 = 3;
-pub const PCIXBUS_ERRTYPE_MASTERDATAPARITY: u32 = 5;
-pub const PCIXBUS_ERRTYPE_SYSTEM: u32 = 2;
-pub const PCIXBUS_ERRTYPE_UNKNOWN: u32 = 0;
+pub const PCIXBUS_ERRTYPE_ADDRESSPARITY: i32 = 6;
+pub const PCIXBUS_ERRTYPE_BUSTIMEOUT: i32 = 4;
+pub const PCIXBUS_ERRTYPE_COMMANDPARITY: i32 = 7;
+pub const PCIXBUS_ERRTYPE_DATAPARITY: i32 = 1;
+pub const PCIXBUS_ERRTYPE_MASTERABORT: i32 = 3;
+pub const PCIXBUS_ERRTYPE_MASTERDATAPARITY: i32 = 5;
+pub const PCIXBUS_ERRTYPE_SYSTEM: i32 = 2;
+pub const PCIXBUS_ERRTYPE_UNKNOWN: i32 = 0;
 pub const PCIXDEVICE_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xeb5e4685_ca66_4769_b6a2_26068b001326);
 #[repr(C)]
 #[cfg(feature = "wdm")]
@@ -5630,19 +5630,19 @@ impl PCIX_BRIDGE_CAPABILITY_2_0 {
         self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
     }
 }
-pub const PCIX_MODE1_100MHZ: u32 = 2;
-pub const PCIX_MODE1_133MHZ: u32 = 3;
-pub const PCIX_MODE1_66MHZ: u32 = 1;
-pub const PCIX_MODE2_266_100MHZ: u32 = 10;
-pub const PCIX_MODE2_266_133MHZ: u32 = 11;
-pub const PCIX_MODE2_266_66MHZ: u32 = 9;
-pub const PCIX_MODE2_533_100MHZ: u32 = 14;
-pub const PCIX_MODE2_533_133MHZ: u32 = 15;
-pub const PCIX_MODE2_533_66MHZ: u32 = 13;
-pub const PCIX_MODE_CONVENTIONAL_PCI: u32 = 0;
-pub const PCIX_VERSION_DUAL_MODE_ECC: u32 = 2;
-pub const PCIX_VERSION_MODE1_ONLY: u32 = 0;
-pub const PCIX_VERSION_MODE2_ECC: u32 = 1;
+pub const PCIX_MODE1_100MHZ: i32 = 2;
+pub const PCIX_MODE1_133MHZ: i32 = 3;
+pub const PCIX_MODE1_66MHZ: i32 = 1;
+pub const PCIX_MODE2_266_100MHZ: i32 = 10;
+pub const PCIX_MODE2_266_133MHZ: i32 = 11;
+pub const PCIX_MODE2_266_66MHZ: i32 = 9;
+pub const PCIX_MODE2_533_100MHZ: i32 = 14;
+pub const PCIX_MODE2_533_133MHZ: i32 = 15;
+pub const PCIX_MODE2_533_66MHZ: i32 = 13;
+pub const PCIX_MODE_CONVENTIONAL_PCI: i32 = 0;
+pub const PCIX_VERSION_DUAL_MODE_ECC: i32 = 2;
+pub const PCIX_VERSION_MODE1_ONLY: i32 = 0;
+pub const PCIX_VERSION_MODE2_ECC: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wdm")]
 #[derive(Clone, Copy)]
@@ -6108,9 +6108,9 @@ impl PCI_AGP_ISOCH_STATUS {
         self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
     }
 }
-pub const PCI_AGP_RATE_1X: u32 = 1;
-pub const PCI_AGP_RATE_2X: u32 = 2;
-pub const PCI_AGP_RATE_4X: u32 = 4;
+pub const PCI_AGP_RATE_1X: i32 = 1;
+pub const PCI_AGP_RATE_2X: i32 = 2;
+pub const PCI_AGP_RATE_4X: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "wdm")]
 #[derive(Clone, Copy, Debug)]
@@ -6134,14 +6134,14 @@ impl Default for PCI_BUS_INTERFACE_STANDARD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCI_BUS_INTERFACE_STANDARD_VERSION: u32 = 2;
+pub const PCI_BUS_INTERFACE_STANDARD_VERSION: i32 = 2;
 #[cfg(target_arch = "x86")]
-pub const PCI_BUS_INTERFACE_STANDARD_VERSION_1_LENGTH: u32 = 40;
+pub const PCI_BUS_INTERFACE_STANDARD_VERSION_1_LENGTH: i32 = 40;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const PCI_BUS_INTERFACE_STANDARD_VERSION_1_LENGTH: u32 = 80;
+pub const PCI_BUS_INTERFACE_STANDARD_VERSION_1_LENGTH: i32 = 80;
 pub type PCI_BUS_WIDTH = i32;
-pub const PCI_DATA_TAG: u32 = 541672272;
-pub const PCI_DATA_VERSION: u32 = 1;
+pub const PCI_DATA_TAG: i32 = 541672272;
+pub const PCI_DATA_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_DEBUGGING_DEVICE_IN_USE {
@@ -6150,16 +6150,16 @@ pub struct PCI_DEBUGGING_DEVICE_IN_USE {
     pub Slot: u32,
 }
 pub type PCI_DEVICE_D3COLD_STATE_REASON = i32;
-pub const PCI_DOE_OBJECT_TYPE_ASYNC_MESSAGE: u32 = 5;
-pub const PCI_DOE_OBJECT_TYPE_CMA_SPDM: u32 = 1;
-pub const PCI_DOE_OBJECT_TYPE_CMA_SPDM_WITH_CONNECTION_ID: u32 = 3;
-pub const PCI_DOE_OBJECT_TYPE_DISCOVERY: u32 = 0;
-pub const PCI_DOE_OBJECT_TYPE_SECURED_CMA_SPDM: u32 = 2;
-pub const PCI_DOE_OBJECT_TYPE_SECURED_CMA_SPDM_WITH_CONNECTION_ID: u32 = 4;
-pub const PCI_DOE_VENDOR_ID_RESERVED: u32 = 1;
+pub const PCI_DOE_OBJECT_TYPE_ASYNC_MESSAGE: i32 = 5;
+pub const PCI_DOE_OBJECT_TYPE_CMA_SPDM: i32 = 1;
+pub const PCI_DOE_OBJECT_TYPE_CMA_SPDM_WITH_CONNECTION_ID: i32 = 3;
+pub const PCI_DOE_OBJECT_TYPE_DISCOVERY: i32 = 0;
+pub const PCI_DOE_OBJECT_TYPE_SECURED_CMA_SPDM: i32 = 2;
+pub const PCI_DOE_OBJECT_TYPE_SECURED_CMA_SPDM_WITH_CONNECTION_ID: i32 = 4;
+pub const PCI_DOE_VENDOR_ID_RESERVED: i32 = 1;
 pub type PCI_ERROR_HANDLER_CALLBACK = Option<unsafe extern "system" fn()>;
-pub const PCI_EXPRESS_AER_DEVICE_CONTROL_MASK: u32 = 7;
-pub const PCI_EXPRESS_AER_DEVICE_STATUS_MASK: u32 = 15;
+pub const PCI_EXPRESS_AER_DEVICE_CONTROL_MASK: i32 = 7;
+pub const PCI_EXPRESS_AER_DEVICE_STATUS_MASK: i32 = 15;
 pub type PCI_EXPRESS_ASPM_CONTROL = i32;
 pub type PCI_EXPRESS_ASPM_SUPPORT = i32;
 #[repr(C)]
@@ -10325,10 +10325,10 @@ impl PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
         self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
     }
 }
-pub const PCI_EXPRESS_TPH_ST_LOCATION_MSIX_TABLE: u32 = 2;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_NONE: u32 = 0;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_RESERVED: u32 = 3;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_TPH_CAPABILITY: u32 = 1;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_MSIX_TABLE: i32 = 2;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_NONE: i32 = 0;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_RESERVED: i32 = 3;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_TPH_CAPABILITY: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
@@ -11003,7 +11003,7 @@ pub struct PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
 }
 pub type PCI_GET_LINK_INFORMATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, linkinformation: *mut PCI_LINK_INFORMATION) -> windows_core::NTSTATUS>;
 pub type PCI_HARDWARE_INTERFACE = i32;
-pub const PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: u32 = 255;
+pub const PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: i32 = 255;
 #[cfg(feature = "wdm")]
 pub type PCI_LINE_TO_PIN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcinewdata: *const super::PCI_COMMON_CONFIG, pciolddata: *const super::PCI_COMMON_CONFIG)>;
 #[repr(C)]
@@ -11098,14 +11098,14 @@ impl PCI_LINK_INFORMATION_0_0 {
 }
 pub type PCI_LINK_SPEED = i32;
 pub type PCI_LINK_WIDTH = i32;
-pub const PCI_LNKINTRF_VERSION: u32 = 1;
+pub const PCI_LNKINTRF_VERSION: i32 = 1;
 pub type PCI_OSC_CONTROL_BITS = i32;
 #[cfg(feature = "wdm")]
 pub type PCI_PIN_TO_LINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcidata: *const super::PCI_COMMON_CONFIG)>;
 pub type PCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 pub type PCI_READ_WRITE_CONFIG = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busoffset: u32, slot: u32, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
 pub const PCI_RECOVERY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdd060800_f6e1_4204_ac27_c4bca9568402);
-pub const PCI_RESERVED_VENDOR_ID: u32 = 1;
+pub const PCI_RESERVED_VENDOR_ID: i32 = 1;
 pub type PCI_ROOT_BUS_CAPABILITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, hardwarecapability: *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11229,7 +11229,7 @@ impl PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
         self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
     }
 }
-pub const PCI_ROOT_BUS_OSC_METHOD_CAPABILITY_REVISION: u32 = 1;
+pub const PCI_ROOT_BUS_OSC_METHOD_CAPABILITY_REVISION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
@@ -11356,21 +11356,21 @@ pub type PCREATE_THREAD_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(proces
 #[cfg(feature = "winnt")]
 pub type PCREATE_USER_PROCESS_ECP_CONTEXT = *mut CREATE_USER_PROCESS_ECP_CONTEXT;
 #[cfg(target_arch = "aarch64")]
-pub const PCR_BTI_MITIGATION_CSWAP_HVC: u32 = 16;
+pub const PCR_BTI_MITIGATION_CSWAP_HVC: i32 = 16;
 #[cfg(target_arch = "aarch64")]
-pub const PCR_BTI_MITIGATION_CSWAP_SMC: u32 = 32;
+pub const PCR_BTI_MITIGATION_CSWAP_SMC: i32 = 32;
 #[cfg(target_arch = "aarch64")]
-pub const PCR_BTI_MITIGATION_TRAP_HVC: u32 = 2;
+pub const PCR_BTI_MITIGATION_TRAP_HVC: i32 = 2;
 #[cfg(target_arch = "aarch64")]
-pub const PCR_BTI_MITIGATION_VBAR_MASK: u32 = 14;
+pub const PCR_BTI_MITIGATION_VBAR_MASK: i32 = 14;
 #[cfg(target_arch = "aarch64")]
 pub type PCR_BTI_VBAR_INDEX = i32;
 #[cfg(target_arch = "aarch64")]
-pub const PCR_KVA_MITIGATION_VBAR_MASK: u32 = 1;
-pub const PCR_MAJOR_VERSION: u32 = 1;
-pub const PCR_MINOR_VERSION: u32 = 1;
+pub const PCR_KVA_MITIGATION_VBAR_MASK: i32 = 1;
+pub const PCR_MAJOR_VERSION: i32 = 1;
+pub const PCR_MINOR_VERSION: i32 = 1;
 #[cfg(target_arch = "aarch64")]
-pub const PCR_MITIGATION_VBAR_MASK: u32 = 15;
+pub const PCR_MITIGATION_VBAR_MASK: i32 = 15;
 pub type PCXL_BUS_OSC_CONTROL_FIELD = *mut CXL_BUS_OSC_CONTROL_FIELD;
 pub type PCXL_BUS_OSC_SUPPORT_FIELD = *mut CXL_BUS_OSC_SUPPORT_FIELD;
 pub type PCXL_DVSEC_IDS = *mut CXL_DVSEC_IDS;
@@ -11390,7 +11390,7 @@ pub type PDEBUG_MEMORY_REQUIREMENTS = *mut DEBUG_MEMORY_REQUIREMENTS;
 pub type PDEBUG_TRANSPORT_DATA = *mut DEBUG_TRANSPORT_DATA;
 pub type PDEVICE_HANDLER_OBJECT = *mut _DEVICE_HANDLER_OBJECT;
 #[cfg(target_arch = "x86")]
-pub const PDE_PER_PAGE: u32 = 512;
+pub const PDE_PER_PAGE: i32 = 512;
 pub type PDIMM_ADDRESS = *mut DIMM_ADDRESS;
 pub type PDIMM_ADDR_VALID_BITS = *mut DIMM_ADDR_VALID_BITS;
 pub type PDIMM_ADDR_VALID_BITS_DDR4 = *mut DIMM_ADDR_VALID_BITS_DDR4;
@@ -11398,7 +11398,7 @@ pub type PDIMM_ADDR_VALID_BITS_DDR5 = *mut DIMM_ADDR_VALID_BITS_DDR5;
 pub type PDIMM_INFO = *mut DIMM_INFO;
 pub type PDISK_SIGNATURE = *mut DISK_SIGNATURE;
 #[cfg(target_arch = "x86")]
-pub const PDI_SHIFT: u32 = 21;
+pub const PDI_SHIFT: i32 = 21;
 pub type PDOE_DISCOVERY_REQUEST = *mut DOE_DISCOVERY_REQUEST;
 pub type PDOE_DISCOVERY_RESPONSE = *mut DOE_DISCOVERY_RESPONSE;
 pub type PDOE_HEADER_1 = *mut DOE_HEADER_1;
@@ -11662,10 +11662,10 @@ pub struct POOLED_USAGE_AND_LIMITS {
 pub type POPLOCK_KEY_CONTEXT = *mut OPLOCK_KEY_CONTEXT;
 #[cfg(feature = "ntifs")]
 pub type POPLOCK_KEY_ECP_CONTEXT = *mut super::OPLOCK_KEY_ECP_CONTEXT;
-pub const POWER_THROTTLING_PROCESS_CURRENT_VERSION: u32 = 1;
-pub const POWER_THROTTLING_PROCESS_DELAYTIMERS: u32 = 2;
-pub const POWER_THROTTLING_PROCESS_EXECUTION_SPEED: u32 = 1;
-pub const POWER_THROTTLING_PROCESS_IGNORE_TIMER_RESOLUTION: u32 = 4;
+pub const POWER_THROTTLING_PROCESS_CURRENT_VERSION: i32 = 1;
+pub const POWER_THROTTLING_PROCESS_DELAYTIMERS: i32 = 2;
+pub const POWER_THROTTLING_PROCESS_EXECUTION_SPEED: i32 = 1;
+pub const POWER_THROTTLING_PROCESS_IGNORE_TIMER_RESOLUTION: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_THROTTLING_PROCESS_STATE {
@@ -11673,9 +11673,9 @@ pub struct POWER_THROTTLING_PROCESS_STATE {
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-pub const POWER_THROTTLING_PROCESS_VALID_FLAGS: u32 = 7;
-pub const POWER_THROTTLING_THREAD_CURRENT_VERSION: u32 = 1;
-pub const POWER_THROTTLING_THREAD_EXECUTION_SPEED: u32 = 1;
+pub const POWER_THROTTLING_PROCESS_VALID_FLAGS: i32 = 7;
+pub const POWER_THROTTLING_THREAD_CURRENT_VERSION: i32 = 1;
+pub const POWER_THROTTLING_THREAD_EXECUTION_SPEED: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_THROTTLING_THREAD_STATE {
@@ -11683,7 +11683,7 @@ pub struct POWER_THROTTLING_THREAD_STATE {
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-pub const POWER_THROTTLING_THREAD_VALID_FLAGS: u32 = 1;
+pub const POWER_THROTTLING_THREAD_VALID_FLAGS: i32 = 1;
 pub type PPAGE_OFFLINE_ERROR_TYPES = *mut PAGE_OFFLINE_ERROR_TYPES;
 pub type PPAGE_OFFLINE_VALID_BITS = *mut PAGE_OFFLINE_VALID_BITS;
 pub type PPAGE_PRIORITY_INFORMATION = *mut PAGE_PRIORITY_INFORMATION;
@@ -11861,7 +11861,7 @@ pub type PPHYSICAL_COUNTER_RESOURCE_LIST = *mut PHYSICAL_COUNTER_RESOURCE_LIST;
 #[cfg(feature = "usb")]
 pub type PPHYSICAL_MEMORY_RANGE = *mut PHYSICAL_MEMORY_RANGE;
 #[cfg(target_arch = "x86")]
-pub const PPI_SHIFT: u32 = 30;
+pub const PPI_SHIFT: i32 = 30;
 pub type PPM_DISPATCH_TABLE = *mut PM_DISPATCH_TABLE;
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 pub type PPNP_LOCATION_INTERFACE = *mut PNP_LOCATION_INTERFACE;
@@ -12004,7 +12004,10 @@ pub struct PROCESS_EXCEPTION_PORT {
     pub StateFlags: u32,
 }
 pub const PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: u32 = 3;
+#[cfg(target_arch = "x86")]
 pub const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u32 = 7;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u64 = 7;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
@@ -12136,7 +12139,7 @@ impl Default for PROCESS_HANDLE_TRACING_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROCESS_HANDLE_TRACING_MAX_STACKS: u32 = 16;
+pub const PROCESS_HANDLE_TRACING_MAX_STACKS: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -12157,7 +12160,7 @@ pub struct PROCESS_KEEPALIVE_COUNT_INFORMATION {
     pub WakeCount: u32,
     pub NoWakeCount: u32,
 }
-pub const PROCESS_LUID_DOSDEVICES_ONLY: u32 = 1;
+pub const PROCESS_LUID_DOSDEVICES_ONLY: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMBERSHIP_INFORMATION {
@@ -12191,7 +12194,7 @@ impl Default for PROCESS_WS_WATCH_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROTECTED_POOL: u32 = 0;
+pub const PROTECTED_POOL: i32 = 0;
 #[cfg(feature = "ntdef")]
 pub type PRTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, bytesize: super::CLONG) -> *mut core::ffi::c_void>;
 #[cfg(feature = "ntdef")]
@@ -12420,15 +12423,15 @@ impl PS_CREATE_NOTIFY_INFO_0_0 {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
-pub const PS_IMAGE_NOTIFY_CONFLICTING_ARCHITECTURE: u32 = 1;
+pub const PS_IMAGE_NOTIFY_CONFLICTING_ARCHITECTURE: i32 = 1;
 pub const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295;
 #[cfg(target_arch = "x86")]
-pub const PTE_PER_PAGE: u32 = 512;
+pub const PTE_PER_PAGE: i32 = 512;
 pub type PTIMER_APC_ROUTINE = Option<unsafe extern "system" fn(timercontext: *const core::ffi::c_void, timerlowvalue: u32, timerhighvalue: i32)>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
 pub type PTIMER_SET_COALESCABLE_TIMER_INFO = *mut TIMER_SET_COALESCABLE_TIMER_INFO;
 #[cfg(target_arch = "x86")]
-pub const PTI_SHIFT: u32 = 12;
+pub const PTI_SHIFT: i32 = 12;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PTRANSLATE_RESOURCE_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, source: *const super::CM_PARTIAL_RESOURCE_DESCRIPTOR, direction: RESOURCE_TRANSLATION_DIRECTION, alternativescount: u32, alternatives: *const super::IO_RESOURCE_DESCRIPTOR, physicaldeviceobject: *const super::DEVICE_OBJECT, target: *mut super::CM_PARTIAL_RESOURCE_DESCRIPTOR) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -12820,13 +12823,13 @@ pub const PrinterPeripheral: CONFIGURATION_TYPE = 30;
 pub const PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = 0;
 pub const PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = 0;
 pub const PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = 1;
-pub const PshedFADiscovery: u32 = 1;
-pub const PshedFAErrorInfoRetrieval: u32 = 8;
-pub const PshedFAErrorInjection: u32 = 32;
-pub const PshedFAErrorRecordPersistence: u32 = 4;
-pub const PshedFAErrorRecovery: u32 = 16;
-pub const PshedFAErrorSourceControl: u32 = 2;
-pub const PshedFAVendorDefinedErrInj: u32 = 48;
+pub const PshedFADiscovery: i32 = 1;
+pub const PshedFAErrorInfoRetrieval: i32 = 8;
+pub const PshedFAErrorInjection: i32 = 32;
+pub const PshedFAErrorRecordPersistence: i32 = 4;
+pub const PshedFAErrorRecovery: i32 = 16;
+pub const PshedFAErrorSourceControl: i32 = 2;
+pub const PshedFAVendorDefinedErrInj: i32 = 48;
 pub const PshedPiEnableNotifyErrorCreateNotifyEvent: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 1;
 pub const PshedPiEnableNotifyErrorCreateSystemThread: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 2;
 pub const PshedPiEnableNotifyErrorMax: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 3;
@@ -12842,17 +12845,17 @@ pub const RCB64Bytes: PCI_EXPRESS_RCB = 0;
 pub const RECOVERY_INFO_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xc34832a1_02c3_4c52_a9f1_9f1d5d7723fc);
 pub type RESOURCE_TRANSLATION_DIRECTION = i32;
 #[cfg(target_arch = "x86")]
-pub const RESULT_NEGATIVE: u32 = 32768;
+pub const RESULT_NEGATIVE: i32 = 32768;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const RESULT_NEGATIVE: u32 = 1;
+pub const RESULT_NEGATIVE: i32 = 1;
 #[cfg(target_arch = "x86")]
-pub const RESULT_POSITIVE: u32 = 0;
+pub const RESULT_POSITIVE: i32 = 0;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const RESULT_POSITIVE: u32 = 2;
+pub const RESULT_POSITIVE: i32 = 2;
 #[cfg(target_arch = "x86")]
-pub const RESULT_ZERO: u32 = 16384;
+pub const RESULT_ZERO: i32 = 16384;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const RESULT_ZERO: u32 = 0;
+pub const RESULT_ZERO: i32 = 0;
 #[cfg(feature = "ntdef")]
 pub type RTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, bytesize: super::CLONG) -> *mut core::ffi::c_void>;
 #[cfg(feature = "ntdef")]
@@ -12984,8 +12987,8 @@ impl Default for RTL_GENERIC_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RTL_HASH_ALLOCATED_HEADER: u32 = 1;
-pub const RTL_HASH_RESERVED_SIGNATURE: u32 = 0;
+pub const RTL_HASH_ALLOCATED_HEADER: i32 = 1;
+pub const RTL_HASH_RESERVED_SIGNATURE: i32 = 0;
 #[cfg(feature = "winnt")]
 pub type RTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn(runonce: *mut super::RTL_RUN_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> u32>;
 #[repr(C)]
@@ -13000,7 +13003,7 @@ impl Default for RTL_SPLAY_LINKS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: u32 = 8;
+pub const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: i32 = 8;
 pub const RatFailure: WHEA_OFFLINE_ERRS = 2;
 pub const RatFailureFirstCol: WHEA_OFFLINE_ERRS = 3;
 pub const RatFailureLastCol: WHEA_OFFLINE_ERRS = 4;
@@ -13030,48 +13033,48 @@ pub const RowErrorDdr5: PAGE_OFFLINE_ERROR_TYPES = 3;
 pub const SCI_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe9d59197_94ee_4a4f_8ad8_9b7d8bd93d2e);
 pub const SEA_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x9a78788a_bbe8_11e4_809e_67611e5d46b0);
 pub const SEA_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xf5fe48a6_84ce_4c1e_aa64_20c9a53099f1);
-pub const SEH_VALIDATION_POLICY_DEFER: u32 = 3;
-pub const SEH_VALIDATION_POLICY_OFF: u32 = 1;
-pub const SEH_VALIDATION_POLICY_ON: u32 = 0;
-pub const SEH_VALIDATION_POLICY_TELEMETRY: u32 = 2;
+pub const SEH_VALIDATION_POLICY_DEFER: i32 = 3;
+pub const SEH_VALIDATION_POLICY_OFF: i32 = 1;
+pub const SEH_VALIDATION_POLICY_ON: i32 = 0;
+pub const SEH_VALIDATION_POLICY_TELEMETRY: i32 = 2;
 pub const SEI_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x5c284c81_b0ae_4e87_a322_b04c85624323);
 pub const SEI_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xf2a4a152_9c6d_4020_aecf_7695b389251b);
-pub const SE_UNSOLICITED_INPUT_PRIVILEGE: u32 = 6;
+pub const SE_UNSOLICITED_INPUT_PRIVILEGE: i32 = 6;
 pub const SHARED_GLOBAL_FLAGS_ADMINAPPROVALMODE_TYPE_SHADOWADMIN: u32 = 4096;
-pub const SHARED_GLOBAL_FLAGS_ADMINAPPROVALMODE_TYPE_SHADOWADMIN_V: u32 = 12;
+pub const SHARED_GLOBAL_FLAGS_ADMINAPPROVALMODE_TYPE_SHADOWADMIN_V: i32 = 12;
 pub const SHARED_GLOBAL_FLAGS_ADMINAPPROVALMODE_TYPE_SPLITTOKEN: u32 = 2048;
-pub const SHARED_GLOBAL_FLAGS_ADMINAPPROVALMODE_TYPE_SPLITTOKEN_V: u32 = 11;
+pub const SHARED_GLOBAL_FLAGS_ADMINAPPROVALMODE_TYPE_SPLITTOKEN_V: i32 = 11;
 pub const SHARED_GLOBAL_FLAGS_CLEAR_GLOBAL_DATA_FLAG: u32 = 2147483648;
 pub const SHARED_GLOBAL_FLAGS_CONSOLE_BROKER_ENABLED: u32 = 64;
-pub const SHARED_GLOBAL_FLAGS_CONSOLE_BROKER_ENABLED_V: u32 = 6;
+pub const SHARED_GLOBAL_FLAGS_CONSOLE_BROKER_ENABLED_V: i32 = 6;
 pub const SHARED_GLOBAL_FLAGS_DYNAMIC_PROC_ENABLED: u32 = 32;
-pub const SHARED_GLOBAL_FLAGS_DYNAMIC_PROC_ENABLED_V: u32 = 5;
+pub const SHARED_GLOBAL_FLAGS_DYNAMIC_PROC_ENABLED_V: i32 = 5;
 pub const SHARED_GLOBAL_FLAGS_ELEVATION_ENABLED: u32 = 2;
-pub const SHARED_GLOBAL_FLAGS_ELEVATION_ENABLED_V: u32 = 1;
+pub const SHARED_GLOBAL_FLAGS_ELEVATION_ENABLED_V: i32 = 1;
 pub const SHARED_GLOBAL_FLAGS_ERROR_PORT: u32 = 1;
-pub const SHARED_GLOBAL_FLAGS_ERROR_PORT_V: u32 = 0;
+pub const SHARED_GLOBAL_FLAGS_ERROR_PORT_V: i32 = 0;
 pub const SHARED_GLOBAL_FLAGS_INSTALLER_DETECT_ENABLED: u32 = 8;
-pub const SHARED_GLOBAL_FLAGS_INSTALLER_DETECT_ENABLED_V: u32 = 3;
+pub const SHARED_GLOBAL_FLAGS_INSTALLER_DETECT_ENABLED_V: i32 = 3;
 pub const SHARED_GLOBAL_FLAGS_LKG_ENABLED: u32 = 16;
-pub const SHARED_GLOBAL_FLAGS_LKG_ENABLED_V: u32 = 4;
+pub const SHARED_GLOBAL_FLAGS_LKG_ENABLED_V: i32 = 4;
 pub const SHARED_GLOBAL_FLAGS_MULTIUSERS_IN_SESSION_SKU: u32 = 512;
-pub const SHARED_GLOBAL_FLAGS_MULTIUSERS_IN_SESSION_SKU_V: u32 = 9;
+pub const SHARED_GLOBAL_FLAGS_MULTIUSERS_IN_SESSION_SKU_V: i32 = 9;
 pub const SHARED_GLOBAL_FLAGS_MULTI_SESSION_SKU: u32 = 256;
-pub const SHARED_GLOBAL_FLAGS_MULTI_SESSION_SKU_V: u32 = 8;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_A73_ERRATA: u32 = 64;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_DISABLE_32BIT: u32 = 4;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_ENABLED: u32 = 1;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_HV_PAGE: u32 = 2;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_LFENCE: u32 = 32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_MFENCE: u32 = 16;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_RDTSCP: u32 = 128;
+pub const SHARED_GLOBAL_FLAGS_MULTI_SESSION_SKU_V: i32 = 8;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_A73_ERRATA: i32 = 64;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_DISABLE_32BIT: i32 = 4;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_ENABLED: i32 = 1;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_HV_PAGE: i32 = 2;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_LFENCE: i32 = 32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_MFENCE: i32 = 16;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_RDTSCP: i32 = 128;
 pub const SHARED_GLOBAL_FLAGS_SECURE_BOOT_ENABLED: u32 = 128;
-pub const SHARED_GLOBAL_FLAGS_SECURE_BOOT_ENABLED_V: u32 = 7;
-pub const SHARED_GLOBAL_FLAGS_SET_GLOBAL_DATA_FLAG: u32 = 1073741824;
+pub const SHARED_GLOBAL_FLAGS_SECURE_BOOT_ENABLED_V: i32 = 7;
+pub const SHARED_GLOBAL_FLAGS_SET_GLOBAL_DATA_FLAG: i32 = 1073741824;
 pub const SHARED_GLOBAL_FLAGS_STATE_SEPARATION_ENABLED: u32 = 1024;
-pub const SHARED_GLOBAL_FLAGS_STATE_SEPARATION_ENABLED_V: u32 = 10;
+pub const SHARED_GLOBAL_FLAGS_STATE_SEPARATION_ENABLED_V: i32 = 10;
 pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED: u32 = 4;
-pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED_V: u32 = 2;
+pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED_V: i32 = 2;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SIGNAL_REG_VALUE {
@@ -13117,7 +13120,7 @@ impl Default for SILO_MONITOR_REGISTRATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SILO_MONITOR_REGISTRATION_VERSION: u32 = 1;
+pub const SILO_MONITOR_REGISTRATION_VERSION: i32 = 1;
 pub type SILO_MONITOR_TERMINATE_CALLBACK = Option<unsafe extern "system" fn(silo: *const _EJOB)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -13141,16 +13144,16 @@ pub const SOC_SUBSYS_SENSORS: SOC_SUBSYSTEM_TYPE = 3;
 pub const SOC_SUBSYS_VENDOR_DEFINED: SOC_SUBSYSTEM_TYPE = 65536;
 pub const SOC_SUBSYS_WIRELESS_MODEM: SOC_SUBSYSTEM_TYPE = 0;
 pub const SOC_SUBSYS_WIRELSS_CONNECTIVITY: SOC_SUBSYSTEM_TYPE = 2;
-pub const SSINFO_FLAGS_ALIGNED_DEVICE: u32 = 1;
-pub const SSINFO_FLAGS_BYTE_ADDRESSABLE: u32 = 16;
-pub const SSINFO_FLAGS_NO_SEEK_PENALTY: u32 = 4;
-pub const SSINFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: u32 = 2;
-pub const SSINFO_FLAGS_TRIM_ENABLED: u32 = 8;
+pub const SSINFO_FLAGS_ALIGNED_DEVICE: i32 = 1;
+pub const SSINFO_FLAGS_BYTE_ADDRESSABLE: i32 = 16;
+pub const SSINFO_FLAGS_NO_SEEK_PENALTY: i32 = 4;
+pub const SSINFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: i32 = 2;
+pub const SSINFO_FLAGS_TRIM_ENABLED: i32 = 8;
 pub const SSINFO_OFFSET_UNKNOWN: u32 = 4294967295;
 pub type STATE_LOCATION_TYPE = i32;
 pub type SUBSYSTEM_INFORMATION_TYPE = i32;
-pub const SYSTEM_CALL_INT_2E: u32 = 1;
-pub const SYSTEM_CALL_SYSCALL: u32 = 0;
+pub const SYSTEM_CALL_INT_2E: i32 = 1;
+pub const SYSTEM_CALL_SYSCALL: i32 = 0;
 pub type SYSTEM_FIRMWARE_TABLE_ACTION = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
@@ -13192,8 +13195,8 @@ pub const SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = 0;
 pub const SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = 1;
 pub const SystemMemory: CONFIGURATION_TYPE = 37;
 pub type TABLE_SEARCH_RESULT = i32;
-pub const THREAD_CSWITCH_PMU_DISABLE: u32 = 0;
-pub const THREAD_CSWITCH_PMU_ENABLE: u32 = 1;
+pub const THREAD_CSWITCH_PMU_DISABLE: i32 = 0;
+pub const THREAD_CSWITCH_PMU_ENABLE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
@@ -13231,7 +13234,7 @@ impl Default for TRANSLATOR_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TXF_MINIVERSION_DEFAULT_VIEW: u32 = 65534;
+pub const TXF_MINIVERSION_DEFAULT_VIEW: i32 = 65534;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TXN_PARAMETER_BLOCK {
@@ -13256,7 +13259,7 @@ pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = 0;
 pub const TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = 0;
 pub const TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = 1;
 pub const UnsupportedDdrVersion: WHEA_OFFLINE_ERRS = 9;
-pub const VENDOR_RESERVED_DOE_TYPE_DISCOVERY: u32 = 0;
+pub const VENDOR_RESERVED_DOE_TYPE_DISCOVERY: i32 = 0;
 pub const VMEConfiguration: BUS_DATA_TYPE = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13298,7 +13301,7 @@ pub struct VM_COUNTERS_EX2 {
 }
 pub const VendorDefinedRead: PSHED_PI_VENDOR_DEFINED_ACTION = 0;
 pub const VendorDefinedWrite: PSHED_PI_VENDOR_DEFINED_ACTION = 1;
-pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: u32 = 32;
+pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: i32 = 32;
 #[repr(C, align(16))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA128A {
@@ -13581,7 +13584,7 @@ impl Default for WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEAP_MAX_SET_ERROR_TYPE_WITH_ADDRESS_SIZE: u32 = 256;
+pub const WHEAP_MAX_SET_ERROR_TYPE_WITH_ADDRESS_SIZE: i32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEAP_OSC_IMPLEMENTED {
@@ -14036,7 +14039,7 @@ impl Default for WHEA_AMD_EXTENDED_REGISTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_AMD_EXT_REG_NUM: u32 = 10;
+pub const WHEA_AMD_EXT_REG_NUM: i32 = 10;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARMV8_AARCH32_GPRS {
@@ -14736,7 +14739,7 @@ impl WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
-pub const WHEA_ARM_RAS_NODE_FIELD_COUNT: u32 = 8;
+pub const WHEA_ARM_RAS_NODE_FIELD_COUNT: i32 = 8;
 pub type WHEA_ARM_RAS_NODE_INTERFACES = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -14927,14 +14930,14 @@ impl Default for WHEA_AZCC_SET_POISON_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_BAD_PAGE_LIST_LOCATION: u32 = 15;
-pub const WHEA_BAD_PAGE_LIST_MAX_SIZE: u32 = 14;
+pub const WHEA_BAD_PAGE_LIST_LOCATION: i32 = 15;
+pub const WHEA_BAD_PAGE_LIST_MAX_SIZE: i32 = 14;
 pub type WHEA_BUGCHECK_RECOVERY_LOG_TYPE = i32;
 pub const WHEA_BUSCHECK_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x1cf3f8b3_c5b1_49a2_aa59_5eef92ffa63c);
 pub const WHEA_CACHECHECK_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa55701f5_e3ef_43de_ac72_249b573fad2c);
-pub const WHEA_CMCI_THRESHOLD_COUNT: u32 = 10;
-pub const WHEA_CMCI_THRESHOLD_POLL_COUNT: u32 = 12;
-pub const WHEA_CMCI_THRESHOLD_TIME: u32 = 11;
+pub const WHEA_CMCI_THRESHOLD_COUNT: i32 = 10;
+pub const WHEA_CMCI_THRESHOLD_POLL_COUNT: i32 = 12;
+pub const WHEA_CMCI_THRESHOLD_TIME: i32 = 11;
 pub type WHEA_CPU_VENDOR = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -15221,13 +15224,13 @@ impl WHEA_CXL_PROTOCOL_ERROR_SECTION_VALIDBITS_0 {
         self._bitfield = (self._bitfield & !(144115188075855871 << 7)) | ((value & 144115188075855871) << 7);
     }
 }
-pub const WHEA_DEVICE_DRIVER_BUFFER_SET_MAX: u32 = 1;
-pub const WHEA_DEVICE_DRIVER_BUFFER_SET_MIN: u32 = 1;
-pub const WHEA_DEVICE_DRIVER_BUFFER_SET_V1: u32 = 1;
-pub const WHEA_DEVICE_DRIVER_CONFIG_MAX: u32 = 2;
-pub const WHEA_DEVICE_DRIVER_CONFIG_MIN: u32 = 1;
-pub const WHEA_DEVICE_DRIVER_CONFIG_V1: u32 = 1;
-pub const WHEA_DEVICE_DRIVER_CONFIG_V2: u32 = 2;
+pub const WHEA_DEVICE_DRIVER_BUFFER_SET_MAX: i32 = 1;
+pub const WHEA_DEVICE_DRIVER_BUFFER_SET_MIN: i32 = 1;
+pub const WHEA_DEVICE_DRIVER_BUFFER_SET_V1: i32 = 1;
+pub const WHEA_DEVICE_DRIVER_CONFIG_MAX: i32 = 2;
+pub const WHEA_DEVICE_DRIVER_CONFIG_MIN: i32 = 1;
+pub const WHEA_DEVICE_DRIVER_CONFIG_V1: i32 = 1;
+pub const WHEA_DEVICE_DRIVER_CONFIG_V2: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
@@ -15273,9 +15276,9 @@ impl Default for WHEA_DEVICE_INFO_0 {
     }
 }
 pub type WHEA_DEVICE_TYPE = i32;
-pub const WHEA_DISABLE_DUMMY_WRITE: u32 = 6;
-pub const WHEA_DISABLE_OFFLINE: u32 = 0;
-pub const WHEA_DISABLE_PRM_ADDRESS_TRANSLATION: u32 = 20;
+pub const WHEA_DISABLE_DUMMY_WRITE: i32 = 6;
+pub const WHEA_DISABLE_OFFLINE: i32 = 0;
+pub const WHEA_DISABLE_PRM_ADDRESS_TRANSLATION: i32 = 20;
 pub const WHEA_DPC_CAPABILITY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xec49534b_30e7_4358_972f_eca6958fae3b);
 #[repr(C, packed(1))]
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
@@ -15288,7 +15291,7 @@ pub struct WHEA_DRIVER_BUFFER_SET {
     pub SectionFriendlyName: super::PUCHAR,
     pub Flags: super::PUCHAR,
 }
-pub const WHEA_ENABLE_BATCHED_ROW_OFFLINE: u32 = 21;
+pub const WHEA_ENABLE_BATCHED_ROW_OFFLINE: i32 = 21;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WHEA_ERROR_HANDLE(pub *mut core::ffi::c_void);
@@ -15297,7 +15300,7 @@ impl Default for WHEA_ERROR_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_HANDLE_INVALID: u32 = 0;
+pub const WHEA_ERROR_HANDLE_INVALID: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_INJECTION_CAPABILITIES {
@@ -15436,15 +15439,15 @@ impl WHEA_ERROR_INJECTION_CAPABILITIES_0 {
         self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
     }
 }
-pub const WHEA_ERROR_LOG_ENTRY_ACPI: u32 = 1229996865;
-pub const WHEA_ERROR_LOG_ENTRY_HAL: u32 = 541868360;
-pub const WHEA_ERROR_LOG_ENTRY_HYPERV: u32 = 1347836232;
-pub const WHEA_ERROR_LOG_ENTRY_KERNEL: u32 = 1280201291;
-pub const WHEA_ERROR_LOG_ENTRY_PCI: u32 = 541672272;
-pub const WHEA_ERROR_LOG_ENTRY_PSHED: u32 = 1145590608;
-pub const WHEA_ERROR_LOG_ENTRY_PSHED_PI: u32 = 1230000976;
-pub const WHEA_ERROR_LOG_ENTRY_SIGNATURE: u32 = 1733060695;
-pub const WHEA_ERROR_LOG_ENTRY_VERSION: u32 = 1;
+pub const WHEA_ERROR_LOG_ENTRY_ACPI: i32 = 1229996865;
+pub const WHEA_ERROR_LOG_ENTRY_HAL: i32 = 541868360;
+pub const WHEA_ERROR_LOG_ENTRY_HYPERV: i32 = 1347836232;
+pub const WHEA_ERROR_LOG_ENTRY_KERNEL: i32 = 1280201291;
+pub const WHEA_ERROR_LOG_ENTRY_PCI: i32 = 541672272;
+pub const WHEA_ERROR_LOG_ENTRY_PSHED: i32 = 1145590608;
+pub const WHEA_ERROR_LOG_ENTRY_PSHED_PI: i32 = 1230000976;
+pub const WHEA_ERROR_LOG_ENTRY_SIGNATURE: i32 = 1733060695;
+pub const WHEA_ERROR_LOG_ENTRY_VERSION: i32 = 1;
 pub type WHEA_ERROR_PACKET = WHEA_ERROR_PACKET_V2;
 pub type WHEA_ERROR_PACKET_DATA_FORMAT = i32;
 #[repr(C, packed(1))]
@@ -15526,7 +15529,7 @@ impl WHEA_ERROR_PACKET_FLAGS_0 {
     }
 }
 pub const WHEA_ERROR_PACKET_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe71254e9_c1b9_4940_ab76_909703a4320f);
-pub const WHEA_ERROR_PACKET_SIGNATURE: u32 = 1095059543;
+pub const WHEA_ERROR_PACKET_SIGNATURE: i32 = 1095059543;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_V1 {
@@ -15569,8 +15572,8 @@ impl Default for WHEA_ERROR_PACKET_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_PACKET_V1_SIGNATURE: u32 = 1951429189;
-pub const WHEA_ERROR_PACKET_V1_VERSION: u32 = 2;
+pub const WHEA_ERROR_PACKET_V1_SIGNATURE: i32 = 1951429189;
+pub const WHEA_ERROR_PACKET_V1_VERSION: i32 = 2;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_V2 {
@@ -15596,9 +15599,9 @@ impl Default for WHEA_ERROR_PACKET_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_PACKET_V2_SIGNATURE: u32 = 1095059543;
-pub const WHEA_ERROR_PACKET_V2_VERSION: u32 = 3;
-pub const WHEA_ERROR_PACKET_VERSION: u32 = 3;
+pub const WHEA_ERROR_PACKET_V2_SIGNATURE: i32 = 1095059543;
+pub const WHEA_ERROR_PACKET_V2_VERSION: i32 = 3;
+pub const WHEA_ERROR_PACKET_VERSION: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -15612,10 +15615,10 @@ impl Default for WHEA_ERROR_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_RECORD_FLAGS_DEVICE_DRIVER: u32 = 8;
-pub const WHEA_ERROR_RECORD_FLAGS_PREVIOUSERROR: u32 = 2;
-pub const WHEA_ERROR_RECORD_FLAGS_RECOVERED: u32 = 1;
-pub const WHEA_ERROR_RECORD_FLAGS_SIMULATED: u32 = 4;
+pub const WHEA_ERROR_RECORD_FLAGS_DEVICE_DRIVER: i32 = 8;
+pub const WHEA_ERROR_RECORD_FLAGS_PREVIOUSERROR: i32 = 2;
+pub const WHEA_ERROR_RECORD_FLAGS_RECOVERED: i32 = 1;
+pub const WHEA_ERROR_RECORD_FLAGS_SIMULATED: i32 = 4;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER {
@@ -15783,7 +15786,7 @@ impl WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
-pub const WHEA_ERROR_RECORD_REVISION: u32 = 528;
+pub const WHEA_ERROR_RECORD_REVISION: i32 = 528;
 #[repr(C, packed(1))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -15877,7 +15880,7 @@ impl WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
         self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
     }
 }
-pub const WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_REVISION: u32 = 768;
+pub const WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_REVISION: i32 = 768;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
@@ -15914,11 +15917,11 @@ impl WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
         self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
     }
 }
-pub const WHEA_ERROR_RECORD_SIGNATURE: u32 = 1380274243;
+pub const WHEA_ERROR_RECORD_SIGNATURE: i32 = 1380274243;
 pub const WHEA_ERROR_RECORD_SIGNATURE_END: u32 = 4294967295;
-pub const WHEA_ERROR_RECORD_VALID_PARTITIONID: u32 = 4;
-pub const WHEA_ERROR_RECORD_VALID_PLATFORMID: u32 = 1;
-pub const WHEA_ERROR_RECORD_VALID_TIMESTAMP: u32 = 2;
+pub const WHEA_ERROR_RECORD_VALID_PARTITIONID: i32 = 4;
+pub const WHEA_ERROR_RECORD_VALID_PLATFORMID: i32 = 1;
+pub const WHEA_ERROR_RECORD_VALID_TIMESTAMP: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -16047,17 +16050,17 @@ impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERBRIDGE: u32 = 8;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERENDPOINT: u32 = 7;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERROOTPORT: u32 = 6;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_GENERIC: u32 = 9;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_GENERIC_V2: u32 = 10;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFCMC: u32 = 4;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFCPE: u32 = 5;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFMCA: u32 = 3;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFCMC: u32 = 1;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFMCE: u32 = 0;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFNMI: u32 = 2;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERBRIDGE: i32 = 8;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERENDPOINT: i32 = 7;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERROOTPORT: i32 = 6;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_GENERIC: i32 = 9;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_GENERIC_V2: i32 = 10;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFCMC: i32 = 4;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFCPE: i32 = 5;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFMCA: i32 = 3;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFCMC: i32 = 1;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFMCE: i32 = 0;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFNMI: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
@@ -16103,17 +16106,17 @@ impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR_V2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_VERSION_10: u32 = 10;
-pub const WHEA_ERROR_SOURCE_DESCRIPTOR_VERSION_11: u32 = 11;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_VERSION_10: i32 = 10;
+pub const WHEA_ERROR_SOURCE_DESCRIPTOR_VERSION_11: i32 = 11;
 pub const WHEA_ERROR_SOURCE_FLAG_DEFAULTSOURCE: u32 = 2147483648;
-pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1;
-pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4;
-pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2;
-pub const WHEA_ERROR_SOURCE_FLAG_V2_DESCRIPTOR: u32 = 8;
+pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: i32 = 1;
+pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: i32 = 4;
+pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: i32 = 2;
+pub const WHEA_ERROR_SOURCE_FLAG_V2_DESCRIPTOR: i32 = 8;
 #[cfg(feature = "minwindef")]
 pub type WHEA_ERROR_SOURCE_INITIALIZE = *mut _WHEA_ERROR_SOURCE_INITIALIZE;
 pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = *mut _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER;
-pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535;
+pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: i32 = 65535;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
@@ -16205,9 +16208,9 @@ impl WHEA_ERROR_STATUS_0 {
         self._bitfield = (self._bitfield & !(2199023255551 << 23)) | ((value & 2199023255551) << 23);
     }
 }
-pub const WHEA_ERROR_TEXT_LEN: u32 = 32;
+pub const WHEA_ERROR_TEXT_LEN: i32 = 32;
 pub type WHEA_ERROR_TYPE = i32;
-pub const WHEA_ERR_SRC_OVERRIDE_FLAG: u32 = 1073741824;
+pub const WHEA_ERR_SRC_OVERRIDE_FLAG: i32 = 1073741824;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ETW_OVERFLOW_EVENT {
@@ -16349,7 +16352,7 @@ impl Default for WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_FIRMWARE_RECORD_TYPE_IPFSAL: u32 = 0;
+pub const WHEA_FIRMWARE_RECORD_TYPE_IPFSAL: i32 = 0;
 pub type WHEA_GAS_ERRORS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16362,9 +16365,9 @@ impl Default for WHEA_GAS_ERROR_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_GENERIC_ENTRY_TEXT_LEN: u32 = 20;
-pub const WHEA_GENERIC_ENTRY_V2_VERSION: u32 = 768;
-pub const WHEA_GENERIC_ENTRY_VERSION: u32 = 768;
+pub const WHEA_GENERIC_ENTRY_TEXT_LEN: i32 = 20;
+pub const WHEA_GENERIC_ENTRY_V2_VERSION: i32 = 768;
+pub const WHEA_GENERIC_ENTRY_VERSION: i32 = 768;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR {
@@ -16520,7 +16523,7 @@ impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     }
 }
 pub type WHEA_INJECTION_VENDOR_DEFINED_REASON_CODES = i32;
-pub const WHEA_INVALID_ERR_SRC_ID: u32 = 0;
+pub const WHEA_INVALID_ERR_SRC_ID: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
@@ -16618,22 +16621,22 @@ impl Default for WHEA_IPMI_SUBSCRIBE_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_MAX_LOG_DATA_LEN: u32 = 36;
-pub const WHEA_MAX_MC_BANKS: u32 = 32;
-pub const WHEA_MAX_MC_BANKS64: u32 = 64;
-pub const WHEA_MEMERRTYPE_INVALIDADDRESS: u32 = 10;
-pub const WHEA_MEMERRTYPE_MASTERABORT: u32 = 6;
-pub const WHEA_MEMERRTYPE_MEMORYSPARING: u32 = 12;
-pub const WHEA_MEMERRTYPE_MIRRORBROKEN: u32 = 11;
-pub const WHEA_MEMERRTYPE_MULTIBITECC: u32 = 3;
-pub const WHEA_MEMERRTYPE_MULTISYMCHIPKILL: u32 = 5;
-pub const WHEA_MEMERRTYPE_NOERROR: u32 = 1;
-pub const WHEA_MEMERRTYPE_PARITYERROR: u32 = 8;
-pub const WHEA_MEMERRTYPE_SINGLEBITECC: u32 = 2;
-pub const WHEA_MEMERRTYPE_SINGLESYMCHIPKILL: u32 = 4;
-pub const WHEA_MEMERRTYPE_TARGETABORT: u32 = 7;
-pub const WHEA_MEMERRTYPE_UNKNOWN: u32 = 0;
-pub const WHEA_MEMERRTYPE_WATCHDOGTIMEOUT: u32 = 9;
+pub const WHEA_MAX_LOG_DATA_LEN: i32 = 36;
+pub const WHEA_MAX_MC_BANKS: i32 = 32;
+pub const WHEA_MAX_MC_BANKS64: i32 = 64;
+pub const WHEA_MEMERRTYPE_INVALIDADDRESS: i32 = 10;
+pub const WHEA_MEMERRTYPE_MASTERABORT: i32 = 6;
+pub const WHEA_MEMERRTYPE_MEMORYSPARING: i32 = 12;
+pub const WHEA_MEMERRTYPE_MIRRORBROKEN: i32 = 11;
+pub const WHEA_MEMERRTYPE_MULTIBITECC: i32 = 3;
+pub const WHEA_MEMERRTYPE_MULTISYMCHIPKILL: i32 = 5;
+pub const WHEA_MEMERRTYPE_NOERROR: i32 = 1;
+pub const WHEA_MEMERRTYPE_PARITYERROR: i32 = 8;
+pub const WHEA_MEMERRTYPE_SINGLEBITECC: i32 = 2;
+pub const WHEA_MEMERRTYPE_SINGLESYMCHIPKILL: i32 = 4;
+pub const WHEA_MEMERRTYPE_TARGETABORT: i32 = 7;
+pub const WHEA_MEMERRTYPE_UNKNOWN: i32 = 0;
+pub const WHEA_MEMERRTYPE_WATCHDOGTIMEOUT: i32 = 9;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
@@ -17396,7 +17399,7 @@ impl WHEA_MEMORY_RANGE_ERROR_SECTION_VALIDBITS_0 {
         self._bitfield = (self._bitfield & !(576460752303423487 << 5)) | ((value & 576460752303423487) << 5);
     }
 }
-pub const WHEA_MEMORY_RANGE_ERROR_SECTION_VERSION: u32 = 1;
+pub const WHEA_MEMORY_RANGE_ERROR_SECTION_VERSION: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
@@ -17408,11 +17411,11 @@ impl Default for WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_MEM_PERSISTOFFLINE: u32 = 1;
-pub const WHEA_MEM_PFA_DISABLE: u32 = 2;
-pub const WHEA_MEM_PFA_PAGECOUNT: u32 = 3;
-pub const WHEA_MEM_PFA_THRESHOLD: u32 = 4;
-pub const WHEA_MEM_PFA_TIMEOUT: u32 = 5;
+pub const WHEA_MEM_PERSISTOFFLINE: i32 = 1;
+pub const WHEA_MEM_PFA_DISABLE: i32 = 2;
+pub const WHEA_MEM_PFA_PAGECOUNT: i32 = 3;
+pub const WHEA_MEM_PFA_THRESHOLD: i32 = 4;
+pub const WHEA_MEM_PFA_TIMEOUT: i32 = 5;
 pub const WHEA_MSCHECK_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x48ab7f57_dc34_4f6c_a7d3_b0b5b0a74314);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -17626,19 +17629,19 @@ impl WHEA_NOTIFICATION_FLAGS_0 {
         self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
     }
 }
-pub const WHEA_NOTIFICATION_TYPE_ARMV8_SEA: u32 = 8;
-pub const WHEA_NOTIFICATION_TYPE_ARMV8_SEI: u32 = 9;
-pub const WHEA_NOTIFICATION_TYPE_CMCI: u32 = 5;
-pub const WHEA_NOTIFICATION_TYPE_EXTERNALINTERRUPT: u32 = 1;
-pub const WHEA_NOTIFICATION_TYPE_EXTERNALINTERRUPT_GSIV: u32 = 10;
-pub const WHEA_NOTIFICATION_TYPE_GPIO_SIGNAL: u32 = 7;
-pub const WHEA_NOTIFICATION_TYPE_LOCALINTERRUPT: u32 = 2;
-pub const WHEA_NOTIFICATION_TYPE_MCE: u32 = 6;
-pub const WHEA_NOTIFICATION_TYPE_NMI: u32 = 4;
-pub const WHEA_NOTIFICATION_TYPE_POLLED: u32 = 0;
-pub const WHEA_NOTIFICATION_TYPE_SCI: u32 = 3;
-pub const WHEA_NOTIFICATION_TYPE_SDEI: u32 = 11;
-pub const WHEA_NOTIFY_ALL_OFFLINES: u32 = 16;
+pub const WHEA_NOTIFICATION_TYPE_ARMV8_SEA: i32 = 8;
+pub const WHEA_NOTIFICATION_TYPE_ARMV8_SEI: i32 = 9;
+pub const WHEA_NOTIFICATION_TYPE_CMCI: i32 = 5;
+pub const WHEA_NOTIFICATION_TYPE_EXTERNALINTERRUPT: i32 = 1;
+pub const WHEA_NOTIFICATION_TYPE_EXTERNALINTERRUPT_GSIV: i32 = 10;
+pub const WHEA_NOTIFICATION_TYPE_GPIO_SIGNAL: i32 = 7;
+pub const WHEA_NOTIFICATION_TYPE_LOCALINTERRUPT: i32 = 2;
+pub const WHEA_NOTIFICATION_TYPE_MCE: i32 = 6;
+pub const WHEA_NOTIFICATION_TYPE_NMI: i32 = 4;
+pub const WHEA_NOTIFICATION_TYPE_POLLED: i32 = 0;
+pub const WHEA_NOTIFICATION_TYPE_SCI: i32 = 3;
+pub const WHEA_NOTIFICATION_TYPE_SDEI: i32 = 11;
+pub const WHEA_NOTIFY_ALL_OFFLINES: i32 = 16;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_OFFLINE_DONE_EVENT {
@@ -17969,7 +17972,7 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: u32 = 32;
+pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: i32 = 32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
@@ -18306,7 +18309,7 @@ impl WHEA_PCI_SLOT_NUMBER_0_0 {
         self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
     }
 }
-pub const WHEA_PENDING_PAGE_LIST_SZ: u32 = 13;
+pub const WHEA_PENDING_PAGE_LIST_SZ: i32 = 13;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PERSISTENCE_INFO {
@@ -18361,11 +18364,11 @@ impl WHEA_PERSISTENCE_INFO_0 {
         self._bitfield = (self._bitfield & !(31 << 59)) | ((value & 31) << 59);
     }
 }
-pub const WHEA_PFA_PAGE_RANGE_MAX: u32 = 256;
+pub const WHEA_PFA_PAGE_RANGE_MAX: i32 = 256;
 pub type WHEA_PFA_REMOVE_TRIGGER = i32;
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_V1: u32 = 65536;
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_V2: u32 = 131072;
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_VERSION: u32 = 131072;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_V1: i32 = 65536;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_V2: i32 = 131072;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_VERSION: i32 = 131072;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PMEM_ERROR_SECTION {
@@ -18381,8 +18384,8 @@ impl Default for WHEA_PMEM_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_PMEM_ERROR_SECTION_LOCATION_INFO_SIZE: u32 = 64;
-pub const WHEA_PMEM_ERROR_SECTION_MAX_PAGES: u32 = 50;
+pub const WHEA_PMEM_ERROR_SECTION_LOCATION_INFO_SIZE: i32 = 64;
+pub const WHEA_PMEM_ERROR_SECTION_MAX_PAGES: i32 = 50;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PMEM_ERROR_SECTION_VALIDBITS {
@@ -18476,13 +18479,13 @@ pub struct WHEA_PRM_ADDRESS_TRANSLATION_BUFFER_INTEL {
     pub ChipId: u64,
     pub NmChipId: u64,
 }
-pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_FORWARD_ADDRESS_TRANSLATE: u32 = 2;
-pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_GET_ADDRESS_PARAMETERS: u32 = 1;
-pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_INTERNAL_ERROR: u32 = 3;
-pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_INVALID_COMMAND: u32 = 2;
-pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_REVERSE_ADDRESS_TRANSLATE: u32 = 3;
-pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_SUCCESS: u32 = 0;
-pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_UNKNOWN_FAILURE: u32 = 1;
+pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_FORWARD_ADDRESS_TRANSLATE: i32 = 2;
+pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_GET_ADDRESS_PARAMETERS: i32 = 1;
+pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_INTERNAL_ERROR: i32 = 3;
+pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_INVALID_COMMAND: i32 = 2;
+pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_REVERSE_ADDRESS_TRANSLATE: i32 = 3;
+pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_SUCCESS: i32 = 0;
+pub const WHEA_PRM_ADDRESS_TRANSLATION_INTEL_UNKNOWN_FAILURE: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PRM_DRAM_TO_NORMALIZED_OUT_BUFFER_AMD {
@@ -19216,9 +19219,9 @@ impl WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
         self._bitfield = (self._bitfield & !4294967295) | (value & 4294967295);
     }
 }
-pub const WHEA_RESTORE_CMCI_ATTEMPTS: u32 = 8;
-pub const WHEA_RESTORE_CMCI_ENABLED: u32 = 7;
-pub const WHEA_RESTORE_CMCI_ERR_LIMIT: u32 = 9;
+pub const WHEA_RESTORE_CMCI_ATTEMPTS: i32 = 8;
+pub const WHEA_RESTORE_CMCI_ENABLED: i32 = 7;
+pub const WHEA_RESTORE_CMCI_ERR_LIMIT: i32 = 9;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_REVISION {
@@ -19236,9 +19239,9 @@ pub struct WHEA_REVISION_0 {
     pub MinorRevision: u8,
     pub MajorRevision: u8,
 }
-pub const WHEA_ROW_FAIL_CHECK_ENABLE: u32 = 18;
-pub const WHEA_ROW_FAIL_CHECK_EXTENT: u32 = 17;
-pub const WHEA_ROW_FAIL_CHECK_THRESHOLD: u32 = 19;
+pub const WHEA_ROW_FAIL_CHECK_ENABLE: i32 = 18;
+pub const WHEA_ROW_FAIL_CHECK_EXTENT: i32 = 17;
+pub const WHEA_ROW_FAIL_CHECK_THRESHOLD: i32 = 19;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_SEA_SECTION {
@@ -19247,14 +19250,14 @@ pub struct WHEA_SEA_SECTION {
     pub Par: u64,
     pub WasKernel: bool,
 }
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: u32 = 2;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN: u32 = 128;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_LATENTERROR: u32 = 32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PRIMARY: u32 = 1;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PROPAGATED: u32 = 64;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESET: u32 = 4;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: u32 = 16;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: u32 = 8;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: i32 = 2;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN: i32 = 128;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_LATENTERROR: i32 = 32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PRIMARY: i32 = 1;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PROPAGATED: i32 = 64;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESET: i32 = 4;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: i32 = 16;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: i32 = 8;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_SEI_SECTION {
@@ -19311,7 +19314,7 @@ impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_VERSION: u32 = 1;
+pub const WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_VERSION: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
@@ -19552,7 +19555,7 @@ impl Default for WHEA_VERSION_MISMATCH_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_WRITE_FLAG_DUMMY: u32 = 1;
+pub const WHEA_WRITE_FLAG_DUMMY: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_WRITE_VENDOR_DEFINED_INJECTION_AREA_LOG_ENTRY {
@@ -19961,8 +19964,8 @@ pub struct WHEA_XPF_CONTEXT_INFO {
     pub MSRAddress: u32,
     pub MmRegisterAddress: u64,
 }
-pub const WHEA_XPF_MCA_EXBANK_COUNT: u32 = 64;
-pub const WHEA_XPF_MCA_EXTREG_MAX_COUNT: u32 = 24;
+pub const WHEA_XPF_MCA_EXBANK_COUNT: i32 = 64;
+pub const WHEA_XPF_MCA_EXTREG_MAX_COUNT: i32 = 24;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCA_SECTION {
@@ -20003,11 +20006,11 @@ impl Default for WHEA_XPF_MCA_SECTION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_XPF_MCA_SECTION_VERSION: u32 = 5;
-pub const WHEA_XPF_MCA_SECTION_VERSION_2: u32 = 2;
-pub const WHEA_XPF_MCA_SECTION_VERSION_3: u32 = 3;
-pub const WHEA_XPF_MCA_SECTION_VERSION_4: u32 = 4;
-pub const WHEA_XPF_MCA_SECTION_VERSION_5: u32 = 5;
+pub const WHEA_XPF_MCA_SECTION_VERSION: i32 = 5;
+pub const WHEA_XPF_MCA_SECTION_VERSION_2: i32 = 2;
+pub const WHEA_XPF_MCA_SECTION_VERSION_3: i32 = 3;
+pub const WHEA_XPF_MCA_SECTION_VERSION_4: i32 = 4;
+pub const WHEA_XPF_MCA_SECTION_VERSION_5: i32 = 5;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCE_DESCRIPTOR {
@@ -20058,9 +20061,9 @@ impl Default for WHEA_XPF_MC_BANK_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2;
-pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: u32 = 0;
-pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1;
+pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: i32 = 2;
+pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: i32 = 0;
+pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_MS_CHECK {
@@ -20708,44 +20711,44 @@ pub const WheapDpcErrResetFailed: WHEAP_DPC_ERROR_EVENT_TYPE = 4;
 pub const WheapPfaOfflinePredictiveFailure: WHEAP_PFA_OFFLINE_DECISION_TYPE = 1;
 pub const WheapPfaOfflineUncorrectedError: WHEAP_PFA_OFFLINE_DECISION_TYPE = 2;
 pub const WormController: CONFIGURATION_TYPE = 16;
-pub const XPF_BUS_CHECK_ADDRESS_IO: u32 = 2;
-pub const XPF_BUS_CHECK_ADDRESS_MEMORY: u32 = 0;
-pub const XPF_BUS_CHECK_ADDRESS_OTHER: u32 = 3;
-pub const XPF_BUS_CHECK_ADDRESS_RESERVED: u32 = 1;
-pub const XPF_BUS_CHECK_OPERATION_DATAREAD: u32 = 3;
-pub const XPF_BUS_CHECK_OPERATION_DATAWRITE: u32 = 4;
-pub const XPF_BUS_CHECK_OPERATION_GENERIC: u32 = 0;
-pub const XPF_BUS_CHECK_OPERATION_GENREAD: u32 = 1;
-pub const XPF_BUS_CHECK_OPERATION_GENWRITE: u32 = 2;
-pub const XPF_BUS_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5;
-pub const XPF_BUS_CHECK_OPERATION_PREFETCH: u32 = 6;
-pub const XPF_BUS_CHECK_PARTICIPATION_GENERIC: u32 = 3;
-pub const XPF_BUS_CHECK_PARTICIPATION_PROCOBSERVED: u32 = 2;
-pub const XPF_BUS_CHECK_PARTICIPATION_PROCORIGINATED: u32 = 0;
-pub const XPF_BUS_CHECK_PARTICIPATION_PROCRESPONDED: u32 = 1;
-pub const XPF_BUS_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1;
-pub const XPF_BUS_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2;
-pub const XPF_BUS_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0;
-pub const XPF_CACHE_CHECK_OPERATION_DATAREAD: u32 = 3;
-pub const XPF_CACHE_CHECK_OPERATION_DATAWRITE: u32 = 4;
-pub const XPF_CACHE_CHECK_OPERATION_EVICTION: u32 = 7;
-pub const XPF_CACHE_CHECK_OPERATION_GENERIC: u32 = 0;
-pub const XPF_CACHE_CHECK_OPERATION_GENREAD: u32 = 1;
-pub const XPF_CACHE_CHECK_OPERATION_GENWRITE: u32 = 2;
-pub const XPF_CACHE_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5;
-pub const XPF_CACHE_CHECK_OPERATION_PREFETCH: u32 = 6;
-pub const XPF_CACHE_CHECK_OPERATION_SNOOP: u32 = 8;
-pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1;
-pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2;
-pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0;
-pub const XPF_CONTEXT_INFO_32BITCONTEXT: u32 = 2;
-pub const XPF_CONTEXT_INFO_32BITDEBUGREGS: u32 = 5;
-pub const XPF_CONTEXT_INFO_64BITCONTEXT: u32 = 3;
-pub const XPF_CONTEXT_INFO_64BITDEBUGREGS: u32 = 6;
-pub const XPF_CONTEXT_INFO_FXSAVE: u32 = 4;
-pub const XPF_CONTEXT_INFO_MMREGISTERS: u32 = 7;
-pub const XPF_CONTEXT_INFO_MSRREGISTERS: u32 = 1;
-pub const XPF_CONTEXT_INFO_UNCLASSIFIEDDATA: u32 = 0;
+pub const XPF_BUS_CHECK_ADDRESS_IO: i32 = 2;
+pub const XPF_BUS_CHECK_ADDRESS_MEMORY: i32 = 0;
+pub const XPF_BUS_CHECK_ADDRESS_OTHER: i32 = 3;
+pub const XPF_BUS_CHECK_ADDRESS_RESERVED: i32 = 1;
+pub const XPF_BUS_CHECK_OPERATION_DATAREAD: i32 = 3;
+pub const XPF_BUS_CHECK_OPERATION_DATAWRITE: i32 = 4;
+pub const XPF_BUS_CHECK_OPERATION_GENERIC: i32 = 0;
+pub const XPF_BUS_CHECK_OPERATION_GENREAD: i32 = 1;
+pub const XPF_BUS_CHECK_OPERATION_GENWRITE: i32 = 2;
+pub const XPF_BUS_CHECK_OPERATION_INSTRUCTIONFETCH: i32 = 5;
+pub const XPF_BUS_CHECK_OPERATION_PREFETCH: i32 = 6;
+pub const XPF_BUS_CHECK_PARTICIPATION_GENERIC: i32 = 3;
+pub const XPF_BUS_CHECK_PARTICIPATION_PROCOBSERVED: i32 = 2;
+pub const XPF_BUS_CHECK_PARTICIPATION_PROCORIGINATED: i32 = 0;
+pub const XPF_BUS_CHECK_PARTICIPATION_PROCRESPONDED: i32 = 1;
+pub const XPF_BUS_CHECK_TRANSACTIONTYPE_DATAACCESS: i32 = 1;
+pub const XPF_BUS_CHECK_TRANSACTIONTYPE_GENERIC: i32 = 2;
+pub const XPF_BUS_CHECK_TRANSACTIONTYPE_INSTRUCTION: i32 = 0;
+pub const XPF_CACHE_CHECK_OPERATION_DATAREAD: i32 = 3;
+pub const XPF_CACHE_CHECK_OPERATION_DATAWRITE: i32 = 4;
+pub const XPF_CACHE_CHECK_OPERATION_EVICTION: i32 = 7;
+pub const XPF_CACHE_CHECK_OPERATION_GENERIC: i32 = 0;
+pub const XPF_CACHE_CHECK_OPERATION_GENREAD: i32 = 1;
+pub const XPF_CACHE_CHECK_OPERATION_GENWRITE: i32 = 2;
+pub const XPF_CACHE_CHECK_OPERATION_INSTRUCTIONFETCH: i32 = 5;
+pub const XPF_CACHE_CHECK_OPERATION_PREFETCH: i32 = 6;
+pub const XPF_CACHE_CHECK_OPERATION_SNOOP: i32 = 8;
+pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_DATAACCESS: i32 = 1;
+pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_GENERIC: i32 = 2;
+pub const XPF_CACHE_CHECK_TRANSACTIONTYPE_INSTRUCTION: i32 = 0;
+pub const XPF_CONTEXT_INFO_32BITCONTEXT: i32 = 2;
+pub const XPF_CONTEXT_INFO_32BITDEBUGREGS: i32 = 5;
+pub const XPF_CONTEXT_INFO_64BITCONTEXT: i32 = 3;
+pub const XPF_CONTEXT_INFO_64BITDEBUGREGS: i32 = 6;
+pub const XPF_CONTEXT_INFO_FXSAVE: i32 = 4;
+pub const XPF_CONTEXT_INFO_MMREGISTERS: i32 = 7;
+pub const XPF_CONTEXT_INFO_MSRREGISTERS: i32 = 1;
+pub const XPF_CONTEXT_INFO_UNCLASSIFIEDDATA: i32 = 0;
 pub const XPF_MCA_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x8a1e1d01_42f9_4557_9c33_565e5cc3f7e8);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -20819,12 +20822,12 @@ impl XPF_MC_BANK_FLAGS_0 {
         self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
     }
 }
-pub const XPF_MS_CHECK_ERRORTYPE_EXTERNAL: u32 = 3;
-pub const XPF_MS_CHECK_ERRORTYPE_FRC: u32 = 4;
-pub const XPF_MS_CHECK_ERRORTYPE_INTERNALUNCLASSIFIED: u32 = 5;
-pub const XPF_MS_CHECK_ERRORTYPE_MCROMPARITY: u32 = 2;
-pub const XPF_MS_CHECK_ERRORTYPE_NOERROR: u32 = 0;
-pub const XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: u32 = 1;
+pub const XPF_MS_CHECK_ERRORTYPE_EXTERNAL: i32 = 3;
+pub const XPF_MS_CHECK_ERRORTYPE_FRC: i32 = 4;
+pub const XPF_MS_CHECK_ERRORTYPE_INTERNALUNCLASSIFIED: i32 = 5;
+pub const XPF_MS_CHECK_ERRORTYPE_MCROMPARITY: i32 = 2;
+pub const XPF_MS_CHECK_ERRORTYPE_NOERROR: i32 = 0;
+pub const XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: i32 = 1;
 pub const XPF_PROCESSOR_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdc3ea0b0_a144_4797_b95b_53fa242b6e1d);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -20943,16 +20946,16 @@ impl XPF_RECOVERY_INFO_1 {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
-pub const XPF_TLB_CHECK_OPERATION_DATAREAD: u32 = 3;
-pub const XPF_TLB_CHECK_OPERATION_DATAWRITE: u32 = 4;
-pub const XPF_TLB_CHECK_OPERATION_GENERIC: u32 = 0;
-pub const XPF_TLB_CHECK_OPERATION_GENREAD: u32 = 1;
-pub const XPF_TLB_CHECK_OPERATION_GENWRITE: u32 = 2;
-pub const XPF_TLB_CHECK_OPERATION_INSTRUCTIONFETCH: u32 = 5;
-pub const XPF_TLB_CHECK_OPERATION_PREFETCH: u32 = 6;
-pub const XPF_TLB_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1;
-pub const XPF_TLB_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2;
-pub const XPF_TLB_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0;
+pub const XPF_TLB_CHECK_OPERATION_DATAREAD: i32 = 3;
+pub const XPF_TLB_CHECK_OPERATION_DATAWRITE: i32 = 4;
+pub const XPF_TLB_CHECK_OPERATION_GENERIC: i32 = 0;
+pub const XPF_TLB_CHECK_OPERATION_GENREAD: i32 = 1;
+pub const XPF_TLB_CHECK_OPERATION_GENWRITE: i32 = 2;
+pub const XPF_TLB_CHECK_OPERATION_INSTRUCTIONFETCH: i32 = 5;
+pub const XPF_TLB_CHECK_OPERATION_PREFETCH: i32 = 6;
+pub const XPF_TLB_CHECK_TRANSACTIONTYPE_DATAACCESS: i32 = 1;
+pub const XPF_TLB_CHECK_TRANSACTIONTYPE_GENERIC: i32 = 2;
+pub const XPF_TLB_CHECK_TRANSACTIONTYPE_INSTRUCTION: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

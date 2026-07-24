@@ -6,12 +6,12 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn AcquireSRWLockShared(#[in] #[out] SRWLock: *mut RTL_SRWLOCK);
         type CONDITION_VARIABLE = RTL_CONDITION_VARIABLE;
-        const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1;
-        const CREATE_EVENT_INITIAL_SET: u32 = 2;
-        const CREATE_EVENT_MANUAL_RESET: u32 = 1;
-        const CREATE_MUTEX_INITIAL_OWNER: u32 = 1;
-        const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2;
-        const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1;
+        const CONDITION_VARIABLE_LOCKMODE_SHARED: i32 = 1;
+        const CREATE_EVENT_INITIAL_SET: i32 = 2;
+        const CREATE_EVENT_MANUAL_RESET: i32 = 1;
+        const CREATE_MUTEX_INITIAL_OWNER: i32 = 1;
+        const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: i32 = 2;
+        const CREATE_WAITABLE_TIMER_MANUAL_RESET: i32 = 1;
         #[library("KERNEL32.dll")]
         extern fn CancelWaitableTimer(hTimer: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -49,7 +49,7 @@ mod Windows {
         type INIT_ONCE = RTL_RUN_ONCE;
         const INIT_ONCE_ASYNC: u32 = 2;
         const INIT_ONCE_CHECK_ONLY: u32 = 1;
-        const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2;
+        const INIT_ONCE_CTX_RESERVED_BITS: i32 = 2;
         const INIT_ONCE_INIT_FAILED: u32 = 4;
         #[library("KERNEL32.dll")]
         extern fn InitOnceBeginInitialize(#[in] #[out] lpInitOnce: LPINIT_ONCE, dwFlags: u32, fPending: *mut BOOL, lpContext: *mut *mut void) -> BOOL;
@@ -75,8 +75,8 @@ mod Windows {
         type LPSYNCHRONIZATION_BARRIER = PRTL_BARRIER;
         #[library("KERNEL32.dll")]
         extern fn LeaveCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION);
-        const MUTEX_ALL_ACCESS: u32 = 2031617;
-        const MUTEX_MODIFY_STATE: u32 = 1;
+        const MUTEX_ALL_ACCESS: i32 = 2031617;
+        const MUTEX_MODIFY_STATE: i32 = 1;
         #[library("KERNEL32.dll")]
         extern fn OpenEventA(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCSTR) -> HANDLE;
         #[library("KERNEL32.dll")]
@@ -105,9 +105,9 @@ mod Windows {
         extern fn ResetEvent(hEvent: HANDLE) -> BOOL;
         type SRWLOCK = RTL_SRWLOCK;
         type SYNCHRONIZATION_BARRIER = RTL_BARRIER;
-        const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2;
-        const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4;
-        const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1;
+        const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: i32 = 2;
+        const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: i32 = 4;
+        const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: i32 = 1;
         #[library("KERNEL32.dll")]
         extern fn SetCriticalSectionSpinCount(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION, dwSpinCount: u32) -> u32;
         #[library("KERNEL32.dll")]

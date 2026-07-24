@@ -7,7 +7,7 @@ mod Windows {
         const DEVPKEY_WIA_USDClassId: DEVPROPKEY = 3;
         #[encoding("utf-16")]
         const IS_DIGITAL_CAMERA_STR: String = "IsDigitalCamera";
-        const IS_DIGITAL_CAMERA_VAL: u32 = 1;
+        const IS_DIGITAL_CAMERA_VAL: i32 = 1;
         #[encoding("utf-16")]
         const REGSTR_VAL_BAUDRATE: String = "BaudRate";
         #[encoding("ansi")]
@@ -68,6 +68,6 @@ mod Windows {
         const STI_DEVICE_VALUE_TWAIN_NAME_A: String = "TwainDS";
         #[encoding("utf-16")]
         const SUPPORTS_MSCPLUS_STR: String = "SupportsMSCPlus";
-        const SUPPORTS_MSCPLUS_VAL: u32 = 1;
+        const SUPPORTS_MSCPLUS_VAL: i32 = 1;
     }
 }

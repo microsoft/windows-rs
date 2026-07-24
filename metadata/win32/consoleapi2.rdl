@@ -1,18 +1,18 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const BACKGROUND_BLUE: u32 = 16;
-        const BACKGROUND_GREEN: u32 = 32;
-        const BACKGROUND_INTENSITY: u32 = 128;
-        const BACKGROUND_RED: u32 = 64;
-        const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024;
-        const COMMON_LVB_GRID_LVERTICAL: u32 = 2048;
-        const COMMON_LVB_GRID_RVERTICAL: u32 = 4096;
-        const COMMON_LVB_LEADING_BYTE: u32 = 256;
-        const COMMON_LVB_REVERSE_VIDEO: u32 = 16384;
-        const COMMON_LVB_SBCSDBCS: u32 = 768;
-        const COMMON_LVB_TRAILING_BYTE: u32 = 512;
-        const COMMON_LVB_UNDERSCORE: u32 = 32768;
+        const BACKGROUND_BLUE: i32 = 16;
+        const BACKGROUND_GREEN: i32 = 32;
+        const BACKGROUND_INTENSITY: i32 = 128;
+        const BACKGROUND_RED: i32 = 64;
+        const COMMON_LVB_GRID_HORIZONTAL: i32 = 1024;
+        const COMMON_LVB_GRID_LVERTICAL: i32 = 2048;
+        const COMMON_LVB_GRID_RVERTICAL: i32 = 4096;
+        const COMMON_LVB_LEADING_BYTE: i32 = 256;
+        const COMMON_LVB_REVERSE_VIDEO: i32 = 16384;
+        const COMMON_LVB_SBCSDBCS: i32 = 768;
+        const COMMON_LVB_TRAILING_BYTE: i32 = 512;
+        const COMMON_LVB_UNDERSCORE: i32 = 32768;
         struct CONSOLE_CURSOR_INFO {
             dwSize: u32,
             bVisible: BOOL,
@@ -37,10 +37,10 @@ mod Windows {
         }
         #[library("KERNEL32.dll")]
         extern fn CreateConsoleScreenBuffer(dwDesiredAccess: u32, dwShareMode: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, dwFlags: u32, #[reserved] lpScreenBufferData: *const void) -> HANDLE;
-        const FOREGROUND_BLUE: u32 = 1;
-        const FOREGROUND_GREEN: u32 = 2;
-        const FOREGROUND_INTENSITY: u32 = 8;
-        const FOREGROUND_RED: u32 = 4;
+        const FOREGROUND_BLUE: i32 = 1;
+        const FOREGROUND_GREEN: i32 = 2;
+        const FOREGROUND_INTENSITY: i32 = 8;
+        const FOREGROUND_RED: i32 = 4;
         #[library("KERNEL32.dll")]
         extern fn FillConsoleOutputAttribute(hConsoleOutput: HANDLE, wAttribute: u16, nLength: u32, dwWriteCoord: COORD, lpNumberOfAttrsWritten: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]

@@ -6,7 +6,7 @@ mod Windows {
             Revision: u8,
             Size: u16,
         }
-        const NDIS_OBJECT_REVISION_1: u32 = 1;
+        const NDIS_OBJECT_REVISION_1: i32 = 1;
         type PNDIS_OBJECT_HEADER = *mut NDIS_OBJECT_HEADER;
     }
 }

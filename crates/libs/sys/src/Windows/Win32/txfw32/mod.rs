@@ -16,9 +16,9 @@ pub type PTXF_LOG_RECORD_AFFECTED_FILE = *mut TXF_LOG_RECORD_AFFECTED_FILE;
 pub type PTXF_LOG_RECORD_BASE = *mut TXF_LOG_RECORD_BASE;
 pub type PTXF_LOG_RECORD_TRUNCATE = *mut TXF_LOG_RECORD_TRUNCATE;
 pub type PTXF_LOG_RECORD_WRITE = *mut TXF_LOG_RECORD_WRITE;
-pub const TXFS_MINIVERSION_COMMITTED_VIEW: u32 = 0;
-pub const TXFS_MINIVERSION_DEFAULT_VIEW: u32 = 65534;
-pub const TXFS_MINIVERSION_DIRTY_VIEW: u32 = 65535;
+pub const TXFS_MINIVERSION_COMMITTED_VIEW: i32 = 0;
+pub const TXFS_MINIVERSION_DEFAULT_VIEW: i32 = 65534;
+pub const TXFS_MINIVERSION_DIRTY_VIEW: i32 = 65535;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_ID {
@@ -48,10 +48,10 @@ pub struct TXF_LOG_RECORD_BASE {
     pub RecordType: u16,
     pub RecordLength: u32,
 }
-pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2;
-pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1;
-pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8;
-pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4;
+pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: i32 = 2;
+pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: i32 = 1;
+pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: i32 = 8;
+pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: i32 = 4;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_LOG_RECORD_TRUNCATE {
@@ -65,9 +65,9 @@ pub struct TXF_LOG_RECORD_TRUNCATE {
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
-pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: u32 = 4;
-pub const TXF_LOG_RECORD_TYPE_TRUNCATE: u32 = 2;
-pub const TXF_LOG_RECORD_TYPE_WRITE: u32 = 1;
+pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: i32 = 4;
+pub const TXF_LOG_RECORD_TYPE_TRUNCATE: i32 = 2;
+pub const TXF_LOG_RECORD_TYPE_WRITE: i32 = 1;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_LOG_RECORD_WRITE {

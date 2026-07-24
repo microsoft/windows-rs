@@ -49,9 +49,9 @@ mod Windows {
             HAL_MCA_RECORD = 1,
         }
         #[arch(X86 | X64)]
-        const MCA_EXCEPTION_V1_SIZE: u32 = 56;
+        const MCA_EXCEPTION_V1_SIZE: i32 = 56;
         #[arch(X86 | X64)]
-        const MCA_EXTREG_V2MAX: u32 = 24;
+        const MCA_EXTREG_V2MAX: i32 = 24;
         #[arch(X86 | X64)]
         union MCI_ADDR {
             Anonymous: struct {

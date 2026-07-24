@@ -17,22 +17,22 @@ windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(
 windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : *const u16, dwcontrolflags : u32, pcbout : *mut u32, ppbout : *mut *mut u8) -> windows_sys::core::HRESULT);
 pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295;
-pub const CSBACKUP_TYPE_FULL: u32 = 1;
-pub const CSBACKUP_TYPE_LOGS_ONLY: u32 = 2;
-pub const CSBACKUP_TYPE_MASK: u32 = 3;
+pub const CSBACKUP_TYPE_FULL: i32 = 1;
+pub const CSBACKUP_TYPE_LOGS_ONLY: i32 = 2;
+pub const CSBACKUP_TYPE_MASK: i32 = 3;
 pub type CSBFT = u16;
 pub const CSBFT_CERTSERVER_DATABASE: u32 = 68;
 pub const CSBFT_CHECKPOINT_DIR: u32 = 131;
-pub const CSBFT_DATABASE_DIRECTORY: u32 = 64;
-pub const CSBFT_DIRECTORY: u32 = 128;
+pub const CSBFT_DATABASE_DIRECTORY: i32 = 64;
+pub const CSBFT_DIRECTORY: i32 = 128;
 pub const CSBFT_LOG: u32 = 33;
 pub const CSBFT_LOG_DIR: u32 = 130;
-pub const CSBFT_LOG_DIRECTORY: u32 = 32;
+pub const CSBFT_LOG_DIRECTORY: i32 = 32;
 pub const CSBFT_PATCH_FILE: u32 = 37;
 pub const CSBFT_UNKNOWN: u32 = 15;
-pub const CSCONTROL_RESTART: u32 = 3;
-pub const CSCONTROL_SHUTDOWN: u32 = 1;
-pub const CSCONTROL_SUSPEND: u32 = 2;
+pub const CSCONTROL_RESTART: i32 = 3;
+pub const CSCONTROL_SHUTDOWN: i32 = 1;
+pub const CSCONTROL_SUSPEND: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CSEDB_RSTMAPW {
@@ -44,10 +44,10 @@ impl Default for CSEDB_RSTMAPW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CSRESTORE_TYPE_CATCHUP: u32 = 4;
-pub const CSRESTORE_TYPE_FULL: u32 = 1;
-pub const CSRESTORE_TYPE_MASK: u32 = 5;
-pub const CSRESTORE_TYPE_ONLINE: u32 = 2;
+pub const CSRESTORE_TYPE_CATCHUP: i32 = 4;
+pub const CSRESTORE_TYPE_FULL: i32 = 1;
+pub const CSRESTORE_TYPE_MASK: i32 = 5;
+pub const CSRESTORE_TYPE_ONLINE: i32 = 2;
 pub type FNCERTSRVBACKUPCLOSE = Option<unsafe extern "system" fn(hbc: HCSBC) -> windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPEND = Option<unsafe extern "system" fn(hbc: HCSBC) -> windows_sys::core::HRESULT>;
 pub type FNCERTSRVBACKUPFREE = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;

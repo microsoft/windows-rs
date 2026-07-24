@@ -1,9 +1,9 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ALLOC_LOG_CONF: u32 = 2;
-        const BASIC_LOG_CONF: u32 = 0;
-        const BOOT_LOG_CONF: u32 = 3;
+        const ALLOC_LOG_CONF: i32 = 2;
+        const BASIC_LOG_CONF: i32 = 0;
+        const BOOT_LOG_CONF: i32 = 3;
         #[packed(1)]
         struct BUSNUMBER_DES {
             BUSD_Count: u32,
@@ -23,12 +23,12 @@ mod Windows {
             BusNumber_Header: BUSNUMBER_DES,
             BusNumber_Data: [BUSNUMBER_RANGE; 1],
         }
-        const CM_ADD_ID_BITS: u32 = 1;
-        const CM_ADD_ID_COMPATIBLE: u32 = 1;
-        const CM_ADD_ID_HARDWARE: u32 = 0;
-        const CM_ADD_RANGE_ADDIFCONFLICT: u32 = 0;
-        const CM_ADD_RANGE_BITS: u32 = 1;
-        const CM_ADD_RANGE_DONOTADDIFCONFLICT: u32 = 1;
+        const CM_ADD_ID_BITS: i32 = 1;
+        const CM_ADD_ID_COMPATIBLE: i32 = 1;
+        const CM_ADD_ID_HARDWARE: i32 = 0;
+        const CM_ADD_RANGE_ADDIFCONFLICT: i32 = 0;
+        const CM_ADD_RANGE_BITS: i32 = 1;
+        const CM_ADD_RANGE_DONOTADDIFCONFLICT: i32 = 1;
         #[library("SETUPAPI.dll")]
         extern fn CM_Add_Empty_Log_Conf(plcLogConf: *mut LOG_CONF, dnDevInst: DEVINST, Priority: PRIORITY, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -47,40 +47,40 @@ mod Windows {
         extern fn CM_Add_Res_Des(#[opt] prdResDes: *mut RES_DES, lcLogConf: LOG_CONF, ResourceID: RESOURCEID, #[size_param(4)] ResourceData: *const void, ResourceLen: u32, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Add_Res_Des_Ex(#[opt] prdResDes: *mut RES_DES, lcLogConf: LOG_CONF, ResourceID: RESOURCEID, #[size_param(4)] ResourceData: *const void, ResourceLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
-        const CM_CDFLAGS_DRIVER: u32 = 1;
-        const CM_CDFLAGS_RESERVED: u32 = 4;
-        const CM_CDFLAGS_ROOT_OWNED: u32 = 2;
-        const CM_CDMASK_DESCRIPTION: u32 = 8;
-        const CM_CDMASK_DEVINST: u32 = 1;
-        const CM_CDMASK_FLAGS: u32 = 4;
-        const CM_CDMASK_RESDES: u32 = 2;
-        const CM_CDMASK_VALID: u32 = 15;
-        const CM_CLASS_PROPERTY_BITS: u32 = 1;
-        const CM_CLASS_PROPERTY_INSTALLER: u32 = 0;
-        const CM_CLASS_PROPERTY_INTERFACE: u32 = 1;
-        const CM_CREATE_DEVINST_BITS: u32 = 15;
-        const CM_CREATE_DEVINST_DO_NOT_INSTALL: u32 = 8;
-        const CM_CREATE_DEVINST_GENERATE_ID: u32 = 4;
-        const CM_CREATE_DEVINST_NORMAL: u32 = 0;
-        const CM_CREATE_DEVINST_NO_WAIT_INSTALL: u32 = 1;
-        const CM_CREATE_DEVINST_PHANTOM: u32 = 2;
-        const CM_CREATE_DEVNODE_BITS: u32 = 15;
-        const CM_CREATE_DEVNODE_DO_NOT_INSTALL: u32 = 8;
-        const CM_CREATE_DEVNODE_GENERATE_ID: u32 = 4;
-        const CM_CREATE_DEVNODE_NORMAL: u32 = 0;
-        const CM_CREATE_DEVNODE_NO_WAIT_INSTALL: u32 = 1;
-        const CM_CREATE_DEVNODE_PHANTOM: u32 = 2;
-        const CM_CRP_CHARACTERISTICS: u32 = 28;
-        const CM_CRP_DEVTYPE: u32 = 26;
-        const CM_CRP_EXCLUSIVE: u32 = 27;
-        const CM_CRP_LOWERFILTERS: u32 = 19;
-        const CM_CRP_MAX: u32 = 37;
-        const CM_CRP_MIN: u32 = 1;
-        const CM_CRP_SECURITY: u32 = 24;
-        const CM_CRP_SECURITY_SDS: u32 = 25;
-        const CM_CRP_UPPERFILTERS: u32 = 18;
-        const CM_CUSTOMDEVPROP_BITS: u32 = 1;
-        const CM_CUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1;
+        const CM_CDFLAGS_DRIVER: i32 = 1;
+        const CM_CDFLAGS_RESERVED: i32 = 4;
+        const CM_CDFLAGS_ROOT_OWNED: i32 = 2;
+        const CM_CDMASK_DESCRIPTION: i32 = 8;
+        const CM_CDMASK_DEVINST: i32 = 1;
+        const CM_CDMASK_FLAGS: i32 = 4;
+        const CM_CDMASK_RESDES: i32 = 2;
+        const CM_CDMASK_VALID: i32 = 15;
+        const CM_CLASS_PROPERTY_BITS: i32 = 1;
+        const CM_CLASS_PROPERTY_INSTALLER: i32 = 0;
+        const CM_CLASS_PROPERTY_INTERFACE: i32 = 1;
+        const CM_CREATE_DEVINST_BITS: i32 = 15;
+        const CM_CREATE_DEVINST_DO_NOT_INSTALL: i32 = 8;
+        const CM_CREATE_DEVINST_GENERATE_ID: i32 = 4;
+        const CM_CREATE_DEVINST_NORMAL: i32 = 0;
+        const CM_CREATE_DEVINST_NO_WAIT_INSTALL: i32 = 1;
+        const CM_CREATE_DEVINST_PHANTOM: i32 = 2;
+        const CM_CREATE_DEVNODE_BITS: i32 = 15;
+        const CM_CREATE_DEVNODE_DO_NOT_INSTALL: i32 = 8;
+        const CM_CREATE_DEVNODE_GENERATE_ID: i32 = 4;
+        const CM_CREATE_DEVNODE_NORMAL: i32 = 0;
+        const CM_CREATE_DEVNODE_NO_WAIT_INSTALL: i32 = 1;
+        const CM_CREATE_DEVNODE_PHANTOM: i32 = 2;
+        const CM_CRP_CHARACTERISTICS: i32 = 28;
+        const CM_CRP_DEVTYPE: i32 = 26;
+        const CM_CRP_EXCLUSIVE: i32 = 27;
+        const CM_CRP_LOWERFILTERS: i32 = 19;
+        const CM_CRP_MAX: i32 = 37;
+        const CM_CRP_MIN: i32 = 1;
+        const CM_CRP_SECURITY: i32 = 24;
+        const CM_CRP_SECURITY_SDS: i32 = 25;
+        const CM_CRP_UPPERFILTERS: i32 = 18;
+        const CM_CUSTOMDEVPROP_BITS: i32 = 1;
+        const CM_CUSTOMDEVPROP_MERGE_MULTISZ: i32 = 1;
         #[library("SETUPAPI.dll")]
         extern fn CM_Connect_MachineA(#[opt] UNCServerName: PCSTR, phMachine: *mut HMACHINE) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -95,71 +95,71 @@ mod Windows {
         extern fn CM_Create_DevNode_ExW(pdnDevInst: *mut DEVNODE, pDeviceID: *const u16, dnParent: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Create_Range_List(prlh: *mut RANGE_LIST, ulFlags: u32) -> CONFIGRET;
-        const CM_DELETE_CLASS_BITS: u32 = 3;
-        const CM_DELETE_CLASS_INTERFACE: u32 = 2;
-        const CM_DELETE_CLASS_ONLY: u32 = 0;
-        const CM_DELETE_CLASS_SUBKEYS: u32 = 1;
+        const CM_DELETE_CLASS_BITS: i32 = 3;
+        const CM_DELETE_CLASS_INTERFACE: i32 = 2;
+        const CM_DELETE_CLASS_ONLY: i32 = 0;
+        const CM_DELETE_CLASS_SUBKEYS: i32 = 1;
         const CM_DETECT_BITS: u32 = 2147483655;
-        const CM_DETECT_CRASHED: u32 = 2;
-        const CM_DETECT_HWPROF_FIRST_BOOT: u32 = 4;
-        const CM_DETECT_NEW_PROFILE: u32 = 1;
+        const CM_DETECT_CRASHED: i32 = 2;
+        const CM_DETECT_HWPROF_FIRST_BOOT: i32 = 4;
+        const CM_DETECT_NEW_PROFILE: i32 = 1;
         const CM_DETECT_RUN: u32 = 2147483648;
-        const CM_DEVCAP_DOCKDEVICE: u32 = 8;
-        const CM_DEVCAP_EJECTSUPPORTED: u32 = 2;
-        const CM_DEVCAP_HARDWAREDISABLED: u32 = 256;
-        const CM_DEVCAP_LOCKSUPPORTED: u32 = 1;
-        const CM_DEVCAP_NONDYNAMIC: u32 = 512;
-        const CM_DEVCAP_RAWDEVICEOK: u32 = 64;
-        const CM_DEVCAP_REMOVABLE: u32 = 4;
-        const CM_DEVCAP_SECUREDEVICE: u32 = 1024;
-        const CM_DEVCAP_SILENTINSTALL: u32 = 32;
-        const CM_DEVCAP_SURPRISEREMOVALOK: u32 = 128;
-        const CM_DEVCAP_UNIQUEID: u32 = 16;
-        const CM_DISABLE_ABSOLUTE: u32 = 1;
-        const CM_DISABLE_BITS: u32 = 15;
-        const CM_DISABLE_HARDWARE: u32 = 2;
-        const CM_DISABLE_PERSIST: u32 = 8;
-        const CM_DISABLE_POLITE: u32 = 0;
-        const CM_DISABLE_UI_NOT_OK: u32 = 4;
-        const CM_DRP_ADDRESS: u32 = 29;
-        const CM_DRP_BASE_CONTAINERID: u32 = 37;
-        const CM_DRP_BUSNUMBER: u32 = 22;
-        const CM_DRP_BUSTYPEGUID: u32 = 20;
-        const CM_DRP_CAPABILITIES: u32 = 16;
-        const CM_DRP_CHARACTERISTICS: u32 = 28;
-        const CM_DRP_CLASS: u32 = 8;
-        const CM_DRP_CLASSGUID: u32 = 9;
-        const CM_DRP_COMPATIBLEIDS: u32 = 3;
-        const CM_DRP_CONFIGFLAGS: u32 = 11;
-        const CM_DRP_DEVICEDESC: u32 = 1;
-        const CM_DRP_DEVICE_POWER_DATA: u32 = 31;
-        const CM_DRP_DEVTYPE: u32 = 26;
-        const CM_DRP_DRIVER: u32 = 10;
-        const CM_DRP_ENUMERATOR_NAME: u32 = 23;
-        const CM_DRP_EXCLUSIVE: u32 = 27;
-        const CM_DRP_FRIENDLYNAME: u32 = 13;
-        const CM_DRP_HARDWAREID: u32 = 2;
-        const CM_DRP_INSTALL_STATE: u32 = 35;
-        const CM_DRP_LEGACYBUSTYPE: u32 = 21;
-        const CM_DRP_LOCATION_INFORMATION: u32 = 14;
-        const CM_DRP_LOCATION_PATHS: u32 = 36;
-        const CM_DRP_LOWERFILTERS: u32 = 19;
-        const CM_DRP_MAX: u32 = 37;
-        const CM_DRP_MFG: u32 = 12;
-        const CM_DRP_MIN: u32 = 1;
-        const CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME: u32 = 15;
-        const CM_DRP_REMOVAL_POLICY: u32 = 32;
-        const CM_DRP_REMOVAL_POLICY_HW_DEFAULT: u32 = 33;
-        const CM_DRP_REMOVAL_POLICY_OVERRIDE: u32 = 34;
-        const CM_DRP_SECURITY: u32 = 24;
-        const CM_DRP_SECURITY_SDS: u32 = 25;
-        const CM_DRP_SERVICE: u32 = 5;
-        const CM_DRP_UI_NUMBER: u32 = 17;
-        const CM_DRP_UI_NUMBER_DESC_FORMAT: u32 = 30;
-        const CM_DRP_UNUSED0: u32 = 4;
-        const CM_DRP_UNUSED1: u32 = 6;
-        const CM_DRP_UNUSED2: u32 = 7;
-        const CM_DRP_UPPERFILTERS: u32 = 18;
+        const CM_DEVCAP_DOCKDEVICE: i32 = 8;
+        const CM_DEVCAP_EJECTSUPPORTED: i32 = 2;
+        const CM_DEVCAP_HARDWAREDISABLED: i32 = 256;
+        const CM_DEVCAP_LOCKSUPPORTED: i32 = 1;
+        const CM_DEVCAP_NONDYNAMIC: i32 = 512;
+        const CM_DEVCAP_RAWDEVICEOK: i32 = 64;
+        const CM_DEVCAP_REMOVABLE: i32 = 4;
+        const CM_DEVCAP_SECUREDEVICE: i32 = 1024;
+        const CM_DEVCAP_SILENTINSTALL: i32 = 32;
+        const CM_DEVCAP_SURPRISEREMOVALOK: i32 = 128;
+        const CM_DEVCAP_UNIQUEID: i32 = 16;
+        const CM_DISABLE_ABSOLUTE: i32 = 1;
+        const CM_DISABLE_BITS: i32 = 15;
+        const CM_DISABLE_HARDWARE: i32 = 2;
+        const CM_DISABLE_PERSIST: i32 = 8;
+        const CM_DISABLE_POLITE: i32 = 0;
+        const CM_DISABLE_UI_NOT_OK: i32 = 4;
+        const CM_DRP_ADDRESS: i32 = 29;
+        const CM_DRP_BASE_CONTAINERID: i32 = 37;
+        const CM_DRP_BUSNUMBER: i32 = 22;
+        const CM_DRP_BUSTYPEGUID: i32 = 20;
+        const CM_DRP_CAPABILITIES: i32 = 16;
+        const CM_DRP_CHARACTERISTICS: i32 = 28;
+        const CM_DRP_CLASS: i32 = 8;
+        const CM_DRP_CLASSGUID: i32 = 9;
+        const CM_DRP_COMPATIBLEIDS: i32 = 3;
+        const CM_DRP_CONFIGFLAGS: i32 = 11;
+        const CM_DRP_DEVICEDESC: i32 = 1;
+        const CM_DRP_DEVICE_POWER_DATA: i32 = 31;
+        const CM_DRP_DEVTYPE: i32 = 26;
+        const CM_DRP_DRIVER: i32 = 10;
+        const CM_DRP_ENUMERATOR_NAME: i32 = 23;
+        const CM_DRP_EXCLUSIVE: i32 = 27;
+        const CM_DRP_FRIENDLYNAME: i32 = 13;
+        const CM_DRP_HARDWAREID: i32 = 2;
+        const CM_DRP_INSTALL_STATE: i32 = 35;
+        const CM_DRP_LEGACYBUSTYPE: i32 = 21;
+        const CM_DRP_LOCATION_INFORMATION: i32 = 14;
+        const CM_DRP_LOCATION_PATHS: i32 = 36;
+        const CM_DRP_LOWERFILTERS: i32 = 19;
+        const CM_DRP_MAX: i32 = 37;
+        const CM_DRP_MFG: i32 = 12;
+        const CM_DRP_MIN: i32 = 1;
+        const CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME: i32 = 15;
+        const CM_DRP_REMOVAL_POLICY: i32 = 32;
+        const CM_DRP_REMOVAL_POLICY_HW_DEFAULT: i32 = 33;
+        const CM_DRP_REMOVAL_POLICY_OVERRIDE: i32 = 34;
+        const CM_DRP_SECURITY: i32 = 24;
+        const CM_DRP_SECURITY_SDS: i32 = 25;
+        const CM_DRP_SERVICE: i32 = 5;
+        const CM_DRP_UI_NUMBER: i32 = 17;
+        const CM_DRP_UI_NUMBER_DESC_FORMAT: i32 = 30;
+        const CM_DRP_UNUSED0: i32 = 4;
+        const CM_DRP_UNUSED1: i32 = 6;
+        const CM_DRP_UNUSED2: i32 = 7;
+        const CM_DRP_UPPERFILTERS: i32 = 18;
         #[library("SETUPAPI.dll")]
         extern fn CM_Delete_Class_Key(ClassGuid: *const GUID, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -190,9 +190,9 @@ mod Windows {
         extern fn CM_Disconnect_Machine(#[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Dup_Range_List(rlhOld: RANGE_LIST, rlhNew: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
-        const CM_ENUMERATE_CLASSES_BITS: u32 = 1;
-        const CM_ENUMERATE_CLASSES_INSTALLER: u32 = 0;
-        const CM_ENUMERATE_CLASSES_INTERFACE: u32 = 1;
+        const CM_ENUMERATE_CLASSES_BITS: i32 = 1;
+        const CM_ENUMERATE_CLASSES_INSTALLER: i32 = 0;
+        const CM_ENUMERATE_CLASSES_INTERFACE: i32 = 1;
         #[library("SETUPAPI.dll")]
         extern fn CM_Enable_DevNode(dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -229,27 +229,27 @@ mod Windows {
         extern fn CM_Free_Res_Des_Handle(rdResDes: RES_DES) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Free_Resource_Conflict_Handle(clConflictList: CONFLICT_LIST) -> CONFIGRET;
-        const CM_GETIDLIST_DONOTGENERATE: u32 = 268435520;
-        const CM_GETIDLIST_FILTER_BITS: u32 = 268436479;
-        const CM_GETIDLIST_FILTER_BUSRELATIONS: u32 = 32;
-        const CM_GETIDLIST_FILTER_CLASS: u32 = 512;
-        const CM_GETIDLIST_FILTER_EJECTRELATIONS: u32 = 4;
-        const CM_GETIDLIST_FILTER_ENUMERATOR: u32 = 1;
-        const CM_GETIDLIST_FILTER_NONE: u32 = 0;
-        const CM_GETIDLIST_FILTER_POWERRELATIONS: u32 = 16;
-        const CM_GETIDLIST_FILTER_PRESENT: u32 = 256;
-        const CM_GETIDLIST_FILTER_REMOVALRELATIONS: u32 = 8;
-        const CM_GETIDLIST_FILTER_SERVICE: u32 = 2;
-        const CM_GETIDLIST_FILTER_TRANSPORTRELATIONS: u32 = 128;
-        const CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES: u32 = 1;
-        const CM_GET_DEVICE_INTERFACE_LIST_BITS: u32 = 1;
-        const CM_GET_DEVICE_INTERFACE_LIST_PRESENT: u32 = 0;
-        const CM_GLOBAL_STATE_CAN_DO_UI: u32 = 1;
-        const CM_GLOBAL_STATE_DETECTION_PENDING: u32 = 16;
-        const CM_GLOBAL_STATE_ON_BIG_STACK: u32 = 2;
-        const CM_GLOBAL_STATE_REBOOT_REQUIRED: u32 = 32;
-        const CM_GLOBAL_STATE_SERVICES_AVAILABLE: u32 = 4;
-        const CM_GLOBAL_STATE_SHUTTING_DOWN: u32 = 8;
+        const CM_GETIDLIST_DONOTGENERATE: i32 = 268435520;
+        const CM_GETIDLIST_FILTER_BITS: i32 = 268436479;
+        const CM_GETIDLIST_FILTER_BUSRELATIONS: i32 = 32;
+        const CM_GETIDLIST_FILTER_CLASS: i32 = 512;
+        const CM_GETIDLIST_FILTER_EJECTRELATIONS: i32 = 4;
+        const CM_GETIDLIST_FILTER_ENUMERATOR: i32 = 1;
+        const CM_GETIDLIST_FILTER_NONE: i32 = 0;
+        const CM_GETIDLIST_FILTER_POWERRELATIONS: i32 = 16;
+        const CM_GETIDLIST_FILTER_PRESENT: i32 = 256;
+        const CM_GETIDLIST_FILTER_REMOVALRELATIONS: i32 = 8;
+        const CM_GETIDLIST_FILTER_SERVICE: i32 = 2;
+        const CM_GETIDLIST_FILTER_TRANSPORTRELATIONS: i32 = 128;
+        const CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES: i32 = 1;
+        const CM_GET_DEVICE_INTERFACE_LIST_BITS: i32 = 1;
+        const CM_GET_DEVICE_INTERFACE_LIST_PRESENT: i32 = 0;
+        const CM_GLOBAL_STATE_CAN_DO_UI: i32 = 1;
+        const CM_GLOBAL_STATE_DETECTION_PENDING: i32 = 16;
+        const CM_GLOBAL_STATE_ON_BIG_STACK: i32 = 2;
+        const CM_GLOBAL_STATE_REBOOT_REQUIRED: i32 = 32;
+        const CM_GLOBAL_STATE_SERVICES_AVAILABLE: i32 = 4;
+        const CM_GLOBAL_STATE_SHUTTING_DOWN: i32 = 8;
         #[library("SETUPAPI.dll")]
         extern fn CM_Get_Child(pdnDevInst: *mut DEVNODE, dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -436,13 +436,13 @@ mod Windows {
         extern fn CM_Get_Version() -> u16;
         #[library("SETUPAPI.dll")]
         extern fn CM_Get_Version_Ex(#[opt] hMachine: HMACHINE) -> u16;
-        const CM_HWPI_DOCKED: u32 = 2;
-        const CM_HWPI_NOT_DOCKABLE: u32 = 0;
-        const CM_HWPI_UNDOCKED: u32 = 1;
-        const CM_INSTALL_STATE_FAILED_INSTALL: u32 = 2;
-        const CM_INSTALL_STATE_FINISH_INSTALL: u32 = 3;
-        const CM_INSTALL_STATE_INSTALLED: u32 = 0;
-        const CM_INSTALL_STATE_NEEDS_REINSTALL: u32 = 1;
+        const CM_HWPI_DOCKED: i32 = 2;
+        const CM_HWPI_NOT_DOCKABLE: i32 = 0;
+        const CM_HWPI_UNDOCKED: i32 = 1;
+        const CM_INSTALL_STATE_FAILED_INSTALL: i32 = 2;
+        const CM_INSTALL_STATE_FINISH_INSTALL: i32 = 3;
+        const CM_INSTALL_STATE_INSTALLED: i32 = 0;
+        const CM_INSTALL_STATE_NEEDS_REINSTALL: i32 = 1;
         #[library("SETUPAPI.dll")]
         extern fn CM_Intersect_Range_List(rlhOld1: RANGE_LIST, rlhOld2: RANGE_LIST, rlhNew: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -455,16 +455,16 @@ mod Windows {
         extern fn CM_Is_Version_Available(wVersion: u16) -> BOOL;
         #[library("SETUPAPI.dll")]
         extern fn CM_Is_Version_Available_Ex(wVersion: u16, #[opt] hMachine: HMACHINE) -> BOOL;
-        const CM_LOCATE_DEVINST_BITS: u32 = 7;
-        const CM_LOCATE_DEVINST_CANCELREMOVE: u32 = 2;
-        const CM_LOCATE_DEVINST_NORMAL: u32 = 0;
-        const CM_LOCATE_DEVINST_NOVALIDATION: u32 = 4;
-        const CM_LOCATE_DEVINST_PHANTOM: u32 = 1;
-        const CM_LOCATE_DEVNODE_BITS: u32 = 7;
-        const CM_LOCATE_DEVNODE_CANCELREMOVE: u32 = 2;
-        const CM_LOCATE_DEVNODE_NORMAL: u32 = 0;
-        const CM_LOCATE_DEVNODE_NOVALIDATION: u32 = 4;
-        const CM_LOCATE_DEVNODE_PHANTOM: u32 = 1;
+        const CM_LOCATE_DEVINST_BITS: i32 = 7;
+        const CM_LOCATE_DEVINST_CANCELREMOVE: i32 = 2;
+        const CM_LOCATE_DEVINST_NORMAL: i32 = 0;
+        const CM_LOCATE_DEVINST_NOVALIDATION: i32 = 4;
+        const CM_LOCATE_DEVINST_PHANTOM: i32 = 1;
+        const CM_LOCATE_DEVNODE_BITS: i32 = 7;
+        const CM_LOCATE_DEVNODE_CANCELREMOVE: i32 = 2;
+        const CM_LOCATE_DEVNODE_NORMAL: i32 = 0;
+        const CM_LOCATE_DEVNODE_NOVALIDATION: i32 = 4;
+        const CM_LOCATE_DEVNODE_PHANTOM: i32 = 1;
         #[library("SETUPAPI.dll")]
         extern fn CM_Locate_DevNodeA(pdnDevInst: *mut DEVNODE, #[opt] pDeviceID: *const i8, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -485,8 +485,8 @@ mod Windows {
         extern fn CM_Move_DevNode(dnFromDevInst: DEVINST, dnToDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Move_DevNode_Ex(dnFromDevInst: DEVINST, dnToDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
-        const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1;
-        const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2;
+        const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: i32 = 1;
+        const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: i32 = 2;
         #[repr(i32)]
         enum CM_NOTIFY_ACTION {
             CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL = 0,
@@ -537,8 +537,8 @@ mod Windows {
                 },
             },
         }
-        const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2;
-        const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1;
+        const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: i32 = 2;
+        const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: i32 = 1;
         #[repr(i32)]
         enum CM_NOTIFY_FILTER_TYPE {
             CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE = 0,
@@ -546,12 +546,12 @@ mod Windows {
             CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE = 2,
             CM_NOTIFY_FILTER_TYPE_MAX = 3,
         }
-        const CM_NOTIFY_FILTER_VALID_FLAGS: u32 = 3;
+        const CM_NOTIFY_FILTER_VALID_FLAGS: i32 = 3;
         #[library("SETUPAPI.dll")]
         extern fn CM_Next_Range(#[in] #[out] preElement: *mut RANGE_ELEMENT, pullStart: *mut DWORDLONG, pullEnd: *mut DWORDLONG, ulFlags: u32) -> CONFIGRET;
-        const CM_OPEN_CLASS_KEY_BITS: u32 = 1;
-        const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0;
-        const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1;
+        const CM_OPEN_CLASS_KEY_BITS: i32 = 1;
+        const CM_OPEN_CLASS_KEY_INSTALLER: i32 = 0;
+        const CM_OPEN_CLASS_KEY_INTERFACE: i32 = 1;
         #[library("SETUPAPI.dll")]
         extern fn CM_Open_Class_KeyA(#[opt] ClassGuid: *const GUID, #[opt] pszClassName: PCSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkClass: *mut HKEY, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -572,12 +572,12 @@ mod Windows {
         extern fn CM_Open_Device_Interface_Key_ExA(pszDeviceInterface: PCSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkDeviceInterface: *mut HKEY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Open_Device_Interface_Key_ExW(pszDeviceInterface: PCWSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkDeviceInterface: *mut HKEY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
-        const CM_QUERY_ARBITRATOR_BITS: u32 = 1;
-        const CM_QUERY_ARBITRATOR_RAW: u32 = 0;
-        const CM_QUERY_ARBITRATOR_TRANSLATED: u32 = 1;
-        const CM_QUERY_REMOVE_BITS: u32 = 1;
-        const CM_QUERY_REMOVE_UI_NOT_OK: u32 = 1;
-        const CM_QUERY_REMOVE_UI_OK: u32 = 0;
+        const CM_QUERY_ARBITRATOR_BITS: i32 = 1;
+        const CM_QUERY_ARBITRATOR_RAW: i32 = 0;
+        const CM_QUERY_ARBITRATOR_TRANSLATED: i32 = 1;
+        const CM_QUERY_REMOVE_BITS: i32 = 1;
+        const CM_QUERY_REMOVE_UI_NOT_OK: i32 = 1;
+        const CM_QUERY_REMOVE_UI_OK: i32 = 0;
         #[library("SETUPAPI.dll")]
         extern fn CM_Query_And_Remove_SubTreeA(dnAncestor: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PSTR, ulNameLength: u32, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -600,32 +600,32 @@ mod Windows {
         extern fn CM_Query_Remove_SubTree_Ex(dnAncestor: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Query_Resource_Conflict_List(pclConflictList: *mut CONFLICT_LIST, dnDevInst: DEVINST, ResourceID: RESOURCEID, #[size_param(4)] ResourceData: *const void, ResourceLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
-        const CM_REENUMERATE_ASYNCHRONOUS: u32 = 4;
-        const CM_REENUMERATE_BITS: u32 = 7;
-        const CM_REENUMERATE_NORMAL: u32 = 0;
-        const CM_REENUMERATE_RETRY_INSTALLATION: u32 = 2;
-        const CM_REENUMERATE_SYNCHRONOUS: u32 = 1;
-        const CM_REGISTER_DEVICE_DRIVER_BITS: u32 = 3;
-        const CM_REGISTER_DEVICE_DRIVER_DISABLEABLE: u32 = 1;
-        const CM_REGISTER_DEVICE_DRIVER_REMOVABLE: u32 = 2;
-        const CM_REGISTER_DEVICE_DRIVER_STATIC: u32 = 0;
-        const CM_REGISTRY_BITS: u32 = 769;
-        const CM_REGISTRY_CONFIG: u32 = 512;
-        const CM_REGISTRY_HARDWARE: u32 = 0;
-        const CM_REGISTRY_SOFTWARE: u32 = 1;
-        const CM_REGISTRY_USER: u32 = 256;
-        const CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL: u32 = 1;
-        const CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL: u32 = 2;
-        const CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL: u32 = 3;
-        const CM_REMOVE_BITS: u32 = 7;
-        const CM_REMOVE_DISABLE: u32 = 4;
-        const CM_REMOVE_NO_RESTART: u32 = 2;
-        const CM_REMOVE_UI_NOT_OK: u32 = 1;
-        const CM_REMOVE_UI_OK: u32 = 0;
-        const CM_RESDES_WIDTH_32: u32 = 1;
-        const CM_RESDES_WIDTH_64: u32 = 2;
-        const CM_RESDES_WIDTH_BITS: u32 = 3;
-        const CM_RESDES_WIDTH_DEFAULT: u32 = 0;
+        const CM_REENUMERATE_ASYNCHRONOUS: i32 = 4;
+        const CM_REENUMERATE_BITS: i32 = 7;
+        const CM_REENUMERATE_NORMAL: i32 = 0;
+        const CM_REENUMERATE_RETRY_INSTALLATION: i32 = 2;
+        const CM_REENUMERATE_SYNCHRONOUS: i32 = 1;
+        const CM_REGISTER_DEVICE_DRIVER_BITS: i32 = 3;
+        const CM_REGISTER_DEVICE_DRIVER_DISABLEABLE: i32 = 1;
+        const CM_REGISTER_DEVICE_DRIVER_REMOVABLE: i32 = 2;
+        const CM_REGISTER_DEVICE_DRIVER_STATIC: i32 = 0;
+        const CM_REGISTRY_BITS: i32 = 769;
+        const CM_REGISTRY_CONFIG: i32 = 512;
+        const CM_REGISTRY_HARDWARE: i32 = 0;
+        const CM_REGISTRY_SOFTWARE: i32 = 1;
+        const CM_REGISTRY_USER: i32 = 256;
+        const CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL: i32 = 1;
+        const CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL: i32 = 2;
+        const CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL: i32 = 3;
+        const CM_REMOVE_BITS: i32 = 7;
+        const CM_REMOVE_DISABLE: i32 = 4;
+        const CM_REMOVE_NO_RESTART: i32 = 2;
+        const CM_REMOVE_UI_NOT_OK: i32 = 1;
+        const CM_REMOVE_UI_OK: i32 = 0;
+        const CM_RESDES_WIDTH_32: i32 = 1;
+        const CM_RESDES_WIDTH_64: i32 = 2;
+        const CM_RESDES_WIDTH_BITS: i32 = 3;
+        const CM_RESDES_WIDTH_DEFAULT: i32 = 0;
         #[library("SETUPAPI.dll")]
         extern fn CM_Reenumerate_DevNode(dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
@@ -664,30 +664,30 @@ mod Windows {
         extern fn CM_Run_Detection(ulFlags: u32) -> CONFIGRET;
         #[library("SETUPAPI.dll")]
         extern fn CM_Run_Detection_Ex(ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
-        const CM_SETUP_BITS: u32 = 15;
-        const CM_SETUP_DEVINST_CONFIG: u32 = 5;
-        const CM_SETUP_DEVINST_CONFIG_CLASS: u32 = 6;
-        const CM_SETUP_DEVINST_CONFIG_EXTENSIONS: u32 = 7;
-        const CM_SETUP_DEVINST_CONFIG_RESET: u32 = 8;
-        const CM_SETUP_DEVINST_READY: u32 = 0;
-        const CM_SETUP_DEVINST_RESET: u32 = 4;
-        const CM_SETUP_DEVNODE_CONFIG: u32 = 5;
-        const CM_SETUP_DEVNODE_CONFIG_CLASS: u32 = 6;
-        const CM_SETUP_DEVNODE_CONFIG_EXTENSIONS: u32 = 7;
-        const CM_SETUP_DEVNODE_CONFIG_RESET: u32 = 8;
-        const CM_SETUP_DEVNODE_READY: u32 = 0;
-        const CM_SETUP_DEVNODE_RESET: u32 = 4;
-        const CM_SETUP_DOWNLOAD: u32 = 1;
-        const CM_SETUP_PROP_CHANGE: u32 = 3;
-        const CM_SETUP_WRITE_LOG_CONFS: u32 = 2;
-        const CM_SET_DEVINST_PROBLEM_BITS: u32 = 1;
-        const CM_SET_DEVINST_PROBLEM_NORMAL: u32 = 0;
-        const CM_SET_DEVINST_PROBLEM_OVERRIDE: u32 = 1;
-        const CM_SET_DEVNODE_PROBLEM_BITS: u32 = 1;
-        const CM_SET_DEVNODE_PROBLEM_NORMAL: u32 = 0;
-        const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1;
-        const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1;
-        const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1;
+        const CM_SETUP_BITS: i32 = 15;
+        const CM_SETUP_DEVINST_CONFIG: i32 = 5;
+        const CM_SETUP_DEVINST_CONFIG_CLASS: i32 = 6;
+        const CM_SETUP_DEVINST_CONFIG_EXTENSIONS: i32 = 7;
+        const CM_SETUP_DEVINST_CONFIG_RESET: i32 = 8;
+        const CM_SETUP_DEVINST_READY: i32 = 0;
+        const CM_SETUP_DEVINST_RESET: i32 = 4;
+        const CM_SETUP_DEVNODE_CONFIG: i32 = 5;
+        const CM_SETUP_DEVNODE_CONFIG_CLASS: i32 = 6;
+        const CM_SETUP_DEVNODE_CONFIG_EXTENSIONS: i32 = 7;
+        const CM_SETUP_DEVNODE_CONFIG_RESET: i32 = 8;
+        const CM_SETUP_DEVNODE_READY: i32 = 0;
+        const CM_SETUP_DEVNODE_RESET: i32 = 4;
+        const CM_SETUP_DOWNLOAD: i32 = 1;
+        const CM_SETUP_PROP_CHANGE: i32 = 3;
+        const CM_SETUP_WRITE_LOG_CONFS: i32 = 2;
+        const CM_SET_DEVINST_PROBLEM_BITS: i32 = 1;
+        const CM_SET_DEVINST_PROBLEM_NORMAL: i32 = 0;
+        const CM_SET_DEVINST_PROBLEM_OVERRIDE: i32 = 1;
+        const CM_SET_DEVNODE_PROBLEM_BITS: i32 = 1;
+        const CM_SET_DEVNODE_PROBLEM_NORMAL: i32 = 0;
+        const CM_SET_DEVNODE_PROBLEM_OVERRIDE: i32 = 1;
+        const CM_SET_HW_PROF_FLAGS_BITS: i32 = 1;
+        const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: i32 = 1;
         #[library("CFGMGR32.dll")]
         extern fn CM_Set_Class_PropertyW(ClassGUID: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, ulFlags: u32) -> CONFIGRET;
         #[library("CFGMGR32.dll")]
@@ -750,7 +750,7 @@ mod Windows {
         extern fn CM_Unregister_Notification(NotifyContext: HCMNOTIFICATION) -> CONFIGRET;
         #[library("SETUPAPI.dll", import = "CMP_WaitNoPendingInstallEvents")]
         extern fn CM_WaitNoPendingInstallEvents(dwTimeout: u32) -> u32;
-        const CONFIGMG_VERSION: u32 = 1024;
+        const CONFIGMG_VERSION: i32 = 1024;
         type CONFIGRET = RETURN_TYPE;
         type CONFLICT_DETAILS = CONFLICT_DETAILS_A;
         struct CONFLICT_DETAILS_A {
@@ -783,70 +783,70 @@ mod Windows {
         struct CONNECTION_RESOURCE {
             Connection_Header: CONNECTION_DES,
         }
-        const CR_ACCESS_DENIED: u32 = 51;
-        const CR_ALREADY_SUCH_DEVINST: u32 = 16;
-        const CR_ALREADY_SUCH_DEVNODE: u32 = 16;
-        const CR_APM_VETOED: u32 = 24;
-        const CR_BUFFER_SMALL: u32 = 26;
-        const CR_CALL_NOT_IMPLEMENTED: u32 = 52;
-        const CR_CANT_SHARE_IRQ: u32 = 43;
-        const CR_CREATE_BLOCKED: u32 = 21;
-        const CR_DEFAULT: u32 = 1;
-        const CR_DEVICE_INTERFACE_ACTIVE: u32 = 54;
-        const CR_DEVICE_NOT_THERE: u32 = 36;
-        const CR_DEVINST_HAS_REQS: u32 = 10;
-        const CR_DEVLOADER_NOT_READY: u32 = 33;
-        const CR_DEVNODE_HAS_REQS: u32 = 10;
-        const CR_DLVXD_NOT_FOUND: u32 = 12;
-        const CR_FAILURE: u32 = 19;
-        const CR_FREE_RESOURCES: u32 = 41;
-        const CR_INVALID_API: u32 = 32;
-        const CR_INVALID_ARBITRATOR: u32 = 8;
-        const CR_INVALID_CONFLICT_LIST: u32 = 57;
-        const CR_INVALID_DATA: u32 = 31;
-        const CR_INVALID_DEVICE_ID: u32 = 30;
-        const CR_INVALID_DEVINST: u32 = 5;
-        const CR_INVALID_DEVNODE: u32 = 5;
-        const CR_INVALID_FLAG: u32 = 4;
-        const CR_INVALID_INDEX: u32 = 58;
-        const CR_INVALID_LOAD_TYPE: u32 = 25;
-        const CR_INVALID_LOG_CONF: u32 = 7;
-        const CR_INVALID_MACHINENAME: u32 = 47;
-        const CR_INVALID_NODELIST: u32 = 9;
-        const CR_INVALID_POINTER: u32 = 3;
-        const CR_INVALID_PRIORITY: u32 = 39;
-        const CR_INVALID_PROPERTY: u32 = 53;
-        const CR_INVALID_RANGE: u32 = 18;
-        const CR_INVALID_RANGE_LIST: u32 = 17;
-        const CR_INVALID_REFERENCE_STRING: u32 = 56;
-        const CR_INVALID_RESOURCEID: u32 = 11;
-        const CR_INVALID_RES_DES: u32 = 6;
-        const CR_INVALID_STRUCTURE_SIZE: u32 = 59;
-        const CR_MACHINE_UNAVAILABLE: u32 = 49;
-        const CR_NEED_RESTART: u32 = 34;
-        const CR_NOT_DISABLEABLE: u32 = 40;
-        const CR_NOT_SYSTEM_VM: u32 = 22;
-        const CR_NO_ARBITRATOR: u32 = 27;
-        const CR_NO_CM_SERVICES: u32 = 50;
-        const CR_NO_DEPENDENT: u32 = 44;
-        const CR_NO_MORE_HW_PROFILES: u32 = 35;
-        const CR_NO_MORE_LOG_CONF: u32 = 14;
-        const CR_NO_MORE_RES_DES: u32 = 15;
-        const CR_NO_REGISTRY_HANDLE: u32 = 28;
-        const CR_NO_SUCH_DEVICE_INTERFACE: u32 = 55;
-        const CR_NO_SUCH_DEVINST: u32 = 13;
-        const CR_NO_SUCH_DEVNODE: u32 = 13;
-        const CR_NO_SUCH_LOGICAL_DEV: u32 = 20;
-        const CR_NO_SUCH_REGISTRY_KEY: u32 = 46;
-        const CR_NO_SUCH_VALUE: u32 = 37;
-        const CR_OUT_OF_MEMORY: u32 = 2;
-        const CR_QUERY_VETOED: u32 = 42;
-        const CR_REGISTRY_ERROR: u32 = 29;
-        const CR_REMOTE_COMM_FAILURE: u32 = 48;
-        const CR_REMOVE_VETOED: u32 = 23;
-        const CR_SAME_RESOURCES: u32 = 45;
-        const CR_SUCCESS: u32 = 0;
-        const CR_WRONG_TYPE: u32 = 38;
+        const CR_ACCESS_DENIED: i32 = 51;
+        const CR_ALREADY_SUCH_DEVINST: i32 = 16;
+        const CR_ALREADY_SUCH_DEVNODE: i32 = 16;
+        const CR_APM_VETOED: i32 = 24;
+        const CR_BUFFER_SMALL: i32 = 26;
+        const CR_CALL_NOT_IMPLEMENTED: i32 = 52;
+        const CR_CANT_SHARE_IRQ: i32 = 43;
+        const CR_CREATE_BLOCKED: i32 = 21;
+        const CR_DEFAULT: i32 = 1;
+        const CR_DEVICE_INTERFACE_ACTIVE: i32 = 54;
+        const CR_DEVICE_NOT_THERE: i32 = 36;
+        const CR_DEVINST_HAS_REQS: i32 = 10;
+        const CR_DEVLOADER_NOT_READY: i32 = 33;
+        const CR_DEVNODE_HAS_REQS: i32 = 10;
+        const CR_DLVXD_NOT_FOUND: i32 = 12;
+        const CR_FAILURE: i32 = 19;
+        const CR_FREE_RESOURCES: i32 = 41;
+        const CR_INVALID_API: i32 = 32;
+        const CR_INVALID_ARBITRATOR: i32 = 8;
+        const CR_INVALID_CONFLICT_LIST: i32 = 57;
+        const CR_INVALID_DATA: i32 = 31;
+        const CR_INVALID_DEVICE_ID: i32 = 30;
+        const CR_INVALID_DEVINST: i32 = 5;
+        const CR_INVALID_DEVNODE: i32 = 5;
+        const CR_INVALID_FLAG: i32 = 4;
+        const CR_INVALID_INDEX: i32 = 58;
+        const CR_INVALID_LOAD_TYPE: i32 = 25;
+        const CR_INVALID_LOG_CONF: i32 = 7;
+        const CR_INVALID_MACHINENAME: i32 = 47;
+        const CR_INVALID_NODELIST: i32 = 9;
+        const CR_INVALID_POINTER: i32 = 3;
+        const CR_INVALID_PRIORITY: i32 = 39;
+        const CR_INVALID_PROPERTY: i32 = 53;
+        const CR_INVALID_RANGE: i32 = 18;
+        const CR_INVALID_RANGE_LIST: i32 = 17;
+        const CR_INVALID_REFERENCE_STRING: i32 = 56;
+        const CR_INVALID_RESOURCEID: i32 = 11;
+        const CR_INVALID_RES_DES: i32 = 6;
+        const CR_INVALID_STRUCTURE_SIZE: i32 = 59;
+        const CR_MACHINE_UNAVAILABLE: i32 = 49;
+        const CR_NEED_RESTART: i32 = 34;
+        const CR_NOT_DISABLEABLE: i32 = 40;
+        const CR_NOT_SYSTEM_VM: i32 = 22;
+        const CR_NO_ARBITRATOR: i32 = 27;
+        const CR_NO_CM_SERVICES: i32 = 50;
+        const CR_NO_DEPENDENT: i32 = 44;
+        const CR_NO_MORE_HW_PROFILES: i32 = 35;
+        const CR_NO_MORE_LOG_CONF: i32 = 14;
+        const CR_NO_MORE_RES_DES: i32 = 15;
+        const CR_NO_REGISTRY_HANDLE: i32 = 28;
+        const CR_NO_SUCH_DEVICE_INTERFACE: i32 = 55;
+        const CR_NO_SUCH_DEVINST: i32 = 13;
+        const CR_NO_SUCH_DEVNODE: i32 = 13;
+        const CR_NO_SUCH_LOGICAL_DEV: i32 = 20;
+        const CR_NO_SUCH_REGISTRY_KEY: i32 = 46;
+        const CR_NO_SUCH_VALUE: i32 = 37;
+        const CR_OUT_OF_MEMORY: i32 = 2;
+        const CR_QUERY_VETOED: i32 = 42;
+        const CR_REGISTRY_ERROR: i32 = 29;
+        const CR_REMOTE_COMM_FAILURE: i32 = 48;
+        const CR_REMOVE_VETOED: i32 = 23;
+        const CR_SAME_RESOURCES: i32 = 45;
+        const CR_SUCCESS: i32 = 0;
+        const CR_WRONG_TYPE: i32 = 38;
         #[packed(1)]
         struct CS_DES {
             CSD_SignatureLength: u32,
@@ -903,8 +903,8 @@ mod Windows {
             DMA_Header: DMA_DES,
             DMA_Data: [DMA_RANGE; 1],
         }
-        const FILTERED_LOG_CONF: u32 = 1;
-        const FORCED_LOG_CONF: u32 = 4;
+        const FILTERED_LOG_CONF: i32 = 1;
+        const FORCED_LOG_CONF: i32 = 4;
         type HCMNOTIFICATION = *mut void;
         type HMACHINE = HANDLE;
         type HWPROFILEINFO = HWPROFILEINFO_A;
@@ -920,11 +920,11 @@ mod Windows {
             HWPI_szFriendlyName: [u16; 80],
             HWPI_dwFlags: u32,
         }
-        const IOA_Local: u32 = 255;
-        const IO_ALIAS_10_BIT_DECODE: u32 = 4;
-        const IO_ALIAS_12_BIT_DECODE: u32 = 16;
-        const IO_ALIAS_16_BIT_DECODE: u32 = 0;
-        const IO_ALIAS_POSITIVE_DECODE: u32 = 255;
+        const IOA_Local: i32 = 255;
+        const IO_ALIAS_10_BIT_DECODE: i32 = 4;
+        const IO_ALIAS_12_BIT_DECODE: i32 = 16;
+        const IO_ALIAS_16_BIT_DECODE: i32 = 0;
+        const IO_ALIAS_POSITIVE_DECODE: i32 = 255;
         #[packed(1)]
         struct IO_DES {
             IOD_Count: u32,
@@ -985,17 +985,17 @@ mod Windows {
             IRQ_Data: [IRQ_RANGE; 1],
         }
         type LOG_CONF = usize;
-        const LOG_CONF_BITS: u32 = 7;
-        const MAX_CLASS_NAME_LEN: u32 = 32;
-        const MAX_CONFIG_VALUE: u32 = 9999;
-        const MAX_DEVICE_ID_LEN: u32 = 200;
-        const MAX_DEVNODE_ID_LEN: u32 = 200;
-        const MAX_DMA_CHANNELS: u32 = 7;
-        const MAX_GUID_STRING_LEN: u32 = 39;
-        const MAX_INSTANCE_VALUE: u32 = 9999;
-        const MAX_IO_PORTS: u32 = 20;
-        const MAX_IRQS: u32 = 7;
-        const MAX_MEM_REGISTERS: u32 = 9;
+        const LOG_CONF_BITS: i32 = 7;
+        const MAX_CLASS_NAME_LEN: i32 = 32;
+        const MAX_CONFIG_VALUE: i32 = 9999;
+        const MAX_DEVICE_ID_LEN: i32 = 200;
+        const MAX_DEVNODE_ID_LEN: i32 = 200;
+        const MAX_DMA_CHANNELS: i32 = 7;
+        const MAX_GUID_STRING_LEN: i32 = 39;
+        const MAX_INSTANCE_VALUE: i32 = 9999;
+        const MAX_IO_PORTS: i32 = 20;
+        const MAX_IRQS: i32 = 7;
+        const MAX_MEM_REGISTERS: i32 = 9;
         #[packed(1)]
         struct MEM_DES {
             MD_Count: u32,
@@ -1053,9 +1053,9 @@ mod Windows {
         struct MFCARD_RESOURCE {
             MfCard_Header: MFCARD_DES,
         }
-        const NUM_CR_RESULTS: u32 = 60;
-        const NUM_LOG_CONF: u32 = 6;
-        const OVERRIDE_LOG_CONF: u32 = 5;
+        const NUM_CR_RESULTS: i32 = 60;
+        const NUM_LOG_CONF: i32 = 6;
+        const OVERRIDE_LOG_CONF: i32 = 5;
         type PBUSNUMBER_DES = *mut BUSNUMBER_DES;
         type PBUSNUMBER_RANGE = *mut BUSNUMBER_RANGE;
         type PBUSNUMBER_RESOURCE = *mut BUSNUMBER_RESOURCE;
@@ -1075,8 +1075,8 @@ mod Windows {
         struct PCCARD_RESOURCE {
             PcCard_Header: PCCARD_DES,
         }
-        const PCD_MAX_IO: u32 = 2;
-        const PCD_MAX_MEMORY: u32 = 2;
+        const PCD_MAX_IO: i32 = 2;
+        const PCD_MAX_MEMORY: i32 = 2;
         type PCM_NOTIFY_ACTION = *mut CM_NOTIFY_ACTION;
         extern fn PCM_NOTIFY_CALLBACK(hNotify: HCMNOTIFICATION, #[opt] Context: *const void, Action: CM_NOTIFY_ACTION, #[size_param(4)] EventData: *const CM_NOTIFY_EVENT_DATA, EventDataSize: u32) -> u32;
         type PCM_NOTIFY_EVENT_DATA = *mut CM_NOTIFY_EVENT_DATA;
@@ -1136,130 +1136,130 @@ mod Windows {
         type PRESOURCEID = *mut RESOURCEID;
         type PRES_DES = *mut RES_DES;
         type PRIORITY = u32;
-        const PRIORITY_BIT: u32 = 8;
-        const PRIORITY_EQUAL_FIRST: u32 = 8;
-        const PRIORITY_EQUAL_LAST: u32 = 0;
+        const PRIORITY_BIT: i32 = 8;
+        const PRIORITY_EQUAL_FIRST: i32 = 8;
+        const PRIORITY_EQUAL_LAST: i32 = 0;
         type RANGE_ELEMENT = usize;
         type RANGE_LIST = usize;
         type REGDISPOSITION = u32;
         type RESOURCEID = u32;
         type RES_DES = usize;
         type RETURN_TYPE = u32;
-        const RegDisposition_Bits: u32 = 1;
-        const RegDisposition_OpenAlways: u32 = 0;
-        const RegDisposition_OpenExisting: u32 = 1;
-        const ResType_All: u32 = 0;
-        const ResType_BusNumber: u32 = 6;
-        const ResType_ClassSpecific: u32 = 65535;
-        const ResType_Connection: u32 = 32772;
-        const ResType_DMA: u32 = 3;
-        const ResType_DevicePrivate: u32 = 32769;
-        const ResType_DoNotUse: u32 = 5;
-        const ResType_IO: u32 = 2;
-        const ResType_IRQ: u32 = 4;
-        const ResType_Ignored_Bit: u32 = 32768;
-        const ResType_MAX: u32 = 7;
-        const ResType_Mem: u32 = 1;
-        const ResType_MemLarge: u32 = 7;
-        const ResType_MfCardConfig: u32 = 32771;
-        const ResType_None: u32 = 0;
-        const ResType_PcCardConfig: u32 = 32770;
-        const ResType_Reserved: u32 = 32768;
-        const fDD_BYTE: u32 = 0;
-        const fDD_BYTE_AND_WORD: u32 = 3;
-        const fDD_BusMaster: u32 = 4;
-        const fDD_DWORD: u32 = 2;
-        const fDD_NoBusMaster: u32 = 0;
-        const fDD_TypeA: u32 = 8;
-        const fDD_TypeB: u32 = 16;
-        const fDD_TypeF: u32 = 24;
-        const fDD_TypeStandard: u32 = 0;
-        const fDD_WORD: u32 = 1;
-        const fIOD_10_BIT_DECODE: u32 = 4;
-        const fIOD_12_BIT_DECODE: u32 = 8;
-        const fIOD_16_BIT_DECODE: u32 = 16;
-        const fIOD_DECODE: u32 = 252;
-        const fIOD_IO: u32 = 1;
-        const fIOD_Memory: u32 = 0;
-        const fIOD_PASSIVE_DECODE: u32 = 64;
-        const fIOD_PORT_BAR: u32 = 256;
-        const fIOD_POSITIVE_DECODE: u32 = 32;
-        const fIOD_PortType: u32 = 1;
-        const fIOD_WINDOW_DECODE: u32 = 128;
-        const fIRQD_Edge: u32 = 2;
-        const fIRQD_Exclusive: u32 = 0;
-        const fIRQD_Level: u32 = 0;
-        const fIRQD_Level_Bit: u32 = 1;
-        const fIRQD_Share: u32 = 1;
-        const fIRQD_Share_Bit: u32 = 0;
-        const fMD_24: u32 = 0;
-        const fMD_32: u32 = 2;
-        const fMD_32_24: u32 = 2;
-        const fMD_Cacheable: u32 = 32;
-        const fMD_CombinedWrite: u32 = 16;
-        const fMD_CombinedWriteAllowed: u32 = 16;
-        const fMD_CombinedWriteDisallowed: u32 = 0;
-        const fMD_MEMORY_BAR: u32 = 128;
-        const fMD_MemoryType: u32 = 1;
-        const fMD_NonCacheable: u32 = 0;
-        const fMD_Pref: u32 = 4;
-        const fMD_PrefetchAllowed: u32 = 4;
-        const fMD_PrefetchDisallowed: u32 = 0;
-        const fMD_Prefetchable: u32 = 4;
-        const fMD_RAM: u32 = 1;
-        const fMD_ROM: u32 = 0;
-        const fMD_ReadAllowed: u32 = 0;
-        const fMD_ReadDisallowed: u32 = 8;
-        const fMD_Readable: u32 = 8;
-        const fMD_WINDOW_DECODE: u32 = 64;
-        const fPCD_ATTRIBUTES_PER_WINDOW: u32 = 32768;
-        const fPCD_IO1_16: u32 = 65536;
-        const fPCD_IO1_SRC_16: u32 = 262144;
-        const fPCD_IO1_WS_16: u32 = 524288;
-        const fPCD_IO1_ZW_8: u32 = 131072;
-        const fPCD_IO2_16: u32 = 1048576;
-        const fPCD_IO2_SRC_16: u32 = 4194304;
-        const fPCD_IO2_WS_16: u32 = 8388608;
-        const fPCD_IO2_ZW_8: u32 = 2097152;
-        const fPCD_IO_16: u32 = 1;
-        const fPCD_IO_8: u32 = 0;
-        const fPCD_IO_SRC_16: u32 = 32;
-        const fPCD_IO_WS_16: u32 = 64;
-        const fPCD_IO_ZW_8: u32 = 16;
-        const fPCD_MEM1_16: u32 = 67108864;
-        const fPCD_MEM1_A: u32 = 4;
-        const fPCD_MEM1_WS_ONE: u32 = 16777216;
-        const fPCD_MEM1_WS_THREE: u32 = 50331648;
-        const fPCD_MEM1_WS_TWO: u32 = 33554432;
-        const fPCD_MEM2_16: u32 = 1073741824;
-        const fPCD_MEM2_A: u32 = 8;
-        const fPCD_MEM2_WS_ONE: u32 = 268435456;
-        const fPCD_MEM2_WS_THREE: u32 = 805306368;
-        const fPCD_MEM2_WS_TWO: u32 = 536870912;
-        const fPCD_MEM_16: u32 = 2;
-        const fPCD_MEM_8: u32 = 0;
-        const fPCD_MEM_A: u32 = 4;
-        const fPCD_MEM_WS_ONE: u32 = 256;
-        const fPCD_MEM_WS_THREE: u32 = 768;
-        const fPCD_MEM_WS_TWO: u32 = 512;
-        const fPMF_AUDIO_ENABLE: u32 = 8;
-        const mDD_BusMaster: u32 = 4;
-        const mDD_Type: u32 = 24;
-        const mDD_Width: u32 = 3;
-        const mIRQD_Edge_Level: u32 = 2;
-        const mIRQD_Share: u32 = 1;
-        const mMD_32_24: u32 = 2;
-        const mMD_Cacheable: u32 = 32;
-        const mMD_CombinedWrite: u32 = 16;
-        const mMD_MemoryType: u32 = 1;
-        const mMD_Prefetchable: u32 = 4;
-        const mMD_Readable: u32 = 8;
-        const mPCD_IO_8_16: u32 = 1;
-        const mPCD_MEM1_WS: u32 = 50331648;
-        const mPCD_MEM2_WS: u32 = 805306368;
-        const mPCD_MEM_8_16: u32 = 2;
-        const mPCD_MEM_A_C: u32 = 12;
-        const mPCD_MEM_WS: u32 = 768;
-        const mPMF_AUDIO_ENABLE: u32 = 8;
+        const RegDisposition_Bits: i32 = 1;
+        const RegDisposition_OpenAlways: i32 = 0;
+        const RegDisposition_OpenExisting: i32 = 1;
+        const ResType_All: i32 = 0;
+        const ResType_BusNumber: i32 = 6;
+        const ResType_ClassSpecific: i32 = 65535;
+        const ResType_Connection: i32 = 32772;
+        const ResType_DMA: i32 = 3;
+        const ResType_DevicePrivate: i32 = 32769;
+        const ResType_DoNotUse: i32 = 5;
+        const ResType_IO: i32 = 2;
+        const ResType_IRQ: i32 = 4;
+        const ResType_Ignored_Bit: i32 = 32768;
+        const ResType_MAX: i32 = 7;
+        const ResType_Mem: i32 = 1;
+        const ResType_MemLarge: i32 = 7;
+        const ResType_MfCardConfig: i32 = 32771;
+        const ResType_None: i32 = 0;
+        const ResType_PcCardConfig: i32 = 32770;
+        const ResType_Reserved: i32 = 32768;
+        const fDD_BYTE: i32 = 0;
+        const fDD_BYTE_AND_WORD: i32 = 3;
+        const fDD_BusMaster: i32 = 4;
+        const fDD_DWORD: i32 = 2;
+        const fDD_NoBusMaster: i32 = 0;
+        const fDD_TypeA: i32 = 8;
+        const fDD_TypeB: i32 = 16;
+        const fDD_TypeF: i32 = 24;
+        const fDD_TypeStandard: i32 = 0;
+        const fDD_WORD: i32 = 1;
+        const fIOD_10_BIT_DECODE: i32 = 4;
+        const fIOD_12_BIT_DECODE: i32 = 8;
+        const fIOD_16_BIT_DECODE: i32 = 16;
+        const fIOD_DECODE: i32 = 252;
+        const fIOD_IO: i32 = 1;
+        const fIOD_Memory: i32 = 0;
+        const fIOD_PASSIVE_DECODE: i32 = 64;
+        const fIOD_PORT_BAR: i32 = 256;
+        const fIOD_POSITIVE_DECODE: i32 = 32;
+        const fIOD_PortType: i32 = 1;
+        const fIOD_WINDOW_DECODE: i32 = 128;
+        const fIRQD_Edge: i32 = 2;
+        const fIRQD_Exclusive: i32 = 0;
+        const fIRQD_Level: i32 = 0;
+        const fIRQD_Level_Bit: i32 = 1;
+        const fIRQD_Share: i32 = 1;
+        const fIRQD_Share_Bit: i32 = 0;
+        const fMD_24: i32 = 0;
+        const fMD_32: i32 = 2;
+        const fMD_32_24: i32 = 2;
+        const fMD_Cacheable: i32 = 32;
+        const fMD_CombinedWrite: i32 = 16;
+        const fMD_CombinedWriteAllowed: i32 = 16;
+        const fMD_CombinedWriteDisallowed: i32 = 0;
+        const fMD_MEMORY_BAR: i32 = 128;
+        const fMD_MemoryType: i32 = 1;
+        const fMD_NonCacheable: i32 = 0;
+        const fMD_Pref: i32 = 4;
+        const fMD_PrefetchAllowed: i32 = 4;
+        const fMD_PrefetchDisallowed: i32 = 0;
+        const fMD_Prefetchable: i32 = 4;
+        const fMD_RAM: i32 = 1;
+        const fMD_ROM: i32 = 0;
+        const fMD_ReadAllowed: i32 = 0;
+        const fMD_ReadDisallowed: i32 = 8;
+        const fMD_Readable: i32 = 8;
+        const fMD_WINDOW_DECODE: i32 = 64;
+        const fPCD_ATTRIBUTES_PER_WINDOW: i32 = 32768;
+        const fPCD_IO1_16: i32 = 65536;
+        const fPCD_IO1_SRC_16: i32 = 262144;
+        const fPCD_IO1_WS_16: i32 = 524288;
+        const fPCD_IO1_ZW_8: i32 = 131072;
+        const fPCD_IO2_16: i32 = 1048576;
+        const fPCD_IO2_SRC_16: i32 = 4194304;
+        const fPCD_IO2_WS_16: i32 = 8388608;
+        const fPCD_IO2_ZW_8: i32 = 2097152;
+        const fPCD_IO_16: i32 = 1;
+        const fPCD_IO_8: i32 = 0;
+        const fPCD_IO_SRC_16: i32 = 32;
+        const fPCD_IO_WS_16: i32 = 64;
+        const fPCD_IO_ZW_8: i32 = 16;
+        const fPCD_MEM1_16: i32 = 67108864;
+        const fPCD_MEM1_A: i32 = 4;
+        const fPCD_MEM1_WS_ONE: i32 = 16777216;
+        const fPCD_MEM1_WS_THREE: i32 = 50331648;
+        const fPCD_MEM1_WS_TWO: i32 = 33554432;
+        const fPCD_MEM2_16: i32 = 1073741824;
+        const fPCD_MEM2_A: i32 = 8;
+        const fPCD_MEM2_WS_ONE: i32 = 268435456;
+        const fPCD_MEM2_WS_THREE: i32 = 805306368;
+        const fPCD_MEM2_WS_TWO: i32 = 536870912;
+        const fPCD_MEM_16: i32 = 2;
+        const fPCD_MEM_8: i32 = 0;
+        const fPCD_MEM_A: i32 = 4;
+        const fPCD_MEM_WS_ONE: i32 = 256;
+        const fPCD_MEM_WS_THREE: i32 = 768;
+        const fPCD_MEM_WS_TWO: i32 = 512;
+        const fPMF_AUDIO_ENABLE: i32 = 8;
+        const mDD_BusMaster: i32 = 4;
+        const mDD_Type: i32 = 24;
+        const mDD_Width: i32 = 3;
+        const mIRQD_Edge_Level: i32 = 2;
+        const mIRQD_Share: i32 = 1;
+        const mMD_32_24: i32 = 2;
+        const mMD_Cacheable: i32 = 32;
+        const mMD_CombinedWrite: i32 = 16;
+        const mMD_MemoryType: i32 = 1;
+        const mMD_Prefetchable: i32 = 4;
+        const mMD_Readable: i32 = 8;
+        const mPCD_IO_8_16: i32 = 1;
+        const mPCD_MEM1_WS: i32 = 50331648;
+        const mPCD_MEM2_WS: i32 = 805306368;
+        const mPCD_MEM_8_16: i32 = 2;
+        const mPCD_MEM_A_C: i32 = 12;
+        const mPCD_MEM_WS: i32 = 768;
+        const mPMF_AUDIO_ENABLE: i32 = 8;
     }
 }

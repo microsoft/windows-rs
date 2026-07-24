@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         type FDQUERYCONTEXT = DWORDLONG;
-        const FD_LONGHORN: u32 = 1;
+        const FD_LONGHORN: i32 = 1;
         #[guid(0x4df99b70_e148_4432_b004_4c9eeb535a5e)]
         interface IFunctionDiscovery: IUnknown {
             fn GetInstanceCollection(&self, pszCategory: *const u16, pszSubCategory: *const u16, fIncludeAllSubCategories: BOOL, #[retval] ppIFunctionInstanceCollection: *mut IFunctionInstanceCollection) -> HRESULT;

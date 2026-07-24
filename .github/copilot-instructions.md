@@ -173,3 +173,107 @@ When making changes to a crate, update its `docs/crates/<crate>.md` page and its
 needed. For example, `windows-reactor` changes touch `docs/crates/windows-reactor.md` (codegen,
 TOML, threading, COM pitfalls, plus the conceptual overview) and `crates/libs/reactor/readme.md`
 (getting started and the quick example).
+
+## Writing Style for Docs and Comments
+
+These rules were established while cleaning up the docs and code comments and apply to all Markdown
+(`.md`) and Rust comments/doc-comments across the repo. Keep new writing consistent with them.
+
+- **ASCII punctuation only.** Use `-` for dashes (never em/en-dashes), `...` for ellipsis, `->` for
+  arrows, `<=`/`>=`/`!=` for comparisons, and straight quotes. Drop the section sign from standard
+  references (write `ECMA-335 II.22`, `C11 6.4.4.1`, not `\u00a7...`). The only non-ASCII that stays
+  is genuine test data (e.g. a Greek-letter string literal exercising UTF-8 handling).
+- **100-column wrap.** Hard-wrap Markdown prose and long comment blocks at 100 columns. Keep the
+  wrap consistent within a file - do not mix wrapped and unwrapped paragraphs.
+- **No LLM tells.** Avoid the vocabulary and tics that mark agent-written text: `faithful`,
+  `corpus`, `ledger`, `crucially`, `notably`, `essentially`, `robust`, `seamless`, `comprehensive`,
+  `deliberately`, `simply`, `under the hood`, `that said`, `importantly`, `conceptually`,
+  `effectively`, `single source of truth`, `industry-standard`, `first-class`, `leverage`,
+  `utilize`, `Note that ...`. Say the concrete thing instead. `ergonomic` and rustdoc `**bold**` are
+  fine.
+- **No decorative formatting.** No box-drawing banner comments (`// -- Title ------`), no duplicated
+  doc paragraphs (a real copy-paste tell), no filler that restates the code.
+- **Prefer tables over wordy paragraphs** where the content is a set of parallel cases (rules,
+  mappings, options).
+- **Describe the code as it is,** not its history. Avoid churn narration (`used to`, `previously`,
+  `an earlier version`, `no longer`) unless it describes real runtime behavior, not codebase edits.
+- **Do not edit generated files** to satisfy these rules; only hand-written sources.
+
+## Open Investigations / TODO
+
+Enduring record of known issues to work on so they are not lost between sessions. Add findings here;
+remove or mark done as they are addressed.
+
+### windows-clang: subjective decisions that stray from a faithful header interpretation
+
+Context: issue [#4720](https://github.com/microsoft/windows-rs/issues/4720) and discussion
+[#4725](https://github.com/microsoft/windows-rs/issues/4725) (the `SW_NORMAL` should-be-signed
+report). The scrape aims to be "faithful to the Windows SDK headers, not a theoretical C-standard
+purity," but several decisions editorialize beyond what the header literally declares. Two notions
+of "faithful" appear in the thread and agree everywhere except item 1: faithful to C semantics (a
+token has an unambiguous type) vs faithful to the SDK header spellings. Sources studied:
+`crates/libs/clang/src/{const,canon,annotation,interface,lib}.rs`, `crates/tools/win32/src/main.rs`,
+`docs/crates/windows-clang.md`.
+
+**Tier 1 - strays from both the C standard and the header:**
+
+1. **Non-negative `#define` constants default to unsigned.** DONE. `const.rs` now types
+   each integer constant by the C11 literal rule (`integer_value`, `c_integer_constant_type`):
+   unsuffixed decimal takes the first of `int/long/long long` that fits (`1`->`i32`); hex/octal
+   takes the first of `int/uint/long/ulong/...` that fits (`0x80000000`->`u32`); `U`/`L`/`LL`
+   suffixes are honored. This makes `SW_NORMAL` and other `SW_*` signed (`i32`) while hex flag
+   masks stay unsigned, resolving #4725. The retyping is value-preserving: across the full win32
+   scrape, 673 constants changed their spelled type but every one keeps the same bit pattern
+   (verified by modular arithmetic), and cases like `BG_LENGTH_TO_EOF` (`(UINT64)(-1)`) are now
+   `u64` max instead of a truncated `i32`. Hand-written call sites across the workspace were
+   updated with explicit `as u32`/`as i32` casts where Win32 ABI conventions use `DWORD`(u32).
+
+**Tier 2 - faithful-ish to the header, but an active rewrite of the declared type:**
+
+2. **Scalar typedef collapse is a curated allowlist** (`canon.rs` `fundamental_scalar` 289-305,
+   `pointer_sized_abi`, `floating_typedef`, `guid_alias`, `void_pointer_alias`, `d2d_compat_alias`).
+   `DWORD`->`u32` erases the named alias, but `COLORREF`/`ATOM`/`HFILE` (same underlying types) are
+   kept named. The header declares them identically; the split is editorial.
+   - Fix: emit every typedef as a named alias in the winmd and move the collapse to the Layer-B
+     projection (`windows-bindgen`) where it is an ergonomics choice, not a metadata fact.
+3. **String-alias normalization + SAL const-flip** (`canon.rs` rules 1/9/10, `alias_policy`).
+   `LPCWSTR`->`PCWSTR`, and `_In_ LPWSTR`->`PCWSTR` flips a non-const pointer to const from the
+   `_In_` annotation. Declared type is mutable; emitted type is const.
+   - Fix: keep the header's declared pointer/const-ness; expose SAL direction as a separate
+     attribute.
+4. **`[iid_is]` inferred from parameter name** (`annotation.rs` `infer_iid_is` 367+,
+   `IID_SELECTOR_PARAM_NAMES = ["riid","iid","riidltf"]`). An un-annotated
+   `_COM_Outptr_ IUnknown **` is rewritten to `void**` + `#[iid_is]` because a sibling parameter is
+   named `riid` (5 methods across 4 functions). The header never expressed the linkage.
+   - Fix: offer a "source-annotations-only" mode that honors only an explicit MIDL `[iid_is]`
+     comment.
+5. **`D2D1_*`->`D2D_*` compat collapse** (`canon.rs` `d2d_compat_alias` 363-383) - curated erasure
+   of the `D2D1_`-spelled alias the header declares. Same remedy as item 2.
+
+**Tier 3 - coverage / configuration opinions that drop or reshape real header content:**
+
+6. **Redundant-constant dropping** (`lib.rs` final pass) - drops a top-level constant whose name and
+   value match an enumerator elsewhere. Only needed because of item 7.
+7. **Single flat `Windows.Win32` namespace** - lossy for genuine name collisions the reference
+   disambiguated by sub-namespace (`PID_SECURITY`, the `E_NOTFOUND` HRESULT-vs-`#define` class).
+   - Fix: on a true USR/value collision, keep both under a disambiguating suffix instead of
+     dropping.
+8. **`UNICODE`/`_UNICODE` not defined** - the TU is built ANSI-default. This is the direct answer to
+   "what is the equivalent of `#include <windows.h>`?"; a normal app build defines `UNICODE`. The
+   choice is higher-coverage (defining `UNICODE` drops 71 bare-ANSI exports) but the emitted
+   generic-text typedefs follow the ANSI branch.
+   - Fix (biggest lift, what the reference does): scrape ANSI and Unicode in two passes and merge.
+9. **Orphan named-type dropping** (reachability, no header-scoped retention) - a type an in-scope
+   header declares but no emitted signature references is dropped (`PROCESSOR_POWER_INFORMATION`,
+   `FIRMWARE_TABLE_PROVIDER`, `PROCESSOR_FEATURE_ID`).
+   - Fix: emit all named types *defined in* a `HEADERS` file, not only the reachability closure.
+10. **`intsafe.h` exclusion, `drop_lib_less`, `vertdll` ordering** (`tool_win32`) - pragmatic drops/
+    relinks of content the headers/libs literally provide. Low priority, defensible.
+
+**Correct as-is (do not "fix"):** overloaded-virtual vtable reversal (`interface.rs`, reproduces the
+true MSVC vtable slot order - ABI-critical); the `_HRESULT_TYPEDEF_`/`_NDIS_ERROR_TYPEDEF_`
+cast-wrapper map (`const.rs` `cast_wrapper_macro` 983-987, honors an explicit author type
+annotation).
+
+Suggested order: item 1 first (the actual bug, moves toward both notions of faithful, contained
+change), then 8 (true `windows.h` fidelity, large), then 4 / 9 / 2-3-5 / 7.

@@ -6,21 +6,21 @@ mod Windows {
         const DATA_E_FORMATETC: i32 = -2147221404;
         #[library("ole32.dll")]
         extern fn DoDragDrop(pDataObj: IDataObject, pDropSource: IDropSource, dwOKEffects: u32, pdwEffect: *mut u32) -> HRESULT;
-        const EMBDHLP_CREATENOW: u32 = 0;
-        const EMBDHLP_DELAYCREATE: u32 = 65536;
-        const EMBDHLP_INPROC_HANDLER: u32 = 0;
-        const EMBDHLP_INPROC_SERVER: u32 = 1;
+        const EMBDHLP_CREATENOW: i32 = 0;
+        const EMBDHLP_DELAYCREATE: i32 = 65536;
+        const EMBDHLP_INPROC_HANDLER: i32 = 0;
+        const EMBDHLP_INPROC_SERVER: i32 = 1;
         const E_DRAW: i32 = -2147221184;
         #[library("ole32.dll")]
         extern fn IsAccelerator(hAccel: HACCEL, cAccelEntries: i32, lpMsg: *mut MSG, lpwCmd: *mut u16) -> BOOL;
         type LPOLESTREAM = *mut OLESTREAM;
         type LPOLESTREAMVTBL = *mut OLESTREAMVTBL;
-        const OLECREATE_LEAVERUNNING: u32 = 1;
+        const OLECREATE_LEAVERUNNING: i32 = 1;
         const OLEIVERB_DISCARDUNDOSTATE: i32 = -6;
         const OLEIVERB_HIDE: i32 = -3;
         const OLEIVERB_INPLACEACTIVATE: i32 = -5;
         const OLEIVERB_OPEN: i32 = -2;
-        const OLEIVERB_PRIMARY: u32 = 0;
+        const OLEIVERB_PRIMARY: i32 = 0;
         const OLEIVERB_SHOW: i32 = -1;
         const OLEIVERB_UIACTIVATE: i32 = -4;
         struct OLESTREAM {
@@ -31,8 +31,8 @@ mod Windows {
             Get: *mut u8,
             Put: *mut u8,
         }
-        const OLESTREAM_CONVERSION_DEFAULT: u32 = 0;
-        const OLESTREAM_CONVERSION_DISABLEOLELINK: u32 = 1;
+        const OLESTREAM_CONVERSION_DEFAULT: i32 = 0;
+        const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1;
         #[library("ole32.dll")]
         extern fn OleBuildVersion() -> u32;
         #[library("ole32.dll")]

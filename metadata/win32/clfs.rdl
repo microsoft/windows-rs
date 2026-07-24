@@ -21,19 +21,19 @@ mod Windows {
             ClfsContextPrevious = 2,
             ClfsContextForward = 3,
         }
-        const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16;
-        const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32;
-        const CLFS_FLAG_FORCE_APPEND: u32 = 1;
-        const CLFS_FLAG_FORCE_FLUSH: u32 = 2;
-        const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512;
-        const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64;
-        const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256;
-        const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16;
-        const CLFS_FLAG_NO_FLAGS: u32 = 0;
-        const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128;
-        const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8;
-        const CLFS_FLAG_REENTRANT_FILTER: u32 = 32;
-        const CLFS_FLAG_USE_RESERVATION: u32 = 4;
+        const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: i32 = 16;
+        const CLFS_FLAG_FILTER_TOP_LEVEL: i32 = 32;
+        const CLFS_FLAG_FORCE_APPEND: i32 = 1;
+        const CLFS_FLAG_FORCE_FLUSH: i32 = 2;
+        const CLFS_FLAG_HIDDEN_SYSTEM_LOG: i32 = 512;
+        const CLFS_FLAG_IGNORE_SHARE_ACCESS: i32 = 64;
+        const CLFS_FLAG_MINIFILTER_LEVEL: i32 = 256;
+        const CLFS_FLAG_NON_REENTRANT_FILTER: i32 = 16;
+        const CLFS_FLAG_NO_FLAGS: i32 = 0;
+        const CLFS_FLAG_READ_IN_PROGRESS: i32 = 128;
+        const CLFS_FLAG_REENTRANT_FILE_SYSTEM: i32 = 8;
+        const CLFS_FLAG_REENTRANT_FILTER: i32 = 32;
+        const CLFS_FLAG_USE_RESERVATION: i32 = 4;
         type CLFS_INFORMATION = CLS_INFORMATION;
         #[repr(i32)]
         enum CLFS_IOSTATS_CLASS {
@@ -54,8 +54,8 @@ mod Windows {
             Name: [u16; 1],
         }
         type CLFS_LSN = CLS_LSN;
-        const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1;
-        const CLFS_MARSHALLING_FLAG_NONE: u32 = 0;
+        const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: i32 = 1;
+        const CLFS_MARSHALLING_FLAG_NONE: i32 = 0;
         struct CLFS_NODE_ID {
             cType: u32,
             cbNode: u32,
@@ -198,7 +198,7 @@ mod Windows {
         const EA_CONTAINER_NAME: String = "ContainerName";
         #[encoding("ansi")]
         const EA_CONTAINER_SIZE: String = "ContainerSize";
-        const FILE_ATTRIBUTE_DEDICATED: u32 = 256;
+        const FILE_ATTRIBUTE_DEDICATED: i32 = 256;
         type PCLFS_ARCHIVE_DESCRIPTOR = *mut CLFS_ARCHIVE_DESCRIPTOR;
         type PCLFS_CONTAINER_ID = *mut CLFS_CONTAINER_ID;
         type PCLFS_CONTAINER_INFORMATION = *mut CLFS_CONTAINER_INFORMATION;

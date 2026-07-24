@@ -221,7 +221,7 @@ mod Windows {
             CF_DEHYDRATE_FLAG_NONE = 0,
             CF_DEHYDRATE_FLAG_BACKGROUND = 1,
         }
-        const CF_EOF: i32 = -1;
+        const CF_EOF: i64 = -1;
         struct CF_FILE_RANGE {
             StartingOffset: LARGE_INTEGER,
             Length: LARGE_INTEGER,
@@ -291,9 +291,9 @@ mod Windows {
             CF_IN_SYNC_STATE_NOT_IN_SYNC = 0,
             CF_IN_SYNC_STATE_IN_SYNC = 1,
         }
-        const CF_MAX_PRIORITY_HINT: u32 = 15;
-        const CF_MAX_PROVIDER_NAME_LENGTH: u32 = 255;
-        const CF_MAX_PROVIDER_VERSION_LENGTH: u32 = 255;
+        const CF_MAX_PRIORITY_HINT: i32 = 15;
+        const CF_MAX_PROVIDER_NAME_LENGTH: i32 = 255;
+        const CF_MAX_PROVIDER_VERSION_LENGTH: i32 = 255;
         #[repr(u32)]
         #[flags]
         enum CF_OPEN_FILE_FLAGS {
@@ -465,7 +465,7 @@ mod Windows {
             CF_PLACEHOLDER_MANAGEMENT_POLICY_CONVERT_TO_UNRESTRICTED = 2,
             CF_PLACEHOLDER_MANAGEMENT_POLICY_UPDATE_UNRESTRICTED = 4,
         }
-        const CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH: u32 = 4096;
+        const CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH: i32 = 4096;
         #[repr(i32)]
         enum CF_PLACEHOLDER_RANGE_INFO_CLASS {
             CF_PLACEHOLDER_RANGE_INFO_ONDISK = 1,
@@ -540,7 +540,7 @@ mod Windows {
             CF_REGISTER_FLAG_MARK_IN_SYNC_ON_ROOT = 4,
         }
         type CF_REQUEST_KEY = LARGE_INTEGER;
-        const CF_REQUEST_KEY_DEFAULT: u32 = 0;
+        const CF_REQUEST_KEY_DEFAULT: i32 = 0;
         #[repr(u32)]
         #[flags]
         enum CF_REVERT_FLAGS {

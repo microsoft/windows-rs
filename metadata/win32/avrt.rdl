@@ -38,6 +38,6 @@ mod Windows {
         #[library("AVRT.dll")]
         extern fn AvSetMmThreadPriority(AvrtHandle: HANDLE, Priority: AVRT_PRIORITY) -> BOOL;
         type PAVRT_PRIORITY = *mut AVRT_PRIORITY;
-        const THREAD_ORDER_GROUP_INFINITE_TIMEOUT: i32 = -1;
+        const THREAD_ORDER_GROUP_INFINITE_TIMEOUT: i64 = -1;
     }
 }

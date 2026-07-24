@@ -39,8 +39,8 @@ mod Windows {
         const FD_QUERYCONSTRAINT_SUBCATEGORY: String = "Subcategory";
         #[encoding("utf-16")]
         const FD_QUERYCONSTRAINT_VISIBILITY: String = "Visibility";
-        const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100;
-        const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000;
+        const MAX_FDCONSTRAINTNAME_LENGTH: i32 = 100;
+        const MAX_FDCONSTRAINTVALUE_LENGTH: i32 = 1000;
         #[encoding("utf-16")]
         const ONLINE_PROVIDER_DEVICES_QUERYCONSTRAINT_OWNERNAME: String = "OwnerName";
         #[encoding("utf-16")]

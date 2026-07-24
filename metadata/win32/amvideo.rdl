@@ -1,20 +1,20 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const AMDDS_ALL: u32 = 255;
-        const AMDDS_DCIPS: u32 = 1;
-        const AMDDS_DEFAULT: u32 = 255;
-        const AMDDS_NONE: u32 = 0;
-        const AMDDS_PRIMARY: u32 = 3;
-        const AMDDS_PS: u32 = 2;
-        const AMDDS_RGB: u32 = 84;
-        const AMDDS_RGBFLP: u32 = 64;
-        const AMDDS_RGBOFF: u32 = 16;
-        const AMDDS_RGBOVR: u32 = 4;
-        const AMDDS_YUV: u32 = 168;
-        const AMDDS_YUVFLP: u32 = 128;
-        const AMDDS_YUVOFF: u32 = 32;
-        const AMDDS_YUVOVR: u32 = 8;
+        const AMDDS_ALL: i32 = 255;
+        const AMDDS_DCIPS: i32 = 1;
+        const AMDDS_DEFAULT: i32 = 255;
+        const AMDDS_NONE: i32 = 0;
+        const AMDDS_PRIMARY: i32 = 3;
+        const AMDDS_PS: i32 = 2;
+        const AMDDS_RGB: i32 = 84;
+        const AMDDS_RGBFLP: i32 = 64;
+        const AMDDS_RGBOFF: i32 = 16;
+        const AMDDS_RGBOVR: i32 = 4;
+        const AMDDS_YUV: i32 = 168;
+        const AMDDS_YUVFLP: i32 = 128;
+        const AMDDS_YUVOFF: i32 = 32;
+        const AMDDS_YUVOVR: i32 = 8;
         struct AM_FRAMESTEP_STEP {
             dwFramesToStep: u32,
         }
@@ -97,14 +97,14 @@ mod Windows {
             fn get_AvgSyncOffset(&self, piAvg: *mut i32) -> HRESULT;
             fn get_DevSyncOffset(&self, piDev: *mut i32) -> HRESULT;
         }
-        const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140;
+        const MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
         struct MPEG1VIDEOINFO {
             hdr: VIDEOINFOHEADER,
             dwStartTimeCode: u32,
             cbSequenceHeader: u32,
             bSequenceHeader: [u8; 1],
         }
-        const SIZE_PREHEADER: u32 = 48;
+        const SIZE_PREHEADER: i32 = 48;
         struct TRUECOLORINFO {
             dwBitMasks: [u32; 3],
             bmiColors: [RGBQUAD; 256],
@@ -130,14 +130,14 @@ mod Windows {
             AvgTimePerFrame: REFERENCE_TIME,
             bmiHeader: BITMAPINFOHEADER,
         }
-        const iBLUE: u32 = 2;
-        const iEGA_COLORS: u32 = 16;
-        const iGREEN: u32 = 1;
-        const iMASK_COLORS: u32 = 3;
-        const iMAXBITS: u32 = 8;
-        const iPALETTE: u32 = 8;
-        const iPALETTE_COLORS: u32 = 256;
-        const iRED: u32 = 0;
-        const iTRUECOLOR: u32 = 16;
+        const iBLUE: i32 = 2;
+        const iEGA_COLORS: i32 = 16;
+        const iGREEN: i32 = 1;
+        const iMASK_COLORS: i32 = 3;
+        const iMAXBITS: i32 = 8;
+        const iPALETTE: i32 = 8;
+        const iPALETTE_COLORS: i32 = 256;
+        const iRED: i32 = 0;
+        const iTRUECOLOR: i32 = 16;
     }
 }

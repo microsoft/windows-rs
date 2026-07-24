@@ -337,15 +337,15 @@ mod Windows {
             NumberOfMemoryRanges: u32,
             MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR; 0],
         }
-        const MINIDUMP_MISC1_PROCESSOR_POWER_INFO: u32 = 4;
-        const MINIDUMP_MISC1_PROCESS_ID: u32 = 1;
-        const MINIDUMP_MISC1_PROCESS_TIMES: u32 = 2;
-        const MINIDUMP_MISC3_PROCESS_EXECUTE_FLAGS: u32 = 32;
-        const MINIDUMP_MISC3_PROCESS_INTEGRITY: u32 = 16;
-        const MINIDUMP_MISC3_PROTECTED_PROCESS: u32 = 128;
-        const MINIDUMP_MISC3_TIMEZONE: u32 = 64;
-        const MINIDUMP_MISC4_BUILDSTRING: u32 = 256;
-        const MINIDUMP_MISC5_PROCESS_COOKIE: u32 = 512;
+        const MINIDUMP_MISC1_PROCESSOR_POWER_INFO: i32 = 4;
+        const MINIDUMP_MISC1_PROCESS_ID: i32 = 1;
+        const MINIDUMP_MISC1_PROCESS_TIMES: i32 = 2;
+        const MINIDUMP_MISC3_PROCESS_EXECUTE_FLAGS: i32 = 32;
+        const MINIDUMP_MISC3_PROCESS_INTEGRITY: i32 = 16;
+        const MINIDUMP_MISC3_PROTECTED_PROCESS: i32 = 128;
+        const MINIDUMP_MISC3_TIMEZONE: i32 = 64;
+        const MINIDUMP_MISC4_BUILDSTRING: i32 = 256;
+        const MINIDUMP_MISC5_PROCESS_COOKIE: i32 = 512;
         struct MINIDUMP_MISC_INFO {
             SizeOfInfo: u32,
             Flags1: u32,
@@ -458,7 +458,7 @@ mod Windows {
             NumberOfModules: u32,
             Modules: [MINIDUMP_MODULE; 0],
         }
-        const MINIDUMP_PROCESS_VM_COUNTERS: u32 = 1;
+        const MINIDUMP_PROCESS_VM_COUNTERS: i32 = 1;
         #[packed(4)]
         struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
             Revision: u16,
@@ -497,11 +497,11 @@ mod Windows {
             JobPrivateCommitLimit: u64,
             JobTotalCommitLimit: u64,
         }
-        const MINIDUMP_PROCESS_VM_COUNTERS_EX: u32 = 4;
-        const MINIDUMP_PROCESS_VM_COUNTERS_EX2: u32 = 8;
-        const MINIDUMP_PROCESS_VM_COUNTERS_JOB: u32 = 16;
+        const MINIDUMP_PROCESS_VM_COUNTERS_EX: i32 = 4;
+        const MINIDUMP_PROCESS_VM_COUNTERS_EX2: i32 = 8;
+        const MINIDUMP_PROCESS_VM_COUNTERS_JOB: i32 = 16;
         type MINIDUMP_PROCESS_VM_COUNTERS_N = MINIDUMP_PROCESS_VM_COUNTERS_2;
-        const MINIDUMP_PROCESS_VM_COUNTERS_VIRTUALSIZE: u32 = 2;
+        const MINIDUMP_PROCESS_VM_COUNTERS_VIRTUALSIZE: i32 = 2;
         #[packed(4)]
         struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
             Offset: u64,
@@ -513,7 +513,7 @@ mod Windows {
             MiniSecondaryWithoutPowerInfo = 1,
             MiniSecondaryValidFlags = 1,
         }
-        const MINIDUMP_SIGNATURE: u32 = 1347241037;
+        const MINIDUMP_SIGNATURE: i32 = 1347241037;
         #[repr(i32)]
         enum MINIDUMP_STREAM_TYPE {
             UnusedStream = 0,
@@ -562,12 +562,12 @@ mod Windows {
             Length: u32,
             Buffer: [u16; 0],
         }
-        const MINIDUMP_SYSMEMINFO1_BASICPERF: u32 = 2;
-        const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: u32 = 1;
-        const MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD: u32 = 4;
-        const MINIDUMP_SYSMEMINFO1_PERF_MDLPAGESALLOCATED_PFNDATABASECOMMITTEDPAGES: u32 = 16;
-        const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: u32 = 8;
-        const MINIDUMP_SYSMEMINFO1_PERF_SYSTEMPAGETABLECOMMITTEDPAGES_CONTIGUOUSPAGESALLOCATED: u32 = 32;
+        const MINIDUMP_SYSMEMINFO1_BASICPERF: i32 = 2;
+        const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: i32 = 1;
+        const MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD: i32 = 4;
+        const MINIDUMP_SYSMEMINFO1_PERF_MDLPAGESALLOCATED_PFNDATABASECOMMITTEDPAGES: i32 = 16;
+        const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: i32 = 8;
+        const MINIDUMP_SYSMEMINFO1_PERF_SYSTEMPAGETABLECOMMITTEDPAGES_CONTIGUOUSPAGESALLOCATED: i32 = 32;
         #[packed(4)]
         struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
             TimerResolution: u32,
@@ -910,17 +910,17 @@ mod Windows {
             StartAddress: u64,
             Affinity: u64,
         }
-        const MINIDUMP_THREAD_INFO_ERROR_THREAD: u32 = 1;
-        const MINIDUMP_THREAD_INFO_EXITED_THREAD: u32 = 4;
-        const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: u32 = 16;
-        const MINIDUMP_THREAD_INFO_INVALID_INFO: u32 = 8;
-        const MINIDUMP_THREAD_INFO_INVALID_TEB: u32 = 32;
+        const MINIDUMP_THREAD_INFO_ERROR_THREAD: i32 = 1;
+        const MINIDUMP_THREAD_INFO_EXITED_THREAD: i32 = 4;
+        const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: i32 = 16;
+        const MINIDUMP_THREAD_INFO_INVALID_INFO: i32 = 8;
+        const MINIDUMP_THREAD_INFO_INVALID_TEB: i32 = 32;
         struct MINIDUMP_THREAD_INFO_LIST {
             SizeOfHeader: u32,
             SizeOfEntry: u32,
             NumberOfEntries: u32,
         }
-        const MINIDUMP_THREAD_INFO_WRITING_THREAD: u32 = 2;
+        const MINIDUMP_THREAD_INFO_WRITING_THREAD: i32 = 2;
         struct MINIDUMP_THREAD_LIST {
             NumberOfThreads: u32,
             Threads: [MINIDUMP_THREAD; 0],
@@ -1020,7 +1020,7 @@ mod Windows {
             UserStreamCount: u32,
             UserStreamArray: PMINIDUMP_USER_STREAM,
         }
-        const MINIDUMP_VERSION: u32 = 42899;
+        const MINIDUMP_VERSION: i32 = 42899;
         #[packed(4)]
         struct MINIDUMP_VM_POST_READ_CALLBACK {
             Offset: u64,

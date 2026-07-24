@@ -1,5 +1,5 @@
 pub const CONTROL_C_EXIT: i32 = -1073741510;
-pub const CREATE_PROCESS_DEBUG_EVENT: u32 = 3;
+pub const CREATE_PROCESS_DEBUG_EVENT: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug)]
@@ -21,7 +21,7 @@ impl Default for CREATE_PROCESS_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CREATE_THREAD_DEBUG_EVENT: u32 = 2;
+pub const CREATE_THREAD_DEBUG_EVENT: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug)]
@@ -79,7 +79,7 @@ pub const EXCEPTION_ACCESS_VIOLATION: i32 = -1073741819;
 pub const EXCEPTION_ARRAY_BOUNDS_EXCEEDED: i32 = -1073741684;
 pub const EXCEPTION_BREAKPOINT: i32 = -2147483645;
 pub const EXCEPTION_DATATYPE_MISALIGNMENT: i32 = -2147483646;
-pub const EXCEPTION_DEBUG_EVENT: u32 = 1;
+pub const EXCEPTION_DEBUG_EVENT: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -106,13 +106,13 @@ pub const EXCEPTION_POSSIBLE_DEADLOCK: i32 = -1073741420;
 pub const EXCEPTION_PRIV_INSTRUCTION: i32 = -1073741674;
 pub const EXCEPTION_SINGLE_STEP: i32 = -2147483644;
 pub const EXCEPTION_STACK_OVERFLOW: i32 = -1073741571;
-pub const EXIT_PROCESS_DEBUG_EVENT: u32 = 5;
+pub const EXIT_PROCESS_DEBUG_EVENT: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXIT_PROCESS_DEBUG_INFO {
     pub dwExitCode: u32,
 }
-pub const EXIT_THREAD_DEBUG_EVENT: u32 = 4;
+pub const EXIT_THREAD_DEBUG_EVENT: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXIT_THREAD_DEBUG_INFO {
@@ -122,9 +122,9 @@ pub type FILE_INFO_BY_HANDLE_CLASS = i32;
 pub type FILE_INFO_BY_NAME_CLASS = i32;
 pub type FINDEX_INFO_LEVELS = i32;
 pub type FINDEX_SEARCH_OPS = i32;
-pub const FIND_FIRST_EX_CASE_SENSITIVE: u32 = 1;
-pub const FIND_FIRST_EX_LARGE_FETCH: u32 = 2;
-pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: u32 = 4;
+pub const FIND_FIRST_EX_CASE_SENSITIVE: i32 = 1;
+pub const FIND_FIRST_EX_LARGE_FETCH: i32 = 2;
+pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: i32 = 4;
 pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = 17;
 pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = 5;
 pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = 9;
@@ -164,19 +164,19 @@ pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = 0;
 pub type GET_FILEEX_INFO_LEVELS = i32;
 pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = 0;
 pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = 1;
-pub const LHND: u32 = 66;
-pub const LMEM_DISCARDABLE: u32 = 3840;
-pub const LMEM_DISCARDED: u32 = 16384;
-pub const LMEM_FIXED: u32 = 0;
-pub const LMEM_INVALID_HANDLE: u32 = 32768;
-pub const LMEM_LOCKCOUNT: u32 = 255;
-pub const LMEM_MODIFY: u32 = 128;
-pub const LMEM_MOVEABLE: u32 = 2;
-pub const LMEM_NOCOMPACT: u32 = 16;
-pub const LMEM_NODISCARD: u32 = 32;
-pub const LMEM_VALID_FLAGS: u32 = 3954;
-pub const LMEM_ZEROINIT: u32 = 64;
-pub const LOAD_DLL_DEBUG_EVENT: u32 = 6;
+pub const LHND: i32 = 66;
+pub const LMEM_DISCARDABLE: i32 = 3840;
+pub const LMEM_DISCARDED: i32 = 16384;
+pub const LMEM_FIXED: i32 = 0;
+pub const LMEM_INVALID_HANDLE: i32 = 32768;
+pub const LMEM_LOCKCOUNT: i32 = 255;
+pub const LMEM_MODIFY: i32 = 128;
+pub const LMEM_MOVEABLE: i32 = 2;
+pub const LMEM_NOCOMPACT: i32 = 16;
+pub const LMEM_NODISCARD: i32 = 32;
+pub const LMEM_VALID_FLAGS: i32 = 3954;
+pub const LMEM_ZEROINIT: i32 = 64;
+pub const LOAD_DLL_DEBUG_EVENT: i32 = 6;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -194,8 +194,8 @@ impl Default for LOAD_DLL_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const LOCKFILE_EXCLUSIVE_LOCK: u32 = 2;
-pub const LOCKFILE_FAIL_IMMEDIATELY: u32 = 1;
+pub const LOCKFILE_EXCLUSIVE_LOCK: i32 = 2;
+pub const LOCKFILE_FAIL_IMMEDIATELY: i32 = 1;
 #[cfg(feature = "winnt")]
 pub type LPCONTEXT = super::PCONTEXT;
 #[cfg(feature = "winnt")]
@@ -228,7 +228,7 @@ pub type LPRIP_INFO = *mut RIP_INFO;
 pub type LPSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
 pub type LPSYSTEMTIME = *mut SYSTEMTIME;
 pub type LPTHREAD_START_ROUTINE = PTHREAD_START_ROUTINE;
-pub const LPTR: u32 = 64;
+pub const LPTR: i32 = 64;
 pub type LPUNLOAD_DLL_DEBUG_INFO = *mut UNLOAD_DLL_DEBUG_INFO;
 #[cfg(feature = "minwindef")]
 pub type LPWIN32_FIND_DATA = LPWIN32_FIND_DATAA;
@@ -238,10 +238,10 @@ pub type LPWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
 pub type LPWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
 pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = 25;
 pub const MaximumFileInfoByNameClass: FILE_INFO_BY_NAME_CLASS = 4;
-pub const NONZEROLHND: u32 = 2;
-pub const NONZEROLPTR: u32 = 0;
+pub const NONZEROLHND: i32 = 2;
+pub const NONZEROLPTR: i32 = 0;
 pub const NUMA_NO_PREFERRED_NODE: u32 = 4294967295;
-pub const OUTPUT_DEBUG_STRING_EVENT: u32 = 8;
+pub const OUTPUT_DEBUG_STRING_EVENT: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTPUT_DEBUG_STRING_INFO {
@@ -363,12 +363,12 @@ impl Default for PROCESS_HEAP_ENTRY_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROCESS_HEAP_ENTRY_BUSY: u32 = 4;
-pub const PROCESS_HEAP_ENTRY_DDESHARE: u32 = 32;
-pub const PROCESS_HEAP_ENTRY_MOVEABLE: u32 = 16;
-pub const PROCESS_HEAP_REGION: u32 = 1;
-pub const PROCESS_HEAP_SEG_ALLOC: u32 = 8;
-pub const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2;
+pub const PROCESS_HEAP_ENTRY_BUSY: i32 = 4;
+pub const PROCESS_HEAP_ENTRY_DDESHARE: i32 = 32;
+pub const PROCESS_HEAP_ENTRY_MOVEABLE: i32 = 16;
+pub const PROCESS_HEAP_REGION: i32 = 1;
+pub const PROCESS_HEAP_SEG_ALLOC: i32 = 8;
+pub const PROCESS_HEAP_UNCOMMITTED_RANGE: i32 = 2;
 pub type PSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
 pub type PSYSTEMTIME = *mut SYSTEMTIME;
 pub type PTHREAD_START_ROUTINE = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;
@@ -421,7 +421,7 @@ impl Default for REASON_CONTEXT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RIP_EVENT: u32 = 9;
+pub const RIP_EVENT: i32 = 9;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RIP_INFO {
@@ -444,7 +444,7 @@ impl Default for SECURITY_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const STILL_ACTIVE: u32 = 259;
+pub const STILL_ACTIVE: i32 = 259;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMTIME {
@@ -457,7 +457,7 @@ pub struct SYSTEMTIME {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-pub const UNLOAD_DLL_DEBUG_EVENT: u32 = 7;
+pub const UNLOAD_DLL_DEBUG_EVENT: i32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNLOAD_DLL_DEBUG_INFO {

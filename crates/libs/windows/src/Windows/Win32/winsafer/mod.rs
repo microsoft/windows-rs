@@ -125,13 +125,13 @@ impl Default for SAFER_CODE_PROPERTIES_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32;
-pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8;
-pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4;
-pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1;
-pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096;
-pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2;
-pub const SAFER_CRITERIA_URLZONE: u32 = 16;
+pub const SAFER_CRITERIA_APPX_PACKAGE: i32 = 32;
+pub const SAFER_CRITERIA_AUTHENTICODE: i32 = 8;
+pub const SAFER_CRITERIA_IMAGEHASH: i32 = 4;
+pub const SAFER_CRITERIA_IMAGEPATH: i32 = 1;
+pub const SAFER_CRITERIA_IMAGEPATH_NT: i32 = 4096;
+pub const SAFER_CRITERIA_NOSIGNEDHASH: i32 = 2;
+pub const SAFER_CRITERIA_URLZONE: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -176,11 +176,11 @@ pub struct SAFER_IDENTIFICATION_HEADER {
     pub lastModified: super::FILETIME,
 }
 pub type SAFER_IDENTIFICATION_TYPES = i32;
-pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536;
-pub const SAFER_LEVELID_DISALLOWED: u32 = 0;
-pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144;
-pub const SAFER_LEVELID_NORMALUSER: u32 = 131072;
-pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096;
+pub const SAFER_LEVELID_CONSTRAINED: i32 = 65536;
+pub const SAFER_LEVELID_DISALLOWED: i32 = 0;
+pub const SAFER_LEVELID_FULLYTRUSTED: i32 = 262144;
+pub const SAFER_LEVELID_NORMALUSER: i32 = 131072;
+pub const SAFER_LEVELID_UNTRUSTED: i32 = 4096;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SAFER_LEVEL_HANDLE(pub *mut core::ffi::c_void);
@@ -189,10 +189,10 @@ impl Default for SAFER_LEVEL_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SAFER_LEVEL_OPEN: u32 = 1;
-pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256;
-pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256;
-pub const SAFER_MAX_HASH_SIZE: u32 = 64;
+pub const SAFER_LEVEL_OPEN: i32 = 1;
+pub const SAFER_MAX_DESCRIPTION_SIZE: i32 = 256;
+pub const SAFER_MAX_FRIENDLYNAME_SIZE: i32 = 256;
+pub const SAFER_MAX_HASH_SIZE: i32 = 64;
 pub type SAFER_OBJECT_INFO_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -209,25 +209,25 @@ impl Default for SAFER_PATHNAME_IDENTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192;
-pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144;
+pub const SAFER_POLICY_BLOCK_CLIENT_UI: i32 = 8192;
+pub const SAFER_POLICY_HASH_DUPLICATE: i32 = 262144;
 pub type SAFER_POLICY_INFO_CLASS = i32;
-pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864;
+pub const SAFER_POLICY_JOBID_CONSTRAINED: i32 = 67108864;
 pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080;
-pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648;
-pub const SAFER_POLICY_ONLY_AUDIT: u32 = 4096;
-pub const SAFER_POLICY_ONLY_EXES: u32 = 65536;
-pub const SAFER_POLICY_SANDBOX_INERT: u32 = 131072;
-pub const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4;
-pub const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1;
-pub const SAFER_POLICY_UIFLAGS_MASK: u32 = 255;
-pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2;
-pub const SAFER_SCOPEID_MACHINE: u32 = 1;
-pub const SAFER_SCOPEID_USER: u32 = 2;
-pub const SAFER_TOKEN_COMPARE_ONLY: u32 = 2;
-pub const SAFER_TOKEN_MAKE_INERT: u32 = 4;
-pub const SAFER_TOKEN_NULL_IF_EQUAL: u32 = 1;
-pub const SAFER_TOKEN_WANT_FLAGS: u32 = 8;
+pub const SAFER_POLICY_JOBID_UNTRUSTED: i32 = 50331648;
+pub const SAFER_POLICY_ONLY_AUDIT: i32 = 4096;
+pub const SAFER_POLICY_ONLY_EXES: i32 = 65536;
+pub const SAFER_POLICY_SANDBOX_INERT: i32 = 131072;
+pub const SAFER_POLICY_UIFLAGS_HIDDEN: i32 = 4;
+pub const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: i32 = 1;
+pub const SAFER_POLICY_UIFLAGS_MASK: i32 = 255;
+pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: i32 = 2;
+pub const SAFER_SCOPEID_MACHINE: i32 = 1;
+pub const SAFER_SCOPEID_USER: i32 = 2;
+pub const SAFER_TOKEN_COMPARE_ONLY: i32 = 2;
+pub const SAFER_TOKEN_MAKE_INERT: i32 = 4;
+pub const SAFER_TOKEN_NULL_IF_EQUAL: i32 = 1;
+pub const SAFER_TOKEN_WANT_FLAGS: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

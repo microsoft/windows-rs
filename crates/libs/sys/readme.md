@@ -29,7 +29,7 @@ unsafe {
     WaitForSingleObject(event, 0);
     CloseHandle(event);
 
-    MessageBoxA(0 as _, s!("Ansi"), s!("Caption"), MB_OK);
-    MessageBoxW(0 as _, w!("Wide"), w!("Caption"), MB_OK);
+    MessageBoxA(0 as _, s!("Ansi"), s!("Caption"), MB_OK as u32);
+    MessageBoxW(0 as _, w!("Wide"), w!("Caption"), MB_OK as u32);
 }
 ```

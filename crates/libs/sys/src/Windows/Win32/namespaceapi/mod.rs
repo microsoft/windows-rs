@@ -10,4 +10,4 @@ windows_link::link!("kernel32.dll" "system" fn CreatePrivateNamespaceW(lpprivate
 windows_link::link!("kernel32.dll" "system" fn DeleteBoundaryDescriptor(boundarydescriptor : super::HANDLE));
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn OpenPrivateNamespaceW(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_sys::core::PCWSTR) -> super::HANDLE);
-pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1;
+pub const PRIVATE_NAMESPACE_FLAG_DESTROY: i32 = 1;

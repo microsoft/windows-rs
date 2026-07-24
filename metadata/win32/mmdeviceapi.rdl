@@ -16,11 +16,11 @@ mod Windows {
             pPnpInterface: IMMDevice,
             pPnpDevnode: IMMDevice,
         }
-        const DEVICE_STATEMASK_ALL: u32 = 15;
-        const DEVICE_STATE_ACTIVE: u32 = 1;
-        const DEVICE_STATE_DISABLED: u32 = 2;
-        const DEVICE_STATE_NOTPRESENT: u32 = 4;
-        const DEVICE_STATE_UNPLUGGED: u32 = 8;
+        const DEVICE_STATEMASK_ALL: i32 = 15;
+        const DEVICE_STATE_ACTIVE: i32 = 1;
+        const DEVICE_STATE_DISABLED: i32 = 2;
+        const DEVICE_STATE_NOTPRESENT: i32 = 4;
+        const DEVICE_STATE_UNPLUGGED: i32 = 8;
         const DEVINTERFACE_AUDIO_CAPTURE: GUID = 0x2eef81be_33fa_4800_9670_1cd474972c3f;
         const DEVINTERFACE_AUDIO_RENDER: GUID = 0xe6327cad_dcec_4949_ae8a_991e976a79d2;
         const DEVINTERFACE_MIDI_INPUT: GUID = 0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b;
@@ -37,8 +37,8 @@ mod Windows {
             eAll = 2,
             EDataFlow_enum_count = 3,
         }
-        const ENDPOINT_SYSFX_DISABLED: u32 = 1;
-        const ENDPOINT_SYSFX_ENABLED: u32 = 0;
+        const ENDPOINT_SYSFX_DISABLED: i32 = 1;
+        const ENDPOINT_SYSFX_ENABLED: i32 = 0;
         #[repr(i32)]
         enum ERole {
             eConsole = 0,
@@ -63,7 +63,7 @@ mod Windows {
             UnknownFormFactor = 10,
             EndpointFormFactor_enum_count = 11,
         }
-        const HDMI: u32 = 9;
+        const HDMI: i32 = 9;
         #[guid(0x72a22d78_cde4_431d_b8cc_843a71199b6d)]
         interface IActivateAudioInterfaceAsyncOperation: IUnknown {
             fn GetActivateResult(&self, activateResult: *mut HRESULT, activatedInterface: *mut IUnknown) -> HRESULT;

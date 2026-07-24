@@ -1,28 +1,28 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const CA_ACCESS_ADMIN: u32 = 1;
-        const CA_ACCESS_AUDITOR: u32 = 4;
-        const CA_ACCESS_ENROLL: u32 = 512;
-        const CA_ACCESS_MASKROLES: u32 = 255;
-        const CA_ACCESS_OFFICER: u32 = 2;
-        const CA_ACCESS_OPERATOR: u32 = 8;
-        const CA_ACCESS_READ: u32 = 256;
-        const CA_CRL_BASE: u32 = 1;
-        const CA_CRL_DELTA: u32 = 2;
-        const CA_CRL_REPUBLISH: u32 = 16;
-        const CA_DISP_ERROR: u32 = 1;
-        const CA_DISP_INCOMPLETE: u32 = 0;
-        const CA_DISP_INVALID: u32 = 4;
-        const CA_DISP_REVOKED: u32 = 2;
-        const CA_DISP_UNDER_SUBMISSION: u32 = 5;
-        const CA_DISP_VALID: u32 = 3;
+        const CA_ACCESS_ADMIN: i32 = 1;
+        const CA_ACCESS_AUDITOR: i32 = 4;
+        const CA_ACCESS_ENROLL: i32 = 512;
+        const CA_ACCESS_MASKROLES: i32 = 255;
+        const CA_ACCESS_OFFICER: i32 = 2;
+        const CA_ACCESS_OPERATOR: i32 = 8;
+        const CA_ACCESS_READ: i32 = 256;
+        const CA_CRL_BASE: i32 = 1;
+        const CA_CRL_DELTA: i32 = 2;
+        const CA_CRL_REPUBLISH: i32 = 16;
+        const CA_DISP_ERROR: i32 = 1;
+        const CA_DISP_INCOMPLETE: i32 = 0;
+        const CA_DISP_INVALID: i32 = 4;
+        const CA_DISP_REVOKED: i32 = 2;
+        const CA_DISP_UNDER_SUBMISSION: i32 = 5;
+        const CA_DISP_VALID: i32 = 3;
         const CCertAdmin: GUID = 0x37eabaf0_7fb6_11d0_8817_00a0c903b83c;
         const CCertView: GUID = 0xa12d0f7a_1e84_11d1_9bd6_00c04fb683fa;
-        const CDR_EXPIRED: u32 = 1;
-        const CDR_REQUEST_LAST_CHANGED: u32 = 2;
-        const ICF_ALLOWFOREIGN: u32 = 65536;
-        const ICF_EXISTINGROW: u32 = 131072;
+        const CDR_EXPIRED: i32 = 1;
+        const CDR_REQUEST_LAST_CHANGED: i32 = 2;
+        const ICF_ALLOWFOREIGN: i32 = 65536;
+        const ICF_EXISTINGROW: i32 = 131072;
         #[guid(0x34df6950_7fb6_11d0_8817_00a0c903b83c)]
         interface ICertAdmin: IDispatch {
             fn IsValidCertificate(&self, strConfig: BSTR, strSerialNumber: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
@@ -50,7 +50,7 @@ mod Windows {
             fn GetMyRoles(&self, strConfig: BSTR, #[retval] pRoles: *mut i32) -> HRESULT;
             fn DeleteRow(&self, strConfig: BSTR, Flags: i32, Date: f64, Table: i32, RowId: i32, #[retval] pcDeleted: *mut i32) -> HRESULT;
         }
-        const IKF_OVERWRITE: u32 = 65536;
+        const IKF_OVERWRITE: i32 = 65536;
         #[guid(0x322e830d_67db_4fe9_9577_4596d9f09294)]
         interface IOCSPAdmin: IDispatch {
             #[special]
@@ -156,13 +156,13 @@ mod Windows {
             fn InitializeFromProperties(&self, pVarProperties: *const VARIANT) -> HRESULT;
             fn GetAllProperties(&self, #[retval] pVarProperties: *mut VARIANT) -> HRESULT;
         }
-        const KRA_DISP_EXPIRED: u32 = 0;
-        const KRA_DISP_INVALID: u32 = 4;
-        const KRA_DISP_NOTFOUND: u32 = 1;
-        const KRA_DISP_NOTLOADED: u32 = 6;
-        const KRA_DISP_REVOKED: u32 = 2;
-        const KRA_DISP_UNTRUSTED: u32 = 5;
-        const KRA_DISP_VALID: u32 = 3;
+        const KRA_DISP_EXPIRED: i32 = 0;
+        const KRA_DISP_INVALID: i32 = 4;
+        const KRA_DISP_NOTFOUND: i32 = 1;
+        const KRA_DISP_NOTLOADED: i32 = 6;
+        const KRA_DISP_REVOKED: i32 = 2;
+        const KRA_DISP_UNTRUSTED: i32 = 5;
+        const KRA_DISP_VALID: i32 = 3;
         const OCSPAdmin: GUID = 0xd3f73511_92c9_47cb_8ff2_8d891a7c4de4;
         const OCSPPropertyCollection: GUID = 0xf935a528_ba8a_4dd9_ba79_f283275cb2de;
         #[repr(i32)]

@@ -10,13 +10,13 @@ windows_link::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : BSTR))
 windows_link::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> u32);
 pub type BOOL = i32;
 pub type BSTR = *const u16;
-pub const ERROR_INVALID_DATA: u32 = 13;
-pub const ERROR_NO_UNICODE_TRANSLATION: u32 = 1113;
+pub const ERROR_INVALID_DATA: i32 = 13;
+pub const ERROR_NO_UNICODE_TRANSLATION: i32 = 1113;
 pub const E_UNEXPECTED: HRESULT = 0x8000FFFF_u32 as _;
-pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 256;
-pub const FORMAT_MESSAGE_FROM_HMODULE: u32 = 2048;
-pub const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 4096;
-pub const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 512;
+pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: i32 = 256;
+pub const FORMAT_MESSAGE_FROM_HMODULE: i32 = 2048;
+pub const FORMAT_MESSAGE_FROM_SYSTEM: i32 = 4096;
+pub const FORMAT_MESSAGE_IGNORE_INSERTS: i32 = 512;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct GUID {
@@ -78,7 +78,7 @@ pub struct IUnknown_Vtbl {
     pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: i32 = 4096;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
 pub type va_list = *mut i8;

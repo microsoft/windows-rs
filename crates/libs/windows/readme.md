@@ -38,8 +38,8 @@ fn main() -> Result<()> {
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
 
-        MessageBoxA(None, s!("Ansi"), s!("Caption"), MB_OK);
-        MessageBoxW(None, w!("Wide"), w!("Caption"), MB_OK);
+        MessageBoxA(None, s!("Ansi"), s!("Caption"), MB_OK as u32);
+        MessageBoxW(None, w!("Wide"), w!("Caption"), MB_OK as u32);
     }
 
     Ok(())

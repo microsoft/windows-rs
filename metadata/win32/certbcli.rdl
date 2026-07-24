@@ -2,30 +2,30 @@
 mod Windows {
     mod Win32 {
         const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295;
-        const CSBACKUP_TYPE_FULL: u32 = 1;
-        const CSBACKUP_TYPE_LOGS_ONLY: u32 = 2;
-        const CSBACKUP_TYPE_MASK: u32 = 3;
+        const CSBACKUP_TYPE_FULL: i32 = 1;
+        const CSBACKUP_TYPE_LOGS_ONLY: i32 = 2;
+        const CSBACKUP_TYPE_MASK: i32 = 3;
         type CSBFT = u16;
         const CSBFT_CERTSERVER_DATABASE: u32 = 68;
         const CSBFT_CHECKPOINT_DIR: u32 = 131;
-        const CSBFT_DATABASE_DIRECTORY: u32 = 64;
-        const CSBFT_DIRECTORY: u32 = 128;
+        const CSBFT_DATABASE_DIRECTORY: i32 = 64;
+        const CSBFT_DIRECTORY: i32 = 128;
         const CSBFT_LOG: u32 = 33;
         const CSBFT_LOG_DIR: u32 = 130;
-        const CSBFT_LOG_DIRECTORY: u32 = 32;
+        const CSBFT_LOG_DIRECTORY: i32 = 32;
         const CSBFT_PATCH_FILE: u32 = 37;
         const CSBFT_UNKNOWN: u32 = 15;
-        const CSCONTROL_RESTART: u32 = 3;
-        const CSCONTROL_SHUTDOWN: u32 = 1;
-        const CSCONTROL_SUSPEND: u32 = 2;
+        const CSCONTROL_RESTART: i32 = 3;
+        const CSCONTROL_SHUTDOWN: i32 = 1;
+        const CSCONTROL_SUSPEND: i32 = 2;
         struct CSEDB_RSTMAPW {
             pwszDatabaseName: *mut u16,
             pwszNewDatabaseName: *mut u16,
         }
-        const CSRESTORE_TYPE_CATCHUP: u32 = 4;
-        const CSRESTORE_TYPE_FULL: u32 = 1;
-        const CSRESTORE_TYPE_MASK: u32 = 5;
-        const CSRESTORE_TYPE_ONLINE: u32 = 2;
+        const CSRESTORE_TYPE_CATCHUP: i32 = 4;
+        const CSRESTORE_TYPE_FULL: i32 = 1;
+        const CSRESTORE_TYPE_MASK: i32 = 5;
+        const CSRESTORE_TYPE_ONLINE: i32 = 2;
         #[library("certadm.dll")]
         extern fn CertSrvBackupClose(hbc: HCSBC) -> HRESULT;
         #[library("certadm.dll")]

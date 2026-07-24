@@ -65,7 +65,7 @@ pub fn is_server() -> bool {
         RtlGetVersion(&mut info as *mut _ as *mut _);
     }
 
-    info.wProductType as u32 != VER_NT_WORKSTATION
+    info.wProductType != VER_NT_WORKSTATION as u8
 }
 
 /// Gets the revision number of the operating system.
@@ -78,7 +78,7 @@ pub fn revision() -> u32 {
             HKEY_LOCAL_MACHINE,
             b"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\0".as_ptr(),
             b"UBR\0".as_ptr(),
-            RRF_RT_REG_DWORD,
+            RRF_RT_REG_DWORD as u32,
             core::ptr::null_mut(),
             value.as_mut_ptr() as _,
             &mut len,

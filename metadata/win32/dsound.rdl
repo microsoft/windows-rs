@@ -12,7 +12,7 @@ mod Windows {
             y: f32,
             z: f32,
         }
-        const DIRECTSOUND_VERSION: u32 = 2304;
+        const DIRECTSOUND_VERSION: i32 = 2304;
         const DS3DALG_HRTF_FULL: GUID = 0xc2413340_1c1b_11d2_94f5_00c04fc28aca;
         const DS3DALG_HRTF_LIGHT: GUID = 0xc2413342_1c1b_11d2_94f5_00c04fc28aca;
         const DS3DALG_NO_VIRTUALIZATION: GUID = 0xc241333f_1c1b_11d2_94f5_00c04fc28aca;
@@ -38,22 +38,22 @@ mod Windows {
             flRolloffFactor: f32,
             flDopplerFactor: f32,
         }
-        const DS3DMODE_DISABLE: u32 = 2;
-        const DS3DMODE_HEADRELATIVE: u32 = 1;
-        const DS3DMODE_NORMAL: u32 = 0;
-        const DS3D_DEFAULTCONEANGLE: u32 = 360;
-        const DS3D_DEFAULTCONEOUTSIDEVOLUME: u32 = 0;
+        const DS3DMODE_DISABLE: i32 = 2;
+        const DS3DMODE_HEADRELATIVE: i32 = 1;
+        const DS3DMODE_NORMAL: i32 = 0;
+        const DS3D_DEFAULTCONEANGLE: i32 = 360;
+        const DS3D_DEFAULTCONEOUTSIDEVOLUME: i32 = 0;
         const DS3D_DEFAULTDISTANCEFACTOR: f32 = 1.0;
         const DS3D_DEFAULTDOPPLERFACTOR: f32 = 1.0;
         const DS3D_DEFAULTMAXDISTANCE: f32 = 1000000000.0;
         const DS3D_DEFAULTMINDISTANCE: f32 = 1.0;
         const DS3D_DEFAULTROLLOFFFACTOR: f32 = 1.0;
-        const DS3D_DEFERRED: u32 = 1;
-        const DS3D_IMMEDIATE: u32 = 0;
-        const DS3D_MAXCONEANGLE: u32 = 360;
+        const DS3D_DEFERRED: i32 = 1;
+        const DS3D_IMMEDIATE: i32 = 0;
+        const DS3D_MAXCONEANGLE: i32 = 360;
         const DS3D_MAXDOPPLERFACTOR: f32 = 10.0;
         const DS3D_MAXROLLOFFFACTOR: f32 = 10.0;
-        const DS3D_MINCONEANGLE: u32 = 0;
+        const DS3D_MINCONEANGLE: i32 = 0;
         const DS3D_MINDOPPLERFACTOR: f32 = 0.0;
         const DS3D_MINROLLOFFFACTOR: f32 = 0.0;
         struct DSBCAPS {
@@ -63,51 +63,51 @@ mod Windows {
             dwUnlockTransferRate: u32,
             dwPlayCpuOverhead: u32,
         }
-        const DSBCAPS_CTRL3D: u32 = 16;
-        const DSBCAPS_CTRLFREQUENCY: u32 = 32;
-        const DSBCAPS_CTRLFX: u32 = 512;
-        const DSBCAPS_CTRLPAN: u32 = 64;
-        const DSBCAPS_CTRLPOSITIONNOTIFY: u32 = 256;
-        const DSBCAPS_CTRLVOLUME: u32 = 128;
-        const DSBCAPS_GETCURRENTPOSITION2: u32 = 65536;
-        const DSBCAPS_GLOBALFOCUS: u32 = 32768;
-        const DSBCAPS_LOCDEFER: u32 = 262144;
-        const DSBCAPS_LOCHARDWARE: u32 = 4;
-        const DSBCAPS_LOCSOFTWARE: u32 = 8;
-        const DSBCAPS_MUTE3DATMAXDISTANCE: u32 = 131072;
-        const DSBCAPS_PRIMARYBUFFER: u32 = 1;
-        const DSBCAPS_STATIC: u32 = 2;
-        const DSBCAPS_STICKYFOCUS: u32 = 16384;
-        const DSBCAPS_TRUEPLAYPOSITION: u32 = 524288;
-        const DSBFREQUENCY_MAX: u32 = 200000;
-        const DSBFREQUENCY_MIN: u32 = 100;
-        const DSBFREQUENCY_ORIGINAL: u32 = 0;
-        const DSBLOCK_ENTIREBUFFER: u32 = 2;
-        const DSBLOCK_FROMWRITECURSOR: u32 = 1;
+        const DSBCAPS_CTRL3D: i32 = 16;
+        const DSBCAPS_CTRLFREQUENCY: i32 = 32;
+        const DSBCAPS_CTRLFX: i32 = 512;
+        const DSBCAPS_CTRLPAN: i32 = 64;
+        const DSBCAPS_CTRLPOSITIONNOTIFY: i32 = 256;
+        const DSBCAPS_CTRLVOLUME: i32 = 128;
+        const DSBCAPS_GETCURRENTPOSITION2: i32 = 65536;
+        const DSBCAPS_GLOBALFOCUS: i32 = 32768;
+        const DSBCAPS_LOCDEFER: i32 = 262144;
+        const DSBCAPS_LOCHARDWARE: i32 = 4;
+        const DSBCAPS_LOCSOFTWARE: i32 = 8;
+        const DSBCAPS_MUTE3DATMAXDISTANCE: i32 = 131072;
+        const DSBCAPS_PRIMARYBUFFER: i32 = 1;
+        const DSBCAPS_STATIC: i32 = 2;
+        const DSBCAPS_STICKYFOCUS: i32 = 16384;
+        const DSBCAPS_TRUEPLAYPOSITION: i32 = 524288;
+        const DSBFREQUENCY_MAX: i32 = 200000;
+        const DSBFREQUENCY_MIN: i32 = 100;
+        const DSBFREQUENCY_ORIGINAL: i32 = 0;
+        const DSBLOCK_ENTIREBUFFER: i32 = 2;
+        const DSBLOCK_FROMWRITECURSOR: i32 = 1;
         const DSBNOTIFICATIONS_MAX: u32 = 100000;
-        const DSBPAN_CENTER: u32 = 0;
+        const DSBPAN_CENTER: i32 = 0;
         const DSBPAN_LEFT: i32 = -10000;
-        const DSBPAN_RIGHT: u32 = 10000;
-        const DSBPLAY_LOCHARDWARE: u32 = 2;
-        const DSBPLAY_LOCSOFTWARE: u32 = 4;
-        const DSBPLAY_LOOPING: u32 = 1;
-        const DSBPLAY_TERMINATEBY_DISTANCE: u32 = 16;
-        const DSBPLAY_TERMINATEBY_PRIORITY: u32 = 32;
-        const DSBPLAY_TERMINATEBY_TIME: u32 = 8;
+        const DSBPAN_RIGHT: i32 = 10000;
+        const DSBPLAY_LOCHARDWARE: i32 = 2;
+        const DSBPLAY_LOCSOFTWARE: i32 = 4;
+        const DSBPLAY_LOOPING: i32 = 1;
+        const DSBPLAY_TERMINATEBY_DISTANCE: i32 = 16;
+        const DSBPLAY_TERMINATEBY_PRIORITY: i32 = 32;
+        const DSBPLAY_TERMINATEBY_TIME: i32 = 8;
         const DSBPN_OFFSETSTOP: u32 = 4294967295;
         struct DSBPOSITIONNOTIFY {
             dwOffset: u32,
             hEventNotify: HANDLE,
         }
-        const DSBSIZE_FX_MIN: u32 = 150;
-        const DSBSIZE_MAX: u32 = 268435455;
-        const DSBSIZE_MIN: u32 = 4;
-        const DSBSTATUS_BUFFERLOST: u32 = 2;
-        const DSBSTATUS_LOCHARDWARE: u32 = 8;
-        const DSBSTATUS_LOCSOFTWARE: u32 = 16;
-        const DSBSTATUS_LOOPING: u32 = 4;
-        const DSBSTATUS_PLAYING: u32 = 1;
-        const DSBSTATUS_TERMINATED: u32 = 32;
+        const DSBSIZE_FX_MIN: i32 = 150;
+        const DSBSIZE_MAX: i32 = 268435455;
+        const DSBSIZE_MIN: i32 = 4;
+        const DSBSTATUS_BUFFERLOST: i32 = 2;
+        const DSBSTATUS_LOCHARDWARE: i32 = 8;
+        const DSBSTATUS_LOCSOFTWARE: i32 = 16;
+        const DSBSTATUS_LOOPING: i32 = 4;
+        const DSBSTATUS_PLAYING: i32 = 1;
+        const DSBSTATUS_TERMINATED: i32 = 32;
         struct DSBUFFERDESC {
             dwSize: u32,
             dwFlags: u32,
@@ -123,7 +123,7 @@ mod Windows {
             dwReserved: u32,
             lpwfxFormat: LPWAVEFORMATEX,
         }
-        const DSBVOLUME_MAX: u32 = 0;
+        const DSBVOLUME_MAX: i32 = 0;
         const DSBVOLUME_MIN: i32 = -10000;
         struct DSCAPS {
             dwSize: u32,
@@ -151,29 +151,29 @@ mod Windows {
             dwReserved1: u32,
             dwReserved2: u32,
         }
-        const DSCAPS_CERTIFIED: u32 = 64;
-        const DSCAPS_CONTINUOUSRATE: u32 = 16;
-        const DSCAPS_EMULDRIVER: u32 = 32;
-        const DSCAPS_PRIMARY16BIT: u32 = 8;
-        const DSCAPS_PRIMARY8BIT: u32 = 4;
-        const DSCAPS_PRIMARYMONO: u32 = 1;
-        const DSCAPS_PRIMARYSTEREO: u32 = 2;
-        const DSCAPS_SECONDARY16BIT: u32 = 2048;
-        const DSCAPS_SECONDARY8BIT: u32 = 1024;
-        const DSCAPS_SECONDARYMONO: u32 = 256;
-        const DSCAPS_SECONDARYSTEREO: u32 = 512;
+        const DSCAPS_CERTIFIED: i32 = 64;
+        const DSCAPS_CONTINUOUSRATE: i32 = 16;
+        const DSCAPS_EMULDRIVER: i32 = 32;
+        const DSCAPS_PRIMARY16BIT: i32 = 8;
+        const DSCAPS_PRIMARY8BIT: i32 = 4;
+        const DSCAPS_PRIMARYMONO: i32 = 1;
+        const DSCAPS_PRIMARYSTEREO: i32 = 2;
+        const DSCAPS_SECONDARY16BIT: i32 = 2048;
+        const DSCAPS_SECONDARY8BIT: i32 = 1024;
+        const DSCAPS_SECONDARYMONO: i32 = 256;
+        const DSCAPS_SECONDARYSTEREO: i32 = 512;
         struct DSCBCAPS {
             dwSize: u32,
             dwFlags: u32,
             dwBufferBytes: u32,
             dwReserved: u32,
         }
-        const DSCBCAPS_CTRLFX: u32 = 512;
+        const DSCBCAPS_CTRLFX: i32 = 512;
         const DSCBCAPS_WAVEMAPPED: u32 = 2147483648;
-        const DSCBLOCK_ENTIREBUFFER: u32 = 1;
-        const DSCBSTART_LOOPING: u32 = 1;
-        const DSCBSTATUS_CAPTURING: u32 = 1;
-        const DSCBSTATUS_LOOPING: u32 = 2;
+        const DSCBLOCK_ENTIREBUFFER: i32 = 1;
+        const DSCBSTART_LOOPING: i32 = 1;
+        const DSCBSTATUS_CAPTURING: i32 = 1;
+        const DSCBSTATUS_LOOPING: i32 = 2;
         struct DSCBUFFERDESC {
             dwSize: u32,
             dwFlags: u32,
@@ -196,9 +196,9 @@ mod Windows {
             dwFormats: u32,
             dwChannels: u32,
         }
-        const DSCCAPS_CERTIFIED: u32 = 64;
-        const DSCCAPS_EMULDRIVER: u32 = 32;
-        const DSCCAPS_MULTIPLECAPTURE: u32 = 1;
+        const DSCCAPS_CERTIFIED: i32 = 64;
+        const DSCCAPS_EMULDRIVER: i32 = 32;
+        const DSCCAPS_MULTIPLECAPTURE: i32 = 1;
         struct DSCEFFECTDESC {
             dwSize: u32,
             dwFlags: u32,
@@ -215,17 +215,17 @@ mod Windows {
         struct DSCFXNoiseSuppress {
             fEnable: BOOL,
         }
-        const DSCFXR_LOCHARDWARE: u32 = 16;
-        const DSCFXR_LOCSOFTWARE: u32 = 32;
-        const DSCFX_AEC_MODE_FULL_DUPLEX: u32 = 2;
-        const DSCFX_AEC_MODE_HALF_DUPLEX: u32 = 1;
-        const DSCFX_AEC_MODE_PASS_THROUGH: u32 = 0;
-        const DSCFX_AEC_STATUS_CURRENTLY_CONVERGED: u32 = 8;
-        const DSCFX_AEC_STATUS_HISTORY_CONTINUOUSLY_CONVERGED: u32 = 1;
-        const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2;
-        const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: u32 = 0;
-        const DSCFX_LOCHARDWARE: u32 = 1;
-        const DSCFX_LOCSOFTWARE: u32 = 2;
+        const DSCFXR_LOCHARDWARE: i32 = 16;
+        const DSCFXR_LOCSOFTWARE: i32 = 32;
+        const DSCFX_AEC_MODE_FULL_DUPLEX: i32 = 2;
+        const DSCFX_AEC_MODE_HALF_DUPLEX: i32 = 1;
+        const DSCFX_AEC_MODE_PASS_THROUGH: i32 = 0;
+        const DSCFX_AEC_STATUS_CURRENTLY_CONVERGED: i32 = 8;
+        const DSCFX_AEC_STATUS_HISTORY_CONTINUOUSLY_CONVERGED: i32 = 1;
+        const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: i32 = 2;
+        const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: i32 = 0;
+        const DSCFX_LOCHARDWARE: i32 = 1;
+        const DSCFX_LOCSOFTWARE: i32 = 2;
         const DSDEVID_DefaultCapture: GUID = 0xdef00001_9c6d_47ed_aaf1_4dda8f2b5c03;
         const DSDEVID_DefaultPlayback: GUID = 0xdef00000_9c6d_47ed_aaf1_4dda8f2b5c03;
         const DSDEVID_DefaultVoiceCapture: GUID = 0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03;
@@ -268,15 +268,15 @@ mod Windows {
         const DSFXCHORUS_FEEDBACK_MIN: f32 = -99.0;
         const DSFXCHORUS_FREQUENCY_MAX: f32 = 10.0;
         const DSFXCHORUS_FREQUENCY_MIN: f32 = 0.0;
-        const DSFXCHORUS_PHASE_180: u32 = 4;
-        const DSFXCHORUS_PHASE_90: u32 = 3;
-        const DSFXCHORUS_PHASE_MAX: u32 = 4;
-        const DSFXCHORUS_PHASE_MIN: u32 = 0;
-        const DSFXCHORUS_PHASE_NEG_180: u32 = 0;
-        const DSFXCHORUS_PHASE_NEG_90: u32 = 1;
-        const DSFXCHORUS_PHASE_ZERO: u32 = 2;
-        const DSFXCHORUS_WAVE_SIN: u32 = 1;
-        const DSFXCHORUS_WAVE_TRIANGLE: u32 = 0;
+        const DSFXCHORUS_PHASE_180: i32 = 4;
+        const DSFXCHORUS_PHASE_90: i32 = 3;
+        const DSFXCHORUS_PHASE_MAX: i32 = 4;
+        const DSFXCHORUS_PHASE_MIN: i32 = 0;
+        const DSFXCHORUS_PHASE_NEG_180: i32 = 0;
+        const DSFXCHORUS_PHASE_NEG_90: i32 = 1;
+        const DSFXCHORUS_PHASE_ZERO: i32 = 2;
+        const DSFXCHORUS_WAVE_SIN: i32 = 1;
+        const DSFXCHORUS_WAVE_TRIANGLE: i32 = 0;
         const DSFXCHORUS_WETDRYMIX_MAX: f32 = 100.0;
         const DSFXCHORUS_WETDRYMIX_MIN: f32 = 0.0;
         const DSFXCOMPRESSOR_ATTACK_MAX: f32 = 500.0;
@@ -329,8 +329,8 @@ mod Windows {
         const DSFXECHO_FEEDBACK_MIN: f32 = 0.0;
         const DSFXECHO_LEFTDELAY_MAX: f32 = 2000.0;
         const DSFXECHO_LEFTDELAY_MIN: f32 = 1.0;
-        const DSFXECHO_PANDELAY_MAX: u32 = 1;
-        const DSFXECHO_PANDELAY_MIN: u32 = 0;
+        const DSFXECHO_PANDELAY_MAX: i32 = 1;
+        const DSFXECHO_PANDELAY_MIN: i32 = 0;
         const DSFXECHO_RIGHTDELAY_MAX: f32 = 2000.0;
         const DSFXECHO_RIGHTDELAY_MIN: f32 = 1.0;
         const DSFXECHO_WETDRYMIX_MAX: f32 = 100.0;
@@ -350,15 +350,15 @@ mod Windows {
         const DSFXFLANGER_FEEDBACK_MIN: f32 = -99.0;
         const DSFXFLANGER_FREQUENCY_MAX: f32 = 10.0;
         const DSFXFLANGER_FREQUENCY_MIN: f32 = 0.0;
-        const DSFXFLANGER_PHASE_180: u32 = 4;
-        const DSFXFLANGER_PHASE_90: u32 = 3;
-        const DSFXFLANGER_PHASE_MAX: u32 = 4;
-        const DSFXFLANGER_PHASE_MIN: u32 = 0;
-        const DSFXFLANGER_PHASE_NEG_180: u32 = 0;
-        const DSFXFLANGER_PHASE_NEG_90: u32 = 1;
-        const DSFXFLANGER_PHASE_ZERO: u32 = 2;
-        const DSFXFLANGER_WAVE_SIN: u32 = 1;
-        const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0;
+        const DSFXFLANGER_PHASE_180: i32 = 4;
+        const DSFXFLANGER_PHASE_90: i32 = 3;
+        const DSFXFLANGER_PHASE_MAX: i32 = 4;
+        const DSFXFLANGER_PHASE_MIN: i32 = 0;
+        const DSFXFLANGER_PHASE_NEG_180: i32 = 0;
+        const DSFXFLANGER_PHASE_NEG_90: i32 = 1;
+        const DSFXFLANGER_PHASE_ZERO: i32 = 2;
+        const DSFXFLANGER_WAVE_SIN: i32 = 1;
+        const DSFXFLANGER_WAVE_TRIANGLE: i32 = 0;
         const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100.0;
         const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0.0;
         struct DSFXFlanger {
@@ -370,10 +370,10 @@ mod Windows {
             fDelay: f32,
             lPhase: i32,
         }
-        const DSFXGARGLE_RATEHZ_MAX: u32 = 1000;
-        const DSFXGARGLE_RATEHZ_MIN: u32 = 1;
-        const DSFXGARGLE_WAVE_SQUARE: u32 = 1;
-        const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0;
+        const DSFXGARGLE_RATEHZ_MAX: i32 = 1000;
+        const DSFXGARGLE_RATEHZ_MIN: i32 = 1;
+        const DSFXGARGLE_WAVE_SQUARE: i32 = 1;
+        const DSFXGARGLE_WAVE_TRIANGLE: i32 = 0;
         struct DSFXGargle {
             dwRateHz: u32,
             dwWaveShape: u32,
@@ -431,29 +431,29 @@ mod Windows {
         const DSFX_I3DL2REVERB_HFREFERENCE_DEFAULT: f32 = 5000.0;
         const DSFX_I3DL2REVERB_HFREFERENCE_MAX: f32 = 20000.0;
         const DSFX_I3DL2REVERB_HFREFERENCE_MIN: f32 = 20.0;
-        const DSFX_I3DL2REVERB_QUALITY_DEFAULT: u32 = 2;
-        const DSFX_I3DL2REVERB_QUALITY_MAX: u32 = 3;
-        const DSFX_I3DL2REVERB_QUALITY_MIN: u32 = 0;
+        const DSFX_I3DL2REVERB_QUALITY_DEFAULT: i32 = 2;
+        const DSFX_I3DL2REVERB_QUALITY_MAX: i32 = 3;
+        const DSFX_I3DL2REVERB_QUALITY_MIN: i32 = 0;
         const DSFX_I3DL2REVERB_REFLECTIONSDELAY_DEFAULT: f32 = 0.007;
         const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MAX: f32 = 0.3;
         const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MIN: f32 = 0.0;
         const DSFX_I3DL2REVERB_REFLECTIONS_DEFAULT: i32 = -2602;
-        const DSFX_I3DL2REVERB_REFLECTIONS_MAX: u32 = 1000;
+        const DSFX_I3DL2REVERB_REFLECTIONS_MAX: i32 = 1000;
         const DSFX_I3DL2REVERB_REFLECTIONS_MIN: i32 = -10000;
         const DSFX_I3DL2REVERB_REVERBDELAY_DEFAULT: f32 = 0.011;
         const DSFX_I3DL2REVERB_REVERBDELAY_MAX: f32 = 0.1;
         const DSFX_I3DL2REVERB_REVERBDELAY_MIN: f32 = 0.0;
-        const DSFX_I3DL2REVERB_REVERB_DEFAULT: u32 = 200;
-        const DSFX_I3DL2REVERB_REVERB_MAX: u32 = 2000;
+        const DSFX_I3DL2REVERB_REVERB_DEFAULT: i32 = 200;
+        const DSFX_I3DL2REVERB_REVERB_MAX: i32 = 2000;
         const DSFX_I3DL2REVERB_REVERB_MIN: i32 = -10000;
         const DSFX_I3DL2REVERB_ROOMHF_DEFAULT: i32 = -100;
-        const DSFX_I3DL2REVERB_ROOMHF_MAX: u32 = 0;
+        const DSFX_I3DL2REVERB_ROOMHF_MAX: i32 = 0;
         const DSFX_I3DL2REVERB_ROOMHF_MIN: i32 = -10000;
         const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_DEFAULT: f32 = 0.0;
         const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MAX: f32 = 10.0;
         const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MIN: f32 = 0.0;
         const DSFX_I3DL2REVERB_ROOM_DEFAULT: i32 = -1000;
-        const DSFX_I3DL2REVERB_ROOM_MAX: u32 = 0;
+        const DSFX_I3DL2REVERB_ROOM_MAX: i32 = 0;
         const DSFX_I3DL2REVERB_ROOM_MIN: i32 = -10000;
         const DSFX_I3DL2_ENVIRONMENT_PRESET_ALLEY: i32 = 15;
         const DSFX_I3DL2_ENVIRONMENT_PRESET_ARENA: i32 = 10;
@@ -493,8 +493,8 @@ mod Windows {
         const DSFX_I3DL2_MATERIAL_PRESET_THICKDOOR: i32 = 3;
         const DSFX_I3DL2_MATERIAL_PRESET_THINDOOR: i32 = 2;
         const DSFX_I3DL2_MATERIAL_PRESET_WOODWALL: i32 = 4;
-        const DSFX_LOCHARDWARE: u32 = 1;
-        const DSFX_LOCSOFTWARE: u32 = 2;
+        const DSFX_LOCHARDWARE: i32 = 1;
+        const DSFX_LOCSOFTWARE: i32 = 2;
         const DSFX_WAVESREVERB_HIGHFREQRTRATIO_DEFAULT: f32 = 0.001;
         const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MAX: f32 = 0.999;
         const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MIN: f32 = 0.001;
@@ -507,30 +507,30 @@ mod Windows {
         const DSFX_WAVESREVERB_REVERBTIME_DEFAULT: f32 = 1000.0;
         const DSFX_WAVESREVERB_REVERBTIME_MAX: f32 = 3000.0;
         const DSFX_WAVESREVERB_REVERBTIME_MIN: f32 = 0.001;
-        const DSSCL_EXCLUSIVE: u32 = 3;
-        const DSSCL_NORMAL: u32 = 1;
-        const DSSCL_PRIORITY: u32 = 2;
-        const DSSCL_WRITEPRIMARY: u32 = 4;
-        const DSSPEAKER_5POINT1: u32 = 6;
-        const DSSPEAKER_5POINT1_BACK: u32 = 6;
-        const DSSPEAKER_5POINT1_SURROUND: u32 = 9;
-        const DSSPEAKER_7POINT1: u32 = 7;
-        const DSSPEAKER_7POINT1_SURROUND: u32 = 8;
-        const DSSPEAKER_7POINT1_WIDE: u32 = 7;
-        const DSSPEAKER_DIRECTOUT: u32 = 0;
-        const DSSPEAKER_GEOMETRY_MAX: u32 = 180;
-        const DSSPEAKER_GEOMETRY_MIN: u32 = 5;
-        const DSSPEAKER_GEOMETRY_NARROW: u32 = 10;
-        const DSSPEAKER_GEOMETRY_WIDE: u32 = 20;
-        const DSSPEAKER_HEADPHONE: u32 = 1;
-        const DSSPEAKER_MONO: u32 = 2;
-        const DSSPEAKER_QUAD: u32 = 3;
-        const DSSPEAKER_STEREO: u32 = 4;
-        const DSSPEAKER_SURROUND: u32 = 5;
-        const DS_CERTIFIED: u32 = 0;
-        const DS_NO_VIRTUALIZATION: u32 = 142082058;
-        const DS_OK: u32 = 0;
-        const DS_UNCERTIFIED: u32 = 1;
+        const DSSCL_EXCLUSIVE: i32 = 3;
+        const DSSCL_NORMAL: i32 = 1;
+        const DSSCL_PRIORITY: i32 = 2;
+        const DSSCL_WRITEPRIMARY: i32 = 4;
+        const DSSPEAKER_5POINT1: i32 = 6;
+        const DSSPEAKER_5POINT1_BACK: i32 = 6;
+        const DSSPEAKER_5POINT1_SURROUND: i32 = 9;
+        const DSSPEAKER_7POINT1: i32 = 7;
+        const DSSPEAKER_7POINT1_SURROUND: i32 = 8;
+        const DSSPEAKER_7POINT1_WIDE: i32 = 7;
+        const DSSPEAKER_DIRECTOUT: i32 = 0;
+        const DSSPEAKER_GEOMETRY_MAX: i32 = 180;
+        const DSSPEAKER_GEOMETRY_MIN: i32 = 5;
+        const DSSPEAKER_GEOMETRY_NARROW: i32 = 10;
+        const DSSPEAKER_GEOMETRY_WIDE: i32 = 20;
+        const DSSPEAKER_HEADPHONE: i32 = 1;
+        const DSSPEAKER_MONO: i32 = 2;
+        const DSSPEAKER_QUAD: i32 = 3;
+        const DSSPEAKER_STEREO: i32 = 4;
+        const DSSPEAKER_SURROUND: i32 = 5;
+        const DS_CERTIFIED: i32 = 0;
+        const DS_NO_VIRTUALIZATION: i32 = 142082058;
+        const DS_OK: i32 = 0;
+        const DS_UNCERTIFIED: i32 = 1;
         #[library("DSOUND.dll")]
         extern fn DirectSoundCaptureCreate(#[opt] pcGuidDevice: *const GUID, ppDSC: *mut IDirectSoundCapture, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DSOUND.dll")]
@@ -754,8 +754,8 @@ mod Windows {
             fn AdvisePeriodic(&self, rtStartTime: REFERENCE_TIME, rtPeriodTime: REFERENCE_TIME, hSemaphore: HANDLE, pdwAdviseCookie: *mut u32) -> HRESULT;
             fn Unadvise(&self, dwAdviseCookie: u32) -> HRESULT;
         }
-        const KSPROPERTY_SUPPORT_GET: u32 = 1;
-        const KSPROPERTY_SUPPORT_SET: u32 = 2;
+        const KSPROPERTY_SUPPORT_GET: i32 = 1;
+        const KSPROPERTY_SUPPORT_SET: i32 = 2;
         type LPCDS3DBUFFER = *const DS3DBUFFER;
         type LPCDS3DLISTENER = *const DS3DLISTENER;
         type LPCDSBCAPS = *const DSBCAPS;

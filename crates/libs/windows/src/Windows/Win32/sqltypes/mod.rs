@@ -198,7 +198,7 @@ pub const SQL_IS_MONTH: SQLINTERVAL = 2;
 pub const SQL_IS_SECOND: SQLINTERVAL = 6;
 pub const SQL_IS_YEAR: SQLINTERVAL = 1;
 pub const SQL_IS_YEAR_TO_MONTH: SQLINTERVAL = 7;
-pub const SQL_MAX_NUMERIC_LEN: u32 = 16;
+pub const SQL_MAX_NUMERIC_LEN: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SQL_NUMERIC_STRUCT {

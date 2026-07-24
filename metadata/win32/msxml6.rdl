@@ -925,7 +925,7 @@ mod Windows {
             XHR_PROP_SET_ENTERPRISEID = 10,
             XHR_PROP_MAX_CONNECTIONS = 11,
         }
-        const XHR_PROP_ONDATA_ALWAYS: u32 = 0;
+        const XHR_PROP_ONDATA_ALWAYS: i32 = 0;
         const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615;
         const XMLHTTP60: GUID = 0x88d96a0a_f192_11d4_a65f_0040963251e5;
         const XMLSchemaCache60: GUID = 0x88d96a07_f192_11d4_a65f_0040963251e5;

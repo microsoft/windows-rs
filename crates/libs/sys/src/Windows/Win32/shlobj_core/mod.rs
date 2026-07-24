@@ -252,17 +252,17 @@ pub const ACLO_FILESYSONLY: AUTOCOMPLETELISTOPTIONS = 16;
 pub const ACLO_MYCOMPUTER: AUTOCOMPLETELISTOPTIONS = 2;
 pub const ACLO_NONE: AUTOCOMPLETELISTOPTIONS = 0;
 pub const ACLO_VIRTUALNAMESPACE: AUTOCOMPLETELISTOPTIONS = 64;
-pub const ADDURL_SILENT: u32 = 1;
-pub const AD_APPLY_ALL: u32 = 7;
-pub const AD_APPLY_BUFFERED_REFRESH: u32 = 16;
-pub const AD_APPLY_DYNAMICREFRESH: u32 = 32;
-pub const AD_APPLY_FORCE: u32 = 8;
-pub const AD_APPLY_HTMLGEN: u32 = 2;
-pub const AD_APPLY_REFRESH: u32 = 4;
-pub const AD_APPLY_SAVE: u32 = 1;
-pub const AD_GETWP_BMP: u32 = 0;
-pub const AD_GETWP_IMAGE: u32 = 1;
-pub const AD_GETWP_LAST_APPLIED: u32 = 2;
+pub const ADDURL_SILENT: i32 = 1;
+pub const AD_APPLY_ALL: i32 = 7;
+pub const AD_APPLY_BUFFERED_REFRESH: i32 = 16;
+pub const AD_APPLY_DYNAMICREFRESH: i32 = 32;
+pub const AD_APPLY_FORCE: i32 = 8;
+pub const AD_APPLY_HTMLGEN: i32 = 2;
+pub const AD_APPLY_REFRESH: i32 = 4;
+pub const AD_APPLY_SAVE: i32 = 1;
+pub const AD_GETWP_BMP: i32 = 0;
+pub const AD_GETWP_IMAGE: i32 = 1;
+pub const AD_GETWP_LAST_APPLIED: i32 = 2;
 pub type AUTOCOMPLETELISTOPTIONS = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
@@ -282,38 +282,38 @@ impl Default for AUTO_SCROLL_DATA {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, umsg: u32, lparam: super::LPARAM, lpdata: super::LPARAM) -> i32>;
-pub const BFFM_ENABLEOK: u32 = 1125;
-pub const BFFM_INITIALIZED: u32 = 1;
-pub const BFFM_IUNKNOWN: u32 = 5;
-pub const BFFM_SELCHANGED: u32 = 2;
-pub const BFFM_SETEXPANDED: u32 = 1130;
-pub const BFFM_SETOKTEXT: u32 = 1129;
-pub const BFFM_SETSELECTION: u32 = 1126;
-pub const BFFM_SETSELECTIONA: u32 = 1126;
-pub const BFFM_SETSELECTIONW: u32 = 1127;
-pub const BFFM_SETSTATUSTEXT: u32 = 1124;
-pub const BFFM_SETSTATUSTEXTA: u32 = 1124;
-pub const BFFM_SETSTATUSTEXTW: u32 = 1128;
-pub const BFFM_VALIDATEFAILED: u32 = 3;
-pub const BFFM_VALIDATEFAILEDA: u32 = 3;
-pub const BFFM_VALIDATEFAILEDW: u32 = 4;
-pub const BIF_BROWSEFILEJUNCTIONS: u32 = 65536;
-pub const BIF_BROWSEFORCOMPUTER: u32 = 4096;
-pub const BIF_BROWSEFORPRINTER: u32 = 8192;
-pub const BIF_BROWSEINCLUDEFILES: u32 = 16384;
-pub const BIF_BROWSEINCLUDEURLS: u32 = 128;
-pub const BIF_DONTGOBELOWDOMAIN: u32 = 2;
-pub const BIF_EDITBOX: u32 = 16;
-pub const BIF_NEWDIALOGSTYLE: u32 = 64;
-pub const BIF_NONEWFOLDERBUTTON: u32 = 512;
-pub const BIF_NOTRANSLATETARGETS: u32 = 1024;
-pub const BIF_RETURNFSANCESTORS: u32 = 8;
-pub const BIF_RETURNONLYFSDIRS: u32 = 1;
-pub const BIF_SHAREABLE: u32 = 32768;
-pub const BIF_STATUSTEXT: u32 = 4;
-pub const BIF_UAHINT: u32 = 256;
-pub const BIF_USENEWUI: u32 = 80;
-pub const BIF_VALIDATE: u32 = 32;
+pub const BFFM_ENABLEOK: i32 = 1125;
+pub const BFFM_INITIALIZED: i32 = 1;
+pub const BFFM_IUNKNOWN: i32 = 5;
+pub const BFFM_SELCHANGED: i32 = 2;
+pub const BFFM_SETEXPANDED: i32 = 1130;
+pub const BFFM_SETOKTEXT: i32 = 1129;
+pub const BFFM_SETSELECTION: i32 = 1126;
+pub const BFFM_SETSELECTIONA: i32 = 1126;
+pub const BFFM_SETSELECTIONW: i32 = 1127;
+pub const BFFM_SETSTATUSTEXT: i32 = 1124;
+pub const BFFM_SETSTATUSTEXTA: i32 = 1124;
+pub const BFFM_SETSTATUSTEXTW: i32 = 1128;
+pub const BFFM_VALIDATEFAILED: i32 = 3;
+pub const BFFM_VALIDATEFAILEDA: i32 = 3;
+pub const BFFM_VALIDATEFAILEDW: i32 = 4;
+pub const BIF_BROWSEFILEJUNCTIONS: i32 = 65536;
+pub const BIF_BROWSEFORCOMPUTER: i32 = 4096;
+pub const BIF_BROWSEFORPRINTER: i32 = 8192;
+pub const BIF_BROWSEINCLUDEFILES: i32 = 16384;
+pub const BIF_BROWSEINCLUDEURLS: i32 = 128;
+pub const BIF_DONTGOBELOWDOMAIN: i32 = 2;
+pub const BIF_EDITBOX: i32 = 16;
+pub const BIF_NEWDIALOGSTYLE: i32 = 64;
+pub const BIF_NONEWFOLDERBUTTON: i32 = 512;
+pub const BIF_NOTRANSLATETARGETS: i32 = 1024;
+pub const BIF_RETURNFSANCESTORS: i32 = 8;
+pub const BIF_RETURNONLYFSDIRS: i32 = 1;
+pub const BIF_SHAREABLE: i32 = 32768;
+pub const BIF_STATUSTEXT: i32 = 4;
+pub const BIF_UAHINT: i32 = 256;
+pub const BIF_USENEWUI: i32 = 80;
+pub const BIF_VALIDATE: i32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
@@ -360,7 +360,7 @@ pub struct CABINETSTATE {
     pub _bitfield: windows_sys::core::BOOL,
     pub fMenuEnumFilter: u32,
 }
-pub const CABINETSTATE_VERSION: u32 = 2;
+pub const CABINETSTATE_VERSION: i32 = 2;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct CIDA {
@@ -372,7 +372,7 @@ impl Default for CIDA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CMDID_INTSHORTCUTCREATE: u32 = 1;
+pub const CMDID_INTSHORTCUTCREATE: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct COMPONENT {
@@ -402,9 +402,9 @@ pub struct COMPONENTSOPT {
     pub fEnableComponents: windows_sys::core::BOOL,
     pub fActiveDesktop: windows_sys::core::BOOL,
 }
-pub const COMPONENT_DEFAULT_LEFT: u32 = 65535;
-pub const COMPONENT_DEFAULT_TOP: u32 = 65535;
-pub const COMPONENT_TOP: u32 = 1073741823;
+pub const COMPONENT_DEFAULT_LEFT: i32 = 65535;
+pub const COMPONENT_DEFAULT_TOP: i32 = 65535;
+pub const COMPONENT_TOP: i32 = 1073741823;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct COMPPOS {
@@ -430,28 +430,28 @@ pub struct COMPSTATEINFO {
     pub dwHeight: u32,
     pub dwItemState: u32,
 }
-pub const COMP_ELEM_ALL: u32 = 32767;
-pub const COMP_ELEM_CHECKED: u32 = 2;
-pub const COMP_ELEM_CURITEMSTATE: u32 = 16384;
-pub const COMP_ELEM_DIRTY: u32 = 4;
-pub const COMP_ELEM_FRIENDLYNAME: u32 = 1024;
-pub const COMP_ELEM_NOSCROLL: u32 = 8;
-pub const COMP_ELEM_ORIGINAL_CSI: u32 = 4096;
-pub const COMP_ELEM_POS_LEFT: u32 = 16;
-pub const COMP_ELEM_POS_TOP: u32 = 32;
-pub const COMP_ELEM_POS_ZINDEX: u32 = 256;
-pub const COMP_ELEM_RESTORED_CSI: u32 = 8192;
-pub const COMP_ELEM_SIZE_HEIGHT: u32 = 128;
-pub const COMP_ELEM_SIZE_WIDTH: u32 = 64;
-pub const COMP_ELEM_SOURCE: u32 = 512;
-pub const COMP_ELEM_SUBSCRIBEDURL: u32 = 2048;
-pub const COMP_ELEM_TYPE: u32 = 1;
-pub const COMP_TYPE_CFHTML: u32 = 4;
-pub const COMP_TYPE_CONTROL: u32 = 3;
-pub const COMP_TYPE_HTMLDOC: u32 = 0;
-pub const COMP_TYPE_MAX: u32 = 4;
-pub const COMP_TYPE_PICTURE: u32 = 1;
-pub const COMP_TYPE_WEBSITE: u32 = 2;
+pub const COMP_ELEM_ALL: i32 = 32767;
+pub const COMP_ELEM_CHECKED: i32 = 2;
+pub const COMP_ELEM_CURITEMSTATE: i32 = 16384;
+pub const COMP_ELEM_DIRTY: i32 = 4;
+pub const COMP_ELEM_FRIENDLYNAME: i32 = 1024;
+pub const COMP_ELEM_NOSCROLL: i32 = 8;
+pub const COMP_ELEM_ORIGINAL_CSI: i32 = 4096;
+pub const COMP_ELEM_POS_LEFT: i32 = 16;
+pub const COMP_ELEM_POS_TOP: i32 = 32;
+pub const COMP_ELEM_POS_ZINDEX: i32 = 256;
+pub const COMP_ELEM_RESTORED_CSI: i32 = 8192;
+pub const COMP_ELEM_SIZE_HEIGHT: i32 = 128;
+pub const COMP_ELEM_SIZE_WIDTH: i32 = 64;
+pub const COMP_ELEM_SOURCE: i32 = 512;
+pub const COMP_ELEM_SUBSCRIBEDURL: i32 = 2048;
+pub const COMP_ELEM_TYPE: i32 = 1;
+pub const COMP_TYPE_CFHTML: i32 = 4;
+pub const COMP_TYPE_CONTROL: i32 = 3;
+pub const COMP_TYPE_HTMLDOC: i32 = 0;
+pub const COMP_TYPE_MAX: i32 = 4;
+pub const COMP_TYPE_PICTURE: i32 = 1;
+pub const COMP_TYPE_WEBSITE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
@@ -470,69 +470,69 @@ impl Default for CSFV {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CSIDL_ADMINTOOLS: u32 = 48;
-pub const CSIDL_ALTSTARTUP: u32 = 29;
-pub const CSIDL_APPDATA: u32 = 26;
-pub const CSIDL_BITBUCKET: u32 = 10;
-pub const CSIDL_CDBURN_AREA: u32 = 59;
-pub const CSIDL_COMMON_ADMINTOOLS: u32 = 47;
-pub const CSIDL_COMMON_ALTSTARTUP: u32 = 30;
-pub const CSIDL_COMMON_APPDATA: u32 = 35;
-pub const CSIDL_COMMON_DESKTOPDIRECTORY: u32 = 25;
-pub const CSIDL_COMMON_DOCUMENTS: u32 = 46;
-pub const CSIDL_COMMON_FAVORITES: u32 = 31;
-pub const CSIDL_COMMON_MUSIC: u32 = 53;
-pub const CSIDL_COMMON_OEM_LINKS: u32 = 58;
-pub const CSIDL_COMMON_PICTURES: u32 = 54;
-pub const CSIDL_COMMON_PROGRAMS: u32 = 23;
-pub const CSIDL_COMMON_STARTMENU: u32 = 22;
-pub const CSIDL_COMMON_STARTUP: u32 = 24;
-pub const CSIDL_COMMON_TEMPLATES: u32 = 45;
-pub const CSIDL_COMMON_VIDEO: u32 = 55;
-pub const CSIDL_COMPUTERSNEARME: u32 = 61;
-pub const CSIDL_CONNECTIONS: u32 = 49;
-pub const CSIDL_CONTROLS: u32 = 3;
-pub const CSIDL_COOKIES: u32 = 33;
-pub const CSIDL_DESKTOP: u32 = 0;
-pub const CSIDL_DESKTOPDIRECTORY: u32 = 16;
-pub const CSIDL_DRIVES: u32 = 17;
-pub const CSIDL_FAVORITES: u32 = 6;
-pub const CSIDL_FLAG_CREATE: u32 = 32768;
-pub const CSIDL_FLAG_DONT_UNEXPAND: u32 = 8192;
-pub const CSIDL_FLAG_DONT_VERIFY: u32 = 16384;
-pub const CSIDL_FLAG_MASK: u32 = 65280;
-pub const CSIDL_FLAG_NO_ALIAS: u32 = 4096;
-pub const CSIDL_FLAG_PER_USER_INIT: u32 = 2048;
-pub const CSIDL_FONTS: u32 = 20;
-pub const CSIDL_HISTORY: u32 = 34;
-pub const CSIDL_INTERNET: u32 = 1;
-pub const CSIDL_INTERNET_CACHE: u32 = 32;
-pub const CSIDL_LOCAL_APPDATA: u32 = 28;
-pub const CSIDL_MYDOCUMENTS: u32 = 5;
-pub const CSIDL_MYMUSIC: u32 = 13;
-pub const CSIDL_MYPICTURES: u32 = 39;
-pub const CSIDL_MYVIDEO: u32 = 14;
-pub const CSIDL_NETHOOD: u32 = 19;
-pub const CSIDL_NETWORK: u32 = 18;
-pub const CSIDL_PERSONAL: u32 = 5;
-pub const CSIDL_PRINTERS: u32 = 4;
-pub const CSIDL_PRINTHOOD: u32 = 27;
-pub const CSIDL_PROFILE: u32 = 40;
-pub const CSIDL_PROGRAMS: u32 = 2;
-pub const CSIDL_PROGRAM_FILES: u32 = 38;
-pub const CSIDL_PROGRAM_FILESX86: u32 = 42;
-pub const CSIDL_PROGRAM_FILES_COMMON: u32 = 43;
-pub const CSIDL_PROGRAM_FILES_COMMONX86: u32 = 44;
-pub const CSIDL_RECENT: u32 = 8;
-pub const CSIDL_RESOURCES: u32 = 56;
-pub const CSIDL_RESOURCES_LOCALIZED: u32 = 57;
-pub const CSIDL_SENDTO: u32 = 9;
-pub const CSIDL_STARTMENU: u32 = 11;
-pub const CSIDL_STARTUP: u32 = 7;
-pub const CSIDL_SYSTEM: u32 = 37;
-pub const CSIDL_SYSTEMX86: u32 = 41;
-pub const CSIDL_TEMPLATES: u32 = 21;
-pub const CSIDL_WINDOWS: u32 = 36;
+pub const CSIDL_ADMINTOOLS: i32 = 48;
+pub const CSIDL_ALTSTARTUP: i32 = 29;
+pub const CSIDL_APPDATA: i32 = 26;
+pub const CSIDL_BITBUCKET: i32 = 10;
+pub const CSIDL_CDBURN_AREA: i32 = 59;
+pub const CSIDL_COMMON_ADMINTOOLS: i32 = 47;
+pub const CSIDL_COMMON_ALTSTARTUP: i32 = 30;
+pub const CSIDL_COMMON_APPDATA: i32 = 35;
+pub const CSIDL_COMMON_DESKTOPDIRECTORY: i32 = 25;
+pub const CSIDL_COMMON_DOCUMENTS: i32 = 46;
+pub const CSIDL_COMMON_FAVORITES: i32 = 31;
+pub const CSIDL_COMMON_MUSIC: i32 = 53;
+pub const CSIDL_COMMON_OEM_LINKS: i32 = 58;
+pub const CSIDL_COMMON_PICTURES: i32 = 54;
+pub const CSIDL_COMMON_PROGRAMS: i32 = 23;
+pub const CSIDL_COMMON_STARTMENU: i32 = 22;
+pub const CSIDL_COMMON_STARTUP: i32 = 24;
+pub const CSIDL_COMMON_TEMPLATES: i32 = 45;
+pub const CSIDL_COMMON_VIDEO: i32 = 55;
+pub const CSIDL_COMPUTERSNEARME: i32 = 61;
+pub const CSIDL_CONNECTIONS: i32 = 49;
+pub const CSIDL_CONTROLS: i32 = 3;
+pub const CSIDL_COOKIES: i32 = 33;
+pub const CSIDL_DESKTOP: i32 = 0;
+pub const CSIDL_DESKTOPDIRECTORY: i32 = 16;
+pub const CSIDL_DRIVES: i32 = 17;
+pub const CSIDL_FAVORITES: i32 = 6;
+pub const CSIDL_FLAG_CREATE: i32 = 32768;
+pub const CSIDL_FLAG_DONT_UNEXPAND: i32 = 8192;
+pub const CSIDL_FLAG_DONT_VERIFY: i32 = 16384;
+pub const CSIDL_FLAG_MASK: i32 = 65280;
+pub const CSIDL_FLAG_NO_ALIAS: i32 = 4096;
+pub const CSIDL_FLAG_PER_USER_INIT: i32 = 2048;
+pub const CSIDL_FONTS: i32 = 20;
+pub const CSIDL_HISTORY: i32 = 34;
+pub const CSIDL_INTERNET: i32 = 1;
+pub const CSIDL_INTERNET_CACHE: i32 = 32;
+pub const CSIDL_LOCAL_APPDATA: i32 = 28;
+pub const CSIDL_MYDOCUMENTS: i32 = 5;
+pub const CSIDL_MYMUSIC: i32 = 13;
+pub const CSIDL_MYPICTURES: i32 = 39;
+pub const CSIDL_MYVIDEO: i32 = 14;
+pub const CSIDL_NETHOOD: i32 = 19;
+pub const CSIDL_NETWORK: i32 = 18;
+pub const CSIDL_PERSONAL: i32 = 5;
+pub const CSIDL_PRINTERS: i32 = 4;
+pub const CSIDL_PRINTHOOD: i32 = 27;
+pub const CSIDL_PROFILE: i32 = 40;
+pub const CSIDL_PROGRAMS: i32 = 2;
+pub const CSIDL_PROGRAM_FILES: i32 = 38;
+pub const CSIDL_PROGRAM_FILESX86: i32 = 42;
+pub const CSIDL_PROGRAM_FILES_COMMON: i32 = 43;
+pub const CSIDL_PROGRAM_FILES_COMMONX86: i32 = 44;
+pub const CSIDL_RECENT: i32 = 8;
+pub const CSIDL_RESOURCES: i32 = 56;
+pub const CSIDL_RESOURCES_LOCALIZED: i32 = 57;
+pub const CSIDL_SENDTO: i32 = 9;
+pub const CSIDL_STARTMENU: i32 = 11;
+pub const CSIDL_STARTUP: i32 = 7;
+pub const CSIDL_SYSTEM: i32 = 37;
+pub const CSIDL_SYSTEMX86: i32 = 41;
+pub const CSIDL_TEMPLATES: i32 = 21;
+pub const CSIDL_WINDOWS: i32 = 36;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DATABLOCK_HEADER {
@@ -606,22 +606,22 @@ pub const DFM_CMD_PROPERTIES: u32 = 4294967291;
 pub const DFM_CMD_RENAME: u32 = 4294967283;
 pub const DFM_CMD_VIEWDETAILS: u32 = 4294967287;
 pub const DFM_CMD_VIEWLIST: u32 = 4294967288;
-pub const DFM_GETDEFSTATICID: u32 = 14;
-pub const DFM_GETHELPTEXT: u32 = 5;
-pub const DFM_GETHELPTEXTW: u32 = 11;
-pub const DFM_GETVERBA: u32 = 16;
-pub const DFM_GETVERBW: u32 = 15;
-pub const DFM_INVOKECOMMAND: u32 = 2;
-pub const DFM_INVOKECOMMANDEX: u32 = 12;
-pub const DFM_MAPCOMMANDNAME: u32 = 13;
-pub const DFM_MERGECONTEXTMENU: u32 = 1;
-pub const DFM_MERGECONTEXTMENU_BOTTOM: u32 = 17;
-pub const DFM_MERGECONTEXTMENU_TOP: u32 = 10;
-pub const DFM_MODIFYQCMFLAGS: u32 = 18;
-pub const DFM_VALIDATECMD: u32 = 9;
-pub const DFM_WM_DRAWITEM: u32 = 7;
-pub const DFM_WM_INITMENUPOPUP: u32 = 8;
-pub const DFM_WM_MEASUREITEM: u32 = 6;
+pub const DFM_GETDEFSTATICID: i32 = 14;
+pub const DFM_GETHELPTEXT: i32 = 5;
+pub const DFM_GETHELPTEXTW: i32 = 11;
+pub const DFM_GETVERBA: i32 = 16;
+pub const DFM_GETVERBW: i32 = 15;
+pub const DFM_INVOKECOMMAND: i32 = 2;
+pub const DFM_INVOKECOMMANDEX: i32 = 12;
+pub const DFM_MAPCOMMANDNAME: i32 = 13;
+pub const DFM_MERGECONTEXTMENU: i32 = 1;
+pub const DFM_MERGECONTEXTMENU_BOTTOM: i32 = 17;
+pub const DFM_MERGECONTEXTMENU_TOP: i32 = 10;
+pub const DFM_MODIFYQCMFLAGS: i32 = 18;
+pub const DFM_VALIDATECMD: i32 = 9;
+pub const DFM_WM_DRAWITEM: i32 = 7;
+pub const DFM_WM_INITMENUPOPUP: i32 = 8;
+pub const DFM_WM_MEASUREITEM: i32 = 6;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DROPDESCRIPTION {
@@ -655,9 +655,9 @@ pub const DROPIMAGE_WARNING: DROPIMAGETYPE = 7;
 pub const DTI_ADDUI_DEFAULT: tagDTI_ADTIWUI = 0;
 pub const DTI_ADDUI_DISPSUBWIZARD: tagDTI_ADTIWUI = 1;
 pub const DTI_ADDUI_POSITIONITEM: tagDTI_ADTIWUI = 2;
-pub const DVASPECT_COPY: u32 = 3;
-pub const DVASPECT_LINK: u32 = 4;
-pub const DVASPECT_SHORTNAME: u32 = 2;
+pub const DVASPECT_COPY: i32 = 3;
+pub const DVASPECT_LINK: i32 = 4;
+pub const DVASPECT_SHORTNAME: i32 = 2;
 pub const EXP_DARWIN_ID_SIG: u32 = 2684354566;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -708,33 +708,33 @@ impl Default for EXP_SZ_LINK {
     }
 }
 pub const EXP_SZ_LINK_SIG: u32 = 2684354561;
-pub const FCIDM_BROWSERFIRST: u32 = 40960;
-pub const FCIDM_BROWSERLAST: u32 = 48896;
-pub const FCIDM_GLOBALFIRST: u32 = 32768;
-pub const FCIDM_GLOBALLAST: u32 = 40959;
-pub const FCIDM_MENU_EDIT: u32 = 32832;
-pub const FCIDM_MENU_EXPLORE: u32 = 33104;
-pub const FCIDM_MENU_FAVORITES: u32 = 33136;
-pub const FCIDM_MENU_FILE: u32 = 32768;
-pub const FCIDM_MENU_FIND: u32 = 33088;
-pub const FCIDM_MENU_HELP: u32 = 33024;
-pub const FCIDM_MENU_TOOLS: u32 = 32960;
-pub const FCIDM_MENU_TOOLS_SEP_GOTO: u32 = 32961;
-pub const FCIDM_MENU_VIEW: u32 = 32896;
-pub const FCIDM_MENU_VIEW_SEP_OPTIONS: u32 = 32897;
-pub const FCIDM_SHVIEWFIRST: u32 = 0;
-pub const FCIDM_SHVIEWLAST: u32 = 32767;
-pub const FCSM_CLSID: u32 = 8;
-pub const FCSM_FLAGS: u32 = 64;
-pub const FCSM_ICONFILE: u32 = 16;
-pub const FCSM_INFOTIP: u32 = 4;
-pub const FCSM_LOGO: u32 = 32;
-pub const FCSM_VIEWID: u32 = 1;
-pub const FCSM_WEBVIEWTEMPLATE: u32 = 2;
-pub const FCS_FLAG_DRAGDROP: u32 = 2;
-pub const FCS_FORCEWRITE: u32 = 2;
-pub const FCS_READ: u32 = 1;
-pub const FCS_WRITE: u32 = 3;
+pub const FCIDM_BROWSERFIRST: i32 = 40960;
+pub const FCIDM_BROWSERLAST: i32 = 48896;
+pub const FCIDM_GLOBALFIRST: i32 = 32768;
+pub const FCIDM_GLOBALLAST: i32 = 40959;
+pub const FCIDM_MENU_EDIT: i32 = 32832;
+pub const FCIDM_MENU_EXPLORE: i32 = 33104;
+pub const FCIDM_MENU_FAVORITES: i32 = 33136;
+pub const FCIDM_MENU_FILE: i32 = 32768;
+pub const FCIDM_MENU_FIND: i32 = 33088;
+pub const FCIDM_MENU_HELP: i32 = 33024;
+pub const FCIDM_MENU_TOOLS: i32 = 32960;
+pub const FCIDM_MENU_TOOLS_SEP_GOTO: i32 = 32961;
+pub const FCIDM_MENU_VIEW: i32 = 32896;
+pub const FCIDM_MENU_VIEW_SEP_OPTIONS: i32 = 32897;
+pub const FCIDM_SHVIEWFIRST: i32 = 0;
+pub const FCIDM_SHVIEWLAST: i32 = 32767;
+pub const FCSM_CLSID: i32 = 8;
+pub const FCSM_FLAGS: i32 = 64;
+pub const FCSM_ICONFILE: i32 = 16;
+pub const FCSM_INFOTIP: i32 = 4;
+pub const FCSM_LOGO: i32 = 32;
+pub const FCSM_VIEWID: i32 = 1;
+pub const FCSM_WEBVIEWTEMPLATE: i32 = 2;
+pub const FCS_FLAG_DRAGDROP: i32 = 2;
+pub const FCS_FORCEWRITE: i32 = 2;
+pub const FCS_READ: i32 = 1;
+pub const FCS_WRITE: i32 = 3;
 pub const FD_ACCESSTIME: FD_FLAGS = 16;
 pub const FD_ATTRIBUTES: FD_FLAGS = 4;
 pub const FD_CLSID: FD_FLAGS = 1;
@@ -829,27 +829,27 @@ impl Default for FILE_ATTRIBUTES_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const GIL_ASYNC: u32 = 32;
-pub const GIL_CHECKSHIELD: u32 = 512;
-pub const GIL_DEFAULTICON: u32 = 64;
-pub const GIL_DONTCACHE: u32 = 16;
-pub const GIL_FORCENOSHIELD: u32 = 1024;
-pub const GIL_FORSHELL: u32 = 2;
-pub const GIL_FORSHORTCUT: u32 = 128;
-pub const GIL_NOTFILENAME: u32 = 8;
-pub const GIL_OPENICON: u32 = 1;
-pub const GIL_PERCLASS: u32 = 4;
-pub const GIL_PERINSTANCE: u32 = 2;
-pub const GIL_SHIELD: u32 = 512;
-pub const GIL_SIMULATEDOC: u32 = 1;
+pub const GIL_ASYNC: i32 = 32;
+pub const GIL_CHECKSHIELD: i32 = 512;
+pub const GIL_DEFAULTICON: i32 = 64;
+pub const GIL_DONTCACHE: i32 = 16;
+pub const GIL_FORCENOSHIELD: i32 = 1024;
+pub const GIL_FORSHELL: i32 = 2;
+pub const GIL_FORSHORTCUT: i32 = 128;
+pub const GIL_NOTFILENAME: i32 = 8;
+pub const GIL_OPENICON: i32 = 1;
+pub const GIL_PERCLASS: i32 = 4;
+pub const GIL_PERINSTANCE: i32 = 2;
+pub const GIL_SHIELD: i32 = 512;
+pub const GIL_SIMULATEDOC: i32 = 1;
 pub const GPFIDL_ALTNAME: i32 = 1;
 pub const GPFIDL_DEFAULT: i32 = 0;
 pub type GPFIDL_FLAGS = i32;
 pub const GPFIDL_UNCPRINTER: i32 = 2;
 pub type HPSXA = *mut core::ffi::c_void;
 pub const IDO_SHGIOI_DEFAULT: u32 = 4294967292;
-pub const IDO_SHGIOI_LINK: u32 = 268435454;
-pub const IDO_SHGIOI_SHARE: u32 = 268435455;
+pub const IDO_SHGIOI_LINK: i32 = 268435454;
+pub const IDO_SHGIOI_SHARE: i32 = 268435455;
 pub const IDO_SHGIOI_SLOWFILE: u32 = 4294967293;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -879,11 +879,11 @@ pub const ISHCUTCMDID_COMMITHISTORY: i32 = 2;
 pub const ISHCUTCMDID_DOWNLOADICON: i32 = 0;
 pub const ISHCUTCMDID_INTSHORTCUTCREATE: i32 = 1;
 pub const ISHCUTCMDID_SETUSERAWURL: i32 = 3;
-pub const IS_FULLSCREEN: u32 = 2;
-pub const IS_NORMAL: u32 = 1;
-pub const IS_SPLIT: u32 = 4;
-pub const IS_VALIDSIZESTATEBITS: u32 = 7;
-pub const IS_VALIDSTATEBITS: i32 = -1073741817;
+pub const IS_FULLSCREEN: i32 = 2;
+pub const IS_NORMAL: i32 = 1;
+pub const IS_SPLIT: i32 = 4;
+pub const IS_VALIDSIZESTATEBITS: i32 = 7;
+pub const IS_VALIDSTATEBITS: u32 = 3221225479;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ITEMSPACING {
@@ -965,11 +965,11 @@ pub type LPSHELLSTATEW = *mut SHELLSTATEW;
 #[cfg(feature = "shobjidl_core")]
 pub type LPSHFOLDERCUSTOMSETTINGS = *mut SHFOLDERCUSTOMSETTINGS;
 pub type LPWALLPAPEROPT = *mut WALLPAPEROPT;
-pub const MAX_COLUMN_DESC_LEN: u32 = 128;
-pub const MAX_COLUMN_NAME_LEN: u32 = 80;
-pub const MM_ADDSEPARATOR: u32 = 1;
-pub const MM_DONTREMOVESEPS: u32 = 4;
-pub const MM_SUBMENUSHAVEIDS: u32 = 2;
+pub const MAX_COLUMN_DESC_LEN: i32 = 128;
+pub const MAX_COLUMN_NAME_LEN: i32 = 80;
+pub const MM_ADDSEPARATOR: i32 = 1;
+pub const MM_DONTREMOVESEPS: i32 = 4;
+pub const MM_SUBMENUSHAVEIDS: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnetwk")]
 #[derive(Clone, Copy)]
@@ -1023,7 +1023,7 @@ pub struct NT_FE_CONSOLE_PROPS {
     pub uCodePage: u32,
 }
 pub const NT_FE_CONSOLE_PROPS_SIG: u32 = 2684354564;
-pub const NUM_POINTS: u32 = 3;
+pub const NUM_POINTS: i32 = 3;
 pub const OAIF_ALLOW_REGISTRATION: tagOPEN_AS_INFO_FLAGS = 1;
 pub const OAIF_EXEC: tagOPEN_AS_INFO_FLAGS = 4;
 pub const OAIF_FILE_IS_URI: tagOPEN_AS_INFO_FLAGS = 128;
@@ -1031,10 +1031,10 @@ pub const OAIF_FORCE_REGISTRATION: tagOPEN_AS_INFO_FLAGS = 8;
 pub const OAIF_HIDE_REGISTRATION: tagOPEN_AS_INFO_FLAGS = 32;
 pub const OAIF_REGISTER_EXT: tagOPEN_AS_INFO_FLAGS = 2;
 pub const OAIF_URL_PROTOCOL: tagOPEN_AS_INFO_FLAGS = 64;
-pub const OFASI_EDIT: u32 = 1;
-pub const OFASI_OPENDESKTOP: u32 = 2;
+pub const OFASI_EDIT: i32 = 1;
+pub const OFASI_OPENDESKTOP: i32 = 2;
 pub const OI_ASYNC: u32 = 4294962926;
-pub const OI_DEFAULT: u32 = 0;
+pub const OI_DEFAULT: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OPENASINFO {
@@ -1053,83 +1053,83 @@ pub type PBROWSEINFOA = *mut BROWSEINFOA;
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 pub type PBROWSEINFOW = *mut BROWSEINFOW;
 pub const PCS_FATAL: u32 = 2147483648;
-pub const PCS_PATHTOOLONG: u32 = 8;
-pub const PCS_REMOVEDCHAR: u32 = 2;
-pub const PCS_REPLACEDCHAR: u32 = 1;
-pub const PCS_TRUNCATED: u32 = 4;
+pub const PCS_PATHTOOLONG: i32 = 8;
+pub const PCS_REMOVEDCHAR: i32 = 2;
+pub const PCS_REPLACEDCHAR: i32 = 1;
+pub const PCS_TRUNCATED: i32 = 4;
 #[cfg(feature = "shtypes")]
 pub type PDETAILSINFO = *mut DETAILSINFO;
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 pub type PDFMICS = *mut DFMICS;
-pub const PDTIMER_PAUSE: u32 = 2;
-pub const PDTIMER_RESET: u32 = 1;
-pub const PDTIMER_RESUME: u32 = 3;
-pub const PIDISF_CACHEDSTICKY: u32 = 2;
-pub const PIDISF_CACHEIMAGES: u32 = 16;
-pub const PIDISF_FOLLOWALLLINKS: u32 = 32;
-pub const PIDISF_RECENTLYCHANGED: u32 = 1;
-pub const PIDISM_DONTWATCH: u32 = 2;
-pub const PIDISM_GLOBAL: u32 = 0;
-pub const PIDISM_WATCH: u32 = 1;
-pub const PIDISR_NEEDS_ADD: u32 = 1;
-pub const PIDISR_NEEDS_DELETE: u32 = 3;
-pub const PIDISR_NEEDS_UPDATE: u32 = 2;
-pub const PIDISR_UP_TO_DATE: u32 = 0;
-pub const PID_INTSITE_AUTHOR: u32 = 3;
-pub const PID_INTSITE_CODEPAGE: u32 = 18;
-pub const PID_INTSITE_COMMENT: u32 = 8;
-pub const PID_INTSITE_CONTENTCODE: u32 = 11;
-pub const PID_INTSITE_CONTENTLEN: u32 = 10;
-pub const PID_INTSITE_DESCRIPTION: u32 = 7;
-pub const PID_INTSITE_FLAGS: u32 = 9;
-pub const PID_INTSITE_ICONFILE: u32 = 21;
-pub const PID_INTSITE_ICONINDEX: u32 = 20;
-pub const PID_INTSITE_LASTMOD: u32 = 5;
-pub const PID_INTSITE_LASTVISIT: u32 = 4;
-pub const PID_INTSITE_RECURSE: u32 = 12;
-pub const PID_INTSITE_ROAMED: u32 = 34;
-pub const PID_INTSITE_SUBSCRIPTION: u32 = 14;
-pub const PID_INTSITE_TITLE: u32 = 16;
-pub const PID_INTSITE_TRACKING: u32 = 19;
-pub const PID_INTSITE_URL: u32 = 15;
-pub const PID_INTSITE_VISITCOUNT: u32 = 6;
-pub const PID_INTSITE_WATCH: u32 = 13;
-pub const PID_INTSITE_WHATSNEW: u32 = 2;
-pub const PID_IS_AUTHOR: u32 = 11;
-pub const PID_IS_COMMENT: u32 = 13;
-pub const PID_IS_DESCRIPTION: u32 = 12;
-pub const PID_IS_HOTKEY: u32 = 6;
-pub const PID_IS_ICONFILE: u32 = 9;
-pub const PID_IS_ICONINDEX: u32 = 8;
-pub const PID_IS_NAME: u32 = 4;
-pub const PID_IS_ROAMED: u32 = 15;
-pub const PID_IS_SHOWCMD: u32 = 7;
-pub const PID_IS_URL: u32 = 2;
-pub const PID_IS_WHATSNEW: u32 = 10;
-pub const PID_IS_WORKINGDIR: u32 = 5;
-pub const PIFDEFFILESIZE: u32 = 80;
-pub const PIFDEFPATHSIZE: u32 = 64;
-pub const PIFMAXFILEPATH: u32 = 260;
-pub const PIFNAMESIZE: u32 = 30;
-pub const PIFPARAMSSIZE: u32 = 64;
-pub const PIFSHDATASIZE: u32 = 64;
-pub const PIFSHPROGSIZE: u32 = 64;
-pub const PIFSTARTLOCSIZE: u32 = 63;
+pub const PDTIMER_PAUSE: i32 = 2;
+pub const PDTIMER_RESET: i32 = 1;
+pub const PDTIMER_RESUME: i32 = 3;
+pub const PIDISF_CACHEDSTICKY: i32 = 2;
+pub const PIDISF_CACHEIMAGES: i32 = 16;
+pub const PIDISF_FOLLOWALLLINKS: i32 = 32;
+pub const PIDISF_RECENTLYCHANGED: i32 = 1;
+pub const PIDISM_DONTWATCH: i32 = 2;
+pub const PIDISM_GLOBAL: i32 = 0;
+pub const PIDISM_WATCH: i32 = 1;
+pub const PIDISR_NEEDS_ADD: i32 = 1;
+pub const PIDISR_NEEDS_DELETE: i32 = 3;
+pub const PIDISR_NEEDS_UPDATE: i32 = 2;
+pub const PIDISR_UP_TO_DATE: i32 = 0;
+pub const PID_INTSITE_AUTHOR: i32 = 3;
+pub const PID_INTSITE_CODEPAGE: i32 = 18;
+pub const PID_INTSITE_COMMENT: i32 = 8;
+pub const PID_INTSITE_CONTENTCODE: i32 = 11;
+pub const PID_INTSITE_CONTENTLEN: i32 = 10;
+pub const PID_INTSITE_DESCRIPTION: i32 = 7;
+pub const PID_INTSITE_FLAGS: i32 = 9;
+pub const PID_INTSITE_ICONFILE: i32 = 21;
+pub const PID_INTSITE_ICONINDEX: i32 = 20;
+pub const PID_INTSITE_LASTMOD: i32 = 5;
+pub const PID_INTSITE_LASTVISIT: i32 = 4;
+pub const PID_INTSITE_RECURSE: i32 = 12;
+pub const PID_INTSITE_ROAMED: i32 = 34;
+pub const PID_INTSITE_SUBSCRIPTION: i32 = 14;
+pub const PID_INTSITE_TITLE: i32 = 16;
+pub const PID_INTSITE_TRACKING: i32 = 19;
+pub const PID_INTSITE_URL: i32 = 15;
+pub const PID_INTSITE_VISITCOUNT: i32 = 6;
+pub const PID_INTSITE_WATCH: i32 = 13;
+pub const PID_INTSITE_WHATSNEW: i32 = 2;
+pub const PID_IS_AUTHOR: i32 = 11;
+pub const PID_IS_COMMENT: i32 = 13;
+pub const PID_IS_DESCRIPTION: i32 = 12;
+pub const PID_IS_HOTKEY: i32 = 6;
+pub const PID_IS_ICONFILE: i32 = 9;
+pub const PID_IS_ICONINDEX: i32 = 8;
+pub const PID_IS_NAME: i32 = 4;
+pub const PID_IS_ROAMED: i32 = 15;
+pub const PID_IS_SHOWCMD: i32 = 7;
+pub const PID_IS_URL: i32 = 2;
+pub const PID_IS_WHATSNEW: i32 = 10;
+pub const PID_IS_WORKINGDIR: i32 = 5;
+pub const PIFDEFFILESIZE: i32 = 80;
+pub const PIFDEFPATHSIZE: i32 = 64;
+pub const PIFMAXFILEPATH: i32 = 260;
+pub const PIFNAMESIZE: i32 = 30;
+pub const PIFPARAMSSIZE: i32 = 64;
+pub const PIFSHDATASIZE: i32 = 64;
+pub const PIFSHPROGSIZE: i32 = 64;
+pub const PIFSTARTLOCSIZE: i32 = 63;
 pub type POPENASINFO = *mut OPENASINFO;
 pub type PPROPPRG = *mut PROPPRG;
-pub const PRF_DONTFINDLNK: u32 = 8;
-pub const PRF_FIRSTDIRDEF: u32 = 4;
-pub const PRF_REQUIREABSOLUTE: u32 = 16;
-pub const PRF_TRYPROGRAMEXTENSIONS: u32 = 3;
-pub const PRF_VERIFYEXISTS: u32 = 1;
-pub const PROGDLG_AUTOTIME: u32 = 2;
-pub const PROGDLG_MARQUEEPROGRESS: u32 = 32;
-pub const PROGDLG_MODAL: u32 = 1;
-pub const PROGDLG_NOCANCEL: u32 = 64;
-pub const PROGDLG_NOMINIMIZE: u32 = 8;
-pub const PROGDLG_NOPROGRESSBAR: u32 = 16;
-pub const PROGDLG_NORMAL: u32 = 0;
-pub const PROGDLG_NOTIME: u32 = 4;
+pub const PRF_DONTFINDLNK: i32 = 8;
+pub const PRF_FIRSTDIRDEF: i32 = 4;
+pub const PRF_REQUIREABSOLUTE: i32 = 16;
+pub const PRF_TRYPROGRAMEXTENSIONS: i32 = 3;
+pub const PRF_VERIFYEXISTS: i32 = 1;
+pub const PROGDLG_AUTOTIME: i32 = 2;
+pub const PROGDLG_MARQUEEPROGRESS: i32 = 32;
+pub const PROGDLG_MODAL: i32 = 1;
+pub const PROGDLG_NOCANCEL: i32 = 64;
+pub const PROGDLG_NOMINIMIZE: i32 = 8;
+pub const PROGDLG_NOPROGRESSBAR: i32 = 16;
+pub const PROGDLG_NORMAL: i32 = 0;
+pub const PROGDLG_NOTIME: i32 = 4;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PROPPRG {
@@ -1184,16 +1184,16 @@ pub struct QCMINFO_IDMAP_PLACEMENT {
     pub id: u32,
     pub fFlags: u32,
 }
-pub const QCMINFO_PLACE_AFTER: u32 = 1;
-pub const QCMINFO_PLACE_BEFORE: u32 = 0;
-pub const QIF_CACHED: u32 = 1;
-pub const QIF_DONTEXPANDFOLDER: u32 = 2;
-pub const QITIPF_DEFAULT: u32 = 0;
-pub const QITIPF_LINKNOTARGET: u32 = 2;
-pub const QITIPF_LINKUSETARGET: u32 = 4;
-pub const QITIPF_SINGLELINE: u32 = 16;
-pub const QITIPF_USENAME: u32 = 1;
-pub const QITIPF_USESLOWTIP: u32 = 8;
+pub const QCMINFO_PLACE_AFTER: i32 = 1;
+pub const QCMINFO_PLACE_BEFORE: i32 = 0;
+pub const QIF_CACHED: i32 = 1;
+pub const QIF_DONTEXPANDFOLDER: i32 = 2;
+pub const QITIPF_DEFAULT: i32 = 0;
+pub const QITIPF_LINKNOTARGET: i32 = 2;
+pub const QITIPF_LINKUSETARGET: i32 = 4;
+pub const QITIPF_SINGLELINE: i32 = 16;
+pub const QITIPF_USENAME: i32 = 1;
+pub const QITIPF_USESLOWTIP: i32 = 8;
 pub type RESTRICTIONS = i32;
 pub const REST_ALLOWBITBUCKDRIVES: RESTRICTIONS = 1073741905;
 pub const REST_ALLOWCOMMENTTOGGLE: RESTRICTIONS = 1090519044;
@@ -1362,25 +1362,25 @@ pub const REST_STARTRUNNOHOMEPATH: RESTRICTIONS = 1073741921;
 pub const SCNRT_DISABLE: SCNRT_STATUS = 1;
 pub const SCNRT_ENABLE: SCNRT_STATUS = 0;
 pub type SCNRT_STATUS = i32;
-pub const SFVM_ADDPROPERTYPAGES: u32 = 47;
-pub const SFVM_BACKGROUNDENUM: u32 = 32;
-pub const SFVM_BACKGROUNDENUMDONE: u32 = 48;
-pub const SFVM_COLUMNCLICK: u32 = 24;
-pub const SFVM_DEFITEMCOUNT: u32 = 26;
-pub const SFVM_DEFVIEWMODE: u32 = 27;
-pub const SFVM_DIDDRAGDROP: u32 = 36;
-pub const SFVM_FSNOTIFY: u32 = 14;
-pub const SFVM_GETANIMATION: u32 = 68;
-pub const SFVM_GETBUTTONINFO: u32 = 5;
-pub const SFVM_GETBUTTONS: u32 = 6;
-pub const SFVM_GETDETAILSOF: u32 = 23;
-pub const SFVM_GETHELPTEXT: u32 = 3;
-pub const SFVM_GETHELPTOPIC: u32 = 63;
-pub const SFVM_GETNOTIFY: u32 = 49;
-pub const SFVM_GETPANE: u32 = 59;
-pub const SFVM_GETSORTDEFAULTS: u32 = 53;
-pub const SFVM_GETTOOLTIPTEXT: u32 = 4;
-pub const SFVM_GETZONE: u32 = 58;
+pub const SFVM_ADDPROPERTYPAGES: i32 = 47;
+pub const SFVM_BACKGROUNDENUM: i32 = 32;
+pub const SFVM_BACKGROUNDENUMDONE: i32 = 48;
+pub const SFVM_COLUMNCLICK: i32 = 24;
+pub const SFVM_DEFITEMCOUNT: i32 = 26;
+pub const SFVM_DEFVIEWMODE: i32 = 27;
+pub const SFVM_DIDDRAGDROP: i32 = 36;
+pub const SFVM_FSNOTIFY: i32 = 14;
+pub const SFVM_GETANIMATION: i32 = 68;
+pub const SFVM_GETBUTTONINFO: i32 = 5;
+pub const SFVM_GETBUTTONS: i32 = 6;
+pub const SFVM_GETDETAILSOF: i32 = 23;
+pub const SFVM_GETHELPTEXT: i32 = 3;
+pub const SFVM_GETHELPTOPIC: i32 = 63;
+pub const SFVM_GETNOTIFY: i32 = 49;
+pub const SFVM_GETPANE: i32 = 59;
+pub const SFVM_GETSORTDEFAULTS: i32 = 53;
+pub const SFVM_GETTOOLTIPTEXT: i32 = 4;
+pub const SFVM_GETZONE: i32 = 58;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SFVM_HELPTOPIC_DATA {
@@ -1392,9 +1392,9 @@ impl Default for SFVM_HELPTOPIC_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SFVM_INITMENUPOPUP: u32 = 7;
-pub const SFVM_INVOKECOMMAND: u32 = 2;
-pub const SFVM_MERGEMENU: u32 = 1;
+pub const SFVM_INITMENUPOPUP: i32 = 7;
+pub const SFVM_INVOKECOMMAND: i32 = 2;
+pub const SFVM_MERGEMENU: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "prsht"))]
 #[derive(Clone, Copy, Default)]
@@ -1403,18 +1403,18 @@ pub struct SFVM_PROPPAGE_DATA {
     pub pfn: super::LPFNADDPROPSHEETPAGE,
     pub lParam: super::LPARAM,
 }
-pub const SFVM_QUERYFSNOTIFY: u32 = 25;
-pub const SFVM_SETISFV: u32 = 39;
-pub const SFVM_SIZE: u32 = 57;
-pub const SFVM_THISIDLIST: u32 = 41;
-pub const SFVM_UNMERGEMENU: u32 = 28;
-pub const SFVM_UPDATESTATUSBAR: u32 = 31;
-pub const SFVM_WINDOWCREATED: u32 = 15;
-pub const SFVSOC_INVALIDATE_ALL: u32 = 1;
-pub const SFVSOC_NOSCROLL: u32 = 2;
-pub const SFVS_SELECT_ALLITEMS: u32 = 1;
-pub const SFVS_SELECT_INVERT: u32 = 2;
-pub const SFVS_SELECT_NONE: u32 = 0;
+pub const SFVM_QUERYFSNOTIFY: i32 = 25;
+pub const SFVM_SETISFV: i32 = 39;
+pub const SFVM_SIZE: i32 = 57;
+pub const SFVM_THISIDLIST: i32 = 41;
+pub const SFVM_UNMERGEMENU: i32 = 28;
+pub const SFVM_UPDATESTATUSBAR: i32 = 31;
+pub const SFVM_WINDOWCREATED: i32 = 15;
+pub const SFVSOC_INVALIDATE_ALL: i32 = 1;
+pub const SFVSOC_NOSCROLL: i32 = 2;
+pub const SFVS_SELECT_ALLITEMS: i32 = 1;
+pub const SFVS_SELECT_INVERT: i32 = 2;
+pub const SFVS_SELECT_NONE: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
 #[derive(Clone, Copy)]
@@ -1474,55 +1474,55 @@ pub const SHARD_APPIDINFO: SHARD = 4;
 pub const SHARD_APPIDINFOIDLIST: SHARD = 5;
 pub const SHARD_APPIDINFOLINK: SHARD = 7;
 pub const SHARD_LINK: SHARD = 6;
-pub const SHARD_PATH: u32 = 2;
+pub const SHARD_PATH: i32 = 2;
 pub const SHARD_PATHA: SHARD = 2;
 pub const SHARD_PATHW: SHARD = 3;
 pub const SHARD_PIDL: SHARD = 1;
 pub const SHARD_SHELLITEM: SHARD = 8;
-pub const SHCNEE_MSI_CHANGE: u32 = 4;
-pub const SHCNEE_MSI_UNINSTALL: u32 = 5;
-pub const SHCNEE_ORDERCHANGED: u32 = 2;
-pub const SHCNE_ALLEVENTS: u32 = 2147483647;
-pub const SHCNE_ASSOCCHANGED: u32 = 134217728;
-pub const SHCNE_ATTRIBUTES: u32 = 2048;
-pub const SHCNE_CREATE: u32 = 2;
-pub const SHCNE_DELETE: u32 = 4;
-pub const SHCNE_DISKEVENTS: u32 = 145439;
-pub const SHCNE_DRIVEADD: u32 = 256;
-pub const SHCNE_DRIVEADDGUI: u32 = 65536;
-pub const SHCNE_DRIVEREMOVED: u32 = 128;
-pub const SHCNE_EXTENDED_EVENT: u32 = 67108864;
-pub const SHCNE_FREESPACE: u32 = 262144;
-pub const SHCNE_GLOBALEVENTS: u32 = 201687520;
+pub const SHCNEE_MSI_CHANGE: i32 = 4;
+pub const SHCNEE_MSI_UNINSTALL: i32 = 5;
+pub const SHCNEE_ORDERCHANGED: i32 = 2;
+pub const SHCNE_ALLEVENTS: i32 = 2147483647;
+pub const SHCNE_ASSOCCHANGED: i32 = 134217728;
+pub const SHCNE_ATTRIBUTES: i32 = 2048;
+pub const SHCNE_CREATE: i32 = 2;
+pub const SHCNE_DELETE: i32 = 4;
+pub const SHCNE_DISKEVENTS: i32 = 145439;
+pub const SHCNE_DRIVEADD: i32 = 256;
+pub const SHCNE_DRIVEADDGUI: i32 = 65536;
+pub const SHCNE_DRIVEREMOVED: i32 = 128;
+pub const SHCNE_EXTENDED_EVENT: i32 = 67108864;
+pub const SHCNE_FREESPACE: i32 = 262144;
+pub const SHCNE_GLOBALEVENTS: i32 = 201687520;
 pub const SHCNE_INTERRUPT: u32 = 2147483648;
-pub const SHCNE_MEDIAINSERTED: u32 = 32;
-pub const SHCNE_MEDIAREMOVED: u32 = 64;
-pub const SHCNE_MKDIR: u32 = 8;
-pub const SHCNE_NETSHARE: u32 = 512;
-pub const SHCNE_NETUNSHARE: u32 = 1024;
-pub const SHCNE_RENAMEFOLDER: u32 = 131072;
-pub const SHCNE_RENAMEITEM: u32 = 1;
-pub const SHCNE_RMDIR: u32 = 16;
-pub const SHCNE_SERVERDISCONNECT: u32 = 16384;
-pub const SHCNE_UPDATEDIR: u32 = 4096;
-pub const SHCNE_UPDATEIMAGE: u32 = 32768;
-pub const SHCNE_UPDATEITEM: u32 = 8192;
-pub const SHCNF_DWORD: u32 = 3;
-pub const SHCNF_FLUSH: u32 = 4096;
-pub const SHCNF_FLUSHNOWAIT: u32 = 12288;
-pub const SHCNF_IDLIST: u32 = 0;
-pub const SHCNF_NOTIFYRECURSIVE: u32 = 65536;
-pub const SHCNF_PATH: u32 = 1;
-pub const SHCNF_PATHA: u32 = 1;
-pub const SHCNF_PATHW: u32 = 5;
-pub const SHCNF_PRINTER: u32 = 2;
-pub const SHCNF_PRINTERA: u32 = 2;
-pub const SHCNF_PRINTERW: u32 = 6;
-pub const SHCNF_TYPE: u32 = 255;
-pub const SHCNRF_InterruptLevel: u32 = 1;
-pub const SHCNRF_NewDelivery: u32 = 32768;
-pub const SHCNRF_RecursiveInterrupt: u32 = 4096;
-pub const SHCNRF_ShellLevel: u32 = 2;
+pub const SHCNE_MEDIAINSERTED: i32 = 32;
+pub const SHCNE_MEDIAREMOVED: i32 = 64;
+pub const SHCNE_MKDIR: i32 = 8;
+pub const SHCNE_NETSHARE: i32 = 512;
+pub const SHCNE_NETUNSHARE: i32 = 1024;
+pub const SHCNE_RENAMEFOLDER: i32 = 131072;
+pub const SHCNE_RENAMEITEM: i32 = 1;
+pub const SHCNE_RMDIR: i32 = 16;
+pub const SHCNE_SERVERDISCONNECT: i32 = 16384;
+pub const SHCNE_UPDATEDIR: i32 = 4096;
+pub const SHCNE_UPDATEIMAGE: i32 = 32768;
+pub const SHCNE_UPDATEITEM: i32 = 8192;
+pub const SHCNF_DWORD: i32 = 3;
+pub const SHCNF_FLUSH: i32 = 4096;
+pub const SHCNF_FLUSHNOWAIT: i32 = 12288;
+pub const SHCNF_IDLIST: i32 = 0;
+pub const SHCNF_NOTIFYRECURSIVE: i32 = 65536;
+pub const SHCNF_PATH: i32 = 1;
+pub const SHCNF_PATHA: i32 = 1;
+pub const SHCNF_PATHW: i32 = 5;
+pub const SHCNF_PRINTER: i32 = 2;
+pub const SHCNF_PRINTERA: i32 = 2;
+pub const SHCNF_PRINTERW: i32 = 6;
+pub const SHCNF_TYPE: i32 = 255;
+pub const SHCNRF_InterruptLevel: i32 = 1;
+pub const SHCNRF_NewDelivery: i32 = 32768;
+pub const SHCNRF_RecursiveInterrupt: i32 = 4096;
+pub const SHCNRF_ShellLevel: i32 = 2;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SHChangeDWORDAsIDList {
@@ -1566,28 +1566,28 @@ pub struct SHDESCRIPTIONID {
     pub dwDescriptionId: u32,
     pub clsid: windows_sys::core::GUID,
 }
-pub const SHDID_COMPUTER_AUDIO: u32 = 19;
-pub const SHDID_COMPUTER_CDROM: u32 = 10;
-pub const SHDID_COMPUTER_DRIVE35: u32 = 5;
-pub const SHDID_COMPUTER_DRIVE525: u32 = 6;
-pub const SHDID_COMPUTER_FIXED: u32 = 8;
-pub const SHDID_COMPUTER_IMAGING: u32 = 18;
-pub const SHDID_COMPUTER_NETDRIVE: u32 = 9;
-pub const SHDID_COMPUTER_OTHER: u32 = 12;
-pub const SHDID_COMPUTER_RAMDISK: u32 = 11;
-pub const SHDID_COMPUTER_REMOVABLE: u32 = 7;
-pub const SHDID_COMPUTER_SHAREDDOCS: u32 = 20;
-pub const SHDID_FS_DIRECTORY: u32 = 3;
-pub const SHDID_FS_FILE: u32 = 2;
-pub const SHDID_FS_OTHER: u32 = 4;
-pub const SHDID_MOBILE_DEVICE: u32 = 21;
-pub const SHDID_NET_DOMAIN: u32 = 13;
-pub const SHDID_NET_OTHER: u32 = 17;
-pub const SHDID_NET_RESTOFNET: u32 = 16;
-pub const SHDID_NET_SERVER: u32 = 14;
-pub const SHDID_NET_SHARE: u32 = 15;
-pub const SHDID_REMOTE_DESKTOP_DRIVE: u32 = 22;
-pub const SHDID_ROOT_REGITEM: u32 = 1;
+pub const SHDID_COMPUTER_AUDIO: i32 = 19;
+pub const SHDID_COMPUTER_CDROM: i32 = 10;
+pub const SHDID_COMPUTER_DRIVE35: i32 = 5;
+pub const SHDID_COMPUTER_DRIVE525: i32 = 6;
+pub const SHDID_COMPUTER_FIXED: i32 = 8;
+pub const SHDID_COMPUTER_IMAGING: i32 = 18;
+pub const SHDID_COMPUTER_NETDRIVE: i32 = 9;
+pub const SHDID_COMPUTER_OTHER: i32 = 12;
+pub const SHDID_COMPUTER_RAMDISK: i32 = 11;
+pub const SHDID_COMPUTER_REMOVABLE: i32 = 7;
+pub const SHDID_COMPUTER_SHAREDDOCS: i32 = 20;
+pub const SHDID_FS_DIRECTORY: i32 = 3;
+pub const SHDID_FS_FILE: i32 = 2;
+pub const SHDID_FS_OTHER: i32 = 4;
+pub const SHDID_MOBILE_DEVICE: i32 = 21;
+pub const SHDID_NET_DOMAIN: i32 = 13;
+pub const SHDID_NET_OTHER: i32 = 17;
+pub const SHDID_NET_RESTOFNET: i32 = 16;
+pub const SHDID_NET_SERVER: i32 = 14;
+pub const SHDID_NET_SHARE: i32 = 15;
+pub const SHDID_REMOTE_DESKTOP_DRIVE: i32 = 22;
+pub const SHDID_ROOT_REGITEM: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLFLAGSTATE {
@@ -1605,8 +1605,8 @@ pub struct SHELLSTATEA {
     pub uNotUsed: u32,
     pub _bitfield2: windows_sys::core::BOOL,
 }
-pub const SHELLSTATEVERSION_IE4: u32 = 9;
-pub const SHELLSTATEVERSION_WIN2K: u32 = 10;
+pub const SHELLSTATEVERSION_IE4: i32 = 9;
+pub const SHELLSTATEVERSION_WIN2K: i32 = 10;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLSTATEW {
@@ -1619,16 +1619,16 @@ pub struct SHELLSTATEW {
     pub uNotUsed: u32,
     pub _bitfield2: windows_sys::core::BOOL,
 }
-pub const SHELLSTATE_SIZE_IE4: u32 = 24;
-pub const SHELLSTATE_SIZE_NT4: u32 = 20;
-pub const SHELLSTATE_SIZE_WIN95: u32 = 12;
+pub const SHELLSTATE_SIZE_IE4: i32 = 24;
+pub const SHELLSTATE_SIZE_NT4: i32 = 20;
+pub const SHELLSTATE_SIZE_WIN95: i32 = 12;
 pub type SHELL_LINK_DATA_FLAGS = u32;
 pub const SHFMT_CANCEL: u32 = 4294967294;
 pub const SHFMT_ERROR: u32 = 4294967295;
-pub const SHFMT_ID_DEFAULT: u32 = 65535;
+pub const SHFMT_ID_DEFAULT: i32 = 65535;
 pub const SHFMT_NOFORMAT: u32 = 4294967293;
-pub const SHFMT_OPT_FULL: u32 = 1;
-pub const SHFMT_OPT_SYSONLY: u32 = 2;
+pub const SHFMT_OPT_FULL: i32 = 1;
+pub const SHFMT_OPT_SYSONLY: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shobjidl_core")]
 #[derive(Clone, Copy)]
@@ -1655,28 +1655,28 @@ impl Default for SHFOLDERCUSTOMSETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SHGDFIL_DESCRIPTIONID: u32 = 3;
-pub const SHGDFIL_FINDDATA: u32 = 1;
-pub const SHGDFIL_NETRESOURCE: u32 = 2;
+pub const SHGDFIL_DESCRIPTIONID: i32 = 3;
+pub const SHGDFIL_FINDDATA: i32 = 1;
+pub const SHGDFIL_NETRESOURCE: i32 = 2;
 pub type SHGFP_TYPE = i32;
 pub const SHGFP_TYPE_CURRENT: SHGFP_TYPE = 0;
 pub const SHGFP_TYPE_DEFAULT: SHGFP_TYPE = 1;
-pub const SHOP_FILEPATH: u32 = 2;
-pub const SHOP_PRINTERNAME: u32 = 1;
-pub const SHOP_VOLUMEGUID: u32 = 4;
-pub const SHPPFW_ASKDIRCREATE: u32 = 2;
-pub const SHPPFW_DEFAULT: u32 = 1;
-pub const SHPPFW_DIRCREATE: u32 = 1;
-pub const SHPPFW_IGNOREFILENAME: u32 = 4;
-pub const SHPPFW_MEDIACHECKONLY: u32 = 16;
-pub const SHPPFW_NONE: u32 = 0;
-pub const SHPPFW_NOWRITECHECK: u32 = 8;
-pub const SIOM_ICONINDEX: u32 = 2;
-pub const SIOM_OVERLAYINDEX: u32 = 1;
-pub const SIOM_RESERVED_DEFAULT: u32 = 3;
-pub const SIOM_RESERVED_LINK: u32 = 1;
-pub const SIOM_RESERVED_SHARED: u32 = 0;
-pub const SIOM_RESERVED_SLOWFILE: u32 = 2;
+pub const SHOP_FILEPATH: i32 = 2;
+pub const SHOP_PRINTERNAME: i32 = 1;
+pub const SHOP_VOLUMEGUID: i32 = 4;
+pub const SHPPFW_ASKDIRCREATE: i32 = 2;
+pub const SHPPFW_DEFAULT: i32 = 1;
+pub const SHPPFW_DIRCREATE: i32 = 1;
+pub const SHPPFW_IGNOREFILENAME: i32 = 4;
+pub const SHPPFW_MEDIACHECKONLY: i32 = 16;
+pub const SHPPFW_NONE: i32 = 0;
+pub const SHPPFW_NOWRITECHECK: i32 = 8;
+pub const SIOM_ICONINDEX: i32 = 2;
+pub const SIOM_OVERLAYINDEX: i32 = 1;
+pub const SIOM_RESERVED_DEFAULT: i32 = 3;
+pub const SIOM_RESERVED_LINK: i32 = 1;
+pub const SIOM_RESERVED_SHARED: i32 = 0;
+pub const SIOM_RESERVED_SLOWFILE: i32 = 2;
 pub const SLDF_ALLOW_LINK_TO_LINK: SHELL_LINK_DATA_FLAGS = 8388608;
 pub const SLDF_DEFAULT: SHELL_LINK_DATA_FLAGS = 0;
 pub const SLDF_DISABLE_KNOWNFOLDER_RELATIVE_TRACKING: SHELL_LINK_DATA_FLAGS = 2097152;
@@ -1707,52 +1707,52 @@ pub const SLDF_RUN_WITH_SHIMLAYER: SHELL_LINK_DATA_FLAGS = 131072;
 pub const SLDF_UNALIAS_ON_SAVE: SHELL_LINK_DATA_FLAGS = 16777216;
 pub const SLDF_UNICODE: SHELL_LINK_DATA_FLAGS = 128;
 pub const SLDF_VALID: SHELL_LINK_DATA_FLAGS = 268433407;
-pub const SSF_AUTOCHECKSELECT: u32 = 8388608;
-pub const SSF_DESKTOPHTML: u32 = 512;
-pub const SSF_DONTPRETTYPATH: u32 = 2048;
-pub const SSF_DOUBLECLICKINWEBVIEW: u32 = 128;
-pub const SSF_FILTER: u32 = 65536;
-pub const SSF_HIDDENFILEEXTS: u32 = 4;
-pub const SSF_HIDEICONS: u32 = 16384;
-pub const SSF_ICONSONLY: u32 = 16777216;
-pub const SSF_MAPNETDRVBUTTON: u32 = 4096;
-pub const SSF_NOCONFIRMRECYCLE: u32 = 32768;
-pub const SSF_NONETCRAWLING: u32 = 1048576;
-pub const SSF_SEPPROCESS: u32 = 524288;
-pub const SSF_SERVERADMINUI: u32 = 4;
-pub const SSF_SHOWALLOBJECTS: u32 = 1;
-pub const SSF_SHOWATTRIBCOL: u32 = 256;
-pub const SSF_SHOWCOMPCOLOR: u32 = 8;
-pub const SSF_SHOWEXTENSIONS: u32 = 2;
-pub const SSF_SHOWINFOTIP: u32 = 8192;
-pub const SSF_SHOWSTARTPAGE: u32 = 4194304;
-pub const SSF_SHOWSTATUSBAR: u32 = 67108864;
-pub const SSF_SHOWSUPERHIDDEN: u32 = 262144;
-pub const SSF_SHOWSYSFILES: u32 = 32;
-pub const SSF_SHOWTYPEOVERLAY: u32 = 33554432;
-pub const SSF_SORTCOLUMNS: u32 = 16;
-pub const SSF_STARTPANELON: u32 = 2097152;
-pub const SSF_WEBVIEW: u32 = 131072;
-pub const SSF_WIN95CLASSIC: u32 = 1024;
+pub const SSF_AUTOCHECKSELECT: i32 = 8388608;
+pub const SSF_DESKTOPHTML: i32 = 512;
+pub const SSF_DONTPRETTYPATH: i32 = 2048;
+pub const SSF_DOUBLECLICKINWEBVIEW: i32 = 128;
+pub const SSF_FILTER: i32 = 65536;
+pub const SSF_HIDDENFILEEXTS: i32 = 4;
+pub const SSF_HIDEICONS: i32 = 16384;
+pub const SSF_ICONSONLY: i32 = 16777216;
+pub const SSF_MAPNETDRVBUTTON: i32 = 4096;
+pub const SSF_NOCONFIRMRECYCLE: i32 = 32768;
+pub const SSF_NONETCRAWLING: i32 = 1048576;
+pub const SSF_SEPPROCESS: i32 = 524288;
+pub const SSF_SERVERADMINUI: i32 = 4;
+pub const SSF_SHOWALLOBJECTS: i32 = 1;
+pub const SSF_SHOWATTRIBCOL: i32 = 256;
+pub const SSF_SHOWCOMPCOLOR: i32 = 8;
+pub const SSF_SHOWEXTENSIONS: i32 = 2;
+pub const SSF_SHOWINFOTIP: i32 = 8192;
+pub const SSF_SHOWSTARTPAGE: i32 = 4194304;
+pub const SSF_SHOWSTATUSBAR: i32 = 67108864;
+pub const SSF_SHOWSUPERHIDDEN: i32 = 262144;
+pub const SSF_SHOWSYSFILES: i32 = 32;
+pub const SSF_SHOWTYPEOVERLAY: i32 = 33554432;
+pub const SSF_SORTCOLUMNS: i32 = 16;
+pub const SSF_STARTPANELON: i32 = 2097152;
+pub const SSF_WEBVIEW: i32 = 131072;
+pub const SSF_WIN95CLASSIC: i32 = 1024;
 pub const STR_PARSE_PARTIAL_IDLIST: windows_sys::core::PCWSTR = windows_sys::core::w!("ParseOriginalItem");
 pub const STR_PARSE_WITH_PROPERTIES: windows_sys::core::PCWSTR = windows_sys::core::w!("ParseWithProperties");
-pub const VALIDATEUNC_CONNECT: u32 = 1;
-pub const VALIDATEUNC_NOUI: u32 = 2;
-pub const VALIDATEUNC_PERSIST: u32 = 8;
-pub const VALIDATEUNC_PRINT: u32 = 4;
-pub const VALIDATEUNC_VALID: u32 = 15;
+pub const VALIDATEUNC_CONNECT: i32 = 1;
+pub const VALIDATEUNC_NOUI: i32 = 2;
+pub const VALIDATEUNC_PERSIST: i32 = 8;
+pub const VALIDATEUNC_PRINT: i32 = 4;
+pub const VALIDATEUNC_VALID: i32 = 15;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WALLPAPEROPT {
     pub dwSize: u32,
     pub dwStyle: u32,
 }
-pub const WPSTYLE_CENTER: u32 = 0;
-pub const WPSTYLE_CROPTOFIT: u32 = 4;
-pub const WPSTYLE_KEEPASPECT: u32 = 3;
-pub const WPSTYLE_MAX: u32 = 6;
-pub const WPSTYLE_SPAN: u32 = 5;
-pub const WPSTYLE_STRETCH: u32 = 2;
-pub const WPSTYLE_TILE: u32 = 1;
+pub const WPSTYLE_CENTER: i32 = 0;
+pub const WPSTYLE_CROPTOFIT: i32 = 4;
+pub const WPSTYLE_KEEPASPECT: i32 = 3;
+pub const WPSTYLE_MAX: i32 = 6;
+pub const WPSTYLE_SPAN: i32 = 5;
+pub const WPSTYLE_STRETCH: i32 = 2;
+pub const WPSTYLE_TILE: i32 = 1;
 pub type tagDTI_ADTIWUI = i32;
 pub type tagOPEN_AS_INFO_FLAGS = i32;

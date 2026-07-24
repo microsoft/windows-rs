@@ -195,7 +195,7 @@ mod Windows {
             NLM_INTERNET_CONNECTIVITY_PROXIED = 2,
             NLM_INTERNET_CONNECTIVITY_CORPORATE = 4,
         }
-        const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10;
+        const NLM_MAX_ADDRESS_LIST_SIZE: i32 = 10;
         #[repr(i32)]
         enum NLM_NETWORK_CATEGORY {
             NLM_NETWORK_CATEGORY_PUBLIC = 0,

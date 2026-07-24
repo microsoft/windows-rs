@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         type ATOM = u16;
         type BOOL = i32;
-        const FALSE: u32 = 0;
+        const FALSE: i32 = 0;
         #[arch(X64 | Arm64)]
         extern fn FARPROC() -> isize;
         #[arch(X86)]
@@ -39,7 +39,7 @@ mod Windows {
         type LPLONG = *mut i32;
         type LPWORD = *mut u16;
         type LRESULT = isize;
-        const MAX_PATH: u32 = 260;
+        const MAX_PATH: i32 = 260;
         #[arch(X64 | Arm64)]
         extern fn NEARPROC() -> isize;
         #[arch(X86)]
@@ -62,8 +62,8 @@ mod Windows {
         type PUSHORT = *mut u16;
         type PWORD = *mut u16;
         type SPHANDLE = *mut HANDLE;
-        const STRICT: u32 = 1;
-        const TRUE: u32 = 1;
+        const STRICT: i32 = 1;
+        const TRUE: i32 = 1;
         type WPARAM = usize;
     }
 }

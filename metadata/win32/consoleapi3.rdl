@@ -13,26 +13,26 @@ mod Windows {
             FontWeight: u32,
             FaceName: [u16; 32],
         }
-        const CONSOLE_FULLSCREEN: u32 = 1;
-        const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2;
-        const CONSOLE_FULLSCREEN_MODE: u32 = 1;
+        const CONSOLE_FULLSCREEN: i32 = 1;
+        const CONSOLE_FULLSCREEN_HARDWARE: i32 = 2;
+        const CONSOLE_FULLSCREEN_MODE: i32 = 1;
         struct CONSOLE_HISTORY_INFO {
             cbSize: u32,
             HistoryBufferSize: u32,
             NumberOfHistoryBuffers: u32,
             dwFlags: u32,
         }
-        const CONSOLE_MOUSE_DOWN: u32 = 8;
-        const CONSOLE_MOUSE_SELECTION: u32 = 4;
-        const CONSOLE_NO_SELECTION: u32 = 0;
+        const CONSOLE_MOUSE_DOWN: i32 = 8;
+        const CONSOLE_MOUSE_SELECTION: i32 = 4;
+        const CONSOLE_NO_SELECTION: i32 = 0;
         struct CONSOLE_SELECTION_INFO {
             dwFlags: u32,
             dwSelectionAnchor: COORD,
             srSelection: SMALL_RECT,
         }
-        const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1;
-        const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2;
-        const CONSOLE_WINDOWED_MODE: u32 = 2;
+        const CONSOLE_SELECTION_IN_PROGRESS: i32 = 1;
+        const CONSOLE_SELECTION_NOT_EMPTY: i32 = 2;
+        const CONSOLE_WINDOWED_MODE: i32 = 2;
         #[library("KERNEL32.dll")]
         extern fn ExpungeConsoleCommandHistoryA(ExeName: PCSTR);
         #[library("KERNEL32.dll")]
@@ -83,7 +83,7 @@ mod Windows {
         extern fn GetCurrentConsoleFontEx(hConsoleOutput: HANDLE, bMaximumWindow: BOOL, lpConsoleCurrentFontEx: *mut CONSOLE_FONT_INFOEX) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetNumberOfConsoleMouseButtons(lpNumberOfMouseButtons: *mut u32) -> BOOL;
-        const HISTORY_NO_DUP_FLAG: u32 = 1;
+        const HISTORY_NO_DUP_FLAG: i32 = 1;
         type PCONSOLE_FONT_INFOEX = *mut CONSOLE_FONT_INFOEX;
         type PCONSOLE_HISTORY_INFO = *mut CONSOLE_HISTORY_INFO;
         type PCONSOLE_SELECTION_INFO = *mut CONSOLE_SELECTION_INFO;

@@ -1,25 +1,25 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const D3D9b_SDK_VERSION: u32 = 31;
-        const D3DADAPTER_DEFAULT: u32 = 0;
-        const D3DCREATE_ADAPTERGROUP_DEVICE: u32 = 512;
-        const D3DCREATE_DISABLE_DRIVER_MANAGEMENT: u32 = 256;
-        const D3DCREATE_DISABLE_DRIVER_MANAGEMENT_EX: u32 = 1024;
-        const D3DCREATE_DISABLE_PRINTSCREEN: u32 = 32768;
-        const D3DCREATE_DISABLE_PSGP_THREADING: u32 = 8192;
-        const D3DCREATE_ENABLE_PRESENTSTATS: u32 = 16384;
-        const D3DCREATE_FPU_PRESERVE: u32 = 2;
-        const D3DCREATE_HARDWARE_VERTEXPROCESSING: u32 = 64;
-        const D3DCREATE_MIXED_VERTEXPROCESSING: u32 = 128;
-        const D3DCREATE_MULTITHREADED: u32 = 4;
-        const D3DCREATE_NOWINDOWCHANGES: u32 = 2048;
-        const D3DCREATE_PUREDEVICE: u32 = 16;
-        const D3DCREATE_SCREENSAVER: u32 = 268435456;
-        const D3DCREATE_SOFTWARE_VERTEXPROCESSING: u32 = 32;
-        const D3DCURSOR_IMMEDIATE_UPDATE: u32 = 1;
-        const D3DENUM_NO_DRIVERVERSION: u32 = 4;
-        const D3DENUM_WHQL_LEVEL: u32 = 2;
+        const D3D9b_SDK_VERSION: i32 = 31;
+        const D3DADAPTER_DEFAULT: i32 = 0;
+        const D3DCREATE_ADAPTERGROUP_DEVICE: i32 = 512;
+        const D3DCREATE_DISABLE_DRIVER_MANAGEMENT: i32 = 256;
+        const D3DCREATE_DISABLE_DRIVER_MANAGEMENT_EX: i32 = 1024;
+        const D3DCREATE_DISABLE_PRINTSCREEN: i32 = 32768;
+        const D3DCREATE_DISABLE_PSGP_THREADING: i32 = 8192;
+        const D3DCREATE_ENABLE_PRESENTSTATS: i32 = 16384;
+        const D3DCREATE_FPU_PRESERVE: i32 = 2;
+        const D3DCREATE_HARDWARE_VERTEXPROCESSING: i32 = 64;
+        const D3DCREATE_MIXED_VERTEXPROCESSING: i32 = 128;
+        const D3DCREATE_MULTITHREADED: i32 = 4;
+        const D3DCREATE_NOWINDOWCHANGES: i32 = 2048;
+        const D3DCREATE_PUREDEVICE: i32 = 16;
+        const D3DCREATE_SCREENSAVER: i32 = 268435456;
+        const D3DCREATE_SOFTWARE_VERTEXPROCESSING: i32 = 32;
+        const D3DCURSOR_IMMEDIATE_UPDATE: i32 = 1;
+        const D3DENUM_NO_DRIVERVERSION: i32 = 4;
+        const D3DENUM_WHQL_LEVEL: i32 = 2;
         const D3DERR_CANNOTPROTECTCONTENT: i32 = -2005530499;
         const D3DERR_CONFLICTINGRENDERSTATE: i32 = -2005530591;
         const D3DERR_CONFLICTINGTEXTUREFILTER: i32 = -2005530594;
@@ -49,7 +49,7 @@ mod Windows {
         const D3DERR_UNSUPPORTEDTEXTUREFILTER: i32 = -2005530590;
         const D3DERR_WASSTILLDRAWING: i32 = -2005532132;
         const D3DERR_WRONGTEXTUREFORMAT: i32 = -2005530600;
-        const D3DOK_NOAUTOGEN: u32 = 141953135;
+        const D3DOK_NOAUTOGEN: i32 = 141953135;
         #[library("d3d9.dll")]
         extern fn D3DPERF_BeginEvent(col: D3DCOLOR, wszName: PCWSTR) -> i32;
         #[library("d3d9.dll")]
@@ -64,22 +64,22 @@ mod Windows {
         extern fn D3DPERF_SetOptions(dwOptions: u32);
         #[library("d3d9.dll")]
         extern fn D3DPERF_SetRegion(col: D3DCOLOR, wszName: PCWSTR);
-        const D3DPRESENT_BACK_BUFFERS_MAX: u32 = 3;
-        const D3DPRESENT_BACK_BUFFERS_MAX_EX: u32 = 30;
-        const D3DPRESENT_DONOTFLIP: u32 = 4;
-        const D3DPRESENT_DONOTWAIT: u32 = 1;
-        const D3DPRESENT_FLIPRESTART: u32 = 8;
-        const D3DPRESENT_FORCEIMMEDIATE: u32 = 256;
-        const D3DPRESENT_HIDEOVERLAY: u32 = 64;
-        const D3DPRESENT_LINEAR_CONTENT: u32 = 2;
-        const D3DPRESENT_UPDATECOLORKEY: u32 = 128;
-        const D3DPRESENT_UPDATEOVERLAYONLY: u32 = 32;
-        const D3DPRESENT_VIDEO_RESTRICT_TO_MONITOR: u32 = 16;
-        const D3DSGR_CALIBRATE: u32 = 1;
-        const D3DSGR_NO_CALIBRATION: u32 = 0;
-        const D3DSPD_IUNKNOWN: u32 = 1;
-        const D3D_OK: u32 = 0;
-        const D3D_SDK_VERSION: u32 = 32;
+        const D3DPRESENT_BACK_BUFFERS_MAX: i32 = 3;
+        const D3DPRESENT_BACK_BUFFERS_MAX_EX: i32 = 30;
+        const D3DPRESENT_DONOTFLIP: i32 = 4;
+        const D3DPRESENT_DONOTWAIT: i32 = 1;
+        const D3DPRESENT_FLIPRESTART: i32 = 8;
+        const D3DPRESENT_FORCEIMMEDIATE: i32 = 256;
+        const D3DPRESENT_HIDEOVERLAY: i32 = 64;
+        const D3DPRESENT_LINEAR_CONTENT: i32 = 2;
+        const D3DPRESENT_UPDATECOLORKEY: i32 = 128;
+        const D3DPRESENT_UPDATEOVERLAYONLY: i32 = 32;
+        const D3DPRESENT_VIDEO_RESTRICT_TO_MONITOR: i32 = 16;
+        const D3DSGR_CALIBRATE: i32 = 1;
+        const D3DSGR_NO_CALIBRATION: i32 = 0;
+        const D3DSPD_IUNKNOWN: i32 = 1;
+        const D3D_OK: i32 = 0;
+        const D3D_SDK_VERSION: i32 = 32;
         #[library("d3d9.dll")]
         extern fn Direct3DCreate9(SDKVersion: u32) -> IDirect3D9;
         #[library("d3d9.dll")]
@@ -398,9 +398,9 @@ mod Windows {
             fn AddDirtyBox(&self, pDirtyBox: *const D3DBOX) -> HRESULT;
         }
         const IID_HelperName: GUID = 0xe4a36723_fdfe_4b22_b146_3c04c07f4cc8;
-        const S_NOT_RESIDENT: u32 = 141953141;
-        const S_PRESENT_MODE_CHANGED: u32 = 141953143;
-        const S_PRESENT_OCCLUDED: u32 = 141953144;
-        const S_RESIDENT_IN_SHARED_MEMORY: u32 = 141953142;
+        const S_NOT_RESIDENT: i32 = 141953141;
+        const S_PRESENT_MODE_CHANGED: i32 = 141953143;
+        const S_PRESENT_OCCLUDED: i32 = 141953144;
+        const S_RESIDENT_IN_SHARED_MEMORY: i32 = 141953142;
     }
 }

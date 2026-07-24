@@ -2574,7 +2574,7 @@ impl Default for DML_SPLIT_OPERATOR_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DML_TARGET_VERSION: u32 = 20480;
+pub const DML_TARGET_VERSION: i32 = 20480;
 pub type DML_TENSOR_DATA_TYPE = i32;
 pub const DML_TENSOR_DATA_TYPE_FLOAT16: DML_TENSOR_DATA_TYPE = 2;
 pub const DML_TENSOR_DATA_TYPE_FLOAT32: DML_TENSOR_DATA_TYPE = 1;

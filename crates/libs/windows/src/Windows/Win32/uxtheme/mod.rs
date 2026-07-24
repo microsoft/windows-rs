@@ -529,13 +529,13 @@ pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = 1;
 pub const BPAS_NONE: BP_ANIMATIONSTYLE = 0;
 pub const BPAS_SINE: BP_ANIMATIONSTYLE = 3;
 pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = 0;
-pub const BPBF_COMPOSITED: u32 = 2;
+pub const BPBF_COMPOSITED: i32 = 2;
 pub const BPBF_DIB: BP_BUFFERFORMAT = 1;
 pub const BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = 2;
 pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = 3;
-pub const BPPF_ERASE: u32 = 1;
-pub const BPPF_NOCLIP: u32 = 2;
-pub const BPPF_NONCLIENT: u32 = 4;
+pub const BPPF_ERASE: i32 = 1;
+pub const BPPF_NOCLIP: i32 = 2;
+pub const BPPF_NONCLIENT: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BP_ANIMATIONPARAMS {
@@ -569,17 +569,17 @@ pub struct DTBGOPTS {
     pub dwFlags: u32,
     pub rcClip: super::RECT,
 }
-pub const DTBG_CLIPRECT: u32 = 1;
-pub const DTBG_COMPUTINGREGION: u32 = 16;
-pub const DTBG_DRAWSOLID: u32 = 2;
-pub const DTBG_MIRRORDC: u32 = 32;
-pub const DTBG_NOMIRROR: u32 = 64;
-pub const DTBG_OMITBORDER: u32 = 4;
-pub const DTBG_OMITCONTENT: u32 = 8;
-pub const DTBG_VALIDBITS: u32 = 127;
-pub const DTPB_USECTLCOLORSTATIC: u32 = 2;
-pub const DTPB_USEERASEBKGND: u32 = 4;
-pub const DTPB_WINDOWDC: u32 = 1;
+pub const DTBG_CLIPRECT: i32 = 1;
+pub const DTBG_COMPUTINGREGION: i32 = 16;
+pub const DTBG_DRAWSOLID: i32 = 2;
+pub const DTBG_MIRRORDC: i32 = 32;
+pub const DTBG_NOMIRROR: i32 = 64;
+pub const DTBG_OMITBORDER: i32 = 4;
+pub const DTBG_OMITCONTENT: i32 = 8;
+pub const DTBG_VALIDBITS: i32 = 127;
+pub const DTPB_USECTLCOLORSTATIC: i32 = 2;
+pub const DTPB_USEERASEBKGND: i32 = 4;
+pub const DTPB_WINDOWDC: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -609,40 +609,40 @@ pub const DTT_CALLBACK: u32 = 4096;
 pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::HDC, psztext: windows_core::PWSTR, cchtext: i32, prc: *mut super::RECT, dwflags: u32, lparam: super::LPARAM) -> i32>;
 pub const DTT_COLORPROP: u32 = 128;
 pub const DTT_COMPOSITED: u32 = 8192;
-pub const DTT_FLAGS2VALIDBITS: u32 = 1;
+pub const DTT_FLAGS2VALIDBITS: i32 = 1;
 pub const DTT_FONTPROP: u32 = 64;
 pub const DTT_GLOWSIZE: u32 = 2048;
-pub const DTT_GRAYED: u32 = 1;
+pub const DTT_GRAYED: i32 = 1;
 pub const DTT_SHADOWCOLOR: u32 = 4;
 pub const DTT_SHADOWOFFSET: u32 = 16;
 pub const DTT_SHADOWTYPE: u32 = 8;
 pub const DTT_STATEID: u32 = 256;
 pub const DTT_TEXTCOLOR: u32 = 1;
 pub const DTT_VALIDBITS: u32 = 12287;
-pub const ETDT_DISABLE: u32 = 1;
-pub const ETDT_ENABLE: u32 = 2;
-pub const ETDT_ENABLEAEROWIZARDTAB: u32 = 10;
-pub const ETDT_ENABLETAB: u32 = 6;
-pub const ETDT_USEAEROWIZARDTABTEXTURE: u32 = 8;
-pub const ETDT_USETABTEXTURE: u32 = 4;
-pub const ETDT_VALIDBITS: u32 = 15;
-pub const GBF_COPY: u32 = 2;
-pub const GBF_DIRECT: u32 = 1;
-pub const GBF_VALIDBITS: u32 = 3;
+pub const ETDT_DISABLE: i32 = 1;
+pub const ETDT_ENABLE: i32 = 2;
+pub const ETDT_ENABLEAEROWIZARDTAB: i32 = 10;
+pub const ETDT_ENABLETAB: i32 = 6;
+pub const ETDT_USEAEROWIZARDTABTEXTURE: i32 = 8;
+pub const ETDT_USETABTEXTURE: i32 = 4;
+pub const ETDT_VALIDBITS: i32 = 15;
+pub const GBF_COPY: i32 = 2;
+pub const GBF_DIRECT: i32 = 1;
+pub const GBF_VALIDBITS: i32 = 3;
 #[cfg(feature = "winnt")]
 pub type HANIMATIONBUFFER = super::HANDLE;
 #[cfg(feature = "winnt")]
 pub type HPAINTBUFFER = super::HANDLE;
-pub const HTTB_BACKGROUNDSEG: u32 = 0;
-pub const HTTB_CAPTION: u32 = 4;
-pub const HTTB_FIXEDBORDER: u32 = 2;
-pub const HTTB_RESIZINGBORDER: u32 = 240;
-pub const HTTB_RESIZINGBORDER_BOTTOM: u32 = 128;
-pub const HTTB_RESIZINGBORDER_LEFT: u32 = 16;
-pub const HTTB_RESIZINGBORDER_RIGHT: u32 = 64;
-pub const HTTB_RESIZINGBORDER_TOP: u32 = 32;
-pub const HTTB_SIZINGTEMPLATE: u32 = 256;
-pub const HTTB_SYSTEMSIZINGMARGINS: u32 = 512;
+pub const HTTB_BACKGROUNDSEG: i32 = 0;
+pub const HTTB_CAPTION: i32 = 4;
+pub const HTTB_FIXEDBORDER: i32 = 2;
+pub const HTTB_RESIZINGBORDER: i32 = 240;
+pub const HTTB_RESIZINGBORDER_BOTTOM: i32 = 128;
+pub const HTTB_RESIZINGBORDER_LEFT: i32 = 16;
+pub const HTTB_RESIZINGBORDER_RIGHT: i32 = 64;
+pub const HTTB_RESIZINGBORDER_TOP: i32 = 32;
+pub const HTTB_SIZINGTEMPLATE: i32 = 256;
+pub const HTTB_SYSTEMSIZINGMARGINS: i32 = 512;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTLIST {
@@ -662,12 +662,12 @@ pub struct MARGINS {
     pub cyTopHeight: i32,
     pub cyBottomHeight: i32,
 }
-pub const MAX_INTLIST_COUNT: u32 = 402;
-pub const MAX_THEMECOLOR: u32 = 64;
-pub const MAX_THEMESIZE: u32 = 64;
-pub const OTD_FORCE_RECT_SIZING: u32 = 1;
-pub const OTD_NONCLIENT: u32 = 2;
-pub const OTD_VALIDBITS: u32 = 3;
+pub const MAX_INTLIST_COUNT: i32 = 402;
+pub const MAX_THEMECOLOR: i32 = 64;
+pub const MAX_THEMESIZE: i32 = 64;
+pub const OTD_FORCE_RECT_SIZING: i32 = 1;
+pub const OTD_NONCLIENT: i32 = 2;
+pub const OTD_VALIDBITS: i32 = 3;
 pub type PBP_ANIMATIONPARAMS = *mut BP_ANIMATIONPARAMS;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 pub type PBP_PAINTPARAMS = *mut BP_PAINTPARAMS;
@@ -791,8 +791,8 @@ pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,
 }
-pub const WTNCA_NODRAWCAPTION: u32 = 1;
-pub const WTNCA_NODRAWICON: u32 = 2;
-pub const WTNCA_NOMIRRORHELP: u32 = 8;
-pub const WTNCA_NOSYSMENU: u32 = 4;
-pub const WTNCA_VALIDBITS: u32 = 15;
+pub const WTNCA_NODRAWCAPTION: i32 = 1;
+pub const WTNCA_NODRAWICON: i32 = 2;
+pub const WTNCA_NOMIRRORHELP: i32 = 8;
+pub const WTNCA_NOSYSMENU: i32 = 4;
+pub const WTNCA_VALIDBITS: i32 = 15;

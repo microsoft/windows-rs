@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         const DXGI_DEBUG_ALL: GUID = 0xe48ae283_da80_490b_87e6_43e9a9cfda08;
         const DXGI_DEBUG_APP: GUID = 0x06cd6e01_4219_4ebd_8709_27ed23360c62;
-        const DXGI_DEBUG_BINARY_VERSION: u32 = 1;
+        const DXGI_DEBUG_BINARY_VERSION: i32 = 1;
         const DXGI_DEBUG_DX: GUID = 0x35cdd7fc_13b2_421d_a5d7_7e4451287d64;
         const DXGI_DEBUG_DXGI: GUID = 0x25cddaa4_b1c6_47e1_ac3e_98875b5a2e2a;
         type DXGI_DEBUG_ID = GUID;
@@ -14,7 +14,7 @@ mod Windows {
             DXGI_DEBUG_RLO_IGNORE_INTERNAL = 4,
             DXGI_DEBUG_RLO_ALL = 7,
         }
-        const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
+        const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: i32 = 1024;
         struct DXGI_INFO_QUEUE_FILTER {
             AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
             DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
@@ -50,7 +50,7 @@ mod Windows {
             DXGI_INFO_QUEUE_MESSAGE_CATEGORY_SHADER = 10,
         }
         type DXGI_INFO_QUEUE_MESSAGE_ID = i32;
-        const DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION: u32 = 0;
+        const DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION: i32 = 0;
         #[repr(i32)]
         enum DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
             DXGI_INFO_QUEUE_MESSAGE_SEVERITY_CORRUPTION = 0,

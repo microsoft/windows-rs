@@ -1,11 +1,11 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1;
-        const MS_OS_FLAGS_CONTAINERID: u32 = 2;
+        const MS_GENRE_DESCRIPTOR_INDEX: i32 = 1;
+        const MS_OS_FLAGS_CONTAINERID: i32 = 2;
         #[encoding("utf-16")]
         const MS_OS_STRING_SIGNATURE: String = "MSFT100";
-        const MS_POWER_DESCRIPTOR_INDEX: u32 = 2;
+        const MS_POWER_DESCRIPTOR_INDEX: i32 = 2;
         struct OS_STRING {
             bLength: u8,
             bDescriptorType: u8,
@@ -16,7 +16,7 @@ mod Windows {
                 bFlags: u8,
             },
         }
-        const OS_STRING_DESCRIPTOR_INDEX: u32 = 238;
+        const OS_STRING_DESCRIPTOR_INDEX: i32 = 238;
         type PHYSICAL_ADDRESS = LARGE_INTEGER;
         type PIRP = *mut void;
         type PMDL = *mut void;
@@ -56,70 +56,70 @@ mod Windows {
                 UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS,
             },
         }
-        const URB_FUNCTION_ABORT_PIPE: u32 = 2;
-        const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER: u32 = 9;
-        const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_USING_CHAINED_MDL: u32 = 55;
-        const URB_FUNCTION_CLASS_DEVICE: u32 = 26;
-        const URB_FUNCTION_CLASS_ENDPOINT: u32 = 28;
-        const URB_FUNCTION_CLASS_INTERFACE: u32 = 27;
-        const URB_FUNCTION_CLASS_OTHER: u32 = 31;
-        const URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE: u32 = 16;
-        const URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT: u32 = 18;
-        const URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE: u32 = 17;
-        const URB_FUNCTION_CLEAR_FEATURE_TO_OTHER: u32 = 34;
-        const URB_FUNCTION_CLOSE_STATIC_STREAMS: u32 = 54;
-        const URB_FUNCTION_CONTROL_TRANSFER: u32 = 8;
-        const URB_FUNCTION_CONTROL_TRANSFER_EX: u32 = 50;
-        const URB_FUNCTION_GET_CONFIGURATION: u32 = 38;
-        const URB_FUNCTION_GET_CURRENT_FRAME_NUMBER: u32 = 7;
-        const URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE: u32 = 11;
-        const URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT: u32 = 36;
-        const URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE: u32 = 40;
-        const URB_FUNCTION_GET_FRAME_LENGTH: u32 = 5;
-        const URB_FUNCTION_GET_INTERFACE: u32 = 39;
-        const URB_FUNCTION_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS: u32 = 61;
-        const URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR: u32 = 42;
-        const URB_FUNCTION_GET_STATUS_FROM_DEVICE: u32 = 19;
-        const URB_FUNCTION_GET_STATUS_FROM_ENDPOINT: u32 = 21;
-        const URB_FUNCTION_GET_STATUS_FROM_INTERFACE: u32 = 20;
-        const URB_FUNCTION_GET_STATUS_FROM_OTHER: u32 = 33;
-        const URB_FUNCTION_ISOCH_TRANSFER: u32 = 10;
-        const URB_FUNCTION_ISOCH_TRANSFER_USING_CHAINED_MDL: u32 = 56;
-        const URB_FUNCTION_OPEN_STATIC_STREAMS: u32 = 53;
-        const URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL: u32 = 4;
-        const URB_FUNCTION_RESERVED_0X0016: u32 = 22;
-        const URB_FUNCTION_RESERVE_0X001D: u32 = 29;
-        const URB_FUNCTION_RESERVE_0X002B: u32 = 43;
-        const URB_FUNCTION_RESERVE_0X002C: u32 = 44;
-        const URB_FUNCTION_RESERVE_0X002D: u32 = 45;
-        const URB_FUNCTION_RESERVE_0X002E: u32 = 46;
-        const URB_FUNCTION_RESERVE_0X002F: u32 = 47;
-        const URB_FUNCTION_RESERVE_0X0033: u32 = 51;
-        const URB_FUNCTION_RESERVE_0X0034: u32 = 52;
-        const URB_FUNCTION_RESET_PIPE: u32 = 30;
-        const URB_FUNCTION_SELECT_CONFIGURATION: u32 = 0;
-        const URB_FUNCTION_SELECT_INTERFACE: u32 = 1;
-        const URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE: u32 = 12;
-        const URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT: u32 = 37;
-        const URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE: u32 = 41;
-        const URB_FUNCTION_SET_FEATURE_TO_DEVICE: u32 = 13;
-        const URB_FUNCTION_SET_FEATURE_TO_ENDPOINT: u32 = 15;
-        const URB_FUNCTION_SET_FEATURE_TO_INTERFACE: u32 = 14;
-        const URB_FUNCTION_SET_FEATURE_TO_OTHER: u32 = 35;
-        const URB_FUNCTION_SET_FRAME_LENGTH: u32 = 6;
-        const URB_FUNCTION_SYNC_CLEAR_STALL: u32 = 49;
-        const URB_FUNCTION_SYNC_RESET_PIPE: u32 = 48;
-        const URB_FUNCTION_SYNC_RESET_PIPE_AND_CLEAR_STALL: u32 = 30;
-        const URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL: u32 = 3;
-        const URB_FUNCTION_VENDOR_DEVICE: u32 = 23;
-        const URB_FUNCTION_VENDOR_ENDPOINT: u32 = 25;
-        const URB_FUNCTION_VENDOR_INTERFACE: u32 = 24;
-        const URB_FUNCTION_VENDOR_OTHER: u32 = 32;
-        const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256;
-        const USBDI_VERSION: u32 = 1536;
+        const URB_FUNCTION_ABORT_PIPE: i32 = 2;
+        const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER: i32 = 9;
+        const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_USING_CHAINED_MDL: i32 = 55;
+        const URB_FUNCTION_CLASS_DEVICE: i32 = 26;
+        const URB_FUNCTION_CLASS_ENDPOINT: i32 = 28;
+        const URB_FUNCTION_CLASS_INTERFACE: i32 = 27;
+        const URB_FUNCTION_CLASS_OTHER: i32 = 31;
+        const URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE: i32 = 16;
+        const URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT: i32 = 18;
+        const URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE: i32 = 17;
+        const URB_FUNCTION_CLEAR_FEATURE_TO_OTHER: i32 = 34;
+        const URB_FUNCTION_CLOSE_STATIC_STREAMS: i32 = 54;
+        const URB_FUNCTION_CONTROL_TRANSFER: i32 = 8;
+        const URB_FUNCTION_CONTROL_TRANSFER_EX: i32 = 50;
+        const URB_FUNCTION_GET_CONFIGURATION: i32 = 38;
+        const URB_FUNCTION_GET_CURRENT_FRAME_NUMBER: i32 = 7;
+        const URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE: i32 = 11;
+        const URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT: i32 = 36;
+        const URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE: i32 = 40;
+        const URB_FUNCTION_GET_FRAME_LENGTH: i32 = 5;
+        const URB_FUNCTION_GET_INTERFACE: i32 = 39;
+        const URB_FUNCTION_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS: i32 = 61;
+        const URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR: i32 = 42;
+        const URB_FUNCTION_GET_STATUS_FROM_DEVICE: i32 = 19;
+        const URB_FUNCTION_GET_STATUS_FROM_ENDPOINT: i32 = 21;
+        const URB_FUNCTION_GET_STATUS_FROM_INTERFACE: i32 = 20;
+        const URB_FUNCTION_GET_STATUS_FROM_OTHER: i32 = 33;
+        const URB_FUNCTION_ISOCH_TRANSFER: i32 = 10;
+        const URB_FUNCTION_ISOCH_TRANSFER_USING_CHAINED_MDL: i32 = 56;
+        const URB_FUNCTION_OPEN_STATIC_STREAMS: i32 = 53;
+        const URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL: i32 = 4;
+        const URB_FUNCTION_RESERVED_0X0016: i32 = 22;
+        const URB_FUNCTION_RESERVE_0X001D: i32 = 29;
+        const URB_FUNCTION_RESERVE_0X002B: i32 = 43;
+        const URB_FUNCTION_RESERVE_0X002C: i32 = 44;
+        const URB_FUNCTION_RESERVE_0X002D: i32 = 45;
+        const URB_FUNCTION_RESERVE_0X002E: i32 = 46;
+        const URB_FUNCTION_RESERVE_0X002F: i32 = 47;
+        const URB_FUNCTION_RESERVE_0X0033: i32 = 51;
+        const URB_FUNCTION_RESERVE_0X0034: i32 = 52;
+        const URB_FUNCTION_RESET_PIPE: i32 = 30;
+        const URB_FUNCTION_SELECT_CONFIGURATION: i32 = 0;
+        const URB_FUNCTION_SELECT_INTERFACE: i32 = 1;
+        const URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE: i32 = 12;
+        const URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT: i32 = 37;
+        const URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE: i32 = 41;
+        const URB_FUNCTION_SET_FEATURE_TO_DEVICE: i32 = 13;
+        const URB_FUNCTION_SET_FEATURE_TO_ENDPOINT: i32 = 15;
+        const URB_FUNCTION_SET_FEATURE_TO_INTERFACE: i32 = 14;
+        const URB_FUNCTION_SET_FEATURE_TO_OTHER: i32 = 35;
+        const URB_FUNCTION_SET_FRAME_LENGTH: i32 = 6;
+        const URB_FUNCTION_SYNC_CLEAR_STALL: i32 = 49;
+        const URB_FUNCTION_SYNC_RESET_PIPE: i32 = 48;
+        const URB_FUNCTION_SYNC_RESET_PIPE_AND_CLEAR_STALL: i32 = 30;
+        const URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL: i32 = 3;
+        const URB_FUNCTION_VENDOR_DEVICE: i32 = 23;
+        const URB_FUNCTION_VENDOR_ENDPOINT: i32 = 25;
+        const URB_FUNCTION_VENDOR_INTERFACE: i32 = 24;
+        const URB_FUNCTION_VENDOR_OTHER: i32 = 32;
+        const URB_OPEN_STATIC_STREAMS_VERSION_100: i32 = 256;
+        const USBDI_VERSION: i32 = 1536;
         type USBD_CONFIGURATION_HANDLE = *mut void;
         const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
-        const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8;
+        const USBD_DEFAULT_PIPE_TRANSFER: i32 = 8;
         struct USBD_DEVICE_INFORMATION {
             OffsetNext: u32,
             UsbdDeviceHandle: *mut void,
@@ -212,18 +212,18 @@ mod Windows {
             Length: u32,
             Status: USBD_STATUS,
         }
-        const USBD_ISO_START_FRAME_RANGE: u32 = 1024;
-        const USBD_PF_CHANGE_MAX_PACKET: u32 = 1;
-        const USBD_PF_ENABLE_RT_THREAD_ACCESS: u32 = 4;
-        const USBD_PF_HANDLES_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 256;
-        const USBD_PF_INTERACTIVE_PRIORITY: u32 = 48;
-        const USBD_PF_MAP_ADD_TRANSFERS: u32 = 8;
-        const USBD_PF_PRIORITY_MASK: u32 = 240;
-        const USBD_PF_SHORT_PACKET_OPT: u32 = 2;
-        const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 65536;
-        const USBD_PF_VALID_MASK: u32 = 319;
-        const USBD_PF_VIDEO_PRIORITY: u32 = 16;
-        const USBD_PF_VOICE_PRIORITY: u32 = 32;
+        const USBD_ISO_START_FRAME_RANGE: i32 = 1024;
+        const USBD_PF_CHANGE_MAX_PACKET: i32 = 1;
+        const USBD_PF_ENABLE_RT_THREAD_ACCESS: i32 = 4;
+        const USBD_PF_HANDLES_SSP_HIGH_BANDWIDTH_ISOCH: i32 = 256;
+        const USBD_PF_INTERACTIVE_PRIORITY: i32 = 48;
+        const USBD_PF_MAP_ADD_TRANSFERS: i32 = 8;
+        const USBD_PF_PRIORITY_MASK: i32 = 240;
+        const USBD_PF_SHORT_PACKET_OPT: i32 = 2;
+        const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: i32 = 65536;
+        const USBD_PF_VALID_MASK: i32 = 319;
+        const USBD_PF_VIDEO_PRIORITY: i32 = 16;
+        const USBD_PF_VOICE_PRIORITY: i32 = 32;
         type USBD_PIPE_HANDLE = *mut void;
         struct USBD_PIPE_INFORMATION {
             MaximumPacketSize: u16,
@@ -241,8 +241,8 @@ mod Windows {
             UsbdPipeTypeBulk = 2,
             UsbdPipeTypeInterrupt = 3,
         }
-        const USBD_SHORT_TRANSFER_OK: u32 = 2;
-        const USBD_START_ISO_TRANSFER_ASAP: u32 = 4;
+        const USBD_SHORT_TRANSFER_OK: i32 = 2;
+        const USBD_START_ISO_TRANSFER_ASAP: i32 = 4;
         type USBD_STATUS = i32;
         const USBD_STATUS_BABBLE_DETECTED: USBD_STATUS = -1073741806;
         const USBD_STATUS_BAD_CONFIG_DESC_LENGTH: USBD_STATUS = -1072693242;
@@ -313,9 +313,9 @@ mod Windows {
             MaximumTransferSize: u32,
             PipeFlags: u32,
         }
-        const USBD_TRANSFER_DIRECTION: u32 = 1;
-        const USBD_TRANSFER_DIRECTION_IN: u32 = 1;
-        const USBD_TRANSFER_DIRECTION_OUT: u32 = 0;
+        const USBD_TRANSFER_DIRECTION: i32 = 1;
+        const USBD_TRANSFER_DIRECTION_IN: i32 = 1;
+        const USBD_TRANSFER_DIRECTION_OUT: i32 = 0;
         struct USBD_VERSION_INFORMATION {
             USBDI_Version: u32,
             Supported_USB_Version: u32,
@@ -350,16 +350,16 @@ mod Windows {
             EHCI_NVIDIA_Tegra3 = 4001,
             EHCI_Intel_Medfield = 5001,
         }
-        const USB_DEFAULT_DEVICE_ADDRESS: u32 = 0;
-        const USB_DEFAULT_ENDPOINT_ADDRESS: u32 = 0;
-        const USB_DEFAULT_MAX_PACKET: u32 = 64;
-        const USB_PORTATTR_MINI_CONNECTOR: u32 = 4;
-        const USB_PORTATTR_NO_CONNECTOR: u32 = 1;
-        const USB_PORTATTR_NO_OVERCURRENT_UI: u32 = 33554432;
-        const USB_PORTATTR_OEM_CONNECTOR: u32 = 8;
-        const USB_PORTATTR_OWNED_BY_CC: u32 = 16777216;
-        const USB_PORTATTR_SHARED_USB2: u32 = 2;
-        const VALID_TRANSFER_FLAGS_MASK: u32 = 15;
+        const USB_DEFAULT_DEVICE_ADDRESS: i32 = 0;
+        const USB_DEFAULT_ENDPOINT_ADDRESS: i32 = 0;
+        const USB_DEFAULT_MAX_PACKET: i32 = 64;
+        const USB_PORTATTR_MINI_CONNECTOR: i32 = 4;
+        const USB_PORTATTR_NO_CONNECTOR: i32 = 1;
+        const USB_PORTATTR_NO_OVERCURRENT_UI: i32 = 33554432;
+        const USB_PORTATTR_OEM_CONNECTOR: i32 = 8;
+        const USB_PORTATTR_OWNED_BY_CC: i32 = 16777216;
+        const USB_PORTATTR_SHARED_USB2: i32 = 2;
+        const VALID_TRANSFER_FLAGS_MASK: i32 = 15;
         struct _URB_BULK_OR_INTERRUPT_TRANSFER {
             Hdr: _URB_HEADER,
             PipeHandle: USBD_PIPE_HANDLE,

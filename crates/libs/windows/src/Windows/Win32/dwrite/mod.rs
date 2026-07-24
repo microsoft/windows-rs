@@ -7,7 +7,7 @@ where
     let mut result__ = core::ptr::null_mut();
     unsafe { DWriteCreateFactory(factorytype, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
-pub const DWRITE_ALPHA_MAX: u32 = 255;
+pub const DWRITE_ALPHA_MAX: i32 = 255;
 pub type DWRITE_AUTOMATIC_FONT_AXES = u32;
 pub const DWRITE_AUTOMATIC_FONT_AXES_NONE: DWRITE_AUTOMATIC_FONT_AXES = 0;
 pub const DWRITE_AUTOMATIC_FONT_AXES_OPTICAL_SIZE: DWRITE_AUTOMATIC_FONT_AXES = 1;
@@ -150,7 +150,7 @@ pub type DWRITE_CONTAINER_TYPE = i32;
 pub const DWRITE_CONTAINER_TYPE_UNKNOWN: DWRITE_CONTAINER_TYPE = 0;
 pub const DWRITE_CONTAINER_TYPE_WOFF: DWRITE_CONTAINER_TYPE = 1;
 pub const DWRITE_CONTAINER_TYPE_WOFF2: DWRITE_CONTAINER_TYPE = 2;
-pub const DWRITE_ERR_BASE: u32 = 20480;
+pub const DWRITE_ERR_BASE: i32 = 20480;
 pub type DWRITE_FACTORY_TYPE = i32;
 pub const DWRITE_FACTORY_TYPE_ISOLATED: DWRITE_FACTORY_TYPE = 1;
 pub const DWRITE_FACTORY_TYPE_SHARED: DWRITE_FACTORY_TYPE = 0;
@@ -668,7 +668,7 @@ pub struct DWRITE_MATRIX {
     pub dx: f32,
     pub dy: f32,
 }
-pub const DWRITE_NO_PALETTE_INDEX: u32 = 65535;
+pub const DWRITE_NO_PALETTE_INDEX: i32 = 65535;
 pub type DWRITE_NUMBER_SUBSTITUTION_METHOD = i32;
 pub const DWRITE_NUMBER_SUBSTITUTION_METHOD_CONTEXTUAL: DWRITE_NUMBER_SUBSTITUTION_METHOD = 1;
 pub const DWRITE_NUMBER_SUBSTITUTION_METHOD_FROM_CULTURE: DWRITE_NUMBER_SUBSTITUTION_METHOD = 0;
@@ -1366,7 +1366,7 @@ impl DWRITE_SHAPING_TEXT_PROPERTIES {
         self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
     }
 }
-pub const DWRITE_STANDARD_FONT_AXIS_COUNT: u32 = 5;
+pub const DWRITE_STANDARD_FONT_AXIS_COUNT: i32 = 5;
 #[repr(C)]
 #[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1477,7 +1477,7 @@ pub const DWRITE_WORD_WRAPPING_EMERGENCY_BREAK: DWRITE_WORD_WRAPPING = 2;
 pub const DWRITE_WORD_WRAPPING_NO_WRAP: DWRITE_WORD_WRAPPING = 1;
 pub const DWRITE_WORD_WRAPPING_WHOLE_WORD: DWRITE_WORD_WRAPPING = 3;
 pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = 0;
-pub const FACILITY_DWRITE: u32 = 2200;
+pub const FACILITY_DWRITE: i32 = 2200;
 windows_core::imp::define_interface!(IDWriteAsyncResult, IDWriteAsyncResult_Vtbl, 0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
 windows_core::imp::interface_hierarchy!(IDWriteAsyncResult, windows_core::IUnknown);
 impl IDWriteAsyncResult {

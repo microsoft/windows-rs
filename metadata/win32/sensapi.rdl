@@ -8,10 +8,10 @@ mod Windows {
         #[library("SensApi.dll")]
         extern fn IsNetworkAlive(lpdwFlags: *mut u32) -> BOOL;
         type LPQOCINFO = *mut QOCINFO;
-        const NETWORK_ALIVE_AOL: u32 = 4;
-        const NETWORK_ALIVE_INTERNET: u32 = 8;
-        const NETWORK_ALIVE_LAN: u32 = 1;
-        const NETWORK_ALIVE_WAN: u32 = 2;
+        const NETWORK_ALIVE_AOL: i32 = 4;
+        const NETWORK_ALIVE_INTERNET: i32 = 8;
+        const NETWORK_ALIVE_LAN: i32 = 1;
+        const NETWORK_ALIVE_WAN: i32 = 2;
         struct QOCINFO {
             dwSize: u32,
             dwFlags: u32,

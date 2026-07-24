@@ -7,16 +7,16 @@ pub struct INDICATOR_LIST {
     pub MakeCode: u16,
     pub IndicatorFlags: u16,
 }
-pub const IOCTL_KEYBOARD_INSERT_DATA: u32 = 721152;
-pub const IOCTL_KEYBOARD_QUERY_ATTRIBUTES: u32 = 720896;
-pub const IOCTL_KEYBOARD_QUERY_EXTENDED_ATTRIBUTES: u32 = 721408;
-pub const IOCTL_KEYBOARD_QUERY_IME_STATUS: u32 = 724992;
-pub const IOCTL_KEYBOARD_QUERY_INDICATORS: u32 = 720960;
-pub const IOCTL_KEYBOARD_QUERY_INDICATOR_TRANSLATION: u32 = 721024;
-pub const IOCTL_KEYBOARD_QUERY_TYPEMATIC: u32 = 720928;
-pub const IOCTL_KEYBOARD_SET_IME_STATUS: u32 = 724996;
-pub const IOCTL_KEYBOARD_SET_INDICATORS: u32 = 720904;
-pub const IOCTL_KEYBOARD_SET_TYPEMATIC: u32 = 720900;
+pub const IOCTL_KEYBOARD_INSERT_DATA: i32 = 721152;
+pub const IOCTL_KEYBOARD_QUERY_ATTRIBUTES: i32 = 720896;
+pub const IOCTL_KEYBOARD_QUERY_EXTENDED_ATTRIBUTES: i32 = 721408;
+pub const IOCTL_KEYBOARD_QUERY_IME_STATUS: i32 = 724992;
+pub const IOCTL_KEYBOARD_QUERY_INDICATORS: i32 = 720960;
+pub const IOCTL_KEYBOARD_QUERY_INDICATOR_TRANSLATION: i32 = 721024;
+pub const IOCTL_KEYBOARD_QUERY_TYPEMATIC: i32 = 720928;
+pub const IOCTL_KEYBOARD_SET_IME_STATUS: i32 = 724996;
+pub const IOCTL_KEYBOARD_SET_INDICATORS: i32 = 720904;
+pub const IOCTL_KEYBOARD_SET_TYPEMATIC: i32 = 720900;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_ATTRIBUTES {
@@ -29,8 +29,8 @@ pub struct KEYBOARD_ATTRIBUTES {
     pub KeyRepeatMinimum: KEYBOARD_TYPEMATIC_PARAMETERS,
     pub KeyRepeatMaximum: KEYBOARD_TYPEMATIC_PARAMETERS,
 }
-pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4;
-pub const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000;
+pub const KEYBOARD_CAPS_LOCK_ON: i32 = 4;
+pub const KEYBOARD_ERROR_VALUE_BASE: i32 = 10000;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
@@ -42,7 +42,7 @@ pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub IETFLanguageTagIndex: u8,
     pub ImplementedInputAssistControls: u8,
 }
-pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1;
+pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_ID {
@@ -82,11 +82,11 @@ pub struct KEYBOARD_INPUT_DATA {
     pub Reserved: u16,
     pub ExtraInformation: u32,
 }
-pub const KEYBOARD_KANA_LOCK_ON: u32 = 8;
-pub const KEYBOARD_LED_INJECTED: u32 = 32768;
-pub const KEYBOARD_NUM_LOCK_ON: u32 = 2;
-pub const KEYBOARD_SCROLL_LOCK_ON: u32 = 1;
-pub const KEYBOARD_SHADOW: u32 = 16384;
+pub const KEYBOARD_KANA_LOCK_ON: i32 = 8;
+pub const KEYBOARD_LED_INJECTED: i32 = 32768;
+pub const KEYBOARD_NUM_LOCK_ON: i32 = 2;
+pub const KEYBOARD_SCROLL_LOCK_ON: i32 = 1;
+pub const KEYBOARD_SHADOW: i32 = 16384;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
@@ -99,17 +99,17 @@ pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
 pub struct KEYBOARD_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
-pub const KEY_BREAK: u32 = 1;
-pub const KEY_E0: u32 = 2;
-pub const KEY_E1: u32 = 4;
-pub const KEY_FROM_KEYBOARD_OVERRIDER: u32 = 128;
-pub const KEY_MAKE: u32 = 0;
-pub const KEY_RIM_VKEY: u32 = 64;
-pub const KEY_TERMSRV_SET_LED: u32 = 8;
-pub const KEY_TERMSRV_SHADOW: u32 = 16;
-pub const KEY_TERMSRV_VKPACKET: u32 = 32;
-pub const KEY_UNICODE_SEQUENCE_END: u32 = 512;
-pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256;
+pub const KEY_BREAK: i32 = 1;
+pub const KEY_E0: i32 = 2;
+pub const KEY_E1: i32 = 4;
+pub const KEY_FROM_KEYBOARD_OVERRIDER: i32 = 128;
+pub const KEY_MAKE: i32 = 0;
+pub const KEY_RIM_VKEY: i32 = 64;
+pub const KEY_TERMSRV_SET_LED: i32 = 8;
+pub const KEY_TERMSRV_SHADOW: i32 = 16;
+pub const KEY_TERMSRV_VKPACKET: i32 = 32;
+pub const KEY_UNICODE_SEQUENCE_END: i32 = 512;
+pub const KEY_UNICODE_SEQUENCE_ITEM: i32 = 256;
 pub type PINDICATOR_LIST = *mut INDICATOR_LIST;
 pub type PKEYBOARD_ATTRIBUTES = *mut KEYBOARD_ATTRIBUTES;
 pub type PKEYBOARD_EXTENDED_ATTRIBUTES = *mut KEYBOARD_EXTENDED_ATTRIBUTES;

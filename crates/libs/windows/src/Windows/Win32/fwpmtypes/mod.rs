@@ -68,9 +68,9 @@ impl Default for FWPM_CALLOUT_ENUM_TEMPLATE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536;
-pub const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144;
-pub const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: u32 = 131072;
+pub const FWPM_CALLOUT_FLAG_PERSISTENT: i32 = 65536;
+pub const FWPM_CALLOUT_FLAG_REGISTERED: i32 = 262144;
+pub const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: i32 = 131072;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_CALLOUT_SUBSCRIPTION0 {
@@ -165,7 +165,7 @@ impl Default for FWPM_CONNECTION0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1;
+pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
@@ -194,10 +194,10 @@ pub const FWPM_ENGINE_NAME_CACHE: FWPM_ENGINE_OPTION = 2;
 pub const FWPM_ENGINE_NET_EVENT_MATCH_ANY_KEYWORDS: FWPM_ENGINE_OPTION = 1;
 pub type FWPM_ENGINE_OPTION = i32;
 pub const FWPM_ENGINE_OPTION_MAX: FWPM_ENGINE_OPTION = 6;
-pub const FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND: u32 = 4;
-pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: u32 = 2;
-pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: u32 = 1;
-pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0;
+pub const FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND: i32 = 4;
+pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: i32 = 2;
+pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: i32 = 1;
+pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: i32 = 0;
 pub const FWPM_ENGINE_PACKET_QUEUING: FWPM_ENGINE_OPTION = 4;
 pub const FWPM_ENGINE_TXN_WATCHDOG_TIMEOUT_IN_MSEC: FWPM_ENGINE_OPTION = 5;
 #[repr(C)]
@@ -299,22 +299,22 @@ impl Default for FWPM_FILTER_ENUM_TEMPLATE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_FILTER_FLAG_BOOTTIME: u32 = 2;
-pub const FWPM_FILTER_FLAG_CLEAR_ACTION_RIGHT: u32 = 8;
-pub const FWPM_FILTER_FLAG_DISABLED: u32 = 32;
-pub const FWPM_FILTER_FLAG_GAMEOS_ONLY: u32 = 512;
-pub const FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT: u32 = 4;
-pub const FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: u32 = 128;
-pub const FWPM_FILTER_FLAG_INDEXED: u32 = 64;
-pub const FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: u32 = 2048;
-pub const FWPM_FILTER_FLAG_NONE: u32 = 0;
-pub const FWPM_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: u32 = 16;
-pub const FWPM_FILTER_FLAG_PERSISTENT: u32 = 1;
-pub const FWPM_FILTER_FLAG_RESERVED0: u32 = 4096;
-pub const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192;
-pub const FWPM_FILTER_FLAG_RESERVED2: u32 = 16384;
-pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024;
-pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256;
+pub const FWPM_FILTER_FLAG_BOOTTIME: i32 = 2;
+pub const FWPM_FILTER_FLAG_CLEAR_ACTION_RIGHT: i32 = 8;
+pub const FWPM_FILTER_FLAG_DISABLED: i32 = 32;
+pub const FWPM_FILTER_FLAG_GAMEOS_ONLY: i32 = 512;
+pub const FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT: i32 = 4;
+pub const FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: i32 = 128;
+pub const FWPM_FILTER_FLAG_INDEXED: i32 = 64;
+pub const FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: i32 = 2048;
+pub const FWPM_FILTER_FLAG_NONE: i32 = 0;
+pub const FWPM_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: i32 = 16;
+pub const FWPM_FILTER_FLAG_PERSISTENT: i32 = 1;
+pub const FWPM_FILTER_FLAG_RESERVED0: i32 = 4096;
+pub const FWPM_FILTER_FLAG_RESERVED1: i32 = 8192;
+pub const FWPM_FILTER_FLAG_RESERVED2: i32 = 16384;
+pub const FWPM_FILTER_FLAG_SILENT_MODE: i32 = 1024;
+pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -364,10 +364,10 @@ impl Default for FWPM_LAYER0 {
 pub struct FWPM_LAYER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
-pub const FWPM_LAYER_FLAG_BUFFERED: u32 = 8;
-pub const FWPM_LAYER_FLAG_BUILTIN: u32 = 2;
-pub const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: u32 = 4;
-pub const FWPM_LAYER_FLAG_KERNEL: u32 = 1;
+pub const FWPM_LAYER_FLAG_BUFFERED: i32 = 8;
+pub const FWPM_LAYER_FLAG_BUILTIN: i32 = 2;
+pub const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: i32 = 4;
+pub const FWPM_LAYER_FLAG_KERNEL: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_LAYER_STATISTICS1 {
@@ -705,20 +705,20 @@ impl Default for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32;
-pub const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: u32 = 8192;
-pub const FWPM_NET_EVENT_FLAG_ENTERPRISE_ID_SET: u32 = 2048;
-pub const FWPM_NET_EVENT_FLAG_IP_PROTOCOL_SET: u32 = 1;
-pub const FWPM_NET_EVENT_FLAG_IP_VERSION_SET: u32 = 256;
-pub const FWPM_NET_EVENT_FLAG_LOCAL_ADDR_SET: u32 = 2;
-pub const FWPM_NET_EVENT_FLAG_LOCAL_PORT_SET: u32 = 8;
-pub const FWPM_NET_EVENT_FLAG_PACKAGE_ID_SET: u32 = 1024;
-pub const FWPM_NET_EVENT_FLAG_POLICY_FLAGS_SET: u32 = 4096;
-pub const FWPM_NET_EVENT_FLAG_REAUTH_REASON_SET: u32 = 512;
-pub const FWPM_NET_EVENT_FLAG_REMOTE_ADDR_SET: u32 = 4;
-pub const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16;
-pub const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128;
-pub const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64;
+pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: i32 = 32;
+pub const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: i32 = 8192;
+pub const FWPM_NET_EVENT_FLAG_ENTERPRISE_ID_SET: i32 = 2048;
+pub const FWPM_NET_EVENT_FLAG_IP_PROTOCOL_SET: i32 = 1;
+pub const FWPM_NET_EVENT_FLAG_IP_VERSION_SET: i32 = 256;
+pub const FWPM_NET_EVENT_FLAG_LOCAL_ADDR_SET: i32 = 2;
+pub const FWPM_NET_EVENT_FLAG_LOCAL_PORT_SET: i32 = 8;
+pub const FWPM_NET_EVENT_FLAG_PACKAGE_ID_SET: i32 = 1024;
+pub const FWPM_NET_EVENT_FLAG_POLICY_FLAGS_SET: i32 = 4096;
+pub const FWPM_NET_EVENT_FLAG_REAUTH_REASON_SET: i32 = 512;
+pub const FWPM_NET_EVENT_FLAG_REMOTE_ADDR_SET: i32 = 4;
+pub const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: i32 = 16;
+pub const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: i32 = 128;
+pub const FWPM_NET_EVENT_FLAG_USER_ID_SET: i32 = 64;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -1017,8 +1017,8 @@ impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2;
-pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1;
+pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: i32 = 2;
+pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1095,8 +1095,8 @@ impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1;
-pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2;
+pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: i32 = 1;
+pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -1239,12 +1239,12 @@ pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     pub filterId: u64,
     pub layerId: u16,
 }
-pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: u32 = 8;
-pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: u32 = 4;
-pub const FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW: u32 = 16;
-pub const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2;
-pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1;
-pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32;
+pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: i32 = 8;
+pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: i32 = 4;
+pub const FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW: i32 = 16;
+pub const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: i32 = 2;
+pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: i32 = 1;
+pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "ipsectypes")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1486,8 +1486,8 @@ impl Default for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2;
-pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1;
+pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: i32 = 2;
+pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
@@ -1507,8 +1507,8 @@ pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = 14;
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
-pub const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16;
-pub const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1;
+pub const FWPM_PROVIDER_FLAG_DISABLED: i32 = 16;
+pub const FWPM_PROVIDER_FLAG_PERSISTENT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_SUBSCRIPTION0 {
@@ -1551,8 +1551,8 @@ impl Default for FWPM_SESSION0 {
 pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
-pub const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1;
-pub const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456;
+pub const FWPM_SESSION_FLAG_DYNAMIC: i32 = 1;
+pub const FWPM_SESSION_FLAG_RESERVED: i32 = 268435456;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_STATISTICS1 {
@@ -1631,7 +1631,7 @@ impl Default for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1;
+pub const FWPM_SUBLAYER_FLAG_PERSISTENT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_SUBLAYER_SUBSCRIPTION0 {
@@ -1644,8 +1644,8 @@ impl Default for FWPM_SUBLAYER_SUBSCRIPTION0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: u32 = 1;
-pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: u32 = 2;
+pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: i32 = 1;
+pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_SYSTEM_PORTS0 {
@@ -1734,5 +1734,5 @@ pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     pub sessionKey: windows_core::GUID,
 }
 pub type FWPM_VSWITCH_EVENT_TYPE = i32;
-pub const IKEEXT_CERT_HASH_LEN: u32 = 20;
+pub const IKEEXT_CERT_HASH_LEN: i32 = 20;
 pub type PDL_ADDRESS_TYPE = *mut DL_ADDRESS_TYPE;

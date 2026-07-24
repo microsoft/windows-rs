@@ -104,8 +104,8 @@ impl<'a> Service<'a> {
             handle: RwLock::new(std::ptr::null_mut()),
             callback: RwLock::new(None),
             status: RwLock::new(SERVICE_STATUS {
-                dwServiceType: SERVICE_WIN32_OWN_PROCESS,
-                dwCurrentState: SERVICE_STOPPED,
+                dwServiceType: SERVICE_WIN32_OWN_PROCESS as u32,
+                dwCurrentState: SERVICE_STOPPED as u32,
                 dwControlsAccepted: 0,
                 dwWin32ExitCode: 0,
                 dwServiceSpecificExitCode: 0,
@@ -117,13 +117,13 @@ impl<'a> Service<'a> {
 
     /// The service accepts stop and shutdown commands.
     pub fn can_stop(&mut self) -> &mut Self {
-        self.accept |= SERVICE_ACCEPT_STOP | SERVICE_ACCEPT_SHUTDOWN;
+        self.accept |= (SERVICE_ACCEPT_STOP | SERVICE_ACCEPT_SHUTDOWN) as u32;
         self
     }
 
     /// The service accepts pause and resume commands.
     pub fn can_pause(&mut self) -> &mut Self {
-        self.accept |= SERVICE_ACCEPT_PAUSE_CONTINUE;
+        self.accept |= SERVICE_ACCEPT_PAUSE_CONTINUE as u32;
         self
     }
 
@@ -149,7 +149,7 @@ impl<'a> Service<'a> {
         &mut self,
         callback: F,
     ) -> Result<(), &'static str> {
-        debug_assert!(self.status.read().unwrap().dwCurrentState == SERVICE_STOPPED);
+        debug_assert!(self.status.read().unwrap().dwCurrentState == SERVICE_STOPPED as u32);
         self.status.write().unwrap().dwControlsAccepted = self.accept;
 
         {
@@ -201,7 +201,7 @@ impl<'a> Service<'a> {
             State::StartPending => SERVICE_START_PENDING,
             State::Stopped => SERVICE_STOPPED,
             State::StopPending => SERVICE_STOP_PENDING,
-        };
+        } as u32;
 
         // Makes a copy to avoid holding a lock while calling `SetServiceStatus`.
         let status: SERVICE_STATUS = *writer;
@@ -221,7 +221,7 @@ impl<'a> Service<'a> {
     pub fn state(&self) -> State {
         let reader = self.status.read().unwrap();
 
-        match reader.dwCurrentState {
+        match reader.dwCurrentState as i32 {
             SERVICE_CONTINUE_PENDING => State::ContinuePending,
             SERVICE_PAUSED => State::Paused,
             SERVICE_PAUSE_PENDING => State::PausePending,
@@ -265,7 +265,7 @@ extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
 extern "system" fn handler(control: u32, ty: u32, data: *mut c_void, context: *mut c_void) -> u32 {
     let service = unsafe { &*(context as *const Service) };
 
-    match control {
+    match control as i32 {
         SERVICE_CONTROL_CONTINUE if service.state() == State::Paused => {
             service.set_state(State::ContinuePending);
             service.command(Command::Resume);
@@ -284,7 +284,7 @@ extern "system" fn handler(control: u32, ty: u32, data: *mut c_void, context: *m
         _ => service.command(Command::Extended(ExtendedCommand { control, ty, data })),
     }
 
-    NO_ERROR
+    NO_ERROR as u32
 }
 
 // Unlike `RegisterServiceCtrlHandlerExW`, `StartServiceCtrlDispatcherW` has no user-defined "context" parameter.

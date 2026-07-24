@@ -553,30 +553,30 @@ where
     windows_core::link!("iphlpapi.dll" "system" fn if_nametoindex(interfacename : windows_core::PCSTR) -> super::NET_IFINDEX);
     unsafe { if_nametoindex(interfacename.param().abi()) }
 }
-pub const ANY_SIZE: u32 = 1;
-pub const DNS_DDR_ADAPTER_ENABLE: u32 = 1;
-pub const DNS_DDR_ADAPTER_ENABLE_DOH: u32 = 1;
-pub const DNS_DDR_ADAPTER_ENABLE_UDP_FALLBACK: u32 = 2;
-pub const DNS_DDR_ADAPTER_MAKE_DDR_NON_BLOCKING: u32 = 4;
-pub const DNS_DOH_AUTO_UPGRADE_SERVER: u32 = 8;
-pub const DNS_DOH_POLICY_AUTO: u32 = 16;
-pub const DNS_DOH_POLICY_BLOCK: u32 = 512;
-pub const DNS_DOH_POLICY_DISABLE: u32 = 8;
-pub const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4;
-pub const DNS_DOH_POLICY_REQUIRED: u32 = 32;
+pub const ANY_SIZE: i32 = 1;
+pub const DNS_DDR_ADAPTER_ENABLE: i32 = 1;
+pub const DNS_DDR_ADAPTER_ENABLE_DOH: i32 = 1;
+pub const DNS_DDR_ADAPTER_ENABLE_UDP_FALLBACK: i32 = 2;
+pub const DNS_DDR_ADAPTER_MAKE_DDR_NON_BLOCKING: i32 = 4;
+pub const DNS_DOH_AUTO_UPGRADE_SERVER: i32 = 8;
+pub const DNS_DOH_POLICY_AUTO: i32 = 16;
+pub const DNS_DOH_POLICY_BLOCK: i32 = 512;
+pub const DNS_DOH_POLICY_DISABLE: i32 = 8;
+pub const DNS_DOH_POLICY_NOT_CONFIGURED: i32 = 4;
+pub const DNS_DOH_POLICY_REQUIRED: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: windows_core::PWSTR,
     pub Flags: u64,
 }
-pub const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2;
-pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1;
-pub const DNS_DOH_SERVER_SETTINGS_ENABLE_DDR: u32 = 16;
-pub const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4;
-pub const DNS_DOH_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: u32 = 32;
-pub const DNS_DOT_AUTO_UPGRADE_SERVER: u32 = 4;
-pub const DNS_DOT_POLICY_BLOCK: u32 = 256;
+pub const DNS_DOH_SERVER_SETTINGS_ENABLE: i32 = 2;
+pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: i32 = 1;
+pub const DNS_DOH_SERVER_SETTINGS_ENABLE_DDR: i32 = 16;
+pub const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: i32 = 4;
+pub const DNS_DOH_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: i32 = 32;
+pub const DNS_DOT_AUTO_UPGRADE_SERVER: i32 = 4;
+pub const DNS_DOT_POLICY_BLOCK: i32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_DOT_SERVER_SETTINGS {
@@ -584,19 +584,19 @@ pub struct DNS_DOT_SERVER_SETTINGS {
     pub Flags: u64,
     pub Port: u16,
 }
-pub const DNS_DOT_SERVER_SETTINGS_ENABLE: u32 = 1;
-pub const DNS_DOT_SERVER_SETTINGS_ENABLE_AUTO: u32 = 8;
-pub const DNS_DOT_SERVER_SETTINGS_ENABLE_DDR: u32 = 16;
-pub const DNS_DOT_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 2;
-pub const DNS_DOT_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: u32 = 32;
-pub const DNS_ENABLE_DDR: u32 = 64;
-pub const DNS_ENABLE_DNR: u32 = 1024;
-pub const DNS_ENABLE_DOH: u32 = 1;
-pub const DNS_ENABLE_DOT: u32 = 128;
-pub const DNS_ENCRYPTION_POLICY_AUTO: u32 = 16;
-pub const DNS_ENCRYPTION_POLICY_DISABLE: u32 = 8;
-pub const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: u32 = 4;
-pub const DNS_ENCRYPTION_POLICY_REQUIRED: u32 = 32;
+pub const DNS_DOT_SERVER_SETTINGS_ENABLE: i32 = 1;
+pub const DNS_DOT_SERVER_SETTINGS_ENABLE_AUTO: i32 = 8;
+pub const DNS_DOT_SERVER_SETTINGS_ENABLE_DDR: i32 = 16;
+pub const DNS_DOT_SERVER_SETTINGS_FALLBACK_TO_UDP: i32 = 2;
+pub const DNS_DOT_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: i32 = 32;
+pub const DNS_ENABLE_DDR: i32 = 64;
+pub const DNS_ENABLE_DNR: i32 = 1024;
+pub const DNS_ENABLE_DOH: i32 = 1;
+pub const DNS_ENABLE_DOT: i32 = 128;
+pub const DNS_ENCRYPTION_POLICY_AUTO: i32 = 16;
+pub const DNS_ENCRYPTION_POLICY_DISABLE: i32 = 8;
+pub const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: i32 = 4;
+pub const DNS_ENCRYPTION_POLICY_REQUIRED: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS {
@@ -669,10 +669,10 @@ pub struct DNS_INTERFACE_SETTINGS_EX {
     pub DisableUnconstrainedQueries: u32,
     pub SupplementalSearchList: windows_core::PWSTR,
 }
-pub const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1;
-pub const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2;
-pub const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3;
-pub const DNS_INTERFACE_SETTINGS_VERSION4: u32 = 4;
+pub const DNS_INTERFACE_SETTINGS_VERSION1: i32 = 1;
+pub const DNS_INTERFACE_SETTINGS_VERSION2: i32 = 2;
+pub const DNS_INTERFACE_SETTINGS_VERSION3: i32 = 3;
+pub const DNS_INTERFACE_SETTINGS_VERSION4: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_SERVER_PROPERTY {
@@ -698,7 +698,7 @@ impl Default for DNS_SERVER_PROPERTY_TYPES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_SERVER_PROPERTY_VERSION1: u32 = 1;
+pub const DNS_SERVER_PROPERTY_VERSION1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SETTINGS {
@@ -718,30 +718,30 @@ pub struct DNS_SETTINGS2 {
     pub SearchList: windows_core::PWSTR,
     pub SettingFlags: u64,
 }
-pub const DNS_SETTINGS_ENABLE_LLMNR: u32 = 128;
-pub const DNS_SETTINGS_QUERY_ADAPTER_NAME: u32 = 256;
-pub const DNS_SETTINGS_VERSION1: u32 = 1;
-pub const DNS_SETTINGS_VERSION2: u32 = 2;
-pub const DNS_SETTING_DDR: u32 = 32768;
-pub const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: u32 = 1024;
-pub const DNS_SETTING_DOH: u32 = 4096;
-pub const DNS_SETTING_DOH_PROFILE: u32 = 8192;
-pub const DNS_SETTING_DOMAIN: u32 = 32;
-pub const DNS_SETTING_DOT: u32 = 65536;
-pub const DNS_SETTING_DOT_PROFILE: u32 = 131072;
-pub const DNS_SETTING_ENCRYPTED_DNS_ADAPTER_FLAGS: u32 = 16384;
-pub const DNS_SETTING_HOSTNAME: u32 = 64;
-pub const DNS_SETTING_IPV6: u32 = 1;
-pub const DNS_SETTING_NAMESERVER: u32 = 2;
-pub const DNS_SETTING_PROFILE_NAMESERVER: u32 = 512;
-pub const DNS_SETTING_REGISTER_ADAPTER_NAME: u32 = 16;
-pub const DNS_SETTING_REGISTRATION_ENABLED: u32 = 8;
-pub const DNS_SETTING_SEARCHLIST: u32 = 4;
-pub const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048;
+pub const DNS_SETTINGS_ENABLE_LLMNR: i32 = 128;
+pub const DNS_SETTINGS_QUERY_ADAPTER_NAME: i32 = 256;
+pub const DNS_SETTINGS_VERSION1: i32 = 1;
+pub const DNS_SETTINGS_VERSION2: i32 = 2;
+pub const DNS_SETTING_DDR: i32 = 32768;
+pub const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: i32 = 1024;
+pub const DNS_SETTING_DOH: i32 = 4096;
+pub const DNS_SETTING_DOH_PROFILE: i32 = 8192;
+pub const DNS_SETTING_DOMAIN: i32 = 32;
+pub const DNS_SETTING_DOT: i32 = 65536;
+pub const DNS_SETTING_DOT_PROFILE: i32 = 131072;
+pub const DNS_SETTING_ENCRYPTED_DNS_ADAPTER_FLAGS: i32 = 16384;
+pub const DNS_SETTING_HOSTNAME: i32 = 64;
+pub const DNS_SETTING_IPV6: i32 = 1;
+pub const DNS_SETTING_NAMESERVER: i32 = 2;
+pub const DNS_SETTING_PROFILE_NAMESERVER: i32 = 512;
+pub const DNS_SETTING_REGISTER_ADAPTER_NAME: i32 = 16;
+pub const DNS_SETTING_REGISTRATION_ENABLED: i32 = 8;
+pub const DNS_SETTING_SEARCHLIST: i32 = 4;
+pub const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: i32 = 2048;
 pub const DnsServerDohProperty: DNS_SERVER_PROPERTY_TYPE = 1;
 pub const DnsServerDotProperty: DNS_SERVER_PROPERTY_TYPE = 2;
 pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = 0;
-pub const IF_NAMESIZE: u32 = 256;
+pub const IF_NAMESIZE: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[derive(Clone, Copy)]
@@ -926,7 +926,7 @@ impl Default for MIB_IF_TABLE2 {
     }
 }
 pub type MIB_IF_TABLE_LEVEL = i32;
-pub const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0;
+pub const MIB_INVALID_TEREDO_PORT_NUMBER: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "ifdef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

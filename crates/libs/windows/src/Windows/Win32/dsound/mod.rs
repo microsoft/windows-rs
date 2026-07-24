@@ -82,7 +82,7 @@ pub struct D3DVECTOR {
     pub y: f32,
     pub z: f32,
 }
-pub const DIRECTSOUND_VERSION: u32 = 2304;
+pub const DIRECTSOUND_VERSION: i32 = 2304;
 pub const DS3DALG_HRTF_FULL: windows_core::GUID = windows_core::GUID::from_u128(0xc2413340_1c1b_11d2_94f5_00c04fc28aca);
 pub const DS3DALG_HRTF_LIGHT: windows_core::GUID = windows_core::GUID::from_u128(0xc2413342_1c1b_11d2_94f5_00c04fc28aca);
 pub const DS3DALG_NO_VIRTUALIZATION: windows_core::GUID = windows_core::GUID::from_u128(0xc241333f_1c1b_11d2_94f5_00c04fc28aca);
@@ -112,22 +112,22 @@ pub struct DS3DLISTENER {
     pub flRolloffFactor: f32,
     pub flDopplerFactor: f32,
 }
-pub const DS3DMODE_DISABLE: u32 = 2;
-pub const DS3DMODE_HEADRELATIVE: u32 = 1;
-pub const DS3DMODE_NORMAL: u32 = 0;
-pub const DS3D_DEFAULTCONEANGLE: u32 = 360;
-pub const DS3D_DEFAULTCONEOUTSIDEVOLUME: u32 = 0;
+pub const DS3DMODE_DISABLE: i32 = 2;
+pub const DS3DMODE_HEADRELATIVE: i32 = 1;
+pub const DS3DMODE_NORMAL: i32 = 0;
+pub const DS3D_DEFAULTCONEANGLE: i32 = 360;
+pub const DS3D_DEFAULTCONEOUTSIDEVOLUME: i32 = 0;
 pub const DS3D_DEFAULTDISTANCEFACTOR: f32 = 1.0;
 pub const DS3D_DEFAULTDOPPLERFACTOR: f32 = 1.0;
 pub const DS3D_DEFAULTMAXDISTANCE: f32 = 1000000000.0;
 pub const DS3D_DEFAULTMINDISTANCE: f32 = 1.0;
 pub const DS3D_DEFAULTROLLOFFFACTOR: f32 = 1.0;
-pub const DS3D_DEFERRED: u32 = 1;
-pub const DS3D_IMMEDIATE: u32 = 0;
-pub const DS3D_MAXCONEANGLE: u32 = 360;
+pub const DS3D_DEFERRED: i32 = 1;
+pub const DS3D_IMMEDIATE: i32 = 0;
+pub const DS3D_MAXCONEANGLE: i32 = 360;
 pub const DS3D_MAXDOPPLERFACTOR: f32 = 10.0;
 pub const DS3D_MAXROLLOFFFACTOR: f32 = 10.0;
-pub const DS3D_MINCONEANGLE: u32 = 0;
+pub const DS3D_MINCONEANGLE: i32 = 0;
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0.0;
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0.0;
 #[repr(C)]
@@ -139,37 +139,37 @@ pub struct DSBCAPS {
     pub dwUnlockTransferRate: u32,
     pub dwPlayCpuOverhead: u32,
 }
-pub const DSBCAPS_CTRL3D: u32 = 16;
-pub const DSBCAPS_CTRLFREQUENCY: u32 = 32;
-pub const DSBCAPS_CTRLFX: u32 = 512;
-pub const DSBCAPS_CTRLPAN: u32 = 64;
-pub const DSBCAPS_CTRLPOSITIONNOTIFY: u32 = 256;
-pub const DSBCAPS_CTRLVOLUME: u32 = 128;
-pub const DSBCAPS_GETCURRENTPOSITION2: u32 = 65536;
-pub const DSBCAPS_GLOBALFOCUS: u32 = 32768;
-pub const DSBCAPS_LOCDEFER: u32 = 262144;
-pub const DSBCAPS_LOCHARDWARE: u32 = 4;
-pub const DSBCAPS_LOCSOFTWARE: u32 = 8;
-pub const DSBCAPS_MUTE3DATMAXDISTANCE: u32 = 131072;
-pub const DSBCAPS_PRIMARYBUFFER: u32 = 1;
-pub const DSBCAPS_STATIC: u32 = 2;
-pub const DSBCAPS_STICKYFOCUS: u32 = 16384;
-pub const DSBCAPS_TRUEPLAYPOSITION: u32 = 524288;
-pub const DSBFREQUENCY_MAX: u32 = 200000;
-pub const DSBFREQUENCY_MIN: u32 = 100;
-pub const DSBFREQUENCY_ORIGINAL: u32 = 0;
-pub const DSBLOCK_ENTIREBUFFER: u32 = 2;
-pub const DSBLOCK_FROMWRITECURSOR: u32 = 1;
+pub const DSBCAPS_CTRL3D: i32 = 16;
+pub const DSBCAPS_CTRLFREQUENCY: i32 = 32;
+pub const DSBCAPS_CTRLFX: i32 = 512;
+pub const DSBCAPS_CTRLPAN: i32 = 64;
+pub const DSBCAPS_CTRLPOSITIONNOTIFY: i32 = 256;
+pub const DSBCAPS_CTRLVOLUME: i32 = 128;
+pub const DSBCAPS_GETCURRENTPOSITION2: i32 = 65536;
+pub const DSBCAPS_GLOBALFOCUS: i32 = 32768;
+pub const DSBCAPS_LOCDEFER: i32 = 262144;
+pub const DSBCAPS_LOCHARDWARE: i32 = 4;
+pub const DSBCAPS_LOCSOFTWARE: i32 = 8;
+pub const DSBCAPS_MUTE3DATMAXDISTANCE: i32 = 131072;
+pub const DSBCAPS_PRIMARYBUFFER: i32 = 1;
+pub const DSBCAPS_STATIC: i32 = 2;
+pub const DSBCAPS_STICKYFOCUS: i32 = 16384;
+pub const DSBCAPS_TRUEPLAYPOSITION: i32 = 524288;
+pub const DSBFREQUENCY_MAX: i32 = 200000;
+pub const DSBFREQUENCY_MIN: i32 = 100;
+pub const DSBFREQUENCY_ORIGINAL: i32 = 0;
+pub const DSBLOCK_ENTIREBUFFER: i32 = 2;
+pub const DSBLOCK_FROMWRITECURSOR: i32 = 1;
 pub const DSBNOTIFICATIONS_MAX: u32 = 100000;
-pub const DSBPAN_CENTER: u32 = 0;
+pub const DSBPAN_CENTER: i32 = 0;
 pub const DSBPAN_LEFT: i32 = -10000;
-pub const DSBPAN_RIGHT: u32 = 10000;
-pub const DSBPLAY_LOCHARDWARE: u32 = 2;
-pub const DSBPLAY_LOCSOFTWARE: u32 = 4;
-pub const DSBPLAY_LOOPING: u32 = 1;
-pub const DSBPLAY_TERMINATEBY_DISTANCE: u32 = 16;
-pub const DSBPLAY_TERMINATEBY_PRIORITY: u32 = 32;
-pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8;
+pub const DSBPAN_RIGHT: i32 = 10000;
+pub const DSBPLAY_LOCHARDWARE: i32 = 2;
+pub const DSBPLAY_LOCSOFTWARE: i32 = 4;
+pub const DSBPLAY_LOOPING: i32 = 1;
+pub const DSBPLAY_TERMINATEBY_DISTANCE: i32 = 16;
+pub const DSBPLAY_TERMINATEBY_PRIORITY: i32 = 32;
+pub const DSBPLAY_TERMINATEBY_TIME: i32 = 8;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -178,15 +178,15 @@ pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: u32,
     pub hEventNotify: super::HANDLE,
 }
-pub const DSBSIZE_FX_MIN: u32 = 150;
-pub const DSBSIZE_MAX: u32 = 268435455;
-pub const DSBSIZE_MIN: u32 = 4;
-pub const DSBSTATUS_BUFFERLOST: u32 = 2;
-pub const DSBSTATUS_LOCHARDWARE: u32 = 8;
-pub const DSBSTATUS_LOCSOFTWARE: u32 = 16;
-pub const DSBSTATUS_LOOPING: u32 = 4;
-pub const DSBSTATUS_PLAYING: u32 = 1;
-pub const DSBSTATUS_TERMINATED: u32 = 32;
+pub const DSBSIZE_FX_MIN: i32 = 150;
+pub const DSBSIZE_MAX: i32 = 268435455;
+pub const DSBSIZE_MIN: i32 = 4;
+pub const DSBSTATUS_BUFFERLOST: i32 = 2;
+pub const DSBSTATUS_LOCHARDWARE: i32 = 8;
+pub const DSBSTATUS_LOCSOFTWARE: i32 = 16;
+pub const DSBSTATUS_LOOPING: i32 = 4;
+pub const DSBSTATUS_PLAYING: i32 = 1;
+pub const DSBSTATUS_TERMINATED: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -208,7 +208,7 @@ pub struct DSBUFFERDESC1 {
     pub dwReserved: u32,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
 }
-pub const DSBVOLUME_MAX: u32 = 0;
+pub const DSBVOLUME_MAX: i32 = 0;
 pub const DSBVOLUME_MIN: i32 = -10000;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -238,17 +238,17 @@ pub struct DSCAPS {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-pub const DSCAPS_CERTIFIED: u32 = 64;
-pub const DSCAPS_CONTINUOUSRATE: u32 = 16;
-pub const DSCAPS_EMULDRIVER: u32 = 32;
-pub const DSCAPS_PRIMARY16BIT: u32 = 8;
-pub const DSCAPS_PRIMARY8BIT: u32 = 4;
-pub const DSCAPS_PRIMARYMONO: u32 = 1;
-pub const DSCAPS_PRIMARYSTEREO: u32 = 2;
-pub const DSCAPS_SECONDARY16BIT: u32 = 2048;
-pub const DSCAPS_SECONDARY8BIT: u32 = 1024;
-pub const DSCAPS_SECONDARYMONO: u32 = 256;
-pub const DSCAPS_SECONDARYSTEREO: u32 = 512;
+pub const DSCAPS_CERTIFIED: i32 = 64;
+pub const DSCAPS_CONTINUOUSRATE: i32 = 16;
+pub const DSCAPS_EMULDRIVER: i32 = 32;
+pub const DSCAPS_PRIMARY16BIT: i32 = 8;
+pub const DSCAPS_PRIMARY8BIT: i32 = 4;
+pub const DSCAPS_PRIMARYMONO: i32 = 1;
+pub const DSCAPS_PRIMARYSTEREO: i32 = 2;
+pub const DSCAPS_SECONDARY16BIT: i32 = 2048;
+pub const DSCAPS_SECONDARY8BIT: i32 = 1024;
+pub const DSCAPS_SECONDARYMONO: i32 = 256;
+pub const DSCAPS_SECONDARYSTEREO: i32 = 512;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCBCAPS {
@@ -257,12 +257,12 @@ pub struct DSCBCAPS {
     pub dwBufferBytes: u32,
     pub dwReserved: u32,
 }
-pub const DSCBCAPS_CTRLFX: u32 = 512;
+pub const DSCBCAPS_CTRLFX: i32 = 512;
 pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648;
-pub const DSCBLOCK_ENTIREBUFFER: u32 = 1;
-pub const DSCBSTART_LOOPING: u32 = 1;
-pub const DSCBSTATUS_CAPTURING: u32 = 1;
-pub const DSCBSTATUS_LOOPING: u32 = 2;
+pub const DSCBLOCK_ENTIREBUFFER: i32 = 1;
+pub const DSCBSTART_LOOPING: i32 = 1;
+pub const DSCBSTATUS_CAPTURING: i32 = 1;
+pub const DSCBSTATUS_LOOPING: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -293,9 +293,9 @@ pub struct DSCCAPS {
     pub dwFormats: u32,
     pub dwChannels: u32,
 }
-pub const DSCCAPS_CERTIFIED: u32 = 64;
-pub const DSCCAPS_EMULDRIVER: u32 = 32;
-pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1;
+pub const DSCCAPS_CERTIFIED: i32 = 64;
+pub const DSCCAPS_EMULDRIVER: i32 = 32;
+pub const DSCCAPS_MULTIPLECAPTURE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCEFFECTDESC {
@@ -318,17 +318,17 @@ pub struct DSCFXAec {
 pub struct DSCFXNoiseSuppress {
     pub fEnable: windows_core::BOOL,
 }
-pub const DSCFXR_LOCHARDWARE: u32 = 16;
-pub const DSCFXR_LOCSOFTWARE: u32 = 32;
-pub const DSCFX_AEC_MODE_FULL_DUPLEX: u32 = 2;
-pub const DSCFX_AEC_MODE_HALF_DUPLEX: u32 = 1;
-pub const DSCFX_AEC_MODE_PASS_THROUGH: u32 = 0;
-pub const DSCFX_AEC_STATUS_CURRENTLY_CONVERGED: u32 = 8;
-pub const DSCFX_AEC_STATUS_HISTORY_CONTINUOUSLY_CONVERGED: u32 = 1;
-pub const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2;
-pub const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: u32 = 0;
-pub const DSCFX_LOCHARDWARE: u32 = 1;
-pub const DSCFX_LOCSOFTWARE: u32 = 2;
+pub const DSCFXR_LOCHARDWARE: i32 = 16;
+pub const DSCFXR_LOCSOFTWARE: i32 = 32;
+pub const DSCFX_AEC_MODE_FULL_DUPLEX: i32 = 2;
+pub const DSCFX_AEC_MODE_HALF_DUPLEX: i32 = 1;
+pub const DSCFX_AEC_MODE_PASS_THROUGH: i32 = 0;
+pub const DSCFX_AEC_STATUS_CURRENTLY_CONVERGED: i32 = 8;
+pub const DSCFX_AEC_STATUS_HISTORY_CONTINUOUSLY_CONVERGED: i32 = 1;
+pub const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: i32 = 2;
+pub const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: i32 = 0;
+pub const DSCFX_LOCHARDWARE: i32 = 1;
+pub const DSCFX_LOCSOFTWARE: i32 = 2;
 pub const DSDEVID_DefaultCapture: windows_core::GUID = windows_core::GUID::from_u128(0xdef00001_9c6d_47ed_aaf1_4dda8f2b5c03);
 pub const DSDEVID_DefaultPlayback: windows_core::GUID = windows_core::GUID::from_u128(0xdef00000_9c6d_47ed_aaf1_4dda8f2b5c03);
 pub const DSDEVID_DefaultVoiceCapture: windows_core::GUID = windows_core::GUID::from_u128(0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03);
@@ -373,15 +373,15 @@ pub const DSFXCHORUS_FEEDBACK_MAX: f32 = 99.0;
 pub const DSFXCHORUS_FEEDBACK_MIN: f32 = -99.0;
 pub const DSFXCHORUS_FREQUENCY_MAX: f32 = 10.0;
 pub const DSFXCHORUS_FREQUENCY_MIN: f32 = 0.0;
-pub const DSFXCHORUS_PHASE_180: u32 = 4;
-pub const DSFXCHORUS_PHASE_90: u32 = 3;
-pub const DSFXCHORUS_PHASE_MAX: u32 = 4;
-pub const DSFXCHORUS_PHASE_MIN: u32 = 0;
-pub const DSFXCHORUS_PHASE_NEG_180: u32 = 0;
-pub const DSFXCHORUS_PHASE_NEG_90: u32 = 1;
-pub const DSFXCHORUS_PHASE_ZERO: u32 = 2;
-pub const DSFXCHORUS_WAVE_SIN: u32 = 1;
-pub const DSFXCHORUS_WAVE_TRIANGLE: u32 = 0;
+pub const DSFXCHORUS_PHASE_180: i32 = 4;
+pub const DSFXCHORUS_PHASE_90: i32 = 3;
+pub const DSFXCHORUS_PHASE_MAX: i32 = 4;
+pub const DSFXCHORUS_PHASE_MIN: i32 = 0;
+pub const DSFXCHORUS_PHASE_NEG_180: i32 = 0;
+pub const DSFXCHORUS_PHASE_NEG_90: i32 = 1;
+pub const DSFXCHORUS_PHASE_ZERO: i32 = 2;
+pub const DSFXCHORUS_WAVE_SIN: i32 = 1;
+pub const DSFXCHORUS_WAVE_TRIANGLE: i32 = 0;
 pub const DSFXCHORUS_WETDRYMIX_MAX: f32 = 100.0;
 pub const DSFXCHORUS_WETDRYMIX_MIN: f32 = 0.0;
 pub const DSFXCOMPRESSOR_ATTACK_MAX: f32 = 500.0;
@@ -440,8 +440,8 @@ pub const DSFXECHO_FEEDBACK_MAX: f32 = 100.0;
 pub const DSFXECHO_FEEDBACK_MIN: f32 = 0.0;
 pub const DSFXECHO_LEFTDELAY_MAX: f32 = 2000.0;
 pub const DSFXECHO_LEFTDELAY_MIN: f32 = 1.0;
-pub const DSFXECHO_PANDELAY_MAX: u32 = 1;
-pub const DSFXECHO_PANDELAY_MIN: u32 = 0;
+pub const DSFXECHO_PANDELAY_MAX: i32 = 1;
+pub const DSFXECHO_PANDELAY_MIN: i32 = 0;
 pub const DSFXECHO_RIGHTDELAY_MAX: f32 = 2000.0;
 pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1.0;
 pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100.0;
@@ -463,15 +463,15 @@ pub const DSFXFLANGER_FEEDBACK_MAX: f32 = 99.0;
 pub const DSFXFLANGER_FEEDBACK_MIN: f32 = -99.0;
 pub const DSFXFLANGER_FREQUENCY_MAX: f32 = 10.0;
 pub const DSFXFLANGER_FREQUENCY_MIN: f32 = 0.0;
-pub const DSFXFLANGER_PHASE_180: u32 = 4;
-pub const DSFXFLANGER_PHASE_90: u32 = 3;
-pub const DSFXFLANGER_PHASE_MAX: u32 = 4;
-pub const DSFXFLANGER_PHASE_MIN: u32 = 0;
-pub const DSFXFLANGER_PHASE_NEG_180: u32 = 0;
-pub const DSFXFLANGER_PHASE_NEG_90: u32 = 1;
-pub const DSFXFLANGER_PHASE_ZERO: u32 = 2;
-pub const DSFXFLANGER_WAVE_SIN: u32 = 1;
-pub const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0;
+pub const DSFXFLANGER_PHASE_180: i32 = 4;
+pub const DSFXFLANGER_PHASE_90: i32 = 3;
+pub const DSFXFLANGER_PHASE_MAX: i32 = 4;
+pub const DSFXFLANGER_PHASE_MIN: i32 = 0;
+pub const DSFXFLANGER_PHASE_NEG_180: i32 = 0;
+pub const DSFXFLANGER_PHASE_NEG_90: i32 = 1;
+pub const DSFXFLANGER_PHASE_ZERO: i32 = 2;
+pub const DSFXFLANGER_WAVE_SIN: i32 = 1;
+pub const DSFXFLANGER_WAVE_TRIANGLE: i32 = 0;
 pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100.0;
 pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0.0;
 #[repr(C)]
@@ -485,10 +485,10 @@ pub struct DSFXFlanger {
     pub fDelay: f32,
     pub lPhase: i32,
 }
-pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000;
-pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1;
-pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1;
-pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0;
+pub const DSFXGARGLE_RATEHZ_MAX: i32 = 1000;
+pub const DSFXGARGLE_RATEHZ_MIN: i32 = 1;
+pub const DSFXGARGLE_WAVE_SQUARE: i32 = 1;
+pub const DSFXGARGLE_WAVE_TRIANGLE: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSFXGargle {
@@ -554,29 +554,29 @@ pub const DSFX_I3DL2REVERB_DIFFUSION_MIN: f32 = 0.0;
 pub const DSFX_I3DL2REVERB_HFREFERENCE_DEFAULT: f32 = 5000.0;
 pub const DSFX_I3DL2REVERB_HFREFERENCE_MAX: f32 = 20000.0;
 pub const DSFX_I3DL2REVERB_HFREFERENCE_MIN: f32 = 20.0;
-pub const DSFX_I3DL2REVERB_QUALITY_DEFAULT: u32 = 2;
-pub const DSFX_I3DL2REVERB_QUALITY_MAX: u32 = 3;
-pub const DSFX_I3DL2REVERB_QUALITY_MIN: u32 = 0;
+pub const DSFX_I3DL2REVERB_QUALITY_DEFAULT: i32 = 2;
+pub const DSFX_I3DL2REVERB_QUALITY_MAX: i32 = 3;
+pub const DSFX_I3DL2REVERB_QUALITY_MIN: i32 = 0;
 pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_DEFAULT: f32 = 0.007;
 pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MAX: f32 = 0.3;
 pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MIN: f32 = 0.0;
 pub const DSFX_I3DL2REVERB_REFLECTIONS_DEFAULT: i32 = -2602;
-pub const DSFX_I3DL2REVERB_REFLECTIONS_MAX: u32 = 1000;
+pub const DSFX_I3DL2REVERB_REFLECTIONS_MAX: i32 = 1000;
 pub const DSFX_I3DL2REVERB_REFLECTIONS_MIN: i32 = -10000;
 pub const DSFX_I3DL2REVERB_REVERBDELAY_DEFAULT: f32 = 0.011;
 pub const DSFX_I3DL2REVERB_REVERBDELAY_MAX: f32 = 0.1;
 pub const DSFX_I3DL2REVERB_REVERBDELAY_MIN: f32 = 0.0;
-pub const DSFX_I3DL2REVERB_REVERB_DEFAULT: u32 = 200;
-pub const DSFX_I3DL2REVERB_REVERB_MAX: u32 = 2000;
+pub const DSFX_I3DL2REVERB_REVERB_DEFAULT: i32 = 200;
+pub const DSFX_I3DL2REVERB_REVERB_MAX: i32 = 2000;
 pub const DSFX_I3DL2REVERB_REVERB_MIN: i32 = -10000;
 pub const DSFX_I3DL2REVERB_ROOMHF_DEFAULT: i32 = -100;
-pub const DSFX_I3DL2REVERB_ROOMHF_MAX: u32 = 0;
+pub const DSFX_I3DL2REVERB_ROOMHF_MAX: i32 = 0;
 pub const DSFX_I3DL2REVERB_ROOMHF_MIN: i32 = -10000;
 pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_DEFAULT: f32 = 0.0;
 pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MAX: f32 = 10.0;
 pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MIN: f32 = 0.0;
 pub const DSFX_I3DL2REVERB_ROOM_DEFAULT: i32 = -1000;
-pub const DSFX_I3DL2REVERB_ROOM_MAX: u32 = 0;
+pub const DSFX_I3DL2REVERB_ROOM_MAX: i32 = 0;
 pub const DSFX_I3DL2REVERB_ROOM_MIN: i32 = -10000;
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ALLEY: i32 = 15;
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ARENA: i32 = 10;
@@ -616,8 +616,8 @@ pub const DSFX_I3DL2_MATERIAL_PRESET_STONEWALL: i32 = 6;
 pub const DSFX_I3DL2_MATERIAL_PRESET_THICKDOOR: i32 = 3;
 pub const DSFX_I3DL2_MATERIAL_PRESET_THINDOOR: i32 = 2;
 pub const DSFX_I3DL2_MATERIAL_PRESET_WOODWALL: i32 = 4;
-pub const DSFX_LOCHARDWARE: u32 = 1;
-pub const DSFX_LOCSOFTWARE: u32 = 2;
+pub const DSFX_LOCHARDWARE: i32 = 1;
+pub const DSFX_LOCSOFTWARE: i32 = 2;
 pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_DEFAULT: f32 = 0.001;
 pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MAX: f32 = 0.999;
 pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MIN: f32 = 0.001;
@@ -630,30 +630,30 @@ pub const DSFX_WAVESREVERB_REVERBMIX_MIN: f32 = -96.0;
 pub const DSFX_WAVESREVERB_REVERBTIME_DEFAULT: f32 = 1000.0;
 pub const DSFX_WAVESREVERB_REVERBTIME_MAX: f32 = 3000.0;
 pub const DSFX_WAVESREVERB_REVERBTIME_MIN: f32 = 0.001;
-pub const DSSCL_EXCLUSIVE: u32 = 3;
-pub const DSSCL_NORMAL: u32 = 1;
-pub const DSSCL_PRIORITY: u32 = 2;
-pub const DSSCL_WRITEPRIMARY: u32 = 4;
-pub const DSSPEAKER_5POINT1: u32 = 6;
-pub const DSSPEAKER_5POINT1_BACK: u32 = 6;
-pub const DSSPEAKER_5POINT1_SURROUND: u32 = 9;
-pub const DSSPEAKER_7POINT1: u32 = 7;
-pub const DSSPEAKER_7POINT1_SURROUND: u32 = 8;
-pub const DSSPEAKER_7POINT1_WIDE: u32 = 7;
-pub const DSSPEAKER_DIRECTOUT: u32 = 0;
-pub const DSSPEAKER_GEOMETRY_MAX: u32 = 180;
-pub const DSSPEAKER_GEOMETRY_MIN: u32 = 5;
-pub const DSSPEAKER_GEOMETRY_NARROW: u32 = 10;
-pub const DSSPEAKER_GEOMETRY_WIDE: u32 = 20;
-pub const DSSPEAKER_HEADPHONE: u32 = 1;
-pub const DSSPEAKER_MONO: u32 = 2;
-pub const DSSPEAKER_QUAD: u32 = 3;
-pub const DSSPEAKER_STEREO: u32 = 4;
-pub const DSSPEAKER_SURROUND: u32 = 5;
-pub const DS_CERTIFIED: u32 = 0;
-pub const DS_NO_VIRTUALIZATION: u32 = 142082058;
-pub const DS_OK: u32 = 0;
-pub const DS_UNCERTIFIED: u32 = 1;
+pub const DSSCL_EXCLUSIVE: i32 = 3;
+pub const DSSCL_NORMAL: i32 = 1;
+pub const DSSCL_PRIORITY: i32 = 2;
+pub const DSSCL_WRITEPRIMARY: i32 = 4;
+pub const DSSPEAKER_5POINT1: i32 = 6;
+pub const DSSPEAKER_5POINT1_BACK: i32 = 6;
+pub const DSSPEAKER_5POINT1_SURROUND: i32 = 9;
+pub const DSSPEAKER_7POINT1: i32 = 7;
+pub const DSSPEAKER_7POINT1_SURROUND: i32 = 8;
+pub const DSSPEAKER_7POINT1_WIDE: i32 = 7;
+pub const DSSPEAKER_DIRECTOUT: i32 = 0;
+pub const DSSPEAKER_GEOMETRY_MAX: i32 = 180;
+pub const DSSPEAKER_GEOMETRY_MIN: i32 = 5;
+pub const DSSPEAKER_GEOMETRY_NARROW: i32 = 10;
+pub const DSSPEAKER_GEOMETRY_WIDE: i32 = 20;
+pub const DSSPEAKER_HEADPHONE: i32 = 1;
+pub const DSSPEAKER_MONO: i32 = 2;
+pub const DSSPEAKER_QUAD: i32 = 3;
+pub const DSSPEAKER_STEREO: i32 = 4;
+pub const DSSPEAKER_SURROUND: i32 = 5;
+pub const DS_CERTIFIED: i32 = 0;
+pub const DS_NO_VIRTUALIZATION: i32 = 142082058;
+pub const DS_OK: i32 = 0;
+pub const DS_UNCERTIFIED: i32 = 1;
 pub const GUID_All_Objects: windows_core::GUID = windows_core::GUID::from_u128(0xaa114de5_c262_4169_a1c8_23d698cc73b5);
 pub const GUID_DSCFX_CLASS_AEC: windows_core::GUID = windows_core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 pub const GUID_DSCFX_CLASS_NS: windows_core::GUID = windows_core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
@@ -2990,8 +2990,8 @@ impl IReferenceClock_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "winnt"))]
 impl windows_core::RuntimeName for IReferenceClock {}
-pub const KSPROPERTY_SUPPORT_GET: u32 = 1;
-pub const KSPROPERTY_SUPPORT_SET: u32 = 2;
+pub const KSPROPERTY_SUPPORT_GET: i32 = 1;
+pub const KSPROPERTY_SUPPORT_SET: i32 = 2;
 pub type LPCDS3DBUFFER = *const DS3DBUFFER;
 pub type LPCDS3DLISTENER = *const DS3DLISTENER;
 pub type LPCDSBCAPS = *const DSBCAPS;

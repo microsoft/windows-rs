@@ -754,8 +754,8 @@ pub type HCOUNTER = PDH_HCOUNTER;
 pub type HLOG = PDH_HLOG;
 #[cfg(feature = "winnt")]
 pub type HQUERY = PDH_HQUERY;
-pub const H_REALTIME_DATASOURCE: u32 = 0;
-pub const MAX_COUNTER_PATH: u32 = 256;
+pub const H_REALTIME_DATASOURCE: i32 = 0;
+pub const MAX_COUNTER_PATH: i32 = 256;
 pub const MAX_TIME_VALUE: i64 = 9223372036854775807;
 pub const MIN_TIME_VALUE: i64 = 0;
 #[repr(C)]
@@ -1417,25 +1417,25 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_core::PWSTR,
 }
-pub const PDH_LOG_TYPE_BINARY: u32 = 8;
-pub const PDH_LOG_TYPE_CSV: u32 = 1;
-pub const PDH_LOG_TYPE_PERFMON: u32 = 6;
-pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3;
-pub const PDH_LOG_TYPE_SQL: u32 = 7;
-pub const PDH_LOG_TYPE_TRACE_GENERIC: u32 = 5;
-pub const PDH_LOG_TYPE_TRACE_KERNEL: u32 = 4;
-pub const PDH_LOG_TYPE_TSV: u32 = 2;
-pub const PDH_LOG_TYPE_UNDEFINED: u32 = 0;
+pub const PDH_LOG_TYPE_BINARY: i32 = 8;
+pub const PDH_LOG_TYPE_CSV: i32 = 1;
+pub const PDH_LOG_TYPE_PERFMON: i32 = 6;
+pub const PDH_LOG_TYPE_RETIRED_BIN: i32 = 3;
+pub const PDH_LOG_TYPE_SQL: i32 = 7;
+pub const PDH_LOG_TYPE_TRACE_GENERIC: i32 = 5;
+pub const PDH_LOG_TYPE_TRACE_KERNEL: i32 = 4;
+pub const PDH_LOG_TYPE_TSV: i32 = 2;
+pub const PDH_LOG_TYPE_UNDEFINED: i32 = 0;
 pub const PDH_LOG_UPDATE_ACCESS: u32 = 262144;
 pub const PDH_LOG_WRITE_ACCESS: u32 = 131072;
-pub const PDH_MAX_COUNTER_NAME: u32 = 1024;
-pub const PDH_MAX_COUNTER_PATH: u32 = 2048;
-pub const PDH_MAX_DATASOURCE_PATH: u32 = 1024;
-pub const PDH_MAX_INSTANCE_NAME: u32 = 1024;
-pub const PDH_MAX_SCALE: u32 = 7;
+pub const PDH_MAX_COUNTER_NAME: i32 = 1024;
+pub const PDH_MAX_COUNTER_PATH: i32 = 2048;
+pub const PDH_MAX_DATASOURCE_PATH: i32 = 1024;
+pub const PDH_MAX_INSTANCE_NAME: i32 = 1024;
+pub const PDH_MAX_SCALE: i32 = 7;
 pub const PDH_MIN_SCALE: i32 = -7;
-pub const PDH_NOEXPANDCOUNTERS: u32 = 1;
-pub const PDH_NOEXPANDINSTANCES: u32 = 2;
+pub const PDH_NOEXPANDCOUNTERS: i32 = 1;
+pub const PDH_NOEXPANDINSTANCES: i32 = 2;
 pub const PDH_OBJECT_HAS_INSTANCES: u32 = 1;
 pub const PDH_PATH_WBEM_INPUT: u32 = 2;
 pub const PDH_PATH_WBEM_RESULT: u32 = 1;
@@ -1476,7 +1476,7 @@ impl Default for PDH_RAW_LOG_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PDH_REFRESHCOUNTERS: u32 = 4;
+pub const PDH_REFRESHCOUNTERS: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PDH_STATISTICS {

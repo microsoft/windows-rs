@@ -2,14 +2,14 @@
 mod Windows {
     mod Win32 {
         const RPC_C_NS_DEFAULT_EXP_AGE: i32 = -1;
-        const RPC_C_NS_SYNTAX_DCE: u32 = 3;
-        const RPC_C_NS_SYNTAX_DEFAULT: u32 = 0;
-        const RPC_C_PROFILE_ALL_ELT: u32 = 1;
-        const RPC_C_PROFILE_ALL_ELTS: u32 = 1;
-        const RPC_C_PROFILE_DEFAULT_ELT: u32 = 0;
-        const RPC_C_PROFILE_MATCH_BY_BOTH: u32 = 4;
-        const RPC_C_PROFILE_MATCH_BY_IF: u32 = 2;
-        const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3;
+        const RPC_C_NS_SYNTAX_DCE: i32 = 3;
+        const RPC_C_NS_SYNTAX_DEFAULT: i32 = 0;
+        const RPC_C_PROFILE_ALL_ELT: i32 = 1;
+        const RPC_C_PROFILE_ALL_ELTS: i32 = 1;
+        const RPC_C_PROFILE_DEFAULT_ELT: i32 = 0;
+        const RPC_C_PROFILE_MATCH_BY_BOTH: i32 = 4;
+        const RPC_C_PROFILE_MATCH_BY_IF: i32 = 2;
+        const RPC_C_PROFILE_MATCH_BY_MBR: i32 = 3;
         type RPC_NS_HANDLE = *mut void;
         #[library("RPCNS4.dll")]
         extern fn RpcNsBindingExportA(EntryNameSyntax: u32, #[opt] EntryName: *const u8, #[opt] IfSpec: RPC_IF_HANDLE, #[opt] BindingVec: *const RPC_BINDING_VECTOR, #[opt] ObjectUuidVec: *const UUID_VECTOR) -> RPC_STATUS;

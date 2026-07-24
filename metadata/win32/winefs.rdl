@@ -13,14 +13,14 @@ mod Windows {
         struct EFS_COMPATIBILITY_INFO {
             EfsVersion: u32,
         }
-        const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5;
-        const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6;
+        const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: i32 = 5;
+        const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: i32 = 6;
         struct EFS_DECRYPTION_STATUS_INFO {
             dwDecryptionError: u32,
             dwHashOffset: u32,
             cbHash: u32,
         }
-        const EFS_EFS_SUBVER_EFS_CERT: u32 = 1;
+        const EFS_EFS_SUBVER_EFS_CERT: i32 = 1;
         struct EFS_ENCRYPTION_STATUS_INFO {
             bHasCurrentKey: BOOL,
             dwEncryptionError: u32,
@@ -35,12 +35,12 @@ mod Windows {
             Algorithm: ALG_ID,
             KeyLength: u32,
         }
-        const EFS_METADATA_ADD_USER: u32 = 1;
-        const EFS_METADATA_GENERAL_OP: u32 = 8;
-        const EFS_METADATA_REMOVE_USER: u32 = 2;
-        const EFS_METADATA_REPLACE_USER: u32 = 4;
-        const EFS_PFILE_SUBVER_APPX: u32 = 3;
-        const EFS_PFILE_SUBVER_RMS: u32 = 2;
+        const EFS_METADATA_ADD_USER: i32 = 1;
+        const EFS_METADATA_GENERAL_OP: i32 = 8;
+        const EFS_METADATA_REMOVE_USER: i32 = 2;
+        const EFS_METADATA_REPLACE_USER: i32 = 4;
+        const EFS_PFILE_SUBVER_APPX: i32 = 3;
+        const EFS_PFILE_SUBVER_RMS: i32 = 2;
         struct EFS_PIN_BLOB {
             cbPadding: u32,
             cbData: u32,
@@ -50,7 +50,7 @@ mod Windows {
             cbData: u32,
             pbData: PBYTE,
         }
-        const EFS_SUBVER_UNKNOWN: u32 = 0;
+        const EFS_SUBVER_UNKNOWN: i32 = 0;
         struct EFS_VERSION_INFO {
             EfsVersion: u32,
             SubVersion: u32,
@@ -97,7 +97,7 @@ mod Windows {
         extern fn FreeEncryptionCertificateHashList(pUsers: *const ENCRYPTION_CERTIFICATE_HASH_LIST);
         #[library("ADVAPI32.dll")]
         extern fn GetEncryptedFileMetadata(lpFileName: PCWSTR, pcbMetadata: *mut u32, ppbMetadata: *mut PBYTE) -> u32;
-        const MAX_SID_SIZE: u32 = 256;
+        const MAX_SID_SIZE: i32 = 256;
         type PEFS_CERTIFICATE_BLOB = *mut EFS_CERTIFICATE_BLOB;
         type PEFS_COMPATIBILITY_INFO = *mut EFS_COMPATIBILITY_INFO;
         type PEFS_DECRYPTION_STATUS_INFO = *mut EFS_DECRYPTION_STATUS_INFO;
@@ -126,6 +126,6 @@ mod Windows {
         extern fn SetUserFileEncryptionKey(#[opt] pEncryptionCertificate: *const ENCRYPTION_CERTIFICATE) -> u32;
         #[library("ADVAPI32.dll")]
         extern fn SetUserFileEncryptionKeyEx(#[opt] pEncryptionCertificate: *const ENCRYPTION_CERTIFICATE, dwCapabilities: u32, dwFlags: u32, #[reserved] pvReserved: *const void) -> u32;
-        const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1;
+        const WINEFS_SETUSERKEY_SET_CAPABILITIES: i32 = 1;
     }
 }

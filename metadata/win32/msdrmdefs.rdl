@@ -29,25 +29,25 @@ mod Windows {
             DRMENCODINGTYPE_RAW = 5,
         }
         type DRMENVHANDLE = u32;
-        const DRMENVHANDLE_INVALID: u32 = 0;
+        const DRMENVHANDLE_INVALID: i32 = 0;
         #[repr(i32)]
         enum DRMGLOBALOPTIONS {
             DRMGLOBALOPTIONS_USE_WINHTTP = 0,
             DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR = 1,
         }
         type DRMHANDLE = u32;
-        const DRMHANDLE_INVALID: u32 = 0;
+        const DRMHANDLE_INVALID: i32 = 0;
         type DRMHSESSION = u32;
-        const DRMHSESSION_INVALID: u32 = 0;
+        const DRMHSESSION_INVALID: i32 = 0;
         struct DRMID {
             uVersion: u32,
             wszIDType: PWSTR,
             wszID: PWSTR,
         }
         type DRMPUBHANDLE = u32;
-        const DRMPUBHANDLE_INVALID: u32 = 0;
+        const DRMPUBHANDLE_INVALID: i32 = 0;
         type DRMQUERYHANDLE = u32;
-        const DRMQUERYHANDLE_INVALID: u32 = 0;
+        const DRMQUERYHANDLE_INVALID: i32 = 0;
         #[repr(i32)]
         enum DRMSECURITYPROVIDERTYPE {
             DRMSECURITYPROVIDERTYPE_SOFTWARESECREP = 0,
@@ -62,29 +62,29 @@ mod Windows {
             DRMTIMETYPE_SYSTEMUTC = 0,
             DRMTIMETYPE_SYSTEMLOCAL = 1,
         }
-        const DRM_ACTIVATE_CANCEL: u32 = 8;
-        const DRM_ACTIVATE_DELAYED: u32 = 64;
-        const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2;
-        const DRM_ACTIVATE_MACHINE: u32 = 1;
-        const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32;
-        const DRM_ACTIVATE_SILENT: u32 = 16;
-        const DRM_ACTIVATE_TEMPORARY: u32 = 4;
+        const DRM_ACTIVATE_CANCEL: i32 = 8;
+        const DRM_ACTIVATE_DELAYED: i32 = 64;
+        const DRM_ACTIVATE_GROUPIDENTITY: i32 = 2;
+        const DRM_ACTIVATE_MACHINE: i32 = 1;
+        const DRM_ACTIVATE_SHARED_GROUPIDENTITY: i32 = 32;
+        const DRM_ACTIVATE_SILENT: i32 = 16;
+        const DRM_ACTIVATE_TEMPORARY: i32 = 4;
         struct DRM_ACTSERV_INFO {
             uVersion: u32,
             wszPubKey: PWSTR,
             wszURL: PWSTR,
         }
-        const DRM_ADD_LICENSE_NOPERSIST: u32 = 0;
-        const DRM_ADD_LICENSE_PERSIST: u32 = 1;
-        const DRM_AILT_CANCEL: u32 = 4;
-        const DRM_AILT_NONSILENT: u32 = 1;
-        const DRM_AILT_OBTAIN_ALL: u32 = 2;
-        const DRM_AL_CANCEL: u32 = 4;
-        const DRM_AL_FETCHNOADVISORY: u32 = 8;
-        const DRM_AL_NONSILENT: u32 = 1;
-        const DRM_AL_NOPERSIST: u32 = 2;
-        const DRM_AL_NOUI: u32 = 16;
-        const DRM_AUTO_GENERATE_KEY: u32 = 16;
+        const DRM_ADD_LICENSE_NOPERSIST: i32 = 0;
+        const DRM_ADD_LICENSE_PERSIST: i32 = 1;
+        const DRM_AILT_CANCEL: i32 = 4;
+        const DRM_AILT_NONSILENT: i32 = 1;
+        const DRM_AILT_OBTAIN_ALL: i32 = 2;
+        const DRM_AL_CANCEL: i32 = 4;
+        const DRM_AL_FETCHNOADVISORY: i32 = 8;
+        const DRM_AL_NONSILENT: i32 = 1;
+        const DRM_AL_NOPERSIST: i32 = 2;
+        const DRM_AL_NOUI: i32 = 16;
+        const DRM_AUTO_GENERATE_KEY: i32 = 16;
         struct DRM_CLIENT_VERSION_INFO {
             uStructVersion: u32,
             dwVersion: [u32; 4],
@@ -102,22 +102,22 @@ mod Windows {
             DRM_DISTRIBUTION_POINT_PUBLISHING = 1,
             DRM_DISTRIBUTION_POINT_REFERRAL_INFO = 2,
         }
-        const DRM_EL_CLIENTLICENSOR: u32 = 128;
-        const DRM_EL_CLIENTLICENSOR_LID: u32 = 256;
-        const DRM_EL_EUL: u32 = 32;
-        const DRM_EL_EUL_LID: u32 = 64;
-        const DRM_EL_EXPIRED: u32 = 4096;
-        const DRM_EL_GROUPIDENTITY: u32 = 2;
-        const DRM_EL_GROUPIDENTITY_LID: u32 = 8;
-        const DRM_EL_GROUPIDENTITY_NAME: u32 = 4;
-        const DRM_EL_ISSUANCELICENSE_TEMPLATE: u32 = 16384;
-        const DRM_EL_ISSUANCELICENSE_TEMPLATE_LID: u32 = 32768;
-        const DRM_EL_ISSUERNAME: u32 = 8192;
-        const DRM_EL_MACHINE: u32 = 1;
-        const DRM_EL_REVOCATIONLIST: u32 = 1024;
-        const DRM_EL_REVOCATIONLIST_LID: u32 = 2048;
-        const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512;
-        const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16;
+        const DRM_EL_CLIENTLICENSOR: i32 = 128;
+        const DRM_EL_CLIENTLICENSOR_LID: i32 = 256;
+        const DRM_EL_EUL: i32 = 32;
+        const DRM_EL_EUL_LID: i32 = 64;
+        const DRM_EL_EXPIRED: i32 = 4096;
+        const DRM_EL_GROUPIDENTITY: i32 = 2;
+        const DRM_EL_GROUPIDENTITY_LID: i32 = 8;
+        const DRM_EL_GROUPIDENTITY_NAME: i32 = 4;
+        const DRM_EL_ISSUANCELICENSE_TEMPLATE: i32 = 16384;
+        const DRM_EL_ISSUANCELICENSE_TEMPLATE_LID: i32 = 32768;
+        const DRM_EL_ISSUERNAME: i32 = 8192;
+        const DRM_EL_MACHINE: i32 = 1;
+        const DRM_EL_REVOCATIONLIST: i32 = 1024;
+        const DRM_EL_REVOCATIONLIST_LID: i32 = 2048;
+        const DRM_EL_SPECIFIED_CLIENTLICENSOR: i32 = 512;
+        const DRM_EL_SPECIFIED_GROUPIDENTITY: i32 = 16;
         struct DRM_LICENSE_ACQ_DATA {
             uVersion: u32,
             wszURL: PWSTR,
@@ -126,23 +126,23 @@ mod Windows {
             dwPostDataSize: u32,
             wszFriendlyName: PWSTR,
         }
-        const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2;
-        const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2;
-        const DRM_LOCKBOXTYPE_NONE: u32 = 0;
-        const DRM_LOCKBOXTYPE_WHITEBOX: u32 = 1;
-        const DRM_OWNER_LICENSE_NOPERSIST: u32 = 32;
-        const DRM_REUSE_KEY: u32 = 64;
-        const DRM_SERVER_ISSUANCELICENSE: u32 = 8;
-        const DRM_SERVICE_LOCATION_ENTERPRISE: u32 = 2;
-        const DRM_SERVICE_LOCATION_INTERNET: u32 = 1;
-        const DRM_SERVICE_TYPE_ACTIVATION: u32 = 1;
-        const DRM_SERVICE_TYPE_CERTIFICATION: u32 = 2;
-        const DRM_SERVICE_TYPE_CLIENTLICENSOR: u32 = 8;
-        const DRM_SERVICE_TYPE_PUBLISHING: u32 = 4;
-        const DRM_SERVICE_TYPE_SILENT: u32 = 16;
-        const DRM_SIGN_CANCEL: u32 = 4;
-        const DRM_SIGN_OFFLINE: u32 = 2;
-        const DRM_SIGN_ONLINE: u32 = 1;
+        const DRM_LOCKBOXTYPE_BLACKBOX: i32 = 2;
+        const DRM_LOCKBOXTYPE_DEFAULT: i32 = 2;
+        const DRM_LOCKBOXTYPE_NONE: i32 = 0;
+        const DRM_LOCKBOXTYPE_WHITEBOX: i32 = 1;
+        const DRM_OWNER_LICENSE_NOPERSIST: i32 = 32;
+        const DRM_REUSE_KEY: i32 = 64;
+        const DRM_SERVER_ISSUANCELICENSE: i32 = 8;
+        const DRM_SERVICE_LOCATION_ENTERPRISE: i32 = 2;
+        const DRM_SERVICE_LOCATION_INTERNET: i32 = 1;
+        const DRM_SERVICE_TYPE_ACTIVATION: i32 = 1;
+        const DRM_SERVICE_TYPE_CERTIFICATION: i32 = 2;
+        const DRM_SERVICE_TYPE_CLIENTLICENSOR: i32 = 8;
+        const DRM_SERVICE_TYPE_PUBLISHING: i32 = 4;
+        const DRM_SERVICE_TYPE_SILENT: i32 = 16;
+        const DRM_SIGN_CANCEL: i32 = 4;
+        const DRM_SIGN_OFFLINE: i32 = 2;
+        const DRM_SIGN_ONLINE: i32 = 1;
         #[repr(i32)]
         enum DRM_STATUS_MSG {
             DRM_MSG_ACTIVATE_MACHINE = 0,

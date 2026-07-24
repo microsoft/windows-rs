@@ -381,7 +381,7 @@ pub unsafe fn BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Optio
     windows_core::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : *const u8, cbhash : u32, pbsignature : *const u8, cbsignature : u32, dwflags : u32) -> windows_core::NTSTATUS);
     unsafe { BCryptVerifySignature(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pbhash.as_ptr(), pbhash.len().try_into().unwrap(), pbsignature.as_ptr(), pbsignature.len().try_into().unwrap(), dwflags) }
 }
-pub const BCRYPTBUFFER_VERSION: u32 = 0;
+pub const BCRYPTBUFFER_VERSION: i32 = 0;
 pub const BCRYPT_3DES_112_ALGORITHM: windows_core::PCWSTR = windows_core::w!("3DES_112");
 pub const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(369 as _);
 pub const BCRYPT_3DES_112_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(401 as _);
@@ -417,9 +417,9 @@ impl Default for BCRYPT_ALG_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: u32 = 8;
-pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: u32 = 3;
-pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: u32 = 4;
+pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: i32 = 8;
+pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: i32 = 3;
+pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -438,16 +438,16 @@ pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbData: u64,
     pub dwFlags: u32,
 }
-pub const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: u32 = 1;
-pub const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: u32 = 1;
-pub const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: u32 = 2;
+pub const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: i32 = 1;
+pub const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: i32 = 1;
+pub const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: i32 = 2;
 pub const BCRYPT_AUTH_TAG_LENGTH: windows_core::PCWSTR = windows_core::w!("AuthTagLength");
 pub type BCRYPT_AUTH_TAG_LENGTHS_STRUCT = BCRYPT_KEY_LENGTHS_STRUCT;
 pub const BCRYPT_BLOCK_LENGTH: windows_core::PCWSTR = windows_core::w!("BlockLength");
-pub const BCRYPT_BLOCK_PADDING: u32 = 1;
+pub const BCRYPT_BLOCK_PADDING: i32 = 1;
 pub const BCRYPT_BLOCK_SIZE_LIST: windows_core::PCWSTR = windows_core::w!("BlockSizeList");
-pub const BCRYPT_BUFFERS_LOCKED_FLAG: u32 = 64;
-pub const BCRYPT_CAPI_AES_FLAG: u32 = 16;
+pub const BCRYPT_BUFFERS_LOCKED_FLAG: i32 = 64;
+pub const BCRYPT_CAPI_AES_FLAG: i32 = 16;
 pub const BCRYPT_CAPI_KDF_ALGORITHM: windows_core::PCWSTR = windows_core::w!("CAPI_KDF");
 pub const BCRYPT_CAPI_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(801 as _);
 pub const BCRYPT_CHACHA20_POLY1305_ALGORITHM: windows_core::PCWSTR = windows_core::w!("CHACHA20_POLY1305");
@@ -459,8 +459,8 @@ pub const BCRYPT_CHAIN_MODE_CFB: windows_core::PCWSTR = windows_core::w!("Chaini
 pub const BCRYPT_CHAIN_MODE_ECB: windows_core::PCWSTR = windows_core::w!("ChainingModeECB");
 pub const BCRYPT_CHAIN_MODE_GCM: windows_core::PCWSTR = windows_core::w!("ChainingModeGCM");
 pub const BCRYPT_CHAIN_MODE_NA: windows_core::PCWSTR = windows_core::w!("ChainingModeN/A");
-pub const BCRYPT_CIPHER_INTERFACE: u32 = 1;
-pub const BCRYPT_CIPHER_OPERATION: u32 = 1;
+pub const BCRYPT_CIPHER_INTERFACE: i32 = 1;
+pub const BCRYPT_CIPHER_OPERATION: i32 = 1;
 pub const BCRYPT_CSHAKE128_ALGORITHM: windows_core::PCWSTR = windows_core::w!("CSHAKE128");
 pub const BCRYPT_CSHAKE128_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1041 as _);
 pub const BCRYPT_CSHAKE256_ALGORITHM: windows_core::PCWSTR = windows_core::w!("CSHAKE256");
@@ -483,7 +483,7 @@ pub struct BCRYPT_DH_KEY_BLOB {
     pub cbKey: u32,
 }
 pub const BCRYPT_DH_PARAMETERS: windows_core::PCWSTR = windows_core::w!("DHParameters");
-pub const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012;
+pub const BCRYPT_DH_PARAMETERS_MAGIC: i32 = 1297107012;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_DH_PARAMETER_HEADER {
@@ -492,9 +492,9 @@ pub struct BCRYPT_DH_PARAMETER_HEADER {
     pub cbKeyLength: u32,
 }
 pub const BCRYPT_DH_PRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("DHPRIVATEBLOB");
-pub const BCRYPT_DH_PRIVATE_MAGIC: u32 = 1448101956;
+pub const BCRYPT_DH_PRIVATE_MAGIC: i32 = 1448101956;
 pub const BCRYPT_DH_PUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("DHPUBLICBLOB");
-pub const BCRYPT_DH_PUBLIC_MAGIC: u32 = 1112557636;
+pub const BCRYPT_DH_PUBLIC_MAGIC: i32 = 1112557636;
 pub const BCRYPT_DSA_ALGORITHM: windows_core::PCWSTR = windows_core::w!("DSA");
 pub const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(721 as _);
 #[repr(C)]
@@ -528,8 +528,8 @@ impl Default for BCRYPT_DSA_KEY_BLOB_V2 {
     }
 }
 pub const BCRYPT_DSA_PARAMETERS: windows_core::PCWSTR = windows_core::w!("DSAParameters");
-pub const BCRYPT_DSA_PARAMETERS_MAGIC: u32 = 1297109828;
-pub const BCRYPT_DSA_PARAMETERS_MAGIC_V2: u32 = 843927620;
+pub const BCRYPT_DSA_PARAMETERS_MAGIC: i32 = 1297109828;
+pub const BCRYPT_DSA_PARAMETERS_MAGIC_V2: i32 = 843927620;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER {
@@ -563,11 +563,11 @@ impl Default for BCRYPT_DSA_PARAMETER_HEADER_V2 {
     }
 }
 pub const BCRYPT_DSA_PRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("DSAPRIVATEBLOB");
-pub const BCRYPT_DSA_PRIVATE_MAGIC: u32 = 1448104772;
-pub const BCRYPT_DSA_PRIVATE_MAGIC_V2: u32 = 844517444;
+pub const BCRYPT_DSA_PRIVATE_MAGIC: i32 = 1448104772;
+pub const BCRYPT_DSA_PRIVATE_MAGIC_V2: i32 = 844517444;
 pub const BCRYPT_DSA_PUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("DSAPUBLICBLOB");
-pub const BCRYPT_DSA_PUBLIC_MAGIC: u32 = 1112560452;
-pub const BCRYPT_DSA_PUBLIC_MAGIC_V2: u32 = 843206724;
+pub const BCRYPT_DSA_PUBLIC_MAGIC: i32 = 1112560452;
+pub const BCRYPT_DSA_PUBLIC_MAGIC_V2: i32 = 843206724;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_ECCFULLKEY_BLOB {
@@ -648,9 +648,9 @@ pub const BCRYPT_ECC_CURVE_X962P239V1: windows_core::PCWSTR = windows_core::w!("
 pub const BCRYPT_ECC_CURVE_X962P239V2: windows_core::PCWSTR = windows_core::w!("x962P239v2");
 pub const BCRYPT_ECC_CURVE_X962P239V3: windows_core::PCWSTR = windows_core::w!("x962P239v3");
 pub const BCRYPT_ECC_CURVE_X962P256V1: windows_core::PCWSTR = windows_core::w!("x962P256v1");
-pub const BCRYPT_ECC_FULLKEY_BLOB_V1: u32 = 1;
+pub const BCRYPT_ECC_FULLKEY_BLOB_V1: i32 = 1;
 pub const BCRYPT_ECC_PARAMETERS: windows_core::PCWSTR = windows_core::w!("ECCParameters");
-pub const BCRYPT_ECC_PARAMETERS_MAGIC: u32 = 1346585413;
+pub const BCRYPT_ECC_PARAMETERS_MAGIC: i32 = 1346585413;
 pub const BCRYPT_ECC_PRIME_MONTGOMERY_CURVE: ECC_CURVE_TYPE_ENUM = 3;
 pub const BCRYPT_ECC_PRIME_SHORT_WEIERSTRASS_CURVE: ECC_CURVE_TYPE_ENUM = 1;
 pub const BCRYPT_ECC_PRIME_TWISTED_EDWARDS_CURVE: ECC_CURVE_TYPE_ENUM = 2;
@@ -662,14 +662,14 @@ pub const BCRYPT_ECDH_P384_ALGORITHM: windows_core::PCWSTR = windows_core::w!("E
 pub const BCRYPT_ECDH_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(689 as _);
 pub const BCRYPT_ECDH_P521_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ECDH_P521");
 pub const BCRYPT_ECDH_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(705 as _);
-pub const BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC: u32 = 1447772997;
-pub const BCRYPT_ECDH_PRIVATE_P256_MAGIC: u32 = 843793221;
-pub const BCRYPT_ECDH_PRIVATE_P384_MAGIC: u32 = 877347653;
-pub const BCRYPT_ECDH_PRIVATE_P521_MAGIC: u32 = 910902085;
-pub const BCRYPT_ECDH_PUBLIC_GENERIC_MAGIC: u32 = 1347109701;
-pub const BCRYPT_ECDH_PUBLIC_P256_MAGIC: u32 = 827016005;
-pub const BCRYPT_ECDH_PUBLIC_P384_MAGIC: u32 = 860570437;
-pub const BCRYPT_ECDH_PUBLIC_P521_MAGIC: u32 = 894124869;
+pub const BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC: i32 = 1447772997;
+pub const BCRYPT_ECDH_PRIVATE_P256_MAGIC: i32 = 843793221;
+pub const BCRYPT_ECDH_PRIVATE_P384_MAGIC: i32 = 877347653;
+pub const BCRYPT_ECDH_PRIVATE_P521_MAGIC: i32 = 910902085;
+pub const BCRYPT_ECDH_PUBLIC_GENERIC_MAGIC: i32 = 1347109701;
+pub const BCRYPT_ECDH_PUBLIC_P256_MAGIC: i32 = 827016005;
+pub const BCRYPT_ECDH_PUBLIC_P384_MAGIC: i32 = 860570437;
+pub const BCRYPT_ECDH_PUBLIC_P521_MAGIC: i32 = 894124869;
 pub const BCRYPT_ECDSA_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ECDSA");
 pub const BCRYPT_ECDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(241 as _);
 pub const BCRYPT_ECDSA_P256_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ECDSA_P256");
@@ -678,19 +678,19 @@ pub const BCRYPT_ECDSA_P384_ALGORITHM: windows_core::PCWSTR = windows_core::w!("
 pub const BCRYPT_ECDSA_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(753 as _);
 pub const BCRYPT_ECDSA_P521_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ECDSA_P521");
 pub const BCRYPT_ECDSA_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(769 as _);
-pub const BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC: u32 = 1447314245;
-pub const BCRYPT_ECDSA_PRIVATE_P256_MAGIC: u32 = 844317509;
-pub const BCRYPT_ECDSA_PRIVATE_P384_MAGIC: u32 = 877871941;
-pub const BCRYPT_ECDSA_PRIVATE_P521_MAGIC: u32 = 911426373;
-pub const BCRYPT_ECDSA_PUBLIC_GENERIC_MAGIC: u32 = 1346650949;
-pub const BCRYPT_ECDSA_PUBLIC_P256_MAGIC: u32 = 827540293;
-pub const BCRYPT_ECDSA_PUBLIC_P384_MAGIC: u32 = 861094725;
-pub const BCRYPT_ECDSA_PUBLIC_P521_MAGIC: u32 = 894649157;
+pub const BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC: i32 = 1447314245;
+pub const BCRYPT_ECDSA_PRIVATE_P256_MAGIC: i32 = 844317509;
+pub const BCRYPT_ECDSA_PRIVATE_P384_MAGIC: i32 = 877871941;
+pub const BCRYPT_ECDSA_PRIVATE_P521_MAGIC: i32 = 911426373;
+pub const BCRYPT_ECDSA_PUBLIC_GENERIC_MAGIC: i32 = 1346650949;
+pub const BCRYPT_ECDSA_PUBLIC_P256_MAGIC: i32 = 827540293;
+pub const BCRYPT_ECDSA_PUBLIC_P384_MAGIC: i32 = 861094725;
+pub const BCRYPT_ECDSA_PUBLIC_P521_MAGIC: i32 = 894649157;
 pub const BCRYPT_EFFECTIVE_KEY_LENGTH: windows_core::PCWSTR = windows_core::w!("EffectiveKeyLength");
-pub const BCRYPT_ENABLE_INCOMPATIBLE_FIPS_CHECKS: u32 = 256;
-pub const BCRYPT_EXTENDED_KEYSIZE: u32 = 128;
+pub const BCRYPT_ENABLE_INCOMPATIBLE_FIPS_CHECKS: i32 = 256;
+pub const BCRYPT_EXTENDED_KEYSIZE: i32 = 128;
 pub const BCRYPT_FUNCTION_NAME_STRING: windows_core::PCWSTR = windows_core::w!("FunctionNameString");
-pub const BCRYPT_GENERATE_IV: u32 = 32;
+pub const BCRYPT_GENERATE_IV: i32 = 32;
 pub const BCRYPT_GLOBAL_PARAMETERS: windows_core::PCWSTR = windows_core::w!("SecretAgreementParam");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -701,7 +701,7 @@ impl Default for BCRYPT_HANDLE {
     }
 }
 pub const BCRYPT_HASH_BLOCK_LENGTH: windows_core::PCWSTR = windows_core::w!("HashBlockLength");
-pub const BCRYPT_HASH_DONT_RESET_FLAG: u32 = 1;
+pub const BCRYPT_HASH_DONT_RESET_FLAG: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_HASH_HANDLE(pub *mut core::ffi::c_void);
@@ -710,15 +710,15 @@ impl Default for BCRYPT_HASH_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BCRYPT_HASH_INTERFACE: u32 = 2;
-pub const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: u32 = 2;
+pub const BCRYPT_HASH_INTERFACE: i32 = 2;
+pub const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: i32 = 2;
 pub const BCRYPT_HASH_LENGTH: windows_core::PCWSTR = windows_core::w!("HashDigestLength");
 pub const BCRYPT_HASH_OID_LIST: windows_core::PCWSTR = windows_core::w!("HashOIDList");
-pub const BCRYPT_HASH_OPERATION: u32 = 2;
+pub const BCRYPT_HASH_OPERATION: i32 = 2;
 pub const BCRYPT_HASH_OPERATION_FINISH_HASH: BCRYPT_HASH_OPERATION_TYPE = 2;
 pub const BCRYPT_HASH_OPERATION_HASH_DATA: BCRYPT_HASH_OPERATION_TYPE = 1;
 pub type BCRYPT_HASH_OPERATION_TYPE = i32;
-pub const BCRYPT_HASH_REUSABLE_FLAG: u32 = 32;
+pub const BCRYPT_HASH_REUSABLE_FLAG: i32 = 32;
 pub const BCRYPT_HKDF_ALGORITHM: windows_core::PCWSTR = windows_core::w!("HKDF");
 pub const BCRYPT_HKDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(913 as _);
 pub const BCRYPT_HKDF_HASH_ALGORITHM: windows_core::PCWSTR = windows_core::w!("HkdfHashAlgorithm");
@@ -765,12 +765,12 @@ pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
     pub dwVersion: u32,
     pub cbKeyData: u32,
 }
-pub const BCRYPT_KEY_DATA_BLOB_MAGIC: u32 = 1296188491;
-pub const BCRYPT_KEY_DATA_BLOB_VERSION1: u32 = 1;
-pub const BCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7;
-pub const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64;
-pub const BCRYPT_KEY_ENCAPSULATION_INTERFACE: u32 = 8;
-pub const BCRYPT_KEY_ENCAPSULATION_OPERATION: u32 = 128;
+pub const BCRYPT_KEY_DATA_BLOB_MAGIC: i32 = 1296188491;
+pub const BCRYPT_KEY_DATA_BLOB_VERSION1: i32 = 1;
+pub const BCRYPT_KEY_DERIVATION_INTERFACE: i32 = 7;
+pub const BCRYPT_KEY_DERIVATION_OPERATION: i32 = 64;
+pub const BCRYPT_KEY_ENCAPSULATION_INTERFACE: i32 = 8;
+pub const BCRYPT_KEY_ENCAPSULATION_OPERATION: i32 = 128;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_KEY_HANDLE(pub *mut core::ffi::c_void);
@@ -790,15 +790,15 @@ pub struct BCRYPT_KEY_LENGTHS_STRUCT {
 }
 pub const BCRYPT_KEY_OBJECT_LENGTH: windows_core::PCWSTR = windows_core::w!("KeyObjectLength");
 pub const BCRYPT_KEY_STRENGTH: windows_core::PCWSTR = windows_core::w!("KeyStrength");
-pub const BCRYPT_KEY_VALIDATION_RANGE: u32 = 16;
-pub const BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER: u32 = 24;
-pub const BCRYPT_KEY_VALIDATION_REGENERATE: u32 = 32;
+pub const BCRYPT_KEY_VALIDATION_RANGE: i32 = 16;
+pub const BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER: i32 = 24;
+pub const BCRYPT_KEY_VALIDATION_REGENERATE: i32 = 32;
 pub const BCRYPT_KMAC128_ALGORITHM: windows_core::PCWSTR = windows_core::w!("KMAC128");
 pub const BCRYPT_KMAC128_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1073 as _);
 pub const BCRYPT_KMAC256_ALGORITHM: windows_core::PCWSTR = windows_core::w!("KMAC256");
 pub const BCRYPT_KMAC256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1089 as _);
 pub const BCRYPT_LMS_ALGORITHM: windows_core::PCWSTR = windows_core::w!("LMS");
-pub const BCRYPT_LMS_PUBLIC_MAGIC: u32 = 1263553868;
+pub const BCRYPT_LMS_PUBLIC_MAGIC: i32 = 1263553868;
 pub const BCRYPT_MD2_ALGORITHM: windows_core::PCWSTR = windows_core::w!("MD2");
 pub const BCRYPT_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1 as _);
 pub const BCRYPT_MD4_ALGORITHM: windows_core::PCWSTR = windows_core::w!("MD4");
@@ -808,13 +808,13 @@ pub const BCRYPT_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(33 as _);
 pub const BCRYPT_MESSAGE_BLOCK_LENGTH: windows_core::PCWSTR = windows_core::w!("MessageBlockLength");
 pub const BCRYPT_MLDSA_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ML-DSA");
 pub const BCRYPT_MLDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1137 as _);
-pub const BCRYPT_MLDSA_EXTERNAL_MU: u32 = 64;
+pub const BCRYPT_MLDSA_EXTERNAL_MU: i32 = 64;
 pub const BCRYPT_MLDSA_PARAMETER_SET_44: windows_core::PCWSTR = windows_core::w!("44");
 pub const BCRYPT_MLDSA_PARAMETER_SET_65: windows_core::PCWSTR = windows_core::w!("65");
 pub const BCRYPT_MLDSA_PARAMETER_SET_87: windows_core::PCWSTR = windows_core::w!("87");
-pub const BCRYPT_MLDSA_PRIVATE_MAGIC: u32 = 1263752004;
-pub const BCRYPT_MLDSA_PRIVATE_SEED_MAGIC: u32 = 1397969732;
-pub const BCRYPT_MLDSA_PUBLIC_MAGIC: u32 = 1263555396;
+pub const BCRYPT_MLDSA_PRIVATE_MAGIC: i32 = 1263752004;
+pub const BCRYPT_MLDSA_PRIVATE_SEED_MAGIC: i32 = 1397969732;
+pub const BCRYPT_MLDSA_PUBLIC_MAGIC: i32 = 1263555396;
 pub const BCRYPT_MLKEM_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ML-KEM");
 pub const BCRYPT_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1153 as _);
 #[repr(C)]
@@ -828,12 +828,12 @@ pub const BCRYPT_MLKEM_PARAMETER_SET_1024: windows_core::PCWSTR = windows_core::
 pub const BCRYPT_MLKEM_PARAMETER_SET_512: windows_core::PCWSTR = windows_core::w!("512");
 pub const BCRYPT_MLKEM_PARAMETER_SET_768: windows_core::PCWSTR = windows_core::w!("768");
 pub const BCRYPT_MLKEM_PRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("MLKEMPRIVATEBLOB");
-pub const BCRYPT_MLKEM_PRIVATE_MAGIC: u32 = 1380666445;
+pub const BCRYPT_MLKEM_PRIVATE_MAGIC: i32 = 1380666445;
 pub const BCRYPT_MLKEM_PRIVATE_SEED_BLOB: windows_core::PCWSTR = windows_core::w!("MLKEMPRIVATESEEDBLOB");
-pub const BCRYPT_MLKEM_PRIVATE_SEED_MAGIC: u32 = 1397443661;
+pub const BCRYPT_MLKEM_PRIVATE_SEED_MAGIC: i32 = 1397443661;
 pub const BCRYPT_MLKEM_PUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("MLKEMPUBLICBLOB");
-pub const BCRYPT_MLKEM_PUBLIC_MAGIC: u32 = 1347112013;
-pub const BCRYPT_MULTI_FLAG: u32 = 64;
+pub const BCRYPT_MLKEM_PUBLIC_MAGIC: i32 = 1347112013;
+pub const BCRYPT_MULTI_FLAG: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -852,7 +852,7 @@ pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
 }
 pub type BCRYPT_MULTI_OPERATION_TYPE = i32;
 pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = 0;
-pub const BCRYPT_NO_KEY_VALIDATION: u32 = 8;
+pub const BCRYPT_NO_KEY_VALIDATION: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -861,7 +861,7 @@ pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pbLabel: super::PUCHAR,
     pub cbLabel: u32,
 }
-pub const BCRYPT_OBJECT_ALIGNMENT: u32 = 16;
+pub const BCRYPT_OBJECT_ALIGNMENT: i32 = 16;
 pub const BCRYPT_OBJECT_LENGTH: windows_core::PCWSTR = windows_core::w!("ObjectLength");
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -886,12 +886,12 @@ impl Default for BCRYPT_OID_LIST {
 pub const BCRYPT_OPAQUE_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("OpaqueKeyBlob");
 pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = 1;
 pub const BCRYPT_PADDING_SCHEMES: windows_core::PCWSTR = windows_core::w!("PaddingSchemes");
-pub const BCRYPT_PAD_NONE: u32 = 1;
-pub const BCRYPT_PAD_OAEP: u32 = 4;
-pub const BCRYPT_PAD_PKCS1: u32 = 2;
-pub const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: u32 = 16;
-pub const BCRYPT_PAD_PQDSA: u32 = 32;
-pub const BCRYPT_PAD_PSS: u32 = 8;
+pub const BCRYPT_PAD_NONE: i32 = 1;
+pub const BCRYPT_PAD_OAEP: i32 = 4;
+pub const BCRYPT_PAD_PKCS1: i32 = 2;
+pub const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: i32 = 16;
+pub const BCRYPT_PAD_PQDSA: i32 = 32;
+pub const BCRYPT_PAD_PSS: i32 = 8;
 pub const BCRYPT_PARAMETER_SET_NAME: windows_core::PCWSTR = windows_core::w!("ParameterSetName");
 pub const BCRYPT_PBKDF2_ALGORITHM: windows_core::PCWSTR = windows_core::w!("PBKDF2");
 pub const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(817 as _);
@@ -905,7 +905,7 @@ pub struct BCRYPT_PKCS11_RSA_AES_WRAP_BLOB {
     pub cbPaddingAlgId: u32,
     pub cbPaddingLabel: u32,
 }
-pub const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: u32 = 1464877394;
+pub const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: i32 = 1464877394;
 pub const BCRYPT_PKCS11_RSA_AES_WRAP_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("PKCS11RsaAesWrapBlob");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -933,14 +933,14 @@ pub const BCRYPT_PQDSA_PUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("PQD
 pub const BCRYPT_PRIMITIVE_TYPE: windows_core::PCWSTR = windows_core::w!("PrimitiveType");
 pub const BCRYPT_PRIVATE_KEY: windows_core::PCWSTR = windows_core::w!("PrivKeyVal");
 pub const BCRYPT_PRIVATE_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("PRIVATEBLOB");
-pub const BCRYPT_PRIVATE_KEY_FLAG: u32 = 2;
+pub const BCRYPT_PRIVATE_KEY_FLAG: i32 = 2;
 pub const BCRYPT_PROVIDER_HANDLE: windows_core::PCWSTR = windows_core::w!("ProviderHandle");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_PROVIDER_NAME {
     pub pszProviderName: windows_core::PWSTR,
 }
-pub const BCRYPT_PROV_DISPATCH: u32 = 1;
+pub const BCRYPT_PROV_DISPATCH: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_PSS_PADDING_INFO {
@@ -948,7 +948,7 @@ pub struct BCRYPT_PSS_PADDING_INFO {
     pub cbSalt: u32,
 }
 pub const BCRYPT_PUBLIC_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("PUBLICBLOB");
-pub const BCRYPT_PUBLIC_KEY_FLAG: u32 = 1;
+pub const BCRYPT_PUBLIC_KEY_FLAG: i32 = 1;
 pub const BCRYPT_PUBLIC_KEY_LENGTH: windows_core::PCWSTR = windows_core::w!("PublicKeyLength");
 pub const BCRYPT_RC2_ALGORITHM: windows_core::PCWSTR = windows_core::w!("RC2");
 pub const BCRYPT_RC2_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(593 as _);
@@ -960,11 +960,11 @@ pub const BCRYPT_RNG_ALGORITHM: windows_core::PCWSTR = windows_core::w!("RNG");
 pub const BCRYPT_RNG_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(129 as _);
 pub const BCRYPT_RNG_DUAL_EC_ALGORITHM: windows_core::PCWSTR = windows_core::w!("DUALECRNG");
 pub const BCRYPT_RNG_FIPS186_DSA_ALGORITHM: windows_core::PCWSTR = windows_core::w!("FIPS186DSARNG");
-pub const BCRYPT_RNG_INTERFACE: u32 = 6;
-pub const BCRYPT_RNG_OPERATION: u32 = 32;
-pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: u32 = 1;
+pub const BCRYPT_RNG_INTERFACE: i32 = 6;
+pub const BCRYPT_RNG_OPERATION: i32 = 32;
+pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: i32 = 1;
 pub const BCRYPT_RSAFULLPRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("RSAFULLPRIVATEBLOB");
-pub const BCRYPT_RSAFULLPRIVATE_MAGIC: u32 = 859919186;
+pub const BCRYPT_RSAFULLPRIVATE_MAGIC: i32 = 859919186;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_RSAKEY_BLOB {
@@ -976,15 +976,15 @@ pub struct BCRYPT_RSAKEY_BLOB {
     pub cbPrime2: u32,
 }
 pub const BCRYPT_RSAPRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("RSAPRIVATEBLOB");
-pub const BCRYPT_RSAPRIVATE_MAGIC: u32 = 843141970;
+pub const BCRYPT_RSAPRIVATE_MAGIC: i32 = 843141970;
 pub const BCRYPT_RSAPUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("RSAPUBLICBLOB");
-pub const BCRYPT_RSAPUBLIC_MAGIC: u32 = 826364754;
+pub const BCRYPT_RSAPUBLIC_MAGIC: i32 = 826364754;
 pub const BCRYPT_RSA_ALGORITHM: windows_core::PCWSTR = windows_core::w!("RSA");
 pub const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(225 as _);
 pub const BCRYPT_RSA_SIGN_ALGORITHM: windows_core::PCWSTR = windows_core::w!("RSA_SIGN");
 pub const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(785 as _);
-pub const BCRYPT_SECRET_AGREEMENT_INTERFACE: u32 = 4;
-pub const BCRYPT_SECRET_AGREEMENT_OPERATION: u32 = 8;
+pub const BCRYPT_SECRET_AGREEMENT_INTERFACE: i32 = 4;
+pub const BCRYPT_SECRET_AGREEMENT_OPERATION: i32 = 8;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_SECRET_HANDLE(pub *mut core::ffi::c_void);
@@ -1011,9 +1011,9 @@ pub const BCRYPT_SHAKE128_ALGORITHM: windows_core::PCWSTR = windows_core::w!("SH
 pub const BCRYPT_SHAKE128_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1105 as _);
 pub const BCRYPT_SHAKE256_ALGORITHM: windows_core::PCWSTR = windows_core::w!("SHAKE256");
 pub const BCRYPT_SHAKE256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1121 as _);
-pub const BCRYPT_SIGNATURE_INTERFACE: u32 = 5;
+pub const BCRYPT_SIGNATURE_INTERFACE: i32 = 5;
 pub const BCRYPT_SIGNATURE_LENGTH: windows_core::PCWSTR = windows_core::w!("SignatureLength");
-pub const BCRYPT_SIGNATURE_OPERATION: u32 = 16;
+pub const BCRYPT_SIGNATURE_OPERATION: i32 = 16;
 pub const BCRYPT_SLHDSA_ALGORITHM: windows_core::PCWSTR = windows_core::w!("SLH-DSA");
 pub const BCRYPT_SLHDSA_PARAMETER_SET_SHA2_128F: windows_core::PCWSTR = windows_core::w!("SHA2-128f");
 pub const BCRYPT_SLHDSA_PARAMETER_SET_SHA2_128S: windows_core::PCWSTR = windows_core::w!("SHA2-128s");
@@ -1027,25 +1027,25 @@ pub const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_192F: windows_core::PCWSTR = windows
 pub const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_192S: windows_core::PCWSTR = windows_core::w!("SHAKE-192s");
 pub const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_256F: windows_core::PCWSTR = windows_core::w!("SHAKE-256f");
 pub const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_256S: windows_core::PCWSTR = windows_core::w!("SHAKE-256s");
-pub const BCRYPT_SLHDSA_PRIVATE_MAGIC: u32 = 1263749203;
-pub const BCRYPT_SLHDSA_PUBLIC_MAGIC: u32 = 1263552595;
+pub const BCRYPT_SLHDSA_PRIVATE_MAGIC: i32 = 1263749203;
+pub const BCRYPT_SLHDSA_PUBLIC_MAGIC: i32 = 1263552595;
 pub const BCRYPT_SP800108_CTR_HMAC_ALGORITHM: windows_core::PCWSTR = windows_core::w!("SP800_108_CTR_HMAC");
 pub const BCRYPT_SP800108_CTR_HMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(833 as _);
 pub const BCRYPT_SP80056A_CONCAT_ALGORITHM: windows_core::PCWSTR = windows_core::w!("SP800_56A_CONCAT");
 pub const BCRYPT_SP80056A_CONCAT_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(849 as _);
-pub const BCRYPT_SUPPORTED_PAD_OAEP: u32 = 8;
-pub const BCRYPT_SUPPORTED_PAD_PKCS1_ENC: u32 = 2;
-pub const BCRYPT_SUPPORTED_PAD_PKCS1_SIG: u32 = 4;
-pub const BCRYPT_SUPPORTED_PAD_PSS: u32 = 16;
-pub const BCRYPT_SUPPORTED_PAD_ROUTER: u32 = 1;
+pub const BCRYPT_SUPPORTED_PAD_OAEP: i32 = 8;
+pub const BCRYPT_SUPPORTED_PAD_PKCS1_ENC: i32 = 2;
+pub const BCRYPT_SUPPORTED_PAD_PKCS1_SIG: i32 = 4;
+pub const BCRYPT_SUPPORTED_PAD_PSS: i32 = 16;
+pub const BCRYPT_SUPPORTED_PAD_ROUTER: i32 = 1;
 pub const BCRYPT_TLS1_1_KDF_ALGORITHM: windows_core::PCWSTR = windows_core::w!("TLS1_1_KDF");
 pub const BCRYPT_TLS1_1_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(865 as _);
 pub const BCRYPT_TLS1_2_KDF_ALGORITHM: windows_core::PCWSTR = windows_core::w!("TLS1_2_KDF");
 pub const BCRYPT_TLS1_2_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(881 as _);
-pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4;
-pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 2;
+pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: i32 = 4;
+pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: i32 = 2;
 pub const BCRYPT_XMSS_ALGORITHM: windows_core::PCWSTR = windows_core::w!("XMSS");
-pub const BCRYPT_XMSS_PUBLIC_MAGIC: u32 = 1263553880;
+pub const BCRYPT_XMSS_PUBLIC_MAGIC: i32 = 1263553880;
 pub const BCRYPT_XTS_AES_ALGORITHM: windows_core::PCWSTR = windows_core::w!("XTS-AES");
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(897 as _);
 #[repr(C)]
@@ -1067,9 +1067,9 @@ pub struct BCryptBufferDesc {
     pub cBuffers: u32,
     pub pBuffers: PBCryptBuffer,
 }
-pub const CRYPT_ALL_FUNCTIONS: u32 = 1;
-pub const CRYPT_ALL_PROVIDERS: u32 = 2;
-pub const CRYPT_ANY: u32 = 4;
+pub const CRYPT_ALL_FUNCTIONS: i32 = 1;
+pub const CRYPT_ALL_PROVIDERS: i32 = 2;
+pub const CRYPT_ANY: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXTS {
@@ -1116,8 +1116,8 @@ impl Default for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     }
 }
 pub const CRYPT_DEFAULT_CONTEXT: windows_core::PCWSTR = windows_core::w!("Default");
-pub const CRYPT_DOMAIN: u32 = 2;
-pub const CRYPT_EXCLUSIVE: u32 = 1;
+pub const CRYPT_DOMAIN: i32 = 2;
+pub const CRYPT_EXCLUSIVE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REF {
@@ -1149,15 +1149,15 @@ impl Default for CRYPT_INTERFACE_REG {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_KM: u32 = 2;
-pub const CRYPT_LOCAL: u32 = 1;
-pub const CRYPT_MIN_DEPENDENCIES: u32 = 1;
-pub const CRYPT_MM: u32 = 3;
-pub const CRYPT_OVERRIDE: u32 = 65536;
-pub const CRYPT_OVERWRITE: u32 = 1;
+pub const CRYPT_KM: i32 = 2;
+pub const CRYPT_LOCAL: i32 = 1;
+pub const CRYPT_MIN_DEPENDENCIES: i32 = 1;
+pub const CRYPT_MM: i32 = 3;
+pub const CRYPT_OVERRIDE: i32 = 65536;
+pub const CRYPT_OVERWRITE: i32 = 1;
 pub const CRYPT_PRIORITY_BOTTOM: u32 = 4294967295;
-pub const CRYPT_PRIORITY_TOP: u32 = 0;
-pub const CRYPT_PROCESS_ISOLATE: u32 = 65536;
+pub const CRYPT_PRIORITY_TOP: i32 = 0;
+pub const CRYPT_PROCESS_ISOLATE: i32 = 65536;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1221,7 +1221,7 @@ impl Default for CRYPT_PROVIDER_REG {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_UM: u32 = 1;
+pub const CRYPT_UM: i32 = 1;
 pub type DSAFIPSVERSION_ENUM = i32;
 pub const DSA_FIPS186_2: DSAFIPSVERSION_ENUM = 0;
 pub const DSA_FIPS186_3: DSAFIPSVERSION_ENUM = 1;
@@ -1231,28 +1231,28 @@ pub const DSA_HASH_ALGORITHM_SHA512: HASHALGORITHM_ENUM = 2;
 pub type ECC_CURVE_ALG_ID_ENUM = i32;
 pub type ECC_CURVE_TYPE_ENUM = i32;
 pub type HASHALGORITHM_ENUM = i32;
-pub const KDF_ALGORITHMID: u32 = 8;
-pub const KDF_CONTEXT: u32 = 14;
-pub const KDF_GENERIC_PARAMETER: u32 = 17;
-pub const KDF_HASH_ALGORITHM: u32 = 0;
-pub const KDF_HKDF_INFO: u32 = 20;
-pub const KDF_HKDF_SALT: u32 = 19;
-pub const KDF_HMAC_KEY: u32 = 3;
-pub const KDF_ITERATION_COUNT: u32 = 16;
-pub const KDF_KEYBITLENGTH: u32 = 18;
-pub const KDF_LABEL: u32 = 13;
-pub const KDF_PARTYUINFO: u32 = 9;
-pub const KDF_PARTYVINFO: u32 = 10;
-pub const KDF_SALT: u32 = 15;
-pub const KDF_SECRET_APPEND: u32 = 2;
-pub const KDF_SECRET_HANDLE: u32 = 6;
-pub const KDF_SECRET_PREPEND: u32 = 1;
-pub const KDF_SUPPPRIVINFO: u32 = 12;
-pub const KDF_SUPPPUBINFO: u32 = 11;
-pub const KDF_TLS_PRF_LABEL: u32 = 4;
-pub const KDF_TLS_PRF_PROTOCOL: u32 = 7;
-pub const KDF_TLS_PRF_SEED: u32 = 5;
-pub const KDF_USE_SECRET_AS_HMAC_KEY_FLAG: u32 = 1;
+pub const KDF_ALGORITHMID: i32 = 8;
+pub const KDF_CONTEXT: i32 = 14;
+pub const KDF_GENERIC_PARAMETER: i32 = 17;
+pub const KDF_HASH_ALGORITHM: i32 = 0;
+pub const KDF_HKDF_INFO: i32 = 20;
+pub const KDF_HKDF_SALT: i32 = 19;
+pub const KDF_HMAC_KEY: i32 = 3;
+pub const KDF_ITERATION_COUNT: i32 = 16;
+pub const KDF_KEYBITLENGTH: i32 = 18;
+pub const KDF_LABEL: i32 = 13;
+pub const KDF_PARTYUINFO: i32 = 9;
+pub const KDF_PARTYVINFO: i32 = 10;
+pub const KDF_SALT: i32 = 15;
+pub const KDF_SECRET_APPEND: i32 = 2;
+pub const KDF_SECRET_HANDLE: i32 = 6;
+pub const KDF_SECRET_PREPEND: i32 = 1;
+pub const KDF_SUPPPRIVINFO: i32 = 12;
+pub const KDF_SUPPPUBINFO: i32 = 11;
+pub const KDF_TLS_PRF_LABEL: i32 = 4;
+pub const KDF_TLS_PRF_PROTOCOL: i32 = 7;
+pub const KDF_TLS_PRF_SEED: i32 = 5;
+pub const KDF_USE_SECRET_AS_HMAC_KEY_FLAG: i32 = 1;
 pub const LEGACY_DH_PRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("CAPIDHPRIVATEBLOB");
 pub const LEGACY_DH_PUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("CAPIDHPUBLICBLOB");
 pub const LEGACY_DSA_PRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("CAPIDSAPRIVATEBLOB");
@@ -1261,7 +1261,7 @@ pub const LEGACY_DSA_V2_PRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("V
 pub const LEGACY_DSA_V2_PUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("V2CAPIDSAPUBLICBLOB");
 pub const LEGACY_RSAPRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("CAPIPRIVATEBLOB");
 pub const LEGACY_RSAPUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("CAPIPUBLICBLOB");
-pub const MAX_HYBRID_KEY_EXCHANGE_BLOBS: u32 = 4;
+pub const MAX_HYBRID_KEY_EXCHANGE_BLOBS: i32 = 4;
 pub const MS_PLATFORM_CRYPTO_PROVIDER: windows_core::PCWSTR = windows_core::w!("Microsoft Platform Crypto Provider");
 pub const MS_PRIMITIVE_PROVIDER: windows_core::PCWSTR = windows_core::w!("Microsoft Primitive Provider");
 #[cfg(feature = "minwindef")]
@@ -1324,7 +1324,7 @@ impl Default for TLS_HYBRID_KEYEXCHANGE_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TLS_HYBRID_KEYEXCHANGE_MAGIC: u32 = 1213418580;
+pub const TLS_HYBRID_KEYEXCHANGE_MAGIC: i32 = 1213418580;
 pub const TLS_KEM_CIPHERTEXT: windows_core::PCWSTR = windows_core::w!("TLS_KEM_CIPHER_TEXT");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1332,4 +1332,4 @@ pub struct TLS_KEM_CIPHERTEXT_BLOB {
     pub dwMagic: u32,
     pub cbLength: u32,
 }
-pub const TLS_KEM_CIPHERTEXT_MAGIC: u32 = 1129008205;
+pub const TLS_KEM_CIPHERTEXT_MAGIC: i32 = 1129008205;

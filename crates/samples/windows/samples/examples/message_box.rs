@@ -2,8 +2,8 @@ fn main() {
     use windows::{Win32::*, core::*};
 
     unsafe {
-        MessageBoxA(None, s!("Ansi"), s!("World"), MB_OK);
-        MessageBoxW(None, h!("WinRT"), h!("World"), MB_OK);
-        ShellMessageBoxW(None, None, w!("Wide"), w!("World"), MB_ICONERROR);
+        MessageBoxA(None, s!("Ansi"), s!("World"), MB_OK as u32);
+        MessageBoxW(None, h!("WinRT"), h!("World"), MB_OK as u32);
+        ShellMessageBoxW(None, None, w!("Wide"), w!("World"), MB_ICONERROR as u32);
     }
 }

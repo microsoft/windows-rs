@@ -31,7 +31,7 @@ mod Windows {
             BytesTransferred: u64,
             Completed: BOOL,
         }
-        const BG_JOB_ENUM_ALL_USERS: u32 = 1;
+        const BG_JOB_ENUM_ALL_USERS: i32 = 1;
         #[repr(i32)]
         enum BG_JOB_PRIORITY {
             BG_JOB_PRIORITY_FOREGROUND = 0,
@@ -75,13 +75,13 @@ mod Windows {
             BG_JOB_TYPE_UPLOAD = 1,
             BG_JOB_TYPE_UPLOAD_REPLY = 2,
         }
-        const BG_NOTIFY_DISABLE: u32 = 4;
-        const BG_NOTIFY_FILE_RANGES_TRANSFERRED: u32 = 32;
-        const BG_NOTIFY_FILE_TRANSFERRED: u32 = 16;
-        const BG_NOTIFY_JOB_ERROR: u32 = 2;
-        const BG_NOTIFY_JOB_MODIFICATION: u32 = 8;
-        const BG_NOTIFY_JOB_TRANSFERRED: u32 = 1;
-        const BG_SIZE_UNKNOWN: i32 = -1;
+        const BG_NOTIFY_DISABLE: i32 = 4;
+        const BG_NOTIFY_FILE_RANGES_TRANSFERRED: i32 = 32;
+        const BG_NOTIFY_FILE_TRANSFERRED: i32 = 16;
+        const BG_NOTIFY_JOB_ERROR: i32 = 2;
+        const BG_NOTIFY_JOB_MODIFICATION: i32 = 8;
+        const BG_NOTIFY_JOB_TRANSFERRED: i32 = 1;
+        const BG_SIZE_UNKNOWN: u64 = 18446744073709551615;
         const BackgroundCopyManager: GUID = 0x4991d34b_80a1_4291_83b6_3328366b9097;
         #[guid(0x97ea99c7_0186_4ad4_8df9_c5b4e0ed6b22)]
         interface IBackgroundCopyCallback: IUnknown {

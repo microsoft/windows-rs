@@ -49,8 +49,8 @@ mod Windows {
             HLINKWHICHMK_BASE = 2,
         }
         const HLINK_E_FIRST: i32 = -2147221248;
-        const HLINK_S_DONTHIDE: u32 = 262400;
-        const HLINK_S_FIRST: u32 = 262400;
+        const HLINK_S_DONTHIDE: i32 = 262400;
+        const HLINK_S_FIRST: i32 = 262400;
         struct HLITEM {
             uHLID: u32,
             pwzFriendlyName: PWSTR,

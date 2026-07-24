@@ -1,5 +1,5 @@
-pub const FACILITY_MF: u32 = 13;
-pub const FACILITY_MF_WIN32: u32 = 7;
+pub const FACILITY_MF: i32 = 13;
+pub const FACILITY_MF_WIN32: i32 = 7;
 pub const MF_E_ALLOCATOR_ALREADY_COMMITED: windows_core::HRESULT = windows_core::HRESULT(0xC00DA7FA_u32 as _);
 pub const MF_E_ALLOCATOR_NOT_COMMITED: windows_core::HRESULT = windows_core::HRESULT(0xC00DA7F9_u32 as _);
 pub const MF_E_ALLOCATOR_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0xC00DA7F8_u32 as _);

@@ -169,7 +169,7 @@ pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294;
 pub const CRR_CALL_LIMIT: u32 = 4294967293;
 pub const CRR_LIFETIME_LIMIT: u32 = 4294967295;
 pub const CRR_MEMORY_LIMIT: u32 = 4294967292;
-pub const CRR_NO_REASON_SUPPLIED: u32 = 0;
+pub const CRR_NO_REASON_SUPPLIED: i32 = 0;
 pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291;
 pub const CSC_BindToPoolThread: CSC_Binding = 1;
 pub type CSC_Binding = i32;
@@ -276,7 +276,7 @@ pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = 8;
 pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = 2;
 pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = 1;
 pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = 4;
-pub const GUID_STRING_SIZE: u32 = 40;
+pub const GUID_STRING_SIZE: i32 = 40;
 pub type GetAppTrackerDataFlags = i32;
 pub const GetSecurityCallContextAppObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]

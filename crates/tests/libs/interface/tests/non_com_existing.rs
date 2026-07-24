@@ -157,8 +157,8 @@ fn test() -> Result<()> {
         XAudio2CreateWithVersionInfo(
             &mut audio,
             0,
-            XAUDIO2_PROCESSOR(XAUDIO2_DEFAULT_PROCESSOR),
-            NTDDI_VERSION,
+            XAUDIO2_PROCESSOR(XAUDIO2_DEFAULT_PROCESSOR as u32),
+            NTDDI_VERSION as u32,
         )
         .ok()?;
         let audio = audio.unwrap();

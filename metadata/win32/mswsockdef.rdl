@@ -31,14 +31,14 @@ mod Windows {
         const RIO_INVALID_BUFFERID: RIO_BUFFERID = 4294967295;
         const RIO_INVALID_CQ: RIO_CQ = 0;
         const RIO_INVALID_RQ: RIO_RQ = 0;
-        const RIO_MAX_CQ_SIZE: u32 = 134217728;
-        const RIO_MSG_COMMIT_ONLY: u32 = 8;
-        const RIO_MSG_DEFER: u32 = 2;
-        const RIO_MSG_DONT_NOTIFY: u32 = 1;
-        const RIO_MSG_WAITALL: u32 = 4;
+        const RIO_MAX_CQ_SIZE: i32 = 134217728;
+        const RIO_MSG_COMMIT_ONLY: i32 = 8;
+        const RIO_MSG_DEFER: i32 = 2;
+        const RIO_MSG_DONT_NOTIFY: i32 = 1;
+        const RIO_MSG_WAITALL: i32 = 4;
         type RIO_RQ = *mut RIO_RQ_t;
         struct RIO_RQ_t {}
-        const SIO_SET_COMPATIBILITY_MODE: i32 = -1744830164;
+        const SIO_SET_COMPATIBILITY_MODE: u32 = 2550137132;
         #[repr(i32)]
         enum WSA_COMPATIBILITY_BEHAVIOR_ID {
             WsaBehaviorAll = 0,

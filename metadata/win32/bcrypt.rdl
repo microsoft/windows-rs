@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const BCRYPTBUFFER_VERSION: u32 = 0;
+        const BCRYPTBUFFER_VERSION: i32 = 0;
         #[encoding("utf-16")]
         const BCRYPT_3DES_112_ALGORITHM: String = "3DES_112";
         const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 369;
@@ -35,9 +35,9 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_ALGORITHM_NAME: String = "AlgorithmName";
         type BCRYPT_ALG_HANDLE = *mut void;
-        const BCRYPT_ALG_HANDLE_HMAC_FLAG: u32 = 8;
-        const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: u32 = 3;
-        const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: u32 = 4;
+        const BCRYPT_ALG_HANDLE_HMAC_FLAG: i32 = 8;
+        const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: i32 = 3;
+        const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: i32 = 4;
         struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
             cbSize: u32,
             dwInfoVersion: u32,
@@ -53,19 +53,19 @@ mod Windows {
             cbData: u64,
             dwFlags: u32,
         }
-        const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: u32 = 1;
-        const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: u32 = 1;
-        const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: u32 = 2;
+        const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: i32 = 1;
+        const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: i32 = 1;
+        const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: i32 = 2;
         #[encoding("utf-16")]
         const BCRYPT_AUTH_TAG_LENGTH: String = "AuthTagLength";
         type BCRYPT_AUTH_TAG_LENGTHS_STRUCT = BCRYPT_KEY_LENGTHS_STRUCT;
         #[encoding("utf-16")]
         const BCRYPT_BLOCK_LENGTH: String = "BlockLength";
-        const BCRYPT_BLOCK_PADDING: u32 = 1;
+        const BCRYPT_BLOCK_PADDING: i32 = 1;
         #[encoding("utf-16")]
         const BCRYPT_BLOCK_SIZE_LIST: String = "BlockSizeList";
-        const BCRYPT_BUFFERS_LOCKED_FLAG: u32 = 64;
-        const BCRYPT_CAPI_AES_FLAG: u32 = 16;
+        const BCRYPT_BUFFERS_LOCKED_FLAG: i32 = 64;
+        const BCRYPT_CAPI_AES_FLAG: i32 = 16;
         #[encoding("utf-16")]
         const BCRYPT_CAPI_KDF_ALGORITHM: String = "CAPI_KDF";
         const BCRYPT_CAPI_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 801;
@@ -86,8 +86,8 @@ mod Windows {
         const BCRYPT_CHAIN_MODE_GCM: String = "ChainingModeGCM";
         #[encoding("utf-16")]
         const BCRYPT_CHAIN_MODE_NA: String = "ChainingModeN/A";
-        const BCRYPT_CIPHER_INTERFACE: u32 = 1;
-        const BCRYPT_CIPHER_OPERATION: u32 = 1;
+        const BCRYPT_CIPHER_INTERFACE: i32 = 1;
+        const BCRYPT_CIPHER_OPERATION: i32 = 1;
         #[encoding("utf-16")]
         const BCRYPT_CSHAKE128_ALGORITHM: String = "CSHAKE128";
         const BCRYPT_CSHAKE128_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1041;
@@ -115,7 +115,7 @@ mod Windows {
         }
         #[encoding("utf-16")]
         const BCRYPT_DH_PARAMETERS: String = "DHParameters";
-        const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012;
+        const BCRYPT_DH_PARAMETERS_MAGIC: i32 = 1297107012;
         struct BCRYPT_DH_PARAMETER_HEADER {
             cbLength: u32,
             dwMagic: u32,
@@ -123,10 +123,10 @@ mod Windows {
         }
         #[encoding("utf-16")]
         const BCRYPT_DH_PRIVATE_BLOB: String = "DHPRIVATEBLOB";
-        const BCRYPT_DH_PRIVATE_MAGIC: u32 = 1448101956;
+        const BCRYPT_DH_PRIVATE_MAGIC: i32 = 1448101956;
         #[encoding("utf-16")]
         const BCRYPT_DH_PUBLIC_BLOB: String = "DHPUBLICBLOB";
-        const BCRYPT_DH_PUBLIC_MAGIC: u32 = 1112557636;
+        const BCRYPT_DH_PUBLIC_MAGIC: i32 = 1112557636;
         #[encoding("utf-16")]
         const BCRYPT_DSA_ALGORITHM: String = "DSA";
         const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 721;
@@ -148,8 +148,8 @@ mod Windows {
         }
         #[encoding("utf-16")]
         const BCRYPT_DSA_PARAMETERS: String = "DSAParameters";
-        const BCRYPT_DSA_PARAMETERS_MAGIC: u32 = 1297109828;
-        const BCRYPT_DSA_PARAMETERS_MAGIC_V2: u32 = 843927620;
+        const BCRYPT_DSA_PARAMETERS_MAGIC: i32 = 1297109828;
+        const BCRYPT_DSA_PARAMETERS_MAGIC_V2: i32 = 843927620;
         struct BCRYPT_DSA_PARAMETER_HEADER {
             cbLength: u32,
             dwMagic: u32,
@@ -170,12 +170,12 @@ mod Windows {
         }
         #[encoding("utf-16")]
         const BCRYPT_DSA_PRIVATE_BLOB: String = "DSAPRIVATEBLOB";
-        const BCRYPT_DSA_PRIVATE_MAGIC: u32 = 1448104772;
-        const BCRYPT_DSA_PRIVATE_MAGIC_V2: u32 = 844517444;
+        const BCRYPT_DSA_PRIVATE_MAGIC: i32 = 1448104772;
+        const BCRYPT_DSA_PRIVATE_MAGIC_V2: i32 = 844517444;
         #[encoding("utf-16")]
         const BCRYPT_DSA_PUBLIC_BLOB: String = "DSAPUBLICBLOB";
-        const BCRYPT_DSA_PUBLIC_MAGIC: u32 = 1112560452;
-        const BCRYPT_DSA_PUBLIC_MAGIC_V2: u32 = 843206724;
+        const BCRYPT_DSA_PUBLIC_MAGIC: i32 = 1112560452;
+        const BCRYPT_DSA_PUBLIC_MAGIC_V2: i32 = 843206724;
         struct BCRYPT_ECCFULLKEY_BLOB {
             dwMagic: u32,
             dwVersion: u32,
@@ -296,10 +296,10 @@ mod Windows {
         const BCRYPT_ECC_CURVE_X962P239V3: String = "x962P239v3";
         #[encoding("utf-16")]
         const BCRYPT_ECC_CURVE_X962P256V1: String = "x962P256v1";
-        const BCRYPT_ECC_FULLKEY_BLOB_V1: u32 = 1;
+        const BCRYPT_ECC_FULLKEY_BLOB_V1: i32 = 1;
         #[encoding("utf-16")]
         const BCRYPT_ECC_PARAMETERS: String = "ECCParameters";
-        const BCRYPT_ECC_PARAMETERS_MAGIC: u32 = 1346585413;
+        const BCRYPT_ECC_PARAMETERS_MAGIC: i32 = 1346585413;
         #[encoding("utf-16")]
         const BCRYPT_ECDH_ALGORITHM: String = "ECDH";
         const BCRYPT_ECDH_ALG_HANDLE: BCRYPT_ALG_HANDLE = 657;
@@ -312,14 +312,14 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_ECDH_P521_ALGORITHM: String = "ECDH_P521";
         const BCRYPT_ECDH_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = 705;
-        const BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC: u32 = 1447772997;
-        const BCRYPT_ECDH_PRIVATE_P256_MAGIC: u32 = 843793221;
-        const BCRYPT_ECDH_PRIVATE_P384_MAGIC: u32 = 877347653;
-        const BCRYPT_ECDH_PRIVATE_P521_MAGIC: u32 = 910902085;
-        const BCRYPT_ECDH_PUBLIC_GENERIC_MAGIC: u32 = 1347109701;
-        const BCRYPT_ECDH_PUBLIC_P256_MAGIC: u32 = 827016005;
-        const BCRYPT_ECDH_PUBLIC_P384_MAGIC: u32 = 860570437;
-        const BCRYPT_ECDH_PUBLIC_P521_MAGIC: u32 = 894124869;
+        const BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC: i32 = 1447772997;
+        const BCRYPT_ECDH_PRIVATE_P256_MAGIC: i32 = 843793221;
+        const BCRYPT_ECDH_PRIVATE_P384_MAGIC: i32 = 877347653;
+        const BCRYPT_ECDH_PRIVATE_P521_MAGIC: i32 = 910902085;
+        const BCRYPT_ECDH_PUBLIC_GENERIC_MAGIC: i32 = 1347109701;
+        const BCRYPT_ECDH_PUBLIC_P256_MAGIC: i32 = 827016005;
+        const BCRYPT_ECDH_PUBLIC_P384_MAGIC: i32 = 860570437;
+        const BCRYPT_ECDH_PUBLIC_P521_MAGIC: i32 = 894124869;
         #[encoding("utf-16")]
         const BCRYPT_ECDSA_ALGORITHM: String = "ECDSA";
         const BCRYPT_ECDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 241;
@@ -332,41 +332,41 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_ECDSA_P521_ALGORITHM: String = "ECDSA_P521";
         const BCRYPT_ECDSA_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = 769;
-        const BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC: u32 = 1447314245;
-        const BCRYPT_ECDSA_PRIVATE_P256_MAGIC: u32 = 844317509;
-        const BCRYPT_ECDSA_PRIVATE_P384_MAGIC: u32 = 877871941;
-        const BCRYPT_ECDSA_PRIVATE_P521_MAGIC: u32 = 911426373;
-        const BCRYPT_ECDSA_PUBLIC_GENERIC_MAGIC: u32 = 1346650949;
-        const BCRYPT_ECDSA_PUBLIC_P256_MAGIC: u32 = 827540293;
-        const BCRYPT_ECDSA_PUBLIC_P384_MAGIC: u32 = 861094725;
-        const BCRYPT_ECDSA_PUBLIC_P521_MAGIC: u32 = 894649157;
+        const BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC: i32 = 1447314245;
+        const BCRYPT_ECDSA_PRIVATE_P256_MAGIC: i32 = 844317509;
+        const BCRYPT_ECDSA_PRIVATE_P384_MAGIC: i32 = 877871941;
+        const BCRYPT_ECDSA_PRIVATE_P521_MAGIC: i32 = 911426373;
+        const BCRYPT_ECDSA_PUBLIC_GENERIC_MAGIC: i32 = 1346650949;
+        const BCRYPT_ECDSA_PUBLIC_P256_MAGIC: i32 = 827540293;
+        const BCRYPT_ECDSA_PUBLIC_P384_MAGIC: i32 = 861094725;
+        const BCRYPT_ECDSA_PUBLIC_P521_MAGIC: i32 = 894649157;
         #[encoding("utf-16")]
         const BCRYPT_EFFECTIVE_KEY_LENGTH: String = "EffectiveKeyLength";
-        const BCRYPT_ENABLE_INCOMPATIBLE_FIPS_CHECKS: u32 = 256;
-        const BCRYPT_EXTENDED_KEYSIZE: u32 = 128;
+        const BCRYPT_ENABLE_INCOMPATIBLE_FIPS_CHECKS: i32 = 256;
+        const BCRYPT_EXTENDED_KEYSIZE: i32 = 128;
         #[encoding("utf-16")]
         const BCRYPT_FUNCTION_NAME_STRING: String = "FunctionNameString";
-        const BCRYPT_GENERATE_IV: u32 = 32;
+        const BCRYPT_GENERATE_IV: i32 = 32;
         #[encoding("utf-16")]
         const BCRYPT_GLOBAL_PARAMETERS: String = "SecretAgreementParam";
         type BCRYPT_HANDLE = *mut void;
         #[encoding("utf-16")]
         const BCRYPT_HASH_BLOCK_LENGTH: String = "HashBlockLength";
-        const BCRYPT_HASH_DONT_RESET_FLAG: u32 = 1;
+        const BCRYPT_HASH_DONT_RESET_FLAG: i32 = 1;
         type BCRYPT_HASH_HANDLE = *mut void;
-        const BCRYPT_HASH_INTERFACE: u32 = 2;
-        const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: u32 = 2;
+        const BCRYPT_HASH_INTERFACE: i32 = 2;
+        const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: i32 = 2;
         #[encoding("utf-16")]
         const BCRYPT_HASH_LENGTH: String = "HashDigestLength";
         #[encoding("utf-16")]
         const BCRYPT_HASH_OID_LIST: String = "HashOIDList";
-        const BCRYPT_HASH_OPERATION: u32 = 2;
+        const BCRYPT_HASH_OPERATION: i32 = 2;
         #[repr(i32)]
         enum BCRYPT_HASH_OPERATION_TYPE {
             BCRYPT_HASH_OPERATION_HASH_DATA = 1,
             BCRYPT_HASH_OPERATION_FINISH_HASH = 2,
         }
-        const BCRYPT_HASH_REUSABLE_FLAG: u32 = 32;
+        const BCRYPT_HASH_REUSABLE_FLAG: i32 = 32;
         #[encoding("utf-16")]
         const BCRYPT_HKDF_ALGORITHM: String = "HKDF";
         const BCRYPT_HKDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 913;
@@ -424,12 +424,12 @@ mod Windows {
             dwVersion: u32,
             cbKeyData: u32,
         }
-        const BCRYPT_KEY_DATA_BLOB_MAGIC: u32 = 1296188491;
-        const BCRYPT_KEY_DATA_BLOB_VERSION1: u32 = 1;
-        const BCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7;
-        const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64;
-        const BCRYPT_KEY_ENCAPSULATION_INTERFACE: u32 = 8;
-        const BCRYPT_KEY_ENCAPSULATION_OPERATION: u32 = 128;
+        const BCRYPT_KEY_DATA_BLOB_MAGIC: i32 = 1296188491;
+        const BCRYPT_KEY_DATA_BLOB_VERSION1: i32 = 1;
+        const BCRYPT_KEY_DERIVATION_INTERFACE: i32 = 7;
+        const BCRYPT_KEY_DERIVATION_OPERATION: i32 = 64;
+        const BCRYPT_KEY_ENCAPSULATION_INTERFACE: i32 = 8;
+        const BCRYPT_KEY_ENCAPSULATION_OPERATION: i32 = 128;
         type BCRYPT_KEY_HANDLE = *mut void;
         #[encoding("utf-16")]
         const BCRYPT_KEY_LENGTH: String = "KeyLength";
@@ -444,9 +444,9 @@ mod Windows {
         const BCRYPT_KEY_OBJECT_LENGTH: String = "KeyObjectLength";
         #[encoding("utf-16")]
         const BCRYPT_KEY_STRENGTH: String = "KeyStrength";
-        const BCRYPT_KEY_VALIDATION_RANGE: u32 = 16;
-        const BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER: u32 = 24;
-        const BCRYPT_KEY_VALIDATION_REGENERATE: u32 = 32;
+        const BCRYPT_KEY_VALIDATION_RANGE: i32 = 16;
+        const BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER: i32 = 24;
+        const BCRYPT_KEY_VALIDATION_REGENERATE: i32 = 32;
         #[encoding("utf-16")]
         const BCRYPT_KMAC128_ALGORITHM: String = "KMAC128";
         const BCRYPT_KMAC128_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1073;
@@ -455,7 +455,7 @@ mod Windows {
         const BCRYPT_KMAC256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1089;
         #[encoding("utf-16")]
         const BCRYPT_LMS_ALGORITHM: String = "LMS";
-        const BCRYPT_LMS_PUBLIC_MAGIC: u32 = 1263553868;
+        const BCRYPT_LMS_PUBLIC_MAGIC: i32 = 1263553868;
         #[encoding("utf-16")]
         const BCRYPT_MD2_ALGORITHM: String = "MD2";
         const BCRYPT_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1;
@@ -470,16 +470,16 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_MLDSA_ALGORITHM: String = "ML-DSA";
         const BCRYPT_MLDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1137;
-        const BCRYPT_MLDSA_EXTERNAL_MU: u32 = 64;
+        const BCRYPT_MLDSA_EXTERNAL_MU: i32 = 64;
         #[encoding("utf-16")]
         const BCRYPT_MLDSA_PARAMETER_SET_44: String = "44";
         #[encoding("utf-16")]
         const BCRYPT_MLDSA_PARAMETER_SET_65: String = "65";
         #[encoding("utf-16")]
         const BCRYPT_MLDSA_PARAMETER_SET_87: String = "87";
-        const BCRYPT_MLDSA_PRIVATE_MAGIC: u32 = 1263752004;
-        const BCRYPT_MLDSA_PRIVATE_SEED_MAGIC: u32 = 1397969732;
-        const BCRYPT_MLDSA_PUBLIC_MAGIC: u32 = 1263555396;
+        const BCRYPT_MLDSA_PRIVATE_MAGIC: i32 = 1263752004;
+        const BCRYPT_MLDSA_PRIVATE_SEED_MAGIC: i32 = 1397969732;
+        const BCRYPT_MLDSA_PUBLIC_MAGIC: i32 = 1263555396;
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_ALGORITHM: String = "ML-KEM";
         const BCRYPT_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1153;
@@ -496,14 +496,14 @@ mod Windows {
         const BCRYPT_MLKEM_PARAMETER_SET_768: String = "768";
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_PRIVATE_BLOB: String = "MLKEMPRIVATEBLOB";
-        const BCRYPT_MLKEM_PRIVATE_MAGIC: u32 = 1380666445;
+        const BCRYPT_MLKEM_PRIVATE_MAGIC: i32 = 1380666445;
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_PRIVATE_SEED_BLOB: String = "MLKEMPRIVATESEEDBLOB";
-        const BCRYPT_MLKEM_PRIVATE_SEED_MAGIC: u32 = 1397443661;
+        const BCRYPT_MLKEM_PRIVATE_SEED_MAGIC: i32 = 1397443661;
         #[encoding("utf-16")]
         const BCRYPT_MLKEM_PUBLIC_BLOB: String = "MLKEMPUBLICBLOB";
-        const BCRYPT_MLKEM_PUBLIC_MAGIC: u32 = 1347112013;
-        const BCRYPT_MULTI_FLAG: u32 = 64;
+        const BCRYPT_MLKEM_PUBLIC_MAGIC: i32 = 1347112013;
+        const BCRYPT_MULTI_FLAG: i32 = 64;
         struct BCRYPT_MULTI_HASH_OPERATION {
             iHash: u32,
             hashOperation: BCRYPT_HASH_OPERATION_TYPE,
@@ -520,13 +520,13 @@ mod Windows {
         enum BCRYPT_MULTI_OPERATION_TYPE {
             BCRYPT_OPERATION_TYPE_HASH = 1,
         }
-        const BCRYPT_NO_KEY_VALIDATION: u32 = 8;
+        const BCRYPT_NO_KEY_VALIDATION: i32 = 8;
         struct BCRYPT_OAEP_PADDING_INFO {
             pszAlgId: PCWSTR,
             pbLabel: PUCHAR,
             cbLabel: u32,
         }
-        const BCRYPT_OBJECT_ALIGNMENT: u32 = 16;
+        const BCRYPT_OBJECT_ALIGNMENT: i32 = 16;
         #[encoding("utf-16")]
         const BCRYPT_OBJECT_LENGTH: String = "ObjectLength";
         struct BCRYPT_OID {
@@ -541,12 +541,12 @@ mod Windows {
         const BCRYPT_OPAQUE_KEY_BLOB: String = "OpaqueKeyBlob";
         #[encoding("utf-16")]
         const BCRYPT_PADDING_SCHEMES: String = "PaddingSchemes";
-        const BCRYPT_PAD_NONE: u32 = 1;
-        const BCRYPT_PAD_OAEP: u32 = 4;
-        const BCRYPT_PAD_PKCS1: u32 = 2;
-        const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: u32 = 16;
-        const BCRYPT_PAD_PQDSA: u32 = 32;
-        const BCRYPT_PAD_PSS: u32 = 8;
+        const BCRYPT_PAD_NONE: i32 = 1;
+        const BCRYPT_PAD_OAEP: i32 = 4;
+        const BCRYPT_PAD_PKCS1: i32 = 2;
+        const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: i32 = 16;
+        const BCRYPT_PAD_PQDSA: i32 = 32;
+        const BCRYPT_PAD_PSS: i32 = 8;
         #[encoding("utf-16")]
         const BCRYPT_PARAMETER_SET_NAME: String = "ParameterSetName";
         #[encoding("utf-16")]
@@ -562,7 +562,7 @@ mod Windows {
             cbPaddingAlgId: u32,
             cbPaddingLabel: u32,
         }
-        const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: u32 = 1464877394;
+        const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: i32 = 1464877394;
         #[encoding("utf-16")]
         const BCRYPT_PKCS11_RSA_AES_WRAP_KEY_BLOB: String = "PKCS11RsaAesWrapBlob";
         struct BCRYPT_PKCS1_PADDING_INFO {
@@ -590,20 +590,20 @@ mod Windows {
         const BCRYPT_PRIVATE_KEY: String = "PrivKeyVal";
         #[encoding("utf-16")]
         const BCRYPT_PRIVATE_KEY_BLOB: String = "PRIVATEBLOB";
-        const BCRYPT_PRIVATE_KEY_FLAG: u32 = 2;
+        const BCRYPT_PRIVATE_KEY_FLAG: i32 = 2;
         #[encoding("utf-16")]
         const BCRYPT_PROVIDER_HANDLE: String = "ProviderHandle";
         struct BCRYPT_PROVIDER_NAME {
             pszProviderName: PWSTR,
         }
-        const BCRYPT_PROV_DISPATCH: u32 = 1;
+        const BCRYPT_PROV_DISPATCH: i32 = 1;
         struct BCRYPT_PSS_PADDING_INFO {
             pszAlgId: PCWSTR,
             cbSalt: u32,
         }
         #[encoding("utf-16")]
         const BCRYPT_PUBLIC_KEY_BLOB: String = "PUBLICBLOB";
-        const BCRYPT_PUBLIC_KEY_FLAG: u32 = 1;
+        const BCRYPT_PUBLIC_KEY_FLAG: i32 = 1;
         #[encoding("utf-16")]
         const BCRYPT_PUBLIC_KEY_LENGTH: String = "PublicKeyLength";
         #[encoding("utf-16")]
@@ -621,12 +621,12 @@ mod Windows {
         const BCRYPT_RNG_DUAL_EC_ALGORITHM: String = "DUALECRNG";
         #[encoding("utf-16")]
         const BCRYPT_RNG_FIPS186_DSA_ALGORITHM: String = "FIPS186DSARNG";
-        const BCRYPT_RNG_INTERFACE: u32 = 6;
-        const BCRYPT_RNG_OPERATION: u32 = 32;
-        const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: u32 = 1;
+        const BCRYPT_RNG_INTERFACE: i32 = 6;
+        const BCRYPT_RNG_OPERATION: i32 = 32;
+        const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: i32 = 1;
         #[encoding("utf-16")]
         const BCRYPT_RSAFULLPRIVATE_BLOB: String = "RSAFULLPRIVATEBLOB";
-        const BCRYPT_RSAFULLPRIVATE_MAGIC: u32 = 859919186;
+        const BCRYPT_RSAFULLPRIVATE_MAGIC: i32 = 859919186;
         struct BCRYPT_RSAKEY_BLOB {
             Magic: u32,
             BitLength: u32,
@@ -637,18 +637,18 @@ mod Windows {
         }
         #[encoding("utf-16")]
         const BCRYPT_RSAPRIVATE_BLOB: String = "RSAPRIVATEBLOB";
-        const BCRYPT_RSAPRIVATE_MAGIC: u32 = 843141970;
+        const BCRYPT_RSAPRIVATE_MAGIC: i32 = 843141970;
         #[encoding("utf-16")]
         const BCRYPT_RSAPUBLIC_BLOB: String = "RSAPUBLICBLOB";
-        const BCRYPT_RSAPUBLIC_MAGIC: u32 = 826364754;
+        const BCRYPT_RSAPUBLIC_MAGIC: i32 = 826364754;
         #[encoding("utf-16")]
         const BCRYPT_RSA_ALGORITHM: String = "RSA";
         const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = 225;
         #[encoding("utf-16")]
         const BCRYPT_RSA_SIGN_ALGORITHM: String = "RSA_SIGN";
         const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = 785;
-        const BCRYPT_SECRET_AGREEMENT_INTERFACE: u32 = 4;
-        const BCRYPT_SECRET_AGREEMENT_OPERATION: u32 = 8;
+        const BCRYPT_SECRET_AGREEMENT_INTERFACE: i32 = 4;
+        const BCRYPT_SECRET_AGREEMENT_OPERATION: i32 = 8;
         type BCRYPT_SECRET_HANDLE = *mut void;
         #[encoding("utf-16")]
         const BCRYPT_SHA1_ALGORITHM: String = "SHA1";
@@ -677,10 +677,10 @@ mod Windows {
         #[encoding("utf-16")]
         const BCRYPT_SHAKE256_ALGORITHM: String = "SHAKE256";
         const BCRYPT_SHAKE256_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1121;
-        const BCRYPT_SIGNATURE_INTERFACE: u32 = 5;
+        const BCRYPT_SIGNATURE_INTERFACE: i32 = 5;
         #[encoding("utf-16")]
         const BCRYPT_SIGNATURE_LENGTH: String = "SignatureLength";
-        const BCRYPT_SIGNATURE_OPERATION: u32 = 16;
+        const BCRYPT_SIGNATURE_OPERATION: i32 = 16;
         #[encoding("utf-16")]
         const BCRYPT_SLHDSA_ALGORITHM: String = "SLH-DSA";
         #[encoding("utf-16")]
@@ -707,30 +707,30 @@ mod Windows {
         const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_256F: String = "SHAKE-256f";
         #[encoding("utf-16")]
         const BCRYPT_SLHDSA_PARAMETER_SET_SHAKE_256S: String = "SHAKE-256s";
-        const BCRYPT_SLHDSA_PRIVATE_MAGIC: u32 = 1263749203;
-        const BCRYPT_SLHDSA_PUBLIC_MAGIC: u32 = 1263552595;
+        const BCRYPT_SLHDSA_PRIVATE_MAGIC: i32 = 1263749203;
+        const BCRYPT_SLHDSA_PUBLIC_MAGIC: i32 = 1263552595;
         #[encoding("utf-16")]
         const BCRYPT_SP800108_CTR_HMAC_ALGORITHM: String = "SP800_108_CTR_HMAC";
         const BCRYPT_SP800108_CTR_HMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 833;
         #[encoding("utf-16")]
         const BCRYPT_SP80056A_CONCAT_ALGORITHM: String = "SP800_56A_CONCAT";
         const BCRYPT_SP80056A_CONCAT_ALG_HANDLE: BCRYPT_ALG_HANDLE = 849;
-        const BCRYPT_SUPPORTED_PAD_OAEP: u32 = 8;
-        const BCRYPT_SUPPORTED_PAD_PKCS1_ENC: u32 = 2;
-        const BCRYPT_SUPPORTED_PAD_PKCS1_SIG: u32 = 4;
-        const BCRYPT_SUPPORTED_PAD_PSS: u32 = 16;
-        const BCRYPT_SUPPORTED_PAD_ROUTER: u32 = 1;
+        const BCRYPT_SUPPORTED_PAD_OAEP: i32 = 8;
+        const BCRYPT_SUPPORTED_PAD_PKCS1_ENC: i32 = 2;
+        const BCRYPT_SUPPORTED_PAD_PKCS1_SIG: i32 = 4;
+        const BCRYPT_SUPPORTED_PAD_PSS: i32 = 16;
+        const BCRYPT_SUPPORTED_PAD_ROUTER: i32 = 1;
         #[encoding("utf-16")]
         const BCRYPT_TLS1_1_KDF_ALGORITHM: String = "TLS1_1_KDF";
         const BCRYPT_TLS1_1_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 865;
         #[encoding("utf-16")]
         const BCRYPT_TLS1_2_KDF_ALGORITHM: String = "TLS1_2_KDF";
         const BCRYPT_TLS1_2_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = 881;
-        const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4;
-        const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 2;
+        const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: i32 = 4;
+        const BCRYPT_USE_SYSTEM_PREFERRED_RNG: i32 = 2;
         #[encoding("utf-16")]
         const BCRYPT_XMSS_ALGORITHM: String = "XMSS";
-        const BCRYPT_XMSS_PUBLIC_MAGIC: u32 = 1263553880;
+        const BCRYPT_XMSS_PUBLIC_MAGIC: i32 = 1263553880;
         #[encoding("utf-16")]
         const BCRYPT_XTS_AES_ALGORITHM: String = "XTS-AES";
         const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = 897;
@@ -854,9 +854,9 @@ mod Windows {
         extern fn BCryptUnregisterConfigChangeNotify(hEvent: HANDLE) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptVerifySignature(hKey: BCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbHash: *const u8, cbHash: u32, #[size_param(5)] pbSignature: *const u8, cbSignature: u32, dwFlags: u32) -> NTSTATUS;
-        const CRYPT_ALL_FUNCTIONS: u32 = 1;
-        const CRYPT_ALL_PROVIDERS: u32 = 2;
-        const CRYPT_ANY: u32 = 4;
+        const CRYPT_ALL_FUNCTIONS: i32 = 1;
+        const CRYPT_ALL_PROVIDERS: i32 = 2;
+        const CRYPT_ANY: i32 = 4;
         struct CRYPT_CONTEXTS {
             cContexts: u32,
             rgpszContexts: *mut PWSTR,
@@ -879,8 +879,8 @@ mod Windows {
         }
         #[encoding("utf-16")]
         const CRYPT_DEFAULT_CONTEXT: String = "Default";
-        const CRYPT_DOMAIN: u32 = 2;
-        const CRYPT_EXCLUSIVE: u32 = 1;
+        const CRYPT_DOMAIN: i32 = 2;
+        const CRYPT_EXCLUSIVE: i32 = 1;
         struct CRYPT_IMAGE_REF {
             pszImage: PWSTR,
             dwFlags: u32,
@@ -896,15 +896,15 @@ mod Windows {
             cFunctions: u32,
             rgpszFunctions: *mut PWSTR,
         }
-        const CRYPT_KM: u32 = 2;
-        const CRYPT_LOCAL: u32 = 1;
-        const CRYPT_MIN_DEPENDENCIES: u32 = 1;
-        const CRYPT_MM: u32 = 3;
-        const CRYPT_OVERRIDE: u32 = 65536;
-        const CRYPT_OVERWRITE: u32 = 1;
+        const CRYPT_KM: i32 = 2;
+        const CRYPT_LOCAL: i32 = 1;
+        const CRYPT_MIN_DEPENDENCIES: i32 = 1;
+        const CRYPT_MM: i32 = 3;
+        const CRYPT_OVERRIDE: i32 = 65536;
+        const CRYPT_OVERWRITE: i32 = 1;
         const CRYPT_PRIORITY_BOTTOM: u32 = 4294967295;
-        const CRYPT_PRIORITY_TOP: u32 = 0;
-        const CRYPT_PROCESS_ISOLATE: u32 = 65536;
+        const CRYPT_PRIORITY_TOP: i32 = 0;
+        const CRYPT_PROCESS_ISOLATE: i32 = 65536;
         struct CRYPT_PROPERTY_REF {
             pszProperty: PWSTR,
             cbValue: u32,
@@ -933,7 +933,7 @@ mod Windows {
             pUM: PCRYPT_IMAGE_REG,
             pKM: PCRYPT_IMAGE_REG,
         }
-        const CRYPT_UM: u32 = 1;
+        const CRYPT_UM: i32 = 1;
         #[repr(i32)]
         enum DSAFIPSVERSION_ENUM {
             DSA_FIPS186_2 = 0,
@@ -955,28 +955,28 @@ mod Windows {
             DSA_HASH_ALGORITHM_SHA256 = 1,
             DSA_HASH_ALGORITHM_SHA512 = 2,
         }
-        const KDF_ALGORITHMID: u32 = 8;
-        const KDF_CONTEXT: u32 = 14;
-        const KDF_GENERIC_PARAMETER: u32 = 17;
-        const KDF_HASH_ALGORITHM: u32 = 0;
-        const KDF_HKDF_INFO: u32 = 20;
-        const KDF_HKDF_SALT: u32 = 19;
-        const KDF_HMAC_KEY: u32 = 3;
-        const KDF_ITERATION_COUNT: u32 = 16;
-        const KDF_KEYBITLENGTH: u32 = 18;
-        const KDF_LABEL: u32 = 13;
-        const KDF_PARTYUINFO: u32 = 9;
-        const KDF_PARTYVINFO: u32 = 10;
-        const KDF_SALT: u32 = 15;
-        const KDF_SECRET_APPEND: u32 = 2;
-        const KDF_SECRET_HANDLE: u32 = 6;
-        const KDF_SECRET_PREPEND: u32 = 1;
-        const KDF_SUPPPRIVINFO: u32 = 12;
-        const KDF_SUPPPUBINFO: u32 = 11;
-        const KDF_TLS_PRF_LABEL: u32 = 4;
-        const KDF_TLS_PRF_PROTOCOL: u32 = 7;
-        const KDF_TLS_PRF_SEED: u32 = 5;
-        const KDF_USE_SECRET_AS_HMAC_KEY_FLAG: u32 = 1;
+        const KDF_ALGORITHMID: i32 = 8;
+        const KDF_CONTEXT: i32 = 14;
+        const KDF_GENERIC_PARAMETER: i32 = 17;
+        const KDF_HASH_ALGORITHM: i32 = 0;
+        const KDF_HKDF_INFO: i32 = 20;
+        const KDF_HKDF_SALT: i32 = 19;
+        const KDF_HMAC_KEY: i32 = 3;
+        const KDF_ITERATION_COUNT: i32 = 16;
+        const KDF_KEYBITLENGTH: i32 = 18;
+        const KDF_LABEL: i32 = 13;
+        const KDF_PARTYUINFO: i32 = 9;
+        const KDF_PARTYVINFO: i32 = 10;
+        const KDF_SALT: i32 = 15;
+        const KDF_SECRET_APPEND: i32 = 2;
+        const KDF_SECRET_HANDLE: i32 = 6;
+        const KDF_SECRET_PREPEND: i32 = 1;
+        const KDF_SUPPPRIVINFO: i32 = 12;
+        const KDF_SUPPPUBINFO: i32 = 11;
+        const KDF_TLS_PRF_LABEL: i32 = 4;
+        const KDF_TLS_PRF_PROTOCOL: i32 = 7;
+        const KDF_TLS_PRF_SEED: i32 = 5;
+        const KDF_USE_SECRET_AS_HMAC_KEY_FLAG: i32 = 1;
         #[encoding("utf-16")]
         const LEGACY_DH_PRIVATE_BLOB: String = "CAPIDHPRIVATEBLOB";
         #[encoding("utf-16")]
@@ -993,7 +993,7 @@ mod Windows {
         const LEGACY_RSAPRIVATE_BLOB: String = "CAPIPRIVATEBLOB";
         #[encoding("utf-16")]
         const LEGACY_RSAPUBLIC_BLOB: String = "CAPIPUBLICBLOB";
-        const MAX_HYBRID_KEY_EXCHANGE_BLOBS: u32 = 4;
+        const MAX_HYBRID_KEY_EXCHANGE_BLOBS: i32 = 4;
         #[encoding("utf-16")]
         const MS_PLATFORM_CRYPTO_PROVIDER: String = "Microsoft Platform Crypto Provider";
         #[encoding("utf-16")]
@@ -1046,13 +1046,13 @@ mod Windows {
             rgwszBlobTypes: [PCWSTR; 4],
             rgbBlobs: [PUCHAR; 4],
         }
-        const TLS_HYBRID_KEYEXCHANGE_MAGIC: u32 = 1213418580;
+        const TLS_HYBRID_KEYEXCHANGE_MAGIC: i32 = 1213418580;
         #[encoding("utf-16")]
         const TLS_KEM_CIPHERTEXT: String = "TLS_KEM_CIPHER_TEXT";
         struct TLS_KEM_CIPHERTEXT_BLOB {
             dwMagic: u32,
             cbLength: u32,
         }
-        const TLS_KEM_CIPHERTEXT_MAGIC: u32 = 1129008205;
+        const TLS_KEM_CIPHERTEXT_MAGIC: i32 = 1129008205;
     }
 }

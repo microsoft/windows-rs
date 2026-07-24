@@ -1067,37 +1067,37 @@ pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub InCaseSensitiveFlags: u32,
     pub OutCaseSensitiveFlags: u32,
 }
-pub const ATOMIC_CREATE_ECP_IN_FLAG_BEST_EFFORT: u32 = 256;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_EOF_SPECIFIED: u32 = 4;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_FILE_ATTRIBUTES_SPECIFIED: u32 = 32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_GEN_FLAGS_SPECIFIED: u32 = 32768;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_MARK_USN_SOURCE_INFO: u32 = 2048;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_OPERATION_MASK: u32 = 255;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_OP_FLAGS_SPECIFIED: u32 = 128;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_REPARSE_POINT_SPECIFIED: u32 = 2;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_SPARSE_SPECIFIED: u32 = 1;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_DIR_CHANGE_NOTIFY: u32 = 1024;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_FILE_ATTRIBUTE_INHERITANCE: u32 = 64;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_PARENT_TIMESTAMPS_UPDATE: u32 = 512;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_TIMESTAMPS_SPECIFIED: u32 = 16;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_VDL_SPECIFIED: u32 = 8;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_WRITE_USN_CLOSE_RECORD: u32 = 4096;
-pub const ATOMIC_CREATE_ECP_IN_OP_FLAG_CASE_SENSITIVE_FLAGS_SPECIFIED: u32 = 1;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_EOF_SET: u32 = 4;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_RETURNED: u32 = 512;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_SET: u32 = 32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTE_INHERITANCE_SUPPRESSED: u32 = 64;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_OPERATION_MASK: u32 = 255;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_OP_FLAGS_HONORED: u32 = 128;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_REPARSE_POINT_SET: u32 = 2;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_SPARSE_SET: u32 = 1;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_RETURNED: u32 = 256;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_SET: u32 = 16;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_CLOSE_RECORD_WRITTEN: u32 = 2048;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_RETURNED: u32 = 4096;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_SOURCE_INFO_MARKED: u32 = 1024;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_VDL_SET: u32 = 8;
-pub const ATOMIC_CREATE_ECP_OUT_OP_FLAG_CASE_SENSITIVE_FLAGS_SET: u32 = 1;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_BEST_EFFORT: i32 = 256;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_EOF_SPECIFIED: i32 = 4;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_FILE_ATTRIBUTES_SPECIFIED: i32 = 32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_GEN_FLAGS_SPECIFIED: i32 = 32768;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_MARK_USN_SOURCE_INFO: i32 = 2048;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_OPERATION_MASK: i32 = 255;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_OP_FLAGS_SPECIFIED: i32 = 128;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_REPARSE_POINT_SPECIFIED: i32 = 2;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_SPARSE_SPECIFIED: i32 = 1;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_DIR_CHANGE_NOTIFY: i32 = 1024;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_FILE_ATTRIBUTE_INHERITANCE: i32 = 64;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_PARENT_TIMESTAMPS_UPDATE: i32 = 512;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_TIMESTAMPS_SPECIFIED: i32 = 16;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_VDL_SPECIFIED: i32 = 8;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_WRITE_USN_CLOSE_RECORD: i32 = 4096;
+pub const ATOMIC_CREATE_ECP_IN_OP_FLAG_CASE_SENSITIVE_FLAGS_SPECIFIED: i32 = 1;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_EOF_SET: i32 = 4;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_RETURNED: i32 = 512;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_SET: i32 = 32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTE_INHERITANCE_SUPPRESSED: i32 = 64;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_OPERATION_MASK: i32 = 255;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_OP_FLAGS_HONORED: i32 = 128;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_REPARSE_POINT_SET: i32 = 2;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_SPARSE_SET: i32 = 1;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_RETURNED: i32 = 256;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_SET: i32 = 16;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_CLOSE_RECORD_WRITTEN: i32 = 2048;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_RETURNED: i32 = 4096;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_SOURCE_INFO_MARKED: i32 = 1024;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_VDL_SET: i32 = 8;
+pub const ATOMIC_CREATE_ECP_OUT_OP_FLAG_CASE_SENSITIVE_FLAGS_SET: i32 = 1;
 pub const AuditAccessCheck: SE_AUDIT_OPERATION = 2;
 pub const AuditCloseNonObject: SE_AUDIT_OPERATION = 9;
 pub const AuditCloseObject: SE_AUDIT_OPERATION = 5;
@@ -1140,7 +1140,7 @@ pub struct CACHE_MANAGER_CALLBACKS_EX {
     pub Size: u16,
     pub Functions: CACHE_MANAGER_CALLBACK_FUNCTIONS,
 }
-pub const CACHE_MANAGER_CALLBACKS_EX_V1: u32 = 1;
+pub const CACHE_MANAGER_CALLBACKS_EX_V1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct CACHE_MANAGER_CALLBACK_FUNCTIONS {
@@ -1162,11 +1162,11 @@ impl Default for CACHE_UNINITIALIZE_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CACHE_USE_DIRECT_ACCESS_MAPPING: u32 = 1;
-pub const CACHE_VALID_FLAGS: u32 = 1;
-pub const CC_ACQUIRE_DONT_WAIT: u32 = 1;
-pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: u32 = 1;
-pub const CC_AGGRESSIVE_UNMAP_BEHIND: u32 = 1;
+pub const CACHE_USE_DIRECT_ACCESS_MAPPING: i32 = 1;
+pub const CACHE_VALID_FLAGS: i32 = 1;
+pub const CC_ACQUIRE_DONT_WAIT: i32 = 1;
+pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: i32 = 1;
+pub const CC_AGGRESSIVE_UNMAP_BEHIND: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "usb", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
@@ -1195,13 +1195,13 @@ pub struct CC_DIRTY_PAGES_INFO {
     pub CurrentCleanLockedCachedPages: i64,
     pub CurrentPagesQueuedForWriting: i64,
 }
-pub const CC_DIRTY_PAGES_INFO_V1: u32 = 1;
-pub const CC_DISABLE_DIRTY_PAGE_TRACKING: u32 = 8;
-pub const CC_DISABLE_READ_AHEAD: u32 = 2;
-pub const CC_DISABLE_UNMAP_BEHIND: u32 = 32;
-pub const CC_DISABLE_WRITE_BEHIND: u32 = 4;
-pub const CC_ENABLE_CPU_CACHE: u32 = 268435456;
-pub const CC_ENABLE_DISK_IO_ACCOUNTING: u32 = 16;
+pub const CC_DIRTY_PAGES_INFO_V1: i32 = 1;
+pub const CC_DISABLE_DIRTY_PAGE_TRACKING: i32 = 8;
+pub const CC_DISABLE_READ_AHEAD: i32 = 2;
+pub const CC_DISABLE_UNMAP_BEHIND: i32 = 32;
+pub const CC_DISABLE_WRITE_BEHIND: i32 = 4;
+pub const CC_ENABLE_CPU_CACHE: i32 = 268435456;
+pub const CC_ENABLE_DISK_IO_ACCOUNTING: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1216,9 +1216,9 @@ pub struct CC_FILE_SIZES {
     pub FileSize: i64,
     pub ValidDataLength: i64,
 }
-pub const CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS: u32 = 2;
-pub const CC_FLUSH_AND_PURGE_NO_PURGE: u32 = 1;
-pub const CC_FLUSH_AND_PURGE_WRITEABLE_VIEWS_NOTSEEN: u32 = 4;
+pub const CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS: i32 = 2;
+pub const CC_FLUSH_AND_PURGE_NO_PURGE: i32 = 1;
+pub const CC_FLUSH_AND_PURGE_WRITEABLE_VIEWS_NOTSEEN: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPRESSED_DATA_INFO {
@@ -1235,12 +1235,12 @@ impl Default for COMPRESSED_DATA_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const COMPRESSION_ENGINE_MASK: u32 = 65280;
-pub const COMPRESSION_ENGINE_MAX: u32 = 512;
-pub const COMPRESSION_FORMAT_ENGINE_MASK: u32 = 65535;
-pub const COMPRESSION_FORMAT_MASK: u32 = 255;
-pub const COMPRESSION_FORMAT_MAX: u32 = 8;
-pub const COPY_FILE_CHUNK_DUPLICATE_EXTENTS: u32 = 1;
+pub const COMPRESSION_ENGINE_MASK: i32 = 65280;
+pub const COMPRESSION_ENGINE_MAX: i32 = 512;
+pub const COMPRESSION_FORMAT_ENGINE_MASK: i32 = 65535;
+pub const COMPRESSION_FORMAT_MASK: i32 = 255;
+pub const COMPRESSION_FORMAT_MAX: i32 = 8;
+pub const COPY_FILE_CHUNK_DUPLICATE_EXTENTS: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1257,11 +1257,11 @@ pub struct CREATE_REDIRECTION_ECP_CONTEXT {
     pub FileId: super::FILE_ID_128,
     pub VolumeGuid: windows_core::GUID,
 }
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_LAYER: u32 = 1;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REGISTERED_LAYER: u32 = 4;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REMOTE_LAYER: u32 = 8;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH: u32 = 2;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: u32 = 16;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_LAYER: i32 = 1;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REGISTERED_LAYER: i32 = 4;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REMOTE_LAYER: i32 = 8;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH: i32 = 2;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: i32 = 16;
 pub type CSV_DOWN_LEVEL_FILE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1272,7 +1272,7 @@ pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
     pub SourceNodeId: u32,
     pub DestinationNodeId: u32,
 }
-pub const CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT_V1: u32 = 1;
+pub const CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT_V1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
@@ -1304,22 +1304,22 @@ pub struct CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
     pub PauseTimeoutInSeconds: u32,
     pub Flags: u32,
 }
-pub const CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1;
+pub const CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: i32 = 1;
 pub const ChangeDataControlArea: FSRTL_CHANGE_BACKING_TYPE = 0;
 pub const ChangeImageControlArea: FSRTL_CHANGE_BACKING_TYPE = 1;
 pub const ChangeSharedCacheMap: FSRTL_CHANGE_BACKING_TYPE = 2;
 pub const CsvCsvFsInternalFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 1;
 pub const CsvDownLevelFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 0;
 pub const DD_MUP_DEVICE_NAME: windows_core::PCWSTR = windows_core::w!("\\Device\\Mup");
-pub const DEVICE_RESET_KEEP_STACK: u32 = 4;
-pub const DEVICE_RESET_RESERVED_0: u32 = 1;
-pub const DEVICE_RESET_RESERVED_1: u32 = 2;
+pub const DEVICE_RESET_KEEP_STACK: i32 = 4;
+pub const DEVICE_RESET_RESERVED_0: i32 = 1;
+pub const DEVICE_RESET_RESERVED_1: i32 = 2;
 pub const DOS_DOT: u32 = 34;
 pub const DOS_QM: u32 = 62;
 pub const DOS_STAR: u32 = 60;
-pub const DO_NOT_PURGE_DIRTY_PAGES: u32 = 4;
-pub const DO_NOT_RETRY_PURGE: u32 = 2;
-pub const DO_SUPPORTS_PERSISTENT_ACLS: u32 = 131072;
+pub const DO_NOT_PURGE_DIRTY_PAGES: i32 = 4;
+pub const DO_NOT_RETRY_PURGE: i32 = 2;
+pub const DO_SUPPORTS_PERSISTENT_ACLS: i32 = 131072;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type DRIVER_FS_NOTIFICATION = Option<unsafe extern "system" fn(deviceobject: *const super::DEVICE_OBJECT, fsactive: bool)>;
 #[repr(C)]
@@ -1354,11 +1354,11 @@ pub struct ECP_OPEN_PARAMETERS {
     pub Reserved: u16,
     pub Flags: u32,
 }
-pub const ECP_OPEN_PARAMETERS_FLAG_FAIL_ON_CASE_SENSITIVE_DIR: u32 = 16;
-pub const ECP_OPEN_PARAMETERS_FLAG_IGNORE_DIR_CASE_SENSITIVITY: u32 = 8;
-pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_DELETE: u32 = 4;
-pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_READ: u32 = 1;
-pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_WRITE: u32 = 2;
+pub const ECP_OPEN_PARAMETERS_FLAG_FAIL_ON_CASE_SENSITIVE_DIR: i32 = 16;
+pub const ECP_OPEN_PARAMETERS_FLAG_IGNORE_DIR_CASE_SENSITIVITY: i32 = 8;
+pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_DELETE: i32 = 4;
+pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_READ: i32 = 1;
+pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_WRITE: i32 = 2;
 pub const ECP_TYPE_CLFS_CREATE_CONTAINER: windows_core::GUID = windows_core::GUID::from_u128(0x8650c9fe_0cec_8bf6_bd1e_835956541090);
 pub const ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x940e5d56_1646_4d3c_87b6_577ec36a1466);
 pub const ECP_TYPE_OPEN_REPARSE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x323eb6a8_affd_4d95_8230_863bce09d37a);
@@ -1390,12 +1390,12 @@ pub type FAST_IO_POSSIBLE = i32;
 pub struct FILE_ACCESS_INFORMATION {
     pub AccessFlags: super::ACCESS_MASK,
 }
-pub const FILE_ACTION_ADDED_STREAM: u32 = 6;
-pub const FILE_ACTION_ID_NOT_TUNNELLED: u32 = 10;
-pub const FILE_ACTION_MODIFIED_STREAM: u32 = 8;
-pub const FILE_ACTION_REMOVED_BY_DELETE: u32 = 9;
-pub const FILE_ACTION_REMOVED_STREAM: u32 = 7;
-pub const FILE_ACTION_TUNNELLED_ID_COLLISION: u32 = 11;
+pub const FILE_ACTION_ADDED_STREAM: i32 = 6;
+pub const FILE_ACTION_ID_NOT_TUNNELLED: i32 = 10;
+pub const FILE_ACTION_MODIFIED_STREAM: i32 = 8;
+pub const FILE_ACTION_REMOVED_BY_DELETE: i32 = 9;
+pub const FILE_ACTION_REMOVED_STREAM: i32 = 7;
+pub const FILE_ACTION_TUNNELLED_ID_COLLISION: i32 = 11;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ALLOCATION_INFORMATION {
@@ -1440,13 +1440,13 @@ impl Default for FILE_BOTH_DIR_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_CLEANUP_FILE_DELETED: u32 = 4;
-pub const FILE_CLEANUP_FILE_REMAINS: u32 = 2;
-pub const FILE_CLEANUP_LINK_DELETED: u32 = 8;
-pub const FILE_CLEANUP_POSIX_STYLE_DELETE: u32 = 32;
-pub const FILE_CLEANUP_STREAM_DELETED: u32 = 16;
-pub const FILE_CLEANUP_UNKNOWN: u32 = 0;
-pub const FILE_CLEANUP_WRONG_DEVICE: u32 = 1;
+pub const FILE_CLEANUP_FILE_DELETED: i32 = 4;
+pub const FILE_CLEANUP_FILE_REMAINS: i32 = 2;
+pub const FILE_CLEANUP_LINK_DELETED: i32 = 8;
+pub const FILE_CLEANUP_POSIX_STYLE_DELETE: i32 = 32;
+pub const FILE_CLEANUP_STREAM_DELETED: i32 = 16;
+pub const FILE_CLEANUP_UNKNOWN: i32 = 0;
+pub const FILE_CLEANUP_WRONG_DEVICE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1500,16 +1500,16 @@ impl Default for FILE_DIRECTORY_INFORMATION {
 pub struct FILE_EA_INFORMATION {
     pub EaSize: u32,
 }
-pub const FILE_EA_TYPE_ASCII: u32 = 65533;
-pub const FILE_EA_TYPE_ASN1: u32 = 65501;
-pub const FILE_EA_TYPE_BINARY: u32 = 65534;
-pub const FILE_EA_TYPE_BITMAP: u32 = 65531;
-pub const FILE_EA_TYPE_EA: u32 = 65518;
-pub const FILE_EA_TYPE_FAMILY_IDS: u32 = 65281;
-pub const FILE_EA_TYPE_ICON: u32 = 65529;
-pub const FILE_EA_TYPE_METAFILE: u32 = 65530;
-pub const FILE_EA_TYPE_MVMT: u32 = 65503;
-pub const FILE_EA_TYPE_MVST: u32 = 65502;
+pub const FILE_EA_TYPE_ASCII: i32 = 65533;
+pub const FILE_EA_TYPE_ASN1: i32 = 65501;
+pub const FILE_EA_TYPE_BINARY: i32 = 65534;
+pub const FILE_EA_TYPE_BITMAP: i32 = 65531;
+pub const FILE_EA_TYPE_EA: i32 = 65518;
+pub const FILE_EA_TYPE_FAMILY_IDS: i32 = 65281;
+pub const FILE_EA_TYPE_ICON: i32 = 65529;
+pub const FILE_EA_TYPE_METAFILE: i32 = 65530;
+pub const FILE_EA_TYPE_MVMT: i32 = 65503;
+pub const FILE_EA_TYPE_MVST: i32 = 65502;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION_EX {
@@ -1836,9 +1836,9 @@ impl Default for FILE_ID_GLOBAL_TX_DIR_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_OUTSIDE_TX: u32 = 4;
-pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX: u32 = 2;
-pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED: u32 = 1;
+pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_OUTSIDE_TX: i32 = 4;
+pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX: i32 = 2;
+pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1909,10 +1909,10 @@ impl Default for FILE_LINK_ENTRY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_LINK_FORCE_RESIZE_SOURCE_SR: u32 = 256;
-pub const FILE_LINK_FORCE_RESIZE_SR: u32 = 384;
-pub const FILE_LINK_FORCE_RESIZE_TARGET_SR: u32 = 128;
-pub const FILE_LINK_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
+pub const FILE_LINK_FORCE_RESIZE_SOURCE_SR: i32 = 256;
+pub const FILE_LINK_FORCE_RESIZE_SR: i32 = 384;
+pub const FILE_LINK_FORCE_RESIZE_TARGET_SR: i32 = 128;
+pub const FILE_LINK_IGNORE_READONLY_ATTRIBUTE: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -1941,12 +1941,12 @@ impl Default for FILE_LINK_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_LINK_NO_DECREASE_AVAILABLE_SPACE: u32 = 32;
-pub const FILE_LINK_NO_INCREASE_AVAILABLE_SPACE: u32 = 16;
-pub const FILE_LINK_POSIX_SEMANTICS: u32 = 2;
-pub const FILE_LINK_PRESERVE_AVAILABLE_SPACE: u32 = 48;
-pub const FILE_LINK_REPLACE_IF_EXISTS: u32 = 1;
-pub const FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8;
+pub const FILE_LINK_NO_DECREASE_AVAILABLE_SPACE: i32 = 32;
+pub const FILE_LINK_NO_INCREASE_AVAILABLE_SPACE: i32 = 16;
+pub const FILE_LINK_POSIX_SEMANTICS: i32 = 2;
+pub const FILE_LINK_PRESERVE_AVAILABLE_SPACE: i32 = 48;
+pub const FILE_LINK_REPLACE_IF_EXISTS: i32 = 1;
+pub const FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug)]
@@ -2032,7 +2032,7 @@ impl Default for FILE_NAMES_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_NEED_EA: u32 = 128;
+pub const FILE_NEED_EA: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
@@ -2044,12 +2044,12 @@ impl Default for FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_NOTIFY_CHANGE_EA: u32 = 128;
-pub const FILE_NOTIFY_CHANGE_NAME: u32 = 3;
-pub const FILE_NOTIFY_CHANGE_STREAM_NAME: u32 = 512;
-pub const FILE_NOTIFY_CHANGE_STREAM_SIZE: u32 = 1024;
-pub const FILE_NOTIFY_CHANGE_STREAM_WRITE: u32 = 2048;
-pub const FILE_NOTIFY_VALID_MASK: u32 = 4095;
+pub const FILE_NOTIFY_CHANGE_EA: i32 = 128;
+pub const FILE_NOTIFY_CHANGE_NAME: i32 = 3;
+pub const FILE_NOTIFY_CHANGE_STREAM_NAME: i32 = 512;
+pub const FILE_NOTIFY_CHANGE_STREAM_SIZE: i32 = 1024;
+pub const FILE_NOTIFY_CHANGE_STREAM_WRITE: i32 = 2048;
+pub const FILE_NOTIFY_VALID_MASK: i32 = 4095;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_OBJECTID_INFORMATION {
@@ -2085,10 +2085,10 @@ impl Default for FILE_OBJECTID_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_OPBATCH_BREAK_UNDERWAY: u32 = 9;
-pub const FILE_OPLOCK_BROKEN_TO_LEVEL_2: u32 = 7;
-pub const FILE_OPLOCK_BROKEN_TO_NONE: u32 = 8;
-pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0;
+pub const FILE_OPBATCH_BREAK_UNDERWAY: i32 = 9;
+pub const FILE_OPLOCK_BROKEN_TO_LEVEL_2: i32 = 7;
+pub const FILE_OPLOCK_BROKEN_TO_NONE: i32 = 8;
+pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2096,9 +2096,9 @@ pub struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
     pub EventHandle: super::HANDLE,
     pub KeyValue: u32,
 }
-pub const FILE_PIPE_BYTE_STREAM_MODE: u32 = 0;
-pub const FILE_PIPE_BYTE_STREAM_TYPE: u32 = 0;
-pub const FILE_PIPE_CLIENT_END: u32 = 0;
+pub const FILE_PIPE_BYTE_STREAM_MODE: i32 = 0;
+pub const FILE_PIPE_BYTE_STREAM_TYPE: i32 = 0;
+pub const FILE_PIPE_CLIENT_END: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
@@ -2134,10 +2134,10 @@ impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_PIPE_CLOSING_STATE: u32 = 4;
-pub const FILE_PIPE_COMPLETE_OPERATION: u32 = 1;
-pub const FILE_PIPE_COMPUTER_NAME_LENGTH: u32 = 15;
-pub const FILE_PIPE_CONNECTED_STATE: u32 = 3;
+pub const FILE_PIPE_CLOSING_STATE: i32 = 4;
+pub const FILE_PIPE_COMPLETE_OPERATION: i32 = 1;
+pub const FILE_PIPE_COMPUTER_NAME_LENGTH: i32 = 15;
+pub const FILE_PIPE_CONNECTED_STATE: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
@@ -2153,7 +2153,7 @@ pub struct FILE_PIPE_DELETE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
 }
-pub const FILE_PIPE_DISCONNECTED_STATE: u32 = 1;
+pub const FILE_PIPE_DISCONNECTED_STATE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_EVENT_BUFFER {
@@ -2163,15 +2163,15 @@ pub struct FILE_PIPE_EVENT_BUFFER {
     pub KeyValue: u32,
     pub NumberRequests: u32,
 }
-pub const FILE_PIPE_FULL_DUPLEX: u32 = 2;
-pub const FILE_PIPE_INBOUND: u32 = 0;
+pub const FILE_PIPE_FULL_DUPLEX: i32 = 2;
+pub const FILE_PIPE_INBOUND: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_INFORMATION {
     pub ReadMode: u32,
     pub CompletionMode: u32,
 }
-pub const FILE_PIPE_LISTENING_STATE: u32 = 2;
+pub const FILE_PIPE_LISTENING_STATE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_LOCAL_INFORMATION {
@@ -2186,9 +2186,9 @@ pub struct FILE_PIPE_LOCAL_INFORMATION {
     pub NamedPipeState: u32,
     pub NamedPipeEnd: u32,
 }
-pub const FILE_PIPE_MESSAGE_MODE: u32 = 1;
-pub const FILE_PIPE_MESSAGE_TYPE: u32 = 1;
-pub const FILE_PIPE_OUTBOUND: u32 = 1;
+pub const FILE_PIPE_MESSAGE_MODE: i32 = 1;
+pub const FILE_PIPE_MESSAGE_TYPE: i32 = 1;
+pub const FILE_PIPE_OUTBOUND: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_PEEK_BUFFER {
@@ -2203,26 +2203,26 @@ impl Default for FILE_PIPE_PEEK_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_PIPE_QUEUE_OPERATION: u32 = 0;
-pub const FILE_PIPE_READ_DATA: u32 = 0;
-pub const FILE_PIPE_REJECT_REMOTE_CLIENTS: u32 = 2;
+pub const FILE_PIPE_QUEUE_OPERATION: i32 = 0;
+pub const FILE_PIPE_READ_DATA: i32 = 0;
+pub const FILE_PIPE_REJECT_REMOTE_CLIENTS: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_REMOTE_INFORMATION {
     pub CollectDataTime: i64,
     pub MaximumCollectionCount: u32,
 }
-pub const FILE_PIPE_SERVER_END: u32 = 1;
+pub const FILE_PIPE_SERVER_END: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_SILO_ARRIVAL_INPUT {
     pub JobHandle: super::HANDLE,
 }
-pub const FILE_PIPE_SYMLINK_FLAG_GLOBAL: u32 = 1;
-pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: u32 = 2;
-pub const FILE_PIPE_SYMLINK_VALID_FLAGS: u32 = 3;
-pub const FILE_PIPE_TYPE_VALID_MASK: u32 = 3;
+pub const FILE_PIPE_SYMLINK_FLAG_GLOBAL: i32 = 1;
+pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: i32 = 2;
+pub const FILE_PIPE_SYMLINK_VALID_FLAGS: i32 = 3;
+pub const FILE_PIPE_TYPE_VALID_MASK: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_WAIT_FOR_BUFFER {
@@ -2236,7 +2236,7 @@ impl Default for FILE_PIPE_WAIT_FOR_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_PIPE_WRITE_SPACE: u32 = 1;
+pub const FILE_PIPE_WRITE_SPACE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2314,10 +2314,10 @@ impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_RENAME_FORCE_RESIZE_SOURCE_SR: u32 = 256;
-pub const FILE_RENAME_FORCE_RESIZE_SR: u32 = 384;
-pub const FILE_RENAME_FORCE_RESIZE_TARGET_SR: u32 = 128;
-pub const FILE_RENAME_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
+pub const FILE_RENAME_FORCE_RESIZE_SOURCE_SR: i32 = 256;
+pub const FILE_RENAME_FORCE_RESIZE_SR: i32 = 384;
+pub const FILE_RENAME_FORCE_RESIZE_TARGET_SR: i32 = 128;
+pub const FILE_RENAME_IGNORE_READONLY_ATTRIBUTE: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -2346,13 +2346,13 @@ impl Default for FILE_RENAME_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_RENAME_NO_DECREASE_AVAILABLE_SPACE: u32 = 32;
-pub const FILE_RENAME_NO_INCREASE_AVAILABLE_SPACE: u32 = 16;
-pub const FILE_RENAME_POSIX_SEMANTICS: u32 = 2;
-pub const FILE_RENAME_PRESERVE_AVAILABLE_SPACE: u32 = 48;
-pub const FILE_RENAME_REPLACE_IF_EXISTS: u32 = 1;
-pub const FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4;
-pub const FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8;
+pub const FILE_RENAME_NO_DECREASE_AVAILABLE_SPACE: i32 = 32;
+pub const FILE_RENAME_NO_INCREASE_AVAILABLE_SPACE: i32 = 16;
+pub const FILE_RENAME_POSIX_SEMANTICS: i32 = 2;
+pub const FILE_RENAME_PRESERVE_AVAILABLE_SPACE: i32 = 48;
+pub const FILE_RENAME_REPLACE_IF_EXISTS: i32 = 1;
+pub const FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: i32 = 4;
+pub const FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REPARSE_POINT_INFORMATION {
@@ -2415,18 +2415,18 @@ impl Default for FILE_TRACKING_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_VC_CONTENT_INDEX_DISABLED: u32 = 8;
-pub const FILE_VC_LOG_QUOTA_LIMIT: u32 = 32;
-pub const FILE_VC_LOG_QUOTA_THRESHOLD: u32 = 16;
-pub const FILE_VC_LOG_VOLUME_LIMIT: u32 = 128;
-pub const FILE_VC_LOG_VOLUME_THRESHOLD: u32 = 64;
-pub const FILE_VC_QUOTAS_INCOMPLETE: u32 = 256;
-pub const FILE_VC_QUOTAS_REBUILDING: u32 = 512;
-pub const FILE_VC_QUOTA_ENFORCE: u32 = 2;
-pub const FILE_VC_QUOTA_MASK: u32 = 3;
-pub const FILE_VC_QUOTA_NONE: u32 = 0;
-pub const FILE_VC_QUOTA_TRACK: u32 = 1;
-pub const FILE_VC_VALID_MASK: u32 = 1023;
+pub const FILE_VC_CONTENT_INDEX_DISABLED: i32 = 8;
+pub const FILE_VC_LOG_QUOTA_LIMIT: i32 = 32;
+pub const FILE_VC_LOG_QUOTA_THRESHOLD: i32 = 16;
+pub const FILE_VC_LOG_VOLUME_LIMIT: i32 = 128;
+pub const FILE_VC_LOG_VOLUME_THRESHOLD: i32 = 64;
+pub const FILE_VC_QUOTAS_INCOMPLETE: i32 = 256;
+pub const FILE_VC_QUOTAS_REBUILDING: i32 = 512;
+pub const FILE_VC_QUOTA_ENFORCE: i32 = 2;
+pub const FILE_VC_QUOTA_MASK: i32 = 3;
+pub const FILE_VC_QUOTA_NONE: i32 = 0;
+pub const FILE_VC_QUOTA_TRACK: i32 = 1;
+pub const FILE_VC_VALID_MASK: i32 = 1023;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_VOLUME_NAME_INFORMATION {
@@ -2438,11 +2438,11 @@ impl Default for FILE_VOLUME_NAME_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FLAGS_DELAY_REASONS_BITMAP_SCANNED: u32 = 2;
-pub const FLAGS_DELAY_REASONS_LOG_FILE_FULL: u32 = 1;
-pub const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: u32 = 1;
-pub const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: u32 = 2;
-pub const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: u32 = 4;
+pub const FLAGS_DELAY_REASONS_BITMAP_SCANNED: i32 = 2;
+pub const FLAGS_DELAY_REASONS_LOG_FILE_FULL: i32 = 1;
+pub const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: i32 = 1;
+pub const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: i32 = 2;
+pub const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: i32 = 4;
 #[cfg(feature = "winnt")]
 pub type FREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, freetype: u32) -> windows_core::NTSTATUS>;
 #[repr(C)]
@@ -2459,35 +2459,35 @@ impl Default for FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FSCTL_LMR_GET_LINK_TRACKING_INFORMATION: u32 = 1310952;
-pub const FSCTL_LMR_SET_LINK_TRACKING_INFORMATION: u32 = 1310956;
-pub const FSCTL_MAILSLOT_PEEK: u32 = 802819;
-pub const FSCTL_PIPE_ASSIGN_EVENT: u32 = 1114112;
-pub const FSCTL_PIPE_CREATE_SYMLINK: u32 = 1114188;
-pub const FSCTL_PIPE_DELETE_SYMLINK: u32 = 1114192;
-pub const FSCTL_PIPE_DISABLE_IMPERSONATE: u32 = 1114180;
-pub const FSCTL_PIPE_DISCONNECT: u32 = 1114116;
-pub const FSCTL_PIPE_FLUSH: u32 = 1146944;
-pub const FSCTL_PIPE_GET_CONNECTION_ATTRIBUTE: u32 = 1114160;
-pub const FSCTL_PIPE_GET_HANDLE_ATTRIBUTE: u32 = 1114168;
-pub const FSCTL_PIPE_GET_PIPE_ATTRIBUTE: u32 = 1114152;
-pub const FSCTL_PIPE_IMPERSONATE: u32 = 1114140;
-pub const FSCTL_PIPE_INTERNAL_READ: u32 = 1138676;
-pub const FSCTL_PIPE_INTERNAL_READ_OVFLOW: u32 = 1138688;
-pub const FSCTL_PIPE_INTERNAL_TRANSCEIVE: u32 = 1171455;
-pub const FSCTL_PIPE_INTERNAL_WRITE: u32 = 1155064;
-pub const FSCTL_PIPE_LISTEN: u32 = 1114120;
-pub const FSCTL_PIPE_PEEK: u32 = 1130508;
-pub const FSCTL_PIPE_QUERY_CLIENT_PROCESS: u32 = 1114148;
-pub const FSCTL_PIPE_QUERY_CLIENT_PROCESS_V2: u32 = 1114196;
-pub const FSCTL_PIPE_QUERY_EVENT: u32 = 1114128;
-pub const FSCTL_PIPE_SET_CLIENT_PROCESS: u32 = 1114144;
-pub const FSCTL_PIPE_SET_CONNECTION_ATTRIBUTE: u32 = 1114164;
-pub const FSCTL_PIPE_SET_HANDLE_ATTRIBUTE: u32 = 1114172;
-pub const FSCTL_PIPE_SET_PIPE_ATTRIBUTE: u32 = 1114156;
-pub const FSCTL_PIPE_SILO_ARRIVAL: u32 = 1146952;
-pub const FSCTL_PIPE_TRANSCEIVE: u32 = 1163287;
-pub const FSCTL_PIPE_WAIT: u32 = 1114136;
+pub const FSCTL_LMR_GET_LINK_TRACKING_INFORMATION: i32 = 1310952;
+pub const FSCTL_LMR_SET_LINK_TRACKING_INFORMATION: i32 = 1310956;
+pub const FSCTL_MAILSLOT_PEEK: i32 = 802819;
+pub const FSCTL_PIPE_ASSIGN_EVENT: i32 = 1114112;
+pub const FSCTL_PIPE_CREATE_SYMLINK: i32 = 1114188;
+pub const FSCTL_PIPE_DELETE_SYMLINK: i32 = 1114192;
+pub const FSCTL_PIPE_DISABLE_IMPERSONATE: i32 = 1114180;
+pub const FSCTL_PIPE_DISCONNECT: i32 = 1114116;
+pub const FSCTL_PIPE_FLUSH: i32 = 1146944;
+pub const FSCTL_PIPE_GET_CONNECTION_ATTRIBUTE: i32 = 1114160;
+pub const FSCTL_PIPE_GET_HANDLE_ATTRIBUTE: i32 = 1114168;
+pub const FSCTL_PIPE_GET_PIPE_ATTRIBUTE: i32 = 1114152;
+pub const FSCTL_PIPE_IMPERSONATE: i32 = 1114140;
+pub const FSCTL_PIPE_INTERNAL_READ: i32 = 1138676;
+pub const FSCTL_PIPE_INTERNAL_READ_OVFLOW: i32 = 1138688;
+pub const FSCTL_PIPE_INTERNAL_TRANSCEIVE: i32 = 1171455;
+pub const FSCTL_PIPE_INTERNAL_WRITE: i32 = 1155064;
+pub const FSCTL_PIPE_LISTEN: i32 = 1114120;
+pub const FSCTL_PIPE_PEEK: i32 = 1130508;
+pub const FSCTL_PIPE_QUERY_CLIENT_PROCESS: i32 = 1114148;
+pub const FSCTL_PIPE_QUERY_CLIENT_PROCESS_V2: i32 = 1114196;
+pub const FSCTL_PIPE_QUERY_EVENT: i32 = 1114128;
+pub const FSCTL_PIPE_SET_CLIENT_PROCESS: i32 = 1114144;
+pub const FSCTL_PIPE_SET_CONNECTION_ATTRIBUTE: i32 = 1114164;
+pub const FSCTL_PIPE_SET_HANDLE_ATTRIBUTE: i32 = 1114172;
+pub const FSCTL_PIPE_SET_PIPE_ATTRIBUTE: i32 = 1114156;
+pub const FSCTL_PIPE_SILO_ARRIVAL: i32 = 1146952;
+pub const FSCTL_PIPE_TRANSCEIVE: i32 = 1163287;
+pub const FSCTL_PIPE_WAIT: i32 = 1114136;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
@@ -2521,8 +2521,8 @@ pub struct FSCTL_UNMAP_SPACE_INPUT_BUFFER {
 pub struct FSCTL_UNMAP_SPACE_OUTPUT {
     pub BytesUnmapped: i64,
 }
-pub const FSRTL_ADD_TC_CASE_SENSITIVE: u32 = 1;
-pub const FSRTL_ADD_TC_KEY_BY_SHORT_NAME: u32 = 2;
+pub const FSRTL_ADD_TC_CASE_SENSITIVE: i32 = 1;
+pub const FSRTL_ADD_TC_KEY_BY_SHORT_NAME: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -2559,12 +2559,12 @@ impl Default for FSRTL_ADVANCED_FCB_HEADER_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FSRTL_ALLOCATE_ECPLIST_FLAGS(pub u32);
-pub const FSRTL_ALLOCATE_ECPLIST_FLAG_CHARGE_QUOTA: u32 = 1;
+pub const FSRTL_ALLOCATE_ECPLIST_FLAG_CHARGE_QUOTA: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FSRTL_ALLOCATE_ECP_FLAGS(pub u32);
-pub const FSRTL_ALLOCATE_ECP_FLAG_CHARGE_QUOTA: u32 = 1;
-pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: u32 = 2;
+pub const FSRTL_ALLOCATE_ECP_FLAG_CHARGE_QUOTA: i32 = 1;
+pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: i32 = 2;
 pub const FSRTL_ASYNC_CACHED_READ_TOP_LEVEL_IRP: isize = 7;
 #[repr(C)]
 #[cfg(feature = "usb")]
@@ -2581,10 +2581,10 @@ impl Default for FSRTL_AUXILIARY_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FSRTL_AUXILIARY_FLAG_DEALLOCATE: u32 = 1;
+pub const FSRTL_AUXILIARY_FLAG_DEALLOCATE: i32 = 1;
 pub const FSRTL_CACHE_TOP_LEVEL_IRP: isize = 2;
-pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_HARD_ERROR: u32 = 1;
-pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY: u32 = 2;
+pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_HARD_ERROR: i32 = 1;
+pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY: i32 = 2;
 pub type FSRTL_CHANGE_BACKING_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
@@ -2618,36 +2618,36 @@ impl FSRTL_COMMON_FCB_HEADER {
     }
 }
 pub type FSRTL_COMPARISON_RESULT = i32;
-pub const FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE: u32 = 1;
+pub const FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FSRTL_ECP_LOOKASIDE_FLAGS(pub u32);
-pub const FSRTL_ECP_LOOKASIDE_FLAG_NONPAGED_POOL: u32 = 2;
+pub const FSRTL_ECP_LOOKASIDE_FLAG_NONPAGED_POOL: i32 = 2;
 pub const FSRTL_FAST_IO_TOP_LEVEL_IRP: isize = 4;
-pub const FSRTL_FAT_LEGAL: u32 = 1;
-pub const FSRTL_FCB_HEADER_V0: u32 = 0;
-pub const FSRTL_FCB_HEADER_V1: u32 = 1;
-pub const FSRTL_FCB_HEADER_V2: u32 = 2;
-pub const FSRTL_FCB_HEADER_V3: u32 = 3;
-pub const FSRTL_FCB_HEADER_V4: u32 = 4;
-pub const FSRTL_FCB_HEADER_V5: u32 = 5;
-pub const FSRTL_FIND_TC_CASE_SENSITIVE: u32 = 1;
-pub const FSRTL_FLAG2_BYPASSIO_STREAM_PAUSED: u32 = 32;
-pub const FSRTL_FLAG2_DO_MODIFIED_WRITE: u32 = 1;
-pub const FSRTL_FLAG2_IS_PAGING_FILE: u32 = 8;
-pub const FSRTL_FLAG2_PURGE_WHEN_MAPPED: u32 = 4;
-pub const FSRTL_FLAG2_SUPPORTS_FILTER_CONTEXTS: u32 = 2;
-pub const FSRTL_FLAG2_WRITABLE_USER_MAPPED_FILE: u32 = 16;
-pub const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_EX: u32 = 8;
-pub const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_SH: u32 = 16;
-pub const FSRTL_FLAG_ADVANCED_HEADER: u32 = 64;
-pub const FSRTL_FLAG_EOF_ADVANCE_ACTIVE: u32 = 128;
-pub const FSRTL_FLAG_FILE_LENGTH_CHANGED: u32 = 2;
-pub const FSRTL_FLAG_FILE_MODIFIED: u32 = 1;
-pub const FSRTL_FLAG_LIMIT_MODIFIED_PAGES: u32 = 4;
-pub const FSRTL_FLAG_USER_MAPPED_FILE: u32 = 32;
+pub const FSRTL_FAT_LEGAL: i32 = 1;
+pub const FSRTL_FCB_HEADER_V0: i32 = 0;
+pub const FSRTL_FCB_HEADER_V1: i32 = 1;
+pub const FSRTL_FCB_HEADER_V2: i32 = 2;
+pub const FSRTL_FCB_HEADER_V3: i32 = 3;
+pub const FSRTL_FCB_HEADER_V4: i32 = 4;
+pub const FSRTL_FCB_HEADER_V5: i32 = 5;
+pub const FSRTL_FIND_TC_CASE_SENSITIVE: i32 = 1;
+pub const FSRTL_FLAG2_BYPASSIO_STREAM_PAUSED: i32 = 32;
+pub const FSRTL_FLAG2_DO_MODIFIED_WRITE: i32 = 1;
+pub const FSRTL_FLAG2_IS_PAGING_FILE: i32 = 8;
+pub const FSRTL_FLAG2_PURGE_WHEN_MAPPED: i32 = 4;
+pub const FSRTL_FLAG2_SUPPORTS_FILTER_CONTEXTS: i32 = 2;
+pub const FSRTL_FLAG2_WRITABLE_USER_MAPPED_FILE: i32 = 16;
+pub const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_EX: i32 = 8;
+pub const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_SH: i32 = 16;
+pub const FSRTL_FLAG_ADVANCED_HEADER: i32 = 64;
+pub const FSRTL_FLAG_EOF_ADVANCE_ACTIVE: i32 = 128;
+pub const FSRTL_FLAG_FILE_LENGTH_CHANGED: i32 = 2;
+pub const FSRTL_FLAG_FILE_MODIFIED: i32 = 1;
+pub const FSRTL_FLAG_LIMIT_MODIFIED_PAGES: i32 = 4;
+pub const FSRTL_FLAG_USER_MAPPED_FILE: i32 = 32;
 pub const FSRTL_FSP_TOP_LEVEL_IRP: isize = 1;
-pub const FSRTL_HPFS_LEGAL: u32 = 2;
+pub const FSRTL_HPFS_LEGAL: i32 = 2;
 pub const FSRTL_MAX_TOP_LEVEL_IRP_FLAG: isize = 65535;
 pub const FSRTL_MOD_WRITE_TOP_LEVEL_IRP: isize = 3;
 #[repr(C)]
@@ -2664,9 +2664,9 @@ pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
 }
 pub const FSRTL_NETWORK1_TOP_LEVEL_IRP: isize = 5;
 pub const FSRTL_NETWORK2_TOP_LEVEL_IRP: isize = 6;
-pub const FSRTL_NTFS_LEGAL: u32 = 4;
-pub const FSRTL_NTFS_STREAM_LEGAL: u32 = 20;
-pub const FSRTL_OLE_LEGAL: u32 = 16;
+pub const FSRTL_NTFS_LEGAL: i32 = 4;
+pub const FSRTL_NTFS_STREAM_LEGAL: i32 = 20;
+pub const FSRTL_OLE_LEGAL: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2714,16 +2714,16 @@ impl Default for FSRTL_PER_STREAM_CONTEXT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FSRTL_UNC_HARDENING_CAPABILITIES(pub u32);
-pub const FSRTL_UNC_HARDENING_CAPABILITIES_INTEGRITY: u32 = 2;
-pub const FSRTL_UNC_HARDENING_CAPABILITIES_MUTUAL_AUTH: u32 = 1;
-pub const FSRTL_UNC_HARDENING_CAPABILITIES_PRIVACY: u32 = 4;
+pub const FSRTL_UNC_HARDENING_CAPABILITIES_INTEGRITY: i32 = 2;
+pub const FSRTL_UNC_HARDENING_CAPABILITIES_MUTUAL_AUTH: i32 = 1;
+pub const FSRTL_UNC_HARDENING_CAPABILITIES_PRIVACY: i32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FSRTL_UNC_PROVIDER_FLAGS(pub u32);
-pub const FSRTL_UNC_PROVIDER_FLAGS_CONTAINER_AWARE: u32 = 8;
-pub const FSRTL_UNC_PROVIDER_FLAGS_CSC_ENABLED: u32 = 2;
-pub const FSRTL_UNC_PROVIDER_FLAGS_DOMAIN_SVC_AWARE: u32 = 4;
-pub const FSRTL_UNC_PROVIDER_FLAGS_MAILSLOTS_SUPPORTED: u32 = 1;
+pub const FSRTL_UNC_PROVIDER_FLAGS_CONTAINER_AWARE: i32 = 8;
+pub const FSRTL_UNC_PROVIDER_FLAGS_CSC_ENABLED: i32 = 2;
+pub const FSRTL_UNC_PROVIDER_FLAGS_DOMAIN_SVC_AWARE: i32 = 4;
+pub const FSRTL_UNC_PROVIDER_FLAGS_MAILSLOTS_SUPPORTED: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION {
@@ -2815,27 +2815,27 @@ impl FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
         self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
     }
 }
-pub const FSRTL_UNC_REGISTRATION_CURRENT_VERSION: u32 = 513;
-pub const FSRTL_UNC_REGISTRATION_VERSION_0200: u32 = 512;
-pub const FSRTL_UNC_REGISTRATION_VERSION_0201: u32 = 513;
-pub const FSRTL_VIRTDISK_FULLY_ALLOCATED: u32 = 1;
-pub const FSRTL_VIRTDISK_NO_DRIVE_LETTER: u32 = 2;
+pub const FSRTL_UNC_REGISTRATION_CURRENT_VERSION: i32 = 513;
+pub const FSRTL_UNC_REGISTRATION_VERSION_0200: i32 = 512;
+pub const FSRTL_UNC_REGISTRATION_VERSION_0201: i32 = 513;
+pub const FSRTL_VIRTDISK_FULLY_ALLOCATED: i32 = 1;
+pub const FSRTL_VIRTDISK_NO_DRIVE_LETTER: i32 = 2;
 pub const FSRTL_VOLSNAP_TOP_LEVEL_IRP: isize = 8;
-pub const FSRTL_VOLUME_BACKGROUND_FORMAT: u32 = 14;
-pub const FSRTL_VOLUME_CHANGE_SIZE: u32 = 13;
-pub const FSRTL_VOLUME_DISMOUNT: u32 = 1;
-pub const FSRTL_VOLUME_DISMOUNT_FAILED: u32 = 2;
-pub const FSRTL_VOLUME_FORCED_CLOSED: u32 = 10;
-pub const FSRTL_VOLUME_INFO_MAKE_COMPAT: u32 = 11;
-pub const FSRTL_VOLUME_LOCK: u32 = 3;
-pub const FSRTL_VOLUME_LOCK_FAILED: u32 = 4;
-pub const FSRTL_VOLUME_MOUNT: u32 = 6;
-pub const FSRTL_VOLUME_NEEDS_CHKDSK: u32 = 7;
-pub const FSRTL_VOLUME_PREPARING_EJECT: u32 = 12;
-pub const FSRTL_VOLUME_UNLOCK: u32 = 5;
-pub const FSRTL_VOLUME_WEARING_OUT: u32 = 9;
-pub const FSRTL_VOLUME_WORM_NEAR_FULL: u32 = 8;
-pub const FSRTL_WILD_CHARACTER: u32 = 8;
+pub const FSRTL_VOLUME_BACKGROUND_FORMAT: i32 = 14;
+pub const FSRTL_VOLUME_CHANGE_SIZE: i32 = 13;
+pub const FSRTL_VOLUME_DISMOUNT: i32 = 1;
+pub const FSRTL_VOLUME_DISMOUNT_FAILED: i32 = 2;
+pub const FSRTL_VOLUME_FORCED_CLOSED: i32 = 10;
+pub const FSRTL_VOLUME_INFO_MAKE_COMPAT: i32 = 11;
+pub const FSRTL_VOLUME_LOCK: i32 = 3;
+pub const FSRTL_VOLUME_LOCK_FAILED: i32 = 4;
+pub const FSRTL_VOLUME_MOUNT: i32 = 6;
+pub const FSRTL_VOLUME_NEEDS_CHKDSK: i32 = 7;
+pub const FSRTL_VOLUME_PREPARING_EJECT: i32 = 12;
+pub const FSRTL_VOLUME_UNLOCK: i32 = 5;
+pub const FSRTL_VOLUME_WEARING_OUT: i32 = 9;
+pub const FSRTL_VOLUME_WORM_NEAR_FULL: i32 = 8;
+pub const FSRTL_WILD_CHARACTER: i32 = 8;
 pub const FS_FILTER_ACQUIRE_FOR_CC_FLUSH: u8 = 251;
 pub const FS_FILTER_ACQUIRE_FOR_MOD_WRITE: u8 = 253;
 pub const FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u8 = 255;
@@ -2958,9 +2958,9 @@ pub const FS_FILTER_QUERY_OPEN: u8 = 249;
 pub const FS_FILTER_RELEASE_FOR_CC_FLUSH: u8 = 250;
 pub const FS_FILTER_RELEASE_FOR_MOD_WRITE: u8 = 252;
 pub const FS_FILTER_RELEASE_FOR_SECTION_SYNCHRONIZATION: u8 = 254;
-pub const FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: u32 = 8;
-pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS: u32 = 1;
-pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE: u32 = 2;
+pub const FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: i32 = 8;
+pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS: i32 = 1;
+pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_SECTION_SYNC_OUTPUT {
@@ -2969,24 +2969,24 @@ pub struct FS_FILTER_SECTION_SYNC_OUTPUT {
     pub Flags: u32,
     pub DesiredReadAlignment: u32,
 }
-pub const FS_FILTER_SECTION_SYNC_SUPPORTS_ASYNC_PARALLEL_IO: u32 = 1;
-pub const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_DATA: u32 = 2;
-pub const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_IMAGE: u32 = 4;
+pub const FS_FILTER_SECTION_SYNC_SUPPORTS_ASYNC_PARALLEL_IO: i32 = 1;
+pub const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_DATA: i32 = 2;
+pub const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_IMAGE: i32 = 4;
 pub type FS_FILTER_SECTION_SYNC_TYPE = i32;
 pub type FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = i32;
 pub const FastIoIsNotPossible: FAST_IO_POSSIBLE = 0;
 pub const FastIoIsPossible: FAST_IO_POSSIBLE = 1;
 pub const FastIoIsQuestionable: FAST_IO_POSSIBLE = 2;
-pub const GCR_ALLOW_LM: u32 = 4096;
-pub const GCR_ALLOW_NO_TARGET: u32 = 8192;
-pub const GCR_ALLOW_NTLM: u32 = 256;
-pub const GCR_MACHINE_CREDENTIAL: u32 = 1024;
-pub const GCR_NTLM3_PARMS: u32 = 32;
-pub const GCR_TARGET_INFO: u32 = 64;
-pub const GCR_USE_OEM_SET: u32 = 512;
-pub const GCR_USE_OWF_PASSWORD: u32 = 2048;
-pub const GCR_VSM_PROTECTED_PASSWORD: u32 = 16384;
-pub const GENERATE_CLIENT_CHALLENGE: u32 = 16;
+pub const GCR_ALLOW_LM: i32 = 4096;
+pub const GCR_ALLOW_NO_TARGET: i32 = 8192;
+pub const GCR_ALLOW_NTLM: i32 = 256;
+pub const GCR_MACHINE_CREDENTIAL: i32 = 1024;
+pub const GCR_NTLM3_PARMS: i32 = 32;
+pub const GCR_TARGET_INFO: i32 = 64;
+pub const GCR_USE_OEM_SET: i32 = 512;
+pub const GCR_USE_OWF_PASSWORD: i32 = 2048;
+pub const GCR_VSM_PROTECTED_PASSWORD: i32 = 16384;
+pub const GENERATE_CLIENT_CHALLENGE: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GENERATE_NAME_CONTEXT {
@@ -3039,31 +3039,31 @@ pub const GUID_ECP_RKF_BYPASS: windows_core::GUID = windows_core::GUID::from_u12
 pub const GUID_ECP_SRV_OPEN: windows_core::GUID = windows_core::GUID::from_u128(0xbebfaebc_aabf_489d_9d2c_e9e361102853);
 pub const GUID_ECP_TYPE_VETO_BINDING: windows_core::GUID = windows_core::GUID::from_u128(0x41778682_63fc_4956_86c5_2a4b79d251af);
 pub const GreaterThan: FSRTL_COMPARISON_RESULT = 1;
-pub const HEAP_CLASS_0: u32 = 0;
-pub const HEAP_CLASS_1: u32 = 4096;
-pub const HEAP_CLASS_2: u32 = 8192;
-pub const HEAP_CLASS_3: u32 = 12288;
-pub const HEAP_CLASS_4: u32 = 16384;
-pub const HEAP_CLASS_5: u32 = 20480;
-pub const HEAP_CLASS_6: u32 = 24576;
-pub const HEAP_CLASS_7: u32 = 28672;
-pub const HEAP_CLASS_8: u32 = 32768;
-pub const HEAP_CLASS_MASK: u32 = 61440;
-pub const HEAP_CREATE_VALID_MASK: u32 = 521215;
-pub const HEAP_GLOBAL_TAG: u32 = 2048;
+pub const HEAP_CLASS_0: i32 = 0;
+pub const HEAP_CLASS_1: i32 = 4096;
+pub const HEAP_CLASS_2: i32 = 8192;
+pub const HEAP_CLASS_3: i32 = 12288;
+pub const HEAP_CLASS_4: i32 = 16384;
+pub const HEAP_CLASS_5: i32 = 20480;
+pub const HEAP_CLASS_6: i32 = 24576;
+pub const HEAP_CLASS_7: i32 = 28672;
+pub const HEAP_CLASS_8: i32 = 32768;
+pub const HEAP_CLASS_MASK: i32 = 61440;
+pub const HEAP_CREATE_VALID_MASK: i32 = 521215;
+pub const HEAP_GLOBAL_TAG: i32 = 2048;
 pub type HEAP_MEMORY_INFO_CLASS = i32;
-pub const HEAP_SETTABLE_USER_FLAG1: u32 = 512;
-pub const HEAP_SETTABLE_USER_FLAG2: u32 = 1024;
-pub const HEAP_SETTABLE_USER_FLAG3: u32 = 2048;
-pub const HEAP_SETTABLE_USER_FLAGS: u32 = 3584;
-pub const HEAP_SETTABLE_USER_VALUE: u32 = 256;
-pub const HEAP_TAG_MASK: u32 = 1073479680;
+pub const HEAP_SETTABLE_USER_FLAG1: i32 = 512;
+pub const HEAP_SETTABLE_USER_FLAG2: i32 = 1024;
+pub const HEAP_SETTABLE_USER_FLAG3: i32 = 2048;
+pub const HEAP_SETTABLE_USER_FLAGS: i32 = 3584;
+pub const HEAP_SETTABLE_USER_VALUE: i32 = 256;
+pub const HEAP_TAG_MASK: i32 = 1073479680;
 pub const HeapMemoryBasicInformation: HEAP_MEMORY_INFO_CLASS = 0;
-pub const IOCTL_LMR_ARE_FILE_OBJECTS_ON_SAME_SERVER: u32 = 1310960;
-pub const IOCTL_REDIR_QUERY_PATH: u32 = 1311119;
-pub const IOCTL_REDIR_QUERY_PATH_EX: u32 = 1311123;
-pub const IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES: u32 = 5488640;
-pub const IO_CREATE_STREAM_FILE_LITE: u32 = 2;
+pub const IOCTL_LMR_ARE_FILE_OBJECTS_ON_SAME_SERVER: i32 = 1310960;
+pub const IOCTL_REDIR_QUERY_PATH: i32 = 1311119;
+pub const IOCTL_REDIR_QUERY_PATH_EX: i32 = 1311123;
+pub const IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES: i32 = 5488640;
+pub const IO_CREATE_STREAM_FILE_LITE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3072,7 +3072,7 @@ pub struct IO_CREATE_STREAM_FILE_OPTIONS {
     pub Flags: u16,
     pub TargetDeviceObject: super::PDEVICE_OBJECT,
 }
-pub const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: u32 = 1;
+pub const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3080,12 +3080,12 @@ pub struct IO_DEVICE_HINT_ECP_CONTEXT {
     pub TargetDevice: super::PDEVICE_OBJECT,
     pub RemainingName: super::UNICODE_STRING,
 }
-pub const IO_FILE_OBJECT_NON_PAGED_POOL_CHARGE: u32 = 64;
-pub const IO_FILE_OBJECT_PAGED_POOL_CHARGE: u32 = 1024;
-pub const IO_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
-pub const IO_MM_PAGING_FILE: u32 = 16;
-pub const IO_OPEN_PAGING_FILE: u32 = 2;
-pub const IO_OPEN_TARGET_DIRECTORY: u32 = 4;
+pub const IO_FILE_OBJECT_NON_PAGED_POOL_CHARGE: i32 = 64;
+pub const IO_FILE_OBJECT_PAGED_POOL_CHARGE: i32 = 1024;
+pub const IO_IGNORE_READONLY_ATTRIBUTE: i32 = 64;
+pub const IO_MM_PAGING_FILE: i32 = 16;
+pub const IO_OPEN_PAGING_FILE: i32 = 2;
+pub const IO_OPEN_TARGET_DIRECTORY: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "wdm")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3095,114 +3095,114 @@ pub struct IO_PRIORITY_INFO {
     pub PagePriority: u32,
     pub IoPriority: super::IO_PRIORITY_HINT,
 }
-pub const IO_REPARSE_TAG_ACRONIS_HSM_0: u32 = 96;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_1: u32 = 97;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_2: u32 = 98;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_3: u32 = 99;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_4: u32 = 100;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_5: u32 = 101;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_6: u32 = 102;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_7: u32 = 103;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_8: u32 = 104;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_9: u32 = 105;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_A: u32 = 106;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_B: u32 = 107;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_C: u32 = 108;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_D: u32 = 109;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_E: u32 = 110;
-pub const IO_REPARSE_TAG_ACRONIS_HSM_F: u32 = 111;
-pub const IO_REPARSE_TAG_ACTIVISION_HSM: u32 = 71;
-pub const IO_REPARSE_TAG_ADA_HSM: u32 = 38;
-pub const IO_REPARSE_TAG_ADOBE_HSM: u32 = 69;
-pub const IO_REPARSE_TAG_ALERTBOOT: u32 = 536870988;
-pub const IO_REPARSE_TAG_ALTIRIS_HSM: u32 = 25;
-pub const IO_REPARSE_TAG_AMZN_APPSTREAM: u32 = 89;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_0: i32 = 96;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_1: i32 = 97;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_2: i32 = 98;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_3: i32 = 99;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_4: i32 = 100;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_5: i32 = 101;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_6: i32 = 102;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_7: i32 = 103;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_8: i32 = 104;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_9: i32 = 105;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_A: i32 = 106;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_B: i32 = 107;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_C: i32 = 108;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_D: i32 = 109;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_E: i32 = 110;
+pub const IO_REPARSE_TAG_ACRONIS_HSM_F: i32 = 111;
+pub const IO_REPARSE_TAG_ACTIVISION_HSM: i32 = 71;
+pub const IO_REPARSE_TAG_ADA_HSM: i32 = 38;
+pub const IO_REPARSE_TAG_ADOBE_HSM: i32 = 69;
+pub const IO_REPARSE_TAG_ALERTBOOT: i32 = 536870988;
+pub const IO_REPARSE_TAG_ALTIRIS_HSM: i32 = 25;
+pub const IO_REPARSE_TAG_AMZN_APPSTREAM: i32 = 89;
 pub const IO_REPARSE_TAG_APPXSTRM: u32 = 3221225492;
-pub const IO_REPARSE_TAG_ARCO_BACKUP: u32 = 59;
-pub const IO_REPARSE_TAG_ARKIVIO: u32 = 12;
-pub const IO_REPARSE_TAG_AURISTOR_FS: u32 = 73;
-pub const IO_REPARSE_TAG_AUTN_HSM: u32 = 39;
-pub const IO_REPARSE_TAG_BRIDGEHEAD_HSM: u32 = 22;
-pub const IO_REPARSE_TAG_C2CSYSTEMS_HSM: u32 = 49;
-pub const IO_REPARSE_TAG_CARINGO_HSM: u32 = 52;
-pub const IO_REPARSE_TAG_CARROLL_HSM: u32 = 60;
-pub const IO_REPARSE_TAG_CITRIX_PM: u32 = 54;
-pub const IO_REPARSE_TAG_COMMVAULT: u32 = 14;
-pub const IO_REPARSE_TAG_COMMVAULT_HSM: u32 = 29;
-pub const IO_REPARSE_TAG_COMTRADE_HSM: u32 = 61;
-pub const IO_REPARSE_TAG_CTERA_HSM: u32 = 78;
-pub const IO_REPARSE_TAG_DATAFIRST_HSM: u32 = 48;
-pub const IO_REPARSE_TAG_DATAGLOBAL_HSM: u32 = 46;
-pub const IO_REPARSE_TAG_DATASTOR_SIS: u32 = 30;
+pub const IO_REPARSE_TAG_ARCO_BACKUP: i32 = 59;
+pub const IO_REPARSE_TAG_ARKIVIO: i32 = 12;
+pub const IO_REPARSE_TAG_AURISTOR_FS: i32 = 73;
+pub const IO_REPARSE_TAG_AUTN_HSM: i32 = 39;
+pub const IO_REPARSE_TAG_BRIDGEHEAD_HSM: i32 = 22;
+pub const IO_REPARSE_TAG_C2CSYSTEMS_HSM: i32 = 49;
+pub const IO_REPARSE_TAG_CARINGO_HSM: i32 = 52;
+pub const IO_REPARSE_TAG_CARROLL_HSM: i32 = 60;
+pub const IO_REPARSE_TAG_CITRIX_PM: i32 = 54;
+pub const IO_REPARSE_TAG_COMMVAULT: i32 = 14;
+pub const IO_REPARSE_TAG_COMMVAULT_HSM: i32 = 29;
+pub const IO_REPARSE_TAG_COMTRADE_HSM: i32 = 61;
+pub const IO_REPARSE_TAG_CTERA_HSM: i32 = 78;
+pub const IO_REPARSE_TAG_DATAFIRST_HSM: i32 = 48;
+pub const IO_REPARSE_TAG_DATAGLOBAL_HSM: i32 = 46;
+pub const IO_REPARSE_TAG_DATASTOR_SIS: i32 = 30;
 pub const IO_REPARSE_TAG_DFM: u32 = 2147483670;
-pub const IO_REPARSE_TAG_DOR_HSM: u32 = 82;
-pub const IO_REPARSE_TAG_DOUBLE_TAKE_HSM: u32 = 34;
-pub const IO_REPARSE_TAG_DOUBLE_TAKE_SIS: u32 = 41;
+pub const IO_REPARSE_TAG_DOR_HSM: i32 = 82;
+pub const IO_REPARSE_TAG_DOUBLE_TAKE_HSM: i32 = 34;
+pub const IO_REPARSE_TAG_DOUBLE_TAKE_SIS: i32 = 41;
 pub const IO_REPARSE_TAG_DRIVE_EXTENDER: u32 = 2147483653;
-pub const IO_REPARSE_TAG_DROPBOX_HSM: u32 = 68;
-pub const IO_REPARSE_TAG_EASEFILTER_HSM: u32 = 87;
-pub const IO_REPARSE_TAG_EASEVAULT_HSM: u32 = 62;
-pub const IO_REPARSE_TAG_EDSI_HSM: u32 = 31;
-pub const IO_REPARSE_TAG_ELTAN_HSM: u32 = 43;
-pub const IO_REPARSE_TAG_EMC_HSM: u32 = 57;
-pub const IO_REPARSE_TAG_ENIGMA_HSM: u32 = 17;
+pub const IO_REPARSE_TAG_DROPBOX_HSM: i32 = 68;
+pub const IO_REPARSE_TAG_EASEFILTER_HSM: i32 = 87;
+pub const IO_REPARSE_TAG_EASEVAULT_HSM: i32 = 62;
+pub const IO_REPARSE_TAG_EDSI_HSM: i32 = 31;
+pub const IO_REPARSE_TAG_ELTAN_HSM: i32 = 43;
+pub const IO_REPARSE_TAG_EMC_HSM: i32 = 57;
+pub const IO_REPARSE_TAG_ENIGMA_HSM: i32 = 17;
 pub const IO_REPARSE_TAG_FILTER_MANAGER: u32 = 2147483659;
-pub const IO_REPARSE_TAG_GLOBAL360_HSM: u32 = 24;
-pub const IO_REPARSE_TAG_GOOGLE_HSM: u32 = 65;
-pub const IO_REPARSE_TAG_GRAU_DATASTORAGE_HSM: u32 = 28;
-pub const IO_REPARSE_TAG_HDS_HCP_HSM: u32 = 72;
-pub const IO_REPARSE_TAG_HDS_HSM: u32 = 63;
-pub const IO_REPARSE_TAG_HERMES_HSM: u32 = 26;
-pub const IO_REPARSE_TAG_HP_BACKUP: u32 = 67;
-pub const IO_REPARSE_TAG_HP_DATA_PROTECT: u32 = 70;
-pub const IO_REPARSE_TAG_HP_HSM: u32 = 32;
-pub const IO_REPARSE_TAG_HSAG_HSM: u32 = 37;
-pub const IO_REPARSE_TAG_HUBSTOR_HSM: u32 = 85;
-pub const IO_REPARSE_TAG_IFSTEST_CONGRUENT: u32 = 9;
+pub const IO_REPARSE_TAG_GLOBAL360_HSM: i32 = 24;
+pub const IO_REPARSE_TAG_GOOGLE_HSM: i32 = 65;
+pub const IO_REPARSE_TAG_GRAU_DATASTORAGE_HSM: i32 = 28;
+pub const IO_REPARSE_TAG_HDS_HCP_HSM: i32 = 72;
+pub const IO_REPARSE_TAG_HDS_HSM: i32 = 63;
+pub const IO_REPARSE_TAG_HERMES_HSM: i32 = 26;
+pub const IO_REPARSE_TAG_HP_BACKUP: i32 = 67;
+pub const IO_REPARSE_TAG_HP_DATA_PROTECT: i32 = 70;
+pub const IO_REPARSE_TAG_HP_HSM: i32 = 32;
+pub const IO_REPARSE_TAG_HSAG_HSM: i32 = 37;
+pub const IO_REPARSE_TAG_HUBSTOR_HSM: i32 = 85;
+pub const IO_REPARSE_TAG_IFSTEST_CONGRUENT: i32 = 9;
 pub const IO_REPARSE_TAG_IIS_CACHE: u32 = 2684354576;
-pub const IO_REPARSE_TAG_IMANAGE_HSM: u32 = 536870998;
-pub const IO_REPARSE_TAG_INTERCOPE_HSM: u32 = 19;
-pub const IO_REPARSE_TAG_ITSTATION: u32 = 74;
-pub const IO_REPARSE_TAG_KOM_NETWORKS_HSM: u32 = 20;
+pub const IO_REPARSE_TAG_IMANAGE_HSM: i32 = 536870998;
+pub const IO_REPARSE_TAG_INTERCOPE_HSM: i32 = 19;
+pub const IO_REPARSE_TAG_ITSTATION: i32 = 74;
+pub const IO_REPARSE_TAG_KOM_NETWORKS_HSM: i32 = 20;
 pub const IO_REPARSE_TAG_LX_BLK: u32 = 2147483686;
 pub const IO_REPARSE_TAG_LX_CHR: u32 = 2147483685;
 pub const IO_REPARSE_TAG_LX_FIFO: u32 = 2147483684;
 pub const IO_REPARSE_TAG_LX_SYMLINK: u32 = 2684354589;
-pub const IO_REPARSE_TAG_MAGINATICS_RDR: u32 = 64;
-pub const IO_REPARSE_TAG_MAXISCALE_HSM: u32 = 536870965;
-pub const IO_REPARSE_TAG_MEMORY_TECH_HSM: u32 = 21;
-pub const IO_REPARSE_TAG_MIMOSA_HSM: u32 = 36;
-pub const IO_REPARSE_TAG_MOONWALK_HSM: u32 = 10;
-pub const IO_REPARSE_TAG_MTALOS: u32 = 77;
-pub const IO_REPARSE_TAG_NEUSHIELD: u32 = 81;
-pub const IO_REPARSE_TAG_NEXSAN_HSM: u32 = 40;
-pub const IO_REPARSE_TAG_NIPPON_HSM: u32 = 79;
-pub const IO_REPARSE_TAG_NVIDIA_UNIONFS: u32 = 536870996;
-pub const IO_REPARSE_TAG_OPENAFS_DFS: u32 = 55;
-pub const IO_REPARSE_TAG_OSR_SAMPLE: u32 = 536870935;
-pub const IO_REPARSE_TAG_OVERTONE: u32 = 15;
-pub const IO_REPARSE_TAG_PEER_GFS: u32 = 88;
-pub const IO_REPARSE_TAG_POINTSOFT_HSM: u32 = 27;
-pub const IO_REPARSE_TAG_QI_TECH_HSM: u32 = 536870959;
-pub const IO_REPARSE_TAG_QUADDRA_HSM: u32 = 66;
-pub const IO_REPARSE_TAG_QUEST_HSM: u32 = 45;
-pub const IO_REPARSE_TAG_REDSTOR_HSM: u32 = 80;
-pub const IO_REPARSE_TAG_RIVERBED_HSM: u32 = 51;
-pub const IO_REPARSE_TAG_SER_HSM: u32 = 33;
-pub const IO_REPARSE_TAG_SHX_BACKUP: u32 = 83;
-pub const IO_REPARSE_TAG_SOLUTIONSOFT: u32 = 536870925;
-pub const IO_REPARSE_TAG_SONY_HSM: u32 = 42;
-pub const IO_REPARSE_TAG_SPHARSOFT: u32 = 75;
-pub const IO_REPARSE_TAG_SYMANTEC_HSM: u32 = 18;
-pub const IO_REPARSE_TAG_SYMANTEC_HSM2: u32 = 16;
-pub const IO_REPARSE_TAG_TSINGHUA_UNIVERSITY_RESEARCH: u32 = 11;
-pub const IO_REPARSE_TAG_UTIXO_HSM: u32 = 44;
+pub const IO_REPARSE_TAG_MAGINATICS_RDR: i32 = 64;
+pub const IO_REPARSE_TAG_MAXISCALE_HSM: i32 = 536870965;
+pub const IO_REPARSE_TAG_MEMORY_TECH_HSM: i32 = 21;
+pub const IO_REPARSE_TAG_MIMOSA_HSM: i32 = 36;
+pub const IO_REPARSE_TAG_MOONWALK_HSM: i32 = 10;
+pub const IO_REPARSE_TAG_MTALOS: i32 = 77;
+pub const IO_REPARSE_TAG_NEUSHIELD: i32 = 81;
+pub const IO_REPARSE_TAG_NEXSAN_HSM: i32 = 40;
+pub const IO_REPARSE_TAG_NIPPON_HSM: i32 = 79;
+pub const IO_REPARSE_TAG_NVIDIA_UNIONFS: i32 = 536870996;
+pub const IO_REPARSE_TAG_OPENAFS_DFS: i32 = 55;
+pub const IO_REPARSE_TAG_OSR_SAMPLE: i32 = 536870935;
+pub const IO_REPARSE_TAG_OVERTONE: i32 = 15;
+pub const IO_REPARSE_TAG_PEER_GFS: i32 = 88;
+pub const IO_REPARSE_TAG_POINTSOFT_HSM: i32 = 27;
+pub const IO_REPARSE_TAG_QI_TECH_HSM: i32 = 536870959;
+pub const IO_REPARSE_TAG_QUADDRA_HSM: i32 = 66;
+pub const IO_REPARSE_TAG_QUEST_HSM: i32 = 45;
+pub const IO_REPARSE_TAG_REDSTOR_HSM: i32 = 80;
+pub const IO_REPARSE_TAG_RIVERBED_HSM: i32 = 51;
+pub const IO_REPARSE_TAG_SER_HSM: i32 = 33;
+pub const IO_REPARSE_TAG_SHX_BACKUP: i32 = 83;
+pub const IO_REPARSE_TAG_SOLUTIONSOFT: i32 = 536870925;
+pub const IO_REPARSE_TAG_SONY_HSM: i32 = 42;
+pub const IO_REPARSE_TAG_SPHARSOFT: i32 = 75;
+pub const IO_REPARSE_TAG_SYMANTEC_HSM: i32 = 18;
+pub const IO_REPARSE_TAG_SYMANTEC_HSM2: i32 = 16;
+pub const IO_REPARSE_TAG_TSINGHUA_UNIVERSITY_RESEARCH: i32 = 11;
+pub const IO_REPARSE_TAG_UTIXO_HSM: i32 = 44;
 pub const IO_REPARSE_TAG_VALID_VALUES: u32 = 4026597375;
-pub const IO_REPARSE_TAG_VMWARE_PM: u32 = 58;
-pub const IO_REPARSE_TAG_WATERFORD: u32 = 50;
-pub const IO_REPARSE_TAG_WISDATA_HSM: u32 = 35;
-pub const IO_REPARSE_TAG_ZLTI_HSM: u32 = 56;
-pub const IO_STOP_ON_SYMLINK: u32 = 8;
+pub const IO_REPARSE_TAG_VMWARE_PM: i32 = 58;
+pub const IO_REPARSE_TAG_WATERFORD: i32 = 50;
+pub const IO_REPARSE_TAG_WISDATA_HSM: i32 = 35;
+pub const IO_REPARSE_TAG_ZLTI_HSM: i32 = 56;
+pub const IO_STOP_ON_SYMLINK: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
@@ -3384,18 +3384,18 @@ pub const LX_FILE_METADATA_GID_EA_NAME: windows_core::PCSTR = windows_core::s!("
 pub const LX_FILE_METADATA_MODE_EA_NAME: windows_core::PCSTR = windows_core::s!("$LXMOD");
 pub const LX_FILE_METADATA_UID_EA_NAME: windows_core::PCSTR = windows_core::s!("$LXUID");
 pub const LessThan: FSRTL_COMPARISON_RESULT = -1;
-pub const MAP_DISABLE_PAGEFAULT_CLUSTERING: u32 = 256;
-pub const MAP_HIGH_PRIORITY: u32 = 64;
-pub const MAP_NO_READ: u32 = 16;
-pub const MAP_WAIT: u32 = 1;
-pub const MAX_UNICODE_STACK_BUFFER_LENGTH: u32 = 256;
+pub const MAP_DISABLE_PAGEFAULT_CLUSTERING: i32 = 256;
+pub const MAP_HIGH_PRIORITY: i32 = 64;
+pub const MAP_NO_READ: i32 = 16;
+pub const MAP_WAIT: i32 = 1;
+pub const MAX_UNICODE_STACK_BUFFER_LENGTH: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCB {
     pub DummyFieldThatSizesThisStructureCorrectly: LARGE_MCB,
 }
-pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: u32 = 1;
+pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: i32 = 1;
 pub type MEMORY_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -3409,12 +3409,12 @@ impl Default for MEMORY_RANGE_ENTRY {
     }
 }
 pub type MMFLUSH_TYPE = i32;
-pub const MM_FORCE_CLOSED_DATA: u32 = 1;
-pub const MM_FORCE_CLOSED_IMAGE: u32 = 2;
-pub const MM_FORCE_CLOSED_LATER_OK: u32 = 4;
-pub const MM_IS_FILE_SECTION_ACTIVE_DATA: u32 = 2;
-pub const MM_IS_FILE_SECTION_ACTIVE_IMAGE: u32 = 1;
-pub const MM_IS_FILE_SECTION_ACTIVE_USER: u32 = 4;
+pub const MM_FORCE_CLOSED_DATA: i32 = 1;
+pub const MM_FORCE_CLOSED_IMAGE: i32 = 2;
+pub const MM_FORCE_CLOSED_LATER_OK: i32 = 4;
+pub const MM_IS_FILE_SECTION_ACTIVE_DATA: i32 = 2;
+pub const MM_IS_FILE_SECTION_ACTIVE_IMAGE: i32 = 1;
+pub const MM_IS_FILE_SECTION_ACTIVE_USER: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MM_PREFETCH_FLAGS {
@@ -3463,7 +3463,7 @@ impl MM_PREFETCH_FLAGS_0 {
         self._bitfield = (self._bitfield & !(8388607 << 9)) | ((value & 8388607) << 9);
     }
 }
-pub const MM_PREFETCH_FLAGS_MASK: u32 = 127;
+pub const MM_PREFETCH_FLAGS_MASK: i32 = 127;
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3660,13 +3660,13 @@ pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
 }
-pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_COLLAPSING: u32 = 1;
-pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_DURABILITY: u32 = 2;
-pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_OPLOCKS: u32 = 4;
+pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_COLLAPSING: i32 = 1;
+pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_DURABILITY: i32 = 2;
+pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_OPLOCKS: i32 = 4;
 pub const NETWORK_OPEN_ECP_IN_FLAG_FORCE_BUFFERED_SYNCHRONOUS_IO_HACK: u32 = 2147483648;
-pub const NETWORK_OPEN_ECP_IN_FLAG_FORCE_MAX_EOF_HACK: u32 = 1073741824;
-pub const NETWORK_OPEN_ECP_IN_FLAG_REQ_MUTUAL_AUTH: u32 = 8;
-pub const NETWORK_OPEN_ECP_OUT_FLAG_RET_MUTUAL_AUTH: u32 = 8;
+pub const NETWORK_OPEN_ECP_IN_FLAG_FORCE_MAX_EOF_HACK: i32 = 1073741824;
+pub const NETWORK_OPEN_ECP_IN_FLAG_REQ_MUTUAL_AUTH: i32 = 8;
+pub const NETWORK_OPEN_ECP_OUT_FLAG_RET_MUTUAL_AUTH: i32 = 8;
 pub type NETWORK_OPEN_INTEGRITY_QUALIFIER = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -3682,7 +3682,7 @@ pub struct NFS_OPEN_ECP_CONTEXT {
     pub ExportAlias: super::PUNICODE_STRING,
     pub ClientSocketAddress: PSOCKADDR_STORAGE_NFS,
 }
-pub const NO_8DOT3_NAME_PRESENT: u32 = 1;
+pub const NO_8DOT3_NAME_PRESENT: i32 = 1;
 pub const NetworkOpenIntegrityAny: NETWORK_OPEN_INTEGRITY_QUALIFIER = 0;
 pub const NetworkOpenIntegrityEncrypted: NETWORK_OPEN_INTEGRITY_QUALIFIER = 3;
 pub const NetworkOpenIntegrityMaximum: NETWORK_OPEN_INTEGRITY_QUALIFIER = 4;
@@ -3711,21 +3711,21 @@ pub struct OPEN_REPARSE_LIST_ENTRY {
     pub Size: u16,
     pub RemainingLength: u16,
 }
-pub const OPEN_REPARSE_POINT_OVERRIDE_CREATE_OPTION: u32 = 64;
-pub const OPEN_REPARSE_POINT_REPARSE_ALWAYS: u32 = 126;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_CHILD_EXISTS: u32 = 2;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_CHILD_NOT_EXISTS: u32 = 4;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_DIRECTORY_FINAL_COMPONENT: u32 = 8;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_DIRECTORY_FINAL_COMPONENT_ALWAYS: u32 = 72;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_FINAL_COMPONENT: u32 = 40;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_FINAL_COMPONENT_ALWAYS: u32 = 104;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_FINAL_COMPONENT: u32 = 32;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_FINAL_COMPONENT_ALWAYS: u32 = 96;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_NON_FINAL_COMPONENT: u32 = 16;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_NON_FINAL_COMPONENT_ALWAYS: u32 = 80;
-pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_FINAL_COMPONENT: u32 = 22;
-pub const OPEN_REPARSE_POINT_RETURN_REPARSE_DATA_BUFFER: u32 = 128;
-pub const OPEN_REPARSE_POINT_TAG_ENCOUNTERED: u32 = 1;
+pub const OPEN_REPARSE_POINT_OVERRIDE_CREATE_OPTION: i32 = 64;
+pub const OPEN_REPARSE_POINT_REPARSE_ALWAYS: i32 = 126;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_CHILD_EXISTS: i32 = 2;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_CHILD_NOT_EXISTS: i32 = 4;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_DIRECTORY_FINAL_COMPONENT: i32 = 8;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_DIRECTORY_FINAL_COMPONENT_ALWAYS: i32 = 72;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_FINAL_COMPONENT: i32 = 40;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_FINAL_COMPONENT_ALWAYS: i32 = 104;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_FINAL_COMPONENT: i32 = 32;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_FINAL_COMPONENT_ALWAYS: i32 = 96;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_NON_FINAL_COMPONENT: i32 = 16;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_NON_FINAL_COMPONENT_ALWAYS: i32 = 80;
+pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_FINAL_COMPONENT: i32 = 22;
+pub const OPEN_REPARSE_POINT_RETURN_REPARSE_DATA_BUFFER: i32 = 128;
+pub const OPEN_REPARSE_POINT_TAG_ENCOUNTERED: i32 = 1;
 pub const OPEN_REPARSE_POINT_VERSION_EX: u32 = 2147483648;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -3735,16 +3735,16 @@ impl Default for OPLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const OPLOCK_FLAG_BACK_OUT_ATOMIC_OPLOCK: u32 = 4;
-pub const OPLOCK_FLAG_BREAKING_FOR_SHARING_VIOLATION: u32 = 128;
-pub const OPLOCK_FLAG_CLOSING_DELETE_ON_CLOSE: u32 = 32;
-pub const OPLOCK_FLAG_COMPLETE_IF_OPLOCKED: u32 = 1;
-pub const OPLOCK_FLAG_IGNORE_OPLOCK_KEYS: u32 = 8;
-pub const OPLOCK_FLAG_OPLOCK_KEY_CHECK_ONLY: u32 = 2;
-pub const OPLOCK_FLAG_PARENT_OBJECT: u32 = 16;
-pub const OPLOCK_FLAG_REMOVING_FILE_OR_LINK: u32 = 64;
-pub const OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH: u32 = 1;
-pub const OPLOCK_FS_FILTER_FLAGS_MASK: u32 = 8;
+pub const OPLOCK_FLAG_BACK_OUT_ATOMIC_OPLOCK: i32 = 4;
+pub const OPLOCK_FLAG_BREAKING_FOR_SHARING_VIOLATION: i32 = 128;
+pub const OPLOCK_FLAG_CLOSING_DELETE_ON_CLOSE: i32 = 32;
+pub const OPLOCK_FLAG_COMPLETE_IF_OPLOCKED: i32 = 1;
+pub const OPLOCK_FLAG_IGNORE_OPLOCK_KEYS: i32 = 8;
+pub const OPLOCK_FLAG_OPLOCK_KEY_CHECK_ONLY: i32 = 2;
+pub const OPLOCK_FLAG_PARENT_OBJECT: i32 = 16;
+pub const OPLOCK_FLAG_REMOVING_FILE_OR_LINK: i32 = 64;
+pub const OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH: i32 = 1;
+pub const OPLOCK_FS_FILTER_FLAGS_MASK: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPLOCK_KEY_ECP_CONTEXT {
@@ -3769,8 +3769,8 @@ impl Default for OPLOCK_NOTIFY_PARAMS {
     }
 }
 pub type OPLOCK_NOTIFY_REASON = i32;
-pub const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: u32 = 65536;
-pub const OPLOCK_UPPER_FLAG_NOTIFY_REFRESH_READ: u32 = 131072;
+pub const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: i32 = 65536;
+pub const OPLOCK_UPPER_FLAG_NOTIFY_REFRESH_READ: i32 = 131072;
 pub type PACQUIRE_FOR_LAZY_WRITE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, wait: bool) -> bool>;
 pub type PACQUIRE_FOR_LAZY_WRITE_EX = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, inflags: u32, outflags: *mut u32) -> bool>;
 pub type PACQUIRE_FOR_READ_AHEAD = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, wait: bool) -> bool>;
@@ -4003,13 +4003,13 @@ pub struct PHYSICAL_MEMORY_RUN {
     pub BasePage: super::PFN_NUMBER,
     pub PageCount: super::PFN_NUMBER,
 }
-pub const PIN_CALLER_TRACKS_DIRTY_DATA: u32 = 32;
-pub const PIN_EXCLUSIVE: u32 = 2;
-pub const PIN_HIGH_PRIORITY: u32 = 64;
-pub const PIN_IF_BCB: u32 = 8;
-pub const PIN_NO_READ: u32 = 4;
-pub const PIN_VERIFY_REQUIRED: u32 = 128;
-pub const PIN_WAIT: u32 = 1;
+pub const PIN_CALLER_TRACKS_DIRTY_DATA: i32 = 32;
+pub const PIN_EXCLUSIVE: i32 = 2;
+pub const PIN_HIGH_PRIORITY: i32 = 64;
+pub const PIN_IF_BCB: i32 = 8;
+pub const PIN_NO_READ: i32 = 4;
+pub const PIN_VERIFY_REQUIRED: i32 = 128;
+pub const PIN_WAIT: i32 = 1;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PIO_CREATE_STREAM_FILE_OPTIONS = *mut IO_CREATE_STREAM_FILE_OPTIONS;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -4225,8 +4225,8 @@ pub type PSE_EXPORTS = *mut SE_EXPORTS;
 pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE = *mut SE_LOGON_SESSION_TERMINATED_ROUTINE;
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = *mut SE_LOGON_SESSION_TERMINATED_ROUTINE_EX;
-pub const PSMP_MAXIMUM_SYSAPP_CLAIM_VALUES: u32 = 4;
-pub const PSMP_MINIMUM_SYSAPP_CLAIM_VALUES: u32 = 2;
+pub const PSMP_MAXIMUM_SYSAPP_CLAIM_VALUES: i32 = 4;
+pub const PSMP_MINIMUM_SYSAPP_CLAIM_VALUES: i32 = 2;
 pub type PSOCKADDR_STORAGE_NFS = *mut sockaddr_storage;
 pub type PSOV_RANGE_CHECK_DATA = *mut SOV_RANGE_CHECK_DATA;
 pub type PSRV_INSTANCE_TYPE = *mut SRV_INSTANCE_TYPE;
@@ -4249,12 +4249,12 @@ pub type PUNICODE_PREFIX_TABLE = *mut UNICODE_PREFIX_TABLE;
 pub type PUNICODE_PREFIX_TABLE_ENTRY = *mut UNICODE_PREFIX_TABLE_ENTRY;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PUNLOCK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, filelockinfo: *const FILE_LOCK_INFO)>;
-pub const PURGE_WITH_ACTIVE_VIEWS: u32 = 8;
+pub const PURGE_WITH_ACTIVE_VIEWS: i32 = 8;
 pub type PVBN = *mut VBN;
 pub type PVCN_RANGE_INPUT_BUFFER = *mut VCN_RANGE_INPUT_BUFFER;
 pub type PVETO_BINDING_ECP_CONTEXT = *mut VETO_BINDING_ECP_CONTEXT;
 pub type PVOLUME_REFS_INFO_BUFFER = *mut VOLUME_REFS_INFO_BUFFER;
-pub const QUERY_DIRECT_ACCESS_DATA_EXTENTS: u32 = 2;
+pub const QUERY_DIRECT_ACCESS_DATA_EXTENTS: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_DIRECT_ACCESS_EXTENTS {
@@ -4263,7 +4263,7 @@ pub struct QUERY_DIRECT_ACCESS_EXTENTS {
     pub Flags: u32,
     pub Reserved: u32,
 }
-pub const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: u32 = 1;
+pub const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wdm")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4394,11 +4394,11 @@ pub struct QUERY_PATH_RESPONSE {
 }
 #[cfg(feature = "winnt")]
 pub type QUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *const core::ffi::c_void, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationlength: usize, returnlength: *mut usize) -> windows_core::NTSTATUS>;
-pub const QoCFileEaInformation: u32 = 4;
-pub const QoCFileLxInformation: u32 = 2;
-pub const QoCFileSecurityInformation: u32 = 16;
-pub const QoCFileStatInformation: u32 = 1;
-pub const QoCFileUsnInformation: u32 = 8;
+pub const QoCFileEaInformation: i32 = 4;
+pub const QoCFileLxInformation: i32 = 2;
+pub const QoCFileSecurityInformation: i32 = 16;
+pub const QoCFileStatInformation: i32 = 1;
+pub const QoCFileUsnInformation: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4481,7 +4481,7 @@ pub struct REFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER {
     pub CustomPayloadLength: u32,
     pub CustomPayloadOffset: u32,
 }
-pub const REFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER_VERSION: u32 = 1;
+pub const REFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER_VERSION: i32 = 1;
 pub type REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS = i32;
 pub const REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS_RUNNING: REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS = 1;
 pub const REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS_STOPPED: REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS = 2;
@@ -4510,7 +4510,7 @@ impl Default for REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER_VERSION: u32 = 1;
+pub const REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
@@ -4557,7 +4557,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_VERSION: u32 = 1;
+pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER {
@@ -4609,7 +4609,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_VERSION: u32 = 1;
+pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_VERSION: i32 = 1;
 pub type REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = i32;
 pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE_METRICS_DATA: REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = 2;
 pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE_PARAMETERS: REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = 1;
@@ -4624,7 +4624,7 @@ pub struct REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER {
     pub Version: u32,
     pub TotalSharedLcns: u64,
 }
-pub const REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER_VERSION: u32 = 1;
+pub const REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_REMOVE_HARDLINK_BACKPOINTER {
@@ -4646,8 +4646,8 @@ pub struct REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER {
     pub CustomPayloadOffset: u32,
     pub EnableRollbackProtection: bool,
 }
-pub const REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER_VERSION: u32 = 2;
-pub const REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER_VERSION_V1: u32 = 1;
+pub const REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER_VERSION: i32 = 2;
+pub const REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER_VERSION_V1: i32 = 1;
 pub type REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = i32;
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_DISABLE_COMPRESSION: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 16;
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_ENABLE_COMPRESSION: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 8;
@@ -4673,7 +4673,7 @@ impl Default for REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER_VERSION: u32 = 1;
+pub const REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
@@ -4688,7 +4688,7 @@ impl Default for REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_VERSION: u32 = 1;
+pub const REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_STREAM_EXTENT {
@@ -4794,8 +4794,8 @@ pub struct REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER {
     pub SetWeakRefInconsistentState: bool,
     pub SetWeakRefInconsistent: bool,
 }
-pub const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION: u32 = 2;
-pub const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION_V1: u32 = 1;
+pub const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION: i32 = 2;
+pub const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION_V1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
@@ -4809,8 +4809,8 @@ pub struct REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
     pub VolumeGuid: windows_core::GUID,
     pub VolumeUniqueGuid: windows_core::GUID,
 }
-pub const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION: u32 = 2;
-pub const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION_V1: u32 = 1;
+pub const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION: i32 = 2;
+pub const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION_V1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REMOTE_LINK_TRACKING_INFORMATION {
@@ -4823,13 +4823,13 @@ impl Default for REMOTE_LINK_TRACKING_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REMOTE_PROTOCOL_FLAG_INTEGRITY: u32 = 16;
-pub const REMOTE_PROTOCOL_FLAG_LOOPBACK: u32 = 1;
-pub const REMOTE_PROTOCOL_FLAG_MUTUAL_AUTH: u32 = 32;
-pub const REMOTE_PROTOCOL_FLAG_OFFLINE: u32 = 2;
-pub const REMOTE_PROTOCOL_FLAG_PERSISTENT_HANDLE: u32 = 4;
-pub const REMOTE_PROTOCOL_FLAG_PRIVACY: u32 = 8;
-pub const REMOVED_8DOT3_NAME: u32 = 2;
+pub const REMOTE_PROTOCOL_FLAG_INTEGRITY: i32 = 16;
+pub const REMOTE_PROTOCOL_FLAG_LOOPBACK: i32 = 1;
+pub const REMOTE_PROTOCOL_FLAG_MUTUAL_AUTH: i32 = 32;
+pub const REMOTE_PROTOCOL_FLAG_OFFLINE: i32 = 2;
+pub const REMOTE_PROTOCOL_FLAG_PERSISTENT_HANDLE: i32 = 4;
+pub const REMOTE_PROTOCOL_FLAG_PRIVACY: i32 = 8;
+pub const REMOVED_8DOT3_NAME: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REPARSE_DATA_BUFFER {
@@ -4925,7 +4925,7 @@ impl Default for REPARSE_DATA_BUFFER_EX_0 {
 }
 pub const REPARSE_DATA_BUFFER_EX_HEADER_SIZE: u32 = 40;
 pub const REPARSE_DATA_BUFFER_HEADER_SIZE: u32 = 8;
-pub const REPARSE_DATA_EX_FLAG_GIVEN_TAG_OR_NONE: u32 = 1;
+pub const REPARSE_DATA_EX_FLAG_GIVEN_TAG_OR_NONE: i32 = 1;
 pub const REPARSE_GUID_DATA_BUFFER_EX_HEADER_SIZE: u32 = 56;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
@@ -4933,42 +4933,42 @@ pub struct REPARSE_INDEX_KEY {
     pub FileReparseTag: u32,
     pub FileId: i64,
 }
-pub const RETURN_NON_NT_USER_SESSION_KEY: u32 = 8;
-pub const RETURN_PRIMARY_LOGON_DOMAINNAME: u32 = 4;
-pub const RETURN_PRIMARY_USERNAME: u32 = 2;
-pub const RETURN_RESERVED_PARAMETER: u32 = 128;
+pub const RETURN_NON_NT_USER_SESSION_KEY: i32 = 8;
+pub const RETURN_PRIMARY_LOGON_DOMAINNAME: i32 = 4;
+pub const RETURN_PRIMARY_USERNAME: i32 = 2;
+pub const RETURN_RESERVED_PARAMETER: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RKF_BYPASS_ECP_CONTEXT {
     pub Reserved: i32,
     pub Version: i32,
 }
-pub const RPI_SMB2_SERVERCAP_DFS: u32 = 1;
-pub const RPI_SMB2_SERVERCAP_DIRECTORY_LEASING: u32 = 32;
-pub const RPI_SMB2_SERVERCAP_ENCRYPTION_AWARE: u32 = 64;
-pub const RPI_SMB2_SERVERCAP_LARGEMTU: u32 = 4;
-pub const RPI_SMB2_SERVERCAP_LEASING: u32 = 2;
-pub const RPI_SMB2_SERVERCAP_MULTICHANNEL: u32 = 8;
-pub const RPI_SMB2_SERVERCAP_NOTIFICATIONS_AWARE: u32 = 128;
-pub const RPI_SMB2_SERVERCAP_PERSISTENT_HANDLES: u32 = 16;
-pub const RPI_SMB2_SHARECAP_ACCESS_BASED_DIRECTORY_ENUM: u32 = 256;
-pub const RPI_SMB2_SHARECAP_ASYMMETRIC_SCALEOUT: u32 = 1024;
-pub const RPI_SMB2_SHARECAP_CLUSTER: u32 = 64;
-pub const RPI_SMB2_SHARECAP_CONTINUOUS_AVAILABILITY: u32 = 16;
-pub const RPI_SMB2_SHARECAP_DFS: u32 = 8;
-pub const RPI_SMB2_SHARECAP_ENCRYPTED: u32 = 128;
-pub const RPI_SMB2_SHARECAP_IDENTITY_REMOTING: u32 = 512;
-pub const RPI_SMB2_SHARECAP_SCALEOUT: u32 = 32;
-pub const RPI_SMB2_SHARECAP_TIMEWARP: u32 = 2;
-pub const RPI_SMB2_SHARETYPE_DISK: u32 = 0;
-pub const RPI_SMB2_SHARETYPE_PIPE: u32 = 1;
-pub const RPI_SMB2_SHARETYPE_PRINT: u32 = 2;
+pub const RPI_SMB2_SERVERCAP_DFS: i32 = 1;
+pub const RPI_SMB2_SERVERCAP_DIRECTORY_LEASING: i32 = 32;
+pub const RPI_SMB2_SERVERCAP_ENCRYPTION_AWARE: i32 = 64;
+pub const RPI_SMB2_SERVERCAP_LARGEMTU: i32 = 4;
+pub const RPI_SMB2_SERVERCAP_LEASING: i32 = 2;
+pub const RPI_SMB2_SERVERCAP_MULTICHANNEL: i32 = 8;
+pub const RPI_SMB2_SERVERCAP_NOTIFICATIONS_AWARE: i32 = 128;
+pub const RPI_SMB2_SERVERCAP_PERSISTENT_HANDLES: i32 = 16;
+pub const RPI_SMB2_SHARECAP_ACCESS_BASED_DIRECTORY_ENUM: i32 = 256;
+pub const RPI_SMB2_SHARECAP_ASYMMETRIC_SCALEOUT: i32 = 1024;
+pub const RPI_SMB2_SHARECAP_CLUSTER: i32 = 64;
+pub const RPI_SMB2_SHARECAP_CONTINUOUS_AVAILABILITY: i32 = 16;
+pub const RPI_SMB2_SHARECAP_DFS: i32 = 8;
+pub const RPI_SMB2_SHARECAP_ENCRYPTED: i32 = 128;
+pub const RPI_SMB2_SHARECAP_IDENTITY_REMOTING: i32 = 512;
+pub const RPI_SMB2_SHARECAP_SCALEOUT: i32 = 32;
+pub const RPI_SMB2_SHARECAP_TIMEWARP: i32 = 2;
+pub const RPI_SMB2_SHARETYPE_DISK: i32 = 0;
+pub const RPI_SMB2_SHARETYPE_PIPE: i32 = 1;
+pub const RPI_SMB2_SHARETYPE_PRINT: i32 = 2;
 pub type RTL_ALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn(numberofbytes: usize) -> *mut core::ffi::c_void>;
-pub const RTL_DUPLICATE_UNICODE_STRING_ALLOCATE_NULL_STRING: u32 = 2;
-pub const RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE: u32 = 1;
+pub const RTL_DUPLICATE_UNICODE_STRING_ALLOCATE_NULL_STRING: i32 = 2;
+pub const RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE: i32 = 1;
 pub type RTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void)>;
 pub type RTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> windows_core::NTSTATUS>;
-pub const RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: u32 = 1;
+pub const RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
@@ -5072,11 +5072,11 @@ pub struct SECURITY_CLIENT_CONTEXT {
     pub ServerIsRemote: bool,
     pub ClientTokenControl: super::TOKEN_CONTROL,
 }
-pub const SECURITY_DESCRIPTOR_DO_NOT_FREE: u32 = 67108864;
-pub const SEGMENT_HEAP_FLG_NO_LFH: u32 = 2;
-pub const SEGMENT_HEAP_FLG_USE_PAGE_HEAP: u32 = 1;
-pub const SEGMENT_HEAP_PARAMETERS_VERSION: u32 = 3;
-pub const SEGMENT_HEAP_PARAMS_VALID_FLAGS: u32 = 3;
+pub const SECURITY_DESCRIPTOR_DO_NOT_FREE: i32 = 67108864;
+pub const SEGMENT_HEAP_FLG_NO_LFH: i32 = 2;
+pub const SEGMENT_HEAP_FLG_USE_PAGE_HEAP: i32 = 1;
+pub const SEGMENT_HEAP_PARAMETERS_VERSION: i32 = 3;
+pub const SEGMENT_HEAP_PARAMS_VALID_FLAGS: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
@@ -5106,8 +5106,8 @@ impl Default for SE_AUDIT_INFO {
     }
 }
 pub type SE_AUDIT_OPERATION = i32;
-pub const SE_BACKUP_PRIVILEGES_CHECKED: u32 = 256;
-pub const SE_DACL_UNTRUSTED: u32 = 64;
+pub const SE_BACKUP_PRIVILEGES_CHECKED: i32 = 256;
+pub const SE_DACL_UNTRUSTED: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5192,7 +5192,7 @@ pub struct SE_EXPORTS {
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: *const super::LUID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: *const super::LUID, pserversilo: *const super::_EJOB, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub const SE_SERVER_SECURITY: u32 = 128;
+pub const SE_SERVER_SECURITY: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOV_RANGE_CHECK_DATA {
@@ -5207,7 +5207,7 @@ impl Default for SOV_RANGE_CHECK_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SPECIAL_ENCRYPTED_OPEN: u32 = 262144;
+pub const SPECIAL_ENCRYPTED_OPEN: i32 = 262144;
 pub type SRV_INSTANCE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
@@ -5221,18 +5221,18 @@ pub struct SRV_OPEN_ECP_CONTEXT {
     pub Version: u16,
     pub InstanceType: SRV_INSTANCE_TYPE,
 }
-pub const SRV_OPEN_ECP_CONTEXT_VERSION_2: u32 = 2;
-pub const SUPPORTED_FS_FEATURES_BYPASS_IO: u32 = 8;
-pub const SUPPORTED_FS_FEATURES_OFFLOAD_READ: u32 = 1;
-pub const SUPPORTED_FS_FEATURES_OFFLOAD_WRITE: u32 = 2;
-pub const SUPPORTED_FS_FEATURES_QUERY_OPEN: u32 = 4;
-pub const SUPPORTED_FS_FEATURES_VALID_MASK: u32 = 15;
+pub const SRV_OPEN_ECP_CONTEXT_VERSION_2: i32 = 2;
+pub const SUPPORTED_FS_FEATURES_BYPASS_IO: i32 = 8;
+pub const SUPPORTED_FS_FEATURES_OFFLOAD_READ: i32 = 1;
+pub const SUPPORTED_FS_FEATURES_OFFLOAD_WRITE: i32 = 2;
+pub const SUPPORTED_FS_FEATURES_QUERY_OPEN: i32 = 4;
+pub const SUPPORTED_FS_FEATURES_VALID_MASK: i32 = 15;
 pub const SYMLINK_DIRECTORY: u32 = 2147483648;
-pub const SYMLINK_FILE: u32 = 1073741824;
-pub const SYMLINK_FLAG_RELATIVE: u32 = 1;
+pub const SYMLINK_FILE: i32 = 1073741824;
+pub const SYMLINK_FLAG_RELATIVE: i32 = 1;
 pub const SYMLINK_RESERVED_MASK: u32 = 4026531840;
-pub const SYSTEM_PAGE_PRIORITY_BITS: u32 = 3;
-pub const SYSTEM_PAGE_PRIORITY_LEVELS: u32 = 8;
+pub const SYSTEM_PAGE_PRIORITY_BITS: i32 = 3;
+pub const SYSTEM_PAGE_PRIORITY_LEVELS: i32 = 8;
 pub const SrvInstanceTypeCsv: SRV_INSTANCE_TYPE = 2;
 pub const SrvInstanceTypePrimary: SRV_INSTANCE_TYPE = 1;
 pub const SrvInstanceTypeSBL: SRV_INSTANCE_TYPE = 3;
@@ -5247,33 +5247,33 @@ pub struct SspiAsyncContext(pub u8);
 pub type SspiAsyncNotifyCallback = Option<unsafe extern "system" fn(handle: *const SspiAsyncContext, callbackdata: *const core::ffi::c_void)>;
 pub const SyncTypeCreateSection: FS_FILTER_SECTION_SYNC_TYPE = 1;
 pub const SyncTypeOther: FS_FILTER_SECTION_SYNC_TYPE = 0;
-pub const TOKEN_AUDIT_NO_CHILD_PROCESS: u32 = 2097152;
-pub const TOKEN_AUDIT_REDIRECTION_TRUST: u32 = 8388608;
-pub const TOKEN_DO_NOT_USE_GLOBAL_ATTRIBS_FOR_QUERY: u32 = 131072;
-pub const TOKEN_ENFORCE_REDIRECTION_TRUST: u32 = 4194304;
-pub const TOKEN_HAS_BACKUP_PRIVILEGE: u32 = 2;
-pub const TOKEN_HAS_IMPERSONATE_PRIVILEGE: u32 = 128;
-pub const TOKEN_HAS_OWN_CLAIM_ATTRIBUTES: u32 = 32768;
-pub const TOKEN_HAS_RESTORE_PRIVILEGE: u32 = 4;
-pub const TOKEN_HAS_TRAVERSE_PRIVILEGE: u32 = 1;
-pub const TOKEN_INHERIT_SECURITY_FLAGS: u32 = 3670016;
-pub const TOKEN_IS_FILTERED: u32 = 2048;
-pub const TOKEN_IS_RESTRICTED: u32 = 16;
-pub const TOKEN_LEARNING_MODE_LOGGING: u32 = 16777216;
-pub const TOKEN_LOWBOX: u32 = 16384;
-pub const TOKEN_NOT_LOW: u32 = 8192;
-pub const TOKEN_NO_CHILD_PROCESS: u32 = 524288;
-pub const TOKEN_NO_CHILD_PROCESS_UNLESS_SECURE: u32 = 1048576;
-pub const TOKEN_PERMISSIVE_LEARNING_MODE: u32 = 50331648;
-pub const TOKEN_PRIVATE_NAMESPACE: u32 = 65536;
-pub const TOKEN_REF_SYSTEM_MANAGED_ADMIN_FULL_TOKEN: u32 = 268435456;
-pub const TOKEN_SANDBOX_INERT: u32 = 64;
-pub const TOKEN_SESSION_NOT_REFERENCED: u32 = 32;
-pub const TOKEN_SYSTEM_MANAGED_ADMIN_FULL_TOKEN: u32 = 134217728;
-pub const TOKEN_UIACCESS: u32 = 4096;
-pub const TOKEN_VIRTUALIZE_ALLOWED: u32 = 512;
-pub const TOKEN_VIRTUALIZE_ENABLED: u32 = 1024;
-pub const TOKEN_WRITE_RESTRICTED: u32 = 8;
+pub const TOKEN_AUDIT_NO_CHILD_PROCESS: i32 = 2097152;
+pub const TOKEN_AUDIT_REDIRECTION_TRUST: i32 = 8388608;
+pub const TOKEN_DO_NOT_USE_GLOBAL_ATTRIBS_FOR_QUERY: i32 = 131072;
+pub const TOKEN_ENFORCE_REDIRECTION_TRUST: i32 = 4194304;
+pub const TOKEN_HAS_BACKUP_PRIVILEGE: i32 = 2;
+pub const TOKEN_HAS_IMPERSONATE_PRIVILEGE: i32 = 128;
+pub const TOKEN_HAS_OWN_CLAIM_ATTRIBUTES: i32 = 32768;
+pub const TOKEN_HAS_RESTORE_PRIVILEGE: i32 = 4;
+pub const TOKEN_HAS_TRAVERSE_PRIVILEGE: i32 = 1;
+pub const TOKEN_INHERIT_SECURITY_FLAGS: i32 = 3670016;
+pub const TOKEN_IS_FILTERED: i32 = 2048;
+pub const TOKEN_IS_RESTRICTED: i32 = 16;
+pub const TOKEN_LEARNING_MODE_LOGGING: i32 = 16777216;
+pub const TOKEN_LOWBOX: i32 = 16384;
+pub const TOKEN_NOT_LOW: i32 = 8192;
+pub const TOKEN_NO_CHILD_PROCESS: i32 = 524288;
+pub const TOKEN_NO_CHILD_PROCESS_UNLESS_SECURE: i32 = 1048576;
+pub const TOKEN_PERMISSIVE_LEARNING_MODE: i32 = 50331648;
+pub const TOKEN_PRIVATE_NAMESPACE: i32 = 65536;
+pub const TOKEN_REF_SYSTEM_MANAGED_ADMIN_FULL_TOKEN: i32 = 268435456;
+pub const TOKEN_SANDBOX_INERT: i32 = 64;
+pub const TOKEN_SESSION_NOT_REFERENCED: i32 = 32;
+pub const TOKEN_SYSTEM_MANAGED_ADMIN_FULL_TOKEN: i32 = 134217728;
+pub const TOKEN_UIACCESS: i32 = 4096;
+pub const TOKEN_VIRTUALIZE_ALLOWED: i32 = 512;
+pub const TOKEN_VIRTUALIZE_ENABLED: i32 = 1024;
+pub const TOKEN_WRITE_RESTRICTED: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -5315,11 +5315,11 @@ impl Default for UNICODE_PREFIX_TABLE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const UNINITIALIZE_CACHE_MAPS: u32 = 1;
-pub const USE_PRIMARY_PASSWORD: u32 = 1;
-pub const VACB_MAPPING_GRANULARITY: u32 = 262144;
-pub const VACB_OFFSET_SHIFT: u32 = 18;
-pub const VALID_COPY_FILE_CHUNK_FLAGS: u32 = 1;
+pub const UNINITIALIZE_CACHE_MAPS: i32 = 1;
+pub const USE_PRIMARY_PASSWORD: i32 = 1;
+pub const VACB_MAPPING_GRANULARITY: i32 = 262144;
+pub const VACB_OFFSET_SHIFT: i32 = 18;
+pub const VALID_COPY_FILE_CHUNK_FLAGS: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct VBN(pub u32);
@@ -5335,7 +5335,7 @@ pub struct VETO_BINDING_ECP_CONTEXT {
     pub ShouldVetoBinding: bool,
 }
 pub type VIRTUAL_MEMORY_INFORMATION_CLASS = i32;
-pub const VOLSNAPCONTROLTYPE: u32 = 83;
+pub const VOLSNAPCONTROLTYPE: i32 = 83;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_REFS_INFO_BUFFER {
@@ -5436,10 +5436,10 @@ pub struct VOLUME_REFS_INFO_BUFFER {
     pub CheckpointLatencyTotalBase: i32,
 }
 pub const VmPrefetchInformation: VIRTUAL_MEMORY_INFORMATION_CLASS = 0;
-pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_LAYER: u32 = 1;
-pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER: u32 = 4;
-pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: u32 = 8;
-pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: u32 = 2;
+pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_LAYER: i32 = 1;
+pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER: i32 = 4;
+pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: i32 = 8;
+pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _REAL_NOTIFY_SYNC(pub u8);

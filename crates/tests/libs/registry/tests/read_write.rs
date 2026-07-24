@@ -19,7 +19,7 @@ fn read_write() {
 
     assert_eq!(
         key.get_u64("u64").unwrap_err().code(),
-        WIN32_ERROR(ERROR_ACCESS_DENIED).into()
+        WIN32_ERROR(ERROR_ACCESS_DENIED as u32).into()
     );
 
     let key = CURRENT_USER.options().read().open(test_key).unwrap();
@@ -28,6 +28,6 @@ fn read_write() {
 
     assert_eq!(
         key.set_u64("u64", 123u64).unwrap_err().code(),
-        WIN32_ERROR(ERROR_ACCESS_DENIED).into()
+        WIN32_ERROR(ERROR_ACCESS_DENIED as u32).into()
     );
 }

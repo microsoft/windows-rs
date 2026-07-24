@@ -73,7 +73,7 @@ pub struct QOS_FLOW_FUNDAMENTALS {
     pub RTTSet: windows_sys::core::BOOL,
     pub RTT: u32,
 }
-pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2;
+pub const QOS_NON_ADAPTIVE_FLOW: i32 = 2;
 pub type QOS_NOTIFY_FLOW = i32;
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295;
 #[repr(C)]
@@ -84,7 +84,7 @@ pub struct QOS_PACKET_PRIORITY {
     pub ConformantL2Value: u32,
     pub NonConformantL2Value: u32,
 }
-pub const QOS_QUERYFLOW_FRESH: u32 = 1;
+pub const QOS_QUERYFLOW_FRESH: i32 = 1;
 pub type QOS_QUERY_FLOW = i32;
 pub type QOS_SET_FLOW = i32;
 pub type QOS_SHAPING = i32;

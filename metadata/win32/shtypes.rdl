@@ -61,13 +61,13 @@ mod Windows {
             PERCEIVED_TYPE_LAST = 10,
         }
         type PERCEIVEDFLAG = u32;
-        const PERCEIVEDFLAG_GDIPLUS: u32 = 16;
-        const PERCEIVEDFLAG_HARDCODED: u32 = 2;
-        const PERCEIVEDFLAG_NATIVESUPPORT: u32 = 4;
-        const PERCEIVEDFLAG_SOFTCODED: u32 = 1;
-        const PERCEIVEDFLAG_UNDEFINED: u32 = 0;
-        const PERCEIVEDFLAG_WMSDK: u32 = 32;
-        const PERCEIVEDFLAG_ZIPFOLDER: u32 = 64;
+        const PERCEIVEDFLAG_GDIPLUS: i32 = 16;
+        const PERCEIVEDFLAG_HARDCODED: i32 = 2;
+        const PERCEIVEDFLAG_NATIVESUPPORT: i32 = 4;
+        const PERCEIVEDFLAG_SOFTCODED: i32 = 1;
+        const PERCEIVEDFLAG_UNDEFINED: i32 = 0;
+        const PERCEIVEDFLAG_WMSDK: i32 = 32;
+        const PERCEIVEDFLAG_ZIPFOLDER: i32 = 64;
         #[repr(i32)]
         enum SHCOLSTATE {
             SHCOLSTATE_DEFAULT = 0,

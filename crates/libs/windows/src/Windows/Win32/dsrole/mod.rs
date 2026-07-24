@@ -19,7 +19,7 @@ pub type DSROLE_OPERATION_STATE = i32;
 pub struct DSROLE_OPERATION_STATE_INFO {
     pub OperationState: DSROLE_OPERATION_STATE,
 }
-pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216;
+pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: i32 = 16777216;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
@@ -31,11 +31,11 @@ pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub DomainGuid: windows_core::GUID,
 }
 pub type DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = i32;
-pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2;
-pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8;
-pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1;
+pub const DSROLE_PRIMARY_DS_MIXED_MODE: i32 = 2;
+pub const DSROLE_PRIMARY_DS_READONLY: i32 = 8;
+pub const DSROLE_PRIMARY_DS_RUNNING: i32 = 1;
 pub type DSROLE_SERVER_STATE = i32;
-pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4;
+pub const DSROLE_UPGRADE_IN_PROGRESS: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {

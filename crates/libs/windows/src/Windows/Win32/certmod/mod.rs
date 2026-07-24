@@ -1,5 +1,5 @@
-pub const CMM_READONLY: u32 = 2;
-pub const CMM_REFRESHONLY: u32 = 1;
+pub const CMM_READONLY: i32 = 2;
+pub const CMM_REFRESHONLY: i32 = 1;
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertManageModule, ICertManageModule_Vtbl, 0xe7d7ad42_bd3d_11d1_9a4d_00c04fc297eb);
 #[cfg(feature = "oaidl")]

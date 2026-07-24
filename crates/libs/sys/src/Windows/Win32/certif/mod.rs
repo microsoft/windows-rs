@@ -1,1 +1,1 @@
-pub const ENUMEXT_OBJECTID: u32 = 1;
+pub const ENUMEXT_OBJECTID: i32 = 1;

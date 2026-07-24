@@ -208,35 +208,35 @@ where
     windows_core::link!("ole32.dll" "system" fn WriteClassStm(pstm : *mut core::ffi::c_void, rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { WriteClassStm(pstm.param().abi(), rclsid) }
 }
-pub const CCH_MAX_PROPSTG_NAME: u32 = 31;
-pub const CWCSTORAGENAME: u32 = 32;
+pub const CCH_MAX_PROPSTG_NAME: i32 = 31;
+pub const CWCSTORAGENAME: i32 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct STGFMT(pub u32);
-pub const STGFMT_ANY: u32 = 4;
-pub const STGFMT_DOCFILE: u32 = 5;
-pub const STGFMT_DOCUMENT: u32 = 0;
-pub const STGFMT_FILE: u32 = 3;
-pub const STGFMT_NATIVE: u32 = 1;
-pub const STGFMT_STORAGE: u32 = 0;
-pub const STGM_CONVERT: u32 = 131072;
-pub const STGM_CREATE: u32 = 4096;
-pub const STGM_DELETEONRELEASE: u32 = 67108864;
-pub const STGM_DIRECT: u32 = 0;
-pub const STGM_DIRECT_SWMR: u32 = 4194304;
-pub const STGM_FAILIFTHERE: u32 = 0;
-pub const STGM_NOSCRATCH: u32 = 1048576;
-pub const STGM_NOSNAPSHOT: u32 = 2097152;
-pub const STGM_PRIORITY: u32 = 262144;
-pub const STGM_READ: u32 = 0;
-pub const STGM_READWRITE: u32 = 2;
-pub const STGM_SHARE_DENY_NONE: u32 = 64;
-pub const STGM_SHARE_DENY_READ: u32 = 48;
-pub const STGM_SHARE_DENY_WRITE: u32 = 32;
-pub const STGM_SHARE_EXCLUSIVE: u32 = 16;
-pub const STGM_SIMPLE: u32 = 134217728;
-pub const STGM_TRANSACTED: u32 = 65536;
-pub const STGM_WRITE: u32 = 1;
+pub const STGFMT_ANY: i32 = 4;
+pub const STGFMT_DOCFILE: i32 = 5;
+pub const STGFMT_DOCUMENT: i32 = 0;
+pub const STGFMT_FILE: i32 = 3;
+pub const STGFMT_NATIVE: i32 = 1;
+pub const STGFMT_STORAGE: i32 = 0;
+pub const STGM_CONVERT: i32 = 131072;
+pub const STGM_CREATE: i32 = 4096;
+pub const STGM_DELETEONRELEASE: i32 = 67108864;
+pub const STGM_DIRECT: i32 = 0;
+pub const STGM_DIRECT_SWMR: i32 = 4194304;
+pub const STGM_FAILIFTHERE: i32 = 0;
+pub const STGM_NOSCRATCH: i32 = 1048576;
+pub const STGM_NOSNAPSHOT: i32 = 2097152;
+pub const STGM_PRIORITY: i32 = 262144;
+pub const STGM_READ: i32 = 0;
+pub const STGM_READWRITE: i32 = 2;
+pub const STGM_SHARE_DENY_NONE: i32 = 64;
+pub const STGM_SHARE_DENY_READ: i32 = 48;
+pub const STGM_SHARE_DENY_WRITE: i32 = 32;
+pub const STGM_SHARE_EXCLUSIVE: i32 = 16;
+pub const STGM_SIMPLE: i32 = 134217728;
+pub const STGM_TRANSACTED: i32 = 65536;
+pub const STGM_WRITE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STGOPTIONS {
@@ -250,4 +250,4 @@ impl Default for STGOPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const STGOPTIONS_VERSION: u32 = 2;
+pub const STGOPTIONS_VERSION: i32 = 2;

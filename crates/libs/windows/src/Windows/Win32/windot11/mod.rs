@@ -1,7 +1,7 @@
 pub type CH_DESCRIPTION_TYPE = i32;
-pub const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15;
-pub const DISCOVERY_FILTER_BITMASK_DEVICE: u32 = 1;
-pub const DISCOVERY_FILTER_BITMASK_GO: u32 = 2;
+pub const DISCOVERY_FILTER_BITMASK_ANY: i32 = 15;
+pub const DISCOVERY_FILTER_BITMASK_DEVICE: i32 = 1;
+pub const DISCOVERY_FILTER_BITMASK_GO: i32 = 2;
 pub type DOT11_AC_PARAM = i32;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
@@ -13,7 +13,7 @@ pub struct DOT11_ADDITIONAL_IE {
     pub uResponseIEsOffset: u32,
     pub uResponseIEsLength: u32,
 }
-pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1;
+pub const DOT11_ADDITIONAL_IE_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_AKM_CIPHER_PAIR {
@@ -29,7 +29,7 @@ pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub hContext: super::HANDLE,
     pub uResponseLength: u32,
 }
-pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_ANQP_QUERY_RESULT = i32;
 #[repr(C)]
 #[cfg(feature = "wlan")]
@@ -77,8 +77,8 @@ impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
-pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: u32 = 2;
+pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
+pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_INFO_EX {
@@ -116,7 +116,7 @@ impl Default for DOT11_ASSOCIATION_INFO_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: u32 = 1;
+pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -132,7 +132,7 @@ impl Default for DOT11_ASSOCIATION_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1;
+pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -149,11 +149,11 @@ impl Default for DOT11_ASSOCIATION_START_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_ASSOCIATION_STATE = i32;
-pub const DOT11_ASSOC_ERROR_SOURCE_OS: u32 = 0;
-pub const DOT11_ASSOC_ERROR_SOURCE_OTHER: u32 = 255;
-pub const DOT11_ASSOC_ERROR_SOURCE_REMOTE: u32 = 1;
+pub const DOT11_ASSOC_ERROR_SOURCE_OS: i32 = 0;
+pub const DOT11_ASSOC_ERROR_SOURCE_OTHER: i32 = 255;
+pub const DOT11_ASSOC_ERROR_SOURCE_REMOTE: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DOT11_ASSOC_STATUS(pub u32);
@@ -180,7 +180,7 @@ pub const DOT11_ASSOC_STATUS_REASON_CODE_MASK: u32 = 65535;
 pub const DOT11_ASSOC_STATUS_ROAMING_ADHOC: u32 = 13;
 pub const DOT11_ASSOC_STATUS_ROAMING_ASSOCIATION_LOST: u32 = 12;
 pub const DOT11_ASSOC_STATUS_ROAMING_BETTER_AP_FOUND: u32 = 11;
-pub const DOT11_ASSOC_STATUS_SUCCESS: u32 = 0;
+pub const DOT11_ASSOC_STATUS_SUCCESS: i32 = 0;
 pub const DOT11_ASSOC_STATUS_SYSTEM_ERROR: u32 = 10;
 pub const DOT11_ASSOC_STATUS_UNREACHABLE: u32 = 2;
 #[repr(C)]
@@ -198,8 +198,8 @@ impl Default for DOT11_AUTH_ALGORITHM_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1;
-pub const DOT11_AUTH_ALGO_MICHAEL: u32 = 1;
+pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: i32 = 1;
+pub const DOT11_AUTH_ALGO_MICHAEL: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -215,7 +215,7 @@ impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: u32 = 1;
+pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -231,7 +231,7 @@ impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: u32 = 1;
+pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -247,7 +247,7 @@ impl Default for DOT11_AVAILABLE_FREQUENCY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1;
+pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: i32 = 1;
 pub type DOT11_BAND = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -275,7 +275,7 @@ impl Default for DOT11_BSSID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_BSSID_LIST_REVISION_1: u32 = 1;
+pub const DOT11_BSSID_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -319,7 +319,7 @@ impl Default for DOT11_BSS_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1;
+pub const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
@@ -360,24 +360,24 @@ pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub ulReason: u32,
 }
-pub const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_CAN_SUSTAIN_AP_REASON_IHV_END: u32 = 4294967295;
 pub const DOT11_CAN_SUSTAIN_AP_REASON_IHV_START: u32 = 4278190080;
-pub const DOT11_CAPABILITY_CHANNEL_AGILITY: u32 = 128;
-pub const DOT11_CAPABILITY_DSSSOFDM: u32 = 8192;
-pub const DOT11_CAPABILITY_INFO_CF_POLLABLE: u32 = 4;
-pub const DOT11_CAPABILITY_INFO_CF_POLL_REQ: u32 = 8;
-pub const DOT11_CAPABILITY_INFO_ESS: u32 = 1;
-pub const DOT11_CAPABILITY_INFO_IBSS: u32 = 2;
-pub const DOT11_CAPABILITY_INFO_PRIVACY: u32 = 16;
-pub const DOT11_CAPABILITY_PBCC: u32 = 64;
-pub const DOT11_CAPABILITY_SHORT_PREAMBLE: u32 = 32;
-pub const DOT11_CAPABILITY_SHORT_SLOT_TIME: u32 = 1024;
-pub const DOT11_CCA_MODE_CS_ONLY: u32 = 2;
-pub const DOT11_CCA_MODE_CS_WITH_TIMER: u32 = 8;
-pub const DOT11_CCA_MODE_ED_ONLY: u32 = 1;
-pub const DOT11_CCA_MODE_ED_and_CS: u32 = 4;
-pub const DOT11_CCA_MODE_HRCS_AND_ED: u32 = 16;
+pub const DOT11_CAPABILITY_CHANNEL_AGILITY: i32 = 128;
+pub const DOT11_CAPABILITY_DSSSOFDM: i32 = 8192;
+pub const DOT11_CAPABILITY_INFO_CF_POLLABLE: i32 = 4;
+pub const DOT11_CAPABILITY_INFO_CF_POLL_REQ: i32 = 8;
+pub const DOT11_CAPABILITY_INFO_ESS: i32 = 1;
+pub const DOT11_CAPABILITY_INFO_IBSS: i32 = 2;
+pub const DOT11_CAPABILITY_INFO_PRIVACY: i32 = 16;
+pub const DOT11_CAPABILITY_PBCC: i32 = 64;
+pub const DOT11_CAPABILITY_SHORT_PREAMBLE: i32 = 32;
+pub const DOT11_CAPABILITY_SHORT_SLOT_TIME: i32 = 1024;
+pub const DOT11_CCA_MODE_CS_ONLY: i32 = 2;
+pub const DOT11_CCA_MODE_CS_WITH_TIMER: i32 = 8;
+pub const DOT11_CCA_MODE_ED_ONLY: i32 = 1;
+pub const DOT11_CCA_MODE_ED_and_CS: i32 = 4;
+pub const DOT11_CCA_MODE_HRCS_AND_ED: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CHANNEL_HINT {
@@ -399,7 +399,7 @@ impl Default for DOT11_CIPHER_ALGORITHM_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1;
+pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -419,7 +419,7 @@ impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1;
+pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -438,9 +438,9 @@ impl Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: u32 = 1;
-pub const DOT11_CONF_ALGO_TKIP: u32 = 2;
-pub const DOT11_CONF_ALGO_WEP_RC4: u32 = 1;
+pub const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: i32 = 1;
+pub const DOT11_CONF_ALGO_TKIP: i32 = 2;
+pub const DOT11_CONF_ALGO_WEP_RC4: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -448,7 +448,7 @@ pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uStatus: DOT11_ASSOC_STATUS,
 }
-pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -464,14 +464,14 @@ impl Default for DOT11_CONNECTION_START_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_CONNECTION_START_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_CONNECTION_START_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_CONNECTION_STATUS_CANCELLED: u32 = 5;
 pub const DOT11_CONNECTION_STATUS_CANDIDATE_LIST_EXHAUSTED: u32 = 6;
 pub const DOT11_CONNECTION_STATUS_FAILURE: u32 = 1;
-pub const DOT11_CONNECTION_STATUS_IHV_END: i32 = -1;
-pub const DOT11_CONNECTION_STATUS_IHV_START: i32 = -2147483648;
+pub const DOT11_CONNECTION_STATUS_IHV_END: u32 = 4294967295;
+pub const DOT11_CONNECTION_STATUS_IHV_START: u32 = 2147483648;
 pub const DOT11_CONNECTION_STATUS_PHY_POWER_DOWN: u32 = 3;
-pub const DOT11_CONNECTION_STATUS_SUCCESS: u32 = 0;
+pub const DOT11_CONNECTION_STATUS_SUCCESS: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_COUNTERS_ENTRY {
@@ -505,7 +505,7 @@ impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: u32 = 1;
+pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
@@ -549,7 +549,7 @@ impl Default for DOT11_DATA_RATE_MAPPING_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: u32 = 1;
+pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: i32 = 1;
 pub const DOT11_DATA_RATE_NON_STANDARD: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -593,7 +593,7 @@ impl Default for DOT11_DEFAULT_WEP_UPLOAD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1;
+pub const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DOT11_DIALOG_TOKEN(pub u8);
@@ -615,7 +615,7 @@ impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: u32 = 1;
+pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -632,9 +632,9 @@ impl Default for DOT11_DISASSOCIATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: u32 = 1;
-pub const DOT11_DISASSOC_REASON_IHV_END: i32 = -1;
-pub const DOT11_DISASSOC_REASON_IHV_START: i32 = -2147483648;
+pub const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: i32 = 1;
+pub const DOT11_DISASSOC_REASON_IHV_END: u32 = 4294967295;
+pub const DOT11_DISASSOC_REASON_IHV_START: u32 = 2147483648;
 pub const DOT11_DISASSOC_REASON_OS: u32 = 7;
 pub const DOT11_DISASSOC_REASON_PEER_DEAUTHENTICATED: u32 = 65536;
 pub const DOT11_DISASSOC_REASON_PEER_DISASSOCIATED: u32 = 131072;
@@ -664,14 +664,14 @@ pub const DOT11_DS_CHANGED: DOT11_DS_INFO = 0;
 pub type DOT11_DS_INFO = i32;
 pub const DOT11_DS_UNCHANGED: DOT11_DS_INFO = 1;
 pub const DOT11_DS_UNKNOWN: DOT11_DS_INFO = 2;
-pub const DOT11_ENCAP_802_1H: u32 = 2;
+pub const DOT11_ENCAP_802_1H: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ENCAP_ENTRY {
     pub usEtherType: u16,
     pub usEncapType: u16,
 }
-pub const DOT11_ENCAP_RFC_1042: u32 = 1;
+pub const DOT11_ENCAP_RFC_1042: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
@@ -680,12 +680,12 @@ pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub bDSSSOFDMOptionImplemented: bool,
     pub bShortSlotTimeOptionImplemented: bool,
 }
-pub const DOT11_EXEMPT_ALWAYS: u32 = 1;
-pub const DOT11_EXEMPT_BOTH: u32 = 3;
-pub const DOT11_EXEMPT_MULTICAST: u32 = 2;
-pub const DOT11_EXEMPT_NO_EXEMPTION: u32 = 0;
-pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: u32 = 2;
-pub const DOT11_EXEMPT_UNICAST: u32 = 1;
+pub const DOT11_EXEMPT_ALWAYS: i32 = 1;
+pub const DOT11_EXEMPT_BOTH: i32 = 3;
+pub const DOT11_EXEMPT_MULTICAST: i32 = 2;
+pub const DOT11_EXEMPT_NO_EXEMPTION: i32 = 0;
+pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: i32 = 2;
+pub const DOT11_EXEMPT_UNICAST: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -705,13 +705,13 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub uInfraNumSupportedMcastAlgoPairs: u32,
     pub pInfraSupportedMcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
 }
-pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: u32 = 1;
+pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: i32 = 1;
 #[cfg(feature = "objectheader")]
 pub type DOT11_EXTAP_RECV_CONTEXT = DOT11_EXTSTA_RECV_CONTEXT;
-pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: u32 = 1;
+pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: i32 = 1;
 #[cfg(feature = "objectheader")]
 pub type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
-pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: u32 = 1;
+pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -751,13 +751,13 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub bANQPQueryOffloadSupported: bool,
     pub bHESSIDConnectionSupported: bool,
 }
-pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_1: u32 = 1;
-pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_2: u32 = 2;
-pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_3: u32 = 3;
-pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_4: u32 = 4;
-pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_CERTIFIED: u32 = 2;
-pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: u32 = 1;
-pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: u32 = 12;
+pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_1: i32 = 1;
+pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_2: i32 = 2;
+pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_3: i32 = 3;
+pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_4: i32 = 4;
+pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_CERTIFIED: i32 = 2;
+pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: i32 = 1;
+pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: i32 = 12;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -774,7 +774,7 @@ pub struct DOT11_EXTSTA_CAPABILITY {
     pub uPMKIDCacheSize: u32,
     pub uMaxNumPerSTADefaultKeyTables: u32,
 }
-pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1;
+pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -796,7 +796,7 @@ impl Default for DOT11_EXTSTA_RECV_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: u32 = 1;
+pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -814,24 +814,24 @@ impl Default for DOT11_EXTSTA_SEND_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: u32 = 1;
-pub const DOT11_FLAGS_80211B_CHANNEL_AGILITY: u32 = 4;
-pub const DOT11_FLAGS_80211B_PBCC: u32 = 2;
-pub const DOT11_FLAGS_80211B_SHORT_PREAMBLE: u32 = 1;
-pub const DOT11_FLAGS_80211G_BARKER_PREAMBLE_MODE: u32 = 128;
-pub const DOT11_FLAGS_80211G_DSSS_OFDM: u32 = 16;
-pub const DOT11_FLAGS_80211G_NON_ERP_PRESENT: u32 = 64;
-pub const DOT11_FLAGS_80211G_USE_PROTECTION: u32 = 32;
-pub const DOT11_FLAGS_PS_ON: u32 = 8;
+pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: i32 = 1;
+pub const DOT11_FLAGS_80211B_CHANNEL_AGILITY: i32 = 4;
+pub const DOT11_FLAGS_80211B_PBCC: i32 = 2;
+pub const DOT11_FLAGS_80211B_SHORT_PREAMBLE: i32 = 1;
+pub const DOT11_FLAGS_80211G_BARKER_PREAMBLE_MODE: i32 = 128;
+pub const DOT11_FLAGS_80211G_DSSS_OFDM: i32 = 16;
+pub const DOT11_FLAGS_80211G_NON_ERP_PRESENT: i32 = 64;
+pub const DOT11_FLAGS_80211G_USE_PROTECTION: i32 = 32;
+pub const DOT11_FLAGS_PS_ON: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_FRAGMENT_DESCRIPTOR {
     pub uOffset: u32,
     pub uLength: u32,
 }
-pub const DOT11_FREQUENCY_BANDS_LOWER: u32 = 1;
-pub const DOT11_FREQUENCY_BANDS_MIDDLE: u32 = 2;
-pub const DOT11_FREQUENCY_BANDS_UPPER: u32 = 4;
+pub const DOT11_FREQUENCY_BANDS_LOWER: i32 = 1;
+pub const DOT11_FREQUENCY_BANDS_MIDDLE: i32 = 2;
+pub const DOT11_FREQUENCY_BANDS_UPPER: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -849,7 +849,7 @@ impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -867,7 +867,7 @@ impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -885,9 +885,9 @@ impl Default for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_HESSID = [u8; 6];
-pub const DOT11_HESSID_LENGTH: u32 = 6;
+pub const DOT11_HESSID_LENGTH: i32 = 6;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY {
@@ -915,17 +915,17 @@ pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
     pub bChannelAgilityPresent: bool,
     pub uHRCCAModeSupported: u32,
 }
-pub const DOT11_HR_CCA_MODE_CS_AND_ED: u32 = 4;
-pub const DOT11_HR_CCA_MODE_CS_ONLY: u32 = 2;
-pub const DOT11_HR_CCA_MODE_CS_WITH_TIMER: u32 = 8;
-pub const DOT11_HR_CCA_MODE_ED_ONLY: u32 = 1;
-pub const DOT11_HR_CCA_MODE_HRCS_AND_ED: u32 = 16;
-pub const DOT11_HW_DEFRAGMENTATION_SUPPORTED: u32 = 8;
-pub const DOT11_HW_FRAGMENTATION_SUPPORTED: u32 = 4;
-pub const DOT11_HW_MSDU_AUTH_SUPPORTED_RX: u32 = 32;
-pub const DOT11_HW_MSDU_AUTH_SUPPORTED_TX: u32 = 16;
-pub const DOT11_HW_WEP_SUPPORTED_RX: u32 = 2;
-pub const DOT11_HW_WEP_SUPPORTED_TX: u32 = 1;
+pub const DOT11_HR_CCA_MODE_CS_AND_ED: i32 = 4;
+pub const DOT11_HR_CCA_MODE_CS_ONLY: i32 = 2;
+pub const DOT11_HR_CCA_MODE_CS_WITH_TIMER: i32 = 8;
+pub const DOT11_HR_CCA_MODE_ED_ONLY: i32 = 1;
+pub const DOT11_HR_CCA_MODE_HRCS_AND_ED: i32 = 16;
+pub const DOT11_HW_DEFRAGMENTATION_SUPPORTED: i32 = 8;
+pub const DOT11_HW_FRAGMENTATION_SUPPORTED: i32 = 4;
+pub const DOT11_HW_MSDU_AUTH_SUPPORTED_RX: i32 = 32;
+pub const DOT11_HW_MSDU_AUTH_SUPPORTED_TX: i32 = 16;
+pub const DOT11_HW_WEP_SUPPORTED_RX: i32 = 2;
+pub const DOT11_HW_WEP_SUPPORTED_TX: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -935,7 +935,7 @@ pub struct DOT11_IBSS_PARAMS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1;
+pub const DOT11_IBSS_PARAMS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -964,7 +964,7 @@ impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -982,8 +982,8 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 1;
-pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 2;
+pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: i32 = 1;
+pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1018,7 +1018,7 @@ impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1032,8 +1032,8 @@ impl Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: u32 = 1;
-pub const DOT11_INVALID_CHANNEL_NUMBER: u32 = 0;
+pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: i32 = 1;
+pub const DOT11_INVALID_CHANNEL_NUMBER: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1052,7 +1052,7 @@ impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1070,7 +1070,7 @@ impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_IV48_COUNTER {
@@ -1179,7 +1179,7 @@ pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub uLinkQualityListSize: u32,
     pub uLinkQualityListOffset: u32,
 }
-pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_MAC_ADDRESS = [u8; 6];
 #[repr(C)]
 #[cfg(feature = "objectheader")]
@@ -1196,7 +1196,7 @@ impl Default for DOT11_MAC_ADDRESS_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: u32 = 1;
+pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: i32 = 1;
 pub const DOT11_MAC_AUTO_CONFIG_ENABLED_FLAG: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1235,7 +1235,7 @@ pub struct DOT11_MAC_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uOpmodeMask: u32,
 }
-pub const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_MAC_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1251,7 +1251,7 @@ impl Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1;
+pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: i32 = 1;
 pub type DOT11_MANUFACTURING_CALLBACK_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1339,7 +1339,7 @@ impl Default for DOT11_MANUFACTURING_TEST_QUERY_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_MANUFACTURING_TEST_REVISION_1: u32 = 1;
+pub const DOT11_MANUFACTURING_TEST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SET_DATA {
@@ -1365,12 +1365,12 @@ impl Default for DOT11_MANUFACTURING_TEST_SLEEP {
     }
 }
 pub type DOT11_MANUFACTURING_TEST_TYPE = i32;
-pub const DOT11_MAX_CHANNEL_HINTS: u32 = 4;
-pub const DOT11_MAX_NUM_DEFAULT_KEY: u32 = 4;
-pub const DOT11_MAX_NUM_DEFAULT_KEY_MFP: u32 = 6;
-pub const DOT11_MAX_NUM_OF_FRAGMENTS: u32 = 16;
-pub const DOT11_MAX_PDU_SIZE: u32 = 2346;
-pub const DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH: u32 = 255;
+pub const DOT11_MAX_CHANNEL_HINTS: i32 = 4;
+pub const DOT11_MAX_NUM_DEFAULT_KEY: i32 = 4;
+pub const DOT11_MAX_NUM_DEFAULT_KEY_MFP: i32 = 6;
+pub const DOT11_MAX_NUM_OF_FRAGMENTS: i32 = 16;
+pub const DOT11_MAX_PDU_SIZE: i32 = 2346;
+pub const DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH: i32 = 255;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MD_CAPABILITY_ENTRY_LIST {
@@ -1383,8 +1383,8 @@ impl Default for DOT11_MD_CAPABILITY_ENTRY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_MIN_PDU_SIZE: u32 = 256;
-pub const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: u32 = 24;
+pub const DOT11_MIN_PDU_SIZE: i32 = 256;
+pub const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: i32 = 24;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1393,7 +1393,7 @@ pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub uPhyId: u32,
     pub uMPDUMaxLength: u32,
 }
-pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1;
+pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
@@ -1414,9 +1414,9 @@ impl Default for DOT11_NIC_SPECIFIC_EXTENSION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: u32 = 4;
-pub const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: u32 = 2;
-pub const DOT11_NLO_FLAG_STOP_NLO_INDICATION: u32 = 1;
+pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: i32 = 4;
+pub const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: i32 = 2;
+pub const DOT11_NLO_FLAG_STOP_NLO_INDICATION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OFDM_PHY_ATTRIBUTES {
@@ -1466,7 +1466,7 @@ impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1;
+pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1474,9 +1474,9 @@ pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub Status: super::NDIS_STATUS,
 }
-pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_OFFLOAD_TYPE = i32;
-pub const DOT11_OPERATION_MODE_AP: u32 = 2;
+pub const DOT11_OPERATION_MODE_AP: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OPERATION_MODE_CAPABILITY {
@@ -1487,15 +1487,15 @@ pub struct DOT11_OPERATION_MODE_CAPABILITY {
     pub uNumOfRXBuffers: u32,
     pub uOpModeCapability: u32,
 }
-pub const DOT11_OPERATION_MODE_EXTENSIBLE_AP: u32 = 8;
-pub const DOT11_OPERATION_MODE_EXTENSIBLE_STATION: u32 = 4;
-pub const DOT11_OPERATION_MODE_MANUFACTURING: u32 = 1073741824;
+pub const DOT11_OPERATION_MODE_EXTENSIBLE_AP: i32 = 8;
+pub const DOT11_OPERATION_MODE_EXTENSIBLE_STATION: i32 = 4;
+pub const DOT11_OPERATION_MODE_MANUFACTURING: i32 = 1073741824;
 pub const DOT11_OPERATION_MODE_NETWORK_MONITOR: u32 = 2147483648;
-pub const DOT11_OPERATION_MODE_STATION: u32 = 1;
-pub const DOT11_OPERATION_MODE_UNKNOWN: u32 = 0;
-pub const DOT11_OPERATION_MODE_WFD_CLIENT: u32 = 64;
-pub const DOT11_OPERATION_MODE_WFD_DEVICE: u32 = 16;
-pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: u32 = 32;
+pub const DOT11_OPERATION_MODE_STATION: i32 = 1;
+pub const DOT11_OPERATION_MODE_UNKNOWN: i32 = 0;
+pub const DOT11_OPERATION_MODE_WFD_CLIENT: i32 = 64;
+pub const DOT11_OPERATION_MODE_WFD_DEVICE: i32 = 16;
+pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OPTIONAL_CAPABILITY {
@@ -1504,21 +1504,21 @@ pub struct DOT11_OPTIONAL_CAPABILITY {
     pub bDot11PCFMPDUTransferToPC: bool,
     pub bStrictlyOrderedServiceClass: bool,
 }
-pub const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: u32 = 4096;
-pub const DOT11_PACKET_TYPE_ALL_MULTICAST_DATA: u32 = 16384;
-pub const DOT11_PACKET_TYPE_ALL_MULTICAST_MGMT: u32 = 8192;
-pub const DOT11_PACKET_TYPE_BROADCAST_CTRL: u32 = 64;
-pub const DOT11_PACKET_TYPE_BROADCAST_DATA: u32 = 256;
-pub const DOT11_PACKET_TYPE_BROADCAST_MGMT: u32 = 128;
-pub const DOT11_PACKET_TYPE_DIRECTED_CTRL: u32 = 1;
-pub const DOT11_PACKET_TYPE_DIRECTED_DATA: u32 = 4;
-pub const DOT11_PACKET_TYPE_DIRECTED_MGMT: u32 = 2;
-pub const DOT11_PACKET_TYPE_MULTICAST_CTRL: u32 = 8;
-pub const DOT11_PACKET_TYPE_MULTICAST_DATA: u32 = 32;
-pub const DOT11_PACKET_TYPE_MULTICAST_MGMT: u32 = 16;
-pub const DOT11_PACKET_TYPE_PROMISCUOUS_CTRL: u32 = 512;
-pub const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: u32 = 2048;
-pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: u32 = 1024;
+pub const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: i32 = 4096;
+pub const DOT11_PACKET_TYPE_ALL_MULTICAST_DATA: i32 = 16384;
+pub const DOT11_PACKET_TYPE_ALL_MULTICAST_MGMT: i32 = 8192;
+pub const DOT11_PACKET_TYPE_BROADCAST_CTRL: i32 = 64;
+pub const DOT11_PACKET_TYPE_BROADCAST_DATA: i32 = 256;
+pub const DOT11_PACKET_TYPE_BROADCAST_MGMT: i32 = 128;
+pub const DOT11_PACKET_TYPE_DIRECTED_CTRL: i32 = 1;
+pub const DOT11_PACKET_TYPE_DIRECTED_DATA: i32 = 4;
+pub const DOT11_PACKET_TYPE_DIRECTED_MGMT: i32 = 2;
+pub const DOT11_PACKET_TYPE_MULTICAST_CTRL: i32 = 8;
+pub const DOT11_PACKET_TYPE_MULTICAST_DATA: i32 = 32;
+pub const DOT11_PACKET_TYPE_MULTICAST_MGMT: i32 = 16;
+pub const DOT11_PACKET_TYPE_PROMISCUOUS_CTRL: i32 = 512;
+pub const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: i32 = 2048;
+pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: i32 = 1024;
 pub const DOT11_PACKET_TYPE_RESERVED: i32 = -32768;
 #[repr(C)]
 #[cfg(feature = "wlan")]
@@ -1559,7 +1559,7 @@ impl Default for DOT11_PEER_INFO_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PEER_INFO_LIST_REVISION_1: u32 = 1;
+pub const DOT11_PEER_INFO_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PEER_STATISTICS {
@@ -1618,7 +1618,7 @@ impl Default for DOT11_PHY_ATTRIBUTES_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PHY_ATTRIBUTES_REVISION_1: u32 = 1;
+pub const DOT11_PHY_ATTRIBUTES_REVISION_1: i32 = 1;
 pub const DOT11_PHY_AUTO_CONFIG_ENABLED_FLAG: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1669,7 +1669,7 @@ impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_PHY_ID_ANY: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
@@ -1686,7 +1686,7 @@ impl Default for DOT11_PHY_ID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1;
+pub const DOT11_PHY_ID_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1696,7 +1696,7 @@ pub struct DOT11_PHY_STATE_PARAMETERS {
     pub bHardwarePhyState: bool,
     pub bSoftwarePhyState: bool,
 }
-pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_PHY_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1730,7 +1730,7 @@ impl Default for DOT11_PHY_TYPE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1;
+pub const DOT11_PHY_TYPE_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1739,7 +1739,7 @@ pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub uCandidateListSize: u32,
     pub uCandidateListOffset: u32,
 }
-pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1768,7 +1768,7 @@ impl Default for DOT11_PMKID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1;
+pub const DOT11_PMKID_LIST_REVISION_1: i32 = 1;
 pub type DOT11_PMKID_VALUE = [u8; 16];
 #[repr(C)]
 #[cfg(feature = "objectheader")]
@@ -1784,7 +1784,7 @@ impl Default for DOT11_PORT_STATE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1;
+pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1792,7 +1792,7 @@ pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub bEnabled: bool,
 }
-pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1;
+pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE {
@@ -1811,17 +1811,17 @@ pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub uPowerSaveLevel: u32,
     pub Reason: DOT11_POWER_MODE_REASON,
 }
-pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1;
+pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: i32 = 1;
 pub type DOT11_POWER_MODE = i32;
 pub type DOT11_POWER_MODE_REASON = i32;
-pub const DOT11_POWER_SAVE_LEVEL_FAST_PSP: u32 = 2;
-pub const DOT11_POWER_SAVE_LEVEL_MAX_PSP: u32 = 1;
-pub const DOT11_POWER_SAVING_FAST_PSP: u32 = 8;
-pub const DOT11_POWER_SAVING_MAXIMUM_LEVEL: u32 = 24;
-pub const DOT11_POWER_SAVING_MAX_PSP: u32 = 16;
-pub const DOT11_POWER_SAVING_NO_POWER_SAVING: u32 = 0;
-pub const DOT11_PRIORITY_CONTENTION: u32 = 0;
-pub const DOT11_PRIORITY_CONTENTION_FREE: u32 = 1;
+pub const DOT11_POWER_SAVE_LEVEL_FAST_PSP: i32 = 2;
+pub const DOT11_POWER_SAVE_LEVEL_MAX_PSP: i32 = 1;
+pub const DOT11_POWER_SAVING_FAST_PSP: i32 = 8;
+pub const DOT11_POWER_SAVING_MAXIMUM_LEVEL: i32 = 24;
+pub const DOT11_POWER_SAVING_MAX_PSP: i32 = 16;
+pub const DOT11_POWER_SAVING_NO_POWER_SAVING: i32 = 0;
+pub const DOT11_PRIORITY_CONTENTION: i32 = 0;
+pub const DOT11_PRIORITY_CONTENTION_FREE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION {
@@ -1844,7 +1844,7 @@ impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: u32 = 1;
+pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1863,7 +1863,7 @@ impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1881,7 +1881,7 @@ impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1889,7 +1889,7 @@ pub struct DOT11_QOS_PARAMS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub ucEnabledQoSProtocolFlags: u8,
 }
-pub const DOT11_QOS_PARAMS_REVISION_1: u32 = 1;
+pub const DOT11_QOS_PARAMS_REVISION_1: i32 = 1;
 pub const DOT11_QOS_PROTOCOL_FLAG_11E: u32 = 2;
 pub const DOT11_QOS_PROTOCOL_FLAG_WMM: u32 = 1;
 #[repr(C)]
@@ -1922,7 +1922,7 @@ impl Default for DOT11_RATE_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_RATE_SET_MAX_LENGTH: u32 = 126;
+pub const DOT11_RATE_SET_MAX_LENGTH: i32 = 126;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1939,7 +1939,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1957,7 +1957,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1975,7 +1975,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1994,7 +1994,7 @@ impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2012,7 +2012,7 @@ impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2031,7 +2031,7 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2049,7 +2049,7 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2162,13 +2162,13 @@ impl Default for DOT11_REG_DOMAINS_SUPPORT_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_REG_DOMAIN_DOC: u32 = 32;
-pub const DOT11_REG_DOMAIN_ETSI: u32 = 48;
-pub const DOT11_REG_DOMAIN_FCC: u32 = 16;
-pub const DOT11_REG_DOMAIN_FRANCE: u32 = 50;
-pub const DOT11_REG_DOMAIN_MKK: u32 = 64;
-pub const DOT11_REG_DOMAIN_OTHER: u32 = 0;
-pub const DOT11_REG_DOMAIN_SPAIN: u32 = 49;
+pub const DOT11_REG_DOMAIN_DOC: i32 = 32;
+pub const DOT11_REG_DOMAIN_ETSI: i32 = 48;
+pub const DOT11_REG_DOMAIN_FCC: i32 = 16;
+pub const DOT11_REG_DOMAIN_FRANCE: i32 = 50;
+pub const DOT11_REG_DOMAIN_MKK: i32 = 64;
+pub const DOT11_REG_DOMAIN_OTHER: i32 = 0;
+pub const DOT11_REG_DOMAIN_SPAIN: i32 = 49;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_REG_DOMAIN_VALUE {
@@ -2195,12 +2195,12 @@ pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uStatus: DOT11_ASSOC_STATUS,
 }
-pub const DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_ROAMING_REASON_ADHOC: u32 = 13;
 pub const DOT11_ROAMING_REASON_ASSOCIATION_LOST: u32 = 12;
 pub const DOT11_ROAMING_REASON_BETTER_AP_FOUND: u32 = 11;
-pub const DOT11_ROAMING_REASON_IHV_END: i32 = -1;
-pub const DOT11_ROAMING_REASON_IHV_START: i32 = -2147483648;
+pub const DOT11_ROAMING_REASON_IHV_END: u32 = 4294967295;
+pub const DOT11_ROAMING_REASON_IHV_START: u32 = 2147483648;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2216,7 +2216,7 @@ impl Default for DOT11_ROAMING_START_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_RSSI_RANGE {
@@ -2296,7 +2296,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2318,7 +2318,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2344,7 +2344,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2370,7 +2370,7 @@ impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2395,7 +2395,7 @@ impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2416,7 +2416,7 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2435,10 +2435,10 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
-pub const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: u32 = 0;
-pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: u32 = 1;
-pub const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 12;
+pub const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
+pub const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: i32 = 0;
+pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: i32 = 1;
+pub const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: i32 = 12;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2454,7 +2454,7 @@ impl Default for DOT11_SSID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_SSID_LIST_REVISION_1: u32 = 1;
+pub const DOT11_SSID_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2482,16 +2482,16 @@ impl Default for DOT11_STATISTICS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_STATISTICS_REVISION_1: u32 = 1;
-pub const DOT11_STATISTICS_UNKNOWN: i32 = -1;
-pub const DOT11_STATUS_AP_JOIN_CONFIRM: u32 = 5;
-pub const DOT11_STATUS_AUTH_FAILED: u32 = 131072;
-pub const DOT11_STATUS_AUTH_NOT_VERIFIED: u32 = 32768;
-pub const DOT11_STATUS_AUTH_VERIFIED: u32 = 65536;
-pub const DOT11_STATUS_ENCRYPTION_FAILED: u32 = 512;
-pub const DOT11_STATUS_EXCESSIVE_DATA_LENGTH: u32 = 256;
-pub const DOT11_STATUS_GENERATE_AUTH_FAILED: u32 = 16384;
-pub const DOT11_STATUS_ICV_VERIFIED: u32 = 2048;
+pub const DOT11_STATISTICS_REVISION_1: i32 = 1;
+pub const DOT11_STATISTICS_UNKNOWN: u64 = 18446744073709551615;
+pub const DOT11_STATUS_AP_JOIN_CONFIRM: i32 = 5;
+pub const DOT11_STATUS_AUTH_FAILED: i32 = 131072;
+pub const DOT11_STATUS_AUTH_NOT_VERIFIED: i32 = 32768;
+pub const DOT11_STATUS_AUTH_VERIFIED: i32 = 65536;
+pub const DOT11_STATUS_ENCRYPTION_FAILED: i32 = 512;
+pub const DOT11_STATUS_EXCESSIVE_DATA_LENGTH: i32 = 256;
+pub const DOT11_STATUS_GENERATE_AUTH_FAILED: i32 = 16384;
+pub const DOT11_STATUS_ICV_VERIFIED: i32 = 2048;
 #[repr(C)]
 #[cfg(feature = "types")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2499,23 +2499,23 @@ pub struct DOT11_STATUS_INDICATION {
     pub uStatusType: u32,
     pub ndisStatus: super::NDIS_STATUS,
 }
-pub const DOT11_STATUS_JOIN_CONFIRM: u32 = 2;
-pub const DOT11_STATUS_MPDU_MAX_LENGTH_CHANGED: u32 = 6;
-pub const DOT11_STATUS_PACKET_NOT_REASSEMBLED: u32 = 8192;
-pub const DOT11_STATUS_PACKET_REASSEMBLED: u32 = 4096;
-pub const DOT11_STATUS_PS_LIFETIME_EXPIRED: u32 = 262144;
-pub const DOT11_STATUS_RESET_CONFIRM: u32 = 4;
-pub const DOT11_STATUS_RETRY_LIMIT_EXCEEDED: u32 = 2;
-pub const DOT11_STATUS_SCAN_CONFIRM: u32 = 1;
-pub const DOT11_STATUS_START_CONFIRM: u32 = 3;
-pub const DOT11_STATUS_SUCCESS: u32 = 1;
-pub const DOT11_STATUS_UNAVAILABLE_BSS: u32 = 128;
-pub const DOT11_STATUS_UNAVAILABLE_PRIORITY: u32 = 16;
-pub const DOT11_STATUS_UNAVAILABLE_SERVICE_CLASS: u32 = 32;
-pub const DOT11_STATUS_UNSUPPORTED_PRIORITY: u32 = 4;
-pub const DOT11_STATUS_UNSUPPORTED_SERVICE_CLASS: u32 = 8;
-pub const DOT11_STATUS_WEP_KEY_UNAVAILABLE: u32 = 1024;
-pub const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: u32 = 64;
+pub const DOT11_STATUS_JOIN_CONFIRM: i32 = 2;
+pub const DOT11_STATUS_MPDU_MAX_LENGTH_CHANGED: i32 = 6;
+pub const DOT11_STATUS_PACKET_NOT_REASSEMBLED: i32 = 8192;
+pub const DOT11_STATUS_PACKET_REASSEMBLED: i32 = 4096;
+pub const DOT11_STATUS_PS_LIFETIME_EXPIRED: i32 = 262144;
+pub const DOT11_STATUS_RESET_CONFIRM: i32 = 4;
+pub const DOT11_STATUS_RETRY_LIMIT_EXCEEDED: i32 = 2;
+pub const DOT11_STATUS_SCAN_CONFIRM: i32 = 1;
+pub const DOT11_STATUS_START_CONFIRM: i32 = 3;
+pub const DOT11_STATUS_SUCCESS: i32 = 1;
+pub const DOT11_STATUS_UNAVAILABLE_BSS: i32 = 128;
+pub const DOT11_STATUS_UNAVAILABLE_PRIORITY: i32 = 16;
+pub const DOT11_STATUS_UNAVAILABLE_SERVICE_CLASS: i32 = 32;
+pub const DOT11_STATUS_UNSUPPORTED_PRIORITY: i32 = 4;
+pub const DOT11_STATUS_UNSUPPORTED_SERVICE_CLASS: i32 = 8;
+pub const DOT11_STATUS_WEP_KEY_UNAVAILABLE: i32 = 1024;
+pub const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2523,10 +2523,10 @@ pub struct DOT11_STOP_AP_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub ulReason: u32,
 }
-pub const DOT11_STOP_AP_PARAMETERS_REVISION_1: u32 = 1;
-pub const DOT11_STOP_AP_REASON_AP_ACTIVE: u32 = 3;
-pub const DOT11_STOP_AP_REASON_CHANNEL_NOT_AVAILABLE: u32 = 2;
-pub const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: u32 = 1;
+pub const DOT11_STOP_AP_PARAMETERS_REVISION_1: i32 = 1;
+pub const DOT11_STOP_AP_REASON_AP_ACTIVE: i32 = 3;
+pub const DOT11_STOP_AP_REASON_CHANNEL_NOT_AVAILABLE: i32 = 2;
+pub const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: i32 = 1;
 pub const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295;
 pub const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080;
 #[repr(C)]
@@ -2643,7 +2643,7 @@ impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_UPDATE_IE {
@@ -2671,7 +2671,7 @@ impl Default for DOT11_VWIFI_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1;
+pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2681,9 +2681,9 @@ pub struct DOT11_VWIFI_COMBINATION {
     pub uNumAdhoc: u32,
     pub uNumSoftAP: u32,
 }
-pub const DOT11_VWIFI_COMBINATION_REVISION_1: u32 = 1;
-pub const DOT11_VWIFI_COMBINATION_REVISION_2: u32 = 2;
-pub const DOT11_VWIFI_COMBINATION_REVISION_3: u32 = 3;
+pub const DOT11_VWIFI_COMBINATION_REVISION_1: i32 = 1;
+pub const DOT11_VWIFI_COMBINATION_REVISION_2: i32 = 2;
+pub const DOT11_VWIFI_COMBINATION_REVISION_3: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2760,7 +2760,7 @@ pub struct DOT11_WFD_ADDITIONAL_IE {
     pub uDefaultRequestIEsOffset: u32,
     pub uDefaultRequestIEsLength: u32,
 }
-pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: u32 = 1;
+pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
@@ -2796,8 +2796,8 @@ impl Default for DOT11_WFD_ADVERTISEMENT_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: u32 = 21;
-pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: u32 = 63;
+pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: i32 = 21;
+pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: i32 = 63;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2824,7 +2824,7 @@ impl Default for DOT11_WFD_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WFD_ATTRIBUTES_REVISION_1: u32 = 1;
+pub const DOT11_WFD_ATTRIBUTES_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_CHANNEL {
@@ -2843,8 +2843,8 @@ pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
     pub GOTimeout: u8,
     pub ClientTimeout: u8,
 }
-pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16;
-pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4;
+pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: i32 = 16;
+pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2858,14 +2858,14 @@ pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub bInvitationProcedureEnabled: bool,
     pub WPSVersionsEnabled: u32,
 }
-pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: u32 = 1;
-pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY: u32 = 2;
-pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_DEVICE_LIMIT: u32 = 16;
-pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_INFRASTRUCTURE_MANAGED: u32 = 8;
-pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_INVITATION_PROCEDURE: u32 = 32;
-pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6: u32 = 64;
-pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: u32 = 128;
-pub const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: u32 = 1;
+pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: i32 = 1;
+pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY: i32 = 2;
+pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_DEVICE_LIMIT: i32 = 16;
+pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_INFRASTRUCTURE_MANAGED: i32 = 8;
+pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_INVITATION_PROCEDURE: i32 = 32;
+pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6: i32 = 64;
+pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: i32 = 128;
+pub const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
 #[derive(Clone, Copy)]
@@ -2893,7 +2893,7 @@ impl Default for DOT11_WFD_DEVICE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: u32 = 24;
+pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: i32 = 24;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2910,7 +2910,7 @@ impl Default for DOT11_WFD_DEVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1;
+pub const DOT11_WFD_DEVICE_INFO_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2918,8 +2918,8 @@ pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub ChannelNumber: u8,
 }
-pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 1;
-pub const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: u32 = 0;
+pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: i32 = 1;
+pub const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_TYPE {
@@ -2932,7 +2932,7 @@ impl Default for DOT11_WFD_DEVICE_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128;
+pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2944,7 +2944,7 @@ pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub uListOffset: u32,
     pub uListLength: u32,
 }
-pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2973,7 +2973,7 @@ pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub uIEsLength: u32,
     pub bForceScanLegacyNetworks: bool,
 }
-pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1;
+pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: i32 = 1;
 pub type DOT11_WFD_DISCOVER_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2997,16 +2997,16 @@ impl DOT11_WFD_GO_INTENT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DOT11_WFD_GROUP_CAPABILITY(pub u8);
-pub const DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED: u32 = 16;
-pub const DOT11_WFD_GROUP_CAPABILITY_EAPOL_KEY_IP_ADDRESS_ALLOCATION_SUPPORTED: u32 = 128;
-pub const DOT11_WFD_GROUP_CAPABILITY_GROUP_LIMIT_REACHED: u32 = 4;
-pub const DOT11_WFD_GROUP_CAPABILITY_GROUP_OWNER: u32 = 1;
-pub const DOT11_WFD_GROUP_CAPABILITY_INTRABSS_DISTRIBUTION_SUPPORTED: u32 = 8;
-pub const DOT11_WFD_GROUP_CAPABILITY_IN_GROUP_FORMATION: u32 = 64;
-pub const DOT11_WFD_GROUP_CAPABILITY_NONE: u32 = 0;
-pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP: u32 = 2;
-pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: u32 = 32;
-pub const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: u32 = 128;
+pub const DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED: i32 = 16;
+pub const DOT11_WFD_GROUP_CAPABILITY_EAPOL_KEY_IP_ADDRESS_ALLOCATION_SUPPORTED: i32 = 128;
+pub const DOT11_WFD_GROUP_CAPABILITY_GROUP_LIMIT_REACHED: i32 = 4;
+pub const DOT11_WFD_GROUP_CAPABILITY_GROUP_OWNER: i32 = 1;
+pub const DOT11_WFD_GROUP_CAPABILITY_INTRABSS_DISTRIBUTION_SUPPORTED: i32 = 8;
+pub const DOT11_WFD_GROUP_CAPABILITY_IN_GROUP_FORMATION: i32 = 64;
+pub const DOT11_WFD_GROUP_CAPABILITY_NONE: i32 = 0;
+pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP: i32 = 2;
+pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: i32 = 32;
+pub const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: i32 = 128;
 #[repr(C)]
 #[cfg(feature = "wlan")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -3030,7 +3030,7 @@ pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub bInGroupFormation: bool,
     pub bWaitForWPSReady: bool,
 }
-pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3043,8 +3043,8 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub bGroupFormationEnabled: bool,
     pub uMaximumGroupLimit: u32,
 }
-pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1;
-pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2;
+pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: i32 = 1;
+pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3065,7 +3065,7 @@ pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub AdvertisedOperatingChannel: DOT11_WFD_CHANNEL,
 }
-pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1;
+pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_INVITATION_FLAGS {
@@ -3088,11 +3088,11 @@ impl DOT11_WFD_INVITATION_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DOT11_WFD_MINOR_REASON_CODE(pub u8);
-pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY: u32 = 1;
-pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY: u32 = 4;
-pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_NOT_MANAGED_INFRASTRUCTURE_CAPABLE: u32 = 2;
-pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY: u32 = 3;
-pub const DOT11_WFD_MINOR_REASON_SUCCESS: u32 = 0;
+pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY: i32 = 1;
+pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY: i32 = 4;
+pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_NOT_MANAGED_INFRASTRUCTURE_CAPABLE: i32 = 2;
+pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY: i32 = 3;
+pub const DOT11_WFD_MINOR_REASON_SUCCESS: i32 = 0;
 pub type DOT11_WFD_SCAN_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
@@ -3109,7 +3109,7 @@ impl Default for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 1;
+pub const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: i32 = 1;
 pub type DOT11_WFD_SERVICE_HASH = [u8; 6];
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -3122,8 +3122,8 @@ impl Default for DOT11_WFD_SERVICE_HASH_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: u32 = 65535;
-pub const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: u32 = 255;
+pub const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: i32 = 65535;
+pub const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: i32 = 255;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SESSION_ID {
@@ -3146,23 +3146,23 @@ impl Default for DOT11_WFD_SESSION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WFD_SESSION_INFO_MAX_LENGTH: u32 = 144;
+pub const DOT11_WFD_SESSION_INFO_MAX_LENGTH: i32 = 144;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DOT11_WFD_STATUS_CODE(pub u8);
-pub const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PARAMETERS: u32 = 2;
-pub const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PROVISIONING_METHOD: u32 = 10;
-pub const DOT11_WFD_STATUS_FAILED_INFORMATION_IS_UNAVAILABLE: u32 = 1;
-pub const DOT11_WFD_STATUS_FAILED_INVALID_PARAMETERS: u32 = 4;
-pub const DOT11_WFD_STATUS_FAILED_LIMIT_REACHED: u32 = 3;
-pub const DOT11_WFD_STATUS_FAILED_MATCHING_MAX_INTENT: u32 = 9;
-pub const DOT11_WFD_STATUS_FAILED_NO_COMMON_CHANNELS: u32 = 7;
-pub const DOT11_WFD_STATUS_FAILED_PREVIOUS_PROTOCOL_ERROR: u32 = 6;
-pub const DOT11_WFD_STATUS_FAILED_REJECTED_BY_USER: u32 = 11;
-pub const DOT11_WFD_STATUS_FAILED_UNABLE_TO_ACCOMODATE_REQUEST: u32 = 5;
-pub const DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP: u32 = 8;
-pub const DOT11_WFD_STATUS_SUCCESS: u32 = 0;
-pub const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: u32 = 12;
+pub const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PARAMETERS: i32 = 2;
+pub const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PROVISIONING_METHOD: i32 = 10;
+pub const DOT11_WFD_STATUS_FAILED_INFORMATION_IS_UNAVAILABLE: i32 = 1;
+pub const DOT11_WFD_STATUS_FAILED_INVALID_PARAMETERS: i32 = 4;
+pub const DOT11_WFD_STATUS_FAILED_LIMIT_REACHED: i32 = 3;
+pub const DOT11_WFD_STATUS_FAILED_MATCHING_MAX_INTENT: i32 = 9;
+pub const DOT11_WFD_STATUS_FAILED_NO_COMMON_CHANNELS: i32 = 7;
+pub const DOT11_WFD_STATUS_FAILED_PREVIOUS_PROTOCOL_ERROR: i32 = 6;
+pub const DOT11_WFD_STATUS_FAILED_REJECTED_BY_USER: i32 = 11;
+pub const DOT11_WFD_STATUS_FAILED_UNABLE_TO_ACCOMODATE_REQUEST: i32 = 5;
+pub const DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP: i32 = 8;
+pub const DOT11_WFD_STATUS_SUCCESS: i32 = 0;
+pub const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: i32 = 12;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS {
@@ -3184,7 +3184,7 @@ impl Default for DOT11_WME_AC_PARAMETERS_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WME_PACKET: u32 = 256;
+pub const DOT11_WME_PACKET: i32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WME_UPDATE_IE {
@@ -3228,11 +3228,11 @@ impl Default for DOT11_WPS_DEVICE_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: u32 = 32;
+pub const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: i32 = 32;
 pub type DOT11_WPS_DEVICE_PASSWORD_ID = i32;
-pub const DOT11_WPS_MAX_MODEL_NAME_LENGTH: u32 = 32;
-pub const DOT11_WPS_MAX_MODEL_NUMBER_LENGTH: u32 = 32;
-pub const DOT11_WPS_MAX_PASSKEY_LENGTH: u32 = 8;
+pub const DOT11_WPS_MAX_MODEL_NAME_LENGTH: i32 = 32;
+pub const DOT11_WPS_MAX_MODEL_NUMBER_LENGTH: i32 = 32;
+pub const DOT11_WPS_MAX_PASSKEY_LENGTH: i32 = 8;
 pub const DOT11_WPS_PASSWORD_ID_DEFAULT: DOT11_WPS_DEVICE_PASSWORD_ID = 0;
 pub const DOT11_WPS_PASSWORD_ID_MACHINE_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 2;
 pub const DOT11_WPS_PASSWORD_ID_NFC_CONNECTION_HANDOVER: DOT11_WPS_DEVICE_PASSWORD_ID = 7;
@@ -3243,22 +3243,22 @@ pub const DOT11_WPS_PASSWORD_ID_REGISTRAR_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_I
 pub const DOT11_WPS_PASSWORD_ID_REKEY: DOT11_WPS_DEVICE_PASSWORD_ID = 3;
 pub const DOT11_WPS_PASSWORD_ID_USER_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 1;
 pub const DOT11_WPS_PASSWORD_ID_WFD_SERVICES: DOT11_WPS_DEVICE_PASSWORD_ID = 8;
-pub const DOT11_WPS_VERSION_1_0: u32 = 1;
-pub const DOT11_WPS_VERSION_2_0: u32 = 2;
-pub const MAX_NUM_SUPPORTED_RATES: u32 = 8;
-pub const MAX_NUM_SUPPORTED_RATES_V2: u32 = 255;
-pub const NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_DATA: u32 = 4;
+pub const DOT11_WPS_VERSION_1_0: i32 = 1;
+pub const DOT11_WPS_VERSION_2_0: i32 = 2;
+pub const MAX_NUM_SUPPORTED_RATES: i32 = 8;
+pub const MAX_NUM_SUPPORTED_RATES_V2: i32 = 255;
+pub const NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_DATA: i32 = 4;
 pub const NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_MGMT: u32 = 1048576;
 pub const NDIS_PACKET_TYPE_802_11_BROADCAST_CTRL: u32 = 16777216;
-pub const NDIS_PACKET_TYPE_802_11_BROADCAST_DATA: u32 = 8;
+pub const NDIS_PACKET_TYPE_802_11_BROADCAST_DATA: i32 = 8;
 pub const NDIS_PACKET_TYPE_802_11_BROADCAST_MGMT: u32 = 262144;
 pub const NDIS_PACKET_TYPE_802_11_DIRECTED_CTRL: u32 = 8388608;
-pub const NDIS_PACKET_TYPE_802_11_DIRECTED_DATA: u32 = 1;
+pub const NDIS_PACKET_TYPE_802_11_DIRECTED_DATA: i32 = 1;
 pub const NDIS_PACKET_TYPE_802_11_DIRECTED_MGMT: u32 = 131072;
-pub const NDIS_PACKET_TYPE_802_11_MULTICAST_DATA: u32 = 2;
+pub const NDIS_PACKET_TYPE_802_11_MULTICAST_DATA: i32 = 2;
 pub const NDIS_PACKET_TYPE_802_11_MULTICAST_MGMT: u32 = 524288;
 pub const NDIS_PACKET_TYPE_802_11_PROMISCUOUS_CTRL: u32 = 33554432;
-pub const NDIS_PACKET_TYPE_802_11_PROMISCUOUS_DATA: u32 = 32;
+pub const NDIS_PACKET_TYPE_802_11_PROMISCUOUS_DATA: i32 = 32;
 pub const NDIS_PACKET_TYPE_802_11_PROMISCUOUS_MGMT: u32 = 2097152;
 pub const NDIS_PACKET_TYPE_802_11_RAW_DATA: u32 = 65536;
 pub const NDIS_PACKET_TYPE_802_11_RAW_MGMT: u32 = 4194304;
@@ -3276,52 +3276,52 @@ pub const NWF_WFD_DEVICE_OID: u32 = 5;
 pub const NWF_WFD_ROLE_OID: u32 = 6;
 pub const OID_DOT11_ACTIVE_PHY_LIST: u32 = 234946965;
 pub const OID_DOT11_ADDITIONAL_IE: u32 = 235077895;
-pub const OID_DOT11_AP_JOIN_REQUEST: u32 = 218170205;
+pub const OID_DOT11_AP_JOIN_REQUEST: i32 = 218170205;
 pub const OID_DOT11_ASSOCIATION_PARAMS: u32 = 234946975;
-pub const OID_DOT11_ATIM_WINDOW: u32 = 218170122;
+pub const OID_DOT11_ATIM_WINDOW: i32 = 218170122;
 pub const OID_DOT11_AUTO_CONFIG_ENABLED: u32 = 234946936;
 pub const OID_DOT11_AVAILABLE_CHANNEL_LIST: u32 = 235077891;
 pub const OID_DOT11_AVAILABLE_FREQUENCY_LIST: u32 = 235077892;
-pub const OID_DOT11_BEACON_PERIOD: u32 = 218170139;
-pub const OID_DOT11_CCA_MODE_SUPPORTED: u32 = 218170166;
-pub const OID_DOT11_CCA_WATCHDOG_COUNT_MAX: u32 = 218170170;
-pub const OID_DOT11_CCA_WATCHDOG_COUNT_MIN: u32 = 218170172;
-pub const OID_DOT11_CCA_WATCHDOG_TIMER_MAX: u32 = 218170169;
-pub const OID_DOT11_CCA_WATCHDOG_TIMER_MIN: u32 = 218170171;
-pub const OID_DOT11_CFP_MAX_DURATION: u32 = 218170136;
-pub const OID_DOT11_CFP_PERIOD: u32 = 218170135;
-pub const OID_DOT11_CF_POLLABLE: u32 = 218170134;
-pub const OID_DOT11_CHANNEL_AGILITY_ENABLED: u32 = 218170184;
-pub const OID_DOT11_CHANNEL_AGILITY_PRESENT: u32 = 218170183;
+pub const OID_DOT11_BEACON_PERIOD: i32 = 218170139;
+pub const OID_DOT11_CCA_MODE_SUPPORTED: i32 = 218170166;
+pub const OID_DOT11_CCA_WATCHDOG_COUNT_MAX: i32 = 218170170;
+pub const OID_DOT11_CCA_WATCHDOG_COUNT_MIN: i32 = 218170172;
+pub const OID_DOT11_CCA_WATCHDOG_TIMER_MAX: i32 = 218170169;
+pub const OID_DOT11_CCA_WATCHDOG_TIMER_MIN: i32 = 218170171;
+pub const OID_DOT11_CFP_MAX_DURATION: i32 = 218170136;
+pub const OID_DOT11_CFP_PERIOD: i32 = 218170135;
+pub const OID_DOT11_CF_POLLABLE: i32 = 218170134;
+pub const OID_DOT11_CHANNEL_AGILITY_ENABLED: i32 = 218170184;
+pub const OID_DOT11_CHANNEL_AGILITY_PRESENT: i32 = 218170183;
 pub const OID_DOT11_CIPHER_DEFAULT_KEY: u32 = 234946955;
 pub const OID_DOT11_CIPHER_DEFAULT_KEY_ID: u32 = 234946954;
 pub const OID_DOT11_CIPHER_KEY_MAPPING_KEY: u32 = 234946956;
 pub const OID_DOT11_CONNECT_REQUEST: u32 = 234946945;
-pub const OID_DOT11_COUNTERS_ENTRY: u32 = 218170149;
-pub const OID_DOT11_COUNTRY_STRING: u32 = 218170188;
+pub const OID_DOT11_COUNTERS_ENTRY: i32 = 218170149;
+pub const OID_DOT11_COUNTRY_STRING: i32 = 218170188;
 pub const OID_DOT11_CREATE_MAC: u32 = 235143425;
-pub const OID_DOT11_CURRENT_ADDRESS: u32 = 218171138;
-pub const OID_DOT11_CURRENT_CCA_MODE: u32 = 218170167;
-pub const OID_DOT11_CURRENT_CHANNEL: u32 = 218170165;
-pub const OID_DOT11_CURRENT_CHANNEL_NUMBER: u32 = 218170159;
-pub const OID_DOT11_CURRENT_DWELL_TIME: u32 = 218170161;
-pub const OID_DOT11_CURRENT_FREQUENCY: u32 = 218170178;
-pub const OID_DOT11_CURRENT_INDEX: u32 = 218170164;
-pub const OID_DOT11_CURRENT_OFFLOAD_CAPABILITY: u32 = 218170113;
-pub const OID_DOT11_CURRENT_OPERATION_MODE: u32 = 218170120;
-pub const OID_DOT11_CURRENT_OPTIONAL_CAPABILITY: u32 = 218170131;
-pub const OID_DOT11_CURRENT_PACKET_FILTER: u32 = 218170121;
-pub const OID_DOT11_CURRENT_PATTERN: u32 = 218170163;
+pub const OID_DOT11_CURRENT_ADDRESS: i32 = 218171138;
+pub const OID_DOT11_CURRENT_CCA_MODE: i32 = 218170167;
+pub const OID_DOT11_CURRENT_CHANNEL: i32 = 218170165;
+pub const OID_DOT11_CURRENT_CHANNEL_NUMBER: i32 = 218170159;
+pub const OID_DOT11_CURRENT_DWELL_TIME: i32 = 218170161;
+pub const OID_DOT11_CURRENT_FREQUENCY: i32 = 218170178;
+pub const OID_DOT11_CURRENT_INDEX: i32 = 218170164;
+pub const OID_DOT11_CURRENT_OFFLOAD_CAPABILITY: i32 = 218170113;
+pub const OID_DOT11_CURRENT_OPERATION_MODE: i32 = 218170120;
+pub const OID_DOT11_CURRENT_OPTIONAL_CAPABILITY: i32 = 218170131;
+pub const OID_DOT11_CURRENT_PACKET_FILTER: i32 = 218170121;
+pub const OID_DOT11_CURRENT_PATTERN: i32 = 218170163;
 pub const OID_DOT11_CURRENT_PHY_ID: u32 = 234946962;
-pub const OID_DOT11_CURRENT_PHY_TYPE: u32 = 218170124;
-pub const OID_DOT11_CURRENT_REG_DOMAIN: u32 = 218170151;
-pub const OID_DOT11_CURRENT_RX_ANTENNA: u32 = 218170155;
-pub const OID_DOT11_CURRENT_SET: u32 = 218170162;
-pub const OID_DOT11_CURRENT_TX_ANTENNA: u32 = 218170153;
-pub const OID_DOT11_CURRENT_TX_POWER_LEVEL: u32 = 218170157;
+pub const OID_DOT11_CURRENT_PHY_TYPE: i32 = 218170124;
+pub const OID_DOT11_CURRENT_REG_DOMAIN: i32 = 218170151;
+pub const OID_DOT11_CURRENT_RX_ANTENNA: i32 = 218170155;
+pub const OID_DOT11_CURRENT_SET: i32 = 218170162;
+pub const OID_DOT11_CURRENT_TX_ANTENNA: i32 = 218170153;
+pub const OID_DOT11_CURRENT_TX_POWER_LEVEL: i32 = 218170157;
 pub const OID_DOT11_DATA_RATE_MAPPING_TABLE: u32 = 234946967;
-pub const OID_DOT11_DEFAULT_WEP_OFFLOAD: u32 = 218170116;
-pub const OID_DOT11_DEFAULT_WEP_UPLOAD: u32 = 218170117;
+pub const OID_DOT11_DEFAULT_WEP_OFFLOAD: i32 = 218170116;
+pub const OID_DOT11_DEFAULT_WEP_UPLOAD: i32 = 218170117;
 pub const OID_DOT11_DELETE_MAC: u32 = 235143426;
 pub const OID_DOT11_DESIRED_BSSID_LIST: u32 = 234946942;
 pub const OID_DOT11_DESIRED_BSS_TYPE: u32 = 234946943;
@@ -3330,121 +3330,121 @@ pub const OID_DOT11_DESIRED_PHY_LIST: u32 = 234946961;
 pub const OID_DOT11_DESIRED_SSID_LIST: u32 = 234946940;
 pub const OID_DOT11_DISASSOCIATE_PEER_REQUEST: u32 = 235077893;
 pub const OID_DOT11_DISCONNECT_REQUEST: u32 = 234946958;
-pub const OID_DOT11_DIVERSITY_SELECTION_RX: u32 = 218170176;
-pub const OID_DOT11_DIVERSITY_SUPPORT: u32 = 218170154;
-pub const OID_DOT11_DSSS_OFDM_OPTION_ENABLED: u32 = 218170209;
-pub const OID_DOT11_DSSS_OFDM_OPTION_IMPLEMENTED: u32 = 218170208;
-pub const OID_DOT11_DTIM_PERIOD: u32 = 218170140;
-pub const OID_DOT11_ED_THRESHOLD: u32 = 218170168;
-pub const OID_DOT11_EHCC_CAPABILITY_ENABLED: u32 = 218170193;
-pub const OID_DOT11_EHCC_CAPABILITY_IMPLEMENTED: u32 = 218170192;
-pub const OID_DOT11_EHCC_NUMBER_OF_CHANNELS_FAMILY_INDEX: u32 = 218170191;
-pub const OID_DOT11_EHCC_PRIME_RADIX: u32 = 218170190;
+pub const OID_DOT11_DIVERSITY_SELECTION_RX: i32 = 218170176;
+pub const OID_DOT11_DIVERSITY_SUPPORT: i32 = 218170154;
+pub const OID_DOT11_DSSS_OFDM_OPTION_ENABLED: i32 = 218170209;
+pub const OID_DOT11_DSSS_OFDM_OPTION_IMPLEMENTED: i32 = 218170208;
+pub const OID_DOT11_DTIM_PERIOD: i32 = 218170140;
+pub const OID_DOT11_ED_THRESHOLD: i32 = 218170168;
+pub const OID_DOT11_EHCC_CAPABILITY_ENABLED: i32 = 218170193;
+pub const OID_DOT11_EHCC_CAPABILITY_IMPLEMENTED: i32 = 218170192;
+pub const OID_DOT11_EHCC_NUMBER_OF_CHANNELS_FAMILY_INDEX: i32 = 218170191;
+pub const OID_DOT11_EHCC_PRIME_RADIX: i32 = 218170190;
 pub const OID_DOT11_ENABLED_AUTHENTICATION_ALGORITHM: u32 = 234946949;
 pub const OID_DOT11_ENABLED_MULTICAST_CIPHER_ALGORITHM: u32 = 234946953;
 pub const OID_DOT11_ENABLED_UNICAST_CIPHER_ALGORITHM: u32 = 234946951;
 pub const OID_DOT11_ENUM_ASSOCIATION_INFO: u32 = 234946957;
 pub const OID_DOT11_ENUM_BSS_LIST: u32 = 234946937;
 pub const OID_DOT11_ENUM_PEER_INFO: u32 = 235077896;
-pub const OID_DOT11_ERP_PBCC_OPTION_ENABLED: u32 = 218170207;
-pub const OID_DOT11_ERP_PBCC_OPTION_IMPLEMENTED: u32 = 218170206;
+pub const OID_DOT11_ERP_PBCC_OPTION_ENABLED: i32 = 218170207;
+pub const OID_DOT11_ERP_PBCC_OPTION_IMPLEMENTED: i32 = 218170206;
 pub const OID_DOT11_EXCLUDED_MAC_ADDRESS_LIST: u32 = 234946941;
 pub const OID_DOT11_EXCLUDE_UNENCRYPTED: u32 = 234946946;
 pub const OID_DOT11_EXTSTA_CAPABILITY: u32 = 234946966;
 pub const OID_DOT11_FLUSH_BSS_LIST: u32 = 234946938;
-pub const OID_DOT11_FRAGMENTATION_THRESHOLD: u32 = 218170146;
-pub const OID_DOT11_FREQUENCY_BANDS_SUPPORTED: u32 = 218170180;
+pub const OID_DOT11_FRAGMENTATION_THRESHOLD: i32 = 218170146;
+pub const OID_DOT11_FREQUENCY_BANDS_SUPPORTED: i32 = 218170180;
 pub const OID_DOT11_HARDWARE_PHY_STATE: u32 = 234946960;
 pub const OID_DOT11_HIDDEN_NETWORK_ENABLED: u32 = 234946974;
-pub const OID_DOT11_HOPPING_PATTERN: u32 = 218170199;
-pub const OID_DOT11_HOP_ALGORITHM_ADOPTED: u32 = 218170194;
-pub const OID_DOT11_HOP_MODULUS: u32 = 218170197;
-pub const OID_DOT11_HOP_OFFSET: u32 = 218170198;
-pub const OID_DOT11_HOP_TIME: u32 = 218170158;
-pub const OID_DOT11_HR_CCA_MODE_SUPPORTED: u32 = 218170185;
+pub const OID_DOT11_HOPPING_PATTERN: i32 = 218170199;
+pub const OID_DOT11_HOP_ALGORITHM_ADOPTED: i32 = 218170194;
+pub const OID_DOT11_HOP_MODULUS: i32 = 218170197;
+pub const OID_DOT11_HOP_OFFSET: i32 = 218170198;
+pub const OID_DOT11_HOP_TIME: i32 = 218170158;
+pub const OID_DOT11_HR_CCA_MODE_SUPPORTED: i32 = 218170185;
 pub const OID_DOT11_IBSS_PARAMS: u32 = 234946971;
 pub const OID_DOT11_INCOMING_ASSOCIATION_DECISION: u32 = 235077894;
-pub const OID_DOT11_JOIN_REQUEST: u32 = 218170125;
-pub const OID_DOT11_LONG_RETRY_LIMIT: u32 = 218170145;
-pub const OID_DOT11_MAC_ADDRESS: u32 = 218170142;
+pub const OID_DOT11_JOIN_REQUEST: i32 = 218170125;
+pub const OID_DOT11_LONG_RETRY_LIMIT: i32 = 218170145;
+pub const OID_DOT11_MAC_ADDRESS: i32 = 218170142;
 pub const OID_DOT11_MANUFACTURING_TEST: u32 = 235405825;
-pub const OID_DOT11_MAXIMUM_LIST_SIZE: u32 = 218171141;
-pub const OID_DOT11_MAX_DWELL_TIME: u32 = 218170160;
-pub const OID_DOT11_MAX_MAC_ADDRESS_STATES: u32 = 218170212;
-pub const OID_DOT11_MAX_RECEIVE_LIFETIME: u32 = 218170148;
-pub const OID_DOT11_MAX_TRANSMIT_MSDU_LIFETIME: u32 = 218170147;
+pub const OID_DOT11_MAXIMUM_LIST_SIZE: i32 = 218171141;
+pub const OID_DOT11_MAX_DWELL_TIME: i32 = 218170160;
+pub const OID_DOT11_MAX_MAC_ADDRESS_STATES: i32 = 218170212;
+pub const OID_DOT11_MAX_RECEIVE_LIFETIME: i32 = 218170148;
+pub const OID_DOT11_MAX_TRANSMIT_MSDU_LIFETIME: i32 = 218170147;
 pub const OID_DOT11_MEDIA_STREAMING_ENABLED: u32 = 234946963;
-pub const OID_DOT11_MEDIUM_OCCUPANCY_LIMIT: u32 = 218170133;
-pub const OID_DOT11_MPDU_MAX_LENGTH: u32 = 218170118;
-pub const OID_DOT11_MULTICAST_LIST: u32 = 218171140;
-pub const OID_DOT11_MULTI_DOMAIN_CAPABILITY: u32 = 218170189;
-pub const OID_DOT11_MULTI_DOMAIN_CAPABILITY_ENABLED: u32 = 218170187;
-pub const OID_DOT11_MULTI_DOMAIN_CAPABILITY_IMPLEMENTED: u32 = 218170186;
-pub const OID_DOT11_NDIS_START: u32 = 218170112;
-pub const OID_DOT11_NIC_POWER_STATE: u32 = 218170129;
-pub const OID_DOT11_NIC_SPECIFIC_EXTENSION: u32 = 218170204;
-pub const OID_DOT11_NUMBER_OF_HOPPING_SETS: u32 = 218170196;
-pub const OID_DOT11_OFFLOAD_CAPABILITY: u32 = 218170112;
+pub const OID_DOT11_MEDIUM_OCCUPANCY_LIMIT: i32 = 218170133;
+pub const OID_DOT11_MPDU_MAX_LENGTH: i32 = 218170118;
+pub const OID_DOT11_MULTICAST_LIST: i32 = 218171140;
+pub const OID_DOT11_MULTI_DOMAIN_CAPABILITY: i32 = 218170189;
+pub const OID_DOT11_MULTI_DOMAIN_CAPABILITY_ENABLED: i32 = 218170187;
+pub const OID_DOT11_MULTI_DOMAIN_CAPABILITY_IMPLEMENTED: i32 = 218170186;
+pub const OID_DOT11_NDIS_START: i32 = 218170112;
+pub const OID_DOT11_NIC_POWER_STATE: i32 = 218170129;
+pub const OID_DOT11_NIC_SPECIFIC_EXTENSION: i32 = 218170204;
+pub const OID_DOT11_NUMBER_OF_HOPPING_SETS: i32 = 218170196;
+pub const OID_DOT11_OFFLOAD_CAPABILITY: i32 = 218170112;
 pub const OID_DOT11_OFFLOAD_NETWORK_LIST: u32 = 235340035;
-pub const OID_DOT11_OPERATIONAL_RATE_SET: u32 = 218170138;
-pub const OID_DOT11_OPERATION_MODE_CAPABILITY: u32 = 218170119;
-pub const OID_DOT11_OPTIONAL_CAPABILITY: u32 = 218170130;
-pub const OID_DOT11_PBCC_OPTION_IMPLEMENTED: u32 = 218170182;
-pub const OID_DOT11_PERMANENT_ADDRESS: u32 = 218171139;
+pub const OID_DOT11_OPERATIONAL_RATE_SET: i32 = 218170138;
+pub const OID_DOT11_OPERATION_MODE_CAPABILITY: i32 = 218170119;
+pub const OID_DOT11_OPTIONAL_CAPABILITY: i32 = 218170130;
+pub const OID_DOT11_PBCC_OPTION_IMPLEMENTED: i32 = 218170182;
+pub const OID_DOT11_PERMANENT_ADDRESS: i32 = 218171139;
 pub const OID_DOT11_PMKID_LIST: u32 = 234947200;
 pub const OID_DOT11_PORT_STATE_NOTIFICATION: u32 = 234947226;
-pub const OID_DOT11_POWER_MGMT_MODE: u32 = 218170137;
+pub const OID_DOT11_POWER_MGMT_MODE: i32 = 218170137;
 pub const OID_DOT11_POWER_MGMT_MODE_AUTO_ENABLED: u32 = 235340033;
 pub const OID_DOT11_POWER_MGMT_MODE_STATUS: u32 = 235340034;
 pub const OID_DOT11_POWER_MGMT_REQUEST: u32 = 234946939;
 pub const OID_DOT11_PREFERRED_MAC: u32 = 235143427;
 pub const OID_DOT11_PRIVACY_EXEMPTION_LIST: u32 = 234946948;
-pub const OID_DOT11_PRIVATE_OIDS_START: u32 = 218171136;
+pub const OID_DOT11_PRIVATE_OIDS_START: i32 = 218171136;
 pub const OID_DOT11_QOS_PARAMS: u32 = 234947228;
-pub const OID_DOT11_QOS_TX_DURATION: u32 = 218170219;
-pub const OID_DOT11_QOS_TX_MEDIUM_TIME: u32 = 218170220;
-pub const OID_DOT11_QOS_TX_QUEUES_SUPPORTED: u32 = 218170218;
-pub const OID_DOT11_RANDOM_TABLE_FIELD_NUMBER: u32 = 218170200;
-pub const OID_DOT11_RANDOM_TABLE_FLAG: u32 = 218170195;
-pub const OID_DOT11_RECV_SENSITIVITY_LIST: u32 = 218170213;
-pub const OID_DOT11_REG_DOMAINS_SUPPORT_VALUE: u32 = 218170173;
-pub const OID_DOT11_RESET_REQUEST: u32 = 218170128;
-pub const OID_DOT11_RF_USAGE: u32 = 218170203;
-pub const OID_DOT11_RSSI_RANGE: u32 = 218170202;
-pub const OID_DOT11_RTS_THRESHOLD: u32 = 218170143;
+pub const OID_DOT11_QOS_TX_DURATION: i32 = 218170219;
+pub const OID_DOT11_QOS_TX_MEDIUM_TIME: i32 = 218170220;
+pub const OID_DOT11_QOS_TX_QUEUES_SUPPORTED: i32 = 218170218;
+pub const OID_DOT11_RANDOM_TABLE_FIELD_NUMBER: i32 = 218170200;
+pub const OID_DOT11_RANDOM_TABLE_FLAG: i32 = 218170195;
+pub const OID_DOT11_RECV_SENSITIVITY_LIST: i32 = 218170213;
+pub const OID_DOT11_REG_DOMAINS_SUPPORT_VALUE: i32 = 218170173;
+pub const OID_DOT11_RESET_REQUEST: i32 = 218170128;
+pub const OID_DOT11_RF_USAGE: i32 = 218170203;
+pub const OID_DOT11_RSSI_RANGE: i32 = 218170202;
+pub const OID_DOT11_RTS_THRESHOLD: i32 = 218170143;
 pub const OID_DOT11_SAFE_MODE_ENABLED: u32 = 234946973;
 pub const OID_DOT11_SAFE_MODE_HT_ENABLED: u32 = 234946976;
-pub const OID_DOT11_SCAN_REQUEST: u32 = 218170123;
+pub const OID_DOT11_SCAN_REQUEST: i32 = 218170123;
 pub const OID_DOT11_SET_FT_REASSOCIATION_PARAMETERS: u32 = 234946920;
 pub const OID_DOT11_SET_NWF_PMKID_LIST: u32 = 234946933;
 pub const OID_DOT11_SET_SAE_AUTH_PARAMS: u32 = 234946930;
-pub const OID_DOT11_SHORT_PREAMBLE_OPTION_IMPLEMENTED: u32 = 218170181;
-pub const OID_DOT11_SHORT_RETRY_LIMIT: u32 = 218170144;
-pub const OID_DOT11_SHORT_SLOT_TIME_OPTION_ENABLED: u32 = 218170211;
-pub const OID_DOT11_SHORT_SLOT_TIME_OPTION_IMPLEMENTED: u32 = 218170210;
+pub const OID_DOT11_SHORT_PREAMBLE_OPTION_IMPLEMENTED: i32 = 218170181;
+pub const OID_DOT11_SHORT_RETRY_LIMIT: i32 = 218170144;
+pub const OID_DOT11_SHORT_SLOT_TIME_OPTION_ENABLED: i32 = 218170211;
+pub const OID_DOT11_SHORT_SLOT_TIME_OPTION_IMPLEMENTED: i32 = 218170210;
 pub const OID_DOT11_START_AP_REQUEST: u32 = 235077890;
-pub const OID_DOT11_START_REQUEST: u32 = 218170126;
-pub const OID_DOT11_STATION_ID: u32 = 218170132;
+pub const OID_DOT11_START_REQUEST: i32 = 218170126;
+pub const OID_DOT11_STATION_ID: i32 = 218170132;
 pub const OID_DOT11_STATISTICS: u32 = 235012483;
 pub const OID_DOT11_SUPPORTED_COUNTRY_OR_REGION_STRING: u32 = 234946968;
-pub const OID_DOT11_SUPPORTED_DATA_RATES_VALUE: u32 = 218170177;
-pub const OID_DOT11_SUPPORTED_DSSS_CHANNEL_LIST: u32 = 218170222;
+pub const OID_DOT11_SUPPORTED_DATA_RATES_VALUE: i32 = 218170177;
+pub const OID_DOT11_SUPPORTED_DSSS_CHANNEL_LIST: i32 = 218170222;
 pub const OID_DOT11_SUPPORTED_MULTICAST_ALGORITHM_PAIR: u32 = 234946952;
-pub const OID_DOT11_SUPPORTED_OFDM_FREQUENCY_LIST: u32 = 218170221;
-pub const OID_DOT11_SUPPORTED_PHY_TYPES: u32 = 218170150;
-pub const OID_DOT11_SUPPORTED_POWER_LEVELS: u32 = 218170156;
-pub const OID_DOT11_SUPPORTED_RX_ANTENNA: u32 = 218170175;
-pub const OID_DOT11_SUPPORTED_TX_ANTENNA: u32 = 218170174;
+pub const OID_DOT11_SUPPORTED_OFDM_FREQUENCY_LIST: i32 = 218170221;
+pub const OID_DOT11_SUPPORTED_PHY_TYPES: i32 = 218170150;
+pub const OID_DOT11_SUPPORTED_POWER_LEVELS: i32 = 218170156;
+pub const OID_DOT11_SUPPORTED_RX_ANTENNA: i32 = 218170175;
+pub const OID_DOT11_SUPPORTED_TX_ANTENNA: i32 = 218170174;
 pub const OID_DOT11_SUPPORTED_UNICAST_ALGORITHM_PAIR: u32 = 234946950;
-pub const OID_DOT11_TEMP_TYPE: u32 = 218170152;
-pub const OID_DOT11_TI_THRESHOLD: u32 = 218170179;
+pub const OID_DOT11_TEMP_TYPE: i32 = 218170152;
+pub const OID_DOT11_TI_THRESHOLD: i32 = 218170179;
 pub const OID_DOT11_UNICAST_USE_GROUP_ENABLED: u32 = 234946959;
 pub const OID_DOT11_UNREACHABLE_DETECTION_THRESHOLD: u32 = 234946964;
-pub const OID_DOT11_UPDATE_IE: u32 = 218170127;
+pub const OID_DOT11_UPDATE_IE: i32 = 218170127;
 pub const OID_DOT11_VIRTUAL_STATION_CAPABILITY: u32 = 235143684;
-pub const OID_DOT11_WEP_ICV_ERROR_COUNT: u32 = 218170141;
-pub const OID_DOT11_WEP_OFFLOAD: u32 = 218170114;
-pub const OID_DOT11_WEP_UPLOAD: u32 = 218170115;
+pub const OID_DOT11_WEP_ICV_ERROR_COUNT: i32 = 218170141;
+pub const OID_DOT11_WEP_OFFLOAD: i32 = 218170114;
+pub const OID_DOT11_WEP_UPLOAD: i32 = 218170115;
 pub const OID_DOT11_WFD_ADDITIONAL_IE: u32 = 235208968;
 pub const OID_DOT11_WFD_CONNECT_TO_GROUP_REQUEST: u32 = 235274500;
 pub const OID_DOT11_WFD_DESIRED_GROUP_ID: u32 = 235274497;
@@ -3471,11 +3471,11 @@ pub const OID_DOT11_WFD_SEND_PROVISION_DISCOVERY_REQUEST: u32 = 235208975;
 pub const OID_DOT11_WFD_SEND_PROVISION_DISCOVERY_RESPONSE: u32 = 235208976;
 pub const OID_DOT11_WFD_START_GO_REQUEST: u32 = 235274498;
 pub const OID_DOT11_WFD_STOP_DISCOVERY: u32 = 235208978;
-pub const OID_DOT11_WME_AC_PARAMETERS: u32 = 218170216;
-pub const OID_DOT11_WME_ENABLED: u32 = 218170215;
-pub const OID_DOT11_WME_IMPLEMENTED: u32 = 218170214;
-pub const OID_DOT11_WME_UPDATE_IE: u32 = 218170217;
-pub const OID_DOT11_WPA_TSC: u32 = 218170201;
+pub const OID_DOT11_WME_AC_PARAMETERS: i32 = 218170216;
+pub const OID_DOT11_WME_ENABLED: i32 = 218170215;
+pub const OID_DOT11_WME_IMPLEMENTED: i32 = 218170214;
+pub const OID_DOT11_WME_UPDATE_IE: i32 = 218170217;
+pub const OID_DOT11_WPA_TSC: i32 = 218170201;
 pub const OID_DOT11_WPS_ENABLED: u32 = 235077889;
 pub type PCH_DESCRIPTION_TYPE = *mut CH_DESCRIPTION_TYPE;
 pub type PDOT11_AC_PARAM = *mut DOT11_AC_PARAM;
@@ -3835,7 +3835,7 @@ pub struct RSNA_AKM_CIPHER_PAIR {
 }
 pub type RSNA_AKM_SUITE = i32;
 pub type RSNA_CIPHER_SUITE = i32;
-pub const RSNA_OUI_PREFIX: u32 = 11276032;
+pub const RSNA_OUI_PREFIX: i32 = 11276032;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
@@ -3843,12 +3843,12 @@ pub struct WFDSVC_CONNECTION_CAPABILITY {
     pub bClient: bool,
     pub bGO: bool,
 }
-pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: u32 = 2;
-pub const WFDSVC_CONNECTION_CAPABILITY_GO: u32 = 4;
-pub const WFDSVC_CONNECTION_CAPABILITY_NEW: u32 = 1;
+pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: i32 = 2;
+pub const WFDSVC_CONNECTION_CAPABILITY_GO: i32 = 4;
+pub const WFDSVC_CONNECTION_CAPABILITY_NEW: i32 = 1;
 pub type WPA_AKM_SUITE = i32;
 pub type WPA_CIPHER_SUITE = i32;
-pub const WPA_OUI_PREFIX: u32 = 15880192;
+pub const WPA_OUI_PREFIX: i32 = 15880192;
 pub const ch_description_type_center_frequency: CH_DESCRIPTION_TYPE = 2;
 pub const ch_description_type_logical: CH_DESCRIPTION_TYPE = 1;
 pub const ch_description_type_phy_specific: CH_DESCRIPTION_TYPE = 3;

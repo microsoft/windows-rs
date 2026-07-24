@@ -213,7 +213,7 @@ impl File {
 
         let mut buffer = Vec::<u8>::new();
         buffer.write_header(&dos);
-        buffer.write_u32(IMAGE_NT_SIGNATURE);
+        buffer.write_u32(IMAGE_NT_SIGNATURE as u32);
         buffer.write_header(&file);
         buffer.write_header(&optional);
         buffer.write_header(&section);

@@ -7,9 +7,9 @@ windows_link::link!("netapi32.dll" "system" fn NetMessageNameEnum(servername : w
 windows_link::link!("netapi32.dll" "system" fn NetMessageNameGetInfo(servername : windows_sys::core::PCWSTR, msgname : windows_sys::core::PCWSTR, level : u32, bufptr : *const super::LPBYTE) -> u32);
 pub type LPMSG_INFO_0 = *mut MSG_INFO_0;
 pub type LPMSG_INFO_1 = *mut MSG_INFO_1;
-pub const MSGNAME_FORWARDED_FROM: u32 = 16;
-pub const MSGNAME_FORWARDED_TO: u32 = 4;
-pub const MSGNAME_NOT_FORWARDED: u32 = 0;
+pub const MSGNAME_FORWARDED_FROM: i32 = 16;
+pub const MSGNAME_FORWARDED_TO: i32 = 4;
+pub const MSGNAME_NOT_FORWARDED: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MSG_INFO_0 {

@@ -4,7 +4,7 @@ fn main() -> windows::core::Result<()> {
     unsafe {
         CoIncrementMTAUsage()?;
 
-        let dialog: IFileSaveDialog = CoCreateInstance(&FileSaveDialog, None, CLSCTX_ALL)?;
+        let dialog: IFileSaveDialog = CoCreateInstance(&FileSaveDialog, None, CLSCTX_ALL as u32)?;
 
         let filters = [
             COMDLG_FILTERSPEC {

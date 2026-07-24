@@ -1,2 +1,2 @@
-pub const CMM_READONLY: u32 = 2;
-pub const CMM_REFRESHONLY: u32 = 1;
+pub const CMM_READONLY: i32 = 2;
+pub const CMM_REFRESHONLY: i32 = 1;

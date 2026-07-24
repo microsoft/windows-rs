@@ -5,7 +5,7 @@ mod Windows {
         const CMLangString: GUID = 0xc04d65cf_b70d_11d0_b188_00aa0038c969;
         const CMultiLanguage: GUID = 0x275c23e2_3747_11d0_9fea_00aa003f8646;
         const CPIOD_FORCE_PROMPT: u32 = 2147483648;
-        const CPIOD_PEEK: u32 = 1073741824;
+        const CPIOD_PEEK: i32 = 1073741824;
         struct DetectEncodingInfo {
             nLangID: u32,
             nCodePage: u32,
@@ -171,12 +171,12 @@ mod Windows {
             fn DetectOutboundCodePage(&self, dwFlags: u32, #[len_param(2)] lpWideCharStr: PCWSTR, cchWideChar: u32, #[len_param(4)] #[opt] puiPreferredCodePages: *const u32, nPreferredCodePages: u32, #[len_param(6)] puiDetectedCodePages: *mut u32, #[in] #[out] pnDetectedCodePages: *mut u32, #[opt] lpSpecialChar: PCWSTR) -> HRESULT;
             fn DetectOutboundCodePageInIStream(&self, dwFlags: u32, pStrIn: IStream, #[len_param(3)] #[opt] puiPreferredCodePages: *const u32, nPreferredCodePages: u32, #[len_param(5)] puiDetectedCodePages: *mut u32, #[in] #[out] pnDetectedCodePages: *mut u32, #[opt] lpSpecialChar: PCWSTR) -> HRESULT;
         }
-        const MAX_LOCALE_NAME: u32 = 32;
-        const MAX_MIMECP_NAME: u32 = 64;
-        const MAX_MIMECSET_NAME: u32 = 50;
-        const MAX_MIMEFACE_NAME: u32 = 32;
-        const MAX_RFC1766_NAME: u32 = 6;
-        const MAX_SCRIPT_NAME: u32 = 48;
+        const MAX_LOCALE_NAME: i32 = 32;
+        const MAX_MIMECP_NAME: i32 = 64;
+        const MAX_MIMECSET_NAME: i32 = 50;
+        const MAX_MIMEFACE_NAME: i32 = 32;
+        const MAX_RFC1766_NAME: i32 = 6;
+        const MAX_SCRIPT_NAME: i32 = 48;
         #[repr(i32)]
         enum MIMECONTF {
             MIMECONTF_MAILNEWS = 1,

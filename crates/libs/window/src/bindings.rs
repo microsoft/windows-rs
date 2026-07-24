@@ -31,8 +31,8 @@ windows_core::link!("user32.dll" "system" fn SetWindowLongW(hwnd : HWND, nindex 
 windows_core::link!("user32.dll" "system" fn ShowWindow(hwnd : HWND, ncmdshow : i32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
 pub type ATOM = u16;
-pub const CS_HREDRAW: u32 = 2;
-pub const CS_VREDRAW: u32 = 1;
+pub const CS_HREDRAW: i32 = 2;
+pub const CS_VREDRAW: i32 = 1;
 pub const CW_USEDEFAULT: i32 = -2147483648;
 pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
@@ -56,7 +56,7 @@ pub struct MSG {
     pub time: u32,
     pub pt: POINT,
 }
-pub const PM_REMOVE: u32 = 1;
+pub const PM_REMOVE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
@@ -71,11 +71,11 @@ pub struct RECT {
     pub right: i32,
     pub bottom: i32,
 }
-pub const SW_SHOWNORMAL: u32 = 1;
-pub const WM_DESTROY: u32 = 2;
-pub const WM_NCDESTROY: u32 = 130;
-pub const WM_QUIT: u32 = 18;
-pub const WM_SIZE: u32 = 5;
+pub const SW_SHOWNORMAL: i32 = 1;
+pub const WM_DESTROY: i32 = 2;
+pub const WM_NCDESTROY: i32 = 130;
+pub const WM_QUIT: i32 = 18;
+pub const WM_SIZE: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WNDCLASSW {
@@ -94,4 +94,4 @@ pub type WNDPROC = Option<
     unsafe extern "system" fn(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> LRESULT,
 >;
 pub type WPARAM = usize;
-pub const WS_OVERLAPPEDWINDOW: u32 = 13565952;
+pub const WS_OVERLAPPEDWINDOW: i32 = 13565952;

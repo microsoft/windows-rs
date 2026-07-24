@@ -7,9 +7,9 @@ mod Windows {
         extern fn NetStatisticsGet(ServerName: LPTSTR, Service: LPTSTR, Level: u32, Options: u32, Buffer: *mut LPBYTE) -> u32;
         type PSTAT_SERVER_0 = *mut STAT_SERVER_0;
         type PSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
-        const STATSOPT_CLR: u32 = 1;
-        const STATS_NO_VALUE: i32 = -1;
-        const STATS_OVERFLOW: i32 = -2;
+        const STATSOPT_CLR: i32 = 1;
+        const STATS_NO_VALUE: u32 = 4294967295;
+        const STATS_OVERFLOW: u32 = 4294967294;
         struct STAT_SERVER_0 {
             sts0_start: u32,
             sts0_fopens: u32,

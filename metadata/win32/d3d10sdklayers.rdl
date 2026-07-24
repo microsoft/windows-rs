@@ -1,10 +1,10 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const D3D10_DEBUG_FEATURE_FINISH_PER_RENDER_OP: u32 = 2;
-        const D3D10_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: u32 = 1;
-        const D3D10_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: u32 = 4;
-        const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
+        const D3D10_DEBUG_FEATURE_FINISH_PER_RENDER_OP: i32 = 2;
+        const D3D10_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: i32 = 1;
+        const D3D10_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: i32 = 4;
+        const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: i32 = 1024;
         struct D3D10_INFO_QUEUE_FILTER {
             AllowList: D3D10_INFO_QUEUE_FILTER_DESC,
             DenyList: D3D10_INFO_QUEUE_FILTER_DESC,
@@ -556,7 +556,7 @@ mod Windows {
             D3D10_MESSAGE_SEVERITY_INFO = 3,
             D3D10_MESSAGE_SEVERITY_MESSAGE = 4,
         }
-        const D3D10_SDK_LAYERS_VERSION: u32 = 11;
+        const D3D10_SDK_LAYERS_VERSION: i32 = 11;
         const DXGI_DEBUG_D3D10: GUID = 0x243b4c52_3606_4d3a_99d7_a7e7b33ed706;
         #[guid(0x9b7e4e01_342c_4106_a19f_4f2704f689f0)]
         interface ID3D10Debug: IUnknown {

@@ -33,8 +33,8 @@ mod Windows {
             lpSecurityAttributes: LPSECURITY_ATTRIBUTES,
             hTemplateFile: HANDLE,
         }
-        const CREATE_ALWAYS: u32 = 2;
-        const CREATE_NEW: u32 = 1;
+        const CREATE_ALWAYS: i32 = 2;
+        const CREATE_NEW: i32 = 1;
         #[library("KERNEL32.dll")]
         extern fn CompareFileTime(lpFileTime1: *const FILETIME, lpFileTime2: *const FILETIME) -> i32;
         #[library("KERNEL32.dll")]
@@ -219,8 +219,8 @@ mod Windows {
         extern fn LockFile(hFile: HANDLE, dwFileOffsetLow: u32, dwFileOffsetHigh: u32, nNumberOfBytesToLockLow: u32, nNumberOfBytesToLockHigh: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn LockFileEx(hFile: HANDLE, dwFlags: u32, #[reserved] dwReserved: u32, nNumberOfBytesToLockLow: u32, nNumberOfBytesToLockHigh: u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
-        const OPEN_ALWAYS: u32 = 4;
-        const OPEN_EXISTING: u32 = 3;
+        const OPEN_ALWAYS: i32 = 4;
+        const OPEN_EXISTING: i32 = 3;
         type PBY_HANDLE_FILE_INFORMATION = *mut BY_HANDLE_FILE_INFORMATION;
         type PCREATEFILE2_EXTENDED_PARAMETERS = *mut CREATEFILE2_EXTENDED_PARAMETERS;
         type PCREATEFILE3_EXTENDED_PARAMETERS = *mut CREATEFILE3_EXTENDED_PARAMETERS;
@@ -268,7 +268,7 @@ mod Windows {
         extern fn SetFileTime(hFile: HANDLE, #[opt] lpCreationTime: *const FILETIME, #[opt] lpLastAccessTime: *const FILETIME, #[opt] lpLastWriteTime: *const FILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetFileValidData(hFile: HANDLE, ValidDataLength: i64) -> BOOL;
-        const TRUNCATE_EXISTING: u32 = 5;
+        const TRUNCATE_EXISTING: i32 = 5;
         #[library("KERNEL32.dll")]
         extern fn UnlockFile(hFile: HANDLE, dwFileOffsetLow: u32, dwFileOffsetHigh: u32, nNumberOfBytesToUnlockLow: u32, nNumberOfBytesToUnlockHigh: u32) -> BOOL;
         #[library("KERNEL32.dll")]

@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const BG_TOKEN_LOCAL_FILE: u32 = 1;
-        const BG_TOKEN_NETWORK: u32 = 2;
+        const BG_TOKEN_LOCAL_FILE: i32 = 1;
+        const BG_TOKEN_NETWORK: i32 = 2;
         const BackgroundCopyManager4_0: GUID = 0xbb6df56b_cace_11dc_9992_0019b93a3a84;
         #[guid(0xef7e0655_7888_4960_b0e5_730846e03492)]
         interface IBackgroundCopyFile4: IBackgroundCopyFile3 {

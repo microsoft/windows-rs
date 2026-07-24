@@ -8,11 +8,11 @@ windows_link::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE,
 windows_link::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_sys::core::GUID, relatedactivityid : *const windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : u8, keyword : u64, string : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_sys::core::GUID, relatedactivityid : *const windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-pub const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3;
-pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: u32 = 5;
-pub const EVENT_ACTIVITY_CTRL_GET_ID: u32 = 1;
-pub const EVENT_ACTIVITY_CTRL_GET_SET_ID: u32 = 4;
-pub const EVENT_ACTIVITY_CTRL_SET_ID: u32 = 2;
+pub const EVENT_ACTIVITY_CTRL_CREATE_ID: i32 = 3;
+pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: i32 = 5;
+pub const EVENT_ACTIVITY_CTRL_GET_ID: i32 = 1;
+pub const EVENT_ACTIVITY_CTRL_GET_SET_ID: i32 = 4;
+pub const EVENT_ACTIVITY_CTRL_SET_ID: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EVENT_DATA_DESCRIPTOR {
@@ -43,11 +43,11 @@ pub struct EVENT_DATA_DESCRIPTOR_0_0 {
     pub Reserved1: u8,
     pub Reserved2: u16,
 }
-pub const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: u32 = 1;
-pub const EVENT_DATA_DESCRIPTOR_TYPE_NONE: u32 = 0;
-pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2;
-pub const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: u32 = 4;
-pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3;
+pub const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: i32 = 1;
+pub const EVENT_DATA_DESCRIPTOR_TYPE_NONE: i32 = 0;
+pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: i32 = 2;
+pub const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: i32 = 4;
+pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct EVENT_DESCRIPTOR {
@@ -121,7 +121,7 @@ pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
 pub const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160;
 pub const EVENT_FILTER_TYPE_EVENT_NAME: u32 = 2147484672;
 pub const EVENT_FILTER_TYPE_EXECUTABLE_NAME: u32 = 2147483656;
-pub const EVENT_FILTER_TYPE_NONE: u32 = 0;
+pub const EVENT_FILTER_TYPE_NONE: i32 = 0;
 pub const EVENT_FILTER_TYPE_PACKAGE_APP_ID: u32 = 2147483680;
 pub const EVENT_FILTER_TYPE_PACKAGE_ID: u32 = 2147483664;
 pub const EVENT_FILTER_TYPE_PAYLOAD: u32 = 2147483904;
@@ -133,22 +133,22 @@ pub const EVENT_FILTER_TYPE_STACKWALK_NAME: u32 = 2147491840;
 pub const EVENT_FILTER_TYPE_SYSTEM_FLAGS: u32 = 2147483649;
 pub const EVENT_FILTER_TYPE_TRACEHANDLE: u32 = 2147483650;
 pub type EVENT_INFO_CLASS = i32;
-pub const EVENT_MAX_LEVEL: u32 = 255;
-pub const EVENT_MIN_LEVEL: u32 = 0;
-pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2;
-pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1;
+pub const EVENT_MAX_LEVEL: i32 = 255;
+pub const EVENT_MIN_LEVEL: i32 = 0;
+pub const EVENT_WRITE_FLAG_INPRIVATE: i32 = 2;
+pub const EVENT_WRITE_FLAG_NO_FAULTING: i32 = 1;
 pub const EventProviderBinaryTrackInfo: EVENT_INFO_CLASS = 0;
 pub const EventProviderSetReserved1: EVENT_INFO_CLASS = 1;
 pub const EventProviderSetReserved2: EVENT_INFO_CLASS = 4;
 pub const EventProviderSetTraits: EVENT_INFO_CLASS = 2;
 pub const EventProviderUseDescriptorType: EVENT_INFO_CLASS = 3;
-pub const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128;
-pub const MAX_EVENT_FILTERS_COUNT: u32 = 13;
-pub const MAX_EVENT_FILTER_DATA_SIZE: u32 = 1024;
-pub const MAX_EVENT_FILTER_EVENT_ID_COUNT: u32 = 64;
-pub const MAX_EVENT_FILTER_EVENT_NAME_SIZE: u32 = 4096;
-pub const MAX_EVENT_FILTER_PAYLOAD_SIZE: u32 = 4096;
-pub const MAX_EVENT_FILTER_PID_COUNT: u32 = 8;
+pub const MAX_EVENT_DATA_DESCRIPTORS: i32 = 128;
+pub const MAX_EVENT_FILTERS_COUNT: i32 = 13;
+pub const MAX_EVENT_FILTER_DATA_SIZE: i32 = 1024;
+pub const MAX_EVENT_FILTER_EVENT_ID_COUNT: i32 = 64;
+pub const MAX_EVENT_FILTER_EVENT_NAME_SIZE: i32 = 4096;
+pub const MAX_EVENT_FILTER_PAYLOAD_SIZE: i32 = 4096;
+pub const MAX_EVENT_FILTER_PID_COUNT: i32 = 8;
 pub const MaxEventInfo: EVENT_INFO_CLASS = 5;
 pub type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
 pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_sys::core::GUID, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;

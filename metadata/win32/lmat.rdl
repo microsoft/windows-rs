@@ -16,13 +16,13 @@ mod Windows {
             Flags: u8,
             Command: PWSTR,
         }
-        const JOB_ADD_CURRENT_DATE: u32 = 8;
-        const JOB_EXEC_ERROR: u32 = 2;
-        const JOB_INPUT_FLAGS: u32 = 25;
-        const JOB_NONINTERACTIVE: u32 = 16;
-        const JOB_OUTPUT_FLAGS: u32 = 23;
-        const JOB_RUNS_TODAY: u32 = 4;
-        const JOB_RUN_PERIODICALLY: u32 = 1;
+        const JOB_ADD_CURRENT_DATE: i32 = 8;
+        const JOB_EXEC_ERROR: i32 = 2;
+        const JOB_INPUT_FLAGS: i32 = 25;
+        const JOB_NONINTERACTIVE: i32 = 16;
+        const JOB_OUTPUT_FLAGS: i32 = 23;
+        const JOB_RUNS_TODAY: i32 = 4;
+        const JOB_RUN_PERIODICALLY: i32 = 1;
         type LPAT_ENUM = *mut AT_ENUM;
         type LPAT_INFO = *mut AT_INFO;
         #[library("NETAPI32.dll")]

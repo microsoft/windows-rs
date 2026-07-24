@@ -1,5 +1,5 @@
 pub const NDIS_DEFAULT_PORT_NUMBER: NDIS_PORT_NUMBER = NDIS_PORT_NUMBER(0);
-pub const NDIS_MAXIMUM_PORTS: u32 = 16777216;
+pub const NDIS_MAXIMUM_PORTS: i32 = 16777216;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDIS_PORT_NUMBER(pub u32);

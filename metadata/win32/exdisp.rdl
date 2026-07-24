@@ -430,11 +430,11 @@ mod Windows {
         const WebBrowser: GUID = 0x8856f961_340a_11d0_a96b_00c04fd705a2;
         const WebBrowser_V1: GUID = 0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b;
         const navCheckDontShowHVSINeedHost: i32 = -2147483648;
-        const navCheckDontShowNeedHVSI: u32 = 1073741824;
-        const navCheckDontShowNeedIE: u32 = 536870912;
-        const navDisableDownloadSave: u32 = 67108864;
-        const navServerRedirectedVtabSwitch: u32 = 134217728;
-        const navUserInitiatedAction: u32 = 4194304;
-        const navVtabSwitchNotUserInitiatedAction: u32 = 268435456;
+        const navCheckDontShowNeedHVSI: i32 = 1073741824;
+        const navCheckDontShowNeedIE: i32 = 536870912;
+        const navDisableDownloadSave: i32 = 67108864;
+        const navServerRedirectedVtabSwitch: i32 = 134217728;
+        const navUserInitiatedAction: i32 = 4194304;
+        const navVtabSwitchNotUserInitiatedAction: i32 = 268435456;
     }
 }

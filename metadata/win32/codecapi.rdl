@@ -1,9 +1,9 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const AVENC_H263V_LEVELCOUNT: u32 = 8;
-        const AVENC_H264V_LEVELCOUNT: u32 = 16;
-        const AVENC_H264V_MAX_MBBITS: u32 = 3200;
+        const AVENC_H263V_LEVELCOUNT: i32 = 8;
+        const AVENC_H264V_LEVELCOUNT: i32 = 16;
+        const AVENC_H264V_MAX_MBBITS: i32 = 3200;
         struct CODECAPI_AVAudioChannelConfig {}
         struct CODECAPI_AVAudioChannelCount {}
         struct CODECAPI_AVAudioSampleRate {}
@@ -673,7 +673,7 @@ mod Windows {
             eAVEncH264VProfile_UCScalableConstrainedBase = 258,
             eAVEncH264VProfile_UCScalableConstrainedHigh = 259,
         }
-        const eAVEncH264VProfile_ConstrainedHigh: u32 = 257;
+        const eAVEncH264VProfile_ConstrainedHigh: i32 = 257;
         #[repr(i32)]
         enum eAVEncH265VLevel {
             eAVEncH265VLevel1 = 30,

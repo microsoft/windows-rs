@@ -1,35 +1,35 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ADR_ENCODES_CURRENT_POSITION: u32 = 1;
-        const ADR_ENCODES_ISRC: u32 = 3;
-        const ADR_ENCODES_MEDIA_CATALOG: u32 = 2;
-        const ADR_NO_MODE_INFORMATION: u32 = 0;
-        const AUDIO_DATA_TRACK: u32 = 4;
-        const AUDIO_STATUS_IN_PROGRESS: u32 = 17;
-        const AUDIO_STATUS_NOT_SUPPORTED: u32 = 0;
-        const AUDIO_STATUS_NO_STATUS: u32 = 21;
-        const AUDIO_STATUS_PAUSED: u32 = 18;
-        const AUDIO_STATUS_PLAY_COMPLETE: u32 = 19;
-        const AUDIO_STATUS_PLAY_ERROR: u32 = 20;
-        const AUDIO_WITH_PREEMPHASIS: u32 = 1;
-        const CDROM_CD_TEXT_PACK_ALBUM_NAME: u32 = 128;
-        const CDROM_CD_TEXT_PACK_ARRANGER: u32 = 132;
-        const CDROM_CD_TEXT_PACK_COMPOSER: u32 = 131;
-        const CDROM_CD_TEXT_PACK_DISC_ID: u32 = 134;
-        const CDROM_CD_TEXT_PACK_GENRE: u32 = 135;
-        const CDROM_CD_TEXT_PACK_MESSAGES: u32 = 133;
-        const CDROM_CD_TEXT_PACK_PERFORMER: u32 = 129;
-        const CDROM_CD_TEXT_PACK_SIZE_INFO: u32 = 143;
-        const CDROM_CD_TEXT_PACK_SONGWRITER: u32 = 130;
-        const CDROM_CD_TEXT_PACK_TOC_INFO: u32 = 136;
-        const CDROM_CD_TEXT_PACK_TOC_INFO2: u32 = 137;
-        const CDROM_CD_TEXT_PACK_UPC_EAN: u32 = 142;
-        const CDROM_DISK_AUDIO_TRACK: u32 = 1;
+        const ADR_ENCODES_CURRENT_POSITION: i32 = 1;
+        const ADR_ENCODES_ISRC: i32 = 3;
+        const ADR_ENCODES_MEDIA_CATALOG: i32 = 2;
+        const ADR_NO_MODE_INFORMATION: i32 = 0;
+        const AUDIO_DATA_TRACK: i32 = 4;
+        const AUDIO_STATUS_IN_PROGRESS: i32 = 17;
+        const AUDIO_STATUS_NOT_SUPPORTED: i32 = 0;
+        const AUDIO_STATUS_NO_STATUS: i32 = 21;
+        const AUDIO_STATUS_PAUSED: i32 = 18;
+        const AUDIO_STATUS_PLAY_COMPLETE: i32 = 19;
+        const AUDIO_STATUS_PLAY_ERROR: i32 = 20;
+        const AUDIO_WITH_PREEMPHASIS: i32 = 1;
+        const CDROM_CD_TEXT_PACK_ALBUM_NAME: i32 = 128;
+        const CDROM_CD_TEXT_PACK_ARRANGER: i32 = 132;
+        const CDROM_CD_TEXT_PACK_COMPOSER: i32 = 131;
+        const CDROM_CD_TEXT_PACK_DISC_ID: i32 = 134;
+        const CDROM_CD_TEXT_PACK_GENRE: i32 = 135;
+        const CDROM_CD_TEXT_PACK_MESSAGES: i32 = 133;
+        const CDROM_CD_TEXT_PACK_PERFORMER: i32 = 129;
+        const CDROM_CD_TEXT_PACK_SIZE_INFO: i32 = 143;
+        const CDROM_CD_TEXT_PACK_SONGWRITER: i32 = 130;
+        const CDROM_CD_TEXT_PACK_TOC_INFO: i32 = 136;
+        const CDROM_CD_TEXT_PACK_TOC_INFO2: i32 = 137;
+        const CDROM_CD_TEXT_PACK_UPC_EAN: i32 = 142;
+        const CDROM_DISK_AUDIO_TRACK: i32 = 1;
         struct CDROM_DISK_DATA {
             DiskData: u32,
         }
-        const CDROM_DISK_DATA_TRACK: u32 = 2;
+        const CDROM_DISK_DATA_TRACK: i32 = 2;
         struct CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
             Lba: [u8; 4],
             Time: [u8; 2],
@@ -38,7 +38,7 @@ mod Windows {
             RequestType: EXCLUSIVE_ACCESS_REQUEST_TYPE,
             Flags: u32,
         }
-        const CDROM_EXCLUSIVE_CALLER_LENGTH: u32 = 64;
+        const CDROM_EXCLUSIVE_CALLER_LENGTH: i32 = 64;
         struct CDROM_EXCLUSIVE_LOCK {
             Access: CDROM_EXCLUSIVE_ACCESS,
             CallerName: [u8; 64],
@@ -47,16 +47,16 @@ mod Windows {
             LockState: BOOLEAN,
             CallerName: [u8; 64],
         }
-        const CDROM_IN_EXCLUSIVE_MODE: u32 = 1;
-        const CDROM_LOCK_IGNORE_VOLUME: u32 = 1;
+        const CDROM_IN_EXCLUSIVE_MODE: i32 = 1;
+        const CDROM_LOCK_IGNORE_VOLUME: i32 = 1;
         struct CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
             StartLba: [u8; 4],
             StartPerformance: [u8; 4],
             EndLba: [u8; 4],
             EndPerformance: [u8; 4],
         }
-        const CDROM_NOT_IN_EXCLUSIVE_MODE: u32 = 0;
-        const CDROM_NO_MEDIA_NOTIFICATIONS: u32 = 2;
+        const CDROM_NOT_IN_EXCLUSIVE_MODE: i32 = 0;
+        const CDROM_NO_MEDIA_NOTIFICATIONS: i32 = 2;
         #[repr(i32)]
         enum CDROM_OPC_INFO_TYPE {
             SimpleOpcInfo = 1,
@@ -116,12 +116,12 @@ mod Windows {
             Reserved2: u8,
             Reserved3: u8,
         }
-        const CDROM_READ_TOC_EX_FORMAT_ATIP: u32 = 4;
-        const CDROM_READ_TOC_EX_FORMAT_CDTEXT: u32 = 5;
-        const CDROM_READ_TOC_EX_FORMAT_FULL_TOC: u32 = 2;
-        const CDROM_READ_TOC_EX_FORMAT_PMA: u32 = 3;
-        const CDROM_READ_TOC_EX_FORMAT_SESSION: u32 = 1;
-        const CDROM_READ_TOC_EX_FORMAT_TOC: u32 = 0;
+        const CDROM_READ_TOC_EX_FORMAT_ATIP: i32 = 4;
+        const CDROM_READ_TOC_EX_FORMAT_CDTEXT: i32 = 5;
+        const CDROM_READ_TOC_EX_FORMAT_FULL_TOC: i32 = 2;
+        const CDROM_READ_TOC_EX_FORMAT_PMA: i32 = 3;
+        const CDROM_READ_TOC_EX_FORMAT_SESSION: i32 = 1;
+        const CDROM_READ_TOC_EX_FORMAT_TOC: i32 = 0;
         struct CDROM_SEEK_AUDIO_MSF {
             M: u8,
             S: u8,
@@ -278,57 +278,57 @@ mod Windows {
         struct CDROM_WRITE_SPEED_REQUEST {
             RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
         }
-        const CD_RAW_READ_C2_SIZE: u32 = 296;
-        const CD_RAW_READ_SUBCODE_SIZE: u32 = 96;
-        const CD_RAW_SECTOR_WITH_C2_AND_SUBCODE_SIZE: u32 = 2744;
-        const CD_RAW_SECTOR_WITH_C2_SIZE: u32 = 2648;
-        const CD_RAW_SECTOR_WITH_SUBCODE_SIZE: u32 = 2448;
-        const DIGITAL_COPY_PERMITTED: u32 = 2;
+        const CD_RAW_READ_C2_SIZE: i32 = 296;
+        const CD_RAW_READ_SUBCODE_SIZE: i32 = 96;
+        const CD_RAW_SECTOR_WITH_C2_AND_SUBCODE_SIZE: i32 = 2744;
+        const CD_RAW_SECTOR_WITH_C2_SIZE: i32 = 2648;
+        const CD_RAW_SECTOR_WITH_SUBCODE_SIZE: i32 = 2448;
+        const DIGITAL_COPY_PERMITTED: i32 = 2;
         #[repr(i32)]
         enum EXCLUSIVE_ACCESS_REQUEST_TYPE {
             ExclusiveAccessQueryState = 0,
             ExclusiveAccessLockDevice = 1,
             ExclusiveAccessUnlockDevice = 2,
         }
-        const IOCTL_CDROM_BASE: u32 = 2;
-        const IOCTL_CDROM_CHECK_VERIFY: u32 = 149504;
-        const IOCTL_CDROM_CURRENT_POSITION: u32 = 1;
-        const IOCTL_CDROM_DISK_TYPE: u32 = 131136;
-        const IOCTL_CDROM_EJECT_MEDIA: u32 = 149512;
-        const IOCTL_CDROM_ENABLE_STREAMING: u32 = 147560;
-        const IOCTL_CDROM_EXCLUSIVE_ACCESS: u32 = 180316;
-        const IOCTL_CDROM_FIND_NEW_DEVICES: u32 = 149528;
-        const IOCTL_CDROM_GET_CONFIGURATION: u32 = 147544;
-        const IOCTL_CDROM_GET_DRIVE_GEOMETRY: u32 = 147532;
-        const IOCTL_CDROM_GET_DRIVE_GEOMETRY_EX: u32 = 147536;
-        const IOCTL_CDROM_GET_INQUIRY_DATA: u32 = 147556;
-        const IOCTL_CDROM_GET_LAST_SESSION: u32 = 147512;
-        const IOCTL_CDROM_GET_PERFORMANCE: u32 = 147568;
-        const IOCTL_CDROM_GET_VOLUME: u32 = 147476;
-        const IOCTL_CDROM_LOAD_MEDIA: u32 = 149516;
-        const IOCTL_CDROM_MEDIA_CATALOG: u32 = 2;
-        const IOCTL_CDROM_MEDIA_REMOVAL: u32 = 149508;
-        const IOCTL_CDROM_PAUSE_AUDIO: u32 = 147468;
-        const IOCTL_CDROM_PLAY_AUDIO_MSF: u32 = 147480;
-        const IOCTL_CDROM_RAW_READ: u32 = 147518;
-        const IOCTL_CDROM_READ_Q_CHANNEL: u32 = 147500;
-        const IOCTL_CDROM_READ_TOC: u32 = 147456;
-        const IOCTL_CDROM_READ_TOC_EX: u32 = 147540;
-        const IOCTL_CDROM_RELEASE: u32 = 149524;
-        const IOCTL_CDROM_RESERVE: u32 = 149520;
-        const IOCTL_CDROM_RESUME_AUDIO: u32 = 147472;
-        const IOCTL_CDROM_SEEK_AUDIO_MSF: u32 = 147460;
-        const IOCTL_CDROM_SEND_OPC_INFORMATION: u32 = 180332;
-        const IOCTL_CDROM_SET_SPEED: u32 = 147552;
-        const IOCTL_CDROM_SET_VOLUME: u32 = 147496;
-        const IOCTL_CDROM_SIMBAD: u32 = 147468;
-        const IOCTL_CDROM_STOP_AUDIO: u32 = 147464;
-        const IOCTL_CDROM_SUB_Q_CHANNEL: u32 = 0;
-        const IOCTL_CDROM_TRACK_ISRC: u32 = 3;
-        const IOCTL_CDROM_UNLOAD_DRIVER: u32 = 151560;
-        const MAXIMUM_CDROM_INQUIRY_SIZE: u32 = 260;
-        const MAXIMUM_CDROM_SIZE: u32 = 804;
-        const MAXIMUM_NUMBER_TRACKS: u32 = 100;
+        const IOCTL_CDROM_BASE: i32 = 2;
+        const IOCTL_CDROM_CHECK_VERIFY: i32 = 149504;
+        const IOCTL_CDROM_CURRENT_POSITION: i32 = 1;
+        const IOCTL_CDROM_DISK_TYPE: i32 = 131136;
+        const IOCTL_CDROM_EJECT_MEDIA: i32 = 149512;
+        const IOCTL_CDROM_ENABLE_STREAMING: i32 = 147560;
+        const IOCTL_CDROM_EXCLUSIVE_ACCESS: i32 = 180316;
+        const IOCTL_CDROM_FIND_NEW_DEVICES: i32 = 149528;
+        const IOCTL_CDROM_GET_CONFIGURATION: i32 = 147544;
+        const IOCTL_CDROM_GET_DRIVE_GEOMETRY: i32 = 147532;
+        const IOCTL_CDROM_GET_DRIVE_GEOMETRY_EX: i32 = 147536;
+        const IOCTL_CDROM_GET_INQUIRY_DATA: i32 = 147556;
+        const IOCTL_CDROM_GET_LAST_SESSION: i32 = 147512;
+        const IOCTL_CDROM_GET_PERFORMANCE: i32 = 147568;
+        const IOCTL_CDROM_GET_VOLUME: i32 = 147476;
+        const IOCTL_CDROM_LOAD_MEDIA: i32 = 149516;
+        const IOCTL_CDROM_MEDIA_CATALOG: i32 = 2;
+        const IOCTL_CDROM_MEDIA_REMOVAL: i32 = 149508;
+        const IOCTL_CDROM_PAUSE_AUDIO: i32 = 147468;
+        const IOCTL_CDROM_PLAY_AUDIO_MSF: i32 = 147480;
+        const IOCTL_CDROM_RAW_READ: i32 = 147518;
+        const IOCTL_CDROM_READ_Q_CHANNEL: i32 = 147500;
+        const IOCTL_CDROM_READ_TOC: i32 = 147456;
+        const IOCTL_CDROM_READ_TOC_EX: i32 = 147540;
+        const IOCTL_CDROM_RELEASE: i32 = 149524;
+        const IOCTL_CDROM_RESERVE: i32 = 149520;
+        const IOCTL_CDROM_RESUME_AUDIO: i32 = 147472;
+        const IOCTL_CDROM_SEEK_AUDIO_MSF: i32 = 147460;
+        const IOCTL_CDROM_SEND_OPC_INFORMATION: i32 = 180332;
+        const IOCTL_CDROM_SET_SPEED: i32 = 147552;
+        const IOCTL_CDROM_SET_VOLUME: i32 = 147496;
+        const IOCTL_CDROM_SIMBAD: i32 = 147468;
+        const IOCTL_CDROM_STOP_AUDIO: i32 = 147464;
+        const IOCTL_CDROM_SUB_Q_CHANNEL: i32 = 0;
+        const IOCTL_CDROM_TRACK_ISRC: i32 = 3;
+        const IOCTL_CDROM_UNLOAD_DRIVER: i32 = 151560;
+        const MAXIMUM_CDROM_INQUIRY_SIZE: i32 = 260;
+        const MAXIMUM_CDROM_SIZE: i32 = 804;
+        const MAXIMUM_NUMBER_TRACKS: i32 = 100;
         #[repr(i32)]
         enum MEDIA_BLANK_TYPE {
             MediaBlankTypeFull = 0,
@@ -339,9 +339,9 @@ mod Windows {
             MediaBlankTypeUncloseLastSession = 5,
             MediaBlankTypeEraseLastSession = 6,
         }
-        const MINIMUM_CDROM_INQUIRY_SIZE: u32 = 36;
-        const MINIMUM_CDROM_READ_TOC_EX_SIZE: u32 = 2;
-        const OBSOLETE_IOCTL_CDROM_GET_CONTROL: u32 = 147508;
+        const MINIMUM_CDROM_INQUIRY_SIZE: i32 = 36;
+        const MINIMUM_CDROM_READ_TOC_EX_SIZE: i32 = 2;
+        const OBSOLETE_IOCTL_CDROM_GET_CONTROL: i32 = 147508;
         type PCDROM_DISK_DATA = *mut CDROM_DISK_DATA;
         type PCDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR = *mut CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR;
         type PCDROM_EXCLUSIVE_ACCESS = *mut CDROM_EXCLUSIVE_ACCESS;
@@ -463,7 +463,7 @@ mod Windows {
             RawWithC2 = 4,
             RawWithSubCode = 5,
         }
-        const TWO_FOUR_CHANNEL_AUDIO: u32 = 8;
+        const TWO_FOUR_CHANNEL_AUDIO: i32 = 8;
         struct VOLUME_CONTROL {
             PortVolume: [u8; 4],
         }

@@ -372,7 +372,7 @@ pub struct ACCESS_ALLOWED_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const ACCESS_ALLOWED_ACE_TYPE: u32 = 0;
+pub const ACCESS_ALLOWED_ACE_TYPE: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_ACE {
@@ -380,7 +380,7 @@ pub struct ACCESS_ALLOWED_CALLBACK_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const ACCESS_ALLOWED_CALLBACK_ACE_TYPE: u32 = 9;
+pub const ACCESS_ALLOWED_CALLBACK_ACE_TYPE: i32 = 9;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
@@ -391,8 +391,8 @@ pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-pub const ACCESS_ALLOWED_CALLBACK_OBJECT_ACE_TYPE: u32 = 11;
-pub const ACCESS_ALLOWED_COMPOUND_ACE_TYPE: u32 = 4;
+pub const ACCESS_ALLOWED_CALLBACK_OBJECT_ACE_TYPE: i32 = 11;
+pub const ACCESS_ALLOWED_COMPOUND_ACE_TYPE: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_OBJECT_ACE {
@@ -403,7 +403,7 @@ pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-pub const ACCESS_ALLOWED_OBJECT_ACE_TYPE: u32 = 5;
+pub const ACCESS_ALLOWED_OBJECT_ACE_TYPE: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_ACE {
@@ -411,7 +411,7 @@ pub struct ACCESS_DENIED_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const ACCESS_DENIED_ACE_TYPE: u32 = 1;
+pub const ACCESS_DENIED_ACE_TYPE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_ACE {
@@ -419,7 +419,7 @@ pub struct ACCESS_DENIED_CALLBACK_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const ACCESS_DENIED_CALLBACK_ACE_TYPE: u32 = 10;
+pub const ACCESS_DENIED_CALLBACK_ACE_TYPE: i32 = 10;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
@@ -430,7 +430,7 @@ pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-pub const ACCESS_DENIED_CALLBACK_OBJECT_ACE_TYPE: u32 = 12;
+pub const ACCESS_DENIED_CALLBACK_OBJECT_ACE_TYPE: i32 = 12;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_OBJECT_ACE {
@@ -441,27 +441,27 @@ pub struct ACCESS_DENIED_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-pub const ACCESS_DENIED_OBJECT_ACE_TYPE: u32 = 6;
+pub const ACCESS_DENIED_OBJECT_ACE_TYPE: i32 = 6;
 pub const ACCESS_DS_OBJECT_TYPE_NAME_A: windows_core::PCSTR = windows_core::s!("Directory Service Object");
 pub const ACCESS_DS_OBJECT_TYPE_NAME_W: windows_core::PCWSTR = windows_core::w!("Directory Service Object");
 pub const ACCESS_DS_SOURCE_A: windows_core::PCSTR = windows_core::s!("DS");
 pub const ACCESS_DS_SOURCE_W: windows_core::PCWSTR = windows_core::w!("DS");
-pub const ACCESS_FILTER_SECURITY_INFORMATION: u32 = 256;
+pub const ACCESS_FILTER_SECURITY_INFORMATION: i32 = 256;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ACCESS_MASK(pub u32);
-pub const ACCESS_MAX_LEVEL: u32 = 4;
-pub const ACCESS_MAX_MS_ACE_TYPE: u32 = 8;
-pub const ACCESS_MAX_MS_OBJECT_ACE_TYPE: u32 = 8;
-pub const ACCESS_MAX_MS_V2_ACE_TYPE: u32 = 3;
-pub const ACCESS_MAX_MS_V3_ACE_TYPE: u32 = 4;
-pub const ACCESS_MAX_MS_V4_ACE_TYPE: u32 = 8;
-pub const ACCESS_MAX_MS_V5_ACE_TYPE: u32 = 21;
-pub const ACCESS_MIN_MS_ACE_TYPE: u32 = 0;
-pub const ACCESS_MIN_MS_OBJECT_ACE_TYPE: u32 = 5;
-pub const ACCESS_OBJECT_GUID: u32 = 0;
-pub const ACCESS_PROPERTY_GUID: u32 = 2;
-pub const ACCESS_PROPERTY_SET_GUID: u32 = 1;
+pub const ACCESS_MAX_LEVEL: i32 = 4;
+pub const ACCESS_MAX_MS_ACE_TYPE: i32 = 8;
+pub const ACCESS_MAX_MS_OBJECT_ACE_TYPE: i32 = 8;
+pub const ACCESS_MAX_MS_V2_ACE_TYPE: i32 = 3;
+pub const ACCESS_MAX_MS_V3_ACE_TYPE: i32 = 4;
+pub const ACCESS_MAX_MS_V4_ACE_TYPE: i32 = 8;
+pub const ACCESS_MAX_MS_V5_ACE_TYPE: i32 = 21;
+pub const ACCESS_MIN_MS_ACE_TYPE: i32 = 0;
+pub const ACCESS_MIN_MS_OBJECT_ACE_TYPE: i32 = 5;
+pub const ACCESS_OBJECT_GUID: i32 = 0;
+pub const ACCESS_PROPERTY_GUID: i32 = 2;
+pub const ACCESS_PROPERTY_SET_GUID: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ACCESS_REASON(pub u32);
@@ -475,12 +475,12 @@ impl Default for ACCESS_REASONS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ACCESS_REASON_DATA_MASK: u32 = 65535;
-pub const ACCESS_REASON_EXDATA_MASK: u32 = 2130706432;
+pub const ACCESS_REASON_DATA_MASK: i32 = 65535;
+pub const ACCESS_REASON_EXDATA_MASK: i32 = 2130706432;
 pub const ACCESS_REASON_STAGING_MASK: u32 = 2147483648;
 pub type ACCESS_REASON_TYPE = i32;
-pub const ACCESS_REASON_TYPE_MASK: u32 = 16711680;
-pub const ACCESS_SYSTEM_SECURITY: u32 = 16777216;
+pub const ACCESS_REASON_TYPE_MASK: i32 = 16711680;
+pub const ACCESS_SYSTEM_SECURITY: i32 = 16777216;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACE_HEADER {
@@ -488,8 +488,8 @@ pub struct ACE_HEADER {
     pub AceFlags: u8,
     pub AceSize: u16,
 }
-pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: u32 = 2;
-pub const ACE_OBJECT_TYPE_PRESENT: u32 = 1;
+pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: i32 = 2;
+pub const ACE_OBJECT_TYPE_PRESENT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL {
@@ -500,12 +500,12 @@ pub struct ACL {
     pub Sbz2: u16,
 }
 pub type ACL_INFORMATION_CLASS = i32;
-pub const ACL_REVISION: u32 = 2;
-pub const ACL_REVISION1: u32 = 1;
-pub const ACL_REVISION2: u32 = 2;
-pub const ACL_REVISION3: u32 = 3;
-pub const ACL_REVISION4: u32 = 4;
-pub const ACL_REVISION_DS: u32 = 4;
+pub const ACL_REVISION: i32 = 2;
+pub const ACL_REVISION1: i32 = 1;
+pub const ACL_REVISION2: i32 = 2;
+pub const ACL_REVISION3: i32 = 3;
+pub const ACL_REVISION4: i32 = 4;
+pub const ACL_REVISION_DS: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL_REVISION_INFORMATION {
@@ -518,9 +518,9 @@ pub struct ACL_SIZE_INFORMATION {
     pub AclBytesInUse: u32,
     pub AclBytesFree: u32,
 }
-pub const ACPI_PPM_HARDWARE_ALL: u32 = 254;
-pub const ACPI_PPM_SOFTWARE_ALL: u32 = 252;
-pub const ACPI_PPM_SOFTWARE_ANY: u32 = 253;
+pub const ACPI_PPM_HARDWARE_ALL: i32 = 254;
+pub const ACPI_PPM_SOFTWARE_ALL: i32 = 252;
+pub const ACPI_PPM_SOFTWARE_ANY: i32 = 253;
 pub type ACTCTX_COMPATIBILITY_ELEMENT_TYPE = i32;
 pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 3;
 pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MITIGATION: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 2;
@@ -583,10 +583,10 @@ pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub lpAppDirPath: windows_core::PCWSTR,
 }
 pub type ACTIVATION_CONTEXT_INFO_CLASS = i32;
-pub const ACTIVATION_CONTEXT_PATH_TYPE_ASSEMBLYREF: u32 = 4;
-pub const ACTIVATION_CONTEXT_PATH_TYPE_NONE: u32 = 1;
-pub const ACTIVATION_CONTEXT_PATH_TYPE_URL: u32 = 3;
-pub const ACTIVATION_CONTEXT_PATH_TYPE_WIN32_FILE: u32 = 2;
+pub const ACTIVATION_CONTEXT_PATH_TYPE_ASSEMBLYREF: i32 = 4;
+pub const ACTIVATION_CONTEXT_PATH_TYPE_NONE: i32 = 1;
+pub const ACTIVATION_CONTEXT_PATH_TYPE_URL: i32 = 3;
+pub const ACTIVATION_CONTEXT_PATH_TYPE_WIN32_FILE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX {
@@ -600,18 +600,18 @@ pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
     pub UiAccess: u32,
 }
-pub const ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS: u32 = 10;
-pub const ACTIVATION_CONTEXT_SECTION_ASSEMBLY_INFORMATION: u32 = 1;
-pub const ACTIVATION_CONTEXT_SECTION_CLR_SURROGATES: u32 = 9;
-pub const ACTIVATION_CONTEXT_SECTION_COMPATIBILITY_INFO: u32 = 11;
-pub const ACTIVATION_CONTEXT_SECTION_COM_INTERFACE_REDIRECTION: u32 = 5;
-pub const ACTIVATION_CONTEXT_SECTION_COM_PROGID_REDIRECTION: u32 = 7;
-pub const ACTIVATION_CONTEXT_SECTION_COM_SERVER_REDIRECTION: u32 = 4;
-pub const ACTIVATION_CONTEXT_SECTION_COM_TYPE_LIBRARY_REDIRECTION: u32 = 6;
-pub const ACTIVATION_CONTEXT_SECTION_DLL_REDIRECTION: u32 = 2;
-pub const ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: u32 = 8;
-pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3;
-pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12;
+pub const ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS: i32 = 10;
+pub const ACTIVATION_CONTEXT_SECTION_ASSEMBLY_INFORMATION: i32 = 1;
+pub const ACTIVATION_CONTEXT_SECTION_CLR_SURROGATES: i32 = 9;
+pub const ACTIVATION_CONTEXT_SECTION_COMPATIBILITY_INFO: i32 = 11;
+pub const ACTIVATION_CONTEXT_SECTION_COM_INTERFACE_REDIRECTION: i32 = 5;
+pub const ACTIVATION_CONTEXT_SECTION_COM_PROGID_REDIRECTION: i32 = 7;
+pub const ACTIVATION_CONTEXT_SECTION_COM_SERVER_REDIRECTION: i32 = 4;
+pub const ACTIVATION_CONTEXT_SECTION_COM_TYPE_LIBRARY_REDIRECTION: i32 = 6;
+pub const ACTIVATION_CONTEXT_SECTION_DLL_REDIRECTION: i32 = 2;
+pub const ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: i32 = 8;
+pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: i32 = 3;
+pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: i32 = 12;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADMINISTRATOR_POWER_POLICY {
@@ -623,7 +623,7 @@ pub struct ADMINISTRATOR_POWER_POLICY {
     pub MaxSpindownTimeout: u32,
 }
 pub const ALL_POWERSCHEMES_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
-pub const ALL_PROCESSOR_GROUPS: u32 = 65535;
+pub const ALL_PROCESSOR_GROUPS: i32 = 65535;
 pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = 0;
 pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = 5;
 pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = 4;
@@ -674,7 +674,7 @@ pub struct ANON_OBJECT_HEADER_V2 {
     pub MetaDataOffset: u32,
 }
 pub const ANSI_NULL: i8 = 0;
-pub const ANYSIZE_ARRAY: u32 = 1;
+pub const ANYSIZE_ARRAY: i32 = 1;
 pub type APC_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void, param2: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -683,7 +683,7 @@ pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub Flags: u32,
     pub ButtonInstanceID: u32,
 }
-pub const APPLICATION_ERROR_MASK: u32 = 536870912;
+pub const APPLICATION_ERROR_MASK: i32 = 536870912;
 #[repr(C, align(16))]
 #[derive(Clone, Copy)]
 pub struct ARM64EC_NT_CONTEXT {
@@ -816,15 +816,15 @@ impl Default for ARM64EC_NT_CONTEXT_0_0_0 {
     }
 }
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_CNTFRQ_EL0: u32 = 24320;
+pub const ARM64_CNTFRQ_EL0: i32 = 24320;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_CNTVCT: u32 = 24322;
+pub const ARM64_CNTVCT: i32 = 24322;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_CNTVCT_EL0: u32 = 24322;
+pub const ARM64_CNTVCT_EL0: i32 = 24322;
 pub type ARM64_FNPDATA_CR = i32;
 pub type ARM64_FNPDATA_FLAGS = i32;
-pub const ARM64_MAX_BREAKPOINTS: u32 = 8;
-pub const ARM64_MAX_WATCHPOINTS: u32 = 2;
+pub const ARM64_MAX_BREAKPOINTS: i32 = 8;
+pub const ARM64_MAX_WATCHPOINTS: i32 = 2;
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -990,27 +990,27 @@ pub struct ARM64_NT_NEON128_0 {
     pub High: i64,
 }
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PMCCNTR_EL0: u32 = 23784;
+pub const ARM64_PMCCNTR_EL0: i32 = 23784;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PMSELR_EL0: u32 = 23781;
+pub const ARM64_PMSELR_EL0: i32 = 23781;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PMXEVCNTR_EL0: u32 = 23786;
+pub const ARM64_PMXEVCNTR_EL0: i32 = 23786;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PREFETCH_KEEP: u32 = 0;
+pub const ARM64_PREFETCH_KEEP: i32 = 0;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PREFETCH_L1: u32 = 0;
+pub const ARM64_PREFETCH_L1: i32 = 0;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PREFETCH_L2: u32 = 2;
+pub const ARM64_PREFETCH_L2: i32 = 2;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PREFETCH_L3: u32 = 4;
+pub const ARM64_PREFETCH_L3: i32 = 4;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PREFETCH_PLD: u32 = 0;
+pub const ARM64_PREFETCH_PLD: i32 = 0;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PREFETCH_PLI: u32 = 8;
+pub const ARM64_PREFETCH_PLI: i32 = 8;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PREFETCH_PST: u32 = 16;
+pub const ARM64_PREFETCH_PST: i32 = 16;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_PREFETCH_STRM: u32 = 1;
+pub const ARM64_PREFETCH_STRM: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ARM64_RUNTIME_FUNCTION {
@@ -1083,11 +1083,11 @@ impl ARM64_RUNTIME_FUNCTION_0_0 {
     }
 }
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_SVCR: u32 = 23058;
+pub const ARM64_SVCR: i32 = 23058;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_SVCR_SM: u32 = 1;
+pub const ARM64_SVCR_SM: i32 = 1;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_SVCR_ZA: u32 = 2;
+pub const ARM64_SVCR_ZA: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARM64_TPIDR2_BLOCK {
@@ -1101,16 +1101,16 @@ impl Default for ARM64_TPIDR2_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ARM64_TPIDR2_BLOCK_ALIGN: u32 = 16;
+pub const ARM64_TPIDR2_BLOCK_ALIGN: i32 = 16;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_TPIDR2_EL0: u32 = 24197;
+pub const ARM64_TPIDR2_EL0: i32 = 24197;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_TPIDRRO_EL0: u32 = 24195;
+pub const ARM64_TPIDRRO_EL0: i32 = 24195;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_TPIDR_EL0: u32 = 24194;
+pub const ARM64_TPIDR_EL0: i32 = 24194;
 #[cfg(target_arch = "aarch64")]
-pub const ARM64_TPIDR_EL1: u32 = 18052;
-pub const ARM_CACHE_ALIGNMENT_SIZE: u32 = 128;
+pub const ARM64_TPIDR_EL1: i32 = 18052;
+pub const ARM_CACHE_ALIGNMENT_SIZE: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
@@ -1126,8 +1126,8 @@ pub struct ATTRIBUTES_AND_SID {
     pub Attributes: u32,
     pub SidStart: u32,
 }
-pub const ATTRIBUTE_SECURITY_INFORMATION: u32 = 32;
-pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1;
+pub const ATTRIBUTE_SECURITY_INFORMATION: i32 = 32;
+pub const AUDIT_ALLOW_NO_PRIVILEGE: i32 = 1;
 pub type AUDIT_EVENT_TYPE = i32;
 pub const AccessReasonAllowedAce: ACCESS_REASON_TYPE = 65536;
 pub const AccessReasonAllowedParentAce: ACCESS_REASON_TYPE = 196608;
@@ -1159,9 +1159,9 @@ pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO
 pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = 1;
 pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = 0;
 pub const AutoLoad: SERVICE_LOAD_TYPE = 2;
-pub const BACKUP_SECURITY_INFORMATION: u32 = 65536;
+pub const BACKUP_SECURITY_INFORMATION: i32 = 65536;
 pub const BATTERY_DISCHARGE_FLAGS_ENABLE: u32 = 2147483648;
-pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: u32 = 7;
+pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: i32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_REPORTING_SCALE {
@@ -1180,7 +1180,7 @@ pub struct CACHE_DESCRIPTOR {
     pub Size: u32,
     pub Type: PROCESSOR_CACHE_TYPE,
 }
-pub const CACHE_FULLY_ASSOCIATIVE: u32 = 255;
+pub const CACHE_FULLY_ASSOCIATIVE: i32 = 255;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
@@ -1216,17 +1216,17 @@ impl Default for CACHE_RELATIONSHIP_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CCHAR(pub i8);
-pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: u32 = 4;
-pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: u32 = 16;
+pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: i32 = 4;
+pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CFG_CALL_TARGET_INFO {
     pub Offset: usize,
     pub Flags: usize,
 }
-pub const CFG_CALL_TARGET_PROCESSED: u32 = 2;
-pub const CFG_CALL_TARGET_VALID: u32 = 1;
-pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8;
+pub const CFG_CALL_TARGET_PROCESSED: i32 = 2;
+pub const CFG_CALL_TARGET_VALID: i32 = 1;
+pub const CFG_CALL_TARGET_VALID_XFG: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
@@ -1254,19 +1254,19 @@ impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1;
-pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1;
+pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: i32 = 1;
+pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: i32 = 1;
 pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760;
-pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: u32 = 16;
-pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: u32 = 8;
+pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: i32 = 16;
+pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub Name: windows_core::PWSTR,
 }
-pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: u32 = 32;
-pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: u32 = 1;
+pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: i32 = 32;
+pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
@@ -1307,15 +1307,15 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2;
-pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: u32 = 4;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: i32 = 6;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: i32 = 4;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: i32 = 1;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: i32 = 0;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: i32 = 16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: i32 = 5;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: i32 = 3;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: i32 = 2;
+pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy)]
@@ -1349,8 +1349,8 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CLAIM_SECURITY_ATTRIBUTE_VALID_FLAGS: u32 = 63;
-pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: u32 = 2;
+pub const CLAIM_SECURITY_ATTRIBUTE_VALID_FLAGS: i32 = 63;
+pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_POWER_DATA {
@@ -1368,16 +1368,16 @@ impl Default for CM_POWER_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32;
-pub const CM_SERVICE_NETWORK_BOOT_LOAD: u32 = 1;
-pub const CM_SERVICE_RAM_DISK_BOOT_LOAD: u32 = 256;
-pub const CM_SERVICE_SD_DISK_BOOT_LOAD: u32 = 8;
-pub const CM_SERVICE_USB3_DISK_BOOT_LOAD: u32 = 16;
-pub const CM_SERVICE_USB_DISK_BOOT_LOAD: u32 = 4;
-pub const CM_SERVICE_VALID_PROMOTION_MASK: u32 = 511;
-pub const CM_SERVICE_VERIFIER_BOOT_LOAD: u32 = 64;
-pub const CM_SERVICE_VIRTUAL_DISK_BOOT_LOAD: u32 = 2;
-pub const CM_SERVICE_WINPE_BOOT_LOAD: u32 = 128;
+pub const CM_SERVICE_MEASURED_BOOT_LOAD: i32 = 32;
+pub const CM_SERVICE_NETWORK_BOOT_LOAD: i32 = 1;
+pub const CM_SERVICE_RAM_DISK_BOOT_LOAD: i32 = 256;
+pub const CM_SERVICE_SD_DISK_BOOT_LOAD: i32 = 8;
+pub const CM_SERVICE_USB3_DISK_BOOT_LOAD: i32 = 16;
+pub const CM_SERVICE_USB_DISK_BOOT_LOAD: i32 = 4;
+pub const CM_SERVICE_VALID_PROMOTION_MASK: i32 = 511;
+pub const CM_SERVICE_VERIFIER_BOOT_LOAD: i32 = 64;
+pub const CM_SERVICE_VIRTUAL_DISK_BOOT_LOAD: i32 = 2;
+pub const CM_SERVICE_WINPE_BOOT_LOAD: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_REPORT_GENERATION_HEADER {
@@ -1386,7 +1386,7 @@ pub struct CODE_INTEGRITY_REPORT_GENERATION_HEADER {
     pub RecordSize: u32,
     pub CommitTime: u64,
 }
-pub const CODE_INTEGRITY_REPORT_GENERATION_VERSION_CURRENT: u32 = 1;
+pub const CODE_INTEGRITY_REPORT_GENERATION_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_REPORT_RECORD_HEADER {
@@ -1395,7 +1395,7 @@ pub struct CODE_INTEGRITY_REPORT_RECORD_HEADER {
     pub RecordSize: u32,
     pub SipaEventCode: u32,
 }
-pub const CODE_INTEGRITY_REPORT_RECORD_VERSION_CURRENT: u32 = 1;
+pub const CODE_INTEGRITY_REPORT_RECORD_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_RUNTIME_REPORT {
@@ -1423,21 +1423,21 @@ pub struct COMPATIBILITY_CONTEXT_ELEMENT {
 pub struct COMPONENT_FILTER {
     pub ComponentFlags: u32,
 }
-pub const COMPONENT_KTM: u32 = 1;
-pub const COMPONENT_VALID_FLAGS: u32 = 1;
-pub const COMPRESSION_ENGINE_HIBER: u32 = 512;
-pub const COMPRESSION_ENGINE_MAXIMUM: u32 = 256;
-pub const COMPRESSION_ENGINE_STANDARD: u32 = 0;
-pub const COMPRESSION_FORMAT_DEFAULT: u32 = 1;
-pub const COMPRESSION_FORMAT_DEFLATE: u32 = 7;
-pub const COMPRESSION_FORMAT_LZ4: u32 = 6;
-pub const COMPRESSION_FORMAT_LZNT1: u32 = 2;
-pub const COMPRESSION_FORMAT_NONE: u32 = 0;
-pub const COMPRESSION_FORMAT_XP10: u32 = 5;
-pub const COMPRESSION_FORMAT_XPRESS: u32 = 3;
-pub const COMPRESSION_FORMAT_XPRESS_HUFF: u32 = 4;
-pub const COMPRESSION_FORMAT_ZLIB: u32 = 8;
-pub const CONTAINER_INHERIT_ACE: u32 = 2;
+pub const COMPONENT_KTM: i32 = 1;
+pub const COMPONENT_VALID_FLAGS: i32 = 1;
+pub const COMPRESSION_ENGINE_HIBER: i32 = 512;
+pub const COMPRESSION_ENGINE_MAXIMUM: i32 = 256;
+pub const COMPRESSION_ENGINE_STANDARD: i32 = 0;
+pub const COMPRESSION_FORMAT_DEFAULT: i32 = 1;
+pub const COMPRESSION_FORMAT_DEFLATE: i32 = 7;
+pub const COMPRESSION_FORMAT_LZ4: i32 = 6;
+pub const COMPRESSION_FORMAT_LZNT1: i32 = 2;
+pub const COMPRESSION_FORMAT_NONE: i32 = 0;
+pub const COMPRESSION_FORMAT_XP10: i32 = 5;
+pub const COMPRESSION_FORMAT_XPRESS: i32 = 3;
+pub const COMPRESSION_FORMAT_XPRESS_HUFF: i32 = 4;
+pub const COMPRESSION_FORMAT_ZLIB: i32 = 8;
+pub const CONTAINER_INHERIT_ACE: i32 = 2;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1576,86 +1576,86 @@ impl Default for CONTEXT_0_0 {
 #[cfg(target_arch = "aarch64")]
 pub type CONTEXT = ARM64_NT_CONTEXT;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_ALL: u32 = 65599;
+pub const CONTEXT_ALL: i32 = 65599;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_ALL: u32 = 1048607;
+pub const CONTEXT_ALL: i32 = 1048607;
 #[cfg(target_arch = "aarch64")]
-pub const CONTEXT_ALL: u32 = 4194527;
+pub const CONTEXT_ALL: i32 = 4194527;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_AMD64: u32 = 1048576;
-pub const CONTEXT_ARM64: u32 = 4194304;
-pub const CONTEXT_ARM64_ALL: u32 = 4194527;
-pub const CONTEXT_ARM64_CONTROL: u32 = 4194305;
-pub const CONTEXT_ARM64_DEBUG_REGISTERS: u32 = 4194312;
-pub const CONTEXT_ARM64_FLOATING_POINT: u32 = 4194308;
-pub const CONTEXT_ARM64_FLOATING_POINT_HIGH: u32 = 4194432;
-pub const CONTEXT_ARM64_FLOATING_POINT_LOW: u32 = 4194368;
-pub const CONTEXT_ARM64_FULL: u32 = 4194311;
-pub const CONTEXT_ARM64_INTEGER: u32 = 4194306;
-pub const CONTEXT_ARM64_RET_TO_GUEST: u32 = 67108864;
-pub const CONTEXT_ARM64_UNWOUND_TO_CALL: u32 = 536870912;
-pub const CONTEXT_ARM64_X18: u32 = 4194320;
-pub const CONTEXT_ARM64_XSTATE: u32 = 4194336;
+pub const CONTEXT_AMD64: i32 = 1048576;
+pub const CONTEXT_ARM64: i32 = 4194304;
+pub const CONTEXT_ARM64_ALL: i32 = 4194527;
+pub const CONTEXT_ARM64_CONTROL: i32 = 4194305;
+pub const CONTEXT_ARM64_DEBUG_REGISTERS: i32 = 4194312;
+pub const CONTEXT_ARM64_FLOATING_POINT: i32 = 4194308;
+pub const CONTEXT_ARM64_FLOATING_POINT_HIGH: i32 = 4194432;
+pub const CONTEXT_ARM64_FLOATING_POINT_LOW: i32 = 4194368;
+pub const CONTEXT_ARM64_FULL: i32 = 4194311;
+pub const CONTEXT_ARM64_INTEGER: i32 = 4194306;
+pub const CONTEXT_ARM64_RET_TO_GUEST: i32 = 67108864;
+pub const CONTEXT_ARM64_UNWOUND_TO_CALL: i32 = 536870912;
+pub const CONTEXT_ARM64_X18: i32 = 4194320;
+pub const CONTEXT_ARM64_XSTATE: i32 = 4194336;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_CONTROL: u32 = 65537;
+pub const CONTEXT_CONTROL: i32 = 65537;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_CONTROL: u32 = 1048577;
+pub const CONTEXT_CONTROL: i32 = 1048577;
 #[cfg(target_arch = "aarch64")]
-pub const CONTEXT_CONTROL: u32 = 4194305;
+pub const CONTEXT_CONTROL: i32 = 4194305;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_DEBUG_REGISTERS: u32 = 65552;
+pub const CONTEXT_DEBUG_REGISTERS: i32 = 65552;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_DEBUG_REGISTERS: u32 = 1048592;
+pub const CONTEXT_DEBUG_REGISTERS: i32 = 1048592;
 #[cfg(target_arch = "aarch64")]
-pub const CONTEXT_DEBUG_REGISTERS: u32 = 4194312;
-pub const CONTEXT_EXCEPTION_ACTIVE: u32 = 134217728;
+pub const CONTEXT_DEBUG_REGISTERS: i32 = 4194312;
+pub const CONTEXT_EXCEPTION_ACTIVE: i32 = 134217728;
 pub const CONTEXT_EXCEPTION_REPORTING: u32 = 2147483648;
-pub const CONTEXT_EXCEPTION_REQUEST: u32 = 1073741824;
+pub const CONTEXT_EXCEPTION_REQUEST: i32 = 1073741824;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_EXTENDED_REGISTERS: u32 = 65568;
+pub const CONTEXT_EXTENDED_REGISTERS: i32 = 65568;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_FLOATING_POINT: u32 = 65544;
+pub const CONTEXT_FLOATING_POINT: i32 = 65544;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_FLOATING_POINT: u32 = 1048584;
+pub const CONTEXT_FLOATING_POINT: i32 = 1048584;
 #[cfg(target_arch = "aarch64")]
-pub const CONTEXT_FLOATING_POINT: u32 = 4194308;
+pub const CONTEXT_FLOATING_POINT: i32 = 4194308;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_FULL: u32 = 65543;
+pub const CONTEXT_FULL: i32 = 65543;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_FULL: u32 = 1048587;
+pub const CONTEXT_FULL: i32 = 1048587;
 #[cfg(target_arch = "aarch64")]
-pub const CONTEXT_FULL: u32 = 4194311;
+pub const CONTEXT_FULL: i32 = 4194311;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_INTEGER: u32 = 65538;
+pub const CONTEXT_INTEGER: i32 = 65538;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_INTEGER: u32 = 1048578;
+pub const CONTEXT_INTEGER: i32 = 1048578;
 #[cfg(target_arch = "aarch64")]
-pub const CONTEXT_INTEGER: u32 = 4194306;
+pub const CONTEXT_INTEGER: i32 = 4194306;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_KERNEL_CET: u32 = 1048704;
+pub const CONTEXT_KERNEL_CET: i32 = 1048704;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const CONTEXT_RET_TO_GUEST: u32 = 67108864;
+pub const CONTEXT_RET_TO_GUEST: i32 = 67108864;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_SEGMENTS: u32 = 65540;
+pub const CONTEXT_SEGMENTS: i32 = 65540;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_SEGMENTS: u32 = 1048580;
-pub const CONTEXT_SERVICE_ACTIVE: u32 = 268435456;
-pub const CONTEXT_UNWOUND_TO_CALL: u32 = 536870912;
+pub const CONTEXT_SEGMENTS: i32 = 1048580;
+pub const CONTEXT_SERVICE_ACTIVE: i32 = 268435456;
+pub const CONTEXT_UNWOUND_TO_CALL: i32 = 536870912;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_XSTATE: u32 = 65600;
+pub const CONTEXT_XSTATE: i32 = 65600;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const CONTEXT_XSTATE: u32 = 1048640;
+pub const CONTEXT_XSTATE: i32 = 1048640;
 #[cfg(target_arch = "aarch64")]
-pub const CONTEXT_XSTATE: u32 = 4194336;
+pub const CONTEXT_XSTATE: i32 = 4194336;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_i386: u32 = 65536;
+pub const CONTEXT_i386: i32 = 65536;
 #[cfg(target_arch = "x86")]
-pub const CONTEXT_i486: u32 = 65536;
-pub const CORE_PARKING_POLICY_CHANGE_IDEAL: u32 = 0;
-pub const CORE_PARKING_POLICY_CHANGE_MAX: u32 = 3;
-pub const CORE_PARKING_POLICY_CHANGE_MULTISTEP: u32 = 3;
-pub const CORE_PARKING_POLICY_CHANGE_ROCKET: u32 = 2;
-pub const CORE_PARKING_POLICY_CHANGE_SINGLE: u32 = 1;
+pub const CONTEXT_i486: i32 = 65536;
+pub const CORE_PARKING_POLICY_CHANGE_IDEAL: i32 = 0;
+pub const CORE_PARKING_POLICY_CHANGE_MAX: i32 = 3;
+pub const CORE_PARKING_POLICY_CHANGE_MULTISTEP: i32 = 3;
+pub const CORE_PARKING_POLICY_CHANGE_ROCKET: i32 = 2;
+pub const CORE_PARKING_POLICY_CHANGE_SINGLE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CORRELATION_VECTOR {
@@ -1679,8 +1679,8 @@ pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = 16;
 pub const COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines = 4;
 pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines = 8;
 pub type CPU_SET_INFORMATION_TYPE = i32;
-pub const CREATE_BOUNDARY_DESCRIPTOR_ADD_APPCONTAINER_SID: u32 = 1;
-pub const CRITICAL_ACE_FLAG: u32 = 32;
+pub const CREATE_BOUNDARY_DESCRIPTOR_ADD_APPCONTAINER_SID: i32 = 1;
+pub const CRITICAL_ACE_FLAG: i32 = 32;
 pub const CTMF_INCLUDE_APPCONTAINER: u32 = 1;
 pub const CTMF_INCLUDE_LPAC: u32 = 2;
 pub const CTMF_VALID_FLAGS: u32 = 3;
@@ -1699,7 +1699,7 @@ pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_C
 pub const CpuSetInformation: CPU_SET_INFORMATION_TYPE = 0;
 pub const CriticalError: SERVICE_ERROR_TYPE = 3;
 pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = 74;
-pub const DACL_SECURITY_INFORMATION: u32 = 4;
+pub const DACL_SECURITY_INFORMATION: i32 = 4;
 pub const DBG_COMMAND_EXCEPTION: u32 = 1073807369;
 pub const DBG_CONTINUE: u32 = 65538;
 pub const DBG_CONTROL_BREAK: u32 = 1073807368;
@@ -1712,89 +1712,89 @@ pub const DBG_REPLY_LATER: u32 = 1073807361;
 pub const DBG_RIPEXCEPTION: u32 = 1073807367;
 pub const DBG_TERMINATE_PROCESS: u32 = 1073807364;
 pub const DBG_TERMINATE_THREAD: u32 = 1073807363;
-pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: u32 = 1;
+pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: i32 = 1;
 pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = 1;
-pub const DEFAULT_IMPERSONATION_LEVEL: u32 = 2;
-pub const DELETE: u32 = 65536;
-pub const DEVICEFAMILYDEVICEFORM_ALLINONE: u32 = 7;
-pub const DEVICEFAMILYDEVICEFORM_BANKING: u32 = 14;
-pub const DEVICEFAMILYDEVICEFORM_BUILDING_AUTOMATION: u32 = 15;
-pub const DEVICEFAMILYDEVICEFORM_CONVERTIBLE: u32 = 5;
-pub const DEVICEFAMILYDEVICEFORM_DESKTOP: u32 = 3;
-pub const DEVICEFAMILYDEVICEFORM_DETACHABLE: u32 = 6;
-pub const DEVICEFAMILYDEVICEFORM_DIGITAL_SIGNAGE: u32 = 16;
-pub const DEVICEFAMILYDEVICEFORM_GAMING: u32 = 17;
-pub const DEVICEFAMILYDEVICEFORM_GAMING_CONSOLE: u32 = 47;
-pub const DEVICEFAMILYDEVICEFORM_GAMING_HANDHELD: u32 = 46;
-pub const DEVICEFAMILYDEVICEFORM_HMD: u32 = 11;
-pub const DEVICEFAMILYDEVICEFORM_HOME_AUTOMATION: u32 = 18;
-pub const DEVICEFAMILYDEVICEFORM_INDUSTRIAL_AUTOMATION: u32 = 19;
-pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_HANDHELD: u32 = 12;
-pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_OTHER: u32 = 29;
-pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_TABLET: u32 = 13;
+pub const DEFAULT_IMPERSONATION_LEVEL: i32 = 2;
+pub const DELETE: i32 = 65536;
+pub const DEVICEFAMILYDEVICEFORM_ALLINONE: i32 = 7;
+pub const DEVICEFAMILYDEVICEFORM_BANKING: i32 = 14;
+pub const DEVICEFAMILYDEVICEFORM_BUILDING_AUTOMATION: i32 = 15;
+pub const DEVICEFAMILYDEVICEFORM_CONVERTIBLE: i32 = 5;
+pub const DEVICEFAMILYDEVICEFORM_DESKTOP: i32 = 3;
+pub const DEVICEFAMILYDEVICEFORM_DETACHABLE: i32 = 6;
+pub const DEVICEFAMILYDEVICEFORM_DIGITAL_SIGNAGE: i32 = 16;
+pub const DEVICEFAMILYDEVICEFORM_GAMING: i32 = 17;
+pub const DEVICEFAMILYDEVICEFORM_GAMING_CONSOLE: i32 = 47;
+pub const DEVICEFAMILYDEVICEFORM_GAMING_HANDHELD: i32 = 46;
+pub const DEVICEFAMILYDEVICEFORM_HMD: i32 = 11;
+pub const DEVICEFAMILYDEVICEFORM_HOME_AUTOMATION: i32 = 18;
+pub const DEVICEFAMILYDEVICEFORM_INDUSTRIAL_AUTOMATION: i32 = 19;
+pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_HANDHELD: i32 = 12;
+pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_OTHER: i32 = 29;
+pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_TABLET: i32 = 13;
 pub const DEVICEFAMILYDEVICEFORM_KEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM");
-pub const DEVICEFAMILYDEVICEFORM_KIOSK: u32 = 20;
-pub const DEVICEFAMILYDEVICEFORM_LARGESCREEN: u32 = 10;
-pub const DEVICEFAMILYDEVICEFORM_MAKER_BOARD: u32 = 21;
-pub const DEVICEFAMILYDEVICEFORM_MAX: u32 = 47;
-pub const DEVICEFAMILYDEVICEFORM_MEDICAL: u32 = 22;
-pub const DEVICEFAMILYDEVICEFORM_NETWORKING: u32 = 23;
-pub const DEVICEFAMILYDEVICEFORM_NOTEBOOK: u32 = 4;
-pub const DEVICEFAMILYDEVICEFORM_PHONE: u32 = 1;
-pub const DEVICEFAMILYDEVICEFORM_POINT_OF_SERVICE: u32 = 24;
-pub const DEVICEFAMILYDEVICEFORM_PRINTING: u32 = 25;
-pub const DEVICEFAMILYDEVICEFORM_PUCK: u32 = 9;
-pub const DEVICEFAMILYDEVICEFORM_STICKPC: u32 = 8;
-pub const DEVICEFAMILYDEVICEFORM_TABLET: u32 = 2;
-pub const DEVICEFAMILYDEVICEFORM_THIN_CLIENT: u32 = 26;
-pub const DEVICEFAMILYDEVICEFORM_TOY: u32 = 27;
-pub const DEVICEFAMILYDEVICEFORM_UNKNOWN: u32 = 0;
+pub const DEVICEFAMILYDEVICEFORM_KIOSK: i32 = 20;
+pub const DEVICEFAMILYDEVICEFORM_LARGESCREEN: i32 = 10;
+pub const DEVICEFAMILYDEVICEFORM_MAKER_BOARD: i32 = 21;
+pub const DEVICEFAMILYDEVICEFORM_MAX: i32 = 47;
+pub const DEVICEFAMILYDEVICEFORM_MEDICAL: i32 = 22;
+pub const DEVICEFAMILYDEVICEFORM_NETWORKING: i32 = 23;
+pub const DEVICEFAMILYDEVICEFORM_NOTEBOOK: i32 = 4;
+pub const DEVICEFAMILYDEVICEFORM_PHONE: i32 = 1;
+pub const DEVICEFAMILYDEVICEFORM_POINT_OF_SERVICE: i32 = 24;
+pub const DEVICEFAMILYDEVICEFORM_PRINTING: i32 = 25;
+pub const DEVICEFAMILYDEVICEFORM_PUCK: i32 = 9;
+pub const DEVICEFAMILYDEVICEFORM_STICKPC: i32 = 8;
+pub const DEVICEFAMILYDEVICEFORM_TABLET: i32 = 2;
+pub const DEVICEFAMILYDEVICEFORM_THIN_CLIENT: i32 = 26;
+pub const DEVICEFAMILYDEVICEFORM_TOY: i32 = 27;
+pub const DEVICEFAMILYDEVICEFORM_UNKNOWN: i32 = 0;
 pub const DEVICEFAMILYDEVICEFORM_VALUE: windows_core::PCWSTR = windows_core::w!("DeviceForm");
-pub const DEVICEFAMILYDEVICEFORM_VENDING: u32 = 28;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE: u32 = 30;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_S: u32 = 31;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_X: u32 = 32;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_X_DEVKIT: u32 = 33;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_01: u32 = 37;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_02: u32 = 38;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_03: u32 = 39;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_04: u32 = 40;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_05: u32 = 41;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_06: u32 = 42;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_07: u32 = 43;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_08: u32 = 44;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09: u32 = 45;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_S: u32 = 36;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X: u32 = 34;
-pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT: u32 = 35;
-pub const DEVICEFAMILYINFOENUM_7067329: u32 = 15;
-pub const DEVICEFAMILYINFOENUM_8828080: u32 = 14;
-pub const DEVICEFAMILYINFOENUM_DESKTOP: u32 = 3;
-pub const DEVICEFAMILYINFOENUM_HOLOGRAPHIC: u32 = 10;
-pub const DEVICEFAMILYINFOENUM_IOT: u32 = 7;
-pub const DEVICEFAMILYINFOENUM_IOT_HEADLESS: u32 = 8;
-pub const DEVICEFAMILYINFOENUM_MAX: u32 = 17;
-pub const DEVICEFAMILYINFOENUM_MOBILE: u32 = 4;
-pub const DEVICEFAMILYINFOENUM_SERVER: u32 = 9;
-pub const DEVICEFAMILYINFOENUM_SERVER_NANO: u32 = 13;
-pub const DEVICEFAMILYINFOENUM_TEAM: u32 = 6;
-pub const DEVICEFAMILYINFOENUM_UAP: u32 = 0;
-pub const DEVICEFAMILYINFOENUM_WINDOWS_8X: u32 = 1;
-pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE: u32 = 16;
-pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE_HEADLESS: u32 = 17;
-pub const DEVICEFAMILYINFOENUM_WINDOWS_PHONE_8X: u32 = 2;
-pub const DEVICEFAMILYINFOENUM_XBOX: u32 = 5;
-pub const DEVICEFAMILYINFOENUM_XBOXERA: u32 = 12;
-pub const DEVICEFAMILYINFOENUM_XBOXSRA: u32 = 11;
+pub const DEVICEFAMILYDEVICEFORM_VENDING: i32 = 28;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE: i32 = 30;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_S: i32 = 31;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_X: i32 = 32;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_X_DEVKIT: i32 = 33;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_01: i32 = 37;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_02: i32 = 38;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_03: i32 = 39;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_04: i32 = 40;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_05: i32 = 41;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_06: i32 = 42;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_07: i32 = 43;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_08: i32 = 44;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09: i32 = 45;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_S: i32 = 36;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X: i32 = 34;
+pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT: i32 = 35;
+pub const DEVICEFAMILYINFOENUM_7067329: i32 = 15;
+pub const DEVICEFAMILYINFOENUM_8828080: i32 = 14;
+pub const DEVICEFAMILYINFOENUM_DESKTOP: i32 = 3;
+pub const DEVICEFAMILYINFOENUM_HOLOGRAPHIC: i32 = 10;
+pub const DEVICEFAMILYINFOENUM_IOT: i32 = 7;
+pub const DEVICEFAMILYINFOENUM_IOT_HEADLESS: i32 = 8;
+pub const DEVICEFAMILYINFOENUM_MAX: i32 = 17;
+pub const DEVICEFAMILYINFOENUM_MOBILE: i32 = 4;
+pub const DEVICEFAMILYINFOENUM_SERVER: i32 = 9;
+pub const DEVICEFAMILYINFOENUM_SERVER_NANO: i32 = 13;
+pub const DEVICEFAMILYINFOENUM_TEAM: i32 = 6;
+pub const DEVICEFAMILYINFOENUM_UAP: i32 = 0;
+pub const DEVICEFAMILYINFOENUM_WINDOWS_8X: i32 = 1;
+pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE: i32 = 16;
+pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE_HEADLESS: i32 = 17;
+pub const DEVICEFAMILYINFOENUM_WINDOWS_PHONE_8X: i32 = 2;
+pub const DEVICEFAMILYINFOENUM_XBOX: i32 = 5;
+pub const DEVICEFAMILYINFOENUM_XBOXERA: i32 = 12;
+pub const DEVICEFAMILYINFOENUM_XBOXSRA: i32 = 11;
 pub type DEVICE_POWER_STATE = i32;
-pub const DIAGNOSTIC_REASON_DETAILED_STRING: u32 = 2;
+pub const DIAGNOSTIC_REASON_DETAILED_STRING: i32 = 2;
 pub const DIAGNOSTIC_REASON_INVALID_FLAGS: u32 = 2147483640;
 pub const DIAGNOSTIC_REASON_NOT_SPECIFIED: u32 = 2147483648;
-pub const DIAGNOSTIC_REASON_SIMPLE_STRING: u32 = 1;
-pub const DIAGNOSTIC_REASON_VERSION: u32 = 0;
-pub const DISABLE_MAX_PRIVILEGE: u32 = 1;
-pub const DISCHARGE_POLICY_CRITICAL: u32 = 0;
-pub const DISCHARGE_POLICY_LOW: u32 = 1;
+pub const DIAGNOSTIC_REASON_SIMPLE_STRING: i32 = 1;
+pub const DIAGNOSTIC_REASON_VERSION: i32 = 0;
+pub const DISABLE_MAX_PRIVILEGE: i32 = 1;
+pub const DISCHARGE_POLICY_CRITICAL: i32 = 0;
+pub const DISCHARGE_POLICY_LOW: i32 = 1;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "excpt")]
@@ -1894,73 +1894,73 @@ impl Default for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DLL_PROCESS_ATTACH: u32 = 1;
-pub const DLL_PROCESS_DETACH: u32 = 0;
-pub const DLL_THREAD_ATTACH: u32 = 2;
-pub const DLL_THREAD_DETACH: u32 = 3;
-pub const DOMAIN_ALIAS_RID_ACCESS_CONTROL_ASSISTANCE_OPS: u32 = 579;
-pub const DOMAIN_ALIAS_RID_ACCOUNT_OPS: u32 = 548;
-pub const DOMAIN_ALIAS_RID_ADMINS: u32 = 544;
-pub const DOMAIN_ALIAS_RID_AUTHORIZATIONACCESS: u32 = 560;
-pub const DOMAIN_ALIAS_RID_BACKUP_OPS: u32 = 551;
-pub const DOMAIN_ALIAS_RID_CACHEABLE_PRINCIPALS_GROUP: u32 = 571;
-pub const DOMAIN_ALIAS_RID_CERTSVC_DCOM_ACCESS_GROUP: u32 = 574;
-pub const DOMAIN_ALIAS_RID_CRYPTO_OPERATORS: u32 = 569;
-pub const DOMAIN_ALIAS_RID_CUA_USERS: u32 = 586;
-pub const DOMAIN_ALIAS_RID_DCOM_USERS: u32 = 562;
-pub const DOMAIN_ALIAS_RID_DEFAULT_ACCOUNT: u32 = 581;
-pub const DOMAIN_ALIAS_RID_DEVICE_OWNERS: u32 = 583;
-pub const DOMAIN_ALIAS_RID_EVENT_LOG_READERS_GROUP: u32 = 573;
-pub const DOMAIN_ALIAS_RID_GUESTS: u32 = 546;
-pub const DOMAIN_ALIAS_RID_HYPER_V_ADMINS: u32 = 578;
-pub const DOMAIN_ALIAS_RID_INCOMING_FOREST_TRUST_BUILDERS: u32 = 557;
-pub const DOMAIN_ALIAS_RID_IUSERS: u32 = 568;
-pub const DOMAIN_ALIAS_RID_LOGGING_USERS: u32 = 559;
-pub const DOMAIN_ALIAS_RID_MONITORING_USERS: u32 = 558;
-pub const DOMAIN_ALIAS_RID_NETWORK_CONFIGURATION_OPS: u32 = 556;
-pub const DOMAIN_ALIAS_RID_NON_CACHEABLE_PRINCIPALS_GROUP: u32 = 572;
-pub const DOMAIN_ALIAS_RID_OPENSSH_USERS: u32 = 585;
-pub const DOMAIN_ALIAS_RID_POWER_USERS: u32 = 547;
-pub const DOMAIN_ALIAS_RID_PREW2KCOMPACCESS: u32 = 554;
-pub const DOMAIN_ALIAS_RID_PRINT_OPS: u32 = 550;
-pub const DOMAIN_ALIAS_RID_RAS_SERVERS: u32 = 553;
-pub const DOMAIN_ALIAS_RID_RDS_ENDPOINT_SERVERS: u32 = 576;
-pub const DOMAIN_ALIAS_RID_RDS_MANAGEMENT_SERVERS: u32 = 577;
-pub const DOMAIN_ALIAS_RID_RDS_REMOTE_ACCESS_SERVERS: u32 = 575;
-pub const DOMAIN_ALIAS_RID_REMOTE_DESKTOP_USERS: u32 = 555;
-pub const DOMAIN_ALIAS_RID_REMOTE_MANAGEMENT_USERS: u32 = 580;
-pub const DOMAIN_ALIAS_RID_REPLICATOR: u32 = 552;
-pub const DOMAIN_ALIAS_RID_STORAGE_REPLICA_ADMINS: u32 = 582;
-pub const DOMAIN_ALIAS_RID_SYSTEM_OPS: u32 = 549;
-pub const DOMAIN_ALIAS_RID_TS_LICENSE_SERVERS: u32 = 561;
-pub const DOMAIN_ALIAS_RID_USERS: u32 = 545;
-pub const DOMAIN_ALIAS_RID_USER_MODE_HARDWARE_OPERATORS: u32 = 584;
-pub const DOMAIN_GROUP_RID_ADMINS: u32 = 512;
-pub const DOMAIN_GROUP_RID_AUTHORIZATION_DATA_CONTAINS_CLAIMS: u32 = 497;
-pub const DOMAIN_GROUP_RID_AUTHORIZATION_DATA_IS_COMPOUNDED: u32 = 496;
-pub const DOMAIN_GROUP_RID_CDC_RESERVED: u32 = 524;
-pub const DOMAIN_GROUP_RID_CERT_ADMINS: u32 = 517;
-pub const DOMAIN_GROUP_RID_CLONEABLE_CONTROLLERS: u32 = 522;
-pub const DOMAIN_GROUP_RID_COMPUTERS: u32 = 515;
-pub const DOMAIN_GROUP_RID_CONTROLLERS: u32 = 516;
-pub const DOMAIN_GROUP_RID_ENTERPRISE_ADMINS: u32 = 519;
-pub const DOMAIN_GROUP_RID_ENTERPRISE_KEY_ADMINS: u32 = 527;
-pub const DOMAIN_GROUP_RID_ENTERPRISE_READONLY_DOMAIN_CONTROLLERS: u32 = 498;
-pub const DOMAIN_GROUP_RID_EXTERNAL_TRUSTS: u32 = 529;
-pub const DOMAIN_GROUP_RID_FOREST_TRUSTS: u32 = 528;
-pub const DOMAIN_GROUP_RID_GUESTS: u32 = 514;
-pub const DOMAIN_GROUP_RID_KEY_ADMINS: u32 = 526;
-pub const DOMAIN_GROUP_RID_POLICY_ADMINS: u32 = 520;
-pub const DOMAIN_GROUP_RID_PROTECTED_USERS: u32 = 525;
-pub const DOMAIN_GROUP_RID_READONLY_CONTROLLERS: u32 = 521;
-pub const DOMAIN_GROUP_RID_SCHEMA_ADMINS: u32 = 518;
-pub const DOMAIN_GROUP_RID_USERS: u32 = 513;
-pub const DOMAIN_USER_RID_ADMIN: u32 = 500;
-pub const DOMAIN_USER_RID_DEFAULT_ACCOUNT: u32 = 503;
-pub const DOMAIN_USER_RID_GUEST: u32 = 501;
-pub const DOMAIN_USER_RID_KRBTGT: u32 = 502;
-pub const DOMAIN_USER_RID_MAX: u32 = 999;
-pub const DOMAIN_USER_RID_WDAG_ACCOUNT: u32 = 504;
+pub const DLL_PROCESS_ATTACH: i32 = 1;
+pub const DLL_PROCESS_DETACH: i32 = 0;
+pub const DLL_THREAD_ATTACH: i32 = 2;
+pub const DLL_THREAD_DETACH: i32 = 3;
+pub const DOMAIN_ALIAS_RID_ACCESS_CONTROL_ASSISTANCE_OPS: i32 = 579;
+pub const DOMAIN_ALIAS_RID_ACCOUNT_OPS: i32 = 548;
+pub const DOMAIN_ALIAS_RID_ADMINS: i32 = 544;
+pub const DOMAIN_ALIAS_RID_AUTHORIZATIONACCESS: i32 = 560;
+pub const DOMAIN_ALIAS_RID_BACKUP_OPS: i32 = 551;
+pub const DOMAIN_ALIAS_RID_CACHEABLE_PRINCIPALS_GROUP: i32 = 571;
+pub const DOMAIN_ALIAS_RID_CERTSVC_DCOM_ACCESS_GROUP: i32 = 574;
+pub const DOMAIN_ALIAS_RID_CRYPTO_OPERATORS: i32 = 569;
+pub const DOMAIN_ALIAS_RID_CUA_USERS: i32 = 586;
+pub const DOMAIN_ALIAS_RID_DCOM_USERS: i32 = 562;
+pub const DOMAIN_ALIAS_RID_DEFAULT_ACCOUNT: i32 = 581;
+pub const DOMAIN_ALIAS_RID_DEVICE_OWNERS: i32 = 583;
+pub const DOMAIN_ALIAS_RID_EVENT_LOG_READERS_GROUP: i32 = 573;
+pub const DOMAIN_ALIAS_RID_GUESTS: i32 = 546;
+pub const DOMAIN_ALIAS_RID_HYPER_V_ADMINS: i32 = 578;
+pub const DOMAIN_ALIAS_RID_INCOMING_FOREST_TRUST_BUILDERS: i32 = 557;
+pub const DOMAIN_ALIAS_RID_IUSERS: i32 = 568;
+pub const DOMAIN_ALIAS_RID_LOGGING_USERS: i32 = 559;
+pub const DOMAIN_ALIAS_RID_MONITORING_USERS: i32 = 558;
+pub const DOMAIN_ALIAS_RID_NETWORK_CONFIGURATION_OPS: i32 = 556;
+pub const DOMAIN_ALIAS_RID_NON_CACHEABLE_PRINCIPALS_GROUP: i32 = 572;
+pub const DOMAIN_ALIAS_RID_OPENSSH_USERS: i32 = 585;
+pub const DOMAIN_ALIAS_RID_POWER_USERS: i32 = 547;
+pub const DOMAIN_ALIAS_RID_PREW2KCOMPACCESS: i32 = 554;
+pub const DOMAIN_ALIAS_RID_PRINT_OPS: i32 = 550;
+pub const DOMAIN_ALIAS_RID_RAS_SERVERS: i32 = 553;
+pub const DOMAIN_ALIAS_RID_RDS_ENDPOINT_SERVERS: i32 = 576;
+pub const DOMAIN_ALIAS_RID_RDS_MANAGEMENT_SERVERS: i32 = 577;
+pub const DOMAIN_ALIAS_RID_RDS_REMOTE_ACCESS_SERVERS: i32 = 575;
+pub const DOMAIN_ALIAS_RID_REMOTE_DESKTOP_USERS: i32 = 555;
+pub const DOMAIN_ALIAS_RID_REMOTE_MANAGEMENT_USERS: i32 = 580;
+pub const DOMAIN_ALIAS_RID_REPLICATOR: i32 = 552;
+pub const DOMAIN_ALIAS_RID_STORAGE_REPLICA_ADMINS: i32 = 582;
+pub const DOMAIN_ALIAS_RID_SYSTEM_OPS: i32 = 549;
+pub const DOMAIN_ALIAS_RID_TS_LICENSE_SERVERS: i32 = 561;
+pub const DOMAIN_ALIAS_RID_USERS: i32 = 545;
+pub const DOMAIN_ALIAS_RID_USER_MODE_HARDWARE_OPERATORS: i32 = 584;
+pub const DOMAIN_GROUP_RID_ADMINS: i32 = 512;
+pub const DOMAIN_GROUP_RID_AUTHORIZATION_DATA_CONTAINS_CLAIMS: i32 = 497;
+pub const DOMAIN_GROUP_RID_AUTHORIZATION_DATA_IS_COMPOUNDED: i32 = 496;
+pub const DOMAIN_GROUP_RID_CDC_RESERVED: i32 = 524;
+pub const DOMAIN_GROUP_RID_CERT_ADMINS: i32 = 517;
+pub const DOMAIN_GROUP_RID_CLONEABLE_CONTROLLERS: i32 = 522;
+pub const DOMAIN_GROUP_RID_COMPUTERS: i32 = 515;
+pub const DOMAIN_GROUP_RID_CONTROLLERS: i32 = 516;
+pub const DOMAIN_GROUP_RID_ENTERPRISE_ADMINS: i32 = 519;
+pub const DOMAIN_GROUP_RID_ENTERPRISE_KEY_ADMINS: i32 = 527;
+pub const DOMAIN_GROUP_RID_ENTERPRISE_READONLY_DOMAIN_CONTROLLERS: i32 = 498;
+pub const DOMAIN_GROUP_RID_EXTERNAL_TRUSTS: i32 = 529;
+pub const DOMAIN_GROUP_RID_FOREST_TRUSTS: i32 = 528;
+pub const DOMAIN_GROUP_RID_GUESTS: i32 = 514;
+pub const DOMAIN_GROUP_RID_KEY_ADMINS: i32 = 526;
+pub const DOMAIN_GROUP_RID_POLICY_ADMINS: i32 = 520;
+pub const DOMAIN_GROUP_RID_PROTECTED_USERS: i32 = 525;
+pub const DOMAIN_GROUP_RID_READONLY_CONTROLLERS: i32 = 521;
+pub const DOMAIN_GROUP_RID_SCHEMA_ADMINS: i32 = 518;
+pub const DOMAIN_GROUP_RID_USERS: i32 = 513;
+pub const DOMAIN_USER_RID_ADMIN: i32 = 500;
+pub const DOMAIN_USER_RID_DEFAULT_ACCOUNT: i32 = 503;
+pub const DOMAIN_USER_RID_GUEST: i32 = 501;
+pub const DOMAIN_USER_RID_KRBTGT: i32 = 502;
+pub const DOMAIN_USER_RID_MAX: i32 = 999;
+pub const DOMAIN_USER_RID_WDAG_ACCOUNT: i32 = 504;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_ENTRY {
@@ -2022,8 +2022,8 @@ impl DRIVER_INFO_ENTRY_0_0 {
         self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
     }
 }
-pub const DRIVER_REPORT_DIGEST_MAX_SIZE: u32 = 64;
-pub const DRIVER_REPORT_NAME_MAX_LENGTH: u32 = 32;
+pub const DRIVER_REPORT_DIGEST_MAX_SIZE: i32 = 64;
+pub const DRIVER_REPORT_NAME_MAX_LENGTH: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_RUNTIME_REPORT {
@@ -2079,51 +2079,51 @@ impl DRIVER_RUNTIME_REPORT_0_0 {
         self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
     }
 }
-pub const DUPLICATE_CLOSE_SOURCE: u32 = 1;
-pub const DUPLICATE_SAME_ACCESS: u32 = 2;
+pub const DUPLICATE_CLOSE_SOURCE: i32 = 1;
+pub const DUPLICATE_SAME_ACCESS: i32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DWORDLONG(pub u64);
-pub const DYNAMIC_EH_CONTINUATION_TARGET_ADD: u32 = 1;
-pub const DYNAMIC_EH_CONTINUATION_TARGET_PROCESSED: u32 = 2;
-pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: u32 = 1;
-pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_PROCESSED: u32 = 2;
+pub const DYNAMIC_EH_CONTINUATION_TARGET_ADD: i32 = 1;
+pub const DYNAMIC_EH_CONTINUATION_TARGET_PROCESSED: i32 = 2;
+pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: i32 = 1;
+pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_PROCESSED: i32 = 2;
 pub const DemandLoad: SERVICE_LOAD_TYPE = 3;
 pub const DisableLoad: SERVICE_LOAD_TYPE = 4;
 pub const DisplayBurst: POWER_INFORMATION_LEVEL = 77;
 pub const DriverType: SERVICE_NODE_TYPE = 1;
-pub const EMARCH_ENC_I17_IC_INST_WORD_POS_X: u32 = 12;
-pub const EMARCH_ENC_I17_IC_INST_WORD_X: u32 = 3;
-pub const EMARCH_ENC_I17_IC_SIZE_X: u32 = 1;
-pub const EMARCH_ENC_I17_IC_VAL_POS_X: u32 = 21;
-pub const EMARCH_ENC_I17_IMM41a_INST_WORD_POS_X: u32 = 14;
-pub const EMARCH_ENC_I17_IMM41a_INST_WORD_X: u32 = 1;
-pub const EMARCH_ENC_I17_IMM41a_SIZE_X: u32 = 10;
-pub const EMARCH_ENC_I17_IMM41a_VAL_POS_X: u32 = 22;
-pub const EMARCH_ENC_I17_IMM41b_INST_WORD_POS_X: u32 = 24;
-pub const EMARCH_ENC_I17_IMM41b_INST_WORD_X: u32 = 1;
-pub const EMARCH_ENC_I17_IMM41b_SIZE_X: u32 = 8;
-pub const EMARCH_ENC_I17_IMM41b_VAL_POS_X: u32 = 32;
-pub const EMARCH_ENC_I17_IMM41c_INST_WORD_POS_X: u32 = 0;
-pub const EMARCH_ENC_I17_IMM41c_INST_WORD_X: u32 = 2;
-pub const EMARCH_ENC_I17_IMM41c_SIZE_X: u32 = 23;
-pub const EMARCH_ENC_I17_IMM41c_VAL_POS_X: u32 = 40;
-pub const EMARCH_ENC_I17_IMM5C_INST_WORD_POS_X: u32 = 13;
-pub const EMARCH_ENC_I17_IMM5C_INST_WORD_X: u32 = 3;
-pub const EMARCH_ENC_I17_IMM5C_SIZE_X: u32 = 5;
-pub const EMARCH_ENC_I17_IMM5C_VAL_POS_X: u32 = 16;
-pub const EMARCH_ENC_I17_IMM7B_INST_WORD_POS_X: u32 = 4;
-pub const EMARCH_ENC_I17_IMM7B_INST_WORD_X: u32 = 3;
-pub const EMARCH_ENC_I17_IMM7B_SIZE_X: u32 = 7;
-pub const EMARCH_ENC_I17_IMM7B_VAL_POS_X: u32 = 0;
-pub const EMARCH_ENC_I17_IMM9D_INST_WORD_POS_X: u32 = 18;
-pub const EMARCH_ENC_I17_IMM9D_INST_WORD_X: u32 = 3;
-pub const EMARCH_ENC_I17_IMM9D_SIZE_X: u32 = 9;
-pub const EMARCH_ENC_I17_IMM9D_VAL_POS_X: u32 = 7;
-pub const EMARCH_ENC_I17_SIGN_INST_WORD_POS_X: u32 = 27;
-pub const EMARCH_ENC_I17_SIGN_INST_WORD_X: u32 = 3;
-pub const EMARCH_ENC_I17_SIGN_SIZE_X: u32 = 1;
-pub const EMARCH_ENC_I17_SIGN_VAL_POS_X: u32 = 63;
+pub const EMARCH_ENC_I17_IC_INST_WORD_POS_X: i32 = 12;
+pub const EMARCH_ENC_I17_IC_INST_WORD_X: i32 = 3;
+pub const EMARCH_ENC_I17_IC_SIZE_X: i32 = 1;
+pub const EMARCH_ENC_I17_IC_VAL_POS_X: i32 = 21;
+pub const EMARCH_ENC_I17_IMM41a_INST_WORD_POS_X: i32 = 14;
+pub const EMARCH_ENC_I17_IMM41a_INST_WORD_X: i32 = 1;
+pub const EMARCH_ENC_I17_IMM41a_SIZE_X: i32 = 10;
+pub const EMARCH_ENC_I17_IMM41a_VAL_POS_X: i32 = 22;
+pub const EMARCH_ENC_I17_IMM41b_INST_WORD_POS_X: i32 = 24;
+pub const EMARCH_ENC_I17_IMM41b_INST_WORD_X: i32 = 1;
+pub const EMARCH_ENC_I17_IMM41b_SIZE_X: i32 = 8;
+pub const EMARCH_ENC_I17_IMM41b_VAL_POS_X: i32 = 32;
+pub const EMARCH_ENC_I17_IMM41c_INST_WORD_POS_X: i32 = 0;
+pub const EMARCH_ENC_I17_IMM41c_INST_WORD_X: i32 = 2;
+pub const EMARCH_ENC_I17_IMM41c_SIZE_X: i32 = 23;
+pub const EMARCH_ENC_I17_IMM41c_VAL_POS_X: i32 = 40;
+pub const EMARCH_ENC_I17_IMM5C_INST_WORD_POS_X: i32 = 13;
+pub const EMARCH_ENC_I17_IMM5C_INST_WORD_X: i32 = 3;
+pub const EMARCH_ENC_I17_IMM5C_SIZE_X: i32 = 5;
+pub const EMARCH_ENC_I17_IMM5C_VAL_POS_X: i32 = 16;
+pub const EMARCH_ENC_I17_IMM7B_INST_WORD_POS_X: i32 = 4;
+pub const EMARCH_ENC_I17_IMM7B_INST_WORD_X: i32 = 3;
+pub const EMARCH_ENC_I17_IMM7B_SIZE_X: i32 = 7;
+pub const EMARCH_ENC_I17_IMM7B_VAL_POS_X: i32 = 0;
+pub const EMARCH_ENC_I17_IMM9D_INST_WORD_POS_X: i32 = 18;
+pub const EMARCH_ENC_I17_IMM9D_INST_WORD_X: i32 = 3;
+pub const EMARCH_ENC_I17_IMM9D_SIZE_X: i32 = 9;
+pub const EMARCH_ENC_I17_IMM9D_VAL_POS_X: i32 = 7;
+pub const EMARCH_ENC_I17_SIGN_INST_WORD_POS_X: i32 = 27;
+pub const EMARCH_ENC_I17_SIGN_INST_WORD_X: i32 = 3;
+pub const EMARCH_ENC_I17_SIGN_SIZE_X: i32 = 1;
+pub const EMARCH_ENC_I17_SIGN_VAL_POS_X: i32 = 63;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_CREATE_INFO_SGX {
@@ -2206,19 +2206,19 @@ impl Default for ENCLAVE_INIT_INFO_VBS_BASIC_0 {
 pub struct ENCLAVE_LOAD_DATA_VBS_BASIC {
     pub PageType: u32,
 }
-pub const ENCLAVE_LONG_ID_LENGTH: u32 = 32;
-pub const ENCLAVE_SHORT_ID_LENGTH: u32 = 16;
+pub const ENCLAVE_LONG_ID_LENGTH: i32 = 32;
+pub const ENCLAVE_SHORT_ID_LENGTH: i32 = 16;
 pub type ENCLAVE_TARGET_FUNCTION = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub const ENCLAVE_TYPE_SGX: u32 = 1;
-pub const ENCLAVE_TYPE_SGX2: u32 = 2;
-pub const ENCLAVE_TYPE_VBS: u32 = 16;
-pub const ENCLAVE_TYPE_VBS_BASIC: u32 = 17;
-pub const ENCLAVE_VBS_FLAG_DEBUG: u32 = 1;
+pub const ENCLAVE_TYPE_SGX: i32 = 1;
+pub const ENCLAVE_TYPE_SGX2: i32 = 2;
+pub const ENCLAVE_TYPE_VBS: i32 = 16;
+pub const ENCLAVE_TYPE_VBS_BASIC: i32 = 17;
+pub const ENCLAVE_VBS_FLAG_DEBUG: i32 = 1;
 pub const ENERGY_SAVER_HIGH_SAVINGS: ENERGY_SAVER_STATUS = 2;
 pub const ENERGY_SAVER_OFF: ENERGY_SAVER_STATUS = 0;
 pub const ENERGY_SAVER_STANDARD: ENERGY_SAVER_STATUS = 1;
 pub type ENERGY_SAVER_STATUS = i32;
-pub const ENLISTMENT_ALL_ACCESS: u32 = 983071;
+pub const ENLISTMENT_ALL_ACCESS: i32 = 983071;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENLISTMENT_BASIC_INFORMATION {
@@ -2233,18 +2233,18 @@ pub struct ENLISTMENT_CRM_INFORMATION {
     pub CrmResourceManagerId: windows_core::GUID,
     pub CrmEnlistmentId: windows_core::GUID,
 }
-pub const ENLISTMENT_GENERIC_EXECUTE: u32 = 131100;
-pub const ENLISTMENT_GENERIC_READ: u32 = 131073;
-pub const ENLISTMENT_GENERIC_WRITE: u32 = 131102;
+pub const ENLISTMENT_GENERIC_EXECUTE: i32 = 131100;
+pub const ENLISTMENT_GENERIC_READ: i32 = 131073;
+pub const ENLISTMENT_GENERIC_WRITE: i32 = 131102;
 pub type ENLISTMENT_INFORMATION_CLASS = i32;
-pub const ENLISTMENT_QUERY_INFORMATION: u32 = 1;
-pub const ENLISTMENT_RECOVER: u32 = 4;
-pub const ENLISTMENT_SET_INFORMATION: u32 = 2;
-pub const ENLISTMENT_SUBORDINATE_RIGHTS: u32 = 8;
-pub const ENLISTMENT_SUPERIOR_RIGHTS: u32 = 16;
+pub const ENLISTMENT_QUERY_INFORMATION: i32 = 1;
+pub const ENLISTMENT_RECOVER: i32 = 4;
+pub const ENLISTMENT_SET_INFORMATION: i32 = 2;
+pub const ENLISTMENT_SUBORDINATE_RIGHTS: i32 = 8;
+pub const ENLISTMENT_SUPERIOR_RIGHTS: i32 = 16;
 pub const ERROR_SEVERITY_ERROR: u32 = 3221225472;
-pub const ERROR_SEVERITY_INFORMATIONAL: u32 = 1073741824;
-pub const ERROR_SEVERITY_SUCCESS: u32 = 0;
+pub const ERROR_SEVERITY_INFORMATIONAL: i32 = 1073741824;
+pub const ERROR_SEVERITY_SUCCESS: i32 = 0;
 pub const ERROR_SEVERITY_WARNING: u32 = 2147483648;
 pub const ES_AWAYMODE_REQUIRED: u32 = 64;
 pub const ES_CONTINUOUS: u32 = 2147483648;
@@ -2271,21 +2271,21 @@ pub struct EVENTLOGRECORD {
     pub DataLength: u32,
     pub DataOffset: u32,
 }
-pub const EVENTLOG_AUDIT_FAILURE: u32 = 16;
-pub const EVENTLOG_AUDIT_SUCCESS: u32 = 8;
-pub const EVENTLOG_BACKWARDS_READ: u32 = 8;
-pub const EVENTLOG_END_ALL_PAIRED_EVENTS: u32 = 4;
-pub const EVENTLOG_END_PAIRED_EVENT: u32 = 2;
-pub const EVENTLOG_ERROR_TYPE: u32 = 1;
-pub const EVENTLOG_FORWARDS_READ: u32 = 4;
-pub const EVENTLOG_INFORMATION_TYPE: u32 = 4;
-pub const EVENTLOG_PAIRED_EVENT_ACTIVE: u32 = 8;
-pub const EVENTLOG_PAIRED_EVENT_INACTIVE: u32 = 16;
-pub const EVENTLOG_SEEK_READ: u32 = 2;
-pub const EVENTLOG_SEQUENTIAL_READ: u32 = 1;
-pub const EVENTLOG_START_PAIRED_EVENT: u32 = 1;
-pub const EVENTLOG_SUCCESS: u32 = 0;
-pub const EVENTLOG_WARNING_TYPE: u32 = 2;
+pub const EVENTLOG_AUDIT_FAILURE: i32 = 16;
+pub const EVENTLOG_AUDIT_SUCCESS: i32 = 8;
+pub const EVENTLOG_BACKWARDS_READ: i32 = 8;
+pub const EVENTLOG_END_ALL_PAIRED_EVENTS: i32 = 4;
+pub const EVENTLOG_END_PAIRED_EVENT: i32 = 2;
+pub const EVENTLOG_ERROR_TYPE: i32 = 1;
+pub const EVENTLOG_FORWARDS_READ: i32 = 4;
+pub const EVENTLOG_INFORMATION_TYPE: i32 = 4;
+pub const EVENTLOG_PAIRED_EVENT_ACTIVE: i32 = 8;
+pub const EVENTLOG_PAIRED_EVENT_INACTIVE: i32 = 16;
+pub const EVENTLOG_SEEK_READ: i32 = 2;
+pub const EVENTLOG_SEQUENTIAL_READ: i32 = 1;
+pub const EVENTLOG_START_PAIRED_EVENT: i32 = 1;
+pub const EVENTLOG_SUCCESS: i32 = 0;
+pub const EVENTLOG_WARNING_TYPE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENTSFORLOGFILE {
@@ -2299,21 +2299,21 @@ impl Default for EVENTSFORLOGFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EVENT_ALL_ACCESS: u32 = 2031619;
-pub const EVENT_MODIFY_STATE: u32 = 2;
-pub const EXCEPTION_COLLIDED_UNWIND: u32 = 64;
-pub const EXCEPTION_EXECUTE_FAULT: u32 = 8;
-pub const EXCEPTION_EXIT_UNWIND: u32 = 4;
-pub const EXCEPTION_MAXIMUM_PARAMETERS: u32 = 15;
-pub const EXCEPTION_NESTED_CALL: u32 = 16;
-pub const EXCEPTION_NONCONTINUABLE: u32 = 1;
+pub const EVENT_ALL_ACCESS: i32 = 2031619;
+pub const EVENT_MODIFY_STATE: i32 = 2;
+pub const EXCEPTION_COLLIDED_UNWIND: i32 = 64;
+pub const EXCEPTION_EXECUTE_FAULT: i32 = 8;
+pub const EXCEPTION_EXIT_UNWIND: i32 = 4;
+pub const EXCEPTION_MAXIMUM_PARAMETERS: i32 = 15;
+pub const EXCEPTION_NESTED_CALL: i32 = 16;
+pub const EXCEPTION_NONCONTINUABLE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: PEXCEPTION_RECORD,
     pub ContextRecord: PCONTEXT,
 }
-pub const EXCEPTION_READ_FAULT: u32 = 0;
+pub const EXCEPTION_READ_FAULT: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD {
@@ -2379,12 +2379,12 @@ pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "excpt")]
 pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut ARM64_NT_CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::EXCEPTION_DISPOSITION>;
-pub const EXCEPTION_SOFTWARE_ORIGINATE: u32 = 128;
-pub const EXCEPTION_STACK_INVALID: u32 = 8;
-pub const EXCEPTION_TARGET_UNWIND: u32 = 32;
-pub const EXCEPTION_UNWIND: u32 = 102;
-pub const EXCEPTION_UNWINDING: u32 = 2;
-pub const EXCEPTION_WRITE_FAULT: u32 = 1;
+pub const EXCEPTION_SOFTWARE_ORIGINATE: i32 = 128;
+pub const EXCEPTION_STACK_INVALID: i32 = 8;
+pub const EXCEPTION_TARGET_UNWIND: i32 = 32;
+pub const EXCEPTION_UNWIND: i32 = 102;
+pub const EXCEPTION_UNWINDING: i32 = 2;
+pub const EXCEPTION_WRITE_FAULT: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct EXECUTION_STATE(pub u32);
@@ -2414,135 +2414,135 @@ pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = 0;
 pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = 2;
 pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = 1;
 pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = 78;
-pub const FAILED_ACCESS_ACE_FLAG: u32 = 128;
-pub const FAST_FAIL_ADMINLESS_ACCESS_DENIED: u32 = 55;
-pub const FAST_FAIL_APCS_DISABLED: u32 = 32;
-pub const FAST_FAIL_ASAN_ERROR: u32 = 71;
-pub const FAST_FAIL_CAST_GUARD: u32 = 65;
-pub const FAST_FAIL_CERTIFICATION_FAILURE: u32 = 20;
-pub const FAST_FAIL_CLR_EXCEPTION_AOT: u32 = 72;
-pub const FAST_FAIL_CONTROL_INVALID_RETURN_ADDRESS: u32 = 57;
-pub const FAST_FAIL_CORRUPT_LIST_ENTRY: u32 = 3;
-pub const FAST_FAIL_CORRUPT_WOW64_STATE: u32 = 75;
-pub const FAST_FAIL_CRYPTO_LIBRARY: u32 = 22;
-pub const FAST_FAIL_DEPRECATED_SERVICE_INVOKED: u32 = 27;
-pub const FAST_FAIL_DLOAD_PROTECTION_FAILURE: u32 = 25;
-pub const FAST_FAIL_ENCLAVE_CALL_FAILURE: u32 = 53;
-pub const FAST_FAIL_ETW_CORRUPTION: u32 = 61;
-pub const FAST_FAIL_FATAL_APP_EXIT: u32 = 7;
-pub const FAST_FAIL_FLAGS_CORRUPTION: u32 = 59;
-pub const FAST_FAIL_GS_COOKIE_INIT: u32 = 6;
-pub const FAST_FAIL_GUARD_EXPORT_SUPPRESSION_FAILURE: u32 = 46;
-pub const FAST_FAIL_GUARD_ICALL_CHECK_FAILURE: u32 = 10;
-pub const FAST_FAIL_GUARD_ICALL_CHECK_FAILURE_XFG: u32 = 64;
-pub const FAST_FAIL_GUARD_ICALL_CHECK_SUPPRESSED: u32 = 31;
-pub const FAST_FAIL_GUARD_JUMPTABLE: u32 = 37;
-pub const FAST_FAIL_GUARD_SS_FAILURE: u32 = 44;
-pub const FAST_FAIL_GUARD_WRITE_CHECK_FAILURE: u32 = 11;
-pub const FAST_FAIL_HEAP_METADATA_CORRUPTION: u32 = 50;
-pub const FAST_FAIL_HOST_VISIBILITY_CHANGE: u32 = 66;
-pub const FAST_FAIL_INCORRECT_STACK: u32 = 4;
-pub const FAST_FAIL_INVALID_ARG: u32 = 5;
-pub const FAST_FAIL_INVALID_BALANCED_TREE: u32 = 29;
-pub const FAST_FAIL_INVALID_BUFFER_ACCESS: u32 = 28;
-pub const FAST_FAIL_INVALID_CALL_IN_DLL_CALLOUT: u32 = 23;
-pub const FAST_FAIL_INVALID_CONTROL_STACK: u32 = 47;
-pub const FAST_FAIL_INVALID_DISPATCH_CONTEXT: u32 = 39;
-pub const FAST_FAIL_INVALID_EXCEPTION_CHAIN: u32 = 21;
-pub const FAST_FAIL_INVALID_EXTENDED_STATE: u32 = 76;
+pub const FAILED_ACCESS_ACE_FLAG: i32 = 128;
+pub const FAST_FAIL_ADMINLESS_ACCESS_DENIED: i32 = 55;
+pub const FAST_FAIL_APCS_DISABLED: i32 = 32;
+pub const FAST_FAIL_ASAN_ERROR: i32 = 71;
+pub const FAST_FAIL_CAST_GUARD: i32 = 65;
+pub const FAST_FAIL_CERTIFICATION_FAILURE: i32 = 20;
+pub const FAST_FAIL_CLR_EXCEPTION_AOT: i32 = 72;
+pub const FAST_FAIL_CONTROL_INVALID_RETURN_ADDRESS: i32 = 57;
+pub const FAST_FAIL_CORRUPT_LIST_ENTRY: i32 = 3;
+pub const FAST_FAIL_CORRUPT_WOW64_STATE: i32 = 75;
+pub const FAST_FAIL_CRYPTO_LIBRARY: i32 = 22;
+pub const FAST_FAIL_DEPRECATED_SERVICE_INVOKED: i32 = 27;
+pub const FAST_FAIL_DLOAD_PROTECTION_FAILURE: i32 = 25;
+pub const FAST_FAIL_ENCLAVE_CALL_FAILURE: i32 = 53;
+pub const FAST_FAIL_ETW_CORRUPTION: i32 = 61;
+pub const FAST_FAIL_FATAL_APP_EXIT: i32 = 7;
+pub const FAST_FAIL_FLAGS_CORRUPTION: i32 = 59;
+pub const FAST_FAIL_GS_COOKIE_INIT: i32 = 6;
+pub const FAST_FAIL_GUARD_EXPORT_SUPPRESSION_FAILURE: i32 = 46;
+pub const FAST_FAIL_GUARD_ICALL_CHECK_FAILURE: i32 = 10;
+pub const FAST_FAIL_GUARD_ICALL_CHECK_FAILURE_XFG: i32 = 64;
+pub const FAST_FAIL_GUARD_ICALL_CHECK_SUPPRESSED: i32 = 31;
+pub const FAST_FAIL_GUARD_JUMPTABLE: i32 = 37;
+pub const FAST_FAIL_GUARD_SS_FAILURE: i32 = 44;
+pub const FAST_FAIL_GUARD_WRITE_CHECK_FAILURE: i32 = 11;
+pub const FAST_FAIL_HEAP_METADATA_CORRUPTION: i32 = 50;
+pub const FAST_FAIL_HOST_VISIBILITY_CHANGE: i32 = 66;
+pub const FAST_FAIL_INCORRECT_STACK: i32 = 4;
+pub const FAST_FAIL_INVALID_ARG: i32 = 5;
+pub const FAST_FAIL_INVALID_BALANCED_TREE: i32 = 29;
+pub const FAST_FAIL_INVALID_BUFFER_ACCESS: i32 = 28;
+pub const FAST_FAIL_INVALID_CALL_IN_DLL_CALLOUT: i32 = 23;
+pub const FAST_FAIL_INVALID_CONTROL_STACK: i32 = 47;
+pub const FAST_FAIL_INVALID_DISPATCH_CONTEXT: i32 = 39;
+pub const FAST_FAIL_INVALID_EXCEPTION_CHAIN: i32 = 21;
+pub const FAST_FAIL_INVALID_EXTENDED_STATE: i32 = 76;
 pub const FAST_FAIL_INVALID_FAST_FAIL_CODE: u32 = 4294967295;
-pub const FAST_FAIL_INVALID_FIBER_SWITCH: u32 = 12;
-pub const FAST_FAIL_INVALID_FILE_OPERATION: u32 = 42;
-pub const FAST_FAIL_INVALID_FLS_DATA: u32 = 70;
-pub const FAST_FAIL_INVALID_IAT: u32 = 49;
-pub const FAST_FAIL_INVALID_IDLE_STATE: u32 = 33;
-pub const FAST_FAIL_INVALID_IMAGE_BASE: u32 = 24;
-pub const FAST_FAIL_INVALID_JUMP_BUFFER: u32 = 18;
-pub const FAST_FAIL_INVALID_LOCK_STATE: u32 = 36;
-pub const FAST_FAIL_INVALID_LONGJUMP_TARGET: u32 = 38;
-pub const FAST_FAIL_INVALID_NEXT_THREAD: u32 = 30;
-pub const FAST_FAIL_INVALID_PFN: u32 = 63;
-pub const FAST_FAIL_INVALID_REFERENCE_COUNT: u32 = 14;
-pub const FAST_FAIL_INVALID_SET_OF_CONTEXT: u32 = 13;
-pub const FAST_FAIL_INVALID_SME_STATE: u32 = 78;
-pub const FAST_FAIL_INVALID_SYSCALL_NUMBER: u32 = 41;
-pub const FAST_FAIL_INVALID_THREAD: u32 = 40;
-pub const FAST_FAIL_INVALID_THREAD_STATE: u32 = 74;
-pub const FAST_FAIL_KERNEL_CET_SHADOW_STACK_ASSIST: u32 = 67;
-pub const FAST_FAIL_KERNEL_POINTER_EXPECTED: u32 = 77;
-pub const FAST_FAIL_LEGACY_GS_VIOLATION: u32 = 0;
-pub const FAST_FAIL_LOADER_CONTINUITY_FAILURE: u32 = 45;
-pub const FAST_FAIL_LOW_LABEL_ACCESS_DENIED: u32 = 52;
-pub const FAST_FAIL_LPAC_ACCESS_DENIED: u32 = 43;
-pub const FAST_FAIL_MRDATA_MODIFIED: u32 = 19;
-pub const FAST_FAIL_MRDATA_PROTECTION_FAILURE: u32 = 34;
-pub const FAST_FAIL_NTDLL_PATCH_FAILED: u32 = 69;
-pub const FAST_FAIL_PATCH_CALLBACK_FAILED: u32 = 68;
-pub const FAST_FAIL_PAYLOAD_RESTRICTION_VIOLATION: u32 = 51;
-pub const FAST_FAIL_POINTER_AUTH_INVALID_RETURN_ADDRESS: u32 = 73;
-pub const FAST_FAIL_RANGE_CHECK_FAILURE: u32 = 8;
-pub const FAST_FAIL_RIO_ABORT: u32 = 62;
-pub const FAST_FAIL_SET_CONTEXT_DENIED: u32 = 48;
-pub const FAST_FAIL_STACK_COOKIE_CHECK_FAILURE: u32 = 2;
-pub const FAST_FAIL_UNEXPECTED_CALL: u32 = 56;
-pub const FAST_FAIL_UNEXPECTED_HEAP_EXCEPTION: u32 = 35;
-pub const FAST_FAIL_UNEXPECTED_HOST_BEHAVIOR: u32 = 58;
-pub const FAST_FAIL_UNHANDLED_LSS_EXCEPTON: u32 = 54;
-pub const FAST_FAIL_UNSAFE_EXTENSION_CALL: u32 = 26;
-pub const FAST_FAIL_UNSAFE_REGISTRY_ACCESS: u32 = 9;
-pub const FAST_FAIL_VEH_CORRUPTION: u32 = 60;
-pub const FAST_FAIL_VTGUARD_CHECK_FAILURE: u32 = 1;
+pub const FAST_FAIL_INVALID_FIBER_SWITCH: i32 = 12;
+pub const FAST_FAIL_INVALID_FILE_OPERATION: i32 = 42;
+pub const FAST_FAIL_INVALID_FLS_DATA: i32 = 70;
+pub const FAST_FAIL_INVALID_IAT: i32 = 49;
+pub const FAST_FAIL_INVALID_IDLE_STATE: i32 = 33;
+pub const FAST_FAIL_INVALID_IMAGE_BASE: i32 = 24;
+pub const FAST_FAIL_INVALID_JUMP_BUFFER: i32 = 18;
+pub const FAST_FAIL_INVALID_LOCK_STATE: i32 = 36;
+pub const FAST_FAIL_INVALID_LONGJUMP_TARGET: i32 = 38;
+pub const FAST_FAIL_INVALID_NEXT_THREAD: i32 = 30;
+pub const FAST_FAIL_INVALID_PFN: i32 = 63;
+pub const FAST_FAIL_INVALID_REFERENCE_COUNT: i32 = 14;
+pub const FAST_FAIL_INVALID_SET_OF_CONTEXT: i32 = 13;
+pub const FAST_FAIL_INVALID_SME_STATE: i32 = 78;
+pub const FAST_FAIL_INVALID_SYSCALL_NUMBER: i32 = 41;
+pub const FAST_FAIL_INVALID_THREAD: i32 = 40;
+pub const FAST_FAIL_INVALID_THREAD_STATE: i32 = 74;
+pub const FAST_FAIL_KERNEL_CET_SHADOW_STACK_ASSIST: i32 = 67;
+pub const FAST_FAIL_KERNEL_POINTER_EXPECTED: i32 = 77;
+pub const FAST_FAIL_LEGACY_GS_VIOLATION: i32 = 0;
+pub const FAST_FAIL_LOADER_CONTINUITY_FAILURE: i32 = 45;
+pub const FAST_FAIL_LOW_LABEL_ACCESS_DENIED: i32 = 52;
+pub const FAST_FAIL_LPAC_ACCESS_DENIED: i32 = 43;
+pub const FAST_FAIL_MRDATA_MODIFIED: i32 = 19;
+pub const FAST_FAIL_MRDATA_PROTECTION_FAILURE: i32 = 34;
+pub const FAST_FAIL_NTDLL_PATCH_FAILED: i32 = 69;
+pub const FAST_FAIL_PATCH_CALLBACK_FAILED: i32 = 68;
+pub const FAST_FAIL_PAYLOAD_RESTRICTION_VIOLATION: i32 = 51;
+pub const FAST_FAIL_POINTER_AUTH_INVALID_RETURN_ADDRESS: i32 = 73;
+pub const FAST_FAIL_RANGE_CHECK_FAILURE: i32 = 8;
+pub const FAST_FAIL_RIO_ABORT: i32 = 62;
+pub const FAST_FAIL_SET_CONTEXT_DENIED: i32 = 48;
+pub const FAST_FAIL_STACK_COOKIE_CHECK_FAILURE: i32 = 2;
+pub const FAST_FAIL_UNEXPECTED_CALL: i32 = 56;
+pub const FAST_FAIL_UNEXPECTED_HEAP_EXCEPTION: i32 = 35;
+pub const FAST_FAIL_UNEXPECTED_HOST_BEHAVIOR: i32 = 58;
+pub const FAST_FAIL_UNHANDLED_LSS_EXCEPTON: i32 = 54;
+pub const FAST_FAIL_UNSAFE_EXTENSION_CALL: i32 = 26;
+pub const FAST_FAIL_UNSAFE_REGISTRY_ACCESS: i32 = 9;
+pub const FAST_FAIL_VEH_CORRUPTION: i32 = 60;
+pub const FAST_FAIL_VTGUARD_CHECK_FAILURE: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FCHAR(pub u8);
-pub const FILE_ACTION_ADDED: u32 = 1;
-pub const FILE_ACTION_MODIFIED: u32 = 3;
-pub const FILE_ACTION_REMOVED: u32 = 2;
-pub const FILE_ACTION_RENAMED_NEW_NAME: u32 = 5;
-pub const FILE_ACTION_RENAMED_OLD_NAME: u32 = 4;
-pub const FILE_ADD_FILE: u32 = 2;
-pub const FILE_ADD_SUBDIRECTORY: u32 = 4;
-pub const FILE_ALL_ACCESS: u32 = 2032127;
-pub const FILE_APPEND_DATA: u32 = 4;
-pub const FILE_ATTRIBUTE_ARCHIVE: u32 = 32;
-pub const FILE_ATTRIBUTE_COMPRESSED: u32 = 2048;
-pub const FILE_ATTRIBUTE_DEVICE: u32 = 64;
-pub const FILE_ATTRIBUTE_DIRECTORY: u32 = 16;
-pub const FILE_ATTRIBUTE_EA: u32 = 262144;
-pub const FILE_ATTRIBUTE_ENCRYPTED: u32 = 16384;
-pub const FILE_ATTRIBUTE_HIDDEN: u32 = 2;
-pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: u32 = 32768;
-pub const FILE_ATTRIBUTE_NORMAL: u32 = 128;
-pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: u32 = 8192;
-pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: u32 = 131072;
-pub const FILE_ATTRIBUTE_OFFLINE: u32 = 4096;
-pub const FILE_ATTRIBUTE_PINNED: u32 = 524288;
-pub const FILE_ATTRIBUTE_READONLY: u32 = 1;
-pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: u32 = 4194304;
-pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: u32 = 262144;
-pub const FILE_ATTRIBUTE_REPARSE_POINT: u32 = 1024;
-pub const FILE_ATTRIBUTE_SPARSE_FILE: u32 = 512;
-pub const FILE_ATTRIBUTE_STRICTLY_SEQUENTIAL: u32 = 536870912;
-pub const FILE_ATTRIBUTE_SYSTEM: u32 = 4;
-pub const FILE_ATTRIBUTE_TEMPORARY: u32 = 256;
-pub const FILE_ATTRIBUTE_UNPINNED: u32 = 1048576;
-pub const FILE_ATTRIBUTE_VIRTUAL: u32 = 65536;
-pub const FILE_CASE_PRESERVED_NAMES: u32 = 2;
+pub const FILE_ACTION_ADDED: i32 = 1;
+pub const FILE_ACTION_MODIFIED: i32 = 3;
+pub const FILE_ACTION_REMOVED: i32 = 2;
+pub const FILE_ACTION_RENAMED_NEW_NAME: i32 = 5;
+pub const FILE_ACTION_RENAMED_OLD_NAME: i32 = 4;
+pub const FILE_ADD_FILE: i32 = 2;
+pub const FILE_ADD_SUBDIRECTORY: i32 = 4;
+pub const FILE_ALL_ACCESS: i32 = 2032127;
+pub const FILE_APPEND_DATA: i32 = 4;
+pub const FILE_ATTRIBUTE_ARCHIVE: i32 = 32;
+pub const FILE_ATTRIBUTE_COMPRESSED: i32 = 2048;
+pub const FILE_ATTRIBUTE_DEVICE: i32 = 64;
+pub const FILE_ATTRIBUTE_DIRECTORY: i32 = 16;
+pub const FILE_ATTRIBUTE_EA: i32 = 262144;
+pub const FILE_ATTRIBUTE_ENCRYPTED: i32 = 16384;
+pub const FILE_ATTRIBUTE_HIDDEN: i32 = 2;
+pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: i32 = 32768;
+pub const FILE_ATTRIBUTE_NORMAL: i32 = 128;
+pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: i32 = 8192;
+pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: i32 = 131072;
+pub const FILE_ATTRIBUTE_OFFLINE: i32 = 4096;
+pub const FILE_ATTRIBUTE_PINNED: i32 = 524288;
+pub const FILE_ATTRIBUTE_READONLY: i32 = 1;
+pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: i32 = 4194304;
+pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: i32 = 262144;
+pub const FILE_ATTRIBUTE_REPARSE_POINT: i32 = 1024;
+pub const FILE_ATTRIBUTE_SPARSE_FILE: i32 = 512;
+pub const FILE_ATTRIBUTE_STRICTLY_SEQUENTIAL: i32 = 536870912;
+pub const FILE_ATTRIBUTE_SYSTEM: i32 = 4;
+pub const FILE_ATTRIBUTE_TEMPORARY: i32 = 256;
+pub const FILE_ATTRIBUTE_UNPINNED: i32 = 1048576;
+pub const FILE_ATTRIBUTE_VIRTUAL: i32 = 65536;
+pub const FILE_CASE_PRESERVED_NAMES: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_CASE_SENSITIVE_INFORMATION {
     pub Flags: u32,
 }
-pub const FILE_CASE_SENSITIVE_SEARCH: u32 = 1;
-pub const FILE_CREATE_PIPE_INSTANCE: u32 = 4;
-pub const FILE_CS_FLAG_CASE_SENSITIVE_DIR: u32 = 1;
-pub const FILE_DAX_VOLUME: u32 = 536870912;
-pub const FILE_DELETE_CHILD: u32 = 64;
-pub const FILE_EXECUTE: u32 = 32;
-pub const FILE_FILE_COMPRESSION: u32 = 16;
-pub const FILE_GENERIC_EXECUTE: u32 = 1179808;
-pub const FILE_GENERIC_READ: u32 = 1179785;
-pub const FILE_GENERIC_WRITE: u32 = 1179926;
+pub const FILE_CASE_SENSITIVE_SEARCH: i32 = 1;
+pub const FILE_CREATE_PIPE_INSTANCE: i32 = 4;
+pub const FILE_CS_FLAG_CASE_SENSITIVE_DIR: i32 = 1;
+pub const FILE_DAX_VOLUME: i32 = 536870912;
+pub const FILE_DELETE_CHILD: i32 = 64;
+pub const FILE_EXECUTE: i32 = 32;
+pub const FILE_FILE_COMPRESSION: i32 = 16;
+pub const FILE_GENERIC_EXECUTE: i32 = 1179808;
+pub const FILE_GENERIC_READ: i32 = 1179785;
+pub const FILE_GENERIC_WRITE: i32 = 1179926;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_128 {
@@ -2554,21 +2554,21 @@ impl Default for FILE_ID_128 {
     }
 }
 pub const FILE_INVALID_FILE_ID: i64 = -1;
-pub const FILE_LIST_DIRECTORY: u32 = 1;
-pub const FILE_NAMED_STREAMS: u32 = 262144;
-pub const FILE_NAME_FLAGS_UNSPECIFIED: u32 = 128;
-pub const FILE_NAME_FLAG_BOTH: u32 = 3;
-pub const FILE_NAME_FLAG_DOS: u32 = 2;
-pub const FILE_NAME_FLAG_HARDLINK: u32 = 0;
-pub const FILE_NAME_FLAG_NTFS: u32 = 1;
-pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: u32 = 4;
-pub const FILE_NOTIFY_CHANGE_CREATION: u32 = 64;
-pub const FILE_NOTIFY_CHANGE_DIR_NAME: u32 = 2;
-pub const FILE_NOTIFY_CHANGE_FILE_NAME: u32 = 1;
-pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: u32 = 32;
-pub const FILE_NOTIFY_CHANGE_LAST_WRITE: u32 = 16;
-pub const FILE_NOTIFY_CHANGE_SECURITY: u32 = 256;
-pub const FILE_NOTIFY_CHANGE_SIZE: u32 = 8;
+pub const FILE_LIST_DIRECTORY: i32 = 1;
+pub const FILE_NAMED_STREAMS: i32 = 262144;
+pub const FILE_NAME_FLAGS_UNSPECIFIED: i32 = 128;
+pub const FILE_NAME_FLAG_BOTH: i32 = 3;
+pub const FILE_NAME_FLAG_DOS: i32 = 2;
+pub const FILE_NAME_FLAG_HARDLINK: i32 = 0;
+pub const FILE_NAME_FLAG_NTFS: i32 = 1;
+pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: i32 = 4;
+pub const FILE_NOTIFY_CHANGE_CREATION: i32 = 64;
+pub const FILE_NOTIFY_CHANGE_DIR_NAME: i32 = 2;
+pub const FILE_NOTIFY_CHANGE_FILE_NAME: i32 = 1;
+pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: i32 = 32;
+pub const FILE_NOTIFY_CHANGE_LAST_WRITE: i32 = 16;
+pub const FILE_NOTIFY_CHANGE_SECURITY: i32 = 256;
+pub const FILE_NOTIFY_CHANGE_SIZE: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
@@ -2652,12 +2652,12 @@ impl Default for FILE_NOTIFY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_PERSISTENT_ACLS: u32 = 8;
-pub const FILE_READ_ATTRIBUTES: u32 = 128;
-pub const FILE_READ_DATA: u32 = 1;
-pub const FILE_READ_EA: u32 = 8;
-pub const FILE_READ_ONLY_VOLUME: u32 = 524288;
-pub const FILE_RETURNS_CLEANUP_RESULT_INFO: u32 = 512;
+pub const FILE_PERSISTENT_ACLS: i32 = 8;
+pub const FILE_READ_ATTRIBUTES: i32 = 128;
+pub const FILE_READ_DATA: i32 = 1;
+pub const FILE_READ_EA: i32 = 8;
+pub const FILE_READ_ONLY_VOLUME: i32 = 524288;
+pub const FILE_RETURNS_CLEANUP_RESULT_INFO: i32 = 512;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILE_SEGMENT_ELEMENT {
@@ -2669,10 +2669,10 @@ impl Default for FILE_SEGMENT_ELEMENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_SEQUENTIAL_WRITE_ONCE: u32 = 1048576;
-pub const FILE_SHARE_DELETE: u32 = 4;
-pub const FILE_SHARE_READ: u32 = 1;
-pub const FILE_SHARE_WRITE: u32 = 2;
+pub const FILE_SEQUENTIAL_WRITE_ONCE: i32 = 1048576;
+pub const FILE_SHARE_DELETE: i32 = 4;
+pub const FILE_SHARE_READ: i32 = 1;
+pub const FILE_SHARE_WRITE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STAT_BASIC_INFORMATION {
@@ -2728,35 +2728,35 @@ pub struct FILE_STAT_LX_INFORMATION {
     pub LxDeviceIdMajor: u32,
     pub LxDeviceIdMinor: u32,
 }
-pub const FILE_SUPPORTS_BLOCK_REFCOUNTING: u32 = 134217728;
-pub const FILE_SUPPORTS_BYPASS_IO: u32 = 2048;
-pub const FILE_SUPPORTS_CASE_SENSITIVE_DIRS: u32 = 8192;
-pub const FILE_SUPPORTS_ENCRYPTION: u32 = 131072;
-pub const FILE_SUPPORTS_EXTENDED_ATTRIBUTES: u32 = 8388608;
-pub const FILE_SUPPORTS_GHOSTING: u32 = 1073741824;
-pub const FILE_SUPPORTS_HARD_LINKS: u32 = 4194304;
-pub const FILE_SUPPORTS_INTEGRITY_STREAMS: u32 = 67108864;
-pub const FILE_SUPPORTS_OBJECT_IDS: u32 = 65536;
-pub const FILE_SUPPORTS_OPEN_BY_FILE_ID: u32 = 16777216;
-pub const FILE_SUPPORTS_POSIX_UNLINK_RENAME: u32 = 1024;
-pub const FILE_SUPPORTS_REMOTE_STORAGE: u32 = 256;
-pub const FILE_SUPPORTS_REPARSE_POINTS: u32 = 128;
-pub const FILE_SUPPORTS_SPARSE_FILES: u32 = 64;
-pub const FILE_SUPPORTS_SPARSE_VDL: u32 = 268435456;
-pub const FILE_SUPPORTS_STREAM_SNAPSHOTS: u32 = 4096;
-pub const FILE_SUPPORTS_TRANSACTIONS: u32 = 2097152;
-pub const FILE_SUPPORTS_USN_JOURNAL: u32 = 33554432;
-pub const FILE_TRAVERSE: u32 = 32;
-pub const FILE_UNICODE_ON_DISK: u32 = 4;
-pub const FILE_VOLUME_IS_COMPRESSED: u32 = 32768;
-pub const FILE_VOLUME_QUOTAS: u32 = 32;
-pub const FILE_WRITE_ATTRIBUTES: u32 = 256;
-pub const FILE_WRITE_DATA: u32 = 2;
-pub const FILE_WRITE_EA: u32 = 16;
-pub const FILL_NV_MEMORY_FLAG_FLUSH: u32 = 1;
-pub const FILL_NV_MEMORY_FLAG_NON_TEMPORAL: u32 = 2;
-pub const FILL_NV_MEMORY_FLAG_NO_DRAIN: u32 = 256;
-pub const FILL_NV_MEMORY_FLAG_PERSIST: u32 = 3;
+pub const FILE_SUPPORTS_BLOCK_REFCOUNTING: i32 = 134217728;
+pub const FILE_SUPPORTS_BYPASS_IO: i32 = 2048;
+pub const FILE_SUPPORTS_CASE_SENSITIVE_DIRS: i32 = 8192;
+pub const FILE_SUPPORTS_ENCRYPTION: i32 = 131072;
+pub const FILE_SUPPORTS_EXTENDED_ATTRIBUTES: i32 = 8388608;
+pub const FILE_SUPPORTS_GHOSTING: i32 = 1073741824;
+pub const FILE_SUPPORTS_HARD_LINKS: i32 = 4194304;
+pub const FILE_SUPPORTS_INTEGRITY_STREAMS: i32 = 67108864;
+pub const FILE_SUPPORTS_OBJECT_IDS: i32 = 65536;
+pub const FILE_SUPPORTS_OPEN_BY_FILE_ID: i32 = 16777216;
+pub const FILE_SUPPORTS_POSIX_UNLINK_RENAME: i32 = 1024;
+pub const FILE_SUPPORTS_REMOTE_STORAGE: i32 = 256;
+pub const FILE_SUPPORTS_REPARSE_POINTS: i32 = 128;
+pub const FILE_SUPPORTS_SPARSE_FILES: i32 = 64;
+pub const FILE_SUPPORTS_SPARSE_VDL: i32 = 268435456;
+pub const FILE_SUPPORTS_STREAM_SNAPSHOTS: i32 = 4096;
+pub const FILE_SUPPORTS_TRANSACTIONS: i32 = 2097152;
+pub const FILE_SUPPORTS_USN_JOURNAL: i32 = 33554432;
+pub const FILE_TRAVERSE: i32 = 32;
+pub const FILE_UNICODE_ON_DISK: i32 = 4;
+pub const FILE_VOLUME_IS_COMPRESSED: i32 = 32768;
+pub const FILE_VOLUME_QUOTAS: i32 = 32;
+pub const FILE_WRITE_ATTRIBUTES: i32 = 256;
+pub const FILE_WRITE_DATA: i32 = 2;
+pub const FILE_WRITE_EA: i32 = 16;
+pub const FILL_NV_MEMORY_FLAG_FLUSH: i32 = 1;
+pub const FILL_NV_MEMORY_FLAG_NON_TEMPORAL: i32 = 2;
+pub const FILL_NV_MEMORY_FLAG_NO_DRAIN: i32 = 256;
+pub const FILL_NV_MEMORY_FLAG_PERSIST: i32 = 3;
 pub type FIRMWARE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2787,14 +2787,17 @@ impl Default for FLOATING_SAVE_AREA {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FLONG(pub u32);
-pub const FLS_MAXIMUM_AVAILABLE: u32 = 4080;
-pub const FLUSH_FLAGS_FILE_DATA_ONLY: u32 = 1;
-pub const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: u32 = 4;
-pub const FLUSH_FLAGS_FLUSH_AND_PURGE: u32 = 8;
-pub const FLUSH_FLAGS_NO_SYNC: u32 = 2;
-pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: i32 = -1;
-pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: u32 = 1;
-pub const FOREST_USER_RID_MAX: u32 = 499;
+pub const FLS_MAXIMUM_AVAILABLE: i32 = 4080;
+pub const FLUSH_FLAGS_FILE_DATA_ONLY: i32 = 1;
+pub const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: i32 = 4;
+pub const FLUSH_FLAGS_FLUSH_AND_PURGE: i32 = 8;
+pub const FLUSH_FLAGS_NO_SYNC: i32 = 2;
+#[cfg(target_arch = "x86")]
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: u32 = 4294967295;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: u64 = 18446744073709551615;
+pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
+pub const FOREST_USER_RID_MAX: i32 = 499;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FPO_DATA {
@@ -2842,10 +2845,10 @@ impl FPO_DATA {
         self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
     }
 }
-pub const FRAME_FPO: u32 = 0;
-pub const FRAME_NONFPO: u32 = 3;
-pub const FRAME_TRAP: u32 = 1;
-pub const FRAME_TSS: u32 = 2;
+pub const FRAME_FPO: i32 = 0;
+pub const FRAME_NONFPO: i32 = 3;
+pub const FRAME_TRAP: i32 = 1;
+pub const FRAME_TSS: i32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FSHORT(pub u16);
@@ -2857,8 +2860,8 @@ pub const FirmwareTypeBios: FIRMWARE_TYPE = 1;
 pub const FirmwareTypeMax: FIRMWARE_TYPE = 3;
 pub const FirmwareTypeUefi: FIRMWARE_TYPE = 2;
 pub const FirmwareTypeUnknown: FIRMWARE_TYPE = 0;
-pub const GENERIC_ALL: u32 = 268435456;
-pub const GENERIC_EXECUTE: u32 = 536870912;
+pub const GENERIC_ALL: i32 = 268435456;
+pub const GENERIC_EXECUTE: i32 = 536870912;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GENERIC_MAPPING {
@@ -2868,7 +2871,7 @@ pub struct GENERIC_MAPPING {
     pub GenericAll: ACCESS_MASK,
 }
 pub const GENERIC_READ: u32 = 2147483648;
-pub const GENERIC_WRITE: u32 = 1073741824;
+pub const GENERIC_WRITE: i32 = 1073741824;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(controlpc: u64, context: *const core::ffi::c_void) -> PRUNTIME_FUNCTION>;
 #[cfg(target_arch = "aarch64")]
@@ -2926,7 +2929,7 @@ impl Default for GROUP_RELATIONSHIP {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const GROUP_SECURITY_INFORMATION: u32 = 2;
+pub const GROUP_SECURITY_INFORMATION: i32 = 2;
 pub const GUID_ACDC_POWER_SOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
 pub const GUID_ACTIVE_POWERSCHEME: windows_core::GUID = windows_core::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
 pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
@@ -3212,17 +3215,17 @@ pub struct HARDWARE_COUNTER_DATA {
     pub Value: u64,
 }
 pub type HARDWARE_COUNTER_TYPE = i32;
-pub const HEAP_CREATE_ALIGN_16: u32 = 65536;
-pub const HEAP_CREATE_ENABLE_EXECUTE: u32 = 262144;
-pub const HEAP_CREATE_ENABLE_TRACING: u32 = 131072;
-pub const HEAP_CREATE_HARDENED: u32 = 512;
-pub const HEAP_CREATE_SEGMENT_HEAP: u32 = 256;
-pub const HEAP_DISABLE_COALESCE_ON_FREE: u32 = 128;
-pub const HEAP_FREE_CHECKING_ENABLED: u32 = 64;
-pub const HEAP_GENERATE_EXCEPTIONS: u32 = 4;
-pub const HEAP_GROWABLE: u32 = 2;
+pub const HEAP_CREATE_ALIGN_16: i32 = 65536;
+pub const HEAP_CREATE_ENABLE_EXECUTE: i32 = 262144;
+pub const HEAP_CREATE_ENABLE_TRACING: i32 = 131072;
+pub const HEAP_CREATE_HARDENED: i32 = 512;
+pub const HEAP_CREATE_SEGMENT_HEAP: i32 = 256;
+pub const HEAP_DISABLE_COALESCE_ON_FREE: i32 = 128;
+pub const HEAP_FREE_CHECKING_ENABLED: i32 = 64;
+pub const HEAP_GENERATE_EXCEPTIONS: i32 = 4;
+pub const HEAP_GROWABLE: i32 = 2;
 pub type HEAP_INFORMATION_CLASS = i32;
-pub const HEAP_MAXIMUM_TAG: u32 = 4095;
+pub const HEAP_MAXIMUM_TAG: i32 = 4095;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAP_MEMORY_USAGE_ENTRY {
@@ -3247,20 +3250,20 @@ impl Default for HEAP_MEMORY_USAGE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HEAP_MEMORY_USAGE_INFO_CURRENT_VERSION: u32 = 1;
-pub const HEAP_NO_SERIALIZE: u32 = 1;
-pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1;
+pub const HEAP_MEMORY_USAGE_INFO_CURRENT_VERSION: i32 = 1;
+pub const HEAP_NO_SERIALIZE: i32 = 1;
+pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     pub Version: u32,
     pub Flags: u32,
 }
-pub const HEAP_PSEUDO_TAG_FLAG: u32 = 32768;
-pub const HEAP_REALLOC_IN_PLACE_ONLY: u32 = 16;
-pub const HEAP_TAG_SHIFT: u32 = 18;
-pub const HEAP_TAIL_CHECKING_ENABLED: u32 = 32;
-pub const HEAP_ZERO_MEMORY: u32 = 8;
+pub const HEAP_PSEUDO_TAG_FLAG: i32 = 32768;
+pub const HEAP_REALLOC_IN_PLACE_ONLY: i32 = 16;
+pub const HEAP_TAG_SHIFT: i32 = 18;
+pub const HEAP_TAIL_CHECKING_ENABLED: i32 = 32;
+pub const HEAP_ZERO_MEMORY: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIBERFILE_BUCKET {
@@ -3273,10 +3276,10 @@ impl Default for HIBERFILE_BUCKET {
     }
 }
 pub type HIBERFILE_BUCKET_SIZE = i32;
-pub const HIBERFILE_TYPE_FULL: u32 = 2;
-pub const HIBERFILE_TYPE_MAX: u32 = 3;
-pub const HIBERFILE_TYPE_NONE: u32 = 0;
-pub const HIBERFILE_TYPE_REDUCED: u32 = 1;
+pub const HIBERFILE_TYPE_FULL: i32 = 2;
+pub const HIBERFILE_TYPE_MAX: i32 = 3;
+pub const HIBERFILE_TYPE_NONE: i32 = 0;
+pub const HIBERFILE_TYPE_REDUCED: i32 = 1;
 pub const HeapCompatibilityInformation: HEAP_INFORMATION_CLASS = 0;
 pub const HeapEnableTerminationOnCorruption: HEAP_INFORMATION_CLASS = 1;
 pub const HeapMemoryUsageInformation: HEAP_INFORMATION_CLASS = 8;
@@ -3357,7 +3360,7 @@ impl Default for IMAGE_ARCHIVE_MEMBER_HEADER {
 }
 pub const IMAGE_ARCHIVE_PAD: windows_core::PCSTR = windows_core::s!("\n");
 pub const IMAGE_ARCHIVE_START: windows_core::PCSTR = windows_core::s!("!<arch>\n");
-pub const IMAGE_ARCHIVE_START_SIZE: u32 = 8;
+pub const IMAGE_ARCHIVE_START_SIZE: i32 = 8;
 pub type IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = ARM64_RUNTIME_FUNCTION;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3834,13 +3837,13 @@ pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub RvaToFirstByteOfData: u32,
     pub RvaToLastByteOfData: u32,
 }
-pub const IMAGE_COMDAT_SELECT_ANY: u32 = 2;
-pub const IMAGE_COMDAT_SELECT_ASSOCIATIVE: u32 = 5;
-pub const IMAGE_COMDAT_SELECT_EXACT_MATCH: u32 = 4;
-pub const IMAGE_COMDAT_SELECT_LARGEST: u32 = 6;
-pub const IMAGE_COMDAT_SELECT_NEWEST: u32 = 7;
-pub const IMAGE_COMDAT_SELECT_NODUPLICATES: u32 = 1;
-pub const IMAGE_COMDAT_SELECT_SAME_SIZE: u32 = 3;
+pub const IMAGE_COMDAT_SELECT_ANY: i32 = 2;
+pub const IMAGE_COMDAT_SELECT_ASSOCIATIVE: i32 = 5;
+pub const IMAGE_COMDAT_SELECT_EXACT_MATCH: i32 = 4;
+pub const IMAGE_COMDAT_SELECT_LARGEST: i32 = 6;
+pub const IMAGE_COMDAT_SELECT_NEWEST: i32 = 7;
+pub const IMAGE_COMDAT_SELECT_NODUPLICATES: i32 = 1;
+pub const IMAGE_COMDAT_SELECT_SAME_SIZE: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_COR20_HEADER {
@@ -3909,27 +3912,27 @@ impl Default for IMAGE_DEBUG_MISC {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_DEBUG_MISC_EXENAME: u32 = 1;
-pub const IMAGE_DEBUG_TYPE_BBT: u32 = 10;
-pub const IMAGE_DEBUG_TYPE_BORLAND: u32 = 9;
-pub const IMAGE_DEBUG_TYPE_CLSID: u32 = 11;
-pub const IMAGE_DEBUG_TYPE_CODEVIEW: u32 = 2;
-pub const IMAGE_DEBUG_TYPE_COFF: u32 = 1;
-pub const IMAGE_DEBUG_TYPE_EXCEPTION: u32 = 5;
-pub const IMAGE_DEBUG_TYPE_EX_DLLCHARACTERISTICS: u32 = 20;
-pub const IMAGE_DEBUG_TYPE_FIXUP: u32 = 6;
-pub const IMAGE_DEBUG_TYPE_FPO: u32 = 3;
-pub const IMAGE_DEBUG_TYPE_ILTCG: u32 = 14;
-pub const IMAGE_DEBUG_TYPE_MISC: u32 = 4;
-pub const IMAGE_DEBUG_TYPE_MPX: u32 = 15;
-pub const IMAGE_DEBUG_TYPE_OMAP_FROM_SRC: u32 = 8;
-pub const IMAGE_DEBUG_TYPE_OMAP_TO_SRC: u32 = 7;
-pub const IMAGE_DEBUG_TYPE_POGO: u32 = 13;
-pub const IMAGE_DEBUG_TYPE_REPRO: u32 = 16;
-pub const IMAGE_DEBUG_TYPE_RESERVED10: u32 = 10;
-pub const IMAGE_DEBUG_TYPE_SPGO: u32 = 18;
-pub const IMAGE_DEBUG_TYPE_UNKNOWN: u32 = 0;
-pub const IMAGE_DEBUG_TYPE_VC_FEATURE: u32 = 12;
+pub const IMAGE_DEBUG_MISC_EXENAME: i32 = 1;
+pub const IMAGE_DEBUG_TYPE_BBT: i32 = 10;
+pub const IMAGE_DEBUG_TYPE_BORLAND: i32 = 9;
+pub const IMAGE_DEBUG_TYPE_CLSID: i32 = 11;
+pub const IMAGE_DEBUG_TYPE_CODEVIEW: i32 = 2;
+pub const IMAGE_DEBUG_TYPE_COFF: i32 = 1;
+pub const IMAGE_DEBUG_TYPE_EXCEPTION: i32 = 5;
+pub const IMAGE_DEBUG_TYPE_EX_DLLCHARACTERISTICS: i32 = 20;
+pub const IMAGE_DEBUG_TYPE_FIXUP: i32 = 6;
+pub const IMAGE_DEBUG_TYPE_FPO: i32 = 3;
+pub const IMAGE_DEBUG_TYPE_ILTCG: i32 = 14;
+pub const IMAGE_DEBUG_TYPE_MISC: i32 = 4;
+pub const IMAGE_DEBUG_TYPE_MPX: i32 = 15;
+pub const IMAGE_DEBUG_TYPE_OMAP_FROM_SRC: i32 = 8;
+pub const IMAGE_DEBUG_TYPE_OMAP_TO_SRC: i32 = 7;
+pub const IMAGE_DEBUG_TYPE_POGO: i32 = 13;
+pub const IMAGE_DEBUG_TYPE_REPRO: i32 = 16;
+pub const IMAGE_DEBUG_TYPE_RESERVED10: i32 = 10;
+pub const IMAGE_DEBUG_TYPE_SPGO: i32 = 18;
+pub const IMAGE_DEBUG_TYPE_UNKNOWN: i32 = 0;
+pub const IMAGE_DEBUG_TYPE_VC_FEATURE: i32 = 12;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
@@ -3977,40 +3980,40 @@ impl IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
-pub const IMAGE_DIRECTORY_ENTRY_ARCHITECTURE: u32 = 7;
-pub const IMAGE_DIRECTORY_ENTRY_BASERELOC: u32 = 5;
-pub const IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT: u32 = 11;
-pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: u32 = 14;
-pub const IMAGE_DIRECTORY_ENTRY_DEBUG: u32 = 6;
-pub const IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT: u32 = 13;
-pub const IMAGE_DIRECTORY_ENTRY_EXCEPTION: u32 = 3;
-pub const IMAGE_DIRECTORY_ENTRY_EXPORT: u32 = 0;
-pub const IMAGE_DIRECTORY_ENTRY_GLOBALPTR: u32 = 8;
-pub const IMAGE_DIRECTORY_ENTRY_IAT: u32 = 12;
-pub const IMAGE_DIRECTORY_ENTRY_IMPORT: u32 = 1;
-pub const IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG: u32 = 10;
-pub const IMAGE_DIRECTORY_ENTRY_RESOURCE: u32 = 2;
-pub const IMAGE_DIRECTORY_ENTRY_SECURITY: u32 = 4;
-pub const IMAGE_DIRECTORY_ENTRY_TLS: u32 = 9;
-pub const IMAGE_DLLCHARACTERISTICS_APPCONTAINER: u32 = 4096;
-pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: u32 = 64;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT: u32 = 1;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT_STRICT_MODE: u32 = 2;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC: u32 = 8;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1: u32 = 16;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2: u32 = 32;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE: u32 = 4;
-pub const IMAGE_DLLCHARACTERISTICS_EX_FORWARD_CFI_COMPAT: u32 = 64;
-pub const IMAGE_DLLCHARACTERISTICS_EX_HOTPATCH_COMPATIBLE: u32 = 128;
-pub const IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY: u32 = 128;
-pub const IMAGE_DLLCHARACTERISTICS_GUARD_CF: u32 = 16384;
-pub const IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA: u32 = 32;
-pub const IMAGE_DLLCHARACTERISTICS_NO_BIND: u32 = 2048;
-pub const IMAGE_DLLCHARACTERISTICS_NO_ISOLATION: u32 = 512;
-pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: u32 = 1024;
-pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: u32 = 256;
-pub const IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE: u32 = 32768;
-pub const IMAGE_DLLCHARACTERISTICS_WDM_DRIVER: u32 = 8192;
+pub const IMAGE_DIRECTORY_ENTRY_ARCHITECTURE: i32 = 7;
+pub const IMAGE_DIRECTORY_ENTRY_BASERELOC: i32 = 5;
+pub const IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT: i32 = 11;
+pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: i32 = 14;
+pub const IMAGE_DIRECTORY_ENTRY_DEBUG: i32 = 6;
+pub const IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT: i32 = 13;
+pub const IMAGE_DIRECTORY_ENTRY_EXCEPTION: i32 = 3;
+pub const IMAGE_DIRECTORY_ENTRY_EXPORT: i32 = 0;
+pub const IMAGE_DIRECTORY_ENTRY_GLOBALPTR: i32 = 8;
+pub const IMAGE_DIRECTORY_ENTRY_IAT: i32 = 12;
+pub const IMAGE_DIRECTORY_ENTRY_IMPORT: i32 = 1;
+pub const IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG: i32 = 10;
+pub const IMAGE_DIRECTORY_ENTRY_RESOURCE: i32 = 2;
+pub const IMAGE_DIRECTORY_ENTRY_SECURITY: i32 = 4;
+pub const IMAGE_DIRECTORY_ENTRY_TLS: i32 = 9;
+pub const IMAGE_DLLCHARACTERISTICS_APPCONTAINER: i32 = 4096;
+pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: i32 = 64;
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT: i32 = 1;
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT_STRICT_MODE: i32 = 2;
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC: i32 = 8;
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1: i32 = 16;
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2: i32 = 32;
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE: i32 = 4;
+pub const IMAGE_DLLCHARACTERISTICS_EX_FORWARD_CFI_COMPAT: i32 = 64;
+pub const IMAGE_DLLCHARACTERISTICS_EX_HOTPATCH_COMPATIBLE: i32 = 128;
+pub const IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY: i32 = 128;
+pub const IMAGE_DLLCHARACTERISTICS_GUARD_CF: i32 = 16384;
+pub const IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA: i32 = 32;
+pub const IMAGE_DLLCHARACTERISTICS_NO_BIND: i32 = 2048;
+pub const IMAGE_DLLCHARACTERISTICS_NO_ISOLATION: i32 = 512;
+pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: i32 = 1024;
+pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: i32 = 256;
+pub const IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE: i32 = 32768;
+pub const IMAGE_DLLCHARACTERISTICS_WDM_DRIVER: i32 = 8192;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
@@ -4039,7 +4042,7 @@ impl Default for IMAGE_DOS_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_DOS_SIGNATURE: u32 = 23117;
+pub const IMAGE_DOS_SIGNATURE: i32 = 23117;
 #[cfg(target_arch = "x86")]
 pub type IMAGE_DYNAMIC_RELOCATION = IMAGE_DYNAMIC_RELOCATION32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -4074,17 +4077,17 @@ pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
     pub SymbolGroup: u32,
     pub Flags: u32,
 }
-pub const IMAGE_DYNAMIC_RELOCATION_ARM64_KERNEL_IMPORT_CALL_TRANSFER: u32 = 8;
-pub const IMAGE_DYNAMIC_RELOCATION_FUNCTION_OVERRIDE: u32 = 7;
-pub const IMAGE_DYNAMIC_RELOCATION_GUARD_IMPORT_CONTROL_TRANSFER: u32 = 3;
-pub const IMAGE_DYNAMIC_RELOCATION_GUARD_INDIR_CONTROL_TRANSFER: u32 = 4;
-pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_EPILOGUE: u32 = 2;
-pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_PROLOGUE: u32 = 1;
-pub const IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH: u32 = 5;
+pub const IMAGE_DYNAMIC_RELOCATION_ARM64_KERNEL_IMPORT_CALL_TRANSFER: i32 = 8;
+pub const IMAGE_DYNAMIC_RELOCATION_FUNCTION_OVERRIDE: i32 = 7;
+pub const IMAGE_DYNAMIC_RELOCATION_GUARD_IMPORT_CONTROL_TRANSFER: i32 = 3;
+pub const IMAGE_DYNAMIC_RELOCATION_GUARD_INDIR_CONTROL_TRANSFER: i32 = 4;
+pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_EPILOGUE: i32 = 2;
+pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_PROLOGUE: i32 = 1;
+pub const IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH: i32 = 5;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: u32 = 3;
+pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: i32 = 3;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: u32 = 8;
+pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
@@ -4143,7 +4146,7 @@ impl Default for IMAGE_ENCLAVE_CONFIG64 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_ENCLAVE_FLAG_PRIMARY_IMAGE: u32 = 1;
+pub const IMAGE_ENCLAVE_FLAG_PRIMARY_IMAGE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ENCLAVE_IMPORT {
@@ -4160,19 +4163,19 @@ impl Default for IMAGE_ENCLAVE_IMPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_ENCLAVE_IMPORT_MATCH_AUTHOR_ID: u32 = 2;
-pub const IMAGE_ENCLAVE_IMPORT_MATCH_FAMILY_ID: u32 = 3;
-pub const IMAGE_ENCLAVE_IMPORT_MATCH_IMAGE_ID: u32 = 4;
-pub const IMAGE_ENCLAVE_IMPORT_MATCH_NONE: u32 = 0;
-pub const IMAGE_ENCLAVE_IMPORT_MATCH_UNIQUE_ID: u32 = 1;
-pub const IMAGE_ENCLAVE_LONG_ID_LENGTH: u32 = 32;
+pub const IMAGE_ENCLAVE_IMPORT_MATCH_AUTHOR_ID: i32 = 2;
+pub const IMAGE_ENCLAVE_IMPORT_MATCH_FAMILY_ID: i32 = 3;
+pub const IMAGE_ENCLAVE_IMPORT_MATCH_IMAGE_ID: i32 = 4;
+pub const IMAGE_ENCLAVE_IMPORT_MATCH_NONE: i32 = 0;
+pub const IMAGE_ENCLAVE_IMPORT_MATCH_UNIQUE_ID: i32 = 1;
+pub const IMAGE_ENCLAVE_LONG_ID_LENGTH: i32 = 32;
 #[cfg(target_arch = "x86")]
-pub const IMAGE_ENCLAVE_MINIMUM_CONFIG_SIZE: u32 = 72;
+pub const IMAGE_ENCLAVE_MINIMUM_CONFIG_SIZE: i32 = 72;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const IMAGE_ENCLAVE_MINIMUM_CONFIG_SIZE: u32 = 76;
-pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: u32 = 1;
-pub const IMAGE_ENCLAVE_POLICY_STRICT_MEMORY: u32 = 2;
-pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: u32 = 16;
+pub const IMAGE_ENCLAVE_MINIMUM_CONFIG_SIZE: i32 = 76;
+pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: i32 = 1;
+pub const IMAGE_ENCLAVE_POLICY_STRICT_MEMORY: i32 = 2;
+pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: i32 = 16;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
@@ -4196,13 +4199,13 @@ pub struct IMAGE_EXPORT_DIRECTORY {
     pub AddressOfNames: u32,
     pub AddressOfNameOrdinals: u32,
 }
-pub const IMAGE_FILE_32BIT_MACHINE: u32 = 256;
-pub const IMAGE_FILE_AGGRESIVE_WS_TRIM: u32 = 16;
-pub const IMAGE_FILE_BYTES_REVERSED_HI: u32 = 32768;
-pub const IMAGE_FILE_BYTES_REVERSED_LO: u32 = 128;
-pub const IMAGE_FILE_DEBUG_STRIPPED: u32 = 512;
-pub const IMAGE_FILE_DLL: u32 = 8192;
-pub const IMAGE_FILE_EXECUTABLE_IMAGE: u32 = 2;
+pub const IMAGE_FILE_32BIT_MACHINE: i32 = 256;
+pub const IMAGE_FILE_AGGRESIVE_WS_TRIM: i32 = 16;
+pub const IMAGE_FILE_BYTES_REVERSED_HI: i32 = 32768;
+pub const IMAGE_FILE_BYTES_REVERSED_LO: i32 = 128;
+pub const IMAGE_FILE_DEBUG_STRIPPED: i32 = 512;
+pub const IMAGE_FILE_DLL: i32 = 8192;
+pub const IMAGE_FILE_EXECUTABLE_IMAGE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FILE_HEADER {
@@ -4214,9 +4217,9 @@ pub struct IMAGE_FILE_HEADER {
     pub SizeOfOptionalHeader: u16,
     pub Characteristics: u16,
 }
-pub const IMAGE_FILE_LARGE_ADDRESS_AWARE: u32 = 32;
-pub const IMAGE_FILE_LINE_NUMS_STRIPPED: u32 = 4;
-pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED: u32 = 8;
+pub const IMAGE_FILE_LARGE_ADDRESS_AWARE: i32 = 32;
+pub const IMAGE_FILE_LINE_NUMS_STRIPPED: i32 = 4;
+pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_FILE_MACHINES {
@@ -4275,43 +4278,43 @@ impl IMAGE_FILE_MACHINES_0_0 {
         self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
     }
 }
-pub const IMAGE_FILE_MACHINE_ALPHA: u32 = 388;
-pub const IMAGE_FILE_MACHINE_ALPHA64: u32 = 644;
-pub const IMAGE_FILE_MACHINE_AM33: u32 = 467;
-pub const IMAGE_FILE_MACHINE_AMD64: u32 = 34404;
-pub const IMAGE_FILE_MACHINE_ARM: u32 = 448;
-pub const IMAGE_FILE_MACHINE_ARM64: u32 = 43620;
-pub const IMAGE_FILE_MACHINE_ARMNT: u32 = 452;
-pub const IMAGE_FILE_MACHINE_AXP64: u32 = 644;
-pub const IMAGE_FILE_MACHINE_CEE: u32 = 49390;
-pub const IMAGE_FILE_MACHINE_CEF: u32 = 3311;
-pub const IMAGE_FILE_MACHINE_EBC: u32 = 3772;
-pub const IMAGE_FILE_MACHINE_I386: u32 = 332;
-pub const IMAGE_FILE_MACHINE_IA64: u32 = 512;
-pub const IMAGE_FILE_MACHINE_M32R: u32 = 36929;
-pub const IMAGE_FILE_MACHINE_MIPS16: u32 = 614;
-pub const IMAGE_FILE_MACHINE_MIPSFPU: u32 = 870;
-pub const IMAGE_FILE_MACHINE_MIPSFPU16: u32 = 1126;
-pub const IMAGE_FILE_MACHINE_POWERPC: u32 = 496;
-pub const IMAGE_FILE_MACHINE_POWERPCFP: u32 = 497;
-pub const IMAGE_FILE_MACHINE_R10000: u32 = 360;
-pub const IMAGE_FILE_MACHINE_R3000: u32 = 354;
-pub const IMAGE_FILE_MACHINE_R4000: u32 = 358;
-pub const IMAGE_FILE_MACHINE_SH3: u32 = 418;
-pub const IMAGE_FILE_MACHINE_SH3DSP: u32 = 419;
-pub const IMAGE_FILE_MACHINE_SH3E: u32 = 420;
-pub const IMAGE_FILE_MACHINE_SH4: u32 = 422;
-pub const IMAGE_FILE_MACHINE_SH5: u32 = 424;
-pub const IMAGE_FILE_MACHINE_TARGET_HOST: u32 = 1;
-pub const IMAGE_FILE_MACHINE_THUMB: u32 = 450;
-pub const IMAGE_FILE_MACHINE_TRICORE: u32 = 1312;
-pub const IMAGE_FILE_MACHINE_UNKNOWN: u32 = 0;
-pub const IMAGE_FILE_MACHINE_WCEMIPSV2: u32 = 361;
-pub const IMAGE_FILE_NET_RUN_FROM_SWAP: u32 = 2048;
-pub const IMAGE_FILE_RELOCS_STRIPPED: u32 = 1;
-pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP: u32 = 1024;
-pub const IMAGE_FILE_SYSTEM: u32 = 4096;
-pub const IMAGE_FILE_UP_SYSTEM_ONLY: u32 = 16384;
+pub const IMAGE_FILE_MACHINE_ALPHA: i32 = 388;
+pub const IMAGE_FILE_MACHINE_ALPHA64: i32 = 644;
+pub const IMAGE_FILE_MACHINE_AM33: i32 = 467;
+pub const IMAGE_FILE_MACHINE_AMD64: i32 = 34404;
+pub const IMAGE_FILE_MACHINE_ARM: i32 = 448;
+pub const IMAGE_FILE_MACHINE_ARM64: i32 = 43620;
+pub const IMAGE_FILE_MACHINE_ARMNT: i32 = 452;
+pub const IMAGE_FILE_MACHINE_AXP64: i32 = 644;
+pub const IMAGE_FILE_MACHINE_CEE: i32 = 49390;
+pub const IMAGE_FILE_MACHINE_CEF: i32 = 3311;
+pub const IMAGE_FILE_MACHINE_EBC: i32 = 3772;
+pub const IMAGE_FILE_MACHINE_I386: i32 = 332;
+pub const IMAGE_FILE_MACHINE_IA64: i32 = 512;
+pub const IMAGE_FILE_MACHINE_M32R: i32 = 36929;
+pub const IMAGE_FILE_MACHINE_MIPS16: i32 = 614;
+pub const IMAGE_FILE_MACHINE_MIPSFPU: i32 = 870;
+pub const IMAGE_FILE_MACHINE_MIPSFPU16: i32 = 1126;
+pub const IMAGE_FILE_MACHINE_POWERPC: i32 = 496;
+pub const IMAGE_FILE_MACHINE_POWERPCFP: i32 = 497;
+pub const IMAGE_FILE_MACHINE_R10000: i32 = 360;
+pub const IMAGE_FILE_MACHINE_R3000: i32 = 354;
+pub const IMAGE_FILE_MACHINE_R4000: i32 = 358;
+pub const IMAGE_FILE_MACHINE_SH3: i32 = 418;
+pub const IMAGE_FILE_MACHINE_SH3DSP: i32 = 419;
+pub const IMAGE_FILE_MACHINE_SH3E: i32 = 420;
+pub const IMAGE_FILE_MACHINE_SH4: i32 = 422;
+pub const IMAGE_FILE_MACHINE_SH5: i32 = 424;
+pub const IMAGE_FILE_MACHINE_TARGET_HOST: i32 = 1;
+pub const IMAGE_FILE_MACHINE_THUMB: i32 = 450;
+pub const IMAGE_FILE_MACHINE_TRICORE: i32 = 1312;
+pub const IMAGE_FILE_MACHINE_UNKNOWN: i32 = 0;
+pub const IMAGE_FILE_MACHINE_WCEMIPSV2: i32 = 361;
+pub const IMAGE_FILE_NET_RUN_FROM_SWAP: i32 = 2048;
+pub const IMAGE_FILE_RELOCS_STRIPPED: i32 = 1;
+pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP: i32 = 1024;
+pub const IMAGE_FILE_SYSTEM: i32 = 4096;
+pub const IMAGE_FILE_UP_SYSTEM_ONLY: i32 = 16384;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FUNCTION_ENTRY {
@@ -4342,8 +4345,8 @@ impl Default for IMAGE_FUNCTION_ENTRY64_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_FUNCTION_OVERRIDE_ARM64_BRANCH26: u32 = 2;
-pub const IMAGE_FUNCTION_OVERRIDE_ARM64_THUNK: u32 = 3;
+pub const IMAGE_FUNCTION_OVERRIDE_ARM64_BRANCH26: i32 = 2;
+pub const IMAGE_FUNCTION_OVERRIDE_ARM64_THUNK: i32 = 3;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
@@ -4357,31 +4360,31 @@ pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
 pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
     pub FuncOverrideSize: u32,
 }
-pub const IMAGE_FUNCTION_OVERRIDE_INVALID: u32 = 0;
-pub const IMAGE_FUNCTION_OVERRIDE_X64_REL32: u32 = 1;
-pub const IMAGE_GUARD_CASTGUARD_PRESENT: u32 = 16777216;
-pub const IMAGE_GUARD_CFW_INSTRUMENTED: u32 = 512;
-pub const IMAGE_GUARD_CF_ENABLE_EXPORT_SUPPRESSION: u32 = 32768;
-pub const IMAGE_GUARD_CF_EXPORT_SUPPRESSION_INFO_PRESENT: u32 = 16384;
-pub const IMAGE_GUARD_CF_FUNCTION_TABLE_PRESENT: u32 = 1024;
+pub const IMAGE_FUNCTION_OVERRIDE_INVALID: i32 = 0;
+pub const IMAGE_FUNCTION_OVERRIDE_X64_REL32: i32 = 1;
+pub const IMAGE_GUARD_CASTGUARD_PRESENT: i32 = 16777216;
+pub const IMAGE_GUARD_CFW_INSTRUMENTED: i32 = 512;
+pub const IMAGE_GUARD_CF_ENABLE_EXPORT_SUPPRESSION: i32 = 32768;
+pub const IMAGE_GUARD_CF_EXPORT_SUPPRESSION_INFO_PRESENT: i32 = 16384;
+pub const IMAGE_GUARD_CF_FUNCTION_TABLE_PRESENT: i32 = 1024;
 pub const IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK: u32 = 4026531840;
-pub const IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_SHIFT: u32 = 28;
-pub const IMAGE_GUARD_CF_INSTRUMENTED: u32 = 256;
-pub const IMAGE_GUARD_CF_LONGJUMP_TABLE_PRESENT: u32 = 65536;
-pub const IMAGE_GUARD_DELAYLOAD_IAT_IN_ITS_OWN_SECTION: u32 = 8192;
-pub const IMAGE_GUARD_EH_CONTINUATION_TABLE_PRESENT: u32 = 4194304;
-pub const IMAGE_GUARD_FLAG_EXPORT_SUPPRESSED: u32 = 2;
-pub const IMAGE_GUARD_FLAG_FID_LANGEXCPTHANDLER: u32 = 4;
-pub const IMAGE_GUARD_FLAG_FID_SUPPRESSED: u32 = 1;
-pub const IMAGE_GUARD_FLAG_FID_XFG: u32 = 8;
-pub const IMAGE_GUARD_MEMCPY_PRESENT: u32 = 33554432;
-pub const IMAGE_GUARD_PROTECT_DELAYLOAD_IAT: u32 = 4096;
-pub const IMAGE_GUARD_RETPOLINE_PRESENT: u32 = 1048576;
-pub const IMAGE_GUARD_RF_ENABLE: u32 = 262144;
-pub const IMAGE_GUARD_RF_INSTRUMENTED: u32 = 131072;
-pub const IMAGE_GUARD_RF_STRICT: u32 = 524288;
-pub const IMAGE_GUARD_SECURITY_COOKIE_UNUSED: u32 = 2048;
-pub const IMAGE_GUARD_XFG_ENABLED: u32 = 8388608;
+pub const IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_SHIFT: i32 = 28;
+pub const IMAGE_GUARD_CF_INSTRUMENTED: i32 = 256;
+pub const IMAGE_GUARD_CF_LONGJUMP_TABLE_PRESENT: i32 = 65536;
+pub const IMAGE_GUARD_DELAYLOAD_IAT_IN_ITS_OWN_SECTION: i32 = 8192;
+pub const IMAGE_GUARD_EH_CONTINUATION_TABLE_PRESENT: i32 = 4194304;
+pub const IMAGE_GUARD_FLAG_EXPORT_SUPPRESSED: i32 = 2;
+pub const IMAGE_GUARD_FLAG_FID_LANGEXCPTHANDLER: i32 = 4;
+pub const IMAGE_GUARD_FLAG_FID_SUPPRESSED: i32 = 1;
+pub const IMAGE_GUARD_FLAG_FID_XFG: i32 = 8;
+pub const IMAGE_GUARD_MEMCPY_PRESENT: i32 = 33554432;
+pub const IMAGE_GUARD_PROTECT_DELAYLOAD_IAT: i32 = 4096;
+pub const IMAGE_GUARD_RETPOLINE_PRESENT: i32 = 1048576;
+pub const IMAGE_GUARD_RF_ENABLE: i32 = 262144;
+pub const IMAGE_GUARD_RF_INSTRUMENTED: i32 = 131072;
+pub const IMAGE_GUARD_RF_STRICT: i32 = 524288;
+pub const IMAGE_GUARD_SECURITY_COOKIE_UNUSED: i32 = 2048;
+pub const IMAGE_GUARD_XFG_ENABLED: i32 = 8388608;
 pub type IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_CC_RETURN = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4418,7 +4421,7 @@ pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON,
     pub Count: u32,
 }
-pub const IMAGE_HOTSWAP_ENDPOINT_INFO_V2: u32 = 2;
+pub const IMAGE_HOTSWAP_ENDPOINT_INFO_V2: i32 = 2;
 pub const IMAGE_HOTSWAP_ENDPOINT_TABLE_SECTION: windows_core::PCSTR = windows_core::s!(".shsept");
 pub type IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG = i32;
 #[repr(C)]
@@ -4435,7 +4438,7 @@ impl Default for IMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_HOT_PATCH_ABSOLUTE: u32 = 180224;
+pub const IMAGE_HOT_PATCH_ABSOLUTE: i32 = 180224;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_BASE {
@@ -4448,21 +4451,21 @@ pub struct IMAGE_HOT_PATCH_BASE {
     pub PatchTable: u32,
     pub BufferOffset: u32,
 }
-pub const IMAGE_HOT_PATCH_BASE_CAN_ROLL_BACK: u32 = 2;
-pub const IMAGE_HOT_PATCH_BASE_MACHINE_AMD64: u32 = 16;
-pub const IMAGE_HOT_PATCH_BASE_MACHINE_ARM64: u32 = 8;
-pub const IMAGE_HOT_PATCH_BASE_MACHINE_I386: u32 = 4;
-pub const IMAGE_HOT_PATCH_BASE_OBLIGATORY: u32 = 1;
-pub const IMAGE_HOT_PATCH_CALL_TARGET: u32 = 278528;
+pub const IMAGE_HOT_PATCH_BASE_CAN_ROLL_BACK: i32 = 2;
+pub const IMAGE_HOT_PATCH_BASE_MACHINE_AMD64: i32 = 16;
+pub const IMAGE_HOT_PATCH_BASE_MACHINE_ARM64: i32 = 8;
+pub const IMAGE_HOT_PATCH_BASE_MACHINE_I386: i32 = 4;
+pub const IMAGE_HOT_PATCH_BASE_OBLIGATORY: i32 = 1;
+pub const IMAGE_HOT_PATCH_CALL_TARGET: i32 = 278528;
 pub const IMAGE_HOT_PATCH_CHUNK_INVERSE: u32 = 2147483648;
-pub const IMAGE_HOT_PATCH_CHUNK_OBLIGATORY: u32 = 1073741824;
-pub const IMAGE_HOT_PATCH_CHUNK_RESERVED: u32 = 1072705536;
-pub const IMAGE_HOT_PATCH_CHUNK_SIZE: u32 = 4095;
-pub const IMAGE_HOT_PATCH_CHUNK_SOURCE_RVA: u32 = 32768;
-pub const IMAGE_HOT_PATCH_CHUNK_TARGET_RVA: u32 = 16384;
-pub const IMAGE_HOT_PATCH_CHUNK_TYPE: u32 = 1032192;
-pub const IMAGE_HOT_PATCH_DYNAMIC_VALUE: u32 = 491520;
-pub const IMAGE_HOT_PATCH_FUNCTION: u32 = 114688;
+pub const IMAGE_HOT_PATCH_CHUNK_OBLIGATORY: i32 = 1073741824;
+pub const IMAGE_HOT_PATCH_CHUNK_RESERVED: i32 = 1072705536;
+pub const IMAGE_HOT_PATCH_CHUNK_SIZE: i32 = 4095;
+pub const IMAGE_HOT_PATCH_CHUNK_SOURCE_RVA: i32 = 32768;
+pub const IMAGE_HOT_PATCH_CHUNK_TARGET_RVA: i32 = 16384;
+pub const IMAGE_HOT_PATCH_CHUNK_TYPE: i32 = 1032192;
+pub const IMAGE_HOT_PATCH_DYNAMIC_VALUE: i32 = 491520;
+pub const IMAGE_HOT_PATCH_FUNCTION: i32 = 114688;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_HASHES {
@@ -4474,7 +4477,7 @@ impl Default for IMAGE_HOT_PATCH_HASHES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_HOT_PATCH_INDIRECT: u32 = 376832;
+pub const IMAGE_HOT_PATCH_INDIRECT: i32 = 376832;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_INFO {
@@ -4488,8 +4491,8 @@ pub struct IMAGE_HOT_PATCH_INFO {
     pub MinSequenceNumber: u32,
     pub Flags: u32,
 }
-pub const IMAGE_HOT_PATCH_INFO_FLAG_HOTSWAP: u32 = 2;
-pub const IMAGE_HOT_PATCH_INFO_FLAG_PATCHORDERCRITICAL: u32 = 1;
+pub const IMAGE_HOT_PATCH_INFO_FLAG_HOTSWAP: i32 = 2;
+pub const IMAGE_HOT_PATCH_INFO_FLAG_PATCHORDERCRITICAL: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_MACHINE {
@@ -4526,9 +4529,9 @@ impl IMAGE_HOT_PATCH_MACHINE_0 {
         self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
     }
 }
-pub const IMAGE_HOT_PATCH_NONE: u32 = 0;
-pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: u32 = 409600;
-pub const IMAGE_HOT_PATCH_REL32: u32 = 245760;
+pub const IMAGE_HOT_PATCH_NONE: i32 = 0;
+pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: i32 = 409600;
+pub const IMAGE_HOT_PATCH_REL32: i32 = 245760;
 pub type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4829,14 +4832,14 @@ pub struct IMAGE_NT_HEADERS64 {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER64,
 }
-pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: u32 = 267;
-pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: u32 = 523;
+pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: i32 = 267;
+pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: i32 = 523;
 #[cfg(target_arch = "x86")]
-pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: u32 = 267;
+pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: i32 = 267;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: u32 = 523;
-pub const IMAGE_NT_SIGNATURE: u32 = 17744;
-pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: u32 = 16;
+pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: i32 = 523;
+pub const IMAGE_NT_SIGNATURE: i32 = 17744;
+pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: i32 = 16;
 #[cfg(target_arch = "x86")]
 pub type IMAGE_OPTIONAL_HEADER = IMAGE_OPTIONAL_HEADER32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -4921,9 +4924,9 @@ impl Default for IMAGE_OPTIONAL_HEADER64 {
     }
 }
 #[cfg(target_arch = "x86")]
-pub const IMAGE_ORDINAL_FLAG: i32 = -2147483648;
+pub const IMAGE_ORDINAL_FLAG: u32 = 2147483648;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const IMAGE_ORDINAL_FLAG: u32 = 0;
+pub const IMAGE_ORDINAL_FLAG: u64 = 0;
 pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648;
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808;
 #[repr(C, packed(2))]
@@ -4960,8 +4963,8 @@ pub struct IMAGE_OS2_HEADER {
     pub ne_swaparea: u16,
     pub ne_expver: u16,
 }
-pub const IMAGE_OS2_SIGNATURE: u32 = 17742;
-pub const IMAGE_OS2_SIGNATURE_LE: u32 = 17740;
+pub const IMAGE_OS2_SIGNATURE: i32 = 17742;
+pub const IMAGE_OS2_SIGNATURE_LE: i32 = 17740;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_POLICY_ENTRY {
@@ -5010,7 +5013,7 @@ impl Default for IMAGE_POLICY_METADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_POLICY_METADATA_VERSION: u32 = 1;
+pub const IMAGE_POLICY_METADATA_VERSION: i32 = 1;
 pub const IMAGE_POLICY_SECTION_NAME: windows_core::PCSTR = windows_core::s!(".tPolicy");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5040,266 +5043,266 @@ impl Default for IMAGE_RELOCATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_REL_ALPHA_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_ALPHA_BRADDR: u32 = 7;
-pub const IMAGE_REL_ALPHA_GPDISP: u32 = 6;
-pub const IMAGE_REL_ALPHA_GPREL32: u32 = 3;
-pub const IMAGE_REL_ALPHA_GPRELHI: u32 = 23;
-pub const IMAGE_REL_ALPHA_GPRELLO: u32 = 22;
-pub const IMAGE_REL_ALPHA_HINT: u32 = 8;
-pub const IMAGE_REL_ALPHA_INLINE_REFLONG: u32 = 9;
-pub const IMAGE_REL_ALPHA_LITERAL: u32 = 4;
-pub const IMAGE_REL_ALPHA_LITUSE: u32 = 5;
-pub const IMAGE_REL_ALPHA_MATCH: u32 = 13;
-pub const IMAGE_REL_ALPHA_PAIR: u32 = 12;
-pub const IMAGE_REL_ALPHA_REFHI: u32 = 10;
-pub const IMAGE_REL_ALPHA_REFLO: u32 = 11;
-pub const IMAGE_REL_ALPHA_REFLONG: u32 = 1;
-pub const IMAGE_REL_ALPHA_REFLONGNB: u32 = 16;
-pub const IMAGE_REL_ALPHA_REFQ1: u32 = 21;
-pub const IMAGE_REL_ALPHA_REFQ2: u32 = 20;
-pub const IMAGE_REL_ALPHA_REFQ3: u32 = 19;
-pub const IMAGE_REL_ALPHA_REFQUAD: u32 = 2;
-pub const IMAGE_REL_ALPHA_SECREL: u32 = 15;
-pub const IMAGE_REL_ALPHA_SECRELHI: u32 = 18;
-pub const IMAGE_REL_ALPHA_SECRELLO: u32 = 17;
-pub const IMAGE_REL_ALPHA_SECTION: u32 = 14;
-pub const IMAGE_REL_AMD64_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_AMD64_ADDR32: u32 = 2;
-pub const IMAGE_REL_AMD64_ADDR32NB: u32 = 3;
-pub const IMAGE_REL_AMD64_ADDR64: u32 = 1;
-pub const IMAGE_REL_AMD64_CFG_BR: u32 = 20;
-pub const IMAGE_REL_AMD64_CFG_BR_REX: u32 = 21;
-pub const IMAGE_REL_AMD64_CFG_CALL: u32 = 22;
-pub const IMAGE_REL_AMD64_EHANDLER: u32 = 17;
-pub const IMAGE_REL_AMD64_IMPORT_BR: u32 = 18;
-pub const IMAGE_REL_AMD64_IMPORT_CALL: u32 = 19;
-pub const IMAGE_REL_AMD64_INDIR_BR: u32 = 23;
-pub const IMAGE_REL_AMD64_INDIR_BR_REX: u32 = 24;
-pub const IMAGE_REL_AMD64_INDIR_BR_SWITCHTABLE_FIRST: u32 = 32;
-pub const IMAGE_REL_AMD64_INDIR_BR_SWITCHTABLE_LAST: u32 = 47;
-pub const IMAGE_REL_AMD64_INDIR_CALL: u32 = 25;
-pub const IMAGE_REL_AMD64_PAIR: u32 = 15;
-pub const IMAGE_REL_AMD64_REL32: u32 = 4;
-pub const IMAGE_REL_AMD64_REL32_1: u32 = 5;
-pub const IMAGE_REL_AMD64_REL32_2: u32 = 6;
-pub const IMAGE_REL_AMD64_REL32_3: u32 = 7;
-pub const IMAGE_REL_AMD64_REL32_4: u32 = 8;
-pub const IMAGE_REL_AMD64_REL32_5: u32 = 9;
-pub const IMAGE_REL_AMD64_SECREL: u32 = 11;
-pub const IMAGE_REL_AMD64_SECREL7: u32 = 12;
-pub const IMAGE_REL_AMD64_SECTION: u32 = 10;
-pub const IMAGE_REL_AMD64_SREL32: u32 = 14;
-pub const IMAGE_REL_AMD64_SSPAN32: u32 = 16;
-pub const IMAGE_REL_AMD64_TOKEN: u32 = 13;
-pub const IMAGE_REL_AM_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_AM_ADDR32: u32 = 1;
-pub const IMAGE_REL_AM_ADDR32NB: u32 = 2;
-pub const IMAGE_REL_AM_CALL32: u32 = 3;
-pub const IMAGE_REL_AM_FUNCINFO: u32 = 4;
-pub const IMAGE_REL_AM_REL32_1: u32 = 5;
-pub const IMAGE_REL_AM_REL32_2: u32 = 6;
-pub const IMAGE_REL_AM_SECREL: u32 = 7;
-pub const IMAGE_REL_AM_SECTION: u32 = 8;
-pub const IMAGE_REL_AM_TOKEN: u32 = 9;
-pub const IMAGE_REL_ARM64_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_ARM64_ADDR32: u32 = 1;
-pub const IMAGE_REL_ARM64_ADDR32NB: u32 = 2;
-pub const IMAGE_REL_ARM64_ADDR64: u32 = 14;
-pub const IMAGE_REL_ARM64_BRANCH19: u32 = 15;
-pub const IMAGE_REL_ARM64_BRANCH26: u32 = 3;
-pub const IMAGE_REL_ARM64_PAGEBASE_REL21: u32 = 4;
-pub const IMAGE_REL_ARM64_PAGEOFFSET_12A: u32 = 6;
-pub const IMAGE_REL_ARM64_PAGEOFFSET_12L: u32 = 7;
-pub const IMAGE_REL_ARM64_REL21: u32 = 5;
-pub const IMAGE_REL_ARM64_SECREL: u32 = 8;
-pub const IMAGE_REL_ARM64_SECREL_HIGH12A: u32 = 10;
-pub const IMAGE_REL_ARM64_SECREL_LOW12A: u32 = 9;
-pub const IMAGE_REL_ARM64_SECREL_LOW12L: u32 = 11;
-pub const IMAGE_REL_ARM64_SECTION: u32 = 13;
-pub const IMAGE_REL_ARM64_TOKEN: u32 = 12;
-pub const IMAGE_REL_ARM_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_ARM_ADDR32: u32 = 1;
-pub const IMAGE_REL_ARM_ADDR32NB: u32 = 2;
-pub const IMAGE_REL_ARM_BLX11: u32 = 9;
-pub const IMAGE_REL_ARM_BLX23T: u32 = 21;
-pub const IMAGE_REL_ARM_BLX24: u32 = 8;
-pub const IMAGE_REL_ARM_BRANCH11: u32 = 4;
-pub const IMAGE_REL_ARM_BRANCH20T: u32 = 18;
-pub const IMAGE_REL_ARM_BRANCH24: u32 = 3;
-pub const IMAGE_REL_ARM_BRANCH24T: u32 = 20;
-pub const IMAGE_REL_ARM_GPREL12: u32 = 6;
-pub const IMAGE_REL_ARM_GPREL7: u32 = 7;
-pub const IMAGE_REL_ARM_MOV32: u32 = 16;
-pub const IMAGE_REL_ARM_MOV32A: u32 = 16;
-pub const IMAGE_REL_ARM_MOV32T: u32 = 17;
-pub const IMAGE_REL_ARM_SECREL: u32 = 15;
-pub const IMAGE_REL_ARM_SECTION: u32 = 14;
-pub const IMAGE_REL_ARM_TOKEN: u32 = 5;
-pub const IMAGE_REL_BASED_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_BASED_ARM_MOV32: u32 = 5;
-pub const IMAGE_REL_BASED_DIR64: u32 = 10;
-pub const IMAGE_REL_BASED_HIGH: u32 = 1;
-pub const IMAGE_REL_BASED_HIGHADJ: u32 = 4;
-pub const IMAGE_REL_BASED_HIGHLOW: u32 = 3;
-pub const IMAGE_REL_BASED_IA64_IMM64: u32 = 9;
-pub const IMAGE_REL_BASED_LOW: u32 = 2;
-pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_5: u32 = 5;
-pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_7: u32 = 7;
-pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_8: u32 = 8;
-pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_9: u32 = 9;
-pub const IMAGE_REL_BASED_MIPS_JMPADDR: u32 = 5;
-pub const IMAGE_REL_BASED_MIPS_JMPADDR16: u32 = 9;
-pub const IMAGE_REL_BASED_RESERVED: u32 = 6;
-pub const IMAGE_REL_BASED_THUMB_MOV32: u32 = 7;
-pub const IMAGE_REL_CEE_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_CEE_ADDR32: u32 = 1;
-pub const IMAGE_REL_CEE_ADDR32NB: u32 = 3;
-pub const IMAGE_REL_CEE_ADDR64: u32 = 2;
-pub const IMAGE_REL_CEE_SECREL: u32 = 5;
-pub const IMAGE_REL_CEE_SECTION: u32 = 4;
-pub const IMAGE_REL_CEE_TOKEN: u32 = 6;
-pub const IMAGE_REL_CEF_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_CEF_ADDR32: u32 = 1;
-pub const IMAGE_REL_CEF_ADDR32NB: u32 = 3;
-pub const IMAGE_REL_CEF_ADDR64: u32 = 2;
-pub const IMAGE_REL_CEF_SECREL: u32 = 5;
-pub const IMAGE_REL_CEF_SECTION: u32 = 4;
-pub const IMAGE_REL_CEF_TOKEN: u32 = 6;
-pub const IMAGE_REL_EBC_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_EBC_ADDR32NB: u32 = 1;
-pub const IMAGE_REL_EBC_REL32: u32 = 2;
-pub const IMAGE_REL_EBC_SECREL: u32 = 4;
-pub const IMAGE_REL_EBC_SECTION: u32 = 3;
-pub const IMAGE_REL_I386_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_I386_DIR16: u32 = 1;
-pub const IMAGE_REL_I386_DIR32: u32 = 6;
-pub const IMAGE_REL_I386_DIR32NB: u32 = 7;
-pub const IMAGE_REL_I386_REL16: u32 = 2;
-pub const IMAGE_REL_I386_REL32: u32 = 20;
-pub const IMAGE_REL_I386_SECREL: u32 = 11;
-pub const IMAGE_REL_I386_SECREL7: u32 = 13;
-pub const IMAGE_REL_I386_SECTION: u32 = 10;
-pub const IMAGE_REL_I386_SEG12: u32 = 9;
-pub const IMAGE_REL_I386_TOKEN: u32 = 12;
-pub const IMAGE_REL_IA64_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_IA64_ADDEND: u32 = 31;
-pub const IMAGE_REL_IA64_DIR32: u32 = 4;
-pub const IMAGE_REL_IA64_DIR32NB: u32 = 16;
-pub const IMAGE_REL_IA64_DIR64: u32 = 5;
-pub const IMAGE_REL_IA64_GPREL22: u32 = 9;
-pub const IMAGE_REL_IA64_GPREL32: u32 = 28;
-pub const IMAGE_REL_IA64_IMM14: u32 = 1;
-pub const IMAGE_REL_IA64_IMM22: u32 = 2;
-pub const IMAGE_REL_IA64_IMM64: u32 = 3;
-pub const IMAGE_REL_IA64_IMMGPREL64: u32 = 26;
-pub const IMAGE_REL_IA64_LTOFF22: u32 = 10;
-pub const IMAGE_REL_IA64_PCREL21B: u32 = 6;
-pub const IMAGE_REL_IA64_PCREL21F: u32 = 8;
-pub const IMAGE_REL_IA64_PCREL21M: u32 = 7;
-pub const IMAGE_REL_IA64_PCREL60B: u32 = 22;
-pub const IMAGE_REL_IA64_PCREL60F: u32 = 23;
-pub const IMAGE_REL_IA64_PCREL60I: u32 = 24;
-pub const IMAGE_REL_IA64_PCREL60M: u32 = 25;
-pub const IMAGE_REL_IA64_PCREL60X: u32 = 21;
-pub const IMAGE_REL_IA64_SECREL22: u32 = 12;
-pub const IMAGE_REL_IA64_SECREL32: u32 = 14;
-pub const IMAGE_REL_IA64_SECREL64I: u32 = 13;
-pub const IMAGE_REL_IA64_SECTION: u32 = 11;
-pub const IMAGE_REL_IA64_SREL14: u32 = 17;
-pub const IMAGE_REL_IA64_SREL22: u32 = 18;
-pub const IMAGE_REL_IA64_SREL32: u32 = 19;
-pub const IMAGE_REL_IA64_TOKEN: u32 = 27;
-pub const IMAGE_REL_IA64_UREL32: u32 = 20;
-pub const IMAGE_REL_M32R_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_M32R_ADDR24: u32 = 3;
-pub const IMAGE_REL_M32R_ADDR32: u32 = 1;
-pub const IMAGE_REL_M32R_ADDR32NB: u32 = 2;
-pub const IMAGE_REL_M32R_GPREL16: u32 = 4;
-pub const IMAGE_REL_M32R_PAIR: u32 = 11;
-pub const IMAGE_REL_M32R_PCREL16: u32 = 6;
-pub const IMAGE_REL_M32R_PCREL24: u32 = 5;
-pub const IMAGE_REL_M32R_PCREL8: u32 = 7;
-pub const IMAGE_REL_M32R_REFHALF: u32 = 8;
-pub const IMAGE_REL_M32R_REFHI: u32 = 9;
-pub const IMAGE_REL_M32R_REFLO: u32 = 10;
-pub const IMAGE_REL_M32R_SECREL32: u32 = 13;
-pub const IMAGE_REL_M32R_SECTION: u32 = 12;
-pub const IMAGE_REL_M32R_TOKEN: u32 = 14;
-pub const IMAGE_REL_MIPS_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_MIPS_GPREL: u32 = 6;
-pub const IMAGE_REL_MIPS_JMPADDR: u32 = 3;
-pub const IMAGE_REL_MIPS_JMPADDR16: u32 = 16;
-pub const IMAGE_REL_MIPS_LITERAL: u32 = 7;
-pub const IMAGE_REL_MIPS_PAIR: u32 = 37;
-pub const IMAGE_REL_MIPS_REFHALF: u32 = 1;
-pub const IMAGE_REL_MIPS_REFHI: u32 = 4;
-pub const IMAGE_REL_MIPS_REFLO: u32 = 5;
-pub const IMAGE_REL_MIPS_REFWORD: u32 = 2;
-pub const IMAGE_REL_MIPS_REFWORDNB: u32 = 34;
-pub const IMAGE_REL_MIPS_SECREL: u32 = 11;
-pub const IMAGE_REL_MIPS_SECRELHI: u32 = 13;
-pub const IMAGE_REL_MIPS_SECRELLO: u32 = 12;
-pub const IMAGE_REL_MIPS_SECTION: u32 = 10;
-pub const IMAGE_REL_MIPS_TOKEN: u32 = 14;
-pub const IMAGE_REL_PPC_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_PPC_ADDR14: u32 = 5;
-pub const IMAGE_REL_PPC_ADDR16: u32 = 4;
-pub const IMAGE_REL_PPC_ADDR24: u32 = 3;
-pub const IMAGE_REL_PPC_ADDR32: u32 = 2;
-pub const IMAGE_REL_PPC_ADDR32NB: u32 = 10;
-pub const IMAGE_REL_PPC_ADDR64: u32 = 1;
-pub const IMAGE_REL_PPC_BRNTAKEN: u32 = 1024;
-pub const IMAGE_REL_PPC_BRTAKEN: u32 = 512;
-pub const IMAGE_REL_PPC_GPREL: u32 = 21;
-pub const IMAGE_REL_PPC_IFGLUE: u32 = 13;
-pub const IMAGE_REL_PPC_IMGLUE: u32 = 14;
-pub const IMAGE_REL_PPC_NEG: u32 = 256;
-pub const IMAGE_REL_PPC_PAIR: u32 = 18;
-pub const IMAGE_REL_PPC_REFHI: u32 = 16;
-pub const IMAGE_REL_PPC_REFLO: u32 = 17;
-pub const IMAGE_REL_PPC_REL14: u32 = 7;
-pub const IMAGE_REL_PPC_REL24: u32 = 6;
-pub const IMAGE_REL_PPC_SECREL: u32 = 11;
-pub const IMAGE_REL_PPC_SECREL16: u32 = 15;
-pub const IMAGE_REL_PPC_SECRELHI: u32 = 20;
-pub const IMAGE_REL_PPC_SECRELLO: u32 = 19;
-pub const IMAGE_REL_PPC_SECTION: u32 = 12;
-pub const IMAGE_REL_PPC_TOCDEFN: u32 = 2048;
-pub const IMAGE_REL_PPC_TOCREL14: u32 = 9;
-pub const IMAGE_REL_PPC_TOCREL16: u32 = 8;
-pub const IMAGE_REL_PPC_TOKEN: u32 = 22;
-pub const IMAGE_REL_PPC_TYPEMASK: u32 = 255;
-pub const IMAGE_REL_SH3_ABSOLUTE: u32 = 0;
-pub const IMAGE_REL_SH3_DIRECT16: u32 = 1;
-pub const IMAGE_REL_SH3_DIRECT32: u32 = 2;
-pub const IMAGE_REL_SH3_DIRECT32_NB: u32 = 16;
-pub const IMAGE_REL_SH3_DIRECT4: u32 = 6;
-pub const IMAGE_REL_SH3_DIRECT4_LONG: u32 = 8;
-pub const IMAGE_REL_SH3_DIRECT4_WORD: u32 = 7;
-pub const IMAGE_REL_SH3_DIRECT8: u32 = 3;
-pub const IMAGE_REL_SH3_DIRECT8_LONG: u32 = 5;
-pub const IMAGE_REL_SH3_DIRECT8_WORD: u32 = 4;
-pub const IMAGE_REL_SH3_GPREL4_LONG: u32 = 17;
-pub const IMAGE_REL_SH3_PCREL12_WORD: u32 = 11;
-pub const IMAGE_REL_SH3_PCREL8_LONG: u32 = 10;
-pub const IMAGE_REL_SH3_PCREL8_WORD: u32 = 9;
-pub const IMAGE_REL_SH3_SECREL: u32 = 15;
-pub const IMAGE_REL_SH3_SECTION: u32 = 14;
-pub const IMAGE_REL_SH3_SIZEOF_SECTION: u32 = 13;
-pub const IMAGE_REL_SH3_STARTOF_SECTION: u32 = 12;
-pub const IMAGE_REL_SH3_TOKEN: u32 = 18;
-pub const IMAGE_REL_SHM_PAIR: u32 = 24;
-pub const IMAGE_REL_SHM_PCRELPT: u32 = 19;
-pub const IMAGE_REL_SHM_REFHALF: u32 = 21;
-pub const IMAGE_REL_SHM_REFLO: u32 = 20;
-pub const IMAGE_REL_SHM_RELHALF: u32 = 23;
-pub const IMAGE_REL_SHM_RELLO: u32 = 22;
-pub const IMAGE_REL_SH_NOMODE: u32 = 32768;
-pub const IMAGE_REL_THUMB_BLX23: u32 = 21;
-pub const IMAGE_REL_THUMB_BRANCH20: u32 = 18;
-pub const IMAGE_REL_THUMB_BRANCH24: u32 = 20;
-pub const IMAGE_REL_THUMB_MOV32: u32 = 17;
+pub const IMAGE_REL_ALPHA_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_ALPHA_BRADDR: i32 = 7;
+pub const IMAGE_REL_ALPHA_GPDISP: i32 = 6;
+pub const IMAGE_REL_ALPHA_GPREL32: i32 = 3;
+pub const IMAGE_REL_ALPHA_GPRELHI: i32 = 23;
+pub const IMAGE_REL_ALPHA_GPRELLO: i32 = 22;
+pub const IMAGE_REL_ALPHA_HINT: i32 = 8;
+pub const IMAGE_REL_ALPHA_INLINE_REFLONG: i32 = 9;
+pub const IMAGE_REL_ALPHA_LITERAL: i32 = 4;
+pub const IMAGE_REL_ALPHA_LITUSE: i32 = 5;
+pub const IMAGE_REL_ALPHA_MATCH: i32 = 13;
+pub const IMAGE_REL_ALPHA_PAIR: i32 = 12;
+pub const IMAGE_REL_ALPHA_REFHI: i32 = 10;
+pub const IMAGE_REL_ALPHA_REFLO: i32 = 11;
+pub const IMAGE_REL_ALPHA_REFLONG: i32 = 1;
+pub const IMAGE_REL_ALPHA_REFLONGNB: i32 = 16;
+pub const IMAGE_REL_ALPHA_REFQ1: i32 = 21;
+pub const IMAGE_REL_ALPHA_REFQ2: i32 = 20;
+pub const IMAGE_REL_ALPHA_REFQ3: i32 = 19;
+pub const IMAGE_REL_ALPHA_REFQUAD: i32 = 2;
+pub const IMAGE_REL_ALPHA_SECREL: i32 = 15;
+pub const IMAGE_REL_ALPHA_SECRELHI: i32 = 18;
+pub const IMAGE_REL_ALPHA_SECRELLO: i32 = 17;
+pub const IMAGE_REL_ALPHA_SECTION: i32 = 14;
+pub const IMAGE_REL_AMD64_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_AMD64_ADDR32: i32 = 2;
+pub const IMAGE_REL_AMD64_ADDR32NB: i32 = 3;
+pub const IMAGE_REL_AMD64_ADDR64: i32 = 1;
+pub const IMAGE_REL_AMD64_CFG_BR: i32 = 20;
+pub const IMAGE_REL_AMD64_CFG_BR_REX: i32 = 21;
+pub const IMAGE_REL_AMD64_CFG_CALL: i32 = 22;
+pub const IMAGE_REL_AMD64_EHANDLER: i32 = 17;
+pub const IMAGE_REL_AMD64_IMPORT_BR: i32 = 18;
+pub const IMAGE_REL_AMD64_IMPORT_CALL: i32 = 19;
+pub const IMAGE_REL_AMD64_INDIR_BR: i32 = 23;
+pub const IMAGE_REL_AMD64_INDIR_BR_REX: i32 = 24;
+pub const IMAGE_REL_AMD64_INDIR_BR_SWITCHTABLE_FIRST: i32 = 32;
+pub const IMAGE_REL_AMD64_INDIR_BR_SWITCHTABLE_LAST: i32 = 47;
+pub const IMAGE_REL_AMD64_INDIR_CALL: i32 = 25;
+pub const IMAGE_REL_AMD64_PAIR: i32 = 15;
+pub const IMAGE_REL_AMD64_REL32: i32 = 4;
+pub const IMAGE_REL_AMD64_REL32_1: i32 = 5;
+pub const IMAGE_REL_AMD64_REL32_2: i32 = 6;
+pub const IMAGE_REL_AMD64_REL32_3: i32 = 7;
+pub const IMAGE_REL_AMD64_REL32_4: i32 = 8;
+pub const IMAGE_REL_AMD64_REL32_5: i32 = 9;
+pub const IMAGE_REL_AMD64_SECREL: i32 = 11;
+pub const IMAGE_REL_AMD64_SECREL7: i32 = 12;
+pub const IMAGE_REL_AMD64_SECTION: i32 = 10;
+pub const IMAGE_REL_AMD64_SREL32: i32 = 14;
+pub const IMAGE_REL_AMD64_SSPAN32: i32 = 16;
+pub const IMAGE_REL_AMD64_TOKEN: i32 = 13;
+pub const IMAGE_REL_AM_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_AM_ADDR32: i32 = 1;
+pub const IMAGE_REL_AM_ADDR32NB: i32 = 2;
+pub const IMAGE_REL_AM_CALL32: i32 = 3;
+pub const IMAGE_REL_AM_FUNCINFO: i32 = 4;
+pub const IMAGE_REL_AM_REL32_1: i32 = 5;
+pub const IMAGE_REL_AM_REL32_2: i32 = 6;
+pub const IMAGE_REL_AM_SECREL: i32 = 7;
+pub const IMAGE_REL_AM_SECTION: i32 = 8;
+pub const IMAGE_REL_AM_TOKEN: i32 = 9;
+pub const IMAGE_REL_ARM64_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_ARM64_ADDR32: i32 = 1;
+pub const IMAGE_REL_ARM64_ADDR32NB: i32 = 2;
+pub const IMAGE_REL_ARM64_ADDR64: i32 = 14;
+pub const IMAGE_REL_ARM64_BRANCH19: i32 = 15;
+pub const IMAGE_REL_ARM64_BRANCH26: i32 = 3;
+pub const IMAGE_REL_ARM64_PAGEBASE_REL21: i32 = 4;
+pub const IMAGE_REL_ARM64_PAGEOFFSET_12A: i32 = 6;
+pub const IMAGE_REL_ARM64_PAGEOFFSET_12L: i32 = 7;
+pub const IMAGE_REL_ARM64_REL21: i32 = 5;
+pub const IMAGE_REL_ARM64_SECREL: i32 = 8;
+pub const IMAGE_REL_ARM64_SECREL_HIGH12A: i32 = 10;
+pub const IMAGE_REL_ARM64_SECREL_LOW12A: i32 = 9;
+pub const IMAGE_REL_ARM64_SECREL_LOW12L: i32 = 11;
+pub const IMAGE_REL_ARM64_SECTION: i32 = 13;
+pub const IMAGE_REL_ARM64_TOKEN: i32 = 12;
+pub const IMAGE_REL_ARM_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_ARM_ADDR32: i32 = 1;
+pub const IMAGE_REL_ARM_ADDR32NB: i32 = 2;
+pub const IMAGE_REL_ARM_BLX11: i32 = 9;
+pub const IMAGE_REL_ARM_BLX23T: i32 = 21;
+pub const IMAGE_REL_ARM_BLX24: i32 = 8;
+pub const IMAGE_REL_ARM_BRANCH11: i32 = 4;
+pub const IMAGE_REL_ARM_BRANCH20T: i32 = 18;
+pub const IMAGE_REL_ARM_BRANCH24: i32 = 3;
+pub const IMAGE_REL_ARM_BRANCH24T: i32 = 20;
+pub const IMAGE_REL_ARM_GPREL12: i32 = 6;
+pub const IMAGE_REL_ARM_GPREL7: i32 = 7;
+pub const IMAGE_REL_ARM_MOV32: i32 = 16;
+pub const IMAGE_REL_ARM_MOV32A: i32 = 16;
+pub const IMAGE_REL_ARM_MOV32T: i32 = 17;
+pub const IMAGE_REL_ARM_SECREL: i32 = 15;
+pub const IMAGE_REL_ARM_SECTION: i32 = 14;
+pub const IMAGE_REL_ARM_TOKEN: i32 = 5;
+pub const IMAGE_REL_BASED_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_BASED_ARM_MOV32: i32 = 5;
+pub const IMAGE_REL_BASED_DIR64: i32 = 10;
+pub const IMAGE_REL_BASED_HIGH: i32 = 1;
+pub const IMAGE_REL_BASED_HIGHADJ: i32 = 4;
+pub const IMAGE_REL_BASED_HIGHLOW: i32 = 3;
+pub const IMAGE_REL_BASED_IA64_IMM64: i32 = 9;
+pub const IMAGE_REL_BASED_LOW: i32 = 2;
+pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_5: i32 = 5;
+pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_7: i32 = 7;
+pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_8: i32 = 8;
+pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_9: i32 = 9;
+pub const IMAGE_REL_BASED_MIPS_JMPADDR: i32 = 5;
+pub const IMAGE_REL_BASED_MIPS_JMPADDR16: i32 = 9;
+pub const IMAGE_REL_BASED_RESERVED: i32 = 6;
+pub const IMAGE_REL_BASED_THUMB_MOV32: i32 = 7;
+pub const IMAGE_REL_CEE_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_CEE_ADDR32: i32 = 1;
+pub const IMAGE_REL_CEE_ADDR32NB: i32 = 3;
+pub const IMAGE_REL_CEE_ADDR64: i32 = 2;
+pub const IMAGE_REL_CEE_SECREL: i32 = 5;
+pub const IMAGE_REL_CEE_SECTION: i32 = 4;
+pub const IMAGE_REL_CEE_TOKEN: i32 = 6;
+pub const IMAGE_REL_CEF_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_CEF_ADDR32: i32 = 1;
+pub const IMAGE_REL_CEF_ADDR32NB: i32 = 3;
+pub const IMAGE_REL_CEF_ADDR64: i32 = 2;
+pub const IMAGE_REL_CEF_SECREL: i32 = 5;
+pub const IMAGE_REL_CEF_SECTION: i32 = 4;
+pub const IMAGE_REL_CEF_TOKEN: i32 = 6;
+pub const IMAGE_REL_EBC_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_EBC_ADDR32NB: i32 = 1;
+pub const IMAGE_REL_EBC_REL32: i32 = 2;
+pub const IMAGE_REL_EBC_SECREL: i32 = 4;
+pub const IMAGE_REL_EBC_SECTION: i32 = 3;
+pub const IMAGE_REL_I386_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_I386_DIR16: i32 = 1;
+pub const IMAGE_REL_I386_DIR32: i32 = 6;
+pub const IMAGE_REL_I386_DIR32NB: i32 = 7;
+pub const IMAGE_REL_I386_REL16: i32 = 2;
+pub const IMAGE_REL_I386_REL32: i32 = 20;
+pub const IMAGE_REL_I386_SECREL: i32 = 11;
+pub const IMAGE_REL_I386_SECREL7: i32 = 13;
+pub const IMAGE_REL_I386_SECTION: i32 = 10;
+pub const IMAGE_REL_I386_SEG12: i32 = 9;
+pub const IMAGE_REL_I386_TOKEN: i32 = 12;
+pub const IMAGE_REL_IA64_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_IA64_ADDEND: i32 = 31;
+pub const IMAGE_REL_IA64_DIR32: i32 = 4;
+pub const IMAGE_REL_IA64_DIR32NB: i32 = 16;
+pub const IMAGE_REL_IA64_DIR64: i32 = 5;
+pub const IMAGE_REL_IA64_GPREL22: i32 = 9;
+pub const IMAGE_REL_IA64_GPREL32: i32 = 28;
+pub const IMAGE_REL_IA64_IMM14: i32 = 1;
+pub const IMAGE_REL_IA64_IMM22: i32 = 2;
+pub const IMAGE_REL_IA64_IMM64: i32 = 3;
+pub const IMAGE_REL_IA64_IMMGPREL64: i32 = 26;
+pub const IMAGE_REL_IA64_LTOFF22: i32 = 10;
+pub const IMAGE_REL_IA64_PCREL21B: i32 = 6;
+pub const IMAGE_REL_IA64_PCREL21F: i32 = 8;
+pub const IMAGE_REL_IA64_PCREL21M: i32 = 7;
+pub const IMAGE_REL_IA64_PCREL60B: i32 = 22;
+pub const IMAGE_REL_IA64_PCREL60F: i32 = 23;
+pub const IMAGE_REL_IA64_PCREL60I: i32 = 24;
+pub const IMAGE_REL_IA64_PCREL60M: i32 = 25;
+pub const IMAGE_REL_IA64_PCREL60X: i32 = 21;
+pub const IMAGE_REL_IA64_SECREL22: i32 = 12;
+pub const IMAGE_REL_IA64_SECREL32: i32 = 14;
+pub const IMAGE_REL_IA64_SECREL64I: i32 = 13;
+pub const IMAGE_REL_IA64_SECTION: i32 = 11;
+pub const IMAGE_REL_IA64_SREL14: i32 = 17;
+pub const IMAGE_REL_IA64_SREL22: i32 = 18;
+pub const IMAGE_REL_IA64_SREL32: i32 = 19;
+pub const IMAGE_REL_IA64_TOKEN: i32 = 27;
+pub const IMAGE_REL_IA64_UREL32: i32 = 20;
+pub const IMAGE_REL_M32R_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_M32R_ADDR24: i32 = 3;
+pub const IMAGE_REL_M32R_ADDR32: i32 = 1;
+pub const IMAGE_REL_M32R_ADDR32NB: i32 = 2;
+pub const IMAGE_REL_M32R_GPREL16: i32 = 4;
+pub const IMAGE_REL_M32R_PAIR: i32 = 11;
+pub const IMAGE_REL_M32R_PCREL16: i32 = 6;
+pub const IMAGE_REL_M32R_PCREL24: i32 = 5;
+pub const IMAGE_REL_M32R_PCREL8: i32 = 7;
+pub const IMAGE_REL_M32R_REFHALF: i32 = 8;
+pub const IMAGE_REL_M32R_REFHI: i32 = 9;
+pub const IMAGE_REL_M32R_REFLO: i32 = 10;
+pub const IMAGE_REL_M32R_SECREL32: i32 = 13;
+pub const IMAGE_REL_M32R_SECTION: i32 = 12;
+pub const IMAGE_REL_M32R_TOKEN: i32 = 14;
+pub const IMAGE_REL_MIPS_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_MIPS_GPREL: i32 = 6;
+pub const IMAGE_REL_MIPS_JMPADDR: i32 = 3;
+pub const IMAGE_REL_MIPS_JMPADDR16: i32 = 16;
+pub const IMAGE_REL_MIPS_LITERAL: i32 = 7;
+pub const IMAGE_REL_MIPS_PAIR: i32 = 37;
+pub const IMAGE_REL_MIPS_REFHALF: i32 = 1;
+pub const IMAGE_REL_MIPS_REFHI: i32 = 4;
+pub const IMAGE_REL_MIPS_REFLO: i32 = 5;
+pub const IMAGE_REL_MIPS_REFWORD: i32 = 2;
+pub const IMAGE_REL_MIPS_REFWORDNB: i32 = 34;
+pub const IMAGE_REL_MIPS_SECREL: i32 = 11;
+pub const IMAGE_REL_MIPS_SECRELHI: i32 = 13;
+pub const IMAGE_REL_MIPS_SECRELLO: i32 = 12;
+pub const IMAGE_REL_MIPS_SECTION: i32 = 10;
+pub const IMAGE_REL_MIPS_TOKEN: i32 = 14;
+pub const IMAGE_REL_PPC_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_PPC_ADDR14: i32 = 5;
+pub const IMAGE_REL_PPC_ADDR16: i32 = 4;
+pub const IMAGE_REL_PPC_ADDR24: i32 = 3;
+pub const IMAGE_REL_PPC_ADDR32: i32 = 2;
+pub const IMAGE_REL_PPC_ADDR32NB: i32 = 10;
+pub const IMAGE_REL_PPC_ADDR64: i32 = 1;
+pub const IMAGE_REL_PPC_BRNTAKEN: i32 = 1024;
+pub const IMAGE_REL_PPC_BRTAKEN: i32 = 512;
+pub const IMAGE_REL_PPC_GPREL: i32 = 21;
+pub const IMAGE_REL_PPC_IFGLUE: i32 = 13;
+pub const IMAGE_REL_PPC_IMGLUE: i32 = 14;
+pub const IMAGE_REL_PPC_NEG: i32 = 256;
+pub const IMAGE_REL_PPC_PAIR: i32 = 18;
+pub const IMAGE_REL_PPC_REFHI: i32 = 16;
+pub const IMAGE_REL_PPC_REFLO: i32 = 17;
+pub const IMAGE_REL_PPC_REL14: i32 = 7;
+pub const IMAGE_REL_PPC_REL24: i32 = 6;
+pub const IMAGE_REL_PPC_SECREL: i32 = 11;
+pub const IMAGE_REL_PPC_SECREL16: i32 = 15;
+pub const IMAGE_REL_PPC_SECRELHI: i32 = 20;
+pub const IMAGE_REL_PPC_SECRELLO: i32 = 19;
+pub const IMAGE_REL_PPC_SECTION: i32 = 12;
+pub const IMAGE_REL_PPC_TOCDEFN: i32 = 2048;
+pub const IMAGE_REL_PPC_TOCREL14: i32 = 9;
+pub const IMAGE_REL_PPC_TOCREL16: i32 = 8;
+pub const IMAGE_REL_PPC_TOKEN: i32 = 22;
+pub const IMAGE_REL_PPC_TYPEMASK: i32 = 255;
+pub const IMAGE_REL_SH3_ABSOLUTE: i32 = 0;
+pub const IMAGE_REL_SH3_DIRECT16: i32 = 1;
+pub const IMAGE_REL_SH3_DIRECT32: i32 = 2;
+pub const IMAGE_REL_SH3_DIRECT32_NB: i32 = 16;
+pub const IMAGE_REL_SH3_DIRECT4: i32 = 6;
+pub const IMAGE_REL_SH3_DIRECT4_LONG: i32 = 8;
+pub const IMAGE_REL_SH3_DIRECT4_WORD: i32 = 7;
+pub const IMAGE_REL_SH3_DIRECT8: i32 = 3;
+pub const IMAGE_REL_SH3_DIRECT8_LONG: i32 = 5;
+pub const IMAGE_REL_SH3_DIRECT8_WORD: i32 = 4;
+pub const IMAGE_REL_SH3_GPREL4_LONG: i32 = 17;
+pub const IMAGE_REL_SH3_PCREL12_WORD: i32 = 11;
+pub const IMAGE_REL_SH3_PCREL8_LONG: i32 = 10;
+pub const IMAGE_REL_SH3_PCREL8_WORD: i32 = 9;
+pub const IMAGE_REL_SH3_SECREL: i32 = 15;
+pub const IMAGE_REL_SH3_SECTION: i32 = 14;
+pub const IMAGE_REL_SH3_SIZEOF_SECTION: i32 = 13;
+pub const IMAGE_REL_SH3_STARTOF_SECTION: i32 = 12;
+pub const IMAGE_REL_SH3_TOKEN: i32 = 18;
+pub const IMAGE_REL_SHM_PAIR: i32 = 24;
+pub const IMAGE_REL_SHM_PCRELPT: i32 = 19;
+pub const IMAGE_REL_SHM_REFHALF: i32 = 21;
+pub const IMAGE_REL_SHM_REFLO: i32 = 20;
+pub const IMAGE_REL_SHM_RELHALF: i32 = 23;
+pub const IMAGE_REL_SHM_RELLO: i32 = 22;
+pub const IMAGE_REL_SH_NOMODE: i32 = 32768;
+pub const IMAGE_REL_THUMB_BLX23: i32 = 21;
+pub const IMAGE_REL_THUMB_BRANCH20: i32 = 18;
+pub const IMAGE_REL_THUMB_BRANCH24: i32 = 20;
+pub const IMAGE_REL_THUMB_MOV32: i32 = 17;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DATA_ENTRY {
@@ -5420,7 +5423,7 @@ pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
 }
-pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: u32 = 263;
+pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: i32 = 263;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
@@ -5447,45 +5450,45 @@ impl Default for IMAGE_ROM_OPTIONAL_HEADER {
 pub type IMAGE_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[cfg(target_arch = "aarch64")]
 pub type IMAGE_RUNTIME_FUNCTION_ENTRY = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
-pub const IMAGE_SCN_ALIGN_1024BYTES: u32 = 11534336;
-pub const IMAGE_SCN_ALIGN_128BYTES: u32 = 8388608;
-pub const IMAGE_SCN_ALIGN_16BYTES: u32 = 5242880;
-pub const IMAGE_SCN_ALIGN_1BYTES: u32 = 1048576;
-pub const IMAGE_SCN_ALIGN_2048BYTES: u32 = 12582912;
-pub const IMAGE_SCN_ALIGN_256BYTES: u32 = 9437184;
-pub const IMAGE_SCN_ALIGN_2BYTES: u32 = 2097152;
-pub const IMAGE_SCN_ALIGN_32BYTES: u32 = 6291456;
-pub const IMAGE_SCN_ALIGN_4096BYTES: u32 = 13631488;
-pub const IMAGE_SCN_ALIGN_4BYTES: u32 = 3145728;
-pub const IMAGE_SCN_ALIGN_512BYTES: u32 = 10485760;
-pub const IMAGE_SCN_ALIGN_64BYTES: u32 = 7340032;
-pub const IMAGE_SCN_ALIGN_8192BYTES: u32 = 14680064;
-pub const IMAGE_SCN_ALIGN_8BYTES: u32 = 4194304;
-pub const IMAGE_SCN_ALIGN_MASK: u32 = 15728640;
-pub const IMAGE_SCN_CNT_CODE: u32 = 32;
-pub const IMAGE_SCN_CNT_INITIALIZED_DATA: u32 = 64;
-pub const IMAGE_SCN_CNT_UNINITIALIZED_DATA: u32 = 128;
-pub const IMAGE_SCN_GPREL: u32 = 32768;
-pub const IMAGE_SCN_LNK_COMDAT: u32 = 4096;
-pub const IMAGE_SCN_LNK_INFO: u32 = 512;
-pub const IMAGE_SCN_LNK_NRELOC_OVFL: u32 = 16777216;
-pub const IMAGE_SCN_LNK_OTHER: u32 = 256;
-pub const IMAGE_SCN_LNK_REMOVE: u32 = 2048;
-pub const IMAGE_SCN_MEM_16BIT: u32 = 131072;
-pub const IMAGE_SCN_MEM_DISCARDABLE: u32 = 33554432;
-pub const IMAGE_SCN_MEM_EXECUTE: u32 = 536870912;
-pub const IMAGE_SCN_MEM_FARDATA: u32 = 32768;
-pub const IMAGE_SCN_MEM_LOCKED: u32 = 262144;
-pub const IMAGE_SCN_MEM_NOT_CACHED: u32 = 67108864;
-pub const IMAGE_SCN_MEM_NOT_PAGED: u32 = 134217728;
-pub const IMAGE_SCN_MEM_PRELOAD: u32 = 524288;
-pub const IMAGE_SCN_MEM_PURGEABLE: u32 = 131072;
-pub const IMAGE_SCN_MEM_READ: u32 = 1073741824;
-pub const IMAGE_SCN_MEM_SHARED: u32 = 268435456;
+pub const IMAGE_SCN_ALIGN_1024BYTES: i32 = 11534336;
+pub const IMAGE_SCN_ALIGN_128BYTES: i32 = 8388608;
+pub const IMAGE_SCN_ALIGN_16BYTES: i32 = 5242880;
+pub const IMAGE_SCN_ALIGN_1BYTES: i32 = 1048576;
+pub const IMAGE_SCN_ALIGN_2048BYTES: i32 = 12582912;
+pub const IMAGE_SCN_ALIGN_256BYTES: i32 = 9437184;
+pub const IMAGE_SCN_ALIGN_2BYTES: i32 = 2097152;
+pub const IMAGE_SCN_ALIGN_32BYTES: i32 = 6291456;
+pub const IMAGE_SCN_ALIGN_4096BYTES: i32 = 13631488;
+pub const IMAGE_SCN_ALIGN_4BYTES: i32 = 3145728;
+pub const IMAGE_SCN_ALIGN_512BYTES: i32 = 10485760;
+pub const IMAGE_SCN_ALIGN_64BYTES: i32 = 7340032;
+pub const IMAGE_SCN_ALIGN_8192BYTES: i32 = 14680064;
+pub const IMAGE_SCN_ALIGN_8BYTES: i32 = 4194304;
+pub const IMAGE_SCN_ALIGN_MASK: i32 = 15728640;
+pub const IMAGE_SCN_CNT_CODE: i32 = 32;
+pub const IMAGE_SCN_CNT_INITIALIZED_DATA: i32 = 64;
+pub const IMAGE_SCN_CNT_UNINITIALIZED_DATA: i32 = 128;
+pub const IMAGE_SCN_GPREL: i32 = 32768;
+pub const IMAGE_SCN_LNK_COMDAT: i32 = 4096;
+pub const IMAGE_SCN_LNK_INFO: i32 = 512;
+pub const IMAGE_SCN_LNK_NRELOC_OVFL: i32 = 16777216;
+pub const IMAGE_SCN_LNK_OTHER: i32 = 256;
+pub const IMAGE_SCN_LNK_REMOVE: i32 = 2048;
+pub const IMAGE_SCN_MEM_16BIT: i32 = 131072;
+pub const IMAGE_SCN_MEM_DISCARDABLE: i32 = 33554432;
+pub const IMAGE_SCN_MEM_EXECUTE: i32 = 536870912;
+pub const IMAGE_SCN_MEM_FARDATA: i32 = 32768;
+pub const IMAGE_SCN_MEM_LOCKED: i32 = 262144;
+pub const IMAGE_SCN_MEM_NOT_CACHED: i32 = 67108864;
+pub const IMAGE_SCN_MEM_NOT_PAGED: i32 = 134217728;
+pub const IMAGE_SCN_MEM_PRELOAD: i32 = 524288;
+pub const IMAGE_SCN_MEM_PURGEABLE: i32 = 131072;
+pub const IMAGE_SCN_MEM_READ: i32 = 1073741824;
+pub const IMAGE_SCN_MEM_SHARED: i32 = 268435456;
 pub const IMAGE_SCN_MEM_WRITE: u32 = 2147483648;
-pub const IMAGE_SCN_NO_DEFER_SPEC_EXC: u32 = 16384;
-pub const IMAGE_SCN_SCALE_INDEX: u32 = 1;
-pub const IMAGE_SCN_TYPE_NO_PAD: u32 = 8;
+pub const IMAGE_SCN_NO_DEFER_SPEC_EXC: i32 = 16384;
+pub const IMAGE_SCN_SCALE_INDEX: i32 = 1;
+pub const IMAGE_SCN_TYPE_NO_PAD: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_SECTION_HEADER {
@@ -5516,7 +5519,7 @@ impl Default for IMAGE_SECTION_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_SEPARATE_DEBUG_FLAGS_MASK: u32 = 32768;
+pub const IMAGE_SEPARATE_DEBUG_FLAGS_MASK: i32 = 32768;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_SEPARATE_DEBUG_HEADER {
@@ -5539,28 +5542,28 @@ impl Default for IMAGE_SEPARATE_DEBUG_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_SEPARATE_DEBUG_MISMATCH: u32 = 32768;
-pub const IMAGE_SEPARATE_DEBUG_SIGNATURE: u32 = 18756;
-pub const IMAGE_SIZEOF_ARCHIVE_MEMBER_HDR: u32 = 60;
-pub const IMAGE_SIZEOF_FILE_HEADER: u32 = 20;
-pub const IMAGE_SIZEOF_SECTION_HEADER: u32 = 40;
-pub const IMAGE_SIZEOF_SHORT_NAME: u32 = 8;
-pub const IMAGE_SIZEOF_SYMBOL: u32 = 18;
-pub const IMAGE_SUBSYSTEM_EFI_APPLICATION: u32 = 10;
-pub const IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER: u32 = 11;
-pub const IMAGE_SUBSYSTEM_EFI_ROM: u32 = 13;
-pub const IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER: u32 = 12;
-pub const IMAGE_SUBSYSTEM_NATIVE: u32 = 1;
-pub const IMAGE_SUBSYSTEM_NATIVE_WINDOWS: u32 = 8;
-pub const IMAGE_SUBSYSTEM_OS2_CUI: u32 = 5;
-pub const IMAGE_SUBSYSTEM_POSIX_CUI: u32 = 7;
-pub const IMAGE_SUBSYSTEM_UNKNOWN: u32 = 0;
-pub const IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION: u32 = 16;
-pub const IMAGE_SUBSYSTEM_WINDOWS_CE_GUI: u32 = 9;
-pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: u32 = 3;
-pub const IMAGE_SUBSYSTEM_WINDOWS_GUI: u32 = 2;
-pub const IMAGE_SUBSYSTEM_XBOX: u32 = 14;
-pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: u32 = 17;
+pub const IMAGE_SEPARATE_DEBUG_MISMATCH: i32 = 32768;
+pub const IMAGE_SEPARATE_DEBUG_SIGNATURE: i32 = 18756;
+pub const IMAGE_SIZEOF_ARCHIVE_MEMBER_HDR: i32 = 60;
+pub const IMAGE_SIZEOF_FILE_HEADER: i32 = 20;
+pub const IMAGE_SIZEOF_SECTION_HEADER: i32 = 40;
+pub const IMAGE_SIZEOF_SHORT_NAME: i32 = 8;
+pub const IMAGE_SIZEOF_SYMBOL: i32 = 18;
+pub const IMAGE_SUBSYSTEM_EFI_APPLICATION: i32 = 10;
+pub const IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER: i32 = 11;
+pub const IMAGE_SUBSYSTEM_EFI_ROM: i32 = 13;
+pub const IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER: i32 = 12;
+pub const IMAGE_SUBSYSTEM_NATIVE: i32 = 1;
+pub const IMAGE_SUBSYSTEM_NATIVE_WINDOWS: i32 = 8;
+pub const IMAGE_SUBSYSTEM_OS2_CUI: i32 = 5;
+pub const IMAGE_SUBSYSTEM_POSIX_CUI: i32 = 7;
+pub const IMAGE_SUBSYSTEM_UNKNOWN: i32 = 0;
+pub const IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION: i32 = 16;
+pub const IMAGE_SUBSYSTEM_WINDOWS_CE_GUI: i32 = 9;
+pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: i32 = 3;
+pub const IMAGE_SUBSYSTEM_WINDOWS_GUI: i32 = 2;
+pub const IMAGE_SUBSYSTEM_XBOX: i32 = 14;
+pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: i32 = 17;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
@@ -5647,58 +5650,58 @@ pub struct IMAGE_SYMBOL_EX_0_0 {
     pub Long: u32,
 }
 pub const IMAGE_SYM_ABSOLUTE: i16 = -1;
-pub const IMAGE_SYM_CLASS_ARGUMENT: u32 = 9;
-pub const IMAGE_SYM_CLASS_AUTOMATIC: u32 = 1;
-pub const IMAGE_SYM_CLASS_BIT_FIELD: u32 = 18;
-pub const IMAGE_SYM_CLASS_BLOCK: u32 = 100;
-pub const IMAGE_SYM_CLASS_CLR_TOKEN: u32 = 107;
+pub const IMAGE_SYM_CLASS_ARGUMENT: i32 = 9;
+pub const IMAGE_SYM_CLASS_AUTOMATIC: i32 = 1;
+pub const IMAGE_SYM_CLASS_BIT_FIELD: i32 = 18;
+pub const IMAGE_SYM_CLASS_BLOCK: i32 = 100;
+pub const IMAGE_SYM_CLASS_CLR_TOKEN: i32 = 107;
 pub const IMAGE_SYM_CLASS_END_OF_FUNCTION: u8 = 255;
-pub const IMAGE_SYM_CLASS_END_OF_STRUCT: u32 = 102;
-pub const IMAGE_SYM_CLASS_ENUM_TAG: u32 = 15;
-pub const IMAGE_SYM_CLASS_EXTERNAL: u32 = 2;
-pub const IMAGE_SYM_CLASS_EXTERNAL_DEF: u32 = 5;
-pub const IMAGE_SYM_CLASS_FAR_EXTERNAL: u32 = 68;
-pub const IMAGE_SYM_CLASS_FILE: u32 = 103;
-pub const IMAGE_SYM_CLASS_FUNCTION: u32 = 101;
-pub const IMAGE_SYM_CLASS_LABEL: u32 = 6;
-pub const IMAGE_SYM_CLASS_MEMBER_OF_ENUM: u32 = 16;
-pub const IMAGE_SYM_CLASS_MEMBER_OF_STRUCT: u32 = 8;
-pub const IMAGE_SYM_CLASS_MEMBER_OF_UNION: u32 = 11;
-pub const IMAGE_SYM_CLASS_NULL: u32 = 0;
-pub const IMAGE_SYM_CLASS_REGISTER: u32 = 4;
-pub const IMAGE_SYM_CLASS_REGISTER_PARAM: u32 = 17;
-pub const IMAGE_SYM_CLASS_SECTION: u32 = 104;
-pub const IMAGE_SYM_CLASS_STATIC: u32 = 3;
-pub const IMAGE_SYM_CLASS_STRUCT_TAG: u32 = 10;
-pub const IMAGE_SYM_CLASS_TYPE_DEFINITION: u32 = 13;
-pub const IMAGE_SYM_CLASS_UNDEFINED_LABEL: u32 = 7;
-pub const IMAGE_SYM_CLASS_UNDEFINED_STATIC: u32 = 14;
-pub const IMAGE_SYM_CLASS_UNION_TAG: u32 = 12;
-pub const IMAGE_SYM_CLASS_WEAK_EXTERNAL: u32 = 105;
+pub const IMAGE_SYM_CLASS_END_OF_STRUCT: i32 = 102;
+pub const IMAGE_SYM_CLASS_ENUM_TAG: i32 = 15;
+pub const IMAGE_SYM_CLASS_EXTERNAL: i32 = 2;
+pub const IMAGE_SYM_CLASS_EXTERNAL_DEF: i32 = 5;
+pub const IMAGE_SYM_CLASS_FAR_EXTERNAL: i32 = 68;
+pub const IMAGE_SYM_CLASS_FILE: i32 = 103;
+pub const IMAGE_SYM_CLASS_FUNCTION: i32 = 101;
+pub const IMAGE_SYM_CLASS_LABEL: i32 = 6;
+pub const IMAGE_SYM_CLASS_MEMBER_OF_ENUM: i32 = 16;
+pub const IMAGE_SYM_CLASS_MEMBER_OF_STRUCT: i32 = 8;
+pub const IMAGE_SYM_CLASS_MEMBER_OF_UNION: i32 = 11;
+pub const IMAGE_SYM_CLASS_NULL: i32 = 0;
+pub const IMAGE_SYM_CLASS_REGISTER: i32 = 4;
+pub const IMAGE_SYM_CLASS_REGISTER_PARAM: i32 = 17;
+pub const IMAGE_SYM_CLASS_SECTION: i32 = 104;
+pub const IMAGE_SYM_CLASS_STATIC: i32 = 3;
+pub const IMAGE_SYM_CLASS_STRUCT_TAG: i32 = 10;
+pub const IMAGE_SYM_CLASS_TYPE_DEFINITION: i32 = 13;
+pub const IMAGE_SYM_CLASS_UNDEFINED_LABEL: i32 = 7;
+pub const IMAGE_SYM_CLASS_UNDEFINED_STATIC: i32 = 14;
+pub const IMAGE_SYM_CLASS_UNION_TAG: i32 = 12;
+pub const IMAGE_SYM_CLASS_WEAK_EXTERNAL: i32 = 105;
 pub const IMAGE_SYM_DEBUG: i16 = -2;
-pub const IMAGE_SYM_DTYPE_ARRAY: u32 = 3;
-pub const IMAGE_SYM_DTYPE_FUNCTION: u32 = 2;
-pub const IMAGE_SYM_DTYPE_NULL: u32 = 0;
-pub const IMAGE_SYM_DTYPE_POINTER: u32 = 1;
-pub const IMAGE_SYM_SECTION_MAX: u32 = 65279;
-pub const IMAGE_SYM_SECTION_MAX_EX: u32 = 2147483647;
-pub const IMAGE_SYM_TYPE_BYTE: u32 = 12;
-pub const IMAGE_SYM_TYPE_CHAR: u32 = 2;
-pub const IMAGE_SYM_TYPE_DOUBLE: u32 = 7;
-pub const IMAGE_SYM_TYPE_DWORD: u32 = 15;
-pub const IMAGE_SYM_TYPE_ENUM: u32 = 10;
-pub const IMAGE_SYM_TYPE_FLOAT: u32 = 6;
-pub const IMAGE_SYM_TYPE_INT: u32 = 4;
-pub const IMAGE_SYM_TYPE_LONG: u32 = 5;
-pub const IMAGE_SYM_TYPE_MOE: u32 = 11;
-pub const IMAGE_SYM_TYPE_NULL: u32 = 0;
-pub const IMAGE_SYM_TYPE_PCODE: u32 = 32768;
-pub const IMAGE_SYM_TYPE_SHORT: u32 = 3;
-pub const IMAGE_SYM_TYPE_STRUCT: u32 = 8;
-pub const IMAGE_SYM_TYPE_UINT: u32 = 14;
-pub const IMAGE_SYM_TYPE_UNION: u32 = 9;
-pub const IMAGE_SYM_TYPE_VOID: u32 = 1;
-pub const IMAGE_SYM_TYPE_WORD: u32 = 13;
+pub const IMAGE_SYM_DTYPE_ARRAY: i32 = 3;
+pub const IMAGE_SYM_DTYPE_FUNCTION: i32 = 2;
+pub const IMAGE_SYM_DTYPE_NULL: i32 = 0;
+pub const IMAGE_SYM_DTYPE_POINTER: i32 = 1;
+pub const IMAGE_SYM_SECTION_MAX: i32 = 65279;
+pub const IMAGE_SYM_SECTION_MAX_EX: i32 = 2147483647;
+pub const IMAGE_SYM_TYPE_BYTE: i32 = 12;
+pub const IMAGE_SYM_TYPE_CHAR: i32 = 2;
+pub const IMAGE_SYM_TYPE_DOUBLE: i32 = 7;
+pub const IMAGE_SYM_TYPE_DWORD: i32 = 15;
+pub const IMAGE_SYM_TYPE_ENUM: i32 = 10;
+pub const IMAGE_SYM_TYPE_FLOAT: i32 = 6;
+pub const IMAGE_SYM_TYPE_INT: i32 = 4;
+pub const IMAGE_SYM_TYPE_LONG: i32 = 5;
+pub const IMAGE_SYM_TYPE_MOE: i32 = 11;
+pub const IMAGE_SYM_TYPE_NULL: i32 = 0;
+pub const IMAGE_SYM_TYPE_PCODE: i32 = 32768;
+pub const IMAGE_SYM_TYPE_SHORT: i32 = 3;
+pub const IMAGE_SYM_TYPE_STRUCT: i32 = 8;
+pub const IMAGE_SYM_TYPE_UINT: i32 = 14;
+pub const IMAGE_SYM_TYPE_UNION: i32 = 9;
+pub const IMAGE_SYM_TYPE_VOID: i32 = 1;
+pub const IMAGE_SYM_TYPE_WORD: i32 = 13;
 pub const IMAGE_SYM_UNDEFINED: i16 = 0;
 #[cfg(target_arch = "x86")]
 pub type IMAGE_THUNK_DATA = IMAGE_THUNK_DATA32;
@@ -5916,15 +5919,15 @@ impl Default for IMAGE_VXD_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_VXD_SIGNATURE: u32 = 17740;
-pub const IMAGE_WEAK_EXTERN_ANTI_DEPENDENCY: u32 = 4;
-pub const IMAGE_WEAK_EXTERN_SEARCH_ALIAS: u32 = 3;
-pub const IMAGE_WEAK_EXTERN_SEARCH_LIBRARY: u32 = 2;
-pub const IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY: u32 = 1;
+pub const IMAGE_VXD_SIGNATURE: i32 = 17740;
+pub const IMAGE_WEAK_EXTERN_ANTI_DEPENDENCY: i32 = 4;
+pub const IMAGE_WEAK_EXTERN_SEARCH_ALIAS: i32 = 3;
+pub const IMAGE_WEAK_EXTERN_SEARCH_LIBRARY: i32 = 2;
+pub const IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY: i32 = 1;
 pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = 0;
 pub const IMPORT_OBJECT_CONST: IMPORT_OBJECT_TYPE = 2;
 pub const IMPORT_OBJECT_DATA: IMPORT_OBJECT_TYPE = 1;
-pub const IMPORT_OBJECT_HDR_SIG2: u32 = 65535;
+pub const IMPORT_OBJECT_HDR_SIG2: i32 = 65535;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMPORT_OBJECT_HEADER {
@@ -5980,18 +5983,18 @@ pub type IMPORT_OBJECT_NAME_TYPE = i32;
 pub const IMPORT_OBJECT_NAME_UNDECORATE: IMPORT_OBJECT_NAME_TYPE = 3;
 pub const IMPORT_OBJECT_ORDINAL: IMPORT_OBJECT_NAME_TYPE = 0;
 pub type IMPORT_OBJECT_TYPE = i32;
-pub const INHERITED_ACE: u32 = 16;
-pub const INHERIT_ONLY_ACE: u32 = 8;
+pub const INHERITED_ACE: i32 = 16;
+pub const INHERIT_ONLY_ACE: i32 = 8;
 #[cfg(target_arch = "aarch64")]
-pub const INITIAL_CPSR: u32 = 16;
+pub const INITIAL_CPSR: i32 = 16;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const INITIAL_FPCSR: u32 = 639;
+pub const INITIAL_FPCSR: i32 = 639;
 #[cfg(target_arch = "aarch64")]
-pub const INITIAL_FPSCR: u32 = 0;
+pub const INITIAL_FPSCR: i32 = 0;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const INITIAL_MXCSR: u32 = 8064;
-pub const IO_COMPLETION_ALL_ACCESS: u32 = 2031619;
-pub const IO_COMPLETION_MODIFY_STATE: u32 = 2;
+pub const INITIAL_MXCSR: i32 = 8064;
+pub const IO_COMPLETION_ALL_ACCESS: i32 = 2031619;
+pub const IO_COMPLETION_MODIFY_STATE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_COUNTERS {
@@ -6021,7 +6024,7 @@ pub const IO_REPARSE_TAG_CLOUD_C: u32 = 2415968282;
 pub const IO_REPARSE_TAG_CLOUD_D: u32 = 2415972378;
 pub const IO_REPARSE_TAG_CLOUD_E: u32 = 2415976474;
 pub const IO_REPARSE_TAG_CLOUD_F: u32 = 2415980570;
-pub const IO_REPARSE_TAG_CLOUD_MASK: u32 = 61440;
+pub const IO_REPARSE_TAG_CLOUD_MASK: i32 = 61440;
 pub const IO_REPARSE_TAG_CSV: u32 = 2147483657;
 pub const IO_REPARSE_TAG_DATALESS_CIM: u32 = 2684354600;
 pub const IO_REPARSE_TAG_DEDUP: u32 = 2147483667;
@@ -6037,10 +6040,10 @@ pub const IO_REPARSE_TAG_ONEDRIVE: u32 = 2147483681;
 pub const IO_REPARSE_TAG_PROJFS: u32 = 2415919132;
 pub const IO_REPARSE_TAG_PROJFS_TOMBSTONE: u32 = 2684354594;
 pub const IO_REPARSE_TAG_RESERVED_INVALID: u32 = 3221258240;
-pub const IO_REPARSE_TAG_RESERVED_ONE: u32 = 1;
-pub const IO_REPARSE_TAG_RESERVED_RANGE: u32 = 2;
-pub const IO_REPARSE_TAG_RESERVED_TWO: u32 = 2;
-pub const IO_REPARSE_TAG_RESERVED_ZERO: u32 = 0;
+pub const IO_REPARSE_TAG_RESERVED_ONE: i32 = 1;
+pub const IO_REPARSE_TAG_RESERVED_RANGE: i32 = 2;
+pub const IO_REPARSE_TAG_RESERVED_TWO: i32 = 2;
+pub const IO_REPARSE_TAG_RESERVED_ZERO: i32 = 0;
 pub const IO_REPARSE_TAG_SIS: u32 = 2147483655;
 pub const IO_REPARSE_TAG_STORAGE_SYNC: u32 = 2147483678;
 pub const IO_REPARSE_TAG_STORAGE_SYNC_FOLDER: u32 = 2415919143;
@@ -6053,23 +6056,23 @@ pub const IO_REPARSE_TAG_WCI_LINK_1: u32 = 2684358695;
 pub const IO_REPARSE_TAG_WCI_TOMBSTONE: u32 = 2684354591;
 pub const IO_REPARSE_TAG_WIM: u32 = 2147483656;
 pub const IO_REPARSE_TAG_WOF: u32 = 2147483671;
-pub const IS_TEXT_UNICODE_ASCII16: u32 = 1;
-pub const IS_TEXT_UNICODE_CONTROLS: u32 = 4;
-pub const IS_TEXT_UNICODE_DBCS_LEADBYTE: u32 = 1024;
-pub const IS_TEXT_UNICODE_ILLEGAL_CHARS: u32 = 256;
-pub const IS_TEXT_UNICODE_NOT_ASCII_MASK: u32 = 61440;
-pub const IS_TEXT_UNICODE_NOT_UNICODE_MASK: u32 = 3840;
-pub const IS_TEXT_UNICODE_NULL_BYTES: u32 = 4096;
-pub const IS_TEXT_UNICODE_ODD_LENGTH: u32 = 512;
-pub const IS_TEXT_UNICODE_REVERSE_ASCII16: u32 = 16;
-pub const IS_TEXT_UNICODE_REVERSE_CONTROLS: u32 = 64;
-pub const IS_TEXT_UNICODE_REVERSE_MASK: u32 = 240;
-pub const IS_TEXT_UNICODE_REVERSE_SIGNATURE: u32 = 128;
-pub const IS_TEXT_UNICODE_REVERSE_STATISTICS: u32 = 32;
-pub const IS_TEXT_UNICODE_SIGNATURE: u32 = 8;
-pub const IS_TEXT_UNICODE_STATISTICS: u32 = 2;
-pub const IS_TEXT_UNICODE_UNICODE_MASK: u32 = 15;
-pub const IS_TEXT_UNICODE_UTF8: u32 = 2048;
+pub const IS_TEXT_UNICODE_ASCII16: i32 = 1;
+pub const IS_TEXT_UNICODE_CONTROLS: i32 = 4;
+pub const IS_TEXT_UNICODE_DBCS_LEADBYTE: i32 = 1024;
+pub const IS_TEXT_UNICODE_ILLEGAL_CHARS: i32 = 256;
+pub const IS_TEXT_UNICODE_NOT_ASCII_MASK: i32 = 61440;
+pub const IS_TEXT_UNICODE_NOT_UNICODE_MASK: i32 = 3840;
+pub const IS_TEXT_UNICODE_NULL_BYTES: i32 = 4096;
+pub const IS_TEXT_UNICODE_ODD_LENGTH: i32 = 512;
+pub const IS_TEXT_UNICODE_REVERSE_ASCII16: i32 = 16;
+pub const IS_TEXT_UNICODE_REVERSE_CONTROLS: i32 = 64;
+pub const IS_TEXT_UNICODE_REVERSE_MASK: i32 = 240;
+pub const IS_TEXT_UNICODE_REVERSE_SIGNATURE: i32 = 128;
+pub const IS_TEXT_UNICODE_REVERSE_STATISTICS: i32 = 32;
+pub const IS_TEXT_UNICODE_SIGNATURE: i32 = 8;
+pub const IS_TEXT_UNICODE_STATISTICS: i32 = 2;
+pub const IS_TEXT_UNICODE_UNICODE_MASK: i32 = 15;
+pub const IS_TEXT_UNICODE_UTF8: i32 = 2048;
 pub const IdleResiliency: POWER_INFORMATION_LEVEL = 60;
 pub const IgnoreError: SERVICE_ERROR_TYPE = 0;
 pub const ImagePolicyEntryTypeAnsiString: IMAGE_POLICY_ENTRY_TYPE = 10;
@@ -6445,93 +6448,93 @@ pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub PrivilegesToDelete: PTOKEN_PRIVILEGES,
     pub RestrictedSids: PTOKEN_GROUPS,
 }
-pub const JOB_OBJECT_ALL_ACCESS: u32 = 2031679;
-pub const JOB_OBJECT_ASSIGN_PROCESS: u32 = 1;
-pub const JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS: u32 = 255;
-pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: u32 = 1;
-pub const JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP: u32 = 4;
-pub const JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE: u32 = 16;
-pub const JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY: u32 = 8;
-pub const JOB_OBJECT_CPU_RATE_CONTROL_PER_PROCESSOR_CAPS: u32 = 32;
-pub const JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS: u32 = 63;
-pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: u32 = 2;
-pub const JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS: u32 = 32767;
-pub const JOB_OBJECT_IMPERSONATE: u32 = 32;
+pub const JOB_OBJECT_ALL_ACCESS: i32 = 2031679;
+pub const JOB_OBJECT_ASSIGN_PROCESS: i32 = 1;
+pub const JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS: i32 = 255;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: i32 = 1;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP: i32 = 4;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE: i32 = 16;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY: i32 = 8;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_PER_PROCESSOR_CAPS: i32 = 32;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS: i32 = 63;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: i32 = 2;
+pub const JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS: i32 = 32767;
+pub const JOB_OBJECT_IMPERSONATE: i32 = 32;
 pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 1;
 pub type JOB_OBJECT_IO_RATE_CONTROL_FLAGS = u32;
 pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 4;
 pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 8;
 pub const JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 2;
 pub const JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 15;
-pub const JOB_OBJECT_LIMIT_ACTIVE_PROCESS: u32 = 8;
-pub const JOB_OBJECT_LIMIT_AFFINITY: u32 = 16;
-pub const JOB_OBJECT_LIMIT_BREAKAWAY_OK: u32 = 2048;
-pub const JOB_OBJECT_LIMIT_CPU_RATE_CONTROL: u32 = 262144;
-pub const JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION: u32 = 1024;
-pub const JOB_OBJECT_LIMIT_IO_RATE_CONTROL: u32 = 524288;
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY: u32 = 512;
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY_HIGH: u32 = 512;
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY_LOW: u32 = 32768;
-pub const JOB_OBJECT_LIMIT_JOB_READ_BYTES: u32 = 65536;
-pub const JOB_OBJECT_LIMIT_JOB_TIME: u32 = 4;
-pub const JOB_OBJECT_LIMIT_JOB_WRITE_BYTES: u32 = 131072;
-pub const JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE: u32 = 8192;
-pub const JOB_OBJECT_LIMIT_NET_RATE_CONTROL: u32 = 1048576;
-pub const JOB_OBJECT_LIMIT_PRESERVE_JOB_TIME: u32 = 64;
-pub const JOB_OBJECT_LIMIT_PRIORITY_CLASS: u32 = 32;
-pub const JOB_OBJECT_LIMIT_PROCESS_MEMORY: u32 = 256;
-pub const JOB_OBJECT_LIMIT_PROCESS_TIME: u32 = 2;
-pub const JOB_OBJECT_LIMIT_RATE_CONTROL: u32 = 262144;
-pub const JOB_OBJECT_LIMIT_SCHEDULING_CLASS: u32 = 128;
-pub const JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK: u32 = 4096;
-pub const JOB_OBJECT_LIMIT_SUBSET_AFFINITY: u32 = 16384;
-pub const JOB_OBJECT_LIMIT_VALID_FLAGS: u32 = 524287;
-pub const JOB_OBJECT_LIMIT_WORKINGSET: u32 = 1;
-pub const JOB_OBJECT_MSG_ABNORMAL_EXIT_PROCESS: u32 = 8;
-pub const JOB_OBJECT_MSG_ACTIVE_PROCESS_LIMIT: u32 = 3;
-pub const JOB_OBJECT_MSG_ACTIVE_PROCESS_ZERO: u32 = 4;
-pub const JOB_OBJECT_MSG_END_OF_JOB_TIME: u32 = 1;
-pub const JOB_OBJECT_MSG_END_OF_PROCESS_TIME: u32 = 2;
-pub const JOB_OBJECT_MSG_EXIT_PROCESS: u32 = 7;
-pub const JOB_OBJECT_MSG_JOB_CYCLE_TIME_LIMIT: u32 = 12;
-pub const JOB_OBJECT_MSG_JOB_MEMORY_LIMIT: u32 = 10;
-pub const JOB_OBJECT_MSG_MAXIMUM: u32 = 13;
-pub const JOB_OBJECT_MSG_MINIMUM: u32 = 1;
-pub const JOB_OBJECT_MSG_NEW_PROCESS: u32 = 6;
-pub const JOB_OBJECT_MSG_NOTIFICATION_LIMIT: u32 = 11;
-pub const JOB_OBJECT_MSG_PROCESS_MEMORY_LIMIT: u32 = 9;
-pub const JOB_OBJECT_MSG_SILO_TERMINATED: u32 = 13;
+pub const JOB_OBJECT_LIMIT_ACTIVE_PROCESS: i32 = 8;
+pub const JOB_OBJECT_LIMIT_AFFINITY: i32 = 16;
+pub const JOB_OBJECT_LIMIT_BREAKAWAY_OK: i32 = 2048;
+pub const JOB_OBJECT_LIMIT_CPU_RATE_CONTROL: i32 = 262144;
+pub const JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION: i32 = 1024;
+pub const JOB_OBJECT_LIMIT_IO_RATE_CONTROL: i32 = 524288;
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY: i32 = 512;
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY_HIGH: i32 = 512;
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY_LOW: i32 = 32768;
+pub const JOB_OBJECT_LIMIT_JOB_READ_BYTES: i32 = 65536;
+pub const JOB_OBJECT_LIMIT_JOB_TIME: i32 = 4;
+pub const JOB_OBJECT_LIMIT_JOB_WRITE_BYTES: i32 = 131072;
+pub const JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE: i32 = 8192;
+pub const JOB_OBJECT_LIMIT_NET_RATE_CONTROL: i32 = 1048576;
+pub const JOB_OBJECT_LIMIT_PRESERVE_JOB_TIME: i32 = 64;
+pub const JOB_OBJECT_LIMIT_PRIORITY_CLASS: i32 = 32;
+pub const JOB_OBJECT_LIMIT_PROCESS_MEMORY: i32 = 256;
+pub const JOB_OBJECT_LIMIT_PROCESS_TIME: i32 = 2;
+pub const JOB_OBJECT_LIMIT_RATE_CONTROL: i32 = 262144;
+pub const JOB_OBJECT_LIMIT_SCHEDULING_CLASS: i32 = 128;
+pub const JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK: i32 = 4096;
+pub const JOB_OBJECT_LIMIT_SUBSET_AFFINITY: i32 = 16384;
+pub const JOB_OBJECT_LIMIT_VALID_FLAGS: i32 = 524287;
+pub const JOB_OBJECT_LIMIT_WORKINGSET: i32 = 1;
+pub const JOB_OBJECT_MSG_ABNORMAL_EXIT_PROCESS: i32 = 8;
+pub const JOB_OBJECT_MSG_ACTIVE_PROCESS_LIMIT: i32 = 3;
+pub const JOB_OBJECT_MSG_ACTIVE_PROCESS_ZERO: i32 = 4;
+pub const JOB_OBJECT_MSG_END_OF_JOB_TIME: i32 = 1;
+pub const JOB_OBJECT_MSG_END_OF_PROCESS_TIME: i32 = 2;
+pub const JOB_OBJECT_MSG_EXIT_PROCESS: i32 = 7;
+pub const JOB_OBJECT_MSG_JOB_CYCLE_TIME_LIMIT: i32 = 12;
+pub const JOB_OBJECT_MSG_JOB_MEMORY_LIMIT: i32 = 10;
+pub const JOB_OBJECT_MSG_MAXIMUM: i32 = 13;
+pub const JOB_OBJECT_MSG_MINIMUM: i32 = 1;
+pub const JOB_OBJECT_MSG_NEW_PROCESS: i32 = 6;
+pub const JOB_OBJECT_MSG_NOTIFICATION_LIMIT: i32 = 11;
+pub const JOB_OBJECT_MSG_PROCESS_MEMORY_LIMIT: i32 = 9;
+pub const JOB_OBJECT_MSG_SILO_TERMINATED: i32 = 13;
 pub const JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 4;
 pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 1;
 pub type JOB_OBJECT_NET_RATE_CONTROL_FLAGS = u32;
 pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 2;
-pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_DSCP_TAG: u32 = 64;
+pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_DSCP_TAG: i32 = 64;
 pub const JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 7;
-pub const JOB_OBJECT_NOTIFICATION_LIMIT_VALID_FLAGS: u32 = 2064900;
-pub const JOB_OBJECT_POST_AT_END_OF_JOB: u32 = 1;
-pub const JOB_OBJECT_QUERY: u32 = 4;
-pub const JOB_OBJECT_SECURITY_FILTER_TOKENS: u32 = 8;
-pub const JOB_OBJECT_SECURITY_NO_ADMIN: u32 = 1;
-pub const JOB_OBJECT_SECURITY_ONLY_TOKEN: u32 = 4;
-pub const JOB_OBJECT_SECURITY_RESTRICTED_TOKEN: u32 = 2;
-pub const JOB_OBJECT_SECURITY_VALID_FLAGS: u32 = 15;
-pub const JOB_OBJECT_SET_ATTRIBUTES: u32 = 2;
-pub const JOB_OBJECT_SET_SECURITY_ATTRIBUTES: u32 = 16;
-pub const JOB_OBJECT_TERMINATE: u32 = 8;
-pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: u32 = 0;
-pub const JOB_OBJECT_UILIMIT_ALL: u32 = 1023;
-pub const JOB_OBJECT_UILIMIT_DESKTOP: u32 = 64;
-pub const JOB_OBJECT_UILIMIT_DISPLAYSETTINGS: u32 = 16;
-pub const JOB_OBJECT_UILIMIT_EXITWINDOWS: u32 = 128;
-pub const JOB_OBJECT_UILIMIT_GLOBALATOMS: u32 = 32;
-pub const JOB_OBJECT_UILIMIT_HANDLES: u32 = 1;
-pub const JOB_OBJECT_UILIMIT_IME: u32 = 256;
-pub const JOB_OBJECT_UILIMIT_INJECTION: u32 = 512;
-pub const JOB_OBJECT_UILIMIT_NONE: u32 = 0;
-pub const JOB_OBJECT_UILIMIT_READCLIPBOARD: u32 = 2;
-pub const JOB_OBJECT_UILIMIT_SYSTEMPARAMETERS: u32 = 8;
-pub const JOB_OBJECT_UILIMIT_WRITECLIPBOARD: u32 = 4;
-pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 1023;
+pub const JOB_OBJECT_NOTIFICATION_LIMIT_VALID_FLAGS: i32 = 2064900;
+pub const JOB_OBJECT_POST_AT_END_OF_JOB: i32 = 1;
+pub const JOB_OBJECT_QUERY: i32 = 4;
+pub const JOB_OBJECT_SECURITY_FILTER_TOKENS: i32 = 8;
+pub const JOB_OBJECT_SECURITY_NO_ADMIN: i32 = 1;
+pub const JOB_OBJECT_SECURITY_ONLY_TOKEN: i32 = 4;
+pub const JOB_OBJECT_SECURITY_RESTRICTED_TOKEN: i32 = 2;
+pub const JOB_OBJECT_SECURITY_VALID_FLAGS: i32 = 15;
+pub const JOB_OBJECT_SET_ATTRIBUTES: i32 = 2;
+pub const JOB_OBJECT_SET_SECURITY_ATTRIBUTES: i32 = 16;
+pub const JOB_OBJECT_TERMINATE: i32 = 8;
+pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: i32 = 0;
+pub const JOB_OBJECT_UILIMIT_ALL: i32 = 1023;
+pub const JOB_OBJECT_UILIMIT_DESKTOP: i32 = 64;
+pub const JOB_OBJECT_UILIMIT_DISPLAYSETTINGS: i32 = 16;
+pub const JOB_OBJECT_UILIMIT_EXITWINDOWS: i32 = 128;
+pub const JOB_OBJECT_UILIMIT_GLOBALATOMS: i32 = 32;
+pub const JOB_OBJECT_UILIMIT_HANDLES: i32 = 1;
+pub const JOB_OBJECT_UILIMIT_IME: i32 = 256;
+pub const JOB_OBJECT_UILIMIT_INJECTION: i32 = 512;
+pub const JOB_OBJECT_UILIMIT_NONE: i32 = 0;
+pub const JOB_OBJECT_UILIMIT_READCLIPBOARD: i32 = 2;
+pub const JOB_OBJECT_UILIMIT_SYSTEMPARAMETERS: i32 = 8;
+pub const JOB_OBJECT_UILIMIT_WRITECLIPBOARD: i32 = 4;
+pub const JOB_OBJECT_UI_VALID_FLAGS: i32 = 1023;
 pub const JOB_OBJECT_VALID_COMPLETION_FILTER: u32 = 16382;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6642,19 +6645,19 @@ impl KERNEL_CET_CONTEXT_0_0 {
         self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
     }
 }
-pub const KEY_ALL_ACCESS: u32 = 983103;
-pub const KEY_CREATE_LINK: u32 = 32;
-pub const KEY_CREATE_SUB_KEY: u32 = 4;
-pub const KEY_ENUMERATE_SUB_KEYS: u32 = 8;
-pub const KEY_EXECUTE: u32 = 131097;
-pub const KEY_NOTIFY: u32 = 16;
-pub const KEY_QUERY_VALUE: u32 = 1;
-pub const KEY_READ: u32 = 131097;
-pub const KEY_SET_VALUE: u32 = 2;
-pub const KEY_WOW64_32KEY: u32 = 512;
-pub const KEY_WOW64_64KEY: u32 = 256;
-pub const KEY_WOW64_RES: u32 = 768;
-pub const KEY_WRITE: u32 = 131078;
+pub const KEY_ALL_ACCESS: i32 = 983103;
+pub const KEY_CREATE_LINK: i32 = 32;
+pub const KEY_CREATE_SUB_KEY: i32 = 4;
+pub const KEY_ENUMERATE_SUB_KEYS: i32 = 8;
+pub const KEY_EXECUTE: i32 = 131097;
+pub const KEY_NOTIFY: i32 = 16;
+pub const KEY_QUERY_VALUE: i32 = 1;
+pub const KEY_READ: i32 = 131097;
+pub const KEY_SET_VALUE: i32 = 2;
+pub const KEY_WOW64_32KEY: i32 = 512;
+pub const KEY_WOW64_64KEY: i32 = 256;
+pub const KEY_WOW64_RES: i32 = 768;
+pub const KEY_WRITE: i32 = 131078;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6799,152 +6802,152 @@ pub const KTMOBJECT_RESOURCE_MANAGER: KTMOBJECT_TYPE = 2;
 pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = 0;
 pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = 1;
 pub type KTMOBJECT_TYPE = i32;
-pub const LABEL_SECURITY_INFORMATION: u32 = 16;
+pub const LABEL_SECURITY_INFORMATION: i32 = 16;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LANGID(pub u16);
-pub const LANG_AFRIKAANS: u32 = 54;
-pub const LANG_ALBANIAN: u32 = 28;
-pub const LANG_ALSATIAN: u32 = 132;
-pub const LANG_AMHARIC: u32 = 94;
-pub const LANG_ARABIC: u32 = 1;
-pub const LANG_ARMENIAN: u32 = 43;
-pub const LANG_ASSAMESE: u32 = 77;
-pub const LANG_AZERBAIJANI: u32 = 44;
-pub const LANG_AZERI: u32 = 44;
-pub const LANG_BANGLA: u32 = 69;
-pub const LANG_BASHKIR: u32 = 109;
-pub const LANG_BASQUE: u32 = 45;
-pub const LANG_BELARUSIAN: u32 = 35;
-pub const LANG_BENGALI: u32 = 69;
-pub const LANG_BOSNIAN: u32 = 26;
-pub const LANG_BOSNIAN_NEUTRAL: u32 = 30746;
-pub const LANG_BRETON: u32 = 126;
-pub const LANG_BULGARIAN: u32 = 2;
-pub const LANG_CATALAN: u32 = 3;
-pub const LANG_CENTRAL_KURDISH: u32 = 146;
-pub const LANG_CHEROKEE: u32 = 92;
-pub const LANG_CHINESE: u32 = 4;
-pub const LANG_CHINESE_SIMPLIFIED: u32 = 4;
-pub const LANG_CHINESE_TRADITIONAL: u32 = 31748;
-pub const LANG_CORSICAN: u32 = 131;
-pub const LANG_CROATIAN: u32 = 26;
-pub const LANG_CZECH: u32 = 5;
-pub const LANG_DANISH: u32 = 6;
-pub const LANG_DARI: u32 = 140;
-pub const LANG_DIVEHI: u32 = 101;
-pub const LANG_DUTCH: u32 = 19;
-pub const LANG_ENGLISH: u32 = 9;
-pub const LANG_ESTONIAN: u32 = 37;
-pub const LANG_FAEROESE: u32 = 56;
-pub const LANG_FARSI: u32 = 41;
-pub const LANG_FILIPINO: u32 = 100;
-pub const LANG_FINNISH: u32 = 11;
-pub const LANG_FRENCH: u32 = 12;
-pub const LANG_FRISIAN: u32 = 98;
-pub const LANG_FULAH: u32 = 103;
-pub const LANG_GALICIAN: u32 = 86;
-pub const LANG_GEORGIAN: u32 = 55;
-pub const LANG_GERMAN: u32 = 7;
-pub const LANG_GREEK: u32 = 8;
-pub const LANG_GREENLANDIC: u32 = 111;
-pub const LANG_GUJARATI: u32 = 71;
-pub const LANG_HAUSA: u32 = 104;
-pub const LANG_HAWAIIAN: u32 = 117;
-pub const LANG_HEBREW: u32 = 13;
-pub const LANG_HINDI: u32 = 57;
-pub const LANG_HUNGARIAN: u32 = 14;
-pub const LANG_ICELANDIC: u32 = 15;
-pub const LANG_IGBO: u32 = 112;
-pub const LANG_INDONESIAN: u32 = 33;
-pub const LANG_INUKTITUT: u32 = 93;
-pub const LANG_INVARIANT: u32 = 127;
-pub const LANG_IRISH: u32 = 60;
-pub const LANG_ITALIAN: u32 = 16;
-pub const LANG_JAPANESE: u32 = 17;
-pub const LANG_KANNADA: u32 = 75;
-pub const LANG_KASHMIRI: u32 = 96;
-pub const LANG_KAZAK: u32 = 63;
-pub const LANG_KHMER: u32 = 83;
-pub const LANG_KICHE: u32 = 134;
-pub const LANG_KINYARWANDA: u32 = 135;
-pub const LANG_KONKANI: u32 = 87;
-pub const LANG_KOREAN: u32 = 18;
-pub const LANG_KYRGYZ: u32 = 64;
-pub const LANG_LAO: u32 = 84;
-pub const LANG_LATVIAN: u32 = 38;
-pub const LANG_LITHUANIAN: u32 = 39;
-pub const LANG_LOWER_SORBIAN: u32 = 46;
-pub const LANG_LUXEMBOURGISH: u32 = 110;
-pub const LANG_MACEDONIAN: u32 = 47;
-pub const LANG_MALAY: u32 = 62;
-pub const LANG_MALAYALAM: u32 = 76;
-pub const LANG_MALTESE: u32 = 58;
-pub const LANG_MANIPURI: u32 = 88;
-pub const LANG_MAORI: u32 = 129;
-pub const LANG_MAPUDUNGUN: u32 = 122;
-pub const LANG_MARATHI: u32 = 78;
-pub const LANG_MOHAWK: u32 = 124;
-pub const LANG_MONGOLIAN: u32 = 80;
-pub const LANG_NEPALI: u32 = 97;
-pub const LANG_NEUTRAL: u32 = 0;
-pub const LANG_NORWEGIAN: u32 = 20;
-pub const LANG_OCCITAN: u32 = 130;
-pub const LANG_ODIA: u32 = 72;
-pub const LANG_ORIYA: u32 = 72;
-pub const LANG_PASHTO: u32 = 99;
-pub const LANG_PERSIAN: u32 = 41;
-pub const LANG_POLISH: u32 = 21;
-pub const LANG_PORTUGUESE: u32 = 22;
-pub const LANG_PULAR: u32 = 103;
-pub const LANG_PUNJABI: u32 = 70;
-pub const LANG_QUECHUA: u32 = 107;
-pub const LANG_ROMANIAN: u32 = 24;
-pub const LANG_ROMANSH: u32 = 23;
-pub const LANG_RUSSIAN: u32 = 25;
-pub const LANG_SAKHA: u32 = 133;
-pub const LANG_SAMI: u32 = 59;
-pub const LANG_SANSKRIT: u32 = 79;
-pub const LANG_SCOTTISH_GAELIC: u32 = 145;
-pub const LANG_SERBIAN: u32 = 26;
-pub const LANG_SERBIAN_NEUTRAL: u32 = 31770;
-pub const LANG_SINDHI: u32 = 89;
-pub const LANG_SINHALESE: u32 = 91;
-pub const LANG_SLOVAK: u32 = 27;
-pub const LANG_SLOVENIAN: u32 = 36;
-pub const LANG_SOTHO: u32 = 108;
-pub const LANG_SPANISH: u32 = 10;
-pub const LANG_SWAHILI: u32 = 65;
-pub const LANG_SWEDISH: u32 = 29;
-pub const LANG_SYRIAC: u32 = 90;
-pub const LANG_SYSTEM_DEFAULT: u32 = 2048;
-pub const LANG_TAJIK: u32 = 40;
-pub const LANG_TAMAZIGHT: u32 = 95;
-pub const LANG_TAMIL: u32 = 73;
-pub const LANG_TATAR: u32 = 68;
-pub const LANG_TELUGU: u32 = 74;
-pub const LANG_THAI: u32 = 30;
-pub const LANG_TIBETAN: u32 = 81;
-pub const LANG_TIGRIGNA: u32 = 115;
-pub const LANG_TIGRINYA: u32 = 115;
-pub const LANG_TSWANA: u32 = 50;
-pub const LANG_TURKISH: u32 = 31;
-pub const LANG_TURKMEN: u32 = 66;
-pub const LANG_UIGHUR: u32 = 128;
-pub const LANG_UKRAINIAN: u32 = 34;
-pub const LANG_UPPER_SORBIAN: u32 = 46;
-pub const LANG_URDU: u32 = 32;
-pub const LANG_USER_DEFAULT: u32 = 1024;
-pub const LANG_UZBEK: u32 = 67;
-pub const LANG_VALENCIAN: u32 = 3;
-pub const LANG_VIETNAMESE: u32 = 42;
-pub const LANG_WELSH: u32 = 82;
-pub const LANG_WOLOF: u32 = 136;
-pub const LANG_XHOSA: u32 = 52;
-pub const LANG_YAKUT: u32 = 133;
-pub const LANG_YI: u32 = 120;
-pub const LANG_YORUBA: u32 = 106;
-pub const LANG_ZULU: u32 = 53;
+pub const LANG_AFRIKAANS: i32 = 54;
+pub const LANG_ALBANIAN: i32 = 28;
+pub const LANG_ALSATIAN: i32 = 132;
+pub const LANG_AMHARIC: i32 = 94;
+pub const LANG_ARABIC: i32 = 1;
+pub const LANG_ARMENIAN: i32 = 43;
+pub const LANG_ASSAMESE: i32 = 77;
+pub const LANG_AZERBAIJANI: i32 = 44;
+pub const LANG_AZERI: i32 = 44;
+pub const LANG_BANGLA: i32 = 69;
+pub const LANG_BASHKIR: i32 = 109;
+pub const LANG_BASQUE: i32 = 45;
+pub const LANG_BELARUSIAN: i32 = 35;
+pub const LANG_BENGALI: i32 = 69;
+pub const LANG_BOSNIAN: i32 = 26;
+pub const LANG_BOSNIAN_NEUTRAL: i32 = 30746;
+pub const LANG_BRETON: i32 = 126;
+pub const LANG_BULGARIAN: i32 = 2;
+pub const LANG_CATALAN: i32 = 3;
+pub const LANG_CENTRAL_KURDISH: i32 = 146;
+pub const LANG_CHEROKEE: i32 = 92;
+pub const LANG_CHINESE: i32 = 4;
+pub const LANG_CHINESE_SIMPLIFIED: i32 = 4;
+pub const LANG_CHINESE_TRADITIONAL: i32 = 31748;
+pub const LANG_CORSICAN: i32 = 131;
+pub const LANG_CROATIAN: i32 = 26;
+pub const LANG_CZECH: i32 = 5;
+pub const LANG_DANISH: i32 = 6;
+pub const LANG_DARI: i32 = 140;
+pub const LANG_DIVEHI: i32 = 101;
+pub const LANG_DUTCH: i32 = 19;
+pub const LANG_ENGLISH: i32 = 9;
+pub const LANG_ESTONIAN: i32 = 37;
+pub const LANG_FAEROESE: i32 = 56;
+pub const LANG_FARSI: i32 = 41;
+pub const LANG_FILIPINO: i32 = 100;
+pub const LANG_FINNISH: i32 = 11;
+pub const LANG_FRENCH: i32 = 12;
+pub const LANG_FRISIAN: i32 = 98;
+pub const LANG_FULAH: i32 = 103;
+pub const LANG_GALICIAN: i32 = 86;
+pub const LANG_GEORGIAN: i32 = 55;
+pub const LANG_GERMAN: i32 = 7;
+pub const LANG_GREEK: i32 = 8;
+pub const LANG_GREENLANDIC: i32 = 111;
+pub const LANG_GUJARATI: i32 = 71;
+pub const LANG_HAUSA: i32 = 104;
+pub const LANG_HAWAIIAN: i32 = 117;
+pub const LANG_HEBREW: i32 = 13;
+pub const LANG_HINDI: i32 = 57;
+pub const LANG_HUNGARIAN: i32 = 14;
+pub const LANG_ICELANDIC: i32 = 15;
+pub const LANG_IGBO: i32 = 112;
+pub const LANG_INDONESIAN: i32 = 33;
+pub const LANG_INUKTITUT: i32 = 93;
+pub const LANG_INVARIANT: i32 = 127;
+pub const LANG_IRISH: i32 = 60;
+pub const LANG_ITALIAN: i32 = 16;
+pub const LANG_JAPANESE: i32 = 17;
+pub const LANG_KANNADA: i32 = 75;
+pub const LANG_KASHMIRI: i32 = 96;
+pub const LANG_KAZAK: i32 = 63;
+pub const LANG_KHMER: i32 = 83;
+pub const LANG_KICHE: i32 = 134;
+pub const LANG_KINYARWANDA: i32 = 135;
+pub const LANG_KONKANI: i32 = 87;
+pub const LANG_KOREAN: i32 = 18;
+pub const LANG_KYRGYZ: i32 = 64;
+pub const LANG_LAO: i32 = 84;
+pub const LANG_LATVIAN: i32 = 38;
+pub const LANG_LITHUANIAN: i32 = 39;
+pub const LANG_LOWER_SORBIAN: i32 = 46;
+pub const LANG_LUXEMBOURGISH: i32 = 110;
+pub const LANG_MACEDONIAN: i32 = 47;
+pub const LANG_MALAY: i32 = 62;
+pub const LANG_MALAYALAM: i32 = 76;
+pub const LANG_MALTESE: i32 = 58;
+pub const LANG_MANIPURI: i32 = 88;
+pub const LANG_MAORI: i32 = 129;
+pub const LANG_MAPUDUNGUN: i32 = 122;
+pub const LANG_MARATHI: i32 = 78;
+pub const LANG_MOHAWK: i32 = 124;
+pub const LANG_MONGOLIAN: i32 = 80;
+pub const LANG_NEPALI: i32 = 97;
+pub const LANG_NEUTRAL: i32 = 0;
+pub const LANG_NORWEGIAN: i32 = 20;
+pub const LANG_OCCITAN: i32 = 130;
+pub const LANG_ODIA: i32 = 72;
+pub const LANG_ORIYA: i32 = 72;
+pub const LANG_PASHTO: i32 = 99;
+pub const LANG_PERSIAN: i32 = 41;
+pub const LANG_POLISH: i32 = 21;
+pub const LANG_PORTUGUESE: i32 = 22;
+pub const LANG_PULAR: i32 = 103;
+pub const LANG_PUNJABI: i32 = 70;
+pub const LANG_QUECHUA: i32 = 107;
+pub const LANG_ROMANIAN: i32 = 24;
+pub const LANG_ROMANSH: i32 = 23;
+pub const LANG_RUSSIAN: i32 = 25;
+pub const LANG_SAKHA: i32 = 133;
+pub const LANG_SAMI: i32 = 59;
+pub const LANG_SANSKRIT: i32 = 79;
+pub const LANG_SCOTTISH_GAELIC: i32 = 145;
+pub const LANG_SERBIAN: i32 = 26;
+pub const LANG_SERBIAN_NEUTRAL: i32 = 31770;
+pub const LANG_SINDHI: i32 = 89;
+pub const LANG_SINHALESE: i32 = 91;
+pub const LANG_SLOVAK: i32 = 27;
+pub const LANG_SLOVENIAN: i32 = 36;
+pub const LANG_SOTHO: i32 = 108;
+pub const LANG_SPANISH: i32 = 10;
+pub const LANG_SWAHILI: i32 = 65;
+pub const LANG_SWEDISH: i32 = 29;
+pub const LANG_SYRIAC: i32 = 90;
+pub const LANG_SYSTEM_DEFAULT: i32 = 2048;
+pub const LANG_TAJIK: i32 = 40;
+pub const LANG_TAMAZIGHT: i32 = 95;
+pub const LANG_TAMIL: i32 = 73;
+pub const LANG_TATAR: i32 = 68;
+pub const LANG_TELUGU: i32 = 74;
+pub const LANG_THAI: i32 = 30;
+pub const LANG_TIBETAN: i32 = 81;
+pub const LANG_TIGRIGNA: i32 = 115;
+pub const LANG_TIGRINYA: i32 = 115;
+pub const LANG_TSWANA: i32 = 50;
+pub const LANG_TURKISH: i32 = 31;
+pub const LANG_TURKMEN: i32 = 66;
+pub const LANG_UIGHUR: i32 = 128;
+pub const LANG_UKRAINIAN: i32 = 34;
+pub const LANG_UPPER_SORBIAN: i32 = 46;
+pub const LANG_URDU: i32 = 32;
+pub const LANG_USER_DEFAULT: i32 = 1024;
+pub const LANG_UZBEK: i32 = 67;
+pub const LANG_VALENCIAN: i32 = 3;
+pub const LANG_VIETNAMESE: i32 = 42;
+pub const LANG_WELSH: i32 = 82;
+pub const LANG_WOLOF: i32 = 136;
+pub const LANG_XHOSA: i32 = 52;
+pub const LANG_YAKUT: i32 = 133;
+pub const LANG_YI: i32 = 120;
+pub const LANG_YORUBA: i32 = 106;
+pub const LANG_ZULU: i32 = 53;
 pub type LATENCY_TIME = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -7074,13 +7077,13 @@ pub const LOCALE_CUSTOM_DEFAULT: u32 = 3072;
 pub const LOCALE_CUSTOM_UI_DEFAULT: u32 = 5120;
 pub const LOCALE_CUSTOM_UNSPECIFIED: u32 = 4096;
 pub const LOCALE_INVARIANT: u32 = 127;
-pub const LOCALE_NAME_MAX_LENGTH: u32 = 85;
+pub const LOCALE_NAME_MAX_LENGTH: i32 = 85;
 pub const LOCALE_NEUTRAL: u32 = 0;
 pub const LOCALE_SYSTEM_DEFAULT: u32 = 2048;
-pub const LOCALE_TRANSIENT_KEYBOARD1: u32 = 8192;
-pub const LOCALE_TRANSIENT_KEYBOARD2: u32 = 9216;
-pub const LOCALE_TRANSIENT_KEYBOARD3: u32 = 10240;
-pub const LOCALE_TRANSIENT_KEYBOARD4: u32 = 11264;
+pub const LOCALE_TRANSIENT_KEYBOARD1: i32 = 8192;
+pub const LOCALE_TRANSIENT_KEYBOARD2: i32 = 9216;
+pub const LOCALE_TRANSIENT_KEYBOARD3: i32 = 10240;
+pub const LOCALE_TRANSIENT_KEYBOARD4: i32 = 11264;
 pub const LOCALE_UNASSIGNED_LCID: u32 = 4096;
 pub const LOCALE_USER_DEFAULT: u32 = 1024;
 pub type LOGICAL_PROCESSOR_RELATIONSHIP = i32;
@@ -7106,10 +7109,10 @@ pub type LPTSTR = windows_core::PSTR;
 pub type LPUTSTR = windows_core::PSTR;
 pub type LPUWSTR = *mut u16;
 pub type LPWCH = *mut u16;
-pub const LTP_PC_SMT: u32 = 1;
+pub const LTP_PC_SMT: i32 = 1;
 pub const LT_DONT_CARE: LATENCY_TIME = 0;
 pub const LT_LOWEST_LATENCY: LATENCY_TIME = 1;
-pub const LUA_TOKEN: u32 = 4;
+pub const LUA_TOKEN: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LUID {
@@ -7123,11 +7126,11 @@ pub struct LUID_AND_ATTRIBUTES {
     pub Attributes: u32,
 }
 pub type LUID_AND_ATTRIBUTES_ARRAY = [LUID_AND_ATTRIBUTES; 1];
-pub const LX_FILE_CASE_SENSITIVE_DIR: u32 = 16;
-pub const LX_FILE_METADATA_HAS_DEVICE_ID: u32 = 8;
-pub const LX_FILE_METADATA_HAS_GID: u32 = 2;
-pub const LX_FILE_METADATA_HAS_MODE: u32 = 4;
-pub const LX_FILE_METADATA_HAS_UID: u32 = 1;
+pub const LX_FILE_CASE_SENSITIVE_DIR: i32 = 16;
+pub const LX_FILE_METADATA_HAS_DEVICE_ID: i32 = 8;
+pub const LX_FILE_METADATA_HAS_GID: i32 = 2;
+pub const LX_FILE_METADATA_HAS_MODE: i32 = 4;
+pub const LX_FILE_METADATA_HAS_UID: i32 = 1;
 pub const LastResumePerformance: POWER_INFORMATION_LEVEL = 76;
 pub const LastSleepTime: POWER_INFORMATION_LEVEL = 15;
 pub const LastWakeTime: POWER_INFORMATION_LEVEL = 14;
@@ -7141,43 +7144,43 @@ pub struct M128A {
 pub const MAILSLOT_NO_MESSAGE: u32 = 4294967295;
 pub const MAILSLOT_WAIT_FOREVER: u32 = 4294967295;
 pub type MANDATORY_LEVEL = i32;
-pub const MAXBYTE: u32 = 255;
-pub const MAXCHAR: u32 = 127;
+pub const MAXBYTE: i32 = 255;
+pub const MAXCHAR: i32 = 127;
 pub const MAXDWORD: u32 = 4294967295;
-pub const MAXIMUM_ALLOWED: u32 = 33554432;
+pub const MAXIMUM_ALLOWED: i32 = 33554432;
 #[cfg(target_arch = "x86")]
-pub const MAXIMUM_PROCESSORS: u32 = 32;
+pub const MAXIMUM_PROCESSORS: i32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const MAXIMUM_PROCESSORS: u32 = 64;
+pub const MAXIMUM_PROCESSORS: i32 = 64;
 #[cfg(target_arch = "x86")]
-pub const MAXIMUM_PROC_PER_GROUP: u32 = 32;
+pub const MAXIMUM_PROC_PER_GROUP: i32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const MAXIMUM_PROC_PER_GROUP: u32 = 64;
-pub const MAXIMUM_REPARSE_DATA_BUFFER_SIZE: u32 = 16384;
+pub const MAXIMUM_PROC_PER_GROUP: i32 = 64;
+pub const MAXIMUM_REPARSE_DATA_BUFFER_SIZE: i32 = 16384;
 #[cfg(target_arch = "x86")]
-pub const MAXIMUM_SUPPORTED_EXTENSION: u32 = 512;
-pub const MAXIMUM_SUSPEND_COUNT: u32 = 127;
-pub const MAXIMUM_WAIT_OBJECTS: u32 = 64;
-pub const MAXIMUM_XSTATE_FEATURES: u32 = 64;
-pub const MAXLOGICALLOGNAMESIZE: u32 = 256;
-pub const MAXLONG: u32 = 2147483647;
-pub const MAXLONGLONG: u64 = 9223372036854775807;
-pub const MAXSHORT: u32 = 32767;
+pub const MAXIMUM_SUPPORTED_EXTENSION: i32 = 512;
+pub const MAXIMUM_SUSPEND_COUNT: i32 = 127;
+pub const MAXIMUM_WAIT_OBJECTS: i32 = 64;
+pub const MAXIMUM_XSTATE_FEATURES: i32 = 64;
+pub const MAXLOGICALLOGNAMESIZE: i32 = 256;
+pub const MAXLONG: i32 = 2147483647;
+pub const MAXLONGLONG: i64 = 9223372036854775807;
+pub const MAXSHORT: i32 = 32767;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAXVERSIONTESTED_INFO {
     pub MaxVersionTested: u64,
 }
-pub const MAXWORD: u32 = 65535;
-pub const MAX_ACL_REVISION: u32 = 4;
+pub const MAXWORD: i32 = 65535;
+pub const MAX_ACL_REVISION: i32 = 4;
 pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = 1024;
-pub const MAX_HW_COUNTERS: u32 = 16;
+pub const MAX_HW_COUNTERS: i32 = 16;
 pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = 1024;
-pub const MAX_UCSCHAR: u32 = 1114111;
+pub const MAX_UCSCHAR: i32 = 1114111;
 #[cfg(target_arch = "x86")]
-pub const MEMORY_ALLOCATION_ALIGNMENT: u32 = 8;
+pub const MEMORY_ALLOCATION_ALIGNMENT: i32 = 8;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const MEMORY_ALLOCATION_ALIGNMENT: u32 = 16;
+pub const MEMORY_ALLOCATION_ALIGNMENT: i32 = 16;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -7241,7 +7244,7 @@ pub struct MEMORY_BASIC_INFORMATION64 {
 }
 pub const MEMORY_CURRENT_PARTITION_HANDLE: HANDLE = HANDLE(-1 as _);
 pub const MEMORY_EXISTING_VAD_PARTITION_HANDLE: HANDLE = HANDLE(-3 as _);
-pub const MEMORY_PARTITION_ALL_ACCESS: u32 = 2031619;
+pub const MEMORY_PARTITION_ALL_ACCESS: i32 = 2031619;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
@@ -7260,17 +7263,17 @@ pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub Reserved: u32,
     pub TypeId: u64,
 }
-pub const MEMORY_PARTITION_MODIFY_ACCESS: u32 = 2;
-pub const MEMORY_PARTITION_QUERY_ACCESS: u32 = 1;
-pub const MEMORY_PRIORITY_BELOW_NORMAL: u32 = 4;
-pub const MEMORY_PRIORITY_LOW: u32 = 2;
-pub const MEMORY_PRIORITY_LOWEST: u32 = 0;
-pub const MEMORY_PRIORITY_MEDIUM: u32 = 3;
-pub const MEMORY_PRIORITY_NORMAL: u32 = 5;
-pub const MEMORY_PRIORITY_VERY_LOW: u32 = 1;
+pub const MEMORY_PARTITION_MODIFY_ACCESS: i32 = 2;
+pub const MEMORY_PARTITION_QUERY_ACCESS: i32 = 1;
+pub const MEMORY_PRIORITY_BELOW_NORMAL: i32 = 4;
+pub const MEMORY_PRIORITY_LOW: i32 = 2;
+pub const MEMORY_PRIORITY_LOWEST: i32 = 0;
+pub const MEMORY_PRIORITY_MEDIUM: i32 = 3;
+pub const MEMORY_PRIORITY_NORMAL: i32 = 5;
+pub const MEMORY_PRIORITY_VERY_LOW: i32 = 1;
 pub const MEMORY_SYSTEM_PARTITION_HANDLE: HANDLE = HANDLE(-2 as _);
 pub const MEM_4MB_PAGES: u32 = 2147483648;
-pub const MEM_64K_PAGES: u32 = 541065216;
+pub const MEM_64K_PAGES: i32 = 541065216;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEM_ADDRESS_REQUIREMENTS {
@@ -7283,12 +7286,12 @@ impl Default for MEM_ADDRESS_REQUIREMENTS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MEM_COALESCE_PLACEHOLDERS: u32 = 1;
-pub const MEM_COMMIT: u32 = 4096;
-pub const MEM_DECOMMIT: u32 = 16384;
+pub const MEM_COALESCE_PLACEHOLDERS: i32 = 1;
+pub const MEM_COMMIT: i32 = 4096;
+pub const MEM_DECOMMIT: i32 = 16384;
 pub const MEM_DEDICATED_ATTRIBUTE_NOT_SPECIFIED: u64 = 18446744073709551615;
 pub type MEM_DEDICATED_ATTRIBUTE_TYPE = i32;
-pub const MEM_DIFFERENT_IMAGE_BASE_OK: u32 = 8388608;
+pub const MEM_DIFFERENT_IMAGE_BASE_OK: i32 = 8388608;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MEM_EXTENDED_PARAMETER {
@@ -7333,37 +7336,37 @@ impl Default for MEM_EXTENDED_PARAMETER_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64;
-pub const MEM_EXTENDED_PARAMETER_GRAPHICS: u32 = 1;
-pub const MEM_EXTENDED_PARAMETER_NONPAGED: u32 = 2;
-pub const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: u32 = 16;
-pub const MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: u32 = 8;
-pub const MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY: u32 = 0;
-pub const MEM_EXTENDED_PARAMETER_SECURE_PAGES: u32 = 128;
-pub const MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES: u32 = 32;
-pub const MEM_EXTENDED_PARAMETER_TAGGED: u32 = 256;
+pub const MEM_EXTENDED_PARAMETER_EC_CODE: i32 = 64;
+pub const MEM_EXTENDED_PARAMETER_GRAPHICS: i32 = 1;
+pub const MEM_EXTENDED_PARAMETER_NONPAGED: i32 = 2;
+pub const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: i32 = 16;
+pub const MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: i32 = 8;
+pub const MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY: i64 = 0;
+pub const MEM_EXTENDED_PARAMETER_SECURE_PAGES: i32 = 128;
+pub const MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES: i32 = 32;
+pub const MEM_EXTENDED_PARAMETER_TAGGED: i32 = 256;
 pub type MEM_EXTENDED_PARAMETER_TYPE = i32;
-pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8;
-pub const MEM_EXTENDED_PARAMETER_ZERO_PAGES_OPTIONAL: u32 = 4;
-pub const MEM_FREE: u32 = 65536;
-pub const MEM_IMAGE: u32 = 16777216;
-pub const MEM_LARGE_PAGES: u32 = 536870912;
-pub const MEM_MAPPED: u32 = 262144;
-pub const MEM_PHYSICAL: u32 = 4194304;
-pub const MEM_PRESERVE_PLACEHOLDER: u32 = 2;
-pub const MEM_PRIVATE: u32 = 131072;
-pub const MEM_RELEASE: u32 = 32768;
-pub const MEM_REPLACE_PLACEHOLDER: u32 = 16384;
-pub const MEM_RESERVE: u32 = 8192;
-pub const MEM_RESERVE_PLACEHOLDER: u32 = 262144;
-pub const MEM_RESET: u32 = 524288;
-pub const MEM_RESET_UNDO: u32 = 16777216;
-pub const MEM_ROTATE: u32 = 8388608;
-pub const MEM_SECTION_ATTRIBUTE_SECURE_PAGES: u32 = 1;
+pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: i32 = 8;
+pub const MEM_EXTENDED_PARAMETER_ZERO_PAGES_OPTIONAL: i32 = 4;
+pub const MEM_FREE: i32 = 65536;
+pub const MEM_IMAGE: i32 = 16777216;
+pub const MEM_LARGE_PAGES: i32 = 536870912;
+pub const MEM_MAPPED: i32 = 262144;
+pub const MEM_PHYSICAL: i32 = 4194304;
+pub const MEM_PRESERVE_PLACEHOLDER: i32 = 2;
+pub const MEM_PRIVATE: i32 = 131072;
+pub const MEM_RELEASE: i32 = 32768;
+pub const MEM_REPLACE_PLACEHOLDER: i32 = 16384;
+pub const MEM_RESERVE: i32 = 8192;
+pub const MEM_RESERVE_PLACEHOLDER: i32 = 262144;
+pub const MEM_RESET: i32 = 524288;
+pub const MEM_RESET_UNDO: i32 = 16777216;
+pub const MEM_ROTATE: i32 = 8388608;
+pub const MEM_SECTION_ATTRIBUTE_SECURE_PAGES: i32 = 1;
 pub type MEM_SECTION_EXTENDED_PARAMETER_TYPE = i32;
-pub const MEM_TOP_DOWN: u32 = 1048576;
-pub const MEM_UNMAP_WITH_TRANSIENT_BOOST: u32 = 1;
-pub const MEM_WRITE_WATCH: u32 = 2097152;
+pub const MEM_TOP_DOWN: i32 = 1048576;
+pub const MEM_UNMAP_WITH_TRANSIENT_BOOST: i32 = 1;
+pub const MEM_WRITE_WATCH: i32 = 2097152;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MESSAGE_RESOURCE_BLOCK {
@@ -7394,17 +7397,17 @@ impl Default for MESSAGE_RESOURCE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MESSAGE_RESOURCE_UNICODE: u32 = 1;
-pub const MESSAGE_RESOURCE_UTF8: u32 = 2;
-pub const MINCHAR: u32 = 128;
+pub const MESSAGE_RESOURCE_UNICODE: i32 = 1;
+pub const MESSAGE_RESOURCE_UTF8: i32 = 2;
+pub const MINCHAR: i32 = 128;
 pub const MINLONG: u32 = 2147483648;
-pub const MINSHORT: u32 = 32768;
-pub const MIN_ACL_REVISION: u32 = 2;
-pub const MIN_UCSCHAR: u32 = 0;
+pub const MINSHORT: i32 = 32768;
+pub const MIN_ACL_REVISION: i32 = 2;
+pub const MIN_UCSCHAR: i32 = 0;
 pub type MONITOR_DISPLAY_STATE = i32;
-pub const MS_PPM_SOFTWARE_ALL: u32 = 1;
-pub const MUTANT_ALL_ACCESS: u32 = 2031617;
-pub const MUTANT_QUERY_STATE: u32 = 1;
+pub const MS_PPM_SOFTWARE_ALL: i32 = 1;
+pub const MUTANT_ALL_ACCESS: i32 = 2031617;
+pub const MUTANT_QUERY_STATE: i32 = 1;
 pub const MandatoryLevelCount: MANDATORY_LEVEL = 6;
 pub const MandatoryLevelHigh: MANDATORY_LEVEL = 3;
 pub const MandatoryLevelLow: MANDATORY_LEVEL = 1;
@@ -7503,16 +7506,16 @@ pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = 2;
 pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = 1;
 #[cfg(target_arch = "aarch64")]
 pub type NEON128 = ARM64_NT_NEON128;
-pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1;
+pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_EA {
     pub AppInstanceID: windows_core::GUID,
     pub CsvFlags: u32,
 }
-pub const NLS_VALID_LOCALE_MASK: u32 = 1048575;
-pub const NONVOL_FP_NUMREG_ARM64: u32 = 8;
-pub const NONVOL_INT_NUMREG_ARM64: u32 = 11;
+pub const NLS_VALID_LOCALE_MASK: i32 = 1048575;
+pub const NONVOL_FP_NUMREG_ARM64: i32 = 8;
+pub const NONVOL_INT_NUMREG_ARM64: i32 = 11;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct NON_PAGED_DEBUG_INFO {
@@ -7526,14 +7529,14 @@ pub struct NON_PAGED_DEBUG_INFO {
     pub SizeOfImage: u32,
     pub ImageBase: u64,
 }
-pub const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766;
-pub const NOP_FUNCTION: u32 = 0;
+pub const NON_PAGED_DEBUG_SIGNATURE: i32 = 18766;
+pub const NOP_FUNCTION: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_USER_POWER_SETTING {
     pub Guid: windows_core::GUID,
 }
-pub const NO_PROPAGATE_INHERIT_ACE: u32 = 4;
+pub const NO_PROPAGATE_INHERIT_ACE: i32 = 4;
 pub const NO_SUBGROUP_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
 pub type NPSTR = *mut i8;
 #[repr(C)]
@@ -7649,7 +7652,7 @@ impl Default for NUMA_NODE_RELATIONSHIP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NUM_DISCHARGE_POLICIES: u32 = 4;
+pub const NUM_DISCHARGE_POLICIES: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NV_MEMORY_RANGE {
@@ -7662,12 +7665,12 @@ impl Default for NV_MEMORY_RANGE {
     }
 }
 pub type NWPSTR = *mut u16;
-pub const N_BTMASK: u32 = 15;
-pub const N_BTSHFT: u32 = 4;
-pub const N_TMASK: u32 = 48;
-pub const N_TMASK1: u32 = 192;
-pub const N_TMASK2: u32 = 240;
-pub const N_TSHIFT: u32 = 2;
+pub const N_BTMASK: i32 = 15;
+pub const N_BTSHFT: i32 = 4;
+pub const N_TMASK: i32 = 48;
+pub const N_TMASK1: i32 = 192;
+pub const N_TMASK2: i32 = 240;
+pub const N_TSHIFT: i32 = 2;
 pub const NormalError: SERVICE_ERROR_TYPE = 1;
 pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = 47;
 pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = 26;
@@ -7677,7 +7680,7 @@ pub struct OBJECTID {
     pub Lineage: windows_core::GUID,
     pub Uniquifier: u32,
 }
-pub const OBJECT_INHERIT_ACE: u32 = 1;
+pub const OBJECT_INHERIT_ACE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_TYPE_LIST {
@@ -7771,7 +7774,7 @@ pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" 
 pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut PARM64_RUNTIME_FUNCTION) -> u32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: windows_core::PCSTR = windows_core::s!("OutOfProcessFunctionTableCallback");
-pub const OWNER_SECURITY_INFORMATION: u32 = 1;
+pub const OWNER_SECURITY_INFORMATION: i32 = 1;
 pub type PACCESS_ALLOWED_ACE = *mut ACCESS_ALLOWED_ACE;
 pub type PACCESS_ALLOWED_CALLBACK_ACE = *mut ACCESS_ALLOWED_CALLBACK_ACE;
 pub type PACCESS_ALLOWED_CALLBACK_OBJECT_ACE = *mut ACCESS_ALLOWED_CALLBACK_OBJECT_ACE;
@@ -7812,43 +7815,43 @@ pub type PACTIVATION_CONTEXT_DETAILED_INFORMATION = *mut ACTIVATION_CONTEXT_DETA
 pub type PACTIVATION_CONTEXT_QUERY_INDEX = *mut ACTIVATION_CONTEXT_QUERY_INDEX;
 pub type PACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION = *mut ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION;
 pub type PADMINISTRATOR_POWER_POLICY = *mut ADMINISTRATOR_POWER_POLICY;
-pub const PAGE_ENCLAVE_DECOMMIT: u32 = 268435456;
-pub const PAGE_ENCLAVE_MASK: u32 = 268435456;
-pub const PAGE_ENCLAVE_SS_FIRST: u32 = 268435457;
-pub const PAGE_ENCLAVE_SS_REST: u32 = 268435458;
+pub const PAGE_ENCLAVE_DECOMMIT: i32 = 268435456;
+pub const PAGE_ENCLAVE_MASK: i32 = 268435456;
+pub const PAGE_ENCLAVE_SS_FIRST: i32 = 268435457;
+pub const PAGE_ENCLAVE_SS_REST: i32 = 268435458;
 pub const PAGE_ENCLAVE_THREAD_CONTROL: u32 = 2147483648;
-pub const PAGE_ENCLAVE_UNVALIDATED: u32 = 536870912;
-pub const PAGE_EXECUTE: u32 = 16;
-pub const PAGE_EXECUTE_READ: u32 = 32;
-pub const PAGE_EXECUTE_READWRITE: u32 = 64;
-pub const PAGE_EXECUTE_WRITECOPY: u32 = 128;
-pub const PAGE_GRAPHICS_COHERENT: u32 = 131072;
-pub const PAGE_GRAPHICS_EXECUTE: u32 = 16384;
-pub const PAGE_GRAPHICS_EXECUTE_READ: u32 = 32768;
-pub const PAGE_GRAPHICS_EXECUTE_READWRITE: u32 = 65536;
-pub const PAGE_GRAPHICS_NOACCESS: u32 = 2048;
-pub const PAGE_GRAPHICS_NOCACHE: u32 = 262144;
-pub const PAGE_GRAPHICS_READONLY: u32 = 4096;
-pub const PAGE_GRAPHICS_READWRITE: u32 = 8192;
-pub const PAGE_GUARD: u32 = 256;
-pub const PAGE_NOACCESS: u32 = 1;
-pub const PAGE_NOCACHE: u32 = 512;
-pub const PAGE_READONLY: u32 = 2;
-pub const PAGE_READWRITE: u32 = 4;
+pub const PAGE_ENCLAVE_UNVALIDATED: i32 = 536870912;
+pub const PAGE_EXECUTE: i32 = 16;
+pub const PAGE_EXECUTE_READ: i32 = 32;
+pub const PAGE_EXECUTE_READWRITE: i32 = 64;
+pub const PAGE_EXECUTE_WRITECOPY: i32 = 128;
+pub const PAGE_GRAPHICS_COHERENT: i32 = 131072;
+pub const PAGE_GRAPHICS_EXECUTE: i32 = 16384;
+pub const PAGE_GRAPHICS_EXECUTE_READ: i32 = 32768;
+pub const PAGE_GRAPHICS_EXECUTE_READWRITE: i32 = 65536;
+pub const PAGE_GRAPHICS_NOACCESS: i32 = 2048;
+pub const PAGE_GRAPHICS_NOCACHE: i32 = 262144;
+pub const PAGE_GRAPHICS_READONLY: i32 = 4096;
+pub const PAGE_GRAPHICS_READWRITE: i32 = 8192;
+pub const PAGE_GUARD: i32 = 256;
+pub const PAGE_NOACCESS: i32 = 1;
+pub const PAGE_NOCACHE: i32 = 512;
+pub const PAGE_READONLY: i32 = 2;
+pub const PAGE_READWRITE: i32 = 4;
 pub const PAGE_REVERT_TO_FILE_MAP: u32 = 2147483648;
-pub const PAGE_TARGETS_INVALID: u32 = 1073741824;
-pub const PAGE_TARGETS_NO_UPDATE: u32 = 1073741824;
-pub const PAGE_WRITECOMBINE: u32 = 1024;
-pub const PAGE_WRITECOPY: u32 = 8;
+pub const PAGE_TARGETS_INVALID: i32 = 1073741824;
+pub const PAGE_TARGETS_NO_UPDATE: i32 = 1073741824;
+pub const PAGE_WRITECOMBINE: i32 = 1024;
+pub const PAGE_WRITECOPY: i32 = 8;
 pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: usize)>;
 pub type PAPPLICATIONLAUNCH_SETTING_VALUE = *mut APPLICATIONLAUNCH_SETTING_VALUE;
-pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0;
-pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN: u32 = 1;
-pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN_P_ROUNDROBIN_E: u32 = 3;
-pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN_P_SEQUENTIAL_E: u32 = 5;
-pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL: u32 = 2;
-pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL_P_ROUNDROBIN_E: u32 = 6;
-pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL_P_SEQUENTIAL_E: u32 = 4;
+pub const PARKING_TOPOLOGY_POLICY_DISABLED: i32 = 0;
+pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN: i32 = 1;
+pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN_P_ROUNDROBIN_E: i32 = 3;
+pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN_P_SEQUENTIAL_E: i32 = 5;
+pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL: i32 = 2;
+pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL_P_ROUNDROBIN_E: i32 = 6;
+pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL_P_SEQUENTIAL_E: i32 = 4;
 pub type PARM64EC_NT_CONTEXT = *mut ARM64EC_NT_CONTEXT;
 pub type PARM64_NT_CONTEXT = *mut ARM64_NT_CONTEXT;
 pub type PARM64_NT_NEON128 = *mut ARM64_NT_NEON128;
@@ -7927,15 +7930,15 @@ pub type PCZPWSTR = *const windows_core::PWSTR;
 pub type PCZZSTR = *const i8;
 pub type PCZZTSTR = PCZZSTR;
 pub type PCZZWSTR = *const u16;
-pub const PDCAP_D0_SUPPORTED: u32 = 1;
-pub const PDCAP_D1_SUPPORTED: u32 = 2;
-pub const PDCAP_D2_SUPPORTED: u32 = 4;
-pub const PDCAP_D3_SUPPORTED: u32 = 8;
-pub const PDCAP_WAKE_FROM_D0_SUPPORTED: u32 = 16;
-pub const PDCAP_WAKE_FROM_D1_SUPPORTED: u32 = 32;
-pub const PDCAP_WAKE_FROM_D2_SUPPORTED: u32 = 64;
-pub const PDCAP_WAKE_FROM_D3_SUPPORTED: u32 = 128;
-pub const PDCAP_WARM_EJECT_SUPPORTED: u32 = 256;
+pub const PDCAP_D0_SUPPORTED: i32 = 1;
+pub const PDCAP_D1_SUPPORTED: i32 = 2;
+pub const PDCAP_D2_SUPPORTED: i32 = 4;
+pub const PDCAP_D3_SUPPORTED: i32 = 8;
+pub const PDCAP_WAKE_FROM_D0_SUPPORTED: i32 = 16;
+pub const PDCAP_WAKE_FROM_D1_SUPPORTED: i32 = 32;
+pub const PDCAP_WAKE_FROM_D2_SUPPORTED: i32 = 64;
+pub const PDCAP_WAKE_FROM_D3_SUPPORTED: i32 = 128;
+pub const PDCAP_WARM_EJECT_SUPPORTED: i32 = 256;
 pub type PDEVICE_POWER_STATE = *mut DEVICE_POWER_STATE;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "excpt", feature = "minwindef"))]
@@ -7977,13 +7980,13 @@ impl Default for PERFORMANCE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PERFORMANCE_DATA_VERSION: u32 = 1;
-pub const PERFSTATE_POLICY_CHANGE_DECREASE_MAX: u32 = 2;
-pub const PERFSTATE_POLICY_CHANGE_IDEAL: u32 = 0;
-pub const PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: u32 = 3;
-pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3;
-pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2;
-pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1;
+pub const PERFORMANCE_DATA_VERSION: i32 = 1;
+pub const PERFSTATE_POLICY_CHANGE_DECREASE_MAX: i32 = 2;
+pub const PERFSTATE_POLICY_CHANGE_IDEAL: i32 = 0;
+pub const PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: i32 = 3;
+pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: i32 = 3;
+pub const PERFSTATE_POLICY_CHANGE_ROCKET: i32 = 2;
+pub const PERFSTATE_POLICY_CHANGE_SINGLE: i32 = 1;
 pub type PEVENTLOGRECORD = *mut EVENTLOGRECORD;
 pub type PEVENTSFORLOGFILE = *mut EVENTSFORLOGFILE;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8018,112 +8021,112 @@ pub type PFLOAT128 = *mut FLOAT128;
 pub type PFLOATING_SAVE_AREA = *mut FLOATING_SAVE_AREA;
 pub type PFLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(lpflsdata: *const core::ffi::c_void)>;
 pub type PFPO_DATA = *mut FPO_DATA;
-pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: u32 = 7;
-pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5;
-pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: u32 = 25;
-pub const PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: u32 = 24;
-pub const PF_ARM_EXTERNAL_CACHE_AVAILABLE: u32 = 26;
-pub const PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: u32 = 27;
-pub const PF_ARM_LSE2_AVAILABLE: u32 = 62;
-pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: u32 = 19;
-pub const PF_ARM_SHA3_INSTRUCTIONS_AVAILABLE: u32 = 64;
-pub const PF_ARM_SHA512_INSTRUCTIONS_AVAILABLE: u32 = 65;
-pub const PF_ARM_SME2_1_INSTRUCTIONS_AVAILABLE: u32 = 72;
-pub const PF_ARM_SME2_2_INSTRUCTIONS_AVAILABLE: u32 = 73;
-pub const PF_ARM_SME2_INSTRUCTIONS_AVAILABLE: u32 = 71;
-pub const PF_ARM_SME_AES_INSTRUCTIONS_AVAILABLE: u32 = 74;
-pub const PF_ARM_SME_B16B16_INSTRUCTIONS_AVAILABLE: u32 = 84;
-pub const PF_ARM_SME_F16F16_INSTRUCTIONS_AVAILABLE: u32 = 83;
-pub const PF_ARM_SME_F64F64_INSTRUCTIONS_AVAILABLE: u32 = 85;
-pub const PF_ARM_SME_F8F16_INSTRUCTIONS_AVAILABLE: u32 = 82;
-pub const PF_ARM_SME_F8F32_INSTRUCTIONS_AVAILABLE: u32 = 81;
-pub const PF_ARM_SME_FA64_INSTRUCTIONS_AVAILABLE: u32 = 88;
-pub const PF_ARM_SME_I16I64_INSTRUCTIONS_AVAILABLE: u32 = 86;
-pub const PF_ARM_SME_INSTRUCTIONS_AVAILABLE: u32 = 70;
-pub const PF_ARM_SME_LUTv2_INSTRUCTIONS_AVAILABLE: u32 = 87;
-pub const PF_ARM_SME_SBITPERM_INSTRUCTIONS_AVAILABLE: u32 = 75;
-pub const PF_ARM_SME_SF8DP2_INSTRUCTIONS_AVAILABLE: u32 = 78;
-pub const PF_ARM_SME_SF8DP4_INSTRUCTIONS_AVAILABLE: u32 = 79;
-pub const PF_ARM_SME_SF8FMA_INSTRUCTIONS_AVAILABLE: u32 = 80;
-pub const PF_ARM_SME_SF8MM4_INSTRUCTIONS_AVAILABLE: u32 = 76;
-pub const PF_ARM_SME_SF8MM8_INSTRUCTIONS_AVAILABLE: u32 = 77;
-pub const PF_ARM_SVE2_1_INSTRUCTIONS_AVAILABLE: u32 = 48;
-pub const PF_ARM_SVE2_INSTRUCTIONS_AVAILABLE: u32 = 47;
-pub const PF_ARM_SVE_AES_INSTRUCTIONS_AVAILABLE: u32 = 49;
-pub const PF_ARM_SVE_B16B16_INSTRUCTIONS_AVAILABLE: u32 = 54;
-pub const PF_ARM_SVE_BF16_INSTRUCTIONS_AVAILABLE: u32 = 52;
-pub const PF_ARM_SVE_BITPERM_INSTRUCTIONS_AVAILABLE: u32 = 51;
-pub const PF_ARM_SVE_EBF16_INSTRUCTIONS_AVAILABLE: u32 = 53;
-pub const PF_ARM_SVE_F32MM_INSTRUCTIONS_AVAILABLE: u32 = 58;
-pub const PF_ARM_SVE_F64MM_INSTRUCTIONS_AVAILABLE: u32 = 59;
-pub const PF_ARM_SVE_I8MM_INSTRUCTIONS_AVAILABLE: u32 = 57;
-pub const PF_ARM_SVE_INSTRUCTIONS_AVAILABLE: u32 = 46;
-pub const PF_ARM_SVE_PMULL128_INSTRUCTIONS_AVAILABLE: u32 = 50;
-pub const PF_ARM_SVE_SHA3_INSTRUCTIONS_AVAILABLE: u32 = 55;
-pub const PF_ARM_SVE_SM4_INSTRUCTIONS_AVAILABLE: u32 = 56;
-pub const PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: u32 = 34;
-pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: u32 = 43;
-pub const PF_ARM_V82_FP16_INSTRUCTIONS_AVAILABLE: u32 = 67;
-pub const PF_ARM_V82_I8MM_INSTRUCTIONS_AVAILABLE: u32 = 66;
-pub const PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE: u32 = 44;
-pub const PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE: u32 = 45;
-pub const PF_ARM_V86_BF16_INSTRUCTIONS_AVAILABLE: u32 = 68;
-pub const PF_ARM_V86_EBF16_INSTRUCTIONS_AVAILABLE: u32 = 69;
-pub const PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: u32 = 31;
-pub const PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: u32 = 30;
-pub const PF_ARM_V8_INSTRUCTIONS_AVAILABLE: u32 = 29;
-pub const PF_ARM_VFP_32_REGISTERS_AVAILABLE: u32 = 18;
-pub const PF_AVX2_INSTRUCTIONS_AVAILABLE: u32 = 40;
-pub const PF_AVX512F_INSTRUCTIONS_AVAILABLE: u32 = 41;
-pub const PF_AVX_INSTRUCTIONS_AVAILABLE: u32 = 39;
-pub const PF_BMI2_INSTRUCTIONS_AVAILABLE: u32 = 60;
-pub const PF_CHANNELS_ENABLED: u32 = 16;
-pub const PF_COMPARE64_EXCHANGE128: u32 = 15;
-pub const PF_COMPARE_EXCHANGE128: u32 = 14;
-pub const PF_COMPARE_EXCHANGE_DOUBLE: u32 = 2;
-pub const PF_ERMS_AVAILABLE: u32 = 42;
-pub const PF_FASTFAIL_AVAILABLE: u32 = 23;
-pub const PF_FLOATING_POINT_EMULATED: u32 = 1;
-pub const PF_FLOATING_POINT_PRECISION_ERRATA: u32 = 0;
-pub const PF_MMX_INSTRUCTIONS_AVAILABLE: u32 = 3;
-pub const PF_MONITORX_INSTRUCTION_AVAILABLE: u32 = 35;
-pub const PF_MOVDIR64B_INSTRUCTION_AVAILABLE: u32 = 61;
+pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: i32 = 7;
+pub const PF_ALPHA_BYTE_INSTRUCTIONS: i32 = 5;
+pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: i32 = 25;
+pub const PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: i32 = 24;
+pub const PF_ARM_EXTERNAL_CACHE_AVAILABLE: i32 = 26;
+pub const PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: i32 = 27;
+pub const PF_ARM_LSE2_AVAILABLE: i32 = 62;
+pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: i32 = 19;
+pub const PF_ARM_SHA3_INSTRUCTIONS_AVAILABLE: i32 = 64;
+pub const PF_ARM_SHA512_INSTRUCTIONS_AVAILABLE: i32 = 65;
+pub const PF_ARM_SME2_1_INSTRUCTIONS_AVAILABLE: i32 = 72;
+pub const PF_ARM_SME2_2_INSTRUCTIONS_AVAILABLE: i32 = 73;
+pub const PF_ARM_SME2_INSTRUCTIONS_AVAILABLE: i32 = 71;
+pub const PF_ARM_SME_AES_INSTRUCTIONS_AVAILABLE: i32 = 74;
+pub const PF_ARM_SME_B16B16_INSTRUCTIONS_AVAILABLE: i32 = 84;
+pub const PF_ARM_SME_F16F16_INSTRUCTIONS_AVAILABLE: i32 = 83;
+pub const PF_ARM_SME_F64F64_INSTRUCTIONS_AVAILABLE: i32 = 85;
+pub const PF_ARM_SME_F8F16_INSTRUCTIONS_AVAILABLE: i32 = 82;
+pub const PF_ARM_SME_F8F32_INSTRUCTIONS_AVAILABLE: i32 = 81;
+pub const PF_ARM_SME_FA64_INSTRUCTIONS_AVAILABLE: i32 = 88;
+pub const PF_ARM_SME_I16I64_INSTRUCTIONS_AVAILABLE: i32 = 86;
+pub const PF_ARM_SME_INSTRUCTIONS_AVAILABLE: i32 = 70;
+pub const PF_ARM_SME_LUTv2_INSTRUCTIONS_AVAILABLE: i32 = 87;
+pub const PF_ARM_SME_SBITPERM_INSTRUCTIONS_AVAILABLE: i32 = 75;
+pub const PF_ARM_SME_SF8DP2_INSTRUCTIONS_AVAILABLE: i32 = 78;
+pub const PF_ARM_SME_SF8DP4_INSTRUCTIONS_AVAILABLE: i32 = 79;
+pub const PF_ARM_SME_SF8FMA_INSTRUCTIONS_AVAILABLE: i32 = 80;
+pub const PF_ARM_SME_SF8MM4_INSTRUCTIONS_AVAILABLE: i32 = 76;
+pub const PF_ARM_SME_SF8MM8_INSTRUCTIONS_AVAILABLE: i32 = 77;
+pub const PF_ARM_SVE2_1_INSTRUCTIONS_AVAILABLE: i32 = 48;
+pub const PF_ARM_SVE2_INSTRUCTIONS_AVAILABLE: i32 = 47;
+pub const PF_ARM_SVE_AES_INSTRUCTIONS_AVAILABLE: i32 = 49;
+pub const PF_ARM_SVE_B16B16_INSTRUCTIONS_AVAILABLE: i32 = 54;
+pub const PF_ARM_SVE_BF16_INSTRUCTIONS_AVAILABLE: i32 = 52;
+pub const PF_ARM_SVE_BITPERM_INSTRUCTIONS_AVAILABLE: i32 = 51;
+pub const PF_ARM_SVE_EBF16_INSTRUCTIONS_AVAILABLE: i32 = 53;
+pub const PF_ARM_SVE_F32MM_INSTRUCTIONS_AVAILABLE: i32 = 58;
+pub const PF_ARM_SVE_F64MM_INSTRUCTIONS_AVAILABLE: i32 = 59;
+pub const PF_ARM_SVE_I8MM_INSTRUCTIONS_AVAILABLE: i32 = 57;
+pub const PF_ARM_SVE_INSTRUCTIONS_AVAILABLE: i32 = 46;
+pub const PF_ARM_SVE_PMULL128_INSTRUCTIONS_AVAILABLE: i32 = 50;
+pub const PF_ARM_SVE_SHA3_INSTRUCTIONS_AVAILABLE: i32 = 55;
+pub const PF_ARM_SVE_SM4_INSTRUCTIONS_AVAILABLE: i32 = 56;
+pub const PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: i32 = 34;
+pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: i32 = 43;
+pub const PF_ARM_V82_FP16_INSTRUCTIONS_AVAILABLE: i32 = 67;
+pub const PF_ARM_V82_I8MM_INSTRUCTIONS_AVAILABLE: i32 = 66;
+pub const PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE: i32 = 44;
+pub const PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE: i32 = 45;
+pub const PF_ARM_V86_BF16_INSTRUCTIONS_AVAILABLE: i32 = 68;
+pub const PF_ARM_V86_EBF16_INSTRUCTIONS_AVAILABLE: i32 = 69;
+pub const PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: i32 = 31;
+pub const PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: i32 = 30;
+pub const PF_ARM_V8_INSTRUCTIONS_AVAILABLE: i32 = 29;
+pub const PF_ARM_VFP_32_REGISTERS_AVAILABLE: i32 = 18;
+pub const PF_AVX2_INSTRUCTIONS_AVAILABLE: i32 = 40;
+pub const PF_AVX512F_INSTRUCTIONS_AVAILABLE: i32 = 41;
+pub const PF_AVX_INSTRUCTIONS_AVAILABLE: i32 = 39;
+pub const PF_BMI2_INSTRUCTIONS_AVAILABLE: i32 = 60;
+pub const PF_CHANNELS_ENABLED: i32 = 16;
+pub const PF_COMPARE64_EXCHANGE128: i32 = 15;
+pub const PF_COMPARE_EXCHANGE128: i32 = 14;
+pub const PF_COMPARE_EXCHANGE_DOUBLE: i32 = 2;
+pub const PF_ERMS_AVAILABLE: i32 = 42;
+pub const PF_FASTFAIL_AVAILABLE: i32 = 23;
+pub const PF_FLOATING_POINT_EMULATED: i32 = 1;
+pub const PF_FLOATING_POINT_PRECISION_ERRATA: i32 = 0;
+pub const PF_MMX_INSTRUCTIONS_AVAILABLE: i32 = 3;
+pub const PF_MONITORX_INSTRUCTION_AVAILABLE: i32 = 35;
+pub const PF_MOVDIR64B_INSTRUCTION_AVAILABLE: i32 = 61;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const PF_NON_TEMPORAL_LEVEL_ALL: u32 = 0;
+pub const PF_NON_TEMPORAL_LEVEL_ALL: i32 = 0;
 #[cfg(target_arch = "aarch64")]
-pub const PF_NON_TEMPORAL_LEVEL_ALL: u32 = 3;
-pub const PF_NX_ENABLED: u32 = 12;
-pub const PF_PAE_ENABLED: u32 = 9;
-pub const PF_PPC_MOVEMEM_64BIT_OK: u32 = 4;
-pub const PF_RDPID_INSTRUCTION_AVAILABLE: u32 = 33;
-pub const PF_RDRAND_INSTRUCTION_AVAILABLE: u32 = 28;
-pub const PF_RDTSCP_INSTRUCTION_AVAILABLE: u32 = 32;
-pub const PF_RDTSC_INSTRUCTION_AVAILABLE: u32 = 8;
-pub const PF_RDWRFSGSBASE_AVAILABLE: u32 = 22;
-pub const PF_RESERVED_FEATURE: u32 = 63;
-pub const PF_SECOND_LEVEL_ADDRESS_TRANSLATION: u32 = 20;
-pub const PF_SSE3_INSTRUCTIONS_AVAILABLE: u32 = 13;
-pub const PF_SSE4_1_INSTRUCTIONS_AVAILABLE: u32 = 37;
-pub const PF_SSE4_2_INSTRUCTIONS_AVAILABLE: u32 = 38;
-pub const PF_SSE_DAZ_MODE_AVAILABLE: u32 = 11;
-pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: u32 = 36;
+pub const PF_NON_TEMPORAL_LEVEL_ALL: i32 = 3;
+pub const PF_NX_ENABLED: i32 = 12;
+pub const PF_PAE_ENABLED: i32 = 9;
+pub const PF_PPC_MOVEMEM_64BIT_OK: i32 = 4;
+pub const PF_RDPID_INSTRUCTION_AVAILABLE: i32 = 33;
+pub const PF_RDRAND_INSTRUCTION_AVAILABLE: i32 = 28;
+pub const PF_RDTSCP_INSTRUCTION_AVAILABLE: i32 = 32;
+pub const PF_RDTSC_INSTRUCTION_AVAILABLE: i32 = 8;
+pub const PF_RDWRFSGSBASE_AVAILABLE: i32 = 22;
+pub const PF_RESERVED_FEATURE: i32 = 63;
+pub const PF_SECOND_LEVEL_ADDRESS_TRANSLATION: i32 = 20;
+pub const PF_SSE3_INSTRUCTIONS_AVAILABLE: i32 = 13;
+pub const PF_SSE4_1_INSTRUCTIONS_AVAILABLE: i32 = 37;
+pub const PF_SSE4_2_INSTRUCTIONS_AVAILABLE: i32 = 38;
+pub const PF_SSE_DAZ_MODE_AVAILABLE: i32 = 11;
+pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: i32 = 36;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const PF_TEMPORAL_LEVEL_1: u32 = 1;
+pub const PF_TEMPORAL_LEVEL_1: i32 = 1;
 #[cfg(target_arch = "aarch64")]
-pub const PF_TEMPORAL_LEVEL_1: u32 = 0;
+pub const PF_TEMPORAL_LEVEL_1: i32 = 0;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const PF_TEMPORAL_LEVEL_2: u32 = 2;
+pub const PF_TEMPORAL_LEVEL_2: i32 = 2;
 #[cfg(target_arch = "aarch64")]
-pub const PF_TEMPORAL_LEVEL_2: u32 = 1;
+pub const PF_TEMPORAL_LEVEL_2: i32 = 1;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const PF_TEMPORAL_LEVEL_3: u32 = 3;
+pub const PF_TEMPORAL_LEVEL_3: i32 = 3;
 #[cfg(target_arch = "aarch64")]
-pub const PF_TEMPORAL_LEVEL_3: u32 = 2;
-pub const PF_UMONITOR_INSTRUCTION_AVAILABLE: u32 = 89;
-pub const PF_VIRT_FIRMWARE_ENABLED: u32 = 21;
-pub const PF_XMMI64_INSTRUCTIONS_AVAILABLE: u32 = 10;
-pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: u32 = 6;
-pub const PF_XSAVE_ENABLED: u32 = 17;
+pub const PF_TEMPORAL_LEVEL_3: i32 = 2;
+pub const PF_UMONITOR_INSTRUCTION_AVAILABLE: i32 = 89;
+pub const PF_VIRT_FIRMWARE_ENABLED: i32 = 21;
+pub const PF_XMMI64_INSTRUCTIONS_AVAILABLE: i32 = 10;
+pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: i32 = 6;
+pub const PF_XSAVE_ENABLED: i32 = 17;
 pub type PGENERIC_MAPPING = *mut GENERIC_MAPPING;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = *mut GET_RUNTIME_FUNCTION_CALLBACK;
@@ -8346,7 +8349,7 @@ pub type PNZCH = *mut i8;
 pub type PNZTCH = PNZCH;
 pub type PNZWCH = *mut u16;
 pub type POBJECT_TYPE_LIST = *mut OBJECT_TYPE_LIST;
-pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 60;
+pub const POLICY_AUDIT_SUBCATEGORY_COUNT: i32 = 60;
 pub type POSVERSIONINFO = POSVERSIONINFOA;
 pub type POSVERSIONINFOA = *mut OSVERSIONINFOA;
 pub type POSVERSIONINFOEX = POSVERSIONINFOEXA;
@@ -8355,27 +8358,27 @@ pub type POSVERSIONINFOEXW = *mut OSVERSIONINFOEXW;
 pub type POSVERSIONINFOW = *mut OSVERSIONINFOW;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = *mut OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK;
-pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2;
-pub const POWERBUTTON_ACTION_INDEX_NOTHING: u32 = 0;
-pub const POWERBUTTON_ACTION_INDEX_SHUTDOWN: u32 = 3;
-pub const POWERBUTTON_ACTION_INDEX_SLEEP: u32 = 1;
-pub const POWERBUTTON_ACTION_INDEX_TURN_OFF_THE_DISPLAY: u32 = 4;
-pub const POWERBUTTON_ACTION_VALUE_HIBERNATE: u32 = 3;
-pub const POWERBUTTON_ACTION_VALUE_NOTHING: u32 = 0;
-pub const POWERBUTTON_ACTION_VALUE_SHUTDOWN: u32 = 6;
-pub const POWERBUTTON_ACTION_VALUE_SLEEP: u32 = 2;
-pub const POWERBUTTON_ACTION_VALUE_TURN_OFF_THE_DISPLAY: u32 = 8;
+pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: i32 = 2;
+pub const POWERBUTTON_ACTION_INDEX_NOTHING: i32 = 0;
+pub const POWERBUTTON_ACTION_INDEX_SHUTDOWN: i32 = 3;
+pub const POWERBUTTON_ACTION_INDEX_SLEEP: i32 = 1;
+pub const POWERBUTTON_ACTION_INDEX_TURN_OFF_THE_DISPLAY: i32 = 4;
+pub const POWERBUTTON_ACTION_VALUE_HIBERNATE: i32 = 3;
+pub const POWERBUTTON_ACTION_VALUE_NOTHING: i32 = 0;
+pub const POWERBUTTON_ACTION_VALUE_SHUTDOWN: i32 = 6;
+pub const POWERBUTTON_ACTION_VALUE_SLEEP: i32 = 2;
+pub const POWERBUTTON_ACTION_VALUE_TURN_OFF_THE_DISPLAY: i32 = 8;
 pub type POWER_ACTION = i32;
-pub const POWER_ACTION_ACPI_CRITICAL: u32 = 16777216;
-pub const POWER_ACTION_ACPI_USER_NOTIFY: u32 = 33554432;
+pub const POWER_ACTION_ACPI_CRITICAL: i32 = 16777216;
+pub const POWER_ACTION_ACPI_USER_NOTIFY: i32 = 33554432;
 pub const POWER_ACTION_CRITICAL: u32 = 2147483648;
-pub const POWER_ACTION_DIRECTED_DRIPS: u32 = 67108864;
-pub const POWER_ACTION_DISABLE_WAKES: u32 = 1073741824;
-pub const POWER_ACTION_DOZE_TO_HIBERNATE: u32 = 32;
-pub const POWER_ACTION_HIBERBOOT: u32 = 8;
-pub const POWER_ACTION_LIGHTEST_FIRST: u32 = 268435456;
-pub const POWER_ACTION_LOCK_CONSOLE: u32 = 536870912;
-pub const POWER_ACTION_OVERRIDE_APPS: u32 = 4;
+pub const POWER_ACTION_DIRECTED_DRIPS: i32 = 67108864;
+pub const POWER_ACTION_DISABLE_WAKES: i32 = 1073741824;
+pub const POWER_ACTION_DOZE_TO_HIBERNATE: i32 = 32;
+pub const POWER_ACTION_HIBERBOOT: i32 = 8;
+pub const POWER_ACTION_LIGHTEST_FIRST: i32 = 268435456;
+pub const POWER_ACTION_LOCK_CONSOLE: i32 = 536870912;
+pub const POWER_ACTION_OVERRIDE_APPS: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ACTION_POLICY {
@@ -8383,17 +8386,17 @@ pub struct POWER_ACTION_POLICY {
     pub Flags: u32,
     pub EventCode: u32,
 }
-pub const POWER_ACTION_PSEUDO_TRANSITION: u32 = 134217728;
-pub const POWER_ACTION_QUERY_ALLOWED: u32 = 1;
-pub const POWER_ACTION_UI_ALLOWED: u32 = 2;
-pub const POWER_ACTION_USER_NOTIFY: u32 = 16;
-pub const POWER_CONNECTIVITY_IN_STANDBY_DISABLED: u32 = 0;
-pub const POWER_CONNECTIVITY_IN_STANDBY_ENABLED: u32 = 1;
-pub const POWER_CONNECTIVITY_IN_STANDBY_SYSTEM_MANAGED: u32 = 2;
-pub const POWER_DEVICE_IDLE_POLICY_CONSERVATIVE: u32 = 1;
-pub const POWER_DEVICE_IDLE_POLICY_PERFORMANCE: u32 = 0;
-pub const POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: u32 = 1;
-pub const POWER_DISCONNECTED_STANDBY_MODE_NORMAL: u32 = 0;
+pub const POWER_ACTION_PSEUDO_TRANSITION: i32 = 134217728;
+pub const POWER_ACTION_QUERY_ALLOWED: i32 = 1;
+pub const POWER_ACTION_UI_ALLOWED: i32 = 2;
+pub const POWER_ACTION_USER_NOTIFY: i32 = 16;
+pub const POWER_CONNECTIVITY_IN_STANDBY_DISABLED: i32 = 0;
+pub const POWER_CONNECTIVITY_IN_STANDBY_ENABLED: i32 = 1;
+pub const POWER_CONNECTIVITY_IN_STANDBY_SYSTEM_MANAGED: i32 = 2;
+pub const POWER_DEVICE_IDLE_POLICY_CONSERVATIVE: i32 = 1;
+pub const POWER_DEVICE_IDLE_POLICY_PERFORMANCE: i32 = 0;
+pub const POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: i32 = 1;
+pub const POWER_DISCONNECTED_STANDBY_MODE_NORMAL: i32 = 0;
 pub const POWER_FORCE_TRIGGER_RESET: u32 = 2147483648;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8402,9 +8405,9 @@ pub struct POWER_IDLE_RESILIENCY {
     pub IdleResiliencyPeriod: u32,
 }
 pub type POWER_INFORMATION_LEVEL = i32;
-pub const POWER_LEVEL_USER_NOTIFY_EXEC: u32 = 4;
-pub const POWER_LEVEL_USER_NOTIFY_SOUND: u32 = 2;
-pub const POWER_LEVEL_USER_NOTIFY_TEXT: u32 = 1;
+pub const POWER_LEVEL_USER_NOTIFY_EXEC: i32 = 4;
+pub const POWER_LEVEL_USER_NOTIFY_SOUND: i32 = 2;
+pub const POWER_LEVEL_USER_NOTIFY_TEXT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_LIMIT_ATTRIBUTES {
@@ -8462,7 +8465,7 @@ pub struct POWER_LIMIT_VALUE {
     pub TargetValue: u32,
     pub TimeParameter: u32,
 }
-pub const POWER_LIMIT_VALUE_NO_CONTROL: i32 = -1;
+pub const POWER_LIMIT_VALUE_NO_CONTROL: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
@@ -8477,15 +8480,15 @@ pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: bool,
 }
 pub type POWER_PLATFORM_ROLE = i32;
-pub const POWER_PLATFORM_ROLE_V1: u32 = 1;
-pub const POWER_PLATFORM_ROLE_V1_MAX: u32 = 8;
-pub const POWER_PLATFORM_ROLE_V2: u32 = 2;
-pub const POWER_PLATFORM_ROLE_V2_MAX: u32 = 9;
-pub const POWER_PLATFORM_ROLE_VERSION: u32 = 2;
-pub const POWER_PLATFORM_ROLE_VERSION_MAX: u32 = 9;
-pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: u32 = 2;
-pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: u32 = 1;
-pub const POWER_REQUEST_CONTEXT_VERSION: u32 = 0;
+pub const POWER_PLATFORM_ROLE_V1: i32 = 1;
+pub const POWER_PLATFORM_ROLE_V1_MAX: i32 = 8;
+pub const POWER_PLATFORM_ROLE_V2: i32 = 2;
+pub const POWER_PLATFORM_ROLE_V2_MAX: i32 = 9;
+pub const POWER_PLATFORM_ROLE_VERSION: i32 = 2;
+pub const POWER_PLATFORM_ROLE_VERSION_MAX: i32 = 9;
+pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: i32 = 2;
+pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: i32 = 1;
+pub const POWER_REQUEST_CONTEXT_VERSION: i32 = 0;
 pub type POWER_REQUEST_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8518,44 +8521,44 @@ pub struct POWER_SESSION_WINLOGON {
     pub Locked: bool,
 }
 pub type POWER_SETTING_ALTITUDE = i32;
-pub const POWER_SETTING_VALUE_VERSION: u32 = 1;
-pub const POWER_SYSTEM_MAXIMUM: u32 = 7;
-pub const POWER_USER_NOTIFY_BUTTON: u32 = 8;
-pub const POWER_USER_NOTIFY_FORCED_SHUTDOWN: u32 = 32;
-pub const POWER_USER_NOTIFY_SHUTDOWN: u32 = 16;
+pub const POWER_SETTING_VALUE_VERSION: i32 = 1;
+pub const POWER_SYSTEM_MAXIMUM: i32 = 7;
+pub const POWER_USER_NOTIFY_BUTTON: i32 = 8;
+pub const POWER_USER_NOTIFY_FORCED_SHUTDOWN: i32 = 32;
+pub const POWER_USER_NOTIFY_SHUTDOWN: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_USER_PRESENCE {
     pub UserPresence: POWER_USER_PRESENCE_TYPE,
 }
 pub type POWER_USER_PRESENCE_TYPE = i32;
-pub const PO_THROTTLE_ADAPTIVE: u32 = 3;
-pub const PO_THROTTLE_CONSTANT: u32 = 1;
-pub const PO_THROTTLE_DEGRADE: u32 = 2;
-pub const PO_THROTTLE_MAXIMUM: u32 = 4;
-pub const PO_THROTTLE_NONE: u32 = 0;
+pub const PO_THROTTLE_ADAPTIVE: i32 = 3;
+pub const PO_THROTTLE_CONSTANT: i32 = 1;
+pub const PO_THROTTLE_DEGRADE: i32 = 2;
+pub const PO_THROTTLE_MAXIMUM: i32 = 4;
+pub const PO_THROTTLE_NONE: i32 = 0;
 pub type PPACKEDEVENTINFO = *mut PACKEDEVENTINFO;
 pub type PPERFORMANCE_DATA = *mut PERFORMANCE_DATA;
-pub const PPM_FIRMWARE_ACPI1C2: u32 = 1;
-pub const PPM_FIRMWARE_ACPI1C3: u32 = 2;
-pub const PPM_FIRMWARE_ACPI1TSTATES: u32 = 4;
-pub const PPM_FIRMWARE_CPC: u32 = 262144;
-pub const PPM_FIRMWARE_CSD: u32 = 16;
-pub const PPM_FIRMWARE_CST: u32 = 8;
-pub const PPM_FIRMWARE_LPI: u32 = 524288;
-pub const PPM_FIRMWARE_OSC: u32 = 65536;
-pub const PPM_FIRMWARE_PCCH: u32 = 16384;
-pub const PPM_FIRMWARE_PCCP: u32 = 32768;
-pub const PPM_FIRMWARE_PCT: u32 = 32;
-pub const PPM_FIRMWARE_PDC: u32 = 131072;
-pub const PPM_FIRMWARE_PPC: u32 = 256;
-pub const PPM_FIRMWARE_PSD: u32 = 512;
-pub const PPM_FIRMWARE_PSS: u32 = 64;
-pub const PPM_FIRMWARE_PTC: u32 = 1024;
-pub const PPM_FIRMWARE_TPC: u32 = 4096;
-pub const PPM_FIRMWARE_TSD: u32 = 8192;
-pub const PPM_FIRMWARE_TSS: u32 = 2048;
-pub const PPM_FIRMWARE_XPSS: u32 = 128;
+pub const PPM_FIRMWARE_ACPI1C2: i32 = 1;
+pub const PPM_FIRMWARE_ACPI1C3: i32 = 2;
+pub const PPM_FIRMWARE_ACPI1TSTATES: i32 = 4;
+pub const PPM_FIRMWARE_CPC: i32 = 262144;
+pub const PPM_FIRMWARE_CSD: i32 = 16;
+pub const PPM_FIRMWARE_CST: i32 = 8;
+pub const PPM_FIRMWARE_LPI: i32 = 524288;
+pub const PPM_FIRMWARE_OSC: i32 = 65536;
+pub const PPM_FIRMWARE_PCCH: i32 = 16384;
+pub const PPM_FIRMWARE_PCCP: i32 = 32768;
+pub const PPM_FIRMWARE_PCT: i32 = 32;
+pub const PPM_FIRMWARE_PDC: i32 = 131072;
+pub const PPM_FIRMWARE_PPC: i32 = 256;
+pub const PPM_FIRMWARE_PSD: i32 = 512;
+pub const PPM_FIRMWARE_PSS: i32 = 64;
+pub const PPM_FIRMWARE_PTC: i32 = 1024;
+pub const PPM_FIRMWARE_TPC: i32 = 4096;
+pub const PPM_FIRMWARE_TSD: i32 = 8192;
+pub const PPM_FIRMWARE_TSS: i32 = 2048;
+pub const PPM_FIRMWARE_XPSS: i32 = 128;
 pub const PPM_IDLESTATES_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
 pub const PPM_IDLESTATE_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
 #[repr(C)]
@@ -8596,11 +8599,11 @@ impl Default for PPM_IDLE_ACCOUNTING_EX {
 }
 pub const PPM_IDLE_ACCOUNTING_EX_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
 pub const PPM_IDLE_ACCOUNTING_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
-pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1;
-pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4;
-pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3;
-pub const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0;
-pub const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2;
+pub const PPM_IDLE_IMPLEMENTATION_CSTATES: i32 = 1;
+pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: i32 = 4;
+pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: i32 = 3;
+pub const PPM_IDLE_IMPLEMENTATION_NONE: i32 = 0;
+pub const PPM_IDLE_IMPLEMENTATION_PEP: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING {
@@ -8641,11 +8644,11 @@ pub struct PPM_IDLE_STATE_BUCKET_EX {
     pub Count: u32,
 }
 pub const PPM_PERFMON_PERFSTATE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
-pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3;
-pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0;
-pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2;
-pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4;
-pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: i32 = 3;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: i32 = 0;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: i32 = 2;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: i32 = 4;
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: i32 = 1;
 pub const PPM_PERFSTATES_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
 pub const PPM_PERFSTATE_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
 pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
@@ -8884,7 +8887,7 @@ pub type PPROCESS_MITIGATION_USER_SHADOW_STACK_POLICY = *mut PROCESS_MITIGATION_
 pub type PPROCESS_NETWORK_COUNTERS = *mut PROCESS_NETWORK_COUNTERS;
 pub type PQUOTA_LIMITS = *mut QUOTA_LIMITS;
 pub type PQUOTA_LIMITS_EX = *mut QUOTA_LIMITS_EX;
-pub const PRAGMA_DEPRECATED_DDK: u32 = 0;
+pub const PRAGMA_DEPRECATED_DDK: i32 = 0;
 pub type PRATE_QUOTA_LIMIT = *mut RATE_QUOTA_LIMIT;
 pub type PREARRANGE_FILE_DATA = *mut REARRANGE_FILE_DATA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -8905,33 +8908,33 @@ impl Default for PRIVILEGE_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PRIVILEGE_SET_ALL_NECESSARY: u32 = 1;
+pub const PRIVILEGE_SET_ALL_NECESSARY: i32 = 1;
 pub type PRLIST_ENTRY = *mut LIST_ENTRY;
-pub const PROCESSOR_ALPHA_21064: u32 = 21064;
-pub const PROCESSOR_AMD_X8664: u32 = 8664;
-pub const PROCESSOR_ARCHITECTURE_ALPHA: u32 = 2;
-pub const PROCESSOR_ARCHITECTURE_ALPHA64: u32 = 7;
-pub const PROCESSOR_ARCHITECTURE_AMD64: u32 = 9;
-pub const PROCESSOR_ARCHITECTURE_ARM: u32 = 5;
-pub const PROCESSOR_ARCHITECTURE_ARM32_ON_WIN64: u32 = 13;
-pub const PROCESSOR_ARCHITECTURE_ARM64: u32 = 12;
-pub const PROCESSOR_ARCHITECTURE_IA32_ON_ARM64: u32 = 14;
-pub const PROCESSOR_ARCHITECTURE_IA32_ON_WIN64: u32 = 10;
-pub const PROCESSOR_ARCHITECTURE_IA64: u32 = 6;
-pub const PROCESSOR_ARCHITECTURE_INTEL: u32 = 0;
-pub const PROCESSOR_ARCHITECTURE_MIPS: u32 = 1;
-pub const PROCESSOR_ARCHITECTURE_MSIL: u32 = 8;
-pub const PROCESSOR_ARCHITECTURE_NEUTRAL: u32 = 11;
-pub const PROCESSOR_ARCHITECTURE_PPC: u32 = 3;
-pub const PROCESSOR_ARCHITECTURE_SHX: u32 = 4;
-pub const PROCESSOR_ARCHITECTURE_UNKNOWN: u32 = 65535;
-pub const PROCESSOR_ARM720: u32 = 1824;
-pub const PROCESSOR_ARM820: u32 = 2080;
-pub const PROCESSOR_ARM920: u32 = 2336;
-pub const PROCESSOR_ARM_7TDMI: u32 = 70001;
+pub const PROCESSOR_ALPHA_21064: i32 = 21064;
+pub const PROCESSOR_AMD_X8664: i32 = 8664;
+pub const PROCESSOR_ARCHITECTURE_ALPHA: i32 = 2;
+pub const PROCESSOR_ARCHITECTURE_ALPHA64: i32 = 7;
+pub const PROCESSOR_ARCHITECTURE_AMD64: i32 = 9;
+pub const PROCESSOR_ARCHITECTURE_ARM: i32 = 5;
+pub const PROCESSOR_ARCHITECTURE_ARM32_ON_WIN64: i32 = 13;
+pub const PROCESSOR_ARCHITECTURE_ARM64: i32 = 12;
+pub const PROCESSOR_ARCHITECTURE_IA32_ON_ARM64: i32 = 14;
+pub const PROCESSOR_ARCHITECTURE_IA32_ON_WIN64: i32 = 10;
+pub const PROCESSOR_ARCHITECTURE_IA64: i32 = 6;
+pub const PROCESSOR_ARCHITECTURE_INTEL: i32 = 0;
+pub const PROCESSOR_ARCHITECTURE_MIPS: i32 = 1;
+pub const PROCESSOR_ARCHITECTURE_MSIL: i32 = 8;
+pub const PROCESSOR_ARCHITECTURE_NEUTRAL: i32 = 11;
+pub const PROCESSOR_ARCHITECTURE_PPC: i32 = 3;
+pub const PROCESSOR_ARCHITECTURE_SHX: i32 = 4;
+pub const PROCESSOR_ARCHITECTURE_UNKNOWN: i32 = 65535;
+pub const PROCESSOR_ARM720: i32 = 1824;
+pub const PROCESSOR_ARM820: i32 = 2080;
+pub const PROCESSOR_ARM920: i32 = 2336;
+pub const PROCESSOR_ARM_7TDMI: i32 = 70001;
 pub type PROCESSOR_CACHE_TYPE = i32;
-pub const PROCESSOR_DUTY_CYCLING_DISABLED: u32 = 0;
-pub const PROCESSOR_DUTY_CYCLING_ENABLED: u32 = 1;
+pub const PROCESSOR_DUTY_CYCLING_DISABLED: i32 = 0;
+pub const PROCESSOR_DUTY_CYCLING_ENABLED: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -8947,9 +8950,9 @@ impl Default for PROCESSOR_GROUP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROCESSOR_HITACHI_SH3: u32 = 10003;
-pub const PROCESSOR_HITACHI_SH3E: u32 = 10004;
-pub const PROCESSOR_HITACHI_SH4: u32 = 10005;
+pub const PROCESSOR_HITACHI_SH3: i32 = 10003;
+pub const PROCESSOR_HITACHI_SH3E: i32 = 10004;
+pub const PROCESSOR_HITACHI_SH4: i32 = 10005;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_IDLESTATE_INFO {
@@ -9012,13 +9015,13 @@ impl PROCESSOR_IDLESTATE_POLICY_0_0 {
         self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
     }
 }
-pub const PROCESSOR_IDLESTATE_POLICY_COUNT: u32 = 3;
-pub const PROCESSOR_INTEL_386: u32 = 386;
-pub const PROCESSOR_INTEL_486: u32 = 486;
-pub const PROCESSOR_INTEL_IA64: u32 = 2200;
-pub const PROCESSOR_INTEL_PENTIUM: u32 = 586;
-pub const PROCESSOR_MIPS_R4000: u32 = 4000;
-pub const PROCESSOR_MOTOROLA_821: u32 = 821;
+pub const PROCESSOR_IDLESTATE_POLICY_COUNT: i32 = 3;
+pub const PROCESSOR_INTEL_386: i32 = 386;
+pub const PROCESSOR_INTEL_486: i32 = 486;
+pub const PROCESSOR_INTEL_IA64: i32 = 2200;
+pub const PROCESSOR_INTEL_PENTIUM: i32 = 586;
+pub const PROCESSOR_MIPS_R4000: i32 = 4000;
+pub const PROCESSOR_MOTOROLA_821: i32 = 821;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_NUMBER {
@@ -9026,7 +9029,7 @@ pub struct PROCESSOR_NUMBER {
     pub Number: u8,
     pub Reserved: u8,
 }
-pub const PROCESSOR_OPTIL: u32 = 18767;
+pub const PROCESSOR_OPTIL: i32 = 18767;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESSOR_PERFSTATE_POLICY {
@@ -9099,22 +9102,22 @@ impl PROCESSOR_PERFSTATE_POLICY_0_0_0 {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
     }
 }
-pub const PROCESSOR_PERF_AUTONOMOUS_MODE_DISABLED: u32 = 0;
-pub const PROCESSOR_PERF_AUTONOMOUS_MODE_ENABLED: u32 = 1;
-pub const PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE: u32 = 2;
-pub const PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE_AT_GUARANTEED: u32 = 5;
-pub const PROCESSOR_PERF_BOOST_MODE_DISABLED: u32 = 0;
-pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_AGGRESSIVE: u32 = 4;
-pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_AGGRESSIVE_AT_GUARANTEED: u32 = 6;
-pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_ENABLED: u32 = 3;
-pub const PROCESSOR_PERF_BOOST_MODE_ENABLED: u32 = 1;
-pub const PROCESSOR_PERF_BOOST_MODE_MAX: u32 = 6;
-pub const PROCESSOR_PERF_BOOST_POLICY_DISABLED: u32 = 0;
-pub const PROCESSOR_PERF_BOOST_POLICY_MAX: u32 = 100;
-pub const PROCESSOR_PERF_ENERGY_PREFERENCE: u32 = 0;
-pub const PROCESSOR_PERF_MAXIMUM_ACTIVITY_WINDOW: u32 = 1270000000;
-pub const PROCESSOR_PERF_MINIMUM_ACTIVITY_WINDOW: u32 = 0;
-pub const PROCESSOR_PERF_PERFORMANCE_PREFERENCE: u32 = 255;
+pub const PROCESSOR_PERF_AUTONOMOUS_MODE_DISABLED: i32 = 0;
+pub const PROCESSOR_PERF_AUTONOMOUS_MODE_ENABLED: i32 = 1;
+pub const PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE: i32 = 2;
+pub const PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE_AT_GUARANTEED: i32 = 5;
+pub const PROCESSOR_PERF_BOOST_MODE_DISABLED: i32 = 0;
+pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_AGGRESSIVE: i32 = 4;
+pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_AGGRESSIVE_AT_GUARANTEED: i32 = 6;
+pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_ENABLED: i32 = 3;
+pub const PROCESSOR_PERF_BOOST_MODE_ENABLED: i32 = 1;
+pub const PROCESSOR_PERF_BOOST_MODE_MAX: i32 = 6;
+pub const PROCESSOR_PERF_BOOST_POLICY_DISABLED: i32 = 0;
+pub const PROCESSOR_PERF_BOOST_POLICY_MAX: i32 = 100;
+pub const PROCESSOR_PERF_ENERGY_PREFERENCE: i32 = 0;
+pub const PROCESSOR_PERF_MAXIMUM_ACTIVITY_WINDOW: i32 = 1270000000;
+pub const PROCESSOR_PERF_MINIMUM_ACTIVITY_WINDOW: i32 = 0;
+pub const PROCESSOR_PERF_PERFORMANCE_PREFERENCE: i32 = 255;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY {
@@ -9180,10 +9183,10 @@ impl Default for PROCESSOR_POWER_POLICY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROCESSOR_PPC_601: u32 = 601;
-pub const PROCESSOR_PPC_603: u32 = 603;
-pub const PROCESSOR_PPC_604: u32 = 604;
-pub const PROCESSOR_PPC_620: u32 = 620;
+pub const PROCESSOR_PPC_601: i32 = 601;
+pub const PROCESSOR_PPC_603: i32 = 603;
+pub const PROCESSOR_PPC_604: i32 = 604;
+pub const PROCESSOR_PPC_620: i32 = 620;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -9201,16 +9204,16 @@ impl Default for PROCESSOR_RELATIONSHIP {
     }
 }
 pub type PROCESSOR_SHARED_COMPUTE_UNIT_TYPE = i32;
-pub const PROCESSOR_SHx_SH3: u32 = 103;
-pub const PROCESSOR_SHx_SH4: u32 = 104;
-pub const PROCESSOR_STRONGARM: u32 = 2577;
-pub const PROCESSOR_THROTTLE_AUTOMATIC: u32 = 2;
-pub const PROCESSOR_THROTTLE_DISABLED: u32 = 0;
-pub const PROCESSOR_THROTTLE_ENABLED: u32 = 1;
-pub const PROCESS_ALL_ACCESS: u32 = 2097151;
-pub const PROCESS_CREATE_PROCESS: u32 = 128;
-pub const PROCESS_CREATE_THREAD: u32 = 2;
-pub const PROCESS_DUP_HANDLE: u32 = 64;
+pub const PROCESSOR_SHx_SH3: i32 = 103;
+pub const PROCESSOR_SHx_SH4: i32 = 104;
+pub const PROCESSOR_STRONGARM: i32 = 2577;
+pub const PROCESSOR_THROTTLE_AUTOMATIC: i32 = 2;
+pub const PROCESSOR_THROTTLE_DISABLED: i32 = 0;
+pub const PROCESSOR_THROTTLE_ENABLED: i32 = 1;
+pub const PROCESS_ALL_ACCESS: i32 = 2097151;
+pub const PROCESS_CREATE_PROCESS: i32 = 128;
+pub const PROCESS_CREATE_THREAD: i32 = 2;
+pub const PROCESS_DUP_HANDLE: i32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
@@ -10274,199 +10277,199 @@ pub struct PROCESS_NETWORK_COUNTERS {
     pub BytesIn: u64,
     pub BytesOut: u64,
 }
-pub const PROCESS_QUERY_INFORMATION: u32 = 1024;
-pub const PROCESS_QUERY_LIMITED_INFORMATION: u32 = 4096;
-pub const PROCESS_SET_INFORMATION: u32 = 512;
-pub const PROCESS_SET_LIMITED_INFORMATION: u32 = 8192;
-pub const PROCESS_SET_QUOTA: u32 = 256;
-pub const PROCESS_SET_SESSIONID: u32 = 4;
-pub const PROCESS_SUSPEND_RESUME: u32 = 2048;
-pub const PROCESS_TERMINATE: u32 = 1;
-pub const PROCESS_TRUST_LABEL_SECURITY_INFORMATION: u32 = 128;
-pub const PROCESS_VM_OPERATION: u32 = 8;
-pub const PROCESS_VM_READ: u32 = 16;
-pub const PROCESS_VM_WRITE: u32 = 32;
-pub const PROC_IDLE_BUCKET_COUNT: u32 = 6;
-pub const PROC_IDLE_BUCKET_COUNT_EX: u32 = 16;
-pub const PRODUCT_ARM64_SERVER: u32 = 120;
-pub const PRODUCT_AZURESTACKHCI_SERVER_CORE: u32 = 406;
-pub const PRODUCT_AZURE_NANO_SERVER: u32 = 169;
-pub const PRODUCT_AZURE_SERVER_AGENTBRIDGE: u32 = 208;
-pub const PRODUCT_AZURE_SERVER_CLOUDHOST: u32 = 199;
-pub const PRODUCT_AZURE_SERVER_CLOUDMOS: u32 = 200;
-pub const PRODUCT_AZURE_SERVER_CORE: u32 = 168;
-pub const PRODUCT_AZURE_SERVER_NANOHOST: u32 = 209;
-pub const PRODUCT_BUSINESS: u32 = 6;
-pub const PRODUCT_BUSINESS_N: u32 = 16;
-pub const PRODUCT_CLOUD: u32 = 178;
-pub const PRODUCT_CLOUDE: u32 = 183;
-pub const PRODUCT_CLOUDEDITION: u32 = 203;
-pub const PRODUCT_CLOUDEDITIONN: u32 = 202;
-pub const PRODUCT_CLOUDEN: u32 = 186;
-pub const PRODUCT_CLOUDN: u32 = 179;
-pub const PRODUCT_CLOUD_HOST_INFRASTRUCTURE_SERVER: u32 = 124;
-pub const PRODUCT_CLOUD_STORAGE_SERVER: u32 = 110;
-pub const PRODUCT_CLUSTER_SERVER: u32 = 18;
-pub const PRODUCT_CLUSTER_SERVER_V: u32 = 64;
-pub const PRODUCT_CONNECTED_CAR: u32 = 117;
-pub const PRODUCT_CORE: u32 = 101;
-pub const PRODUCT_CORE_ARM: u32 = 97;
-pub const PRODUCT_CORE_CONNECTED: u32 = 111;
-pub const PRODUCT_CORE_CONNECTED_COUNTRYSPECIFIC: u32 = 116;
-pub const PRODUCT_CORE_CONNECTED_N: u32 = 113;
-pub const PRODUCT_CORE_CONNECTED_SINGLELANGUAGE: u32 = 115;
-pub const PRODUCT_CORE_COUNTRYSPECIFIC: u32 = 99;
-pub const PRODUCT_CORE_N: u32 = 98;
-pub const PRODUCT_CORE_SINGLELANGUAGE: u32 = 100;
-pub const PRODUCT_DATACENTER_A_SERVER_CORE: u32 = 145;
-pub const PRODUCT_DATACENTER_EVALUATION_SERVER: u32 = 80;
-pub const PRODUCT_DATACENTER_EVALUATION_SERVER_CORE: u32 = 159;
-pub const PRODUCT_DATACENTER_NANO_SERVER: u32 = 143;
-pub const PRODUCT_DATACENTER_SERVER: u32 = 8;
-pub const PRODUCT_DATACENTER_SERVER_AZURE_EDITION: u32 = 407;
-pub const PRODUCT_DATACENTER_SERVER_CORE: u32 = 12;
-pub const PRODUCT_DATACENTER_SERVER_CORE_AZURE_EDITION: u32 = 408;
-pub const PRODUCT_DATACENTER_SERVER_CORE_V: u32 = 39;
-pub const PRODUCT_DATACENTER_SERVER_V: u32 = 37;
-pub const PRODUCT_DATACENTER_WS_SERVER_CORE: u32 = 147;
-pub const PRODUCT_DATACENTER_WS_SERVER_CORE_AZURE_EDITION: u32 = 409;
-pub const PRODUCT_EDUCATION: u32 = 121;
-pub const PRODUCT_EDUCATION_N: u32 = 122;
-pub const PRODUCT_EMBEDDED: u32 = 65;
-pub const PRODUCT_EMBEDDED_A: u32 = 88;
-pub const PRODUCT_EMBEDDED_AUTOMOTIVE: u32 = 85;
-pub const PRODUCT_EMBEDDED_E: u32 = 90;
-pub const PRODUCT_EMBEDDED_EVAL: u32 = 107;
-pub const PRODUCT_EMBEDDED_E_EVAL: u32 = 108;
-pub const PRODUCT_EMBEDDED_INDUSTRY: u32 = 89;
-pub const PRODUCT_EMBEDDED_INDUSTRY_A: u32 = 86;
-pub const PRODUCT_EMBEDDED_INDUSTRY_A_E: u32 = 92;
-pub const PRODUCT_EMBEDDED_INDUSTRY_E: u32 = 91;
-pub const PRODUCT_EMBEDDED_INDUSTRY_EVAL: u32 = 105;
-pub const PRODUCT_EMBEDDED_INDUSTRY_E_EVAL: u32 = 106;
-pub const PRODUCT_ENTERPRISE: u32 = 4;
-pub const PRODUCT_ENTERPRISEG: u32 = 171;
-pub const PRODUCT_ENTERPRISEGN: u32 = 172;
-pub const PRODUCT_ENTERPRISE_E: u32 = 70;
-pub const PRODUCT_ENTERPRISE_EVALUATION: u32 = 72;
-pub const PRODUCT_ENTERPRISE_N: u32 = 27;
-pub const PRODUCT_ENTERPRISE_N_EVALUATION: u32 = 84;
-pub const PRODUCT_ENTERPRISE_S: u32 = 125;
-pub const PRODUCT_ENTERPRISE_SERVER: u32 = 10;
-pub const PRODUCT_ENTERPRISE_SERVER_CORE: u32 = 14;
-pub const PRODUCT_ENTERPRISE_SERVER_CORE_V: u32 = 41;
-pub const PRODUCT_ENTERPRISE_SERVER_IA64: u32 = 15;
-pub const PRODUCT_ENTERPRISE_SERVER_V: u32 = 38;
-pub const PRODUCT_ENTERPRISE_SUBSCRIPTION: u32 = 140;
-pub const PRODUCT_ENTERPRISE_SUBSCRIPTION_N: u32 = 141;
-pub const PRODUCT_ENTERPRISE_S_EVALUATION: u32 = 129;
-pub const PRODUCT_ENTERPRISE_S_N: u32 = 126;
-pub const PRODUCT_ENTERPRISE_S_N_EVALUATION: u32 = 130;
-pub const PRODUCT_ESSENTIALBUSINESS_SERVER_ADDL: u32 = 60;
-pub const PRODUCT_ESSENTIALBUSINESS_SERVER_ADDLSVC: u32 = 62;
-pub const PRODUCT_ESSENTIALBUSINESS_SERVER_MGMT: u32 = 59;
-pub const PRODUCT_ESSENTIALBUSINESS_SERVER_MGMTSVC: u32 = 61;
-pub const PRODUCT_HOLOGRAPHIC: u32 = 135;
-pub const PRODUCT_HOLOGRAPHIC_BUSINESS: u32 = 136;
-pub const PRODUCT_HOME_BASIC: u32 = 2;
-pub const PRODUCT_HOME_BASIC_E: u32 = 67;
-pub const PRODUCT_HOME_BASIC_N: u32 = 5;
-pub const PRODUCT_HOME_PREMIUM: u32 = 3;
-pub const PRODUCT_HOME_PREMIUM_E: u32 = 68;
-pub const PRODUCT_HOME_PREMIUM_N: u32 = 26;
-pub const PRODUCT_HOME_PREMIUM_SERVER: u32 = 34;
-pub const PRODUCT_HOME_SERVER: u32 = 19;
-pub const PRODUCT_HUBOS: u32 = 180;
-pub const PRODUCT_HYPERV: u32 = 42;
-pub const PRODUCT_INDUSTRY_HANDHELD: u32 = 118;
-pub const PRODUCT_IOTEDGEOS: u32 = 187;
-pub const PRODUCT_IOTENTERPRISE: u32 = 188;
-pub const PRODUCT_IOTENTERPRISEK: u32 = 206;
-pub const PRODUCT_IOTENTERPRISES: u32 = 191;
-pub const PRODUCT_IOTENTERPRISESEVAL: u32 = 207;
-pub const PRODUCT_IOTENTERPRISESK: u32 = 205;
-pub const PRODUCT_IOTOS: u32 = 185;
-pub const PRODUCT_IOTUAP: u32 = 123;
-pub const PRODUCT_LITE: u32 = 189;
-pub const PRODUCT_MEDIUMBUSINESS_SERVER_MANAGEMENT: u32 = 30;
-pub const PRODUCT_MEDIUMBUSINESS_SERVER_MESSAGING: u32 = 32;
-pub const PRODUCT_MEDIUMBUSINESS_SERVER_SECURITY: u32 = 31;
-pub const PRODUCT_MULTIPOINT_PREMIUM_SERVER: u32 = 77;
-pub const PRODUCT_MULTIPOINT_STANDARD_SERVER: u32 = 76;
-pub const PRODUCT_NANO_SERVER: u32 = 109;
-pub const PRODUCT_ONECOREUPDATEOS: u32 = 182;
-pub const PRODUCT_PPI_PRO: u32 = 119;
-pub const PRODUCT_PROFESSIONAL: u32 = 48;
-pub const PRODUCT_PROFESSIONAL_E: u32 = 69;
-pub const PRODUCT_PROFESSIONAL_EMBEDDED: u32 = 58;
-pub const PRODUCT_PROFESSIONAL_N: u32 = 49;
-pub const PRODUCT_PROFESSIONAL_S: u32 = 127;
-pub const PRODUCT_PROFESSIONAL_STUDENT: u32 = 112;
-pub const PRODUCT_PROFESSIONAL_STUDENT_N: u32 = 114;
-pub const PRODUCT_PROFESSIONAL_S_N: u32 = 128;
-pub const PRODUCT_PROFESSIONAL_WMC: u32 = 103;
-pub const PRODUCT_PRO_CHINA: u32 = 139;
-pub const PRODUCT_PRO_FOR_EDUCATION: u32 = 164;
-pub const PRODUCT_PRO_FOR_EDUCATION_N: u32 = 165;
-pub const PRODUCT_PRO_SINGLE_LANGUAGE: u32 = 138;
-pub const PRODUCT_PRO_WORKSTATION: u32 = 161;
-pub const PRODUCT_PRO_WORKSTATION_N: u32 = 162;
-pub const PRODUCT_SB_SOLUTION_SERVER: u32 = 50;
-pub const PRODUCT_SB_SOLUTION_SERVER_EM: u32 = 54;
-pub const PRODUCT_SERVERRDSH: u32 = 175;
-pub const PRODUCT_SERVER_FOR_SB_SOLUTIONS: u32 = 51;
-pub const PRODUCT_SERVER_FOR_SB_SOLUTIONS_EM: u32 = 55;
-pub const PRODUCT_SERVER_FOR_SMALLBUSINESS: u32 = 24;
-pub const PRODUCT_SERVER_FOR_SMALLBUSINESS_V: u32 = 35;
-pub const PRODUCT_SERVER_FOUNDATION: u32 = 33;
-pub const PRODUCT_SMALLBUSINESS_SERVER: u32 = 9;
-pub const PRODUCT_SMALLBUSINESS_SERVER_PREMIUM: u32 = 25;
-pub const PRODUCT_SMALLBUSINESS_SERVER_PREMIUM_CORE: u32 = 63;
-pub const PRODUCT_SOLUTION_EMBEDDEDSERVER: u32 = 56;
-pub const PRODUCT_SOLUTION_EMBEDDEDSERVER_CORE: u32 = 57;
-pub const PRODUCT_STANDARD_A_SERVER_CORE: u32 = 146;
-pub const PRODUCT_STANDARD_EVALUATION_SERVER: u32 = 79;
-pub const PRODUCT_STANDARD_EVALUATION_SERVER_CORE: u32 = 160;
-pub const PRODUCT_STANDARD_NANO_SERVER: u32 = 144;
-pub const PRODUCT_STANDARD_SERVER: u32 = 7;
-pub const PRODUCT_STANDARD_SERVER_CORE: u32 = 13;
-pub const PRODUCT_STANDARD_SERVER_CORE_V: u32 = 40;
-pub const PRODUCT_STANDARD_SERVER_SOLUTIONS: u32 = 52;
-pub const PRODUCT_STANDARD_SERVER_SOLUTIONS_CORE: u32 = 53;
-pub const PRODUCT_STANDARD_SERVER_V: u32 = 36;
-pub const PRODUCT_STANDARD_WS_SERVER_CORE: u32 = 148;
-pub const PRODUCT_STARTER: u32 = 11;
-pub const PRODUCT_STARTER_E: u32 = 66;
-pub const PRODUCT_STARTER_N: u32 = 47;
-pub const PRODUCT_STORAGE_ENTERPRISE_SERVER: u32 = 23;
-pub const PRODUCT_STORAGE_ENTERPRISE_SERVER_CORE: u32 = 46;
-pub const PRODUCT_STORAGE_EXPRESS_SERVER: u32 = 20;
-pub const PRODUCT_STORAGE_EXPRESS_SERVER_CORE: u32 = 43;
-pub const PRODUCT_STORAGE_STANDARD_EVALUATION_SERVER: u32 = 96;
-pub const PRODUCT_STORAGE_STANDARD_SERVER: u32 = 21;
-pub const PRODUCT_STORAGE_STANDARD_SERVER_CORE: u32 = 44;
-pub const PRODUCT_STORAGE_WORKGROUP_EVALUATION_SERVER: u32 = 95;
-pub const PRODUCT_STORAGE_WORKGROUP_SERVER: u32 = 22;
-pub const PRODUCT_STORAGE_WORKGROUP_SERVER_CORE: u32 = 45;
-pub const PRODUCT_THINPC: u32 = 87;
-pub const PRODUCT_ULTIMATE: u32 = 1;
-pub const PRODUCT_ULTIMATE_E: u32 = 71;
-pub const PRODUCT_ULTIMATE_N: u32 = 28;
-pub const PRODUCT_UNDEFINED: u32 = 0;
+pub const PROCESS_QUERY_INFORMATION: i32 = 1024;
+pub const PROCESS_QUERY_LIMITED_INFORMATION: i32 = 4096;
+pub const PROCESS_SET_INFORMATION: i32 = 512;
+pub const PROCESS_SET_LIMITED_INFORMATION: i32 = 8192;
+pub const PROCESS_SET_QUOTA: i32 = 256;
+pub const PROCESS_SET_SESSIONID: i32 = 4;
+pub const PROCESS_SUSPEND_RESUME: i32 = 2048;
+pub const PROCESS_TERMINATE: i32 = 1;
+pub const PROCESS_TRUST_LABEL_SECURITY_INFORMATION: i32 = 128;
+pub const PROCESS_VM_OPERATION: i32 = 8;
+pub const PROCESS_VM_READ: i32 = 16;
+pub const PROCESS_VM_WRITE: i32 = 32;
+pub const PROC_IDLE_BUCKET_COUNT: i32 = 6;
+pub const PROC_IDLE_BUCKET_COUNT_EX: i32 = 16;
+pub const PRODUCT_ARM64_SERVER: i32 = 120;
+pub const PRODUCT_AZURESTACKHCI_SERVER_CORE: i32 = 406;
+pub const PRODUCT_AZURE_NANO_SERVER: i32 = 169;
+pub const PRODUCT_AZURE_SERVER_AGENTBRIDGE: i32 = 208;
+pub const PRODUCT_AZURE_SERVER_CLOUDHOST: i32 = 199;
+pub const PRODUCT_AZURE_SERVER_CLOUDMOS: i32 = 200;
+pub const PRODUCT_AZURE_SERVER_CORE: i32 = 168;
+pub const PRODUCT_AZURE_SERVER_NANOHOST: i32 = 209;
+pub const PRODUCT_BUSINESS: i32 = 6;
+pub const PRODUCT_BUSINESS_N: i32 = 16;
+pub const PRODUCT_CLOUD: i32 = 178;
+pub const PRODUCT_CLOUDE: i32 = 183;
+pub const PRODUCT_CLOUDEDITION: i32 = 203;
+pub const PRODUCT_CLOUDEDITIONN: i32 = 202;
+pub const PRODUCT_CLOUDEN: i32 = 186;
+pub const PRODUCT_CLOUDN: i32 = 179;
+pub const PRODUCT_CLOUD_HOST_INFRASTRUCTURE_SERVER: i32 = 124;
+pub const PRODUCT_CLOUD_STORAGE_SERVER: i32 = 110;
+pub const PRODUCT_CLUSTER_SERVER: i32 = 18;
+pub const PRODUCT_CLUSTER_SERVER_V: i32 = 64;
+pub const PRODUCT_CONNECTED_CAR: i32 = 117;
+pub const PRODUCT_CORE: i32 = 101;
+pub const PRODUCT_CORE_ARM: i32 = 97;
+pub const PRODUCT_CORE_CONNECTED: i32 = 111;
+pub const PRODUCT_CORE_CONNECTED_COUNTRYSPECIFIC: i32 = 116;
+pub const PRODUCT_CORE_CONNECTED_N: i32 = 113;
+pub const PRODUCT_CORE_CONNECTED_SINGLELANGUAGE: i32 = 115;
+pub const PRODUCT_CORE_COUNTRYSPECIFIC: i32 = 99;
+pub const PRODUCT_CORE_N: i32 = 98;
+pub const PRODUCT_CORE_SINGLELANGUAGE: i32 = 100;
+pub const PRODUCT_DATACENTER_A_SERVER_CORE: i32 = 145;
+pub const PRODUCT_DATACENTER_EVALUATION_SERVER: i32 = 80;
+pub const PRODUCT_DATACENTER_EVALUATION_SERVER_CORE: i32 = 159;
+pub const PRODUCT_DATACENTER_NANO_SERVER: i32 = 143;
+pub const PRODUCT_DATACENTER_SERVER: i32 = 8;
+pub const PRODUCT_DATACENTER_SERVER_AZURE_EDITION: i32 = 407;
+pub const PRODUCT_DATACENTER_SERVER_CORE: i32 = 12;
+pub const PRODUCT_DATACENTER_SERVER_CORE_AZURE_EDITION: i32 = 408;
+pub const PRODUCT_DATACENTER_SERVER_CORE_V: i32 = 39;
+pub const PRODUCT_DATACENTER_SERVER_V: i32 = 37;
+pub const PRODUCT_DATACENTER_WS_SERVER_CORE: i32 = 147;
+pub const PRODUCT_DATACENTER_WS_SERVER_CORE_AZURE_EDITION: i32 = 409;
+pub const PRODUCT_EDUCATION: i32 = 121;
+pub const PRODUCT_EDUCATION_N: i32 = 122;
+pub const PRODUCT_EMBEDDED: i32 = 65;
+pub const PRODUCT_EMBEDDED_A: i32 = 88;
+pub const PRODUCT_EMBEDDED_AUTOMOTIVE: i32 = 85;
+pub const PRODUCT_EMBEDDED_E: i32 = 90;
+pub const PRODUCT_EMBEDDED_EVAL: i32 = 107;
+pub const PRODUCT_EMBEDDED_E_EVAL: i32 = 108;
+pub const PRODUCT_EMBEDDED_INDUSTRY: i32 = 89;
+pub const PRODUCT_EMBEDDED_INDUSTRY_A: i32 = 86;
+pub const PRODUCT_EMBEDDED_INDUSTRY_A_E: i32 = 92;
+pub const PRODUCT_EMBEDDED_INDUSTRY_E: i32 = 91;
+pub const PRODUCT_EMBEDDED_INDUSTRY_EVAL: i32 = 105;
+pub const PRODUCT_EMBEDDED_INDUSTRY_E_EVAL: i32 = 106;
+pub const PRODUCT_ENTERPRISE: i32 = 4;
+pub const PRODUCT_ENTERPRISEG: i32 = 171;
+pub const PRODUCT_ENTERPRISEGN: i32 = 172;
+pub const PRODUCT_ENTERPRISE_E: i32 = 70;
+pub const PRODUCT_ENTERPRISE_EVALUATION: i32 = 72;
+pub const PRODUCT_ENTERPRISE_N: i32 = 27;
+pub const PRODUCT_ENTERPRISE_N_EVALUATION: i32 = 84;
+pub const PRODUCT_ENTERPRISE_S: i32 = 125;
+pub const PRODUCT_ENTERPRISE_SERVER: i32 = 10;
+pub const PRODUCT_ENTERPRISE_SERVER_CORE: i32 = 14;
+pub const PRODUCT_ENTERPRISE_SERVER_CORE_V: i32 = 41;
+pub const PRODUCT_ENTERPRISE_SERVER_IA64: i32 = 15;
+pub const PRODUCT_ENTERPRISE_SERVER_V: i32 = 38;
+pub const PRODUCT_ENTERPRISE_SUBSCRIPTION: i32 = 140;
+pub const PRODUCT_ENTERPRISE_SUBSCRIPTION_N: i32 = 141;
+pub const PRODUCT_ENTERPRISE_S_EVALUATION: i32 = 129;
+pub const PRODUCT_ENTERPRISE_S_N: i32 = 126;
+pub const PRODUCT_ENTERPRISE_S_N_EVALUATION: i32 = 130;
+pub const PRODUCT_ESSENTIALBUSINESS_SERVER_ADDL: i32 = 60;
+pub const PRODUCT_ESSENTIALBUSINESS_SERVER_ADDLSVC: i32 = 62;
+pub const PRODUCT_ESSENTIALBUSINESS_SERVER_MGMT: i32 = 59;
+pub const PRODUCT_ESSENTIALBUSINESS_SERVER_MGMTSVC: i32 = 61;
+pub const PRODUCT_HOLOGRAPHIC: i32 = 135;
+pub const PRODUCT_HOLOGRAPHIC_BUSINESS: i32 = 136;
+pub const PRODUCT_HOME_BASIC: i32 = 2;
+pub const PRODUCT_HOME_BASIC_E: i32 = 67;
+pub const PRODUCT_HOME_BASIC_N: i32 = 5;
+pub const PRODUCT_HOME_PREMIUM: i32 = 3;
+pub const PRODUCT_HOME_PREMIUM_E: i32 = 68;
+pub const PRODUCT_HOME_PREMIUM_N: i32 = 26;
+pub const PRODUCT_HOME_PREMIUM_SERVER: i32 = 34;
+pub const PRODUCT_HOME_SERVER: i32 = 19;
+pub const PRODUCT_HUBOS: i32 = 180;
+pub const PRODUCT_HYPERV: i32 = 42;
+pub const PRODUCT_INDUSTRY_HANDHELD: i32 = 118;
+pub const PRODUCT_IOTEDGEOS: i32 = 187;
+pub const PRODUCT_IOTENTERPRISE: i32 = 188;
+pub const PRODUCT_IOTENTERPRISEK: i32 = 206;
+pub const PRODUCT_IOTENTERPRISES: i32 = 191;
+pub const PRODUCT_IOTENTERPRISESEVAL: i32 = 207;
+pub const PRODUCT_IOTENTERPRISESK: i32 = 205;
+pub const PRODUCT_IOTOS: i32 = 185;
+pub const PRODUCT_IOTUAP: i32 = 123;
+pub const PRODUCT_LITE: i32 = 189;
+pub const PRODUCT_MEDIUMBUSINESS_SERVER_MANAGEMENT: i32 = 30;
+pub const PRODUCT_MEDIUMBUSINESS_SERVER_MESSAGING: i32 = 32;
+pub const PRODUCT_MEDIUMBUSINESS_SERVER_SECURITY: i32 = 31;
+pub const PRODUCT_MULTIPOINT_PREMIUM_SERVER: i32 = 77;
+pub const PRODUCT_MULTIPOINT_STANDARD_SERVER: i32 = 76;
+pub const PRODUCT_NANO_SERVER: i32 = 109;
+pub const PRODUCT_ONECOREUPDATEOS: i32 = 182;
+pub const PRODUCT_PPI_PRO: i32 = 119;
+pub const PRODUCT_PROFESSIONAL: i32 = 48;
+pub const PRODUCT_PROFESSIONAL_E: i32 = 69;
+pub const PRODUCT_PROFESSIONAL_EMBEDDED: i32 = 58;
+pub const PRODUCT_PROFESSIONAL_N: i32 = 49;
+pub const PRODUCT_PROFESSIONAL_S: i32 = 127;
+pub const PRODUCT_PROFESSIONAL_STUDENT: i32 = 112;
+pub const PRODUCT_PROFESSIONAL_STUDENT_N: i32 = 114;
+pub const PRODUCT_PROFESSIONAL_S_N: i32 = 128;
+pub const PRODUCT_PROFESSIONAL_WMC: i32 = 103;
+pub const PRODUCT_PRO_CHINA: i32 = 139;
+pub const PRODUCT_PRO_FOR_EDUCATION: i32 = 164;
+pub const PRODUCT_PRO_FOR_EDUCATION_N: i32 = 165;
+pub const PRODUCT_PRO_SINGLE_LANGUAGE: i32 = 138;
+pub const PRODUCT_PRO_WORKSTATION: i32 = 161;
+pub const PRODUCT_PRO_WORKSTATION_N: i32 = 162;
+pub const PRODUCT_SB_SOLUTION_SERVER: i32 = 50;
+pub const PRODUCT_SB_SOLUTION_SERVER_EM: i32 = 54;
+pub const PRODUCT_SERVERRDSH: i32 = 175;
+pub const PRODUCT_SERVER_FOR_SB_SOLUTIONS: i32 = 51;
+pub const PRODUCT_SERVER_FOR_SB_SOLUTIONS_EM: i32 = 55;
+pub const PRODUCT_SERVER_FOR_SMALLBUSINESS: i32 = 24;
+pub const PRODUCT_SERVER_FOR_SMALLBUSINESS_V: i32 = 35;
+pub const PRODUCT_SERVER_FOUNDATION: i32 = 33;
+pub const PRODUCT_SMALLBUSINESS_SERVER: i32 = 9;
+pub const PRODUCT_SMALLBUSINESS_SERVER_PREMIUM: i32 = 25;
+pub const PRODUCT_SMALLBUSINESS_SERVER_PREMIUM_CORE: i32 = 63;
+pub const PRODUCT_SOLUTION_EMBEDDEDSERVER: i32 = 56;
+pub const PRODUCT_SOLUTION_EMBEDDEDSERVER_CORE: i32 = 57;
+pub const PRODUCT_STANDARD_A_SERVER_CORE: i32 = 146;
+pub const PRODUCT_STANDARD_EVALUATION_SERVER: i32 = 79;
+pub const PRODUCT_STANDARD_EVALUATION_SERVER_CORE: i32 = 160;
+pub const PRODUCT_STANDARD_NANO_SERVER: i32 = 144;
+pub const PRODUCT_STANDARD_SERVER: i32 = 7;
+pub const PRODUCT_STANDARD_SERVER_CORE: i32 = 13;
+pub const PRODUCT_STANDARD_SERVER_CORE_V: i32 = 40;
+pub const PRODUCT_STANDARD_SERVER_SOLUTIONS: i32 = 52;
+pub const PRODUCT_STANDARD_SERVER_SOLUTIONS_CORE: i32 = 53;
+pub const PRODUCT_STANDARD_SERVER_V: i32 = 36;
+pub const PRODUCT_STANDARD_WS_SERVER_CORE: i32 = 148;
+pub const PRODUCT_STARTER: i32 = 11;
+pub const PRODUCT_STARTER_E: i32 = 66;
+pub const PRODUCT_STARTER_N: i32 = 47;
+pub const PRODUCT_STORAGE_ENTERPRISE_SERVER: i32 = 23;
+pub const PRODUCT_STORAGE_ENTERPRISE_SERVER_CORE: i32 = 46;
+pub const PRODUCT_STORAGE_EXPRESS_SERVER: i32 = 20;
+pub const PRODUCT_STORAGE_EXPRESS_SERVER_CORE: i32 = 43;
+pub const PRODUCT_STORAGE_STANDARD_EVALUATION_SERVER: i32 = 96;
+pub const PRODUCT_STORAGE_STANDARD_SERVER: i32 = 21;
+pub const PRODUCT_STORAGE_STANDARD_SERVER_CORE: i32 = 44;
+pub const PRODUCT_STORAGE_WORKGROUP_EVALUATION_SERVER: i32 = 95;
+pub const PRODUCT_STORAGE_WORKGROUP_SERVER: i32 = 22;
+pub const PRODUCT_STORAGE_WORKGROUP_SERVER_CORE: i32 = 45;
+pub const PRODUCT_THINPC: i32 = 87;
+pub const PRODUCT_ULTIMATE: i32 = 1;
+pub const PRODUCT_ULTIMATE_E: i32 = 71;
+pub const PRODUCT_ULTIMATE_N: i32 = 28;
+pub const PRODUCT_UNDEFINED: i32 = 0;
 pub const PRODUCT_UNLICENSED: u32 = 2882382797;
-pub const PRODUCT_UTILITY_VM: u32 = 149;
-pub const PRODUCT_VALIDATION: u32 = 204;
-pub const PRODUCT_WEB_SERVER: u32 = 17;
-pub const PRODUCT_WEB_SERVER_CORE: u32 = 29;
-pub const PRODUCT_WNC: u32 = 210;
-pub const PRODUCT_XBOX_DURANGOHOSTOS: u32 = 196;
-pub const PRODUCT_XBOX_ERAOS: u32 = 195;
-pub const PRODUCT_XBOX_GAMEOS: u32 = 194;
-pub const PRODUCT_XBOX_KEYSTONE: u32 = 198;
-pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197;
-pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192;
+pub const PRODUCT_UTILITY_VM: i32 = 149;
+pub const PRODUCT_VALIDATION: i32 = 204;
+pub const PRODUCT_WEB_SERVER: i32 = 17;
+pub const PRODUCT_WEB_SERVER_CORE: i32 = 29;
+pub const PRODUCT_WNC: i32 = 210;
+pub const PRODUCT_XBOX_DURANGOHOSTOS: i32 = 196;
+pub const PRODUCT_XBOX_ERAOS: i32 = 195;
+pub const PRODUCT_XBOX_GAMEOS: i32 = 194;
+pub const PRODUCT_XBOX_KEYSTONE: i32 = 198;
+pub const PRODUCT_XBOX_SCARLETTHOSTOS: i32 = 197;
+pub const PRODUCT_XBOX_SYSTEMOS: i32 = 192;
 pub const PROTECTED_DACL_SECURITY_INFORMATION: u32 = 2147483648;
-pub const PROTECTED_SACL_SECURITY_INFORMATION: u32 = 1073741824;
+pub const PROTECTED_SACL_SECURITY_INFORMATION: i32 = 1073741824;
 pub type PRTL_BARRIER = *mut RTL_BARRIER;
 pub type PRTL_CONDITION_VARIABLE = *mut RTL_CONDITION_VARIABLE;
 pub type PRTL_CRITICAL_SECTION = *mut RTL_CRITICAL_SECTION;
@@ -10711,7 +10714,7 @@ pub type PZZSTR = *mut i8;
 pub type PZZTSTR = PZZSTR;
 pub type PZZWSTR = *mut u16;
 #[cfg(target_arch = "x86")]
-pub const PcTeb: u32 = 24;
+pub const PcTeb: i32 = 24;
 pub const PdataCrChained: ARM64_FNPDATA_CR = 3;
 pub const PdataCrChainedWithPac: ARM64_FNPDATA_CR = 2;
 pub const PdataCrUnchained: ARM64_FNPDATA_CR = 0;
@@ -10861,11 +10864,11 @@ impl Default for QUOTA_LIMITS_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const QUOTA_LIMITS_HARDWS_MAX_DISABLE: u32 = 8;
-pub const QUOTA_LIMITS_HARDWS_MAX_ENABLE: u32 = 4;
-pub const QUOTA_LIMITS_HARDWS_MIN_DISABLE: u32 = 2;
-pub const QUOTA_LIMITS_HARDWS_MIN_ENABLE: u32 = 1;
-pub const QUOTA_LIMITS_USE_DEFAULT_LIMITS: u32 = 16;
+pub const QUOTA_LIMITS_HARDWS_MAX_DISABLE: i32 = 8;
+pub const QUOTA_LIMITS_HARDWS_MAX_ENABLE: i32 = 4;
+pub const QUOTA_LIMITS_HARDWS_MIN_DISABLE: i32 = 2;
+pub const QUOTA_LIMITS_HARDWS_MIN_ENABLE: i32 = 1;
+pub const QUOTA_LIMITS_USE_DEFAULT_LIMITS: i32 = 16;
 pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = 91;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10897,9 +10900,9 @@ impl RATE_QUOTA_LIMIT_0 {
         self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
     }
 }
-pub const READ_CONTROL: u32 = 131072;
-pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: u32 = 1;
-pub const READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: u32 = 2;
+pub const READ_CONTROL: i32 = 131072;
+pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: i32 = 1;
+pub const READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REARRANGE_FILE_DATA {
@@ -10919,59 +10922,59 @@ pub struct REARRANGE_FILE_DATA32 {
     pub Length: u32,
     pub Flags: u32,
 }
-pub const REG_APP_HIVE: u32 = 16;
-pub const REG_APP_HIVE_OPEN_READ_ONLY: u32 = 8192;
+pub const REG_APP_HIVE: i32 = 16;
+pub const REG_APP_HIVE_OPEN_READ_ONLY: i32 = 8192;
 pub const REG_BINARY: u32 = 3;
-pub const REG_BOOT_HIVE: u32 = 1024;
-pub const REG_CREATED_NEW_KEY: u32 = 1;
+pub const REG_BOOT_HIVE: i32 = 1024;
+pub const REG_CREATED_NEW_KEY: i32 = 1;
 pub const REG_DWORD: u32 = 4;
 pub const REG_DWORD_BIG_ENDIAN: u32 = 5;
 pub const REG_DWORD_LITTLE_ENDIAN: u32 = 4;
 pub const REG_EXPAND_SZ: u32 = 2;
-pub const REG_FLUSH_HIVE_FILE_GROWTH: u32 = 4096;
-pub const REG_FORCE_RESTORE: u32 = 8;
-pub const REG_FORCE_UNLOAD: u32 = 1;
+pub const REG_FLUSH_HIVE_FILE_GROWTH: i32 = 4096;
+pub const REG_FORCE_RESTORE: i32 = 8;
+pub const REG_FORCE_UNLOAD: i32 = 1;
 pub const REG_FULL_RESOURCE_DESCRIPTOR: u32 = 9;
-pub const REG_HIVE_EXACT_FILE_GROWTH: u32 = 128;
-pub const REG_HIVE_NO_RM: u32 = 256;
-pub const REG_HIVE_SINGLE_LOG: u32 = 512;
-pub const REG_IMMUTABLE: u32 = 16384;
-pub const REG_LATEST_FORMAT: u32 = 2;
-pub const REG_LEGAL_CHANGE_FILTER: u32 = 268435471;
-pub const REG_LEGAL_OPTION: u32 = 31;
+pub const REG_HIVE_EXACT_FILE_GROWTH: i32 = 128;
+pub const REG_HIVE_NO_RM: i32 = 256;
+pub const REG_HIVE_SINGLE_LOG: i32 = 512;
+pub const REG_IMMUTABLE: i32 = 16384;
+pub const REG_LATEST_FORMAT: i32 = 2;
+pub const REG_LEGAL_CHANGE_FILTER: i32 = 268435471;
+pub const REG_LEGAL_OPTION: i32 = 31;
 pub const REG_LINK: u32 = 6;
-pub const REG_LOAD_HIVE_OPEN_HANDLE: u32 = 2048;
+pub const REG_LOAD_HIVE_OPEN_HANDLE: i32 = 2048;
 pub const REG_MULTI_SZ: u32 = 7;
 pub const REG_NONE: u32 = 0;
-pub const REG_NOTIFY_CHANGE_ATTRIBUTES: u32 = 2;
-pub const REG_NOTIFY_CHANGE_LAST_SET: u32 = 4;
-pub const REG_NOTIFY_CHANGE_NAME: u32 = 1;
-pub const REG_NOTIFY_CHANGE_SECURITY: u32 = 8;
-pub const REG_NOTIFY_THREAD_AGNOSTIC: u32 = 268435456;
-pub const REG_NO_COMPRESSION: u32 = 4;
-pub const REG_NO_IMPERSONATION_FALLBACK: u32 = 32768;
-pub const REG_NO_LAZY_FLUSH: u32 = 4;
-pub const REG_OPENED_EXISTING_KEY: u32 = 2;
-pub const REG_OPEN_LEGAL_OPTION: u32 = 28;
-pub const REG_OPEN_READ_ONLY: u32 = 8192;
-pub const REG_OPTION_BACKUP_RESTORE: u32 = 4;
-pub const REG_OPTION_CREATE_LINK: u32 = 2;
-pub const REG_OPTION_DONT_VIRTUALIZE: u32 = 16;
-pub const REG_OPTION_NON_VOLATILE: u32 = 0;
-pub const REG_OPTION_OPEN_LINK: u32 = 8;
-pub const REG_OPTION_RESERVED: u32 = 0;
-pub const REG_OPTION_VOLATILE: u32 = 1;
-pub const REG_PROCESS_PRIVATE: u32 = 32;
+pub const REG_NOTIFY_CHANGE_ATTRIBUTES: i32 = 2;
+pub const REG_NOTIFY_CHANGE_LAST_SET: i32 = 4;
+pub const REG_NOTIFY_CHANGE_NAME: i32 = 1;
+pub const REG_NOTIFY_CHANGE_SECURITY: i32 = 8;
+pub const REG_NOTIFY_THREAD_AGNOSTIC: i32 = 268435456;
+pub const REG_NO_COMPRESSION: i32 = 4;
+pub const REG_NO_IMPERSONATION_FALLBACK: i32 = 32768;
+pub const REG_NO_LAZY_FLUSH: i32 = 4;
+pub const REG_OPENED_EXISTING_KEY: i32 = 2;
+pub const REG_OPEN_LEGAL_OPTION: i32 = 28;
+pub const REG_OPEN_READ_ONLY: i32 = 8192;
+pub const REG_OPTION_BACKUP_RESTORE: i32 = 4;
+pub const REG_OPTION_CREATE_LINK: i32 = 2;
+pub const REG_OPTION_DONT_VIRTUALIZE: i32 = 16;
+pub const REG_OPTION_NON_VOLATILE: i32 = 0;
+pub const REG_OPTION_OPEN_LINK: i32 = 8;
+pub const REG_OPTION_RESERVED: i32 = 0;
+pub const REG_OPTION_VOLATILE: i32 = 1;
+pub const REG_PROCESS_PRIVATE: i32 = 32;
 pub const REG_QWORD: u32 = 11;
 pub const REG_QWORD_LITTLE_ENDIAN: u32 = 11;
-pub const REG_REFRESH_HIVE: u32 = 2;
+pub const REG_REFRESH_HIVE: i32 = 2;
 pub const REG_RESOURCE_LIST: u32 = 8;
 pub const REG_RESOURCE_REQUIREMENTS_LIST: u32 = 10;
-pub const REG_STANDARD_FORMAT: u32 = 1;
-pub const REG_START_JOURNAL: u32 = 64;
+pub const REG_STANDARD_FORMAT: i32 = 1;
+pub const REG_START_JOURNAL: i32 = 64;
 pub const REG_SZ: u32 = 1;
-pub const REG_UNLOAD_LEGAL_FLAGS: u32 = 1;
-pub const REG_WHOLE_HIVE_VOLATILE: u32 = 1;
+pub const REG_UNLOAD_LEGAL_FLAGS: i32 = 1;
+pub const REG_WHOLE_HIVE_VOLATILE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER {
@@ -10992,7 +10995,7 @@ impl Default for REPARSE_GUID_DATA_BUFFER_0 {
     }
 }
 pub const REPARSE_GUID_DATA_BUFFER_HEADER_SIZE: u32 = 24;
-pub const RESOURCEMANAGER_ALL_ACCESS: u32 = 2031743;
+pub const RESOURCEMANAGER_ALL_ACCESS: i32 = 2031743;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_BASIC_INFORMATION {
@@ -11005,23 +11008,23 @@ impl Default for RESOURCEMANAGER_BASIC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RESOURCEMANAGER_COMPLETE_PROPAGATION: u32 = 64;
+pub const RESOURCEMANAGER_COMPLETE_PROPAGATION: i32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
     pub IoCompletionPortHandle: HANDLE,
     pub CompletionKey: usize,
 }
-pub const RESOURCEMANAGER_ENLIST: u32 = 8;
-pub const RESOURCEMANAGER_GENERIC_EXECUTE: u32 = 1179740;
-pub const RESOURCEMANAGER_GENERIC_READ: u32 = 1179649;
-pub const RESOURCEMANAGER_GENERIC_WRITE: u32 = 1179774;
-pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16;
+pub const RESOURCEMANAGER_ENLIST: i32 = 8;
+pub const RESOURCEMANAGER_GENERIC_EXECUTE: i32 = 1179740;
+pub const RESOURCEMANAGER_GENERIC_READ: i32 = 1179649;
+pub const RESOURCEMANAGER_GENERIC_WRITE: i32 = 1179774;
+pub const RESOURCEMANAGER_GET_NOTIFICATION: i32 = 16;
 pub type RESOURCEMANAGER_INFORMATION_CLASS = i32;
-pub const RESOURCEMANAGER_QUERY_INFORMATION: u32 = 1;
-pub const RESOURCEMANAGER_RECOVER: u32 = 4;
-pub const RESOURCEMANAGER_REGISTER_PROTOCOL: u32 = 32;
-pub const RESOURCEMANAGER_SET_INFORMATION: u32 = 2;
+pub const RESOURCEMANAGER_QUERY_INFORMATION: i32 = 1;
+pub const RESOURCEMANAGER_RECOVER: i32 = 4;
+pub const RESOURCEMANAGER_REGISTER_PROTOCOL: i32 = 32;
+pub const RESOURCEMANAGER_SET_INFORMATION: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESUME_PERFORMANCE {
@@ -11053,12 +11056,12 @@ impl Default for RTL_CONDITION_VARIABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RTL_CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1;
-pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129;
-pub const RTL_CORRELATION_VECTOR_V1_LENGTH: u32 = 64;
-pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: u32 = 16;
-pub const RTL_CORRELATION_VECTOR_V2_LENGTH: u32 = 128;
-pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: u32 = 22;
+pub const RTL_CONDITION_VARIABLE_LOCKMODE_SHARED: i32 = 1;
+pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: i32 = 129;
+pub const RTL_CORRELATION_VECTOR_V1_LENGTH: i32 = 64;
+pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: i32 = 16;
+pub const RTL_CORRELATION_VECTOR_V2_LENGTH: i32 = 128;
+pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: i32 = 22;
 pub const RTL_CORRELATION_VECTOR_VERSION_1: i8 = 1;
 pub const RTL_CORRELATION_VECTOR_VERSION_2: i8 = 2;
 pub const RTL_CORRELATION_VECTOR_VERSION_CURRENT: u32 = 2;
@@ -11091,13 +11094,13 @@ impl Default for RTL_CRITICAL_SECTION_DEBUG {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: u32 = 1;
-pub const RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN: u32 = 33554432;
-pub const RTL_CRITICAL_SECTION_FLAG_FORCE_DEBUG_INFO: u32 = 268435456;
-pub const RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO: u32 = 16777216;
-pub const RTL_CRITICAL_SECTION_FLAG_RESERVED: i32 = -536870912;
-pub const RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE: u32 = 134217728;
-pub const RTL_CRITICAL_SECTION_FLAG_STATIC_INIT: u32 = 67108864;
+pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: i32 = 1;
+pub const RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN: i32 = 33554432;
+pub const RTL_CRITICAL_SECTION_FLAG_FORCE_DEBUG_INFO: i32 = 268435456;
+pub const RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO: i32 = 16777216;
+pub const RTL_CRITICAL_SECTION_FLAG_RESERVED: u32 = 3758096384;
+pub const RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE: i32 = 134217728;
+pub const RTL_CRITICAL_SECTION_FLAG_STATIC_INIT: i32 = 67108864;
 pub type RTL_OSVERSIONINFOEXW = OSVERSIONINFOEXW;
 pub type RTL_OSVERSIONINFOW = OSVERSIONINFOW;
 #[repr(transparent)]
@@ -11119,7 +11122,7 @@ impl Default for RTL_RUN_ONCE {
 }
 pub const RTL_RUN_ONCE_ASYNC: u32 = 2;
 pub const RTL_RUN_ONCE_CHECK_ONLY: u32 = 1;
-pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: u32 = 2;
+pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: i32 = 2;
 pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -11135,7 +11138,7 @@ pub type RTL_SYSTEM_GLOBAL_DATA_ID = i32;
 pub type RTL_UMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
 pub type RTL_UMS_SCHEDULER_REASON = i32;
 pub type RTL_UMS_THREAD_INFO_CLASS = i32;
-pub const RTL_UMS_VERSION: u32 = 256;
+pub const RTL_UMS_VERSION: i32 = 256;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -11167,7 +11170,7 @@ impl Default for RUNTIME_FUNCTION_0 {
 #[cfg(target_arch = "aarch64")]
 pub type RUNTIME_FUNCTION = ARM64_RUNTIME_FUNCTION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1;
+pub const RUNTIME_FUNCTION_INDIRECT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_DIGEST_HEADER {
@@ -11180,7 +11183,7 @@ impl Default for RUNTIME_REPORT_DIGEST_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RUNTIME_REPORT_DIGEST_MAX_SIZE: u32 = 64;
+pub const RUNTIME_REPORT_DIGEST_MAX_SIZE: i32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_HEADER {
@@ -11188,7 +11191,7 @@ pub struct RUNTIME_REPORT_HEADER {
     pub Reserved: u16,
     pub ReportSize: u32,
 }
-pub const RUNTIME_REPORT_NONCE_SIZE: u32 = 32;
+pub const RUNTIME_REPORT_NONCE_SIZE: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_PACKAGE_HEADER {
@@ -11204,11 +11207,11 @@ pub struct RUNTIME_REPORT_PACKAGE_HEADER {
     pub SignatureSize: u32,
     pub TotalAuthenticatedReportsSize: u32,
 }
-pub const RUNTIME_REPORT_PACKAGE_MAGIC: u32 = 1381257808;
-pub const RUNTIME_REPORT_PACKAGE_VERSION_CURRENT: u32 = 1;
-pub const RUNTIME_REPORT_SIGNATURE_SCHEME_SHA512_RSA_PSS_SHA512: u32 = 1;
+pub const RUNTIME_REPORT_PACKAGE_MAGIC: i32 = 1381257808;
+pub const RUNTIME_REPORT_PACKAGE_VERSION_CURRENT: i32 = 1;
+pub const RUNTIME_REPORT_SIGNATURE_SCHEME_SHA512_RSA_PSS_SHA512: i32 = 1;
 pub type RUNTIME_REPORT_TYPE = i32;
-pub const RUNTIME_REPORT_TYPE_MASK_ALL: u32 = 3;
+pub const RUNTIME_REPORT_TYPE_MASK_ALL: u64 = 3;
 pub const RecognizerType: SERVICE_NODE_TYPE = 8;
 pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = 79;
 pub const RelationAll: LOGICAL_PROCESSOR_RELATIONSHIP = 65535;
@@ -11228,9 +11231,9 @@ pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS 
 pub const RuntimeReportTypeCodeIntegrity: RUNTIME_REPORT_TYPE = 1;
 pub const RuntimeReportTypeDriver: RUNTIME_REPORT_TYPE = 0;
 pub const RuntimeReportTypeMax: RUNTIME_REPORT_TYPE = 2;
-pub const SACL_SECURITY_INFORMATION: u32 = 8;
-pub const SANDBOX_INERT: u32 = 2;
-pub const SCOPE_SECURITY_INFORMATION: u32 = 64;
+pub const SACL_SECURITY_INFORMATION: i32 = 8;
+pub const SANDBOX_INERT: i32 = 2;
+pub const SCOPE_SECURITY_INFORMATION: i32 = 64;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type SCOPE_TABLE = SCOPE_TABLE_AMD64;
 #[cfg(target_arch = "aarch64")]
@@ -11309,13 +11312,13 @@ impl Default for SCRUB_DATA_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCRUB_DATA_INPUT_FLAG_IGNORE_REDUNDANCY: u32 = 8;
-pub const SCRUB_DATA_INPUT_FLAG_OPLOCK_NOT_ACQUIRED: u32 = 64;
-pub const SCRUB_DATA_INPUT_FLAG_RESUME: u32 = 1;
-pub const SCRUB_DATA_INPUT_FLAG_SCRUB_BY_OBJECT_ID: u32 = 32;
-pub const SCRUB_DATA_INPUT_FLAG_SKIP_DATA: u32 = 16;
-pub const SCRUB_DATA_INPUT_FLAG_SKIP_IN_SYNC: u32 = 2;
-pub const SCRUB_DATA_INPUT_FLAG_SKIP_NON_INTEGRITY_DATA: u32 = 4;
+pub const SCRUB_DATA_INPUT_FLAG_IGNORE_REDUNDANCY: i32 = 8;
+pub const SCRUB_DATA_INPUT_FLAG_OPLOCK_NOT_ACQUIRED: i32 = 64;
+pub const SCRUB_DATA_INPUT_FLAG_RESUME: i32 = 1;
+pub const SCRUB_DATA_INPUT_FLAG_SCRUB_BY_OBJECT_ID: i32 = 32;
+pub const SCRUB_DATA_INPUT_FLAG_SKIP_DATA: i32 = 16;
+pub const SCRUB_DATA_INPUT_FLAG_SKIP_IN_SYNC: i32 = 2;
+pub const SCRUB_DATA_INPUT_FLAG_SKIP_NON_INTEGRITY_DATA: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_DATA_OUTPUT {
@@ -11351,10 +11354,10 @@ impl Default for SCRUB_DATA_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCRUB_DATA_OUTPUT_FLAG_INCOMPLETE: u32 = 1;
-pub const SCRUB_DATA_OUTPUT_FLAG_NON_USER_DATA_RANGE: u32 = 65536;
-pub const SCRUB_DATA_OUTPUT_FLAG_PARITY_EXTENT_DATA_RETURNED: u32 = 131072;
-pub const SCRUB_DATA_OUTPUT_FLAG_RESUME_CONTEXT_LENGTH_SPECIFIED: u32 = 262144;
+pub const SCRUB_DATA_OUTPUT_FLAG_INCOMPLETE: i32 = 1;
+pub const SCRUB_DATA_OUTPUT_FLAG_NON_USER_DATA_RANGE: i32 = 65536;
+pub const SCRUB_DATA_OUTPUT_FLAG_PARITY_EXTENT_DATA_RETURNED: i32 = 131072;
+pub const SCRUB_DATA_OUTPUT_FLAG_RESUME_CONTEXT_LENGTH_SPECIFIED: i32 = 262144;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRUB_PARITY_EXTENT {
@@ -11375,33 +11378,33 @@ impl Default for SCRUB_PARITY_EXTENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SECTION_ALL_ACCESS: u32 = 983071;
-pub const SECTION_EXTEND_SIZE: u32 = 16;
-pub const SECTION_MAP_EXECUTE: u32 = 8;
-pub const SECTION_MAP_EXECUTE_EXPLICIT: u32 = 32;
-pub const SECTION_MAP_READ: u32 = 4;
-pub const SECTION_MAP_WRITE: u32 = 2;
-pub const SECTION_QUERY: u32 = 1;
-pub const SECURITY_AGENTIC_PLATFORM_BASE_RID: u32 = 101;
-pub const SECURITY_ANONYMOUS_LOGON_RID: u32 = 7;
-pub const SECURITY_APPPOOL_ID_BASE_RID: u32 = 82;
-pub const SECURITY_APPPOOL_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_APP_PACKAGE_BASE_RID: u32 = 2;
-pub const SECURITY_APP_PACKAGE_RID_COUNT: u32 = 8;
-pub const SECURITY_AUTHENTICATED_USER_RID: u32 = 11;
-pub const SECURITY_AUTHENTICATION_AUTHORITY_ASSERTED_RID: u32 = 1;
-pub const SECURITY_AUTHENTICATION_AUTHORITY_RID_COUNT: u32 = 1;
-pub const SECURITY_AUTHENTICATION_FRESH_KEY_AUTH_RID: u32 = 3;
-pub const SECURITY_AUTHENTICATION_KEY_PROPERTY_ATTESTATION_RID: u32 = 6;
-pub const SECURITY_AUTHENTICATION_KEY_PROPERTY_MFA_RID: u32 = 5;
-pub const SECURITY_AUTHENTICATION_KEY_TRUST_RID: u32 = 4;
-pub const SECURITY_AUTHENTICATION_SERVICE_ASSERTED_RID: u32 = 2;
-pub const SECURITY_BATCH_RID: u32 = 3;
-pub const SECURITY_BUILTIN_APP_PACKAGE_RID_COUNT: u32 = 2;
-pub const SECURITY_BUILTIN_CAPABILITY_RID_COUNT: u32 = 2;
-pub const SECURITY_BUILTIN_DOMAIN_RID: u32 = 32;
-pub const SECURITY_BUILTIN_PACKAGE_ANY_PACKAGE: u32 = 1;
-pub const SECURITY_BUILTIN_PACKAGE_ANY_RESTRICTED_PACKAGE: u32 = 2;
+pub const SECTION_ALL_ACCESS: i32 = 983071;
+pub const SECTION_EXTEND_SIZE: i32 = 16;
+pub const SECTION_MAP_EXECUTE: i32 = 8;
+pub const SECTION_MAP_EXECUTE_EXPLICIT: i32 = 32;
+pub const SECTION_MAP_READ: i32 = 4;
+pub const SECTION_MAP_WRITE: i32 = 2;
+pub const SECTION_QUERY: i32 = 1;
+pub const SECURITY_AGENTIC_PLATFORM_BASE_RID: i32 = 101;
+pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7;
+pub const SECURITY_APPPOOL_ID_BASE_RID: i32 = 82;
+pub const SECURITY_APPPOOL_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_APP_PACKAGE_BASE_RID: i32 = 2;
+pub const SECURITY_APP_PACKAGE_RID_COUNT: i32 = 8;
+pub const SECURITY_AUTHENTICATED_USER_RID: i32 = 11;
+pub const SECURITY_AUTHENTICATION_AUTHORITY_ASSERTED_RID: i32 = 1;
+pub const SECURITY_AUTHENTICATION_AUTHORITY_RID_COUNT: i32 = 1;
+pub const SECURITY_AUTHENTICATION_FRESH_KEY_AUTH_RID: i32 = 3;
+pub const SECURITY_AUTHENTICATION_KEY_PROPERTY_ATTESTATION_RID: i32 = 6;
+pub const SECURITY_AUTHENTICATION_KEY_PROPERTY_MFA_RID: i32 = 5;
+pub const SECURITY_AUTHENTICATION_KEY_TRUST_RID: i32 = 4;
+pub const SECURITY_AUTHENTICATION_SERVICE_ASSERTED_RID: i32 = 2;
+pub const SECURITY_BATCH_RID: i32 = 3;
+pub const SECURITY_BUILTIN_APP_PACKAGE_RID_COUNT: i32 = 2;
+pub const SECURITY_BUILTIN_CAPABILITY_RID_COUNT: i32 = 2;
+pub const SECURITY_BUILTIN_DOMAIN_RID: i32 = 32;
+pub const SECURITY_BUILTIN_PACKAGE_ANY_PACKAGE: i32 = 1;
+pub const SECURITY_BUILTIN_PACKAGE_ANY_RESTRICTED_PACKAGE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_CAPABILITIES {
@@ -11410,41 +11413,41 @@ pub struct SECURITY_CAPABILITIES {
     pub CapabilityCount: u32,
     pub Reserved: u32,
 }
-pub const SECURITY_CAPABILITY_APPOINTMENTS: u32 = 11;
-pub const SECURITY_CAPABILITY_APP_RID: u32 = 1024;
-pub const SECURITY_CAPABILITY_APP_SILO_RID: u32 = 65536;
-pub const SECURITY_CAPABILITY_BASE_RID: u32 = 3;
-pub const SECURITY_CAPABILITY_CONTACTS: u32 = 12;
-pub const SECURITY_CAPABILITY_DOCUMENTS_LIBRARY: u32 = 7;
-pub const SECURITY_CAPABILITY_ENTERPRISE_AUTHENTICATION: u32 = 8;
-pub const SECURITY_CAPABILITY_INTERNET_CLIENT: u32 = 1;
-pub const SECURITY_CAPABILITY_INTERNET_CLIENT_SERVER: u32 = 2;
-pub const SECURITY_CAPABILITY_INTERNET_EXPLORER: u32 = 4096;
-pub const SECURITY_CAPABILITY_MUSIC_LIBRARY: u32 = 6;
-pub const SECURITY_CAPABILITY_PICTURES_LIBRARY: u32 = 4;
-pub const SECURITY_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: u32 = 3;
-pub const SECURITY_CAPABILITY_REMOVABLE_STORAGE: u32 = 10;
-pub const SECURITY_CAPABILITY_RID_COUNT: u32 = 5;
-pub const SECURITY_CAPABILITY_SHARED_USER_CERTIFICATES: u32 = 9;
-pub const SECURITY_CAPABILITY_VIDEOS_LIBRARY: u32 = 5;
-pub const SECURITY_CCG_ID_BASE_RID: u32 = 95;
-pub const SECURITY_CHILD_PACKAGE_RID_COUNT: u32 = 12;
-pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: u32 = 85;
-pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_COM_ID_BASE_RID: u32 = 89;
+pub const SECURITY_CAPABILITY_APPOINTMENTS: i32 = 11;
+pub const SECURITY_CAPABILITY_APP_RID: i32 = 1024;
+pub const SECURITY_CAPABILITY_APP_SILO_RID: i32 = 65536;
+pub const SECURITY_CAPABILITY_BASE_RID: i32 = 3;
+pub const SECURITY_CAPABILITY_CONTACTS: i32 = 12;
+pub const SECURITY_CAPABILITY_DOCUMENTS_LIBRARY: i32 = 7;
+pub const SECURITY_CAPABILITY_ENTERPRISE_AUTHENTICATION: i32 = 8;
+pub const SECURITY_CAPABILITY_INTERNET_CLIENT: i32 = 1;
+pub const SECURITY_CAPABILITY_INTERNET_CLIENT_SERVER: i32 = 2;
+pub const SECURITY_CAPABILITY_INTERNET_EXPLORER: i32 = 4096;
+pub const SECURITY_CAPABILITY_MUSIC_LIBRARY: i32 = 6;
+pub const SECURITY_CAPABILITY_PICTURES_LIBRARY: i32 = 4;
+pub const SECURITY_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: i32 = 3;
+pub const SECURITY_CAPABILITY_REMOVABLE_STORAGE: i32 = 10;
+pub const SECURITY_CAPABILITY_RID_COUNT: i32 = 5;
+pub const SECURITY_CAPABILITY_SHARED_USER_CERTIFICATES: i32 = 9;
+pub const SECURITY_CAPABILITY_VIDEOS_LIBRARY: i32 = 5;
+pub const SECURITY_CCG_ID_BASE_RID: i32 = 95;
+pub const SECURITY_CHILD_PACKAGE_RID_COUNT: i32 = 12;
+pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: i32 = 85;
+pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_COM_ID_BASE_RID: i32 = 89;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SECURITY_CONTEXT_TRACKING_MODE(pub bool);
-pub const SECURITY_CREATOR_GROUP_RID: u32 = 1;
-pub const SECURITY_CREATOR_GROUP_SERVER_RID: u32 = 3;
-pub const SECURITY_CREATOR_OWNER_RID: u32 = 0;
-pub const SECURITY_CREATOR_OWNER_RIGHTS_RID: u32 = 4;
-pub const SECURITY_CREATOR_OWNER_SERVER_RID: u32 = 2;
-pub const SECURITY_CRED_TYPE_BASE_RID: u32 = 65;
-pub const SECURITY_CRED_TYPE_RID_COUNT: u32 = 2;
-pub const SECURITY_CRED_TYPE_THIS_ORG_CERT_RID: u32 = 1;
-pub const SECURITY_DASHOST_ID_BASE_RID: u32 = 92;
-pub const SECURITY_DASHOST_ID_RID_COUNT: u32 = 6;
+pub const SECURITY_CREATOR_GROUP_RID: i32 = 1;
+pub const SECURITY_CREATOR_GROUP_SERVER_RID: i32 = 3;
+pub const SECURITY_CREATOR_OWNER_RID: i32 = 0;
+pub const SECURITY_CREATOR_OWNER_RIGHTS_RID: i32 = 4;
+pub const SECURITY_CREATOR_OWNER_SERVER_RID: i32 = 2;
+pub const SECURITY_CRED_TYPE_BASE_RID: i32 = 65;
+pub const SECURITY_CRED_TYPE_RID_COUNT: i32 = 2;
+pub const SECURITY_CRED_TYPE_THIS_ORG_CERT_RID: i32 = 1;
+pub const SECURITY_DASHOST_ID_BASE_RID: i32 = 92;
+pub const SECURITY_DASHOST_ID_RID_COUNT: i32 = 6;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR {
@@ -11470,77 +11473,77 @@ pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Sacl: u32,
     pub Dacl: u32,
 }
-pub const SECURITY_DESCRIPTOR_REVISION: u32 = 1;
-pub const SECURITY_DESCRIPTOR_REVISION1: u32 = 1;
-pub const SECURITY_DIALUP_RID: u32 = 1;
-pub const SECURITY_DYNAMIC_TRACKING: u32 = 1;
-pub const SECURITY_EDGE_CLOUD_INFRASTRUCTURE_SERVICE_ID_BASE_RID: u32 = 98;
-pub const SECURITY_ENTERPRISE_CONTROLLERS_RID: u32 = 9;
-pub const SECURITY_ENTERPRISE_READONLY_CONTROLLERS_RID: u32 = 22;
+pub const SECURITY_DESCRIPTOR_REVISION: i32 = 1;
+pub const SECURITY_DESCRIPTOR_REVISION1: i32 = 1;
+pub const SECURITY_DIALUP_RID: i32 = 1;
+pub const SECURITY_DYNAMIC_TRACKING: i32 = 1;
+pub const SECURITY_EDGE_CLOUD_INFRASTRUCTURE_SERVICE_ID_BASE_RID: i32 = 98;
+pub const SECURITY_ENTERPRISE_CONTROLLERS_RID: i32 = 9;
+pub const SECURITY_ENTERPRISE_READONLY_CONTROLLERS_RID: i32 = 22;
 pub type SECURITY_IMPERSONATION_LEVEL = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SECURITY_INFORMATION(pub u32);
-pub const SECURITY_INSTALLER_CAPABILITY_RID_COUNT: u32 = 10;
-pub const SECURITY_INSTALLER_GROUP_CAPABILITY_BASE: u32 = 32;
-pub const SECURITY_INSTALLER_GROUP_CAPABILITY_RID_COUNT: u32 = 9;
-pub const SECURITY_INTERACTIVE_RID: u32 = 4;
-pub const SECURITY_IUSER_RID: u32 = 17;
-pub const SECURITY_LOCAL_ACCOUNT_AND_ADMIN_RID: u32 = 114;
-pub const SECURITY_LOCAL_ACCOUNT_RID: u32 = 113;
-pub const SECURITY_LOCAL_LOGON_RID: u32 = 1;
-pub const SECURITY_LOCAL_RID: u32 = 0;
-pub const SECURITY_LOCAL_SERVICE_RID: u32 = 19;
-pub const SECURITY_LOCAL_SYSTEM_RID: u32 = 18;
-pub const SECURITY_LOGON_IDS_RID: u32 = 5;
-pub const SECURITY_LOGON_IDS_RID_COUNT: u32 = 3;
-pub const SECURITY_MANDATORY_HIGH_RID: u32 = 12288;
-pub const SECURITY_MANDATORY_LOW_RID: u32 = 4096;
-pub const SECURITY_MANDATORY_MAXIMUM_USER_RID: u32 = 16384;
-pub const SECURITY_MANDATORY_MEDIUM_PLUS_CREDUI_RID: u32 = 8202;
-pub const SECURITY_MANDATORY_MEDIUM_PLUS_RID: u32 = 8448;
-pub const SECURITY_MANDATORY_MEDIUM_RID: u32 = 8192;
-pub const SECURITY_MANDATORY_PROTECTED_PROCESS_RID: u32 = 20480;
-pub const SECURITY_MANDATORY_SYSTEM_RID: u32 = 16384;
-pub const SECURITY_MANDATORY_UNTRUSTED_RID: u32 = 0;
-pub const SECURITY_MAX_ALWAYS_FILTERED: u32 = 999;
-pub const SECURITY_MAX_BASE_RID: u32 = 111;
-pub const SECURITY_MAX_IMPERSONATION_LEVEL: u32 = 3;
-pub const SECURITY_MAX_SID_STRING_CHARACTERS: u32 = 187;
-pub const SECURITY_MIN_BASE_RID: u32 = 80;
-pub const SECURITY_MIN_IMPERSONATION_LEVEL: u32 = 0;
-pub const SECURITY_MIN_NEVER_FILTERED: u32 = 1000;
-pub const SECURITY_NETWORK_RID: u32 = 2;
-pub const SECURITY_NETWORK_SERVICE_RID: u32 = 20;
-pub const SECURITY_NFS_ID_BASE_RID: u32 = 88;
-pub const SECURITY_NT_NON_UNIQUE: u32 = 21;
-pub const SECURITY_NT_NON_UNIQUE_SUB_AUTH_COUNT: u32 = 3;
-pub const SECURITY_NULL_RID: u32 = 0;
+pub const SECURITY_INSTALLER_CAPABILITY_RID_COUNT: i32 = 10;
+pub const SECURITY_INSTALLER_GROUP_CAPABILITY_BASE: i32 = 32;
+pub const SECURITY_INSTALLER_GROUP_CAPABILITY_RID_COUNT: i32 = 9;
+pub const SECURITY_INTERACTIVE_RID: i32 = 4;
+pub const SECURITY_IUSER_RID: i32 = 17;
+pub const SECURITY_LOCAL_ACCOUNT_AND_ADMIN_RID: i32 = 114;
+pub const SECURITY_LOCAL_ACCOUNT_RID: i32 = 113;
+pub const SECURITY_LOCAL_LOGON_RID: i32 = 1;
+pub const SECURITY_LOCAL_RID: i32 = 0;
+pub const SECURITY_LOCAL_SERVICE_RID: i32 = 19;
+pub const SECURITY_LOCAL_SYSTEM_RID: i32 = 18;
+pub const SECURITY_LOGON_IDS_RID: i32 = 5;
+pub const SECURITY_LOGON_IDS_RID_COUNT: i32 = 3;
+pub const SECURITY_MANDATORY_HIGH_RID: i32 = 12288;
+pub const SECURITY_MANDATORY_LOW_RID: i32 = 4096;
+pub const SECURITY_MANDATORY_MAXIMUM_USER_RID: i32 = 16384;
+pub const SECURITY_MANDATORY_MEDIUM_PLUS_CREDUI_RID: i32 = 8202;
+pub const SECURITY_MANDATORY_MEDIUM_PLUS_RID: i32 = 8448;
+pub const SECURITY_MANDATORY_MEDIUM_RID: i32 = 8192;
+pub const SECURITY_MANDATORY_PROTECTED_PROCESS_RID: i32 = 20480;
+pub const SECURITY_MANDATORY_SYSTEM_RID: i32 = 16384;
+pub const SECURITY_MANDATORY_UNTRUSTED_RID: i32 = 0;
+pub const SECURITY_MAX_ALWAYS_FILTERED: i32 = 999;
+pub const SECURITY_MAX_BASE_RID: i32 = 111;
+pub const SECURITY_MAX_IMPERSONATION_LEVEL: i32 = 3;
+pub const SECURITY_MAX_SID_STRING_CHARACTERS: i32 = 187;
+pub const SECURITY_MIN_BASE_RID: i32 = 80;
+pub const SECURITY_MIN_IMPERSONATION_LEVEL: i32 = 0;
+pub const SECURITY_MIN_NEVER_FILTERED: i32 = 1000;
+pub const SECURITY_NETWORK_RID: i32 = 2;
+pub const SECURITY_NETWORK_SERVICE_RID: i32 = 20;
+pub const SECURITY_NFS_ID_BASE_RID: i32 = 88;
+pub const SECURITY_NT_NON_UNIQUE: i32 = 21;
+pub const SECURITY_NT_NON_UNIQUE_SUB_AUTH_COUNT: i32 = 3;
+pub const SECURITY_NULL_RID: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_OBJECT_AI_PARAMS {
     pub Size: u32,
     pub ConstraintMask: u32,
 }
-pub const SECURITY_OTHER_ORGANIZATION_RID: u32 = 1000;
-pub const SECURITY_PACKAGE_BASE_RID: u32 = 64;
-pub const SECURITY_PACKAGE_DIGEST_RID: u32 = 21;
-pub const SECURITY_PACKAGE_NTLM_RID: u32 = 10;
-pub const SECURITY_PACKAGE_RID_COUNT: u32 = 2;
-pub const SECURITY_PACKAGE_SCHANNEL_RID: u32 = 14;
-pub const SECURITY_PARENT_PACKAGE_RID_COUNT: u32 = 8;
-pub const SECURITY_PRINCIPAL_SELF_RID: u32 = 10;
-pub const SECURITY_PROCESS_PROTECTION_LEVEL_ANTIMALWARE_RID: u32 = 1536;
-pub const SECURITY_PROCESS_PROTECTION_LEVEL_APP_RID: u32 = 2048;
-pub const SECURITY_PROCESS_PROTECTION_LEVEL_AUTHENTICODE_RID: u32 = 1024;
-pub const SECURITY_PROCESS_PROTECTION_LEVEL_NONE_RID: u32 = 0;
-pub const SECURITY_PROCESS_PROTECTION_LEVEL_WINDOWS_RID: u32 = 4096;
-pub const SECURITY_PROCESS_PROTECTION_LEVEL_WINTCB_RID: u32 = 8192;
-pub const SECURITY_PROCESS_PROTECTION_TYPE_FULL_RID: u32 = 1024;
-pub const SECURITY_PROCESS_PROTECTION_TYPE_LITE_RID: u32 = 512;
-pub const SECURITY_PROCESS_PROTECTION_TYPE_NONE_RID: u32 = 0;
-pub const SECURITY_PROCESS_TRUST_AUTHORITY_RID_COUNT: u32 = 2;
-pub const SECURITY_PROXY_RID: u32 = 8;
+pub const SECURITY_OTHER_ORGANIZATION_RID: i32 = 1000;
+pub const SECURITY_PACKAGE_BASE_RID: i32 = 64;
+pub const SECURITY_PACKAGE_DIGEST_RID: i32 = 21;
+pub const SECURITY_PACKAGE_NTLM_RID: i32 = 10;
+pub const SECURITY_PACKAGE_RID_COUNT: i32 = 2;
+pub const SECURITY_PACKAGE_SCHANNEL_RID: i32 = 14;
+pub const SECURITY_PARENT_PACKAGE_RID_COUNT: i32 = 8;
+pub const SECURITY_PRINCIPAL_SELF_RID: i32 = 10;
+pub const SECURITY_PROCESS_PROTECTION_LEVEL_ANTIMALWARE_RID: i32 = 1536;
+pub const SECURITY_PROCESS_PROTECTION_LEVEL_APP_RID: i32 = 2048;
+pub const SECURITY_PROCESS_PROTECTION_LEVEL_AUTHENTICODE_RID: i32 = 1024;
+pub const SECURITY_PROCESS_PROTECTION_LEVEL_NONE_RID: i32 = 0;
+pub const SECURITY_PROCESS_PROTECTION_LEVEL_WINDOWS_RID: i32 = 4096;
+pub const SECURITY_PROCESS_PROTECTION_LEVEL_WINTCB_RID: i32 = 8192;
+pub const SECURITY_PROCESS_PROTECTION_TYPE_FULL_RID: i32 = 1024;
+pub const SECURITY_PROCESS_PROTECTION_TYPE_LITE_RID: i32 = 512;
+pub const SECURITY_PROCESS_PROTECTION_TYPE_NONE_RID: i32 = 0;
+pub const SECURITY_PROCESS_TRUST_AUTHORITY_RID_COUNT: i32 = 2;
+pub const SECURITY_PROXY_RID: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_QUALITY_OF_SERVICE {
@@ -11549,72 +11552,72 @@ pub struct SECURITY_QUALITY_OF_SERVICE {
     pub ContextTrackingMode: SECURITY_CONTEXT_TRACKING_MODE,
     pub EffectiveOnly: bool,
 }
-pub const SECURITY_RDV_GFX_BASE_RID: u32 = 91;
-pub const SECURITY_REMOTE_LOGON_RID: u32 = 14;
-pub const SECURITY_RESERVED_ID_BASE_RID: u32 = 81;
-pub const SECURITY_RESTRICTED_CODE_RID: u32 = 12;
-pub const SECURITY_RESTRICTED_SERVICES_BASE_RID: u32 = 99;
-pub const SECURITY_RESTRICTED_SERVICES_RID_COUNT: u32 = 6;
-pub const SECURITY_SERVER_LOGON_RID: u32 = 9;
-pub const SECURITY_SERVICE_ID_BASE_RID: u32 = 80;
-pub const SECURITY_SERVICE_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_SERVICE_RID: u32 = 6;
-pub const SECURITY_SHADOWADMINACCOUNT_RID: u32 = 100;
-pub const SECURITY_STATIC_TRACKING: u32 = 0;
-pub const SECURITY_TASK_ID_BASE_RID: u32 = 87;
-pub const SECURITY_TERMINAL_SERVER_RID: u32 = 13;
-pub const SECURITY_THIS_ORGANIZATION_RID: u32 = 15;
-pub const SECURITY_TRUSTED_INSTALLER_RID1: u32 = 956008885;
-pub const SECURITY_TRUSTED_INSTALLER_RID2: u32 = 3418522649;
-pub const SECURITY_TRUSTED_INSTALLER_RID3: u32 = 1831038044;
-pub const SECURITY_TRUSTED_INSTALLER_RID4: u32 = 1853292631;
-pub const SECURITY_TRUSTED_INSTALLER_RID5: u32 = 2271478464;
-pub const SECURITY_UMFD_BASE_RID: u32 = 96;
-pub const SECURITY_UNIQUIFIED_SERVICE_BASE_RID: u32 = 97;
-pub const SECURITY_USERMANAGER_ID_BASE_RID: u32 = 93;
-pub const SECURITY_USERMANAGER_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_USERMODEDRIVERHOST_ID_BASE_RID: u32 = 84;
-pub const SECURITY_USERMODEDRIVERHOST_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_VIRTUALACCOUNT_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_VIRTUALSERVER_ID_BASE_RID: u32 = 83;
-pub const SECURITY_VIRTUALSERVER_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_WINDOWSMOBILE_ID_BASE_RID: u32 = 112;
-pub const SECURITY_WINDOW_MANAGER_BASE_RID: u32 = 90;
-pub const SECURITY_WINRM_ID_BASE_RID: u32 = 94;
-pub const SECURITY_WINRM_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_WMIHOST_ID_BASE_RID: u32 = 86;
-pub const SECURITY_WMIHOST_ID_RID_COUNT: u32 = 6;
-pub const SECURITY_WORLD_RID: u32 = 0;
-pub const SECURITY_WRITE_RESTRICTED_CODE_RID: u32 = 33;
-pub const SEC_64K_PAGES: u32 = 524288;
-pub const SEC_COMMIT: u32 = 134217728;
-pub const SEC_FILE: u32 = 8388608;
-pub const SEC_HUGE_PAGES: u32 = 131072;
-pub const SEC_IMAGE: u32 = 16777216;
-pub const SEC_IMAGE_NO_EXECUTE: u32 = 285212672;
+pub const SECURITY_RDV_GFX_BASE_RID: i32 = 91;
+pub const SECURITY_REMOTE_LOGON_RID: i32 = 14;
+pub const SECURITY_RESERVED_ID_BASE_RID: i32 = 81;
+pub const SECURITY_RESTRICTED_CODE_RID: i32 = 12;
+pub const SECURITY_RESTRICTED_SERVICES_BASE_RID: i32 = 99;
+pub const SECURITY_RESTRICTED_SERVICES_RID_COUNT: i32 = 6;
+pub const SECURITY_SERVER_LOGON_RID: i32 = 9;
+pub const SECURITY_SERVICE_ID_BASE_RID: i32 = 80;
+pub const SECURITY_SERVICE_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_SERVICE_RID: i32 = 6;
+pub const SECURITY_SHADOWADMINACCOUNT_RID: i32 = 100;
+pub const SECURITY_STATIC_TRACKING: i32 = 0;
+pub const SECURITY_TASK_ID_BASE_RID: i32 = 87;
+pub const SECURITY_TERMINAL_SERVER_RID: i32 = 13;
+pub const SECURITY_THIS_ORGANIZATION_RID: i32 = 15;
+pub const SECURITY_TRUSTED_INSTALLER_RID1: i32 = 956008885;
+pub const SECURITY_TRUSTED_INSTALLER_RID2: i64 = 3418522649;
+pub const SECURITY_TRUSTED_INSTALLER_RID3: i32 = 1831038044;
+pub const SECURITY_TRUSTED_INSTALLER_RID4: i32 = 1853292631;
+pub const SECURITY_TRUSTED_INSTALLER_RID5: i64 = 2271478464;
+pub const SECURITY_UMFD_BASE_RID: i32 = 96;
+pub const SECURITY_UNIQUIFIED_SERVICE_BASE_RID: i32 = 97;
+pub const SECURITY_USERMANAGER_ID_BASE_RID: i32 = 93;
+pub const SECURITY_USERMANAGER_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_USERMODEDRIVERHOST_ID_BASE_RID: i32 = 84;
+pub const SECURITY_USERMODEDRIVERHOST_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_VIRTUALACCOUNT_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_VIRTUALSERVER_ID_BASE_RID: i32 = 83;
+pub const SECURITY_VIRTUALSERVER_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_WINDOWSMOBILE_ID_BASE_RID: i32 = 112;
+pub const SECURITY_WINDOW_MANAGER_BASE_RID: i32 = 90;
+pub const SECURITY_WINRM_ID_BASE_RID: i32 = 94;
+pub const SECURITY_WINRM_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_WMIHOST_ID_BASE_RID: i32 = 86;
+pub const SECURITY_WMIHOST_ID_RID_COUNT: i32 = 6;
+pub const SECURITY_WORLD_RID: i32 = 0;
+pub const SECURITY_WRITE_RESTRICTED_CODE_RID: i32 = 33;
+pub const SEC_64K_PAGES: i32 = 524288;
+pub const SEC_COMMIT: i32 = 134217728;
+pub const SEC_FILE: i32 = 8388608;
+pub const SEC_HUGE_PAGES: i32 = 131072;
+pub const SEC_IMAGE: i32 = 16777216;
+pub const SEC_IMAGE_NO_EXECUTE: i32 = 285212672;
 pub const SEC_LARGE_PAGES: u32 = 2147483648;
-pub const SEC_NOCACHE: u32 = 268435456;
-pub const SEC_PARTITION_OWNER_HANDLE: u32 = 262144;
-pub const SEC_PROTECTED_IMAGE: u32 = 33554432;
-pub const SEC_RESERVE: u32 = 67108864;
-pub const SEC_WRITECOMBINE: u32 = 1073741824;
-pub const SEF_AI_USE_EXTRA_PARAMS: u32 = 2048;
-pub const SEF_AVOID_OWNER_CHECK: u32 = 16;
-pub const SEF_AVOID_OWNER_RESTRICTION: u32 = 4096;
-pub const SEF_AVOID_PRIVILEGE_CHECK: u32 = 8;
-pub const SEF_DACL_AUTO_INHERIT: u32 = 1;
-pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: u32 = 4;
-pub const SEF_DEFAULT_GROUP_FROM_PARENT: u32 = 64;
-pub const SEF_DEFAULT_OWNER_FROM_PARENT: u32 = 32;
-pub const SEF_FORCE_USER_MODE: u32 = 8192;
-pub const SEF_MACL_NO_EXECUTE_UP: u32 = 1024;
-pub const SEF_MACL_NO_READ_UP: u32 = 512;
-pub const SEF_MACL_NO_WRITE_UP: u32 = 256;
-pub const SEF_MACL_VALID_FLAGS: u32 = 1792;
-pub const SEF_NORMALIZE_OUTPUT_DESCRIPTOR: u32 = 16384;
-pub const SEF_SACL_AUTO_INHERIT: u32 = 2;
-pub const SEMAPHORE_ALL_ACCESS: u32 = 2031619;
-pub const SEMAPHORE_MODIFY_STATE: u32 = 2;
+pub const SEC_NOCACHE: i32 = 268435456;
+pub const SEC_PARTITION_OWNER_HANDLE: i32 = 262144;
+pub const SEC_PROTECTED_IMAGE: i32 = 33554432;
+pub const SEC_RESERVE: i32 = 67108864;
+pub const SEC_WRITECOMBINE: i32 = 1073741824;
+pub const SEF_AI_USE_EXTRA_PARAMS: i32 = 2048;
+pub const SEF_AVOID_OWNER_CHECK: i32 = 16;
+pub const SEF_AVOID_OWNER_RESTRICTION: i32 = 4096;
+pub const SEF_AVOID_PRIVILEGE_CHECK: i32 = 8;
+pub const SEF_DACL_AUTO_INHERIT: i32 = 1;
+pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: i32 = 4;
+pub const SEF_DEFAULT_GROUP_FROM_PARENT: i32 = 64;
+pub const SEF_DEFAULT_OWNER_FROM_PARENT: i32 = 32;
+pub const SEF_FORCE_USER_MODE: i32 = 8192;
+pub const SEF_MACL_NO_EXECUTE_UP: i32 = 1024;
+pub const SEF_MACL_NO_READ_UP: i32 = 512;
+pub const SEF_MACL_NO_WRITE_UP: i32 = 256;
+pub const SEF_MACL_VALID_FLAGS: i32 = 1792;
+pub const SEF_NORMALIZE_OUTPUT_DESCRIPTOR: i32 = 16384;
+pub const SEF_SACL_AUTO_INHERIT: i32 = 2;
+pub const SEMAPHORE_ALL_ACCESS: i32 = 2031619;
+pub const SEMAPHORE_MODIFY_STATE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVERSILO_BASIC_INFORMATION {
@@ -11650,36 +11653,36 @@ pub const SERVERSILO_STARTED: SERVERSILO_STATE = 1;
 pub type SERVERSILO_STATE = i32;
 pub const SERVERSILO_TERMINATED: SERVERSILO_STATE = 4;
 pub const SERVERSILO_TERMINATING: SERVERSILO_STATE = 3;
-pub const SERVICE_ADAPTER: u32 = 4;
-pub const SERVICE_AUTO_START: u32 = 2;
-pub const SERVICE_BOOT_START: u32 = 0;
-pub const SERVICE_DEMAND_START: u32 = 3;
-pub const SERVICE_DISABLED: u32 = 4;
-pub const SERVICE_DRIVER: u32 = 11;
-pub const SERVICE_ERROR_CRITICAL: u32 = 3;
-pub const SERVICE_ERROR_IGNORE: u32 = 0;
-pub const SERVICE_ERROR_NORMAL: u32 = 1;
-pub const SERVICE_ERROR_SEVERE: u32 = 2;
+pub const SERVICE_ADAPTER: i32 = 4;
+pub const SERVICE_AUTO_START: i32 = 2;
+pub const SERVICE_BOOT_START: i32 = 0;
+pub const SERVICE_DEMAND_START: i32 = 3;
+pub const SERVICE_DISABLED: i32 = 4;
+pub const SERVICE_DRIVER: i32 = 11;
+pub const SERVICE_ERROR_CRITICAL: i32 = 3;
+pub const SERVICE_ERROR_IGNORE: i32 = 0;
+pub const SERVICE_ERROR_NORMAL: i32 = 1;
+pub const SERVICE_ERROR_SEVERE: i32 = 2;
 pub type SERVICE_ERROR_TYPE = i32;
-pub const SERVICE_FILE_SYSTEM_DRIVER: u32 = 2;
-pub const SERVICE_INTERACTIVE_PROCESS: u32 = 256;
-pub const SERVICE_KERNEL_DRIVER: u32 = 1;
+pub const SERVICE_FILE_SYSTEM_DRIVER: i32 = 2;
+pub const SERVICE_INTERACTIVE_PROCESS: i32 = 256;
+pub const SERVICE_KERNEL_DRIVER: i32 = 1;
 pub type SERVICE_LOAD_TYPE = i32;
 pub type SERVICE_NODE_TYPE = i32;
-pub const SERVICE_PKG_SERVICE: u32 = 512;
-pub const SERVICE_RECOGNIZER_DRIVER: u32 = 8;
-pub const SERVICE_SYSTEM_START: u32 = 1;
-pub const SERVICE_TYPE_ALL: u32 = 1023;
-pub const SERVICE_USERSERVICE_INSTANCE: u32 = 128;
-pub const SERVICE_USER_OWN_PROCESS: u32 = 80;
-pub const SERVICE_USER_SERVICE: u32 = 64;
-pub const SERVICE_USER_SHARE_PROCESS: u32 = 96;
-pub const SERVICE_WIN32: u32 = 48;
-pub const SERVICE_WIN32_OWN_PROCESS: u32 = 16;
-pub const SERVICE_WIN32_SHARE_PROCESS: u32 = 32;
-pub const SESSION_ALL_ACCESS: u32 = 983043;
-pub const SESSION_MODIFY_ACCESS: u32 = 2;
-pub const SESSION_QUERY_ACCESS: u32 = 1;
+pub const SERVICE_PKG_SERVICE: i32 = 512;
+pub const SERVICE_RECOGNIZER_DRIVER: i32 = 8;
+pub const SERVICE_SYSTEM_START: i32 = 1;
+pub const SERVICE_TYPE_ALL: i32 = 1023;
+pub const SERVICE_USERSERVICE_INSTANCE: i32 = 128;
+pub const SERVICE_USER_OWN_PROCESS: i32 = 80;
+pub const SERVICE_USER_SERVICE: i32 = 64;
+pub const SERVICE_USER_SHARE_PROCESS: i32 = 96;
+pub const SERVICE_WIN32: i32 = 48;
+pub const SERVICE_WIN32_OWN_PROCESS: i32 = 16;
+pub const SERVICE_WIN32_SHARE_PROCESS: i32 = 32;
+pub const SESSION_ALL_ACCESS: i32 = 983043;
+pub const SESSION_MODIFY_ACCESS: i32 = 2;
+pub const SESSION_QUERY_ACCESS: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_POWER_SETTING_VALUE {
@@ -11694,8 +11697,8 @@ impl Default for SET_POWER_SETTING_VALUE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: u32 = 8;
-pub const SE_ACCESS_CHECK_VALID_FLAGS: u32 = 8;
+pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: i32 = 8;
+pub const SE_ACCESS_CHECK_VALID_FLAGS: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -11734,23 +11737,23 @@ pub const SE_APP_SILO_SCANNER_CAPABILITY: windows_core::PCWSTR = windows_core::w
 pub const SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-userProfileMinimal");
 pub const SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-volumeRootMinimal");
 pub const SE_CONSTRAINED_IMPERSONATION_CAPABILITY: windows_core::PCWSTR = windows_core::w!("constrainedImpersonation");
-pub const SE_DACL_AUTO_INHERITED: u32 = 1024;
-pub const SE_DACL_AUTO_INHERIT_REQ: u32 = 256;
-pub const SE_DACL_DEFAULTED: u32 = 8;
-pub const SE_DACL_PRESENT: u32 = 4;
-pub const SE_DACL_PROTECTED: u32 = 4096;
+pub const SE_DACL_AUTO_INHERITED: i32 = 1024;
+pub const SE_DACL_AUTO_INHERIT_REQ: i32 = 256;
+pub const SE_DACL_DEFAULTED: i32 = 8;
+pub const SE_DACL_PRESENT: i32 = 4;
+pub const SE_DACL_PROTECTED: i32 = 4096;
 pub const SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: windows_core::PCWSTR = windows_core::w!("developmentModeNetwork");
-pub const SE_GROUP_DEFAULTED: u32 = 2;
-pub const SE_GROUP_ENABLED: u32 = 4;
-pub const SE_GROUP_ENABLED_BY_DEFAULT: u32 = 2;
-pub const SE_GROUP_INTEGRITY: u32 = 32;
-pub const SE_GROUP_INTEGRITY_ENABLED: u32 = 64;
+pub const SE_GROUP_DEFAULTED: i32 = 2;
+pub const SE_GROUP_ENABLED: i32 = 4;
+pub const SE_GROUP_ENABLED_BY_DEFAULT: i32 = 2;
+pub const SE_GROUP_INTEGRITY: i32 = 32;
+pub const SE_GROUP_INTEGRITY_ENABLED: i32 = 64;
 pub const SE_GROUP_LOGON_ID: u32 = 3221225472;
-pub const SE_GROUP_MANDATORY: u32 = 1;
-pub const SE_GROUP_OWNER: u32 = 8;
-pub const SE_GROUP_RESOURCE: u32 = 536870912;
-pub const SE_GROUP_USE_FOR_DENY_ONLY: u32 = 16;
-pub const SE_GROUP_VALID_ATTRIBUTES: i32 = -536870785;
+pub const SE_GROUP_MANDATORY: i32 = 1;
+pub const SE_GROUP_OWNER: i32 = 8;
+pub const SE_GROUP_RESOURCE: i32 = 536870912;
+pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16;
+pub const SE_GROUP_VALID_ATTRIBUTES: u32 = 3758096511;
 pub type SE_IMAGE_SIGNATURE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11762,19 +11765,19 @@ pub struct SE_IMPERSONATION_STATE {
 }
 pub const SE_LEARNING_MODE_LOGGING_CAPABILITY: windows_core::PCWSTR = windows_core::w!("learningModeLogging");
 pub const SE_MUMA_CAPABILITY: windows_core::PCWSTR = windows_core::w!("muma");
-pub const SE_OWNER_DEFAULTED: u32 = 1;
+pub const SE_OWNER_DEFAULTED: i32 = 1;
 pub const SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: windows_core::PCWSTR = windows_core::w!("permissiveLearningMode");
-pub const SE_PRIVILEGE_ENABLED: u32 = 2;
-pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: u32 = 1;
-pub const SE_PRIVILEGE_REMOVED: u32 = 4;
+pub const SE_PRIVILEGE_ENABLED: i32 = 2;
+pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: i32 = 1;
+pub const SE_PRIVILEGE_REMOVED: i32 = 4;
 pub const SE_PRIVILEGE_USED_FOR_ACCESS: u32 = 2147483648;
-pub const SE_PRIVILEGE_VALID_ATTRIBUTES: i32 = -2147483641;
-pub const SE_RM_CONTROL_VALID: u32 = 16384;
-pub const SE_SACL_AUTO_INHERITED: u32 = 2048;
-pub const SE_SACL_AUTO_INHERIT_REQ: u32 = 512;
-pub const SE_SACL_DEFAULTED: u32 = 32;
-pub const SE_SACL_PRESENT: u32 = 16;
-pub const SE_SACL_PROTECTED: u32 = 8192;
+pub const SE_PRIVILEGE_VALID_ATTRIBUTES: u32 = 2147483655;
+pub const SE_RM_CONTROL_VALID: i32 = 16384;
+pub const SE_SACL_AUTO_INHERITED: i32 = 2048;
+pub const SE_SACL_AUTO_INHERIT_REQ: i32 = 512;
+pub const SE_SACL_DEFAULTED: i32 = 32;
+pub const SE_SACL_PRESENT: i32 = 16;
+pub const SE_SACL_PROTECTED: i32 = 8192;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_SECURITY_DESCRIPTOR {
@@ -11782,11 +11785,11 @@ pub struct SE_SECURITY_DESCRIPTOR {
     pub Flags: u32,
     pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
 }
-pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_ACCESS_FILTER_ACE: u32 = 4;
-pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_LABEL_ACE: u32 = 2;
-pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_OWNER_ACE: u32 = 1;
-pub const SE_SECURITY_DESCRIPTOR_VALID_FLAGS: u32 = 7;
-pub const SE_SELF_RELATIVE: u32 = 32768;
+pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_ACCESS_FILTER_ACE: i32 = 4;
+pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_LABEL_ACE: i32 = 2;
+pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_OWNER_ACE: i32 = 1;
+pub const SE_SECURITY_DESCRIPTOR_VALID_FLAGS: i32 = 7;
+pub const SE_SELF_RELATIVE: i32 = 32768;
 pub const SE_SESSION_IMPERSONATION_CAPABILITY: windows_core::PCWSTR = windows_core::w!("sessionImpersonation");
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11802,24 +11805,24 @@ impl Default for SE_SID {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SE_SIGNING_LEVEL(pub u8);
-pub const SE_SIGNING_LEVEL_ANTIMALWARE: u32 = 7;
-pub const SE_SIGNING_LEVEL_AUTHENTICODE: u32 = 4;
-pub const SE_SIGNING_LEVEL_CUSTOM_1: u32 = 3;
-pub const SE_SIGNING_LEVEL_CUSTOM_2: u32 = 5;
-pub const SE_SIGNING_LEVEL_CUSTOM_3: u32 = 7;
-pub const SE_SIGNING_LEVEL_CUSTOM_4: u32 = 9;
-pub const SE_SIGNING_LEVEL_CUSTOM_5: u32 = 10;
-pub const SE_SIGNING_LEVEL_CUSTOM_6: u32 = 15;
-pub const SE_SIGNING_LEVEL_CUSTOM_7: u32 = 13;
-pub const SE_SIGNING_LEVEL_DEVELOPER: u32 = 3;
-pub const SE_SIGNING_LEVEL_DYNAMIC_CODEGEN: u32 = 11;
-pub const SE_SIGNING_LEVEL_ENTERPRISE: u32 = 2;
-pub const SE_SIGNING_LEVEL_MICROSOFT: u32 = 8;
-pub const SE_SIGNING_LEVEL_STORE: u32 = 6;
-pub const SE_SIGNING_LEVEL_UNCHECKED: u32 = 0;
-pub const SE_SIGNING_LEVEL_UNSIGNED: u32 = 1;
-pub const SE_SIGNING_LEVEL_WINDOWS: u32 = 12;
-pub const SE_SIGNING_LEVEL_WINDOWS_TCB: u32 = 14;
+pub const SE_SIGNING_LEVEL_ANTIMALWARE: i32 = 7;
+pub const SE_SIGNING_LEVEL_AUTHENTICODE: i32 = 4;
+pub const SE_SIGNING_LEVEL_CUSTOM_1: i32 = 3;
+pub const SE_SIGNING_LEVEL_CUSTOM_2: i32 = 5;
+pub const SE_SIGNING_LEVEL_CUSTOM_3: i32 = 7;
+pub const SE_SIGNING_LEVEL_CUSTOM_4: i32 = 9;
+pub const SE_SIGNING_LEVEL_CUSTOM_5: i32 = 10;
+pub const SE_SIGNING_LEVEL_CUSTOM_6: i32 = 15;
+pub const SE_SIGNING_LEVEL_CUSTOM_7: i32 = 13;
+pub const SE_SIGNING_LEVEL_DEVELOPER: i32 = 3;
+pub const SE_SIGNING_LEVEL_DYNAMIC_CODEGEN: i32 = 11;
+pub const SE_SIGNING_LEVEL_ENTERPRISE: i32 = 2;
+pub const SE_SIGNING_LEVEL_MICROSOFT: i32 = 8;
+pub const SE_SIGNING_LEVEL_STORE: i32 = 6;
+pub const SE_SIGNING_LEVEL_UNCHECKED: i32 = 0;
+pub const SE_SIGNING_LEVEL_UNSIGNED: i32 = 1;
+pub const SE_SIGNING_LEVEL_WINDOWS: i32 = 12;
+pub const SE_SIGNING_LEVEL_WINDOWS_TCB: i32 = 14;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SE_TOKEN_USER {
@@ -11882,7 +11885,7 @@ pub struct SHUFFLE_FILE_DATA {
     pub Length: i64,
     pub Flags: u32,
 }
-pub const SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS: u32 = 1;
+pub const SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID {
@@ -11918,7 +11921,7 @@ impl Default for SID_AND_ATTRIBUTES_HASH {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SID_HASH_ENTRY(pub usize);
-pub const SID_HASH_SIZE: u32 = 32;
+pub const SID_HASH_SIZE: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_IDENTIFIER_AUTHORITY {
@@ -11929,10 +11932,10 @@ impl Default for SID_IDENTIFIER_AUTHORITY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SID_MAX_SUB_AUTHORITIES: u32 = 15;
+pub const SID_MAX_SUB_AUTHORITIES: i32 = 15;
 pub type SID_NAME_USE = i32;
-pub const SID_RECOMMENDED_SUB_AUTHORITIES: u32 = 1;
-pub const SID_REVISION: u32 = 1;
+pub const SID_RECOMMENDED_SUB_AUTHORITIES: i32 = 1;
+pub const SID_REVISION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SILOOBJECT_BASIC_INFORMATION {
@@ -11957,9 +11960,9 @@ impl Default for SINGLE_LIST_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SIZEOF_RFPO_DATA: u32 = 16;
+pub const SIZEOF_RFPO_DATA: i32 = 16;
 #[cfg(target_arch = "x86")]
-pub const SIZE_OF_80387_REGISTERS: u32 = 80;
+pub const SIZE_OF_80387_REGISTERS: i32 = 80;
 #[cfg(target_arch = "x86")]
 pub type SLIST_ENTRY = SINGLE_LIST_ENTRY;
 #[repr(C, align(16))]
@@ -12104,34 +12107,34 @@ impl SLIST_HEADER_1 {
     }
 }
 pub const SMB_CCF_APP_INSTANCE_EA_NAME: windows_core::PCSTR = windows_core::s!("ClusteredApplicationInstance");
-pub const SMT_UNPARKING_POLICY_CORE: u32 = 0;
-pub const SMT_UNPARKING_POLICY_CORE_PER_THREAD: u32 = 1;
-pub const SMT_UNPARKING_POLICY_LP_ROUNDROBIN: u32 = 2;
-pub const SMT_UNPARKING_POLICY_LP_SEQUENTIAL: u32 = 3;
-pub const SORT_CHINESE_BIG5: u32 = 0;
-pub const SORT_CHINESE_BOPOMOFO: u32 = 3;
-pub const SORT_CHINESE_PRC: u32 = 2;
-pub const SORT_CHINESE_PRCP: u32 = 0;
-pub const SORT_CHINESE_RADICALSTROKE: u32 = 4;
-pub const SORT_CHINESE_UNICODE: u32 = 1;
-pub const SORT_DEFAULT: u32 = 0;
-pub const SORT_GEORGIAN_MODERN: u32 = 1;
-pub const SORT_GEORGIAN_TRADITIONAL: u32 = 0;
-pub const SORT_GERMAN_PHONE_BOOK: u32 = 1;
-pub const SORT_HUNGARIAN_DEFAULT: u32 = 0;
-pub const SORT_HUNGARIAN_TECHNICAL: u32 = 1;
-pub const SORT_INVARIANT_MATH: u32 = 1;
-pub const SORT_JAPANESE_RADICALSTROKE: u32 = 4;
-pub const SORT_JAPANESE_UNICODE: u32 = 1;
-pub const SORT_JAPANESE_XJIS: u32 = 0;
-pub const SORT_KOREAN_KSC: u32 = 0;
-pub const SORT_KOREAN_UNICODE: u32 = 1;
-pub const SPECIFIC_RIGHTS_ALL: u32 = 65535;
-pub const STANDARD_RIGHTS_ALL: u32 = 2031616;
-pub const STANDARD_RIGHTS_EXECUTE: u32 = 131072;
-pub const STANDARD_RIGHTS_READ: u32 = 131072;
-pub const STANDARD_RIGHTS_REQUIRED: u32 = 983040;
-pub const STANDARD_RIGHTS_WRITE: u32 = 131072;
+pub const SMT_UNPARKING_POLICY_CORE: i32 = 0;
+pub const SMT_UNPARKING_POLICY_CORE_PER_THREAD: i32 = 1;
+pub const SMT_UNPARKING_POLICY_LP_ROUNDROBIN: i32 = 2;
+pub const SMT_UNPARKING_POLICY_LP_SEQUENTIAL: i32 = 3;
+pub const SORT_CHINESE_BIG5: i32 = 0;
+pub const SORT_CHINESE_BOPOMOFO: i32 = 3;
+pub const SORT_CHINESE_PRC: i32 = 2;
+pub const SORT_CHINESE_PRCP: i32 = 0;
+pub const SORT_CHINESE_RADICALSTROKE: i32 = 4;
+pub const SORT_CHINESE_UNICODE: i32 = 1;
+pub const SORT_DEFAULT: i32 = 0;
+pub const SORT_GEORGIAN_MODERN: i32 = 1;
+pub const SORT_GEORGIAN_TRADITIONAL: i32 = 0;
+pub const SORT_GERMAN_PHONE_BOOK: i32 = 1;
+pub const SORT_HUNGARIAN_DEFAULT: i32 = 0;
+pub const SORT_HUNGARIAN_TECHNICAL: i32 = 1;
+pub const SORT_INVARIANT_MATH: i32 = 1;
+pub const SORT_JAPANESE_RADICALSTROKE: i32 = 4;
+pub const SORT_JAPANESE_UNICODE: i32 = 1;
+pub const SORT_JAPANESE_XJIS: i32 = 0;
+pub const SORT_KOREAN_KSC: i32 = 0;
+pub const SORT_KOREAN_UNICODE: i32 = 1;
+pub const SPECIFIC_RIGHTS_ALL: i32 = 65535;
+pub const STANDARD_RIGHTS_ALL: i32 = 2031616;
+pub const STANDARD_RIGHTS_EXECUTE: i32 = 131072;
+pub const STANDARD_RIGHTS_READ: i32 = 131072;
+pub const STANDARD_RIGHTS_REQUIRED: i32 = 983040;
+pub const STANDARD_RIGHTS_WRITE: i32 = 131072;
 pub const STATUS_ABANDONED_WAIT_0: u32 = 128;
 pub const STATUS_ACCESS_VIOLATION: u32 = 3221225477;
 pub const STATUS_ALREADY_REGISTERED: u32 = 3221227288;
@@ -12184,258 +12187,258 @@ pub const STATUS_TIMEOUT: u32 = 258;
 pub const STATUS_UNWIND_CONSOLIDATE: u32 = 2147483689;
 pub const STATUS_USER_APC: u32 = 192;
 pub const STATUS_WAIT_0: u32 = 0;
-pub const SUBLANG_AFRIKAANS_SOUTH_AFRICA: u32 = 1;
-pub const SUBLANG_ALBANIAN_ALBANIA: u32 = 1;
-pub const SUBLANG_ALSATIAN_FRANCE: u32 = 1;
-pub const SUBLANG_AMHARIC_ETHIOPIA: u32 = 1;
-pub const SUBLANG_ARABIC_ALGERIA: u32 = 5;
-pub const SUBLANG_ARABIC_BAHRAIN: u32 = 15;
-pub const SUBLANG_ARABIC_EGYPT: u32 = 3;
-pub const SUBLANG_ARABIC_IRAQ: u32 = 2;
-pub const SUBLANG_ARABIC_JORDAN: u32 = 11;
-pub const SUBLANG_ARABIC_KUWAIT: u32 = 13;
-pub const SUBLANG_ARABIC_LEBANON: u32 = 12;
-pub const SUBLANG_ARABIC_LIBYA: u32 = 4;
-pub const SUBLANG_ARABIC_MOROCCO: u32 = 6;
-pub const SUBLANG_ARABIC_OMAN: u32 = 8;
-pub const SUBLANG_ARABIC_QATAR: u32 = 16;
-pub const SUBLANG_ARABIC_SAUDI_ARABIA: u32 = 1;
-pub const SUBLANG_ARABIC_SYRIA: u32 = 10;
-pub const SUBLANG_ARABIC_TUNISIA: u32 = 7;
-pub const SUBLANG_ARABIC_UAE: u32 = 14;
-pub const SUBLANG_ARABIC_YEMEN: u32 = 9;
-pub const SUBLANG_ARMENIAN_ARMENIA: u32 = 1;
-pub const SUBLANG_ASSAMESE_INDIA: u32 = 1;
-pub const SUBLANG_AZERBAIJANI_AZERBAIJAN_CYRILLIC: u32 = 2;
-pub const SUBLANG_AZERBAIJANI_AZERBAIJAN_LATIN: u32 = 1;
-pub const SUBLANG_AZERI_CYRILLIC: u32 = 2;
-pub const SUBLANG_AZERI_LATIN: u32 = 1;
-pub const SUBLANG_BANGLA_BANGLADESH: u32 = 2;
-pub const SUBLANG_BANGLA_INDIA: u32 = 1;
-pub const SUBLANG_BASHKIR_RUSSIA: u32 = 1;
-pub const SUBLANG_BASQUE_BASQUE: u32 = 1;
-pub const SUBLANG_BELARUSIAN_BELARUS: u32 = 1;
-pub const SUBLANG_BENGALI_BANGLADESH: u32 = 2;
-pub const SUBLANG_BENGALI_INDIA: u32 = 1;
-pub const SUBLANG_BOSNIAN_BOSNIA_HERZEGOVINA_CYRILLIC: u32 = 8;
-pub const SUBLANG_BOSNIAN_BOSNIA_HERZEGOVINA_LATIN: u32 = 5;
-pub const SUBLANG_BRETON_FRANCE: u32 = 1;
-pub const SUBLANG_BULGARIAN_BULGARIA: u32 = 1;
-pub const SUBLANG_CATALAN_CATALAN: u32 = 1;
-pub const SUBLANG_CENTRAL_KURDISH_IRAQ: u32 = 1;
-pub const SUBLANG_CHEROKEE_CHEROKEE: u32 = 1;
-pub const SUBLANG_CHINESE_HONGKONG: u32 = 3;
-pub const SUBLANG_CHINESE_MACAU: u32 = 5;
-pub const SUBLANG_CHINESE_SIMPLIFIED: u32 = 2;
-pub const SUBLANG_CHINESE_SINGAPORE: u32 = 4;
-pub const SUBLANG_CHINESE_TRADITIONAL: u32 = 1;
-pub const SUBLANG_CORSICAN_FRANCE: u32 = 1;
-pub const SUBLANG_CROATIAN_BOSNIA_HERZEGOVINA_LATIN: u32 = 4;
-pub const SUBLANG_CROATIAN_CROATIA: u32 = 1;
-pub const SUBLANG_CUSTOM_DEFAULT: u32 = 3;
-pub const SUBLANG_CUSTOM_UNSPECIFIED: u32 = 4;
-pub const SUBLANG_CZECH_CZECH_REPUBLIC: u32 = 1;
-pub const SUBLANG_DANISH_DENMARK: u32 = 1;
-pub const SUBLANG_DARI_AFGHANISTAN: u32 = 1;
-pub const SUBLANG_DEFAULT: u32 = 1;
-pub const SUBLANG_DIVEHI_MALDIVES: u32 = 1;
-pub const SUBLANG_DUTCH: u32 = 1;
-pub const SUBLANG_DUTCH_BELGIAN: u32 = 2;
-pub const SUBLANG_ENGLISH_AUS: u32 = 3;
-pub const SUBLANG_ENGLISH_BELIZE: u32 = 10;
-pub const SUBLANG_ENGLISH_CAN: u32 = 4;
-pub const SUBLANG_ENGLISH_CARIBBEAN: u32 = 9;
-pub const SUBLANG_ENGLISH_EIRE: u32 = 6;
-pub const SUBLANG_ENGLISH_INDIA: u32 = 16;
-pub const SUBLANG_ENGLISH_JAMAICA: u32 = 8;
-pub const SUBLANG_ENGLISH_MALAYSIA: u32 = 17;
-pub const SUBLANG_ENGLISH_NZ: u32 = 5;
-pub const SUBLANG_ENGLISH_PHILIPPINES: u32 = 13;
-pub const SUBLANG_ENGLISH_SINGAPORE: u32 = 18;
-pub const SUBLANG_ENGLISH_SOUTH_AFRICA: u32 = 7;
-pub const SUBLANG_ENGLISH_TRINIDAD: u32 = 11;
-pub const SUBLANG_ENGLISH_UK: u32 = 2;
-pub const SUBLANG_ENGLISH_US: u32 = 1;
-pub const SUBLANG_ENGLISH_ZIMBABWE: u32 = 12;
-pub const SUBLANG_ESTONIAN_ESTONIA: u32 = 1;
-pub const SUBLANG_FAEROESE_FAROE_ISLANDS: u32 = 1;
-pub const SUBLANG_FILIPINO_PHILIPPINES: u32 = 1;
-pub const SUBLANG_FINNISH_FINLAND: u32 = 1;
-pub const SUBLANG_FRENCH: u32 = 1;
-pub const SUBLANG_FRENCH_BELGIAN: u32 = 2;
-pub const SUBLANG_FRENCH_CANADIAN: u32 = 3;
-pub const SUBLANG_FRENCH_LUXEMBOURG: u32 = 5;
-pub const SUBLANG_FRENCH_MONACO: u32 = 6;
-pub const SUBLANG_FRENCH_SWISS: u32 = 4;
-pub const SUBLANG_FRISIAN_NETHERLANDS: u32 = 1;
-pub const SUBLANG_FULAH_SENEGAL: u32 = 2;
-pub const SUBLANG_GALICIAN_GALICIAN: u32 = 1;
-pub const SUBLANG_GEORGIAN_GEORGIA: u32 = 1;
-pub const SUBLANG_GERMAN: u32 = 1;
-pub const SUBLANG_GERMAN_AUSTRIAN: u32 = 3;
-pub const SUBLANG_GERMAN_LIECHTENSTEIN: u32 = 5;
-pub const SUBLANG_GERMAN_LUXEMBOURG: u32 = 4;
-pub const SUBLANG_GERMAN_SWISS: u32 = 2;
-pub const SUBLANG_GREEK_GREECE: u32 = 1;
-pub const SUBLANG_GREENLANDIC_GREENLAND: u32 = 1;
-pub const SUBLANG_GUJARATI_INDIA: u32 = 1;
-pub const SUBLANG_HAUSA_NIGERIA_LATIN: u32 = 1;
-pub const SUBLANG_HAWAIIAN_US: u32 = 1;
-pub const SUBLANG_HEBREW_ISRAEL: u32 = 1;
-pub const SUBLANG_HINDI_INDIA: u32 = 1;
-pub const SUBLANG_HUNGARIAN_HUNGARY: u32 = 1;
-pub const SUBLANG_ICELANDIC_ICELAND: u32 = 1;
-pub const SUBLANG_IGBO_NIGERIA: u32 = 1;
-pub const SUBLANG_INDONESIAN_INDONESIA: u32 = 1;
-pub const SUBLANG_INUKTITUT_CANADA: u32 = 1;
-pub const SUBLANG_INUKTITUT_CANADA_LATIN: u32 = 2;
-pub const SUBLANG_IRISH_IRELAND: u32 = 2;
-pub const SUBLANG_ITALIAN: u32 = 1;
-pub const SUBLANG_ITALIAN_SWISS: u32 = 2;
-pub const SUBLANG_JAPANESE_JAPAN: u32 = 1;
-pub const SUBLANG_KANNADA_INDIA: u32 = 1;
-pub const SUBLANG_KASHMIRI_INDIA: u32 = 2;
-pub const SUBLANG_KASHMIRI_SASIA: u32 = 2;
-pub const SUBLANG_KAZAK_KAZAKHSTAN: u32 = 1;
-pub const SUBLANG_KHMER_CAMBODIA: u32 = 1;
-pub const SUBLANG_KICHE_GUATEMALA: u32 = 1;
-pub const SUBLANG_KINYARWANDA_RWANDA: u32 = 1;
-pub const SUBLANG_KONKANI_INDIA: u32 = 1;
-pub const SUBLANG_KOREAN: u32 = 1;
-pub const SUBLANG_KYRGYZ_KYRGYZSTAN: u32 = 1;
-pub const SUBLANG_LAO_LAO: u32 = 1;
-pub const SUBLANG_LATVIAN_LATVIA: u32 = 1;
-pub const SUBLANG_LITHUANIAN: u32 = 1;
-pub const SUBLANG_LOWER_SORBIAN_GERMANY: u32 = 2;
-pub const SUBLANG_LUXEMBOURGISH_LUXEMBOURG: u32 = 1;
-pub const SUBLANG_MACEDONIAN_MACEDONIA: u32 = 1;
-pub const SUBLANG_MALAYALAM_INDIA: u32 = 1;
-pub const SUBLANG_MALAY_BRUNEI_DARUSSALAM: u32 = 2;
-pub const SUBLANG_MALAY_MALAYSIA: u32 = 1;
-pub const SUBLANG_MALTESE_MALTA: u32 = 1;
-pub const SUBLANG_MAORI_NEW_ZEALAND: u32 = 1;
-pub const SUBLANG_MAPUDUNGUN_CHILE: u32 = 1;
-pub const SUBLANG_MARATHI_INDIA: u32 = 1;
-pub const SUBLANG_MOHAWK_MOHAWK: u32 = 1;
-pub const SUBLANG_MONGOLIAN_CYRILLIC_MONGOLIA: u32 = 1;
-pub const SUBLANG_MONGOLIAN_PRC: u32 = 2;
-pub const SUBLANG_NEPALI_INDIA: u32 = 2;
-pub const SUBLANG_NEPALI_NEPAL: u32 = 1;
-pub const SUBLANG_NEUTRAL: u32 = 0;
-pub const SUBLANG_NORWEGIAN_BOKMAL: u32 = 1;
-pub const SUBLANG_NORWEGIAN_NYNORSK: u32 = 2;
-pub const SUBLANG_OCCITAN_FRANCE: u32 = 1;
-pub const SUBLANG_ODIA_INDIA: u32 = 1;
-pub const SUBLANG_ORIYA_INDIA: u32 = 1;
-pub const SUBLANG_PASHTO_AFGHANISTAN: u32 = 1;
-pub const SUBLANG_PERSIAN_IRAN: u32 = 1;
-pub const SUBLANG_POLISH_POLAND: u32 = 1;
-pub const SUBLANG_PORTUGUESE: u32 = 2;
-pub const SUBLANG_PORTUGUESE_BRAZILIAN: u32 = 1;
-pub const SUBLANG_PULAR_SENEGAL: u32 = 2;
-pub const SUBLANG_PUNJABI_INDIA: u32 = 1;
-pub const SUBLANG_PUNJABI_PAKISTAN: u32 = 2;
-pub const SUBLANG_QUECHUA_BOLIVIA: u32 = 1;
-pub const SUBLANG_QUECHUA_ECUADOR: u32 = 2;
-pub const SUBLANG_QUECHUA_PERU: u32 = 3;
-pub const SUBLANG_ROMANIAN_ROMANIA: u32 = 1;
-pub const SUBLANG_ROMANSH_SWITZERLAND: u32 = 1;
-pub const SUBLANG_RUSSIAN_RUSSIA: u32 = 1;
-pub const SUBLANG_SAKHA_RUSSIA: u32 = 1;
-pub const SUBLANG_SAMI_INARI_FINLAND: u32 = 9;
-pub const SUBLANG_SAMI_LULE_NORWAY: u32 = 4;
-pub const SUBLANG_SAMI_LULE_SWEDEN: u32 = 5;
-pub const SUBLANG_SAMI_NORTHERN_FINLAND: u32 = 3;
-pub const SUBLANG_SAMI_NORTHERN_NORWAY: u32 = 1;
-pub const SUBLANG_SAMI_NORTHERN_SWEDEN: u32 = 2;
-pub const SUBLANG_SAMI_SKOLT_FINLAND: u32 = 8;
-pub const SUBLANG_SAMI_SOUTHERN_NORWAY: u32 = 6;
-pub const SUBLANG_SAMI_SOUTHERN_SWEDEN: u32 = 7;
-pub const SUBLANG_SANSKRIT_INDIA: u32 = 1;
-pub const SUBLANG_SCOTTISH_GAELIC: u32 = 1;
-pub const SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_CYRILLIC: u32 = 7;
-pub const SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_LATIN: u32 = 6;
-pub const SUBLANG_SERBIAN_CROATIA: u32 = 1;
-pub const SUBLANG_SERBIAN_CYRILLIC: u32 = 3;
-pub const SUBLANG_SERBIAN_LATIN: u32 = 2;
-pub const SUBLANG_SERBIAN_MONTENEGRO_CYRILLIC: u32 = 12;
-pub const SUBLANG_SERBIAN_MONTENEGRO_LATIN: u32 = 11;
-pub const SUBLANG_SERBIAN_SERBIA_CYRILLIC: u32 = 10;
-pub const SUBLANG_SERBIAN_SERBIA_LATIN: u32 = 9;
-pub const SUBLANG_SINDHI_AFGHANISTAN: u32 = 2;
-pub const SUBLANG_SINDHI_INDIA: u32 = 1;
-pub const SUBLANG_SINDHI_PAKISTAN: u32 = 2;
-pub const SUBLANG_SINHALESE_SRI_LANKA: u32 = 1;
-pub const SUBLANG_SLOVAK_SLOVAKIA: u32 = 1;
-pub const SUBLANG_SLOVENIAN_SLOVENIA: u32 = 1;
-pub const SUBLANG_SOTHO_NORTHERN_SOUTH_AFRICA: u32 = 1;
-pub const SUBLANG_SPANISH: u32 = 1;
-pub const SUBLANG_SPANISH_ARGENTINA: u32 = 11;
-pub const SUBLANG_SPANISH_BOLIVIA: u32 = 16;
-pub const SUBLANG_SPANISH_CHILE: u32 = 13;
-pub const SUBLANG_SPANISH_COLOMBIA: u32 = 9;
-pub const SUBLANG_SPANISH_COSTA_RICA: u32 = 5;
-pub const SUBLANG_SPANISH_DOMINICAN_REPUBLIC: u32 = 7;
-pub const SUBLANG_SPANISH_ECUADOR: u32 = 12;
-pub const SUBLANG_SPANISH_EL_SALVADOR: u32 = 17;
-pub const SUBLANG_SPANISH_GUATEMALA: u32 = 4;
-pub const SUBLANG_SPANISH_HONDURAS: u32 = 18;
-pub const SUBLANG_SPANISH_MEXICAN: u32 = 2;
-pub const SUBLANG_SPANISH_MODERN: u32 = 3;
-pub const SUBLANG_SPANISH_NICARAGUA: u32 = 19;
-pub const SUBLANG_SPANISH_PANAMA: u32 = 6;
-pub const SUBLANG_SPANISH_PARAGUAY: u32 = 15;
-pub const SUBLANG_SPANISH_PERU: u32 = 10;
-pub const SUBLANG_SPANISH_PUERTO_RICO: u32 = 20;
-pub const SUBLANG_SPANISH_URUGUAY: u32 = 14;
-pub const SUBLANG_SPANISH_US: u32 = 21;
-pub const SUBLANG_SPANISH_VENEZUELA: u32 = 8;
-pub const SUBLANG_SWAHILI_KENYA: u32 = 1;
-pub const SUBLANG_SWEDISH: u32 = 1;
-pub const SUBLANG_SWEDISH_FINLAND: u32 = 2;
-pub const SUBLANG_SYRIAC_SYRIA: u32 = 1;
-pub const SUBLANG_SYS_DEFAULT: u32 = 2;
-pub const SUBLANG_TAJIK_TAJIKISTAN: u32 = 1;
-pub const SUBLANG_TAMAZIGHT_ALGERIA_LATIN: u32 = 2;
-pub const SUBLANG_TAMAZIGHT_MOROCCO_TIFINAGH: u32 = 4;
-pub const SUBLANG_TAMIL_INDIA: u32 = 1;
-pub const SUBLANG_TAMIL_SRI_LANKA: u32 = 2;
-pub const SUBLANG_TATAR_RUSSIA: u32 = 1;
-pub const SUBLANG_TELUGU_INDIA: u32 = 1;
-pub const SUBLANG_THAI_THAILAND: u32 = 1;
-pub const SUBLANG_TIBETAN_PRC: u32 = 1;
-pub const SUBLANG_TIGRIGNA_ERITREA: u32 = 2;
-pub const SUBLANG_TIGRINYA_ERITREA: u32 = 2;
-pub const SUBLANG_TIGRINYA_ETHIOPIA: u32 = 1;
-pub const SUBLANG_TSWANA_BOTSWANA: u32 = 2;
-pub const SUBLANG_TSWANA_SOUTH_AFRICA: u32 = 1;
-pub const SUBLANG_TURKISH_TURKEY: u32 = 1;
-pub const SUBLANG_TURKMEN_TURKMENISTAN: u32 = 1;
-pub const SUBLANG_UIGHUR_PRC: u32 = 1;
-pub const SUBLANG_UI_CUSTOM_DEFAULT: u32 = 5;
-pub const SUBLANG_UKRAINIAN_UKRAINE: u32 = 1;
-pub const SUBLANG_UPPER_SORBIAN_GERMANY: u32 = 1;
-pub const SUBLANG_URDU_INDIA: u32 = 2;
-pub const SUBLANG_URDU_PAKISTAN: u32 = 1;
-pub const SUBLANG_UZBEK_CYRILLIC: u32 = 2;
-pub const SUBLANG_UZBEK_LATIN: u32 = 1;
-pub const SUBLANG_VALENCIAN_VALENCIA: u32 = 2;
-pub const SUBLANG_VIETNAMESE_VIETNAM: u32 = 1;
-pub const SUBLANG_WELSH_UNITED_KINGDOM: u32 = 1;
-pub const SUBLANG_WOLOF_SENEGAL: u32 = 1;
-pub const SUBLANG_XHOSA_SOUTH_AFRICA: u32 = 1;
-pub const SUBLANG_YAKUT_RUSSIA: u32 = 1;
-pub const SUBLANG_YI_PRC: u32 = 1;
-pub const SUBLANG_YORUBA_NIGERIA: u32 = 1;
-pub const SUBLANG_ZULU_SOUTH_AFRICA: u32 = 1;
-pub const SUCCESSFUL_ACCESS_ACE_FLAG: u32 = 64;
+pub const SUBLANG_AFRIKAANS_SOUTH_AFRICA: i32 = 1;
+pub const SUBLANG_ALBANIAN_ALBANIA: i32 = 1;
+pub const SUBLANG_ALSATIAN_FRANCE: i32 = 1;
+pub const SUBLANG_AMHARIC_ETHIOPIA: i32 = 1;
+pub const SUBLANG_ARABIC_ALGERIA: i32 = 5;
+pub const SUBLANG_ARABIC_BAHRAIN: i32 = 15;
+pub const SUBLANG_ARABIC_EGYPT: i32 = 3;
+pub const SUBLANG_ARABIC_IRAQ: i32 = 2;
+pub const SUBLANG_ARABIC_JORDAN: i32 = 11;
+pub const SUBLANG_ARABIC_KUWAIT: i32 = 13;
+pub const SUBLANG_ARABIC_LEBANON: i32 = 12;
+pub const SUBLANG_ARABIC_LIBYA: i32 = 4;
+pub const SUBLANG_ARABIC_MOROCCO: i32 = 6;
+pub const SUBLANG_ARABIC_OMAN: i32 = 8;
+pub const SUBLANG_ARABIC_QATAR: i32 = 16;
+pub const SUBLANG_ARABIC_SAUDI_ARABIA: i32 = 1;
+pub const SUBLANG_ARABIC_SYRIA: i32 = 10;
+pub const SUBLANG_ARABIC_TUNISIA: i32 = 7;
+pub const SUBLANG_ARABIC_UAE: i32 = 14;
+pub const SUBLANG_ARABIC_YEMEN: i32 = 9;
+pub const SUBLANG_ARMENIAN_ARMENIA: i32 = 1;
+pub const SUBLANG_ASSAMESE_INDIA: i32 = 1;
+pub const SUBLANG_AZERBAIJANI_AZERBAIJAN_CYRILLIC: i32 = 2;
+pub const SUBLANG_AZERBAIJANI_AZERBAIJAN_LATIN: i32 = 1;
+pub const SUBLANG_AZERI_CYRILLIC: i32 = 2;
+pub const SUBLANG_AZERI_LATIN: i32 = 1;
+pub const SUBLANG_BANGLA_BANGLADESH: i32 = 2;
+pub const SUBLANG_BANGLA_INDIA: i32 = 1;
+pub const SUBLANG_BASHKIR_RUSSIA: i32 = 1;
+pub const SUBLANG_BASQUE_BASQUE: i32 = 1;
+pub const SUBLANG_BELARUSIAN_BELARUS: i32 = 1;
+pub const SUBLANG_BENGALI_BANGLADESH: i32 = 2;
+pub const SUBLANG_BENGALI_INDIA: i32 = 1;
+pub const SUBLANG_BOSNIAN_BOSNIA_HERZEGOVINA_CYRILLIC: i32 = 8;
+pub const SUBLANG_BOSNIAN_BOSNIA_HERZEGOVINA_LATIN: i32 = 5;
+pub const SUBLANG_BRETON_FRANCE: i32 = 1;
+pub const SUBLANG_BULGARIAN_BULGARIA: i32 = 1;
+pub const SUBLANG_CATALAN_CATALAN: i32 = 1;
+pub const SUBLANG_CENTRAL_KURDISH_IRAQ: i32 = 1;
+pub const SUBLANG_CHEROKEE_CHEROKEE: i32 = 1;
+pub const SUBLANG_CHINESE_HONGKONG: i32 = 3;
+pub const SUBLANG_CHINESE_MACAU: i32 = 5;
+pub const SUBLANG_CHINESE_SIMPLIFIED: i32 = 2;
+pub const SUBLANG_CHINESE_SINGAPORE: i32 = 4;
+pub const SUBLANG_CHINESE_TRADITIONAL: i32 = 1;
+pub const SUBLANG_CORSICAN_FRANCE: i32 = 1;
+pub const SUBLANG_CROATIAN_BOSNIA_HERZEGOVINA_LATIN: i32 = 4;
+pub const SUBLANG_CROATIAN_CROATIA: i32 = 1;
+pub const SUBLANG_CUSTOM_DEFAULT: i32 = 3;
+pub const SUBLANG_CUSTOM_UNSPECIFIED: i32 = 4;
+pub const SUBLANG_CZECH_CZECH_REPUBLIC: i32 = 1;
+pub const SUBLANG_DANISH_DENMARK: i32 = 1;
+pub const SUBLANG_DARI_AFGHANISTAN: i32 = 1;
+pub const SUBLANG_DEFAULT: i32 = 1;
+pub const SUBLANG_DIVEHI_MALDIVES: i32 = 1;
+pub const SUBLANG_DUTCH: i32 = 1;
+pub const SUBLANG_DUTCH_BELGIAN: i32 = 2;
+pub const SUBLANG_ENGLISH_AUS: i32 = 3;
+pub const SUBLANG_ENGLISH_BELIZE: i32 = 10;
+pub const SUBLANG_ENGLISH_CAN: i32 = 4;
+pub const SUBLANG_ENGLISH_CARIBBEAN: i32 = 9;
+pub const SUBLANG_ENGLISH_EIRE: i32 = 6;
+pub const SUBLANG_ENGLISH_INDIA: i32 = 16;
+pub const SUBLANG_ENGLISH_JAMAICA: i32 = 8;
+pub const SUBLANG_ENGLISH_MALAYSIA: i32 = 17;
+pub const SUBLANG_ENGLISH_NZ: i32 = 5;
+pub const SUBLANG_ENGLISH_PHILIPPINES: i32 = 13;
+pub const SUBLANG_ENGLISH_SINGAPORE: i32 = 18;
+pub const SUBLANG_ENGLISH_SOUTH_AFRICA: i32 = 7;
+pub const SUBLANG_ENGLISH_TRINIDAD: i32 = 11;
+pub const SUBLANG_ENGLISH_UK: i32 = 2;
+pub const SUBLANG_ENGLISH_US: i32 = 1;
+pub const SUBLANG_ENGLISH_ZIMBABWE: i32 = 12;
+pub const SUBLANG_ESTONIAN_ESTONIA: i32 = 1;
+pub const SUBLANG_FAEROESE_FAROE_ISLANDS: i32 = 1;
+pub const SUBLANG_FILIPINO_PHILIPPINES: i32 = 1;
+pub const SUBLANG_FINNISH_FINLAND: i32 = 1;
+pub const SUBLANG_FRENCH: i32 = 1;
+pub const SUBLANG_FRENCH_BELGIAN: i32 = 2;
+pub const SUBLANG_FRENCH_CANADIAN: i32 = 3;
+pub const SUBLANG_FRENCH_LUXEMBOURG: i32 = 5;
+pub const SUBLANG_FRENCH_MONACO: i32 = 6;
+pub const SUBLANG_FRENCH_SWISS: i32 = 4;
+pub const SUBLANG_FRISIAN_NETHERLANDS: i32 = 1;
+pub const SUBLANG_FULAH_SENEGAL: i32 = 2;
+pub const SUBLANG_GALICIAN_GALICIAN: i32 = 1;
+pub const SUBLANG_GEORGIAN_GEORGIA: i32 = 1;
+pub const SUBLANG_GERMAN: i32 = 1;
+pub const SUBLANG_GERMAN_AUSTRIAN: i32 = 3;
+pub const SUBLANG_GERMAN_LIECHTENSTEIN: i32 = 5;
+pub const SUBLANG_GERMAN_LUXEMBOURG: i32 = 4;
+pub const SUBLANG_GERMAN_SWISS: i32 = 2;
+pub const SUBLANG_GREEK_GREECE: i32 = 1;
+pub const SUBLANG_GREENLANDIC_GREENLAND: i32 = 1;
+pub const SUBLANG_GUJARATI_INDIA: i32 = 1;
+pub const SUBLANG_HAUSA_NIGERIA_LATIN: i32 = 1;
+pub const SUBLANG_HAWAIIAN_US: i32 = 1;
+pub const SUBLANG_HEBREW_ISRAEL: i32 = 1;
+pub const SUBLANG_HINDI_INDIA: i32 = 1;
+pub const SUBLANG_HUNGARIAN_HUNGARY: i32 = 1;
+pub const SUBLANG_ICELANDIC_ICELAND: i32 = 1;
+pub const SUBLANG_IGBO_NIGERIA: i32 = 1;
+pub const SUBLANG_INDONESIAN_INDONESIA: i32 = 1;
+pub const SUBLANG_INUKTITUT_CANADA: i32 = 1;
+pub const SUBLANG_INUKTITUT_CANADA_LATIN: i32 = 2;
+pub const SUBLANG_IRISH_IRELAND: i32 = 2;
+pub const SUBLANG_ITALIAN: i32 = 1;
+pub const SUBLANG_ITALIAN_SWISS: i32 = 2;
+pub const SUBLANG_JAPANESE_JAPAN: i32 = 1;
+pub const SUBLANG_KANNADA_INDIA: i32 = 1;
+pub const SUBLANG_KASHMIRI_INDIA: i32 = 2;
+pub const SUBLANG_KASHMIRI_SASIA: i32 = 2;
+pub const SUBLANG_KAZAK_KAZAKHSTAN: i32 = 1;
+pub const SUBLANG_KHMER_CAMBODIA: i32 = 1;
+pub const SUBLANG_KICHE_GUATEMALA: i32 = 1;
+pub const SUBLANG_KINYARWANDA_RWANDA: i32 = 1;
+pub const SUBLANG_KONKANI_INDIA: i32 = 1;
+pub const SUBLANG_KOREAN: i32 = 1;
+pub const SUBLANG_KYRGYZ_KYRGYZSTAN: i32 = 1;
+pub const SUBLANG_LAO_LAO: i32 = 1;
+pub const SUBLANG_LATVIAN_LATVIA: i32 = 1;
+pub const SUBLANG_LITHUANIAN: i32 = 1;
+pub const SUBLANG_LOWER_SORBIAN_GERMANY: i32 = 2;
+pub const SUBLANG_LUXEMBOURGISH_LUXEMBOURG: i32 = 1;
+pub const SUBLANG_MACEDONIAN_MACEDONIA: i32 = 1;
+pub const SUBLANG_MALAYALAM_INDIA: i32 = 1;
+pub const SUBLANG_MALAY_BRUNEI_DARUSSALAM: i32 = 2;
+pub const SUBLANG_MALAY_MALAYSIA: i32 = 1;
+pub const SUBLANG_MALTESE_MALTA: i32 = 1;
+pub const SUBLANG_MAORI_NEW_ZEALAND: i32 = 1;
+pub const SUBLANG_MAPUDUNGUN_CHILE: i32 = 1;
+pub const SUBLANG_MARATHI_INDIA: i32 = 1;
+pub const SUBLANG_MOHAWK_MOHAWK: i32 = 1;
+pub const SUBLANG_MONGOLIAN_CYRILLIC_MONGOLIA: i32 = 1;
+pub const SUBLANG_MONGOLIAN_PRC: i32 = 2;
+pub const SUBLANG_NEPALI_INDIA: i32 = 2;
+pub const SUBLANG_NEPALI_NEPAL: i32 = 1;
+pub const SUBLANG_NEUTRAL: i32 = 0;
+pub const SUBLANG_NORWEGIAN_BOKMAL: i32 = 1;
+pub const SUBLANG_NORWEGIAN_NYNORSK: i32 = 2;
+pub const SUBLANG_OCCITAN_FRANCE: i32 = 1;
+pub const SUBLANG_ODIA_INDIA: i32 = 1;
+pub const SUBLANG_ORIYA_INDIA: i32 = 1;
+pub const SUBLANG_PASHTO_AFGHANISTAN: i32 = 1;
+pub const SUBLANG_PERSIAN_IRAN: i32 = 1;
+pub const SUBLANG_POLISH_POLAND: i32 = 1;
+pub const SUBLANG_PORTUGUESE: i32 = 2;
+pub const SUBLANG_PORTUGUESE_BRAZILIAN: i32 = 1;
+pub const SUBLANG_PULAR_SENEGAL: i32 = 2;
+pub const SUBLANG_PUNJABI_INDIA: i32 = 1;
+pub const SUBLANG_PUNJABI_PAKISTAN: i32 = 2;
+pub const SUBLANG_QUECHUA_BOLIVIA: i32 = 1;
+pub const SUBLANG_QUECHUA_ECUADOR: i32 = 2;
+pub const SUBLANG_QUECHUA_PERU: i32 = 3;
+pub const SUBLANG_ROMANIAN_ROMANIA: i32 = 1;
+pub const SUBLANG_ROMANSH_SWITZERLAND: i32 = 1;
+pub const SUBLANG_RUSSIAN_RUSSIA: i32 = 1;
+pub const SUBLANG_SAKHA_RUSSIA: i32 = 1;
+pub const SUBLANG_SAMI_INARI_FINLAND: i32 = 9;
+pub const SUBLANG_SAMI_LULE_NORWAY: i32 = 4;
+pub const SUBLANG_SAMI_LULE_SWEDEN: i32 = 5;
+pub const SUBLANG_SAMI_NORTHERN_FINLAND: i32 = 3;
+pub const SUBLANG_SAMI_NORTHERN_NORWAY: i32 = 1;
+pub const SUBLANG_SAMI_NORTHERN_SWEDEN: i32 = 2;
+pub const SUBLANG_SAMI_SKOLT_FINLAND: i32 = 8;
+pub const SUBLANG_SAMI_SOUTHERN_NORWAY: i32 = 6;
+pub const SUBLANG_SAMI_SOUTHERN_SWEDEN: i32 = 7;
+pub const SUBLANG_SANSKRIT_INDIA: i32 = 1;
+pub const SUBLANG_SCOTTISH_GAELIC: i32 = 1;
+pub const SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_CYRILLIC: i32 = 7;
+pub const SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_LATIN: i32 = 6;
+pub const SUBLANG_SERBIAN_CROATIA: i32 = 1;
+pub const SUBLANG_SERBIAN_CYRILLIC: i32 = 3;
+pub const SUBLANG_SERBIAN_LATIN: i32 = 2;
+pub const SUBLANG_SERBIAN_MONTENEGRO_CYRILLIC: i32 = 12;
+pub const SUBLANG_SERBIAN_MONTENEGRO_LATIN: i32 = 11;
+pub const SUBLANG_SERBIAN_SERBIA_CYRILLIC: i32 = 10;
+pub const SUBLANG_SERBIAN_SERBIA_LATIN: i32 = 9;
+pub const SUBLANG_SINDHI_AFGHANISTAN: i32 = 2;
+pub const SUBLANG_SINDHI_INDIA: i32 = 1;
+pub const SUBLANG_SINDHI_PAKISTAN: i32 = 2;
+pub const SUBLANG_SINHALESE_SRI_LANKA: i32 = 1;
+pub const SUBLANG_SLOVAK_SLOVAKIA: i32 = 1;
+pub const SUBLANG_SLOVENIAN_SLOVENIA: i32 = 1;
+pub const SUBLANG_SOTHO_NORTHERN_SOUTH_AFRICA: i32 = 1;
+pub const SUBLANG_SPANISH: i32 = 1;
+pub const SUBLANG_SPANISH_ARGENTINA: i32 = 11;
+pub const SUBLANG_SPANISH_BOLIVIA: i32 = 16;
+pub const SUBLANG_SPANISH_CHILE: i32 = 13;
+pub const SUBLANG_SPANISH_COLOMBIA: i32 = 9;
+pub const SUBLANG_SPANISH_COSTA_RICA: i32 = 5;
+pub const SUBLANG_SPANISH_DOMINICAN_REPUBLIC: i32 = 7;
+pub const SUBLANG_SPANISH_ECUADOR: i32 = 12;
+pub const SUBLANG_SPANISH_EL_SALVADOR: i32 = 17;
+pub const SUBLANG_SPANISH_GUATEMALA: i32 = 4;
+pub const SUBLANG_SPANISH_HONDURAS: i32 = 18;
+pub const SUBLANG_SPANISH_MEXICAN: i32 = 2;
+pub const SUBLANG_SPANISH_MODERN: i32 = 3;
+pub const SUBLANG_SPANISH_NICARAGUA: i32 = 19;
+pub const SUBLANG_SPANISH_PANAMA: i32 = 6;
+pub const SUBLANG_SPANISH_PARAGUAY: i32 = 15;
+pub const SUBLANG_SPANISH_PERU: i32 = 10;
+pub const SUBLANG_SPANISH_PUERTO_RICO: i32 = 20;
+pub const SUBLANG_SPANISH_URUGUAY: i32 = 14;
+pub const SUBLANG_SPANISH_US: i32 = 21;
+pub const SUBLANG_SPANISH_VENEZUELA: i32 = 8;
+pub const SUBLANG_SWAHILI_KENYA: i32 = 1;
+pub const SUBLANG_SWEDISH: i32 = 1;
+pub const SUBLANG_SWEDISH_FINLAND: i32 = 2;
+pub const SUBLANG_SYRIAC_SYRIA: i32 = 1;
+pub const SUBLANG_SYS_DEFAULT: i32 = 2;
+pub const SUBLANG_TAJIK_TAJIKISTAN: i32 = 1;
+pub const SUBLANG_TAMAZIGHT_ALGERIA_LATIN: i32 = 2;
+pub const SUBLANG_TAMAZIGHT_MOROCCO_TIFINAGH: i32 = 4;
+pub const SUBLANG_TAMIL_INDIA: i32 = 1;
+pub const SUBLANG_TAMIL_SRI_LANKA: i32 = 2;
+pub const SUBLANG_TATAR_RUSSIA: i32 = 1;
+pub const SUBLANG_TELUGU_INDIA: i32 = 1;
+pub const SUBLANG_THAI_THAILAND: i32 = 1;
+pub const SUBLANG_TIBETAN_PRC: i32 = 1;
+pub const SUBLANG_TIGRIGNA_ERITREA: i32 = 2;
+pub const SUBLANG_TIGRINYA_ERITREA: i32 = 2;
+pub const SUBLANG_TIGRINYA_ETHIOPIA: i32 = 1;
+pub const SUBLANG_TSWANA_BOTSWANA: i32 = 2;
+pub const SUBLANG_TSWANA_SOUTH_AFRICA: i32 = 1;
+pub const SUBLANG_TURKISH_TURKEY: i32 = 1;
+pub const SUBLANG_TURKMEN_TURKMENISTAN: i32 = 1;
+pub const SUBLANG_UIGHUR_PRC: i32 = 1;
+pub const SUBLANG_UI_CUSTOM_DEFAULT: i32 = 5;
+pub const SUBLANG_UKRAINIAN_UKRAINE: i32 = 1;
+pub const SUBLANG_UPPER_SORBIAN_GERMANY: i32 = 1;
+pub const SUBLANG_URDU_INDIA: i32 = 2;
+pub const SUBLANG_URDU_PAKISTAN: i32 = 1;
+pub const SUBLANG_UZBEK_CYRILLIC: i32 = 2;
+pub const SUBLANG_UZBEK_LATIN: i32 = 1;
+pub const SUBLANG_VALENCIAN_VALENCIA: i32 = 2;
+pub const SUBLANG_VIETNAMESE_VIETNAM: i32 = 1;
+pub const SUBLANG_WELSH_UNITED_KINGDOM: i32 = 1;
+pub const SUBLANG_WOLOF_SENEGAL: i32 = 1;
+pub const SUBLANG_XHOSA_SOUTH_AFRICA: i32 = 1;
+pub const SUBLANG_YAKUT_RUSSIA: i32 = 1;
+pub const SUBLANG_YI_PRC: i32 = 1;
+pub const SUBLANG_YORUBA_NIGERIA: i32 = 1;
+pub const SUBLANG_ZULU_SOUTH_AFRICA: i32 = 1;
+pub const SUCCESSFUL_ACCESS_ACE_FLAG: i32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUPPORTED_OS_INFO {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-pub const SYNCHRONIZE: u32 = 1048576;
+pub const SYNCHRONIZE: i32 = 1048576;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
@@ -12443,9 +12446,9 @@ pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_ACCESS_FILTER_ACE_TYPE: u32 = 21;
+pub const SYSTEM_ACCESS_FILTER_ACE_TYPE: i32 = 21;
 pub const SYSTEM_ACCESS_FILTER_NOCONSTRAINT_MASK: u32 = 4294967295;
-pub const SYSTEM_ACCESS_FILTER_VALID_MASK: u32 = 16777215;
+pub const SYSTEM_ACCESS_FILTER_VALID_MASK: i32 = 16777215;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_ACE {
@@ -12453,7 +12456,7 @@ pub struct SYSTEM_ALARM_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_ALARM_ACE_TYPE: u32 = 3;
+pub const SYSTEM_ALARM_ACE_TYPE: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_ACE {
@@ -12461,7 +12464,7 @@ pub struct SYSTEM_ALARM_CALLBACK_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_ALARM_CALLBACK_ACE_TYPE: u32 = 14;
+pub const SYSTEM_ALARM_CALLBACK_ACE_TYPE: i32 = 14;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
@@ -12472,7 +12475,7 @@ pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-pub const SYSTEM_ALARM_CALLBACK_OBJECT_ACE_TYPE: u32 = 16;
+pub const SYSTEM_ALARM_CALLBACK_OBJECT_ACE_TYPE: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_OBJECT_ACE {
@@ -12483,7 +12486,7 @@ pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-pub const SYSTEM_ALARM_OBJECT_ACE_TYPE: u32 = 8;
+pub const SYSTEM_ALARM_OBJECT_ACE_TYPE: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_ACE {
@@ -12491,7 +12494,7 @@ pub struct SYSTEM_AUDIT_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_AUDIT_ACE_TYPE: u32 = 2;
+pub const SYSTEM_AUDIT_ACE_TYPE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_ACE {
@@ -12499,7 +12502,7 @@ pub struct SYSTEM_AUDIT_CALLBACK_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_AUDIT_CALLBACK_ACE_TYPE: u32 = 13;
+pub const SYSTEM_AUDIT_CALLBACK_ACE_TYPE: i32 = 13;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
@@ -12510,7 +12513,7 @@ pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-pub const SYSTEM_AUDIT_CALLBACK_OBJECT_ACE_TYPE: u32 = 15;
+pub const SYSTEM_AUDIT_CALLBACK_OBJECT_ACE_TYPE: i32 = 15;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE {
@@ -12521,7 +12524,7 @@ pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub InheritedObjectType: windows_core::GUID,
     pub SidStart: u32,
 }
-pub const SYSTEM_AUDIT_OBJECT_ACE_TYPE: u32 = 7;
+pub const SYSTEM_AUDIT_OBJECT_ACE_TYPE: i32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BATTERY_STATE {
@@ -12544,9 +12547,9 @@ impl Default for SYSTEM_BATTERY_STATE {
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const SYSTEM_CACHE_ALIGNMENT_SIZE: u32 = 64;
+pub const SYSTEM_CACHE_ALIGNMENT_SIZE: i32 = 64;
 #[cfg(target_arch = "aarch64")]
-pub const SYSTEM_CACHE_ALIGNMENT_SIZE: u32 = 128;
+pub const SYSTEM_CACHE_ALIGNMENT_SIZE: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_CPU_SET_INFORMATION {
@@ -12647,10 +12650,10 @@ impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2;
-pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4;
-pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1;
-pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8;
+pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: i32 = 2;
+pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: i32 = 4;
+pub const SYSTEM_CPU_SET_INFORMATION_PARKED: i32 = 1;
+pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
@@ -12723,11 +12726,11 @@ pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_MANDATORY_LABEL_ACE_TYPE: u32 = 17;
-pub const SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP: u32 = 4;
-pub const SYSTEM_MANDATORY_LABEL_NO_READ_UP: u32 = 2;
-pub const SYSTEM_MANDATORY_LABEL_NO_WRITE_UP: u32 = 1;
-pub const SYSTEM_MANDATORY_LABEL_VALID_MASK: u32 = 7;
+pub const SYSTEM_MANDATORY_LABEL_ACE_TYPE: i32 = 17;
+pub const SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP: i32 = 4;
+pub const SYSTEM_MANDATORY_LABEL_NO_READ_UP: i32 = 2;
+pub const SYSTEM_MANDATORY_LABEL_NO_WRITE_UP: i32 = 1;
+pub const SYSTEM_MANDATORY_LABEL_VALID_MASK: i32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
@@ -12854,8 +12857,8 @@ pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_PROCESS_TRUST_LABEL_ACE_TYPE: u32 = 20;
-pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: u32 = 16777215;
+pub const SYSTEM_PROCESS_TRUST_LABEL_ACE_TYPE: i32 = 20;
+pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: i32 = 16777215;
 pub const SYSTEM_PROCESS_TRUST_NOCONSTRAINT_MASK: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12864,7 +12867,7 @@ pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18;
+pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: i32 = 18;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
@@ -12872,7 +12875,7 @@ pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub Mask: ACCESS_MASK,
     pub SidStart: u32,
 }
-pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19;
+pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: i32 = 19;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
@@ -12990,9 +12993,9 @@ pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = 17;
 pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = 10;
 pub const SystemVideoState: POWER_INFORMATION_LEVEL = 29;
 pub const SystemWakeSource: POWER_INFORMATION_LEVEL = 35;
-pub const TAPE_ABSOLUTE_BLOCK: u32 = 1;
-pub const TAPE_ABSOLUTE_POSITION: u32 = 0;
-pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: u32 = 2;
+pub const TAPE_ABSOLUTE_BLOCK: i32 = 1;
+pub const TAPE_ABSOLUTE_POSITION: i32 = 0;
+pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_CREATE_PARTITION {
@@ -13002,59 +13005,59 @@ pub struct TAPE_CREATE_PARTITION {
 }
 pub const TAPE_DRIVE_ABSOLUTE_BLK: u32 = 2147487744;
 pub const TAPE_DRIVE_ABS_BLK_IMMED: u32 = 2147491840;
-pub const TAPE_DRIVE_CLEAN_REQUESTS: u32 = 33554432;
-pub const TAPE_DRIVE_COMPRESSION: u32 = 131072;
-pub const TAPE_DRIVE_ECC: u32 = 65536;
-pub const TAPE_DRIVE_EJECT_MEDIA: u32 = 16777216;
+pub const TAPE_DRIVE_CLEAN_REQUESTS: i32 = 33554432;
+pub const TAPE_DRIVE_COMPRESSION: i32 = 131072;
+pub const TAPE_DRIVE_ECC: i32 = 65536;
+pub const TAPE_DRIVE_EJECT_MEDIA: i32 = 16777216;
 pub const TAPE_DRIVE_END_OF_DATA: u32 = 2147549184;
-pub const TAPE_DRIVE_EOT_WZ_SIZE: u32 = 8192;
-pub const TAPE_DRIVE_ERASE_BOP_ONLY: u32 = 64;
-pub const TAPE_DRIVE_ERASE_IMMEDIATE: u32 = 128;
-pub const TAPE_DRIVE_ERASE_LONG: u32 = 32;
-pub const TAPE_DRIVE_ERASE_SHORT: u32 = 16;
+pub const TAPE_DRIVE_EOT_WZ_SIZE: i32 = 8192;
+pub const TAPE_DRIVE_ERASE_BOP_ONLY: i32 = 64;
+pub const TAPE_DRIVE_ERASE_IMMEDIATE: i32 = 128;
+pub const TAPE_DRIVE_ERASE_LONG: i32 = 32;
+pub const TAPE_DRIVE_ERASE_SHORT: i32 = 16;
 pub const TAPE_DRIVE_FILEMARKS: u32 = 2147745792;
-pub const TAPE_DRIVE_FIXED: u32 = 1;
-pub const TAPE_DRIVE_FIXED_BLOCK: u32 = 1024;
+pub const TAPE_DRIVE_FIXED: i32 = 1;
+pub const TAPE_DRIVE_FIXED_BLOCK: i32 = 1024;
 pub const TAPE_DRIVE_FORMAT: u32 = 2684354560;
 pub const TAPE_DRIVE_FORMAT_IMMEDIATE: u32 = 3221225472;
-pub const TAPE_DRIVE_GET_ABSOLUTE_BLK: u32 = 1048576;
-pub const TAPE_DRIVE_GET_LOGICAL_BLK: u32 = 2097152;
+pub const TAPE_DRIVE_GET_ABSOLUTE_BLK: i32 = 1048576;
+pub const TAPE_DRIVE_GET_LOGICAL_BLK: i32 = 2097152;
 pub const TAPE_DRIVE_HIGH_FEATURES: u32 = 2147483648;
-pub const TAPE_DRIVE_INITIATOR: u32 = 4;
+pub const TAPE_DRIVE_INITIATOR: i32 = 4;
 pub const TAPE_DRIVE_LOAD_UNLD_IMMED: u32 = 2147483680;
 pub const TAPE_DRIVE_LOAD_UNLOAD: u32 = 2147483649;
 pub const TAPE_DRIVE_LOCK_UNLK_IMMED: u32 = 2147483776;
 pub const TAPE_DRIVE_LOCK_UNLOCK: u32 = 2147483652;
 pub const TAPE_DRIVE_LOGICAL_BLK: u32 = 2147500032;
 pub const TAPE_DRIVE_LOG_BLK_IMMED: u32 = 2147516416;
-pub const TAPE_DRIVE_PADDING: u32 = 262144;
+pub const TAPE_DRIVE_PADDING: i32 = 262144;
 pub type TAPE_DRIVE_PROBLEM_TYPE = i32;
 pub const TAPE_DRIVE_RELATIVE_BLKS: u32 = 2147614720;
-pub const TAPE_DRIVE_REPORT_SMKS: u32 = 524288;
+pub const TAPE_DRIVE_REPORT_SMKS: i32 = 524288;
 pub const TAPE_DRIVE_RESERVED_BIT: u32 = 2147483648;
 pub const TAPE_DRIVE_REVERSE_POSITION: u32 = 2151677952;
 pub const TAPE_DRIVE_REWIND_IMMEDIATE: u32 = 2147483656;
-pub const TAPE_DRIVE_SELECT: u32 = 2;
+pub const TAPE_DRIVE_SELECT: i32 = 2;
 pub const TAPE_DRIVE_SEQUENTIAL_FMKS: u32 = 2148007936;
 pub const TAPE_DRIVE_SEQUENTIAL_SMKS: u32 = 2149580800;
 pub const TAPE_DRIVE_SETMARKS: u32 = 2148532224;
 pub const TAPE_DRIVE_SET_BLOCK_SIZE: u32 = 2147483664;
-pub const TAPE_DRIVE_SET_CMP_BOP_ONLY: u32 = 67108864;
+pub const TAPE_DRIVE_SET_CMP_BOP_ONLY: i32 = 67108864;
 pub const TAPE_DRIVE_SET_COMPRESSION: u32 = 2147484160;
 pub const TAPE_DRIVE_SET_ECC: u32 = 2147483904;
-pub const TAPE_DRIVE_SET_EOT_WZ_SIZE: u32 = 4194304;
+pub const TAPE_DRIVE_SET_EOT_WZ_SIZE: i32 = 4194304;
 pub const TAPE_DRIVE_SET_PADDING: u32 = 2147484672;
 pub const TAPE_DRIVE_SET_REPORT_SMKS: u32 = 2147485696;
 pub const TAPE_DRIVE_SPACE_IMMEDIATE: u32 = 2155872256;
-pub const TAPE_DRIVE_TAPE_CAPACITY: u32 = 256;
-pub const TAPE_DRIVE_TAPE_REMAINING: u32 = 512;
+pub const TAPE_DRIVE_TAPE_CAPACITY: i32 = 256;
+pub const TAPE_DRIVE_TAPE_REMAINING: i32 = 512;
 pub const TAPE_DRIVE_TENSION: u32 = 2147483650;
 pub const TAPE_DRIVE_TENSION_IMMED: u32 = 2147483712;
-pub const TAPE_DRIVE_VARIABLE_BLOCK: u32 = 2048;
+pub const TAPE_DRIVE_VARIABLE_BLOCK: i32 = 2048;
 pub const TAPE_DRIVE_WRITE_FILEMARKS: u32 = 2181038080;
 pub const TAPE_DRIVE_WRITE_LONG_FMKS: u32 = 2281701376;
 pub const TAPE_DRIVE_WRITE_MARK_IMMED: u32 = 2415919104;
-pub const TAPE_DRIVE_WRITE_PROTECT: u32 = 4096;
+pub const TAPE_DRIVE_WRITE_PROTECT: i32 = 4096;
 pub const TAPE_DRIVE_WRITE_SETMARKS: u32 = 2164260864;
 pub const TAPE_DRIVE_WRITE_SHORT_FMKS: u32 = 2214592512;
 #[repr(C)]
@@ -13063,11 +13066,11 @@ pub struct TAPE_ERASE {
     pub Type: u32,
     pub Immediate: bool,
 }
-pub const TAPE_ERASE_LONG: u32 = 1;
-pub const TAPE_ERASE_SHORT: u32 = 0;
-pub const TAPE_FILEMARKS: u32 = 1;
-pub const TAPE_FIXED_PARTITIONS: u32 = 0;
-pub const TAPE_FORMAT: u32 = 5;
+pub const TAPE_ERASE_LONG: i32 = 1;
+pub const TAPE_ERASE_SHORT: i32 = 0;
+pub const TAPE_FILEMARKS: i32 = 1;
+pub const TAPE_FIXED_PARTITIONS: i32 = 0;
+pub const TAPE_FORMAT: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
@@ -13099,27 +13102,27 @@ pub struct TAPE_GET_POSITION {
     pub Partition: u32,
     pub Offset: i64,
 }
-pub const TAPE_INITIATOR_PARTITIONS: u32 = 2;
-pub const TAPE_LOAD: u32 = 0;
-pub const TAPE_LOCK: u32 = 3;
-pub const TAPE_LOGICAL_BLOCK: u32 = 2;
-pub const TAPE_LOGICAL_POSITION: u32 = 1;
-pub const TAPE_LONG_FILEMARKS: u32 = 3;
+pub const TAPE_INITIATOR_PARTITIONS: i32 = 2;
+pub const TAPE_LOAD: i32 = 0;
+pub const TAPE_LOCK: i32 = 3;
+pub const TAPE_LOGICAL_BLOCK: i32 = 2;
+pub const TAPE_LOGICAL_POSITION: i32 = 1;
+pub const TAPE_LONG_FILEMARKS: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_PREPARE {
     pub Operation: u32,
     pub Immediate: bool,
 }
-pub const TAPE_PSEUDO_LOGICAL_BLOCK: u32 = 3;
-pub const TAPE_PSEUDO_LOGICAL_POSITION: u32 = 2;
-pub const TAPE_QUERY_DEVICE_ERROR_DATA: u32 = 4;
-pub const TAPE_QUERY_DRIVE_PARAMETERS: u32 = 0;
-pub const TAPE_QUERY_IO_ERROR_DATA: u32 = 3;
-pub const TAPE_QUERY_MEDIA_CAPACITY: u32 = 1;
-pub const TAPE_REWIND: u32 = 0;
-pub const TAPE_SELECT_PARTITIONS: u32 = 1;
-pub const TAPE_SETMARKS: u32 = 0;
+pub const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3;
+pub const TAPE_PSEUDO_LOGICAL_POSITION: i32 = 2;
+pub const TAPE_QUERY_DEVICE_ERROR_DATA: i32 = 4;
+pub const TAPE_QUERY_DRIVE_PARAMETERS: i32 = 0;
+pub const TAPE_QUERY_IO_ERROR_DATA: i32 = 3;
+pub const TAPE_QUERY_MEDIA_CAPACITY: i32 = 1;
+pub const TAPE_REWIND: i32 = 0;
+pub const TAPE_SELECT_PARTITIONS: i32 = 1;
+pub const TAPE_SETMARKS: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
@@ -13142,16 +13145,16 @@ pub struct TAPE_SET_POSITION {
     pub Offset: i64,
     pub Immediate: bool,
 }
-pub const TAPE_SHORT_FILEMARKS: u32 = 2;
-pub const TAPE_SPACE_END_OF_DATA: u32 = 4;
-pub const TAPE_SPACE_FILEMARKS: u32 = 6;
-pub const TAPE_SPACE_RELATIVE_BLOCKS: u32 = 5;
-pub const TAPE_SPACE_SEQUENTIAL_FMKS: u32 = 7;
-pub const TAPE_SPACE_SEQUENTIAL_SMKS: u32 = 9;
-pub const TAPE_SPACE_SETMARKS: u32 = 8;
-pub const TAPE_TENSION: u32 = 2;
-pub const TAPE_UNLOAD: u32 = 1;
-pub const TAPE_UNLOCK: u32 = 4;
+pub const TAPE_SHORT_FILEMARKS: i32 = 2;
+pub const TAPE_SPACE_END_OF_DATA: i32 = 4;
+pub const TAPE_SPACE_FILEMARKS: i32 = 6;
+pub const TAPE_SPACE_RELATIVE_BLOCKS: i32 = 5;
+pub const TAPE_SPACE_SEQUENTIAL_FMKS: i32 = 7;
+pub const TAPE_SPACE_SEQUENTIAL_SMKS: i32 = 9;
+pub const TAPE_SPACE_SETMARKS: i32 = 8;
+pub const TAPE_TENSION: i32 = 2;
+pub const TAPE_UNLOAD: i32 = 1;
+pub const TAPE_UNLOCK: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPE_WMI_OPERATIONS {
@@ -13177,32 +13180,32 @@ pub struct TBYTE(pub u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TCHAR(pub i8);
-pub const THREAD_ALL_ACCESS: u32 = 2097151;
+pub const THREAD_ALL_ACCESS: i32 = 2097151;
 pub const THREAD_BASE_PRIORITY_IDLE: i32 = -15;
-pub const THREAD_BASE_PRIORITY_LOWRT: u32 = 15;
-pub const THREAD_BASE_PRIORITY_MAX: u32 = 2;
+pub const THREAD_BASE_PRIORITY_LOWRT: i32 = 15;
+pub const THREAD_BASE_PRIORITY_MAX: i32 = 2;
 pub const THREAD_BASE_PRIORITY_MIN: i32 = -2;
-pub const THREAD_DIRECT_IMPERSONATION: u32 = 512;
-pub const THREAD_DYNAMIC_CODE_ALLOW: u32 = 1;
-pub const THREAD_GET_CONTEXT: u32 = 8;
-pub const THREAD_IMPERSONATE: u32 = 256;
-pub const THREAD_PROFILING_FLAG_DISPATCH: u32 = 1;
-pub const THREAD_QUERY_INFORMATION: u32 = 64;
-pub const THREAD_QUERY_LIMITED_INFORMATION: u32 = 2048;
-pub const THREAD_RESUME: u32 = 4096;
-pub const THREAD_SET_CONTEXT: u32 = 16;
-pub const THREAD_SET_INFORMATION: u32 = 32;
-pub const THREAD_SET_LIMITED_INFORMATION: u32 = 1024;
-pub const THREAD_SET_THREAD_TOKEN: u32 = 128;
-pub const THREAD_SUSPEND_RESUME: u32 = 2;
-pub const THREAD_TERMINATE: u32 = 1;
-pub const TIMER_ALL_ACCESS: u32 = 2031619;
-pub const TIMER_MODIFY_STATE: u32 = 2;
-pub const TIMER_QUERY_STATE: u32 = 1;
-pub const TIME_ZONE_ID_DAYLIGHT: u32 = 2;
-pub const TIME_ZONE_ID_STANDARD: u32 = 1;
-pub const TIME_ZONE_ID_UNKNOWN: u32 = 0;
-pub const TLS_MINIMUM_AVAILABLE: u32 = 64;
+pub const THREAD_DIRECT_IMPERSONATION: i32 = 512;
+pub const THREAD_DYNAMIC_CODE_ALLOW: i32 = 1;
+pub const THREAD_GET_CONTEXT: i32 = 8;
+pub const THREAD_IMPERSONATE: i32 = 256;
+pub const THREAD_PROFILING_FLAG_DISPATCH: i32 = 1;
+pub const THREAD_QUERY_INFORMATION: i32 = 64;
+pub const THREAD_QUERY_LIMITED_INFORMATION: i32 = 2048;
+pub const THREAD_RESUME: i32 = 4096;
+pub const THREAD_SET_CONTEXT: i32 = 16;
+pub const THREAD_SET_INFORMATION: i32 = 32;
+pub const THREAD_SET_LIMITED_INFORMATION: i32 = 1024;
+pub const THREAD_SET_THREAD_TOKEN: i32 = 128;
+pub const THREAD_SUSPEND_RESUME: i32 = 2;
+pub const THREAD_TERMINATE: i32 = 1;
+pub const TIMER_ALL_ACCESS: i32 = 2031619;
+pub const TIMER_MODIFY_STATE: i32 = 2;
+pub const TIMER_QUERY_STATE: i32 = 1;
+pub const TIME_ZONE_ID_DAYLIGHT: i32 = 2;
+pub const TIME_ZONE_ID_STANDARD: i32 = 1;
+pub const TIME_ZONE_ID_UNKNOWN: i32 = 0;
+pub const TLS_MINIMUM_AVAILABLE: i32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ACCESS_INFORMATION {
@@ -13220,20 +13223,20 @@ pub struct TOKEN_ACCESS_INFORMATION {
     pub TrustLevelSid: PSID,
     pub SecurityAttributes: PSECURITY_ATTRIBUTES_OPAQUE,
 }
-pub const TOKEN_ACCESS_PSEUDO_HANDLE: u32 = 24;
-pub const TOKEN_ACCESS_PSEUDO_HANDLE_WIN8: u32 = 24;
-pub const TOKEN_ADJUST_DEFAULT: u32 = 128;
-pub const TOKEN_ADJUST_GROUPS: u32 = 64;
-pub const TOKEN_ADJUST_PRIVILEGES: u32 = 32;
-pub const TOKEN_ADJUST_SESSIONID: u32 = 256;
-pub const TOKEN_ALL_ACCESS: u32 = 983551;
-pub const TOKEN_ALL_ACCESS_P: u32 = 983295;
+pub const TOKEN_ACCESS_PSEUDO_HANDLE: i32 = 24;
+pub const TOKEN_ACCESS_PSEUDO_HANDLE_WIN8: i32 = 24;
+pub const TOKEN_ADJUST_DEFAULT: i32 = 128;
+pub const TOKEN_ADJUST_GROUPS: i32 = 64;
+pub const TOKEN_ADJUST_PRIVILEGES: i32 = 32;
+pub const TOKEN_ADJUST_SESSIONID: i32 = 256;
+pub const TOKEN_ALL_ACCESS: i32 = 983551;
+pub const TOKEN_ALL_ACCESS_P: i32 = 983295;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_APPCONTAINER_INFORMATION {
     pub TokenAppContainer: PSID,
 }
-pub const TOKEN_ASSIGN_PRIMARY: u32 = 1;
+pub const TOKEN_ASSIGN_PRIMARY: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_AUDIT_POLICY {
@@ -13268,14 +13271,14 @@ pub struct TOKEN_DEFAULT_DACL {
 pub struct TOKEN_DEVICE_CLAIMS {
     pub DeviceClaims: PCLAIMS_BLOB,
 }
-pub const TOKEN_DUPLICATE: u32 = 2;
+pub const TOKEN_DUPLICATE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ELEVATION {
     pub TokenIsElevated: u32,
 }
 pub type TOKEN_ELEVATION_TYPE = i32;
-pub const TOKEN_EXECUTE: u32 = 131072;
+pub const TOKEN_EXECUTE: i32 = 131072;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_GROUPS {
@@ -13301,7 +13304,7 @@ pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub Privileges: PLUID_AND_ATTRIBUTES,
     pub AuthenticationId: LUID,
 }
-pub const TOKEN_IMPERSONATE: u32 = 4;
+pub const TOKEN_IMPERSONATE: i32 = 4;
 pub type TOKEN_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13335,10 +13338,10 @@ pub struct TOKEN_MANDATORY_LABEL {
 pub struct TOKEN_MANDATORY_POLICY {
     pub Policy: u32,
 }
-pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: u32 = 2;
-pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: u32 = 1;
-pub const TOKEN_MANDATORY_POLICY_OFF: u32 = 0;
-pub const TOKEN_MANDATORY_POLICY_VALID_MASK: u32 = 3;
+pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: i32 = 2;
+pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: i32 = 1;
+pub const TOKEN_MANDATORY_POLICY_OFF: i32 = 0;
+pub const TOKEN_MANDATORY_POLICY_VALID_MASK: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ORIGIN {
@@ -13365,9 +13368,9 @@ impl Default for TOKEN_PRIVILEGES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TOKEN_QUERY: u32 = 8;
-pub const TOKEN_QUERY_SOURCE: u32 = 16;
-pub const TOKEN_READ: u32 = 131080;
+pub const TOKEN_QUERY: i32 = 8;
+pub const TOKEN_QUERY_SOURCE: i32 = 16;
+pub const TOKEN_READ: i32 = 131080;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_SID_INFORMATION {
@@ -13384,7 +13387,7 @@ impl Default for TOKEN_SOURCE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TOKEN_SOURCE_LENGTH: u32 = 8;
+pub const TOKEN_SOURCE_LENGTH: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_STATISTICS {
@@ -13399,8 +13402,8 @@ pub struct TOKEN_STATISTICS {
     pub PrivilegeCount: u32,
     pub ModifiedId: LUID,
 }
-pub const TOKEN_TRUST_ALLOWED_MASK: u32 = 131102;
-pub const TOKEN_TRUST_CONSTRAINT_MASK: u32 = 131096;
+pub const TOKEN_TRUST_ALLOWED_MASK: i32 = 131102;
+pub const TOKEN_TRUST_CONSTRAINT_MASK: i32 = 131096;
 pub type TOKEN_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13412,7 +13415,7 @@ pub struct TOKEN_USER {
 pub struct TOKEN_USER_CLAIMS {
     pub UserClaims: PCLAIMS_BLOB,
 }
-pub const TOKEN_WRITE: u32 = 131296;
+pub const TOKEN_WRITE: i32 = 131296;
 pub type TP_CALLBACK_ENVIRON = TP_CALLBACK_ENVIRON_V3;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13513,18 +13516,18 @@ pub struct TP_WAIT_RESULT(pub u32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_WORK(pub u8);
 pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: *mut TP_WORK)>;
-pub const TRANSACTIONMANAGER_ALL_ACCESS: u32 = 983103;
+pub const TRANSACTIONMANAGER_ALL_ACCESS: i32 = 983103;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
     pub TmIdentity: windows_core::GUID,
     pub VirtualClock: i64,
 }
-pub const TRANSACTIONMANAGER_BIND_TRANSACTION: u32 = 32;
-pub const TRANSACTIONMANAGER_CREATE_RM: u32 = 16;
-pub const TRANSACTIONMANAGER_GENERIC_EXECUTE: u32 = 131072;
-pub const TRANSACTIONMANAGER_GENERIC_READ: u32 = 131073;
-pub const TRANSACTIONMANAGER_GENERIC_WRITE: u32 = 131102;
+pub const TRANSACTIONMANAGER_BIND_TRANSACTION: i32 = 32;
+pub const TRANSACTIONMANAGER_CREATE_RM: i32 = 16;
+pub const TRANSACTIONMANAGER_GENERIC_EXECUTE: i32 = 131072;
+pub const TRANSACTIONMANAGER_GENERIC_READ: i32 = 131073;
+pub const TRANSACTIONMANAGER_GENERIC_WRITE: i32 = 131102;
 pub type TRANSACTIONMANAGER_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -13547,16 +13550,16 @@ pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
 pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
     pub OldestTransactionGuid: windows_core::GUID,
 }
-pub const TRANSACTIONMANAGER_QUERY_INFORMATION: u32 = 1;
-pub const TRANSACTIONMANAGER_RECOVER: u32 = 4;
+pub const TRANSACTIONMANAGER_QUERY_INFORMATION: i32 = 1;
+pub const TRANSACTIONMANAGER_RECOVER: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     pub LastRecoveredLsn: u64,
 }
-pub const TRANSACTIONMANAGER_RENAME: u32 = 8;
-pub const TRANSACTIONMANAGER_SET_INFORMATION: u32 = 2;
-pub const TRANSACTION_ALL_ACCESS: u32 = 2031679;
+pub const TRANSACTIONMANAGER_RENAME: i32 = 8;
+pub const TRANSACTIONMANAGER_SET_INFORMATION: i32 = 2;
+pub const TRANSACTION_ALL_ACCESS: i32 = 2031679;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_BASIC_INFORMATION {
@@ -13569,8 +13572,8 @@ pub struct TRANSACTION_BASIC_INFORMATION {
 pub struct TRANSACTION_BIND_INFORMATION {
     pub TmHandle: HANDLE,
 }
-pub const TRANSACTION_COMMIT: u32 = 8;
-pub const TRANSACTION_ENLIST: u32 = 4;
+pub const TRANSACTION_COMMIT: i32 = 8;
+pub const TRANSACTION_ENLIST: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
@@ -13588,9 +13591,9 @@ pub struct TRANSACTION_ENLISTMENT_PAIR {
     pub EnlistmentId: windows_core::GUID,
     pub ResourceManagerId: windows_core::GUID,
 }
-pub const TRANSACTION_GENERIC_EXECUTE: u32 = 1179672;
-pub const TRANSACTION_GENERIC_READ: u32 = 1179649;
-pub const TRANSACTION_GENERIC_WRITE: u32 = 1179710;
+pub const TRANSACTION_GENERIC_EXECUTE: i32 = 1179672;
+pub const TRANSACTION_GENERIC_READ: i32 = 1179649;
+pub const TRANSACTION_GENERIC_WRITE: i32 = 1179710;
 pub type TRANSACTION_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "ktmtypes")]
@@ -13612,7 +13615,7 @@ impl Default for TRANSACTION_LIST_INFORMATION {
     }
 }
 pub type TRANSACTION_OUTCOME = i32;
-pub const TRANSACTION_PROPAGATE: u32 = 32;
+pub const TRANSACTION_PROPAGATE: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_PROPERTIES_INFORMATION {
@@ -13628,22 +13631,22 @@ impl Default for TRANSACTION_PROPERTIES_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TRANSACTION_QUERY_INFORMATION: u32 = 1;
-pub const TRANSACTION_RESOURCE_MANAGER_RIGHTS: u32 = 1179703;
-pub const TRANSACTION_RIGHT_RESERVED1: u32 = 64;
-pub const TRANSACTION_ROLLBACK: u32 = 16;
-pub const TRANSACTION_SET_INFORMATION: u32 = 2;
+pub const TRANSACTION_QUERY_INFORMATION: i32 = 1;
+pub const TRANSACTION_RESOURCE_MANAGER_RIGHTS: i32 = 1179703;
+pub const TRANSACTION_RIGHT_RESERVED1: i32 = 64;
+pub const TRANSACTION_ROLLBACK: i32 = 16;
+pub const TRANSACTION_SET_INFORMATION: i32 = 2;
 pub type TRANSACTION_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
 }
-pub const TREE_CONNECT_ATTRIBUTE_GLOBAL: u32 = 4;
-pub const TREE_CONNECT_ATTRIBUTE_INTEGRITY: u32 = 32768;
-pub const TREE_CONNECT_ATTRIBUTE_PINNED: u32 = 2;
-pub const TREE_CONNECT_ATTRIBUTE_PRIVACY: u32 = 16384;
-pub const TRUST_PROTECTED_FILTER_ACE_FLAG: u32 = 64;
+pub const TREE_CONNECT_ATTRIBUTE_GLOBAL: i32 = 4;
+pub const TREE_CONNECT_ATTRIBUTE_INTEGRITY: i32 = 32768;
+pub const TREE_CONNECT_ATTRIBUTE_PINNED: i32 = 2;
+pub const TREE_CONNECT_ATTRIBUTE_PRIVACY: i32 = 16384;
+pub const TRUST_PROTECTED_FILTER_ACE_FLAG: i32 = 64;
 pub const TapeDriveCleanDriveNow: TAPE_DRIVE_PROBLEM_TYPE = 11;
 pub const TapeDriveHardwareError: TAPE_DRIVE_PROBLEM_TYPE = 7;
 pub const TapeDriveMediaLifeExpired: TAPE_DRIVE_PROBLEM_TYPE = 12;
@@ -13762,15 +13765,15 @@ impl Default for UMS_CREATE_THREAD_ATTRIBUTES {
 }
 pub const UNICODE_NULL: u16 = 0;
 pub const UNICODE_STRING_MAX_BYTES: u16 = 65534;
-pub const UNICODE_STRING_MAX_CHARS: u32 = 32767;
+pub const UNICODE_STRING_MAX_CHARS: i32 = 32767;
 pub const UNIFIEDBUILDREVISION_KEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion");
-pub const UNIFIEDBUILDREVISION_MIN: u32 = 0;
+pub const UNIFIEDBUILDREVISION_MIN: i32 = 0;
 pub const UNIFIEDBUILDREVISION_VALUE: windows_core::PCWSTR = windows_core::w!("UBR");
-pub const UNPROTECTED_DACL_SECURITY_INFORMATION: u32 = 536870912;
-pub const UNPROTECTED_SACL_SECURITY_INFORMATION: u32 = 268435456;
+pub const UNPROTECTED_DACL_SECURITY_INFORMATION: i32 = 536870912;
+pub const UNPROTECTED_SACL_SECURITY_INFORMATION: i32 = 268435456;
 pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = 0;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const UNWIND_CHAIN_LIMIT: u32 = 32;
+pub const UNWIND_CHAIN_LIMIT: i32 = 32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -13798,14 +13801,14 @@ pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub FunctionEntry: PRUNTIME_FUNCTION,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12;
+pub const UNWIND_HISTORY_TABLE_SIZE: i32 = 12;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const UNW_FLAG_CHAININFO: u32 = 4;
-pub const UNW_FLAG_EHANDLER: u32 = 1;
-pub const UNW_FLAG_NHANDLER: u32 = 0;
+pub const UNW_FLAG_CHAININFO: i32 = 4;
+pub const UNW_FLAG_EHANDLER: i32 = 1;
+pub const UNW_FLAG_NHANDLER: i32 = 0;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648;
-pub const UNW_FLAG_UHANDLER: u32 = 2;
+pub const UNW_FLAG_UHANDLER: i32 = 2;
 pub type USER_ACTIVITY_PRESENCE = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -13826,59 +13829,59 @@ pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = 0;
 pub const UserPresence: POWER_INFORMATION_LEVEL = 57;
 pub const UserPresent: POWER_USER_PRESENCE_TYPE = 1;
 pub const UserUnknown: POWER_USER_PRESENCE_TYPE = 255;
-pub const VALID_INHERIT_FLAGS: u32 = 31;
-pub const VBS_BASIC_PAGE_MEASURED_DATA: u32 = 1;
-pub const VBS_BASIC_PAGE_SYSTEM_CALL: u32 = 5;
-pub const VBS_BASIC_PAGE_THREAD_DESCRIPTOR: u32 = 4;
-pub const VBS_BASIC_PAGE_UNMEASURED_DATA: u32 = 2;
-pub const VBS_BASIC_PAGE_ZERO_FILL: u32 = 3;
-pub const VER_AND: u32 = 6;
-pub const VER_BUILDNUMBER: u32 = 4;
-pub const VER_CONDITION_MASK: u32 = 7;
-pub const VER_EQUAL: u32 = 1;
-pub const VER_GREATER: u32 = 2;
-pub const VER_GREATER_EQUAL: u32 = 3;
-pub const VER_LESS: u32 = 4;
-pub const VER_LESS_EQUAL: u32 = 5;
-pub const VER_MAJORVERSION: u32 = 2;
-pub const VER_MINORVERSION: u32 = 1;
-pub const VER_NT_DOMAIN_CONTROLLER: u32 = 2;
-pub const VER_NT_SERVER: u32 = 3;
-pub const VER_NT_WORKSTATION: u32 = 1;
-pub const VER_NUM_BITS_PER_CONDITION_MASK: u32 = 3;
-pub const VER_OR: u32 = 7;
-pub const VER_PLATFORMID: u32 = 8;
-pub const VER_PLATFORM_WIN32_NT: u32 = 2;
-pub const VER_PLATFORM_WIN32_WINDOWS: u32 = 1;
-pub const VER_PLATFORM_WIN32s: u32 = 0;
-pub const VER_PRODUCT_TYPE: u32 = 128;
+pub const VALID_INHERIT_FLAGS: i32 = 31;
+pub const VBS_BASIC_PAGE_MEASURED_DATA: i32 = 1;
+pub const VBS_BASIC_PAGE_SYSTEM_CALL: i32 = 5;
+pub const VBS_BASIC_PAGE_THREAD_DESCRIPTOR: i32 = 4;
+pub const VBS_BASIC_PAGE_UNMEASURED_DATA: i32 = 2;
+pub const VBS_BASIC_PAGE_ZERO_FILL: i32 = 3;
+pub const VER_AND: i32 = 6;
+pub const VER_BUILDNUMBER: i32 = 4;
+pub const VER_CONDITION_MASK: i32 = 7;
+pub const VER_EQUAL: i32 = 1;
+pub const VER_GREATER: i32 = 2;
+pub const VER_GREATER_EQUAL: i32 = 3;
+pub const VER_LESS: i32 = 4;
+pub const VER_LESS_EQUAL: i32 = 5;
+pub const VER_MAJORVERSION: i32 = 2;
+pub const VER_MINORVERSION: i32 = 1;
+pub const VER_NT_DOMAIN_CONTROLLER: i32 = 2;
+pub const VER_NT_SERVER: i32 = 3;
+pub const VER_NT_WORKSTATION: i32 = 1;
+pub const VER_NUM_BITS_PER_CONDITION_MASK: i32 = 3;
+pub const VER_OR: i32 = 7;
+pub const VER_PLATFORMID: i32 = 8;
+pub const VER_PLATFORM_WIN32_NT: i32 = 2;
+pub const VER_PLATFORM_WIN32_WINDOWS: i32 = 1;
+pub const VER_PLATFORM_WIN32s: i32 = 0;
+pub const VER_PRODUCT_TYPE: i32 = 128;
 pub const VER_SERVER_NT: u32 = 2147483648;
-pub const VER_SERVICEPACKMAJOR: u32 = 32;
-pub const VER_SERVICEPACKMINOR: u32 = 16;
-pub const VER_SUITENAME: u32 = 64;
-pub const VER_SUITE_BACKOFFICE: u32 = 4;
-pub const VER_SUITE_BLADE: u32 = 1024;
-pub const VER_SUITE_COMMUNICATIONS: u32 = 8;
-pub const VER_SUITE_COMPUTE_SERVER: u32 = 16384;
-pub const VER_SUITE_DATACENTER: u32 = 128;
-pub const VER_SUITE_EMBEDDEDNT: u32 = 64;
-pub const VER_SUITE_EMBEDDED_RESTRICTED: u32 = 2048;
-pub const VER_SUITE_ENTERPRISE: u32 = 2;
-pub const VER_SUITE_MULTIUSERTS: u32 = 131072;
-pub const VER_SUITE_PERSONAL: u32 = 512;
-pub const VER_SUITE_SECURITY_APPLIANCE: u32 = 4096;
-pub const VER_SUITE_SINGLEUSERTS: u32 = 256;
-pub const VER_SUITE_SMALLBUSINESS: u32 = 1;
-pub const VER_SUITE_SMALLBUSINESS_RESTRICTED: u32 = 32;
-pub const VER_SUITE_STORAGE_SERVER: u32 = 8192;
-pub const VER_SUITE_TERMINAL: u32 = 16;
-pub const VER_SUITE_WH_SERVER: u32 = 32768;
-pub const VER_WORKSTATION_NT: u32 = 1073741824;
-pub const VM_PREFETCH_TO_WORKING_SET: u32 = 1;
-pub const VRL_CLASS_CONSISTENCY: u32 = 1;
-pub const VRL_CUSTOM_CLASS_BEGIN: u32 = 256;
+pub const VER_SERVICEPACKMAJOR: i32 = 32;
+pub const VER_SERVICEPACKMINOR: i32 = 16;
+pub const VER_SUITENAME: i32 = 64;
+pub const VER_SUITE_BACKOFFICE: i32 = 4;
+pub const VER_SUITE_BLADE: i32 = 1024;
+pub const VER_SUITE_COMMUNICATIONS: i32 = 8;
+pub const VER_SUITE_COMPUTE_SERVER: i32 = 16384;
+pub const VER_SUITE_DATACENTER: i32 = 128;
+pub const VER_SUITE_EMBEDDEDNT: i32 = 64;
+pub const VER_SUITE_EMBEDDED_RESTRICTED: i32 = 2048;
+pub const VER_SUITE_ENTERPRISE: i32 = 2;
+pub const VER_SUITE_MULTIUSERTS: i32 = 131072;
+pub const VER_SUITE_PERSONAL: i32 = 512;
+pub const VER_SUITE_SECURITY_APPLIANCE: i32 = 4096;
+pub const VER_SUITE_SINGLEUSERTS: i32 = 256;
+pub const VER_SUITE_SMALLBUSINESS: i32 = 1;
+pub const VER_SUITE_SMALLBUSINESS_RESTRICTED: i32 = 32;
+pub const VER_SUITE_STORAGE_SERVER: i32 = 8192;
+pub const VER_SUITE_TERMINAL: i32 = 16;
+pub const VER_SUITE_WH_SERVER: i32 = 32768;
+pub const VER_WORKSTATION_NT: i32 = 1073741824;
+pub const VM_PREFETCH_TO_WORKING_SET: i32 = 1;
+pub const VRL_CLASS_CONSISTENCY: i32 = 1;
+pub const VRL_CUSTOM_CLASS_BEGIN: i32 = 256;
 pub const VRL_ENABLE_KERNEL_BREAKS: i32 = -2147483648;
-pub const VRL_PREDEFINED_CLASS_BEGIN: u32 = 1;
+pub const VRL_PREDEFINED_CLASS_BEGIN: i32 = 1;
 pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 20;
 pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 21;
 pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = 2;
@@ -13921,21 +13924,21 @@ impl Default for WOW64_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WOW64_CONTEXT_ALL: u32 = 65599;
-pub const WOW64_CONTEXT_CONTROL: u32 = 65537;
-pub const WOW64_CONTEXT_DEBUG_REGISTERS: u32 = 65552;
-pub const WOW64_CONTEXT_EXCEPTION_ACTIVE: u32 = 134217728;
+pub const WOW64_CONTEXT_ALL: i32 = 65599;
+pub const WOW64_CONTEXT_CONTROL: i32 = 65537;
+pub const WOW64_CONTEXT_DEBUG_REGISTERS: i32 = 65552;
+pub const WOW64_CONTEXT_EXCEPTION_ACTIVE: i32 = 134217728;
 pub const WOW64_CONTEXT_EXCEPTION_REPORTING: u32 = 2147483648;
-pub const WOW64_CONTEXT_EXCEPTION_REQUEST: u32 = 1073741824;
-pub const WOW64_CONTEXT_EXTENDED_REGISTERS: u32 = 65568;
-pub const WOW64_CONTEXT_FLOATING_POINT: u32 = 65544;
-pub const WOW64_CONTEXT_FULL: u32 = 65543;
-pub const WOW64_CONTEXT_INTEGER: u32 = 65538;
-pub const WOW64_CONTEXT_SEGMENTS: u32 = 65540;
-pub const WOW64_CONTEXT_SERVICE_ACTIVE: u32 = 268435456;
-pub const WOW64_CONTEXT_XSTATE: u32 = 65600;
-pub const WOW64_CONTEXT_i386: u32 = 65536;
-pub const WOW64_CONTEXT_i486: u32 = 65536;
+pub const WOW64_CONTEXT_EXCEPTION_REQUEST: i32 = 1073741824;
+pub const WOW64_CONTEXT_EXTENDED_REGISTERS: i32 = 65568;
+pub const WOW64_CONTEXT_FLOATING_POINT: i32 = 65544;
+pub const WOW64_CONTEXT_FULL: i32 = 65543;
+pub const WOW64_CONTEXT_INTEGER: i32 = 65538;
+pub const WOW64_CONTEXT_SEGMENTS: i32 = 65540;
+pub const WOW64_CONTEXT_SERVICE_ACTIVE: i32 = 268435456;
+pub const WOW64_CONTEXT_XSTATE: i32 = 65600;
+pub const WOW64_CONTEXT_i386: i32 = 65536;
+pub const WOW64_CONTEXT_i486: i32 = 65536;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WOW64_DESCRIPTOR_TABLE_ENTRY {
@@ -14063,28 +14066,28 @@ impl WOW64_LDT_ENTRY_0_1 {
         self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
     }
 }
-pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512;
-pub const WOW64_SIZE_OF_80387_REGISTERS: u32 = 80;
-pub const WRITE_DAC: u32 = 262144;
-pub const WRITE_NV_MEMORY_FLAG_FLUSH: u32 = 1;
-pub const WRITE_NV_MEMORY_FLAG_NON_TEMPORAL: u32 = 2;
-pub const WRITE_NV_MEMORY_FLAG_NO_DRAIN: u32 = 256;
-pub const WRITE_NV_MEMORY_FLAG_PERSIST: u32 = 3;
-pub const WRITE_OWNER: u32 = 524288;
-pub const WRITE_RESTRICTED: u32 = 8;
-pub const WRITE_WATCH_FLAG_RESET: u32 = 1;
-pub const WT_EXECUTEDEFAULT: u32 = 0;
-pub const WT_EXECUTEDELETEWAIT: u32 = 8;
-pub const WT_EXECUTEINIOTHREAD: u32 = 1;
-pub const WT_EXECUTEINLONGTHREAD: u32 = 16;
-pub const WT_EXECUTEINPERSISTENTIOTHREAD: u32 = 64;
-pub const WT_EXECUTEINPERSISTENTTHREAD: u32 = 128;
-pub const WT_EXECUTEINTIMERTHREAD: u32 = 32;
-pub const WT_EXECUTEINUITHREAD: u32 = 2;
-pub const WT_EXECUTEINWAITTHREAD: u32 = 4;
-pub const WT_EXECUTELONGFUNCTION: u32 = 16;
-pub const WT_EXECUTEONLYONCE: u32 = 8;
-pub const WT_TRANSFER_IMPERSONATION: u32 = 256;
+pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: i32 = 512;
+pub const WOW64_SIZE_OF_80387_REGISTERS: i32 = 80;
+pub const WRITE_DAC: i32 = 262144;
+pub const WRITE_NV_MEMORY_FLAG_FLUSH: i32 = 1;
+pub const WRITE_NV_MEMORY_FLAG_NON_TEMPORAL: i32 = 2;
+pub const WRITE_NV_MEMORY_FLAG_NO_DRAIN: i32 = 256;
+pub const WRITE_NV_MEMORY_FLAG_PERSIST: i32 = 3;
+pub const WRITE_OWNER: i32 = 524288;
+pub const WRITE_RESTRICTED: i32 = 8;
+pub const WRITE_WATCH_FLAG_RESET: i32 = 1;
+pub const WT_EXECUTEDEFAULT: i32 = 0;
+pub const WT_EXECUTEDELETEWAIT: i32 = 8;
+pub const WT_EXECUTEINIOTHREAD: i32 = 1;
+pub const WT_EXECUTEINLONGTHREAD: i32 = 16;
+pub const WT_EXECUTEINPERSISTENTIOTHREAD: i32 = 64;
+pub const WT_EXECUTEINPERSISTENTTHREAD: i32 = 128;
+pub const WT_EXECUTEINTIMERTHREAD: i32 = 32;
+pub const WT_EXECUTEINUITHREAD: i32 = 2;
+pub const WT_EXECUTEINWAITTHREAD: i32 = 4;
+pub const WT_EXECUTELONGFUNCTION: i32 = 16;
+pub const WT_EXECUTEONLYONCE: i32 = 8;
+pub const WT_TRANSFER_IMPERSONATION: i32 = 256;
 pub const WakeTimerList: POWER_INFORMATION_LEVEL = 50;
 pub const Win32ServiceOwnProcess: SERVICE_NODE_TYPE = 16;
 pub const Win32ServiceShareProcess: SERVICE_NODE_TYPE = 32;
@@ -14211,47 +14214,47 @@ pub const WinUntrustedLabelSid: WELL_KNOWN_SID_TYPE = 65;
 pub const WinUserModeDriversSid: WELL_KNOWN_SID_TYPE = 98;
 pub const WinWorldSid: WELL_KNOWN_SID_TYPE = 1;
 pub const WinWriteRestrictedCodeSid: WELL_KNOWN_SID_TYPE = 70;
-pub const X3_BTYPE_QP_INST_VAL_POS_X: u32 = 0;
-pub const X3_BTYPE_QP_INST_WORD_POS_X: u32 = 23;
-pub const X3_BTYPE_QP_INST_WORD_X: u32 = 2;
-pub const X3_BTYPE_QP_SIZE_X: u32 = 9;
-pub const X3_D_WH_INST_WORD_POS_X: u32 = 24;
-pub const X3_D_WH_INST_WORD_X: u32 = 3;
-pub const X3_D_WH_SIGN_VAL_POS_X: u32 = 0;
-pub const X3_D_WH_SIZE_X: u32 = 3;
-pub const X3_EMPTY_INST_VAL_POS_X: u32 = 0;
-pub const X3_EMPTY_INST_WORD_POS_X: u32 = 14;
-pub const X3_EMPTY_INST_WORD_X: u32 = 1;
-pub const X3_EMPTY_SIZE_X: u32 = 2;
-pub const X3_IMM20_INST_WORD_POS_X: u32 = 4;
-pub const X3_IMM20_INST_WORD_X: u32 = 3;
-pub const X3_IMM20_SIGN_VAL_POS_X: u32 = 0;
-pub const X3_IMM20_SIZE_X: u32 = 20;
-pub const X3_IMM39_1_INST_WORD_POS_X: u32 = 0;
-pub const X3_IMM39_1_INST_WORD_X: u32 = 2;
-pub const X3_IMM39_1_SIGN_VAL_POS_X: u32 = 36;
-pub const X3_IMM39_1_SIZE_X: u32 = 23;
-pub const X3_IMM39_2_INST_WORD_POS_X: u32 = 16;
-pub const X3_IMM39_2_INST_WORD_X: u32 = 1;
-pub const X3_IMM39_2_SIGN_VAL_POS_X: u32 = 20;
-pub const X3_IMM39_2_SIZE_X: u32 = 16;
-pub const X3_I_INST_WORD_POS_X: u32 = 27;
-pub const X3_I_INST_WORD_X: u32 = 3;
-pub const X3_I_SIGN_VAL_POS_X: u32 = 59;
-pub const X3_I_SIZE_X: u32 = 1;
-pub const X3_OPCODE_INST_WORD_POS_X: u32 = 28;
-pub const X3_OPCODE_INST_WORD_X: u32 = 3;
-pub const X3_OPCODE_SIGN_VAL_POS_X: u32 = 0;
-pub const X3_OPCODE_SIZE_X: u32 = 4;
-pub const X3_P_INST_WORD_POS_X: u32 = 0;
-pub const X3_P_INST_WORD_X: u32 = 3;
-pub const X3_P_SIGN_VAL_POS_X: u32 = 0;
-pub const X3_P_SIZE_X: u32 = 4;
-pub const X3_TMPLT_INST_WORD_POS_X: u32 = 0;
-pub const X3_TMPLT_INST_WORD_X: u32 = 0;
-pub const X3_TMPLT_SIGN_VAL_POS_X: u32 = 0;
-pub const X3_TMPLT_SIZE_X: u32 = 4;
-pub const X86_CACHE_ALIGNMENT_SIZE: u32 = 64;
+pub const X3_BTYPE_QP_INST_VAL_POS_X: i32 = 0;
+pub const X3_BTYPE_QP_INST_WORD_POS_X: i32 = 23;
+pub const X3_BTYPE_QP_INST_WORD_X: i32 = 2;
+pub const X3_BTYPE_QP_SIZE_X: i32 = 9;
+pub const X3_D_WH_INST_WORD_POS_X: i32 = 24;
+pub const X3_D_WH_INST_WORD_X: i32 = 3;
+pub const X3_D_WH_SIGN_VAL_POS_X: i32 = 0;
+pub const X3_D_WH_SIZE_X: i32 = 3;
+pub const X3_EMPTY_INST_VAL_POS_X: i32 = 0;
+pub const X3_EMPTY_INST_WORD_POS_X: i32 = 14;
+pub const X3_EMPTY_INST_WORD_X: i32 = 1;
+pub const X3_EMPTY_SIZE_X: i32 = 2;
+pub const X3_IMM20_INST_WORD_POS_X: i32 = 4;
+pub const X3_IMM20_INST_WORD_X: i32 = 3;
+pub const X3_IMM20_SIGN_VAL_POS_X: i32 = 0;
+pub const X3_IMM20_SIZE_X: i32 = 20;
+pub const X3_IMM39_1_INST_WORD_POS_X: i32 = 0;
+pub const X3_IMM39_1_INST_WORD_X: i32 = 2;
+pub const X3_IMM39_1_SIGN_VAL_POS_X: i32 = 36;
+pub const X3_IMM39_1_SIZE_X: i32 = 23;
+pub const X3_IMM39_2_INST_WORD_POS_X: i32 = 16;
+pub const X3_IMM39_2_INST_WORD_X: i32 = 1;
+pub const X3_IMM39_2_SIGN_VAL_POS_X: i32 = 20;
+pub const X3_IMM39_2_SIZE_X: i32 = 16;
+pub const X3_I_INST_WORD_POS_X: i32 = 27;
+pub const X3_I_INST_WORD_X: i32 = 3;
+pub const X3_I_SIGN_VAL_POS_X: i32 = 59;
+pub const X3_I_SIZE_X: i32 = 1;
+pub const X3_OPCODE_INST_WORD_POS_X: i32 = 28;
+pub const X3_OPCODE_INST_WORD_X: i32 = 3;
+pub const X3_OPCODE_SIGN_VAL_POS_X: i32 = 0;
+pub const X3_OPCODE_SIZE_X: i32 = 4;
+pub const X3_P_INST_WORD_POS_X: i32 = 0;
+pub const X3_P_INST_WORD_X: i32 = 3;
+pub const X3_P_SIGN_VAL_POS_X: i32 = 0;
+pub const X3_P_SIZE_X: i32 = 4;
+pub const X3_TMPLT_INST_WORD_POS_X: i32 = 0;
+pub const X3_TMPLT_INST_WORD_X: i32 = 0;
+pub const X3_TMPLT_SIGN_VAL_POS_X: i32 = 0;
+pub const X3_TMPLT_SIZE_X: i32 = 4;
+pub const X86_CACHE_ALIGNMENT_SIZE: i32 = 64;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type XMM_SAVE_AREA32 = XSAVE_FORMAT;
 #[repr(C)]
@@ -14439,22 +14442,22 @@ impl Default for XSAVE_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const XSTATE_ALIGN_BIT: u32 = 1;
-pub const XSTATE_ALIGN_MASK: u32 = 2;
-pub const XSTATE_AMX_TILE_CONFIG: u32 = 17;
-pub const XSTATE_AMX_TILE_DATA: u32 = 18;
-pub const XSTATE_ARM64_SME_TPIDR2: u32 = 4;
-pub const XSTATE_ARM64_SME_ZA: u32 = 3;
-pub const XSTATE_ARM64_SME_ZT: u32 = 5;
-pub const XSTATE_ARM64_SVE: u32 = 2;
-pub const XSTATE_AVX: u32 = 2;
-pub const XSTATE_AVX512_KMASK: u32 = 5;
-pub const XSTATE_AVX512_ZMM: u32 = 7;
-pub const XSTATE_AVX512_ZMM_H: u32 = 6;
-pub const XSTATE_CET_S: u32 = 12;
-pub const XSTATE_CET_U: u32 = 11;
-pub const XSTATE_COMPACTION_ENABLE: u32 = 63;
-pub const XSTATE_COMPACTION_ENABLE_MASK: u32 = 0;
+pub const XSTATE_ALIGN_BIT: i32 = 1;
+pub const XSTATE_ALIGN_MASK: u64 = 2;
+pub const XSTATE_AMX_TILE_CONFIG: i32 = 17;
+pub const XSTATE_AMX_TILE_DATA: i32 = 18;
+pub const XSTATE_ARM64_SME_TPIDR2: i32 = 4;
+pub const XSTATE_ARM64_SME_ZA: i32 = 3;
+pub const XSTATE_ARM64_SME_ZT: i32 = 5;
+pub const XSTATE_ARM64_SVE: i32 = 2;
+pub const XSTATE_AVX: i32 = 2;
+pub const XSTATE_AVX512_KMASK: i32 = 5;
+pub const XSTATE_AVX512_ZMM: i32 = 7;
+pub const XSTATE_AVX512_ZMM_H: i32 = 6;
+pub const XSTATE_CET_S: i32 = 12;
+pub const XSTATE_CET_U: i32 = 11;
+pub const XSTATE_COMPACTION_ENABLE: i32 = 63;
+pub const XSTATE_COMPACTION_ENABLE_MASK: u64 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct XSTATE_CONFIGURATION {
@@ -14610,68 +14613,68 @@ impl Default for XSTATE_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const XSTATE_CONTEXT_FLAG_LOOKASIDE: u32 = 1;
-pub const XSTATE_CONTROLFLAG_VALID_MASK: u32 = 7;
-pub const XSTATE_CONTROLFLAG_XFD_MASK: u32 = 4;
-pub const XSTATE_CONTROLFLAG_XSAVEC_MASK: u32 = 2;
-pub const XSTATE_CONTROLFLAG_XSAVEOPT_MASK: u32 = 1;
+pub const XSTATE_CONTEXT_FLAG_LOOKASIDE: i32 = 1;
+pub const XSTATE_CONTROLFLAG_VALID_MASK: i32 = 7;
+pub const XSTATE_CONTROLFLAG_XFD_MASK: i32 = 4;
+pub const XSTATE_CONTROLFLAG_XSAVEC_MASK: i32 = 2;
+pub const XSTATE_CONTROLFLAG_XSAVEOPT_MASK: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_FEATURE {
     pub Offset: u32,
     pub Size: u32,
 }
-pub const XSTATE_FIRST_NON_LEGACY_FEATURE: u32 = 2;
-pub const XSTATE_GSSE: u32 = 2;
-pub const XSTATE_IPT: u32 = 8;
-pub const XSTATE_LEGACY_FLOATING_POINT: u32 = 0;
-pub const XSTATE_LEGACY_SSE: u32 = 1;
-pub const XSTATE_LWP: u32 = 62;
+pub const XSTATE_FIRST_NON_LEGACY_FEATURE: i32 = 2;
+pub const XSTATE_GSSE: i32 = 2;
+pub const XSTATE_IPT: i32 = 8;
+pub const XSTATE_LEGACY_FLOATING_POINT: i32 = 0;
+pub const XSTATE_LEGACY_SSE: i32 = 1;
+pub const XSTATE_LWP: i32 = 62;
 #[cfg(target_arch = "x86")]
-pub const XSTATE_MASK_ALLOWED: u32 = 511;
+pub const XSTATE_MASK_ALLOWED: u64 = 511;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const XSTATE_MASK_ALLOWED: u32 = 396799;
+pub const XSTATE_MASK_ALLOWED: u64 = 396799;
 #[cfg(target_arch = "aarch64")]
-pub const XSTATE_MASK_ALLOWED: u32 = 60;
-pub const XSTATE_MASK_AMD64_LEGACY: u32 = 3;
-pub const XSTATE_MASK_AMX_TILE_CONFIG: u32 = 131072;
-pub const XSTATE_MASK_AMX_TILE_DATA: u32 = 262144;
-pub const XSTATE_MASK_ARM64_SME_TPIDR2: u32 = 16;
-pub const XSTATE_MASK_ARM64_SME_ZA: u32 = 8;
-pub const XSTATE_MASK_ARM64_SME_ZT: u32 = 32;
-pub const XSTATE_MASK_ARM64_SVE: u32 = 4;
-pub const XSTATE_MASK_AVX: u32 = 4;
-pub const XSTATE_MASK_AVX512: u32 = 224;
-pub const XSTATE_MASK_CET_S: u32 = 4096;
-pub const XSTATE_MASK_CET_U: u32 = 2048;
-pub const XSTATE_MASK_GSSE: u32 = 4;
-pub const XSTATE_MASK_IPT: u32 = 256;
+pub const XSTATE_MASK_ALLOWED: u64 = 60;
+pub const XSTATE_MASK_AMD64_LEGACY: u64 = 3;
+pub const XSTATE_MASK_AMX_TILE_CONFIG: u64 = 131072;
+pub const XSTATE_MASK_AMX_TILE_DATA: u64 = 262144;
+pub const XSTATE_MASK_ARM64_SME_TPIDR2: u64 = 16;
+pub const XSTATE_MASK_ARM64_SME_ZA: u64 = 8;
+pub const XSTATE_MASK_ARM64_SME_ZT: u64 = 32;
+pub const XSTATE_MASK_ARM64_SVE: u64 = 4;
+pub const XSTATE_MASK_AVX: u64 = 4;
+pub const XSTATE_MASK_AVX512: u64 = 224;
+pub const XSTATE_MASK_CET_S: u64 = 4096;
+pub const XSTATE_MASK_CET_U: u64 = 2048;
+pub const XSTATE_MASK_GSSE: u64 = 4;
+pub const XSTATE_MASK_IPT: u64 = 256;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const XSTATE_MASK_LARGE_FEATURES: u32 = 262144;
+pub const XSTATE_MASK_LARGE_FEATURES: u64 = 262144;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const XSTATE_MASK_LARGE_FEATURES: u32 = 0;
+pub const XSTATE_MASK_LARGE_FEATURES: u64 = 0;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const XSTATE_MASK_LEGACY: u32 = 3;
+pub const XSTATE_MASK_LEGACY: u64 = 3;
 #[cfg(target_arch = "aarch64")]
-pub const XSTATE_MASK_LEGACY: u32 = 0;
-pub const XSTATE_MASK_LEGACY_FLOATING_POINT: u32 = 1;
-pub const XSTATE_MASK_LEGACY_SSE: u32 = 2;
-pub const XSTATE_MASK_LWP: u32 = 0;
-pub const XSTATE_MASK_MPX: u32 = 24;
-pub const XSTATE_MASK_PASID: u32 = 1024;
+pub const XSTATE_MASK_LEGACY: u64 = 0;
+pub const XSTATE_MASK_LEGACY_FLOATING_POINT: u64 = 1;
+pub const XSTATE_MASK_LEGACY_SSE: u64 = 2;
+pub const XSTATE_MASK_LWP: u64 = 0;
+pub const XSTATE_MASK_MPX: u64 = 24;
+pub const XSTATE_MASK_PASID: u64 = 1024;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const XSTATE_MASK_PERSISTENT: u32 = 16;
+pub const XSTATE_MASK_PERSISTENT: u64 = 16;
 #[cfg(target_arch = "aarch64")]
-pub const XSTATE_MASK_PERSISTENT: u32 = 0;
+pub const XSTATE_MASK_PERSISTENT: u64 = 0;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const XSTATE_MASK_USER_VISIBLE_SUPERVISOR: u32 = 2048;
+pub const XSTATE_MASK_USER_VISIBLE_SUPERVISOR: u64 = 2048;
 #[cfg(target_arch = "aarch64")]
-pub const XSTATE_MASK_USER_VISIBLE_SUPERVISOR: u32 = 0;
-pub const XSTATE_MPX_BNDCSR: u32 = 4;
-pub const XSTATE_MPX_BNDREGS: u32 = 3;
-pub const XSTATE_PASID: u32 = 10;
-pub const XSTATE_XFD_BIT: u32 = 2;
-pub const XSTATE_XFD_MASK: u32 = 4;
+pub const XSTATE_MASK_USER_VISIBLE_SUPERVISOR: u64 = 0;
+pub const XSTATE_MPX_BNDCSR: i32 = 4;
+pub const XSTATE_MPX_BNDREGS: i32 = 3;
+pub const XSTATE_PASID: i32 = 10;
+pub const XSTATE_XFD_BIT: i32 = 2;
+pub const XSTATE_XFD_MASK: u64 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ACTIVATION_CONTEXT(pub u8);

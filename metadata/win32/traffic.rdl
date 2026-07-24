@@ -5,7 +5,7 @@ mod Windows {
             MediaType: u32,
             AddressList: NETWORK_ADDRESS_LIST,
         }
-        const CURRENT_TCI_VERSION: u32 = 2;
+        const CURRENT_TCI_VERSION: i32 = 2;
         struct ENUMERATION_BUFFER {
             Length: u32,
             OwnerProcessId: u32,
@@ -47,7 +47,7 @@ mod Windows {
             ProtocolId: u8,
             Reserved3: [u8; 3],
         }
-        const MAX_STRING_LENGTH: u32 = 256;
+        const MAX_STRING_LENGTH: i32 = 256;
         type PADDRESS_LIST_DESCRIPTOR = *mut ADDRESS_LIST_DESCRIPTOR;
         type PENUMERATION_BUFFER = *mut ENUMERATION_BUFFER;
         type PIPX_PATTERN = *mut IPX_PATTERN;
@@ -86,11 +86,11 @@ mod Windows {
             AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
         }
         const TC_INVALID_HANDLE: HANDLE = 0;
-        const TC_NOTIFY_FLOW_CLOSE: u32 = 5;
-        const TC_NOTIFY_IFC_CHANGE: u32 = 3;
-        const TC_NOTIFY_IFC_CLOSE: u32 = 2;
-        const TC_NOTIFY_IFC_UP: u32 = 1;
-        const TC_NOTIFY_PARAM_CHANGED: u32 = 4;
+        const TC_NOTIFY_FLOW_CLOSE: i32 = 5;
+        const TC_NOTIFY_IFC_CHANGE: i32 = 3;
+        const TC_NOTIFY_IFC_CLOSE: i32 = 2;
+        const TC_NOTIFY_IFC_UP: i32 = 1;
+        const TC_NOTIFY_PARAM_CHANGED: i32 = 4;
         struct TC_SUPPORTED_INFO_BUFFER {
             InstanceIDLength: u16,
             InstanceID: [u16; 256],

@@ -187,19 +187,19 @@ impl From<std::io::Error> for Error {
 
 impl From<alloc::string::FromUtf16Error> for Error {
     fn from(_: alloc::string::FromUtf16Error) -> Self {
-        WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION).into()
+        WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION as u32).into()
     }
 }
 
 impl From<alloc::string::FromUtf8Error> for Error {
     fn from(_: alloc::string::FromUtf8Error) -> Self {
-        WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION).into()
+        WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION as u32).into()
     }
 }
 
 impl From<core::num::TryFromIntError> for Error {
     fn from(_: core::num::TryFromIntError) -> Self {
-        WIN32_ERROR(ERROR_INVALID_DATA).into()
+        WIN32_ERROR(ERROR_INVALID_DATA as u32).into()
     }
 }
 

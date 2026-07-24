@@ -127,7 +127,7 @@ mod Windows {
         const CRR_CALL_LIMIT: u32 = 4294967293;
         const CRR_LIFETIME_LIMIT: u32 = 4294967295;
         const CRR_MEMORY_LIMIT: u32 = 4294967292;
-        const CRR_NO_REASON_SUPPLIED: u32 = 0;
+        const CRR_NO_REASON_SUPPLIED: i32 = 0;
         const CRR_RECYCLED_FROM_UI: u32 = 4294967291;
         #[repr(i32)]
         enum CSC_Binding {
@@ -291,7 +291,7 @@ mod Windows {
             comqcErrBadMarshaledObject = -2146367914,
         }
         const EventServer: GUID = 0xecabafbc_7f19_11d2_978e_0000f8757e2a;
-        const GUID_STRING_SIZE: u32 = 40;
+        const GUID_STRING_SIZE: i32 = 40;
         #[repr(i32)]
         enum GetAppTrackerDataFlags {
             GATD_INCLUDE_PROCESS_EXE_NAME = 1,

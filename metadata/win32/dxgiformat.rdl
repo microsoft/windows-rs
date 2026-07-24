@@ -127,6 +127,6 @@ mod Windows {
             DXGI_FORMAT_A4B4G4R4_UNORM = 191,
             DXGI_FORMAT_FORCE_UINT = -1,
         }
-        const DXGI_FORMAT_DEFINED: u32 = 1;
+        const DXGI_FORMAT_DEFINED: i32 = 1;
     }
 }

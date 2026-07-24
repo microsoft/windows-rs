@@ -8,11 +8,11 @@ mod Windows {
         type BerValue = LDAP_BERVAL;
         type DBGPRINT = *mut u8;
         extern "C" fn DEREFERENCECONNECTION(PrimaryConnection: *mut LDAP, ConnectionToDereference: *mut LDAP) -> u32;
-        const LAPI_MAJOR_VER1: u32 = 1;
-        const LAPI_MINOR_VER1: u32 = 1;
-        const LBER_TRANSLATE_STRINGS: u32 = 4;
-        const LBER_USE_DER: u32 = 1;
-        const LBER_USE_INDEFINITE_LEN: u32 = 2;
+        const LAPI_MAJOR_VER1: i32 = 1;
+        const LAPI_MINOR_VER1: i32 = 1;
+        const LBER_TRANSLATE_STRINGS: i32 = 4;
+        const LBER_USE_DER: i32 = 1;
+        const LBER_USE_INDEFINITE_LEN: i32 = 2;
         struct LDAP {
             ld_sb: struct {
                 sb_sd: usize,
@@ -125,30 +125,30 @@ mod Windows {
             ldvlv_context: PBERVAL,
             ldvlv_extradata: *mut void,
         }
-        const LDAP_ABANDON_CMD: u32 = 80;
-        const LDAP_ADD_CMD: u32 = 104;
-        const LDAP_API_FEATURE_VIRTUAL_LIST_VIEW: u32 = 1001;
-        const LDAP_API_INFO_VERSION: u32 = 1;
-        const LDAP_API_VERSION: u32 = 2004;
-        const LDAP_AUTH_DIGEST: u32 = 16518;
-        const LDAP_AUTH_DPA: u32 = 8326;
-        const LDAP_AUTH_EXTERNAL: u32 = 166;
-        const LDAP_AUTH_MSN: u32 = 2182;
-        const LDAP_AUTH_NEGOTIATE: u32 = 1158;
-        const LDAP_AUTH_NTLM: u32 = 4230;
-        const LDAP_AUTH_OTHERKIND: u32 = 134;
-        const LDAP_AUTH_SASL: u32 = 131;
-        const LDAP_AUTH_SICILY: u32 = 646;
-        const LDAP_AUTH_SIMPLE: u32 = 128;
-        const LDAP_AUTH_SSPI: u32 = 1158;
+        const LDAP_ABANDON_CMD: i32 = 80;
+        const LDAP_ADD_CMD: i32 = 104;
+        const LDAP_API_FEATURE_VIRTUAL_LIST_VIEW: i32 = 1001;
+        const LDAP_API_INFO_VERSION: i32 = 1;
+        const LDAP_API_VERSION: i32 = 2004;
+        const LDAP_AUTH_DIGEST: i32 = 16518;
+        const LDAP_AUTH_DPA: i32 = 8326;
+        const LDAP_AUTH_EXTERNAL: i32 = 166;
+        const LDAP_AUTH_MSN: i32 = 2182;
+        const LDAP_AUTH_NEGOTIATE: i32 = 1158;
+        const LDAP_AUTH_NTLM: i32 = 4230;
+        const LDAP_AUTH_OTHERKIND: i32 = 134;
+        const LDAP_AUTH_SASL: i32 = 131;
+        const LDAP_AUTH_SICILY: i32 = 646;
+        const LDAP_AUTH_SIMPLE: i32 = 128;
+        const LDAP_AUTH_SSPI: i32 = 1158;
         struct LDAP_BERVAL {
             bv_len: u32,
             bv_val: PCHAR,
         }
-        const LDAP_BIND_CMD: u32 = 96;
-        const LDAP_CHASE_EXTERNAL_REFERRALS: u32 = 64;
-        const LDAP_CHASE_SUBORDINATE_REFERRALS: u32 = 32;
-        const LDAP_COMPARE_CMD: u32 = 110;
+        const LDAP_BIND_CMD: i32 = 96;
+        const LDAP_CHASE_EXTERNAL_REFERRALS: i32 = 64;
+        const LDAP_CHASE_SUBORDINATE_REFERRALS: i32 = 32;
+        const LDAP_COMPARE_CMD: i32 = 110;
         #[encoding("ansi")]
         const LDAP_CONTROL_REFERRALS: String = "1.2.840.113556.1.4.616";
         #[encoding("utf-16")]
@@ -161,116 +161,116 @@ mod Windows {
         const LDAP_CONTROL_VLVRESPONSE: String = "2.16.840.1.113730.3.4.10";
         #[encoding("utf-16")]
         const LDAP_CONTROL_VLVRESPONSE_W: String = "2.16.840.1.113730.3.4.10";
-        const LDAP_DELETE_CMD: u32 = 74;
-        const LDAP_DEREF_ALWAYS: u32 = 3;
-        const LDAP_DEREF_FINDING: u32 = 2;
-        const LDAP_DEREF_NEVER: u32 = 0;
-        const LDAP_DEREF_SEARCHING: u32 = 1;
-        const LDAP_EXTENDED_CMD: u32 = 119;
-        const LDAP_FEATURE_INFO_VERSION: u32 = 1;
-        const LDAP_FILTER_AND: u32 = 160;
-        const LDAP_FILTER_APPROX: u32 = 168;
-        const LDAP_FILTER_EQUALITY: u32 = 163;
-        const LDAP_FILTER_EXTENSIBLE: u32 = 169;
-        const LDAP_FILTER_GE: u32 = 165;
-        const LDAP_FILTER_LE: u32 = 166;
-        const LDAP_FILTER_NOT: u32 = 162;
-        const LDAP_FILTER_OR: u32 = 161;
-        const LDAP_FILTER_PRESENT: u32 = 135;
-        const LDAP_FILTER_SUBSTRINGS: u32 = 164;
-        const LDAP_GC_PORT: u32 = 3268;
-        const LDAP_INVALID_CMD: u32 = 255;
-        const LDAP_INVALID_RES: u32 = 255;
-        const LDAP_MODIFY_CMD: u32 = 102;
-        const LDAP_MODRDN_CMD: u32 = 108;
-        const LDAP_MOD_ADD: u32 = 0;
-        const LDAP_MOD_BVALUES: u32 = 128;
-        const LDAP_MOD_DELETE: u32 = 1;
-        const LDAP_MOD_REPLACE: u32 = 2;
-        const LDAP_MSG_ALL: u32 = 1;
-        const LDAP_MSG_ONE: u32 = 0;
-        const LDAP_MSG_RECEIVED: u32 = 2;
-        const LDAP_NO_LIMIT: u32 = 0;
-        const LDAP_OPT_ANONYMOUS_MAX_VAL_RANGE: u32 = 71;
-        const LDAP_OPT_API_FEATURE_INFO: u32 = 21;
-        const LDAP_OPT_API_INFO: u32 = 0;
-        const LDAP_OPT_AREC_EXCLUSIVE: u32 = 152;
-        const LDAP_OPT_AUTO_RECONNECT: u32 = 145;
-        const LDAP_OPT_CACHE_ENABLE: u32 = 15;
-        const LDAP_OPT_CACHE_FN_PTRS: u32 = 13;
-        const LDAP_OPT_CACHE_STRATEGY: u32 = 14;
-        const LDAP_OPT_CHASE_REFERRALS: u32 = 2;
-        const LDAP_OPT_CLDAP_TIMEOUT: u32 = 69;
-        const LDAP_OPT_CLDAP_TRIES: u32 = 70;
-        const LDAP_OPT_CLIENT_CERTIFICATE: u32 = 128;
-        const LDAP_OPT_DEREF: u32 = 2;
-        const LDAP_OPT_DESC: u32 = 1;
-        const LDAP_OPT_DNS: u32 = 1;
-        const LDAP_OPT_DNSDOMAIN_NAME: u32 = 59;
-        const LDAP_OPT_ENCRYPT: u32 = 150;
-        const LDAP_OPT_ERROR_NUMBER: u32 = 49;
-        const LDAP_OPT_ERROR_STRING: u32 = 50;
-        const LDAP_OPT_FAST_CONCURRENT_BIND: u32 = 65;
-        const LDAP_OPT_GETDSNAME_FLAGS: u32 = 61;
-        const LDAP_OPT_HOST_NAME: u32 = 48;
-        const LDAP_OPT_HOST_REACHABLE: u32 = 62;
-        const LDAP_OPT_IO_FN_PTRS: u32 = 11;
-        const LDAP_OPT_PING_KEEP_ALIVE: u32 = 54;
-        const LDAP_OPT_PING_LIMIT: u32 = 56;
-        const LDAP_OPT_PING_WAIT_TIME: u32 = 55;
-        const LDAP_OPT_PROMPT_CREDENTIALS: u32 = 63;
-        const LDAP_OPT_PROTOCOL_VERSION: u32 = 17;
-        const LDAP_OPT_REBIND_ARG: u32 = 7;
-        const LDAP_OPT_REBIND_FN: u32 = 6;
-        const LDAP_OPT_REFERRALS: u32 = 8;
-        const LDAP_OPT_REFERRAL_CALLBACK: u32 = 112;
-        const LDAP_OPT_REFERRAL_HOP_LIMIT: u32 = 16;
-        const LDAP_OPT_REF_DEREF_CONN_PER_MSG: u32 = 148;
-        const LDAP_OPT_RESTART: u32 = 9;
-        const LDAP_OPT_RETURN_REFS: u32 = 4;
-        const LDAP_OPT_ROOTDSE_CACHE: u32 = 154;
-        const LDAP_OPT_SASL_METHOD: u32 = 151;
-        const LDAP_OPT_SCH_FLAGS: u32 = 67;
-        const LDAP_OPT_SECURITY_CONTEXT: u32 = 153;
-        const LDAP_OPT_SEND_TIMEOUT: u32 = 66;
-        const LDAP_OPT_SERVER_CERTIFICATE: u32 = 129;
-        const LDAP_OPT_SERVER_ERROR: u32 = 51;
-        const LDAP_OPT_SERVER_EXT_ERROR: u32 = 52;
-        const LDAP_OPT_SIGN: u32 = 149;
-        const LDAP_OPT_SIZELIMIT: u32 = 3;
-        const LDAP_OPT_SOCKET_BIND_ADDRESSES: u32 = 68;
-        const LDAP_OPT_SSL: u32 = 10;
-        const LDAP_OPT_SSL_INFO: u32 = 147;
-        const LDAP_OPT_SSPI_FLAGS: u32 = 146;
-        const LDAP_OPT_TCP_KEEPALIVE: u32 = 64;
-        const LDAP_OPT_THREAD_FN_PTRS: u32 = 5;
-        const LDAP_OPT_TIMELIMIT: u32 = 4;
-        const LDAP_OPT_TLS: u32 = 10;
-        const LDAP_OPT_TLS_INFO: u32 = 147;
-        const LDAP_OPT_VERSION: u32 = 17;
+        const LDAP_DELETE_CMD: i32 = 74;
+        const LDAP_DEREF_ALWAYS: i32 = 3;
+        const LDAP_DEREF_FINDING: i32 = 2;
+        const LDAP_DEREF_NEVER: i32 = 0;
+        const LDAP_DEREF_SEARCHING: i32 = 1;
+        const LDAP_EXTENDED_CMD: i32 = 119;
+        const LDAP_FEATURE_INFO_VERSION: i32 = 1;
+        const LDAP_FILTER_AND: i32 = 160;
+        const LDAP_FILTER_APPROX: i32 = 168;
+        const LDAP_FILTER_EQUALITY: i32 = 163;
+        const LDAP_FILTER_EXTENSIBLE: i32 = 169;
+        const LDAP_FILTER_GE: i32 = 165;
+        const LDAP_FILTER_LE: i32 = 166;
+        const LDAP_FILTER_NOT: i32 = 162;
+        const LDAP_FILTER_OR: i32 = 161;
+        const LDAP_FILTER_PRESENT: i32 = 135;
+        const LDAP_FILTER_SUBSTRINGS: i32 = 164;
+        const LDAP_GC_PORT: i32 = 3268;
+        const LDAP_INVALID_CMD: i32 = 255;
+        const LDAP_INVALID_RES: i32 = 255;
+        const LDAP_MODIFY_CMD: i32 = 102;
+        const LDAP_MODRDN_CMD: i32 = 108;
+        const LDAP_MOD_ADD: i32 = 0;
+        const LDAP_MOD_BVALUES: i32 = 128;
+        const LDAP_MOD_DELETE: i32 = 1;
+        const LDAP_MOD_REPLACE: i32 = 2;
+        const LDAP_MSG_ALL: i32 = 1;
+        const LDAP_MSG_ONE: i32 = 0;
+        const LDAP_MSG_RECEIVED: i32 = 2;
+        const LDAP_NO_LIMIT: i32 = 0;
+        const LDAP_OPT_ANONYMOUS_MAX_VAL_RANGE: i32 = 71;
+        const LDAP_OPT_API_FEATURE_INFO: i32 = 21;
+        const LDAP_OPT_API_INFO: i32 = 0;
+        const LDAP_OPT_AREC_EXCLUSIVE: i32 = 152;
+        const LDAP_OPT_AUTO_RECONNECT: i32 = 145;
+        const LDAP_OPT_CACHE_ENABLE: i32 = 15;
+        const LDAP_OPT_CACHE_FN_PTRS: i32 = 13;
+        const LDAP_OPT_CACHE_STRATEGY: i32 = 14;
+        const LDAP_OPT_CHASE_REFERRALS: i32 = 2;
+        const LDAP_OPT_CLDAP_TIMEOUT: i32 = 69;
+        const LDAP_OPT_CLDAP_TRIES: i32 = 70;
+        const LDAP_OPT_CLIENT_CERTIFICATE: i32 = 128;
+        const LDAP_OPT_DEREF: i32 = 2;
+        const LDAP_OPT_DESC: i32 = 1;
+        const LDAP_OPT_DNS: i32 = 1;
+        const LDAP_OPT_DNSDOMAIN_NAME: i32 = 59;
+        const LDAP_OPT_ENCRYPT: i32 = 150;
+        const LDAP_OPT_ERROR_NUMBER: i32 = 49;
+        const LDAP_OPT_ERROR_STRING: i32 = 50;
+        const LDAP_OPT_FAST_CONCURRENT_BIND: i32 = 65;
+        const LDAP_OPT_GETDSNAME_FLAGS: i32 = 61;
+        const LDAP_OPT_HOST_NAME: i32 = 48;
+        const LDAP_OPT_HOST_REACHABLE: i32 = 62;
+        const LDAP_OPT_IO_FN_PTRS: i32 = 11;
+        const LDAP_OPT_PING_KEEP_ALIVE: i32 = 54;
+        const LDAP_OPT_PING_LIMIT: i32 = 56;
+        const LDAP_OPT_PING_WAIT_TIME: i32 = 55;
+        const LDAP_OPT_PROMPT_CREDENTIALS: i32 = 63;
+        const LDAP_OPT_PROTOCOL_VERSION: i32 = 17;
+        const LDAP_OPT_REBIND_ARG: i32 = 7;
+        const LDAP_OPT_REBIND_FN: i32 = 6;
+        const LDAP_OPT_REFERRALS: i32 = 8;
+        const LDAP_OPT_REFERRAL_CALLBACK: i32 = 112;
+        const LDAP_OPT_REFERRAL_HOP_LIMIT: i32 = 16;
+        const LDAP_OPT_REF_DEREF_CONN_PER_MSG: i32 = 148;
+        const LDAP_OPT_RESTART: i32 = 9;
+        const LDAP_OPT_RETURN_REFS: i32 = 4;
+        const LDAP_OPT_ROOTDSE_CACHE: i32 = 154;
+        const LDAP_OPT_SASL_METHOD: i32 = 151;
+        const LDAP_OPT_SCH_FLAGS: i32 = 67;
+        const LDAP_OPT_SECURITY_CONTEXT: i32 = 153;
+        const LDAP_OPT_SEND_TIMEOUT: i32 = 66;
+        const LDAP_OPT_SERVER_CERTIFICATE: i32 = 129;
+        const LDAP_OPT_SERVER_ERROR: i32 = 51;
+        const LDAP_OPT_SERVER_EXT_ERROR: i32 = 52;
+        const LDAP_OPT_SIGN: i32 = 149;
+        const LDAP_OPT_SIZELIMIT: i32 = 3;
+        const LDAP_OPT_SOCKET_BIND_ADDRESSES: i32 = 68;
+        const LDAP_OPT_SSL: i32 = 10;
+        const LDAP_OPT_SSL_INFO: i32 = 147;
+        const LDAP_OPT_SSPI_FLAGS: i32 = 146;
+        const LDAP_OPT_TCP_KEEPALIVE: i32 = 64;
+        const LDAP_OPT_THREAD_FN_PTRS: i32 = 5;
+        const LDAP_OPT_TIMELIMIT: i32 = 4;
+        const LDAP_OPT_TLS: i32 = 10;
+        const LDAP_OPT_TLS_INFO: i32 = 147;
+        const LDAP_OPT_VERSION: i32 = 17;
         #[encoding("ansi")]
         const LDAP_PAGED_RESULT_OID_STRING: String = "1.2.840.113556.1.4.319";
         #[encoding("utf-16")]
         const LDAP_PAGED_RESULT_OID_STRING_W: String = "1.2.840.113556.1.4.319";
-        const LDAP_PORT: u32 = 389;
+        const LDAP_PORT: i32 = 389;
         struct LDAP_REFERRAL_CALLBACK {
             SizeOfCallbacks: u32,
             QueryForConnection: QUERYFORCONNECTION,
             NotifyRoutine: NOTIFYOFNEWCONNECTION,
             DereferenceRoutine: DEREFERENCECONNECTION,
         }
-        const LDAP_RES_ADD: u32 = 105;
+        const LDAP_RES_ADD: i32 = 105;
         const LDAP_RES_ANY: i32 = -1;
-        const LDAP_RES_BIND: u32 = 97;
-        const LDAP_RES_COMPARE: u32 = 111;
-        const LDAP_RES_DELETE: u32 = 107;
-        const LDAP_RES_EXTENDED: u32 = 120;
-        const LDAP_RES_MODIFY: u32 = 103;
-        const LDAP_RES_MODRDN: u32 = 109;
-        const LDAP_RES_REFERRAL: u32 = 115;
-        const LDAP_RES_SEARCH_ENTRY: u32 = 100;
-        const LDAP_RES_SEARCH_RESULT: u32 = 101;
-        const LDAP_RES_SESSION: u32 = 114;
+        const LDAP_RES_BIND: i32 = 97;
+        const LDAP_RES_COMPARE: i32 = 111;
+        const LDAP_RES_DELETE: i32 = 107;
+        const LDAP_RES_EXTENDED: i32 = 120;
+        const LDAP_RES_MODIFY: i32 = 103;
+        const LDAP_RES_MODRDN: i32 = 109;
+        const LDAP_RES_REFERRAL: i32 = 115;
+        const LDAP_RES_SEARCH_ENTRY: i32 = 100;
+        const LDAP_RES_SEARCH_RESULT: i32 = 101;
+        const LDAP_RES_SESSION: i32 = 114;
         #[repr(i32)]
         enum LDAP_RETCODE {
             LDAP_SUCCESS = 0,
@@ -337,10 +337,10 @@ mod Windows {
             LDAP_CLIENT_LOOP = 96,
             LDAP_REFERRAL_LIMIT_EXCEEDED = 97,
         }
-        const LDAP_SCOPE_BASE: u32 = 0;
-        const LDAP_SCOPE_ONELEVEL: u32 = 1;
-        const LDAP_SCOPE_SUBTREE: u32 = 2;
-        const LDAP_SEARCH_CMD: u32 = 99;
+        const LDAP_SCOPE_BASE: i32 = 0;
+        const LDAP_SCOPE_ONELEVEL: i32 = 1;
+        const LDAP_SCOPE_SUBTREE: i32 = 2;
+        const LDAP_SEARCH_CMD: i32 = 99;
         #[encoding("ansi")]
         const LDAP_SERVER_RESP_SORT_OID: String = "1.2.840.113556.1.4.474";
         #[encoding("utf-16")]
@@ -349,16 +349,16 @@ mod Windows {
         const LDAP_SERVER_SORT_OID: String = "1.2.840.113556.1.4.473";
         #[encoding("utf-16")]
         const LDAP_SERVER_SORT_OID_W: String = "1.2.840.113556.1.4.473";
-        const LDAP_SESSION_CMD: u32 = 113;
-        const LDAP_SSL_GC_PORT: u32 = 3269;
-        const LDAP_SSL_PORT: u32 = 636;
+        const LDAP_SESSION_CMD: i32 = 113;
+        const LDAP_SSL_GC_PORT: i32 = 3269;
+        const LDAP_SSL_PORT: i32 = 636;
         #[encoding("ansi")]
         const LDAP_START_TLS_OID: String = "1.3.6.1.4.1.1466.20037";
         #[encoding("utf-16")]
         const LDAP_START_TLS_OID_W: String = "1.3.6.1.4.1.1466.20037";
-        const LDAP_SUBSTRING_ANY: u32 = 129;
-        const LDAP_SUBSTRING_FINAL: u32 = 130;
-        const LDAP_SUBSTRING_INITIAL: u32 = 128;
+        const LDAP_SUBSTRING_ANY: i32 = 129;
+        const LDAP_SUBSTRING_FINAL: i32 = 130;
+        const LDAP_SUBSTRING_INITIAL: i32 = 128;
         struct LDAP_TIMEVAL {
             tv_sec: i32,
             tv_usec: i32,
@@ -367,25 +367,25 @@ mod Windows {
         const LDAP_TTL_EXTENDED_OP_OID: String = "1.3.6.1.4.1.1466.101.119.1";
         #[encoding("utf-16")]
         const LDAP_TTL_EXTENDED_OP_OID_W: String = "1.3.6.1.4.1.1466.101.119.1";
-        const LDAP_UNBIND_CMD: u32 = 66;
-        const LDAP_UNICODE: u32 = 0;
+        const LDAP_UNBIND_CMD: i32 = 66;
+        const LDAP_UNICODE: i32 = 0;
         #[encoding("ansi")]
         const LDAP_VENDOR_NAME: String = "Microsoft Corporation.";
         #[encoding("utf-16")]
         const LDAP_VENDOR_NAME_W: String = "Microsoft Corporation.";
-        const LDAP_VENDOR_VERSION: u32 = 510;
-        const LDAP_VERSION: u32 = 2;
-        const LDAP_VERSION1: u32 = 1;
-        const LDAP_VERSION2: u32 = 2;
-        const LDAP_VERSION3: u32 = 3;
+        const LDAP_VENDOR_VERSION: i32 = 510;
+        const LDAP_VERSION: i32 = 2;
+        const LDAP_VERSION1: i32 = 1;
+        const LDAP_VERSION2: i32 = 2;
+        const LDAP_VERSION3: i32 = 3;
         struct LDAP_VERSION_INFO {
             lv_size: u32,
             lv_major: u32,
             lv_minor: u32,
         }
-        const LDAP_VERSION_MAX: u32 = 3;
-        const LDAP_VERSION_MIN: u32 = 2;
-        const LDAP_VLVINFO_VERSION: u32 = 1;
+        const LDAP_VERSION_MAX: i32 = 3;
+        const LDAP_VERSION_MIN: i32 = 2;
+        const LDAP_VLVINFO_VERSION: i32 = 1;
         #[library("WLDAP32.dll")]
         extern "C" fn LdapGetLastError() -> u32;
         #[library("WLDAP32.dll")]

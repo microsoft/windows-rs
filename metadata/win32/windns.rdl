@@ -1,23 +1,23 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const DNS_ADDRESS_STRING_LENGTH: u32 = 65;
+        const DNS_ADDRESS_STRING_LENGTH: i32 = 65;
         struct DNS_APPLICATION_SETTINGS {
             Version: u32,
             Flags: u64,
         }
-        const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: u32 = 1;
-        const DNS_APP_SETTINGS_VERSION1: u32 = 1;
-        const DNS_CLASS_ALL: u32 = 255;
-        const DNS_CLASS_ANY: u32 = 255;
-        const DNS_CLASS_CHAOS: u32 = 3;
-        const DNS_CLASS_CSNET: u32 = 2;
-        const DNS_CLASS_HESIOD: u32 = 4;
-        const DNS_CLASS_INTERNET: u32 = 1;
-        const DNS_CLASS_NONE: u32 = 254;
-        const DNS_CLASS_UNICAST_RESPONSE: u32 = 32768;
-        const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164;
-        const DNS_CONFIG_FLAG_ALLOC: u32 = 1;
+        const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: i32 = 1;
+        const DNS_APP_SETTINGS_VERSION1: i32 = 1;
+        const DNS_CLASS_ALL: i32 = 255;
+        const DNS_CLASS_ANY: i32 = 255;
+        const DNS_CLASS_CHAOS: i32 = 3;
+        const DNS_CLASS_CSNET: i32 = 2;
+        const DNS_CLASS_HESIOD: i32 = 4;
+        const DNS_CLASS_INTERNET: i32 = 1;
+        const DNS_CLASS_NONE: i32 = 254;
+        const DNS_CLASS_UNICAST_RESPONSE: i32 = 32768;
+        const DNS_COMPRESSED_QUESTION_NAME: i32 = 49164;
+        const DNS_CONFIG_FLAG_ALLOC: i32 = 1;
         #[repr(i32)]
         enum DNS_CONFIG_TYPE {
             DnsConfigPrimaryDomainName_W = 0,
@@ -55,7 +55,7 @@ mod Windows {
             cNames: u32,
             pNames: *mut DNS_CONNECTION_NAME,
         }
-        const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64;
+        const DNS_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
         struct DNS_CONNECTION_POLICY_ENTRY {
             pwszHost: PCWSTR,
             pwszAppId: PCWSTR,
@@ -69,7 +69,7 @@ mod Windows {
             pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
             nEntries: u32,
         }
-        const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1;
+        const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: i32 = 1;
         #[repr(i32)]
         enum DNS_CONNECTION_POLICY_TAG {
             TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT = 0,
@@ -103,7 +103,7 @@ mod Windows {
             pwszUsername: *mut u16,
             pwszPassword: *mut u16,
         }
-        const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1;
+        const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: i32 = 1;
         struct DNS_CONNECTION_PROXY_INFO_EX {
             ProxyInfo: DNS_CONNECTION_PROXY_INFO,
             dwInterfaceIndex: u32,
@@ -111,20 +111,20 @@ mod Windows {
             fDirectConfiguration: BOOL,
             hConnection: HANDLE,
         }
-        const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024;
-        const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: u32 = 1024;
-        const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: u32 = 2;
-        const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: u32 = 1;
-        const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: u32 = 64;
-        const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128;
-        const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256;
+        const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: i32 = 1024;
+        const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: i32 = 1024;
+        const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: i32 = 2;
+        const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: i32 = 1;
+        const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: i32 = 64;
+        const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: i32 = 128;
+        const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: i32 = 256;
         #[repr(i32)]
         enum DNS_CONNECTION_PROXY_INFO_SWITCH {
             DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG = 0,
             DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT = 1,
             DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD = 2,
         }
-        const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128;
+        const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: i32 = 128;
         struct DNS_CONNECTION_PROXY_LIST {
             cProxies: u32,
             pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
@@ -151,13 +151,13 @@ mod Windows {
         const DNS_IP6_REVERSE_DOMAIN_STRING_A: String = "ip6.arpa.";
         #[encoding("utf-16")]
         const DNS_IP6_REVERSE_DOMAIN_STRING_W: String = "ip6.arpa.";
-        const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: u32 = 31;
-        const DNS_MAX_IP4_REVERSE_NAME_LENGTH: u32 = 31;
-        const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: u32 = 75;
-        const DNS_MAX_IP6_REVERSE_NAME_LENGTH: u32 = 75;
-        const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: u32 = 75;
-        const DNS_MAX_REVERSE_NAME_LENGTH: u32 = 75;
-        const DNS_MAX_TEXT_STRING_LENGTH: u32 = 255;
+        const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: i32 = 31;
+        const DNS_MAX_IP4_REVERSE_NAME_LENGTH: i32 = 31;
+        const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: i32 = 75;
+        const DNS_MAX_IP6_REVERSE_NAME_LENGTH: i32 = 75;
+        const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: i32 = 75;
+        const DNS_MAX_REVERSE_NAME_LENGTH: i32 = 75;
+        const DNS_MAX_TEXT_STRING_LENGTH: i32 = 255;
         #[repr(i32)]
         enum DNS_NAME_FORMAT {
             DnsNameDomain = 0,
@@ -168,20 +168,20 @@ mod Windows {
             DnsNameSrvRecord = 5,
             DnsNameValidateTld = 6,
         }
-        const DNS_OPCODE_IQUERY: u32 = 1;
-        const DNS_OPCODE_NOTIFY: u32 = 4;
-        const DNS_OPCODE_QUERY: u32 = 0;
-        const DNS_OPCODE_SERVER_STATUS: u32 = 2;
-        const DNS_OPCODE_UNKNOWN: u32 = 3;
-        const DNS_OPCODE_UPDATE: u32 = 5;
-        const DNS_PORT_HOST_ORDER: u32 = 53;
-        const DNS_PORT_NET_ORDER: u32 = 13568;
-        const DNS_PROTOCOL_DOH: u32 = 3;
-        const DNS_PROTOCOL_DOT: u32 = 4;
-        const DNS_PROTOCOL_NO_WIRE: u32 = 5;
-        const DNS_PROTOCOL_TCP: u32 = 2;
-        const DNS_PROTOCOL_UDP: u32 = 1;
-        const DNS_PROTOCOL_UNSPECIFIED: u32 = 0;
+        const DNS_OPCODE_IQUERY: i32 = 1;
+        const DNS_OPCODE_NOTIFY: i32 = 4;
+        const DNS_OPCODE_QUERY: i32 = 0;
+        const DNS_OPCODE_SERVER_STATUS: i32 = 2;
+        const DNS_OPCODE_UNKNOWN: i32 = 3;
+        const DNS_OPCODE_UPDATE: i32 = 5;
+        const DNS_PORT_HOST_ORDER: i32 = 53;
+        const DNS_PORT_NET_ORDER: i32 = 13568;
+        const DNS_PROTOCOL_DOH: i32 = 3;
+        const DNS_PROTOCOL_DOT: i32 = 4;
+        const DNS_PROTOCOL_NO_WIRE: i32 = 5;
+        const DNS_PROTOCOL_TCP: i32 = 2;
+        const DNS_PROTOCOL_UDP: i32 = 1;
+        const DNS_PROTOCOL_UNSPECIFIED: i32 = 0;
         extern fn DNS_PROXY_COMPLETION_ROUTINE(#[opt] completionContext: *const void, status: DNS_STATUS);
         struct DNS_PROXY_INFORMATION {
             version: u32,
@@ -195,36 +195,36 @@ mod Windows {
             DNS_PROXY_INFORMATION_PROXY_NAME = 2,
             DNS_PROXY_INFORMATION_DOES_NOT_EXIST = 3,
         }
-        const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1;
-        const DNS_QUERY_ADDRCONFIG: u32 = 8192;
-        const DNS_QUERY_APPEND_MULTILABEL: u32 = 8388608;
-        const DNS_QUERY_BYPASS_CACHE: u32 = 8;
-        const DNS_QUERY_CACHE_ONLY: u32 = 16;
+        const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: i32 = 1;
+        const DNS_QUERY_ADDRCONFIG: i32 = 8192;
+        const DNS_QUERY_APPEND_MULTILABEL: i32 = 8388608;
+        const DNS_QUERY_BYPASS_CACHE: i32 = 8;
+        const DNS_QUERY_CACHE_ONLY: i32 = 16;
         #[align(8)]
         struct DNS_QUERY_CANCEL {
             Reserved: [i8; 32],
         }
         extern fn DNS_QUERY_COMPLETION_ROUTINE(pQueryContext: *const void, #[in] #[out] pQueryResults: *mut DNS_QUERY_RESULT);
-        const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152;
-        const DNS_QUERY_DNSSEC_CHECKING_DISABLED: u32 = 33554432;
-        const DNS_QUERY_DNSSEC_OK: u32 = 16777216;
-        const DNS_QUERY_DNSSEC_REQUIRED: u32 = 67108864;
-        const DNS_QUERY_DONT_RESET_TTL_VALUES: u32 = 1048576;
-        const DNS_QUERY_DUAL_ADDR: u32 = 16384;
-        const DNS_QUERY_MULTICAST_ONLY: u32 = 1024;
-        const DNS_QUERY_NO_HOSTS_FILE: u32 = 64;
-        const DNS_QUERY_NO_LOCAL_NAME: u32 = 32;
-        const DNS_QUERY_NO_MULTICAST: u32 = 2048;
-        const DNS_QUERY_NO_NETBT: u32 = 128;
-        const DNS_QUERY_NO_RECURSION: u32 = 4;
-        const DNS_QUERY_NO_WIRE_QUERY: u32 = 16;
-        const DNS_QUERY_PARSE_ALL_RECORDS: u64 = 288230376151711744;
+        const DNS_QUERY_DISABLE_IDN_ENCODING: i32 = 2097152;
+        const DNS_QUERY_DNSSEC_CHECKING_DISABLED: i32 = 33554432;
+        const DNS_QUERY_DNSSEC_OK: i32 = 16777216;
+        const DNS_QUERY_DNSSEC_REQUIRED: i32 = 67108864;
+        const DNS_QUERY_DONT_RESET_TTL_VALUES: i32 = 1048576;
+        const DNS_QUERY_DUAL_ADDR: i32 = 16384;
+        const DNS_QUERY_MULTICAST_ONLY: i32 = 1024;
+        const DNS_QUERY_NO_HOSTS_FILE: i32 = 64;
+        const DNS_QUERY_NO_LOCAL_NAME: i32 = 32;
+        const DNS_QUERY_NO_MULTICAST: i32 = 2048;
+        const DNS_QUERY_NO_NETBT: i32 = 128;
+        const DNS_QUERY_NO_RECURSION: i32 = 4;
+        const DNS_QUERY_NO_WIRE_QUERY: i32 = 16;
+        const DNS_QUERY_PARSE_ALL_RECORDS: i64 = 288230376151711744;
         #[align(8)]
         struct DNS_QUERY_RAW_CANCEL {
             reserved: [i8; 32],
         }
         extern fn DNS_QUERY_RAW_COMPLETION_ROUTINE(queryContext: *const void, queryResults: *const DNS_QUERY_RAW_RESULT);
-        const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: u32 = 1;
+        const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: i32 = 1;
         struct DNS_QUERY_RAW_REQUEST {
             version: u32,
             resultsVersion: u32,
@@ -245,7 +245,7 @@ mod Windows {
                 maxSa: [i8; 32],
             },
         }
-        const DNS_QUERY_RAW_REQUEST_VERSION1: u32 = 1;
+        const DNS_QUERY_RAW_REQUEST_VERSION1: i32 = 1;
         struct DNS_QUERY_RAW_RESULT {
             version: u32,
             queryStatus: DNS_STATUS,
@@ -261,7 +261,7 @@ mod Windows {
                 maxSa: [i8; 32],
             },
         }
-        const DNS_QUERY_RAW_RESULTS_VERSION1: u32 = 1;
+        const DNS_QUERY_RAW_RESULTS_VERSION1: i32 = 1;
         struct DNS_QUERY_REQUEST {
             Version: u32,
             QueryName: PCWSTR,
@@ -286,9 +286,9 @@ mod Windows {
             cCustomServers: u32,
             pCustomServers: *mut DNS_CUSTOM_SERVER,
         }
-        const DNS_QUERY_REQUEST_VERSION1: u32 = 1;
-        const DNS_QUERY_REQUEST_VERSION2: u32 = 2;
-        const DNS_QUERY_REQUEST_VERSION3: u32 = 3;
+        const DNS_QUERY_REQUEST_VERSION1: i32 = 1;
+        const DNS_QUERY_REQUEST_VERSION2: i32 = 2;
+        const DNS_QUERY_REQUEST_VERSION3: i32 = 3;
         const DNS_QUERY_RESERVED: u32 = 4026531840;
         struct DNS_QUERY_RESULT {
             Version: u32,
@@ -297,42 +297,42 @@ mod Windows {
             pQueryRecords: PDNS_RECORD,
             Reserved: *mut void,
         }
-        const DNS_QUERY_RESULTS_VERSION1: u32 = 1;
-        const DNS_QUERY_RETURN_MESSAGE: u32 = 512;
-        const DNS_QUERY_STANDARD: u32 = 0;
-        const DNS_QUERY_TREAT_AS_FQDN: u32 = 4096;
-        const DNS_QUERY_USE_TCP_ONLY: u32 = 2;
-        const DNS_QUERY_WIRE_ONLY: u32 = 256;
-        const DNS_RCLASS_ALL: u32 = 65280;
-        const DNS_RCLASS_ANY: u32 = 65280;
-        const DNS_RCLASS_CHAOS: u32 = 768;
-        const DNS_RCLASS_CSNET: u32 = 512;
-        const DNS_RCLASS_HESIOD: u32 = 1024;
-        const DNS_RCLASS_INTERNET: u32 = 256;
-        const DNS_RCLASS_MDNS_CACHE_FLUSH: u32 = 128;
-        const DNS_RCLASS_NONE: u32 = 65024;
-        const DNS_RCLASS_UNICAST_RESPONSE: u32 = 128;
-        const DNS_RCODE_BADKEY: u32 = 17;
-        const DNS_RCODE_BADSIG: u32 = 16;
-        const DNS_RCODE_BADTIME: u32 = 18;
-        const DNS_RCODE_BADVERS: u32 = 16;
-        const DNS_RCODE_FORMAT_ERROR: u32 = 1;
-        const DNS_RCODE_FORMERR: u32 = 1;
-        const DNS_RCODE_MAX: u32 = 15;
-        const DNS_RCODE_NAME_ERROR: u32 = 3;
-        const DNS_RCODE_NOERROR: u32 = 0;
-        const DNS_RCODE_NOTAUTH: u32 = 9;
-        const DNS_RCODE_NOTIMPL: u32 = 4;
-        const DNS_RCODE_NOTZONE: u32 = 10;
-        const DNS_RCODE_NOT_IMPLEMENTED: u32 = 4;
-        const DNS_RCODE_NO_ERROR: u32 = 0;
-        const DNS_RCODE_NXDOMAIN: u32 = 3;
-        const DNS_RCODE_NXRRSET: u32 = 8;
-        const DNS_RCODE_REFUSED: u32 = 5;
-        const DNS_RCODE_SERVER_FAILURE: u32 = 2;
-        const DNS_RCODE_SERVFAIL: u32 = 2;
-        const DNS_RCODE_YXDOMAIN: u32 = 6;
-        const DNS_RCODE_YXRRSET: u32 = 7;
+        const DNS_QUERY_RESULTS_VERSION1: i32 = 1;
+        const DNS_QUERY_RETURN_MESSAGE: i32 = 512;
+        const DNS_QUERY_STANDARD: i32 = 0;
+        const DNS_QUERY_TREAT_AS_FQDN: i32 = 4096;
+        const DNS_QUERY_USE_TCP_ONLY: i32 = 2;
+        const DNS_QUERY_WIRE_ONLY: i32 = 256;
+        const DNS_RCLASS_ALL: i32 = 65280;
+        const DNS_RCLASS_ANY: i32 = 65280;
+        const DNS_RCLASS_CHAOS: i32 = 768;
+        const DNS_RCLASS_CSNET: i32 = 512;
+        const DNS_RCLASS_HESIOD: i32 = 1024;
+        const DNS_RCLASS_INTERNET: i32 = 256;
+        const DNS_RCLASS_MDNS_CACHE_FLUSH: i32 = 128;
+        const DNS_RCLASS_NONE: i32 = 65024;
+        const DNS_RCLASS_UNICAST_RESPONSE: i32 = 128;
+        const DNS_RCODE_BADKEY: i32 = 17;
+        const DNS_RCODE_BADSIG: i32 = 16;
+        const DNS_RCODE_BADTIME: i32 = 18;
+        const DNS_RCODE_BADVERS: i32 = 16;
+        const DNS_RCODE_FORMAT_ERROR: i32 = 1;
+        const DNS_RCODE_FORMERR: i32 = 1;
+        const DNS_RCODE_MAX: i32 = 15;
+        const DNS_RCODE_NAME_ERROR: i32 = 3;
+        const DNS_RCODE_NOERROR: i32 = 0;
+        const DNS_RCODE_NOTAUTH: i32 = 9;
+        const DNS_RCODE_NOTIMPL: i32 = 4;
+        const DNS_RCODE_NOTZONE: i32 = 10;
+        const DNS_RCODE_NOT_IMPLEMENTED: i32 = 4;
+        const DNS_RCODE_NO_ERROR: i32 = 0;
+        const DNS_RCODE_NXDOMAIN: i32 = 3;
+        const DNS_RCODE_NXRRSET: i32 = 8;
+        const DNS_RCODE_REFUSED: i32 = 5;
+        const DNS_RCODE_SERVER_FAILURE: i32 = 2;
+        const DNS_RCODE_SERVFAIL: i32 = 2;
+        const DNS_RCODE_YXDOMAIN: i32 = 6;
+        const DNS_RCODE_YXRRSET: i32 = 7;
         struct DNS_RRSET {
             pFirstRR: PDNS_RECORD,
             pLastRR: PDNS_RECORD,
@@ -382,26 +382,26 @@ mod Windows {
             pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
             pQueryContext: *mut void,
         }
-        const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512;
-        const DNS_UPDATE_FORCE_SECURITY_NEGO: u32 = 2048;
-        const DNS_UPDATE_REMOTE_SERVER: u32 = 16384;
+        const DNS_UPDATE_CACHE_SECURITY_CONTEXT: i32 = 512;
+        const DNS_UPDATE_FORCE_SECURITY_NEGO: i32 = 2048;
+        const DNS_UPDATE_REMOTE_SERVER: i32 = 16384;
         const DNS_UPDATE_RESERVED: u32 = 4294901760;
-        const DNS_UPDATE_SECURITY_OFF: u32 = 16;
-        const DNS_UPDATE_SECURITY_ON: u32 = 32;
-        const DNS_UPDATE_SECURITY_ONLY: u32 = 256;
-        const DNS_UPDATE_SECURITY_USE_DEFAULT: u32 = 0;
-        const DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS: u32 = 8192;
-        const DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT: u32 = 1024;
-        const DNS_UPDATE_TRY_ALL_MASTER_SERVERS: u32 = 4096;
-        const DNS_VALSVR_ERROR_INVALID_ADDR: u32 = 1;
-        const DNS_VALSVR_ERROR_INVALID_NAME: u32 = 2;
-        const DNS_VALSVR_ERROR_NO_AUTH: u32 = 5;
-        const DNS_VALSVR_ERROR_NO_RESPONSE: u32 = 4;
-        const DNS_VALSVR_ERROR_NO_TCP: u32 = 16;
-        const DNS_VALSVR_ERROR_REFUSED: u32 = 6;
-        const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255;
-        const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3;
-        const DNS_WINS_FLAG_LOCAL: u32 = 65536;
+        const DNS_UPDATE_SECURITY_OFF: i32 = 16;
+        const DNS_UPDATE_SECURITY_ON: i32 = 32;
+        const DNS_UPDATE_SECURITY_ONLY: i32 = 256;
+        const DNS_UPDATE_SECURITY_USE_DEFAULT: i32 = 0;
+        const DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS: i32 = 8192;
+        const DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT: i32 = 1024;
+        const DNS_UPDATE_TRY_ALL_MASTER_SERVERS: i32 = 4096;
+        const DNS_VALSVR_ERROR_INVALID_ADDR: i32 = 1;
+        const DNS_VALSVR_ERROR_INVALID_NAME: i32 = 2;
+        const DNS_VALSVR_ERROR_NO_AUTH: i32 = 5;
+        const DNS_VALSVR_ERROR_NO_RESPONSE: i32 = 4;
+        const DNS_VALSVR_ERROR_NO_TCP: i32 = 16;
+        const DNS_VALSVR_ERROR_REFUSED: i32 = 6;
+        const DNS_VALSVR_ERROR_UNKNOWN: i32 = 255;
+        const DNS_VALSVR_ERROR_UNREACHABLE: i32 = 3;
+        const DNS_WINS_FLAG_LOCAL: i32 = 65536;
         const DNS_WINS_FLAG_SCOPE: u32 = 2147483648;
         #[packed(1)]
         struct DNS_WIRE_QUESTION {
@@ -461,7 +461,7 @@ mod Windows {
         extern "C" fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut u32, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
         #[library("DNSAPI.dll")]
         extern fn DnsFreeProxyName(proxyName: PWSTR);
-        const DnsFreeRecordListDeep: u32 = 1;
+        const DnsFreeRecordListDeep: i32 = 1;
         #[library("DNSAPI.dll")]
         extern "C" fn DnsGetApplicationSettings(pcServers: *mut u32, ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[opt] pSettings: *mut DNS_APPLICATION_SETTINGS) -> u32;
         #[library("DNSAPI.dll")]
@@ -548,14 +548,14 @@ mod Windows {
         extern fn DnsWriteQuestionToBuffer_UTF8(#[in] #[out] pDnsBuffer: *mut DNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: *mut u32, pszName: PCSTR, wType: u16, Xid: u16, fRecursionDesired: BOOL) -> BOOL;
         #[library("DNSAPI.dll")]
         extern fn DnsWriteQuestionToBuffer_W(#[in] #[out] pDnsBuffer: *mut DNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: *mut u32, pszName: PCWSTR, wType: u16, Xid: u16, fRecursionDesired: BOOL) -> BOOL;
-        const INTERNET_DEFAULT_DNS_PORT: u32 = 53;
-        const INTERNET_DEFAULT_DOT_PORT: u32 = 853;
+        const INTERNET_DEFAULT_DNS_PORT: i32 = 53;
+        const INTERNET_DEFAULT_DOT_PORT: i32 = 853;
         struct IP4_ARRAY {
             AddrCount: u32,
             AddrArray: [IP4_ADDRESS; 1],
         }
-        const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65;
-        const IP6_ADDRESS_STRING_LENGTH: u32 = 65;
+        const IP6_ADDRESS_STRING_BUFFER_LENGTH: i32 = 65;
+        const IP6_ADDRESS_STRING_LENGTH: i32 = 65;
         extern fn MDNS_QUERY_CALLBACK(pQueryContext: *const void, #[in] #[out] pQueryHandle: *mut MDNS_QUERY_HANDLE, #[in] #[out] pQueryResults: *mut DNS_QUERY_RESULT);
         struct MDNS_QUERY_HANDLE {
             nameBuf: [u16; 256],

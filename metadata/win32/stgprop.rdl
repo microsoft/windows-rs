@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const CSTORAGEPROPERTY: u32 = 23;
+        const CSTORAGEPROPERTY: i32 = 23;
         const PID_STG_ACCESSTIME: PROPID = 16;
         const PID_STG_ALLOCSIZE: PROPID = 18;
         const PID_STG_ATTRIBUTES: PROPID = 13;

@@ -11,8 +11,8 @@ mod Windows {
         type PWCM_PROFILE_INFO_LIST = *mut WCM_PROFILE_INFO_LIST;
         type PWCM_PROPERTY = *mut WCM_PROPERTY;
         type PWCM_USAGE_DATA = *mut WCM_USAGE_DATA;
-        const WCM_API_VERSION: u32 = 1;
-        const WCM_API_VERSION_1_0: u32 = 1;
+        const WCM_API_VERSION: i32 = 1;
+        const WCM_API_VERSION_1_0: i32 = 1;
         struct WCM_BILLING_CYCLE_INFO {
             StartDate: FILETIME,
             Duration: WCM_TIME_INTERVAL,
@@ -49,7 +49,7 @@ mod Windows {
             MaxTransferSizeInMegabytes: u32,
             Reserved: u32,
         }
-        const WCM_MAX_PROFILE_NAME: u32 = 256;
+        const WCM_MAX_PROFILE_NAME: i32 = 256;
         #[repr(i32)]
         enum WCM_MEDIA_TYPE {
             wcm_media_unknown = 0,

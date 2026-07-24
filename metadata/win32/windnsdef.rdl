@@ -1,64 +1,64 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const DDR_MAX_IP_HINTS: u32 = 4;
-        const DNSREC_ADDITIONAL: u32 = 3;
-        const DNSREC_ANSWER: u32 = 1;
-        const DNSREC_AUTHORITY: u32 = 2;
-        const DNSREC_DELETE: u32 = 4;
-        const DNSREC_NOEXIST: u32 = 4;
-        const DNSREC_PREREQ: u32 = 1;
-        const DNSREC_QUESTION: u32 = 0;
-        const DNSREC_SECTION: u32 = 3;
-        const DNSREC_UPDATE: u32 = 2;
-        const DNSREC_ZONE: u32 = 0;
-        const DNSSEC_ALGORITHM_ECDSAP256_SHA256: u32 = 13;
-        const DNSSEC_ALGORITHM_ECDSAP384_SHA384: u32 = 14;
-        const DNSSEC_ALGORITHM_NULL: u32 = 253;
-        const DNSSEC_ALGORITHM_PRIVATE: u32 = 254;
-        const DNSSEC_ALGORITHM_RSAMD5: u32 = 1;
-        const DNSSEC_ALGORITHM_RSASHA1: u32 = 5;
-        const DNSSEC_ALGORITHM_RSASHA1_NSEC3: u32 = 7;
-        const DNSSEC_ALGORITHM_RSASHA256: u32 = 8;
-        const DNSSEC_ALGORITHM_RSASHA512: u32 = 10;
-        const DNSSEC_DIGEST_ALGORITHM_SHA1: u32 = 1;
-        const DNSSEC_DIGEST_ALGORITHM_SHA256: u32 = 2;
-        const DNSSEC_DIGEST_ALGORITHM_SHA384: u32 = 4;
-        const DNSSEC_KEY_FLAG_EXTEND: u32 = 8;
-        const DNSSEC_KEY_FLAG_FLAG10: u32 = 1024;
-        const DNSSEC_KEY_FLAG_FLAG11: u32 = 2048;
-        const DNSSEC_KEY_FLAG_FLAG2: u32 = 4;
-        const DNSSEC_KEY_FLAG_FLAG4: u32 = 16;
-        const DNSSEC_KEY_FLAG_FLAG5: u32 = 32;
-        const DNSSEC_KEY_FLAG_FLAG8: u32 = 256;
-        const DNSSEC_KEY_FLAG_FLAG9: u32 = 512;
-        const DNSSEC_KEY_FLAG_HOST: u32 = 128;
-        const DNSSEC_KEY_FLAG_NOAUTH: u32 = 1;
-        const DNSSEC_KEY_FLAG_NOCONF: u32 = 2;
-        const DNSSEC_KEY_FLAG_NTPE3: u32 = 192;
-        const DNSSEC_KEY_FLAG_SIG0: u32 = 0;
-        const DNSSEC_KEY_FLAG_SIG1: u32 = 4096;
-        const DNSSEC_KEY_FLAG_SIG10: u32 = 40960;
-        const DNSSEC_KEY_FLAG_SIG11: u32 = 45056;
-        const DNSSEC_KEY_FLAG_SIG12: u32 = 49152;
-        const DNSSEC_KEY_FLAG_SIG13: u32 = 53248;
-        const DNSSEC_KEY_FLAG_SIG14: u32 = 57344;
-        const DNSSEC_KEY_FLAG_SIG15: u32 = 61440;
-        const DNSSEC_KEY_FLAG_SIG2: u32 = 8192;
-        const DNSSEC_KEY_FLAG_SIG3: u32 = 12288;
-        const DNSSEC_KEY_FLAG_SIG4: u32 = 16384;
-        const DNSSEC_KEY_FLAG_SIG5: u32 = 20480;
-        const DNSSEC_KEY_FLAG_SIG6: u32 = 24576;
-        const DNSSEC_KEY_FLAG_SIG7: u32 = 28672;
-        const DNSSEC_KEY_FLAG_SIG8: u32 = 32768;
-        const DNSSEC_KEY_FLAG_SIG9: u32 = 36864;
-        const DNSSEC_KEY_FLAG_USER: u32 = 0;
-        const DNSSEC_KEY_FLAG_ZONE: u32 = 64;
-        const DNSSEC_PROTOCOL_DNSSEC: u32 = 3;
-        const DNSSEC_PROTOCOL_EMAIL: u32 = 2;
-        const DNSSEC_PROTOCOL_IPSEC: u32 = 4;
-        const DNSSEC_PROTOCOL_NONE: u32 = 0;
-        const DNSSEC_PROTOCOL_TLS: u32 = 1;
+        const DDR_MAX_IP_HINTS: i32 = 4;
+        const DNSREC_ADDITIONAL: i32 = 3;
+        const DNSREC_ANSWER: i32 = 1;
+        const DNSREC_AUTHORITY: i32 = 2;
+        const DNSREC_DELETE: i32 = 4;
+        const DNSREC_NOEXIST: i32 = 4;
+        const DNSREC_PREREQ: i32 = 1;
+        const DNSREC_QUESTION: i32 = 0;
+        const DNSREC_SECTION: i32 = 3;
+        const DNSREC_UPDATE: i32 = 2;
+        const DNSREC_ZONE: i32 = 0;
+        const DNSSEC_ALGORITHM_ECDSAP256_SHA256: i32 = 13;
+        const DNSSEC_ALGORITHM_ECDSAP384_SHA384: i32 = 14;
+        const DNSSEC_ALGORITHM_NULL: i32 = 253;
+        const DNSSEC_ALGORITHM_PRIVATE: i32 = 254;
+        const DNSSEC_ALGORITHM_RSAMD5: i32 = 1;
+        const DNSSEC_ALGORITHM_RSASHA1: i32 = 5;
+        const DNSSEC_ALGORITHM_RSASHA1_NSEC3: i32 = 7;
+        const DNSSEC_ALGORITHM_RSASHA256: i32 = 8;
+        const DNSSEC_ALGORITHM_RSASHA512: i32 = 10;
+        const DNSSEC_DIGEST_ALGORITHM_SHA1: i32 = 1;
+        const DNSSEC_DIGEST_ALGORITHM_SHA256: i32 = 2;
+        const DNSSEC_DIGEST_ALGORITHM_SHA384: i32 = 4;
+        const DNSSEC_KEY_FLAG_EXTEND: i32 = 8;
+        const DNSSEC_KEY_FLAG_FLAG10: i32 = 1024;
+        const DNSSEC_KEY_FLAG_FLAG11: i32 = 2048;
+        const DNSSEC_KEY_FLAG_FLAG2: i32 = 4;
+        const DNSSEC_KEY_FLAG_FLAG4: i32 = 16;
+        const DNSSEC_KEY_FLAG_FLAG5: i32 = 32;
+        const DNSSEC_KEY_FLAG_FLAG8: i32 = 256;
+        const DNSSEC_KEY_FLAG_FLAG9: i32 = 512;
+        const DNSSEC_KEY_FLAG_HOST: i32 = 128;
+        const DNSSEC_KEY_FLAG_NOAUTH: i32 = 1;
+        const DNSSEC_KEY_FLAG_NOCONF: i32 = 2;
+        const DNSSEC_KEY_FLAG_NTPE3: i32 = 192;
+        const DNSSEC_KEY_FLAG_SIG0: i32 = 0;
+        const DNSSEC_KEY_FLAG_SIG1: i32 = 4096;
+        const DNSSEC_KEY_FLAG_SIG10: i32 = 40960;
+        const DNSSEC_KEY_FLAG_SIG11: i32 = 45056;
+        const DNSSEC_KEY_FLAG_SIG12: i32 = 49152;
+        const DNSSEC_KEY_FLAG_SIG13: i32 = 53248;
+        const DNSSEC_KEY_FLAG_SIG14: i32 = 57344;
+        const DNSSEC_KEY_FLAG_SIG15: i32 = 61440;
+        const DNSSEC_KEY_FLAG_SIG2: i32 = 8192;
+        const DNSSEC_KEY_FLAG_SIG3: i32 = 12288;
+        const DNSSEC_KEY_FLAG_SIG4: i32 = 16384;
+        const DNSSEC_KEY_FLAG_SIG5: i32 = 20480;
+        const DNSSEC_KEY_FLAG_SIG6: i32 = 24576;
+        const DNSSEC_KEY_FLAG_SIG7: i32 = 28672;
+        const DNSSEC_KEY_FLAG_SIG8: i32 = 32768;
+        const DNSSEC_KEY_FLAG_SIG9: i32 = 36864;
+        const DNSSEC_KEY_FLAG_USER: i32 = 0;
+        const DNSSEC_KEY_FLAG_ZONE: i32 = 64;
+        const DNSSEC_PROTOCOL_DNSSEC: i32 = 3;
+        const DNSSEC_PROTOCOL_EMAIL: i32 = 2;
+        const DNSSEC_PROTOCOL_IPSEC: i32 = 4;
+        const DNSSEC_PROTOCOL_NONE: i32 = 0;
+        const DNSSEC_PROTOCOL_TLS: i32 = 1;
         struct DNS_AAAA_DATA {
             Ip6Address: IP6_ADDRESS,
         }
@@ -81,16 +81,16 @@ mod Windows {
             Reserved2: u32,
             AddrArray: [DNS_ADDR; 1],
         }
-        const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32;
-        const DNS_ATMA_AESA_ADDR_LENGTH: u32 = 20;
+        const DNS_ADDR_MAX_SOCKADDR_LENGTH: i32 = 32;
+        const DNS_ATMA_AESA_ADDR_LENGTH: i32 = 20;
         struct DNS_ATMA_DATA {
             AddressType: u8,
             Address: [u8; 20],
         }
-        const DNS_ATMA_FORMAT_AESA: u32 = 2;
-        const DNS_ATMA_FORMAT_E164: u32 = 1;
-        const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20;
-        const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21;
+        const DNS_ATMA_FORMAT_AESA: i32 = 2;
+        const DNS_ATMA_FORMAT_E164: i32 = 1;
+        const DNS_ATMA_MAX_ADDR_LENGTH: i32 = 20;
+        const DNS_ATMA_MAX_RECORD_LENGTH: i32 = 21;
         struct DNS_A_DATA {
             IpAddress: IP4_ADDRESS,
         }
@@ -113,11 +113,11 @@ mod Windows {
                 MaxSa: [i8; 32],
             },
         }
-        const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2;
-        const DNS_CUSTOM_SERVER_TYPE_DOT: u32 = 3;
-        const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1;
-        const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1;
-        const DNS_CUSTOM_SERVER_UPGRADE_FROM_WELL_KNOWN_SERVERS: u32 = 2;
+        const DNS_CUSTOM_SERVER_TYPE_DOH: i32 = 2;
+        const DNS_CUSTOM_SERVER_TYPE_DOT: i32 = 3;
+        const DNS_CUSTOM_SERVER_TYPE_UDP: i32 = 1;
+        const DNS_CUSTOM_SERVER_UDP_FALLBACK: i32 = 1;
+        const DNS_CUSTOM_SERVER_UPGRADE_FROM_WELL_KNOWN_SERVERS: i32 = 2;
         struct DNS_DHCID_DATA {
             dwByteCount: u32,
             DHCID: [u8; 1],
@@ -178,10 +178,10 @@ mod Windows {
             dwLongitude: u32,
             dwAltitude: u32,
         }
-        const DNS_MAX_LABEL_BUFFER_LENGTH: u32 = 64;
-        const DNS_MAX_LABEL_LENGTH: u32 = 63;
-        const DNS_MAX_NAME_BUFFER_LENGTH: u32 = 256;
-        const DNS_MAX_NAME_LENGTH: u32 = 255;
+        const DNS_MAX_LABEL_BUFFER_LENGTH: i32 = 64;
+        const DNS_MAX_LABEL_LENGTH: i32 = 63;
+        const DNS_MAX_NAME_BUFFER_LENGTH: i32 = 256;
+        const DNS_MAX_NAME_LENGTH: i32 = 255;
         struct DNS_MESSAGE_BUFFER {
             MessageHead: DNS_HEADER,
             MessageBody: [i8; 1],
@@ -482,9 +482,9 @@ mod Windows {
             },
         }
         #[arch(X64 | Arm64)]
-        const DNS_RECORD_FIXED_SIZE: u32 = 32;
+        const DNS_RECORD_FIXED_SIZE: i32 = 32;
         #[arch(X86)]
-        const DNS_RECORD_FIXED_SIZE: u32 = 24;
+        const DNS_RECORD_FIXED_SIZE: i32 = 24;
         struct DNS_RECORD_FLAGS {
             _bitfield: u32 {
                 Section: 2,
@@ -529,7 +529,7 @@ mod Windows {
                 Opt: DNS_OPT_DATA,
             },
         }
-        const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512;
+        const DNS_RFC_MAX_UDP_PACKET_LENGTH: i32 = 512;
         type DNS_RRSIG_DATA = DNS_RRSIG_DATAA;
         struct DNS_RRSIG_DATAA {
             wTypeCovered: u16,
@@ -555,69 +555,69 @@ mod Windows {
             pNameSigner: PWSTR,
             Signature: [u8; 1],
         }
-        const DNS_RTYPE_A: u32 = 256;
-        const DNS_RTYPE_A6: u32 = 9728;
-        const DNS_RTYPE_AAAA: u32 = 7168;
-        const DNS_RTYPE_AFSDB: u32 = 4608;
-        const DNS_RTYPE_ALL: u32 = 65280;
-        const DNS_RTYPE_ANY: u32 = 65280;
-        const DNS_RTYPE_ATMA: u32 = 8704;
-        const DNS_RTYPE_AXFR: u32 = 64512;
-        const DNS_RTYPE_CERT: u32 = 9472;
-        const DNS_RTYPE_CNAME: u32 = 1280;
-        const DNS_RTYPE_DHCID: u32 = 12544;
-        const DNS_RTYPE_DNAME: u32 = 9984;
-        const DNS_RTYPE_DNSKEY: u32 = 12288;
-        const DNS_RTYPE_DS: u32 = 11008;
-        const DNS_RTYPE_EID: u32 = 7936;
-        const DNS_RTYPE_GID: u32 = 26112;
-        const DNS_RTYPE_GPOS: u32 = 6912;
-        const DNS_RTYPE_HINFO: u32 = 3328;
-        const DNS_RTYPE_ISDN: u32 = 5120;
-        const DNS_RTYPE_IXFR: u32 = 64256;
-        const DNS_RTYPE_KEY: u32 = 6400;
-        const DNS_RTYPE_KX: u32 = 9216;
-        const DNS_RTYPE_LOC: u32 = 7424;
-        const DNS_RTYPE_MAILA: u32 = 65024;
-        const DNS_RTYPE_MAILB: u32 = 64768;
-        const DNS_RTYPE_MB: u32 = 1792;
-        const DNS_RTYPE_MD: u32 = 768;
-        const DNS_RTYPE_MF: u32 = 1024;
-        const DNS_RTYPE_MG: u32 = 2048;
-        const DNS_RTYPE_MINFO: u32 = 3584;
-        const DNS_RTYPE_MR: u32 = 2304;
-        const DNS_RTYPE_MX: u32 = 3840;
-        const DNS_RTYPE_NAPTR: u32 = 8960;
-        const DNS_RTYPE_NIMLOC: u32 = 8192;
-        const DNS_RTYPE_NS: u32 = 512;
-        const DNS_RTYPE_NSAP: u32 = 5632;
-        const DNS_RTYPE_NSAPPTR: u32 = 5888;
-        const DNS_RTYPE_NSEC: u32 = 12032;
-        const DNS_RTYPE_NSEC3: u32 = 12800;
-        const DNS_RTYPE_NSEC3PARAM: u32 = 13056;
-        const DNS_RTYPE_NULL: u32 = 2560;
-        const DNS_RTYPE_NXT: u32 = 7680;
-        const DNS_RTYPE_OPT: u32 = 10496;
-        const DNS_RTYPE_PTR: u32 = 3072;
-        const DNS_RTYPE_PX: u32 = 6656;
-        const DNS_RTYPE_RP: u32 = 4352;
-        const DNS_RTYPE_RRSIG: u32 = 11776;
-        const DNS_RTYPE_RT: u32 = 5376;
-        const DNS_RTYPE_SIG: u32 = 6144;
-        const DNS_RTYPE_SINK: u32 = 10240;
-        const DNS_RTYPE_SOA: u32 = 1536;
-        const DNS_RTYPE_SRV: u32 = 8448;
-        const DNS_RTYPE_TEXT: u32 = 4096;
-        const DNS_RTYPE_TKEY: u32 = 63744;
-        const DNS_RTYPE_TLSA: u32 = 13312;
-        const DNS_RTYPE_TSIG: u32 = 64000;
-        const DNS_RTYPE_UID: u32 = 25856;
-        const DNS_RTYPE_UINFO: u32 = 25600;
-        const DNS_RTYPE_UNSPEC: u32 = 26368;
-        const DNS_RTYPE_WINS: u32 = 511;
-        const DNS_RTYPE_WINSR: u32 = 767;
-        const DNS_RTYPE_WKS: u32 = 2816;
-        const DNS_RTYPE_X25: u32 = 4864;
+        const DNS_RTYPE_A: i32 = 256;
+        const DNS_RTYPE_A6: i32 = 9728;
+        const DNS_RTYPE_AAAA: i32 = 7168;
+        const DNS_RTYPE_AFSDB: i32 = 4608;
+        const DNS_RTYPE_ALL: i32 = 65280;
+        const DNS_RTYPE_ANY: i32 = 65280;
+        const DNS_RTYPE_ATMA: i32 = 8704;
+        const DNS_RTYPE_AXFR: i32 = 64512;
+        const DNS_RTYPE_CERT: i32 = 9472;
+        const DNS_RTYPE_CNAME: i32 = 1280;
+        const DNS_RTYPE_DHCID: i32 = 12544;
+        const DNS_RTYPE_DNAME: i32 = 9984;
+        const DNS_RTYPE_DNSKEY: i32 = 12288;
+        const DNS_RTYPE_DS: i32 = 11008;
+        const DNS_RTYPE_EID: i32 = 7936;
+        const DNS_RTYPE_GID: i32 = 26112;
+        const DNS_RTYPE_GPOS: i32 = 6912;
+        const DNS_RTYPE_HINFO: i32 = 3328;
+        const DNS_RTYPE_ISDN: i32 = 5120;
+        const DNS_RTYPE_IXFR: i32 = 64256;
+        const DNS_RTYPE_KEY: i32 = 6400;
+        const DNS_RTYPE_KX: i32 = 9216;
+        const DNS_RTYPE_LOC: i32 = 7424;
+        const DNS_RTYPE_MAILA: i32 = 65024;
+        const DNS_RTYPE_MAILB: i32 = 64768;
+        const DNS_RTYPE_MB: i32 = 1792;
+        const DNS_RTYPE_MD: i32 = 768;
+        const DNS_RTYPE_MF: i32 = 1024;
+        const DNS_RTYPE_MG: i32 = 2048;
+        const DNS_RTYPE_MINFO: i32 = 3584;
+        const DNS_RTYPE_MR: i32 = 2304;
+        const DNS_RTYPE_MX: i32 = 3840;
+        const DNS_RTYPE_NAPTR: i32 = 8960;
+        const DNS_RTYPE_NIMLOC: i32 = 8192;
+        const DNS_RTYPE_NS: i32 = 512;
+        const DNS_RTYPE_NSAP: i32 = 5632;
+        const DNS_RTYPE_NSAPPTR: i32 = 5888;
+        const DNS_RTYPE_NSEC: i32 = 12032;
+        const DNS_RTYPE_NSEC3: i32 = 12800;
+        const DNS_RTYPE_NSEC3PARAM: i32 = 13056;
+        const DNS_RTYPE_NULL: i32 = 2560;
+        const DNS_RTYPE_NXT: i32 = 7680;
+        const DNS_RTYPE_OPT: i32 = 10496;
+        const DNS_RTYPE_PTR: i32 = 3072;
+        const DNS_RTYPE_PX: i32 = 6656;
+        const DNS_RTYPE_RP: i32 = 4352;
+        const DNS_RTYPE_RRSIG: i32 = 11776;
+        const DNS_RTYPE_RT: i32 = 5376;
+        const DNS_RTYPE_SIG: i32 = 6144;
+        const DNS_RTYPE_SINK: i32 = 10240;
+        const DNS_RTYPE_SOA: i32 = 1536;
+        const DNS_RTYPE_SRV: i32 = 8448;
+        const DNS_RTYPE_TEXT: i32 = 4096;
+        const DNS_RTYPE_TKEY: i32 = 63744;
+        const DNS_RTYPE_TLSA: i32 = 13312;
+        const DNS_RTYPE_TSIG: i32 = 64000;
+        const DNS_RTYPE_UID: i32 = 25856;
+        const DNS_RTYPE_UINFO: i32 = 25600;
+        const DNS_RTYPE_UNSPEC: i32 = 26368;
+        const DNS_RTYPE_WINS: i32 = 511;
+        const DNS_RTYPE_WINSR: i32 = 767;
+        const DNS_RTYPE_WKS: i32 = 2816;
+        const DNS_RTYPE_X25: i32 = 4864;
         #[repr(i32)]
         enum DNS_SECTION {
             DnsSectionQuestion = 0,
@@ -747,10 +747,10 @@ mod Windows {
             cAlgNameLength: u8,
             bPacketPointers: BOOL,
         }
-        const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2;
-        const DNS_TKEY_MODE_GSS: u32 = 3;
-        const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4;
-        const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1;
+        const DNS_TKEY_MODE_DIFFIE_HELLMAN: i32 = 2;
+        const DNS_TKEY_MODE_GSS: i32 = 3;
+        const DNS_TKEY_MODE_RESOLVER_ASSIGN: i32 = 4;
+        const DNS_TKEY_MODE_SERVER_ASSIGN: i32 = 1;
         struct DNS_TLSA_DATA {
             bCertUsage: u8,
             bSelector: u8,
@@ -797,74 +797,74 @@ mod Windows {
             dwStringCount: u32,
             pStringArray: [PWSTR; 1],
         }
-        const DNS_TYPE_A: u32 = 1;
-        const DNS_TYPE_A6: u32 = 38;
-        const DNS_TYPE_AAAA: u32 = 28;
-        const DNS_TYPE_ADDRS: u32 = 248;
-        const DNS_TYPE_AFSDB: u32 = 18;
-        const DNS_TYPE_ALL: u32 = 255;
-        const DNS_TYPE_ANY: u32 = 255;
-        const DNS_TYPE_ATMA: u32 = 34;
-        const DNS_TYPE_AXFR: u32 = 252;
-        const DNS_TYPE_CERT: u32 = 37;
-        const DNS_TYPE_CNAME: u32 = 5;
-        const DNS_TYPE_DHCID: u32 = 49;
-        const DNS_TYPE_DNAME: u32 = 39;
-        const DNS_TYPE_DNSKEY: u32 = 48;
-        const DNS_TYPE_DS: u32 = 43;
-        const DNS_TYPE_EID: u32 = 31;
-        const DNS_TYPE_GID: u32 = 102;
-        const DNS_TYPE_GPOS: u32 = 27;
-        const DNS_TYPE_HINFO: u32 = 13;
-        const DNS_TYPE_HTTPS: u32 = 65;
-        const DNS_TYPE_ISDN: u32 = 20;
-        const DNS_TYPE_IXFR: u32 = 251;
-        const DNS_TYPE_KEY: u32 = 25;
-        const DNS_TYPE_KX: u32 = 36;
-        const DNS_TYPE_LOC: u32 = 29;
-        const DNS_TYPE_MAILA: u32 = 254;
-        const DNS_TYPE_MAILB: u32 = 253;
-        const DNS_TYPE_MB: u32 = 7;
-        const DNS_TYPE_MD: u32 = 3;
-        const DNS_TYPE_MF: u32 = 4;
-        const DNS_TYPE_MG: u32 = 8;
-        const DNS_TYPE_MINFO: u32 = 14;
-        const DNS_TYPE_MR: u32 = 9;
-        const DNS_TYPE_MX: u32 = 15;
-        const DNS_TYPE_NAPTR: u32 = 35;
-        const DNS_TYPE_NBSTAT: u32 = 65282;
-        const DNS_TYPE_NIMLOC: u32 = 32;
-        const DNS_TYPE_NS: u32 = 2;
-        const DNS_TYPE_NSAP: u32 = 22;
-        const DNS_TYPE_NSAPPTR: u32 = 23;
-        const DNS_TYPE_NSEC: u32 = 47;
-        const DNS_TYPE_NSEC3: u32 = 50;
-        const DNS_TYPE_NSEC3PARAM: u32 = 51;
-        const DNS_TYPE_NULL: u32 = 10;
-        const DNS_TYPE_NXT: u32 = 30;
-        const DNS_TYPE_OPT: u32 = 41;
-        const DNS_TYPE_PTR: u32 = 12;
-        const DNS_TYPE_PX: u32 = 26;
-        const DNS_TYPE_RP: u32 = 17;
-        const DNS_TYPE_RRSIG: u32 = 46;
-        const DNS_TYPE_RT: u32 = 21;
-        const DNS_TYPE_SIG: u32 = 24;
-        const DNS_TYPE_SINK: u32 = 40;
-        const DNS_TYPE_SOA: u32 = 6;
-        const DNS_TYPE_SRV: u32 = 33;
-        const DNS_TYPE_SVCB: u32 = 64;
-        const DNS_TYPE_TEXT: u32 = 16;
-        const DNS_TYPE_TKEY: u32 = 249;
-        const DNS_TYPE_TLSA: u32 = 52;
-        const DNS_TYPE_TSIG: u32 = 250;
-        const DNS_TYPE_UID: u32 = 101;
-        const DNS_TYPE_UINFO: u32 = 100;
-        const DNS_TYPE_UNSPEC: u32 = 103;
-        const DNS_TYPE_WINS: u32 = 65281;
-        const DNS_TYPE_WINSR: u32 = 65282;
-        const DNS_TYPE_WKS: u32 = 11;
-        const DNS_TYPE_X25: u32 = 19;
-        const DNS_TYPE_ZERO: u32 = 0;
+        const DNS_TYPE_A: i32 = 1;
+        const DNS_TYPE_A6: i32 = 38;
+        const DNS_TYPE_AAAA: i32 = 28;
+        const DNS_TYPE_ADDRS: i32 = 248;
+        const DNS_TYPE_AFSDB: i32 = 18;
+        const DNS_TYPE_ALL: i32 = 255;
+        const DNS_TYPE_ANY: i32 = 255;
+        const DNS_TYPE_ATMA: i32 = 34;
+        const DNS_TYPE_AXFR: i32 = 252;
+        const DNS_TYPE_CERT: i32 = 37;
+        const DNS_TYPE_CNAME: i32 = 5;
+        const DNS_TYPE_DHCID: i32 = 49;
+        const DNS_TYPE_DNAME: i32 = 39;
+        const DNS_TYPE_DNSKEY: i32 = 48;
+        const DNS_TYPE_DS: i32 = 43;
+        const DNS_TYPE_EID: i32 = 31;
+        const DNS_TYPE_GID: i32 = 102;
+        const DNS_TYPE_GPOS: i32 = 27;
+        const DNS_TYPE_HINFO: i32 = 13;
+        const DNS_TYPE_HTTPS: i32 = 65;
+        const DNS_TYPE_ISDN: i32 = 20;
+        const DNS_TYPE_IXFR: i32 = 251;
+        const DNS_TYPE_KEY: i32 = 25;
+        const DNS_TYPE_KX: i32 = 36;
+        const DNS_TYPE_LOC: i32 = 29;
+        const DNS_TYPE_MAILA: i32 = 254;
+        const DNS_TYPE_MAILB: i32 = 253;
+        const DNS_TYPE_MB: i32 = 7;
+        const DNS_TYPE_MD: i32 = 3;
+        const DNS_TYPE_MF: i32 = 4;
+        const DNS_TYPE_MG: i32 = 8;
+        const DNS_TYPE_MINFO: i32 = 14;
+        const DNS_TYPE_MR: i32 = 9;
+        const DNS_TYPE_MX: i32 = 15;
+        const DNS_TYPE_NAPTR: i32 = 35;
+        const DNS_TYPE_NBSTAT: i32 = 65282;
+        const DNS_TYPE_NIMLOC: i32 = 32;
+        const DNS_TYPE_NS: i32 = 2;
+        const DNS_TYPE_NSAP: i32 = 22;
+        const DNS_TYPE_NSAPPTR: i32 = 23;
+        const DNS_TYPE_NSEC: i32 = 47;
+        const DNS_TYPE_NSEC3: i32 = 50;
+        const DNS_TYPE_NSEC3PARAM: i32 = 51;
+        const DNS_TYPE_NULL: i32 = 10;
+        const DNS_TYPE_NXT: i32 = 30;
+        const DNS_TYPE_OPT: i32 = 41;
+        const DNS_TYPE_PTR: i32 = 12;
+        const DNS_TYPE_PX: i32 = 26;
+        const DNS_TYPE_RP: i32 = 17;
+        const DNS_TYPE_RRSIG: i32 = 46;
+        const DNS_TYPE_RT: i32 = 21;
+        const DNS_TYPE_SIG: i32 = 24;
+        const DNS_TYPE_SINK: i32 = 40;
+        const DNS_TYPE_SOA: i32 = 6;
+        const DNS_TYPE_SRV: i32 = 33;
+        const DNS_TYPE_SVCB: i32 = 64;
+        const DNS_TYPE_TEXT: i32 = 16;
+        const DNS_TYPE_TKEY: i32 = 249;
+        const DNS_TYPE_TLSA: i32 = 52;
+        const DNS_TYPE_TSIG: i32 = 250;
+        const DNS_TYPE_UID: i32 = 101;
+        const DNS_TYPE_UINFO: i32 = 100;
+        const DNS_TYPE_UNSPEC: i32 = 103;
+        const DNS_TYPE_WINS: i32 = 65281;
+        const DNS_TYPE_WINSR: i32 = 65282;
+        const DNS_TYPE_WKS: i32 = 11;
+        const DNS_TYPE_X25: i32 = 19;
+        const DNS_TYPE_ZERO: i32 = 0;
         struct DNS_UNKNOWN_DATA {
             dwByteCount: u32,
             bData: [u8; 1],
@@ -894,12 +894,12 @@ mod Windows {
             chProtocol: u8,
             BitMask: [u8; 1],
         }
-        const DnsSectionPrereq: u32 = 1;
-        const DnsSectionUpdate: u32 = 2;
-        const DnsSectionZone: u32 = 0;
+        const DnsSectionPrereq: i32 = 1;
+        const DnsSectionUpdate: i32 = 2;
+        const DnsSectionZone: i32 = 0;
         type IP4_ADDRESS = u32;
-        const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16;
-        const IP4_ADDRESS_STRING_LENGTH: u32 = 16;
+        const IP4_ADDRESS_STRING_BUFFER_LENGTH: i32 = 16;
+        const IP4_ADDRESS_STRING_LENGTH: i32 = 16;
         #[arch(X64 | Arm64)]
         union IP6_ADDRESS {
             IP6Qword: [u64; 2],
@@ -987,9 +987,9 @@ mod Windows {
         type PIP6_ADDRESS = *mut IP6_ADDRESS;
         type PQWORD = *mut u64;
         #[arch(X64 | Arm64)]
-        const SIZEOF_DNS_RECORD_HEADER: u32 = 32;
+        const SIZEOF_DNS_RECORD_HEADER: i32 = 32;
         #[arch(X86)]
-        const SIZEOF_DNS_RECORD_HEADER: u32 = 24;
-        const SIZEOF_IP4_ADDRESS: u32 = 4;
+        const SIZEOF_DNS_RECORD_HEADER: i32 = 24;
+        const SIZEOF_IP4_ADDRESS: i32 = 4;
     }
 }

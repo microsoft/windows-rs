@@ -6,9 +6,9 @@ mod Windows {
             AGILEREFERENCE_DEFAULT = 0,
             AGILEREFERENCE_DELAYEDMARSHAL = 1,
         }
-        const CLSCTX_ALL: u32 = 23;
-        const CLSCTX_INPROC: u32 = 3;
-        const CLSCTX_SERVER: u32 = 21;
+        const CLSCTX_ALL: i32 = 23;
+        const CLSCTX_INPROC: i32 = 3;
+        const CLSCTX_SERVER: i32 = 21;
         #[library("ole32.dll")]
         extern fn CLSIDFromProgID(lpszProgID: PCWSTR, lpclsid: *mut GUID) -> HRESULT;
         #[library("ole32.dll")]
@@ -19,13 +19,13 @@ mod Windows {
         enum COINITBASE {
             COINITBASE_MULTITHREADED = 0,
         }
-        const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8;
-        const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16;
-        const COM_RIGHTS_EXECUTE: u32 = 1;
-        const COM_RIGHTS_EXECUTE_LOCAL: u32 = 2;
-        const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4;
-        const COM_RIGHTS_RESERVED1: u32 = 32;
-        const COM_RIGHTS_RESERVED2: u32 = 64;
+        const COM_RIGHTS_ACTIVATE_LOCAL: i32 = 8;
+        const COM_RIGHTS_ACTIVATE_REMOTE: i32 = 16;
+        const COM_RIGHTS_EXECUTE: i32 = 1;
+        const COM_RIGHTS_EXECUTE_LOCAL: i32 = 2;
+        const COM_RIGHTS_EXECUTE_REMOTE: i32 = 4;
+        const COM_RIGHTS_RESERVED1: i32 = 32;
+        const COM_RIGHTS_RESERVED2: i32 = 64;
         #[repr(u32)]
         #[flags]
         enum COWAIT_FLAGS {
@@ -45,7 +45,7 @@ mod Windows {
             CWMO_DISPATCH_CALLS = 1,
             CWMO_DISPATCH_WINDOW_MESSAGES = 2,
         }
-        const CWMO_MAX_HANDLES: u32 = 56;
+        const CWMO_MAX_HANDLES: i32 = 56;
         #[library("ole32.dll")]
         extern fn CoAddRefServerProcess() -> u32;
         #[library("ole32.dll")]

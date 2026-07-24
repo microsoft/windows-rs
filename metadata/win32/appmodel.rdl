@@ -177,17 +177,17 @@ mod Windows {
         #[library("api-ms-win-appmodel-runtime-l1-1-1.dll")]
         extern fn OpenPackageInfoByFullNameForUser(#[opt] userSid: PSID, packageFullName: PCWSTR, #[reserved] reserved: u32, packageInfoReference: *mut PACKAGE_INFO_REFERENCE) -> i32;
         type PACKAGEDEPENDENCY_CONTEXT = *mut void;
-        const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0;
-        const PACKAGE_FILTER_ALL_LOADED: u32 = 0;
-        const PACKAGE_FILTER_BUNDLE: u32 = 128;
-        const PACKAGE_FILTER_DIRECT: u32 = 32;
-        const PACKAGE_FILTER_DYNAMIC: u32 = 1048576;
-        const PACKAGE_FILTER_HEAD: u32 = 16;
-        const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152;
-        const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144;
-        const PACKAGE_FILTER_OPTIONAL: u32 = 131072;
-        const PACKAGE_FILTER_RESOURCE: u32 = 64;
-        const PACKAGE_FILTER_STATIC: u32 = 524288;
+        const PACKAGE_DEPENDENCY_RANK_DEFAULT: i32 = 0;
+        const PACKAGE_FILTER_ALL_LOADED: i32 = 0;
+        const PACKAGE_FILTER_BUNDLE: i32 = 128;
+        const PACKAGE_FILTER_DIRECT: i32 = 32;
+        const PACKAGE_FILTER_DYNAMIC: i32 = 1048576;
+        const PACKAGE_FILTER_HEAD: i32 = 16;
+        const PACKAGE_FILTER_HOSTRUNTIME: i32 = 2097152;
+        const PACKAGE_FILTER_IS_IN_RELATED_SET: i32 = 262144;
+        const PACKAGE_FILTER_OPTIONAL: i32 = 131072;
+        const PACKAGE_FILTER_RESOURCE: i32 = 64;
+        const PACKAGE_FILTER_STATIC: i32 = 524288;
         #[arch(X86)]
         struct PACKAGE_ID {
             reserved: u32,
@@ -228,18 +228,18 @@ mod Windows {
             packageFamilyName: PWSTR,
             packageId: PACKAGE_ID,
         }
-        const PACKAGE_INFORMATION_BASIC: u32 = 0;
-        const PACKAGE_INFORMATION_FULL: u32 = 256;
+        const PACKAGE_INFORMATION_BASIC: i32 = 0;
+        const PACKAGE_INFORMATION_FULL: i32 = 256;
         type PACKAGE_INFO_REFERENCE = *mut _PACKAGE_INFO_REFERENCE;
-        const PACKAGE_PROPERTY_BUNDLE: u32 = 4;
-        const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536;
-        const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576;
-        const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1;
-        const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152;
-        const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144;
-        const PACKAGE_PROPERTY_OPTIONAL: u32 = 8;
-        const PACKAGE_PROPERTY_RESOURCE: u32 = 2;
-        const PACKAGE_PROPERTY_STATIC: u32 = 524288;
+        const PACKAGE_PROPERTY_BUNDLE: i32 = 4;
+        const PACKAGE_PROPERTY_DEVELOPMENT_MODE: i32 = 65536;
+        const PACKAGE_PROPERTY_DYNAMIC: i32 = 1048576;
+        const PACKAGE_PROPERTY_FRAMEWORK: i32 = 1;
+        const PACKAGE_PROPERTY_HOSTRUNTIME: i32 = 2097152;
+        const PACKAGE_PROPERTY_IS_IN_RELATED_SET: i32 = 262144;
+        const PACKAGE_PROPERTY_OPTIONAL: i32 = 8;
+        const PACKAGE_PROPERTY_RESOURCE: i32 = 2;
+        const PACKAGE_PROPERTY_STATIC: i32 = 524288;
         struct PACKAGE_VERSION {
             Anonymous: #[packed(4)] union {
                 Version: u64,

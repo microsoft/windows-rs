@@ -1,8 +1,11 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const CCH_RM_MAX_APP_NAME: u32 = 255;
-        const CCH_RM_MAX_SVC_NAME: u32 = 63;
+        const CCH_RM_MAX_APP_NAME: i32 = 255;
+        const CCH_RM_MAX_SVC_NAME: i32 = 63;
+        #[arch(X64 | Arm64)]
+        const CCH_RM_SESSION_KEY: u64 = 32;
+        #[arch(X86)]
         const CCH_RM_SESSION_KEY: u32 = 32;
         type PRM_FILTER_INFO = *mut RM_FILTER_INFO;
         type PRM_PROCESS_INFO = *mut RM_PROCESS_INFO;

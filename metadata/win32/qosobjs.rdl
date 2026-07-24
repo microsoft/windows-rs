@@ -27,12 +27,12 @@ mod Windows {
             ObjectHdr: QOS_OBJECT_HDR,
             FriendlyName: [u16; 256],
         }
-        const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256;
-        const QOS_OBJECT_DIFFSERV: u32 = 4003;
-        const QOS_OBJECT_DS_CLASS: u32 = 4001;
-        const QOS_OBJECT_FRIENDLY_NAME: u32 = 4005;
-        const QOS_OBJECT_TCP_TRAFFIC: u32 = 4004;
-        const QOS_OBJECT_TRAFFIC_CLASS: u32 = 4002;
+        const QOS_MAX_OBJECT_STRING_LENGTH: i32 = 256;
+        const QOS_OBJECT_DIFFSERV: i32 = 4003;
+        const QOS_OBJECT_DS_CLASS: i32 = 4001;
+        const QOS_OBJECT_FRIENDLY_NAME: i32 = 4005;
+        const QOS_OBJECT_TCP_TRAFFIC: i32 = 4004;
+        const QOS_OBJECT_TRAFFIC_CLASS: i32 = 4002;
         struct QOS_TCP_TRAFFIC {
             ObjectHdr: QOS_OBJECT_HDR,
         }
@@ -40,6 +40,6 @@ mod Windows {
             ObjectHdr: QOS_OBJECT_HDR,
             TrafficClass: u32,
         }
-        const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000;
+        const QOS_TRAFFIC_GENERAL_ID_BASE: i32 = 4000;
     }
 }

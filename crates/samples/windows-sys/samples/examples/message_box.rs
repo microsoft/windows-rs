@@ -2,14 +2,14 @@ fn main() {
     use windows_sys::{Win32::*, core::*};
 
     unsafe {
-        MessageBoxA(core::ptr::null_mut(), s!("Ansi"), s!("World"), MB_OK);
+        MessageBoxA(core::ptr::null_mut(), s!("Ansi"), s!("World"), MB_OK as u32);
 
         ShellMessageBoxW(
             core::ptr::null_mut(),
             core::ptr::null_mut(),
             w!("Wide"),
             w!("World"),
-            MB_ICONERROR,
+            MB_ICONERROR as u32,
         );
     }
 }

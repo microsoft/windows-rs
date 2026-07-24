@@ -1,32 +1,32 @@
-pub const BEST_IF: u32 = 20;
-pub const BEST_ROUTE: u32 = 21;
-pub const DEST_LONGER: u32 = 29;
-pub const DEST_MATCHING: u32 = 28;
-pub const DEST_SHORTER: u32 = 30;
-pub const ICMP_STATS: u32 = 11;
-pub const IF_NUMBER: u32 = 0;
-pub const IF_ROW: u32 = 2;
-pub const IF_STATUS: u32 = 25;
-pub const IF_TABLE: u32 = 1;
-pub const IP6_STATS: u32 = 36;
-pub const IPRTRMGR_PID: u32 = 10000;
-pub const IP_ADDRROW: u32 = 5;
-pub const IP_ADDRTABLE: u32 = 4;
-pub const IP_FORWARDNUMBER: u32 = 6;
-pub const IP_FORWARDROW: u32 = 8;
-pub const IP_FORWARDTABLE: u32 = 7;
-pub const IP_NETROW: u32 = 10;
-pub const IP_NETTABLE: u32 = 9;
-pub const IP_STATS: u32 = 3;
-pub const MAX_MIB_OFFSET: u32 = 8;
-pub const MAX_SCOPE_NAME_LEN: u32 = 255;
-pub const MCAST_BOUNDARY: u32 = 26;
-pub const MCAST_GLOBAL: u32 = 24;
-pub const MCAST_IF_ENTRY: u32 = 23;
-pub const MCAST_MFE: u32 = 18;
-pub const MCAST_MFE_STATS: u32 = 19;
-pub const MCAST_MFE_STATS_EX: u32 = 35;
-pub const MCAST_SCOPE: u32 = 27;
+pub const BEST_IF: i32 = 20;
+pub const BEST_ROUTE: i32 = 21;
+pub const DEST_LONGER: i32 = 29;
+pub const DEST_MATCHING: i32 = 28;
+pub const DEST_SHORTER: i32 = 30;
+pub const ICMP_STATS: i32 = 11;
+pub const IF_NUMBER: i32 = 0;
+pub const IF_ROW: i32 = 2;
+pub const IF_STATUS: i32 = 25;
+pub const IF_TABLE: i32 = 1;
+pub const IP6_STATS: i32 = 36;
+pub const IPRTRMGR_PID: i32 = 10000;
+pub const IP_ADDRROW: i32 = 5;
+pub const IP_ADDRTABLE: i32 = 4;
+pub const IP_FORWARDNUMBER: i32 = 6;
+pub const IP_FORWARDROW: i32 = 8;
+pub const IP_FORWARDTABLE: i32 = 7;
+pub const IP_NETROW: i32 = 10;
+pub const IP_NETTABLE: i32 = 9;
+pub const IP_STATS: i32 = 3;
+pub const MAX_MIB_OFFSET: i32 = 8;
+pub const MAX_SCOPE_NAME_LEN: i32 = 255;
+pub const MCAST_BOUNDARY: i32 = 26;
+pub const MCAST_GLOBAL: i32 = 24;
+pub const MCAST_IF_ENTRY: i32 = 23;
+pub const MCAST_MFE: i32 = 18;
+pub const MCAST_MFE_STATS: i32 = 19;
+pub const MCAST_MFE_STATS_EX: i32 = 35;
+pub const MCAST_SCOPE: i32 = 27;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_BEST_IF {
@@ -158,7 +158,7 @@ pub struct MIB_PROXYARP {
 pub struct MIB_ROUTESTATE {
     pub bRoutesSetToStack: windows_sys::core::BOOL,
 }
-pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39;
+pub const NUMBER_OF_EXPORTED_VARIABLES: i32 = 39;
 pub type PMIB_BEST_IF = *mut MIB_BEST_IF;
 pub type PMIB_BOUNDARYROW = *mut MIB_BOUNDARYROW;
 pub type PMIB_IFSTATUS = *mut MIB_IFSTATUS;
@@ -174,20 +174,20 @@ pub type PMIB_OPAQUE_INFO = *mut MIB_OPAQUE_INFO;
 pub type PMIB_OPAQUE_QUERY = *mut MIB_OPAQUE_QUERY;
 pub type PMIB_PROXYARP = *mut MIB_PROXYARP;
 pub type PMIB_ROUTESTATE = *mut MIB_ROUTESTATE;
-pub const PROXY_ARP: u32 = 22;
+pub const PROXY_ARP: i32 = 22;
 #[cfg(feature = "winnt")]
 pub type PTCPIP_OWNER_MODULE_BASIC_INFO = *mut TCPIP_OWNER_MODULE_BASIC_INFO;
 pub type PTCPIP_OWNER_MODULE_INFO_CLASS = *mut TCPIP_OWNER_MODULE_INFO_CLASS;
 pub type PTCP_TABLE_CLASS = *mut TCP_TABLE_CLASS;
 pub type PUDP_TABLE_CLASS = *mut UDP_TABLE_CLASS;
-pub const ROUTE_LONGER: u32 = 32;
-pub const ROUTE_MATCHING: u32 = 31;
-pub const ROUTE_SHORTER: u32 = 33;
-pub const ROUTE_STATE: u32 = 34;
+pub const ROUTE_LONGER: i32 = 32;
+pub const ROUTE_MATCHING: i32 = 31;
+pub const ROUTE_SHORTER: i32 = 33;
+pub const ROUTE_STATE: i32 = 34;
 pub type SCOPE_NAME = *mut SN_CHAR;
 pub type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
 pub type SN_CHAR = u16;
-pub const TCP6_STATS: u32 = 38;
+pub const TCP6_STATS: i32 = 38;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -203,9 +203,9 @@ impl Default for TCPIP_OWNER_MODULE_BASIC_INFO {
 }
 pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = 0;
 pub type TCPIP_OWNER_MODULE_INFO_CLASS = i32;
-pub const TCP_ROW: u32 = 14;
-pub const TCP_STATS: u32 = 12;
-pub const TCP_TABLE: u32 = 13;
+pub const TCP_ROW: i32 = 14;
+pub const TCP_STATS: i32 = 12;
+pub const TCP_TABLE: i32 = 13;
 pub const TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = 2;
 pub const TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = 1;
 pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = 0;
@@ -216,10 +216,10 @@ pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = 6;
 pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = 5;
 pub const TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = 4;
 pub const TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = 3;
-pub const UDP6_STATS: u32 = 37;
-pub const UDP_ROW: u32 = 17;
-pub const UDP_STATS: u32 = 15;
-pub const UDP_TABLE: u32 = 16;
+pub const UDP6_STATS: i32 = 37;
+pub const UDP_ROW: i32 = 17;
+pub const UDP_STATS: i32 = 15;
+pub const UDP_TABLE: i32 = 16;
 pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = 0;
 pub type UDP_TABLE_CLASS = i32;
 pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = 2;

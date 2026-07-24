@@ -12,16 +12,16 @@ mod Windows {
             BG_CERT_STORE_LOCATION_LOCAL_MACHINE_GROUP_POLICY = 6,
             BG_CERT_STORE_LOCATION_LOCAL_MACHINE_ENTERPRISE = 7,
         }
-        const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: u32 = 2048;
-        const BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT: u32 = 256;
-        const BG_HTTP_REDIRECT_POLICY_ALLOW_SILENT: u32 = 0;
-        const BG_HTTP_REDIRECT_POLICY_DISALLOW: u32 = 512;
-        const BG_HTTP_REDIRECT_POLICY_MASK: u32 = 1792;
-        const BG_SSL_ENABLE_CRL_CHECK: u32 = 1;
-        const BG_SSL_IGNORE_CERT_CN_INVALID: u32 = 2;
-        const BG_SSL_IGNORE_CERT_DATE_INVALID: u32 = 4;
-        const BG_SSL_IGNORE_CERT_WRONG_USAGE: u32 = 16;
-        const BG_SSL_IGNORE_UNKNOWN_CA: u32 = 8;
+        const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: i32 = 2048;
+        const BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT: i32 = 256;
+        const BG_HTTP_REDIRECT_POLICY_ALLOW_SILENT: i32 = 0;
+        const BG_HTTP_REDIRECT_POLICY_DISALLOW: i32 = 512;
+        const BG_HTTP_REDIRECT_POLICY_MASK: i32 = 1792;
+        const BG_SSL_ENABLE_CRL_CHECK: i32 = 1;
+        const BG_SSL_IGNORE_CERT_CN_INVALID: i32 = 2;
+        const BG_SSL_IGNORE_CERT_DATE_INVALID: i32 = 4;
+        const BG_SSL_IGNORE_CERT_WRONG_USAGE: i32 = 16;
+        const BG_SSL_IGNORE_UNKNOWN_CA: i32 = 8;
         const BackgroundCopyManager2_5: GUID = 0x03ca98d6_ff5d_49b8_abc6_03dd84127020;
         #[guid(0xf1bd1079_9f01_4bdc_8036_f09b70095066)]
         interface IBackgroundCopyJobHttpOptions: IUnknown {

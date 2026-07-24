@@ -23,8 +23,8 @@ fn pause_resume() {
 
     Service::new()
         .can_fallback(|service| {
-            service.handler(SERVICE_CONTROL_PAUSE, 0, std::ptr::null_mut());
-            service.handler(SERVICE_CONTROL_CONTINUE, 0, std::ptr::null_mut());
+            service.handler(SERVICE_CONTROL_PAUSE as u32, 0, std::ptr::null_mut());
+            service.handler(SERVICE_CONTROL_CONTINUE as u32, 0, std::ptr::null_mut());
         })
         .run(|_, command| {
             log.push(command);

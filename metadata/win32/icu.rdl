@@ -2,29 +2,29 @@
 mod Windows {
     mod Win32 {
         type OldUChar = u16;
-        const U16_MAX_LENGTH: u32 = 2;
-        const U16_SURROGATE_OFFSET: u32 = 56613888;
+        const U16_MAX_LENGTH: i32 = 2;
+        const U16_SURROGATE_OFFSET: i32 = 56613888;
         #[encoding("ansi")]
         const U8_LEAD3_T1_BITS: String = " 000000000000\u{10}00";
         #[encoding("ansi")]
         const U8_LEAD4_T1_BITS: String = "\0\0\0\0\0\0\0\0\u{1e}\u{f}\u{f}\u{f}\0\0\0\0";
-        const U8_MAX_LENGTH: u32 = 4;
+        const U8_MAX_LENGTH: i32 = 4;
         #[repr(i32)]
         enum UAcceptResult {
             ULOC_ACCEPT_FAILED = 0,
             ULOC_ACCEPT_VALID = 1,
             ULOC_ACCEPT_FALLBACK = 2,
         }
-        const UBIDI_DEFAULT_LTR: u32 = 254;
-        const UBIDI_DEFAULT_RTL: u32 = 255;
-        const UBIDI_DO_MIRRORING: u32 = 2;
-        const UBIDI_INSERT_LRM_FOR_NUMERIC: u32 = 4;
-        const UBIDI_KEEP_BASE_COMBINING: u32 = 1;
-        const UBIDI_LEVEL_OVERRIDE: u32 = 128;
+        const UBIDI_DEFAULT_LTR: i32 = 254;
+        const UBIDI_DEFAULT_RTL: i32 = 255;
+        const UBIDI_DO_MIRRORING: i32 = 2;
+        const UBIDI_INSERT_LRM_FOR_NUMERIC: i32 = 4;
+        const UBIDI_KEEP_BASE_COMBINING: i32 = 1;
+        const UBIDI_LEVEL_OVERRIDE: i32 = 128;
         const UBIDI_MAP_NOWHERE: i32 = -1;
-        const UBIDI_MAX_EXPLICIT_LEVEL: u32 = 125;
-        const UBIDI_OUTPUT_REVERSE: u32 = 16;
-        const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8;
+        const UBIDI_MAX_EXPLICIT_LEVEL: i32 = 125;
+        const UBIDI_OUTPUT_REVERSE: i32 = 16;
+        const UBIDI_REMOVE_BIDI_CONTROLS: i32 = 8;
         const UBRK_DONE: i32 = -1;
         struct UBiDi {}
         extern "C" fn UBiDiClassCallback(context: *const void, c: UChar32) -> UCharDirection;
@@ -396,14 +396,14 @@ mod Windows {
         }
         #[encoding("ansi")]
         const UCAL_UNKNOWN_ZONE_ID: String = "Etc/Unknown";
-        const UCHAR_MAX_VALUE: u32 = 1114111;
-        const UCHAR_MIN_VALUE: u32 = 0;
-        const UCLN_NO_AUTO_CLEANUP: u32 = 1;
+        const UCHAR_MAX_VALUE: i32 = 1114111;
+        const UCHAR_MIN_VALUE: i32 = 0;
+        const UCLN_NO_AUTO_CLEANUP: i32 = 1;
         #[encoding("ansi")]
         const UCNV_ESCAPE_C: String = "C";
         #[encoding("ansi")]
         const UCNV_ESCAPE_CSS2: String = "S";
-        const UCNV_ESCAPE_ICU: u32 = 0;
+        const UCNV_ESCAPE_ICU: i32 = 0;
         #[encoding("ansi")]
         const UCNV_ESCAPE_JAVA: String = "J";
         #[encoding("ansi")]
@@ -422,15 +422,15 @@ mod Windows {
         extern "C" fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const void, fromUArgs: *mut UConverterFromUnicodeArgs, codeUnits: *const UChar, length: i32, codePoint: UChar32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         #[encoding("ansi")]
         const UCNV_LOCALE_OPTION_STRING: String = ",locale=";
-        const UCNV_MAX_CONVERTER_NAME_LENGTH: u32 = 60;
-        const UCNV_MAX_FULL_FILE_NAME_LENGTH: u32 = 660;
+        const UCNV_MAX_CONVERTER_NAME_LENGTH: i32 = 60;
+        const UCNV_MAX_FULL_FILE_NAME_LENGTH: i32 = 660;
         const UCNV_OPTION_SEP_CHAR: u32 = 44;
         #[encoding("ansi")]
         const UCNV_OPTION_SEP_STRING: String = ",";
-        const UCNV_SI: u32 = 15;
+        const UCNV_SI: i32 = 15;
         #[encoding("ansi")]
         const UCNV_SKIP_STOP_ON_ILLEGAL: String = "i";
-        const UCNV_SO: u32 = 14;
+        const UCNV_SO: i32 = 14;
         #[encoding("ansi")]
         const UCNV_SUB_STOP_ON_ILLEGAL: String = "i";
         #[encoding("ansi")]
@@ -449,22 +449,22 @@ mod Windows {
         #[encoding("ansi")]
         const UCNV_VERSION_OPTION_STRING: String = ",version=";
         const UCOL_NULLORDER: i32 = -1;
-        const UCONFIG_ENABLE_PLUGINS: u32 = 0;
-        const UCONFIG_HAVE_PARSEALLINPUT: u32 = 1;
-        const UCONFIG_NO_BREAK_ITERATION: u32 = 0;
-        const UCONFIG_NO_COLLATION: u32 = 0;
-        const UCONFIG_NO_CONVERSION: u32 = 0;
-        const UCONFIG_NO_FILE_IO: u32 = 0;
-        const UCONFIG_NO_FILTERED_BREAK_ITERATION: u32 = 0;
-        const UCONFIG_NO_FORMATTING: u32 = 0;
-        const UCONFIG_NO_IDNA: u32 = 0;
-        const UCONFIG_NO_LEGACY_CONVERSION: u32 = 0;
-        const UCONFIG_NO_NORMALIZATION: u32 = 0;
-        const UCONFIG_NO_REGULAR_EXPRESSIONS: u32 = 0;
-        const UCONFIG_NO_SERVICE: u32 = 0;
-        const UCONFIG_NO_TRANSLITERATION: u32 = 0;
-        const UCONFIG_ONLY_COLLATION: u32 = 0;
-        const UCONFIG_ONLY_HTML_CONVERSION: u32 = 0;
+        const UCONFIG_ENABLE_PLUGINS: i32 = 0;
+        const UCONFIG_HAVE_PARSEALLINPUT: i32 = 1;
+        const UCONFIG_NO_BREAK_ITERATION: i32 = 0;
+        const UCONFIG_NO_COLLATION: i32 = 0;
+        const UCONFIG_NO_CONVERSION: i32 = 0;
+        const UCONFIG_NO_FILE_IO: i32 = 0;
+        const UCONFIG_NO_FILTERED_BREAK_ITERATION: i32 = 0;
+        const UCONFIG_NO_FORMATTING: i32 = 0;
+        const UCONFIG_NO_IDNA: i32 = 0;
+        const UCONFIG_NO_LEGACY_CONVERSION: i32 = 0;
+        const UCONFIG_NO_NORMALIZATION: i32 = 0;
+        const UCONFIG_NO_REGULAR_EXPRESSIONS: i32 = 0;
+        const UCONFIG_NO_SERVICE: i32 = 0;
+        const UCONFIG_NO_TRANSLITERATION: i32 = 0;
+        const UCONFIG_ONLY_COLLATION: i32 = 0;
+        const UCONFIG_ONLY_HTML_CONVERSION: i32 = 0;
         struct UCPMap {}
         #[repr(i32)]
         enum UCPMapRangeOption {
@@ -1646,14 +1646,14 @@ mod Windows {
         const ULOC_CHINA: String = "zh_CN";
         #[encoding("ansi")]
         const ULOC_CHINESE: String = "zh";
-        const ULOC_COUNTRY_CAPACITY: u32 = 4;
+        const ULOC_COUNTRY_CAPACITY: i32 = 4;
         #[encoding("ansi")]
         const ULOC_ENGLISH: String = "en";
         #[encoding("ansi")]
         const ULOC_FRANCE: String = "fr_FR";
         #[encoding("ansi")]
         const ULOC_FRENCH: String = "fr";
-        const ULOC_FULLNAME_CAPACITY: u32 = 157;
+        const ULOC_FULLNAME_CAPACITY: i32 = 157;
         #[encoding("ansi")]
         const ULOC_GERMAN: String = "de";
         #[encoding("ansi")]
@@ -1666,22 +1666,22 @@ mod Windows {
         const ULOC_JAPAN: String = "ja_JP";
         #[encoding("ansi")]
         const ULOC_JAPANESE: String = "ja";
-        const ULOC_KEYWORDS_CAPACITY: u32 = 96;
-        const ULOC_KEYWORD_AND_VALUES_CAPACITY: u32 = 100;
+        const ULOC_KEYWORDS_CAPACITY: i32 = 96;
+        const ULOC_KEYWORD_AND_VALUES_CAPACITY: i32 = 100;
         const ULOC_KEYWORD_ASSIGN: u32 = 61;
-        const ULOC_KEYWORD_ASSIGN_UNICODE: u32 = 61;
+        const ULOC_KEYWORD_ASSIGN_UNICODE: i32 = 61;
         const ULOC_KEYWORD_ITEM_SEPARATOR: u32 = 59;
-        const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59;
+        const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: i32 = 59;
         const ULOC_KEYWORD_SEPARATOR: u32 = 64;
-        const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64;
+        const ULOC_KEYWORD_SEPARATOR_UNICODE: i32 = 64;
         #[encoding("ansi")]
         const ULOC_KOREA: String = "ko_KR";
         #[encoding("ansi")]
         const ULOC_KOREAN: String = "ko";
-        const ULOC_LANG_CAPACITY: u32 = 12;
+        const ULOC_LANG_CAPACITY: i32 = 12;
         #[encoding("ansi")]
         const ULOC_PRC: String = "zh_CN";
-        const ULOC_SCRIPT_CAPACITY: u32 = 6;
+        const ULOC_SCRIPT_CAPACITY: i32 = 6;
         #[encoding("ansi")]
         const ULOC_SIMPLIFIED_CHINESE: String = "zh_CN";
         #[encoding("ansi")]
@@ -1811,7 +1811,7 @@ mod Windows {
         type UMessageFormat = *mut void;
         struct UMutableCPTrie {}
         extern "C" fn UNESCAPE_CHAR_AT(offset: i32, context: *mut void) -> UChar;
-        const UNORM_INPUT_IS_FCD: u32 = 131072;
+        const UNORM_INPUT_IS_FCD: i32 = 131072;
         #[repr(i32)]
         enum UNormalization2Mode {
             UNORM2_COMPOSE = 0,
@@ -2276,8 +2276,8 @@ mod Windows {
         const USET_CASE_INSENSITIVE: i32 = 2;
         const USET_IGNORE_SPACE: i32 = 1;
         const USET_SERIALIZED_STATIC_ARRAY_CAPACITY: i32 = 8;
-        const USPREP_ALLOW_UNASSIGNED: u32 = 1;
-        const USPREP_DEFAULT: u32 = 0;
+        const USPREP_ALLOW_UNASSIGNED: i32 = 1;
+        const USPREP_DEFAULT: i32 = 0;
         #[repr(i32)]
         enum UScriptCode {
             USCRIPT_INVALID_CODE = -1,
@@ -2780,26 +2780,26 @@ mod Windows {
             U_WB_ZWJ = 21,
             U_WB_WSEGSPACE = 22,
         }
-        const U_ASCII_FAMILY: u32 = 0;
-        const U_CHAR16_IS_TYPEDEF: u32 = 0;
-        const U_CHARSET_FAMILY: u32 = 0;
-        const U_CHARSET_IS_UTF8: u32 = 0;
-        const U_CHECK_DYLOAD: u32 = 1;
-        const U_COMPARE_CODE_POINT_ORDER: u32 = 32768;
-        const U_COMPARE_IGNORE_CASE: u32 = 65536;
-        const U_COPYRIGHT_STRING_LENGTH: u32 = 128;
-        const U_CPLUSPLUS_VERSION: u32 = 14;
-        const U_DEBUG: u32 = 0;
-        const U_DEFAULT_SHOW_DRAFT: u32 = 0;
-        const U_DEFINE_FALSE_AND_TRUE: u32 = 0;
-        const U_DISABLE_RENAMING: u32 = 1;
-        const U_EBCDIC_FAMILY: u32 = 1;
-        const U_EDITS_NO_RESET: u32 = 8192;
-        const U_ENABLE_DYLOAD: u32 = 1;
-        const U_ENABLE_TRACING: u32 = 0;
-        const U_FOLD_CASE_DEFAULT: u32 = 0;
-        const U_FOLD_CASE_EXCLUDE_SPECIAL_I: u32 = 1;
-        const U_GCC_MAJOR_MINOR: u32 = 0;
+        const U_ASCII_FAMILY: i32 = 0;
+        const U_CHAR16_IS_TYPEDEF: i32 = 0;
+        const U_CHARSET_FAMILY: i32 = 0;
+        const U_CHARSET_IS_UTF8: i32 = 0;
+        const U_CHECK_DYLOAD: i32 = 1;
+        const U_COMPARE_CODE_POINT_ORDER: i32 = 32768;
+        const U_COMPARE_IGNORE_CASE: i32 = 65536;
+        const U_COPYRIGHT_STRING_LENGTH: i32 = 128;
+        const U_CPLUSPLUS_VERSION: i32 = 14;
+        const U_DEBUG: i32 = 0;
+        const U_DEFAULT_SHOW_DRAFT: i32 = 0;
+        const U_DEFINE_FALSE_AND_TRUE: i32 = 0;
+        const U_DISABLE_RENAMING: i32 = 1;
+        const U_EBCDIC_FAMILY: i32 = 1;
+        const U_EDITS_NO_RESET: i32 = 8192;
+        const U_ENABLE_DYLOAD: i32 = 1;
+        const U_ENABLE_TRACING: i32 = 0;
+        const U_FOLD_CASE_DEFAULT: i32 = 0;
+        const U_FOLD_CASE_EXCLUDE_SPECIAL_I: i32 = 1;
+        const U_GCC_MAJOR_MINOR: i32 = 0;
         const U_GC_CC_MASK: u32 = 32768;
         const U_GC_CF_MASK: u32 = 65536;
         const U_GC_CN_MASK: u32 = 1;
@@ -2838,122 +2838,122 @@ mod Windows {
         const U_GC_ZP_MASK: u32 = 16384;
         const U_GC_ZS_MASK: u32 = 4096;
         const U_GC_Z_MASK: u32 = 28672;
-        const U_HAVE_CHAR16_T: u32 = 1;
-        const U_HAVE_DEBUG_LOCATION_NEW: u32 = 1;
-        const U_HAVE_INTTYPES_H: u32 = 1;
-        const U_HAVE_PLACEMENT_NEW: u32 = 1;
-        const U_HAVE_STDINT_H: u32 = 1;
-        const U_HAVE_WCHAR_H: u32 = 1;
-        const U_HAVE_WCSCPY: u32 = 1;
-        const U_HIDE_DEPRECATED_API: u32 = 1;
-        const U_HIDE_DRAFT_API: u32 = 1;
-        const U_HIDE_INTERNAL_API: u32 = 1;
-        const U_HIDE_OBSOLETE_API: u32 = 1;
-        const U_HIDE_OBSOLETE_UTF_OLD_H: u32 = 0;
+        const U_HAVE_CHAR16_T: i32 = 1;
+        const U_HAVE_DEBUG_LOCATION_NEW: i32 = 1;
+        const U_HAVE_INTTYPES_H: i32 = 1;
+        const U_HAVE_PLACEMENT_NEW: i32 = 1;
+        const U_HAVE_STDINT_H: i32 = 1;
+        const U_HAVE_WCHAR_H: i32 = 1;
+        const U_HAVE_WCSCPY: i32 = 1;
+        const U_HIDE_DEPRECATED_API: i32 = 1;
+        const U_HIDE_DRAFT_API: i32 = 1;
+        const U_HIDE_INTERNAL_API: i32 = 1;
+        const U_HIDE_OBSOLETE_API: i32 = 1;
+        const U_HIDE_OBSOLETE_UTF_OLD_H: i32 = 0;
         #[encoding("ansi")]
         const U_ICU_DATA_KEY: String = "DataVersion";
         #[encoding("ansi")]
         const U_ICU_VERSION_BUNDLE: String = "icuver";
-        const U_INT64_MAX: i32 = -1;
-        const U_INT64_MIN: u32 = 0;
-        const U_IS_BIG_ENDIAN: u32 = 0;
+        const U_INT64_MAX: i64 = -1;
+        const U_INT64_MIN: i64 = 0;
+        const U_IS_BIG_ENDIAN: i32 = 0;
         #[encoding("ansi")]
         const U_LIB_SUFFIX_C_NAME_STRING: String = "";
-        const U_MAX_VERSION_LENGTH: u32 = 4;
-        const U_MAX_VERSION_STRING_LENGTH: u32 = 20;
-        const U_MILLIS_PER_DAY: u32 = 86400000;
-        const U_MILLIS_PER_HOUR: u32 = 3600000;
-        const U_MILLIS_PER_MINUTE: u32 = 60000;
-        const U_MILLIS_PER_SECOND: u32 = 1000;
-        const U_NO_DEFAULT_INCLUDE_UTF_HEADERS: u32 = 1;
-        const U_OMIT_UNCHANGED_TEXT: u32 = 16384;
-        const U_OVERRIDE_CXX_ALLOCATION: u32 = 1;
+        const U_MAX_VERSION_LENGTH: i32 = 4;
+        const U_MAX_VERSION_STRING_LENGTH: i32 = 20;
+        const U_MILLIS_PER_DAY: i32 = 86400000;
+        const U_MILLIS_PER_HOUR: i32 = 3600000;
+        const U_MILLIS_PER_MINUTE: i32 = 60000;
+        const U_MILLIS_PER_SECOND: i32 = 1000;
+        const U_NO_DEFAULT_INCLUDE_UTF_HEADERS: i32 = 1;
+        const U_OMIT_UNCHANGED_TEXT: i32 = 16384;
+        const U_OVERRIDE_CXX_ALLOCATION: i32 = 1;
         const U_PARSE_CONTEXT_LEN: i32 = 16;
-        const U_PF_AIX: u32 = 3100;
-        const U_PF_ANDROID: u32 = 4050;
-        const U_PF_BROWSER_NATIVE_CLIENT: u32 = 4020;
-        const U_PF_BSD: u32 = 3000;
-        const U_PF_CYGWIN: u32 = 1900;
-        const U_PF_DARWIN: u32 = 3500;
-        const U_PF_EMSCRIPTEN: u32 = 5010;
-        const U_PF_FUCHSIA: u32 = 4100;
-        const U_PF_HPUX: u32 = 2100;
-        const U_PF_IPHONE: u32 = 3550;
-        const U_PF_IRIX: u32 = 3200;
-        const U_PF_LINUX: u32 = 4000;
-        const U_PF_MINGW: u32 = 1800;
-        const U_PF_OS390: u32 = 9000;
-        const U_PF_OS400: u32 = 9400;
-        const U_PF_QNX: u32 = 3700;
-        const U_PF_SOLARIS: u32 = 2600;
-        const U_PF_UNKNOWN: u32 = 0;
-        const U_PF_WINDOWS: u32 = 1000;
-        const U_PLATFORM: u32 = 1000;
-        const U_PLATFORM_HAS_WIN32_API: u32 = 1;
-        const U_PLATFORM_IMPLEMENTS_POSIX: u32 = 0;
-        const U_PLATFORM_IS_DARWIN_BASED: u32 = 0;
-        const U_PLATFORM_IS_LINUX_BASED: u32 = 0;
-        const U_PLATFORM_USES_ONLY_WIN32_API: u32 = 1;
+        const U_PF_AIX: i32 = 3100;
+        const U_PF_ANDROID: i32 = 4050;
+        const U_PF_BROWSER_NATIVE_CLIENT: i32 = 4020;
+        const U_PF_BSD: i32 = 3000;
+        const U_PF_CYGWIN: i32 = 1900;
+        const U_PF_DARWIN: i32 = 3500;
+        const U_PF_EMSCRIPTEN: i32 = 5010;
+        const U_PF_FUCHSIA: i32 = 4100;
+        const U_PF_HPUX: i32 = 2100;
+        const U_PF_IPHONE: i32 = 3550;
+        const U_PF_IRIX: i32 = 3200;
+        const U_PF_LINUX: i32 = 4000;
+        const U_PF_MINGW: i32 = 1800;
+        const U_PF_OS390: i32 = 9000;
+        const U_PF_OS400: i32 = 9400;
+        const U_PF_QNX: i32 = 3700;
+        const U_PF_SOLARIS: i32 = 2600;
+        const U_PF_UNKNOWN: i32 = 0;
+        const U_PF_WINDOWS: i32 = 1000;
+        const U_PLATFORM: i32 = 1000;
+        const U_PLATFORM_HAS_WIN32_API: i32 = 1;
+        const U_PLATFORM_IMPLEMENTS_POSIX: i32 = 0;
+        const U_PLATFORM_IS_DARWIN_BASED: i32 = 0;
+        const U_PLATFORM_IS_LINUX_BASED: i32 = 0;
+        const U_PLATFORM_USES_ONLY_WIN32_API: i32 = 1;
         const U_SENTINEL: i32 = -1;
-        const U_SHAPE_AGGREGATE_TASHKEEL: u32 = 16384;
-        const U_SHAPE_AGGREGATE_TASHKEEL_MASK: u32 = 16384;
-        const U_SHAPE_AGGREGATE_TASHKEEL_NOOP: u32 = 0;
-        const U_SHAPE_DIGITS_ALEN2AN_INIT_AL: u32 = 128;
-        const U_SHAPE_DIGITS_ALEN2AN_INIT_LR: u32 = 96;
-        const U_SHAPE_DIGITS_AN2EN: u32 = 64;
-        const U_SHAPE_DIGITS_EN2AN: u32 = 32;
-        const U_SHAPE_DIGITS_MASK: u32 = 224;
-        const U_SHAPE_DIGITS_NOOP: u32 = 0;
-        const U_SHAPE_DIGITS_RESERVED: u32 = 160;
-        const U_SHAPE_DIGIT_TYPE_AN: u32 = 0;
-        const U_SHAPE_DIGIT_TYPE_AN_EXTENDED: u32 = 256;
-        const U_SHAPE_DIGIT_TYPE_MASK: u32 = 768;
-        const U_SHAPE_DIGIT_TYPE_RESERVED: u32 = 512;
-        const U_SHAPE_LAMALEF_AUTO: u32 = 65536;
-        const U_SHAPE_LAMALEF_BEGIN: u32 = 3;
-        const U_SHAPE_LAMALEF_END: u32 = 2;
-        const U_SHAPE_LAMALEF_MASK: u32 = 65539;
-        const U_SHAPE_LAMALEF_NEAR: u32 = 1;
-        const U_SHAPE_LAMALEF_RESIZE: u32 = 0;
-        const U_SHAPE_LENGTH_FIXED_SPACES_AT_BEGINNING: u32 = 3;
-        const U_SHAPE_LENGTH_FIXED_SPACES_AT_END: u32 = 2;
-        const U_SHAPE_LENGTH_FIXED_SPACES_NEAR: u32 = 1;
-        const U_SHAPE_LENGTH_GROW_SHRINK: u32 = 0;
-        const U_SHAPE_LENGTH_MASK: u32 = 65539;
-        const U_SHAPE_LETTERS_MASK: u32 = 24;
-        const U_SHAPE_LETTERS_NOOP: u32 = 0;
-        const U_SHAPE_LETTERS_SHAPE: u32 = 8;
-        const U_SHAPE_LETTERS_SHAPE_TASHKEEL_ISOLATED: u32 = 24;
-        const U_SHAPE_LETTERS_UNSHAPE: u32 = 16;
-        const U_SHAPE_PRESERVE_PRESENTATION: u32 = 32768;
-        const U_SHAPE_PRESERVE_PRESENTATION_MASK: u32 = 32768;
-        const U_SHAPE_PRESERVE_PRESENTATION_NOOP: u32 = 0;
-        const U_SHAPE_SEEN_MASK: u32 = 7340032;
-        const U_SHAPE_SEEN_TWOCELL_NEAR: u32 = 2097152;
-        const U_SHAPE_SPACES_RELATIVE_TO_TEXT_BEGIN_END: u32 = 67108864;
-        const U_SHAPE_SPACES_RELATIVE_TO_TEXT_MASK: u32 = 67108864;
-        const U_SHAPE_TAIL_NEW_UNICODE: u32 = 134217728;
-        const U_SHAPE_TAIL_TYPE_MASK: u32 = 134217728;
-        const U_SHAPE_TASHKEEL_BEGIN: u32 = 262144;
-        const U_SHAPE_TASHKEEL_END: u32 = 393216;
-        const U_SHAPE_TASHKEEL_MASK: u32 = 917504;
-        const U_SHAPE_TASHKEEL_REPLACE_BY_TATWEEL: u32 = 786432;
-        const U_SHAPE_TASHKEEL_RESIZE: u32 = 524288;
-        const U_SHAPE_TEXT_DIRECTION_LOGICAL: u32 = 0;
-        const U_SHAPE_TEXT_DIRECTION_MASK: u32 = 4;
-        const U_SHAPE_TEXT_DIRECTION_VISUAL_LTR: u32 = 4;
-        const U_SHAPE_TEXT_DIRECTION_VISUAL_RTL: u32 = 0;
-        const U_SHAPE_YEHHAMZA_MASK: u32 = 58720256;
-        const U_SHAPE_YEHHAMZA_TWOCELL_NEAR: u32 = 16777216;
-        const U_SHOW_CPLUSPLUS_API: u32 = 0;
-        const U_SIZEOF_UCHAR: u32 = 2;
-        const U_SIZEOF_WCHAR_T: u32 = 2;
-        const U_TITLECASE_ADJUST_TO_CASED: u32 = 1024;
-        const U_TITLECASE_NO_BREAK_ADJUSTMENT: u32 = 512;
-        const U_TITLECASE_NO_LOWERCASE: u32 = 256;
-        const U_TITLECASE_SENTENCES: u32 = 64;
-        const U_TITLECASE_WHOLE_STRING: u32 = 32;
-        const U_UINT64_MAX: i32 = -1;
+        const U_SHAPE_AGGREGATE_TASHKEEL: i32 = 16384;
+        const U_SHAPE_AGGREGATE_TASHKEEL_MASK: i32 = 16384;
+        const U_SHAPE_AGGREGATE_TASHKEEL_NOOP: i32 = 0;
+        const U_SHAPE_DIGITS_ALEN2AN_INIT_AL: i32 = 128;
+        const U_SHAPE_DIGITS_ALEN2AN_INIT_LR: i32 = 96;
+        const U_SHAPE_DIGITS_AN2EN: i32 = 64;
+        const U_SHAPE_DIGITS_EN2AN: i32 = 32;
+        const U_SHAPE_DIGITS_MASK: i32 = 224;
+        const U_SHAPE_DIGITS_NOOP: i32 = 0;
+        const U_SHAPE_DIGITS_RESERVED: i32 = 160;
+        const U_SHAPE_DIGIT_TYPE_AN: i32 = 0;
+        const U_SHAPE_DIGIT_TYPE_AN_EXTENDED: i32 = 256;
+        const U_SHAPE_DIGIT_TYPE_MASK: i32 = 768;
+        const U_SHAPE_DIGIT_TYPE_RESERVED: i32 = 512;
+        const U_SHAPE_LAMALEF_AUTO: i32 = 65536;
+        const U_SHAPE_LAMALEF_BEGIN: i32 = 3;
+        const U_SHAPE_LAMALEF_END: i32 = 2;
+        const U_SHAPE_LAMALEF_MASK: i32 = 65539;
+        const U_SHAPE_LAMALEF_NEAR: i32 = 1;
+        const U_SHAPE_LAMALEF_RESIZE: i32 = 0;
+        const U_SHAPE_LENGTH_FIXED_SPACES_AT_BEGINNING: i32 = 3;
+        const U_SHAPE_LENGTH_FIXED_SPACES_AT_END: i32 = 2;
+        const U_SHAPE_LENGTH_FIXED_SPACES_NEAR: i32 = 1;
+        const U_SHAPE_LENGTH_GROW_SHRINK: i32 = 0;
+        const U_SHAPE_LENGTH_MASK: i32 = 65539;
+        const U_SHAPE_LETTERS_MASK: i32 = 24;
+        const U_SHAPE_LETTERS_NOOP: i32 = 0;
+        const U_SHAPE_LETTERS_SHAPE: i32 = 8;
+        const U_SHAPE_LETTERS_SHAPE_TASHKEEL_ISOLATED: i32 = 24;
+        const U_SHAPE_LETTERS_UNSHAPE: i32 = 16;
+        const U_SHAPE_PRESERVE_PRESENTATION: i32 = 32768;
+        const U_SHAPE_PRESERVE_PRESENTATION_MASK: i32 = 32768;
+        const U_SHAPE_PRESERVE_PRESENTATION_NOOP: i32 = 0;
+        const U_SHAPE_SEEN_MASK: i32 = 7340032;
+        const U_SHAPE_SEEN_TWOCELL_NEAR: i32 = 2097152;
+        const U_SHAPE_SPACES_RELATIVE_TO_TEXT_BEGIN_END: i32 = 67108864;
+        const U_SHAPE_SPACES_RELATIVE_TO_TEXT_MASK: i32 = 67108864;
+        const U_SHAPE_TAIL_NEW_UNICODE: i32 = 134217728;
+        const U_SHAPE_TAIL_TYPE_MASK: i32 = 134217728;
+        const U_SHAPE_TASHKEEL_BEGIN: i32 = 262144;
+        const U_SHAPE_TASHKEEL_END: i32 = 393216;
+        const U_SHAPE_TASHKEEL_MASK: i32 = 917504;
+        const U_SHAPE_TASHKEEL_REPLACE_BY_TATWEEL: i32 = 786432;
+        const U_SHAPE_TASHKEEL_RESIZE: i32 = 524288;
+        const U_SHAPE_TEXT_DIRECTION_LOGICAL: i32 = 0;
+        const U_SHAPE_TEXT_DIRECTION_MASK: i32 = 4;
+        const U_SHAPE_TEXT_DIRECTION_VISUAL_LTR: i32 = 4;
+        const U_SHAPE_TEXT_DIRECTION_VISUAL_RTL: i32 = 0;
+        const U_SHAPE_YEHHAMZA_MASK: i32 = 58720256;
+        const U_SHAPE_YEHHAMZA_TWOCELL_NEAR: i32 = 16777216;
+        const U_SHOW_CPLUSPLUS_API: i32 = 0;
+        const U_SIZEOF_UCHAR: i32 = 2;
+        const U_SIZEOF_WCHAR_T: i32 = 2;
+        const U_TITLECASE_ADJUST_TO_CASED: i32 = 1024;
+        const U_TITLECASE_NO_BREAK_ADJUSTMENT: i32 = 512;
+        const U_TITLECASE_NO_LOWERCASE: i32 = 256;
+        const U_TITLECASE_SENTENCES: i32 = 64;
+        const U_TITLECASE_WHOLE_STRING: i32 = 32;
+        const U_UINT64_MAX: u64 = 18446744073709551615;
         const U_VERSION_DELIMITER: u32 = 46;
         #[library("icuuc.dll")]
         extern "C" fn u_UCharsToChars(us: *const UChar, cs: *mut i8, length: i32);

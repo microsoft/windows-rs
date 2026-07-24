@@ -1383,7 +1383,7 @@ impl ILocationReportFactory_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ILocationReportFactory {}
-pub const LOCATION_API_VERSION: u32 = 1;
+pub const LOCATION_API_VERSION: i32 = 1;
 pub type LOCATION_REPORT_STATUS = i32;
 pub const LatLongReport: windows_core::GUID = windows_core::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
 pub const LatLongReportFactory: windows_core::GUID = windows_core::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);

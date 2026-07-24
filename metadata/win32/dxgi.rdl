@@ -55,11 +55,11 @@ mod Windows {
         const DXGI_MAP_DISCARD: u32 = 4;
         const DXGI_MAP_READ: u32 = 1;
         const DXGI_MAP_WRITE: u32 = 2;
-        const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16;
-        const DXGI_MWA_NO_ALT_ENTER: u32 = 2;
-        const DXGI_MWA_NO_PRINT_SCREEN: u32 = 4;
-        const DXGI_MWA_NO_WINDOW_CHANGES: u32 = 1;
-        const DXGI_MWA_VALID: u32 = 7;
+        const DXGI_MAX_SWAP_CHAIN_BUFFERS: i32 = 16;
+        const DXGI_MWA_NO_ALT_ENTER: i32 = 2;
+        const DXGI_MWA_NO_PRINT_SCREEN: i32 = 4;
+        const DXGI_MWA_NO_WINDOW_CHANGES: i32 = 1;
+        const DXGI_MWA_VALID: i32 = 7;
         struct DXGI_OUTPUT_DESC {
             DeviceName: [u16; 32],
             DesktopCoordinates: RECT,
@@ -83,10 +83,10 @@ mod Windows {
             DXGI_RESIDENCY_EVICTED_TO_DISK = 3,
         }
         const DXGI_RESOURCE_PRIORITY_HIGH: u32 = 2684354560;
-        const DXGI_RESOURCE_PRIORITY_LOW: u32 = 1342177280;
+        const DXGI_RESOURCE_PRIORITY_LOW: i32 = 1342177280;
         const DXGI_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200;
-        const DXGI_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640;
-        const DXGI_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920;
+        const DXGI_RESOURCE_PRIORITY_MINIMUM: i32 = 671088640;
+        const DXGI_RESOURCE_PRIORITY_NORMAL: i32 = 2013265920;
         struct DXGI_SHARED_RESOURCE {
             Handle: HANDLE,
         }

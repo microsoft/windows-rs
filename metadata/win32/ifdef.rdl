@@ -15,8 +15,8 @@ mod Windows {
         }
         type IF_INDEX = NET_IFINDEX;
         type IF_LUID = NET_LUID;
-        const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32;
-        const IF_MAX_STRING_SIZE: u32 = 256;
+        const IF_MAX_PHYS_ADDRESS_LENGTH: i32 = 32;
+        const IF_MAX_STRING_SIZE: i32 = 256;
         #[repr(i32)]
         enum IF_OPER_STATUS {
             IfOperStatusUp = 1,
@@ -68,7 +68,7 @@ mod Windows {
         }
         type NET_IFINDEX = u32;
         const NET_IFINDEX_UNSPECIFIED: u32 = 0;
-        const NET_IFLUID_UNSPECIFIED: u32 = 0;
+        const NET_IFLUID_UNSPECIFIED: i32 = 0;
         type NET_IFTYPE = u16;
         #[repr(i32)]
         enum NET_IF_ACCESS_TYPE {
@@ -109,7 +109,7 @@ mod Windows {
             NET_IF_DIRECTION_RECEIVEONLY = 2,
             NET_IF_DIRECTION_MAXIMUM = 3,
         }
-        const NET_IF_LINK_SPEED_UNKNOWN: i32 = -1;
+        const NET_IF_LINK_SPEED_UNKNOWN: u64 = 18446744073709551615;
         #[repr(i32)]
         enum NET_IF_MEDIA_CONNECT_STATE {
             MediaConnectStateUnknown = 0,
@@ -124,10 +124,10 @@ mod Windows {
         }
         type NET_IF_NETWORK_GUID = GUID;
         type NET_IF_OBJECT_ID = u32;
-        const NET_IF_OID_COMPARTMENT_ID: u32 = 2;
-        const NET_IF_OID_IF_ALIAS: u32 = 1;
-        const NET_IF_OID_IF_ENTRY: u32 = 4;
-        const NET_IF_OID_NETWORK_GUID: u32 = 3;
+        const NET_IF_OID_COMPARTMENT_ID: i32 = 2;
+        const NET_IF_OID_IF_ALIAS: i32 = 1;
+        const NET_IF_OID_IF_ENTRY: i32 = 4;
+        const NET_IF_OID_NETWORK_GUID: i32 = 3;
         #[repr(i32)]
         enum NET_IF_OPER_STATUS {
             NET_IF_OPER_STATUS_UP = 1,
@@ -138,10 +138,10 @@ mod Windows {
             NET_IF_OPER_STATUS_NOT_PRESENT = 6,
             NET_IF_OPER_STATUS_LOWER_LAYER_DOWN = 7,
         }
-        const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8;
-        const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4;
-        const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1;
-        const NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED: u32 = 2;
+        const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: i32 = 8;
+        const NET_IF_OPER_STATUS_DORMANT_PAUSED: i32 = 4;
+        const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: i32 = 1;
+        const NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED: i32 = 2;
         type NET_IF_RCV_ADDRESS = NET_IF_RCV_ADDRESS_LH;
         struct NET_IF_RCV_ADDRESS_LH {
             ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
@@ -171,22 +171,22 @@ mod Windows {
             SlotNumber: u32,
             FunctionNumber: u32,
         }
-        const NET_SITEID_MAXSYSTEM: u32 = 268435455;
-        const NET_SITEID_MAXUSER: u32 = 134217727;
-        const NET_SITEID_UNSPECIFIED: u32 = 0;
-        const NIIF_BUS_NUMBER_UNKNOWN: i32 = -1;
-        const NIIF_FILTER_INTERFACE: u32 = 2;
-        const NIIF_FUNCTION_NUMBER_UNKNOWN: i32 = -1;
-        const NIIF_HARDWARE_INTERFACE: u32 = 1;
-        const NIIF_NDIS_ENDPOINT_INTERFACE: u32 = 64;
-        const NIIF_NDIS_ISCSI_INTERFACE: u32 = 128;
-        const NIIF_NDIS_RESERVED1: u32 = 4;
-        const NIIF_NDIS_RESERVED2: u32 = 8;
-        const NIIF_NDIS_RESERVED3: u32 = 16;
-        const NIIF_NDIS_RESERVED4: u32 = 256;
-        const NIIF_NDIS_WDM_INTERFACE: u32 = 32;
-        const NIIF_SLOT_NUMBER_UNKNOWN: i32 = -1;
-        const NIIF_WAN_TUNNEL_TYPE_UNKNOWN: i32 = -1;
+        const NET_SITEID_MAXSYSTEM: i32 = 268435455;
+        const NET_SITEID_MAXUSER: i32 = 134217727;
+        const NET_SITEID_UNSPECIFIED: i32 = 0;
+        const NIIF_BUS_NUMBER_UNKNOWN: u32 = 4294967295;
+        const NIIF_FILTER_INTERFACE: i32 = 2;
+        const NIIF_FUNCTION_NUMBER_UNKNOWN: u32 = 4294967295;
+        const NIIF_HARDWARE_INTERFACE: i32 = 1;
+        const NIIF_NDIS_ENDPOINT_INTERFACE: i32 = 64;
+        const NIIF_NDIS_ISCSI_INTERFACE: i32 = 128;
+        const NIIF_NDIS_RESERVED1: i32 = 4;
+        const NIIF_NDIS_RESERVED2: i32 = 8;
+        const NIIF_NDIS_RESERVED3: i32 = 16;
+        const NIIF_NDIS_RESERVED4: i32 = 256;
+        const NIIF_NDIS_WDM_INTERFACE: i32 = 32;
+        const NIIF_SLOT_NUMBER_UNKNOWN: u32 = 4294967295;
+        const NIIF_WAN_TUNNEL_TYPE_UNKNOWN: u32 = 4294967295;
         type PIF_ADMINISTRATIVE_STATE = *mut IF_ADMINISTRATIVE_STATE;
         type PIF_COUNTED_STRING = *mut IF_COUNTED_STRING;
         type PIF_COUNTED_STRING_LH = *mut IF_COUNTED_STRING_LH;

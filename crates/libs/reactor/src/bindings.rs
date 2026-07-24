@@ -3716,7 +3716,7 @@ impl windows_core::RuntimeName for GridView {
 unsafe impl Send for GridView {}
 unsafe impl Sync for GridView {}
 pub type HMONITOR = *mut core::ffi::c_void;
-pub const HTCLIENT: u32 = 1;
+pub const HTCLIENT: i32 = 1;
 pub type HWND = *mut core::ffi::c_void;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17978,7 +17978,7 @@ impl Default for MONITORINFOEXW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MONITOR_DEFAULTTONEAREST: u32 = 2;
+pub const MONITOR_DEFAULTTONEAREST: i32 = 2;
 pub type MddBootstrapInitializeOptions = i32;
 pub const MddBootstrapInitializeOptions_OnNoMatch_ShowUI: MddBootstrapInitializeOptions = 8;
 pub const MddBootstrapInitializeOptions_OnPackageIdentity_NOOP: MddBootstrapInitializeOptions = 16;
@@ -20409,9 +20409,9 @@ impl windows_core::RuntimeName for Run {
 }
 unsafe impl Send for Run {}
 unsafe impl Sync for Run {}
-pub const SWP_NOACTIVATE: u32 = 16;
-pub const SWP_NOSIZE: u32 = 1;
-pub const SWP_NOZORDER: u32 = 4;
+pub const SWP_NOACTIVATE: i32 = 16;
+pub const SWP_NOSIZE: i32 = 1;
+pub const SWP_NOZORDER: i32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollBarVisibility(pub i32);
@@ -23549,8 +23549,8 @@ unsafe impl Sync for Visual {}
 pub const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 131072;
 pub const WINDOWSAPPSDK_RELEASE_VERSION_TAG_W: windows_core::PCWSTR = windows_core::w!("");
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562949953486848;
-pub const WM_MOUSEMOVE: u32 = 512;
-pub const WM_SETCURSOR: u32 = 32;
+pub const WM_MOUSEMOVE: i32 = 512;
+pub const WM_SETCURSOR: i32 = 32;
 pub type WPARAM = usize;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

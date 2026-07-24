@@ -155,13 +155,13 @@ mod Windows {
             name: *mut IKEEXT_CERT_NAME0,
             flags: u32,
         }
-        const IKEEXT_CERT_AUTH_ALLOW_HTTP_CERT_LOOKUP: u32 = 16;
-        const IKEEXT_CERT_AUTH_DISABLE_SSL_CERT_VALIDATION: u32 = 8;
-        const IKEEXT_CERT_AUTH_ENABLE_CRL_CHECK_STRONG: u32 = 4;
-        const IKEEXT_CERT_AUTH_FLAG_DISABLE_CRL_CHECK: u32 = 2;
-        const IKEEXT_CERT_AUTH_FLAG_DISABLE_REQUEST_PAYLOAD: u32 = 64;
-        const IKEEXT_CERT_AUTH_FLAG_SSL_ONE_WAY: u32 = 1;
-        const IKEEXT_CERT_AUTH_URL_CONTAINS_BUNDLE: u32 = 32;
+        const IKEEXT_CERT_AUTH_ALLOW_HTTP_CERT_LOOKUP: i32 = 16;
+        const IKEEXT_CERT_AUTH_DISABLE_SSL_CERT_VALIDATION: i32 = 8;
+        const IKEEXT_CERT_AUTH_ENABLE_CRL_CHECK_STRONG: i32 = 4;
+        const IKEEXT_CERT_AUTH_FLAG_DISABLE_CRL_CHECK: i32 = 2;
+        const IKEEXT_CERT_AUTH_FLAG_DISABLE_REQUEST_PAYLOAD: i32 = 64;
+        const IKEEXT_CERT_AUTH_FLAG_SSL_ONE_WAY: i32 = 1;
+        const IKEEXT_CERT_AUTH_URL_CONTAINS_BUNDLE: i32 = 32;
         #[repr(i32)]
         enum IKEEXT_CERT_CONFIG_TYPE {
             IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST = 0,
@@ -170,7 +170,7 @@ mod Windows {
             IKEEXT_CERT_CONFIG_UNSPECIFIED = 3,
             IKEEXT_CERT_CONFIG_TYPE_MAX = 4,
         }
-        const IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT: u32 = 1;
+        const IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT: i32 = 1;
         #[repr(i32)]
         enum IKEEXT_CERT_CRITERIA_NAME_TYPE {
             IKEEXT_CERT_CRITERIA_DNS = 0,
@@ -186,15 +186,15 @@ mod Windows {
             numEku: u32,
             eku: *mut PSTR,
         }
-        const IKEEXT_CERT_FLAG_DISABLE_REQUEST_PAYLOAD: u32 = 2;
-        const IKEEXT_CERT_FLAG_ENABLE_ACCOUNT_MAPPING: u32 = 1;
-        const IKEEXT_CERT_FLAG_FOLLOW_RENEWAL_CERTIFICATE: u32 = 256;
-        const IKEEXT_CERT_FLAG_IGNORE_INIT_CERT_MAP_FAILURE: u32 = 16;
-        const IKEEXT_CERT_FLAG_INTERMEDIATE_CA: u32 = 8;
-        const IKEEXT_CERT_FLAG_PREFER_NAP_CERTIFICATE_OUTBOUND: u32 = 32;
-        const IKEEXT_CERT_FLAG_SELECT_NAP_CERTIFICATE: u32 = 64;
-        const IKEEXT_CERT_FLAG_USE_NAP_CERTIFICATE: u32 = 4;
-        const IKEEXT_CERT_FLAG_VERIFY_NAP_CERTIFICATE: u32 = 128;
+        const IKEEXT_CERT_FLAG_DISABLE_REQUEST_PAYLOAD: i32 = 2;
+        const IKEEXT_CERT_FLAG_ENABLE_ACCOUNT_MAPPING: i32 = 1;
+        const IKEEXT_CERT_FLAG_FOLLOW_RENEWAL_CERTIFICATE: i32 = 256;
+        const IKEEXT_CERT_FLAG_IGNORE_INIT_CERT_MAP_FAILURE: i32 = 16;
+        const IKEEXT_CERT_FLAG_INTERMEDIATE_CA: i32 = 8;
+        const IKEEXT_CERT_FLAG_PREFER_NAP_CERTIFICATE_OUTBOUND: i32 = 32;
+        const IKEEXT_CERT_FLAG_SELECT_NAP_CERTIFICATE: i32 = 64;
+        const IKEEXT_CERT_FLAG_USE_NAP_CERTIFICATE: i32 = 4;
+        const IKEEXT_CERT_FLAG_VERIFY_NAP_CERTIFICATE: i32 = 128;
         struct IKEEXT_CERT_NAME0 {
             nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
             certName: PWSTR,
@@ -304,8 +304,8 @@ mod Windows {
         struct IKEEXT_EAP_AUTHENTICATION0 {
             flags: u32,
         }
-        const IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY: u32 = 1;
-        const IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY: u32 = 2;
+        const IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY: i32 = 1;
+        const IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY: i32 = 2;
         struct IKEEXT_EM_POLICY0 {
             numAuthenticationMethods: u32,
             authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
@@ -331,7 +331,7 @@ mod Windows {
             IKEEXT_EM_SA_STATE_COMPLETE = 5,
             IKEEXT_EM_SA_STATE_MAX = 6,
         }
-        const IKEEXT_ERROR_CODE_COUNT: u32 = 97;
+        const IKEEXT_ERROR_CODE_COUNT: i32 = 97;
         struct IKEEXT_INTEGRITY_ALGORITHM0 {
             algoIdentifier: IKEEXT_INTEGRITY_TYPE,
         }
@@ -405,9 +405,9 @@ mod Windows {
             flags: u32,
             proxyServer: *mut u16,
         }
-        const IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: u32 = 1;
-        const IKEEXT_KERB_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 2;
-        const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: u32 = 4;
+        const IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: i32 = 1;
+        const IKEEXT_KERB_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: i32 = 2;
+        const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: i32 = 4;
         struct IKEEXT_KEYMODULE_STATISTICS0 {
             v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
             v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
@@ -447,7 +447,7 @@ mod Windows {
         struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
             flags: u32,
         }
-        const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1;
+        const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: i32 = 1;
         struct IKEEXT_POLICY0 {
             softExpirationTime: u32,
             numAuthenticationMethods: u32,
@@ -480,16 +480,16 @@ mod Windows {
             maxDynamicFilters: u32,
             retransmitDurationSecs: u32,
         }
-        const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128;
-        const IKEEXT_POLICY_FLAG_DISABLE_DIAGNOSTICS: u32 = 1;
-        const IKEEXT_POLICY_FLAG_ENABLE_OPTIONAL_DH: u32 = 8;
-        const IKEEXT_POLICY_FLAG_IMS_VPN: u32 = 64;
-        const IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED: u32 = 16;
-        const IKEEXT_POLICY_FLAG_NO_IMPERSONATION_LUID_VERIFY: u32 = 4;
-        const IKEEXT_POLICY_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 2;
-        const IKEEXT_POLICY_FLAG_POINT_TO_SITE: u32 = 512;
-        const IKEEXT_POLICY_FLAG_SITE_TO_SITE: u32 = 32;
-        const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256;
+        const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: i32 = 128;
+        const IKEEXT_POLICY_FLAG_DISABLE_DIAGNOSTICS: i32 = 1;
+        const IKEEXT_POLICY_FLAG_ENABLE_OPTIONAL_DH: i32 = 8;
+        const IKEEXT_POLICY_FLAG_IMS_VPN: i32 = 64;
+        const IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED: i32 = 16;
+        const IKEEXT_POLICY_FLAG_NO_IMPERSONATION_LUID_VERIFY: i32 = 4;
+        const IKEEXT_POLICY_FLAG_NO_MACHINE_LUID_VERIFY: i32 = 2;
+        const IKEEXT_POLICY_FLAG_POINT_TO_SITE: i32 = 512;
+        const IKEEXT_POLICY_FLAG_SITE_TO_SITE: i32 = 32;
+        const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: i32 = 256;
         struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
             presharedKey: FWP_BYTE_BLOB,
         }
@@ -504,8 +504,8 @@ mod Windows {
             dhGroup: IKEEXT_DH_GROUP,
             quickModeLimit: u32,
         }
-        const IKEEXT_PSK_FLAG_LOCAL_AUTH_ONLY: u32 = 1;
-        const IKEEXT_PSK_FLAG_REMOTE_AUTH_ONLY: u32 = 2;
+        const IKEEXT_PSK_FLAG_LOCAL_AUTH_ONLY: i32 = 1;
+        const IKEEXT_PSK_FLAG_REMOTE_AUTH_ONLY: i32 = 2;
         #[repr(i32)]
         enum IKEEXT_QM_SA_STATE {
             IKEEXT_QM_SA_STATE_NONE = 0,
@@ -517,7 +517,7 @@ mod Windows {
         struct IKEEXT_RESERVED_AUTHENTICATION0 {
             flags: u32,
         }
-        const IKEEXT_RESERVED_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: u32 = 1;
+        const IKEEXT_RESERVED_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: i32 = 1;
         struct IKEEXT_SA_DETAILS0 {
             saId: u64,
             keyModuleType: IKEEXT_KEY_MODULE_TYPE,

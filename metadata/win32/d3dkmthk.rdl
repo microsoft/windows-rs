@@ -1635,7 +1635,7 @@ mod Windows {
             dwDirtyFlags: u32,
             uiCookie: u64,
         }
-        const D3DKMT_GDI_STYLE_HANDLE_DECORATION: u32 = 2;
+        const D3DKMT_GDI_STYLE_HANDLE_DECORATION: i32 = 2;
         struct D3DKMT_GETALLOCATIONPRIORITY {
             hDevice: D3DKMT_HANDLE,
             hResource: D3DKMT_HANDLE,
@@ -1709,7 +1709,7 @@ mod Windows {
             pTokens: *mut D3DKMT_PRESENTHISTORYTOKEN,
             NumTokens: u32,
         }
-        const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: u32 = 2048;
+        const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: i32 = 2048;
         struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
             hProcess: HANDLE,
             AdapterLuid: LUID,
@@ -1780,7 +1780,7 @@ mod Windows {
             DriverProtection: [u64; 64],
             AllocationData: [u64; 64],
         }
-        const D3DKMT_GET_PTE_MAX: u32 = 64;
+        const D3DKMT_GET_PTE_MAX: i32 = 64;
         struct D3DKMT_GET_SEGMENT_CAPS {
             PhysicalAdapterIndex: u32,
             NumSegments: u32,
@@ -1903,15 +1903,15 @@ mod Windows {
             hDevice: D3DKMT_HANDLE,
             Reason: D3DKMT_DEVICE_ERROR_REASON,
         }
-        const D3DKMT_MAX_BUNDLE_OBJECTS_PER_HANDLE: u32 = 16;
+        const D3DKMT_MAX_BUNDLE_OBJECTS_PER_HANDLE: i32 = 16;
         const D3DKMT_MAX_DMM_ESCAPE_DATASIZE: i32 = 102400;
-        const D3DKMT_MAX_MULTIPLANE_OVERLAY_ALLOCATIONS_PER_PLANE: u32 = 256;
-        const D3DKMT_MAX_MULTIPLANE_OVERLAY_PLANES: u32 = 8;
-        const D3DKMT_MAX_OBJECTS_PER_HANDLE: u32 = 3;
-        const D3DKMT_MAX_PRESENT_HISTORY_RECTS: u32 = 16;
-        const D3DKMT_MAX_PRESENT_HISTORY_SCATTERBLTS: u32 = 12;
-        const D3DKMT_MAX_SEGMENT_COUNT: u32 = 32;
-        const D3DKMT_MAX_WAITFORVERTICALBLANK_OBJECTS: u32 = 8;
+        const D3DKMT_MAX_MULTIPLANE_OVERLAY_ALLOCATIONS_PER_PLANE: i32 = 256;
+        const D3DKMT_MAX_MULTIPLANE_OVERLAY_PLANES: i32 = 8;
+        const D3DKMT_MAX_OBJECTS_PER_HANDLE: i32 = 3;
+        const D3DKMT_MAX_PRESENT_HISTORY_RECTS: i32 = 16;
+        const D3DKMT_MAX_PRESENT_HISTORY_SCATTERBLTS: i32 = 12;
+        const D3DKMT_MAX_SEGMENT_COUNT: i32 = 32;
+        const D3DKMT_MAX_WAITFORVERTICALBLANK_OBJECTS: i32 = 8;
         #[repr(i32)]
         enum D3DKMT_MEMORY_SEGMENT_GROUP {
             D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL = 0,
@@ -2602,7 +2602,7 @@ mod Windows {
                 SurfaceComplete: D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN,
             },
         }
-        const D3DKMT_PRESENTHISTORYTOKEN_SIZE: u32 = 1080;
+        const D3DKMT_PRESENTHISTORYTOKEN_SIZE: i32 = 1080;
         #[repr(i32)]
         enum D3DKMT_PRESENT_MODEL {
             D3DKMT_PM_UNINITIALIZED = 0,
@@ -2876,7 +2876,7 @@ mod Windows {
             D3DKMT_PreemptionAttemptMissAlreadyRunning = 15,
             D3DKMT_PreemptionAttemptStatisticsMax = 16,
         }
-        const D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT_MAX: u32 = 16;
+        const D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT_MAX: i32 = 16;
         struct D3DKMT_QUERYSTATISTICS {
             Type: D3DKMT_QUERYSTATISTICS_TYPE,
             AdapterLuid: LUID,
@@ -2943,7 +2943,7 @@ mod Windows {
             D3DKMT_AllocationPriorityClassMaximum = 4,
             D3DKMT_MaxAllocationPriorityClass = 5,
         }
-        const D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS_MAX: u32 = 5;
+        const D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS_MAX: i32 = 5;
         struct D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
             TotalBytesEvictedFromProcess: u64,
             BytesBySegmentPreference: [u64; 5],
@@ -2971,7 +2971,7 @@ mod Windows {
             PacketPreempted: u32,
             PacketFaulted: u32,
         }
-        const D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_MAX: u32 = 4;
+        const D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_MAX: i32 = 4;
         struct D3DKMT_QUERYSTATISTICS_MEMORY {
             TotalBytesEvicted: u64,
             AllocsCommitted: u32,
@@ -3026,7 +3026,7 @@ mod Windows {
             SystemMemory: D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY,
             Reserved: [u64; 7],
         }
-        const D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_BUCKET_COUNT: u32 = 9;
+        const D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_BUCKET_COUNT: i32 = 9;
         struct D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
             InterferenceCount: [u64; 9],
         }
@@ -3121,7 +3121,7 @@ mod Windows {
             PacketSubmited: u32,
             PacketCompleted: u32,
         }
-        const D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_MAX: u32 = 8;
+        const D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_MAX: i32 = 8;
         union D3DKMT_QUERYSTATISTICS_RESULT {
             AdapterInformation: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION,
             PhysAdapterInformation: D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION,
@@ -3165,7 +3165,7 @@ mod Windows {
             },
             Reserved: [u64; 5],
         }
-        const D3DKMT_QUERYSTATISTICS_SEGMENT_PREFERENCE_MAX: u32 = 5;
+        const D3DKMT_QUERYSTATISTICS_SEGMENT_PREFERENCE_MAX: i32 = 5;
         #[repr(i32)]
         enum D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE {
             D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_APERTURE = 0,
@@ -3525,7 +3525,7 @@ mod Windows {
             hContext: D3DKMT_HANDLE,
             Priority: i32,
         }
-        const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: u32 = 1073741824;
+        const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: i32 = 1073741824;
         struct D3DKMT_SETDISPLAYMODE {
             hDevice: D3DKMT_HANDLE,
             hPrimaryAllocation: D3DKMT_HANDLE,
@@ -4203,7 +4203,7 @@ mod Windows {
         enum DXGKMT_POWER_SHARED_TYPE {
             DXGKMT_POWER_SHARED_TYPE_AUDIO = 0,
         }
-        const DXGK_DIAG_PROCESS_NAME_LENGTH: u32 = 16;
+        const DXGK_DIAG_PROCESS_NAME_LENGTH: i32 = 16;
         struct DXGK_ESCAPE_GPUMMUCAPS {
             ReadOnlyMemorySupported: BOOLEAN,
             NoExecuteMemorySupported: BOOLEAN,
@@ -4241,14 +4241,14 @@ mod Windows {
             SetSharedPowerComponentStateCb: PDXGK_SET_SHARED_POWER_COMPONENT_STATE,
             UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER,
         }
-        const DXGK_GRAPHICSPOWER_VERSION: u32 = 4098;
-        const DXGK_GRAPHICSPOWER_VERSION_1_0: u32 = 4096;
-        const DXGK_GRAPHICSPOWER_VERSION_1_1: u32 = 4097;
-        const DXGK_GRAPHICSPOWER_VERSION_1_2: u32 = 4098;
-        const FLIPEX_TIMEOUT_KERNEL: u32 = 20000000;
-        const FLIPEX_TIMEOUT_USER: u32 = 2000;
+        const DXGK_GRAPHICSPOWER_VERSION: i32 = 4098;
+        const DXGK_GRAPHICSPOWER_VERSION_1_0: i32 = 4096;
+        const DXGK_GRAPHICSPOWER_VERSION_1_1: i32 = 4097;
+        const DXGK_GRAPHICSPOWER_VERSION_1_2: i32 = 4098;
+        const FLIPEX_TIMEOUT_KERNEL: i32 = 20000000;
+        const FLIPEX_TIMEOUT_USER: i32 = 2000;
         const GUID_DEVINTERFACE_GRAPHICSPOWER: GUID = 0xea5c6870_e93c_4588_bef1_fec42fc9429a;
-        const IOCTL_INTERNAL_GRAPHICSPOWER_REGISTER: u32 = 2304007;
+        const IOCTL_INTERNAL_GRAPHICSPOWER_REGISTER: i32 = 2304007;
         #[repr(i32)]
         enum KMTQUERYADAPTERINFOTYPE {
             KMTQAITYPE_UMDRIVERPRIVATE = 0,
@@ -4348,7 +4348,7 @@ mod Windows {
             KMT_DISPLAY_UMDVERSION_1 = 0,
             NUM_KMT_DISPLAY_UMDVERSIONS = 1,
         }
-        const MAX_ENUM_ADAPTERS: u32 = 16;
+        const MAX_ENUM_ADAPTERS: i32 = 16;
         struct OBJECT_ATTRIBUTES {
             Length: u32,
             RootDirectory: HANDLE,
@@ -4373,7 +4373,7 @@ mod Windows {
             OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY = 2,
             OUTPUTDUPL_CONTEXT_DEBUG_STATUS_FORCE_UINT32 = -1,
         }
-        const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: u32 = 3;
+        const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: i32 = 3;
         type PD3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS;
         type PD3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS;
         type PD3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS = *mut D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS;
@@ -4580,7 +4580,7 @@ mod Windows {
         extern fn PFND3DKMT_WAITFORVERTICALBLANKEVENT(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> NTSTATUS;
         extern fn PFND3DKMT_WAITFORVERTICALBLANKEVENT2(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> NTSTATUS;
         type POBJECT_ATTRIBUTES = *mut OBJECT_ATTRIBUTES;
-        const SHARED_ALLOCATION_ALL_ACCESS: u32 = 983041;
-        const SHARED_ALLOCATION_WRITE: u32 = 1;
+        const SHARED_ALLOCATION_ALL_ACCESS: i32 = 983041;
+        const SHARED_ALLOCATION_WRITE: i32 = 1;
     }
 }

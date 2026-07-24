@@ -71,7 +71,7 @@ mod Windows {
             Result: u16,
             Reserved2: [u8; 14],
         }
-        const FIRMWARE_ACTIVATION_HISTORY_ENTRY_VERSION_1: u32 = 1;
+        const FIRMWARE_ACTIVATION_HISTORY_ENTRY_VERSION_1: i32 = 1;
         const GUID_MFND_CHILD_CONTROLLER_EVENT_LOG_PAGE: GUID = 0x98bcce18_a5f0_bf35_a544_d97f259d669c;
         const GUID_MFND_CHILD_CONTROLLER_QOS_STAT_LOG_PAGE: GUID = 0x9cb5fa26_0652_4644_873e_400084575f0f;
         const GUID_OCP_DEVICE_DEVICE_CAPABILITIES: GUID = 0x0d054297_e1d1_98c9_5d49_584b913c05b7;
@@ -164,8 +164,8 @@ mod Windows {
             NvmeofAddressLoopback = 254,
             NvmeofAddressMax = 255,
         }
-        const NVMEOF_ADMINQ_MAX_DEPTH: u32 = 4096;
-        const NVMEOF_ADMINQ_MIN_DEPTH: u32 = 32;
+        const NVMEOF_ADMINQ_MAX_DEPTH: i32 = 4096;
+        const NVMEOF_ADMINQ_MIN_DEPTH: i32 = 32;
         struct NVMEOF_AUTH_DHCHAP_CHALLENGE {
             AUTH_TYPE: u8,
             AUTH_ID: u8,
@@ -389,11 +389,11 @@ mod Windows {
         }
         #[encoding("ansi")]
         const NVMEOF_DHCHAP_PREFIX_V1: String = "DHHC-1:";
-        const NVMEOF_DHCHAP_PROTOCOL_ID: u32 = 1;
-        const NVMEOF_DHCHAP_REPLY_CVAL_NOTVALID: u32 = 0;
-        const NVMEOF_DHCHAP_REPLY_CVAL_VALID: u32 = 1;
-        const NVMEOF_DHCHAP_SUCCESS1_RVAL_NOTVALID: u32 = 0;
-        const NVMEOF_DHCHAP_SUCCESS1_RVAL_VALID: u32 = 1;
+        const NVMEOF_DHCHAP_PROTOCOL_ID: i32 = 1;
+        const NVMEOF_DHCHAP_REPLY_CVAL_NOTVALID: i32 = 0;
+        const NVMEOF_DHCHAP_REPLY_CVAL_VALID: i32 = 1;
+        const NVMEOF_DHCHAP_SUCCESS1_RVAL_NOTVALID: i32 = 0;
+        const NVMEOF_DHCHAP_SUCCESS1_RVAL_VALID: i32 = 1;
         struct NVMEOF_DISCONNECT_COMMAND {
             OPC: u8,
             Reserved0: u8,
@@ -411,7 +411,7 @@ mod Windows {
             CID: u16,
             STS: u16,
         }
-        const NVMEOF_DISCOVERY_LOG_VERSION_0: u32 = 0;
+        const NVMEOF_DISCOVERY_LOG_VERSION_0: i32 = 0;
         #[encoding("ansi")]
         const NVMEOF_DISCOVERY_NQN: String = "nqn.2014-08.org.nvmexpress.discovery";
         struct NVMEOF_FABRICS_COMMAND {
@@ -429,8 +429,8 @@ mod Windows {
             CID: u16,
             STS: u16,
         }
-        const NVMEOF_IOQ_MAX_DEPTH: u32 = 65536;
-        const NVMEOF_IOQ_MIN_DEPTH: u32 = 2;
+        const NVMEOF_IOQ_MAX_DEPTH: i32 = 65536;
+        const NVMEOF_IOQ_MIN_DEPTH: i32 = 2;
         struct NVMEOF_PROPERTY_GET_COMMAND {
             OPC: u8,
             Reserved0: u8,
@@ -490,8 +490,8 @@ mod Windows {
             CID: u16,
             STS: u16,
         }
-        const NVMEOF_PROPERTY_SIZE_4Bytes: u32 = 0;
-        const NVMEOF_PROPERTY_SIZE_8Bytes: u32 = 1;
+        const NVMEOF_PROPERTY_SIZE_4Bytes: i32 = 0;
+        const NVMEOF_PROPERTY_SIZE_8Bytes: i32 = 1;
         #[repr(i32)]
         enum NVMEOF_SECURE_CHANNEL {
             NvmeofSCUnspecified = 0,
@@ -514,9 +514,9 @@ mod Windows {
             NvmeofSubsysTypeDiscCurrent = 3,
             NvmeofSubsysTypeMax = 255,
         }
-        const NVMEOF_TRANSPORT_ADDR_MAX_LEN: u32 = 256;
-        const NVMEOF_TRANSPORT_SAS_MAX_LEN: u32 = 256;
-        const NVMEOF_TRANSPORT_SERVID_MAX_LEN: u32 = 32;
+        const NVMEOF_TRANSPORT_ADDR_MAX_LEN: i32 = 256;
+        const NVMEOF_TRANSPORT_SAS_MAX_LEN: i32 = 256;
+        const NVMEOF_TRANSPORT_SERVID_MAX_LEN: i32 = 32;
         #[repr(i32)]
         enum NVMEOF_TRANSPORT_TYPE {
             NvmeofTransportUnknown = 0,
@@ -548,7 +548,7 @@ mod Windows {
         struct NVME_ACTIVE_NAMESPACE_ID_LIST {
             NSID: [u32; 1024],
         }
-        const NVME_ADMINQ_ID: u32 = 0;
+        const NVME_ADMINQ_ID: i32 = 0;
         #[repr(i32)]
         enum NVME_ADMIN_COMMANDS {
             NVME_ADMIN_COMMAND_DELETE_IO_SQ = 0,
@@ -886,12 +886,12 @@ mod Windows {
             },
             AsUlong: u32,
         }
-        const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_512_BYTES_OF_HEADER: u32 = 3;
-        const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_LOG_DATA: u32 = 1;
-        const NVME_CDW10_LSP_ACTION_READ_LOG_DATA: u32 = 0;
-        const NVME_CDW10_LSP_ACTION_RELEASE_CONTEXT: u32 = 2;
-        const NVME_CDW10_LSP_BOOT_PARTITION_0: u32 = 0;
-        const NVME_CDW10_LSP_BOOT_PARTITION_1: u32 = 1;
+        const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_512_BYTES_OF_HEADER: i32 = 3;
+        const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_LOG_DATA: i32 = 1;
+        const NVME_CDW10_LSP_ACTION_READ_LOG_DATA: i32 = 0;
+        const NVME_CDW10_LSP_ACTION_RELEASE_CONTEXT: i32 = 2;
+        const NVME_CDW10_LSP_BOOT_PARTITION_0: i32 = 0;
+        const NVME_CDW10_LSP_BOOT_PARTITION_1: i32 = 1;
         union NVME_CDW10_RESERVATION_ACQUIRE {
             Anonymous: struct {
                 _bitfield: u32 {
@@ -2012,10 +2012,10 @@ mod Windows {
             },
             AsUlong: u32,
         }
-        const NVME_CONTROLLER_ID_DYN: u32 = 65535;
-        const NVME_CONTROLLER_ID_MAX: u32 = 65519;
-        const NVME_CONTROLLER_ID_MIN: u32 = 0;
-        const NVME_CONTROLLER_ID_STAT_PERSIST: u32 = 65534;
+        const NVME_CONTROLLER_ID_DYN: i32 = 65535;
+        const NVME_CONTROLLER_ID_MAX: i32 = 65519;
+        const NVME_CONTROLLER_ID_MIN: i32 = 0;
+        const NVME_CONTROLLER_ID_STAT_PERSIST: i32 = 65534;
         struct NVME_CONTROLLER_LIST {
             NumberOfIdentifiers: u16,
             ControllerID: [u16; 2047],
@@ -2308,8 +2308,8 @@ mod Windows {
             NVME_DISCOVERY_INFO_ENTRY_FORMAT_BASIC = 1,
             NVME_DISCOVERY_INFO_ENTRY_FORMAT_EXTENDED = 2,
         }
-        const NVME_DISCOVERY_INFO_MGMT_EKTYPE_PORTID: u32 = 63;
-        const NVME_DISCOVERY_INFO_MGMT_EKTYPE_TRADDR: u32 = 95;
+        const NVME_DISCOVERY_INFO_MGMT_EKTYPE_PORTID: i32 = 63;
+        const NVME_DISCOVERY_INFO_MGMT_EKTYPE_TRADDR: i32 = 95;
         struct NVME_DISCOVERY_INFO_MGMT_HEADER {
             TDL: u32,
             Reserved0: u32,
@@ -2471,7 +2471,7 @@ mod Windows {
             NUMEXAT: u16,
             Reserved2: u16,
         }
-        const NVME_EXTENDED_HOST_IDENTIFIER_SIZE: u32 = 16;
+        const NVME_EXTENDED_HOST_IDENTIFIER_SIZE: i32 = 16;
         struct NVME_EXTENDED_REPORT_ZONE_INFO {
             ZoneCount: u64,
             Reserved: [u64; 7],
@@ -2652,7 +2652,7 @@ mod Windows {
             LBAFEE: u8,
             Reserved: [u8; 509],
         }
-        const NVME_HOST_IDENTIFIER_SIZE: u32 = 8;
+        const NVME_HOST_IDENTIFIER_SIZE: i32 = 8;
         struct NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
             BADD: u64,
             BSIZE: u32,
@@ -2712,7 +2712,7 @@ mod Windows {
             NVME_IDENTIFY_CNS_ALLOCATED_NAMESPACE_IO_COMMAND_SET = 27,
             NVME_IDENTIFY_CNS_IO_COMMAND_SET = 28,
         }
-        const NVME_IDENTIFY_CNS_DESCRIPTOR_NAMESPACE_SIZE: u32 = 4096;
+        const NVME_IDENTIFY_CNS_DESCRIPTOR_NAMESPACE_SIZE: i32 = 4096;
         struct NVME_IDENTIFY_CONTROLLER_DATA {
             VID: u16,
             SSVID: u16,
@@ -3276,12 +3276,12 @@ mod Windows {
             NVME_LOG_PAGE_SANITIZE_STATUS = 129,
             NVME_LOG_PAGE_CHANGED_ZONE_LIST = 191,
         }
-        const NVME_LOG_PAGE_WCS_DEVICE_ERROR_RECOVERY: u32 = 193;
-        const NVME_LOG_PAGE_WCS_DEVICE_SMART_ATTRIBUTES: u32 = 192;
-        const NVME_MAX_HOST_IDENTIFIER_SIZE: u32 = 16;
-        const NVME_MAX_LOG_PAGE_IDENTIFIER: u32 = 255;
-        const NVME_MAX_LOG_SIZE: u32 = 4096;
-        const NVME_MAX_UUID_INDEX: u32 = 127;
+        const NVME_LOG_PAGE_WCS_DEVICE_ERROR_RECOVERY: i32 = 193;
+        const NVME_LOG_PAGE_WCS_DEVICE_SMART_ATTRIBUTES: i32 = 192;
+        const NVME_MAX_HOST_IDENTIFIER_SIZE: i32 = 16;
+        const NVME_MAX_LOG_PAGE_IDENTIFIER: i32 = 255;
+        const NVME_MAX_LOG_SIZE: i32 = 4096;
+        const NVME_MAX_UUID_INDEX: i32 = 127;
         const NVME_NAMESPACE_ALL: u32 = 4294967295;
         #[repr(i32)]
         enum NVME_NAMESPACE_METADATA_ELEMENT_TYPES {
@@ -3296,12 +3296,12 @@ mod Windows {
             NVME_MEDIA_NOT_ADDITIONALLY_MODIFIED_AFTER_SANITIZE = 1,
             NVME_MEDIA_ADDITIONALLY_MOFIDIED_AFTER_SANITIZE = 2,
         }
-        const NVME_NQN_MAX_LEN: u32 = 256;
-        const NVME_NQN_NAME_MAX_LEN: u32 = 223;
-        const NVME_NUM_FID_SUPPORTED: u32 = 256;
-        const NVME_NUM_LOG_PAGE_IDENTIFIERS: u32 = 256;
-        const NVME_NUM_NVME_MI_COMMANDS_SUPPORTED: u32 = 256;
-        const NVME_NUM_UUID_LIST_ENTRIES: u32 = 128;
+        const NVME_NQN_MAX_LEN: i32 = 256;
+        const NVME_NQN_NAME_MAX_LEN: i32 = 223;
+        const NVME_NUM_FID_SUPPORTED: i32 = 256;
+        const NVME_NUM_LOG_PAGE_IDENTIFIERS: i32 = 256;
+        const NVME_NUM_NVME_MI_COMMANDS_SUPPORTED: i32 = 256;
+        const NVME_NUM_UUID_LIST_ENTRIES: i32 = 128;
         struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS {
             _bitfield: u32 {
                 CSUPP: 1,
@@ -3439,9 +3439,9 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_OCP_DEVICE_CAPABILITIES_LOG_VERSION_1: u32 = 1;
-        const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_0: u32 = 0;
-        const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_2: u32 = 2;
+        const NVME_OCP_DEVICE_CAPABILITIES_LOG_VERSION_1: i32 = 1;
+        const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_0: i32 = 0;
+        const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_2: i32 = 2;
         #[packed(1)]
         struct NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
             PanicResetWaitTime: u16,
@@ -3460,7 +3460,7 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_VERSION_2: u32 = 2;
+        const NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_VERSION_2: i32 = 2;
         #[packed(1)]
         struct NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
             LID: u8,
@@ -3471,7 +3471,7 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG_VERSION_1: u32 = 1;
+        const NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
             FeatureStatus: LATENCY_MONITOR_FEATURE_STATUS,
@@ -3519,7 +3519,7 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: u32 = 1;
+        const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
             MediaUnitsWritten: [u8; 16],
@@ -3574,7 +3574,7 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_OCP_DEVICE_SMART_INFORMATION_LOG_VERSION_3: u32 = 3;
+        const NVME_OCP_DEVICE_SMART_INFORMATION_LOG_VERSION_3: i32 = 3;
         #[packed(1)]
         struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
             State: union {
@@ -3610,7 +3610,7 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: u32 = 1;
+        const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_OCP_DEVICE_TCG_HISTORY_LOG {
             LID: u8,
@@ -3621,7 +3621,7 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_OCP_DEVICE_TCG_HISTORY_LOG_VERSION_1: u32 = 1;
+        const NVME_OCP_DEVICE_TCG_HISTORY_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
             UnsupportedCount: u16,
@@ -3631,7 +3631,7 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG_VERSION_1: u32 = 1;
+        const NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG_VERSION_1: i32 = 1;
         #[packed(1)]
         struct NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
             EventType: u8,
@@ -3775,10 +3775,10 @@ mod Windows {
             },
             AsUlonglong: u64,
         }
-        const NVME_PSDT_XFER_PRP: u32 = 0;
-        const NVME_PSDT_XFER_RESERVED: u32 = 3;
-        const NVME_PSDT_XFER_SGL_BYTE: u32 = 1;
-        const NVME_PSDT_XFER_SGL_QWORD: u32 = 2;
+        const NVME_PSDT_XFER_PRP: i32 = 0;
+        const NVME_PSDT_XFER_RESERVED: i32 = 3;
+        const NVME_PSDT_XFER_SGL_BYTE: i32 = 1;
+        const NVME_PSDT_XFER_SGL_QWORD: i32 = 2;
         #[repr(i32)]
         enum NVME_RDMA_KEYED_SGL_DESC_SUBTYPE {
             NvmeRdmaKeyedSglDescSubtypeInvalidate = 15,
@@ -4215,9 +4215,9 @@ mod Windows {
             NVME_STATUS_TYPE_PATH_RELATED = 3,
             NVME_STATUS_TYPE_VENDOR_SPECIFIC = 7,
         }
-        const NVME_STREAMS_GET_STATUS_MAX_IDS: u32 = 65535;
-        const NVME_STREAMS_ID_MAX: u32 = 65535;
-        const NVME_STREAMS_ID_MIN: u32 = 1;
+        const NVME_STREAMS_GET_STATUS_MAX_IDS: i32 = 65535;
+        const NVME_STREAMS_ID_MAX: i32 = 65535;
+        const NVME_STREAMS_ID_MIN: i32 = 1;
         union NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
             Anonymous: struct {
                 _bitfield: u32 {
@@ -4244,7 +4244,7 @@ mod Windows {
             ControllerInitiatedDataGenerationNumber: u8,
             ReasonIdentifier: [u8; 128],
         }
-        const NVME_TELEMETRY_DATA_BLOCK_SIZE: u32 = 512;
+        const NVME_TELEMETRY_DATA_BLOCK_SIZE: i32 = 512;
         struct NVME_TELEMETRY_HOST_INITIATED_LOG {
             LogIdentifier: u8,
             Reserved0: [u8; 4],
@@ -4265,10 +4265,10 @@ mod Windows {
             NVME_TEMPERATURE_OVER_THRESHOLD = 0,
             NVME_TEMPERATURE_UNDER_THRESHOLD = 1,
         }
-        const NVME_UUID_ASSOCIATION_NONE: u32 = 0;
-        const NVME_UUID_ASSOCIATION_PCI_SUBSYSTEM_VID: u32 = 2;
-        const NVME_UUID_ASSOCIATION_PCI_VID: u32 = 1;
-        const NVME_UUID_ASSOCIATION_RESERVED: u32 = 3;
+        const NVME_UUID_ASSOCIATION_NONE: i32 = 0;
+        const NVME_UUID_ASSOCIATION_PCI_SUBSYSTEM_VID: i32 = 2;
+        const NVME_UUID_ASSOCIATION_PCI_VID: i32 = 1;
+        const NVME_UUID_ASSOCIATION_RESERVED: i32 = 3;
         struct NVME_UUID_LIST {
             UUID: [NVME_UUID_LIST_ENTRY; 128],
         }
@@ -4291,14 +4291,14 @@ mod Windows {
             NVME_LOG_PAGE_OCP_TCG_CONFIGURATION = 200,
             NVME_LOG_PAGE_OCP_TCG_HISTORY = 201,
         }
-        const NVME_VENDOR_SPECIFIC_ADMIN_COMMAND_MAX_OPCODE: u32 = 255;
-        const NVME_VENDOR_SPECIFIC_ADMIN_COMMAND_MIN_OPCODE: u32 = 192;
-        const NVME_VENDOR_SPECIFIC_FEATURE_MAX_IDENTIFIER: u32 = 255;
-        const NVME_VENDOR_SPECIFIC_FEATURE_MIN_IDENTIFIER: u32 = 192;
-        const NVME_VENDOR_SPECIFIC_LOG_PAGE_MAX_IDENTIFIER: u32 = 255;
-        const NVME_VENDOR_SPECIFIC_LOG_PAGE_MIN_IDENTIFIER: u32 = 192;
-        const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MAX_OPCODE: u32 = 255;
-        const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MIN_OPCODE: u32 = 128;
+        const NVME_VENDOR_SPECIFIC_ADMIN_COMMAND_MAX_OPCODE: i32 = 255;
+        const NVME_VENDOR_SPECIFIC_ADMIN_COMMAND_MIN_OPCODE: i32 = 192;
+        const NVME_VENDOR_SPECIFIC_FEATURE_MAX_IDENTIFIER: i32 = 255;
+        const NVME_VENDOR_SPECIFIC_FEATURE_MIN_IDENTIFIER: i32 = 192;
+        const NVME_VENDOR_SPECIFIC_LOG_PAGE_MAX_IDENTIFIER: i32 = 255;
+        const NVME_VENDOR_SPECIFIC_LOG_PAGE_MIN_IDENTIFIER: i32 = 192;
+        const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MAX_OPCODE: i32 = 255;
+        const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MIN_OPCODE: i32 = 128;
         union NVME_VERSION {
             Anonymous: struct {
                 _bitfield: u32 {
@@ -4337,7 +4337,7 @@ mod Windows {
             LogPageGUID: GUID,
         }
         type NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_V1 = NVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
-        const NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_VERSION_1: u32 = 1;
+        const NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_VERSION_1: i32 = 1;
         #[repr(i32)]
         enum NVME_WCS_DEVICE_RECOVERY_ACTION1 {
             NVMeDeviceRecoveryNoAction = 0,
@@ -4426,7 +4426,7 @@ mod Windows {
             LogPageVersionNumber: u16,
             LogPageGUID: GUID,
         }
-        const NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2: u32 = 2;
+        const NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2: i32 = 2;
         struct NVME_ZONE_DESCRIPTOR {
             Anonymous: struct {
                 _bitfield: u8 {
@@ -4507,8 +4507,8 @@ mod Windows {
             Reserved: [u8; 127],
             Entry: [NVME_SET_ATTRIBUTES_ENTRY; 1],
         }
-        const NVM_SUBSYSTEM_SHUTDOWN_ABRUPT: u32 = 1096970356;
-        const NVM_SUBSYSTEM_SHUTDOWN_NORMAL: u32 = 1316121964;
+        const NVM_SUBSYSTEM_SHUTDOWN_ABRUPT: i32 = 1096970356;
+        const NVM_SUBSYSTEM_SHUTDOWN_NORMAL: i32 = 1316121964;
         type PACTIVE_LATENCY_CONFIGURATION = *mut ACTIVE_LATENCY_CONFIGURATION;
         type PBUCKET_COUNTER = *mut BUCKET_COUNTER;
         type PDEBUG_BIT_FIELD = *mut DEBUG_BIT_FIELD;
@@ -4798,14 +4798,14 @@ mod Windows {
             ProcessTime: u16,
             CommandSpecific: [u8; 10],
         }
-        const TCG_HISTORY_ENTRY_VERSION_1: u32 = 1;
+        const TCG_HISTORY_ENTRY_VERSION_1: i32 = 1;
         struct TCG_REACTIVATE_METHOD_SPECIFIC {
             RangeStartLengthPolicy: u8,
         }
         struct UNSUPPORTED_REQUIREMENT {
             ReqId: [u8; 16],
         }
-        const ZDES_SIZE_MULTIPLIER_IN_BYTES: u32 = 64;
+        const ZDES_SIZE_MULTIPLIER_IN_BYTES: i32 = 64;
         #[repr(i32)]
         enum ZONE_STATE {
             NVME_STATE_ZSE = 1,

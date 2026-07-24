@@ -157,7 +157,7 @@ mod Windows {
         }
         const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456;
         const NDR_DEFAULT_ALLOCATOR: u32 = 536870912;
-        const NT351_INTERFACE_SIZE: u32 = 64;
+        const NT351_INTERFACE_SIZE: i32 = 64;
         type PRPC_CLIENT_INTERFACE = *mut RPC_CLIENT_INTERFACE;
         type PRPC_DISPATCH_TABLE = *mut RPC_DISPATCH_TABLE;
         type PRPC_MESSAGE = *mut RPC_MESSAGE;
@@ -206,11 +206,11 @@ mod Windows {
             PROTOCOL_ADDRESS_CHANGE = 3,
         }
         extern fn RPC_BLOCKING_FN(hWnd: *mut void, Context: *mut void, hSyncEvent: *mut void) -> RPC_STATUS;
-        const RPC_BUFFER_ASYNC: u32 = 32768;
-        const RPC_BUFFER_COMPLETE: u32 = 4096;
-        const RPC_BUFFER_EXTRA: u32 = 16384;
-        const RPC_BUFFER_NONOTIFY: u32 = 65536;
-        const RPC_BUFFER_PARTIAL: u32 = 8192;
+        const RPC_BUFFER_ASYNC: i32 = 32768;
+        const RPC_BUFFER_COMPLETE: i32 = 4096;
+        const RPC_BUFFER_EXTRA: i32 = 16384;
+        const RPC_BUFFER_NONOTIFY: i32 = 65536;
+        const RPC_BUFFER_PARTIAL: i32 = 8192;
         struct RPC_CLIENT_INTERFACE {
             Length: u32,
             InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -226,25 +226,25 @@ mod Windows {
         const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912;
         const RPC_CONTEXT_HANDLE_FLAGS: u32 = 805306368;
         const RPC_CONTEXT_HANDLE_SERIALIZE: u32 = 268435456;
-        const RPC_C_OPT_COOKIE_AUTH: u32 = 7;
+        const RPC_C_OPT_COOKIE_AUTH: i32 = 7;
         struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
             BufferSize: u32,
             Buffer: *mut i8,
         }
-        const RPC_C_OPT_PRIVATE_BREAK_ON_SUSPEND: u32 = 3;
-        const RPC_C_OPT_PRIVATE_DO_NOT_DISTURB: u32 = 2;
-        const RPC_C_OPT_PRIVATE_SUPPRESS_WAKE: u32 = 1;
-        const RPC_C_OPT_RESOURCE_TYPE_UUID: u32 = 8;
-        const RPC_C_OPT_SESSION_ID: u32 = 6;
+        const RPC_C_OPT_PRIVATE_BREAK_ON_SUSPEND: i32 = 3;
+        const RPC_C_OPT_PRIVATE_DO_NOT_DISTURB: i32 = 2;
+        const RPC_C_OPT_PRIVATE_SUPPRESS_WAKE: i32 = 1;
+        const RPC_C_OPT_RESOURCE_TYPE_UUID: i32 = 8;
+        const RPC_C_OPT_SESSION_ID: i32 = 6;
         extern fn RPC_DISPATCH_FUNCTION(Message: *mut RPC_MESSAGE);
         struct RPC_DISPATCH_TABLE {
             DispatchTableCount: u32,
             DispatchTable: *mut RPC_DISPATCH_FUNCTION,
             Reserved: isize,
         }
-        const RPC_FLAGS_VALID_BIT: u32 = 32768;
+        const RPC_FLAGS_VALID_BIT: i32 = 32768;
         extern fn RPC_FORWARD_FUNCTION(InterfaceId: *mut GUID, InterfaceVersion: *mut RPC_VERSION, ObjectId: *mut GUID, Rpcpro: *mut u8, ppDestEndpoint: *mut *mut void) -> RPC_STATUS;
-        const RPC_INTERFACE_HAS_PIPES: u32 = 1;
+        const RPC_INTERFACE_HAS_PIPES: i32 = 1;
         struct RPC_MESSAGE {
             Handle: RPC_BINDING_HANDLE,
             DataRepresentation: u32,
@@ -258,18 +258,18 @@ mod Windows {
             ImportContext: *mut void,
             RpcFlags: u32,
         }
-        const RPC_NCA_FLAGS_BROADCAST: u32 = 2;
-        const RPC_NCA_FLAGS_DEFAULT: u32 = 0;
-        const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1;
-        const RPC_NCA_FLAGS_MAYBE: u32 = 4;
+        const RPC_NCA_FLAGS_BROADCAST: i32 = 2;
+        const RPC_NCA_FLAGS_DEFAULT: i32 = 0;
+        const RPC_NCA_FLAGS_IDEMPOTENT: i32 = 1;
+        const RPC_NCA_FLAGS_MAYBE: i32 = 4;
         struct RPC_PROTSEQ_ENDPOINT {
             RpcProtocolSequence: *mut u8,
             Endpoint: *mut u8,
         }
-        const RPC_PROXY_CONNECTION_TYPE_IN_PROXY: u32 = 0;
-        const RPC_PROXY_CONNECTION_TYPE_OUT_PROXY: u32 = 1;
-        const RPC_P_ADDR_FORMAT_TCP_IPV4: u32 = 1;
-        const RPC_P_ADDR_FORMAT_TCP_IPV6: u32 = 2;
+        const RPC_PROXY_CONNECTION_TYPE_IN_PROXY: i32 = 0;
+        const RPC_PROXY_CONNECTION_TYPE_OUT_PROXY: i32 = 1;
+        const RPC_P_ADDR_FORMAT_TCP_IPV4: i32 = 1;
+        const RPC_P_ADDR_FORMAT_TCP_IPV6: i32 = 2;
         struct RPC_SEC_CONTEXT_KEY_INFO {
             EncryptAlgorithm: u32,
             KeySize: u32,
@@ -291,10 +291,10 @@ mod Windows {
             SyntaxGUID: GUID,
             SyntaxVersion: RPC_VERSION,
         }
-        const RPC_SYSTEM_HANDLE_FREE_ALL: u32 = 3;
-        const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: u32 = 4;
-        const RPC_SYSTEM_HANDLE_FREE_RETRIEVED: u32 = 2;
-        const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: u32 = 1;
+        const RPC_SYSTEM_HANDLE_FREE_ALL: i32 = 3;
+        const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: i32 = 4;
+        const RPC_SYSTEM_HANDLE_FREE_RETRIEVED: i32 = 2;
+        const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: i32 = 1;
         struct RPC_TRANSFER_SYNTAX {
             Uuid: GUID,
             VersMajor: u16,
@@ -321,9 +321,9 @@ mod Windows {
             RpcFailedLbsMessages = 11,
             RpcLastCounter = 12,
         }
-        const TRANSPORT_TYPE_CN: u32 = 1;
-        const TRANSPORT_TYPE_DG: u32 = 2;
-        const TRANSPORT_TYPE_LPC: u32 = 4;
-        const TRANSPORT_TYPE_WMSG: u32 = 8;
+        const TRANSPORT_TYPE_CN: i32 = 1;
+        const TRANSPORT_TYPE_DG: i32 = 2;
+        const TRANSPORT_TYPE_LPC: i32 = 4;
+        const TRANSPORT_TYPE_WMSG: i32 = 8;
     }
 }

@@ -7,11 +7,11 @@ mod Windows {
             b: f32,
             a: f32,
         }
-        const DXGI_CPU_ACCESS_DYNAMIC: u32 = 1;
-        const DXGI_CPU_ACCESS_FIELD: u32 = 15;
-        const DXGI_CPU_ACCESS_NONE: u32 = 0;
-        const DXGI_CPU_ACCESS_READ_WRITE: u32 = 2;
-        const DXGI_CPU_ACCESS_SCRATCH: u32 = 3;
+        const DXGI_CPU_ACCESS_DYNAMIC: i32 = 1;
+        const DXGI_CPU_ACCESS_FIELD: i32 = 15;
+        const DXGI_CPU_ACCESS_NONE: i32 = 0;
+        const DXGI_CPU_ACCESS_READ_WRITE: i32 = 2;
+        const DXGI_CPU_ACCESS_SCRATCH: i32 = 3;
         struct DXGI_GAMMA_CONTROL {
             Scale: DXGI_RGB,
             Offset: DXGI_RGB,

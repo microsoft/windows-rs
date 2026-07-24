@@ -525,7 +525,7 @@ impl IRoSimpleMetaDataBuilder {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512;
+pub const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
 pub const None: RoErrorReportingFlags = 0;
 #[cfg(feature = "activation")]
 pub type PFNGETACTIVATIONFACTORY = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::HSTRING>, param1: windows_core::OutRef<super::IActivationFactory>) -> windows_core::HRESULT>;

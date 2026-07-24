@@ -6,7 +6,7 @@ fn main() -> windows::core::Result<()> {
     // that need to handle messages the crate doesn't model. Return `Some(result)`
     // to handle a message, or `None` to fall through to default processing.
     let _window = Window::new("Window Messages")
-        .on_message(|hwnd, message, wparam, lparam| match message {
+        .on_message(|hwnd, message, wparam, lparam| match message as i32 {
             WM_PAINT => {
                 println!("WM_PAINT");
                 unsafe { _ = ValidateRect(Some(HWND(hwnd)), None) };

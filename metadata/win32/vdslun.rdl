@@ -87,6 +87,6 @@ mod Windows {
             VDSStorageIdTypeMD5LogicalUnitIdentifier = 7,
             VDSStorageIdTypeScsiNameString = 8,
         }
-        const VER_VDS_LUN_INFORMATION: u32 = 1;
+        const VER_VDS_LUN_INFORMATION: i32 = 1;
     }
 }

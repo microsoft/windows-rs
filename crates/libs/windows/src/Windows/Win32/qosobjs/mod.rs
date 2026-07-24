@@ -52,12 +52,12 @@ impl Default for QOS_FRIENDLY_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256;
-pub const QOS_OBJECT_DIFFSERV: u32 = 4003;
-pub const QOS_OBJECT_DS_CLASS: u32 = 4001;
-pub const QOS_OBJECT_FRIENDLY_NAME: u32 = 4005;
-pub const QOS_OBJECT_TCP_TRAFFIC: u32 = 4004;
-pub const QOS_OBJECT_TRAFFIC_CLASS: u32 = 4002;
+pub const QOS_MAX_OBJECT_STRING_LENGTH: i32 = 256;
+pub const QOS_OBJECT_DIFFSERV: i32 = 4003;
+pub const QOS_OBJECT_DS_CLASS: i32 = 4001;
+pub const QOS_OBJECT_FRIENDLY_NAME: i32 = 4005;
+pub const QOS_OBJECT_TCP_TRAFFIC: i32 = 4004;
+pub const QOS_OBJECT_TRAFFIC_CLASS: i32 = 4002;
 #[repr(C)]
 #[cfg(feature = "qos")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -71,4 +71,4 @@ pub struct QOS_TRAFFIC_CLASS {
     pub ObjectHdr: super::QOS_OBJECT_HDR,
     pub TrafficClass: u32,
 }
-pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000;
+pub const QOS_TRAFFIC_GENERAL_ID_BASE: i32 = 4000;

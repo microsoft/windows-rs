@@ -77,9 +77,9 @@ mod Windows {
             dwVersionHi: u32,
             dwVersionLo: u32,
         }
-        const ROTFLAGS_ALLOWANYCLIENT: u32 = 2;
-        const ROTFLAGS_REGISTRATIONKEEPSALIVE: u32 = 1;
-        const ROT_COMPARE_MAX: u32 = 2048;
+        const ROTFLAGS_ALLOWANYCLIENT: i32 = 2;
+        const ROTFLAGS_REGISTRATIONKEEPSALIVE: i32 = 1;
+        const ROT_COMPARE_MAX: i32 = 2048;
         struct RemHBITMAP {
             cbData: u32,
             data: [byte; 1],
@@ -205,9 +205,9 @@ mod Windows {
         const VARIANT_FALSE: VARIANT_BOOL = 0;
         const VARIANT_TRUE: VARIANT_BOOL = -1;
         type VARTYPE = u16;
-        const WDT_INPROC64_CALL: u32 = 1349805143;
-        const WDT_INPROC_CALL: u32 = 1215587415;
-        const WDT_REMOTE_CALL: u32 = 1383359575;
+        const WDT_INPROC64_CALL: i32 = 1349805143;
+        const WDT_INPROC_CALL: i32 = 1215587415;
+        const WDT_REMOTE_CALL: i32 = 1383359575;
         struct remoteMETAFILEPICT {
             mm: i32,
             xExt: i32,

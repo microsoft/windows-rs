@@ -5,5 +5,5 @@ pub struct NDIS_OBJECT_HEADER {
     pub Revision: u8,
     pub Size: u16,
 }
-pub const NDIS_OBJECT_REVISION_1: u32 = 1;
+pub const NDIS_OBJECT_REVISION_1: i32 = 1;
 pub type PNDIS_OBJECT_HEADER = *mut NDIS_OBJECT_HEADER;

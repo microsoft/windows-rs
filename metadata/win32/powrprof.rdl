@@ -3,16 +3,16 @@ mod Windows {
     mod Win32 {
         #[library("POWRPROF.dll")]
         extern fn CanUserWritePwrScheme() -> BOOLEAN;
-        const DEVICEPOWER_AND_OPERATION: u32 = 1073741824;
-        const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2;
-        const DEVICEPOWER_FILTER_DEVICES_PRESENT: u32 = 536870912;
-        const DEVICEPOWER_FILTER_HARDWARE: u32 = 268435456;
-        const DEVICEPOWER_FILTER_ON_NAME: u32 = 33554432;
-        const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728;
-        const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864;
+        const DEVICEPOWER_AND_OPERATION: i32 = 1073741824;
+        const DEVICEPOWER_CLEAR_WAKEENABLED: i32 = 2;
+        const DEVICEPOWER_FILTER_DEVICES_PRESENT: i32 = 536870912;
+        const DEVICEPOWER_FILTER_HARDWARE: i32 = 268435456;
+        const DEVICEPOWER_FILTER_ON_NAME: i32 = 33554432;
+        const DEVICEPOWER_FILTER_WAKEENABLED: i32 = 134217728;
+        const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: i32 = 67108864;
         const DEVICEPOWER_HARDWAREID: u32 = 2147483648;
-        const DEVICEPOWER_SET_WAKEENABLED: u32 = 1;
-        const DEVICE_NOTIFY_CALLBACK: u32 = 2;
+        const DEVICEPOWER_SET_WAKEENABLED: i32 = 1;
+        const DEVICE_NOTIFY_CALLBACK: i32 = 2;
         extern fn DEVICE_NOTIFY_CALLBACK_ROUTINE(#[opt] Context: *const void, Type: u32, Setting: *const void) -> u32;
         struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
             Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
@@ -28,11 +28,11 @@ mod Windows {
         extern fn DevicePowerOpen(#[opt] DebugMask: u32) -> BOOLEAN;
         #[library("POWRPROF.dll")]
         extern fn DevicePowerSetDeviceState(DeviceDescription: PCWSTR, SetFlags: u32, #[opt] SetData: *const void) -> u32;
-        const EnableMultiBatteryDisplay: u32 = 2;
-        const EnablePasswordLogon: u32 = 4;
-        const EnableSysTrayBatteryMeter: u32 = 1;
-        const EnableVideoDimDisplay: u32 = 16;
-        const EnableWakeOnRing: u32 = 8;
+        const EnableMultiBatteryDisplay: i32 = 2;
+        const EnablePasswordLogon: i32 = 4;
+        const EnableSysTrayBatteryMeter: i32 = 1;
+        const EnableVideoDimDisplay: i32 = 16;
+        const EnableWakeOnRing: i32 = 8;
         #[library("POWRPROF.dll")]
         extern fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lParam: LPARAM) -> BOOLEAN;
         struct GLOBAL_MACHINE_POWER_POLICY {
@@ -92,16 +92,16 @@ mod Windows {
             ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
         }
         const NEWSCHEME: u32 = 4294967295;
-        const PDCAP_S0_SUPPORTED: u32 = 65536;
-        const PDCAP_S1_SUPPORTED: u32 = 131072;
-        const PDCAP_S2_SUPPORTED: u32 = 262144;
-        const PDCAP_S3_SUPPORTED: u32 = 524288;
-        const PDCAP_S4_SUPPORTED: u32 = 16777216;
-        const PDCAP_S5_SUPPORTED: u32 = 33554432;
-        const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576;
-        const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152;
-        const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304;
-        const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608;
+        const PDCAP_S0_SUPPORTED: i32 = 65536;
+        const PDCAP_S1_SUPPORTED: i32 = 131072;
+        const PDCAP_S2_SUPPORTED: i32 = 262144;
+        const PDCAP_S3_SUPPORTED: i32 = 524288;
+        const PDCAP_S4_SUPPORTED: i32 = 16777216;
+        const PDCAP_S5_SUPPORTED: i32 = 33554432;
+        const PDCAP_WAKE_FROM_S0_SUPPORTED: i32 = 1048576;
+        const PDCAP_WAKE_FROM_S1_SUPPORTED: i32 = 2097152;
+        const PDCAP_WAKE_FROM_S2_SUPPORTED: i32 = 4194304;
+        const PDCAP_WAKE_FROM_S3_SUPPORTED: i32 = 8388608;
         extern fn PDEVICE_NOTIFY_CALLBACK_ROUTINE(#[opt] Context: *const void, Type: u32, Setting: *const void) -> u32;
         type PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS = *mut DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS;
         type PGLOBAL_MACHINE_POWER_POLICY = *mut GLOBAL_MACHINE_POWER_POLICY;
@@ -109,8 +109,8 @@ mod Windows {
         type PGLOBAL_USER_POWER_POLICY = *mut GLOBAL_USER_POWER_POLICY;
         type PMACHINE_POWER_POLICY = *mut MACHINE_POWER_POLICY;
         type PMACHINE_PROCESSOR_POWER_POLICY = *mut MACHINE_PROCESSOR_POWER_POLICY;
-        const POWER_ATTRIBUTE_HIDE: u32 = 1;
-        const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2;
+        const POWER_ATTRIBUTE_HIDE: i32 = 1;
+        const POWER_ATTRIBUTE_SHOW_AOAC: i32 = 2;
         #[repr(i32)]
         enum POWER_DATA_ACCESSOR {
             ACCESS_AC_POWER_SETTING_INDEX = 0,
@@ -272,7 +272,7 @@ mod Windows {
             TripPointTemperature: u32,
             Initiator: PWSTR,
         }
-        const THERMAL_EVENT_VERSION: u32 = 1;
+        const THERMAL_EVENT_VERSION: i32 = 1;
         struct USER_POWER_POLICY {
             Revision: u32,
             IdleAc: POWER_ACTION_POLICY,

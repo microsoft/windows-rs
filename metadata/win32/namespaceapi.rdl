@@ -13,6 +13,6 @@ mod Windows {
         extern fn DeleteBoundaryDescriptor(BoundaryDescriptor: HANDLE);
         #[library("KERNEL32.dll")]
         extern fn OpenPrivateNamespaceW(lpBoundaryDescriptor: *const void, lpAliasPrefix: PCWSTR) -> HANDLE;
-        const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1;
+        const PRIVATE_NAMESPACE_FLAG_DESTROY: i32 = 1;
     }
 }

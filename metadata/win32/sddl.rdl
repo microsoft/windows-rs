@@ -29,10 +29,10 @@ mod Windows {
         const SDDL_ACE_COND_STRING_BEGINC: u32 = 34;
         const SDDL_ACE_COND_STRING_ENDC: u32 = 34;
         const SDDL_ACE_ENDC: u32 = 41;
-        const SDDL_ALIAS_SIZE: u32 = 2;
+        const SDDL_ALIAS_SIZE: i32 = 2;
         const SDDL_DELIMINATORC: u32 = 58;
-        const SDDL_REVISION: u32 = 1;
-        const SDDL_REVISION_1: u32 = 1;
+        const SDDL_REVISION: i32 = 1;
+        const SDDL_REVISION_1: i32 = 1;
         const SDDL_SEPERATORC: u32 = 59;
         const SDDL_SPACEC: u32 = 32;
     }

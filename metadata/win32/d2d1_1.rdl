@@ -117,7 +117,7 @@ mod Windows {
             D2D1_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC = 5,
             D2D1_INTERPOLATION_MODE_FORCE_DWORD = -1,
         }
-        const D2D1_INVALID_PROPERTY_INDEX: i32 = -1;
+        const D2D1_INVALID_PROPERTY_INDEX: u32 = 4294967295;
         #[repr(u32)]
         #[flags]
         enum D2D1_LAYER_OPTIONS1 {

@@ -217,4 +217,4 @@ pub const FLT_MGR_LONGHORN: u32 = 1;
 pub const FLT_MGR_WIN7: u32 = 1;
 pub const FLT_MGR_WIN8: u32 = 1;
 pub const FLT_MGR_WINBLUE: u32 = 1;
-pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1;
+pub const FLT_PORT_FLAG_SYNC_HANDLE: i32 = 1;

@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const DWRITE_ALPHA_MAX: u32 = 255;
+        const DWRITE_ALPHA_MAX: i32 = 255;
         #[repr(i32)]
         enum DWRITE_BREAK_CONDITION {
             DWRITE_BREAK_CONDITION_NEUTRAL = 0,
@@ -21,7 +21,7 @@ mod Windows {
                 padding: 11,
             },
         }
-        const DWRITE_ERR_BASE: u32 = 20480;
+        const DWRITE_ERR_BASE: i32 = 20480;
         #[repr(i32)]
         enum DWRITE_FACTORY_TYPE {
             DWRITE_FACTORY_TYPE_SHARED = 0,
@@ -456,7 +456,7 @@ mod Windows {
         }
         #[library("DWrite.dll")]
         extern fn DWriteCreateFactory(factoryType: DWRITE_FACTORY_TYPE, iid: *const GUID, #[iid_is] factory: *mut *mut void) -> HRESULT;
-        const FACILITY_DWRITE: u32 = 2200;
+        const FACILITY_DWRITE: i32 = 2200;
         #[guid(0x5e5a32a3_8dff_4773_9ff6_0696eab77267)]
         interface IDWriteBitmapRenderTarget: IUnknown {
             fn DrawGlyphRun(&self, baselineOriginX: f32, baselineOriginY: f32, measuringMode: DWRITE_MEASURING_MODE, glyphRun: *const DWRITE_GLYPH_RUN, renderingParams: IDWriteRenderingParams, textColor: COLORREF, #[opt] blackBoxRect: *mut RECT) -> HRESULT;

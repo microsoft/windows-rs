@@ -1,5 +1,5 @@
 pub const NDIS_DEFAULT_PORT_NUMBER: NDIS_PORT_NUMBER = 0;
-pub const NDIS_MAXIMUM_PORTS: u32 = 16777216;
+pub const NDIS_MAXIMUM_PORTS: i32 = 16777216;
 pub type NDIS_PORT_NUMBER = u32;
 pub type NDIS_PORT_TYPE = i32;
 pub const NdisPortType8021xSupplicant: NDIS_PORT_TYPE = 3;

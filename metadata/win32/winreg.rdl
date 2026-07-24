@@ -30,13 +30,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn InitiateSystemShutdownW(#[opt] lpMachineName: PCWSTR, #[opt] lpMessage: PCWSTR, dwTimeout: u32, bForceAppsClosed: BOOL, bRebootAfterShutdown: BOOL) -> BOOL;
         type LSTATUS = i32;
-        const MAX_SHUTDOWN_TIMEOUT: u32 = 315360000;
+        const MAX_SHUTDOWN_TIMEOUT: i32 = 315360000;
         type PPROVIDER = *mut REG_PROVIDER;
         type PPVALUE = PPVALUEA;
         type PPVALUEA = *mut PVALUEA;
         type PPVALUEW = *mut PVALUEW;
         extern "C" fn PQUERYHANDLER(keycontext: *mut void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut void, total_outlen: *mut u32, input_blen: u32) -> u32;
-        const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1;
+        const PROVIDER_KEEPS_VALUE_LENGTH: i32 = 1;
         type PVALCONTEXT = *mut val_context;
         type PVALENT = PVALENTA;
         type PVALENTA = *mut VALENTA;
@@ -55,20 +55,20 @@ mod Windows {
             pv_type: u32,
         }
         extern "C" fn QUERYHANDLER(keycontext: *mut void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut void, total_outlen: *mut u32, input_blen: u32) -> u32;
-        const REASON_HWINSTALL: u32 = 65538;
-        const REASON_LEGACY_API: i32 = -2147024896;
-        const REASON_OTHER: u32 = 0;
-        const REASON_PLANNED_FLAG: i32 = -2147483648;
-        const REASON_SERVICEHANG: u32 = 196613;
-        const REASON_SWHWRECONF: u32 = 196612;
-        const REASON_SWINSTALL: u32 = 196610;
-        const REASON_UNKNOWN: u32 = 255;
-        const REASON_UNSTABLE: u32 = 327686;
+        const REASON_HWINSTALL: i32 = 65538;
+        const REASON_LEGACY_API: u32 = 2147942400;
+        const REASON_OTHER: i32 = 0;
+        const REASON_PLANNED_FLAG: u32 = 2147483648;
+        const REASON_SERVICEHANG: i32 = 196613;
+        const REASON_SWHWRECONF: i32 = 196612;
+        const REASON_SWINSTALL: i32 = 196610;
+        const REASON_UNKNOWN: i32 = 255;
+        const REASON_UNSTABLE: i32 = 327686;
         type REGSAM = ACCESS_MASK;
-        const REG_ALLOW_TRANSPORT_FALLBACK: u32 = 2;
-        const REG_ALLOW_UNSECURE_CONNECTION: u32 = 4;
-        const REG_MUI_STRING_TRUNCATE: u32 = 1;
-        const REG_PROCESS_APPKEY: u32 = 1;
+        const REG_ALLOW_TRANSPORT_FALLBACK: i32 = 2;
+        const REG_ALLOW_UNSECURE_CONNECTION: i32 = 4;
+        const REG_MUI_STRING_TRUNCATE: i32 = 1;
+        const REG_PROCESS_APPKEY: i32 = 1;
         struct REG_PROVIDER {
             pi_R0_1val: PQUERYHANDLER,
             pi_R0_allvals: PQUERYHANDLER,
@@ -77,23 +77,23 @@ mod Windows {
             pi_flags: u32,
             pi_key_context: *mut void,
         }
-        const REG_SECURE_CONNECTION: u32 = 1;
-        const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2;
-        const RRF_NOEXPAND: u32 = 268435456;
-        const RRF_RT_ANY: u32 = 65535;
-        const RRF_RT_DWORD: u32 = 24;
-        const RRF_RT_QWORD: u32 = 72;
-        const RRF_RT_REG_BINARY: u32 = 8;
-        const RRF_RT_REG_DWORD: u32 = 16;
-        const RRF_RT_REG_EXPAND_SZ: u32 = 4;
-        const RRF_RT_REG_MULTI_SZ: u32 = 32;
-        const RRF_RT_REG_NONE: u32 = 1;
-        const RRF_RT_REG_QWORD: u32 = 64;
-        const RRF_RT_REG_SZ: u32 = 2;
-        const RRF_SUBKEY_WOW6432KEY: u32 = 131072;
-        const RRF_SUBKEY_WOW6464KEY: u32 = 65536;
-        const RRF_WOW64_MASK: u32 = 196608;
-        const RRF_ZEROONFAILURE: u32 = 536870912;
+        const REG_SECURE_CONNECTION: i32 = 1;
+        const REG_USE_CURRENT_SECURITY_CONTEXT: i32 = 2;
+        const RRF_NOEXPAND: i32 = 268435456;
+        const RRF_RT_ANY: i32 = 65535;
+        const RRF_RT_DWORD: i32 = 24;
+        const RRF_RT_QWORD: i32 = 72;
+        const RRF_RT_REG_BINARY: i32 = 8;
+        const RRF_RT_REG_DWORD: i32 = 16;
+        const RRF_RT_REG_EXPAND_SZ: i32 = 4;
+        const RRF_RT_REG_MULTI_SZ: i32 = 32;
+        const RRF_RT_REG_NONE: i32 = 1;
+        const RRF_RT_REG_QWORD: i32 = 64;
+        const RRF_RT_REG_SZ: i32 = 2;
+        const RRF_SUBKEY_WOW6432KEY: i32 = 131072;
+        const RRF_SUBKEY_WOW6464KEY: i32 = 65536;
+        const RRF_WOW64_MASK: i32 = 196608;
+        const RRF_ZEROONFAILURE: i32 = 536870912;
         #[library("ADVAPI32.dll")]
         extern fn RegCloseKey(hKey: HKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
@@ -258,24 +258,24 @@ mod Windows {
         extern fn RegUnLoadKeyA(hKey: HKEY, #[opt] lpSubKey: PCSTR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegUnLoadKeyW(hKey: HKEY, #[opt] lpSubKey: PCWSTR) -> LSTATUS;
-        const SHUTDOWN_ARSO: u32 = 8192;
-        const SHUTDOWN_CHECK_SAFE_FOR_SERVER: u32 = 16384;
-        const SHUTDOWN_FORCE_OTHERS: u32 = 1;
-        const SHUTDOWN_FORCE_SELF: u32 = 2;
-        const SHUTDOWN_GRACE_OVERRIDE: u32 = 32;
-        const SHUTDOWN_HYBRID: u32 = 512;
-        const SHUTDOWN_INSTALL_UPDATES: u32 = 64;
-        const SHUTDOWN_MOBILE_UI: u32 = 4096;
-        const SHUTDOWN_NOREBOOT: u32 = 16;
-        const SHUTDOWN_POWEROFF: u32 = 8;
-        const SHUTDOWN_RESTART: u32 = 4;
-        const SHUTDOWN_RESTARTAPPS: u32 = 128;
-        const SHUTDOWN_RESTART_BOOTOPTIONS: u32 = 1024;
-        const SHUTDOWN_SKIP_SVC_PRESHUTDOWN: u32 = 256;
-        const SHUTDOWN_SOFT_REBOOT: u32 = 2048;
-        const SHUTDOWN_SYSTEM_INITIATED: u32 = 65536;
-        const SHUTDOWN_UPDATE_POWEROFF: u32 = 131072;
-        const SHUTDOWN_VAIL_CONTAINER: u32 = 32768;
+        const SHUTDOWN_ARSO: i32 = 8192;
+        const SHUTDOWN_CHECK_SAFE_FOR_SERVER: i32 = 16384;
+        const SHUTDOWN_FORCE_OTHERS: i32 = 1;
+        const SHUTDOWN_FORCE_SELF: i32 = 2;
+        const SHUTDOWN_GRACE_OVERRIDE: i32 = 32;
+        const SHUTDOWN_HYBRID: i32 = 512;
+        const SHUTDOWN_INSTALL_UPDATES: i32 = 64;
+        const SHUTDOWN_MOBILE_UI: i32 = 4096;
+        const SHUTDOWN_NOREBOOT: i32 = 16;
+        const SHUTDOWN_POWEROFF: i32 = 8;
+        const SHUTDOWN_RESTART: i32 = 4;
+        const SHUTDOWN_RESTARTAPPS: i32 = 128;
+        const SHUTDOWN_RESTART_BOOTOPTIONS: i32 = 1024;
+        const SHUTDOWN_SKIP_SVC_PRESHUTDOWN: i32 = 256;
+        const SHUTDOWN_SOFT_REBOOT: i32 = 2048;
+        const SHUTDOWN_SYSTEM_INITIATED: i32 = 65536;
+        const SHUTDOWN_UPDATE_POWEROFF: i32 = 131072;
+        const SHUTDOWN_VAIL_CONTAINER: i32 = 32768;
         type VALENT = VALENTA;
         struct VALENTA {
             ve_valuename: PSTR,
@@ -289,7 +289,7 @@ mod Windows {
             ve_valueptr: usize,
             ve_type: u32,
         }
-        const WIN31_CLASS: u32 = 0;
+        const WIN31_CLASS: i32 = 0;
         struct val_context {
             valuelen: i32,
             value_context: *mut void,

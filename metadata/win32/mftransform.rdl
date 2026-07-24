@@ -113,8 +113,8 @@ mod Windows {
             MFT_MESSAGE_COMMAND_FLUSH_OUTPUT_STREAM = 268435464,
             MFT_MESSAGE_COMMAND_MARKER = 536870912,
         }
-        const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: u32 = 0;
-        const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: i32 = -1;
+        const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: i64 = 0;
+        const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: i64 = -1;
         struct MFT_OUTPUT_DATA_BUFFER {
             dwStreamID: u32,
             pSample: IMFSample,

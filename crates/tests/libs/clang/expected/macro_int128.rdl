@@ -1,5 +1,5 @@
 #[win32]
 mod Test {
-    const KEPT_HEX: u32 = 256;
+    const KEPT_HEX: i32 = 256;
     const KEPT_NEG: i32 = -7;
 }

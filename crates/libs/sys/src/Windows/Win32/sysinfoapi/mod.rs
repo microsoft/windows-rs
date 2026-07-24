@@ -90,7 +90,7 @@ pub struct MEMORYSTATUSEX {
     pub ullAvailVirtual: super::DWORDLONG,
     pub ullAvailExtendedVirtual: super::DWORDLONG,
 }
-pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1;
+pub const SCEX2_ALT_NETBIOS_NAME: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_INFO {
@@ -127,7 +127,7 @@ pub struct SYSTEM_INFO_0_0 {
     pub wProcessorArchitecture: u16,
     pub wReserved: u16,
 }
-pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: u32 = 2;
-pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: u32 = 17;
-pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: u32 = 16;
-pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: u32 = 0;
+pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: i32 = 2;
+pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: i32 = 17;
+pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: i32 = 16;
+pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: i32 = 0;

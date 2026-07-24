@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ALTNUMPAD_BIT: u32 = 67108864;
-        const CAPSLOCK_ON: u32 = 128;
+        const ALTNUMPAD_BIT: i32 = 67108864;
+        const CAPSLOCK_ON: i32 = 128;
         struct CHAR_INFO {
             Char: union {
                 UnicodeChar: u16,
@@ -18,16 +18,16 @@ mod Windows {
             X: i16,
             Y: i16,
         }
-        const DOUBLE_CLICK: u32 = 2;
-        const ENHANCED_KEY: u32 = 256;
-        const FOCUS_EVENT: u32 = 16;
+        const DOUBLE_CLICK: i32 = 2;
+        const ENHANCED_KEY: i32 = 256;
+        const FOCUS_EVENT: i32 = 16;
         struct FOCUS_EVENT_RECORD {
             bSetFocus: BOOL,
         }
-        const FROM_LEFT_1ST_BUTTON_PRESSED: u32 = 1;
-        const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4;
-        const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8;
-        const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16;
+        const FROM_LEFT_1ST_BUTTON_PRESSED: i32 = 1;
+        const FROM_LEFT_2ND_BUTTON_PRESSED: i32 = 4;
+        const FROM_LEFT_3RD_BUTTON_PRESSED: i32 = 8;
+        const FROM_LEFT_4TH_BUTTON_PRESSED: i32 = 16;
         type HPCON = *mut void;
         struct INPUT_RECORD {
             EventType: u16,
@@ -39,7 +39,7 @@ mod Windows {
                 FocusEvent: FOCUS_EVENT_RECORD,
             },
         }
-        const KEY_EVENT: u32 = 1;
+        const KEY_EVENT: i32 = 1;
         struct KEY_EVENT_RECORD {
             bKeyDown: BOOL,
             wRepeatCount: u16,
@@ -51,30 +51,30 @@ mod Windows {
             },
             dwControlKeyState: u32,
         }
-        const LEFT_ALT_PRESSED: u32 = 2;
-        const LEFT_CTRL_PRESSED: u32 = 8;
-        const MENU_EVENT: u32 = 8;
+        const LEFT_ALT_PRESSED: i32 = 2;
+        const LEFT_CTRL_PRESSED: i32 = 8;
+        const MENU_EVENT: i32 = 8;
         struct MENU_EVENT_RECORD {
             dwCommandId: u32,
         }
-        const MOUSE_EVENT: u32 = 2;
+        const MOUSE_EVENT: i32 = 2;
         struct MOUSE_EVENT_RECORD {
             dwMousePosition: COORD,
             dwButtonState: u32,
             dwControlKeyState: u32,
             dwEventFlags: u32,
         }
-        const MOUSE_HWHEELED: u32 = 8;
-        const MOUSE_MOVED: u32 = 1;
-        const MOUSE_WHEELED: u32 = 4;
-        const NLS_ALPHANUMERIC: u32 = 0;
-        const NLS_DBCSCHAR: u32 = 65536;
-        const NLS_HIRAGANA: u32 = 262144;
-        const NLS_IME_CONVERSION: u32 = 8388608;
-        const NLS_IME_DISABLE: u32 = 536870912;
-        const NLS_KATAKANA: u32 = 131072;
-        const NLS_ROMAN: u32 = 4194304;
-        const NUMLOCK_ON: u32 = 32;
+        const MOUSE_HWHEELED: i32 = 8;
+        const MOUSE_MOVED: i32 = 1;
+        const MOUSE_WHEELED: i32 = 4;
+        const NLS_ALPHANUMERIC: i32 = 0;
+        const NLS_DBCSCHAR: i32 = 65536;
+        const NLS_HIRAGANA: i32 = 262144;
+        const NLS_IME_CONVERSION: i32 = 8388608;
+        const NLS_IME_DISABLE: i32 = 536870912;
+        const NLS_KATAKANA: i32 = 131072;
+        const NLS_ROMAN: i32 = 4194304;
+        const NUMLOCK_ON: i32 = 32;
         type PCHAR_INFO = *mut CHAR_INFO;
         type PCONSOLE_FONT_INFO = *mut CONSOLE_FONT_INFO;
         type PCOORD = *mut COORD;
@@ -85,18 +85,18 @@ mod Windows {
         type PMOUSE_EVENT_RECORD = *mut MOUSE_EVENT_RECORD;
         type PSMALL_RECT = *mut SMALL_RECT;
         type PWINDOW_BUFFER_SIZE_RECORD = *mut WINDOW_BUFFER_SIZE_RECORD;
-        const RIGHTMOST_BUTTON_PRESSED: u32 = 2;
-        const RIGHT_ALT_PRESSED: u32 = 1;
-        const RIGHT_CTRL_PRESSED: u32 = 4;
-        const SCROLLLOCK_ON: u32 = 64;
-        const SHIFT_PRESSED: u32 = 16;
+        const RIGHTMOST_BUTTON_PRESSED: i32 = 2;
+        const RIGHT_ALT_PRESSED: i32 = 1;
+        const RIGHT_CTRL_PRESSED: i32 = 4;
+        const SCROLLLOCK_ON: i32 = 64;
+        const SHIFT_PRESSED: i32 = 16;
         struct SMALL_RECT {
             Left: i16,
             Top: i16,
             Right: i16,
             Bottom: i16,
         }
-        const WINDOW_BUFFER_SIZE_EVENT: u32 = 4;
+        const WINDOW_BUFFER_SIZE_EVENT: i32 = 4;
         struct WINDOW_BUFFER_SIZE_RECORD {
             dwSize: COORD,
         }

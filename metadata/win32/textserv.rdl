@@ -123,43 +123,43 @@ mod Windows {
         }
         extern fn PCreateTextServices(punkOuter: IUnknown, pITextHost: ITextHost, ppUnk: *mut IUnknown) -> HRESULT;
         extern fn PShutdownTextServices(pTextServices: IUnknown) -> HRESULT;
-        const S_MSG_KEY_IGNORED: u32 = 262657;
-        const TXES_ISDIALOG: u32 = 1;
+        const S_MSG_KEY_IGNORED: i32 = 262657;
+        const TXES_ISDIALOG: i32 = 1;
         #[repr(i32)]
         enum TXTBACKSTYLE {
             TXTBACK_TRANSPARENT = 0,
             TXTBACK_OPAQUE = 1,
         }
-        const TXTBIT_ADVANCEDINPUT: u32 = 536870912;
-        const TXTBIT_ALLOWBEEP: u32 = 2048;
-        const TXTBIT_AUTOWORDSEL: u32 = 128;
-        const TXTBIT_BACKSTYLECHANGE: u32 = 16384;
-        const TXTBIT_CHARFORMATCHANGE: u32 = 131072;
-        const TXTBIT_CLIENTRECTCHANGE: u32 = 1048576;
-        const TXTBIT_D2DDWRITE: u32 = 16777216;
-        const TXTBIT_D2DPIXELSNAPPED: u32 = 67108864;
-        const TXTBIT_D2DSIMPLETYPOGRAPHY: u32 = 33554432;
-        const TXTBIT_D2DSUBPIXELLINES: u32 = 134217728;
-        const TXTBIT_DISABLEDRAG: u32 = 4096;
-        const TXTBIT_EXTENTCHANGE: u32 = 524288;
-        const TXTBIT_FLASHLASTPASSWORDCHAR: u32 = 268435456;
-        const TXTBIT_HIDESELECTION: u32 = 32;
-        const TXTBIT_MAXLENGTHCHANGE: u32 = 32768;
-        const TXTBIT_MULTILINE: u32 = 2;
-        const TXTBIT_NOTHREADREFCOUNT: u32 = 4194304;
-        const TXTBIT_PARAFORMATCHANGE: u32 = 262144;
-        const TXTBIT_READONLY: u32 = 4;
-        const TXTBIT_RICHTEXT: u32 = 1;
-        const TXTBIT_SAVESELECTION: u32 = 64;
-        const TXTBIT_SCROLLBARCHANGE: u32 = 65536;
-        const TXTBIT_SELBARCHANGE: u32 = 512;
-        const TXTBIT_SHOWACCELERATOR: u32 = 8;
-        const TXTBIT_SHOWPASSWORD: u32 = 8388608;
-        const TXTBIT_USECURRENTBKG: u32 = 2097152;
-        const TXTBIT_USEPASSWORD: u32 = 16;
-        const TXTBIT_VERTICAL: u32 = 256;
-        const TXTBIT_VIEWINSETCHANGE: u32 = 8192;
-        const TXTBIT_WORDWRAP: u32 = 1024;
+        const TXTBIT_ADVANCEDINPUT: i32 = 536870912;
+        const TXTBIT_ALLOWBEEP: i32 = 2048;
+        const TXTBIT_AUTOWORDSEL: i32 = 128;
+        const TXTBIT_BACKSTYLECHANGE: i32 = 16384;
+        const TXTBIT_CHARFORMATCHANGE: i32 = 131072;
+        const TXTBIT_CLIENTRECTCHANGE: i32 = 1048576;
+        const TXTBIT_D2DDWRITE: i32 = 16777216;
+        const TXTBIT_D2DPIXELSNAPPED: i32 = 67108864;
+        const TXTBIT_D2DSIMPLETYPOGRAPHY: i32 = 33554432;
+        const TXTBIT_D2DSUBPIXELLINES: i32 = 134217728;
+        const TXTBIT_DISABLEDRAG: i32 = 4096;
+        const TXTBIT_EXTENTCHANGE: i32 = 524288;
+        const TXTBIT_FLASHLASTPASSWORDCHAR: i32 = 268435456;
+        const TXTBIT_HIDESELECTION: i32 = 32;
+        const TXTBIT_MAXLENGTHCHANGE: i32 = 32768;
+        const TXTBIT_MULTILINE: i32 = 2;
+        const TXTBIT_NOTHREADREFCOUNT: i32 = 4194304;
+        const TXTBIT_PARAFORMATCHANGE: i32 = 262144;
+        const TXTBIT_READONLY: i32 = 4;
+        const TXTBIT_RICHTEXT: i32 = 1;
+        const TXTBIT_SAVESELECTION: i32 = 64;
+        const TXTBIT_SCROLLBARCHANGE: i32 = 65536;
+        const TXTBIT_SELBARCHANGE: i32 = 512;
+        const TXTBIT_SHOWACCELERATOR: i32 = 8;
+        const TXTBIT_SHOWPASSWORD: i32 = 8388608;
+        const TXTBIT_USECURRENTBKG: i32 = 2097152;
+        const TXTBIT_USEPASSWORD: i32 = 16;
+        const TXTBIT_VERTICAL: i32 = 256;
+        const TXTBIT_VIEWINSETCHANGE: i32 = 8192;
+        const TXTBIT_WORDWRAP: i32 = 1024;
         #[repr(i32)]
         enum TXTHITRESULT {
             TXTHITRESULT_NOHIT = 0,

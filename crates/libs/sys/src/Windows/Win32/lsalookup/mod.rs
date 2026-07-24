@@ -1,7 +1,7 @@
 pub const AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 5;
 pub const DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 12;
-pub const LOOKUP_TRANSLATE_NAMES: u32 = 2048;
-pub const LOOKUP_VIEW_LOCAL_INFORMATION: u32 = 1;
+pub const LOOKUP_TRANSLATE_NAMES: i32 = 2048;
+pub const LOOKUP_VIEW_LOCAL_INFORMATION: i32 = 1;
 pub type LSA_LOOKUP_DOMAIN_INFO_CLASS = i32;
 pub type LSA_LOOKUP_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]

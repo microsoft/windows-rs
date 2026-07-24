@@ -8,22 +8,22 @@ mod Windows {
             BINDSPEED_IMMEDIATE = 3,
         }
         type BORDERWIDTHS = RECT;
-        const DD_DEFDRAGDELAY: u32 = 200;
-        const DD_DEFDRAGMINDIST: u32 = 2;
-        const DD_DEFSCROLLDELAY: u32 = 50;
-        const DD_DEFSCROLLINSET: u32 = 11;
-        const DD_DEFSCROLLINTERVAL: u32 = 50;
+        const DD_DEFDRAGDELAY: i32 = 200;
+        const DD_DEFDRAGMINDIST: i32 = 2;
+        const DD_DEFSCROLLDELAY: i32 = 50;
+        const DD_DEFSCROLLINSET: i32 = 11;
+        const DD_DEFSCROLLINTERVAL: i32 = 50;
         #[repr(i32)]
         enum DISCARDCACHE {
             DISCARDCACHE_SAVEIFDIRTY = 0,
             DISCARDCACHE_NOSAVE = 1,
         }
-        const DROPEFFECT_BACKGROUNDTARGET: u32 = 536870912;
-        const DROPEFFECT_COPY: u32 = 1;
-        const DROPEFFECT_LINK: u32 = 4;
-        const DROPEFFECT_MOVE: u32 = 2;
-        const DROPEFFECT_NEWTARGET: u32 = 1073741824;
-        const DROPEFFECT_NONE: u32 = 0;
+        const DROPEFFECT_BACKGROUNDTARGET: i32 = 536870912;
+        const DROPEFFECT_COPY: i32 = 1;
+        const DROPEFFECT_LINK: i32 = 4;
+        const DROPEFFECT_MOVE: i32 = 2;
+        const DROPEFFECT_NEWTARGET: i32 = 1073741824;
+        const DROPEFFECT_NONE: i32 = 0;
         const DROPEFFECT_SCROLL: u32 = 2147483648;
         type HOLEMENU = HGLOBAL;
         #[guid(0x0000012a_0000_0000_c000_000000000046)]
@@ -220,7 +220,7 @@ mod Windows {
         type LPOLERENDER = *mut OLERENDER;
         type LPOLEUPDATE = *mut OLEUPDATE;
         type LPOLEVERB = *mut OLEVERB;
-        const MK_ALT: u32 = 32;
+        const MK_ALT: i32 = 32;
         struct OBJECTDESCRIPTOR {
             cbSize: u32,
             clsid: GUID,
@@ -325,13 +325,13 @@ mod Windows {
         type POLEUPDATE = *mut OLEUPDATE;
         const UPDFCACHE_ALL: u32 = 2147483647;
         const UPDFCACHE_ALLBUTNODATACACHE: u32 = 2147483646;
-        const UPDFCACHE_IFBLANK: u32 = 16;
-        const UPDFCACHE_IFBLANKORONSAVECACHE: u32 = 18;
-        const UPDFCACHE_NODATACACHE: u32 = 1;
-        const UPDFCACHE_NORMALCACHE: u32 = 8;
+        const UPDFCACHE_IFBLANK: i32 = 16;
+        const UPDFCACHE_IFBLANKORONSAVECACHE: i32 = 18;
+        const UPDFCACHE_NODATACACHE: i32 = 1;
+        const UPDFCACHE_NORMALCACHE: i32 = 8;
         const UPDFCACHE_ONLYIFBLANK: u32 = 2147483648;
-        const UPDFCACHE_ONSAVECACHE: u32 = 2;
-        const UPDFCACHE_ONSTOPCACHE: u32 = 4;
+        const UPDFCACHE_ONSAVECACHE: i32 = 2;
+        const UPDFCACHE_ONSTOPCACHE: i32 = 4;
         #[repr(i32)]
         enum USERCLASSTYPE {
             USERCLASSTYPE_FULL = 1,

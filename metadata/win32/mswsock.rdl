@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[library("MSWSOCK.dll")]
         extern fn AcceptEx(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, lpdwBytesReceived: *mut u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
-        const DE_REUSE_SOCKET: u32 = 2;
+        const DE_REUSE_SOCKET: i32 = 2;
         #[library("MSWSOCK.dll")]
         extern fn GetAcceptExSockaddrs(lpOutputBuffer: *const void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, LocalSockaddr: *mut *mut SOCKADDR, LocalSockaddrLength: *mut i32, RemoteSockaddr: *mut *mut SOCKADDR, RemoteSockaddrLength: *mut i32);
         extern fn LPFN_ACCEPTEX(sListenSocket: SOCKET, sAcceptSocket: SOCKET, lpOutputBuffer: *mut void, dwReceiveDataLength: u32, dwLocalAddressLength: u32, dwRemoteAddressLength: u32, lpdwBytesReceived: *mut u32, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
@@ -33,7 +33,7 @@ mod Windows {
         type LPTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
         type LPWSAPOLLDATA = *mut WSAPOLLDATA;
         type LPWSASENDMSG = *mut WSASENDMSG;
-        const NLA_ALLUSERS_NETWORK: u32 = 1;
+        const NLA_ALLUSERS_NETWORK: i32 = 1;
         struct NLA_BLOB {
             header: struct {
                 r#type: NLA_BLOB_DATA_TYPE,
@@ -80,7 +80,7 @@ mod Windows {
             NLA_NETWORK_UNMANAGED = 2,
             NLA_NETWORK_UNKNOWN = 3,
         }
-        const NLA_FRIENDLY_NAME: u32 = 2;
+        const NLA_FRIENDLY_NAME: i32 = 2;
         #[repr(i32)]
         enum NLA_INTERNET {
             NLA_INTERNET_UNKNOWN = 0,
@@ -131,46 +131,46 @@ mod Windows {
             RIO_EVENT_COMPLETION = 1,
             RIO_IOCP_COMPLETION = 2,
         }
-        const SIO_BASE_HANDLE: u32 = 1207959586;
-        const SIO_BSP_HANDLE: u32 = 1207959579;
-        const SIO_BSP_HANDLE_POLL: u32 = 1207959581;
-        const SIO_BSP_HANDLE_SELECT: u32 = 1207959580;
-        const SIO_EXT_POLL: i32 = -939524065;
-        const SIO_EXT_SELECT: i32 = -939524066;
-        const SIO_EXT_SENDMSG: i32 = -939524064;
-        const SIO_UDP_CONNRESET: i32 = -1744830452;
-        const SIO_UDP_NETRESET: i32 = -1744830449;
-        const SO_CONNDATA: u32 = 28672;
-        const SO_CONNDATALEN: u32 = 28676;
-        const SO_CONNECT_TIME: u32 = 28684;
-        const SO_CONNOPT: u32 = 28673;
-        const SO_CONNOPTLEN: u32 = 28677;
-        const SO_DISCDATA: u32 = 28674;
-        const SO_DISCDATALEN: u32 = 28678;
-        const SO_DISCOPT: u32 = 28675;
-        const SO_DISCOPTLEN: u32 = 28679;
-        const SO_MAXDG: u32 = 28681;
-        const SO_MAXPATHDG: u32 = 28682;
-        const SO_OPENTYPE: u32 = 28680;
-        const SO_SYNCHRONOUS_ALERT: u32 = 16;
-        const SO_SYNCHRONOUS_NONALERT: u32 = 32;
-        const SO_UPDATE_ACCEPT_CONTEXT: u32 = 28683;
-        const SO_UPDATE_CONNECT_CONTEXT: u32 = 28688;
-        const TCP_BSDURGENT: u32 = 28672;
-        const TF_DISCONNECT: u32 = 1;
-        const TF_REUSE_SOCKET: u32 = 2;
-        const TF_USE_DEFAULT_WORKER: u32 = 0;
-        const TF_USE_KERNEL_APC: u32 = 32;
-        const TF_USE_SYSTEM_THREAD: u32 = 16;
-        const TF_WRITE_BEHIND: u32 = 4;
-        const TP_DISCONNECT: u32 = 1;
-        const TP_ELEMENT_EOP: u32 = 4;
-        const TP_ELEMENT_FILE: u32 = 2;
-        const TP_ELEMENT_MEMORY: u32 = 1;
-        const TP_REUSE_SOCKET: u32 = 2;
-        const TP_USE_DEFAULT_WORKER: u32 = 0;
-        const TP_USE_KERNEL_APC: u32 = 32;
-        const TP_USE_SYSTEM_THREAD: u32 = 16;
+        const SIO_BASE_HANDLE: i32 = 1207959586;
+        const SIO_BSP_HANDLE: i32 = 1207959579;
+        const SIO_BSP_HANDLE_POLL: i32 = 1207959581;
+        const SIO_BSP_HANDLE_SELECT: i32 = 1207959580;
+        const SIO_EXT_POLL: u32 = 3355443231;
+        const SIO_EXT_SELECT: u32 = 3355443230;
+        const SIO_EXT_SENDMSG: u32 = 3355443232;
+        const SIO_UDP_CONNRESET: u32 = 2550136844;
+        const SIO_UDP_NETRESET: u32 = 2550136847;
+        const SO_CONNDATA: i32 = 28672;
+        const SO_CONNDATALEN: i32 = 28676;
+        const SO_CONNECT_TIME: i32 = 28684;
+        const SO_CONNOPT: i32 = 28673;
+        const SO_CONNOPTLEN: i32 = 28677;
+        const SO_DISCDATA: i32 = 28674;
+        const SO_DISCDATALEN: i32 = 28678;
+        const SO_DISCOPT: i32 = 28675;
+        const SO_DISCOPTLEN: i32 = 28679;
+        const SO_MAXDG: i32 = 28681;
+        const SO_MAXPATHDG: i32 = 28682;
+        const SO_OPENTYPE: i32 = 28680;
+        const SO_SYNCHRONOUS_ALERT: i32 = 16;
+        const SO_SYNCHRONOUS_NONALERT: i32 = 32;
+        const SO_UPDATE_ACCEPT_CONTEXT: i32 = 28683;
+        const SO_UPDATE_CONNECT_CONTEXT: i32 = 28688;
+        const TCP_BSDURGENT: i32 = 28672;
+        const TF_DISCONNECT: i32 = 1;
+        const TF_REUSE_SOCKET: i32 = 2;
+        const TF_USE_DEFAULT_WORKER: i32 = 0;
+        const TF_USE_KERNEL_APC: i32 = 32;
+        const TF_USE_SYSTEM_THREAD: i32 = 16;
+        const TF_WRITE_BEHIND: i32 = 4;
+        const TP_DISCONNECT: i32 = 1;
+        const TP_ELEMENT_EOP: i32 = 4;
+        const TP_ELEMENT_FILE: i32 = 2;
+        const TP_ELEMENT_MEMORY: i32 = 1;
+        const TP_REUSE_SOCKET: i32 = 2;
+        const TP_USE_DEFAULT_WORKER: i32 = 0;
+        const TP_USE_KERNEL_APC: i32 = 32;
+        const TP_USE_SYSTEM_THREAD: i32 = 16;
         struct TRANSMIT_FILE_BUFFERS {
             Head: *mut void,
             HeadLength: u32,

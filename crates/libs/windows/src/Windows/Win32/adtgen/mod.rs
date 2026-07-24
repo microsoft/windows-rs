@@ -1,6 +1,6 @@
-pub const APF_AuditFailure: u32 = 0;
-pub const APF_AuditSuccess: u32 = 1;
-pub const APF_ValidFlags: u32 = 1;
+pub const APF_AuditFailure: i32 = 0;
+pub const APF_AuditSuccess: i32 = 1;
+pub const APF_ValidFlags: i32 = 1;
 pub const APT_Guid: AUDIT_PARAM_TYPE = 9;
 pub const APT_Int64: AUDIT_PARAM_TYPE = 11;
 pub const APT_IpAddress: AUDIT_PARAM_TYPE = 12;
@@ -14,14 +14,14 @@ pub const APT_Sid: AUDIT_PARAM_TYPE = 5;
 pub const APT_String: AUDIT_PARAM_TYPE = 2;
 pub const APT_Time: AUDIT_PARAM_TYPE = 10;
 pub const APT_Ulong: AUDIT_PARAM_TYPE = 3;
-pub const AP_AccessMask: u32 = 512;
-pub const AP_ClientLogonId: u32 = 512;
-pub const AP_Filespec: u32 = 256;
-pub const AP_FormatHex: u32 = 256;
-pub const AP_ParamTypeBits: u32 = 8;
-pub const AP_ParamTypeMask: u32 = 255;
-pub const AP_PrimaryLogonId: u32 = 256;
-pub const AP_SidAsLogonId: u32 = 256;
+pub const AP_AccessMask: i32 = 512;
+pub const AP_ClientLogonId: i32 = 512;
+pub const AP_Filespec: i32 = 256;
+pub const AP_FormatHex: i32 = 256;
+pub const AP_ParamTypeBits: i32 = 8;
+pub const AP_ParamTypeMask: i32 = 255;
+pub const AP_PrimaryLogonId: i32 = 256;
+pub const AP_SidAsLogonId: i32 = 256;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUDIT_HANDLE(pub *mut core::ffi::c_void);
@@ -127,10 +127,10 @@ impl Default for AUDIT_PARAMS {
     }
 }
 pub type AUDIT_PARAM_TYPE = i32;
-pub const AUDIT_TYPE_LEGACY: u32 = 1;
-pub const AUDIT_TYPE_WMI: u32 = 2;
-pub const AUTHZP_WPD_EVENT: u32 = 16;
-pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1;
+pub const AUDIT_TYPE_LEGACY: i32 = 1;
+pub const AUDIT_TYPE_WMI: i32 = 2;
+pub const AUTHZP_WPD_EVENT: i32 = 16;
+pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
@@ -165,8 +165,8 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2;
-pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2;
+pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: i32 = 2;
+pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: i32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAUDIT_HANDLE(pub *mut *mut core::ffi::c_void);

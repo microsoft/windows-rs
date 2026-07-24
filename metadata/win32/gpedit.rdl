@@ -27,20 +27,20 @@ mod Windows {
             gpoType: GROUP_POLICY_OBJECT_TYPE,
             gpoHint: GROUP_POLICY_HINT_TYPE,
         }
-        const GPO_BROWSE_DISABLENEW: u32 = 1;
-        const GPO_BROWSE_INITTOALL: u32 = 16;
-        const GPO_BROWSE_NOCOMPUTERS: u32 = 2;
-        const GPO_BROWSE_NODSGPOS: u32 = 4;
-        const GPO_BROWSE_NOUSERGPOS: u32 = 32;
-        const GPO_BROWSE_OPENBUTTON: u32 = 8;
-        const GPO_BROWSE_SENDAPPLYONEDIT: u32 = 64;
-        const GPO_OPEN_LOAD_REGISTRY: u32 = 1;
-        const GPO_OPEN_READ_ONLY: u32 = 2;
-        const GPO_OPTION_DISABLE_MACHINE: u32 = 2;
-        const GPO_OPTION_DISABLE_USER: u32 = 1;
-        const GPO_SECTION_MACHINE: u32 = 2;
-        const GPO_SECTION_ROOT: u32 = 0;
-        const GPO_SECTION_USER: u32 = 1;
+        const GPO_BROWSE_DISABLENEW: i32 = 1;
+        const GPO_BROWSE_INITTOALL: i32 = 16;
+        const GPO_BROWSE_NOCOMPUTERS: i32 = 2;
+        const GPO_BROWSE_NODSGPOS: i32 = 4;
+        const GPO_BROWSE_NOUSERGPOS: i32 = 32;
+        const GPO_BROWSE_OPENBUTTON: i32 = 8;
+        const GPO_BROWSE_SENDAPPLYONEDIT: i32 = 64;
+        const GPO_OPEN_LOAD_REGISTRY: i32 = 1;
+        const GPO_OPEN_READ_ONLY: i32 = 2;
+        const GPO_OPTION_DISABLE_MACHINE: i32 = 2;
+        const GPO_OPTION_DISABLE_USER: i32 = 1;
+        const GPO_SECTION_MACHINE: i32 = 2;
+        const GPO_SECTION_ROOT: i32 = 0;
+        const GPO_SECTION_USER: i32 = 1;
         #[repr(i32)]
         enum GROUP_POLICY_HINT_TYPE {
             GPHintUnknown = 0,
@@ -109,6 +109,6 @@ mod Windows {
         const NODEID_UserSWSettings: GUID = 0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3;
         type PGROUP_POLICY_HINT_TYPE = *mut GROUP_POLICY_HINT_TYPE;
         type PGROUP_POLICY_OBJECT_TYPE = *mut GROUP_POLICY_OBJECT_TYPE;
-        const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: u32 = 1;
+        const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: i32 = 1;
     }
 }

@@ -2,12 +2,12 @@
 use meta_winerror::{E_INVALIDARG, RPC_S_MAX_CALLS_TOO_SMALL, S_OK};
 use windows::{Win32 as meta_ntstatus, Win32 as meta_rpc, Win32 as meta_winerror, core::*};
 
-const ERROR_SUCCESS: WIN32_ERROR = WIN32_ERROR(meta_winerror::ERROR_SUCCESS);
-const ERROR_BAD_ARGUMENTS: WIN32_ERROR = WIN32_ERROR(meta_winerror::ERROR_BAD_ARGUMENTS);
+const ERROR_SUCCESS: WIN32_ERROR = WIN32_ERROR(meta_winerror::ERROR_SUCCESS as u32);
+const ERROR_BAD_ARGUMENTS: WIN32_ERROR = WIN32_ERROR(meta_winerror::ERROR_BAD_ARGUMENTS as u32);
 const STATUS_SUCCESS: NTSTATUS = NTSTATUS(meta_ntstatus::STATUS_SUCCESS.0);
 const STATUS_NOT_FOUND: NTSTATUS = NTSTATUS(meta_ntstatus::STATUS_NOT_FOUND.0);
-const RPC_S_OK: RPC_STATUS = RPC_STATUS(meta_rpc::RPC_S_OK as i32);
-const RPC_S_NOT_LISTENING: RPC_STATUS = RPC_STATUS(meta_winerror::RPC_S_NOT_LISTENING as i32);
+const RPC_S_OK: RPC_STATUS = RPC_STATUS(meta_rpc::RPC_S_OK);
+const RPC_S_NOT_LISTENING: RPC_STATUS = RPC_STATUS(meta_winerror::RPC_S_NOT_LISTENING);
 
 #[test]
 fn hresult() -> Result<()> {
@@ -104,7 +104,7 @@ fn rpc() -> Result<()> {
     let r: Result<()> = unsafe { RPC_STATUS(meta_rpc::RpcServerListen(0, 0, 1).0).ok() };
     assert_eq!(
         r.unwrap_err().code(),
-        RPC_STATUS(RPC_S_MAX_CALLS_TOO_SMALL as i32).into()
+        RPC_STATUS(RPC_S_MAX_CALLS_TOO_SMALL).into()
     );
 
     RPC_S_OK.ok()

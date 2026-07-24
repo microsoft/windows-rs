@@ -386,10 +386,10 @@ mod Windows {
         type LPPOINTF = *mut POINTF;
         type LPPROPPAGEINFO = *mut PROPPAGEINFO;
         type LPTEXTMETRICOLE = *mut TEXTMETRICOLE;
-        const MULTICLASSINFO_GETIIDPRIMARY: u32 = 4;
-        const MULTICLASSINFO_GETIIDSOURCE: u32 = 8;
-        const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: u32 = 2;
-        const MULTICLASSINFO_GETTYPEINFO: u32 = 1;
+        const MULTICLASSINFO_GETIIDPRIMARY: i32 = 4;
+        const MULTICLASSINFO_GETIIDSOURCE: i32 = 8;
+        const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: i32 = 2;
+        const MULTICLASSINFO_GETTYPEINFO: i32 = 1;
         #[repr(i32)]
         enum OLEDCFLAGS {
             OLEDC_NODRAW = 1,
@@ -496,7 +496,7 @@ mod Windows {
             READYSTATE_COMPLETE = 4,
         }
         type TEXTMETRICOLE = TEXTMETRICW;
-        const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1;
+        const TIFLAGS_EXTENDDISPATCHONLY: i32 = 1;
         #[repr(i32)]
         enum UASFLAGS {
             UAS_NORMAL = 0,

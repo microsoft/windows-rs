@@ -44,10 +44,10 @@ mod Windows {
         const ASF_E_WRITEFAILED: HRESULT = -1072887800;
         const ASF_E_WRONGVERSION: HRESULT = -1072887826;
         const ASF_S_OPAQUEPACKET: HRESULT = 854000;
-        const FACILITY_NS: u32 = 13;
-        const STATUS_SEVERITY_ERROR: u32 = 3;
-        const STATUS_SEVERITY_INFORMATIONAL: u32 = 1;
-        const STATUS_SEVERITY_SUCCESS: u32 = 0;
-        const STATUS_SEVERITY_WARNING: u32 = 2;
+        const FACILITY_NS: i32 = 13;
+        const STATUS_SEVERITY_ERROR: i32 = 3;
+        const STATUS_SEVERITY_INFORMATIONAL: i32 = 1;
+        const STATUS_SEVERITY_SUCCESS: i32 = 0;
+        const STATUS_SEVERITY_WARNING: i32 = 2;
     }
 }

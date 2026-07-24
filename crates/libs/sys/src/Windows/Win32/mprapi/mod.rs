@@ -200,8 +200,8 @@ windows_link::link!("mprapi.dll" "system" fn MprInfoCreate(dwversion : u32, lplp
 windows_link::link!("mprapi.dll" "system" fn MprInfoDelete(lpheader : *const core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprInfoDuplicate(lpheader : *const core::ffi::c_void, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprInfoRemoveAll(lpheader : *const core::ffi::c_void, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
-pub const ALLOW_NO_AUTH: u32 = 1;
-pub const ATADDRESSLEN: u32 = 32;
+pub const ALLOW_NO_AUTH: i32 = 1;
+pub const ATADDRESSLEN: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -219,7 +219,7 @@ impl Default for AUTH_VALIDATION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0;
+pub const DO_NOT_ALLOW_NO_AUTH: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct GRE_CONFIG_PARAMS0 {
@@ -354,8 +354,8 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IPADDRESSLEN: u32 = 15;
-pub const IPXADDRESSLEN: u32 = 22;
+pub const IPADDRESSLEN: i32 = 15;
+pub const IPXADDRESSLEN: i32 = 22;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct L2TP_CONFIG_PARAMS0 {
@@ -399,8 +399,8 @@ impl Default for L2TP_TUNNEL_CONFIG_PARAMS2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MAXIPADRESSLEN: u32 = 64;
-pub const MAX_SSTP_HASH_SIZE: u32 = 32;
+pub const MAXIPADRESSLEN: i32 = 64;
+pub const MAX_SSTP_HASH_SIZE: i32 = 32;
 #[cfg(feature = "winnt")]
 pub type MIB_SERVER_HANDLE = super::HANDLE;
 #[repr(C)]
@@ -421,27 +421,27 @@ pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub lpfnRasAdminConnectionHangupNotificationEx: PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX,
     pub lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
 }
-pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1;
-pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2;
-pub const MPRAPI_IF_CUSTOM_CONFIG_FOR_IKEV2: u32 = 1;
-pub const MPRAPI_IKEV2_AUTH_USING_CERT: u32 = 1;
-pub const MPRAPI_IKEV2_AUTH_USING_EAP: u32 = 2;
-pub const MPRAPI_IKEV2_PROJECTION_INFO_TYPE: u32 = 2;
-pub const MPRAPI_IKEV2_SET_TUNNEL_CONFIG_PARAMS: u32 = 1;
-pub const MPRAPI_L2TP_SET_TUNNEL_CONFIG_PARAMS: u32 = 1;
-pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_1: u32 = 1;
-pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_2: u32 = 2;
-pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_3: u32 = 3;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_1: u32 = 1;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_2: u32 = 2;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_3: u32 = 3;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_4: u32 = 4;
-pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_5: u32 = 5;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_1: u32 = 1;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: u32 = 2;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4;
-pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5;
+pub const MPRAPI_ADMIN_DLL_VERSION_1: i32 = 1;
+pub const MPRAPI_ADMIN_DLL_VERSION_2: i32 = 2;
+pub const MPRAPI_IF_CUSTOM_CONFIG_FOR_IKEV2: i32 = 1;
+pub const MPRAPI_IKEV2_AUTH_USING_CERT: i32 = 1;
+pub const MPRAPI_IKEV2_AUTH_USING_EAP: i32 = 2;
+pub const MPRAPI_IKEV2_PROJECTION_INFO_TYPE: i32 = 2;
+pub const MPRAPI_IKEV2_SET_TUNNEL_CONFIG_PARAMS: i32 = 1;
+pub const MPRAPI_L2TP_SET_TUNNEL_CONFIG_PARAMS: i32 = 1;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_1: i32 = 1;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_2: i32 = 2;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_3: i32 = 3;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_1: i32 = 1;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_2: i32 = 2;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_3: i32 = 3;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_4: i32 = 4;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_5: i32 = 5;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_1: i32 = 1;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: i32 = 2;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: i32 = 3;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: i32 = 4;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MPRAPI_OBJECT_HEADER {
@@ -456,14 +456,14 @@ pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = 2;
 pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 3;
 pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 1;
 pub const MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 5;
-pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1;
-pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1;
-pub const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: u32 = 1;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_GRE: u32 = 16;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_IKEV2: u32 = 8;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: u32 = 2;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1;
-pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4;
+pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: i32 = 1;
+pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: i32 = 1;
+pub const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: i32 = 1;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_GRE: i32 = 16;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_IKEV2: i32 = 8;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: i32 = 2;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: i32 = 1;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Default)]
@@ -483,39 +483,39 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub SstpConfigParams: SSTP_CONFIG_PARAMS,
     pub GREConfigParams: GRE_CONFIG_PARAMS0,
 }
-pub const MPRDM_DialAll: u32 = 1;
-pub const MPRDM_DialAsNeeded: u32 = 2;
-pub const MPRDM_DialFirst: u32 = 0;
-pub const MPRET_Phone: u32 = 1;
-pub const MPRET_Vpn: u32 = 2;
-pub const MPRIDS_Disabled: i32 = -1;
-pub const MPRIDS_UseGlobalValue: u32 = 0;
-pub const MPRIO_DisableLcpExtensions: u32 = 32;
-pub const MPRIO_IpHeaderCompression: u32 = 8;
+pub const MPRDM_DialAll: i32 = 1;
+pub const MPRDM_DialAsNeeded: i32 = 2;
+pub const MPRDM_DialFirst: i32 = 0;
+pub const MPRET_Phone: i32 = 1;
+pub const MPRET_Vpn: i32 = 2;
+pub const MPRIDS_Disabled: u32 = 4294967295;
+pub const MPRIDS_UseGlobalValue: i32 = 0;
+pub const MPRIO_DisableLcpExtensions: i32 = 32;
+pub const MPRIO_IpHeaderCompression: i32 = 8;
 pub const MPRIO_IpSecPreSharedKey: u32 = 2147483648;
-pub const MPRIO_NetworkLogon: u32 = 8192;
-pub const MPRIO_PromoteAlternates: u32 = 32768;
-pub const MPRIO_RemoteDefaultGateway: u32 = 16;
-pub const MPRIO_RequireCHAP: u32 = 134217728;
-pub const MPRIO_RequireDataEncryption: u32 = 4096;
-pub const MPRIO_RequireEAP: u32 = 131072;
-pub const MPRIO_RequireEncryptedPw: u32 = 1024;
-pub const MPRIO_RequireMachineCertificates: u32 = 16777216;
-pub const MPRIO_RequireMsCHAP: u32 = 268435456;
-pub const MPRIO_RequireMsCHAP2: u32 = 536870912;
-pub const MPRIO_RequireMsEncryptedPw: u32 = 2048;
-pub const MPRIO_RequirePAP: u32 = 262144;
-pub const MPRIO_RequireSPAP: u32 = 524288;
-pub const MPRIO_SecureLocalFiles: u32 = 65536;
-pub const MPRIO_SharedPhoneNumbers: u32 = 8388608;
-pub const MPRIO_SpecificIpAddr: u32 = 2;
-pub const MPRIO_SpecificNameServers: u32 = 4;
-pub const MPRIO_SwCompression: u32 = 512;
-pub const MPRIO_UsePreSharedKeyForIkev2Initiator: u32 = 33554432;
-pub const MPRIO_UsePreSharedKeyForIkev2Responder: u32 = 67108864;
-pub const MPRNP_Ip: u32 = 4;
-pub const MPRNP_Ipv6: u32 = 8;
-pub const MPRNP_Ipx: u32 = 2;
+pub const MPRIO_NetworkLogon: i32 = 8192;
+pub const MPRIO_PromoteAlternates: i32 = 32768;
+pub const MPRIO_RemoteDefaultGateway: i32 = 16;
+pub const MPRIO_RequireCHAP: i32 = 134217728;
+pub const MPRIO_RequireDataEncryption: i32 = 4096;
+pub const MPRIO_RequireEAP: i32 = 131072;
+pub const MPRIO_RequireEncryptedPw: i32 = 1024;
+pub const MPRIO_RequireMachineCertificates: i32 = 16777216;
+pub const MPRIO_RequireMsCHAP: i32 = 268435456;
+pub const MPRIO_RequireMsCHAP2: i32 = 536870912;
+pub const MPRIO_RequireMsEncryptedPw: i32 = 2048;
+pub const MPRIO_RequirePAP: i32 = 262144;
+pub const MPRIO_RequireSPAP: i32 = 524288;
+pub const MPRIO_SecureLocalFiles: i32 = 65536;
+pub const MPRIO_SharedPhoneNumbers: i32 = 8388608;
+pub const MPRIO_SpecificIpAddr: i32 = 2;
+pub const MPRIO_SpecificNameServers: i32 = 4;
+pub const MPRIO_SwCompression: i32 = 512;
+pub const MPRIO_UsePreSharedKeyForIkev2Initiator: i32 = 33554432;
+pub const MPRIO_UsePreSharedKeyForIkev2Responder: i32 = 67108864;
+pub const MPRNP_Ip: i32 = 4;
+pub const MPRNP_Ipv6: i32 = 8;
+pub const MPRNP_Ipx: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_CERT_EKU {
@@ -580,12 +580,12 @@ impl Default for MPR_DEVICE_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1;
-pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2;
-pub const MPR_ET_None: u32 = 0;
-pub const MPR_ET_Optional: u32 = 3;
-pub const MPR_ET_Require: u32 = 1;
-pub const MPR_ET_RequireMax: u32 = 2;
+pub const MPR_ENABLE_RAS_ON_DEVICE: i32 = 1;
+pub const MPR_ENABLE_ROUTING_ON_DEVICE: i32 = 2;
+pub const MPR_ET_None: i32 = 0;
+pub const MPR_ET_Optional: i32 = 3;
+pub const MPR_ET_Require: i32 = 1;
+pub const MPR_ET_RequireMax: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MPR_FILTER_0 {
@@ -766,13 +766,13 @@ impl Default for MPR_INTERFACE_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2;
-pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4;
-pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16;
-pub const MPR_INTERFACE_NO_DEVICE: u32 = 64;
-pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32;
-pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1;
-pub const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8;
+pub const MPR_INTERFACE_ADMIN_DISABLED: i32 = 2;
+pub const MPR_INTERFACE_CONNECTION_FAILURE: i32 = 4;
+pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: i32 = 16;
+pub const MPR_INTERFACE_NO_DEVICE: i32 = 64;
+pub const MPR_INTERFACE_NO_MEDIA_SENSE: i32 = 32;
+pub const MPR_INTERFACE_OUT_OF_RESOURCES: i32 = 1;
+pub const MPR_INTERFACE_SERVICE_PAUSED: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPR_IPINIP_INTERFACE_0 {
@@ -784,18 +784,18 @@ impl Default for MPR_IPINIP_INTERFACE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MPR_MaxAreaCode: u32 = 10;
-pub const MPR_MaxCallbackNumber: u32 = 128;
-pub const MPR_MaxDeviceName: u32 = 128;
-pub const MPR_MaxDeviceType: u32 = 16;
-pub const MPR_MaxEntryName: u32 = 256;
-pub const MPR_MaxFacilities: u32 = 200;
-pub const MPR_MaxIpAddress: u32 = 15;
-pub const MPR_MaxIpxAddress: u32 = 21;
-pub const MPR_MaxPadType: u32 = 32;
-pub const MPR_MaxPhoneNumber: u32 = 128;
-pub const MPR_MaxUserData: u32 = 200;
-pub const MPR_MaxX25Address: u32 = 200;
+pub const MPR_MaxAreaCode: i32 = 10;
+pub const MPR_MaxCallbackNumber: i32 = 128;
+pub const MPR_MaxDeviceName: i32 = 128;
+pub const MPR_MaxDeviceType: i32 = 16;
+pub const MPR_MaxEntryName: i32 = 256;
+pub const MPR_MaxFacilities: i32 = 200;
+pub const MPR_MaxIpAddress: i32 = 15;
+pub const MPR_MaxIpxAddress: i32 = 21;
+pub const MPR_MaxPadType: i32 = 32;
+pub const MPR_MaxPhoneNumber: i32 = 128;
+pub const MPR_MaxUserData: i32 = 200;
+pub const MPR_MaxX25Address: i32 = 200;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MPR_SERVER_0 {
@@ -914,19 +914,19 @@ impl Default for MPR_VPN_TRAFFIC_SELECTORS {
 pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = 7;
 pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = 8;
 pub type MPR_VPN_TS_TYPE = i32;
-pub const MPR_VS_Default: u32 = 0;
-pub const MPR_VS_Ikev2First: u32 = 8;
-pub const MPR_VS_Ikev2Only: u32 = 7;
-pub const MPR_VS_L2tpFirst: u32 = 4;
-pub const MPR_VS_L2tpOnly: u32 = 3;
-pub const MPR_VS_PptpFirst: u32 = 2;
-pub const MPR_VS_PptpOnly: u32 = 1;
+pub const MPR_VS_Default: i32 = 0;
+pub const MPR_VS_Ikev2First: i32 = 8;
+pub const MPR_VS_Ikev2Only: i32 = 7;
+pub const MPR_VS_L2tpFirst: i32 = 4;
+pub const MPR_VS_L2tpOnly: i32 = 3;
+pub const MPR_VS_PptpFirst: i32 = 2;
+pub const MPR_VS_PptpOnly: i32 = 1;
 pub type PGRE_CONFIG_PARAMS0 = *mut GRE_CONFIG_PARAMS0;
-pub const PID_ATALK: u32 = 41;
-pub const PID_IP: u32 = 33;
-pub const PID_IPV6: u32 = 87;
-pub const PID_IPX: u32 = 43;
-pub const PID_NBF: u32 = 63;
+pub const PID_ATALK: i32 = 41;
+pub const PID_IP: i32 = 33;
+pub const PID_IPV6: i32 = 87;
+pub const PID_IPX: i32 = 43;
+pub const PID_NBF: i32 = 63;
 #[cfg(feature = "wincrypt")]
 pub type PIKEV2_CONFIG_PARAMS = *mut IKEV2_CONFIG_PARAMS;
 pub type PIKEV2_PROJECTION_INFO = *mut IKEV2_PROJECTION_INFO;
@@ -1041,12 +1041,12 @@ impl Default for PPP_ATCP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PPP_CCP_COMPRESSION: u32 = 1;
-pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64;
-pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32;
-pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16;
-pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128;
-pub const PPP_CCP_HISTORYLESS: u32 = 16777216;
+pub const PPP_CCP_COMPRESSION: i32 = 1;
+pub const PPP_CCP_ENCRYPTION128BIT: i32 = 64;
+pub const PPP_CCP_ENCRYPTION40BIT: i32 = 32;
+pub const PPP_CCP_ENCRYPTION40BITOLD: i32 = 16;
+pub const PPP_CCP_ENCRYPTION56BIT: i32 = 128;
+pub const PPP_CCP_HISTORYLESS: i32 = 16777216;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PPP_CCP_INFO {
@@ -1109,7 +1109,7 @@ impl Default for PPP_IPCP_INFO2 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PPP_IPCP_VJ: u32 = 1;
+pub const PPP_IPCP_VJ: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_IPV6_CP_INFO {
@@ -1139,20 +1139,20 @@ impl Default for PPP_IPXCP_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PPP_LCP_3_DES: u32 = 32;
-pub const PPP_LCP_ACFC: u32 = 4;
-pub const PPP_LCP_AES_128: u32 = 64;
-pub const PPP_LCP_AES_192: u32 = 256;
-pub const PPP_LCP_AES_256: u32 = 128;
-pub const PPP_LCP_CHAP: u32 = 49699;
-pub const PPP_LCP_CHAP_MD5: u32 = 5;
-pub const PPP_LCP_CHAP_MS: u32 = 128;
-pub const PPP_LCP_CHAP_MSV2: u32 = 129;
-pub const PPP_LCP_DES_56: u32 = 16;
-pub const PPP_LCP_EAP: u32 = 49703;
-pub const PPP_LCP_GCM_AES_128: u32 = 512;
-pub const PPP_LCP_GCM_AES_192: u32 = 1024;
-pub const PPP_LCP_GCM_AES_256: u32 = 2048;
+pub const PPP_LCP_3_DES: i32 = 32;
+pub const PPP_LCP_ACFC: i32 = 4;
+pub const PPP_LCP_AES_128: i32 = 64;
+pub const PPP_LCP_AES_192: i32 = 256;
+pub const PPP_LCP_AES_256: i32 = 128;
+pub const PPP_LCP_CHAP: i32 = 49699;
+pub const PPP_LCP_CHAP_MD5: i32 = 5;
+pub const PPP_LCP_CHAP_MS: i32 = 128;
+pub const PPP_LCP_CHAP_MSV2: i32 = 129;
+pub const PPP_LCP_DES_56: i32 = 16;
+pub const PPP_LCP_EAP: i32 = 49703;
+pub const PPP_LCP_GCM_AES_128: i32 = 512;
+pub const PPP_LCP_GCM_AES_192: i32 = 1024;
+pub const PPP_LCP_GCM_AES_256: i32 = 2048;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PPP_LCP_INFO {
@@ -1168,11 +1168,11 @@ pub struct PPP_LCP_INFO {
     pub dwEapTypeId: u32,
     pub dwRemoteEapTypeId: u32,
 }
-pub const PPP_LCP_MULTILINK_FRAMING: u32 = 1;
-pub const PPP_LCP_PAP: u32 = 49187;
-pub const PPP_LCP_PFC: u32 = 2;
-pub const PPP_LCP_SPAP: u32 = 49191;
-pub const PPP_LCP_SSHF: u32 = 8;
+pub const PPP_LCP_MULTILINK_FRAMING: i32 = 1;
+pub const PPP_LCP_PAP: i32 = 49187;
+pub const PPP_LCP_PFC: i32 = 2;
+pub const PPP_LCP_SPAP: i32 = 49191;
+pub const PPP_LCP_SSHF: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PPP_NBFCP_INFO {
@@ -1346,12 +1346,12 @@ pub type PSSTP_CERT_INFO = *mut SSTP_CERT_INFO;
 pub type PSSTP_CONFIG_PARAMS = *mut SSTP_CONFIG_PARAMS;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
 pub type PVPN_TS_IP_ADDRESS = *mut VPN_TS_IP_ADDRESS;
-pub const RASPRIV2_DialinPolicy: u32 = 1;
-pub const RASPRIV_AdminSetCallback: u32 = 2;
-pub const RASPRIV_CallbackType: u32 = 7;
-pub const RASPRIV_CallerSetCallback: u32 = 4;
-pub const RASPRIV_DialinPrivilege: u32 = 8;
-pub const RASPRIV_NoCallback: u32 = 1;
+pub const RASPRIV2_DialinPolicy: i32 = 1;
+pub const RASPRIV_AdminSetCallback: i32 = 2;
+pub const RASPRIV_CallbackType: i32 = 7;
+pub const RASPRIV_CallerSetCallback: i32 = 4;
+pub const RASPRIV_DialinPrivilege: i32 = 8;
+pub const RASPRIV_NoCallback: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -1515,10 +1515,10 @@ impl Default for RAS_CONNECTION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RAS_FLAGS_DORMANT: u32 = 32;
-pub const RAS_FLAGS_MESSENGER_PRESENT: u32 = 2;
-pub const RAS_FLAGS_PPP_CONNECTION: u32 = 1;
-pub const RAS_FLAGS_QUARANTINE_PRESENT: u32 = 8;
+pub const RAS_FLAGS_DORMANT: i32 = 32;
+pub const RAS_FLAGS_MESSENGER_PRESENT: i32 = 2;
+pub const RAS_FLAGS_PPP_CONNECTION: i32 = 1;
+pub const RAS_FLAGS_QUARANTINE_PRESENT: i32 = 8;
 pub type RAS_HARDWARE_CONDITION = i32;
 pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = 1;
 pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = 0;

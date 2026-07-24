@@ -106,8 +106,8 @@ pub struct EFS_CERTIFICATE_BLOB {
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
-pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5;
-pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6;
+pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: i32 = 5;
+pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: i32 = 6;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_DECRYPTION_STATUS_INFO {
@@ -115,7 +115,7 @@ pub struct EFS_DECRYPTION_STATUS_INFO {
     pub dwHashOffset: u32,
     pub cbHash: u32,
 }
-pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1;
+pub const EFS_EFS_SUBVER_EFS_CERT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_ENCRYPTION_STATUS_INFO {
@@ -138,12 +138,12 @@ pub struct EFS_KEY_INFO {
     pub Algorithm: super::ALG_ID,
     pub KeyLength: u32,
 }
-pub const EFS_METADATA_ADD_USER: u32 = 1;
-pub const EFS_METADATA_GENERAL_OP: u32 = 8;
-pub const EFS_METADATA_REMOVE_USER: u32 = 2;
-pub const EFS_METADATA_REPLACE_USER: u32 = 4;
-pub const EFS_PFILE_SUBVER_APPX: u32 = 3;
-pub const EFS_PFILE_SUBVER_RMS: u32 = 2;
+pub const EFS_METADATA_ADD_USER: i32 = 1;
+pub const EFS_METADATA_GENERAL_OP: i32 = 8;
+pub const EFS_METADATA_REMOVE_USER: i32 = 2;
+pub const EFS_METADATA_REPLACE_USER: i32 = 4;
+pub const EFS_PFILE_SUBVER_APPX: i32 = 3;
+pub const EFS_PFILE_SUBVER_RMS: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -159,7 +159,7 @@ pub struct EFS_RPC_BLOB {
     pub cbData: u32,
     pub pbData: super::PBYTE,
 }
-pub const EFS_SUBVER_UNKNOWN: u32 = 0;
+pub const EFS_SUBVER_UNKNOWN: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_VERSION_INFO {
@@ -257,7 +257,7 @@ impl Default for ENCRYPTION_PROTECTOR_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MAX_SID_SIZE: u32 = 256;
+pub const MAX_SID_SIZE: i32 = 256;
 #[cfg(feature = "minwindef")]
 pub type PEFS_CERTIFICATE_BLOB = *mut EFS_CERTIFICATE_BLOB;
 pub type PEFS_COMPATIBILITY_INFO = *mut EFS_COMPATIBILITY_INFO;
@@ -286,4 +286,4 @@ pub type PENCRYPTION_CERTIFICATE_LIST = *mut ENCRYPTION_CERTIFICATE_LIST;
 pub type PENCRYPTION_PROTECTOR = *mut ENCRYPTION_PROTECTOR;
 #[cfg(feature = "winnt")]
 pub type PENCRYPTION_PROTECTOR_LIST = *mut ENCRYPTION_PROTECTOR_LIST;
-pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1;
+pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: i32 = 1;

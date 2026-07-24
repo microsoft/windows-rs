@@ -5,13 +5,13 @@ use windows::{Win32::*, core::WIN32_ERROR, core::*};
 #[test]
 fn test() -> Result<()> {
     unsafe {
-        assert_eq!(InSendMessageEx(None), ISMEX_NOSEND);
+        assert_eq!(InSendMessageEx(None), ISMEX_NOSEND as u32);
         assert!(!CreateThreadpool(None).is_null());
 
         assert_eq!(
             TrackPopupMenu(
                 Default::default(),
-                TPM_LEFTBUTTON,
+                TPM_LEFTBUTTON as u32,
                 1,
                 2,
                 Default::default(),
@@ -27,7 +27,7 @@ fn test() -> Result<()> {
                 HKEY_CLASSES_ROOT,
                 s!(r".txt"),
                 None,
-                ACCESS_MASK(KEY_QUERY_VALUE),
+                ACCESS_MASK(KEY_QUERY_VALUE as u32),
                 &mut key,
             )
             .0 as u32,

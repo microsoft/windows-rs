@@ -6,11 +6,11 @@ use windows::core::{HRESULT, WIN32_ERROR};
 fn test_message() {
     helpers::set_thread_ui_language();
 
-    let code: HRESULT = WIN32_ERROR(ERROR_SUCCESS).into();
+    let code: HRESULT = WIN32_ERROR(ERROR_SUCCESS as u32).into();
     let message: String = code.message();
     assert_eq!(message, "The operation completed successfully.");
 
-    let code: HRESULT = WIN32_ERROR(ERROR_IO_PENDING).into();
+    let code: HRESULT = WIN32_ERROR(ERROR_IO_PENDING as u32).into();
     let message: String = code.message();
     assert_eq!(message, "Overlapped I/O operation is in progress.");
 }

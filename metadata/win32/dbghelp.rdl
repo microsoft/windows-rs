@@ -25,56 +25,56 @@ mod Windows {
             Revision: u16,
             Reserved: u16,
         }
-        const API_VERSION_NUMBER: u32 = 12;
+        const API_VERSION_NUMBER: i32 = 12;
         const CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE: u32 = 2147483648;
-        const CBA_CHECK_ENGOPT_DISALLOW_NETWORK_PATHS: u32 = 1879048192;
-        const CBA_DEBUG_INFO: u32 = 268435456;
-        const CBA_DEFERRED_SYMBOL_LOAD_CANCEL: u32 = 7;
-        const CBA_DEFERRED_SYMBOL_LOAD_COMPLETE: u32 = 2;
-        const CBA_DEFERRED_SYMBOL_LOAD_FAILURE: u32 = 3;
-        const CBA_DEFERRED_SYMBOL_LOAD_PARTIAL: u32 = 32;
-        const CBA_DEFERRED_SYMBOL_LOAD_START: u32 = 1;
-        const CBA_DUPLICATE_SYMBOL: u32 = 5;
-        const CBA_ENGINE_PRESENT: u32 = 1610612736;
-        const CBA_EVENT: u32 = 16;
+        const CBA_CHECK_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 1879048192;
+        const CBA_DEBUG_INFO: i32 = 268435456;
+        const CBA_DEFERRED_SYMBOL_LOAD_CANCEL: i32 = 7;
+        const CBA_DEFERRED_SYMBOL_LOAD_COMPLETE: i32 = 2;
+        const CBA_DEFERRED_SYMBOL_LOAD_FAILURE: i32 = 3;
+        const CBA_DEFERRED_SYMBOL_LOAD_PARTIAL: i32 = 32;
+        const CBA_DEFERRED_SYMBOL_LOAD_START: i32 = 1;
+        const CBA_DUPLICATE_SYMBOL: i32 = 5;
+        const CBA_ENGINE_PRESENT: i32 = 1610612736;
+        const CBA_EVENT: i32 = 16;
         const CBA_MAP_JIT_SYMBOL: u32 = 2684354560;
-        const CBA_QUERY_IF_SYMBOL_DOWNLOAD_DISALLOWED: u32 = 64;
-        const CBA_READ_MEMORY: u32 = 6;
-        const CBA_SET_OPTIONS: u32 = 8;
-        const CBA_SRCSRV_EVENT: u32 = 1073741824;
-        const CBA_SRCSRV_INFO: u32 = 536870912;
-        const CBA_SYMBOLS_UNLOADED: u32 = 4;
-        const CBA_UPDATE_STATUS_BAR: u32 = 1342177280;
+        const CBA_QUERY_IF_SYMBOL_DOWNLOAD_DISALLOWED: i32 = 64;
+        const CBA_READ_MEMORY: i32 = 6;
+        const CBA_SET_OPTIONS: i32 = 8;
+        const CBA_SRCSRV_EVENT: i32 = 1073741824;
+        const CBA_SRCSRV_INFO: i32 = 536870912;
+        const CBA_SYMBOLS_UNLOADED: i32 = 4;
+        const CBA_UPDATE_STATUS_BAR: i32 = 1342177280;
         const CBA_XML_LOG: u32 = 2415919104;
         struct DBGHELP_DATA_REPORT_STRUCT {
             pBinPathNonExist: PCWSTR,
             pSymbolPathNonExist: PCWSTR,
         }
-        const DBHHEADER_CVMISC: u32 = 2;
-        const DBHHEADER_DEBUGDIRS: u32 = 1;
-        const DBHHEADER_PDBGUID: u32 = 3;
+        const DBHHEADER_CVMISC: i32 = 2;
+        const DBHHEADER_DEBUGDIRS: i32 = 1;
+        const DBHHEADER_PDBGUID: i32 = 3;
         struct DISCRIMINATEDUNION_TAG_VALUE {
             value: [u8; 16],
             valueSizeBytes: u8,
         }
-        const DSLFLAG_MISMATCHED_DBG: u32 = 2;
-        const DSLFLAG_MISMATCHED_PDB: u32 = 1;
+        const DSLFLAG_MISMATCHED_DBG: i32 = 2;
+        const DSLFLAG_MISMATCHED_PDB: i32 = 1;
         #[library("dbghelp.dll")]
         extern fn DbgHelpCreateUserDump(#[opt] FileName: PCSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[opt] UserData: *const void) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn DbgHelpCreateUserDumpW(#[opt] FileName: PCWSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, #[opt] UserData: *const void) -> BOOL;
-        const ERROR_IMAGE_NOT_STRIPPED: u32 = 34816;
-        const ERROR_NO_DBG_POINTER: u32 = 34817;
-        const ERROR_NO_PDB_POINTER: u32 = 34818;
-        const ESLFLAG_FULLPATH: u32 = 1;
-        const ESLFLAG_INLINE_SITE: u32 = 16;
-        const ESLFLAG_NEAREST: u32 = 2;
-        const ESLFLAG_NEXT: u32 = 8;
-        const ESLFLAG_PREV: u32 = 4;
-        const EVENT_SRCSPEW: u32 = 100;
-        const EVENT_SRCSPEW_END: u32 = 199;
-        const EVENT_SRCSPEW_START: u32 = 100;
-        const EXT_OUTPUT_VER: u32 = 1;
+        const ERROR_IMAGE_NOT_STRIPPED: i32 = 34816;
+        const ERROR_NO_DBG_POINTER: i32 = 34817;
+        const ERROR_NO_PDB_POINTER: i32 = 34818;
+        const ESLFLAG_FULLPATH: i32 = 1;
+        const ESLFLAG_INLINE_SITE: i32 = 16;
+        const ESLFLAG_NEAREST: i32 = 2;
+        const ESLFLAG_NEXT: i32 = 8;
+        const ESLFLAG_PREV: i32 = 4;
+        const EVENT_SRCSPEW: i32 = 100;
+        const EVENT_SRCSPEW_END: i32 = 199;
+        const EVENT_SRCSPEW_START: i32 = 100;
+        const EXT_OUTPUT_VER: i32 = 1;
         #[library("dbghelp.dll")]
         extern fn EnumDirTree(#[opt] hProcess: HANDLE, RootPath: PCSTR, InputPathName: PCSTR, #[out] #[opt] OutputPathBuffer: PSTR, #[opt] cb: PENUMDIRTREE_CALLBACK, #[opt] data: *const void) -> BOOL;
         #[library("dbghelp.dll")]
@@ -90,9 +90,9 @@ mod Windows {
         extern fn EnumerateLoadedModulesExW(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[opt] UserContext: *const void) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn EnumerateLoadedModulesW64(hProcess: HANDLE, EnumLoadedModulesCallback: PENUMLOADED_MODULES_CALLBACKW64, #[opt] UserContext: *const void) -> BOOL;
-        const FLAG_ENGINE_PRESENT: u32 = 4;
-        const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: u32 = 8;
-        const FLAG_OVERRIDE_ARM_MACHINE_TYPE: u32 = 16;
+        const FLAG_ENGINE_PRESENT: i32 = 4;
+        const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
+        const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
         #[library("dbghelp.dll")]
         extern fn FindDebugInfoFile(FileName: PCSTR, SymbolPath: PCSTR, #[out] DebugFilePath: PSTR) -> HANDLE;
         #[library("dbghelp.dll")]
@@ -184,7 +184,7 @@ mod Windows {
             SYMOPT_EX_DISALLOW_NETWORK_PATHS = 4,
             SYMOPT_EX_MAX = 5,
         }
-        const IMAGEHLP_GET_TYPE_INFO_CHILDREN: u32 = 2;
+        const IMAGEHLP_GET_TYPE_INFO_CHILDREN: i32 = 2;
         struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
             SizeOfStruct: u32,
             Flags: u32,
@@ -205,7 +205,7 @@ mod Windows {
             NumReqsValid: u32,
             ReqsValid: PULONG64,
         }
-        const IMAGEHLP_GET_TYPE_INFO_UNCACHED: u32 = 1;
+        const IMAGEHLP_GET_TYPE_INFO_UNCACHED: i32 = 1;
         #[repr(i32)]
         enum IMAGEHLP_HD_TYPE {
             hdBase = 0,
@@ -336,19 +336,19 @@ mod Windows {
             Module: IMAGEHLP_MODULEW64,
             RegionFlags: u32,
         }
-        const IMAGEHLP_MODULE_REGION_ADDITIONAL: u32 = 4;
-        const IMAGEHLP_MODULE_REGION_ALL: u32 = 255;
-        const IMAGEHLP_MODULE_REGION_DLLBASE: u32 = 1;
-        const IMAGEHLP_MODULE_REGION_DLLRANGE: u32 = 2;
-        const IMAGEHLP_MODULE_REGION_JIT: u32 = 8;
-        const IMAGEHLP_RMAP_BIG_ENDIAN: u32 = 2;
-        const IMAGEHLP_RMAP_FIXUP_ARM64X: u32 = 268435456;
+        const IMAGEHLP_MODULE_REGION_ADDITIONAL: i32 = 4;
+        const IMAGEHLP_MODULE_REGION_ALL: i32 = 255;
+        const IMAGEHLP_MODULE_REGION_DLLBASE: i32 = 1;
+        const IMAGEHLP_MODULE_REGION_DLLRANGE: i32 = 2;
+        const IMAGEHLP_MODULE_REGION_JIT: i32 = 8;
+        const IMAGEHLP_RMAP_BIG_ENDIAN: i32 = 2;
+        const IMAGEHLP_RMAP_FIXUP_ARM64X: i32 = 268435456;
         const IMAGEHLP_RMAP_FIXUP_IMAGEBASE: u32 = 2147483648;
-        const IMAGEHLP_RMAP_IGNORE_MISCOMPARE: u32 = 4;
-        const IMAGEHLP_RMAP_LOAD_RW_DATA_SECTIONS: u32 = 536870912;
-        const IMAGEHLP_RMAP_MAPPED_FLAT: u32 = 1;
-        const IMAGEHLP_RMAP_NOBASERELOCATIONS: u32 = 134217728;
-        const IMAGEHLP_RMAP_OMIT_SHARED_RW_DATA_SECTIONS: u32 = 1073741824;
+        const IMAGEHLP_RMAP_IGNORE_MISCOMPARE: i32 = 4;
+        const IMAGEHLP_RMAP_LOAD_RW_DATA_SECTIONS: i32 = 536870912;
+        const IMAGEHLP_RMAP_MAPPED_FLAT: i32 = 1;
+        const IMAGEHLP_RMAP_NOBASERELOCATIONS: i32 = 134217728;
+        const IMAGEHLP_RMAP_OMIT_SHARED_RW_DATA_SECTIONS: i32 = 1073741824;
         #[repr(i32)]
         enum IMAGEHLP_SF_TYPE {
             sfImage = 0,
@@ -416,15 +416,15 @@ mod Windows {
             sym: IMAGEHLP_SYMBOLW,
             name: [u16; 2001],
         }
-        const IMAGEHLP_SYMBOL_FUNCTION: u32 = 2048;
-        const IMAGEHLP_SYMBOL_INFO_CONSTANT: u32 = 256;
-        const IMAGEHLP_SYMBOL_INFO_FRAMERELATIVE: u32 = 32;
-        const IMAGEHLP_SYMBOL_INFO_LOCAL: u32 = 128;
-        const IMAGEHLP_SYMBOL_INFO_PARAMETER: u32 = 64;
-        const IMAGEHLP_SYMBOL_INFO_REGISTER: u32 = 8;
-        const IMAGEHLP_SYMBOL_INFO_REGRELATIVE: u32 = 16;
-        const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: u32 = 16384;
-        const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: u32 = 1;
+        const IMAGEHLP_SYMBOL_FUNCTION: i32 = 2048;
+        const IMAGEHLP_SYMBOL_INFO_CONSTANT: i32 = 256;
+        const IMAGEHLP_SYMBOL_INFO_FRAMERELATIVE: i32 = 32;
+        const IMAGEHLP_SYMBOL_INFO_LOCAL: i32 = 128;
+        const IMAGEHLP_SYMBOL_INFO_PARAMETER: i32 = 64;
+        const IMAGEHLP_SYMBOL_INFO_REGISTER: i32 = 8;
+        const IMAGEHLP_SYMBOL_INFO_REGRELATIVE: i32 = 16;
+        const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: i32 = 16384;
+        const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: i32 = 1;
         #[arch(X86)]
         struct IMAGEHLP_SYMBOL_PACKAGE {
             sym: IMAGEHLP_SYMBOL,
@@ -435,7 +435,7 @@ mod Windows {
             r#type: u32,
             file: [i8; 260],
         }
-        const IMAGEHLP_SYMBOL_THUNK: u32 = 8192;
+        const IMAGEHLP_SYMBOL_THUNK: i32 = 8192;
         #[repr(i32)]
         enum IMAGEHLP_SYMBOL_TYPE_INFO {
             TI_GET_SYMTAG = 0,
@@ -479,7 +479,7 @@ mod Windows {
             TI_GET_DISCRIMINATEDUNION_TAG_RANGES = 38,
             IMAGEHLP_SYMBOL_TYPE_INFO_MAX = 39,
         }
-        const IMAGEHLP_SYMBOL_VIRTUAL: u32 = 4096;
+        const IMAGEHLP_SYMBOL_VIRTUAL: i32 = 4096;
         #[arch(X86)]
         struct IMAGE_DEBUG_INFORMATION {
             List: LIST_ENTRY,
@@ -514,9 +514,9 @@ mod Windows {
             ReservedOriginalFunctionTableBaseAddress: u32,
             Reserved: [u32; 2],
         }
-        const IMAGE_SEPARATION: u32 = 65536;
+        const IMAGE_SEPARATION: i32 = 65536;
         const INLINE_FRAME_CONTEXT_IGNORE: u32 = 4294967295;
-        const INLINE_FRAME_CONTEXT_INIT: u32 = 0;
+        const INLINE_FRAME_CONTEXT_INIT: i32 = 0;
         #[library("dbghelp.dll")]
         extern fn ImageDirectoryEntryToData(Base: *const void, MappedAsImage: BOOLEAN, DirectoryEntry: u16, Size: *mut u32) -> *mut void;
         #[library("dbghelp.dll")]
@@ -608,7 +608,7 @@ mod Windows {
         type LPSTACKFRAME = *mut STACKFRAME;
         type LPSTACKFRAME64 = *mut STACKFRAME64;
         type LPSTACKFRAME_EX = *mut STACKFRAME_EX;
-        const MAX_SYM_NAME: u32 = 2000;
+        const MAX_SYM_NAME: i32 = 2000;
         struct MODLOAD_CVMISC {
             oCV: u32,
             cCV: usize,
@@ -635,8 +635,8 @@ mod Windows {
         }
         #[library("dbghelp.dll")]
         extern fn MakeSureDirectoryPathExists(DirPath: PCSTR) -> BOOL;
-        const NONGAMESPARTITIONS: u32 = 1;
-        const NUM_SSRVOPTS: u32 = 32;
+        const NONGAMESPARTITIONS: i32 = 1;
+        const NUM_SSRVOPTS: i32 = 32;
         struct OMAP {
             rva: u32,
             rvaTo: u32,
@@ -804,9 +804,9 @@ mod Windows {
         extern fn RemoveInvalidModuleList(hProcess: HANDLE);
         #[library("dbghelp.dll")]
         extern fn ReportSymbolLoadSummary(hProcess: HANDLE, #[opt] pLoadModule: PCWSTR, pSymbolData: *const DBGHELP_DATA_REPORT_STRUCT) -> BOOL;
-        const SLMFLAG_ALT_INDEX: u32 = 2;
-        const SLMFLAG_NO_SYMBOLS: u32 = 4;
-        const SLMFLAG_VIRTUAL: u32 = 1;
+        const SLMFLAG_ALT_INDEX: i32 = 2;
+        const SLMFLAG_NO_SYMBOLS: i32 = 4;
+        const SLMFLAG_VIRTUAL: i32 = 1;
         struct SOURCEFILE {
             ModBase: u64,
             FileName: PCHAR,
@@ -833,64 +833,64 @@ mod Windows {
             LineNumber: u32,
             Address: u64,
         }
-        const SSRVACTION_CHECKSUMSTATUS: u32 = 8;
-        const SSRVACTION_EVENT: u32 = 3;
-        const SSRVACTION_EVENTW: u32 = 4;
-        const SSRVACTION_HTTPSTATUS: u32 = 6;
-        const SSRVACTION_QUERYCANCEL: u32 = 2;
-        const SSRVACTION_QUERY_IF_DOWNLOAD_DISALLOWED: u32 = 9;
-        const SSRVACTION_SIZE: u32 = 5;
-        const SSRVACTION_TRACE: u32 = 1;
-        const SSRVACTION_XMLOUTPUT: u32 = 7;
-        const SSRVOPT_CALLBACK: u32 = 1;
-        const SSRVOPT_CALLBACKW: u32 = 65536;
-        const SSRVOPT_DISABLE_PING_HOST: u32 = 67108864;
-        const SSRVOPT_DISABLE_TIMEOUT: u32 = 134217728;
-        const SSRVOPT_DONT_UNCOMPRESS: u32 = 33554432;
-        const SSRVOPT_DOWNSTREAM_STORE: u32 = 8192;
-        const SSRVOPT_DWORD: u32 = 2;
-        const SSRVOPT_DWORDPTR: u32 = 4;
-        const SSRVOPT_ENABLE_COMM_MSG: u32 = 268435456;
-        const SSRVOPT_FAVOR_COMPRESSED: u32 = 2097152;
-        const SSRVOPT_FLAT_DEFAULT_STORE: u32 = 131072;
-        const SSRVOPT_GETPATH: u32 = 64;
-        const SSRVOPT_GUIDPTR: u32 = 8;
+        const SSRVACTION_CHECKSUMSTATUS: i32 = 8;
+        const SSRVACTION_EVENT: i32 = 3;
+        const SSRVACTION_EVENTW: i32 = 4;
+        const SSRVACTION_HTTPSTATUS: i32 = 6;
+        const SSRVACTION_QUERYCANCEL: i32 = 2;
+        const SSRVACTION_QUERY_IF_DOWNLOAD_DISALLOWED: i32 = 9;
+        const SSRVACTION_SIZE: i32 = 5;
+        const SSRVACTION_TRACE: i32 = 1;
+        const SSRVACTION_XMLOUTPUT: i32 = 7;
+        const SSRVOPT_CALLBACK: i32 = 1;
+        const SSRVOPT_CALLBACKW: i32 = 65536;
+        const SSRVOPT_DISABLE_PING_HOST: i32 = 67108864;
+        const SSRVOPT_DISABLE_TIMEOUT: i32 = 134217728;
+        const SSRVOPT_DONT_UNCOMPRESS: i32 = 33554432;
+        const SSRVOPT_DOWNSTREAM_STORE: i32 = 8192;
+        const SSRVOPT_DWORD: i32 = 2;
+        const SSRVOPT_DWORDPTR: i32 = 4;
+        const SSRVOPT_ENABLE_COMM_MSG: i32 = 268435456;
+        const SSRVOPT_FAVOR_COMPRESSED: i32 = 2097152;
+        const SSRVOPT_FLAT_DEFAULT_STORE: i32 = 131072;
+        const SSRVOPT_GETPATH: i32 = 64;
+        const SSRVOPT_GUIDPTR: i32 = 8;
         const SSRVOPT_MAX: u32 = 2147483648;
-        const SSRVOPT_MESSAGE: u32 = 524288;
-        const SSRVOPT_NOCOPY: u32 = 64;
-        const SSRVOPT_OLDGUIDPTR: u32 = 16;
-        const SSRVOPT_OVERWRITE: u32 = 16384;
-        const SSRVOPT_PARAMTYPE: u32 = 256;
-        const SSRVOPT_PARENTWIN: u32 = 128;
-        const SSRVOPT_PROXY: u32 = 4096;
-        const SSRVOPT_PROXYW: u32 = 262144;
+        const SSRVOPT_MESSAGE: i32 = 524288;
+        const SSRVOPT_NOCOPY: i32 = 64;
+        const SSRVOPT_OLDGUIDPTR: i32 = 16;
+        const SSRVOPT_OVERWRITE: i32 = 16384;
+        const SSRVOPT_PARAMTYPE: i32 = 256;
+        const SSRVOPT_PARENTWIN: i32 = 128;
+        const SSRVOPT_PROXY: i32 = 4096;
+        const SSRVOPT_PROXYW: i32 = 262144;
         const SSRVOPT_RESET: usize = 18446744073709551615;
-        const SSRVOPT_RESETTOU: u32 = 32768;
+        const SSRVOPT_RESETTOU: i32 = 32768;
         const SSRVOPT_RETRY_APP_HANG: u32 = 2147483648;
-        const SSRVOPT_SECURE: u32 = 512;
-        const SSRVOPT_SERVICE: u32 = 1048576;
-        const SSRVOPT_SETCONTEXT: u32 = 2048;
-        const SSRVOPT_STRING: u32 = 4194304;
-        const SSRVOPT_TRACE: u32 = 1024;
-        const SSRVOPT_UNATTENDED: u32 = 32;
-        const SSRVOPT_URI_FILTER: u32 = 536870912;
-        const SSRVOPT_URI_TIERS: u32 = 1073741824;
-        const SSRVOPT_WINHTTP: u32 = 8388608;
-        const SSRVOPT_WININET: u32 = 16777216;
-        const SSRVURI_ALL: u32 = 255;
-        const SSRVURI_COMPRESSED: u32 = 2;
-        const SSRVURI_FILEPTR: u32 = 4;
-        const SSRVURI_HTTP_COMPRESSED: u32 = 2;
-        const SSRVURI_HTTP_FILEPTR: u32 = 4;
-        const SSRVURI_HTTP_MASK: u32 = 15;
-        const SSRVURI_HTTP_MSFZ0: u32 = 8;
-        const SSRVURI_HTTP_NORMAL: u32 = 1;
-        const SSRVURI_NORMAL: u32 = 1;
-        const SSRVURI_UNC_COMPRESSED: u32 = 32;
-        const SSRVURI_UNC_FILEPTR: u32 = 64;
-        const SSRVURI_UNC_MASK: u32 = 240;
-        const SSRVURI_UNC_MSFZ0: u32 = 128;
-        const SSRVURI_UNC_NORMAL: u32 = 16;
+        const SSRVOPT_SECURE: i32 = 512;
+        const SSRVOPT_SERVICE: i32 = 1048576;
+        const SSRVOPT_SETCONTEXT: i32 = 2048;
+        const SSRVOPT_STRING: i32 = 4194304;
+        const SSRVOPT_TRACE: i32 = 1024;
+        const SSRVOPT_UNATTENDED: i32 = 32;
+        const SSRVOPT_URI_FILTER: i32 = 536870912;
+        const SSRVOPT_URI_TIERS: i32 = 1073741824;
+        const SSRVOPT_WINHTTP: i32 = 8388608;
+        const SSRVOPT_WININET: i32 = 16777216;
+        const SSRVURI_ALL: i32 = 255;
+        const SSRVURI_COMPRESSED: i32 = 2;
+        const SSRVURI_FILEPTR: i32 = 4;
+        const SSRVURI_HTTP_COMPRESSED: i32 = 2;
+        const SSRVURI_HTTP_FILEPTR: i32 = 4;
+        const SSRVURI_HTTP_MASK: i32 = 15;
+        const SSRVURI_HTTP_MSFZ0: i32 = 8;
+        const SSRVURI_HTTP_NORMAL: i32 = 1;
+        const SSRVURI_NORMAL: i32 = 1;
+        const SSRVURI_UNC_COMPRESSED: i32 = 32;
+        const SSRVURI_UNC_FILEPTR: i32 = 64;
+        const SSRVURI_UNC_MASK: i32 = 240;
+        const SSRVURI_UNC_MSFZ0: i32 = 128;
+        const SSRVURI_UNC_NORMAL: i32 = 16;
         #[arch(X86)]
         struct STACKFRAME {
             AddrPC: ADDRESS,
@@ -977,84 +977,84 @@ mod Windows {
             si: SYMBOL_INFOW,
             name: [u16; 2001],
         }
-        const SYMENUM_OPTIONS_DEFAULT: u32 = 1;
-        const SYMENUM_OPTIONS_INLINE: u32 = 2;
-        const SYMFLAG_CLR_TOKEN: u32 = 262144;
-        const SYMFLAG_COMPLEX: u32 = 67108864;
-        const SYMFLAG_CONSTANT: u32 = 256;
-        const SYMFLAG_EXPORT: u32 = 512;
-        const SYMFLAG_FIXUP_ARM64X: u32 = 16777216;
-        const SYMFLAG_FORWARDER: u32 = 1024;
-        const SYMFLAG_FRAMEREL: u32 = 32;
-        const SYMFLAG_FUNCTION: u32 = 2048;
-        const SYMFLAG_FUNC_NO_RETURN: u32 = 1048576;
-        const SYMFLAG_GLOBAL: u32 = 33554432;
-        const SYMFLAG_ILREL: u32 = 65536;
-        const SYMFLAG_LOCAL: u32 = 128;
-        const SYMFLAG_METADATA: u32 = 131072;
-        const SYMFLAG_NULL: u32 = 524288;
-        const SYMFLAG_PARAMETER: u32 = 64;
-        const SYMFLAG_PUBLIC_CODE: u32 = 4194304;
-        const SYMFLAG_REGISTER: u32 = 8;
-        const SYMFLAG_REGREL: u32 = 16;
-        const SYMFLAG_REGREL_ALIASINDIR: u32 = 8388608;
+        const SYMENUM_OPTIONS_DEFAULT: i32 = 1;
+        const SYMENUM_OPTIONS_INLINE: i32 = 2;
+        const SYMFLAG_CLR_TOKEN: i32 = 262144;
+        const SYMFLAG_COMPLEX: i32 = 67108864;
+        const SYMFLAG_CONSTANT: i32 = 256;
+        const SYMFLAG_EXPORT: i32 = 512;
+        const SYMFLAG_FIXUP_ARM64X: i32 = 16777216;
+        const SYMFLAG_FORWARDER: i32 = 1024;
+        const SYMFLAG_FRAMEREL: i32 = 32;
+        const SYMFLAG_FUNCTION: i32 = 2048;
+        const SYMFLAG_FUNC_NO_RETURN: i32 = 1048576;
+        const SYMFLAG_GLOBAL: i32 = 33554432;
+        const SYMFLAG_ILREL: i32 = 65536;
+        const SYMFLAG_LOCAL: i32 = 128;
+        const SYMFLAG_METADATA: i32 = 131072;
+        const SYMFLAG_NULL: i32 = 524288;
+        const SYMFLAG_PARAMETER: i32 = 64;
+        const SYMFLAG_PUBLIC_CODE: i32 = 4194304;
+        const SYMFLAG_REGISTER: i32 = 8;
+        const SYMFLAG_REGREL: i32 = 16;
+        const SYMFLAG_REGREL_ALIASINDIR: i32 = 8388608;
         const SYMFLAG_RESET: u32 = 2147483648;
-        const SYMFLAG_SLOT: u32 = 32768;
-        const SYMFLAG_SYNTHETIC_ZEROBASE: u32 = 2097152;
-        const SYMFLAG_THUNK: u32 = 8192;
-        const SYMFLAG_TLSREL: u32 = 16384;
-        const SYMFLAG_VALUEPRESENT: u32 = 1;
-        const SYMFLAG_VIRTUAL: u32 = 4096;
-        const SYMF_CONSTANT: u32 = 256;
-        const SYMF_EXPORT: u32 = 512;
-        const SYMF_FORWARDER: u32 = 1024;
-        const SYMF_FRAMEREL: u32 = 32;
-        const SYMF_FUNCTION: u32 = 2048;
-        const SYMF_LOCAL: u32 = 128;
-        const SYMF_OMAP_GENERATED: u32 = 1;
-        const SYMF_OMAP_MODIFIED: u32 = 2;
-        const SYMF_PARAMETER: u32 = 64;
-        const SYMF_REGISTER: u32 = 8;
-        const SYMF_REGREL: u32 = 16;
-        const SYMF_THUNK: u32 = 8192;
-        const SYMF_TLSREL: u32 = 16384;
-        const SYMF_VIRTUAL: u32 = 4096;
-        const SYMOPT_ALLOW_ABSOLUTE_SYMBOLS: u32 = 2048;
-        const SYMOPT_ALLOW_ZERO_ADDRESS: u32 = 16777216;
-        const SYMOPT_AUTO_PUBLICS: u32 = 65536;
-        const SYMOPT_CASE_INSENSITIVE: u32 = 1;
+        const SYMFLAG_SLOT: i32 = 32768;
+        const SYMFLAG_SYNTHETIC_ZEROBASE: i32 = 2097152;
+        const SYMFLAG_THUNK: i32 = 8192;
+        const SYMFLAG_TLSREL: i32 = 16384;
+        const SYMFLAG_VALUEPRESENT: i32 = 1;
+        const SYMFLAG_VIRTUAL: i32 = 4096;
+        const SYMF_CONSTANT: i32 = 256;
+        const SYMF_EXPORT: i32 = 512;
+        const SYMF_FORWARDER: i32 = 1024;
+        const SYMF_FRAMEREL: i32 = 32;
+        const SYMF_FUNCTION: i32 = 2048;
+        const SYMF_LOCAL: i32 = 128;
+        const SYMF_OMAP_GENERATED: i32 = 1;
+        const SYMF_OMAP_MODIFIED: i32 = 2;
+        const SYMF_PARAMETER: i32 = 64;
+        const SYMF_REGISTER: i32 = 8;
+        const SYMF_REGREL: i32 = 16;
+        const SYMF_THUNK: i32 = 8192;
+        const SYMF_TLSREL: i32 = 16384;
+        const SYMF_VIRTUAL: i32 = 4096;
+        const SYMOPT_ALLOW_ABSOLUTE_SYMBOLS: i32 = 2048;
+        const SYMOPT_ALLOW_ZERO_ADDRESS: i32 = 16777216;
+        const SYMOPT_AUTO_PUBLICS: i32 = 65536;
+        const SYMOPT_CASE_INSENSITIVE: i32 = 1;
         const SYMOPT_DEBUG: u32 = 2147483648;
-        const SYMOPT_DEFERRED_LOADS: u32 = 4;
-        const SYMOPT_DISABLE_FAST_SYMBOLS: u32 = 268435456;
-        const SYMOPT_DISABLE_SRVSTAR_ON_STARTUP: u32 = 1073741824;
-        const SYMOPT_DISABLE_SYMSRV_AUTODETECT: u32 = 33554432;
-        const SYMOPT_DISABLE_SYMSRV_TIMEOUT: u32 = 536870912;
-        const SYMOPT_EXACT_SYMBOLS: u32 = 1024;
-        const SYMOPT_FAIL_CRITICAL_ERRORS: u32 = 512;
-        const SYMOPT_FAVOR_COMPRESSED: u32 = 8388608;
-        const SYMOPT_FLAT_DIRECTORY: u32 = 4194304;
-        const SYMOPT_IGNORE_CVREC: u32 = 128;
-        const SYMOPT_IGNORE_IMAGEDIR: u32 = 2097152;
-        const SYMOPT_IGNORE_NT_SYMPATH: u32 = 4096;
-        const SYMOPT_INCLUDE_32BIT_MODULES: u32 = 8192;
-        const SYMOPT_LOAD_ANYTHING: u32 = 64;
-        const SYMOPT_LOAD_LINES: u32 = 16;
-        const SYMOPT_NO_CPP: u32 = 8;
-        const SYMOPT_NO_IMAGE_SEARCH: u32 = 131072;
-        const SYMOPT_NO_PROMPTS: u32 = 524288;
-        const SYMOPT_NO_PUBLICS: u32 = 32768;
-        const SYMOPT_NO_UNQUALIFIED_LOADS: u32 = 256;
-        const SYMOPT_OMAP_FIND_NEAREST: u32 = 32;
-        const SYMOPT_OVERWRITE: u32 = 1048576;
-        const SYMOPT_PUBLICS_ONLY: u32 = 16384;
-        const SYMOPT_READONLY_CACHE: u32 = 67108864;
-        const SYMOPT_SECURE: u32 = 262144;
-        const SYMOPT_SYMPATH_LAST: u32 = 134217728;
-        const SYMOPT_UNDNAME: u32 = 2;
-        const SYMSEARCH_ALLITEMS: u32 = 8;
-        const SYMSEARCH_GLOBALSONLY: u32 = 4;
-        const SYMSEARCH_MASKOBJS: u32 = 1;
-        const SYMSEARCH_RECURSE: u32 = 2;
+        const SYMOPT_DEFERRED_LOADS: i32 = 4;
+        const SYMOPT_DISABLE_FAST_SYMBOLS: i32 = 268435456;
+        const SYMOPT_DISABLE_SRVSTAR_ON_STARTUP: i32 = 1073741824;
+        const SYMOPT_DISABLE_SYMSRV_AUTODETECT: i32 = 33554432;
+        const SYMOPT_DISABLE_SYMSRV_TIMEOUT: i32 = 536870912;
+        const SYMOPT_EXACT_SYMBOLS: i32 = 1024;
+        const SYMOPT_FAIL_CRITICAL_ERRORS: i32 = 512;
+        const SYMOPT_FAVOR_COMPRESSED: i32 = 8388608;
+        const SYMOPT_FLAT_DIRECTORY: i32 = 4194304;
+        const SYMOPT_IGNORE_CVREC: i32 = 128;
+        const SYMOPT_IGNORE_IMAGEDIR: i32 = 2097152;
+        const SYMOPT_IGNORE_NT_SYMPATH: i32 = 4096;
+        const SYMOPT_INCLUDE_32BIT_MODULES: i32 = 8192;
+        const SYMOPT_LOAD_ANYTHING: i32 = 64;
+        const SYMOPT_LOAD_LINES: i32 = 16;
+        const SYMOPT_NO_CPP: i32 = 8;
+        const SYMOPT_NO_IMAGE_SEARCH: i32 = 131072;
+        const SYMOPT_NO_PROMPTS: i32 = 524288;
+        const SYMOPT_NO_PUBLICS: i32 = 32768;
+        const SYMOPT_NO_UNQUALIFIED_LOADS: i32 = 256;
+        const SYMOPT_OMAP_FIND_NEAREST: i32 = 32;
+        const SYMOPT_OVERWRITE: i32 = 1048576;
+        const SYMOPT_PUBLICS_ONLY: i32 = 16384;
+        const SYMOPT_READONLY_CACHE: i32 = 67108864;
+        const SYMOPT_SECURE: i32 = 262144;
+        const SYMOPT_SYMPATH_LAST: i32 = 134217728;
+        const SYMOPT_UNDNAME: i32 = 2;
+        const SYMSEARCH_ALLITEMS: i32 = 8;
+        const SYMSEARCH_GLOBALSONLY: i32 = 4;
+        const SYMSEARCH_MASKOBJS: i32 = 1;
+        const SYMSEARCH_RECURSE: i32 = 2;
         struct SYMSRV_EXTENDED_OUTPUT_DATA {
             sizeOfStruct: u32,
             version: u32,
@@ -1084,23 +1084,23 @@ mod Windows {
             sig: u32,
             age: u32,
         }
-        const SYMSRV_VERSION: u32 = 2;
-        const SYMSTOREOPT_ALT_INDEX: u32 = 16;
-        const SYMSTOREOPT_COMPRESS: u32 = 1;
-        const SYMSTOREOPT_OVERWRITE: u32 = 2;
-        const SYMSTOREOPT_PASS_IF_EXISTS: u32 = 64;
-        const SYMSTOREOPT_POINTER: u32 = 8;
-        const SYMSTOREOPT_RETURNINDEX: u32 = 4;
-        const SYMSTOREOPT_UNICODE: u32 = 32;
-        const SYM_INLINE_COMP_DIFFERENT: u32 = 5;
-        const SYM_INLINE_COMP_ERROR: u32 = 0;
-        const SYM_INLINE_COMP_IDENTICAL: u32 = 1;
-        const SYM_INLINE_COMP_STEPIN: u32 = 2;
-        const SYM_INLINE_COMP_STEPOUT: u32 = 3;
-        const SYM_INLINE_COMP_STEPOVER: u32 = 4;
-        const SYM_STKWALK_DEFAULT: u32 = 0;
-        const SYM_STKWALK_FORCE_FRAMEPTR: u32 = 1;
-        const SYM_STKWALK_ZEROEXTEND_PTRS: u32 = 2;
+        const SYMSRV_VERSION: i32 = 2;
+        const SYMSTOREOPT_ALT_INDEX: i32 = 16;
+        const SYMSTOREOPT_COMPRESS: i32 = 1;
+        const SYMSTOREOPT_OVERWRITE: i32 = 2;
+        const SYMSTOREOPT_PASS_IF_EXISTS: i32 = 64;
+        const SYMSTOREOPT_POINTER: i32 = 8;
+        const SYMSTOREOPT_RETURNINDEX: i32 = 4;
+        const SYMSTOREOPT_UNICODE: i32 = 32;
+        const SYM_INLINE_COMP_DIFFERENT: i32 = 5;
+        const SYM_INLINE_COMP_ERROR: i32 = 0;
+        const SYM_INLINE_COMP_IDENTICAL: i32 = 1;
+        const SYM_INLINE_COMP_STEPIN: i32 = 2;
+        const SYM_INLINE_COMP_STEPOUT: i32 = 3;
+        const SYM_INLINE_COMP_STEPOVER: i32 = 4;
+        const SYM_STKWALK_DEFAULT: i32 = 0;
+        const SYM_STKWALK_FORCE_FRAMEPTR: i32 = 1;
+        const SYM_STKWALK_ZEROEXTEND_PTRS: i32 = 2;
         #[repr(i32)]
         enum SYM_TYPE {
             SymNone = 0,
@@ -1491,7 +1491,7 @@ mod Windows {
         extern fn SymUnloadModule(hProcess: HANDLE, BaseOfDll: u32) -> BOOL;
         #[library("dbghelp.dll")]
         extern fn SymUnloadModule64(hProcess: HANDLE, BaseOfDll: u64) -> BOOL;
-        const TARGET_ATTRIBUTE_PACMASK: u32 = 1;
+        const TARGET_ATTRIBUTE_PACMASK: i32 = 1;
         const TARGET_ATTRIBUTE_PACMASK_LIVETARGET: u64 = 18446744073709551615;
         struct TI_FINDCHILDREN_PARAMS {
             Count: u32,
@@ -1503,23 +1503,23 @@ mod Windows {
             Start: u32,
             Range: [DISCRIMINATEDUNION_TAG_VALUE; 1],
         }
-        const UNDNAME_32_BIT_DECODE: u32 = 2048;
-        const UNDNAME_COMPLETE: u32 = 0;
-        const UNDNAME_NAME_ONLY: u32 = 4096;
-        const UNDNAME_NO_ACCESS_SPECIFIERS: u32 = 128;
-        const UNDNAME_NO_ALLOCATION_LANGUAGE: u32 = 16;
-        const UNDNAME_NO_ALLOCATION_MODEL: u32 = 8;
-        const UNDNAME_NO_ARGUMENTS: u32 = 8192;
-        const UNDNAME_NO_CV_THISTYPE: u32 = 64;
-        const UNDNAME_NO_FUNCTION_RETURNS: u32 = 4;
-        const UNDNAME_NO_LEADING_UNDERSCORES: u32 = 1;
-        const UNDNAME_NO_MEMBER_TYPE: u32 = 512;
-        const UNDNAME_NO_MS_KEYWORDS: u32 = 2;
-        const UNDNAME_NO_MS_THISTYPE: u32 = 32;
-        const UNDNAME_NO_RETURN_UDT_MODEL: u32 = 1024;
-        const UNDNAME_NO_SPECIAL_SYMS: u32 = 16384;
-        const UNDNAME_NO_THISTYPE: u32 = 96;
-        const UNDNAME_NO_THROW_SIGNATURES: u32 = 256;
+        const UNDNAME_32_BIT_DECODE: i32 = 2048;
+        const UNDNAME_COMPLETE: i32 = 0;
+        const UNDNAME_NAME_ONLY: i32 = 4096;
+        const UNDNAME_NO_ACCESS_SPECIFIERS: i32 = 128;
+        const UNDNAME_NO_ALLOCATION_LANGUAGE: i32 = 16;
+        const UNDNAME_NO_ALLOCATION_MODEL: i32 = 8;
+        const UNDNAME_NO_ARGUMENTS: i32 = 8192;
+        const UNDNAME_NO_CV_THISTYPE: i32 = 64;
+        const UNDNAME_NO_FUNCTION_RETURNS: i32 = 4;
+        const UNDNAME_NO_LEADING_UNDERSCORES: i32 = 1;
+        const UNDNAME_NO_MEMBER_TYPE: i32 = 512;
+        const UNDNAME_NO_MS_KEYWORDS: i32 = 2;
+        const UNDNAME_NO_MS_THISTYPE: i32 = 32;
+        const UNDNAME_NO_RETURN_UDT_MODEL: i32 = 1024;
+        const UNDNAME_NO_SPECIAL_SYMS: i32 = 16384;
+        const UNDNAME_NO_THISTYPE: i32 = 96;
+        const UNDNAME_NO_THROW_SIGNATURES: i32 = 256;
         #[library("dbghelp.dll")]
         extern fn UnDecorateSymbolName(name: PCSTR, #[len_param(2)] #[out] outputString: PSTR, maxStringLength: u32, flags: u32) -> u32;
         #[library("dbghelp.dll")]

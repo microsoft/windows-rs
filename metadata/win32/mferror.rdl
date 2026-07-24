@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const FACILITY_MF: u32 = 13;
-        const FACILITY_MF_WIN32: u32 = 7;
+        const FACILITY_MF: i32 = 13;
+        const FACILITY_MF_WIN32: i32 = 7;
         const MF_E_ALLOCATOR_ALREADY_COMMITED: HRESULT = -1072846854;
         const MF_E_ALLOCATOR_NOT_COMMITED: HRESULT = -1072846855;
         const MF_E_ALLOCATOR_NOT_INITIALIZED: HRESULT = -1072846856;

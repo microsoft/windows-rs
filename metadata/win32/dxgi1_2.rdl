@@ -105,7 +105,7 @@ mod Windows {
             DXGI_SCALING_ASPECT_RATIO_STRETCH = 2,
         }
         const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648;
-        const DXGI_SHARED_RESOURCE_WRITE: u32 = 1;
+        const DXGI_SHARED_RESOURCE_WRITE: i32 = 1;
         struct DXGI_SWAP_CHAIN_DESC1 {
             Width: u32,
             Height: u32,

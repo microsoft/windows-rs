@@ -1,8 +1,8 @@
 #[cfg(feature = "ws2")]
 pub type PSOCKADDR_UN = *mut SOCKADDR_UN;
-pub const SIO_AF_UNIX_GETPEERPID: u32 = 1476395264;
-pub const SIO_AF_UNIX_SETBINDPARENTPATH: i32 = -1744830207;
-pub const SIO_AF_UNIX_SETCONNPARENTPATH: i32 = -1744830206;
+pub const SIO_AF_UNIX_GETPEERPID: i32 = 1476395264;
+pub const SIO_AF_UNIX_SETBINDPARENTPATH: u32 = 2550137089;
+pub const SIO_AF_UNIX_SETCONNPARENTPATH: u32 = 2550137090;
 #[repr(C)]
 #[cfg(feature = "ws2")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -16,4 +16,4 @@ impl Default for SOCKADDR_UN {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const UNIX_PATH_MAX: u32 = 108;
+pub const UNIX_PATH_MAX: i32 = 108;

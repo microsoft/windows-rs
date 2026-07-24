@@ -98,7 +98,7 @@ mod Windows {
         extern "C" fn MFCreateVideoSampleAllocator(riid: *const GUID, #[iid_is] ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
         extern "C" fn MFCreateVideoSampleFromSurface(pUnkSurface: IUnknown, ppSample: *mut IMFSample) -> HRESULT;
-        const MFEVRDLL: u32 = 0;
+        const MFEVRDLL: i32 = 0;
         #[repr(i32)]
         enum MFVP_MESSAGE_TYPE {
             MFVP_MESSAGE_FLUSH = 0,

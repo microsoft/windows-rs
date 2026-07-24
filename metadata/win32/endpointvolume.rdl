@@ -8,9 +8,9 @@ mod Windows {
             nChannels: u32,
             afChannelVolumes: [f32; 1],
         }
-        const ENDPOINT_HARDWARE_SUPPORT_METER: u32 = 4;
-        const ENDPOINT_HARDWARE_SUPPORT_MUTE: u32 = 2;
-        const ENDPOINT_HARDWARE_SUPPORT_VOLUME: u32 = 1;
+        const ENDPOINT_HARDWARE_SUPPORT_METER: i32 = 4;
+        const ENDPOINT_HARDWARE_SUPPORT_MUTE: i32 = 2;
+        const ENDPOINT_HARDWARE_SUPPORT_VOLUME: i32 = 1;
         #[guid(0x5cdf2c82_841e_4546_9722_0cf74078229a)]
         interface IAudioEndpointVolume: IUnknown {
             fn RegisterControlChangeNotify(&self, pNotify: IAudioEndpointVolumeCallback) -> HRESULT;

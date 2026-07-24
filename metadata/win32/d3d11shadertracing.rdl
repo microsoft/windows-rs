@@ -33,8 +33,8 @@ mod Windows {
                 ComputeShaderTraceDesc: D3D11_COMPUTE_SHADER_TRACE_DESC,
             },
         }
-        const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_READS: u32 = 2;
-        const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_WRITES: u32 = 1;
+        const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_READS: i32 = 2;
+        const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_WRITES: i32 = 1;
         #[repr(i32)]
         enum D3D11_SHADER_TYPE {
             D3D11_VERTEX_SHADER = 1,
@@ -45,10 +45,10 @@ mod Windows {
             D3D11_COMPUTE_SHADER = 6,
         }
         type D3D11_TRACE_COMPONENT_MASK = u8;
-        const D3D11_TRACE_COMPONENT_W: u32 = 8;
-        const D3D11_TRACE_COMPONENT_X: u32 = 1;
-        const D3D11_TRACE_COMPONENT_Y: u32 = 2;
-        const D3D11_TRACE_COMPONENT_Z: u32 = 4;
+        const D3D11_TRACE_COMPONENT_W: i32 = 8;
+        const D3D11_TRACE_COMPONENT_X: i32 = 1;
+        const D3D11_TRACE_COMPONENT_Y: i32 = 2;
+        const D3D11_TRACE_COMPONENT_Z: i32 = 4;
         #[repr(i32)]
         enum D3D11_TRACE_GS_INPUT_PRIMITIVE {
             D3D11_TRACE_GS_INPUT_PRIMITIVE_UNDEFINED = 0,
@@ -58,14 +58,14 @@ mod Windows {
             D3D11_TRACE_GS_INPUT_PRIMITIVE_LINE_ADJ = 6,
             D3D11_TRACE_GS_INPUT_PRIMITIVE_TRIANGLE_ADJ = 7,
         }
-        const D3D11_TRACE_MISC_GS_CUT: u32 = 2;
-        const D3D11_TRACE_MISC_GS_CUT_STREAM: u32 = 16;
-        const D3D11_TRACE_MISC_GS_EMIT: u32 = 1;
-        const D3D11_TRACE_MISC_GS_EMIT_STREAM: u32 = 8;
-        const D3D11_TRACE_MISC_HALT: u32 = 32;
-        const D3D11_TRACE_MISC_MESSAGE: u32 = 64;
+        const D3D11_TRACE_MISC_GS_CUT: i32 = 2;
+        const D3D11_TRACE_MISC_GS_CUT_STREAM: i32 = 16;
+        const D3D11_TRACE_MISC_GS_EMIT: i32 = 1;
+        const D3D11_TRACE_MISC_GS_EMIT_STREAM: i32 = 8;
+        const D3D11_TRACE_MISC_HALT: i32 = 32;
+        const D3D11_TRACE_MISC_MESSAGE: i32 = 64;
         type D3D11_TRACE_MISC_OPERATIONS_MASK = u16;
-        const D3D11_TRACE_MISC_PS_DISCARD: u32 = 4;
+        const D3D11_TRACE_MISC_PS_DISCARD: i32 = 4;
         struct D3D11_TRACE_REGISTER {
             RegType: D3D11_TRACE_REGISTER_TYPE,
             Anonymous: union {
@@ -75,7 +75,7 @@ mod Windows {
             OperandIndex: u8,
             Flags: u8,
         }
-        const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: u32 = 1;
+        const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: i32 = 1;
         #[repr(i32)]
         enum D3D11_TRACE_REGISTER_TYPE {
             D3D11_TRACE_OUTPUT_NULL_REGISTER = 0,

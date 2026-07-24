@@ -2,7 +2,7 @@ pub const CMLangConvertCharset: windows_core::GUID = windows_core::GUID::from_u1
 pub const CMLangString: windows_core::GUID = windows_core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
 pub const CMultiLanguage: windows_core::GUID = windows_core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
 pub const CPIOD_FORCE_PROMPT: u32 = 2147483648;
-pub const CPIOD_PEEK: u32 = 1073741824;
+pub const CPIOD_PEEK: i32 = 1073741824;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DetectEncodingInfo {
@@ -2090,12 +2090,12 @@ impl IMultiLanguage3_Vtbl {
 }
 #[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IMultiLanguage3 {}
-pub const MAX_LOCALE_NAME: u32 = 32;
-pub const MAX_MIMECP_NAME: u32 = 64;
-pub const MAX_MIMECSET_NAME: u32 = 50;
-pub const MAX_MIMEFACE_NAME: u32 = 32;
-pub const MAX_RFC1766_NAME: u32 = 6;
-pub const MAX_SCRIPT_NAME: u32 = 48;
+pub const MAX_LOCALE_NAME: i32 = 32;
+pub const MAX_MIMECP_NAME: i32 = 64;
+pub const MAX_MIMECSET_NAME: i32 = 50;
+pub const MAX_MIMEFACE_NAME: i32 = 32;
+pub const MAX_RFC1766_NAME: i32 = 6;
+pub const MAX_SCRIPT_NAME: i32 = 48;
 pub type MIMECONTF = i32;
 pub const MIMECONTF_BROWSER: MIMECONTF = 2;
 pub const MIMECONTF_EXPORT: MIMECONTF = 1024;

@@ -122,8 +122,8 @@ pub const ADS_ACETYPE_SYSTEM_AUDIT: ADS_ACETYPE_ENUM = 2;
 pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK: ADS_ACETYPE_ENUM = 13;
 pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 15;
 pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = 7;
-pub const ADS_ATTR_APPEND: u32 = 3;
-pub const ADS_ATTR_CLEAR: u32 = 1;
+pub const ADS_ATTR_APPEND: i32 = 3;
+pub const ADS_ATTR_CLEAR: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_ATTR_DEF {
@@ -133,7 +133,7 @@ pub struct ADS_ATTR_DEF {
     pub dwMaxRange: u32,
     pub fMultiValued: windows_core::BOOL,
 }
-pub const ADS_ATTR_DELETE: u32 = 4;
+pub const ADS_ATTR_DELETE: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -144,7 +144,7 @@ pub struct ADS_ATTR_INFO {
     pub pADsValues: PADSVALUE,
     pub dwNumValues: u32,
 }
-pub const ADS_ATTR_UPDATE: u32 = 2;
+pub const ADS_ATTR_UPDATE: i32 = 2;
 pub type ADS_AUTHENTICATION_ENUM = i32;
 pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = -2147483648;
 #[repr(C)]
@@ -228,10 +228,10 @@ pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = 3;
 pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = 4;
 pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = 2;
 pub type ADS_ESCAPE_MODE_ENUM = i32;
-pub const ADS_EXT_INITCREDENTIALS: u32 = 1;
-pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2;
-pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215;
-pub const ADS_EXT_MINEXTDISPID: u32 = 1;
+pub const ADS_EXT_INITCREDENTIALS: i32 = 1;
+pub const ADS_EXT_INITIALIZE_COMPLETE: i32 = 2;
+pub const ADS_EXT_MAXEXTDISPID: i32 = 16777215;
+pub const ADS_EXT_MINEXTDISPID: i32 = 1;
 pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = 32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]

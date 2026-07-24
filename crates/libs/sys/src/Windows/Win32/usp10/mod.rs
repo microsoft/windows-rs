@@ -95,10 +95,10 @@ pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield2: u32,
     pub dwReserved: u32,
 }
-pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0;
-pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2;
-pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1;
-pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3;
+pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: i32 = 0;
+pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: i32 = 2;
+pub const SCRIPT_DIGITSUBSTITUTE_NONE: i32 = 1;
+pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_FONTPROPERTIES {
@@ -168,38 +168,38 @@ impl Default for SCRIPT_TABDEF {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCRIPT_TAG_UNKNOWN: u32 = 0;
-pub const SCRIPT_UNDEFINED: u32 = 0;
+pub const SCRIPT_TAG_UNKNOWN: i32 = 0;
+pub const SCRIPT_UNDEFINED: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
 }
-pub const SGCM_RTL: u32 = 1;
-pub const SIC_ASCIIDIGIT: u32 = 2;
-pub const SIC_COMPLEX: u32 = 1;
-pub const SIC_NEUTRAL: u32 = 4;
-pub const SSA_BREAK: u32 = 64;
-pub const SSA_CLIP: u32 = 4;
-pub const SSA_DONTGLYPH: u32 = 1073741824;
-pub const SSA_DZWG: u32 = 16;
-pub const SSA_FALLBACK: u32 = 32;
-pub const SSA_FIT: u32 = 8;
-pub const SSA_FULLMEASURE: u32 = 67108864;
-pub const SSA_GCP: u32 = 512;
-pub const SSA_GLYPHS: u32 = 128;
-pub const SSA_HIDEHOTKEY: u32 = 8192;
-pub const SSA_HOTKEY: u32 = 1024;
-pub const SSA_HOTKEYONLY: u32 = 9216;
-pub const SSA_LAYOUTRTL: u32 = 536870912;
-pub const SSA_LINK: u32 = 4096;
-pub const SSA_LPKANSIFALLBACK: u32 = 134217728;
-pub const SSA_METAFILE: u32 = 2048;
+pub const SGCM_RTL: i32 = 1;
+pub const SIC_ASCIIDIGIT: i32 = 2;
+pub const SIC_COMPLEX: i32 = 1;
+pub const SIC_NEUTRAL: i32 = 4;
+pub const SSA_BREAK: i32 = 64;
+pub const SSA_CLIP: i32 = 4;
+pub const SSA_DONTGLYPH: i32 = 1073741824;
+pub const SSA_DZWG: i32 = 16;
+pub const SSA_FALLBACK: i32 = 32;
+pub const SSA_FIT: i32 = 8;
+pub const SSA_FULLMEASURE: i32 = 67108864;
+pub const SSA_GCP: i32 = 512;
+pub const SSA_GLYPHS: i32 = 128;
+pub const SSA_HIDEHOTKEY: i32 = 8192;
+pub const SSA_HOTKEY: i32 = 1024;
+pub const SSA_HOTKEYONLY: i32 = 9216;
+pub const SSA_LAYOUTRTL: i32 = 536870912;
+pub const SSA_LINK: i32 = 4096;
+pub const SSA_LPKANSIFALLBACK: i32 = 134217728;
+pub const SSA_METAFILE: i32 = 2048;
 pub const SSA_NOKASHIDA: u32 = 2147483648;
-pub const SSA_PASSWORD: u32 = 1;
-pub const SSA_PIDX: u32 = 268435456;
-pub const SSA_RTL: u32 = 256;
-pub const SSA_TAB: u32 = 2;
+pub const SSA_PASSWORD: i32 = 1;
+pub const SSA_PIDX: i32 = 268435456;
+pub const SSA_RTL: i32 = 256;
+pub const SSA_TAB: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TEXTRANGE_PROPERTIES {
@@ -211,5 +211,5 @@ impl Default for TEXTRANGE_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const UNISCRIBE_OPENTYPE: u32 = 256;
+pub const UNISCRIBE_OPENTYPE: i32 = 256;
 pub const USP_E_SCRIPT_NOT_IN_FONT: i32 = -2147220992;

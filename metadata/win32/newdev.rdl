@@ -1,23 +1,23 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const DIIDFLAG_BITS: u32 = 15;
-        const DIIDFLAG_INSTALLCOPYINFDRIVERS: u32 = 8;
-        const DIIDFLAG_INSTALLNULLDRIVER: u32 = 4;
-        const DIIDFLAG_NOFINISHINSTALLUI: u32 = 2;
-        const DIIDFLAG_SHOWSEARCHUI: u32 = 1;
-        const DIIRFLAG_BITS: u32 = 106;
-        const DIIRFLAG_FORCE_INF: u32 = 2;
-        const DIIRFLAG_HOTPATCH: u32 = 8;
-        const DIIRFLAG_HW_USING_THE_INF: u32 = 4;
-        const DIIRFLAG_INF_ALREADY_COPIED: u32 = 1;
-        const DIIRFLAG_INSTALL_AS_SET: u32 = 64;
-        const DIIRFLAG_NOBACKUP: u32 = 16;
-        const DIIRFLAG_PRE_CONFIGURE_INF: u32 = 32;
-        const DIIRFLAG_SYSTEM_BITS: u32 = 127;
-        const DIURFLAG_NO_REMOVE_INF: u32 = 1;
-        const DIURFLAG_RESERVED: u32 = 2;
-        const DIURFLAG_VALID: u32 = 3;
+        const DIIDFLAG_BITS: i32 = 15;
+        const DIIDFLAG_INSTALLCOPYINFDRIVERS: i32 = 8;
+        const DIIDFLAG_INSTALLNULLDRIVER: i32 = 4;
+        const DIIDFLAG_NOFINISHINSTALLUI: i32 = 2;
+        const DIIDFLAG_SHOWSEARCHUI: i32 = 1;
+        const DIIRFLAG_BITS: i32 = 106;
+        const DIIRFLAG_FORCE_INF: i32 = 2;
+        const DIIRFLAG_HOTPATCH: i32 = 8;
+        const DIIRFLAG_HW_USING_THE_INF: i32 = 4;
+        const DIIRFLAG_INF_ALREADY_COPIED: i32 = 1;
+        const DIIRFLAG_INSTALL_AS_SET: i32 = 64;
+        const DIIRFLAG_NOBACKUP: i32 = 16;
+        const DIIRFLAG_PRE_CONFIGURE_INF: i32 = 32;
+        const DIIRFLAG_SYSTEM_BITS: i32 = 127;
+        const DIURFLAG_NO_REMOVE_INF: i32 = 1;
+        const DIURFLAG_RESERVED: i32 = 2;
+        const DIURFLAG_VALID: i32 = 3;
         #[library("newdev.dll")]
         extern fn DiInstallDevice(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[opt] DriverInfoData: PSP_DRVINFO_DATA, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
         #[library("newdev.dll")]
@@ -36,12 +36,12 @@ mod Windows {
         extern fn DiUninstallDriverA(#[opt] hwndParent: HWND, InfPath: PCSTR, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
         #[library("newdev.dll")]
         extern fn DiUninstallDriverW(#[opt] hwndParent: HWND, InfPath: PCWSTR, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
-        const INSTALLFLAG_BITS: u32 = 7;
-        const INSTALLFLAG_FORCE: u32 = 1;
-        const INSTALLFLAG_NONINTERACTIVE: u32 = 4;
-        const INSTALLFLAG_READONLY: u32 = 2;
-        const ROLLBACK_BITS: u32 = 1;
-        const ROLLBACK_FLAG_NO_UI: u32 = 1;
+        const INSTALLFLAG_BITS: i32 = 7;
+        const INSTALLFLAG_FORCE: i32 = 1;
+        const INSTALLFLAG_NONINTERACTIVE: i32 = 4;
+        const INSTALLFLAG_READONLY: i32 = 2;
+        const ROLLBACK_BITS: i32 = 1;
+        const ROLLBACK_FLAG_NO_UI: i32 = 1;
         #[library("newdev.dll")]
         extern fn UpdateDriverForPlugAndPlayDevicesA(#[opt] hwndParent: HWND, HardwareId: PCSTR, FullInfPath: PCSTR, InstallFlags: u32, #[opt] bRebootRequired: *mut BOOL) -> BOOL;
         #[library("newdev.dll")]

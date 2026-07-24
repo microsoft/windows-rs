@@ -10,7 +10,7 @@ mod Windows {
             Software_Fixed = 4,
             Network = 5,
         }
-        const DEVTOPO_HARDWARE_INITIATED_EVENTCONTEXT: u32 = 1685217608;
+        const DEVTOPO_HARDWARE_INITIATED_EVENTCONTEXT: i32 = 1685217608;
         #[repr(i32)]
         enum DataFlow {
             In = 0,

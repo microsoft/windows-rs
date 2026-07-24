@@ -167,9 +167,9 @@ pub struct QUERYCONTEXT {
     pub dwVersionHi: u32,
     pub dwVersionLo: u32,
 }
-pub const ROTFLAGS_ALLOWANYCLIENT: u32 = 2;
-pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: u32 = 1;
-pub const ROT_COMPARE_MAX: u32 = 2048;
+pub const ROTFLAGS_ALLOWANYCLIENT: i32 = 2;
+pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: i32 = 1;
+pub const ROT_COMPARE_MAX: i32 = 2048;
 #[repr(C)]
 #[cfg(feature = "rpc")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -357,9 +357,9 @@ pub const VT_VARIANT: VARENUM = 12;
 pub const VT_VECTOR: VARENUM = 4096;
 pub const VT_VERSIONED_STREAM: VARENUM = 73;
 pub const VT_VOID: VARENUM = 24;
-pub const WDT_INPROC64_CALL: u32 = 1349805143;
-pub const WDT_INPROC_CALL: u32 = 1215587415;
-pub const WDT_REMOTE_CALL: u32 = 1383359575;
+pub const WDT_INPROC64_CALL: i32 = 1349805143;
+pub const WDT_INPROC_CALL: i32 = 1215587415;
+pub const WDT_REMOTE_CALL: i32 = 1383359575;
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

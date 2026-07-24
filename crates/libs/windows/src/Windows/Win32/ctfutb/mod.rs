@@ -1393,10 +1393,10 @@ impl ITfSystemLangBarItemText_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ITfSystemLangBarItemText {}
-pub const TF_DTLBI_USEPROFILEICON: u32 = 1;
+pub const TF_DTLBI_USEPROFILEICON: i32 = 1;
 pub const TF_FLOATINGLANGBAR_WNDTITLEA: windows_core::PCSTR = windows_core::s!("TF_FloatingLangBar_WndTitle");
 pub const TF_FLOATINGLANGBAR_WNDTITLEW: windows_core::PCWSTR = windows_core::w!("TF_FloatingLangBar_WndTitle");
-pub const TF_INVALIDMENUITEM: i32 = -1;
+pub const TF_INVALIDMENUITEM: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_LANGBARITEMINFO {
@@ -1417,51 +1417,51 @@ pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: core::mem::ManuallyDrop<windows_core::BSTR>,
 }
-pub const TF_LBI_BALLOON: u32 = 16;
-pub const TF_LBI_BITMAP: u32 = 8;
-pub const TF_LBI_BMPALL: u32 = 12;
-pub const TF_LBI_BMPBTNALL: u32 = 14;
-pub const TF_LBI_BMPF_VERTICAL: u32 = 1;
-pub const TF_LBI_BTNALL: u32 = 7;
+pub const TF_LBI_BALLOON: i32 = 16;
+pub const TF_LBI_BITMAP: i32 = 8;
+pub const TF_LBI_BMPALL: i32 = 12;
+pub const TF_LBI_BMPBTNALL: i32 = 14;
+pub const TF_LBI_BMPF_VERTICAL: i32 = 1;
+pub const TF_LBI_BTNALL: i32 = 7;
 pub const TF_LBI_CLK_LEFT: TfLBIClick = 2;
 pub const TF_LBI_CLK_RIGHT: TfLBIClick = 1;
-pub const TF_LBI_CUSTOMUI: u32 = 32;
-pub const TF_LBI_DESC_MAXLEN: u32 = 32;
-pub const TF_LBI_ICON: u32 = 1;
-pub const TF_LBI_STATUS: u32 = 65536;
-pub const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536;
-pub const TF_LBI_STATUS_DISABLED: u32 = 2;
-pub const TF_LBI_STATUS_HIDDEN: u32 = 1;
-pub const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536;
-pub const TF_LBI_STYLE_BTN_MENU: u32 = 131072;
-pub const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144;
-pub const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16;
-pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1;
-pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4;
-pub const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2;
-pub const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8;
-pub const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32;
-pub const TF_LBI_TEXT: u32 = 2;
-pub const TF_LBI_TOOLTIP: u32 = 4;
-pub const TF_LBMENUF_CHECKED: u32 = 1;
-pub const TF_LBMENUF_GRAYED: u32 = 16;
-pub const TF_LBMENUF_RADIOCHECKED: u32 = 8;
-pub const TF_LBMENUF_SEPARATOR: u32 = 4;
-pub const TF_LBMENUF_SUBMENU: u32 = 2;
+pub const TF_LBI_CUSTOMUI: i32 = 32;
+pub const TF_LBI_DESC_MAXLEN: i32 = 32;
+pub const TF_LBI_ICON: i32 = 1;
+pub const TF_LBI_STATUS: i32 = 65536;
+pub const TF_LBI_STATUS_BTN_TOGGLED: i32 = 65536;
+pub const TF_LBI_STATUS_DISABLED: i32 = 2;
+pub const TF_LBI_STATUS_HIDDEN: i32 = 1;
+pub const TF_LBI_STYLE_BTN_BUTTON: i32 = 65536;
+pub const TF_LBI_STYLE_BTN_MENU: i32 = 131072;
+pub const TF_LBI_STYLE_BTN_TOGGLE: i32 = 262144;
+pub const TF_LBI_STYLE_HIDDENBYDEFAULT: i32 = 16;
+pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: i32 = 1;
+pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: i32 = 4;
+pub const TF_LBI_STYLE_SHOWNINTRAY: i32 = 2;
+pub const TF_LBI_STYLE_SHOWNINTRAYONLY: i32 = 8;
+pub const TF_LBI_STYLE_TEXTCOLORICON: i32 = 32;
+pub const TF_LBI_TEXT: i32 = 2;
+pub const TF_LBI_TOOLTIP: i32 = 4;
+pub const TF_LBMENUF_CHECKED: i32 = 1;
+pub const TF_LBMENUF_GRAYED: i32 = 16;
+pub const TF_LBMENUF_RADIOCHECKED: i32 = 8;
+pub const TF_LBMENUF_SEPARATOR: i32 = 4;
+pub const TF_LBMENUF_SUBMENU: i32 = 2;
 pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = 2;
 pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = 0;
 pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = 1;
-pub const TF_SFT_DESKBAND: u32 = 2048;
-pub const TF_SFT_DOCK: u32 = 2;
-pub const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512;
-pub const TF_SFT_HIDDEN: u32 = 8;
-pub const TF_SFT_HIGHTRANSPARENCY: u32 = 64;
-pub const TF_SFT_LABELS: u32 = 128;
-pub const TF_SFT_LOWTRANSPARENCY: u32 = 32;
-pub const TF_SFT_MINIMIZED: u32 = 4;
-pub const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024;
-pub const TF_SFT_NOLABELS: u32 = 256;
-pub const TF_SFT_NOTRANSPARENCY: u32 = 16;
-pub const TF_SFT_SHOWNORMAL: u32 = 1;
+pub const TF_SFT_DESKBAND: i32 = 2048;
+pub const TF_SFT_DOCK: i32 = 2;
+pub const TF_SFT_EXTRAICONSONMINIMIZED: i32 = 512;
+pub const TF_SFT_HIDDEN: i32 = 8;
+pub const TF_SFT_HIGHTRANSPARENCY: i32 = 64;
+pub const TF_SFT_LABELS: i32 = 128;
+pub const TF_SFT_LOWTRANSPARENCY: i32 = 32;
+pub const TF_SFT_MINIMIZED: i32 = 4;
+pub const TF_SFT_NOEXTRAICONSONMINIMIZED: i32 = 1024;
+pub const TF_SFT_NOLABELS: i32 = 256;
+pub const TF_SFT_NOTRANSPARENCY: i32 = 16;
+pub const TF_SFT_SHOWNORMAL: i32 = 1;
 pub type TfLBBalloonStyle = i32;
 pub type TfLBIClick = i32;

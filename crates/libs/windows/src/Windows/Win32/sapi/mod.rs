@@ -1,5 +1,5 @@
 pub const AllWords: SPMATCHINGMODE = 0;
-pub const DEFAULT_WEIGHT: u32 = 1;
+pub const DEFAULT_WEIGHT: i32 = 1;
 pub type DISPIDSPRG = i32;
 pub type DISPIDSPTSI = i32;
 pub const DISPIDSPTSI_ActiveLength: DISPIDSPTSI = 2;
@@ -15395,10 +15395,10 @@ pub struct SPEVENTSOURCEINFO {
     pub ullQueuedInterest: u64,
     pub ulCount: u32,
 }
-pub const SPFEI_ALL_EVENTS: i32 = -1;
-pub const SPFEI_ALL_SR_EVENTS: u32 = 1073741824;
-pub const SPFEI_ALL_TTS_EVENTS: u32 = 1073807358;
-pub const SPFEI_FLAGCHECK: u32 = 1073741824;
+pub const SPFEI_ALL_EVENTS: u64 = 18446744073709551615;
+pub const SPFEI_ALL_SR_EVENTS: u64 = 1073741824;
+pub const SPFEI_ALL_TTS_EVENTS: u64 = 1073807358;
+pub const SPFEI_FLAGCHECK: u64 = 1073741824;
 pub type SPFILEMODE = i32;
 pub const SPFM_CREATE: SPFILEMODE = 2;
 pub const SPFM_CREATE_ALWAYS: SPFILEMODE = 3;
@@ -15733,7 +15733,7 @@ pub const SPREF_SMLTimeout: SPRECOEVENTFLAGS = 4;
 pub const SPREG_LOCAL_MACHINE_ROOT: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech");
 pub const SPREG_SAFE_USER_TOKENS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens");
 pub const SPREG_USER_ROOT: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech");
-pub const SPRP_NORMAL: u32 = 0;
+pub const SPRP_NORMAL: i32 = 0;
 pub const SPRR_ALL_ELEMENTS: i32 = -1;
 pub const SPRST_ACTIVE: SPRECOSTATE = 1;
 pub const SPRST_ACTIVE_ALWAYS: SPRECOSTATE = 2;
@@ -16074,15 +16074,15 @@ pub const SPWT_PRONUNCIATION: SPGRAMMARWORDTYPE = 2;
 pub type SPXMLRESULTOPTIONS = i32;
 pub const SPXRO_Alternates_SML: SPXMLRESULTOPTIONS = 1;
 pub const SPXRO_SML: SPXMLRESULTOPTIONS = 0;
-pub const SP_EMULATE_RESULT: u32 = 1073741824;
+pub const SP_EMULATE_RESULT: i32 = 1073741824;
 pub const SP_GETWHOLEPHRASE: i32 = -1;
-pub const SP_HIGH_CONFIDENCE: u32 = 1;
+pub const SP_HIGH_CONFIDENCE: i32 = 1;
 pub const SP_LOW_CONFIDENCE: i32 = -1;
-pub const SP_MAX_LANGIDS: u32 = 20;
-pub const SP_MAX_PRON_LENGTH: u32 = 384;
-pub const SP_MAX_WORD_LENGTH: u32 = 128;
-pub const SP_NORMAL_CONFIDENCE: u32 = 0;
-pub const SP_STREAMPOS_ASAP: u32 = 0;
+pub const SP_MAX_LANGIDS: i32 = 20;
+pub const SP_MAX_PRON_LENGTH: i32 = 384;
+pub const SP_MAX_WORD_LENGTH: i32 = 128;
+pub const SP_NORMAL_CONFIDENCE: i32 = 0;
+pub const SP_STREAMPOS_ASAP: i32 = 0;
 pub const SP_STREAMPOS_REALTIME: i32 = -1;
 pub const SP_VISEME_0: SPVISEMES = 0;
 pub const SP_VISEME_1: SPVISEMES = 1;

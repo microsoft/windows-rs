@@ -40,14 +40,14 @@ pub struct BLOCK_NTLM_INFO {
     pub Reserved2: u16,
     pub Reserved3: u32,
 }
-pub const CREATE_BYPASS_CSC: u32 = 2;
-pub const CREATE_CRED_RESET: u32 = 4;
-pub const CREATE_GLOBAL_MAPPING: u32 = 256;
-pub const CREATE_NO_CONNECT: u32 = 1;
-pub const CREATE_PERSIST_MAPPING: u32 = 32;
-pub const CREATE_REQUIRE_CONNECTION_INTEGRITY: u32 = 8;
-pub const CREATE_REQUIRE_CONNECTION_PRIVACY: u32 = 16;
-pub const CREATE_WRITE_THROUGH_SEMANTICS: u32 = 64;
+pub const CREATE_BYPASS_CSC: i32 = 2;
+pub const CREATE_CRED_RESET: i32 = 4;
+pub const CREATE_GLOBAL_MAPPING: i32 = 256;
+pub const CREATE_NO_CONNECT: i32 = 1;
+pub const CREATE_PERSIST_MAPPING: i32 = 32;
+pub const CREATE_REQUIRE_CONNECTION_INTEGRITY: i32 = 8;
+pub const CREATE_REQUIRE_CONNECTION_PRIVACY: i32 = 16;
+pub const CREATE_WRITE_THROUGH_SEMANTICS: i32 = 64;
 pub type LPUSE_INFO_0 = *mut USE_INFO_0;
 pub type LPUSE_INFO_1 = *mut USE_INFO_1;
 pub type LPUSE_INFO_2 = *mut USE_INFO_2;
@@ -115,16 +115,16 @@ pub struct TRANSPORT_INFO {
 pub type TRANSPORT_INFO_FLAG = i32;
 pub type TRANSPORT_TYPE = i32;
 pub const TcpPortSetFlag: TRANSPORT_INFO_FLAG = 1;
-pub const USE_ASGTYPE_PARMNUM: u32 = 4;
-pub const USE_AUTHIDENTITY_PARMNUM: u32 = 8;
-pub const USE_CHARDEV: u32 = 2;
-pub const USE_CONN: u32 = 4;
-pub const USE_DEFAULT_CREDENTIALS: u32 = 4;
-pub const USE_DISCONN: u32 = 2;
-pub const USE_DISKDEV: u32 = 0;
-pub const USE_DOMAINNAME_PARMNUM: u32 = 6;
-pub const USE_FLAGS_PARMNUM: u32 = 7;
-pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536;
+pub const USE_ASGTYPE_PARMNUM: i32 = 4;
+pub const USE_AUTHIDENTITY_PARMNUM: i32 = 8;
+pub const USE_CHARDEV: i32 = 2;
+pub const USE_CONN: i32 = 4;
+pub const USE_DEFAULT_CREDENTIALS: i32 = 4;
+pub const USE_DISCONN: i32 = 2;
+pub const USE_DISKDEV: i32 = 0;
+pub const USE_DOMAINNAME_PARMNUM: i32 = 6;
+pub const USE_FLAGS_PARMNUM: i32 = 7;
+pub const USE_FLAG_GLOBAL_MAPPING: i32 = 65536;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_INFO_0 {
@@ -181,11 +181,11 @@ pub struct USE_INFO_5 {
     pub ui5_use_options_length: u32,
     pub ui5_use_options: super::PBYTE,
 }
-pub const USE_IPC: u32 = 3;
-pub const USE_LOCAL_PARMNUM: u32 = 1;
-pub const USE_NETERR: u32 = 3;
-pub const USE_OK: u32 = 0;
-pub const USE_OPTIONS_PARMNUM: u32 = 10;
+pub const USE_IPC: i32 = 3;
+pub const USE_LOCAL_PARMNUM: i32 = 1;
+pub const USE_NETERR: i32 = 3;
+pub const USE_OK: i32 = 0;
+pub const USE_OPTIONS_PARMNUM: i32 = 10;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_BLOCK_NTLM_PARAMETERS {
@@ -193,7 +193,7 @@ pub struct USE_OPTION_BLOCK_NTLM_PARAMETERS {
     pub Length: u16,
     pub Reserved: u16,
 }
-pub const USE_OPTION_BLOCK_NTLM_PARAMS: u32 = 1315925058;
+pub const USE_OPTION_BLOCK_NTLM_PARAMS: i32 = 1315925058;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
@@ -201,7 +201,7 @@ pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     pub Length: u16,
     pub Reserved: u16,
 }
-pub const USE_OPTION_DEFERRED_CONNECTION_PARAMS: u32 = 1130784068;
+pub const USE_OPTION_DEFERRED_CONNECTION_PARAMS: i32 = 1130784068;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_GENERIC {
@@ -221,7 +221,7 @@ impl Default for USE_OPTION_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const USE_OPTION_SMB_COMPRESSION_PARAMS: u32 = 1349349187;
+pub const USE_OPTION_SMB_COMPRESSION_PARAMS: i32 = 1349349187;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_TRANSPORT_PARAMETERS {
@@ -229,16 +229,16 @@ pub struct USE_OPTION_TRANSPORT_PARAMETERS {
     pub Length: u16,
     pub Reserved: u16,
 }
-pub const USE_OPTION_TRANSPORT_PARAMS: u32 = 1348563540;
-pub const USE_PASSWORD_PARMNUM: u32 = 3;
-pub const USE_PAUSED: u32 = 1;
-pub const USE_RECONN: u32 = 5;
-pub const USE_REMOTE_PARMNUM: u32 = 2;
-pub const USE_SD_PARMNUM: u32 = 9;
-pub const USE_SESSLOST: u32 = 2;
-pub const USE_SPOOLDEV: u32 = 1;
-pub const USE_USERNAME_PARMNUM: u32 = 5;
-pub const USE_WILDCARD: i32 = -1;
+pub const USE_OPTION_TRANSPORT_PARAMS: i32 = 1348563540;
+pub const USE_PASSWORD_PARMNUM: i32 = 3;
+pub const USE_PAUSED: i32 = 1;
+pub const USE_RECONN: i32 = 5;
+pub const USE_REMOTE_PARMNUM: i32 = 2;
+pub const USE_SD_PARMNUM: i32 = 9;
+pub const USE_SESSLOST: i32 = 2;
+pub const USE_SPOOLDEV: i32 = 1;
+pub const USE_USERNAME_PARMNUM: i32 = 5;
+pub const USE_WILDCARD: u32 = 4294967295;
 pub const UseTransportType_None: TRANSPORT_TYPE = 0;
 pub const UseTransportType_Quic: TRANSPORT_TYPE = 2;
 pub const UseTransportType_Wsk: TRANSPORT_TYPE = 1;

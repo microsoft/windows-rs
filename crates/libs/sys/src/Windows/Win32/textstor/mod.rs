@@ -1,17 +1,17 @@
 pub const GUID_TS_SERVICE_ACCESSIBLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf9786200_a5bf_4a0f_8c24_fb16f5d1aabb);
 pub const GUID_TS_SERVICE_ACTIVEX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea937a50_c9a6_4b7d_894a_49d99b784834);
 pub const GUID_TS_SERVICE_DATAOBJECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6086fbb5_e225_46ce_a770_c1bbd3e05d7b);
-pub const GXFPF_NEAREST: u32 = 2;
-pub const GXFPF_ROUND_NEAREST: u32 = 1;
+pub const GXFPF_NEAREST: i32 = 2;
+pub const GXFPF_ROUND_NEAREST: i32 = 1;
 pub const TS_AE_END: TsActiveSelEnd = 2;
 pub const TS_AE_NONE: TsActiveSelEnd = 0;
 pub const TS_AE_START: TsActiveSelEnd = 1;
-pub const TS_AS_ALL_SINKS: u32 = 31;
-pub const TS_AS_ATTR_CHANGE: u32 = 8;
-pub const TS_AS_LAYOUT_CHANGE: u32 = 4;
-pub const TS_AS_SEL_CHANGE: u32 = 2;
-pub const TS_AS_STATUS_CHANGE: u32 = 16;
-pub const TS_AS_TEXT_CHANGE: u32 = 1;
+pub const TS_AS_ALL_SINKS: i32 = 31;
+pub const TS_AS_ATTR_CHANGE: i32 = 8;
+pub const TS_AS_LAYOUT_CHANGE: i32 = 4;
+pub const TS_AS_SEL_CHANGE: i32 = 2;
+pub const TS_AS_STATUS_CHANGE: i32 = 16;
+pub const TS_AS_TEXT_CHANGE: i32 = 1;
 pub type TS_ATTRID = windows_sys::core::GUID;
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
@@ -27,17 +27,17 @@ impl Default for TS_ATTRVAL {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TS_ATTR_FIND_BACKWARDS: u32 = 1;
-pub const TS_ATTR_FIND_HIDDEN: u32 = 32;
-pub const TS_ATTR_FIND_UPDATESTART: u32 = 4;
-pub const TS_ATTR_FIND_WANT_END: u32 = 16;
-pub const TS_ATTR_FIND_WANT_OFFSET: u32 = 2;
-pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8;
-pub const TS_CHAR_EMBEDDED: u32 = 65532;
-pub const TS_CHAR_REGION: u32 = 0;
-pub const TS_CHAR_REPLACEMENT: u32 = 65533;
-pub const TS_CH_FOLLOWING_DEL: u32 = 2;
-pub const TS_CH_PRECEDING_DEL: u32 = 1;
+pub const TS_ATTR_FIND_BACKWARDS: i32 = 1;
+pub const TS_ATTR_FIND_HIDDEN: i32 = 32;
+pub const TS_ATTR_FIND_UPDATESTART: i32 = 4;
+pub const TS_ATTR_FIND_WANT_END: i32 = 16;
+pub const TS_ATTR_FIND_WANT_OFFSET: i32 = 2;
+pub const TS_ATTR_FIND_WANT_VALUE: i32 = 8;
+pub const TS_CHAR_EMBEDDED: i32 = 65532;
+pub const TS_CHAR_REGION: i32 = 0;
+pub const TS_CHAR_REPLACEMENT: i32 = 65533;
+pub const TS_CH_FOLLOWING_DEL: i32 = 2;
+pub const TS_CH_PRECEDING_DEL: i32 = 1;
 pub const TS_DEFAULT_SELECTION: u32 = 4294967295;
 pub const TS_E_FORMAT: i32 = -2147220982;
 pub const TS_E_INVALIDPOINT: i32 = -2147220985;
@@ -50,20 +50,20 @@ pub const TS_E_NOSELECTION: i32 = -2147220987;
 pub const TS_E_NOSERVICE: i32 = -2147220989;
 pub const TS_E_READONLY: i32 = -2147220983;
 pub const TS_E_SYNCHRONOUS: i32 = -2147220984;
-pub const TS_GEA_HIDDEN: u32 = 1;
+pub const TS_GEA_HIDDEN: i32 = 1;
 pub const TS_GR_BACKWARD: TsGravity = 0;
 pub const TS_GR_FORWARD: TsGravity = 1;
-pub const TS_GTA_HIDDEN: u32 = 1;
-pub const TS_IAS_NOQUERY: u32 = 1;
-pub const TS_IAS_QUERYONLY: u32 = 2;
-pub const TS_IE_COMPOSITION: u32 = 2;
-pub const TS_IE_CORRECTION: u32 = 1;
+pub const TS_GTA_HIDDEN: i32 = 1;
+pub const TS_IAS_NOQUERY: i32 = 1;
+pub const TS_IAS_QUERYONLY: i32 = 2;
+pub const TS_IE_COMPOSITION: i32 = 2;
+pub const TS_IE_CORRECTION: i32 = 1;
 pub const TS_LC_CHANGE: TsLayoutCode = 1;
 pub const TS_LC_CREATE: TsLayoutCode = 0;
 pub const TS_LC_DESTROY: TsLayoutCode = 2;
-pub const TS_LF_READ: u32 = 2;
-pub const TS_LF_READWRITE: u32 = 6;
-pub const TS_LF_SYNC: u32 = 1;
+pub const TS_LF_READ: i32 = 2;
+pub const TS_LF_READWRITE: i32 = 6;
+pub const TS_LF_SYNC: i32 = 1;
 pub const TS_RT_HIDDEN: TsRunType = 1;
 pub const TS_RT_OPAQUE: TsRunType = 2;
 pub const TS_RT_PLAIN: TsRunType = 0;
@@ -74,18 +74,18 @@ pub struct TS_RUNINFO {
     pub r#type: TsRunType,
 }
 pub const TS_SD_BACKWARD: TsShiftDir = 0;
-pub const TS_SD_DISABLEWRITINGSUGGESTIONS: u32 = 512;
-pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128;
-pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256;
+pub const TS_SD_DISABLEWRITINGSUGGESTIONS: i32 = 512;
+pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: i32 = 128;
+pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: i32 = 256;
 pub const TS_SD_FORWARD: TsShiftDir = 1;
-pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64;
-pub const TS_SD_LOADING: u32 = 2;
-pub const TS_SD_MASKALL: u32 = 3;
-pub const TS_SD_READONLY: u32 = 1;
-pub const TS_SD_RESERVED: u32 = 4;
-pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8;
-pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16;
-pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32;
+pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: i32 = 64;
+pub const TS_SD_LOADING: i32 = 2;
+pub const TS_SD_MASKALL: i32 = 3;
+pub const TS_SD_READONLY: i32 = 1;
+pub const TS_SD_RESERVED: i32 = 4;
+pub const TS_SD_TKBAUTOCORRECTENABLE: i32 = 8;
+pub const TS_SD_TKBPREDICTIONENABLE: i32 = 16;
+pub const TS_SD_UIINTEGRATIONENABLE: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TS_SELECTIONSTYLE {
@@ -111,27 +111,27 @@ impl Default for TS_SELECTION_ANCHOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1;
-pub const TS_SHIFT_COUNT_ONLY: u32 = 8;
-pub const TS_SHIFT_HALT_HIDDEN: u32 = 2;
-pub const TS_SHIFT_HALT_VISIBLE: u32 = 4;
-pub const TS_SS_DISJOINTSEL: u32 = 1;
-pub const TS_SS_MULTILINE: u32 = 128;
-pub const TS_SS_NOHIDDENTEXT: u32 = 8;
-pub const TS_SS_REGIONS: u32 = 2;
-pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16;
-pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32;
-pub const TS_SS_TRANSITORY: u32 = 4;
-pub const TS_SS_UWPCONTROL: u32 = 64;
+pub const TS_SHIFT_COUNT_HIDDEN: i32 = 1;
+pub const TS_SHIFT_COUNT_ONLY: i32 = 8;
+pub const TS_SHIFT_HALT_HIDDEN: i32 = 2;
+pub const TS_SHIFT_HALT_VISIBLE: i32 = 4;
+pub const TS_SS_DISJOINTSEL: i32 = 1;
+pub const TS_SS_MULTILINE: i32 = 128;
+pub const TS_SS_NOHIDDENTEXT: i32 = 8;
+pub const TS_SS_REGIONS: i32 = 2;
+pub const TS_SS_TKBAUTOCORRECTENABLE: i32 = 16;
+pub const TS_SS_TKBPREDICTIONENABLE: i32 = 32;
+pub const TS_SS_TRANSITORY: i32 = 4;
+pub const TS_SS_UWPCONTROL: i32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
 }
-pub const TS_ST_CORRECTION: u32 = 1;
-pub const TS_S_ASYNC: u32 = 262912;
-pub const TS_TC_CORRECTION: u32 = 1;
+pub const TS_ST_CORRECTION: i32 = 1;
+pub const TS_S_ASYNC: i32 = 262912;
+pub const TS_TC_CORRECTION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TS_TEXTCHANGE {

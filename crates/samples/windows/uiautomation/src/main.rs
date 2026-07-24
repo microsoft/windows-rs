@@ -9,7 +9,7 @@ fn main() -> windows::core::Result<()> {
         }
 
         // Start with COM API
-        let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL)?;
+        let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL as u32)?;
         let element: IUIAutomationElement = automation.ElementFromHandle(UIA_HWND(window.0))?;
 
         // Use COM API

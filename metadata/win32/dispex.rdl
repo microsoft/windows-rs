@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const DISPATCH_CONSTRUCT: u32 = 16384;
+        const DISPATCH_CONSTRUCT: i32 = 16384;
         const DISPID_STARTENUM: i32 = -1;
         #[guid(0xc5598e60_b307_11d1_b27d_006008c3fbfb)]
         interface ICanHandleException: IUnknown {
@@ -42,31 +42,31 @@ mod Windows {
         const SID_GetCaller: GUID = 0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9;
         const SID_ProvideRuntimeContext: GUID = 0x74a5040c_dd0c_48f0_ac85_194c3259180a;
         const SID_VariantConversion: GUID = 0x1f101481_bccd_11d0_9336_00a0c90dcaa9;
-        const fdexEnumAll: u32 = 2;
-        const fdexEnumDefault: u32 = 1;
-        const fdexNameCaseInsensitive: u32 = 8;
-        const fdexNameCaseSensitive: u32 = 1;
-        const fdexNameEnsure: u32 = 2;
-        const fdexNameImplicit: u32 = 4;
-        const fdexNameInternal: u32 = 16;
-        const fdexNameNoDynamicProperties: u32 = 32;
-        const fdexPropCanCall: u32 = 256;
-        const fdexPropCanConstruct: u32 = 1024;
-        const fdexPropCanGet: u32 = 1;
-        const fdexPropCanPut: u32 = 4;
-        const fdexPropCanPutRef: u32 = 16;
-        const fdexPropCanSourceEvents: u32 = 4096;
-        const fdexPropCannotCall: u32 = 512;
-        const fdexPropCannotConstruct: u32 = 2048;
-        const fdexPropCannotGet: u32 = 2;
-        const fdexPropCannotPut: u32 = 8;
-        const fdexPropCannotPutRef: u32 = 32;
-        const fdexPropCannotSourceEvents: u32 = 8192;
-        const fdexPropDynamicType: u32 = 128;
-        const fdexPropNoSideEffects: u32 = 64;
-        const grfdexPropAll: u32 = 16383;
-        const grfdexPropCanAll: u32 = 5397;
-        const grfdexPropCannotAll: u32 = 10794;
-        const grfdexPropExtraAll: u32 = 192;
+        const fdexEnumAll: i32 = 2;
+        const fdexEnumDefault: i32 = 1;
+        const fdexNameCaseInsensitive: i32 = 8;
+        const fdexNameCaseSensitive: i32 = 1;
+        const fdexNameEnsure: i32 = 2;
+        const fdexNameImplicit: i32 = 4;
+        const fdexNameInternal: i32 = 16;
+        const fdexNameNoDynamicProperties: i32 = 32;
+        const fdexPropCanCall: i32 = 256;
+        const fdexPropCanConstruct: i32 = 1024;
+        const fdexPropCanGet: i32 = 1;
+        const fdexPropCanPut: i32 = 4;
+        const fdexPropCanPutRef: i32 = 16;
+        const fdexPropCanSourceEvents: i32 = 4096;
+        const fdexPropCannotCall: i32 = 512;
+        const fdexPropCannotConstruct: i32 = 2048;
+        const fdexPropCannotGet: i32 = 2;
+        const fdexPropCannotPut: i32 = 8;
+        const fdexPropCannotPutRef: i32 = 32;
+        const fdexPropCannotSourceEvents: i32 = 8192;
+        const fdexPropDynamicType: i32 = 128;
+        const fdexPropNoSideEffects: i32 = 64;
+        const grfdexPropAll: i32 = 16383;
+        const grfdexPropCanAll: i32 = 5397;
+        const grfdexPropCannotAll: i32 = 10794;
+        const grfdexPropExtraAll: i32 = 192;
     }
 }

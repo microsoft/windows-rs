@@ -1,5 +1,5 @@
-pub const ADVISE_ALL: u32 = 15;
-pub const ADVISE_ALL2: u32 = 31;
+pub const ADVISE_ALL: i32 = 15;
+pub const ADVISE_ALL2: i32 = 31;
 pub const ADVISE_CLIPPING: i32 = 1;
 pub const ADVISE_COLORKEY: i32 = 4;
 pub const ADVISE_DISPLAY_CHANGE: i32 = 16;
@@ -157,13 +157,13 @@ pub type AM_FILTER_FLAGS = i32;
 pub const AM_FILTER_FLAGS_REMOVABLE: AM_FILTER_FLAGS = 1;
 pub const AM_FILTER_MISC_FLAGS_IS_RENDERER: _AM_FILTER_MISC_FLAGS = 1;
 pub const AM_FILTER_MISC_FLAGS_IS_SOURCE: _AM_FILTER_MISC_FLAGS = 2;
-pub const AM_GBF_NODDSURFACELOCK: u32 = 8;
-pub const AM_GBF_NOTASYNCPOINT: u32 = 2;
-pub const AM_GBF_NOWAIT: u32 = 4;
-pub const AM_GBF_PREVFRAMESKIPPED: u32 = 1;
-pub const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: u32 = 7;
-pub const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: u32 = 6;
-pub const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: u32 = 1;
+pub const AM_GBF_NODDSURFACELOCK: i32 = 8;
+pub const AM_GBF_NOTASYNCPOINT: i32 = 2;
+pub const AM_GBF_NOWAIT: i32 = 4;
+pub const AM_GBF_PREVFRAMESKIPPED: i32 = 1;
+pub const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: i32 = 7;
+pub const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: i32 = 6;
+pub const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: i32 = 1;
 pub const AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = 2;
 pub const AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT: AM_GRAPH_CONFIG_RECONNECT_FLAGS = 1;
 pub type AM_GRAPH_CONFIG_RECONNECT_FLAGS = i32;
@@ -199,11 +199,11 @@ pub const AM_PUSHSOURCECAPS_NOT_LIVE: _AM_PUSHSOURCE_FLAGS = 2;
 pub const AM_PUSHSOURCECAPS_PRIVATE_CLOCK: _AM_PUSHSOURCE_FLAGS = 4;
 pub const AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN: _AM_PUSHSOURCE_FLAGS = 131072;
 pub const AM_PUSHSOURCEREQS_USE_STREAM_CLOCK: _AM_PUSHSOURCE_FLAGS = 65536;
-pub const AM_QUERY_DECODER_ATSC_HD_SUPPORT: u32 = 5;
-pub const AM_QUERY_DECODER_ATSC_SD_SUPPORT: u32 = 4;
-pub const AM_QUERY_DECODER_DVD_SUPPORT: u32 = 3;
-pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2;
-pub const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1;
+pub const AM_QUERY_DECODER_ATSC_HD_SUPPORT: i32 = 5;
+pub const AM_QUERY_DECODER_ATSC_SD_SUPPORT: i32 = 4;
+pub const AM_QUERY_DECODER_DVD_SUPPORT: i32 = 3;
+pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: i32 = 2;
+pub const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "ksmedia")]
@@ -293,7 +293,7 @@ pub type AnalogVideoStandard = i32;
 pub const AnalogVideo_NTSC_433: AnalogVideoStandard = 4;
 pub const AnalogVideo_NTSC_M: AnalogVideoStandard = 1;
 pub const AnalogVideo_NTSC_M_J: AnalogVideoStandard = 2;
-pub const AnalogVideo_NTSC_Mask: u32 = 7;
+pub const AnalogVideo_NTSC_Mask: i32 = 7;
 pub const AnalogVideo_None: AnalogVideoStandard = 0;
 pub const AnalogVideo_PAL_60: AnalogVideoStandard = 2048;
 pub const AnalogVideo_PAL_B: AnalogVideoStandard = 16;
@@ -302,7 +302,7 @@ pub const AnalogVideo_PAL_G: AnalogVideoStandard = 64;
 pub const AnalogVideo_PAL_H: AnalogVideoStandard = 128;
 pub const AnalogVideo_PAL_I: AnalogVideoStandard = 256;
 pub const AnalogVideo_PAL_M: AnalogVideoStandard = 512;
-pub const AnalogVideo_PAL_Mask: u32 = 1052656;
+pub const AnalogVideo_PAL_Mask: i32 = 1052656;
 pub const AnalogVideo_PAL_N: AnalogVideoStandard = 1024;
 pub const AnalogVideo_PAL_N_COMBO: AnalogVideoStandard = 1048576;
 pub const AnalogVideo_SECAM_B: AnalogVideoStandard = 4096;
@@ -313,16 +313,16 @@ pub const AnalogVideo_SECAM_K: AnalogVideoStandard = 65536;
 pub const AnalogVideo_SECAM_K1: AnalogVideoStandard = 131072;
 pub const AnalogVideo_SECAM_L: AnalogVideoStandard = 262144;
 pub const AnalogVideo_SECAM_L1: AnalogVideoStandard = 524288;
-pub const AnalogVideo_SECAM_Mask: u32 = 1044480;
-pub const CDEF_BYPASS_CLASS_MANAGER: u32 = 2;
-pub const CDEF_CLASS_DEFAULT: u32 = 1;
-pub const CDEF_DEVMON_CMGR_DEVICE: u32 = 16;
-pub const CDEF_DEVMON_DMO: u32 = 32;
-pub const CDEF_DEVMON_FILTER: u32 = 128;
-pub const CDEF_DEVMON_PNP_DEVICE: u32 = 64;
-pub const CDEF_DEVMON_SELECTIVE_MASK: u32 = 240;
-pub const CDEF_MERIT_ABOVE_DO_NOT_USE: u32 = 8;
-pub const CHARS_IN_GUID: u32 = 39;
+pub const AnalogVideo_SECAM_Mask: i32 = 1044480;
+pub const CDEF_BYPASS_CLASS_MANAGER: i32 = 2;
+pub const CDEF_CLASS_DEFAULT: i32 = 1;
+pub const CDEF_DEVMON_CMGR_DEVICE: i32 = 16;
+pub const CDEF_DEVMON_DMO: i32 = 32;
+pub const CDEF_DEVMON_FILTER: i32 = 128;
+pub const CDEF_DEVMON_PNP_DEVICE: i32 = 64;
+pub const CDEF_DEVMON_SELECTIVE_MASK: i32 = 240;
+pub const CDEF_MERIT_ABOVE_DO_NOT_USE: i32 = 8;
+pub const CHARS_IN_GUID: i32 = 39;
 pub const CK_INDEX: i32 = 1;
 pub const CK_NOCOLORKEY: i32 = 0;
 pub const CK_RGB: i32 = 2;
@@ -370,8 +370,8 @@ pub type DECIMATION_USAGE = i32;
 pub const DECIMATION_USE_DECODER_ONLY: DECIMATION_USAGE = 1;
 pub const DECIMATION_USE_OVERLAY_ONLY: DECIMATION_USAGE = 3;
 pub const DECIMATION_USE_VIDEOPORT_ONLY: DECIMATION_USAGE = 2;
-pub const DECODER_CAP_NOTSUPPORTED: u32 = 0;
-pub const DECODER_CAP_SUPPORTED: u32 = 1;
+pub const DECODER_CAP_NOTSUPPORTED: i32 = 0;
+pub const DECODER_CAP_SUPPORTED: i32 = 1;
 pub const DISPLAY_16x9: DVD_PREFERRED_DISPLAY_MODE = 1;
 pub const DISPLAY_4x3_LETTERBOX_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = 3;
 pub const DISPLAY_4x3_PANSCAN_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = 2;
@@ -392,11 +392,11 @@ impl Default for DVD_ATR {
     }
 }
 pub type DVD_AUDIO_APPMODE = i32;
-pub const DVD_AUDIO_CAPS_AC3: u32 = 1;
-pub const DVD_AUDIO_CAPS_DTS: u32 = 8;
-pub const DVD_AUDIO_CAPS_LPCM: u32 = 4;
-pub const DVD_AUDIO_CAPS_MPEG2: u32 = 2;
-pub const DVD_AUDIO_CAPS_SDDS: u32 = 16;
+pub const DVD_AUDIO_CAPS_AC3: i32 = 1;
+pub const DVD_AUDIO_CAPS_DTS: i32 = 8;
+pub const DVD_AUDIO_CAPS_LPCM: i32 = 4;
+pub const DVD_AUDIO_CAPS_MPEG2: i32 = 2;
+pub const DVD_AUDIO_CAPS_SDDS: i32 = 16;
 pub type DVD_AUDIO_FORMAT = i32;
 pub type DVD_AUDIO_LANG_EXT = i32;
 pub const DVD_AUD_EXT_Captions: DVD_AUDIO_LANG_EXT = 1;
@@ -481,7 +481,7 @@ pub struct DVD_DECODER_CAPS {
     pub dwRes3: u32,
     pub dwRes4: u32,
 }
-pub const DVD_DEFAULT_AUDIO_STREAM: u32 = 15;
+pub const DVD_DEFAULT_AUDIO_STREAM: i32 = 15;
 pub type DVD_DISC_SIDE = i32;
 pub type DVD_DOMAIN = i32;
 pub const DVD_DOMAIN_FirstPlay: DVD_DOMAIN = 1;
@@ -669,9 +669,9 @@ pub const DVD_SP_EXT_DirectorComments_Children: DVD_SUBPICTURE_LANG_EXT = 15;
 pub const DVD_SP_EXT_DirectorComments_Normal: DVD_SUBPICTURE_LANG_EXT = 13;
 pub const DVD_SP_EXT_Forced: DVD_SUBPICTURE_LANG_EXT = 9;
 pub const DVD_SP_EXT_NotSpecified: DVD_SUBPICTURE_LANG_EXT = 0;
-pub const DVD_STREAM_DATA_CURRENT: u32 = 2048;
-pub const DVD_STREAM_DATA_VMGM: u32 = 1024;
-pub const DVD_STREAM_DATA_VTSM: u32 = 1025;
+pub const DVD_STREAM_DATA_CURRENT: i32 = 2048;
+pub const DVD_STREAM_DATA_VMGM: i32 = 1024;
+pub const DVD_STREAM_DATA_VTSM: i32 = 1025;
 pub type DVD_SUBPICTURE_CODING = i32;
 pub type DVD_SUBPICTURE_LANG_EXT = i32;
 pub type DVD_SUBPICTURE_TYPE = i32;
@@ -760,7 +760,7 @@ impl DVD_TIMECODE {
 }
 pub type DVD_TIMECODE_FLAGS = i32;
 pub type DVD_TITLE_APPMODE = i32;
-pub const DVD_TITLE_MENU: u32 = 0;
+pub const DVD_TITLE_MENU: i32 = 0;
 pub type DVD_TextCharSet = i32;
 pub type DVD_TextStringType = i32;
 #[repr(C)]
@@ -16139,21 +16139,21 @@ pub type InterleavingMode = i32;
 pub type LPAMCOPPCommand = *mut AMCOPPCommand;
 pub type LPAMCOPPStatusInput = *mut AMCOPPStatusInput;
 pub type LPAMCOPPStatusOutput = *mut AMCOPPStatusOutput;
-pub const MAX_FILTER_NAME: u32 = 128;
+pub const MAX_FILTER_NAME: i32 = 128;
 pub const MAX_NUMBER_OF_STREAMS: i32 = 16;
-pub const MAX_PIN_NAME: u32 = 128;
+pub const MAX_PIN_NAME: i32 = 128;
 pub const MERIT_DO_NOT_USE: i32 = 2097152;
 pub const MERIT_HW_COMPRESSOR: i32 = 1048656;
 pub const MERIT_NORMAL: i32 = 6291456;
 pub const MERIT_PREFERRED: i32 = 8388608;
 pub const MERIT_SW_COMPRESSOR: i32 = 1048576;
 pub const MERIT_UNLIKELY: i32 = 4194304;
-pub const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: u32 = 2;
-pub const MPEG2_PROGRAM_ELEMENTARY_STREAM: u32 = 1;
-pub const MPEG2_PROGRAM_PACK_HEADER: u32 = 3;
-pub const MPEG2_PROGRAM_PES_STREAM: u32 = 4;
-pub const MPEG2_PROGRAM_STREAM_MAP: u32 = 0;
-pub const MPEG2_PROGRAM_SYSTEM_HEADER: u32 = 5;
+pub const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: i32 = 2;
+pub const MPEG2_PROGRAM_ELEMENTARY_STREAM: i32 = 1;
+pub const MPEG2_PROGRAM_PACK_HEADER: i32 = 3;
+pub const MPEG2_PROGRAM_PES_STREAM: i32 = 4;
+pub const MPEG2_PROGRAM_STREAM_MAP: i32 = 0;
+pub const MPEG2_PROGRAM_SYSTEM_HEADER: i32 = 5;
 pub const MixerPref_ARAdjustXorY: VMRMixerPrefs = 4;
 pub const MixerPref_BiLinearFiltering: VMRMixerPrefs = 16;
 pub const MixerPref_DecimateMask: VMRMixerPrefs = 15;
@@ -16364,7 +16364,7 @@ pub struct STREAM_ID_MAP {
     pub ulSubstreamFilterValue: u32,
     pub iDataOffset: i32,
 }
-pub const SUBSTREAM_FILTER_VAL_NONE: u32 = 268435456;
+pub const SUBSTREAM_FILTER_VAL_NONE: i32 = 268435456;
 pub const State_Paused: FILTER_STATE = 1;
 pub const State_Running: FILTER_STATE = 2;
 pub const State_Stopped: FILTER_STATE = 0;
@@ -16452,11 +16452,11 @@ pub struct VMRALPHABITMAP {
     pub fAlpha: f32,
     pub clrSrcKey: super::COLORREF,
 }
-pub const VMRBITMAP_DISABLE: u32 = 1;
-pub const VMRBITMAP_ENTIREDDS: u32 = 4;
-pub const VMRBITMAP_HDC: u32 = 2;
-pub const VMRBITMAP_SRCCOLORKEY: u32 = 8;
-pub const VMRBITMAP_SRCRECT: u32 = 16;
+pub const VMRBITMAP_DISABLE: i32 = 1;
+pub const VMRBITMAP_ENTIREDDS: i32 = 4;
+pub const VMRBITMAP_HDC: i32 = 2;
+pub const VMRBITMAP_SRCCOLORKEY: i32 = 8;
+pub const VMRBITMAP_SRCRECT: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRDeinterlaceCaps {
@@ -16561,8 +16561,8 @@ pub struct VMRVideoDesc {
 pub const VMR_ARMODE_LETTER_BOX: VMR_ASPECT_RATIO_MODE = 1;
 pub const VMR_ARMODE_NONE: VMR_ASPECT_RATIO_MODE = 0;
 pub type VMR_ASPECT_RATIO_MODE = i32;
-pub const VMR_NOTSUPPORTED: u32 = 0;
-pub const VMR_SUPPORTED: u32 = 1;
+pub const VMR_NOTSUPPORTED: i32 = 0;
+pub const VMR_SUPPORTED: i32 = 1;
 pub const VfwCaptureDialog_Display: VfwCaptureDialogs = 4;
 pub const VfwCaptureDialog_Format: VfwCaptureDialogs = 2;
 pub const VfwCaptureDialog_Source: VfwCaptureDialogs = 1;

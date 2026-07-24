@@ -109,7 +109,7 @@ mod Windows {
             ullAvailVirtual: DWORDLONG,
             ullAvailExtendedVirtual: DWORDLONG,
         }
-        const SCEX2_ALT_NETBIOS_NAME: u32 = 1;
+        const SCEX2_ALT_NETBIOS_NAME: i32 = 1;
         struct SYSTEM_INFO {
             Anonymous: union {
                 dwOemId: u32,
@@ -146,9 +146,9 @@ mod Windows {
         extern fn SetSystemTimeAdjustment(dwTimeAdjustment: u32, bTimeAdjustmentDisabled: BOOL) -> BOOL;
         #[library("api-ms-win-core-sysinfo-l1-2-4.dll")]
         extern fn SetSystemTimeAdjustmentPrecise(dwTimeAdjustment: u64, bTimeAdjustmentDisabled: BOOL) -> BOOL;
-        const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: u32 = 2;
-        const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: u32 = 17;
-        const USER_CET_ENVIRONMENT_VBS_ENCLAVE: u32 = 16;
-        const USER_CET_ENVIRONMENT_WIN32_PROCESS: u32 = 0;
+        const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: i32 = 2;
+        const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: i32 = 17;
+        const USER_CET_ENVIRONMENT_VBS_ENCLAVE: i32 = 16;
+        const USER_CET_ENVIRONMENT_WIN32_PROCESS: i32 = 0;
     }
 }

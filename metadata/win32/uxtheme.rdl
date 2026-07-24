@@ -1,10 +1,10 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const BPBF_COMPOSITED: u32 = 2;
-        const BPPF_ERASE: u32 = 1;
-        const BPPF_NOCLIP: u32 = 2;
-        const BPPF_NONCLIENT: u32 = 4;
+        const BPBF_COMPOSITED: i32 = 2;
+        const BPPF_ERASE: i32 = 1;
+        const BPPF_NOCLIP: i32 = 2;
+        const BPPF_NONCLIENT: i32 = 4;
         struct BP_ANIMATIONPARAMS {
             cbSize: u32,
             dwFlags: u32,
@@ -56,17 +56,17 @@ mod Windows {
             dwFlags: u32,
             rcClip: RECT,
         }
-        const DTBG_CLIPRECT: u32 = 1;
-        const DTBG_COMPUTINGREGION: u32 = 16;
-        const DTBG_DRAWSOLID: u32 = 2;
-        const DTBG_MIRRORDC: u32 = 32;
-        const DTBG_NOMIRROR: u32 = 64;
-        const DTBG_OMITBORDER: u32 = 4;
-        const DTBG_OMITCONTENT: u32 = 8;
-        const DTBG_VALIDBITS: u32 = 127;
-        const DTPB_USECTLCOLORSTATIC: u32 = 2;
-        const DTPB_USEERASEBKGND: u32 = 4;
-        const DTPB_WINDOWDC: u32 = 1;
+        const DTBG_CLIPRECT: i32 = 1;
+        const DTBG_COMPUTINGREGION: i32 = 16;
+        const DTBG_DRAWSOLID: i32 = 2;
+        const DTBG_MIRRORDC: i32 = 32;
+        const DTBG_NOMIRROR: i32 = 64;
+        const DTBG_OMITBORDER: i32 = 4;
+        const DTBG_OMITCONTENT: i32 = 8;
+        const DTBG_VALIDBITS: i32 = 127;
+        const DTPB_USECTLCOLORSTATIC: i32 = 2;
+        const DTPB_USEERASEBKGND: i32 = 4;
+        const DTPB_WINDOWDC: i32 = 1;
         struct DTTOPTS {
             dwSize: u32,
             dwFlags: u32,
@@ -92,10 +92,10 @@ mod Windows {
         extern fn DTT_CALLBACK_PROC(hdc: HDC, #[len_param(2)] #[in] #[out] pszText: PWSTR, cchText: i32, #[in] #[out] prc: *mut RECT, dwFlags: u32, lParam: LPARAM) -> i32;
         const DTT_COLORPROP: u32 = 128;
         const DTT_COMPOSITED: u32 = 8192;
-        const DTT_FLAGS2VALIDBITS: u32 = 1;
+        const DTT_FLAGS2VALIDBITS: i32 = 1;
         const DTT_FONTPROP: u32 = 64;
         const DTT_GLOWSIZE: u32 = 2048;
-        const DTT_GRAYED: u32 = 1;
+        const DTT_GRAYED: i32 = 1;
         const DTT_SHADOWCOLOR: u32 = 4;
         const DTT_SHADOWOFFSET: u32 = 16;
         const DTT_SHADOWTYPE: u32 = 8;
@@ -118,13 +118,13 @@ mod Windows {
         extern fn DrawThemeText(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, #[len_param(5)] pszText: PCWSTR, cchText: i32, dwTextFlags: u32, dwTextFlags2: u32, pRect: *const RECT) -> HRESULT;
         #[library("UxTheme.dll")]
         extern fn DrawThemeTextEx(hTheme: HTHEME, hdc: HDC, iPartId: i32, iStateId: i32, #[len_param(5)] pszText: PCWSTR, cchText: i32, dwTextFlags: u32, #[in] #[out] pRect: *mut RECT, #[opt] pOptions: *const DTTOPTS) -> HRESULT;
-        const ETDT_DISABLE: u32 = 1;
-        const ETDT_ENABLE: u32 = 2;
-        const ETDT_ENABLEAEROWIZARDTAB: u32 = 10;
-        const ETDT_ENABLETAB: u32 = 6;
-        const ETDT_USEAEROWIZARDTABTEXTURE: u32 = 8;
-        const ETDT_USETABTEXTURE: u32 = 4;
-        const ETDT_VALIDBITS: u32 = 15;
+        const ETDT_DISABLE: i32 = 1;
+        const ETDT_ENABLE: i32 = 2;
+        const ETDT_ENABLEAEROWIZARDTAB: i32 = 10;
+        const ETDT_ENABLETAB: i32 = 6;
+        const ETDT_USEAEROWIZARDTABTEXTURE: i32 = 8;
+        const ETDT_USETABTEXTURE: i32 = 4;
+        const ETDT_VALIDBITS: i32 = 15;
         #[library("UxTheme.dll")]
         extern fn EnableThemeDialogTexture(hwnd: HWND, dwFlags: u32) -> HRESULT;
         #[library("UxTheme.dll")]
@@ -135,9 +135,9 @@ mod Windows {
         extern fn EndBufferedPaint(hBufferedPaint: HPAINTBUFFER, fUpdateTarget: BOOL) -> HRESULT;
         #[library("UxTheme.dll")]
         extern fn EndPanningFeedback(hwnd: HWND, fAnimateBack: BOOL) -> BOOL;
-        const GBF_COPY: u32 = 2;
-        const GBF_DIRECT: u32 = 1;
-        const GBF_VALIDBITS: u32 = 3;
+        const GBF_COPY: i32 = 2;
+        const GBF_DIRECT: i32 = 1;
+        const GBF_VALIDBITS: i32 = 3;
         #[library("UxTheme.dll")]
         extern fn GetBufferedPaintBits(hBufferedPaint: HPAINTBUFFER, ppbBuffer: *mut *mut RGBQUAD, pcxRow: *mut i32) -> HRESULT;
         #[library("UxTheme.dll")]
@@ -220,16 +220,16 @@ mod Windows {
         extern fn GetWindowTheme(hwnd: HWND) -> HTHEME;
         type HANIMATIONBUFFER = HANDLE;
         type HPAINTBUFFER = HANDLE;
-        const HTTB_BACKGROUNDSEG: u32 = 0;
-        const HTTB_CAPTION: u32 = 4;
-        const HTTB_FIXEDBORDER: u32 = 2;
-        const HTTB_RESIZINGBORDER: u32 = 240;
-        const HTTB_RESIZINGBORDER_BOTTOM: u32 = 128;
-        const HTTB_RESIZINGBORDER_LEFT: u32 = 16;
-        const HTTB_RESIZINGBORDER_RIGHT: u32 = 64;
-        const HTTB_RESIZINGBORDER_TOP: u32 = 32;
-        const HTTB_SIZINGTEMPLATE: u32 = 256;
-        const HTTB_SYSTEMSIZINGMARGINS: u32 = 512;
+        const HTTB_BACKGROUNDSEG: i32 = 0;
+        const HTTB_CAPTION: i32 = 4;
+        const HTTB_FIXEDBORDER: i32 = 2;
+        const HTTB_RESIZINGBORDER: i32 = 240;
+        const HTTB_RESIZINGBORDER_BOTTOM: i32 = 128;
+        const HTTB_RESIZINGBORDER_LEFT: i32 = 16;
+        const HTTB_RESIZINGBORDER_RIGHT: i32 = 64;
+        const HTTB_RESIZINGBORDER_TOP: i32 = 32;
+        const HTTB_SIZINGTEMPLATE: i32 = 256;
+        const HTTB_SYSTEMSIZINGMARGINS: i32 = 512;
         #[library("UxTheme.dll")]
         extern fn HitTestThemeBackground(hTheme: HTHEME, #[opt] hdc: HDC, iPartId: i32, iStateId: i32, dwOptions: u32, pRect: *const RECT, #[opt] hrgn: HRGN, ptTest: POINT, pwHitTestCode: *mut u16) -> HRESULT;
         struct INTLIST {
@@ -254,12 +254,12 @@ mod Windows {
             cyTopHeight: i32,
             cyBottomHeight: i32,
         }
-        const MAX_INTLIST_COUNT: u32 = 402;
-        const MAX_THEMECOLOR: u32 = 64;
-        const MAX_THEMESIZE: u32 = 64;
-        const OTD_FORCE_RECT_SIZING: u32 = 1;
-        const OTD_NONCLIENT: u32 = 2;
-        const OTD_VALIDBITS: u32 = 3;
+        const MAX_INTLIST_COUNT: i32 = 402;
+        const MAX_THEMECOLOR: i32 = 64;
+        const MAX_THEMESIZE: i32 = 64;
+        const OTD_FORCE_RECT_SIZING: i32 = 1;
+        const OTD_NONCLIENT: i32 = 2;
+        const OTD_VALIDBITS: i32 = 3;
         #[library("UxTheme.dll")]
         extern fn OpenThemeData(#[opt] hwnd: HWND, pszClassList: PCWSTR) -> HTHEME;
         #[library("UxTheme.dll")]
@@ -402,10 +402,10 @@ mod Windows {
             dwFlags: u32,
             dwMask: u32,
         }
-        const WTNCA_NODRAWCAPTION: u32 = 1;
-        const WTNCA_NODRAWICON: u32 = 2;
-        const WTNCA_NOMIRRORHELP: u32 = 8;
-        const WTNCA_NOSYSMENU: u32 = 4;
-        const WTNCA_VALIDBITS: u32 = 15;
+        const WTNCA_NODRAWCAPTION: i32 = 1;
+        const WTNCA_NODRAWICON: i32 = 2;
+        const WTNCA_NOMIRRORHELP: i32 = 8;
+        const WTNCA_NOSYSMENU: i32 = 4;
+        const WTNCA_VALIDBITS: i32 = 15;
     }
 }

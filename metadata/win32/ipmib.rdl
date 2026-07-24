@@ -17,7 +17,7 @@ mod Windows {
             ICMP4_MASK_REQUEST = 17,
             ICMP4_MASK_REPLY = 18,
         }
-        const ICMP6_INFOMSG_MASK: u32 = 128;
+        const ICMP6_INFOMSG_MASK: i32 = 128;
         #[repr(i32)]
         enum ICMP6_TYPE {
             ICMP6_DST_UNREACH = 1,
@@ -92,12 +92,12 @@ mod Windows {
             dwNumEntries: u32,
             table: [MIB_IPADDRROW; 1],
         }
-        const MIB_IPADDR_DELETED: u32 = 64;
-        const MIB_IPADDR_DISCONNECTED: u32 = 8;
-        const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256;
-        const MIB_IPADDR_DYNAMIC: u32 = 4;
-        const MIB_IPADDR_PRIMARY: u32 = 1;
-        const MIB_IPADDR_TRANSIENT: u32 = 128;
+        const MIB_IPADDR_DELETED: i32 = 64;
+        const MIB_IPADDR_DISCONNECTED: i32 = 8;
+        const MIB_IPADDR_DNS_ELIGIBLE: i32 = 256;
+        const MIB_IPADDR_DYNAMIC: i32 = 4;
+        const MIB_IPADDR_PRIMARY: i32 = 1;
+        const MIB_IPADDR_TRANSIENT: i32 = 128;
         struct MIB_IPFORWARDNUMBER {
             dwValue: u32,
         }

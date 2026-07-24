@@ -115,11 +115,11 @@ pub struct HEAPLIST32 {
     pub th32HeapID: usize,
     pub dwFlags: u32,
 }
-pub const HF32_DEFAULT: u32 = 1;
-pub const HF32_SHARED: u32 = 2;
-pub const LF32_FIXED: u32 = 1;
-pub const LF32_FREE: u32 = 2;
-pub const LF32_MOVEABLE: u32 = 4;
+pub const HF32_DEFAULT: i32 = 1;
+pub const HF32_SHARED: i32 = 2;
+pub const LF32_FIXED: i32 = 1;
+pub const LF32_FREE: i32 = 2;
+pub const LF32_MOVEABLE: i32 = 4;
 #[cfg(feature = "winnt")]
 pub type LPHEAPENTRY32 = *mut HEAPENTRY32;
 pub type LPHEAPLIST32 = *mut HEAPLIST32;
@@ -130,7 +130,7 @@ pub type LPMODULEENTRY32W = *mut MODULEENTRY32W;
 pub type LPPROCESSENTRY32 = *mut PROCESSENTRY32;
 pub type LPPROCESSENTRY32W = *mut PROCESSENTRY32W;
 pub type LPTHREADENTRY32 = *mut THREADENTRY32;
-pub const MAX_MODULE_NAME32: u32 = 255;
+pub const MAX_MODULE_NAME32: i32 = 255;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -222,12 +222,12 @@ impl Default for PROCESSENTRY32W {
 }
 pub type PTHREADENTRY32 = *mut THREADENTRY32;
 pub const TH32CS_INHERIT: u32 = 2147483648;
-pub const TH32CS_SNAPALL: u32 = 15;
-pub const TH32CS_SNAPHEAPLIST: u32 = 1;
-pub const TH32CS_SNAPMODULE: u32 = 8;
-pub const TH32CS_SNAPMODULE32: u32 = 16;
-pub const TH32CS_SNAPPROCESS: u32 = 2;
-pub const TH32CS_SNAPTHREAD: u32 = 4;
+pub const TH32CS_SNAPALL: i32 = 15;
+pub const TH32CS_SNAPHEAPLIST: i32 = 1;
+pub const TH32CS_SNAPMODULE: i32 = 8;
+pub const TH32CS_SNAPMODULE32: i32 = 16;
+pub const TH32CS_SNAPPROCESS: i32 = 2;
+pub const TH32CS_SNAPTHREAD: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREADENTRY32 {

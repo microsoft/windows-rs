@@ -60,11 +60,11 @@ impl Default for MAGTRANSFORM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MS_CLIPAROUNDCURSOR: u32 = 2;
-pub const MS_INVERTCOLORS: u32 = 4;
-pub const MS_SHOWMAGNIFIEDCURSOR: u32 = 1;
-pub const MW_FILTERMODE_EXCLUDE: u32 = 0;
-pub const MW_FILTERMODE_INCLUDE: u32 = 1;
+pub const MS_CLIPAROUNDCURSOR: i32 = 2;
+pub const MS_INVERTCOLORS: i32 = 4;
+pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1;
+pub const MW_FILTERMODE_EXCLUDE: i32 = 0;
+pub const MW_FILTERMODE_INCLUDE: i32 = 1;
 #[cfg(all(feature = "minwindef", feature = "wincodec", feature = "windef"))]
 pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::RECT, clipped: super::RECT, dirty: super::HRGN) -> windows_sys::core::BOOL>;
 pub type PMAGCOLOREFFECT = *mut MAGCOLOREFFECT;

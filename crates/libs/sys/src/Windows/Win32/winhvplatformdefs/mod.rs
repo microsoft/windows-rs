@@ -104,7 +104,7 @@ impl Default for WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE {
     }
 }
 #[cfg(target_arch = "aarch64")]
-pub const WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: u32 = 1;
+pub const WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -182,7 +182,7 @@ impl Default for WHV_ARM64_IC_PARAMETERS_0 {
     }
 }
 #[cfg(target_arch = "aarch64")]
-pub const WHV_ARM64_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: u32 = 1;
+pub const WHV_ARM64_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy, Default)]
@@ -548,7 +548,7 @@ pub struct WHV_EXTENDED_VM_EXITS_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_EXTENDED_VM_EXITS_RESERVED_BITFIELD_COUNT: u32 = 49;
+pub const WHV_EXTENDED_VM_EXITS_RESERVED_BITFIELD_COUNT: i32 = 49;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_GUEST_PHYSICAL_ADDRESS = u64;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -591,7 +591,7 @@ impl Default for WHV_HYPERCALL_CONTEXT {
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6;
+pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: i32 = 6;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -754,7 +754,7 @@ pub struct WHV_INVALID_VP_REGISTER_CONTEXT {
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_MAP_GPA_RANGE_FLAGS = u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200;
+pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: i32 = 200;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -942,7 +942,7 @@ pub struct WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     pub ConnectionId: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_NOTIFICATION_PORT_PREFERRED_DURATION_MAX: i32 = -1;
+pub const WHV_NOTIFICATION_PORT_PREFERRED_DURATION_MAX: u64 = 18446744073709551615;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_NOTIFICATION_PORT_PROPERTY = u64;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1166,7 +1166,7 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2;
+pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: i32 = 2;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
@@ -1241,7 +1241,7 @@ pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16;
+pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: i32 = 16;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -1510,7 +1510,7 @@ pub struct WHV_SYNIC_EVENT_PARAMETERS {
     pub FlagNumber: u16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256;
+pub const WHV_SYNIC_MESSAGE_SIZE: i32 = 256;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
@@ -1593,9 +1593,9 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1;
+pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: i32 = 1;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_RESERVED_BITFIELD_COUNT: u32 = 17;
+pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_RESERVED_BITFIELD_COUNT: i32 = 17;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1775,7 +1775,7 @@ pub type WHV_VIRTUAL_PROCESSOR_STATE_TYPE = i32;
 #[cfg(target_arch = "aarch64")]
 pub const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_ANY_VP: u32 = 1073741824;
 #[cfg(target_arch = "aarch64")]
-pub const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_PFN: i32 = -2147483648;
+pub const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_PFN: u32 = 2147483648;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1877,7 +1877,7 @@ impl Default for WHV_VPCI_PROBED_BARS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6;
+pub const WHV_VPCI_TYPE0_BAR_COUNT: i32 = 6;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1956,7 +1956,7 @@ impl Default for WHV_VP_EXIT_CONTEXT {
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_VTL = u8;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WHV_VTL_ALL: u32 = 15;
+pub const WHV_VTL_ALL: i32 = 15;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -3994,7 +3994,7 @@ pub const WHvRegisterPasidFeaturesInfo: WHV_REGISTER_NAME = 517;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvRegisterPendingEvent: WHV_REGISTER_NAME = -2147483646;
 #[cfg(target_arch = "aarch64")]
-pub const WHvRegisterPendingEvent: u32 = 65540;
+pub const WHvRegisterPendingEvent: i32 = 65540;
 #[cfg(target_arch = "aarch64")]
 pub const WHvRegisterPendingEvent0: WHV_REGISTER_NAME = 65540;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -4028,13 +4028,13 @@ pub const WHvRegisterScontrol: WHV_REGISTER_NAME = 655376;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvRegisterSiefp: WHV_REGISTER_NAME = 16402;
 #[cfg(target_arch = "aarch64")]
-pub const WHvRegisterSiefp: u32 = 655378;
+pub const WHvRegisterSiefp: i32 = 655378;
 #[cfg(target_arch = "aarch64")]
 pub const WHvRegisterSifp: WHV_REGISTER_NAME = 655378;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvRegisterSimp: WHV_REGISTER_NAME = 16403;
 #[cfg(target_arch = "aarch64")]
-pub const WHvRegisterSimp: u32 = 655379;
+pub const WHvRegisterSimp: i32 = 655379;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvRegisterSint0: WHV_REGISTER_NAME = 16384;
 #[cfg(target_arch = "aarch64")]
@@ -4826,4 +4826,4 @@ pub const WHvX64RegisterXmmControlStatus: WHV_REGISTER_NAME = 4121;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvX64RegisterXss: WHV_REGISTER_NAME = 8331;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WhvRunVpCancelReasonUser: u32 = 0;
+pub const WhvRunVpCancelReasonUser: i32 = 0;

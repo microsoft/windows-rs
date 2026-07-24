@@ -41,8 +41,8 @@ mod Windows {
             ConfigMinRenderTargetBuffCount: u16,
             ConfigDecoderSpecific: u16,
         }
-        const DXVA2_DECODE_GET_DRIVER_HANDLE: u32 = 1829;
-        const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: u32 = 1828;
+        const DXVA2_DECODE_GET_DRIVER_HANDLE: i32 = 1829;
+        const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: i32 = 1828;
         const DXVA2_DeblockingControlBufferType: i32 = 3;
         struct DXVA2_DecodeBufferDesc {
             CompressedBufferType: u32,
@@ -347,9 +347,9 @@ mod Windows {
             SampleData: u32,
         }
         const DXVA2_VideoSoftwareRenderTarget: i32 = 2;
-        const DXVA2_VideoTransFunc_22_240M: u32 = 6;
-        const DXVA2_VideoTransFunc_22_709: u32 = 5;
-        const DXVA2_VideoTransFunc_22_8bit_sRGB: u32 = 7;
+        const DXVA2_VideoTransFunc_22_240M: i32 = 6;
+        const DXVA2_VideoTransFunc_22_709: i32 = 5;
+        const DXVA2_VideoTransFunc_22_8bit_sRGB: i32 = 7;
         #[repr(i32)]
         enum DXVA2_VideoTransferFunction {
             DXVA2_VideoTransFuncMask = 31,
@@ -427,7 +427,7 @@ mod Windows {
             fn GetFilterPropertyRange(&self, VideoProcDeviceGuid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, RenderTargetFormat: D3DFORMAT, FilterSetting: u32, pRange: *mut DXVA2_ValueRange) -> HRESULT;
             fn CreateVideoProcessor(&self, VideoProcDeviceGuid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, RenderTargetFormat: D3DFORMAT, MaxNumSubStreams: u32, ppVidProcess: *mut IDirectXVideoProcessor) -> HRESULT;
         }
-        const MAX_DEINTERLACE_SURFACES: u32 = 32;
-        const MAX_SUBSTREAMS: u32 = 15;
+        const MAX_DEINTERLACE_SURFACES: i32 = 32;
+        const MAX_SUBSTREAMS: i32 = 15;
     }
 }

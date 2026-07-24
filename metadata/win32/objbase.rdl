@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ASYNC_MODE_COMPATIBILITY: u32 = 1;
-        const ASYNC_MODE_DEFAULT: u32 = 0;
+        const ASYNC_MODE_COMPATIBILITY: i32 = 1;
+        const ASYNC_MODE_DEFAULT: i32 = 0;
         #[library("ole32.dll")]
         extern fn BindMoniker(pmk: IMoniker, grfOpt: u32, iidResult: *const GUID, ppvResult: *mut *mut void) -> HRESULT;
         #[repr(i32)]
@@ -89,16 +89,16 @@ mod Windows {
         extern fn GetClassFile(szFilename: PCWSTR, pclsid: *mut GUID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn GetRunningObjectTable(reserved: u32, pprot: *mut IRunningObjectTable) -> HRESULT;
-        const MARSHALINTERFACE_MIN: u32 = 500;
+        const MARSHALINTERFACE_MIN: i32 = 500;
         #[library("ole32.dll")]
         extern fn MkParseDisplayName(pbc: IBindCtx, szUserName: PCWSTR, pchEaten: *mut u32, ppmk: *mut IMoniker) -> HRESULT;
         #[library("ole32.dll")]
         extern fn MonikerCommonPrefixWith(pmkThis: IMoniker, pmkOther: IMoniker, ppmkCommon: *mut IMoniker) -> HRESULT;
         #[library("ole32.dll")]
         extern fn MonikerRelativePathTo(pmkSrc: IMoniker, pmkDest: IMoniker, ppmkRelPath: *mut IMoniker, dwReserved: BOOL) -> HRESULT;
-        const STGTY_REPEAT: u32 = 256;
-        const STG_LAYOUT_INTERLEAVED: u32 = 1;
-        const STG_LAYOUT_SEQUENTIAL: u32 = 0;
+        const STGTY_REPEAT: i32 = 256;
+        const STG_LAYOUT_INTERLEAVED: i32 = 1;
+        const STG_LAYOUT_SEQUENTIAL: i32 = 0;
         const STG_TOEND: u32 = 4294967295;
         #[library("ole32.dll")]
         extern fn StgGetIFillLockBytesOnFile(pwcsName: *const OLECHAR, ppflb: *mut IFillLockBytes) -> HRESULT;

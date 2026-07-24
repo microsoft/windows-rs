@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ADVISE_ALL: u32 = 15;
-        const ADVISE_ALL2: u32 = 31;
+        const ADVISE_ALL: i32 = 15;
+        const ADVISE_ALL2: i32 = 31;
         const ADVISE_CLIPPING: i32 = 1;
         const ADVISE_COLORKEY: i32 = 4;
         const ADVISE_DISPLAY_CHANGE: i32 = 16;
@@ -115,13 +115,13 @@ mod Windows {
         enum AM_FILTER_FLAGS {
             AM_FILTER_FLAGS_REMOVABLE = 1,
         }
-        const AM_GBF_NODDSURFACELOCK: u32 = 8;
-        const AM_GBF_NOTASYNCPOINT: u32 = 2;
-        const AM_GBF_NOWAIT: u32 = 4;
-        const AM_GBF_PREVFRAMESKIPPED: u32 = 1;
-        const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: u32 = 7;
-        const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: u32 = 6;
-        const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: u32 = 1;
+        const AM_GBF_NODDSURFACELOCK: i32 = 8;
+        const AM_GBF_NOTASYNCPOINT: i32 = 2;
+        const AM_GBF_NOWAIT: i32 = 4;
+        const AM_GBF_PREVFRAMESKIPPED: i32 = 1;
+        const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: i32 = 7;
+        const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: i32 = 6;
+        const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: i32 = 1;
         #[repr(i32)]
         enum AM_GRAPH_CONFIG_RECONNECT_FLAGS {
             AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT = 1,
@@ -139,11 +139,11 @@ mod Windows {
             cbFormat: u32,
             pbFormat: *mut u8,
         }
-        const AM_QUERY_DECODER_ATSC_HD_SUPPORT: u32 = 5;
-        const AM_QUERY_DECODER_ATSC_SD_SUPPORT: u32 = 4;
-        const AM_QUERY_DECODER_DVD_SUPPORT: u32 = 3;
-        const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2;
-        const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1;
+        const AM_QUERY_DECODER_ATSC_HD_SUPPORT: i32 = 5;
+        const AM_QUERY_DECODER_ATSC_SD_SUPPORT: i32 = 4;
+        const AM_QUERY_DECODER_DVD_SUPPORT: i32 = 3;
+        const AM_QUERY_DECODER_DXVA_1_SUPPORT: i32 = 2;
+        const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
         struct AM_SAMPLE2_PROPERTIES {
             cbData: u32,
             dwTypeSpecificFlags: u32,
@@ -233,18 +233,18 @@ mod Windows {
             AnalogVideoMask_MCE_PAL = 496,
             AnalogVideoMask_MCE_SECAM = 1044480,
         }
-        const AnalogVideo_NTSC_Mask: u32 = 7;
-        const AnalogVideo_PAL_Mask: u32 = 1052656;
-        const AnalogVideo_SECAM_Mask: u32 = 1044480;
-        const CDEF_BYPASS_CLASS_MANAGER: u32 = 2;
-        const CDEF_CLASS_DEFAULT: u32 = 1;
-        const CDEF_DEVMON_CMGR_DEVICE: u32 = 16;
-        const CDEF_DEVMON_DMO: u32 = 32;
-        const CDEF_DEVMON_FILTER: u32 = 128;
-        const CDEF_DEVMON_PNP_DEVICE: u32 = 64;
-        const CDEF_DEVMON_SELECTIVE_MASK: u32 = 240;
-        const CDEF_MERIT_ABOVE_DO_NOT_USE: u32 = 8;
-        const CHARS_IN_GUID: u32 = 39;
+        const AnalogVideo_NTSC_Mask: i32 = 7;
+        const AnalogVideo_PAL_Mask: i32 = 1052656;
+        const AnalogVideo_SECAM_Mask: i32 = 1044480;
+        const CDEF_BYPASS_CLASS_MANAGER: i32 = 2;
+        const CDEF_CLASS_DEFAULT: i32 = 1;
+        const CDEF_DEVMON_CMGR_DEVICE: i32 = 16;
+        const CDEF_DEVMON_DMO: i32 = 32;
+        const CDEF_DEVMON_FILTER: i32 = 128;
+        const CDEF_DEVMON_PNP_DEVICE: i32 = 64;
+        const CDEF_DEVMON_SELECTIVE_MASK: i32 = 240;
+        const CDEF_MERIT_ABOVE_DO_NOT_USE: i32 = 8;
+        const CHARS_IN_GUID: i32 = 39;
         const CK_INDEX: i32 = 1;
         const CK_NOCOLORKEY: i32 = 0;
         const CK_RGB: i32 = 2;
@@ -290,8 +290,8 @@ mod Windows {
             DECIMATION_USE_OVERLAY_ONLY = 3,
             DECIMATION_DEFAULT = 4,
         }
-        const DECODER_CAP_NOTSUPPORTED: u32 = 0;
-        const DECODER_CAP_SUPPORTED: u32 = 1;
+        const DECODER_CAP_NOTSUPPORTED: i32 = 0;
+        const DECODER_CAP_SUPPORTED: i32 = 1;
         struct DVD_ATR {
             ulCAT: u32,
             pbATRI: [u8; 768],
@@ -303,11 +303,11 @@ mod Windows {
             DVD_AudioMode_Surround = 2,
             DVD_AudioMode_Other = 3,
         }
-        const DVD_AUDIO_CAPS_AC3: u32 = 1;
-        const DVD_AUDIO_CAPS_DTS: u32 = 8;
-        const DVD_AUDIO_CAPS_LPCM: u32 = 4;
-        const DVD_AUDIO_CAPS_MPEG2: u32 = 2;
-        const DVD_AUDIO_CAPS_SDDS: u32 = 16;
+        const DVD_AUDIO_CAPS_AC3: i32 = 1;
+        const DVD_AUDIO_CAPS_DTS: i32 = 8;
+        const DVD_AUDIO_CAPS_LPCM: i32 = 4;
+        const DVD_AUDIO_CAPS_MPEG2: i32 = 2;
+        const DVD_AUDIO_CAPS_SDDS: i32 = 16;
         #[repr(i32)]
         enum DVD_AUDIO_FORMAT {
             DVD_AudioFormat_AC3 = 0,
@@ -364,7 +364,7 @@ mod Windows {
             dwRes3: u32,
             dwRes4: u32,
         }
-        const DVD_DEFAULT_AUDIO_STREAM: u32 = 15;
+        const DVD_DEFAULT_AUDIO_STREAM: i32 = 15;
         #[repr(i32)]
         enum DVD_DISC_SIDE {
             DVD_SIDE_A = 1,
@@ -533,9 +533,9 @@ mod Windows {
             DVD_Relative_Left = 3,
             DVD_Relative_Right = 4,
         }
-        const DVD_STREAM_DATA_CURRENT: u32 = 2048;
-        const DVD_STREAM_DATA_VMGM: u32 = 1024;
-        const DVD_STREAM_DATA_VTSM: u32 = 1025;
+        const DVD_STREAM_DATA_CURRENT: i32 = 2048;
+        const DVD_STREAM_DATA_VMGM: i32 = 1024;
+        const DVD_STREAM_DATA_VTSM: i32 = 1025;
         #[repr(i32)]
         enum DVD_SUBPICTURE_CODING {
             DVD_SPCoding_RunLength = 0,
@@ -595,7 +595,7 @@ mod Windows {
             DVD_AppMode_Karaoke = 1,
             DVD_AppMode_Other = 3,
         }
-        const DVD_TITLE_MENU: u32 = 0;
+        const DVD_TITLE_MENU: i32 = 0;
         #[repr(i32)]
         enum DVD_TextCharSet {
             DVD_CharSet_Unicode = 0,
@@ -1859,21 +1859,21 @@ mod Windows {
         type LPAMCOPPCommand = *mut AMCOPPCommand;
         type LPAMCOPPStatusInput = *mut AMCOPPStatusInput;
         type LPAMCOPPStatusOutput = *mut AMCOPPStatusOutput;
-        const MAX_FILTER_NAME: u32 = 128;
+        const MAX_FILTER_NAME: i32 = 128;
         const MAX_NUMBER_OF_STREAMS: i32 = 16;
-        const MAX_PIN_NAME: u32 = 128;
+        const MAX_PIN_NAME: i32 = 128;
         const MERIT_DO_NOT_USE: i32 = 2097152;
         const MERIT_HW_COMPRESSOR: i32 = 1048656;
         const MERIT_NORMAL: i32 = 6291456;
         const MERIT_PREFERRED: i32 = 8388608;
         const MERIT_SW_COMPRESSOR: i32 = 1048576;
         const MERIT_UNLIKELY: i32 = 4194304;
-        const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: u32 = 2;
-        const MPEG2_PROGRAM_ELEMENTARY_STREAM: u32 = 1;
-        const MPEG2_PROGRAM_PACK_HEADER: u32 = 3;
-        const MPEG2_PROGRAM_PES_STREAM: u32 = 4;
-        const MPEG2_PROGRAM_STREAM_MAP: u32 = 0;
-        const MPEG2_PROGRAM_SYSTEM_HEADER: u32 = 5;
+        const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: i32 = 2;
+        const MPEG2_PROGRAM_ELEMENTARY_STREAM: i32 = 1;
+        const MPEG2_PROGRAM_PACK_HEADER: i32 = 3;
+        const MPEG2_PROGRAM_PES_STREAM: i32 = 4;
+        const MPEG2_PROGRAM_STREAM_MAP: i32 = 0;
+        const MPEG2_PROGRAM_SYSTEM_HEADER: i32 = 5;
         struct NORMALIZEDRECT {
             left: f32,
             top: f32,
@@ -1990,7 +1990,7 @@ mod Windows {
             ulSubstreamFilterValue: u32,
             iDataOffset: i32,
         }
-        const SUBSTREAM_FILTER_VAL_NONE: u32 = 268435456;
+        const SUBSTREAM_FILTER_VAL_NONE: i32 = 268435456;
         #[repr(i32)]
         enum TVAudioMode {
             AMTVAUDIO_MODE_MONO = 1,
@@ -2079,11 +2079,11 @@ mod Windows {
             fAlpha: f32,
             clrSrcKey: COLORREF,
         }
-        const VMRBITMAP_DISABLE: u32 = 1;
-        const VMRBITMAP_ENTIREDDS: u32 = 4;
-        const VMRBITMAP_HDC: u32 = 2;
-        const VMRBITMAP_SRCCOLORKEY: u32 = 8;
-        const VMRBITMAP_SRCRECT: u32 = 16;
+        const VMRBITMAP_DISABLE: i32 = 1;
+        const VMRBITMAP_ENTIREDDS: i32 = 4;
+        const VMRBITMAP_HDC: i32 = 2;
+        const VMRBITMAP_SRCCOLORKEY: i32 = 8;
+        const VMRBITMAP_SRCRECT: i32 = 16;
         struct VMRDeinterlaceCaps {
             dwSize: u32,
             dwNumPreviousOutputFrames: u32,
@@ -2222,8 +2222,8 @@ mod Windows {
             VMR_ARMODE_NONE = 0,
             VMR_ARMODE_LETTER_BOX = 1,
         }
-        const VMR_NOTSUPPORTED: u32 = 0;
-        const VMR_SUPPORTED: u32 = 1;
+        const VMR_NOTSUPPORTED: i32 = 0;
+        const VMR_SUPPORTED: i32 = 1;
         #[repr(i32)]
         enum VfwCaptureDialogs {
             VfwCaptureDialog_Source = 1,

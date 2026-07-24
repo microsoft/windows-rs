@@ -1,4 +1,4 @@
-pub const ENUMEXT_OBJECTID: u32 = 1;
+pub const ENUMEXT_OBJECTID: i32 = 1;
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertServerExit, ICertServerExit_Vtbl, 0x4ba9eb90_732c_11d0_8816_00a0c903b83c);
 #[cfg(feature = "oaidl")]

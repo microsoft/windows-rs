@@ -21,7 +21,7 @@ impl Default for CPTABLEINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MAXIMUM_LEADBYTES: u32 = 12;
+pub const MAXIMUM_LEADBYTES: i32 = 12;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -43,13 +43,13 @@ mod Windows {
             PackageVersion: u64,
             PackageIsFramework: BOOL,
         }
-        const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32;
-        const SAFER_CRITERIA_AUTHENTICODE: u32 = 8;
-        const SAFER_CRITERIA_IMAGEHASH: u32 = 4;
-        const SAFER_CRITERIA_IMAGEPATH: u32 = 1;
-        const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096;
-        const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2;
-        const SAFER_CRITERIA_URLZONE: u32 = 16;
+        const SAFER_CRITERIA_APPX_PACKAGE: i32 = 32;
+        const SAFER_CRITERIA_AUTHENTICODE: i32 = 8;
+        const SAFER_CRITERIA_IMAGEHASH: i32 = 4;
+        const SAFER_CRITERIA_IMAGEPATH: i32 = 1;
+        const SAFER_CRITERIA_IMAGEPATH_NT: i32 = 4096;
+        const SAFER_CRITERIA_NOSIGNEDHASH: i32 = 2;
+        const SAFER_CRITERIA_URLZONE: i32 = 16;
         struct SAFER_HASH_IDENTIFICATION {
             header: SAFER_IDENTIFICATION_HEADER,
             Description: [u16; 256],
@@ -80,16 +80,16 @@ mod Windows {
             SaferIdentityTypeUrlZone = 3,
             SaferIdentityTypeCertificate = 4,
         }
-        const SAFER_LEVELID_CONSTRAINED: u32 = 65536;
-        const SAFER_LEVELID_DISALLOWED: u32 = 0;
-        const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144;
-        const SAFER_LEVELID_NORMALUSER: u32 = 131072;
-        const SAFER_LEVELID_UNTRUSTED: u32 = 4096;
+        const SAFER_LEVELID_CONSTRAINED: i32 = 65536;
+        const SAFER_LEVELID_DISALLOWED: i32 = 0;
+        const SAFER_LEVELID_FULLYTRUSTED: i32 = 262144;
+        const SAFER_LEVELID_NORMALUSER: i32 = 131072;
+        const SAFER_LEVELID_UNTRUSTED: i32 = 4096;
         type SAFER_LEVEL_HANDLE = *mut void;
-        const SAFER_LEVEL_OPEN: u32 = 1;
-        const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256;
-        const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256;
-        const SAFER_MAX_HASH_SIZE: u32 = 64;
+        const SAFER_LEVEL_OPEN: i32 = 1;
+        const SAFER_MAX_DESCRIPTION_SIZE: i32 = 256;
+        const SAFER_MAX_FRIENDLYNAME_SIZE: i32 = 256;
+        const SAFER_MAX_HASH_SIZE: i32 = 64;
         #[repr(i32)]
         enum SAFER_OBJECT_INFO_CLASS {
             SaferObjectLevelId = 1,
@@ -115,8 +115,8 @@ mod Windows {
             ImageName: PWCHAR,
             dwSaferFlags: u32,
         }
-        const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192;
-        const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144;
+        const SAFER_POLICY_BLOCK_CLIENT_UI: i32 = 8192;
+        const SAFER_POLICY_HASH_DUPLICATE: i32 = 262144;
         #[repr(i32)]
         enum SAFER_POLICY_INFO_CLASS {
             SaferPolicyLevelList = 1,
@@ -127,22 +127,22 @@ mod Windows {
             SaferPolicyDefaultLevelFlags = 6,
             SaferPolicyAuthenticodeEnabled = 7,
         }
-        const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864;
+        const SAFER_POLICY_JOBID_CONSTRAINED: i32 = 67108864;
         const SAFER_POLICY_JOBID_MASK: u32 = 4278190080;
-        const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648;
-        const SAFER_POLICY_ONLY_AUDIT: u32 = 4096;
-        const SAFER_POLICY_ONLY_EXES: u32 = 65536;
-        const SAFER_POLICY_SANDBOX_INERT: u32 = 131072;
-        const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4;
-        const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1;
-        const SAFER_POLICY_UIFLAGS_MASK: u32 = 255;
-        const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2;
-        const SAFER_SCOPEID_MACHINE: u32 = 1;
-        const SAFER_SCOPEID_USER: u32 = 2;
-        const SAFER_TOKEN_COMPARE_ONLY: u32 = 2;
-        const SAFER_TOKEN_MAKE_INERT: u32 = 4;
-        const SAFER_TOKEN_NULL_IF_EQUAL: u32 = 1;
-        const SAFER_TOKEN_WANT_FLAGS: u32 = 8;
+        const SAFER_POLICY_JOBID_UNTRUSTED: i32 = 50331648;
+        const SAFER_POLICY_ONLY_AUDIT: i32 = 4096;
+        const SAFER_POLICY_ONLY_EXES: i32 = 65536;
+        const SAFER_POLICY_SANDBOX_INERT: i32 = 131072;
+        const SAFER_POLICY_UIFLAGS_HIDDEN: i32 = 4;
+        const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: i32 = 1;
+        const SAFER_POLICY_UIFLAGS_MASK: i32 = 255;
+        const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: i32 = 2;
+        const SAFER_SCOPEID_MACHINE: i32 = 1;
+        const SAFER_SCOPEID_USER: i32 = 2;
+        const SAFER_TOKEN_COMPARE_ONLY: i32 = 2;
+        const SAFER_TOKEN_MAKE_INERT: i32 = 4;
+        const SAFER_TOKEN_NULL_IF_EQUAL: i32 = 1;
+        const SAFER_TOKEN_WANT_FLAGS: i32 = 8;
         struct SAFER_URLZONE_IDENTIFICATION {
             header: SAFER_IDENTIFICATION_HEADER,
             UrlZoneId: u32,

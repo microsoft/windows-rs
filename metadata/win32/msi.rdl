@@ -6,7 +6,7 @@ mod Windows {
             ADVERTISEFLAGS_MACHINEASSIGN = 0,
             ADVERTISEFLAGS_USERASSIGN = 1,
         }
-        const ERROR_ROLLBACK_DISABLED: u32 = 1653;
+        const ERROR_ROLLBACK_DISABLED: i32 = 1653;
         #[repr(i32)]
         enum INSTALLFEATUREATTRIBUTE {
             INSTALLFEATUREATTRIBUTE_FAVORLOCAL = 1,
@@ -123,8 +123,8 @@ mod Windows {
         extern fn INSTALLUI_HANDLERA(pvContext: *mut void, iMessageType: u32, szMessage: PCSTR) -> i32;
         extern fn INSTALLUI_HANDLERW(pvContext: *mut void, iMessageType: u32, szMessage: PCWSTR) -> i32;
         extern fn INSTALLUI_HANDLER_RECORD(pvContext: *mut void, iMessageType: u32, hRecord: MSIHANDLE) -> i32;
-        const MAX_FEATURE_CHARS: u32 = 38;
-        const MAX_GUID_CHARS: u32 = 38;
+        const MAX_FEATURE_CHARS: i32 = 38;
+        const MAX_GUID_CHARS: i32 = 38;
         #[repr(i32)]
         enum MSIADVERTISEOPTIONFLAGS {
             MSIADVERTISEOPTIONFLAGS_INSTANCE = 1,
@@ -136,8 +136,8 @@ mod Windows {
             MSIARCHITECTUREFLAGS_AMD64 = 4,
             MSIARCHITECTUREFLAGS_ARM = 8,
         }
-        const MSIASSEMBLYINFO_NETASSEMBLY: u32 = 0;
-        const MSIASSEMBLYINFO_WIN32ASSEMBLY: u32 = 1;
+        const MSIASSEMBLYINFO_NETASSEMBLY: i32 = 0;
+        const MSIASSEMBLYINFO_WIN32ASSEMBLY: i32 = 1;
         #[repr(i32)]
         enum MSICODE {
             MSICODE_PRODUCT = 0,
@@ -207,7 +207,7 @@ mod Windows {
             MSITRANSACTIONSTATE_ROLLBACK = 0,
             MSITRANSACTIONSTATE_COMMIT = 1,
         }
-        const MSI_INVALID_HASH_IS_FATAL: u32 = 1;
+        const MSI_INVALID_HASH_IS_FATAL: i32 = 1;
         #[library("msi.dll")]
         extern fn MsiAdvertiseProductA(szPackagePath: PCSTR, #[opt] szScriptfilePath: PCSTR, #[opt] szTransforms: PCSTR, lgidLanguage: LANGID) -> u32;
         #[library("msi.dll")]

@@ -375,41 +375,41 @@ mod Windows {
             rgbRed: u8,
             rgbAlpha: u8,
         }
-        const MFASYNC_BLOCKING_CALLBACK: u32 = 4;
+        const MFASYNC_BLOCKING_CALLBACK: i32 = 4;
         const MFASYNC_CALLBACK_QUEUE_ALL: u32 = 4294967295;
-        const MFASYNC_CALLBACK_QUEUE_IO: u32 = 3;
-        const MFASYNC_CALLBACK_QUEUE_LONG_FUNCTION: u32 = 7;
-        const MFASYNC_CALLBACK_QUEUE_MULTITHREADED: u32 = 5;
+        const MFASYNC_CALLBACK_QUEUE_IO: i32 = 3;
+        const MFASYNC_CALLBACK_QUEUE_LONG_FUNCTION: i32 = 7;
+        const MFASYNC_CALLBACK_QUEUE_MULTITHREADED: i32 = 5;
         const MFASYNC_CALLBACK_QUEUE_PRIVATE_MASK: u32 = 4294901760;
-        const MFASYNC_CALLBACK_QUEUE_RT: u32 = 2;
-        const MFASYNC_CALLBACK_QUEUE_STANDARD: u32 = 1;
-        const MFASYNC_CALLBACK_QUEUE_TIMER: u32 = 4;
-        const MFASYNC_CALLBACK_QUEUE_UNDEFINED: u32 = 0;
-        const MFASYNC_FAST_IO_PROCESSING_CALLBACK: u32 = 1;
-        const MFASYNC_LOCALIZE_REMOTE_CALLBACK: u32 = 16;
-        const MFASYNC_REPLY_CALLBACK: u32 = 8;
-        const MFASYNC_SIGNAL_CALLBACK: u32 = 2;
+        const MFASYNC_CALLBACK_QUEUE_RT: i32 = 2;
+        const MFASYNC_CALLBACK_QUEUE_STANDARD: i32 = 1;
+        const MFASYNC_CALLBACK_QUEUE_TIMER: i32 = 4;
+        const MFASYNC_CALLBACK_QUEUE_UNDEFINED: i32 = 0;
+        const MFASYNC_FAST_IO_PROCESSING_CALLBACK: i32 = 1;
+        const MFASYNC_LOCALIZE_REMOTE_CALLBACK: i32 = 16;
+        const MFASYNC_REPLY_CALLBACK: i32 = 8;
+        const MFASYNC_SIGNAL_CALLBACK: i32 = 2;
         struct MFAYUVSample {
             bCrValue: u8,
             bCbValue: u8,
             bYValue: u8,
             bSampleAlpha8: u8,
         }
-        const MFBYTESTREAM_DOES_NOT_USE_NETWORK: u32 = 2048;
-        const MFBYTESTREAM_HAS_SLOW_SEEK: u32 = 256;
-        const MFBYTESTREAM_IS_DIRECTORY: u32 = 128;
-        const MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED: u32 = 512;
-        const MFBYTESTREAM_IS_READABLE: u32 = 1;
-        const MFBYTESTREAM_IS_REMOTE: u32 = 8;
-        const MFBYTESTREAM_IS_SEEKABLE: u32 = 4;
-        const MFBYTESTREAM_IS_WRITABLE: u32 = 2;
-        const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: u32 = 1;
+        const MFBYTESTREAM_DOES_NOT_USE_NETWORK: i32 = 2048;
+        const MFBYTESTREAM_HAS_SLOW_SEEK: i32 = 256;
+        const MFBYTESTREAM_IS_DIRECTORY: i32 = 128;
+        const MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED: i32 = 512;
+        const MFBYTESTREAM_IS_READABLE: i32 = 1;
+        const MFBYTESTREAM_IS_REMOTE: i32 = 8;
+        const MFBYTESTREAM_IS_SEEKABLE: i32 = 4;
+        const MFBYTESTREAM_IS_WRITABLE: i32 = 2;
+        const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: i32 = 1;
         #[repr(i32)]
         enum MFBYTESTREAM_SEEK_ORIGIN {
             msoBegin = 0,
             msoCurrent = 1,
         }
-        const MFBYTESTREAM_SHARE_WRITE: u32 = 1024;
+        const MFBYTESTREAM_SHARE_WRITE: i32 = 1024;
         #[library("MFPlat.DLL")]
         extern fn MFDeserializeAttributesFromStream(pAttr: IMFAttributes, dwOptions: u32, pStm: IStream) -> HRESULT;
         #[repr(i32)]
@@ -538,8 +538,8 @@ mod Windows {
             MFVideoInterlace_Last = 8,
             MFVideoInterlace_ForceDWORD = 2147483647,
         }
-        const MFVideoInterlace_FieldSingleLowerFirst: u32 = 6;
-        const MFVideoInterlace_FieldSingleUpperFirst: u32 = 5;
+        const MFVideoInterlace_FieldSingleLowerFirst: i32 = 6;
+        const MFVideoInterlace_FieldSingleUpperFirst: i32 = 5;
         #[repr(i32)]
         enum MFVideoLighting {
             MFVideoLighting_Unknown = 0,
@@ -645,7 +645,7 @@ mod Windows {
             MF_DXGI_DEVICE_MANAGER_MODE_D3D11 = 1,
             MF_DXGI_DEVICE_MANAGER_MODE_D3D12 = 2,
         }
-        const MF_EVENT_FLAG_NO_WAIT: u32 = 1;
+        const MF_EVENT_FLAG_NO_WAIT: i32 = 1;
         #[repr(i32)]
         enum MF_FILE_ACCESSMODE {
             MF_ACCESSMODE_READ = 1,
@@ -666,10 +666,10 @@ mod Windows {
             MF_OPENMODE_APPEND_IF_EXIST = 3,
             MF_OPENMODE_DELETE_IF_EXIST = 4,
         }
-        const MF_MEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4;
-        const MF_MEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2;
-        const MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8;
-        const MF_MEDIATYPE_EQUAL_MAJOR_TYPES: u32 = 1;
+        const MF_MEDIATYPE_EQUAL_FORMAT_DATA: i32 = 4;
+        const MF_MEDIATYPE_EQUAL_FORMAT_TYPES: i32 = 2;
+        const MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA: i32 = 8;
+        const MF_MEDIATYPE_EQUAL_MAJOR_TYPES: i32 = 1;
         #[repr(i32)]
         enum MF_PLUGIN_CONTROL_POLICY {
             MF_PLUGIN_CONTROL_POLICY_USE_ALL_PLUGINS = 0,

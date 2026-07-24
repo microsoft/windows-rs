@@ -216,7 +216,7 @@ mod Windows {
         type PMIB_TCPTABLE_OWNER_PID = *mut MIB_TCPTABLE_OWNER_PID;
         type PTCP_CONNECTION_OFFLOAD_STATE = *mut TCP_CONNECTION_OFFLOAD_STATE;
         type PTCP_RTO_ALGORITHM = *mut TCP_RTO_ALGORITHM;
-        const TCPIP_OWNING_MODULE_SIZE: u32 = 16;
+        const TCPIP_OWNING_MODULE_SIZE: i32 = 16;
         #[repr(i32)]
         enum TCP_CONNECTION_OFFLOAD_STATE {
             TcpConnectionOffloadStateInHost = 0,

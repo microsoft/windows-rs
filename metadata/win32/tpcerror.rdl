@@ -11,7 +11,7 @@ mod Windows {
         const E_INK_NO_STROKES_TO_RECOGNIZE: i32 = -2144862200;
         const E_INK_OVERLAPPING_INPUT_RECT: i32 = -2144862192;
         const E_INK_WINDOW_NOT_SET: i32 = -2144862203;
-        const FACILITY_INK: u32 = 40;
+        const FACILITY_INK: i32 = 40;
         const TPC_E_INSUFFICIENT_BUFFER: i32 = -2147024774;
     }
 }

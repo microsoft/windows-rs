@@ -15,7 +15,7 @@ mod Windows {
             DBCSRanges: PUSHORT,
             DBCSOffsets: PUSHORT,
         }
-        const MAXIMUM_LEADBYTES: u32 = 12;
+        const MAXIMUM_LEADBYTES: i32 = 12;
         struct NLSTABLEINFO {
             OemTableInfo: CPTABLEINFO,
             AnsiTableInfo: CPTABLEINFO,

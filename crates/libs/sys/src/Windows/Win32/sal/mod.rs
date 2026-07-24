@@ -1,1 +1,1 @@
-pub const SAL_INCLUDED: u32 = 1;
+pub const SAL_INCLUDED: i32 = 1;

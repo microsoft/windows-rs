@@ -90,7 +90,7 @@ mod Windows {
             EVENTMAP_ENTRY_VALUETYPE_ULONG = 0,
             EVENTMAP_ENTRY_VALUETYPE_STRING = 1,
         }
-        const MAX_PAYLOAD_PREDICATES: u32 = 8;
+        const MAX_PAYLOAD_PREDICATES: i32 = 8;
         struct PAYLOAD_FILTER_PREDICATE {
             FieldName: PWSTR,
             CompareOp: u16,
@@ -187,7 +187,7 @@ mod Windows {
             TDH_CONTEXT_MAXIMUM = 5,
         }
         type TDH_HANDLE = HANDLE;
-        const TDH_OUTYTPE_ERRORCODE: u32 = 29;
+        const TDH_OUTYTPE_ERRORCODE: i32 = 29;
         #[repr(i32)]
         enum TEMPLATE_FLAGS {
             TEMPLATE_EVENT_DATA = 1,

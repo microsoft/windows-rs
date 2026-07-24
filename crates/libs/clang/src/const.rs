@@ -173,12 +173,13 @@ impl Const {
     ///
     /// # Type inference
     ///
-    /// `clang_getEnumConstantDeclValue` returns a signed 64-bit integer. A
-    /// non-negative result defaults to unsigned (`u32`, widening to `u64`),
-    /// matching the Win32 metadata convention for flag and mask macros; a
-    /// negative result stays signed (`i32`, widening to `i64`). Explicitly
-    /// unsigned macros (e.g. `0xFFFFFFFFU`) are handled by the token-based
-    /// parser and never reach this path.
+    /// `clang_getEnumConstantDeclValue` returns the evaluated value as a signed
+    /// 64-bit integer but discards the expression's C type. The paired
+    /// `__rdl_sz_`/`__rdl_sg_` probes (see [`eval_probe`]) recover the width and
+    /// signedness so the value is typed as its C expression type
+    /// (`i32`/`u32`/`i64`/`u64`); a probe that is missing or error-recovered falls
+    /// back to a value-based default (see [`eval_integer_value`]). Simple literal
+    /// `#define`s take the token path instead and never reach here.
     pub fn evaluate_macros(
         input: &str,
         names: &[String],
@@ -349,7 +350,7 @@ const NARG_PROLOGUE: &str = "\
 #define __RDL_NARG(...) __RDL_NARG_(__VA_ARGS__,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0)\n\
 #define __RDL_NARG_(_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,N,...) N\n";
 
-/// The synthetic probe emitted for one candidate macro. It carries three
+/// The synthetic probe emitted for one candidate macro. It carries five
 /// *separate* anonymous enums:
 ///
 /// - `__rdl_eval_<name> = (<name>)` - the evaluated value.
@@ -361,8 +362,17 @@ const NARG_PROLOGUE: &str = "\
 /// - `__rdl_nc_<name>   = __RDL_NARG(<name>)` - a shape gate: the count of
 ///   top-level comma-separated elements `<name>` expands to. A scalar constant
 ///   yields `1`; a GUID/initializer list yields `> 1`.
+/// - `__rdl_sz_<name>   = sizeof(<name>)` - the width in bytes of `<name>`'s type
+///   (`4` for `int`/`long`, `8` for `long long` under LLP64), used to type the
+///   evaluated value faithfully (see [`collect_eval_results`]).
+/// - `__rdl_sg_<name>   = (((<name>) * 0 - 1) < 0) ? 1 : 2` - a signedness gate:
+///   `1` when `<name>`'s type is signed, `2` when unsigned. `(<name>) * 0` keeps
+///   the (promoted) type of `<name>` with value `0`; `- 1` then reads as `-1 < 0`
+///   for a signed type and `UINT_MAX < 0` (false) for an unsigned one.
 ///
-/// A candidate is kept only when `__rdl_ok_ == 1` **and** `__rdl_nc_ == 1`.
+/// A candidate is kept only when `__rdl_ok_ == 1` **and** `__rdl_nc_ == 1`; the
+/// `__rdl_sz_`/`__rdl_sg_` probes only refine the kept value's type and never gate
+/// it (a missing or error-recovered probe falls back to a value-based default).
 ///
 /// The `& 0` type gate requires *integer* operands, so
 /// a macro that expands to a pointer (`MAKEINTRESOURCE(n)` -> `(LPWSTR)...`,
@@ -386,7 +396,9 @@ fn eval_probe(name: &str) -> String {
     format!(
         "enum {{ __rdl_eval_{name} = ({name}) }};\n\
          enum {{ __rdl_ok_{name} = (({name}) & 0) + 1 }};\n\
-         enum {{ __rdl_nc_{name} = __RDL_NARG({name}) }};\n"
+         enum {{ __rdl_nc_{name} = __RDL_NARG({name}) }};\n\
+         enum {{ __rdl_sz_{name} = sizeof({name}) }};\n\
+         enum {{ __rdl_sg_{name} = ((({name}) * 0 - 1) < 0) ? 1 : 2 }};\n"
     )
 }
 
@@ -394,16 +406,14 @@ fn eval_probe(name: &str) -> String {
 /// evaluation translation unit, keeping only those the paired `__rdl_ok_*` (type)
 /// and `__rdl_nc_*` (shape) enumerators both validate.
 ///
-/// Both [`Const::evaluate_macros`] and [`Const::evaluate_macros_str`] emit three
-/// anonymous enums per candidate macro (see [`eval_probe`]): `__rdl_eval_<name>`
-/// holds the evaluated value, `__rdl_ok_<name>` is `1` iff `<name>` is a valid
-/// *integer* constant expression, and `__rdl_nc_<name>` is the count of top-level
-/// comma-separated elements (`1` for a scalar, `> 1` for a GUID/initializer list).
-/// A macro that fails to evaluate (a string macro, an empty include guard, keyword
-/// tokens like `STDAPI`, a pointer cast) error-recovers its type gate to `0`; a
-/// comma-list macro trips the shape gate. Only macros passing *both* gates are
-/// kept - no diagnostics are consulted, so the decision is a deterministic
-/// function of the AST across architectures and environments.
+/// Each candidate macro contributes five anonymous enums (see [`eval_probe`]):
+/// the evaluated value, a type gate, a shape gate, and the width/signedness
+/// probes that type the kept value. A macro that fails to evaluate (a string
+/// macro, an empty include guard, keyword tokens like `STDAPI`, a pointer cast)
+/// error-recovers its type gate to `0`; a comma-list macro trips the shape gate.
+/// Only macros passing *both* gates are kept - no diagnostics are consulted, so
+/// the decision is a deterministic function of the AST across architectures and
+/// environments.
 ///
 /// Returns the kept constants together with the set of candidate names that were
 /// *fully present* in the recovered AST - i.e. all three of their `__rdl_eval_`,
@@ -422,6 +432,8 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
     let mut nc_seen: HashSet<String> = HashSet::new();
     let mut type_ok: HashSet<String> = HashSet::new();
     let mut shape_ok: HashSet<String> = HashSet::new();
+    let mut sizes: HashMap<String, i64> = HashMap::new();
+    let mut signs: HashMap<String, i64> = HashMap::new();
     for child in tu.cursor().children() {
         if !child.is_from_main_file() {
             continue;
@@ -447,13 +459,18 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
                 if constant.enum_value() == 1 {
                     shape_ok.insert(original_name.to_string());
                 }
+            } else if let Some(original_name) = const_name.strip_prefix("__rdl_sz_") {
+                sizes.insert(original_name.to_string(), constant.enum_value());
+            } else if let Some(original_name) = const_name.strip_prefix("__rdl_sg_") {
+                signs.insert(original_name.to_string(), constant.enum_value());
             }
         }
     }
 
-    // A candidate is "fully present" only when all three of its probe enums were
-    // parsed. If any is missing, the candidate was swallowed by a poison macro
-    // and must be retried in isolation rather than silently dropped.
+    // A candidate is "fully present" only when all three of its gating probe enums
+    // were parsed. If any is missing, the candidate was swallowed by a poison macro
+    // and must be retried in isolation rather than silently dropped. The `sz`/`sg`
+    // probes only refine the type and never gate, so they are not required here.
     let present: HashSet<String> = eval_seen
         .iter()
         .filter(|n| ok_seen.contains(*n) && nc_seen.contains(*n))
@@ -464,10 +481,29 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
         .into_iter()
         .filter(|(name, _)| type_ok.contains(name) && shape_ok.contains(name))
         .map(|(name, raw)| {
-            // Non-negative results default to unsigned (matching the Win32
-            // metadata convention for flag/mask macros); negative results stay
-            // signed. Widen to 64-bit only on overflow of the 32-bit type.
-            let value = if raw >= 0 {
+            let value =
+                eval_integer_value(raw, sizes.get(&name).copied(), signs.get(&name).copied());
+            Const { name, value }
+        })
+        .collect();
+
+    (kept, present)
+}
+
+/// Type the value of an evaluated constant expression from the `sizeof`/signedness
+/// probes clang recorded for it (see [`eval_probe`]), matching the C type of the
+/// expression: `sz` is the byte width (`4` -> 32-bit, `8` -> 64-bit) and `sg` is
+/// `1` for a signed type, `2` for unsigned. When either probe is missing or
+/// error-recovered (any other value), fall back to a value-based default that
+/// keeps a non-negative result unsigned and a negative one signed.
+fn eval_integer_value(raw: i64, sz: Option<i64>, sg: Option<i64>) -> metadata::Value {
+    match (sz, sg) {
+        (Some(4), Some(1)) => metadata::Value::I32(raw as i32),
+        (Some(4), Some(2)) => metadata::Value::U32(raw as u32),
+        (Some(8), Some(1)) => metadata::Value::I64(raw),
+        (Some(8), Some(2)) => metadata::Value::U64(raw as u64),
+        _ => {
+            if raw >= 0 {
                 if let Ok(v) = u32::try_from(raw) {
                     metadata::Value::U32(v)
                 } else {
@@ -477,12 +513,9 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
                 metadata::Value::I32(v)
             } else {
                 metadata::Value::I64(raw)
-            };
-            Const { name, value }
-        })
-        .collect();
-
-    (kept, present)
+            }
+        }
+    }
 }
 
 /// Parse a Win32-style `#define` replacement-list token sequence.
@@ -721,8 +754,9 @@ fn native_encoding_attr(encoding: &str) -> TokenStream {
 /// Parse a C integer or string literal spelling into a [`metadata::Value`].
 ///
 /// Integer literals may carry type suffixes (`L`, `U`, `LL`, `ULL`) and use
-/// hexadecimal (`0x...`) or decimal notation.  Non-negative integer constants
-/// default to unsigned (`u32`, widening to `u64`); see [`integer_value`].
+/// hexadecimal (`0x...`), octal, binary, or decimal notation. The integer type
+/// follows the C constant-typing rules (C11 6.4.4.1) under Windows LLP64; see
+/// [`integer_value`].
 fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
     // Wide string literal (L"...").
     if lit.starts_with("L\"") {
@@ -749,7 +783,22 @@ fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
         return parse_float_literal(lit, negate);
     };
 
-    integer_value(raw, suffix, negate)
+    integer_value(raw, int_literal_is_decimal(digits), suffix, negate)
+}
+
+/// Classify a C integer literal's base for typing. A decimal constant may take an
+/// unsigned type only when it carries a `U` suffix; a hex/octal/binary constant
+/// may take an unsigned type to hold a value that overflows the signed candidate.
+/// A `0x`/`0X`/`0b`/`0B` prefix, or a leading `0` followed by more digits (octal),
+/// is non-decimal; everything else is decimal.
+fn int_literal_is_decimal(digits: &str) -> bool {
+    if digits.len() >= 2 {
+        let prefix = &digits[..2];
+        if prefix.eq_ignore_ascii_case("0x") || prefix.eq_ignore_ascii_case("0b") {
+            return false;
+        }
+    }
+    !(digits.len() > 1 && digits.starts_with('0'))
 }
 
 /// Parse a C floating-point literal (`1.0f`, `0.5`, `.5f`, `1e-3`, `3.14`) into a
@@ -909,59 +958,105 @@ fn take_radix(
     (value, count)
 }
 
+/// The Rust scalar type of a C integer constant per C11 6.4.4.1, using Windows
+/// LLP64 widths (`int` and `long` are both 32-bit, `long long` is 64-bit). The
+/// type is the first entry in the base+suffix candidate list that can represent
+/// the magnitude `raw`:
 ///
-/// Win32 `#define` constants overwhelmingly denote unsigned domains - `DWORD`
-/// flags, bit masks, and error codes - so a non-negative constant defaults to
-/// the narrowest unsigned type that holds it (`u32`, widening to `u64`). This
-/// mirrors the Windows metadata convention and does not let a C
-/// literal's incidental signedness dictate the semantic type: the `L` in
-/// `#define ERROR_NO_UNICODE_TRANSLATION 1113L` marks width, not signedness, so
-/// the constant is still emitted as `u32`. A negated constant (`-1`) is signed
-/// (`i32`, widening to `i64`); an explicit `ll`/`LL` suffix forces 64-bit width.
-fn integer_value(raw: u64, suffix: &str, negate: bool) -> Option<metadata::Value> {
-    let suffix = suffix.to_ascii_uppercase();
-    let has_u = suffix.contains('U');
-    let force_wide = suffix.contains("LL");
-
-    if negate {
-        // A `u`-suffixed magnitude is unsigned and cannot be negated.
-        if has_u {
-            return None;
+/// | suffix | decimal | hex/octal/binary |
+/// |--------|---------|------------------|
+/// | none   | `i32, i64` | `i32, u32, i64, u64` |
+/// | `U`    | `u32, u64` | `u32, u64` |
+/// | `L`    | `i32, i64` | `i32, u32, i64, u64` |
+/// | `UL`   | `u32, u64` | `u32, u64` |
+/// | `LL`   | `i64`      | `i64, u64` |
+/// | `ULL`  | `u64`      | `u64` |
+///
+/// A decimal constant never takes an unsigned type unless it carries a `U`
+/// suffix; a hex/octal constant may. The candidate lists collapse `int`/`long` to
+/// `i32` and `unsigned int`/`unsigned long` to `u32` because both are 32-bit on
+/// Windows, so a single `L` marks width, not signedness.
+fn c_integer_constant_type(
+    is_decimal: bool,
+    has_u: bool,
+    has_l: bool,
+    has_ll: bool,
+    raw: u64,
+) -> metadata::Type {
+    use metadata::Type::{I32, I64, U32, U64};
+    let candidates: &[metadata::Type] = if has_u {
+        if has_ll { &[U64] } else { &[U32, U64] }
+    } else if has_ll {
+        if is_decimal { &[I64] } else { &[I64, U64] }
+    } else if has_l || is_decimal {
+        // `L` decimal and bare decimal share the signed-only list; `L` hex falls
+        // through to the full list below.
+        if is_decimal {
+            &[I32, I64]
+        } else {
+            &[I32, U32, I64, U64]
         }
-        // A negated constant is signed; pick the narrowest signed type whose
-        // magnitude holds `raw`.
-        if !force_wide && raw <= i32::MAX as u64 {
-            return Some(metadata::Value::I32((raw as i32).wrapping_neg()));
+    } else {
+        &[I32, U32, I64, U64]
+    };
+    for ty in candidates {
+        let ty = ty.clone();
+        let fits = match ty {
+            I32 => raw <= i32::MAX as u64,
+            U32 => raw <= u32::MAX as u64,
+            I64 => raw <= i64::MAX as u64,
+            _ => true,
+        };
+        if fits {
+            return ty;
         }
-        if raw <= i64::MAX as u64 {
-            return Some(metadata::Value::I64((raw as i64).wrapping_neg()));
-        }
-        return None;
     }
-
-    // Non-negative constants default to unsigned, widened to `u64` only when
-    // they overflow `u32` or carry an explicit `ll`/`LL` width suffix.
-    if !force_wide && raw <= u32::MAX as u64 {
-        return Some(metadata::Value::U32(raw as u32));
-    }
-    Some(metadata::Value::U64(raw))
+    U64
 }
 
-/// Parse a C literal spelling and produce a [`metadata::Value::EnumValue`] with
-/// the given type name, interpreting the integer bits as `i64`.
-///
-/// The value is stored as a raw 64-bit signed integer (the bit pattern
-/// of the literal reinterpreted as `i64`).  It will be emitted as a
-/// decimal literal in the RDL and reinterpreted according to the actual
-/// underlying type of `type_name` during the reader/writer roundtrip.
+/// Parse a bare (possibly negated) C integer literal into a typed
+/// [`metadata::Value`] following the C11 constant-typing rules; see
+/// [`c_integer_constant_type`] for the base+suffix type table. Negation applies
+/// unary minus within the literal's own type (`-1` is a signed `int`,
+/// `-0x80000000` wraps in `unsigned int`); a `U`-suffixed magnitude that is
+/// negated yields the wrapped unsigned value.
+fn integer_value(
+    raw: u64,
+    is_decimal: bool,
+    suffix: &str,
+    negate: bool,
+) -> Option<metadata::Value> {
+    let suffix = suffix.to_ascii_uppercase();
+    let has_u = suffix.contains('U');
+    let has_ll = suffix.contains("LL");
+    let has_l = suffix.contains('L');
+    let ty = c_integer_constant_type(is_decimal, has_u, has_l, has_ll, raw);
+    Some(if negate {
+        match ty {
+            metadata::Type::I32 => metadata::Value::I32((raw as i32).wrapping_neg()),
+            metadata::Type::I64 => metadata::Value::I64((raw as i64).wrapping_neg()),
+            metadata::Type::U32 => metadata::Value::U32((raw as u32).wrapping_neg()),
+            metadata::Type::U64 => metadata::Value::U64(raw.wrapping_neg()),
+            _ => return None,
+        }
+    } else {
+        match ty {
+            metadata::Type::I32 => metadata::Value::I32(raw as i32),
+            metadata::Type::U32 => metadata::Value::U32(raw as u32),
+            metadata::Type::I64 => metadata::Value::I64(raw as i64),
+            metadata::Type::U64 => metadata::Value::U64(raw),
+            _ => return None,
+        }
+    })
+}
+
 /// Parse a builtin-keyword integer cast (`(int)5`, `((long)0x80000000)`) into a
 /// primitive [`metadata::Value`], honouring the cast type's width and signedness.
 ///
-/// Unlike the general unsigned default applied to bare integer constants, an
-/// explicit `(int)`/`(long)` cast is a deliberate signedness signal from the
-/// header author (e.g. `CW_USEDEFAULT = (int)0x80000000` is `INT_MIN`), so the
-/// cast type is preserved. Keywords with no single-token scalar mapping (e.g.
-/// `unsigned`, `long long`) return `None` and defer to the evaluation path.
+/// An explicit `(int)`/`(long)` cast is a deliberate type signal from the header
+/// author (e.g. `CW_USEDEFAULT = (int)0x80000000` is `INT_MIN`), so the cast type
+/// governs. Keywords with no single-token scalar mapping (e.g. `unsigned`,
+/// `long long`) return `None` and defer to the evaluation path.
 fn parse_keyword_cast(kw: &str, lit: &str, negate: bool) -> Option<metadata::Value> {
     let ty = keyword_scalar(kw)?;
     let (digits, _suffix) = split_int_suffix(lit);
@@ -1342,5 +1437,43 @@ mod tests {
         assert_eq!(parse_int_digits("42"), Some(42));
         // Invalid octal digit falls back to decimal rather than dropping the value.
         assert_eq!(parse_int_digits("08"), Some(8));
+    }
+
+    #[test]
+    fn integer_literals_take_c11_types() {
+        use metadata::Value::{I32, I64, U32, U64};
+        let v = |raw, decimal, suffix| integer_value(raw, decimal, suffix, false).unwrap();
+
+        // Bare decimal is signed; it widens to i64 rather than taking u32.
+        assert_eq!(v(42, true, ""), I32(42));
+        assert_eq!(v(2147483648, true, ""), I64(2147483648));
+        // Hex may take unsigned once it overflows the signed type of the same width.
+        assert_eq!(v(31, false, ""), I32(31));
+        assert_eq!(v(2147483648, false, ""), U32(2147483648));
+        assert_eq!(v(4294967295, false, ""), U32(4294967295));
+        // Suffixes force the candidate list.
+        assert_eq!(v(100, true, "U"), U32(100));
+        assert_eq!(v(4000000000, true, "U"), U32(4000000000));
+        assert_eq!(v(4294967296, true, "LL"), I64(4294967296));
+        assert_eq!(
+            v(18446744073709551615, true, "ULL"),
+            U64(18446744073709551615)
+        );
+        // Negation applies within the literal's own type.
+        assert_eq!(integer_value(5, true, "", true).unwrap(), I32(-5));
+    }
+
+    #[test]
+    fn eval_values_use_probe_types() {
+        use metadata::Value::{I32, I64, U32, U64};
+        // Probes present: type follows width (4/8) and sign (1/2).
+        assert_eq!(eval_integer_value(1, Some(4), Some(1)), I32(1));
+        assert_eq!(eval_integer_value(1, Some(4), Some(2)), U32(1));
+        assert_eq!(eval_integer_value(1, Some(8), Some(1)), I64(1));
+        assert_eq!(eval_integer_value(1, Some(8), Some(2)), U64(1));
+        // Missing or error-recovered probes fall back to the value-based default.
+        assert_eq!(eval_integer_value(100, None, None), U32(100));
+        assert_eq!(eval_integer_value(-1, None, None), I32(-1));
+        assert_eq!(eval_integer_value(1, Some(0), Some(0)), U32(1));
     }
 }

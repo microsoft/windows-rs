@@ -8,36 +8,36 @@ impl Default for APP_LOCAL_DEVICE_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32;
+pub const APP_LOCAL_DEVICE_ID_SIZE: i32 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct COLORREF(pub u32);
-pub const DC_BINNAMES: u32 = 12;
-pub const DC_BINS: u32 = 6;
-pub const DC_COPIES: u32 = 18;
-pub const DC_DRIVER: u32 = 11;
-pub const DC_DUPLEX: u32 = 7;
-pub const DC_ENUMRESOLUTIONS: u32 = 13;
-pub const DC_EXTRA: u32 = 9;
-pub const DC_FIELDS: u32 = 1;
-pub const DC_FILEDEPENDENCIES: u32 = 14;
-pub const DC_MAXEXTENT: u32 = 5;
-pub const DC_MINEXTENT: u32 = 4;
-pub const DC_ORIENTATION: u32 = 17;
-pub const DC_PAPERNAMES: u32 = 16;
-pub const DC_PAPERS: u32 = 2;
-pub const DC_PAPERSIZE: u32 = 3;
-pub const DC_SIZE: u32 = 8;
-pub const DC_TRUETYPE: u32 = 15;
-pub const DC_VERSION: u32 = 10;
-pub const DM_COPY: u32 = 2;
-pub const DM_IN_BUFFER: u32 = 8;
-pub const DM_IN_PROMPT: u32 = 4;
-pub const DM_MODIFY: u32 = 8;
-pub const DM_OUT_BUFFER: u32 = 2;
-pub const DM_OUT_DEFAULT: u32 = 1;
-pub const DM_PROMPT: u32 = 4;
-pub const DM_UPDATE: u32 = 1;
+pub const DC_BINNAMES: i32 = 12;
+pub const DC_BINS: i32 = 6;
+pub const DC_COPIES: i32 = 18;
+pub const DC_DRIVER: i32 = 11;
+pub const DC_DUPLEX: i32 = 7;
+pub const DC_ENUMRESOLUTIONS: i32 = 13;
+pub const DC_EXTRA: i32 = 9;
+pub const DC_FIELDS: i32 = 1;
+pub const DC_FILEDEPENDENCIES: i32 = 14;
+pub const DC_MAXEXTENT: i32 = 5;
+pub const DC_MINEXTENT: i32 = 4;
+pub const DC_ORIENTATION: i32 = 17;
+pub const DC_PAPERNAMES: i32 = 16;
+pub const DC_PAPERS: i32 = 2;
+pub const DC_PAPERSIZE: i32 = 3;
+pub const DC_SIZE: i32 = 8;
+pub const DC_TRUETYPE: i32 = 15;
+pub const DC_VERSION: i32 = 10;
+pub const DM_COPY: i32 = 2;
+pub const DM_IN_BUFFER: i32 = 8;
+pub const DM_IN_PROMPT: i32 = 4;
+pub const DM_MODIFY: i32 = 8;
+pub const DM_OUT_BUFFER: i32 = 2;
+pub const DM_OUT_DEFAULT: i32 = 1;
+pub const DM_PROMPT: i32 = 4;
+pub const DM_UPDATE: i32 = 1;
 pub type DPI_AWARENESS = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

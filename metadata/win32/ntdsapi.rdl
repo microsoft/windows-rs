@@ -1,9 +1,9 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2;
-        const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1;
-        const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0;
+        const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: i32 = 2;
+        const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: i32 = 1;
+        const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: i32 = 0;
         #[encoding("ansi")]
         const ADAM_SCP_FSMO_NAMING_STRING: String = "naming";
         #[encoding("utf-16")]
@@ -28,22 +28,22 @@ mod Windows {
         const ADAM_SCP_SITE_NAME_STRING: String = "site:";
         #[encoding("utf-16")]
         const ADAM_SCP_SITE_NAME_STRING_W: String = "site:";
-        const DS_BEHAVIOR_LONGHORN: u32 = 3;
-        const DS_BEHAVIOR_WIN2000: u32 = 0;
-        const DS_BEHAVIOR_WIN2003: u32 = 2;
-        const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1;
-        const DS_BEHAVIOR_WIN2008: u32 = 3;
-        const DS_BEHAVIOR_WIN2008R2: u32 = 4;
-        const DS_BEHAVIOR_WIN2012: u32 = 5;
-        const DS_BEHAVIOR_WIN2012R2: u32 = 6;
-        const DS_BEHAVIOR_WIN2016: u32 = 7;
-        const DS_BEHAVIOR_WIN2025: u32 = 10;
-        const DS_BEHAVIOR_WIN7: u32 = 4;
-        const DS_BEHAVIOR_WIN8: u32 = 5;
-        const DS_BEHAVIOR_WINBLUE: u32 = 6;
-        const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7;
+        const DS_BEHAVIOR_LONGHORN: i32 = 3;
+        const DS_BEHAVIOR_WIN2000: i32 = 0;
+        const DS_BEHAVIOR_WIN2003: i32 = 2;
+        const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: i32 = 1;
+        const DS_BEHAVIOR_WIN2008: i32 = 3;
+        const DS_BEHAVIOR_WIN2008R2: i32 = 4;
+        const DS_BEHAVIOR_WIN2012: i32 = 5;
+        const DS_BEHAVIOR_WIN2012R2: i32 = 6;
+        const DS_BEHAVIOR_WIN2016: i32 = 7;
+        const DS_BEHAVIOR_WIN2025: i32 = 10;
+        const DS_BEHAVIOR_WIN7: i32 = 4;
+        const DS_BEHAVIOR_WIN8: i32 = 5;
+        const DS_BEHAVIOR_WINBLUE: i32 = 6;
+        const DS_BEHAVIOR_WINTHRESHOLD: i32 = 7;
         const DS_DEFAULT_LOCALE: u32 = 1033;
-        const DS_DEFAULT_LOCALE_COMPARE_FLAGS: u32 = 200707;
+        const DS_DEFAULT_LOCALE_COMPARE_FLAGS: i32 = 200707;
         struct DS_DOMAIN_CONTROLLER_INFO_1A {
             NetbiosName: PSTR,
             DnsHostName: PSTR,
@@ -128,22 +128,22 @@ mod Windows {
             ServerObjectGuid: GUID,
             NtdsDsaObjectGuid: GUID,
         }
-        const DS_DOMAIN_SIMPLE_NAME: u32 = 8;
-        const DS_ENTERPRISE_SIMPLE_NAME: u32 = 8;
-        const DS_EXIST_ADVISORY_MODE: u32 = 1;
-        const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1;
-        const DS_INSTANCETYPE_NC_COMING: u32 = 16;
-        const DS_INSTANCETYPE_NC_GOING: u32 = 32;
-        const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4;
-        const DS_KCC_FLAG_ASYNC_OP: u32 = 1;
-        const DS_KCC_FLAG_DAMPED: u32 = 2;
+        const DS_DOMAIN_SIMPLE_NAME: i32 = 8;
+        const DS_ENTERPRISE_SIMPLE_NAME: i32 = 8;
+        const DS_EXIST_ADVISORY_MODE: i32 = 1;
+        const DS_INSTANCETYPE_IS_NC_HEAD: i32 = 1;
+        const DS_INSTANCETYPE_NC_COMING: i32 = 16;
+        const DS_INSTANCETYPE_NC_GOING: i32 = 32;
+        const DS_INSTANCETYPE_NC_IS_WRITEABLE: i32 = 4;
+        const DS_KCC_FLAG_ASYNC_OP: i32 = 1;
+        const DS_KCC_FLAG_DAMPED: i32 = 2;
         #[repr(i32)]
         enum DS_KCC_TASKID {
             DS_KCC_TASKID_UPDATE_TOPOLOGY = 0,
         }
-        const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2;
-        const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1;
-        const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0;
+        const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: i32 = 2;
+        const DS_LIST_DNS_HOST_NAME_FOR_SERVER: i32 = 1;
+        const DS_LIST_DSA_OBJECT_FOR_SERVER: i32 = 0;
         #[repr(i32)]
         enum DS_NAME_ERROR {
             DS_NAME_NO_ERROR = 0,
@@ -177,7 +177,7 @@ mod Windows {
             DS_SID_OR_SID_HISTORY_NAME = 11,
             DS_DNS_DOMAIN_NAME = 12,
         }
-        const DS_NAME_LEGAL_FLAGS: u32 = 1;
+        const DS_NAME_LEGAL_FLAGS: i32 = 1;
         struct DS_NAME_RESULTA {
             cItems: u32,
             rItems: PDS_NAME_RESULT_ITEMA,
@@ -196,27 +196,27 @@ mod Windows {
             pDomain: PWSTR,
             pName: PWSTR,
         }
-        const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1;
-        const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32;
-        const DS_REPADD_CRITICAL: u32 = 2048;
-        const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64;
-        const DS_REPADD_DISABLE_PERIODIC: u32 = 128;
-        const DS_REPADD_INITIAL: u32 = 4;
-        const DS_REPADD_INTERSITE_MESSAGING: u32 = 16;
-        const DS_REPADD_NEVER_NOTIFY: u32 = 512;
-        const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216;
-        const DS_REPADD_PERIODIC: u32 = 8;
-        const DS_REPADD_SELECT_SECRETS: u32 = 4096;
-        const DS_REPADD_TWO_WAY: u32 = 1024;
-        const DS_REPADD_USE_COMPRESSION: u32 = 256;
-        const DS_REPADD_WRITEABLE: u32 = 2;
-        const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1;
-        const DS_REPDEL_IGNORE_ERRORS: u32 = 8;
-        const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4;
-        const DS_REPDEL_LOCAL_ONLY: u32 = 16;
-        const DS_REPDEL_NO_SOURCE: u32 = 32;
-        const DS_REPDEL_REF_OK: u32 = 64;
-        const DS_REPDEL_WRITEABLE: u32 = 2;
+        const DS_REPADD_ASYNCHRONOUS_OPERATION: i32 = 1;
+        const DS_REPADD_ASYNCHRONOUS_REPLICA: i32 = 32;
+        const DS_REPADD_CRITICAL: i32 = 2048;
+        const DS_REPADD_DISABLE_NOTIFICATION: i32 = 64;
+        const DS_REPADD_DISABLE_PERIODIC: i32 = 128;
+        const DS_REPADD_INITIAL: i32 = 4;
+        const DS_REPADD_INTERSITE_MESSAGING: i32 = 16;
+        const DS_REPADD_NEVER_NOTIFY: i32 = 512;
+        const DS_REPADD_NONGC_RO_REPLICA: i32 = 16777216;
+        const DS_REPADD_PERIODIC: i32 = 8;
+        const DS_REPADD_SELECT_SECRETS: i32 = 4096;
+        const DS_REPADD_TWO_WAY: i32 = 1024;
+        const DS_REPADD_USE_COMPRESSION: i32 = 256;
+        const DS_REPADD_WRITEABLE: i32 = 2;
+        const DS_REPDEL_ASYNCHRONOUS_OPERATION: i32 = 1;
+        const DS_REPDEL_IGNORE_ERRORS: i32 = 8;
+        const DS_REPDEL_INTERSITE_MESSAGING: i32 = 4;
+        const DS_REPDEL_LOCAL_ONLY: i32 = 16;
+        const DS_REPDEL_NO_SOURCE: i32 = 32;
+        const DS_REPDEL_REF_OK: i32 = 64;
+        const DS_REPDEL_WRITEABLE: i32 = 2;
         struct DS_REPL_ATTR_META_DATA {
             pszAttributeName: PWSTR,
             dwVersion: u32,
@@ -294,7 +294,7 @@ mod Windows {
             ftimeLastSyncSuccess: FILETIME,
             oszSourceDsaDN: u32,
         }
-        const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1;
+        const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: i32 = 1;
         #[repr(i32)]
         enum DS_REPL_INFO_TYPE {
             DS_REPL_INFO_NEIGHBORS = 0,
@@ -330,25 +330,25 @@ mod Windows {
             cNumFailures: u32,
             dwLastResult: u32,
         }
-        const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456;
-        const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728;
-        const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64;
-        const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536;
-        const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072;
-        const DS_REPL_NBR_GCSPN: u32 = 1048576;
-        const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864;
-        const DS_REPL_NBR_MODIFIABLE_MASK: u32 = 1006633568;
-        const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152;
-        const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024;
-        const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912;
-        const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824;
-        const DS_REPL_NBR_PREEMPTED: u32 = 16777216;
-        const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048;
-        const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096;
-        const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32;
-        const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512;
-        const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128;
-        const DS_REPL_NBR_WRITEABLE: u32 = 16;
+        const DS_REPL_NBR_COMPRESS_CHANGES: i32 = 268435456;
+        const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: i32 = 134217728;
+        const DS_REPL_NBR_DO_SCHEDULED_SYNCS: i32 = 64;
+        const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: i32 = 65536;
+        const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: i32 = 131072;
+        const DS_REPL_NBR_GCSPN: i32 = 1048576;
+        const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: i32 = 67108864;
+        const DS_REPL_NBR_MODIFIABLE_MASK: i32 = 1006633568;
+        const DS_REPL_NBR_NEVER_SYNCED: i32 = 2097152;
+        const DS_REPL_NBR_NONGC_RO_REPLICA: i32 = 1024;
+        const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: i32 = 536870912;
+        const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: i32 = 1073741824;
+        const DS_REPL_NBR_PREEMPTED: i32 = 16777216;
+        const DS_REPL_NBR_RETURN_OBJECT_PARENTS: i32 = 2048;
+        const DS_REPL_NBR_SELECT_SECRETS: i32 = 4096;
+        const DS_REPL_NBR_SYNC_ON_STARTUP: i32 = 32;
+        const DS_REPL_NBR_TWO_WAY_SYNC: i32 = 512;
+        const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: i32 = 128;
+        const DS_REPL_NBR_WRITEABLE: i32 = 16;
         struct DS_REPL_NEIGHBORSW {
             cNumNeighbors: u32,
             dwReserved: u32,
@@ -522,17 +522,17 @@ mod Windows {
             dwPriorLinkState: u32,
             dwCurrentLinkState: u32,
         }
-        const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1;
-        const DS_REPMOD_UPDATE_ADDRESS: u32 = 2;
-        const DS_REPMOD_UPDATE_FLAGS: u32 = 1;
-        const DS_REPMOD_UPDATE_INSTANCE: u32 = 2;
-        const DS_REPMOD_UPDATE_RESULT: u32 = 8;
-        const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4;
-        const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16;
-        const DS_REPMOD_WRITEABLE: u32 = 2;
-        const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1;
-        const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64;
-        const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8;
+        const DS_REPMOD_ASYNCHRONOUS_OPERATION: i32 = 1;
+        const DS_REPMOD_UPDATE_ADDRESS: i32 = 2;
+        const DS_REPMOD_UPDATE_FLAGS: i32 = 1;
+        const DS_REPMOD_UPDATE_INSTANCE: i32 = 2;
+        const DS_REPMOD_UPDATE_RESULT: i32 = 8;
+        const DS_REPMOD_UPDATE_SCHEDULE: i32 = 4;
+        const DS_REPMOD_UPDATE_TRANSPORT: i32 = 16;
+        const DS_REPMOD_WRITEABLE: i32 = 2;
+        const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: i32 = 1;
+        const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: i32 = 64;
+        const DS_REPSYNCALL_DO_NOT_SYNC: i32 = 8;
         struct DS_REPSYNCALL_ERRINFOA {
             pszSvrId: PSTR,
             error: DS_REPSYNCALL_ERROR,
@@ -558,10 +558,10 @@ mod Windows {
             DS_REPSYNCALL_EVENT_SYNC_COMPLETED = 2,
             DS_REPSYNCALL_EVENT_FINISHED = 3,
         }
-        const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4;
-        const DS_REPSYNCALL_NO_OPTIONS: u32 = 0;
-        const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32;
-        const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16;
+        const DS_REPSYNCALL_ID_SERVERS_BY_DN: i32 = 4;
+        const DS_REPSYNCALL_NO_OPTIONS: i32 = 0;
+        const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: i32 = 32;
+        const DS_REPSYNCALL_SKIP_INITIAL_CHECK: i32 = 16;
         struct DS_REPSYNCALL_SYNCA {
             pszSrcId: PSTR,
             pszDstId: PSTR,
@@ -576,7 +576,7 @@ mod Windows {
             pguidSrc: *mut GUID,
             pguidDst: *mut GUID,
         }
-        const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2;
+        const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: i32 = 2;
         struct DS_REPSYNCALL_UPDATEA {
             event: DS_REPSYNCALL_EVENT,
             pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
@@ -587,45 +587,45 @@ mod Windows {
             pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
             pSync: *mut DS_REPSYNCALL_SYNCW,
         }
-        const DS_REPSYNC_ABANDONED: u32 = 32768;
-        const DS_REPSYNC_ADD_REFERENCE: u32 = 512;
-        const DS_REPSYNC_ASYNCHRONOUS_OPERATION: u32 = 1;
-        const DS_REPSYNC_ASYNCHRONOUS_REPLICA: u32 = 1048576;
-        const DS_REPSYNC_CRITICAL: u32 = 2097152;
-        const DS_REPSYNC_FORCE: u32 = 256;
-        const DS_REPSYNC_FULL: u32 = 32;
-        const DS_REPSYNC_FULL_IN_PROGRESS: u32 = 4194304;
-        const DS_REPSYNC_INITIAL: u32 = 8192;
-        const DS_REPSYNC_INITIAL_IN_PROGRESS: u32 = 65536;
-        const DS_REPSYNC_INTERSITE_MESSAGING: u32 = 8;
-        const DS_REPSYNC_NEVER_COMPLETED: u32 = 1024;
-        const DS_REPSYNC_NEVER_NOTIFY: u32 = 4096;
-        const DS_REPSYNC_NONGC_RO_REPLICA: u32 = 16777216;
-        const DS_REPSYNC_NOTIFICATION: u32 = 524288;
-        const DS_REPSYNC_NO_DISCARD: u32 = 128;
-        const DS_REPSYNC_PARTIAL_ATTRIBUTE_SET: u32 = 131072;
-        const DS_REPSYNC_PERIODIC: u32 = 4;
-        const DS_REPSYNC_PREEMPTED: u32 = 8388608;
-        const DS_REPSYNC_REQUEUE: u32 = 262144;
-        const DS_REPSYNC_SELECT_SECRETS: u32 = 32768;
-        const DS_REPSYNC_TWO_WAY: u32 = 2048;
-        const DS_REPSYNC_URGENT: u32 = 64;
-        const DS_REPSYNC_USE_COMPRESSION: u32 = 16384;
-        const DS_REPSYNC_WRITEABLE: u32 = 2;
-        const DS_REPUPD_ADD_REFERENCE: u32 = 4;
-        const DS_REPUPD_ASYNCHRONOUS_OPERATION: u32 = 1;
-        const DS_REPUPD_DELETE_REFERENCE: u32 = 8;
-        const DS_REPUPD_REFERENCE_GCSPN: u32 = 16;
-        const DS_REPUPD_WRITEABLE: u32 = 2;
-        const DS_ROLE_DOMAIN_OWNER: u32 = 1;
-        const DS_ROLE_INFRASTRUCTURE_OWNER: u32 = 4;
-        const DS_ROLE_PDC_OWNER: u32 = 2;
-        const DS_ROLE_RID_OWNER: u32 = 3;
-        const DS_ROLE_SCHEMA_OWNER: u32 = 0;
-        const DS_SCHEMA_GUID_ATTR: u32 = 1;
-        const DS_SCHEMA_GUID_ATTR_SET: u32 = 2;
-        const DS_SCHEMA_GUID_CLASS: u32 = 3;
-        const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4;
+        const DS_REPSYNC_ABANDONED: i32 = 32768;
+        const DS_REPSYNC_ADD_REFERENCE: i32 = 512;
+        const DS_REPSYNC_ASYNCHRONOUS_OPERATION: i32 = 1;
+        const DS_REPSYNC_ASYNCHRONOUS_REPLICA: i32 = 1048576;
+        const DS_REPSYNC_CRITICAL: i32 = 2097152;
+        const DS_REPSYNC_FORCE: i32 = 256;
+        const DS_REPSYNC_FULL: i32 = 32;
+        const DS_REPSYNC_FULL_IN_PROGRESS: i32 = 4194304;
+        const DS_REPSYNC_INITIAL: i32 = 8192;
+        const DS_REPSYNC_INITIAL_IN_PROGRESS: i32 = 65536;
+        const DS_REPSYNC_INTERSITE_MESSAGING: i32 = 8;
+        const DS_REPSYNC_NEVER_COMPLETED: i32 = 1024;
+        const DS_REPSYNC_NEVER_NOTIFY: i32 = 4096;
+        const DS_REPSYNC_NONGC_RO_REPLICA: i32 = 16777216;
+        const DS_REPSYNC_NOTIFICATION: i32 = 524288;
+        const DS_REPSYNC_NO_DISCARD: i32 = 128;
+        const DS_REPSYNC_PARTIAL_ATTRIBUTE_SET: i32 = 131072;
+        const DS_REPSYNC_PERIODIC: i32 = 4;
+        const DS_REPSYNC_PREEMPTED: i32 = 8388608;
+        const DS_REPSYNC_REQUEUE: i32 = 262144;
+        const DS_REPSYNC_SELECT_SECRETS: i32 = 32768;
+        const DS_REPSYNC_TWO_WAY: i32 = 2048;
+        const DS_REPSYNC_URGENT: i32 = 64;
+        const DS_REPSYNC_USE_COMPRESSION: i32 = 16384;
+        const DS_REPSYNC_WRITEABLE: i32 = 2;
+        const DS_REPUPD_ADD_REFERENCE: i32 = 4;
+        const DS_REPUPD_ASYNCHRONOUS_OPERATION: i32 = 1;
+        const DS_REPUPD_DELETE_REFERENCE: i32 = 8;
+        const DS_REPUPD_REFERENCE_GCSPN: i32 = 16;
+        const DS_REPUPD_WRITEABLE: i32 = 2;
+        const DS_ROLE_DOMAIN_OWNER: i32 = 1;
+        const DS_ROLE_INFRASTRUCTURE_OWNER: i32 = 4;
+        const DS_ROLE_PDC_OWNER: i32 = 2;
+        const DS_ROLE_RID_OWNER: i32 = 3;
+        const DS_ROLE_SCHEMA_OWNER: i32 = 0;
+        const DS_SCHEMA_GUID_ATTR: i32 = 1;
+        const DS_SCHEMA_GUID_ATTR_SET: i32 = 2;
+        const DS_SCHEMA_GUID_CLASS: i32 = 3;
+        const DS_SCHEMA_GUID_CONTROL_RIGHT: i32 = 4;
         struct DS_SCHEMA_GUID_MAPA {
             guid: GUID,
             guidType: u32,
@@ -636,7 +636,7 @@ mod Windows {
             guidType: u32,
             pName: PWSTR,
         }
-        const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0;
+        const DS_SCHEMA_GUID_NOT_FOUND: i32 = 0;
         struct DS_SITE_COST_INFO {
             errorCode: u32,
             cost: u32,
@@ -822,12 +822,12 @@ mod Windows {
         extern fn DsWriteAccountSpnA(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCSTR, cSpn: u32, #[len_param(3)] rpszSpn: *const PCSTR) -> u32;
         #[library("NTDSAPI.dll")]
         extern fn DsWriteAccountSpnW(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCWSTR, cSpn: u32, #[len_param(3)] rpszSpn: *const PCWSTR) -> u32;
-        const FLAG_DISABLABLE_OPTIONAL_FEATURE: u32 = 4;
-        const FLAG_DOMAIN_OPTIONAL_FEATURE: u32 = 2;
-        const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1;
-        const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8;
-        const FRSCONN_MAX_PRIORITY: u32 = 8;
-        const FRSCONN_PRIORITY_MASK: u32 = 1879048192;
+        const FLAG_DISABLABLE_OPTIONAL_FEATURE: i32 = 4;
+        const FLAG_DOMAIN_OPTIONAL_FEATURE: i32 = 2;
+        const FLAG_FOREST_OPTIONAL_FEATURE: i32 = 1;
+        const FLAG_SERVER_OPTIONAL_FEATURE: i32 = 8;
+        const FRSCONN_MAX_PRIORITY: i32 = 8;
+        const FRSCONN_PRIORITY_MASK: i32 = 1879048192;
         #[encoding("ansi")]
         const GUID_COMPUTRS_CONTAINER_A: String = "aa312825768811d1aded00c04fd8d5cd";
         #[encoding("utf-16")]
@@ -888,57 +888,57 @@ mod Windows {
         const GUID_USERS_CONTAINER_A: String = "a9d1ca15768811d1aded00c04fd8d5cd";
         #[encoding("utf-16")]
         const GUID_USERS_CONTAINER_W: String = "a9d1ca15768811d1aded00c04fd8d5cd";
-        const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1;
-        const NTDSAPI_BIND_FIND_BINDING: u32 = 2;
-        const NTDSAPI_BIND_FORCE_KERBEROS: u32 = 4;
-        const NTDSCONN_KCC_GC_TOPOLOGY: u32 = 1;
-        const NTDSCONN_KCC_INTERSITE_GC_TOPOLOGY: u32 = 32;
-        const NTDSCONN_KCC_INTERSITE_TOPOLOGY: u32 = 64;
-        const NTDSCONN_KCC_MINIMIZE_HOPS_TOPOLOGY: u32 = 4;
-        const NTDSCONN_KCC_NO_REASON: u32 = 0;
-        const NTDSCONN_KCC_OSCILLATING_CONNECTION_TOPOLOGY: u32 = 16;
-        const NTDSCONN_KCC_REDUNDANT_SERVER_TOPOLOGY: u32 = 512;
-        const NTDSCONN_KCC_RING_TOPOLOGY: u32 = 2;
-        const NTDSCONN_KCC_SERVER_FAILOVER_TOPOLOGY: u32 = 128;
-        const NTDSCONN_KCC_SITE_FAILOVER_TOPOLOGY: u32 = 256;
-        const NTDSCONN_KCC_STALE_SERVERS_TOPOLOGY: u32 = 8;
-        const NTDSCONN_OPT_DISABLE_INTERSITE_COMPRESSION: u32 = 16;
+        const NTDSAPI_BIND_ALLOW_DELEGATION: i32 = 1;
+        const NTDSAPI_BIND_FIND_BINDING: i32 = 2;
+        const NTDSAPI_BIND_FORCE_KERBEROS: i32 = 4;
+        const NTDSCONN_KCC_GC_TOPOLOGY: i32 = 1;
+        const NTDSCONN_KCC_INTERSITE_GC_TOPOLOGY: i32 = 32;
+        const NTDSCONN_KCC_INTERSITE_TOPOLOGY: i32 = 64;
+        const NTDSCONN_KCC_MINIMIZE_HOPS_TOPOLOGY: i32 = 4;
+        const NTDSCONN_KCC_NO_REASON: i32 = 0;
+        const NTDSCONN_KCC_OSCILLATING_CONNECTION_TOPOLOGY: i32 = 16;
+        const NTDSCONN_KCC_REDUNDANT_SERVER_TOPOLOGY: i32 = 512;
+        const NTDSCONN_KCC_RING_TOPOLOGY: i32 = 2;
+        const NTDSCONN_KCC_SERVER_FAILOVER_TOPOLOGY: i32 = 128;
+        const NTDSCONN_KCC_SITE_FAILOVER_TOPOLOGY: i32 = 256;
+        const NTDSCONN_KCC_STALE_SERVERS_TOPOLOGY: i32 = 8;
+        const NTDSCONN_OPT_DISABLE_INTERSITE_COMPRESSION: i32 = 16;
         const NTDSCONN_OPT_IGNORE_SCHEDULE_MASK: u32 = 2147483648;
-        const NTDSCONN_OPT_IS_GENERATED: u32 = 1;
-        const NTDSCONN_OPT_OVERRIDE_NOTIFY_DEFAULT: u32 = 4;
-        const NTDSCONN_OPT_RODC_TOPOLOGY: u32 = 64;
-        const NTDSCONN_OPT_TWOWAY_SYNC: u32 = 2;
-        const NTDSCONN_OPT_USER_OWNED_SCHEDULE: u32 = 32;
-        const NTDSCONN_OPT_USE_NOTIFY: u32 = 8;
-        const NTDSDSA_OPT_BLOCK_RPC: u32 = 64;
-        const NTDSDSA_OPT_DISABLE_INBOUND_REPL: u32 = 2;
-        const NTDSDSA_OPT_DISABLE_NTDSCONN_XLATE: u32 = 8;
-        const NTDSDSA_OPT_DISABLE_OUTBOUND_REPL: u32 = 4;
-        const NTDSDSA_OPT_DISABLE_SPN_REGISTRATION: u32 = 16;
-        const NTDSDSA_OPT_GENERATE_OWN_TOPO: u32 = 32;
-        const NTDSDSA_OPT_IS_GC: u32 = 1;
-        const NTDSSETTINGS_DEFAULT_SERVER_REDUNDANCY: u32 = 2;
-        const NTDSSETTINGS_OPT_FORCE_KCC_W2K_ELECTION: u32 = 128;
-        const NTDSSETTINGS_OPT_FORCE_KCC_WHISTLER_BEHAVIOR: u32 = 64;
-        const NTDSSETTINGS_OPT_IS_AUTO_TOPOLOGY_DISABLED: u32 = 1;
-        const NTDSSETTINGS_OPT_IS_GROUP_CACHING_ENABLED: u32 = 32;
-        const NTDSSETTINGS_OPT_IS_INTER_SITE_AUTO_TOPOLOGY_DISABLED: u32 = 16;
-        const NTDSSETTINGS_OPT_IS_RAND_BH_SELECTION_DISABLED: u32 = 256;
-        const NTDSSETTINGS_OPT_IS_REDUNDANT_SERVER_TOPOLOGY_ENABLED: u32 = 1024;
-        const NTDSSETTINGS_OPT_IS_SCHEDULE_HASHING_ENABLED: u32 = 512;
-        const NTDSSETTINGS_OPT_IS_TOPL_CLEANUP_DISABLED: u32 = 2;
-        const NTDSSETTINGS_OPT_IS_TOPL_DETECT_STALE_DISABLED: u32 = 8;
-        const NTDSSETTINGS_OPT_IS_TOPL_MIN_HOPS_DISABLED: u32 = 4;
-        const NTDSSETTINGS_OPT_W2K3_BRIDGES_REQUIRED: u32 = 4096;
-        const NTDSSETTINGS_OPT_W2K3_IGNORE_SCHEDULES: u32 = 2048;
-        const NTDSSITECONN_OPT_DISABLE_COMPRESSION: u32 = 4;
-        const NTDSSITECONN_OPT_TWOWAY_SYNC: u32 = 2;
-        const NTDSSITECONN_OPT_USE_NOTIFY: u32 = 1;
-        const NTDSSITELINK_OPT_DISABLE_COMPRESSION: u32 = 4;
-        const NTDSSITELINK_OPT_TWOWAY_SYNC: u32 = 2;
-        const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1;
-        const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2;
-        const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1;
+        const NTDSCONN_OPT_IS_GENERATED: i32 = 1;
+        const NTDSCONN_OPT_OVERRIDE_NOTIFY_DEFAULT: i32 = 4;
+        const NTDSCONN_OPT_RODC_TOPOLOGY: i32 = 64;
+        const NTDSCONN_OPT_TWOWAY_SYNC: i32 = 2;
+        const NTDSCONN_OPT_USER_OWNED_SCHEDULE: i32 = 32;
+        const NTDSCONN_OPT_USE_NOTIFY: i32 = 8;
+        const NTDSDSA_OPT_BLOCK_RPC: i32 = 64;
+        const NTDSDSA_OPT_DISABLE_INBOUND_REPL: i32 = 2;
+        const NTDSDSA_OPT_DISABLE_NTDSCONN_XLATE: i32 = 8;
+        const NTDSDSA_OPT_DISABLE_OUTBOUND_REPL: i32 = 4;
+        const NTDSDSA_OPT_DISABLE_SPN_REGISTRATION: i32 = 16;
+        const NTDSDSA_OPT_GENERATE_OWN_TOPO: i32 = 32;
+        const NTDSDSA_OPT_IS_GC: i32 = 1;
+        const NTDSSETTINGS_DEFAULT_SERVER_REDUNDANCY: i32 = 2;
+        const NTDSSETTINGS_OPT_FORCE_KCC_W2K_ELECTION: i32 = 128;
+        const NTDSSETTINGS_OPT_FORCE_KCC_WHISTLER_BEHAVIOR: i32 = 64;
+        const NTDSSETTINGS_OPT_IS_AUTO_TOPOLOGY_DISABLED: i32 = 1;
+        const NTDSSETTINGS_OPT_IS_GROUP_CACHING_ENABLED: i32 = 32;
+        const NTDSSETTINGS_OPT_IS_INTER_SITE_AUTO_TOPOLOGY_DISABLED: i32 = 16;
+        const NTDSSETTINGS_OPT_IS_RAND_BH_SELECTION_DISABLED: i32 = 256;
+        const NTDSSETTINGS_OPT_IS_REDUNDANT_SERVER_TOPOLOGY_ENABLED: i32 = 1024;
+        const NTDSSETTINGS_OPT_IS_SCHEDULE_HASHING_ENABLED: i32 = 512;
+        const NTDSSETTINGS_OPT_IS_TOPL_CLEANUP_DISABLED: i32 = 2;
+        const NTDSSETTINGS_OPT_IS_TOPL_DETECT_STALE_DISABLED: i32 = 8;
+        const NTDSSETTINGS_OPT_IS_TOPL_MIN_HOPS_DISABLED: i32 = 4;
+        const NTDSSETTINGS_OPT_W2K3_BRIDGES_REQUIRED: i32 = 4096;
+        const NTDSSETTINGS_OPT_W2K3_IGNORE_SCHEDULES: i32 = 2048;
+        const NTDSSITECONN_OPT_DISABLE_COMPRESSION: i32 = 4;
+        const NTDSSITECONN_OPT_TWOWAY_SYNC: i32 = 2;
+        const NTDSSITECONN_OPT_USE_NOTIFY: i32 = 1;
+        const NTDSSITELINK_OPT_DISABLE_COMPRESSION: i32 = 4;
+        const NTDSSITELINK_OPT_TWOWAY_SYNC: i32 = 2;
+        const NTDSSITELINK_OPT_USE_NOTIFY: i32 = 1;
+        const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: i32 = 2;
+        const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: i32 = 1;
         type PDS_DOMAIN_CONTROLLER_INFO_1A = *mut DS_DOMAIN_CONTROLLER_INFO_1A;
         type PDS_DOMAIN_CONTROLLER_INFO_1W = *mut DS_DOMAIN_CONTROLLER_INFO_1W;
         type PDS_DOMAIN_CONTROLLER_INFO_2A = *mut DS_DOMAIN_CONTROLLER_INFO_2A;
