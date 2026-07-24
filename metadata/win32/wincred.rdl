@@ -10,7 +10,7 @@ mod Windows {
             cbSize: u32,
             rgbHashOfCert: [u8; 20],
         }
-        const CERT_HASH_LENGTH: u32 = 20;
+        const CERT_HASH_LENGTH: i32 = 20;
         type CREDENTIAL = CREDENTIALA;
         struct CREDENTIALA {
             Flags: u32,
@@ -78,38 +78,38 @@ mod Windows {
             CredTypeCount: u32,
             CredTypes: LPDWORD,
         }
-        const CREDUIWIN_AUTHPACKAGE_ONLY: u32 = 16;
-        const CREDUIWIN_CHECKBOX: u32 = 2;
+        const CREDUIWIN_AUTHPACKAGE_ONLY: i32 = 16;
+        const CREDUIWIN_CHECKBOX: i32 = 2;
         const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648;
-        const CREDUIWIN_ENUMERATE_ADMINS: u32 = 256;
-        const CREDUIWIN_ENUMERATE_CURRENT_USER: u32 = 512;
-        const CREDUIWIN_GENERIC: u32 = 1;
-        const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144;
-        const CREDUIWIN_IN_CRED_ONLY: u32 = 32;
-        const CREDUIWIN_PACK_32_WOW: u32 = 268435456;
-        const CREDUIWIN_PREPROMPTING: u32 = 8192;
-        const CREDUIWIN_SECURE_PROMPT: u32 = 4096;
-        const CREDUIWIN_USE_V2: u32 = 64;
-        const CREDUIWIN_VALID_FLAGS: i32 = -1878772941;
-        const CREDUI_FLAGS_ALWAYS_SHOW_UI: u32 = 128;
-        const CREDUI_FLAGS_COMPLETE_USERNAME: u32 = 2048;
-        const CREDUI_FLAGS_DO_NOT_PERSIST: u32 = 2;
-        const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: u32 = 8;
-        const CREDUI_FLAGS_EXPECT_CONFIRMATION: u32 = 131072;
-        const CREDUI_FLAGS_GENERIC_CREDENTIALS: u32 = 262144;
-        const CREDUI_FLAGS_INCORRECT_PASSWORD: u32 = 1;
-        const CREDUI_FLAGS_KEEP_USERNAME: u32 = 1048576;
-        const CREDUI_FLAGS_PASSWORD_ONLY_OK: u32 = 512;
-        const CREDUI_FLAGS_PERSIST: u32 = 4096;
-        const CREDUI_FLAGS_PROMPT_VALID: u32 = 1990623;
-        const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: u32 = 4;
-        const CREDUI_FLAGS_REQUIRE_CERTIFICATE: u32 = 16;
-        const CREDUI_FLAGS_REQUIRE_SMARTCARD: u32 = 256;
-        const CREDUI_FLAGS_SERVER_CREDENTIAL: u32 = 16384;
-        const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: u32 = 64;
-        const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: u32 = 524288;
-        const CREDUI_FLAGS_VALIDATE_USERNAME: u32 = 1024;
-        const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: u32 = 212664322;
+        const CREDUIWIN_ENUMERATE_ADMINS: i32 = 256;
+        const CREDUIWIN_ENUMERATE_CURRENT_USER: i32 = 512;
+        const CREDUIWIN_GENERIC: i32 = 1;
+        const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: i32 = 262144;
+        const CREDUIWIN_IN_CRED_ONLY: i32 = 32;
+        const CREDUIWIN_PACK_32_WOW: i32 = 268435456;
+        const CREDUIWIN_PREPROMPTING: i32 = 8192;
+        const CREDUIWIN_SECURE_PROMPT: i32 = 4096;
+        const CREDUIWIN_USE_V2: i32 = 64;
+        const CREDUIWIN_VALID_FLAGS: u32 = 2416194355;
+        const CREDUI_FLAGS_ALWAYS_SHOW_UI: i32 = 128;
+        const CREDUI_FLAGS_COMPLETE_USERNAME: i32 = 2048;
+        const CREDUI_FLAGS_DO_NOT_PERSIST: i32 = 2;
+        const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: i32 = 8;
+        const CREDUI_FLAGS_EXPECT_CONFIRMATION: i32 = 131072;
+        const CREDUI_FLAGS_GENERIC_CREDENTIALS: i32 = 262144;
+        const CREDUI_FLAGS_INCORRECT_PASSWORD: i32 = 1;
+        const CREDUI_FLAGS_KEEP_USERNAME: i32 = 1048576;
+        const CREDUI_FLAGS_PASSWORD_ONLY_OK: i32 = 512;
+        const CREDUI_FLAGS_PERSIST: i32 = 4096;
+        const CREDUI_FLAGS_PROMPT_VALID: i32 = 1990623;
+        const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: i32 = 4;
+        const CREDUI_FLAGS_REQUIRE_CERTIFICATE: i32 = 16;
+        const CREDUI_FLAGS_REQUIRE_SMARTCARD: i32 = 256;
+        const CREDUI_FLAGS_SERVER_CREDENTIAL: i32 = 16384;
+        const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: i32 = 64;
+        const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: i32 = 524288;
+        const CREDUI_FLAGS_VALIDATE_USERNAME: i32 = 1024;
+        const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: i32 = 212664322;
         type CREDUI_INFO = CREDUI_INFOA;
         struct CREDUI_INFOA {
             cbSize: u32,
@@ -125,27 +125,27 @@ mod Windows {
             pszCaptionText: PCWSTR,
             hbmBanner: HBITMAP,
         }
-        const CREDUI_MAX_CAPTION_LENGTH: u32 = 128;
-        const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337;
-        const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767;
-        const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024;
-        const CREDUI_MAX_PASSWORD_LENGTH: u32 = 256;
-        const CREDUI_MAX_USERNAME_LENGTH: u32 = 513;
-        const CREDUI_PICKERSCREEN_AUTHPACKAGE_ID: u32 = 212664323;
-        const CRED_ALLOW_NAME_RESOLUTION: u32 = 1;
-        const CRED_CACHE_TARGET_INFORMATION: u32 = 1;
-        const CRED_ENUMERATE_ALL_CREDENTIALS: u32 = 1;
-        const CRED_FLAGS_NGC_CERT: u32 = 128;
-        const CRED_FLAGS_OWF_CRED_BLOB: u32 = 8;
-        const CRED_FLAGS_PASSWORD_FOR_CERT: u32 = 1;
-        const CRED_FLAGS_PROMPT_NOW: u32 = 2;
-        const CRED_FLAGS_REQUIRE_CONFIRMATION: u32 = 16;
-        const CRED_FLAGS_USERNAME_TARGET: u32 = 4;
-        const CRED_FLAGS_VALID_FLAGS: u32 = 61695;
-        const CRED_FLAGS_VALID_INPUT_FLAGS: u32 = 61599;
-        const CRED_FLAGS_VSM_PROTECTED: u32 = 64;
-        const CRED_FLAGS_WILDCARD_MATCH: u32 = 32;
-        const CRED_LOGON_TYPES_MASK: u32 = 61440;
+        const CREDUI_MAX_CAPTION_LENGTH: i32 = 128;
+        const CREDUI_MAX_DOMAIN_TARGET_LENGTH: i32 = 337;
+        const CREDUI_MAX_GENERIC_TARGET_LENGTH: i32 = 32767;
+        const CREDUI_MAX_MESSAGE_LENGTH: i32 = 1024;
+        const CREDUI_MAX_PASSWORD_LENGTH: i32 = 256;
+        const CREDUI_MAX_USERNAME_LENGTH: i32 = 513;
+        const CREDUI_PICKERSCREEN_AUTHPACKAGE_ID: i32 = 212664323;
+        const CRED_ALLOW_NAME_RESOLUTION: i32 = 1;
+        const CRED_CACHE_TARGET_INFORMATION: i32 = 1;
+        const CRED_ENUMERATE_ALL_CREDENTIALS: i32 = 1;
+        const CRED_FLAGS_NGC_CERT: i32 = 128;
+        const CRED_FLAGS_OWF_CRED_BLOB: i32 = 8;
+        const CRED_FLAGS_PASSWORD_FOR_CERT: i32 = 1;
+        const CRED_FLAGS_PROMPT_NOW: i32 = 2;
+        const CRED_FLAGS_REQUIRE_CONFIRMATION: i32 = 16;
+        const CRED_FLAGS_USERNAME_TARGET: i32 = 4;
+        const CRED_FLAGS_VALID_FLAGS: i32 = 61695;
+        const CRED_FLAGS_VALID_INPUT_FLAGS: i32 = 61599;
+        const CRED_FLAGS_VSM_PROTECTED: i32 = 64;
+        const CRED_FLAGS_WILDCARD_MATCH: i32 = 32;
+        const CRED_LOGON_TYPES_MASK: i32 = 61440;
         #[repr(i32)]
         enum CRED_MARSHAL_TYPE {
             CertCredential = 1,
@@ -154,24 +154,24 @@ mod Windows {
             UsernameForPackedCredentials = 4,
             BinaryBlobForSystem = 5,
         }
-        const CRED_MAX_ATTRIBUTES: u32 = 64;
-        const CRED_MAX_CREDENTIAL_BLOB_SIZE: u32 = 2560;
-        const CRED_MAX_DOMAIN_TARGET_NAME_LENGTH: u32 = 337;
-        const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767;
-        const CRED_MAX_STRING_LENGTH: u32 = 256;
-        const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256;
-        const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256;
-        const CRED_MAX_USERNAME_LENGTH: u32 = 513;
-        const CRED_MAX_VALUE_SIZE: u32 = 256;
-        const CRED_PACK_GENERIC_CREDENTIALS: u32 = 4;
-        const CRED_PACK_ID_PROVIDER_CREDENTIALS: u32 = 8;
-        const CRED_PACK_PROTECTED_CREDENTIALS: u32 = 1;
-        const CRED_PACK_WOW_BUFFER: u32 = 2;
-        const CRED_PERSIST_ENTERPRISE: u32 = 3;
-        const CRED_PERSIST_LOCAL_MACHINE: u32 = 2;
-        const CRED_PERSIST_NONE: u32 = 0;
-        const CRED_PERSIST_SESSION: u32 = 1;
-        const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1;
+        const CRED_MAX_ATTRIBUTES: i32 = 64;
+        const CRED_MAX_CREDENTIAL_BLOB_SIZE: i32 = 2560;
+        const CRED_MAX_DOMAIN_TARGET_NAME_LENGTH: i32 = 337;
+        const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: i32 = 32767;
+        const CRED_MAX_STRING_LENGTH: i32 = 256;
+        const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: i32 = 256;
+        const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: i32 = 256;
+        const CRED_MAX_USERNAME_LENGTH: i32 = 513;
+        const CRED_MAX_VALUE_SIZE: i32 = 256;
+        const CRED_PACK_GENERIC_CREDENTIALS: i32 = 4;
+        const CRED_PACK_ID_PROVIDER_CREDENTIALS: i32 = 8;
+        const CRED_PACK_PROTECTED_CREDENTIALS: i32 = 1;
+        const CRED_PACK_WOW_BUFFER: i32 = 2;
+        const CRED_PERSIST_ENTERPRISE: i32 = 3;
+        const CRED_PERSIST_LOCAL_MACHINE: i32 = 2;
+        const CRED_PERSIST_NONE: i32 = 0;
+        const CRED_PERSIST_SESSION: i32 = 1;
+        const CRED_PRESERVE_CREDENTIAL_BLOB: i32 = 1;
         #[repr(i32)]
         enum CRED_PROTECTION_TYPE {
             CredUnprotected = 0,
@@ -179,9 +179,9 @@ mod Windows {
             CredTrustedProtection = 2,
             CredForSystemProtection = 3,
         }
-        const CRED_PROTECT_AS_SELF: u32 = 1;
-        const CRED_PROTECT_TO_SYSTEM: u32 = 2;
-        const CRED_PROTECT_VALID_FLAGS: u32 = 3;
+        const CRED_PROTECT_AS_SELF: i32 = 1;
+        const CRED_PROTECT_TO_SYSTEM: i32 = 2;
+        const CRED_PROTECT_VALID_FLAGS: i32 = 3;
         #[encoding("ansi")]
         const CRED_SESSION_WILDCARD_NAME_A: String = "*Session";
         #[encoding("utf-16")]
@@ -236,27 +236,27 @@ mod Windows {
         const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_W: String = "LegacyGeneric";
         const CRED_TARGETNAME_NAMESPACE_SEPERATOR_A: u32 = 58;
         const CRED_TARGETNAME_NAMESPACE_SEPERATOR_W: u32 = 58;
-        const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16;
-        const CRED_TI_DNSTREE_IS_DFS_SERVER: u32 = 64;
-        const CRED_TI_DOMAIN_FORMAT_UNKNOWN: u32 = 2;
-        const CRED_TI_ONLY_PASSWORD_REQUIRED: u32 = 4;
-        const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1;
-        const CRED_TI_USERNAME_TARGET: u32 = 8;
-        const CRED_TI_VALID_FLAGS: u32 = 61567;
-        const CRED_TI_WORKGROUP_MEMBER: u32 = 32;
-        const CRED_TYPE_DOMAIN_CERTIFICATE: u32 = 3;
-        const CRED_TYPE_DOMAIN_EXTENDED: u32 = 6;
-        const CRED_TYPE_DOMAIN_PASSWORD: u32 = 2;
-        const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: u32 = 4;
-        const CRED_TYPE_GENERIC: u32 = 1;
-        const CRED_TYPE_GENERIC_CERTIFICATE: u32 = 5;
-        const CRED_TYPE_MAXIMUM: u32 = 7;
-        const CRED_TYPE_MAXIMUM_EX: u32 = 1007;
+        const CRED_TI_CREATE_EXPLICIT_CRED: i32 = 16;
+        const CRED_TI_DNSTREE_IS_DFS_SERVER: i32 = 64;
+        const CRED_TI_DOMAIN_FORMAT_UNKNOWN: i32 = 2;
+        const CRED_TI_ONLY_PASSWORD_REQUIRED: i32 = 4;
+        const CRED_TI_SERVER_FORMAT_UNKNOWN: i32 = 1;
+        const CRED_TI_USERNAME_TARGET: i32 = 8;
+        const CRED_TI_VALID_FLAGS: i32 = 61567;
+        const CRED_TI_WORKGROUP_MEMBER: i32 = 32;
+        const CRED_TYPE_DOMAIN_CERTIFICATE: i32 = 3;
+        const CRED_TYPE_DOMAIN_EXTENDED: i32 = 6;
+        const CRED_TYPE_DOMAIN_PASSWORD: i32 = 2;
+        const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: i32 = 4;
+        const CRED_TYPE_GENERIC: i32 = 1;
+        const CRED_TYPE_GENERIC_CERTIFICATE: i32 = 5;
+        const CRED_TYPE_MAXIMUM: i32 = 7;
+        const CRED_TYPE_MAXIMUM_EX: i32 = 1007;
         const CRED_UNIVERSAL_WILDCARD_A: u32 = 42;
         const CRED_UNIVERSAL_WILDCARD_W: u32 = 42;
-        const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2;
-        const CRED_UNPROTECT_AS_SELF: u32 = 1;
-        const CRED_UNPROTECT_VALID_FLAGS: u32 = 3;
+        const CRED_UNPROTECT_ALLOW_TO_SYSTEM: i32 = 2;
+        const CRED_UNPROTECT_AS_SELF: i32 = 1;
+        const CRED_UNPROTECT_VALID_FLAGS: i32 = 3;
         #[library("ADVAPI32.dll")]
         extern fn CredDeleteA(TargetName: PCSTR, Type: u32, #[reserved] Flags: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -353,8 +353,8 @@ mod Windows {
         extern fn CredWriteDomainCredentialsW(TargetInfo: *const CREDENTIAL_TARGET_INFORMATIONW, Credential: *const CREDENTIALW, Flags: u32) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CredWriteW(Credential: *const CREDENTIALW, Flags: u32) -> BOOL;
-        const NERR_BASE: u32 = 2100;
-        const NERR_PasswordExpired: u32 = 2242;
+        const NERR_BASE: i32 = 2100;
+        const NERR_PasswordExpired: i32 = 2242;
         type PBINARY_BLOB_CREDENTIAL_INFO = *mut BINARY_BLOB_CREDENTIAL_INFO;
         type PCERT_CREDENTIAL_INFO = *mut CERT_CREDENTIAL_INFO;
         type PCREDENTIAL = PCREDENTIALA;

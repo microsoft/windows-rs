@@ -58,10 +58,10 @@ mod Windows {
         extern fn GetWsChangesEx(hProcess: HANDLE, #[size_param(2)] lpWatchInfoEx: *mut PSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: *mut u32) -> BOOL;
         #[library("KERNEL32.dll", import = "K32InitializeProcessForWsWatch")]
         extern fn InitializeProcessForWsWatch(hProcess: HANDLE) -> BOOL;
-        const LIST_MODULES_32BIT: u32 = 1;
-        const LIST_MODULES_64BIT: u32 = 2;
-        const LIST_MODULES_ALL: u32 = 3;
-        const LIST_MODULES_DEFAULT: u32 = 0;
+        const LIST_MODULES_32BIT: i32 = 1;
+        const LIST_MODULES_64BIT: i32 = 2;
+        const LIST_MODULES_ALL: i32 = 3;
+        const LIST_MODULES_DEFAULT: i32 = 0;
         type LPMODULEINFO = *mut MODULEINFO;
         struct MODULEINFO {
             lpBaseOfDll: *mut void,
@@ -139,7 +139,7 @@ mod Windows {
             PrivateWorkingSetSize: usize,
             SharedCommitUsage: u64,
         }
-        const PSAPI_VERSION: u32 = 2;
+        const PSAPI_VERSION: i32 = 2;
         union PSAPI_WORKING_SET_BLOCK {
             Flags: usize,
             Anonymous: struct {

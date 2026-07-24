@@ -20,7 +20,7 @@ mod Windows {
             GPS_VOLATILEPROPERTIESONLY = 4096,
             GPS_MASK_VALID = 8191,
         }
-        const GUIDSTRING_MAX: u32 = 39;
+        const GUIDSTRING_MAX: i32 = 39;
         #[guid(0x75121952_e0d0_43e5_9380_1d80483acf72)]
         interface ICreateObject: IUnknown {
             fn CreateObject(&self, clsid: *const GUID, pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
@@ -197,8 +197,8 @@ mod Windows {
             PKA_APPEND = 1,
             PKA_DELETE = 2,
         }
-        const PKEYSTR_MAX: u32 = 50;
-        const PKEY_PIDSTR_MAX: u32 = 10;
+        const PKEYSTR_MAX: i32 = 50;
+        const PKEY_PIDSTR_MAX: i32 = 10;
         #[repr(i32)]
         enum PROPDESC_AGGREGATION_TYPE {
             PDAT_DEFAULT = 0,

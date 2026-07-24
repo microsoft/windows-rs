@@ -7,7 +7,7 @@ mod Windows {
         extern fn GetRestrictedErrorInfo(ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn IsErrorPropagationEnabled() -> BOOL;
-        const MAX_ERROR_MESSAGE_CHARS: u32 = 512;
+        const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
         extern fn PINSPECT_MEMORY_CALLBACK(#[opt] context: *const void, readAddress: usize, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
         #[repr(u32)]
         #[flags]

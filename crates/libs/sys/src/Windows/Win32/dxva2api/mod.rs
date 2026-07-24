@@ -45,8 +45,8 @@ pub struct DXVA2_ConfigPictureDecode {
     pub ConfigMinRenderTargetBuffCount: u16,
     pub ConfigDecoderSpecific: u16,
 }
-pub const DXVA2_DECODE_GET_DRIVER_HANDLE: u32 = 1829;
-pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: u32 = 1828;
+pub const DXVA2_DECODE_GET_DRIVER_HANDLE: i32 = 1829;
+pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: i32 = 1828;
 pub const DXVA2_DeblockingControlBufferType: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -446,9 +446,9 @@ pub const DXVA2_VideoTransFunc_10: DXVA2_VideoTransferFunction = 1;
 pub const DXVA2_VideoTransFunc_18: DXVA2_VideoTransferFunction = 2;
 pub const DXVA2_VideoTransFunc_20: DXVA2_VideoTransferFunction = 3;
 pub const DXVA2_VideoTransFunc_22: DXVA2_VideoTransferFunction = 4;
-pub const DXVA2_VideoTransFunc_22_240M: u32 = 6;
-pub const DXVA2_VideoTransFunc_22_709: u32 = 5;
-pub const DXVA2_VideoTransFunc_22_8bit_sRGB: u32 = 7;
+pub const DXVA2_VideoTransFunc_22_240M: i32 = 6;
+pub const DXVA2_VideoTransFunc_22_709: i32 = 5;
+pub const DXVA2_VideoTransFunc_22_8bit_sRGB: i32 = 7;
 pub const DXVA2_VideoTransFunc_240M: DXVA2_VideoTransferFunction = 6;
 pub const DXVA2_VideoTransFunc_28: DXVA2_VideoTransferFunction = 8;
 pub const DXVA2_VideoTransFunc_709: DXVA2_VideoTransferFunction = 5;
@@ -461,5 +461,5 @@ pub const DXVA2_VideoTransferMatrix_BT601: DXVA2_VideoTransferMatrix = 2;
 pub const DXVA2_VideoTransferMatrix_BT709: DXVA2_VideoTransferMatrix = 1;
 pub const DXVA2_VideoTransferMatrix_SMPTE240M: DXVA2_VideoTransferMatrix = 3;
 pub const DXVA2_VideoTransferMatrix_Unknown: DXVA2_VideoTransferMatrix = 0;
-pub const MAX_DEINTERLACE_SURFACES: u32 = 32;
-pub const MAX_SUBSTREAMS: u32 = 15;
+pub const MAX_DEINTERLACE_SURFACES: i32 = 32;
+pub const MAX_SUBSTREAMS: i32 = 15;

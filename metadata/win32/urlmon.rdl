@@ -79,9 +79,9 @@ mod Windows {
             BINDF2_RESERVED_2 = 1073741824,
             BINDF2_RESERVED_1 = -2147483648,
         }
-        const BINDF_DONTPUTINCACHE: u32 = 32;
-        const BINDF_DONTUSECACHE: u32 = 16;
-        const BINDF_NOCOPYDATA: u32 = 128;
+        const BINDF_DONTPUTINCACHE: i32 = 32;
+        const BINDF_DONTUSECACHE: i32 = 16;
+        const BINDF_NOCOPYDATA: i32 = 128;
         #[repr(i32)]
         enum BINDHANDLETYPES {
             BINDHANDLETYPES_APPCACHE = 0,
@@ -256,8 +256,8 @@ mod Windows {
             BSCF_SKIPDRAINDATAFORFILEURLS = 32,
             BSCF_64BITLENGTHDOWNLOAD = 64,
         }
-        const CFSTR_MIME_NULL: u32 = 0;
-        const CF_NULL: u32 = 0;
+        const CFSTR_MIME_NULL: i32 = 0;
+        const CF_NULL: i32 = 0;
         #[repr(i32)]
         enum CIP_STATUS {
             CIP_DISK_FULL = 0,
@@ -284,7 +284,7 @@ mod Windows {
             pUnk: IUnknown,
             dwFlags: u32,
         }
-        const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1;
+        const CONFIRMSAFETYACTION_LOADOBJECT: i32 = 1;
         #[library("urlmon.dll")]
         extern fn CoGetClassObjectFromURL(rCLASSID: *const GUID, szCODE: PCWSTR, dwFileVersionMS: u32, dwFileVersionLS: u32, szTYPE: PCWSTR, pBindCtx: IBindCtx, dwClsContext: u32, #[reserved] pvReserved: *const void, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("urlmon.dll")]
@@ -357,19 +357,19 @@ mod Windows {
             ulConnectSpeed: u32,
             ulProcessorSpeed: u32,
         }
-        const FIEF_FLAG_FORCE_JITUI: u32 = 1;
-        const FIEF_FLAG_PEEK: u32 = 2;
-        const FIEF_FLAG_RESERVED_0: u32 = 8;
-        const FIEF_FLAG_SKIP_INSTALLED_VERSION_CHECK: u32 = 4;
-        const FMFD_DEFAULT: u32 = 0;
-        const FMFD_ENABLEMIMESNIFFING: u32 = 2;
-        const FMFD_IGNOREMIMETEXTPLAIN: u32 = 4;
-        const FMFD_RESERVED_1: u32 = 64;
-        const FMFD_RESERVED_2: u32 = 128;
-        const FMFD_RESPECTTEXTPLAIN: u32 = 16;
-        const FMFD_RETURNUPDATEDIMGMIMES: u32 = 32;
-        const FMFD_SERVERMIME: u32 = 8;
-        const FMFD_URLASFILENAME: u32 = 1;
+        const FIEF_FLAG_FORCE_JITUI: i32 = 1;
+        const FIEF_FLAG_PEEK: i32 = 2;
+        const FIEF_FLAG_RESERVED_0: i32 = 8;
+        const FIEF_FLAG_SKIP_INSTALLED_VERSION_CHECK: i32 = 4;
+        const FMFD_DEFAULT: i32 = 0;
+        const FMFD_ENABLEMIMESNIFFING: i32 = 2;
+        const FMFD_IGNOREMIMETEXTPLAIN: i32 = 4;
+        const FMFD_RESERVED_1: i32 = 64;
+        const FMFD_RESERVED_2: i32 = 128;
+        const FMFD_RESPECTTEXTPLAIN: i32 = 16;
+        const FMFD_RETURNUPDATEDIMGMIMES: i32 = 32;
+        const FMFD_SERVERMIME: i32 = 8;
+        const FMFD_URLASFILENAME: i32 = 1;
         #[library("urlmon.dll")]
         extern fn FaultInIEFeature(hWnd: HWND, pClassSpec: *const uCLSSPEC, #[in] #[out] #[opt] pQuery: *mut QUERYCONTEXT, dwFlags: u32) -> HRESULT;
         #[library("urlmon.dll")]
@@ -378,14 +378,14 @@ mod Windows {
         extern fn FindMediaTypeClass(pBC: IBindCtx, szType: PCSTR, pclsID: *mut GUID, reserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn FindMimeFromData(#[opt] pBC: IBindCtx, #[opt] pwzUrl: PCWSTR, #[size_param(3)] #[opt] pBuffer: *const void, cbSize: u32, #[opt] pwzMimeProposed: PCWSTR, dwMimeFlags: u32, ppwzMimeOut: *mut PWSTR, #[reserved] dwReserved: u32) -> HRESULT;
-        const GET_FEATURE_FROM_PROCESS: u32 = 2;
-        const GET_FEATURE_FROM_REGISTRY: u32 = 4;
-        const GET_FEATURE_FROM_THREAD: u32 = 1;
-        const GET_FEATURE_FROM_THREAD_INTERNET: u32 = 64;
-        const GET_FEATURE_FROM_THREAD_INTRANET: u32 = 16;
-        const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8;
-        const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128;
-        const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32;
+        const GET_FEATURE_FROM_PROCESS: i32 = 2;
+        const GET_FEATURE_FROM_REGISTRY: i32 = 4;
+        const GET_FEATURE_FROM_THREAD: i32 = 1;
+        const GET_FEATURE_FROM_THREAD_INTERNET: i32 = 64;
+        const GET_FEATURE_FROM_THREAD_INTRANET: i32 = 16;
+        const GET_FEATURE_FROM_THREAD_LOCALMACHINE: i32 = 8;
+        const GET_FEATURE_FROM_THREAD_RESTRICTED: i32 = 128;
+        const GET_FEATURE_FROM_THREAD_TRUSTED: i32 = 32;
         #[library("urlmon.dll")]
         extern fn GetClassFileOrMime(#[opt] pBC: IBindCtx, #[opt] szFilename: PCWSTR, #[size_param(3)] #[opt] pBuffer: *const void, cbSize: u32, #[opt] szMime: PCWSTR, dwReserved: u32, pclsid: *mut GUID) -> HRESULT;
         #[library("urlmon.dll")]
@@ -860,10 +860,10 @@ mod Windows {
         type LPREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
         type LPSOFTDISTINFO = *mut SOFTDISTINFO;
         type LPZONEATTRIBUTES = *mut ZONEATTRIBUTES;
-        const MAX_SIZE_SECURITY_ID: u32 = 512;
+        const MAX_SIZE_SECURITY_ID: i32 = 512;
         const MAX_ZONE_DESCRIPTION: i32 = 200;
         const MAX_ZONE_PATH: i32 = 260;
-        const MKSYS_URLMONIKER: u32 = 6;
+        const MKSYS_URLMONIKER: i32 = 6;
         const MK_S_ASYNCHRONOUS: HRESULT = 262632;
         #[repr(i32)]
         enum MONIKERPROPERTY {
@@ -873,16 +873,16 @@ mod Windows {
             TRUSTEDDOWNLOADPROP = 3,
             POPUPLEVELPROP = 4,
         }
-        const MUTZ_ACCEPT_WILDCARD_SCHEME: u32 = 128;
-        const MUTZ_DONT_UNESCAPE: u32 = 2048;
-        const MUTZ_DONT_USE_CACHE: u32 = 4096;
-        const MUTZ_ENFORCERESTRICTED: u32 = 256;
-        const MUTZ_FORCE_INTRANET_FLAGS: u32 = 8192;
-        const MUTZ_IGNORE_ZONE_MAPPINGS: u32 = 16384;
-        const MUTZ_ISFILE: u32 = 2;
-        const MUTZ_NOSAVEDFILECHECK: u32 = 1;
-        const MUTZ_REQUIRESAVEDFILECHECK: u32 = 1024;
-        const MUTZ_RESERVED: u32 = 512;
+        const MUTZ_ACCEPT_WILDCARD_SCHEME: i32 = 128;
+        const MUTZ_DONT_UNESCAPE: i32 = 2048;
+        const MUTZ_DONT_USE_CACHE: i32 = 4096;
+        const MUTZ_ENFORCERESTRICTED: i32 = 256;
+        const MUTZ_FORCE_INTRANET_FLAGS: i32 = 8192;
+        const MUTZ_IGNORE_ZONE_MAPPINGS: i32 = 16384;
+        const MUTZ_ISFILE: i32 = 2;
+        const MUTZ_NOSAVEDFILECHECK: i32 = 1;
+        const MUTZ_REQUIRESAVEDFILECHECK: i32 = 1024;
+        const MUTZ_RESERVED: i32 = 512;
         #[library("urlmon.dll")]
         extern fn MkParseDisplayNameEx(pbc: IBindCtx, szDisplayName: PCWSTR, pchEaten: *mut u32, ppmk: *mut IMoniker) -> HRESULT;
         #[repr(i32)]
@@ -914,9 +914,9 @@ mod Windows {
             PARSE_ESCAPE = 18,
             PARSE_UNESCAPE = 19,
         }
-        const PARSE_DECODE: u32 = 8;
-        const PARSE_ENCODE: u32 = 7;
-        const PI_DOCFILECLSIDLOOKUP: u32 = 32;
+        const PARSE_DECODE: i32 = 8;
+        const PARSE_ENCODE: i32 = 7;
+        const PI_DOCFILECLSIDLOOKUP: i32 = 32;
         #[repr(i32)]
         enum PI_FLAGS {
             PI_PARSE_URL = 1,
@@ -949,7 +949,7 @@ mod Windows {
             pUnk: IUnknown,
             dwFilterFlags: u32,
         }
-        const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1;
+        const PROTOCOLFLAG_NO_PICS_CHECK: i32 = 1;
         struct PROTOCOL_ARGUMENT {
             szMethod: PCWSTR,
             szTargetUrl: PCWSTR,
@@ -1048,16 +1048,16 @@ mod Windows {
         extern fn RevokeBindStatusCallback(pBC: IBindCtx, pBSCb: IBindStatusCallback) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn RevokeFormatEnumerator(pBC: IBindCtx, pEFetc: IEnumFORMATETC) -> HRESULT;
-        const SECURITY_IE_STATE_GREEN: u32 = 0;
-        const SECURITY_IE_STATE_RED: u32 = 1;
-        const SET_FEATURE_IN_REGISTRY: u32 = 4;
-        const SET_FEATURE_ON_PROCESS: u32 = 2;
-        const SET_FEATURE_ON_THREAD: u32 = 1;
-        const SET_FEATURE_ON_THREAD_INTERNET: u32 = 64;
-        const SET_FEATURE_ON_THREAD_INTRANET: u32 = 16;
-        const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8;
-        const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128;
-        const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32;
+        const SECURITY_IE_STATE_GREEN: i32 = 0;
+        const SECURITY_IE_STATE_RED: i32 = 1;
+        const SET_FEATURE_IN_REGISTRY: i32 = 4;
+        const SET_FEATURE_ON_PROCESS: i32 = 2;
+        const SET_FEATURE_ON_THREAD: i32 = 1;
+        const SET_FEATURE_ON_THREAD_INTERNET: i32 = 64;
+        const SET_FEATURE_ON_THREAD_INTRANET: i32 = 16;
+        const SET_FEATURE_ON_THREAD_LOCALMACHINE: i32 = 8;
+        const SET_FEATURE_ON_THREAD_RESTRICTED: i32 = 128;
+        const SET_FEATURE_ON_THREAD_TRUSTED: i32 = 32;
         struct SOFTDISTINFO {
             cbSize: u32,
             dwFlags: u32,
@@ -1073,20 +1073,20 @@ mod Windows {
             dwAdvertisedVersionLS: u32,
             dwReserved: u32,
         }
-        const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1;
-        const SOFTDIST_ADSTATE_DOWNLOADED: u32 = 2;
-        const SOFTDIST_ADSTATE_INSTALLED: u32 = 3;
-        const SOFTDIST_ADSTATE_NONE: u32 = 0;
-        const SOFTDIST_FLAG_DELETE_SUBSCRIPTION: u32 = 8;
-        const SOFTDIST_FLAG_USAGE_AUTOINSTALL: u32 = 4;
-        const SOFTDIST_FLAG_USAGE_EMAIL: u32 = 1;
-        const SOFTDIST_FLAG_USAGE_PRECACHE: u32 = 2;
+        const SOFTDIST_ADSTATE_AVAILABLE: i32 = 1;
+        const SOFTDIST_ADSTATE_DOWNLOADED: i32 = 2;
+        const SOFTDIST_ADSTATE_INSTALLED: i32 = 3;
+        const SOFTDIST_ADSTATE_NONE: i32 = 0;
+        const SOFTDIST_FLAG_DELETE_SUBSCRIPTION: i32 = 8;
+        const SOFTDIST_FLAG_USAGE_AUTOINSTALL: i32 = 4;
+        const SOFTDIST_FLAG_USAGE_EMAIL: i32 = 1;
+        const SOFTDIST_FLAG_USAGE_PRECACHE: i32 = 2;
         #[repr(i32)]
         enum SZM_FLAGS {
             SZM_CREATE = 0,
             SZM_DELETE = 1,
         }
-        const S_ASYNCHRONOUS: u32 = 262632;
+        const S_ASYNCHRONOUS: i32 = 262632;
         #[library("urlmon.dll")]
         extern fn SetAccessForIEAppContainer(hObject: HANDLE, ieObjectType: IEObjectType, dwAccessMask: u32) -> HRESULT;
         #[library("urlmon.dll")]
@@ -1096,149 +1096,149 @@ mod Windows {
             pIBindCtx: IBindCtx,
             pItf: IUnknown,
         }
-        const UAS_EXACTLEGACY: u32 = 4096;
-        const URLACTION_ACTIVEX_ALLOW_TDC: u32 = 4620;
-        const URLACTION_ACTIVEX_CONFIRM_NOOBJECTSAFETY: u32 = 4612;
-        const URLACTION_ACTIVEX_CURR_MAX: u32 = 4620;
-        const URLACTION_ACTIVEX_DYNSRC_VIDEO_AND_ANIMATION: u32 = 4618;
-        const URLACTION_ACTIVEX_MAX: u32 = 5119;
-        const URLACTION_ACTIVEX_MIN: u32 = 4608;
-        const URLACTION_ACTIVEX_NO_WEBOC_SCRIPT: u32 = 4614;
-        const URLACTION_ACTIVEX_OVERRIDE_DATA_SAFETY: u32 = 4610;
-        const URLACTION_ACTIVEX_OVERRIDE_DOMAINLIST: u32 = 4619;
-        const URLACTION_ACTIVEX_OVERRIDE_OBJECT_SAFETY: u32 = 4609;
-        const URLACTION_ACTIVEX_OVERRIDE_OPTIN: u32 = 4616;
-        const URLACTION_ACTIVEX_OVERRIDE_REPURPOSEDETECTION: u32 = 4615;
-        const URLACTION_ACTIVEX_OVERRIDE_SCRIPT_SAFETY: u32 = 4611;
-        const URLACTION_ACTIVEX_RUN: u32 = 4608;
-        const URLACTION_ACTIVEX_SCRIPTLET_RUN: u32 = 4617;
-        const URLACTION_ACTIVEX_TREATASUNTRUSTED: u32 = 4613;
-        const URLACTION_ALLOW_ACTIVEX_FILTERING: u32 = 9986;
-        const URLACTION_ALLOW_ANTIMALWARE_SCANNING_OF_ACTIVEX: u32 = 9996;
-        const URLACTION_ALLOW_APEVALUATION: u32 = 8961;
-        const URLACTION_ALLOW_AUDIO_VIDEO: u32 = 9985;
-        const URLACTION_ALLOW_AUDIO_VIDEO_PLUGINS: u32 = 9988;
-        const URLACTION_ALLOW_CROSSDOMAIN_APPCACHE_MANIFEST: u32 = 9994;
-        const URLACTION_ALLOW_CROSSDOMAIN_DROP_ACROSS_WINDOWS: u32 = 9993;
-        const URLACTION_ALLOW_CROSSDOMAIN_DROP_WITHIN_WINDOW: u32 = 9992;
-        const URLACTION_ALLOW_CSS_EXPRESSIONS: u32 = 9997;
-        const URLACTION_ALLOW_JSCRIPT_IE: u32 = 5133;
-        const URLACTION_ALLOW_RENDER_LEGACY_DXTFILTERS: u32 = 9995;
-        const URLACTION_ALLOW_RESTRICTEDPROTOCOLS: u32 = 8960;
-        const URLACTION_ALLOW_STRUCTURED_STORAGE_SNIFFING: u32 = 9987;
-        const URLACTION_ALLOW_VBSCRIPT_IE: u32 = 5132;
-        const URLACTION_ALLOW_XDOMAIN_SUBFRAME_RESIZE: u32 = 5128;
-        const URLACTION_ALLOW_XHR_EVALUATION: u32 = 8962;
-        const URLACTION_ALLOW_ZONE_ELEVATION_OPT_OUT_ADDITION: u32 = 9990;
-        const URLACTION_ALLOW_ZONE_ELEVATION_VIA_OPT_OUT: u32 = 9989;
-        const URLACTION_AUTHENTICATE_CLIENT: u32 = 6657;
-        const URLACTION_AUTOMATIC_ACTIVEX_UI: u32 = 8705;
-        const URLACTION_AUTOMATIC_DOWNLOAD_UI: u32 = 8704;
-        const URLACTION_AUTOMATIC_DOWNLOAD_UI_MIN: u32 = 8704;
-        const URLACTION_BEHAVIOR_MIN: u32 = 8192;
-        const URLACTION_BEHAVIOR_RUN: u32 = 8192;
-        const URLACTION_CHANNEL_SOFTDIST_MAX: u32 = 7935;
-        const URLACTION_CHANNEL_SOFTDIST_MIN: u32 = 7680;
-        const URLACTION_CHANNEL_SOFTDIST_PERMISSIONS: u32 = 7685;
-        const URLACTION_CLIENT_CERT_PROMPT: u32 = 6660;
-        const URLACTION_COOKIES: u32 = 6658;
-        const URLACTION_COOKIES_ENABLED: u32 = 6672;
-        const URLACTION_COOKIES_SESSION: u32 = 6659;
-        const URLACTION_COOKIES_SESSION_THIRD_PARTY: u32 = 6662;
-        const URLACTION_COOKIES_THIRD_PARTY: u32 = 6661;
-        const URLACTION_CREDENTIALS_USE: u32 = 6656;
-        const URLACTION_CROSS_DOMAIN_DATA: u32 = 5126;
-        const URLACTION_DOTNET_USERCONTROLS: u32 = 8197;
-        const URLACTION_DOWNLOAD_CURR_MAX: u32 = 4100;
-        const URLACTION_DOWNLOAD_MAX: u32 = 4607;
-        const URLACTION_DOWNLOAD_MIN: u32 = 4096;
-        const URLACTION_DOWNLOAD_SIGNED_ACTIVEX: u32 = 4097;
-        const URLACTION_DOWNLOAD_UNSIGNED_ACTIVEX: u32 = 4100;
-        const URLACTION_FEATURE_BLOCK_INPUT_PROMPTS: u32 = 8453;
-        const URLACTION_FEATURE_CROSSDOMAIN_FOCUS_CHANGE: u32 = 8455;
-        const URLACTION_FEATURE_DATA_BINDING: u32 = 8454;
-        const URLACTION_FEATURE_FORCE_ADDR_AND_STATUS: u32 = 8452;
-        const URLACTION_FEATURE_MIME_SNIFFING: u32 = 8448;
-        const URLACTION_FEATURE_MIN: u32 = 8448;
-        const URLACTION_FEATURE_SCRIPT_STATUS_BAR: u32 = 8451;
-        const URLACTION_FEATURE_WINDOW_RESTRICTIONS: u32 = 8450;
-        const URLACTION_FEATURE_ZONE_ELEVATION: u32 = 8449;
-        const URLACTION_HTML_ALLOW_CROSS_DOMAIN_CANVAS: u32 = 5645;
-        const URLACTION_HTML_ALLOW_CROSS_DOMAIN_TEXTTRACK: u32 = 5648;
-        const URLACTION_HTML_ALLOW_CROSS_DOMAIN_WEBWORKER: u32 = 5647;
-        const URLACTION_HTML_ALLOW_INDEXEDDB: u32 = 5649;
-        const URLACTION_HTML_ALLOW_INJECTED_DYNAMIC_HTML: u32 = 5643;
-        const URLACTION_HTML_ALLOW_WINDOW_CLOSE: u32 = 5646;
-        const URLACTION_HTML_FONT_DOWNLOAD: u32 = 5636;
-        const URLACTION_HTML_INCLUDE_FILE_PATH: u32 = 5642;
-        const URLACTION_HTML_JAVA_RUN: u32 = 5637;
-        const URLACTION_HTML_MAX: u32 = 6143;
-        const URLACTION_HTML_META_REFRESH: u32 = 5640;
-        const URLACTION_HTML_MIN: u32 = 5632;
-        const URLACTION_HTML_MIXED_CONTENT: u32 = 5641;
-        const URLACTION_HTML_REQUIRE_UTF8_DOCUMENT_CODEPAGE: u32 = 5644;
-        const URLACTION_HTML_SUBFRAME_NAVIGATE: u32 = 5639;
-        const URLACTION_HTML_SUBMIT_FORMS: u32 = 5633;
-        const URLACTION_HTML_SUBMIT_FORMS_FROM: u32 = 5634;
-        const URLACTION_HTML_SUBMIT_FORMS_TO: u32 = 5635;
-        const URLACTION_HTML_USERDATA_SAVE: u32 = 5638;
-        const URLACTION_INFODELIVERY_CURR_MAX: u32 = 7430;
-        const URLACTION_INFODELIVERY_MAX: u32 = 7679;
-        const URLACTION_INFODELIVERY_MIN: u32 = 7424;
-        const URLACTION_INFODELIVERY_NO_ADDING_CHANNELS: u32 = 7424;
-        const URLACTION_INFODELIVERY_NO_ADDING_SUBSCRIPTIONS: u32 = 7427;
-        const URLACTION_INFODELIVERY_NO_CHANNEL_LOGGING: u32 = 7430;
-        const URLACTION_INFODELIVERY_NO_EDITING_CHANNELS: u32 = 7425;
-        const URLACTION_INFODELIVERY_NO_EDITING_SUBSCRIPTIONS: u32 = 7428;
-        const URLACTION_INFODELIVERY_NO_REMOVING_CHANNELS: u32 = 7426;
-        const URLACTION_INFODELIVERY_NO_REMOVING_SUBSCRIPTIONS: u32 = 7429;
-        const URLACTION_INPRIVATE_BLOCKING: u32 = 9984;
-        const URLACTION_JAVA_CURR_MAX: u32 = 7168;
-        const URLACTION_JAVA_MAX: u32 = 7423;
-        const URLACTION_JAVA_MIN: u32 = 7168;
-        const URLACTION_JAVA_PERMISSIONS: u32 = 7168;
-        const URLACTION_LOOSE_XAML: u32 = 9218;
-        const URLACTION_LOWRIGHTS: u32 = 9472;
-        const URLACTION_MIN: u32 = 4096;
-        const URLACTION_NETWORK_CURR_MAX: u32 = 6672;
-        const URLACTION_NETWORK_MAX: u32 = 7167;
-        const URLACTION_NETWORK_MIN: u32 = 6656;
-        const URLACTION_PLUGGABLE_PROTOCOL_XHR: u32 = 5131;
-        const URLACTION_SCRIPT_CURR_MAX: u32 = 5133;
-        const URLACTION_SCRIPT_JAVA_USE: u32 = 5122;
-        const URLACTION_SCRIPT_MAX: u32 = 5631;
-        const URLACTION_SCRIPT_MIN: u32 = 5120;
-        const URLACTION_SCRIPT_NAVIGATE: u32 = 5130;
-        const URLACTION_SCRIPT_OVERRIDE_SAFETY: u32 = 5121;
-        const URLACTION_SCRIPT_PASTE: u32 = 5127;
-        const URLACTION_SCRIPT_RUN: u32 = 5120;
-        const URLACTION_SCRIPT_SAFE_ACTIVEX: u32 = 5125;
-        const URLACTION_SCRIPT_XSSFILTER: u32 = 5129;
-        const URLACTION_SHELL_ALLOW_CROSS_SITE_SHARE: u32 = 6161;
-        const URLACTION_SHELL_CURR_MAX: u32 = 6162;
-        const URLACTION_SHELL_ENHANCED_DRAGDROP_SECURITY: u32 = 6155;
-        const URLACTION_SHELL_EXECUTE_HIGHRISK: u32 = 6150;
-        const URLACTION_SHELL_EXECUTE_LOWRISK: u32 = 6152;
-        const URLACTION_SHELL_EXECUTE_MODRISK: u32 = 6151;
-        const URLACTION_SHELL_EXTENSIONSECURITY: u32 = 6156;
-        const URLACTION_SHELL_FILE_DOWNLOAD: u32 = 6147;
-        const URLACTION_SHELL_INSTALL_DTITEMS: u32 = 6144;
-        const URLACTION_SHELL_MAX: u32 = 6655;
-        const URLACTION_SHELL_MIN: u32 = 6144;
-        const URLACTION_SHELL_MOVE_OR_COPY: u32 = 6146;
-        const URLACTION_SHELL_POPUPMGR: u32 = 6153;
-        const URLACTION_SHELL_PREVIEW: u32 = 6159;
-        const URLACTION_SHELL_REMOTEQUERY: u32 = 6158;
-        const URLACTION_SHELL_RTF_OBJECTS_LOAD: u32 = 6154;
-        const URLACTION_SHELL_SECURE_DRAGSOURCE: u32 = 6157;
-        const URLACTION_SHELL_SHARE: u32 = 6160;
-        const URLACTION_SHELL_SHELLEXECUTE: u32 = 6150;
-        const URLACTION_SHELL_TOCTOU_RISK: u32 = 6162;
-        const URLACTION_SHELL_VERB: u32 = 6148;
-        const URLACTION_SHELL_WEBVIEW_VERB: u32 = 6149;
-        const URLACTION_WINDOWS_BROWSER_APPLICATIONS: u32 = 9216;
-        const URLACTION_WINFX_SETUP: u32 = 9728;
-        const URLACTION_XPS_DOCUMENTS: u32 = 9217;
+        const UAS_EXACTLEGACY: i32 = 4096;
+        const URLACTION_ACTIVEX_ALLOW_TDC: i32 = 4620;
+        const URLACTION_ACTIVEX_CONFIRM_NOOBJECTSAFETY: i32 = 4612;
+        const URLACTION_ACTIVEX_CURR_MAX: i32 = 4620;
+        const URLACTION_ACTIVEX_DYNSRC_VIDEO_AND_ANIMATION: i32 = 4618;
+        const URLACTION_ACTIVEX_MAX: i32 = 5119;
+        const URLACTION_ACTIVEX_MIN: i32 = 4608;
+        const URLACTION_ACTIVEX_NO_WEBOC_SCRIPT: i32 = 4614;
+        const URLACTION_ACTIVEX_OVERRIDE_DATA_SAFETY: i32 = 4610;
+        const URLACTION_ACTIVEX_OVERRIDE_DOMAINLIST: i32 = 4619;
+        const URLACTION_ACTIVEX_OVERRIDE_OBJECT_SAFETY: i32 = 4609;
+        const URLACTION_ACTIVEX_OVERRIDE_OPTIN: i32 = 4616;
+        const URLACTION_ACTIVEX_OVERRIDE_REPURPOSEDETECTION: i32 = 4615;
+        const URLACTION_ACTIVEX_OVERRIDE_SCRIPT_SAFETY: i32 = 4611;
+        const URLACTION_ACTIVEX_RUN: i32 = 4608;
+        const URLACTION_ACTIVEX_SCRIPTLET_RUN: i32 = 4617;
+        const URLACTION_ACTIVEX_TREATASUNTRUSTED: i32 = 4613;
+        const URLACTION_ALLOW_ACTIVEX_FILTERING: i32 = 9986;
+        const URLACTION_ALLOW_ANTIMALWARE_SCANNING_OF_ACTIVEX: i32 = 9996;
+        const URLACTION_ALLOW_APEVALUATION: i32 = 8961;
+        const URLACTION_ALLOW_AUDIO_VIDEO: i32 = 9985;
+        const URLACTION_ALLOW_AUDIO_VIDEO_PLUGINS: i32 = 9988;
+        const URLACTION_ALLOW_CROSSDOMAIN_APPCACHE_MANIFEST: i32 = 9994;
+        const URLACTION_ALLOW_CROSSDOMAIN_DROP_ACROSS_WINDOWS: i32 = 9993;
+        const URLACTION_ALLOW_CROSSDOMAIN_DROP_WITHIN_WINDOW: i32 = 9992;
+        const URLACTION_ALLOW_CSS_EXPRESSIONS: i32 = 9997;
+        const URLACTION_ALLOW_JSCRIPT_IE: i32 = 5133;
+        const URLACTION_ALLOW_RENDER_LEGACY_DXTFILTERS: i32 = 9995;
+        const URLACTION_ALLOW_RESTRICTEDPROTOCOLS: i32 = 8960;
+        const URLACTION_ALLOW_STRUCTURED_STORAGE_SNIFFING: i32 = 9987;
+        const URLACTION_ALLOW_VBSCRIPT_IE: i32 = 5132;
+        const URLACTION_ALLOW_XDOMAIN_SUBFRAME_RESIZE: i32 = 5128;
+        const URLACTION_ALLOW_XHR_EVALUATION: i32 = 8962;
+        const URLACTION_ALLOW_ZONE_ELEVATION_OPT_OUT_ADDITION: i32 = 9990;
+        const URLACTION_ALLOW_ZONE_ELEVATION_VIA_OPT_OUT: i32 = 9989;
+        const URLACTION_AUTHENTICATE_CLIENT: i32 = 6657;
+        const URLACTION_AUTOMATIC_ACTIVEX_UI: i32 = 8705;
+        const URLACTION_AUTOMATIC_DOWNLOAD_UI: i32 = 8704;
+        const URLACTION_AUTOMATIC_DOWNLOAD_UI_MIN: i32 = 8704;
+        const URLACTION_BEHAVIOR_MIN: i32 = 8192;
+        const URLACTION_BEHAVIOR_RUN: i32 = 8192;
+        const URLACTION_CHANNEL_SOFTDIST_MAX: i32 = 7935;
+        const URLACTION_CHANNEL_SOFTDIST_MIN: i32 = 7680;
+        const URLACTION_CHANNEL_SOFTDIST_PERMISSIONS: i32 = 7685;
+        const URLACTION_CLIENT_CERT_PROMPT: i32 = 6660;
+        const URLACTION_COOKIES: i32 = 6658;
+        const URLACTION_COOKIES_ENABLED: i32 = 6672;
+        const URLACTION_COOKIES_SESSION: i32 = 6659;
+        const URLACTION_COOKIES_SESSION_THIRD_PARTY: i32 = 6662;
+        const URLACTION_COOKIES_THIRD_PARTY: i32 = 6661;
+        const URLACTION_CREDENTIALS_USE: i32 = 6656;
+        const URLACTION_CROSS_DOMAIN_DATA: i32 = 5126;
+        const URLACTION_DOTNET_USERCONTROLS: i32 = 8197;
+        const URLACTION_DOWNLOAD_CURR_MAX: i32 = 4100;
+        const URLACTION_DOWNLOAD_MAX: i32 = 4607;
+        const URLACTION_DOWNLOAD_MIN: i32 = 4096;
+        const URLACTION_DOWNLOAD_SIGNED_ACTIVEX: i32 = 4097;
+        const URLACTION_DOWNLOAD_UNSIGNED_ACTIVEX: i32 = 4100;
+        const URLACTION_FEATURE_BLOCK_INPUT_PROMPTS: i32 = 8453;
+        const URLACTION_FEATURE_CROSSDOMAIN_FOCUS_CHANGE: i32 = 8455;
+        const URLACTION_FEATURE_DATA_BINDING: i32 = 8454;
+        const URLACTION_FEATURE_FORCE_ADDR_AND_STATUS: i32 = 8452;
+        const URLACTION_FEATURE_MIME_SNIFFING: i32 = 8448;
+        const URLACTION_FEATURE_MIN: i32 = 8448;
+        const URLACTION_FEATURE_SCRIPT_STATUS_BAR: i32 = 8451;
+        const URLACTION_FEATURE_WINDOW_RESTRICTIONS: i32 = 8450;
+        const URLACTION_FEATURE_ZONE_ELEVATION: i32 = 8449;
+        const URLACTION_HTML_ALLOW_CROSS_DOMAIN_CANVAS: i32 = 5645;
+        const URLACTION_HTML_ALLOW_CROSS_DOMAIN_TEXTTRACK: i32 = 5648;
+        const URLACTION_HTML_ALLOW_CROSS_DOMAIN_WEBWORKER: i32 = 5647;
+        const URLACTION_HTML_ALLOW_INDEXEDDB: i32 = 5649;
+        const URLACTION_HTML_ALLOW_INJECTED_DYNAMIC_HTML: i32 = 5643;
+        const URLACTION_HTML_ALLOW_WINDOW_CLOSE: i32 = 5646;
+        const URLACTION_HTML_FONT_DOWNLOAD: i32 = 5636;
+        const URLACTION_HTML_INCLUDE_FILE_PATH: i32 = 5642;
+        const URLACTION_HTML_JAVA_RUN: i32 = 5637;
+        const URLACTION_HTML_MAX: i32 = 6143;
+        const URLACTION_HTML_META_REFRESH: i32 = 5640;
+        const URLACTION_HTML_MIN: i32 = 5632;
+        const URLACTION_HTML_MIXED_CONTENT: i32 = 5641;
+        const URLACTION_HTML_REQUIRE_UTF8_DOCUMENT_CODEPAGE: i32 = 5644;
+        const URLACTION_HTML_SUBFRAME_NAVIGATE: i32 = 5639;
+        const URLACTION_HTML_SUBMIT_FORMS: i32 = 5633;
+        const URLACTION_HTML_SUBMIT_FORMS_FROM: i32 = 5634;
+        const URLACTION_HTML_SUBMIT_FORMS_TO: i32 = 5635;
+        const URLACTION_HTML_USERDATA_SAVE: i32 = 5638;
+        const URLACTION_INFODELIVERY_CURR_MAX: i32 = 7430;
+        const URLACTION_INFODELIVERY_MAX: i32 = 7679;
+        const URLACTION_INFODELIVERY_MIN: i32 = 7424;
+        const URLACTION_INFODELIVERY_NO_ADDING_CHANNELS: i32 = 7424;
+        const URLACTION_INFODELIVERY_NO_ADDING_SUBSCRIPTIONS: i32 = 7427;
+        const URLACTION_INFODELIVERY_NO_CHANNEL_LOGGING: i32 = 7430;
+        const URLACTION_INFODELIVERY_NO_EDITING_CHANNELS: i32 = 7425;
+        const URLACTION_INFODELIVERY_NO_EDITING_SUBSCRIPTIONS: i32 = 7428;
+        const URLACTION_INFODELIVERY_NO_REMOVING_CHANNELS: i32 = 7426;
+        const URLACTION_INFODELIVERY_NO_REMOVING_SUBSCRIPTIONS: i32 = 7429;
+        const URLACTION_INPRIVATE_BLOCKING: i32 = 9984;
+        const URLACTION_JAVA_CURR_MAX: i32 = 7168;
+        const URLACTION_JAVA_MAX: i32 = 7423;
+        const URLACTION_JAVA_MIN: i32 = 7168;
+        const URLACTION_JAVA_PERMISSIONS: i32 = 7168;
+        const URLACTION_LOOSE_XAML: i32 = 9218;
+        const URLACTION_LOWRIGHTS: i32 = 9472;
+        const URLACTION_MIN: i32 = 4096;
+        const URLACTION_NETWORK_CURR_MAX: i32 = 6672;
+        const URLACTION_NETWORK_MAX: i32 = 7167;
+        const URLACTION_NETWORK_MIN: i32 = 6656;
+        const URLACTION_PLUGGABLE_PROTOCOL_XHR: i32 = 5131;
+        const URLACTION_SCRIPT_CURR_MAX: i32 = 5133;
+        const URLACTION_SCRIPT_JAVA_USE: i32 = 5122;
+        const URLACTION_SCRIPT_MAX: i32 = 5631;
+        const URLACTION_SCRIPT_MIN: i32 = 5120;
+        const URLACTION_SCRIPT_NAVIGATE: i32 = 5130;
+        const URLACTION_SCRIPT_OVERRIDE_SAFETY: i32 = 5121;
+        const URLACTION_SCRIPT_PASTE: i32 = 5127;
+        const URLACTION_SCRIPT_RUN: i32 = 5120;
+        const URLACTION_SCRIPT_SAFE_ACTIVEX: i32 = 5125;
+        const URLACTION_SCRIPT_XSSFILTER: i32 = 5129;
+        const URLACTION_SHELL_ALLOW_CROSS_SITE_SHARE: i32 = 6161;
+        const URLACTION_SHELL_CURR_MAX: i32 = 6162;
+        const URLACTION_SHELL_ENHANCED_DRAGDROP_SECURITY: i32 = 6155;
+        const URLACTION_SHELL_EXECUTE_HIGHRISK: i32 = 6150;
+        const URLACTION_SHELL_EXECUTE_LOWRISK: i32 = 6152;
+        const URLACTION_SHELL_EXECUTE_MODRISK: i32 = 6151;
+        const URLACTION_SHELL_EXTENSIONSECURITY: i32 = 6156;
+        const URLACTION_SHELL_FILE_DOWNLOAD: i32 = 6147;
+        const URLACTION_SHELL_INSTALL_DTITEMS: i32 = 6144;
+        const URLACTION_SHELL_MAX: i32 = 6655;
+        const URLACTION_SHELL_MIN: i32 = 6144;
+        const URLACTION_SHELL_MOVE_OR_COPY: i32 = 6146;
+        const URLACTION_SHELL_POPUPMGR: i32 = 6153;
+        const URLACTION_SHELL_PREVIEW: i32 = 6159;
+        const URLACTION_SHELL_REMOTEQUERY: i32 = 6158;
+        const URLACTION_SHELL_RTF_OBJECTS_LOAD: i32 = 6154;
+        const URLACTION_SHELL_SECURE_DRAGSOURCE: i32 = 6157;
+        const URLACTION_SHELL_SHARE: i32 = 6160;
+        const URLACTION_SHELL_SHELLEXECUTE: i32 = 6150;
+        const URLACTION_SHELL_TOCTOU_RISK: i32 = 6162;
+        const URLACTION_SHELL_VERB: i32 = 6148;
+        const URLACTION_SHELL_WEBVIEW_VERB: i32 = 6149;
+        const URLACTION_WINDOWS_BROWSER_APPLICATIONS: i32 = 9216;
+        const URLACTION_WINFX_SETUP: i32 = 9728;
+        const URLACTION_XPS_DOCUMENTS: i32 = 9217;
         #[library("urlmon.dll")]
         extern fn URLDownloadToCacheFileA(#[opt] param0: IUnknown, param1: PCSTR, #[len_param(3)] #[out] param2: PSTR, cchFileName: u32, param4: u32, #[opt] param5: IBindStatusCallback) -> HRESULT;
         #[library("urlmon.dll")]
@@ -1247,14 +1247,14 @@ mod Windows {
         extern fn URLDownloadToFileA(#[opt] param0: IUnknown, param1: PCSTR, #[opt] param2: PCSTR, param3: u32, #[opt] param4: IBindStatusCallback) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn URLDownloadToFileW(#[opt] param0: IUnknown, param1: PCWSTR, #[opt] param2: PCWSTR, param3: u32, #[opt] param4: IBindStatusCallback) -> HRESULT;
-        const URLMON_OPTION_URL_ENCODING: u32 = 268435460;
-        const URLMON_OPTION_USERAGENT: u32 = 268435457;
-        const URLMON_OPTION_USERAGENT_REFRESH: u32 = 268435458;
-        const URLMON_OPTION_USE_BINDSTRINGCREDS: u32 = 268435464;
-        const URLMON_OPTION_USE_BROWSERAPPSDOCUMENTS: u32 = 268435472;
-        const URLOSTRM_GETNEWESTVERSION: u32 = 3;
-        const URLOSTRM_USECACHEDCOPY: u32 = 2;
-        const URLOSTRM_USECACHEDCOPY_ONLY: u32 = 1;
+        const URLMON_OPTION_URL_ENCODING: i32 = 268435460;
+        const URLMON_OPTION_USERAGENT: i32 = 268435457;
+        const URLMON_OPTION_USERAGENT_REFRESH: i32 = 268435458;
+        const URLMON_OPTION_USE_BINDSTRINGCREDS: i32 = 268435464;
+        const URLMON_OPTION_USE_BROWSERAPPSDOCUMENTS: i32 = 268435472;
+        const URLOSTRM_GETNEWESTVERSION: i32 = 3;
+        const URLOSTRM_USECACHEDCOPY: i32 = 2;
+        const URLOSTRM_USECACHEDCOPY_ONLY: i32 = 1;
         #[library("urlmon.dll")]
         extern fn URLOpenBlockingStreamA(#[opt] param0: IUnknown, param1: PCSTR, param2: *mut IStream, param3: u32, #[opt] param4: IBindStatusCallback) -> HRESULT;
         #[library("urlmon.dll")]
@@ -1267,32 +1267,32 @@ mod Windows {
         extern fn URLOpenStreamA(#[opt] param0: IUnknown, param1: PCSTR, param2: u32, #[opt] param3: IBindStatusCallback) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn URLOpenStreamW(#[opt] param0: IUnknown, param1: PCWSTR, param2: u32, #[opt] param3: IBindStatusCallback) -> HRESULT;
-        const URLPOLICY_ACTIVEX_CHECK_LIST: u32 = 65536;
-        const URLPOLICY_ALLOW: u32 = 0;
-        const URLPOLICY_AUTHENTICATE_CHALLENGE_RESPONSE: u32 = 65536;
-        const URLPOLICY_AUTHENTICATE_CLEARTEXT_OK: u32 = 0;
-        const URLPOLICY_AUTHENTICATE_MUTUAL_ONLY: u32 = 196608;
-        const URLPOLICY_BEHAVIOR_CHECK_LIST: u32 = 65536;
-        const URLPOLICY_CHANNEL_SOFTDIST_AUTOINSTALL: u32 = 196608;
-        const URLPOLICY_CHANNEL_SOFTDIST_PRECACHE: u32 = 131072;
-        const URLPOLICY_CHANNEL_SOFTDIST_PROHIBIT: u32 = 65536;
-        const URLPOLICY_CREDENTIALS_ANONYMOUS_ONLY: u32 = 196608;
-        const URLPOLICY_CREDENTIALS_CONDITIONAL_PROMPT: u32 = 131072;
-        const URLPOLICY_CREDENTIALS_MUST_PROMPT_USER: u32 = 65536;
-        const URLPOLICY_CREDENTIALS_SILENT_LOGON_OK: u32 = 0;
-        const URLPOLICY_DISALLOW: u32 = 3;
-        const URLPOLICY_DONTCHECKDLGBOX: u32 = 256;
-        const URLPOLICY_JAVA_CUSTOM: u32 = 8388608;
-        const URLPOLICY_JAVA_HIGH: u32 = 65536;
-        const URLPOLICY_JAVA_LOW: u32 = 196608;
-        const URLPOLICY_JAVA_MEDIUM: u32 = 131072;
-        const URLPOLICY_JAVA_PROHIBIT: u32 = 0;
-        const URLPOLICY_LOG_ON_ALLOW: u32 = 64;
-        const URLPOLICY_LOG_ON_DISALLOW: u32 = 128;
-        const URLPOLICY_MASK_PERMISSIONS: u32 = 15;
-        const URLPOLICY_NOTIFY_ON_ALLOW: u32 = 16;
-        const URLPOLICY_NOTIFY_ON_DISALLOW: u32 = 32;
-        const URLPOLICY_QUERY: u32 = 1;
+        const URLPOLICY_ACTIVEX_CHECK_LIST: i32 = 65536;
+        const URLPOLICY_ALLOW: i32 = 0;
+        const URLPOLICY_AUTHENTICATE_CHALLENGE_RESPONSE: i32 = 65536;
+        const URLPOLICY_AUTHENTICATE_CLEARTEXT_OK: i32 = 0;
+        const URLPOLICY_AUTHENTICATE_MUTUAL_ONLY: i32 = 196608;
+        const URLPOLICY_BEHAVIOR_CHECK_LIST: i32 = 65536;
+        const URLPOLICY_CHANNEL_SOFTDIST_AUTOINSTALL: i32 = 196608;
+        const URLPOLICY_CHANNEL_SOFTDIST_PRECACHE: i32 = 131072;
+        const URLPOLICY_CHANNEL_SOFTDIST_PROHIBIT: i32 = 65536;
+        const URLPOLICY_CREDENTIALS_ANONYMOUS_ONLY: i32 = 196608;
+        const URLPOLICY_CREDENTIALS_CONDITIONAL_PROMPT: i32 = 131072;
+        const URLPOLICY_CREDENTIALS_MUST_PROMPT_USER: i32 = 65536;
+        const URLPOLICY_CREDENTIALS_SILENT_LOGON_OK: i32 = 0;
+        const URLPOLICY_DISALLOW: i32 = 3;
+        const URLPOLICY_DONTCHECKDLGBOX: i32 = 256;
+        const URLPOLICY_JAVA_CUSTOM: i32 = 8388608;
+        const URLPOLICY_JAVA_HIGH: i32 = 65536;
+        const URLPOLICY_JAVA_LOW: i32 = 196608;
+        const URLPOLICY_JAVA_MEDIUM: i32 = 131072;
+        const URLPOLICY_JAVA_PROHIBIT: i32 = 0;
+        const URLPOLICY_LOG_ON_ALLOW: i32 = 64;
+        const URLPOLICY_LOG_ON_DISALLOW: i32 = 128;
+        const URLPOLICY_MASK_PERMISSIONS: i32 = 15;
+        const URLPOLICY_NOTIFY_ON_ALLOW: i32 = 16;
+        const URLPOLICY_NOTIFY_ON_DISALLOW: i32 = 32;
+        const URLPOLICY_QUERY: i32 = 1;
         #[repr(i32)]
         enum URLTEMPLATE {
             URLTEMPLATE_CUSTOM = 0,
@@ -1323,65 +1323,65 @@ mod Windows {
             URLZONEREG_HKLM = 1,
             URLZONEREG_HKCU = 2,
         }
-        const URLZONE_ESC_FLAG: u32 = 256;
+        const URLZONE_ESC_FLAG: i32 = 256;
         #[repr(i32)]
         enum URL_ENCODING {
             URL_ENCODING_NONE = 0,
             URL_ENCODING_ENABLE_UTF8 = 268435456,
             URL_ENCODING_DISABLE_UTF8 = 536870912,
         }
-        const URL_MK_LEGACY: u32 = 0;
-        const URL_MK_NO_CANONICALIZE: u32 = 2;
-        const URL_MK_UNIFORM: u32 = 1;
-        const UriBuilder_USE_ORIGINAL_FLAGS: u32 = 1;
-        const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: u32 = 4;
-        const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: u32 = 2;
-        const Uri_CREATE_ALLOW_RELATIVE: u32 = 1;
-        const Uri_CREATE_CANONICALIZE: u32 = 256;
-        const Uri_CREATE_CANONICALIZE_ABSOLUTE: u32 = 131072;
-        const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: u32 = 512;
-        const Uri_CREATE_DECODE_EXTRA_INFO: u32 = 64;
-        const Uri_CREATE_FILE_USE_DOS_PATH: u32 = 32;
-        const Uri_CREATE_IE_SETTINGS: u32 = 8192;
-        const Uri_CREATE_NOFRAG: u32 = 8;
-        const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: u32 = 65536;
-        const Uri_CREATE_NO_CANONICALIZE: u32 = 16;
-        const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: u32 = 1024;
-        const Uri_CREATE_NO_DECODE_EXTRA_INFO: u32 = 128;
-        const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: u32 = 32768;
-        const Uri_CREATE_NO_IE_SETTINGS: u32 = 16384;
-        const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: u32 = 4096;
-        const Uri_CREATE_PRE_PROCESS_HTML_URI: u32 = 2048;
-        const Uri_DISPLAY_IDN_HOST: u32 = 4;
-        const Uri_DISPLAY_NO_FRAGMENT: u32 = 1;
-        const Uri_DISPLAY_NO_PUNYCODE: u32 = 8;
-        const Uri_ENCODING_HOST_IS_IDN: u32 = 4;
-        const Uri_ENCODING_HOST_IS_PERCENT_ENCODED_CP: u32 = 16;
-        const Uri_ENCODING_HOST_IS_PERCENT_ENCODED_UTF8: u32 = 8;
-        const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_CP: u32 = 64;
-        const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_PERCENT_ENCODED_UTF8: u32 = 32;
-        const Uri_ENCODING_RFC: u32 = 41;
-        const Uri_ENCODING_USER_INFO_AND_PATH_IS_CP: u32 = 2;
-        const Uri_ENCODING_USER_INFO_AND_PATH_IS_PERCENT_ENCODED_UTF8: u32 = 1;
-        const Uri_HAS_ABSOLUTE_URI: u32 = 1;
-        const Uri_HAS_AUTHORITY: u32 = 2;
-        const Uri_HAS_DISPLAY_URI: u32 = 4;
-        const Uri_HAS_DOMAIN: u32 = 8;
-        const Uri_HAS_EXTENSION: u32 = 16;
-        const Uri_HAS_FRAGMENT: u32 = 32;
-        const Uri_HAS_HOST: u32 = 64;
-        const Uri_HAS_HOST_TYPE: u32 = 32768;
-        const Uri_HAS_PASSWORD: u32 = 128;
-        const Uri_HAS_PATH: u32 = 256;
-        const Uri_HAS_PATH_AND_QUERY: u32 = 512;
-        const Uri_HAS_PORT: u32 = 65536;
-        const Uri_HAS_QUERY: u32 = 1024;
-        const Uri_HAS_RAW_URI: u32 = 2048;
-        const Uri_HAS_SCHEME: u32 = 131072;
-        const Uri_HAS_SCHEME_NAME: u32 = 4096;
-        const Uri_HAS_USER_INFO: u32 = 8192;
-        const Uri_HAS_USER_NAME: u32 = 16384;
-        const Uri_HAS_ZONE: u32 = 262144;
+        const URL_MK_LEGACY: i32 = 0;
+        const URL_MK_NO_CANONICALIZE: i32 = 2;
+        const URL_MK_UNIFORM: i32 = 1;
+        const UriBuilder_USE_ORIGINAL_FLAGS: i32 = 1;
+        const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: i32 = 4;
+        const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: i32 = 2;
+        const Uri_CREATE_ALLOW_RELATIVE: i32 = 1;
+        const Uri_CREATE_CANONICALIZE: i32 = 256;
+        const Uri_CREATE_CANONICALIZE_ABSOLUTE: i32 = 131072;
+        const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: i32 = 512;
+        const Uri_CREATE_DECODE_EXTRA_INFO: i32 = 64;
+        const Uri_CREATE_FILE_USE_DOS_PATH: i32 = 32;
+        const Uri_CREATE_IE_SETTINGS: i32 = 8192;
+        const Uri_CREATE_NOFRAG: i32 = 8;
+        const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: i32 = 65536;
+        const Uri_CREATE_NO_CANONICALIZE: i32 = 16;
+        const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: i32 = 1024;
+        const Uri_CREATE_NO_DECODE_EXTRA_INFO: i32 = 128;
+        const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: i32 = 32768;
+        const Uri_CREATE_NO_IE_SETTINGS: i32 = 16384;
+        const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: i32 = 4096;
+        const Uri_CREATE_PRE_PROCESS_HTML_URI: i32 = 2048;
+        const Uri_DISPLAY_IDN_HOST: i32 = 4;
+        const Uri_DISPLAY_NO_FRAGMENT: i32 = 1;
+        const Uri_DISPLAY_NO_PUNYCODE: i32 = 8;
+        const Uri_ENCODING_HOST_IS_IDN: i32 = 4;
+        const Uri_ENCODING_HOST_IS_PERCENT_ENCODED_CP: i32 = 16;
+        const Uri_ENCODING_HOST_IS_PERCENT_ENCODED_UTF8: i32 = 8;
+        const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_CP: i32 = 64;
+        const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_PERCENT_ENCODED_UTF8: i32 = 32;
+        const Uri_ENCODING_RFC: i32 = 41;
+        const Uri_ENCODING_USER_INFO_AND_PATH_IS_CP: i32 = 2;
+        const Uri_ENCODING_USER_INFO_AND_PATH_IS_PERCENT_ENCODED_UTF8: i32 = 1;
+        const Uri_HAS_ABSOLUTE_URI: i32 = 1;
+        const Uri_HAS_AUTHORITY: i32 = 2;
+        const Uri_HAS_DISPLAY_URI: i32 = 4;
+        const Uri_HAS_DOMAIN: i32 = 8;
+        const Uri_HAS_EXTENSION: i32 = 16;
+        const Uri_HAS_FRAGMENT: i32 = 32;
+        const Uri_HAS_HOST: i32 = 64;
+        const Uri_HAS_HOST_TYPE: i32 = 32768;
+        const Uri_HAS_PASSWORD: i32 = 128;
+        const Uri_HAS_PATH: i32 = 256;
+        const Uri_HAS_PATH_AND_QUERY: i32 = 512;
+        const Uri_HAS_PORT: i32 = 65536;
+        const Uri_HAS_QUERY: i32 = 1024;
+        const Uri_HAS_RAW_URI: i32 = 2048;
+        const Uri_HAS_SCHEME: i32 = 131072;
+        const Uri_HAS_SCHEME_NAME: i32 = 4096;
+        const Uri_HAS_USER_INFO: i32 = 8192;
+        const Uri_HAS_USER_NAME: i32 = 16384;
+        const Uri_HAS_ZONE: i32 = 262144;
         #[repr(i32)]
         enum Uri_HOST_TYPE {
             Uri_HOST_UNKNOWN = 0,
@@ -1416,12 +1416,12 @@ mod Windows {
             Uri_PROPERTY_ZONE = 18,
             Uri_PROPERTY_DWORD_LAST = 18,
         }
-        const Uri_PUNYCODE_IDN_HOST: u32 = 2;
+        const Uri_PUNYCODE_IDN_HOST: i32 = 2;
         #[library("urlmon.dll")]
         extern fn UrlMkGetSessionOption(dwOption: u32, #[size_param(2)] #[opt] pBuffer: *mut void, dwBufferLength: u32, pdwBufferLengthOut: *mut u32, #[reserved] dwReserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn UrlMkSetSessionOption(dwOption: u32, #[size_param(2)] #[opt] pBuffer: *const void, dwBufferLength: u32, #[reserved] dwReserved: u32) -> HRESULT;
-        const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534;
+        const WININETINFO_OPTION_LOCK_HANDLE: i32 = 65534;
         #[library("urlmon.dll")]
         extern fn WriteHitLogging(lpLogginginfo: *const HIT_LOGGING_INFO) -> BOOL;
         #[repr(i32)]

@@ -1,1 +1,1 @@
-pub const WM_CTLCOLOR: u32 = 25;
+pub const WM_CTLCOLOR: i32 = 25;

@@ -612,19 +612,19 @@ where
     unsafe { WriteFmtUserTypeStg(pstg.param().abi(), cf, lpszusertype.param().abi()) }
 }
 pub const DATA_E_FORMATETC: i32 = -2147221404;
-pub const EMBDHLP_CREATENOW: u32 = 0;
-pub const EMBDHLP_DELAYCREATE: u32 = 65536;
-pub const EMBDHLP_INPROC_HANDLER: u32 = 0;
-pub const EMBDHLP_INPROC_SERVER: u32 = 1;
+pub const EMBDHLP_CREATENOW: i32 = 0;
+pub const EMBDHLP_DELAYCREATE: i32 = 65536;
+pub const EMBDHLP_INPROC_HANDLER: i32 = 0;
+pub const EMBDHLP_INPROC_SERVER: i32 = 1;
 pub const E_DRAW: i32 = -2147221184;
 pub type LPOLESTREAM = *mut OLESTREAM;
 pub type LPOLESTREAMVTBL = *mut OLESTREAMVTBL;
-pub const OLECREATE_LEAVERUNNING: u32 = 1;
+pub const OLECREATE_LEAVERUNNING: i32 = 1;
 pub const OLEIVERB_DISCARDUNDOSTATE: i32 = -6;
 pub const OLEIVERB_HIDE: i32 = -3;
 pub const OLEIVERB_INPLACEACTIVATE: i32 = -5;
 pub const OLEIVERB_OPEN: i32 = -2;
-pub const OLEIVERB_PRIMARY: u32 = 0;
+pub const OLEIVERB_PRIMARY: i32 = 0;
 pub const OLEIVERB_SHOW: i32 = -1;
 pub const OLEIVERB_UIACTIVATE: i32 = -4;
 #[repr(C)]
@@ -644,5 +644,5 @@ impl Default for OLESTREAMVTBL {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const OLESTREAM_CONVERSION_DEFAULT: u32 = 0;
-pub const OLESTREAM_CONVERSION_DISABLEOLELINK: u32 = 1;
+pub const OLESTREAM_CONVERSION_DEFAULT: i32 = 0;
+pub const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1;

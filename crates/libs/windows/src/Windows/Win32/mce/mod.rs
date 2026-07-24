@@ -82,9 +82,9 @@ pub struct MCA_EXCEPTION {
 }
 pub type MCA_EXCEPTION_TYPE = i32;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const MCA_EXCEPTION_V1_SIZE: u32 = 56;
+pub const MCA_EXCEPTION_V1_SIZE: i32 = 56;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const MCA_EXTREG_V2MAX: u32 = 24;
+pub const MCA_EXTREG_V2MAX: i32 = 24;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]

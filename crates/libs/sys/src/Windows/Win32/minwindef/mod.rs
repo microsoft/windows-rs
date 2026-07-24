@@ -1,5 +1,5 @@
 pub type ATOM = u16;
-pub const FALSE: u32 = 0;
+pub const FALSE: i32 = 0;
 #[cfg(target_arch = "x86")]
 pub type FARPROC = Option<unsafe extern "system" fn() -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -42,7 +42,7 @@ pub type LPINT = *mut i32;
 pub type LPLONG = *mut i32;
 pub type LPWORD = *mut u16;
 pub type LRESULT = isize;
-pub const MAX_PATH: u32 = 260;
+pub const MAX_PATH: i32 = 260;
 #[cfg(target_arch = "x86")]
 pub type NEARPROC = Option<unsafe extern "system" fn() -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -66,6 +66,6 @@ pub type PUSHORT = *mut u16;
 pub type PWORD = *mut u16;
 #[cfg(feature = "winnt")]
 pub type SPHANDLE = *mut super::HANDLE;
-pub const STRICT: u32 = 1;
-pub const TRUE: u32 = 1;
+pub const STRICT: i32 = 1;
+pub const TRUE: i32 = 1;
 pub type WPARAM = usize;

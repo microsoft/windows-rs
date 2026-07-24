@@ -449,16 +449,16 @@ pub const ACCESS_POWER_MODE: POWER_DATA_ACCESSOR = 26;
 pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = 25;
 pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = 16;
 pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = 17;
-pub const DEVICEPOWER_AND_OPERATION: u32 = 1073741824;
-pub const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2;
-pub const DEVICEPOWER_FILTER_DEVICES_PRESENT: u32 = 536870912;
-pub const DEVICEPOWER_FILTER_HARDWARE: u32 = 268435456;
-pub const DEVICEPOWER_FILTER_ON_NAME: u32 = 33554432;
-pub const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728;
-pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864;
+pub const DEVICEPOWER_AND_OPERATION: i32 = 1073741824;
+pub const DEVICEPOWER_CLEAR_WAKEENABLED: i32 = 2;
+pub const DEVICEPOWER_FILTER_DEVICES_PRESENT: i32 = 536870912;
+pub const DEVICEPOWER_FILTER_HARDWARE: i32 = 268435456;
+pub const DEVICEPOWER_FILTER_ON_NAME: i32 = 33554432;
+pub const DEVICEPOWER_FILTER_WAKEENABLED: i32 = 134217728;
+pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: i32 = 67108864;
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648;
-pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1;
-pub const DEVICE_NOTIFY_CALLBACK: u32 = 2;
+pub const DEVICEPOWER_SET_WAKEENABLED: i32 = 1;
+pub const DEVICE_NOTIFY_CALLBACK: i32 = 2;
 pub type DEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
@@ -471,11 +471,11 @@ impl Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EnableMultiBatteryDisplay: u32 = 2;
-pub const EnablePasswordLogon: u32 = 4;
-pub const EnableSysTrayBatteryMeter: u32 = 1;
-pub const EnableVideoDimDisplay: u32 = 16;
-pub const EnableWakeOnRing: u32 = 8;
+pub const EnableMultiBatteryDisplay: i32 = 2;
+pub const EnablePasswordLogon: i32 = 4;
+pub const EnableSysTrayBatteryMeter: i32 = 1;
+pub const EnableVideoDimDisplay: i32 = 16;
+pub const EnableWakeOnRing: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -546,16 +546,16 @@ pub struct MACHINE_PROCESSOR_POWER_POLICY {
     pub ProcessorPolicyDc: super::PROCESSOR_POWER_POLICY,
 }
 pub const NEWSCHEME: u32 = 4294967295;
-pub const PDCAP_S0_SUPPORTED: u32 = 65536;
-pub const PDCAP_S1_SUPPORTED: u32 = 131072;
-pub const PDCAP_S2_SUPPORTED: u32 = 262144;
-pub const PDCAP_S3_SUPPORTED: u32 = 524288;
-pub const PDCAP_S4_SUPPORTED: u32 = 16777216;
-pub const PDCAP_S5_SUPPORTED: u32 = 33554432;
-pub const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576;
-pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152;
-pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304;
-pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608;
+pub const PDCAP_S0_SUPPORTED: i32 = 65536;
+pub const PDCAP_S1_SUPPORTED: i32 = 131072;
+pub const PDCAP_S2_SUPPORTED: i32 = 262144;
+pub const PDCAP_S3_SUPPORTED: i32 = 524288;
+pub const PDCAP_S4_SUPPORTED: i32 = 16777216;
+pub const PDCAP_S5_SUPPORTED: i32 = 33554432;
+pub const PDCAP_WAKE_FROM_S0_SUPPORTED: i32 = 1048576;
+pub const PDCAP_WAKE_FROM_S1_SUPPORTED: i32 = 2097152;
+pub const PDCAP_WAKE_FROM_S2_SUPPORTED: i32 = 4194304;
+pub const PDCAP_WAKE_FROM_S3_SUPPORTED: i32 = 8388608;
 pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
 pub type PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS = *mut DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS;
 #[cfg(feature = "winnt")]
@@ -568,8 +568,8 @@ pub type PGLOBAL_USER_POWER_POLICY = *mut GLOBAL_USER_POWER_POLICY;
 pub type PMACHINE_POWER_POLICY = *mut MACHINE_POWER_POLICY;
 #[cfg(feature = "winnt")]
 pub type PMACHINE_PROCESSOR_POWER_POLICY = *mut MACHINE_PROCESSOR_POWER_POLICY;
-pub const POWER_ATTRIBUTE_HIDE: u32 = 1;
-pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2;
+pub const POWER_ATTRIBUTE_HIDE: i32 = 1;
+pub const POWER_ATTRIBUTE_SHOW_AOAC: i32 = 2;
 pub type POWER_DATA_ACCESSOR = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -600,7 +600,7 @@ pub struct THERMAL_EVENT {
     pub TripPointTemperature: u32,
     pub Initiator: windows_core::PWSTR,
 }
-pub const THERMAL_EVENT_VERSION: u32 = 1;
+pub const THERMAL_EVENT_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

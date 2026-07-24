@@ -108,7 +108,7 @@ pub const DISPID_EVALUATE: i32 = -5;
 pub const DISPID_NEWENUM: i32 = -4;
 pub const DISPID_PROPERTYPUT: i32 = -3;
 pub const DISPID_UNKNOWN: i32 = -1;
-pub const DISPID_VALUE: u32 = 0;
+pub const DISPID_VALUE: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -170,18 +170,18 @@ impl Default for EXCEPINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FADF_AUTO: u32 = 1;
-pub const FADF_BSTR: u32 = 256;
-pub const FADF_DISPATCH: u32 = 1024;
-pub const FADF_EMBEDDED: u32 = 4;
-pub const FADF_FIXEDSIZE: u32 = 16;
-pub const FADF_HAVEIID: u32 = 64;
-pub const FADF_HAVEVARTYPE: u32 = 128;
-pub const FADF_RECORD: u32 = 32;
-pub const FADF_RESERVED: u32 = 61448;
-pub const FADF_STATIC: u32 = 2;
-pub const FADF_UNKNOWN: u32 = 512;
-pub const FADF_VARIANT: u32 = 2048;
+pub const FADF_AUTO: i32 = 1;
+pub const FADF_BSTR: i32 = 256;
+pub const FADF_DISPATCH: i32 = 1024;
+pub const FADF_EMBEDDED: i32 = 4;
+pub const FADF_FIXEDSIZE: i32 = 16;
+pub const FADF_HAVEIID: i32 = 64;
+pub const FADF_HAVEVARTYPE: i32 = 128;
+pub const FADF_RECORD: i32 = 32;
+pub const FADF_RESERVED: i32 = 61448;
+pub const FADF_STATIC: i32 = 2;
+pub const FADF_UNKNOWN: i32 = 512;
+pub const FADF_VARIANT: i32 = 2048;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
@@ -1153,11 +1153,11 @@ pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: u16,
 }
-pub const IDLFLAG_FIN: u32 = 1;
-pub const IDLFLAG_FLCID: u32 = 4;
-pub const IDLFLAG_FOUT: u32 = 2;
-pub const IDLFLAG_FRETVAL: u32 = 8;
-pub const IDLFLAG_NONE: u32 = 0;
+pub const IDLFLAG_FIN: i32 = 1;
+pub const IDLFLAG_FLCID: i32 = 4;
+pub const IDLFLAG_FOUT: i32 = 2;
+pub const IDLFLAG_FRETVAL: i32 = 8;
+pub const IDLFLAG_NONE: i32 = 0;
 windows_core::imp::define_interface!(IDispatch, IDispatch_Vtbl, 0x00020400_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IDispatch, windows_core::IUnknown);
 impl IDispatch {
@@ -1524,10 +1524,10 @@ impl IErrorLog_Vtbl {
 }
 #[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IErrorLog {}
-pub const IMPLTYPEFLAG_FDEFAULT: u32 = 1;
-pub const IMPLTYPEFLAG_FDEFAULTVTABLE: u32 = 8;
-pub const IMPLTYPEFLAG_FRESTRICTED: u32 = 4;
-pub const IMPLTYPEFLAG_FSOURCE: u32 = 2;
+pub const IMPLTYPEFLAG_FDEFAULT: i32 = 1;
+pub const IMPLTYPEFLAG_FDEFAULTVTABLE: i32 = 8;
+pub const IMPLTYPEFLAG_FRESTRICTED: i32 = 4;
+pub const IMPLTYPEFLAG_FSOURCE: i32 = 2;
 pub type INVOKEKIND = i32;
 pub const INVOKE_FUNC: INVOKEKIND = 1;
 pub const INVOKE_PROPERTYGET: INVOKEKIND = 2;
@@ -3517,14 +3517,14 @@ impl Default for PARAMDESCEX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PARAMFLAG_FHASCUSTDATA: u32 = 64;
-pub const PARAMFLAG_FHASDEFAULT: u32 = 32;
-pub const PARAMFLAG_FIN: u32 = 1;
-pub const PARAMFLAG_FLCID: u32 = 4;
-pub const PARAMFLAG_FOPT: u32 = 16;
-pub const PARAMFLAG_FOUT: u32 = 2;
-pub const PARAMFLAG_FRETVAL: u32 = 8;
-pub const PARAMFLAG_NONE: u32 = 0;
+pub const PARAMFLAG_FHASCUSTDATA: i32 = 64;
+pub const PARAMFLAG_FHASDEFAULT: i32 = 32;
+pub const PARAMFLAG_FIN: i32 = 1;
+pub const PARAMFLAG_FLCID: i32 = 4;
+pub const PARAMFLAG_FOPT: i32 = 16;
+pub const PARAMFLAG_FOUT: i32 = 2;
+pub const PARAMFLAG_FRETVAL: i32 = 8;
+pub const PARAMFLAG_NONE: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARRAY {

@@ -2027,4 +2027,4 @@ impl Default for VSS_COMPONENTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const VSS_SW_BOOTABLE_STATE: u32 = 1;
+pub const VSS_SW_BOOTABLE_STATE: i32 = 1;

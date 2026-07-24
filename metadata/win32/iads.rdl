@@ -99,8 +99,8 @@ mod Windows {
             ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT = 15,
             ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT = 16,
         }
-        const ADS_ATTR_APPEND: u32 = 3;
-        const ADS_ATTR_CLEAR: u32 = 1;
+        const ADS_ATTR_APPEND: i32 = 3;
+        const ADS_ATTR_CLEAR: i32 = 1;
         struct ADS_ATTR_DEF {
             pszAttrName: PWSTR,
             dwADsType: ADSTYPE,
@@ -108,7 +108,7 @@ mod Windows {
             dwMaxRange: u32,
             fMultiValued: BOOL,
         }
-        const ADS_ATTR_DELETE: u32 = 4;
+        const ADS_ATTR_DELETE: i32 = 4;
         struct ADS_ATTR_INFO {
             pszAttrName: PWSTR,
             dwControlCode: u32,
@@ -116,7 +116,7 @@ mod Windows {
             pADsValues: PADSVALUE,
             dwNumValues: u32,
         }
-        const ADS_ATTR_UPDATE: u32 = 2;
+        const ADS_ATTR_UPDATE: i32 = 2;
         #[repr(i32)]
         enum ADS_AUTHENTICATION_ENUM {
             ADS_SECURE_AUTHENTICATION = 1,
@@ -198,10 +198,10 @@ mod Windows {
             ADS_ESCAPEDMODE_OFF = 3,
             ADS_ESCAPEDMODE_OFF_EX = 4,
         }
-        const ADS_EXT_INITCREDENTIALS: u32 = 1;
-        const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2;
-        const ADS_EXT_MAXEXTDISPID: u32 = 16777215;
-        const ADS_EXT_MINEXTDISPID: u32 = 1;
+        const ADS_EXT_INITCREDENTIALS: i32 = 1;
+        const ADS_EXT_INITIALIZE_COMPLETE: i32 = 2;
+        const ADS_EXT_MAXEXTDISPID: i32 = 16777215;
+        const ADS_EXT_MINEXTDISPID: i32 = 1;
         struct ADS_FAXNUMBER {
             TelephoneNumber: PWSTR,
             NumberOfBits: u32,

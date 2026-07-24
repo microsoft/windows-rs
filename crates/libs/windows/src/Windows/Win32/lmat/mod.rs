@@ -51,13 +51,13 @@ pub struct AT_INFO {
     pub Flags: u8,
     pub Command: windows_core::PWSTR,
 }
-pub const JOB_ADD_CURRENT_DATE: u32 = 8;
-pub const JOB_EXEC_ERROR: u32 = 2;
-pub const JOB_INPUT_FLAGS: u32 = 25;
-pub const JOB_NONINTERACTIVE: u32 = 16;
-pub const JOB_OUTPUT_FLAGS: u32 = 23;
-pub const JOB_RUNS_TODAY: u32 = 4;
-pub const JOB_RUN_PERIODICALLY: u32 = 1;
+pub const JOB_ADD_CURRENT_DATE: i32 = 8;
+pub const JOB_EXEC_ERROR: i32 = 2;
+pub const JOB_INPUT_FLAGS: i32 = 25;
+pub const JOB_NONINTERACTIVE: i32 = 16;
+pub const JOB_OUTPUT_FLAGS: i32 = 23;
+pub const JOB_RUNS_TODAY: i32 = 4;
+pub const JOB_RUN_PERIODICALLY: i32 = 1;
 pub type LPAT_ENUM = *mut AT_ENUM;
 pub type LPAT_INFO = *mut AT_INFO;
 pub type PAT_ENUM = *mut AT_ENUM;

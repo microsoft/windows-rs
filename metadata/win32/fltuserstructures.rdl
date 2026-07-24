@@ -58,7 +58,7 @@ mod Windows {
             ReplyLength: u32,
             MessageId: u64,
         }
-        const FILTER_NAME_MAX_CHARS: u32 = 255;
+        const FILTER_NAME_MAX_CHARS: i32 = 255;
         struct FILTER_REPLY_HEADER {
             Status: NTSTATUS,
             MessageId: u64,
@@ -80,15 +80,15 @@ mod Windows {
             FilterVolumeNameLength: u16,
             FilterVolumeName: [u16; 1],
         }
-        const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2;
-        const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: u32 = 1;
-        const FLTFL_ASI_IS_LEGACYFILTER: u32 = 2;
-        const FLTFL_ASI_IS_MINIFILTER: u32 = 1;
-        const FLTFL_IASIL_DETACHED_VOLUME: u32 = 1;
-        const FLTFL_IASIM_DETACHED_VOLUME: u32 = 1;
-        const FLTFL_IASI_IS_LEGACYFILTER: u32 = 2;
-        const FLTFL_IASI_IS_MINIFILTER: u32 = 1;
-        const FLTFL_VSI_DETACHED_VOLUME: u32 = 1;
+        const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: i32 = 2;
+        const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: i32 = 1;
+        const FLTFL_ASI_IS_LEGACYFILTER: i32 = 2;
+        const FLTFL_ASI_IS_MINIFILTER: i32 = 1;
+        const FLTFL_IASIL_DETACHED_VOLUME: i32 = 1;
+        const FLTFL_IASIM_DETACHED_VOLUME: i32 = 1;
+        const FLTFL_IASI_IS_LEGACYFILTER: i32 = 2;
+        const FLTFL_IASI_IS_MINIFILTER: i32 = 1;
+        const FLTFL_VSI_DETACHED_VOLUME: i32 = 1;
         #[repr(i32)]
         enum FLT_FILESYSTEM_TYPE {
             FLT_FSTYPE_UNKNOWN = 0,
@@ -179,7 +179,7 @@ mod Windows {
             InstanceFullInformation = 2,
             InstanceAggregateStandardInformation = 3,
         }
-        const INSTANCE_NAME_MAX_CHARS: u32 = 255;
+        const INSTANCE_NAME_MAX_CHARS: i32 = 255;
         struct INSTANCE_PARTIAL_INFORMATION {
             NextEntryOffset: u32,
             InstanceNameLength: u16,
@@ -202,6 +202,6 @@ mod Windows {
         type PINSTANCE_FULL_INFORMATION = *mut INSTANCE_FULL_INFORMATION;
         type PINSTANCE_INFORMATION_CLASS = *mut INSTANCE_INFORMATION_CLASS;
         type PINSTANCE_PARTIAL_INFORMATION = *mut INSTANCE_PARTIAL_INFORMATION;
-        const VOLUME_NAME_MAX_CHARS: u32 = 1024;
+        const VOLUME_NAME_MAX_CHARS: i32 = 1024;
     }
 }

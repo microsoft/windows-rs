@@ -67,7 +67,7 @@ mod Windows {
         const DISPID_NEWENUM: i32 = -4;
         const DISPID_PROPERTYPUT: i32 = -3;
         const DISPID_UNKNOWN: i32 = -1;
-        const DISPID_VALUE: u32 = 0;
+        const DISPID_VALUE: i32 = 0;
         struct DISPPARAMS {
             rgvarg: *mut VARIANTARG,
             rgdispidNamedArgs: *mut DISPID,
@@ -92,18 +92,18 @@ mod Windows {
             pfnDeferredFillIn: *mut u8,
             scode: SCODE,
         }
-        const FADF_AUTO: u32 = 1;
-        const FADF_BSTR: u32 = 256;
-        const FADF_DISPATCH: u32 = 1024;
-        const FADF_EMBEDDED: u32 = 4;
-        const FADF_FIXEDSIZE: u32 = 16;
-        const FADF_HAVEIID: u32 = 64;
-        const FADF_HAVEVARTYPE: u32 = 128;
-        const FADF_RECORD: u32 = 32;
-        const FADF_RESERVED: u32 = 61448;
-        const FADF_STATIC: u32 = 2;
-        const FADF_UNKNOWN: u32 = 512;
-        const FADF_VARIANT: u32 = 2048;
+        const FADF_AUTO: i32 = 1;
+        const FADF_BSTR: i32 = 256;
+        const FADF_DISPATCH: i32 = 1024;
+        const FADF_EMBEDDED: i32 = 4;
+        const FADF_FIXEDSIZE: i32 = 16;
+        const FADF_HAVEIID: i32 = 64;
+        const FADF_HAVEVARTYPE: i32 = 128;
+        const FADF_RECORD: i32 = 32;
+        const FADF_RESERVED: i32 = 61448;
+        const FADF_STATIC: i32 = 2;
+        const FADF_UNKNOWN: i32 = 512;
+        const FADF_VARIANT: i32 = 2048;
         struct FUNCDESC {
             memid: MEMBERID,
             lprgscode: *mut SCODE,
@@ -219,11 +219,11 @@ mod Windows {
             dwReserved: usize,
             wIDLFlags: u16,
         }
-        const IDLFLAG_FIN: u32 = 1;
-        const IDLFLAG_FLCID: u32 = 4;
-        const IDLFLAG_FOUT: u32 = 2;
-        const IDLFLAG_FRETVAL: u32 = 8;
-        const IDLFLAG_NONE: u32 = 0;
+        const IDLFLAG_FIN: i32 = 1;
+        const IDLFLAG_FLCID: i32 = 4;
+        const IDLFLAG_FOUT: i32 = 2;
+        const IDLFLAG_FRETVAL: i32 = 8;
+        const IDLFLAG_NONE: i32 = 0;
         #[guid(0x00020400_0000_0000_c000_000000000046)]
         interface IDispatch: IUnknown {
             fn GetTypeInfoCount(&self, pctinfo: *mut u32) -> HRESULT;
@@ -250,10 +250,10 @@ mod Windows {
         interface IErrorLog: IUnknown {
             fn AddError(&self, pszPropName: PCWSTR, pExcepInfo: *const EXCEPINFO) -> HRESULT;
         }
-        const IMPLTYPEFLAG_FDEFAULT: u32 = 1;
-        const IMPLTYPEFLAG_FDEFAULTVTABLE: u32 = 8;
-        const IMPLTYPEFLAG_FRESTRICTED: u32 = 4;
-        const IMPLTYPEFLAG_FSOURCE: u32 = 2;
+        const IMPLTYPEFLAG_FDEFAULT: i32 = 1;
+        const IMPLTYPEFLAG_FDEFAULTVTABLE: i32 = 8;
+        const IMPLTYPEFLAG_FRESTRICTED: i32 = 4;
+        const IMPLTYPEFLAG_FSOURCE: i32 = 2;
         #[repr(i32)]
         enum INVOKEKIND {
             INVOKE_FUNC = 1,
@@ -417,14 +417,14 @@ mod Windows {
             cBytes: u32,
             varDefaultValue: VARIANTARG,
         }
-        const PARAMFLAG_FHASCUSTDATA: u32 = 64;
-        const PARAMFLAG_FHASDEFAULT: u32 = 32;
-        const PARAMFLAG_FIN: u32 = 1;
-        const PARAMFLAG_FLCID: u32 = 4;
-        const PARAMFLAG_FOPT: u32 = 16;
-        const PARAMFLAG_FOUT: u32 = 2;
-        const PARAMFLAG_FRETVAL: u32 = 8;
-        const PARAMFLAG_NONE: u32 = 0;
+        const PARAMFLAG_FHASCUSTDATA: i32 = 64;
+        const PARAMFLAG_FHASDEFAULT: i32 = 32;
+        const PARAMFLAG_FIN: i32 = 1;
+        const PARAMFLAG_FLCID: i32 = 4;
+        const PARAMFLAG_FOPT: i32 = 16;
+        const PARAMFLAG_FOUT: i32 = 2;
+        const PARAMFLAG_FRETVAL: i32 = 8;
+        const PARAMFLAG_NONE: i32 = 0;
         struct SAFEARRAY {
             cDims: u16,
             fFeatures: u16,

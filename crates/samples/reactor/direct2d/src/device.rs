@@ -45,7 +45,7 @@ impl SharedDevice {
                 HMODULE::default(),
                 D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
                 Some(&[D3D_FEATURE_LEVEL_11_0]),
-                D3D11_SDK_VERSION,
+                D3D11_SDK_VERSION as u32,
                 Some(&mut d3d_device),
                 None,
                 None,

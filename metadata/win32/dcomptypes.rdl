@@ -1,9 +1,9 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const COMPOSITIONOBJECT_ALL_ACCESS: u32 = 3;
-        const COMPOSITIONOBJECT_READ: u32 = 1;
-        const COMPOSITIONOBJECT_WRITE: u32 = 2;
+        const COMPOSITIONOBJECT_ALL_ACCESS: i32 = 3;
+        const COMPOSITIONOBJECT_READ: i32 = 1;
+        const COMPOSITIONOBJECT_WRITE: i32 = 2;
         type COMPOSITION_FRAME_ID = u64;
         #[repr(i32)]
         enum COMPOSITION_FRAME_ID_TYPE {
@@ -22,7 +22,7 @@ mod Windows {
             virtualRefreshCount: u32,
             time: u64,
         }
-        const COMPOSITION_STATS_MAX_TARGETS: u32 = 256;
+        const COMPOSITION_STATS_MAX_TARGETS: i32 = 256;
         struct COMPOSITION_TARGET_ID {
             displayAdapterLuid: LUID,
             renderAdapterLuid: LUID,
@@ -76,7 +76,7 @@ mod Windows {
             timeFrequency: LARGE_INTEGER,
             nextEstimatedFrameTime: LARGE_INTEGER,
         }
-        const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32;
+        const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: i32 = 32;
         #[repr(i32)]
         enum DCOMPOSITION_OPACITY_MODE {
             DCOMPOSITION_OPACITY_MODE_LAYER = 0,

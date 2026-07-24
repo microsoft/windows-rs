@@ -14,8 +14,8 @@ fn simple() {
 #[test]
 fn types() {
     // Unscoped enums
-    let _: u32 = CS_HREDRAW | CS_VREDRAW;
-    let _: u32 = CS_HREDRAW | CS_VREDRAW;
+    let _: i32 = CS_HREDRAW | CS_VREDRAW;
+    let _: i32 = CS_HREDRAW | CS_VREDRAW;
 
     // Constant
     let _: HRESULT = E_FAIL;

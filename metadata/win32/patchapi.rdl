@@ -1,10 +1,10 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2;
-        const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1;
-        const APPLY_OPTION_TEST_ONLY: u32 = 4;
-        const APPLY_OPTION_VALID_FLAGS: u32 = 7;
+        const APPLY_OPTION_FAIL_IF_CLOSE: i32 = 2;
+        const APPLY_OPTION_FAIL_IF_EXACT: i32 = 1;
+        const APPLY_OPTION_TEST_ONLY: i32 = 4;
+        const APPLY_OPTION_VALID_FLAGS: i32 = 7;
         #[library("mspatcha.dll")]
         extern fn ApplyPatchToFileA(PatchFileName: PCSTR, #[opt] OldFileName: PCSTR, NewFileName: PCSTR, ApplyOptionFlags: u32) -> BOOL;
         #[library("mspatcha.dll")]
@@ -119,22 +119,22 @@ mod Windows {
             InterleaveMapArray: *mut PPATCH_INTERLEAVE_MAP,
             MaxLzxWindowSize: u32,
         }
-        const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576;
-        const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288;
-        const PATCH_OPTION_INTERLEAVE_FILES: u32 = 1073741824;
-        const PATCH_OPTION_NO_BINDFIX: u32 = 65536;
-        const PATCH_OPTION_NO_CHECKSUM: u32 = 2097152;
-        const PATCH_OPTION_NO_LOCKFIX: u32 = 131072;
-        const PATCH_OPTION_NO_REBASE: u32 = 262144;
-        const PATCH_OPTION_NO_RESTIMEFIX: u32 = 4194304;
-        const PATCH_OPTION_NO_TIMESTAMP: u32 = 8388608;
+        const PATCH_OPTION_FAIL_IF_BIGGER: i32 = 1048576;
+        const PATCH_OPTION_FAIL_IF_SAME_FILE: i32 = 524288;
+        const PATCH_OPTION_INTERLEAVE_FILES: i32 = 1073741824;
+        const PATCH_OPTION_NO_BINDFIX: i32 = 65536;
+        const PATCH_OPTION_NO_CHECKSUM: i32 = 2097152;
+        const PATCH_OPTION_NO_LOCKFIX: i32 = 131072;
+        const PATCH_OPTION_NO_REBASE: i32 = 262144;
+        const PATCH_OPTION_NO_RESTIMEFIX: i32 = 4194304;
+        const PATCH_OPTION_NO_TIMESTAMP: i32 = 8388608;
         const PATCH_OPTION_RESERVED1: u32 = 2147483648;
-        const PATCH_OPTION_SIGNATURE_MD5: u32 = 16777216;
-        const PATCH_OPTION_USE_BEST: u32 = 0;
-        const PATCH_OPTION_USE_LZX_A: u32 = 1;
-        const PATCH_OPTION_USE_LZX_B: u32 = 2;
-        const PATCH_OPTION_USE_LZX_BEST: u32 = 3;
-        const PATCH_OPTION_USE_LZX_LARGE: u32 = 4;
+        const PATCH_OPTION_SIGNATURE_MD5: i32 = 16777216;
+        const PATCH_OPTION_USE_BEST: i32 = 0;
+        const PATCH_OPTION_USE_LZX_A: i32 = 1;
+        const PATCH_OPTION_USE_LZX_B: i32 = 2;
+        const PATCH_OPTION_USE_LZX_BEST: i32 = 3;
+        const PATCH_OPTION_USE_LZX_LARGE: i32 = 4;
         const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159;
         extern fn PATCH_PROGRESS_CALLBACK(CallbackContext: *mut void, CurrentPosition: u32, MaximumPosition: u32) -> BOOL;
         struct PATCH_RETAIN_RANGE {
@@ -142,13 +142,13 @@ mod Windows {
             LengthInBytes: u32,
             OffsetInNewFile: u32,
         }
-        const PATCH_SYMBOL_NO_FAILURES: u32 = 2;
-        const PATCH_SYMBOL_NO_IMAGEHLP: u32 = 1;
+        const PATCH_SYMBOL_NO_FAILURES: i32 = 2;
+        const PATCH_SYMBOL_NO_IMAGEHLP: i32 = 1;
         const PATCH_SYMBOL_RESERVED1: u32 = 2147483648;
-        const PATCH_SYMBOL_UNDECORATED_TOO: u32 = 4;
+        const PATCH_SYMBOL_UNDECORATED_TOO: i32 = 4;
         extern fn PATCH_SYMLOAD_CALLBACK(WhichFile: u32, SymbolFileName: PCSTR, SymType: u32, SymbolFileCheckSum: u32, SymbolFileTimeDate: u32, ImageFileCheckSum: u32, ImageFileTimeDate: u32, CallbackContext: *mut void) -> BOOL;
-        const PATCH_TRANSFORM_PE_IRELOC_2: u32 = 512;
-        const PATCH_TRANSFORM_PE_RESOURCE_2: u32 = 256;
+        const PATCH_TRANSFORM_PE_IRELOC_2: i32 = 512;
+        const PATCH_TRANSFORM_PE_RESOURCE_2: i32 = 256;
         type PPATCH_IGNORE_RANGE = *mut PATCH_IGNORE_RANGE;
         type PPATCH_INTERLEAVE_MAP = *mut PATCH_INTERLEAVE_MAP;
         type PPATCH_OLD_FILE_INFO = *mut PATCH_OLD_FILE_INFO;

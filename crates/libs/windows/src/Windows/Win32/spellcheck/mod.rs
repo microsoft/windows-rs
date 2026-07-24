@@ -810,7 +810,7 @@ impl IUserDictionariesRegistrar_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUserDictionariesRegistrar {}
-pub const MIN_SPELLING_NTDDI: u32 = 100794368;
+pub const MIN_SPELLING_NTDDI: i32 = 100794368;
 pub const SpellCheckerFactory: windows_core::GUID = windows_core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 pub type WORDLIST_TYPE = i32;
 pub const WORDLIST_TYPE_ADD: WORDLIST_TYPE = 1;

@@ -359,8 +359,8 @@ pub type HLINKWHICHMK = i32;
 pub const HLINKWHICHMK_BASE: HLINKWHICHMK = 2;
 pub const HLINKWHICHMK_CONTAINER: HLINKWHICHMK = 1;
 pub const HLINK_E_FIRST: i32 = -2147221248;
-pub const HLINK_S_DONTHIDE: u32 = 262400;
-pub const HLINK_S_FIRST: u32 = 262400;
+pub const HLINK_S_DONTHIDE: i32 = 262400;
+pub const HLINK_S_FIRST: i32 = 262400;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLITEM {

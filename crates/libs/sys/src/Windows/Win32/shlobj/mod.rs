@@ -65,52 +65,52 @@ impl Default for BANDINFOSFB {
 }
 pub const BMICON_LARGE: i32 = 0;
 pub const BMICON_SMALL: i32 = 1;
-pub const CLOSEPROPS_DISCARD: u32 = 1;
-pub const CLOSEPROPS_NONE: u32 = 0;
+pub const CLOSEPROPS_DISCARD: i32 = 1;
+pub const CLOSEPROPS_NONE: i32 = 0;
 pub const DBCID_CLSIDOFBAR: i32 = 2;
 pub const DBCID_EMPTY: i32 = 0;
 pub const DBCID_GETBAR: i32 = 4;
 pub const DBCID_ONDRAG: i32 = 1;
 pub const DBCID_RESIZE: i32 = 3;
 pub const DBCID_UPDATESIZE: i32 = 5;
-pub const DBC_GS_IDEAL: u32 = 0;
-pub const DBC_GS_SIZEDOWN: u32 = 1;
-pub const DBC_HIDE: u32 = 0;
-pub const DBC_SHOW: u32 = 1;
-pub const DBC_SHOWOBSCURE: u32 = 2;
-pub const DWFAF_AUTOHIDE: u32 = 16;
-pub const DWFAF_GROUP1: u32 = 2;
-pub const DWFAF_GROUP2: u32 = 4;
-pub const DWFAF_HIDDEN: u32 = 1;
-pub const DWFRF_DELETECONFIGDATA: u32 = 1;
-pub const DWFRF_NORMAL: u32 = 0;
-pub const FCIDM_STATUS: u32 = 40961;
-pub const FCIDM_TOOLBAR: u32 = 40960;
-pub const GADOF_DIRTY: u32 = 1;
-pub const GETPROPS_NONE: u32 = 0;
-pub const IDC_OFFLINE_HAND: u32 = 103;
-pub const IDC_PANTOOL_HAND_CLOSED: u32 = 105;
-pub const IDC_PANTOOL_HAND_OPEN: u32 = 104;
+pub const DBC_GS_IDEAL: i32 = 0;
+pub const DBC_GS_SIZEDOWN: i32 = 1;
+pub const DBC_HIDE: i32 = 0;
+pub const DBC_SHOW: i32 = 1;
+pub const DBC_SHOWOBSCURE: i32 = 2;
+pub const DWFAF_AUTOHIDE: i32 = 16;
+pub const DWFAF_GROUP1: i32 = 2;
+pub const DWFAF_GROUP2: i32 = 4;
+pub const DWFAF_HIDDEN: i32 = 1;
+pub const DWFRF_DELETECONFIGDATA: i32 = 1;
+pub const DWFRF_NORMAL: i32 = 0;
+pub const FCIDM_STATUS: i32 = 40961;
+pub const FCIDM_TOOLBAR: i32 = 40960;
+pub const GADOF_DIRTY: i32 = 1;
+pub const GETPROPS_NONE: i32 = 0;
+pub const IDC_OFFLINE_HAND: i32 = 103;
+pub const IDC_PANTOOL_HAND_CLOSED: i32 = 105;
+pub const IDC_PANTOOL_HAND_OPEN: i32 = 104;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct IEnumPrivacyRecords(pub u8);
-pub const ISFBVIEWMODE_LARGEICONS: u32 = 2;
-pub const ISFBVIEWMODE_SMALLICONS: u32 = 1;
-pub const ISFB_MASK_BKCOLOR: u32 = 2;
-pub const ISFB_MASK_COLORS: u32 = 32;
-pub const ISFB_MASK_IDLIST: u32 = 16;
-pub const ISFB_MASK_SHELLFOLDER: u32 = 8;
-pub const ISFB_MASK_STATE: u32 = 1;
-pub const ISFB_MASK_VIEWMODE: u32 = 4;
-pub const ISFB_STATE_ALLOWRENAME: u32 = 2;
-pub const ISFB_STATE_BTNMINSIZE: u32 = 256;
-pub const ISFB_STATE_CHANNELBAR: u32 = 16;
-pub const ISFB_STATE_DEBOSSED: u32 = 1;
-pub const ISFB_STATE_DEFAULT: u32 = 0;
-pub const ISFB_STATE_FULLOPEN: u32 = 64;
-pub const ISFB_STATE_NONAMESORT: u32 = 128;
-pub const ISFB_STATE_NOSHOWTEXT: u32 = 4;
-pub const ISFB_STATE_QLINKSMODE: u32 = 32;
+pub const ISFBVIEWMODE_LARGEICONS: i32 = 2;
+pub const ISFBVIEWMODE_SMALLICONS: i32 = 1;
+pub const ISFB_MASK_BKCOLOR: i32 = 2;
+pub const ISFB_MASK_COLORS: i32 = 32;
+pub const ISFB_MASK_IDLIST: i32 = 16;
+pub const ISFB_MASK_SHELLFOLDER: i32 = 8;
+pub const ISFB_MASK_STATE: i32 = 1;
+pub const ISFB_MASK_VIEWMODE: i32 = 4;
+pub const ISFB_STATE_ALLOWRENAME: i32 = 2;
+pub const ISFB_STATE_BTNMINSIZE: i32 = 256;
+pub const ISFB_STATE_CHANNELBAR: i32 = 16;
+pub const ISFB_STATE_DEBOSSED: i32 = 1;
+pub const ISFB_STATE_DEFAULT: i32 = 0;
+pub const ISFB_STATE_FULLOPEN: i32 = 64;
+pub const ISFB_STATE_NONAMESORT: i32 = 128;
+pub const ISFB_STATE_NOSHOWTEXT: i32 = 4;
+pub const ISFB_STATE_QLINKSMODE: i32 = 32;
 pub type LPAASHELLMENUFILENAME = *mut AASHELLMENUFILENAME;
 pub type LPAASHELLMENUITEM = *mut AASHELLMENUITEM;
 pub type LPCSHCOLUMNDATA = *const SHCOLUMNDATA;
@@ -125,38 +125,38 @@ pub type LPSHCOLUMNINFO = *mut SHCOLUMNINFO;
 pub type LPSHCOLUMNINIT = *mut SHCOLUMNINIT;
 pub type LPSHChangeProductKeyAsIDList = *mut SHChangeProductKeyAsIDList;
 pub type LPTBINFO = *mut TBINFO;
-pub const OPENPROPS_INHIBITPIF: u32 = 32768;
-pub const OPENPROPS_NONE: u32 = 0;
-pub const PANE_NAVIGATION: u32 = 5;
+pub const OPENPROPS_INHIBITPIF: i32 = 32768;
+pub const OPENPROPS_NONE: i32 = 0;
+pub const PANE_NAVIGATION: i32 = 5;
 pub const PANE_NONE: u32 = 4294967295;
-pub const PANE_OFFLINE: u32 = 2;
-pub const PANE_PRINTER: u32 = 3;
-pub const PANE_PRIVACY: u32 = 7;
-pub const PANE_PROGRESS: u32 = 6;
-pub const PANE_SSL: u32 = 4;
-pub const PANE_ZONE: u32 = 1;
+pub const PANE_OFFLINE: i32 = 2;
+pub const PANE_PRINTER: i32 = 3;
+pub const PANE_PRIVACY: i32 = 7;
+pub const PANE_PROGRESS: i32 = 6;
+pub const PANE_SSL: i32 = 4;
+pub const PANE_ZONE: i32 = 1;
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type PBANDINFOSFB = *mut BANDINFOSFB;
 #[cfg(all(feature = "shtypes", feature = "windef"))]
 pub type PCSFV_SETITEMPOS = *const SFV_SETITEMPOS;
-pub const SCHEME_CREATE: u32 = 128;
-pub const SCHEME_DISPLAY: u32 = 1;
-pub const SCHEME_DONOTUSE: u32 = 64;
-pub const SCHEME_EDIT: u32 = 2;
-pub const SCHEME_GLOBAL: u32 = 8;
-pub const SCHEME_LOCAL: u32 = 4;
-pub const SCHEME_REFRESH: u32 = 16;
-pub const SCHEME_UPDATE: u32 = 32;
-pub const SETPROPS_NONE: u32 = 0;
+pub const SCHEME_CREATE: i32 = 128;
+pub const SCHEME_DISPLAY: i32 = 1;
+pub const SCHEME_DONOTUSE: i32 = 64;
+pub const SCHEME_EDIT: i32 = 2;
+pub const SCHEME_GLOBAL: i32 = 8;
+pub const SCHEME_LOCAL: i32 = 4;
+pub const SCHEME_REFRESH: i32 = 16;
+pub const SCHEME_UPDATE: i32 = 32;
+pub const SETPROPS_NONE: i32 = 0;
 pub const SFBID_PIDLCHANGED: i32 = 0;
-pub const SFVM_ADDOBJECT: u32 = 3;
-pub const SFVM_GETSELECTEDOBJECTS: u32 = 9;
-pub const SFVM_REARRANGE: u32 = 1;
-pub const SFVM_REMOVEOBJECT: u32 = 6;
-pub const SFVM_SETCLIPBOARD: u32 = 16;
-pub const SFVM_SETITEMPOS: u32 = 14;
-pub const SFVM_SETPOINTS: u32 = 23;
-pub const SFVM_UPDATEOBJECT: u32 = 7;
+pub const SFVM_ADDOBJECT: i32 = 3;
+pub const SFVM_GETSELECTEDOBJECTS: i32 = 9;
+pub const SFVM_REARRANGE: i32 = 1;
+pub const SFVM_REMOVEOBJECT: i32 = 6;
+pub const SFVM_SETCLIPBOARD: i32 = 16;
+pub const SFVM_SETITEMPOS: i32 = 14;
+pub const SFVM_SETPOINTS: i32 = 23;
+pub const SFVM_UPDATEOBJECT: i32 = 7;
 #[repr(C)]
 #[cfg(all(feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy)]
@@ -170,7 +170,7 @@ impl Default for SFV_SETITEMPOS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SHCDF_UPDATEITEM: u32 = 1;
+pub const SHCDF_UPDATEITEM: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SHCOLUMNDATA {
@@ -227,17 +227,17 @@ impl Default for SHChangeProductKeyAsIDList {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SSM_CLEAR: u32 = 0;
-pub const SSM_REFRESH: u32 = 2;
-pub const SSM_SET: u32 = 1;
-pub const SSM_UPDATE: u32 = 4;
-pub const TBIF_APPEND: u32 = 0;
-pub const TBIF_DEFAULT: u32 = 0;
-pub const TBIF_INTERNETBAR: u32 = 65536;
-pub const TBIF_NOTOOLBAR: u32 = 196608;
-pub const TBIF_PREPEND: u32 = 1;
-pub const TBIF_REPLACE: u32 = 2;
-pub const TBIF_STANDARDTOOLBAR: u32 = 131072;
+pub const SSM_CLEAR: i32 = 0;
+pub const SSM_REFRESH: i32 = 2;
+pub const SSM_SET: i32 = 1;
+pub const SSM_UPDATE: i32 = 4;
+pub const TBIF_APPEND: i32 = 0;
+pub const TBIF_DEFAULT: i32 = 0;
+pub const TBIF_INTERNETBAR: i32 = 65536;
+pub const TBIF_NOTOOLBAR: i32 = 196608;
+pub const TBIF_PREPEND: i32 = 1;
+pub const TBIF_REPLACE: i32 = 2;
+pub const TBIF_STANDARDTOOLBAR: i32 = 131072;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TBINFO {

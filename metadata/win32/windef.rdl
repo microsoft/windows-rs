@@ -4,34 +4,34 @@ mod Windows {
         struct APP_LOCAL_DEVICE_ID {
             value: [u8; 32],
         }
-        const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32;
+        const APP_LOCAL_DEVICE_ID_SIZE: i32 = 32;
         type COLORREF = u32;
-        const DC_BINNAMES: u32 = 12;
-        const DC_BINS: u32 = 6;
-        const DC_COPIES: u32 = 18;
-        const DC_DRIVER: u32 = 11;
-        const DC_DUPLEX: u32 = 7;
-        const DC_ENUMRESOLUTIONS: u32 = 13;
-        const DC_EXTRA: u32 = 9;
-        const DC_FIELDS: u32 = 1;
-        const DC_FILEDEPENDENCIES: u32 = 14;
-        const DC_MAXEXTENT: u32 = 5;
-        const DC_MINEXTENT: u32 = 4;
-        const DC_ORIENTATION: u32 = 17;
-        const DC_PAPERNAMES: u32 = 16;
-        const DC_PAPERS: u32 = 2;
-        const DC_PAPERSIZE: u32 = 3;
-        const DC_SIZE: u32 = 8;
-        const DC_TRUETYPE: u32 = 15;
-        const DC_VERSION: u32 = 10;
-        const DM_COPY: u32 = 2;
-        const DM_IN_BUFFER: u32 = 8;
-        const DM_IN_PROMPT: u32 = 4;
-        const DM_MODIFY: u32 = 8;
-        const DM_OUT_BUFFER: u32 = 2;
-        const DM_OUT_DEFAULT: u32 = 1;
-        const DM_PROMPT: u32 = 4;
-        const DM_UPDATE: u32 = 1;
+        const DC_BINNAMES: i32 = 12;
+        const DC_BINS: i32 = 6;
+        const DC_COPIES: i32 = 18;
+        const DC_DRIVER: i32 = 11;
+        const DC_DUPLEX: i32 = 7;
+        const DC_ENUMRESOLUTIONS: i32 = 13;
+        const DC_EXTRA: i32 = 9;
+        const DC_FIELDS: i32 = 1;
+        const DC_FILEDEPENDENCIES: i32 = 14;
+        const DC_MAXEXTENT: i32 = 5;
+        const DC_MINEXTENT: i32 = 4;
+        const DC_ORIENTATION: i32 = 17;
+        const DC_PAPERNAMES: i32 = 16;
+        const DC_PAPERS: i32 = 2;
+        const DC_PAPERSIZE: i32 = 3;
+        const DC_SIZE: i32 = 8;
+        const DC_TRUETYPE: i32 = 15;
+        const DC_VERSION: i32 = 10;
+        const DM_COPY: i32 = 2;
+        const DM_IN_BUFFER: i32 = 8;
+        const DM_IN_PROMPT: i32 = 4;
+        const DM_MODIFY: i32 = 8;
+        const DM_OUT_BUFFER: i32 = 2;
+        const DM_OUT_DEFAULT: i32 = 1;
+        const DM_PROMPT: i32 = 4;
+        const DM_UPDATE: i32 = 1;
         #[repr(i32)]
         enum DPI_AWARENESS {
             DPI_AWARENESS_INVALID = -1,

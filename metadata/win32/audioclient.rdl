@@ -20,7 +20,7 @@ mod Windows {
             u32NumChannels: u32,
             pu32ChannelMap: *mut u32,
         }
-        const AMBISONICS_PARAM_VERSION_1: u32 = 1;
+        const AMBISONICS_PARAM_VERSION_1: i32 = 1;
         #[repr(i32)]
         enum AMBISONICS_TYPE {
             AMBISONICS_TYPE_FULL3D = 0,
@@ -73,10 +73,10 @@ mod Windows {
             AUDCLNT_STREAMOPTIONS_AMBISONICS = 4,
             AUDCLNT_STREAMOPTIONS_POST_VOLUME_LOOPBACK = 8,
         }
-        const AUDCLNT_S_BUFFER_EMPTY: u32 = 143196161;
-        const AUDCLNT_S_POSITION_STALLED: u32 = 143196163;
-        const AUDCLNT_S_THREAD_ALREADY_REGISTERED: u32 = 143196162;
-        const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1;
+        const AUDCLNT_S_BUFFER_EMPTY: i32 = 143196161;
+        const AUDCLNT_S_POSITION_STALLED: i32 = 143196163;
+        const AUDCLNT_S_THREAD_ALREADY_REGISTERED: i32 = 143196162;
+        const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: i32 = 1;
         #[repr(u32)]
         #[flags]
         enum AUDIO_DUCKING_OPTIONS {

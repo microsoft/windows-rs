@@ -4,24 +4,24 @@ mod Windows {
         type ADDRINFO = ADDRINFOA;
         type ADDRINFOEX = ADDRINFOEXA;
         type ADDRINFOT = ADDRINFOA;
-        const EAI_AGAIN: u32 = 11002;
-        const EAI_BADFLAGS: u32 = 10022;
-        const EAI_FAIL: u32 = 11003;
-        const EAI_FAMILY: u32 = 10047;
-        const EAI_IPSECPOLICY: u32 = 11033;
-        const EAI_MEMORY: u32 = 8;
-        const EAI_NODATA: u32 = 11001;
-        const EAI_NONAME: u32 = 11001;
-        const EAI_NOSECURENAME: u32 = 11032;
-        const EAI_SERVICE: u32 = 10109;
-        const EAI_SOCKTYPE: u32 = 10044;
+        const EAI_AGAIN: i32 = 11002;
+        const EAI_BADFLAGS: i32 = 10022;
+        const EAI_FAIL: i32 = 11003;
+        const EAI_FAMILY: i32 = 10047;
+        const EAI_IPSECPOLICY: i32 = 11033;
+        const EAI_MEMORY: i32 = 8;
+        const EAI_NODATA: i32 = 11001;
+        const EAI_NONAME: i32 = 11001;
+        const EAI_NOSECURENAME: i32 = 11032;
+        const EAI_SERVICE: i32 = 10109;
+        const EAI_SOCKTYPE: i32 = 10044;
         #[library("WS2_32.dll")]
         extern fn FreeAddrInfoEx(#[opt] pAddrInfoEx: *const ADDRINFOEXA);
         #[library("WS2_32.dll")]
         extern fn FreeAddrInfoExW(#[opt] pAddrInfoEx: *const ADDRINFOEXW);
         #[library("WS2_32.dll")]
         extern fn FreeAddrInfoW(#[opt] pAddrInfo: *const ADDRINFOW);
-        const GAI_STRERROR_BUFFER_SIZE: u32 = 1024;
+        const GAI_STRERROR_BUFFER_SIZE: i32 = 1024;
         #[library("WS2_32.dll")]
         extern fn GetAddrInfoExA(#[opt] pName: PCSTR, #[opt] pServiceName: PCSTR, dwNameSpace: u32, #[opt] lpNspId: *const GUID, #[opt] hints: *const ADDRINFOEXA, ppResult: *mut PADDRINFOEXA, #[opt] timeout: *const timeval, #[opt] lpOverlapped: *const OVERLAPPED, #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] lpNameHandle: *mut HANDLE) -> i32;
         #[library("WS2_32.dll")]
@@ -46,8 +46,8 @@ mod Windows {
         extern fn SetAddrInfoExA(pName: PCSTR, #[opt] pServiceName: PCSTR, #[opt] pAddresses: *const SOCKET_ADDRESS, dwAddressCount: u32, #[opt] lpBlob: *const BLOB, dwFlags: u32, dwNameSpace: u32, #[opt] lpNspId: *const GUID, #[opt] timeout: *const timeval, #[opt] lpOverlapped: *const OVERLAPPED, #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] lpNameHandle: *mut HANDLE) -> i32;
         #[library("WS2_32.dll")]
         extern fn SetAddrInfoExW(pName: PCWSTR, #[opt] pServiceName: PCWSTR, #[opt] pAddresses: *const SOCKET_ADDRESS, dwAddressCount: u32, #[opt] lpBlob: *const BLOB, dwFlags: u32, dwNameSpace: u32, #[opt] lpNspId: *const GUID, #[opt] timeout: *const timeval, #[opt] lpOverlapped: *const OVERLAPPED, #[opt] lpCompletionRoutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, #[opt] lpNameHandle: *mut HANDLE) -> i32;
-        const UDP_CHECKSUM_COVERAGE: u32 = 20;
-        const UDP_NOCHECKSUM: u32 = 1;
+        const UDP_CHECKSUM_COVERAGE: i32 = 20;
+        const UDP_NOCHECKSUM: i32 = 1;
         #[library("WS2_32.dll")]
         extern fn freeaddrinfo(#[opt] pAddrInfo: *const ADDRINFOA);
         #[library("WS2_32.dll")]

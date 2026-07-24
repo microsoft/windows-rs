@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const LOOKUP_TRANSLATE_NAMES: u32 = 2048;
-        const LOOKUP_VIEW_LOCAL_INFORMATION: u32 = 1;
+        const LOOKUP_TRANSLATE_NAMES: i32 = 2048;
+        const LOOKUP_VIEW_LOCAL_INFORMATION: i32 = 1;
         #[repr(i32)]
         enum LSA_LOOKUP_DOMAIN_INFO_CLASS {
             AccountDomainInformation = 5,

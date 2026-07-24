@@ -1,9 +1,9 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: u32 = 1;
-        const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: u32 = 2;
-        const WSDAPI_OPTION_TRACE_XML_TO_FILE: u32 = 3;
+        const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: i32 = 1;
+        const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: i32 = 2;
+        const WSDAPI_OPTION_TRACE_XML_TO_FILE: i32 = 3;
         #[library("wsdapi.dll")]
         extern fn WSDAllocateLinkedMemory(pParent: *mut void, cbSize: usize) -> *mut void;
         #[library("wsdapi.dll")]

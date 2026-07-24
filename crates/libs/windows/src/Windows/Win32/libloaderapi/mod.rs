@@ -256,7 +256,7 @@ pub unsafe fn SizeofResource(hmodule: Option<super::HMODULE>, hresinfo: super::H
     windows_core::link!("kernel32.dll" "system" fn SizeofResource(hmodule : super::HMODULE, hresinfo : super::HRSRC) -> u32);
     unsafe { SizeofResource(hmodule.unwrap_or(core::mem::zeroed()) as _, hresinfo) }
 }
-pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1;
+pub const CURRENT_IMPORT_REDIRECTION_VERSION: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DLL_DIRECTORY_COOKIE(pub *mut core::ffi::c_void);
@@ -265,7 +265,7 @@ impl Default for DLL_DIRECTORY_COOKIE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DONT_RESOLVE_DLL_REFERENCES: u32 = 1;
+pub const DONT_RESOLVE_DLL_REFERENCES: i32 = 1;
 #[cfg(feature = "minwindef")]
 pub type ENUMRESLANGPROCA = Option<unsafe extern "system" fn(hmodule: super::HMODULE, lptype: windows_core::PCSTR, lpname: windows_core::PCSTR, wlanguage: u16, lparam: isize) -> windows_core::BOOL>;
 #[cfg(feature = "minwindef")]
@@ -292,26 +292,26 @@ impl Default for ENUMUILANG {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024;
-pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512;
-pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256;
-pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4;
-pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1;
-pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2;
-pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: u32 = 16;
-pub const LOAD_LIBRARY_AS_DATAFILE: u32 = 2;
-pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: u32 = 64;
-pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: u32 = 32;
-pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768;
-pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: u32 = 128;
-pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: u32 = 8192;
-pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: u32 = 512;
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096;
-pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: u32 = 256;
-pub const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 2048;
-pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: u32 = 16384;
-pub const LOAD_LIBRARY_SEARCH_USER_DIRS: u32 = 1024;
-pub const LOAD_WITH_ALTERED_SEARCH_PATH: u32 = 8;
+pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: i32 = 1024;
+pub const FIND_RESOURCE_DIRECTORY_NAMES: i32 = 512;
+pub const FIND_RESOURCE_DIRECTORY_TYPES: i32 = 256;
+pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: i32 = 4;
+pub const GET_MODULE_HANDLE_EX_FLAG_PIN: i32 = 1;
+pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: i32 = 2;
+pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: i32 = 16;
+pub const LOAD_LIBRARY_AS_DATAFILE: i32 = 2;
+pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: i32 = 64;
+pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: i32 = 32;
+pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: i32 = 32768;
+pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: i32 = 128;
+pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: i32 = 8192;
+pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: i32 = 512;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: i32 = 4096;
+pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: i32 = 256;
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32: i32 = 2048;
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: i32 = 16384;
+pub const LOAD_LIBRARY_SEARCH_USER_DIRS: i32 = 1024;
+pub const LOAD_WITH_ALTERED_SEARCH_PATH: i32 = 8;
 pub type PCREDIRECTION_DESCRIPTOR = *const REDIRECTION_DESCRIPTOR;
 pub type PCREDIRECTION_FUNCTION_DESCRIPTOR = *const REDIRECTION_FUNCTION_DESCRIPTOR;
 #[repr(transparent)]
@@ -349,9 +349,9 @@ impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RESOURCE_ENUM_LN: u32 = 1;
-pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16;
-pub const RESOURCE_ENUM_MUI: u32 = 2;
-pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4;
-pub const RESOURCE_ENUM_VALIDATE: u32 = 8;
-pub const SUPPORT_LANG_NUMBER: u32 = 32;
+pub const RESOURCE_ENUM_LN: i32 = 1;
+pub const RESOURCE_ENUM_MODULE_EXACT: i32 = 16;
+pub const RESOURCE_ENUM_MUI: i32 = 2;
+pub const RESOURCE_ENUM_MUI_SYSTEM: i32 = 4;
+pub const RESOURCE_ENUM_VALIDATE: i32 = 8;
+pub const SUPPORT_LANG_NUMBER: i32 = 32;

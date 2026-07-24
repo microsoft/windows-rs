@@ -67,7 +67,7 @@ mod Windows {
             Interrupts: [WHV_ARM64_GLOBAL_INTERRUPT_STATE; 1],
         }
         #[arch(Arm64)]
-        const WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: u32 = 1;
+        const WHV_ARM64_GLOBAL_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: i32 = 1;
         #[arch(Arm64)]
         struct WHV_ARM64_GLOBAL_INTERRUPT_STATE {
             InterruptId: u32,
@@ -105,7 +105,7 @@ mod Windows {
             },
         }
         #[arch(Arm64)]
-        const WHV_ARM64_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: u32 = 1;
+        const WHV_ARM64_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: i32 = 1;
         #[arch(Arm64)]
         struct WHV_ARM64_INTERRUPT_STATE {
             Anonymous: struct {
@@ -489,7 +489,7 @@ mod Windows {
             AsUINT64: u64,
         }
         #[arch(X64 | Arm64)]
-        const WHV_EXTENDED_VM_EXITS_RESERVED_BITFIELD_COUNT: u32 = 49;
+        const WHV_EXTENDED_VM_EXITS_RESERVED_BITFIELD_COUNT: i32 = 49;
         #[arch(X64 | Arm64)]
         type WHV_GUEST_PHYSICAL_ADDRESS = u64;
         #[arch(X64 | Arm64)]
@@ -516,7 +516,7 @@ mod Windows {
             Reserved1: [u64; 2],
         }
         #[arch(X64)]
-        const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6;
+        const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: i32 = 6;
         #[arch(Arm64)]
         struct WHV_INITIAL_VP_CONTEXT {
             Pc: u64,
@@ -661,7 +661,7 @@ mod Windows {
             WHvMapGpaRangeFlagTrackDirtyPages = 8,
         }
         #[arch(X64 | Arm64)]
-        const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200;
+        const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: i32 = 200;
         #[arch(Arm64)]
         struct WHV_MEMORY_ACCESS_CONTEXT {
             Header: WHV_INTERCEPT_MESSAGE_HEADER,
@@ -778,7 +778,7 @@ mod Windows {
             },
         }
         #[arch(X64 | Arm64)]
-        const WHV_NOTIFICATION_PORT_PREFERRED_DURATION_MAX: i32 = -1;
+        const WHV_NOTIFICATION_PORT_PREFERRED_DURATION_MAX: u64 = 18446744073709551615;
         #[arch(X64 | Arm64)]
         type WHV_NOTIFICATION_PORT_PROPERTY = u64;
         #[repr(i32)]
@@ -1128,7 +1128,7 @@ mod Windows {
             },
         }
         #[arch(X64 | Arm64)]
-        const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2;
+        const WHV_PROCESSOR_FEATURES_BANKS_COUNT: i32 = 2;
         #[arch(X64 | Arm64)]
         struct WHV_PROCESSOR_GUEST_EVENT_COUNTERS {
             PageFaultCount: u64,
@@ -1221,7 +1221,7 @@ mod Windows {
             AsUINT64: u64,
         }
         #[arch(X64 | Arm64)]
-        const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16;
+        const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: i32 = 16;
         #[arch(Arm64)]
         union WHV_REGISTER_ACCESS_INFO {
             SourceValue: WHV_REGISTER_VALUE,
@@ -2119,7 +2119,7 @@ mod Windows {
             FlagNumber: u16,
         }
         #[arch(X64 | Arm64)]
-        const WHV_SYNIC_MESSAGE_SIZE: u32 = 256;
+        const WHV_SYNIC_MESSAGE_SIZE: i32 = 256;
         #[arch(Arm64)]
         struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
             Header: WHV_INTERCEPT_MESSAGE_HEADER,
@@ -2201,9 +2201,9 @@ mod Windows {
             },
         }
         #[arch(X64 | Arm64)]
-        const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1;
+        const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: i32 = 1;
         #[arch(X64 | Arm64)]
-        const WHV_SYNTHETIC_PROCESSOR_FEATURES_RESERVED_BITFIELD_COUNT: u32 = 17;
+        const WHV_SYNTHETIC_PROCESSOR_FEATURES_RESERVED_BITFIELD_COUNT: i32 = 17;
         #[arch(X64 | Arm64)]
         union WHV_TRANSLATE_GVA_2_FLAGS {
             Anonymous: struct {
@@ -2358,7 +2358,7 @@ mod Windows {
         #[arch(Arm64)]
         const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_ANY_VP: u32 = 1073741824;
         #[arch(Arm64)]
-        const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_PFN: i32 = -2147483648;
+        const WHV_VIRTUAL_PROCESSOR_STATE_TYPE_PFN: u32 = 2147483648;
         #[arch(X64 | Arm64)]
         struct WHV_VPCI_DEVICE_NOTIFICATION {
             NotificationType: WHV_VPCI_DEVICE_NOTIFICATION_TYPE,
@@ -2443,7 +2443,7 @@ mod Windows {
             Value: [u32; 6],
         }
         #[arch(X64 | Arm64)]
-        const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6;
+        const WHV_VPCI_TYPE0_BAR_COUNT: i32 = 6;
         #[arch(X64)]
         struct WHV_VP_EXCEPTION_CONTEXT {
             InstructionByteCount: u8,
@@ -2496,7 +2496,7 @@ mod Windows {
         #[arch(X64 | Arm64)]
         type WHV_VTL = u8;
         #[arch(X64 | Arm64)]
-        const WHV_VTL_ALL: u32 = 15;
+        const WHV_VTL_ALL: i32 = 15;
         #[arch(X64 | Arm64)]
         union WHV_VTL_PERMISSION_SET {
             AsUINT32: u32,
@@ -3035,12 +3035,12 @@ mod Windows {
             AsUINT128: WHV_UINT128,
         }
         #[arch(Arm64)]
-        const WHvRegisterPendingEvent: u32 = 65540;
+        const WHvRegisterPendingEvent: i32 = 65540;
         #[arch(Arm64)]
-        const WHvRegisterSiefp: u32 = 655378;
+        const WHvRegisterSiefp: i32 = 655378;
         #[arch(Arm64)]
-        const WHvRegisterSimp: u32 = 655379;
+        const WHvRegisterSimp: i32 = 655379;
         #[arch(X64 | Arm64)]
-        const WhvRunVpCancelReasonUser: u32 = 0;
+        const WhvRunVpCancelReasonUser: i32 = 0;
     }
 }

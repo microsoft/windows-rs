@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const FACILITY_NONE: u32 = 0;
-        const FACILITY_WINBIO: u32 = 9;
+        const FACILITY_NONE: i32 = 0;
+        const FACILITY_WINBIO: i32 = 9;
         const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: HRESULT = -2146860995;
         const WINBIO_E_AUTO_LOGON_DISABLED: HRESULT = -2146860989;
         const WINBIO_E_BAD_CAPTURE: HRESULT = -2146861048;

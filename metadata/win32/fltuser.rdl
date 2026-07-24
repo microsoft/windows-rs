@@ -7,7 +7,7 @@ mod Windows {
         const FLT_MGR_WIN7: u32 = 1;
         const FLT_MGR_WIN8: u32 = 1;
         const FLT_MGR_WINBLUE: u32 = 1;
-        const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1;
+        const FLT_PORT_FLAG_SYNC_HANDLE: i32 = 1;
         #[library("FLTLIB.DLL")]
         extern fn FilterAttach(lpFilterName: PCWSTR, lpVolumeName: PCWSTR, #[opt] lpInstanceName: PCWSTR, #[opt] dwCreatedInstanceNameLength: u32, #[size_param(3)] #[out] #[opt] lpCreatedInstanceName: PWSTR) -> HRESULT;
         #[library("FLTLIB.DLL")]

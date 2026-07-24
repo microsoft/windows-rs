@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const DEFAULT_WEIGHT: u32 = 1;
+        const DEFAULT_WEIGHT: i32 = 1;
         #[repr(i32)]
         enum DISPIDSPRG {
             DISPID_SRGId = 1,
@@ -1914,10 +1914,10 @@ mod Windows {
             ullQueuedInterest: u64,
             ulCount: u32,
         }
-        const SPFEI_ALL_EVENTS: i32 = -1;
-        const SPFEI_ALL_SR_EVENTS: u32 = 1073741824;
-        const SPFEI_ALL_TTS_EVENTS: u32 = 1073807358;
-        const SPFEI_FLAGCHECK: u32 = 1073741824;
+        const SPFEI_ALL_EVENTS: u64 = 18446744073709551615;
+        const SPFEI_ALL_SR_EVENTS: u64 = 1073741824;
+        const SPFEI_ALL_TTS_EVENTS: u64 = 1073807358;
+        const SPFEI_FLAGCHECK: u64 = 1073741824;
         #[repr(i32)]
         enum SPFILEMODE {
             SPFM_OPEN_READONLY = 0,
@@ -2205,7 +2205,7 @@ mod Windows {
         const SPREG_SAFE_USER_TOKENS: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens";
         #[encoding("utf-16")]
         const SPREG_USER_ROOT: String = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech";
-        const SPRP_NORMAL: u32 = 0;
+        const SPRP_NORMAL: i32 = 0;
         const SPRR_ALL_ELEMENTS: i32 = -1;
         struct SPRULE {
             pszRuleName: PCWSTR,
@@ -2540,15 +2540,15 @@ mod Windows {
             SPXRO_SML = 0,
             SPXRO_Alternates_SML = 1,
         }
-        const SP_EMULATE_RESULT: u32 = 1073741824;
+        const SP_EMULATE_RESULT: i32 = 1073741824;
         const SP_GETWHOLEPHRASE: i32 = -1;
-        const SP_HIGH_CONFIDENCE: u32 = 1;
+        const SP_HIGH_CONFIDENCE: i32 = 1;
         const SP_LOW_CONFIDENCE: i32 = -1;
-        const SP_MAX_LANGIDS: u32 = 20;
-        const SP_MAX_PRON_LENGTH: u32 = 384;
-        const SP_MAX_WORD_LENGTH: u32 = 128;
-        const SP_NORMAL_CONFIDENCE: u32 = 0;
-        const SP_STREAMPOS_ASAP: u32 = 0;
+        const SP_MAX_LANGIDS: i32 = 20;
+        const SP_MAX_PRON_LENGTH: i32 = 384;
+        const SP_MAX_WORD_LENGTH: i32 = 128;
+        const SP_NORMAL_CONFIDENCE: i32 = 0;
+        const SP_STREAMPOS_ASAP: i32 = 0;
         const SP_STREAMPOS_REALTIME: i32 = -1;
         const SpAudioFormat: GUID = 0x9ef96870_e160_4792_820d_48cf0649e4ec;
         const SpCompressedLexicon: GUID = 0x90903716_2f42_11d3_9c26_00c04f8ef87c;

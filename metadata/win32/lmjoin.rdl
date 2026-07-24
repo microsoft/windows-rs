@@ -26,20 +26,20 @@ mod Windows {
             pszUserKeyId: PWSTR,
             pszUserKeyName: PWSTR,
         }
-        const NETSETUP_ACCT_CREATE: u32 = 2;
-        const NETSETUP_ACCT_DELETE: u32 = 4;
-        const NETSETUP_ALT_SAMACCOUNTNAME: u32 = 131072;
-        const NETSETUP_AMBIGUOUS_DC: u32 = 4096;
-        const NETSETUP_DEFER_SPN_SET: u32 = 256;
-        const NETSETUP_DNS_NAME_CHANGES_ONLY: u32 = 4096;
-        const NETSETUP_DOMAIN_JOIN_IF_JOINED: u32 = 32;
-        const NETSETUP_DONT_CONTROL_SERVICES: u32 = 16384;
-        const NETSETUP_FORCE_SPN_SET: u32 = 65536;
-        const NETSETUP_IGNORE_UNSUPPORTED_FLAGS: u32 = 268435456;
-        const NETSETUP_INSTALL_INVOCATION: u32 = 262144;
-        const NETSETUP_JOIN_DC_ACCOUNT: u32 = 512;
-        const NETSETUP_JOIN_DOMAIN: u32 = 1;
-        const NETSETUP_JOIN_READONLY: u32 = 2048;
+        const NETSETUP_ACCT_CREATE: i32 = 2;
+        const NETSETUP_ACCT_DELETE: i32 = 4;
+        const NETSETUP_ALT_SAMACCOUNTNAME: i32 = 131072;
+        const NETSETUP_AMBIGUOUS_DC: i32 = 4096;
+        const NETSETUP_DEFER_SPN_SET: i32 = 256;
+        const NETSETUP_DNS_NAME_CHANGES_ONLY: i32 = 4096;
+        const NETSETUP_DOMAIN_JOIN_IF_JOINED: i32 = 32;
+        const NETSETUP_DONT_CONTROL_SERVICES: i32 = 16384;
+        const NETSETUP_FORCE_SPN_SET: i32 = 65536;
+        const NETSETUP_IGNORE_UNSUPPORTED_FLAGS: i32 = 268435456;
+        const NETSETUP_INSTALL_INVOCATION: i32 = 262144;
+        const NETSETUP_JOIN_DC_ACCOUNT: i32 = 512;
+        const NETSETUP_JOIN_DOMAIN: i32 = 1;
+        const NETSETUP_JOIN_READONLY: i32 = 2048;
         #[repr(i32)]
         enum NETSETUP_JOIN_STATUS {
             NetSetupUnknownStatus = 0,
@@ -47,9 +47,9 @@ mod Windows {
             NetSetupWorkgroupName = 2,
             NetSetupDomainName = 3,
         }
-        const NETSETUP_JOIN_UNSECURE: u32 = 64;
-        const NETSETUP_JOIN_WITH_NEW_NAME: u32 = 1024;
-        const NETSETUP_MACHINE_PWD_PASSED: u32 = 128;
+        const NETSETUP_JOIN_UNSECURE: i32 = 64;
+        const NETSETUP_JOIN_WITH_NEW_NAME: i32 = 1024;
+        const NETSETUP_MACHINE_PWD_PASSED: i32 = 128;
         #[repr(i32)]
         enum NETSETUP_NAME_TYPE {
             NetSetupUnknown = 0,
@@ -59,9 +59,9 @@ mod Windows {
             NetSetupNonExistentDomain = 4,
             NetSetupDnsMachine = 5,
         }
-        const NETSETUP_NO_ACCT_REUSE: u32 = 131072;
-        const NETSETUP_NO_NETLOGON_CACHE: u32 = 8192;
-        const NETSETUP_PROCESS_OFFLINE_FLAGS: u32 = 17569;
+        const NETSETUP_NO_ACCT_REUSE: i32 = 131072;
+        const NETSETUP_NO_NETLOGON_CACHE: i32 = 8192;
+        const NETSETUP_PROCESS_OFFLINE_FLAGS: i32 = 17569;
         struct NETSETUP_PROVISIONING_PARAMS {
             dwVersion: u32,
             lpDomain: PCWSTR,
@@ -79,19 +79,19 @@ mod Windows {
             lpSiteName: PWSTR,
             lpPrimaryDNSDomain: PWSTR,
         }
-        const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: u32 = 2;
-        const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: u32 = 1;
+        const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: i32 = 2;
+        const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: i32 = 1;
         const NETSETUP_PROVISION_CHECK_PWD_ONLY: u32 = 2147483648;
-        const NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: u32 = 1;
-        const NETSETUP_PROVISION_ONLINE_CALLER: u32 = 1073741824;
-        const NETSETUP_PROVISION_PERSISTENTSITE: u32 = 32;
-        const NETSETUP_PROVISION_REUSE_ACCOUNT: u32 = 2;
-        const NETSETUP_PROVISION_ROOT_CA_CERTS: u32 = 16;
-        const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: u32 = 8;
-        const NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: u32 = 4;
-        const NETSETUP_SET_MACHINE_NAME: u32 = 32768;
-        const NETSETUP_VALID_UNJOIN_FLAGS: u32 = 268435972;
-        const NETSETUP_WIN9X_UPGRADE: u32 = 16;
+        const NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: i32 = 1;
+        const NETSETUP_PROVISION_ONLINE_CALLER: i32 = 1073741824;
+        const NETSETUP_PROVISION_PERSISTENTSITE: i32 = 32;
+        const NETSETUP_PROVISION_REUSE_ACCOUNT: i32 = 2;
+        const NETSETUP_PROVISION_ROOT_CA_CERTS: i32 = 16;
+        const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: i32 = 8;
+        const NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: i32 = 4;
+        const NETSETUP_SET_MACHINE_NAME: i32 = 32768;
+        const NETSETUP_VALID_UNJOIN_FLAGS: i32 = 268435972;
+        const NETSETUP_WIN9X_UPGRADE: i32 = 16;
         #[repr(i32)]
         enum NET_COMPUTER_NAME_TYPE {
             NetPrimaryComputerName = 0,
@@ -99,7 +99,7 @@ mod Windows {
             NetAllComputerNames = 2,
             NetComputerNameTypeMax = 3,
         }
-        const NET_IGNORE_UNSUPPORTED_FLAGS: u32 = 1;
+        const NET_IGNORE_UNSUPPORTED_FLAGS: i32 = 1;
         #[library("NETAPI32.dll")]
         extern fn NetAddAlternateComputerName(#[opt] Server: PCWSTR, AlternateName: PCWSTR, #[opt] DomainAccount: PCWSTR, #[opt] DomainAccountPassword: PCWSTR, Reserved: u32) -> u32;
         #[library("NETAPI32.dll")]

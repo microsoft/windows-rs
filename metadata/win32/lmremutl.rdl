@@ -1,22 +1,22 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ALLOCATE_RESPONSE: u32 = 2;
+        const ALLOCATE_RESPONSE: i32 = 2;
         type DESC_CHAR = i8;
         type LPDESC = PSTR;
         type LPTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
-        const NO_PERMISSION_REQUIRED: u32 = 1;
+        const NO_PERMISSION_REQUIRED: i32 = 1;
         #[library("NETAPI32.dll")]
         extern fn NetRemoteComputerSupports(UncServerName: PCWSTR, OptionsWanted: u32, OptionsSupported: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetRemoteTOD(#[opt] UncServerName: PCWSTR, BufferPtr: *mut LPBYTE) -> u32;
         type PTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
         const SUPPORTS_ANY: u32 = 4294967295;
-        const SUPPORTS_LOCAL: u32 = 32;
-        const SUPPORTS_REMOTE_ADMIN_PROTOCOL: u32 = 2;
-        const SUPPORTS_RPC: u32 = 4;
-        const SUPPORTS_SAM_PROTOCOL: u32 = 8;
-        const SUPPORTS_UNICODE: u32 = 16;
+        const SUPPORTS_LOCAL: i32 = 32;
+        const SUPPORTS_REMOTE_ADMIN_PROTOCOL: i32 = 2;
+        const SUPPORTS_RPC: i32 = 4;
+        const SUPPORTS_SAM_PROTOCOL: i32 = 8;
+        const SUPPORTS_UNICODE: i32 = 16;
         struct TIME_OF_DAY_INFO {
             tod_elapsedt: u32,
             tod_msecs: u32,

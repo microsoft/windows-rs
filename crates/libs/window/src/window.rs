@@ -29,7 +29,7 @@ impl Window {
             title: title.to_string(),
             width: CW_USEDEFAULT,
             height: CW_USEDEFAULT,
-            style: WS_OVERLAPPEDWINDOW,
+            style: WS_OVERLAPPEDWINDOW as u32,
             ex_style: 0,
             state: State {
                 message: None,
@@ -146,7 +146,7 @@ impl WindowBuilder {
             let state = Box::new(self.state);
             SetWindowLongPtrW(hwnd, GWLP_USERDATA, Box::into_raw(state) as _);
 
-            _ = ShowWindow(hwnd, SW_SHOWNORMAL as i32);
+            _ = ShowWindow(hwnd, SW_SHOWNORMAL);
             Ok(Window(hwnd))
         }
     }
@@ -177,15 +177,17 @@ where
         let mut animating = true;
         loop {
             if animating {
-                while PeekMessageW(&mut message, core::ptr::null_mut(), 0, 0, PM_REMOVE).as_bool() {
-                    if message.message == WM_QUIT {
+                while PeekMessageW(&mut message, core::ptr::null_mut(), 0, 0, PM_REMOVE as u32)
+                    .as_bool()
+                {
+                    if message.message == WM_QUIT as u32 {
                         return Ok(());
                     }
                     _ = TranslateMessage(&message);
                     DispatchMessageW(&message);
                 }
             } else if GetMessageW(&mut message, core::ptr::null_mut(), 0, 0).as_bool() {
-                if message.message == WM_QUIT {
+                if message.message == WM_QUIT as u32 {
                     return Ok(());
                 }
                 _ = TranslateMessage(&message);
@@ -213,8 +215,8 @@ pub fn quit() {
 pub fn pump() -> bool {
     unsafe {
         let mut message = MSG::default();
-        while PeekMessageW(&mut message, core::ptr::null_mut(), 0, 0, PM_REMOVE).as_bool() {
-            if message.message == WM_QUIT {
+        while PeekMessageW(&mut message, core::ptr::null_mut(), 0, 0, PM_REMOVE as u32).as_bool() {
+            if message.message == WM_QUIT as u32 {
                 return false;
             }
             _ = TranslateMessage(&message);
@@ -235,7 +237,7 @@ unsafe fn register_class() {
     REGISTER.get_or_init(|| unsafe {
         _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
         let wc = WNDCLASSW {
-            style: CS_HREDRAW | CS_VREDRAW,
+            style: (CS_HREDRAW | CS_VREDRAW) as u32,
             lpfnWndProc: Some(wndproc),
             hCursor: LoadCursorW(core::ptr::null_mut(), IDC_ARROW),
             lpszClassName: class_name(),
@@ -272,7 +274,7 @@ unsafe extern "system" fn wndproc(
             }
 
             if handled.is_none()
-                && message == WM_SIZE
+                && message == WM_SIZE as u32
                 && let Some(handler) = resize_handler.as_mut()
             {
                 let width = (lparam & 0xffff) as i32;
@@ -294,7 +296,7 @@ unsafe extern "system" fn wndproc(
             }
         }
 
-        if message == WM_NCDESTROY {
+        if message == WM_NCDESTROY as u32 {
             let state = GetWindowLongPtrW(hwnd, GWLP_USERDATA) as *mut State;
             if !state.is_null() {
                 SetWindowLongPtrW(hwnd, GWLP_USERDATA, 0);
@@ -306,7 +308,7 @@ unsafe extern "system" fn wndproc(
             return result;
         }
 
-        match message {
+        match message as i32 {
             WM_DESTROY => {
                 PostQuitMessage(0);
                 0

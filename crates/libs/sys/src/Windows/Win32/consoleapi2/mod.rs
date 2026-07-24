@@ -67,18 +67,18 @@ windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterA(hcon
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterW(hconsoleoutput : super::HANDLE, lpcharacter : windows_sys::core::PCWSTR, nlength : u32, dwwritecoord : super::COORD, lpnumberofcharswritten : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputW(hconsoleoutput : super::HANDLE, lpbuffer : *const super::CHAR_INFO, dwbuffersize : super::COORD, dwbuffercoord : super::COORD, lpwriteregion : *mut super::SMALL_RECT) -> windows_sys::core::BOOL);
-pub const BACKGROUND_BLUE: u32 = 16;
-pub const BACKGROUND_GREEN: u32 = 32;
-pub const BACKGROUND_INTENSITY: u32 = 128;
-pub const BACKGROUND_RED: u32 = 64;
-pub const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024;
-pub const COMMON_LVB_GRID_LVERTICAL: u32 = 2048;
-pub const COMMON_LVB_GRID_RVERTICAL: u32 = 4096;
-pub const COMMON_LVB_LEADING_BYTE: u32 = 256;
-pub const COMMON_LVB_REVERSE_VIDEO: u32 = 16384;
-pub const COMMON_LVB_SBCSDBCS: u32 = 768;
-pub const COMMON_LVB_TRAILING_BYTE: u32 = 512;
-pub const COMMON_LVB_UNDERSCORE: u32 = 32768;
+pub const BACKGROUND_BLUE: i32 = 16;
+pub const BACKGROUND_GREEN: i32 = 32;
+pub const BACKGROUND_INTENSITY: i32 = 128;
+pub const BACKGROUND_RED: i32 = 64;
+pub const COMMON_LVB_GRID_HORIZONTAL: i32 = 1024;
+pub const COMMON_LVB_GRID_LVERTICAL: i32 = 2048;
+pub const COMMON_LVB_GRID_RVERTICAL: i32 = 4096;
+pub const COMMON_LVB_LEADING_BYTE: i32 = 256;
+pub const COMMON_LVB_REVERSE_VIDEO: i32 = 16384;
+pub const COMMON_LVB_SBCSDBCS: i32 = 768;
+pub const COMMON_LVB_TRAILING_BYTE: i32 = 512;
+pub const COMMON_LVB_UNDERSCORE: i32 = 32768;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_CURSOR_INFO {
@@ -115,10 +115,10 @@ impl Default for CONSOLE_SCREEN_BUFFER_INFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FOREGROUND_BLUE: u32 = 1;
-pub const FOREGROUND_GREEN: u32 = 2;
-pub const FOREGROUND_INTENSITY: u32 = 8;
-pub const FOREGROUND_RED: u32 = 4;
+pub const FOREGROUND_BLUE: i32 = 1;
+pub const FOREGROUND_GREEN: i32 = 2;
+pub const FOREGROUND_INTENSITY: i32 = 8;
+pub const FOREGROUND_RED: i32 = 4;
 pub type PCONSOLE_CURSOR_INFO = *mut CONSOLE_CURSOR_INFO;
 #[cfg(feature = "wincontypes")]
 pub type PCONSOLE_SCREEN_BUFFER_INFO = *mut CONSOLE_SCREEN_BUFFER_INFO;

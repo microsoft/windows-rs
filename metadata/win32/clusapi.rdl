@@ -33,22 +33,22 @@ mod Windows {
         extern fn AddResourceToClusterSharedVolumes(hResource: *const _HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn BackupClusterDatabase(hCluster: *const _HCLUSTER, lpszPathName: PCWSTR) -> u32;
-        const BitLockerDecrypted: u32 = 4;
-        const BitLockerDecrypting: u32 = 16;
-        const BitLockerEnabled: u32 = 1;
-        const BitLockerFlagsAll: u32 = 253;
-        const BitLockerPaused: u32 = 64;
-        const BitLockerStopped: u32 = 128;
-        const BitlockerEncrypted: u32 = 8;
-        const BitlockerEncrypting: u32 = 32;
-        const CA_UPGRADE_VERSION: u32 = 1;
+        const BitLockerDecrypted: i32 = 4;
+        const BitLockerDecrypting: i32 = 16;
+        const BitLockerEnabled: i32 = 1;
+        const BitLockerFlagsAll: i32 = 253;
+        const BitLockerPaused: i32 = 64;
+        const BitLockerStopped: i32 = 128;
+        const BitlockerEncrypted: i32 = 8;
+        const BitlockerEncrypting: i32 = 32;
+        const CA_UPGRADE_VERSION: i32 = 1;
         #[repr(i32)]
         enum CGAFT {
             ClusterGroupPreventFailback = 0,
             ClusterGroupAllowFailback = 1,
             ClusterGroupFailbackTypeCount = 2,
         }
-        const CLCTL_CLUSTER_BASE: u32 = 0;
+        const CLCTL_CLUSTER_BASE: i32 = 0;
         #[repr(i32)]
         enum CLCTL_CODES {
             CLCTL_UNKNOWN = 0,
@@ -249,76 +249,76 @@ mod Windows {
             CLCTL_CHECK_DRAIN_VETO = 1057069,
             CLCTL_NOTIFY_DRAIN_COMPLETE = 1057073,
         }
-        const CLCTL_GLOBAL_MASK: u32 = 8388608;
-        const CLCTL_GLOBAL_SHIFT: u32 = 23;
-        const CLCTL_INTERNAL_MASK: u32 = 1048576;
-        const CLCTL_INTERNAL_SHIFT: u32 = 20;
-        const CLCTL_MODIFY_MASK: u32 = 4194304;
-        const CLCTL_MODIFY_SHIFT: u32 = 22;
-        const CLCTL_USER_BASE: u32 = 2097152;
-        const CLCTL_USER_MASK: u32 = 2097152;
-        const CLCTL_USER_SHIFT: u32 = 21;
+        const CLCTL_GLOBAL_MASK: i32 = 8388608;
+        const CLCTL_GLOBAL_SHIFT: i32 = 23;
+        const CLCTL_INTERNAL_MASK: i32 = 1048576;
+        const CLCTL_INTERNAL_SHIFT: i32 = 20;
+        const CLCTL_MODIFY_MASK: i32 = 4194304;
+        const CLCTL_MODIFY_SHIFT: i32 = 22;
+        const CLCTL_USER_BASE: i32 = 2097152;
+        const CLCTL_USER_MASK: i32 = 2097152;
+        const CLCTL_USER_SHIFT: i32 = 21;
         #[encoding("utf-16")]
         const CLOUD_WITNESS_CONTAINER_NAME: String = "msft-cloud-witness";
-        const CLUSAPI_ALL_ACCESS: u32 = 3;
-        const CLUSAPI_CHANGE_ACCESS: u32 = 2;
-        const CLUSAPI_CHANGE_RESOURCE_GROUP_FORCE_MOVE_TO_CSV: u32 = 1;
-        const CLUSAPI_GROUP_MOVE_FAILBACK: u32 = 16;
-        const CLUSAPI_GROUP_MOVE_HIGH_PRIORITY_START: u32 = 8;
-        const CLUSAPI_GROUP_MOVE_IGNORE_AFFINITY_RULE: u32 = 32;
-        const CLUSAPI_GROUP_MOVE_IGNORE_RESOURCE_STATUS: u32 = 1;
-        const CLUSAPI_GROUP_MOVE_QUEUE_ENABLED: u32 = 4;
-        const CLUSAPI_GROUP_MOVE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 2;
-        const CLUSAPI_GROUP_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
-        const CLUSAPI_GROUP_ONLINE_BEST_POSSIBLE_NODE: u32 = 4;
-        const CLUSAPI_GROUP_ONLINE_IGNORE_AFFINITY_RULE: u32 = 8;
-        const CLUSAPI_GROUP_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
-        const CLUSAPI_GROUP_ONLINE_SYNCHRONOUS: u32 = 2;
-        const CLUSAPI_NODE_AVOID_PLACEMENT: u32 = 2;
-        const CLUSAPI_NODE_PAUSE_REMAIN_ON_PAUSED_NODE_ON_MOVE_ERROR: u32 = 1;
-        const CLUSAPI_NODE_PAUSE_RETRY_DRAIN_ON_FAILURE: u32 = 4;
-        const CLUSAPI_NODE_RESUME_FAILBACK_PINNED_VMS_ONLY: u32 = 4;
-        const CLUSAPI_NODE_RESUME_FAILBACK_STORAGE: u32 = 1;
-        const CLUSAPI_NODE_RESUME_FAILBACK_VMS: u32 = 2;
-        const CLUSAPI_NODE_RESUME_FAILBACK_VMS_FORCEFULLY: u32 = 8;
-        const CLUSAPI_NO_ACCESS: u32 = 4;
-        const CLUSAPI_READ_ACCESS: u32 = 1;
+        const CLUSAPI_ALL_ACCESS: i32 = 3;
+        const CLUSAPI_CHANGE_ACCESS: i32 = 2;
+        const CLUSAPI_CHANGE_RESOURCE_GROUP_FORCE_MOVE_TO_CSV: i32 = 1;
+        const CLUSAPI_GROUP_MOVE_FAILBACK: i32 = 16;
+        const CLUSAPI_GROUP_MOVE_HIGH_PRIORITY_START: i32 = 8;
+        const CLUSAPI_GROUP_MOVE_IGNORE_AFFINITY_RULE: i32 = 32;
+        const CLUSAPI_GROUP_MOVE_IGNORE_RESOURCE_STATUS: i32 = 1;
+        const CLUSAPI_GROUP_MOVE_QUEUE_ENABLED: i32 = 4;
+        const CLUSAPI_GROUP_MOVE_RETURN_TO_SOURCE_NODE_ON_ERROR: i32 = 2;
+        const CLUSAPI_GROUP_OFFLINE_IGNORE_RESOURCE_STATUS: i32 = 1;
+        const CLUSAPI_GROUP_ONLINE_BEST_POSSIBLE_NODE: i32 = 4;
+        const CLUSAPI_GROUP_ONLINE_IGNORE_AFFINITY_RULE: i32 = 8;
+        const CLUSAPI_GROUP_ONLINE_IGNORE_RESOURCE_STATUS: i32 = 1;
+        const CLUSAPI_GROUP_ONLINE_SYNCHRONOUS: i32 = 2;
+        const CLUSAPI_NODE_AVOID_PLACEMENT: i32 = 2;
+        const CLUSAPI_NODE_PAUSE_REMAIN_ON_PAUSED_NODE_ON_MOVE_ERROR: i32 = 1;
+        const CLUSAPI_NODE_PAUSE_RETRY_DRAIN_ON_FAILURE: i32 = 4;
+        const CLUSAPI_NODE_RESUME_FAILBACK_PINNED_VMS_ONLY: i32 = 4;
+        const CLUSAPI_NODE_RESUME_FAILBACK_STORAGE: i32 = 1;
+        const CLUSAPI_NODE_RESUME_FAILBACK_VMS: i32 = 2;
+        const CLUSAPI_NODE_RESUME_FAILBACK_VMS_FORCEFULLY: i32 = 8;
+        const CLUSAPI_NO_ACCESS: i32 = 4;
+        const CLUSAPI_READ_ACCESS: i32 = 1;
         struct CLUSAPI_REASON_HANDLER {
             lpParameter: *mut void,
             pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
         }
-        const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 4;
-        const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: u32 = 2;
-        const CLUSAPI_RESOURCE_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
-        const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_DELETED: u32 = 8;
-        const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_RESTARTED: u32 = 16;
-        const CLUSAPI_RESOURCE_OFFLINE_REASON_MOVING: u32 = 2;
-        const CLUSAPI_RESOURCE_OFFLINE_REASON_NONE: u32 = 0;
-        const CLUSAPI_RESOURCE_OFFLINE_REASON_PREEMPTED: u32 = 32;
-        const CLUSAPI_RESOURCE_OFFLINE_REASON_SHUTTING_DOWN: u32 = 64;
-        const CLUSAPI_RESOURCE_OFFLINE_REASON_UNKNOWN: u32 = 1;
-        const CLUSAPI_RESOURCE_OFFLINE_REASON_USER_REQUESTED: u32 = 4;
-        const CLUSAPI_RESOURCE_ONLINE_BEST_POSSIBLE_NODE: u32 = 8;
-        const CLUSAPI_RESOURCE_ONLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 2;
-        const CLUSAPI_RESOURCE_ONLINE_IGNORE_AFFINITY_RULE: u32 = 32;
-        const CLUSAPI_RESOURCE_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 1;
-        const CLUSAPI_RESOURCE_ONLINE_NECESSARY_FOR_QUORUM: u32 = 4;
-        const CLUSAPI_VALID_CHANGE_RESOURCE_GROUP_FLAGS: u32 = 1;
-        const CLUSAPI_VERSION: u32 = 3079;
-        const CLUSAPI_VERSION_CU: u32 = 3075;
-        const CLUSAPI_VERSION_DT: u32 = 3079;
-        const CLUSAPI_VERSION_GA: u32 = 3077;
-        const CLUSAPI_VERSION_GE: u32 = 3078;
-        const CLUSAPI_VERSION_NI: u32 = 2572;
-        const CLUSAPI_VERSION_RS3: u32 = 2560;
-        const CLUSAPI_VERSION_SERVER2008: u32 = 1536;
-        const CLUSAPI_VERSION_SERVER2008R2: u32 = 1792;
-        const CLUSAPI_VERSION_WINDOWS8: u32 = 1793;
-        const CLUSAPI_VERSION_WINDOWSBLUE: u32 = 1794;
-        const CLUSAPI_VERSION_WINTHRESHOLD: u32 = 1795;
-        const CLUSAPI_VERSION_ZN: u32 = 3076;
-        const CLUSCTL_ACCESS_MODE_MASK: u32 = 3;
-        const CLUSCTL_ACCESS_SHIFT: u32 = 0;
+        const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: i32 = 4;
+        const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: i32 = 2;
+        const CLUSAPI_RESOURCE_OFFLINE_IGNORE_RESOURCE_STATUS: i32 = 1;
+        const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_DELETED: i32 = 8;
+        const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_RESTARTED: i32 = 16;
+        const CLUSAPI_RESOURCE_OFFLINE_REASON_MOVING: i32 = 2;
+        const CLUSAPI_RESOURCE_OFFLINE_REASON_NONE: i32 = 0;
+        const CLUSAPI_RESOURCE_OFFLINE_REASON_PREEMPTED: i32 = 32;
+        const CLUSAPI_RESOURCE_OFFLINE_REASON_SHUTTING_DOWN: i32 = 64;
+        const CLUSAPI_RESOURCE_OFFLINE_REASON_UNKNOWN: i32 = 1;
+        const CLUSAPI_RESOURCE_OFFLINE_REASON_USER_REQUESTED: i32 = 4;
+        const CLUSAPI_RESOURCE_ONLINE_BEST_POSSIBLE_NODE: i32 = 8;
+        const CLUSAPI_RESOURCE_ONLINE_DO_NOT_UPDATE_PERSISTENT_STATE: i32 = 2;
+        const CLUSAPI_RESOURCE_ONLINE_IGNORE_AFFINITY_RULE: i32 = 32;
+        const CLUSAPI_RESOURCE_ONLINE_IGNORE_RESOURCE_STATUS: i32 = 1;
+        const CLUSAPI_RESOURCE_ONLINE_NECESSARY_FOR_QUORUM: i32 = 4;
+        const CLUSAPI_VALID_CHANGE_RESOURCE_GROUP_FLAGS: i32 = 1;
+        const CLUSAPI_VERSION: i32 = 3079;
+        const CLUSAPI_VERSION_CU: i32 = 3075;
+        const CLUSAPI_VERSION_DT: i32 = 3079;
+        const CLUSAPI_VERSION_GA: i32 = 3077;
+        const CLUSAPI_VERSION_GE: i32 = 3078;
+        const CLUSAPI_VERSION_NI: i32 = 2572;
+        const CLUSAPI_VERSION_RS3: i32 = 2560;
+        const CLUSAPI_VERSION_SERVER2008: i32 = 1536;
+        const CLUSAPI_VERSION_SERVER2008R2: i32 = 1792;
+        const CLUSAPI_VERSION_WINDOWS8: i32 = 1793;
+        const CLUSAPI_VERSION_WINDOWSBLUE: i32 = 1794;
+        const CLUSAPI_VERSION_WINTHRESHOLD: i32 = 1795;
+        const CLUSAPI_VERSION_ZN: i32 = 3076;
+        const CLUSCTL_ACCESS_MODE_MASK: i32 = 3;
+        const CLUSCTL_ACCESS_SHIFT: i32 = 0;
         #[repr(i32)]
         enum CLUSCTL_AFFINITYRULE_CODES {
             CLUSCTL_AFFINITYRULE_GET_COMMON_PROPERTIES = 150995033,
@@ -370,8 +370,8 @@ mod Windows {
             CLUSCTL_CLUSTER_CHECK_VOTER_EVICT_WITNESS = 117440621,
             CLUSCTL_CLUSTER_CHECK_VOTER_DOWN_WITNESS = 117440625,
         }
-        const CLUSCTL_CONTROL_CODE_MASK: u32 = 4194303;
-        const CLUSCTL_FUNCTION_SHIFT: u32 = 2;
+        const CLUSCTL_CONTROL_CODE_MASK: i32 = 4194303;
+        const CLUSCTL_FUNCTION_SHIFT: i32 = 2;
         #[repr(i32)]
         enum CLUSCTL_GROUPSET_CODES {
             CLUSCTL_GROUPSET_GET_COMMON_PROPERTIES = 134217817,
@@ -482,8 +482,8 @@ mod Windows {
             CLUSCTL_NODE_BLOCK_GEM_SEND_RECV = 67109581,
             CLUSCTL_NODE_GET_GEMID_VECTOR = 67109585,
         }
-        const CLUSCTL_OBJECT_MASK: u32 = 255;
-        const CLUSCTL_OBJECT_SHIFT: u32 = 24;
+        const CLUSCTL_OBJECT_MASK: i32 = 255;
+        const CLUSCTL_OBJECT_SHIFT: i32 = 24;
         #[repr(i32)]
         enum CLUSCTL_RESOURCE_CODES {
             CLUSCTL_RESOURCE_UNKNOWN = 16777216,
@@ -603,7 +603,7 @@ mod Windows {
             dwVersion: u32,
             eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
         }
-        const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1;
+        const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: i32 = 1;
         #[repr(i32)]
         enum CLUSCTL_RESOURCE_TYPE_CODES {
             CLUSCTL_RESOURCE_TYPE_UNKNOWN = 33554432,
@@ -672,17 +672,17 @@ mod Windows {
             CLUSCTL_RESOURCE_TYPE_CHECK_DRAIN_VETO = 34611501,
             CLUSCTL_RESOURCE_TYPE_NOTIFY_DRAIN_COMPLETE = 34611505,
         }
-        const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO: u32 = 1;
-        const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: u32 = 2;
-        const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: u32 = 4;
+        const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO: i32 = 1;
+        const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: i32 = 2;
+        const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: i32 = 4;
         struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
             dwFlags: u32,
             guidPoolFilter: GUID,
         }
-        const CLUSGROUPSET_STATUS_APPLICATION_READY: u32 = 8;
-        const CLUSGROUPSET_STATUS_GROUPS_ONLINE: u32 = 2;
-        const CLUSGROUPSET_STATUS_GROUPS_PENDING: u32 = 1;
-        const CLUSGROUPSET_STATUS_OS_HEARTBEAT: u32 = 4;
+        const CLUSGROUPSET_STATUS_APPLICATION_READY: i32 = 8;
+        const CLUSGROUPSET_STATUS_GROUPS_ONLINE: i32 = 2;
+        const CLUSGROUPSET_STATUS_GROUPS_PENDING: i32 = 1;
+        const CLUSGROUPSET_STATUS_OS_HEARTBEAT: i32 = 4;
         #[repr(i32)]
         enum CLUSGROUP_TYPE {
             ClusGroupTypeCoreCluster = 1,
@@ -720,19 +720,19 @@ mod Windows {
             ClusGroupTypeMetaVirtualMachine = 127,
             ClusGroupTypeUnknown = 9999,
         }
-        const CLUSGRP_STATUS_APPLICATION_READY: u32 = 1024;
-        const CLUSGRP_STATUS_EMBEDDED_FAILURE: u32 = 32;
-        const CLUSGRP_STATUS_LOCKED_MODE: u32 = 1;
-        const CLUSGRP_STATUS_NETWORK_FAILURE: u32 = 128;
-        const CLUSGRP_STATUS_OFFLINE_DUE_TO_ANTIAFFINITY_CONFLICT: u32 = 64;
-        const CLUSGRP_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: u32 = 2048;
-        const CLUSGRP_STATUS_OS_HEARTBEAT: u32 = 512;
-        const CLUSGRP_STATUS_PHYSICAL_RESOURCES_LACKING: u32 = 8;
-        const CLUSGRP_STATUS_PREEMPTED: u32 = 2;
-        const CLUSGRP_STATUS_UNMONITORED: u32 = 256;
-        const CLUSGRP_STATUS_WAITING_FOR_DEPENDENCIES: u32 = 4096;
-        const CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE: u32 = 4;
-        const CLUSGRP_STATUS_WAITING_TO_START: u32 = 16;
+        const CLUSGRP_STATUS_APPLICATION_READY: i32 = 1024;
+        const CLUSGRP_STATUS_EMBEDDED_FAILURE: i32 = 32;
+        const CLUSGRP_STATUS_LOCKED_MODE: i32 = 1;
+        const CLUSGRP_STATUS_NETWORK_FAILURE: i32 = 128;
+        const CLUSGRP_STATUS_OFFLINE_DUE_TO_ANTIAFFINITY_CONFLICT: i32 = 64;
+        const CLUSGRP_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: i32 = 2048;
+        const CLUSGRP_STATUS_OS_HEARTBEAT: i32 = 512;
+        const CLUSGRP_STATUS_PHYSICAL_RESOURCES_LACKING: i32 = 8;
+        const CLUSGRP_STATUS_PREEMPTED: i32 = 2;
+        const CLUSGRP_STATUS_UNMONITORED: i32 = 256;
+        const CLUSGRP_STATUS_WAITING_FOR_DEPENDENCIES: i32 = 4096;
+        const CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE: i32 = 4;
+        const CLUSGRP_STATUS_WAITING_TO_START: i32 = 16;
         struct CLUSPROP_BINARY {
             Base: CLUSPROP_VALUE,
             rgb: [u8; 0],
@@ -871,8 +871,8 @@ mod Windows {
             Base: CLUSPROP_VALUE,
             w: u16,
         }
-        const CLUSREG_DATABASE_ISOLATE_READ: u32 = 2;
-        const CLUSREG_DATABASE_SYNC_WRITE_TO_ALL_NODES: u32 = 1;
+        const CLUSREG_DATABASE_ISOLATE_READ: i32 = 2;
+        const CLUSREG_DATABASE_SYNC_WRITE_TO_ALL_NODES: i32 = 1;
         #[encoding("utf-16")]
         const CLUSREG_KEYNAME_OBJECTGUIDS: String = "ObjectGUIDs";
         #[encoding("utf-16")]
@@ -1473,16 +1473,16 @@ mod Windows {
         const CLUSREG_NAME_WINS_DATABASE_PATH: String = "DatabasePath";
         #[encoding("utf-16")]
         const CLUSREG_NAME_WITNESS_DYNAMIC_WEIGHT: String = "WitnessDynamicWeight";
-        const CLUSRES_STATUS_APPLICATION_READY: u32 = 256;
-        const CLUSRES_STATUS_EMBEDDED_FAILURE: u32 = 2;
-        const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_CPU: u32 = 4;
-        const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_GENERIC_RESOURCES: u32 = 16;
-        const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_MEMORY: u32 = 8;
-        const CLUSRES_STATUS_LOCKED_MODE: u32 = 1;
-        const CLUSRES_STATUS_NETWORK_FAILURE: u32 = 32;
-        const CLUSRES_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: u32 = 512;
-        const CLUSRES_STATUS_OS_HEARTBEAT: u32 = 128;
-        const CLUSRES_STATUS_UNMONITORED: u32 = 64;
+        const CLUSRES_STATUS_APPLICATION_READY: i32 = 256;
+        const CLUSRES_STATUS_EMBEDDED_FAILURE: i32 = 2;
+        const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_CPU: i32 = 4;
+        const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_GENERIC_RESOURCES: i32 = 16;
+        const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_MEMORY: i32 = 8;
+        const CLUSRES_STATUS_LOCKED_MODE: i32 = 1;
+        const CLUSRES_STATUS_NETWORK_FAILURE: i32 = 32;
+        const CLUSRES_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: i32 = 512;
+        const CLUSRES_STATUS_OS_HEARTBEAT: i32 = 128;
+        const CLUSRES_STATUS_UNMONITORED: i32 = 64;
         #[repr(i32)]
         enum CLUSTERSET_OBJECT_TYPE {
             CLUSTERSET_OBJECT_TYPE_NONE = 0,
@@ -1518,7 +1518,7 @@ mod Windows {
             dwFaultDomains: u32,
             bReserveSpareNode: BOOL,
         }
-        const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1;
+        const CLUSTER_AVAILABILITY_SET_CONFIG_V1: i32 = 1;
         struct CLUSTER_BATCH_COMMAND {
             Command: CLUSTER_REG_COMMAND,
             dwOptions: u32,
@@ -1700,7 +1700,7 @@ mod Windows {
             CLUSTER_CLOUD_TYPE_MIXED = 128,
             CLUSTER_CLOUD_TYPE_UNKNOWN = -1,
         }
-        const CLUSTER_CONFIGURED: u32 = 2;
+        const CLUSTER_CONFIGURED: i32 = 2;
         #[repr(i32)]
         enum CLUSTER_CONTROL_OBJECT {
             CLUS_OBJECT_INVALID = 0,
@@ -1719,8 +1719,8 @@ mod Windows {
             dwVersion: u32,
             groupType: CLUSGROUP_TYPE,
         }
-        const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1;
-        const CLUSTER_CREATE_GROUP_INFO_VERSION_1: u32 = 1;
+        const CLUSTER_CREATE_GROUP_INFO_VERSION: i32 = 1;
+        const CLUSTER_CREATE_GROUP_INFO_VERSION_1: i32 = 1;
         #[encoding("utf-16")]
         const CLUSTER_CSA_VSS_STATE: String = "BackupInProgress";
         #[encoding("utf-16")]
@@ -1735,7 +1735,7 @@ mod Windows {
             VolumeStateInMaintenance = 4,
             VolumeStateDismounted = 8,
         }
-        const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2;
+        const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: i32 = 2;
         #[encoding("utf-16")]
         const CLUSTER_ENFORCED_ANTIAFFINITY: String = "ClusterEnforcedAntiaffinity";
         #[repr(i32)]
@@ -1760,8 +1760,8 @@ mod Windows {
             cbName: u32,
             lpszName: PWSTR,
         }
-        const CLUSTER_ENUM_ITEM_VERSION: u32 = 1;
-        const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1;
+        const CLUSTER_ENUM_ITEM_VERSION: i32 = 1;
+        const CLUSTER_ENUM_ITEM_VERSION_1: i32 = 1;
         type CLUSTER_GROUP_AUTOFAILBACK_TYPE = CGAFT;
         #[repr(i32)]
         enum CLUSTER_GROUP_ENUM {
@@ -1784,8 +1784,8 @@ mod Windows {
             cbRoProperties: u32,
             pRoProperties: *mut void,
         }
-        const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1;
-        const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1;
+        const CLUSTER_GROUP_ENUM_ITEM_VERSION: i32 = 1;
+        const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: i32 = 1;
         #[repr(i32)]
         enum CLUSTER_GROUP_PRIORITY {
             PriorityDisabled = 0,
@@ -1808,7 +1808,7 @@ mod Windows {
         const CLUSTER_HANG_RECOVERY_ACTION_KEYNAME: String = "HangRecoveryAction";
         #[encoding("utf-16")]
         const CLUSTER_HANG_TIMEOUT_KEYNAME: String = "ClusSvcHangTimeout";
-        const CLUSTER_INSTALLED: u32 = 1;
+        const CLUSTER_INSTALLED: i32 = 1;
         struct CLUSTER_IP_ENTRY {
             lpszIpAddress: PCWSTR,
             dwPrefixLength: u32,
@@ -2090,8 +2090,8 @@ mod Windows {
             cbRoProperties: u32,
             pRoProperties: *mut void,
         }
-        const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1;
-        const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1;
+        const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: i32 = 1;
+        const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: i32 = 1;
         type CLUSTER_RESOURCE_RESTART_ACTION = CRRA;
         #[repr(i32)]
         enum CLUSTER_RESOURCE_STATE {
@@ -2120,7 +2120,7 @@ mod Windows {
             CLUSTER_RESOURCE_TYPE_ENUM_RESOURCES = 2,
             CLUSTER_RESOURCE_TYPE_ENUM_ALL = 3,
         }
-        const CLUSTER_RUNNING: u32 = 16;
+        const CLUSTER_RUNNING: i32 = 16;
         #[encoding("utf-16")]
         const CLUSTER_S2D_BUS_TYPES: String = "S2DBusTypes";
         #[encoding("utf-16")]
@@ -2186,8 +2186,8 @@ mod Windows {
             ClusterSetupPhaseEnd = 3,
             ClusterSetupPhaseReport = 4,
         }
-        const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0;
-        const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1;
+        const CLUSTER_SET_ACCESS_TYPE_ALLOWED: i32 = 0;
+        const CLUSTER_SET_ACCESS_TYPE_DENIED: i32 = 1;
         struct CLUSTER_SET_PASSWORD_STATUS {
             NodeId: u32,
             SetAttempted: BOOLEAN,
@@ -2291,15 +2291,15 @@ mod Windows {
         struct CLUSTER_VALIDATE_PATH {
             szPath: [u16; 0],
         }
-        const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1;
+        const CLUSTER_VERSION_FLAG_MIXED_MODE: i32 = 1;
         const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295;
         #[encoding("utf-16")]
         const CLUSTER_WITNESS_DATABASE_WRITE_TIMEOUT: String = "WitnessDatabaseWriteTimeout";
         #[encoding("utf-16")]
         const CLUSTER_WITNESS_FAILED_RESTART_INTERVAL: String = "WitnessRestartInterval";
-        const CLUS_ACCESS_ANY: u32 = 0;
-        const CLUS_ACCESS_READ: u32 = 1;
-        const CLUS_ACCESS_WRITE: u32 = 2;
+        const CLUS_ACCESS_ANY: i32 = 0;
+        const CLUS_ACCESS_READ: i32 = 1;
+        const CLUS_ACCESS_WRITE: i32 = 2;
         #[repr(i32)]
         enum CLUS_ADAPTER_EXCLUSION_TYPE {
             CLUS_ADAPTER_EXCLUSION_TYPE_IPPREFIX = 0,
@@ -2395,17 +2395,17 @@ mod Windows {
             dwRootSignature: u32,
             dwFtType: u32,
         }
-        const CLUS_GLOBAL: u32 = 1;
+        const CLUS_GLOBAL: i32 = 1;
         #[repr(i32)]
         enum CLUS_GROUP_START_SETTING {
             CLUS_GROUP_START_ALWAYS = 0,
             CLUS_GROUP_DO_NOT_START = 1,
             CLUS_GROUP_START_ALLOWED = 2,
         }
-        const CLUS_GRP_MOVE_ALLOWED: u32 = 0;
-        const CLUS_GRP_MOVE_LOCKED: u32 = 1;
-        const CLUS_HYBRID_QUORUM: u32 = 1024;
-        const CLUS_LEGACY_QUORUM: u32 = 4194304;
+        const CLUS_GRP_MOVE_ALLOWED: i32 = 0;
+        const CLUS_GRP_MOVE_LOCKED: i32 = 1;
+        const CLUS_HYBRID_QUORUM: i32 = 1024;
+        const CLUS_LEGACY_QUORUM: i32 = 4194304;
         struct CLUS_MAINTENANCE_MODE_INFO {
             InMaintenance: BOOL,
         }
@@ -2415,7 +2415,7 @@ mod Windows {
             InternalState: CLUSTER_RESOURCE_STATE,
             Signature: u32,
         }
-        const CLUS_MODIFY: u32 = 1;
+        const CLUS_MODIFY: i32 = 1;
         #[encoding("utf-16")]
         const CLUS_NAME_RES_TYPE_CLUSTER_GROUPID: String = "ClusterGroupId";
         #[encoding("utf-16")]
@@ -2455,9 +2455,9 @@ mod Windows {
         type CLUS_NETNAME_PWD_INFO = CLUS_RLUA_PWD_INFO;
         type CLUS_NETNAME_PWD_INFOEX = CLUS_RLUA_PWD_INFOEX;
         type CLUS_NETNAME_VS_TOKEN_INFO = CLUS_VS_TOKEN_INFO;
-        const CLUS_NODE_MAJORITY_QUORUM: u32 = 0;
-        const CLUS_NOT_GLOBAL: u32 = 0;
-        const CLUS_NO_MODIFY: u32 = 0;
+        const CLUS_NODE_MAJORITY_QUORUM: i32 = 0;
+        const CLUS_NOT_GLOBAL: i32 = 0;
+        const CLUS_NO_MODIFY: i32 = 0;
         struct CLUS_PARTITION_INFO {
             dwFlags: u32,
             szDeviceName: [u16; 260],
@@ -2681,7 +2681,7 @@ mod Windows {
             DesiredAccess: u32,
             InheritHandle: BOOL,
         }
-        const CREATEDC_PRESENT: u32 = 2;
+        const CREATEDC_PRESENT: i32 = 2;
         struct CREATE_CLUSTER_CONFIG {
             dwVersion: u32,
             lpszClusterName: PCWSTR,
@@ -2708,7 +2708,7 @@ mod Windows {
             managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
             bUpgradeVCOs: BOOLEAN,
         }
-        const CREATE_CLUSTER_VERSION: u32 = 1536;
+        const CREATE_CLUSTER_VERSION: i32 = 1536;
         #[repr(i32)]
         enum CRRA {
             ClusterResourceDontRestart = 0,
@@ -2716,7 +2716,7 @@ mod Windows {
             ClusterResourceRestartNotify = 2,
             ClusterResourceRestartActionCount = 3,
         }
-        const CU_UPGRADE_VERSION: u32 = 3;
+        const CU_UPGRADE_VERSION: i32 = 3;
         #[library("CLUSAPI.dll")]
         extern fn CanResourceBeDependent(hResource: *const _HRESOURCE, hResourceDependent: *const _HRESOURCE) -> BOOL;
         #[library("CLUSAPI.dll")]
@@ -2997,8 +2997,8 @@ mod Windows {
         extern fn CreateClusterResourceType(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn CreateClusterResourceTypeEx(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32, #[opt] lpszReason: PCWSTR) -> u32;
-        const DNS_LENGTH: u32 = 64;
-        const DT_UPGRADE_VERSION: u32 = 1;
+        const DNS_LENGTH: i32 = 64;
+        const DT_UPGRADE_VERSION: i32 = 1;
         #[library("CLUSAPI.dll")]
         extern fn DeleteClusterGroup(hGroup: *const _HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
@@ -3037,8 +3037,8 @@ mod Windows {
         extern fn EvictClusterNodeEx(hNode: *const _HNODE, dwTimeOut: u32, phrCleanupStatus: *mut HRESULT) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn EvictClusterNodeEx2(hNode: *const _HNODE, dwTimeout: u32, phrCleanupStatus: *mut HRESULT, #[opt] lpszReason: PCWSTR) -> u32;
-        const FE_22H2_UPGRADE_VERSION: u32 = 5;
-        const FE_UPGRADE_VERSION: u32 = 4;
+        const FE_22H2_UPGRADE_VERSION: i32 = 5;
+        const FE_UPGRADE_VERSION: i32 = 4;
         struct FILESHARE_CHANGE {
             Change: FILESHARE_CHANGE_ENUM,
             ShareName: [u16; 84],
@@ -3058,12 +3058,12 @@ mod Windows {
         extern fn FailClusterResource(hResource: *const _HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn FailClusterResourceEx(hResource: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
-        const GA_UPGRADE_VERSION: u32 = 5;
-        const GE_UPGRADE_VERSION: u32 = 6;
-        const GROUPSET_READY_SETTING_APPLICATION_READY: u32 = 4;
-        const GROUPSET_READY_SETTING_DELAY: u32 = 1;
-        const GROUPSET_READY_SETTING_ONLINE: u32 = 2;
-        const GROUPSET_READY_SETTING_OS_HEARTBEAT: u32 = 3;
+        const GA_UPGRADE_VERSION: i32 = 5;
+        const GE_UPGRADE_VERSION: i32 = 6;
+        const GROUPSET_READY_SETTING_APPLICATION_READY: i32 = 4;
+        const GROUPSET_READY_SETTING_DELAY: i32 = 1;
+        const GROUPSET_READY_SETTING_ONLINE: i32 = 2;
+        const GROUPSET_READY_SETTING_OS_HEARTBEAT: i32 = 3;
         struct GROUP_FAILURE_INFO {
             dwFailoverAttemptsRemaining: u32,
             dwFailoverPeriodRemaining: u32,
@@ -3072,7 +3072,7 @@ mod Windows {
             dwVersion: u32,
             Info: GROUP_FAILURE_INFO,
         }
-        const GROUP_FAILURE_INFO_VERSION_1: u32 = 1;
+        const GROUP_FAILURE_INFO_VERSION_1: i32 = 1;
         #[repr(i32)]
         enum GRP_PLACEMENT_OPTIONS {
             GRP_PLACEMENT_OPTIONS_MIN_VALUE = 0,
@@ -3080,7 +3080,7 @@ mod Windows {
             GRP_PLACEMENT_OPTIONS_DISABLE_AUTOBALANCING = 1,
             GRP_PLACEMENT_OPTIONS_ALL = 1,
         }
-        const GUID_PRESENT: u32 = 1;
+        const GUID_PRESENT: i32 = 1;
         #[library("CLUSAPI.dll")]
         extern fn GetClusterFromGroup(hGroup: *const _HGROUP) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
@@ -3140,7 +3140,7 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn GetNotifyEventHandle(hChange: *const _HCHANGE, lphTargetEvent: *mut HANDLE) -> u32;
         type HCHANGE = *mut _HCHANGE;
-        const HCI_UPGRADE_BIT: u32 = 32768;
+        const HCI_UPGRADE_BIT: i32 = 32768;
         type HCLUSENUM = *mut _HCLUSENUM;
         type HCLUSENUMEX = *mut _HCLUSENUMEX;
         type HCLUSTER = *mut _HCLUSTER;
@@ -3180,26 +3180,26 @@ mod Windows {
             MaintenanceModeTypeUnclusterResource = 3,
         }
         const MAINTENANCE_MODE_V2_SIG: u32 = 2881155087;
-        const MAX_CLUSTERNAME_LENGTH: u32 = 63;
-        const MAX_CO_PASSWORD_LENGTH: u32 = 16;
-        const MAX_CO_PASSWORD_LENGTHEX: u32 = 127;
-        const MAX_CO_PASSWORD_STORAGEEX: u32 = 128;
-        const MAX_CREATINGDC_LENGTH: u32 = 256;
-        const MAX_OBJECTID: u32 = 64;
+        const MAX_CLUSTERNAME_LENGTH: i32 = 63;
+        const MAX_CO_PASSWORD_LENGTH: i32 = 16;
+        const MAX_CO_PASSWORD_LENGTHEX: i32 = 127;
+        const MAX_CO_PASSWORD_STORAGEEX: i32 = 128;
+        const MAX_CREATINGDC_LENGTH: i32 = 256;
+        const MAX_OBJECTID: i32 = 64;
         #[encoding("utf-16")]
         const MINIMUM_NEVER_PREEMPT_PRIORITY: String = "MinimumNeverPreemptPriority";
         #[encoding("utf-16")]
         const MINIMUM_PREEMPTOR_PRIORITY: String = "MinimumPreemptorPriority";
-        const MN_UPGRADE_VERSION: u32 = 3;
+        const MN_UPGRADE_VERSION: i32 = 3;
         #[library("CLUSAPI.dll")]
         extern fn MoveClusterGroup(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn MoveClusterGroupEx(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE, dwMoveFlags: u32, #[size_param(4)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn MoveClusterGroupEx2(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE, dwMoveFlags: u32, #[size_param(4)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
-        const NINETEEN_H1_UPGRADE_VERSION: u32 = 1;
-        const NINETEEN_H2_UPGRADE_VERSION: u32 = 2;
-        const NI_UPGRADE_VERSION: u32 = 2;
+        const NINETEEN_H1_UPGRADE_VERSION: i32 = 1;
+        const NINETEEN_H2_UPGRADE_VERSION: i32 = 2;
+        const NI_UPGRADE_VERSION: i32 = 2;
         #[repr(i32)]
         enum NODE_CLUSTER_STATE {
             ClusterStateNotInstalled = 0,
@@ -3211,19 +3211,19 @@ mod Windows {
             dwObjectType: u32,
             FilterFlags: i64,
         }
-        const NT10_MAJOR_VERSION: u32 = 9;
-        const NT11_MAJOR_VERSION: u32 = 10;
-        const NT12_MAJOR_VERSION: u32 = 11;
-        const NT13_MAJOR_VERSION: u32 = 12;
-        const NT14_MAJOR_VERSION: u32 = 14;
-        const NT4SP4_MAJOR_VERSION: u32 = 2;
-        const NT4_MAJOR_VERSION: u32 = 1;
-        const NT51_MAJOR_VERSION: u32 = 4;
-        const NT5_MAJOR_VERSION: u32 = 3;
-        const NT6_MAJOR_VERSION: u32 = 5;
-        const NT7_MAJOR_VERSION: u32 = 6;
-        const NT8_MAJOR_VERSION: u32 = 7;
-        const NT9_MAJOR_VERSION: u32 = 8;
+        const NT10_MAJOR_VERSION: i32 = 9;
+        const NT11_MAJOR_VERSION: i32 = 10;
+        const NT12_MAJOR_VERSION: i32 = 11;
+        const NT13_MAJOR_VERSION: i32 = 12;
+        const NT14_MAJOR_VERSION: i32 = 14;
+        const NT4SP4_MAJOR_VERSION: i32 = 2;
+        const NT4_MAJOR_VERSION: i32 = 1;
+        const NT51_MAJOR_VERSION: i32 = 4;
+        const NT5_MAJOR_VERSION: i32 = 3;
+        const NT6_MAJOR_VERSION: i32 = 5;
+        const NT7_MAJOR_VERSION: i32 = 6;
+        const NT8_MAJOR_VERSION: i32 = 7;
+        const NT9_MAJOR_VERSION: i32 = 8;
         struct NodeSriovInfo {
             VFTotal: u32,
             VFUsed: u32,
@@ -3690,21 +3690,21 @@ mod Windows {
             dwVersion: u32,
             Info: RESOURCE_FAILURE_INFO,
         }
-        const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1;
+        const RESOURCE_FAILURE_INFO_VERSION_1: i32 = 1;
         struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
             isTerminalFailure: BOOL,
             restartPeriodRemaining: u32,
         }
-        const RS3_UPGRADE_VERSION: u32 = 1;
-        const RS4_UPGRADE_VERSION: u32 = 2;
-        const RS5_UPGRADE_VERSION: u32 = 3;
-        const RedirectedIOReasonBitLockerInitializing: u32 = 16;
-        const RedirectedIOReasonFileSystemTiering: u32 = 8;
+        const RS3_UPGRADE_VERSION: i32 = 1;
+        const RS4_UPGRADE_VERSION: i32 = 2;
+        const RS5_UPGRADE_VERSION: i32 = 3;
+        const RedirectedIOReasonBitLockerInitializing: i32 = 16;
+        const RedirectedIOReasonFileSystemTiering: i32 = 8;
         const RedirectedIOReasonMax: u64 = 9223372036854775808;
-        const RedirectedIOReasonReFs: u32 = 32;
-        const RedirectedIOReasonUnsafeFileSystemFilter: u32 = 2;
-        const RedirectedIOReasonUnsafeVolumeFilter: u32 = 4;
-        const RedirectedIOReasonUserRequest: u32 = 1;
+        const RedirectedIOReasonReFs: i32 = 32;
+        const RedirectedIOReasonUnsafeFileSystemFilter: i32 = 2;
+        const RedirectedIOReasonUnsafeVolumeFilter: i32 = 4;
+        const RedirectedIOReasonUserRequest: i32 = 1;
         #[library("CLUSAPI.dll")]
         extern fn RegisterClusterNotify(hChange: *const _HCHANGE, dwFilterType: u32, hObject: HANDLE, dwNotifyKey: usize) -> u32;
         #[library("CLUSAPI.dll")]
@@ -3753,7 +3753,7 @@ mod Windows {
         extern fn ResumeClusterNodeEx(hNode: *const _HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn ResumeClusterNodeEx2(hNode: *const _HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32, #[opt] lpszReason: PCWSTR) -> u32;
-        const SE_UPGRADE_VERSION: u32 = 2;
+        const SE_UPGRADE_VERSION: i32 = 2;
         #[repr(i32)]
         enum SR_DISK_REPLICATION_ELIGIBLE {
             SrDiskReplicationEligibleNone = 0,
@@ -3780,7 +3780,7 @@ mod Windows {
             SrReplicatedDiskTypeLogNotInParthership = 6,
             SrReplicatedDiskTypeOther = 7,
         }
-        const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1;
+        const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: i32 = 1;
         struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
             ReplicationGroupName: [u16; 260],
             Description: [u16; 260],
@@ -3881,13 +3881,13 @@ mod Windows {
         #[encoding("utf-16")]
         const USE_CLIENT_ACCESS_NETWORKS_FOR_CSV: String = "UseClientAccessNetworksForSharedVolumes";
         const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808;
-        const VolumeRedirectedIOReasonNoDiskConnectivity: u32 = 1;
-        const VolumeRedirectedIOReasonStorageSpaceNotAttached: u32 = 2;
-        const VolumeRedirectedIOReasonVolumeReplicationEnabled: u32 = 4;
-        const WS2016_RTM_UPGRADE_VERSION: u32 = 8;
-        const WS2016_TP4_UPGRADE_VERSION: u32 = 6;
-        const WS2016_TP5_UPGRADE_VERSION: u32 = 7;
-        const ZN_UPGRADE_VERSION: u32 = 4;
+        const VolumeRedirectedIOReasonNoDiskConnectivity: i32 = 1;
+        const VolumeRedirectedIOReasonStorageSpaceNotAttached: i32 = 2;
+        const VolumeRedirectedIOReasonVolumeReplicationEnabled: i32 = 4;
+        const WS2016_RTM_UPGRADE_VERSION: i32 = 8;
+        const WS2016_TP4_UPGRADE_VERSION: i32 = 6;
+        const WS2016_TP5_UPGRADE_VERSION: i32 = 7;
+        const ZN_UPGRADE_VERSION: i32 = 4;
         struct _HCHANGE {}
         struct _HCLUSENUM {}
         struct _HCLUSENUMEX {}

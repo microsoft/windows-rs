@@ -11,13 +11,13 @@ windows_link::link!("cabinet.dll" "system" fn ResetDecompressor(decompressorhand
 windows_link::link!("cabinet.dll" "system" fn SetCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_sys::core::BOOL);
 windows_link::link!("cabinet.dll" "system" fn SetDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_sys::core::BOOL);
 pub type COMPRESSOR_HANDLE = *mut core::ffi::c_void;
-pub const COMPRESS_ALGORITHM_INVALID: u32 = 0;
-pub const COMPRESS_ALGORITHM_LZMS: u32 = 5;
-pub const COMPRESS_ALGORITHM_MAX: u32 = 6;
-pub const COMPRESS_ALGORITHM_MSZIP: u32 = 2;
-pub const COMPRESS_ALGORITHM_NULL: u32 = 1;
-pub const COMPRESS_ALGORITHM_XPRESS: u32 = 3;
-pub const COMPRESS_ALGORITHM_XPRESS_HUFF: u32 = 4;
+pub const COMPRESS_ALGORITHM_INVALID: i32 = 0;
+pub const COMPRESS_ALGORITHM_LZMS: i32 = 5;
+pub const COMPRESS_ALGORITHM_MAX: i32 = 6;
+pub const COMPRESS_ALGORITHM_MSZIP: i32 = 2;
+pub const COMPRESS_ALGORITHM_NULL: i32 = 1;
+pub const COMPRESS_ALGORITHM_XPRESS: i32 = 3;
+pub const COMPRESS_ALGORITHM_XPRESS_HUFF: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
@@ -34,7 +34,7 @@ pub type COMPRESS_INFORMATION_CLASS = i32;
 pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = 1;
 pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = 0;
 pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = 2;
-pub const COMPRESS_RAW: u32 = 536870912;
+pub const COMPRESS_RAW: i32 = 536870912;
 pub type DECOMPRESSOR_HANDLE = COMPRESSOR_HANDLE;
 pub type PCOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE;
 pub type PCOMPRESS_ALLOCATION_ROUTINES = *mut COMPRESS_ALLOCATION_ROUTINES;

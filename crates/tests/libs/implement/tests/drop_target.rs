@@ -53,9 +53,9 @@ impl IDropTarget_Impl for DropTarget_Impl {
                 object.unwrap().DAdvise(&FORMATETC::default(), 789, None)?,
                 123
             );
-            assert_eq!(state, MK_MBUTTON);
-            assert_eq!(*effect, DROPEFFECT_LINK);
-            *effect = DROPEFFECT_MOVE;
+            assert_eq!(state, MK_MBUTTON as u32);
+            assert_eq!(*effect, DROPEFFECT_LINK as u32);
+            *effect = DROPEFFECT_MOVE as u32;
             assert_eq!(*point, POINTL { x: 10, y: 20 });
             Ok(())
         }
@@ -79,11 +79,16 @@ fn test() -> Result<()> {
         let target: IDropTarget = DropTarget().into();
         target.DragLeave().ok()?;
 
-        let mut effect = DROPEFFECT_LINK;
+        let mut effect = DROPEFFECT_LINK as u32;
         target
-            .DragEnter(&object, MK_MBUTTON, POINTL { x: 10, y: 20 }, &mut effect)
+            .DragEnter(
+                &object,
+                MK_MBUTTON as u32,
+                POINTL { x: 10, y: 20 },
+                &mut effect,
+            )
             .ok()?;
-        assert_eq!(effect, DROPEFFECT_MOVE);
+        assert_eq!(effect, DROPEFFECT_MOVE as u32);
 
         Ok(())
     }

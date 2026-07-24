@@ -1,35 +1,35 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const AUDIT_ENUMERATE_USERS: u32 = 16;
-        const AUDIT_GENERIC_ALL: u32 = 983167;
-        const AUDIT_GENERIC_EXECUTE: u32 = 131072;
-        const AUDIT_GENERIC_READ: u32 = 131162;
-        const AUDIT_GENERIC_WRITE: u32 = 131109;
+        const AUDIT_ENUMERATE_USERS: i32 = 16;
+        const AUDIT_GENERIC_ALL: i32 = 983167;
+        const AUDIT_GENERIC_EXECUTE: i32 = 131072;
+        const AUDIT_GENERIC_READ: i32 = 131162;
+        const AUDIT_GENERIC_WRITE: i32 = 131109;
         struct AUDIT_POLICY_INFORMATION {
             AuditSubCategoryGuid: GUID,
             AuditingInformation: u32,
             AuditCategoryGuid: GUID,
         }
-        const AUDIT_QUERY_MISC_POLICY: u32 = 64;
-        const AUDIT_QUERY_SYSTEM_POLICY: u32 = 2;
-        const AUDIT_QUERY_USER_POLICY: u32 = 8;
-        const AUDIT_SET_MISC_POLICY: u32 = 32;
-        const AUDIT_SET_SYSTEM_POLICY: u32 = 1;
-        const AUDIT_SET_USER_POLICY: u32 = 4;
-        const AUTH_REQ_ALLOW_ENC_TKT_IN_SKEY: u32 = 32;
-        const AUTH_REQ_ALLOW_FORWARDABLE: u32 = 1;
-        const AUTH_REQ_ALLOW_NOADDRESS: u32 = 16;
-        const AUTH_REQ_ALLOW_POSTDATE: u32 = 4;
-        const AUTH_REQ_ALLOW_PROXIABLE: u32 = 2;
-        const AUTH_REQ_ALLOW_RENEWABLE: u32 = 8;
-        const AUTH_REQ_ALLOW_S4U_DELEGATE: u32 = 2048;
-        const AUTH_REQ_ALLOW_VALIDATE: u32 = 64;
-        const AUTH_REQ_OK_AS_DELEGATE: u32 = 256;
-        const AUTH_REQ_PER_USER_FLAGS: u32 = 79;
-        const AUTH_REQ_PREAUTH_REQUIRED: u32 = 512;
-        const AUTH_REQ_TRANSITIVE_TRUST: u32 = 1024;
-        const AUTH_REQ_VALIDATE_CLIENT: u32 = 128;
+        const AUDIT_QUERY_MISC_POLICY: i32 = 64;
+        const AUDIT_QUERY_SYSTEM_POLICY: i32 = 2;
+        const AUDIT_QUERY_USER_POLICY: i32 = 8;
+        const AUDIT_SET_MISC_POLICY: i32 = 32;
+        const AUDIT_SET_SYSTEM_POLICY: i32 = 1;
+        const AUDIT_SET_USER_POLICY: i32 = 4;
+        const AUTH_REQ_ALLOW_ENC_TKT_IN_SKEY: i32 = 32;
+        const AUTH_REQ_ALLOW_FORWARDABLE: i32 = 1;
+        const AUTH_REQ_ALLOW_NOADDRESS: i32 = 16;
+        const AUTH_REQ_ALLOW_POSTDATE: i32 = 4;
+        const AUTH_REQ_ALLOW_PROXIABLE: i32 = 2;
+        const AUTH_REQ_ALLOW_RENEWABLE: i32 = 8;
+        const AUTH_REQ_ALLOW_S4U_DELEGATE: i32 = 2048;
+        const AUTH_REQ_ALLOW_VALIDATE: i32 = 64;
+        const AUTH_REQ_OK_AS_DELEGATE: i32 = 256;
+        const AUTH_REQ_PER_USER_FLAGS: i32 = 79;
+        const AUTH_REQ_PREAUTH_REQUIRED: i32 = 512;
+        const AUTH_REQ_TRANSITIVE_TRUST: i32 = 1024;
+        const AUTH_REQ_VALIDATE_CLIENT: i32 = 128;
         #[library("ADVAPI32.dll")]
         extern fn AuditComputeEffectivePolicyBySid(pSid: PSID, #[len_param(2)] pSubCategoryGuids: *const GUID, dwPolicyCount: u32, ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
@@ -164,13 +164,13 @@ mod Windows {
             StagedSD: PSECURITY_DESCRIPTOR,
             Flags: u32,
         }
-        const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: u32 = 1;
-        const CENTRAL_ACCESS_POLICY_STAGED_FLAG: u32 = 65536;
-        const CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: u32 = 256;
-        const CENTRAL_ACCESS_POLICY_VALID_FLAG_MASK: u32 = 65793;
-        const DOMAIN_LOCKOUT_ADMINS: u32 = 8;
-        const DOMAIN_NO_LM_OWF_CHANGE: u32 = 64;
-        const DOMAIN_PASSWORD_COMPLEX: u32 = 1;
+        const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: i32 = 1;
+        const CENTRAL_ACCESS_POLICY_STAGED_FLAG: i32 = 65536;
+        const CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: i32 = 256;
+        const CENTRAL_ACCESS_POLICY_VALID_FLAG_MASK: i32 = 65793;
+        const DOMAIN_LOCKOUT_ADMINS: i32 = 8;
+        const DOMAIN_NO_LM_OWF_CHANGE: i32 = 64;
+        const DOMAIN_PASSWORD_COMPLEX: i32 = 1;
         struct DOMAIN_PASSWORD_INFORMATION {
             MinPasswordLength: u16,
             PasswordHistoryLength: u16,
@@ -178,11 +178,11 @@ mod Windows {
             MaxPasswordAge: LARGE_INTEGER,
             MinPasswordAge: LARGE_INTEGER,
         }
-        const DOMAIN_PASSWORD_NO_ANON_CHANGE: u32 = 2;
-        const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: u32 = 4;
-        const DOMAIN_PASSWORD_STORE_CLEARTEXT: u32 = 16;
-        const DOMAIN_REFUSE_PASSWORD_CHANGE: u32 = 32;
-        const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0;
+        const DOMAIN_PASSWORD_NO_ANON_CHANGE: i32 = 2;
+        const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: i32 = 4;
+        const DOMAIN_PASSWORD_STORE_CLEARTEXT: i32 = 16;
+        const DOMAIN_REFUSE_PASSWORD_CHANGE: i32 = 32;
+        const DS_UNKNOWN_ADDRESS_TYPE: i32 = 0;
         struct KDC_PROXY_CACHE_ENTRY_DATA {
             SinceLastUsed: u64,
             DomainName: UNICODE_STRING,
@@ -194,8 +194,8 @@ mod Windows {
             CredDomainName: UNICODE_STRING,
             GlobalCache: BOOLEAN,
         }
-        const KERBEROS_REVISION: u32 = 6;
-        const KERBEROS_VERSION: u32 = 5;
+        const KERBEROS_REVISION: i32 = 6;
+        const KERBEROS_VERSION: i32 = 5;
         struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             RealmName: UNICODE_STRING,
@@ -258,8 +258,8 @@ mod Windows {
             CspDataLength: u32,
             CspData: PUCHAR,
         }
-        const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: u32 = 1;
-        const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: u32 = 2;
+        const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: i32 = 1;
+        const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: i32 = 2;
         struct KERB_CERTIFICATE_S4U_LOGON {
             MessageType: KERB_LOGON_SUBMIT_TYPE,
             Flags: u32,
@@ -268,10 +268,10 @@ mod Windows {
             CertificateLength: u32,
             Certificate: PUCHAR,
         }
-        const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_DUPLICATES: u32 = 1;
-        const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2;
-        const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: u32 = 4;
-        const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: u32 = 8;
+        const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_DUPLICATES: i32 = 1;
+        const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
+        const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: i32 = 4;
+        const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: i32 = 8;
         struct KERB_CERTIFICATE_UNLOCK_LOGON {
             Logon: KERB_CERTIFICATE_LOGON,
             LogonId: LUID,
@@ -288,27 +288,27 @@ mod Windows {
             NewPassword: UNICODE_STRING,
             Impersonating: BOOLEAN,
         }
-        const KERB_CHECKSUM_CRC32: u32 = 1;
+        const KERB_CHECKSUM_CRC32: i32 = 1;
         const KERB_CHECKSUM_DES_MAC: i32 = -133;
         const KERB_CHECKSUM_DES_MAC_MD5: i32 = -134;
         const KERB_CHECKSUM_HMAC_MD5: i32 = -138;
-        const KERB_CHECKSUM_HMAC_SHA1_96_AES128: u32 = 15;
+        const KERB_CHECKSUM_HMAC_SHA1_96_AES128: i32 = 15;
         const KERB_CHECKSUM_HMAC_SHA1_96_AES128_Ki: i32 = -150;
-        const KERB_CHECKSUM_HMAC_SHA1_96_AES256: u32 = 16;
+        const KERB_CHECKSUM_HMAC_SHA1_96_AES256: i32 = 16;
         const KERB_CHECKSUM_HMAC_SHA1_96_AES256_Ki: i32 = -151;
-        const KERB_CHECKSUM_KRB_DES_MAC: u32 = 4;
-        const KERB_CHECKSUM_KRB_DES_MAC_K: u32 = 5;
+        const KERB_CHECKSUM_KRB_DES_MAC: i32 = 4;
+        const KERB_CHECKSUM_KRB_DES_MAC_K: i32 = 5;
         const KERB_CHECKSUM_LM: i32 = -130;
         const KERB_CHECKSUM_MD25: i32 = -135;
-        const KERB_CHECKSUM_MD4: u32 = 2;
-        const KERB_CHECKSUM_MD5: u32 = 7;
-        const KERB_CHECKSUM_MD5_DES: u32 = 8;
+        const KERB_CHECKSUM_MD4: i32 = 2;
+        const KERB_CHECKSUM_MD5: i32 = 7;
+        const KERB_CHECKSUM_MD5_DES: i32 = 8;
         const KERB_CHECKSUM_MD5_HMAC: i32 = -137;
-        const KERB_CHECKSUM_NONE: u32 = 0;
+        const KERB_CHECKSUM_NONE: i32 = 0;
         const KERB_CHECKSUM_RC4_MD5: i32 = -136;
         const KERB_CHECKSUM_REAL_CRC32: i32 = -132;
         const KERB_CHECKSUM_SHA1: i32 = -131;
-        const KERB_CHECKSUM_SHA1_NEW: u32 = 14;
+        const KERB_CHECKSUM_SHA1_NEW: i32 = 14;
         const KERB_CHECKSUM_SHA256: i32 = -139;
         const KERB_CHECKSUM_SHA384: i32 = -140;
         const KERB_CHECKSUM_SHA512: i32 = -141;
@@ -340,7 +340,7 @@ mod Windows {
                 KdcProxyPresent: 1,
             },
         }
-        const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1;
+        const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: i32 = 1;
         struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
@@ -361,7 +361,7 @@ mod Windows {
             Length: u32,
             Offset: u32,
         }
-        const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1;
+        const KERB_DECRYPT_FLAG_DEFAULT_KEY: i32 = 1;
         struct KERB_DECRYPT_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
@@ -377,29 +377,29 @@ mod Windows {
         struct KERB_DECRYPT_RESPONSE {
             DecryptedData: [u8; 1],
         }
-        const KERB_ETYPE_AES128_CTS_HMAC_SHA1_96: u32 = 17;
+        const KERB_ETYPE_AES128_CTS_HMAC_SHA1_96: i32 = 17;
         const KERB_ETYPE_AES128_CTS_HMAC_SHA1_96_PLAIN: i32 = -148;
-        const KERB_ETYPE_AES128_CTS_HMAC_SHA256: u32 = 19;
-        const KERB_ETYPE_AES256_CTS_HMAC_SHA1_96: u32 = 18;
+        const KERB_ETYPE_AES128_CTS_HMAC_SHA256: i32 = 19;
+        const KERB_ETYPE_AES256_CTS_HMAC_SHA1_96: i32 = 18;
         const KERB_ETYPE_AES256_CTS_HMAC_SHA1_96_PLAIN: i32 = -149;
-        const KERB_ETYPE_AES256_CTS_HMAC_SHA384: u32 = 20;
-        const KERB_ETYPE_DEFAULT: u32 = 0;
-        const KERB_ETYPE_DES3_CBC_MD5: u32 = 5;
-        const KERB_ETYPE_DES3_CBC_SHA1: u32 = 7;
-        const KERB_ETYPE_DES3_CBC_SHA1_KD: u32 = 16;
-        const KERB_ETYPE_DES_CBC_CRC: u32 = 1;
-        const KERB_ETYPE_DES_CBC_MD4: u32 = 2;
-        const KERB_ETYPE_DES_CBC_MD5: u32 = 3;
-        const KERB_ETYPE_DES_CBC_MD5_NT: u32 = 20;
-        const KERB_ETYPE_DES_EDE3_CBC_ENV: u32 = 15;
+        const KERB_ETYPE_AES256_CTS_HMAC_SHA384: i32 = 20;
+        const KERB_ETYPE_DEFAULT: i32 = 0;
+        const KERB_ETYPE_DES3_CBC_MD5: i32 = 5;
+        const KERB_ETYPE_DES3_CBC_SHA1: i32 = 7;
+        const KERB_ETYPE_DES3_CBC_SHA1_KD: i32 = 16;
+        const KERB_ETYPE_DES_CBC_CRC: i32 = 1;
+        const KERB_ETYPE_DES_CBC_MD4: i32 = 2;
+        const KERB_ETYPE_DES_CBC_MD5: i32 = 3;
+        const KERB_ETYPE_DES_CBC_MD5_NT: i32 = 20;
+        const KERB_ETYPE_DES_EDE3_CBC_ENV: i32 = 15;
         const KERB_ETYPE_DES_PLAIN: i32 = -132;
-        const KERB_ETYPE_DSA_SHA1_CMS: u32 = 9;
-        const KERB_ETYPE_DSA_SIGN: u32 = 8;
-        const KERB_ETYPE_NULL: u32 = 0;
-        const KERB_ETYPE_PKCS7_PUB: u32 = 13;
-        const KERB_ETYPE_RC2_CBC_ENV: u32 = 12;
-        const KERB_ETYPE_RC4_HMAC_NT: u32 = 23;
-        const KERB_ETYPE_RC4_HMAC_NT_EXP: u32 = 24;
+        const KERB_ETYPE_DSA_SHA1_CMS: i32 = 9;
+        const KERB_ETYPE_DSA_SIGN: i32 = 8;
+        const KERB_ETYPE_NULL: i32 = 0;
+        const KERB_ETYPE_PKCS7_PUB: i32 = 13;
+        const KERB_ETYPE_RC2_CBC_ENV: i32 = 12;
+        const KERB_ETYPE_RC4_HMAC_NT: i32 = 23;
+        const KERB_ETYPE_RC4_HMAC_NT_EXP: i32 = 24;
         const KERB_ETYPE_RC4_HMAC_OLD: i32 = -133;
         const KERB_ETYPE_RC4_HMAC_OLD_EXP: i32 = -135;
         const KERB_ETYPE_RC4_LM: i32 = -130;
@@ -410,14 +410,14 @@ mod Windows {
         const KERB_ETYPE_RC4_PLAIN_OLD: i32 = -134;
         const KERB_ETYPE_RC4_PLAIN_OLD_EXP: i32 = -136;
         const KERB_ETYPE_RC4_SHA: i32 = -131;
-        const KERB_ETYPE_RSA_ENV: u32 = 13;
-        const KERB_ETYPE_RSA_ES_OEAP_ENV: u32 = 14;
-        const KERB_ETYPE_RSA_MD5_CMS: u32 = 10;
-        const KERB_ETYPE_RSA_PRIV: u32 = 9;
-        const KERB_ETYPE_RSA_PUB: u32 = 10;
-        const KERB_ETYPE_RSA_PUB_MD5: u32 = 11;
-        const KERB_ETYPE_RSA_PUB_SHA1: u32 = 12;
-        const KERB_ETYPE_RSA_SHA1_CMS: u32 = 11;
+        const KERB_ETYPE_RSA_ENV: i32 = 13;
+        const KERB_ETYPE_RSA_ES_OEAP_ENV: i32 = 14;
+        const KERB_ETYPE_RSA_MD5_CMS: i32 = 10;
+        const KERB_ETYPE_RSA_PRIV: i32 = 9;
+        const KERB_ETYPE_RSA_PUB: i32 = 10;
+        const KERB_ETYPE_RSA_PUB_MD5: i32 = 11;
+        const KERB_ETYPE_RSA_PUB_SHA1: i32 = 12;
+        const KERB_ETYPE_RSA_SHA1_CMS: i32 = 11;
         struct KERB_EXTERNAL_NAME {
             NameType: i16,
             NameCount: u16,
@@ -469,8 +469,8 @@ mod Windows {
             Logon: KERB_INTERACTIVE_LOGON,
             LogonId: LUID,
         }
-        const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1;
-        const KERB_LOGON_FLAG_REDIRECTED: u32 = 2;
+        const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: i32 = 1;
+        const KERB_LOGON_FLAG_REDIRECTED: i32 = 2;
         #[repr(i32)]
         enum KERB_LOGON_SUBMIT_TYPE {
             KerbInteractiveLogon = 2,
@@ -544,7 +544,7 @@ mod Windows {
             KerbNetworkTicketLogonMessage = 37,
             KerbNlChangeMachinePasswordMessage = 38,
         }
-        const KERB_PURGE_ALL_TICKETS: u32 = 1;
+        const KERB_PURGE_ALL_TICKETS: i32 = 1;
         struct KERB_PURGE_BINDING_CACHE_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
         }
@@ -588,7 +588,7 @@ mod Windows {
             ExtendedPolicies: u32,
             DsFlags: u32,
         }
-        const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: u32 = 1;
+        const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: i32 = 1;
         struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             Flags: u32,
@@ -633,8 +633,8 @@ mod Windows {
             CountOfTickets: u32,
             Tickets: [KERB_TICKET_CACHE_INFO; 1],
         }
-        const KERB_REFRESH_POLICY_KDC: u32 = 2;
-        const KERB_REFRESH_POLICY_KERBEROS: u32 = 1;
+        const KERB_REFRESH_POLICY_KDC: i32 = 2;
+        const KERB_REFRESH_POLICY_KERBEROS: i32 = 1;
         struct KERB_REFRESH_POLICY_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             Flags: u32,
@@ -643,18 +643,18 @@ mod Windows {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             Flags: u32,
         }
-        const KERB_REFRESH_SCCRED_GETTGT: u32 = 1;
-        const KERB_REFRESH_SCCRED_RELEASE: u32 = 0;
+        const KERB_REFRESH_SCCRED_GETTGT: i32 = 1;
+        const KERB_REFRESH_SCCRED_RELEASE: i32 = 0;
         struct KERB_REFRESH_SCCRED_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             CredentialBlob: UNICODE_STRING,
             LogonId: LUID,
             Flags: u32,
         }
-        const KERB_REQUEST_ADD_CREDENTIAL: u32 = 1;
-        const KERB_REQUEST_CRED_LOCAL_ACCOUNT: u32 = 8;
-        const KERB_REQUEST_REMOVE_CREDENTIAL: u32 = 4;
-        const KERB_REQUEST_REPLACE_CREDENTIAL: u32 = 2;
+        const KERB_REQUEST_ADD_CREDENTIAL: i32 = 1;
+        const KERB_REQUEST_CRED_LOCAL_ACCOUNT: i32 = 8;
+        const KERB_REQUEST_REMOVE_CREDENTIAL: i32 = 4;
+        const KERB_REQUEST_REPLACE_CREDENTIAL: i32 = 2;
         struct KERB_RETRIEVE_KEY_TAB_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             Flags: u32,
@@ -667,14 +667,14 @@ mod Windows {
             KeyTabLength: u32,
             KeyTab: PUCHAR,
         }
-        const KERB_RETRIEVE_TICKET_AS_KERB_CRED: u32 = 8;
-        const KERB_RETRIEVE_TICKET_CACHE_TICKET: u32 = 32;
-        const KERB_RETRIEVE_TICKET_DEFAULT: u32 = 0;
-        const KERB_RETRIEVE_TICKET_DONT_USE_CACHE: u32 = 1;
-        const KERB_RETRIEVE_TICKET_MAX_LIFETIME: u32 = 64;
-        const KERB_RETRIEVE_TICKET_USE_CACHE_ONLY: u32 = 2;
-        const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: u32 = 4;
-        const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: u32 = 16;
+        const KERB_RETRIEVE_TICKET_AS_KERB_CRED: i32 = 8;
+        const KERB_RETRIEVE_TICKET_CACHE_TICKET: i32 = 32;
+        const KERB_RETRIEVE_TICKET_DEFAULT: i32 = 0;
+        const KERB_RETRIEVE_TICKET_DONT_USE_CACHE: i32 = 1;
+        const KERB_RETRIEVE_TICKET_MAX_LIFETIME: i32 = 64;
+        const KERB_RETRIEVE_TICKET_USE_CACHE_ONLY: i32 = 2;
+        const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: i32 = 4;
+        const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: i32 = 16;
         struct KERB_RETRIEVE_TKT_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
@@ -693,7 +693,7 @@ mod Windows {
             LastStatus: NTSTATUS,
             Expiry: LARGE_INTEGER,
         }
-        const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: u32 = 1;
+        const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: i32 = 1;
         struct KERB_S4U2PROXY_CRED {
             UserName: UNICODE_STRING,
             DomainName: UNICODE_STRING,
@@ -703,15 +703,15 @@ mod Windows {
             CountOfEntries: u32,
             Entries: PKERB_S4U2PROXY_CACHE_ENTRY_INFO,
         }
-        const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: u32 = 1;
+        const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: i32 = 1;
         struct KERB_S4U_LOGON {
             MessageType: KERB_LOGON_SUBMIT_TYPE,
             Flags: u32,
             ClientUpn: UNICODE_STRING,
             ClientRealm: UNICODE_STRING,
         }
-        const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2;
-        const KERB_S4U_LOGON_FLAG_IDENTIFY: u32 = 8;
+        const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
+        const KERB_S4U_LOGON_FLAG_IDENTIFY: i32 = 8;
         struct KERB_SETPASSWORD_EX_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             LogonId: LUID,
@@ -735,8 +735,8 @@ mod Windows {
             AccountName: UNICODE_STRING,
             Password: UNICODE_STRING,
         }
-        const KERB_SETPASS_USE_CREDHANDLE: u32 = 2;
-        const KERB_SETPASS_USE_LOGONID: u32 = 1;
+        const KERB_SETPASS_USE_CREDHANDLE: i32 = 2;
+        const KERB_SETPASS_USE_LOGONID: i32 = 1;
         struct KERB_SMART_CARD_LOGON {
             MessageType: KERB_LOGON_SUBMIT_TYPE,
             Pin: UNICODE_STRING,
@@ -808,22 +808,22 @@ mod Windows {
             CacheFlags: u32,
             KdcCalled: UNICODE_STRING,
         }
-        const KERB_TICKET_FLAGS_enc_pa_rep: u32 = 65536;
-        const KERB_TICKET_FLAGS_forwardable: u32 = 1073741824;
-        const KERB_TICKET_FLAGS_forwarded: u32 = 536870912;
-        const KERB_TICKET_FLAGS_hw_authent: u32 = 1048576;
-        const KERB_TICKET_FLAGS_initial: u32 = 4194304;
-        const KERB_TICKET_FLAGS_invalid: u32 = 16777216;
-        const KERB_TICKET_FLAGS_may_postdate: u32 = 67108864;
-        const KERB_TICKET_FLAGS_name_canonicalize: u32 = 65536;
-        const KERB_TICKET_FLAGS_ok_as_delegate: u32 = 262144;
-        const KERB_TICKET_FLAGS_postdated: u32 = 33554432;
-        const KERB_TICKET_FLAGS_pre_authent: u32 = 2097152;
-        const KERB_TICKET_FLAGS_proxiable: u32 = 268435456;
-        const KERB_TICKET_FLAGS_proxy: u32 = 134217728;
-        const KERB_TICKET_FLAGS_renewable: u32 = 8388608;
+        const KERB_TICKET_FLAGS_enc_pa_rep: i32 = 65536;
+        const KERB_TICKET_FLAGS_forwardable: i32 = 1073741824;
+        const KERB_TICKET_FLAGS_forwarded: i32 = 536870912;
+        const KERB_TICKET_FLAGS_hw_authent: i32 = 1048576;
+        const KERB_TICKET_FLAGS_initial: i32 = 4194304;
+        const KERB_TICKET_FLAGS_invalid: i32 = 16777216;
+        const KERB_TICKET_FLAGS_may_postdate: i32 = 67108864;
+        const KERB_TICKET_FLAGS_name_canonicalize: i32 = 65536;
+        const KERB_TICKET_FLAGS_ok_as_delegate: i32 = 262144;
+        const KERB_TICKET_FLAGS_postdated: i32 = 33554432;
+        const KERB_TICKET_FLAGS_pre_authent: i32 = 2097152;
+        const KERB_TICKET_FLAGS_proxiable: i32 = 268435456;
+        const KERB_TICKET_FLAGS_proxy: i32 = 134217728;
+        const KERB_TICKET_FLAGS_renewable: i32 = 8388608;
         const KERB_TICKET_FLAGS_reserved: u32 = 2147483648;
-        const KERB_TICKET_FLAGS_reserved1: u32 = 1;
+        const KERB_TICKET_FLAGS_reserved1: i32 = 1;
         struct KERB_TICKET_LOGON {
             MessageType: KERB_LOGON_SUBMIT_TYPE,
             Flags: u32,
@@ -840,62 +840,62 @@ mod Windows {
             Logon: KERB_TICKET_LOGON,
             LogonId: LUID,
         }
-        const KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: u32 = 2;
+        const KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: i32 = 2;
         struct KERB_TRANSFER_CRED_REQUEST {
             MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
             OriginLogonId: LUID,
             DestinationLogonId: LUID,
             Flags: u32,
         }
-        const KERB_TRANSFER_CRED_WITH_TICKETS: u32 = 1;
-        const KERB_USE_DEFAULT_TICKET_FLAGS: u32 = 0;
+        const KERB_TRANSFER_CRED_WITH_TICKETS: i32 = 1;
+        const KERB_USE_DEFAULT_TICKET_FLAGS: i32 = 0;
         const KERB_WRAP_NO_ENCRYPT: u32 = 2147483649;
         #[encoding("utf-16")]
         const KRB_ANONYMOUS_STRING: String = "ANONYMOUS";
-        const KRB_NT_ENTERPRISE_PRINCIPAL: u32 = 10;
+        const KRB_NT_ENTERPRISE_PRINCIPAL: i32 = 10;
         const KRB_NT_ENT_PRINCIPAL_AND_ID: i32 = -130;
         const KRB_NT_MS_BRANCH_ID: i32 = -133;
         const KRB_NT_MS_PRINCIPAL: i32 = -128;
         const KRB_NT_MS_PRINCIPAL_AND_ID: i32 = -129;
-        const KRB_NT_PRINCIPAL: u32 = 1;
+        const KRB_NT_PRINCIPAL: i32 = 1;
         const KRB_NT_PRINCIPAL_AND_ID: i32 = -131;
-        const KRB_NT_SRV_HST: u32 = 3;
-        const KRB_NT_SRV_INST: u32 = 2;
+        const KRB_NT_SRV_HST: i32 = 3;
+        const KRB_NT_SRV_INST: i32 = 2;
         const KRB_NT_SRV_INST_AND_ID: i32 = -132;
-        const KRB_NT_SRV_XHST: u32 = 4;
-        const KRB_NT_UID: u32 = 5;
-        const KRB_NT_UNKNOWN: u32 = 0;
-        const KRB_NT_WELLKNOWN: u32 = 11;
-        const KRB_NT_X500_PRINCIPAL: u32 = 6;
+        const KRB_NT_SRV_XHST: i32 = 4;
+        const KRB_NT_UID: i32 = 5;
+        const KRB_NT_UNKNOWN: i32 = 0;
+        const KRB_NT_WELLKNOWN: i32 = 11;
+        const KRB_NT_X500_PRINCIPAL: i32 = 6;
         #[encoding("utf-16")]
         const KRB_WELLKNOWN_STRING: String = "WELLKNOWN";
-        const LOGON_CACHED_ACCOUNT: u32 = 4;
-        const LOGON_EXTRA_SIDS: u32 = 32;
-        const LOGON_GRACE_LOGON: u32 = 16777216;
-        const LOGON_GUEST: u32 = 1;
-        const LOGON_LM_V2: u32 = 4096;
-        const LOGON_MANAGED_SERVICE: u32 = 524288;
-        const LOGON_NOENCRYPTION: u32 = 2;
-        const LOGON_NO_ELEVATION: u32 = 262144;
-        const LOGON_NO_OPTIMIZED: u32 = 131072;
-        const LOGON_NTLMV2_ENABLED: u32 = 256;
-        const LOGON_NTLM_V2: u32 = 8192;
-        const LOGON_NT_V2: u32 = 2048;
-        const LOGON_OPTIMIZED: u32 = 16384;
-        const LOGON_PKINIT: u32 = 65536;
-        const LOGON_PROFILE_PATH_RETURNED: u32 = 1024;
-        const LOGON_RESOURCE_GROUPS: u32 = 512;
-        const LOGON_SERVER_TRUST_ACCOUNT: u32 = 128;
-        const LOGON_SUBAUTH_SESSION_KEY: u32 = 64;
-        const LOGON_USED_LM_PASSWORD: u32 = 8;
-        const LOGON_WINLOGON: u32 = 32768;
+        const LOGON_CACHED_ACCOUNT: i32 = 4;
+        const LOGON_EXTRA_SIDS: i32 = 32;
+        const LOGON_GRACE_LOGON: i32 = 16777216;
+        const LOGON_GUEST: i32 = 1;
+        const LOGON_LM_V2: i32 = 4096;
+        const LOGON_MANAGED_SERVICE: i32 = 524288;
+        const LOGON_NOENCRYPTION: i32 = 2;
+        const LOGON_NO_ELEVATION: i32 = 262144;
+        const LOGON_NO_OPTIMIZED: i32 = 131072;
+        const LOGON_NTLMV2_ENABLED: i32 = 256;
+        const LOGON_NTLM_V2: i32 = 8192;
+        const LOGON_NT_V2: i32 = 2048;
+        const LOGON_OPTIMIZED: i32 = 16384;
+        const LOGON_PKINIT: i32 = 65536;
+        const LOGON_PROFILE_PATH_RETURNED: i32 = 1024;
+        const LOGON_RESOURCE_GROUPS: i32 = 512;
+        const LOGON_SERVER_TRUST_ACCOUNT: i32 = 128;
+        const LOGON_SUBAUTH_SESSION_KEY: i32 = 64;
+        const LOGON_USED_LM_PASSWORD: i32 = 8;
+        const LOGON_WINLOGON: i32 = 32768;
         type LPCAUDIT_POLICY_INFORMATION = PAUDIT_POLICY_INFORMATION;
-        const LSAD_AES_BLOCK_SIZE: u32 = 16;
-        const LSAD_AES_CRYPT_SHA512_HASH_SIZE: u32 = 64;
-        const LSAD_AES_KEY_SIZE: u32 = 16;
-        const LSAD_AES_SALT_SIZE: u32 = 16;
-        const LSASETCAPS_RELOAD_FLAG: u32 = 1;
-        const LSASETCAPS_VALID_FLAG_MASK: u32 = 1;
+        const LSAD_AES_BLOCK_SIZE: i32 = 16;
+        const LSAD_AES_CRYPT_SHA512_HASH_SIZE: i32 = 64;
+        const LSAD_AES_KEY_SIZE: i32 = 16;
+        const LSAD_AES_SALT_SIZE: i32 = 16;
+        const LSASETCAPS_RELOAD_FLAG: i32 = 1;
+        const LSASETCAPS_VALID_FLAG_MASK: i32 = 1;
         struct LSA_AUTH_INFORMATION {
             LastUpdateTime: LARGE_INTEGER,
             AuthType: u32,
@@ -974,27 +974,27 @@ mod Windows {
             DnsName: LSA_UNICODE_STRING,
             NetbiosName: LSA_UNICODE_STRING,
         }
-        const LSA_FTRECORD_DISABLED_REASONS: u32 = 65535;
+        const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535;
         type LSA_HANDLE = *mut void;
         struct LSA_LAST_INTER_LOGON_INFO {
             LastSuccessfulLogon: LARGE_INTEGER,
             LastFailedLogon: LARGE_INTEGER,
             FailedAttemptCountSinceLastSuccessfulLogon: u32,
         }
-        const LSA_MODE_INDIVIDUAL_ACCOUNTS: u32 = 2;
-        const LSA_MODE_LOG_FULL: u32 = 8;
-        const LSA_MODE_MANDATORY_ACCESS: u32 = 4;
-        const LSA_MODE_PASSWORD_PROTECTED: u32 = 1;
-        const LSA_NB_DISABLED_ADMIN: u32 = 4;
-        const LSA_NB_DISABLED_CONFLICT: u32 = 8;
+        const LSA_MODE_INDIVIDUAL_ACCOUNTS: i32 = 2;
+        const LSA_MODE_LOG_FULL: i32 = 8;
+        const LSA_MODE_MANDATORY_ACCESS: i32 = 4;
+        const LSA_MODE_PASSWORD_PROTECTED: i32 = 1;
+        const LSA_NB_DISABLED_ADMIN: i32 = 4;
+        const LSA_NB_DISABLED_CONFLICT: i32 = 8;
         type LSA_OPERATIONAL_MODE = u32;
-        const LSA_SCANNER_INFO_ADMIN_ALL_FLAGS: u32 = 1;
-        const LSA_SCANNER_INFO_DISABLE_AUTH_TARGET_VALIDATION: u32 = 1;
-        const LSA_SID_DISABLED_ADMIN: u32 = 1;
-        const LSA_SID_DISABLED_CONFLICT: u32 = 2;
-        const LSA_TLN_DISABLED_ADMIN: u32 = 2;
-        const LSA_TLN_DISABLED_CONFLICT: u32 = 4;
-        const LSA_TLN_DISABLED_NEW: u32 = 1;
+        const LSA_SCANNER_INFO_ADMIN_ALL_FLAGS: i32 = 1;
+        const LSA_SCANNER_INFO_DISABLE_AUTH_TARGET_VALIDATION: i32 = 1;
+        const LSA_SID_DISABLED_ADMIN: i32 = 1;
+        const LSA_SID_DISABLED_CONFLICT: i32 = 2;
+        const LSA_TLN_DISABLED_ADMIN: i32 = 2;
+        const LSA_TLN_DISABLED_CONFLICT: i32 = 4;
+        const LSA_TLN_DISABLED_NEW: i32 = 1;
         struct LSA_TRANSLATED_SID {
             Use: SID_NAME_USE,
             RelativeId: u32,
@@ -1090,17 +1090,17 @@ mod Windows {
         extern fn LsaStorePrivateData(PolicyHandle: LSA_HANDLE, KeyName: *const LSA_UNICODE_STRING, #[opt] PrivateData: *const LSA_UNICODE_STRING) -> NTSTATUS;
         #[library("Secur32.dll")]
         extern fn LsaUnregisterPolicyChangeNotification(InformationClass: POLICY_NOTIFICATION_INFORMATION_CLASS, NotificationEventHandle: HANDLE) -> NTSTATUS;
-        const MAXIMUM_CAPES_PER_CAP: u32 = 127;
-        const MAX_FOREST_TRUST_BINARY_DATA_SIZE: u32 = 131072;
-        const MAX_RECORDS_IN_FOREST_TRUST_INFO: u32 = 4000;
+        const MAXIMUM_CAPES_PER_CAP: i32 = 127;
+        const MAX_FOREST_TRUST_BINARY_DATA_SIZE: i32 = 131072;
+        const MAX_RECORDS_IN_FOREST_TRUST_INFO: i32 = 4000;
         #[encoding("ansi")]
         const MICROSOFT_KERBEROS_NAME_A: String = "Kerberos";
         #[encoding("utf-16")]
         const MICROSOFT_KERBEROS_NAME_W: String = "Kerberos";
-        const MSV1_0_ALLOW_FORCE_GUEST: u32 = 8192;
-        const MSV1_0_ALLOW_MSVCHAPV2: u32 = 65536;
-        const MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: u32 = 32;
-        const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: u32 = 2048;
+        const MSV1_0_ALLOW_FORCE_GUEST: i32 = 8192;
+        const MSV1_0_ALLOW_MSVCHAPV2: i32 = 65536;
+        const MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: i32 = 32;
+        const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: i32 = 2048;
         #[repr(i32)]
         enum MSV1_0_AVID {
             MsvAvEOL = 0,
@@ -1115,14 +1115,14 @@ mod Windows {
             MsvAvTargetName = 9,
             MsvAvChannelBindings = 10,
         }
-        const MSV1_0_AV_FLAG_FORCE_GUEST: u32 = 1;
-        const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: u32 = 2;
-        const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: u32 = 4;
+        const MSV1_0_AV_FLAG_FORCE_GUEST: i32 = 1;
+        const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: i32 = 2;
+        const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: i32 = 4;
         struct MSV1_0_AV_PAIR {
             AvId: u16,
             AvLen: u16,
         }
-        const MSV1_0_CHALLENGE_LENGTH: u32 = 8;
+        const MSV1_0_CHALLENGE_LENGTH: i32 = 8;
         struct MSV1_0_CHANGEPASSWORD_REQUEST {
             MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
             DomainName: UNICODE_STRING,
@@ -1136,13 +1136,13 @@ mod Windows {
             PasswordInfoValid: BOOLEAN,
             DomainPasswordInfo: DOMAIN_PASSWORD_INFORMATION,
         }
-        const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: u32 = 262144;
-        const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: u32 = 2;
-        const MSV1_0_CLEARTEXT_PASSWORD_SUPPLIED: u32 = 16384;
+        const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: i32 = 262144;
+        const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: i32 = 2;
+        const MSV1_0_CLEARTEXT_PASSWORD_SUPPLIED: i32 = 16384;
         struct MSV1_0_CREDENTIAL_KEY {
             Data: [u8; 20],
         }
-        const MSV1_0_CREDENTIAL_KEY_LENGTH: u32 = 20;
+        const MSV1_0_CREDENTIAL_KEY_LENGTH: i32 = 20;
         #[repr(i32)]
         enum MSV1_0_CREDENTIAL_KEY_TYPE {
             InvalidCredKey = 0,
@@ -1151,21 +1151,21 @@ mod Windows {
             LocalUserCredKey = 3,
             ExternallySuppliedCredKey = 4,
         }
-        const MSV1_0_CRED_CREDKEY_PRESENT: u32 = 8;
-        const MSV1_0_CRED_LM_PRESENT: u32 = 1;
-        const MSV1_0_CRED_NT_PRESENT: u32 = 2;
-        const MSV1_0_CRED_REMOVED: u32 = 4;
-        const MSV1_0_CRED_SHA_PRESENT: u32 = 16;
-        const MSV1_0_CRED_VERSION: u32 = 0;
+        const MSV1_0_CRED_CREDKEY_PRESENT: i32 = 8;
+        const MSV1_0_CRED_LM_PRESENT: i32 = 1;
+        const MSV1_0_CRED_NT_PRESENT: i32 = 2;
+        const MSV1_0_CRED_REMOVED: i32 = 4;
+        const MSV1_0_CRED_SHA_PRESENT: i32 = 16;
+        const MSV1_0_CRED_VERSION: i32 = 0;
         const MSV1_0_CRED_VERSION_ARSO: u32 = 4294901763;
         const MSV1_0_CRED_VERSION_INVALID: u32 = 4294967295;
         const MSV1_0_CRED_VERSION_IUM: u32 = 4294901761;
         const MSV1_0_CRED_VERSION_REMOTE: u32 = 4294901762;
         const MSV1_0_CRED_VERSION_RESERVED_1: u32 = 4294967294;
-        const MSV1_0_CRED_VERSION_V2: u32 = 2;
-        const MSV1_0_CRED_VERSION_V3: u32 = 4;
-        const MSV1_0_DISABLE_PERSONAL_FALLBACK: u32 = 4096;
-        const MSV1_0_DONT_TRY_GUEST_ACCOUNT: u32 = 16;
+        const MSV1_0_CRED_VERSION_V2: i32 = 2;
+        const MSV1_0_CRED_VERSION_V3: i32 = 4;
+        const MSV1_0_DISABLE_PERSONAL_FALLBACK: i32 = 4096;
+        const MSV1_0_DONT_TRY_GUEST_ACCOUNT: i32 = 16;
         struct MSV1_0_INTERACTIVE_LOGON {
             MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
             LogonDomainName: UNICODE_STRING,
@@ -1190,13 +1190,13 @@ mod Windows {
             LogonServer: UNICODE_STRING,
             UserFlags: u32,
         }
-        const MSV1_0_INTERNET_DOMAIN: u32 = 524288;
+        const MSV1_0_INTERNET_DOMAIN: i32 = 524288;
         struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
             Version: u32,
             EncryptedCredsSize: u32,
             EncryptedCreds: [u8; 1],
         }
-        const MSV1_0_LANMAN_SESSION_KEY_LENGTH: u32 = 8;
+        const MSV1_0_LANMAN_SESSION_KEY_LENGTH: i32 = 8;
         struct MSV1_0_LM20_LOGON {
             MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
             LogonDomainName: UNICODE_STRING,
@@ -1230,11 +1230,14 @@ mod Windows {
             MsV1_0NoElevationLogon = 83,
             MsV1_0LuidLogon = 84,
         }
-        const MSV1_0_MAX_AVL_SIZE: u32 = 64000;
-        const MSV1_0_MAX_NTLM3_LIFE: u32 = 129600;
-        const MSV1_0_MNS_LOGON: u32 = 16777216;
+        const MSV1_0_MAX_AVL_SIZE: i32 = 64000;
+        const MSV1_0_MAX_NTLM3_LIFE: i32 = 129600;
+        const MSV1_0_MNS_LOGON: i32 = 16777216;
+        #[arch(X64 | Arm64)]
+        const MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH: u64 = 44;
+        #[arch(X86)]
         const MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH: u32 = 44;
-        const MSV1_0_NTLM3_OWF_LENGTH: u32 = 16;
+        const MSV1_0_NTLM3_OWF_LENGTH: i32 = 16;
         struct MSV1_0_NTLM3_RESPONSE {
             Response: [u8; 16],
             RespType: u8,
@@ -1246,8 +1249,8 @@ mod Windows {
             AvPairsOff: u32,
             Buffer: [u8; 1],
         }
-        const MSV1_0_NTLM3_RESPONSE_LENGTH: u32 = 16;
-        const MSV1_0_OWF_PASSWORD_LENGTH: u32 = 16;
+        const MSV1_0_NTLM3_RESPONSE_LENGTH: i32 = 16;
+        const MSV1_0_OWF_PASSWORD_LENGTH: i32 = 16;
         #[encoding("ansi")]
         const MSV1_0_PACKAGE_NAME: String = "MICROSOFT_AUTHENTICATION_PACKAGE_V1_0";
         #[encoding("utf-16")]
@@ -1309,23 +1312,23 @@ mod Windows {
             EncryptedCredsSize: u32,
             EncryptedCreds: [u8; 1],
         }
-        const MSV1_0_RETURN_PASSWORD_EXPIRY: u32 = 64;
-        const MSV1_0_RETURN_PROFILE_PATH: u32 = 512;
-        const MSV1_0_RETURN_USER_PARAMETERS: u32 = 8;
-        const MSV1_0_S4U2SELF: u32 = 131072;
+        const MSV1_0_RETURN_PASSWORD_EXPIRY: i32 = 64;
+        const MSV1_0_RETURN_PROFILE_PATH: i32 = 512;
+        const MSV1_0_RETURN_USER_PARAMETERS: i32 = 8;
+        const MSV1_0_S4U2SELF: i32 = 131072;
         struct MSV1_0_S4U_LOGON {
             MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
             Flags: u32,
             UserPrincipalName: UNICODE_STRING,
             DomainName: UNICODE_STRING,
         }
-        const MSV1_0_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2;
-        const MSV1_0_SHA_PASSWORD_LENGTH: u32 = 20;
+        const MSV1_0_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
+        const MSV1_0_SHA_PASSWORD_LENGTH: i32 = 20;
         const MSV1_0_SUBAUTHENTICATION_DLL: u32 = 4278190080;
-        const MSV1_0_SUBAUTHENTICATION_DLL_EX: u32 = 1048576;
-        const MSV1_0_SUBAUTHENTICATION_DLL_IIS: u32 = 132;
-        const MSV1_0_SUBAUTHENTICATION_DLL_RAS: u32 = 2;
-        const MSV1_0_SUBAUTHENTICATION_DLL_SHIFT: u32 = 24;
+        const MSV1_0_SUBAUTHENTICATION_DLL_EX: i32 = 1048576;
+        const MSV1_0_SUBAUTHENTICATION_DLL_IIS: i32 = 132;
+        const MSV1_0_SUBAUTHENTICATION_DLL_RAS: i32 = 2;
+        const MSV1_0_SUBAUTHENTICATION_DLL_SHIFT: i32 = 24;
         const MSV1_0_SUBAUTHENTICATION_FLAGS: u32 = 4278190080;
         #[encoding("ansi")]
         const MSV1_0_SUBAUTHENTICATION_KEY: String = "SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0";
@@ -1373,12 +1376,12 @@ mod Windows {
             CredentialKey: MSV1_0_CREDENTIAL_KEY,
             ShaPassword: [u8; 20],
         }
-        const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: u32 = 256;
-        const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: u32 = 1024;
-        const MSV1_0_UPDATE_LOGON_STATISTICS: u32 = 4;
-        const MSV1_0_USER_SESSION_KEY_LENGTH: u32 = 16;
-        const MSV1_0_USE_CLIENT_CHALLENGE: u32 = 128;
-        const MSV1_0_USE_DOMAIN_FOR_ROUTING_ONLY: u32 = 32768;
+        const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: i32 = 256;
+        const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: i32 = 1024;
+        const MSV1_0_UPDATE_LOGON_STATISTICS: i32 = 4;
+        const MSV1_0_USER_SESSION_KEY_LENGTH: i32 = 16;
+        const MSV1_0_USE_CLIENT_CHALLENGE: i32 = 128;
+        const MSV1_0_USE_DOMAIN_FOR_ROUTING_ONLY: i32 = 32768;
         struct NEGOTIATE_CALLER_NAME_REQUEST {
             MessageType: u32,
             LogonId: LUID,
@@ -1387,7 +1390,7 @@ mod Windows {
             MessageType: u32,
             CallerName: PWSTR,
         }
-        const NEGOTIATE_MAX_PREFIX: u32 = 32;
+        const NEGOTIATE_MAX_PREFIX: i32 = 32;
         #[repr(i32)]
         enum NEGOTIATE_MESSAGES {
             NegEnumPackagePrefixes = 0,
@@ -1416,12 +1419,12 @@ mod Windows {
         type PCENTRAL_ACCESS_POLICY = *mut CENTRAL_ACCESS_POLICY;
         type PCENTRAL_ACCESS_POLICY_ENTRY = *mut CENTRAL_ACCESS_POLICY_ENTRY;
         type PDOMAIN_PASSWORD_INFORMATION = *mut DOMAIN_PASSWORD_INFORMATION;
-        const PER_USER_AUDIT_FAILURE_EXCLUDE: u32 = 8;
-        const PER_USER_AUDIT_FAILURE_INCLUDE: u32 = 4;
-        const PER_USER_AUDIT_NONE: u32 = 16;
-        const PER_USER_AUDIT_SUCCESS_EXCLUDE: u32 = 2;
-        const PER_USER_AUDIT_SUCCESS_INCLUDE: u32 = 1;
-        const PER_USER_POLICY_UNCHANGED: u32 = 0;
+        const PER_USER_AUDIT_FAILURE_EXCLUDE: i32 = 8;
+        const PER_USER_AUDIT_FAILURE_INCLUDE: i32 = 4;
+        const PER_USER_AUDIT_NONE: i32 = 16;
+        const PER_USER_AUDIT_SUCCESS_EXCLUDE: i32 = 2;
+        const PER_USER_AUDIT_SUCCESS_INCLUDE: i32 = 1;
+        const PER_USER_POLICY_UNCHANGED: i32 = 0;
         type PKDC_PROXY_CACHE_ENTRY_DATA = *mut KDC_PROXY_CACHE_ENTRY_DATA;
         type PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST;
         type PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_REQUEST;
@@ -1517,7 +1520,7 @@ mod Windows {
             CertArrayCount: u16,
             CertArrayOffset: u32,
         }
-        const PKU2U_CREDUI_CONTEXT_VERSION: u32 = 1414677827;
+        const PKU2U_CREDUI_CONTEXT_VERSION: i64 = 1414677827;
         #[repr(i32)]
         enum PKU2U_LOGON_SUBMIT_TYPE {
             Pku2uCertificateS4ULogon = 14,
@@ -1569,7 +1572,7 @@ mod Windows {
         type PNEGOTIATE_CALLER_NAME_RESPONSE = *mut NEGOTIATE_CALLER_NAME_RESPONSE;
         type PNEGOTIATE_PACKAGE_PREFIX = *mut NEGOTIATE_PACKAGE_PREFIX;
         type PNEGOTIATE_PACKAGE_PREFIXES = *mut NEGOTIATE_PACKAGE_PREFIXES;
-        const POLICY_ALL_ACCESS: u32 = 987135;
+        const POLICY_ALL_ACCESS: i32 = 987135;
         struct POLICY_AUDIT_CATEGORIES_INFO {
             MaximumCategoryCount: u32,
             SubCategoriesInfo: PPOLICY_AUDIT_SUBCATEGORIES_INFO,
@@ -1579,11 +1582,11 @@ mod Windows {
             EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
             MaximumAuditEventCount: u32,
         }
-        const POLICY_AUDIT_EVENT_FAILURE: u32 = 2;
-        const POLICY_AUDIT_EVENT_MASK: u32 = 7;
-        const POLICY_AUDIT_EVENT_NONE: u32 = 4;
+        const POLICY_AUDIT_EVENT_FAILURE: i32 = 2;
+        const POLICY_AUDIT_EVENT_MASK: i32 = 7;
+        const POLICY_AUDIT_EVENT_NONE: i32 = 4;
         type POLICY_AUDIT_EVENT_OPTIONS = u32;
-        const POLICY_AUDIT_EVENT_SUCCESS: u32 = 1;
+        const POLICY_AUDIT_EVENT_SUCCESS: i32 = 1;
         #[repr(i32)]
         enum POLICY_AUDIT_EVENT_TYPE {
             AuditCategorySystem = 0,
@@ -1596,7 +1599,7 @@ mod Windows {
             AuditCategoryDirectoryServiceAccess = 7,
             AuditCategoryAccountLogon = 8,
         }
-        const POLICY_AUDIT_EVENT_UNCHANGED: u32 = 0;
+        const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0;
         struct POLICY_AUDIT_FULL_QUERY_INFO {
             ShutDownOnFull: BOOLEAN,
             LogIsFull: BOOLEAN,
@@ -1604,7 +1607,7 @@ mod Windows {
         struct POLICY_AUDIT_FULL_SET_INFO {
             ShutDownOnFull: BOOLEAN,
         }
-        const POLICY_AUDIT_LOG_ADMIN: u32 = 512;
+        const POLICY_AUDIT_LOG_ADMIN: i32 = 512;
         struct POLICY_AUDIT_LOG_INFO {
             AuditLogPercentFull: u32,
             MaximumLogSize: u32,
@@ -1621,9 +1624,9 @@ mod Windows {
             MaximumSubCategoryCount: u32,
             EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
         }
-        const POLICY_CREATE_ACCOUNT: u32 = 16;
-        const POLICY_CREATE_PRIVILEGE: u32 = 64;
-        const POLICY_CREATE_SECRET: u32 = 32;
+        const POLICY_CREATE_ACCOUNT: i32 = 16;
+        const POLICY_CREATE_PRIVILEGE: i32 = 64;
+        const POLICY_CREATE_SECRET: i32 = 32;
         struct POLICY_DEFAULT_QUOTA_INFO {
             QuotaLimits: QUOTA_LIMITS,
         }
@@ -1644,8 +1647,8 @@ mod Windows {
             MaxClockSkew: LARGE_INTEGER,
             Reserved: LARGE_INTEGER,
         }
-        const POLICY_EXECUTE: u32 = 133121;
-        const POLICY_GET_PRIVATE_INFORMATION: u32 = 4;
+        const POLICY_EXECUTE: i32 = 133121;
+        const POLICY_GET_PRIVATE_INFORMATION: i32 = 4;
         #[repr(i32)]
         enum POLICY_INFORMATION_CLASS {
             PolicyAuditLogInformation = 1,
@@ -1666,8 +1669,8 @@ mod Windows {
             PolicyMachineAccountInformation2 = 16,
             PolicyLastEntry = 17,
         }
-        const POLICY_KERBEROS_VALIDATE_CLIENT: u32 = 128;
-        const POLICY_LOOKUP_NAMES: u32 = 2048;
+        const POLICY_KERBEROS_VALIDATE_CLIENT: i32 = 128;
+        const POLICY_LOOKUP_NAMES: i32 = 2048;
         #[repr(i32)]
         enum POLICY_LSA_SERVER_ROLE {
             PolicyServerRoleBackup = 2,
@@ -1689,7 +1692,7 @@ mod Windows {
             ModifiedId: LARGE_INTEGER,
             DatabaseCreationTime: LARGE_INTEGER,
         }
-        const POLICY_NOTIFICATION: u32 = 4096;
+        const POLICY_NOTIFICATION: i32 = 4096;
         #[repr(i32)]
         enum POLICY_NOTIFICATION_INFORMATION_CLASS {
             PolicyNotifyAuditEventsInformation = 1,
@@ -1709,18 +1712,18 @@ mod Windows {
             Name: LSA_UNICODE_STRING,
             Sid: PSID,
         }
-        const POLICY_READ: u32 = 131078;
+        const POLICY_READ: i32 = 131078;
         struct POLICY_REPLICA_SOURCE_INFO {
             ReplicaSource: LSA_UNICODE_STRING,
             ReplicaAccountName: LSA_UNICODE_STRING,
         }
-        const POLICY_SERVER_ADMIN: u32 = 1024;
-        const POLICY_SET_AUDIT_REQUIREMENTS: u32 = 256;
-        const POLICY_SET_DEFAULT_QUOTA_LIMITS: u32 = 128;
-        const POLICY_TRUST_ADMIN: u32 = 8;
-        const POLICY_VIEW_AUDIT_INFORMATION: u32 = 2;
-        const POLICY_VIEW_LOCAL_INFORMATION: u32 = 1;
-        const POLICY_WRITE: u32 = 133112;
+        const POLICY_SERVER_ADMIN: i32 = 1024;
+        const POLICY_SET_AUDIT_REQUIREMENTS: i32 = 256;
+        const POLICY_SET_DEFAULT_QUOTA_LIMITS: i32 = 128;
+        const POLICY_TRUST_ADMIN: i32 = 8;
+        const POLICY_VIEW_AUDIT_INFORMATION: i32 = 2;
+        const POLICY_VIEW_LOCAL_INFORMATION: i32 = 1;
+        const POLICY_WRITE: i32 = 133112;
         type PPKU2U_CERTIFICATE_S4U_LOGON = *mut PKU2U_CERTIFICATE_S4U_LOGON;
         type PPKU2U_CERT_BLOB = *mut PKU2U_CERT_BLOB;
         type PPKU2U_CREDUI_CONTEXT = *mut PKU2U_CREDUI_CONTEXT;
@@ -1776,10 +1779,10 @@ mod Windows {
         type PTRUSTED_POSIX_OFFSET_INFO = *mut TRUSTED_POSIX_OFFSET_INFO;
         type PUNICODE_STRING = *mut LSA_UNICODE_STRING;
         type PUNICODE_STRING = *mut UNICODE_STRING;
-        const RTL_ENCRYPT_MEMORY_SIZE: u32 = 8;
-        const RTL_ENCRYPT_OPTION_CROSS_PROCESS: u32 = 1;
-        const RTL_ENCRYPT_OPTION_FOR_SYSTEM: u32 = 4;
-        const RTL_ENCRYPT_OPTION_SAME_LOGON: u32 = 2;
+        const RTL_ENCRYPT_MEMORY_SIZE: i32 = 8;
+        const RTL_ENCRYPT_OPTION_CROSS_PROCESS: i32 = 1;
+        const RTL_ENCRYPT_OPTION_FOR_SYSTEM: i32 = 4;
+        const RTL_ENCRYPT_OPTION_SAME_LOGON: i32 = 2;
         #[library("ADVAPI32.dll", import = "SystemFunction041")]
         extern fn RtlDecryptMemory(#[size_param(1)] #[in] #[out] Memory: *mut void, MemorySize: u32, OptionFlags: u32) -> NTSTATUS;
         #[library("ADVAPI32.dll", import = "SystemFunction040")]
@@ -1844,15 +1847,15 @@ mod Windows {
             Length: u32,
             Claims: PCLAIMS_BLOB,
         }
-        const SE_ADT_OBJECT_ONLY: u32 = 1;
+        const SE_ADT_OBJECT_ONLY: i32 = 1;
         struct SE_ADT_OBJECT_TYPE {
             ObjectType: GUID,
             Flags: u16,
             Level: u16,
             AccessMask: ACCESS_MASK,
         }
-        const SE_ADT_PARAMETERS_SELF_RELATIVE: u32 = 1;
-        const SE_ADT_PARAMETERS_SEND_TO_LSA: u32 = 2;
+        const SE_ADT_PARAMETERS_SELF_RELATIVE: i32 = 1;
+        const SE_ADT_PARAMETERS_SEND_TO_LSA: i32 = 2;
         struct SE_ADT_PARAMETER_ARRAY {
             CategoryId: u32,
             AuditId: u32,
@@ -1880,8 +1883,8 @@ mod Windows {
             Flags: u32,
             Parameters: [SE_ADT_PARAMETER_ARRAY_ENTRY; 32],
         }
-        const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: u32 = 4;
-        const SE_ADT_PARAMETER_GENERIC_AUDIT: u32 = 8;
+        const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: i32 = 4;
+        const SE_ADT_PARAMETER_GENERIC_AUDIT: i32 = 8;
         #[repr(i32)]
         enum SE_ADT_PARAMETER_TYPE {
             SeAdtParmTypeNone = 0,
@@ -1921,9 +1924,9 @@ mod Windows {
             SeAdtParmTypeMultiSzString = 34,
             SeAdtParmTypeLogonIdEx = 35,
         }
-        const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: u32 = 16;
-        const SE_MAX_AUDIT_PARAMETERS: u32 = 32;
-        const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28;
+        const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: i32 = 16;
+        const SE_MAX_AUDIT_PARAMETERS: i32 = 32;
+        const SE_MAX_GENERIC_AUDIT_PARAMETERS: i32 = 28;
         struct STRING {
             Length: u16,
             MaximumLength: u16,
@@ -2004,37 +2007,37 @@ mod Windows {
         }
         const TRUST_ATTRIBUTES_USER: u32 = 4278190080;
         const TRUST_ATTRIBUTES_VALID: u32 = 4278452223;
-        const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: u32 = 16;
-        const TRUST_ATTRIBUTE_CROSS_ORGANIZATION_ENABLE_TGT_DELEGATION: u32 = 2048;
-        const TRUST_ATTRIBUTE_CROSS_ORGANIZATION_NO_TGT_DELEGATION: u32 = 512;
-        const TRUST_ATTRIBUTE_DISABLE_AUTH_TARGET_VALIDATION: u32 = 4096;
-        const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: u32 = 8;
-        const TRUST_ATTRIBUTE_NON_TRANSITIVE: u32 = 1;
-        const TRUST_ATTRIBUTE_PIM_TRUST: u32 = 1024;
-        const TRUST_ATTRIBUTE_QUARANTINED_DOMAIN: u32 = 4;
-        const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: u32 = 64;
-        const TRUST_ATTRIBUTE_TRUST_USES_AES_KEYS: u32 = 256;
-        const TRUST_ATTRIBUTE_TRUST_USES_RC4_ENCRYPTION: u32 = 128;
-        const TRUST_ATTRIBUTE_UPLEVEL_ONLY: u32 = 2;
-        const TRUST_ATTRIBUTE_WITHIN_FOREST: u32 = 32;
-        const TRUST_AUTH_TYPE_CLEAR: u32 = 2;
-        const TRUST_AUTH_TYPE_NONE: u32 = 0;
-        const TRUST_AUTH_TYPE_NT4OWF: u32 = 1;
-        const TRUST_AUTH_TYPE_VERSION: u32 = 3;
-        const TRUST_DIRECTION_BIDIRECTIONAL: u32 = 3;
-        const TRUST_DIRECTION_DISABLED: u32 = 0;
-        const TRUST_DIRECTION_INBOUND: u32 = 1;
-        const TRUST_DIRECTION_OUTBOUND: u32 = 2;
-        const TRUST_TYPE_AAD: u32 = 5;
-        const TRUST_TYPE_DOWNLEVEL: u32 = 1;
-        const TRUST_TYPE_MIT: u32 = 3;
-        const TRUST_TYPE_UPLEVEL: u32 = 2;
+        const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: i32 = 16;
+        const TRUST_ATTRIBUTE_CROSS_ORGANIZATION_ENABLE_TGT_DELEGATION: i32 = 2048;
+        const TRUST_ATTRIBUTE_CROSS_ORGANIZATION_NO_TGT_DELEGATION: i32 = 512;
+        const TRUST_ATTRIBUTE_DISABLE_AUTH_TARGET_VALIDATION: i32 = 4096;
+        const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: i32 = 8;
+        const TRUST_ATTRIBUTE_NON_TRANSITIVE: i32 = 1;
+        const TRUST_ATTRIBUTE_PIM_TRUST: i32 = 1024;
+        const TRUST_ATTRIBUTE_QUARANTINED_DOMAIN: i32 = 4;
+        const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: i32 = 64;
+        const TRUST_ATTRIBUTE_TRUST_USES_AES_KEYS: i32 = 256;
+        const TRUST_ATTRIBUTE_TRUST_USES_RC4_ENCRYPTION: i32 = 128;
+        const TRUST_ATTRIBUTE_UPLEVEL_ONLY: i32 = 2;
+        const TRUST_ATTRIBUTE_WITHIN_FOREST: i32 = 32;
+        const TRUST_AUTH_TYPE_CLEAR: i32 = 2;
+        const TRUST_AUTH_TYPE_NONE: i32 = 0;
+        const TRUST_AUTH_TYPE_NT4OWF: i32 = 1;
+        const TRUST_AUTH_TYPE_VERSION: i32 = 3;
+        const TRUST_DIRECTION_BIDIRECTIONAL: i32 = 3;
+        const TRUST_DIRECTION_DISABLED: i32 = 0;
+        const TRUST_DIRECTION_INBOUND: i32 = 1;
+        const TRUST_DIRECTION_OUTBOUND: i32 = 2;
+        const TRUST_TYPE_AAD: i32 = 5;
+        const TRUST_TYPE_DOWNLEVEL: i32 = 1;
+        const TRUST_TYPE_MIT: i32 = 3;
+        const TRUST_TYPE_UPLEVEL: i32 = 2;
         struct UNICODE_STRING {
             Length: u16,
             MaximumLength: u16,
             Buffer: PWSTR,
         }
         type UNICODE_STRING = LSA_UNICODE_STRING;
-        const VALID_PER_USER_AUDIT_POLICY_FLAG: u32 = 31;
+        const VALID_PER_USER_AUDIT_POLICY_FLAG: i32 = 31;
     }
 }

@@ -1,16 +1,16 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const CLIENTADDRESS_LENGTH: u32 = 30;
-        const CLIENTNAME_LENGTH: u32 = 20;
-        const DOMAIN_LENGTH: u32 = 17;
-        const IDASYNC: u32 = 32001;
-        const MAX_DATE_TIME_LENGTH: u32 = 56;
-        const MAX_ELAPSED_TIME_LENGTH: u32 = 15;
-        const NOTIFY_FOR_ALL_SESSIONS: u32 = 1;
-        const NOTIFY_FOR_THIS_SESSION: u32 = 0;
-        const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256;
-        const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4;
+        const CLIENTADDRESS_LENGTH: i32 = 30;
+        const CLIENTNAME_LENGTH: i32 = 20;
+        const DOMAIN_LENGTH: i32 = 17;
+        const IDASYNC: i32 = 32001;
+        const MAX_DATE_TIME_LENGTH: i32 = 56;
+        const MAX_ELAPSED_TIME_LENGTH: i32 = 15;
+        const NOTIFY_FOR_ALL_SESSIONS: i32 = 1;
+        const NOTIFY_FOR_THIS_SESSION: i32 = 0;
+        const PRODUCTINFO_COMPANYNAME_LENGTH: i32 = 256;
+        const PRODUCTINFO_PRODUCTID_LENGTH: i32 = 4;
         struct PRODUCT_INFOA {
             CompanyName: [i8; 256],
             ProductID: [i8; 4],
@@ -54,13 +54,13 @@ mod Windows {
         type PWTS_SESSION_INFO_1W = *mut WTS_SESSION_INFO_1W;
         type PWTS_VALIDATION_INFORMATIONA = *mut WTS_VALIDATION_INFORMATIONA;
         type PWTS_VALIDATION_INFORMATIONW = *mut WTS_VALIDATION_INFORMATIONW;
-        const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4;
-        const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2;
-        const REMOTECONTROL_KBDSHIFT_HOTKEY: u32 = 1;
-        const USERNAME_LENGTH: u32 = 20;
-        const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20;
-        const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384;
-        const WINSTATIONNAME_LENGTH: u32 = 32;
+        const REMOTECONTROL_KBDALT_HOTKEY: i32 = 4;
+        const REMOTECONTROL_KBDCTRL_HOTKEY: i32 = 2;
+        const REMOTECONTROL_KBDSHIFT_HOTKEY: i32 = 1;
+        const USERNAME_LENGTH: i32 = 20;
+        const VALIDATIONINFORMATION_HARDWAREID_LENGTH: i32 = 20;
+        const VALIDATIONINFORMATION_LICENSE_LENGTH: i32 = 16384;
+        const WINSTATIONNAME_LENGTH: i32 = 32;
         type WRDS_SERIALIZED_USER_CREDENTIAL = WTS_SERIALIZED_USER_CREDENTIAL;
         #[library("WTSAPI32.dll")]
         extern fn WTSActiveSessionExists(pbActiveSessionExists: *mut BOOL) -> BOOL;
@@ -465,12 +465,12 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSWaitSystemEvent(hServer: HANDLE, EventMask: u32, pEventFlags: *mut u32) -> BOOL;
         const WTS_ANY_SESSION: u32 = 4294967294;
-        const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1;
-        const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8;
-        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: u32 = 4;
-        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: u32 = 0;
-        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: u32 = 2;
-        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6;
+        const WTS_CHANNEL_OPTION_DYNAMIC: i32 = 1;
+        const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: i32 = 8;
+        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: i32 = 4;
+        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: i32 = 0;
+        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: i32 = 2;
+        const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: i32 = 6;
         struct WTS_CLIENT_ADDRESS {
             AddressFamily: u32,
             Address: [u8; 20],
@@ -481,7 +481,7 @@ mod Windows {
             ColorDepth: u32,
         }
         type WTS_CLOUD_AUTH_HANDLE = *mut void;
-        const WTS_COMMENT_LENGTH: u32 = 60;
+        const WTS_COMMENT_LENGTH: i32 = 60;
         #[repr(i32)]
         enum WTS_CONFIG_CLASS {
             WTSUserConfigInitialProgram = 0,
@@ -522,21 +522,21 @@ mod Windows {
             WTSDown = 8,
             WTSInit = 9,
         }
-        const WTS_CURRENT_SERVER_NAME: u32 = 0;
+        const WTS_CURRENT_SERVER_NAME: i32 = 0;
         const WTS_CURRENT_SESSION: u32 = 4294967295;
-        const WTS_DRIVE_LENGTH: u32 = 3;
-        const WTS_EVENT_ALL: u32 = 2147483647;
-        const WTS_EVENT_CONNECT: u32 = 8;
-        const WTS_EVENT_CREATE: u32 = 1;
-        const WTS_EVENT_DELETE: u32 = 2;
-        const WTS_EVENT_DISCONNECT: u32 = 16;
+        const WTS_DRIVE_LENGTH: i32 = 3;
+        const WTS_EVENT_ALL: i32 = 2147483647;
+        const WTS_EVENT_CONNECT: i32 = 8;
+        const WTS_EVENT_CREATE: i32 = 1;
+        const WTS_EVENT_DELETE: i32 = 2;
+        const WTS_EVENT_DISCONNECT: i32 = 16;
         const WTS_EVENT_FLUSH: u32 = 2147483648;
-        const WTS_EVENT_LICENSE: u32 = 256;
-        const WTS_EVENT_LOGOFF: u32 = 64;
-        const WTS_EVENT_LOGON: u32 = 32;
-        const WTS_EVENT_NONE: u32 = 0;
-        const WTS_EVENT_RENAME: u32 = 4;
-        const WTS_EVENT_STATECHANGE: u32 = 128;
+        const WTS_EVENT_LICENSE: i32 = 256;
+        const WTS_EVENT_LOGOFF: i32 = 64;
+        const WTS_EVENT_LOGON: i32 = 32;
+        const WTS_EVENT_NONE: i32 = 0;
+        const WTS_EVENT_RENAME: i32 = 4;
+        const WTS_EVENT_STATECHANGE: i32 = 128;
         #[repr(i32)]
         enum WTS_INFO_CLASS {
             WTSInitialProgram = 0,
@@ -572,9 +572,9 @@ mod Windows {
             WTSSessionActivityId = 30,
             WTSCapabilityCheck = 31,
         }
-        const WTS_LISTENER_CREATE: u32 = 1;
-        const WTS_LISTENER_NAME_LENGTH: u32 = 32;
-        const WTS_LISTENER_UPDATE: u32 = 16;
+        const WTS_LISTENER_CREATE: i32 = 1;
+        const WTS_LISTENER_NAME_LENGTH: i32 = 32;
+        const WTS_LISTENER_UPDATE: i32 = 16;
         struct WTS_PROCESS_INFOA {
             SessionId: u32,
             ProcessId: u32,
@@ -615,26 +615,26 @@ mod Windows {
             UserTime: LARGE_INTEGER,
             KernelTime: LARGE_INTEGER,
         }
-        const WTS_PROCESS_INFO_LEVEL_0: u32 = 0;
-        const WTS_PROCESS_INFO_LEVEL_1: u32 = 1;
-        const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0;
-        const WTS_PROTOCOL_TYPE_ICA: u32 = 1;
-        const WTS_PROTOCOL_TYPE_RDP: u32 = 2;
-        const WTS_SECURITY_ALL_ACCESS: u32 = 983999;
-        const WTS_SECURITY_CONNECT: u32 = 256;
-        const WTS_SECURITY_CURRENT_GUEST_ACCESS: u32 = 72;
-        const WTS_SECURITY_CURRENT_USER_ACCESS: u32 = 6;
-        const WTS_SECURITY_DISCONNECT: u32 = 512;
-        const WTS_SECURITY_GUEST_ACCESS: u32 = 32;
-        const WTS_SECURITY_LOGOFF: u32 = 64;
-        const WTS_SECURITY_LOGON: u32 = 32;
-        const WTS_SECURITY_MESSAGE: u32 = 128;
-        const WTS_SECURITY_QUERY_INFORMATION: u32 = 1;
-        const WTS_SECURITY_REMOTE_CONTROL: u32 = 16;
-        const WTS_SECURITY_RESET: u32 = 4;
-        const WTS_SECURITY_SET_INFORMATION: u32 = 2;
-        const WTS_SECURITY_USER_ACCESS: u32 = 329;
-        const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8;
+        const WTS_PROCESS_INFO_LEVEL_0: i32 = 0;
+        const WTS_PROCESS_INFO_LEVEL_1: i32 = 1;
+        const WTS_PROTOCOL_TYPE_CONSOLE: i32 = 0;
+        const WTS_PROTOCOL_TYPE_ICA: i32 = 1;
+        const WTS_PROTOCOL_TYPE_RDP: i32 = 2;
+        const WTS_SECURITY_ALL_ACCESS: i32 = 983999;
+        const WTS_SECURITY_CONNECT: i32 = 256;
+        const WTS_SECURITY_CURRENT_GUEST_ACCESS: i32 = 72;
+        const WTS_SECURITY_CURRENT_USER_ACCESS: i32 = 6;
+        const WTS_SECURITY_DISCONNECT: i32 = 512;
+        const WTS_SECURITY_GUEST_ACCESS: i32 = 32;
+        const WTS_SECURITY_LOGOFF: i32 = 64;
+        const WTS_SECURITY_LOGON: i32 = 32;
+        const WTS_SECURITY_MESSAGE: i32 = 128;
+        const WTS_SECURITY_QUERY_INFORMATION: i32 = 1;
+        const WTS_SECURITY_REMOTE_CONTROL: i32 = 16;
+        const WTS_SECURITY_RESET: i32 = 4;
+        const WTS_SECURITY_SET_INFORMATION: i32 = 2;
+        const WTS_SECURITY_USER_ACCESS: i32 = 329;
+        const WTS_SECURITY_VIRTUAL_CHANNELS: i32 = 8;
         struct WTS_SERIALIZED_USER_CREDENTIAL {
             SerializationLength: u32,
             Serialization: *mut u8,
@@ -645,9 +645,9 @@ mod Windows {
         struct WTS_SERVER_INFOW {
             pServerName: PWSTR,
         }
-        const WTS_SESSIONSTATE_LOCK: u32 = 0;
+        const WTS_SESSIONSTATE_LOCK: i32 = 0;
         const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295;
-        const WTS_SESSIONSTATE_UNLOCK: u32 = 1;
+        const WTS_SESSIONSTATE_UNLOCK: i32 = 1;
         struct WTS_SESSION_ADDRESS {
             AddressFamily: u32,
             Address: [u8; 20],
@@ -709,10 +709,10 @@ mod Windows {
             WTSVirtualClientData = 0,
             WTSVirtualFileHandle = 1,
         }
-        const WTS_WSD_FASTREBOOT: u32 = 16;
-        const WTS_WSD_LOGOFF: u32 = 1;
-        const WTS_WSD_POWEROFF: u32 = 8;
-        const WTS_WSD_REBOOT: u32 = 4;
-        const WTS_WSD_SHUTDOWN: u32 = 2;
+        const WTS_WSD_FASTREBOOT: i32 = 16;
+        const WTS_WSD_LOGOFF: i32 = 1;
+        const WTS_WSD_POWEROFF: i32 = 8;
+        const WTS_WSD_REBOOT: i32 = 4;
+        const WTS_WSD_SHUTDOWN: i32 = 2;
     }
 }

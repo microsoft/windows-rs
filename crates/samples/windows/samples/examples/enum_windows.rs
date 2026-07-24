@@ -13,7 +13,7 @@ fn main() -> windows::core::Result<()> {
             };
             GetWindowInfo(window, &mut info).unwrap();
 
-            if !text.is_empty() && info.dwStyle & WS_VISIBLE != 0 {
+            if !text.is_empty() && info.dwStyle & WS_VISIBLE as u32 != 0 {
                 println!("{} ({}, {})", text, info.rcWindow.left, info.rcWindow.top);
             }
 

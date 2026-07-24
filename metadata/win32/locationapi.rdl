@@ -117,7 +117,7 @@ mod Windows {
             fn put_DesiredAccuracy(&self, desiredAccuracy: u32) -> HRESULT;
             fn RequestPermissions(&self, hWnd: *const u32) -> HRESULT;
         }
-        const LOCATION_API_VERSION: u32 = 1;
+        const LOCATION_API_VERSION: i32 = 1;
         #[repr(i32)]
         enum LOCATION_REPORT_STATUS {
             REPORT_NOT_SUPPORTED = 0,

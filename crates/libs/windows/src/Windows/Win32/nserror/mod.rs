@@ -1,4 +1,4 @@
-pub const FACILITY_NS_WIN32: u32 = 7;
+pub const FACILITY_NS_WIN32: i32 = 7;
 pub const MCMADM_E_REGKEY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D006A_u32 as _);
 pub const MCMADM_I_NO_EVENTS: windows_core::HRESULT = windows_core::HRESULT(0x400D0069_u32 as _);
 pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D278E_u32 as _);

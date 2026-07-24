@@ -5,9 +5,9 @@ mod Windows {
         extern fn PlaySoundA(#[opt] pszSound: PCSTR, #[opt] hmod: HMODULE, fdwSound: u32) -> BOOL;
         #[library("WINMM.dll")]
         extern fn PlaySoundW(#[opt] pszSound: PCWSTR, #[opt] hmod: HMODULE, fdwSound: u32) -> BOOL;
-        const SND_ALIAS: u32 = 65536;
-        const SND_ALIAS_ID: u32 = 1114112;
-        const SND_ALIAS_START: u32 = 0;
+        const SND_ALIAS: i32 = 65536;
+        const SND_ALIAS_ID: i32 = 1114112;
+        const SND_ALIAS_START: i32 = 0;
         const SND_ALIAS_SYSTEMASTERISK: u32 = 10835;
         const SND_ALIAS_SYSTEMDEFAULT: u32 = 17491;
         const SND_ALIAS_SYSTEMEXCLAMATION: u32 = 8531;
@@ -16,20 +16,20 @@ mod Windows {
         const SND_ALIAS_SYSTEMQUESTION: u32 = 16211;
         const SND_ALIAS_SYSTEMSTART: u32 = 21331;
         const SND_ALIAS_SYSTEMWELCOME: u32 = 22355;
-        const SND_APPLICATION: u32 = 128;
-        const SND_ASYNC: u32 = 1;
-        const SND_FILENAME: u32 = 131072;
-        const SND_LOOP: u32 = 8;
-        const SND_MEMORY: u32 = 4;
-        const SND_NODEFAULT: u32 = 2;
-        const SND_NOSTOP: u32 = 16;
-        const SND_NOWAIT: u32 = 8192;
-        const SND_PURGE: u32 = 64;
-        const SND_RESOURCE: u32 = 262148;
-        const SND_RING: u32 = 1048576;
-        const SND_SENTRY: u32 = 524288;
-        const SND_SYNC: u32 = 0;
-        const SND_SYSTEM: u32 = 2097152;
+        const SND_APPLICATION: i32 = 128;
+        const SND_ASYNC: i32 = 1;
+        const SND_FILENAME: i32 = 131072;
+        const SND_LOOP: i32 = 8;
+        const SND_MEMORY: i32 = 4;
+        const SND_NODEFAULT: i32 = 2;
+        const SND_NOSTOP: i32 = 16;
+        const SND_NOWAIT: i32 = 8192;
+        const SND_PURGE: i32 = 64;
+        const SND_RESOURCE: i32 = 262148;
+        const SND_RING: i32 = 1048576;
+        const SND_SENTRY: i32 = 524288;
+        const SND_SYNC: i32 = 0;
+        const SND_SYSTEM: i32 = 2097152;
         #[library("WINMM.dll")]
         extern fn sndPlaySoundA(#[opt] pszSound: PCSTR, fuSound: u32) -> BOOL;
         #[library("WINMM.dll")]

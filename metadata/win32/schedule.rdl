@@ -9,13 +9,13 @@ mod Windows {
             NumberOfSchedules: u32,
             Schedules: [SCHEDULE_HEADER; 1],
         }
-        const SCHEDULE_BANDWIDTH: u32 = 1;
-        const SCHEDULE_DATA_ENTRIES: u32 = 168;
+        const SCHEDULE_BANDWIDTH: i32 = 1;
+        const SCHEDULE_DATA_ENTRIES: i32 = 168;
         struct SCHEDULE_HEADER {
             Type: u32,
             Offset: u32,
         }
-        const SCHEDULE_INTERVAL: u32 = 0;
-        const SCHEDULE_PRIORITY: u32 = 2;
+        const SCHEDULE_INTERVAL: i32 = 0;
+        const SCHEDULE_PRIORITY: i32 = 2;
     }
 }

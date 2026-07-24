@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const EVT_ALL_ACCESS: u32 = 7;
+        const EVT_ALL_ACCESS: i32 = 7;
         #[repr(i32)]
         enum EVT_CHANNEL_CLOCK_TYPE {
             EvtChannelClockTypeSystemTime = 0,
@@ -54,7 +54,7 @@ mod Windows {
             EvtChannelTypeAnalytic = 2,
             EvtChannelTypeDebug = 3,
         }
-        const EVT_CLEAR_ACCESS: u32 = 4;
+        const EVT_CLEAR_ACCESS: i32 = 4;
         #[repr(i32)]
         enum EVT_EVENT_METADATA_PROPERTY_ID {
             EventMetadataEventID = 0,
@@ -162,7 +162,7 @@ mod Windows {
             EvtQueryStatuses = 1,
             EvtQueryPropertyIdEND = 2,
         }
-        const EVT_READ_ACCESS: u32 = 1;
+        const EVT_READ_ACCESS: i32 = 1;
         #[repr(i32)]
         enum EVT_RENDER_CONTEXT_FLAGS {
             EvtRenderContextValues = 0,
@@ -308,9 +308,9 @@ mod Windows {
             EvtVarTypeEvtHandle = 32,
             EvtVarTypeEvtXml = 35,
         }
-        const EVT_VARIANT_TYPE_ARRAY: u32 = 128;
-        const EVT_VARIANT_TYPE_MASK: u32 = 127;
-        const EVT_WRITE_ACCESS: u32 = 2;
+        const EVT_VARIANT_TYPE_ARRAY: i32 = 128;
+        const EVT_VARIANT_TYPE_MASK: i32 = 127;
+        const EVT_WRITE_ACCESS: i32 = 2;
         #[library("wevtapi.dll")]
         extern fn EvtArchiveExportedLog(#[opt] Session: EVT_HANDLE, LogFilePath: PCWSTR, Locale: LCID, Flags: u32) -> BOOL;
         #[library("wevtapi.dll")]

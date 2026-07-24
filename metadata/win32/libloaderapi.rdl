@@ -3,9 +3,9 @@ mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
         extern fn AddDllDirectory(NewDirectory: PCWSTR) -> DLL_DIRECTORY_COOKIE;
-        const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1;
+        const CURRENT_IMPORT_REDIRECTION_VERSION: i32 = 1;
         type DLL_DIRECTORY_COOKIE = *mut void;
-        const DONT_RESOLVE_DLL_REFERENCES: u32 = 1;
+        const DONT_RESOLVE_DLL_REFERENCES: i32 = 1;
         #[library("KERNEL32.dll")]
         extern fn DisableThreadLibraryCalls(hLibModule: HMODULE) -> BOOL;
         extern fn ENUMRESLANGPROCA(#[opt] hModule: HMODULE, lpType: PCSTR, lpName: PCSTR, wLanguage: u16, lParam: isize) -> BOOL;
@@ -35,9 +35,9 @@ mod Windows {
         extern fn EnumResourceTypesExA(#[opt] hModule: HMODULE, lpEnumFunc: ENUMRESTYPEPROCA, lParam: isize, dwFlags: u32, LangId: LANGID) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn EnumResourceTypesExW(#[opt] hModule: HMODULE, lpEnumFunc: ENUMRESTYPEPROCW, lParam: isize, dwFlags: u32, LangId: LANGID) -> BOOL;
-        const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024;
-        const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512;
-        const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256;
+        const FIND_RESOURCE_DIRECTORY_LANGUAGES: i32 = 1024;
+        const FIND_RESOURCE_DIRECTORY_NAMES: i32 = 512;
+        const FIND_RESOURCE_DIRECTORY_TYPES: i32 = 256;
         #[library("KERNEL32.dll")]
         extern fn FindResourceExW(#[opt] hModule: HMODULE, lpType: PCWSTR, lpName: PCWSTR, wLanguage: u16) -> HRSRC;
         #[library("KERNEL32.dll")]
@@ -51,9 +51,9 @@ mod Windows {
         extern fn FreeLibraryAndExitThread(hLibModule: HMODULE, dwExitCode: u32);
         #[library("KERNEL32.dll")]
         extern fn FreeResource(hResData: HGLOBAL) -> BOOL;
-        const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4;
-        const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1;
-        const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2;
+        const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: i32 = 4;
+        const GET_MODULE_HANDLE_EX_FLAG_PIN: i32 = 1;
+        const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: i32 = 2;
         #[library("KERNEL32.dll")]
         extern fn GetModuleFileNameA(#[opt] hModule: HMODULE, #[len_param(2)] #[out] lpFilename: PSTR, nSize: u32) -> u32;
         #[library("KERNEL32.dll")]
@@ -68,20 +68,20 @@ mod Windows {
         extern fn GetModuleHandleW(#[opt] lpModuleName: PCWSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
         extern fn GetProcAddress(hModule: HMODULE, lpProcName: PCSTR) -> FARPROC;
-        const LOAD_IGNORE_CODE_AUTHZ_LEVEL: u32 = 16;
-        const LOAD_LIBRARY_AS_DATAFILE: u32 = 2;
-        const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: u32 = 64;
-        const LOAD_LIBRARY_AS_IMAGE_RESOURCE: u32 = 32;
-        const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768;
-        const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: u32 = 128;
-        const LOAD_LIBRARY_SAFE_CURRENT_DIRS: u32 = 8192;
-        const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: u32 = 512;
-        const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096;
-        const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: u32 = 256;
-        const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 2048;
-        const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: u32 = 16384;
-        const LOAD_LIBRARY_SEARCH_USER_DIRS: u32 = 1024;
-        const LOAD_WITH_ALTERED_SEARCH_PATH: u32 = 8;
+        const LOAD_IGNORE_CODE_AUTHZ_LEVEL: i32 = 16;
+        const LOAD_LIBRARY_AS_DATAFILE: i32 = 2;
+        const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: i32 = 64;
+        const LOAD_LIBRARY_AS_IMAGE_RESOURCE: i32 = 32;
+        const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: i32 = 32768;
+        const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: i32 = 128;
+        const LOAD_LIBRARY_SAFE_CURRENT_DIRS: i32 = 8192;
+        const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: i32 = 512;
+        const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: i32 = 4096;
+        const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: i32 = 256;
+        const LOAD_LIBRARY_SEARCH_SYSTEM32: i32 = 2048;
+        const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: i32 = 16384;
+        const LOAD_LIBRARY_SEARCH_USER_DIRS: i32 = 1024;
+        const LOAD_WITH_ALTERED_SEARCH_PATH: i32 = 8;
         #[library("KERNEL32.dll")]
         extern fn LoadLibraryA(lpLibFileName: PCSTR) -> HMODULE;
         #[library("KERNEL32.dll")]
@@ -116,14 +116,14 @@ mod Windows {
             FunctionName: PCSTR,
             RedirectionTarget: *mut void,
         }
-        const RESOURCE_ENUM_LN: u32 = 1;
-        const RESOURCE_ENUM_MODULE_EXACT: u32 = 16;
-        const RESOURCE_ENUM_MUI: u32 = 2;
-        const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4;
-        const RESOURCE_ENUM_VALIDATE: u32 = 8;
+        const RESOURCE_ENUM_LN: i32 = 1;
+        const RESOURCE_ENUM_MODULE_EXACT: i32 = 16;
+        const RESOURCE_ENUM_MUI: i32 = 2;
+        const RESOURCE_ENUM_MUI_SYSTEM: i32 = 4;
+        const RESOURCE_ENUM_VALIDATE: i32 = 8;
         #[library("KERNEL32.dll")]
         extern fn RemoveDllDirectory(Cookie: DLL_DIRECTORY_COOKIE) -> BOOL;
-        const SUPPORT_LANG_NUMBER: u32 = 32;
+        const SUPPORT_LANG_NUMBER: i32 = 32;
         #[library("KERNEL32.dll")]
         extern fn SetDefaultDllDirectories(DirectoryFlags: u32) -> BOOL;
         #[library("KERNEL32.dll")]

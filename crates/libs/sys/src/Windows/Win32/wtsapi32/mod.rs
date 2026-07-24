@@ -113,16 +113,16 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhan
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::HANDLE, buffer : *const i8, length : u32, pbyteswritten : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSWaitSystemEvent(hserver : super::HANDLE, eventmask : u32, peventflags : *mut u32) -> windows_sys::core::BOOL);
-pub const CLIENTADDRESS_LENGTH: u32 = 30;
-pub const CLIENTNAME_LENGTH: u32 = 20;
-pub const DOMAIN_LENGTH: u32 = 17;
-pub const IDASYNC: u32 = 32001;
-pub const MAX_DATE_TIME_LENGTH: u32 = 56;
-pub const MAX_ELAPSED_TIME_LENGTH: u32 = 15;
-pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1;
-pub const NOTIFY_FOR_THIS_SESSION: u32 = 0;
-pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256;
-pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4;
+pub const CLIENTADDRESS_LENGTH: i32 = 30;
+pub const CLIENTNAME_LENGTH: i32 = 20;
+pub const DOMAIN_LENGTH: i32 = 17;
+pub const IDASYNC: i32 = 32001;
+pub const MAX_DATE_TIME_LENGTH: i32 = 56;
+pub const MAX_ELAPSED_TIME_LENGTH: i32 = 15;
+pub const NOTIFY_FOR_ALL_SESSIONS: i32 = 1;
+pub const NOTIFY_FOR_THIS_SESSION: i32 = 0;
+pub const PRODUCTINFO_COMPANYNAME_LENGTH: i32 = 256;
+pub const PRODUCTINFO_PRODUCTID_LENGTH: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRODUCT_INFOA {
@@ -184,13 +184,13 @@ pub type PWTS_SESSION_INFO_1A = *mut WTS_SESSION_INFO_1A;
 pub type PWTS_SESSION_INFO_1W = *mut WTS_SESSION_INFO_1W;
 pub type PWTS_VALIDATION_INFORMATIONA = *mut WTS_VALIDATION_INFORMATIONA;
 pub type PWTS_VALIDATION_INFORMATIONW = *mut WTS_VALIDATION_INFORMATIONW;
-pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4;
-pub const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2;
-pub const REMOTECONTROL_KBDSHIFT_HOTKEY: u32 = 1;
-pub const USERNAME_LENGTH: u32 = 20;
-pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20;
-pub const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384;
-pub const WINSTATIONNAME_LENGTH: u32 = 32;
+pub const REMOTECONTROL_KBDALT_HOTKEY: i32 = 4;
+pub const REMOTECONTROL_KBDCTRL_HOTKEY: i32 = 2;
+pub const REMOTECONTROL_KBDSHIFT_HOTKEY: i32 = 1;
+pub const USERNAME_LENGTH: i32 = 20;
+pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: i32 = 20;
+pub const VALIDATIONINFORMATION_LICENSE_LENGTH: i32 = 16384;
+pub const WINSTATIONNAME_LENGTH: i32 = 32;
 pub type WRDS_SERIALIZED_USER_CREDENTIAL = WTS_SERIALIZED_USER_CREDENTIAL;
 pub const WTSActive: WTS_CONNECTSTATE_CLASS = 0;
 pub const WTSApplicationName: WTS_INFO_CLASS = 1;
@@ -639,12 +639,12 @@ pub const WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = 1;
 pub const WTSWinStationName: WTS_INFO_CLASS = 6;
 pub const WTSWorkingDirectory: WTS_INFO_CLASS = 2;
 pub const WTS_ANY_SESSION: u32 = 4294967294;
-pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1;
-pub const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8;
-pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: u32 = 4;
-pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: u32 = 0;
-pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: u32 = 2;
-pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6;
+pub const WTS_CHANNEL_OPTION_DYNAMIC: i32 = 1;
+pub const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: i32 = 8;
+pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: i32 = 4;
+pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: i32 = 0;
+pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: i32 = 2;
+pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: i32 = 6;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_CLIENT_ADDRESS {
@@ -664,29 +664,29 @@ pub struct WTS_CLIENT_DISPLAY {
     pub ColorDepth: u32,
 }
 pub type WTS_CLOUD_AUTH_HANDLE = *mut core::ffi::c_void;
-pub const WTS_COMMENT_LENGTH: u32 = 60;
+pub const WTS_COMMENT_LENGTH: i32 = 60;
 pub type WTS_CONFIG_CLASS = i32;
 pub type WTS_CONFIG_SOURCE = i32;
 pub type WTS_CONNECTSTATE_CLASS = i32;
-pub const WTS_CURRENT_SERVER_NAME: u32 = 0;
+pub const WTS_CURRENT_SERVER_NAME: i32 = 0;
 pub const WTS_CURRENT_SESSION: u32 = 4294967295;
-pub const WTS_DRIVE_LENGTH: u32 = 3;
-pub const WTS_EVENT_ALL: u32 = 2147483647;
-pub const WTS_EVENT_CONNECT: u32 = 8;
-pub const WTS_EVENT_CREATE: u32 = 1;
-pub const WTS_EVENT_DELETE: u32 = 2;
-pub const WTS_EVENT_DISCONNECT: u32 = 16;
+pub const WTS_DRIVE_LENGTH: i32 = 3;
+pub const WTS_EVENT_ALL: i32 = 2147483647;
+pub const WTS_EVENT_CONNECT: i32 = 8;
+pub const WTS_EVENT_CREATE: i32 = 1;
+pub const WTS_EVENT_DELETE: i32 = 2;
+pub const WTS_EVENT_DISCONNECT: i32 = 16;
 pub const WTS_EVENT_FLUSH: u32 = 2147483648;
-pub const WTS_EVENT_LICENSE: u32 = 256;
-pub const WTS_EVENT_LOGOFF: u32 = 64;
-pub const WTS_EVENT_LOGON: u32 = 32;
-pub const WTS_EVENT_NONE: u32 = 0;
-pub const WTS_EVENT_RENAME: u32 = 4;
-pub const WTS_EVENT_STATECHANGE: u32 = 128;
+pub const WTS_EVENT_LICENSE: i32 = 256;
+pub const WTS_EVENT_LOGOFF: i32 = 64;
+pub const WTS_EVENT_LOGON: i32 = 32;
+pub const WTS_EVENT_NONE: i32 = 0;
+pub const WTS_EVENT_RENAME: i32 = 4;
+pub const WTS_EVENT_STATECHANGE: i32 = 128;
 pub type WTS_INFO_CLASS = i32;
-pub const WTS_LISTENER_CREATE: u32 = 1;
-pub const WTS_LISTENER_NAME_LENGTH: u32 = 32;
-pub const WTS_LISTENER_UPDATE: u32 = 16;
+pub const WTS_LISTENER_CREATE: i32 = 1;
+pub const WTS_LISTENER_NAME_LENGTH: i32 = 32;
+pub const WTS_LISTENER_UPDATE: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -763,26 +763,26 @@ impl Default for WTS_PROCESS_INFO_EXW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0;
-pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1;
-pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0;
-pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1;
-pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2;
-pub const WTS_SECURITY_ALL_ACCESS: u32 = 983999;
-pub const WTS_SECURITY_CONNECT: u32 = 256;
-pub const WTS_SECURITY_CURRENT_GUEST_ACCESS: u32 = 72;
-pub const WTS_SECURITY_CURRENT_USER_ACCESS: u32 = 6;
-pub const WTS_SECURITY_DISCONNECT: u32 = 512;
-pub const WTS_SECURITY_GUEST_ACCESS: u32 = 32;
-pub const WTS_SECURITY_LOGOFF: u32 = 64;
-pub const WTS_SECURITY_LOGON: u32 = 32;
-pub const WTS_SECURITY_MESSAGE: u32 = 128;
-pub const WTS_SECURITY_QUERY_INFORMATION: u32 = 1;
-pub const WTS_SECURITY_REMOTE_CONTROL: u32 = 16;
-pub const WTS_SECURITY_RESET: u32 = 4;
-pub const WTS_SECURITY_SET_INFORMATION: u32 = 2;
-pub const WTS_SECURITY_USER_ACCESS: u32 = 329;
-pub const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8;
+pub const WTS_PROCESS_INFO_LEVEL_0: i32 = 0;
+pub const WTS_PROCESS_INFO_LEVEL_1: i32 = 1;
+pub const WTS_PROTOCOL_TYPE_CONSOLE: i32 = 0;
+pub const WTS_PROTOCOL_TYPE_ICA: i32 = 1;
+pub const WTS_PROTOCOL_TYPE_RDP: i32 = 2;
+pub const WTS_SECURITY_ALL_ACCESS: i32 = 983999;
+pub const WTS_SECURITY_CONNECT: i32 = 256;
+pub const WTS_SECURITY_CURRENT_GUEST_ACCESS: i32 = 72;
+pub const WTS_SECURITY_CURRENT_USER_ACCESS: i32 = 6;
+pub const WTS_SECURITY_DISCONNECT: i32 = 512;
+pub const WTS_SECURITY_GUEST_ACCESS: i32 = 32;
+pub const WTS_SECURITY_LOGOFF: i32 = 64;
+pub const WTS_SECURITY_LOGON: i32 = 32;
+pub const WTS_SECURITY_MESSAGE: i32 = 128;
+pub const WTS_SECURITY_QUERY_INFORMATION: i32 = 1;
+pub const WTS_SECURITY_REMOTE_CONTROL: i32 = 16;
+pub const WTS_SECURITY_RESET: i32 = 4;
+pub const WTS_SECURITY_SET_INFORMATION: i32 = 2;
+pub const WTS_SECURITY_USER_ACCESS: i32 = 329;
+pub const WTS_SECURITY_VIRTUAL_CHANNELS: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_SERIALIZED_USER_CREDENTIAL {
@@ -814,9 +814,9 @@ impl Default for WTS_SERVER_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WTS_SESSIONSTATE_LOCK: u32 = 0;
+pub const WTS_SESSIONSTATE_LOCK: i32 = 0;
 pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295;
-pub const WTS_SESSIONSTATE_UNLOCK: u32 = 1;
+pub const WTS_SESSIONSTATE_UNLOCK: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_SESSION_ADDRESS {
@@ -916,8 +916,8 @@ impl Default for WTS_VALIDATION_INFORMATIONW {
     }
 }
 pub type WTS_VIRTUAL_CLASS = i32;
-pub const WTS_WSD_FASTREBOOT: u32 = 16;
-pub const WTS_WSD_LOGOFF: u32 = 1;
-pub const WTS_WSD_POWEROFF: u32 = 8;
-pub const WTS_WSD_REBOOT: u32 = 4;
-pub const WTS_WSD_SHUTDOWN: u32 = 2;
+pub const WTS_WSD_FASTREBOOT: i32 = 16;
+pub const WTS_WSD_LOGOFF: i32 = 1;
+pub const WTS_WSD_POWEROFF: i32 = 8;
+pub const WTS_WSD_REBOOT: i32 = 4;
+pub const WTS_WSD_SHUTDOWN: i32 = 2;

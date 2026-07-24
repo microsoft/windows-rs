@@ -23,7 +23,7 @@ impl File {
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0)?;
 
         if dos.e_magic != IMAGE_DOS_SIGNATURE as u16
-            || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE
+            || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE as u32
         {
             return None;
         }
@@ -34,7 +34,7 @@ impl File {
         let optional_offset = file_offset + size_of::<IMAGE_FILE_HEADER>();
 
         let (com_virtual_address, sections) =
-            match result.bytes.copy_as::<u16>(optional_offset)? as u32 {
+            match result.bytes.copy_as::<u16>(optional_offset)? as i32 {
                 IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
                     let optional = result
                         .bytes

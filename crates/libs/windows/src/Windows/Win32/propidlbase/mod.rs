@@ -756,23 +756,23 @@ pub type LPPROPVARIANT = *mut PROPVARIANT;
 #[cfg(feature = "objidlbase")]
 pub type LPVERSIONEDSTREAM = *mut VERSIONEDSTREAM;
 pub const PID_BEHAVIOR: u32 = 2147483651;
-pub const PID_CODEPAGE: u32 = 1;
-pub const PID_DICTIONARY: u32 = 0;
-pub const PID_FIRST_NAME_DEFAULT: u32 = 4095;
-pub const PID_FIRST_USABLE: u32 = 2;
+pub const PID_CODEPAGE: i32 = 1;
+pub const PID_DICTIONARY: i32 = 0;
+pub const PID_FIRST_NAME_DEFAULT: i32 = 4095;
+pub const PID_FIRST_USABLE: i32 = 2;
 pub const PID_ILLEGAL: u32 = 4294967295;
 pub const PID_LOCALE: u32 = 2147483648;
 pub const PID_MAX_READONLY: u32 = 3221225471;
 pub const PID_MIN_READONLY: u32 = 2147483648;
 pub const PID_MODIFY_TIME: u32 = 2147483649;
 pub const PID_SECURITY: u32 = 2147483650;
-pub const PROPSETFLAG_ANSI: u32 = 2;
-pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8;
-pub const PROPSETFLAG_DEFAULT: u32 = 0;
-pub const PROPSETFLAG_NONSIMPLE: u32 = 1;
-pub const PROPSETFLAG_UNBUFFERED: u32 = 4;
+pub const PROPSETFLAG_ANSI: i32 = 2;
+pub const PROPSETFLAG_CASE_SENSITIVE: i32 = 8;
+pub const PROPSETFLAG_DEFAULT: i32 = 0;
+pub const PROPSETFLAG_NONSIMPLE: i32 = 1;
+pub const PROPSETFLAG_UNBUFFERED: i32 = 4;
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295;
-pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1;
+pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
 #[derive(Clone, Copy)]
@@ -954,8 +954,8 @@ pub struct PROPVAR_PAD2(pub u16);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PROPVAR_PAD3(pub u16);
 pub const PRSPEC_INVALID: u32 = 4294967295;
-pub const PRSPEC_LPWSTR: u32 = 0;
-pub const PRSPEC_PROPID: u32 = 1;
+pub const PRSPEC_LPWSTR: i32 = 0;
+pub const PRSPEC_PROPID: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -8,7 +8,7 @@ fn main() {
         lparam: LPARAM,
     ) -> LRESULT {
         unsafe {
-            match message {
+            match message as i32 {
                 WM_PAINT => {
                     println!("WM_PAINT");
                     ValidateRect(window, std::ptr::null());
@@ -34,7 +34,7 @@ fn main() {
             hCursor: LoadCursorW(core::ptr::null_mut(), IDC_ARROW),
             hInstance: instance,
             lpszClassName: window_class,
-            style: CS_HREDRAW | CS_VREDRAW,
+            style: (CS_HREDRAW | CS_VREDRAW) as u32,
             lpfnWndProc: Some(wndproc),
             cbClsExtra: 0,
             cbWndExtra: 0,
@@ -50,7 +50,7 @@ fn main() {
             0,
             window_class,
             s!("This is a sample window"),
-            WS_OVERLAPPEDWINDOW | WS_VISIBLE,
+            (WS_OVERLAPPEDWINDOW | WS_VISIBLE) as u32,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
             CW_USEDEFAULT,

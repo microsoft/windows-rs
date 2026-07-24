@@ -136,20 +136,20 @@ pub struct MFARGB {
     pub rgbRed: u8,
     pub rgbAlpha: u8,
 }
-pub const MFASYNC_BLOCKING_CALLBACK: u32 = 4;
+pub const MFASYNC_BLOCKING_CALLBACK: i32 = 4;
 pub const MFASYNC_CALLBACK_QUEUE_ALL: u32 = 4294967295;
-pub const MFASYNC_CALLBACK_QUEUE_IO: u32 = 3;
-pub const MFASYNC_CALLBACK_QUEUE_LONG_FUNCTION: u32 = 7;
-pub const MFASYNC_CALLBACK_QUEUE_MULTITHREADED: u32 = 5;
+pub const MFASYNC_CALLBACK_QUEUE_IO: i32 = 3;
+pub const MFASYNC_CALLBACK_QUEUE_LONG_FUNCTION: i32 = 7;
+pub const MFASYNC_CALLBACK_QUEUE_MULTITHREADED: i32 = 5;
 pub const MFASYNC_CALLBACK_QUEUE_PRIVATE_MASK: u32 = 4294901760;
-pub const MFASYNC_CALLBACK_QUEUE_RT: u32 = 2;
-pub const MFASYNC_CALLBACK_QUEUE_STANDARD: u32 = 1;
-pub const MFASYNC_CALLBACK_QUEUE_TIMER: u32 = 4;
-pub const MFASYNC_CALLBACK_QUEUE_UNDEFINED: u32 = 0;
-pub const MFASYNC_FAST_IO_PROCESSING_CALLBACK: u32 = 1;
-pub const MFASYNC_LOCALIZE_REMOTE_CALLBACK: u32 = 16;
-pub const MFASYNC_REPLY_CALLBACK: u32 = 8;
-pub const MFASYNC_SIGNAL_CALLBACK: u32 = 2;
+pub const MFASYNC_CALLBACK_QUEUE_RT: i32 = 2;
+pub const MFASYNC_CALLBACK_QUEUE_STANDARD: i32 = 1;
+pub const MFASYNC_CALLBACK_QUEUE_TIMER: i32 = 4;
+pub const MFASYNC_CALLBACK_QUEUE_UNDEFINED: i32 = 0;
+pub const MFASYNC_FAST_IO_PROCESSING_CALLBACK: i32 = 1;
+pub const MFASYNC_LOCALIZE_REMOTE_CALLBACK: i32 = 16;
+pub const MFASYNC_REPLY_CALLBACK: i32 = 8;
+pub const MFASYNC_SIGNAL_CALLBACK: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MFAYUVSample {
@@ -158,17 +158,17 @@ pub struct MFAYUVSample {
     pub bYValue: u8,
     pub bSampleAlpha8: u8,
 }
-pub const MFBYTESTREAM_DOES_NOT_USE_NETWORK: u32 = 2048;
-pub const MFBYTESTREAM_HAS_SLOW_SEEK: u32 = 256;
-pub const MFBYTESTREAM_IS_DIRECTORY: u32 = 128;
-pub const MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED: u32 = 512;
-pub const MFBYTESTREAM_IS_READABLE: u32 = 1;
-pub const MFBYTESTREAM_IS_REMOTE: u32 = 8;
-pub const MFBYTESTREAM_IS_SEEKABLE: u32 = 4;
-pub const MFBYTESTREAM_IS_WRITABLE: u32 = 2;
-pub const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: u32 = 1;
+pub const MFBYTESTREAM_DOES_NOT_USE_NETWORK: i32 = 2048;
+pub const MFBYTESTREAM_HAS_SLOW_SEEK: i32 = 256;
+pub const MFBYTESTREAM_IS_DIRECTORY: i32 = 128;
+pub const MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED: i32 = 512;
+pub const MFBYTESTREAM_IS_READABLE: i32 = 1;
+pub const MFBYTESTREAM_IS_REMOTE: i32 = 8;
+pub const MFBYTESTREAM_IS_SEEKABLE: i32 = 4;
+pub const MFBYTESTREAM_IS_WRITABLE: i32 = 2;
+pub const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: i32 = 1;
 pub type MFBYTESTREAM_SEEK_ORIGIN = i32;
-pub const MFBYTESTREAM_SHARE_WRITE: u32 = 1024;
+pub const MFBYTESTREAM_SHARE_WRITE: i32 = 1024;
 pub type MFNominalRange = i32;
 pub const MFNominalRange_0_255: MFNominalRange = 1;
 pub const MFNominalRange_16_235: MFNominalRange = 2;
@@ -307,9 +307,9 @@ pub type MFVideoInterlaceMode = i32;
 pub const MFVideoInterlace_FieldInterleavedLowerFirst: MFVideoInterlaceMode = 4;
 pub const MFVideoInterlace_FieldInterleavedUpperFirst: MFVideoInterlaceMode = 3;
 pub const MFVideoInterlace_FieldSingleLower: MFVideoInterlaceMode = 6;
-pub const MFVideoInterlace_FieldSingleLowerFirst: u32 = 6;
+pub const MFVideoInterlace_FieldSingleLowerFirst: i32 = 6;
 pub const MFVideoInterlace_FieldSingleUpper: MFVideoInterlaceMode = 5;
-pub const MFVideoInterlace_FieldSingleUpperFirst: u32 = 5;
+pub const MFVideoInterlace_FieldSingleUpperFirst: i32 = 5;
 pub const MFVideoInterlace_ForceDWORD: MFVideoInterlaceMode = 2147483647;
 pub const MFVideoInterlace_Last: MFVideoInterlaceMode = 8;
 pub const MFVideoInterlace_MixedInterlaceOrProgressive: MFVideoInterlaceMode = 7;
@@ -414,17 +414,17 @@ pub type MF_DXGI_DEVICE_MANAGER_MODE = i32;
 pub const MF_DXGI_DEVICE_MANAGER_MODE_D3D11: MF_DXGI_DEVICE_MANAGER_MODE = 1;
 pub const MF_DXGI_DEVICE_MANAGER_MODE_D3D12: MF_DXGI_DEVICE_MANAGER_MODE = 2;
 pub const MF_DXGI_DEVICE_MANAGER_MODE_INVALID: MF_DXGI_DEVICE_MANAGER_MODE = 0;
-pub const MF_EVENT_FLAG_NO_WAIT: u32 = 1;
+pub const MF_EVENT_FLAG_NO_WAIT: i32 = 1;
 pub const MF_FILEFLAGS_ALLOW_WRITE_SHARING: MF_FILE_FLAGS = 2;
 pub const MF_FILEFLAGS_NOBUFFERING: MF_FILE_FLAGS = 1;
 pub const MF_FILEFLAGS_NONE: MF_FILE_FLAGS = 0;
 pub type MF_FILE_ACCESSMODE = i32;
 pub type MF_FILE_FLAGS = i32;
 pub type MF_FILE_OPENMODE = i32;
-pub const MF_MEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4;
-pub const MF_MEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2;
-pub const MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8;
-pub const MF_MEDIATYPE_EQUAL_MAJOR_TYPES: u32 = 1;
+pub const MF_MEDIATYPE_EQUAL_FORMAT_DATA: i32 = 4;
+pub const MF_MEDIATYPE_EQUAL_FORMAT_TYPES: i32 = 2;
+pub const MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA: i32 = 8;
+pub const MF_MEDIATYPE_EQUAL_MAJOR_TYPES: i32 = 1;
 pub const MF_OPENMODE_APPEND_IF_EXIST: MF_FILE_OPENMODE = 3;
 pub const MF_OPENMODE_DELETE_IF_EXIST: MF_FILE_OPENMODE = 4;
 pub const MF_OPENMODE_FAIL_IF_EXIST: MF_FILE_OPENMODE = 1;

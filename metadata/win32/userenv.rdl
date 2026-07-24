@@ -26,34 +26,34 @@ mod Windows {
         extern fn ExpandEnvironmentStringsForUserA(#[opt] hToken: HANDLE, lpSrc: PCSTR, #[len_param(3)] #[out] lpDest: PSTR, dwSize: u32) -> BOOL;
         #[library("USERENV.dll")]
         extern fn ExpandEnvironmentStringsForUserW(#[opt] hToken: HANDLE, lpSrc: PCWSTR, #[len_param(3)] #[out] lpDest: PWSTR, dwSize: u32) -> BOOL;
-        const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432;
-        const FLAG_ASSUME_SLOW_LINK: u32 = 536870912;
-        const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864;
-        const FLAG_FORCE_CREATENAMESPACE: u32 = 4;
-        const FLAG_LOOPBACK_MERGE: u32 = 268435456;
-        const FLAG_LOOPBACK_REPLACE: u32 = 134217728;
-        const FLAG_NO_COMPUTER: u32 = 2;
-        const FLAG_NO_CSE_INVOKE: u32 = 1073741824;
+        const FLAG_ASSUME_COMP_WQLFILTER_TRUE: i32 = 33554432;
+        const FLAG_ASSUME_SLOW_LINK: i32 = 536870912;
+        const FLAG_ASSUME_USER_WQLFILTER_TRUE: i32 = 67108864;
+        const FLAG_FORCE_CREATENAMESPACE: i32 = 4;
+        const FLAG_LOOPBACK_MERGE: i32 = 268435456;
+        const FLAG_LOOPBACK_REPLACE: i32 = 134217728;
+        const FLAG_NO_COMPUTER: i32 = 2;
+        const FLAG_NO_CSE_INVOKE: i32 = 1073741824;
         const FLAG_NO_GPO_FILTER: u32 = 2147483648;
-        const FLAG_NO_USER: u32 = 1;
-        const FLAG_PLANNING_MODE: u32 = 16777216;
+        const FLAG_NO_USER: i32 = 1;
+        const FLAG_PLANNING_MODE: i32 = 16777216;
         #[library("USERENV.dll")]
         extern fn FreeGPOListA(pGPOList: *const GROUP_POLICY_OBJECTA) -> BOOL;
         #[library("USERENV.dll")]
         extern fn FreeGPOListW(pGPOList: *const GROUP_POLICY_OBJECTW) -> BOOL;
-        const GPC_BLOCK_POLICY: u32 = 1;
-        const GPO_FLAG_DISABLE: u32 = 1;
-        const GPO_FLAG_FORCE: u32 = 2;
-        const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096;
-        const GPO_INFO_FLAG_BACKGROUND: u32 = 16;
-        const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024;
-        const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256;
-        const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512;
-        const GPO_INFO_FLAG_MACHINE: u32 = 1;
-        const GPO_INFO_FLAG_NOCHANGES: u32 = 128;
-        const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048;
-        const GPO_INFO_FLAG_SLOWLINK: u32 = 32;
-        const GPO_INFO_FLAG_VERBOSE: u32 = 64;
+        const GPC_BLOCK_POLICY: i32 = 1;
+        const GPO_FLAG_DISABLE: i32 = 1;
+        const GPO_FLAG_FORCE: i32 = 2;
+        const GPO_INFO_FLAG_ASYNC_FOREGROUND: i32 = 4096;
+        const GPO_INFO_FLAG_BACKGROUND: i32 = 16;
+        const GPO_INFO_FLAG_FORCED_REFRESH: i32 = 1024;
+        const GPO_INFO_FLAG_LINKTRANSITION: i32 = 256;
+        const GPO_INFO_FLAG_LOGRSOP_TRANSITION: i32 = 512;
+        const GPO_INFO_FLAG_MACHINE: i32 = 1;
+        const GPO_INFO_FLAG_NOCHANGES: i32 = 128;
+        const GPO_INFO_FLAG_SAFEMODE_BOOT: i32 = 2048;
+        const GPO_INFO_FLAG_SLOWLINK: i32 = 32;
+        const GPO_INFO_FLAG_VERBOSE: i32 = 64;
         #[repr(i32)]
         enum GPO_LINK {
             GPLinkUnknown = 0,
@@ -62,10 +62,10 @@ mod Windows {
             GPLinkDomain = 3,
             GPLinkOrganizationalUnit = 4,
         }
-        const GPO_LIST_FLAG_MACHINE: u32 = 1;
-        const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8;
-        const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4;
-        const GPO_LIST_FLAG_SITEONLY: u32 = 2;
+        const GPO_LIST_FLAG_MACHINE: i32 = 1;
+        const GPO_LIST_FLAG_NO_SECURITYFILTERS: i32 = 8;
+        const GPO_LIST_FLAG_NO_WMIFILTERS: i32 = 4;
+        const GPO_LIST_FLAG_SITEONLY: i32 = 2;
         type GROUP_POLICY_OBJECT = GROUP_POLICY_OBJECTA;
         struct GROUP_POLICY_OBJECTA {
             dwOptions: u32,
@@ -144,8 +144,8 @@ mod Windows {
         type PGROUP_POLICY_OBJECT = PGROUP_POLICY_OBJECTA;
         type PGROUP_POLICY_OBJECTA = *mut GROUP_POLICY_OBJECTA;
         type PGROUP_POLICY_OBJECTW = *mut GROUP_POLICY_OBJECTW;
-        const PI_APPLYPOLICY: u32 = 2;
-        const PI_NOUI: u32 = 1;
+        const PI_APPLYPOLICY: i32 = 2;
+        const PI_NOUI: i32 = 1;
         struct POLICYSETTINGSTATUSINFO {
             szKey: PWSTR,
             szEventSource: PWSTR,
@@ -157,18 +157,18 @@ mod Windows {
         }
         type PRSOPTOKEN = *mut void;
         type PRSOP_TARGET = *mut RSOP_TARGET;
-        const PT_MANDATORY: u32 = 4;
-        const PT_ROAMING: u32 = 2;
-        const PT_ROAMING_PREEXISTING: u32 = 8;
-        const PT_TEMPORARY: u32 = 1;
+        const PT_MANDATORY: i32 = 4;
+        const PT_ROAMING: i32 = 2;
+        const PT_ROAMING_PREEXISTING: i32 = 8;
+        const PT_TEMPORARY: i32 = 1;
         #[library("USERENV.dll")]
         extern fn ProcessGroupPolicyCompleted(extensionId: *const GUID, pAsyncHandle: ASYNCCOMPLETIONHANDLE, dwStatus: u32) -> u32;
         #[library("USERENV.dll")]
         extern fn ProcessGroupPolicyCompletedEx(extensionId: *const GUID, pAsyncHandle: ASYNCCOMPLETIONHANDLE, dwStatus: u32, RsopStatus: HRESULT) -> u32;
         type REFGPEXTENSIONID = *mut GUID;
-        const RP_FORCE: u32 = 1;
-        const RP_SYNC: u32 = 2;
-        const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2;
+        const RP_FORCE: i32 = 1;
+        const RP_SYNC: i32 = 2;
+        const RSOP_COMPUTER_ACCESS_DENIED: i32 = 2;
         struct RSOP_TARGET {
             pwszAccountName: *mut u16,
             pwszNewSOM: *mut u16,
@@ -177,8 +177,8 @@ mod Windows {
             pGPOList: PGROUP_POLICY_OBJECT,
             pWbemServices: IWbemServices,
         }
-        const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4;
-        const RSOP_USER_ACCESS_DENIED: u32 = 1;
+        const RSOP_TEMPNAMESPACE_EXISTS: i32 = 4;
+        const RSOP_USER_ACCESS_DENIED: i32 = 1;
         #[library("USERENV.dll")]
         extern fn RefreshPolicy(bMachine: BOOL) -> BOOL;
         #[library("USERENV.dll")]

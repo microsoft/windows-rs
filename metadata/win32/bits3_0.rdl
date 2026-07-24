@@ -1,12 +1,12 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const BG_DISABLE_BRANCH_CACHE: u32 = 4;
-        const BG_ENABLE_PEERCACHING_CLIENT: u32 = 1;
-        const BG_ENABLE_PEERCACHING_SERVER: u32 = 2;
-        const BG_JOB_DISABLE_BRANCH_CACHE: u32 = 4;
-        const BG_JOB_ENABLE_PEERCACHING_CLIENT: u32 = 1;
-        const BG_JOB_ENABLE_PEERCACHING_SERVER: u32 = 2;
+        const BG_DISABLE_BRANCH_CACHE: i32 = 4;
+        const BG_ENABLE_PEERCACHING_CLIENT: i32 = 1;
+        const BG_ENABLE_PEERCACHING_SERVER: i32 = 2;
+        const BG_JOB_DISABLE_BRANCH_CACHE: i32 = 4;
+        const BG_JOB_ENABLE_PEERCACHING_CLIENT: i32 = 1;
+        const BG_JOB_ENABLE_PEERCACHING_SERVER: i32 = 2;
         const BackgroundCopyManager3_0: GUID = 0x659cdea7_489e_11d9_a9cd_000d56965251;
         #[guid(0x659cdeac_489e_11d9_a9cd_000d56965251)]
         interface IBackgroundCopyCallback2: IBackgroundCopyCallback {

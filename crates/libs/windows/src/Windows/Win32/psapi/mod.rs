@@ -166,10 +166,10 @@ pub struct ENUM_PAGE_FILE_INFORMATION {
     pub TotalInUse: usize,
     pub PeakUsage: usize,
 }
-pub const LIST_MODULES_32BIT: u32 = 1;
-pub const LIST_MODULES_64BIT: u32 = 2;
-pub const LIST_MODULES_ALL: u32 = 3;
-pub const LIST_MODULES_DEFAULT: u32 = 0;
+pub const LIST_MODULES_32BIT: i32 = 1;
+pub const LIST_MODULES_64BIT: i32 = 2;
+pub const LIST_MODULES_ALL: i32 = 3;
+pub const LIST_MODULES_DEFAULT: i32 = 0;
 pub type LPMODULEINFO = *mut MODULEINFO;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -262,7 +262,7 @@ pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
 }
-pub const PSAPI_VERSION: u32 = 2;
+pub const PSAPI_VERSION: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_BLOCK {

@@ -28,12 +28,12 @@ fn main() {
 
     Service::new()
         .can_stop()
-        .can_accept(SERVICE_ACCEPT_TIMECHANGE)
+        .can_accept(SERVICE_ACCEPT_TIMECHANGE as u32)
         .run(|_service, command| {
             writeln!(log, "Command: {command:?}").unwrap();
 
             if let Command::Extended(command) = command
-                && command.control == SERVICE_CONTROL_TIMECHANGE
+                && command.control == SERVICE_CONTROL_TIMECHANGE as u32
             {
                 unsafe {
                     let data = &*(command.data as *const SERVICE_TIMECHANGE_INFO);

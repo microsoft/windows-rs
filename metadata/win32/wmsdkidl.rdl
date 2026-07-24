@@ -17,7 +17,7 @@ mod Windows {
             cIds: u16,
             rgIds: *mut GUID,
         }
-        const DRM_OPL_TYPES: u32 = 1;
+        const DRM_OPL_TYPES: i32 = 1;
         struct DRM_OUTPUT_PROTECTION {
             guidId: GUID,
             bConfigData: u8,
@@ -798,7 +798,7 @@ mod Windows {
             cbEncryptedKeyMessage: u32,
             pbEncryptedKeyMessage: *mut u8,
         }
-        const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1;
+        const WMDRM_IMPORT_INIT_STRUCT_DEFINED: i32 = 1;
         #[library("WMVCore.DLL")]
         extern fn WMIsContentProtected(pwszFileName: *const u16, pfIsProtected: *mut BOOL) -> HRESULT;
         struct WMMPEG2VIDEOINFO {
@@ -1031,9 +1031,9 @@ mod Windows {
             WMT_VER_8_0 = 524288,
             WMT_VER_9_0 = 589824,
         }
-        const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: u32 = 65536;
-        const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834;
-        const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835;
+        const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536;
+        const WMT_VIDEOIMAGE_MAGIC_NUMBER: i32 = 491406834;
+        const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: i32 = 491406835;
         struct WMT_VIDEOIMAGE_SAMPLE {
             dwMagic: u32,
             cbStruct: u32,
@@ -1086,31 +1086,31 @@ mod Windows {
             fEffectPara4: f32,
             bKeepPrevImage: BOOL,
         }
-        const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8;
-        const WMT_VIDEOIMAGE_SAMPLE_BLENDING: u32 = 4;
-        const WMT_VIDEOIMAGE_SAMPLE_INPUT_FRAME: u32 = 1;
-        const WMT_VIDEOIMAGE_SAMPLE_MOTION: u32 = 1;
-        const WMT_VIDEOIMAGE_SAMPLE_OUTPUT_FRAME: u32 = 2;
-        const WMT_VIDEOIMAGE_SAMPLE_ROTATION: u32 = 2;
-        const WMT_VIDEOIMAGE_SAMPLE_USES_CURRENT_INPUT_FRAME: u32 = 4;
-        const WMT_VIDEOIMAGE_SAMPLE_USES_PREVIOUS_INPUT_FRAME: u32 = 8;
-        const WMT_VIDEOIMAGE_TRANSITION_BOW_TIE: u32 = 11;
-        const WMT_VIDEOIMAGE_TRANSITION_CIRCLE: u32 = 12;
-        const WMT_VIDEOIMAGE_TRANSITION_CROSS_FADE: u32 = 13;
-        const WMT_VIDEOIMAGE_TRANSITION_DIAGONAL: u32 = 14;
-        const WMT_VIDEOIMAGE_TRANSITION_DIAMOND: u32 = 15;
-        const WMT_VIDEOIMAGE_TRANSITION_FADE_TO_COLOR: u32 = 16;
-        const WMT_VIDEOIMAGE_TRANSITION_FILLED_V: u32 = 17;
-        const WMT_VIDEOIMAGE_TRANSITION_FLIP: u32 = 18;
-        const WMT_VIDEOIMAGE_TRANSITION_INSET: u32 = 19;
-        const WMT_VIDEOIMAGE_TRANSITION_IRIS: u32 = 20;
-        const WMT_VIDEOIMAGE_TRANSITION_PAGE_ROLL: u32 = 21;
-        const WMT_VIDEOIMAGE_TRANSITION_RECTANGLE: u32 = 23;
-        const WMT_VIDEOIMAGE_TRANSITION_REVEAL: u32 = 24;
-        const WMT_VIDEOIMAGE_TRANSITION_SLIDE: u32 = 27;
-        const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29;
-        const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30;
-        const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31;
+        const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: i32 = 8;
+        const WMT_VIDEOIMAGE_SAMPLE_BLENDING: i32 = 4;
+        const WMT_VIDEOIMAGE_SAMPLE_INPUT_FRAME: i32 = 1;
+        const WMT_VIDEOIMAGE_SAMPLE_MOTION: i32 = 1;
+        const WMT_VIDEOIMAGE_SAMPLE_OUTPUT_FRAME: i32 = 2;
+        const WMT_VIDEOIMAGE_SAMPLE_ROTATION: i32 = 2;
+        const WMT_VIDEOIMAGE_SAMPLE_USES_CURRENT_INPUT_FRAME: i32 = 4;
+        const WMT_VIDEOIMAGE_SAMPLE_USES_PREVIOUS_INPUT_FRAME: i32 = 8;
+        const WMT_VIDEOIMAGE_TRANSITION_BOW_TIE: i32 = 11;
+        const WMT_VIDEOIMAGE_TRANSITION_CIRCLE: i32 = 12;
+        const WMT_VIDEOIMAGE_TRANSITION_CROSS_FADE: i32 = 13;
+        const WMT_VIDEOIMAGE_TRANSITION_DIAGONAL: i32 = 14;
+        const WMT_VIDEOIMAGE_TRANSITION_DIAMOND: i32 = 15;
+        const WMT_VIDEOIMAGE_TRANSITION_FADE_TO_COLOR: i32 = 16;
+        const WMT_VIDEOIMAGE_TRANSITION_FILLED_V: i32 = 17;
+        const WMT_VIDEOIMAGE_TRANSITION_FLIP: i32 = 18;
+        const WMT_VIDEOIMAGE_TRANSITION_INSET: i32 = 19;
+        const WMT_VIDEOIMAGE_TRANSITION_IRIS: i32 = 20;
+        const WMT_VIDEOIMAGE_TRANSITION_PAGE_ROLL: i32 = 21;
+        const WMT_VIDEOIMAGE_TRANSITION_RECTANGLE: i32 = 23;
+        const WMT_VIDEOIMAGE_TRANSITION_REVEAL: i32 = 24;
+        const WMT_VIDEOIMAGE_TRANSITION_SLIDE: i32 = 27;
+        const WMT_VIDEOIMAGE_TRANSITION_SPLIT: i32 = 29;
+        const WMT_VIDEOIMAGE_TRANSITION_STAR: i32 = 30;
+        const WMT_VIDEOIMAGE_TRANSITION_WHEEL: i32 = 31;
         struct WMT_WATERMARK_ENTRY {
             wmetType: WMT_WATERMARK_ENTRY_TYPE,
             clsid: GUID,
@@ -1177,12 +1177,12 @@ mod Windows {
             pwszPort: PCWSTR,
             pwszDNSName: PCWSTR,
         }
-        const WM_CL_INTERLACED420: u32 = 0;
-        const WM_CL_PROGRESSIVE420: u32 = 1;
-        const WM_CT_BOTTOM_FIELD_FIRST: u32 = 32;
-        const WM_CT_INTERLACED: u32 = 128;
-        const WM_CT_REPEAT_FIRST_FIELD: u32 = 16;
-        const WM_CT_TOP_FIELD_FIRST: u32 = 64;
+        const WM_CL_INTERLACED420: i32 = 0;
+        const WM_CL_PROGRESSIVE420: i32 = 1;
+        const WM_CT_BOTTOM_FIELD_FIRST: i32 = 32;
+        const WM_CT_INTERLACED: i32 = 128;
+        const WM_CT_REPEAT_FIRST_FIELD: i32 = 16;
+        const WM_CT_TOP_FIELD_FIRST: i32 = 64;
         const WM_DM_DEINTERLACE_HALFSIZE: i32 = 2;
         const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: i32 = 3;
         const WM_DM_DEINTERLACE_INVERSETELECINE: i32 = 4;
@@ -1205,8 +1205,8 @@ mod Windows {
             dwBitrate: u32,
             msBufferWindow: u32,
         }
-        const WM_MAX_STREAMS: u32 = 63;
-        const WM_MAX_VIDEO_STREAMS: u32 = 63;
+        const WM_MAX_STREAMS: i32 = 63;
+        const WM_MAX_VIDEO_STREAMS: i32 = 63;
         struct WM_MEDIA_TYPE {
             majortype: GUID,
             subtype: GUID,
@@ -1277,12 +1277,12 @@ mod Windows {
             dwLyricsLen: u32,
             pbLyrics: *mut u8,
         }
-        const WM_SampleExtension_ChromaLocation_Size: u32 = 1;
-        const WM_SampleExtension_ColorSpaceInfo_Size: u32 = 3;
-        const WM_SampleExtension_ContentType_Size: u32 = 1;
-        const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2;
-        const WM_SampleExtension_SampleDuration_Size: u32 = 2;
-        const WM_SampleExtension_Timecode_Size: u32 = 14;
+        const WM_SampleExtension_ChromaLocation_Size: i32 = 1;
+        const WM_SampleExtension_ColorSpaceInfo_Size: i32 = 3;
+        const WM_SampleExtension_ContentType_Size: i32 = 1;
+        const WM_SampleExtension_PixelAspectRatio_Size: i32 = 2;
+        const WM_SampleExtension_SampleDuration_Size: i32 = 2;
+        const WM_SampleExtension_Timecode_Size: i32 = 14;
         #[packed(1)]
         struct WM_USER_TEXT {
             pwszDescription: PWSTR,

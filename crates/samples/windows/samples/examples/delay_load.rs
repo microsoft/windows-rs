@@ -6,7 +6,7 @@ fn main() {
     /// The `PCSTR` parameters need to be valid for reads up until and including the next `\0`.
     pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
         unsafe {
-            let library = LoadLibraryExA(library, None, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
+            let library = LoadLibraryExA(library, None, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS as u32);
 
             if library.0.is_null() {
                 return None;

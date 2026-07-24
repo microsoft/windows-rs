@@ -185,7 +185,7 @@ impl Default for BLUETOOTH_DEVICE_INFO_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256;
+pub const BLUETOOTH_DEVICE_NAME_SIZE: i32 = 256;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -231,10 +231,10 @@ impl Default for BLUETOOTH_LOCAL_SERVICE_INFO_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248;
-pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17;
-pub const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16;
-pub const BLUETOOTH_MAX_SERVICE_NAME_SIZE: u32 = 256;
+pub const BLUETOOTH_MAX_NAME_SIZE: i32 = 248;
+pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: i32 = 17;
+pub const BLUETOOTH_MAX_PASSKEY_SIZE: i32 = 16;
+pub const BLUETOOTH_MAX_SERVICE_NAME_SIZE: i32 = 256;
 pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 255;
 pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 0;
 pub const BLUETOOTH_MITM_ProtectionNotRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 2;
@@ -318,9 +318,9 @@ impl Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0;
-pub const BLUETOOTH_SERVICE_ENABLE: u32 = 1;
-pub const BLUETOOTH_SERVICE_MASK: u32 = 1;
+pub const BLUETOOTH_SERVICE_DISABLE: i32 = 0;
+pub const BLUETOOTH_SERVICE_ENABLE: i32 = 1;
+pub const BLUETOOTH_SERVICE_MASK: i32 = 1;
 #[cfg(feature = "winnt")]
 pub type HBLUETOOTH_AUTHENTICATION_REGISTRATION = super::HANDLE;
 #[cfg(feature = "winnt")]

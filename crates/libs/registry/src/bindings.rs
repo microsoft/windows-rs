@@ -19,8 +19,8 @@ windows_link::link!("advapi32.dll" "system" fn RegRenameKey(hkey : HKEY, lpsubke
 windows_link::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> LSTATUS);
 pub type ACCESS_MASK = u32;
 pub type BOOL = i32;
-pub const ERROR_INVALID_DATA: u32 = 13;
-pub const ERROR_NO_MORE_ITEMS: u32 = 259;
+pub const ERROR_INVALID_DATA: i32 = 13;
+pub const ERROR_NO_MORE_ITEMS: i32 = 259;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FILETIME {
@@ -43,10 +43,10 @@ pub const HKEY_CURRENT_USER: HKEY = -2147483647 as _;
 pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646 as _;
 pub const HKEY_USERS: HKEY = -2147483645 as _;
 pub const INVALID_HANDLE_VALUE: HANDLE = -1 as _;
-pub const KEY_READ: u32 = 131097;
-pub const KEY_WOW64_32KEY: u32 = 512;
-pub const KEY_WOW64_64KEY: u32 = 256;
-pub const KEY_WRITE: u32 = 131078;
+pub const KEY_READ: i32 = 131097;
+pub const KEY_WOW64_32KEY: i32 = 512;
+pub const KEY_WOW64_64KEY: i32 = 256;
+pub const KEY_WRITE: i32 = 131078;
 pub type LSTATUS = i32;
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
@@ -55,8 +55,8 @@ pub const REG_BINARY: u32 = 3;
 pub const REG_DWORD: u32 = 4;
 pub const REG_EXPAND_SZ: u32 = 2;
 pub const REG_MULTI_SZ: u32 = 7;
-pub const REG_OPTION_NON_VOLATILE: u32 = 0;
-pub const REG_OPTION_VOLATILE: u32 = 1;
+pub const REG_OPTION_NON_VOLATILE: i32 = 0;
+pub const REG_OPTION_VOLATILE: i32 = 1;
 pub const REG_QWORD: u32 = 11;
 pub const REG_SZ: u32 = 1;
 #[repr(C)]

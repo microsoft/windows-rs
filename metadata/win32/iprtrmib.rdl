@@ -1,35 +1,35 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const BEST_IF: u32 = 20;
-        const BEST_ROUTE: u32 = 21;
-        const DEST_LONGER: u32 = 29;
-        const DEST_MATCHING: u32 = 28;
-        const DEST_SHORTER: u32 = 30;
-        const ICMP_STATS: u32 = 11;
-        const IF_NUMBER: u32 = 0;
-        const IF_ROW: u32 = 2;
-        const IF_STATUS: u32 = 25;
-        const IF_TABLE: u32 = 1;
-        const IP6_STATS: u32 = 36;
-        const IPRTRMGR_PID: u32 = 10000;
-        const IP_ADDRROW: u32 = 5;
-        const IP_ADDRTABLE: u32 = 4;
-        const IP_FORWARDNUMBER: u32 = 6;
-        const IP_FORWARDROW: u32 = 8;
-        const IP_FORWARDTABLE: u32 = 7;
-        const IP_NETROW: u32 = 10;
-        const IP_NETTABLE: u32 = 9;
-        const IP_STATS: u32 = 3;
-        const MAX_MIB_OFFSET: u32 = 8;
-        const MAX_SCOPE_NAME_LEN: u32 = 255;
-        const MCAST_BOUNDARY: u32 = 26;
-        const MCAST_GLOBAL: u32 = 24;
-        const MCAST_IF_ENTRY: u32 = 23;
-        const MCAST_MFE: u32 = 18;
-        const MCAST_MFE_STATS: u32 = 19;
-        const MCAST_MFE_STATS_EX: u32 = 35;
-        const MCAST_SCOPE: u32 = 27;
+        const BEST_IF: i32 = 20;
+        const BEST_ROUTE: i32 = 21;
+        const DEST_LONGER: i32 = 29;
+        const DEST_MATCHING: i32 = 28;
+        const DEST_SHORTER: i32 = 30;
+        const ICMP_STATS: i32 = 11;
+        const IF_NUMBER: i32 = 0;
+        const IF_ROW: i32 = 2;
+        const IF_STATUS: i32 = 25;
+        const IF_TABLE: i32 = 1;
+        const IP6_STATS: i32 = 36;
+        const IPRTRMGR_PID: i32 = 10000;
+        const IP_ADDRROW: i32 = 5;
+        const IP_ADDRTABLE: i32 = 4;
+        const IP_FORWARDNUMBER: i32 = 6;
+        const IP_FORWARDROW: i32 = 8;
+        const IP_FORWARDTABLE: i32 = 7;
+        const IP_NETROW: i32 = 10;
+        const IP_NETTABLE: i32 = 9;
+        const IP_STATS: i32 = 3;
+        const MAX_MIB_OFFSET: i32 = 8;
+        const MAX_SCOPE_NAME_LEN: i32 = 255;
+        const MCAST_BOUNDARY: i32 = 26;
+        const MCAST_GLOBAL: i32 = 24;
+        const MCAST_IF_ENTRY: i32 = 23;
+        const MCAST_MFE: i32 = 18;
+        const MCAST_MFE_STATS: i32 = 19;
+        const MCAST_MFE_STATS_EX: i32 = 35;
+        const MCAST_SCOPE: i32 = 27;
         struct MIB_BEST_IF {
             dwDestAddr: u32,
             dwIfIndex: u32,
@@ -93,7 +93,7 @@ mod Windows {
         struct MIB_ROUTESTATE {
             bRoutesSetToStack: BOOL,
         }
-        const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39;
+        const NUMBER_OF_EXPORTED_VARIABLES: i32 = 39;
         type PMIB_BEST_IF = *mut MIB_BEST_IF;
         type PMIB_BOUNDARYROW = *mut MIB_BOUNDARYROW;
         type PMIB_IFSTATUS = *mut MIB_IFSTATUS;
@@ -107,19 +107,19 @@ mod Windows {
         type PMIB_OPAQUE_QUERY = *mut MIB_OPAQUE_QUERY;
         type PMIB_PROXYARP = *mut MIB_PROXYARP;
         type PMIB_ROUTESTATE = *mut MIB_ROUTESTATE;
-        const PROXY_ARP: u32 = 22;
+        const PROXY_ARP: i32 = 22;
         type PTCPIP_OWNER_MODULE_BASIC_INFO = *mut TCPIP_OWNER_MODULE_BASIC_INFO;
         type PTCPIP_OWNER_MODULE_INFO_CLASS = *mut TCPIP_OWNER_MODULE_INFO_CLASS;
         type PTCP_TABLE_CLASS = *mut TCP_TABLE_CLASS;
         type PUDP_TABLE_CLASS = *mut UDP_TABLE_CLASS;
-        const ROUTE_LONGER: u32 = 32;
-        const ROUTE_MATCHING: u32 = 31;
-        const ROUTE_SHORTER: u32 = 33;
-        const ROUTE_STATE: u32 = 34;
+        const ROUTE_LONGER: i32 = 32;
+        const ROUTE_MATCHING: i32 = 31;
+        const ROUTE_SHORTER: i32 = 33;
+        const ROUTE_STATE: i32 = 34;
         type SCOPE_NAME = *mut SN_CHAR;
         type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
         type SN_CHAR = u16;
-        const TCP6_STATS: u32 = 38;
+        const TCP6_STATS: i32 = 38;
         struct TCPIP_OWNER_MODULE_BASIC_INFO {
             pModuleName: PWCHAR,
             pModulePath: PWCHAR,
@@ -128,9 +128,9 @@ mod Windows {
         enum TCPIP_OWNER_MODULE_INFO_CLASS {
             TCPIP_OWNER_MODULE_INFO_BASIC = 0,
         }
-        const TCP_ROW: u32 = 14;
-        const TCP_STATS: u32 = 12;
-        const TCP_TABLE: u32 = 13;
+        const TCP_ROW: i32 = 14;
+        const TCP_STATS: i32 = 12;
+        const TCP_TABLE: i32 = 13;
         #[repr(i32)]
         enum TCP_TABLE_CLASS {
             TCP_TABLE_BASIC_LISTENER = 0,
@@ -143,10 +143,10 @@ mod Windows {
             TCP_TABLE_OWNER_MODULE_CONNECTIONS = 7,
             TCP_TABLE_OWNER_MODULE_ALL = 8,
         }
-        const UDP6_STATS: u32 = 37;
-        const UDP_ROW: u32 = 17;
-        const UDP_STATS: u32 = 15;
-        const UDP_TABLE: u32 = 16;
+        const UDP6_STATS: i32 = 37;
+        const UDP_ROW: i32 = 17;
+        const UDP_STATS: i32 = 15;
+        const UDP_TABLE: i32 = 16;
         #[repr(i32)]
         enum UDP_TABLE_CLASS {
             UDP_TABLE_BASIC = 0,

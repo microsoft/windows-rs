@@ -32,8 +32,8 @@ mod Windows {
         const NCRYPT_KEY_PROTECTION_LOCAL_MACHINE: String = "machine";
         #[encoding("utf-16")]
         const NCRYPT_KEY_PROTECTION_LOCAL_USER: String = "user";
-        const NCRYPT_NAMED_DESCRIPTOR_FLAG: u32 = 1;
-        const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: u32 = 1;
+        const NCRYPT_NAMED_DESCRIPTOR_FLAG: i32 = 1;
+        const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: i32 = 1;
         struct NCRYPT_PROTECT_STREAM_INFO {
             pfnStreamOutput: PFNCryptStreamOutputCallback,
             pvCallbackCtxt: *mut void,
@@ -43,7 +43,7 @@ mod Windows {
             pvCallbackCtxt: *mut void,
         }
         type NCRYPT_STREAM_HANDLE = *mut void;
-        const NCRYPT_UNPROTECT_NO_DECRYPT: u32 = 1;
+        const NCRYPT_UNPROTECT_NO_DECRYPT: i32 = 1;
         #[library("ncrypt.dll")]
         extern fn NCryptCloseProtectionDescriptor(hDescriptor: NCRYPT_DESCRIPTOR_HANDLE) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]

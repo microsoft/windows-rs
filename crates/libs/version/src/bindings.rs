@@ -40,5 +40,5 @@ impl Default for OSVERSIONINFOW {
     }
 }
 pub type PCSTR = *const u8;
-pub const RRF_RT_REG_DWORD: u32 = 16;
-pub const VER_NT_WORKSTATION: u32 = 1;
+pub const RRF_RT_REG_DWORD: i32 = 16;
+pub const VER_NT_WORKSTATION: i32 = 1;

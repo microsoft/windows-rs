@@ -53,8 +53,12 @@ fn main() -> windows::core::Result<()> {
                 let mut random_bytes = vec![0u8; values.len()];
 
                 assert!(
-                    BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).0
-                        == 0
+                    BCryptGenRandom(
+                        None,
+                        &mut random_bytes,
+                        BCRYPT_USE_SYSTEM_PREFERRED_RNG as u32
+                    )
+                    .0 == 0
                 );
 
                 for i in 0..values.len() / 2 {
@@ -64,8 +68,12 @@ fn main() -> windows::core::Result<()> {
                 }
 
                 assert!(
-                    BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).0
-                        == 0
+                    BCryptGenRandom(
+                        None,
+                        &mut random_bytes,
+                        BCRYPT_USE_SYSTEM_PREFERRED_RNG as u32
+                    )
+                    .0 == 0
                 );
 
                 (0..values.len()).for_each(|i| {
@@ -362,7 +370,7 @@ fn main() -> windows::core::Result<()> {
                     rect.top,
                     size.0,
                     size.1,
-                    SWP_NOACTIVATE | SWP_NOZORDER,
+                    (SWP_NOACTIVATE | SWP_NOZORDER) as u32,
                 )
                 .ok()?;
 
@@ -373,7 +381,7 @@ fn main() -> windows::core::Result<()> {
 
         fn create_handler(&mut self) -> Result<(i32, i32)> {
             unsafe {
-                let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST);
+                let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST as u32);
                 let mut dpi = (0, 0);
                 GetDpiForMonitor(monitor, MDT_EFFECTIVE_DPI, &mut dpi.0, &mut dpi.1).ok()?;
                 self.dpi = (dpi.0 as f32, dpi.1 as f32);
@@ -388,7 +396,7 @@ fn main() -> windows::core::Result<()> {
 
         fn message_handler(&mut self, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
             unsafe {
-                match message {
+                match message as i32 {
                     WM_LBUTTONUP => self.click_handler(lparam).expect("WM_LBUTTONUP"),
                     WM_PAINT => {
                         self.paint_handler().unwrap_or_else(|_| {
@@ -483,7 +491,7 @@ fn main() -> windows::core::Result<()> {
                 HMODULE::default(),
                 D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
                 None,
-                D3D11_SDK_VERSION,
+                D3D11_SDK_VERSION as u32,
                 Some(&mut device),
                 None,
                 None,
@@ -700,8 +708,8 @@ fn main() -> windows::core::Result<()> {
 
     let handler = app.clone();
     let window = Window::new("Sample Window")
-        .style(WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX)
-        .ex_style(WS_EX_NOREDIRECTIONBITMAP)
+        .style((WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX) as u32)
+        .ex_style(WS_EX_NOREDIRECTIONBITMAP as u32)
         .on_message(move |_, message, wparam, lparam| {
             Some(
                 handler
@@ -725,7 +733,7 @@ fn main() -> windows::core::Result<()> {
             0,
             size.0,
             size.1,
-            SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER,
+            (SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER) as u32,
         )
         .ok()?;
     }

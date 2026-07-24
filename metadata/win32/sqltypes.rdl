@@ -97,7 +97,7 @@ mod Windows {
                 day_second: SQL_DAY_SECOND_STRUCT,
             },
         }
-        const SQL_MAX_NUMERIC_LEN: u32 = 16;
+        const SQL_MAX_NUMERIC_LEN: i32 = 16;
         struct SQL_NUMERIC_STRUCT {
             precision: SQLCHAR,
             scale: SQLSCHAR,

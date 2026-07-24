@@ -20,8 +20,8 @@ mod Windows {
             th32HeapID: usize,
             dwFlags: u32,
         }
-        const HF32_DEFAULT: u32 = 1;
-        const HF32_SHARED: u32 = 2;
+        const HF32_DEFAULT: i32 = 1;
+        const HF32_SHARED: i32 = 2;
         #[library("KERNEL32.dll")]
         extern fn Heap32First(lphe: *mut HEAPENTRY32, th32ProcessID: u32, th32HeapID: usize) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -30,9 +30,9 @@ mod Windows {
         extern fn Heap32ListNext(hSnapshot: HANDLE, lphl: *mut HEAPLIST32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn Heap32Next(lphe: *mut HEAPENTRY32) -> BOOL;
-        const LF32_FIXED: u32 = 1;
-        const LF32_FREE: u32 = 2;
-        const LF32_MOVEABLE: u32 = 4;
+        const LF32_FIXED: i32 = 1;
+        const LF32_FREE: i32 = 2;
+        const LF32_MOVEABLE: i32 = 4;
         type LPHEAPENTRY32 = *mut HEAPENTRY32;
         type LPHEAPLIST32 = *mut HEAPLIST32;
         type LPMODULEENTRY32 = *mut MODULEENTRY32;
@@ -40,7 +40,7 @@ mod Windows {
         type LPPROCESSENTRY32 = *mut PROCESSENTRY32;
         type LPPROCESSENTRY32W = *mut PROCESSENTRY32W;
         type LPTHREADENTRY32 = *mut THREADENTRY32;
-        const MAX_MODULE_NAME32: u32 = 255;
+        const MAX_MODULE_NAME32: i32 = 255;
         struct MODULEENTRY32 {
             dwSize: u32,
             th32ModuleID: u32,
@@ -113,12 +113,12 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn Process32NextW(hSnapshot: HANDLE, lppe: *mut PROCESSENTRY32W) -> BOOL;
         const TH32CS_INHERIT: u32 = 2147483648;
-        const TH32CS_SNAPALL: u32 = 15;
-        const TH32CS_SNAPHEAPLIST: u32 = 1;
-        const TH32CS_SNAPMODULE: u32 = 8;
-        const TH32CS_SNAPMODULE32: u32 = 16;
-        const TH32CS_SNAPPROCESS: u32 = 2;
-        const TH32CS_SNAPTHREAD: u32 = 4;
+        const TH32CS_SNAPALL: i32 = 15;
+        const TH32CS_SNAPHEAPLIST: i32 = 1;
+        const TH32CS_SNAPMODULE: i32 = 8;
+        const TH32CS_SNAPMODULE32: i32 = 16;
+        const TH32CS_SNAPPROCESS: i32 = 2;
+        const TH32CS_SNAPTHREAD: i32 = 4;
         struct THREADENTRY32 {
             dwSize: u32,
             cntUsage: u32,

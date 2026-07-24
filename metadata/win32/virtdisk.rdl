@@ -99,7 +99,7 @@ mod Windows {
             CREATE_VIRTUAL_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES = 512,
             CREATE_VIRTUAL_DISK_FLAG_SUPPORT_SPARSE_FILES_ANY_FS = 1024,
         }
-        const CREATE_VIRTUAL_DISK_FLAG_USE_RCT_SOURCE_LIMIT: u32 = 16;
+        const CREATE_VIRTUAL_DISK_FLAG_USE_RCT_SOURCE_LIMIT: i32 = 16;
         struct CREATE_VIRTUAL_DISK_PARAMETERS {
             Version: CREATE_VIRTUAL_DISK_VERSION,
             Anonymous: union {
@@ -158,8 +158,8 @@ mod Windows {
                 },
             },
         }
-        const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0;
-        const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0;
+        const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: i32 = 0;
+        const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: i32 = 0;
         #[repr(i32)]
         enum CREATE_VIRTUAL_DISK_VERSION {
             CREATE_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
@@ -274,7 +274,7 @@ mod Windows {
             GET_STORAGE_DEPENDENCY_FLAG_HOST_VOLUMES = 1,
             GET_STORAGE_DEPENDENCY_FLAG_DISK_HANDLE = 2,
         }
-        const GET_STORAGE_DEPENDENCY_FLAG_PARENTS: u32 = 1;
+        const GET_STORAGE_DEPENDENCY_FLAG_PARENTS: i32 = 1;
         struct GET_VIRTUAL_DISK_INFO {
             Version: GET_VIRTUAL_DISK_INFO_VERSION,
             Anonymous: union {
@@ -342,7 +342,7 @@ mod Windows {
         extern fn GetVirtualDiskOperationProgress(VirtualDiskHandle: HANDLE, Overlapped: *const OVERLAPPED, Progress: *mut VIRTUAL_DISK_PROGRESS) -> u32;
         #[library("VirtDisk.dll")]
         extern fn GetVirtualDiskPhysicalPath(VirtualDiskHandle: HANDLE, #[in] #[out] DiskPathSizeInBytes: *mut u32, #[size_param(1)] #[out] DiskPath: PWSTR) -> u32;
-        const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1;
+        const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: i32 = 1;
         #[repr(u32)]
         #[flags]
         enum MERGE_VIRTUAL_DISK_FLAG {
@@ -454,7 +454,7 @@ mod Windows {
                 },
             },
         }
-        const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1;
+        const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: i32 = 1;
         #[repr(i32)]
         enum OPEN_VIRTUAL_DISK_VERSION {
             OPEN_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
@@ -622,15 +622,15 @@ mod Windows {
             STORAGE_DEPENDENCY_INFO_VERSION_1 = 1,
             STORAGE_DEPENDENCY_INFO_VERSION_2 = 2,
         }
-        const SURFACE_VIRTUAL_DISK_FLAG_BYPASS_DEFAULT_ENCRYPTION_POLICY: u32 = 32;
-        const SURFACE_VIRTUAL_DISK_FLAG_NONE: u32 = 0;
-        const SURFACE_VIRTUAL_DISK_FLAG_NO_DRIVE_LETTER: u32 = 2;
-        const SURFACE_VIRTUAL_DISK_FLAG_NO_LOCAL_HOST: u32 = 8;
-        const SURFACE_VIRTUAL_DISK_FLAG_NO_SECURITY_DESCRIPTOR: u32 = 16;
-        const SURFACE_VIRTUAL_DISK_FLAG_PERMANENT_LIFETIME: u32 = 4;
-        const SURFACE_VIRTUAL_DISK_FLAG_READ_ONLY: u32 = 1;
-        const SURFACE_VIRTUAL_DISK_VERSION_1: u32 = 1;
-        const SURFACE_VIRTUAL_DISK_VERSION_UNSPECIFIED: u32 = 0;
+        const SURFACE_VIRTUAL_DISK_FLAG_BYPASS_DEFAULT_ENCRYPTION_POLICY: i32 = 32;
+        const SURFACE_VIRTUAL_DISK_FLAG_NONE: i32 = 0;
+        const SURFACE_VIRTUAL_DISK_FLAG_NO_DRIVE_LETTER: i32 = 2;
+        const SURFACE_VIRTUAL_DISK_FLAG_NO_LOCAL_HOST: i32 = 8;
+        const SURFACE_VIRTUAL_DISK_FLAG_NO_SECURITY_DESCRIPTOR: i32 = 16;
+        const SURFACE_VIRTUAL_DISK_FLAG_PERMANENT_LIFETIME: i32 = 4;
+        const SURFACE_VIRTUAL_DISK_FLAG_READ_ONLY: i32 = 1;
+        const SURFACE_VIRTUAL_DISK_VERSION_1: i32 = 1;
+        const SURFACE_VIRTUAL_DISK_VERSION_UNSPECIFIED: i32 = 0;
         #[library("VirtDisk.dll")]
         extern fn SetVirtualDiskInformation(VirtualDiskHandle: HANDLE, VirtualDiskInfo: *const SET_VIRTUAL_DISK_INFO) -> u32;
         #[library("VirtDisk.dll")]
@@ -656,7 +656,7 @@ mod Windows {
         }
         #[library("VirtDisk.dll")]
         extern fn TakeSnapshotVhdSet(VirtualDiskHandle: HANDLE, Parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, Flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32;
-        const UNSURFACE_VIRTUAL_DISK_FLAG_NONE: u32 = 0;
+        const UNSURFACE_VIRTUAL_DISK_FLAG_NONE: i32 = 0;
         #[repr(u32)]
         #[flags]
         enum VIRTUAL_DISK_ACCESS_MASK {
@@ -671,20 +671,20 @@ mod Windows {
             VIRTUAL_DISK_ACCESS_ALL = 4128768,
             VIRTUAL_DISK_ACCESS_WRITABLE = 3276800,
         }
-        const VIRTUAL_DISK_ACCESS_SURFACE_RO: u32 = 65536;
-        const VIRTUAL_DISK_ACCESS_SURFACE_RW: u32 = 131072;
-        const VIRTUAL_DISK_ACCESS_UNSURFACE: u32 = 262144;
-        const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256;
+        const VIRTUAL_DISK_ACCESS_SURFACE_RO: i32 = 65536;
+        const VIRTUAL_DISK_ACCESS_SURFACE_RW: i32 = 131072;
+        const VIRTUAL_DISK_ACCESS_UNSURFACE: i32 = 262144;
+        const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: i32 = 256;
         struct VIRTUAL_DISK_PROGRESS {
             OperationStatus: u32,
             CurrentValue: u64,
             CompletionValue: u64,
         }
-        const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1;
-        const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0;
-        const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2;
-        const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4;
-        const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: i32 = 1;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: i32 = 0;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: i32 = 2;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: i32 = 4;
+        const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: i32 = 3;
         const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: GUID = 0xec984aec_a0f9_47e9_901f_71415a66345b;
         const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: GUID = 0x00000000_0000_0000_0000_000000000000;
     }

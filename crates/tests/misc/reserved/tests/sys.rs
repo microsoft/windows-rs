@@ -5,12 +5,12 @@ use windows_sys::{Win32::*, core::*};
 #[test]
 fn test() {
     unsafe {
-        assert_eq!(InSendMessageEx(std::ptr::null_mut()), ISMEX_NOSEND);
+        assert_eq!(InSendMessageEx(std::ptr::null_mut()), ISMEX_NOSEND as u32);
         assert!(!CreateThreadpool(std::ptr::null_mut()).is_null());
         assert_eq!(
             TrackPopupMenu(
                 core::ptr::null_mut(),
-                TPM_LEFTBUTTON,
+                TPM_LEFTBUTTON as u32,
                 1,
                 2,
                 0,
@@ -21,7 +21,13 @@ fn test() {
         );
 
         let mut key = core::ptr::null_mut();
-        RegOpenKeyExA(HKEY_CLASSES_ROOT, s!(r".txt"), 0, KEY_QUERY_VALUE, &mut key);
+        RegOpenKeyExA(
+            HKEY_CLASSES_ROOT,
+            s!(r".txt"),
+            0,
+            KEY_QUERY_VALUE as u32,
+            &mut key,
+        );
         let mut len = 0;
         RegQueryValueExA(
             key,

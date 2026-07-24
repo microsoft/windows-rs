@@ -31,11 +31,11 @@ mod Windows {
                 },
             },
         }
-        const WCTP_GETINFO_ALL_FLAGS: u32 = 7;
-        const WCTP_OPEN_ALL_FLAGS: u32 = 1;
-        const WCT_ASYNC_OPEN_FLAG: u32 = 1;
-        const WCT_MAX_NODE_COUNT: u32 = 16;
-        const WCT_NETWORK_IO_FLAG: u32 = 8;
+        const WCTP_GETINFO_ALL_FLAGS: i32 = 7;
+        const WCTP_OPEN_ALL_FLAGS: i32 = 1;
+        const WCT_ASYNC_OPEN_FLAG: i32 = 1;
+        const WCT_MAX_NODE_COUNT: i32 = 16;
+        const WCT_NETWORK_IO_FLAG: i32 = 8;
         #[repr(i32)]
         enum WCT_OBJECT_STATUS {
             WctStatusNoAccess = 1,
@@ -66,9 +66,9 @@ mod Windows {
             WctSmbIoType = 12,
             WctMaxType = 13,
         }
-        const WCT_OBJNAME_LENGTH: u32 = 128;
-        const WCT_OUT_OF_PROC_COM_FLAG: u32 = 2;
-        const WCT_OUT_OF_PROC_CS_FLAG: u32 = 4;
-        const WCT_OUT_OF_PROC_FLAG: u32 = 1;
+        const WCT_OBJNAME_LENGTH: i32 = 128;
+        const WCT_OUT_OF_PROC_COM_FLAG: i32 = 2;
+        const WCT_OUT_OF_PROC_CS_FLAG: i32 = 4;
+        const WCT_OUT_OF_PROC_FLAG: i32 = 1;
     }
 }

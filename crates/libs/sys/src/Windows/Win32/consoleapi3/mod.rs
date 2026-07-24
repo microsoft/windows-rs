@@ -54,9 +54,9 @@ impl Default for CONSOLE_FONT_INFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CONSOLE_FULLSCREEN: u32 = 1;
-pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2;
-pub const CONSOLE_FULLSCREEN_MODE: u32 = 1;
+pub const CONSOLE_FULLSCREEN: i32 = 1;
+pub const CONSOLE_FULLSCREEN_HARDWARE: i32 = 2;
+pub const CONSOLE_FULLSCREEN_MODE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_HISTORY_INFO {
@@ -65,9 +65,9 @@ pub struct CONSOLE_HISTORY_INFO {
     pub NumberOfHistoryBuffers: u32,
     pub dwFlags: u32,
 }
-pub const CONSOLE_MOUSE_DOWN: u32 = 8;
-pub const CONSOLE_MOUSE_SELECTION: u32 = 4;
-pub const CONSOLE_NO_SELECTION: u32 = 0;
+pub const CONSOLE_MOUSE_DOWN: i32 = 8;
+pub const CONSOLE_MOUSE_SELECTION: i32 = 4;
+pub const CONSOLE_NO_SELECTION: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "wincontypes")]
 #[derive(Clone, Copy, Default)]
@@ -76,10 +76,10 @@ pub struct CONSOLE_SELECTION_INFO {
     pub dwSelectionAnchor: super::COORD,
     pub srSelection: super::SMALL_RECT,
 }
-pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1;
-pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2;
-pub const CONSOLE_WINDOWED_MODE: u32 = 2;
-pub const HISTORY_NO_DUP_FLAG: u32 = 1;
+pub const CONSOLE_SELECTION_IN_PROGRESS: i32 = 1;
+pub const CONSOLE_SELECTION_NOT_EMPTY: i32 = 2;
+pub const CONSOLE_WINDOWED_MODE: i32 = 2;
+pub const HISTORY_NO_DUP_FLAG: i32 = 1;
 #[cfg(feature = "wincontypes")]
 pub type PCONSOLE_FONT_INFOEX = *mut CONSOLE_FONT_INFOEX;
 pub type PCONSOLE_HISTORY_INFO = *mut CONSOLE_HISTORY_INFO;

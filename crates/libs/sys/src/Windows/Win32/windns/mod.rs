@@ -99,64 +99,64 @@ windows_link::link!("dnsapi.dll" "C" fn DnsValidateName_W(pszname : windows_sys:
 windows_link::link!("dnsapi.dll" "C" fn DnsValidateServerStatus(server : *const super::SOCKADDR, queryname : windows_sys::core::PCWSTR, serverstatus : *mut u32) -> DNS_STATUS);
 windows_link::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_sys::core::PCSTR, wtype : u16, xid : u16, frecursiondesired : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_W(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_sys::core::PCWSTR, wtype : u16, xid : u16, frecursiondesired : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub const DDR_MAX_IP_HINTS: u32 = 4;
-pub const DNSREC_ADDITIONAL: u32 = 3;
-pub const DNSREC_ANSWER: u32 = 1;
-pub const DNSREC_AUTHORITY: u32 = 2;
-pub const DNSREC_DELETE: u32 = 4;
-pub const DNSREC_NOEXIST: u32 = 4;
-pub const DNSREC_PREREQ: u32 = 1;
-pub const DNSREC_QUESTION: u32 = 0;
-pub const DNSREC_SECTION: u32 = 3;
-pub const DNSREC_UPDATE: u32 = 2;
-pub const DNSREC_ZONE: u32 = 0;
-pub const DNSSEC_ALGORITHM_ECDSAP256_SHA256: u32 = 13;
-pub const DNSSEC_ALGORITHM_ECDSAP384_SHA384: u32 = 14;
-pub const DNSSEC_ALGORITHM_NULL: u32 = 253;
-pub const DNSSEC_ALGORITHM_PRIVATE: u32 = 254;
-pub const DNSSEC_ALGORITHM_RSAMD5: u32 = 1;
-pub const DNSSEC_ALGORITHM_RSASHA1: u32 = 5;
-pub const DNSSEC_ALGORITHM_RSASHA1_NSEC3: u32 = 7;
-pub const DNSSEC_ALGORITHM_RSASHA256: u32 = 8;
-pub const DNSSEC_ALGORITHM_RSASHA512: u32 = 10;
-pub const DNSSEC_DIGEST_ALGORITHM_SHA1: u32 = 1;
-pub const DNSSEC_DIGEST_ALGORITHM_SHA256: u32 = 2;
-pub const DNSSEC_DIGEST_ALGORITHM_SHA384: u32 = 4;
-pub const DNSSEC_KEY_FLAG_EXTEND: u32 = 8;
-pub const DNSSEC_KEY_FLAG_FLAG10: u32 = 1024;
-pub const DNSSEC_KEY_FLAG_FLAG11: u32 = 2048;
-pub const DNSSEC_KEY_FLAG_FLAG2: u32 = 4;
-pub const DNSSEC_KEY_FLAG_FLAG4: u32 = 16;
-pub const DNSSEC_KEY_FLAG_FLAG5: u32 = 32;
-pub const DNSSEC_KEY_FLAG_FLAG8: u32 = 256;
-pub const DNSSEC_KEY_FLAG_FLAG9: u32 = 512;
-pub const DNSSEC_KEY_FLAG_HOST: u32 = 128;
-pub const DNSSEC_KEY_FLAG_NOAUTH: u32 = 1;
-pub const DNSSEC_KEY_FLAG_NOCONF: u32 = 2;
-pub const DNSSEC_KEY_FLAG_NTPE3: u32 = 192;
-pub const DNSSEC_KEY_FLAG_SIG0: u32 = 0;
-pub const DNSSEC_KEY_FLAG_SIG1: u32 = 4096;
-pub const DNSSEC_KEY_FLAG_SIG10: u32 = 40960;
-pub const DNSSEC_KEY_FLAG_SIG11: u32 = 45056;
-pub const DNSSEC_KEY_FLAG_SIG12: u32 = 49152;
-pub const DNSSEC_KEY_FLAG_SIG13: u32 = 53248;
-pub const DNSSEC_KEY_FLAG_SIG14: u32 = 57344;
-pub const DNSSEC_KEY_FLAG_SIG15: u32 = 61440;
-pub const DNSSEC_KEY_FLAG_SIG2: u32 = 8192;
-pub const DNSSEC_KEY_FLAG_SIG3: u32 = 12288;
-pub const DNSSEC_KEY_FLAG_SIG4: u32 = 16384;
-pub const DNSSEC_KEY_FLAG_SIG5: u32 = 20480;
-pub const DNSSEC_KEY_FLAG_SIG6: u32 = 24576;
-pub const DNSSEC_KEY_FLAG_SIG7: u32 = 28672;
-pub const DNSSEC_KEY_FLAG_SIG8: u32 = 32768;
-pub const DNSSEC_KEY_FLAG_SIG9: u32 = 36864;
-pub const DNSSEC_KEY_FLAG_USER: u32 = 0;
-pub const DNSSEC_KEY_FLAG_ZONE: u32 = 64;
-pub const DNSSEC_PROTOCOL_DNSSEC: u32 = 3;
-pub const DNSSEC_PROTOCOL_EMAIL: u32 = 2;
-pub const DNSSEC_PROTOCOL_IPSEC: u32 = 4;
-pub const DNSSEC_PROTOCOL_NONE: u32 = 0;
-pub const DNSSEC_PROTOCOL_TLS: u32 = 1;
+pub const DDR_MAX_IP_HINTS: i32 = 4;
+pub const DNSREC_ADDITIONAL: i32 = 3;
+pub const DNSREC_ANSWER: i32 = 1;
+pub const DNSREC_AUTHORITY: i32 = 2;
+pub const DNSREC_DELETE: i32 = 4;
+pub const DNSREC_NOEXIST: i32 = 4;
+pub const DNSREC_PREREQ: i32 = 1;
+pub const DNSREC_QUESTION: i32 = 0;
+pub const DNSREC_SECTION: i32 = 3;
+pub const DNSREC_UPDATE: i32 = 2;
+pub const DNSREC_ZONE: i32 = 0;
+pub const DNSSEC_ALGORITHM_ECDSAP256_SHA256: i32 = 13;
+pub const DNSSEC_ALGORITHM_ECDSAP384_SHA384: i32 = 14;
+pub const DNSSEC_ALGORITHM_NULL: i32 = 253;
+pub const DNSSEC_ALGORITHM_PRIVATE: i32 = 254;
+pub const DNSSEC_ALGORITHM_RSAMD5: i32 = 1;
+pub const DNSSEC_ALGORITHM_RSASHA1: i32 = 5;
+pub const DNSSEC_ALGORITHM_RSASHA1_NSEC3: i32 = 7;
+pub const DNSSEC_ALGORITHM_RSASHA256: i32 = 8;
+pub const DNSSEC_ALGORITHM_RSASHA512: i32 = 10;
+pub const DNSSEC_DIGEST_ALGORITHM_SHA1: i32 = 1;
+pub const DNSSEC_DIGEST_ALGORITHM_SHA256: i32 = 2;
+pub const DNSSEC_DIGEST_ALGORITHM_SHA384: i32 = 4;
+pub const DNSSEC_KEY_FLAG_EXTEND: i32 = 8;
+pub const DNSSEC_KEY_FLAG_FLAG10: i32 = 1024;
+pub const DNSSEC_KEY_FLAG_FLAG11: i32 = 2048;
+pub const DNSSEC_KEY_FLAG_FLAG2: i32 = 4;
+pub const DNSSEC_KEY_FLAG_FLAG4: i32 = 16;
+pub const DNSSEC_KEY_FLAG_FLAG5: i32 = 32;
+pub const DNSSEC_KEY_FLAG_FLAG8: i32 = 256;
+pub const DNSSEC_KEY_FLAG_FLAG9: i32 = 512;
+pub const DNSSEC_KEY_FLAG_HOST: i32 = 128;
+pub const DNSSEC_KEY_FLAG_NOAUTH: i32 = 1;
+pub const DNSSEC_KEY_FLAG_NOCONF: i32 = 2;
+pub const DNSSEC_KEY_FLAG_NTPE3: i32 = 192;
+pub const DNSSEC_KEY_FLAG_SIG0: i32 = 0;
+pub const DNSSEC_KEY_FLAG_SIG1: i32 = 4096;
+pub const DNSSEC_KEY_FLAG_SIG10: i32 = 40960;
+pub const DNSSEC_KEY_FLAG_SIG11: i32 = 45056;
+pub const DNSSEC_KEY_FLAG_SIG12: i32 = 49152;
+pub const DNSSEC_KEY_FLAG_SIG13: i32 = 53248;
+pub const DNSSEC_KEY_FLAG_SIG14: i32 = 57344;
+pub const DNSSEC_KEY_FLAG_SIG15: i32 = 61440;
+pub const DNSSEC_KEY_FLAG_SIG2: i32 = 8192;
+pub const DNSSEC_KEY_FLAG_SIG3: i32 = 12288;
+pub const DNSSEC_KEY_FLAG_SIG4: i32 = 16384;
+pub const DNSSEC_KEY_FLAG_SIG5: i32 = 20480;
+pub const DNSSEC_KEY_FLAG_SIG6: i32 = 24576;
+pub const DNSSEC_KEY_FLAG_SIG7: i32 = 28672;
+pub const DNSSEC_KEY_FLAG_SIG8: i32 = 32768;
+pub const DNSSEC_KEY_FLAG_SIG9: i32 = 36864;
+pub const DNSSEC_KEY_FLAG_USER: i32 = 0;
+pub const DNSSEC_KEY_FLAG_ZONE: i32 = 64;
+pub const DNSSEC_PROTOCOL_DNSSEC: i32 = 3;
+pub const DNSSEC_PROTOCOL_EMAIL: i32 = 2;
+pub const DNSSEC_PROTOCOL_IPSEC: i32 = 4;
+pub const DNSSEC_PROTOCOL_NONE: i32 = 0;
+pub const DNSSEC_PROTOCOL_TLS: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_AAAA_DATA {
@@ -188,7 +188,7 @@ impl Default for DNS_ADDR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_ADDRESS_STRING_LENGTH: u32 = 65;
+pub const DNS_ADDRESS_STRING_LENGTH: i32 = 65;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DNS_ADDR_ARRAY {
@@ -208,16 +208,16 @@ impl Default for DNS_ADDR_ARRAY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32;
+pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DNS_APPLICATION_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
 }
-pub const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: u32 = 1;
-pub const DNS_APP_SETTINGS_VERSION1: u32 = 1;
-pub const DNS_ATMA_AESA_ADDR_LENGTH: u32 = 20;
+pub const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: i32 = 1;
+pub const DNS_APP_SETTINGS_VERSION1: i32 = 1;
+pub const DNS_ATMA_AESA_ADDR_LENGTH: i32 = 20;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_ATMA_DATA {
@@ -229,26 +229,26 @@ impl Default for DNS_ATMA_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_ATMA_FORMAT_AESA: u32 = 2;
-pub const DNS_ATMA_FORMAT_E164: u32 = 1;
-pub const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20;
-pub const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21;
+pub const DNS_ATMA_FORMAT_AESA: i32 = 2;
+pub const DNS_ATMA_FORMAT_E164: i32 = 1;
+pub const DNS_ATMA_MAX_ADDR_LENGTH: i32 = 20;
+pub const DNS_ATMA_MAX_RECORD_LENGTH: i32 = 21;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DNS_A_DATA {
     pub IpAddress: IP4_ADDRESS,
 }
 pub type DNS_CHARSET = i32;
-pub const DNS_CLASS_ALL: u32 = 255;
-pub const DNS_CLASS_ANY: u32 = 255;
-pub const DNS_CLASS_CHAOS: u32 = 3;
-pub const DNS_CLASS_CSNET: u32 = 2;
-pub const DNS_CLASS_HESIOD: u32 = 4;
-pub const DNS_CLASS_INTERNET: u32 = 1;
-pub const DNS_CLASS_NONE: u32 = 254;
-pub const DNS_CLASS_UNICAST_RESPONSE: u32 = 32768;
-pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164;
-pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1;
+pub const DNS_CLASS_ALL: i32 = 255;
+pub const DNS_CLASS_ANY: i32 = 255;
+pub const DNS_CLASS_CHAOS: i32 = 3;
+pub const DNS_CLASS_CSNET: i32 = 2;
+pub const DNS_CLASS_HESIOD: i32 = 4;
+pub const DNS_CLASS_INTERNET: i32 = 1;
+pub const DNS_CLASS_NONE: i32 = 254;
+pub const DNS_CLASS_UNICAST_RESPONSE: i32 = 32768;
+pub const DNS_COMPRESSED_QUESTION_NAME: i32 = 49164;
+pub const DNS_CONFIG_FLAG_ALLOC: i32 = 1;
 pub type DNS_CONFIG_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -293,7 +293,7 @@ impl Default for DNS_CONNECTION_NAME_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64;
+pub const DNS_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
@@ -325,7 +325,7 @@ impl Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1;
+pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: i32 = 1;
 pub type DNS_CONNECTION_POLICY_TAG = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -390,7 +390,7 @@ impl Default for DNS_CONNECTION_PROXY_INFO_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1;
+pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -407,18 +407,18 @@ impl Default for DNS_CONNECTION_PROXY_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024;
-pub const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: u32 = 1024;
-pub const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: u32 = 2;
-pub const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: u32 = 1;
-pub const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: u32 = 64;
-pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128;
-pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256;
+pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: i32 = 1024;
+pub const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: i32 = 1024;
+pub const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: i32 = 2;
+pub const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: i32 = 1;
+pub const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: i32 = 64;
+pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: i32 = 128;
+pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: i32 = 256;
 pub type DNS_CONNECTION_PROXY_INFO_SWITCH = i32;
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = 0;
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = 1;
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = 2;
-pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128;
+pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_LIST {
@@ -477,11 +477,11 @@ impl Default for DNS_CUSTOM_SERVER_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2;
-pub const DNS_CUSTOM_SERVER_TYPE_DOT: u32 = 3;
-pub const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1;
-pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1;
-pub const DNS_CUSTOM_SERVER_UPGRADE_FROM_WELL_KNOWN_SERVERS: u32 = 2;
+pub const DNS_CUSTOM_SERVER_TYPE_DOH: i32 = 2;
+pub const DNS_CUSTOM_SERVER_TYPE_DOT: i32 = 3;
+pub const DNS_CUSTOM_SERVER_TYPE_UDP: i32 = 1;
+pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: i32 = 1;
+pub const DNS_CUSTOM_SERVER_UPGRADE_FROM_WELL_KNOWN_SERVERS: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_DHCID_DATA {
@@ -558,17 +558,17 @@ pub struct DNS_LOC_DATA {
     pub dwLongitude: u32,
     pub dwAltitude: u32,
 }
-pub const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: u32 = 31;
-pub const DNS_MAX_IP4_REVERSE_NAME_LENGTH: u32 = 31;
-pub const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: u32 = 75;
-pub const DNS_MAX_IP6_REVERSE_NAME_LENGTH: u32 = 75;
-pub const DNS_MAX_LABEL_BUFFER_LENGTH: u32 = 64;
-pub const DNS_MAX_LABEL_LENGTH: u32 = 63;
-pub const DNS_MAX_NAME_BUFFER_LENGTH: u32 = 256;
-pub const DNS_MAX_NAME_LENGTH: u32 = 255;
-pub const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: u32 = 75;
-pub const DNS_MAX_REVERSE_NAME_LENGTH: u32 = 75;
-pub const DNS_MAX_TEXT_STRING_LENGTH: u32 = 255;
+pub const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: i32 = 31;
+pub const DNS_MAX_IP4_REVERSE_NAME_LENGTH: i32 = 31;
+pub const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: i32 = 75;
+pub const DNS_MAX_IP6_REVERSE_NAME_LENGTH: i32 = 75;
+pub const DNS_MAX_LABEL_BUFFER_LENGTH: i32 = 64;
+pub const DNS_MAX_LABEL_LENGTH: i32 = 63;
+pub const DNS_MAX_NAME_BUFFER_LENGTH: i32 = 256;
+pub const DNS_MAX_NAME_LENGTH: i32 = 255;
+pub const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: i32 = 75;
+pub const DNS_MAX_REVERSE_NAME_LENGTH: i32 = 75;
+pub const DNS_MAX_TEXT_STRING_LENGTH: i32 = 255;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_MESSAGE_BUFFER {
@@ -754,12 +754,12 @@ impl Default for DNS_NXT_DATAW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_OPCODE_IQUERY: u32 = 1;
-pub const DNS_OPCODE_NOTIFY: u32 = 4;
-pub const DNS_OPCODE_QUERY: u32 = 0;
-pub const DNS_OPCODE_SERVER_STATUS: u32 = 2;
-pub const DNS_OPCODE_UNKNOWN: u32 = 3;
-pub const DNS_OPCODE_UPDATE: u32 = 5;
+pub const DNS_OPCODE_IQUERY: i32 = 1;
+pub const DNS_OPCODE_NOTIFY: i32 = 4;
+pub const DNS_OPCODE_QUERY: i32 = 0;
+pub const DNS_OPCODE_SERVER_STATUS: i32 = 2;
+pub const DNS_OPCODE_UNKNOWN: i32 = 3;
+pub const DNS_OPCODE_UPDATE: i32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_OPT_DATA {
@@ -772,14 +772,14 @@ impl Default for DNS_OPT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_PORT_HOST_ORDER: u32 = 53;
-pub const DNS_PORT_NET_ORDER: u32 = 13568;
-pub const DNS_PROTOCOL_DOH: u32 = 3;
-pub const DNS_PROTOCOL_DOT: u32 = 4;
-pub const DNS_PROTOCOL_NO_WIRE: u32 = 5;
-pub const DNS_PROTOCOL_TCP: u32 = 2;
-pub const DNS_PROTOCOL_UDP: u32 = 1;
-pub const DNS_PROTOCOL_UNSPECIFIED: u32 = 0;
+pub const DNS_PORT_HOST_ORDER: i32 = 53;
+pub const DNS_PORT_NET_ORDER: i32 = 13568;
+pub const DNS_PROTOCOL_DOH: i32 = 3;
+pub const DNS_PROTOCOL_DOT: i32 = 4;
+pub const DNS_PROTOCOL_NO_WIRE: i32 = 5;
+pub const DNS_PROTOCOL_TCP: i32 = 2;
+pub const DNS_PROTOCOL_UDP: i32 = 1;
+pub const DNS_PROTOCOL_UNSPECIFIED: i32 = 0;
 pub type DNS_PROXY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(completioncontext: *const core::ffi::c_void, status: DNS_STATUS)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -819,11 +819,11 @@ impl Default for DNS_PTR_DATAW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1;
-pub const DNS_QUERY_ADDRCONFIG: u32 = 8192;
-pub const DNS_QUERY_APPEND_MULTILABEL: u32 = 8388608;
-pub const DNS_QUERY_BYPASS_CACHE: u32 = 8;
-pub const DNS_QUERY_CACHE_ONLY: u32 = 16;
+pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: i32 = 1;
+pub const DNS_QUERY_ADDRCONFIG: i32 = 8192;
+pub const DNS_QUERY_APPEND_MULTILABEL: i32 = 8388608;
+pub const DNS_QUERY_BYPASS_CACHE: i32 = 8;
+pub const DNS_QUERY_CACHE_ONLY: i32 = 16;
 #[repr(C, align(8))]
 #[derive(Clone, Copy)]
 pub struct DNS_QUERY_CANCEL {
@@ -836,20 +836,20 @@ impl Default for DNS_QUERY_CANCEL {
 }
 #[cfg(feature = "minwindef")]
 pub type DNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
-pub const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152;
-pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: u32 = 33554432;
-pub const DNS_QUERY_DNSSEC_OK: u32 = 16777216;
-pub const DNS_QUERY_DNSSEC_REQUIRED: u32 = 67108864;
-pub const DNS_QUERY_DONT_RESET_TTL_VALUES: u32 = 1048576;
-pub const DNS_QUERY_DUAL_ADDR: u32 = 16384;
-pub const DNS_QUERY_MULTICAST_ONLY: u32 = 1024;
-pub const DNS_QUERY_NO_HOSTS_FILE: u32 = 64;
-pub const DNS_QUERY_NO_LOCAL_NAME: u32 = 32;
-pub const DNS_QUERY_NO_MULTICAST: u32 = 2048;
-pub const DNS_QUERY_NO_NETBT: u32 = 128;
-pub const DNS_QUERY_NO_RECURSION: u32 = 4;
-pub const DNS_QUERY_NO_WIRE_QUERY: u32 = 16;
-pub const DNS_QUERY_PARSE_ALL_RECORDS: u64 = 288230376151711744;
+pub const DNS_QUERY_DISABLE_IDN_ENCODING: i32 = 2097152;
+pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: i32 = 33554432;
+pub const DNS_QUERY_DNSSEC_OK: i32 = 16777216;
+pub const DNS_QUERY_DNSSEC_REQUIRED: i32 = 67108864;
+pub const DNS_QUERY_DONT_RESET_TTL_VALUES: i32 = 1048576;
+pub const DNS_QUERY_DUAL_ADDR: i32 = 16384;
+pub const DNS_QUERY_MULTICAST_ONLY: i32 = 1024;
+pub const DNS_QUERY_NO_HOSTS_FILE: i32 = 64;
+pub const DNS_QUERY_NO_LOCAL_NAME: i32 = 32;
+pub const DNS_QUERY_NO_MULTICAST: i32 = 2048;
+pub const DNS_QUERY_NO_NETBT: i32 = 128;
+pub const DNS_QUERY_NO_RECURSION: i32 = 4;
+pub const DNS_QUERY_NO_WIRE_QUERY: i32 = 16;
+pub const DNS_QUERY_PARSE_ALL_RECORDS: i64 = 288230376151711744;
 #[repr(C, align(8))]
 #[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_CANCEL {
@@ -862,7 +862,7 @@ impl Default for DNS_QUERY_RAW_CANCEL {
 }
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 pub type DNS_QUERY_RAW_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(querycontext: *const core::ffi::c_void, queryresults: *const DNS_QUERY_RAW_RESULT)>;
-pub const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: u32 = 1;
+pub const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[derive(Clone, Copy)]
@@ -902,7 +902,7 @@ impl Default for DNS_QUERY_RAW_REQUEST_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_QUERY_RAW_REQUEST_VERSION1: u32 = 1;
+pub const DNS_QUERY_RAW_REQUEST_VERSION1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 #[derive(Clone, Copy)]
@@ -937,7 +937,7 @@ impl Default for DNS_QUERY_RAW_RESULT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_QUERY_RAW_RESULTS_VERSION1: u32 = 1;
+pub const DNS_QUERY_RAW_RESULTS_VERSION1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
@@ -980,9 +980,9 @@ impl Default for DNS_QUERY_REQUEST3 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_QUERY_REQUEST_VERSION1: u32 = 1;
-pub const DNS_QUERY_REQUEST_VERSION2: u32 = 2;
-pub const DNS_QUERY_REQUEST_VERSION3: u32 = 3;
+pub const DNS_QUERY_REQUEST_VERSION1: i32 = 1;
+pub const DNS_QUERY_REQUEST_VERSION2: i32 = 2;
+pub const DNS_QUERY_REQUEST_VERSION3: i32 = 3;
 pub const DNS_QUERY_RESERVED: u32 = 4026531840;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -1000,42 +1000,42 @@ impl Default for DNS_QUERY_RESULT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_QUERY_RESULTS_VERSION1: u32 = 1;
-pub const DNS_QUERY_RETURN_MESSAGE: u32 = 512;
-pub const DNS_QUERY_STANDARD: u32 = 0;
-pub const DNS_QUERY_TREAT_AS_FQDN: u32 = 4096;
-pub const DNS_QUERY_USE_TCP_ONLY: u32 = 2;
-pub const DNS_QUERY_WIRE_ONLY: u32 = 256;
-pub const DNS_RCLASS_ALL: u32 = 65280;
-pub const DNS_RCLASS_ANY: u32 = 65280;
-pub const DNS_RCLASS_CHAOS: u32 = 768;
-pub const DNS_RCLASS_CSNET: u32 = 512;
-pub const DNS_RCLASS_HESIOD: u32 = 1024;
-pub const DNS_RCLASS_INTERNET: u32 = 256;
-pub const DNS_RCLASS_MDNS_CACHE_FLUSH: u32 = 128;
-pub const DNS_RCLASS_NONE: u32 = 65024;
-pub const DNS_RCLASS_UNICAST_RESPONSE: u32 = 128;
-pub const DNS_RCODE_BADKEY: u32 = 17;
-pub const DNS_RCODE_BADSIG: u32 = 16;
-pub const DNS_RCODE_BADTIME: u32 = 18;
-pub const DNS_RCODE_BADVERS: u32 = 16;
-pub const DNS_RCODE_FORMAT_ERROR: u32 = 1;
-pub const DNS_RCODE_FORMERR: u32 = 1;
-pub const DNS_RCODE_MAX: u32 = 15;
-pub const DNS_RCODE_NAME_ERROR: u32 = 3;
-pub const DNS_RCODE_NOERROR: u32 = 0;
-pub const DNS_RCODE_NOTAUTH: u32 = 9;
-pub const DNS_RCODE_NOTIMPL: u32 = 4;
-pub const DNS_RCODE_NOTZONE: u32 = 10;
-pub const DNS_RCODE_NOT_IMPLEMENTED: u32 = 4;
-pub const DNS_RCODE_NO_ERROR: u32 = 0;
-pub const DNS_RCODE_NXDOMAIN: u32 = 3;
-pub const DNS_RCODE_NXRRSET: u32 = 8;
-pub const DNS_RCODE_REFUSED: u32 = 5;
-pub const DNS_RCODE_SERVER_FAILURE: u32 = 2;
-pub const DNS_RCODE_SERVFAIL: u32 = 2;
-pub const DNS_RCODE_YXDOMAIN: u32 = 6;
-pub const DNS_RCODE_YXRRSET: u32 = 7;
+pub const DNS_QUERY_RESULTS_VERSION1: i32 = 1;
+pub const DNS_QUERY_RETURN_MESSAGE: i32 = 512;
+pub const DNS_QUERY_STANDARD: i32 = 0;
+pub const DNS_QUERY_TREAT_AS_FQDN: i32 = 4096;
+pub const DNS_QUERY_USE_TCP_ONLY: i32 = 2;
+pub const DNS_QUERY_WIRE_ONLY: i32 = 256;
+pub const DNS_RCLASS_ALL: i32 = 65280;
+pub const DNS_RCLASS_ANY: i32 = 65280;
+pub const DNS_RCLASS_CHAOS: i32 = 768;
+pub const DNS_RCLASS_CSNET: i32 = 512;
+pub const DNS_RCLASS_HESIOD: i32 = 1024;
+pub const DNS_RCLASS_INTERNET: i32 = 256;
+pub const DNS_RCLASS_MDNS_CACHE_FLUSH: i32 = 128;
+pub const DNS_RCLASS_NONE: i32 = 65024;
+pub const DNS_RCLASS_UNICAST_RESPONSE: i32 = 128;
+pub const DNS_RCODE_BADKEY: i32 = 17;
+pub const DNS_RCODE_BADSIG: i32 = 16;
+pub const DNS_RCODE_BADTIME: i32 = 18;
+pub const DNS_RCODE_BADVERS: i32 = 16;
+pub const DNS_RCODE_FORMAT_ERROR: i32 = 1;
+pub const DNS_RCODE_FORMERR: i32 = 1;
+pub const DNS_RCODE_MAX: i32 = 15;
+pub const DNS_RCODE_NAME_ERROR: i32 = 3;
+pub const DNS_RCODE_NOERROR: i32 = 0;
+pub const DNS_RCODE_NOTAUTH: i32 = 9;
+pub const DNS_RCODE_NOTIMPL: i32 = 4;
+pub const DNS_RCODE_NOTZONE: i32 = 10;
+pub const DNS_RCODE_NOT_IMPLEMENTED: i32 = 4;
+pub const DNS_RCODE_NO_ERROR: i32 = 0;
+pub const DNS_RCODE_NXDOMAIN: i32 = 3;
+pub const DNS_RCODE_NXRRSET: i32 = 8;
+pub const DNS_RCODE_REFUSED: i32 = 5;
+pub const DNS_RCODE_SERVER_FAILURE: i32 = 2;
+pub const DNS_RCODE_SERVFAIL: i32 = 2;
+pub const DNS_RCODE_YXDOMAIN: i32 = 6;
+pub const DNS_RCODE_YXRRSET: i32 = 7;
 #[cfg(feature = "minwindef")]
 pub type DNS_RECORD = DNS_RECORDA;
 #[repr(C)]
@@ -1297,9 +1297,9 @@ impl Default for DNS_RECORDW_1 {
     }
 }
 #[cfg(target_arch = "x86")]
-pub const DNS_RECORD_FIXED_SIZE: u32 = 24;
+pub const DNS_RECORD_FIXED_SIZE: i32 = 24;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const DNS_RECORD_FIXED_SIZE: u32 = 32;
+pub const DNS_RECORD_FIXED_SIZE: i32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DNS_RECORD_FLAGS {
@@ -1399,7 +1399,7 @@ impl Default for DNS_RECORD_OPTW_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512;
+pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: i32 = 512;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
@@ -1452,69 +1452,69 @@ impl Default for DNS_RRSIG_DATAW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_RTYPE_A: u32 = 256;
-pub const DNS_RTYPE_A6: u32 = 9728;
-pub const DNS_RTYPE_AAAA: u32 = 7168;
-pub const DNS_RTYPE_AFSDB: u32 = 4608;
-pub const DNS_RTYPE_ALL: u32 = 65280;
-pub const DNS_RTYPE_ANY: u32 = 65280;
-pub const DNS_RTYPE_ATMA: u32 = 8704;
-pub const DNS_RTYPE_AXFR: u32 = 64512;
-pub const DNS_RTYPE_CERT: u32 = 9472;
-pub const DNS_RTYPE_CNAME: u32 = 1280;
-pub const DNS_RTYPE_DHCID: u32 = 12544;
-pub const DNS_RTYPE_DNAME: u32 = 9984;
-pub const DNS_RTYPE_DNSKEY: u32 = 12288;
-pub const DNS_RTYPE_DS: u32 = 11008;
-pub const DNS_RTYPE_EID: u32 = 7936;
-pub const DNS_RTYPE_GID: u32 = 26112;
-pub const DNS_RTYPE_GPOS: u32 = 6912;
-pub const DNS_RTYPE_HINFO: u32 = 3328;
-pub const DNS_RTYPE_ISDN: u32 = 5120;
-pub const DNS_RTYPE_IXFR: u32 = 64256;
-pub const DNS_RTYPE_KEY: u32 = 6400;
-pub const DNS_RTYPE_KX: u32 = 9216;
-pub const DNS_RTYPE_LOC: u32 = 7424;
-pub const DNS_RTYPE_MAILA: u32 = 65024;
-pub const DNS_RTYPE_MAILB: u32 = 64768;
-pub const DNS_RTYPE_MB: u32 = 1792;
-pub const DNS_RTYPE_MD: u32 = 768;
-pub const DNS_RTYPE_MF: u32 = 1024;
-pub const DNS_RTYPE_MG: u32 = 2048;
-pub const DNS_RTYPE_MINFO: u32 = 3584;
-pub const DNS_RTYPE_MR: u32 = 2304;
-pub const DNS_RTYPE_MX: u32 = 3840;
-pub const DNS_RTYPE_NAPTR: u32 = 8960;
-pub const DNS_RTYPE_NIMLOC: u32 = 8192;
-pub const DNS_RTYPE_NS: u32 = 512;
-pub const DNS_RTYPE_NSAP: u32 = 5632;
-pub const DNS_RTYPE_NSAPPTR: u32 = 5888;
-pub const DNS_RTYPE_NSEC: u32 = 12032;
-pub const DNS_RTYPE_NSEC3: u32 = 12800;
-pub const DNS_RTYPE_NSEC3PARAM: u32 = 13056;
-pub const DNS_RTYPE_NULL: u32 = 2560;
-pub const DNS_RTYPE_NXT: u32 = 7680;
-pub const DNS_RTYPE_OPT: u32 = 10496;
-pub const DNS_RTYPE_PTR: u32 = 3072;
-pub const DNS_RTYPE_PX: u32 = 6656;
-pub const DNS_RTYPE_RP: u32 = 4352;
-pub const DNS_RTYPE_RRSIG: u32 = 11776;
-pub const DNS_RTYPE_RT: u32 = 5376;
-pub const DNS_RTYPE_SIG: u32 = 6144;
-pub const DNS_RTYPE_SINK: u32 = 10240;
-pub const DNS_RTYPE_SOA: u32 = 1536;
-pub const DNS_RTYPE_SRV: u32 = 8448;
-pub const DNS_RTYPE_TEXT: u32 = 4096;
-pub const DNS_RTYPE_TKEY: u32 = 63744;
-pub const DNS_RTYPE_TLSA: u32 = 13312;
-pub const DNS_RTYPE_TSIG: u32 = 64000;
-pub const DNS_RTYPE_UID: u32 = 25856;
-pub const DNS_RTYPE_UINFO: u32 = 25600;
-pub const DNS_RTYPE_UNSPEC: u32 = 26368;
-pub const DNS_RTYPE_WINS: u32 = 511;
-pub const DNS_RTYPE_WINSR: u32 = 767;
-pub const DNS_RTYPE_WKS: u32 = 2816;
-pub const DNS_RTYPE_X25: u32 = 4864;
+pub const DNS_RTYPE_A: i32 = 256;
+pub const DNS_RTYPE_A6: i32 = 9728;
+pub const DNS_RTYPE_AAAA: i32 = 7168;
+pub const DNS_RTYPE_AFSDB: i32 = 4608;
+pub const DNS_RTYPE_ALL: i32 = 65280;
+pub const DNS_RTYPE_ANY: i32 = 65280;
+pub const DNS_RTYPE_ATMA: i32 = 8704;
+pub const DNS_RTYPE_AXFR: i32 = 64512;
+pub const DNS_RTYPE_CERT: i32 = 9472;
+pub const DNS_RTYPE_CNAME: i32 = 1280;
+pub const DNS_RTYPE_DHCID: i32 = 12544;
+pub const DNS_RTYPE_DNAME: i32 = 9984;
+pub const DNS_RTYPE_DNSKEY: i32 = 12288;
+pub const DNS_RTYPE_DS: i32 = 11008;
+pub const DNS_RTYPE_EID: i32 = 7936;
+pub const DNS_RTYPE_GID: i32 = 26112;
+pub const DNS_RTYPE_GPOS: i32 = 6912;
+pub const DNS_RTYPE_HINFO: i32 = 3328;
+pub const DNS_RTYPE_ISDN: i32 = 5120;
+pub const DNS_RTYPE_IXFR: i32 = 64256;
+pub const DNS_RTYPE_KEY: i32 = 6400;
+pub const DNS_RTYPE_KX: i32 = 9216;
+pub const DNS_RTYPE_LOC: i32 = 7424;
+pub const DNS_RTYPE_MAILA: i32 = 65024;
+pub const DNS_RTYPE_MAILB: i32 = 64768;
+pub const DNS_RTYPE_MB: i32 = 1792;
+pub const DNS_RTYPE_MD: i32 = 768;
+pub const DNS_RTYPE_MF: i32 = 1024;
+pub const DNS_RTYPE_MG: i32 = 2048;
+pub const DNS_RTYPE_MINFO: i32 = 3584;
+pub const DNS_RTYPE_MR: i32 = 2304;
+pub const DNS_RTYPE_MX: i32 = 3840;
+pub const DNS_RTYPE_NAPTR: i32 = 8960;
+pub const DNS_RTYPE_NIMLOC: i32 = 8192;
+pub const DNS_RTYPE_NS: i32 = 512;
+pub const DNS_RTYPE_NSAP: i32 = 5632;
+pub const DNS_RTYPE_NSAPPTR: i32 = 5888;
+pub const DNS_RTYPE_NSEC: i32 = 12032;
+pub const DNS_RTYPE_NSEC3: i32 = 12800;
+pub const DNS_RTYPE_NSEC3PARAM: i32 = 13056;
+pub const DNS_RTYPE_NULL: i32 = 2560;
+pub const DNS_RTYPE_NXT: i32 = 7680;
+pub const DNS_RTYPE_OPT: i32 = 10496;
+pub const DNS_RTYPE_PTR: i32 = 3072;
+pub const DNS_RTYPE_PX: i32 = 6656;
+pub const DNS_RTYPE_RP: i32 = 4352;
+pub const DNS_RTYPE_RRSIG: i32 = 11776;
+pub const DNS_RTYPE_RT: i32 = 5376;
+pub const DNS_RTYPE_SIG: i32 = 6144;
+pub const DNS_RTYPE_SINK: i32 = 10240;
+pub const DNS_RTYPE_SOA: i32 = 1536;
+pub const DNS_RTYPE_SRV: i32 = 8448;
+pub const DNS_RTYPE_TEXT: i32 = 4096;
+pub const DNS_RTYPE_TKEY: i32 = 63744;
+pub const DNS_RTYPE_TLSA: i32 = 13312;
+pub const DNS_RTYPE_TSIG: i32 = 64000;
+pub const DNS_RTYPE_UID: i32 = 25856;
+pub const DNS_RTYPE_UINFO: i32 = 25600;
+pub const DNS_RTYPE_UNSPEC: i32 = 26368;
+pub const DNS_RTYPE_WINS: i32 = 511;
+pub const DNS_RTYPE_WINSR: i32 = 767;
+pub const DNS_RTYPE_WKS: i32 = 2816;
+pub const DNS_RTYPE_X25: i32 = 4864;
 pub type DNS_SECTION = i32;
 #[cfg(feature = "minwindef")]
 pub type DNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: *const DNS_RECORDA)>;
@@ -1833,10 +1833,10 @@ impl Default for DNS_TKEY_DATAW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2;
-pub const DNS_TKEY_MODE_GSS: u32 = 3;
-pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4;
-pub const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1;
+pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: i32 = 2;
+pub const DNS_TKEY_MODE_GSS: i32 = 3;
+pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: i32 = 4;
+pub const DNS_TKEY_MODE_SERVER_ASSIGN: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_TLSA_DATA {
@@ -1923,74 +1923,74 @@ impl Default for DNS_TXT_DATAW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_TYPE_A: u32 = 1;
-pub const DNS_TYPE_A6: u32 = 38;
-pub const DNS_TYPE_AAAA: u32 = 28;
-pub const DNS_TYPE_ADDRS: u32 = 248;
-pub const DNS_TYPE_AFSDB: u32 = 18;
-pub const DNS_TYPE_ALL: u32 = 255;
-pub const DNS_TYPE_ANY: u32 = 255;
-pub const DNS_TYPE_ATMA: u32 = 34;
-pub const DNS_TYPE_AXFR: u32 = 252;
-pub const DNS_TYPE_CERT: u32 = 37;
-pub const DNS_TYPE_CNAME: u32 = 5;
-pub const DNS_TYPE_DHCID: u32 = 49;
-pub const DNS_TYPE_DNAME: u32 = 39;
-pub const DNS_TYPE_DNSKEY: u32 = 48;
-pub const DNS_TYPE_DS: u32 = 43;
-pub const DNS_TYPE_EID: u32 = 31;
-pub const DNS_TYPE_GID: u32 = 102;
-pub const DNS_TYPE_GPOS: u32 = 27;
-pub const DNS_TYPE_HINFO: u32 = 13;
-pub const DNS_TYPE_HTTPS: u32 = 65;
-pub const DNS_TYPE_ISDN: u32 = 20;
-pub const DNS_TYPE_IXFR: u32 = 251;
-pub const DNS_TYPE_KEY: u32 = 25;
-pub const DNS_TYPE_KX: u32 = 36;
-pub const DNS_TYPE_LOC: u32 = 29;
-pub const DNS_TYPE_MAILA: u32 = 254;
-pub const DNS_TYPE_MAILB: u32 = 253;
-pub const DNS_TYPE_MB: u32 = 7;
-pub const DNS_TYPE_MD: u32 = 3;
-pub const DNS_TYPE_MF: u32 = 4;
-pub const DNS_TYPE_MG: u32 = 8;
-pub const DNS_TYPE_MINFO: u32 = 14;
-pub const DNS_TYPE_MR: u32 = 9;
-pub const DNS_TYPE_MX: u32 = 15;
-pub const DNS_TYPE_NAPTR: u32 = 35;
-pub const DNS_TYPE_NBSTAT: u32 = 65282;
-pub const DNS_TYPE_NIMLOC: u32 = 32;
-pub const DNS_TYPE_NS: u32 = 2;
-pub const DNS_TYPE_NSAP: u32 = 22;
-pub const DNS_TYPE_NSAPPTR: u32 = 23;
-pub const DNS_TYPE_NSEC: u32 = 47;
-pub const DNS_TYPE_NSEC3: u32 = 50;
-pub const DNS_TYPE_NSEC3PARAM: u32 = 51;
-pub const DNS_TYPE_NULL: u32 = 10;
-pub const DNS_TYPE_NXT: u32 = 30;
-pub const DNS_TYPE_OPT: u32 = 41;
-pub const DNS_TYPE_PTR: u32 = 12;
-pub const DNS_TYPE_PX: u32 = 26;
-pub const DNS_TYPE_RP: u32 = 17;
-pub const DNS_TYPE_RRSIG: u32 = 46;
-pub const DNS_TYPE_RT: u32 = 21;
-pub const DNS_TYPE_SIG: u32 = 24;
-pub const DNS_TYPE_SINK: u32 = 40;
-pub const DNS_TYPE_SOA: u32 = 6;
-pub const DNS_TYPE_SRV: u32 = 33;
-pub const DNS_TYPE_SVCB: u32 = 64;
-pub const DNS_TYPE_TEXT: u32 = 16;
-pub const DNS_TYPE_TKEY: u32 = 249;
-pub const DNS_TYPE_TLSA: u32 = 52;
-pub const DNS_TYPE_TSIG: u32 = 250;
-pub const DNS_TYPE_UID: u32 = 101;
-pub const DNS_TYPE_UINFO: u32 = 100;
-pub const DNS_TYPE_UNSPEC: u32 = 103;
-pub const DNS_TYPE_WINS: u32 = 65281;
-pub const DNS_TYPE_WINSR: u32 = 65282;
-pub const DNS_TYPE_WKS: u32 = 11;
-pub const DNS_TYPE_X25: u32 = 19;
-pub const DNS_TYPE_ZERO: u32 = 0;
+pub const DNS_TYPE_A: i32 = 1;
+pub const DNS_TYPE_A6: i32 = 38;
+pub const DNS_TYPE_AAAA: i32 = 28;
+pub const DNS_TYPE_ADDRS: i32 = 248;
+pub const DNS_TYPE_AFSDB: i32 = 18;
+pub const DNS_TYPE_ALL: i32 = 255;
+pub const DNS_TYPE_ANY: i32 = 255;
+pub const DNS_TYPE_ATMA: i32 = 34;
+pub const DNS_TYPE_AXFR: i32 = 252;
+pub const DNS_TYPE_CERT: i32 = 37;
+pub const DNS_TYPE_CNAME: i32 = 5;
+pub const DNS_TYPE_DHCID: i32 = 49;
+pub const DNS_TYPE_DNAME: i32 = 39;
+pub const DNS_TYPE_DNSKEY: i32 = 48;
+pub const DNS_TYPE_DS: i32 = 43;
+pub const DNS_TYPE_EID: i32 = 31;
+pub const DNS_TYPE_GID: i32 = 102;
+pub const DNS_TYPE_GPOS: i32 = 27;
+pub const DNS_TYPE_HINFO: i32 = 13;
+pub const DNS_TYPE_HTTPS: i32 = 65;
+pub const DNS_TYPE_ISDN: i32 = 20;
+pub const DNS_TYPE_IXFR: i32 = 251;
+pub const DNS_TYPE_KEY: i32 = 25;
+pub const DNS_TYPE_KX: i32 = 36;
+pub const DNS_TYPE_LOC: i32 = 29;
+pub const DNS_TYPE_MAILA: i32 = 254;
+pub const DNS_TYPE_MAILB: i32 = 253;
+pub const DNS_TYPE_MB: i32 = 7;
+pub const DNS_TYPE_MD: i32 = 3;
+pub const DNS_TYPE_MF: i32 = 4;
+pub const DNS_TYPE_MG: i32 = 8;
+pub const DNS_TYPE_MINFO: i32 = 14;
+pub const DNS_TYPE_MR: i32 = 9;
+pub const DNS_TYPE_MX: i32 = 15;
+pub const DNS_TYPE_NAPTR: i32 = 35;
+pub const DNS_TYPE_NBSTAT: i32 = 65282;
+pub const DNS_TYPE_NIMLOC: i32 = 32;
+pub const DNS_TYPE_NS: i32 = 2;
+pub const DNS_TYPE_NSAP: i32 = 22;
+pub const DNS_TYPE_NSAPPTR: i32 = 23;
+pub const DNS_TYPE_NSEC: i32 = 47;
+pub const DNS_TYPE_NSEC3: i32 = 50;
+pub const DNS_TYPE_NSEC3PARAM: i32 = 51;
+pub const DNS_TYPE_NULL: i32 = 10;
+pub const DNS_TYPE_NXT: i32 = 30;
+pub const DNS_TYPE_OPT: i32 = 41;
+pub const DNS_TYPE_PTR: i32 = 12;
+pub const DNS_TYPE_PX: i32 = 26;
+pub const DNS_TYPE_RP: i32 = 17;
+pub const DNS_TYPE_RRSIG: i32 = 46;
+pub const DNS_TYPE_RT: i32 = 21;
+pub const DNS_TYPE_SIG: i32 = 24;
+pub const DNS_TYPE_SINK: i32 = 40;
+pub const DNS_TYPE_SOA: i32 = 6;
+pub const DNS_TYPE_SRV: i32 = 33;
+pub const DNS_TYPE_SVCB: i32 = 64;
+pub const DNS_TYPE_TEXT: i32 = 16;
+pub const DNS_TYPE_TKEY: i32 = 249;
+pub const DNS_TYPE_TLSA: i32 = 52;
+pub const DNS_TYPE_TSIG: i32 = 250;
+pub const DNS_TYPE_UID: i32 = 101;
+pub const DNS_TYPE_UINFO: i32 = 100;
+pub const DNS_TYPE_UNSPEC: i32 = 103;
+pub const DNS_TYPE_WINS: i32 = 65281;
+pub const DNS_TYPE_WINSR: i32 = 65282;
+pub const DNS_TYPE_WKS: i32 = 11;
+pub const DNS_TYPE_X25: i32 = 19;
+pub const DNS_TYPE_ZERO: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_UNKNOWN_DATA {
@@ -2002,25 +2002,25 @@ impl Default for DNS_UNKNOWN_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512;
-pub const DNS_UPDATE_FORCE_SECURITY_NEGO: u32 = 2048;
-pub const DNS_UPDATE_REMOTE_SERVER: u32 = 16384;
+pub const DNS_UPDATE_CACHE_SECURITY_CONTEXT: i32 = 512;
+pub const DNS_UPDATE_FORCE_SECURITY_NEGO: i32 = 2048;
+pub const DNS_UPDATE_REMOTE_SERVER: i32 = 16384;
 pub const DNS_UPDATE_RESERVED: u32 = 4294901760;
-pub const DNS_UPDATE_SECURITY_OFF: u32 = 16;
-pub const DNS_UPDATE_SECURITY_ON: u32 = 32;
-pub const DNS_UPDATE_SECURITY_ONLY: u32 = 256;
-pub const DNS_UPDATE_SECURITY_USE_DEFAULT: u32 = 0;
-pub const DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS: u32 = 8192;
-pub const DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT: u32 = 1024;
-pub const DNS_UPDATE_TRY_ALL_MASTER_SERVERS: u32 = 4096;
-pub const DNS_VALSVR_ERROR_INVALID_ADDR: u32 = 1;
-pub const DNS_VALSVR_ERROR_INVALID_NAME: u32 = 2;
-pub const DNS_VALSVR_ERROR_NO_AUTH: u32 = 5;
-pub const DNS_VALSVR_ERROR_NO_RESPONSE: u32 = 4;
-pub const DNS_VALSVR_ERROR_NO_TCP: u32 = 16;
-pub const DNS_VALSVR_ERROR_REFUSED: u32 = 6;
-pub const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255;
-pub const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3;
+pub const DNS_UPDATE_SECURITY_OFF: i32 = 16;
+pub const DNS_UPDATE_SECURITY_ON: i32 = 32;
+pub const DNS_UPDATE_SECURITY_ONLY: i32 = 256;
+pub const DNS_UPDATE_SECURITY_USE_DEFAULT: i32 = 0;
+pub const DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS: i32 = 8192;
+pub const DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT: i32 = 1024;
+pub const DNS_UPDATE_TRY_ALL_MASTER_SERVERS: i32 = 4096;
+pub const DNS_VALSVR_ERROR_INVALID_ADDR: i32 = 1;
+pub const DNS_VALSVR_ERROR_INVALID_NAME: i32 = 2;
+pub const DNS_VALSVR_ERROR_NO_AUTH: i32 = 5;
+pub const DNS_VALSVR_ERROR_NO_RESPONSE: i32 = 4;
+pub const DNS_VALSVR_ERROR_NO_TCP: i32 = 16;
+pub const DNS_VALSVR_ERROR_REFUSED: i32 = 6;
+pub const DNS_VALSVR_ERROR_UNKNOWN: i32 = 255;
+pub const DNS_VALSVR_ERROR_UNREACHABLE: i32 = 3;
 pub type DNS_WINSR_DATA = DNS_WINSR_DATAA;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2062,7 +2062,7 @@ impl Default for DNS_WINS_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DNS_WINS_FLAG_LOCAL: u32 = 65536;
+pub const DNS_WINS_FLAG_LOCAL: i32 = 65536;
 pub const DNS_WINS_FLAG_SCOPE: u32 = 2147483648;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -2116,7 +2116,7 @@ pub const DnsConfigSearchList: DNS_CONFIG_TYPE = 7;
 pub const DnsFreeFlat: DNS_FREE_TYPE = 0;
 pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = 2;
 pub const DnsFreeRecordList: DNS_FREE_TYPE = 1;
-pub const DnsFreeRecordListDeep: u32 = 1;
+pub const DnsFreeRecordListDeep: i32 = 1;
 pub const DnsNameDomain: DNS_NAME_FORMAT = 0;
 pub const DnsNameDomainLabel: DNS_NAME_FORMAT = 1;
 pub const DnsNameHostnameFull: DNS_NAME_FORMAT = 2;
@@ -2127,10 +2127,10 @@ pub const DnsNameWildcard: DNS_NAME_FORMAT = 4;
 pub const DnsSectionAddtional: DNS_SECTION = 3;
 pub const DnsSectionAnswer: DNS_SECTION = 1;
 pub const DnsSectionAuthority: DNS_SECTION = 2;
-pub const DnsSectionPrereq: u32 = 1;
+pub const DnsSectionPrereq: i32 = 1;
 pub const DnsSectionQuestion: DNS_SECTION = 0;
-pub const DnsSectionUpdate: u32 = 2;
-pub const DnsSectionZone: u32 = 0;
+pub const DnsSectionUpdate: i32 = 2;
+pub const DnsSectionZone: i32 = 0;
 pub const DnsSvcbParamAlpn: DNS_SVCB_PARAM_TYPE = 1;
 pub const DnsSvcbParamDohPath: DNS_SVCB_PARAM_TYPE = 7;
 pub const DnsSvcbParamDohPathOpenDns: DNS_SVCB_PARAM_TYPE = 65432;
@@ -2140,11 +2140,11 @@ pub const DnsSvcbParamIpv6Hint: DNS_SVCB_PARAM_TYPE = 6;
 pub const DnsSvcbParamMandatory: DNS_SVCB_PARAM_TYPE = 0;
 pub const DnsSvcbParamNoDefaultAlpn: DNS_SVCB_PARAM_TYPE = 2;
 pub const DnsSvcbParamPort: DNS_SVCB_PARAM_TYPE = 3;
-pub const INTERNET_DEFAULT_DNS_PORT: u32 = 53;
-pub const INTERNET_DEFAULT_DOT_PORT: u32 = 853;
+pub const INTERNET_DEFAULT_DNS_PORT: i32 = 53;
+pub const INTERNET_DEFAULT_DOT_PORT: i32 = 853;
 pub type IP4_ADDRESS = u32;
-pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16;
-pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16;
+pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: i32 = 16;
+pub const IP4_ADDRESS_STRING_LENGTH: i32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP4_ARRAY {
@@ -2185,8 +2185,8 @@ impl Default for IP6_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65;
-pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65;
+pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: i32 = 65;
+pub const IP6_ADDRESS_STRING_LENGTH: i32 = 65;
 #[cfg(feature = "minwindef")]
 pub type MDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
 #[repr(C)]
@@ -2345,10 +2345,10 @@ pub type PMDNS_QUERY_HANDLE = *mut MDNS_QUERY_HANDLE;
 pub type PMDNS_QUERY_REQUEST = *mut MDNS_QUERY_REQUEST;
 pub type PQWORD = *mut u64;
 #[cfg(target_arch = "x86")]
-pub const SIZEOF_DNS_RECORD_HEADER: u32 = 24;
+pub const SIZEOF_DNS_RECORD_HEADER: i32 = 24;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const SIZEOF_DNS_RECORD_HEADER: u32 = 32;
-pub const SIZEOF_IP4_ADDRESS: u32 = 4;
+pub const SIZEOF_DNS_RECORD_HEADER: i32 = 32;
+pub const SIZEOF_IP4_ADDRESS: i32 = 4;
 pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = 1;
 pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = 0;
 pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = 2;

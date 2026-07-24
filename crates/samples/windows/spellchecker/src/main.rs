@@ -10,7 +10,7 @@ fn main() -> Result<()> {
         CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
 
         let factory: ISpellCheckerFactory =
-            CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)?;
+            CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL as u32)?;
 
         // Make sure that the "en-US" locale is supported.
         let locale = w!("en-US");

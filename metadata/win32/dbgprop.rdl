@@ -27,7 +27,7 @@ mod Windows {
         const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: i32 = 134217728;
         const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: i32 = 268435456;
         const DBGPROP_ATTRIB_VALUE_READONLY: i32 = 2048;
-        const DBGPROP_INFO_ALL: u32 = 63;
+        const DBGPROP_INFO_ALL: i32 = 63;
         const DBGPROP_INFO_ATTRIBUTES: i32 = 8;
         const DBGPROP_INFO_AUTOEXPAND: i32 = 134217728;
         const DBGPROP_INFO_BEAUTIFY: i32 = 33554432;
@@ -36,7 +36,7 @@ mod Windows {
         type DBGPROP_INFO_FLAGS = u32;
         const DBGPROP_INFO_FULLNAME: i32 = 32;
         const DBGPROP_INFO_NAME: i32 = 1;
-        const DBGPROP_INFO_STANDARD: u32 = 15;
+        const DBGPROP_INFO_STANDARD: i32 = 15;
         const DBGPROP_INFO_TYPE: i32 = 2;
         const DBGPROP_INFO_VALUE: i32 = 4;
         struct DebugPropertyInfo {
@@ -156,7 +156,7 @@ mod Windows {
             OBJECT_ATTRIB_IS_INHERITED = 1073741824,
             OBJECT_ATTRIB_IS_INTERFACE = -2147483648,
         }
-        const PROP_INFO_ALL: u32 = 63;
+        const PROP_INFO_ALL: i32 = 63;
         #[repr(i32)]
         enum PROP_INFO_FLAGS {
             PROP_INFO_NAME = 1,
@@ -167,6 +167,6 @@ mod Windows {
             PROP_INFO_DEBUGPROP = 16,
             PROP_INFO_AUTOEXPAND = 134217728,
         }
-        const PROP_INFO_STANDARD: u32 = 15;
+        const PROP_INFO_STANDARD: i32 = 15;
     }
 }

@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[arch(X64 | Arm64)]
-        const ADDRESS_TAG_BIT: u32 = 0;
+        const ADDRESS_TAG_BIT: u64 = 0;
         #[arch(X86)]
         const ADDRESS_TAG_BIT: u32 = 2147483648;
         #[arch(X64 | Arm64)]
@@ -15,46 +15,55 @@ mod Windows {
         #[arch(X86)]
         type HANDLE_PTR = u32;
         type KAFFINITY = usize;
-        const MAXDWORD32: i32 = -1;
-        const MAXDWORD64: i32 = -1;
+        const MAXDWORD32: u32 = 4294967295;
+        const MAXDWORD64: u64 = 18446744073709551615;
         #[arch(X64 | Arm64)]
-        const MAXHALF_PTR: u32 = 2147483647;
+        const MAXHALF_PTR: i32 = 2147483647;
         #[arch(X86)]
         const MAXHALF_PTR: u32 = 32767;
-        const MAXINT: u32 = 2147483647;
+        const MAXINT: i32 = 2147483647;
         const MAXINT16: u32 = 32767;
-        const MAXINT32: u32 = 2147483647;
-        const MAXINT64: i32 = -1;
+        const MAXINT32: i32 = 2147483647;
+        const MAXINT64: i64 = -1;
         const MAXINT8: u32 = 127;
         #[arch(X64 | Arm64)]
-        const MAXINT_PTR: i32 = -1;
+        const MAXINT_PTR: i64 = -1;
         #[arch(X86)]
-        const MAXINT_PTR: u32 = 2147483647;
-        const MAXLONG32: u32 = 2147483647;
-        const MAXLONG64: i32 = -1;
+        const MAXINT_PTR: i32 = 2147483647;
+        const MAXLONG32: i32 = 2147483647;
+        const MAXLONG64: i64 = -1;
         #[arch(X64 | Arm64)]
-        const MAXLONG_PTR: i32 = -1;
+        const MAXLONG_PTR: i64 = -1;
         #[arch(X86)]
-        const MAXLONG_PTR: u32 = 2147483647;
-        const MAXSIZE_T: i32 = -1;
+        const MAXLONG_PTR: i32 = 2147483647;
         #[arch(X64 | Arm64)]
-        const MAXSSIZE_T: i32 = -1;
+        const MAXSIZE_T: u64 = 18446744073709551615;
         #[arch(X86)]
-        const MAXSSIZE_T: u32 = 2147483647;
+        const MAXSIZE_T: u32 = 4294967295;
         #[arch(X64 | Arm64)]
-        const MAXUHALF_PTR: i32 = -1;
+        const MAXSSIZE_T: i64 = -1;
+        #[arch(X86)]
+        const MAXSSIZE_T: i32 = 2147483647;
+        #[arch(X64 | Arm64)]
+        const MAXUHALF_PTR: u32 = 4294967295;
         #[arch(X86)]
         const MAXUHALF_PTR: u32 = 65535;
-        const MAXUINT: i32 = -1;
+        const MAXUINT: u32 = 4294967295;
         const MAXUINT16: u32 = 65535;
-        const MAXUINT32: i32 = -1;
-        const MAXUINT64: i32 = -1;
+        const MAXUINT32: u32 = 4294967295;
+        const MAXUINT64: u64 = 18446744073709551615;
         const MAXUINT8: u32 = 255;
-        const MAXUINT_PTR: i32 = -1;
-        const MAXULONG32: i32 = -1;
-        const MAXULONG64: i32 = -1;
-        const MAXULONGLONG: i32 = -1;
-        const MAXULONG_PTR: i32 = -1;
+        #[arch(X64 | Arm64)]
+        const MAXUINT_PTR: u64 = 18446744073709551615;
+        #[arch(X86)]
+        const MAXUINT_PTR: u32 = 4294967295;
+        const MAXULONG32: u32 = 4294967295;
+        const MAXULONG64: u64 = 18446744073709551615;
+        const MAXULONGLONG: u64 = 18446744073709551615;
+        #[arch(X64 | Arm64)]
+        const MAXULONG_PTR: u64 = 18446744073709551615;
+        #[arch(X86)]
+        const MAXULONG_PTR: u32 = 4294967295;
         #[arch(X64 | Arm64)]
         const MINHALF_PTR: i32 = -2147483648;
         #[arch(X86)]
@@ -62,21 +71,21 @@ mod Windows {
         const MININT: i32 = -2147483648;
         const MININT16: i32 = -32768;
         const MININT32: i32 = -2147483648;
-        const MININT64: u32 = 0;
+        const MININT64: i64 = 0;
         const MININT8: i32 = -128;
         #[arch(X64 | Arm64)]
-        const MININT_PTR: u32 = 0;
+        const MININT_PTR: i64 = 0;
         #[arch(X86)]
         const MININT_PTR: i32 = -2147483648;
         const MINLONG32: i32 = -2147483648;
-        const MINLONG64: u32 = 0;
-        const MINLONGLONG: u32 = 0;
+        const MINLONG64: i64 = 0;
+        const MINLONGLONG: i64 = 0;
         #[arch(X64 | Arm64)]
-        const MINLONG_PTR: u32 = 0;
+        const MINLONG_PTR: i64 = 0;
         #[arch(X86)]
         const MINLONG_PTR: i32 = -2147483648;
         #[arch(X64 | Arm64)]
-        const MINSSIZE_T: u32 = 0;
+        const MINSSIZE_T: i64 = 0;
         #[arch(X86)]
         const MINSSIZE_T: i32 = -2147483648;
         type PDWORD32 = *mut u32;

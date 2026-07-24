@@ -82,15 +82,15 @@ mod Windows {
         type PWSD_SECURITY_CERT_VALIDATION = *mut WSD_SECURITY_CERT_VALIDATION;
         type PWSD_SECURITY_HTTP_AUTH_SCHEMES = *mut u32;
         type PWSD_SECURITY_SIGNATURE_VALIDATION = *mut WSD_SECURITY_SIGNATURE_VALIDATION;
-        const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1;
-        const WSDAPI_ADDRESSFAMILY_IPV6: u32 = 2;
-        const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: u32 = 1;
-        const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: u32 = 0;
-        const WSDAPI_SSL_CERT_IGNORE_EXPIRY: u32 = 2;
-        const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16;
-        const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1;
-        const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8;
-        const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4;
+        const WSDAPI_ADDRESSFAMILY_IPV4: i32 = 1;
+        const WSDAPI_ADDRESSFAMILY_IPV6: i32 = 2;
+        const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: i32 = 1;
+        const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: i32 = 0;
+        const WSDAPI_SSL_CERT_IGNORE_EXPIRY: i32 = 2;
+        const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: i32 = 16;
+        const WSDAPI_SSL_CERT_IGNORE_REVOCATION: i32 = 1;
+        const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: i32 = 8;
+        const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: i32 = 4;
         #[library("wsdapi.dll")]
         extern fn WSDCreateHttpAddress(ppAddress: *mut IWSDHttpAddress) -> HRESULT;
         #[library("wsdapi.dll")]
@@ -154,8 +154,8 @@ mod Windows {
             dwCertCheckOptions: u32,
         }
         type WSD_SECURITY_HTTP_AUTH_SCHEMES = u32;
-        const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1;
-        const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2;
+        const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: i32 = 1;
+        const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: i32 = 2;
         struct WSD_SECURITY_SIGNATURE_VALIDATION {
             signingCertArray: *mut PCCERT_CONTEXT,
             dwSigningCertArrayCount: u32,

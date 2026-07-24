@@ -56,7 +56,7 @@ fn main() -> windows::core::Result<()> {
             let dxfactory: IDXGIFactory2 = unsafe { CreateDXGIFactory1()? };
             let style = create_style(&factory)?;
             let manager: IUIAnimationManager =
-                unsafe { CoCreateInstance(&UIAnimationManager, None, CLSCTX_ALL)? };
+                unsafe { CoCreateInstance(&UIAnimationManager, None, CLSCTX_ALL as u32)? };
             let transition = create_transition()?;
 
             let mut dpi = 0.0;
@@ -123,7 +123,7 @@ fn main() -> windows::core::Result<()> {
                 if error.code() == DXGI_STATUS_OCCLUDED {
                     self.occlusion = unsafe {
                         self.dxfactory
-                            .RegisterOcclusionStatusWindow(self.handle, WM_USER)?
+                            .RegisterOcclusionStatusWindow(self.handle, WM_USER as u32)?
                     };
                     self.visible = false;
                 } else {
@@ -321,7 +321,7 @@ fn main() -> windows::core::Result<()> {
 
         fn message_handler(&mut self, message: u32, wparam: WPARAM) -> bool {
             unsafe {
-                match message {
+                match message as i32 {
                     WM_PAINT => {
                         let mut ps = PAINTSTRUCT::default();
                         BeginPaint(self.handle, &mut ps);
@@ -418,7 +418,7 @@ fn main() -> windows::core::Result<()> {
     fn create_transition() -> Result<IUIAnimationTransition> {
         unsafe {
             let library: IUIAnimationTransitionLibrary =
-                CoCreateInstance(&UIAnimationTransitionLibrary, None, CLSCTX_ALL)?;
+                CoCreateInstance(&UIAnimationTransitionLibrary, None, CLSCTX_ALL as u32)?;
             library.CreateAccelerateDecelerateTransition(5.0, 1.0, 0.2, 0.8)
         }
     }
@@ -439,7 +439,7 @@ fn main() -> windows::core::Result<()> {
                 HMODULE::default(),
                 flags,
                 None,
-                D3D11_SDK_VERSION,
+                D3D11_SDK_VERSION as u32,
                 Some(&mut device),
                 None,
                 None,

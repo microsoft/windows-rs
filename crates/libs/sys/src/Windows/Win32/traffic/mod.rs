@@ -41,7 +41,7 @@ pub struct ADDRESS_LIST_DESCRIPTOR {
     pub MediaType: u32,
     pub AddressList: super::NETWORK_ADDRESS_LIST,
 }
-pub const CURRENT_TCI_VERSION: u32 = 2;
+pub const CURRENT_TCI_VERSION: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "qos")]
 #[derive(Clone, Copy)]
@@ -131,7 +131,7 @@ pub struct IP_PATTERN_0_1 {
     pub s_code: u8,
     pub filler: u16,
 }
-pub const MAX_STRING_LENGTH: u32 = 256;
+pub const MAX_STRING_LENGTH: i32 = 256;
 #[cfg(feature = "ntddndis")]
 pub type PADDRESS_LIST_DESCRIPTOR = *mut ADDRESS_LIST_DESCRIPTOR;
 #[cfg(feature = "qos")]
@@ -209,11 +209,11 @@ impl Default for TC_IFC_DESCRIPTOR {
 }
 #[cfg(feature = "winnt")]
 pub const TC_INVALID_HANDLE: super::HANDLE = 0 as _;
-pub const TC_NOTIFY_FLOW_CLOSE: u32 = 5;
-pub const TC_NOTIFY_IFC_CHANGE: u32 = 3;
-pub const TC_NOTIFY_IFC_CLOSE: u32 = 2;
-pub const TC_NOTIFY_IFC_UP: u32 = 1;
-pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4;
+pub const TC_NOTIFY_FLOW_CLOSE: i32 = 5;
+pub const TC_NOTIFY_IFC_CHANGE: i32 = 3;
+pub const TC_NOTIFY_IFC_CLOSE: i32 = 2;
+pub const TC_NOTIFY_IFC_UP: i32 = 1;
+pub const TC_NOTIFY_PARAM_CHANGED: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "ntddndis")]
 #[derive(Clone, Copy)]

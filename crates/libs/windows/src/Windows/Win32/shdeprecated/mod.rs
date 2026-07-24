@@ -85,22 +85,22 @@ pub type BNSTATE = i32;
 pub const BNS_BEGIN_NAVIGATE: BNSTATE = 1;
 pub const BNS_NAVIGATE: BNSTATE = 2;
 pub const BNS_NORMAL: BNSTATE = 0;
-pub const BSF_CANMAXIMIZE: u32 = 1024;
-pub const BSF_DELEGATEDNAVIGATION: u32 = 65536;
-pub const BSF_DONTSHOWNAVCANCELPAGE: u32 = 16384;
-pub const BSF_FEEDNAVIGATION: u32 = 524288;
-pub const BSF_FEEDSUBSCRIBED: u32 = 1048576;
-pub const BSF_HTMLNAVCANCELED: u32 = 8192;
-pub const BSF_MERGEDMENUS: u32 = 262144;
-pub const BSF_NAVNOHISTORY: u32 = 4096;
-pub const BSF_NOLOCALFILEWARNING: u32 = 16;
-pub const BSF_REGISTERASDROPTARGET: u32 = 1;
-pub const BSF_RESIZABLE: u32 = 512;
-pub const BSF_SETNAVIGATABLECODEPAGE: u32 = 32768;
-pub const BSF_THEATERMODE: u32 = 2;
-pub const BSF_TOPBROWSER: u32 = 2048;
-pub const BSF_TRUSTEDFORACTIVEX: u32 = 131072;
-pub const BSF_UISETBYAUTOMATION: u32 = 256;
+pub const BSF_CANMAXIMIZE: i32 = 1024;
+pub const BSF_DELEGATEDNAVIGATION: i32 = 65536;
+pub const BSF_DONTSHOWNAVCANCELPAGE: i32 = 16384;
+pub const BSF_FEEDNAVIGATION: i32 = 524288;
+pub const BSF_FEEDSUBSCRIBED: i32 = 1048576;
+pub const BSF_HTMLNAVCANCELED: i32 = 8192;
+pub const BSF_MERGEDMENUS: i32 = 262144;
+pub const BSF_NAVNOHISTORY: i32 = 4096;
+pub const BSF_NOLOCALFILEWARNING: i32 = 16;
+pub const BSF_REGISTERASDROPTARGET: i32 = 1;
+pub const BSF_RESIZABLE: i32 = 512;
+pub const BSF_SETNAVIGATABLECODEPAGE: i32 = 32768;
+pub const BSF_THEATERMODE: i32 = 2;
+pub const BSF_TOPBROWSER: i32 = 2048;
+pub const BSF_TRUSTEDFORACTIVEX: i32 = 131072;
+pub const BSF_UISETBYAUTOMATION: i32 = 256;
 #[cfg(feature = "ocidl")]
 windows_core::imp::define_interface!(CIE4ConnectionPoint, CIE4ConnectionPoint_Vtbl, 0);
 #[cfg(feature = "ocidl")]
@@ -177,14 +177,14 @@ pub struct FOLDERSETDATA {
     pub _vidRestore: super::SHELLVIEWID,
     pub _dwViewPriority: u32,
 }
-pub const HLNF_ALLOW_AUTONAVIGATE: u32 = 536870912;
-pub const HLNF_CALLERUNTRUSTED: u32 = 2097152;
-pub const HLNF_DISABLEWINDOWRESTRICTIONS: u32 = 8388608;
-pub const HLNF_EXTERNALNAVIGATE: u32 = 268435456;
+pub const HLNF_ALLOW_AUTONAVIGATE: i32 = 536870912;
+pub const HLNF_CALLERUNTRUSTED: i32 = 2097152;
+pub const HLNF_DISABLEWINDOWRESTRICTIONS: i32 = 8388608;
+pub const HLNF_EXTERNALNAVIGATE: i32 = 268435456;
 pub const HLNF_NEWWINDOWSMANAGED: u32 = 2147483648;
-pub const HLNF_TRUSTEDFORACTIVEX: u32 = 4194304;
-pub const HLNF_TRUSTFIRSTDOWNLOAD: u32 = 16777216;
-pub const HLNF_UNTRUSTEDFORDOWNLOAD: u32 = 33554432;
+pub const HLNF_TRUSTEDFORACTIVEX: i32 = 4194304;
+pub const HLNF_TRUSTFIRSTDOWNLOAD: i32 = 16777216;
+pub const HLNF_UNTRUSTEDFORDOWNLOAD: i32 = 33554432;
 windows_core::imp::define_interface!(IBrowserService, IBrowserService_Vtbl, 0x02ba3b52_0547_11d1_b833_00c04fc9b31f);
 windows_core::imp::interface_hierarchy!(IBrowserService, windows_core::IUnknown);
 impl IBrowserService {
@@ -2491,16 +2491,16 @@ pub const SECURELOCK_SUGGEST_SECURE56BIT: SECURELOCKCODE = 11;
 pub const SECURELOCK_SUGGEST_SECUREUNKNOWNBIT: SECURELOCKCODE = 9;
 pub const SECURELOCK_SUGGEST_UNSECURE: SECURELOCKCODE = 7;
 pub type SHELLBROWSERSHOWCONTROL = i32;
-pub const SHHLNF_NOAUTOSELECT: u32 = 67108864;
-pub const SHHLNF_WRITENOHISTORY: u32 = 134217728;
-pub const TLMENUF_BACK: u32 = 16;
-pub const TLMENUF_BACKANDFORTH: u32 = 49;
-pub const TLMENUF_CHECKCURRENT: u32 = 3;
-pub const TLMENUF_FORE: u32 = 32;
-pub const TLMENUF_INCLUDECURRENT: u32 = 1;
+pub const SHHLNF_NOAUTOSELECT: i32 = 67108864;
+pub const SHHLNF_WRITENOHISTORY: i32 = 134217728;
+pub const TLMENUF_BACK: i32 = 16;
+pub const TLMENUF_BACKANDFORTH: i32 = 49;
+pub const TLMENUF_CHECKCURRENT: i32 = 3;
+pub const TLMENUF_FORE: i32 = 32;
+pub const TLMENUF_INCLUDECURRENT: i32 = 1;
 pub const TLOG_BACK: i32 = -1;
-pub const TLOG_CURRENT: u32 = 0;
-pub const TLOG_FORE: u32 = 1;
+pub const TLOG_CURRENT: i32 = 0;
+pub const TLOG_FORE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -2512,13 +2512,13 @@ pub struct TOOLBARITEM {
     pub hMon: super::HMONITOR,
 }
 pub const TrackShellMenu: windows_core::GUID = windows_core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
-pub const VIEW_PRIORITY_CACHEHIT: u32 = 80;
-pub const VIEW_PRIORITY_CACHEMISS: u32 = 48;
-pub const VIEW_PRIORITY_DESPERATE: u32 = 16;
-pub const VIEW_PRIORITY_INHERIT: u32 = 32;
-pub const VIEW_PRIORITY_NONE: u32 = 0;
-pub const VIEW_PRIORITY_RESTRICTED: u32 = 112;
-pub const VIEW_PRIORITY_SHELLEXT: u32 = 64;
-pub const VIEW_PRIORITY_SHELLEXT_ASBACKUP: u32 = 21;
-pub const VIEW_PRIORITY_STALECACHEHIT: u32 = 69;
-pub const VIEW_PRIORITY_USEASDEFAULT: u32 = 67;
+pub const VIEW_PRIORITY_CACHEHIT: i32 = 80;
+pub const VIEW_PRIORITY_CACHEMISS: i32 = 48;
+pub const VIEW_PRIORITY_DESPERATE: i32 = 16;
+pub const VIEW_PRIORITY_INHERIT: i32 = 32;
+pub const VIEW_PRIORITY_NONE: i32 = 0;
+pub const VIEW_PRIORITY_RESTRICTED: i32 = 112;
+pub const VIEW_PRIORITY_SHELLEXT: i32 = 64;
+pub const VIEW_PRIORITY_SHELLEXT_ASBACKUP: i32 = 21;
+pub const VIEW_PRIORITY_STALECACHEHIT: i32 = 69;
+pub const VIEW_PRIORITY_USEASDEFAULT: i32 = 67;

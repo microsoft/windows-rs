@@ -262,7 +262,7 @@ mod Windows {
             DWRITE_RENDERING_MODE1_OUTLINE = 6,
             DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC_DOWNSAMPLED = 7,
         }
-        const DWRITE_STANDARD_FONT_AXIS_COUNT: u32 = 5;
+        const DWRITE_STANDARD_FONT_AXIS_COUNT: i32 = 5;
         #[guid(0xce25f8fd_863b_4d13_9651_c1f88dc73fe2)]
         interface IDWriteAsyncResult: IUnknown {
             fn GetWaitHandle(&self) -> HANDLE;

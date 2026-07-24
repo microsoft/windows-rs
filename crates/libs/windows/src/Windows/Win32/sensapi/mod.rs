@@ -20,10 +20,10 @@ pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::BOOL {
     unsafe { IsNetworkAlive(lpdwflags as _) }
 }
 pub type LPQOCINFO = *mut QOCINFO;
-pub const NETWORK_ALIVE_AOL: u32 = 4;
-pub const NETWORK_ALIVE_INTERNET: u32 = 8;
-pub const NETWORK_ALIVE_LAN: u32 = 1;
-pub const NETWORK_ALIVE_WAN: u32 = 2;
+pub const NETWORK_ALIVE_AOL: i32 = 4;
+pub const NETWORK_ALIVE_INTERNET: i32 = 8;
+pub const NETWORK_ALIVE_LAN: i32 = 1;
+pub const NETWORK_ALIVE_WAN: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOCINFO {

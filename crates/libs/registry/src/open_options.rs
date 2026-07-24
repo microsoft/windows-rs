@@ -17,19 +17,19 @@ impl<'a> OpenOptions<'a> {
             access: 0,
             create: false,
             transaction: None,
-            options: REG_OPTION_NON_VOLATILE,
+            options: REG_OPTION_NON_VOLATILE as u32,
         }
     }
 
     /// Sets the option for read access.
     pub fn read(&mut self) -> &mut Self {
-        self.access |= KEY_READ;
+        self.access |= KEY_READ as u32;
         self
     }
 
     /// Sets the option for write access.
     pub fn write(&mut self) -> &mut Self {
-        self.access |= KEY_WRITE;
+        self.access |= KEY_WRITE as u32;
         self
     }
 
@@ -53,7 +53,7 @@ impl<'a> OpenOptions<'a> {
 
     /// Sets the option to create a volatile registry key that is not preserved when the system restarts.
     pub fn volatile(&mut self) -> &mut Self {
-        self.options |= REG_OPTION_VOLATILE;
+        self.options |= REG_OPTION_VOLATILE as u32;
         self
     }
 
@@ -63,7 +63,7 @@ impl<'a> OpenOptions<'a> {
     /// view, or a 32-bit process explicitly target that view. Mutually exclusive
     /// with [`wow64_64`](Self::wow64_64); the last call wins.
     pub fn wow64_32(&mut self) -> &mut Self {
-        self.access = (self.access & !KEY_WOW64_64KEY) | KEY_WOW64_32KEY;
+        self.access = (self.access & !(KEY_WOW64_64KEY as u32)) | KEY_WOW64_32KEY as u32;
         self
     }
 
@@ -73,7 +73,7 @@ impl<'a> OpenOptions<'a> {
     /// key in the native 64-bit view. Mutually exclusive with
     /// [`wow64_32`](Self::wow64_32); the last call wins.
     pub fn wow64_64(&mut self) -> &mut Self {
-        self.access = (self.access & !KEY_WOW64_32KEY) | KEY_WOW64_64KEY;
+        self.access = (self.access & !(KEY_WOW64_32KEY as u32)) | KEY_WOW64_64KEY as u32;
         self
     }
 

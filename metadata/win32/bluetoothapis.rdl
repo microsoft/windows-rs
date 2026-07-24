@@ -61,7 +61,7 @@ mod Windows {
             stLastUsed: SYSTEMTIME,
             szName: [u16; 248],
         }
-        const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256;
+        const BLUETOOTH_DEVICE_NAME_SIZE: i32 = 256;
         struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
             dwSize: u32,
             fReturnAuthenticated: BOOL,
@@ -89,10 +89,10 @@ mod Windows {
             szName: [u16; 256],
             szDeviceString: [u16; 256],
         }
-        const BLUETOOTH_MAX_NAME_SIZE: u32 = 248;
-        const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17;
-        const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16;
-        const BLUETOOTH_MAX_SERVICE_NAME_SIZE: u32 = 256;
+        const BLUETOOTH_MAX_NAME_SIZE: i32 = 248;
+        const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: i32 = 17;
+        const BLUETOOTH_MAX_PASSKEY_SIZE: i32 = 16;
+        const BLUETOOTH_MAX_SERVICE_NAME_SIZE: i32 = 256;
         const BLUETOOTH_NULL_ADDRESS: u64 = 0;
         struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
             NumericValue: u32,
@@ -133,9 +133,9 @@ mod Windows {
             cNumDevices: u32,
             pDevices: PBLUETOOTH_DEVICE_INFO,
         }
-        const BLUETOOTH_SERVICE_DISABLE: u32 = 0;
-        const BLUETOOTH_SERVICE_ENABLE: u32 = 1;
-        const BLUETOOTH_SERVICE_MASK: u32 = 1;
+        const BLUETOOTH_SERVICE_DISABLE: i32 = 0;
+        const BLUETOOTH_SERVICE_ENABLE: i32 = 1;
+        const BLUETOOTH_SERVICE_MASK: i32 = 1;
         #[library("bthprops.cpl")]
         extern fn BluetoothAuthenticateDevice(#[opt] hwndParent: HWND, #[opt] hRadio: HANDLE, #[in] #[out] pbtbi: *mut BLUETOOTH_DEVICE_INFO_STRUCT, #[len_param(4)] #[opt] pszPasskey: PCWSTR, ulPasskeyLength: u32) -> u32;
         #[library("bthprops.cpl")]

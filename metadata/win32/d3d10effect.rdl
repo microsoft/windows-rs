@@ -54,8 +54,8 @@ mod Windows {
             D3D10_DST_RS_RASTERIZER_STATE = 23,
             D3D10_DST_PREDICATION = 24,
         }
-        const D3D10_EFFECT_COMPILE_ALLOW_SLOW_OPS: u32 = 2;
-        const D3D10_EFFECT_COMPILE_CHILD_EFFECT: u32 = 1;
+        const D3D10_EFFECT_COMPILE_ALLOW_SLOW_OPS: i32 = 2;
+        const D3D10_EFFECT_COMPILE_CHILD_EFFECT: i32 = 1;
         struct D3D10_EFFECT_DESC {
             IsChildEffect: BOOL,
             ConstantBuffers: u32,
@@ -73,7 +73,7 @@ mod Windows {
             NumInputSignatureEntries: u32,
             NumOutputSignatureEntries: u32,
         }
-        const D3D10_EFFECT_SINGLE_THREADED: u32 = 8;
+        const D3D10_EFFECT_SINGLE_THREADED: i32 = 8;
         struct D3D10_EFFECT_TYPE_DESC {
             TypeName: PCSTR,
             Class: D3D10_SHADER_VARIABLE_CLASS,
@@ -86,7 +86,7 @@ mod Windows {
             UnpackedSize: u32,
             Stride: u32,
         }
-        const D3D10_EFFECT_VARIABLE_ANNOTATION: u32 = 2;
+        const D3D10_EFFECT_VARIABLE_ANNOTATION: i32 = 2;
         struct D3D10_EFFECT_VARIABLE_DESC {
             Name: PCSTR,
             Semantic: PCSTR,
@@ -95,8 +95,8 @@ mod Windows {
             BufferOffset: u32,
             ExplicitBindPoint: u32,
         }
-        const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: u32 = 4;
-        const D3D10_EFFECT_VARIABLE_POOLED: u32 = 1;
+        const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: i32 = 4;
+        const D3D10_EFFECT_VARIABLE_POOLED: i32 = 1;
         struct D3D10_PASS_DESC {
             Name: PCSTR,
             Annotations: u32,

@@ -182,7 +182,7 @@ pub struct D2D_SIZE_U {
 }
 pub const D3D11_CREATE_DEVICE_BGRA_SUPPORT: D3D11_CREATE_DEVICE_FLAG = 32;
 pub type D3D11_CREATE_DEVICE_FLAG = i32;
-pub const D3D11_SDK_VERSION: u32 = 7;
+pub const D3D11_SDK_VERSION: i32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DCOLORVALUE {

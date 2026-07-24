@@ -13,9 +13,12 @@ windows_link::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : 
 windows_link::link!("rstrtmgr.dll" "system" fn RmRestart(dwsessionhandle : u32, dwrestartflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> u32);
 windows_link::link!("rstrtmgr.dll" "system" fn RmShutdown(dwsessionhandle : u32, lactionflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> u32);
 windows_link::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : *mut u16) -> u32);
-pub const CCH_RM_MAX_APP_NAME: u32 = 255;
-pub const CCH_RM_MAX_SVC_NAME: u32 = 63;
+pub const CCH_RM_MAX_APP_NAME: i32 = 255;
+pub const CCH_RM_MAX_SVC_NAME: i32 = 63;
+#[cfg(target_arch = "x86")]
 pub const CCH_RM_SESSION_KEY: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CCH_RM_SESSION_KEY: u64 = 32;
 #[cfg(feature = "minwindef")]
 pub type PRM_FILTER_INFO = *mut RM_FILTER_INFO;
 #[cfg(feature = "minwindef")]

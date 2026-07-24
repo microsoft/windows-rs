@@ -2,10 +2,10 @@
 mod Windows {
     mod Win32 {
         const D3D9_RESOURCE_PRIORITY_HIGH: u32 = 2684354560;
-        const D3D9_RESOURCE_PRIORITY_LOW: u32 = 1342177280;
+        const D3D9_RESOURCE_PRIORITY_LOW: i32 = 1342177280;
         const D3D9_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200;
-        const D3D9_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640;
-        const D3D9_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920;
+        const D3D9_RESOURCE_PRIORITY_MINIMUM: i32 = 671088640;
+        const D3D9_RESOURCE_PRIORITY_NORMAL: i32 = 2013265920;
         #[arch(X64 | Arm64)]
         struct D3DADAPTER_IDENTIFIER9 {
             Driver: [i8; 512],
@@ -299,15 +299,15 @@ mod Windows {
             D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE = 327680,
             D3DBUSIMPL_MODIFIER_NON_STANDARD = -2147483648,
         }
-        const D3DCLEAR_STENCIL: u32 = 4;
-        const D3DCLEAR_TARGET: u32 = 1;
-        const D3DCLEAR_ZBUFFER: u32 = 2;
-        const D3DCLIPPLANE0: u32 = 1;
-        const D3DCLIPPLANE1: u32 = 2;
-        const D3DCLIPPLANE2: u32 = 4;
-        const D3DCLIPPLANE3: u32 = 8;
-        const D3DCLIPPLANE4: u32 = 16;
-        const D3DCLIPPLANE5: u32 = 32;
+        const D3DCLEAR_STENCIL: i32 = 4;
+        const D3DCLEAR_TARGET: i32 = 1;
+        const D3DCLEAR_ZBUFFER: i32 = 2;
+        const D3DCLIPPLANE0: i32 = 1;
+        const D3DCLIPPLANE1: i32 = 2;
+        const D3DCLIPPLANE2: i32 = 4;
+        const D3DCLIPPLANE3: i32 = 8;
+        const D3DCLIPPLANE4: i32 = 16;
+        const D3DCLIPPLANE5: i32 = 32;
         struct D3DCLIPSTATUS9 {
             ClipUnion: u32,
             ClipIntersection: u32,
@@ -324,10 +324,10 @@ mod Windows {
             D3DCMP_ALWAYS = 8,
             D3DCMP_FORCE_DWORD = 2147483647,
         }
-        const D3DCOLORWRITEENABLE_ALPHA: u32 = 8;
-        const D3DCOLORWRITEENABLE_BLUE: u32 = 4;
-        const D3DCOLORWRITEENABLE_GREEN: u32 = 2;
-        const D3DCOLORWRITEENABLE_RED: u32 = 1;
+        const D3DCOLORWRITEENABLE_ALPHA: i32 = 8;
+        const D3DCOLORWRITEENABLE_BLUE: i32 = 4;
+        const D3DCOLORWRITEENABLE_GREEN: i32 = 2;
+        const D3DCOLORWRITEENABLE_RED: i32 = 1;
         struct D3DCOMPOSERECTDESC {
             X: u16,
             Y: u16,
@@ -348,22 +348,22 @@ mod Windows {
             D3DCOMPOSERECTS_NEG = 4,
             D3DCOMPOSERECTS_FORCE_DWORD = 2147483647,
         }
-        const D3DCOMPOSERECTS_MAXNUMRECTS: u32 = 65535;
-        const D3DCONVOLUTIONMONO_MAXHEIGHT: u32 = 7;
-        const D3DCONVOLUTIONMONO_MAXWIDTH: u32 = 7;
-        const D3DCS_ALL: u32 = 4095;
-        const D3DCS_BACK: u32 = 32;
-        const D3DCS_BOTTOM: u32 = 8;
-        const D3DCS_FRONT: u32 = 16;
-        const D3DCS_LEFT: u32 = 1;
-        const D3DCS_PLANE0: u32 = 64;
-        const D3DCS_PLANE1: u32 = 128;
-        const D3DCS_PLANE2: u32 = 256;
-        const D3DCS_PLANE3: u32 = 512;
-        const D3DCS_PLANE4: u32 = 1024;
-        const D3DCS_PLANE5: u32 = 2048;
-        const D3DCS_RIGHT: u32 = 2;
-        const D3DCS_TOP: u32 = 4;
+        const D3DCOMPOSERECTS_MAXNUMRECTS: i32 = 65535;
+        const D3DCONVOLUTIONMONO_MAXHEIGHT: i32 = 7;
+        const D3DCONVOLUTIONMONO_MAXWIDTH: i32 = 7;
+        const D3DCS_ALL: i32 = 4095;
+        const D3DCS_BACK: i32 = 32;
+        const D3DCS_BOTTOM: i32 = 8;
+        const D3DCS_FRONT: i32 = 16;
+        const D3DCS_LEFT: i32 = 1;
+        const D3DCS_PLANE0: i32 = 64;
+        const D3DCS_PLANE1: i32 = 128;
+        const D3DCS_PLANE2: i32 = 256;
+        const D3DCS_PLANE3: i32 = 512;
+        const D3DCS_PLANE4: i32 = 1024;
+        const D3DCS_PLANE5: i32 = 2048;
+        const D3DCS_RIGHT: i32 = 2;
+        const D3DCS_TOP: i32 = 4;
         #[repr(i32)]
         enum D3DCUBEMAP_FACES {
             D3DCUBEMAP_FACE_POSITIVE_X = 0,
@@ -524,8 +524,8 @@ mod Windows {
             D3DDISPLAYROTATION_180 = 3,
             D3DDISPLAYROTATION_270 = 4,
         }
-        const D3DDMAPSAMPLER: u32 = 256;
-        const D3DDP_MAXTEXCOORD: u32 = 8;
+        const D3DDMAPSAMPLER: i32 = 256;
+        const D3DDP_MAXTEXCOORD: i32 = 8;
         struct D3DENCRYPTED_BLOCK_INFO {
             NumEncryptedBytesAtBeginning: u32,
             NumBytesInSkipPattern: u32,
@@ -538,8 +538,8 @@ mod Windows {
             D3DFILL_SOLID = 3,
             D3DFILL_FORCE_DWORD = 2147483647,
         }
-        const D3DFMT_A1_SURFACE_MAXHEIGHT: u32 = 2048;
-        const D3DFMT_A1_SURFACE_MAXWIDTH: u32 = 8192;
+        const D3DFMT_A1_SURFACE_MAXHEIGHT: i32 = 2048;
+        const D3DFMT_A1_SURFACE_MAXWIDTH: i32 = 8192;
         #[repr(i32)]
         enum D3DFOGMODE {
             D3DFOG_NONE = 0,
@@ -617,44 +617,44 @@ mod Windows {
             D3DFMT_BINARYBUFFER = 199,
             D3DFMT_FORCE_DWORD = 2147483647,
         }
-        const D3DFVF_DIFFUSE: u32 = 64;
-        const D3DFVF_LASTBETA_D3DCOLOR: u32 = 32768;
-        const D3DFVF_LASTBETA_UBYTE4: u32 = 4096;
-        const D3DFVF_NORMAL: u32 = 16;
-        const D3DFVF_POSITION_MASK: u32 = 16398;
-        const D3DFVF_PSIZE: u32 = 32;
-        const D3DFVF_RESERVED0: u32 = 1;
-        const D3DFVF_RESERVED2: u32 = 24576;
-        const D3DFVF_SPECULAR: u32 = 128;
-        const D3DFVF_TEX0: u32 = 0;
-        const D3DFVF_TEX1: u32 = 256;
-        const D3DFVF_TEX2: u32 = 512;
-        const D3DFVF_TEX3: u32 = 768;
-        const D3DFVF_TEX4: u32 = 1024;
-        const D3DFVF_TEX5: u32 = 1280;
-        const D3DFVF_TEX6: u32 = 1536;
-        const D3DFVF_TEX7: u32 = 1792;
-        const D3DFVF_TEX8: u32 = 2048;
-        const D3DFVF_TEXCOUNT_MASK: u32 = 3840;
-        const D3DFVF_TEXCOUNT_SHIFT: u32 = 8;
-        const D3DFVF_TEXTUREFORMAT1: u32 = 3;
-        const D3DFVF_TEXTUREFORMAT2: u32 = 0;
-        const D3DFVF_TEXTUREFORMAT3: u32 = 1;
-        const D3DFVF_TEXTUREFORMAT4: u32 = 2;
-        const D3DFVF_XYZ: u32 = 2;
-        const D3DFVF_XYZB1: u32 = 6;
-        const D3DFVF_XYZB2: u32 = 8;
-        const D3DFVF_XYZB3: u32 = 10;
-        const D3DFVF_XYZB4: u32 = 12;
-        const D3DFVF_XYZB5: u32 = 14;
-        const D3DFVF_XYZRHW: u32 = 4;
-        const D3DFVF_XYZW: u32 = 16386;
+        const D3DFVF_DIFFUSE: i32 = 64;
+        const D3DFVF_LASTBETA_D3DCOLOR: i32 = 32768;
+        const D3DFVF_LASTBETA_UBYTE4: i32 = 4096;
+        const D3DFVF_NORMAL: i32 = 16;
+        const D3DFVF_POSITION_MASK: i32 = 16398;
+        const D3DFVF_PSIZE: i32 = 32;
+        const D3DFVF_RESERVED0: i32 = 1;
+        const D3DFVF_RESERVED2: i32 = 24576;
+        const D3DFVF_SPECULAR: i32 = 128;
+        const D3DFVF_TEX0: i32 = 0;
+        const D3DFVF_TEX1: i32 = 256;
+        const D3DFVF_TEX2: i32 = 512;
+        const D3DFVF_TEX3: i32 = 768;
+        const D3DFVF_TEX4: i32 = 1024;
+        const D3DFVF_TEX5: i32 = 1280;
+        const D3DFVF_TEX6: i32 = 1536;
+        const D3DFVF_TEX7: i32 = 1792;
+        const D3DFVF_TEX8: i32 = 2048;
+        const D3DFVF_TEXCOUNT_MASK: i32 = 3840;
+        const D3DFVF_TEXCOUNT_SHIFT: i32 = 8;
+        const D3DFVF_TEXTUREFORMAT1: i32 = 3;
+        const D3DFVF_TEXTUREFORMAT2: i32 = 0;
+        const D3DFVF_TEXTUREFORMAT3: i32 = 1;
+        const D3DFVF_TEXTUREFORMAT4: i32 = 2;
+        const D3DFVF_XYZ: i32 = 2;
+        const D3DFVF_XYZB1: i32 = 6;
+        const D3DFVF_XYZB2: i32 = 8;
+        const D3DFVF_XYZB3: i32 = 10;
+        const D3DFVF_XYZB4: i32 = 12;
+        const D3DFVF_XYZB5: i32 = 14;
+        const D3DFVF_XYZRHW: i32 = 4;
+        const D3DFVF_XYZW: i32 = 16386;
         struct D3DGAMMARAMP {
             red: [u16; 256],
             green: [u16; 256],
             blue: [u16; 256],
         }
-        const D3DGETDATA_FLUSH: u32 = 1;
+        const D3DGETDATA_FLUSH: i32 = 1;
         struct D3DINDEXBUFFER_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
@@ -662,8 +662,8 @@ mod Windows {
             Pool: D3DPOOL,
             Size: u32,
         }
-        const D3DISSUE_BEGIN: u32 = 2;
-        const D3DISSUE_END: u32 = 1;
+        const D3DISSUE_BEGIN: i32 = 2;
+        const D3DISSUE_END: i32 = 1;
         struct D3DLIGHT9 {
             Type: D3DLIGHTTYPE,
             Diffuse: D3DCOLORVALUE,
@@ -695,12 +695,12 @@ mod Windows {
             Pitch: i32,
             pBits: *mut void,
         }
-        const D3DLOCK_DISCARD: u32 = 8192;
-        const D3DLOCK_DONOTWAIT: u32 = 16384;
-        const D3DLOCK_NOOVERWRITE: u32 = 4096;
-        const D3DLOCK_NOSYSLOCK: u32 = 2048;
-        const D3DLOCK_NO_DIRTY_UPDATE: u32 = 32768;
-        const D3DLOCK_READONLY: u32 = 16;
+        const D3DLOCK_DISCARD: i32 = 8192;
+        const D3DLOCK_DONOTWAIT: i32 = 16384;
+        const D3DLOCK_NOOVERWRITE: i32 = 4096;
+        const D3DLOCK_NOSYSLOCK: i32 = 2048;
+        const D3DLOCK_NO_DIRTY_UPDATE: i32 = 32768;
+        const D3DLOCK_READONLY: i32 = 16;
         struct D3DMATERIAL9 {
             Diffuse: D3DCOLORVALUE,
             Ambient: D3DCOLORVALUE,
@@ -738,7 +738,7 @@ mod Windows {
                 m: [[f32; 4]; 4],
             },
         }
-        const D3DMAXUSERCLIPPLANES: u32 = 32;
+        const D3DMAXUSERCLIPPLANES: i32 = 32;
         #[arch(X64 | Arm64)]
         struct D3DMEMORYPRESSURE {
             BytesEvictedFromProcess: u64,
@@ -787,17 +787,17 @@ mod Windows {
             D3DPOOL_SCRATCH = 3,
             D3DPOOL_FORCE_DWORD = 2147483647,
         }
-        const D3DPRESENTFLAG_DEVICECLIP: u32 = 4;
-        const D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL: u32 = 2;
-        const D3DPRESENTFLAG_LOCKABLE_BACKBUFFER: u32 = 1;
-        const D3DPRESENTFLAG_NOAUTOROTATE: u32 = 32;
-        const D3DPRESENTFLAG_OVERLAY_LIMITEDRGB: u32 = 128;
-        const D3DPRESENTFLAG_OVERLAY_YCbCr_BT709: u32 = 256;
-        const D3DPRESENTFLAG_OVERLAY_YCbCr_xvYCC: u32 = 512;
-        const D3DPRESENTFLAG_RESTRICTED_CONTENT: u32 = 1024;
-        const D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 2048;
-        const D3DPRESENTFLAG_UNPRUNEDMODE: u32 = 64;
-        const D3DPRESENTFLAG_VIDEO: u32 = 16;
+        const D3DPRESENTFLAG_DEVICECLIP: i32 = 4;
+        const D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL: i32 = 2;
+        const D3DPRESENTFLAG_LOCKABLE_BACKBUFFER: i32 = 1;
+        const D3DPRESENTFLAG_NOAUTOROTATE: i32 = 32;
+        const D3DPRESENTFLAG_OVERLAY_LIMITEDRGB: i32 = 128;
+        const D3DPRESENTFLAG_OVERLAY_YCbCr_BT709: i32 = 256;
+        const D3DPRESENTFLAG_OVERLAY_YCbCr_xvYCC: i32 = 512;
+        const D3DPRESENTFLAG_RESTRICTED_CONTENT: i32 = 1024;
+        const D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER: i32 = 2048;
+        const D3DPRESENTFLAG_UNPRUNEDMODE: i32 = 64;
+        const D3DPRESENTFLAG_VIDEO: i32 = 16;
         #[arch(X64 | Arm64)]
         struct D3DPRESENTSTATS {
             PresentCount: u32,
@@ -831,7 +831,7 @@ mod Windows {
             FullScreen_RefreshRateInHz: u32,
             PresentationInterval: u32,
         }
-        const D3DPRESENT_RATE_DEFAULT: u32 = 0;
+        const D3DPRESENT_RATE_DEFAULT: i32 = 0;
         #[repr(i32)]
         enum D3DPRIMITIVETYPE {
             D3DPT_POINTLIST = 1,
@@ -842,7 +842,7 @@ mod Windows {
             D3DPT_TRIANGLEFAN = 6,
             D3DPT_FORCE_DWORD = 2147483647,
         }
-        const D3DPV_DONOTCOPYDATA: u32 = 1;
+        const D3DPV_DONOTCOPYDATA: i32 = 1;
         #[repr(i32)]
         enum D3DQUERYTYPE {
             D3DQUERYTYPE_VCACHE = 4,
@@ -1016,7 +1016,7 @@ mod Windows {
             D3DRTYPE_INDEXBUFFER = 7,
             D3DRTYPE_FORCE_DWORD = 2147483647,
         }
-        const D3DRTYPECOUNT: u32 = 8;
+        const D3DRTYPECOUNT: i32 = 8;
         #[repr(i32)]
         enum D3DSAMPLERSTATETYPE {
             D3DSAMP_ADDRESSU = 1,
@@ -1055,8 +1055,8 @@ mod Windows {
             D3DSHADE_PHONG = 3,
             D3DSHADE_FORCE_DWORD = 2147483647,
         }
-        const D3DSHADER_ADDRESSMODE_MASK: u32 = 8192;
-        const D3DSHADER_ADDRESSMODE_SHIFT: u32 = 13;
+        const D3DSHADER_ADDRESSMODE_MASK: i32 = 8192;
+        const D3DSHADER_ADDRESSMODE_SHIFT: i32 = 13;
         #[repr(i32)]
         enum D3DSHADER_ADDRESSMODE_TYPE {
             D3DSHADER_ADDRMODE_ABSOLUTE = 0,
@@ -1074,8 +1074,8 @@ mod Windows {
             D3DSPC_LE = 6,
             D3DSPC_RESERVED1 = 7,
         }
-        const D3DSHADER_COMPARISON_MASK: u32 = 458752;
-        const D3DSHADER_COMPARISON_SHIFT: u32 = 16;
+        const D3DSHADER_COMPARISON_MASK: i32 = 458752;
+        const D3DSHADER_COMPARISON_SHIFT: i32 = 16;
         #[repr(i32)]
         enum D3DSHADER_INSTRUCTION_OPCODE_TYPE {
             D3DSIO_NOP = 0,
@@ -1165,7 +1165,7 @@ mod Windows {
             D3DSIO_END = 65535,
             D3DSIO_FORCE_DWORD = 2147483647,
         }
-        const D3DSHADER_INSTRUCTION_PREDICATED: u32 = 268435456;
+        const D3DSHADER_INSTRUCTION_PREDICATED: i32 = 268435456;
         #[repr(i32)]
         enum D3DSHADER_MIN_PRECISION {
             D3DMP_DEFAULT = 0,
@@ -1221,51 +1221,51 @@ mod Windows {
             D3DSPSM_NOT = 218103808,
             D3DSPSM_FORCE_DWORD = 2147483647,
         }
-        const D3DSI_COISSUE: u32 = 1073741824;
-        const D3DSI_COMMENTSIZE_MASK: u32 = 2147418112;
-        const D3DSI_COMMENTSIZE_SHIFT: u32 = 16;
-        const D3DSI_INSTLENGTH_MASK: u32 = 251658240;
-        const D3DSI_INSTLENGTH_SHIFT: u32 = 24;
-        const D3DSI_OPCODE_MASK: u32 = 65535;
-        const D3DSI_TEXLD_BIAS: u32 = 131072;
-        const D3DSI_TEXLD_PROJECT: u32 = 65536;
-        const D3DSPDM_MSAMPCENTROID: u32 = 4194304;
-        const D3DSPDM_NONE: u32 = 0;
-        const D3DSPDM_PARTIALPRECISION: u32 = 2097152;
-        const D3DSPDM_SATURATE: u32 = 1048576;
-        const D3DSP_DCL_USAGEINDEX_MASK: u32 = 983040;
-        const D3DSP_DCL_USAGEINDEX_SHIFT: u32 = 16;
-        const D3DSP_DCL_USAGE_MASK: u32 = 15;
-        const D3DSP_DCL_USAGE_SHIFT: u32 = 0;
-        const D3DSP_DSTMOD_MASK: u32 = 15728640;
-        const D3DSP_DSTMOD_SHIFT: u32 = 20;
-        const D3DSP_DSTSHIFT_MASK: u32 = 251658240;
-        const D3DSP_DSTSHIFT_SHIFT: u32 = 24;
-        const D3DSP_MIN_PRECISION_MASK: u32 = 49152;
-        const D3DSP_MIN_PRECISION_SHIFT: u32 = 14;
-        const D3DSP_NOSWIZZLE: u32 = 14942208;
-        const D3DSP_OPCODESPECIFICCONTROL_MASK: u32 = 16711680;
-        const D3DSP_OPCODESPECIFICCONTROL_SHIFT: u32 = 16;
-        const D3DSP_REGNUM_MASK: u32 = 2047;
-        const D3DSP_REGTYPE_MASK: u32 = 1879048192;
-        const D3DSP_REGTYPE_MASK2: u32 = 6144;
-        const D3DSP_REGTYPE_SHIFT: u32 = 28;
-        const D3DSP_REGTYPE_SHIFT2: u32 = 8;
-        const D3DSP_REPLICATEALPHA: u32 = 16711680;
-        const D3DSP_REPLICATEBLUE: u32 = 11141120;
-        const D3DSP_REPLICATEGREEN: u32 = 5570560;
-        const D3DSP_REPLICATERED: u32 = 0;
-        const D3DSP_SRCMOD_MASK: u32 = 251658240;
-        const D3DSP_SRCMOD_SHIFT: u32 = 24;
-        const D3DSP_SWIZZLE_MASK: u32 = 16711680;
-        const D3DSP_SWIZZLE_SHIFT: u32 = 16;
-        const D3DSP_TEXTURETYPE_MASK: u32 = 2013265920;
-        const D3DSP_TEXTURETYPE_SHIFT: u32 = 27;
-        const D3DSP_WRITEMASK_0: u32 = 65536;
-        const D3DSP_WRITEMASK_1: u32 = 131072;
-        const D3DSP_WRITEMASK_2: u32 = 262144;
-        const D3DSP_WRITEMASK_3: u32 = 524288;
-        const D3DSP_WRITEMASK_ALL: u32 = 983040;
+        const D3DSI_COISSUE: i32 = 1073741824;
+        const D3DSI_COMMENTSIZE_MASK: i32 = 2147418112;
+        const D3DSI_COMMENTSIZE_SHIFT: i32 = 16;
+        const D3DSI_INSTLENGTH_MASK: i32 = 251658240;
+        const D3DSI_INSTLENGTH_SHIFT: i32 = 24;
+        const D3DSI_OPCODE_MASK: i32 = 65535;
+        const D3DSI_TEXLD_BIAS: i32 = 131072;
+        const D3DSI_TEXLD_PROJECT: i32 = 65536;
+        const D3DSPDM_MSAMPCENTROID: i32 = 4194304;
+        const D3DSPDM_NONE: i32 = 0;
+        const D3DSPDM_PARTIALPRECISION: i32 = 2097152;
+        const D3DSPDM_SATURATE: i32 = 1048576;
+        const D3DSP_DCL_USAGEINDEX_MASK: i32 = 983040;
+        const D3DSP_DCL_USAGEINDEX_SHIFT: i32 = 16;
+        const D3DSP_DCL_USAGE_MASK: i32 = 15;
+        const D3DSP_DCL_USAGE_SHIFT: i32 = 0;
+        const D3DSP_DSTMOD_MASK: i32 = 15728640;
+        const D3DSP_DSTMOD_SHIFT: i32 = 20;
+        const D3DSP_DSTSHIFT_MASK: i32 = 251658240;
+        const D3DSP_DSTSHIFT_SHIFT: i32 = 24;
+        const D3DSP_MIN_PRECISION_MASK: i32 = 49152;
+        const D3DSP_MIN_PRECISION_SHIFT: i32 = 14;
+        const D3DSP_NOSWIZZLE: i32 = 14942208;
+        const D3DSP_OPCODESPECIFICCONTROL_MASK: i32 = 16711680;
+        const D3DSP_OPCODESPECIFICCONTROL_SHIFT: i32 = 16;
+        const D3DSP_REGNUM_MASK: i32 = 2047;
+        const D3DSP_REGTYPE_MASK: i32 = 1879048192;
+        const D3DSP_REGTYPE_MASK2: i32 = 6144;
+        const D3DSP_REGTYPE_SHIFT: i32 = 28;
+        const D3DSP_REGTYPE_SHIFT2: i32 = 8;
+        const D3DSP_REPLICATEALPHA: i32 = 16711680;
+        const D3DSP_REPLICATEBLUE: i32 = 11141120;
+        const D3DSP_REPLICATEGREEN: i32 = 5570560;
+        const D3DSP_REPLICATERED: i32 = 0;
+        const D3DSP_SRCMOD_MASK: i32 = 251658240;
+        const D3DSP_SRCMOD_SHIFT: i32 = 24;
+        const D3DSP_SWIZZLE_MASK: i32 = 16711680;
+        const D3DSP_SWIZZLE_SHIFT: i32 = 16;
+        const D3DSP_TEXTURETYPE_MASK: i32 = 2013265920;
+        const D3DSP_TEXTURETYPE_SHIFT: i32 = 27;
+        const D3DSP_WRITEMASK_0: i32 = 65536;
+        const D3DSP_WRITEMASK_1: i32 = 131072;
+        const D3DSP_WRITEMASK_2: i32 = 262144;
+        const D3DSP_WRITEMASK_3: i32 = 524288;
+        const D3DSP_WRITEMASK_ALL: i32 = 983040;
         #[repr(i32)]
         enum D3DSTATEBLOCKTYPE {
             D3DSBT_ALL = 1,
@@ -1285,7 +1285,7 @@ mod Windows {
             D3DSTENCILOP_DECR = 8,
             D3DSTENCILOP_FORCE_DWORD = 2147483647,
         }
-        const D3DSTREAMSOURCE_INDEXEDDATA: u32 = 1073741824;
+        const D3DSTREAMSOURCE_INDEXEDDATA: i32 = 1073741824;
         const D3DSTREAMSOURCE_INSTANCEDATA: i32 = -2147483648;
         struct D3DSURFACE_DESC {
             Format: D3DFORMAT,
@@ -1306,16 +1306,16 @@ mod Windows {
             D3DSWAPEFFECT_FLIPEX = 5,
             D3DSWAPEFFECT_FORCE_DWORD = 2147483647,
         }
-        const D3DTA_ALPHAREPLICATE: u32 = 32;
-        const D3DTA_COMPLEMENT: u32 = 16;
-        const D3DTA_CONSTANT: u32 = 6;
-        const D3DTA_CURRENT: u32 = 1;
-        const D3DTA_DIFFUSE: u32 = 0;
-        const D3DTA_SELECTMASK: u32 = 15;
-        const D3DTA_SPECULAR: u32 = 4;
-        const D3DTA_TEMP: u32 = 5;
-        const D3DTA_TEXTURE: u32 = 2;
-        const D3DTA_TFACTOR: u32 = 3;
+        const D3DTA_ALPHAREPLICATE: i32 = 32;
+        const D3DTA_COMPLEMENT: i32 = 16;
+        const D3DTA_CONSTANT: i32 = 6;
+        const D3DTA_CURRENT: i32 = 1;
+        const D3DTA_DIFFUSE: i32 = 0;
+        const D3DTA_SELECTMASK: i32 = 15;
+        const D3DTA_SPECULAR: i32 = 4;
+        const D3DTA_TEMP: i32 = 5;
+        const D3DTA_TEXTURE: i32 = 2;
+        const D3DTA_TFACTOR: i32 = 3;
         #[repr(i32)]
         enum D3DTEXTUREADDRESS {
             D3DTADDRESS_WRAP = 1,
@@ -1418,38 +1418,38 @@ mod Windows {
             Basis: D3DBASISTYPE,
             Degree: D3DDEGREETYPE,
         }
-        const D3DTSS_TCI_CAMERASPACENORMAL: u32 = 65536;
-        const D3DTSS_TCI_CAMERASPACEPOSITION: u32 = 131072;
-        const D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR: u32 = 196608;
-        const D3DTSS_TCI_PASSTHRU: u32 = 0;
-        const D3DTSS_TCI_SPHEREMAP: u32 = 262144;
-        const D3DTS_WORLD: u32 = 256;
-        const D3DTS_WORLD1: u32 = 257;
-        const D3DTS_WORLD2: u32 = 258;
-        const D3DTS_WORLD3: u32 = 259;
-        const D3DUSAGE_AUTOGENMIPMAP: u32 = 1024;
-        const D3DUSAGE_DEPTHSTENCIL: u32 = 2;
-        const D3DUSAGE_DMAP: u32 = 16384;
-        const D3DUSAGE_DONOTCLIP: u32 = 32;
-        const D3DUSAGE_DYNAMIC: u32 = 512;
-        const D3DUSAGE_NONSECURE: u32 = 8388608;
-        const D3DUSAGE_NPATCHES: u32 = 256;
-        const D3DUSAGE_POINTS: u32 = 64;
-        const D3DUSAGE_QUERY_FILTER: u32 = 131072;
-        const D3DUSAGE_QUERY_LEGACYBUMPMAP: u32 = 32768;
-        const D3DUSAGE_QUERY_POSTPIXELSHADER_BLENDING: u32 = 524288;
-        const D3DUSAGE_QUERY_SRGBREAD: u32 = 65536;
-        const D3DUSAGE_QUERY_SRGBWRITE: u32 = 262144;
-        const D3DUSAGE_QUERY_VERTEXTEXTURE: u32 = 1048576;
-        const D3DUSAGE_QUERY_WRAPANDMIP: u32 = 2097152;
-        const D3DUSAGE_RENDERTARGET: u32 = 1;
-        const D3DUSAGE_RESTRICTED_CONTENT: u32 = 2048;
-        const D3DUSAGE_RESTRICT_SHARED_RESOURCE: u32 = 8192;
-        const D3DUSAGE_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 4096;
-        const D3DUSAGE_RTPATCHES: u32 = 128;
-        const D3DUSAGE_SOFTWAREPROCESSING: u32 = 16;
-        const D3DUSAGE_TEXTAPI: u32 = 268435456;
-        const D3DUSAGE_WRITEONLY: u32 = 8;
+        const D3DTSS_TCI_CAMERASPACENORMAL: i32 = 65536;
+        const D3DTSS_TCI_CAMERASPACEPOSITION: i32 = 131072;
+        const D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR: i32 = 196608;
+        const D3DTSS_TCI_PASSTHRU: i32 = 0;
+        const D3DTSS_TCI_SPHEREMAP: i32 = 262144;
+        const D3DTS_WORLD: i32 = 256;
+        const D3DTS_WORLD1: i32 = 257;
+        const D3DTS_WORLD2: i32 = 258;
+        const D3DTS_WORLD3: i32 = 259;
+        const D3DUSAGE_AUTOGENMIPMAP: i32 = 1024;
+        const D3DUSAGE_DEPTHSTENCIL: i32 = 2;
+        const D3DUSAGE_DMAP: i32 = 16384;
+        const D3DUSAGE_DONOTCLIP: i32 = 32;
+        const D3DUSAGE_DYNAMIC: i32 = 512;
+        const D3DUSAGE_NONSECURE: i32 = 8388608;
+        const D3DUSAGE_NPATCHES: i32 = 256;
+        const D3DUSAGE_POINTS: i32 = 64;
+        const D3DUSAGE_QUERY_FILTER: i32 = 131072;
+        const D3DUSAGE_QUERY_LEGACYBUMPMAP: i32 = 32768;
+        const D3DUSAGE_QUERY_POSTPIXELSHADER_BLENDING: i32 = 524288;
+        const D3DUSAGE_QUERY_SRGBREAD: i32 = 65536;
+        const D3DUSAGE_QUERY_SRGBWRITE: i32 = 262144;
+        const D3DUSAGE_QUERY_VERTEXTEXTURE: i32 = 1048576;
+        const D3DUSAGE_QUERY_WRAPANDMIP: i32 = 2097152;
+        const D3DUSAGE_RENDERTARGET: i32 = 1;
+        const D3DUSAGE_RESTRICTED_CONTENT: i32 = 2048;
+        const D3DUSAGE_RESTRICT_SHARED_RESOURCE: i32 = 8192;
+        const D3DUSAGE_RESTRICT_SHARED_RESOURCE_DRIVER: i32 = 4096;
+        const D3DUSAGE_RTPATCHES: i32 = 128;
+        const D3DUSAGE_SOFTWAREPROCESSING: i32 = 16;
+        const D3DUSAGE_TEXTAPI: i32 = 268435456;
+        const D3DUSAGE_WRITEONLY: i32 = 8;
         #[repr(i32)]
         enum D3DVERTEXBLENDFLAGS {
             D3DVBF_DISABLE = 0,
@@ -1476,10 +1476,10 @@ mod Windows {
             Usage: u8,
             UsageIndex: u8,
         }
-        const D3DVERTEXTEXTURESAMPLER0: u32 = 257;
-        const D3DVERTEXTEXTURESAMPLER1: u32 = 258;
-        const D3DVERTEXTEXTURESAMPLER2: u32 = 259;
-        const D3DVERTEXTEXTURESAMPLER3: u32 = 260;
+        const D3DVERTEXTEXTURESAMPLER0: i32 = 257;
+        const D3DVERTEXTEXTURESAMPLER1: i32 = 258;
+        const D3DVERTEXTEXTURESAMPLER2: i32 = 259;
+        const D3DVERTEXTEXTURESAMPLER3: i32 = 260;
         struct D3DVIEWPORT9 {
             X: u32,
             Y: u32,
@@ -1497,15 +1497,15 @@ mod Windows {
             Height: u32,
             Depth: u32,
         }
-        const D3DVS_ADDRESSMODE_MASK: u32 = 8192;
-        const D3DVS_ADDRESSMODE_SHIFT: u32 = 13;
+        const D3DVS_ADDRESSMODE_MASK: i32 = 8192;
+        const D3DVS_ADDRESSMODE_SHIFT: i32 = 13;
         #[repr(i32)]
         enum D3DVS_ADDRESSMODE_TYPE {
             D3DVS_ADDRMODE_ABSOLUTE = 0,
             D3DVS_ADDRMODE_RELATIVE = 8192,
             D3DVS_ADDRMODE_FORCE_DWORD = 2147483647,
         }
-        const D3DVS_NOSWIZZLE: u32 = 14942208;
+        const D3DVS_NOSWIZZLE: i32 = 14942208;
         #[repr(i32)]
         enum D3DVS_RASTOUT_OFFSETS {
             D3DSRO_POSITION = 0,
@@ -1513,31 +1513,31 @@ mod Windows {
             D3DSRO_POINT_SIZE = 2,
             D3DSRO_FORCE_DWORD = 2147483647,
         }
-        const D3DVS_SWIZZLE_MASK: u32 = 16711680;
-        const D3DVS_SWIZZLE_SHIFT: u32 = 16;
-        const D3DVS_W_W: u32 = 12582912;
-        const D3DVS_W_X: u32 = 0;
-        const D3DVS_W_Y: u32 = 4194304;
-        const D3DVS_W_Z: u32 = 8388608;
-        const D3DVS_X_W: u32 = 196608;
-        const D3DVS_X_X: u32 = 0;
-        const D3DVS_X_Y: u32 = 65536;
-        const D3DVS_X_Z: u32 = 131072;
-        const D3DVS_Y_W: u32 = 786432;
-        const D3DVS_Y_X: u32 = 0;
-        const D3DVS_Y_Y: u32 = 262144;
-        const D3DVS_Y_Z: u32 = 524288;
-        const D3DVS_Z_W: u32 = 3145728;
-        const D3DVS_Z_X: u32 = 0;
-        const D3DVS_Z_Y: u32 = 1048576;
-        const D3DVS_Z_Z: u32 = 2097152;
-        const D3DWRAPCOORD_0: u32 = 1;
-        const D3DWRAPCOORD_1: u32 = 2;
-        const D3DWRAPCOORD_2: u32 = 4;
-        const D3DWRAPCOORD_3: u32 = 8;
-        const D3DWRAP_U: u32 = 1;
-        const D3DWRAP_V: u32 = 2;
-        const D3DWRAP_W: u32 = 4;
+        const D3DVS_SWIZZLE_MASK: i32 = 16711680;
+        const D3DVS_SWIZZLE_SHIFT: i32 = 16;
+        const D3DVS_W_W: i32 = 12582912;
+        const D3DVS_W_X: i32 = 0;
+        const D3DVS_W_Y: i32 = 4194304;
+        const D3DVS_W_Z: i32 = 8388608;
+        const D3DVS_X_W: i32 = 196608;
+        const D3DVS_X_X: i32 = 0;
+        const D3DVS_X_Y: i32 = 65536;
+        const D3DVS_X_Z: i32 = 131072;
+        const D3DVS_Y_W: i32 = 786432;
+        const D3DVS_Y_X: i32 = 0;
+        const D3DVS_Y_Y: i32 = 262144;
+        const D3DVS_Y_Z: i32 = 524288;
+        const D3DVS_Z_W: i32 = 3145728;
+        const D3DVS_Z_X: i32 = 0;
+        const D3DVS_Z_Y: i32 = 1048576;
+        const D3DVS_Z_Z: i32 = 2097152;
+        const D3DWRAPCOORD_0: i32 = 1;
+        const D3DWRAPCOORD_1: i32 = 2;
+        const D3DWRAPCOORD_2: i32 = 4;
+        const D3DWRAPCOORD_3: i32 = 8;
+        const D3DWRAP_U: i32 = 1;
+        const D3DWRAP_V: i32 = 2;
+        const D3DWRAP_W: i32 = 4;
         #[repr(i32)]
         enum D3DZBUFFERTYPE {
             D3DZB_FALSE = 0,
@@ -1545,21 +1545,21 @@ mod Windows {
             D3DZB_USEW = 2,
             D3DZB_FORCE_DWORD = 2147483647,
         }
-        const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: u32 = 4;
+        const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: i32 = 4;
         struct D3D_OMAC {
             Omac: [u8; 16],
         }
-        const D3D_OMAC_SIZE: u32 = 16;
-        const DIRECT3D_VERSION: u32 = 2304;
+        const D3D_OMAC_SIZE: i32 = 16;
+        const DIRECT3D_VERSION: i32 = 2304;
         type LPD3DDEVINFO_D3DVERTEXSTATS = *mut D3DDEVINFO_D3DVERTEXSTATS;
         type LPD3DDEVINFO_RESOURCEMANAGER = *mut D3DDEVINFO_RESOURCEMANAGER;
         type LPD3DDEVINFO_VCACHE = *mut D3DDEVINFO_VCACHE;
         type LPD3DVERTEXELEMENT9 = *mut D3DVERTEXELEMENT9;
-        const MAXD3DDECLLENGTH: u32 = 64;
-        const MAXD3DDECLMETHOD: u32 = 6;
-        const MAXD3DDECLTYPE: u32 = 17;
-        const MAXD3DDECLUSAGE: u32 = 13;
-        const MAXD3DDECLUSAGEINDEX: u32 = 15;
-        const MAX_DEVICE_IDENTIFIER_STRING: u32 = 512;
+        const MAXD3DDECLLENGTH: i32 = 64;
+        const MAXD3DDECLMETHOD: i32 = 6;
+        const MAXD3DDECLTYPE: i32 = 17;
+        const MAXD3DDECLUSAGE: i32 = 13;
+        const MAXD3DDECLUSAGEINDEX: i32 = 15;
+        const MAX_DEVICE_IDENTIFIER_STRING: i32 = 512;
     }
 }

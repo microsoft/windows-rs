@@ -640,58 +640,61 @@ pub struct AFPROTOCOLS {
     pub iAddressFamily: i32,
     pub iProtocol: i32,
 }
-pub const BASE_PROTOCOL: u32 = 1;
-pub const BIGENDIAN: u32 = 0;
-pub const CF_ACCEPT: u32 = 0;
-pub const CF_DEFER: u32 = 2;
-pub const CF_REJECT: u32 = 1;
+pub const BASE_PROTOCOL: i32 = 1;
+pub const BIGENDIAN: i32 = 0;
+pub const CF_ACCEPT: i32 = 0;
+pub const CF_DEFER: i32 = 2;
+pub const CF_REJECT: i32 = 1;
 pub const COMP_EQUAL: WSAECOMPARATOR = 0;
 pub const COMP_NOTLESS: WSAECOMPARATOR = 1;
-pub const FD_ACCEPT: u32 = 8;
-pub const FD_ACCEPT_BIT: u32 = 3;
-pub const FD_ADDRESS_LIST_CHANGE: u32 = 512;
-pub const FD_ADDRESS_LIST_CHANGE_BIT: u32 = 9;
-pub const FD_ALL_EVENTS: u32 = 1023;
-pub const FD_CLOSE: u32 = 32;
-pub const FD_CLOSE_BIT: u32 = 5;
-pub const FD_CONNECT: u32 = 16;
-pub const FD_CONNECT_BIT: u32 = 4;
-pub const FD_GROUP_QOS: u32 = 128;
-pub const FD_GROUP_QOS_BIT: u32 = 7;
-pub const FD_MAX_EVENTS: u32 = 10;
-pub const FD_OOB: u32 = 4;
-pub const FD_OOB_BIT: u32 = 2;
-pub const FD_QOS: u32 = 64;
-pub const FD_QOS_BIT: u32 = 6;
-pub const FD_READ: u32 = 1;
-pub const FD_READ_BIT: u32 = 0;
-pub const FD_ROUTING_INTERFACE_CHANGE: u32 = 256;
-pub const FD_ROUTING_INTERFACE_CHANGE_BIT: u32 = 8;
+pub const FD_ACCEPT: i32 = 8;
+pub const FD_ACCEPT_BIT: i32 = 3;
+pub const FD_ADDRESS_LIST_CHANGE: i32 = 512;
+pub const FD_ADDRESS_LIST_CHANGE_BIT: i32 = 9;
+pub const FD_ALL_EVENTS: i32 = 1023;
+pub const FD_CLOSE: i32 = 32;
+pub const FD_CLOSE_BIT: i32 = 5;
+pub const FD_CONNECT: i32 = 16;
+pub const FD_CONNECT_BIT: i32 = 4;
+pub const FD_GROUP_QOS: i32 = 128;
+pub const FD_GROUP_QOS_BIT: i32 = 7;
+pub const FD_MAX_EVENTS: i32 = 10;
+pub const FD_OOB: i32 = 4;
+pub const FD_OOB_BIT: i32 = 2;
+pub const FD_QOS: i32 = 64;
+pub const FD_QOS_BIT: i32 = 6;
+pub const FD_READ: i32 = 1;
+pub const FD_READ_BIT: i32 = 0;
+pub const FD_ROUTING_INTERFACE_CHANGE: i32 = 256;
+pub const FD_ROUTING_INTERFACE_CHANGE_BIT: i32 = 8;
 pub type FD_SET = fd_set;
-pub const FD_SETSIZE: u32 = 64;
-pub const FD_WRITE: u32 = 2;
-pub const FD_WRITE_BIT: u32 = 1;
-pub const FIOASYNC: i32 = -2147195267;
-pub const FIONBIO: i32 = -2147195266;
-pub const FIONREAD: u32 = 1074030207;
+pub const FD_SETSIZE: i32 = 64;
+pub const FD_WRITE: i32 = 2;
+pub const FD_WRITE_BIT: i32 = 1;
+pub const FIOASYNC: u32 = 2147772029;
+pub const FIONBIO: u32 = 2147772030;
+pub const FIONREAD: i32 = 1074030207;
 pub const FROM_PROTOCOL_INFO: i32 = -1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct GROUP(pub u32);
 pub type HOSTENT = hostent;
-pub const HOST_NOT_FOUND: u32 = 11001;
-pub const IMPLINK_HIGHEXPER: u32 = 158;
-pub const IMPLINK_IP: u32 = 155;
-pub const IMPLINK_LOWEXPER: u32 = 156;
-pub const INCL_WINSOCK_API_PROTOTYPES: u32 = 1;
-pub const INCL_WINSOCK_API_TYPEDEFS: u32 = 0;
-pub const INVALID_SOCKET: i32 = -1;
-pub const JL_BOTH: u32 = 4;
-pub const JL_RECEIVER_ONLY: u32 = 2;
-pub const JL_SENDER_ONLY: u32 = 1;
-pub const LAYERED_PROTOCOL: u32 = 0;
+pub const HOST_NOT_FOUND: i32 = 11001;
+pub const IMPLINK_HIGHEXPER: i32 = 158;
+pub const IMPLINK_IP: i32 = 155;
+pub const IMPLINK_LOWEXPER: i32 = 156;
+pub const INCL_WINSOCK_API_PROTOTYPES: i32 = 1;
+pub const INCL_WINSOCK_API_TYPEDEFS: i32 = 0;
+#[cfg(target_arch = "x86")]
+pub const INVALID_SOCKET: u32 = 4294967295;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const INVALID_SOCKET: u64 = 18446744073709551615;
+pub const JL_BOTH: i32 = 4;
+pub const JL_RECEIVER_ONLY: i32 = 2;
+pub const JL_SENDER_ONLY: i32 = 1;
+pub const LAYERED_PROTOCOL: i32 = 0;
 pub type LINGER = linger;
-pub const LITTLEENDIAN: u32 = 1;
+pub const LITTLEENDIAN: i32 = 1;
 pub type LPAFPROTOCOLS = *mut AFPROTOCOLS;
 #[cfg(all(feature = "qos", feature = "ws2"))]
 pub type LPCONDITIONPROC = Option<unsafe extern "system" fn(lpcallerid: *mut super::WSABUF, lpcallerdata: *mut super::WSABUF, lpsqos: *mut QOS, lpgqos: *mut QOS, lpcalleeid: *mut super::WSABUF, lpcalleedata: *mut super::WSABUF, g: *mut GROUP, dwcallbackdata: usize) -> i32>;
@@ -752,110 +755,110 @@ pub type LPWSASERVICECLASSINFOA = *mut WSASERVICECLASSINFOA;
 #[cfg(feature = "guiddef")]
 pub type LPWSASERVICECLASSINFOW = *mut WSASERVICECLASSINFOW;
 pub type LPWSAVERSION = *mut WSAVERSION;
-pub const LUP_ADDRCONFIG: u32 = 1048576;
-pub const LUP_API_ANSI: u32 = 16777216;
-pub const LUP_CONTAINERS: u32 = 2;
-pub const LUP_DEEP: u32 = 1;
-pub const LUP_DISABLE_IDN_ENCODING: u32 = 8388608;
-pub const LUP_DNS_ONLY: u32 = 131072;
-pub const LUP_DUAL_ADDR: u32 = 2097152;
-pub const LUP_EXCLUSIVE_CUSTOM_SERVERS: u32 = 134217728;
-pub const LUP_EXTENDED_QUERYSET: u32 = 33554432;
-pub const LUP_FILESERVER: u32 = 4194304;
-pub const LUP_FLUSHCACHE: u32 = 4096;
-pub const LUP_FLUSHPREVIOUS: u32 = 8192;
-pub const LUP_FORCE_CLEAR_TEXT: u32 = 1073741824;
-pub const LUP_NEAREST: u32 = 8;
-pub const LUP_NOCONTAINERS: u32 = 4;
-pub const LUP_NON_AUTHORITATIVE: u32 = 16384;
-pub const LUP_REQUIRE_SECURE: u32 = 268435456;
-pub const LUP_RESERVED_UNUSED: u32 = 524288;
+pub const LUP_ADDRCONFIG: i32 = 1048576;
+pub const LUP_API_ANSI: i32 = 16777216;
+pub const LUP_CONTAINERS: i32 = 2;
+pub const LUP_DEEP: i32 = 1;
+pub const LUP_DISABLE_IDN_ENCODING: i32 = 8388608;
+pub const LUP_DNS_ONLY: i32 = 131072;
+pub const LUP_DUAL_ADDR: i32 = 2097152;
+pub const LUP_EXCLUSIVE_CUSTOM_SERVERS: i32 = 134217728;
+pub const LUP_EXTENDED_QUERYSET: i32 = 33554432;
+pub const LUP_FILESERVER: i32 = 4194304;
+pub const LUP_FLUSHCACHE: i32 = 4096;
+pub const LUP_FLUSHPREVIOUS: i32 = 8192;
+pub const LUP_FORCE_CLEAR_TEXT: i32 = 1073741824;
+pub const LUP_NEAREST: i32 = 8;
+pub const LUP_NOCONTAINERS: i32 = 4;
+pub const LUP_NON_AUTHORITATIVE: i32 = 16384;
+pub const LUP_REQUIRE_SECURE: i32 = 268435456;
+pub const LUP_RESERVED_UNUSED: i32 = 524288;
 pub const LUP_RESOLUTION_HANDLE: u32 = 2147483648;
-pub const LUP_RES_SERVICE: u32 = 32768;
-pub const LUP_RETURN_ADDR: u32 = 256;
-pub const LUP_RETURN_ALIASES: u32 = 1024;
-pub const LUP_RETURN_ALL: u32 = 4080;
-pub const LUP_RETURN_BLOB: u32 = 512;
-pub const LUP_RETURN_COMMENT: u32 = 128;
-pub const LUP_RETURN_NAME: u32 = 16;
-pub const LUP_RETURN_PREFERRED_NAMES: u32 = 65536;
-pub const LUP_RETURN_QUERY_STRING: u32 = 2048;
-pub const LUP_RETURN_RESPONSE_FLAGS: u32 = 262144;
-pub const LUP_RETURN_TTL: u32 = 536870912;
-pub const LUP_RETURN_TYPE: u32 = 32;
-pub const LUP_RETURN_VERSION: u32 = 64;
-pub const LUP_SECURE: u32 = 32768;
-pub const LUP_SECURE_WITH_FALLBACK: u32 = 67108864;
-pub const MAXGETHOSTSTRUCT: u32 = 1024;
-pub const MAX_PROTOCOL_CHAIN: u32 = 7;
-pub const MSG_DONTROUTE: u32 = 4;
-pub const MSG_INTERRUPT: u32 = 16;
-pub const MSG_MAXIOVLEN: u32 = 16;
-pub const MSG_OOB: u32 = 1;
-pub const MSG_PARTIAL: u32 = 32768;
-pub const MSG_PEEK: u32 = 2;
-pub const MSG_PUSH_IMMEDIATE: u32 = 32;
-pub const MSG_WAITALL: u32 = 8;
-pub const NO_ADDRESS: u32 = 11004;
-pub const NO_DATA: u32 = 11004;
-pub const NO_RECOVERY: u32 = 11003;
+pub const LUP_RES_SERVICE: i32 = 32768;
+pub const LUP_RETURN_ADDR: i32 = 256;
+pub const LUP_RETURN_ALIASES: i32 = 1024;
+pub const LUP_RETURN_ALL: i32 = 4080;
+pub const LUP_RETURN_BLOB: i32 = 512;
+pub const LUP_RETURN_COMMENT: i32 = 128;
+pub const LUP_RETURN_NAME: i32 = 16;
+pub const LUP_RETURN_PREFERRED_NAMES: i32 = 65536;
+pub const LUP_RETURN_QUERY_STRING: i32 = 2048;
+pub const LUP_RETURN_RESPONSE_FLAGS: i32 = 262144;
+pub const LUP_RETURN_TTL: i32 = 536870912;
+pub const LUP_RETURN_TYPE: i32 = 32;
+pub const LUP_RETURN_VERSION: i32 = 64;
+pub const LUP_SECURE: i32 = 32768;
+pub const LUP_SECURE_WITH_FALLBACK: i32 = 67108864;
+pub const MAXGETHOSTSTRUCT: i32 = 1024;
+pub const MAX_PROTOCOL_CHAIN: i32 = 7;
+pub const MSG_DONTROUTE: i32 = 4;
+pub const MSG_INTERRUPT: i32 = 16;
+pub const MSG_MAXIOVLEN: i32 = 16;
+pub const MSG_OOB: i32 = 1;
+pub const MSG_PARTIAL: i32 = 32768;
+pub const MSG_PEEK: i32 = 2;
+pub const MSG_PUSH_IMMEDIATE: i32 = 32;
+pub const MSG_WAITALL: i32 = 8;
+pub const NO_ADDRESS: i32 = 11004;
+pub const NO_DATA: i32 = 11004;
+pub const NO_RECOVERY: i32 = 11003;
 pub const NSP_NOTIFY_APC: WSACOMPLETIONTYPE = 4;
 pub const NSP_NOTIFY_EVENT: WSACOMPLETIONTYPE = 2;
 pub const NSP_NOTIFY_HWND: WSACOMPLETIONTYPE = 1;
 pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = 0;
 pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = 3;
-pub const NS_LOCALNAME: u32 = 19;
+pub const NS_LOCALNAME: i32 = 19;
 pub type PAFPROTOCOLS = *mut AFPROTOCOLS;
 pub type PFD_SET = *mut fd_set;
-pub const PFL_HIDDEN: u32 = 4;
-pub const PFL_MATCHES_PROTOCOL_ZERO: u32 = 8;
-pub const PFL_MULTIPLE_PROTO_ENTRIES: u32 = 1;
-pub const PFL_NETWORKDIRECT_PROVIDER: u32 = 16;
-pub const PFL_RECOMMENDED_PROTO_ENTRY: u32 = 2;
-pub const PF_APPLETALK: u32 = 16;
-pub const PF_ATM: u32 = 22;
-pub const PF_BAN: u32 = 21;
-pub const PF_BTH: u32 = 32;
-pub const PF_CCITT: u32 = 10;
-pub const PF_CHAOS: u32 = 5;
-pub const PF_DATAKIT: u32 = 9;
-pub const PF_DECnet: u32 = 12;
-pub const PF_DLI: u32 = 13;
-pub const PF_ECMA: u32 = 8;
-pub const PF_FIREFOX: u32 = 19;
-pub const PF_HYLINK: u32 = 15;
-pub const PF_IMPLINK: u32 = 3;
-pub const PF_INET: u32 = 2;
-pub const PF_INET6: u32 = 23;
-pub const PF_IPX: u32 = 6;
-pub const PF_ISO: u32 = 7;
-pub const PF_LAT: u32 = 14;
-pub const PF_MAX: u32 = 35;
-pub const PF_NS: u32 = 6;
-pub const PF_OSI: u32 = 7;
-pub const PF_PUP: u32 = 4;
-pub const PF_SNA: u32 = 11;
-pub const PF_UNIX: u32 = 1;
-pub const PF_UNKNOWN1: u32 = 20;
-pub const PF_UNSPEC: u32 = 0;
-pub const PF_VOICEVIEW: u32 = 18;
+pub const PFL_HIDDEN: i32 = 4;
+pub const PFL_MATCHES_PROTOCOL_ZERO: i32 = 8;
+pub const PFL_MULTIPLE_PROTO_ENTRIES: i32 = 1;
+pub const PFL_NETWORKDIRECT_PROVIDER: i32 = 16;
+pub const PFL_RECOMMENDED_PROTO_ENTRY: i32 = 2;
+pub const PF_APPLETALK: i32 = 16;
+pub const PF_ATM: i32 = 22;
+pub const PF_BAN: i32 = 21;
+pub const PF_BTH: i32 = 32;
+pub const PF_CCITT: i32 = 10;
+pub const PF_CHAOS: i32 = 5;
+pub const PF_DATAKIT: i32 = 9;
+pub const PF_DECnet: i32 = 12;
+pub const PF_DLI: i32 = 13;
+pub const PF_ECMA: i32 = 8;
+pub const PF_FIREFOX: i32 = 19;
+pub const PF_HYLINK: i32 = 15;
+pub const PF_IMPLINK: i32 = 3;
+pub const PF_INET: i32 = 2;
+pub const PF_INET6: i32 = 23;
+pub const PF_IPX: i32 = 6;
+pub const PF_ISO: i32 = 7;
+pub const PF_LAT: i32 = 14;
+pub const PF_MAX: i32 = 35;
+pub const PF_NS: i32 = 6;
+pub const PF_OSI: i32 = 7;
+pub const PF_PUP: i32 = 4;
+pub const PF_SNA: i32 = 11;
+pub const PF_UNIX: i32 = 1;
+pub const PF_UNKNOWN1: i32 = 20;
+pub const PF_UNSPEC: i32 = 0;
+pub const PF_VOICEVIEW: i32 = 18;
 pub type PHOSTENT = *mut hostent;
 pub type PLINGER = *mut linger;
-pub const POLLERR: u32 = 1;
-pub const POLLHUP: u32 = 2;
-pub const POLLIN: u32 = 768;
-pub const POLLNVAL: u32 = 4;
-pub const POLLOUT: u32 = 16;
-pub const POLLPRI: u32 = 1024;
-pub const POLLRDBAND: u32 = 512;
-pub const POLLRDNORM: u32 = 256;
-pub const POLLWRBAND: u32 = 32;
-pub const POLLWRNORM: u32 = 16;
+pub const POLLERR: i32 = 1;
+pub const POLLHUP: i32 = 2;
+pub const POLLIN: i32 = 768;
+pub const POLLNVAL: i32 = 4;
+pub const POLLOUT: i32 = 16;
+pub const POLLPRI: i32 = 1024;
+pub const POLLRDBAND: i32 = 512;
+pub const POLLRDNORM: i32 = 256;
+pub const POLLWRBAND: i32 = 32;
+pub const POLLWRNORM: i32 = 16;
 pub type PPROTOENT = *mut protoent;
 pub type PROTOENT = protoent;
 pub type PSERVENT = *mut servent;
 pub type PTIMEVAL = *mut timeval;
-pub const PVD_CONFIG: u32 = 12289;
+pub const PVD_CONFIG: i32 = 12289;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type PWSACOMPLETION = *mut WSACOMPLETION;
 pub type PWSACOMPLETIONTYPE = *mut WSACOMPLETIONTYPE;
@@ -901,22 +904,22 @@ pub struct QOS {
     pub ReceivingFlowspec: super::FLOWSPEC,
     pub ProviderSpecific: super::WSABUF,
 }
-pub const RESULT_IS_ADDED: u32 = 16;
-pub const RESULT_IS_ALIAS: u32 = 1;
-pub const RESULT_IS_CHANGED: u32 = 32;
-pub const RESULT_IS_DELETED: u32 = 64;
-pub const RES_FLUSH_CACHE: u32 = 2;
-pub const RES_SERVICE: u32 = 4;
-pub const RES_UNUSED_1: u32 = 1;
+pub const RESULT_IS_ADDED: i32 = 16;
+pub const RESULT_IS_ALIAS: i32 = 1;
+pub const RESULT_IS_CHANGED: i32 = 32;
+pub const RESULT_IS_DELETED: i32 = 64;
+pub const RES_FLUSH_CACHE: i32 = 2;
+pub const RES_SERVICE: i32 = 4;
+pub const RES_UNUSED_1: i32 = 1;
 pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = 2;
 pub const RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = 1;
 pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = 0;
-pub const SD_BOTH: u32 = 2;
-pub const SD_RECEIVE: u32 = 0;
-pub const SD_SEND: u32 = 1;
-pub const SECURITY_PROTOCOL_NONE: u32 = 0;
+pub const SD_BOTH: i32 = 2;
+pub const SD_RECEIVE: i32 = 0;
+pub const SD_SEND: i32 = 1;
+pub const SECURITY_PROTOCOL_NONE: i32 = 0;
 pub type SERVENT = servent;
-pub const SERVICE_MULTIPLE: u32 = 1;
+pub const SERVICE_MULTIPLE: i32 = 1;
 pub const SERVICE_TYPE_VALUE_IPXPORTA: windows_core::PCSTR = windows_core::s!("IpxSocket");
 pub const SERVICE_TYPE_VALUE_IPXPORTW: windows_core::PCWSTR = windows_core::w!("IpxSocket");
 pub const SERVICE_TYPE_VALUE_OBJECTIDA: windows_core::PCSTR = windows_core::s!("ObjectId");
@@ -927,33 +930,33 @@ pub const SERVICE_TYPE_VALUE_TCPPORTA: windows_core::PCSTR = windows_core::s!("T
 pub const SERVICE_TYPE_VALUE_TCPPORTW: windows_core::PCWSTR = windows_core::w!("TcpPort");
 pub const SERVICE_TYPE_VALUE_UDPPORTA: windows_core::PCSTR = windows_core::s!("UdpPort");
 pub const SERVICE_TYPE_VALUE_UDPPORTW: windows_core::PCWSTR = windows_core::w!("UdpPort");
-pub const SG_CONSTRAINED_GROUP: u32 = 2;
-pub const SG_UNCONSTRAINED_GROUP: u32 = 1;
-pub const SIOCATMARK: u32 = 1074033415;
-pub const SIOCGHIWAT: u32 = 1074033409;
-pub const SIOCGLOWAT: u32 = 1074033411;
-pub const SIOCSHIWAT: i32 = -2147192064;
-pub const SIOCSLOWAT: i32 = -2147192062;
-pub const SIO_NSP_NOTIFY_CHANGE: i32 = -2013265895;
+pub const SG_CONSTRAINED_GROUP: i32 = 2;
+pub const SG_UNCONSTRAINED_GROUP: i32 = 1;
+pub const SIOCATMARK: i32 = 1074033415;
+pub const SIOCGHIWAT: i32 = 1074033409;
+pub const SIOCGLOWAT: i32 = 1074033411;
+pub const SIOCSHIWAT: u32 = 2147775232;
+pub const SIOCSLOWAT: u32 = 2147775234;
+pub const SIO_NSP_NOTIFY_CHANGE: u32 = 2281701401;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SOCKET(pub usize);
 pub const SOCKET_ERROR: i32 = -1;
-pub const SOCK_NOTIFY_EVENTS_ALL: u32 = 199;
-pub const SOCK_NOTIFY_EVENT_ERR: u32 = 64;
-pub const SOCK_NOTIFY_EVENT_HANGUP: u32 = 4;
-pub const SOCK_NOTIFY_EVENT_IN: u32 = 1;
-pub const SOCK_NOTIFY_EVENT_OUT: u32 = 2;
-pub const SOCK_NOTIFY_EVENT_REMOVE: u32 = 128;
-pub const SOCK_NOTIFY_OP_DISABLE: u32 = 2;
-pub const SOCK_NOTIFY_OP_ENABLE: u32 = 1;
-pub const SOCK_NOTIFY_OP_NONE: u32 = 0;
-pub const SOCK_NOTIFY_OP_REMOVE: u32 = 4;
-pub const SOCK_NOTIFY_REGISTER_EVENTS_ALL: u32 = 7;
-pub const SOCK_NOTIFY_REGISTER_EVENT_HANGUP: u32 = 4;
-pub const SOCK_NOTIFY_REGISTER_EVENT_IN: u32 = 1;
-pub const SOCK_NOTIFY_REGISTER_EVENT_NONE: u32 = 0;
-pub const SOCK_NOTIFY_REGISTER_EVENT_OUT: u32 = 2;
+pub const SOCK_NOTIFY_EVENTS_ALL: i32 = 199;
+pub const SOCK_NOTIFY_EVENT_ERR: i32 = 64;
+pub const SOCK_NOTIFY_EVENT_HANGUP: i32 = 4;
+pub const SOCK_NOTIFY_EVENT_IN: i32 = 1;
+pub const SOCK_NOTIFY_EVENT_OUT: i32 = 2;
+pub const SOCK_NOTIFY_EVENT_REMOVE: i32 = 128;
+pub const SOCK_NOTIFY_OP_DISABLE: i32 = 2;
+pub const SOCK_NOTIFY_OP_ENABLE: i32 = 1;
+pub const SOCK_NOTIFY_OP_NONE: i32 = 0;
+pub const SOCK_NOTIFY_OP_REMOVE: i32 = 4;
+pub const SOCK_NOTIFY_REGISTER_EVENTS_ALL: i32 = 7;
+pub const SOCK_NOTIFY_REGISTER_EVENT_HANGUP: i32 = 4;
+pub const SOCK_NOTIFY_REGISTER_EVENT_IN: i32 = 1;
+pub const SOCK_NOTIFY_REGISTER_EVENT_NONE: i32 = 0;
+pub const SOCK_NOTIFY_REGISTER_EVENT_OUT: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCK_NOTIFY_REGISTRATION {
@@ -969,19 +972,19 @@ impl Default for SOCK_NOTIFY_REGISTRATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SOCK_NOTIFY_TRIGGER_ALL: u32 = 15;
-pub const SOCK_NOTIFY_TRIGGER_EDGE: u32 = 8;
-pub const SOCK_NOTIFY_TRIGGER_LEVEL: u32 = 4;
-pub const SOCK_NOTIFY_TRIGGER_ONESHOT: u32 = 1;
-pub const SOCK_NOTIFY_TRIGGER_PERSISTENT: u32 = 2;
-pub const SOMAXCONN: u32 = 2147483647;
-pub const SO_PROTOCOL_INFO: u32 = 8196;
-pub const SO_PROTOCOL_INFOA: u32 = 8196;
-pub const SO_PROTOCOL_INFOW: u32 = 8197;
-pub const TH_NETDEV: u32 = 1;
-pub const TH_TAPI: u32 = 2;
+pub const SOCK_NOTIFY_TRIGGER_ALL: i32 = 15;
+pub const SOCK_NOTIFY_TRIGGER_EDGE: i32 = 8;
+pub const SOCK_NOTIFY_TRIGGER_LEVEL: i32 = 4;
+pub const SOCK_NOTIFY_TRIGGER_ONESHOT: i32 = 1;
+pub const SOCK_NOTIFY_TRIGGER_PERSISTENT: i32 = 2;
+pub const SOMAXCONN: i32 = 2147483647;
+pub const SO_PROTOCOL_INFO: i32 = 8196;
+pub const SO_PROTOCOL_INFOA: i32 = 8196;
+pub const SO_PROTOCOL_INFOW: i32 = 8197;
+pub const TH_NETDEV: i32 = 1;
+pub const TH_TAPI: i32 = 2;
 pub type TIMEVAL = timeval;
-pub const TRY_AGAIN: u32 = 11002;
+pub const TRY_AGAIN: i32 = 11002;
 pub const WINSOCK_VERSION: u32 = 514;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
@@ -1077,7 +1080,7 @@ impl Default for WSADATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WSADESCRIPTION_LEN: u32 = 256;
+pub const WSADESCRIPTION_LEN: i32 = 256;
 pub type WSAECOMPARATOR = i32;
 pub type WSAESETSERVICEOP = i32;
 pub type WSANAMESPACE_INFO = WSANAMESPACE_INFOA;
@@ -1134,7 +1137,7 @@ impl Default for WSANETWORKEVENTS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WSANO_ADDRESS: u32 = 11004;
+pub const WSANO_ADDRESS: i32 = 11004;
 pub type WSANSCLASSINFO = WSANSCLASSINFOA;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1241,7 +1244,7 @@ impl Default for WSAPROTOCOL_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WSAPROTOCOL_LEN: u32 = 255;
+pub const WSAPROTOCOL_LEN: i32 = 255;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
 pub type WSAQUERYSET = WSAQUERYSETA;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
@@ -1344,53 +1347,53 @@ pub struct WSASERVICECLASSINFOW {
     pub dwCount: u32,
     pub lpClassInfos: LPWSANSCLASSINFOW,
 }
-pub const WSASYS_STATUS_LEN: u32 = 128;
+pub const WSASYS_STATUS_LEN: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAVERSION {
     pub dwVersion: u32,
     pub ecHow: WSAECOMPARATOR,
 }
-pub const WSA_FLAG_ACCESS_SYSTEM_SECURITY: u32 = 64;
-pub const WSA_FLAG_MULTIPOINT_C_LEAF: u32 = 4;
-pub const WSA_FLAG_MULTIPOINT_C_ROOT: u32 = 2;
-pub const WSA_FLAG_MULTIPOINT_D_LEAF: u32 = 16;
-pub const WSA_FLAG_MULTIPOINT_D_ROOT: u32 = 8;
-pub const WSA_FLAG_NO_HANDLE_INHERIT: u32 = 128;
-pub const WSA_FLAG_OVERLAPPED: u32 = 1;
-pub const WSA_FLAG_REGISTERED_IO: u32 = 256;
-pub const WSA_INFINITE: i32 = -1;
-pub const WSA_INVALID_HANDLE: u32 = 6;
-pub const WSA_INVALID_PARAMETER: u32 = 87;
-pub const WSA_IO_INCOMPLETE: u32 = 996;
-pub const WSA_IO_PENDING: u32 = 997;
-pub const WSA_MAXIMUM_WAIT_EVENTS: u32 = 64;
-pub const WSA_NOT_ENOUGH_MEMORY: u32 = 8;
-pub const WSA_OPERATION_ABORTED: u32 = 995;
-pub const WSA_WAIT_EVENT_0: u32 = 0;
-pub const WSA_WAIT_FAILED: i32 = -1;
-pub const WSA_WAIT_IO_COMPLETION: u32 = 192;
-pub const WSA_WAIT_TIMEOUT: u32 = 258;
-pub const XP1_CONNECTIONLESS: u32 = 1;
-pub const XP1_CONNECT_DATA: u32 = 128;
-pub const XP1_DISCONNECT_DATA: u32 = 256;
-pub const XP1_EXPEDITED_DATA: u32 = 64;
-pub const XP1_GRACEFUL_CLOSE: u32 = 32;
-pub const XP1_GUARANTEED_DELIVERY: u32 = 2;
-pub const XP1_GUARANTEED_ORDER: u32 = 4;
-pub const XP1_IFS_HANDLES: u32 = 131072;
-pub const XP1_INTERRUPT: u32 = 16384;
-pub const XP1_MESSAGE_ORIENTED: u32 = 8;
-pub const XP1_MULTIPOINT_CONTROL_PLANE: u32 = 2048;
-pub const XP1_MULTIPOINT_DATA_PLANE: u32 = 4096;
-pub const XP1_PARTIAL_MESSAGE: u32 = 262144;
-pub const XP1_PSEUDO_STREAM: u32 = 16;
-pub const XP1_QOS_SUPPORTED: u32 = 8192;
-pub const XP1_SAN_SUPPORT_SDP: u32 = 524288;
-pub const XP1_SUPPORT_BROADCAST: u32 = 512;
-pub const XP1_SUPPORT_MULTIPOINT: u32 = 1024;
-pub const XP1_UNI_RECV: u32 = 65536;
-pub const XP1_UNI_SEND: u32 = 32768;
+pub const WSA_FLAG_ACCESS_SYSTEM_SECURITY: i32 = 64;
+pub const WSA_FLAG_MULTIPOINT_C_LEAF: i32 = 4;
+pub const WSA_FLAG_MULTIPOINT_C_ROOT: i32 = 2;
+pub const WSA_FLAG_MULTIPOINT_D_LEAF: i32 = 16;
+pub const WSA_FLAG_MULTIPOINT_D_ROOT: i32 = 8;
+pub const WSA_FLAG_NO_HANDLE_INHERIT: i32 = 128;
+pub const WSA_FLAG_OVERLAPPED: i32 = 1;
+pub const WSA_FLAG_REGISTERED_IO: i32 = 256;
+pub const WSA_INFINITE: u32 = 4294967295;
+pub const WSA_INVALID_HANDLE: i32 = 6;
+pub const WSA_INVALID_PARAMETER: i32 = 87;
+pub const WSA_IO_INCOMPLETE: i32 = 996;
+pub const WSA_IO_PENDING: i32 = 997;
+pub const WSA_MAXIMUM_WAIT_EVENTS: i32 = 64;
+pub const WSA_NOT_ENOUGH_MEMORY: i32 = 8;
+pub const WSA_OPERATION_ABORTED: i32 = 995;
+pub const WSA_WAIT_EVENT_0: i32 = 0;
+pub const WSA_WAIT_FAILED: u32 = 4294967295;
+pub const WSA_WAIT_IO_COMPLETION: i32 = 192;
+pub const WSA_WAIT_TIMEOUT: i32 = 258;
+pub const XP1_CONNECTIONLESS: i32 = 1;
+pub const XP1_CONNECT_DATA: i32 = 128;
+pub const XP1_DISCONNECT_DATA: i32 = 256;
+pub const XP1_EXPEDITED_DATA: i32 = 64;
+pub const XP1_GRACEFUL_CLOSE: i32 = 32;
+pub const XP1_GUARANTEED_DELIVERY: i32 = 2;
+pub const XP1_GUARANTEED_ORDER: i32 = 4;
+pub const XP1_IFS_HANDLES: i32 = 131072;
+pub const XP1_INTERRUPT: i32 = 16384;
+pub const XP1_MESSAGE_ORIENTED: i32 = 8;
+pub const XP1_MULTIPOINT_CONTROL_PLANE: i32 = 2048;
+pub const XP1_MULTIPOINT_DATA_PLANE: i32 = 4096;
+pub const XP1_PARTIAL_MESSAGE: i32 = 262144;
+pub const XP1_PSEUDO_STREAM: i32 = 16;
+pub const XP1_QOS_SUPPORTED: i32 = 8192;
+pub const XP1_SAN_SUPPORT_SDP: i32 = 524288;
+pub const XP1_SUPPORT_BROADCAST: i32 = 512;
+pub const XP1_SUPPORT_MULTIPOINT: i32 = 1024;
+pub const XP1_UNI_RECV: i32 = 65536;
+pub const XP1_UNI_SEND: i32 = 32768;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct fd_set {

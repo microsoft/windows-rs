@@ -30,8 +30,8 @@ impl Default for ACTRL_ACCESSW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ACTRL_ACCESS_ALLOWED: u32 = 1;
-pub const ACTRL_ACCESS_DENIED: u32 = 2;
+pub const ACTRL_ACCESS_ALLOWED: i32 = 1;
+pub const ACTRL_ACCESS_DENIED: i32 = 2;
 #[cfg(feature = "winnt")]
 pub type ACTRL_ACCESS_ENTRY = ACTRL_ACCESS_ENTRYA;
 #[repr(C)]
@@ -119,19 +119,19 @@ impl Default for ACTRL_ACCESS_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0;
-pub const ACTRL_ACCESS_PROTECTED: u32 = 1;
-pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: u32 = 1;
+pub const ACTRL_ACCESS_NO_OPTIONS: i32 = 0;
+pub const ACTRL_ACCESS_PROTECTED: i32 = 1;
+pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: i32 = 1;
 #[cfg(feature = "winnt")]
 pub type ACTRL_AUDIT = ACTRL_AUDITA;
 #[cfg(feature = "winnt")]
 pub type ACTRL_AUDITA = ACTRL_ACCESSA;
 #[cfg(feature = "winnt")]
 pub type ACTRL_AUDITW = ACTRL_ACCESSW;
-pub const ACTRL_AUDIT_FAILURE: u32 = 8;
-pub const ACTRL_AUDIT_SUCCESS: u32 = 4;
-pub const ACTRL_CHANGE_ACCESS: u32 = 536870912;
-pub const ACTRL_CHANGE_OWNER: u32 = 1073741824;
+pub const ACTRL_AUDIT_FAILURE: i32 = 8;
+pub const ACTRL_AUDIT_SUCCESS: i32 = 4;
+pub const ACTRL_CHANGE_ACCESS: i32 = 536870912;
+pub const ACTRL_CHANGE_OWNER: i32 = 1073741824;
 pub type ACTRL_CONTROL_INFO = ACTRL_CONTROL_INFOA;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -155,47 +155,47 @@ impl Default for ACTRL_CONTROL_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ACTRL_DELETE: u32 = 134217728;
-pub const ACTRL_DIR_CREATE_CHILD: u32 = 4;
-pub const ACTRL_DIR_CREATE_OBJECT: u32 = 2;
-pub const ACTRL_DIR_DELETE_CHILD: u32 = 64;
-pub const ACTRL_DIR_LIST: u32 = 1;
-pub const ACTRL_DIR_TRAVERSE: u32 = 32;
-pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256;
-pub const ACTRL_DS_CREATE_CHILD: u32 = 1;
-pub const ACTRL_DS_DELETE_CHILD: u32 = 2;
-pub const ACTRL_DS_DELETE_TREE: u32 = 64;
-pub const ACTRL_DS_LIST: u32 = 4;
-pub const ACTRL_DS_LIST_OBJECT: u32 = 128;
-pub const ACTRL_DS_OPEN: u32 = 0;
-pub const ACTRL_DS_READ_PROP: u32 = 16;
-pub const ACTRL_DS_SELF: u32 = 8;
-pub const ACTRL_DS_WRITE_PROP: u32 = 32;
-pub const ACTRL_FILE_APPEND: u32 = 4;
-pub const ACTRL_FILE_CREATE_PIPE: u32 = 512;
-pub const ACTRL_FILE_EXECUTE: u32 = 32;
-pub const ACTRL_FILE_READ: u32 = 1;
-pub const ACTRL_FILE_READ_ATTRIB: u32 = 128;
-pub const ACTRL_FILE_READ_PROP: u32 = 8;
-pub const ACTRL_FILE_WRITE: u32 = 2;
-pub const ACTRL_FILE_WRITE_ATTRIB: u32 = 256;
-pub const ACTRL_FILE_WRITE_PROP: u32 = 16;
-pub const ACTRL_KERNEL_ALERT: u32 = 1024;
-pub const ACTRL_KERNEL_CONTROL: u32 = 512;
-pub const ACTRL_KERNEL_DIMPERSONATE: u32 = 32768;
-pub const ACTRL_KERNEL_DUP_HANDLE: u32 = 32;
-pub const ACTRL_KERNEL_GET_CONTEXT: u32 = 2048;
-pub const ACTRL_KERNEL_GET_INFO: u32 = 256;
-pub const ACTRL_KERNEL_IMPERSONATE: u32 = 16384;
-pub const ACTRL_KERNEL_PROCESS: u32 = 64;
-pub const ACTRL_KERNEL_SET_CONTEXT: u32 = 4096;
-pub const ACTRL_KERNEL_SET_INFO: u32 = 128;
-pub const ACTRL_KERNEL_TERMINATE: u32 = 1;
-pub const ACTRL_KERNEL_THREAD: u32 = 2;
-pub const ACTRL_KERNEL_TOKEN: u32 = 8192;
-pub const ACTRL_KERNEL_VM: u32 = 4;
-pub const ACTRL_KERNEL_VM_READ: u32 = 8;
-pub const ACTRL_KERNEL_VM_WRITE: u32 = 16;
+pub const ACTRL_DELETE: i32 = 134217728;
+pub const ACTRL_DIR_CREATE_CHILD: i32 = 4;
+pub const ACTRL_DIR_CREATE_OBJECT: i32 = 2;
+pub const ACTRL_DIR_DELETE_CHILD: i32 = 64;
+pub const ACTRL_DIR_LIST: i32 = 1;
+pub const ACTRL_DIR_TRAVERSE: i32 = 32;
+pub const ACTRL_DS_CONTROL_ACCESS: i32 = 256;
+pub const ACTRL_DS_CREATE_CHILD: i32 = 1;
+pub const ACTRL_DS_DELETE_CHILD: i32 = 2;
+pub const ACTRL_DS_DELETE_TREE: i32 = 64;
+pub const ACTRL_DS_LIST: i32 = 4;
+pub const ACTRL_DS_LIST_OBJECT: i32 = 128;
+pub const ACTRL_DS_OPEN: i32 = 0;
+pub const ACTRL_DS_READ_PROP: i32 = 16;
+pub const ACTRL_DS_SELF: i32 = 8;
+pub const ACTRL_DS_WRITE_PROP: i32 = 32;
+pub const ACTRL_FILE_APPEND: i32 = 4;
+pub const ACTRL_FILE_CREATE_PIPE: i32 = 512;
+pub const ACTRL_FILE_EXECUTE: i32 = 32;
+pub const ACTRL_FILE_READ: i32 = 1;
+pub const ACTRL_FILE_READ_ATTRIB: i32 = 128;
+pub const ACTRL_FILE_READ_PROP: i32 = 8;
+pub const ACTRL_FILE_WRITE: i32 = 2;
+pub const ACTRL_FILE_WRITE_ATTRIB: i32 = 256;
+pub const ACTRL_FILE_WRITE_PROP: i32 = 16;
+pub const ACTRL_KERNEL_ALERT: i32 = 1024;
+pub const ACTRL_KERNEL_CONTROL: i32 = 512;
+pub const ACTRL_KERNEL_DIMPERSONATE: i32 = 32768;
+pub const ACTRL_KERNEL_DUP_HANDLE: i32 = 32;
+pub const ACTRL_KERNEL_GET_CONTEXT: i32 = 2048;
+pub const ACTRL_KERNEL_GET_INFO: i32 = 256;
+pub const ACTRL_KERNEL_IMPERSONATE: i32 = 16384;
+pub const ACTRL_KERNEL_PROCESS: i32 = 64;
+pub const ACTRL_KERNEL_SET_CONTEXT: i32 = 4096;
+pub const ACTRL_KERNEL_SET_INFO: i32 = 128;
+pub const ACTRL_KERNEL_TERMINATE: i32 = 1;
+pub const ACTRL_KERNEL_THREAD: i32 = 2;
+pub const ACTRL_KERNEL_TOKEN: i32 = 8192;
+pub const ACTRL_KERNEL_VM: i32 = 4;
+pub const ACTRL_KERNEL_VM_READ: i32 = 8;
+pub const ACTRL_KERNEL_VM_WRITE: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -223,31 +223,31 @@ impl Default for ACTRL_OVERLAPPED_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ACTRL_PERM_1: u32 = 1;
-pub const ACTRL_PERM_10: u32 = 512;
-pub const ACTRL_PERM_11: u32 = 1024;
-pub const ACTRL_PERM_12: u32 = 2048;
-pub const ACTRL_PERM_13: u32 = 4096;
-pub const ACTRL_PERM_14: u32 = 8192;
-pub const ACTRL_PERM_15: u32 = 16384;
-pub const ACTRL_PERM_16: u32 = 32768;
-pub const ACTRL_PERM_17: u32 = 65536;
-pub const ACTRL_PERM_18: u32 = 131072;
-pub const ACTRL_PERM_19: u32 = 262144;
-pub const ACTRL_PERM_2: u32 = 2;
-pub const ACTRL_PERM_20: u32 = 524288;
-pub const ACTRL_PERM_3: u32 = 4;
-pub const ACTRL_PERM_4: u32 = 8;
-pub const ACTRL_PERM_5: u32 = 16;
-pub const ACTRL_PERM_6: u32 = 32;
-pub const ACTRL_PERM_7: u32 = 64;
-pub const ACTRL_PERM_8: u32 = 128;
-pub const ACTRL_PERM_9: u32 = 256;
-pub const ACTRL_PRINT_JADMIN: u32 = 16;
-pub const ACTRL_PRINT_PADMIN: u32 = 4;
-pub const ACTRL_PRINT_PUSE: u32 = 8;
-pub const ACTRL_PRINT_SADMIN: u32 = 1;
-pub const ACTRL_PRINT_SLIST: u32 = 2;
+pub const ACTRL_PERM_1: i32 = 1;
+pub const ACTRL_PERM_10: i32 = 512;
+pub const ACTRL_PERM_11: i32 = 1024;
+pub const ACTRL_PERM_12: i32 = 2048;
+pub const ACTRL_PERM_13: i32 = 4096;
+pub const ACTRL_PERM_14: i32 = 8192;
+pub const ACTRL_PERM_15: i32 = 16384;
+pub const ACTRL_PERM_16: i32 = 32768;
+pub const ACTRL_PERM_17: i32 = 65536;
+pub const ACTRL_PERM_18: i32 = 131072;
+pub const ACTRL_PERM_19: i32 = 262144;
+pub const ACTRL_PERM_2: i32 = 2;
+pub const ACTRL_PERM_20: i32 = 524288;
+pub const ACTRL_PERM_3: i32 = 4;
+pub const ACTRL_PERM_4: i32 = 8;
+pub const ACTRL_PERM_5: i32 = 16;
+pub const ACTRL_PERM_6: i32 = 32;
+pub const ACTRL_PERM_7: i32 = 64;
+pub const ACTRL_PERM_8: i32 = 128;
+pub const ACTRL_PERM_9: i32 = 256;
+pub const ACTRL_PRINT_JADMIN: i32 = 16;
+pub const ACTRL_PRINT_PADMIN: i32 = 4;
+pub const ACTRL_PRINT_PUSE: i32 = 8;
+pub const ACTRL_PRINT_SADMIN: i32 = 1;
+pub const ACTRL_PRINT_SLIST: i32 = 2;
 #[cfg(feature = "winnt")]
 pub type ACTRL_PROPERTY_ENTRY = ACTRL_PROPERTY_ENTRYA;
 #[repr(C)]
@@ -278,36 +278,36 @@ impl Default for ACTRL_PROPERTY_ENTRYW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ACTRL_READ_CONTROL: u32 = 268435456;
-pub const ACTRL_REG_CREATE_CHILD: u32 = 4;
-pub const ACTRL_REG_LINK: u32 = 32;
-pub const ACTRL_REG_LIST: u32 = 8;
-pub const ACTRL_REG_NOTIFY: u32 = 16;
-pub const ACTRL_REG_QUERY: u32 = 1;
-pub const ACTRL_REG_SET: u32 = 2;
-pub const ACTRL_RESERVED: u32 = 0;
+pub const ACTRL_READ_CONTROL: i32 = 268435456;
+pub const ACTRL_REG_CREATE_CHILD: i32 = 4;
+pub const ACTRL_REG_LINK: i32 = 32;
+pub const ACTRL_REG_LIST: i32 = 8;
+pub const ACTRL_REG_NOTIFY: i32 = 16;
+pub const ACTRL_REG_QUERY: i32 = 1;
+pub const ACTRL_REG_SET: i32 = 2;
+pub const ACTRL_RESERVED: i32 = 0;
 pub const ACTRL_STD_RIGHTS_ALL: u32 = 4160749568;
 pub const ACTRL_STD_RIGHT_REQUIRED: u32 = 2013265920;
-pub const ACTRL_SVC_GET_INFO: u32 = 1;
-pub const ACTRL_SVC_INTERROGATE: u32 = 128;
-pub const ACTRL_SVC_LIST: u32 = 8;
-pub const ACTRL_SVC_PAUSE: u32 = 64;
-pub const ACTRL_SVC_SET_INFO: u32 = 2;
-pub const ACTRL_SVC_START: u32 = 16;
-pub const ACTRL_SVC_STATUS: u32 = 4;
-pub const ACTRL_SVC_STOP: u32 = 32;
-pub const ACTRL_SVC_UCONTROL: u32 = 256;
+pub const ACTRL_SVC_GET_INFO: i32 = 1;
+pub const ACTRL_SVC_INTERROGATE: i32 = 128;
+pub const ACTRL_SVC_LIST: i32 = 8;
+pub const ACTRL_SVC_PAUSE: i32 = 64;
+pub const ACTRL_SVC_SET_INFO: i32 = 2;
+pub const ACTRL_SVC_START: i32 = 16;
+pub const ACTRL_SVC_STATUS: i32 = 4;
+pub const ACTRL_SVC_STOP: i32 = 32;
+pub const ACTRL_SVC_UCONTROL: i32 = 256;
 pub const ACTRL_SYNCHRONIZE: u32 = 2147483648;
-pub const ACTRL_SYSTEM_ACCESS: u32 = 67108864;
-pub const ACTRL_WIN_CLIPBRD: u32 = 1;
-pub const ACTRL_WIN_CREATE: u32 = 4;
-pub const ACTRL_WIN_EXIT: u32 = 256;
-pub const ACTRL_WIN_GLOBAL_ATOMS: u32 = 2;
-pub const ACTRL_WIN_LIST: u32 = 16;
-pub const ACTRL_WIN_LIST_DESK: u32 = 8;
-pub const ACTRL_WIN_READ_ATTRIBS: u32 = 32;
-pub const ACTRL_WIN_SCREEN: u32 = 128;
-pub const ACTRL_WIN_WRITE_ATTRIBS: u32 = 64;
+pub const ACTRL_SYSTEM_ACCESS: i32 = 67108864;
+pub const ACTRL_WIN_CLIPBRD: i32 = 1;
+pub const ACTRL_WIN_CREATE: i32 = 4;
+pub const ACTRL_WIN_EXIT: i32 = 256;
+pub const ACTRL_WIN_GLOBAL_ATOMS: i32 = 2;
+pub const ACTRL_WIN_LIST: i32 = 16;
+pub const ACTRL_WIN_LIST_DESK: i32 = 8;
+pub const ACTRL_WIN_READ_ATTRIBS: i32 = 32;
+pub const ACTRL_WIN_SCREEN: i32 = 128;
+pub const ACTRL_WIN_WRITE_ATTRIBS: i32 = 64;
 pub const DENY_ACCESS: ACCESS_MODE = 3;
 #[cfg(feature = "winnt")]
 pub type EXPLICIT_ACCESS = EXPLICIT_ACCESSA;
@@ -341,7 +341,7 @@ pub struct FN_OBJECT_MGR_FUNCTS {
     pub Placeholder: u32,
 }
 pub const GRANT_ACCESS: ACCESS_MODE = 1;
-pub const INHERITED_ACCESS_ENTRY: u32 = 16;
+pub const INHERITED_ACCESS_ENTRY: i32 = 16;
 pub type INHERITED_FROM = INHERITED_FROMA;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -365,14 +365,14 @@ impl Default for INHERITED_FROMW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const INHERITED_GRANDPARENT: u32 = 536870912;
-pub const INHERITED_PARENT: u32 = 268435456;
+pub const INHERITED_GRANDPARENT: i32 = 536870912;
+pub const INHERITED_PARENT: i32 = 268435456;
 pub type INHERIT_FLAGS = u32;
-pub const INHERIT_NO_PROPAGATE: u32 = 4;
-pub const INHERIT_ONLY: u32 = 8;
+pub const INHERIT_NO_PROPAGATE: i32 = 4;
+pub const INHERIT_ONLY: i32 = 8;
 pub type MULTIPLE_TRUSTEE_OPERATION = i32;
 pub const NOT_USED_ACCESS: ACCESS_MODE = 0;
-pub const NO_INHERITANCE: u32 = 0;
+pub const NO_INHERITANCE: i32 = 0;
 pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = 0;
 pub type OBJECTS_AND_NAME_ = OBJECTS_AND_NAME_A;
 #[repr(C)]
@@ -521,12 +521,12 @@ pub const SE_SERVICE: SE_OBJECT_TYPE = 2;
 pub const SE_UNKNOWN_OBJECT_TYPE: SE_OBJECT_TYPE = 0;
 pub const SE_WINDOW_OBJECT: SE_OBJECT_TYPE = 7;
 pub const SE_WMIGUID_OBJECT: SE_OBJECT_TYPE = 11;
-pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: u32 = 3;
-pub const SUB_CONTAINERS_ONLY_INHERIT: u32 = 2;
-pub const SUB_OBJECTS_ONLY_INHERIT: u32 = 1;
-pub const TREE_SEC_INFO_RESET: u32 = 2;
-pub const TREE_SEC_INFO_RESET_KEEP_EXPLICIT: u32 = 3;
-pub const TREE_SEC_INFO_SET: u32 = 1;
+pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: i32 = 3;
+pub const SUB_CONTAINERS_ONLY_INHERIT: i32 = 2;
+pub const SUB_OBJECTS_ONLY_INHERIT: i32 = 1;
+pub const TREE_SEC_INFO_RESET: i32 = 2;
+pub const TREE_SEC_INFO_RESET_KEEP_EXPLICIT: i32 = 3;
+pub const TREE_SEC_INFO_SET: i32 = 1;
 #[cfg(feature = "winnt")]
 pub type TRUSTEE = TRUSTEEA;
 #[cfg(feature = "winnt")]
@@ -579,11 +579,11 @@ impl Default for TRUSTEE_ACCESSW {
     }
 }
 pub const TRUSTEE_ACCESS_ALL: u32 = 4294967295;
-pub const TRUSTEE_ACCESS_ALLOWED: u32 = 1;
-pub const TRUSTEE_ACCESS_EXPLICIT: u32 = 1;
-pub const TRUSTEE_ACCESS_READ: u32 = 2;
-pub const TRUSTEE_ACCESS_READ_WRITE: u32 = 6;
-pub const TRUSTEE_ACCESS_WRITE: u32 = 4;
+pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1;
+pub const TRUSTEE_ACCESS_EXPLICIT: i32 = 1;
+pub const TRUSTEE_ACCESS_READ: i32 = 2;
+pub const TRUSTEE_ACCESS_READ_WRITE: i32 = 6;
+pub const TRUSTEE_ACCESS_WRITE: i32 = 4;
 pub const TRUSTEE_BAD_FORM: TRUSTEE_FORM = 2;
 pub type TRUSTEE_FORM = i32;
 pub const TRUSTEE_IS_ALIAS: TRUSTEE_TYPE = 4;

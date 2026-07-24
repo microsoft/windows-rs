@@ -15,7 +15,7 @@ pub type ICMP4_TYPE = i32;
 pub const ICMP6_DST_UNREACH: ICMP6_TYPE = 1;
 pub const ICMP6_ECHO_REPLY: ICMP6_TYPE = 129;
 pub const ICMP6_ECHO_REQUEST: ICMP6_TYPE = 128;
-pub const ICMP6_INFOMSG_MASK: u32 = 128;
+pub const ICMP6_INFOMSG_MASK: i32 = 128;
 pub const ICMP6_MEMBERSHIP_QUERY: ICMP6_TYPE = 130;
 pub const ICMP6_MEMBERSHIP_REDUCTION: ICMP6_TYPE = 132;
 pub const ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = 131;
@@ -110,12 +110,12 @@ impl Default for MIB_IPADDRTABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MIB_IPADDR_DELETED: u32 = 64;
-pub const MIB_IPADDR_DISCONNECTED: u32 = 8;
-pub const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256;
-pub const MIB_IPADDR_DYNAMIC: u32 = 4;
-pub const MIB_IPADDR_PRIMARY: u32 = 1;
-pub const MIB_IPADDR_TRANSIENT: u32 = 128;
+pub const MIB_IPADDR_DELETED: i32 = 64;
+pub const MIB_IPADDR_DISCONNECTED: i32 = 8;
+pub const MIB_IPADDR_DNS_ELIGIBLE: i32 = 256;
+pub const MIB_IPADDR_DYNAMIC: i32 = 4;
+pub const MIB_IPADDR_PRIMARY: i32 = 1;
+pub const MIB_IPADDR_TRANSIENT: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_IPFORWARDNUMBER {

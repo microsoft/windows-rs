@@ -36,11 +36,11 @@ fn main() {
                 handle: std::ptr::null_mut(),
                 thread: None,
                 status: SERVICE_STATUS {
-                    dwServiceType: SERVICE_WIN32_OWN_PROCESS,
-                    dwCurrentState: SERVICE_STOPPED,
-                    dwControlsAccepted: SERVICE_ACCEPT_PAUSE_CONTINUE
-                        | SERVICE_ACCEPT_STOP
-                        | SERVICE_ACCEPT_SHUTDOWN,
+                    dwServiceType: SERVICE_WIN32_OWN_PROCESS as u32,
+                    dwCurrentState: SERVICE_STOPPED as u32,
+                    dwControlsAccepted: SERVICE_ACCEPT_PAUSE_CONTINUE as u32
+                        | SERVICE_ACCEPT_STOP as u32
+                        | SERVICE_ACCEPT_SHUTDOWN as u32,
                     dwWin32ExitCode: 0,
                     dwServiceSpecificExitCode: 0,
                     dwCheckPoint: 0,
@@ -60,37 +60,37 @@ fn main() {
             set_handle(RegisterServiceCtrlHandlerW(std::ptr::null(), Some(handler)));
         }
 
-        set_state(SERVICE_START_PENDING);
+        set_state(SERVICE_START_PENDING as u32);
         log("service start pending\n");
         set_thread();
-        set_state(SERVICE_RUNNING);
+        set_state(SERVICE_RUNNING as u32);
         log("service running\n");
     }
 
     extern "system" fn handler(control: u32) {
-        match control {
-            SERVICE_CONTROL_CONTINUE if state() == SERVICE_PAUSED => {
-                set_state(SERVICE_CONTINUE_PENDING);
+        match control as i32 {
+            SERVICE_CONTROL_CONTINUE if state() == SERVICE_PAUSED as u32 => {
+                set_state(SERVICE_CONTINUE_PENDING as u32);
                 log("service continue pending\n");
                 set_thread();
-                set_state(SERVICE_RUNNING);
+                set_state(SERVICE_RUNNING as u32);
                 log("service running\n");
             }
-            SERVICE_CONTROL_PAUSE if state() == SERVICE_RUNNING => {
-                set_state(SERVICE_PAUSE_PENDING);
+            SERVICE_CONTROL_PAUSE if state() == SERVICE_RUNNING as u32 => {
+                set_state(SERVICE_PAUSE_PENDING as u32);
                 log("service pause pending\n");
                 join_thread();
-                set_state(SERVICE_PAUSED);
+                set_state(SERVICE_PAUSED as u32);
                 log("service paused\n");
             }
             SERVICE_CONTROL_SHUTDOWN | SERVICE_CONTROL_STOP => {
-                if state() == SERVICE_RUNNING {
-                    set_state(SERVICE_STOP_PENDING);
+                if state() == SERVICE_RUNNING as u32 {
+                    set_state(SERVICE_STOP_PENDING as u32);
                     log("service stop pending\n");
                     join_thread();
                 }
 
-                set_state(SERVICE_STOPPED);
+                set_state(SERVICE_STOPPED as u32);
                 log("service stopped\n");
             }
             _ => {
@@ -124,8 +124,8 @@ fn main() {
 
             // If the service thread returns without an external request, the service will signal that
             // it has stopped and cause the process to terminate normally.
-            if state() == SERVICE_RUNNING {
-                set_state(SERVICE_STOPPED);
+            if state() == SERVICE_RUNNING as u32 {
+                set_state(SERVICE_STOPPED as u32);
                 log("service stopped\n");
             }
         });
@@ -141,7 +141,7 @@ fn main() {
     }
 
     fn stop_request() -> bool {
-        matches!(state(), SERVICE_PAUSE_PENDING | SERVICE_STOP_PENDING)
+        matches!(state() as i32, SERVICE_PAUSE_PENDING | SERVICE_STOP_PENDING)
     }
 
     fn join_thread() {
@@ -159,11 +159,11 @@ fn main() {
         unsafe {
             let file = CreateFileW(
                 LOG_FILE,
-                FILE_APPEND_DATA,
+                FILE_APPEND_DATA as u32,
                 0,
                 std::ptr::null(),
-                OPEN_ALWAYS,
-                FILE_ATTRIBUTE_NORMAL,
+                OPEN_ALWAYS as u32,
+                FILE_ATTRIBUTE_NORMAL as u32,
                 std::ptr::null_mut(),
             );
 

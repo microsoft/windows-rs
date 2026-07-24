@@ -12,8 +12,8 @@ mod Windows {
         interface DFileSystemImageImportEvents: IDispatch {
             fn UpdateImport(&self, object: IDispatch, fileSystem: FsiFileSystems, currentItem: BSTR, importedDirectoryItems: i32, totalDirectoryItems: i32, importedFileItems: i32, totalFileItems: i32) -> HRESULT;
         }
-        const DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE: u32 = 256;
-        const DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT: u32 = 257;
+        const DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE: i32 = 256;
+        const DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT: i32 = 257;
         #[repr(i32)]
         enum EmulationType {
             EmulationNone = 0,
@@ -292,13 +292,13 @@ mod Windows {
             fn SetStream(&self, data: IStream) -> HRESULT;
             fn Validate(&self) -> HRESULT;
         }
-        const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32;
+        const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: i32 = 32;
         #[encoding("ansi")]
         const IMAPI2FS_FullVersion_STR: String = "1.0";
         #[encoding("utf-16")]
         const IMAPI2FS_FullVersion_WSTR: String = "1.0";
-        const IMAPI2FS_MajorVersion: u32 = 1;
-        const IMAPI2FS_MinorVersion: u32 = 0;
+        const IMAPI2FS_MajorVersion: i32 = 1;
+        const IMAPI2FS_MinorVersion: i32 = 0;
         #[guid(0x2c941fd5_975b_59be_a960_9a2a262853a5)]
         interface IProgressItem: IDispatch {
             #[special]

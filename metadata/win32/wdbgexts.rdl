@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11;
+        const ADDRESS_TYPE_INDEX_NOT_FOUND: i32 = 11;
         struct BUSDATA {
             BusDataType: u32,
             BusNumber: u32,
@@ -10,12 +10,12 @@ mod Windows {
             Offset: u32,
             Length: u32,
         }
-        const CANNOT_ALLOCATE_MEMORY: u32 = 9;
-        const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048;
+        const CANNOT_ALLOCATE_MEMORY: i32 = 9;
+        const CROSS_PLATFORM_MAXIMUM_PROCESSORS: i32 = 2048;
         #[arch(X64)]
-        const CURRENT_KD_SECONDARY_VERSION: u32 = 2;
+        const CURRENT_KD_SECONDARY_VERSION: i32 = 2;
         #[arch(X86 | Arm64)]
-        const CURRENT_KD_SECONDARY_VERSION: u32 = 0;
+        const CURRENT_KD_SECONDARY_VERSION: i32 = 0;
         struct DBGKD_DEBUG_DATA_HEADER32 {
             List: LIST_ENTRY32,
             OwnerTag: u32,
@@ -75,46 +75,46 @@ mod Windows {
         }
         const DBGKD_SIMULATION_EXDI: i32 = 1;
         const DBGKD_SIMULATION_NONE: i32 = 0;
-        const DBGKD_VERS_FLAG_DATA: u32 = 2;
-        const DBGKD_VERS_FLAG_HAL_IN_NTOS: u32 = 64;
-        const DBGKD_VERS_FLAG_HSS: u32 = 16;
-        const DBGKD_VERS_FLAG_MP: u32 = 1;
-        const DBGKD_VERS_FLAG_NOMM: u32 = 8;
-        const DBGKD_VERS_FLAG_PARTITIONS: u32 = 32;
-        const DBGKD_VERS_FLAG_PTR64: u32 = 4;
-        const DBG_DUMP_ADDRESS_AT_END: u32 = 131072;
-        const DBG_DUMP_ADDRESS_OF_FIELD: u32 = 65536;
-        const DBG_DUMP_ARRAY: u32 = 32768;
-        const DBG_DUMP_BLOCK_RECURSE: u32 = 2097152;
-        const DBG_DUMP_CALL_FOR_EACH: u32 = 8;
-        const DBG_DUMP_COMPACT_OUT: u32 = 8192;
-        const DBG_DUMP_COPY_TYPE_DATA: u32 = 262144;
-        const DBG_DUMP_FIELD_ARRAY: u32 = 16;
-        const DBG_DUMP_FIELD_CALL_BEFORE_PRINT: u32 = 1;
-        const DBG_DUMP_FIELD_COPY_FIELD_DATA: u32 = 32;
-        const DBG_DUMP_FIELD_DEFAULT_STRING: u32 = 65536;
-        const DBG_DUMP_FIELD_FULL_NAME: u32 = 8;
-        const DBG_DUMP_FIELD_GUID_STRING: u32 = 524288;
-        const DBG_DUMP_FIELD_MULTI_STRING: u32 = 262144;
-        const DBG_DUMP_FIELD_NO_CALLBACK_REQ: u32 = 2;
-        const DBG_DUMP_FIELD_NO_PRINT: u32 = 16384;
-        const DBG_DUMP_FIELD_RECUR_ON_THIS: u32 = 4;
-        const DBG_DUMP_FIELD_RETURN_ADDRESS: u32 = 4096;
-        const DBG_DUMP_FIELD_SIZE_IN_BITS: u32 = 8192;
-        const DBG_DUMP_FIELD_UTF32_STRING: u32 = 1048576;
-        const DBG_DUMP_FIELD_WCHAR_STRING: u32 = 131072;
-        const DBG_DUMP_FUNCTION_FORMAT: u32 = 1048576;
-        const DBG_DUMP_GET_SIZE_ONLY: u32 = 128;
-        const DBG_DUMP_LIST: u32 = 32;
-        const DBG_DUMP_MATCH_SIZE: u32 = 4194304;
-        const DBG_DUMP_NO_INDENT: u32 = 1;
-        const DBG_DUMP_NO_OFFSET: u32 = 2;
-        const DBG_DUMP_NO_PRINT: u32 = 64;
-        const DBG_DUMP_READ_PHYSICAL: u32 = 524288;
-        const DBG_DUMP_VERBOSE: u32 = 4;
-        const DBG_RETURN_SUBTYPES: u32 = 0;
-        const DBG_RETURN_TYPE: u32 = 0;
-        const DBG_RETURN_TYPE_VALUES: u32 = 0;
+        const DBGKD_VERS_FLAG_DATA: i32 = 2;
+        const DBGKD_VERS_FLAG_HAL_IN_NTOS: i32 = 64;
+        const DBGKD_VERS_FLAG_HSS: i32 = 16;
+        const DBGKD_VERS_FLAG_MP: i32 = 1;
+        const DBGKD_VERS_FLAG_NOMM: i32 = 8;
+        const DBGKD_VERS_FLAG_PARTITIONS: i32 = 32;
+        const DBGKD_VERS_FLAG_PTR64: i32 = 4;
+        const DBG_DUMP_ADDRESS_AT_END: i32 = 131072;
+        const DBG_DUMP_ADDRESS_OF_FIELD: i32 = 65536;
+        const DBG_DUMP_ARRAY: i32 = 32768;
+        const DBG_DUMP_BLOCK_RECURSE: i32 = 2097152;
+        const DBG_DUMP_CALL_FOR_EACH: i32 = 8;
+        const DBG_DUMP_COMPACT_OUT: i32 = 8192;
+        const DBG_DUMP_COPY_TYPE_DATA: i32 = 262144;
+        const DBG_DUMP_FIELD_ARRAY: i32 = 16;
+        const DBG_DUMP_FIELD_CALL_BEFORE_PRINT: i32 = 1;
+        const DBG_DUMP_FIELD_COPY_FIELD_DATA: i32 = 32;
+        const DBG_DUMP_FIELD_DEFAULT_STRING: i32 = 65536;
+        const DBG_DUMP_FIELD_FULL_NAME: i32 = 8;
+        const DBG_DUMP_FIELD_GUID_STRING: i32 = 524288;
+        const DBG_DUMP_FIELD_MULTI_STRING: i32 = 262144;
+        const DBG_DUMP_FIELD_NO_CALLBACK_REQ: i32 = 2;
+        const DBG_DUMP_FIELD_NO_PRINT: i32 = 16384;
+        const DBG_DUMP_FIELD_RECUR_ON_THIS: i32 = 4;
+        const DBG_DUMP_FIELD_RETURN_ADDRESS: i32 = 4096;
+        const DBG_DUMP_FIELD_SIZE_IN_BITS: i32 = 8192;
+        const DBG_DUMP_FIELD_UTF32_STRING: i32 = 1048576;
+        const DBG_DUMP_FIELD_WCHAR_STRING: i32 = 131072;
+        const DBG_DUMP_FUNCTION_FORMAT: i32 = 1048576;
+        const DBG_DUMP_GET_SIZE_ONLY: i32 = 128;
+        const DBG_DUMP_LIST: i32 = 32;
+        const DBG_DUMP_MATCH_SIZE: i32 = 4194304;
+        const DBG_DUMP_NO_INDENT: i32 = 1;
+        const DBG_DUMP_NO_OFFSET: i32 = 2;
+        const DBG_DUMP_NO_PRINT: i32 = 64;
+        const DBG_DUMP_READ_PHYSICAL: i32 = 524288;
+        const DBG_DUMP_VERBOSE: i32 = 4;
+        const DBG_RETURN_SUBTYPES: i32 = 0;
+        const DBG_RETURN_TYPE: i32 = 0;
+        const DBG_RETURN_TYPE_VALUES: i32 = 0;
         struct DEBUG_TYPED_DATA {
             ModBase: u64,
             Offset: u64,
@@ -128,13 +128,13 @@ mod Windows {
             Register: u32,
             Internal: [u64; 9],
         }
-        const DEBUG_TYPED_DATA_IS_IN_MEMORY: u32 = 1;
-        const DEBUG_TYPED_DATA_PHYSICAL_CACHED: u32 = 4;
-        const DEBUG_TYPED_DATA_PHYSICAL_DEFAULT: u32 = 2;
-        const DEBUG_TYPED_DATA_PHYSICAL_MEMORY: u32 = 14;
-        const DEBUG_TYPED_DATA_PHYSICAL_UNCACHED: u32 = 6;
-        const DEBUG_TYPED_DATA_PHYSICAL_WRITE_COMBINED: u32 = 8;
-        const EXIT_ON_CONTROLC: u32 = 8;
+        const DEBUG_TYPED_DATA_IS_IN_MEMORY: i32 = 1;
+        const DEBUG_TYPED_DATA_PHYSICAL_CACHED: i32 = 4;
+        const DEBUG_TYPED_DATA_PHYSICAL_DEFAULT: i32 = 2;
+        const DEBUG_TYPED_DATA_PHYSICAL_MEMORY: i32 = 14;
+        const DEBUG_TYPED_DATA_PHYSICAL_UNCACHED: i32 = 6;
+        const DEBUG_TYPED_DATA_PHYSICAL_WRITE_COMBINED: i32 = 8;
+        const EXIT_ON_CONTROLC: i32 = 8;
         struct EXTSTACKTRACE {
             FramePointer: u32,
             ProgramCounter: u32,
@@ -159,9 +159,9 @@ mod Windows {
             Revision: u16,
             Reserved: u16,
         }
-        const EXT_API_VERSION_NUMBER: u32 = 5;
-        const EXT_API_VERSION_NUMBER32: u32 = 5;
-        const EXT_API_VERSION_NUMBER64: u32 = 6;
+        const EXT_API_VERSION_NUMBER: i32 = 5;
+        const EXT_API_VERSION_NUMBER32: i32 = 5;
+        const EXT_API_VERSION_NUMBER64: i32 = 6;
         struct EXT_FIND_FILE {
             FileName: PCWSTR,
             IndexedSize: u64,
@@ -176,17 +176,17 @@ mod Windows {
             FoundFileName: PWSTR,
             FoundFileNameChars: u32,
         }
-        const EXT_FIND_FILE_ALLOW_GIVEN_PATH: u32 = 1;
+        const EXT_FIND_FILE_ALLOW_GIVEN_PATH: i32 = 1;
         struct EXT_MATCH_PATTERN_A {
             Str: PCSTR,
             Pattern: PCSTR,
             CaseSensitive: u32,
         }
-        const EXT_TDF_PHYSICAL_CACHED: u32 = 4;
-        const EXT_TDF_PHYSICAL_DEFAULT: u32 = 2;
-        const EXT_TDF_PHYSICAL_MEMORY: u32 = 14;
-        const EXT_TDF_PHYSICAL_UNCACHED: u32 = 6;
-        const EXT_TDF_PHYSICAL_WRITE_COMBINED: u32 = 8;
+        const EXT_TDF_PHYSICAL_CACHED: i32 = 4;
+        const EXT_TDF_PHYSICAL_DEFAULT: i32 = 2;
+        const EXT_TDF_PHYSICAL_MEMORY: i32 = 14;
+        const EXT_TDF_PHYSICAL_UNCACHED: i32 = 6;
+        const EXT_TDF_PHYSICAL_WRITE_COMBINED: i32 = 8;
         #[repr(i32)]
         enum EXT_TDOP {
             EXT_TDOP_COPY = 0,
@@ -229,7 +229,7 @@ mod Windows {
             Status: HRESULT,
             Reserved: [u64; 8],
         }
-        const FIELDS_DID_NOT_MATCH: u32 = 4;
+        const FIELDS_DID_NOT_MATCH: i32 = 4;
         struct FIELD_INFO {
             fName: PUCHAR,
             printName: PUCHAR,
@@ -294,58 +294,58 @@ mod Windows {
         struct GET_TEB_ADDRESS {
             Address: u64,
         }
-        const IG_DISASSEMBLE_BUFFER: u32 = 44;
-        const IG_DUMP_SYMBOL_INFO: u32 = 22;
-        const IG_FIND_FILE: u32 = 40;
-        const IG_GET_ANY_MODULE_IN_RANGE: u32 = 45;
-        const IG_GET_BUS_DATA: u32 = 20;
-        const IG_GET_CACHE_SIZE: u32 = 32;
-        const IG_GET_CLR_DATA_INTERFACE: u32 = 38;
-        const IG_GET_CONTEXT_EX: u32 = 48;
-        const IG_GET_CURRENT_PROCESS: u32 = 26;
-        const IG_GET_CURRENT_PROCESS_HANDLE: u32 = 28;
-        const IG_GET_CURRENT_THREAD: u32 = 25;
-        const IG_GET_DEBUGGER_DATA: u32 = 14;
-        const IG_GET_EXCEPTION_RECORD: u32 = 18;
-        const IG_GET_EXPRESSION_EX: u32 = 30;
-        const IG_GET_INPUT_LINE: u32 = 29;
-        const IG_GET_KERNEL_VERSION: u32 = 15;
-        const IG_GET_PEB_ADDRESS: u32 = 129;
-        const IG_GET_SET_SYMPATH: u32 = 17;
-        const IG_GET_TEB_ADDRESS: u32 = 128;
-        const IG_GET_THREAD_OS_INFO: u32 = 37;
-        const IG_GET_TYPE_SIZE: u32 = 27;
-        const IG_IS_PTR64: u32 = 19;
-        const IG_KD_CONTEXT: u32 = 1;
-        const IG_KSTACK_HELP: u32 = 10;
-        const IG_LOWMEM_CHECK: u32 = 23;
-        const IG_MATCH_PATTERN_A: u32 = 39;
-        const IG_OBSOLETE_PLACEHOLDER_36: u32 = 36;
-        const IG_PHYSICAL_TO_VIRTUAL: u32 = 47;
-        const IG_POINTER_SEARCH_PHYSICAL: u32 = 35;
-        const IG_QUERY_TARGET_INTERFACE: u32 = 42;
-        const IG_READ_CONTROL_SPACE: u32 = 2;
-        const IG_READ_IO_SPACE: u32 = 4;
-        const IG_READ_IO_SPACE_EX: u32 = 8;
-        const IG_READ_MSR: u32 = 12;
-        const IG_READ_PHYSICAL: u32 = 6;
-        const IG_READ_PHYSICAL_WITH_FLAGS: u32 = 33;
-        const IG_RELOAD_SYMBOLS: u32 = 16;
-        const IG_SEARCH_MEMORY: u32 = 24;
-        const IG_SET_BUS_DATA: u32 = 21;
-        const IG_SET_THREAD: u32 = 11;
-        const IG_TRANSLATE_VIRTUAL_TO_PHYSICAL: u32 = 31;
-        const IG_TYPED_DATA: u32 = 43;
-        const IG_TYPED_DATA_OBSOLETE: u32 = 41;
-        const IG_VIRTUAL_TO_PHYSICAL: u32 = 46;
-        const IG_WRITE_CONTROL_SPACE: u32 = 3;
-        const IG_WRITE_IO_SPACE: u32 = 5;
-        const IG_WRITE_IO_SPACE_EX: u32 = 9;
-        const IG_WRITE_MSR: u32 = 13;
-        const IG_WRITE_PHYSICAL: u32 = 7;
-        const IG_WRITE_PHYSICAL_WITH_FLAGS: u32 = 34;
-        const INCORRECT_VERSION_INFO: u32 = 7;
-        const INSUFFICIENT_SPACE_TO_COPY: u32 = 10;
+        const IG_DISASSEMBLE_BUFFER: i32 = 44;
+        const IG_DUMP_SYMBOL_INFO: i32 = 22;
+        const IG_FIND_FILE: i32 = 40;
+        const IG_GET_ANY_MODULE_IN_RANGE: i32 = 45;
+        const IG_GET_BUS_DATA: i32 = 20;
+        const IG_GET_CACHE_SIZE: i32 = 32;
+        const IG_GET_CLR_DATA_INTERFACE: i32 = 38;
+        const IG_GET_CONTEXT_EX: i32 = 48;
+        const IG_GET_CURRENT_PROCESS: i32 = 26;
+        const IG_GET_CURRENT_PROCESS_HANDLE: i32 = 28;
+        const IG_GET_CURRENT_THREAD: i32 = 25;
+        const IG_GET_DEBUGGER_DATA: i32 = 14;
+        const IG_GET_EXCEPTION_RECORD: i32 = 18;
+        const IG_GET_EXPRESSION_EX: i32 = 30;
+        const IG_GET_INPUT_LINE: i32 = 29;
+        const IG_GET_KERNEL_VERSION: i32 = 15;
+        const IG_GET_PEB_ADDRESS: i32 = 129;
+        const IG_GET_SET_SYMPATH: i32 = 17;
+        const IG_GET_TEB_ADDRESS: i32 = 128;
+        const IG_GET_THREAD_OS_INFO: i32 = 37;
+        const IG_GET_TYPE_SIZE: i32 = 27;
+        const IG_IS_PTR64: i32 = 19;
+        const IG_KD_CONTEXT: i32 = 1;
+        const IG_KSTACK_HELP: i32 = 10;
+        const IG_LOWMEM_CHECK: i32 = 23;
+        const IG_MATCH_PATTERN_A: i32 = 39;
+        const IG_OBSOLETE_PLACEHOLDER_36: i32 = 36;
+        const IG_PHYSICAL_TO_VIRTUAL: i32 = 47;
+        const IG_POINTER_SEARCH_PHYSICAL: i32 = 35;
+        const IG_QUERY_TARGET_INTERFACE: i32 = 42;
+        const IG_READ_CONTROL_SPACE: i32 = 2;
+        const IG_READ_IO_SPACE: i32 = 4;
+        const IG_READ_IO_SPACE_EX: i32 = 8;
+        const IG_READ_MSR: i32 = 12;
+        const IG_READ_PHYSICAL: i32 = 6;
+        const IG_READ_PHYSICAL_WITH_FLAGS: i32 = 33;
+        const IG_RELOAD_SYMBOLS: i32 = 16;
+        const IG_SEARCH_MEMORY: i32 = 24;
+        const IG_SET_BUS_DATA: i32 = 21;
+        const IG_SET_THREAD: i32 = 11;
+        const IG_TRANSLATE_VIRTUAL_TO_PHYSICAL: i32 = 31;
+        const IG_TYPED_DATA: i32 = 43;
+        const IG_TYPED_DATA_OBSOLETE: i32 = 41;
+        const IG_VIRTUAL_TO_PHYSICAL: i32 = 46;
+        const IG_WRITE_CONTROL_SPACE: i32 = 3;
+        const IG_WRITE_IO_SPACE: i32 = 5;
+        const IG_WRITE_IO_SPACE_EX: i32 = 9;
+        const IG_WRITE_MSR: i32 = 13;
+        const IG_WRITE_PHYSICAL: i32 = 7;
+        const IG_WRITE_PHYSICAL_WITH_FLAGS: i32 = 34;
+        const INCORRECT_VERSION_INFO: i32 = 7;
+        const INSUFFICIENT_SPACE_TO_COPY: i32 = 10;
         struct IOSPACE {
             Address: u32,
             Length: u32,
@@ -385,7 +385,7 @@ mod Windows {
             BusNumber: u32,
             AddressSpace: u32,
         }
-        const KDBG_TAG: u32 = 1195525195;
+        const KDBG_TAG: i32 = 1195525195;
         struct KDDEBUGGER_DATA32 {
             Header: DBGKD_DEBUG_DATA_HEADER32,
             KernBase: u32,
@@ -626,14 +626,14 @@ mod Windows {
             OffsetPrcbExceptionStack: u16,
             PointerIgnoreBits: u64,
         }
-        const KD_SECONDARY_VERSION_AMD64_CONTEXT: u32 = 2;
-        const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0;
-        const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1;
-        const KD_SECONDARY_VERSION_DEFAULT: u32 = 0;
+        const KD_SECONDARY_VERSION_AMD64_CONTEXT: i32 = 2;
+        const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: i32 = 0;
+        const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: i32 = 1;
+        const KD_SECONDARY_VERSION_DEFAULT: i32 = 0;
         type LPEXT_API_VERSION = *mut EXT_API_VERSION;
-        const MEMORY_READ_ERROR: u32 = 1;
-        const NULL_FIELD_NAME: u32 = 6;
-        const NULL_SYM_DUMP_PARAM: u32 = 5;
+        const MEMORY_READ_ERROR: i32 = 1;
+        const NULL_FIELD_NAME: i32 = 6;
+        const NULL_SYM_DUMP_PARAM: i32 = 5;
         type PBUSDATA = *mut BUSDATA;
         type PDBGKD_DEBUG_DATA_HEADER32 = *mut DBGKD_DEBUG_DATA_HEADER32;
         type PDBGKD_DEBUG_DATA_HEADER64 = *mut DBGKD_DEBUG_DATA_HEADER64;
@@ -671,10 +671,10 @@ mod Windows {
             Flags: u32,
             Buf: [u8; 1],
         }
-        const PHYS_FLAG_CACHED: u32 = 1;
-        const PHYS_FLAG_DEFAULT: u32 = 0;
-        const PHYS_FLAG_UNCACHED: u32 = 2;
-        const PHYS_FLAG_WRITE_COMBINED: u32 = 3;
+        const PHYS_FLAG_CACHED: i32 = 1;
+        const PHYS_FLAG_DEFAULT: i32 = 0;
+        const PHYS_FLAG_UNCACHED: i32 = 2;
+        const PHYS_FLAG_WRITE_COMBINED: i32 = 3;
         type PIOSPACE = *mut IOSPACE;
         type PIOSPACE32 = *mut IOSPACE32;
         type PIOSPACE64 = *mut IOSPACE64;
@@ -729,11 +729,11 @@ mod Windows {
         type PSYM_DUMP_PARAM = *mut SYM_DUMP_PARAM;
         type PTRANSLATE_VIRTUAL_TO_PHYSICAL = *mut TRANSLATE_VIRTUAL_TO_PHYSICAL;
         const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648;
-        const PTR_SEARCH_PHYS_ALL_HITS: u32 = 1;
-        const PTR_SEARCH_PHYS_PTE: u32 = 2;
-        const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4;
-        const PTR_SEARCH_PHYS_SIZE_MASK: u32 = 120;
-        const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3;
+        const PTR_SEARCH_PHYS_ALL_HITS: i32 = 1;
+        const PTR_SEARCH_PHYS_PTE: i32 = 2;
+        const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: i32 = 4;
+        const PTR_SEARCH_PHYS_SIZE_MASK: i32 = 120;
+        const PTR_SEARCH_PHYS_SIZE_SHIFT: i32 = 3;
         type PVIRTUAL_TO_PHYSICAL = *mut VIRTUAL_TO_PHYSICAL;
         type PWDBGEXTS_CLR_DATA_INTERFACE = *mut WDBGEXTS_CLR_DATA_INTERFACE;
         type PWDBGEXTS_DISASSEMBLE_BUFFER = *mut WDBGEXTS_DISASSEMBLE_BUFFER;
@@ -813,8 +813,8 @@ mod Windows {
             PatternLength: u32,
             Pattern: *mut void,
         }
-        const SYMBOL_TYPE_INDEX_NOT_FOUND: u32 = 2;
-        const SYMBOL_TYPE_INFO_NOT_FOUND: u32 = 3;
+        const SYMBOL_TYPE_INDEX_NOT_FOUND: i32 = 2;
+        const SYMBOL_TYPE_INFO_NOT_FOUND: i32 = 3;
         struct SYM_DUMP_PARAM {
             size: u32,
             sName: PUCHAR,
@@ -844,7 +844,7 @@ mod Windows {
             Virtual: u64,
             Physical: u64,
         }
-        const UNAVAILABLE_ERROR: u32 = 12;
+        const UNAVAILABLE_ERROR: i32 = 12;
         struct VIRTUAL_TO_PHYSICAL {
             Status: u32,
             Size: u32,
@@ -852,10 +852,10 @@ mod Windows {
             Virtual: u64,
             Physical: u64,
         }
-        const WDBGEXTS_ADDRESS_DEFAULT: u32 = 0;
+        const WDBGEXTS_ADDRESS_DEFAULT: i32 = 0;
         const WDBGEXTS_ADDRESS_RESERVED0: u32 = 2147483648;
-        const WDBGEXTS_ADDRESS_SEG16: u32 = 1;
-        const WDBGEXTS_ADDRESS_SEG32: u32 = 2;
+        const WDBGEXTS_ADDRESS_SEG16: i32 = 1;
+        const WDBGEXTS_ADDRESS_SEG32: i32 = 2;
         struct WDBGEXTS_CLR_DATA_INTERFACE {
             Iid: *const GUID,
             Iface: *mut void,
@@ -871,7 +871,10 @@ mod Windows {
             DisasmBuffer: PWSTR,
             Reserved0: [u64; 3],
         }
-        const WDBGEXTS_MAXSIZE_T: i32 = -1;
+        #[arch(X64 | Arm64)]
+        const WDBGEXTS_MAXSIZE_T: u64 = 18446744073709551615;
+        #[arch(X86)]
+        const WDBGEXTS_MAXSIZE_T: u32 = 4294967295;
         struct WDBGEXTS_MODULE_IN_RANGE {
             Start: u64,
             End: u64,

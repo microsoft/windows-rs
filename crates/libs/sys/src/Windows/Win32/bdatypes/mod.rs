@@ -786,7 +786,7 @@ pub const METADATA_IN_DOWNLOAD_PROTOCOL: MPEG2StreamType = 25;
 pub const METADATA_IN_OBJECT_CAROUSEL: MPEG2StreamType = 24;
 pub const METADATA_IN_PES: MPEG2StreamType = 21;
 pub const METADATA_IN_SECTION: MPEG2StreamType = 22;
-pub const MIN_DIMENSION: u32 = 1;
+pub const MIN_DIMENSION: i32 = 1;
 pub type MPEG2StreamType = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

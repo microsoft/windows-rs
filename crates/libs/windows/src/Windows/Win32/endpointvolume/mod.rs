@@ -12,9 +12,9 @@ impl Default for AUDIO_VOLUME_NOTIFICATION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ENDPOINT_HARDWARE_SUPPORT_METER: u32 = 4;
-pub const ENDPOINT_HARDWARE_SUPPORT_MUTE: u32 = 2;
-pub const ENDPOINT_HARDWARE_SUPPORT_VOLUME: u32 = 1;
+pub const ENDPOINT_HARDWARE_SUPPORT_METER: i32 = 4;
+pub const ENDPOINT_HARDWARE_SUPPORT_MUTE: i32 = 2;
+pub const ENDPOINT_HARDWARE_SUPPORT_VOLUME: i32 = 1;
 windows_core::imp::define_interface!(IAudioEndpointVolume, IAudioEndpointVolume_Vtbl, 0x5cdf2c82_841e_4546_9722_0cf74078229a);
 windows_core::imp::interface_hierarchy!(IAudioEndpointVolume, windows_core::IUnknown);
 impl IAudioEndpointVolume {

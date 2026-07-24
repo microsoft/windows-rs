@@ -181,9 +181,9 @@ mod Windows {
         extern fn QuerySecurityAccessMask(SecurityInformation: SECURITY_INFORMATION, DesiredAccess: *mut u32);
         #[library("ADVAPI32.dll")]
         extern fn RevertToSelf() -> BOOL;
-        const SIGNING_LEVEL_FILE_CACHE_FLAG_NOT_VALIDATED: u32 = 1;
-        const SIGNING_LEVEL_FILE_CACHE_FLAG_VALIDATE_ONLY: u32 = 4;
-        const SIGNING_LEVEL_MICROSOFT: u32 = 8;
+        const SIGNING_LEVEL_FILE_CACHE_FLAG_NOT_VALIDATED: i32 = 1;
+        const SIGNING_LEVEL_FILE_CACHE_FLAG_VALIDATE_ONLY: i32 = 4;
+        const SIGNING_LEVEL_MICROSOFT: i32 = 8;
         #[library("ADVAPI32.dll")]
         extern fn SetAclInformation(#[in] #[out] pAcl: *mut ACL, #[size_param(2)] pAclInformation: *const void, nAclInformationLength: u32, dwAclInformationClass: ACL_INFORMATION_CLASS) -> BOOL;
         #[library("KERNEL32.dll")]

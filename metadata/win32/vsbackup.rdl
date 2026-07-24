@@ -141,7 +141,7 @@ mod Windows {
             cLogFiles: u32,
             cDependencies: u32,
         }
-        const VSS_SW_BOOTABLE_STATE: u32 = 1;
+        const VSS_SW_BOOTABLE_STATE: i32 = 1;
         #[library("VSSAPI.DLL")]
         extern fn VssFreeSnapshotPropertiesInternal(pProp: *const VSS_SNAPSHOT_PROP);
     }

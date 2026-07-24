@@ -80,7 +80,7 @@ fn size32() {
 
 #[test]
 fn constant() {
-    assert_eq!(WM_KEYUP, 257u32);
+    assert_eq!(WM_KEYUP, 257i32);
     assert_eq!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA, 1f32);
     assert_eq!(UIA_ScrollPatternNoScroll, -1f64);
     assert_eq!(

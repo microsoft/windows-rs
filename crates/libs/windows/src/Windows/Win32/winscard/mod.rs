@@ -831,14 +831,14 @@ impl Default for SCARD_ATRMASK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0;
-pub const SCARD_AUDIT_CHV_SUCCESS: u32 = 1;
-pub const SCARD_AUTOALLOCATE: i32 = -1;
-pub const SCARD_EJECT_CARD: u32 = 3;
-pub const SCARD_LEAVE_CARD: u32 = 0;
-pub const SCARD_PROVIDER_CSP: u32 = 2;
-pub const SCARD_PROVIDER_KSP: u32 = 3;
-pub const SCARD_PROVIDER_PRIMARY: u32 = 1;
+pub const SCARD_AUDIT_CHV_FAILURE: i32 = 0;
+pub const SCARD_AUDIT_CHV_SUCCESS: i32 = 1;
+pub const SCARD_AUTOALLOCATE: u32 = 4294967295;
+pub const SCARD_EJECT_CARD: i32 = 3;
+pub const SCARD_LEAVE_CARD: i32 = 0;
+pub const SCARD_PROVIDER_CSP: i32 = 2;
+pub const SCARD_PROVIDER_KSP: i32 = 3;
+pub const SCARD_PROVIDER_PRIMARY: i32 = 1;
 pub type SCARD_READERSTATE = SCARD_READERSTATEA;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -871,28 +871,28 @@ impl Default for SCARD_READERSTATEW {
     }
 }
 pub const SCARD_READER_SEL_AUTH_PACKAGE: u32 = 4294966667;
-pub const SCARD_RESET_CARD: u32 = 1;
-pub const SCARD_SCOPE_SYSTEM: u32 = 2;
-pub const SCARD_SCOPE_TERMINAL: u32 = 1;
-pub const SCARD_SCOPE_USER: u32 = 0;
-pub const SCARD_SHARE_DIRECT: u32 = 3;
-pub const SCARD_SHARE_EXCLUSIVE: u32 = 1;
-pub const SCARD_SHARE_SHARED: u32 = 2;
-pub const SCARD_STATE_ATRMATCH: u32 = 64;
-pub const SCARD_STATE_CHANGED: u32 = 2;
-pub const SCARD_STATE_EMPTY: u32 = 16;
-pub const SCARD_STATE_EXCLUSIVE: u32 = 128;
-pub const SCARD_STATE_IGNORE: u32 = 1;
-pub const SCARD_STATE_INUSE: u32 = 256;
-pub const SCARD_STATE_MUTE: u32 = 512;
-pub const SCARD_STATE_PRESENT: u32 = 32;
-pub const SCARD_STATE_UNAVAILABLE: u32 = 8;
-pub const SCARD_STATE_UNAWARE: u32 = 0;
-pub const SCARD_STATE_UNKNOWN: u32 = 4;
-pub const SCARD_STATE_UNPOWERED: u32 = 1024;
-pub const SCARD_UNPOWER_CARD: u32 = 2;
-pub const SCERR_NOCARDNAME: u32 = 16384;
-pub const SCERR_NOGUIDS: u32 = 32768;
-pub const SC_DLG_FORCE_UI: u32 = 4;
-pub const SC_DLG_MINIMAL_UI: u32 = 1;
-pub const SC_DLG_NO_UI: u32 = 2;
+pub const SCARD_RESET_CARD: i32 = 1;
+pub const SCARD_SCOPE_SYSTEM: i32 = 2;
+pub const SCARD_SCOPE_TERMINAL: i32 = 1;
+pub const SCARD_SCOPE_USER: i32 = 0;
+pub const SCARD_SHARE_DIRECT: i32 = 3;
+pub const SCARD_SHARE_EXCLUSIVE: i32 = 1;
+pub const SCARD_SHARE_SHARED: i32 = 2;
+pub const SCARD_STATE_ATRMATCH: i32 = 64;
+pub const SCARD_STATE_CHANGED: i32 = 2;
+pub const SCARD_STATE_EMPTY: i32 = 16;
+pub const SCARD_STATE_EXCLUSIVE: i32 = 128;
+pub const SCARD_STATE_IGNORE: i32 = 1;
+pub const SCARD_STATE_INUSE: i32 = 256;
+pub const SCARD_STATE_MUTE: i32 = 512;
+pub const SCARD_STATE_PRESENT: i32 = 32;
+pub const SCARD_STATE_UNAVAILABLE: i32 = 8;
+pub const SCARD_STATE_UNAWARE: i32 = 0;
+pub const SCARD_STATE_UNKNOWN: i32 = 4;
+pub const SCARD_STATE_UNPOWERED: i32 = 1024;
+pub const SCARD_UNPOWER_CARD: i32 = 2;
+pub const SCERR_NOCARDNAME: i32 = 16384;
+pub const SCERR_NOGUIDS: i32 = 32768;
+pub const SC_DLG_FORCE_UI: i32 = 4;
+pub const SC_DLG_MINIMAL_UI: i32 = 1;
+pub const SC_DLG_NO_UI: i32 = 2;

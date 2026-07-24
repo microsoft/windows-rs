@@ -16,15 +16,15 @@ mod Windows {
             CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED = 5,
             CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE = 6,
         }
-        const CONTROL_CHANNEL_TRIGGER_STATUS_MAX: u32 = 4;
+        const CONTROL_CHANNEL_TRIGGER_STATUS_MAX: i32 = 4;
         struct DL_EUI48 {}
         const IN4ADDR_ANY: u32 = 0;
-        const IN4ADDR_BROADCAST: i32 = -1;
-        const IN4ADDR_LINKLOCALPREFIX_LENGTH: u32 = 16;
-        const IN4ADDR_LOOPBACK: u32 = 16777343;
-        const IN4ADDR_LOOPBACKPREFIX_LENGTH: u32 = 8;
-        const IN4ADDR_MULTICASTPREFIX_LENGTH: u32 = 4;
-        const IN4ADDR_NONE: i32 = -1;
+        const IN4ADDR_BROADCAST: u32 = 4294967295;
+        const IN4ADDR_LINKLOCALPREFIX_LENGTH: i32 = 16;
+        const IN4ADDR_LOOPBACK: i32 = 16777343;
+        const IN4ADDR_LOOPBACKPREFIX_LENGTH: i32 = 8;
+        const IN4ADDR_MULTICASTPREFIX_LENGTH: i32 = 4;
+        const IN4ADDR_NONE: u32 = 4294967295;
         struct INET_PORT_RANGE {
             StartPort: u16,
             NumberOfPorts: u16,
@@ -74,7 +74,7 @@ mod Windows {
             Mode: RCVALL_VALUE,
             Interface: u32,
         }
-        const RCVALL_MAX: u32 = 3;
+        const RCVALL_MAX: i32 = 3;
         #[repr(i32)]
         enum RCVALL_VALUE {
             RCVALL_OFF = 0,
@@ -139,48 +139,48 @@ mod Windows {
         extern fn RtlIpv6StringToAddressExW(AddressString: PCWSTR, Address: *mut IN6_ADDR, ScopeId: *mut u32, Port: *mut u16) -> i32;
         #[library("ntdll.dll")]
         extern fn RtlIpv6StringToAddressW(S: PCWSTR, Terminator: *mut PCWSTR, Addr: *mut IN6_ADDR) -> i32;
-        const SIO_ABSORB_RTRALERT: i32 = -1744830459;
-        const SIO_ACQUIRE_PORT_RESERVATION: i32 = -1744830364;
-        const SIO_APPLY_TRANSPORT_SETTING: i32 = -1744830445;
-        const SIO_ASSOCIATE_PORT_RESERVATION: i32 = -1744830362;
-        const SIO_CPU_AFFINITY: i32 = -1744830443;
-        const SIO_DELETE_PEER_TARGET_NAME: i32 = -1744830261;
-        const SIO_GET_TX_TIMESTAMP: i32 = -1744830230;
-        const SIO_INDEX_ADD_MCAST: i32 = -1744830454;
-        const SIO_INDEX_BIND: i32 = -1744830456;
-        const SIO_INDEX_DEL_MCAST: i32 = -1744830453;
-        const SIO_INDEX_MCASTIF: i32 = -1744830455;
-        const SIO_KEEPALIVE_VALS: i32 = -1744830460;
-        const SIO_LIMIT_BROADCASTS: i32 = -1744830457;
-        const SIO_LOOPBACK_FAST_PATH: i32 = -1744830448;
-        const SIO_PRIORITY_HINT: i32 = -1744830440;
-        const SIO_QUERY_RSS_SCALABILITY_INFO: u32 = 1476395218;
-        const SIO_QUERY_SECURITY: i32 = -671088439;
-        const SIO_QUERY_TRANSPORT_SETTING: i32 = -1744830444;
-        const SIO_QUERY_WFP_ALE_ENDPOINT_HANDLE: u32 = 1476395213;
-        const SIO_QUERY_WFP_CONNECTION_REDIRECT_CONTEXT: i32 = -1744830243;
-        const SIO_QUERY_WFP_CONNECTION_REDIRECT_RECORDS: i32 = -1744830244;
-        const SIO_RCVALL: i32 = -1744830463;
-        const SIO_RCVALL_IF: i32 = -1744830450;
-        const SIO_RCVALL_IGMPMCAST: i32 = -1744830461;
-        const SIO_RCVALL_MCAST: i32 = -1744830462;
-        const SIO_RCVALL_MCAST_IF: i32 = -1744830451;
-        const SIO_RELEASE_PORT_RESERVATION: i32 = -1744830363;
-        const SIO_SET_PEER_TARGET_NAME: i32 = -1744830262;
-        const SIO_SET_PRIORITY_HINT: i32 = -1744830440;
-        const SIO_SET_SECURITY: i32 = -1744830264;
-        const SIO_SET_WFP_CONNECTION_REDIRECT_RECORDS: i32 = -1744830242;
-        const SIO_SOCKET_USAGE_NOTIFICATION: i32 = -1744830260;
-        const SIO_TCP_INFO: i32 = -671088601;
-        const SIO_TCP_INITIAL_RTO: i32 = -1744830447;
-        const SIO_TCP_SET_ACK_FREQUENCY: i32 = -1744830441;
-        const SIO_TCP_SET_ICW: i32 = -1744830442;
-        const SIO_TIMESTAMPING: i32 = -1744830229;
-        const SIO_UCAST_IF: i32 = -1744830458;
+        const SIO_ABSORB_RTRALERT: u32 = 2550136837;
+        const SIO_ACQUIRE_PORT_RESERVATION: u32 = 2550136932;
+        const SIO_APPLY_TRANSPORT_SETTING: u32 = 2550136851;
+        const SIO_ASSOCIATE_PORT_RESERVATION: u32 = 2550136934;
+        const SIO_CPU_AFFINITY: u32 = 2550136853;
+        const SIO_DELETE_PEER_TARGET_NAME: u32 = 2550137035;
+        const SIO_GET_TX_TIMESTAMP: u32 = 2550137066;
+        const SIO_INDEX_ADD_MCAST: u32 = 2550136842;
+        const SIO_INDEX_BIND: u32 = 2550136840;
+        const SIO_INDEX_DEL_MCAST: u32 = 2550136843;
+        const SIO_INDEX_MCASTIF: u32 = 2550136841;
+        const SIO_KEEPALIVE_VALS: u32 = 2550136836;
+        const SIO_LIMIT_BROADCASTS: u32 = 2550136839;
+        const SIO_LOOPBACK_FAST_PATH: u32 = 2550136848;
+        const SIO_PRIORITY_HINT: u32 = 2550136856;
+        const SIO_QUERY_RSS_SCALABILITY_INFO: i32 = 1476395218;
+        const SIO_QUERY_SECURITY: u32 = 3623878857;
+        const SIO_QUERY_TRANSPORT_SETTING: u32 = 2550136852;
+        const SIO_QUERY_WFP_ALE_ENDPOINT_HANDLE: i32 = 1476395213;
+        const SIO_QUERY_WFP_CONNECTION_REDIRECT_CONTEXT: u32 = 2550137053;
+        const SIO_QUERY_WFP_CONNECTION_REDIRECT_RECORDS: u32 = 2550137052;
+        const SIO_RCVALL: u32 = 2550136833;
+        const SIO_RCVALL_IF: u32 = 2550136846;
+        const SIO_RCVALL_IGMPMCAST: u32 = 2550136835;
+        const SIO_RCVALL_MCAST: u32 = 2550136834;
+        const SIO_RCVALL_MCAST_IF: u32 = 2550136845;
+        const SIO_RELEASE_PORT_RESERVATION: u32 = 2550136933;
+        const SIO_SET_PEER_TARGET_NAME: u32 = 2550137034;
+        const SIO_SET_PRIORITY_HINT: u32 = 2550136856;
+        const SIO_SET_SECURITY: u32 = 2550137032;
+        const SIO_SET_WFP_CONNECTION_REDIRECT_RECORDS: u32 = 2550137054;
+        const SIO_SOCKET_USAGE_NOTIFICATION: u32 = 2550137036;
+        const SIO_TCP_INFO: u32 = 3623878695;
+        const SIO_TCP_INITIAL_RTO: u32 = 2550136849;
+        const SIO_TCP_SET_ACK_FREQUENCY: u32 = 2550136855;
+        const SIO_TCP_SET_ICW: u32 = 2550136854;
+        const SIO_TIMESTAMPING: u32 = 2550137067;
+        const SIO_UCAST_IF: u32 = 2550136838;
         const SOCKET_DEFAULT2_QM_POLICY: GUID = 0xaec2ef9c_3a4d_4d3e_8842_239942e39a47;
-        const SOCKET_INFO_CONNECTION_ENCRYPTED: u32 = 2;
-        const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4;
-        const SOCKET_INFO_CONNECTION_SECURED: u32 = 1;
+        const SOCKET_INFO_CONNECTION_ENCRYPTED: i32 = 2;
+        const SOCKET_INFO_CONNECTION_IMPERSONATED: i32 = 4;
+        const SOCKET_INFO_CONNECTION_SECURED: i32 = 1;
         struct SOCKET_PEER_TARGET_NAME {
             SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
             PeerAddress: SOCKADDR_STORAGE,
@@ -194,9 +194,9 @@ mod Windows {
             SocketPriorityHintNormal = 2,
             SocketMaximumPriorityHintType = 3,
         }
-        const SOCKET_QUERY_IPSEC2_ABORT_CONNECTION_ON_FIELD_CHANGE: u32 = 1;
-        const SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID: u32 = 1;
-        const SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID: u32 = 2;
+        const SOCKET_QUERY_IPSEC2_ABORT_CONNECTION_ON_FIELD_CHANGE: i32 = 1;
+        const SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID: i32 = 1;
+        const SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID: i32 = 2;
         #[repr(i32)]
         enum SOCKET_SECURITY_PROTOCOL {
             SOCKET_SECURITY_PROTOCOL_DEFAULT = 0,
@@ -249,18 +249,18 @@ mod Windows {
             PasswordStringLen: u32,
             AllStrings: [u16; 0],
         }
-        const SOCKET_SETTINGS_ALLOW_INSECURE: u32 = 2;
-        const SOCKET_SETTINGS_GUARANTEE_ENCRYPTION: u32 = 1;
-        const SOCKET_SETTINGS_IPSEC_ALLOW_FIRST_INBOUND_PKT_UNENCRYPTED: u32 = 4;
-        const SOCKET_SETTINGS_IPSEC_OPTIONAL_PEER_NAME_VERIFICATION: u32 = 2;
-        const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: u32 = 8;
-        const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1;
+        const SOCKET_SETTINGS_ALLOW_INSECURE: i32 = 2;
+        const SOCKET_SETTINGS_GUARANTEE_ENCRYPTION: i32 = 1;
+        const SOCKET_SETTINGS_IPSEC_ALLOW_FIRST_INBOUND_PKT_UNENCRYPTED: i32 = 4;
+        const SOCKET_SETTINGS_IPSEC_OPTIONAL_PEER_NAME_VERIFICATION: i32 = 2;
+        const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: i32 = 8;
+        const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: i32 = 1;
         #[repr(i32)]
         enum SOCKET_USAGE_TYPE {
             SYSTEM_CRITICAL_SOCKET = 1,
         }
-        const SO_TIMESTAMP: u32 = 12298;
-        const SO_TIMESTAMP_ID: u32 = 12299;
+        const SO_TIMESTAMP: i32 = 12298;
+        const SO_TIMESTAMP_ID: i32 = 12299;
         #[repr(i32)]
         enum TCPSTATE {
             TCPSTATE_CLOSED = 0,
@@ -377,8 +377,8 @@ mod Windows {
             EceAcksIn: u32,
             PtoEpisodes: u32,
         }
-        const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: u32 = 0;
-        const TCP_INITIAL_RTO_DEFAULT_RTT: u32 = 0;
+        const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: i32 = 0;
+        const TCP_INITIAL_RTO_DEFAULT_RTT: i32 = 0;
         const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u8 = 254;
         struct TCP_INITIAL_RTO_PARAMETERS {
             Rtt: u16,
@@ -390,8 +390,8 @@ mod Windows {
             Flags: u32,
             TxTimestampsBuffered: u16,
         }
-        const TIMESTAMPING_FLAG_RX: u32 = 1;
-        const TIMESTAMPING_FLAG_TX: u32 = 2;
+        const TIMESTAMPING_FLAG_RX: i32 = 1;
+        const TIMESTAMPING_FLAG_TX: i32 = 2;
         struct TRANSPORT_SETTING_ID {
             Guid: GUID,
         }

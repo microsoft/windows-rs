@@ -105,9 +105,9 @@ impl Default for HPTPROVIDER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PRINTTICKET_ISTREAM_APIS: u32 = 1;
-pub const S_PT_CONFLICT_RESOLVED: u32 = 262146;
-pub const S_PT_NO_CONFLICT: u32 = 262145;
+pub const PRINTTICKET_ISTREAM_APIS: i32 = 1;
+pub const S_PT_CONFLICT_RESOLVED: i32 = 262146;
+pub const S_PT_NO_CONFLICT: i32 = 262145;
 pub const kPTDocumentScope: EPrintTicketScope = 1;
 pub const kPTJobScope: EPrintTicketScope = 2;
 pub const kPTPageScope: EPrintTicketScope = 0;

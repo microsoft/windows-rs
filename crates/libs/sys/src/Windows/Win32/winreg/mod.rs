@@ -190,13 +190,13 @@ pub const HKEY_PERFORMANCE_TEXT: super::HKEY = -2147483568 as _;
 #[cfg(feature = "minwindef")]
 pub const HKEY_USERS: super::HKEY = -2147483645 as _;
 pub type LSTATUS = i32;
-pub const MAX_SHUTDOWN_TIMEOUT: u32 = 315360000;
+pub const MAX_SHUTDOWN_TIMEOUT: i32 = 315360000;
 pub type PPROVIDER = *mut REG_PROVIDER;
 pub type PPVALUE = PPVALUEA;
 pub type PPVALUEA = *mut PVALUEA;
 pub type PPVALUEW = *mut PVALUEW;
 pub type PQUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
-pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1;
+pub const PROVIDER_KEEPS_VALUE_LENGTH: i32 = 1;
 pub type PVALCONTEXT = *mut val_context;
 pub type PVALENT = PVALENTA;
 pub type PVALENTA = *mut VALENTA;
@@ -229,21 +229,21 @@ impl Default for PVALUEW {
     }
 }
 pub type QUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
-pub const REASON_HWINSTALL: u32 = 65538;
-pub const REASON_LEGACY_API: i32 = -2147024896;
-pub const REASON_OTHER: u32 = 0;
-pub const REASON_PLANNED_FLAG: i32 = -2147483648;
-pub const REASON_SERVICEHANG: u32 = 196613;
-pub const REASON_SWHWRECONF: u32 = 196612;
-pub const REASON_SWINSTALL: u32 = 196610;
-pub const REASON_UNKNOWN: u32 = 255;
-pub const REASON_UNSTABLE: u32 = 327686;
+pub const REASON_HWINSTALL: i32 = 65538;
+pub const REASON_LEGACY_API: u32 = 2147942400;
+pub const REASON_OTHER: i32 = 0;
+pub const REASON_PLANNED_FLAG: u32 = 2147483648;
+pub const REASON_SERVICEHANG: i32 = 196613;
+pub const REASON_SWHWRECONF: i32 = 196612;
+pub const REASON_SWINSTALL: i32 = 196610;
+pub const REASON_UNKNOWN: i32 = 255;
+pub const REASON_UNSTABLE: i32 = 327686;
 #[cfg(feature = "winnt")]
 pub type REGSAM = super::ACCESS_MASK;
-pub const REG_ALLOW_TRANSPORT_FALLBACK: u32 = 2;
-pub const REG_ALLOW_UNSECURE_CONNECTION: u32 = 4;
-pub const REG_MUI_STRING_TRUNCATE: u32 = 1;
-pub const REG_PROCESS_APPKEY: u32 = 1;
+pub const REG_ALLOW_TRANSPORT_FALLBACK: i32 = 2;
+pub const REG_ALLOW_UNSECURE_CONNECTION: i32 = 4;
+pub const REG_MUI_STRING_TRUNCATE: i32 = 1;
+pub const REG_PROCESS_APPKEY: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REG_PROVIDER {
@@ -259,41 +259,41 @@ impl Default for REG_PROVIDER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REG_SECURE_CONNECTION: u32 = 1;
-pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2;
-pub const RRF_NOEXPAND: u32 = 268435456;
-pub const RRF_RT_ANY: u32 = 65535;
-pub const RRF_RT_DWORD: u32 = 24;
-pub const RRF_RT_QWORD: u32 = 72;
-pub const RRF_RT_REG_BINARY: u32 = 8;
-pub const RRF_RT_REG_DWORD: u32 = 16;
-pub const RRF_RT_REG_EXPAND_SZ: u32 = 4;
-pub const RRF_RT_REG_MULTI_SZ: u32 = 32;
-pub const RRF_RT_REG_NONE: u32 = 1;
-pub const RRF_RT_REG_QWORD: u32 = 64;
-pub const RRF_RT_REG_SZ: u32 = 2;
-pub const RRF_SUBKEY_WOW6432KEY: u32 = 131072;
-pub const RRF_SUBKEY_WOW6464KEY: u32 = 65536;
-pub const RRF_WOW64_MASK: u32 = 196608;
-pub const RRF_ZEROONFAILURE: u32 = 536870912;
-pub const SHUTDOWN_ARSO: u32 = 8192;
-pub const SHUTDOWN_CHECK_SAFE_FOR_SERVER: u32 = 16384;
-pub const SHUTDOWN_FORCE_OTHERS: u32 = 1;
-pub const SHUTDOWN_FORCE_SELF: u32 = 2;
-pub const SHUTDOWN_GRACE_OVERRIDE: u32 = 32;
-pub const SHUTDOWN_HYBRID: u32 = 512;
-pub const SHUTDOWN_INSTALL_UPDATES: u32 = 64;
-pub const SHUTDOWN_MOBILE_UI: u32 = 4096;
-pub const SHUTDOWN_NOREBOOT: u32 = 16;
-pub const SHUTDOWN_POWEROFF: u32 = 8;
-pub const SHUTDOWN_RESTART: u32 = 4;
-pub const SHUTDOWN_RESTARTAPPS: u32 = 128;
-pub const SHUTDOWN_RESTART_BOOTOPTIONS: u32 = 1024;
-pub const SHUTDOWN_SKIP_SVC_PRESHUTDOWN: u32 = 256;
-pub const SHUTDOWN_SOFT_REBOOT: u32 = 2048;
-pub const SHUTDOWN_SYSTEM_INITIATED: u32 = 65536;
-pub const SHUTDOWN_UPDATE_POWEROFF: u32 = 131072;
-pub const SHUTDOWN_VAIL_CONTAINER: u32 = 32768;
+pub const REG_SECURE_CONNECTION: i32 = 1;
+pub const REG_USE_CURRENT_SECURITY_CONTEXT: i32 = 2;
+pub const RRF_NOEXPAND: i32 = 268435456;
+pub const RRF_RT_ANY: i32 = 65535;
+pub const RRF_RT_DWORD: i32 = 24;
+pub const RRF_RT_QWORD: i32 = 72;
+pub const RRF_RT_REG_BINARY: i32 = 8;
+pub const RRF_RT_REG_DWORD: i32 = 16;
+pub const RRF_RT_REG_EXPAND_SZ: i32 = 4;
+pub const RRF_RT_REG_MULTI_SZ: i32 = 32;
+pub const RRF_RT_REG_NONE: i32 = 1;
+pub const RRF_RT_REG_QWORD: i32 = 64;
+pub const RRF_RT_REG_SZ: i32 = 2;
+pub const RRF_SUBKEY_WOW6432KEY: i32 = 131072;
+pub const RRF_SUBKEY_WOW6464KEY: i32 = 65536;
+pub const RRF_WOW64_MASK: i32 = 196608;
+pub const RRF_ZEROONFAILURE: i32 = 536870912;
+pub const SHUTDOWN_ARSO: i32 = 8192;
+pub const SHUTDOWN_CHECK_SAFE_FOR_SERVER: i32 = 16384;
+pub const SHUTDOWN_FORCE_OTHERS: i32 = 1;
+pub const SHUTDOWN_FORCE_SELF: i32 = 2;
+pub const SHUTDOWN_GRACE_OVERRIDE: i32 = 32;
+pub const SHUTDOWN_HYBRID: i32 = 512;
+pub const SHUTDOWN_INSTALL_UPDATES: i32 = 64;
+pub const SHUTDOWN_MOBILE_UI: i32 = 4096;
+pub const SHUTDOWN_NOREBOOT: i32 = 16;
+pub const SHUTDOWN_POWEROFF: i32 = 8;
+pub const SHUTDOWN_RESTART: i32 = 4;
+pub const SHUTDOWN_RESTARTAPPS: i32 = 128;
+pub const SHUTDOWN_RESTART_BOOTOPTIONS: i32 = 1024;
+pub const SHUTDOWN_SKIP_SVC_PRESHUTDOWN: i32 = 256;
+pub const SHUTDOWN_SOFT_REBOOT: i32 = 2048;
+pub const SHUTDOWN_SYSTEM_INITIATED: i32 = 65536;
+pub const SHUTDOWN_UPDATE_POWEROFF: i32 = 131072;
+pub const SHUTDOWN_VAIL_CONTAINER: i32 = 32768;
 pub type VALENT = VALENTA;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -321,7 +321,7 @@ impl Default for VALENTW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WIN31_CLASS: u32 = 0;
+pub const WIN31_CLASS: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct val_context {

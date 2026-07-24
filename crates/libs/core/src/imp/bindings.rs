@@ -241,7 +241,7 @@ impl IWeakReferenceSource_Vtbl {
 }
 impl windows_core::RuntimeName for IWeakReferenceSource {}
 pub const JSCRIPT_E_CANTEXECUTE: windows_core::HRESULT = windows_core::HRESULT(0x89020001_u32 as _);
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: i32 = 4096;
 pub const REGDB_E_CLASSNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040154_u32 as _);
 pub const RPC_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80010108_u32 as _);
 pub const S_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);

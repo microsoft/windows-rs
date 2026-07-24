@@ -31,10 +31,10 @@ windows_link::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(pat
 #[cfg(feature = "winnt")]
 windows_link::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::HANDLE, oldfilehandle : super::HANDLE, applyoptionflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("mspatcha.dll" "system" fn TestApplyPatchToFileW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, applyoptionflags : u32) -> windows_sys::core::BOOL);
-pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2;
-pub const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1;
-pub const APPLY_OPTION_TEST_ONLY: u32 = 4;
-pub const APPLY_OPTION_VALID_FLAGS: u32 = 7;
+pub const APPLY_OPTION_FAIL_IF_CLOSE: i32 = 2;
+pub const APPLY_OPTION_FAIL_IF_EXACT: i32 = 1;
+pub const APPLY_OPTION_TEST_ONLY: i32 = 4;
+pub const APPLY_OPTION_VALID_FLAGS: i32 = 7;
 pub const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525;
 pub const ERROR_PATCH_CORRUPT: u32 = 3222159618;
 pub const ERROR_PATCH_DECODE_FAILURE: u32 = 3222159617;
@@ -167,22 +167,22 @@ impl Default for PATCH_OPTION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576;
-pub const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288;
-pub const PATCH_OPTION_INTERLEAVE_FILES: u32 = 1073741824;
-pub const PATCH_OPTION_NO_BINDFIX: u32 = 65536;
-pub const PATCH_OPTION_NO_CHECKSUM: u32 = 2097152;
-pub const PATCH_OPTION_NO_LOCKFIX: u32 = 131072;
-pub const PATCH_OPTION_NO_REBASE: u32 = 262144;
-pub const PATCH_OPTION_NO_RESTIMEFIX: u32 = 4194304;
-pub const PATCH_OPTION_NO_TIMESTAMP: u32 = 8388608;
+pub const PATCH_OPTION_FAIL_IF_BIGGER: i32 = 1048576;
+pub const PATCH_OPTION_FAIL_IF_SAME_FILE: i32 = 524288;
+pub const PATCH_OPTION_INTERLEAVE_FILES: i32 = 1073741824;
+pub const PATCH_OPTION_NO_BINDFIX: i32 = 65536;
+pub const PATCH_OPTION_NO_CHECKSUM: i32 = 2097152;
+pub const PATCH_OPTION_NO_LOCKFIX: i32 = 131072;
+pub const PATCH_OPTION_NO_REBASE: i32 = 262144;
+pub const PATCH_OPTION_NO_RESTIMEFIX: i32 = 4194304;
+pub const PATCH_OPTION_NO_TIMESTAMP: i32 = 8388608;
 pub const PATCH_OPTION_RESERVED1: u32 = 2147483648;
-pub const PATCH_OPTION_SIGNATURE_MD5: u32 = 16777216;
-pub const PATCH_OPTION_USE_BEST: u32 = 0;
-pub const PATCH_OPTION_USE_LZX_A: u32 = 1;
-pub const PATCH_OPTION_USE_LZX_B: u32 = 2;
-pub const PATCH_OPTION_USE_LZX_BEST: u32 = 3;
-pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4;
+pub const PATCH_OPTION_SIGNATURE_MD5: i32 = 16777216;
+pub const PATCH_OPTION_USE_BEST: i32 = 0;
+pub const PATCH_OPTION_USE_LZX_A: i32 = 1;
+pub const PATCH_OPTION_USE_LZX_B: i32 = 2;
+pub const PATCH_OPTION_USE_LZX_BEST: i32 = 3;
+pub const PATCH_OPTION_USE_LZX_LARGE: i32 = 4;
 pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159;
 pub type PATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> windows_sys::core::BOOL>;
 #[repr(C)]
@@ -192,13 +192,13 @@ pub struct PATCH_RETAIN_RANGE {
     pub LengthInBytes: u32,
     pub OffsetInNewFile: u32,
 }
-pub const PATCH_SYMBOL_NO_FAILURES: u32 = 2;
-pub const PATCH_SYMBOL_NO_IMAGEHLP: u32 = 1;
+pub const PATCH_SYMBOL_NO_FAILURES: i32 = 2;
+pub const PATCH_SYMBOL_NO_IMAGEHLP: i32 = 1;
 pub const PATCH_SYMBOL_RESERVED1: u32 = 2147483648;
-pub const PATCH_SYMBOL_UNDECORATED_TOO: u32 = 4;
+pub const PATCH_SYMBOL_UNDECORATED_TOO: i32 = 4;
 pub type PATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_sys::core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-pub const PATCH_TRANSFORM_PE_IRELOC_2: u32 = 512;
-pub const PATCH_TRANSFORM_PE_RESOURCE_2: u32 = 256;
+pub const PATCH_TRANSFORM_PE_IRELOC_2: i32 = 512;
+pub const PATCH_TRANSFORM_PE_RESOURCE_2: i32 = 256;
 pub type PPATCH_IGNORE_RANGE = *mut PATCH_IGNORE_RANGE;
 pub type PPATCH_INTERLEAVE_MAP = *mut PATCH_INTERLEAVE_MAP;
 #[cfg(feature = "winnt")]

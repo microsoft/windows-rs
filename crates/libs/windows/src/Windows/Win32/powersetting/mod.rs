@@ -58,8 +58,8 @@ pub unsafe fn PowerWriteDCValueIndex(rootpowerkey: Option<super::HKEY>, schemegu
 }
 pub type EFFECTIVE_POWER_MODE = i32;
 pub type EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
-pub const EFFECTIVE_POWER_MODE_V1: u32 = 1;
-pub const EFFECTIVE_POWER_MODE_V2: u32 = 2;
+pub const EFFECTIVE_POWER_MODE_V1: i32 = 1;
+pub const EFFECTIVE_POWER_MODE_V2: i32 = 2;
 pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = 2;
 pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = 0;
 pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = 1;

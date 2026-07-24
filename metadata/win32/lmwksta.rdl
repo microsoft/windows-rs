@@ -101,19 +101,19 @@ mod Windows {
         type PWKSTA_USER_INFO_0 = *mut WKSTA_USER_INFO_0;
         type PWKSTA_USER_INFO_1 = *mut WKSTA_USER_INFO_1;
         type PWKSTA_USER_INFO_1101 = *mut WKSTA_USER_INFO_1101;
-        const TRANSPORT_NAME_PARMNUM: u32 = 202;
-        const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201;
-        const WKSTA_BUFFERNAMEDPIPES_PARMNUM: u32 = 51;
-        const WKSTA_BUFFERREADONLYFILES_PARMNUM: u32 = 59;
-        const WKSTA_BUFFILESWITHDENYWRITE_PARMNUM: u32 = 58;
-        const WKSTA_CACHEFILETIMEOUT_PARMNUM: u32 = 47;
-        const WKSTA_CHARCOUNT_PARMNUM: u32 = 12;
-        const WKSTA_CHARTIME_PARMNUM: u32 = 11;
-        const WKSTA_CHARWAIT_PARMNUM: u32 = 10;
-        const WKSTA_COMPUTERNAME_PARMNUM: u32 = 1;
-        const WKSTA_DORMANTFILELIMIT_PARMNUM: u32 = 46;
-        const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27;
-        const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60;
+        const TRANSPORT_NAME_PARMNUM: i32 = 202;
+        const TRANSPORT_QUALITYOFSERVICE_PARMNUM: i32 = 201;
+        const WKSTA_BUFFERNAMEDPIPES_PARMNUM: i32 = 51;
+        const WKSTA_BUFFERREADONLYFILES_PARMNUM: i32 = 59;
+        const WKSTA_BUFFILESWITHDENYWRITE_PARMNUM: i32 = 58;
+        const WKSTA_CACHEFILETIMEOUT_PARMNUM: i32 = 47;
+        const WKSTA_CHARCOUNT_PARMNUM: i32 = 12;
+        const WKSTA_CHARTIME_PARMNUM: i32 = 11;
+        const WKSTA_CHARWAIT_PARMNUM: i32 = 10;
+        const WKSTA_COMPUTERNAME_PARMNUM: i32 = 1;
+        const WKSTA_DORMANTFILELIMIT_PARMNUM: i32 = 46;
+        const WKSTA_ERRLOGSZ_PARMNUM: i32 = 27;
+        const WKSTA_FORCECORECREATEMODE_PARMNUM: i32 = 60;
         struct WKSTA_INFO_100 {
             wki100_platform_id: u32,
             wki100_computername: PWSTR,
@@ -316,35 +316,35 @@ mod Windows {
             wki502_force_core_create_mode: BOOL,
             wki502_use_512_byte_max_transfer: BOOL,
         }
-        const WKSTA_KEEPCONN_PARMNUM: u32 = 13;
-        const WKSTA_KEEPSEARCH_PARMNUM: u32 = 14;
-        const WKSTA_LANGROUP_PARMNUM: u32 = 2;
-        const WKSTA_LANROOT_PARMNUM: u32 = 7;
-        const WKSTA_LOCKINCREMENT_PARMNUM: u32 = 42;
-        const WKSTA_LOCKMAXIMUM_PARMNUM: u32 = 43;
-        const WKSTA_LOCKQUOTA_PARMNUM: u32 = 41;
-        const WKSTA_LOGGED_ON_USERS_PARMNUM: u32 = 6;
-        const WKSTA_LOGON_DOMAIN_PARMNUM: u32 = 8;
-        const WKSTA_LOGON_SERVER_PARMNUM: u32 = 9;
-        const WKSTA_MAILSLOTS_PARMNUM: u32 = 30;
-        const WKSTA_MAXCMDS_PARMNUM: u32 = 15;
-        const WKSTA_MAXTHREADS_PARMNUM: u32 = 33;
-        const WKSTA_MAXWRKCACHE_PARMNUM: u32 = 17;
-        const WKSTA_NUMALERTS_PARMNUM: u32 = 20;
-        const WKSTA_NUMCHARBUF_PARMNUM: u32 = 22;
-        const WKSTA_NUMDGRAMBUF_PARMNUM: u32 = 31;
-        const WKSTA_NUMSERVICES_PARMNUM: u32 = 21;
-        const WKSTA_NUMWORKBUF_PARMNUM: u32 = 16;
-        const WKSTA_OTH_DOMAINS_PARMNUM: u32 = 101;
-        const WKSTA_PIPEINCREMENT_PARMNUM: u32 = 44;
-        const WKSTA_PIPEMAXIMUM_PARMNUM: u32 = 45;
-        const WKSTA_PLATFORM_ID_PARMNUM: u32 = 100;
-        const WKSTA_PRINTBUFTIME_PARMNUM: u32 = 28;
-        const WKSTA_READAHEADTHRUPUT_PARMNUM: u32 = 62;
-        const WKSTA_SESSTIMEOUT_PARMNUM: u32 = 18;
-        const WKSTA_SIZCHARBUF_PARMNUM: u32 = 23;
-        const WKSTA_SIZERROR_PARMNUM: u32 = 19;
-        const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29;
+        const WKSTA_KEEPCONN_PARMNUM: i32 = 13;
+        const WKSTA_KEEPSEARCH_PARMNUM: i32 = 14;
+        const WKSTA_LANGROUP_PARMNUM: i32 = 2;
+        const WKSTA_LANROOT_PARMNUM: i32 = 7;
+        const WKSTA_LOCKINCREMENT_PARMNUM: i32 = 42;
+        const WKSTA_LOCKMAXIMUM_PARMNUM: i32 = 43;
+        const WKSTA_LOCKQUOTA_PARMNUM: i32 = 41;
+        const WKSTA_LOGGED_ON_USERS_PARMNUM: i32 = 6;
+        const WKSTA_LOGON_DOMAIN_PARMNUM: i32 = 8;
+        const WKSTA_LOGON_SERVER_PARMNUM: i32 = 9;
+        const WKSTA_MAILSLOTS_PARMNUM: i32 = 30;
+        const WKSTA_MAXCMDS_PARMNUM: i32 = 15;
+        const WKSTA_MAXTHREADS_PARMNUM: i32 = 33;
+        const WKSTA_MAXWRKCACHE_PARMNUM: i32 = 17;
+        const WKSTA_NUMALERTS_PARMNUM: i32 = 20;
+        const WKSTA_NUMCHARBUF_PARMNUM: i32 = 22;
+        const WKSTA_NUMDGRAMBUF_PARMNUM: i32 = 31;
+        const WKSTA_NUMSERVICES_PARMNUM: i32 = 21;
+        const WKSTA_NUMWORKBUF_PARMNUM: i32 = 16;
+        const WKSTA_OTH_DOMAINS_PARMNUM: i32 = 101;
+        const WKSTA_PIPEINCREMENT_PARMNUM: i32 = 44;
+        const WKSTA_PIPEMAXIMUM_PARMNUM: i32 = 45;
+        const WKSTA_PLATFORM_ID_PARMNUM: i32 = 100;
+        const WKSTA_PRINTBUFTIME_PARMNUM: i32 = 28;
+        const WKSTA_READAHEADTHRUPUT_PARMNUM: i32 = 62;
+        const WKSTA_SESSTIMEOUT_PARMNUM: i32 = 18;
+        const WKSTA_SIZCHARBUF_PARMNUM: i32 = 23;
+        const WKSTA_SIZERROR_PARMNUM: i32 = 19;
+        const WKSTA_SIZWORKBUF_PARMNUM: i32 = 29;
         struct WKSTA_TRANSPORT_INFO_0 {
             wkti0_quality_of_service: u32,
             wkti0_number_of_vcs: u32,
@@ -352,13 +352,13 @@ mod Windows {
             wkti0_transport_address: PWSTR,
             wkti0_wan_ish: BOOL,
         }
-        const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: u32 = 61;
-        const WKSTA_USECLOSEBEHIND_PARMNUM: u32 = 50;
-        const WKSTA_USEENCRYPTION_PARMNUM: u32 = 57;
-        const WKSTA_USELOCKANDREADANDUNLOCK_PARMNUM: u32 = 52;
-        const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: u32 = 48;
-        const WKSTA_USERAWREAD_PARMNUM: u32 = 54;
-        const WKSTA_USERAWWRITE_PARMNUM: u32 = 55;
+        const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: i32 = 61;
+        const WKSTA_USECLOSEBEHIND_PARMNUM: i32 = 50;
+        const WKSTA_USEENCRYPTION_PARMNUM: i32 = 57;
+        const WKSTA_USELOCKANDREADANDUNLOCK_PARMNUM: i32 = 52;
+        const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: i32 = 48;
+        const WKSTA_USERAWREAD_PARMNUM: i32 = 54;
+        const WKSTA_USERAWWRITE_PARMNUM: i32 = 55;
         struct WKSTA_USER_INFO_0 {
             wkui0_username: PWSTR,
         }
@@ -371,11 +371,11 @@ mod Windows {
         struct WKSTA_USER_INFO_1101 {
             wkui1101_oth_domains: PWSTR,
         }
-        const WKSTA_USEUNLOCKBEHIND_PARMNUM: u32 = 49;
-        const WKSTA_USEWRITERAWWITHDATA_PARMNUM: u32 = 56;
-        const WKSTA_UTILIZENTCACHING_PARMNUM: u32 = 53;
-        const WKSTA_VER_MAJOR_PARMNUM: u32 = 4;
-        const WKSTA_VER_MINOR_PARMNUM: u32 = 5;
-        const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32;
+        const WKSTA_USEUNLOCKBEHIND_PARMNUM: i32 = 49;
+        const WKSTA_USEWRITERAWWITHDATA_PARMNUM: i32 = 56;
+        const WKSTA_UTILIZENTCACHING_PARMNUM: i32 = 53;
+        const WKSTA_VER_MAJOR_PARMNUM: i32 = 4;
+        const WKSTA_VER_MINOR_PARMNUM: i32 = 5;
+        const WKSTA_WRKHEURISTICS_PARMNUM: i32 = 32;
     }
 }

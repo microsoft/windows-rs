@@ -165,9 +165,9 @@ windows_link::link!("mscms.dll" "system" fn WcsSetDefaultRenderingIntent(scope :
 windows_link::link!("mscms.dll" "system" fn WcsSetUsePerUserProfiles(pdevicename : windows_sys::core::PCWSTR, dwdeviceclass : u32, useperuserprofiles : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : HTRANSFORM, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-pub const ATTRIB_MATTE: u32 = 2;
-pub const ATTRIB_TRANSPARENCY: u32 = 1;
-pub const BEST_MODE: u32 = 3;
+pub const ATTRIB_MATTE: i32 = 2;
+pub const ATTRIB_TRANSPARENCY: i32 = 1;
+pub const BEST_MODE: i32 = 3;
 pub type BMFORMAT = i32;
 pub const BM_10b_G3CH: BMFORMAT = 1028;
 pub const BM_10b_Lab: BMFORMAT = 1027;
@@ -210,41 +210,41 @@ pub const BM_x555Yxy: BMFORMAT = 258;
 pub const BM_xBGRQUADS: BMFORMAT = 16;
 pub const BM_xG3CHQUADS: BMFORMAT = 772;
 pub const BM_xRGBQUADS: BMFORMAT = 8;
-pub const CLASS_ABSTRACT: u32 = 1633842036;
-pub const CLASS_CAMP: u32 = 1667329392;
-pub const CLASS_COLORSPACE: u32 = 1936744803;
-pub const CLASS_GMMP: u32 = 1735224688;
-pub const CLASS_LINK: u32 = 1818848875;
-pub const CLASS_MONITOR: u32 = 1835955314;
-pub const CLASS_NAMED: u32 = 1852662636;
-pub const CLASS_PRINTER: u32 = 1886549106;
-pub const CLASS_SCANNER: u32 = 1935896178;
-pub const CMM_DESCRIPTION: u32 = 5;
-pub const CMM_DLL_VERSION: u32 = 3;
-pub const CMM_DRIVER_VERSION: u32 = 2;
-pub const CMM_FROM_PROFILE: u32 = 0;
-pub const CMM_IDENT: u32 = 1;
-pub const CMM_LOGOICON: u32 = 6;
-pub const CMM_VERSION: u32 = 4;
-pub const CMM_WINDOWS_DEFAULT: u32 = 1466527264;
-pub const CMM_WIN_VERSION: u32 = 0;
-pub const CMS_BACKWARD: u32 = 1;
-pub const CMS_DISABLEICM: u32 = 1;
-pub const CMS_DISABLEINTENT: u32 = 1024;
-pub const CMS_DISABLERENDERINTENT: u32 = 2048;
-pub const CMS_ENABLEPROOFING: u32 = 2;
-pub const CMS_FORWARD: u32 = 0;
+pub const CLASS_ABSTRACT: i32 = 1633842036;
+pub const CLASS_CAMP: i32 = 1667329392;
+pub const CLASS_COLORSPACE: i32 = 1936744803;
+pub const CLASS_GMMP: i32 = 1735224688;
+pub const CLASS_LINK: i32 = 1818848875;
+pub const CLASS_MONITOR: i32 = 1835955314;
+pub const CLASS_NAMED: i32 = 1852662636;
+pub const CLASS_PRINTER: i32 = 1886549106;
+pub const CLASS_SCANNER: i32 = 1935896178;
+pub const CMM_DESCRIPTION: i32 = 5;
+pub const CMM_DLL_VERSION: i32 = 3;
+pub const CMM_DRIVER_VERSION: i32 = 2;
+pub const CMM_FROM_PROFILE: i32 = 0;
+pub const CMM_IDENT: i32 = 1;
+pub const CMM_LOGOICON: i32 = 6;
+pub const CMM_VERSION: i32 = 4;
+pub const CMM_WINDOWS_DEFAULT: i32 = 1466527264;
+pub const CMM_WIN_VERSION: i32 = 0;
+pub const CMS_BACKWARD: i32 = 1;
+pub const CMS_DISABLEICM: i32 = 1;
+pub const CMS_DISABLEINTENT: i32 = 1024;
+pub const CMS_DISABLERENDERINTENT: i32 = 2048;
+pub const CMS_ENABLEPROOFING: i32 = 2;
+pub const CMS_FORWARD: i32 = 0;
 pub const CMS_MONITOROVERFLOW: u32 = 2147483648;
-pub const CMS_PRINTEROVERFLOW: u32 = 1073741824;
-pub const CMS_SETMONITORPROFILE: u32 = 16;
-pub const CMS_SETPRINTERPROFILE: u32 = 32;
-pub const CMS_SETPROOFINTENT: u32 = 8;
-pub const CMS_SETRENDERINTENT: u32 = 4;
-pub const CMS_SETTARGETPROFILE: u32 = 64;
-pub const CMS_TARGETOVERFLOW: u32 = 536870912;
-pub const CMS_USEAPPLYCALLBACK: u32 = 256;
-pub const CMS_USEDESCRIPTION: u32 = 512;
-pub const CMS_USEHOOK: u32 = 128;
+pub const CMS_PRINTEROVERFLOW: i32 = 1073741824;
+pub const CMS_SETMONITORPROFILE: i32 = 16;
+pub const CMS_SETPRINTERPROFILE: i32 = 32;
+pub const CMS_SETPROOFINTENT: i32 = 8;
+pub const CMS_SETRENDERINTENT: i32 = 4;
+pub const CMS_SETTARGETPROFILE: i32 = 64;
+pub const CMS_TARGETOVERFLOW: i32 = 536870912;
+pub const CMS_USEAPPLYCALLBACK: i32 = 256;
+pub const CMS_USEDESCRIPTION: i32 = 512;
+pub const CMS_USEHOOK: i32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CMYKCOLOR {
@@ -360,7 +360,7 @@ pub const COLOR_FLOAT: COLORDATATYPE = 3;
 pub const COLOR_FLOAT16: COLORDATATYPE = 7;
 pub const COLOR_GRAY: COLORTYPE = 1;
 pub const COLOR_Lab: COLORTYPE = 5;
-pub const COLOR_MATCH_VERSION: u32 = 512;
+pub const COLOR_MATCH_VERSION: i32 = 512;
 pub type COLOR_NAME = [i8; 32];
 pub const COLOR_NAMED: COLORTYPE = 12;
 pub const COLOR_RGB: COLORTYPE = 2;
@@ -381,16 +381,16 @@ pub const CPT_CAMP: COLORPROFILETYPE = 2;
 pub const CPT_DMP: COLORPROFILETYPE = 1;
 pub const CPT_GMMP: COLORPROFILETYPE = 3;
 pub const CPT_ICC: COLORPROFILETYPE = 0;
-pub const CSA_A: u32 = 1;
-pub const CSA_ABC: u32 = 2;
-pub const CSA_CMYK: u32 = 7;
-pub const CSA_DEF: u32 = 3;
-pub const CSA_DEFG: u32 = 4;
-pub const CSA_GRAY: u32 = 5;
-pub const CSA_Lab: u32 = 8;
-pub const CSA_RGB: u32 = 6;
-pub const DONT_USE_EMBEDDED_WCS_PROFILES: u32 = 1;
-pub const ENABLE_GAMUT_CHECKING: u32 = 65536;
+pub const CSA_A: i32 = 1;
+pub const CSA_ABC: i32 = 2;
+pub const CSA_CMYK: i32 = 7;
+pub const CSA_DEF: i32 = 3;
+pub const CSA_DEFG: i32 = 4;
+pub const CSA_GRAY: i32 = 5;
+pub const CSA_Lab: i32 = 8;
+pub const CSA_RGB: i32 = 6;
+pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1;
+pub const ENABLE_GAMUT_CHECKING: i32 = 65536;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENUMTYPEA {
@@ -449,30 +449,30 @@ impl Default for ENUMTYPEW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ENUM_TYPE_VERSION: u32 = 768;
-pub const ET_ATTRIBUTES: u32 = 8192;
-pub const ET_CLASS: u32 = 32;
-pub const ET_CMMTYPE: u32 = 16;
-pub const ET_CONNECTIONSPACE: u32 = 128;
-pub const ET_CREATOR: u32 = 32768;
-pub const ET_DATACOLORSPACE: u32 = 64;
-pub const ET_DEVICECLASS: u32 = 65536;
-pub const ET_DEVICENAME: u32 = 1;
-pub const ET_DITHERMODE: u32 = 4;
-pub const ET_EXTENDEDDISPLAYCOLOR: u32 = 262144;
-pub const ET_MANUFACTURER: u32 = 2048;
-pub const ET_MEDIATYPE: u32 = 2;
-pub const ET_MODEL: u32 = 4096;
-pub const ET_PLATFORM: u32 = 512;
-pub const ET_PROFILEFLAGS: u32 = 1024;
-pub const ET_RENDERINGINTENT: u32 = 16384;
-pub const ET_RESOLUTION: u32 = 8;
-pub const ET_SIGNATURE: u32 = 256;
-pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072;
-pub const FAST_TRANSLATE: u32 = 262144;
-pub const FLAG_DEPENDENTONDATA: u32 = 2;
-pub const FLAG_EMBEDDEDPROFILE: u32 = 1;
-pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432;
+pub const ENUM_TYPE_VERSION: i32 = 768;
+pub const ET_ATTRIBUTES: i32 = 8192;
+pub const ET_CLASS: i32 = 32;
+pub const ET_CMMTYPE: i32 = 16;
+pub const ET_CONNECTIONSPACE: i32 = 128;
+pub const ET_CREATOR: i32 = 32768;
+pub const ET_DATACOLORSPACE: i32 = 64;
+pub const ET_DEVICECLASS: i32 = 65536;
+pub const ET_DEVICENAME: i32 = 1;
+pub const ET_DITHERMODE: i32 = 4;
+pub const ET_EXTENDEDDISPLAYCOLOR: i32 = 262144;
+pub const ET_MANUFACTURER: i32 = 2048;
+pub const ET_MEDIATYPE: i32 = 2;
+pub const ET_MODEL: i32 = 4096;
+pub const ET_PLATFORM: i32 = 512;
+pub const ET_PROFILEFLAGS: i32 = 1024;
+pub const ET_RENDERINGINTENT: i32 = 16384;
+pub const ET_RESOLUTION: i32 = 8;
+pub const ET_SIGNATURE: i32 = 256;
+pub const ET_STANDARDDISPLAYCOLOR: i32 = 131072;
+pub const FAST_TRANSLATE: i32 = 262144;
+pub const FLAG_DEPENDENTONDATA: i32 = 2;
+pub const FLAG_EMBEDDEDPROFILE: i32 = 1;
+pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: i32 = 33554432;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct GENERIC3CHANNEL {
@@ -501,11 +501,11 @@ impl Default for HiFiCOLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const INDEX_DONT_CARE: u32 = 0;
-pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3;
-pub const INTENT_PERCEPTUAL: u32 = 0;
-pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1;
-pub const INTENT_SATURATION: u32 = 2;
+pub const INDEX_DONT_CARE: i32 = 0;
+pub const INTENT_ABSOLUTE_COLORIMETRIC: i32 = 3;
+pub const INTENT_PERCEPTUAL: i32 = 0;
+pub const INTENT_RELATIVE_COLORIMETRIC: i32 = 1;
+pub const INTENT_SATURATION: i32 = 2;
 #[cfg(feature = "minwindef")]
 pub type LPBMCALLBACKFN = PBMCALLBACKFN;
 pub type LPBMFORMAT = *mut BMFORMAT;
@@ -534,7 +534,7 @@ pub struct LabCOLOR {
     pub a: u16,
     pub b: u16,
 }
-pub const MAX_COLOR_CHANNELS: u32 = 8;
+pub const MAX_COLOR_CHANNELS: i32 = 8;
 pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -555,7 +555,7 @@ impl Default for NAMED_PROFILE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NORMAL_MODE: u32 = 2;
+pub const NORMAL_MODE: i32 = 2;
 #[cfg(feature = "minwindef")]
 pub type PBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::LPARAM) -> windows_sys::core::BOOL>;
 pub type PBMFORMAT = *mut BMFORMAT;
@@ -581,7 +581,7 @@ pub type PNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
 pub type PPROFILE = *mut PROFILE;
 #[cfg(feature = "wingdi")]
 pub type PPROFILEHEADER = *mut PROFILEHEADER;
-pub const PRESERVEBLACK: u32 = 1048576;
+pub const PRESERVEBLACK: i32 = 1048576;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROFILE {
@@ -622,11 +622,11 @@ impl Default for PROFILEHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PROFILE_FILENAME: u32 = 1;
-pub const PROFILE_MEMBUFFER: u32 = 2;
-pub const PROFILE_READ: u32 = 1;
-pub const PROFILE_READWRITE: u32 = 2;
-pub const PROOF_MODE: u32 = 1;
+pub const PROFILE_FILENAME: i32 = 1;
+pub const PROFILE_MEMBUFFER: i32 = 2;
+pub const PROFILE_READ: i32 = 1;
+pub const PROFILE_READWRITE: i32 = 2;
+pub const PROOF_MODE: i32 = 1;
 pub type PTAGTYPE = *mut TAGTYPE;
 pub const RESERVED: u32 = 2147483648;
 #[repr(C)]
@@ -637,29 +637,29 @@ pub struct RGBCOLOR {
     pub blue: u16,
 }
 pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256;
-pub const SPACE_2_CHANNEL: u32 = 843271250;
-pub const SPACE_3_CHANNEL: u32 = 860048466;
-pub const SPACE_4_CHANNEL: u32 = 876825682;
-pub const SPACE_5_CHANNEL: u32 = 893602898;
-pub const SPACE_6_CHANNEL: u32 = 910380114;
-pub const SPACE_7_CHANNEL: u32 = 927157330;
-pub const SPACE_8_CHANNEL: u32 = 943934546;
-pub const SPACE_CMY: u32 = 1129142560;
-pub const SPACE_CMYK: u32 = 1129142603;
-pub const SPACE_GRAY: u32 = 1196573017;
-pub const SPACE_HLS: u32 = 1212961568;
-pub const SPACE_HSV: u32 = 1213421088;
-pub const SPACE_Lab: u32 = 1281450528;
-pub const SPACE_Luv: u32 = 1282766368;
-pub const SPACE_RGB: u32 = 1380401696;
-pub const SPACE_XYZ: u32 = 1482250784;
-pub const SPACE_YCbCr: u32 = 1497588338;
-pub const SPACE_Yxy: u32 = 1501067552;
+pub const SPACE_2_CHANNEL: i32 = 843271250;
+pub const SPACE_3_CHANNEL: i32 = 860048466;
+pub const SPACE_4_CHANNEL: i32 = 876825682;
+pub const SPACE_5_CHANNEL: i32 = 893602898;
+pub const SPACE_6_CHANNEL: i32 = 910380114;
+pub const SPACE_7_CHANNEL: i32 = 927157330;
+pub const SPACE_8_CHANNEL: i32 = 943934546;
+pub const SPACE_CMY: i32 = 1129142560;
+pub const SPACE_CMYK: i32 = 1129142603;
+pub const SPACE_GRAY: i32 = 1196573017;
+pub const SPACE_HLS: i32 = 1212961568;
+pub const SPACE_HSV: i32 = 1213421088;
+pub const SPACE_Lab: i32 = 1281450528;
+pub const SPACE_Luv: i32 = 1282766368;
+pub const SPACE_RGB: i32 = 1380401696;
+pub const SPACE_XYZ: i32 = 1482250784;
+pub const SPACE_YCbCr: i32 = 1497588338;
+pub const SPACE_Yxy: i32 = 1501067552;
 pub type TAGTYPE = u32;
-pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072;
+pub const USE_RELATIVE_COLORIMETRIC: i32 = 131072;
 pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = 1;
-pub const WCS_ALWAYS: u32 = 2097152;
-pub const WCS_DEFAULT: u32 = 0;
+pub const WCS_ALWAYS: i32 = 2097152;
+pub const WCS_DEFAULT: i32 = 0;
 pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -676,9 +676,9 @@ pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: windows_sys::core::BOOL,
 }
-pub const WCS_EMBEDDED_TAG_SIGNATURE: u32 = 1297297456;
-pub const WCS_EMBEDDED_TAG_TYPE_SIGNATURE: u32 = 1297297712;
-pub const WCS_ICCONLY: u32 = 65536;
+pub const WCS_EMBEDDED_TAG_SIGNATURE: i32 = 1297297456;
+pub const WCS_EMBEDDED_TAG_TYPE_SIGNATURE: i32 = 1297297712;
+pub const WCS_ICCONLY: i32 = 65536;
 pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = 1;
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = 0;

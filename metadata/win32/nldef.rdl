@@ -216,11 +216,11 @@ mod Windows {
             IpSuffixOriginRandom = 5,
             IpSuffixOriginUnchanged = 16,
         }
-        const NlpoDhcp: u32 = 3;
-        const NlpoManual: u32 = 1;
-        const NlpoOther: u32 = 0;
-        const NlpoRouterAdvertisement: u32 = 4;
-        const NlpoWellKnown: u32 = 2;
+        const NlpoDhcp: i32 = 3;
+        const NlpoManual: i32 = 1;
+        const NlpoOther: i32 = 0;
+        const NlpoRouterAdvertisement: i32 = 4;
+        const NlpoWellKnown: i32 = 2;
         type PNL_ADDRESS_TYPE = *mut NL_ADDRESS_TYPE;
         type PNL_BANDWIDTH_FLAG = *mut NL_BANDWIDTH_FLAG;
         type PNL_BANDWIDTH_INFORMATION = *mut NL_BANDWIDTH_INFORMATION;

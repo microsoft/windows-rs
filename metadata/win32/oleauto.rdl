@@ -1,8 +1,8 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ACTIVEOBJECT_STRONG: u32 = 0;
-        const ACTIVEOBJECT_WEAK: u32 = 1;
+        const ACTIVEOBJECT_STRONG: i32 = 0;
+        const ACTIVEOBJECT_WEAK: i32 = 1;
         #[library("OLEAUT32.dll")]
         extern fn BstrFromVector(psa: *const SAFEARRAY, pbstr: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -17,10 +17,10 @@ mod Windows {
         extern fn CreateTypeLib(syskind: SYSKIND, szFile: PCWSTR, ppctlib: *mut ICreateTypeLib) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn CreateTypeLib2(syskind: SYSKIND, szFile: PCWSTR, ppctlib: *mut ICreateTypeLib2) -> HRESULT;
-        const DISPATCH_METHOD: u32 = 1;
-        const DISPATCH_PROPERTYGET: u32 = 2;
-        const DISPATCH_PROPERTYPUT: u32 = 4;
-        const DISPATCH_PROPERTYPUTREF: u32 = 8;
+        const DISPATCH_METHOD: i32 = 1;
+        const DISPATCH_PROPERTYGET: i32 = 2;
+        const DISPATCH_PROPERTYPUT: i32 = 4;
+        const DISPATCH_PROPERTYPUTREF: i32 = 8;
         #[library("OLEAUT32.dll")]
         extern fn DispCallFunc(#[opt] pvInstance: *const void, oVft: usize, cc: CALLCONV, vtReturn: VARTYPE, cActuals: u32, #[len_param(4)] prgvt: *const VARTYPE, #[len_param(4)] prgpvarg: *const *const VARIANTARG, pvargResult: *mut VARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -50,9 +50,9 @@ mod Windows {
         extern fn LHashValOfNameSys(syskind: SYSKIND, lcid: LCID, szName: *const OLECHAR) -> u32;
         #[library("OLEAUT32.dll")]
         extern fn LHashValOfNameSysA(syskind: SYSKIND, lcid: LCID, szName: PCSTR) -> u32;
-        const LOAD_TLB_AS_32BIT: u32 = 32;
-        const LOAD_TLB_AS_64BIT: u32 = 64;
-        const LOCALE_USE_NLS: u32 = 268435456;
+        const LOAD_TLB_AS_32BIT: i32 = 32;
+        const LOAD_TLB_AS_64BIT: i32 = 64;
+        const LOCALE_USE_NLS: i32 = 268435456;
         type LPINTERFACEDATA = *mut INTERFACEDATA;
         type LPMETHODDATA = *mut METHODDATA;
         type LPPARAMDATA = *mut PARAMDATA;
@@ -82,22 +82,22 @@ mod Windows {
             nBaseShift: i32,
             nPwr10: i32,
         }
-        const NUMPRS_CURRENCY: u32 = 1024;
-        const NUMPRS_DECIMAL: u32 = 256;
-        const NUMPRS_EXPONENT: u32 = 2048;
-        const NUMPRS_HEX_OCT: u32 = 64;
-        const NUMPRS_INEXACT: u32 = 131072;
-        const NUMPRS_LEADING_MINUS: u32 = 16;
-        const NUMPRS_LEADING_PLUS: u32 = 4;
-        const NUMPRS_LEADING_WHITE: u32 = 1;
-        const NUMPRS_NEG: u32 = 65536;
-        const NUMPRS_PARENS: u32 = 128;
-        const NUMPRS_STD: u32 = 8191;
-        const NUMPRS_THOUSANDS: u32 = 512;
-        const NUMPRS_TRAILING_MINUS: u32 = 32;
-        const NUMPRS_TRAILING_PLUS: u32 = 8;
-        const NUMPRS_TRAILING_WHITE: u32 = 2;
-        const NUMPRS_USE_ALL: u32 = 4096;
+        const NUMPRS_CURRENCY: i32 = 1024;
+        const NUMPRS_DECIMAL: i32 = 256;
+        const NUMPRS_EXPONENT: i32 = 2048;
+        const NUMPRS_HEX_OCT: i32 = 64;
+        const NUMPRS_INEXACT: i32 = 131072;
+        const NUMPRS_LEADING_MINUS: i32 = 16;
+        const NUMPRS_LEADING_PLUS: i32 = 4;
+        const NUMPRS_LEADING_WHITE: i32 = 1;
+        const NUMPRS_NEG: i32 = 65536;
+        const NUMPRS_PARENS: i32 = 128;
+        const NUMPRS_STD: i32 = 8191;
+        const NUMPRS_THOUSANDS: i32 = 512;
+        const NUMPRS_TRAILING_MINUS: i32 = 32;
+        const NUMPRS_TRAILING_PLUS: i32 = 8;
+        const NUMPRS_TRAILING_WHITE: i32 = 2;
+        const NUMPRS_USE_ALL: i32 = 4096;
         #[library("OLEAUT32.dll")]
         extern fn OaBuildVersion() -> u32;
         #[library("OLEAUT32.dll")]
@@ -122,12 +122,12 @@ mod Windows {
         extern fn RegisterTypeLibForUser(ptlib: ITypeLib, szFullPath: *const OLECHAR, #[opt] szHelpDir: *const OLECHAR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn RevokeActiveObject(dwRegister: u32, pvReserved: *mut void) -> HRESULT;
-        const STDOLE2_LCID: u32 = 0;
-        const STDOLE2_MAJORVERNUM: u32 = 2;
-        const STDOLE2_MINORVERNUM: u32 = 0;
-        const STDOLE_LCID: u32 = 0;
-        const STDOLE_MAJORVERNUM: u32 = 1;
-        const STDOLE_MINORVERNUM: u32 = 0;
+        const STDOLE2_LCID: i32 = 0;
+        const STDOLE2_MAJORVERNUM: i32 = 2;
+        const STDOLE2_MINORVERNUM: i32 = 0;
+        const STDOLE_LCID: i32 = 0;
+        const STDOLE_MAJORVERNUM: i32 = 1;
+        const STDOLE_MINORVERNUM: i32 = 0;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayAccessData(psa: *const SAFEARRAY, ppvData: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -224,18 +224,18 @@ mod Windows {
         extern fn UnRegisterTypeLib(libID: *const GUID, wVerMajor: u16, wVerMinor: u16, lcid: LCID, syskind: SYSKIND) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn UnRegisterTypeLibForUser(libID: *const GUID, wMajorVerNum: u16, wMinorVerNum: u16, lcid: LCID, syskind: SYSKIND) -> HRESULT;
-        const VARCMP_EQ: u32 = 1;
-        const VARCMP_GT: u32 = 2;
-        const VARCMP_LT: u32 = 0;
-        const VARCMP_NULL: u32 = 3;
-        const VARIANT_ALPHABOOL: u32 = 2;
-        const VARIANT_CALENDAR_GREGORIAN: u32 = 64;
-        const VARIANT_CALENDAR_HIJRI: u32 = 8;
-        const VARIANT_CALENDAR_THAI: u32 = 32;
-        const VARIANT_LOCALBOOL: u32 = 16;
-        const VARIANT_NOUSEROVERRIDE: u32 = 4;
-        const VARIANT_NOVALUEPROP: u32 = 1;
-        const VARIANT_USE_NLS: u32 = 128;
+        const VARCMP_EQ: i32 = 1;
+        const VARCMP_GT: i32 = 2;
+        const VARCMP_LT: i32 = 0;
+        const VARCMP_NULL: i32 = 3;
+        const VARIANT_ALPHABOOL: i32 = 2;
+        const VARIANT_CALENDAR_GREGORIAN: i32 = 64;
+        const VARIANT_CALENDAR_HIJRI: i32 = 8;
+        const VARIANT_CALENDAR_THAI: i32 = 32;
+        const VARIANT_LOCALBOOL: i32 = 16;
+        const VARIANT_NOUSEROVERRIDE: i32 = 4;
+        const VARIANT_NOVALUEPROP: i32 = 1;
+        const VARIANT_USE_NLS: i32 = 128;
         const VAR_CALENDAR_GREGORIAN: u32 = 256;
         const VAR_CALENDAR_HIJRI: u32 = 8;
         const VAR_CALENDAR_THAI: u32 = 128;
@@ -245,21 +245,21 @@ mod Windows {
         const VAR_LOCALBOOL: u32 = 16;
         const VAR_TIMEVALUEONLY: u32 = 1;
         const VAR_VALIDDATE: u32 = 4;
-        const VTBIT_CY: u32 = 64;
-        const VTBIT_DECIMAL: u32 = 16384;
-        const VTBIT_I1: u32 = 65536;
-        const VTBIT_I2: u32 = 4;
-        const VTBIT_I4: u32 = 8;
-        const VTBIT_I8: u32 = 1048576;
-        const VTBIT_R4: u32 = 16;
-        const VTBIT_R8: u32 = 32;
-        const VTBIT_UI1: u32 = 131072;
-        const VTBIT_UI2: u32 = 262144;
-        const VTBIT_UI4: u32 = 524288;
-        const VTBIT_UI8: u32 = 2097152;
-        const VTDATEGRE_MAX: u32 = 2958465;
+        const VTBIT_CY: i32 = 64;
+        const VTBIT_DECIMAL: i32 = 16384;
+        const VTBIT_I1: i32 = 65536;
+        const VTBIT_I2: i32 = 4;
+        const VTBIT_I4: i32 = 8;
+        const VTBIT_I8: i32 = 1048576;
+        const VTBIT_R4: i32 = 16;
+        const VTBIT_R8: i32 = 32;
+        const VTBIT_UI1: i32 = 131072;
+        const VTBIT_UI2: i32 = 262144;
+        const VTBIT_UI4: i32 = 524288;
+        const VTBIT_UI8: i32 = 2097152;
+        const VTDATEGRE_MAX: i32 = 2958465;
         const VTDATEGRE_MIN: i32 = -657434;
-        const VT_HARDTYPE: u32 = 32768;
+        const VT_HARDTYPE: i32 = 32768;
         #[library("OLEAUT32.dll")]
         extern fn VarAbs(pvarIn: *const VARIANT, pvarResult: *mut VARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]

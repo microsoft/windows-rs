@@ -13,7 +13,7 @@ windows_link::link!("user32.dll" "C" fn wsprintfA(param0: PSTR, param1: PCSTR, .
 fn calling_convention() {
     unsafe {
         // This function requires cdecl on x86.
-        assert_eq!(LdapMapErrorToWin32(LDAP_BUSY as u32), ERROR_BUSY);
+        assert_eq!(LdapMapErrorToWin32(LDAP_BUSY as u32), ERROR_BUSY as u32);
 
         // This function requires stdcall on x86.
         GetTickCount();

@@ -485,7 +485,7 @@ pub type LPSTINOTIFY = *mut STINOTIFY;
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPSTISUBSCRIBE = *mut STISUBSCRIBE;
 pub type LPSTI_DIAG = *mut STI_DIAG;
-pub const MAX_NOTIFICATION_DATA: u32 = 64;
+pub const MAX_NOTIFICATION_DATA: i32 = 64;
 pub type PSTIDEVICEW = *mut IStiDeviceW;
 pub type PSTI_DEVICE_INFORMATION = PSTI_DEVICE_INFORMATIONW;
 pub type PSTI_DEVICE_INFORMATIONW = *mut STI_DEVICE_INFORMATIONW;
@@ -495,8 +495,8 @@ pub type PSTI_ERROR_INFO = *mut STI_ERROR_INFO;
 pub type PSTI_ERROR_INFOW = *mut STI_ERROR_INFOW;
 pub type PSTI_WIA_DEVICE_INFORMATION = PSTI_WIA_DEVICE_INFORMATIONW;
 pub type PSTI_WIA_DEVICE_INFORMATIONW = *mut STI_WIA_DEVICE_INFORMATIONW;
-pub const STIEDFL_ALLDEVICES: u32 = 0;
-pub const STIEDFL_ATTACHEDONLY: u32 = 1;
+pub const STIEDFL_ALLDEVICES: i32 = 0;
+pub const STIEDFL_ATTACHEDONLY: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STINOTIFY {
@@ -521,10 +521,10 @@ pub struct STISUBSCRIBE {
     pub uiNotificationMessage: u32,
 }
 pub const STI_ADD_DEVICE_BROADCAST_ACTION: windows_core::PCSTR = windows_core::s!("Arrival");
-pub const STI_DEVICE_CREATE_BOTH: u32 = 3;
-pub const STI_DEVICE_CREATE_DATA: u32 = 2;
-pub const STI_DEVICE_CREATE_MASK: u32 = 65535;
-pub const STI_DEVICE_CREATE_STATUS: u32 = 1;
+pub const STI_DEVICE_CREATE_BOTH: i32 = 3;
+pub const STI_DEVICE_CREATE_DATA: i32 = 2;
+pub const STI_DEVICE_CREATE_MASK: i32 = 65535;
+pub const STI_DEVICE_CREATE_STATUS: i32 = 1;
 pub type STI_DEVICE_INFORMATION = STI_DEVICE_INFORMATIONW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -559,8 +559,8 @@ pub struct STI_DEVICE_STATUS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct STI_DEVICE_TYPE(pub u32);
-pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2;
-pub const STI_DEVSTATUS_ONLINE_STATE: u32 = 1;
+pub const STI_DEVSTATUS_EVENTS_STATE: i32 = 2;
+pub const STI_DEVSTATUS_ONLINE_STATE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DEV_CAPS {
@@ -575,7 +575,7 @@ pub struct STI_DIAG {
     pub dwStatusMask: u32,
     pub sErrorInfo: STI_ERROR_INFO,
 }
-pub const STI_DIAGCODE_HWPRESENCE: u32 = 1;
+pub const STI_DIAGCODE_HWPRESENCE: i32 = 1;
 pub type STI_ERROR_INFO = STI_ERROR_INFOW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -590,53 +590,53 @@ impl Default for STI_ERROR_INFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const STI_EVENTHANDLING_ENABLED: u32 = 1;
-pub const STI_EVENTHANDLING_PENDING: u32 = 4;
-pub const STI_EVENTHANDLING_POLLING: u32 = 2;
-pub const STI_GENCAP_AUTO_PORTSELECT: u32 = 8;
+pub const STI_EVENTHANDLING_ENABLED: i32 = 1;
+pub const STI_EVENTHANDLING_PENDING: i32 = 4;
+pub const STI_EVENTHANDLING_POLLING: i32 = 2;
+pub const STI_GENCAP_AUTO_PORTSELECT: i32 = 8;
 pub const STI_GENCAP_COMMON_MASK: u32 = 255;
-pub const STI_GENCAP_GENERATE_ARRIVALEVENT: u32 = 4;
-pub const STI_GENCAP_NOTIFICATIONS: u32 = 1;
-pub const STI_GENCAP_POLLING_NEEDED: u32 = 2;
-pub const STI_GENCAP_SUBSET: u32 = 32;
-pub const STI_GENCAP_WIA: u32 = 16;
-pub const STI_HW_CONFIG_PARALLEL: u32 = 16;
-pub const STI_HW_CONFIG_SCSI: u32 = 2;
-pub const STI_HW_CONFIG_SERIAL: u32 = 8;
-pub const STI_HW_CONFIG_UNKNOWN: u32 = 1;
-pub const STI_HW_CONFIG_USB: u32 = 4;
-pub const STI_MAX_INTERNAL_NAME_LENGTH: u32 = 128;
-pub const STI_ONLINESTATE_BUSY: u32 = 256;
-pub const STI_ONLINESTATE_ERROR: u32 = 4;
-pub const STI_ONLINESTATE_INITIALIZING: u32 = 1024;
-pub const STI_ONLINESTATE_IO_ACTIVE: u32 = 128;
-pub const STI_ONLINESTATE_OFFLINE: u32 = 64;
-pub const STI_ONLINESTATE_OPERATIONAL: u32 = 1;
-pub const STI_ONLINESTATE_PAPER_JAM: u32 = 16;
-pub const STI_ONLINESTATE_PAPER_PROBLEM: u32 = 32;
-pub const STI_ONLINESTATE_PAUSED: u32 = 8;
-pub const STI_ONLINESTATE_PENDING: u32 = 2;
-pub const STI_ONLINESTATE_POWER_SAVE: u32 = 8192;
-pub const STI_ONLINESTATE_TRANSFERRING: u32 = 512;
-pub const STI_ONLINESTATE_USER_INTERVENTION: u32 = 4096;
-pub const STI_ONLINESTATE_WARMING_UP: u32 = 2048;
+pub const STI_GENCAP_GENERATE_ARRIVALEVENT: i32 = 4;
+pub const STI_GENCAP_NOTIFICATIONS: i32 = 1;
+pub const STI_GENCAP_POLLING_NEEDED: i32 = 2;
+pub const STI_GENCAP_SUBSET: i32 = 32;
+pub const STI_GENCAP_WIA: i32 = 16;
+pub const STI_HW_CONFIG_PARALLEL: i32 = 16;
+pub const STI_HW_CONFIG_SCSI: i32 = 2;
+pub const STI_HW_CONFIG_SERIAL: i32 = 8;
+pub const STI_HW_CONFIG_UNKNOWN: i32 = 1;
+pub const STI_HW_CONFIG_USB: i32 = 4;
+pub const STI_MAX_INTERNAL_NAME_LENGTH: i32 = 128;
+pub const STI_ONLINESTATE_BUSY: i32 = 256;
+pub const STI_ONLINESTATE_ERROR: i32 = 4;
+pub const STI_ONLINESTATE_INITIALIZING: i32 = 1024;
+pub const STI_ONLINESTATE_IO_ACTIVE: i32 = 128;
+pub const STI_ONLINESTATE_OFFLINE: i32 = 64;
+pub const STI_ONLINESTATE_OPERATIONAL: i32 = 1;
+pub const STI_ONLINESTATE_PAPER_JAM: i32 = 16;
+pub const STI_ONLINESTATE_PAPER_PROBLEM: i32 = 32;
+pub const STI_ONLINESTATE_PAUSED: i32 = 8;
+pub const STI_ONLINESTATE_PENDING: i32 = 2;
+pub const STI_ONLINESTATE_POWER_SAVE: i32 = 8192;
+pub const STI_ONLINESTATE_TRANSFERRING: i32 = 512;
+pub const STI_ONLINESTATE_USER_INTERVENTION: i32 = 4096;
+pub const STI_ONLINESTATE_WARMING_UP: i32 = 2048;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct STI_RAW_CONTROL_CODE(pub u32);
-pub const STI_RAW_RESERVED: u32 = 4096;
+pub const STI_RAW_RESERVED: i32 = 4096;
 pub const STI_REMOVE_DEVICE_BROADCAST_ACTION: windows_core::PCSTR = windows_core::s!("Removal");
-pub const STI_SUBSCRIBE_FLAG_EVENT: u32 = 2;
-pub const STI_SUBSCRIBE_FLAG_WINDOW: u32 = 1;
-pub const STI_TRACE_ERROR: u32 = 4;
-pub const STI_TRACE_INFORMATION: u32 = 1;
-pub const STI_TRACE_WARNING: u32 = 2;
-pub const STI_UNICODE: u32 = 1;
-pub const STI_VERSION: u32 = 2;
-pub const STI_VERSION_3: u32 = 16777219;
+pub const STI_SUBSCRIBE_FLAG_EVENT: i32 = 2;
+pub const STI_SUBSCRIBE_FLAG_WINDOW: i32 = 1;
+pub const STI_TRACE_ERROR: i32 = 4;
+pub const STI_TRACE_INFORMATION: i32 = 1;
+pub const STI_TRACE_WARNING: i32 = 2;
+pub const STI_UNICODE: i32 = 1;
+pub const STI_VERSION: i32 = 2;
+pub const STI_VERSION_3: i32 = 16777219;
 pub const STI_VERSION_FLAG_MASK: u32 = 4278190080;
-pub const STI_VERSION_FLAG_UNICODE: u32 = 16777216;
-pub const STI_VERSION_MIN_ALLOWED: u32 = 2;
-pub const STI_VERSION_REAL: u32 = 2;
+pub const STI_VERSION_FLAG_UNICODE: i32 = 16777216;
+pub const STI_VERSION_MIN_ALLOWED: i32 = 2;
+pub const STI_VERSION_REAL: i32 = 2;
 pub type STI_WIA_DEVICE_INFORMATION = STI_WIA_DEVICE_INFORMATIONW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -663,4 +663,4 @@ pub const StiDeviceTypeDefault: STI_DEVICE_MJ_TYPE = 0;
 pub const StiDeviceTypeDigitalCamera: STI_DEVICE_MJ_TYPE = 2;
 pub const StiDeviceTypeScanner: STI_DEVICE_MJ_TYPE = 1;
 pub const StiDeviceTypeStreamingVideo: STI_DEVICE_MJ_TYPE = 3;
-pub const WIA_INCOMPAT_XP: u32 = 1;
+pub const WIA_INCOMPAT_XP: i32 = 1;

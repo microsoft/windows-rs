@@ -25,11 +25,11 @@ pub struct AudioExtensionParams {
     pub pPnpInterface: core::mem::ManuallyDrop<Option<IMMDevice>>,
     pub pPnpDevnode: core::mem::ManuallyDrop<Option<IMMDevice>>,
 }
-pub const DEVICE_STATEMASK_ALL: u32 = 15;
-pub const DEVICE_STATE_ACTIVE: u32 = 1;
-pub const DEVICE_STATE_DISABLED: u32 = 2;
-pub const DEVICE_STATE_NOTPRESENT: u32 = 4;
-pub const DEVICE_STATE_UNPLUGGED: u32 = 8;
+pub const DEVICE_STATEMASK_ALL: i32 = 15;
+pub const DEVICE_STATE_ACTIVE: i32 = 1;
+pub const DEVICE_STATE_DISABLED: i32 = 2;
+pub const DEVICE_STATE_NOTPRESENT: i32 = 4;
+pub const DEVICE_STATE_UNPLUGGED: i32 = 8;
 pub const DEVINTERFACE_AUDIO_CAPTURE: windows_core::GUID = windows_core::GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f);
 pub const DEVINTERFACE_AUDIO_RENDER: windows_core::GUID = windows_core::GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2);
 pub const DEVINTERFACE_MIDI_INPUT: windows_core::GUID = windows_core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
@@ -44,15 +44,15 @@ pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
 pub const DigitalAudioDisplayDevice: EndpointFormFactor = 9;
 pub type EDataFlow = i32;
 pub const EDataFlow_enum_count: EDataFlow = 3;
-pub const ENDPOINT_SYSFX_DISABLED: u32 = 1;
-pub const ENDPOINT_SYSFX_ENABLED: u32 = 0;
+pub const ENDPOINT_SYSFX_DISABLED: i32 = 1;
+pub const ENDPOINT_SYSFX_ENABLED: i32 = 0;
 pub type ERole = i32;
 pub const ERole_enum_count: ERole = 3;
 pub const E_NOTFOUND: i32 = -2147023728;
 pub const E_UNSUPPORTED_TYPE: i32 = -2147023266;
 pub type EndpointFormFactor = i32;
 pub const EndpointFormFactor_enum_count: EndpointFormFactor = 11;
-pub const HDMI: u32 = 9;
+pub const HDMI: i32 = 9;
 pub const Handset: EndpointFormFactor = 6;
 pub const Headphones: EndpointFormFactor = 3;
 pub const Headset: EndpointFormFactor = 5;

@@ -2,5 +2,5 @@
 mod Test {
     #[encoding("utf-16")]
     const WIDE_PREFIX: String = "\\\\?\\Volume";
-    const WIDE_PREFIX_LEN: u32 = 10;
+    const WIDE_PREFIX_LEN: u64 = 10;
 }

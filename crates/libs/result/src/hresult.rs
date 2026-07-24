@@ -81,12 +81,12 @@ impl HRESULT {
                     module = LoadLibraryExA(
                         c"ntdll.dll".as_ptr() as _,
                         core::ptr::null_mut(),
-                        LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
+                        LOAD_LIBRARY_SEARCH_DEFAULT_DIRS as u32,
                     );
                 }
 
                 let size = FormatMessageW(
-                    flags,
+                    flags as u32,
                     module as _,
                     code as _,
                     0,

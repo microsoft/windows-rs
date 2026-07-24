@@ -1052,7 +1052,7 @@ impl IMFVideoRenderer_Vtbl {
 }
 #[cfg(all(feature = "mfidl", feature = "mftransform"))]
 impl windows_core::RuntimeName for IMFVideoRenderer {}
-pub const MFEVRDLL: u32 = 0;
+pub const MFEVRDLL: i32 = 0;
 pub const MFVP_MESSAGE_BEGINSTREAMING: MFVP_MESSAGE_TYPE = 3;
 pub const MFVP_MESSAGE_CANCELSTEP: MFVP_MESSAGE_TYPE = 7;
 pub const MFVP_MESSAGE_ENDOFSTREAM: MFVP_MESSAGE_TYPE = 5;

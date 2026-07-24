@@ -7,7 +7,7 @@ fn test() -> Result<()> {
         let mut results: [u8; 2] = [255; 2];
         let dc = GetDC(None);
 
-        assert!(0 != SetICMMode(dc, ICM_ON as i32));
+        assert!(0 != SetICMMode(dc, ICM_ON));
 
         let input = [
             RGBTRIPLE {

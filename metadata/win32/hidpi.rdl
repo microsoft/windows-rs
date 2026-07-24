@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const FACILITY_HID_ERROR_CODE: u32 = 17;
+        const FACILITY_HID_ERROR_CODE: i32 = 17;
         struct HIDP_BUTTON_ARRAY_DATA {
             ArrayIndex: u16,
             On: BOOLEAN,
@@ -168,7 +168,7 @@ mod Windows {
         const HIDP_STATUS_NOT_VALUE_ARRAY: i32 = -1072627701;
         const HIDP_STATUS_NULL: i32 = -2146369535;
         const HIDP_STATUS_REPORT_DOES_NOT_EXIST: i32 = -1072627696;
-        const HIDP_STATUS_SUCCESS: u32 = 1114112;
+        const HIDP_STATUS_SUCCESS: i32 = 1114112;
         const HIDP_STATUS_USAGE_NOT_FOUND: i32 = -1072627708;
         const HIDP_STATUS_VALUE_OUT_OF_RANGE: i32 = -1072627707;
         struct HIDP_UNKNOWN_TOKEN {

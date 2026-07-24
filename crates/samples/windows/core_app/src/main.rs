@@ -56,7 +56,7 @@ fn main() -> windows::core::Result<()> {
                 None,
                 w!("This sample must be registered (via register.cmd) and launched from Start."),
                 w!("Error"),
-                MB_ICONSTOP | MB_OK,
+                (MB_ICONSTOP | MB_OK) as u32,
             );
             return Err(result);
         }

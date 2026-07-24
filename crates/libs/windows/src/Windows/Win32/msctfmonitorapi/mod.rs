@@ -14,8 +14,8 @@ pub unsafe fn UninitLocalMsCtfMonitor() -> windows_core::HRESULT {
     windows_core::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> windows_core::HRESULT);
     unsafe { UninitLocalMsCtfMonitor() }
 }
-pub const DCM_FLAGS_CTFMON: u32 = 2;
-pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4;
-pub const DCM_FLAGS_TASKENG: u32 = 1;
-pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1;
-pub const ILMCM_LANGUAGEBAROFF: u32 = 2;
+pub const DCM_FLAGS_CTFMON: i32 = 2;
+pub const DCM_FLAGS_LOCALTHREADTSF: i32 = 4;
+pub const DCM_FLAGS_TASKENG: i32 = 1;
+pub const ILMCM_CHECKLAYOUTANDTIPENABLED: i32 = 1;
+pub const ILMCM_LANGUAGEBAROFF: i32 = 2;

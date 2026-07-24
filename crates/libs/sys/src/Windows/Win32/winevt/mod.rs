@@ -67,14 +67,14 @@ windows_link::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channe
 windows_link::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::HANDLE, channelpath : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, bookmark : EVT_HANDLE, context : *mut core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
 #[cfg(feature = "winnt")]
 windows_link::link!("wevtapi.dll" "system" fn EvtUpdateBookmark(bookmark : EVT_HANDLE, event : EVT_HANDLE) -> windows_sys::core::BOOL);
-pub const EVT_ALL_ACCESS: u32 = 7;
+pub const EVT_ALL_ACCESS: i32 = 7;
 pub type EVT_CHANNEL_CLOCK_TYPE = i32;
 pub type EVT_CHANNEL_CONFIG_PROPERTY_ID = i32;
 pub type EVT_CHANNEL_ISOLATION_TYPE = i32;
 pub type EVT_CHANNEL_REFERENCE_FLAGS = i32;
 pub type EVT_CHANNEL_SID_TYPE = i32;
 pub type EVT_CHANNEL_TYPE = i32;
-pub const EVT_CLEAR_ACCESS: u32 = 4;
+pub const EVT_CLEAR_ACCESS: i32 = 4;
 pub type EVT_EVENT_METADATA_PROPERTY_ID = i32;
 pub type EVT_EVENT_PROPERTY_ID = i32;
 pub type EVT_EXPORTLOG_FLAGS = i32;
@@ -89,7 +89,7 @@ pub type EVT_OPEN_LOG_FLAGS = i32;
 pub type EVT_PUBLISHER_METADATA_PROPERTY_ID = i32;
 pub type EVT_QUERY_FLAGS = i32;
 pub type EVT_QUERY_PROPERTY_ID = i32;
-pub const EVT_READ_ACCESS: u32 = 1;
+pub const EVT_READ_ACCESS: i32 = 1;
 pub type EVT_RENDER_CONTEXT_FLAGS = i32;
 pub type EVT_RENDER_FLAGS = i32;
 #[repr(C)]
@@ -179,9 +179,9 @@ impl Default for EVT_VARIANT_0 {
     }
 }
 pub type EVT_VARIANT_TYPE = i32;
-pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128;
-pub const EVT_VARIANT_TYPE_MASK: u32 = 127;
-pub const EVT_WRITE_ACCESS: u32 = 2;
+pub const EVT_VARIANT_TYPE_ARRAY: i32 = 128;
+pub const EVT_VARIANT_TYPE_MASK: i32 = 127;
+pub const EVT_WRITE_ACCESS: i32 = 2;
 pub const EventMetadataEventChannel: EVT_EVENT_METADATA_PROPERTY_ID = 2;
 pub const EventMetadataEventID: EVT_EVENT_METADATA_PROPERTY_ID = 0;
 pub const EventMetadataEventKeyword: EVT_EVENT_METADATA_PROPERTY_ID = 6;

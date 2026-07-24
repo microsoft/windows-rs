@@ -9,9 +9,9 @@ mod Windows {
             wPeriodMin: u32,
             wPeriodMax: u32,
         }
-        const TIMERR_NOCANDO: u32 = 97;
-        const TIMERR_NOERROR: u32 = 0;
-        const TIMERR_STRUCT: u32 = 129;
+        const TIMERR_NOCANDO: i32 = 97;
+        const TIMERR_NOERROR: i32 = 0;
+        const TIMERR_STRUCT: i32 = 129;
         #[library("WINMM.dll")]
         extern fn timeBeginPeriod(uPeriod: u32) -> MMRESULT;
         #[library("WINMM.dll")]

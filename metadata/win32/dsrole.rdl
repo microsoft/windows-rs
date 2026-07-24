@@ -19,7 +19,7 @@ mod Windows {
         struct DSROLE_OPERATION_STATE_INFO {
             OperationState: DSROLE_OPERATION_STATE,
         }
-        const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216;
+        const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: i32 = 16777216;
         struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
             MachineRole: DSROLE_MACHINE_ROLE,
             Flags: u32,
@@ -34,16 +34,16 @@ mod Windows {
             DsRoleUpgradeStatus = 2,
             DsRoleOperationState = 3,
         }
-        const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2;
-        const DSROLE_PRIMARY_DS_READONLY: u32 = 8;
-        const DSROLE_PRIMARY_DS_RUNNING: u32 = 1;
+        const DSROLE_PRIMARY_DS_MIXED_MODE: i32 = 2;
+        const DSROLE_PRIMARY_DS_READONLY: i32 = 8;
+        const DSROLE_PRIMARY_DS_RUNNING: i32 = 1;
         #[repr(i32)]
         enum DSROLE_SERVER_STATE {
             DsRoleServerUnknown = 0,
             DsRoleServerPrimary = 1,
             DsRoleServerBackup = 2,
         }
-        const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4;
+        const DSROLE_UPGRADE_IN_PROGRESS: i32 = 4;
         struct DSROLE_UPGRADE_STATUS_INFO {
             OperationState: u32,
             PreviousServerState: DSROLE_SERVER_STATE,

@@ -62,7 +62,7 @@ mod Windows {
             pcValue: PCHAR,
             ulValueLength: u32,
         }
-        const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123;
+        const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: i32 = 123;
         struct WEB_SOCKET_PROPERTY {
             Type: WEB_SOCKET_PROPERTY_TYPE,
             pvValue: *mut void,

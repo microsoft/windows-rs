@@ -8,7 +8,7 @@ mod Windows {
         extern fn AMGetErrorTextA(hr: HRESULT, #[len_param(2)] #[out] pbuffer: PSTR, MaxLen: u32) -> u32;
         #[library("QUARTZ.dll")]
         extern fn AMGetErrorTextW(hr: HRESULT, #[len_param(2)] #[out] pbuffer: PWSTR, MaxLen: u32) -> u32;
-        const MAX_ERROR_TEXT_LEN: u32 = 160;
-        const VFW_FIRST_CODE: u32 = 512;
+        const MAX_ERROR_TEXT_LEN: i32 = 160;
+        const VFW_FIRST_CODE: i32 = 512;
     }
 }

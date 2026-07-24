@@ -39,14 +39,14 @@ windows_link::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : *mut _DSA, i :
 windows_link::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : *mut _DSA, pfncompare : PFNDACOMPARE, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn Str_SetPtrW(ppsz : *mut windows_sys::core::PWSTR, psz : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 pub const DA_ERR: i32 = -1;
-pub const DA_LAST: u32 = 2147483647;
-pub const DPAMM_DELETE: u32 = 2;
-pub const DPAMM_INSERT: u32 = 3;
-pub const DPAMM_MERGE: u32 = 1;
-pub const DPAM_INTERSECT: u32 = 8;
-pub const DPAM_NORMAL: u32 = 2;
-pub const DPAM_SORTED: u32 = 1;
-pub const DPAM_UNION: u32 = 4;
+pub const DA_LAST: i32 = 2147483647;
+pub const DPAMM_DELETE: i32 = 2;
+pub const DPAMM_INSERT: i32 = 3;
+pub const DPAMM_MERGE: i32 = 1;
+pub const DPAM_INTERSECT: i32 = 8;
+pub const DPAM_NORMAL: i32 = 2;
+pub const DPAM_SORTED: i32 = 1;
+pub const DPAM_UNION: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DPASTREAMINFO {
@@ -58,12 +58,12 @@ impl Default for DPASTREAMINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DPAS_INSERTAFTER: u32 = 4;
-pub const DPAS_INSERTBEFORE: u32 = 2;
-pub const DPAS_SORTED: u32 = 1;
-pub const DPA_APPEND: u32 = 2147483647;
+pub const DPAS_INSERTAFTER: i32 = 4;
+pub const DPAS_INSERTBEFORE: i32 = 2;
+pub const DPAS_SORTED: i32 = 1;
+pub const DPA_APPEND: i32 = 2147483647;
 pub const DPA_ERR: i32 = -1;
-pub const DSA_APPEND: u32 = 2147483647;
+pub const DSA_APPEND: i32 = 2147483647;
 pub const DSA_ERR: i32 = -1;
 pub type HDPA = *mut _DPA;
 pub type HDSA = *mut _DSA;

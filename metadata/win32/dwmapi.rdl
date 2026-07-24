@@ -52,9 +52,9 @@ mod Windows {
             DWMWA_BORDER_MARGINS = 40,
             DWMWA_LAST = 41,
         }
-        const DWM_BB_BLURREGION: u32 = 2;
-        const DWM_BB_ENABLE: u32 = 1;
-        const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4;
+        const DWM_BB_BLURREGION: i32 = 2;
+        const DWM_BB_ENABLE: i32 = 1;
+        const DWM_BB_TRANSITIONONMAXIMIZED: i32 = 4;
         #[packed(1)]
         struct DWM_BLURBEHIND {
             dwFlags: u32,
@@ -62,11 +62,11 @@ mod Windows {
             hRgnBlur: HRGN,
             fTransitionOnMaximized: BOOL,
         }
-        const DWM_CLOAKED_APP: u32 = 1;
-        const DWM_CLOAKED_INHERITED: u32 = 4;
-        const DWM_CLOAKED_SHELL: u32 = 2;
-        const DWM_EC_DISABLECOMPOSITION: u32 = 0;
-        const DWM_EC_ENABLECOMPOSITION: u32 = 1;
+        const DWM_CLOAKED_APP: i32 = 1;
+        const DWM_CLOAKED_INHERITED: i32 = 4;
+        const DWM_CLOAKED_SHELL: i32 = 2;
+        const DWM_EC_DISABLECOMPOSITION: i32 = 0;
+        const DWM_EC_ENABLECOMPOSITION: i32 = 1;
         type DWM_FRAME_COUNT = u64;
         const DWM_FRAME_DURATION_DEFAULT: i32 = -1;
         #[packed(1)]
@@ -91,7 +91,7 @@ mod Windows {
             DWMSC_NONE = 0,
             DWMSC_ALL = 4294967295,
         }
-        const DWM_SIT_DISPLAYFRAME: u32 = 1;
+        const DWM_SIT_DISPLAYFRAME: i32 = 1;
         #[repr(i32)]
         enum DWM_SOURCE_FRAME_SAMPLING {
             DWM_SOURCE_FRAME_SAMPLING_POINT = 0,
@@ -173,11 +173,11 @@ mod Windows {
             cPixelsDrawn: u64,
             cBuffersEmpty: DWM_FRAME_COUNT,
         }
-        const DWM_TNP_OPACITY: u32 = 4;
-        const DWM_TNP_RECTDESTINATION: u32 = 1;
-        const DWM_TNP_RECTSOURCE: u32 = 2;
-        const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16;
-        const DWM_TNP_VISIBLE: u32 = 8;
+        const DWM_TNP_OPACITY: i32 = 4;
+        const DWM_TNP_RECTDESTINATION: i32 = 1;
+        const DWM_TNP_RECTSOURCE: i32 = 2;
+        const DWM_TNP_SOURCECLIENTAREAONLY: i32 = 16;
+        const DWM_TNP_VISIBLE: i32 = 8;
         #[repr(i32)]
         enum DWM_WINDOW_CORNER_PREFERENCE {
             DWMWCP_DEFAULT = 0,

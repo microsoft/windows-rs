@@ -11,7 +11,9 @@ fn conversions() {
 
     // Baseline WIN32_ERROR
     assert_eq!(
-        WIN32_ERROR(ERROR_INVALID_DATA).to_hresult().message(),
+        WIN32_ERROR(ERROR_INVALID_DATA as u32)
+            .to_hresult()
+            .message(),
         "The data is invalid."
     );
     assert_eq!(ERROR_INVALID_DATA, 13);
@@ -25,8 +27,8 @@ fn conversions() {
     );
 
     // std::io::Error from WIN32_ERROR
-    let std_error = std::io::Error::from_raw_os_error(ERROR_INVALID_DATA as i32);
-    assert_eq!(std_error.raw_os_error().unwrap(), ERROR_INVALID_DATA as i32);
+    let std_error = std::io::Error::from_raw_os_error(ERROR_INVALID_DATA);
+    assert_eq!(std_error.raw_os_error().unwrap(), ERROR_INVALID_DATA);
     assert_eq!(format!("{std_error}"), "The data is invalid. (os error 13)");
 
     // Starting with WIN32_ERROR (FACILITY_WIN32 HRESULT)... the conversion
@@ -34,18 +36,18 @@ fn conversions() {
     // HRESULT, so that std::io::Error::raw_os_error() carries a real Win32
     // error code (matching what .NET's Marshal.GetExceptionForHR and Rust's
     // own Win32 error decoding produce).
-    let win_error: Error = WIN32_ERROR(ERROR_INVALID_DATA).into();
+    let win_error: Error = WIN32_ERROR(ERROR_INVALID_DATA as u32).into();
     let std_error: std::io::Error = win_error.into();
-    assert_eq!(std_error.raw_os_error().unwrap(), ERROR_INVALID_DATA as i32);
+    assert_eq!(std_error.raw_os_error().unwrap(), ERROR_INVALID_DATA);
     assert_eq!(format!("{std_error}"), "The data is invalid. (os error 13)");
 
     // ERROR_FILE_NOT_FOUND is decoded by std::io::Error::kind() as NotFound,
     // which only works because we now unwrap to the Win32 code.
-    let win_error: Error = WIN32_ERROR(ERROR_FILE_NOT_FOUND).into();
+    let win_error: Error = WIN32_ERROR(ERROR_FILE_NOT_FOUND as u32).into();
     let std_error: std::io::Error = win_error.into();
     assert_eq!(
         std_error.raw_os_error().unwrap(),
-        ERROR_FILE_NOT_FOUND as i32
+        ERROR_FILE_NOT_FOUND
     );
     assert_eq!(std_error.kind(), std::io::ErrorKind::NotFound);
 
@@ -57,7 +59,7 @@ fn conversions() {
     let std_error: std::io::Error = win_error.into();
     assert_eq!(
         std_error.raw_os_error().unwrap(),
-        ERROR_INVALID_PARAMETER as i32
+        ERROR_INVALID_PARAMETER
     );
     assert_eq!(
         format!("{std_error}"),
@@ -78,16 +80,19 @@ fn conversions() {
     assert_eq!(std_error.raw_os_error().unwrap(), E_FAIL.0);
 
     // Starting with std::io::Error...
-    let std_error = std::io::Error::from_raw_os_error(ERROR_INVALID_DATA as i32);
+    let std_error = std::io::Error::from_raw_os_error(ERROR_INVALID_DATA);
     let error: Error = std_error.into();
-    assert_eq!(error.code(), WIN32_ERROR(ERROR_INVALID_DATA).to_hresult());
+    assert_eq!(
+        error.code(),
+        WIN32_ERROR(ERROR_INVALID_DATA as u32).to_hresult()
+    );
 
     // Round-trip a FACILITY_WIN32 HRESULT through std::io::Error and back.
-    let win_error: Error = WIN32_ERROR(ERROR_INVALID_DATA).into();
+    let win_error: Error = WIN32_ERROR(ERROR_INVALID_DATA as u32).into();
     let std_error: std::io::Error = win_error.into();
     let round_tripped: Error = std_error.into();
     assert_eq!(
         round_tripped.code(),
-        WIN32_ERROR(ERROR_INVALID_DATA).to_hresult()
+        WIN32_ERROR(ERROR_INVALID_DATA as u32).to_hresult()
     );
 }

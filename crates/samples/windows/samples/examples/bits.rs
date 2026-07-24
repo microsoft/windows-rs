@@ -58,7 +58,7 @@ fn main() -> windows::core::Result<()> {
 
         let callback: IBackgroundCopyCallback = Callback.into();
         job.SetNotifyInterface(&callback).ok()?;
-        job.SetNotifyFlags(BG_NOTIFY_JOB_TRANSFERRED | BG_NOTIFY_JOB_ERROR)
+        job.SetNotifyFlags((BG_NOTIFY_JOB_TRANSFERRED | BG_NOTIFY_JOB_ERROR) as u32)
             .ok()?;
 
         job.Resume().ok()?;

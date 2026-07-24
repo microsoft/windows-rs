@@ -82,19 +82,19 @@ mod Windows {
             maxValue: i16,
             steps: u16,
         }
-        const LOCAL_D3DFMT_DEFINES: u32 = 1;
+        const LOCAL_D3DFMT_DEFINES: i32 = 1;
         struct MACROBLOCK_DATA {
             flags: u32,
             motionVectorX: i16,
             motionVectorY: i16,
             QPDelta: i32,
         }
-        const MACROBLOCK_FLAG_DIRTY: u32 = 2;
-        const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: u32 = 16;
-        const MACROBLOCK_FLAG_HAS_QP: u32 = 32;
-        const MACROBLOCK_FLAG_MOTION: u32 = 4;
-        const MACROBLOCK_FLAG_SKIP: u32 = 1;
-        const MACROBLOCK_FLAG_VIDEO: u32 = 8;
+        const MACROBLOCK_FLAG_DIRTY: i32 = 2;
+        const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: i32 = 16;
+        const MACROBLOCK_FLAG_HAS_QP: i32 = 32;
+        const MACROBLOCK_FLAG_MOTION: i32 = 4;
+        const MACROBLOCK_FLAG_SKIP: i32 = 1;
+        const MACROBLOCK_FLAG_VIDEO: i32 = 8;
         struct MFASYNCRESULT {
             Base: IMFAsyncResult,
             overlapped: OVERLAPPED,
@@ -150,9 +150,9 @@ mod Windows {
         extern fn MFBeginRegisterWorkQueueWithMMCSSEx(dwWorkQueueId: u32, wszClass: PCWSTR, dwTaskId: u32, lPriority: i32, pDoneCallback: IMFAsyncCallback, pDoneState: IUnknown) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFBeginUnregisterWorkQueueWithMMCSS(dwWorkQueueId: u32, pDoneCallback: IMFAsyncCallback, pDoneState: IUnknown) -> HRESULT;
-        const MFCAPTURE_METADATA_SCANLINE_VERTICAL: u32 = 4;
-        const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: u32 = 2;
-        const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: u32 = 1;
+        const MFCAPTURE_METADATA_SCANLINE_VERTICAL: i32 = 4;
+        const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: i32 = 2;
+        const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: i32 = 1;
         #[library("MFPlat.DLL")]
         extern fn MFCalculateBitmapImageSize(#[size_param(1)] pBMIH: *const BITMAPINFOHEADER, cbBufSize: u32, pcbImageSize: *mut u32, #[opt] pbKnown: *mut BOOL) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -408,15 +408,15 @@ mod Windows {
         extern fn MFRegisterPlatformWithMMCSS(wszClass: PCWSTR, #[in] #[out] pdwTaskId: *mut u32, lPriority: i32) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFRemovePeriodicCallback(dwKey: u32) -> HRESULT;
-        const MFSESSIONCAP_DOES_NOT_USE_NETWORK: u32 = 64;
-        const MFSESSIONCAP_PAUSE: u32 = 4;
-        const MFSESSIONCAP_RATE_FORWARD: u32 = 16;
-        const MFSESSIONCAP_RATE_REVERSE: u32 = 32;
-        const MFSESSIONCAP_SEEK: u32 = 2;
-        const MFSESSIONCAP_START: u32 = 1;
-        const MFSTARTUP_FULL: u32 = 0;
-        const MFSTARTUP_LITE: u32 = 1;
-        const MFSTARTUP_NOSOCKET: u32 = 1;
+        const MFSESSIONCAP_DOES_NOT_USE_NETWORK: i32 = 64;
+        const MFSESSIONCAP_PAUSE: i32 = 4;
+        const MFSESSIONCAP_RATE_FORWARD: i32 = 16;
+        const MFSESSIONCAP_RATE_REVERSE: i32 = 32;
+        const MFSESSIONCAP_SEEK: i32 = 2;
+        const MFSESSIONCAP_START: i32 = 1;
+        const MFSTARTUP_FULL: i32 = 0;
+        const MFSTARTUP_LITE: i32 = 1;
+        const MFSTARTUP_NOSOCKET: i32 = 1;
         #[repr(i32)]
         enum MFSampleEncryptionProtectionScheme {
             MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_NONE = 0,
@@ -437,7 +437,7 @@ mod Windows {
         const MFSampleExtension_ChromaOnly: GUID = 0x1eb9179c_a01f_4845_8c04_0e65a26eb04f;
         const MFSampleExtension_CleanPoint: GUID = 0x9cdf01d8_a0f0_43ba_b077_eaa06cbd728a;
         const MFSampleExtension_ClosedCaption_CEA708: GUID = 0x26f09068_e744_47dc_aa03_dbf20403bde6;
-        const MFSampleExtension_ClosedCaption_CEA708_MAX_SIZE: u32 = 256;
+        const MFSampleExtension_ClosedCaption_CEA708_MAX_SIZE: i32 = 256;
         const MFSampleExtension_Content_KeyID: GUID = 0xc6c7f5b0_acca_415b_87d9_10441469efc6;
         const MFSampleExtension_DecodeTimestamp: GUID = 0x73a954d4_09e2_4861_befc_94bd97c08e6e;
         const MFSampleExtension_Depth_MaxReliableDepth: GUID = 0xe45545d1_1f0f_4a32_a8a7_6101a24ea8be;
@@ -626,21 +626,21 @@ mod Windows {
         }
         #[library("MFPlat.DLL")]
         extern fn MFWrapMediaType(pOrig: IMFMediaType, MajorType: *const GUID, SubType: *const GUID, ppWrap: *mut IMFMediaType) -> HRESULT;
-        const MF_1024_BYTE_ALIGNMENT: u32 = 1023;
-        const MF_128_BYTE_ALIGNMENT: u32 = 127;
-        const MF_16_BYTE_ALIGNMENT: u32 = 15;
-        const MF_1_BYTE_ALIGNMENT: u32 = 0;
-        const MF_2048_BYTE_ALIGNMENT: u32 = 2047;
-        const MF_256_BYTE_ALIGNMENT: u32 = 255;
-        const MF_2_BYTE_ALIGNMENT: u32 = 1;
-        const MF_32_BYTE_ALIGNMENT: u32 = 31;
-        const MF_4096_BYTE_ALIGNMENT: u32 = 4095;
-        const MF_4_BYTE_ALIGNMENT: u32 = 3;
-        const MF_512_BYTE_ALIGNMENT: u32 = 511;
-        const MF_64_BYTE_ALIGNMENT: u32 = 63;
-        const MF_8192_BYTE_ALIGNMENT: u32 = 8191;
-        const MF_8_BYTE_ALIGNMENT: u32 = 7;
-        const MF_API_VERSION: u32 = 112;
+        const MF_1024_BYTE_ALIGNMENT: i32 = 1023;
+        const MF_128_BYTE_ALIGNMENT: i32 = 127;
+        const MF_16_BYTE_ALIGNMENT: i32 = 15;
+        const MF_1_BYTE_ALIGNMENT: i32 = 0;
+        const MF_2048_BYTE_ALIGNMENT: i32 = 2047;
+        const MF_256_BYTE_ALIGNMENT: i32 = 255;
+        const MF_2_BYTE_ALIGNMENT: i32 = 1;
+        const MF_32_BYTE_ALIGNMENT: i32 = 31;
+        const MF_4096_BYTE_ALIGNMENT: i32 = 4095;
+        const MF_4_BYTE_ALIGNMENT: i32 = 3;
+        const MF_512_BYTE_ALIGNMENT: i32 = 511;
+        const MF_64_BYTE_ALIGNMENT: i32 = 63;
+        const MF_8192_BYTE_ALIGNMENT: i32 = 8191;
+        const MF_8_BYTE_ALIGNMENT: i32 = 7;
+        const MF_API_VERSION: i32 = 112;
         const MF_CAPTURE_METADATA_DIGITALWINDOW: GUID = 0x276f72a2_59c8_4f69_97b4_068b8c0ec044;
         const MF_CAPTURE_METADATA_EXIF: GUID = 0x2e9575b8_8c31_4a02_8575_42b197b71592;
         const MF_CAPTURE_METADATA_EXPOSURE_COMPENSATION: GUID = 0xd198aa75_4b62_4345_abf3_3c31fa12c299;
@@ -713,17 +713,17 @@ mod Windows {
             y: f32,
             z: f32,
         }
-        const MF_HISTOGRAM_CHANNEL_B: u32 = 8;
-        const MF_HISTOGRAM_CHANNEL_Cb: u32 = 16;
-        const MF_HISTOGRAM_CHANNEL_Cr: u32 = 32;
-        const MF_HISTOGRAM_CHANNEL_G: u32 = 4;
-        const MF_HISTOGRAM_CHANNEL_R: u32 = 2;
-        const MF_HISTOGRAM_CHANNEL_Y: u32 = 1;
+        const MF_HISTOGRAM_CHANNEL_B: i32 = 8;
+        const MF_HISTOGRAM_CHANNEL_Cb: i32 = 16;
+        const MF_HISTOGRAM_CHANNEL_Cr: i32 = 32;
+        const MF_HISTOGRAM_CHANNEL_G: i32 = 4;
+        const MF_HISTOGRAM_CHANNEL_R: i32 = 2;
+        const MF_HISTOGRAM_CHANNEL_Y: i32 = 1;
         const MF_LOW_LATENCY: GUID = 0x9c27891a_ed7a_40e1_88e8_b22727a024ee;
         const MF_MEDIATYPE_MULTIPLEXED_MANAGER: GUID = 0x13c78fb5_f275_4ea0_bb5f_0249832b0d6e;
-        const MF_METADATAFACIALEXPRESSION_SMILE: u32 = 1;
-        const MF_METADATATIMESTAMPS_DEVICE: u32 = 1;
-        const MF_METADATATIMESTAMPS_PRESENTATION: u32 = 2;
+        const MF_METADATAFACIALEXPRESSION_SMILE: i32 = 1;
+        const MF_METADATATIMESTAMPS_DEVICE: i32 = 1;
+        const MF_METADATATIMESTAMPS_PRESENTATION: i32 = 2;
         const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: GUID = 0x7632f0e6_9538_4d61_acda_ea29c8c14456;
         const MF_MT_AAC_PAYLOAD_TYPE: GUID = 0xbfbabe79_7434_4d1c_94f0_72a3b9e17188;
         const MF_MT_ALL_SAMPLES_INDEPENDENT: GUID = 0xc9173739_5e56_461c_b713_46fb995cb95f;
@@ -855,7 +855,7 @@ mod Windows {
             z: f32,
             w: f32,
         }
-        const MF_SDK_VERSION: u32 = 2;
+        const MF_SDK_VERSION: i32 = 2;
         const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: GUID = 0xf715cf3e_a964_4c3f_94ae_9d6ba7264641;
         #[repr(i32)]
         enum MF_TOPOSTATUS {
@@ -866,7 +866,7 @@ mod Windows {
             MF_TOPOSTATUS_SINK_SWITCHED = 300,
             MF_TOPOSTATUS_ENDED = 400,
         }
-        const MF_VERSION: u32 = 131184;
+        const MF_VERSION: i32 = 131184;
         const MF_VIDEO_MAX_MB_PER_SEC: GUID = 0xe3f2e203_d445_4b8c_9211_ae390d3ba017;
         const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: GUID = 0xc6052a80_6d9c_40a3_9db8_f027a25c9ab9;
         #[library("MFPlat.DLL")]

@@ -185,17 +185,17 @@ pub unsafe fn WinUsb_WritePipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid:
     windows_core::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::OVERLAPPED) -> windows_core::BOOL);
     unsafe { WinUsb_WritePipe(interfacehandle, pipeid, buffer.as_ptr(), buffer.len().try_into().unwrap(), lengthtransferred.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-pub const ALLOW_PARTIAL_READS: u32 = 5;
-pub const AUTO_CLEAR_STALL: u32 = 2;
-pub const AUTO_FLUSH: u32 = 6;
-pub const AUTO_SUSPEND: u32 = 129;
-pub const DEVICE_SPEED: u32 = 1;
-pub const FullSpeed: u32 = 2;
-pub const HighSpeed: u32 = 3;
-pub const IGNORE_SHORT_PACKETS: u32 = 4;
-pub const LowSpeed: u32 = 1;
-pub const MAXIMUM_TRANSFER_SIZE: u32 = 8;
-pub const PIPE_TRANSFER_TIMEOUT: u32 = 3;
+pub const ALLOW_PARTIAL_READS: i32 = 5;
+pub const AUTO_CLEAR_STALL: i32 = 2;
+pub const AUTO_FLUSH: i32 = 6;
+pub const AUTO_SUSPEND: i32 = 129;
+pub const DEVICE_SPEED: i32 = 1;
+pub const FullSpeed: i32 = 2;
+pub const HighSpeed: i32 = 3;
+pub const IGNORE_SHORT_PACKETS: i32 = 4;
+pub const LowSpeed: i32 = 1;
+pub const MAXIMUM_TRANSFER_SIZE: i32 = 8;
+pub const PIPE_TRANSFER_TIMEOUT: i32 = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINUSB_INTERFACE_HANDLE(pub *mut *mut core::ffi::c_void);
@@ -217,10 +217,10 @@ pub type PWINUSB_PIPE_INFORMATION = *mut WINUSB_PIPE_INFORMATION;
 #[cfg(feature = "usb")]
 pub type PWINUSB_PIPE_INFORMATION_EX = *mut WINUSB_PIPE_INFORMATION_EX;
 pub type PWINUSB_SETUP_PACKET = *mut WINUSB_SETUP_PACKET;
-pub const RAW_IO: u32 = 7;
-pub const RESET_PIPE_ON_RESUME: u32 = 9;
-pub const SHORT_PACKET_TERMINATE: u32 = 1;
-pub const SUSPEND_DELAY: u32 = 131;
+pub const RAW_IO: i32 = 7;
+pub const RESET_PIPE_ON_RESUME: i32 = 9;
+pub const SHORT_PACKET_TERMINATE: i32 = 1;
+pub const SUSPEND_DELAY: i32 = 131;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINUSB_INTERFACE_HANDLE(pub *mut core::ffi::c_void);

@@ -38,16 +38,16 @@ pub struct RIO_CQ_t(pub u8);
 pub const RIO_INVALID_BUFFERID: RIO_BUFFERID = 4294967295i64 as _;
 pub const RIO_INVALID_CQ: RIO_CQ = 0 as _;
 pub const RIO_INVALID_RQ: RIO_RQ = 0 as _;
-pub const RIO_MAX_CQ_SIZE: u32 = 134217728;
-pub const RIO_MSG_COMMIT_ONLY: u32 = 8;
-pub const RIO_MSG_DEFER: u32 = 2;
-pub const RIO_MSG_DONT_NOTIFY: u32 = 1;
-pub const RIO_MSG_WAITALL: u32 = 4;
+pub const RIO_MAX_CQ_SIZE: i32 = 134217728;
+pub const RIO_MSG_COMMIT_ONLY: i32 = 8;
+pub const RIO_MSG_DEFER: i32 = 2;
+pub const RIO_MSG_DONT_NOTIFY: i32 = 1;
+pub const RIO_MSG_WAITALL: i32 = 4;
 pub type RIO_RQ = *mut RIO_RQ_t;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RIO_RQ_t(pub u8);
-pub const SIO_SET_COMPATIBILITY_MODE: i32 = -1744830164;
+pub const SIO_SET_COMPATIBILITY_MODE: u32 = 2550137132;
 pub type WSA_COMPATIBILITY_BEHAVIOR_ID = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

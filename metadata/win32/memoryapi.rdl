@@ -32,18 +32,18 @@ mod Windows {
         extern fn CreateMemoryResourceNotification(NotificationType: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> HANDLE;
         #[library("KERNEL32.dll")]
         extern fn DiscardVirtualMemory(#[len_param(1)] #[in] #[out] VirtualAddress: *mut void, Size: usize) -> u32;
-        const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2;
-        const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1;
-        const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8;
-        const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4;
-        const FILE_MAP_ALL_ACCESS: u32 = 983071;
-        const FILE_MAP_COPY: u32 = 1;
-        const FILE_MAP_EXECUTE: u32 = 32;
-        const FILE_MAP_LARGE_PAGES: u32 = 536870912;
-        const FILE_MAP_READ: u32 = 4;
+        const FILE_CACHE_MAX_HARD_DISABLE: i32 = 2;
+        const FILE_CACHE_MAX_HARD_ENABLE: i32 = 1;
+        const FILE_CACHE_MIN_HARD_DISABLE: i32 = 8;
+        const FILE_CACHE_MIN_HARD_ENABLE: i32 = 4;
+        const FILE_MAP_ALL_ACCESS: i32 = 983071;
+        const FILE_MAP_COPY: i32 = 1;
+        const FILE_MAP_EXECUTE: i32 = 32;
+        const FILE_MAP_LARGE_PAGES: i32 = 536870912;
+        const FILE_MAP_READ: i32 = 4;
         const FILE_MAP_RESERVE: u32 = 2147483648;
-        const FILE_MAP_TARGETS_INVALID: u32 = 1073741824;
-        const FILE_MAP_WRITE: u32 = 2;
+        const FILE_MAP_TARGETS_INVALID: i32 = 1073741824;
+        const FILE_MAP_WRITE: i32 = 2;
         #[library("KERNEL32.dll")]
         extern fn FlushViewOfFile(lpBaseAddress: *const void, dwNumberOfBytesToFlush: usize) -> BOOL;
         #[arch(X64 | Arm64)]
@@ -74,7 +74,7 @@ mod Windows {
         extern fn GetSystemFileCacheSize(lpMinimumFileCacheSize: *mut usize, lpMaximumFileCacheSize: *mut usize, lpFlags: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetWriteWatch(dwFlags: u32, lpBaseAddress: *const void, dwRegionSize: usize, #[len_param(4)] #[opt] lpAddresses: *mut *mut void, #[in] #[out] #[opt] lpdwCount: *mut usize, #[opt] lpdwGranularity: *mut u32) -> u32;
-        const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1;
+        const MEHC_PATROL_SCRUBBER_PRESENT: i32 = 1;
         #[repr(i32)]
         enum MEMORY_RESOURCE_NOTIFICATION_TYPE {
             LowMemoryResourceNotification = 0,

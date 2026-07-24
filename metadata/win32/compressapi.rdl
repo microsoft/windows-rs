@@ -2,13 +2,13 @@
 mod Windows {
     mod Win32 {
         type COMPRESSOR_HANDLE = *mut void;
-        const COMPRESS_ALGORITHM_INVALID: u32 = 0;
-        const COMPRESS_ALGORITHM_LZMS: u32 = 5;
-        const COMPRESS_ALGORITHM_MAX: u32 = 6;
-        const COMPRESS_ALGORITHM_MSZIP: u32 = 2;
-        const COMPRESS_ALGORITHM_NULL: u32 = 1;
-        const COMPRESS_ALGORITHM_XPRESS: u32 = 3;
-        const COMPRESS_ALGORITHM_XPRESS_HUFF: u32 = 4;
+        const COMPRESS_ALGORITHM_INVALID: i32 = 0;
+        const COMPRESS_ALGORITHM_LZMS: i32 = 5;
+        const COMPRESS_ALGORITHM_MAX: i32 = 6;
+        const COMPRESS_ALGORITHM_MSZIP: i32 = 2;
+        const COMPRESS_ALGORITHM_NULL: i32 = 1;
+        const COMPRESS_ALGORITHM_XPRESS: i32 = 3;
+        const COMPRESS_ALGORITHM_XPRESS_HUFF: i32 = 4;
         struct COMPRESS_ALLOCATION_ROUTINES {
             Allocate: PFN_COMPRESS_ALLOCATE,
             Free: PFN_COMPRESS_FREE,
@@ -20,7 +20,7 @@ mod Windows {
             COMPRESS_INFORMATION_CLASS_BLOCK_SIZE = 1,
             COMPRESS_INFORMATION_CLASS_LEVEL = 2,
         }
-        const COMPRESS_RAW: u32 = 536870912;
+        const COMPRESS_RAW: i32 = 536870912;
         #[library("Cabinet.dll")]
         extern fn CloseCompressor(CompressorHandle: COMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]

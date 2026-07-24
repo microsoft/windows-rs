@@ -1,4 +1,4 @@
-pub const CSTORAGEPROPERTY: u32 = 23;
+pub const CSTORAGEPROPERTY: i32 = 23;
 #[cfg(feature = "wtypes")]
 pub const PID_STG_ACCESSTIME: super::PROPID = super::PROPID(16);
 #[cfg(feature = "wtypes")]

@@ -67,14 +67,14 @@ impl Default for DDEUP {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WM_DDE_ACK: u32 = 996;
-pub const WM_DDE_ADVISE: u32 = 994;
-pub const WM_DDE_DATA: u32 = 997;
-pub const WM_DDE_EXECUTE: u32 = 1000;
-pub const WM_DDE_FIRST: u32 = 992;
-pub const WM_DDE_INITIATE: u32 = 992;
-pub const WM_DDE_LAST: u32 = 1000;
-pub const WM_DDE_POKE: u32 = 999;
-pub const WM_DDE_REQUEST: u32 = 998;
-pub const WM_DDE_TERMINATE: u32 = 993;
-pub const WM_DDE_UNADVISE: u32 = 995;
+pub const WM_DDE_ACK: i32 = 996;
+pub const WM_DDE_ADVISE: i32 = 994;
+pub const WM_DDE_DATA: i32 = 997;
+pub const WM_DDE_EXECUTE: i32 = 1000;
+pub const WM_DDE_FIRST: i32 = 992;
+pub const WM_DDE_INITIATE: i32 = 992;
+pub const WM_DDE_LAST: i32 = 1000;
+pub const WM_DDE_POKE: i32 = 999;
+pub const WM_DDE_REQUEST: i32 = 998;
+pub const WM_DDE_TERMINATE: i32 = 993;
+pub const WM_DDE_UNADVISE: i32 = 995;

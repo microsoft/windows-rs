@@ -16,7 +16,7 @@ mod Windows {
             DWRITE_GRID_FIT_MODE_DISABLED = 1,
             DWRITE_GRID_FIT_MODE_ENABLED = 2,
         }
-        const DWRITE_NO_PALETTE_INDEX: u32 = 65535;
+        const DWRITE_NO_PALETTE_INDEX: i32 = 65535;
         #[repr(i32)]
         enum DWRITE_OPTICAL_ALIGNMENT {
             DWRITE_OPTICAL_ALIGNMENT_NONE = 0,

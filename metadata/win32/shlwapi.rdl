@@ -130,19 +130,19 @@ mod Windows {
         }
         const DLLVER_BUILD_MASK: u32 = 4294901760;
         const DLLVER_MAJOR_MASK: u64 = 18446462598732840960;
-        const DLLVER_MINOR_MASK: u64 = 281470681743360;
-        const DLLVER_PLATFORM_NT: u32 = 2;
-        const DLLVER_PLATFORM_WINDOWS: u32 = 1;
-        const DLLVER_QFE_MASK: u32 = 65535;
-        const FDTF_DEFAULT: u32 = 3;
-        const FDTF_LONGDATE: u32 = 4;
-        const FDTF_LONGTIME: u32 = 8;
-        const FDTF_LTRDATE: u32 = 256;
-        const FDTF_NOAUTOREADINGORDER: u32 = 1024;
-        const FDTF_RELATIVE: u32 = 16;
-        const FDTF_RTLDATE: u32 = 512;
-        const FDTF_SHORTDATE: u32 = 2;
-        const FDTF_SHORTTIME: u32 = 1;
+        const DLLVER_MINOR_MASK: i64 = 281470681743360;
+        const DLLVER_PLATFORM_NT: i32 = 2;
+        const DLLVER_PLATFORM_WINDOWS: i32 = 1;
+        const DLLVER_QFE_MASK: i32 = 65535;
+        const FDTF_DEFAULT: i32 = 3;
+        const FDTF_LONGDATE: i32 = 4;
+        const FDTF_LONGTIME: i32 = 8;
+        const FDTF_LTRDATE: i32 = 256;
+        const FDTF_NOAUTOREADINGORDER: i32 = 1024;
+        const FDTF_RELATIVE: i32 = 16;
+        const FDTF_RTLDATE: i32 = 512;
+        const FDTF_SHORTDATE: i32 = 2;
+        const FDTF_SHORTTIME: i32 = 1;
         #[repr(u32)]
         #[flags]
         enum FILETYPEATTRIBUTEFLAGS {
@@ -168,11 +168,11 @@ mod Windows {
             FTA_SafeForElevation = 2097152,
             FTA_AlwaysUseDirectInvoke = 4194304,
         }
-        const GCT_INVALID: u32 = 0;
-        const GCT_LFNCHAR: u32 = 1;
-        const GCT_SEPARATOR: u32 = 8;
-        const GCT_SHORTCHAR: u32 = 2;
-        const GCT_WILD: u32 = 4;
+        const GCT_INVALID: i32 = 0;
+        const GCT_LFNCHAR: i32 = 1;
+        const GCT_SEPARATOR: i32 = 8;
+        const GCT_SHORTCHAR: i32 = 2;
+        const GCT_WILD: i32 = 4;
         #[library("SHLWAPI.dll")]
         extern fn GetAcceptLanguagesA(#[len_param(1)] #[out] pszLanguages: PSTR, #[in] #[out] pcchLanguages: *mut u32) -> HRESULT;
         #[library("SHLWAPI.dll")]
@@ -182,7 +182,7 @@ mod Windows {
         type HUSKEY = HANDLE;
         #[library("SHLWAPI.dll")]
         extern fn HashData(#[size_param(1)] pbData: *const u8, cbData: u32, #[size_param(3)] pbHash: *mut u8, cbHash: u32) -> HRESULT;
-        const ILMM_IE4: u32 = 0;
+        const ILMM_IE4: i32 = 0;
         #[guid(0xc46ca590_3c3f_11d2_bee6_0000f805ca57)]
         interface IQueryAssociations: IUnknown {
             fn Init(&self, flags: ASSOCF, #[opt] pszAssoc: PCWSTR, #[opt] hkProgid: HKEY, #[opt] hwnd: HWND) -> HRESULT;
@@ -235,42 +235,42 @@ mod Windows {
         extern fn IsOS(dwOS: u32) -> BOOL;
         type LPCQITAB = *const QITAB;
         type LPQITAB = *mut QITAB;
-        const OS_ADVSERVER: u32 = 22;
-        const OS_ANYSERVER: u32 = 29;
-        const OS_APPLIANCE: u32 = 36;
-        const OS_DATACENTER: u32 = 21;
-        const OS_DOMAINMEMBER: u32 = 28;
-        const OS_EMBEDDED: u32 = 13;
-        const OS_FASTUSERSWITCHING: u32 = 26;
-        const OS_HOME: u32 = 19;
-        const OS_MEDIACENTER: u32 = 35;
-        const OS_MEORGREATER: u32 = 17;
-        const OS_NT: u32 = 1;
-        const OS_NT4ORGREATER: u32 = 3;
-        const OS_PERSONALTERMINALSERVER: u32 = 25;
-        const OS_PROFESSIONAL: u32 = 20;
-        const OS_SERVER: u32 = 23;
-        const OS_SERVERADMINUI: u32 = 34;
-        const OS_SMALLBUSINESSSERVER: u32 = 32;
-        const OS_TABLETPC: u32 = 33;
-        const OS_TERMINALCLIENT: u32 = 14;
-        const OS_TERMINALREMOTEADMIN: u32 = 15;
-        const OS_TERMINALSERVER: u32 = 24;
-        const OS_WEBSERVER: u32 = 31;
-        const OS_WELCOMELOGONUI: u32 = 27;
-        const OS_WIN2000ADVSERVER: u32 = 10;
-        const OS_WIN2000DATACENTER: u32 = 11;
-        const OS_WIN2000ORGREATER: u32 = 7;
-        const OS_WIN2000PRO: u32 = 8;
-        const OS_WIN2000SERVER: u32 = 9;
-        const OS_WIN2000TERMINAL: u32 = 12;
-        const OS_WIN95ORGREATER: u32 = 2;
-        const OS_WIN95_GOLD: u32 = 16;
-        const OS_WIN98ORGREATER: u32 = 5;
-        const OS_WIN98_GOLD: u32 = 6;
-        const OS_WINDOWS: u32 = 0;
-        const OS_WOW6432: u32 = 30;
-        const OS_XPORGREATER: u32 = 18;
+        const OS_ADVSERVER: i32 = 22;
+        const OS_ANYSERVER: i32 = 29;
+        const OS_APPLIANCE: i32 = 36;
+        const OS_DATACENTER: i32 = 21;
+        const OS_DOMAINMEMBER: i32 = 28;
+        const OS_EMBEDDED: i32 = 13;
+        const OS_FASTUSERSWITCHING: i32 = 26;
+        const OS_HOME: i32 = 19;
+        const OS_MEDIACENTER: i32 = 35;
+        const OS_MEORGREATER: i32 = 17;
+        const OS_NT: i32 = 1;
+        const OS_NT4ORGREATER: i32 = 3;
+        const OS_PERSONALTERMINALSERVER: i32 = 25;
+        const OS_PROFESSIONAL: i32 = 20;
+        const OS_SERVER: i32 = 23;
+        const OS_SERVERADMINUI: i32 = 34;
+        const OS_SMALLBUSINESSSERVER: i32 = 32;
+        const OS_TABLETPC: i32 = 33;
+        const OS_TERMINALCLIENT: i32 = 14;
+        const OS_TERMINALREMOTEADMIN: i32 = 15;
+        const OS_TERMINALSERVER: i32 = 24;
+        const OS_WEBSERVER: i32 = 31;
+        const OS_WELCOMELOGONUI: i32 = 27;
+        const OS_WIN2000ADVSERVER: i32 = 10;
+        const OS_WIN2000DATACENTER: i32 = 11;
+        const OS_WIN2000ORGREATER: i32 = 7;
+        const OS_WIN2000PRO: i32 = 8;
+        const OS_WIN2000SERVER: i32 = 9;
+        const OS_WIN2000TERMINAL: i32 = 12;
+        const OS_WIN95ORGREATER: i32 = 2;
+        const OS_WIN95_GOLD: i32 = 16;
+        const OS_WIN98ORGREATER: i32 = 5;
+        const OS_WIN98_GOLD: i32 = 6;
+        const OS_WINDOWS: i32 = 0;
+        const OS_WOW6432: i32 = 30;
+        const OS_XPORGREATER: i32 = 18;
         type PARSEDURL = PARSEDURLA;
         struct PARSEDURLA {
             cbSize: u32,
@@ -289,13 +289,13 @@ mod Windows {
             nScheme: u32,
         }
         type PHUSKEY = *mut HUSKEY;
-        const PLATFORM_BROWSERONLY: u32 = 1;
-        const PLATFORM_IE3: u32 = 1;
-        const PLATFORM_INTEGRATED: u32 = 2;
-        const PLATFORM_UNKNOWN: u32 = 0;
-        const PMSF_DONT_STRIP_SPACES: u32 = 65536;
-        const PMSF_MULTIPLE: u32 = 1;
-        const PMSF_NORMAL: u32 = 0;
+        const PLATFORM_BROWSERONLY: i32 = 1;
+        const PLATFORM_IE3: i32 = 1;
+        const PLATFORM_INTEGRATED: i32 = 2;
+        const PLATFORM_UNKNOWN: i32 = 0;
+        const PMSF_DONT_STRIP_SPACES: i32 = 65536;
+        const PMSF_MULTIPLE: i32 = 1;
+        const PMSF_NORMAL: i32 = 0;
         type PPARSEDURL = PPARSEDURLA;
         type PPARSEDURLA = *mut PARSEDURLA;
         type PPARSEDURLW = *mut PARSEDURLW;
@@ -537,18 +537,18 @@ mod Windows {
         }
         type SFBS_FLAGS = i32;
         const SHACF_AUTOAPPEND_FORCE_OFF: u32 = 2147483648;
-        const SHACF_AUTOAPPEND_FORCE_ON: u32 = 1073741824;
-        const SHACF_AUTOSUGGEST_FORCE_OFF: u32 = 536870912;
-        const SHACF_AUTOSUGGEST_FORCE_ON: u32 = 268435456;
-        const SHACF_DEFAULT: u32 = 0;
-        const SHACF_FILESYSTEM: u32 = 1;
-        const SHACF_FILESYS_DIRS: u32 = 32;
-        const SHACF_FILESYS_ONLY: u32 = 16;
-        const SHACF_URLALL: u32 = 6;
-        const SHACF_URLHISTORY: u32 = 2;
-        const SHACF_URLMRU: u32 = 4;
-        const SHACF_USETAB: u32 = 8;
-        const SHACF_VIRTUAL_NAMESPACE: u32 = 64;
+        const SHACF_AUTOAPPEND_FORCE_ON: i32 = 1073741824;
+        const SHACF_AUTOSUGGEST_FORCE_OFF: i32 = 536870912;
+        const SHACF_AUTOSUGGEST_FORCE_ON: i32 = 268435456;
+        const SHACF_DEFAULT: i32 = 0;
+        const SHACF_FILESYSTEM: i32 = 1;
+        const SHACF_FILESYS_DIRS: i32 = 32;
+        const SHACF_FILESYS_ONLY: i32 = 16;
+        const SHACF_URLALL: i32 = 6;
+        const SHACF_URLHISTORY: i32 = 2;
+        const SHACF_URLMRU: i32 = 4;
+        const SHACF_USETAB: i32 = 8;
+        const SHACF_VIRTUAL_NAMESPACE: i32 = 64;
         #[library("SHLWAPI.dll")]
         extern fn SHAllocShared(#[size_param(1)] #[opt] pvData: *const void, dwSize: u32, dwProcessId: u32) -> HANDLE;
         #[library("SHLWAPI.dll")]
@@ -667,17 +667,17 @@ mod Windows {
             GLOBALCOUNTER_BANNERS_DATAMODEL_CACHE_MACHINEWIDE = 58,
             GLOBALCOUNTER_MAXIMUMVALUE = 59,
         }
-        const SHGVSPB_ALLFOLDERS: u32 = 8;
-        const SHGVSPB_ALLUSERS: u32 = 2;
-        const SHGVSPB_FOLDER: u32 = 5;
-        const SHGVSPB_FOLDERNODEFAULTS: i32 = -2147483643;
-        const SHGVSPB_GLOBALDEFAULTS: u32 = 10;
-        const SHGVSPB_INHERIT: u32 = 16;
+        const SHGVSPB_ALLFOLDERS: i32 = 8;
+        const SHGVSPB_ALLUSERS: i32 = 2;
+        const SHGVSPB_FOLDER: i32 = 5;
+        const SHGVSPB_FOLDERNODEFAULTS: u32 = 2147483653;
+        const SHGVSPB_GLOBALDEFAULTS: i32 = 10;
+        const SHGVSPB_INHERIT: i32 = 16;
         const SHGVSPB_NOAUTODEFAULTS: u32 = 2147483648;
-        const SHGVSPB_PERFOLDER: u32 = 4;
-        const SHGVSPB_PERUSER: u32 = 1;
-        const SHGVSPB_ROAM: u32 = 32;
-        const SHGVSPB_USERDEFAULTS: u32 = 9;
+        const SHGVSPB_PERFOLDER: i32 = 4;
+        const SHGVSPB_PERUSER: i32 = 1;
+        const SHGVSPB_ROAM: i32 = 32;
+        const SHGVSPB_USERDEFAULTS: i32 = 9;
         #[library("SHLWAPI.dll")]
         extern fn SHGetInverseCMAP(#[size_param(1)] pbMap: *mut u8, cbMap: u32) -> HRESULT;
         #[library("SHLWAPI.dll")]
@@ -734,11 +734,11 @@ mod Windows {
             SHREGENUM_HKLM = 16,
             SHREGENUM_BOTH = 17,
         }
-        const SHREGSET_DEFAULT: u32 = 6;
-        const SHREGSET_FORCE_HKCU: u32 = 2;
-        const SHREGSET_FORCE_HKLM: u32 = 8;
-        const SHREGSET_HKCU: u32 = 1;
-        const SHREGSET_HKLM: u32 = 4;
+        const SHREGSET_DEFAULT: i32 = 6;
+        const SHREGSET_FORCE_HKCU: i32 = 2;
+        const SHREGSET_FORCE_HKLM: i32 = 8;
+        const SHREGSET_HKCU: i32 = 1;
+        const SHREGSET_HKLM: i32 = 4;
         #[library("SHLWAPI.dll")]
         extern fn SHRegCloseUSKey(hUSKey: HUSKEY) -> LSTATUS;
         #[library("SHLWAPI.dll")]
@@ -836,26 +836,26 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHUnlockShared(pvData: *const void) -> BOOL;
         type SRRF = i32;
-        const SRRF_NOEXPAND: u32 = 268435456;
-        const SRRF_NOVIRT: u32 = 1073741824;
-        const SRRF_RM_ANY: u32 = 0;
-        const SRRF_RM_NORMAL: u32 = 65536;
-        const SRRF_RM_SAFE: u32 = 131072;
-        const SRRF_RM_SAFENETWORK: u32 = 262144;
-        const SRRF_RT_ANY: u32 = 65535;
-        const SRRF_RT_DWORD: u32 = 24;
-        const SRRF_RT_QWORD: u32 = 72;
-        const SRRF_RT_REG_BINARY: u32 = 8;
-        const SRRF_RT_REG_DWORD: u32 = 16;
-        const SRRF_RT_REG_EXPAND_SZ: u32 = 4;
-        const SRRF_RT_REG_MULTI_SZ: u32 = 32;
-        const SRRF_RT_REG_NONE: u32 = 1;
-        const SRRF_RT_REG_QWORD: u32 = 64;
-        const SRRF_RT_REG_SZ: u32 = 2;
-        const SRRF_ZEROONFAILURE: u32 = 536870912;
-        const STIF_DEFAULT: u32 = 0;
+        const SRRF_NOEXPAND: i32 = 268435456;
+        const SRRF_NOVIRT: i32 = 1073741824;
+        const SRRF_RM_ANY: i32 = 0;
+        const SRRF_RM_NORMAL: i32 = 65536;
+        const SRRF_RM_SAFE: i32 = 131072;
+        const SRRF_RM_SAFENETWORK: i32 = 262144;
+        const SRRF_RT_ANY: i32 = 65535;
+        const SRRF_RT_DWORD: i32 = 24;
+        const SRRF_RT_QWORD: i32 = 72;
+        const SRRF_RT_REG_BINARY: i32 = 8;
+        const SRRF_RT_REG_DWORD: i32 = 16;
+        const SRRF_RT_REG_EXPAND_SZ: i32 = 4;
+        const SRRF_RT_REG_MULTI_SZ: i32 = 32;
+        const SRRF_RT_REG_NONE: i32 = 1;
+        const SRRF_RT_REG_QWORD: i32 = 64;
+        const SRRF_RT_REG_SZ: i32 = 2;
+        const SRRF_ZEROONFAILURE: i32 = 536870912;
+        const STIF_DEFAULT: i32 = 0;
         type STIF_FLAGS = i32;
-        const STIF_SUPPORT_HEX: u32 = 1;
+        const STIF_SUPPORT_HEX: i32 = 1;
         #[encoding("ansi")]
         const SZ_CONTENTTYPE_CDFA: String = "application/x-cdf";
         #[encoding("utf-16")]
@@ -1022,26 +1022,26 @@ mod Windows {
             URLIS_DIRECTORY = 5,
             URLIS_HASQUERY = 6,
         }
-        const URL_APPLY_DEFAULT: u32 = 1;
-        const URL_APPLY_FORCEAPPLY: u32 = 8;
-        const URL_APPLY_GUESSFILE: u32 = 4;
-        const URL_APPLY_GUESSSCHEME: u32 = 2;
-        const URL_BROWSER_MODE: u32 = 33554432;
-        const URL_CONVERT_IF_DOSPATH: u32 = 2097152;
-        const URL_DONT_ESCAPE_EXTRA_INFO: u32 = 33554432;
-        const URL_DONT_SIMPLIFY: u32 = 134217728;
-        const URL_DONT_UNESCAPE: u32 = 131072;
-        const URL_DONT_UNESCAPE_EXTRA_INFO: u32 = 33554432;
-        const URL_ESCAPE_ASCII_URI_COMPONENT: u32 = 524288;
-        const URL_ESCAPE_AS_UTF8: u32 = 262144;
-        const URL_ESCAPE_PERCENT: u32 = 4096;
-        const URL_ESCAPE_SEGMENT_ONLY: u32 = 8192;
-        const URL_ESCAPE_SPACES_ONLY: u32 = 67108864;
-        const URL_ESCAPE_UNSAFE: u32 = 536870912;
-        const URL_ESCAPE_URI_COMPONENT: u32 = 786432;
-        const URL_FILE_USE_PATHURL: u32 = 65536;
-        const URL_INTERNAL_PATH: u32 = 8388608;
-        const URL_NO_META: u32 = 134217728;
+        const URL_APPLY_DEFAULT: i32 = 1;
+        const URL_APPLY_FORCEAPPLY: i32 = 8;
+        const URL_APPLY_GUESSFILE: i32 = 4;
+        const URL_APPLY_GUESSSCHEME: i32 = 2;
+        const URL_BROWSER_MODE: i32 = 33554432;
+        const URL_CONVERT_IF_DOSPATH: i32 = 2097152;
+        const URL_DONT_ESCAPE_EXTRA_INFO: i32 = 33554432;
+        const URL_DONT_SIMPLIFY: i32 = 134217728;
+        const URL_DONT_UNESCAPE: i32 = 131072;
+        const URL_DONT_UNESCAPE_EXTRA_INFO: i32 = 33554432;
+        const URL_ESCAPE_ASCII_URI_COMPONENT: i32 = 524288;
+        const URL_ESCAPE_AS_UTF8: i32 = 262144;
+        const URL_ESCAPE_PERCENT: i32 = 4096;
+        const URL_ESCAPE_SEGMENT_ONLY: i32 = 8192;
+        const URL_ESCAPE_SPACES_ONLY: i32 = 67108864;
+        const URL_ESCAPE_UNSAFE: i32 = 536870912;
+        const URL_ESCAPE_URI_COMPONENT: i32 = 786432;
+        const URL_FILE_USE_PATHURL: i32 = 65536;
+        const URL_INTERNAL_PATH: i32 = 8388608;
+        const URL_NO_META: i32 = 134217728;
         #[repr(i32)]
         enum URL_PART {
             URL_PART_NONE = 0,
@@ -1052,8 +1052,8 @@ mod Windows {
             URL_PART_PORT = 5,
             URL_PART_QUERY = 6,
         }
-        const URL_PARTFLAG_KEEPSCHEME: u32 = 1;
-        const URL_PLUGGABLE_PROTOCOL: u32 = 1073741824;
+        const URL_PARTFLAG_KEEPSCHEME: i32 = 1;
+        const URL_PLUGGABLE_PROTOCOL: i32 = 1073741824;
         #[repr(i32)]
         enum URL_SCHEME {
             URL_SCHEME_INVALID = -1,
@@ -1086,11 +1086,11 @@ mod Windows {
             URL_SCHEME_KNOWNFOLDER = 26,
             URL_SCHEME_MAXVALUE = 27,
         }
-        const URL_UNESCAPE: u32 = 268435456;
-        const URL_UNESCAPE_AS_UTF8: u32 = 262144;
-        const URL_UNESCAPE_HIGH_ANSI_ONLY: u32 = 4194304;
-        const URL_UNESCAPE_INPLACE: u32 = 1048576;
-        const URL_UNESCAPE_URI_COMPONENT: u32 = 262144;
+        const URL_UNESCAPE: i32 = 268435456;
+        const URL_UNESCAPE_AS_UTF8: i32 = 262144;
+        const URL_UNESCAPE_HIGH_ANSI_ONLY: i32 = 4194304;
+        const URL_UNESCAPE_INPLACE: i32 = 1048576;
+        const URL_UNESCAPE_URI_COMPONENT: i32 = 262144;
         const URL_WININET_COMPATIBILITY: u32 = 2147483648;
         #[library("SHLWAPI.dll")]
         extern fn UrlApplySchemeA(pszIn: PCSTR, #[len_param(2)] #[out] pszOut: PSTR, #[in] #[out] pcchOut: *mut u32, dwFlags: u32) -> HRESULT;

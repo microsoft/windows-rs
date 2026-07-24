@@ -13,13 +13,13 @@ impl Default for SCHEDULE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SCHEDULE_BANDWIDTH: u32 = 1;
-pub const SCHEDULE_DATA_ENTRIES: u32 = 168;
+pub const SCHEDULE_BANDWIDTH: i32 = 1;
+pub const SCHEDULE_DATA_ENTRIES: i32 = 168;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEDULE_HEADER {
     pub Type: u32,
     pub Offset: u32,
 }
-pub const SCHEDULE_INTERVAL: u32 = 0;
-pub const SCHEDULE_PRIORITY: u32 = 2;
+pub const SCHEDULE_INTERVAL: i32 = 0;
+pub const SCHEDULE_PRIORITY: i32 = 2;

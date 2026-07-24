@@ -179,25 +179,25 @@ mod Windows {
             NET_ADDRESS_IPV4 = 2,
             NET_ADDRESS_IPV6 = 3,
         }
-        const NET_STRING_ANY_ADDRESS: u32 = 265;
-        const NET_STRING_ANY_ADDRESS_NO_SCOPE: u32 = 273;
-        const NET_STRING_ANY_SERVICE: u32 = 546;
-        const NET_STRING_ANY_SERVICE_NO_SCOPE: u32 = 578;
-        const NET_STRING_IPV4_ADDRESS: u32 = 1;
-        const NET_STRING_IPV4_NETWORK: u32 = 4;
-        const NET_STRING_IPV4_SERVICE: u32 = 2;
-        const NET_STRING_IPV6_ADDRESS: u32 = 8;
-        const NET_STRING_IPV6_ADDRESS_NO_SCOPE: u32 = 16;
-        const NET_STRING_IPV6_NETWORK: u32 = 128;
-        const NET_STRING_IPV6_SERVICE: u32 = 32;
-        const NET_STRING_IPV6_SERVICE_NO_SCOPE: u32 = 64;
-        const NET_STRING_IP_ADDRESS: u32 = 9;
-        const NET_STRING_IP_ADDRESS_NO_SCOPE: u32 = 17;
-        const NET_STRING_IP_NETWORK: u32 = 132;
-        const NET_STRING_IP_SERVICE: u32 = 34;
-        const NET_STRING_IP_SERVICE_NO_SCOPE: u32 = 66;
-        const NET_STRING_NAMED_ADDRESS: u32 = 256;
-        const NET_STRING_NAMED_SERVICE: u32 = 512;
+        const NET_STRING_ANY_ADDRESS: i32 = 265;
+        const NET_STRING_ANY_ADDRESS_NO_SCOPE: i32 = 273;
+        const NET_STRING_ANY_SERVICE: i32 = 546;
+        const NET_STRING_ANY_SERVICE_NO_SCOPE: i32 = 578;
+        const NET_STRING_IPV4_ADDRESS: i32 = 1;
+        const NET_STRING_IPV4_NETWORK: i32 = 4;
+        const NET_STRING_IPV4_SERVICE: i32 = 2;
+        const NET_STRING_IPV6_ADDRESS: i32 = 8;
+        const NET_STRING_IPV6_ADDRESS_NO_SCOPE: i32 = 16;
+        const NET_STRING_IPV6_NETWORK: i32 = 128;
+        const NET_STRING_IPV6_SERVICE: i32 = 32;
+        const NET_STRING_IPV6_SERVICE_NO_SCOPE: i32 = 64;
+        const NET_STRING_IP_ADDRESS: i32 = 9;
+        const NET_STRING_IP_ADDRESS_NO_SCOPE: i32 = 17;
+        const NET_STRING_IP_NETWORK: i32 = 132;
+        const NET_STRING_IP_SERVICE: i32 = 34;
+        const NET_STRING_IP_SERVICE_NO_SCOPE: i32 = 66;
+        const NET_STRING_NAMED_ADDRESS: i32 = 256;
+        const NET_STRING_NAMED_SERVICE: i32 = 512;
         #[library("IPHLPAPI.DLL")]
         extern fn NhpAllocateAndGetInterfaceInfoFromStack(ppTable: *mut *mut IP_INTERFACE_NAME_INFO, pdwCount: *mut u32, bOrder: BOOL, hHeap: HANDLE, dwFlags: u32) -> u32;
         #[library("IPHLPAPI.DLL")]

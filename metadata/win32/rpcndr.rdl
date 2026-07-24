@@ -212,7 +212,7 @@ mod Windows {
             TypeOffset: u16,
             StubDesc: PMIDL_STUB_DESC,
         }
-        const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: u32 = 1;
+        const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1;
         const MidlInterceptionInfoVersionOne: i32 = 1;
         const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1;
         #[library("RPCRT4.dll")]
@@ -673,19 +673,19 @@ mod Windows {
             STUB_CALL_SERVER_NO_HRESULT = 3,
         }
         extern fn STUB_THUNK(param0: *mut MIDL_STUB_MESSAGE);
-        const TARGET_IS_NT100_OR_LATER: u32 = 1;
-        const TARGET_IS_NT1012_OR_LATER: u32 = 1;
-        const TARGET_IS_NT102_OR_LATER: u32 = 1;
-        const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1;
-        const TARGET_IS_NT40_OR_LATER: u32 = 1;
-        const TARGET_IS_NT50_OR_LATER: u32 = 1;
-        const TARGET_IS_NT51_OR_LATER: u32 = 1;
-        const TARGET_IS_NT60_OR_LATER: u32 = 1;
-        const TARGET_IS_NT61_OR_LATER: u32 = 1;
-        const TARGET_IS_NT62_OR_LATER: u32 = 1;
-        const TARGET_IS_NT63_OR_LATER: u32 = 1;
-        const USER_CALL_IS_ASYNC: u32 = 256;
-        const USER_CALL_NEW_CORRELATION_DESC: u32 = 512;
+        const TARGET_IS_NT100_OR_LATER: i32 = 1;
+        const TARGET_IS_NT1012_OR_LATER: i32 = 1;
+        const TARGET_IS_NT102_OR_LATER: i32 = 1;
+        const TARGET_IS_NT351_OR_WIN95_OR_LATER: i32 = 1;
+        const TARGET_IS_NT40_OR_LATER: i32 = 1;
+        const TARGET_IS_NT50_OR_LATER: i32 = 1;
+        const TARGET_IS_NT51_OR_LATER: i32 = 1;
+        const TARGET_IS_NT60_OR_LATER: i32 = 1;
+        const TARGET_IS_NT61_OR_LATER: i32 = 1;
+        const TARGET_IS_NT62_OR_LATER: i32 = 1;
+        const TARGET_IS_NT63_OR_LATER: i32 = 1;
+        const USER_CALL_IS_ASYNC: i32 = 256;
+        const USER_CALL_NEW_CORRELATION_DESC: i32 = 512;
         struct USER_MARSHAL_CB {
             Flags: u32,
             pStubMsg: PMIDL_STUB_MESSAGE,
@@ -695,7 +695,7 @@ mod Windows {
             pFormat: PFORMAT_STRING,
             pTypeFormat: PFORMAT_STRING,
         }
-        const USER_MARSHAL_CB_SIGNATURE: u32 = 1431523907;
+        const USER_MARSHAL_CB_SIGNATURE: i32 = 1431523907;
         #[repr(i32)]
         enum USER_MARSHAL_CB_TYPE {
             USER_MARSHAL_CB_BUFFER_SIZE = 0,
@@ -703,18 +703,18 @@ mod Windows {
             USER_MARSHAL_CB_UNMARSHALL = 2,
             USER_MARSHAL_CB_FREE = 3,
         }
-        const USER_MARSHAL_FC_BYTE: u32 = 1;
-        const USER_MARSHAL_FC_CHAR: u32 = 2;
-        const USER_MARSHAL_FC_DOUBLE: u32 = 12;
-        const USER_MARSHAL_FC_FLOAT: u32 = 10;
-        const USER_MARSHAL_FC_HYPER: u32 = 11;
-        const USER_MARSHAL_FC_LONG: u32 = 8;
-        const USER_MARSHAL_FC_SHORT: u32 = 6;
-        const USER_MARSHAL_FC_SMALL: u32 = 3;
-        const USER_MARSHAL_FC_ULONG: u32 = 9;
-        const USER_MARSHAL_FC_USHORT: u32 = 7;
-        const USER_MARSHAL_FC_USMALL: u32 = 4;
-        const USER_MARSHAL_FC_WCHAR: u32 = 5;
+        const USER_MARSHAL_FC_BYTE: i32 = 1;
+        const USER_MARSHAL_FC_CHAR: i32 = 2;
+        const USER_MARSHAL_FC_DOUBLE: i32 = 12;
+        const USER_MARSHAL_FC_FLOAT: i32 = 10;
+        const USER_MARSHAL_FC_HYPER: i32 = 11;
+        const USER_MARSHAL_FC_LONG: i32 = 8;
+        const USER_MARSHAL_FC_SHORT: i32 = 6;
+        const USER_MARSHAL_FC_SMALL: i32 = 3;
+        const USER_MARSHAL_FC_ULONG: i32 = 9;
+        const USER_MARSHAL_FC_USHORT: i32 = 7;
+        const USER_MARSHAL_FC_USMALL: i32 = 4;
+        const USER_MARSHAL_FC_WCHAR: i32 = 5;
         extern fn USER_MARSHAL_FREEING_ROUTINE(param0: *mut u32, param1: *mut void);
         extern fn USER_MARSHAL_MARSHALLING_ROUTINE(param0: *mut u32, param1: *mut u8, param2: *mut void) -> *mut u8;
         struct USER_MARSHAL_ROUTINE_QUADRUPLE {
@@ -746,7 +746,7 @@ mod Windows {
         }
         type boolean = u8;
         type byte = u8;
-        const cbNDRContext: u32 = 20;
+        const cbNDRContext: i32 = 20;
         type cs_byte = byte;
         type error_status_t = u32;
         #[repr(i32)]

@@ -5,7 +5,7 @@ use windows::{Win32::*, core::WIN32_ERROR, core::*};
 fn display_debug() {
     helpers::set_thread_ui_language();
 
-    let e = Error::from(WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION));
+    let e = Error::from(WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION as u32));
     let display = format!("{e}");
     let debug = format!("{e:?}");
     assert_eq!(

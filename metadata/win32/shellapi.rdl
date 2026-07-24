@@ -1,30 +1,30 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ABC_OVERLAYDESKTOPICONS: u32 = 1;
-        const ABE_BOTTOM: u32 = 3;
-        const ABE_LEFT: u32 = 0;
-        const ABE_RIGHT: u32 = 2;
-        const ABE_TOP: u32 = 1;
-        const ABM_ACTIVATE: u32 = 6;
-        const ABM_GETAUTOHIDEBAR: u32 = 7;
-        const ABM_GETAUTOHIDEBAREX: u32 = 11;
-        const ABM_GETSTATE: u32 = 4;
-        const ABM_GETTASKBARPOS: u32 = 5;
-        const ABM_NEW: u32 = 0;
-        const ABM_QUERYPOS: u32 = 2;
-        const ABM_REMOVE: u32 = 1;
-        const ABM_SETAUTOHIDEBAR: u32 = 8;
-        const ABM_SETAUTOHIDEBAREX: u32 = 12;
-        const ABM_SETPOS: u32 = 3;
-        const ABM_SETSTATE: u32 = 10;
-        const ABM_WINDOWPOSCHANGED: u32 = 9;
-        const ABN_FULLSCREENAPP: u32 = 2;
-        const ABN_POSCHANGED: u32 = 1;
-        const ABN_STATECHANGE: u32 = 0;
-        const ABN_WINDOWARRANGE: u32 = 3;
-        const ABS_ALWAYSONTOP: u32 = 2;
-        const ABS_AUTOHIDE: u32 = 1;
+        const ABC_OVERLAYDESKTOPICONS: i32 = 1;
+        const ABE_BOTTOM: i32 = 3;
+        const ABE_LEFT: i32 = 0;
+        const ABE_RIGHT: i32 = 2;
+        const ABE_TOP: i32 = 1;
+        const ABM_ACTIVATE: i32 = 6;
+        const ABM_GETAUTOHIDEBAR: i32 = 7;
+        const ABM_GETAUTOHIDEBAREX: i32 = 11;
+        const ABM_GETSTATE: i32 = 4;
+        const ABM_GETTASKBARPOS: i32 = 5;
+        const ABM_NEW: i32 = 0;
+        const ABM_QUERYPOS: i32 = 2;
+        const ABM_REMOVE: i32 = 1;
+        const ABM_SETAUTOHIDEBAR: i32 = 8;
+        const ABM_SETAUTOHIDEBAREX: i32 = 12;
+        const ABM_SETPOS: i32 = 3;
+        const ABM_SETSTATE: i32 = 10;
+        const ABM_WINDOWPOSCHANGED: i32 = 9;
+        const ABN_FULLSCREENAPP: i32 = 2;
+        const ABN_POSCHANGED: i32 = 1;
+        const ABN_STATECHANGE: i32 = 0;
+        const ABN_WINDOWARRANGE: i32 = 3;
+        const ABS_ALWAYSONTOP: i32 = 2;
+        const ABS_AUTOHIDE: i32 = 1;
         #[arch(X64 | Arm64)]
         struct APPBARDATA {
             cbSize: u32,
@@ -144,27 +144,27 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn ExtractIconW(#[reserved] hInst: HINSTANCE, pszExeFileName: PCWSTR, nIconIndex: u32) -> HICON;
         type FILEOP_FLAGS = u16;
-        const FOF_ALLOWUNDO: u32 = 64;
-        const FOF_CONFIRMMOUSE: u32 = 2;
-        const FOF_FILESONLY: u32 = 128;
-        const FOF_MULTIDESTFILES: u32 = 1;
-        const FOF_NOCONFIRMATION: u32 = 16;
-        const FOF_NOCONFIRMMKDIR: u32 = 512;
-        const FOF_NOCOPYSECURITYATTRIBS: u32 = 2048;
-        const FOF_NOERRORUI: u32 = 1024;
-        const FOF_NORECURSEREPARSE: u32 = 32768;
-        const FOF_NORECURSION: u32 = 4096;
-        const FOF_NO_CONNECTED_ELEMENTS: u32 = 8192;
-        const FOF_NO_UI: u32 = 1556;
-        const FOF_RENAMEONCOLLISION: u32 = 8;
-        const FOF_SILENT: u32 = 4;
-        const FOF_SIMPLEPROGRESS: u32 = 256;
-        const FOF_WANTMAPPINGHANDLE: u32 = 32;
-        const FOF_WANTNUKEWARNING: u32 = 16384;
-        const FO_COPY: u32 = 2;
-        const FO_DELETE: u32 = 3;
-        const FO_MOVE: u32 = 1;
-        const FO_RENAME: u32 = 4;
+        const FOF_ALLOWUNDO: i32 = 64;
+        const FOF_CONFIRMMOUSE: i32 = 2;
+        const FOF_FILESONLY: i32 = 128;
+        const FOF_MULTIDESTFILES: i32 = 1;
+        const FOF_NOCONFIRMATION: i32 = 16;
+        const FOF_NOCONFIRMMKDIR: i32 = 512;
+        const FOF_NOCOPYSECURITYATTRIBS: i32 = 2048;
+        const FOF_NOERRORUI: i32 = 1024;
+        const FOF_NORECURSEREPARSE: i32 = 32768;
+        const FOF_NORECURSION: i32 = 4096;
+        const FOF_NO_CONNECTED_ELEMENTS: i32 = 8192;
+        const FOF_NO_UI: i32 = 1556;
+        const FOF_RENAMEONCOLLISION: i32 = 8;
+        const FOF_SILENT: i32 = 4;
+        const FOF_SIMPLEPROGRESS: i32 = 256;
+        const FOF_WANTMAPPINGHANDLE: i32 = 32;
+        const FOF_WANTNUKEWARNING: i32 = 16384;
+        const FO_COPY: i32 = 2;
+        const FO_DELETE: i32 = 3;
+        const FO_MOVE: i32 = 1;
+        const FO_RENAME: i32 = 4;
         #[library("SHELL32.dll")]
         extern fn FindExecutableA(lpFile: PCSTR, #[opt] lpDirectory: PCSTR, #[out] lpResult: PSTR) -> HINSTANCE;
         #[library("SHELL32.dll")]
@@ -189,49 +189,49 @@ mod Windows {
         type LPSHNAMEMAPPINGA = *mut SHNAMEMAPPINGA;
         type LPSHNAMEMAPPINGW = *mut SHNAMEMAPPINGW;
         type LPSHQUERYRBINFO = *mut SHQUERYRBINFO;
-        const NCM_DISPLAYERRORTIP: u32 = 1028;
-        const NCM_GETADDRESS: u32 = 1025;
-        const NCM_GETALLOWTYPE: u32 = 1027;
-        const NCM_SETALLOWTYPE: u32 = 1026;
+        const NCM_DISPLAYERRORTIP: i32 = 1028;
+        const NCM_GETADDRESS: i32 = 1025;
+        const NCM_GETALLOWTYPE: i32 = 1027;
+        const NCM_SETALLOWTYPE: i32 = 1026;
         struct NC_ADDRESS {
             pAddrInfo: *mut NET_ADDRESS_INFO_,
             PortNumber: u16,
             PrefixLength: u8,
         }
         struct NET_ADDRESS_INFO_ {}
-        const NIF_GUID: u32 = 32;
-        const NIF_ICON: u32 = 2;
-        const NIF_INFO: u32 = 16;
-        const NIF_MESSAGE: u32 = 1;
-        const NIF_REALTIME: u32 = 64;
-        const NIF_SHOWTIP: u32 = 128;
-        const NIF_STATE: u32 = 8;
-        const NIF_TIP: u32 = 4;
-        const NIIF_ERROR: u32 = 3;
-        const NIIF_ICON_MASK: u32 = 15;
-        const NIIF_INFO: u32 = 1;
-        const NIIF_LARGE_ICON: u32 = 32;
-        const NIIF_NONE: u32 = 0;
-        const NIIF_NOSOUND: u32 = 16;
-        const NIIF_RESPECT_QUIET_TIME: u32 = 128;
-        const NIIF_USER: u32 = 4;
-        const NIIF_WARNING: u32 = 2;
-        const NIM_ADD: u32 = 0;
-        const NIM_DELETE: u32 = 2;
-        const NIM_MODIFY: u32 = 1;
-        const NIM_SETFOCUS: u32 = 3;
-        const NIM_SETVERSION: u32 = 4;
-        const NINF_KEY: u32 = 1;
-        const NIN_BALLOONHIDE: u32 = 1027;
-        const NIN_BALLOONSHOW: u32 = 1026;
-        const NIN_BALLOONTIMEOUT: u32 = 1028;
-        const NIN_BALLOONUSERCLICK: u32 = 1029;
-        const NIN_KEYSELECT: u32 = 1025;
-        const NIN_POPUPCLOSE: u32 = 1031;
-        const NIN_POPUPOPEN: u32 = 1030;
-        const NIN_SELECT: u32 = 1024;
-        const NIS_HIDDEN: u32 = 1;
-        const NIS_SHAREDICON: u32 = 2;
+        const NIF_GUID: i32 = 32;
+        const NIF_ICON: i32 = 2;
+        const NIF_INFO: i32 = 16;
+        const NIF_MESSAGE: i32 = 1;
+        const NIF_REALTIME: i32 = 64;
+        const NIF_SHOWTIP: i32 = 128;
+        const NIF_STATE: i32 = 8;
+        const NIF_TIP: i32 = 4;
+        const NIIF_ERROR: i32 = 3;
+        const NIIF_ICON_MASK: i32 = 15;
+        const NIIF_INFO: i32 = 1;
+        const NIIF_LARGE_ICON: i32 = 32;
+        const NIIF_NONE: i32 = 0;
+        const NIIF_NOSOUND: i32 = 16;
+        const NIIF_RESPECT_QUIET_TIME: i32 = 128;
+        const NIIF_USER: i32 = 4;
+        const NIIF_WARNING: i32 = 2;
+        const NIM_ADD: i32 = 0;
+        const NIM_DELETE: i32 = 2;
+        const NIM_MODIFY: i32 = 1;
+        const NIM_SETFOCUS: i32 = 3;
+        const NIM_SETVERSION: i32 = 4;
+        const NINF_KEY: i32 = 1;
+        const NIN_BALLOONHIDE: i32 = 1027;
+        const NIN_BALLOONSHOW: i32 = 1026;
+        const NIN_BALLOONTIMEOUT: i32 = 1028;
+        const NIN_BALLOONUSERCLICK: i32 = 1029;
+        const NIN_KEYSELECT: i32 = 1025;
+        const NIN_POPUPCLOSE: i32 = 1031;
+        const NIN_POPUPOPEN: i32 = 1030;
+        const NIN_SELECT: i32 = 1024;
+        const NIS_HIDDEN: i32 = 1;
+        const NIS_SHAREDICON: i32 = 2;
         type NOTIFYICONDATA = NOTIFYICONDATAA;
         #[arch(X64 | Arm64)]
         struct NOTIFYICONDATAA {
@@ -277,17 +277,17 @@ mod Windows {
             hBalloonIcon: HICON,
         }
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAA_V1_SIZE: u32 = 104;
+        const NOTIFYICONDATAA_V1_SIZE: i32 = 104;
         #[arch(X86)]
-        const NOTIFYICONDATAA_V1_SIZE: u32 = 88;
+        const NOTIFYICONDATAA_V1_SIZE: i32 = 88;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAA_V2_SIZE: u32 = 504;
+        const NOTIFYICONDATAA_V2_SIZE: i32 = 504;
         #[arch(X86)]
-        const NOTIFYICONDATAA_V2_SIZE: u32 = 488;
+        const NOTIFYICONDATAA_V2_SIZE: i32 = 488;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAA_V3_SIZE: u32 = 520;
+        const NOTIFYICONDATAA_V3_SIZE: i32 = 520;
         #[arch(X86)]
-        const NOTIFYICONDATAA_V3_SIZE: u32 = 504;
+        const NOTIFYICONDATAA_V3_SIZE: i32 = 504;
         #[arch(X64 | Arm64)]
         struct NOTIFYICONDATAW {
             cbSize: u32,
@@ -332,29 +332,29 @@ mod Windows {
             hBalloonIcon: HICON,
         }
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAW_V1_SIZE: u32 = 168;
+        const NOTIFYICONDATAW_V1_SIZE: i32 = 168;
         #[arch(X86)]
-        const NOTIFYICONDATAW_V1_SIZE: u32 = 152;
+        const NOTIFYICONDATAW_V1_SIZE: i32 = 152;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAW_V2_SIZE: u32 = 952;
+        const NOTIFYICONDATAW_V2_SIZE: i32 = 952;
         #[arch(X86)]
-        const NOTIFYICONDATAW_V2_SIZE: u32 = 936;
+        const NOTIFYICONDATAW_V2_SIZE: i32 = 936;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATAW_V3_SIZE: u32 = 968;
+        const NOTIFYICONDATAW_V3_SIZE: i32 = 968;
         #[arch(X86)]
-        const NOTIFYICONDATAW_V3_SIZE: u32 = 952;
+        const NOTIFYICONDATAW_V3_SIZE: i32 = 952;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATA_V1_SIZE: u32 = 104;
+        const NOTIFYICONDATA_V1_SIZE: i32 = 104;
         #[arch(X86)]
-        const NOTIFYICONDATA_V1_SIZE: u32 = 88;
+        const NOTIFYICONDATA_V1_SIZE: i32 = 88;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATA_V2_SIZE: u32 = 504;
+        const NOTIFYICONDATA_V2_SIZE: i32 = 504;
         #[arch(X86)]
-        const NOTIFYICONDATA_V2_SIZE: u32 = 488;
+        const NOTIFYICONDATA_V2_SIZE: i32 = 488;
         #[arch(X64 | Arm64)]
-        const NOTIFYICONDATA_V3_SIZE: u32 = 520;
+        const NOTIFYICONDATA_V3_SIZE: i32 = 520;
         #[arch(X86)]
-        const NOTIFYICONDATA_V3_SIZE: u32 = 504;
+        const NOTIFYICONDATA_V3_SIZE: i32 = 504;
         #[arch(X64 | Arm64)]
         struct NOTIFYICONIDENTIFIER {
             cbSize: u32,
@@ -370,11 +370,11 @@ mod Windows {
             uID: u32,
             guidItem: GUID,
         }
-        const NOTIFYICON_VERSION: u32 = 3;
-        const NOTIFYICON_VERSION_4: u32 = 4;
-        const OFFLINE_STATUS_INCOMPLETE: u32 = 4;
-        const OFFLINE_STATUS_LOCAL: u32 = 1;
-        const OFFLINE_STATUS_REMOTE: u32 = 2;
+        const NOTIFYICON_VERSION: i32 = 3;
+        const NOTIFYICON_VERSION_4: i32 = 4;
+        const OFFLINE_STATUS_INCOMPLETE: i32 = 4;
+        const OFFLINE_STATUS_LOCAL: i32 = 1;
+        const OFFLINE_STATUS_REMOTE: i32 = 2;
         type OPEN_PRINTER_PROPS_INFO = OPEN_PRINTER_PROPS_INFOA;
         #[arch(X64 | Arm64)]
         struct OPEN_PRINTER_PROPS_INFOA {
@@ -421,20 +421,20 @@ mod Windows {
         type POPEN_PRINTER_PROPS_INFO = POPEN_PRINTER_PROPS_INFOA;
         type POPEN_PRINTER_PROPS_INFOA = *mut OPEN_PRINTER_PROPS_INFOA;
         type POPEN_PRINTER_PROPS_INFOW = *mut OPEN_PRINTER_PROPS_INFOW;
-        const PO_DELETE: u32 = 19;
-        const PO_PORTCHANGE: u32 = 32;
-        const PO_RENAME: u32 = 20;
-        const PO_REN_PORT: u32 = 52;
-        const PRINTACTION_DOCUMENTDEFAULTS: u32 = 6;
-        const PRINTACTION_NETINSTALL: u32 = 2;
-        const PRINTACTION_NETINSTALLLINK: u32 = 3;
-        const PRINTACTION_OPEN: u32 = 0;
-        const PRINTACTION_OPENNETPRN: u32 = 5;
-        const PRINTACTION_PROPERTIES: u32 = 1;
-        const PRINTACTION_SERVERPROPERTIES: u32 = 7;
-        const PRINTACTION_TESTPAGE: u32 = 4;
+        const PO_DELETE: i32 = 19;
+        const PO_PORTCHANGE: i32 = 32;
+        const PO_RENAME: i32 = 20;
+        const PO_REN_PORT: i32 = 52;
+        const PRINTACTION_DOCUMENTDEFAULTS: i32 = 6;
+        const PRINTACTION_NETINSTALL: i32 = 2;
+        const PRINTACTION_NETINSTALLLINK: i32 = 3;
+        const PRINTACTION_OPEN: i32 = 0;
+        const PRINTACTION_OPENNETPRN: i32 = 5;
+        const PRINTACTION_PROPERTIES: i32 = 1;
+        const PRINTACTION_SERVERPROPERTIES: i32 = 7;
+        const PRINTACTION_TESTPAGE: i32 = 4;
         type PRINTEROP_FLAGS = u16;
-        const PRINT_PROP_FORCE_NAME: u32 = 1;
+        const PRINT_PROP_FORCE_NAME: i32 = 1;
         type PSHCREATEPROCESSINFOW = *mut SHCREATEPROCESSINFOW;
         #[repr(i32)]
         enum QUERY_USER_NOTIFICATION_STATE {
@@ -446,38 +446,38 @@ mod Windows {
             QUNS_QUIET_TIME = 6,
             QUNS_APP = 7,
         }
-        const SEE_MASK_ASYNCOK: u32 = 1048576;
-        const SEE_MASK_CLASSKEY: u32 = 3;
-        const SEE_MASK_CLASSNAME: u32 = 1;
-        const SEE_MASK_CONNECTNETDRV: u32 = 128;
-        const SEE_MASK_DEFAULT: u32 = 0;
-        const SEE_MASK_DOENVSUBST: u32 = 512;
-        const SEE_MASK_FLAG_DDEWAIT: u32 = 256;
-        const SEE_MASK_FLAG_HINST_IS_SITE: u32 = 134217728;
-        const SEE_MASK_FLAG_LOG_USAGE: u32 = 67108864;
-        const SEE_MASK_FLAG_NO_UI: u32 = 1024;
-        const SEE_MASK_HMONITOR: u32 = 2097152;
-        const SEE_MASK_HOTKEY: u32 = 32;
-        const SEE_MASK_IDLIST: u32 = 4;
-        const SEE_MASK_INVOKEIDLIST: u32 = 12;
-        const SEE_MASK_NOASYNC: u32 = 256;
-        const SEE_MASK_NOCLOSEPROCESS: u32 = 64;
-        const SEE_MASK_NOQUERYCLASSSTORE: u32 = 16777216;
-        const SEE_MASK_NOZONECHECKS: u32 = 8388608;
-        const SEE_MASK_NO_CONSOLE: u32 = 32768;
-        const SEE_MASK_UNICODE: u32 = 16384;
-        const SEE_MASK_WAITFORINPUTIDLE: u32 = 33554432;
-        const SE_ERR_ACCESSDENIED: u32 = 5;
-        const SE_ERR_ASSOCINCOMPLETE: u32 = 27;
-        const SE_ERR_DDEBUSY: u32 = 30;
-        const SE_ERR_DDEFAIL: u32 = 29;
-        const SE_ERR_DDETIMEOUT: u32 = 28;
-        const SE_ERR_DLLNOTFOUND: u32 = 32;
-        const SE_ERR_FNF: u32 = 2;
-        const SE_ERR_NOASSOC: u32 = 31;
-        const SE_ERR_OOM: u32 = 8;
-        const SE_ERR_PNF: u32 = 3;
-        const SE_ERR_SHARE: u32 = 26;
+        const SEE_MASK_ASYNCOK: i32 = 1048576;
+        const SEE_MASK_CLASSKEY: i32 = 3;
+        const SEE_MASK_CLASSNAME: i32 = 1;
+        const SEE_MASK_CONNECTNETDRV: i32 = 128;
+        const SEE_MASK_DEFAULT: i32 = 0;
+        const SEE_MASK_DOENVSUBST: i32 = 512;
+        const SEE_MASK_FLAG_DDEWAIT: i32 = 256;
+        const SEE_MASK_FLAG_HINST_IS_SITE: i32 = 134217728;
+        const SEE_MASK_FLAG_LOG_USAGE: i32 = 67108864;
+        const SEE_MASK_FLAG_NO_UI: i32 = 1024;
+        const SEE_MASK_HMONITOR: i32 = 2097152;
+        const SEE_MASK_HOTKEY: i32 = 32;
+        const SEE_MASK_IDLIST: i32 = 4;
+        const SEE_MASK_INVOKEIDLIST: i32 = 12;
+        const SEE_MASK_NOASYNC: i32 = 256;
+        const SEE_MASK_NOCLOSEPROCESS: i32 = 64;
+        const SEE_MASK_NOQUERYCLASSSTORE: i32 = 16777216;
+        const SEE_MASK_NOZONECHECKS: i32 = 8388608;
+        const SEE_MASK_NO_CONSOLE: i32 = 32768;
+        const SEE_MASK_UNICODE: i32 = 16384;
+        const SEE_MASK_WAITFORINPUTIDLE: i32 = 33554432;
+        const SE_ERR_ACCESSDENIED: i32 = 5;
+        const SE_ERR_ASSOCINCOMPLETE: i32 = 27;
+        const SE_ERR_DDEBUSY: i32 = 30;
+        const SE_ERR_DDEFAIL: i32 = 29;
+        const SE_ERR_DDETIMEOUT: i32 = 28;
+        const SE_ERR_DLLNOTFOUND: i32 = 32;
+        const SE_ERR_FNF: i32 = 2;
+        const SE_ERR_NOASSOC: i32 = 31;
+        const SE_ERR_OOM: i32 = 8;
+        const SE_ERR_PNF: i32 = 3;
+        const SE_ERR_SHARE: i32 = 26;
         #[library("SHELL32.dll")]
         extern fn SHAppBarMessage(dwMessage: u32, #[in] #[out] pData: *mut APPBARDATA) -> usize;
         #[arch(X64 | Arm64)]
@@ -602,9 +602,9 @@ mod Windows {
             },
             hProcess: HANDLE,
         }
-        const SHERB_NOCONFIRMATION: u32 = 1;
-        const SHERB_NOPROGRESSUI: u32 = 2;
-        const SHERB_NOSOUND: u32 = 4;
+        const SHERB_NOCONFIRMATION: i32 = 1;
+        const SHERB_NOPROGRESSUI: i32 = 2;
+        const SHERB_NOSOUND: i32 = 4;
         #[library("SHELL32.dll")]
         extern fn SHEmptyRecycleBinA(#[opt] hwnd: HWND, #[opt] pszRootPath: PCSTR, dwFlags: u32) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -701,38 +701,38 @@ mod Windows {
         extern fn SHFileOperationW(#[in] #[out] lpFileOp: *mut SHFILEOPSTRUCTW) -> i32;
         #[library("SHELL32.dll")]
         extern fn SHFreeNameMappings(#[opt] hNameMappings: HANDLE);
-        const SHGFI_ADDOVERLAYS: u32 = 32;
-        const SHGFI_ATTRIBUTES: u32 = 2048;
-        const SHGFI_ATTR_SPECIFIED: u32 = 131072;
-        const SHGFI_DISPLAYNAME: u32 = 512;
-        const SHGFI_EXETYPE: u32 = 8192;
-        const SHGFI_ICON: u32 = 256;
-        const SHGFI_ICONLOCATION: u32 = 4096;
-        const SHGFI_LARGEICON: u32 = 0;
-        const SHGFI_LINKOVERLAY: u32 = 32768;
-        const SHGFI_OPENICON: u32 = 2;
-        const SHGFI_OVERLAYINDEX: u32 = 64;
-        const SHGFI_PIDL: u32 = 8;
-        const SHGFI_SELECTED: u32 = 65536;
-        const SHGFI_SHELLICONSIZE: u32 = 4;
-        const SHGFI_SMALLICON: u32 = 1;
-        const SHGFI_SYSICONINDEX: u32 = 16384;
-        const SHGFI_TYPENAME: u32 = 1024;
-        const SHGFI_USEFILEATTRIBUTES: u32 = 16;
-        const SHGNLI_NOLNK: u32 = 8;
-        const SHGNLI_NOLOCNAME: u32 = 16;
-        const SHGNLI_NOUNIQUE: u32 = 4;
-        const SHGNLI_PIDL: u32 = 1;
-        const SHGNLI_PREFIXNAME: u32 = 2;
-        const SHGNLI_USEURLEXT: u32 = 32;
-        const SHGSI_ICON: u32 = 256;
-        const SHGSI_ICONLOCATION: u32 = 0;
-        const SHGSI_LARGEICON: u32 = 0;
-        const SHGSI_LINKOVERLAY: u32 = 32768;
-        const SHGSI_SELECTED: u32 = 65536;
-        const SHGSI_SHELLICONSIZE: u32 = 4;
-        const SHGSI_SMALLICON: u32 = 1;
-        const SHGSI_SYSICONINDEX: u32 = 16384;
+        const SHGFI_ADDOVERLAYS: i32 = 32;
+        const SHGFI_ATTRIBUTES: i32 = 2048;
+        const SHGFI_ATTR_SPECIFIED: i32 = 131072;
+        const SHGFI_DISPLAYNAME: i32 = 512;
+        const SHGFI_EXETYPE: i32 = 8192;
+        const SHGFI_ICON: i32 = 256;
+        const SHGFI_ICONLOCATION: i32 = 4096;
+        const SHGFI_LARGEICON: i32 = 0;
+        const SHGFI_LINKOVERLAY: i32 = 32768;
+        const SHGFI_OPENICON: i32 = 2;
+        const SHGFI_OVERLAYINDEX: i32 = 64;
+        const SHGFI_PIDL: i32 = 8;
+        const SHGFI_SELECTED: i32 = 65536;
+        const SHGFI_SHELLICONSIZE: i32 = 4;
+        const SHGFI_SMALLICON: i32 = 1;
+        const SHGFI_SYSICONINDEX: i32 = 16384;
+        const SHGFI_TYPENAME: i32 = 1024;
+        const SHGFI_USEFILEATTRIBUTES: i32 = 16;
+        const SHGNLI_NOLNK: i32 = 8;
+        const SHGNLI_NOLOCNAME: i32 = 16;
+        const SHGNLI_NOUNIQUE: i32 = 4;
+        const SHGNLI_PIDL: i32 = 1;
+        const SHGNLI_PREFIXNAME: i32 = 2;
+        const SHGNLI_USEURLEXT: i32 = 32;
+        const SHGSI_ICON: i32 = 256;
+        const SHGSI_ICONLOCATION: i32 = 0;
+        const SHGSI_LARGEICON: i32 = 0;
+        const SHGSI_LINKOVERLAY: i32 = 32768;
+        const SHGSI_SELECTED: i32 = 65536;
+        const SHGSI_SHELLICONSIZE: i32 = 4;
+        const SHGSI_SMALLICON: i32 = 1;
+        const SHGSI_SYSICONINDEX: i32 = 16384;
         #[library("SHELL32.dll")]
         extern fn SHGetDiskFreeSpaceExA(pszDirectoryName: PCSTR, #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
         #[library("SHELL32.dll")]
@@ -757,12 +757,12 @@ mod Windows {
         extern fn SHGetStockIconInfo(siid: SHSTOCKICONID, uFlags: u32, #[in] #[out] psii: *mut SHSTOCKICONINFO) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetUnreadMailCountW(#[opt] hKeyUser: HKEY, #[opt] pszMailAddress: PCWSTR, #[opt] pdwCount: *mut u32, #[opt] pFileTime: *mut FILETIME, #[len_param(5)] #[out] #[opt] pszShellExecuteCommand: PWSTR, cchShellExecuteCommand: i32) -> HRESULT;
-        const SHIL_EXTRALARGE: u32 = 2;
-        const SHIL_JUMBO: u32 = 4;
-        const SHIL_LARGE: u32 = 0;
-        const SHIL_LAST: u32 = 4;
-        const SHIL_SMALL: u32 = 1;
-        const SHIL_SYSSMALL: u32 = 3;
+        const SHIL_EXTRALARGE: i32 = 2;
+        const SHIL_JUMBO: i32 = 4;
+        const SHIL_LARGE: i32 = 0;
+        const SHIL_LAST: i32 = 4;
+        const SHIL_SMALL: i32 = 1;
+        const SHIL_SYSSMALL: i32 = 3;
         #[library("SHELL32.dll")]
         extern fn SHInvokePrinterCommandA(#[opt] hwnd: HWND, uAction: u32, lpBuf1: PCSTR, #[opt] lpBuf2: PCSTR, fModal: BOOL) -> BOOL;
         #[library("SHELL32.dll")]

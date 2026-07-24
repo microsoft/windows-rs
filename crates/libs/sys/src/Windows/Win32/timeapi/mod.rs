@@ -16,6 +16,6 @@ pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
 }
-pub const TIMERR_NOCANDO: u32 = 97;
-pub const TIMERR_NOERROR: u32 = 0;
-pub const TIMERR_STRUCT: u32 = 129;
+pub const TIMERR_NOCANDO: i32 = 97;
+pub const TIMERR_NOERROR: i32 = 0;
+pub const TIMERR_STRUCT: i32 = 129;

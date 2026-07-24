@@ -1,25 +1,25 @@
-pub const CA_ACCESS_ADMIN: u32 = 1;
-pub const CA_ACCESS_AUDITOR: u32 = 4;
-pub const CA_ACCESS_ENROLL: u32 = 512;
-pub const CA_ACCESS_MASKROLES: u32 = 255;
-pub const CA_ACCESS_OFFICER: u32 = 2;
-pub const CA_ACCESS_OPERATOR: u32 = 8;
-pub const CA_ACCESS_READ: u32 = 256;
-pub const CA_CRL_BASE: u32 = 1;
-pub const CA_CRL_DELTA: u32 = 2;
-pub const CA_CRL_REPUBLISH: u32 = 16;
-pub const CA_DISP_ERROR: u32 = 1;
-pub const CA_DISP_INCOMPLETE: u32 = 0;
-pub const CA_DISP_INVALID: u32 = 4;
-pub const CA_DISP_REVOKED: u32 = 2;
-pub const CA_DISP_UNDER_SUBMISSION: u32 = 5;
-pub const CA_DISP_VALID: u32 = 3;
+pub const CA_ACCESS_ADMIN: i32 = 1;
+pub const CA_ACCESS_AUDITOR: i32 = 4;
+pub const CA_ACCESS_ENROLL: i32 = 512;
+pub const CA_ACCESS_MASKROLES: i32 = 255;
+pub const CA_ACCESS_OFFICER: i32 = 2;
+pub const CA_ACCESS_OPERATOR: i32 = 8;
+pub const CA_ACCESS_READ: i32 = 256;
+pub const CA_CRL_BASE: i32 = 1;
+pub const CA_CRL_DELTA: i32 = 2;
+pub const CA_CRL_REPUBLISH: i32 = 16;
+pub const CA_DISP_ERROR: i32 = 1;
+pub const CA_DISP_INCOMPLETE: i32 = 0;
+pub const CA_DISP_INVALID: i32 = 4;
+pub const CA_DISP_REVOKED: i32 = 2;
+pub const CA_DISP_UNDER_SUBMISSION: i32 = 5;
+pub const CA_DISP_VALID: i32 = 3;
 pub const CCertAdmin: windows_core::GUID = windows_core::GUID::from_u128(0x37eabaf0_7fb6_11d0_8817_00a0c903b83c);
 pub const CCertView: windows_core::GUID = windows_core::GUID::from_u128(0xa12d0f7a_1e84_11d1_9bd6_00c04fb683fa);
-pub const CDR_EXPIRED: u32 = 1;
-pub const CDR_REQUEST_LAST_CHANGED: u32 = 2;
-pub const ICF_ALLOWFOREIGN: u32 = 65536;
-pub const ICF_EXISTINGROW: u32 = 131072;
+pub const CDR_EXPIRED: i32 = 1;
+pub const CDR_REQUEST_LAST_CHANGED: i32 = 2;
+pub const ICF_ALLOWFOREIGN: i32 = 65536;
+pub const ICF_EXISTINGROW: i32 = 131072;
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertAdmin, ICertAdmin_Vtbl, 0x34df6950_7fb6_11d0_8817_00a0c903b83c);
 #[cfg(feature = "oaidl")]
@@ -472,7 +472,7 @@ impl ICertAdmin2_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertAdmin2 {}
-pub const IKF_OVERWRITE: u32 = 65536;
+pub const IKF_OVERWRITE: i32 = 65536;
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IOCSPAdmin, IOCSPAdmin_Vtbl, 0x322e830d_67db_4fe9_9577_4596d9f09294);
 #[cfg(feature = "oaidl")]
@@ -1684,13 +1684,13 @@ impl IOCSPPropertyCollection_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IOCSPPropertyCollection {}
-pub const KRA_DISP_EXPIRED: u32 = 0;
-pub const KRA_DISP_INVALID: u32 = 4;
-pub const KRA_DISP_NOTFOUND: u32 = 1;
-pub const KRA_DISP_NOTLOADED: u32 = 6;
-pub const KRA_DISP_REVOKED: u32 = 2;
-pub const KRA_DISP_UNTRUSTED: u32 = 5;
-pub const KRA_DISP_VALID: u32 = 3;
+pub const KRA_DISP_EXPIRED: i32 = 0;
+pub const KRA_DISP_INVALID: i32 = 4;
+pub const KRA_DISP_NOTFOUND: i32 = 1;
+pub const KRA_DISP_NOTLOADED: i32 = 6;
+pub const KRA_DISP_REVOKED: i32 = 2;
+pub const KRA_DISP_UNTRUSTED: i32 = 5;
+pub const KRA_DISP_VALID: i32 = 3;
 pub const OCSPAdmin: windows_core::GUID = windows_core::GUID::from_u128(0xd3f73511_92c9_47cb_8ff2_8d891a7c4de4);
 pub const OCSPPropertyCollection: windows_core::GUID = windows_core::GUID::from_u128(0xf935a528_ba8a_4dd9_ba79_f283275cb2de);
 pub type OCSPRequestFlag = i32;

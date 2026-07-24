@@ -125,7 +125,7 @@ impl Default for DRM_OPL_OUTPUT_IDS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DRM_OPL_TYPES: u32 = 1;
+pub const DRM_OPL_TYPES: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_OUTPUT_PROTECTION {
@@ -9687,7 +9687,7 @@ impl Default for WMDRM_IMPORT_INIT_STRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1;
+pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -9907,9 +9907,9 @@ pub const WMT_VER_4_0: WMT_VERSION = 262144;
 pub const WMT_VER_7_0: WMT_VERSION = 458752;
 pub const WMT_VER_8_0: WMT_VERSION = 524288;
 pub const WMT_VER_9_0: WMT_VERSION = 589824;
-pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: u32 = 65536;
-pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834;
-pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835;
+pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536;
+pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: i32 = 491406834;
+pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: i32 = 491406835;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_VIDEOIMAGE_SAMPLE {
@@ -9966,31 +9966,31 @@ pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub fEffectPara4: f32,
     pub bKeepPrevImage: windows_core::BOOL,
 }
-pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8;
-pub const WMT_VIDEOIMAGE_SAMPLE_BLENDING: u32 = 4;
-pub const WMT_VIDEOIMAGE_SAMPLE_INPUT_FRAME: u32 = 1;
-pub const WMT_VIDEOIMAGE_SAMPLE_MOTION: u32 = 1;
-pub const WMT_VIDEOIMAGE_SAMPLE_OUTPUT_FRAME: u32 = 2;
-pub const WMT_VIDEOIMAGE_SAMPLE_ROTATION: u32 = 2;
-pub const WMT_VIDEOIMAGE_SAMPLE_USES_CURRENT_INPUT_FRAME: u32 = 4;
-pub const WMT_VIDEOIMAGE_SAMPLE_USES_PREVIOUS_INPUT_FRAME: u32 = 8;
-pub const WMT_VIDEOIMAGE_TRANSITION_BOW_TIE: u32 = 11;
-pub const WMT_VIDEOIMAGE_TRANSITION_CIRCLE: u32 = 12;
-pub const WMT_VIDEOIMAGE_TRANSITION_CROSS_FADE: u32 = 13;
-pub const WMT_VIDEOIMAGE_TRANSITION_DIAGONAL: u32 = 14;
-pub const WMT_VIDEOIMAGE_TRANSITION_DIAMOND: u32 = 15;
-pub const WMT_VIDEOIMAGE_TRANSITION_FADE_TO_COLOR: u32 = 16;
-pub const WMT_VIDEOIMAGE_TRANSITION_FILLED_V: u32 = 17;
-pub const WMT_VIDEOIMAGE_TRANSITION_FLIP: u32 = 18;
-pub const WMT_VIDEOIMAGE_TRANSITION_INSET: u32 = 19;
-pub const WMT_VIDEOIMAGE_TRANSITION_IRIS: u32 = 20;
-pub const WMT_VIDEOIMAGE_TRANSITION_PAGE_ROLL: u32 = 21;
-pub const WMT_VIDEOIMAGE_TRANSITION_RECTANGLE: u32 = 23;
-pub const WMT_VIDEOIMAGE_TRANSITION_REVEAL: u32 = 24;
-pub const WMT_VIDEOIMAGE_TRANSITION_SLIDE: u32 = 27;
-pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29;
-pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30;
-pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31;
+pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: i32 = 8;
+pub const WMT_VIDEOIMAGE_SAMPLE_BLENDING: i32 = 4;
+pub const WMT_VIDEOIMAGE_SAMPLE_INPUT_FRAME: i32 = 1;
+pub const WMT_VIDEOIMAGE_SAMPLE_MOTION: i32 = 1;
+pub const WMT_VIDEOIMAGE_SAMPLE_OUTPUT_FRAME: i32 = 2;
+pub const WMT_VIDEOIMAGE_SAMPLE_ROTATION: i32 = 2;
+pub const WMT_VIDEOIMAGE_SAMPLE_USES_CURRENT_INPUT_FRAME: i32 = 4;
+pub const WMT_VIDEOIMAGE_SAMPLE_USES_PREVIOUS_INPUT_FRAME: i32 = 8;
+pub const WMT_VIDEOIMAGE_TRANSITION_BOW_TIE: i32 = 11;
+pub const WMT_VIDEOIMAGE_TRANSITION_CIRCLE: i32 = 12;
+pub const WMT_VIDEOIMAGE_TRANSITION_CROSS_FADE: i32 = 13;
+pub const WMT_VIDEOIMAGE_TRANSITION_DIAGONAL: i32 = 14;
+pub const WMT_VIDEOIMAGE_TRANSITION_DIAMOND: i32 = 15;
+pub const WMT_VIDEOIMAGE_TRANSITION_FADE_TO_COLOR: i32 = 16;
+pub const WMT_VIDEOIMAGE_TRANSITION_FILLED_V: i32 = 17;
+pub const WMT_VIDEOIMAGE_TRANSITION_FLIP: i32 = 18;
+pub const WMT_VIDEOIMAGE_TRANSITION_INSET: i32 = 19;
+pub const WMT_VIDEOIMAGE_TRANSITION_IRIS: i32 = 20;
+pub const WMT_VIDEOIMAGE_TRANSITION_PAGE_ROLL: i32 = 21;
+pub const WMT_VIDEOIMAGE_TRANSITION_RECTANGLE: i32 = 23;
+pub const WMT_VIDEOIMAGE_TRANSITION_REVEAL: i32 = 24;
+pub const WMT_VIDEOIMAGE_TRANSITION_SLIDE: i32 = 27;
+pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: i32 = 29;
+pub const WMT_VIDEOIMAGE_TRANSITION_STAR: i32 = 30;
+pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: i32 = 31;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_WATERMARK_ENTRY {
@@ -10076,12 +10076,12 @@ pub struct WM_CLIENT_PROPERTIES_EX {
     pub pwszPort: windows_core::PCWSTR,
     pub pwszDNSName: windows_core::PCWSTR,
 }
-pub const WM_CL_INTERLACED420: u32 = 0;
-pub const WM_CL_PROGRESSIVE420: u32 = 1;
-pub const WM_CT_BOTTOM_FIELD_FIRST: u32 = 32;
-pub const WM_CT_INTERLACED: u32 = 128;
-pub const WM_CT_REPEAT_FIRST_FIELD: u32 = 16;
-pub const WM_CT_TOP_FIELD_FIRST: u32 = 64;
+pub const WM_CL_INTERLACED420: i32 = 0;
+pub const WM_CL_PROGRESSIVE420: i32 = 1;
+pub const WM_CT_BOTTOM_FIELD_FIRST: i32 = 32;
+pub const WM_CT_INTERLACED: i32 = 128;
+pub const WM_CT_REPEAT_FIRST_FIELD: i32 = 16;
+pub const WM_CT_TOP_FIELD_FIRST: i32 = 64;
 pub const WM_DM_DEINTERLACE_HALFSIZE: i32 = 2;
 pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: i32 = 3;
 pub const WM_DM_DEINTERLACE_INVERSETELECINE: i32 = 4;
@@ -10105,8 +10105,8 @@ pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
 }
-pub const WM_MAX_STREAMS: u32 = 63;
-pub const WM_MAX_VIDEO_STREAMS: u32 = 63;
+pub const WM_MAX_STREAMS: i32 = 63;
+pub const WM_MAX_VIDEO_STREAMS: i32 = 63;
 #[repr(C)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WM_MEDIA_TYPE {
@@ -10211,12 +10211,12 @@ impl Default for WM_SYNCHRONISED_LYRICS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WM_SampleExtension_ChromaLocation_Size: u32 = 1;
-pub const WM_SampleExtension_ColorSpaceInfo_Size: u32 = 3;
-pub const WM_SampleExtension_ContentType_Size: u32 = 1;
-pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2;
-pub const WM_SampleExtension_SampleDuration_Size: u32 = 2;
-pub const WM_SampleExtension_Timecode_Size: u32 = 14;
+pub const WM_SampleExtension_ChromaLocation_Size: i32 = 1;
+pub const WM_SampleExtension_ColorSpaceInfo_Size: i32 = 3;
+pub const WM_SampleExtension_ContentType_Size: i32 = 1;
+pub const WM_SampleExtension_PixelAspectRatio_Size: i32 = 2;
+pub const WM_SampleExtension_SampleDuration_Size: i32 = 2;
+pub const WM_SampleExtension_Timecode_Size: i32 = 14;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WM_USER_TEXT {

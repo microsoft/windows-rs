@@ -66,11 +66,11 @@ fn main() -> windows::core::Result<()> {
     // Ported from https://devblogs.microsoft.com/oldnewthing/20130318-00/?p=4933
     fn find_desktop_folder_view<T: Interface>() -> Result<T> {
         unsafe {
-            let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL)?;
+            let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL as u32)?;
             let mut handle = 0;
 
             let desktop = windows.FindWindowSW(
-                &variant_i4(CSIDL_DESKTOP as i32),
+                &variant_i4(CSIDL_DESKTOP),
                 &VARIANT::default(),
                 SWC_DESKTOP,
                 &mut handle,
@@ -91,6 +91,6 @@ fn main() -> windows::core::Result<()> {
         "",
         "",
         "",
-        SW_SHOWNORMAL,
+        SW_SHOWNORMAL as u32,
     )
 }

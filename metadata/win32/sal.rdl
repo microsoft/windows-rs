@@ -1,6 +1,6 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const SAL_INCLUDED: u32 = 1;
+        const SAL_INCLUDED: i32 = 1;
     }
 }

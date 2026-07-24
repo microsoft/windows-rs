@@ -52,7 +52,7 @@ impl GpuDevice {
                 D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
                 feature_levels.as_ptr(),
                 feature_levels.len() as u32,
-                D3D11_SDK_VERSION,
+                D3D11_SDK_VERSION as u32,
                 &mut d3d_device as *mut _ as *mut _,
                 std::ptr::null_mut(),
                 std::ptr::null_mut(),

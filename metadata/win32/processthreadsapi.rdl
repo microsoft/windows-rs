@@ -150,9 +150,9 @@ mod Windows {
         type PAPC_CALLBACK_DATA = *mut APC_CALLBACK_DATA;
         type PAPP_MEMORY_INFORMATION = *mut APP_MEMORY_INFORMATION;
         type PMEMORY_PRIORITY_INFORMATION = *mut MEMORY_PRIORITY_INFORMATION;
-        const PME_CURRENT_VERSION: u32 = 1;
-        const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0;
-        const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1;
+        const PME_CURRENT_VERSION: i32 = 1;
+        const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: i32 = 0;
+        const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: i32 = 1;
         type PPROCESS_INFORMATION = *mut PROCESS_INFORMATION;
         type PPROCESS_LEAP_SECOND_INFO = *mut PROCESS_LEAP_SECOND_INFO;
         type PPROCESS_MEMORY_EXHAUSTION_INFO = *mut PROCESS_MEMORY_EXHAUSTION_INFO;
@@ -186,8 +186,8 @@ mod Windows {
             Flags: u32,
             Reserved: u32,
         }
-        const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1;
-        const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1;
+        const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: i32 = 1;
+        const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: i32 = 1;
         struct PROCESS_MACHINE_INFORMATION {
             ProcessMachine: u16,
             Res0: u16,
@@ -204,19 +204,19 @@ mod Windows {
             PMETypeFailFastOnCommitFailure = 0,
             PMETypeMax = 1,
         }
-        const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1;
-        const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1;
-        const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4;
+        const PROCESS_POWER_THROTTLING_CURRENT_VERSION: i32 = 1;
+        const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: i32 = 1;
+        const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: i32 = 4;
         struct PROCESS_POWER_THROTTLING_STATE {
             Version: u32,
             ControlMask: u32,
             StateMask: u32,
         }
-        const PROCESS_POWER_THROTTLING_VALID_FLAGS: u32 = 5;
+        const PROCESS_POWER_THROTTLING_VALID_FLAGS: i32 = 5;
         struct PROCESS_PROTECTION_LEVEL_INFORMATION {
             ProtectionLevel: u32,
         }
-        const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1;
+        const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: i32 = 1;
         #[library("KERNEL32.dll")]
         extern fn ProcessIdToSessionId(dwProcessId: u32, pSessionId: *mut u32) -> BOOL;
         #[repr(i32)]
@@ -340,14 +340,14 @@ mod Windows {
             ThreadPowerThrottling = 3,
             ThreadInformationClassMax = 4,
         }
-        const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1;
-        const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1;
+        const THREAD_POWER_THROTTLING_CURRENT_VERSION: i32 = 1;
+        const THREAD_POWER_THROTTLING_EXECUTION_SPEED: i32 = 1;
         struct THREAD_POWER_THROTTLING_STATE {
             Version: u32,
             ControlMask: u32,
             StateMask: u32,
         }
-        const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1;
+        const THREAD_POWER_THROTTLING_VALID_FLAGS: i32 = 1;
         const TLS_OUT_OF_INDEXES: u32 = 4294967295;
         #[library("KERNEL32.dll")]
         extern fn TerminateProcess(hProcess: HANDLE, uExitCode: u32) -> BOOL;

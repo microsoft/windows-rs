@@ -431,21 +431,21 @@ pub unsafe fn WriteProcessMemory(hprocess: super::HANDLE, lpbaseaddress: *const 
     unsafe { WriteProcessMemory(hprocess, lpbaseaddress, lpbuffer, nsize, lpnumberofbyteswritten.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub type BAD_MEMORY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
-pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2;
-pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1;
-pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8;
-pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4;
-pub const FILE_MAP_ALL_ACCESS: u32 = 983071;
-pub const FILE_MAP_COPY: u32 = 1;
-pub const FILE_MAP_EXECUTE: u32 = 32;
-pub const FILE_MAP_LARGE_PAGES: u32 = 536870912;
-pub const FILE_MAP_READ: u32 = 4;
+pub const FILE_CACHE_MAX_HARD_DISABLE: i32 = 2;
+pub const FILE_CACHE_MAX_HARD_ENABLE: i32 = 1;
+pub const FILE_CACHE_MIN_HARD_DISABLE: i32 = 8;
+pub const FILE_CACHE_MIN_HARD_ENABLE: i32 = 4;
+pub const FILE_MAP_ALL_ACCESS: i32 = 983071;
+pub const FILE_MAP_COPY: i32 = 1;
+pub const FILE_MAP_EXECUTE: i32 = 32;
+pub const FILE_MAP_LARGE_PAGES: i32 = 536870912;
+pub const FILE_MAP_READ: i32 = 4;
 pub const FILE_MAP_RESERVE: u32 = 2147483648;
-pub const FILE_MAP_TARGETS_INVALID: u32 = 1073741824;
-pub const FILE_MAP_WRITE: u32 = 2;
+pub const FILE_MAP_TARGETS_INVALID: i32 = 1073741824;
+pub const FILE_MAP_WRITE: i32 = 2;
 pub const HighMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 1;
 pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 0;
-pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1;
+pub const MEHC_PATROL_SCRUBBER_PRESENT: i32 = 1;
 pub type MEMORY_RESOURCE_NOTIFICATION_TYPE = i32;
 pub const MemoryPartitionDedicatedMemoryInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 1;
 pub const MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 0;

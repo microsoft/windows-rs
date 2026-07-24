@@ -73,17 +73,17 @@ pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub WaitTime: u32,
     pub ContextSwitches: u32,
 }
-pub const WCTP_GETINFO_ALL_FLAGS: u32 = 7;
-pub const WCTP_OPEN_ALL_FLAGS: u32 = 1;
-pub const WCT_ASYNC_OPEN_FLAG: u32 = 1;
-pub const WCT_MAX_NODE_COUNT: u32 = 16;
-pub const WCT_NETWORK_IO_FLAG: u32 = 8;
+pub const WCTP_GETINFO_ALL_FLAGS: i32 = 7;
+pub const WCTP_OPEN_ALL_FLAGS: i32 = 1;
+pub const WCT_ASYNC_OPEN_FLAG: i32 = 1;
+pub const WCT_MAX_NODE_COUNT: i32 = 16;
+pub const WCT_NETWORK_IO_FLAG: i32 = 8;
 pub type WCT_OBJECT_STATUS = i32;
 pub type WCT_OBJECT_TYPE = i32;
-pub const WCT_OBJNAME_LENGTH: u32 = 128;
-pub const WCT_OUT_OF_PROC_COM_FLAG: u32 = 2;
-pub const WCT_OUT_OF_PROC_CS_FLAG: u32 = 4;
-pub const WCT_OUT_OF_PROC_FLAG: u32 = 1;
+pub const WCT_OBJNAME_LENGTH: i32 = 128;
+pub const WCT_OUT_OF_PROC_COM_FLAG: i32 = 2;
+pub const WCT_OUT_OF_PROC_CS_FLAG: i32 = 4;
+pub const WCT_OUT_OF_PROC_FLAG: i32 = 1;
 pub const WctAlpcType: WCT_OBJECT_TYPE = 4;
 pub const WctComActivationType: WCT_OBJECT_TYPE = 9;
 pub const WctComType: WCT_OBJECT_TYPE = 5;

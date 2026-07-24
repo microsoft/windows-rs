@@ -1,17 +1,17 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const IME_CMODE_ALPHANUMERIC: u32 = 0;
-        const IME_CMODE_CHARCODE: u32 = 32;
-        const IME_CMODE_CHINESE: u32 = 1;
-        const IME_CMODE_FULLSHAPE: u32 = 8;
-        const IME_CMODE_HANGUL: u32 = 1;
-        const IME_CMODE_HANJACONVERT: u32 = 64;
-        const IME_CMODE_JAPANESE: u32 = 1;
-        const IME_CMODE_KATAKANA: u32 = 2;
-        const IME_CMODE_LANGUAGE: u32 = 3;
-        const IME_CMODE_NATIVE: u32 = 1;
-        const IME_CMODE_NATIVESYMBOL: u32 = 128;
-        const IME_CMODE_ROMAN: u32 = 16;
+        const IME_CMODE_ALPHANUMERIC: i32 = 0;
+        const IME_CMODE_CHARCODE: i32 = 32;
+        const IME_CMODE_CHINESE: i32 = 1;
+        const IME_CMODE_FULLSHAPE: i32 = 8;
+        const IME_CMODE_HANGUL: i32 = 1;
+        const IME_CMODE_HANJACONVERT: i32 = 64;
+        const IME_CMODE_JAPANESE: i32 = 1;
+        const IME_CMODE_KATAKANA: i32 = 2;
+        const IME_CMODE_LANGUAGE: i32 = 3;
+        const IME_CMODE_NATIVE: i32 = 1;
+        const IME_CMODE_NATIVESYMBOL: i32 = 128;
+        const IME_CMODE_ROMAN: i32 = 16;
     }
 }

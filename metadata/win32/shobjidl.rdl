@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ACDD_VISIBLE: u32 = 1;
+        const ACDD_VISIBLE: i32 = 1;
         const AccessibilityDockingService: GUID = 0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402;
         const AlphabeticalCategorizer: GUID = 0x3c2654c6_7372_4f6b_b310_55d6128f49d2;
         const ApplicationAssociationRegistrationUI: GUID = 0x1968106d_f3b5_44cf_890e_116fcb9ecef1;
@@ -85,8 +85,8 @@ mod Windows {
             fn ComputerInfoChanged(&self) -> HRESULT;
         }
         struct IControlMarkup {}
-        const IDD_WIZEXTN_FIRST: u32 = 20480;
-        const IDD_WIZEXTN_LAST: u32 = 20736;
+        const IDD_WIZEXTN_FIRST: i32 = 20480;
+        const IDD_WIZEXTN_LAST: i32 = 20736;
         #[guid(0x79d16de4_abee_4021_8d9d_9169b261d657)]
         interface IDeskBand2: IDeskBand {
             fn CanRenderComposited(&self, pfCanRenderComposited: *mut BOOL) -> HRESULT;
@@ -368,7 +368,7 @@ mod Windows {
             NSTCEHT_ONITEM = 70,
             NSTCEHT_ONITEMTABBUTTON = 4096,
         }
-        const NSTCS2_ALLMASK: u32 = 7;
+        const NSTCS2_ALLMASK: i32 = 7;
         #[repr(u32)]
         #[flags]
         enum NSTCSTYLE2 {
@@ -391,12 +391,12 @@ mod Windows {
         extern fn SHAddDefaultPropertiesByExt(pszExt: PCWSTR, pPropStore: IPropertyStore) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHCreateDefaultPropertiesOp(psi: IShellItem, ppFileOp: *mut IFileOperation) -> HRESULT;
-        const SHPWHF_ANYLOCATION: u32 = 256;
-        const SHPWHF_NOFILESELECTOR: u32 = 4;
-        const SHPWHF_NONETPLACECREATE: u32 = 2;
-        const SHPWHF_NORECOMPRESS: u32 = 1;
-        const SHPWHF_USEMRU: u32 = 8;
-        const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536;
+        const SHPWHF_ANYLOCATION: i32 = 256;
+        const SHPWHF_NOFILESELECTOR: i32 = 4;
+        const SHPWHF_NONETPLACECREATE: i32 = 2;
+        const SHPWHF_NORECOMPRESS: i32 = 1;
+        const SHPWHF_USEMRU: i32 = 8;
+        const SHPWHF_VALIDATEVIAWEBFOLDERS: i32 = 65536;
         #[library("SHELL32.dll")]
         extern fn SHSetDefaultProperties(#[opt] hwnd: HWND, psi: IShellItem, dwFileOpFlags: u32, #[opt] pfops: IFileOperationProgressSink) -> HRESULT;
         const SID_SCommandBarState: GUID = 0xb99eaa5c_3850_4400_bc33_2ce534048bf8;

@@ -925,12 +925,12 @@ mod Windows {
             fn BeginRegisterPlatformWorkQueueWithMMCSSEx(&self, dwPlatformWorkQueue: u32, wszClass: PCWSTR, dwTaskId: u32, lPriority: i32, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
             fn GetPlatformWorkQueueMMCSSPriority(&self, dwPlatformWorkQueueId: u32, plPriority: *mut i32) -> HRESULT;
         }
-        const MEDIASINK_CANNOT_MATCH_CLOCK: u32 = 2;
-        const MEDIASINK_CAN_PREROLL: u32 = 16;
-        const MEDIASINK_CLOCK_REQUIRED: u32 = 8;
-        const MEDIASINK_FIXED_STREAMS: u32 = 1;
-        const MEDIASINK_RATELESS: u32 = 4;
-        const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: u32 = 32;
+        const MEDIASINK_CANNOT_MATCH_CLOCK: i32 = 2;
+        const MEDIASINK_CAN_PREROLL: i32 = 16;
+        const MEDIASINK_CLOCK_REQUIRED: i32 = 8;
+        const MEDIASINK_FIXED_STREAMS: i32 = 1;
+        const MEDIASINK_RATELESS: i32 = 4;
+        const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: i32 = 32;
         #[repr(i32)]
         enum MFAudioConstriction {
             MFaudioConstrictionOff = 0,
@@ -955,10 +955,10 @@ mod Windows {
             MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING = 4,
             MFCLOCK_CHARACTERISTICS_FLAG_IS_SYSTEM_CLOCK = 8,
         }
-        const MFCLOCK_FREQUENCY_HNS: u32 = 10000000;
-        const MFCLOCK_JITTER_DPC: u32 = 4000;
-        const MFCLOCK_JITTER_ISR: u32 = 1000;
-        const MFCLOCK_JITTER_PASSIVE: u32 = 10000;
+        const MFCLOCK_FREQUENCY_HNS: i32 = 10000000;
+        const MFCLOCK_JITTER_DPC: i32 = 4000;
+        const MFCLOCK_JITTER_ISR: i32 = 1000;
+        const MFCLOCK_JITTER_PASSIVE: i32 = 10000;
         struct MFCLOCK_PROPERTIES {
             qwCorrelationRate: u64,
             guidClockId: GUID,
@@ -978,8 +978,8 @@ mod Windows {
             MFCLOCK_STATE_STOPPED = 2,
             MFCLOCK_STATE_PAUSED = 3,
         }
-        const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000;
-        const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: u32 = 67108864;
+        const MFCLOCK_TOLERANCE_UNKNOWN: i32 = 50000;
+        const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: i32 = 67108864;
         struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
             HWProtectionFunctionID: u32,
             PrivateDataByteCount: u32,
@@ -1001,7 +1001,7 @@ mod Windows {
             ClassName: [u16; 260],
             BasePriority: i32,
         }
-        const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 67108864;
+        const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: i32 = 67108864;
         struct MFCameraIntrinsic_CameraModel {
             FocalLength_x: f32,
             FocalLength_y: f32,
@@ -1342,7 +1342,7 @@ mod Windows {
             rgPublicKeyHash: [u16; 43],
             wszName: [u16; 260],
         }
-        const MFRR_INFO_VERSION: u32 = 0;
+        const MFRR_INFO_VERSION: i32 = 0;
         #[library("MF.dll")]
         extern fn MFRequireProtectedEnvironment(pPresentationDescriptor: IMFPresentationDescriptor) -> HRESULT;
         const MFSEQUENCER_INVALID_ELEMENT_ID: u32 = 4294967295;
@@ -1463,10 +1463,10 @@ mod Windows {
         }
         const MF_ACTIVATE_CUSTOM_MIXER_ALLOWFAIL: i32 = 1;
         const MF_ACTIVATE_CUSTOM_PRESENTER_ALLOWFAIL: i32 = 1;
-        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_CROSSPROCESS: u32 = 1;
-        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_DONT_ALLOW_FORMAT_CHANGES: u32 = 4;
-        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_NOPERSIST: u32 = 2;
-        const MF_BOOT_DRIVER_VERIFICATION_FAILED: u32 = 1048576;
+        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_CROSSPROCESS: i32 = 1;
+        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_DONT_ALLOW_FORMAT_CHANGES: i32 = 4;
+        const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_NOPERSIST: i32 = 2;
+        const MF_BOOT_DRIVER_VERIFICATION_FAILED: i32 = 1048576;
         struct MF_BYTE_STREAM_CACHE_RANGE {
             qwStartOffset: u64,
             qwEndOffset: u64,
@@ -1482,12 +1482,12 @@ mod Windows {
             stepValue: i32,
             defaultValue: i32,
         }
-        const MF_COMPONENT_CERT_REVOKED: u32 = 32768;
-        const MF_COMPONENT_HS_CERT_REVOKED: u32 = 131072;
-        const MF_COMPONENT_INVALID_EKU: u32 = 16384;
-        const MF_COMPONENT_INVALID_ROOT: u32 = 65536;
-        const MF_COMPONENT_LS_CERT_REVOKED: u32 = 262144;
-        const MF_COMPONENT_REVOKED: u32 = 8192;
+        const MF_COMPONENT_CERT_REVOKED: i32 = 32768;
+        const MF_COMPONENT_HS_CERT_REVOKED: i32 = 131072;
+        const MF_COMPONENT_INVALID_EKU: i32 = 16384;
+        const MF_COMPONENT_INVALID_ROOT: i32 = 65536;
+        const MF_COMPONENT_LS_CERT_REVOKED: i32 = 262144;
+        const MF_COMPONENT_REVOKED: i32 = 8192;
         #[repr(i32)]
         enum MF_CONNECT_METHOD {
             MF_CONNECT_DIRECT = 0,
@@ -1503,10 +1503,10 @@ mod Windows {
             MF_CROSS_ORIGIN_POLICY_ANONYMOUS = 1,
             MF_CROSS_ORIGIN_POLICY_USE_CREDENTIALS = 2,
         }
-        const MF_GRL_ABSENT: u32 = 4096;
-        const MF_GRL_LOAD_FAILED: u32 = 16;
-        const MF_INVALID_GRL_SIGNATURE: u32 = 32;
-        const MF_KERNEL_MODE_COMPONENT_LOAD: u32 = 2;
+        const MF_GRL_ABSENT: i32 = 4096;
+        const MF_GRL_LOAD_FAILED: i32 = 16;
+        const MF_INVALID_GRL_SIGNATURE: i32 = 32;
+        const MF_KERNEL_MODE_COMPONENT_LOAD: i32 = 2;
         struct MF_LEAKY_BUCKET_PAIR {
             dwBitrate: u32,
             msBufferWindow: u32,
@@ -1541,7 +1541,7 @@ mod Windows {
             MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED = 0,
             MF_MEDIASOURCE_STATUS_INFO_UNKNOWN = 1,
         }
-        const MF_MINCRYPT_FAILURE: u32 = 268435456;
+        const MF_MINCRYPT_FAILURE: i32 = 268435456;
         #[repr(i32)]
         enum MF_OBJECT_TYPE {
             MF_OBJECT_MEDIASOURCE = 0,
@@ -1602,7 +1602,7 @@ mod Windows {
         const MF_RESOLUTION_READ: i32 = 65536;
         const MF_RESOLUTION_WRITE: i32 = 131072;
         const MF_SD_SUPPORTS_PROTECTED_CODEC_SWITCH: GUID = 0x8fb6b117_862e_4b31_8dab_5e0a434caef0;
-        const MF_TEST_SIGNED_COMPONENT_LOADING: u32 = 16777216;
+        const MF_TEST_SIGNED_COMPONENT_LOADING: i32 = 16777216;
         #[repr(i32)]
         enum MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
             MF_TOPOLOGY_RESOLUTION_SUCCEEDED = 0,
@@ -1651,14 +1651,14 @@ mod Windows {
             MF_TRANSFER_VIDEO_FRAME_STRETCH = 1,
             MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR = 2,
         }
-        const MF_UNKNOWN_DURATION: u32 = 0;
+        const MF_UNKNOWN_DURATION: i32 = 0;
         #[repr(i32)]
         enum MF_URL_TRUST_STATUS {
             MF_LICENSE_URL_UNTRUSTED = 0,
             MF_LICENSE_URL_TRUSTED = 1,
             MF_LICENSE_URL_TAMPERED = 2,
         }
-        const MF_USER_MODE_COMPONENT_LOAD: u32 = 1;
+        const MF_USER_MODE_COMPONENT_LOAD: i32 = 1;
         #[repr(i32)]
         enum MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
             MF_VIDEO_PROCESSOR_ALGORITHM_DEFAULT = 0,
@@ -1683,7 +1683,7 @@ mod Windows {
         const MF_WRAPPED_BUFFER_SERVICE: GUID = 0xab544072_c269_4ebc_a552_1c3b32bed5ca;
         type PMFRR_COMPONENTS = *mut MFRR_COMPONENTS;
         type PMFRR_COMPONENT_HASH_INFO = *mut MFRR_COMPONENT_HASH_INFO;
-        const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807;
+        const PRESENTATION_CURRENT_POSITION: i64 = 9223372036854775807;
         #[repr(i32)]
         enum SAMPLE_PROTECTION_VERSION {
             SAMPLE_PROTECTION_VERSION_NO = 0,
@@ -1697,8 +1697,8 @@ mod Windows {
             Index: u32,
             Unused: u32,
         }
-        const SHA_HASH_LEN: u32 = 20;
-        const STR_HASH_LEN: u32 = 43;
+        const SHA_HASH_LEN: i32 = 20;
+        const STR_HASH_LEN: i32 = 43;
         type TOPOID = u64;
     }
 }

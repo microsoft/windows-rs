@@ -1,5 +1,5 @@
-pub const BROADCAST_NODETYPE: u32 = 1;
-pub const DEFAULT_MINIMUM_ENTITIES: u32 = 32;
+pub const BROADCAST_NODETYPE: i32 = 1;
+pub const DEFAULT_MINIMUM_ENTITIES: i32 = 32;
 pub type FIXED_INFO = FIXED_INFO_W2KSP1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -19,19 +19,19 @@ impl Default for FIXED_INFO_W2KSP1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: u32 = 512;
-pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: u32 = 256;
-pub const GAA_FLAG_INCLUDE_GATEWAYS: u32 = 128;
-pub const GAA_FLAG_INCLUDE_PREFIX: u32 = 16;
-pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: u32 = 1024;
-pub const GAA_FLAG_INCLUDE_WINS_INFO: u32 = 64;
-pub const GAA_FLAG_SKIP_ANYCAST: u32 = 2;
-pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048;
-pub const GAA_FLAG_SKIP_DNS_SERVER: u32 = 8;
-pub const GAA_FLAG_SKIP_FRIENDLY_NAME: u32 = 32;
-pub const GAA_FLAG_SKIP_MULTICAST: u32 = 4;
-pub const GAA_FLAG_SKIP_UNICAST: u32 = 1;
-pub const HYBRID_NODETYPE: u32 = 8;
+pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: i32 = 512;
+pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: i32 = 256;
+pub const GAA_FLAG_INCLUDE_GATEWAYS: i32 = 128;
+pub const GAA_FLAG_INCLUDE_PREFIX: i32 = 16;
+pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: i32 = 1024;
+pub const GAA_FLAG_INCLUDE_WINS_INFO: i32 = 64;
+pub const GAA_FLAG_SKIP_ANYCAST: i32 = 2;
+pub const GAA_FLAG_SKIP_DNS_INFO: i32 = 2048;
+pub const GAA_FLAG_SKIP_DNS_SERVER: i32 = 8;
+pub const GAA_FLAG_SKIP_FRIENDLY_NAME: i32 = 32;
+pub const GAA_FLAG_SKIP_MULTICAST: i32 = 4;
+pub const GAA_FLAG_SKIP_UNICAST: i32 = 1;
+pub const HYBRID_NODETYPE: i32 = 8;
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
 pub type IP_ADAPTER_ADDRESSES = IP_ADAPTER_ADDRESSES_LH;
 #[repr(C)]
@@ -233,8 +233,8 @@ pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
-pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: u32 = 1;
-pub const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2;
+pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: i32 = 1;
+pub const IP_ADAPTER_ADDRESS_TRANSIENT: i32 = 2;
 #[cfg(feature = "ws2")]
 pub type IP_ADAPTER_ANYCAST_ADDRESS = IP_ADAPTER_ANYCAST_ADDRESS_XP;
 #[repr(C)]
@@ -271,8 +271,8 @@ pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
-pub const IP_ADAPTER_DDNS_ENABLED: u32 = 1;
-pub const IP_ADAPTER_DHCP_ENABLED: u32 = 4;
+pub const IP_ADAPTER_DDNS_ENABLED: i32 = 1;
+pub const IP_ADAPTER_DHCP_ENABLED: i32 = 4;
 #[cfg(feature = "ws2")]
 pub type IP_ADAPTER_DNS_SERVER_ADDRESS = IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
 #[repr(C)]
@@ -385,10 +385,10 @@ impl Default for IP_ADAPTER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IP_ADAPTER_IPV4_ENABLED: u32 = 128;
-pub const IP_ADAPTER_IPV6_ENABLED: u32 = 256;
-pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: u32 = 512;
-pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32;
+pub const IP_ADAPTER_IPV4_ENABLED: i32 = 128;
+pub const IP_ADAPTER_IPV6_ENABLED: i32 = 256;
+pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: i32 = 512;
+pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: i32 = 32;
 #[cfg(feature = "ws2")]
 pub type IP_ADAPTER_MULTICAST_ADDRESS = IP_ADAPTER_MULTICAST_ADDRESS_XP;
 #[repr(C)]
@@ -425,8 +425,8 @@ pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
-pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: u32 = 64;
-pub const IP_ADAPTER_NO_MULTICAST: u32 = 16;
+pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: i32 = 64;
+pub const IP_ADAPTER_NO_MULTICAST: i32 = 16;
 #[cfg(feature = "ws2")]
 pub type IP_ADAPTER_PREFIX = IP_ADAPTER_PREFIX_XP;
 #[repr(C)]
@@ -464,8 +464,8 @@ pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
-pub const IP_ADAPTER_RECEIVE_ONLY: u32 = 8;
-pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2;
+pub const IP_ADAPTER_RECEIVE_ONLY: i32 = 8;
+pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: i32 = 2;
 #[cfg(all(feature = "nldef", feature = "ws2"))]
 pub type IP_ADAPTER_UNICAST_ADDRESS = IP_ADAPTER_UNICAST_ADDRESS_LH;
 #[repr(C)]
@@ -641,16 +641,16 @@ pub struct IP_PREFIX_ORIGIN(pub super::NL_PREFIX_ORIGIN);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct IP_SUFFIX_ORIGIN(pub super::NL_SUFFIX_ORIGIN);
-pub const MAX_ADAPTER_ADDRESS_LENGTH: u32 = 8;
-pub const MAX_ADAPTER_DESCRIPTION_LENGTH: u32 = 128;
-pub const MAX_ADAPTER_NAME_LENGTH: u32 = 256;
-pub const MAX_DHCPV6_DUID_LENGTH: u32 = 130;
-pub const MAX_DNS_SUFFIX_STRING_LENGTH: u32 = 256;
-pub const MAX_DOMAIN_NAME_LEN: u32 = 128;
-pub const MAX_HOSTNAME_LEN: u32 = 128;
-pub const MAX_SCOPE_ID_LEN: u32 = 256;
-pub const MIXED_NODETYPE: u32 = 4;
-pub const PEER_TO_PEER_NODETYPE: u32 = 2;
+pub const MAX_ADAPTER_ADDRESS_LENGTH: i32 = 8;
+pub const MAX_ADAPTER_DESCRIPTION_LENGTH: i32 = 128;
+pub const MAX_ADAPTER_NAME_LENGTH: i32 = 256;
+pub const MAX_DHCPV6_DUID_LENGTH: i32 = 130;
+pub const MAX_DNS_SUFFIX_STRING_LENGTH: i32 = 256;
+pub const MAX_DOMAIN_NAME_LEN: i32 = 128;
+pub const MAX_HOSTNAME_LEN: i32 = 128;
+pub const MAX_SCOPE_ID_LEN: i32 = 256;
+pub const MIXED_NODETYPE: i32 = 4;
+pub const PEER_TO_PEER_NODETYPE: i32 = 2;
 pub type PFIXED_INFO = *mut FIXED_INFO_W2KSP1;
 pub type PFIXED_INFO_W2KSP1 = *mut FIXED_INFO_W2KSP1;
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]

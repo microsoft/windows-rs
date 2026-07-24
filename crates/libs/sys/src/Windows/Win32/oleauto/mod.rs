@@ -608,12 +608,12 @@ windows_link::link!("oleaut32.dll" "system" fn VariantTimeToDosDateTime(vtime : 
 windows_link::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::SYSTEMTIME) -> i32);
 #[cfg(feature = "oaidl")]
 windows_link::link!("oleaut32.dll" "system" fn VectorFromBstr(bstr : windows_sys::core::BSTR, ppsa : *mut *mut super::SAFEARRAY) -> windows_sys::core::HRESULT);
-pub const ACTIVEOBJECT_STRONG: u32 = 0;
-pub const ACTIVEOBJECT_WEAK: u32 = 1;
-pub const DISPATCH_METHOD: u32 = 1;
-pub const DISPATCH_PROPERTYGET: u32 = 2;
-pub const DISPATCH_PROPERTYPUT: u32 = 4;
-pub const DISPATCH_PROPERTYPUTREF: u32 = 8;
+pub const ACTIVEOBJECT_STRONG: i32 = 0;
+pub const ACTIVEOBJECT_WEAK: i32 = 1;
+pub const DISPATCH_METHOD: i32 = 1;
+pub const DISPATCH_PROPERTYGET: i32 = 2;
+pub const DISPATCH_PROPERTYPUT: i32 = 4;
+pub const DISPATCH_PROPERTYPUTREF: i32 = 8;
 pub const ID_DEFAULTINST: i32 = -2;
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
@@ -628,9 +628,9 @@ impl Default for INTERFACEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const LOAD_TLB_AS_32BIT: u32 = 32;
-pub const LOAD_TLB_AS_64BIT: u32 = 64;
-pub const LOCALE_USE_NLS: u32 = 268435456;
+pub const LOAD_TLB_AS_32BIT: i32 = 32;
+pub const LOAD_TLB_AS_64BIT: i32 = 64;
+pub const LOCALE_USE_NLS: i32 = 268435456;
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPINTERFACEDATA = *mut INTERFACEDATA;
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
@@ -668,22 +668,22 @@ pub struct NUMPARSE {
     pub nBaseShift: i32,
     pub nPwr10: i32,
 }
-pub const NUMPRS_CURRENCY: u32 = 1024;
-pub const NUMPRS_DECIMAL: u32 = 256;
-pub const NUMPRS_EXPONENT: u32 = 2048;
-pub const NUMPRS_HEX_OCT: u32 = 64;
-pub const NUMPRS_INEXACT: u32 = 131072;
-pub const NUMPRS_LEADING_MINUS: u32 = 16;
-pub const NUMPRS_LEADING_PLUS: u32 = 4;
-pub const NUMPRS_LEADING_WHITE: u32 = 1;
-pub const NUMPRS_NEG: u32 = 65536;
-pub const NUMPRS_PARENS: u32 = 128;
-pub const NUMPRS_STD: u32 = 8191;
-pub const NUMPRS_THOUSANDS: u32 = 512;
-pub const NUMPRS_TRAILING_MINUS: u32 = 32;
-pub const NUMPRS_TRAILING_PLUS: u32 = 8;
-pub const NUMPRS_TRAILING_WHITE: u32 = 2;
-pub const NUMPRS_USE_ALL: u32 = 4096;
+pub const NUMPRS_CURRENCY: i32 = 1024;
+pub const NUMPRS_DECIMAL: i32 = 256;
+pub const NUMPRS_EXPONENT: i32 = 2048;
+pub const NUMPRS_HEX_OCT: i32 = 64;
+pub const NUMPRS_INEXACT: i32 = 131072;
+pub const NUMPRS_LEADING_MINUS: i32 = 16;
+pub const NUMPRS_LEADING_PLUS: i32 = 4;
+pub const NUMPRS_LEADING_WHITE: i32 = 1;
+pub const NUMPRS_NEG: i32 = 65536;
+pub const NUMPRS_PARENS: i32 = 128;
+pub const NUMPRS_STD: i32 = 8191;
+pub const NUMPRS_THOUSANDS: i32 = 512;
+pub const NUMPRS_TRAILING_MINUS: i32 = 32;
+pub const NUMPRS_TRAILING_PLUS: i32 = 8;
+pub const NUMPRS_TRAILING_WHITE: i32 = 2;
+pub const NUMPRS_USE_ALL: i32 = 4096;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
@@ -701,12 +701,12 @@ pub type REGKIND = i32;
 pub const REGKIND_DEFAULT: REGKIND = 0;
 pub const REGKIND_NONE: REGKIND = 2;
 pub const REGKIND_REGISTER: REGKIND = 1;
-pub const STDOLE2_LCID: u32 = 0;
-pub const STDOLE2_MAJORVERNUM: u32 = 2;
-pub const STDOLE2_MINORVERNUM: u32 = 0;
-pub const STDOLE_LCID: u32 = 0;
-pub const STDOLE_MAJORVERNUM: u32 = 1;
-pub const STDOLE_MINORVERNUM: u32 = 0;
+pub const STDOLE2_LCID: i32 = 0;
+pub const STDOLE2_MAJORVERNUM: i32 = 2;
+pub const STDOLE2_MINORVERNUM: i32 = 0;
+pub const STDOLE_LCID: i32 = 0;
+pub const STDOLE_MAJORVERNUM: i32 = 1;
+pub const STDOLE_MINORVERNUM: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
 #[derive(Clone, Copy, Default)]
@@ -714,18 +714,18 @@ pub struct UDATE {
     pub st: super::SYSTEMTIME,
     pub wDayOfYear: u16,
 }
-pub const VARCMP_EQ: u32 = 1;
-pub const VARCMP_GT: u32 = 2;
-pub const VARCMP_LT: u32 = 0;
-pub const VARCMP_NULL: u32 = 3;
-pub const VARIANT_ALPHABOOL: u32 = 2;
-pub const VARIANT_CALENDAR_GREGORIAN: u32 = 64;
-pub const VARIANT_CALENDAR_HIJRI: u32 = 8;
-pub const VARIANT_CALENDAR_THAI: u32 = 32;
-pub const VARIANT_LOCALBOOL: u32 = 16;
-pub const VARIANT_NOUSEROVERRIDE: u32 = 4;
-pub const VARIANT_NOVALUEPROP: u32 = 1;
-pub const VARIANT_USE_NLS: u32 = 128;
+pub const VARCMP_EQ: i32 = 1;
+pub const VARCMP_GT: i32 = 2;
+pub const VARCMP_LT: i32 = 0;
+pub const VARCMP_NULL: i32 = 3;
+pub const VARIANT_ALPHABOOL: i32 = 2;
+pub const VARIANT_CALENDAR_GREGORIAN: i32 = 64;
+pub const VARIANT_CALENDAR_HIJRI: i32 = 8;
+pub const VARIANT_CALENDAR_THAI: i32 = 32;
+pub const VARIANT_LOCALBOOL: i32 = 16;
+pub const VARIANT_NOUSEROVERRIDE: i32 = 4;
+pub const VARIANT_NOVALUEPROP: i32 = 1;
+pub const VARIANT_USE_NLS: i32 = 128;
 pub const VAR_CALENDAR_GREGORIAN: u32 = 256;
 pub const VAR_CALENDAR_HIJRI: u32 = 8;
 pub const VAR_CALENDAR_THAI: u32 = 128;
@@ -735,18 +735,18 @@ pub const VAR_FOURDIGITYEARS: u32 = 64;
 pub const VAR_LOCALBOOL: u32 = 16;
 pub const VAR_TIMEVALUEONLY: u32 = 1;
 pub const VAR_VALIDDATE: u32 = 4;
-pub const VTBIT_CY: u32 = 64;
-pub const VTBIT_DECIMAL: u32 = 16384;
-pub const VTBIT_I1: u32 = 65536;
-pub const VTBIT_I2: u32 = 4;
-pub const VTBIT_I4: u32 = 8;
-pub const VTBIT_I8: u32 = 1048576;
-pub const VTBIT_R4: u32 = 16;
-pub const VTBIT_R8: u32 = 32;
-pub const VTBIT_UI1: u32 = 131072;
-pub const VTBIT_UI2: u32 = 262144;
-pub const VTBIT_UI4: u32 = 524288;
-pub const VTBIT_UI8: u32 = 2097152;
-pub const VTDATEGRE_MAX: u32 = 2958465;
+pub const VTBIT_CY: i32 = 64;
+pub const VTBIT_DECIMAL: i32 = 16384;
+pub const VTBIT_I1: i32 = 65536;
+pub const VTBIT_I2: i32 = 4;
+pub const VTBIT_I4: i32 = 8;
+pub const VTBIT_I8: i32 = 1048576;
+pub const VTBIT_R4: i32 = 16;
+pub const VTBIT_R8: i32 = 32;
+pub const VTBIT_UI1: i32 = 131072;
+pub const VTBIT_UI2: i32 = 262144;
+pub const VTBIT_UI4: i32 = 524288;
+pub const VTBIT_UI8: i32 = 2097152;
+pub const VTDATEGRE_MAX: i32 = 2958465;
 pub const VTDATEGRE_MIN: i32 = -657434;
-pub const VT_HARDTYPE: u32 = 32768;
+pub const VT_HARDTYPE: i32 = 32768;

@@ -70,7 +70,7 @@ fn win32_error(result: i32) -> Result<()> {
 }
 
 fn invalid_data() -> Error {
-    Error::from_hresult(WIN32_ERROR(ERROR_INVALID_DATA).to_hresult())
+    Error::from_hresult(WIN32_ERROR(ERROR_INVALID_DATA as u32).to_hresult())
 }
 
 fn from_le_bytes(ty: Type, from: &[u8]) -> Result<u64> {

@@ -1,31 +1,31 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const PIDDI_THUMBNAIL: u32 = 2;
-        const PIDDSI_BYTECOUNT: u32 = 4;
-        const PIDDSI_CATEGORY: u32 = 2;
-        const PIDDSI_COMPANY: u32 = 15;
-        const PIDDSI_DOCPARTS: u32 = 13;
-        const PIDDSI_HEADINGPAIR: u32 = 12;
-        const PIDDSI_HIDDENCOUNT: u32 = 9;
-        const PIDDSI_LINECOUNT: u32 = 5;
-        const PIDDSI_LINKSDIRTY: u32 = 16;
-        const PIDDSI_MANAGER: u32 = 14;
-        const PIDDSI_MMCLIPCOUNT: u32 = 10;
-        const PIDDSI_NOTECOUNT: u32 = 8;
-        const PIDDSI_PARCOUNT: u32 = 6;
-        const PIDDSI_PRESFORMAT: u32 = 3;
-        const PIDDSI_SCALE: u32 = 11;
-        const PIDDSI_SLIDECOUNT: u32 = 7;
-        const PIDMSI_COPYRIGHT: u32 = 11;
-        const PIDMSI_EDITOR: u32 = 2;
-        const PIDMSI_OWNER: u32 = 8;
-        const PIDMSI_PRODUCTION: u32 = 10;
-        const PIDMSI_PROJECT: u32 = 6;
-        const PIDMSI_RATING: u32 = 9;
-        const PIDMSI_SEQUENCE_NO: u32 = 5;
-        const PIDMSI_SOURCE: u32 = 4;
-        const PIDMSI_STATUS: u32 = 7;
+        const PIDDI_THUMBNAIL: i32 = 2;
+        const PIDDSI_BYTECOUNT: i32 = 4;
+        const PIDDSI_CATEGORY: i32 = 2;
+        const PIDDSI_COMPANY: i32 = 15;
+        const PIDDSI_DOCPARTS: i32 = 13;
+        const PIDDSI_HEADINGPAIR: i32 = 12;
+        const PIDDSI_HIDDENCOUNT: i32 = 9;
+        const PIDDSI_LINECOUNT: i32 = 5;
+        const PIDDSI_LINKSDIRTY: i32 = 16;
+        const PIDDSI_MANAGER: i32 = 14;
+        const PIDDSI_MMCLIPCOUNT: i32 = 10;
+        const PIDDSI_NOTECOUNT: i32 = 8;
+        const PIDDSI_PARCOUNT: i32 = 6;
+        const PIDDSI_PRESFORMAT: i32 = 3;
+        const PIDDSI_SCALE: i32 = 11;
+        const PIDDSI_SLIDECOUNT: i32 = 7;
+        const PIDMSI_COPYRIGHT: i32 = 11;
+        const PIDMSI_EDITOR: i32 = 2;
+        const PIDMSI_OWNER: i32 = 8;
+        const PIDMSI_PRODUCTION: i32 = 10;
+        const PIDMSI_PROJECT: i32 = 6;
+        const PIDMSI_RATING: i32 = 9;
+        const PIDMSI_SEQUENCE_NO: i32 = 5;
+        const PIDMSI_SOURCE: i32 = 4;
+        const PIDMSI_STATUS: i32 = 7;
         #[repr(i32)]
         enum PIDMSI_STATUS_VALUE {
             PIDMSI_STATUS_NORMAL = 0,
@@ -39,25 +39,25 @@ mod Windows {
             PIDMSI_STATUS_FINAL = 8,
             PIDMSI_STATUS_OTHER = 32767,
         }
-        const PIDMSI_SUPPLIER: u32 = 3;
-        const PIDSI_APPNAME: u32 = 18;
-        const PIDSI_AUTHOR: u32 = 4;
-        const PIDSI_CHARCOUNT: u32 = 16;
-        const PIDSI_COMMENTS: u32 = 6;
-        const PIDSI_CREATE_DTM: u32 = 12;
-        const PIDSI_DOC_SECURITY: u32 = 19;
-        const PIDSI_EDITTIME: u32 = 10;
-        const PIDSI_KEYWORDS: u32 = 5;
-        const PIDSI_LASTAUTHOR: u32 = 8;
-        const PIDSI_LASTPRINTED: u32 = 11;
-        const PIDSI_LASTSAVE_DTM: u32 = 13;
-        const PIDSI_PAGECOUNT: u32 = 14;
-        const PIDSI_REVNUMBER: u32 = 9;
-        const PIDSI_SUBJECT: u32 = 3;
-        const PIDSI_TEMPLATE: u32 = 7;
-        const PIDSI_THUMBNAIL: u32 = 17;
-        const PIDSI_TITLE: u32 = 2;
-        const PIDSI_WORDCOUNT: u32 = 15;
+        const PIDMSI_SUPPLIER: i32 = 3;
+        const PIDSI_APPNAME: i32 = 18;
+        const PIDSI_AUTHOR: i32 = 4;
+        const PIDSI_CHARCOUNT: i32 = 16;
+        const PIDSI_COMMENTS: i32 = 6;
+        const PIDSI_CREATE_DTM: i32 = 12;
+        const PIDSI_DOC_SECURITY: i32 = 19;
+        const PIDSI_EDITTIME: i32 = 10;
+        const PIDSI_KEYWORDS: i32 = 5;
+        const PIDSI_LASTAUTHOR: i32 = 8;
+        const PIDSI_LASTPRINTED: i32 = 11;
+        const PIDSI_LASTSAVE_DTM: i32 = 13;
+        const PIDSI_PAGECOUNT: i32 = 14;
+        const PIDSI_REVNUMBER: i32 = 9;
+        const PIDSI_SUBJECT: i32 = 3;
+        const PIDSI_TEMPLATE: i32 = 7;
+        const PIDSI_THUMBNAIL: i32 = 17;
+        const PIDSI_TITLE: i32 = 2;
+        const PIDSI_WORDCOUNT: i32 = 15;
         struct PMemoryAllocator {}
         struct SERIALIZEDPROPERTYVALUE {
             dwType: u32,

@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: u32 = 1;
+        const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: i32 = 1;
         type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut void;
         struct AUTHZ_ACCESS_REPLY {
             ResultListLength: u32,
@@ -28,7 +28,7 @@ mod Windows {
         type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut void;
         type AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut void;
         type AUTHZ_CLIENT_CONTEXT_HANDLE = *mut void;
-        const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8;
+        const AUTHZ_COMPUTE_PRIVILEGES: i32 = 8;
         #[repr(i32)]
         enum AUTHZ_CONTEXT_INFORMATION_CLASS {
             AuthzContextInfoUserSid = 1,
@@ -48,9 +48,9 @@ mod Windows {
             AuthzContextInfoAppContainerSid = 15,
             AuthzContextInfoCapabilitySids = 16,
         }
-        const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1;
-        const AUTHZ_GENERATE_FAILURE_AUDIT: u32 = 2;
-        const AUTHZ_GENERATE_SUCCESS_AUDIT: u32 = 1;
+        const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: i32 = 1;
+        const AUTHZ_GENERATE_FAILURE_AUDIT: i32 = 2;
+        const AUTHZ_GENERATE_SUCCESS_AUDIT: i32 = 1;
         struct AUTHZ_INIT_INFO {
             version: u16,
             szResourceManagerName: PCWSTR,
@@ -60,19 +60,19 @@ mod Windows {
             pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
             pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
         }
-        const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1;
-        const AUTHZ_NO_ALLOC_STRINGS: u32 = 4;
-        const AUTHZ_NO_FAILURE_AUDIT: u32 = 2;
-        const AUTHZ_NO_SUCCESS_AUDIT: u32 = 1;
+        const AUTHZ_INIT_INFO_VERSION_V1: i32 = 1;
+        const AUTHZ_NO_ALLOC_STRINGS: i32 = 4;
+        const AUTHZ_NO_FAILURE_AUDIT: i32 = 2;
+        const AUTHZ_NO_SUCCESS_AUDIT: i32 = 1;
         struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
             szObjectTypeName: PWSTR,
             dwOffset: u32,
         }
-        const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4;
+        const AUTHZ_REQUIRE_S4U_LOGON: i32 = 4;
         type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut void;
-        const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: u32 = 2;
-        const AUTHZ_RM_FLAG_NO_AUDIT: u32 = 1;
-        const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: u32 = 4;
+        const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: i32 = 2;
+        const AUTHZ_RM_FLAG_NO_AUDIT: i32 = 1;
+        const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: i32 = 4;
         struct AUTHZ_RPC_INIT_INFO_CLIENT {
             version: u16,
             ObjectUuid: PWSTR,
@@ -82,7 +82,7 @@ mod Windows {
             Options: PWSTR,
             ServerSpn: PWSTR,
         }
-        const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1;
+        const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: i32 = 1;
         struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
             Version: u16,
             Reserved: u16,
@@ -91,13 +91,13 @@ mod Windows {
                 pAttributeV1: PAUTHZ_SECURITY_ATTRIBUTE_V1,
             },
         }
-        const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1;
-        const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1;
+        const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: i32 = 1;
+        const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: i32 = 1;
         struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
             Version: u64,
             pName: PWSTR,
         }
-        const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: u32 = 1;
+        const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
         struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
             pValue: *mut void,
             ValueLength: u32,
@@ -110,14 +110,14 @@ mod Windows {
             AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE = 3,
             AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE = 4,
         }
-        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6;
-        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4;
-        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1;
-        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0;
-        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16;
-        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5;
-        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3;
-        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: i32 = 6;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: i32 = 4;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: i32 = 1;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: i32 = 0;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: i32 = 16;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: i32 = 5;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: i32 = 3;
+        const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: i32 = 2;
         struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
             pName: PWSTR,
             ValueType: u16,
@@ -132,8 +132,8 @@ mod Windows {
                 pOctetString: PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
             },
         }
-        const AUTHZ_SECURITY_ATTRIBUTE_VALID_FLAGS: u32 = 3;
-        const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: u32 = 2;
+        const AUTHZ_SECURITY_ATTRIBUTE_VALID_FLAGS: i32 = 3;
+        const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: i32 = 2;
         type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut void;
         #[repr(i32)]
         enum AUTHZ_SID_OPERATION {
@@ -143,7 +143,7 @@ mod Windows {
             AUTHZ_SID_OPERATION_DELETE = 3,
             AUTHZ_SID_OPERATION_REPLACE = 4,
         }
-        const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2;
+        const AUTHZ_SKIP_TOKEN_GROUPS: i32 = 2;
         struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
             dwFlags: u32,
             szEventSourceName: PWSTR,
@@ -158,9 +158,9 @@ mod Windows {
             dwObjectTypeNameCount: u32,
             ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
         }
-        const AUTHZ_VALID_OBJECT_ACCESS_AUDIT_FLAGS: u32 = 23;
-        const AUTHZ_VALID_RM_INIT_FLAGS: u32 = 7;
-        const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16;
+        const AUTHZ_VALID_OBJECT_ACCESS_AUDIT_FLAGS: i32 = 23;
+        const AUTHZ_VALID_RM_INIT_FLAGS: i32 = 7;
+        const AUTHZ_WPD_CATEGORY_FLAG: i32 = 16;
         #[library("AUTHZ.dll")]
         extern fn AuthzAccessCheck(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, pRequest: *const AUTHZ_ACCESS_REQUEST, #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[len_param(6)] #[opt] OptionalSecurityDescriptorArray: *const PSECURITY_DESCRIPTOR, OptionalSecurityDescriptorCount: u32, #[in] #[out] pReply: *mut AUTHZ_ACCESS_REPLY, #[opt] phAccessCheckResults: *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]

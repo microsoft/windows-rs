@@ -167,10 +167,10 @@ impl Default for CRYPT_XML_ALGORITHM_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID: u32 = 3;
-pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID: u32 = 4;
-pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: u32 = 2;
-pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: u32 = 1;
+pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID: i32 = 3;
+pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID: i32 = 4;
+pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: i32 = 2;
+pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_BLOB {
@@ -183,7 +183,7 @@ impl Default for CRYPT_XML_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_XML_BLOB_MAX: u32 = 2147483640;
+pub const CRYPT_XML_BLOB_MAX: i32 = 2147483640;
 pub type CRYPT_XML_CHARSET = i32;
 pub const CRYPT_XML_CHARSET_AUTO: CRYPT_XML_CHARSET = 0;
 pub const CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = 3;
@@ -235,8 +235,8 @@ impl Default for CRYPT_XML_DIGEST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: u32 = 1;
-pub const CRYPT_XML_DIGEST_VALUE_MAX: u32 = 128;
+pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: i32 = 1;
+pub const CRYPT_XML_DIGEST_VALUE_MAX: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -273,17 +273,17 @@ pub const CRYPT_XML_E_TRANSFORM: windows_core::HRESULT = windows_core::HRESULT(0
 pub const CRYPT_XML_E_UNEXPECTED_XML: windows_core::HRESULT = windows_core::HRESULT(0x80092110_u32 as _);
 pub const CRYPT_XML_E_UNRESOLVED_REFERENCE: windows_core::HRESULT = windows_core::HRESULT(0x80092108_u32 as _);
 pub const CRYPT_XML_E_VERIFY_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x8009210D_u32 as _);
-pub const CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY: u32 = 1;
-pub const CRYPT_XML_FLAG_ALWAYS_RETURN_ENCODED_OBJECT: u32 = 1073741824;
-pub const CRYPT_XML_FLAG_CREATE_REFERENCE_AS_OBJECT: u32 = 1;
-pub const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: u32 = 268435456;
-pub const CRYPT_XML_FLAG_ECDSA_DSIG11: u32 = 67108864;
-pub const CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: u32 = 134217728;
-pub const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: u32 = 536870912;
+pub const CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY: i32 = 1;
+pub const CRYPT_XML_FLAG_ALWAYS_RETURN_ENCODED_OBJECT: i32 = 1073741824;
+pub const CRYPT_XML_FLAG_CREATE_REFERENCE_AS_OBJECT: i32 = 1;
+pub const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: i32 = 268435456;
+pub const CRYPT_XML_FLAG_ECDSA_DSIG11: i32 = 67108864;
+pub const CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: i32 = 134217728;
+pub const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: i32 = 536870912;
 pub const CRYPT_XML_FLAG_NO_SERIALIZE: u32 = 2147483648;
-pub const CRYPT_XML_GROUP_ID_HASH: u32 = 1;
-pub const CRYPT_XML_GROUP_ID_SIGN: u32 = 2;
-pub const CRYPT_XML_ID_MAX: u32 = 256;
+pub const CRYPT_XML_GROUP_ID_HASH: i32 = 1;
+pub const CRYPT_XML_GROUP_ID_SIGN: i32 = 2;
+pub const CRYPT_XML_ID_MAX: i32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_ISSUER_SERIAL {
@@ -313,11 +313,11 @@ pub type CRYPT_XML_KEYINFO_SPEC = i32;
 pub const CRYPT_XML_KEYINFO_SPEC_ENCODED: CRYPT_XML_KEYINFO_SPEC = 1;
 pub const CRYPT_XML_KEYINFO_SPEC_NONE: CRYPT_XML_KEYINFO_SPEC = 0;
 pub const CRYPT_XML_KEYINFO_SPEC_PARAM: CRYPT_XML_KEYINFO_SPEC = 2;
-pub const CRYPT_XML_KEYINFO_TYPE_CUSTOM: u32 = 5;
-pub const CRYPT_XML_KEYINFO_TYPE_KEYNAME: u32 = 1;
-pub const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: u32 = 2;
-pub const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: u32 = 3;
-pub const CRYPT_XML_KEYINFO_TYPE_X509DATA: u32 = 4;
+pub const CRYPT_XML_KEYINFO_TYPE_CUSTOM: i32 = 5;
+pub const CRYPT_XML_KEYINFO_TYPE_KEYNAME: i32 = 1;
+pub const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: i32 = 2;
+pub const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: i32 = 3;
+pub const CRYPT_XML_KEYINFO_TYPE_X509DATA: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
@@ -408,10 +408,10 @@ impl Default for CRYPT_XML_KEY_VALUE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: u32 = 4;
-pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: u32 = 1;
-pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: u32 = 3;
-pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: u32 = 2;
+pub const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: i32 = 4;
+pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: i32 = 1;
+pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: i32 = 3;
+pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -424,7 +424,7 @@ pub struct CRYPT_XML_OBJECT {
     pub Manifest: CRYPT_XML_REFERENCES,
     pub Encoded: CRYPT_XML_BLOB,
 }
-pub const CRYPT_XML_OBJECTS_MAX: u32 = 256;
+pub const CRYPT_XML_OBJECTS_MAX: i32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_PROPERTY {
@@ -476,7 +476,7 @@ impl Default for CRYPT_XML_REFERENCES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_XML_REFERENCES_MAX: u32 = 32760;
+pub const CRYPT_XML_REFERENCES_MAX: i32 = 32760;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -496,8 +496,8 @@ impl Default for CRYPT_XML_SIGNATURE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_XML_SIGNATURES_MAX: u32 = 16;
-pub const CRYPT_XML_SIGNATURE_VALUE_MAX: u32 = 2048;
+pub const CRYPT_XML_SIGNATURES_MAX: i32 = 16;
+pub const CRYPT_XML_SIGNATURE_VALUE_MAX: i32 = 2048;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -516,7 +516,7 @@ impl Default for CRYPT_XML_SIGNED_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_XML_SIGN_ADD_KEYVALUE: u32 = 1;
+pub const CRYPT_XML_SIGN_ADD_KEYVALUE: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_STATUS {
@@ -524,19 +524,19 @@ pub struct CRYPT_XML_STATUS {
     pub dwErrorStatus: u32,
     pub dwInfoStatus: u32,
 }
-pub const CRYPT_XML_STATUS_DIGESTING: u32 = 4;
-pub const CRYPT_XML_STATUS_DIGEST_VALID: u32 = 8;
-pub const CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: u32 = 2;
-pub const CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: u32 = 131072;
-pub const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: u32 = 1;
-pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: u32 = 4;
-pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: u32 = 8;
-pub const CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: u32 = 65536;
-pub const CRYPT_XML_STATUS_INTERNAL_REFERENCE: u32 = 1;
-pub const CRYPT_XML_STATUS_KEY_AVAILABLE: u32 = 2;
-pub const CRYPT_XML_STATUS_NO_ERROR: u32 = 0;
+pub const CRYPT_XML_STATUS_DIGESTING: i32 = 4;
+pub const CRYPT_XML_STATUS_DIGEST_VALID: i32 = 8;
+pub const CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: i32 = 2;
+pub const CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: i32 = 131072;
+pub const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: i32 = 1;
+pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: i32 = 4;
+pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: i32 = 8;
+pub const CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: i32 = 65536;
+pub const CRYPT_XML_STATUS_INTERNAL_REFERENCE: i32 = 1;
+pub const CRYPT_XML_STATUS_KEY_AVAILABLE: i32 = 2;
+pub const CRYPT_XML_STATUS_NO_ERROR: i32 = 0;
 pub const CRYPT_XML_STATUS_OPENED_TO_ENCODE: u32 = 2147483648;
-pub const CRYPT_XML_STATUS_SIGNATURE_VALID: u32 = 65536;
+pub const CRYPT_XML_STATUS_SIGNATURE_VALID: i32 = 65536;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
@@ -558,11 +558,11 @@ pub struct CRYPT_XML_TRANSFORM_INFO {
     pub dwFlags: u32,
     pub pfnCreateTransform: PFN_CRYPT_XML_CREATE_TRANSFORM,
 }
-pub const CRYPT_XML_TRANSFORM_MAX: u32 = 16;
-pub const CRYPT_XML_TRANSFORM_ON_NODESET: u32 = 2;
-pub const CRYPT_XML_TRANSFORM_ON_STREAM: u32 = 1;
-pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: u32 = 4;
-pub const CRYPT_XML_URI_MAX: u32 = 8192;
+pub const CRYPT_XML_TRANSFORM_MAX: i32 = 16;
+pub const CRYPT_XML_TRANSFORM_ON_NODESET: i32 = 2;
+pub const CRYPT_XML_TRANSFORM_ON_STREAM: i32 = 1;
+pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: i32 = 4;
+pub const CRYPT_XML_URI_MAX: i32 = 8192;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_X509DATA {
@@ -600,12 +600,12 @@ impl Default for CRYPT_XML_X509DATA_ITEM_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: u32 = 4;
-pub const CRYPT_XML_X509DATA_TYPE_CRL: u32 = 5;
-pub const CRYPT_XML_X509DATA_TYPE_CUSTOM: u32 = 6;
-pub const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: u32 = 1;
-pub const CRYPT_XML_X509DATA_TYPE_SKI: u32 = 2;
-pub const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: u32 = 3;
+pub const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: i32 = 4;
+pub const CRYPT_XML_X509DATA_TYPE_CRL: i32 = 5;
+pub const CRYPT_XML_X509DATA_TYPE_CUSTOM: i32 = 6;
+pub const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: i32 = 1;
+pub const CRYPT_XML_X509DATA_TYPE_SKI: i32 = 2;
+pub const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: i32 = 3;
 pub type CryptXmlDllCloseDigest = Option<unsafe extern "system" fn(hdigest: CRYPT_XML_DIGEST) -> windows_core::HRESULT>;
 pub type CryptXmlDllCreateDigest = Option<unsafe extern "system" fn(pdigestmethod: *const CRYPT_XML_ALGORITHM, pcbsize: *mut u32, phdigest: *mut CRYPT_XML_DIGEST) -> windows_core::HRESULT>;
 #[cfg(feature = "bcrypt")]

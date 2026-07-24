@@ -28,15 +28,15 @@ mod Windows {
         extern fn CryptSIPVerifyIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         type LPSIP_DISPATCH_INFO = *mut SIP_DISPATCH_INFO;
         type LPSIP_SUBJECTINFO = *mut SIP_SUBJECTINFO;
-        const MSSIP_ADDINFO_BLOB: u32 = 3;
-        const MSSIP_ADDINFO_CATMEMBER: u32 = 2;
-        const MSSIP_ADDINFO_DETACHEDSIG: u32 = 4;
-        const MSSIP_ADDINFO_FLAT: u32 = 1;
-        const MSSIP_ADDINFO_NONE: u32 = 0;
-        const MSSIP_ADDINFO_NONMSSIP: u32 = 500;
-        const MSSIP_FLAGS_MULTI_HASH: u32 = 262144;
-        const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536;
-        const MSSIP_FLAGS_USE_CATALOG: u32 = 131072;
+        const MSSIP_ADDINFO_BLOB: i32 = 3;
+        const MSSIP_ADDINFO_CATMEMBER: i32 = 2;
+        const MSSIP_ADDINFO_DETACHEDSIG: i32 = 4;
+        const MSSIP_ADDINFO_FLAT: i32 = 1;
+        const MSSIP_ADDINFO_NONE: i32 = 0;
+        const MSSIP_ADDINFO_NONMSSIP: i32 = 500;
+        const MSSIP_FLAGS_MULTI_HASH: i32 = 262144;
+        const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: i32 = 65536;
+        const MSSIP_FLAGS_USE_CATALOG: i32 = 131072;
         struct MS_ADDINFO_BLOB {
             cbStruct: u32,
             cbMemObject: u32,
@@ -82,9 +82,9 @@ mod Windows {
             pwszIsFunctionNameFmt2: *mut u16,
             pwszGetCapFuncName: PWSTR,
         }
-        const SIP_CAP_FLAG_SEALING: u32 = 1;
+        const SIP_CAP_FLAG_SEALING: i32 = 1;
         type SIP_CAP_SET = SIP_CAP_SET_V3;
-        const SIP_CAP_SET_CUR_VER: u32 = 3;
+        const SIP_CAP_SET_CUR_VER: i32 = 3;
         struct SIP_CAP_SET_V2 {
             cbSize: u32,
             dwVersion: u32,
@@ -100,8 +100,8 @@ mod Windows {
                 dwReserved: u32,
             },
         }
-        const SIP_CAP_SET_VERSION_2: u32 = 2;
-        const SIP_CAP_SET_VERSION_3: u32 = 3;
+        const SIP_CAP_SET_VERSION_2: i32 = 2;
+        const SIP_CAP_SET_VERSION_3: i32 = 3;
         struct SIP_DISPATCH_INFO {
             cbSize: u32,
             hSIP: HANDLE,
@@ -116,7 +116,7 @@ mod Windows {
             DigestAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
             Digest: CRYPT_HASH_BLOB,
         }
-        const SIP_MAX_MAGIC_NUMBER: u32 = 4;
+        const SIP_MAX_MAGIC_NUMBER: i32 = 4;
         struct SIP_SUBJECTINFO {
             cbSize: u32,
             pgSubjectType: *mut GUID,
@@ -142,17 +142,17 @@ mod Windows {
             },
             pClientData: *mut void,
         }
-        const SPC_DIGEST_GENERATE_FLAG: u32 = 512;
-        const SPC_DIGEST_SIGN_EX_FLAG: u32 = 16384;
-        const SPC_DIGEST_SIGN_FLAG: u32 = 1024;
-        const SPC_EXC_PE_PAGE_HASHES_FLAG: u32 = 16;
-        const SPC_INC_PE_DEBUG_INFO_FLAG: u32 = 64;
-        const SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: u32 = 32;
-        const SPC_INC_PE_PAGE_HASHES_FLAG: u32 = 256;
-        const SPC_INC_PE_RESOURCES_FLAG: u32 = 128;
-        const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1;
-        const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1;
-        const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048;
+        const SPC_DIGEST_GENERATE_FLAG: i32 = 512;
+        const SPC_DIGEST_SIGN_EX_FLAG: i32 = 16384;
+        const SPC_DIGEST_SIGN_FLAG: i32 = 1024;
+        const SPC_EXC_PE_PAGE_HASHES_FLAG: i32 = 16;
+        const SPC_INC_PE_DEBUG_INFO_FLAG: i32 = 64;
+        const SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: i32 = 32;
+        const SPC_INC_PE_PAGE_HASHES_FLAG: i32 = 256;
+        const SPC_INC_PE_RESOURCES_FLAG: i32 = 128;
+        const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: i32 = 1;
+        const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: i32 = 1;
+        const SPC_RELAXED_PE_MARKER_CHECK: i32 = 2048;
         extern fn pCryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut u32, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         extern fn pCryptSIPGetCaps(pSubjInfo: *const SIP_SUBJECTINFO, #[in] #[out] pCaps: *mut SIP_CAP_SET) -> BOOL;
         extern fn pCryptSIPGetSealedDigest(pSubjectInfo: *const SIP_SUBJECTINFO, pSig: *const u8, dwSig: u32, #[len_param(4)] #[opt] pbDigest: *mut u8, #[in] #[out] pcbDigest: *mut u32) -> BOOL;

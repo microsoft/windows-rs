@@ -17,7 +17,7 @@ mod Windows {
         const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798;
         const E_PRINTTICKET_FORMAT: u32 = 2147745795;
         type HPTPROVIDER = *mut void;
-        const PRINTTICKET_ISTREAM_APIS: u32 = 1;
+        const PRINTTICKET_ISTREAM_APIS: i32 = 1;
         #[library("prntvpt.dll")]
         extern fn PTCloseProvider(hProvider: HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]
@@ -40,7 +40,7 @@ mod Windows {
         extern fn PTQuerySchemaVersionSupport(pszPrinterName: PCWSTR, pMaxVersion: *mut u32) -> HRESULT;
         #[library("prntvpt.dll")]
         extern fn PTReleaseMemory(pBuffer: *const void) -> HRESULT;
-        const S_PT_CONFLICT_RESOLVED: u32 = 262146;
-        const S_PT_NO_CONFLICT: u32 = 262145;
+        const S_PT_CONFLICT_RESOLVED: i32 = 262146;
+        const S_PT_NO_CONFLICT: i32 = 262145;
     }
 }

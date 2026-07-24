@@ -7,9 +7,9 @@ mod Windows {
         type PTXF_LOG_RECORD_BASE = *mut TXF_LOG_RECORD_BASE;
         type PTXF_LOG_RECORD_TRUNCATE = *mut TXF_LOG_RECORD_TRUNCATE;
         type PTXF_LOG_RECORD_WRITE = *mut TXF_LOG_RECORD_WRITE;
-        const TXFS_MINIVERSION_COMMITTED_VIEW: u32 = 0;
-        const TXFS_MINIVERSION_DEFAULT_VIEW: u32 = 65534;
-        const TXFS_MINIVERSION_DIRTY_VIEW: u32 = 65535;
+        const TXFS_MINIVERSION_COMMITTED_VIEW: i32 = 0;
+        const TXFS_MINIVERSION_DEFAULT_VIEW: i32 = 65534;
+        const TXFS_MINIVERSION_DIRTY_VIEW: i32 = 65535;
         struct TXF_ID {
             Anonymous: #[packed(4)] struct {
                 LowPart: i64,
@@ -30,10 +30,10 @@ mod Windows {
             RecordType: u16,
             RecordLength: u32,
         }
-        const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2;
-        const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1;
-        const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8;
-        const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4;
+        const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: i32 = 2;
+        const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: i32 = 1;
+        const TXF_LOG_RECORD_GENERIC_TYPE_DATA: i32 = 8;
+        const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: i32 = 4;
         #[packed(4)]
         struct TXF_LOG_RECORD_TRUNCATE {
             Version: u16,
@@ -46,9 +46,9 @@ mod Windows {
             FileNameLength: u32,
             FileNameByteOffsetInStructure: u32,
         }
-        const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: u32 = 4;
-        const TXF_LOG_RECORD_TYPE_TRUNCATE: u32 = 2;
-        const TXF_LOG_RECORD_TYPE_WRITE: u32 = 1;
+        const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: i32 = 4;
+        const TXF_LOG_RECORD_TYPE_TRUNCATE: i32 = 2;
+        const TXF_LOG_RECORD_TYPE_WRITE: i32 = 1;
         #[packed(4)]
         struct TXF_LOG_RECORD_WRITE {
             Version: u16,

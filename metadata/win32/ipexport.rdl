@@ -45,51 +45,51 @@ mod Windows {
             NumAdapters: u32,
             AdapterOrder: [u32; 1],
         }
-        const IP_ADDR_ADDED: u32 = 11023;
-        const IP_ADDR_DELETED: u32 = 11019;
-        const IP_BAD_DESTINATION: u32 = 11018;
-        const IP_BAD_HEADER: u32 = 11042;
-        const IP_BAD_OPTION: u32 = 11007;
-        const IP_BAD_REQ: u32 = 11011;
-        const IP_BAD_ROUTE: u32 = 11012;
-        const IP_BIND_ADAPTER: u32 = 11026;
-        const IP_BUF_TOO_SMALL: u32 = 11001;
-        const IP_DEST_ADDR_UNREACHABLE: u32 = 11003;
-        const IP_DEST_HOST_UNREACHABLE: u32 = 11003;
-        const IP_DEST_NET_UNREACHABLE: u32 = 11002;
-        const IP_DEST_NO_ROUTE: u32 = 11002;
-        const IP_DEST_PORT_UNREACHABLE: u32 = 11005;
-        const IP_DEST_PROHIBITED: u32 = 11004;
-        const IP_DEST_PROT_UNREACHABLE: u32 = 11004;
-        const IP_DEST_SCOPE_MISMATCH: u32 = 11045;
-        const IP_DEST_UNREACHABLE: u32 = 11040;
-        const IP_DEVICE_DOES_NOT_EXIST: u32 = 11028;
-        const IP_DUPLICATE_ADDRESS: u32 = 11029;
-        const IP_DUPLICATE_IPADD: u32 = 11034;
-        const IP_EXPORT_INCLUDED: u32 = 1;
-        const IP_FLAG_DF: u32 = 2;
-        const IP_FLAG_REVERSE: u32 = 1;
-        const IP_GENERAL_FAILURE: u32 = 11050;
-        const IP_HOP_LIMIT_EXCEEDED: u32 = 11013;
-        const IP_HW_ERROR: u32 = 11008;
-        const IP_ICMP_ERROR: u32 = 11044;
+        const IP_ADDR_ADDED: i32 = 11023;
+        const IP_ADDR_DELETED: i32 = 11019;
+        const IP_BAD_DESTINATION: i32 = 11018;
+        const IP_BAD_HEADER: i32 = 11042;
+        const IP_BAD_OPTION: i32 = 11007;
+        const IP_BAD_REQ: i32 = 11011;
+        const IP_BAD_ROUTE: i32 = 11012;
+        const IP_BIND_ADAPTER: i32 = 11026;
+        const IP_BUF_TOO_SMALL: i32 = 11001;
+        const IP_DEST_ADDR_UNREACHABLE: i32 = 11003;
+        const IP_DEST_HOST_UNREACHABLE: i32 = 11003;
+        const IP_DEST_NET_UNREACHABLE: i32 = 11002;
+        const IP_DEST_NO_ROUTE: i32 = 11002;
+        const IP_DEST_PORT_UNREACHABLE: i32 = 11005;
+        const IP_DEST_PROHIBITED: i32 = 11004;
+        const IP_DEST_PROT_UNREACHABLE: i32 = 11004;
+        const IP_DEST_SCOPE_MISMATCH: i32 = 11045;
+        const IP_DEST_UNREACHABLE: i32 = 11040;
+        const IP_DEVICE_DOES_NOT_EXIST: i32 = 11028;
+        const IP_DUPLICATE_ADDRESS: i32 = 11029;
+        const IP_DUPLICATE_IPADD: i32 = 11034;
+        const IP_EXPORT_INCLUDED: i32 = 1;
+        const IP_FLAG_DF: i32 = 2;
+        const IP_FLAG_REVERSE: i32 = 1;
+        const IP_GENERAL_FAILURE: i32 = 11050;
+        const IP_HOP_LIMIT_EXCEEDED: i32 = 11013;
+        const IP_HW_ERROR: i32 = 11008;
+        const IP_ICMP_ERROR: i32 = 11044;
         struct IP_INTERFACE_INFO {
             NumAdapters: i32,
             Adapter: [IP_ADAPTER_INDEX_MAP; 1],
         }
-        const IP_INTERFACE_METRIC_CHANGE: u32 = 11030;
-        const IP_INTERFACE_WOL_CAPABILITY_CHANGE: u32 = 11033;
+        const IP_INTERFACE_METRIC_CHANGE: i32 = 11030;
+        const IP_INTERFACE_WOL_CAPABILITY_CHANGE: i32 = 11033;
         struct IP_MCAST_COUNTER_INFO {
             InMcastOctets: u64,
             OutMcastOctets: u64,
             InMcastPkts: u64,
             OutMcastPkts: u64,
         }
-        const IP_MEDIA_CONNECT: u32 = 11024;
-        const IP_MEDIA_DISCONNECT: u32 = 11025;
-        const IP_MTU_CHANGE: u32 = 11021;
-        const IP_NEGOTIATING_IPSEC: u32 = 11032;
-        const IP_NO_RESOURCES: u32 = 11006;
+        const IP_MEDIA_CONNECT: i32 = 11024;
+        const IP_MEDIA_DISCONNECT: i32 = 11025;
+        const IP_MTU_CHANGE: i32 = 11021;
+        const IP_NEGOTIATING_IPSEC: i32 = 11032;
+        const IP_NO_RESOURCES: i32 = 11006;
         struct IP_OPTION_INFORMATION {
             Ttl: u8,
             Tos: u8,
@@ -105,42 +105,42 @@ mod Windows {
             OptionsSize: u8,
             OptionsData: *mut u8,
         }
-        const IP_OPTION_TOO_BIG: u32 = 11017;
-        const IP_OPT_EOL: u32 = 0;
-        const IP_OPT_LSRR: u32 = 131;
-        const IP_OPT_NOP: u32 = 1;
-        const IP_OPT_ROUTER_ALERT: u32 = 148;
-        const IP_OPT_RR: u32 = 7;
-        const IP_OPT_SECURITY: u32 = 130;
-        const IP_OPT_SID: u32 = 136;
-        const IP_OPT_SSRR: u32 = 137;
-        const IP_OPT_TS: u32 = 68;
-        const IP_PACKET_TOO_BIG: u32 = 11009;
-        const IP_PARAMETER_PROBLEM: u32 = 11015;
-        const IP_PARAM_PROBLEM: u32 = 11015;
-        const IP_PENDING: u32 = 11255;
-        const IP_REASSEMBLY_TIME_EXCEEDED: u32 = 11014;
-        const IP_RECONFIG_SECFLTR: u32 = 11031;
-        const IP_REQ_TIMED_OUT: u32 = 11010;
-        const IP_SOURCE_QUENCH: u32 = 11016;
-        const IP_SPEC_MTU_CHANGE: u32 = 11020;
+        const IP_OPTION_TOO_BIG: i32 = 11017;
+        const IP_OPT_EOL: i32 = 0;
+        const IP_OPT_LSRR: i32 = 131;
+        const IP_OPT_NOP: i32 = 1;
+        const IP_OPT_ROUTER_ALERT: i32 = 148;
+        const IP_OPT_RR: i32 = 7;
+        const IP_OPT_SECURITY: i32 = 130;
+        const IP_OPT_SID: i32 = 136;
+        const IP_OPT_SSRR: i32 = 137;
+        const IP_OPT_TS: i32 = 68;
+        const IP_PACKET_TOO_BIG: i32 = 11009;
+        const IP_PARAMETER_PROBLEM: i32 = 11015;
+        const IP_PARAM_PROBLEM: i32 = 11015;
+        const IP_PENDING: i32 = 11255;
+        const IP_REASSEMBLY_TIME_EXCEEDED: i32 = 11014;
+        const IP_RECONFIG_SECFLTR: i32 = 11031;
+        const IP_REQ_TIMED_OUT: i32 = 11010;
+        const IP_SOURCE_QUENCH: i32 = 11016;
+        const IP_SPEC_MTU_CHANGE: i32 = 11020;
         type IP_STATUS = u32;
-        const IP_STATUS_BASE: u32 = 11000;
-        const IP_SUCCESS: u32 = 0;
-        const IP_TIME_EXCEEDED: u32 = 11041;
-        const IP_TTL_EXPIRED_REASSEM: u32 = 11014;
-        const IP_TTL_EXPIRED_TRANSIT: u32 = 11013;
-        const IP_UNBIND_ADAPTER: u32 = 11027;
+        const IP_STATUS_BASE: i32 = 11000;
+        const IP_SUCCESS: i32 = 0;
+        const IP_TIME_EXCEEDED: i32 = 11041;
+        const IP_TTL_EXPIRED_REASSEM: i32 = 11014;
+        const IP_TTL_EXPIRED_TRANSIT: i32 = 11013;
+        const IP_UNBIND_ADAPTER: i32 = 11027;
         struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
             NumAdapters: u32,
             Address: [IPAddr; 1],
         }
-        const IP_UNLOAD: u32 = 11022;
-        const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043;
+        const IP_UNLOAD: i32 = 11022;
+        const IP_UNRECOGNIZED_NEXT_HEADER: i32 = 11043;
         type IPv6Addr = IN6_ADDR;
-        const MAX_ADAPTER_NAME: u32 = 128;
-        const MAX_IP_STATUS: u32 = 11050;
-        const MAX_OPT_SIZE: u32 = 40;
+        const MAX_ADAPTER_NAME: i32 = 128;
+        const MAX_IP_STATUS: i32 = 11050;
+        const MAX_OPT_SIZE: i32 = 40;
         type PARP_SEND_REPLY = *mut ARP_SEND_REPLY;
         type PICMPV6_ECHO_REPLY = *mut ICMPV6_ECHO_REPLY_LH;
         type PICMPV6_ECHO_REPLY_LH = *mut ICMPV6_ECHO_REPLY_LH;

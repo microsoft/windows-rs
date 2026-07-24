@@ -513,30 +513,30 @@ pub unsafe fn Shell_NotifyIconW(dwmessage: u32, lpdata: *const NOTIFYICONDATAW) 
     windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : *const NOTIFYICONDATAW) -> windows_core::BOOL);
     unsafe { Shell_NotifyIconW(dwmessage, lpdata) }
 }
-pub const ABC_OVERLAYDESKTOPICONS: u32 = 1;
-pub const ABE_BOTTOM: u32 = 3;
-pub const ABE_LEFT: u32 = 0;
-pub const ABE_RIGHT: u32 = 2;
-pub const ABE_TOP: u32 = 1;
-pub const ABM_ACTIVATE: u32 = 6;
-pub const ABM_GETAUTOHIDEBAR: u32 = 7;
-pub const ABM_GETAUTOHIDEBAREX: u32 = 11;
-pub const ABM_GETSTATE: u32 = 4;
-pub const ABM_GETTASKBARPOS: u32 = 5;
-pub const ABM_NEW: u32 = 0;
-pub const ABM_QUERYPOS: u32 = 2;
-pub const ABM_REMOVE: u32 = 1;
-pub const ABM_SETAUTOHIDEBAR: u32 = 8;
-pub const ABM_SETAUTOHIDEBAREX: u32 = 12;
-pub const ABM_SETPOS: u32 = 3;
-pub const ABM_SETSTATE: u32 = 10;
-pub const ABM_WINDOWPOSCHANGED: u32 = 9;
-pub const ABN_FULLSCREENAPP: u32 = 2;
-pub const ABN_POSCHANGED: u32 = 1;
-pub const ABN_STATECHANGE: u32 = 0;
-pub const ABN_WINDOWARRANGE: u32 = 3;
-pub const ABS_ALWAYSONTOP: u32 = 2;
-pub const ABS_AUTOHIDE: u32 = 1;
+pub const ABC_OVERLAYDESKTOPICONS: i32 = 1;
+pub const ABE_BOTTOM: i32 = 3;
+pub const ABE_LEFT: i32 = 0;
+pub const ABE_RIGHT: i32 = 2;
+pub const ABE_TOP: i32 = 1;
+pub const ABM_ACTIVATE: i32 = 6;
+pub const ABM_GETAUTOHIDEBAR: i32 = 7;
+pub const ABM_GETAUTOHIDEBAREX: i32 = 11;
+pub const ABM_GETSTATE: i32 = 4;
+pub const ABM_GETTASKBARPOS: i32 = 5;
+pub const ABM_NEW: i32 = 0;
+pub const ABM_QUERYPOS: i32 = 2;
+pub const ABM_REMOVE: i32 = 1;
+pub const ABM_SETAUTOHIDEBAR: i32 = 8;
+pub const ABM_SETAUTOHIDEBAREX: i32 = 12;
+pub const ABM_SETPOS: i32 = 3;
+pub const ABM_SETSTATE: i32 = 10;
+pub const ABM_WINDOWPOSCHANGED: i32 = 9;
+pub const ABN_FULLSCREENAPP: i32 = 2;
+pub const ABN_POSCHANGED: i32 = 1;
+pub const ABN_STATECHANGE: i32 = 0;
+pub const ABN_WINDOWARRANGE: i32 = 3;
+pub const ABS_ALWAYSONTOP: i32 = 2;
+pub const ABS_AUTOHIDE: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -641,27 +641,27 @@ pub struct DRAGINFOW {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct FILEOP_FLAGS(pub u16);
-pub const FOF_ALLOWUNDO: u32 = 64;
-pub const FOF_CONFIRMMOUSE: u32 = 2;
-pub const FOF_FILESONLY: u32 = 128;
-pub const FOF_MULTIDESTFILES: u32 = 1;
-pub const FOF_NOCONFIRMATION: u32 = 16;
-pub const FOF_NOCONFIRMMKDIR: u32 = 512;
-pub const FOF_NOCOPYSECURITYATTRIBS: u32 = 2048;
-pub const FOF_NOERRORUI: u32 = 1024;
-pub const FOF_NORECURSEREPARSE: u32 = 32768;
-pub const FOF_NORECURSION: u32 = 4096;
-pub const FOF_NO_CONNECTED_ELEMENTS: u32 = 8192;
-pub const FOF_NO_UI: u32 = 1556;
-pub const FOF_RENAMEONCOLLISION: u32 = 8;
-pub const FOF_SILENT: u32 = 4;
-pub const FOF_SIMPLEPROGRESS: u32 = 256;
-pub const FOF_WANTMAPPINGHANDLE: u32 = 32;
-pub const FOF_WANTNUKEWARNING: u32 = 16384;
-pub const FO_COPY: u32 = 2;
-pub const FO_DELETE: u32 = 3;
-pub const FO_MOVE: u32 = 1;
-pub const FO_RENAME: u32 = 4;
+pub const FOF_ALLOWUNDO: i32 = 64;
+pub const FOF_CONFIRMMOUSE: i32 = 2;
+pub const FOF_FILESONLY: i32 = 128;
+pub const FOF_MULTIDESTFILES: i32 = 1;
+pub const FOF_NOCONFIRMATION: i32 = 16;
+pub const FOF_NOCONFIRMMKDIR: i32 = 512;
+pub const FOF_NOCOPYSECURITYATTRIBS: i32 = 2048;
+pub const FOF_NOERRORUI: i32 = 1024;
+pub const FOF_NORECURSEREPARSE: i32 = 32768;
+pub const FOF_NORECURSION: i32 = 4096;
+pub const FOF_NO_CONNECTED_ELEMENTS: i32 = 8192;
+pub const FOF_NO_UI: i32 = 1556;
+pub const FOF_RENAMEONCOLLISION: i32 = 8;
+pub const FOF_SILENT: i32 = 4;
+pub const FOF_SIMPLEPROGRESS: i32 = 256;
+pub const FOF_WANTMAPPINGHANDLE: i32 = 32;
+pub const FOF_WANTNUKEWARNING: i32 = 16384;
+pub const FO_COPY: i32 = 2;
+pub const FO_DELETE: i32 = 3;
+pub const FO_MOVE: i32 = 1;
+pub const FO_RENAME: i32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDROP(pub *mut core::ffi::c_void);
@@ -692,10 +692,10 @@ pub type LPSHNAMEMAPPING = LPSHNAMEMAPPINGA;
 pub type LPSHNAMEMAPPINGA = *mut SHNAMEMAPPINGA;
 pub type LPSHNAMEMAPPINGW = *mut SHNAMEMAPPINGW;
 pub type LPSHQUERYRBINFO = *mut SHQUERYRBINFO;
-pub const NCM_DISPLAYERRORTIP: u32 = 1028;
-pub const NCM_GETADDRESS: u32 = 1025;
-pub const NCM_GETALLOWTYPE: u32 = 1027;
-pub const NCM_SETALLOWTYPE: u32 = 1026;
+pub const NCM_DISPLAYERRORTIP: i32 = 1028;
+pub const NCM_GETADDRESS: i32 = 1025;
+pub const NCM_GETALLOWTYPE: i32 = 1027;
+pub const NCM_SETALLOWTYPE: i32 = 1026;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NC_ADDRESS {
@@ -711,39 +711,39 @@ impl Default for NC_ADDRESS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_ADDRESS_INFO_(pub u8);
-pub const NIF_GUID: u32 = 32;
-pub const NIF_ICON: u32 = 2;
-pub const NIF_INFO: u32 = 16;
-pub const NIF_MESSAGE: u32 = 1;
-pub const NIF_REALTIME: u32 = 64;
-pub const NIF_SHOWTIP: u32 = 128;
-pub const NIF_STATE: u32 = 8;
-pub const NIF_TIP: u32 = 4;
-pub const NIIF_ERROR: u32 = 3;
-pub const NIIF_ICON_MASK: u32 = 15;
-pub const NIIF_INFO: u32 = 1;
-pub const NIIF_LARGE_ICON: u32 = 32;
-pub const NIIF_NONE: u32 = 0;
-pub const NIIF_NOSOUND: u32 = 16;
-pub const NIIF_RESPECT_QUIET_TIME: u32 = 128;
-pub const NIIF_USER: u32 = 4;
-pub const NIIF_WARNING: u32 = 2;
-pub const NIM_ADD: u32 = 0;
-pub const NIM_DELETE: u32 = 2;
-pub const NIM_MODIFY: u32 = 1;
-pub const NIM_SETFOCUS: u32 = 3;
-pub const NIM_SETVERSION: u32 = 4;
-pub const NINF_KEY: u32 = 1;
-pub const NIN_BALLOONHIDE: u32 = 1027;
-pub const NIN_BALLOONSHOW: u32 = 1026;
-pub const NIN_BALLOONTIMEOUT: u32 = 1028;
-pub const NIN_BALLOONUSERCLICK: u32 = 1029;
-pub const NIN_KEYSELECT: u32 = 1025;
-pub const NIN_POPUPCLOSE: u32 = 1031;
-pub const NIN_POPUPOPEN: u32 = 1030;
-pub const NIN_SELECT: u32 = 1024;
-pub const NIS_HIDDEN: u32 = 1;
-pub const NIS_SHAREDICON: u32 = 2;
+pub const NIF_GUID: i32 = 32;
+pub const NIF_ICON: i32 = 2;
+pub const NIF_INFO: i32 = 16;
+pub const NIF_MESSAGE: i32 = 1;
+pub const NIF_REALTIME: i32 = 64;
+pub const NIF_SHOWTIP: i32 = 128;
+pub const NIF_STATE: i32 = 8;
+pub const NIF_TIP: i32 = 4;
+pub const NIIF_ERROR: i32 = 3;
+pub const NIIF_ICON_MASK: i32 = 15;
+pub const NIIF_INFO: i32 = 1;
+pub const NIIF_LARGE_ICON: i32 = 32;
+pub const NIIF_NONE: i32 = 0;
+pub const NIIF_NOSOUND: i32 = 16;
+pub const NIIF_RESPECT_QUIET_TIME: i32 = 128;
+pub const NIIF_USER: i32 = 4;
+pub const NIIF_WARNING: i32 = 2;
+pub const NIM_ADD: i32 = 0;
+pub const NIM_DELETE: i32 = 2;
+pub const NIM_MODIFY: i32 = 1;
+pub const NIM_SETFOCUS: i32 = 3;
+pub const NIM_SETVERSION: i32 = 4;
+pub const NINF_KEY: i32 = 1;
+pub const NIN_BALLOONHIDE: i32 = 1027;
+pub const NIN_BALLOONSHOW: i32 = 1026;
+pub const NIN_BALLOONTIMEOUT: i32 = 1028;
+pub const NIN_BALLOONUSERCLICK: i32 = 1029;
+pub const NIN_KEYSELECT: i32 = 1025;
+pub const NIN_POPUPCLOSE: i32 = 1031;
+pub const NIN_POPUPOPEN: i32 = 1030;
+pub const NIN_SELECT: i32 = 1024;
+pub const NIS_HIDDEN: i32 = 1;
+pub const NIS_SHAREDICON: i32 = 2;
 #[cfg(feature = "windef")]
 pub type NOTIFYICONDATA = NOTIFYICONDATAA;
 #[repr(C, packed(1))]
@@ -833,17 +833,17 @@ impl Default for NOTIFYICONDATAA_0 {
     }
 }
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATAA_V1_SIZE: u32 = 88;
+pub const NOTIFYICONDATAA_V1_SIZE: i32 = 88;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATAA_V1_SIZE: u32 = 104;
+pub const NOTIFYICONDATAA_V1_SIZE: i32 = 104;
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATAA_V2_SIZE: u32 = 488;
+pub const NOTIFYICONDATAA_V2_SIZE: i32 = 488;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATAA_V2_SIZE: u32 = 504;
+pub const NOTIFYICONDATAA_V2_SIZE: i32 = 504;
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATAA_V3_SIZE: u32 = 504;
+pub const NOTIFYICONDATAA_V3_SIZE: i32 = 504;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATAA_V3_SIZE: u32 = 520;
+pub const NOTIFYICONDATAA_V3_SIZE: i32 = 520;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
@@ -931,29 +931,29 @@ impl Default for NOTIFYICONDATAW_0 {
     }
 }
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATAW_V1_SIZE: u32 = 152;
+pub const NOTIFYICONDATAW_V1_SIZE: i32 = 152;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATAW_V1_SIZE: u32 = 168;
+pub const NOTIFYICONDATAW_V1_SIZE: i32 = 168;
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATAW_V2_SIZE: u32 = 936;
+pub const NOTIFYICONDATAW_V2_SIZE: i32 = 936;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATAW_V2_SIZE: u32 = 952;
+pub const NOTIFYICONDATAW_V2_SIZE: i32 = 952;
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATAW_V3_SIZE: u32 = 952;
+pub const NOTIFYICONDATAW_V3_SIZE: i32 = 952;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATAW_V3_SIZE: u32 = 968;
+pub const NOTIFYICONDATAW_V3_SIZE: i32 = 968;
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATA_V1_SIZE: u32 = 88;
+pub const NOTIFYICONDATA_V1_SIZE: i32 = 88;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATA_V1_SIZE: u32 = 104;
+pub const NOTIFYICONDATA_V1_SIZE: i32 = 104;
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATA_V2_SIZE: u32 = 488;
+pub const NOTIFYICONDATA_V2_SIZE: i32 = 488;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATA_V2_SIZE: u32 = 504;
+pub const NOTIFYICONDATA_V2_SIZE: i32 = 504;
 #[cfg(target_arch = "x86")]
-pub const NOTIFYICONDATA_V3_SIZE: u32 = 504;
+pub const NOTIFYICONDATA_V3_SIZE: i32 = 504;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const NOTIFYICONDATA_V3_SIZE: u32 = 520;
+pub const NOTIFYICONDATA_V3_SIZE: i32 = 520;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
@@ -974,11 +974,11 @@ pub struct NOTIFYICONIDENTIFIER {
     pub uID: u32,
     pub guidItem: windows_core::GUID,
 }
-pub const NOTIFYICON_VERSION: u32 = 3;
-pub const NOTIFYICON_VERSION_4: u32 = 4;
-pub const OFFLINE_STATUS_INCOMPLETE: u32 = 4;
-pub const OFFLINE_STATUS_LOCAL: u32 = 1;
-pub const OFFLINE_STATUS_REMOTE: u32 = 2;
+pub const NOTIFYICON_VERSION: i32 = 3;
+pub const NOTIFYICON_VERSION_4: i32 = 4;
+pub const OFFLINE_STATUS_INCOMPLETE: i32 = 4;
+pub const OFFLINE_STATUS_LOCAL: i32 = 1;
+pub const OFFLINE_STATUS_REMOTE: i32 = 2;
 pub type OPEN_PRINTER_PROPS_INFO = OPEN_PRINTER_PROPS_INFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -1037,22 +1037,22 @@ pub type PNOTIFYICONIDENTIFIER = *mut NOTIFYICONIDENTIFIER;
 pub type POPEN_PRINTER_PROPS_INFO = POPEN_PRINTER_PROPS_INFOA;
 pub type POPEN_PRINTER_PROPS_INFOA = *mut OPEN_PRINTER_PROPS_INFOA;
 pub type POPEN_PRINTER_PROPS_INFOW = *mut OPEN_PRINTER_PROPS_INFOW;
-pub const PO_DELETE: u32 = 19;
-pub const PO_PORTCHANGE: u32 = 32;
-pub const PO_RENAME: u32 = 20;
-pub const PO_REN_PORT: u32 = 52;
-pub const PRINTACTION_DOCUMENTDEFAULTS: u32 = 6;
-pub const PRINTACTION_NETINSTALL: u32 = 2;
-pub const PRINTACTION_NETINSTALLLINK: u32 = 3;
-pub const PRINTACTION_OPEN: u32 = 0;
-pub const PRINTACTION_OPENNETPRN: u32 = 5;
-pub const PRINTACTION_PROPERTIES: u32 = 1;
-pub const PRINTACTION_SERVERPROPERTIES: u32 = 7;
-pub const PRINTACTION_TESTPAGE: u32 = 4;
+pub const PO_DELETE: i32 = 19;
+pub const PO_PORTCHANGE: i32 = 32;
+pub const PO_RENAME: i32 = 20;
+pub const PO_REN_PORT: i32 = 52;
+pub const PRINTACTION_DOCUMENTDEFAULTS: i32 = 6;
+pub const PRINTACTION_NETINSTALL: i32 = 2;
+pub const PRINTACTION_NETINSTALLLINK: i32 = 3;
+pub const PRINTACTION_OPEN: i32 = 0;
+pub const PRINTACTION_OPENNETPRN: i32 = 5;
+pub const PRINTACTION_PROPERTIES: i32 = 1;
+pub const PRINTACTION_SERVERPROPERTIES: i32 = 7;
+pub const PRINTACTION_TESTPAGE: i32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PRINTEROP_FLAGS(pub u16);
-pub const PRINT_PROP_FORCE_NAME: u32 = 1;
+pub const PRINT_PROP_FORCE_NAME: i32 = 1;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 pub type PSHCREATEPROCESSINFOW = *mut SHCREATEPROCESSINFOW;
 pub type QUERY_USER_NOTIFICATION_STATE = i32;
@@ -1063,38 +1063,38 @@ pub const QUNS_NOT_PRESENT: QUERY_USER_NOTIFICATION_STATE = 1;
 pub const QUNS_PRESENTATION_MODE: QUERY_USER_NOTIFICATION_STATE = 4;
 pub const QUNS_QUIET_TIME: QUERY_USER_NOTIFICATION_STATE = 6;
 pub const QUNS_RUNNING_D3D_FULL_SCREEN: QUERY_USER_NOTIFICATION_STATE = 3;
-pub const SEE_MASK_ASYNCOK: u32 = 1048576;
-pub const SEE_MASK_CLASSKEY: u32 = 3;
-pub const SEE_MASK_CLASSNAME: u32 = 1;
-pub const SEE_MASK_CONNECTNETDRV: u32 = 128;
-pub const SEE_MASK_DEFAULT: u32 = 0;
-pub const SEE_MASK_DOENVSUBST: u32 = 512;
-pub const SEE_MASK_FLAG_DDEWAIT: u32 = 256;
-pub const SEE_MASK_FLAG_HINST_IS_SITE: u32 = 134217728;
-pub const SEE_MASK_FLAG_LOG_USAGE: u32 = 67108864;
-pub const SEE_MASK_FLAG_NO_UI: u32 = 1024;
-pub const SEE_MASK_HMONITOR: u32 = 2097152;
-pub const SEE_MASK_HOTKEY: u32 = 32;
-pub const SEE_MASK_IDLIST: u32 = 4;
-pub const SEE_MASK_INVOKEIDLIST: u32 = 12;
-pub const SEE_MASK_NOASYNC: u32 = 256;
-pub const SEE_MASK_NOCLOSEPROCESS: u32 = 64;
-pub const SEE_MASK_NOQUERYCLASSSTORE: u32 = 16777216;
-pub const SEE_MASK_NOZONECHECKS: u32 = 8388608;
-pub const SEE_MASK_NO_CONSOLE: u32 = 32768;
-pub const SEE_MASK_UNICODE: u32 = 16384;
-pub const SEE_MASK_WAITFORINPUTIDLE: u32 = 33554432;
-pub const SE_ERR_ACCESSDENIED: u32 = 5;
-pub const SE_ERR_ASSOCINCOMPLETE: u32 = 27;
-pub const SE_ERR_DDEBUSY: u32 = 30;
-pub const SE_ERR_DDEFAIL: u32 = 29;
-pub const SE_ERR_DDETIMEOUT: u32 = 28;
-pub const SE_ERR_DLLNOTFOUND: u32 = 32;
-pub const SE_ERR_FNF: u32 = 2;
-pub const SE_ERR_NOASSOC: u32 = 31;
-pub const SE_ERR_OOM: u32 = 8;
-pub const SE_ERR_PNF: u32 = 3;
-pub const SE_ERR_SHARE: u32 = 26;
+pub const SEE_MASK_ASYNCOK: i32 = 1048576;
+pub const SEE_MASK_CLASSKEY: i32 = 3;
+pub const SEE_MASK_CLASSNAME: i32 = 1;
+pub const SEE_MASK_CONNECTNETDRV: i32 = 128;
+pub const SEE_MASK_DEFAULT: i32 = 0;
+pub const SEE_MASK_DOENVSUBST: i32 = 512;
+pub const SEE_MASK_FLAG_DDEWAIT: i32 = 256;
+pub const SEE_MASK_FLAG_HINST_IS_SITE: i32 = 134217728;
+pub const SEE_MASK_FLAG_LOG_USAGE: i32 = 67108864;
+pub const SEE_MASK_FLAG_NO_UI: i32 = 1024;
+pub const SEE_MASK_HMONITOR: i32 = 2097152;
+pub const SEE_MASK_HOTKEY: i32 = 32;
+pub const SEE_MASK_IDLIST: i32 = 4;
+pub const SEE_MASK_INVOKEIDLIST: i32 = 12;
+pub const SEE_MASK_NOASYNC: i32 = 256;
+pub const SEE_MASK_NOCLOSEPROCESS: i32 = 64;
+pub const SEE_MASK_NOQUERYCLASSSTORE: i32 = 16777216;
+pub const SEE_MASK_NOZONECHECKS: i32 = 8388608;
+pub const SEE_MASK_NO_CONSOLE: i32 = 32768;
+pub const SEE_MASK_UNICODE: i32 = 16384;
+pub const SEE_MASK_WAITFORINPUTIDLE: i32 = 33554432;
+pub const SE_ERR_ACCESSDENIED: i32 = 5;
+pub const SE_ERR_ASSOCINCOMPLETE: i32 = 27;
+pub const SE_ERR_DDEBUSY: i32 = 30;
+pub const SE_ERR_DDEFAIL: i32 = 29;
+pub const SE_ERR_DDETIMEOUT: i32 = 28;
+pub const SE_ERR_DLLNOTFOUND: i32 = 32;
+pub const SE_ERR_FNF: i32 = 2;
+pub const SE_ERR_NOASSOC: i32 = 31;
+pub const SE_ERR_OOM: i32 = 8;
+pub const SE_ERR_PNF: i32 = 3;
+pub const SE_ERR_SHARE: i32 = 26;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
@@ -1307,9 +1307,9 @@ impl Default for SHELLEXECUTEINFOW_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SHERB_NOCONFIRMATION: u32 = 1;
-pub const SHERB_NOPROGRESSUI: u32 = 2;
-pub const SHERB_NOSOUND: u32 = 4;
+pub const SHERB_NOCONFIRMATION: i32 = 1;
+pub const SHERB_NOPROGRESSUI: i32 = 2;
+pub const SHERB_NOSOUND: i32 = 4;
 #[cfg(feature = "windef")]
 pub type SHFILEINFO = SHFILEINFOA;
 #[repr(C, packed(1))]
@@ -1470,44 +1470,44 @@ impl Default for SHFILEOPSTRUCTW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SHGFI_ADDOVERLAYS: u32 = 32;
-pub const SHGFI_ATTRIBUTES: u32 = 2048;
-pub const SHGFI_ATTR_SPECIFIED: u32 = 131072;
-pub const SHGFI_DISPLAYNAME: u32 = 512;
-pub const SHGFI_EXETYPE: u32 = 8192;
-pub const SHGFI_ICON: u32 = 256;
-pub const SHGFI_ICONLOCATION: u32 = 4096;
-pub const SHGFI_LARGEICON: u32 = 0;
-pub const SHGFI_LINKOVERLAY: u32 = 32768;
-pub const SHGFI_OPENICON: u32 = 2;
-pub const SHGFI_OVERLAYINDEX: u32 = 64;
-pub const SHGFI_PIDL: u32 = 8;
-pub const SHGFI_SELECTED: u32 = 65536;
-pub const SHGFI_SHELLICONSIZE: u32 = 4;
-pub const SHGFI_SMALLICON: u32 = 1;
-pub const SHGFI_SYSICONINDEX: u32 = 16384;
-pub const SHGFI_TYPENAME: u32 = 1024;
-pub const SHGFI_USEFILEATTRIBUTES: u32 = 16;
-pub const SHGNLI_NOLNK: u32 = 8;
-pub const SHGNLI_NOLOCNAME: u32 = 16;
-pub const SHGNLI_NOUNIQUE: u32 = 4;
-pub const SHGNLI_PIDL: u32 = 1;
-pub const SHGNLI_PREFIXNAME: u32 = 2;
-pub const SHGNLI_USEURLEXT: u32 = 32;
-pub const SHGSI_ICON: u32 = 256;
-pub const SHGSI_ICONLOCATION: u32 = 0;
-pub const SHGSI_LARGEICON: u32 = 0;
-pub const SHGSI_LINKOVERLAY: u32 = 32768;
-pub const SHGSI_SELECTED: u32 = 65536;
-pub const SHGSI_SHELLICONSIZE: u32 = 4;
-pub const SHGSI_SMALLICON: u32 = 1;
-pub const SHGSI_SYSICONINDEX: u32 = 16384;
-pub const SHIL_EXTRALARGE: u32 = 2;
-pub const SHIL_JUMBO: u32 = 4;
-pub const SHIL_LARGE: u32 = 0;
-pub const SHIL_LAST: u32 = 4;
-pub const SHIL_SMALL: u32 = 1;
-pub const SHIL_SYSSMALL: u32 = 3;
+pub const SHGFI_ADDOVERLAYS: i32 = 32;
+pub const SHGFI_ATTRIBUTES: i32 = 2048;
+pub const SHGFI_ATTR_SPECIFIED: i32 = 131072;
+pub const SHGFI_DISPLAYNAME: i32 = 512;
+pub const SHGFI_EXETYPE: i32 = 8192;
+pub const SHGFI_ICON: i32 = 256;
+pub const SHGFI_ICONLOCATION: i32 = 4096;
+pub const SHGFI_LARGEICON: i32 = 0;
+pub const SHGFI_LINKOVERLAY: i32 = 32768;
+pub const SHGFI_OPENICON: i32 = 2;
+pub const SHGFI_OVERLAYINDEX: i32 = 64;
+pub const SHGFI_PIDL: i32 = 8;
+pub const SHGFI_SELECTED: i32 = 65536;
+pub const SHGFI_SHELLICONSIZE: i32 = 4;
+pub const SHGFI_SMALLICON: i32 = 1;
+pub const SHGFI_SYSICONINDEX: i32 = 16384;
+pub const SHGFI_TYPENAME: i32 = 1024;
+pub const SHGFI_USEFILEATTRIBUTES: i32 = 16;
+pub const SHGNLI_NOLNK: i32 = 8;
+pub const SHGNLI_NOLOCNAME: i32 = 16;
+pub const SHGNLI_NOUNIQUE: i32 = 4;
+pub const SHGNLI_PIDL: i32 = 1;
+pub const SHGNLI_PREFIXNAME: i32 = 2;
+pub const SHGNLI_USEURLEXT: i32 = 32;
+pub const SHGSI_ICON: i32 = 256;
+pub const SHGSI_ICONLOCATION: i32 = 0;
+pub const SHGSI_LARGEICON: i32 = 0;
+pub const SHGSI_LINKOVERLAY: i32 = 32768;
+pub const SHGSI_SELECTED: i32 = 65536;
+pub const SHGSI_SHELLICONSIZE: i32 = 4;
+pub const SHGSI_SMALLICON: i32 = 1;
+pub const SHGSI_SYSICONINDEX: i32 = 16384;
+pub const SHIL_EXTRALARGE: i32 = 2;
+pub const SHIL_JUMBO: i32 = 4;
+pub const SHIL_LARGE: i32 = 0;
+pub const SHIL_LAST: i32 = 4;
+pub const SHIL_SMALL: i32 = 1;
+pub const SHIL_SYSSMALL: i32 = 3;
 pub type SHNAMEMAPPING = SHNAMEMAPPINGA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]

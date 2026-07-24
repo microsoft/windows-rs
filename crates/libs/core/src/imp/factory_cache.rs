@@ -146,11 +146,7 @@ unsafe fn get_activation_factory(
 
 unsafe fn delay_load<T>(library: crate::PCSTR, function: crate::PCSTR) -> Option<T> {
     unsafe {
-        let library = LoadLibraryExA(
-            library,
-            null_mut(),
-            LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
-        );
+        let library = LoadLibraryExA(library, null_mut(), LOAD_LIBRARY_SEARCH_DEFAULT_DIRS as u32);
 
         if library.is_null() {
             return None;

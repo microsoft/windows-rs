@@ -328,40 +328,40 @@ pub unsafe fn UnregisterGPNotification(hevent: super::HANDLE) -> windows_core::B
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ASYNCCOMPLETIONHANDLE(pub usize);
-pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432;
-pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912;
-pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864;
-pub const FLAG_FORCE_CREATENAMESPACE: u32 = 4;
-pub const FLAG_LOOPBACK_MERGE: u32 = 268435456;
-pub const FLAG_LOOPBACK_REPLACE: u32 = 134217728;
-pub const FLAG_NO_COMPUTER: u32 = 2;
-pub const FLAG_NO_CSE_INVOKE: u32 = 1073741824;
+pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: i32 = 33554432;
+pub const FLAG_ASSUME_SLOW_LINK: i32 = 536870912;
+pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: i32 = 67108864;
+pub const FLAG_FORCE_CREATENAMESPACE: i32 = 4;
+pub const FLAG_LOOPBACK_MERGE: i32 = 268435456;
+pub const FLAG_LOOPBACK_REPLACE: i32 = 134217728;
+pub const FLAG_NO_COMPUTER: i32 = 2;
+pub const FLAG_NO_CSE_INVOKE: i32 = 1073741824;
 pub const FLAG_NO_GPO_FILTER: u32 = 2147483648;
-pub const FLAG_NO_USER: u32 = 1;
-pub const FLAG_PLANNING_MODE: u32 = 16777216;
-pub const GPC_BLOCK_POLICY: u32 = 1;
+pub const FLAG_NO_USER: i32 = 1;
+pub const FLAG_PLANNING_MODE: i32 = 16777216;
+pub const GPC_BLOCK_POLICY: i32 = 1;
 pub const GPLinkDomain: GPO_LINK = 3;
 pub const GPLinkMachine: GPO_LINK = 1;
 pub const GPLinkOrganizationalUnit: GPO_LINK = 4;
 pub const GPLinkSite: GPO_LINK = 2;
 pub const GPLinkUnknown: GPO_LINK = 0;
-pub const GPO_FLAG_DISABLE: u32 = 1;
-pub const GPO_FLAG_FORCE: u32 = 2;
-pub const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096;
-pub const GPO_INFO_FLAG_BACKGROUND: u32 = 16;
-pub const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024;
-pub const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256;
-pub const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512;
-pub const GPO_INFO_FLAG_MACHINE: u32 = 1;
-pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128;
-pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048;
-pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32;
-pub const GPO_INFO_FLAG_VERBOSE: u32 = 64;
+pub const GPO_FLAG_DISABLE: i32 = 1;
+pub const GPO_FLAG_FORCE: i32 = 2;
+pub const GPO_INFO_FLAG_ASYNC_FOREGROUND: i32 = 4096;
+pub const GPO_INFO_FLAG_BACKGROUND: i32 = 16;
+pub const GPO_INFO_FLAG_FORCED_REFRESH: i32 = 1024;
+pub const GPO_INFO_FLAG_LINKTRANSITION: i32 = 256;
+pub const GPO_INFO_FLAG_LOGRSOP_TRANSITION: i32 = 512;
+pub const GPO_INFO_FLAG_MACHINE: i32 = 1;
+pub const GPO_INFO_FLAG_NOCHANGES: i32 = 128;
+pub const GPO_INFO_FLAG_SAFEMODE_BOOT: i32 = 2048;
+pub const GPO_INFO_FLAG_SLOWLINK: i32 = 32;
+pub const GPO_INFO_FLAG_VERBOSE: i32 = 64;
 pub type GPO_LINK = i32;
-pub const GPO_LIST_FLAG_MACHINE: u32 = 1;
-pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8;
-pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4;
-pub const GPO_LIST_FLAG_SITEONLY: u32 = 2;
+pub const GPO_LIST_FLAG_MACHINE: i32 = 1;
+pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: i32 = 8;
+pub const GPO_LIST_FLAG_NO_WMIFILTERS: i32 = 4;
+pub const GPO_LIST_FLAG_SITEONLY: i32 = 2;
 #[cfg(feature = "minwindef")]
 pub type GROUP_POLICY_OBJECT = GROUP_POLICY_OBJECTA;
 #[repr(C)]
@@ -428,8 +428,8 @@ pub type PGROUP_POLICY_OBJECT = PGROUP_POLICY_OBJECTA;
 pub type PGROUP_POLICY_OBJECTA = *mut GROUP_POLICY_OBJECTA;
 #[cfg(feature = "minwindef")]
 pub type PGROUP_POLICY_OBJECTW = *mut GROUP_POLICY_OBJECTW;
-pub const PI_APPLYPOLICY: u32 = 2;
-pub const PI_NOUI: u32 = 1;
+pub const PI_APPLYPOLICY: i32 = 2;
+pub const PI_NOUI: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -452,19 +452,19 @@ impl Default for PRSOPTOKEN {
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
 pub type PRSOP_TARGET = *mut RSOP_TARGET;
-pub const PT_MANDATORY: u32 = 4;
-pub const PT_ROAMING: u32 = 2;
-pub const PT_ROAMING_PREEXISTING: u32 = 8;
-pub const PT_TEMPORARY: u32 = 1;
+pub const PT_MANDATORY: i32 = 4;
+pub const PT_ROAMING: i32 = 2;
+pub const PT_ROAMING_PREEXISTING: i32 = 8;
+pub const PT_TEMPORARY: i32 = 1;
 pub type REFGPEXTENSIONID = *mut windows_core::GUID;
-pub const RP_FORCE: u32 = 1;
-pub const RP_SYNC: u32 = 2;
+pub const RP_FORCE: i32 = 1;
+pub const RP_SYNC: i32 = 2;
 pub const RSOPApplied: SETTINGSTATUS = 1;
 pub const RSOPFailed: SETTINGSTATUS = 3;
 pub const RSOPIgnored: SETTINGSTATUS = 2;
 pub const RSOPSubsettingFailed: SETTINGSTATUS = 4;
 pub const RSOPUnspecified: SETTINGSTATUS = 0;
-pub const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2;
+pub const RSOP_COMPUTER_ACCESS_DENIED: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -482,6 +482,6 @@ impl Default for RSOP_TARGET {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4;
-pub const RSOP_USER_ACCESS_DENIED: u32 = 1;
+pub const RSOP_TEMPNAMESPACE_EXISTS: i32 = 4;
+pub const RSOP_USER_ACCESS_DENIED: i32 = 1;
 pub type SETTINGSTATUS = i32;

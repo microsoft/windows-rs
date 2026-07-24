@@ -42,8 +42,8 @@ pub type PWCM_PROFILE_INFO_LIST = *mut WCM_PROFILE_INFO_LIST;
 pub type PWCM_PROPERTY = *mut WCM_PROPERTY;
 #[cfg(feature = "minwindef")]
 pub type PWCM_USAGE_DATA = *mut WCM_USAGE_DATA;
-pub const WCM_API_VERSION: u32 = 1;
-pub const WCM_API_VERSION_1_0: u32 = 1;
+pub const WCM_API_VERSION: i32 = 1;
+pub const WCM_API_VERSION_1_0: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -84,7 +84,7 @@ pub struct WCM_DATAPLAN_STATUS {
     pub MaxTransferSizeInMegabytes: u32,
     pub Reserved: u32,
 }
-pub const WCM_MAX_PROFILE_NAME: u32 = 256;
+pub const WCM_MAX_PROFILE_NAME: i32 = 256;
 pub type WCM_MEDIA_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -34,20 +34,20 @@ pub struct PRINT_OTHER_INFO {
     pub alrtpr_submitted: u32,
     pub alrtpr_size: u32,
 }
-pub const PRJOB_COMPLETE: u32 = 4;
-pub const PRJOB_DELETED: u32 = 32768;
-pub const PRJOB_DESTNOPAPER: u32 = 256;
-pub const PRJOB_DESTOFFLINE: u32 = 32;
-pub const PRJOB_DESTPAUSED: u32 = 64;
-pub const PRJOB_DEVSTATUS: u32 = 508;
-pub const PRJOB_ERROR: u32 = 16;
-pub const PRJOB_INTERV: u32 = 8;
-pub const PRJOB_NOTIFY: u32 = 128;
-pub const PRJOB_QSTATUS: u32 = 3;
-pub const PRJOB_QS_PAUSED: u32 = 1;
-pub const PRJOB_QS_PRINTING: u32 = 3;
-pub const PRJOB_QS_QUEUED: u32 = 0;
-pub const PRJOB_QS_SPOOLING: u32 = 2;
+pub const PRJOB_COMPLETE: i32 = 4;
+pub const PRJOB_DELETED: i32 = 32768;
+pub const PRJOB_DESTNOPAPER: i32 = 256;
+pub const PRJOB_DESTOFFLINE: i32 = 32;
+pub const PRJOB_DESTPAUSED: i32 = 64;
+pub const PRJOB_DEVSTATUS: i32 = 508;
+pub const PRJOB_ERROR: i32 = 16;
+pub const PRJOB_INTERV: i32 = 8;
+pub const PRJOB_NOTIFY: i32 = 128;
+pub const PRJOB_QSTATUS: i32 = 3;
+pub const PRJOB_QS_PAUSED: i32 = 1;
+pub const PRJOB_QS_PRINTING: i32 = 3;
+pub const PRJOB_QS_QUEUED: i32 = 0;
+pub const PRJOB_QS_SPOOLING: i32 = 2;
 pub type PSTD_ALERT = *mut STD_ALERT;
 pub type PUSER_OTHER_INFO = *mut USER_OTHER_INFO;
 #[repr(C)]

@@ -205,7 +205,7 @@ pub type LSA_OPEN_SAM_USER = Option<unsafe extern "system" fn(name: *const super
 #[cfg(feature = "winnt")]
 pub type LSA_OPEN_TOKEN_BY_LOGON_ID = Option<unsafe extern "system" fn(logonid: *const super::LUID, rettokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
 pub type LSA_PROTECT_MEMORY = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, buffersize: u32)>;
-pub const LSA_QUERY_CLIENT_PRELOGON_SESSION_ID: u32 = 1;
+pub const LSA_QUERY_CLIENT_PRELOGON_SESSION_ID: i32 = 1;
 pub type LSA_QUERY_CLIENT_REQUEST = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, querytype: u32, replybuffer: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type LSA_REDIRECTED_LOGON_CALLBACK = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32, returnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32) -> windows_core::NTSTATUS>;
@@ -346,20 +346,20 @@ pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = 0;
 pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = 1;
 pub const LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = 2;
 pub const LsaTokenInformationV3: LSA_TOKEN_INFORMATION_TYPE = 3;
-pub const MAX_CRED_SIZE: u32 = 1024;
-pub const NOTIFIER_FLAG_NEW_THREAD: u32 = 1;
-pub const NOTIFIER_FLAG_ONE_SHOT: u32 = 2;
+pub const MAX_CRED_SIZE: i32 = 1024;
+pub const NOTIFIER_FLAG_NEW_THREAD: i32 = 1;
+pub const NOTIFIER_FLAG_ONE_SHOT: i32 = 2;
 pub const NOTIFIER_FLAG_SECONDS: u32 = 2147483648;
-pub const NOTIFIER_TYPE_HANDLE_WAIT: u32 = 2;
-pub const NOTIFIER_TYPE_IMMEDIATE: u32 = 16;
-pub const NOTIFIER_TYPE_INTERVAL: u32 = 1;
-pub const NOTIFIER_TYPE_NOTIFY_EVENT: u32 = 4;
-pub const NOTIFIER_TYPE_STATE_CHANGE: u32 = 3;
-pub const NOTIFY_CLASS_DOMAIN_CHANGE: u32 = 3;
-pub const NOTIFY_CLASS_PACKAGE_CHANGE: u32 = 1;
-pub const NOTIFY_CLASS_REGISTRY_CHANGE: u32 = 4;
-pub const NOTIFY_CLASS_ROLE_CHANGE: u32 = 2;
-pub const NO_LONG_NAMES: u32 = 2;
+pub const NOTIFIER_TYPE_HANDLE_WAIT: i32 = 2;
+pub const NOTIFIER_TYPE_IMMEDIATE: i32 = 16;
+pub const NOTIFIER_TYPE_INTERVAL: i32 = 1;
+pub const NOTIFIER_TYPE_NOTIFY_EVENT: i32 = 4;
+pub const NOTIFIER_TYPE_STATE_CHANGE: i32 = 3;
+pub const NOTIFY_CLASS_DOMAIN_CHANGE: i32 = 3;
+pub const NOTIFY_CLASS_PACKAGE_CHANGE: i32 = 1;
+pub const NOTIFY_CLASS_REGISTRY_CHANGE: i32 = 4;
+pub const NOTIFY_CLASS_ROLE_CHANGE: i32 = 2;
+pub const NO_LONG_NAMES: i32 = 2;
 pub type PCRED_FETCH = *mut CRED_FETCH;
 pub type PKSEC_CREATE_CONTEXT_LIST = Option<unsafe extern "system" fn(r#type: KSEC_CONTEXT_TYPE) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
@@ -525,33 +525,33 @@ pub type PLSA_TOKEN_INFORMATION_V3 = *mut LSA_TOKEN_INFORMATION_V3;
 pub type PLSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 pub type PLSA_UPDATE_PRIMARY_CREDENTIALS = Option<unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
-pub const PRIMARY_CRED_ARSO_LOGON: u32 = 2097152;
-pub const PRIMARY_CRED_AUTH_ID: u32 = 512;
-pub const PRIMARY_CRED_CACHED_INTERACTIVE_LOGON: u32 = 262144;
-pub const PRIMARY_CRED_CACHED_LOGON: u32 = 8;
-pub const PRIMARY_CRED_CLEAR_PASSWORD: u32 = 1;
-pub const PRIMARY_CRED_DO_NOT_SPLIT: u32 = 1024;
-pub const PRIMARY_CRED_ENCRYPTED_CREDGUARD_PASSWORD: u32 = 131072;
-pub const PRIMARY_CRED_ENTERPRISE_INTERNET_USER: u32 = 65536;
-pub const PRIMARY_CRED_EX: u32 = 4096;
-pub const PRIMARY_CRED_FOR_PASSWORD_CHANGE: u32 = 8388608;
-pub const PRIMARY_CRED_INTERACTIVE_FIDO_LOGON: u32 = 1048576;
-pub const PRIMARY_CRED_INTERACTIVE_NGC_LOGON: u32 = 524288;
-pub const PRIMARY_CRED_INTERACTIVE_SMARTCARD_LOGON: u32 = 64;
-pub const PRIMARY_CRED_INTERNET_USER: u32 = 256;
-pub const PRIMARY_CRED_LOCAL_USER: u32 = 16777216;
-pub const PRIMARY_CRED_LOGON_LUA: u32 = 32;
-pub const PRIMARY_CRED_LOGON_NO_TCB: u32 = 16;
-pub const PRIMARY_CRED_LOGON_PACKAGE_SHIFT: u32 = 24;
-pub const PRIMARY_CRED_OWF_PASSWORD: u32 = 2;
+pub const PRIMARY_CRED_ARSO_LOGON: i32 = 2097152;
+pub const PRIMARY_CRED_AUTH_ID: i32 = 512;
+pub const PRIMARY_CRED_CACHED_INTERACTIVE_LOGON: i32 = 262144;
+pub const PRIMARY_CRED_CACHED_LOGON: i32 = 8;
+pub const PRIMARY_CRED_CLEAR_PASSWORD: i32 = 1;
+pub const PRIMARY_CRED_DO_NOT_SPLIT: i32 = 1024;
+pub const PRIMARY_CRED_ENCRYPTED_CREDGUARD_PASSWORD: i32 = 131072;
+pub const PRIMARY_CRED_ENTERPRISE_INTERNET_USER: i32 = 65536;
+pub const PRIMARY_CRED_EX: i32 = 4096;
+pub const PRIMARY_CRED_FOR_PASSWORD_CHANGE: i32 = 8388608;
+pub const PRIMARY_CRED_INTERACTIVE_FIDO_LOGON: i32 = 1048576;
+pub const PRIMARY_CRED_INTERACTIVE_NGC_LOGON: i32 = 524288;
+pub const PRIMARY_CRED_INTERACTIVE_SMARTCARD_LOGON: i32 = 64;
+pub const PRIMARY_CRED_INTERNET_USER: i32 = 256;
+pub const PRIMARY_CRED_LOCAL_USER: i32 = 16777216;
+pub const PRIMARY_CRED_LOGON_LUA: i32 = 32;
+pub const PRIMARY_CRED_LOGON_NO_TCB: i32 = 16;
+pub const PRIMARY_CRED_LOGON_PACKAGE_SHIFT: i32 = 24;
+pub const PRIMARY_CRED_OWF_PASSWORD: i32 = 2;
 pub const PRIMARY_CRED_PACKAGE_MASK: u32 = 4278190080;
-pub const PRIMARY_CRED_PACKED_CREDS: u32 = 32768;
-pub const PRIMARY_CRED_PROTECTED_USER: u32 = 2048;
-pub const PRIMARY_CRED_REFRESH_NEEDED: u32 = 128;
-pub const PRIMARY_CRED_RESTRICTED_TS: u32 = 16384;
-pub const PRIMARY_CRED_SUPPLEMENTAL: u32 = 4194304;
-pub const PRIMARY_CRED_TRANSFER: u32 = 8192;
-pub const PRIMARY_CRED_UPDATE: u32 = 4;
+pub const PRIMARY_CRED_PACKED_CREDS: i32 = 32768;
+pub const PRIMARY_CRED_PROTECTED_USER: i32 = 2048;
+pub const PRIMARY_CRED_REFRESH_NEEDED: i32 = 128;
+pub const PRIMARY_CRED_RESTRICTED_TS: i32 = 16384;
+pub const PRIMARY_CRED_SUPPLEMENTAL: i32 = 4194304;
+pub const PRIMARY_CRED_TRANSFER: i32 = 8192;
+pub const PRIMARY_CRED_UPDATE: i32 = 4;
 pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = Option<unsafe extern "system" fn(p: *const core::ffi::c_void)>;
 #[cfg(feature = "lsalookup")]
 pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(clearpassword: *const super::LSA_UNICODE_STRING, oldcredentials: *const core::ffi::c_void, oldcredentialsize: u32, useraccountcontrol: u32, upn: *const super::LSA_UNICODE_STRING, username: *const super::LSA_UNICODE_STRING, netbiosdomainname: *const super::LSA_UNICODE_STRING, dnsdomainname: *const super::LSA_UNICODE_STRING, newcredentials: *mut *mut core::ffi::c_void, newcredentialsize: *mut u32) -> windows_core::NTSTATUS>;
@@ -656,24 +656,24 @@ pub struct SAM_REGISTER_MAPPING_TABLE {
     pub Count: u32,
     pub Lists: PSAM_REGISTER_MAPPING_LIST,
 }
-pub const SECBUFFER_KERNEL_MAP: u32 = 536870912;
-pub const SECBUFFER_UNMAPPED: u32 = 1073741824;
+pub const SECBUFFER_KERNEL_MAP: i32 = 536870912;
+pub const SECBUFFER_UNMAPPED: i32 = 1073741824;
 pub const SECPKG_ALL_PACKAGES: u32 = 4294967294;
-pub const SECPKG_ANSI_ATTRIBUTE: u32 = 0;
-pub const SECPKG_ATTR_SASL_CONTEXT: u32 = 65536;
-pub const SECPKG_ATTR_THUNK_ALL: u32 = 65536;
+pub const SECPKG_ANSI_ATTRIBUTE: i32 = 0;
+pub const SECPKG_ATTR_SASL_CONTEXT: i32 = 65536;
+pub const SECPKG_ATTR_THUNK_ALL: i32 = 65536;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_BYTE_VECTOR {
     pub ByteArrayOffset: u32,
     pub ByteArrayLength: u16,
 }
-pub const SECPKG_CALL_AGENT_LOGON: u32 = 524288;
-pub const SECPKG_CALL_ANSI: u32 = 2;
-pub const SECPKG_CALL_ASYNC_UPDATE: u32 = 4096;
-pub const SECPKG_CALL_BUFFER_MARSHAL: u32 = 65536;
-pub const SECPKG_CALL_CLEANUP: u32 = 32;
-pub const SECPKG_CALL_CLOUDAP_CONNECT: u32 = 262144;
+pub const SECPKG_CALL_AGENT_LOGON: i32 = 524288;
+pub const SECPKG_CALL_ANSI: i32 = 2;
+pub const SECPKG_CALL_ASYNC_UPDATE: i32 = 4096;
+pub const SECPKG_CALL_BUFFER_MARSHAL: i32 = 65536;
+pub const SECPKG_CALL_CLEANUP: i32 = 32;
+pub const SECPKG_CALL_CLOUDAP_CONNECT: i32 = 262144;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_CALL_INFO {
@@ -688,12 +688,12 @@ impl Default for SECPKG_CALL_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SECPKG_CALL_IN_PROC: u32 = 16;
-pub const SECPKG_CALL_IS_TCB: u32 = 512;
-pub const SECPKG_CALL_KERNEL_MODE: u32 = 1;
-pub const SECPKG_CALL_NEGO: u32 = 16384;
-pub const SECPKG_CALL_NEGO_EXTENDER: u32 = 32768;
-pub const SECPKG_CALL_NETWORK_ONLY: u32 = 1024;
+pub const SECPKG_CALL_IN_PROC: i32 = 16;
+pub const SECPKG_CALL_IS_TCB: i32 = 512;
+pub const SECPKG_CALL_KERNEL_MODE: i32 = 1;
+pub const SECPKG_CALL_NEGO: i32 = 16384;
+pub const SECPKG_CALL_NEGO_EXTENDER: i32 = 32768;
+pub const SECPKG_CALL_NETWORK_ONLY: i32 = 1024;
 pub type SECPKG_CALL_PACKAGE_MESSAGE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
@@ -714,25 +714,25 @@ pub struct SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
     pub DestinationLogonId: super::LUID,
     pub Flags: u32,
 }
-pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_CLEANUP_CREDENTIALS: u32 = 2;
-pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_OPTIMISTIC_LOGON: u32 = 1;
-pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_TO_SSO_SESSION: u32 = 4;
+pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_CLEANUP_CREDENTIALS: i32 = 2;
+pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_OPTIMISTIC_LOGON: i32 = 1;
+pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_TO_SSO_SESSION: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
     pub MessageType: u32,
     pub Flags: u32,
 }
-pub const SECPKG_CALL_PROCESS_TERM: u32 = 256;
-pub const SECPKG_CALL_RECURSIVE: u32 = 8;
-pub const SECPKG_CALL_SYSTEM_PROC: u32 = 8192;
-pub const SECPKG_CALL_THREAD_TERM: u32 = 128;
-pub const SECPKG_CALL_UNLOCK: u32 = 131072;
-pub const SECPKG_CALL_URGENT: u32 = 4;
-pub const SECPKG_CALL_WINLOGON: u32 = 2048;
-pub const SECPKG_CALL_WOWA32: u32 = 262144;
-pub const SECPKG_CALL_WOWCLIENT: u32 = 64;
-pub const SECPKG_CALL_WOWX86: u32 = 64;
+pub const SECPKG_CALL_PROCESS_TERM: i32 = 256;
+pub const SECPKG_CALL_RECURSIVE: i32 = 8;
+pub const SECPKG_CALL_SYSTEM_PROC: i32 = 8192;
+pub const SECPKG_CALL_THREAD_TERM: i32 = 128;
+pub const SECPKG_CALL_UNLOCK: i32 = 131072;
+pub const SECPKG_CALL_URGENT: i32 = 4;
+pub const SECPKG_CALL_WINLOGON: i32 = 2048;
+pub const SECPKG_CALL_WOWA32: i32 = 262144;
+pub const SECPKG_CALL_WOWCLIENT: i32 = 64;
+pub const SECPKG_CALL_WOWX86: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -763,8 +763,8 @@ pub struct SECPKG_CLIENT_INFO_EX {
     pub IdentificationLogonId: super::LUID,
     pub IdentificationToken: super::HANDLE,
 }
-pub const SECPKG_CLIENT_PROCESS_TERMINATED: u32 = 1;
-pub const SECPKG_CLIENT_THREAD_TERMINATED: u32 = 2;
+pub const SECPKG_CLIENT_PROCESS_TERMINATED: i32 = 1;
+pub const SECPKG_CLIENT_THREAD_TERMINATED: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_CONTEXT_THUNKS {
@@ -795,10 +795,10 @@ pub struct SECPKG_CREDENTIAL {
     pub PackageList: SECPKG_BYTE_VECTOR,
     pub MarshaledSuppliedCreds: SECPKG_BYTE_VECTOR,
 }
-pub const SECPKG_CREDENTIAL_ATTRIBUTE: u32 = 0;
-pub const SECPKG_CREDENTIAL_FLAGS_CALLER_HAS_TCB: u32 = 1;
-pub const SECPKG_CREDENTIAL_FLAGS_CREDMAN_CRED: u32 = 2;
-pub const SECPKG_CREDENTIAL_VERSION: u32 = 201;
+pub const SECPKG_CREDENTIAL_ATTRIBUTE: i32 = 0;
+pub const SECPKG_CREDENTIAL_FLAGS_CALLER_HAS_TCB: i32 = 1;
+pub const SECPKG_CREDENTIAL_FLAGS_CREDMAN_CRED: i32 = 2;
+pub const SECPKG_CREDENTIAL_VERSION: i32 = 201;
 #[repr(C)]
 #[cfg(feature = "sspi")]
 #[derive(Clone, Copy, Debug, Default)]
@@ -946,17 +946,17 @@ impl Default for SECPKG_GSS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SECPKG_INTERFACE_VERSION: u32 = 65536;
-pub const SECPKG_INTERFACE_VERSION_10: u32 = 33554432;
-pub const SECPKG_INTERFACE_VERSION_11: u32 = 67108864;
-pub const SECPKG_INTERFACE_VERSION_2: u32 = 131072;
-pub const SECPKG_INTERFACE_VERSION_3: u32 = 262144;
-pub const SECPKG_INTERFACE_VERSION_4: u32 = 524288;
-pub const SECPKG_INTERFACE_VERSION_5: u32 = 1048576;
-pub const SECPKG_INTERFACE_VERSION_6: u32 = 2097152;
-pub const SECPKG_INTERFACE_VERSION_7: u32 = 4194304;
-pub const SECPKG_INTERFACE_VERSION_8: u32 = 8388608;
-pub const SECPKG_INTERFACE_VERSION_9: u32 = 16777216;
+pub const SECPKG_INTERFACE_VERSION: i32 = 65536;
+pub const SECPKG_INTERFACE_VERSION_10: i32 = 33554432;
+pub const SECPKG_INTERFACE_VERSION_11: i32 = 67108864;
+pub const SECPKG_INTERFACE_VERSION_2: i32 = 131072;
+pub const SECPKG_INTERFACE_VERSION_3: i32 = 262144;
+pub const SECPKG_INTERFACE_VERSION_4: i32 = 524288;
+pub const SECPKG_INTERFACE_VERSION_5: i32 = 1048576;
+pub const SECPKG_INTERFACE_VERSION_6: i32 = 2097152;
+pub const SECPKG_INTERFACE_VERSION_7: i32 = 4194304;
+pub const SECPKG_INTERFACE_VERSION_8: i32 = 8388608;
+pub const SECPKG_INTERFACE_VERSION_9: i32 = 16777216;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
@@ -992,9 +992,9 @@ pub struct SECPKG_KERNEL_FUNCTION_TABLE {
     pub SerializeAuthData: KspSerializeAuthDataFn,
 }
 pub const SECPKG_LSAMODEINIT_NAME: windows_core::PCSTR = windows_core::s!("SpLsaModeInitialize");
-pub const SECPKG_MAX_OID_LENGTH: u32 = 32;
-pub const SECPKG_MSVAV_FLAGS_VALID: u32 = 1;
-pub const SECPKG_MSVAV_TIMESTAMP_VALID: u32 = 2;
+pub const SECPKG_MAX_OID_LENGTH: i32 = 32;
+pub const SECPKG_MSVAV_FLAGS_VALID: i32 = 1;
+pub const SECPKG_MSVAV_TIMESTAMP_VALID: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_MUTUAL_AUTH_LEVEL {
@@ -1026,9 +1026,9 @@ pub struct SECPKG_NTLM_TARGETINFO {
     pub MsvAvTimestamp: super::FILETIME,
     pub MsvAvTargetName: windows_core::PWSTR,
 }
-pub const SECPKG_PACKAGE_CHANGE_LOAD: u32 = 0;
-pub const SECPKG_PACKAGE_CHANGE_SELECT: u32 = 2;
-pub const SECPKG_PACKAGE_CHANGE_UNLOAD: u32 = 1;
+pub const SECPKG_PACKAGE_CHANGE_LOAD: i32 = 0;
+pub const SECPKG_PACKAGE_CHANGE_SELECT: i32 = 2;
+pub const SECPKG_PACKAGE_CHANGE_UNLOAD: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1090,7 +1090,7 @@ pub struct SECPKG_PRIMARY_CRED_EX {
     pub PrevLogonId: super::LUID,
     pub FlagsEx: u32,
 }
-pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: u32 = 1;
+pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -1123,13 +1123,13 @@ pub struct SECPKG_SHORT_VECTOR {
     pub ShortArrayOffset: u32,
     pub ShortArrayCount: u16,
 }
-pub const SECPKG_STATE_CRED_ISOLATION_ENABLED: u32 = 32;
-pub const SECPKG_STATE_DOMAIN_CONTROLLER: u32 = 4;
-pub const SECPKG_STATE_ENCRYPTION_PERMITTED: u32 = 1;
+pub const SECPKG_STATE_CRED_ISOLATION_ENABLED: i32 = 32;
+pub const SECPKG_STATE_DOMAIN_CONTROLLER: i32 = 4;
+pub const SECPKG_STATE_ENCRYPTION_PERMITTED: i32 = 1;
 pub const SECPKG_STATE_RESERVED_1: u32 = 2147483648;
-pub const SECPKG_STATE_STANDALONE: u32 = 16;
-pub const SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED: u32 = 2;
-pub const SECPKG_STATE_WORKSTATION: u32 = 8;
+pub const SECPKG_STATE_STANDALONE: i32 = 16;
+pub const SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED: i32 = 2;
+pub const SECPKG_STATE_WORKSTATION: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1181,7 +1181,7 @@ impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SECPKG_SURROGATE_LOGON_VERSION_1: u32 = 1;
+pub const SECPKG_SURROGATE_LOGON_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1382,4 +1382,4 @@ pub type SpUserModeInitializeFn = Option<unsafe extern "system" fn(lsaversion: u
 pub type SpValidateTargetInfoFn = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, targetinfo: *const SECPKG_TARGETINFO) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type SpVerifySignatureFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, messagebuffers: *const super::SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> windows_core::NTSTATUS>;
-pub const UNDERSTANDS_LONG_NAMES: u32 = 1;
+pub const UNDERSTANDS_LONG_NAMES: i32 = 1;

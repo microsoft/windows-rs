@@ -36,10 +36,10 @@ pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
 }
-pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: u32 = 14;
-pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: u32 = 64;
-pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: u32 = 1024;
-pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: u32 = 256;
+pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: i32 = 14;
+pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: i32 = 64;
+pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: i32 = 1024;
+pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: i32 = 256;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
@@ -68,10 +68,10 @@ impl Default for IMAGE_DOS_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_DOS_SIGNATURE: u32 = 23117;
-pub const IMAGE_FILE_32BIT_MACHINE: u32 = 256;
-pub const IMAGE_FILE_DLL: u32 = 8192;
-pub const IMAGE_FILE_EXECUTABLE_IMAGE: u32 = 2;
+pub const IMAGE_DOS_SIGNATURE: i32 = 23117;
+pub const IMAGE_FILE_32BIT_MACHINE: i32 = 256;
+pub const IMAGE_FILE_DLL: i32 = 8192;
+pub const IMAGE_FILE_EXECUTABLE_IMAGE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_FILE_HEADER {
@@ -83,10 +83,10 @@ pub struct IMAGE_FILE_HEADER {
     pub SizeOfOptionalHeader: u16,
     pub Characteristics: u16,
 }
-pub const IMAGE_FILE_MACHINE_I386: u32 = 332;
-pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: u32 = 267;
-pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: u32 = 523;
-pub const IMAGE_NT_SIGNATURE: u32 = 17744;
+pub const IMAGE_FILE_MACHINE_I386: i32 = 332;
+pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: i32 = 267;
+pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: i32 = 523;
+pub const IMAGE_NT_SIGNATURE: i32 = 17744;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
@@ -196,4 +196,4 @@ impl Default for IMAGE_SECTION_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: u32 = 3;
+pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: i32 = 3;

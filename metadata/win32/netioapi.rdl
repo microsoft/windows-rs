@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const ANY_SIZE: u32 = 1;
+        const ANY_SIZE: i32 = 1;
         #[library("IPHLPAPI.DLL")]
         extern fn CancelMibChangeNotify2(NotificationHandle: HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -44,45 +44,45 @@ mod Windows {
         extern fn CreateSortedAddressPairs(#[opt] SourceAddressList: *const SOCKADDR_IN6_LH, SourceAddressCount: u32, DestinationAddressList: *const SOCKADDR_IN6_LH, DestinationAddressCount: u32, AddressSortOptions: u32, SortedAddressPairList: *mut PSOCKADDR_IN6_PAIR, SortedAddressPairCount: *mut u32) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn CreateUnicastIpAddressEntry(Row: *const MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
-        const DNS_DDR_ADAPTER_ENABLE: u32 = 1;
-        const DNS_DDR_ADAPTER_ENABLE_DOH: u32 = 1;
-        const DNS_DDR_ADAPTER_ENABLE_UDP_FALLBACK: u32 = 2;
-        const DNS_DDR_ADAPTER_MAKE_DDR_NON_BLOCKING: u32 = 4;
-        const DNS_DOH_AUTO_UPGRADE_SERVER: u32 = 8;
-        const DNS_DOH_POLICY_AUTO: u32 = 16;
-        const DNS_DOH_POLICY_BLOCK: u32 = 512;
-        const DNS_DOH_POLICY_DISABLE: u32 = 8;
-        const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4;
-        const DNS_DOH_POLICY_REQUIRED: u32 = 32;
+        const DNS_DDR_ADAPTER_ENABLE: i32 = 1;
+        const DNS_DDR_ADAPTER_ENABLE_DOH: i32 = 1;
+        const DNS_DDR_ADAPTER_ENABLE_UDP_FALLBACK: i32 = 2;
+        const DNS_DDR_ADAPTER_MAKE_DDR_NON_BLOCKING: i32 = 4;
+        const DNS_DOH_AUTO_UPGRADE_SERVER: i32 = 8;
+        const DNS_DOH_POLICY_AUTO: i32 = 16;
+        const DNS_DOH_POLICY_BLOCK: i32 = 512;
+        const DNS_DOH_POLICY_DISABLE: i32 = 8;
+        const DNS_DOH_POLICY_NOT_CONFIGURED: i32 = 4;
+        const DNS_DOH_POLICY_REQUIRED: i32 = 32;
         struct DNS_DOH_SERVER_SETTINGS {
             Template: PWSTR,
             Flags: u64,
         }
-        const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2;
-        const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1;
-        const DNS_DOH_SERVER_SETTINGS_ENABLE_DDR: u32 = 16;
-        const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4;
-        const DNS_DOH_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: u32 = 32;
-        const DNS_DOT_AUTO_UPGRADE_SERVER: u32 = 4;
-        const DNS_DOT_POLICY_BLOCK: u32 = 256;
+        const DNS_DOH_SERVER_SETTINGS_ENABLE: i32 = 2;
+        const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: i32 = 1;
+        const DNS_DOH_SERVER_SETTINGS_ENABLE_DDR: i32 = 16;
+        const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: i32 = 4;
+        const DNS_DOH_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: i32 = 32;
+        const DNS_DOT_AUTO_UPGRADE_SERVER: i32 = 4;
+        const DNS_DOT_POLICY_BLOCK: i32 = 256;
         struct DNS_DOT_SERVER_SETTINGS {
             Hostname: PWSTR,
             Flags: u64,
             Port: u16,
         }
-        const DNS_DOT_SERVER_SETTINGS_ENABLE: u32 = 1;
-        const DNS_DOT_SERVER_SETTINGS_ENABLE_AUTO: u32 = 8;
-        const DNS_DOT_SERVER_SETTINGS_ENABLE_DDR: u32 = 16;
-        const DNS_DOT_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 2;
-        const DNS_DOT_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: u32 = 32;
-        const DNS_ENABLE_DDR: u32 = 64;
-        const DNS_ENABLE_DNR: u32 = 1024;
-        const DNS_ENABLE_DOH: u32 = 1;
-        const DNS_ENABLE_DOT: u32 = 128;
-        const DNS_ENCRYPTION_POLICY_AUTO: u32 = 16;
-        const DNS_ENCRYPTION_POLICY_DISABLE: u32 = 8;
-        const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: u32 = 4;
-        const DNS_ENCRYPTION_POLICY_REQUIRED: u32 = 32;
+        const DNS_DOT_SERVER_SETTINGS_ENABLE: i32 = 1;
+        const DNS_DOT_SERVER_SETTINGS_ENABLE_AUTO: i32 = 8;
+        const DNS_DOT_SERVER_SETTINGS_ENABLE_DDR: i32 = 16;
+        const DNS_DOT_SERVER_SETTINGS_FALLBACK_TO_UDP: i32 = 2;
+        const DNS_DOT_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: i32 = 32;
+        const DNS_ENABLE_DDR: i32 = 64;
+        const DNS_ENABLE_DNR: i32 = 1024;
+        const DNS_ENABLE_DOH: i32 = 1;
+        const DNS_ENABLE_DOT: i32 = 128;
+        const DNS_ENCRYPTION_POLICY_AUTO: i32 = 16;
+        const DNS_ENCRYPTION_POLICY_DISABLE: i32 = 8;
+        const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: i32 = 4;
+        const DNS_ENCRYPTION_POLICY_REQUIRED: i32 = 32;
         struct DNS_INTERFACE_SETTINGS {
             Version: u32,
             Flags: u64,
@@ -137,10 +137,10 @@ mod Windows {
             DisableUnconstrainedQueries: u32,
             SupplementalSearchList: PWSTR,
         }
-        const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1;
-        const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2;
-        const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3;
-        const DNS_INTERFACE_SETTINGS_VERSION4: u32 = 4;
+        const DNS_INTERFACE_SETTINGS_VERSION1: i32 = 1;
+        const DNS_INTERFACE_SETTINGS_VERSION2: i32 = 2;
+        const DNS_INTERFACE_SETTINGS_VERSION3: i32 = 3;
+        const DNS_INTERFACE_SETTINGS_VERSION4: i32 = 4;
         struct DNS_SERVER_PROPERTY {
             Version: u32,
             ServerIndex: u32,
@@ -157,7 +157,7 @@ mod Windows {
             DohSettings: *mut DNS_DOH_SERVER_SETTINGS,
             DotSettings: *mut DNS_DOT_SERVER_SETTINGS,
         }
-        const DNS_SERVER_PROPERTY_VERSION1: u32 = 1;
+        const DNS_SERVER_PROPERTY_VERSION1: i32 = 1;
         struct DNS_SETTINGS {
             Version: u32,
             Flags: u64,
@@ -173,26 +173,26 @@ mod Windows {
             SearchList: PWSTR,
             SettingFlags: u64,
         }
-        const DNS_SETTINGS_ENABLE_LLMNR: u32 = 128;
-        const DNS_SETTINGS_QUERY_ADAPTER_NAME: u32 = 256;
-        const DNS_SETTINGS_VERSION1: u32 = 1;
-        const DNS_SETTINGS_VERSION2: u32 = 2;
-        const DNS_SETTING_DDR: u32 = 32768;
-        const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: u32 = 1024;
-        const DNS_SETTING_DOH: u32 = 4096;
-        const DNS_SETTING_DOH_PROFILE: u32 = 8192;
-        const DNS_SETTING_DOMAIN: u32 = 32;
-        const DNS_SETTING_DOT: u32 = 65536;
-        const DNS_SETTING_DOT_PROFILE: u32 = 131072;
-        const DNS_SETTING_ENCRYPTED_DNS_ADAPTER_FLAGS: u32 = 16384;
-        const DNS_SETTING_HOSTNAME: u32 = 64;
-        const DNS_SETTING_IPV6: u32 = 1;
-        const DNS_SETTING_NAMESERVER: u32 = 2;
-        const DNS_SETTING_PROFILE_NAMESERVER: u32 = 512;
-        const DNS_SETTING_REGISTER_ADAPTER_NAME: u32 = 16;
-        const DNS_SETTING_REGISTRATION_ENABLED: u32 = 8;
-        const DNS_SETTING_SEARCHLIST: u32 = 4;
-        const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048;
+        const DNS_SETTINGS_ENABLE_LLMNR: i32 = 128;
+        const DNS_SETTINGS_QUERY_ADAPTER_NAME: i32 = 256;
+        const DNS_SETTINGS_VERSION1: i32 = 1;
+        const DNS_SETTINGS_VERSION2: i32 = 2;
+        const DNS_SETTING_DDR: i32 = 32768;
+        const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: i32 = 1024;
+        const DNS_SETTING_DOH: i32 = 4096;
+        const DNS_SETTING_DOH_PROFILE: i32 = 8192;
+        const DNS_SETTING_DOMAIN: i32 = 32;
+        const DNS_SETTING_DOT: i32 = 65536;
+        const DNS_SETTING_DOT_PROFILE: i32 = 131072;
+        const DNS_SETTING_ENCRYPTED_DNS_ADAPTER_FLAGS: i32 = 16384;
+        const DNS_SETTING_HOSTNAME: i32 = 64;
+        const DNS_SETTING_IPV6: i32 = 1;
+        const DNS_SETTING_NAMESERVER: i32 = 2;
+        const DNS_SETTING_PROFILE_NAMESERVER: i32 = 512;
+        const DNS_SETTING_REGISTER_ADAPTER_NAME: i32 = 16;
+        const DNS_SETTING_REGISTRATION_ENABLED: i32 = 8;
+        const DNS_SETTING_SEARCHLIST: i32 = 4;
+        const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: i32 = 2048;
         #[library("IPHLPAPI.DLL")]
         extern fn DeleteAnycastIpAddressEntry(Row: *const MIB_ANYCASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
@@ -285,7 +285,7 @@ mod Windows {
         extern fn GetUnicastIpAddressEntry(#[in] #[out] Row: *mut MIB_UNICASTIPADDRESS_ROW) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn GetUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> NTSTATUS;
-        const IF_NAMESIZE: u32 = 256;
+        const IF_NAMESIZE: i32 = 256;
         struct IP_ADDRESS_PREFIX {
             Prefix: SOCKADDR_INET,
             PrefixLength: u8,
@@ -417,7 +417,7 @@ mod Windows {
             MibIfTableRaw = 1,
             MibIfTableNormalWithoutStatistics = 2,
         }
-        const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0;
+        const MIB_INVALID_TEREDO_PORT_NUMBER: i32 = 0;
         struct MIB_INVERTEDIFSTACK_ROW {
             LowerLayerInterfaceIndex: NET_IFINDEX,
             HigherLayerInterfaceIndex: NET_IFINDEX,

@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const NDIS_OBJECT_TYPE_OID_REQUEST: u32 = 150;
+        const NDIS_OBJECT_TYPE_OID_REQUEST: i32 = 150;
         type NDIS_OID = u32;
         #[repr(i32)]
         enum NDIS_REQUEST_TYPE {

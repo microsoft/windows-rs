@@ -19,7 +19,7 @@ fn sys() {
             LoadIconW(core::ptr::null_mut(), TD_ERROR_ICON),
             core::ptr::null_mut()
         );
-        assert_eq!(GetLastError(), ERROR_RESOURCE_TYPE_NOT_FOUND);
+        assert_eq!(GetLastError(), ERROR_RESOURCE_TYPE_NOT_FOUND as u32);
 
         assert_eq!(COLE_DEFAULT_PRINCIPAL as usize, usize::MAX);
     }

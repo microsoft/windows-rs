@@ -329,7 +329,7 @@ pub struct InputQPSettings {
     pub maxValue: i16,
     pub steps: u16,
 }
-pub const LOCAL_D3DFMT_DEFINES: u32 = 1;
+pub const LOCAL_D3DFMT_DEFINES: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MACROBLOCK_DATA {
@@ -338,12 +338,12 @@ pub struct MACROBLOCK_DATA {
     pub motionVectorY: i16,
     pub QPDelta: i32,
 }
-pub const MACROBLOCK_FLAG_DIRTY: u32 = 2;
-pub const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: u32 = 16;
-pub const MACROBLOCK_FLAG_HAS_QP: u32 = 32;
-pub const MACROBLOCK_FLAG_MOTION: u32 = 4;
-pub const MACROBLOCK_FLAG_SKIP: u32 = 1;
-pub const MACROBLOCK_FLAG_VIDEO: u32 = 8;
+pub const MACROBLOCK_FLAG_DIRTY: i32 = 2;
+pub const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: i32 = 16;
+pub const MACROBLOCK_FLAG_HAS_QP: i32 = 32;
+pub const MACROBLOCK_FLAG_MOTION: i32 = 4;
+pub const MACROBLOCK_FLAG_SKIP: i32 = 1;
+pub const MACROBLOCK_FLAG_VIDEO: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "mfobjects", feature = "minwinbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -385,9 +385,9 @@ pub const MFAudioFormat_MPEGH: windows_sys::core::GUID = windows_sys::core::GUID
 pub const MFAudioFormat_MPEGH_ES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x19ee97fe_1be0_4255_a876_e99f53a42ae3);
 pub const MFAudioFormat_PCM_HDCP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5e7ff01_8411_4acc_a865_5f4941288d80);
 pub const MFAudioFormat_Vorbis: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8d2fd10b_5841_4a6b_8905_588fec1aded9);
-pub const MFCAPTURE_METADATA_SCANLINE_VERTICAL: u32 = 4;
-pub const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: u32 = 2;
-pub const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: u32 = 1;
+pub const MFCAPTURE_METADATA_SCANLINE_VERTICAL: i32 = 4;
+pub const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: i32 = 2;
+pub const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MFCameraExtrinsic_CalibratedTransform {
@@ -480,15 +480,15 @@ impl Default for MFPinholeCameraIntrinsics {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MFSESSIONCAP_DOES_NOT_USE_NETWORK: u32 = 64;
-pub const MFSESSIONCAP_PAUSE: u32 = 4;
-pub const MFSESSIONCAP_RATE_FORWARD: u32 = 16;
-pub const MFSESSIONCAP_RATE_REVERSE: u32 = 32;
-pub const MFSESSIONCAP_SEEK: u32 = 2;
-pub const MFSESSIONCAP_START: u32 = 1;
-pub const MFSTARTUP_FULL: u32 = 0;
-pub const MFSTARTUP_LITE: u32 = 1;
-pub const MFSTARTUP_NOSOCKET: u32 = 1;
+pub const MFSESSIONCAP_DOES_NOT_USE_NETWORK: i32 = 64;
+pub const MFSESSIONCAP_PAUSE: i32 = 4;
+pub const MFSESSIONCAP_RATE_FORWARD: i32 = 16;
+pub const MFSESSIONCAP_RATE_REVERSE: i32 = 32;
+pub const MFSESSIONCAP_SEEK: i32 = 2;
+pub const MFSESSIONCAP_START: i32 = 1;
+pub const MFSTARTUP_FULL: i32 = 0;
+pub const MFSTARTUP_LITE: i32 = 1;
+pub const MFSTARTUP_NOSOCKET: i32 = 1;
 pub type MFSampleEncryptionProtectionScheme = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -508,7 +508,7 @@ pub const MFSampleExtension_CaptureMetadata: windows_sys::core::GUID = windows_s
 pub const MFSampleExtension_ChromaOnly: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1eb9179c_a01f_4845_8c04_0e65a26eb04f);
 pub const MFSampleExtension_CleanPoint: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9cdf01d8_a0f0_43ba_b077_eaa06cbd728a);
 pub const MFSampleExtension_ClosedCaption_CEA708: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x26f09068_e744_47dc_aa03_dbf20403bde6);
-pub const MFSampleExtension_ClosedCaption_CEA708_MAX_SIZE: u32 = 256;
+pub const MFSampleExtension_ClosedCaption_CEA708_MAX_SIZE: i32 = 256;
 pub const MFSampleExtension_Content_KeyID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6c7f5b0_acca_415b_87d9_10441469efc6);
 pub const MFSampleExtension_DecodeTimestamp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73a954d4_09e2_4861_befc_94bd97c08e6e);
 pub const MFSampleExtension_Depth_MaxReliableDepth: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe45545d1_1f0f_4a32_a8a7_6101a24ea8be);
@@ -649,21 +649,21 @@ pub type MFWORKITEM_KEY = u64;
 pub const MFWaveFormatExConvertFlag_ForceExtensible: MFWaveFormatExConvertFlags = 1;
 pub const MFWaveFormatExConvertFlag_Normal: MFWaveFormatExConvertFlags = 0;
 pub type MFWaveFormatExConvertFlags = i32;
-pub const MF_1024_BYTE_ALIGNMENT: u32 = 1023;
-pub const MF_128_BYTE_ALIGNMENT: u32 = 127;
-pub const MF_16_BYTE_ALIGNMENT: u32 = 15;
-pub const MF_1_BYTE_ALIGNMENT: u32 = 0;
-pub const MF_2048_BYTE_ALIGNMENT: u32 = 2047;
-pub const MF_256_BYTE_ALIGNMENT: u32 = 255;
-pub const MF_2_BYTE_ALIGNMENT: u32 = 1;
-pub const MF_32_BYTE_ALIGNMENT: u32 = 31;
-pub const MF_4096_BYTE_ALIGNMENT: u32 = 4095;
-pub const MF_4_BYTE_ALIGNMENT: u32 = 3;
-pub const MF_512_BYTE_ALIGNMENT: u32 = 511;
-pub const MF_64_BYTE_ALIGNMENT: u32 = 63;
-pub const MF_8192_BYTE_ALIGNMENT: u32 = 8191;
-pub const MF_8_BYTE_ALIGNMENT: u32 = 7;
-pub const MF_API_VERSION: u32 = 112;
+pub const MF_1024_BYTE_ALIGNMENT: i32 = 1023;
+pub const MF_128_BYTE_ALIGNMENT: i32 = 127;
+pub const MF_16_BYTE_ALIGNMENT: i32 = 15;
+pub const MF_1_BYTE_ALIGNMENT: i32 = 0;
+pub const MF_2048_BYTE_ALIGNMENT: i32 = 2047;
+pub const MF_256_BYTE_ALIGNMENT: i32 = 255;
+pub const MF_2_BYTE_ALIGNMENT: i32 = 1;
+pub const MF_32_BYTE_ALIGNMENT: i32 = 31;
+pub const MF_4096_BYTE_ALIGNMENT: i32 = 4095;
+pub const MF_4_BYTE_ALIGNMENT: i32 = 3;
+pub const MF_512_BYTE_ALIGNMENT: i32 = 511;
+pub const MF_64_BYTE_ALIGNMENT: i32 = 63;
+pub const MF_8192_BYTE_ALIGNMENT: i32 = 8191;
+pub const MF_8_BYTE_ALIGNMENT: i32 = 7;
+pub const MF_API_VERSION: i32 = 112;
 pub const MF_CAPTURE_METADATA_DIGITALWINDOW: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x276f72a2_59c8_4f69_97b4_068b8c0ec044);
 pub const MF_CAPTURE_METADATA_EXIF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2e9575b8_8c31_4a02_8575_42b197b71592);
 pub const MF_CAPTURE_METADATA_EXPOSURE_COMPENSATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd198aa75_4b62_4345_abf3_3c31fa12c299);
@@ -738,17 +738,17 @@ pub struct MF_FLOAT3 {
     pub y: f32,
     pub z: f32,
 }
-pub const MF_HISTOGRAM_CHANNEL_B: u32 = 8;
-pub const MF_HISTOGRAM_CHANNEL_Cb: u32 = 16;
-pub const MF_HISTOGRAM_CHANNEL_Cr: u32 = 32;
-pub const MF_HISTOGRAM_CHANNEL_G: u32 = 4;
-pub const MF_HISTOGRAM_CHANNEL_R: u32 = 2;
-pub const MF_HISTOGRAM_CHANNEL_Y: u32 = 1;
+pub const MF_HISTOGRAM_CHANNEL_B: i32 = 8;
+pub const MF_HISTOGRAM_CHANNEL_Cb: i32 = 16;
+pub const MF_HISTOGRAM_CHANNEL_Cr: i32 = 32;
+pub const MF_HISTOGRAM_CHANNEL_G: i32 = 4;
+pub const MF_HISTOGRAM_CHANNEL_R: i32 = 2;
+pub const MF_HISTOGRAM_CHANNEL_Y: i32 = 1;
 pub const MF_LOW_LATENCY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c27891a_ed7a_40e1_88e8_b22727a024ee);
 pub const MF_MEDIATYPE_MULTIPLEXED_MANAGER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13c78fb5_f275_4ea0_bb5f_0249832b0d6e);
-pub const MF_METADATAFACIALEXPRESSION_SMILE: u32 = 1;
-pub const MF_METADATATIMESTAMPS_DEVICE: u32 = 1;
-pub const MF_METADATATIMESTAMPS_PRESENTATION: u32 = 2;
+pub const MF_METADATAFACIALEXPRESSION_SMILE: i32 = 1;
+pub const MF_METADATATIMESTAMPS_DEVICE: i32 = 1;
+pub const MF_METADATATIMESTAMPS_PRESENTATION: i32 = 2;
 pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7632f0e6_9538_4d61_acda_ea29c8c14456);
 pub const MF_MT_AAC_PAYLOAD_TYPE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbfbabe79_7434_4d1c_94f0_72a3b9e17188);
 pub const MF_MT_ALL_SAMPLES_INDEPENDENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc9173739_5e56_461c_b713_46fb995cb95f);
@@ -886,7 +886,7 @@ pub struct MF_QUATERNION {
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CBC: MFSampleEncryptionProtectionScheme = 2;
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CTR: MFSampleEncryptionProtectionScheme = 1;
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_NONE: MFSampleEncryptionProtectionScheme = 0;
-pub const MF_SDK_VERSION: u32 = 2;
+pub const MF_SDK_VERSION: i32 = 2;
 pub const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf715cf3e_a964_4c3f_94ae_9d6ba7264641);
 pub const MF_STANDARD_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = 0;
 pub type MF_TOPOSTATUS = i32;
@@ -896,7 +896,7 @@ pub const MF_TOPOSTATUS_INVALID: MF_TOPOSTATUS = 0;
 pub const MF_TOPOSTATUS_READY: MF_TOPOSTATUS = 100;
 pub const MF_TOPOSTATUS_SINK_SWITCHED: MF_TOPOSTATUS = 300;
 pub const MF_TOPOSTATUS_STARTED_SOURCE: MF_TOPOSTATUS = 200;
-pub const MF_VERSION: u32 = 131184;
+pub const MF_VERSION: i32 = 131184;
 pub const MF_VIDEO_MAX_MB_PER_SEC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe3f2e203_d445_4b8c_9211_ae390d3ba017);
 pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6052a80_6d9c_40a3_9db8_f027a25c9ab9);
 pub const MF_WINDOW_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = 1;

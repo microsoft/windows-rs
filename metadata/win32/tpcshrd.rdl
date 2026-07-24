@@ -2,11 +2,11 @@
 mod Windows {
     mod Win32 {
         type CURSOR_ID = u32;
-        const IP_CURSOR_DOWN: u32 = 1;
-        const IP_INVERTED: u32 = 2;
-        const IP_MARGIN: u32 = 4;
-        const MAX_PACKET_BUTTON_COUNT: u32 = 32;
-        const MAX_PACKET_PROPERTY_COUNT: u32 = 32;
+        const IP_CURSOR_DOWN: i32 = 1;
+        const IP_INVERTED: i32 = 2;
+        const IP_MARGIN: i32 = 4;
+        const MAX_PACKET_BUTTON_COUNT: i32 = 32;
+        const MAX_PACKET_PROPERTY_COUNT: i32 = 32;
         struct PACKET_DESCRIPTION {
             cbPacketSize: u32,
             cPacketProperties: u32,
@@ -62,23 +62,23 @@ mod Windows {
             dwButtonState: u32,
         }
         type TABLET_CONTEXT_ID = u32;
-        const TABLET_DISABLE_FLICKFALLBACKKEYS: u32 = 1048576;
-        const TABLET_DISABLE_FLICKS: u32 = 65536;
-        const TABLET_DISABLE_PENBARRELFEEDBACK: u32 = 16;
-        const TABLET_DISABLE_PENTAPFEEDBACK: u32 = 8;
-        const TABLET_DISABLE_PRESSANDHOLD: u32 = 1;
-        const TABLET_DISABLE_SMOOTHSCROLLING: u32 = 524288;
-        const TABLET_DISABLE_TOUCHSWITCH: u32 = 32768;
-        const TABLET_DISABLE_TOUCHUIFORCEOFF: u32 = 512;
-        const TABLET_DISABLE_TOUCHUIFORCEON: u32 = 256;
-        const TABLET_ENABLE_FLICKLEARNINGMODE: u32 = 262144;
-        const TABLET_ENABLE_FLICKSONCONTEXT: u32 = 131072;
-        const TABLET_ENABLE_MULTITOUCHDATA: u32 = 16777216;
-        const WM_TABLET_ADDED: u32 = 712;
-        const WM_TABLET_DEFBASE: u32 = 704;
-        const WM_TABLET_DELETED: u32 = 713;
-        const WM_TABLET_FLICK: u32 = 715;
-        const WM_TABLET_MAXOFFSET: u32 = 32;
-        const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716;
+        const TABLET_DISABLE_FLICKFALLBACKKEYS: i32 = 1048576;
+        const TABLET_DISABLE_FLICKS: i32 = 65536;
+        const TABLET_DISABLE_PENBARRELFEEDBACK: i32 = 16;
+        const TABLET_DISABLE_PENTAPFEEDBACK: i32 = 8;
+        const TABLET_DISABLE_PRESSANDHOLD: i32 = 1;
+        const TABLET_DISABLE_SMOOTHSCROLLING: i32 = 524288;
+        const TABLET_DISABLE_TOUCHSWITCH: i32 = 32768;
+        const TABLET_DISABLE_TOUCHUIFORCEOFF: i32 = 512;
+        const TABLET_DISABLE_TOUCHUIFORCEON: i32 = 256;
+        const TABLET_ENABLE_FLICKLEARNINGMODE: i32 = 262144;
+        const TABLET_ENABLE_FLICKSONCONTEXT: i32 = 131072;
+        const TABLET_ENABLE_MULTITOUCHDATA: i32 = 16777216;
+        const WM_TABLET_ADDED: i32 = 712;
+        const WM_TABLET_DEFBASE: i32 = 704;
+        const WM_TABLET_DELETED: i32 = 713;
+        const WM_TABLET_FLICK: i32 = 715;
+        const WM_TABLET_MAXOFFSET: i32 = 32;
+        const WM_TABLET_QUERYSYSTEMGESTURESTATUS: i32 = 716;
     }
 }

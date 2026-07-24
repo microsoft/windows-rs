@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const FACILITY_NS_WIN32: u32 = 7;
+        const FACILITY_NS_WIN32: i32 = 7;
         const MCMADM_E_REGKEY_NOT_FOUND: HRESULT = -1072889750;
         const MCMADM_I_NO_EVENTS: HRESULT = 1074593897;
         const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: HRESULT = -1072879730;

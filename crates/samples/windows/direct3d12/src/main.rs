@@ -92,7 +92,7 @@ fn main() -> windows::core::Result<()> {
             // This sample does not support fullscreen transitions
             unsafe {
                 self.dxgi_factory
-                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)
+                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER as u32)
                     .ok()?;
             }
 
@@ -257,7 +257,7 @@ fn main() -> windows::core::Result<()> {
         }
 
         let dxgi_factory_flags = if cfg!(debug_assertions) {
-            DXGI_CREATE_FACTORY_DEBUG
+            DXGI_CREATE_FACTORY_DEBUG as u32
         } else {
             0
         };
@@ -309,7 +309,7 @@ fn main() -> windows::core::Result<()> {
         root_signature: &ID3D12RootSignature,
     ) -> Result<ID3D12PipelineState> {
         let compile_flags = if cfg!(debug_assertions) {
-            D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION
+            (D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION) as u32
         } else {
             0
         };
@@ -631,7 +631,7 @@ fn main() -> windows::core::Result<()> {
         right: WIDTH,
         bottom: HEIGHT,
     };
-    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW, false).ok()? };
+    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW as u32, false).ok()? };
 
     let sample = Rc::new(RefCell::new(Sample::new(use_warp)?));
 
@@ -642,7 +642,7 @@ fn main() -> windows::core::Result<()> {
             window_rect.bottom - window_rect.top,
         )
         .on_message(move |_, message, _, _| {
-            if message == WM_PAINT {
+            if message == WM_PAINT as u32 {
                 handler.borrow_mut().render();
                 Some(0)
             } else {

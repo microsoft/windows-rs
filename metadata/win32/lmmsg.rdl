@@ -3,9 +3,9 @@ mod Windows {
     mod Win32 {
         type LPMSG_INFO_0 = *mut MSG_INFO_0;
         type LPMSG_INFO_1 = *mut MSG_INFO_1;
-        const MSGNAME_FORWARDED_FROM: u32 = 16;
-        const MSGNAME_FORWARDED_TO: u32 = 4;
-        const MSGNAME_NOT_FORWARDED: u32 = 0;
+        const MSGNAME_FORWARDED_FROM: i32 = 16;
+        const MSGNAME_FORWARDED_TO: i32 = 4;
+        const MSGNAME_NOT_FORWARDED: i32 = 0;
         struct MSG_INFO_0 {
             msgi0_name: PWSTR,
         }

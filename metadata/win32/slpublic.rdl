@@ -261,15 +261,15 @@ mod Windows {
         const SL_PROP_LAST_ACT_ATTEMPT_TIME: String = "SL_LAST_ACT_ATTEMPT_TIME";
         #[encoding("utf-16")]
         const SL_PROP_NONGENUINE_GRACE_FLAG: String = "SL_NONGENUINE_GRACE_FLAG";
-        const SL_REARM_REBOOT_REQUIRED: u32 = 1;
+        const SL_REARM_REBOOT_REQUIRED: i32 = 1;
         struct SL_SYSTEM_POLICY_INFORMATION {
             Reserved1: [*mut void; 2],
             Reserved2: [u32; 3],
         }
-        const SL_SYSTEM_STATE_REBOOT_POLICY_FOUND: u32 = 1;
-        const SL_SYSTEM_STATE_TAMPERED: u32 = 2;
-        const SPP_MIGRATION_GATHER_ACTIVATED_WINDOWS_STATE: u32 = 2;
+        const SL_SYSTEM_STATE_REBOOT_POLICY_FOUND: i32 = 1;
+        const SL_SYSTEM_STATE_TAMPERED: i32 = 2;
+        const SPP_MIGRATION_GATHER_ACTIVATED_WINDOWS_STATE: i32 = 2;
         const SPP_MIGRATION_GATHER_ALL: u32 = 4294967295;
-        const SPP_MIGRATION_GATHER_MIGRATABLE_APPS: u32 = 1;
+        const SPP_MIGRATION_GATHER_MIGRATABLE_APPS: i32 = 1;
     }
 }

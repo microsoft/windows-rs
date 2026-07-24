@@ -25,9 +25,9 @@ mod Windows {
             IGNOREMIME_PROMPT = 1,
             IGNOREMIME_TEXT = 2,
         }
-        const INSTALL_SCOPE_INVALID: u32 = 0;
-        const INSTALL_SCOPE_MACHINE: u32 = 1;
-        const INSTALL_SCOPE_USER: u32 = 2;
+        const INSTALL_SCOPE_INVALID: i32 = 0;
+        const INSTALL_SCOPE_MACHINE: i32 = 1;
+        const INSTALL_SCOPE_USER: i32 = 2;
         #[guid(0xb722bccb_4e68_101b_a2bc_00aa00404770)]
         interface IOleCommandTarget: IUnknown {
             fn QueryStatus(&self, pguidCmdGroup: *const GUID, cCmds: u32, #[in] #[out] prgCmds: *mut OLECMD, #[in] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
@@ -92,49 +92,49 @@ mod Windows {
         const MSOCMDERR_E_NOHELP: i32 = -2147221246;
         const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248;
         const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244;
-        const MSOCMDEXECOPT_DODEFAULT: u32 = 0;
-        const MSOCMDEXECOPT_DONTPROMPTUSER: u32 = 2;
-        const MSOCMDEXECOPT_PROMPTUSER: u32 = 1;
-        const MSOCMDEXECOPT_SHOWHELP: u32 = 3;
-        const MSOCMDF_ENABLED: u32 = 2;
-        const MSOCMDF_LATCHED: u32 = 4;
-        const MSOCMDF_NINCHED: u32 = 8;
-        const MSOCMDF_SUPPORTED: u32 = 1;
-        const MSOCMDID_CLEARSELECTION: u32 = 18;
-        const MSOCMDID_COPY: u32 = 12;
-        const MSOCMDID_CUT: u32 = 11;
-        const MSOCMDID_GETZOOMRANGE: u32 = 20;
-        const MSOCMDID_NEW: u32 = 2;
-        const MSOCMDID_OPEN: u32 = 1;
-        const MSOCMDID_PAGESETUP: u32 = 8;
-        const MSOCMDID_PASTE: u32 = 13;
-        const MSOCMDID_PASTESPECIAL: u32 = 14;
-        const MSOCMDID_PRINT: u32 = 6;
-        const MSOCMDID_PRINTPREVIEW: u32 = 7;
-        const MSOCMDID_PROPERTIES: u32 = 10;
-        const MSOCMDID_REDO: u32 = 16;
-        const MSOCMDID_SAVE: u32 = 3;
-        const MSOCMDID_SAVEAS: u32 = 4;
-        const MSOCMDID_SAVECOPYAS: u32 = 5;
-        const MSOCMDID_SELECTALL: u32 = 17;
-        const MSOCMDID_SPELL: u32 = 9;
-        const MSOCMDID_UNDO: u32 = 15;
-        const MSOCMDID_ZOOM: u32 = 19;
-        const MSOCMDTEXTF_NAME: u32 = 1;
-        const MSOCMDTEXTF_NONE: u32 = 0;
-        const MSOCMDTEXTF_STATUS: u32 = 2;
+        const MSOCMDEXECOPT_DODEFAULT: i32 = 0;
+        const MSOCMDEXECOPT_DONTPROMPTUSER: i32 = 2;
+        const MSOCMDEXECOPT_PROMPTUSER: i32 = 1;
+        const MSOCMDEXECOPT_SHOWHELP: i32 = 3;
+        const MSOCMDF_ENABLED: i32 = 2;
+        const MSOCMDF_LATCHED: i32 = 4;
+        const MSOCMDF_NINCHED: i32 = 8;
+        const MSOCMDF_SUPPORTED: i32 = 1;
+        const MSOCMDID_CLEARSELECTION: i32 = 18;
+        const MSOCMDID_COPY: i32 = 12;
+        const MSOCMDID_CUT: i32 = 11;
+        const MSOCMDID_GETZOOMRANGE: i32 = 20;
+        const MSOCMDID_NEW: i32 = 2;
+        const MSOCMDID_OPEN: i32 = 1;
+        const MSOCMDID_PAGESETUP: i32 = 8;
+        const MSOCMDID_PASTE: i32 = 13;
+        const MSOCMDID_PASTESPECIAL: i32 = 14;
+        const MSOCMDID_PRINT: i32 = 6;
+        const MSOCMDID_PRINTPREVIEW: i32 = 7;
+        const MSOCMDID_PROPERTIES: i32 = 10;
+        const MSOCMDID_REDO: i32 = 16;
+        const MSOCMDID_SAVE: i32 = 3;
+        const MSOCMDID_SAVEAS: i32 = 4;
+        const MSOCMDID_SAVECOPYAS: i32 = 5;
+        const MSOCMDID_SELECTALL: i32 = 17;
+        const MSOCMDID_SPELL: i32 = 9;
+        const MSOCMDID_UNDO: i32 = 15;
+        const MSOCMDID_ZOOM: i32 = 19;
+        const MSOCMDTEXTF_NAME: i32 = 1;
+        const MSOCMDTEXTF_NONE: i32 = 0;
+        const MSOCMDTEXTF_STATUS: i32 = 2;
         struct OLECMD {
             cmdID: u32,
             cmdf: u32,
         }
-        const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2;
-        const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: u32 = 1;
-        const OLECMDARGINDEX_ACTIVEXINSTALL_INSTALLSCOPE: u32 = 3;
-        const OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER: u32 = 0;
-        const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: u32 = 4;
-        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: u32 = 0;
-        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: u32 = 1;
-        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: u32 = 2;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: i32 = 2;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: i32 = 1;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_INSTALLSCOPE: i32 = 3;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER: i32 = 0;
+        const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: i32 = 4;
+        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: i32 = 0;
+        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: i32 = 1;
+        const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: i32 = 2;
         const OLECMDERR_E_CANCELED: i32 = -2147221245;
         const OLECMDERR_E_DISABLED: i32 = -2147221247;
         const OLECMDERR_E_FIRST: i32 = -2147221248;
@@ -348,7 +348,7 @@ mod Windows {
             OLECMDTEXTF_NAME = 1,
             OLECMDTEXTF_STATUS = 2,
         }
-        const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1;
+        const OLECMD_TASKDLGID_ONBEFOREUNLOAD: i32 = 1;
         #[repr(i32)]
         enum PAGEACTION_UI {
             PAGEACTION_UI_DEFAULT = 0,

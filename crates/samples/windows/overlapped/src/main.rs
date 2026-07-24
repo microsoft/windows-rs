@@ -9,11 +9,11 @@ fn main() -> windows::core::Result<()> {
         string.push('\0');
         let file = CreateFileA(
             PCSTR(string.as_ptr()),
-            FILE_GENERIC_READ,
-            FILE_SHARE_READ,
+            FILE_GENERIC_READ as u32,
+            FILE_SHARE_READ as u32,
             None,
-            OPEN_EXISTING,
-            FILE_FLAG_OVERLAPPED,
+            OPEN_EXISTING as u32,
+            FILE_FLAG_OVERLAPPED as u32,
             None,
         );
         if file == INVALID_HANDLE_VALUE {
@@ -43,7 +43,7 @@ fn main() -> windows::core::Result<()> {
         )
         .ok()
         {
-            assert_eq!(error.code(), WIN32_ERROR(ERROR_IO_PENDING).into());
+            assert_eq!(error.code(), WIN32_ERROR(ERROR_IO_PENDING as u32).into());
         }
 
         WaitForSingleObject(overlapped.hEvent, 2000);

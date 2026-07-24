@@ -1,4 +1,4 @@
-pub const CERTIFICATE_HASH_LENGTH: u32 = 20;
+pub const CERTIFICATE_HASH_LENGTH: i32 = 20;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
@@ -34,8 +34,8 @@ impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EAPHOST_METHOD_API_VERSION: u32 = 1;
-pub const EAPHOST_PEER_API_VERSION: u32 = 1;
+pub const EAPHOST_METHOD_API_VERSION: i32 = 1;
+pub const EAPHOST_PEER_API_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTE {
@@ -84,11 +84,11 @@ pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwMinDataLength: u32,
     pub dwMaxDataLength: u32,
 }
-pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0;
-pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1;
-pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2;
+pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: i32 = 0;
+pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: i32 = 1;
+pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: i32 = 2;
 pub type EAP_CONFIG_INPUT_FIELD_TYPE = i32;
-pub const EAP_CREDENTIAL_VERSION: u32 = 1;
+pub const EAP_CREDENTIAL_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_CRED_EXPIRY_REQ {
@@ -113,31 +113,31 @@ pub struct EAP_ERROR {
     pub pRootCauseString: windows_core::PWSTR,
     pub pRepairString: windows_core::PWSTR,
 }
-pub const EAP_FLAG_CONFG_READONLY: u32 = 524288;
-pub const EAP_FLAG_DISABLE_SESSION_RESUMPTION: u32 = 67108864;
-pub const EAP_FLAG_FULL_AUTH: u32 = 4096;
-pub const EAP_FLAG_GUEST_ACCESS: u32 = 64;
-pub const EAP_FLAG_LOGON: u32 = 4;
-pub const EAP_FLAG_MACHINE_AUTH: u32 = 32;
-pub const EAP_FLAG_NON_INTERACTIVE: u32 = 2;
-pub const EAP_FLAG_ONLY_EAP_TLS: u32 = 16777216;
-pub const EAP_FLAG_PREFER_ALT_CREDENTIALS: u32 = 8192;
-pub const EAP_FLAG_PREVIEW: u32 = 8;
-pub const EAP_FLAG_PRE_LOGON: u32 = 131072;
-pub const EAP_FLAG_RESUME_FROM_HIBERNATE: u32 = 512;
-pub const EAP_FLAG_Reserved1: u32 = 1;
-pub const EAP_FLAG_Reserved2: u32 = 16;
-pub const EAP_FLAG_Reserved3: u32 = 128;
-pub const EAP_FLAG_Reserved4: u32 = 256;
-pub const EAP_FLAG_Reserved5: u32 = 1024;
-pub const EAP_FLAG_Reserved6: u32 = 2048;
-pub const EAP_FLAG_Reserved7: u32 = 16384;
-pub const EAP_FLAG_Reserved8: u32 = 1048576;
-pub const EAP_FLAG_Reserved9: u32 = 4194304;
-pub const EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432;
-pub const EAP_FLAG_SUPRESS_UI: u32 = 65536;
-pub const EAP_FLAG_USER_AUTH: u32 = 262144;
-pub const EAP_FLAG_VPN: u32 = 8388608;
+pub const EAP_FLAG_CONFG_READONLY: i32 = 524288;
+pub const EAP_FLAG_DISABLE_SESSION_RESUMPTION: i32 = 67108864;
+pub const EAP_FLAG_FULL_AUTH: i32 = 4096;
+pub const EAP_FLAG_GUEST_ACCESS: i32 = 64;
+pub const EAP_FLAG_LOGON: i32 = 4;
+pub const EAP_FLAG_MACHINE_AUTH: i32 = 32;
+pub const EAP_FLAG_NON_INTERACTIVE: i32 = 2;
+pub const EAP_FLAG_ONLY_EAP_TLS: i32 = 16777216;
+pub const EAP_FLAG_PREFER_ALT_CREDENTIALS: i32 = 8192;
+pub const EAP_FLAG_PREVIEW: i32 = 8;
+pub const EAP_FLAG_PRE_LOGON: i32 = 131072;
+pub const EAP_FLAG_RESUME_FROM_HIBERNATE: i32 = 512;
+pub const EAP_FLAG_Reserved1: i32 = 1;
+pub const EAP_FLAG_Reserved2: i32 = 16;
+pub const EAP_FLAG_Reserved3: i32 = 128;
+pub const EAP_FLAG_Reserved4: i32 = 256;
+pub const EAP_FLAG_Reserved5: i32 = 1024;
+pub const EAP_FLAG_Reserved6: i32 = 2048;
+pub const EAP_FLAG_Reserved7: i32 = 16384;
+pub const EAP_FLAG_Reserved8: i32 = 1048576;
+pub const EAP_FLAG_Reserved9: i32 = 4194304;
+pub const EAP_FLAG_SERVER_VALIDATION_REQUIRED: i32 = 33554432;
+pub const EAP_FLAG_SUPRESS_UI: i32 = 65536;
+pub const EAP_FLAG_USER_AUTH: i32 = 262144;
+pub const EAP_FLAG_VPN: i32 = 8388608;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EAP_INTERACTIVE_UI_DATA {
@@ -153,7 +153,7 @@ impl Default for EAP_INTERACTIVE_UI_DATA {
     }
 }
 pub type EAP_INTERACTIVE_UI_DATA_TYPE = i32;
-pub const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1;
+pub const EAP_INTERACTIVE_UI_DATA_VERSION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO {
@@ -270,7 +270,7 @@ pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
 }
-pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768;
+pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: i32 = 32768;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct EAP_SESSIONID(pub u32);
@@ -294,10 +294,10 @@ impl Default for EAP_UI_DATA_FORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0;
-pub const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1;
-pub const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2;
-pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: u32 = 4;
+pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: i32 = 0;
+pub const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: i32 = 1;
+pub const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: i32 = 2;
+pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: i32 = 4;
 pub const EAP_USERNAME_PASSWORD_CREDENTIAL: EapCredentialType = 1;
 pub const EAP_VALUENAME_PROPERTIES: windows_core::PCWSTR = windows_core::w!("Properties");
 pub const EAP_WINLOGON_CREDENTIAL: EapCredentialType = 2;
@@ -367,41 +367,41 @@ pub struct EapUsernamePasswordCredential {
     pub username: windows_core::PWSTR,
     pub password: windows_core::PWSTR,
 }
-pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256;
-pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: u32 = 1024;
+pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: i32 = 256;
+pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: i32 = 1024;
 pub type PEAP_CONFIG_INPUT_FIELD_ARRAY = *mut EAP_CONFIG_INPUT_FIELD_ARRAY;
 pub type PEAP_CONFIG_INPUT_FIELD_DATA = *mut EAP_CONFIG_INPUT_FIELD_DATA;
 pub type PEAP_CONFIG_INPUT_FIELD_TYPE = *mut EAP_CONFIG_INPUT_FIELD_TYPE;
-pub const eapPropCertifiedMethod: u32 = 4194304;
-pub const eapPropChannelBinding: u32 = 65536;
-pub const eapPropCipherSuiteNegotiation: u32 = 1;
-pub const eapPropConfidentiality: u32 = 16;
-pub const eapPropCryptoBinding: u32 = 8192;
-pub const eapPropDictionaryAttackResistance: u32 = 2048;
-pub const eapPropFastReconnect: u32 = 4096;
-pub const eapPropFragmentation: u32 = 32768;
-pub const eapPropHiddenMethod: u32 = 8388608;
-pub const eapPropIdentityPrivacy: u32 = 67108864;
-pub const eapPropIntegrity: u32 = 4;
-pub const eapPropKeyDerivation: u32 = 32;
-pub const eapPropKeyStrength1024: u32 = 1024;
-pub const eapPropKeyStrength128: u32 = 128;
-pub const eapPropKeyStrength256: u32 = 256;
-pub const eapPropKeyStrength512: u32 = 512;
-pub const eapPropKeyStrength64: u32 = 64;
-pub const eapPropMachineAuth: u32 = 16777216;
-pub const eapPropMethodChaining: u32 = 134217728;
-pub const eapPropMppeEncryption: u32 = 524288;
-pub const eapPropMutualAuth: u32 = 2;
-pub const eapPropNap: u32 = 131072;
-pub const eapPropReplayProtection: u32 = 8;
+pub const eapPropCertifiedMethod: i32 = 4194304;
+pub const eapPropChannelBinding: i32 = 65536;
+pub const eapPropCipherSuiteNegotiation: i32 = 1;
+pub const eapPropConfidentiality: i32 = 16;
+pub const eapPropCryptoBinding: i32 = 8192;
+pub const eapPropDictionaryAttackResistance: i32 = 2048;
+pub const eapPropFastReconnect: i32 = 4096;
+pub const eapPropFragmentation: i32 = 32768;
+pub const eapPropHiddenMethod: i32 = 8388608;
+pub const eapPropIdentityPrivacy: i32 = 67108864;
+pub const eapPropIntegrity: i32 = 4;
+pub const eapPropKeyDerivation: i32 = 32;
+pub const eapPropKeyStrength1024: i32 = 1024;
+pub const eapPropKeyStrength128: i32 = 128;
+pub const eapPropKeyStrength256: i32 = 256;
+pub const eapPropKeyStrength512: i32 = 512;
+pub const eapPropKeyStrength64: i32 = 64;
+pub const eapPropMachineAuth: i32 = 16777216;
+pub const eapPropMethodChaining: i32 = 134217728;
+pub const eapPropMppeEncryption: i32 = 524288;
+pub const eapPropMutualAuth: i32 = 2;
+pub const eapPropNap: i32 = 131072;
+pub const eapPropReplayProtection: i32 = 8;
 pub const eapPropReserved: u32 = 2147483648;
-pub const eapPropSessionIndependence: u32 = 16384;
-pub const eapPropSharedStateEquivalence: u32 = 268435456;
-pub const eapPropStandalone: u32 = 262144;
-pub const eapPropSupportsConfig: u32 = 2097152;
-pub const eapPropTunnelMethod: u32 = 1048576;
-pub const eapPropUserAuth: u32 = 33554432;
+pub const eapPropSessionIndependence: i32 = 16384;
+pub const eapPropSharedStateEquivalence: i32 = 268435456;
+pub const eapPropStandalone: i32 = 262144;
+pub const eapPropSupportsConfig: i32 = 2097152;
+pub const eapPropTunnelMethod: i32 = 1048576;
+pub const eapPropUserAuth: i32 = 33554432;
 pub const eatARAPChallengeResponse: EAP_ATTRIBUTE_TYPE = 84;
 pub const eatARAPFeatures: EAP_ATTRIBUTE_TYPE = 71;
 pub const eatARAPGuestLogon: EAP_ATTRIBUTE_TYPE = 8096;

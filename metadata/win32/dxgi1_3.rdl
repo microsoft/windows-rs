@@ -5,7 +5,7 @@ mod Windows {
         extern fn CreateDXGIFactory2(Flags: u32, riid: *const GUID, #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
         #[library("dxgi.dll")]
         extern fn DXGIGetDebugInterface1(Flags: u32, riid: *const GUID, #[iid_is] pDebug: *mut *mut void) -> HRESULT;
-        const DXGI_CREATE_FACTORY_DEBUG: u32 = 1;
+        const DXGI_CREATE_FACTORY_DEBUG: i32 = 1;
         struct DXGI_DECODE_SWAP_CHAIN_DESC {
             Flags: u32,
         }

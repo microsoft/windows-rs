@@ -87,9 +87,9 @@ pub unsafe fn DCompositionWaitForCompositorClock(handles: Option<&[super::HANDLE
     windows_core::link!("dcomp.dll" "system" fn DCompositionWaitForCompositorClock(count : u32, handles : *const super::HANDLE, timeoutinms : u32) -> u32);
     unsafe { DCompositionWaitForCompositorClock(handles.map_or(0, |slice| slice.len().try_into().unwrap()), handles.map_or(core::ptr::null(), |slice| slice.as_ptr()), timeoutinms) }
 }
-pub const COMPOSITIONOBJECT_ALL_ACCESS: u32 = 3;
-pub const COMPOSITIONOBJECT_READ: u32 = 1;
-pub const COMPOSITIONOBJECT_WRITE: u32 = 2;
+pub const COMPOSITIONOBJECT_ALL_ACCESS: i32 = 3;
+pub const COMPOSITIONOBJECT_READ: i32 = 1;
+pub const COMPOSITIONOBJECT_WRITE: i32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct COMPOSITION_FRAME_ID(pub u64);
@@ -112,7 +112,7 @@ pub struct COMPOSITION_STATS {
     pub virtualRefreshCount: u32,
     pub time: u64,
 }
-pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256;
+pub const COMPOSITION_STATS_MAX_TARGETS: i32 = 256;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -164,7 +164,7 @@ pub struct DCOMPOSITION_FRAME_STATISTICS {
     pub timeFrequency: i64,
     pub nextEstimatedFrameTime: i64,
 }
-pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32;
+pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: i32 = 32;
 pub type DCOMPOSITION_OPACITY_MODE = i32;
 pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = -1;
 pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = 0;

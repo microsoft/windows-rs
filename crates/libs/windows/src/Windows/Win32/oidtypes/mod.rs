@@ -1,4 +1,4 @@
-pub const NDIS_OBJECT_TYPE_OID_REQUEST: u32 = 150;
+pub const NDIS_OBJECT_TYPE_OID_REQUEST: i32 = 150;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDIS_OID(pub u32);

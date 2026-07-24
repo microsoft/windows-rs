@@ -4,9 +4,9 @@ pub type LPSTAT_SERVER_0 = *mut STAT_SERVER_0;
 pub type LPSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
 pub type PSTAT_SERVER_0 = *mut STAT_SERVER_0;
 pub type PSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
-pub const STATSOPT_CLR: u32 = 1;
-pub const STATS_NO_VALUE: i32 = -1;
-pub const STATS_OVERFLOW: i32 = -2;
+pub const STATSOPT_CLR: i32 = 1;
+pub const STATS_NO_VALUE: u32 = 4294967295;
+pub const STATS_OVERFLOW: u32 = 4294967294;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct STAT_SERVER_0 {

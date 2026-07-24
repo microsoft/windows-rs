@@ -814,8 +814,8 @@ pub struct CREATEFILE3_EXTENDED_PARAMETERS {
     pub lpSecurityAttributes: super::LPSECURITY_ATTRIBUTES,
     pub hTemplateFile: super::HANDLE,
 }
-pub const CREATE_ALWAYS: u32 = 2;
-pub const CREATE_NEW: u32 = 1;
+pub const CREATE_ALWAYS: i32 = 2;
+pub const CREATE_NEW: i32 = 1;
 pub type DIRECTORY_FLAGS = u32;
 pub const DIRECTORY_FLAGS_DISALLOW_PATH_REDIRECTS: DIRECTORY_FLAGS = 1;
 pub const DIRECTORY_FLAGS_NONE: DIRECTORY_FLAGS = 0;
@@ -849,8 +849,8 @@ pub type LPCREATEFILE2_EXTENDED_PARAMETERS = *mut CREATEFILE2_EXTENDED_PARAMETER
 pub type LPCREATEFILE3_EXTENDED_PARAMETERS = *mut CREATEFILE3_EXTENDED_PARAMETERS;
 #[cfg(feature = "minwindef")]
 pub type LPWIN32_FILE_ATTRIBUTE_DATA = *mut WIN32_FILE_ATTRIBUTE_DATA;
-pub const OPEN_ALWAYS: u32 = 4;
-pub const OPEN_EXISTING: u32 = 3;
+pub const OPEN_ALWAYS: i32 = 4;
+pub const OPEN_EXISTING: i32 = 3;
 #[cfg(feature = "minwindef")]
 pub type PBY_HANDLE_FILE_INFORMATION = *mut BY_HANDLE_FILE_INFORMATION;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
@@ -859,7 +859,7 @@ pub type PCREATEFILE2_EXTENDED_PARAMETERS = *mut CREATEFILE2_EXTENDED_PARAMETERS
 pub type PCREATEFILE3_EXTENDED_PARAMETERS = *mut CREATEFILE3_EXTENDED_PARAMETERS;
 pub type PWIN32_FIND_STREAM_DATA = *mut WIN32_FIND_STREAM_DATA;
 pub type STREAM_INFO_LEVELS = i32;
-pub const TRUNCATE_EXISTING: u32 = 5;
+pub const TRUNCATE_EXISTING: i32 = 5;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

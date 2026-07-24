@@ -1439,7 +1439,7 @@ mod Windows {
             OutputTensors: *const DML_TENSOR_DESC,
             Axis: u32,
         }
-        const DML_TARGET_VERSION: u32 = 20480;
+        const DML_TARGET_VERSION: i32 = 20480;
         #[repr(i32)]
         enum DML_TENSOR_DATA_TYPE {
             DML_TENSOR_DATA_TYPE_UNKNOWN = 0,
