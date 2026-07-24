@@ -406,17 +406,14 @@ fn eval_probe(name: &str) -> String {
 /// evaluation translation unit, keeping only those the paired `__rdl_ok_*` (type)
 /// and `__rdl_nc_*` (shape) enumerators both validate.
 ///
-/// Both [`Const::evaluate_macros`] and [`Const::evaluate_macros_str`] emit five
-/// anonymous enums per candidate macro (see [`eval_probe`]): `__rdl_eval_<name>`
-/// holds the evaluated value, `__rdl_ok_<name>` is `1` iff `<name>` is a valid
-/// *integer* constant expression, `__rdl_nc_<name>` is the count of top-level
-/// comma-separated elements (`1` for a scalar, `> 1` for a GUID/initializer list),
-/// and `__rdl_sz_<name>`/`__rdl_sg_<name>` record the width and signedness used to
-/// type the kept value. A macro that fails to evaluate (a string macro, an empty
-/// include guard, keyword tokens like `STDAPI`, a pointer cast) error-recovers its
-/// type gate to `0`; a comma-list macro trips the shape gate. Only macros passing
-/// *both* gates are kept - no diagnostics are consulted, so the decision is a
-/// deterministic function of the AST across architectures and environments.
+/// Each candidate macro contributes five anonymous enums (see [`eval_probe`]):
+/// the evaluated value, a type gate, a shape gate, and the width/signedness
+/// probes that type the kept value. A macro that fails to evaluate (a string
+/// macro, an empty include guard, keyword tokens like `STDAPI`, a pointer cast)
+/// error-recovers its type gate to `0`; a comma-list macro trips the shape gate.
+/// Only macros passing *both* gates are kept - no diagnostics are consulted, so
+/// the decision is a deterministic function of the AST across architectures and
+/// environments.
 ///
 /// Returns the kept constants together with the set of candidate names that were
 /// *fully present* in the recovered AST - i.e. all three of their `__rdl_eval_`,
@@ -1053,21 +1050,13 @@ fn integer_value(
     })
 }
 
-/// Parse a C literal spelling and produce a [`metadata::Value::EnumValue`] with
-/// the given type name, interpreting the integer bits as `i64`.
-///
-/// The value is stored as a raw 64-bit signed integer (the bit pattern
-/// of the literal reinterpreted as `i64`).  It will be emitted as a
-/// decimal literal in the RDL and reinterpreted according to the actual
-/// underlying type of `type_name` during the reader/writer roundtrip.
 /// Parse a builtin-keyword integer cast (`(int)5`, `((long)0x80000000)`) into a
 /// primitive [`metadata::Value`], honouring the cast type's width and signedness.
 ///
-/// Unlike the general unsigned default applied to bare integer constants, an
-/// explicit `(int)`/`(long)` cast is a deliberate signedness signal from the
-/// header author (e.g. `CW_USEDEFAULT = (int)0x80000000` is `INT_MIN`), so the
-/// cast type is preserved. Keywords with no single-token scalar mapping (e.g.
-/// `unsigned`, `long long`) return `None` and defer to the evaluation path.
+/// An explicit `(int)`/`(long)` cast is a deliberate type signal from the header
+/// author (e.g. `CW_USEDEFAULT = (int)0x80000000` is `INT_MIN`), so the cast type
+/// governs. Keywords with no single-token scalar mapping (e.g. `unsigned`,
+/// `long long`) return `None` and defer to the evaluation path.
 fn parse_keyword_cast(kw: &str, lit: &str, negate: bool) -> Option<metadata::Value> {
     let ty = keyword_scalar(kw)?;
     let (digits, _suffix) = split_int_suffix(lit);

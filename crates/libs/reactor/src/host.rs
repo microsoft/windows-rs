@@ -374,10 +374,9 @@ impl ReactorHost {
                 // WM_SETCURSOR; otherwise the spinner persists until the first
                 // mouse move. PostMessageW (not SendMessageW) avoids flicker.
                 if !hwnd.is_null() {
-                    let lparam: LPARAM =
-                        (((WM_MOUSEMOVE) << 16) | (HTCLIENT & 0xFFFF)) as i32 as LPARAM;
+                    let lparam: LPARAM = (((WM_MOUSEMOVE) << 16) | (HTCLIENT & 0xFFFF)) as LPARAM;
                     unsafe {
-                        let _ = PostMessageW(hwnd, WM_SETCURSOR, hwnd as WPARAM, lparam);
+                        let _ = PostMessageW(hwnd, WM_SETCURSOR as u32, hwnd as WPARAM, lparam);
                     }
                 }
             });
@@ -405,7 +404,7 @@ impl ReactorHost {
 
 fn get_default_display_size(hwnd: HWND, dpi: u32) -> WindowSize {
     unsafe {
-        let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
+        let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST as u32);
         let mut monitor_info_ex = MONITORINFOEXW {
             Base: MONITORINFO {
                 cbSize: size_of::<MONITORINFOEXW>() as u32,
@@ -436,7 +435,7 @@ fn center_window_on_display(
     nc_height_px: i32,
 ) {
     unsafe {
-        let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
+        let monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST as u32);
         let mut monitor_info_ex = MONITORINFOEXW {
             Base: MONITORINFO {
                 cbSize: size_of::<MONITORINFOEXW>() as u32,
@@ -462,7 +461,7 @@ fn center_window_on_display(
             y,
             0,
             0,
-            SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE,
+            (SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE) as u32,
         );
     }
 }

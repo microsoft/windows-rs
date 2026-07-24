@@ -45,10 +45,7 @@ fn conversions() {
     // which only works because we now unwrap to the Win32 code.
     let win_error: Error = WIN32_ERROR(ERROR_FILE_NOT_FOUND as u32).into();
     let std_error: std::io::Error = win_error.into();
-    assert_eq!(
-        std_error.raw_os_error().unwrap(),
-        ERROR_FILE_NOT_FOUND
-    );
+    assert_eq!(std_error.raw_os_error().unwrap(), ERROR_FILE_NOT_FOUND);
     assert_eq!(std_error.kind(), std::io::ErrorKind::NotFound);
 
     // E_INVALIDARG is HRESULT_FROM_WIN32(ERROR_INVALID_PARAMETER), so its
@@ -57,10 +54,7 @@ fn conversions() {
     // lets std::io::Error::kind decode it as InvalidInput.
     let win_error: Error = E_INVALIDARG.into();
     let std_error: std::io::Error = win_error.into();
-    assert_eq!(
-        std_error.raw_os_error().unwrap(),
-        ERROR_INVALID_PARAMETER
-    );
+    assert_eq!(std_error.raw_os_error().unwrap(), ERROR_INVALID_PARAMETER);
     assert_eq!(
         format!("{std_error}"),
         "The parameter is incorrect. (os error 87)"
