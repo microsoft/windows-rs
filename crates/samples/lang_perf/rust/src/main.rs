@@ -27,20 +27,18 @@ fn iterations() -> u64 {
 }
 
 fn main() {
-    if let Err(error) = run() {
+    if let Err(error) = run(iterations(), component_file()) {
         eprintln!("{error}");
         std::process::exit(1);
     }
 }
 
-fn run() -> windows_core::Result<()> {
+fn run(iterations: u64, component: &str) -> windows_core::Result<()> {
     use bindings::*;
     use std::time::Instant;
     use windows_core::*;
 
-    stage_component(component_file());
-
-    let iterations = iterations();
+    stage_component(component);
 
     let object = Class::new()?;
     println!(
@@ -177,4 +175,16 @@ fn component_file() -> &'static str {
         }
     }
     "langperf_rust.dll"
+}
+
+// Runs the Rust consumer against the Rust component with a tiny iteration count so `cargo
+// test` exercises the projection end to end - activation, events, collections, async, and
+// error propagation - not just that the bindings compile. The component cdylib is a build
+// dependency, so cargo stages it beside this test binary.
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn interop() {
+        super::run(200, "langperf_rust.dll").unwrap();
+    }
 }

@@ -17,16 +17,17 @@ fn iterations() -> u64 {
         .unwrap_or(DEFAULT_ITERATIONS)
 }
 
+#[cfg(target_env = "msvc")]
+unsafe extern "system" {
+    fn lang_perf_cpp(iterations: u64) -> i32;
+}
+
 fn main() {
     let iterations = iterations();
 
     #[cfg(target_env = "msvc")]
     {
         stage_component(component_file());
-
-        unsafe extern "system" {
-            fn lang_perf_cpp(iterations: u64) -> i32;
-        }
 
         let hr = unsafe { lang_perf_cpp(iterations) };
         if hr < 0 {
@@ -71,4 +72,18 @@ fn component_file() -> &'static str {
         }
     }
     "langperf_cpp.dll"
+}
+
+// Runs the C++/WinRT consumer against its own component with a tiny iteration count so
+// `cargo test` exercises the projection end to end - activation, marshaling, events,
+// collections, async, and error propagation - not just that the generated glue compiles.
+// The component cdylib is a build dependency, so cargo stages it beside this test binary.
+#[cfg(all(test, target_env = "msvc"))]
+mod tests {
+    #[test]
+    fn interop() {
+        super::stage_component("langperf_cpp.dll");
+        let hr = unsafe { super::lang_perf_cpp(200) };
+        assert!(hr >= 0, "lang_perf_cpp failed: {hr:#010x}");
+    }
 }
