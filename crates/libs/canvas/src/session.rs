@@ -37,7 +37,7 @@ impl<'a> DrawingSession<'a> {
         })
     }
 
-    /// Wrap an `ID2D1DeviceContext` that is *already in a drawing state* — for
+    /// Wrap an `ID2D1DeviceContext` that is *already in a drawing state* - for
     /// example the one returned by `ISurfaceImageSourceNativeWithD2D::BeginDraw`
     /// or a printing/interop context you drive yourself.
     ///
@@ -60,8 +60,8 @@ impl<'a> DrawingSession<'a> {
 
     /// Like [`from_borrowed_context`](Self::from_borrowed_context), but first sets
     /// the device-context DPI so drawing coordinates are in device-independent
-    /// pixels at `dpi` (96 = 1:1). On-demand surface bridges — such as reactor's
-    /// `CanvasImageSource`, which draws into a physical-pixel atlas — use this so
+    /// pixels at `dpi` (96 = 1:1). On-demand surface bridges - such as reactor's
+    /// `CanvasImageSource`, which draws into a physical-pixel atlas - use this so
     /// content stays crisp at high DPI without exposing the raw context.
     pub fn from_borrowed_context_with_dpi(
         context: &'a ID2D1DeviceContext,
@@ -201,7 +201,7 @@ impl<'a> DrawingSession<'a> {
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 
-    /// Stops define colors at positions 0.0–1.0 along the axis from `start` to `end`.
+    /// Stops define colors at positions 0.0-1.0 along the axis from `start` to `end`.
     pub fn create_linear_gradient(
         &self,
         start: Vector2,
@@ -320,7 +320,7 @@ impl<'a> DrawingSession<'a> {
     ///
     /// The pixels are laid out row by row with no padding (`width * 4` bytes per
     /// row, `width * height * 4` bytes total). This is the natural path for
-    /// uploading CPU-generated or decoded images — for example shell icons — into
+    /// uploading CPU-generated or decoded images - for example shell icons - into
     /// a drawable bitmap. Use [`create_bitmap_with_alpha`](Self::create_bitmap_with_alpha)
     /// to select a different [`AlphaMode`].
     pub fn create_bitmap(&self, pixels: &[u8], width: u32, height: u32) -> Result<Bitmap> {

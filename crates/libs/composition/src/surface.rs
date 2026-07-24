@@ -23,7 +23,7 @@ use super::*;
 pub struct CompositionGraphicsDevice(pub(crate) bindings::CompositionGraphicsDevice);
 
 impl CompositionGraphicsDevice {
-    /// Creates a drawing surface `width`×`height` pixels in size, using a
+    /// Creates a drawing surface `width`x`height` pixels in size, using a
     /// premultiplied BGRA pixel format.
     pub fn create_drawing_surface(
         &self,
@@ -77,7 +77,7 @@ impl CompositionDrawingSurface {
         unsafe { self.interop.EndDraw().ok() }
     }
 
-    /// Resizes the surface to `width`×`height` pixels.
+    /// Resizes the surface to `width`x`height` pixels.
     pub fn resize(&self, width: i32, height: i32) -> Result<()> {
         unsafe {
             self.interop

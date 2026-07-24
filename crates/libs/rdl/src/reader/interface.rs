@@ -19,9 +19,9 @@ pub struct Interface {
 ///
 /// Syntax: `[#[get] | #[set]] Name: Type;`
 ///
-/// - No attribute → generates both `get_Name` and `put_Name` methods.
-/// - `#[get]`     → generates only `get_Name`.
-/// - `#[set]`     → generates only `put_Name`.
+/// - No attribute -> generates both `get_Name` and `put_Name` methods.
+/// - `#[get]`     -> generates only `get_Name`.
+/// - `#[set]`     -> generates only `put_Name`.
 #[derive(Debug)]
 pub struct Property {
     pub attrs: Vec<syn::Attribute>,
@@ -60,7 +60,7 @@ impl syn::parse::Parse for InterfaceMember {
         }
 
         if fork.peek(event) {
-            // Consume (and discard) any attributes before `event` — the event
+            // Consume (and discard) any attributes before `event` - the event
             // shorthand does not support per-member attributes.
             input.call(syn::Attribute::parse_outer)?;
             let _event_token: event = input.parse()?;

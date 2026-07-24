@@ -1,6 +1,6 @@
 use super::*;
 
-/// W3 — `Microsoft.UI.Xaml.Controls.RadioButtons`. A grouped collection
+/// W3 - `Microsoft.UI.Xaml.Controls.RadioButtons`. A grouped collection
 /// of radio options with mutually-exclusive selection, exposed as a
 /// flat list of strings.
 #[derive(Clone, Debug, PartialEq)]

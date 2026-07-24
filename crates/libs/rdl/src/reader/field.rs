@@ -25,7 +25,7 @@ pub struct BitfieldMember {
 /// The type of a field: either a normal named type, or an inline anonymous
 /// nested struct/union declared directly at the field's type position.
 ///
-/// The nested form is the faithful representation of a C anonymous aggregate
+/// The nested form is the exact representation of a C anonymous aggregate
 /// member, e.g. `Anonymous: struct { x: u32, y: u32 }`.
 #[derive(Debug, Clone)]
 pub enum FieldType {
@@ -59,7 +59,7 @@ impl syn::parse::Parse for Field {
             )
         } else if inner_attrs.is_empty() {
             let ty = FieldType::Type(Box::new(input.parse()?));
-            // A backing integer field may be followed by a `{ … }` block listing its
+            // A backing integer field may be followed by a `{ ... }` block listing its
             // bit-field members in the concise C-like form.
             let bitfields = if input.peek(syn::token::Brace) {
                 parse_bitfield_block(input)?
@@ -81,7 +81,7 @@ impl syn::parse::Parse for Field {
     }
 }
 
-/// Parses a `{ member, member, … }` bit-field block where each member is either
+/// Parses a `{ member, member, ... }` bit-field block where each member is either
 /// `Name: width` (a named member projected as an accessor) or `_: width` (anonymous
 /// padding that only advances the offset).
 fn parse_bitfield_block(input: syn::parse::ParseStream) -> syn::Result<Vec<BitfieldMember>> {

@@ -11,8 +11,8 @@ const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_S
     u32::MAX;
 
 /// Registers a web-resource-requested filter for `uri`. On runtimes that support
-/// it (`ICoreWebView2_22`) the filter covers every request source — including
-/// iframes and workers — falling back to the document-only filter otherwise.
+/// it (`ICoreWebView2_22`) the filter covers every request source - including
+/// iframes and workers - falling back to the document-only filter otherwise.
 pub(crate) unsafe fn add_requested_filter(
     webview: &ICoreWebView2,
     uri: impl Param<PCWSTR>,

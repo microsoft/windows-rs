@@ -2,7 +2,7 @@ use super::*;
 
 // CreateDispatcherQueueController (dispatcherqueue.h / CoreMessaging) is not part
 // of this repo's Win32 metadata, so it is declared here directly. It is the only
-// way to stand up a dispatcher queue on the *current* thread — the system
+// way to stand up a dispatcher queue on the *current* thread - the system
 // `DispatcherQueueController` runtime class only offers a dedicated-thread
 // factory.
 #[repr(C)]
@@ -14,7 +14,7 @@ struct DispatcherQueueOptions {
 
 // DISPATCHERQUEUE_THREAD_TYPE::DQTYPE_THREAD_CURRENT
 const DQTYPE_THREAD_CURRENT: i32 = 2;
-// DISPATCHERQUEUE_THREAD_APARTMENTTYPE::DQTAT_COM_ASTA — initializes this thread's
+// DISPATCHERQUEUE_THREAD_APARTMENTTYPE::DQTAT_COM_ASTA - initializes this thread's
 // apartment, so callers need no separate CoInitialize.
 const DQTAT_COM_ASTA: i32 = 1;
 
@@ -24,7 +24,7 @@ windows_core::link!("coremessaging.dll" "system" fn CreateDispatcherQueueControl
 ///
 /// The composition engine requires a `DispatcherQueue` to be present on the
 /// thread that creates and drives a [`Compositor`](crate::Compositor). This
-/// controller creates that queue and keeps it alive — hold it for as long as the
+/// controller creates that queue and keeps it alive - hold it for as long as the
 /// compositor is in use, and pump the thread's message loop so the queue (and
 /// the compositor's off-thread animations) run.
 pub struct DispatcherQueueController(

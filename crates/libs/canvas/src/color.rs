@@ -4,13 +4,13 @@ use super::*;
 #[doc(alias = "Color")]
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct ColorF {
-    /// Red component, in the range 0.0–1.0.
+    /// Red component, in the range 0.0-1.0.
     pub r: f32,
-    /// Green component, in the range 0.0–1.0.
+    /// Green component, in the range 0.0-1.0.
     pub g: f32,
-    /// Blue component, in the range 0.0–1.0.
+    /// Blue component, in the range 0.0-1.0.
     pub b: f32,
-    /// Alpha (opacity) component, in the range 0.0–1.0.
+    /// Alpha (opacity) component, in the range 0.0-1.0.
     pub a: f32,
 }
 

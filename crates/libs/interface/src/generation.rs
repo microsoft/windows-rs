@@ -194,7 +194,7 @@ impl Interface {
                         where
                             Identity : #trait_name
                         {
-                            // This step is essentially a virtual dispatch adjustor thunk. Its purpose is to adjust
+                            // This step is a virtual dispatch adjustor thunk. Its purpose is to adjust
                             // the "this" pointer from the address used by the COM interface to the root of the
                             // MyApp_Impl object.  Since a given MyApp_Impl may implement more than one COM interface
                             // (and more than one COM interface chain), we need to know how to get from COM's "this"

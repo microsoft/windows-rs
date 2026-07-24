@@ -477,8 +477,8 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
-    /// Emits the metadata attribute for a naturalized pseudo-attribute (e.g. `#[retval]` →
-    /// `RetValAttribute`, `#[len_param(2)]` → `NativeArrayInfoAttribute(CountParamIndex = 2)`) on
+    /// Emits the metadata attribute for a naturalized pseudo-attribute (e.g. `#[retval]` ->
+    /// `RetValAttribute`, `#[len_param(2)]` -> `NativeArrayInfoAttribute(CountParamIndex = 2)`) on
     /// `target`.
     ///
     /// Marker pseudo-attributes (no arguments) emit a parameterless attribute; argument-carrying
@@ -568,7 +568,7 @@ impl Encoder<'_> {
     /// Emit `[AlignmentAttribute(N)]`, the winmd encoding of forced over-alignment
     /// (`__declspec(align(N))` / `alignas(N)`). The winmd `ClassLayout` can only
     /// lower alignment via its packing size, so raised alignment is carried by this
-    /// custom attribute — a 1:1 mirror of the C declaration — and consumed by
+    /// custom attribute - a 1:1 mirror of the C declaration - and consumed by
     /// bindgen to emit `#[repr(C, align(N))]`.
     pub fn emit_align_attribute(&mut self, target: metadata::writer::HasAttribute, alignment: u16) {
         let attr_ref = AttributeRef {
@@ -583,7 +583,7 @@ impl Encoder<'_> {
     /// bit-field concept, so each named member of a `_bitfield` block is recorded as an
     /// instance of this attribute (following Microsoft's win32metadata convention);
     /// `windows-bindgen` reads them to generate typed get/set accessors. Anonymous
-    /// padding members carry no attribute — they only advance the offset.
+    /// padding members carry no attribute - they only advance the offset.
     pub fn emit_bitfield_attribute(
         &mut self,
         target: metadata::writer::HasAttribute,
@@ -613,7 +613,7 @@ impl Encoder<'_> {
         })
     }
 
-    /// Processes `#[guid(0x…)]` and `#[no_guid]` pseudo-attributes in `attrs`, emitting a
+    /// Processes `#[guid(0x...)]` and `#[no_guid]` pseudo-attributes in `attrs`, emitting a
     /// `GuidAttribute` on `target` when an explicit GUID is supplied.  Returns `true` when the
     /// attribute list already carries GUID information (explicit `#[guid]`, `#[no_guid]`, or an
     /// existing `GuidAttribute`), so the caller can skip automatic GUID derivation.

@@ -1,6 +1,6 @@
 use super::*;
 
-/// W2 — `Microsoft.UI.Xaml.Controls.PasswordBox`. Single-line password
+/// W2 - `Microsoft.UI.Xaml.Controls.PasswordBox`. Single-line password
 /// entry with an optional reveal button.
 #[derive(Clone, Debug, PartialEq)]
 pub struct PasswordBox {

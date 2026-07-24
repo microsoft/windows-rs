@@ -114,7 +114,7 @@ impl TextFormat {
 }
 
 pub(crate) fn dwrite_factory() -> Result<IDWriteFactory> {
-    // The DirectWrite shared factory is thread-safe, but the faithful in-house
+    // The DirectWrite shared factory is thread-safe, but the in-house
     // metadata does not mark `IDWriteFactory` `[agile]`, so it is neither `Send` nor
     // `Sync`. Wrap it for the process-wide `OnceLock`.
     struct SharedFactory(IDWriteFactory);

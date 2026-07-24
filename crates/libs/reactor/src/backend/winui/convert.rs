@@ -1,6 +1,6 @@
 //! Pure conversion helpers between reactor's backend-facing types and
 //! the underlying `Microsoft.UI.Xaml` types. These are free functions
-//! that touch neither `WinUIBackend` state nor the `Handle` enum — see
+//! that touch neither `WinUIBackend` state nor the `Handle` enum - see
 //! `winui/backend/mod.rs` for the dispatch tables and `Handle`-aware
 //! helpers.
 

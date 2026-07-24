@@ -59,7 +59,7 @@ impl EnvironmentOptions {
         self
     }
 
-    /// Sets the folder where WebView2 stores its user data (cache, cookies, …).
+    /// Sets the folder where WebView2 stores its user data (cache, cookies, ...).
     pub fn user_data_folder(mut self, value: impl Into<String>) -> Self {
         self.user_data_folder = Some(value.into());
         self

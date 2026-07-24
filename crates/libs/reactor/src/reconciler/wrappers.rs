@@ -237,7 +237,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         debug_assert_eq!(
             CustomElement::type_id(&*old.0),
             CustomElement::type_id(&*new.0),
-            "update_custom invoked across different CustomElement types — \
+            "update_custom invoked across different CustomElement types - \
              reconciler should have unmount+remount via kind_matches",
         );
         if !old.0.eq_dyn(&*new.0) {

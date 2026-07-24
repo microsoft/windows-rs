@@ -61,7 +61,7 @@ impl HStringHeader {
 
     pub fn duplicate(&self) -> *mut Self {
         if self.flags & HSTRING_REFERENCE_FLAG == 0 {
-            // If this is not a "fast pass" string then simply increment the reference count.
+            // If this is not a "fast pass" string then increment the reference count.
             self.count.add_ref();
             self as *const Self as *mut Self
         } else {

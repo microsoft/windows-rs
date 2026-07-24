@@ -258,7 +258,7 @@ pub enum Prop {
 /// Tagged union of every value type that can appear in a [`Backend::set_prop`]
 /// call. `Unset` clears a previously-applied value.
 ///
-/// Reactor enums that mirror WinRT enums are transported as `I32` — each
+/// Reactor enums that mirror WinRT enums are transported as `I32` - each
 /// reactor enum is `#[repr(i32)]` with discriminants matching WinRT, so the
 /// backend can construct the WinRT enum directly from the integer.
 #[derive(Clone, PartialEq, Debug)]
@@ -362,7 +362,7 @@ impl EventHandler {
         match self {
             Self::Unit(cb) => cb.invoke(()),
             other => {
-                panic!("EventHandler::invoke() called on {other:?} — use invoke_bool/invoke_string")
+                panic!("EventHandler::invoke() called on {other:?} - use invoke_bool/invoke_string")
             }
         }
     }
@@ -538,7 +538,7 @@ pub trait Backend {
     }
 }
 
-// ─── Dispatcher ──────────────────────────────────────────────────────────
+// Dispatcher
 
 pub trait Dispatcher {
     fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool;

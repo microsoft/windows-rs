@@ -6,7 +6,7 @@ mod error;
 /// Helpers for formatting generated RDL source.
 pub mod formatter;
 /// Reader for COFF import libraries (the SDK `.lib` archives), used to recover
-/// the faithful function → DLL mapping that headers do not carry.
+/// the function -> DLL mapping that headers do not carry.
 pub mod implib;
 mod reader;
 mod writer;
@@ -38,7 +38,7 @@ pub(crate) struct PseudoAttr {
     /// Metadata attribute type name, e.g. `"NativeArrayInfoAttribute"`.
     pub metadata: &'static str,
     /// When the short spelling takes a single positional argument that binds to a *named*
-    /// metadata property (the attribute's constructor is parameterless), the property name —
+    /// metadata property (the attribute's constructor is parameterless), the property name -
     /// e.g. `len_param(2)` binds `2` to `NativeArrayInfoAttribute::CountParamIndex`. `None`
     /// means the pseudo is a bare marker or its argument maps to a positional constructor
     /// argument that passes through unchanged (e.g. `encoding("ansi")`).
@@ -100,8 +100,8 @@ pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {
 }
 
 /// Finds the pseudo-attribute that renders the given metadata attribute. When several pseudos
-/// share a metadata type — differing only by which named property they carry (e.g.
-/// `NativeArrayInfoAttribute` → `len_param`/`len_const`) — `arg_names` disambiguates by the
+/// share a metadata type - differing only by which named property they carry (e.g.
+/// `NativeArrayInfoAttribute` -> `len_param`/`len_const`) - `arg_names` disambiguates by the
 /// property present on the attribute. Property-less pseudos match by metadata name alone.
 ///
 /// A property-bound pseudo only matches when its property is the attribute's *sole* argument:
@@ -127,8 +127,8 @@ pub fn reader() -> Reader {
 }
 
 /// Parses a single `.rdl` file and returns the names of every type, function, and constant
-/// it defines under `namespace`. This is a pure syntactic walk — cross-file references are
-/// not resolved — so it succeeds even on a partition that references types defined elsewhere.
+/// it defines under `namespace`. This is a pure syntactic walk - cross-file references are
+/// not resolved - so it succeeds even on a partition that references types defined elsewhere.
 ///
 /// This is the routing signal for the downstream namespace map: each canonical `.rdl` file
 /// corresponds to one defining header, so its item names identify which types/functions/
@@ -155,7 +155,7 @@ pub struct ArchInput {
 }
 
 /// Arch-merges the per-architecture scrape outputs into a single merged RDL directory that
-/// faithfully describes every architecture, then leaves the unified winmd derivable by
+/// describes every architecture, then leaves the unified winmd derivable by
 /// re-reading that directory.
 ///
 /// The winmd carries no defining-header information, so the per-header file layout is
@@ -179,7 +179,7 @@ pub fn merge_arch_rdl(
     // Preserve the hand-authored seed: the Writer clears `*.rdl` from the output directory
     // before writing. When the seed lives inside that directory it would be swept, so it is
     // captured up front and restored afterwards; when it lives outside (the usual case) the
-    // restore is an idempotent rewrite to its own path. A corpus whose metadata attributes are
+    // restore is an idempotent rewrite to its own path. Metadata whose attributes are
     // resolved from an external reference winmd (the WDK, which references the Win32 winmd)
     // carries no seed of its own.
     let seed = seed
@@ -197,7 +197,7 @@ pub fn merge_arch_rdl(
 
     // 1. Arch-merge the per-arch winmds into one merged winmd with SupportedArchitecture.
     //    The scratch dir is uniquely named (pid + nanos) so concurrent merges never share it,
-    //    and a `Drop` guard removes it on every return path — including the `?` early-returns
+    //    and a `Drop` guard removes it on every return path - including the `?` early-returns
     //    below, which the previous end-of-function cleanup missed.
     let temp = std::env::temp_dir().join(format!(
         "win32-arch-merge-{}-{}",
@@ -363,7 +363,7 @@ use writer_err;
 mod tests {
     use super::*;
 
-    /// A property-bound pseudo (`NativeArrayInfoAttribute` → `len_param` via `CountParamIndex`)
+    /// A property-bound pseudo (`NativeArrayInfoAttribute` -> `len_param` via `CountParamIndex`)
     /// is only used when its property is the attribute's sole argument. The short form emits its
     /// value positionally and the reader binds a single positional back to that one property, so
     /// a multi-valued instance must fall back to the fully-qualified spelling (returns `None`)

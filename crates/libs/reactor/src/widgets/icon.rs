@@ -1,6 +1,6 @@
 use super::*;
 
-/// An icon displayed by controls that accept a WinUI `IconElement` — buttons,
+/// An icon displayed by controls that accept a WinUI `IconElement` - buttons,
 /// [`NavViewItem`]s, command-bar buttons, and [`SelectorBarItemDef`]s.
 ///
 /// Construct one from a built-in [`Symbol`], an image URI, or a font glyph.
@@ -10,8 +10,8 @@ use super::*;
 pub enum Icon {
     /// A built-in system glyph from the [`Symbol`] enum (WinUI `SymbolIcon`).
     Symbol(Symbol),
-    /// A raster image loaded from a URI — PNG, JPG, or other bitmap formats
-    /// (WinUI `BitmapIcon`). Note that `BitmapIcon` does not render SVG; use an
+    /// A raster image loaded from a URI - PNG, JPG, or other bitmap formats
+    /// (WinUI `BitmapIcon`). `BitmapIcon` does not render SVG; use an
     /// `ImageIcon` with an `SvgImageSource` for vector artwork.
     ///
     /// The URI may be an app package path (`ms-appx:///Assets/logo.png`) or an

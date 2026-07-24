@@ -68,7 +68,7 @@ impl<A: Async> Future for AsyncFuture<A> {
             let shared_waker = Arc::new(Mutex::new(cx.waker().clone()));
             self.waker = Some(shared_waker.clone());
 
-            // Note that the handler can only be set once, which is why we need a shared waker in the first
+            // The handler can only be set once, which is why we need a shared waker in the first
             // place. On the other hand, the handler will get called even if async execution has already
             // completed, so we can just return `Pending` after setting the Completed handler.
             self.inner.set_completed(move |_| {

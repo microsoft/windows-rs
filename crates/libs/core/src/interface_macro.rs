@@ -15,7 +15,7 @@
 //! It does **not** support `Result<T>` for non-unit `T` (the safe caller wrapper would
 //! discard the value); model that case with a `*mut T` out-parameter and `Result<()>`.
 //! It does **not** support `Ref<T>` / `OutRef<T>` parameters with the implicit `Param` /
-//! `OutParam` bound generation that `#[interface]` provides — pass the underlying ABI
+//! `OutParam` bound generation that `#[interface]` provides - pass the underlying ABI
 //! types instead. It does not support scoped (non-`IUnknown`) interfaces or
 //! `IInspectable`-derived (WinRT) interfaces. The matching chain for derived custom
 //! interfaces is not traversed; use the proc-macro for those cases.
@@ -78,7 +78,7 @@ macro_rules! interface_decl {
 
         impl $crate::RuntimeName for $name {}
 
-        // Safe caller-side wrappers (inside `impl $name { ... }`, item-position — helper
+        // Safe caller-side wrappers (inside `impl $name { ... }`, item-position - helper
         // macros are permitted here and may emit a sequence of `fn` items).
         impl $name {
             $crate::__interface_decl_safe_wrappers!($($methods)*);
@@ -138,7 +138,7 @@ macro_rules! __interface_decl_safe_wrappers {
         }
         $crate::__interface_decl_safe_wrappers!($($rest)*);
     };
-    // Method with an arbitrary (non-`Result<()>`) return type — passed through verbatim.
+    // Method with an arbitrary (non-`Result<()>`) return type - passed through verbatim.
     // This arm must follow the `Result<()>` arm above because `$rty:ty` would also match
     // `Result<()>`; macro_rules tries arms top-down.
     (
@@ -315,7 +315,7 @@ macro_rules! __interface_decl_vtbl {
         }
     };
 
-    // Method with an arbitrary (non-`Result<()>`) return type — passed through verbatim.
+    // Method with an arbitrary (non-`Result<()>`) return type - passed through verbatim.
     // Must come after the `Result<()>` arm because `$rty:ty` would also match `Result<()>`.
     (@walk
         name: $name:ident,

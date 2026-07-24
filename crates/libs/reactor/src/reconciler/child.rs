@@ -87,7 +87,7 @@ fn reconcile_positional_live<B: Backend + 'static>(
         if reconciler.child_at(parent, i).is_none() {
             debug_assert!(
                 false,
-                "audit §7.1.10: positional reconcile out of mirror bounds at \
+                "audit 7.1.10: positional reconcile out of mirror bounds at \
                  parent={parent:?} i={i} common={common} \
                  (mirror_len={mirror_len}, old_live.len={old_len}, \
                   new_live.len={new_len}). Likely a child-tracking miss \
@@ -414,7 +414,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
         // the control (a component re-rendering to a different root widget yields
         // a new `ControlId`) or drop it entirely (rendering `Empty`), so the item
         // to the left must anchor on the *current* id, or on this item's own
-        // successor when nothing remains. The middle patch deliberately has no
+        // successor when nothing remains. The middle patch has no
         // `can_skip_update` fast-path of its own: routing unconditionally through
         // `update` keeps skip accounting, the forced-rerender guard, and theme
         // re-resolution in the single place they are defined, so a reordered

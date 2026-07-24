@@ -203,7 +203,7 @@ pub trait Widget {
     /// with the native element (`IInspectable`), or `None` if the backend
     /// exposes no native element. Owners use this to tear down external
     /// resources bound to the control (e.g. join a render thread that presents
-    /// into the control's swap chain) — teardown runs regardless of whether a
+    /// into the control's swap chain) - teardown runs regardless of whether a
     /// native element is present.
     fn on_unmounted_callback(&self) -> Option<&Callback<Option<windows_core::IInspectable>>> {
         None

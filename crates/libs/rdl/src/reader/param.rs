@@ -104,7 +104,7 @@ impl Encoder<'_> {
 
             // Emit parameter pseudo-attributes in the fixed table order so the winmd
             // custom-attribute layout is stable regardless of the source attribute order (the
-            // clang scrape and the winmd → RDL writer place them differently). The generic
+            // clang scrape and the winmd -> RDL writer place them differently). The generic
             // `encode_attrs` pass below then skips them.
             for pseudo in PSEUDO_ATTRS {
                 if let Some(attr) = param.attrs.iter().find(|a| a.path().is_ident(pseudo.short)) {
@@ -129,8 +129,8 @@ impl Encoder<'_> {
 
     /// Encode a sequence of simple synthesized parameters that carry no custom
     /// attributes.  Each element is `(name, ty)`.  Direction flags are inferred
-    /// from the type (mutable references / mutable pointers → Out, everything
-    /// else → In), matching the behaviour of [`Self::parse_param_attributes`].
+    /// from the type (mutable references / mutable pointers -> Out, everything
+    /// else -> In), matching the behaviour of [`Self::parse_param_attributes`].
     pub fn encode_simple_params(
         &mut self,
         params: &[(&str, &metadata::Type)],

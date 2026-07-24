@@ -1,6 +1,6 @@
 use super::*;
 
-/// W4 — `Microsoft.UI.Xaml.Controls.ComboBox`. Drop-down picker over a
+/// W4 - `Microsoft.UI.Xaml.Controls.ComboBox`. Drop-down picker over a
 /// flat list of string items.
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct ComboBox {

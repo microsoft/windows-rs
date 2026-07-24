@@ -1,5 +1,5 @@
-//! RDL source-emission primitives shared by the winmd → RDL writer and the
-//! headers → RDL scraper (`windows-clang`). Both turn metadata shapes into the
+//! RDL source-emission primitives shared by the winmd -> RDL writer and the
+//! headers -> RDL scraper (`windows-clang`). Both turn metadata shapes into the
 //! same RDL spelling, so the identifier, type, value, and GUID rendering lives
 //! here in one place.
 
@@ -7,8 +7,8 @@ use proc_macro2::{Literal, TokenStream};
 use quote::{format_ident, quote};
 use windows_metadata as metadata;
 
-/// Renders a name as an RDL identifier, escaping Rust keywords (`r#…`) and the
-/// special cases (`Self`/`self` → `<name>_`, `_` → `unused`).
+/// Renders a name as an RDL identifier, escaping Rust keywords (`r#...`) and the
+/// special cases (`Self`/`self` -> `<name>_`, `_` -> `unused`).
 pub fn write_ident(name: &str) -> TokenStream {
     // keywords list based on https://doc.rust-lang.org/reference/keywords.html
     let name = match name {

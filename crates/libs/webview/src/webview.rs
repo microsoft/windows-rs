@@ -118,7 +118,7 @@ impl WebView {
     }
 
     /// Navigates the browser using a [`NavigationRequest`], allowing a custom
-    /// HTTP method, request headers, or body — for example a `POST` or an
+    /// HTTP method, request headers, or body - for example a `POST` or an
     /// `Authorization` header that a plain [`navigate`](Self::navigate) cannot
     /// supply.
     pub fn navigate_with_request(&self, request: &NavigationRequest) -> Result<()> {
@@ -265,7 +265,7 @@ impl WebView {
         unsafe { self.0.ExecuteScript(&javascript, &handler) }.ok()
     }
 
-    /// Asynchronously calls a Chrome DevTools Protocol method — the programmatic
+    /// Asynchronously calls a Chrome DevTools Protocol method - the programmatic
     /// CDP channel that reaches browser-level capabilities beyond page script,
     /// such as `Network.*` interception, `Page.printToPDF`, and `Emulation.*`.
     /// `method` is a CDP method name (for example `"Browser.getVersion"`) and
@@ -379,7 +379,7 @@ impl WebView {
     }
 
     /// Posts a message to the hosted page as a JSON value. The page receives it
-    /// via the `window.chrome.webview.addEventListener("message", …)` event,
+    /// via the `window.chrome.webview.addEventListener("message", ...)` event,
     /// with `event.data` set to the parsed JSON.
     pub fn post_web_message_as_json(&self, json: &str) -> Result<()> {
         let json = HSTRING::from(json);
@@ -387,7 +387,7 @@ impl WebView {
     }
 
     /// Posts a message to the hosted page as a string. The page receives it via
-    /// the `window.chrome.webview.addEventListener("message", …)` event, with
+    /// the `window.chrome.webview.addEventListener("message", ...)` event, with
     /// `event.data` set to the string.
     pub fn post_web_message_as_string(&self, message: &str) -> Result<()> {
         let message = HSTRING::from(message);

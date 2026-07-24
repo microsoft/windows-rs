@@ -82,9 +82,9 @@ impl Writer {
     /// Filter what to include in the output.  Each call appends one rule.
     ///
     /// Rules are resolved against the input metadata and may be:
-    /// * `"Windows.Win32"` — a namespace prefix: includes all items in matching namespaces
-    /// * `"Windows.Win32.Foundation.POINT"` — a qualified type name: includes only that specific type
-    /// * `"POINT"` — an unqualified type name: includes every type named `POINT` across all namespaces
+    /// * `"Windows.Win32"` - a namespace prefix: includes all items in matching namespaces
+    /// * `"Windows.Win32.Foundation.POINT"` - a qualified type name: includes only that specific type
+    /// * `"POINT"` - an unqualified type name: includes every type named `POINT` across all namespaces
     ///
     /// Prefix a rule with `!` to exclude instead of include.  Exclusions win over inclusions.
     /// If no filter rules are provided, everything from the input is written.
@@ -100,9 +100,9 @@ impl Writer {
     }
 
     /// Partitions the output into one `<stem>.rdl` file per *defining header* rather than
-    /// per namespace, routing each item by an explicit item-name → header-stem map. The
+    /// per namespace, routing each item by an explicit item-name -> header-stem map. The
     /// `output` is treated as a directory. Items missing from the map are skipped. This is
-    /// how the arch-merged corpus is decompiled back to the per-header file layout that the
+    /// how the arch-merged metadata is decompiled back to the per-header file layout that the
     /// clang scraper produces (the winmd itself does not carry the defining header).
     pub fn partition(&mut self, map: HashMap<String, String>) -> &mut Self {
         self.partition = Some(map);
@@ -268,11 +268,11 @@ enum FilterRule {
 /// Resolves raw filter strings against the available metadata, producing typed rules.
 ///
 /// The resolution order for each rule string `r` (after stripping `!`) is:
-/// 1. Namespace prefix — any known namespace starts with `r` → [`FilterRule::Namespace`]
-/// 2. Qualified type — `r` is `"Namespace.TypeName"` and that type exists → [`FilterRule::Type`]
-/// 3. Unqualified type — `r` contains no dot and exists as a type name in one or more
-///    namespaces → one [`FilterRule::Type`] per matching namespace
-/// 4. Fallback — treat as a namespace prefix (may match nothing)
+/// 1. Namespace prefix - any known namespace starts with `r` -> [`FilterRule::Namespace`]
+/// 2. Qualified type - `r` is `"Namespace.TypeName"` and that type exists -> [`FilterRule::Type`]
+/// 3. Unqualified type - `r` contains no dot and exists as a type name in one or more
+///    namespaces -> one [`FilterRule::Type`] per matching namespace
+/// 4. Fallback - treat as a namespace prefix (may match nothing)
 fn resolve_filter(filter: &[String], index: &metadata::reader::Index) -> Vec<(FilterRule, bool)> {
     let mut rules = vec![];
 
@@ -409,9 +409,9 @@ fn write_type_def_items(
 }
 
 fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
-    // A GUID-typed constant carries its value in a `GuidAttribute` (the faithful scrape types
+    // A GUID-typed constant carries its value in a `GuidAttribute` (the win32 scrape types
     // it as `Windows.Win32.GUID`; win32metadata types it as `System.Guid`). Either way, emit
-    // the inline `= 0x…` literal rather than the raw attribute.
+    // the inline `= 0x...` literal rather than the raw attribute.
     let is_guid = match item.ty() {
         metadata::Type::ValueName(tn) => &tn == ("System", "Guid") || tn.name == "GUID",
         _ => false,
@@ -469,8 +469,8 @@ fn write_const_guid(
 }
 
 /// Renders a property-key constant (`PROPERTYKEY`/`DEVPROPKEY`) back to its RDL spelling:
-/// `#[guid(0x…)] const NAME: TYPE = pid;`. The `fmtid` comes from the `GuidAttribute` and the
-/// `pid` from the field's `Constant` — the inverse of `encode_const_property_key`.
+/// `#[guid(0x...)] const NAME: TYPE = pid;`. The `fmtid` comes from the `GuidAttribute` and the
+/// `pid` from the field's `Constant` - the inverse of `encode_const_property_key`.
 fn write_const_property_key(
     namespace: &str,
     item: &metadata::reader::Field,
@@ -486,7 +486,7 @@ fn write_const_property_key(
     Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
 }
 
-/// Folds a field's `GuidAttribute` (11 typed args) into the `0x…`-underscore u128 literal used
+/// Folds a field's `GuidAttribute` (11 typed args) into the `0x...`-underscore u128 literal used
 /// by both plain GUID constants and the `fmtid` of a property-key constant.
 fn guid_attribute_literal(item: &metadata::reader::Field) -> Result<syn::LitInt, Error> {
     let attribute = item
@@ -607,7 +607,7 @@ fn write_custom_attributes_except<'a>(
             let values = attr.value();
 
             // A naturalized pseudo-attribute renders as its short RDL spelling (e.g.
-            // `RetValAttribute` → `#[retval]`, `NativeArrayInfoAttribute(CountParamIndex = 2)` →
+            // `RetValAttribute` -> `#[retval]`, `NativeArrayInfoAttribute(CountParamIndex = 2)` ->
             // `#[len_param(2)]`). Pseudos that bind a named metadata property re-emit its value
             // positionally; property-less pseudos carry their arguments through unchanged.
             let pseudo = if attr_ns == METADATA_NAMESPACE {
@@ -672,8 +672,8 @@ fn write_custom_attributes_except<'a>(
 
     // Custom attribute order is semantically insignificant in ECMA-335, and the raw
     // CustomAttribute-table order varies between SDK/Contracts builds even when the attribute set
-    // is unchanged. Sort by rendered text so the snapshot is canonical — a version bump only diffs
-    // when the attribute set actually changes — matching how impls/enum fields/layout are sorted.
+    // is unchanged. Sort by rendered text so the snapshot is canonical - a version bump only diffs
+    // when the attribute set actually changes - matching how impls/enum fields/layout are sorted.
     rendered.sort_by_key(|ts| ts.to_string());
     Ok(rendered)
 }
@@ -793,7 +793,7 @@ fn write_flags_combination(
     if remaining != 0 || components.is_empty() {
         // `remaining != 0` means there are bits with no matching variant.
         // `components.is_empty()` means `value` was 0 and no zero-valued variant
-        // was found — the caller's exact-match pass handles the named-zero case
+        // was found - the caller's exact-match pass handles the named-zero case
         // (e.g. `None = 0`), so falling back to the raw numeric value is correct.
         return None;
     }
@@ -812,9 +812,9 @@ fn write_flags_combination(
 /// token stream when `arches` is zero (meaning "all architectures").
 ///
 /// Bit layout (matching the Windows metadata):
-///   bit 0 (1) → X86
-///   bit 1 (2) → X64
-///   bit 2 (4) → Arm64
+///   bit 0 (1) -> X86
+///   bit 1 (2) -> X64
+///   bit 2 (4) -> Arm64
 pub(super) fn write_arch_attr(arches: i32) -> TokenStream {
     if arches == 0 {
         return quote! {};
@@ -908,11 +908,11 @@ fn extract_guid_from_attribute(
 
 /// Describes how a GUID should appear in the RDL output for an interface or delegate.
 enum GuidOutput {
-    /// The GUID matches what would be automatically derived — omit it from the output.
+    /// The GUID matches what would be automatically derived - omit it from the output.
     Omit,
-    /// An explicit GUID is stored that differs from the derived value — emit `#[guid(0x…)]`.
+    /// An explicit GUID is stored that differs from the derived value - emit `#[guid(0x...)]`.
     Explicit(u32, u16, u16, [u8; 8]),
-    /// No `GuidAttribute` is present — emit `#[no_guid]` to prevent re-derivation on read-back.
+    /// No `GuidAttribute` is present - emit `#[no_guid]` to prevent re-derivation on read-back.
     None,
 }
 
@@ -996,7 +996,7 @@ fn read_unmanaged_abi(item: &metadata::reader::TypeDef) -> Option<i32> {
 /// Collects the generic type parameters of `item` as a `(types, tokens)` pair.
 ///
 /// `types` is the `Vec<Type::Generic>` needed for signature computation; `tokens` is the
-/// `<T, U, …>` token stream for the RDL output (empty when there are no generic params).
+/// `<T, U, ...>` token stream for the RDL output (empty when there are no generic params).
 fn write_generic_params(item: &metadata::reader::TypeDef) -> (Vec<metadata::Type>, TokenStream) {
     let types: Vec<_> = item
         .generic_params()

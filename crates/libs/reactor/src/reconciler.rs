@@ -18,7 +18,7 @@ pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_
 /// Diff/apply engine that drives a [`Backend`] from successive
 /// [`Element`] trees. Owns the bookkeeping needed to reuse controls
 /// across renders (children mirror, component instances, custom
-/// handles, templated-list state, …).
+/// handles, templated-list state, ...).
 pub struct Reconciler<B: Backend> {
     pub backend: B,
     pub debug_elements_skipped: u64,
@@ -119,7 +119,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     /// Returns `true` if the component instance at `id` has had state
     /// modified since its last render (i.e. a `SetState`/`Updater`/`Dispatch`
     /// fired). Used by child reconciliation to bypass `can_skip_update`.
-    /// Does NOT clear the flag — `update_component` consumes it.
+    /// Does NOT clear the flag - `update_component` consumes it.
     pub fn is_component_state_dirty(&self, id: ControlId) -> bool {
         self.component_instances
             .get(&id)
@@ -735,14 +735,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
 
         // Tooltip is a `ToolTipService` attached property and survives
-        // re-renders; emit a `None` clear on Some→None transitions.
+        // re-renders; emit a `None` clear on Some->None transitions.
         let old_tt = old.tooltip.as_deref();
         let new_tt = new.tooltip.as_deref();
         if old_tt != new_tt {
             self.backend.set_tooltip(id, new_tt);
         }
 
-        // Pointer / tap handlers: clear on Some→None so we don't leak
+        // Pointer / tap handlers: clear on Some->None so we don't leak
         // previously-attached event tokens.
         let old_ph = old.pointer_handlers.as_deref();
         let new_ph = new.pointer_handlers.as_deref();
@@ -766,7 +766,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_drag_handlers(id, new_dh);
         }
 
-        // Grid placement — fast path (avoids AttachedProps dynamic dispatch).
+        // Grid placement - fast path (avoids AttachedProps dynamic dispatch).
         // Always emit all four props on change so stale values are cleared.
         if old.grid != new.grid {
             self.apply_grid_placement_full(id, new.grid.unwrap_or_default());
@@ -854,7 +854,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 /// input slice has no `Empty` or `Group` elements (the common fast-path for
 /// grids and most stack panels).
 enum LiveChildren<'a> {
-    /// All elements are live — borrow the original slice directly.
+    /// All elements are live - borrow the original slice directly.
     Flat(&'a [Element]),
     /// Contains Empty/Group elements that need filtering.
     Filtered(Vec<&'a Element>),

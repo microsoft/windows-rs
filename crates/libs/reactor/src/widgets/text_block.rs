@@ -69,34 +69,34 @@ pub fn text_block(content: impl Into<String>) -> TextBlock {
     TextBlock::new(content)
 }
 
-// ── Type-ramp factories (WinUI 3 spec) ──────────────────────────────────────
+// Type-ramp factories (WinUI 3 spec)
 
-/// 28 px Semibold — page/section titles.
+/// 28 px Semibold - page/section titles.
 pub fn title(content: impl Into<String>) -> TextBlock {
     TextBlock::new(content).font_size(28.0).semibold()
 }
 
-/// 20 px Semibold — secondary headings.
+/// 20 px Semibold - secondary headings.
 pub fn subtitle(content: impl Into<String>) -> TextBlock {
     TextBlock::new(content).font_size(20.0).semibold()
 }
 
-/// 18 px Normal — larger body text.
+/// 18 px Normal - larger body text.
 pub fn body_large(content: impl Into<String>) -> TextBlock {
     TextBlock::new(content).font_size(18.0)
 }
 
-/// 14 px Semibold — emphasized body text.
+/// 14 px Semibold - emphasized body text.
 pub fn body_strong(content: impl Into<String>) -> TextBlock {
     TextBlock::new(content).font_size(14.0).semibold()
 }
 
-/// 14 px Normal — standard body text.
+/// 14 px Normal - standard body text.
 pub fn body(content: impl Into<String>) -> TextBlock {
     TextBlock::new(content).font_size(14.0)
 }
 
-/// 12 px Normal — captions and secondary labels.
+/// 12 px Normal - captions and secondary labels.
 pub fn caption(content: impl Into<String>) -> TextBlock {
     TextBlock::new(content).font_size(12.0)
 }

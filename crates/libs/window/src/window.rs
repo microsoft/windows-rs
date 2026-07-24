@@ -208,7 +208,7 @@ pub fn quit() {
 /// Returns `false` if a quit message was received (the caller should stop
 /// pumping) or `true` otherwise. Unlike [`run`], this never blocks waiting for
 /// the next message, so callers can drive the message loop while waiting on an
-/// external condition — for example pumping until an asynchronous callback
+/// external condition - for example pumping until an asynchronous callback
 /// completes.
 pub fn pump() -> bool {
     unsafe {

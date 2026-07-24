@@ -189,27 +189,27 @@ impl DateTime {
         self.decompose().1
     }
 
-    /// The day of the month (1–31).
+    /// The day of the month (1-31).
     pub const fn day(self) -> u32 {
         self.decompose().2
     }
 
-    /// The hour (0–23).
+    /// The hour (0-23).
     pub const fn hour(self) -> u32 {
         self.decompose().3
     }
 
-    /// The minute (0–59).
+    /// The minute (0-59).
     pub const fn minute(self) -> u32 {
         self.decompose().4
     }
 
-    /// The second (0–59).
+    /// The second (0-59).
     pub const fn second(self) -> u32 {
         self.decompose().5
     }
 
-    /// The milliseconds (0–999).
+    /// The milliseconds (0-999).
     pub const fn milliseconds(self) -> u32 {
         self.decompose().6
     }
@@ -316,7 +316,7 @@ impl core::fmt::Display for DateTime {
         let ticks_per_day = TICKS_PER_DAY as i128;
         // div_euclid gives floored division; rem_euclid gives remainder in [0, ticks_per_day).
         // The day count fits in i64: ticks are bounded by i64::MIN/MAX, so days are at most
-        // ~±10_811_000 (i.e., ±29_584 years), well within i64 range.
+        // ~+/-10_811_000 (i.e., +/-29_584 years), well within i64 range.
         let days = unix_ticks.div_euclid(ticks_per_day) as i64;
         let intraday = unix_ticks.rem_euclid(ticks_per_day) as i64;
         let (year, month, day) = civil_from_days(days);

@@ -256,7 +256,7 @@ enum HookSlot {
         cleanup: Option<Cleanup>,
         pending_cleanup: Option<Cleanup>,
     },
-    /// State slot whose cell is `Arc<Mutex<…>>` so writes can come from
+    /// State slot whose cell is `Arc<Mutex<...>>` so writes can come from
     /// any thread. Backs [`RenderCx::use_async_state`].
     AsyncState {
         cell: Arc<Mutex<Box<dyn Any + Send>>>,
@@ -298,7 +298,7 @@ impl<T: Clone + 'static> SetState<T> {
     ///
     /// Sugar for `move || set.call(value.clone())`, handy for `on_click`-style
     /// events that store a fixed or pre-computed value, e.g.
-    /// `button("Reset").on_click(set_count.setter(0))`. When the handler simply
+    /// `button("Reset").on_click(set_count.setter(0))`. When the handler just
     /// forwards the event's own argument, pass the setter directly instead
     /// (`on_text_changed(set_text)`) to keep a stable identity.
     pub fn setter(&self, value: T) -> impl Fn() + Clone + 'static {
@@ -679,7 +679,7 @@ impl RenderCx {
         (current, setter)
     }
 
-    /// Returns a per-slot handle (`SetState`, `Updater`, …) that is built once
+    /// Returns a per-slot handle (`SetState`, `Updater`, ...) that is built once
     /// and reused for the life of the slot, so re-renders hand out the same
     /// `Rc` instead of allocating a fresh one each time. Stable identity also
     /// lets the reconciler skip subtrees whose handlers are unchanged. Only

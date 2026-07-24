@@ -1,6 +1,6 @@
 use super::*;
 
-/// Content for an [`Expander`] header — either plain text or an arbitrary
+/// Content for an [`Expander`] header - either plain text or an arbitrary
 /// element tree.
 #[derive(Clone, Debug, PartialEq)]
 pub enum ExpanderHeader {

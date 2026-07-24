@@ -17,8 +17,8 @@ fn resolves_to_delegate(ty: &Type, reader: &Reader) -> bool {
 
 impl Config<'_> {
     // Whether the native typedef `def` is projected as a transparent `pub type` alias rather than
-    // a wrapper newtype in the current style. This is the single source of truth for the bare-alias
-    // decision, shared by `write_cpp_handle` (which emits the typedef) and the constant emitter
+    // a wrapper newtype in the current style. This decides the bare-alias case in one place,
+    // shared by `write_cpp_handle` (which emits the typedef) and the constant emitter
     // (which must drop the newtype constructor for a bare-alias-typed constant).
     pub fn typedef_emits_bare(&self, def: TypeDef) -> bool {
         let ty = def.underlying_type_ext(self.reader);

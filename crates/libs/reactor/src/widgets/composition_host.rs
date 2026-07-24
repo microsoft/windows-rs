@@ -83,7 +83,7 @@ impl CompositionHostHandle {
 }
 
 /// Built-in widget that hosts a custom `Microsoft.UI.Composition` visual tree
-/// inside a WinUI 3 XAML tree — the composition-interop counterpart of
+/// inside a WinUI 3 XAML tree - the composition-interop counterpart of
 /// [`SwapChainPanel`] (which hosts a DXGI swap chain).
 ///
 /// The host is backed by a plain stretching panel; use

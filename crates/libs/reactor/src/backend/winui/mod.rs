@@ -10,8 +10,8 @@ mod generated_attach_event;
 mod generated_set_prop;
 use convert::*;
 
-/// Single source of truth for the `Handle` enum, its casts, the
-/// `ControlKind`→`Handle` constructor, and `describe_kind`. Each variant name
+/// Declares the `Handle` enum, its casts, the
+/// `ControlKind`->`Handle` constructor, and `describe_kind` in one place. Each variant name
 /// matches its backing `bindings::Variant` class and must correspond to a
 /// `ControlKind` variant; the class must be activatable.
 macro_rules! define_handles {
@@ -154,7 +154,7 @@ pub struct WinUIBackend {
     menu_click_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
     command_bar_flyout_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
     /// Registry of theme brush bindings per control, so they can be
-    /// re-resolved when the app theme changes (dark ↔ light).
+    /// re-resolved when the app theme changes (dark <-> light).
     theme_brush_registry: RefCell<FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>>,
     /// This host's window state, used to apply window-level props (e.g. the
     /// title-bar height) to the correct window when multiple hosts share a
@@ -191,7 +191,7 @@ struct TemplatedShared {
     /// The observable `ItemsSource` of boxed `i32` indices driving WinUI
     /// virtualization for ListView/GridView. `None` for FlipView.
     source: Rc<RefCell<Option<windows_collections::IObservableVector<windows_core::IInspectable>>>>,
-    /// Logical row index → the content host for that row: the inner
+    /// Logical row index -> the content host for that row: the inner
     /// `ContentControl` at the root of the shared item template. Populated
     /// when WinUI prepares a container, cleared when it recycles.
     containers: Rc<RefCell<FxHashMap<usize, bindings::IContentControl>>>,
@@ -276,7 +276,7 @@ impl WinUIBackend {
         *counter += 1;
         ControlId::new(*counter)
     }
-    /// Whether this control is a "phantom" child — tracked in the
+    /// Whether this control is a "phantom" child - tracked in the
     /// reconciler's tree but not attached under its parent's visual
     /// `Children`. Only `ContentDialog` qualifies today.
     fn is_phantom_child(&self, id: ControlId) -> bool {
@@ -285,7 +285,7 @@ impl WinUIBackend {
             Some(Handle::ContentDialog(_))
         )
     }
-    /// Logical→visual child index translation that skips phantom children.
+    /// Logical->visual child index translation that skips phantom children.
     fn visual_index(&self, parent: ControlId, logical: usize) -> usize {
         let kids = self.parent_children.borrow();
         let Some(list) = kids.get(&parent) else {
@@ -420,7 +420,7 @@ impl WinUIBackend {
 /// determines how children are appended, removed, moved, etc.
 enum ContainerChildren<'a> {
     /// Multi-child panel (StackPanel, Grid, Canvas, RelativePanel) backed
-    /// by `IPanel::Children` — a `UIElementCollection` (which derefs to
+    /// by `IPanel::Children` - a `UIElementCollection` (which derefs to
     /// `IVector<UIElement>`).
     Panel(bindings::UIElementCollection),
     /// Single-child container (Border, Viewbox) that uses `put_Child`.
@@ -570,7 +570,7 @@ fn put_direct_content(h: &Handle, child: Option<&bindings::UIElement>) {
 }
 
 /// Build and apply a XAML Style with {ThemeResource} setters to an element.
-/// WinUI handles theme-reactive resolution natively (Light ↔ Dark).
+/// WinUI handles theme-reactive resolution natively (Light <-> Dark).
 fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
     let Some((target_type, fe)) = style_target_for_handle(handle) else {
         return;
@@ -678,7 +678,7 @@ fn apply_implicit_transitions(
 
     // Animate from `this.StartingValue` to `this.FinalValue` over `duration`.
     // The DSL transition types only expose duration, so easing is fixed to
-    // EaseOut — the standard XAML implicit-transition curve.
+    // EaseOut - the standard XAML implicit-transition curve.
     let insert = |target: &str, duration: std::time::Duration, is_scalar: bool| {
         let easing = easing_for(&compositor, Easing::EaseOut);
         if is_scalar {
@@ -740,7 +740,7 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
                 });
             } else {
                 diag::warn(format_args!(
-                    "animation: skipping CenterPoint — element not yet laid out"
+                    "animation: skipping CenterPoint - element not yet laid out"
                 ));
             }
         }
@@ -1358,7 +1358,7 @@ impl Backend for WinUIBackend {
                 (Prop::IsClosable, PropValue::Bool(v), Handle::TabViewItem(ti)) => {
                     ti.SetIsClosable(*v)
                 }
-                // ContentDialog — modal popup hosted via ShowAsync.
+                // ContentDialog - modal popup hosted via ShowAsync.
                 (Prop::IsOpen, PropValue::Bool(v), Handle::ContentDialog(d)) => {
                     if *v {
                         // ContentDialog needs a XamlRoot before ShowAsync; reuse
@@ -1383,7 +1383,7 @@ impl Backend for WinUIBackend {
                             }
                             None => {
                                 diag::warn(format_args!(
-                                    "ContentDialog.is_open ignored — no XamlRoot available"
+                                    "ContentDialog.is_open ignored - no XamlRoot available"
                                 ));
                             }
                         }
@@ -1535,7 +1535,7 @@ impl Backend for WinUIBackend {
                     items,
                 ),
                 (Prop::Text, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
-                    // Skip SetText when the control already has this value —
+                    // Skip SetText when the control already has this value -
                     // calling SetText during a user-initiated TextChanged
                     // cycle steals focus from the input field.
                     if asb.Text().ok().as_deref() == Some(s.as_str()) {
@@ -1835,14 +1835,14 @@ impl Backend for WinUIBackend {
             list[index] = new;
         }
         match (old_phantom, new_phantom) {
-            // Both invisible — nothing to do on the visual tree.
+            // Both invisible - nothing to do on the visual tree.
             (true, true) => {}
-            // real → phantom: drop the old visual child, leaving siblings shifted.
+            // real -> phantom: drop the old visual child, leaving siblings shifted.
             (false, true) => self.visual_remove_at(parent, v_index),
-            // phantom → real: insert the new visual child at the slot the
+            // phantom -> real: insert the new visual child at the slot the
             // phantom would have occupied if it were real.
             (true, false) => self.visual_insert_at(parent, v_index, new),
-            // real → real: in-place SetAt.
+            // real -> real: in-place SetAt.
             (false, false) => self.visual_set_at(parent, v_index, new),
         }
     }
@@ -2236,7 +2236,7 @@ impl Backend for WinUIBackend {
                 };
                 // The item container (a `ListViewItem`/`GridViewItem`) hosts
                 // our shared template, whose root is a plain `ContentControl`.
-                // We populate that inner control — not the item container,
+                // We populate that inner control - not the item container,
                 // whose `ListViewItemPresenter` only renders string content.
                 let Ok(root) = item_container.cast::<bindings::IContentControl>() else {
                     return;
@@ -2724,7 +2724,7 @@ impl Backend for WinUIBackend {
             (Event::Closed, _) => {
                 // Flyout open/close events are not yet wired.
             }
-            // Events handled by generated_attach_event::dispatch — if we reach here, the
+            // Events handled by generated_attach_event::dispatch - if we reach here, the
             // control type was unexpected (generated dispatch returned None).
             (event, _) => {
                 panic!("WinUIBackend::attach_event: {event:?} on unexpected control {id}")
@@ -2923,7 +2923,7 @@ impl Backend for WinUIBackend {
                         );
                     }
                     RichTextInline::LineBreak => {
-                        // LineBreak inline — use a Run with newline.
+                        // LineBreak inline - use a Run with newline.
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };

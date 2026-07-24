@@ -115,7 +115,7 @@ impl PathBuilder {
 
     /// Builds a closed, filled polygon from a sequence of points.
     ///
-    /// Convenience for `begin(first).line_to(rest)…close().build()`. Returns an
+    /// Convenience for `begin(first).line_to(rest)...close().build()`. Returns an
     /// error if `points` yields no points.
     pub fn polygon(self, points: impl IntoIterator<Item = Vector2>) -> Result<Path> {
         let mut points = points.into_iter();
@@ -147,7 +147,7 @@ impl PathFigure {
         self
     }
 
-    /// Adds a cubic Bézier segment with the given control points and end point.
+    /// Adds a cubic Bezier segment with the given control points and end point.
     pub fn bezier_to(self, control1: Vector2, control2: Vector2, end: Vector2) -> Self {
         let segment = D2D1_BEZIER_SEGMENT {
             point1: control1,

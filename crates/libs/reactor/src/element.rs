@@ -162,7 +162,7 @@ impl<T: Into<Element>, const N: usize> IntoElements for [T; N] {
     }
 }
 
-// Tuple impls — each element independently implements Into<Element>.
+// Tuple impls - each element independently implements Into<Element>.
 macro_rules! impl_into_elements_for_tuple {
     ($($idx:tt : $T:ident),+) => {
         impl<$($T: Into<Element>),+> IntoElements for ($($T,)+) {
@@ -208,12 +208,12 @@ impl GroupElement {
     }
 }
 
-/// Convenience constructor: `group([a, b, c].into())` → `Element::Group(...)`.
+/// Convenience constructor: `group([a, b, c].into())` -> `Element::Group(...)`.
 pub fn group(children: Vec<Element>) -> Element {
     Element::Group(GroupElement::new(children))
 }
 
-/// Single source of truth for every built-in widget variant of [`Element`]:
+/// Declares every built-in widget variant of [`Element`] in one place:
 /// drives the enum arms, `From` impls, and `as_widget` / `modifiers_mut` /
 /// `kind_name` dispatch.
 ///
@@ -230,7 +230,7 @@ macro_rules! define_element {
         /// Sum type of every element kind the reconciler can mount; widget
         /// variants each correspond to a backend control, plus a few
         /// non-widget variants for composition (`Component`, `Group`,
-        /// `Custom`, …).
+        /// `Custom`, ...).
         #[derive(Clone, Debug, PartialEq, Default)]
         pub enum Element {
             $( $variant($variant), )*
@@ -610,7 +610,7 @@ impl Element {
     }
 }
 
-/// `true` when the reconciler can skip diffing entirely — old/new are
+/// `true` when the reconciler can skip diffing entirely - old/new are
 /// equal and there are no theme bindings that need re-resolving.
 pub fn can_skip_update(old: &Element, new: &Element) -> bool {
     if old != new {
@@ -642,7 +642,7 @@ macro_rules! simple_setter {
 }
 
 /// Builder-style modifier methods (`.margin(..)`, `.background(..)`,
-/// animations, theme bindings, …) implemented for every widget builder
+/// animations, theme bindings, ...) implemented for every widget builder
 /// and for [`Element`] itself.
 pub trait ElementExt: Sized {
     fn modifiers_mut(&mut self) -> Option<&mut Modifiers>;
@@ -872,7 +872,7 @@ pub trait ElementExt: Sized {
 
     /// Register a `PointerMoved` handler; the callback receives the current
     /// pointer position and button state. Fires continuously while the pointer
-    /// is over the element — use it for drag and hover tracking.
+    /// is over the element - use it for drag and hover tracking.
     fn on_pointer_moved(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
         if let Some(m) = self.modifiers_mut() {
             ensure_pointer_handlers(m).on_pointer_moved = Some(f.into_callback());
@@ -897,7 +897,7 @@ pub trait ElementExt: Sized {
         self
     }
 
-    // ── Accessibility modifiers ──────────────────────────────────────────
+    // Accessibility modifiers
 
     fn automation_name(mut self, name: impl Into<String>) -> Self {
         if let Some(m) = self.modifiers_mut() {
@@ -941,7 +941,7 @@ pub trait ElementExt: Sized {
         self
     }
 
-    // ── RelativePanel attached property helpers ──────────────────────────
+    // RelativePanel attached property helpers
 
     fn relative_align_left(mut self) -> Self {
         if let Some(m) = self.modifiers_mut() {

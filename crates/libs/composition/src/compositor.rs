@@ -1,6 +1,6 @@
 use super::*;
 
-/// The composition engine — the factory for visuals, brushes, and window
+/// The composition engine - the factory for visuals, brushes, and window
 /// targets.
 ///
 /// Every visual and brush a `Compositor` creates belongs to that compositor and
@@ -12,7 +12,7 @@ impl Compositor {
     /// Creates a compositor.
     ///
     /// System composition (`Windows.UI.Composition`) is an OS component, so no
-    /// runtime bootstrap is required — but a dispatcher queue must exist on the
+    /// runtime bootstrap is required - but a dispatcher queue must exist on the
     /// current thread first. Create a
     /// [`DispatcherQueueController`](crate::DispatcherQueueController) and keep
     /// it alive for the compositor's lifetime.
@@ -188,7 +188,7 @@ impl Compositor {
     /// Creates a composition graphics device backed by a Direct2D (or DXGI)
     /// rendering device.
     ///
-    /// Pass the app's rendering device — for example canvas's `ID2D1Device`. The
+    /// Pass the app's rendering device - for example canvas's `ID2D1Device`. The
     /// returned [`CompositionGraphicsDevice`](crate::CompositionGraphicsDevice)
     /// allocates drawing surfaces that Direct2D content can be drawn into and
     /// shown through a [`CompositionSurfaceBrush`](crate::CompositionSurfaceBrush).
