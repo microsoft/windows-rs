@@ -19,9 +19,9 @@ pub(crate) enum MacroSource<'a> {
 /// translation-unit-wide value regardless of the file it is attributed to. The
 /// per-partition split only decides *which file owns* the emitted const (first-owner-wins).
 /// So instead of re-parsing the full closure once per macro-bearing partition (the dominant
-/// cost of the scrape — hundreds of redundant full-closure parses), the deduplicated
-/// **union** of all pending macro names is evaluated in a handful of synthetic TUs — one
-/// per worker thread — and the results are routed back to the first partition that
+/// cost of the scrape - hundreds of redundant full-closure parses), the deduplicated
+/// **union** of all pending macro names is evaluated in a handful of synthetic TUs - one
+/// per worker thread - and the results are routed back to the first partition that
 /// requested each name, leaving the deterministic first-owner-wins merge byte-for-byte
 /// identical to a per-partition pass.
 ///
@@ -128,8 +128,8 @@ pub(crate) struct MacroEval<'a> {
 
 /// Returns `true` for C/C++ builtin arithmetic-type and signedness keywords that
 /// may legitimately appear inside an integer-constant cast (e.g. `(int)`,
-/// `(unsigned long)`, `(__int64)`). Such casts — used by `#define`s like
-/// `CW_USEDEFAULT ((int)0x80000000)` — are valid constant expressions and must
+/// `(unsigned long)`, `(__int64)`). Such casts - used by `#define`s like
+/// `CW_USEDEFAULT ((int)0x80000000)` - are valid constant expressions and must
 /// not be filtered out along with genuinely non-constant keyword macros
 /// (`extern "C"`, `static`, ...).
 pub(crate) fn is_type_keyword(spelling: &str) -> bool {
@@ -232,8 +232,8 @@ pub(crate) fn collect_macro_defs(tu: &TranslationUnit) -> HashMap<String, Vec<St
         // export macro's replacement list (e.g. DWrite's
         // `#define DWRITE_EXPORT __declspec(dllimport) WINAPI`). It is irrelevant to
         // the calling convention but would otherwise push the body past the
-        // small-macro length gate below, dropping the macro — and with it the
-        // `WINAPI` token — from the table, so `DWriteCreateFactory` would fall back
+        // small-macro length gate below, dropping the macro - and with it the
+        // `WINAPI` token - from the table, so `DWriteCreateFactory` would fall back
         // to its `EXTERN_C` linkage and be mis-typed `extern "C"` instead of the
         // `extern "system"` (`__stdcall`) it really is. That mismatch corrupts the
         // stack on the x86 `__stdcall`/`__cdecl` ABI split.
@@ -250,15 +250,15 @@ pub(crate) fn collect_macro_defs(tu: &TranslationUnit) -> HashMap<String, Vec<St
 /// Build the reverse alias map consumed by [`Parser::alias_map`] and [`Fn::parse`].
 ///
 /// Scans the object-like macro definitions for the `#define <Alias> <Export>` forwarders
-/// the SDK uses to expose an export under a documented name (`RtlGenRandom` →
-/// `SystemFunction036`, `EnumProcesses` → `K32EnumProcesses`, `GetMappedFileNameW` →
-/// `K32GetMappedFileNameW`) and inverts them to `export -> alias` so a scraped function —
-/// whose clang name is the expanded export — can recover the source spelling.
+/// the SDK uses to expose an export under a documented name (`RtlGenRandom` ->
+/// `SystemFunction036`, `EnumProcesses` -> `K32EnumProcesses`, `GetMappedFileNameW` ->
+/// `K32GetMappedFileNameW`) and inverts them to `export -> alias` so a scraped function -
+/// whose clang name is the expanded export - can recover the source spelling.
 ///
 /// ANSI/Unicode charset-selection macros (`#define GetWindowText GetWindowTextA`, the
 /// `#ifdef UNICODE` idiom) are excluded: their replacement is the same name with an `A`/`W`
 /// suffix, selecting a character-set variant rather than forwarding to a distinct export.
-/// The reference metadata emits only the explicit `…A`/`…W` functions, so renaming the `A`
+/// The reference metadata emits only the explicit `...A`/`...W` functions, so renaming the `A`
 /// variant back to the bare name would both diverge from the reference and delete the
 /// variant. On the rare chance two aliases share one export, the lexicographically smallest
 /// is chosen so the result is deterministic across the unordered macro map.
@@ -300,7 +300,7 @@ pub(crate) fn is_c_identifier(s: &str) -> bool {
 
 /// Strip a leading `__declspec(...)` / `_declspec(...)` storage-class specifier (either MSVC
 /// spelling) from a macro body, leaving only the tokens that matter for calling-convention
-/// detection — so an export macro like `#define ORAPI _declspec(dllimport) __stdcall` keeps its
+/// detection - so an export macro like `#define ORAPI _declspec(dllimport) __stdcall` keeps its
 /// `__stdcall` and stays within the small-macro length gate.
 pub(crate) fn strip_declspec(body: &mut Vec<String>) {
     let mut i = 0;

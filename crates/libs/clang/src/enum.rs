@@ -6,7 +6,7 @@ pub struct Enum {
     pub repr: &'static str,
     pub variants: Vec<(String, i64)>,
     pub flags: bool,
-    /// True for a C++ `enum class` / `enum struct` → `ScopedEnum`.
+    /// True for a C++ `enum class` / `enum struct` -> `ScopedEnum`.
     pub scoped: bool,
 }
 
@@ -48,7 +48,7 @@ impl Enum {
 
     pub fn write(&self) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
-        // Flag enums (`DEFINE_ENUM_FLAG_OPERATORS`) are logically unsigned — their
+        // Flag enums (`DEFINE_ENUM_FLAG_OPERATORS`) are logically unsigned - their
         // members are bit masks (`0x8000_0000`-style values) combined with bitwise
         // operators. C's default `int` backing only signs them by accident of its
         // heritage (MSVC keeps the enum `int` and wraps a high-bit member such as

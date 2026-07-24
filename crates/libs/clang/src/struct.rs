@@ -1,14 +1,14 @@
 use super::*;
 
 /// Returns `true` when `record` is an anonymous struct/union defined inline as the
-/// direct (non-array, non-pointer) type of a named field of its enclosing record —
-/// the "named instance" idiom `struct { … } field;`. Such a record is emitted inline
-/// as a nested field (`field: struct { … }`) by [`Struct::parse`], producing a real
+/// direct (non-array, non-pointer) type of a named field of its enclosing record -
+/// the "named instance" idiom `struct { ... } field;`. Such a record is emitted inline
+/// as a nested field (`field: struct { ... }`) by [`Struct::parse`], producing a real
 /// `NestedClass`, so it must **not** also be hoisted to a `{Outer}_{n}` sibling.
 ///
-/// The C11 field-less anonymous aggregate (`struct { … };`) is handled separately
+/// The C11 field-less anonymous aggregate (`struct { ... };`) is handled separately
 /// (it reports `is_anonymous_record()`), and array/pointer-wrapped inline records
-/// (`struct { … } arr[N];` / `*p;`) keep the hoisting path because the RDL grammar
+/// (`struct { ... } arr[N];` / `*p;`) keep the hoisting path because the RDL grammar
 /// cannot express a nested record inside an array/pointer type.
 pub fn is_named_instance_record(record: &Cursor) -> bool {
     let kind = record.kind();
@@ -66,7 +66,7 @@ impl Struct {
 
     pub fn parse(cursor: Cursor, parser: &mut Parser<'_>, is_union: bool) -> Result<Self, Error> {
         let tag_name = cursor.name();
-        // Use the public typedef alias if one exists (e.g. `_TEST` → `TEST`).
+        // Use the public typedef alias if one exists (e.g. `_TEST` -> `TEST`).
         // For anonymous types the spelling is empty; fall back to location_id.
         let name = if is_anonymous_name(&tag_name) {
             parser
@@ -91,7 +91,7 @@ impl Struct {
 
         // Bit-field coalescing state.  The winmd format has no notion of a
         // bit-field, so consecutive bit-fields are merged into backing integer
-        // fields (named `_bitfield` / `_bitfield1` / `_bitfield2` …) exactly as
+        // fields (named `_bitfield` / `_bitfield1` / `_bitfield2` ...) exactly as
         // the field sequence packs them into storage units.  `unit_size` is the
         // byte size of the storage unit currently being filled (0 when none is
         // open) and `remaining_bits` how many bits are still free in it.
@@ -100,7 +100,7 @@ impl Struct {
         let mut remaining_bits: i64 = 0;
 
         // Count of anonymous record members seen so far, used to name the
-        // synthetic fields `Anonymous`, `Anonymous2`, … in declaration order.
+        // synthetic fields `Anonymous`, `Anonymous2`, ... in declaration order.
         let mut anonymous_count: usize = 0;
 
         // Count of C++ base subobjects seen so far (the Win32 `*EX`/`*2`/`*3`
@@ -110,9 +110,9 @@ impl Struct {
         for child in cursor.children() {
             // A C++ base class (`struct tagMONITORINFOEXA : public tagMONITORINFO`)
             // produces a `CXCursor_CXXBaseSpecifier`, not a `FieldDecl`, so its
-            // members would otherwise be dropped — the struct would be too small.
+            // members would otherwise be dropped - the struct would be too small.
             // The base subobject sits at the front of the layout, so emit it as a
-            // leading field of the base type (named `Base`, `Base2`, …), matching
+            // leading field of the base type (named `Base`, `Base2`, ...), matching
             // both the C anonymous-member spelling (`MONITORINFO;`) and the
             // single-field-per-base layout the canonical metadata records.
             if child.kind() == CXCursor_CXXBaseSpecifier {
@@ -141,9 +141,9 @@ impl Struct {
             // An anonymous struct/union member (the C11 / MSVC anonymous aggregate
             // idiom) produces no `FieldDecl`; libclang promotes its members and
             // exposes only the nested record declaration. Reconstruct it inline as
-            // a nested record (`Anonymous: struct { … }`) so the RDL reader rebuilds
+            // a nested record (`Anonymous: struct { ... }`) so the RDL reader rebuilds
             // it as a true nested type (`NestedClass`) instead of a hoisted
-            // `{Outer}_{n}` sibling. The parent's layout stays faithful.
+            // `{Outer}_{n}` sibling. The parent's layout is unchanged.
             if matches!(child.kind(), CXCursor_StructDecl | CXCursor_UnionDecl)
                 && child.is_anonymous_record()
             {
@@ -184,7 +184,7 @@ impl Struct {
                 max_field_align_bytes = field_align;
             }
 
-            // A named instance of an inline anonymous record (`struct { … } field;`)
+            // A named instance of an inline anonymous record (`struct { ... } field;`)
             // is emitted inline as a nested field so the RDL reader rebuilds it as a
             // real nested type (`NestedClass`) instead of a hoisted `{Outer}_{n}`
             // sibling. The record declaration is the field's own type declaration.
@@ -268,7 +268,7 @@ impl Struct {
 
         // Name the backing fields now that the total count is known: a lone
         // backing field is `_bitfield`; multiple are `_bitfield1`, `_bitfield2`,
-        // … numbered in declaration order across the whole type.
+        // ... numbered in declaration order across the whole type.
         if bitfield_indices.len() == 1 {
             fields[bitfield_indices[0]].name = "_bitfield".to_string();
         } else {
@@ -280,7 +280,7 @@ impl Struct {
         // Only emit packing when the struct's alignment is positive (valid) and
         // strictly less than the largest field's natural alignment.  This avoids
         // emitting `#[packed(N)]` for structs whose packing matches their natural
-        // alignment (which is effectively a no-op and can be safely omitted).
+        // alignment (which is a no-op and can be safely omitted).
         let packing = if struct_align_bytes > 0 && max_field_align_bytes > struct_align_bytes {
             Some(struct_align_bytes as u16)
         } else {
@@ -323,7 +323,7 @@ impl Struct {
     }
 
     /// Emits this record inline, without a name, as the type of an anonymous
-    /// nested field: `#attrs struct { … }` / `#attrs union { … }`. The RDL
+    /// nested field: `#attrs struct { ... }` / `#attrs union { ... }`. The RDL
     /// reader turns this into a real nested type (`NestedClass`).
     fn write_inline(&self, namespace: &str) -> TokenStream {
         let attrs = self.write_attrs();

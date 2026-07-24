@@ -5,18 +5,18 @@ use super::*;
 /// Win32 headers state the convention explicitly via the `__stdcall` / `__cdecl`
 /// / `__fastcall` keywords or a macro that expands to one (`WINAPI`, `CALLBACK`,
 /// `STDMETHODCALLTYPE`, ...). On a 64-bit target clang erases the convention from
-/// both the function type and its spelling — there is a single x64 convention —
+/// both the function type and its spelling - there is a single x64 convention -
 /// so it is recovered from the *source tokens* of the declaration instead, which
-/// keeps it faithful and architecture-independent (the winmd is arch-neutral; a
+/// keeps it architecture-independent (the winmd is arch-neutral; a
 /// `__stdcall` function is `CallConvPlatformapi`, correct on every architecture).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum CallingConvention {
-    /// `__cdecl` → RDL `extern "C"` (`CallConvCdecl`).
+    /// `__cdecl` -> RDL `extern "C"` (`CallConvCdecl`).
     Cdecl,
-    /// `__stdcall` / `WINAPI` → RDL `extern "system"` (`CallConvPlatformapi`,
+    /// `__stdcall` / `WINAPI` -> RDL `extern "system"` (`CallConvPlatformapi`,
     /// the Win32 default convention).
     Stdcall,
-    /// `__fastcall` → RDL `extern "fastcall"` (`CallConvFastcall`).
+    /// `__fastcall` -> RDL `extern "fastcall"` (`CallConvFastcall`).
     Fastcall,
 }
 
@@ -29,7 +29,7 @@ pub struct Fn {
     /// A handful of SDK exports are declared and documented under a source alias whose
     /// object-like macro (`#define RtlGenRandom SystemFunction036`,
     /// `#define EnumProcesses K32EnumProcesses`) textually rewrites the prototype to the
-    /// raw export before clang parses it. The faithful projection keeps the documented
+    /// raw export before clang parses it. The projection keeps the documented
     /// [`name`](Self::name) and records the raw export here as the P/Invoke import name so
     /// the linker still resolves the real symbol. `None` for the common case where the
     /// function's name is its own export symbol.
@@ -47,7 +47,7 @@ pub struct Fn {
 /// Map a compiler calling-convention keyword to its [`CallingConvention`].
 ///
 /// `__thiscall` / `__vectorcall` have no winmd representation and are reported as
-/// `None`, so they are faithfully omitted rather than approximated.
+/// `None`, so they are omitted rather than approximated.
 fn convention_keyword(spelling: &str) -> Option<CallingConvention> {
     match spelling {
         "__stdcall" | "_stdcall" => Some(CallingConvention::Stdcall),
@@ -58,7 +58,7 @@ fn convention_keyword(spelling: &str) -> Option<CallingConvention> {
 }
 
 /// Resolve a single source token to a calling convention, expanding macros
-/// (`WINAPI` → `__stdcall`, `APIENTRY` → `WINAPI` → `__stdcall`, ...) transitively
+/// (`WINAPI` -> `__stdcall`, `APIENTRY` -> `WINAPI` -> `__stdcall`, ...) transitively
 /// via the translation unit's macro-definition map. A visited set guards against
 /// self-referential macros.
 fn resolve_convention<'a>(
@@ -85,7 +85,7 @@ fn resolve_convention<'a>(
 /// (`<ret> WINAPI Name(...)`); a calling convention on a function-pointer
 /// *parameter* appears later, inside the parameter list, so anchoring on the name
 /// token avoids mistaking a callback parameter's convention for the function's. The
-/// convention is not always *adjacent* to the name — see the backward scan below.
+/// convention is not always *adjacent* to the name - see the backward scan below.
 fn detect_calling_convention(
     tokens: &[(CXTokenKind, String)],
     name: &str,
@@ -128,7 +128,7 @@ fn detect_calling_convention(
     // preprocessor noise: `clang_tokenize` is purely lexical, so a declaration
     // whose `WINAPI` is written inside a `#ifndef _MAC` / `#else` / `#endif` block
     // (e.g. `DefWindowProc` in `winuser.h`) tokenises as
-    // `... WINAPI #else <ret> CALLBACK #endif Name (` — the directive tokens and the
+    // `... WINAPI #else <ret> CALLBACK #endif Name (` - the directive tokens and the
     // inactive branch sit between the convention and the name, so the adjacent token
     // is `endif` and detection would wrongly fall back to the `extern "C"` linkage.
     // Scanning back to the nearest statement boundary recovers it (both `_MAC`
@@ -150,7 +150,7 @@ fn detect_calling_convention(
 
 /// Recover the calling convention of a function-pointer typedef (callback).
 ///
-/// The convention macro sits in the declarator *before* the callback name —
+/// The convention macro sits in the declarator *before* the callback name -
 /// `typedef RET (CALLBACK *NAME)...` (pointer form, name preceded by `*`) or
 /// `typedef RET CALLBACK NAME(...)` (bare function-type form). The declarator name
 /// is the last identifier of the declarator, so anchoring on its final occurrence
@@ -178,9 +178,9 @@ pub(super) fn detect_callback_calling_convention(
     }
 }
 
-/// True when `name` appears in `tokens` as the function-name identifier — the token
+/// True when `name` appears in `tokens` as the function-name identifier - the token
 /// immediately preceding the parameter-list `(`. Used to confirm that an alias macro
-/// actually rewrote *this* prototype (`RtlGenRandom(` → `SystemFunction036`) rather than
+/// actually rewrote *this* prototype (`RtlGenRandom(` -> `SystemFunction036`) rather than
 /// the export being its own real prototype with a separate back-compat alias declared
 /// elsewhere (`#define VarBoolFromInt VarBoolFromI4`, where the literal prototype is
 /// `VarBoolFromI4(`).
@@ -209,7 +209,7 @@ impl Fn {
         // Recover the source (pre-macro-expansion) spelling when this declaration's name is
         // produced by an object-like alias macro (`#define RtlGenRandom SystemFunction036`,
         // `#define EnumProcesses K32EnumProcesses`). clang reports the expanded export name,
-        // but the SDK declares the prototype — and its calling-convention token — under the
+        // but the SDK declares the prototype - and its calling-convention token - under the
         // alias. The rename is applied only when the source tokens confirm that *this*
         // prototype was written with the alias (`RtlGenRandom(`) and not the export: a
         // `#define VarBoolFromInt VarBoolFromI4` back-compat alias, whose real prototype is
@@ -232,8 +232,8 @@ impl Fn {
 
         // Recover the `ComOutPtr` (`#[iid_is]`) marker on caller-chosen-type COM creators
         // that the SDK headers leave unannotated (no `_COM_Outptr_` SAL, no MIDL `[iid_is]`)
-        // — `DCompositionCreateDevice`, the `OleCreate*`/`PS*` families, … — from the
-        // signature shape. See [`infer_iid_is`] for the (deliberately narrow) gate.
+        // - `DCompositionCreateDevice`, the `OleCreate*`/`PS*` families, ... - from the
+        // signature shape. See [`infer_iid_is`] for the (narrow) gate.
         infer_iid_is(&mut params, &return_type);
 
         // Prefer the DLL recovered from the import libraries for this exact
@@ -305,7 +305,7 @@ impl Fn {
                 Some(CallingConvention::Fastcall) => quote! { "fastcall" },
                 // No explicit convention: fall back to linkage. An `extern "C"`
                 // function with no stated convention defaults to `__cdecl` under
-                // MSVC, so emitting `extern "C"` here remains faithful.
+                // MSVC, so emitting `extern "C"` here is correct.
                 None if self.extern_c => quote! { "C" },
                 None => quote! {},
             }

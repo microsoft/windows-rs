@@ -1,6 +1,6 @@
 use super::*;
 
-/// Reads an import library and extends `map` with its symbol → DLL entries without
+/// Reads an import library and extends `map` with its symbol -> DLL entries without
 /// overwriting existing mappings.
 pub(crate) fn extend_libraries(map: &mut HashMap<String, String>, path: &str) -> Result<(), Error> {
     let bytes = std::fs::read(path).map_err(|_| Error::new("invalid input", path, 0, 0))?;
@@ -10,11 +10,11 @@ pub(crate) fn extend_libraries(map: &mut HashMap<String, String>, path: &str) ->
     Ok(())
 }
 
-/// Builds the name → namespace resolution map from the reference metadata, excluding
+/// Builds the name -> namespace resolution map from the reference metadata, excluding
 /// the namespace under construction so its own types are re-emitted from source rather
 /// than resolving to the (possibly stale or upstream) reference copy. Types from other
 /// namespaces stay in the map so cross-namespace dependencies (`Foundation::HRESULT`,
-/// `Gdi::HMONITOR`, …) resolve as qualified references.
+/// `Gdi::HMONITOR`, ...) resolve as qualified references.
 pub(crate) fn build_ref_map(
     reference: &metadata::reader::Index,
     exclude: &str,
@@ -29,7 +29,7 @@ pub(crate) fn build_ref_map(
     ref_map
 }
 
-/// Overlays the in-house `name → namespace` table (built from what each partition
+/// Overlays the in-house `name -> namespace` table (built from what each partition
 /// emits) onto the upstream reference map so cross-namespace references resolve
 /// against types we build ourselves, falling back to the upstream `reference` only
 /// for names not yet built in-house. In-house entries win, and the namespace under
@@ -55,7 +55,7 @@ pub(crate) fn build_resolution_map(
 /// e.g. a typedef declared in `wingdi.h` with `root = "Windows.Win32"` becomes
 /// `Windows.Win32.Wingdi`. This is the per-header partition key: intrinsic to the
 /// source (clang's cursor location), total over all declarations, and stable across
-/// SDK versions — unlike the editorial namespaces of `win32metadata`.
+/// SDK versions - unlike the hand-curated namespaces of `win32metadata`.
 ///
 /// Returns the defining-header partition leaf (file stem) for `cursor`, e.g.
 /// `Windef` for a declaration written in `windef.h`. Used to route each emitted
@@ -63,8 +63,8 @@ pub(crate) fn build_resolution_map(
 ///
 /// `CXCursor_LinkageSpec` cursors produced by linkage macros (`STDAPI`/`WINAPI`)
 /// report their spelling location at the macro definition site (an unfiltered
-/// header such as `winnt.h`); the *expansion* location — where the macro was
-/// invoked — is the real API header, so it is preferred when present.
+/// header such as `winnt.h`); the *expansion* location - where the macro was
+/// invoked - is the real API header, so it is preferred when present.
 ///
 /// Returns `None` for cursors with no associated file (builtins, the predefined
 /// translation-unit buffer).
@@ -96,8 +96,8 @@ pub(crate) fn header_path_of(cursor: &Cursor) -> Option<String> {
 
 /// Whether a defining-header `path` is in scope: one of its directory components (after
 /// collapsing `.`/`..`) equals a `scope` segment, e.g. `um`/`shared` matches
-/// `…/Include/10.0.26100.0/um/winuser.h` (and the nested `…/um/gl/gl.h`) but not a
-/// C-runtime header under `…/ucrt/`. Matching is case-insensitive, separator-agnostic,
+/// `.../Include/10.0.26100.0/um/winuser.h` (and the nested `.../um/gl/gl.h`) but not a
+/// C-runtime header under `.../ucrt/`. Matching is case-insensitive, separator-agnostic,
 /// and component-based so a sibling directory reached via `..` cannot match by substring.
 pub(crate) fn header_in_scope(path: &str, scope: &[String]) -> bool {
     let norm = path.replace('\\', "/").to_lowercase();
@@ -259,14 +259,14 @@ pub(crate) fn sweep_unreferenced(
 
 /// Reduces a header path to its partition leaf name: the file stem (basename minus
 /// the final extension) with its first character upper-cased, e.g.
-/// `C:\sdk\um\wingdi.h` → `Wingdi`, `shared.inl` → `Shared`.
+/// `C:\sdk\um\wingdi.h` -> `Wingdi`, `shared.inl` -> `Shared`.
 pub(crate) fn header_stem_to_namespace(file: &str) -> String {
     let base = file.rsplit(['/', '\\']).next().unwrap_or(file);
     let stem = base.rsplit_once('.').map_or(base, |(s, _)| s);
     // A header whose own name is dotted (the WinRT interop headers, e.g.
     // `Windows.Devices.Display.Core.Interop.h`) must collapse to a single flat
     // partition segment. The flat Win32 surface ignores header namespacing, so the
-    // leftover dots must not survive to spawn a nested `Windows::Devices::…` module
+    // leftover dots must not survive to spawn a nested `Windows::Devices::...` module
     // tree under `Win32`.
     let stem: String = stem.chars().filter(|c| *c != '.').collect();
     let mut chars = stem.chars();

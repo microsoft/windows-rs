@@ -261,8 +261,8 @@ impl TranslationUnit {
     }
 
     /// Returns `true` when a `CXCursor_MacroDefinition` is function-like by source
-    /// adjacency — its name is immediately followed by `(` with no intervening
-    /// whitespace (`#define FOO(x) ...`). This is a robust backstop for
+    /// adjacency - its name is immediately followed by `(` with no intervening
+    /// whitespace (`#define FOO(x) ...`). This is a backstop for
     /// `clang_Cursor_isMacroFunctionLike`, which can misreport some macros (e.g.
     /// `#define ASSERT(exp) ((VOID)0)` in `mswsockdef.h`) as object-like, causing
     /// the parameter name to leak into the constant scraper as a bogus type.
@@ -343,9 +343,9 @@ impl Cursor {
         unsafe { clang_isCursorDefinition(self.0) != 0 }
     }
 
-    /// The semantic parent of this cursor — for a record defined inside another
+    /// The semantic parent of this cursor - for a record defined inside another
     /// record, the enclosing record. Used to detect the "named instance" idiom
-    /// (`struct { … } field;`) so it can be emitted as an inline nested type.
+    /// (`struct { ... } field;`) so it can be emitted as an inline nested type.
     pub fn semantic_parent(&self) -> Self {
         Self(unsafe { clang_getCursorSemanticParent(self.0) })
     }
@@ -452,8 +452,8 @@ impl Cursor {
     ///
     /// Old-style COM headers (`DECLARE_INTERFACE_`) redeclare every inherited method
     /// (`QueryInterface`/`AddRef`/`Release` and the whole ancestor chain) in each derived
-    /// interface. Those redeclarations override the base virtuals — they occupy existing
-    /// vtable slots rather than adding new ones — so they must not be re-emitted on top of
+    /// interface. Those redeclarations override the base virtuals - they occupy existing
+    /// vtable slots rather than adding new ones - so they must not be re-emitted on top of
     /// the inherited base vtable.
     pub fn overrides_base_method(&self) -> bool {
         let mut cursors = std::ptr::null_mut();
@@ -484,8 +484,8 @@ impl Cursor {
     /// several headers (e.g. `winnt.h` and `winsmcrd.h` both `typedef`-declare
     /// `ULONG`). `clang_getTypeDeclaration` returns whichever redeclaration clang
     /// happens to resolve at a given reference site, so per-header routing must
-    /// canonicalize to the first declaration in translation order — a stable,
-    /// most-upstream choice — to attribute every reference to the same defining
+    /// canonicalize to the first declaration in translation order - a stable,
+    /// most-upstream choice - to attribute every reference to the same defining
     /// header.
     pub fn canonical(&self) -> Self {
         Self(unsafe { clang_getCanonicalCursor(self.0) })
@@ -551,7 +551,7 @@ impl Cursor {
     /// A *marker* interface such as `ID2D1Image` (`interface ID2D1Image :
     /// ID2D1Resource {}`) declares no methods of its own, so
     /// [`has_pure_virtual_methods`](Self::has_pure_virtual_methods) alone
-    /// misclassifies it as a plain record — and its `IFoo*` parameters then fail
+    /// misclassifies it as a plain record - and its `IFoo*` parameters then fail
     /// to collapse to the bare interface. Walking the single-inheritance base
     /// chain fixes this; it terminates at `IUnknown`, whose
     /// `QueryInterface`/`AddRef`/`Release` are pure virtual.
@@ -662,7 +662,7 @@ impl Cursor {
 
     /// Evaluate this cursor as a compile-time constant expression and return the
     /// floating-point result, or `None` if evaluation fails or the result is not a
-    /// float. Integer results are *not* coerced — callers that want an integer use
+    /// float. Integer results are *not* coerced - callers that want an integer use
     /// [`evaluate_unsigned`](Self::evaluate_unsigned).
     pub fn evaluate_double(&self) -> Option<f64> {
         unsafe {
@@ -808,10 +808,10 @@ impl Type {
     /// A WinRT generic's arguments are WinRT types, but the C++/WinRT ABI represents them in their
     /// projected form: `String` is passed as `HSTRING` (`struct HSTRING__ *`) and `Object` as
     /// `IInspectable *`. Mapping those back to [`metadata::Type::String`]/[`metadata::Type::Object`]
-    /// keeps the closed instantiation faithful to the `Windows.winmd` definition (and matches the
+    /// keeps the closed instantiation aligned with the `Windows.winmd` definition (and matches the
     /// WinRT projection RDL's `IMapView<String, Object>`), instead of leaking the raw ABI handle
-    /// tag (`HSTRING__`, which is dropped and would dangle). Any other argument — including a nested
-    /// generic — is resolved through the ordinary [`to_type`](Self::to_type) path.
+    /// tag (`HSTRING__`, which is dropped and would dangle). Any other argument - including a nested
+    /// generic - is resolved through the ordinary [`to_type`](Self::to_type) path.
     fn winrt_generic_arg(&self, parser: &mut Parser<'_>) -> metadata::Type {
         let mut peeled = self.canonical_type();
         while peeled.kind() == CXType_Pointer {
@@ -900,14 +900,14 @@ impl Type {
             }
             CXType_Elaborated => self.underlying_type().is_interface(),
             CXType_Typedef => {
-                // A WinRT projection interface referenced through an `ABI::…` typedef is
+                // A WinRT projection interface referenced through an `ABI::...` typedef is
                 // an interface, but the structural pure-virtual probe misses it: a generic
                 // instantiation (`__FIMapView_2_HSTRING_IInspectable_t`) is never instantiated
                 // in the scrape, and a non-generic interop reference
                 // (`typedef interface ICompositionTexture ICompositionTexture;`) is usually
                 // only forward-declared, so its underlying record has no methods. Recognise
-                // the `ABI::…` canonical form directly so the implied-pointer collapse in
-                // `to_type` strips the extra indirection (`ICompositionTexture**` →
+                // the `ABI::...` canonical form directly so the implied-pointer collapse in
+                // `to_type` strips the extra indirection (`ICompositionTexture**` ->
                 // `*mut ICompositionTexture`). The canonical kind guard excludes a
                 // pointer-to-generic, which must keep its own explicit level.
                 let canonical = self.canonical_type();
@@ -918,10 +918,10 @@ impl Type {
                         if spelling.contains('<') {
                             return true;
                         }
-                        // A non-generic `ABI::…` record: if it is fully defined, classify it
-                        // structurally so a WinRT *value struct* (`Rect`, `Point`, …) is not
-                        // mistaken for an interface; an incomplete forward-declaration — all an
-                        // interop header emits for a projected interface — is taken as an
+                        // A non-generic `ABI::...` record: if it is fully defined, classify it
+                        // structurally so a WinRT *value struct* (`Rect`, `Point`, ...) is not
+                        // mistaken for an interface; an incomplete forward-declaration - all an
+                        // interop header emits for a projected interface - is taken as an
                         // interface, its real shape living in the resolution winmd.
                         if canonical.kind() == CXType_Record {
                             let decl = canonical.ty();
@@ -948,7 +948,7 @@ impl Type {
     ///
     /// The underlying type is canonicalised first so a SAL-annotated handle
     /// (`typedef __RPC_unique_pointer struct HSTRING__ *HSTRING`, where the SAL
-    /// macro expands to an `__attribute__((annotate(…)))` wrapper) is recognised
+    /// macro expands to an `__attribute__((annotate(...)))` wrapper) is recognised
     /// the same as the bare `DECLARE_HANDLE` form; canonicalisation also strips
     /// the elaboration/typedef sugar on the pointee tag.
     ///
@@ -976,10 +976,10 @@ impl Type {
     /// generic-instantiation reference reports the ABI-qualified path as its canonical type even
     /// when its own spelling is the bare or mangled name). With a resolution winmd configured
     /// ([`Parser::winrt_types`]), a name present in that set is a *true* `Windows.winmd`
-    /// projection and becomes a cross-winmd reference (`ABI::Windows::Foundation::AsyncStatus` →
+    /// projection and becomes a cross-winmd reference (`ABI::Windows::Foundation::AsyncStatus` ->
     /// `Windows.Foundation.AsyncStatus`), while a name *absent* from it is a Win32 COM interop
     /// entity captured into the flat root ([`Parser::namespace`]) like any other in-closure type.
-    /// Without a resolution winmd the type is always mapped to its `Windows.winmd` reference — the
+    /// Without a resolution winmd the type is always mapped to its `Windows.winmd` reference - the
     /// legacy behaviour for an out-of-scope projection reached through an incidentally-included
     /// `winrt/` header, whose referencing declaration the sweep drops afterwards.
     ///
@@ -989,14 +989,14 @@ impl Type {
     fn abi_projection(&self, parser: &mut Parser<'_>) -> Option<metadata::Type> {
         let canonical = self.canonical_type().spelling();
         let projected = canonical.strip_prefix("ABI::")?;
-        // The bare stem drops any generic arguments (`IMapView<HSTRING, IInspectable *>` →
+        // The bare stem drops any generic arguments (`IMapView<HSTRING, IInspectable *>` ->
         // `IMapView`); the closed argument list is reconstructed below for a WinRT projection.
         let stem = projected.split('<').next().unwrap_or(projected);
         let (namespace, name) = stem.rsplit_once("::")?;
         let ns = namespace.replace("::", ".");
         // With a resolution winmd configured, a name *absent* from it is a Win32 COM interop
-        // entity captured into the flat root. In every other case — a name present in the winmd,
-        // or the legacy path with no resolution winmd (an out-of-scope projection later swept) —
+        // entity captured into the flat root. In every other case - a name present in the winmd,
+        // or the legacy path with no resolution winmd (an out-of-scope projection later swept) -
         // the type is a cross-winmd reference to its `Windows.winmd` projection.
         if let Some(set) = parser.winrt_types
             && !set.contains(&format!("{ns}.{name}"))
@@ -1057,7 +1057,7 @@ impl Type {
                 }
                 let decl = self.ty();
                 let tag_name = decl.name();
-                // For anonymous types (empty or "(anonymous …)") the cursor
+                // For anonymous types (empty or "(anonymous ...)") the cursor
                 // spelling is not a usable key; fall back to the source
                 // location which is unique per declaration site.
                 let name = if is_anonymous_name(&tag_name) {
@@ -1067,7 +1067,7 @@ impl Type {
                         .cloned()
                         .unwrap_or(tag_name)
                 } else {
-                    // Apply the tag→typedef rename so that the internal tag (e.g. `_TEST`)
+                    // Apply the tag->typedef rename so that the internal tag (e.g. `_TEST`)
                     // is always replaced by its public typedef alias (e.g. `TEST`).
                     parser
                         .tag_rename
@@ -1077,9 +1077,9 @@ impl Type {
                 };
                 // An inline anonymous enum used directly as a field/parameter type
                 // (e.g. `enum { ElementType, TextType } Type;` inside `_WSDXML_NODE`)
-                // has no name to reference — only a typedef or MIDL tag would have
+                // has no name to reference - only a typedef or MIDL tag would have
                 // supplied one via the rename map above. Its constants are emitted
-                // separately as free constants, so the value itself is faithfully the
+                // separately as free constants, so the value itself is the
                 // enum's underlying integer type.
                 if self.kind() == CXType_Enum && is_anonymous_name(&name) {
                     return decl.enum_repr().to_type(parser);
@@ -1114,15 +1114,15 @@ impl Type {
             }
             CXType_Elaborated => self.underlying_type().to_type(parser),
             CXType_Typedef => {
-                // A synthetic MIDL parameterized-interface alias — e.g.
-                // `typedef ABI::Windows::…::IMapView<HSTRING, IInspectable*> __FIMapView_2_HSTRING_IInspectable_t;`
-                // — is inlined to the WinRT generic it names, so the mangled MIDL spelling never
+                // A synthetic MIDL parameterized-interface alias - e.g.
+                // `typedef ABI::Windows::...::IMapView<HSTRING, IInspectable*> __FIMapView_2_HSTRING_IInspectable_t;`
+                // - is inlined to the WinRT generic it names, so the mangled MIDL spelling never
                 // surfaces in the projection (`get_Attributes` then returns `IMapView<String, Object>`
                 // directly and the now-unreferenced alias decl is dropped by the reachability sweep).
-                // A non-generic `ABI::…` *record* typedef — the `typedef interface IC IC;` a WinRT
+                // A non-generic `ABI::...` *record* typedef - the `typedef interface IC IC;` a WinRT
                 // interop header emits for the projection interfaces it references (often only
                 // forward-declared, so the structural interface probe in `resolve_typedef` misses
-                // it) — is likewise routed through `abi_projection` so it resolves to its
+                // it) - is likewise routed through `abi_projection` so it resolves to its
                 // `Windows.winmd` cross-reference (or the flat root when absent), rather than falling
                 // through to a dangling flat-root name. An ABI *enum* typedef keeps its own name
                 // through `resolve_typedef` (the canonical-kind guard excludes it).
@@ -1148,7 +1148,7 @@ impl Type {
                     // a function-*type* typedef (`typedef R NAME(args); NAME *field;`),
                     // collapsing the pointee to a bare function proto. The pointer's own
                     // spelling still preserves the name (`"NAME *"`), so recover it and
-                    // emit the delegate by name — the same implied-pointer convention as
+                    // emit the delegate by name - the same implied-pointer convention as
                     // a function-*pointer* typedef field (`PLSA_INIT p;` -> `p: PLSA_INIT`).
                     if let Some(name) = named_function_typedef_pointer(self) {
                         let ns = parser
@@ -1170,13 +1170,13 @@ impl Type {
                 }
                 let inner = pointee.to_type(parser);
                 if pointee.is_const() {
-                    // Flatten consecutive const-pointer levels: PtrConst(PtrConst(T, n), 1) → PtrConst(T, n+1)
+                    // Flatten consecutive const-pointer levels: PtrConst(PtrConst(T, n), 1) -> PtrConst(T, n+1)
                     match inner {
                         metadata::Type::PtrConst(t, n) => metadata::Type::PtrConst(t, n + 1),
                         inner => metadata::Type::PtrConst(Box::new(inner), 1),
                     }
                 } else {
-                    // Flatten consecutive mut-pointer levels: PtrMut(PtrMut(T, n), 1) → PtrMut(T, n+1)
+                    // Flatten consecutive mut-pointer levels: PtrMut(PtrMut(T, n), 1) -> PtrMut(T, n+1)
                     match inner {
                         metadata::Type::PtrMut(t, n) => metadata::Type::PtrMut(t, n + 1),
                         inner => metadata::Type::PtrMut(Box::new(inner), 1),
@@ -1215,7 +1215,7 @@ impl Type {
             }
             CXType_IncompleteArray => {
                 // A flexible array member (`Type field[];`) is an unsized
-                // trailing array.  Represent it faithfully as a zero-length
+                // trailing array.  Represent it as a zero-length
                 // fixed array rather than guessing a placeholder length.
                 let element = self.array_element_type().to_type(parser);
                 metadata::Type::ArrayFixed(Box::new(element), 0)
@@ -1233,8 +1233,8 @@ impl Type {
                 // failing. Such types reach here either as an out-of-scope projection pulled in
                 // by an incidentally-included `winrt/` projection header (e.g. `asyncinfo.h`'s
                 // `IAsyncInfo::get_Status(AsyncStatus*)`, dragged in by `UserConsentVerifierInterop.h`;
-                // the sweep drops the referencing declaration afterwards) or — when a resolution
-                // winmd is configured — as an interop entity referenced by a kept API, captured
+                // the sweep drops the referencing declaration afterwards) or - when a resolution
+                // winmd is configured - as an interop entity referenced by a kept API, captured
                 // into the flat root. `ABI::Windows::Foundation::AsyncStatus` -> `Windows.Foundation.AsyncStatus`.
                 if let Some(projected) = self.abi_projection(parser) {
                     return projected;
@@ -1296,8 +1296,8 @@ pub fn is_anonymous_name(name: &str) -> bool {
         || name.contains("(anonymous ")
 }
 
-/// Returns `true` if `name` is a MIDL-synthesised name for an originally
-/// anonymous enumeration.
+/// Returns `true` if `name` is a MIDL-synthesised name for an anonymous
+/// enumeration.
 ///
 /// When MIDL compiles IDL that contains an anonymous `enum { ... }`, it
 /// generates a synthetic tag name of the form `__MIDL___MIDL_itf_<...>`.
@@ -1310,9 +1310,9 @@ pub fn is_midl_anonymous_enum_name(name: &str) -> bool {
 
 /// Returns `true` if `name` is a MIDL-synthesised interface-file-scope tag, of the
 /// form `__MIDL___MIDL_itf_<...>`. MIDL emits this pseudo-scope for types declared at
-/// IDL *file* scope (outside any interface) — including the opaque one-off struct that
-/// backs an IDL handle typedef (`typedef [handle] void *NAME` → `struct
-/// __MIDL___MIDL_itf_<file>_NNNN { int unused; }; typedef struct … *NAME`). These tags
+/// IDL *file* scope (outside any interface) - including the opaque one-off struct that
+/// backs an IDL handle typedef (`typedef [handle] void *NAME` -> `struct
+/// __MIDL___MIDL_itf_<file>_NNNN { int unused; }; typedef struct ... *NAME`). These tags
 /// are compiler plumbing and must never be surfaced as a type of their own.
 pub fn is_midl_placeholder_tag(name: &str) -> bool {
     name.starts_with("__MIDL___MIDL_itf_")
@@ -1327,7 +1327,7 @@ pub fn is_midl_synthetic_param_name(name: &str) -> bool {
     name.starts_with("__MIDL__")
 }
 
-/// Returns `true` if the record `decl` carries no payload — it is empty or has a single
+/// Returns `true` if the record `decl` carries no payload - it is empty or has a single
 /// primitive-`int` field. This is the shape of the dummy tag that backs an opaque
 /// handle: `DECLARE_HANDLE`'s `struct X__ { int unused; }` and MIDL's file-scope handle
 /// placeholder both use it. A real value struct carries record/typedef/multiple fields.
@@ -1344,8 +1344,8 @@ pub fn is_handle_shape(decl: &Cursor) -> bool {
 /// Recover the typedef name from the spelling of a pointer to a function-*type*
 /// typedef. `clang_getPointeeType` collapses such a pointee to a bare function
 /// proto (dropping the sugar), but the pointer's spelling still reads `"NAME *"`.
-/// Returns `Some("NAME")` only for that exact shape — a single identifier followed
-/// by one `*` — so anonymous function pointers (`"int (*)(int)"`) and multi-level
+/// Returns `Some("NAME")` only for that exact shape - a single identifier followed
+/// by one `*` - so anonymous function pointers (`"int (*)(int)"`) and multi-level
 /// pointers fall through to the opaque `*mut u8` mapping.
 fn named_function_typedef_pointer(ty: &Type) -> Option<String> {
     let spelling = ty.spelling();
