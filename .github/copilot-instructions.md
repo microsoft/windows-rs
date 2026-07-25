@@ -230,9 +230,12 @@ tautology; `interface.rs` empty-`if`; no-op `link_fmt`; redundant `Type::Class(_
 orphaned), four dead metadata reader accessors (`MethodDef::rva`, `GenericParam::owner`,
 `InterfaceImpl::class`, `Constant::parent`), reactor `UiMarshaller::dispatch_low`, and a `sha1.rs`
 `_offset` mis-name. All verified with build, tests, clippy, fmt, and a full 10-tool regen.
-Follow-ups since: added SHA-1 known-answer tests (`core/src/imp/sha1.rs`), and removed the dead
-`Some(1/2/5)` ABI arms from rdl `write_delegate` (only WinRT delegates reach it, so the arms were
-unreachable and `#abi` always emitted nothing) plus fixed the stale `read_unmanaged_abi` doc.
+Follow-ups since: added SHA-1 known-answer tests (`tests/libs/core/tests/sha1.rs`), and removed
+the dead `Some(1/2/5)` ABI arms from rdl `write_delegate` (only WinRT delegates reach it, so the
+arms were unreachable and `#abi` always emitted nothing) plus fixed the stale `read_unmanaged_abi`
+doc.
+Added `test_window` (`crates/tests/libs/window`): 7 tests covering create/handle/`client_size`,
+`Drop` destruction, `on_message`/`on_resize` dispatch, and the `quit`/`pump`/`run_with` loop.
 
 #### Behavioral / correctness (need a design decision)
 
@@ -256,7 +259,6 @@ unreachable and `#abi` always emitted nothing) plus fixed the stale `read_unmana
 
 | Area | Gap |
 | --- | --- |
-| `window` crate | Zero tests and no `crates/tests/libs/window` test crate. |
 | `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
 | webview | `process-failed`, download, and deferral paths untested. |
 
