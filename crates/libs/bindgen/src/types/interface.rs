@@ -605,8 +605,7 @@ impl Interface {
                         .iter()
                         .any(|ty| ty.has_skipped_methods(config));
 
-                if has_skipped_methods {
-                } else {
+                if !has_skipped_methods {
                     let field_methods = write_impl_field_methods(&methods, config, |name| {
                         quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
                     });

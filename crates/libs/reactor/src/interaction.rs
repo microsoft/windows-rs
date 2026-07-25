@@ -423,7 +423,7 @@ impl PartialEq for ProviderElement {
 /// Represents the lifecycle of an async data fetch.
 #[derive(Clone, Debug, PartialEq)]
 pub enum Resource<T> {
-    /// No fetch has been initiated (initial state before first render cycle).
+    /// No fetch has been initiated.
     Idle,
     /// A fetch is in progress (no prior data available).
     Loading,

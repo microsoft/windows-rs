@@ -97,9 +97,9 @@ impl CppFn {
                 }
             }
         } else {
-            link_fmt(quote! {
+            quote! {
                 #link::link!(#library #abi #symbol fn #name #signature);
-            })
+            }
         }
     }
 
@@ -338,11 +338,4 @@ impl Config<'_> {
             }
         }
     }
-}
-
-fn link_fmt(tokens: TokenStream) -> TokenStream {
-    // The whitespace inside `link!(...)` is cleaned up by a final pass over
-    // the assembled output (see `Config::format`); no token-level rewrite is
-    // needed here.
-    tokens
 }
