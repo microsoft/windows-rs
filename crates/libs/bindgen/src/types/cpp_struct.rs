@@ -272,22 +272,17 @@ impl CppStruct {
 
         if config.bindgen.style.is_sys() || is_copyable {
             derive.extend(["Clone", "Copy"]);
-        } else if !matches!(
-            TypeName(self.def.namespace(), self.def.name()),
-            TypeName::VARIANT | TypeName::PROPVARIANT
-        ) {
-            if has_explicit_layout {
-                manual_clone = Some(quote! {
-                    #cfg
-                    impl Clone for #name {
-                        fn clone(&self) -> Self {
-                            unsafe { core::mem::transmute_copy(self) }
-                        }
+        } else if has_explicit_layout {
+            manual_clone = Some(quote! {
+                #cfg
+                impl Clone for #name {
+                    fn clone(&self) -> Self {
+                        unsafe { core::mem::transmute_copy(self) }
                     }
-                });
-            } else if !has_packing {
-                derive.extend(["Clone"]);
-            }
+                }
+            });
+        } else if !has_packing {
+            derive.extend(["Clone"]);
         }
 
         if !config.bindgen.style.is_sys() && !has_explicit_layout && !has_packing {
@@ -460,13 +455,6 @@ impl CppStruct {
     }
 
     pub fn is_copyable(&self, reader: &Reader) -> bool {
-        if matches!(
-            self.def.type_name(),
-            TypeName::VARIANT | TypeName::PROPVARIANT
-        ) {
-            return false;
-        }
-
         self.def
             .fields()
             .all(|field| field.field_type(Some(self), reader).is_copyable(reader))

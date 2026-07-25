@@ -31,9 +31,6 @@ impl TypeName {
     pub const IIterable: Self = Self("Windows.Foundation.Collections", "IIterable");
     pub const IIterator: Self = Self("Windows.Foundation.Collections", "IIterator");
 
-    pub const VARIANT: Self = Self("Windows.Win32.System.Variant", "VARIANT");
-    pub const PROPVARIANT: Self = Self("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
-
     pub fn namespace(&self) -> &'static str {
         self.0
     }

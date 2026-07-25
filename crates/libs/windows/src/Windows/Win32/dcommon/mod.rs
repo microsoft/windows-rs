@@ -131,13 +131,6 @@ pub struct D2D_SIZE_U {
     pub width: u32,
     pub height: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D_VECTOR_3F {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-}
 pub type DWRITE_GLYPH_IMAGE_FORMATS = u32;
 pub const DWRITE_GLYPH_IMAGE_FORMATS_CFF: DWRITE_GLYPH_IMAGE_FORMATS = 2;
 pub const DWRITE_GLYPH_IMAGE_FORMATS_COLR: DWRITE_GLYPH_IMAGE_FORMATS = 4;

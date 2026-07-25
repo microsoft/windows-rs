@@ -255,16 +255,17 @@ impl Type {
         }
 
         // Numerics substitutions swap a Win32 struct for its
-        // layout-identical `Windows.Foundation.Numerics` projection (an ergonomic
-        // gen-time choice - the winmd keeps the D2D/D3D struct). These must be
-        // matched by name, not shape: the same `{ f32; f32 }` layout is reused
-        // under many names that map to *different* Numerics types.
+        // layout-identical `Windows.Foundation.Numerics` projection (the winmd
+        // keeps the D2D/D3D struct). These must be matched by name, not shape:
+        // the same `{ f32; f32 }` layout is reused under many names that map to
+        // *different* Numerics types.
         //
-        // The projection is applied for the `windows` crate (whose input carries
-        // the WinRT `Windows.Foundation.Numerics` types, re-exported from the
-        // `windows-numerics` crate) but NOT for `windows-sys`: the sys package is
-        // generated from the Win32/WDK winmd alone, which has no Numerics types to
-        // resolve against, so `windows-sys` keeps the raw D2D/D3D structs.
+        // The projection is applied for the `windows` crate, whose input carries
+        // the WinRT `Windows.Foundation.Numerics` types (re-exported from the
+        // `windows-numerics` crate). It is gated off for `windows-sys` because the
+        // sys package is generated from the Win32/WDK winmd alone: those Numerics
+        // types are not in its input, so the remap target would be unresolvable.
+        // `windows-sys` therefore keeps the raw D2D/D3D structs.
         if (win32_meta || is_flat_win32_stem) && !sys {
             match name {
                 "D2D_MATRIX_3X2_F" => {
@@ -275,6 +276,9 @@ impl Type {
                 }
                 "D2D_POINT_2F" | "D2D_VECTOR_2F" => {
                     return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector2"));
+                }
+                "D2D_VECTOR_3F" => {
+                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector3"));
                 }
                 "D2D_VECTOR_4F" => {
                     return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector4"));
