@@ -215,6 +215,51 @@ token has an unambiguous type) vs faithful to the SDK header spellings. Sources 
 `crates/libs/clang/src/{const,canon,annotation,interface,lib}.rs`, `crates/tools/win32/src/main.rs`,
 `docs/crates/windows-clang.md`.
 
+### Repo-wide dead-code / quality audit (2026-07)
+
+Deep-dive after a month of churn across the hand-written crates (reactor, bindgen, rdl, clang,
+canvas, metadata, webview, core). Findings were verified against source before acting. Safe,
+output-neutral fixes were applied; behavioral and design questions are recorded below for a
+decision. Remove each entry when it is addressed. Any bindgen source change must be proven
+output-neutral by running the `tool_*` generators and confirming `git diff` shows no
+generated-file changes (the `gen` workflow enforces this).
+
+Completed: dead-code elimination in bindgen (`cpp_enum` dead `else`; `struct.rs` `is_sys()`
+tautology; `interface.rs` empty-`if`; no-op `link_fmt`; redundant `Type::Class(_)` arm; unused
+`_named_params`/`_reader`/`_style` params and the `for_style` wrapper plus the `config` params it
+orphaned), four dead metadata reader accessors (`MethodDef::rva`, `GenericParam::owner`,
+`InterfaceImpl::class`, `Constant::parent`), reactor `UiMarshaller::dispatch_low`, and a `sha1.rs`
+`_offset` mis-name. All verified with build, tests, clippy, fmt, and a full 10-tool regen.
+Follow-ups since: added SHA-1 known-answer tests (`core/src/imp/sha1.rs`), and removed the dead
+`Some(1/2/5)` ABI arms from rdl `write_delegate` (only WinRT delegates reach it, so the arms were
+unreachable and `#abi` always emitted nothing) plus fixed the stale `read_unmanaged_abi` doc.
+
+#### Behavioral / correctness (need a design decision)
+
+| Location | Issue |
+| --- | --- |
+| `reactor/src/style.rs:237` + `element.rs:730` | `exit_transition` is set but never read; `.transition(enter, exit)` silently discards the exit arg. Wire it up or drop the parameter. |
+| `reactor/src/reconciler.rs:775` + `backend/winui/mod.rs:893` | Verified: a resource-dict change `{k:v}` -> `{}` never reaches the backend (the `&& !new.resources.is_empty()` guard skips it), and the backend handler only inserts map entries - it never removes - so any key removal leaves stale entries. Unlike the pointer/drag-handler paths above, which always emit on change and clear when empty. Needs a replace-vs-merge decision. |
+| `reactor/src/reconciler/widget_dispatch.rs:238` | Verified: a `TabItem` key change `Some` -> `None` satisfies `o.key != n.key` but the `&& let Some(key) = &n.key` guard skips the body, so the stale key is retained. `is_closable`/`header` just below always emit on change. Needs a backend clear path for `Prop::ItemKey`. |
+| `webview/src/pump.rs:36` | `Err(Error::empty())` on `WM_QUIT` reports a success `HRESULT(0)` (the empty sentinel maps back to 0). Intentional but easy to misread as success. |
+
+#### Duplication / refactor candidates
+
+| Location | Issue |
+| --- | --- |
+| `metadata/src/merge/mod.rs:218` (`write_type`) vs `merge/remap.rs:170` (`Remapper::write_type`) | Two ~60-line structurally identical functions; the remap copy's comment even says it mirrors `merge::write_type`. Any new ECMA table must be added to both, with no compiler guard. |
+| `canvas/src/session.rs` (211-217, 236-242, 394-404) | Duplicated gradient-stop and bitmap-properties builders. |
+| `bindgen/src/types/interface.rs:559` + `cpp_interface.rs:215` | Duplicate local `fn combine()`. |
+| `canvas/src/color.rs:57` | `DARK_SLATE_BLUE = rgb(0.05, 0.05, 0.1)` does not match the CSS color of that name (public API used by samples). |
+
+#### Coverage gaps
+
+| Area | Gap |
+| --- | --- |
+| `window` crate | Zero tests and no `crates/tests/libs/window` test crate. |
+| `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
+| webview | `process-failed`, download, and deferral paths untested. |
+
 **Tier 1 - strays from both the C standard and the header:**
 
 1. **Non-negative `#define` constants default to unsigned.** DONE. `const.rs` now types

@@ -975,11 +975,9 @@ fn delegate_guid_output(
     guid_output(item, &[("Invoke", types.as_slice(), &return_type)])
 }
 
-/// Reads the calling convention from an `UnmanagedFunctionPointerAttribute`, returning the
-/// ABI string (`"C"`, `"fastcall"`, or `"system"` which maps to `None` for callbacks where
-/// it is the default, and `Some("system")` for delegates where it must be explicit).
-///
-/// Returns `None` when no `UnmanagedFunctionPointerAttribute` is present.
+/// Reads the raw `CallingConvention` value from an `UnmanagedFunctionPointerAttribute`, or
+/// `None` when the attribute is absent. Only Win32 callbacks carry this attribute; the caller
+/// maps the value to an ABI string.
 fn read_unmanaged_abi(item: &metadata::reader::TypeDef) -> Option<i32> {
     item.find_attribute("UnmanagedFunctionPointerAttribute")
         .and_then(|attribute| attribute.value().into_iter().next())
