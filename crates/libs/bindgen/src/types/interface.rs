@@ -76,7 +76,7 @@ pub fn write_vtbl_methods<M: MethodItem>(
     config: &Config,
     mut signature: impl FnMut(&M) -> TokenStream,
 ) -> Vec<TokenStream> {
-    let mut names = MethodNames::for_style(&config.bindgen.style);
+    let mut names = MethodNames::new();
     methods
         .iter()
         .map(|method| match method {
@@ -115,10 +115,9 @@ pub fn write_vtbl_methods<M: MethodItem>(
 // supplies the `Method` arm via `method_field`.
 pub fn write_impl_field_methods<M: MethodItem>(
     methods: &[MethodOrName<M>],
-    config: &Config,
     mut method_field: impl FnMut(&TokenStream) -> TokenStream,
 ) -> Vec<TokenStream> {
-    let mut names = MethodNames::for_style(&config.bindgen.style);
+    let mut names = MethodNames::new();
     methods
         .iter()
         .map(|method| match method {
@@ -135,14 +134,13 @@ pub fn write_impl_field_methods<M: MethodItem>(
 }
 
 // Emits the `fn name signature;` entries of an `_Impl` producer trait. Identical across
-// generators apart from the `write_impl_signature` arity (WinRT takes an extra flag), so
+// generators apart from the `write_impl_signature` arity (WinRT takes extra flags), so
 // the caller supplies the signature via `signature`.
 pub fn write_impl_trait_methods<M: MethodItem>(
     methods: &[MethodOrName<M>],
-    config: &Config,
     mut signature: impl FnMut(&M) -> TokenStream,
 ) -> Vec<TokenStream> {
-    let mut names = MethodNames::for_style(&config.bindgen.style);
+    let mut names = MethodNames::new();
     methods
         .iter()
         .map(|method| match method {
@@ -424,8 +422,8 @@ impl Interface {
                 && minimal
                 && (self.is_factory(config.reader) || config.should_implement(type_name, false));
             if !is_exclusive || (minimal && !suppress_methods) {
-                let method_names = &mut MethodNames::for_style(&config.bindgen.style);
-                let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
+                let method_names = &mut MethodNames::new();
+                let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();
                 // These methods live in `impl<..> #name`, so references to this
                 // interface (with matching generics) are emitted as `Self`.
@@ -457,7 +455,7 @@ impl Interface {
                     if !config.bindgen.style.emit_inherited_forwarders() {
                         continue;
                     }
-                    let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
+                    let virtual_names = &mut MethodNames::new();
 
                     for method in
                         interface
@@ -606,11 +604,11 @@ impl Interface {
                         .any(|ty| ty.has_skipped_methods(config));
 
                 if !has_skipped_methods {
-                    let field_methods = write_impl_field_methods(&methods, config, |name| {
+                    let field_methods = write_impl_field_methods(&methods, |name| {
                         quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
                     });
 
-                    let mut names = MethodNames::for_style(&config.bindgen.style);
+                    let mut names = MethodNames::new();
 
                     let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
@@ -631,7 +629,7 @@ impl Interface {
                 _ => quote! {},
             }).collect();
 
-                    let trait_methods = write_impl_trait_methods(&methods, config, |method| {
+                    let trait_methods = write_impl_trait_methods(&methods, |method| {
                         method.write_impl_signature(config, true, true)
                     });
 

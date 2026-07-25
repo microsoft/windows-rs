@@ -7,10 +7,6 @@ impl std::fmt::Debug for MethodDef<'_> {
 }
 
 impl<'a> MethodDef<'a> {
-    pub fn rva(&self) -> usize {
-        self.usize(0)
-    }
-
     pub fn impl_flags(&self) -> MethodImplAttributes {
         MethodImplAttributes(self.usize(1).try_into().unwrap())
     }

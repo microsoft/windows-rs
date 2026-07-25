@@ -34,10 +34,10 @@ impl Class {
         let mut methods = quote! {};
 
         if config.bindgen.style.emit_class_methods() {
-            let mut method_names = MethodNames::for_style(&config.bindgen.style);
+            let mut method_names = MethodNames::new();
 
             for interface in &required_interfaces {
-                let mut virtual_names = MethodNames::for_style(&config.bindgen.style);
+                let mut virtual_names = MethodNames::new();
 
                 for method in
                     interface
@@ -68,7 +68,7 @@ impl Class {
         } else {
             // In minimal mode, only flatten static/factory methods onto the class
             // (needed for static caching). Instance methods live on their interfaces.
-            let mut method_names = MethodNames::for_style(&config.bindgen.style);
+            let mut method_names = MethodNames::new();
 
             // In minimal mode, compose() is only needed when the class is being
             // subclassed (aggregated), which requires --implement on one of its
@@ -97,7 +97,7 @@ impl Class {
                 .iter()
                 .filter(|i| matches!(i.kind, InterfaceKind::Static | InterfaceKind::Composable))
             {
-                let mut virtual_names = MethodNames::for_style(&config.bindgen.style);
+                let mut virtual_names = MethodNames::new();
 
                 for method in
                     interface

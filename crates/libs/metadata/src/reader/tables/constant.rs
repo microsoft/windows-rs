@@ -21,10 +21,6 @@ impl<'a> Constant<'a> {
         }
     }
 
-    pub fn parent(&self) -> HasConstant<'a> {
-        self.decode(1)
-    }
-
     pub fn value(&self) -> Value {
         let mut blob = self.blob(2);
 

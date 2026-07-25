@@ -45,10 +45,6 @@ impl MethodNames {
         }
     }
 
-    pub(crate) fn for_style(_style: &Style) -> Self {
-        Self::new()
-    }
-
     pub fn add(&mut self, method: MethodDef) -> TokenStream {
         let name = method_def_special_name(method);
         let overload = self.map.entry(name.clone()).or_insert(0);
