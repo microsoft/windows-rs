@@ -210,32 +210,20 @@ Context: issue [#4720](https://github.com/microsoft/windows-rs/issues/4720) and 
 [#4725](https://github.com/microsoft/windows-rs/issues/4725) (the `SW_NORMAL` should-be-signed
 report). The scrape aims to be "faithful to the Windows SDK headers, not a theoretical C-standard
 purity," but several decisions editorialize beyond what the header literally declares. Two notions
-of "faithful" appear in the thread and agree everywhere except item 1: faithful to C semantics (a
-token has an unambiguous type) vs faithful to the SDK header spellings. Sources studied:
+of "faithful" appear in the thread: faithful to C semantics (a token has an unambiguous type) vs
+faithful to the SDK header spellings. The constant-typing case where they diverged is now resolved;
+the items below remain. Sources studied:
 `crates/libs/clang/src/{const,canon,annotation,interface,lib}.rs`, `crates/tools/win32/src/main.rs`,
 `docs/crates/windows-clang.md`.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 
 Deep-dive after a month of churn across the hand-written crates (reactor, bindgen, rdl, clang,
-canvas, metadata, webview, core). Findings were verified against source before acting. Safe,
-output-neutral fixes were applied; behavioral and design questions are recorded below for a
-decision. Remove each entry when it is addressed. Any bindgen source change must be proven
-output-neutral by running the `tool_*` generators and confirming `git diff` shows no
-generated-file changes (the `gen` workflow enforces this).
-
-Completed: dead-code elimination in bindgen (`cpp_enum` dead `else`; `struct.rs` `is_sys()`
-tautology; `interface.rs` empty-`if`; no-op `link_fmt`; redundant `Type::Class(_)` arm; unused
-`_named_params`/`_reader`/`_style` params and the `for_style` wrapper plus the `config` params it
-orphaned), four dead metadata reader accessors (`MethodDef::rva`, `GenericParam::owner`,
-`InterfaceImpl::class`, `Constant::parent`), reactor `UiMarshaller::dispatch_low`, and a `sha1.rs`
-`_offset` mis-name. All verified with build, tests, clippy, fmt, and a full 10-tool regen.
-Follow-ups since: added SHA-1 known-answer tests (`tests/libs/core/tests/sha1.rs`), and removed
-the dead `Some(1/2/5)` ABI arms from rdl `write_delegate` (only WinRT delegates reach it, so the
-arms were unreachable and `#abi` always emitted nothing) plus fixed the stale `read_unmanaged_abi`
-doc.
-Added `test_window` (`crates/tests/libs/window`): 7 tests covering create/handle/`client_size`,
-`Drop` destruction, `on_message`/`on_resize` dispatch, and the `quit`/`pump`/`run_with` loop.
+canvas, metadata, webview, core). The safe, output-neutral fixes have already been applied; the
+items below still need a design decision or a larger change. Remove each entry when it is
+addressed. Any bindgen source change must be proven output-neutral by running the `tool_*`
+generators and confirming `git diff` shows no generated-file changes (the `gen` workflow enforces
+this).
 
 #### Behavioral / correctness (need a design decision)
 
@@ -261,19 +249,6 @@ Added `test_window` (`crates/tests/libs/window`): 7 tests covering create/handle
 | --- | --- |
 | `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
 | webview | `process-failed`, download, and deferral paths untested. |
-
-**Tier 1 - strays from both the C standard and the header:**
-
-1. **Non-negative `#define` constants default to unsigned.** DONE. `const.rs` now types
-   each integer constant by the C11 literal rule (`integer_value`, `c_integer_constant_type`):
-   unsuffixed decimal takes the first of `int/long/long long` that fits (`1`->`i32`); hex/octal
-   takes the first of `int/uint/long/ulong/...` that fits (`0x80000000`->`u32`); `U`/`L`/`LL`
-   suffixes are honored. This makes `SW_NORMAL` and other `SW_*` signed (`i32`) while hex flag
-   masks stay unsigned, resolving #4725. The retyping is value-preserving: across the full win32
-   scrape, 673 constants changed their spelled type but every one keeps the same bit pattern
-   (verified by modular arithmetic), and cases like `BG_LENGTH_TO_EOF` (`(UINT64)(-1)`) are now
-   `u64` max instead of a truncated `i32`. Hand-written call sites across the workspace were
-   updated with explicit `as u32`/`as i32` casts where Win32 ABI conventions use `DWORD`(u32).
 
 **Tier 2 - faithful-ish to the header, but an active rewrite of the declared type:**
 
@@ -322,5 +297,4 @@ true MSVC vtable slot order - ABI-critical); the `_HRESULT_TYPEDEF_`/`_NDIS_ERRO
 cast-wrapper map (`const.rs` `cast_wrapper_macro` 983-987, honors an explicit author type
 annotation).
 
-Suggested order: item 1 first (the actual bug, moves toward both notions of faithful, contained
-change), then 8 (true `windows.h` fidelity, large), then 4 / 9 / 2-3-5 / 7.
+Suggested order: item 8 (true `windows.h` fidelity, large), then 4 / 9 / 2-3-5 / 7.
