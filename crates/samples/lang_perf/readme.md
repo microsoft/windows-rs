@@ -108,7 +108,7 @@ cargo run --release -p lang_perf_rust -- --component cpp --iterations 10000000
 ```
 
 The C# benchmark uses `dotnet`. It calls the Rust component. Build that component, stage it as
-`LangPerf.dll`, add it to `PATH`, and run. It targets .NET 10 and C#/WinRT 2.2.0. The .NET 10 SDK is
+`LangPerf.dll`, add it to `PATH`, and run. It targets .NET 10 and C#/WinRT 2.3.1. The .NET 10 SDK is
 required.
 
 ```pwsh
@@ -295,3 +295,12 @@ different default-interface metadata.
 
 This does not change the comparison. The benchmark measures caller projection cost, and the
 component performs no per-call work.
+
+## Testing
+
+Each consumer runs a small iteration count under `cargo test`, so `cargo test --all` validates all
+three projections end to end on every CI target:
+
+- `lang_perf_rust` and `lang_perf_cpp` each have an in-crate `interop` test that stages their own
+  component and runs the full loop set.
+- `lang_perf_cs` spawns the C# consumer with `dotnet run` and checks its output.
