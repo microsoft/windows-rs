@@ -223,8 +223,7 @@ impl CppConst {
                     // value through the underlying newtype instead.
                     let ctor = match &field_ty {
                         Type::CppStruct(s)
-                            if !s.is_handle(config.reader)
-                                && s.is_native_typedef(config.reader) =>
+                            if !s.is_handle(config.reader) && s.is_native_typedef() =>
                         {
                             underlying_ty.write_name(config)
                         }
@@ -357,7 +356,7 @@ fn resolves_to_guid(ty: &Type, reader: &Reader) -> bool {
             return true;
         }
         match &ty {
-            Type::CppStruct(s) if s.is_native_typedef(reader) => {
+            Type::CppStruct(s) if s.is_native_typedef() => {
                 ty = s.def.underlying_type_ext(reader);
             }
             _ => return false,

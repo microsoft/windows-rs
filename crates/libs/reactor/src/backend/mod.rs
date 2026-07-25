@@ -648,15 +648,6 @@ impl UiMarshaller {
         self.inner
             .enqueue_send(DispatcherQueuePriority::Normal, Box::new(f))
     }
-
-    /// Schedule `f` to run on the UI thread at low priority.
-    pub fn dispatch_low<F>(&self, f: F) -> bool
-    where
-        F: FnOnce() + Send + 'static,
-    {
-        self.inner
-            .enqueue_send(DispatcherQueuePriority::Low, Box::new(f))
-    }
 }
 
 impl fmt::Debug for UiMarshaller {

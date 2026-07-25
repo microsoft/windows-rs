@@ -54,15 +54,11 @@ impl CppEnum {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
-        let fields = if is_scoped {
-            let fields = write_enum_constants(self.def, config);
-            if fields.is_empty() {
-                quote! {}
-            } else {
-                quote! { impl #name { #(#fields)* } }
-            }
-        } else {
+        let fields = write_enum_constants(self.def, config);
+        let fields = if fields.is_empty() {
             quote! {}
+        } else {
+            quote! { impl #name { #(#fields)* } }
         };
 
         let flags = if config.bindgen.style.is_sys() || !self.def.has_attribute("FlagsAttribute") {

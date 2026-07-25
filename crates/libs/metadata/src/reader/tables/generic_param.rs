@@ -15,10 +15,6 @@ impl<'a> GenericParam<'a> {
         GenericParamAttributes(self.usize(1).try_into().unwrap())
     }
 
-    pub fn owner(&self) -> TypeOrMethodDef<'a> {
-        self.decode(2)
-    }
-
     pub fn name(&self) -> &str {
         self.str(3)
     }

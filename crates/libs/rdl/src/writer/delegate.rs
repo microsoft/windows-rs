@@ -35,22 +35,10 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         ],
     )?;
 
-    let abi = match read_unmanaged_abi(item) {
-        None => None,
-        Some(1) => Some("system"),
-        Some(2) => Some("C"),
-        Some(5) => Some("fastcall"),
-        Some(n) => {
-            return Err(writer_err!(
-                "unexpected CallingConvention value {n} in `UnmanagedFunctionPointerAttribute`"
-            ));
-        }
-    };
-
     Ok(quote! {
         #guid_token
         #arch_attr
         #(#custom_attrs)*
-        delegate #abi fn #name #generics_tokens (#(#params),*) #return_type;
+        delegate fn #name #generics_tokens (#(#params),*) #return_type;
     })
 }

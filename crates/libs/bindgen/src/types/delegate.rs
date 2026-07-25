@@ -36,8 +36,8 @@ impl Delegate {
             config,
             None,
             InterfaceKind::Default,
-            &mut MethodNames::for_style(&config.bindgen.style),
-            &mut MethodNames::for_style(&config.bindgen.style),
+            &mut MethodNames::new(),
+            &mut MethodNames::new(),
             true,
         );
 

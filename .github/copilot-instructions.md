@@ -210,23 +210,45 @@ Context: issue [#4720](https://github.com/microsoft/windows-rs/issues/4720) and 
 [#4725](https://github.com/microsoft/windows-rs/issues/4725) (the `SW_NORMAL` should-be-signed
 report). The scrape aims to be "faithful to the Windows SDK headers, not a theoretical C-standard
 purity," but several decisions editorialize beyond what the header literally declares. Two notions
-of "faithful" appear in the thread and agree everywhere except item 1: faithful to C semantics (a
-token has an unambiguous type) vs faithful to the SDK header spellings. Sources studied:
+of "faithful" appear in the thread: faithful to C semantics (a token has an unambiguous type) vs
+faithful to the SDK header spellings. The constant-typing case where they diverged is now resolved;
+the items below remain. Sources studied:
 `crates/libs/clang/src/{const,canon,annotation,interface,lib}.rs`, `crates/tools/win32/src/main.rs`,
 `docs/crates/windows-clang.md`.
 
-**Tier 1 - strays from both the C standard and the header:**
+### Repo-wide dead-code / quality audit (2026-07)
 
-1. **Non-negative `#define` constants default to unsigned.** DONE. `const.rs` now types
-   each integer constant by the C11 literal rule (`integer_value`, `c_integer_constant_type`):
-   unsuffixed decimal takes the first of `int/long/long long` that fits (`1`->`i32`); hex/octal
-   takes the first of `int/uint/long/ulong/...` that fits (`0x80000000`->`u32`); `U`/`L`/`LL`
-   suffixes are honored. This makes `SW_NORMAL` and other `SW_*` signed (`i32`) while hex flag
-   masks stay unsigned, resolving #4725. The retyping is value-preserving: across the full win32
-   scrape, 673 constants changed their spelled type but every one keeps the same bit pattern
-   (verified by modular arithmetic), and cases like `BG_LENGTH_TO_EOF` (`(UINT64)(-1)`) are now
-   `u64` max instead of a truncated `i32`. Hand-written call sites across the workspace were
-   updated with explicit `as u32`/`as i32` casts where Win32 ABI conventions use `DWORD`(u32).
+Deep-dive after a month of churn across the hand-written crates (reactor, bindgen, rdl, clang,
+canvas, metadata, webview, core). The safe, output-neutral fixes have already been applied; the
+items below still need a design decision or a larger change. Remove each entry when it is
+addressed. Any bindgen source change must be proven output-neutral by running the `tool_*`
+generators and confirming `git diff` shows no generated-file changes (the `gen` workflow enforces
+this).
+
+#### Behavioral / correctness (need a design decision)
+
+| Location | Issue |
+| --- | --- |
+| `reactor/src/style.rs:237` + `element.rs:730` | `exit_transition` is set but never read; `.transition(enter, exit)` silently discards the exit arg. Wire it up or drop the parameter. |
+| `reactor/src/reconciler.rs:775` + `backend/winui/mod.rs:893` | Verified: a resource-dict change `{k:v}` -> `{}` never reaches the backend (the `&& !new.resources.is_empty()` guard skips it), and the backend handler only inserts map entries - it never removes - so any key removal leaves stale entries. Unlike the pointer/drag-handler paths above, which always emit on change and clear when empty. Needs a replace-vs-merge decision. |
+| `reactor/src/reconciler/widget_dispatch.rs:238` | Verified: a `TabItem` key change `Some` -> `None` satisfies `o.key != n.key` but the `&& let Some(key) = &n.key` guard skips the body, so the stale key is retained. `is_closable`/`header` just below always emit on change. Needs a backend clear path for `Prop::ItemKey`. |
+| `webview/src/pump.rs:36` | `Err(Error::empty())` on `WM_QUIT` reports a success `HRESULT(0)` (the empty sentinel maps back to 0). Intentional but easy to misread as success. |
+
+#### Duplication / refactor candidates
+
+| Location | Issue |
+| --- | --- |
+| `metadata/src/merge/mod.rs:218` (`write_type`) vs `merge/remap.rs:170` (`Remapper::write_type`) | Two ~60-line structurally identical functions; the remap copy's comment even says it mirrors `merge::write_type`. Any new ECMA table must be added to both, with no compiler guard. |
+| `canvas/src/session.rs` (211-217, 236-242, 394-404) | Duplicated gradient-stop and bitmap-properties builders. |
+| `bindgen/src/types/interface.rs:559` + `cpp_interface.rs:215` | Duplicate local `fn combine()`. |
+| `canvas/src/color.rs:57` | `DARK_SLATE_BLUE = rgb(0.05, 0.05, 0.1)` does not match the CSS color of that name (public API used by samples). |
+
+#### Coverage gaps
+
+| Area | Gap |
+| --- | --- |
+| `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
+| webview | `process-failed`, download, and deferral paths untested. |
 
 **Tier 2 - faithful-ish to the header, but an active rewrite of the declared type:**
 
@@ -275,5 +297,4 @@ true MSVC vtable slot order - ABI-critical); the `_HRESULT_TYPEDEF_`/`_NDIS_ERRO
 cast-wrapper map (`const.rs` `cast_wrapper_macro` 983-987, honors an explicit author type
 annotation).
 
-Suggested order: item 1 first (the actual bug, moves toward both notions of faithful, contained
-change), then 8 (true `windows.h` fidelity, large), then 4 / 9 / 2-3-5 / 7.
+Suggested order: item 8 (true `windows.h` fidelity, large), then 4 / 9 / 2-3-5 / 7.

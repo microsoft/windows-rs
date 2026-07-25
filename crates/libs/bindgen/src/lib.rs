@@ -641,7 +641,6 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
         for ty in type_set {
             let (methods, generics): (Box<dyn Iterator<Item = MethodDef>>, &[Type]) = match ty {
                 Type::Interface(i) => (Box::new(i.def.methods()), &i.generics),
-                Type::Class(_) => continue,
                 _ => continue,
             };
 

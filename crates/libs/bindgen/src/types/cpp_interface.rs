@@ -167,8 +167,8 @@ impl CppInterface {
             let mut methods_tokens = quote! {};
 
             if !suppress_methods {
-                let method_names = &mut MethodNames::for_style(&config.bindgen.style);
-                let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
+                let method_names = &mut MethodNames::new();
+                let virtual_names = &mut MethodNames::new();
 
                 // These methods live in `impl #name`, so references to this
                 // interface are emitted as `Self` (clippy::use_self).
@@ -238,7 +238,7 @@ impl CppInterface {
                     quote! {}
                 };
 
-                let field_methods = write_impl_field_methods(&methods, config, |name| {
+                let field_methods = write_impl_field_methods(&methods, |name| {
                     if has_unknown_base {
                         quote! { #name: #name::<Identity, OFFSET>, }
                     } else {
@@ -246,7 +246,7 @@ impl CppInterface {
                     }
                 });
 
-                let mut names = MethodNames::for_style(&config.bindgen.style);
+                let mut names = MethodNames::new();
 
                 let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
@@ -278,8 +278,8 @@ impl CppInterface {
                 _ => quote! {},
             }).collect();
 
-                let trait_methods = write_impl_trait_methods(&methods, config, |method| {
-                    method.write_impl_signature(config, true)
+                let trait_methods = write_impl_trait_methods(&methods, |method| {
+                    method.write_impl_signature(config)
                 });
 
                 let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(config));

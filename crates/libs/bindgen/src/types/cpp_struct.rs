@@ -95,7 +95,7 @@ impl CppStruct {
     // Primitive- and void-typed typedefs are already collapsed by `is_handle` and
     // `is_void_typedef`; this covers the remaining non-primitive case, which must
     // render as a transparent alias rather than a (broken) wrapper struct.
-    pub fn is_native_typedef(&self, _reader: &Reader) -> bool {
+    pub fn is_native_typedef(&self) -> bool {
         if self.def.find_attribute("NativeTypedefAttribute").is_none() {
             return false;
         }
@@ -113,7 +113,7 @@ impl CppStruct {
     // native typedefs) a fixed-size array - e.g. `WINBIO_STRING = [u16; 256]`. Such an
     // alias has no `Default` impl, so a struct field of this type cannot derive it.
     fn resolves_to_fixed_array(&self, reader: &Reader) -> bool {
-        if !self.is_native_typedef(reader) {
+        if !self.is_native_typedef() {
             return false;
         }
 
@@ -134,7 +134,7 @@ impl CppStruct {
     // native typedefs) a pointer - e.g. `LPCTSTR = PCSTR = *const u8`. Such an alias
     // has no `Default` impl, so a struct field of this type cannot derive it.
     fn resolves_to_pointer(&self, reader: &Reader) -> bool {
-        if !self.is_native_typedef(reader) {
+        if !self.is_native_typedef() {
             return false;
         }
 
@@ -178,7 +178,7 @@ impl CppStruct {
             };
         }
 
-        if self.is_native_typedef(config.reader) {
+        if self.is_native_typedef() {
             let name = to_ident(self.name);
             let field = self.def.fields().next().unwrap();
             let ty = field

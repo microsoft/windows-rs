@@ -1,0 +1,18 @@
+[package]
+name = "test_window"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-window]
+workspace = true
+
+[dependencies.windows-link]
+workspace = true
+
+[lints]
+workspace = true

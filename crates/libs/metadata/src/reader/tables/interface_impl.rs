@@ -7,10 +7,6 @@ impl std::fmt::Debug for InterfaceImpl<'_> {
 }
 
 impl<'a> InterfaceImpl<'a> {
-    pub fn class(&self) -> TypeDef<'a> {
-        self.row(0)
-    }
-
     pub fn interface(&self, generics: &[Type]) -> Type {
         self.decode::<TypeDefOrRef>(1).ty(generics)
     }

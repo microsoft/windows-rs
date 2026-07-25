@@ -989,8 +989,8 @@ fn c_integer_constant_type(
     } else if has_ll {
         if is_decimal { &[I64] } else { &[I64, U64] }
     } else if has_l || is_decimal {
-        // `L` decimal and bare decimal share the signed-only list; `L` hex falls
-        // through to the full list below.
+        // Decimal (bare or `L`-suffixed) uses the signed-only list; `L`-suffixed
+        // hex can also take unsigned types.
         if is_decimal {
             &[I32, I64]
         } else {

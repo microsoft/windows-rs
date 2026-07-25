@@ -440,7 +440,7 @@ impl CppMethod {
         }
     }
 
-    pub fn write_impl_signature(&self, config: &Config, _named_params: bool) -> TokenStream {
+    pub fn write_impl_signature(&self, config: &Config) -> TokenStream {
         let mut params = quote! {};
 
         if self.return_hint == ReturnHint::ResultValue {
