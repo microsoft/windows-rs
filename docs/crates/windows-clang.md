@@ -8,7 +8,7 @@
 - [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/clang)
 
 `windows-clang` is the header-facing front end of the Win32 metadata pipeline. It parses C/C++
-headers with **libclang** and emits **RDL** (Rust Definition Language) - the text format that
+headers with libclang and emits RDL (Rust Definition Language) - the text format that
 [`windows-rdl`](windows-rdl.md) compiles into ECMA-335 `.winmd` metadata. The full pipeline is:
 
 ```text
@@ -22,7 +22,7 @@ conventions, and the symbol -> DLL mapping recovered from the SDK import librari
 
 ## Relationship to windows-rdl
 
-`windows-clang` **depends on** `windows-rdl`. It is a *producer* of RDL text and reuses the
+`windows-clang` depends on `windows-rdl`. It is a *producer* of RDL text and reuses the
 reader-side crate's building blocks:
 
 - `windows_rdl::emit` - the RDL-emission primitives (`write_ident`, `write_type`, `write_value`,
@@ -174,8 +174,8 @@ The scrape differs from win32metadata's design. win32metadata aims to be *higher
 headers. It synthesizes friendly constructs (loose constants promoted to enums, handle lifetimes,
 struct-size fields) encoded with a large vocabulary of custom attributes, backed by an enormous body
 of hand-curated configuration (`libMappings.rsp`, `enums.json`, `documentationMappings.rsp`, and
-more). We reproduce **none** of that curation. The goal is metadata that matches the original
-source, emitting only what is **directly expressed in the source language**:
+more). We reproduce none of that curation. The goal is metadata that matches the original
+source, emitting only what is directly expressed in the source language:
 
 - **SAL** - `_In_`/`_Out_`/`_Inout_`/`_opt_` (direction, optionality),
   `_In_reads_`/`_Out_writes_`/byte-count forms (sizing), `_Reserved_`, `_COM_Outptr_`, `_Ret_*`, the
@@ -190,11 +190,11 @@ source, emitting only what is **directly expressed in the source language**:
 - **IDL attributes** (COM) - `[in]`/`[out]`/`[retval]`/`[size_is]`/`[iid_is]`, and more.
 
 Anything *not* in the source - handle disposal, struct-size auto-fill, doc URLs, OS-version
-availability, `SetLastError` behaviour, loose-constant->enum promotion - is **out of scope for the
-metadata**. Where such ergonomics are valuable (RAII handle wrappers) they belong in the
+availability, `SetLastError` behaviour, loose-constant->enum promotion - is out of scope for the
+metadata. Where such ergonomics are valuable (RAII handle wrappers) they belong in the
 hand-written `windows` projection layer, not added into the metadata as synthetic attributes.
 
-The **only** hand-authored input is `metadata/metadata.rdl` - the attribute vocabulary
+The only hand-authored input is `metadata/metadata.rdl` - the attribute vocabulary
 (`NativeTypedefAttribute`, `SupportedArchitectureAttribute`, `DoesNotReturnAttribute`, and more)
 that exists only in metadata, so no C header can declare it. It lives beside (not inside) the
 generated `metadata/win32` files so that directory can be freely cleared and rebuilt without
@@ -207,12 +207,12 @@ stays a distinct `NativeTypedef`, and `HANDLE` is recognized structurally.
 #### Header-derived signatures that look less ergonomic are not defects
 
 Because the scrape emits only what the source expresses, some signatures look lower-level than the
-hand-curated `windows` crate. These are **correct**: the extra ergonomics in `windows` come from
+hand-curated `windows` crate. These are correct: the extra ergonomics in `windows` come from
 win32metadata hand-patches with no basis in the header, not from anything the scraper is missing.
 Four representative cases, all exercised by `crates/samples/reactor/direct2d`:
 
-- **`D2D1CreateFactory`.** The header is `_In_ REFIID riid, _Out_ void **ppIFactory` with **no SAL
-  linking the two**, so the header-derived signature is the raw
+- **`D2D1CreateFactory`.** The header is `_In_ REFIID riid, _Out_ void **ppIFactory` with no SAL
+  linking the two, so the header-derived signature is the raw
   `riid: *const GUID, ppIFactory: *mut *mut void`. The `windows` crate's generic
   `D2D1CreateFactory<T>() -> Result<T>` is a manual win32metadata remap, not header-derived - the
   same `REFIID`+`void**` creator idiom as `CoCreateInstance`.
@@ -226,7 +226,7 @@ Four representative cases, all exercised by `crates/samples/reactor/direct2d`:
 - **`D3D11CreateDevice` `Flags`.** The header parameter is `UINT`, so it projects as `u32`; the
   matching `D3D11_CREATE_DEVICE_FLAG` values are a separate scoped enum (hence a `.0 as u32` bridge
   at the call site). win32metadata retypes the parameter to the enum.
-- **`D3D11CreateDevice` `Software`.** The header is a bare `HMODULE` with **no `_In_opt_`**, so it
+- **`D3D11CreateDevice` `Software`.** The header is a bare `HMODULE` with no `_In_opt_`, so it
   is required, not `Option` - pass `HMODULE::default()` for the null case. Optionality that lives
   only in prose documentation is out of scope (see above).
 
@@ -237,11 +237,11 @@ design.
 
 #### Overloaded virtual methods are emitted in reverse (MSVC vtable order)
 
-A COM/C++ interface method's position in the metadata **is** its vtable slot - bindgen lays the
+A COM/C++ interface method's position in the metadata is its vtable slot - bindgen lays the
 generated function pointers out in emission order, so the order the scraper records must match the
 order MSVC lays the virtual functions into the vtable. For most interfaces declaration order and
-vtable order are identical, but there is one exception: **MSVC emits a run of consecutive same-name
-(overloaded) virtual functions into the vtable in *reverse* declaration order.** A header that
+vtable order are identical, but there is one exception: MSVC emits a run of consecutive same-name
+(overloaded) virtual functions into the vtable in *reverse* declaration order. A header that
 declares
 
 ```cpp
@@ -278,20 +278,20 @@ fixed upstream now. (`IWeakReference::Resolve` looks identical but the *MIDL-gen
 the `[iid_is]`-comment path - the difference is the annotation, not the pointee type.)
 
 The rule cannot be positional. In the `um`/`shared` headers, the base-interface `_COM_Outptr_` shape
-is dominated by fixed-type returns with **no** `REFIID` sibling (`SHGetThreadRef`,
+is dominated by fixed-type returns with no `REFIID` sibling (`SHGetThreadRef`,
 `GetProcessReference`, `InstantiateComponentFromPackage`, the D3D11 interop
 `CreateDirect3D11Device*` accessors, `IDWriteTextLayout::GetDrawingEffect`, and more) that must stay
 typed. The `REFIID`-sibling subset also mixes last-parameter cases (`DWriteCreateFactory`) with
 mid-list cases (`DbgModel` concept accessors). Position does not separate caller-chosen creators
 from coincidental `REFIID`+`IUnknown**` pairings.
 
-The **name gate** does separate them, so it is what `infer_iid_is` uses (see `annotation.rs`): the
+The name gate does separate them, so it is what `infer_iid_is` uses (see `annotation.rs`): the
 same `HRESULT`-return + a `*const GUID` parameter named `riid`/`iid`/`riidltf` requirement as the
-`void**` arm, plus the out-parameter must be the **bare** base spelling
+`void**` arm, plus the out-parameter must be the bare base spelling
 (`is_base_interface_out_ptr`: `*mut IUnknown`/`*mut IInspectable`, never a concretely typed
 `IFoo**`). At the ABI a COM interface pointer is itself a pointer, so `*mut IUnknown` is
 byte-identical to `*mut *mut void`; the promotion normalises to the latter and marks `[iid_is]`. A
-full regen promotes exactly **5** methods across 4 functions - `DWriteCreateFactory`,
+full regen promotes exactly 5 methods across 4 functions - `DWriteCreateFactory`,
 `IMFCaptureSink::GetService` (x2), `IOpenRowset::OpenRowset`,
 `ITableCreationWithConstraints::CreateTableWithConstraints` - every one a genuine caller-chosen
 rowset/service/font factory whose `riid` selects the out-pointer's type, and each previously
@@ -317,13 +317,13 @@ compile flag.)
 
 ### Partitioning: by defining header, not metadata namespace
 
-The Windows SDK is a **flat C namespace**: symbol names are globally unique (a probe over the
+The Windows SDK is a flat C namespace: symbol names are globally unique (a probe over the
 reference winmd found only 8 of 34,552 type names - 0.02% - in more than one namespace, all
-genuinely distinct COM interfaces). Namespaces are a **metadata overlay** win32metadata invented,
+genuinely distinct COM interfaces). Namespaces are a metadata overlay win32metadata invented,
 with no source signal to recover, so re-deriving that taxonomy from source is a category error.
 
-The canonical RDL therefore lives in a **single flat namespace** (`Windows.Win32`), split **one file
-per defining header** - the one mechanical routing signal:
+The canonical RDL therefore lives in a single flat namespace (`Windows.Win32`), split one file
+per defining header - the one mechanical routing signal:
 
 - **clang-native** - every cursor carries its source location, so the defining header is intrinsic
   and total; it selects the output *file* (`winnt.rdl`, and more), not a namespace.
@@ -333,7 +333,7 @@ per defining header** - the one mechanical routing signal:
   is emitted exactly once and cross-file references are bare names resolving within the flat
   namespace.
 
-The exporting **DLL is kept as a per-function attribute** (`#[library("<dll>")]`, recovered from the
+The exporting DLL is kept as a per-function attribute (`#[library("<dll>")]`, recovered from the
 import libs), so per-DLL truth survives as *data*. Any friendlier grouping (the legacy `windows`
 module layout, per-DLL views) becomes an optional downstream map over the flat namespace.
 
@@ -350,7 +350,7 @@ both headers are in scope. Examples:
 - `OLEMISC::OLEMISC_ACTSLIKELABEL` (oleidl.h) vs the legacy `#define` in olectl.h.
 - `MIB_IPROUTE_TYPE::MIB_IPROUTE_TYPE_DIRECT` vs the same-file `#define` in ipmib.h.
 
-After the reachability sweep, a final pass drops any top-level integer constant whose name **and**
+After the reachability sweep, a final pass drops any top-level integer constant whose name and
 value match an enumerator defined anywhere in the metadata, provided nothing else references the
 constant (so a genuinely distinct constant that merely shares a name with an unrelated enumerator is
 never removed). The typed enumerator is the canonical projection and survives untouched. This keeps
@@ -370,18 +370,18 @@ names globally unique without a curated exclusion list (`enum_member_values` / `
 
 `cargo run -p tool_win32` builds the Win32 winmd. Its configuration is a set of plain `const` slices
 at the top of `crates/tools/win32/src/main.rs` (`HEADERS`, `SATELLITE_HEADERS`, `SCOPE`,
-`IMPORT_LIBS`, and more) listing the SDK headers, satellite rules, and import libs - **no type-level
-curation**. The tool resolves its pinned toolchain, configures a `windows_clang::clang()` builder,
+`IMPORT_LIBS`, and more) listing the SDK headers, satellite rules, and import libs - no type-level
+curation. The tool resolves its pinned toolchain, configures a `windows_clang::clang()` builder,
 and drives it with `windows-clang`'s shared [`scrape`](#scraper-layering-one-crate-two-levels)
 terminal, which builds one shared translation unit per target arch (`windows.h` prelude + every
 manifest header), emits it via a single `write_by_header` call (parsed once, USR-deduped), reads the
 per-arch RDLs to winmd, and coalesces the arches with the multi-arch merge. New APIs are added by
-**listing the defining header** in the manifest and regenerating - the reachability closure is
+listing the defining header in the manifest and regenerating - the reachability closure is
 automatic. A full generational SDK bump (e.g. 24H2 -> 25H2) is absorbed the same way, with no
 scraper changes.
 
 Functions whose exporting DLL cannot be recovered from any import library in the manifest are
-**dropped** (matching the reference, which carries none): a function with an empty `#[library("")]`
+dropped (matching the reference, which carries none): a function with an empty `#[library("")]`
 would otherwise force `windows-bindgen` to emit an empty `link!` library name, a hard `E0454` error.
 This is the opt-in `drop_lib_less` flag, set only by `tool_win32`; unit-test fixtures that supply no
 import libraries leave it off so they still emit their functions.
@@ -397,7 +397,7 @@ else references.
 
 The import-library list (`IMPORT_LIBS` in `main.rs`) is ordered by resolution priority (first-wins):
 per-DLL host libraries (`kernel32.lib`) first, the `api-ms-win-*` apiset umbrella (`onecore.lib`,
-`onecoreuap.lib`) next, and `vertdll.lib` - the VBS-enclave runtime - **dead last**. `vertdll.dll`
+`onecoreuap.lib`) next, and `vertdll.lib` - the VBS-enclave runtime - dead last. `vertdll.dll`
 also exports host-side synchronization/enclave functions (`WaitOnAddress`, `WakeByAddress*`,
 `CallEnclave`, `TerminateEnclave`), and importing those from `vertdll.dll` faults a normal process
 at load; ordering it after the apiset umbrella lets them resolve to their loadable
@@ -412,7 +412,7 @@ A handful of SDK headers declare Win32 COM entry points whose signatures reach i
 `ABI::Windows::Foundation::IActivatableClassRegistration**`. That namespace holds two kinds of type
 that need opposite handling:
 
-- *Win32 COM interop types* that live in `ABI::Windows::*` but are **not** projected WinRT types
+- *Win32 COM interop types* that live in `ABI::Windows::*` but are not projected WinRT types
   (absent from `Windows.winmd`) - `IActivatableClassRegistration`, `ActivationType`,
   `RegistrationScope`. These are fully defined COM interfaces/enums and belong in the flat
   `Windows.Win32` namespace like any other Win32 type.
@@ -421,7 +421,7 @@ that need opposite handling:
   surface into Win32, so a referenced one must become a cross-winmd reference (the `Windows.Wdk` ->
   `Windows.Win32` pattern, here an `AssemblyRef` on the `Windows` assembly).
 
-`tool_win32` tells the two apart by carrying `Windows.winmd` as a **resolution winmd**
+`tool_win32` tells the two apart by carrying `Windows.winmd` as a resolution winmd
 (`RESOLUTION_WINMDS`, threaded through `Clang::resolution_input`): a *resolution-only* input that is
 never emitted or excluded, used purely to classify names. `load_winrt_types` reads its
 backtick-stripped `Namespace.Name` set; `flatten_decls` then recurses into the `ABI` namespace
@@ -489,14 +489,14 @@ winmd - a whole-header scrape, not a symbol allowlist. Both tools drive the *sam
   both winmds are loaded together - no cross-namespace resolution.
 - **Additive (exclusion-referenced).** The Win32 winmd is fed to `write_by_header` as an *exclusion
   reference*: any entity Win32 already defines is skipped rather than re-emitted, so
-  `Windows.Wdk.winmd` carries **only the WDK-net-new surface**. This sidesteps the reader's
+  `Windows.Wdk.winmd` carries only the WDK-net-new surface. This sidesteps the reader's
   duplicate-`(namespace, name)` panic and keeps the winmd small (only kernel types like
   `IO_STATUS_BLOCK` land; the shared closure resolves against Win32).
 - **User-mode only.** `scope(["km"])` keeps kernel-mode declarations in scope, and `drop_lib_less` +
   the `ntdll.lib` import library scope the emitted *functions* to the user-callable native surface:
   a routine exported from `ntdll.dll` (`NtReadFile`, `RtlGetVersion`, and more) is stamped and kept,
   while a kernel-only routine (exported from `ntoskrnl`, absent from any user-mode import library)
-  resolves to an empty library and is dropped. **No fallback `library`** is set - one would make
+  resolves to an empty library and is dropped. No fallback `library` is set - one would make
   every function lib-ful and drag in the whole kernel export surface.
 
 New WDK APIs are added exactly like Win32 ones: list the defining header in `main.rs`'s
@@ -513,20 +513,20 @@ reading of the headers, it belongs in this table with a rationale.
 
 | # | Deviation | Rule (automatable - no per-symbol list) | Preserve-set (the only curation) | Where | Rationale |
 |---|-----------|------------------------------------------|-----------------------------------|-------|-----------|
-| 1 | **Non-negative integer constants -> `u32`/`u64`** | A `#define` literal's suffix (`L`/`LL`) encodes *width*, not *signedness*; default unsigned, negated -> `i32`/`i64`, explicit keyword/named cast wins. | - | `const.rs` | `L` means "at least `long`", never "signed value". Win32 flag/id constants are unsigned domains. |
-| 2 | **`_HRESULT_TYPEDEF_(x)` etc. -> typed `HRESULT`** | A hardcoded 3-macro map of the canonical SDK error-typedef cast macros routes through `parse_named_cast`. | 3 SDK macros (`_HRESULT_TYPEDEF_`, `_NDIS_ERROR_TYPEDEF_`, and more) | `const.rs` | The macro *is* the author's type annotation; `E_FAIL` is an `HRESULT`, not a bare `i32`. |
-| 4 | **Pointer const-ness follows SAL direction (parameters)** | `_In_`/`_In_opt_`/`_Reserved_` (read-only) pointer param -> `*const`; `_Out_`/`_Inout_` (writable) -> `*mut`. Overrides the C typedef's own mutability. A string wrapper flips its *named* const variant instead (`PWSTR`<->`PCWSTR`, `PSTR`<->`PCSTR`). | - | `canon.rs` (`apply_sal_constness`), from `fn.rs`, `interface.rs` | SAL is the author's read/write contract; `_In_ LPWSTR` is a *read-only* string despite `LPWSTR` being `*mut`. Matches the reference. Parameters only - struct fields keep their C const-ness. |
-| 5 | **`LP*`/`P*` pointer aliases collapse to raw pointers (parameters only)** | At a parameter site, a typedef whose one-level underlying type is a pointer is inlined to the raw pointer it spells, keeping the *named* pointee (`LPDWORD`->`*mut DWORD`, `PHKEY`->`*mut HKEY`). The string wrappers are normalised *everywhere*, not just parameters (see #9). | Kept named: string wrappers (per #9); **`BSTR`** (a length-prefixed, `SysAllocString`-owned COM string, never collapsed to `*const OLECHAR`); handles (`HANDLE` = `void*`, `HWND` = `struct HWND__*`); function-pointer aliases (`FARPROC`); non-pointer aliases. | `canon.rs` (`collapse_pointer_alias_param`; name-keyed cases in `alias_policy`) | These aliases are pure portability spelling (`LPDWORD`=`DWORD*`); the pointer *is* the ABI, and SAL const (#4) cannot be expressed while it is hidden inside an opaque `*mut` alias. Collapsing **only at parameter sites** keeps the change surgical - fields, returns and constants keep their named aliases, so no `type LP* = <alias>` is left dangling. The pointee keeps its Win32 name (`*mut DWORD`): ABI-identical. |
-| 6 | **Fixed-width portability scalar aliases -> primitive** (`DWORD`->`u32`, `WORD`->`u16`, `LONG`->`i32`, `WCHAR`->`u16`, the `INTn`/`UINTn` and C99 `intN_t`/`uintN_t`) | A curated name list (`fundamental_scalar`) collapses only the pure width spellings to their primitive at every use site; the list is *shared* with the const-cast collapse so a typedef and any constant typed by it never disagree. | The collapse-list **is** the curation - every other scalar stays named: `HFILE`/`ATOM`/`COLORREF`/`LANGID`/`LCID`/`BOOL`/`BOOLEAN`/`NTSTATUS`/`HRESULT`, and the pointer-sized aliases (`ULONG_PTR`/`SIZE_T` -> `usize`, via `pointer_sized_abi`). | `canon.rs` (`fundamental_scalar`), `typedef.rs`, `const.rs` | `DWORD`=`unsigned long` is pure C portability spelling; `HFILE`(`int`)/`DWORD`(`unsigned long`) are *identical* at the type level - only the **name** separates a domain concept from width noise, so the curation must be name-keyed. Collapsing the width spellings matches the reference; the preserved domain names stay aligned with the header. |
-| 7 | **Floating-point typedefs -> `f32`/`f64`** (`FLOAT`, `DOUBLE`, `DATE`, `REFTIME`, OLE/GL/SQL float aliases, chained `UI_ANIMATION_SECONDS`->`DOUBLE`) | **Structural, no name list**: a typedef whose *canonical* kind is `float`/`double`/`long double` collapses to the primitive at every use site and its definition is suppressed (`floating_typedef`). | - (the float side has no domain/noise split to preserve) | `canon.rs` (`floating_typedef`), `typedef.rs` | The reference metadata contains **zero** floating `NativeTypedef`s - win32metadata drops *every* one. Unlike the integer side (#6), the float side is uniform, so the rule is **structural** (by canonical kind) rather than a curated list - self-maintaining as the SDK grows. |
-| 8 | **`MAKEINTRESOURCE`-family ordinal constants -> `PWSTR`/`PSTR` carrying the id** (`IDC_*`, `IDI_*`, `RT_*`, and more) | A curated 3-name map (`makeintresource_macro`) recognises `#define X MAKEINTRESOURCE(n)` from the *raw* `#define` body and emits `EnumValue(PWSTR/PSTR, n)` so the constant survives. | 3 macro names (`MAKEINTRESOURCE`/`MAKEINTRESOURCEW`->`PWSTR`, `MAKEINTRESOURCEA`->`PSTR`) | `const.rs` (`makeintresource_macro`) | The macro expands to a *string pointer that holds an integer id*, so the batch evaluator drops it as pointer-valued and the id is lost. The macro name *is* the author's intent ("this is a resource ordinal named as a string"). Bare `MAKEINTRESOURCE` is treated as wide (the scrape runs without `UNICODE`). |
-| 9 | **String-pointer aliases -> canonical `PWSTR`/`PCWSTR`/`PSTR`/`PCSTR` (universal, flat scrape)** (`LPWSTR`/`LPCWSTR`/`LPSTR`/`LPCSTR`, the OLE `LP*OLESTR`/`P*OLESTR`, bare `P*`/`PC*`) | A string-wrapper alias normalises to its canonical variant at **every** site - field, return, *and* parameter - via `normalize_string_alias` in `to_type` (const-ness follows the spelling; SAL then re-selects the variant for parameters, #4). Redundant alias *definitions* are suppressed. Gated to the flat per-header scrape (`header_root.is_some()`). | Kept: the four canonical wrappers; **`BSTR`** (per #5). | `canon.rs`, `typedef.rs`, `const.rs` | bindgen's core string projection recognises **only** the four canonical spellings, so an `LPCWSTR` *field* would degrade to a raw `*const u16` while an `LPCWSTR` *parameter* became an ergonomic `PCWSTR` - an accidental asymmetry. Normalising everywhere removes it and matches the reference. Flat scrape only: a namespaced scrape resolves against a reference winmd that lacks the const wrappers, so it keeps its verbatim `LP*` locals. |
-| 10 | **Raw null-terminated string parameters -> canonical wrappers (from the `_z_` SAL bit)** | A *bare* string pointer with no named alias (`_In_z_ WCHAR const*` and related forms) is promoted to the canonical wrapper via `promote_null_terminated_string`: `*const`/`*mut` of `u16`->`PCWSTR`/`PWSTR`, `i8`/`u8`->`PCSTR`/`PSTR`, const-ness from the post-SAL variant (#4). Captured for the **five pure `_z_` variants only** (`_In_z_`, `_In_opt_z_`, `_Out_z_`, `_Inout_z_`, `_Inout_opt_z_`). Flat scrape only. | Excluded - stays a raw pointer: the **counted** `_z_` variants (`_In_reads_z_` and related forms), which carry a `NativeArrayInfo`/`MemorySize` and must remain a sized buffer. | `canon.rs` (`promote_null_terminated_string`), `annotation.rs` | Recovers the ergonomic string projection for parameters the SDK spells as a raw `WCHAR const*` rather than a named alias (#9 only fires on the alias). The `_z_` SAL bit *is* the author's null-terminated-string contract, so promoting on it - and never on pointee width alone - follows the header annotation. Gating on `_z_` + no count keeps counted buffers (which need their length metadata) raw. |
-| 11 | **Direct2D 1.1 `D2D1_X` compatibility synonyms -> shared `D2D_X` base (flat scrape)** (the 16 `typedef D2D_X D2D1_X` re-exports) | A `D2D1_`-prefixed synonym collapses to its shared `D2D_` base at **every** reference via `d2d_compat_alias` (curated name-map). The redundant `type D2D1_X = D2D_X` alias *definitions* are suppressed. Flat scrape only. | Kept: every `D2D1_` type without a shared `D2D_` base (the enums, `D2D1_PIXEL_FORMAT`, and more). | `canon.rs` (`d2d_compat_alias`), `typedef.rs` | The Direct2D 1.1 headers re-export the shared `D2D_*` primitives under a `D2D1_`-prefixed spelling with no distinct ABI. Keeping them left struct fields spelled `D2D1_MATRIX_3X2_F`, so bindgen's numerics substitution (keyed on the base `D2D_*`) never fired. Collapsing to the base makes the numerics-mapped members reach the substitution table (`D2D_POINT_2F`->`Vector2`, and more) - matching the reference-generated canvas bindings. |
-| 13 | **Array *parameters* decay to pointers (C11 section 6.7.6.3p7)** | An array *parameter* (`to_type` maps both `T[]` and `T[N]` to `ArrayFixed`) decays to a pointer when it is **unsized** (a flexible array `T[]` -> `[T; 0]`, which is a zero-byte by-value drop) **or** carries a SAL count (`_Out_writes_(80) WCHAR szName[80]`): the `NativeArrayInfo` (`#[len_const]`/`#[len_param]`) already encodes the length, so keeping the `[T; N]` *type* too would double-encode it and make bindgen wrap `&mut [[T; N]; N]`. Pointee const-ness follows the array element's C const-ness; SAL (#4) may override. (Caveat: for an **unsized** `const T[]` parameter clang strips the element `const` during array-to-pointer adjustment before we see it, so a bare `const T[]` with no SAL direction decays to `*mut T` rather than `*const T` - ABI-identical and vanishingly rare in the metadata, so left as-is.) | A *plain* fixed-size array parameter with **no** count (`FLOAT ColorRGBA[4]`) stays `[T; N]`, so bindgen projects a length-checked `&[T; N]`. Struct fields, returns and constants keep their array shape. | `canon.rs` (`decay_array_param`), from `param_metadata_type` | An `ArrayFixed` is correct for a *struct field* but wrong for a *parameter* - a by-value array is not a real ABI. The reference (`_Out_writes_(80) WCHAR szName[80]` -> `*mut u16` + count -> `&mut [u16; 80]`; `FLOAT BlendFactor[4]` + count -> `Option<&[f32; 4]>`) decays counted buffers to pointer+count and keeps uncounted fixed arrays; this rule reproduces both exactly. |
-| 14 | **Mixed-constness pointer chains -> uniform (outermost level wins)** | A `PtrMut(PtrConst(T))` / `PtrConst(PtrMut(T))` chain collapses to a uniform chain governed by its *outermost* level (the parameter's real read/write direction, already set by #4): an output `const wchar_t **` retval -> `*mut *mut u16`; an input `const wchar_t * const *` -> `*const *const u16`. | - (uniform chains are already collapsed to one node by `to_type`, so only a genuinely mixed chain nests here). | `canon.rs` (`normalize_pointer_const_chain`), from `param_metadata_type` | The winmd `Type` model stores a pointer run as a **single** const bit + depth, so it cannot represent `*mut *const T`; serialising one silently corrupts it (the mid-chain `IsConst` modifier is misread and the run degrades to `*const *const T`, a retval the callee cannot `.write()` through). Normalising to the outermost level matches the reference (`ISAXLocator::getPublicId` -> `*mut *mut u16`). |
+| 1 | Non-negative integer constants -> `u32`/`u64` | A `#define` literal's suffix (`L`/`LL`) encodes *width*, not *signedness*; default unsigned, negated -> `i32`/`i64`, explicit keyword/named cast wins. | - | `const.rs` | `L` means "at least `long`", never "signed value". Win32 flag/id constants are unsigned domains. |
+| 2 | `_HRESULT_TYPEDEF_(x)` etc. -> typed `HRESULT` | A hardcoded 3-macro map of the canonical SDK error-typedef cast macros routes through `parse_named_cast`. | 3 SDK macros (`_HRESULT_TYPEDEF_`, `_NDIS_ERROR_TYPEDEF_`, and more) | `const.rs` | The macro *is* the author's type annotation; `E_FAIL` is an `HRESULT`, not a bare `i32`. |
+| 4 | Pointer const-ness follows SAL direction (parameters) | `_In_`/`_In_opt_`/`_Reserved_` (read-only) pointer param -> `*const`; `_Out_`/`_Inout_` (writable) -> `*mut`. Overrides the C typedef's own mutability. A string wrapper flips its *named* const variant instead (`PWSTR`<->`PCWSTR`, `PSTR`<->`PCSTR`). | - | `canon.rs` (`apply_sal_constness`), from `fn.rs`, `interface.rs` | SAL is the author's read/write contract; `_In_ LPWSTR` is a *read-only* string despite `LPWSTR` being `*mut`. Matches the reference. Parameters only - struct fields keep their C const-ness. |
+| 5 | `LP*`/`P*` pointer aliases collapse to raw pointers (parameters only) | At a parameter site, a typedef whose one-level underlying type is a pointer is inlined to the raw pointer it spells, keeping the *named* pointee (`LPDWORD`->`*mut DWORD`, `PHKEY`->`*mut HKEY`). The string wrappers are normalised *everywhere*, not just parameters (see #9). | Kept named: string wrappers (per #9); `BSTR` (a length-prefixed, `SysAllocString`-owned COM string, never collapsed to `*const OLECHAR`); handles (`HANDLE` = `void*`, `HWND` = `struct HWND__*`); function-pointer aliases (`FARPROC`); non-pointer aliases. | `canon.rs` (`collapse_pointer_alias_param`; name-keyed cases in `alias_policy`) | These aliases are pure portability spelling (`LPDWORD`=`DWORD*`); the pointer *is* the ABI, and SAL const (#4) cannot be expressed while it is hidden inside an opaque `*mut` alias. Collapsing only at parameter sites keeps the change surgical - fields, returns and constants keep their named aliases, so no `type LP* = <alias>` is left dangling. The pointee keeps its Win32 name (`*mut DWORD`): ABI-identical. |
+| 6 | Fixed-width portability scalar aliases -> primitive (`DWORD`->`u32`, `WORD`->`u16`, `LONG`->`i32`, `WCHAR`->`u16`, the `INTn`/`UINTn` and C99 `intN_t`/`uintN_t`) | A curated name list (`fundamental_scalar`) collapses only the pure width spellings to their primitive at every use site; the list is *shared* with the const-cast collapse so a typedef and any constant typed by it never disagree. | The collapse-list is the curation - every other scalar stays named: `HFILE`/`ATOM`/`COLORREF`/`LANGID`/`LCID`/`BOOL`/`BOOLEAN`/`NTSTATUS`/`HRESULT`, and the pointer-sized aliases (`ULONG_PTR`/`SIZE_T` -> `usize`, via `pointer_sized_abi`). | `canon.rs` (`fundamental_scalar`), `typedef.rs`, `const.rs` | `DWORD`=`unsigned long` is pure C portability spelling; `HFILE`(`int`)/`DWORD`(`unsigned long`) are *identical* at the type level - only the name separates a domain concept from width noise, so the curation must be name-keyed. Collapsing the width spellings matches the reference; the preserved domain names stay aligned with the header. |
+| 7 | Floating-point typedefs -> `f32`/`f64` (`FLOAT`, `DOUBLE`, `DATE`, `REFTIME`, OLE/GL/SQL float aliases, chained `UI_ANIMATION_SECONDS`->`DOUBLE`) | Structural, no name list: a typedef whose *canonical* kind is `float`/`double`/`long double` collapses to the primitive at every use site and its definition is suppressed (`floating_typedef`). | - (the float side has no domain/noise split to preserve) | `canon.rs` (`floating_typedef`), `typedef.rs` | The reference metadata contains zero floating `NativeTypedef`s - win32metadata drops *every* one. Unlike the integer side (#6), the float side is uniform, so the rule is structural (by canonical kind) rather than a curated list - self-maintaining as the SDK grows. |
+| 8 | `MAKEINTRESOURCE`-family ordinal constants -> `PWSTR`/`PSTR` carrying the id (`IDC_*`, `IDI_*`, `RT_*`, and more) | A curated 3-name map (`makeintresource_macro`) recognises `#define X MAKEINTRESOURCE(n)` from the *raw* `#define` body and emits `EnumValue(PWSTR/PSTR, n)` so the constant survives. | 3 macro names (`MAKEINTRESOURCE`/`MAKEINTRESOURCEW`->`PWSTR`, `MAKEINTRESOURCEA`->`PSTR`) | `const.rs` (`makeintresource_macro`) | The macro expands to a *string pointer that holds an integer id*, so the batch evaluator drops it as pointer-valued and the id is lost. The macro name *is* the author's intent ("this is a resource ordinal named as a string"). Bare `MAKEINTRESOURCE` is treated as wide (the scrape runs without `UNICODE`). |
+| 9 | String-pointer aliases -> canonical `PWSTR`/`PCWSTR`/`PSTR`/`PCSTR` (universal, flat scrape) (`LPWSTR`/`LPCWSTR`/`LPSTR`/`LPCSTR`, the OLE `LP*OLESTR`/`P*OLESTR`, bare `P*`/`PC*`) | A string-wrapper alias normalises to its canonical variant at every site - field, return, *and* parameter - via `normalize_string_alias` in `to_type` (const-ness follows the spelling; SAL then re-selects the variant for parameters, #4). Redundant alias *definitions* are suppressed. Gated to the flat per-header scrape (`header_root.is_some()`). | Kept: the four canonical wrappers; `BSTR` (per #5). | `canon.rs`, `typedef.rs`, `const.rs` | bindgen's core string projection recognises only the four canonical spellings, so an `LPCWSTR` *field* would degrade to a raw `*const u16` while an `LPCWSTR` *parameter* became an ergonomic `PCWSTR` - an accidental asymmetry. Normalising everywhere removes it and matches the reference. Flat scrape only: a namespaced scrape resolves against a reference winmd that lacks the const wrappers, so it keeps its verbatim `LP*` locals. |
+| 10 | Raw null-terminated string parameters -> canonical wrappers (from the `_z_` SAL bit) | A *bare* string pointer with no named alias (`_In_z_ WCHAR const*` and related forms) is promoted to the canonical wrapper via `promote_null_terminated_string`: `*const`/`*mut` of `u16`->`PCWSTR`/`PWSTR`, `i8`/`u8`->`PCSTR`/`PSTR`, const-ness from the post-SAL variant (#4). Captured for the five pure `_z_` variants only (`_In_z_`, `_In_opt_z_`, `_Out_z_`, `_Inout_z_`, `_Inout_opt_z_`). Flat scrape only. | Excluded - stays a raw pointer: the counted `_z_` variants (`_In_reads_z_` and related forms), which carry a `NativeArrayInfo`/`MemorySize` and must remain a sized buffer. | `canon.rs` (`promote_null_terminated_string`), `annotation.rs` | Recovers the ergonomic string projection for parameters the SDK spells as a raw `WCHAR const*` rather than a named alias (#9 only fires on the alias). The `_z_` SAL bit *is* the author's null-terminated-string contract, so promoting on it - and never on pointee width alone - follows the header annotation. Gating on `_z_` + no count keeps counted buffers (which need their length metadata) raw. |
+| 11 | Direct2D 1.1 `D2D1_X` compatibility synonyms -> shared `D2D_X` base (flat scrape) (the 16 `typedef D2D_X D2D1_X` re-exports) | A `D2D1_`-prefixed synonym collapses to its shared `D2D_` base at every reference via `d2d_compat_alias` (curated name-map). The redundant `type D2D1_X = D2D_X` alias *definitions* are suppressed. Flat scrape only. | Kept: every `D2D1_` type without a shared `D2D_` base (the enums, `D2D1_PIXEL_FORMAT`, and more). | `canon.rs` (`d2d_compat_alias`), `typedef.rs` | The Direct2D 1.1 headers re-export the shared `D2D_*` primitives under a `D2D1_`-prefixed spelling with no distinct ABI. Keeping them left struct fields spelled `D2D1_MATRIX_3X2_F`, so bindgen's numerics substitution (keyed on the base `D2D_*`) never fired. Collapsing to the base makes the numerics-mapped members reach the substitution table (`D2D_POINT_2F`->`Vector2`, and more) - matching the reference-generated canvas bindings. |
+| 13 | Array *parameters* decay to pointers (C11 section 6.7.6.3p7) | An array *parameter* (`to_type` maps both `T[]` and `T[N]` to `ArrayFixed`) decays to a pointer when it is unsized (a flexible array `T[]` -> `[T; 0]`, which is a zero-byte by-value drop) or carries a SAL count (`_Out_writes_(80) WCHAR szName[80]`): the `NativeArrayInfo` (`#[len_const]`/`#[len_param]`) already encodes the length, so keeping the `[T; N]` *type* too would double-encode it and make bindgen wrap `&mut [[T; N]; N]`. Pointee const-ness follows the array element's C const-ness; SAL (#4) may override. (Caveat: for an unsized `const T[]` parameter clang strips the element `const` during array-to-pointer adjustment before we see it, so a bare `const T[]` with no SAL direction decays to `*mut T` rather than `*const T` - ABI-identical and vanishingly rare in the metadata, so left as-is.) | A *plain* fixed-size array parameter with no count (`FLOAT ColorRGBA[4]`) stays `[T; N]`, so bindgen projects a length-checked `&[T; N]`. Struct fields, returns and constants keep their array shape. | `canon.rs` (`decay_array_param`), from `param_metadata_type` | An `ArrayFixed` is correct for a *struct field* but wrong for a *parameter* - a by-value array is not a real ABI. The reference (`_Out_writes_(80) WCHAR szName[80]` -> `*mut u16` + count -> `&mut [u16; 80]`; `FLOAT BlendFactor[4]` + count -> `Option<&[f32; 4]>`) decays counted buffers to pointer+count and keeps uncounted fixed arrays; this rule reproduces both exactly. |
+| 14 | Mixed-constness pointer chains -> uniform (outermost level wins) | A `PtrMut(PtrConst(T))` / `PtrConst(PtrMut(T))` chain collapses to a uniform chain governed by its *outermost* level (the parameter's real read/write direction, already set by #4): an output `const wchar_t **` retval -> `*mut *mut u16`; an input `const wchar_t * const *` -> `*const *const u16`. | - (uniform chains are already collapsed to one node by `to_type`, so only a genuinely mixed chain nests here). | `canon.rs` (`normalize_pointer_const_chain`), from `param_metadata_type` | The winmd `Type` model stores a pointer run as a single const bit + depth, so it cannot represent `*mut *const T`; serialising one silently corrupts it (the mid-chain `IsConst` modifier is misread and the run degrades to `*const *const T`, a retval the callee cannot `.write()` through). Normalising to the outermost level matches the reference (`ISAXLocator::getPublicId` -> `*mut *mut u16`). |
 
-**Guard-rails.** The macro deviations (#2, #8) are matched by *name* from the raw `#define` body, so
+Guard-rails. The macro deviations (#2, #8) are matched by *name* from the raw `#define` body, so
 a function-like `#define` of the same name is skipped. The pointer-parameter deviations (#4/#5)
 touch *every* pointer parameter in the metadata, so they are validated by re-scraping and compiling
 the bootstrap consumers against the in-house winmd - a `*mut`/`*const` mismatch there is the signal
@@ -535,8 +535,8 @@ derived from the header text.
 
 #### Structural rules vs. one name-keyed policy table
 
-The core discipline that keeps the type-mapping surface auditable: **structural whenever the
-behaviour is uniform, name-keyed only where structure genuinely can't disambiguate.** The integer
+The core discipline that keeps the type-mapping surface auditable: structural whenever the
+behaviour is uniform, name-keyed only where structure genuinely can't disambiguate. The integer
 collapse (#6) is *selective* - `HFILE` and `DWORD` are byte-identical and only the name marks one as
 a domain type worth keeping - so it must be a name list. The float collapse (#7) is *uniform* - the
 reference keeps no float typedef at all - so it is structural and self-maintaining.
@@ -547,7 +547,7 @@ The alias handling is split the same way:
   `struct X__*`), *function-pointer*. Decided from the type's shape alone; no name list;
   self-maintaining.
 - **One name-keyed policy table** - `alias_policy(name)` (`canon.rs`) is the *single source of
-  truth* for the aliases structure **cannot** disambiguate: `BSTR` and `LPCWSTR` are both
+  truth* for the aliases structure cannot disambiguate: `BSTR` and `LPCWSTR` are both
   `wchar_t*`. `AliasPolicy` has exactly two cases - `String { canonical, mut_name, const_name }`
   (the string wrappers; SAL flips the const variant) and `KeepNamed` (`BSTR`). Adding a future
   opinionated alias (e.g. `VARIANT_BOOL`) is one new row here, and the audit of "where are we
@@ -559,11 +559,11 @@ collapses while a `void*` handle (`HANDLE`) stays named structurally.
 
 ### Type remapping - one canon surface
 
-Every place a header-derived type is rewritten is split across **two layers**. Keeping them
+Every place a header-derived type is rewritten is split across two layers. Keeping them
 straight - and consolidating Layer A into one ordered module - is what keeps the type-mapping
 surface auditable.
 
-**Layer A - `windows-clang` (headers -> winmd).** The source-preserving rules live in a single
+Layer A - `windows-clang` (headers -> winmd). The source-preserving rules live in a single
 `canon.rs` with one declared precedence order: universal rules (`resolve_typedef`, every site) then
 a parameter-only overlay (`param_metadata_type`).
 
@@ -586,10 +586,10 @@ use-site dangles. Each row maps onto a precedence rank, so a new special case is
 declared rank - not a splice into an `if`/`else` chain - with its suppression counterpart called out
 by the same rank.
 
-**Layer B - `windows-bindgen` (winmd -> Rust).** Two kinds of rewrite live here:
+Layer B - `windows-bindgen` (winmd -> Rust). Two kinds of rewrite live here:
 
 - **Genuine gen-time projection - permanent.** `Type::remap` swaps a header-derived C type for an
-  ergonomic Rust one the winmd keeps real: the **D2D -> `windows-numerics`** mapping
+  ergonomic Rust one the winmd keeps real: the D2D -> `windows-numerics` mapping
   (`D2D_MATRIX_3X2_F` -> `Matrix3x2`, `D2D_POINT_2F` -> `Vector2`, and more), `HSTRING` -> `String`,
   `IInspectable` -> `Object`. Correct against *both* winmds. This is why deviation rule #11 exists -
   without collapsing the `D2D1_*` synonyms to their `D2D_*` base, the numerics substitution (keyed
@@ -601,13 +601,13 @@ by the same rank.
 
 ### Namespaced scrapes and the convergence path
 
-The universal string normalisations (#9/#10) are gated to the **flat** per-header scrape
+The universal string normalisations (#9/#10) are gated to the flat per-header scrape
 (`header_root.is_some()`). A *namespaced* scrape - `tool_webview`, which scrapes `WebView2*.h` into
 a small `WebView2` namespace and resolves external Win32 types against a winmd via `ref_map` - must
 not apply them, because it would rewrite a reference to a canonical while suppressing the local
 definition, leaving the reference dangling. `requalify_string_alias` (`canon.rs`, rule #12)
 re-qualifies a canonical string alias present in `ref_map` to the `ref_map` namespace so the local
-definition still resolves. `test_clang` exercises **both** modes so the carve-out gating cannot
+definition still resolves. `test_clang` exercises both modes so the carve-out gating cannot
 silently regress.
 
 ### Scrape reliability
@@ -658,8 +658,8 @@ under `target/windows-clang/`, so all tools share one extract.
 ### Differences from the win32metadata reference
 
 The in-house metadata follows the SDK headers, so it differs from Microsoft's curated
-[win32metadata](https://github.com/microsoft/win32metadata) winmd in several deliberate,
-consumer-visible ways. These are correct-by-design, not projection defects; they are the practical
+[win32metadata](https://github.com/microsoft/win32metadata) winmd in several consumer-visible
+ways. These are correct-by-design, not projection defects; they are the practical
 consequence of the source-first approach above.
 
 - **Flat module/feature layout.** Each source-header stem is its own top-level module and same-named
@@ -706,7 +706,7 @@ consequence of the source-first approach above.
   that only *references* a handful of `ABI::Windows::*` interfaces is reached via error-tolerant
   parsing (the scrape tolerates parse errors in the transitive-only `winrt\` projection closure
   while still failing loudly on errors in emitted headers; see the WinRT interop section). And the
-  single flat `Windows.Win32` namespace is **lossy for genuine name collisions** - where the
+  single flat `Windows.Win32` namespace is lossy for genuine name collisions - where the
   reference disambiguated two distinct entities by metadata sub-namespace, dedup keeps one (e.g.
   `PID_SECURITY`, the `E_NOTFOUND` HRESULT-vs-`#define` class).
 - **Parsing fidelity.** Two SAL surfaces bypass the shared `parse_params`: struct fields
@@ -772,7 +772,7 @@ for the downstream half. Scrape coverage lives in `crates/tests/libs/clang/input
 The module-flattening work (published `windows`/`windows-sys` re-export every per-header stem via
 `pub use <stem>::*` from a single `Win32` container so the public path is `windows::Win32::<Type>`)
 collapses ~180,000 top-level Win32/WDK names into one scope. Across that whole surface there is
-exactly **one** cross-stem name collision (`Network`) and **one** Rust-prelude shadow (`None`);
+exactly one cross-stem name collision (`Network`) and one Rust-prelude shadow (`None`);
 everything else is unique. This section records how the two are handled and why core-vs-`Win32`
 collisions do not exist.
 
@@ -785,7 +785,7 @@ collisions do not exist.
 
 - **`NTSTATUS` / `RPC_STATUS` map onto the core types.** These are real SDK typedefs
   (`type NTSTATUS = i32`, `type RPC_STATUS = i32`) with rich equivalents in `windows-core`. They
-  collapse onto the core types **by name**, like `HRESULT`/`BOOL`/`PWSTR`/`GUID`, via built-in
+  collapse onto the core types by name, like `HRESULT`/`BOOL`/`PWSTR`/`GUID`, via built-in
   `Type` variants + the name-based `remap` in `crates/libs/bindgen/src/types/mod.rs`: the local
   definition is suppressed and references become `windows_core::{NTSTATUS, RPC_STATUS}` in the full
   projection or `windows_sys::core::{NTSTATUS, RPC_STATUS}` in `windows-sys` (the sys core module,
@@ -802,8 +802,8 @@ collisions do not exist.
   Flattening both stems into `Win32` makes `windows::Win32::Network` ambiguous; it is intentionally
   left that way (using it is an error), while each stays reachable at its qualified path
   `Win32::devicetopology::Network` / `Win32::ntsecapi::Network`. The `Win32` umbrella carries a
-  blanket `#![allow(ambiguous_glob_reexports)]` to keep the glob re-exports quiet. This is a
-  deliberate design decision: because both members are genuinely unrelated, there is no single
+  blanket `#![allow(ambiguous_glob_reexports)]` to keep the glob re-exports quiet. This is
+  intentional: because both members are genuinely unrelated, there is no single
   correct `Win32::Network`, and the qualified paths are the intended access. (The trade-off is that
   the blanket allow would also absorb any *future* cross-stem collision an SDK update introduces;
   the set is monitored via the static check that `Network` is the only such duplicate.)
