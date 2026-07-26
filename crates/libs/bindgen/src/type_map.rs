@@ -93,10 +93,7 @@ impl TypeMap {
     }
 
     pub fn included(&self, config: &Config) -> bool {
-        // Types reachable only through a reference-provided interface (e.g.
-        // `IReference`'s base `IPropertyValue`) are owned by that reference crate.
-        // They are never named in the generated code, so they don't need to be
-        // independently available here.
+        // Reference-owned interface dependencies need not be locally available.
         let covered = self.reference_provided_closure(config);
 
         self.0.iter().all(|(tn, _)| {
@@ -132,10 +129,7 @@ impl TypeMap {
         })
     }
 
-    /// Collects every type reachable through a reference-provided interface in this
-    /// dependency set. Such types (e.g. the `IPropertyValue` base of `IReference`) are
-    /// encapsulated by the reference crate, so a method that only reaches them via a
-    /// reference-provided type can still be fully described.
+    /// Collects types encapsulated by reference-provided interfaces.
     fn reference_provided_closure(&self, config: &Config) -> HashSet<TypeName> {
         let mut covered = HashSet::new();
 

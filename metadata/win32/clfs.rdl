@@ -181,17 +181,17 @@ mod Windows {
         #[library("clfsw32.dll", import = "LsnCreate")]
         extern fn ClfsLsnCreate(cidContainer: CLFS_CONTAINER_ID, offBlock: u32, cRecord: u32) -> CLFS_LSN;
         #[library("clfsw32.dll", import = "LsnEqual")]
-        extern fn ClfsLsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        extern fn ClfsLsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool;
         #[library("clfsw32.dll", import = "LsnGreater")]
-        extern fn ClfsLsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        extern fn ClfsLsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool;
         #[library("clfsw32.dll", import = "LsnIncrement")]
         extern fn ClfsLsnIncrement(plsn: *const CLFS_LSN) -> CLFS_LSN;
         #[library("clfsw32.dll", import = "LsnInvalid")]
-        extern fn ClfsLsnInvalid(plsn: *const CLFS_LSN) -> BOOLEAN;
+        extern fn ClfsLsnInvalid(plsn: *const CLFS_LSN) -> bool;
         #[library("clfsw32.dll", import = "LsnLess")]
-        extern fn ClfsLsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        extern fn ClfsLsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool;
         #[library("clfsw32.dll", import = "LsnNull")]
-        extern fn ClfsLsnNull(plsn: *const CLFS_LSN) -> BOOLEAN;
+        extern fn ClfsLsnNull(plsn: *const CLFS_LSN) -> bool;
         #[library("clfsw32.dll", import = "LsnRecordSequence")]
         extern fn ClfsLsnRecordSequence(plsn: *const CLFS_LSN) -> u32;
         #[encoding("ansi")]

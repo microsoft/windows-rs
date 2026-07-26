@@ -170,10 +170,10 @@ mod Windows {
             ulEncodedAssemblyIdentityLength: u32,
             ulManifestPathType: u32,
             ulManifestPathLength: u32,
-            liManifestLastWriteTime: LARGE_INTEGER,
+            liManifestLastWriteTime: i64,
             ulPolicyPathType: u32,
             ulPolicyPathLength: u32,
-            liPolicyLastWriteTime: LARGE_INTEGER,
+            liPolicyLastWriteTime: i64,
             ulMetadataSatelliteRosterIndex: u32,
             ulManifestVersionMajor: u32,
             ulManifestVersionMinor: u32,
@@ -292,7 +292,7 @@ mod Windows {
         const ANYSIZE_ARRAY: i32 = 1;
         extern fn APC_CALLBACK_FUNCTION(param0: u32, param1: *mut void, param2: *mut void);
         struct APPLICATIONLAUNCH_SETTING_VALUE {
-            ActivationTime: LARGE_INTEGER,
+            ActivationTime: i64,
             Flags: u32,
             ButtonInstanceID: u32,
         }
@@ -617,7 +617,6 @@ mod Windows {
             Granularity: u32,
             Capacity: u32,
         }
-        type BOOLEAN = u8;
         struct CACHE_DESCRIPTOR {
             Level: u8,
             Associativity: u8,
@@ -1110,7 +1109,7 @@ mod Windows {
             HandlerData: *mut void,
             HistoryTable: *mut UNWIND_HISTORY_TABLE,
             ScopeIndex: u32,
-            ControlPcIsUnwound: BOOLEAN,
+            ControlPcIsUnwound: bool,
             NonVolatileRegisters: PBYTE,
         }
         #[arch(X86)]
@@ -1125,7 +1124,7 @@ mod Windows {
             HandlerData: *mut void,
             HistoryTable: *mut _UNWIND_HISTORY_TABLE,
             ScopeIndex: u32,
-            ControlPcIsUnwound: BOOLEAN,
+            ControlPcIsUnwound: bool,
             NonVolatileRegisters: PBYTE,
         }
         union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
@@ -1603,38 +1602,38 @@ mod Windows {
         struct FILE_NOTIFY_EXTENDED_INFORMATION {
             NextEntryOffset: u32,
             Action: u32,
-            CreationTime: LARGE_INTEGER,
-            LastModificationTime: LARGE_INTEGER,
-            LastChangeTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            AllocatedLength: LARGE_INTEGER,
-            FileSize: LARGE_INTEGER,
+            CreationTime: i64,
+            LastModificationTime: i64,
+            LastChangeTime: i64,
+            LastAccessTime: i64,
+            AllocatedLength: i64,
+            FileSize: i64,
             FileAttributes: u32,
             Anonymous: union {
                 ReparsePointTag: u32,
                 EaSize: u32,
             },
-            FileId: LARGE_INTEGER,
-            ParentFileId: LARGE_INTEGER,
+            FileId: i64,
+            ParentFileId: i64,
             FileNameLength: u32,
             FileName: [u16; 1],
         }
         struct FILE_NOTIFY_FULL_INFORMATION {
             NextEntryOffset: u32,
             Action: u32,
-            CreationTime: LARGE_INTEGER,
-            LastModificationTime: LARGE_INTEGER,
-            LastChangeTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            AllocatedLength: LARGE_INTEGER,
-            FileSize: LARGE_INTEGER,
+            CreationTime: i64,
+            LastModificationTime: i64,
+            LastChangeTime: i64,
+            LastAccessTime: i64,
+            AllocatedLength: i64,
+            FileSize: i64,
             FileAttributes: u32,
             Anonymous: union {
                 ReparsePointTag: u32,
                 EaSize: u32,
             },
-            FileId: LARGE_INTEGER,
-            ParentFileId: LARGE_INTEGER,
+            FileId: i64,
+            ParentFileId: i64,
             FileNameLength: u16,
             FileNameFlags: u8,
             Reserved: u8,
@@ -1661,43 +1660,43 @@ mod Windows {
         const FILE_SHARE_READ: i32 = 1;
         const FILE_SHARE_WRITE: i32 = 2;
         struct FILE_STAT_BASIC_INFORMATION {
-            FileId: LARGE_INTEGER,
-            CreationTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            LastWriteTime: LARGE_INTEGER,
-            ChangeTime: LARGE_INTEGER,
-            AllocationSize: LARGE_INTEGER,
-            EndOfFile: LARGE_INTEGER,
+            FileId: i64,
+            CreationTime: i64,
+            LastAccessTime: i64,
+            LastWriteTime: i64,
+            ChangeTime: i64,
+            AllocationSize: i64,
+            EndOfFile: i64,
             FileAttributes: u32,
             ReparseTag: u32,
             NumberOfLinks: u32,
             DeviceType: u32,
             DeviceCharacteristics: u32,
             Reserved: u32,
-            VolumeSerialNumber: LARGE_INTEGER,
+            VolumeSerialNumber: i64,
             FileId128: FILE_ID_128,
         }
         struct FILE_STAT_INFORMATION {
-            FileId: LARGE_INTEGER,
-            CreationTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            LastWriteTime: LARGE_INTEGER,
-            ChangeTime: LARGE_INTEGER,
-            AllocationSize: LARGE_INTEGER,
-            EndOfFile: LARGE_INTEGER,
+            FileId: i64,
+            CreationTime: i64,
+            LastAccessTime: i64,
+            LastWriteTime: i64,
+            ChangeTime: i64,
+            AllocationSize: i64,
+            EndOfFile: i64,
             FileAttributes: u32,
             ReparseTag: u32,
             NumberOfLinks: u32,
             EffectiveAccess: ACCESS_MASK,
         }
         struct FILE_STAT_LX_INFORMATION {
-            FileId: LARGE_INTEGER,
-            CreationTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            LastWriteTime: LARGE_INTEGER,
-            ChangeTime: LARGE_INTEGER,
-            AllocationSize: LARGE_INTEGER,
-            EndOfFile: LARGE_INTEGER,
+            FileId: i64,
+            CreationTime: i64,
+            LastAccessTime: i64,
+            LastWriteTime: i64,
+            ChangeTime: i64,
+            AllocationSize: i64,
+            EndOfFile: i64,
             FileAttributes: u32,
             ReparseTag: u32,
             NumberOfLinks: u32,
@@ -2413,7 +2412,7 @@ mod Windows {
         struct IMAGE_DEBUG_MISC {
             DataType: u32,
             Length: u32,
-            Unicode: BOOLEAN,
+            Unicode: bool,
             Reserved: [u8; 3],
             Data: [u8; 1],
         }
@@ -3184,7 +3183,7 @@ mod Windows {
             PolicyId: IMAGE_POLICY_ID,
             u: union {
                 None: *const void,
-                BoolValue: BOOLEAN,
+                BoolValue: bool,
                 Int8Value: i8,
                 UInt8Value: u8,
                 Int16Value: i16,
@@ -4066,10 +4065,10 @@ mod Windows {
             CompletionPort: HANDLE,
         }
         struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
-            TotalUserTime: LARGE_INTEGER,
-            TotalKernelTime: LARGE_INTEGER,
-            ThisPeriodTotalUserTime: LARGE_INTEGER,
-            ThisPeriodTotalKernelTime: LARGE_INTEGER,
+            TotalUserTime: i64,
+            TotalKernelTime: i64,
+            ThisPeriodTotalUserTime: i64,
+            ThisPeriodTotalKernelTime: i64,
             TotalPageFaultCount: u32,
             TotalProcesses: u32,
             ActiveProcesses: u32,
@@ -4080,8 +4079,8 @@ mod Windows {
             IoInfo: IO_COUNTERS,
         }
         struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
-            PerProcessUserTimeLimit: LARGE_INTEGER,
-            PerJobUserTimeLimit: LARGE_INTEGER,
+            PerProcessUserTimeLimit: i64,
+            PerJobUserTimeLimit: i64,
             LimitFlags: u32,
             MinimumWorkingSetSize: usize,
             MaximumWorkingSetSize: usize,
@@ -4193,8 +4192,8 @@ mod Windows {
             IoReadBytesLimit: u64,
             IoWriteBytes: u64,
             IoWriteBytesLimit: u64,
-            PerJobUserTime: LARGE_INTEGER,
-            PerJobUserTimeLimit: LARGE_INTEGER,
+            PerJobUserTime: i64,
+            PerJobUserTimeLimit: i64,
             JobMemory: u64,
             JobMemoryLimit: u64,
             RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
@@ -4207,8 +4206,8 @@ mod Windows {
             IoReadBytesLimit: u64,
             IoWriteBytes: u64,
             IoWriteBytesLimit: u64,
-            PerJobUserTime: LARGE_INTEGER,
-            PerJobUserTimeLimit: LARGE_INTEGER,
+            PerJobUserTime: i64,
+            PerJobUserTimeLimit: i64,
             JobMemory: u64,
             Anonymous: union {
                 JobHighMemoryLimit: u64,
@@ -4240,7 +4239,7 @@ mod Windows {
         struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
             IoReadBytesLimit: u64,
             IoWriteBytesLimit: u64,
-            PerJobUserTimeLimit: LARGE_INTEGER,
+            PerJobUserTimeLimit: i64,
             JobMemoryLimit: u64,
             RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
             RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
@@ -4249,7 +4248,7 @@ mod Windows {
         struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
             IoReadBytesLimit: u64,
             IoWriteBytesLimit: u64,
-            PerJobUserTimeLimit: LARGE_INTEGER,
+            PerJobUserTimeLimit: i64,
             Anonymous: union {
                 JobHighMemoryLimit: u64,
                 JobMemoryLimit: u64,
@@ -4647,17 +4646,6 @@ mod Windows {
         const LANG_YI: i32 = 120;
         const LANG_YORUBA: i32 = 106;
         const LANG_ZULU: i32 = 53;
-        union LARGE_INTEGER {
-            Anonymous: struct {
-                LowPart: u32,
-                HighPart: i32,
-            },
-            u: struct {
-                LowPart: u32,
-                HighPart: i32,
-            },
-            QuadPart: i64,
-        }
         #[repr(i32)]
         enum LATENCY_TIME {
             LT_DONT_CARE = 0,
@@ -5224,7 +5212,7 @@ mod Windows {
         type PATTRIBUTES_AND_SID = *mut ATTRIBUTES_AND_SID;
         type PAUDIT_EVENT_TYPE = *mut AUDIT_EVENT_TYPE;
         type PBATTERY_REPORTING_SCALE = *mut BATTERY_REPORTING_SCALE;
-        type PBOOLEAN = *mut BOOLEAN;
+        type PBOOLEAN = *mut bool;
         type PCACHE_DESCRIPTOR = *mut CACHE_DESCRIPTOR;
         type PCACHE_RELATIONSHIP = *mut CACHE_RELATIONSHIP;
         type PCACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION = *const ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION;
@@ -5640,7 +5628,7 @@ mod Windows {
         type PKSPIN_LOCK = *mut KSPIN_LOCK;
         type PKTMOBJECT_CURSOR = *mut KTMOBJECT_CURSOR;
         type PKTMOBJECT_TYPE = *mut KTMOBJECT_TYPE;
-        type PLARGE_INTEGER = *mut LARGE_INTEGER;
+        type PLARGE_INTEGER = *mut i64;
         type PLCID = PDWORD;
         type PLDT_ENTRY = *mut LDT_ENTRY;
         type PLIST_ENTRY = *mut LIST_ENTRY;
@@ -5890,7 +5878,7 @@ mod Windows {
         }
         const POWER_LIMIT_VALUE_NO_CONTROL: u32 = 4294967295;
         struct POWER_MONITOR_INVOCATION {
-            Console: BOOLEAN,
+            Console: bool,
             RequestReason: POWER_MONITOR_REQUEST_REASON,
         }
         #[repr(i32)]
@@ -5962,7 +5950,7 @@ mod Windows {
             MonitorRequestTypeToggleOn = 2,
         }
         struct POWER_PLATFORM_INFORMATION {
-            AoAc: BOOLEAN,
+            AoAc: bool,
         }
         #[repr(i32)]
         enum POWER_PLATFORM_ROLE {
@@ -5994,14 +5982,14 @@ mod Windows {
             PowerRequestExecutionRequired = 3,
         }
         struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-            IsAllowed: BOOLEAN,
+            IsAllowed: bool,
         }
         struct POWER_SESSION_CONNECT {
-            Connected: BOOLEAN,
-            Console: BOOLEAN,
+            Connected: bool,
+            Console: bool,
         }
         struct POWER_SESSION_RIT_STATE {
-            Active: BOOLEAN,
+            Active: bool,
             LastInputTime: u64,
         }
         struct POWER_SESSION_TIMEOUTS {
@@ -6010,8 +5998,8 @@ mod Windows {
         }
         struct POWER_SESSION_WINLOGON {
             SessionId: u32,
-            Console: BOOLEAN,
-            Locked: BOOLEAN,
+            Console: bool,
+            Locked: bool,
         }
         #[repr(i32)]
         enum POWER_SETTING_ALTITUDE {
@@ -6586,7 +6574,7 @@ mod Windows {
                     },
                 },
             },
-            Permanent: BOOLEAN,
+            Permanent: bool,
         }
         struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
             Anonymous: union {
@@ -7022,10 +7010,10 @@ mod Windows {
         type PSCRUB_DATA_OUTPUT = *mut SCRUB_DATA_OUTPUT;
         type PSCRUB_PARITY_EXTENT = *mut SCRUB_PARITY_EXTENT;
         type PSCRUB_PARITY_EXTENT_DATA = *mut SCRUB_PARITY_EXTENT_DATA;
-        extern fn PSECURE_MEMORY_CACHE_CALLBACK(#[size_param(1)] Addr: *const void, Range: usize) -> BOOLEAN;
+        extern fn PSECURE_MEMORY_CACHE_CALLBACK(#[size_param(1)] Addr: *const void, Range: usize) -> bool;
         type PSECURITY_ATTRIBUTES_OPAQUE = *mut void;
         type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
-        type PSECURITY_CONTEXT_TRACKING_MODE = *mut BOOLEAN;
+        type PSECURITY_CONTEXT_TRACKING_MODE = *mut bool;
         type PSECURITY_DESCRIPTOR = *mut void;
         type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
         type PSECURITY_IMPERSONATION_LEVEL = *mut SECURITY_IMPERSONATION_LEVEL;
@@ -7103,9 +7091,9 @@ mod Windows {
         type PTCH = LPCH;
         type PTCHAR = *mut i8;
         #[arch(Arm64)]
-        extern fn PTERMINATION_HANDLER(_abnormal_termination: BOOLEAN, EstablisherFrame: u64);
+        extern fn PTERMINATION_HANDLER(_abnormal_termination: bool, EstablisherFrame: u64);
         #[arch(X64)]
-        extern fn PTERMINATION_HANDLER(_abnormal_termination: BOOLEAN, EstablisherFrame: *mut void);
+        extern fn PTERMINATION_HANDLER(_abnormal_termination: bool, EstablisherFrame: *mut void);
         type PTOKEN_ACCESS_INFORMATION = *mut TOKEN_ACCESS_INFORMATION;
         type PTOKEN_APPCONTAINER_INFORMATION = *mut TOKEN_APPCONTAINER_INFORMATION;
         type PTOKEN_AUDIT_POLICY = *mut TOKEN_AUDIT_POLICY;
@@ -7163,7 +7151,7 @@ mod Windows {
         type PTSTR = PSTR;
         type PUCSCHAR = *mut UCSCHAR;
         type PUCSSTR = *mut UCSCHAR;
-        type PULARGE_INTEGER = *mut ULARGE_INTEGER;
+        type PULARGE_INTEGER = *mut u64;
         type PULONGLONG = *mut u64;
         type PUMS_CREATE_THREAD_ATTRIBUTES = *mut UMS_CREATE_THREAD_ATTRIBUTES;
         #[arch(X64 | Arm64)]
@@ -7216,7 +7204,7 @@ mod Windows {
             MinimumWorkingSetSize: usize,
             MaximumWorkingSetSize: usize,
             PagefileLimit: usize,
-            TimeLimit: LARGE_INTEGER,
+            TimeLimit: i64,
         }
         struct QUOTA_LIMITS_EX {
             PagedPoolLimit: usize,
@@ -7224,7 +7212,7 @@ mod Windows {
             MinimumWorkingSetSize: usize,
             MaximumWorkingSetSize: usize,
             PagefileLimit: usize,
-            TimeLimit: LARGE_INTEGER,
+            TimeLimit: i64,
             WorkingSetLimit: usize,
             Reserved2: usize,
             Reserved3: usize,
@@ -7538,10 +7526,10 @@ mod Windows {
         }
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlAddFunctionTable(#[len_param(1)] FunctionTable: *const ARM64_RUNTIME_FUNCTION, EntryCount: u32, BaseAddress: usize) -> BOOLEAN;
+        extern "C" fn RtlAddFunctionTable(#[len_param(1)] FunctionTable: *const ARM64_RUNTIME_FUNCTION, EntryCount: u32, BaseAddress: usize) -> bool;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlAddFunctionTable(#[len_param(1)] FunctionTable: *const RUNTIME_FUNCTION, EntryCount: u32, BaseAddress: u64) -> BOOLEAN;
+        extern "C" fn RtlAddFunctionTable(#[len_param(1)] FunctionTable: *const RUNTIME_FUNCTION, EntryCount: u32, BaseAddress: u64) -> bool;
         #[arch(Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlAddGrowableFunctionTable(DynamicTable: *mut *mut void, #[len_param(3)] FunctionTable: *const ARM64_RUNTIME_FUNCTION, EntryCount: u32, MaximumEntryCount: u32, RangeBase: usize, RangeEnd: usize) -> u32;
@@ -7572,10 +7560,10 @@ mod Windows {
         extern fn RtlCrc64(#[size_param(1)] Buffer: *const void, Size: usize, InitialCrc: u64) -> u64;
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlDeleteFunctionTable(FunctionTable: *const ARM64_RUNTIME_FUNCTION) -> BOOLEAN;
+        extern "C" fn RtlDeleteFunctionTable(FunctionTable: *const ARM64_RUNTIME_FUNCTION) -> bool;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlDeleteFunctionTable(FunctionTable: *const RUNTIME_FUNCTION) -> BOOLEAN;
+        extern "C" fn RtlDeleteFunctionTable(FunctionTable: *const RUNTIME_FUNCTION) -> bool;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlDeleteGrowableFunctionTable(DynamicTable: *const void);
@@ -7606,7 +7594,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlGetNonVolatileToken(#[size_param(1)] NvBuffer: *const void, Size: usize, NvToken: *mut *mut void) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlGetProductInfo(OSMajorVersion: u32, OSMinorVersion: u32, SpMajorVersion: u32, SpMinorVersion: u32, ReturnedProductType: *mut u32) -> BOOLEAN;
+        extern fn RtlGetProductInfo(OSMajorVersion: u32, OSMinorVersion: u32, SpMajorVersion: u32, SpMinorVersion: u32, ReturnedProductType: *mut u32) -> bool;
         #[library("ntdll.dll")]
         extern fn RtlGetReturnAddressHijackTarget() -> usize;
         #[library("ntdll.dll")]
@@ -7622,10 +7610,10 @@ mod Windows {
         extern fn RtlInitializeSListHead(ListHead: *mut SLIST_HEADER);
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlInstallFunctionTableCallback(TableIdentifier: usize, BaseAddress: usize, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[opt] Context: *const void, #[opt] OutOfProcessCallbackDll: PCWSTR) -> BOOLEAN;
+        extern "C" fn RtlInstallFunctionTableCallback(TableIdentifier: usize, BaseAddress: usize, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[opt] Context: *const void, #[opt] OutOfProcessCallbackDll: PCWSTR) -> bool;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlInstallFunctionTableCallback(TableIdentifier: u64, BaseAddress: u64, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[opt] Context: *const void, #[opt] OutOfProcessCallbackDll: PCWSTR) -> BOOLEAN;
+        extern "C" fn RtlInstallFunctionTableCallback(TableIdentifier: u64, BaseAddress: u64, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[opt] Context: *const void, #[opt] OutOfProcessCallbackDll: PCWSTR) -> bool;
         #[library("ntdll.dll")]
         extern fn RtlInterlockedFlushSList(#[in] #[out] ListHead: *mut SLIST_HEADER) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
@@ -7643,7 +7631,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlInterlockedPushListSListEx(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] List: *mut SINGLE_LIST_ENTRY, #[in] #[out] ListEnd: *mut SINGLE_LIST_ENTRY, Count: u32) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlIsZeroMemory(Buffer: *const void, Length: usize) -> BOOLEAN;
+        extern fn RtlIsZeroMemory(Buffer: *const void, Length: usize) -> bool;
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
         extern fn RtlLookupFunctionEntry(ControlPc: usize, ImageBase: *mut u64, #[in] #[out] #[opt] HistoryTable: *mut UNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
@@ -7651,7 +7639,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn RtlLookupFunctionEntry(ControlPc: u64, ImageBase: *mut u64, #[in] #[out] #[opt] HistoryTable: *mut UNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
         #[library("ntdll.dll")]
-        extern fn RtlNormalizeSecurityDescriptor(#[in] #[out] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, SecurityDescriptorLength: u32, #[opt] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] NewSecurityDescriptorLength: *mut u32, CheckOnly: BOOLEAN) -> BOOLEAN;
+        extern fn RtlNormalizeSecurityDescriptor(#[in] #[out] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, SecurityDescriptorLength: u32, #[opt] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] NewSecurityDescriptorLength: *mut u32, CheckOnly: bool) -> bool;
         #[library("ntdll.dll")]
         extern fn RtlOsDeploymentState(Flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES;
         #[library("KERNEL32.dll")]
@@ -7688,10 +7676,10 @@ mod Windows {
         extern fn RtlVirtualUnwind(HandlerType: u32, ImageBase: u64, ControlPc: u64, FunctionEntry: *const RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut CONTEXT, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlVirtualUnwind2(HandlerType: u32, ImageBase: usize, ControlPc: usize, #[opt] FunctionEntry: *const ARM64_RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: *mut BOOLEAN, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64, #[opt] LowLimit: *const u64, #[opt] HighLimit: *const u64, HandlerRoutine: *mut PEXCEPTION_ROUTINE, UnwindFlags: u32) -> u32;
+        extern fn RtlVirtualUnwind2(HandlerType: u32, ImageBase: usize, ControlPc: usize, #[opt] FunctionEntry: *const ARM64_RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: *mut bool, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64, #[opt] LowLimit: *const u64, #[opt] HighLimit: *const u64, HandlerRoutine: *mut PEXCEPTION_ROUTINE, UnwindFlags: u32) -> u32;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlVirtualUnwind2(HandlerType: u32, ImageBase: u64, ControlPc: u64, #[opt] FunctionEntry: *const RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut CONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: *mut BOOLEAN, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS, #[opt] LowLimit: *const u64, #[opt] HighLimit: *const u64, HandlerRoutine: *mut PEXCEPTION_ROUTINE, UnwindFlags: u32) -> u32;
+        extern fn RtlVirtualUnwind2(HandlerType: u32, ImageBase: u64, ControlPc: u64, #[opt] FunctionEntry: *const RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut CONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: *mut bool, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS, #[opt] LowLimit: *const u64, #[opt] HighLimit: *const u64, HandlerRoutine: *mut PEXCEPTION_ROUTINE, UnwindFlags: u32) -> u32;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern fn RtlWriteNonVolatileMemory(NvToken: *const void, #[size_param(3)] NvDestination: *mut void, #[size_param(3)] Source: *const void, Size: usize, Flags: u32) -> u32;
@@ -7847,7 +7835,7 @@ mod Windows {
         const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: i32 = 85;
         const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: i32 = 6;
         const SECURITY_COM_ID_BASE_RID: i32 = 89;
-        type SECURITY_CONTEXT_TRACKING_MODE = BOOLEAN;
+        type SECURITY_CONTEXT_TRACKING_MODE = bool;
         const SECURITY_CREATOR_GROUP_RID: i32 = 1;
         const SECURITY_CREATOR_GROUP_SERVER_RID: i32 = 3;
         const SECURITY_CREATOR_OWNER_RID: i32 = 0;
@@ -7954,7 +7942,7 @@ mod Windows {
             Length: u32,
             ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
             ContextTrackingMode: SECURITY_CONTEXT_TRACKING_MODE,
-            EffectiveOnly: BOOLEAN,
+            EffectiveOnly: bool,
         }
         const SECURITY_RDV_GFX_BASE_RID: i32 = 91;
         const SECURITY_REMOTE_LOGON_RID: i32 = 14;
@@ -8026,7 +8014,7 @@ mod Windows {
             ServiceSessionId: u32,
             State: SERVERSILO_STATE,
             ExitStatus: u32,
-            Reserved: BOOLEAN,
+            Reserved: bool,
             ApiSetSchema: *mut void,
             HostApiSetSchema: *mut void,
             ContainerBuildNumber: u32,
@@ -8172,8 +8160,8 @@ mod Windows {
         }
         struct SE_IMPERSONATION_STATE {
             Token: PACCESS_TOKEN,
-            CopyOnOpen: BOOLEAN,
-            EffectiveOnly: BOOLEAN,
+            CopyOnOpen: bool,
+            EffectiveOnly: bool,
             Level: SECURITY_IMPERSONATION_LEVEL,
         }
         #[encoding("utf-16")]
@@ -8298,7 +8286,7 @@ mod Windows {
             SiloId: u32,
             SiloParentId: u32,
             NumberOfProcesses: u32,
-            IsInServerSilo: BOOLEAN,
+            IsInServerSilo: bool,
             Reserved: [u8; 3],
         }
         struct SINGLE_LIST_ENTRY {
@@ -8760,11 +8748,11 @@ mod Windows {
         }
         const SYSTEM_AUDIT_OBJECT_ACE_TYPE: i32 = 7;
         struct SYSTEM_BATTERY_STATE {
-            AcOnLine: BOOLEAN,
-            BatteryPresent: BOOLEAN,
-            Charging: BOOLEAN,
-            Discharging: BOOLEAN,
-            Spare1: [BOOLEAN; 3],
+            AcOnLine: bool,
+            BatteryPresent: bool,
+            Charging: bool,
+            Discharging: bool,
+            Spare1: [bool; 3],
             Tag: u8,
             MaxCapacity: u32,
             RemainingCapacity: u32,
@@ -8849,36 +8837,36 @@ mod Windows {
         const SYSTEM_MANDATORY_LABEL_NO_WRITE_UP: i32 = 1;
         const SYSTEM_MANDATORY_LABEL_VALID_MASK: i32 = 7;
         struct SYSTEM_POOL_ZEROING_INFORMATION {
-            PoolZeroingSupportPresent: BOOLEAN,
+            PoolZeroingSupportPresent: bool,
         }
         struct SYSTEM_POWER_CAPABILITIES {
-            PowerButtonPresent: BOOLEAN,
-            SleepButtonPresent: BOOLEAN,
-            LidPresent: BOOLEAN,
-            SystemS1: BOOLEAN,
-            SystemS2: BOOLEAN,
-            SystemS3: BOOLEAN,
-            SystemS4: BOOLEAN,
-            SystemS5: BOOLEAN,
-            HiberFilePresent: BOOLEAN,
-            FullWake: BOOLEAN,
-            VideoDimPresent: BOOLEAN,
-            ApmPresent: BOOLEAN,
-            UpsPresent: BOOLEAN,
-            ThermalControl: BOOLEAN,
-            ProcessorThrottle: BOOLEAN,
+            PowerButtonPresent: bool,
+            SleepButtonPresent: bool,
+            LidPresent: bool,
+            SystemS1: bool,
+            SystemS2: bool,
+            SystemS3: bool,
+            SystemS4: bool,
+            SystemS5: bool,
+            HiberFilePresent: bool,
+            FullWake: bool,
+            VideoDimPresent: bool,
+            ApmPresent: bool,
+            UpsPresent: bool,
+            ThermalControl: bool,
+            ProcessorThrottle: bool,
             ProcessorMinThrottle: u8,
             ProcessorMaxThrottle: u8,
-            FastSystemS4: BOOLEAN,
-            Hiberboot: BOOLEAN,
-            WakeAlarmPresent: BOOLEAN,
-            AoAc: BOOLEAN,
-            DiskSpinDown: BOOLEAN,
+            FastSystemS4: bool,
+            Hiberboot: bool,
+            WakeAlarmPresent: bool,
+            AoAc: bool,
+            DiskSpinDown: bool,
             HiberFileType: u8,
-            AoAcConnectivitySupported: BOOLEAN,
+            AoAcConnectivitySupported: bool,
             spare3: [u8; 6],
-            SystemBatteriesPresent: BOOLEAN,
-            BatteriesAreShortTerm: BOOLEAN,
+            SystemBatteriesPresent: bool,
+            BatteriesAreShortTerm: bool,
             BatteryScale: [BATTERY_REPORTING_SCALE; 3],
             AcOnLineWake: SYSTEM_POWER_STATE,
             SoftLidWake: SYSTEM_POWER_STATE,
@@ -8894,7 +8882,7 @@ mod Windows {
             PoConditionMaximum = 3,
         }
         struct SYSTEM_POWER_LEVEL {
-            Enable: BOOLEAN,
+            Enable: bool,
             Spare: [u8; 3],
             BatteryLevel: u32,
             PowerPolicy: POWER_ACTION_POLICY,
@@ -8921,10 +8909,10 @@ mod Windows {
             BroadcastCapacityResolution: u32,
             DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
             VideoTimeout: u32,
-            VideoDimDisplay: BOOLEAN,
+            VideoDimDisplay: bool,
             VideoReserved: [u32; 3],
             SpindownTimeout: u32,
-            OptimizeForPower: BOOLEAN,
+            OptimizeForPower: bool,
             FanThrottleTolerance: u8,
             ForcedThrottle: u8,
             MinThrottle: u8,
@@ -9083,7 +9071,7 @@ mod Windows {
         const TAPE_DRIVE_WRITE_SHORT_FMKS: u32 = 2214592512;
         struct TAPE_ERASE {
             Type: u32,
-            Immediate: BOOLEAN,
+            Immediate: bool,
         }
         const TAPE_ERASE_LONG: i32 = 1;
         const TAPE_ERASE_SHORT: i32 = 0;
@@ -9091,10 +9079,10 @@ mod Windows {
         const TAPE_FIXED_PARTITIONS: i32 = 0;
         const TAPE_FORMAT: i32 = 5;
         struct TAPE_GET_DRIVE_PARAMETERS {
-            ECC: BOOLEAN,
-            Compression: BOOLEAN,
-            DataPadding: BOOLEAN,
-            ReportSetmarks: BOOLEAN,
+            ECC: bool,
+            Compression: bool,
+            DataPadding: bool,
+            ReportSetmarks: bool,
             DefaultBlockSize: u32,
             MaximumBlockSize: u32,
             MinimumBlockSize: u32,
@@ -9104,16 +9092,16 @@ mod Windows {
             EOTWarningZoneSize: u32,
         }
         struct TAPE_GET_MEDIA_PARAMETERS {
-            Capacity: LARGE_INTEGER,
-            Remaining: LARGE_INTEGER,
+            Capacity: i64,
+            Remaining: i64,
             BlockSize: u32,
             PartitionCount: u32,
-            WriteProtected: BOOLEAN,
+            WriteProtected: bool,
         }
         struct TAPE_GET_POSITION {
             Type: u32,
             Partition: u32,
-            Offset: LARGE_INTEGER,
+            Offset: i64,
         }
         const TAPE_INITIATOR_PARTITIONS: i32 = 2;
         const TAPE_LOAD: i32 = 0;
@@ -9123,7 +9111,7 @@ mod Windows {
         const TAPE_LONG_FILEMARKS: i32 = 3;
         struct TAPE_PREPARE {
             Operation: u32,
-            Immediate: BOOLEAN,
+            Immediate: bool,
         }
         const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3;
         const TAPE_PSEUDO_LOGICAL_POSITION: i32 = 2;
@@ -9135,10 +9123,10 @@ mod Windows {
         const TAPE_SELECT_PARTITIONS: i32 = 1;
         const TAPE_SETMARKS: i32 = 0;
         struct TAPE_SET_DRIVE_PARAMETERS {
-            ECC: BOOLEAN,
-            Compression: BOOLEAN,
-            DataPadding: BOOLEAN,
-            ReportSetmarks: BOOLEAN,
+            ECC: bool,
+            Compression: bool,
+            DataPadding: bool,
+            ReportSetmarks: bool,
             EOTWarningZoneSize: u32,
         }
         struct TAPE_SET_MEDIA_PARAMETERS {
@@ -9147,8 +9135,8 @@ mod Windows {
         struct TAPE_SET_POSITION {
             Method: u32,
             Partition: u32,
-            Offset: LARGE_INTEGER,
-            Immediate: BOOLEAN,
+            Offset: i64,
+            Immediate: bool,
         }
         const TAPE_SHORT_FILEMARKS: i32 = 2;
         const TAPE_SPACE_END_OF_DATA: i32 = 4;
@@ -9168,7 +9156,7 @@ mod Windows {
         struct TAPE_WRITE_MARKS {
             Type: u32,
             Count: u32,
-            Immediate: BOOLEAN,
+            Immediate: bool,
         }
         type TBYTE = u8;
         type TCHAR = i8;
@@ -9230,7 +9218,7 @@ mod Windows {
         }
         struct TOKEN_BNO_ISOLATION_INFORMATION {
             IsolationPrefix: PWSTR,
-            IsolationEnabled: BOOLEAN,
+            IsolationEnabled: bool,
         }
         struct TOKEN_CONTROL {
             TokenId: LUID,
@@ -9383,7 +9371,7 @@ mod Windows {
         struct TOKEN_STATISTICS {
             TokenId: LUID,
             AuthenticationId: LUID,
-            ExpirationTime: LARGE_INTEGER,
+            ExpirationTime: i64,
             TokenType: TOKEN_TYPE,
             ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
             DynamicCharged: u32,
@@ -9457,7 +9445,7 @@ mod Windows {
         const TRANSACTIONMANAGER_ALL_ACCESS: i32 = 983103;
         struct TRANSACTIONMANAGER_BASIC_INFORMATION {
             TmIdentity: GUID,
-            VirtualClock: LARGE_INTEGER,
+            VirtualClock: i64,
         }
         const TRANSACTIONMANAGER_BIND_TRANSACTION: i32 = 32;
         const TRANSACTIONMANAGER_CREATE_RM: i32 = 16;
@@ -9538,7 +9526,7 @@ mod Windows {
         struct TRANSACTION_PROPERTIES_INFORMATION {
             IsolationLevel: u32,
             IsolationFlags: u32,
-            Timeout: LARGE_INTEGER,
+            Timeout: i64,
             Outcome: u32,
             DescriptionLength: u32,
             Description: [u16; 1],
@@ -9564,17 +9552,6 @@ mod Windows {
         const TRUST_PROTECTED_FILTER_ACE_FLAG: i32 = 64;
         type UCSCHAR = u32;
         const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295;
-        union ULARGE_INTEGER {
-            Anonymous: struct {
-                LowPart: u32,
-                HighPart: u32,
-            },
-            u: struct {
-                LowPart: u32,
-                HighPart: u32,
-            },
-            QuadPart: u64,
-        }
         struct UMS_CREATE_THREAD_ATTRIBUTES {
             UmsVersion: u32,
             UmsContext: *mut void,
@@ -9682,7 +9659,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn VerSetConditionMask(ConditionMask: u64, TypeMask: u32, Condition: u8) -> u64;
         type WAITORTIMERCALLBACK = WAITORTIMERCALLBACKFUNC;
-        extern fn WAITORTIMERCALLBACKFUNC(param0: *mut void, param1: BOOLEAN);
+        extern fn WAITORTIMERCALLBACKFUNC(param0: *mut void, param1: bool);
         #[repr(i32)]
         enum WELL_KNOWN_SID_TYPE {
             WinNullSid = 0,

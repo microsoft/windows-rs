@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("POWRPROF.dll")]
-        extern fn CanUserWritePwrScheme() -> BOOLEAN;
+        extern fn CanUserWritePwrScheme() -> bool;
         const DEVICEPOWER_AND_OPERATION: i32 = 1073741824;
         const DEVICEPOWER_CLEAR_WAKEENABLED: i32 = 2;
         const DEVICEPOWER_FILTER_DEVICES_PRESENT: i32 = 536870912;
@@ -19,13 +19,13 @@ mod Windows {
             Context: *mut void,
         }
         #[library("POWRPROF.dll")]
-        extern fn DeletePwrScheme(uiID: u32) -> BOOLEAN;
+        extern fn DeletePwrScheme(uiID: u32) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn DevicePowerClose() -> BOOLEAN;
+        extern fn DevicePowerClose() -> bool;
         #[library("POWRPROF.dll")]
-        extern fn DevicePowerEnumDevices(QueryIndex: u32, QueryInterpretationFlags: u32, QueryFlags: u32, #[size_param(4)] #[opt] pReturnBuffer: *mut u8, #[in] #[out] pBufferSize: *mut u32) -> BOOLEAN;
+        extern fn DevicePowerEnumDevices(QueryIndex: u32, QueryInterpretationFlags: u32, QueryFlags: u32, #[size_param(4)] #[opt] pReturnBuffer: *mut u8, #[in] #[out] pBufferSize: *mut u32) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn DevicePowerOpen(#[opt] DebugMask: u32) -> BOOLEAN;
+        extern fn DevicePowerOpen(#[opt] DebugMask: u32) -> bool;
         #[library("POWRPROF.dll")]
         extern fn DevicePowerSetDeviceState(DeviceDescription: PCWSTR, SetFlags: u32, #[opt] SetData: *const void) -> u32;
         const EnableMultiBatteryDisplay: i32 = 2;
@@ -34,7 +34,7 @@ mod Windows {
         const EnableVideoDimDisplay: i32 = 16;
         const EnableWakeOnRing: i32 = 8;
         #[library("POWRPROF.dll")]
-        extern fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lParam: LPARAM) -> BOOLEAN;
+        extern fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lParam: LPARAM) -> bool;
         struct GLOBAL_MACHINE_POWER_POLICY {
             Revision: u32,
             LidOpenWakeAc: SYSTEM_POWER_STATE,
@@ -57,19 +57,19 @@ mod Windows {
             GlobalFlags: u32,
         }
         #[library("POWRPROF.dll")]
-        extern fn GetActivePwrScheme(puiID: *mut u32) -> BOOLEAN;
+        extern fn GetActivePwrScheme(puiID: *mut u32) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn GetCurrentPowerPolicies(pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, pPowerPolicy: *mut POWER_POLICY) -> BOOLEAN;
+        extern fn GetCurrentPowerPolicies(pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, pPowerPolicy: *mut POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn GetPwrDiskSpindownRange(puiMax: *mut u32, puiMin: *mut u32) -> BOOLEAN;
+        extern fn GetPwrDiskSpindownRange(puiMax: *mut u32, puiMin: *mut u32) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> BOOLEAN;
+        extern fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn IsPwrHibernateAllowed() -> BOOLEAN;
+        extern fn IsPwrHibernateAllowed() -> bool;
         #[library("POWRPROF.dll")]
-        extern fn IsPwrShutdownAllowed() -> BOOLEAN;
+        extern fn IsPwrShutdownAllowed() -> bool;
         #[library("POWRPROF.dll")]
-        extern fn IsPwrSuspendAllowed() -> BOOLEAN;
+        extern fn IsPwrSuspendAllowed() -> bool;
         struct MACHINE_POWER_POLICY {
             Revision: u32,
             MinSleepAc: SYSTEM_POWER_STATE,
@@ -151,9 +151,9 @@ mod Windows {
         type PPOWER_POLICY = *mut POWER_POLICY;
         type PTHERMAL_EVENT = *mut THERMAL_EVENT;
         type PUSER_POWER_POLICY = *mut USER_POWER_POLICY;
-        extern fn PWRSCHEMESENUMPROC(Index: u32, NameSize: u32, #[size_param(1)] Name: PCWSTR, DescriptionSize: u32, #[size_param(3)] Description: PCWSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
-        extern fn PWRSCHEMESENUMPROC_V1(Index: u32, NameSize: u32, #[size_param(1)] Name: LPTSTR, DescriptionSize: u32, #[size_param(3)] Description: LPTSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
-        extern fn PWRSCHEMESENUMPROC_V2(Index: u32, NameSize: u32, #[size_param(1)] Name: PCWSTR, DescriptionSize: u32, #[size_param(3)] Description: PCWSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
+        extern fn PWRSCHEMESENUMPROC(Index: u32, NameSize: u32, #[size_param(1)] Name: PCWSTR, DescriptionSize: u32, #[size_param(3)] Description: PCWSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> bool;
+        extern fn PWRSCHEMESENUMPROC_V1(Index: u32, NameSize: u32, #[size_param(1)] Name: LPTSTR, DescriptionSize: u32, #[size_param(3)] Description: LPTSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> bool;
+        extern fn PWRSCHEMESENUMPROC_V2(Index: u32, NameSize: u32, #[size_param(1)] Name: PCWSTR, DescriptionSize: u32, #[size_param(3)] Description: PCWSTR, Policy: *const POWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> bool;
         #[library("POWRPROF.dll")]
         extern fn PowerCanRestoreIndividualDefaultPowerScheme(SchemeGuid: *const GUID) -> u32;
         #[library("POWRPROF.dll")]
@@ -175,7 +175,7 @@ mod Windows {
         #[library("POWRPROF.dll")]
         extern fn PowerImportPowerScheme(#[opt] RootPowerKey: HKEY, ImportFileNamePath: PCWSTR, #[in] #[out] DestinationSchemeGuid: *mut *mut GUID) -> u32;
         #[library("POWRPROF.dll")]
-        extern fn PowerIsSettingRangeDefined(#[opt] SubKeyGuid: *const GUID, #[opt] SettingGuid: *const GUID) -> BOOLEAN;
+        extern fn PowerIsSettingRangeDefined(#[opt] SubKeyGuid: *const GUID, #[opt] SettingGuid: *const GUID) -> bool;
         #[library("POWRPROF.dll")]
         extern fn PowerOpenSystemPowerKey(phSystemPowerKey: *mut HKEY, Access: REGSAM, OpenExisting: BOOL) -> u32;
         #[library("POWRPROF.dll")]
@@ -255,15 +255,15 @@ mod Windows {
         #[library("POWRPROF.dll")]
         extern fn PowerWriteValueUnitsSpecifier(#[opt] RootPowerKey: HKEY, #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[opt] PowerSettingGuid: *const GUID, #[size_param(4)] Buffer: *const u8, BufferSize: u32) -> u32;
         #[library("POWRPROF.dll")]
-        extern fn ReadGlobalPwrPolicy(pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY) -> BOOLEAN;
+        extern fn ReadGlobalPwrPolicy(pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn ReadProcessorPwrScheme(uiID: u32, pMachineProcessorPowerPolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> BOOLEAN;
+        extern fn ReadProcessorPwrScheme(uiID: u32, pMachineProcessorPowerPolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn ReadPwrScheme(uiID: u32, pPowerPolicy: *mut POWER_POLICY) -> BOOLEAN;
+        extern fn ReadPwrScheme(uiID: u32, pPowerPolicy: *mut POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn SetActivePwrScheme(uiID: u32, #[opt] pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY, #[opt] pPowerPolicy: *const POWER_POLICY) -> BOOLEAN;
+        extern fn SetActivePwrScheme(uiID: u32, #[opt] pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY, #[opt] pPowerPolicy: *const POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn SetSuspendState(bHibernate: BOOLEAN, bForce: BOOLEAN, bWakeupEventsDisabled: BOOLEAN) -> BOOLEAN;
+        extern fn SetSuspendState(bHibernate: bool, bForce: bool, bWakeupEventsDisabled: bool) -> bool;
         struct THERMAL_EVENT {
             Version: u32,
             Size: u32,
@@ -290,20 +290,20 @@ mod Windows {
             VideoTimeoutDc: u32,
             SpindownTimeoutAc: u32,
             SpindownTimeoutDc: u32,
-            OptimizeForPowerAc: BOOLEAN,
-            OptimizeForPowerDc: BOOLEAN,
+            OptimizeForPowerAc: bool,
+            OptimizeForPowerDc: bool,
             FanThrottleToleranceAc: u8,
             FanThrottleToleranceDc: u8,
             ForcedThrottleAc: u8,
             ForcedThrottleDc: u8,
         }
         #[library("POWRPROF.dll")]
-        extern fn ValidatePowerPolicies(#[in] #[out] #[opt] pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, #[in] #[out] #[opt] pPowerPolicy: *mut POWER_POLICY) -> BOOLEAN;
+        extern fn ValidatePowerPolicies(#[in] #[out] #[opt] pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, #[in] #[out] #[opt] pPowerPolicy: *mut POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn WriteGlobalPwrPolicy(pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY) -> BOOLEAN;
+        extern fn WriteGlobalPwrPolicy(pGlobalPowerPolicy: *const GLOBAL_POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn WriteProcessorPwrScheme(uiID: u32, pMachineProcessorPowerPolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> BOOLEAN;
+        extern fn WriteProcessorPwrScheme(uiID: u32, pMachineProcessorPowerPolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> bool;
         #[library("POWRPROF.dll")]
-        extern fn WritePwrScheme(puiID: *const u32, lpszSchemeName: PCWSTR, #[opt] lpszDescription: PCWSTR, lpScheme: *const POWER_POLICY) -> BOOLEAN;
+        extern fn WritePwrScheme(puiID: *const u32, lpszSchemeName: PCWSTR, #[opt] lpszDescription: PCWSTR, lpScheme: *const POWER_POLICY) -> bool;
     }
 }

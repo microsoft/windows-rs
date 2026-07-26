@@ -5,7 +5,7 @@ mod Windows {
             style: VDS_PARTITION_STYLE,
             Anonymous: union {
                 MbrPartInfo: struct {
-                    bootIndicator: BOOLEAN,
+                    bootIndicator: bool,
                 },
                 GptPartInfo: struct {
                     attributes: u64,
@@ -30,7 +30,7 @@ mod Windows {
             Anonymous: union {
                 MbrPartInfo: struct {
                     partitionType: u8,
-                    bootIndicator: BOOLEAN,
+                    bootIndicator: bool,
                 },
                 GptPartInfo: struct {
                     partitionType: GUID,
@@ -388,7 +388,7 @@ mod Windows {
         #[guid(0xb6b22da8_f903_4be7_b492_c09d875ac9da)]
         interface IVdsServiceUninstallDisk: IUnknown {
             fn GetDiskIdFromLunInfo(&self, pLunInfo: *const VDS_LUN_INFORMATION, pDiskId: *mut VDS_OBJECT_ID) -> HRESULT;
-            fn UninstallDisks(&self, pDiskIdArray: *const VDS_OBJECT_ID, ulCount: u32, bForce: BOOLEAN, pbReboot: *mut BOOLEAN, pResults: *mut HRESULT) -> HRESULT;
+            fn UninstallDisks(&self, pDiskIdArray: *const VDS_OBJECT_ID, ulCount: u32, bForce: bool, pbReboot: *mut bool, pResults: *mut HRESULT) -> HRESULT;
         }
         #[guid(0x932ca8cf_0eb3_4ba8_9620_22665d7f8450)]
         interface IVdsStoragePool: IUnknown {
@@ -1490,7 +1490,7 @@ mod Windows {
             ullStartingOffset: u64,
             ullPartitionLength: u64,
             dwPartitionNumber: u32,
-            bRewritePartition: BOOLEAN,
+            bRewritePartition: bool,
             Anonymous: union {
                 Mbr: VDS_PARTITION_INFO_MBR,
                 Gpt: VDS_PARTITION_INFO_GPT,
@@ -1504,8 +1504,8 @@ mod Windows {
         }
         struct VDS_PARTITION_INFO_MBR {
             partitionType: u8,
-            bootIndicator: BOOLEAN,
-            recognizedPartition: BOOLEAN,
+            bootIndicator: bool,
+            recognizedPartition: bool,
             hiddenSectors: u32,
         }
         struct VDS_PARTITION_NOTIFICATION {

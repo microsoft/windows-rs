@@ -20,25 +20,22 @@ pub struct File {
     records: rec::Records,
     reference: Option<reader::Index>,
 
-    // Indexes for fast lookup of preexisting rows.
     TypeRef: HashMap<String, HashMap<String, TypeRef>>,
     TypeSpec: HashMap<BlobId, TypeSpec>,
     AssemblyRef: HashMap<String, AssemblyRef>,
     ModuleRef: HashMap<String, ModuleRef>,
     MemberRef: HashMap<rec::MemberRef, MemberRef>,
 
-    // Staging for sorted rows before these records can be written. BTreeMap is used rather than HashMap to allow reproducible builds.
+    // Sorted staging keeps deferred tables reproducible.
     Constant: BTreeMap<HasConstant, rec::Constant>,
     Attribute: BTreeMap<HasAttribute, Vec<rec::Attribute>>,
     GenericParam: BTreeMap<TypeOrMethodDef, Vec<rec::GenericParam>>,
 }
 
 impl File {
-    /// Creates a minimal ECMA-335 file representation.
     pub fn new(name: &str) -> Self {
         let mut file = Self::default();
 
-        // This assembly.
         file.records.Assembly.push(rec::Assembly {
             Name: file.strings.insert(name),
             HashAlgId: 0x00008004,
@@ -50,29 +47,25 @@ impl File {
             ..Default::default()
         });
 
-        // This module.
         file.records.Module.push(rec::Module {
             Name: file.strings.insert(name),
             Mvid: 1,
             ..Default::default()
         });
 
-        // Some parsers will fail to read without an `mscorlib` reference implied by "System" types.
+        // Some parsers require the `mscorlib` reference implied by "System" types.
         file.AssemblyRef("System");
 
-        // The parent type of "globals" expected by most parsers.
         file.TypeDef("", "<Module>", TypeDefOrRef::default(), TypeAttributes(0));
 
         file
     }
 
-    /// Sets the reference `Index` used to resolve whether a `TypeRef` refers to a type
-    /// defined locally in this file or in an external assembly.
+    /// Sets the reference index used to resolve external `TypeRef` scopes.
     pub fn set_reference(&mut self, reference: reader::Index) {
         self.reference = Some(reference);
     }
 
-    /// Returns the reference `Index`, if one has been set via [`Self::set_reference`].
     pub fn reference(&self) -> Option<&reader::Index> {
         self.reference.as_ref()
     }
@@ -107,7 +100,6 @@ impl File {
         });
     }
 
-    /// Adds an `AssemblyRef` row for the given assembly name, returning the row offset.
     fn AssemblyRef(&mut self, assembly_name: &str) -> AssemblyRef {
         if let Some(pos) = self.AssemblyRef.get(assembly_name) {
             return *pos;
@@ -138,7 +130,6 @@ impl File {
         pos
     }
 
-    /// Adds a `TypeDef` row to the file, returning the row offset.
     pub fn TypeDef(
         &mut self,
         namespace: &str,
@@ -156,7 +147,6 @@ impl File {
         }))
     }
 
-    /// Adds a `TypeRef` row to the file, returning the row offset.
     pub fn TypeRef(&mut self, namespace: &str, name: &str) -> TypeRef {
         if let Some(key) = self.TypeRef.get(namespace) {
             if let Some(pos) = key.get(name) {
@@ -203,8 +193,7 @@ impl File {
 
     pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> TypeSpec {
         debug_assert!(!generics.is_empty());
-        // Strip any existing `N suffix before re-deriving it, so a name read back from a
-        // winmd (IMapView`2) is not doubled (IMapView`2`2) on a winmd->winmd merge.
+        // Avoid doubling an existing generic arity suffix read from a winmd.
         let base = name.split_once('`').map_or(name, |(base, _)| base);
         let name = format!("{base}`{}", generics.len());
         let type_ref = self.TypeRef(namespace, &name);
@@ -232,7 +221,6 @@ impl File {
         pos
     }
 
-    /// Adds a `Field` row to the file, returning the row offset.
     pub fn Field(&mut self, name: &str, ty: &Type, flags: FieldAttributes) -> Field {
         let signature = self.FieldSig(ty);
 
@@ -243,7 +231,6 @@ impl File {
         }))
     }
 
-    /// Adds a `MethodDef` row to the file, returning the row offset.
     pub fn MethodDef(
         &mut self,
         name: &str,

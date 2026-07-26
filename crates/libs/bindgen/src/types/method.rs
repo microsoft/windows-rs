@@ -8,10 +8,7 @@ pub struct Method {
     pub dependencies: TypeMap,
 }
 
-// Only the `--package` layout emits per-method `#[cfg]` gates: a method may depend on
-// a narrower feature set than its interface, so it is gated independently. Every other
-// layout pulls in the whole interface together and needs no per-method gate. Shared by
-// the WinRT (`Method`) and Win32/COM (`CppMethod`) writers.
+// Package output gates methods independently from their parent interface.
 pub fn write_method_cfg(
     dependencies: &TypeMap,
     config: &Config,
@@ -67,10 +64,7 @@ impl Method {
                 }
             }
             Type::Array(element_type) => {
-                // When the element's ABI representation is `*mut c_void` (interfaces,
-                // strings, delegates, etc.) it differs from the Rust pointer type
-                // returned by `into_abi`, so `transmute` is needed. For structs,
-                // primitives, and enums the ABI type matches and transmute is a no-op.
+                // Pointer-ABI arrays need transmute; value arrays already match their ABI type.
                 let write_result = if element_type.has_pointer_abi() {
                     quote! { result__.write(core::mem::transmute(ok_data__)); }
                 } else {
@@ -100,9 +94,7 @@ impl Method {
                 }
             }
             _ => {
-                // For copyable types the Rust and ABI types are identical. For non-copyable
-                // types the ABI type differs, requiring transmute_copy and forget to avoid
-                // a double-drop.
+                // Non-copyable return values need ABI transmute without double-drop.
                 let write_result = if self.signature.return_type.is_copyable(reader) {
                     quote! { result__.write(ok__); }
                 } else {
@@ -133,9 +125,7 @@ impl Method {
         }
     }
 
-    /// Like `write_upcall`, but assumes the inner closure returns nothing and
-    /// the boxed `Invoke` returns `S_OK`. Used by event-handler
-    /// delegates generated under `--minimal`.
+    /// Like `write_upcall`, but for minimal event handlers returning `S_OK`.
     pub fn write_upcall_no_return(
         &self,
         inner: TokenStream,
@@ -234,10 +224,7 @@ impl Method {
         }
     }
 
-    /// Returns the parenthesized parameter signature without a return type,
-    /// suitable for use as the input portion of an `Fn(...)` bound when the
-    /// caller doesn't need a return value (currently event-handler closures
-    /// under `--minimal`).
+    /// Returns the parenthesized parameter signature without a return type.
     pub fn write_impl_signature_no_return(&self, config: &Config) -> TokenStream {
         let params = self.write_impl_params(config, false);
         quote! { (#(#params),*) }
@@ -373,8 +360,7 @@ impl Method {
         };
 
         let (name, name_compose) = if kind == InterfaceKind::Composable && params.is_empty() {
-            // Default parameterless composable constructor: `new` for the non-aggregating
-            // entry, `compose` for the aggregating entry.
+            // Parameterless composable constructors emit `new` and aggregating `compose`.
             (quote!(new), quote!(compose))
         } else if kind == InterfaceKind::Composable {
             let name = method_names.add(self.def);
@@ -384,8 +370,7 @@ impl Method {
             (method_names.add(self.def), TokenStream::new())
         };
 
-        // Use pub(crate) when --dead-code is set so the dead_code lint can
-        // detect unused methods. See https://github.com/rust-lang/rust/issues/157961
+        // `--dead-code` uses pub(crate) so unused generated methods are linted.
         let vis = config.item_vis();
 
         let typed_args: Vec<TokenStream> = params.iter().map(|param|{
@@ -399,16 +384,13 @@ impl Method {
                         quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                     }
                 } else if param.ireference_inner(config.reader).is_some() {
-                    // Sugared `Option<T>` -> materialized `Option<IReference<T>>` in
-                    // the local `name__` (see prelude below). `Param<T> for Option<&T>`
-                    // turns `None` into a null abi pointer.
+                    // Sugared `Option<T>` is materialized as `Option<IReference<T>>` in the prelude.
                     let local: TokenStream = format!("{name}__").parse().unwrap();
                     quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
                 } else if config.bindgen.style.minimal_string_input(param) {
-                    // In minimal mode, string params accept &str directly.
-                    // Convert to HSTRING and pass its abi.
+                    // Minimal string params accept `&str` and convert to `HSTRING` internally.
                     quote! { core::mem::transmute_copy(&windows_core::HSTRING::from(#name)) }
                 } else if param.is_copyable(config.reader) {
                     if param.is_const_ref() {
@@ -466,14 +448,12 @@ impl Method {
             TokenStream::new()
         };
 
-        // Helper: does this param need a generic `P{n}: Into<IReference<HSTRING>>`?
-        // (only IReference<HSTRING> sugar; value-like inner doesn't need a generic).
+        // Only `IReference<HSTRING>` sugar needs `P{n}: Into<IReference<HSTRING>>`.
         let is_ireference_string = |param: &Param| -> bool {
             matches!(param.ireference_inner(config.reader), Some(Type::String))
         };
 
-        // In minimal mode, HSTRING input params accept `&str` directly - the generated
-        // method body handles the conversion to HSTRING internally.
+        // Minimal HSTRING inputs accept `&str`; the method body converts them.
         let is_string_param =
             |param: &Param| -> bool { config.bindgen.style.minimal_string_input(param) };
 
@@ -606,10 +586,7 @@ impl Method {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
         let assert_success = quote! { debug_assert!(hresult__.0 == 0); };
 
-        // Detect return-position `IReference<T>` sugar: when the return type is a
-        // sugarable `Windows.Foundation.IReference<T>`, unwrap to `Result<T>`
-        // (or `Result<HSTRING>`) by chaining `.Value()` after `from_abi`.
-        // Limited to non-noexcept, non-array returns.
+        // Return-position `IReference<T>` sugar unwraps to `Result<T>` after `from_abi`.
         let return_unwrap_inner = if !noexcept && !self.signature.return_type.is_winrt_array() {
             self.signature
                 .return_type
@@ -759,8 +736,7 @@ impl Method {
 
         let vcall = build_vcall(&args);
 
-        // Suppress remove_* methods and replace add_* methods with a combined
-        // wrapper returning EventRevoker.
+        // Event add methods become revoker-returning wrappers; paired remove methods are hidden.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
             && self.def.flags().contains(MethodAttributes::SpecialName)
@@ -783,21 +759,14 @@ impl Method {
         }
 
         if is_event_add && kind != InterfaceKind::Composable {
-            // The event part (e.g. "Click" from "add_Click") determines the
-            // vtable field name for the paired remove method.
             let event_part = &raw_method_name[4..];
 
-            // Use the bare event name (e.g. "Click" instead of "add_Click")
-            // since the remove method is suppressed and there's no ambiguity.
+            // Use the bare event name because the paired remove method is suppressed.
             let name = to_ident(event_part);
 
             let remove_vname = to_ident(&format!("Remove{event_part}"));
 
-            // Promote the delegate parameter (typically the only input) to a
-            // generic closure so callers can pass a closure directly without
-            // first constructing the delegate. `params` has been shadowed into
-            // a `Vec<TokenStream>` of rendered declarations, so reach for
-            // `self.signature.params` when inspecting the original `Param`s.
+            // Promote the delegate parameter to a generic closure accepted directly by callers.
             let sig_params = &self.signature.params[..];
             let delegate_idx = sig_params
                 .iter()
@@ -813,22 +782,14 @@ impl Method {
                     let delegate_name = d.write_name(config);
                     let pname = dp.write_ident();
 
-                    // The wrapper accepts a closure constrained to the
-                    // delegate's parameter list but with no return type.
+                    // The wrapper closure uses the delegate parameters but no return type.
                     let fn_sig_no_return = invoke.write_impl_signature_no_return(config);
 
-                    // If the delegate is being generated by this same bindgen
-                    // run under `--minimal`, its `new` accepts the void-
-                    // returning closure directly and returns S_OK internally,
-                    // so we can pass `handler` straight through. Otherwise
-                    // (default mode or the delegate comes from a referenced
-                    // crate), wrap the handler to satisfy its
-                    // `Fn(...) -> Result<()>` constraint.
+                    // Local minimal delegates accept void closures; referenced/default delegates need `Result`.
                     let delegate_is_local_minimal = config.bindgen.style.is_minimal()
                         && config.references.contains(d.type_name()).is_none();
 
-                    // Rebuild typed_args, replacing the delegate slot with a raw
-                    // interface pointer for the locally-constructed delegate.
+                    // Replace the delegate slot with the local delegate's raw interface pointer.
                     let event_typed_args: Vec<TokenStream> = typed_args
                         .iter()
                         .enumerate()
@@ -842,8 +803,7 @@ impl Method {
                         .collect();
                     let event_args = quote! { #(#event_typed_args,)* &mut result__ };
 
-                    // Keep all P{n} generics for non-delegate params; add `F` for
-                    // the closure that replaces the delegate parameter.
+                    // Keep non-delegate generics and add `F` for the closure.
                     let mut event_generics: Vec<TokenStream> = sig_params
                         .iter()
                         .enumerate()
@@ -887,11 +847,7 @@ impl Method {
                         .collect();
 
                     let event_where_clause = {
-                        // Drop Send when the delegate is locally generated
-                        // under minimal mode - we inline the DelegateBox and
-                        // bypass the delegate's new() bounds. When the delegate
-                        // is referenced (external crate), its new() still
-                        // requires Send so we must keep the bound here too.
+                        // Local minimal delegates inline `DelegateBox`, so only referenced delegates need `Send`.
                         if delegate_is_local_minimal {
                             quote! {
                                 where #(#other_constraints)* F: Fn #fn_sig_no_return + 'static,
@@ -903,8 +859,7 @@ impl Method {
                         }
                     };
 
-                    // Reuse the rendered declarations for non-delegate params and
-                    // replace the delegate slot with `handler: F`.
+                    // Replace only the delegate parameter declaration with `handler: F`.
                     let event_params_decl: Vec<TokenStream> = params
                         .iter()
                         .enumerate()
@@ -919,11 +874,7 @@ impl Method {
                         .collect();
 
                     let event_prelude = if delegate_is_local_minimal {
-                        // Inline DelegateBox construction directly instead of
-                        // calling Delegate::new(). This decouples the event
-                        // wrapper's Send bound from the delegate constructor's
-                        // bound - the wrapper's own where clause is the sole
-                        // authority on whether F must be Send.
+                        // Inline `DelegateBox` so the wrapper's where clause controls the `Send` bound.
                         let boxed_name: TokenStream =
                             format!("{}Box", trim_tick(d.def.name())).parse().unwrap();
                         let generic_names = d.generics.iter().map(|ty| ty.write_name(config));
@@ -936,10 +887,7 @@ impl Method {
                             };
                         }
                     } else {
-                        // Synthetic argument names for the wrapping closure
-                        // that injects `Ok(())`. These only exist inside the
-                        // inner closure so they don't collide with any
-                        // user-visible parameter names.
+                        // Synthetic closure argument names cannot collide with user-visible parameters.
                         let invoke_arg_idents: Vec<TokenStream> =
                             (0..invoke.signature.params.len())
                                 .map(|i| format!("a{i}").parse().unwrap())
@@ -975,7 +923,6 @@ impl Method {
 
             let core = config.write_core();
 
-            // Body shared across all kinds: materialise the token then wrap it.
             let event_body = quote! {
                 let mut result__ = core::mem::zeroed();
                 let token__ = #raw_vcall.map(|| result__)?;
@@ -1062,10 +1009,7 @@ impl Method {
                 }
             }
             InterfaceKind::Composable => {
-                // Composable factories emit two entries: a non-aggregating `name` and an
-                // aggregating `name_compose` that takes a `T: Compose`. We return `result__`
-                // (the delegating default interface) rather than `derived__` so that
-                // AddRef/Release on the returned value keeps the outer alive.
+                // Composable factories return the delegating interface so the outer stays alive.
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 let compose = if emit_compose {
@@ -1087,10 +1031,7 @@ impl Method {
                     quote! {}
                 };
 
-                // In minimal mode, when compose() is emitted (class is subclassed
-                // via --implement), suppress the non-aggregating new() since the
-                // consuming crate uses compose() instead. In non-minimal mode,
-                // always emit both.
+                // Minimal subclassing emits `compose()` instead of non-aggregating `new()`.
                 let suppress_new = emit_compose && config.bindgen.style.is_minimal();
                 let new = if !suppress_new {
                     quote! {

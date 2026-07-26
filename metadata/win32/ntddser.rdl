@@ -77,7 +77,7 @@ mod Windows {
         struct SERENUM_PORT_DESC {
             Size: u32,
             PortHandle: *mut void,
-            PortAddress: LARGE_INTEGER,
+            PortAddress: i64,
             Reserved: [u16; 1],
         }
         struct SERENUM_PORT_PARAMETERS {
@@ -273,8 +273,8 @@ mod Windows {
             HoldReasons: u32,
             AmountInInQueue: u32,
             AmountInOutQueue: u32,
-            EofReceived: BOOLEAN,
-            WaitForImmediate: BOOLEAN,
+            EofReceived: bool,
+            WaitForImmediate: bool,
         }
         const SERIAL_STOPBITS_10: u16 = 1;
         const SERIAL_STOPBITS_15: u16 = 2;

@@ -8,11 +8,7 @@ use super::*;
 use super::app_shim::*;
 use super::bindings::*;
 
-/// A per-thread registry of open reactor windows keyed by a monotonic id.
-///
-/// Generic over the payload `T` so the key allocation and last-window
-/// bookkeeping can be unit-tested without a live WinUI window; the app hosts it
-/// as `WindowRegistry<ReactorHost>`.
+/// Per-thread registry of open reactor windows keyed by monotonic id.
 struct WindowRegistry<T> {
     next_key: u64,
     entries: Vec<(u64, T)>,
@@ -26,7 +22,6 @@ impl<T> WindowRegistry<T> {
         }
     }
 
-    /// Register `value`, returning its unique, never-reused key.
     fn insert(&mut self, value: T) -> u64 {
         let key = self.next_key;
         self.next_key += 1;
@@ -41,14 +36,10 @@ impl<T> WindowRegistry<T> {
             .map(|(_, value)| value)
     }
 
-    /// The first (primary) registered payload, if any.
     fn first(&self) -> Option<&T> {
         self.entries.first().map(|(_, value)| value)
     }
 
-    /// Remove the entry with `key`. Returns the removed payload (if the key was
-    /// present) and whether the registry is now empty. The caller is expected to
-    /// drop the payload after releasing any registry borrow.
     fn remove(&mut self, key: u64) -> (Option<T>, bool) {
         let removed = self
             .entries
@@ -60,16 +51,12 @@ impl<T> WindowRegistry<T> {
 }
 
 thread_local! {
-    /// All reactor windows open on this UI thread. The registry owns each
-    /// [`ReactorHost`]; a window is removed when it closes.
     static WINDOW_REGISTRY: RefCell<WindowRegistry<ReactorHost>> =
         const { RefCell::new(WindowRegistry::new()) };
     static APP_SLOT: RefCell<Option<Application>> = const { RefCell::new(None) };
 }
 
-/// Run `f` with the active (primary) [`ReactorHost`] for the current thread, if
-/// any. The active host is the first window opened on the thread - theme and
-/// backdrop free functions target it (app-global theme, v1).
+/// Run `f` with the first window opened on the current UI thread.
 pub fn with_active_host<F, R>(f: F) -> Option<R>
 where
     F: FnOnce(&ReactorHost) -> R,
@@ -104,16 +91,11 @@ impl WindowHandle {
     }
 }
 
-/// Register `host` in the per-thread window registry and wire its `Closed`
-/// event so it is removed on close (and the process exits when the last window
-/// closes). Returns a [`WindowHandle`] for programmatic control.
+/// Register `host` and wire last-window-close process exit.
 pub(crate) fn register_host(host: ReactorHost) -> Result<WindowHandle> {
     let window = host.window().clone();
     let key = WINDOW_REGISTRY.with(|reg| reg.borrow_mut().insert(host));
-    // The revoker is intentionally leaked (`into_token`): the registration must
-    // outlive this call and is torn down when the window is destroyed. If wiring
-    // fails, unwind the registration so a broken window can't linger and block
-    // the last-window-closes exit.
+    // The Closed token is owned by WinUI after this call.
     match window.Closed(move |_, _| on_window_closed(key)) {
         Ok(revoker) => {
             revoker.into_token();
@@ -123,10 +105,7 @@ pub(crate) fn register_host(host: ReactorHost) -> Result<WindowHandle> {
             })
         }
         Err(err) => {
-            // Unwind the registration, then close the (already-activated) window
-            // so a wiring failure can't leave a visible but untracked window
-            // open. Closing is safe here: the `Closed` handler was never wired,
-            // so it won't re-enter `on_window_closed`.
+            // No Closed handler was registered, so this cannot re-enter cleanup.
             let (removed, empty) = WINDOW_REGISTRY.with(|reg| reg.borrow_mut().remove(key));
             drop(removed);
             let _ = empty;
@@ -136,12 +115,9 @@ pub(crate) fn register_host(host: ReactorHost) -> Result<WindowHandle> {
     }
 }
 
-/// Handle a window's `Closed` event: drop its host and exit the process once
-/// the last window on the thread has closed. `Application.Exit()` fail-fasts on
-/// live COM refs, so terminate directly.
+/// Drop the host and terminate once the last window closes.
 fn on_window_closed(key: u64) {
-    // Remove under the borrow, then drop the host outside it so teardown can't
-    // re-enter a live registry borrow.
+    // Drop outside the registry borrow so teardown can re-enter safely.
     let (removed, empty) = WINDOW_REGISTRY.with(|reg| reg.borrow_mut().remove(key));
     drop(removed);
     if empty {
@@ -384,8 +360,6 @@ impl App {
     }
 }
 
-/// Internal wrapper: adapts `Fn(&mut RenderCx) -> Element` into `Component<()>`
-/// so it can be used with the existing host machinery.
 struct RenderFn<F>(F);
 
 impl<F> Component for RenderFn<F>

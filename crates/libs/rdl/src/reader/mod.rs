@@ -205,9 +205,7 @@ impl Reader {
     }
 }
 
-/// Parses a single `.rdl` file and returns the names of every type, function, and constant
-/// it defines under `namespace`. This is a pure syntactic walk - cross-file references are
-/// not resolved - so it succeeds even on a partition that references types defined elsewhere.
+/// Parses one `.rdl` file and returns the items it defines under `namespace`.
 pub(crate) fn item_names(path: &str, namespace: &str) -> Result<Vec<String>, Error> {
     let input = expand_rdl_files(std::slice::from_ref(&path.to_string()), &[])?;
     let mut index = Index::new();
@@ -225,8 +223,7 @@ pub(crate) fn item_names(path: &str, namespace: &str) -> Result<Vec<String>, Err
     Ok(names)
 }
 
-/// Replace `#[in]` with `#[r#in]` so that syn can parse it and replace
-/// `//!` with `//` so that inner doc comments don't confuse the parser.
+/// Rewrites RDL tokens that would otherwise confuse `syn`.
 fn preprocess_rdl(contents: &str) -> std::borrow::Cow<'_, str> {
     let needs_in = contents.contains("#[in]");
     let needs_doc = contents.contains("//!");
@@ -302,7 +299,6 @@ fn resolve_winrt(item: &mut Item, source_file: &str, parent: Option<bool>) -> Re
                 resolve_winrt(child, source_file, parent)?;
             }
         }
-        // Remaining types are not ambiguous.
         _ => {}
     }
 
@@ -435,9 +431,6 @@ impl Encoder<'_> {
         Err(self.error(spanned, message))
     }
 
-    /// Parse an optional `#[packed(N)]` attribute from `attrs`.  Returns `Some(N)` if
-    /// the attribute is present and well-formed, `None` if absent, or an error if the
-    /// attribute is malformed.
     fn read_packed(&self, attrs: &[syn::Attribute]) -> Result<Option<u16>, Error> {
         for attr in attrs {
             if !attr.path().is_ident("packed") {
@@ -458,11 +451,7 @@ impl Encoder<'_> {
         Ok(None)
     }
 
-    /// Parse an optional `#[align(N)]` attribute from `attrs`.  Returns `Some(N)` if
-    /// the attribute is present and well-formed, `None` if absent, or an error if the
-    /// attribute is malformed.  `#[align(N)]` records forced over-alignment
-    /// (`__declspec(align(N))` / `alignas(N)`) that raises a type's alignment above
-    /// its natural field alignment.
+    /// Reads forced over-alignment from `#[align(N)]`.
     fn read_align(&self, attrs: &[syn::Attribute]) -> Result<Option<u16>, Error> {
         for attr in attrs {
             if !attr.path().is_ident("align") {
@@ -483,10 +472,6 @@ impl Encoder<'_> {
         Ok(None)
     }
 
-    /// Parse an optional `#[arch(...)]` attribute from `attrs`.  Returns `Some(bits)` where
-    /// `bits` is the architecture bitmask (1=X86, 2=X64, 4=Arm64, combinable with `|`) if the
-    /// attribute is present, `None` if absent, or an error if the attribute is malformed or uses
-    /// an unknown architecture name.
     fn read_arch(&self, attrs: &[syn::Attribute]) -> Result<Option<i32>, Error> {
         for attr in attrs {
             if !attr.path().is_ident("arch") {
@@ -524,8 +509,7 @@ impl Encoder<'_> {
         }
     }
 
-    /// Like [`Self::encode_type`] but tries `attr_ns` as the primary base namespace for
-    /// unqualified type names before falling back to `self.namespace`.
+    /// Resolves unqualified attribute-argument type names in the attribute's namespace first.
     fn encode_type_in_attr_ns(
         &self,
         attr_ns: &str,
@@ -577,8 +561,6 @@ impl Encoder<'_> {
         self.encode_type(ty)
     }
 
-    /// Returns `true` if the named type is a value type (struct or enum), by checking
-    /// the local index first and then the reference `TypeIndex`.
     fn type_is_value(&self, namespace: &str, name: &str) -> bool {
         self.index.is_value_type(namespace, name)
             || self
@@ -659,9 +641,7 @@ impl Encoder<'_> {
         match item {
             Item::Typedef(t) => self.encode_underlying(&t.ty, namespace),
             Item::Enum(e) => {
-                // An enum-typed constant (e.g. `SIID_INVALID: SHSTOCKICONID = -1`)
-                // encodes against the enum's underlying integer type, carried by its
-                // `#[repr(iN)]` attribute.
+                // Enum-typed constants encode against the enum's `#[repr(iN)]` type.
                 let repr = e.attrs.iter().find(|a| a.path().is_ident("repr"))?;
                 let path = repr.parse_args::<syn::Path>().ok()?;
                 self.encode_path(&path).ok()
@@ -682,18 +662,10 @@ impl Encoder<'_> {
         }
     }
 
-    /// Resolves the underlying type of a constant's named type, where `namespace`
-    /// is the namespace the *named type itself* lives in (not the constant's). The
-    /// canonical RDL writes intra-namespace references bare, so a bare single-segment
-    /// identifier (e.g. `type ATOM = WORD`) names a sibling defined alongside the
-    /// typedef in `namespace`. Re-encoding it with the encoder's own namespace (the
-    /// constant's) would look in the wrong partition, so the bare named case is
-    /// resolved against `namespace` directly. Primitives resolve the same anywhere.
+    /// Resolves a typedef's bare sibling names in the typedef namespace, not the constant namespace.
     fn encode_underlying(&self, ty: &syn::Type, namespace: &str) -> Option<metadata::Type> {
         match ty {
-            // A pointer-typed constant (`#define X ((LPCSTR)2)`, the MAKEINTRESOURCE
-            // idiom). The value encoder only looks at the pointer-ness, not the pointee,
-            // so an unresolved pointee falls back to `void`.
+            // MAKEINTRESOURCE-style pointer constants only need the pointer kind.
             syn::Type::Ptr(ptr) => {
                 let pointee = self
                     .encode_underlying(&ptr.elem, namespace)
@@ -709,7 +681,6 @@ impl Encoder<'_> {
                     && tp.path.segments.len() == 1
                     && matches!(tp.path.segments[0].arguments, syn::PathArguments::None) =>
             {
-                // A primitive (`u16`, `i32`, ...) resolves independently of namespace.
                 if let Ok(resolved) = self.encode_type(ty)
                     && !matches!(
                         resolved,
@@ -718,7 +689,6 @@ impl Encoder<'_> {
                 {
                     return Some(resolved);
                 }
-                // Otherwise it is a named sibling defined alongside the typedef.
                 let ident = tp.path.segments[0].ident.unraw_to_string();
                 Some(metadata::Type::value_named(namespace, &ident))
             }
@@ -773,13 +743,7 @@ impl Encoder<'_> {
         value.ok_or_else(|| self.error(expr, "value not valid"))
     }
 
-    /// Encodes an integer constant for an unsigned target type of the given bit
-    /// width, accepting both a plain literal and a *negated* literal. A negated
-    /// literal models a C cast such as `(UINT)-1`, whose value is the two's-
-    /// complement bit pattern (`0xFFFF_FFFF`) - well-defined for unsigned types and
-    /// the idiom behind sentinels like `MCI_ALL_DEVICE_ID`. The result is masked to
-    /// `bits` so `-1` becomes `0xFF`/`0xFFFF`/`0xFFFF_FFFF`/`u64::MAX` for an
-    /// 8/16/32/64-bit target.
+    /// Accepts C unsigned sentinels spelled as negated casts by masking to the target width.
     fn encode_lit_uint(&self, expr: &syn::Expr, bits: u32) -> Result<u64, Error> {
         let mask: u128 = if bits >= 128 {
             u128::MAX
@@ -811,13 +775,7 @@ impl Encoder<'_> {
         value.ok_or_else(|| self.error(expr, "value not valid"))
     }
 
-    /// Encodes an integer constant for a *signed* target type of the given bit width,
-    /// reinterpreting the literal's bit pattern in two's complement. This accepts both
-    /// negated literals (`-1`) and positive literals that overflow the signed range
-    /// because the source spelled the bit pattern directly - e.g. an `HRESULT`
-    /// (`i32`) macro that evaluates to `2147745792` (`0x8004_4000`) is the negative
-    /// value `-2147221504`. In-range values are unchanged; the result is sign-extended
-    /// to `i64` for the caller to narrow.
+    /// Reinterprets signed constants from their C bit pattern, including overflowing HRESULTs.
     fn encode_lit_sint(&self, expr: &syn::Expr, bits: u32) -> Result<i64, Error> {
         let raw: Option<u64> = match expr {
             syn::Expr::Lit(syn::ExprLit {
@@ -843,7 +801,6 @@ impl Encoder<'_> {
 
         let raw = raw.ok_or_else(|| self.error(expr, "value not valid"))?;
 
-        // Truncate to the target width and sign-extend back to `i64`.
         if bits >= 64 {
             Ok(raw as i64)
         } else {
@@ -1036,7 +993,6 @@ impl Encoder<'_> {
             return Ok(ty);
         }
 
-        // Last resort: try glob use declarations
         for use_item in &self.file.uses {
             if let Some(ns) = glob_use_namespace(use_item)
                 && let Some(ty) = make_type(&ns)
@@ -1045,11 +1001,7 @@ impl Encoder<'_> {
             }
         }
 
-        // Core-type fallback: a bare `GUID`/`HRESULT`/`Type` the closure does not define
-        // itself maps to the ecosystem's canonical type (the COM/WinRT convention the
-        // hand-curated pipeline relies on). When the win32 scrape *does* define its own
-        // `GUID`/`HRESULT` (guiddef.h / winerror.h), the resolution above already returned
-        // it, so this never fires - keeping the win32 metadata self-contained.
+        // Fall back to core aliases only when the scrape did not define its own type.
         if ty.segments.len() == 1 {
             match name.as_str() {
                 "Type" => return Ok(metadata::Type::class_named("System", "Type")),
@@ -1071,12 +1023,7 @@ impl Encoder<'_> {
         }
     }
 
-    /// Validates that a resolved `metadata::Type` is a WinRT-compatible type.
-    ///
-    /// WinRT types may not refer to non-WinRT types in fields, parameters, return types,
-    /// or anywhere else.  Primitive types and generic type parameters are always valid.
-    /// Named types (structs, enums, interfaces, ...) are checked against the local index
-    /// first, then against any loaded reference metadata.
+    /// Rejects references from WinRT types to non-WinRT named types.
     fn validate_type_is_winrt<S: Spanned + quote::ToTokens>(
         &self,
         span: &S,
@@ -1084,27 +1031,21 @@ impl Encoder<'_> {
     ) -> Result<(), Error> {
         match ty {
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
-                // Recursively validate generic type arguments.
                 for generic_ty in &tn.generics {
                     self.validate_type_is_winrt(span, generic_ty)?;
                 }
 
-                // Check the local RDL index first.
                 if let Some(is_winrt) = self.index.is_winrt(&tn.namespace, &tn.name) {
                     if !is_winrt {
                         return self.err(span, "WinRT types cannot refer to non-WinRT types");
                     }
-                } else if let Some(reference) = self.output.reference() {
-                    // Fall back to the external reference metadata.
-                    if let Some(def) = reference.get(&tn.namespace, &tn.name).next()
-                        && !def
-                            .flags()
-                            .contains(metadata::TypeAttributes::WindowsRuntime)
-                    {
-                        return self.err(span, "WinRT types cannot refer to non-WinRT types");
-                    }
-                    // If the type isn't found in the reference either it is a hard-coded
-                    // system alias (e.g. System.Guid) and is considered WinRT-compatible.
+                } else if let Some(reference) = self.output.reference()
+                    && let Some(def) = reference.get(&tn.namespace, &tn.name).next()
+                    && !def
+                        .flags()
+                        .contains(metadata::TypeAttributes::WindowsRuntime)
+                {
+                    return self.err(span, "WinRT types cannot refer to non-WinRT types");
                 }
             }
             metadata::Type::PtrMut(inner, _) | metadata::Type::PtrConst(inner, _) => {
@@ -1116,7 +1057,6 @@ impl Encoder<'_> {
             metadata::Type::Array(inner) | metadata::Type::ArrayFixed(inner, _) => {
                 self.validate_type_is_winrt(span, inner)?;
             }
-            // Primitives (Bool, I8, U8, ...), String, Object, Void, Generic, ... are always OK.
             _ => {}
         }
 
@@ -1124,14 +1064,7 @@ impl Encoder<'_> {
     }
 }
 
-/// Parses a `#[arch(...)]` expression into an architecture bitmask.
-///
-/// Accepts:
-/// - A single identifier: `X86` -> 1, `X64` -> 2, `Arm64` -> 4.
-/// - A bitwise-OR combination: `X86 | X64` -> 3, `X64 | Arm64` -> 6, etc.
-///
-/// Returns `None` when the expression contains an unknown architecture name or an
-/// unsupported expression form.
+/// Parses a `#[arch(...)]` expression into the X86/X64/Arm64 bitmask.
 pub(crate) fn parse_arch_bitmask(expr: &syn::Expr) -> Option<i32> {
     match expr {
         syn::Expr::Path(p)
@@ -1155,10 +1088,6 @@ pub(crate) fn parse_arch_bitmask(expr: &syn::Expr) -> Option<i32> {
     }
 }
 
-/// Maps a well-known architecture name to its bitmask bit.
-///   `X86`   -> 1
-///   `X64`   -> 2
-///   `Arm64` -> 4
 fn arch_name_to_bits(name: &str) -> Option<i32> {
     match name {
         "X86" => Some(1),
@@ -1168,8 +1097,6 @@ fn arch_name_to_bits(name: &str) -> Option<i32> {
     }
 }
 
-/// Builds a `syn::Signature` with all the optional fields (`constness`, `asyncness`,
-/// `unsafety`, `abi`) set to `None`.  Shared by `Callback`, `Fn`, `Delegate`, and `Method`.
 pub(crate) fn make_sig(
     fn_token: syn::Token![fn],
     ident: syn::Ident,
@@ -1194,8 +1121,6 @@ pub(crate) fn make_sig(
     }
 }
 
-/// Parse the function parameter list including variadic handling.
-/// Returns the inputs and an optional variadic marker.
 pub(crate) fn parse_fn_inputs(
     content: &syn::parse::ParseBuffer,
 ) -> syn::Result<(
@@ -1206,11 +1131,9 @@ pub(crate) fn parse_fn_inputs(
     let mut variadic = None;
 
     while !content.is_empty() {
-        // Use a fork to peek past any outer attrs to see if we have `...` (variadic).
         let fork = content.fork();
         let _ = fork.call(syn::Attribute::parse_outer);
         if fork.peek(syn::Token![...]) {
-            // It's variadic - consume the attrs and dots from the real stream.
             let attrs = content.call(syn::Attribute::parse_outer)?;
             let dots: syn::Token![...] = content.parse()?;
             variadic = Some(syn::Variadic {
@@ -1226,7 +1149,6 @@ pub(crate) fn parse_fn_inputs(
             break;
         }
 
-        // Regular fn arg - syn handles inner attrs itself.
         let arg: syn::FnArg = content.parse()?;
         args.push_value(arg);
 
@@ -1241,8 +1163,7 @@ pub(crate) fn parse_fn_inputs(
     Ok((args, variadic))
 }
 
-/// Parse an optional `-> #[attr]* Type` return type, extracting any outer attributes
-/// that appear between `->` and the type.  Returns `(return_type, return_attrs)`.
+/// Parses `-> #[attr]* Type`, keeping return-value attributes with the return type.
 pub(crate) fn parse_return_type_with_attrs(
     input: syn::parse::ParseStream,
 ) -> syn::Result<(syn::ReturnType, Vec<syn::Attribute>)> {

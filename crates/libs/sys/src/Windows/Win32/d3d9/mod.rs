@@ -1184,47 +1184,6 @@ pub struct D3DMATERIAL9 {
     pub Power: f32,
 }
 pub type D3DMATERIALCOLORSOURCE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DMATRIX {
-    pub Anonymous: D3DMATRIX_0,
-}
-impl Default for D3DMATRIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DMATRIX_0 {
-    pub Anonymous: D3DMATRIX_0_0,
-    pub m: [[f32; 4]; 4],
-}
-impl Default for D3DMATRIX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DMATRIX_0_0 {
-    pub _11: f32,
-    pub _12: f32,
-    pub _13: f32,
-    pub _14: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _23: f32,
-    pub _24: f32,
-    pub _31: f32,
-    pub _32: f32,
-    pub _33: f32,
-    pub _34: f32,
-    pub _41: f32,
-    pub _42: f32,
-    pub _43: f32,
-    pub _44: f32,
-}
 pub const D3DMAX30SHADERINSTRUCTIONS: i32 = 32768;
 pub const D3DMAXUSERCLIPPLANES: i32 = 32;
 pub const D3DMCS_COLOR1: D3DMATERIALCOLORSOURCE = 1;

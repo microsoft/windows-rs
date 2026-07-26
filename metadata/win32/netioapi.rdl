@@ -317,7 +317,7 @@ mod Windows {
             Origin: NET_FL_VIRTUAL_INTERFACE_ORIGIN,
             VirtualIfLuid: IF_LUID,
             VirtualIfIndex: IF_INDEX,
-            AllowLocalNd: BOOLEAN,
+            AllowLocalNd: bool,
             AttachedFlsnpiClients: u32,
             FlsnpiClientConfigErrors: u32,
             FlsnpiClientInjectErrors: u64,
@@ -370,7 +370,7 @@ mod Windows {
             AccessType: NET_IF_ACCESS_TYPE,
             DirectionType: NET_IF_DIRECTION_TYPE,
             InterfaceAndOperStatusFlags: struct {
-                _bitfield: BOOLEAN {
+                _bitfield: bool {
                     HardwareInterface: 1,
                     FilterInterface: 1,
                     ConnectorPresent: 1,
@@ -436,10 +436,10 @@ mod Windows {
             PreferredLifetime: u32,
             Metric: u32,
             Protocol: NL_ROUTE_PROTOCOL,
-            Loopback: BOOLEAN,
-            AutoconfigureAddress: BOOLEAN,
-            Publish: BOOLEAN,
-            Immortal: BOOLEAN,
+            Loopback: bool,
+            AutoconfigureAddress: bool,
+            Publish: bool,
+            Immortal: bool,
             Age: u32,
             Origin: NL_ROUTE_ORIGIN,
         }
@@ -455,15 +455,15 @@ mod Windows {
             InterfaceIdentifier: u64,
             MinRouterAdvertisementInterval: u32,
             MaxRouterAdvertisementInterval: u32,
-            AdvertisingEnabled: BOOLEAN,
-            ForwardingEnabled: BOOLEAN,
-            WeakHostSend: BOOLEAN,
-            WeakHostReceive: BOOLEAN,
-            UseAutomaticMetric: BOOLEAN,
-            UseNeighborUnreachabilityDetection: BOOLEAN,
-            ManagedAddressConfigurationSupported: BOOLEAN,
-            OtherStatefulConfigurationSupported: BOOLEAN,
-            AdvertiseDefaultRoute: BOOLEAN,
+            AdvertisingEnabled: bool,
+            ForwardingEnabled: bool,
+            WeakHostSend: bool,
+            WeakHostReceive: bool,
+            UseAutomaticMetric: bool,
+            UseNeighborUnreachabilityDetection: bool,
+            ManagedAddressConfigurationSupported: bool,
+            OtherStatefulConfigurationSupported: bool,
+            AdvertiseDefaultRoute: bool,
             RouterDiscoveryBehavior: NL_ROUTER_DISCOVERY_BEHAVIOR,
             DadTransmits: u32,
             BaseReachableTime: u32,
@@ -475,14 +475,14 @@ mod Windows {
             SitePrefixLength: u32,
             Metric: u32,
             NlMtu: u32,
-            Connected: BOOLEAN,
-            SupportsWakeUpPatterns: BOOLEAN,
-            SupportsNeighborDiscovery: BOOLEAN,
-            SupportsRouterDiscovery: BOOLEAN,
+            Connected: bool,
+            SupportsWakeUpPatterns: bool,
+            SupportsNeighborDiscovery: bool,
+            SupportsRouterDiscovery: bool,
             ReachableTime: u32,
             TransmitOffload: NL_INTERFACE_OFFLOAD_ROD,
             ReceiveOffload: NL_INTERFACE_OFFLOAD_ROD,
-            DisableDefaultRoutes: BOOLEAN,
+            DisableDefaultRoutes: bool,
         }
         struct MIB_IPINTERFACE_TABLE {
             NumEntries: u32,
@@ -497,7 +497,7 @@ mod Windows {
             State: NL_NEIGHBOR_STATE,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: BOOLEAN {
+                    _bitfield: bool {
                         IsRouter: 1,
                         IsUnreachable: 1,
                     },
@@ -526,7 +526,7 @@ mod Windows {
                 LastReachable: u32,
                 LastUnreachable: u32,
             },
-            IsReachable: BOOLEAN,
+            IsReachable: bool,
             LinkTransmitSpeed: u64,
             LinkReceiveSpeed: u64,
         }
@@ -564,10 +564,10 @@ mod Windows {
             ValidLifetime: u32,
             PreferredLifetime: u32,
             OnLinkPrefixLength: u8,
-            SkipAsSource: BOOLEAN,
+            SkipAsSource: bool,
             DadState: NL_DAD_STATE,
             ScopeId: SCOPE_ID,
-            CreationTimeStamp: LARGE_INTEGER,
+            CreationTimeStamp: i64,
         }
         struct MIB_UNICASTIPADDRESS_TABLE {
             NumEntries: u32,
@@ -586,17 +586,17 @@ mod Windows {
             NetFlVirtualInterfaceOriginDefault = 2,
         }
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyIpInterfaceChange(Family: ADDRESS_FAMILY, Callback: PIPINTERFACE_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyIpInterfaceChange(Family: ADDRESS_FAMILY, Callback: PIPINTERFACE_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: bool, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyNetworkConnectivityHintChange(Callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: BOOLEAN, NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyNetworkConnectivityHintChange(Callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: bool, NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyRouteChange2(AddressFamily: ADDRESS_FAMILY, Callback: PIPFORWARD_CHANGE_CALLBACK, CallerContext: *const void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyRouteChange2(AddressFamily: ADDRESS_FAMILY, Callback: PIPFORWARD_CHANGE_CALLBACK, CallerContext: *const void, InitialNotification: bool, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
         extern fn NotifyStableUnicastIpAddressTable(Family: ADDRESS_FAMILY, Table: *mut PMIB_UNICASTIPADDRESS_TABLE, CallerCallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, CallerContext: *const void, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyTeredoPortChange(Callback: PTEREDO_PORT_CHANGE_CALLBACK, CallerContext: *const void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyTeredoPortChange(Callback: PTEREDO_PORT_CHANGE_CALLBACK, CallerContext: *const void, InitialNotification: bool, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         #[library("IPHLPAPI.DLL")]
-        extern fn NotifyUnicastIpAddressChange(Family: ADDRESS_FAMILY, Callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: BOOLEAN, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NotifyUnicastIpAddressChange(Family: ADDRESS_FAMILY, Callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, #[opt] CallerContext: *const void, InitialNotification: bool, #[in] #[out] NotificationHandle: *mut HANDLE) -> NTSTATUS;
         extern fn PIPFORWARD_CHANGE_CALLBACK(CallerContext: *const void, #[opt] Row: *const MIB_IPFORWARD_ROW2, NotificationType: MIB_NOTIFICATION_TYPE);
         extern fn PIPINTERFACE_CHANGE_CALLBACK(CallerContext: *const void, Row: *const MIB_IPINTERFACE_ROW, NotificationType: MIB_NOTIFICATION_TYPE);
         type PIP_ADDRESS_PREFIX = *mut IP_ADDRESS_PREFIX;

@@ -91,13 +91,13 @@ mod Windows {
         struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
             TransportSettingId: TRANSPORT_SETTING_ID,
             BrokerEventGuid: GUID,
-            Unmark: BOOLEAN,
+            Unmark: bool,
         }
         struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
             ChannelStatus: CONTROL_CHANNEL_TRIGGER_STATUS,
         }
         struct RSS_SCALABILITY_INFO {
-            RssEnabled: BOOLEAN,
+            RssEnabled: bool,
         }
         #[library("ntdll.dll")]
         extern fn RtlEthernetAddressToStringA(Addr: *const DL_EUI48, #[len_const(18)] #[out] S: PSTR) -> PSTR;
@@ -116,13 +116,13 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlIpv4AddressToStringW(Addr: *const IN_ADDR, #[len_const(16)] #[out] S: PWSTR) -> PWSTR;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4StringToAddressA(S: PCSTR, Strict: BOOLEAN, Terminator: *mut PCSTR, Addr: *mut IN_ADDR) -> i32;
+        extern fn RtlIpv4StringToAddressA(S: PCSTR, Strict: bool, Terminator: *mut PCSTR, Addr: *mut IN_ADDR) -> i32;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4StringToAddressExA(AddressString: PCSTR, Strict: BOOLEAN, Address: *mut IN_ADDR, Port: *mut u16) -> i32;
+        extern fn RtlIpv4StringToAddressExA(AddressString: PCSTR, Strict: bool, Address: *mut IN_ADDR, Port: *mut u16) -> i32;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4StringToAddressExW(AddressString: PCWSTR, Strict: BOOLEAN, Address: *mut IN_ADDR, Port: *mut u16) -> i32;
+        extern fn RtlIpv4StringToAddressExW(AddressString: PCWSTR, Strict: bool, Address: *mut IN_ADDR, Port: *mut u16) -> i32;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4StringToAddressW(S: PCWSTR, Strict: BOOLEAN, Terminator: *mut PCWSTR, Addr: *mut IN_ADDR) -> i32;
+        extern fn RtlIpv4StringToAddressW(S: PCWSTR, Strict: bool, Terminator: *mut PCWSTR, Addr: *mut IN_ADDR) -> i32;
         #[library("ntdll.dll")]
         extern fn RtlIpv6AddressToStringA(Addr: *const IN6_ADDR, #[len_const(46)] #[out] S: PSTR) -> PSTR;
         #[library("ntdll.dll")]
@@ -296,7 +296,7 @@ mod Windows {
             State: TCPSTATE,
             Mss: u32,
             ConnectionTimeMs: u64,
-            TimestampsEnabled: BOOLEAN,
+            TimestampsEnabled: bool,
             RttUs: u32,
             MinRttUs: u32,
             BytesInFlight: u32,
@@ -317,7 +317,7 @@ mod Windows {
             State: TCPSTATE,
             Mss: u32,
             ConnectionTimeMs: u64,
-            TimestampsEnabled: BOOLEAN,
+            TimestampsEnabled: bool,
             RttUs: u32,
             MinRttUs: u32,
             BytesInFlight: u32,
@@ -347,7 +347,7 @@ mod Windows {
             State: TCPSTATE,
             Mss: u32,
             ConnectionTimeMs: u64,
-            TimestampsEnabled: BOOLEAN,
+            TimestampsEnabled: bool,
             RttUs: u32,
             MinRttUs: u32,
             BytesInFlight: u32,
@@ -373,7 +373,7 @@ mod Windows {
             SndLimTimeSnd: u32,
             SndLimBytesSnd: u64,
             OutOfOrderPktsIn: u32,
-            EcnNegotiated: BOOLEAN,
+            EcnNegotiated: bool,
             EceAcksIn: u32,
             PtoEpisodes: u32,
         }

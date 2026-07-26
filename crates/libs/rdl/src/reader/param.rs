@@ -127,10 +127,6 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    /// Encode a sequence of simple synthesized parameters that carry no custom
-    /// attributes.  Each element is `(name, ty)`.  Direction flags are inferred
-    /// from the type (mutable references / mutable pointers -> Out, everything
-    /// else -> In), matching the behaviour of [`Self::parse_param_attributes`].
     pub fn encode_simple_params(
         &mut self,
         params: &[(&str, &metadata::Type)],

@@ -21,10 +21,7 @@ impl From<BorderMode> for bindings::CompositionBorderMode {
     }
 }
 
-/// The base type for every composition visual: a node in the visual tree with a
-/// position, size, opacity, and visibility. Concrete visuals (`SpriteVisual`,
-/// `ContainerVisual`, `ShapeVisual`) deref to `Visual`, so these operations are
-/// available on them directly.
+/// Base type for every composition visual.
 #[derive(Clone)]
 pub struct Visual(pub(crate) bindings::Visual);
 
@@ -75,23 +72,12 @@ impl Visual {
     }
 
     /// Surfaces the underlying visual as an [`IInspectable`](windows_core::IInspectable).
-    ///
-    /// This is the interop seam the reactor bridge uses to attach a visual tree
-    /// to a WinUI host element via `ElementCompositionPreview`. Most callers
-    /// should use the safe visual-tree API instead.
     #[cfg(feature = "lifted")]
     pub fn as_raw(&self) -> windows_core::IInspectable {
         self.0.clone().into()
     }
 
-    /// Adopts a lifted `Microsoft.UI.Composition.Visual` surfaced as a raw
-    /// [`IInspectable`](windows_core::IInspectable), so its properties and
-    /// animations can be driven through this crate's safe API.
-    ///
-    /// This is the interop seam used by the reactor transition engine, which
-    /// obtains an element's backing visual from `ElementCompositionPreview`.
-    /// Lifted composition can only be hosted inside a WinUI element, so this has
-    /// no system-stack counterpart.
+    /// Adopts a lifted composition visual from a WinUI host element.
     #[cfg(feature = "lifted")]
     pub fn from_host(visual: windows_core::IInspectable) -> Result<Self> {
         Ok(Self(visual.cast()?))
@@ -201,9 +187,7 @@ impl core::ops::Deref for ContainerVisual {
     }
 }
 
-/// A visual that paints its bounds with any [`Brush`] (a solid color or a
-/// nine-grid). Also a container: it derefs to [`ContainerVisual`], so it can
-/// host child visuals and be positioned and sized like any [`Visual`].
+/// Visual that paints its bounds with a [`Brush`] and can host child visuals.
 #[derive(Clone)]
 pub struct SpriteVisual {
     container: ContainerVisual,

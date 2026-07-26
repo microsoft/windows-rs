@@ -778,7 +778,7 @@ mod Windows {
             COND_ClassType: u8,
             COND_Reserved1: u8,
             COND_Reserved2: u8,
-            COND_Id: LARGE_INTEGER,
+            COND_Id: i64,
         }
         struct CONNECTION_RESOURCE {
             Connection_Header: CONNECTION_DES,

@@ -2,20 +2,17 @@ use super::*;
 use alloc::vec::Vec;
 use core::ops::Deref;
 
-/// A BSTR string ([BSTR](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/automat/string-manipulation-functions))
-/// is a length-prefixed wide string.
+/// A length-prefixed wide string.
 #[repr(transparent)]
 pub struct BSTR(*const u16);
 
 impl BSTR {
-    /// Create an empty `BSTR`.
-    ///
-    /// This function does not allocate memory.
+    /// Creates an empty `BSTR` without allocating.
     pub const fn new() -> Self {
         Self(core::ptr::null_mut())
     }
 
-    /// Create a `BSTR` from a slice of 16 bit characters (wchars).
+    /// Creates a `BSTR` from UTF-16 code units.
     pub fn from_wide(value: &[u16]) -> Self {
         if value.is_empty() {
             return Self::new();
@@ -33,7 +30,7 @@ impl BSTR {
         result
     }
 
-    /// Allow this string to be displayed.
+    /// Returns a display adapter for the string.
     pub fn display(&self) -> impl core::fmt::Display + '_ {
         Decode(move || core::char::decode_utf16(self.iter().copied()))
     }
@@ -65,8 +62,7 @@ impl Deref for BSTR {
         if len > 0 {
             unsafe { core::slice::from_raw_parts(self.0, len) }
         } else {
-            // This ensures that if `as_ptr` is called on the slice that the resulting pointer
-            // will still refer to a null-terminated string.
+            // Keep `as_ptr` on the empty slice null-terminated.
             const EMPTY: [u16; 1] = [0];
             &EMPTY[..0]
         }

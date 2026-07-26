@@ -1,22 +1,11 @@
 use super::*;
 
-/// The calling convention as written in the C/C++ source.
-///
-/// Win32 headers state the convention explicitly via the `__stdcall` / `__cdecl`
-/// / `__fastcall` keywords or a macro that expands to one (`WINAPI`, `CALLBACK`,
-/// `STDMETHODCALLTYPE`, ...). On a 64-bit target clang erases the convention from
-/// both the function type and its spelling - there is a single x64 convention -
-/// so it is recovered from the *source tokens* of the declaration instead, which
-/// keeps it architecture-independent (the winmd is arch-neutral; a
-/// `__stdcall` function is `CallConvPlatformapi`, correct on every architecture).
+/// Calling convention as spelled in source; clang erases it from x64 function types.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum CallingConvention {
-    /// `__cdecl` -> RDL `extern "C"` (`CallConvCdecl`).
     Cdecl,
-    /// `__stdcall` / `WINAPI` -> RDL `extern "system"` (`CallConvPlatformapi`,
-    /// the Win32 default convention).
+    /// `__stdcall` / `WINAPI` -> RDL `extern "system"`.
     Stdcall,
-    /// `__fastcall` -> RDL `extern "fastcall"` (`CallConvFastcall`).
     Fastcall,
 }
 
@@ -24,15 +13,7 @@ pub enum CallingConvention {
 pub struct Fn {
     pub name: String,
     pub library: String,
-    /// The DLL export symbol to link against, when it differs from [`name`](Self::name).
-    ///
-    /// A handful of SDK exports are declared and documented under a source alias whose
-    /// object-like macro (`#define RtlGenRandom SystemFunction036`,
-    /// `#define EnumProcesses K32EnumProcesses`) textually rewrites the prototype to the
-    /// raw export before clang parses it. The projection keeps the documented
-    /// [`name`](Self::name) and records the raw export here as the P/Invoke import name so
-    /// the linker still resolves the real symbol. `None` for the common case where the
-    /// function's name is its own export symbol.
+    /// Raw DLL export symbol when an alias macro rewrote the documented source name.
     pub import_name: Option<String>,
     pub params: Vec<Param>,
     pub return_type: metadata::Type,
@@ -44,10 +25,7 @@ pub struct Fn {
     pub calling_convention: Option<CallingConvention>,
 }
 
-/// Map a compiler calling-convention keyword to its [`CallingConvention`].
-///
-/// `__thiscall` / `__vectorcall` have no winmd representation and are reported as
-/// `None`, so they are omitted rather than approximated.
+/// Map a compiler keyword to a winmd-representable calling convention.
 fn convention_keyword(spelling: &str) -> Option<CallingConvention> {
     match spelling {
         "__stdcall" | "_stdcall" => Some(CallingConvention::Stdcall),
@@ -57,10 +35,7 @@ fn convention_keyword(spelling: &str) -> Option<CallingConvention> {
     }
 }
 
-/// Resolve a single source token to a calling convention, expanding macros
-/// (`WINAPI` -> `__stdcall`, `APIENTRY` -> `WINAPI` -> `__stdcall`, ...) transitively
-/// via the translation unit's macro-definition map. A visited set guards against
-/// self-referential macros.
+/// Resolve a source token through convention macros such as `WINAPI` and `APIENTRY`.
 fn resolve_convention<'a>(
     spelling: &'a str,
     macro_defs: &'a HashMap<String, Vec<String>>,
@@ -79,19 +54,12 @@ fn resolve_convention<'a>(
         .find_map(|token| resolve_convention(token, macro_defs, visited))
 }
 
-/// Recover the explicitly-written calling convention from a function declaration.
-///
-/// The convention token, when present, precedes the function name
-/// (`<ret> WINAPI Name(...)`); a calling convention on a function-pointer
-/// *parameter* appears later, inside the parameter list, so anchoring on the name
-/// token avoids mistaking a callback parameter's convention for the function's. The
-/// convention is not always *adjacent* to the name - see the backward scan below.
+/// Recover the function's own convention, ignoring callback-parameter conventions.
 fn detect_calling_convention(
     tokens: &[(CXTokenKind, String)],
     name: &str,
     macro_defs: &HashMap<String, Vec<String>>,
 ) -> Option<CallingConvention> {
-    // The function name is the token directly preceding the parameter list `(`.
     let name_idx = tokens
         .iter()
         .position(|(_, s)| s == name)
@@ -99,9 +67,7 @@ fn detect_calling_convention(
 
     let candidate = &tokens.get(name_idx.checked_sub(1)?)?.1;
 
-    // A function-like convention macro (`STDAPI_(type) Name(...)`,
-    // `STDMETHODIMP_(type) Name(...)`) leaves its closing `)` immediately before the
-    // name. Walk back to the matching `(` and resolve the macro name preceding it.
+    // `STDAPI_(type) Name(...)` leaves its closing `)` before the name.
     if candidate == ")" {
         let mut depth = 0usize;
         let mut i = name_idx - 1;
@@ -122,19 +88,8 @@ fn detect_calling_convention(
         return resolve_convention(macro_name, macro_defs, &mut HashSet::new());
     }
 
-    // Walk backward across the declaration's return-type / specifier tokens to the
-    // first identifier that names a calling convention. Inspecting only the token
-    // adjacent to the name is not enough when the convention hides behind
-    // preprocessor noise: `clang_tokenize` is purely lexical, so a declaration
-    // whose `WINAPI` is written inside a `#ifndef _MAC` / `#else` / `#endif` block
-    // (e.g. `DefWindowProc` in `winuser.h`) tokenises as
-    // `... WINAPI #else <ret> CALLBACK #endif Name (` - the directive tokens and the
-    // inactive branch sit between the convention and the name, so the adjacent token
-    // is `endif` and detection would wrongly fall back to the `extern "C"` linkage.
-    // Scanning back to the nearest statement boundary recovers it (both `_MAC`
-    // branches spell the same platform convention: `CALLBACK` = `WINAPI` =
-    // `__stdcall`). The `;`/`{`/`}` boundary stops the scan from borrowing a
-    // neighbouring declaration's convention.
+    // Preprocessor tokens can sit between the convention and the name; stop at a
+    // declaration boundary so the scan cannot borrow a neighbour's convention.
     let mut i = name_idx.checked_sub(1)?;
     loop {
         let token = tokens[i].1.as_str();
@@ -148,16 +103,7 @@ fn detect_calling_convention(
     }
 }
 
-/// Recover the calling convention of a function-pointer typedef (callback).
-///
-/// The convention macro sits in the declarator *before* the callback name -
-/// `typedef RET (CALLBACK *NAME)...` (pointer form, name preceded by `*`) or
-/// `typedef RET CALLBACK NAME(...)` (bare function-type form). The declarator name
-/// is the last identifier of the declarator, so anchoring on its final occurrence
-/// and scanning backward to the declaration start recovers the convention while
-/// ignoring any convention on a function-pointer *parameter* (which appears after
-/// the name). Returns `None` for the platform default (`CALLBACK`/`WINAPI`/
-/// `__stdcall`), which the reader already encodes as `CallingConvention.Winapi`.
+/// Recover a callback typedef's non-default calling convention from source tokens.
 pub(super) fn detect_callback_calling_convention(
     tokens: &[(CXTokenKind, String)],
     name: &str,
@@ -178,12 +124,7 @@ pub(super) fn detect_callback_calling_convention(
     }
 }
 
-/// True when `name` appears in `tokens` as the function-name identifier - the token
-/// immediately preceding the parameter-list `(`. Used to confirm that an alias macro
-/// actually rewrote *this* prototype (`RtlGenRandom(` -> `SystemFunction036`) rather than
-/// the export being its own real prototype with a separate back-compat alias declared
-/// elsewhere (`#define VarBoolFromInt VarBoolFromI4`, where the literal prototype is
-/// `VarBoolFromI4(`).
+/// True when `name` is this declaration's function-name token, not a separate alias.
 fn token_names_function(tokens: &[(CXTokenKind, String)], name: &str) -> bool {
     tokens
         .iter()
@@ -199,22 +140,13 @@ impl Fn {
         let is_variadic = cursor.ty().is_variadic();
         let does_not_return = detect_does_not_return(&cursor);
 
-        // Tokenise the function extent once for MIDL comment scanning and source-name
-        // recovery. SAL annotations (via cursor children) take priority; the MIDL scan is
-        // used as a fallback when no SAL annotation is found on a parameter.
+        // SAL annotations take priority; MIDL comments are a fallback.
         let fn_tokens = parser
             .tu
             .tokenize(parser.tu.to_expansion_range(cursor.extent()));
 
-        // Recover the source (pre-macro-expansion) spelling when this declaration's name is
-        // produced by an object-like alias macro (`#define RtlGenRandom SystemFunction036`,
-        // `#define EnumProcesses K32EnumProcesses`). clang reports the expanded export name,
-        // but the SDK declares the prototype - and its calling-convention token - under the
-        // alias. The rename is applied only when the source tokens confirm that *this*
-        // prototype was written with the alias (`RtlGenRandom(`) and not the export: a
-        // `#define VarBoolFromInt VarBoolFromI4` back-compat alias, whose real prototype is
-        // written as `VarBoolFromI4(`, must keep the documented export name. See
-        // `Parser::alias_map`.
+        // Restore source aliases only when this prototype was written with the alias; some
+        // back-compat aliases point at a real export prototype that must keep its name.
         let source_name = parser
             .alias_map
             .get(&export_name)
@@ -230,16 +162,10 @@ impl Fn {
 
         let mut params = parse_params(&cursor, &midl_annotations, parser);
 
-        // Recover the `ComOutPtr` (`#[iid_is]`) marker on caller-chosen-type COM creators
-        // that the SDK headers leave unannotated (no `_COM_Outptr_` SAL, no MIDL `[iid_is]`)
-        // - `DCompositionCreateDevice`, the `OleCreate*`/`PS*` families, ... - from the
-        // signature shape. See [`infer_iid_is`] for the (narrow) gate.
+        // Recover missing caller-chosen-type COM annotations from signature shape.
         infer_iid_is(&mut params, &return_type);
 
-        // Prefer the DLL recovered from the import libraries for this exact
-        // symbol; fall back to the run-wide library when the function is not
-        // present in any supplied import library. The lookup is by the raw export
-        // symbol, which is what the import libraries record.
+        // Import libraries record the raw export symbol, not a source alias.
         let library = parser
             .libraries
             .get(&export_name)
@@ -292,20 +218,14 @@ impl Fn {
         };
 
         let abi = if self.is_variadic {
-            // A variadic function is always `__cdecl` on Windows: MSVC ignores a
-            // stated `__stdcall`/`WINAPI` for varargs and uses `__cdecl`. Emitting
-            // any other convention is both wrong and rejected outright by rustc on
-            // non-MSVC targets (`extern "system"` C-variadics are an error).
+            // Windows varargs are always `__cdecl`; rustc rejects `extern "system"` C varargs.
             quote! { "C" }
         } else {
             match self.calling_convention {
-                // An explicitly-stated convention is authoritative.
                 Some(CallingConvention::Stdcall) => quote! { "system" },
                 Some(CallingConvention::Cdecl) => quote! { "C" },
                 Some(CallingConvention::Fastcall) => quote! { "fastcall" },
-                // No explicit convention: fall back to linkage. An `extern "C"`
-                // function with no stated convention defaults to `__cdecl` under
-                // MSVC, so emitting `extern "C"` here is correct.
+                // No explicit convention: `extern "C"` linkage implies MSVC `__cdecl`.
                 None if self.extern_c => quote! { "C" },
                 None => quote! {},
             }

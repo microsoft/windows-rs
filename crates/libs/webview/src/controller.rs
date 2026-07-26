@@ -194,9 +194,9 @@ impl Controller {
         unsafe { source.RasterizationScale() }
     }
 
-    /// Sets the scale used to rasterize page content. Set
-    /// [`set_should_detect_monitor_scale_changes(false)`](Self::set_should_detect_monitor_scale_changes)
-    /// first to stop the browser overriding this when the monitor DPI changes.
+    /// Sets the scale used to rasterize page content.
+    ///
+    /// Disable monitor-scale detection first to stop browser DPI changes from overriding this.
     pub fn set_rasterization_scale(&self, scale: f64) -> Result<()> {
         let source: ICoreWebView2Controller3 = self.0.cast()?;
         unsafe { source.SetRasterizationScale(scale) }.ok()

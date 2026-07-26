@@ -63,10 +63,6 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    /// Encodes a `PROPERTYKEY`/`DEVPROPKEY` constant as a field carrying a `GuidAttribute`
-    /// (the `fmtid`) plus an ordinary `u32` `Constant` (the `pid`). This reuses the two
-    /// structured primitives that already round-trip exactly instead of a bespoke
-    /// struct-initializer string.
     fn encode_const_property_key(
         &mut self,
         ty: &windows_metadata::Type,

@@ -139,9 +139,9 @@ mod Windows {
         }
         #[guid(0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11)]
         interface IBDA_DiseqCommand: IUnknown {
-            fn put_EnableDiseqCommands(&self, bEnable: BOOLEAN) -> HRESULT;
+            fn put_EnableDiseqCommands(&self, bEnable: bool) -> HRESULT;
             fn put_DiseqLNBSource(&self, ulLNBSource: u32) -> HRESULT;
-            fn put_DiseqUseToneBurst(&self, bUseToneBurst: BOOLEAN) -> HRESULT;
+            fn put_DiseqUseToneBurst(&self, bUseToneBurst: bool) -> HRESULT;
             fn put_DiseqRepeats(&self, ulRepeats: u32) -> HRESULT;
             fn put_DiseqSendCommand(&self, ulRequestId: u32, ulcbCommandLen: u32, pbCommand: *const u8) -> HRESULT;
             fn get_DiseqResponse(&self, ulRequestId: u32, #[in] #[out] pulcbResponseLen: *mut u32, #[in] #[out] pbResponse: *mut u8) -> HRESULT;
@@ -291,10 +291,10 @@ mod Windows {
             fn get_SignalStrength(&self, #[in] #[out] plDbStrength: *mut i32) -> HRESULT;
             fn put_SignalQuality(&self, lPercentQuality: i32) -> HRESULT;
             fn get_SignalQuality(&self, #[in] #[out] plPercentQuality: *mut i32) -> HRESULT;
-            fn put_SignalPresent(&self, fPresent: BOOLEAN) -> HRESULT;
-            fn get_SignalPresent(&self, #[in] #[out] pfPresent: *mut BOOLEAN) -> HRESULT;
-            fn put_SignalLocked(&self, fLocked: BOOLEAN) -> HRESULT;
-            fn get_SignalLocked(&self, #[in] #[out] pfLocked: *mut BOOLEAN) -> HRESULT;
+            fn put_SignalPresent(&self, fPresent: bool) -> HRESULT;
+            fn get_SignalPresent(&self, #[in] #[out] pfPresent: *mut bool) -> HRESULT;
+            fn put_SignalLocked(&self, fLocked: bool) -> HRESULT;
+            fn get_SignalLocked(&self, #[in] #[out] pfLocked: *mut bool) -> HRESULT;
             fn put_SampleTime(&self, lmsSampleTime: i32) -> HRESULT;
             fn get_SampleTime(&self, #[in] #[out] plmsSampleTime: *mut i32) -> HRESULT;
         }

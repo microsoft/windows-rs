@@ -186,11 +186,11 @@ mod Windows {
         #[library("AUTHZ.dll")]
         extern fn AuthzInitializeCompoundContext(UserContext: AUTHZ_CLIENT_CONTEXT_HANDLE, DeviceContext: AUTHZ_CLIENT_CONTEXT_HANDLE, phCompoundContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeContextFromAuthzContext(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[opt] pExpirationTime: *const LARGE_INTEGER, Identifier: LUID, DynamicGroupArgs: *const void, phNewAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzInitializeContextFromAuthzContext(Flags: u32, hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[opt] pExpirationTime: *const i64, Identifier: LUID, DynamicGroupArgs: *const void, phNewAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeContextFromSid(Flags: u32, UserSid: PSID, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: *const LARGE_INTEGER, Identifier: LUID, #[opt] DynamicGroupArgs: *const void, phAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzInitializeContextFromSid(Flags: u32, UserSid: PSID, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: *const i64, Identifier: LUID, #[opt] DynamicGroupArgs: *const void, phAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeContextFromToken(Flags: u32, TokenHandle: HANDLE, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: *const LARGE_INTEGER, Identifier: LUID, #[opt] DynamicGroupArgs: *const void, phAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
+        extern fn AuthzInitializeContextFromToken(Flags: u32, TokenHandle: HANDLE, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: *const i64, Identifier: LUID, #[opt] DynamicGroupArgs: *const void, phAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
         extern "C" fn AuthzInitializeObjectAccessAuditEvent(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PCWSTR, szObjectType: PCWSTR, szObjectName: PCWSTR, szAdditionalInfo: PCWSTR, phAuditEvent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
         #[library("AUTHZ.dll")]

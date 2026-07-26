@@ -58,7 +58,7 @@ mod Windows {
         }
         struct ETW_BUFFER_HEADER {
             Reserved1: [u32; 4],
-            TimeStamp: LARGE_INTEGER,
+            TimeStamp: i64,
             Reserved2: [u32; 4],
             ClientContext: ETW_BUFFER_CONTEXT,
             Reserved3: u32,
@@ -188,7 +188,7 @@ mod Windows {
             },
             ThreadId: u32,
             ProcessId: u32,
-            TimeStamp: LARGE_INTEGER,
+            TimeStamp: i64,
             RegHandle: u64,
             InstanceId: u32,
             ParentInstanceId: u32,
@@ -292,7 +292,7 @@ mod Windows {
             },
             ThreadId: u32,
             ProcessId: u32,
-            TimeStamp: LARGE_INTEGER,
+            TimeStamp: i64,
             Anonymous3: union {
                 Guid: GUID,
                 GuidPtr: u64,
@@ -830,7 +830,7 @@ mod Windows {
             LoggerId: u32,
             EnableLevel: u32,
             EnableFlags: u32,
-            IsEnable: BOOLEAN,
+            IsEnable: bool,
         }
         struct TRACE_GUID_REGISTRATION {
             Guid: LPCGUID,
@@ -884,7 +884,7 @@ mod Windows {
             },
             ProviderVersion: u32,
             NumberOfProcessors: u32,
-            EndTime: LARGE_INTEGER,
+            EndTime: i64,
             TimerResolution: u32,
             MaximumFileSize: u32,
             LogFileMode: u32,
@@ -901,9 +901,9 @@ mod Windows {
             LoggerName: PWSTR,
             LogFileName: PWSTR,
             TimeZone: TIME_ZONE_INFORMATION,
-            BootTime: LARGE_INTEGER,
-            PerfFreq: LARGE_INTEGER,
-            StartTime: LARGE_INTEGER,
+            BootTime: i64,
+            PerfFreq: i64,
+            StartTime: i64,
             ReservedFlags: u32,
             BuffersLost: u32,
         }
@@ -920,7 +920,7 @@ mod Windows {
             },
             ProviderVersion: u32,
             NumberOfProcessors: u32,
-            EndTime: LARGE_INTEGER,
+            EndTime: i64,
             TimerResolution: u32,
             MaximumFileSize: u32,
             LogFileMode: u32,
@@ -937,9 +937,9 @@ mod Windows {
             LoggerName: u32,
             LogFileName: u32,
             TimeZone: TIME_ZONE_INFORMATION,
-            BootTime: LARGE_INTEGER,
-            PerfFreq: LARGE_INTEGER,
-            StartTime: LARGE_INTEGER,
+            BootTime: i64,
+            PerfFreq: i64,
+            StartTime: i64,
             ReservedFlags: u32,
             BuffersLost: u32,
         }
@@ -956,7 +956,7 @@ mod Windows {
             },
             ProviderVersion: u32,
             NumberOfProcessors: u32,
-            EndTime: LARGE_INTEGER,
+            EndTime: i64,
             TimerResolution: u32,
             MaximumFileSize: u32,
             LogFileMode: u32,
@@ -973,9 +973,9 @@ mod Windows {
             LoggerName: u64,
             LogFileName: u64,
             TimeZone: TIME_ZONE_INFORMATION,
-            BootTime: LARGE_INTEGER,
-            PerfFreq: LARGE_INTEGER,
-            StartTime: LARGE_INTEGER,
+            BootTime: i64,
+            PerfFreq: i64,
+            StartTime: i64,
             ReservedFlags: u32,
             BuffersLost: u32,
         }
@@ -1040,7 +1040,7 @@ mod Windows {
             MaxTraceSetInfoClass = 29,
         }
         struct TRACE_STACK_CACHING_INFO {
-            Enabled: BOOLEAN,
+            Enabled: bool,
             CacheSize: u32,
             BucketCount: u32,
         }

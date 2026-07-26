@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("ktmw32.dll")]
-        extern fn CommitComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn CommitComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn CommitEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn CommitEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
         extern fn CommitTransaction(TransactionHandle: HANDLE) -> BOOL;
         #[library("ktmw32.dll")]
@@ -18,7 +18,7 @@ mod Windows {
         #[library("ktmw32.dll")]
         extern fn CreateTransactionManager(lpTransactionAttributes: *mut SECURITY_ATTRIBUTES, LogFileName: PCWSTR, CreateOptions: u32, CommitStrength: u32) -> HANDLE;
         #[library("ktmw32.dll")]
-        extern "C" fn GetCurrentClockTransactionManager(TransactionManagerHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern "C" fn GetCurrentClockTransactionManager(TransactionManagerHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
         extern fn GetEnlistmentId(EnlistmentHandle: HANDLE, EnlistmentId: *mut GUID) -> BOOL;
         #[library("ktmw32.dll")]
@@ -44,15 +44,15 @@ mod Windows {
         #[library("ktmw32.dll")]
         extern fn OpenTransactionManagerById(TransactionManagerId: *const GUID, DesiredAccess: ACCESS_MASK, OpenOptions: u32) -> HANDLE;
         #[library("ktmw32.dll")]
-        extern fn PrePrepareComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn PrePrepareComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn PrePrepareEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn PrePrepareEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn PrepareComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn PrepareComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn PrepareEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn PrepareEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn ReadOnlyEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn ReadOnlyEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
         extern fn RecoverEnlistment(EnlistmentHandle: HANDLE, EnlistmentKey: *mut void) -> BOOL;
         #[library("ktmw32.dll")]
@@ -62,15 +62,15 @@ mod Windows {
         #[library("ktmw32.dll")]
         extern fn RenameTransactionManager(LogFileName: PCWSTR, ExistingTransactionManagerGuid: *mut GUID) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn RollbackComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn RollbackComplete(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn RollbackEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn RollbackEnlistment(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
         extern fn RollbackTransaction(TransactionHandle: HANDLE) -> BOOL;
         #[library("ktmw32.dll")]
         extern fn RollbackTransactionAsync(TransactionHandle: HANDLE) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn RollforwardTransactionManager(TransactionManagerHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn RollforwardTransactionManager(TransactionManagerHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
         #[library("ktmw32.dll")]
         extern fn SetEnlistmentRecoveryInformation(EnlistmentHandle: HANDLE, BufferSize: u32, Buffer: *mut void) -> BOOL;
         #[library("ktmw32.dll")]
@@ -78,6 +78,6 @@ mod Windows {
         #[library("ktmw32.dll")]
         extern fn SetTransactionInformation(TransactionHandle: HANDLE, IsolationLevel: u32, IsolationFlags: u32, Timeout: u32, #[opt] Description: PCWSTR) -> BOOL;
         #[library("ktmw32.dll")]
-        extern fn SinglePhaseReject(EnlistmentHandle: HANDLE, TmVirtualClock: *mut LARGE_INTEGER) -> BOOL;
+        extern fn SinglePhaseReject(EnlistmentHandle: HANDLE, TmVirtualClock: *mut i64) -> BOOL;
     }
 }

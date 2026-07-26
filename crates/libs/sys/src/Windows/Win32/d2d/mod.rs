@@ -1,5 +1,3 @@
-#[cfg(feature = "dcommon")]
-windows_link::link!("d2d1.dll" "system" fn D2D1ComputeMaximumScaleFactor(matrix : *const super::D2D_MATRIX_3X2_F) -> f32);
 #[cfg(feature = "dxgi")]
 windows_link::link!("d2d1.dll" "system" fn D2D1ConvertColorSpace(sourcecolorspace : D2D1_COLOR_SPACE, destinationcolorspace : D2D1_COLOR_SPACE, color : *const D2D_COLOR_F) -> D2D_COLOR_F);
 #[cfg(feature = "dxgi")]
@@ -7,16 +5,6 @@ windows_link::link!("d2d1.dll" "system" fn D2D1CreateDevice(dxgidevice : *mut co
 #[cfg(feature = "dxgi")]
 windows_link::link!("d2d1.dll" "system" fn D2D1CreateDeviceContext(dxgisurface : *mut core::ffi::c_void, creationproperties : *const D2D1_CREATION_PROPERTIES, d2ddevicecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("d2d1.dll" "system" fn D2D1CreateFactory(factorytype : D2D1_FACTORY_TYPE, riid : *const windows_sys::core::GUID, pfactoryoptions : *const D2D1_FACTORY_OPTIONS, ppifactory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "dcommon")]
-windows_link::link!("d2d1.dll" "system" fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0 : *const super::D2D_POINT_2F, ppoint1 : *const super::D2D_POINT_2F, ppoint2 : *const super::D2D_POINT_2F, ppoint3 : *const super::D2D_POINT_2F, ppoint4 : *const super::D2D_POINT_2F, ppoint5 : *const super::D2D_POINT_2F, ppoint6 : *const super::D2D_POINT_2F, ppoint7 : *const super::D2D_POINT_2F, ppoint8 : *const super::D2D_POINT_2F, ppoint9 : *const super::D2D_POINT_2F, ppoint10 : *const super::D2D_POINT_2F, ppoint11 : *const super::D2D_POINT_2F, ptensorpoint11 : *mut super::D2D_POINT_2F, ptensorpoint12 : *mut super::D2D_POINT_2F, ptensorpoint21 : *mut super::D2D_POINT_2F, ptensorpoint22 : *mut super::D2D_POINT_2F));
-#[cfg(feature = "dcommon")]
-windows_link::link!("d2d1.dll" "system" fn D2D1InvertMatrix(matrix : *mut super::D2D_MATRIX_3X2_F) -> windows_sys::core::BOOL);
-#[cfg(feature = "dcommon")]
-windows_link::link!("d2d1.dll" "system" fn D2D1IsMatrixInvertible(matrix : *const super::D2D_MATRIX_3X2_F) -> windows_sys::core::BOOL);
-#[cfg(feature = "dcommon")]
-windows_link::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle : f32, center : super::D2D_POINT_2F, matrix : *mut super::D2D_MATRIX_3X2_F));
-#[cfg(feature = "dcommon")]
-windows_link::link!("d2d1.dll" "system" fn D2D1MakeSkewMatrix(anglex : f32, angley : f32, center : super::D2D_POINT_2F, matrix : *mut super::D2D_MATRIX_3X2_F));
 windows_link::link!("d2d1.dll" "system" fn D2D1SinCos(angle : f32, s : *mut f32, c : *mut f32));
 windows_link::link!("d2d1.dll" "system" fn D2D1Tan(angle : f32) -> f32);
 windows_link::link!("d2d1.dll" "system" fn D2D1Vec3Length(x : f32, y : f32, z : f32) -> f32);
@@ -132,16 +120,6 @@ pub type D2D1_ANTIALIAS_MODE = i32;
 pub const D2D1_ANTIALIAS_MODE_ALIASED: D2D1_ANTIALIAS_MODE = 1;
 pub const D2D1_ANTIALIAS_MODE_FORCE_DWORD: D2D1_ANTIALIAS_MODE = -1;
 pub const D2D1_ANTIALIAS_MODE_PER_PRIMITIVE: D2D1_ANTIALIAS_MODE = 0;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_ARC_SEGMENT {
-    pub point: super::D2D_POINT_2F,
-    pub size: super::D2D_SIZE_F,
-    pub rotationAngle: f32,
-    pub sweepDirection: D2D1_SWEEP_DIRECTION,
-    pub arcSize: D2D1_ARC_SIZE,
-}
 pub type D2D1_ARC_SIZE = i32;
 pub const D2D1_ARC_SIZE_FORCE_DWORD: D2D1_ARC_SIZE = -1;
 pub const D2D1_ARC_SIZE_LARGE: D2D1_ARC_SIZE = 1;
@@ -154,14 +132,6 @@ pub type D2D1_ATLAS_PROP = i32;
 pub const D2D1_ATLAS_PROP_FORCE_DWORD: D2D1_ATLAS_PROP = -1;
 pub const D2D1_ATLAS_PROP_INPUT_PADDING_RECT: D2D1_ATLAS_PROP = 1;
 pub const D2D1_ATLAS_PROP_INPUT_RECT: D2D1_ATLAS_PROP = 0;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_BEZIER_SEGMENT {
-    pub point1: super::D2D_POINT_2F,
-    pub point2: super::D2D_POINT_2F,
-    pub point3: super::D2D_POINT_2F,
-}
 pub type D2D1_BITMAPSOURCE_ALPHA_MODE = i32;
 pub const D2D1_BITMAPSOURCE_ALPHA_MODE_FORCE_DWORD: D2D1_BITMAPSOURCE_ALPHA_MODE = -1;
 pub const D2D1_BITMAPSOURCE_ALPHA_MODE_PREMULTIPLIED: D2D1_BITMAPSOURCE_ALPHA_MODE = 1;
@@ -288,19 +258,6 @@ pub type D2D1_BRIGHTNESS_PROP = i32;
 pub const D2D1_BRIGHTNESS_PROP_BLACK_POINT: D2D1_BRIGHTNESS_PROP = 1;
 pub const D2D1_BRIGHTNESS_PROP_FORCE_DWORD: D2D1_BRIGHTNESS_PROP = -1;
 pub const D2D1_BRIGHTNESS_PROP_WHITE_POINT: D2D1_BRIGHTNESS_PROP = 0;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy)]
-pub struct D2D1_BRUSH_PROPERTIES {
-    pub opacity: f32,
-    pub transform: super::D2D_MATRIX_3X2_F,
-}
-#[cfg(feature = "dcommon")]
-impl Default for D2D1_BRUSH_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type D2D1_BUFFER_PRECISION = i32;
 pub const D2D1_BUFFER_PRECISION_16BPC_FLOAT: D2D1_BUFFER_PRECISION = 4;
 pub const D2D1_BUFFER_PRECISION_16BPC_UNORM: D2D1_BUFFER_PRECISION = 3;
@@ -542,40 +499,6 @@ pub const D2D1_DPICOMPENSATION_PROP_BORDER_MODE: D2D1_DPICOMPENSATION_PROP = 1;
 pub const D2D1_DPICOMPENSATION_PROP_FORCE_DWORD: D2D1_DPICOMPENSATION_PROP = -1;
 pub const D2D1_DPICOMPENSATION_PROP_INPUT_DPI: D2D1_DPICOMPENSATION_PROP = 2;
 pub const D2D1_DPICOMPENSATION_PROP_INTERPOLATION_MODE: D2D1_DPICOMPENSATION_PROP = 0;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy)]
-pub struct D2D1_DRAWING_STATE_DESCRIPTION {
-    pub antialiasMode: D2D1_ANTIALIAS_MODE,
-    pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
-    pub tag1: D2D1_TAG,
-    pub tag2: D2D1_TAG,
-    pub transform: super::D2D_MATRIX_3X2_F,
-}
-#[cfg(feature = "dcommon")]
-impl Default for D2D1_DRAWING_STATE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy)]
-pub struct D2D1_DRAWING_STATE_DESCRIPTION1 {
-    pub antialiasMode: D2D1_ANTIALIAS_MODE,
-    pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
-    pub tag1: D2D1_TAG,
-    pub tag2: D2D1_TAG,
-    pub transform: super::D2D_MATRIX_3X2_F,
-    pub primitiveBlend: D2D1_PRIMITIVE_BLEND,
-    pub unitMode: D2D1_UNIT_MODE,
-}
-#[cfg(feature = "dcommon")]
-impl Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type D2D1_DRAW_TEXT_OPTIONS = u32;
 pub const D2D1_DRAW_TEXT_OPTIONS_CLIP: D2D1_DRAW_TEXT_OPTIONS = 2;
 pub const D2D1_DRAW_TEXT_OPTIONS_DISABLE_COLOR_BITMAP_SNAPPING: D2D1_DRAW_TEXT_OPTIONS = 8;
@@ -607,14 +530,6 @@ impl Default for D2D1_EFFECT_INPUT_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_ELLIPSE {
-    pub point: super::D2D_POINT_2F,
-    pub radiusX: f32,
-    pub radiusY: f32,
 }
 pub type D2D1_EMBOSS_PROP = i32;
 pub const D2D1_EMBOSS_PROP_DIRECTION: D2D1_EMBOSS_PROP = 1;
@@ -707,35 +622,6 @@ pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES: D2D1_GEOMETRY_SI
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_FORCE_DWORD: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = -1;
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = 1;
 #[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_GRADIENT_MESH_PATCH {
-    pub point00: super::D2D_POINT_2F,
-    pub point01: super::D2D_POINT_2F,
-    pub point02: super::D2D_POINT_2F,
-    pub point03: super::D2D_POINT_2F,
-    pub point10: super::D2D_POINT_2F,
-    pub point11: super::D2D_POINT_2F,
-    pub point12: super::D2D_POINT_2F,
-    pub point13: super::D2D_POINT_2F,
-    pub point20: super::D2D_POINT_2F,
-    pub point21: super::D2D_POINT_2F,
-    pub point22: super::D2D_POINT_2F,
-    pub point23: super::D2D_POINT_2F,
-    pub point30: super::D2D_POINT_2F,
-    pub point31: super::D2D_POINT_2F,
-    pub point32: super::D2D_POINT_2F,
-    pub point33: super::D2D_POINT_2F,
-    pub color00: D2D_COLOR_F,
-    pub color03: D2D_COLOR_F,
-    pub color30: D2D_COLOR_F,
-    pub color33: D2D_COLOR_F,
-    pub topEdgeMode: D2D1_PATCH_EDGE_MODE,
-    pub leftEdgeMode: D2D1_PATCH_EDGE_MODE,
-    pub bottomEdgeMode: D2D1_PATCH_EDGE_MODE,
-    pub rightEdgeMode: D2D1_PATCH_EDGE_MODE,
-}
-#[repr(C)]
 #[cfg(feature = "dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct D2D1_GRADIENT_STOP {
@@ -827,19 +713,6 @@ pub struct D2D1_INK_POINT {
     pub y: f32,
     pub radius: f32,
 }
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy)]
-pub struct D2D1_INK_STYLE_PROPERTIES {
-    pub nibShape: D2D1_INK_NIB_SHAPE,
-    pub nibTransform: super::D2D_MATRIX_3X2_F,
-}
-#[cfg(feature = "dcommon")]
-impl Default for D2D1_INK_STYLE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type D2D1_INTERPOLATION_MODE = i32;
 pub const D2D1_INTERPOLATION_MODE_ANISOTROPIC: D2D1_INTERPOLATION_MODE = 4;
 pub const D2D1_INTERPOLATION_MODE_CUBIC: D2D1_INTERPOLATION_MODE = 2;
@@ -867,42 +740,6 @@ pub const D2D1_LAYER_OPTIONS1_NONE: D2D1_LAYER_OPTIONS1 = 0;
 pub const D2D1_LAYER_OPTIONS_FORCE_DWORD: D2D1_LAYER_OPTIONS = 4294967295;
 pub const D2D1_LAYER_OPTIONS_INITIALIZE_FOR_CLEARTYPE: D2D1_LAYER_OPTIONS = 1;
 pub const D2D1_LAYER_OPTIONS_NONE: D2D1_LAYER_OPTIONS = 0;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy)]
-pub struct D2D1_LAYER_PARAMETERS {
-    pub contentBounds: super::D2D_RECT_F,
-    pub geometricMask: *mut core::ffi::c_void,
-    pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
-    pub maskTransform: super::D2D_MATRIX_3X2_F,
-    pub opacity: f32,
-    pub opacityBrush: *mut core::ffi::c_void,
-    pub layerOptions: D2D1_LAYER_OPTIONS,
-}
-#[cfg(feature = "dcommon")]
-impl Default for D2D1_LAYER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy)]
-pub struct D2D1_LAYER_PARAMETERS1 {
-    pub contentBounds: super::D2D_RECT_F,
-    pub geometricMask: *mut core::ffi::c_void,
-    pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
-    pub maskTransform: super::D2D_MATRIX_3X2_F,
-    pub opacity: f32,
-    pub opacityBrush: *mut core::ffi::c_void,
-    pub layerOptions: D2D1_LAYER_OPTIONS1,
-}
-#[cfg(feature = "dcommon")]
-impl Default for D2D1_LAYER_PARAMETERS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type D2D1_LINEARTRANSFER_PROP = i32;
 pub const D2D1_LINEARTRANSFER_PROP_ALPHA_DISABLE: D2D1_LINEARTRANSFER_PROP = 11;
 pub const D2D1_LINEARTRANSFER_PROP_ALPHA_SLOPE: D2D1_LINEARTRANSFER_PROP = 10;
@@ -918,13 +755,6 @@ pub const D2D1_LINEARTRANSFER_PROP_GREEN_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP =
 pub const D2D1_LINEARTRANSFER_PROP_RED_DISABLE: D2D1_LINEARTRANSFER_PROP = 2;
 pub const D2D1_LINEARTRANSFER_PROP_RED_SLOPE: D2D1_LINEARTRANSFER_PROP = 1;
 pub const D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 0;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    pub startPoint: super::D2D_POINT_2F,
-    pub endPoint: super::D2D_POINT_2F,
-}
 pub type D2D1_LINE_JOIN = i32;
 pub const D2D1_LINE_JOIN_BEVEL: D2D1_LINE_JOIN = 1;
 pub const D2D1_LINE_JOIN_FORCE_DWORD: D2D1_LINE_JOIN = -1;
@@ -1025,16 +855,6 @@ pub const D2D1_POINTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_POINTSPECULAR_S
 pub const D2D1_POINTSPECULAR_SCALE_MODE_LINEAR: D2D1_POINTSPECULAR_SCALE_MODE = 1;
 pub const D2D1_POINTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_POINTSPECULAR_SCALE_MODE = 3;
 pub const D2D1_POINTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTSPECULAR_SCALE_MODE = 0;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_POINT_DESCRIPTION {
-    pub point: super::D2D_POINT_2F,
-    pub unitTangentVector: super::D2D_POINT_2F,
-    pub endSegment: u32,
-    pub endFigure: u32,
-    pub lengthToEndSegment: f32,
-}
 pub type D2D1_POSTERIZE_PROP = i32;
 pub const D2D1_POSTERIZE_PROP_BLUE_VALUE_COUNT: D2D1_POSTERIZE_PROP = 2;
 pub const D2D1_POSTERIZE_PROP_FORCE_DWORD: D2D1_POSTERIZE_PROP = -1;
@@ -1100,22 +920,6 @@ pub const D2D1_PROPERTY_TYPE_UNKNOWN: D2D1_PROPERTY_TYPE = 0;
 pub const D2D1_PROPERTY_TYPE_VECTOR2: D2D1_PROPERTY_TYPE = 6;
 pub const D2D1_PROPERTY_TYPE_VECTOR3: D2D1_PROPERTY_TYPE = 7;
 pub const D2D1_PROPERTY_TYPE_VECTOR4: D2D1_PROPERTY_TYPE = 8;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_QUADRATIC_BEZIER_SEGMENT {
-    pub point1: super::D2D_POINT_2F,
-    pub point2: super::D2D_POINT_2F,
-}
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    pub center: super::D2D_POINT_2F,
-    pub gradientOriginOffset: super::D2D_POINT_2F,
-    pub radiusX: f32,
-    pub radiusY: f32,
-}
 #[repr(C)]
 #[cfg(feature = "dcommon")]
 #[derive(Clone, Copy, Default)]
@@ -1200,16 +1004,6 @@ pub type D2D1_SHARPEN_PROP = i32;
 pub const D2D1_SHARPEN_PROP_FORCE_DWORD: D2D1_SHARPEN_PROP = -1;
 pub const D2D1_SHARPEN_PROP_SHARPNESS: D2D1_SHARPEN_PROP = 0;
 pub const D2D1_SHARPEN_PROP_THRESHOLD: D2D1_SHARPEN_PROP = 1;
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_SIMPLE_COLOR_PROFILE {
-    pub redPrimary: super::D2D_POINT_2F,
-    pub greenPrimary: super::D2D_POINT_2F,
-    pub bluePrimary: super::D2D_POINT_2F,
-    pub whitePointXZ: super::D2D_POINT_2F,
-    pub gamma: D2D1_GAMMA1,
-}
 pub type D2D1_SPOTDIFFUSE_PROP = i32;
 pub const D2D1_SPOTDIFFUSE_PROP_COLOR: D2D1_SPOTDIFFUSE_PROP = 6;
 pub const D2D1_SPOTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_SPOTDIFFUSE_PROP = 4;
@@ -1468,14 +1262,6 @@ pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     pub scaleY: f32,
     pub interpolationMode: D2D1_INTERPOLATION_MODE,
     pub options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS,
-}
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct D2D1_TRIANGLE {
-    pub point1: super::D2D_POINT_2F,
-    pub point2: super::D2D_POINT_2F,
-    pub point3: super::D2D_POINT_2F,
 }
 pub type D2D1_TURBULENCE_NOISE = i32;
 pub const D2D1_TURBULENCE_NOISE_FORCE_DWORD: D2D1_TURBULENCE_NOISE = -1;

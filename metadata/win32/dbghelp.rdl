@@ -139,7 +139,7 @@ mod Windows {
             CheckSum: u32,
             TimeDateStamp: u32,
             FileName: [i8; 260],
-            Reparse: BOOLEAN,
+            Reparse: bool,
             hFile: HANDLE,
         }
         struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
@@ -148,7 +148,7 @@ mod Windows {
             CheckSum: u32,
             TimeDateStamp: u32,
             FileName: [i8; 260],
-            Reparse: BOOLEAN,
+            Reparse: bool,
             hFile: HANDLE,
             Flags: u32,
         }
@@ -158,7 +158,7 @@ mod Windows {
             CheckSum: u32,
             TimeDateStamp: u32,
             FileName: [u16; 261],
-            Reparse: BOOLEAN,
+            Reparse: bool,
             hFile: HANDLE,
             Flags: u32,
         }
@@ -518,9 +518,9 @@ mod Windows {
         const INLINE_FRAME_CONTEXT_IGNORE: u32 = 4294967295;
         const INLINE_FRAME_CONTEXT_INIT: i32 = 0;
         #[library("dbghelp.dll")]
-        extern fn ImageDirectoryEntryToData(Base: *const void, MappedAsImage: BOOLEAN, DirectoryEntry: u16, Size: *mut u32) -> *mut void;
+        extern fn ImageDirectoryEntryToData(Base: *const void, MappedAsImage: bool, DirectoryEntry: u16, Size: *mut u32) -> *mut void;
         #[library("dbghelp.dll")]
-        extern fn ImageDirectoryEntryToDataEx(Base: *const void, MappedAsImage: BOOLEAN, DirectoryEntry: u16, Size: *mut u32, #[opt] FoundHeader: *mut PIMAGE_SECTION_HEADER) -> *mut void;
+        extern fn ImageDirectoryEntryToDataEx(Base: *const void, MappedAsImage: bool, DirectoryEntry: u16, Size: *mut u32, #[opt] FoundHeader: *mut PIMAGE_SECTION_HEADER) -> *mut void;
         #[library("dbghelp.dll")]
         extern fn ImageNtHeader(Base: *const void) -> PIMAGE_NT_HEADERS;
         #[library("dbghelp.dll")]
@@ -575,9 +575,9 @@ mod Windows {
             NumberOfSections: u32,
             Sections: PIMAGE_SECTION_HEADER,
             Characteristics: u32,
-            fSystemImage: BOOLEAN,
-            fDOSImage: BOOLEAN,
-            fReadOnly: BOOLEAN,
+            fSystemImage: bool,
+            fDOSImage: bool,
+            fReadOnly: bool,
             Version: u8,
             Links: LIST_ENTRY,
             SizeOfImage: u32,
@@ -592,9 +592,9 @@ mod Windows {
             NumberOfSections: u32,
             Sections: PIMAGE_SECTION_HEADER,
             Characteristics: u32,
-            fSystemImage: BOOLEAN,
-            fDOSImage: BOOLEAN,
-            fReadOnly: BOOLEAN,
+            fSystemImage: bool,
+            fDOSImage: bool,
+            fReadOnly: bool,
             Version: u8,
             Links: LIST_ENTRY,
             SizeOfImage: u32,

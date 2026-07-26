@@ -20,7 +20,7 @@ mod Windows {
         struct NL_BANDWIDTH_INFORMATION {
             Bandwidth: u64,
             Instability: u64,
-            BandwidthPeaked: BOOLEAN,
+            BandwidthPeaked: bool,
         }
         #[repr(i32)]
         enum NL_DAD_STATE {
@@ -44,7 +44,7 @@ mod Windows {
             NlincCategoryStateMax = 4,
         }
         struct NL_INTERFACE_OFFLOAD_ROD {
-            _bitfield: BOOLEAN {
+            _bitfield: bool {
                 NlChecksumSupported: 1,
                 NlOptionsSupported: 1,
                 TlDatagramChecksumSupported: 1,
@@ -92,9 +92,9 @@ mod Windows {
         struct NL_NETWORK_CONNECTIVITY_HINT {
             ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
             ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
-            ApproachingDataLimit: BOOLEAN,
-            OverDataLimit: BOOLEAN,
-            Roaming: BOOLEAN,
+            ApproachingDataLimit: bool,
+            OverDataLimit: bool,
+            Roaming: bool,
         }
         #[repr(i32)]
         enum NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
@@ -108,7 +108,7 @@ mod Windows {
         struct NL_PATH_BANDWIDTH_ROD {
             Bandwidth: u64,
             Instability: u64,
-            BandwidthPeaked: BOOLEAN,
+            BandwidthPeaked: bool,
         }
         #[repr(i32)]
         enum NL_PREFIX_ORIGIN {

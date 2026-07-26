@@ -133,9 +133,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetDiskFreeSpaceA(#[opt] lpRootPathName: PCSTR, #[opt] lpSectorsPerCluster: *mut u32, #[opt] lpBytesPerSector: *mut u32, #[opt] lpNumberOfFreeClusters: *mut u32, #[opt] lpTotalNumberOfClusters: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetDiskFreeSpaceExA(#[opt] lpDirectoryName: PCSTR, #[opt] lpFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] lpTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] lpTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
+        extern fn GetDiskFreeSpaceExA(#[opt] lpDirectoryName: PCSTR, #[opt] lpFreeBytesAvailableToCaller: *mut u64, #[opt] lpTotalNumberOfBytes: *mut u64, #[opt] lpTotalNumberOfFreeBytes: *mut u64) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetDiskFreeSpaceExW(#[opt] lpDirectoryName: PCWSTR, #[opt] lpFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] lpTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] lpTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
+        extern fn GetDiskFreeSpaceExW(#[opt] lpDirectoryName: PCWSTR, #[opt] lpFreeBytesAvailableToCaller: *mut u64, #[opt] lpTotalNumberOfBytes: *mut u64, #[opt] lpTotalNumberOfFreeBytes: *mut u64) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetDiskFreeSpaceW(#[opt] lpRootPathName: PCWSTR, #[opt] lpSectorsPerCluster: *mut u32, #[opt] lpBytesPerSector: *mut u32, #[opt] lpNumberOfFreeClusters: *mut u32, #[opt] lpTotalNumberOfClusters: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -159,7 +159,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetFileSize(hFile: HANDLE, #[opt] lpFileSizeHigh: *mut u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetFileSizeEx(hFile: HANDLE, lpFileSize: *mut LARGE_INTEGER) -> BOOL;
+        extern fn GetFileSizeEx(hFile: HANDLE, lpFileSize: *mut i64) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetFileTime(hFile: HANDLE, #[opt] lpCreationTime: *mut FILETIME, #[opt] lpLastAccessTime: *mut FILETIME, #[opt] lpLastWriteTime: *mut FILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -263,7 +263,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetFilePointer(hFile: HANDLE, lDistanceToMove: i32, #[in] #[out] #[opt] lpDistanceToMoveHigh: *mut i32, dwMoveMethod: u32) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn SetFilePointerEx(hFile: HANDLE, liDistanceToMove: LARGE_INTEGER, #[opt] lpNewFilePointer: *mut LARGE_INTEGER, dwMoveMethod: u32) -> BOOL;
+        extern fn SetFilePointerEx(hFile: HANDLE, liDistanceToMove: i64, #[opt] lpNewFilePointer: *mut i64, dwMoveMethod: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetFileTime(hFile: HANDLE, #[opt] lpCreationTime: *const FILETIME, #[opt] lpLastAccessTime: *const FILETIME, #[opt] lpLastWriteTime: *const FILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -282,7 +282,7 @@ mod Windows {
             nFileSizeLow: u32,
         }
         struct WIN32_FIND_STREAM_DATA {
-            StreamSize: LARGE_INTEGER,
+            StreamSize: i64,
             cStreamName: [u16; 296],
         }
         #[library("KERNEL32.dll")]

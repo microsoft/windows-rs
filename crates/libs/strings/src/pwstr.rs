@@ -6,27 +6,27 @@ use super::*;
 pub struct PWSTR(pub *mut u16);
 
 impl PWSTR {
-    /// Construct a new `PWSTR` from a raw pointer.
+    /// Constructs a `PWSTR` from a raw pointer.
     pub const fn from_raw(ptr: *mut u16) -> Self {
         Self(ptr)
     }
 
-    /// Construct a null `PWSTR`.
+    /// Constructs a null `PWSTR`.
     pub const fn null() -> Self {
         Self(core::ptr::null_mut())
     }
 
-    /// Returns a raw pointer to the `PWSTR`.
+    /// Returns the raw pointer.
     pub const fn as_ptr(&self) -> *mut u16 {
         self.0
     }
 
-    /// Checks whether the `PWSTR` is null.
+    /// Returns whether the pointer is null.
     pub fn is_null(&self) -> bool {
         self.0.is_null()
     }
 
-    /// String length without the trailing 0
+    /// Returns the string length without the trailing null.
     ///
     /// # Safety
     ///
@@ -35,7 +35,7 @@ impl PWSTR {
         unsafe { PCWSTR(self.0).len() }
     }
 
-    /// Returns `true` if the string length is zero, and `false` otherwise.
+    /// Returns whether the string is empty.
     ///
     /// # Safety
     ///
@@ -44,7 +44,7 @@ impl PWSTR {
         unsafe { self.len() == 0 }
     }
 
-    /// String data without the trailing 0.
+    /// Returns the string data without the trailing null.
     ///
     /// # Safety
     ///
@@ -53,7 +53,7 @@ impl PWSTR {
         unsafe { core::slice::from_raw_parts(self.0, self.len()) }
     }
 
-    /// Copy the `PWSTR` into a Rust `String`.
+    /// Copies the string into a Rust `String`.
     ///
     /// # Safety
     ///
@@ -62,7 +62,7 @@ impl PWSTR {
         unsafe { String::from_utf16(self.as_wide()) }
     }
 
-    /// Copy the `PWSTR` into an `HSTRING`.
+    /// Copies the string into an `HSTRING`.
     ///
     /// # Safety
     ///
@@ -71,7 +71,7 @@ impl PWSTR {
         unsafe { HSTRING::from_wide(self.as_wide()) }
     }
 
-    /// Allow this string to be displayed.
+    /// Returns a display adapter for the string.
     ///
     /// # Safety
     ///

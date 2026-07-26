@@ -160,14 +160,14 @@ mod Windows {
             CharacteristicUuid: BTH_LE_UUID,
             AttributeHandle: u16,
             CharacteristicValueHandle: u16,
-            IsBroadcastable: BOOLEAN,
-            IsReadable: BOOLEAN,
-            IsWritable: BOOLEAN,
-            IsWritableWithoutResponse: BOOLEAN,
-            IsSignedWritable: BOOLEAN,
-            IsNotifiable: BOOLEAN,
-            IsIndicatable: BOOLEAN,
-            HasExtendedProperties: BOOLEAN,
+            IsBroadcastable: bool,
+            IsReadable: bool,
+            IsWritable: bool,
+            IsWritableWithoutResponse: bool,
+            IsSignedWritable: bool,
+            IsNotifiable: bool,
+            IsIndicatable: bool,
+            HasExtendedProperties: bool,
         }
         const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_AGGREGATE_FORMAT: i32 = 10501;
         const BTH_LE_GATT_CHARACTERISTIC_DESCRIPTOR_CLIENT_CONFIGURATION: i32 = 10498;
@@ -208,15 +208,15 @@ mod Windows {
             DescriptorUuid: BTH_LE_UUID,
             Anonymous: union {
                 CharacteristicExtendedProperties: struct {
-                    IsReliableWriteEnabled: BOOLEAN,
-                    IsAuxiliariesWritable: BOOLEAN,
+                    IsReliableWriteEnabled: bool,
+                    IsAuxiliariesWritable: bool,
                 },
                 ClientCharacteristicConfiguration: struct {
-                    IsSubscribeToNotification: BOOLEAN,
-                    IsSubscribeToIndication: BOOLEAN,
+                    IsSubscribeToNotification: bool,
+                    IsSubscribeToIndication: bool,
                 },
                 ServerCharacteristicConfiguration: struct {
-                    IsBroadcast: BOOLEAN,
+                    IsBroadcast: bool,
                 },
                 CharacteristicFormat: struct {
                     Format: u8,
@@ -241,7 +241,7 @@ mod Windows {
         const BTH_LE_SERVICE_GAP: i32 = 6144;
         const BTH_LE_SERVICE_GATT: i32 = 6145;
         struct BTH_LE_UUID {
-            IsShortUuid: BOOLEAN,
+            IsShortUuid: bool,
             Value: union {
                 ShortUuid: u16,
                 LongUuid: GUID,

@@ -6,27 +6,27 @@ use super::*;
 pub struct PCSTR(pub *const u8);
 
 impl PCSTR {
-    /// Construct a new `PCSTR` from a raw pointer
+    /// Constructs a `PCSTR` from a raw pointer.
     pub const fn from_raw(ptr: *const u8) -> Self {
         Self(ptr)
     }
 
-    /// Construct a null `PCSTR`
+    /// Constructs a null `PCSTR`.
     pub const fn null() -> Self {
         Self(core::ptr::null())
     }
 
-    /// Returns a raw pointer to the `PCSTR`
+    /// Returns the raw pointer.
     pub const fn as_ptr(&self) -> *const u8 {
         self.0
     }
 
-    /// Checks whether the `PCSTR` is null
+    /// Returns whether the pointer is null.
     pub fn is_null(&self) -> bool {
         self.0.is_null()
     }
 
-    /// String data without the trailing 0
+    /// Returns the string data without the trailing null.
     ///
     /// # Safety
     ///
@@ -38,7 +38,7 @@ impl PCSTR {
         }
     }
 
-    /// Copy the `PCSTR` into a Rust `String`.
+    /// Copies the string into a Rust `String`.
     ///
     /// # Safety
     ///
@@ -47,7 +47,7 @@ impl PCSTR {
         unsafe { String::from_utf8(self.as_bytes().into()) }
     }
 
-    /// Allow this string to be displayed.
+    /// Returns a display adapter for the string.
     ///
     /// # Safety
     ///

@@ -15,13 +15,6 @@ pub struct Interface {
     pub winrt: bool,
 }
 
-/// A property shorthand inside an interface body.
-///
-/// Syntax: `[#[get] | #[set]] Name: Type;`
-///
-/// - No attribute -> generates both `get_Name` and `put_Name` methods.
-/// - `#[get]`     -> generates only `get_Name`.
-/// - `#[set]`     -> generates only `put_Name`.
 #[derive(Debug)]
 pub struct Property {
     pub attrs: Vec<syn::Attribute>,
@@ -29,19 +22,12 @@ pub struct Property {
     pub ty: syn::Type,
 }
 
-/// An event shorthand inside an interface body.
-///
-/// Syntax: `event Name: HandlerType;`
-///
-/// Generates `add_Name` and `remove_Name` methods with the `SpecialName` flag.
 #[derive(Debug)]
 pub struct Event {
     pub name: syn::Ident,
     pub handler_ty: syn::Type,
 }
 
-/// A member of an interface body: either a regular method, a property shorthand,
-/// or an event shorthand.
 #[derive(Debug)]
 pub enum InterfaceMember {
     Method(Method),

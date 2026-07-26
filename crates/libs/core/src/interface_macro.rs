@@ -1,10 +1,6 @@
 //! A `macro_rules!` declarative alternative to the `#[interface]` proc-macro.
 //!
-//! The proc-macro `#[interface]` in the `windows-interface` crate is the canonical way to
-//! define a COM interface in this codebase, but it transitively pulls in `syn`, `quote`,
-//! and `proc-macro2`. Consumers who disable the default `proc-macros` feature on
-//! `windows-core` still need a way to declare COM interfaces; that is the role of the
-//! [`interface_decl!`] macro defined here.
+//! Defines COM interfaces without pulling in the `windows-interface` proc-macro dependencies.
 //!
 //! ## Scope
 //!
@@ -60,9 +56,7 @@ macro_rules! interface_decl {
             $($methods:tt)*
         }
     ) => {
-        // Struct + Interface + Debug.
         $crate::imp::define_interface!($name, $vtbl, $iid);
-        // CanInto + From conversions to ancestors.
         $crate::imp::interface_hierarchy!($name, $parent);
 
         impl ::core::ops::Deref for $name {
@@ -78,22 +72,17 @@ macro_rules! interface_decl {
 
         impl $crate::RuntimeName for $name {}
 
-        // Safe caller-side wrappers (inside `impl $name { ... }`, item-position - helper
-        // macros are permitted here and may emit a sequence of `fn` items).
         impl $name {
             $crate::__interface_decl_safe_wrappers!($($methods)*);
         }
 
-        // Implementation trait (inside `trait { ... }`, item-position).
         #[allow(non_camel_case_types)]
         pub trait $impl_trait: Sized + $crate::IUnknownImpl {
             $crate::__interface_decl_trait_methods!($($methods)*);
         }
 
-        // Vtable struct + its `impl` block. These cannot use helper macros inside their
-        // field lists or struct-expression initializers, so we hand everything off to a
-        // TT-muncher accumulator that emits both items together when the method list is
-        // exhausted.
+        // Struct field lists and initializers cannot call helper macros, so one accumulator
+        // emits the vtable struct and impl together.
         $crate::__interface_decl_vtbl! {
             @start
             name: $name,
@@ -105,8 +94,6 @@ macro_rules! interface_decl {
     };
 }
 
-// --- safe caller-side wrappers ---
-//
 // One arm per supported return-type shape (Result<()>, void); each arm peels off the
 // head method and recurses on the tail.
 
@@ -155,8 +142,6 @@ macro_rules! __interface_decl_safe_wrappers {
     };
 }
 
-// --- _Impl trait method declarations ---
-
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __interface_decl_trait_methods {
@@ -185,8 +170,6 @@ macro_rules! __interface_decl_trait_methods {
     };
 }
 
-// --- vtable struct + impl emission via TT-muncher accumulator ---
-//
 // We can't use helper macros in struct field lists or struct-expression initializers, so
 // this macro accumulates three token lists (vtbl fields, vtbl initializers, thunk fn
 // defs) and emits the whole `struct $vtbl { ... } impl $vtbl { ... }` block at the end.
@@ -194,7 +177,6 @@ macro_rules! __interface_decl_trait_methods {
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __interface_decl_vtbl {
-    // Entry point: initialize empty accumulators.
     (@start
         name: $name:ident,
         vtbl: $vtbl:ident,
@@ -215,7 +197,6 @@ macro_rules! __interface_decl_vtbl {
         }
     };
 
-    // Result-returning method (only `Result<()>` is supported).
     (@walk
         name: $name:ident,
         vtbl: $vtbl:ident,
@@ -265,7 +246,6 @@ macro_rules! __interface_decl_vtbl {
         }
     };
 
-    // Void-returning method.
     (@walk
         name: $name:ident,
         vtbl: $vtbl:ident,
@@ -366,7 +346,6 @@ macro_rules! __interface_decl_vtbl {
         }
     };
 
-    // Base case: rest is empty, emit the struct and its impl block.
     (@walk
         name: $name:ident,
         vtbl: $vtbl:ident,

@@ -265,13 +265,9 @@ impl WebView {
         unsafe { self.0.ExecuteScript(&javascript, &handler) }.ok()
     }
 
-    /// Asynchronously calls a Chrome DevTools Protocol method - the programmatic
-    /// CDP channel that reaches browser-level capabilities beyond page script,
-    /// such as `Network.*` interception, `Page.printToPDF`, and `Emulation.*`.
-    /// `method` is a CDP method name (for example `"Browser.getVersion"`) and
-    /// `params_json` is its parameters as a JSON object string (`"{}"` for none).
-    /// The `handler` closure receives the method's return object as JSON on the
-    /// UI thread.
+    /// Asynchronously calls a Chrome DevTools Protocol method.
+    ///
+    /// `params_json` is the method's JSON object argument, or `"{}"` for none.
     pub fn call_dev_tools_protocol_method<F: FnOnce(Result<String>) + 'static>(
         &self,
         method: &str,
@@ -288,13 +284,9 @@ impl WebView {
         .ok()
     }
 
-    /// Subscribes to a Chrome DevTools Protocol event by name (for example
-    /// `"Runtime.consoleAPICalled"`), the programmatic counterpart to
-    /// [`call_dev_tools_protocol_method`](Self::call_dev_tools_protocol_method).
-    /// The handler receives each event's parameters as JSON. Most CDP events only
-    /// fire after their domain is enabled, so call the matching `*.enable` method
-    /// first. The returned [`EventRegistration`] keeps the subscription alive
-    /// until it is dropped.
+    /// Subscribes to a Chrome DevTools Protocol event by name.
+    ///
+    /// Most CDP events require enabling their domain before they fire.
     pub fn on_dev_tools_protocol_event<F>(
         &self,
         event_name: &str,
@@ -312,9 +304,7 @@ impl WebView {
         }))
     }
 
-    /// Registers JavaScript to run before any other script each time a document
-    /// is created, returning a [`ScriptId`] that can later be passed to
-    /// [`remove_script_to_execute_on_document_created`](Self::remove_script_to_execute_on_document_created).
+    /// Registers JavaScript to run before any other script in each new document.
     ///
     /// Pumps the calling thread's message loop until registration completes, so
     /// call it during setup before handing control to your own message loop.
@@ -330,8 +320,7 @@ impl WebView {
         Ok(ScriptId(pump::wait(&slot)?))
     }
 
-    /// Removes a script previously registered with
-    /// [`add_script_to_execute_on_document_created`](Self::add_script_to_execute_on_document_created).
+    /// Removes a script previously registered on document creation.
     pub fn remove_script_to_execute_on_document_created(&self, id: &ScriptId) -> Result<()> {
         let id = HSTRING::from(&id.0);
         unsafe { self.0.RemoveScriptToExecuteOnDocumentCreated(&id) }.ok()
@@ -352,20 +341,14 @@ impl WebView {
     }
 
     subscription! {
-        /// Subscribes to the process-failed event, raised when a browser process
-        /// crashes, exits unexpectedly, or becomes unresponsive. Inspect
-        /// [`ProcessFailedArgs::kind`] to decide whether to reload the page (a
-        /// render-process crash) or recreate the `WebView` (a browser-process
-        /// exit). Without a handler a crash leaves a blank page with no notice.
+        /// Subscribes to the process-failed event.
+        ///
+        /// A renderer crash can be reloaded; a browser-process exit requires a new `WebView`.
         on_process_failed(ProcessFailedArgs) =>
             ProcessFailed, add_ProcessFailed / remove_ProcessFailed
     }
 
-    /// Subscribes to the contains-fullscreen-element-changed event, raised when
-    /// the page enters or leaves HTML fullscreen (for example a video going full
-    /// screen). The handler receives the new
-    /// [`contains_fullscreen_element`](Self::contains_fullscreen_element) state
-    /// so the host can resize or restore its window to match.
+    /// Subscribes to HTML fullscreen state changes.
     pub fn on_contains_fullscreen_element_changed<F: FnMut(bool) + 'static>(
         &self,
         handler: F,
@@ -464,12 +447,7 @@ impl WebView {
         }))
     }
 
-    /// Subscribes to the web-resource-requested event, raised when the page
-    /// requests a resource whose URI matches `uri_filter`, a wildcard pattern
-    /// such as `https://app.example/*`. The handler runs synchronously on the UI
-    /// thread; return a [`WebResourceResponse`] to fulfil the request from memory
-    /// (typically serving embedded assets under a custom host), or `None` to let
-    /// WebView2 handle it normally.
+    /// Subscribes to matching resource requests and optionally fulfills them from memory.
     pub fn on_web_resource_requested<F>(
         &self,
         uri_filter: &str,

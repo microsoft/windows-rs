@@ -23,13 +23,13 @@ mod Windows {
         #[library("WINUSB.DLL")]
         extern fn WinUsb_Free(InterfaceHandle: WINUSB_INTERFACE_HANDLE) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_GetAdjustedFrameNumber(#[in] #[out] CurrentFrameNumber: *mut u32, TimeStamp: LARGE_INTEGER) -> BOOL;
+        extern fn WinUsb_GetAdjustedFrameNumber(#[in] #[out] CurrentFrameNumber: *mut u32, TimeStamp: i64) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_GetAssociatedInterface(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AssociatedInterfaceIndex: u8, AssociatedInterfaceHandle: *mut *mut void) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_GetCurrentAlternateSetting(InterfaceHandle: WINUSB_INTERFACE_HANDLE, SettingNumber: *mut u8) -> BOOL;
         #[library("WINUSB.DLL")]
-        extern fn WinUsb_GetCurrentFrameNumber(InterfaceHandle: WINUSB_INTERFACE_HANDLE, CurrentFrameNumber: *mut u32, TimeStamp: *mut LARGE_INTEGER) -> BOOL;
+        extern fn WinUsb_GetCurrentFrameNumber(InterfaceHandle: WINUSB_INTERFACE_HANDLE, CurrentFrameNumber: *mut u32, TimeStamp: *mut i64) -> BOOL;
         #[library("WINUSB.DLL")]
         extern fn WinUsb_GetCurrentFrameNumberAndQpc(InterfaceHandle: WINUSB_INTERFACE_HANDLE, FrameQpcInfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> BOOL;
         #[library("WINUSB.DLL")]

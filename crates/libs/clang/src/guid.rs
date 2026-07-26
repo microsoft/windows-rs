@@ -1,11 +1,7 @@
 use super::*;
 
-/// Returns `true` if the clang `Type` refers to a GUID struct.
-///
-/// Handles `const GUID`, `const IID`, `const struct _GUID`, elaborated types,
-/// and typedef aliases for `GUID`/`IID`.
+/// True when the clang type refers to `GUID`/`IID`, through const/elaborated aliases.
 pub(crate) fn is_guid_type(ty: &Type) -> bool {
-    // Peel off any top-level const qualifier by looking at the canonical type.
     let name = match ty.kind() {
         CXType_Elaborated => ty.underlying_type().ty().name(),
         CXType_Record => ty.ty().name(),
@@ -15,20 +11,8 @@ pub(crate) fn is_guid_type(ty: &Type) -> bool {
     matches!(name.as_str(), "GUID" | "_GUID" | "IID")
 }
 
-/// Parse a GUID struct initializer from the AST using `clang_Cursor_Evaluate`.
-///
-/// This handles cases where macro constants or expressions are used in the
-/// GUID initializer (e.g. 7zip's `Z7_DEFINE_GUID` pattern) - the compiler
-/// evaluates the expressions after macro expansion so the values are always
-/// available regardless of how the initializer was spelled in source.
-///
-/// The VarDecl cursor for a GUID variable has the shape:
-/// - `CXCursor_InitListExpr` (top-level, containing 4 children):
-///   - `CXCursor_IntegerLiteral` x 3 (data1, data2, data3)
-///   - `CXCursor_InitListExpr` (data4, containing 8 children):
-///     - `CXCursor_IntegerLiteral` x 8
+/// Parse a GUID initializer from the AST so macro expressions are compiler-evaluated.
 pub(crate) fn parse_guid_initializer_ast(cursor: &Cursor) -> Option<String> {
-    // Find the top-level InitListExpr child of the VarDecl.
     let init_list = cursor
         .children()
         .into_iter()
@@ -39,17 +23,14 @@ pub(crate) fn parse_guid_initializer_ast(cursor: &Cursor) -> Option<String> {
         return None;
     }
 
-    // Evaluate data1, data2, data3.
     let data1 = children[0].evaluate_unsigned()?;
     let data2 = children[1].evaluate_unsigned()?;
     let data3 = children[2].evaluate_unsigned()?;
 
-    // Range-check: data1 <= u32, data2/data3 <= u16.
     if data1 > u32::MAX as u64 || data2 > u16::MAX as u64 || data3 > u16::MAX as u64 {
         return None;
     }
 
-    // The 4th child should be an InitListExpr for data4[8].
     let data4_cursor = &children[3];
     if data4_cursor.kind() != CXCursor_InitListExpr {
         return None;
@@ -85,26 +66,12 @@ pub(crate) fn parse_guid_initializer_ast(cursor: &Cursor) -> Option<String> {
     ))
 }
 
-/// Parse a GUID struct initializer from a token stream.
-///
-/// Expects the token stream for a variable declaration like:
-/// ```c
-/// const GUID IID_IFoo = { 0x23170F69, 0x40C1, 0x278A, { 0, 0, 0, 3, 0, 1, 0, 0 } };
-/// ```
-///
-/// Scans past the `=` token, then collects exactly 11 integer literals from
-/// the balanced `{ ... { ... } }` initializer: `data1` (u32), `data2` (u16),
-/// `data3` (u16), and `data4[0..8]` (8 x u8).
-///
-/// Returns the UUID in standard `"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` format,
-/// or `None` if the token sequence does not match the expected shape.
+/// Parse a GUID initializer from tokens by collecting its eleven integer fields.
 pub(crate) fn parse_guid_initializer_tokens(tokens: &[(CXTokenKind, String)]) -> Option<String> {
-    // Find the `=` that starts the initializer.
     let eq_pos = tokens
         .iter()
         .position(|(k, s)| *k == CXToken_Punctuation && s == "=")?;
 
-    // Collect all integer literals after the `=`.
     let mut values = Vec::with_capacity(11);
     for (kind, spelling) in &tokens[eq_pos + 1..] {
         if *kind == CXToken_Literal {
@@ -116,14 +83,9 @@ pub(crate) fn parse_guid_initializer_tokens(tokens: &[(CXTokenKind, String)]) ->
     format_guid_from_values(&values)
 }
 
-/// Parse a `DEFINE_GUID(name, l, w1, w2, b1, ..., b8)` (or the
-/// `DEFINE_OLEGUID(name, l, w1, w2)` shorthand) macro-expansion token stream into
-/// the GUID constant's name and its standard hyphenated UUID string.
+/// Parse `DEFINE_GUID`/`DEFINE_OLEGUID` tokens into `(name, uuid)`.
 ///
-/// The first identifier after the opening `(` is the constant's name; the
-/// remaining integer literals are the GUID field values. The OLE shorthand omits
-/// the trailing eight bytes, which are the fixed `{ 0xC0, 0, 0, 0, 0, 0, 0, 0x46 }`
-/// sequence shared by every OLE-defined GUID.
+/// `DEFINE_OLEGUID` omits the fixed OLE tail bytes.
 pub(crate) fn parse_define_guid_tokens(
     tokens: &[(CXTokenKind, String)],
     ole: bool,
@@ -154,10 +116,7 @@ pub(crate) fn parse_define_guid_tokens(
     Some((name, uuid))
 }
 
-/// Parse a `DEFINE_PROPERTYKEY(name, l, w1, w2, b1..b8, pid)` /
-/// `DEFINE_DEVPROPKEY(...)` macro invocation into `(name, fmtid_uuid, pid)`. Both macros
-/// take the same 13 arguments: the constant name, the eleven GUID components, and a trailing
-/// `pid`. Returns `None` when the token shape does not match (e.g. a non-literal argument).
+/// Parse `DEFINE_PROPERTYKEY`/`DEFINE_DEVPROPKEY` tokens into `(name, fmtid_uuid, pid)`.
 pub(crate) fn parse_define_property_key_tokens(
     tokens: &[(CXTokenKind, String)],
 ) -> Option<(String, String, u32)> {
@@ -176,7 +135,6 @@ pub(crate) fn parse_define_property_key_tokens(
         .map(|(_, s)| parse_c_int_literal(s))
         .collect::<Option<_>>()?;
 
-    // Eleven GUID components plus the trailing `pid`.
     if values.len() != 12 {
         return None;
     }
@@ -186,10 +144,8 @@ pub(crate) fn parse_define_property_key_tokens(
     Some((name, uuid, pid))
 }
 
-/// Format the eleven GUID field values (`data1`, `data2`, `data3`, `data4[0..8]`)
-/// as a standard hyphenated UUID string, range-checking each field.
+/// Format eleven GUID field values as a hyphenated UUID string.
 pub(crate) fn format_guid_from_values(values: &[u64]) -> Option<String> {
-    // Must have exactly 11 values: data1, data2, data3, data4[0..8].
     if values.len() != 11 {
         return None;
     }
@@ -198,7 +154,6 @@ pub(crate) fn format_guid_from_values(values: &[u64]) -> Option<String> {
     let data2 = values[1];
     let data3 = values[2];
 
-    // Range-check: data1 <= u32, data2/data3 <= u16, data4 bytes <= u8.
     if data1 > u32::MAX as u64 || data2 > u16::MAX as u64 || data3 > u16::MAX as u64 {
         return None;
     }
@@ -208,7 +163,6 @@ pub(crate) fn format_guid_from_values(values: &[u64]) -> Option<String> {
         }
     }
 
-    // Format as standard UUID: "data1-data2-data3-d4[0]d4[1]-d4[2]..d4[7]"
     Some(format!(
         "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
         data1,
@@ -225,10 +179,8 @@ pub(crate) fn format_guid_from_values(values: &[u64]) -> Option<String> {
     ))
 }
 
-/// Parse a C integer literal into a `u64`, stripping any type suffix
-/// (`U`, `L`, `UL`, `LL`, `ULL`, etc.) and handling hex (`0x`) and decimal.
+/// Parse a C integer literal into `u64`, stripping `U`/`L` suffixes.
 pub(crate) fn parse_c_int_literal(lit: &str) -> Option<u64> {
-    // Strip trailing suffixes (L, U, LL, ULL, etc.).
     let digits = lit.trim_end_matches(['u', 'U', 'l', 'L']);
     if let Some(hex) = digits
         .strip_prefix("0x")

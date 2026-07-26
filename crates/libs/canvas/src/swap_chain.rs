@@ -117,9 +117,8 @@ impl SwapChain {
         DrawingSession::new(&self.d2d_context, &self.device_lost_flag)
     }
 
-    /// Returns `Ok(true)` on success or `Ok(false)` if the device was lost.
+    /// Returns `Ok(false)` if the device was lost.
     pub fn present(&self) -> Result<bool> {
-        // If EndDraw detected device-lost, don't bother presenting.
         if self.device_lost_flag.get() {
             return Ok(false);
         }
@@ -130,43 +129,36 @@ impl SwapChain {
         result.ok().map(|()| true)
     }
 
-    /// Creates a solid color brush.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D_COLOR_F = color.into();
         unsafe { self.d2d_context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 
-    /// Loads a bitmap from an image file.
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> Result<Bitmap> {
         Bitmap::load_from_file(&self.d2d_context, path.as_ref())
     }
 
-    /// Returns the underlying `IDXGISwapChain1`.
     pub fn raw_swap_chain(&self) -> &IDXGISwapChain1 {
         &self.swap_chain
     }
 
-    /// Returns the width of the swap chain, in pixels.
     pub fn width(&self) -> u32 {
         self.width
     }
 
-    /// Returns the height of the swap chain, in pixels.
     pub fn height(&self) -> u32 {
         self.height
     }
 
-    /// Set the DPI so that Direct2D renders at the correct resolution.
+    /// Sets the Direct2D DPI for subsequent rendering.
     pub fn set_dpi(&mut self, dpi_x: f32, dpi_y: f32) {
         self.dpi_x = dpi_x;
         self.dpi_y = dpi_y;
         unsafe { self.d2d_context.SetDpi(dpi_x, dpi_y) }
-        // Recreate the target bitmap with the updated DPI.
         let _ = self.set_target();
     }
 
-    /// Apply an inverse composition scale so that a pixel-sized buffer
-    /// is presented at the correct DIP size.
+    /// Applies an inverse composition scale for high-DPI presentation.
     pub fn set_composition_scale(&self, scale_x: f32, scale_y: f32) {
         if let Ok(sc2) = self.swap_chain.cast::<IDXGISwapChain2>() {
             let matrix = DXGI_MATRIX_3X2_F {
@@ -205,7 +197,6 @@ impl SwapChain {
                 .d2d_context
                 .CreateBitmapFromDxgiSurface(&surface, Some(&props))?;
             self.d2d_context.SetTarget(&bitmap);
-            // Ensure context DPI matches after SetTarget (some target types reset it).
             self.d2d_context.SetDpi(self.dpi_x, self.dpi_y);
             Ok(())
         }

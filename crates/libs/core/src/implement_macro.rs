@@ -107,11 +107,7 @@
 /// syntax and scope.
 #[macro_export]
 macro_rules! implement_decl {
-    // Generic form: `impl<G, ...> Name as Vis Name_Impl : [Iface<...>, ...] where ...`.
-    //
-    // Listed before the non-generic arm so that a leading `<` reliably steers here.
-    // The `where` clause is required and is forwarded verbatim to every emitted impl
-    // and to the `Foo_Impl` struct definition.
+    // Listed before the non-generic arm so a leading `<` reliably steers here.
     (
         impl < $($gp:ident),+ $(,)? >
             $name:ident as $impl_vis:vis $impl_name:ident
@@ -140,21 +136,13 @@ macro_rules! implement_decl {
         }
     };
 
-    // Non-generic form: `impl Name as Vis Name_Impl : [Iface, ...]`.
     (
         impl $name:ident as $impl_vis:vis $impl_name:ident : [
             $( $iface:ident ),+ $(,)?
         ] $(,)?
     ) => {
-        // The vtable type for each interface is resolved via the `Interface::Vtable`
-        // associated type (i.e. `<IFoo as Interface>::Vtable`), so the caller does not
-        // have to spell out `IFoo_Vtbl`. `macro_rules!` cannot synthesize identifiers,
-        // but every use of the vtable here is as a *type*, so the associated-type path
-        // is a drop-in substitute for the concrete `_Vtbl` ident. Inherent items on the
-        // concrete vtable (`new`, `matches`) remain reachable through the path.
-        //
-        // The `_Impl` trait is *only* referenced by user code (e.g. `impl IFoo_Impl for
-        // Foo_Impl { ... }`), never by this macro, so nothing needs to be inferred for it.
+        // The macro uses `<IFoo as Interface>::Vtable` so callers do not spell `IFoo_Vtbl`.
+        // The `_Impl` trait is referenced only by user code outside this macro.
 
         // The first declared interface doubles as the `Name` type argument to
         // `IInspectable_Vtbl::new`, mirroring the proc-macro so that
@@ -165,8 +153,6 @@ macro_rules! implement_decl {
             remaining: [ $( ($iface) )+ ]
         }
 
-        // Per-interface impls. Each of these is a sequence of `impl` items, which the
-        // helper macro emits at item position by recursion.
         $crate::__implement_decl_per_iface_impls!(
             $name, $impl_name,
             $( ($iface), )+
@@ -174,8 +160,6 @@ macro_rules! implement_decl {
     };
 }
 
-// --- Entry point: extract the first interface and forward to the main accumulator.
-//
 // `IInspectable_Vtbl::new::<_, Name, _>()` needs a `Name: RuntimeName` type argument.  We
 // pick the first declared interface (matching the proc-macro behavior); a separate match
 // arm captures it before the main accumulator runs.
@@ -202,25 +186,13 @@ macro_rules! __implement_decl_first_iface {
     };
 }
 
-// --- Main accumulator: walks the interface list, accumulating struct fields, the
-// `into_outer` initializer list, and `(iface, vtbl)` pairs for the `QueryInterface` body.
-//
-// **Important - macro hygiene.** The accumulator carries only *data* tokens (idents,
-// types) so that all references to `self`, `iid`, and the `'found` label end up emitted
-// from a single macro invocation (the base arm). If those references were generated in
-// the recursive arm and shipped across invocations via a metavariable, each invocation
-// would attach a fresh expansion-site hygiene context to them, and the base arm's
-// `fn QueryInterface(&self, iid: ..., ...) { 'found: { ... } }` declarations would not
-// unify with the references in the spliced tokens.
-//
-// The `offset:` token list is a unary counter (`()` per pointer-slot of offset). Each
-// interface chain advances `offset` by one slot; we convert the unary count to the
-// `OFFSET` const generic at emission time using `__implement_decl_offset_negate!`.
+// The accumulator carries only data tokens; references to `self`, `iid`, and `'found` must
+// be emitted by one macro invocation so their hygiene contexts match. `offset` is a unary
+// pointer-slot count converted to the `OFFSET` const generic at emission time.
 
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_struct {
-    // One more interface to consume.
     (@walk
         vis: $impl_vis:vis,
         name: $name:ident,
@@ -260,8 +232,6 @@ macro_rules! __implement_decl_struct {
         }
     };
 
-    // No more interfaces: emit struct + IUnknownImpl + Deref + ComObjectInner + Compose +
-    // From<Foo> for IUnknown/IInspectable + ComObjectInterface for IUnknown/IInspectable.
     (@walk
         vis: $impl_vis:vis,
         name: $name:ident,
@@ -352,20 +322,8 @@ macro_rules! __implement_decl_struct {
     };
 }
 
-// --- Shared IUnknownImpl method body ----------------------------------------------------
-//
-// Emits every `IUnknownImpl` method except the `type Impl` associated type (which differs
-// per arm). Both the generic and non-generic base arms invoke this so the reference-count
-// methods and the `QueryInterface`/identity routing exist in exactly
-// one place. That routing is security-sensitive (it decides which vtable a given IID maps
-// to) and must never drift between the two arms.
-//
-// `qi` is the list of `(field_ident : vtable_owning_type)` pairs. For the non-generic arm
-// the interface ident doubles as its own type, so each entry is passed as `(IFoo : IFoo)`.
-//
-// Hygiene: all references to `self`, `iid`, and the `'found` label are produced by this
-// single invocation, so they share one expansion context (see the note on
-// `__implement_decl_struct`). The accumulator still carries only data tokens.
+// Shared `IUnknownImpl` methods. Keeping QueryInterface routing in one macro prevents the
+// generic and non-generic arms from drifting. `qi` is `(field_ident : vtable_owning_type)`.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_iunknown_methods {
@@ -486,8 +444,6 @@ macro_rules! __implement_decl_iunknown_methods {
     };
 }
 
-// --- Shared tail impls ------------------------------------------------------------------
-//
 // Emits the per-object impls that are identical across both base arms apart from the
 // generic-parameter / `where`-clause plumbing: `Compose`, `From<Foo>` for `IUnknown` and
 // `IInspectable`, and `ComObjectInterface` for `IUnknown` and `IInspectable`. The
@@ -560,16 +516,10 @@ macro_rules! __implement_decl_shared_tail {
     };
 }
 
-// --- Offset computation -----------------------------------------------------------------
-//
 // `into_outer` writes each interface vtable as a `&'static IFoo_Vtbl` produced by
 // `IFoo_Vtbl::new::<Foo_Impl, OFFSET>()`. The offsets follow the proc-macro convention:
 // identity is at -1, the first interface chain at -2, the second at -3, and so on.
-//
-// `__implement_decl_offset_negate!()` takes a unary-counted token list and emits the
-// corresponding negative `isize` value.  Each `()` in the input represents one
-// pointer-sized slot of offset.  The accumulator starts with `[() ()]` (= -2) before any
-// interface is consumed; each interface push adds one more `()`.
+// The accumulator stores the offset as a unary-counted pointer-slot list.
 
 #[doc(hidden)]
 #[macro_export]
@@ -579,11 +529,7 @@ macro_rules! __implement_decl_offset_negate {
     };
 }
 
-// Counts a unary `()`-per-slot token list into a parenthesized `usize` sum. Shared by
-// `__implement_decl_offset_negate!` (the vtable `OFFSET` const generic) and
-// `__implement_decl_index_plus_two!` (the `AsImpl` pointer adjustment), replacing two
-// hand-written 16-arm lookup tables with one recursive count. There is no fixed interface
-// cap anymore - the sum grows with the input.
+// Counts a unary `()`-per-slot token list into a parenthesized `usize` sum.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_count_units {
@@ -600,16 +546,11 @@ macro_rules! __implement_decl_unit_to_one {
     };
 }
 
-// --- Per-interface impls ----------------------------------------------------------------
-//
 // Recursive emission of:
 //   - `From<Foo> for IFace`
 //   - `ComObjectInterface<IFace> for Foo_Impl`
 //   - `AsImpl<Foo> for IFace`
-//
-// Tracks an interface index (unary-counted) so that the `AsImpl::as_impl_ptr` thunk
-// adjusts the pointer correctly: identity sits at `-1`, the first chain at `-2`, etc., so
-// the offset from a vtable pointer to the `Foo_Impl` start is `2 + index` pointer-slots.
+// The unary interface index gives the `AsImpl::as_impl_ptr` back-offset.
 
 #[doc(hidden)]
 #[macro_export]
@@ -686,18 +627,14 @@ macro_rules! __implement_decl_index_plus_two {
     };
 }
 
-// --- Zip helper: pair each interface type with a fresh internal field name ---------------
-//
 // The user-facing macro accepts a bare comma-separated list of interface types like
 // `[ IAsyncOperation<T>, IAsyncInfo, ]`. macro_rules! can't tokenize that with a `tt`
 // repetition because of `<`/`>` ambiguity, but `$ty` matches each entry as a single
-// fragment. The zip then pairs each `ty` with an internal ident drawn from a fixed pool
-// so the rest of the pipeline (which uses `(ident : ty)` pairs) is unchanged.
+// fragment. The zip pairs each `ty` with a fixed-pool internal ident.
 
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_g_zip {
-    // Step: pop one name and one type.
     (@zip
         ctx: $ctx:tt,
         names: [ $name_head:ident $($name_rest:ident)* ],
@@ -713,7 +650,6 @@ macro_rules! __implement_decl_g_zip {
         }
     };
 
-    // Done: dispatch to the existing pipeline.
     (@zip
         ctx: {
             generics:  [ $($gp:ident),+ ],
@@ -745,8 +681,6 @@ macro_rules! __implement_decl_g_zip {
         }
     };
 }
-
-// --- Entry helper: capture the first interface, kick off the main walk -----------------
 
 #[doc(hidden)]
 #[macro_export]

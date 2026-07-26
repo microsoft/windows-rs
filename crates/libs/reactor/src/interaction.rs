@@ -1,5 +1,3 @@
-// Interaction: callbacks, keyboard shortcuts, context propagation, and async resources.
-
 use std::any::{Any, TypeId};
 use std::rc::Rc;
 use std::sync::Arc;
@@ -9,11 +7,7 @@ use rustc_hash::FxHashMap;
 
 use super::*;
 
-// impl_rc_fn_wrapper! macro
-
-/// Generate an `Rc`-pointer-equal newtype around `dyn Fn(...)`. Provides
-/// `new`, `Clone`, `Debug` (pointer-formatted), and `PartialEq`/`Eq`
-/// based on `Rc::ptr_eq`.
+/// Generate an `Rc`-pointer-equal callback newtype.
 #[macro_export]
 #[doc(hidden)]
 macro_rules! impl_rc_fn_wrapper {
@@ -64,8 +58,7 @@ macro_rules! impl_rc_fn_wrapper {
     };
 }
 
-/// Like [`impl_rc_fn_wrapper!`] but Arc-based; the closure must be
-/// `Send + Sync`, allowing the wrapper itself to be sent across threads.
+/// Like [`impl_rc_fn_wrapper!`], but `Arc`-based and thread-safe.
 #[macro_export]
 #[doc(hidden)]
 macro_rules! impl_arc_fn_wrapper {
@@ -119,8 +112,6 @@ macro_rules! impl_arc_fn_wrapper {
     };
 }
 
-// Callback
-
 impl_rc_fn_wrapper! {
     /// Cheap-to-clone reference-counted callback. Two clones of the same
     /// `Callback` compare equal (`Rc` pointer equality), letting the
@@ -133,8 +124,6 @@ impl<T> Callback<T> {
         fault::catch("event handler", || (self.inner)(arg));
     }
 
-    /// Construct a `Callback` from a raw `Rc<dyn Fn(T)>`. Used internally
-    /// to bridge `SetState` / `Dispatch` into `Callback` without cloning.
     pub fn from_rc(inner: Rc<dyn Fn(T)>) -> Self {
         Self { inner }
     }
@@ -144,11 +133,7 @@ impl<T> Callback<T> {
     }
 }
 
-/// Trait for types that can be converted into a [`Callback<T>`].
-///
-/// Implemented for closures (`Fn(T) + 'static`) and state setters
-/// ([`SetState<T>`], [`Dispatch<A>`]), allowing them to be passed
-/// directly to event handler methods without wrapping in a manual closure.
+/// Converts closures and state setters into [`Callback<T>`].
 ///
 /// # Examples
 /// ```ignore
@@ -189,12 +174,7 @@ impl<T: 'static> IntoCallback<T> for Dispatch<T> {
     }
 }
 
-/// Trait for types that can be converted into a parameterless
-/// [`Callback<()>`]. The sibling of [`IntoCallback`] for `on_*` handlers
-/// that take no argument (e.g. `Button::on_click`): a bare `Fn()` closure
-/// is wrapped, while an existing `Callback<()>` (e.g. from
-/// [`RenderCx::use_callback`]) is passed through unchanged so its identity
-/// is preserved and `can_skip_update` can skip the control.
+/// Converts closures and callbacks into parameterless [`Callback<()>`] handlers.
 pub trait IntoUnitCallback {
     fn into_unit_callback(self) -> Callback<()>;
 }
@@ -213,8 +193,6 @@ impl IntoUnitCallback for Callback<()> {
         self
     }
 }
-
-// Keyboard
 
 /// A single keyboard shortcut bound to an element via
 /// [`Modifiers`]`.keyboard_accelerators`.

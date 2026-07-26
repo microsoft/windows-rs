@@ -1,41 +1,23 @@
-/// A field in a struct or union.
 #[derive(Debug, Clone)]
 pub struct Field {
     pub attrs: Vec<syn::Attribute>,
     pub name: syn::Ident,
     pub ty: FieldType,
-    /// The bit-field members packed into this field when it is a backing storage
-    /// unit written in the concise C-like block form (`_bitfield: u8 { a: 1, b: 2 }`).
-    /// Empty for an ordinary field. Each member carries only a width; its offset is
-    /// implicit (the cumulative width of the preceding members, including anonymous
-    /// padding), and the encoder materializes a `NativeBitfieldAttribute(name, offset,
-    /// width)` per *named* member. The backing integer type is the field's own `ty`.
     pub bitfields: Vec<BitfieldMember>,
 }
 
-/// One member of a bit-field backing unit written in the C-like block form. A
-/// `None` name is an anonymous padding member (`_: 4`) that advances the offset of
-/// the following members but produces no accessor.
 #[derive(Debug, Clone)]
 pub struct BitfieldMember {
     pub name: Option<syn::Ident>,
     pub width: u32,
 }
 
-/// The type of a field: either a normal named type, or an inline anonymous
-/// nested struct/union declared directly at the field's type position.
-///
-/// The nested form is the exact representation of a C anonymous aggregate
-/// member, e.g. `Anonymous: struct { x: u32, y: u32 }`.
 #[derive(Debug, Clone)]
 pub enum FieldType {
     Type(Box<syn::Type>),
     Nested(Box<NestedRecord>),
 }
 
-/// An inline anonymous nested struct or union. It may carry its own
-/// `#[packed(N)]` / `#[align(N)]` / `#[arch(...)]` attributes, written between
-/// the `:` and the `struct`/`union` keyword.
 #[derive(Debug, Clone)]
 pub struct NestedRecord {
     pub attrs: Vec<syn::Attribute>,
@@ -81,9 +63,6 @@ impl syn::parse::Parse for Field {
     }
 }
 
-/// Parses a `{ member, member, ... }` bit-field block where each member is either
-/// `Name: width` (a named member projected as an accessor) or `_: width` (anonymous
-/// padding that only advances the offset).
 fn parse_bitfield_block(input: syn::parse::ParseStream) -> syn::Result<Vec<BitfieldMember>> {
     let content;
     syn::braced!(content in input);

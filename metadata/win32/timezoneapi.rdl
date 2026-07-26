@@ -10,7 +10,7 @@ mod Windows {
             DaylightDate: SYSTEMTIME,
             DaylightBias: i32,
             TimeZoneKeyName: [u16; 128],
-            DynamicDaylightTimeDisabled: BOOLEAN,
+            DynamicDaylightTimeDisabled: bool,
         }
         #[library("ADVAPI32.dll")]
         extern fn EnumDynamicTimeZoneInformation(dwIndex: u32, lpTimeZoneInformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;

@@ -33,10 +33,6 @@ impl syn::parse::Parse for Struct {
     }
 }
 
-/// The enclosing context of an inline nested record: the parent `TypeDef` that
-/// owns the `NestedClass` relationship, plus the parent's effective architecture
-/// (a nested type cannot diverge in architecture from its parent, so it inherits
-/// this when its own `#[arch]` is absent). `None` for a top-level type.
 #[derive(Clone, Copy)]
 pub struct Enclosing {
     outer: metadata::writer::TypeDef,
@@ -50,27 +46,6 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    /// Recursively encodes a struct/union and any inline anonymous nested
-    /// records it contains.
-    ///
-    /// `name` is the type's own metadata name; it also seeds the names of any
-    /// inline nested children (`{name}_{index}`, matching the flat naming scheme
-    /// used by `windows-bindgen` and the writer). `enclosing` carries the parent
-    /// `TypeDef` for a nested record (`None` for a top-level type).
-    ///
-    /// The record's own attributes (`#[packed]`/`#[align]`/`#[arch]`) are applied
-    /// immediately after its `TypeDef` is created, before any nested child - so
-    /// the `ClassLayout` table stays sorted by parent (types are created in
-    /// pre-order, parent before child). All of the record's own fields are then
-    /// pushed contiguously *before* any nested child `TypeDef`, so the metadata
-    /// `FieldList` ranges stay valid and every `NestedClass(inner, outer)` keeps
-    /// `inner > outer`.
-    ///
-    /// `inherited_arch` carries the enclosing type's effective architecture. A
-    /// nested type cannot diverge in architecture from its parent, so the RDL
-    /// omits the redundant `#[arch]` on inline nested records; the winmd still
-    /// needs it (bindgen hoists nested types to arch-gated flat helpers), so a
-    /// nested record with no explicit `#[arch]` inherits the parent's here.
     pub fn encode_record(
         &mut self,
         name: &str,
@@ -96,8 +71,6 @@ impl Encoder<'_> {
                 metadata::TypeAttributes::default()
             };
 
-        // A nested type lives in the empty namespace and is `NestedPublic`; a
-        // top-level type lives in the encoder's namespace and is `Public`.
         let namespace = if enclosing.is_some() {
             flags |= metadata::TypeAttributes::NestedPublic;
             ""
@@ -117,13 +90,11 @@ impl Encoder<'_> {
             self.output.NestedClass(type_def, enclosing.outer);
         }
 
-        // A nested type inherits its enclosing type's architecture; the RDL omits
-        // the redundant `#[arch]` on nested records, so fall back to the parent's.
+        // Nested records inherit the parent's architecture omitted from RDL.
         let effective_arch = self.read_arch(attrs)?.or(enclosing.and_then(|e| e.arch));
         self.apply_record_attrs(type_def, attrs, effective_arch)?;
 
-        // Push all of this record's fields first, deferring nested children so
-        // their `TypeDef`s (and fields) come after the complete field list.
+        // Defer nested TypeDefs until this record's FieldList is complete.
         let mut deferred: Vec<(String, &NestedRecord)> = vec![];
         for (index, field) in fields.iter().enumerate() {
             let field_name = field.name.unraw_to_string();
@@ -136,10 +107,7 @@ impl Encoder<'_> {
                     mt
                 }
                 FieldType::Nested(rec) => {
-                    // The nested child is referenced by its bare leaf name in the
-                    // empty namespace; the writer resolves this back to inline
-                    // syntax and `windows-bindgen` resolves it via the enclosing
-                    // type's nested-class list.
+                    // Empty-namespace leaf names are resolved through NestedClass.
                     let child_name = format!("{name}_{index}");
                     let mt = metadata::Type::value_named("", &child_name);
                     deferred.push((child_name, rec));
@@ -158,10 +126,7 @@ impl Encoder<'_> {
                 &[],
             )?;
 
-            // A backing bit-field unit written in the C-like block form materializes one
-            // `NativeBitfieldAttribute` per named member; the offset is the cumulative
-            // width of the preceding members (anonymous padding advances it but emits no
-            // attribute).
+            // Anonymous padding advances the bit offset but emits no attribute.
             let mut bit_offset = 0u32;
             for member in &field.bitfields {
                 if let Some(name) = &member.name {
@@ -176,8 +141,6 @@ impl Encoder<'_> {
             }
         }
 
-        // Encode the deferred nested children (depth-first) now that the parent's
-        // field list is complete.
         for (child_name, rec) in deferred {
             self.encode_record(
                 &child_name,
@@ -195,9 +158,6 @@ impl Encoder<'_> {
         Ok(type_def)
     }
 
-    /// Applies `#[packed(N)]` / `#[align(N)]` and any residual custom attributes
-    /// to a record `TypeDef`, plus the effective architecture (`arch_bits`, which
-    /// the caller resolves from the record's own `#[arch]` or the parent's).
     pub fn apply_record_attrs(
         &mut self,
         type_def: metadata::writer::TypeDef,

@@ -77,13 +77,13 @@ mod Windows {
         extern fn AddSecurityPackageW(pszPackageName: PCWSTR, #[opt] pOptions: *const SECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn ApplyControlToken(phContext: PCtxtHandle, pInput: *const SecBufferDesc) -> SECURITY_STATUS;
-        extern fn CHANGE_PASSWORD_FN_A(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: *mut SEC_CHAR, param4: *mut SEC_CHAR, param5: BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> SECURITY_STATUS;
-        extern fn CHANGE_PASSWORD_FN_W(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: *mut SEC_WCHAR, param4: *mut SEC_WCHAR, param5: BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> SECURITY_STATUS;
+        extern fn CHANGE_PASSWORD_FN_A(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: *mut SEC_CHAR, param4: *mut SEC_CHAR, param5: bool, param6: u32, param7: *mut SecBufferDesc) -> SECURITY_STATUS;
+        extern fn CHANGE_PASSWORD_FN_W(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: *mut SEC_WCHAR, param4: *mut SEC_WCHAR, param5: bool, param6: u32, param7: *mut SecBufferDesc) -> SECURITY_STATUS;
         extern fn COMPLETE_AUTH_TOKEN_FN(param0: PCtxtHandle, param1: *mut SecBufferDesc) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn ChangeAccountPasswordA(pszPackageName: *const SEC_CHAR, pszDomainName: *const SEC_CHAR, pszAccountName: *const SEC_CHAR, pszOldPassword: *const SEC_CHAR, pszNewPassword: *const SEC_CHAR, bImpersonating: BOOLEAN, dwReserved: u32, #[in] #[out] pOutput: *mut SecBufferDesc) -> SECURITY_STATUS;
+        extern fn ChangeAccountPasswordA(pszPackageName: *const SEC_CHAR, pszDomainName: *const SEC_CHAR, pszAccountName: *const SEC_CHAR, pszOldPassword: *const SEC_CHAR, pszNewPassword: *const SEC_CHAR, bImpersonating: bool, dwReserved: u32, #[in] #[out] pOutput: *mut SecBufferDesc) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn ChangeAccountPasswordW(pszPackageName: *const SEC_WCHAR, pszDomainName: *const SEC_WCHAR, pszAccountName: *const SEC_WCHAR, pszOldPassword: *const SEC_WCHAR, pszNewPassword: *const SEC_WCHAR, bImpersonating: BOOLEAN, dwReserved: u32, #[in] #[out] pOutput: *mut SecBufferDesc) -> SECURITY_STATUS;
+        extern fn ChangeAccountPasswordW(pszPackageName: *const SEC_WCHAR, pszDomainName: *const SEC_WCHAR, pszAccountName: *const SEC_WCHAR, pszOldPassword: *const SEC_WCHAR, pszNewPassword: *const SEC_WCHAR, bImpersonating: bool, dwReserved: u32, #[in] #[out] pOutput: *mut SecBufferDesc) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn CompleteAuthToken(phContext: PCtxtHandle, pToken: *const SecBufferDesc) -> SECURITY_STATUS;
         type CredHandle = SecHandle;
@@ -219,7 +219,7 @@ mod Windows {
         type PSECPKG_APP_MODE_INFO = *mut SECPKG_APP_MODE_INFO;
         type PSECPKG_ATTR_LCT_STATUS = *mut SECPKG_ATTR_LCT_STATUS;
         type PSECPKG_CRED_CLASS = *mut SECPKG_CRED_CLASS;
-        type PSECURITY_INTEGER = *mut LARGE_INTEGER;
+        type PSECURITY_INTEGER = *mut i64;
         type PSECURITY_PACKAGE_OPTIONS = *mut SECURITY_PACKAGE_OPTIONS;
         type PSECURITY_STRING = *mut SECURITY_STRING;
         type PSEC_APPLICATION_PROTOCOLS = *mut SEC_APPLICATION_PROTOCOLS;
@@ -391,7 +391,7 @@ mod Windows {
             Argument1: usize,
             Argument2: usize,
             UserData: SecBuffer,
-            ReturnToLsa: BOOLEAN,
+            ReturnToLsa: bool,
         }
         const SECPKG_ATTR_ACCESS_TOKEN: i32 = 18;
         const SECPKG_ATTR_APPLICATION_PROTOCOL: i32 = 35;
@@ -511,7 +511,7 @@ mod Windows {
         const SECURITY_ENTRYPOINT_ANSIA: String = "InitSecurityInterfaceA";
         #[encoding("ansi")]
         const SECURITY_ENTRYPOINT_ANSIW: String = "InitSecurityInterfaceW";
-        type SECURITY_INTEGER = LARGE_INTEGER;
+        type SECURITY_INTEGER = i64;
         const SECURITY_NATIVE_DREP: i32 = 16;
         const SECURITY_NETWORK_DREP: i32 = 0;
         struct SECURITY_PACKAGE_OPTIONS {
@@ -1084,7 +1084,7 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn SetCredentialsAttributesW(phCredential: PCredHandle, ulAttribute: u32, #[size_param(3)] pBuffer: *const void, cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiCompareAuthIdentities(#[opt] AuthIdentity1: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] AuthIdentity2: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] SameSuppliedUser: *mut BOOLEAN, #[opt] SameSuppliedIdentity: *mut BOOLEAN) -> SECURITY_STATUS;
+        extern fn SspiCompareAuthIdentities(#[opt] AuthIdentity1: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] AuthIdentity2: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] SameSuppliedUser: *mut bool, #[opt] SameSuppliedIdentity: *mut bool) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiCopyAuthIdentity(AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, AuthDataCopy: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
@@ -1106,9 +1106,9 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn SspiGetTargetHostName(pszTargetName: PCWSTR, pszHostName: *mut PWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiIsAuthIdentityEncrypted(EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> BOOLEAN;
+        extern fn SspiIsAuthIdentityEncrypted(EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> bool;
         #[library("credui.dll")]
-        extern fn SspiIsPromptingNeeded(ErrorOrNtStatus: u32) -> BOOLEAN;
+        extern fn SspiIsPromptingNeeded(ErrorOrNtStatus: u32) -> bool;
         #[library("Secur32.dll")]
         extern fn SspiLocalFree(#[opt] DataBuffer: *const void);
         #[library("Secur32.dll")]
@@ -1133,6 +1133,6 @@ mod Windows {
         extern fn VERIFY_SIGNATURE_FN(param0: PCtxtHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn VerifySignature(phContext: PCtxtHandle, pMessage: *const SecBufferDesc, MessageSeqNo: u32, pfQOP: *mut u32) -> SECURITY_STATUS;
-        type _SECURITY_INTEGER = LARGE_INTEGER;
+        type _SECURITY_INTEGER = i64;
     }
 }

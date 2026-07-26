@@ -8,7 +8,6 @@ pub struct Attribute {
     pub token: attribute,
     pub name: syn::Ident,
     pub methods: Vec<syn::TypeBareFn>,
-    /// Named instance-field properties, declared as `name: type,` inside the attribute body.
     pub properties: Vec<(syn::Ident, syn::Type)>,
     pub winrt: bool,
 }

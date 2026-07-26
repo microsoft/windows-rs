@@ -296,9 +296,9 @@ mod Windows {
         }
         #[guid(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856)]
         interface IDWriteFactory4: IDWriteFactory3 {
-            fn TranslateColorGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS, measuringMode: DWRITE_MEASURING_MODE, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, colorPaletteIndex: u32, colorLayers: *mut IDWriteColorGlyphRunEnumerator1) -> HRESULT;
-            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, baselineOrigin: D2D_POINT_2F, glyphOrigins: *mut D2D_POINT_2F) -> HRESULT;
-            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, baselineOrigin: D2D_POINT_2F, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, glyphOrigins: *mut D2D_POINT_2F) -> HRESULT;
+            fn TranslateColorGlyphRun(&self, baselineOrigin: super::Foundation::Numerics::Vector2, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS, measuringMode: DWRITE_MEASURING_MODE, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, colorPaletteIndex: u32, colorLayers: *mut IDWriteColorGlyphRunEnumerator1) -> HRESULT;
+            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, baselineOrigin: super::Foundation::Numerics::Vector2, glyphOrigins: *mut super::Foundation::Numerics::Vector2) -> HRESULT;
+            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, baselineOrigin: super::Foundation::Numerics::Vector2, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, glyphOrigins: *mut super::Foundation::Numerics::Vector2) -> HRESULT;
         }
         #[guid(0x958db99a_be2a_4f09_af7d_65189803d1d3)]
         interface IDWriteFactory5: IDWriteFactory4 {
@@ -325,7 +325,7 @@ mod Windows {
         }
         #[guid(0xee0a7fb5_def4_4c23_a454_c9c7dc878398)]
         interface IDWriteFactory8: IDWriteFactory7 {
-            fn TranslateColorGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS, paintFeatureLevel: DWRITE_PAINT_FEATURE_LEVEL, measuringMode: DWRITE_MEASURING_MODE, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, colorPaletteIndex: u32, colorEnumerator: *mut IDWriteColorGlyphRunEnumerator1) -> HRESULT;
+            fn TranslateColorGlyphRun(&self, baselineOrigin: super::Foundation::Numerics::Vector2, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS, paintFeatureLevel: DWRITE_PAINT_FEATURE_LEVEL, measuringMode: DWRITE_MEASURING_MODE, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, colorPaletteIndex: u32, colorEnumerator: *mut IDWriteColorGlyphRunEnumerator1) -> HRESULT;
         }
         #[guid(0x29748ed6_8c9c_4a6a_be0b_d912e8538944)]
         interface IDWriteFont3: IDWriteFont2 {

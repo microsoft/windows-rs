@@ -493,7 +493,7 @@ mod Windows {
         struct DDDEVICEIDENTIFIER {
             szDriver: [i8; 512],
             szDescription: [i8; 512],
-            liDriverVersion: LARGE_INTEGER,
+            liDriverVersion: i64,
             dwVendorId: u32,
             dwDeviceId: u32,
             dwSubSysId: u32,
@@ -503,7 +503,7 @@ mod Windows {
         struct DDDEVICEIDENTIFIER2 {
             szDriver: [i8; 512],
             szDescription: [i8; 512],
-            liDriverVersion: LARGE_INTEGER,
+            liDriverVersion: i64,
             dwVendorId: u32,
             dwDeviceId: u32,
             dwSubSysId: u32,

@@ -1,9 +1,6 @@
 //! Code generation for the `#[interface]` macro.
 //!
-//! All `gen_*` methods live here, separate from the parsing code in `lib.rs`.  Each method
-//! generates one piece of the final token stream.  Using `parse_quote!` (where feasible) lets
-//! the compiler check well-formedness at macro-expansion time rather than silently emitting
-//! syntactically invalid code.
+//! The `gen_*` methods live here, separate from the parsing code in `lib.rs`.
 
 use super::{Guid, Interface, InterfaceMethod, InterfaceMethodArg};
 use quote::quote;
@@ -111,19 +108,10 @@ impl Interface {
         }
     }
 
-    /// Generates the vtable struct and its `new` constructor.
+    /// Generates the vtable struct and constructor.
     ///
-    /// There are two distinct code paths:
-    ///
-    /// - **COM interface with a parent** (e.g. `IFoo: IUnknown`): The vtable starts with a
-    ///   `base__` field of the parent's vtable type.  The `new` constructor is generic over
-    ///   `Identity: IUnknownImpl` and `const OFFSET: isize`, which are used to adjust the
-    ///   raw `this` pointer back to the `Foo_Impl` root.
-    ///
-    /// - **Non-COM / scoped interface** (no parent): The vtable has no `base__` field and the
-    ///   `new` constructor is simpler.  A hidden `IFoo_ImplVtbl<T>` struct is also generated
-    ///   to hold the static vtable, together with an `IFoo::new` constructor that wraps a
-    ///   `&T` in a `ScopedInterface<IFoo>`.
+    /// Parented COM interfaces need `base__` and pointer adjustment; scoped interfaces get a
+    /// hidden `IFoo_ImplVtbl<T>` plus an `IFoo::new` wrapper.
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
         let vis = &self.visibility;
         let name = &self.name;
@@ -194,17 +182,11 @@ impl Interface {
                         where
                             Identity : #trait_name
                         {
-                            // This step is a virtual dispatch adjustor thunk. Its purpose is to adjust
-                            // the "this" pointer from the address used by the COM interface to the root of the
-                            // MyApp_Impl object.  Since a given MyApp_Impl may implement more than one COM interface
-                            // (and more than one COM interface chain), we need to know how to get from COM's "this"
-                            // back to &MyApp_Impl. The OFFSET constant gives us the value (in pointer-sized units).
+                            // Adjust COM's interface-specific `this` pointer back to the root
+                            // implementer; `OFFSET` is counted in pointer-sized slots.
                             let this_outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
 
-                            // Last, we invoke the implementation function.
-                            // We use explicit <Impl as IFoo_Impl> so that we can select the correct method
-                            // for situations where IFoo3 derives from IFoo2 and both declare a method with
-                            // the same name.
+                            // Use the explicit trait to disambiguate inherited same-name methods.
                             <Identity as #trait_name>::#method_name(this_outer, #(#params),*).into()
                         }
                     }
@@ -298,10 +280,8 @@ impl Interface {
         let name = &self.name;
         let name_string = format!("{name}");
 
-        // For COM interfaces (those with a parent), we can implement `From<IFoo> for IUnknown`
-        // safely by delegating to the parent's `From` impl, traversing the inheritance chain
-        // until we reach `IUnknown`.  For scoped interfaces (no parent, inner field is a raw
-        // pointer) we fall back to a transmute since `NonNull<c_void>` has no `Into<IUnknown>`.
+        // Parented interfaces delegate through the inheritance chain; scoped interfaces have a
+        // raw inner pointer, so they fall back to transmute.
         let into_iunknown_impl = if self.parent.is_some() {
             quote! {
                 impl ::core::convert::From<#name> for ::windows_core::IUnknown {
@@ -381,11 +361,7 @@ impl Interface {
         }
     }
 
-    /// Returns the supertrait constraint for the `IFoo_Impl` trait.
-    ///
-    /// Returns empty tokens when the parent is `IUnknown` (to avoid a circular constraint),
-    /// otherwise returns `ParentName_Impl` so that implementing `IFoo_Impl` automatically
-    /// requires implementing all ancestor `_Impl` traits.
+    /// Returns the `ParentName_Impl` supertrait constraint, except for `IUnknown`.
     fn parent_trait_constraint(&self) -> proc_macro2::TokenStream {
         if let Some((ident, path)) = self.parent_path().split_last() {
             if ident != "IUnknown" {
@@ -399,10 +375,7 @@ impl Interface {
 }
 
 impl InterfaceMethod {
-    /// Returns `true` when the method's return type is `Result<T>` (single generic arg).
-    ///
-    /// When `true`, the generated caller-side method appends `.ok()` to convert `HRESULT`
-    /// to `windows_core::Result<T>`, and the vtable entry is typed `-> HRESULT`.
+    /// Returns `true` when the method's return type is `Result<T>`.
     pub(crate) fn is_result(&self) -> bool {
         if let syn::ReturnType::Type(_, ty) = &self.ret {
             if let syn::Type::Path(path) = &**ty {

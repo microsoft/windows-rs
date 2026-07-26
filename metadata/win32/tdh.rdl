@@ -236,13 +236,13 @@ mod Windows {
             ProviderNameOffset: u32,
         }
         #[library("tdh.dll")]
-        extern fn TdhAggregatePayloadFilters(PayloadFilterCount: u32, #[len_param(0)] PayloadFilterPtrs: *const *const void, #[len_param(0)] #[opt] EventMatchALLFlags: *const BOOLEAN, EventFilterDescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
+        extern fn TdhAggregatePayloadFilters(PayloadFilterCount: u32, #[len_param(0)] PayloadFilterPtrs: *const *const void, #[len_param(0)] #[opt] EventMatchALLFlags: *const bool, EventFilterDescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhCleanupPayloadEventFilterDescriptor(#[in] #[out] EventFilterDescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhCloseDecodingHandle(Handle: TDH_HANDLE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhCreatePayloadFilter(ProviderGuid: *const GUID, EventDescriptor: *const EVENT_DESCRIPTOR, EventMatchANY: BOOLEAN, PayloadPredicateCount: u32, #[len_param(3)] PayloadPredicates: *const PAYLOAD_FILTER_PREDICATE, PayloadFilter: *mut *mut void) -> TDHSTATUS;
+        extern fn TdhCreatePayloadFilter(ProviderGuid: *const GUID, EventDescriptor: *const EVENT_DESCRIPTOR, EventMatchANY: bool, PayloadPredicateCount: u32, #[len_param(3)] PayloadPredicates: *const PAYLOAD_FILTER_PREDICATE, PayloadFilter: *mut *mut void) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhDeletePayloadFilter(#[in] #[out] PayloadFilter: *mut *mut void) -> TDHSTATUS;
         #[library("tdh.dll")]

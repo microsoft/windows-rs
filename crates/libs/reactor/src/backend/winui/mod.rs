@@ -10,10 +10,7 @@ mod generated_attach_event;
 mod generated_set_prop;
 use convert::*;
 
-/// Declares the `Handle` enum, its casts, the
-/// `ControlKind`->`Handle` constructor, and `describe_kind` in one place. Each variant name
-/// matches its backing `bindings::Variant` class and must correspond to a
-/// `ControlKind` variant; the class must be activatable.
+/// Keeps `Handle`, `ControlKind` construction, and diagnostics in one table.
 macro_rules! define_handles {
     ( $( $variant:ident ),* $(,)? ) => {
         enum Handle {
@@ -133,32 +130,17 @@ pub struct WinUIBackend {
     templated_selection_revokers: RefCell<FxHashMap<ControlId, windows_core::EventRevoker>>,
     /// Per-list virtualization state for templated ListView/GridView/FlipView.
     templated: RefCell<FxHashMap<ControlId, TemplatedList>>,
-    /// Shared `ItemTemplate` for virtualized ListView/GridView: a
-    /// `DataTemplate` whose root is a plain `ContentControl`. Parsed once and
-    /// reused across every list. WinUI's `ListViewItemPresenter` renders item
-    /// content as a *string*, so it cannot host an arbitrary `UIElement`
-    /// directly; routing through a real `ContentControl` (the template root)
-    /// lets us set `Content` to a reactor-built element and have it render.
-    /// The one-time parse is off the per-item hot path.
+    /// Shared ListView/GridView template; its root `ContentControl` can host
+    /// reactor elements where `ListViewItemPresenter` would render strings.
     content_template: RefCell<Option<bindings::DataTemplate>>,
-    /// Pointer-handler revokers (separate from `event_revokers` because
-    /// pointer events use the universal `IUIElement` event surface).
     pointer_revokers: RefCell<FxHashMap<ControlId, PointerRevokerSet>>,
     drag_revokers: RefCell<FxHashMap<ControlId, DragRevokerSet>>,
-    /// Logical children per parent, mirroring the reconciler. Used to
-    /// translate logical indices into visual-tree indices when phantom
-    /// children (e.g. `ContentDialog`) are tracked but not attached.
+    /// Logical children mirror used to skip phantom children in visual indices.
     parent_children: RefCell<FxHashMap<ControlId, Vec<ControlId>>>,
-    /// Stored click handlers for MenuBar/MenuFlyout items so they can be
-    /// re-wired when the item collection is rebuilt via `set_prop`.
     menu_click_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
     command_bar_flyout_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
-    /// Registry of theme brush bindings per control, so they can be
-    /// re-resolved when the app theme changes (dark <-> light).
     theme_brush_registry: RefCell<FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>>,
-    /// This host's window state, used to apply window-level props (e.g. the
-    /// title-bar height) to the correct window when multiple hosts share a
-    /// UI thread. `None` for non-window backends (tests use `RecordingBackend`).
+    /// Per-host window state for window-level props.
     window_state: RefCell<Option<Rc<HostWindowState>>>,
     next_id: RefCell<u32>,
 }
@@ -182,18 +164,11 @@ struct DragRevokerSet {
     drop: Option<windows_core::EventRevoker>,
 }
 
-/// Interior-mutable state shared between a templated list's WinUI event
-/// handlers (container recycling, drag-reorder) and the backend's
-/// `set_templated_*` methods. The handlers fire outside `&mut self`, so the
-/// pieces they touch live behind `Rc<RefCell<_>>`.
+/// Shared templated-list state touched from WinUI event handlers.
 #[derive(Clone, Default)]
 struct TemplatedShared {
-    /// The observable `ItemsSource` of boxed `i32` indices driving WinUI
-    /// virtualization for ListView/GridView. `None` for FlipView.
     source: Rc<RefCell<Option<windows_collections::IObservableVector<windows_core::IInspectable>>>>,
-    /// Logical row index -> the content host for that row: the inner
-    /// `ContentControl` at the root of the shared item template. Populated
-    /// when WinUI prepares a container, cleared when it recycles.
+    /// Logical row index -> template-root content host.
     containers: Rc<RefCell<FxHashMap<usize, bindings::IContentControl>>>,
 }
 
@@ -239,8 +214,6 @@ impl WinUIBackend {
         }
     }
 
-    /// Attach this backend to its host's window state so window-level props
-    /// (e.g. title-bar height) target the correct window.
     pub(crate) fn set_window_state(&self, state: Rc<HostWindowState>) {
         *self.window_state.borrow_mut() = Some(state);
     }
@@ -250,10 +223,7 @@ impl WinUIBackend {
             .get(&id)
             .map(|h| h.as_ui_element().cast().unwrap())
     }
-    /// Returns the shared virtualization item template, parsing it on first
-    /// use. The XAML is a fixed internal invariant, so a parse/cast failure is
-    /// a bug (not a recoverable condition) and panics rather than degrading to
-    /// a permanently blank list with no diagnostic.
+    /// Parses the shared virtualization item template on first use.
     fn content_template(&self) -> bindings::DataTemplate {
         if let Some(t) = self.content_template.borrow().as_ref() {
             return t.clone();
@@ -276,16 +246,13 @@ impl WinUIBackend {
         *counter += 1;
         ControlId::new(*counter)
     }
-    /// Whether this control is a "phantom" child - tracked in the
-    /// reconciler's tree but not attached under its parent's visual
-    /// `Children`. Only `ContentDialog` qualifies today.
+    /// `ContentDialog` is tracked logically but not attached as a visual child.
     fn is_phantom_child(&self, id: ControlId) -> bool {
         matches!(
             self.controls.borrow().get(&id),
             Some(Handle::ContentDialog(_))
         )
     }
-    /// Logical->visual child index translation that skips phantom children.
     fn visual_index(&self, parent: ControlId, logical: usize) -> usize {
         let kids = self.parent_children.borrow();
         let Some(list) = kids.get(&parent) else {
@@ -298,8 +265,6 @@ impl WinUIBackend {
             .count()
     }
 
-    /// Wire Click handlers on all `MenuFlyoutItem`s within a `MenuBar`,
-    /// recursing into sub-items.  Returns the collected `EventRevoker`s.
     fn wire_menu_bar_clicks(
         mb: &bindings::MenuBar,
         handler: &EventHandler,
@@ -316,8 +281,6 @@ impl WinUIBackend {
         revokers
     }
 
-    /// Wire Click handlers on all `MenuFlyoutItem`s within a flyout item
-    /// collection, recursing into sub-items.
     fn wire_flyout_clicks(
         flyout: &bindings::MenuFlyout,
         handler: &EventHandler,
@@ -371,8 +334,6 @@ impl WinUIBackend {
         }
         revokers
     }
-    /// Insert `child` at visual index `v_index`. Caller must ensure
-    /// `child` is non-phantom; the logical mirror is NOT touched.
     fn visual_insert_at(&self, parent: ControlId, v_index: usize, child: ControlId) {
         let map = self.controls.borrow();
         let parent_h = map
@@ -387,7 +348,6 @@ impl WinUIBackend {
         });
         container_insert(&cc, v_index, &child_ui);
     }
-    /// Remove the child at visual index `v_index`. Logical mirror is NOT touched.
     fn visual_remove_at(&self, parent: ControlId, v_index: usize) {
         let map = self.controls.borrow();
         let parent_h = map
@@ -398,8 +358,6 @@ impl WinUIBackend {
         });
         container_remove(&cc, v_index);
     }
-    /// In-place replace the child at visual index `v_index`. Caller
-    /// must ensure `new` is non-phantom; logical mirror is NOT touched.
     fn visual_set_at(&self, parent: ControlId, v_index: usize, new: ControlId) {
         let map = self.controls.borrow();
         let parent_h = map
@@ -415,28 +373,14 @@ impl WinUIBackend {
     }
 }
 
-/// Classification of container handles for child-tree operations.
-/// Every container variant falls into one of these shapes, which
-/// determines how children are appended, removed, moved, etc.
 enum ContainerChildren<'a> {
-    /// Multi-child panel (StackPanel, Grid, Canvas, RelativePanel) backed
-    /// by `IPanel::Children` - a `UIElementCollection` (which derefs to
-    /// `IVector<UIElement>`).
     Panel(bindings::UIElementCollection),
-    /// Single-child container (Border, Viewbox) that uses `put_Child`.
     SingleChild(&'a Handle),
-    /// Single-child `IContentControl` (ScrollViewer, Expander,
-    /// TabViewItem, NavigationView, PivotItem).
     ContentControl(bindings::IContentControl),
-    /// Single-child container that has a direct `put_Content` method but
-    /// does not implement `IContentControl` (ScrollView, SplitView).
     DirectContent(&'a Handle),
-    /// `IVector<IInspectable>`-backed multi-child (TabView, Pivot).
     InspectableVector(windows_collections::IVector<windows_core::IInspectable>),
 }
 
-/// Classify a `Handle` into its container shape. Returns `None` when the
-/// handle does not support children.
 fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
     match h {
         Handle::StackPanel(s) => Some(ContainerChildren::Panel(
@@ -471,7 +415,6 @@ fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
     }
 }
 
-/// Append a child UIElement to a container.
 fn container_append(cc: &ContainerChildren<'_>, child: &bindings::UIElement) {
     match cc {
         ContainerChildren::Panel(vec) => vec.Append(child).unwrap(),
@@ -485,7 +428,6 @@ fn container_append(cc: &ContainerChildren<'_>, child: &bindings::UIElement) {
     }
 }
 
-/// Insert a child UIElement at `index`.
 fn container_insert(cc: &ContainerChildren<'_>, index: usize, child: &bindings::UIElement) {
     match cc {
         ContainerChildren::Panel(vec) => vec.InsertAt(index as u32, child).unwrap(),
@@ -499,7 +441,6 @@ fn container_insert(cc: &ContainerChildren<'_>, index: usize, child: &bindings::
     }
 }
 
-/// Replace the child at `index`.
 fn container_set(cc: &ContainerChildren<'_>, index: usize, child: &bindings::UIElement) {
     match cc {
         ContainerChildren::Panel(vec) => vec.SetAt(index as u32, child).unwrap(),
@@ -513,7 +454,6 @@ fn container_set(cc: &ContainerChildren<'_>, index: usize, child: &bindings::UIE
     }
 }
 
-/// Remove the child at `index`.
 fn container_remove(cc: &ContainerChildren<'_>, index: usize) {
     match cc {
         ContainerChildren::Panel(vec) => vec.RemoveAt(index as u32).unwrap(),
@@ -533,8 +473,6 @@ fn container_remove(cc: &ContainerChildren<'_>, index: usize) {
     }
 }
 
-/// Move a child from `from` to `to` within a container. Single-child
-/// containers are no-ops.
 fn container_move(cc: &ContainerChildren<'_>, from: usize, to: usize) {
     match cc {
         ContainerChildren::Panel(vec) => {
@@ -569,8 +507,6 @@ fn put_direct_content(h: &Handle, child: Option<&bindings::UIElement>) {
     }
 }
 
-/// Build and apply a XAML Style with {ThemeResource} setters to an element.
-/// WinUI handles theme-reactive resolution natively (Light <-> Dark).
 fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
     let Some((target_type, fe)) = style_target_for_handle(handle) else {
         return;
@@ -602,7 +538,7 @@ fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
     match bindings::XamlReader::Load(&xaml) {
         Ok(obj) => {
             if let Ok(style) = obj.cast::<bindings::Style>() {
-                // Clear first to force WinUI to re-resolve {ThemeResource} values
+                // Force WinUI to re-resolve {ThemeResource} values.
                 diag::dropped(fe.SetStyle(None));
                 diag::dropped(fe.SetStyle(&style));
             }
@@ -615,7 +551,6 @@ fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
     }
 }
 
-/// Get the XAML TargetType name and IFrameworkElement for a Handle.
 fn style_target_for_handle(handle: &Handle) -> Option<(&'static str, bindings::IFrameworkElement)> {
     match handle {
         Handle::Border(b) => b.cast().ok().map(|fe| ("Border", fe)),
@@ -629,16 +564,12 @@ fn style_target_for_handle(handle: &Handle) -> Option<(&'static str, bindings::I
     }
 }
 
-// Composition animation helpers. Both `apply_implicit_transitions` and
-// `run_property_animation_inner` reach the element's backing composition
-// `Visual` via `ElementCompositionPreview::GetElementVisual` and drive it
-// through windows-composition's safe wrappers.
+// Composition animations use the element backing visual from ElementCompositionPreview.
 
 fn easing_for(
     compositor: &windows_composition::Compositor,
     easing: Easing,
 ) -> windows_composition::CompositionEasingFunction {
-    // Control points match the CSS-standard ease-{out,in,in-out} curves.
     let (p1, p2) = match easing {
         Easing::Linear => return compositor.create_linear_easing_function(),
         Easing::EaseOut => (
@@ -657,7 +588,6 @@ fn easing_for(
     compositor.create_cubic_bezier_easing_function(p1, p2)
 }
 
-/// Wraps an element's backing composition visual for the animation engine.
 fn element_visual(ui: &bindings::UIElement) -> Result<windows_composition::Visual> {
     let raw = bindings::ElementCompositionPreview::GetElementVisual(ui)?;
     windows_composition::Visual::from_host(raw.into())
@@ -668,7 +598,6 @@ fn apply_implicit_transitions(
     transitions: Option<ImplicitTransitions>,
 ) -> Result<()> {
     let visual = element_visual(ui)?;
-    // No transitions, or every slot empty: clear the implicit-animation collection.
     let Some(t) = transitions.filter(|t| !t.is_empty()) else {
         visual.set_implicit_animations(None);
         return Ok(());
@@ -676,9 +605,7 @@ fn apply_implicit_transitions(
     let compositor = visual.compositor();
     let collection = compositor.create_implicit_animation_collection();
 
-    // Animate from `this.StartingValue` to `this.FinalValue` over `duration`.
-    // The DSL transition types only expose duration, so easing is fixed to
-    // EaseOut - the standard XAML implicit-transition curve.
+    // The DSL exposes duration only, so implicit transitions use XAML's EaseOut curve.
     let insert = |target: &str, duration: std::time::Duration, is_scalar: bool| {
         let easing = easing_for(&compositor, Easing::EaseOut);
         if is_scalar {
@@ -706,8 +633,7 @@ fn apply_implicit_transitions(
         insert("Scale", v.duration, false);
     }
     if let Some(v) = t.translation {
-        // KNOWN LIMITATION: `Offset` collides with XAML layout; the
-        // correct target is the synthetic `Translation` channel.
+        // `Offset` collides with XAML layout; this should target `Translation`.
         insert("Offset", v.duration, false);
     }
     visual.set_implicit_animations(Some(&collection));
@@ -726,9 +652,7 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
         visual.start_animation("Opacity", &a);
     }
     if let Some(scale) = cfg.scale {
-        // Pivot scale around the element's centre. KNOWN LIMITATION:
-        // before the first layout pass ActualWidth/Height are 0 and the
-        // previous CenterPoint is reused.
+        // Before first layout, ActualWidth/Height are 0 and CenterPoint is reused.
         if let Ok(fe) = ui.cast::<bindings::IFrameworkElement>() {
             let w = fe.ActualWidth().unwrap_or(0.0) as f32;
             let h = fe.ActualHeight().unwrap_or(0.0) as f32;
@@ -744,7 +668,6 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
                 ));
             }
         }
-        // Preserve current Scale.Z; cfg.scale is a uniform X/Y scalar.
         let current_z = visual.scale().z;
         let a = compositor.create_vector3_key_frame_animation();
         a.set_duration(cfg.duration);
@@ -764,10 +687,7 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
     Ok(())
 }
 
-/// Handle props that apply to any control via base-class interfaces
-/// (`IFrameworkElement`, `IUIElement`, `IControl`, `IPanel`, `IShape`, etc.).
-/// Each prop is dispatched by trying interface casts in priority order.
-/// Returns `Ok(true)` when handled, `Ok(false)` to fall through.
+/// Handles props shared by base-class interfaces.
 fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> {
     match (prop, value) {
         (Prop::FontSize, PropValue::F64(v)) => set_font_f64(handle, *v),
@@ -1133,7 +1053,6 @@ fn set_font_family(handle: &Handle, ff: &bindings::FontFamily) -> Result<bool> {
     Ok(true)
 }
 
-/// Populate an existing `IVector<IInspectable>` with string items (clear + append).
 fn set_str_items(
     vec: &windows_collections::IVector<windows_core::IInspectable>,
     items: &[String],
@@ -1146,7 +1065,6 @@ fn set_str_items(
     Ok(())
 }
 
-/// Build an `IVector<IInspectable>` from a string list (for `put_ItemsSource`).
 fn str_list_as_ivector(
     items: &[String],
 ) -> windows_collections::IVector<windows_core::IInspectable> {
@@ -1157,24 +1075,16 @@ fn str_list_as_ivector(
     vec.into()
 }
 
-/// Boxes an index as an `IReference<i32>` for a virtualized list's
-/// `ItemsSource`. The concrete value is irrelevant to rendering (rows are
-/// driven by container position), but distinct boxed indices let a
-/// drag-reorder be read back as a permutation.
+/// Boxed indices let drag-reorder be read back as a permutation.
 fn box_index(i: usize) -> windows_core::IInspectable {
     windows_reference::IReference::<i32>::from(i as i32).into()
 }
 
-/// Reads an index previously stored by [`box_index`] back out, or `None` if
-/// the value isn't the expected boxed `i32`.
 fn unbox_index(value: &windows_core::IInspectable) -> Option<usize> {
     let r = value.cast::<windows_reference::IReference<i32>>().ok()?;
     usize::try_from(r.Value().ok()?).ok()
 }
 
-/// The XAML for the shared virtualization item template: a bare
-/// `ContentControl` stretched to fill its container. We populate its `Content`
-/// per row with a reactor-built element.
 const CONTENT_TEMPLATE_XAML: &str = "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'><ContentControl HorizontalContentAlignment='Stretch' VerticalContentAlignment='Stretch'/></DataTemplate>";
 
 impl Backend for WinUIBackend {
@@ -1208,9 +1118,7 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::Content, PropValue::Str(s), Handle::Button(b)) => {
                     let cc = b.cast::<bindings::IContentControl>()?;
-                    // If the button has an icon+text layout (StackPanel from
-                    // Icon), update just the TextBlock child so the icon
-                    // is preserved when only the label changes.
+                    // Preserve an existing icon+text layout when only text changes.
                     if let Ok(existing) = cc.Content()
                         && let Ok(panel) = existing.cast::<bindings::IPanel>()
                     {
@@ -1227,8 +1135,7 @@ impl Backend for WinUIBackend {
                 (Prop::Icon, PropValue::Icon(icon), Handle::Button(b)) => {
                     let icon_elem = build_icon_element(icon)?;
                     let cc = b.cast::<bindings::IContentControl>()?;
-                    // If the button already has an icon+text StackPanel layout,
-                    // replace just the icon child (index 0) to preserve the text.
+                    // Preserve text when replacing an existing icon.
                     if let Ok(existing) = cc.Content()
                         && let Ok(panel) = existing.cast::<bindings::IPanel>()
                     {
@@ -1239,7 +1146,6 @@ impl Backend for WinUIBackend {
                         }
                     }
                     let use_icon_only = if let Ok(existing) = cc.Content() {
-                        // Already in icon-only mode (existing content is an IconElement).
                         existing.cast::<bindings::IIconElement>().is_ok()
                             || existing
                                 .cast::<bindings::ITextBlock>()
@@ -1270,8 +1176,7 @@ impl Backend for WinUIBackend {
                     let Ok(existing) = cc.Content() else {
                         return Ok(());
                     };
-                    // icon+text StackPanel layout: unwrap back to just the text
-                    // child (index 1), discarding the icon.
+                    // Unwrap icon+text layout back to text-only.
                     if let Ok(panel) = existing.cast::<bindings::IPanel>() {
                         let children = panel.Children()?;
                         if children.Size()? >= 2 {
@@ -1280,7 +1185,6 @@ impl Backend for WinUIBackend {
                             return cc.SetContent(&text_child);
                         }
                     }
-                    // icon-only layout: clear the content entirely.
                     if existing.cast::<bindings::IIconElement>().is_ok() {
                         return cc.SetContent(None::<&windows_core::IInspectable>);
                     }
@@ -1358,11 +1262,9 @@ impl Backend for WinUIBackend {
                 (Prop::IsClosable, PropValue::Bool(v), Handle::TabViewItem(ti)) => {
                     ti.SetIsClosable(*v)
                 }
-                // ContentDialog - modal popup hosted via ShowAsync.
                 (Prop::IsOpen, PropValue::Bool(v), Handle::ContentDialog(d)) => {
                     if *v {
-                        // ContentDialog needs a XamlRoot before ShowAsync; reuse
-                        // any other live UIElement's (the dialog isn't in the tree).
+                        // ContentDialog is not in the tree, so borrow another XamlRoot.
                         let xroot = self
                             .controls
                             .borrow()
@@ -1749,7 +1651,6 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 (Prop::FlyoutPlacement, PropValue::I32(v), Handle::Button(b)) => {
-                    // The flyout must already exist (FlyoutContent set first).
                     if let Ok(fb) = b.Flyout() {
                         diag::dropped(
                             fb.cast::<bindings::IFlyoutBase>()?
@@ -1835,14 +1736,9 @@ impl Backend for WinUIBackend {
             list[index] = new;
         }
         match (old_phantom, new_phantom) {
-            // Both invisible - nothing to do on the visual tree.
             (true, true) => {}
-            // real -> phantom: drop the old visual child, leaving siblings shifted.
             (false, true) => self.visual_remove_at(parent, v_index),
-            // phantom -> real: insert the new visual child at the slot the
-            // phantom would have occupied if it were real.
             (true, false) => self.visual_insert_at(parent, v_index, new),
-            // real -> real: in-place SetAt.
             (false, false) => self.visual_set_at(parent, v_index, new),
         }
     }
@@ -1850,8 +1746,7 @@ impl Backend for WinUIBackend {
         if from == to {
             return;
         }
-        // Compute visual indices before mutating the mirror so phantoms
-        // are counted against the pre-move state.
+        // Compute before mutating the mirror so phantoms use the pre-move state.
         let v_from = self.visual_index(parent, from);
         let v_to = self.visual_index(parent, to);
         let moved_phantom = self
@@ -1904,8 +1799,6 @@ impl Backend for WinUIBackend {
     fn set_templated_item_count(&mut self, id: ControlId, count: usize) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else { return };
-        // Only ListView/GridView virtualize through an ItemsSource; FlipView
-        // keeps the Items-materialization path in set_templated_row_content.
         let items_control: bindings::IItemsControl = match handle {
             Handle::ListView(lv) => lv.cast().unwrap(),
             Handle::GridView(gv) => gv.cast().unwrap(),
@@ -1919,10 +1812,7 @@ impl Backend for WinUIBackend {
         let mut slot = source_slot.borrow_mut();
         match slot.as_ref() {
             None => {
-                // First sizing: install the shared item template (so realized
-                // containers host a real `ContentControl` we can populate),
-                // then build the observable source and hand it to WinUI, which
-                // lazily realizes containers as rows scroll into view.
+                // Install the template before WinUI realizes row containers.
                 diag::dropped(items_control.SetItemTemplate(&self.content_template()));
                 let values: Vec<Option<windows_core::IInspectable>> =
                     (0..count).map(|i| Some(box_index(i))).collect();
@@ -1932,8 +1822,6 @@ impl Backend for WinUIBackend {
                 *slot = Some(source);
             }
             Some(source) => {
-                // Resize in place so existing containers/selection survive and
-                // WinUI realizes/recycles only the delta.
                 let current = source.Size().unwrap_or(0) as usize;
                 if count > current {
                     for i in current..count {
@@ -1959,9 +1847,7 @@ impl Backend for WinUIBackend {
             .unwrap_or_else(|| panic!("set_templated_row_content: unknown list {list_id}"));
         let content_ui = content.and_then(|c| map.get(&c).map(Handle::as_ui_element));
 
-        // ListView/GridView are virtualized: place the element into the item
-        // container WinUI prepared for this row (recorded on the realize event).
-        // FlipView is not virtualized and keeps the Items-materialization path.
+        // ListView/GridView rows are filled through realized template containers.
         match list_h {
             Handle::ListView(_) | Handle::GridView(_) => {
                 let container = self
@@ -2144,8 +2030,6 @@ impl Backend for WinUIBackend {
         }
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else { return };
-        // FlipView extends Selector (set SelectedIndex to flip);
-        // ListView/GridView extend ListViewBase and expose ScrollIntoView.
         let lvb: Option<bindings::IListViewBase> = match handle {
             Handle::ListView(lv) => lv.cast().ok(),
             Handle::GridView(gv) => gv.cast().ok(),
@@ -2188,8 +2072,6 @@ impl Backend for WinUIBackend {
             Handle::FlipView(fv) => fv.cast().unwrap(),
             _ => return,
         };
-        // Drop any prior registration so repeated attaches don't
-        // accumulate handlers.
         self.templated_selection_revokers.borrow_mut().remove(&id);
         let control = selector.clone();
         let revoker = selector
@@ -2215,9 +2097,6 @@ impl Backend for WinUIBackend {
     ) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else { return };
-        // Only ListView/GridView drive realization through WinUI's container
-        // recycling. FlipView isn't a ListViewBase and is realized eagerly by
-        // the reconciler.
         let lvb: bindings::IListViewBase = match handle {
             Handle::ListView(lv) => lv.cast().unwrap(),
             Handle::GridView(gv) => gv.cast().unwrap(),
@@ -2234,10 +2113,7 @@ impl Backend for WinUIBackend {
                 let Ok(item_container) = args.ItemContainer() else {
                     return;
                 };
-                // The item container (a `ListViewItem`/`GridViewItem`) hosts
-                // our shared template, whose root is a plain `ContentControl`.
-                // We populate that inner control - not the item container,
-                // whose `ListViewItemPresenter` only renders string content.
+                // Populate the template root, not the item container.
                 let Ok(root) = item_container.cast::<bindings::IContentControl>() else {
                     return;
                 };
@@ -2250,9 +2126,7 @@ impl Backend for WinUIBackend {
                 };
                 let recycling = args.InRecycleQueue().unwrap_or(false);
                 if recycling {
-                    // The container is being detached from its row. Drop our
-                    // element synchronously (before the reconciler unmounts it)
-                    // and tell the reconciler to recycle that row.
+                    // Clear before the reconciler unmounts the row.
                     diag::dropped(cc.SetContent(None::<&windows_core::IInspectable>));
                     let mut map = containers.borrow_mut();
                     if let Some(row) = map.iter().find(|(_, c)| **c == cc).map(|(row, _)| *row) {
@@ -2261,10 +2135,7 @@ impl Backend for WinUIBackend {
                         recycle(row);
                     }
                 } else {
-                    // A container is being prepared for this row. Record its
-                    // content host so set_templated_row_content can fill it,
-                    // suppress WinUI's default phased rendering, and ask the
-                    // reconciler to render the row.
+                    // Record the content host and suppress WinUI's phased rendering.
                     let row = args.ItemIndex().unwrap_or(-1);
                     if row < 0 {
                         return;
@@ -2298,10 +2169,7 @@ impl Backend for WinUIBackend {
 
         let revoker = lvb
             .DragItemsCompleted(move |_sender, _args| {
-                // WinUI has already reordered the observable source in place.
-                // Read the boxed indices back as the new order (a permutation
-                // of the pre-drag positions), hand it to the app, then reset
-                // the source to identity so the next drag reads cleanly.
+                // Read the permutation, then reset the source to identity.
                 let slot = source.borrow();
                 let Some(source) = slot.as_ref() else { return };
                 let len = source.Size().unwrap_or(0) as usize;
@@ -2331,7 +2199,6 @@ impl Backend for WinUIBackend {
         entry.reorder_revoker = Some(revoker);
     }
     fn destroy(&mut self, id: ControlId) {
-        // Drop per-control revokers for templated selection and pointer/tap handlers.
         self.templated_selection_revokers.borrow_mut().remove(&id);
         self.templated.borrow_mut().remove(&id);
         self.pointer_revokers.borrow_mut().remove(&id);
@@ -2340,15 +2207,11 @@ impl Backend for WinUIBackend {
         self.event_revokers
             .borrow_mut()
             .retain(|(hid, _), _| *hid != id);
-        // Drop any tracked child lists rooted at this id.
         let mut kids = self.parent_children.borrow_mut();
         kids.remove(&id);
         for list in kids.values_mut() {
             list.retain(|c| *c != id);
         }
-        // Clean up auxiliary per-control maps that were previously missed,
-        // preventing stale entries (and their captured closures) from
-        // accumulating across mount/unmount cycles.
         self.menu_click_handlers.borrow_mut().remove(&id);
         self.command_bar_flyout_handlers.borrow_mut().remove(&id);
         self.theme_brush_registry.borrow_mut().remove(&id);
@@ -2635,7 +2498,6 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::ItemClicked, Handle::MenuBar(mb)) => {
-                // Store the handler so set_prop can re-wire on item rebuild.
                 self.menu_click_handlers
                     .borrow_mut()
                     .insert(id, handler.clone());
@@ -2643,11 +2505,9 @@ impl Backend for WinUIBackend {
                 revokers.extend(revs);
             }
             (Event::ItemClicked, Handle::DropDownButton(_) | Handle::Button(_)) => {
-                // Store the handler so set_prop can wire when flyout is built.
                 self.menu_click_handlers.borrow_mut().insert(id, handler);
             }
             (Event::CommandBarFlyoutClick, Handle::Button(_)) => {
-                // Store the handler so set_prop can wire when flyout is built.
                 self.command_bar_flyout_handlers
                     .borrow_mut()
                     .insert(id, handler);
@@ -2677,7 +2537,6 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::Click, Handle::CommandBar(cb)) => {
-                // Store the handler so set_prop can re-wire on rebuild.
                 self.menu_click_handlers
                     .borrow_mut()
                     .insert(id, handler.clone());
@@ -2721,11 +2580,7 @@ impl Backend for WinUIBackend {
                     .unwrap(),
                 );
             }
-            (Event::Closed, _) => {
-                // Flyout open/close events are not yet wired.
-            }
-            // Events handled by generated_attach_event::dispatch - if we reach here, the
-            // control type was unexpected (generated dispatch returned None).
+            (Event::Closed, _) => {}
             (event, _) => {
                 panic!("WinUIBackend::attach_event: {event:?} on unexpected control {id}")
             }
@@ -2747,10 +2602,8 @@ impl Backend for WinUIBackend {
         bindings: &[(Prop, ThemeRef)],
     ) {
         let _ = kind;
-        // Store bindings for theme-change re-resolution.
         if bindings.is_empty() {
             self.theme_brush_registry.borrow_mut().remove(&id);
-            // Clear any applied style
             let map = self.controls.borrow();
             if let Some(handle) = map.get(&id)
                 && let Some((_, fe)) = style_target_for_handle(handle)
@@ -2770,7 +2623,7 @@ impl Backend for WinUIBackend {
         apply_theme_resource_style(handle, bindings);
     }
     fn on_theme_changed(&mut self) {
-        // Re-apply all theme styles; WinUI re-resolves {ThemeResource} on style re-application.
+        // Re-apply so WinUI re-resolves {ThemeResource}.
         let controls = self.controls.borrow();
         let registry = self.theme_brush_registry.borrow();
         for (id, bindings) in registry.iter() {
@@ -2830,7 +2683,6 @@ impl Backend for WinUIBackend {
             };
         diag::dropped(vec.Clear());
 
-        // Suppress the default accelerator tooltip that WinUI would otherwise show.
         diag::dropped(iue.SetKeyboardAcceleratorPlacementMode(
             bindings::KeyboardAcceleratorPlacementMode::Hidden,
         ));
@@ -2871,10 +2723,7 @@ impl Backend for WinUIBackend {
             diag::warn(format_args!("set_implicit_transitions failed: {e:?}"));
         }
     }
-    fn set_layout_animation(&mut self, _id: ControlId, _config: Option<LayoutAnimationConfig>) {
-        // Layout-driven size/offset animations are not yet wired up
-        // (requires SetIsTranslationEnabled + Translation channel).
-    }
+    fn set_layout_animation(&mut self, _id: ControlId, _config: Option<LayoutAnimationConfig>) {}
     fn run_property_animation(&mut self, id: ControlId, config: Option<AnimationConfig>) {
         let Some(cfg) = config else {
             return;
@@ -2923,7 +2772,6 @@ impl Backend for WinUIBackend {
                         );
                     }
                     RichTextInline::LineBreak => {
-                        // LineBreak inline - use a Run with newline.
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };
@@ -2934,7 +2782,6 @@ impl Backend for WinUIBackend {
                         );
                     }
                     RichTextInline::Hyperlink(h) => {
-                        // Hyperlink rendered as plain text (no navigation support yet).
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };
@@ -2964,8 +2811,6 @@ impl Backend for WinUIBackend {
             Err(_) => return,
         };
 
-        // Apply (or clear) the tooltip value. ToolTipService::SetToolTip
-        // accepts any IInspectable; plain strings are auto-wrapped.
         let inspectable: Option<windows_core::IInspectable> = match tooltip {
             None => None,
             Some(t) => match &t.content {
@@ -2995,7 +2840,6 @@ impl Backend for WinUIBackend {
             inspectable.as_ref(),
         ));
 
-        // Fall back to Top so cleared placements actually reset the slot.
         let placement = tooltip
             .and_then(|t| t.placement)
             .map_or(bindings::PlacementMode::Top, map_placement);
@@ -3003,8 +2847,7 @@ impl Backend for WinUIBackend {
     }
 
     fn set_pointer_handlers(&mut self, id: ControlId, handlers: Option<&PointerHandlers>) {
-        // Tear down any previous handlers before reattaching, so a
-        // per-render conditional doesn't leak event tokens.
+        // Replacing handlers must drop old event tokens first.
         let prev = self.pointer_revokers.borrow_mut().remove(&id);
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else {

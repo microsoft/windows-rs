@@ -239,7 +239,7 @@ mod Windows {
             Amount: u32,
         }
         type ADS_INTEGER = u32;
-        type ADS_LARGE_INTEGER = LARGE_INTEGER;
+        type ADS_LARGE_INTEGER = i64;
         #[repr(i32)]
         enum ADS_NAME_INITTYPE_ENUM {
             ADS_NAME_INITTYPE_DOMAIN = 1,
@@ -462,7 +462,7 @@ mod Windows {
         struct ADS_SORTKEY {
             pszAttrType: PWSTR,
             pszReserved: PWSTR,
-            fReverseorder: BOOLEAN,
+            fReverseorder: bool,
         }
         type ADS_STATUS = ADS_STATUSENUM;
         #[repr(i32)]
@@ -1863,7 +1863,7 @@ mod Windows {
         type PADS_FAXNUMBER = *mut ADS_FAXNUMBER;
         type PADS_HOLD = *mut ADS_HOLD;
         type PADS_INTEGER = *mut u32;
-        type PADS_LARGE_INTEGER = *mut LARGE_INTEGER;
+        type PADS_LARGE_INTEGER = *mut i64;
         type PADS_NETADDRESS = *mut ADS_NETADDRESS;
         type PADS_NT_SECURITY_DESCRIPTOR = *mut ADS_NT_SECURITY_DESCRIPTOR;
         type PADS_NUMERIC_STRING = *mut PWSTR;

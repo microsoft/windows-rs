@@ -7,12 +7,7 @@ use std::rc::Rc;
 pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
 impl SwapChainPanelHandle {
-    /// Wraps the native `SwapChainPanel` element for a control created outside
-    /// the [`swap_chain_panel()`] widget - for example, a [`CustomElement`] that
-    /// creates a `ControlKind::SwapChainPanel` and obtains its native object via
-    /// [`Backend::get_native_element`](crate::Backend::get_native_element). This
-    /// lets such a host attach a `windows-canvas` swap chain or a raw DXGI swap
-    /// chain to the panel.
+    /// Wraps a native `SwapChainPanel` created outside [`swap_chain_panel()`].
     pub fn from_native(native: windows_core::IInspectable) -> Self {
         Self(native)
     }
@@ -27,19 +22,13 @@ impl SwapChainPanelHandle {
         unsafe { native.SetSwapChain(swap_chain.as_raw()).ok() }
     }
 
-    /// Detach any swap chain previously attached to the panel, clearing its
-    /// presented content. Use when a host stops rendering (for example, a
-    /// [`CustomElement`] switching to a software fallback) without destroying
-    /// the panel.
+    /// Detaches any swap chain previously attached to the panel.
     pub fn clear_swap_chain(&self) -> Result<()> {
         let native: bindings::ISwapChainPanelNative = self.0.cast()?;
         unsafe { native.SetSwapChain(std::ptr::null_mut()).ok() }
     }
 
-    /// Returns the current composition scale (DPI scale factor) as `(scale_x, scale_y)`.
-    ///
-    /// Multiply DIP dimensions by these values to get pixel dimensions for the swap chain.
-    /// Typically both values are equal (e.g., 1.5 at 150% display scaling).
+    /// Returns the current composition scale as `(scale_x, scale_y)`.
     pub fn composition_scale(&self) -> Result<(f32, f32)> {
         let panel: bindings::ISwapChainPanel = self.0.cast()?;
         let x = panel.CompositionScaleX()?;
@@ -47,9 +36,7 @@ impl SwapChainPanelHandle {
         Ok((x, y))
     }
 
-    /// Subscribe to composition scale changes (e.g., window moved to a different monitor).
-    ///
-    /// The callback receives `(scale_x, scale_y)`.
+    /// Subscribes to composition scale changes.
     pub fn on_composition_scale_changed(
         &self,
         f: impl Fn(f32, f32) + 'static,
@@ -66,11 +53,7 @@ impl SwapChainPanelHandle {
     }
 }
 
-/// Built-in widget for `Microsoft.UI.Xaml.Controls.SwapChainPanel` - hosts
-/// custom Direct3D / Direct2D rendering inside a WinUI 3 XAML tree.
-///
-/// Use [`on_mounted`](SwapChainPanel::on_mounted) to receive a
-/// [`SwapChainPanelHandle`] for attaching your DXGI swap chain.
+/// Widget that hosts custom Direct3D / Direct2D rendering inside WinUI.
 #[derive(Clone, Debug, PartialEq)]
 pub struct SwapChainPanel {
     pub key: Option<String>,
@@ -97,8 +80,6 @@ impl SwapChainPanel {
 
     /// Callback invoked once after the native control is created.
     pub fn on_mounted(mut self, f: impl Fn(SwapChainPanelHandle) + 'static) -> Self {
-        // A `SwapChainPanel` always has a native control in practice; the
-        // handle is only built when one is present.
         self.mounted = Some(Callback::new(move |native: Option<_>| {
             if let Some(native) = native {
                 f(SwapChainPanelHandle(native));
@@ -107,10 +88,7 @@ impl SwapChainPanel {
         self
     }
 
-    /// Callback invoked just before the native control is destroyed, while it
-    /// still exists. Use this to tear down resources bound to the panel (for
-    /// example, stop and join a render thread that presents into its swap
-    /// chain) before the panel - and its swap chain - go away.
+    /// Callback invoked just before the native control is destroyed.
     pub fn on_unmounted(mut self, f: impl Fn(SwapChainPanelHandle) + 'static) -> Self {
         self.unmounted = Some(Callback::new(move |native: Option<_>| {
             if let Some(native) = native {
@@ -120,9 +98,7 @@ impl SwapChainPanel {
         self
     }
 
-    /// Callback invoked when the panel's layout size changes (width, height in
-    /// DIPs). Also fires once after the first layout pass. Use this to resize
-    /// your swap chain buffers.
+    /// Callback invoked when the panel's layout size changes.
     pub fn on_resize(mut self, f: impl Fn(f64, f64) + 'static) -> Self {
         let f = Rc::new(f);
         let prev = self.mounted.take();
@@ -133,7 +109,6 @@ impl SwapChainPanel {
             let Some(native) = native else {
                 return;
             };
-            // Subscribe to SizeChanged on the FrameworkElement.
             if let Ok(fe) = native.cast::<bindings::IFrameworkElement>() {
                 let f = f.clone();
                 if let Ok(revoker) = fe.SizeChanged(move |_sender, args| {
@@ -143,10 +118,7 @@ impl SwapChainPanel {
                         f(s.width as f64, s.height as f64);
                     }
                 }) {
-                    // Fire-and-forget for the element's lifetime. `into_token`
-                    // drops the revoker's strong reference to the element (unlike
-                    // `forget`, which would pin the element alive forever); the
-                    // handler is torn down when WinUI destroys the element.
+                    // `into_token` avoids pinning the element alive forever.
                     let _ = revoker.into_token();
                 }
             }

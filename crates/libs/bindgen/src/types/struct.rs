@@ -41,12 +41,7 @@ impl Struct {
         }
 
         let sys_default = if config.bindgen.style.is_sys() {
-            // Sys mode drops the blanket `Default` derive, yet Win32 structs still
-            // guarantee `Default` (derived when possible, else a zeroed impl) so that
-            // any struct embedding them can itself derive `Default`. A projected WinRT
-            // struct (e.g. the numerics `Vector2`/`Matrix3x2`) must uphold the same
-            // guarantee. All-scalar structs derive it; anything else gets the zeroed
-            // impl, matching `CppStruct`.
+            // Sys structs keep `Default` so containing structs can derive it.
             let all_scalar = fields.iter().all(|(_, ty)| {
                 matches!(
                     ty,

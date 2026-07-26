@@ -17,7 +17,7 @@ mod Windows {
             },
         }
         const OS_STRING_DESCRIPTOR_INDEX: i32 = 238;
-        type PHYSICAL_ADDRESS = LARGE_INTEGER;
+        type PHYSICAL_ADDRESS = i64;
         type PIRP = *mut void;
         type PMDL = *mut void;
         type POS_STRING = *mut OS_STRING;

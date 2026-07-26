@@ -128,7 +128,7 @@ mod Windows {
         #[library("TRAFFIC.dll")]
         extern fn TcQueryFlowW(pFlowName: PCWSTR, pGuidParam: *const GUID, #[in] #[out] pBufferSize: *mut u32, #[size_param(2)] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
-        extern fn TcQueryInterface(IfcHandle: HANDLE, pGuidParam: *const GUID, NotifyChange: BOOLEAN, #[in] #[out] pBufferSize: *mut u32, #[size_param(3)] Buffer: *mut void) -> u32;
+        extern fn TcQueryInterface(IfcHandle: HANDLE, pGuidParam: *const GUID, NotifyChange: bool, #[in] #[out] pBufferSize: *mut u32, #[size_param(3)] Buffer: *mut void) -> u32;
         #[library("TRAFFIC.dll")]
         extern fn TcRegisterClient(TciVersion: u32, ClRegCtx: HANDLE, ClientHandlerList: *const TCI_CLIENT_FUNC_LIST, pClientHandle: *mut HANDLE) -> u32;
         #[library("TRAFFIC.dll")]

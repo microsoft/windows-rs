@@ -18,14 +18,7 @@ pub enum MethodOrName<M> {
     Name(MethodDef),
 }
 
-// A method collapses to an opaque, name-only vtable slot when it is demoted by a
-// method-level filter (`!config.includes_method`), or when a type appearing directly
-// in its signature is not present at all (not included, not reference-provided). Only
-// the *direct* signature types are required: a dependency present merely as a name-only
-// shell still lets the method be described, so this one check serves both the full
-// projection (everything present) and the lean closure projection (dependencies present
-// as shells) without a mode flag. Shared by the WinRT and COM interface generators so the
-// policy that decides `Method` vs `Name` lives in one place.
+// Demote methods when filtered out or when direct signature types are unavailable.
 pub fn method_is_skipped(
     def: MethodDef,
     type_name: TypeName,
@@ -65,11 +58,7 @@ impl MethodItem for CppMethod {
     }
 }
 
-// Emits the method-pointer fields of a `_Vtbl` struct. Shared by both interface
-// generators: the slot-name allocation, the per-method `#[cfg]` gate, the
-// `#[cfg]`-out `usize` fallback, and the opaque name-only slot are identical; only the
-// post-`fn` signature differs (WinRT appends `-> HRESULT`, COM's `write_abi` already
-// carries the native return), so the caller supplies it via `signature`.
+// Shared `_Vtbl` method-field emitter; callers provide the ABI signature tail.
 pub fn write_vtbl_methods<M: MethodItem>(
     methods: &[MethodOrName<M>],
     class_cfg: &Cfg,
@@ -109,10 +98,7 @@ pub fn write_vtbl_methods<M: MethodItem>(
         .collect()
 }
 
-// Emits the `field_methods` of a `_Vtbl::new()` initializer (the `name: name::<..>,`
-// entries). The opaque `name: 0,` fallback is identical across generators; the turbofish
-// type arguments differ (WinRT carries generics, COM branches on `OFFSET`), so the caller
-// supplies the `Method` arm via `method_field`.
+// Shared `_Vtbl::new()` field initializer emitter.
 pub fn write_impl_field_methods<M: MethodItem>(
     methods: &[MethodOrName<M>],
     mut method_field: impl FnMut(&TokenStream) -> TokenStream,
@@ -133,9 +119,7 @@ pub fn write_impl_field_methods<M: MethodItem>(
         .collect()
 }
 
-// Emits the `fn name signature;` entries of an `_Impl` producer trait. Identical across
-// generators apart from the `write_impl_signature` arity (WinRT takes extra flags), so
-// the caller supplies the signature via `signature`.
+// Shared `_Impl` trait method emitter.
 pub fn write_impl_trait_methods<M: MethodItem>(
     methods: &[MethodOrName<M>],
     mut signature: impl FnMut(&M) -> TokenStream,
@@ -207,10 +191,7 @@ impl Interface {
             .collect()
     }
 
-    // Returns `true` if any of this interface's own methods would be skipped due to
-    // missing dependencies. Used (transitively across required interfaces) to decide
-    // whether to emit the `_Impl` trait, since a derived `_Impl` cannot reference a
-    // base `_Impl` that wasn't emitted.
+    // `_Impl` emission is omitted when this interface or a base has skipped methods.
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
@@ -409,14 +390,7 @@ impl Interface {
                 }
             }
 
-            // Even in `minimal` mode (or when the TypeClosure is active), exclusive instance
-            // interfaces still need their own-vtable method block; otherwise WinRT class
-            // default interfaces would lose their callable wrappers entirely. Exclusive
-            // factory interfaces (those referenced from the class via
-            // Activatable/Static/Composable) are already exposed through the class, and
-            // exclusive `--implement` interfaces (like overrides) are meant to be *implemented*
-            // via the `_Impl` trait - not called. In both cases we suppress the caller-side
-            // method wrapper to avoid dead code.
+            // Minimal mode keeps callable wrappers only for exclusive instance interfaces.
             let minimal = config.bindgen.style.is_minimal();
             let suppress_methods = is_exclusive
                 && minimal
@@ -425,8 +399,7 @@ impl Interface {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();
-                // These methods live in `impl<..> #name`, so references to this
-                // interface (with matching generics) are emitted as `Self`.
+                // References to this interface can be emitted as `Self` inside this impl.
                 let self_config = config.with_self_ty(self.type_name(), &self.generics);
 
                 for method in methods.iter().filter_map(|method| match &method {
@@ -451,7 +424,6 @@ impl Interface {
                 }
 
                 for interface in &required_interfaces {
-                    // In `minimal` mode callers `cast` to the owning interface explicitly.
                     if !config.bindgen.style.emit_inherited_forwarders() {
                         continue;
                     }
@@ -591,11 +563,7 @@ impl Interface {
                     }
                 });
 
-                // If any methods were skipped due to missing dependencies, the interface cannot be
-                // fully described, so omit the ability to implement it rather than emitting a
-                // partial vtable with null function pointer slots. Also propagate the omission
-                // when any required (base) interface had its `_Impl` trait omitted, since a
-                // derived `_Impl` cannot reference a base `_Impl` that wasn't emitted.
+                // Omit `_Impl` when this interface or a required interface has skipped methods.
                 let has_skipped_methods = methods
                     .iter()
                     .any(|method| matches!(method, MethodOrName::Name(_)))
@@ -757,10 +725,7 @@ impl Interface {
         self.def.has_attribute("ExclusiveToAttribute")
     }
 
-    // An exclusive interface is a "factory" interface when its owning class references it via
-    // `Activatable`/`Static`/`Composable` rather than implementing it. Methods on such interfaces
-    // are reachable through the class, so in `minimal` mode we can avoid emitting them on the
-    // interface itself to keep call sites concise.
+    // Factory interfaces are reached through their class in minimal mode.
     pub fn is_factory(&self, reader: &Reader) -> bool {
         let Some(attribute) = self.def.find_attribute("ExclusiveToAttribute") else {
             return false;

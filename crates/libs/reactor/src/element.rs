@@ -2,48 +2,34 @@ use super::*;
 use std::any::{Any, TypeId};
 use std::time::Duration;
 
-// Extension hatch for downstream widgets that aren't part of the core
-// [`Element`] enum. Leaf-only in step 1a.
-
 /// Out-of-tree widget definition managed by the reconciler via
 /// [`Element::Custom`].
 pub trait CustomElement: 'static {
-    /// Standard `Any` accessor; the implementor's body is almost always `self`.
     fn as_any(&self) -> &dyn Any;
 
-    /// Stable type identity used by the reconciler to decide
-    /// mount-vs-update; defaults to the underlying `Any::type_id`.
+    /// Stable type identity used for mount-vs-update decisions.
     fn type_id(&self) -> TypeId {
         self.as_any().type_id()
     }
 
-    /// Human-readable name surfaced in diagnostics and `Element::kind_name`.
     fn kind_name(&self) -> &'static str;
 
-    /// Optional key for keyed reconciliation inside multi-child containers.
     fn key(&self) -> Option<&str> {
         None
     }
 
-    /// Structural equality against another element of the same `type_id`;
-    /// returning `false` is always safe but skips an `update` short-circuit.
     fn eq_dyn(&self, other: &dyn CustomElement) -> bool;
 
-    /// Boxed clone so [`Element`] stays `Clone`.
     fn clone_dyn(&self) -> Box<dyn CustomElement>;
 
-    /// Create the underlying control via `backend` and return its id.
     fn mount(&self, backend: &mut dyn Backend) -> ControlId;
 
-    /// Apply the diff from `prev` (same `type_id`) to the live control `id`.
     fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend);
 
-    /// Hook fired just before [`Backend::destroy`]; defaults to no-op.
     fn before_destroy(&self, _id: ControlId, _backend: &mut dyn Backend) {}
 }
 
-/// Boxed [`CustomElement`] with `Clone` / `Debug` / `PartialEq` so it can
-/// live inside the `Element` enum.
+/// Boxed [`CustomElement`] stored in [`Element`].
 pub struct CustomElementHandle(pub Box<dyn CustomElement>);
 
 impl CustomElementHandle {
@@ -125,44 +111,30 @@ pub fn panic_message(payload: Box<dyn Any + Send>) -> String {
     }
 }
 
-// Trait for converting heterogeneous tuples into `Vec<Element>`.
-//
-// This enables writing `vstack((title, body, footer))` without macros,
-// where each tuple element can be a different type that implements
-// `Into<Element>`.
-
 /// Converts a collection of items into a `Vec<Element>`.
 ///
-/// Implemented for:
-/// - Tuples of up to 12 elements, each `Into<Element>` (heterogeneous lists)
-/// - `Vec<Element>` (pre-built dynamic lists)
-/// - Fixed-size arrays `[T; N]` where `T: Into<Element>`
 pub trait IntoElements {
     fn into_elements(self) -> Vec<Element>;
 }
 
-// Vec<Element> passthrough
 impl IntoElements for Vec<Element> {
     fn into_elements(self) -> Vec<Element> {
         self
     }
 }
 
-// Empty tuple = no children
 impl IntoElements for () {
     fn into_elements(self) -> Vec<Element> {
         Vec::new()
     }
 }
 
-// Fixed-size arrays of Into<Element>
 impl<T: Into<Element>, const N: usize> IntoElements for [T; N] {
     fn into_elements(self) -> Vec<Element> {
         self.into_iter().map(Into::into).collect()
     }
 }
 
-// Tuple impls - each element independently implements Into<Element>.
 macro_rules! impl_into_elements_for_tuple {
     ($($idx:tt : $T:ident),+) => {
         impl<$($T: Into<Element>),+> IntoElements for ($($T,)+) {
@@ -213,24 +185,10 @@ pub fn group(children: Vec<Element>) -> Element {
     Element::Group(GroupElement::new(children))
 }
 
-/// Declares every built-in widget variant of [`Element`] in one place:
-/// drives the enum arms, `From` impls, and `as_widget` / `modifiers_mut` /
-/// `kind_name` dispatch.
-///
-/// By convention, every variant here is named after its backing
-/// `Microsoft.UI.Xaml` class (e.g. `TextBlock`, `StackPanel`, `TextBox`,
-/// `ScrollViewer`, `RichTextBlock`).
-///
-/// To add a new built-in widget element: add a row here, define the widget
-/// struct and its `impl Widget`, add the matching `ControlKind` variant in
-/// `core/backend.rs`, and add the matching row in
-/// `winui/backend.rs::define_handles!`.
+/// Built-in widget variants live here so enum arms and dispatch stay aligned.
 macro_rules! define_element {
     ( $( $variant:ident ),* $(,)? ) => {
-        /// Sum type of every element kind the reconciler can mount; widget
-        /// variants each correspond to a backend control, plus a few
-        /// non-widget variants for composition (`Component`, `Group`,
-        /// `Custom`, ...).
+        /// Element tree node the reconciler can mount.
         #[derive(Clone, Debug, PartialEq, Default)]
         pub enum Element {
             $( $variant($variant), )*

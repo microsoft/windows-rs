@@ -154,7 +154,7 @@ mod Windows {
             fn Deserialize(&self, inputXmlStream: IStream, subtree: *mut ID2D1SvgElement) -> HRESULT;
             fn CreatePaint(&self, paintType: D2D1_SVG_PAINT_TYPE, #[opt] color: *const D2D_COLOR_F, #[opt] id: PCWSTR, paint: *mut ID2D1SvgPaint) -> HRESULT;
             fn CreateStrokeDashArray(&self, #[len_param(1)] #[opt] dashes: *const D2D1_SVG_LENGTH, dashesCount: u32, strokeDashArray: *mut ID2D1SvgStrokeDashArray) -> HRESULT;
-            fn CreatePointCollection(&self, #[len_param(1)] #[opt] points: *const D2D_POINT_2F, pointsCount: u32, pointCollection: *mut ID2D1SvgPointCollection) -> HRESULT;
+            fn CreatePointCollection(&self, #[len_param(1)] #[opt] points: *const super::Foundation::Numerics::Vector2, pointsCount: u32, pointCollection: *mut ID2D1SvgPointCollection) -> HRESULT;
             fn CreatePathData(&self, #[len_param(1)] #[opt] segmentData: *const f32, segmentDataCount: u32, #[len_param(3)] #[opt] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: u32, pathData: *mut ID2D1SvgPathData) -> HRESULT;
         }
         #[guid(0xac7b67a6_183e_49c1_a823_0ebe40b0db29)]
@@ -215,8 +215,8 @@ mod Windows {
         #[guid(0x9dbe4c0d_3572_4dd9_9825_5530813bb712)]
         interface ID2D1SvgPointCollection: ID2D1SvgAttribute {
             fn RemovePointsAtEnd(&self, pointsCount: u32) -> HRESULT;
-            fn UpdatePoints(&self, #[len_param(1)] points: *const D2D_POINT_2F, pointsCount: u32, startIndex: u32) -> HRESULT;
-            fn GetPoints(&self, #[len_param(1)] points: *mut D2D_POINT_2F, pointsCount: u32, startIndex: u32) -> HRESULT;
+            fn UpdatePoints(&self, #[len_param(1)] points: *const super::Foundation::Numerics::Vector2, pointsCount: u32, startIndex: u32) -> HRESULT;
+            fn GetPoints(&self, #[len_param(1)] points: *mut super::Foundation::Numerics::Vector2, pointsCount: u32, startIndex: u32) -> HRESULT;
             fn GetPointsCount(&self) -> u32;
         }
         #[guid(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9)]

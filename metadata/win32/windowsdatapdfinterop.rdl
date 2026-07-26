@@ -11,7 +11,7 @@ mod Windows {
             DestinationWidth: u32,
             DestinationHeight: u32,
             BackgroundColor: D2D_COLOR_F,
-            IgnoreHighContrast: BOOLEAN,
+            IgnoreHighContrast: bool,
         }
         extern fn PFN_PDF_CREATE_RENDERER(param0: IDXGIDevice, param1: *mut IPdfRendererNative) -> HRESULT;
         #[library("Windows.Data.Pdf.dll")]

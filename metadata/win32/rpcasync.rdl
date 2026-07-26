@@ -296,7 +296,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn RpcFreeAuthorizationContext(#[in] #[out] pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcGetAuthorizationContextForClient(#[opt] ClientBinding: RPC_BINDING_HANDLE, ImpersonateOnReturn: BOOL, #[opt] Reserved1: *const void, #[opt] pExpirationTime: *const LARGE_INTEGER, Reserved2: LUID, Reserved3: u32, #[opt] Reserved4: *const void, pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
+        extern fn RpcGetAuthorizationContextForClient(#[opt] ClientBinding: RPC_BINDING_HANDLE, ImpersonateOnReturn: BOOL, #[opt] Reserved1: *const void, #[opt] pExpirationTime: *const i64, Reserved2: LUID, Reserved3: u32, #[opt] Reserved4: *const void, pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
         #[repr(i32)]
         enum RpcLocalAddressFormat {
             rlafInvalid = 0,

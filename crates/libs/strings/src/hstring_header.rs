@@ -14,9 +14,7 @@ pub struct HStringHeader {
 }
 
 impl HStringHeader {
-    /// Bytes required to back an `HStringHeader` whose `len` field is `len`.
-    /// The space for the terminating null character is already accounted for
-    /// inside of `HStringHeader` (via `buffer_start`).
+    /// Bytes required for `len` code units plus the header's inline terminator.
     fn alloc_bytes(len: u32) -> usize {
         size_of::<Self>() + 2 * len as usize
     }
@@ -32,7 +30,6 @@ impl HStringHeader {
         assert!(!header.is_null(), "allocation failed");
 
         unsafe {
-            // Use `ptr::write` (since `header` is uninitialized).
             header.write(Self {
                 flags: 0,
                 len,
@@ -61,14 +58,11 @@ impl HStringHeader {
 
     pub fn duplicate(&self) -> *mut Self {
         if self.flags & HSTRING_REFERENCE_FLAG == 0 {
-            // If this is not a "fast pass" string then increment the reference count.
             self.count.add_ref();
             self as *const Self as *mut Self
         } else {
-            // Otherwise, allocate a new string and copy the value into the new string.
             let copy = Self::alloc(self.len);
-            // SAFETY: since we are duplicating the string it is safe to copy all data from self to the initialized `copy`.
-            // We copy `len + 1` characters since `len` does not account for the terminating null character.
+            // SAFETY: `copy` is initialized and sized for `len + 1`, including the terminator.
             unsafe {
                 core::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
             }
@@ -80,9 +74,7 @@ impl HStringHeader {
 // HSTRING storage uses the host platform's heap on Windows (compatible with
 // `WindowsDeleteString` / `HeapFree`) and the Rust global allocator elsewhere.
 
-/// Allocates `bytes` bytes of memory suitable to back an `HStringHeader`.
-///
-/// Returns null on allocation failure.
+/// Allocates memory for an `HStringHeader`, returning null on failure.
 ///
 /// # Safety
 /// `bytes` must be non-zero.
@@ -93,8 +85,7 @@ unsafe fn heap_alloc(bytes: usize) -> *mut u8 {
     }
     #[cfg(not(windows))]
     {
-        // `Layout::from_size_align` only fails when `align` isn't a power of two or the
-        // rounded-up size exceeds `isize::MAX`. Both invariants hold by construction.
+        // The alignment is fixed, and callers supply sizes accepted by the allocator.
         let layout = alloc::alloc::Layout::from_size_align(bytes, ALIGN).unwrap();
         unsafe { alloc::alloc::alloc(layout) }
     }
@@ -103,8 +94,7 @@ unsafe fn heap_alloc(bytes: usize) -> *mut u8 {
 /// Frees a block previously returned by `heap_alloc`.
 ///
 /// # Safety
-/// `ptr` must be the result of an `heap_alloc(bytes)` call that has not yet
-/// been freed.
+/// `ptr` must come from an unfreed `heap_alloc(bytes)` call.
 unsafe fn heap_free(ptr: *mut u8, bytes: usize) {
     #[cfg(windows)]
     {
@@ -115,9 +105,7 @@ unsafe fn heap_free(ptr: *mut u8, bytes: usize) {
     }
     #[cfg(not(windows))]
     {
-        // SAFETY: `bytes` and `ALIGN` match a previous successful call to
-        // `heap_alloc(bytes)` (see safety contract above), so
-        // `Layout::from_size_align` cannot fail here.
+        // SAFETY: `bytes` and `ALIGN` match the allocation contract above.
         let layout = alloc::alloc::Layout::from_size_align(bytes, ALIGN).unwrap();
         unsafe { alloc::alloc::dealloc(ptr, layout) };
     }

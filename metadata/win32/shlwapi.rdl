@@ -202,7 +202,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn IStream_Reset(pstm: IStream) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn IStream_Size(pstm: IStream, pui: *mut ULARGE_INTEGER) -> HRESULT;
+        extern fn IStream_Size(pstm: IStream, pui: *mut u64) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn IStream_Write(pstm: IStream, #[size_param(2)] pv: *const void, cb: u32) -> HRESULT;
         #[library("SHLWAPI.dll")]

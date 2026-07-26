@@ -1,11 +1,7 @@
 //! The canvas bridge (feature `canvas`).
 //!
-//! Draws [`windows-canvas`](windows_canvas) Direct2D content inside a reactor UI:
-//! [`animated_canvas`] presents a swap chain every vsync, while
-//! [`CanvasImageSource`] repaints a `SurfaceImageSource` on demand. Both live
-//! here (rather than in windows-canvas) so the canvas crate need not depend on
-//! reactor; enabling reactor's `canvas` feature pulls in windows-canvas and
-//! exposes these types.
+//! Hosts [`windows-canvas`](windows_canvas) Direct2D content inside reactor without
+//! making the canvas crate depend on reactor.
 
 use super::*;
 use std::cell::{Cell, RefCell};
@@ -61,8 +57,6 @@ struct RenderState {
     _scale_revoker: Option<EventRevoker>,
 }
 
-/// DIP length to physical pixels for surface sizing, guarding against a zero
-/// (a swap chain must be at least 1x1).
 fn surface_pixels(dip: f32, scale: f32) -> u32 {
     ((dip * scale) as u32).max(1)
 }
@@ -137,10 +131,7 @@ fn animated_canvas_impl(
     let unmount_state = state.clone();
     swap_chain_panel()
         .on_unmounted(move |_| {
-            // Drop the render state in place: this revokes the
-            // `CompositionTarget::Rendering` subscription and releases the swap
-            // chain. Without it the state would leak forever, because its
-            // rendering callback holds an `Rc` back to the cell that owns it.
+            // Break the Rendering callback cycle on unmount.
             *unmount_state.borrow_mut() = None;
         })
         .on_mounted(move |panel| {
@@ -162,7 +153,6 @@ fn animated_canvas_impl(
             chain.set_composition_scale(s, s);
             let _ = panel.set_swap_chain(chain.raw_swap_chain());
 
-            // Listen for scale changes.
             let sc_size = ready_size.clone();
             let sc_scale = ready_scale.clone();
             let sc_state = ready_state.clone();
@@ -250,16 +240,8 @@ fn animated_canvas_impl(
 
 /// An on-demand Direct2D drawing surface hosted in a reactor UI.
 ///
-/// Where [`animated_canvas`] presents a new frame every vsync via a swap chain,
-/// `CanvasImageSource` draws only when you ask - on a data change, a resize, or a
-/// theme switch - into a `SurfaceImageSource`. It is the right tool for content
-/// that is static between updates (charts, diagrams, a rendered document page)
-/// where a continuous render loop would waste power.
-///
-/// Create it on the UI thread with a shared [`GpuDevice`], draw with the safe
-/// canvas API through [`draw`](Self::draw), and display it by handing
-/// [`image_source`](Self::image_source) to `Image::new`. This mirrors Win2D's
-/// `CanvasImageSource`.
+/// Draws on demand into a `SurfaceImageSource`, for content that is static between
+/// updates. Create it on the UI thread with a shared [`GpuDevice`].
 ///
 /// ```ignore
 /// let surface = CanvasImageSource::new(&device, 256.0, 256.0, scale)?;
@@ -279,11 +261,7 @@ pub struct CanvasImageSource {
 }
 
 impl CanvasImageSource {
-    /// Create a surface `width`x`height` device-independent pixels in size,
-    /// backed by `device`. `scale` is the host element's rasterization (DPI)
-    /// scale - `1.0` at 96 DPI, `2.0` at 192 DPI - so the surface is allocated at
-    /// physical-pixel resolution and stays crisp. Draw into it, then display it at
-    /// the same DIP size.
+    /// Create a `width`x`height` DIP surface backed by `device`.
     pub fn new(device: &GpuDevice, width: f32, height: f32, scale: f32) -> Result<Self> {
         let scale = if scale > 0.0 { scale } else { 1.0 };
         let pixel_width = ((width * scale).round() as i32).max(1);
@@ -299,13 +277,7 @@ impl CanvasImageSource {
         })
     }
 
-    /// Redraw the surface: clear it to `clear`, run `f` to draw, and present.
-    ///
-    /// Coordinates in `f` are in device-independent pixels with the surface origin
-    /// at `(0, 0)`; the DPI scale and the shared-atlas offset are handled for you.
-    /// Returns `Ok(false)` if the GPU device was lost - recreate the device
-    /// (e.g. [`GpuDevice::new_or_warp`]), call [`set_device`](Self::set_device),
-    /// and draw again.
+    /// Redraw and present. Returns `Ok(false)` after device loss.
     pub fn draw(&self, clear: ColorF, f: impl FnOnce(&DrawingSession<'_>)) -> Result<bool> {
         let (context, (offset_x, offset_y)) = match self.source.begin_draw::<ID2D1DeviceContext>(
             0,
@@ -318,13 +290,11 @@ impl CanvasImageSource {
             Err(e) => return Err(e),
         };
 
-        // The atlas offset is in physical pixels; the context draws in DIPs, so
-        // scale it back into DIP space before using it as the offset translation.
+        // The atlas offset is in physical pixels; convert it to DIPs.
         let offset =
             Matrix3x2::translation(offset_x as f32 / self.scale, offset_y as f32 / self.scale);
 
-        // Pair every successful `begin_draw` with an `end_draw`, even if `f`
-        // panics, so the surface is never left mid-draw.
+        // Pair every successful `begin_draw` with `end_draw`, even if `f` panics.
         let guard = EndDrawGuard(&self.source);
         {
             let session =
@@ -436,20 +406,8 @@ impl SwapChainState {
 
 /// An on-demand swap-chain surface hosted on a reactor [`SwapChainPanel`].
 ///
-/// This is the swap-chain counterpart of [`CanvasImageSource`]. Where
-/// [`animated_canvas`] presents a new frame *every vsync*, `CanvasSwapChain`
-/// presents only when you call [`draw`](Self::draw) - on a data change, a
-/// resize, or a DPI change - while still using a composition swap chain for
-/// low-latency presentation. It is the right tool for a data-driven view (for
-/// example a live chart) that repaints when its data changes but would waste
-/// power running a continuous render loop while idle.
-///
-/// Because it presents to a `SwapChainPanel`'s native control, create it inside
-/// the panel's [`on_mounted`](SwapChainPanel::on_mounted) callback (the control
-/// must exist before a swap chain can be attached). Store the returned handle in
-/// hook state (`use_ref`) so later callbacks and effects can redraw it. Use
-/// [`with_device`](Self::with_device) to share one app-wide [`GpuDevice`] across
-/// several surfaces.
+/// On-demand swap-chain drawing for data-driven views. Create it inside
+/// [`SwapChainPanel::on_mounted`] so the native control exists before attach.
 ///
 /// ```ignore
 /// let host = cx.use_ref::<Option<CanvasSwapChain>>(None);
@@ -475,20 +433,14 @@ pub struct CanvasSwapChain {
 }
 
 impl CanvasSwapChain {
-    /// Creates a `width`x`height` device-independent-pixel surface on `panel`,
-    /// backed by a canvas-owned [`GpuDevice`]. On device loss the device is
-    /// recreated automatically. `scale` is the host element's rasterization
-    /// (DPI) scale (see [`SwapChainPanelHandle::composition_scale`]).
+    /// Creates a `width`x`height` DIP surface backed by a canvas-owned device.
     pub fn new(panel: &SwapChainPanelHandle, width: f32, height: f32, scale: f32) -> Result<Self> {
         Self::build(panel, Rc::new(GpuDevice::new_or_warp), width, height, scale)
     }
 
     /// Creates a surface on `panel` backed by a caller-provided [`GpuDevice`].
     ///
-    /// Because `GpuDevice` is [`Clone`] and a clone shares the same underlying
-    /// graphics device, one app-wide device can back many surfaces (an icon
-    /// cache, a wall of charts). Device-lost recovery reuses that same device;
-    /// if you need canvas to recreate the device on loss, use [`new`](Self::new).
+    /// Reuses the caller's device, including after device loss.
     pub fn with_device(
         panel: &SwapChainPanelHandle,
         device: &GpuDevice,
@@ -535,23 +487,13 @@ impl CanvasSwapChain {
         })
     }
 
-    /// Draws one frame with `f` and presents it. Coordinates in `f` are in
-    /// device-independent pixels with the surface origin at `(0, 0)`; clear the
-    /// surface yourself via [`DrawContext::clear`].
-    ///
-    /// If the GPU device is lost the swap chain is rebuilt once (on the same
-    /// shared device, or a fresh one for [`new`](Self::new)) and the frame is
-    /// drawn again, so a single `draw` call recovers transparently. Returns an
-    /// error only if drawing genuinely failed - a hard present error, or device
-    /// loss that could not be recovered (the rebuild failed or the redraw was
-    /// still device-lost) - so a lost frame is never reported as drawn.
+    /// Draws and presents one frame, retrying once after device loss.
     pub fn draw(&self, f: impl Fn(&DrawContext<'_>)) -> Result<()> {
         let mut state = self.inner.borrow_mut();
         match state.present_frame(&f) {
             Ok(()) => Ok(()),
             Err(e) if is_device_lost(e.code()) => {
-                // Rebuild once, then redraw; propagate whatever the retry yields
-                // (success, another device-loss, or a hard error).
+                // Rebuild once, then propagate the retry result.
                 if state.rebuild() {
                     state.present_frame(&f)
                 } else {
@@ -565,9 +507,6 @@ impl CanvasSwapChain {
     /// Resizes the surface to `width`x`height` device-independent pixels. A
     /// no-op if the size is unchanged. Redraw with [`draw`](Self::draw) after.
     ///
-    /// The stored size is updated only after the swap chain resizes
-    /// successfully; if the resize fails the error is returned and the surface
-    /// keeps its previous dimensions so later draws stay consistent.
     pub fn resize(&self, width: f32, height: f32) -> Result<()> {
         let mut state = self.inner.borrow_mut();
         if state.width == width && state.height == height {
@@ -585,10 +524,6 @@ impl CanvasSwapChain {
     /// to a monitor with different scaling). A no-op if unchanged. Redraw with
     /// [`draw`](Self::draw) after.
     ///
-    /// The swap-chain buffers are resized first; the stored scale (and the DPI
-    /// and composition scale on the swap chain) are updated only after that
-    /// succeeds, so a failed resize leaves the surface's scale and buffers
-    /// consistent. The error is returned rather than discarded.
     pub fn set_scale(&self, scale: f32) -> Result<()> {
         let scale = if scale > 0.0 { scale } else { 1.0 };
         let mut state = self.inner.borrow_mut();

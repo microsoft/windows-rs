@@ -18,8 +18,8 @@ mod Windows {
             BinCount: u32,
         }
         struct BIN_RANGE {
-            StartValue: LARGE_INTEGER,
-            Length: LARGE_INTEGER,
+            StartValue: i64,
+            Length: i64,
         }
         struct BIN_RESULTS {
             NumberOfBins: u32,
@@ -35,7 +35,7 @@ mod Windows {
             BootSectors: [BOOT_AREA_INFO_0; 2],
         }
         struct BOOT_AREA_INFO_0 {
-            Offset: LARGE_INTEGER,
+            Offset: i64,
         }
         struct BULK_SECURITY_TEST_DATA {
             DesiredAccess: ACCESS_MASK,
@@ -111,14 +111,14 @@ mod Windows {
             Source: CHANGER_ELEMENT,
             Destination1: CHANGER_ELEMENT,
             Destination2: CHANGER_ELEMENT,
-            Flip1: BOOLEAN,
-            Flip2: BOOLEAN,
+            Flip1: bool,
+            Flip2: bool,
         }
         const CHANGER_IEPORT_USER_CONTROL_CLOSE: u32 = 2147483904;
         const CHANGER_IEPORT_USER_CONTROL_OPEN: u32 = 2147483776;
         struct CHANGER_INITIALIZE_ELEMENT_STATUS {
             ElementList: CHANGER_ELEMENT_LIST,
-            BarCodeScan: BOOLEAN,
+            BarCodeScan: bool,
         }
         const CHANGER_INIT_ELEM_STAT_WITH_RANGE: i32 = 2;
         const CHANGER_KEYPAD_ENABLE_DISABLE: i32 = 268435456;
@@ -129,7 +129,7 @@ mod Windows {
             Transport: CHANGER_ELEMENT,
             Source: CHANGER_ELEMENT,
             Destination: CHANGER_ELEMENT,
-            Flip: BOOLEAN,
+            Flip: bool,
         }
         const CHANGER_MOVE_RETRACTS_IEPORT: u32 = 2147484672;
         const CHANGER_OPEN_IEPORT: i32 = 8;
@@ -147,7 +147,7 @@ mod Windows {
         }
         struct CHANGER_READ_ELEMENT_STATUS {
             ElementList: CHANGER_ELEMENT_LIST,
-            VolumeTagInfo: BOOLEAN,
+            VolumeTagInfo: bool,
         }
         const CHANGER_REPORT_IEPORT_STATE: i32 = 2048;
         const CHANGER_RESERVED_BIT: u32 = 2147483648;
@@ -165,7 +165,7 @@ mod Windows {
         struct CHANGER_SET_POSITION {
             Transport: CHANGER_ELEMENT,
             Destination: CHANGER_ELEMENT,
-            Flip: BOOLEAN,
+            Flip: bool,
         }
         const CHANGER_SLOTS_USE_TRAYS: u32 = 2147483664;
         const CHANGER_STATUS_NON_VOLATILE: i32 = 16;
@@ -197,8 +197,8 @@ mod Windows {
         }
         type CLSN = DWORDLONG;
         struct CLUSTER_RANGE {
-            StartingCluster: LARGE_INTEGER,
-            ClusterCount: LARGE_INTEGER,
+            StartingCluster: i64,
+            ClusterCount: i64,
         }
         const CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME: i32 = 256;
         const CONTAINER_ROOT_INFO_FLAG_BIND_EXCEPTION_ROOT: i32 = 128;
@@ -277,7 +277,7 @@ mod Windows {
         }
         const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295;
         struct CSV_IS_OWNED_BY_CSVFS {
-            OwnedByCSVFS: BOOLEAN,
+            OwnedByCSVFS: bool,
         }
         const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: i32 = 1;
         struct CSV_MGMT_LOCK {
@@ -286,7 +286,7 @@ mod Windows {
         struct CSV_NAMESPACE_INFO {
             Version: u32,
             DeviceNumber: u32,
-            StartingOffset: LARGE_INTEGER,
+            StartingOffset: i64,
             SectorSize: u32,
         }
         struct CSV_QUERY_FILE_REVISION {
@@ -323,7 +323,7 @@ mod Windows {
         struct CSV_QUERY_REDIRECT_STATE {
             MdsNodeId: u32,
             DsNodeId: u32,
-            FileRedirected: BOOLEAN,
+            FileRedirected: bool,
         }
         struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
             VetoedFromAltitudeIntegral: DWORDLONG,
@@ -336,8 +336,8 @@ mod Windows {
         struct CSV_QUERY_VOLUME_REDIRECT_STATE {
             MdsNodeId: u32,
             DsNodeId: u32,
-            IsDiskConnected: BOOLEAN,
-            ClusterEnableDirectIo: BOOLEAN,
+            IsDiskConnected: bool,
+            ClusterEnableDirectIo: bool,
             DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
         }
         struct CSV_SET_VOLUME_ID {
@@ -347,7 +347,7 @@ mod Windows {
         const DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: i32 = 1;
         const DDUMP_FLAG_DATA_READ_FROM_DEVICE: i32 = 1;
         struct DECRYPTION_STATUS_BUFFER {
-            NoEncryptedStreams: BOOLEAN,
+            NoEncryptedStreams: bool,
         }
         struct DELETE_USN_JOURNAL_DATA {
             UsnJournalID: DWORDLONG,
@@ -532,10 +532,10 @@ mod Windows {
         }
         struct DEVICE_DSM_DEFINITION {
             Action: DEVICE_DSM_ACTION,
-            SingleRange: BOOLEAN,
+            SingleRange: bool,
             ParameterBlockAlignment: u32,
             ParameterBlockLength: u32,
-            HasOutput: BOOLEAN,
+            HasOutput: bool,
             OutputBlockAlignment: u32,
             OutputBlockLength: u32,
         }
@@ -602,7 +602,7 @@ mod Windows {
         const DEVICE_DSM_PHYSICAL_ADDRESS_HAS_MEMORY_ERROR: i64 = -1;
         struct DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT {
             Version: u32,
-            PreferLocalRepair: BOOLEAN,
+            PreferLocalRepair: bool,
         }
         type DEVICE_DSM_RANGE = DEVICE_DATA_SET_RANGE;
         struct DEVICE_DSM_RANGE_ERROR_INFO {
@@ -743,7 +743,7 @@ mod Windows {
         struct DEVICE_MEDIA_INFO {
             DeviceSpecific: union {
                 DiskInfo: struct {
-                    Cylinders: LARGE_INTEGER,
+                    Cylinders: i64,
                     MediaType: STORAGE_MEDIA_TYPE,
                     TracksPerCylinder: u32,
                     SectorsPerTrack: u32,
@@ -752,7 +752,7 @@ mod Windows {
                     MediaCharacteristics: u32,
                 },
                 RemovableDiskInfo: struct {
-                    Cylinders: LARGE_INTEGER,
+                    Cylinders: i64,
                     MediaType: STORAGE_MEDIA_TYPE,
                     TracksPerCylinder: u32,
                     SectorsPerTrack: u32,
@@ -777,19 +777,19 @@ mod Windows {
         struct DEVICE_POWER_DESCRIPTOR {
             Version: u32,
             Size: u32,
-            DeviceAttentionSupported: BOOLEAN,
-            AsynchronousNotificationSupported: BOOLEAN,
-            IdlePowerManagementEnabled: BOOLEAN,
-            D3ColdEnabled: BOOLEAN,
-            D3ColdSupported: BOOLEAN,
-            NoVerifyDuringIdlePower: BOOLEAN,
+            DeviceAttentionSupported: bool,
+            AsynchronousNotificationSupported: bool,
+            IdlePowerManagementEnabled: bool,
+            D3ColdEnabled: bool,
+            D3ColdSupported: bool,
+            NoVerifyDuringIdlePower: bool,
             Reserved: [u8; 2],
             IdleTimeoutInMS: u32,
         }
         struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
             Version: u32,
             Size: u32,
-            IncursSeekPenalty: BOOLEAN,
+            IncursSeekPenalty: bool,
         }
         struct DEVICE_STORAGE_ADDRESS_RANGE {
             StartAddress: i64,
@@ -811,12 +811,12 @@ mod Windows {
         struct DEVICE_TRIM_DESCRIPTOR {
             Version: u32,
             Size: u32,
-            TrimEnabled: BOOLEAN,
+            TrimEnabled: bool,
         }
         struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
             Version: u32,
             Size: u32,
-            BenefitsFromWriteAggregation: BOOLEAN,
+            BenefitsFromWriteAggregation: bool,
         }
         #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
         const DEVPKEY_Storage_Disk_Number: DEVPROPKEY = 5;
@@ -839,13 +839,13 @@ mod Windows {
         const DISK_ATTRIBUTE_READ_ONLY: i32 = 2;
         const DISK_BINNING: i32 = 3;
         struct DISK_CACHE_INFORMATION {
-            ParametersSavable: BOOLEAN,
-            ReadCacheEnabled: BOOLEAN,
-            WriteCacheEnabled: BOOLEAN,
+            ParametersSavable: bool,
+            ReadCacheEnabled: bool,
+            WriteCacheEnabled: bool,
             ReadRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
             WriteRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
             DisablePrefetchTransferLength: u16,
-            PrefetchScalar: BOOLEAN,
+            PrefetchScalar: bool,
             Anonymous: union {
                 ScalarPrefetch: struct {
                     Minimum: u16,
@@ -880,8 +880,8 @@ mod Windows {
         }
         struct DISK_EXTENT {
             DiskNumber: u32,
-            StartingOffset: LARGE_INTEGER,
-            ExtentLength: LARGE_INTEGER,
+            StartingOffset: i64,
+            ExtentLength: i64,
         }
         struct DISK_EX_INT13_INFO {
             ExBufferSize: u16,
@@ -894,7 +894,7 @@ mod Windows {
             ExReserved: u16,
         }
         struct DISK_GEOMETRY {
-            Cylinders: LARGE_INTEGER,
+            Cylinders: i64,
             MediaType: MEDIA_TYPE,
             TracksPerCylinder: u32,
             SectorsPerTrack: u32,
@@ -902,20 +902,20 @@ mod Windows {
         }
         struct DISK_GEOMETRY_EX {
             Geometry: DISK_GEOMETRY,
-            DiskSize: LARGE_INTEGER,
+            DiskSize: i64,
             Data: [u8; 1],
         }
         struct DISK_GROW_PARTITION {
             PartitionNumber: u32,
-            BytesToGrow: LARGE_INTEGER,
+            BytesToGrow: i64,
         }
         struct DISK_HISTOGRAM {
-            DiskSize: LARGE_INTEGER,
-            Start: LARGE_INTEGER,
-            End: LARGE_INTEGER,
-            Average: LARGE_INTEGER,
-            AverageRead: LARGE_INTEGER,
-            AverageWrite: LARGE_INTEGER,
+            DiskSize: i64,
+            Start: i64,
+            End: i64,
+            Average: i64,
+            AverageRead: i64,
+            AverageWrite: i64,
             Granularity: u32,
             Size: u32,
             ReadCount: u32,
@@ -951,27 +951,27 @@ mod Windows {
             },
         }
         struct DISK_PERFORMANCE {
-            BytesRead: LARGE_INTEGER,
-            BytesWritten: LARGE_INTEGER,
-            ReadTime: LARGE_INTEGER,
-            WriteTime: LARGE_INTEGER,
-            IdleTime: LARGE_INTEGER,
+            BytesRead: i64,
+            BytesWritten: i64,
+            ReadTime: i64,
+            WriteTime: i64,
+            IdleTime: i64,
             ReadCount: u32,
             WriteCount: u32,
             QueueDepth: u32,
             SplitCount: u32,
-            QueryTime: LARGE_INTEGER,
+            QueryTime: i64,
             StorageDeviceNumber: u32,
             StorageManagerName: [u16; 8],
         }
         struct DISK_RECORD {
-            ByteOffset: LARGE_INTEGER,
-            StartTime: LARGE_INTEGER,
-            EndTime: LARGE_INTEGER,
+            ByteOffset: i64,
+            StartTime: i64,
+            EndTime: i64,
             VirtualAddress: *mut void,
             NumberOfBytes: u32,
             DeviceNumber: u8,
-            ReadRequest: BOOLEAN,
+            ReadRequest: bool,
         }
         #[packed(1)]
         struct DRIVERSTATUS {
@@ -996,8 +996,8 @@ mod Windows {
         }
         struct DRIVE_LAYOUT_INFORMATION_GPT {
             DiskId: GUID,
-            StartingUsableOffset: LARGE_INTEGER,
-            UsableLength: LARGE_INTEGER,
+            StartingUsableOffset: i64,
+            UsableLength: i64,
             MaxPartitionCount: u32,
         }
         struct DRIVE_LAYOUT_INFORMATION_MBR {
@@ -1006,32 +1006,32 @@ mod Windows {
         }
         struct DUPLICATE_EXTENTS_DATA {
             FileHandle: HANDLE,
-            SourceFileOffset: LARGE_INTEGER,
-            TargetFileOffset: LARGE_INTEGER,
-            ByteCount: LARGE_INTEGER,
+            SourceFileOffset: i64,
+            TargetFileOffset: i64,
+            ByteCount: i64,
         }
         #[arch(X64 | Arm64)]
         struct DUPLICATE_EXTENTS_DATA32 {
             FileHandle: u32,
-            SourceFileOffset: LARGE_INTEGER,
-            TargetFileOffset: LARGE_INTEGER,
-            ByteCount: LARGE_INTEGER,
+            SourceFileOffset: i64,
+            TargetFileOffset: i64,
+            ByteCount: i64,
         }
         struct DUPLICATE_EXTENTS_DATA_EX {
             Size: usize,
             FileHandle: HANDLE,
-            SourceFileOffset: LARGE_INTEGER,
-            TargetFileOffset: LARGE_INTEGER,
-            ByteCount: LARGE_INTEGER,
+            SourceFileOffset: i64,
+            TargetFileOffset: i64,
+            ByteCount: i64,
             Flags: u32,
         }
         #[arch(X64 | Arm64)]
         struct DUPLICATE_EXTENTS_DATA_EX32 {
             Size: u32,
             FileHandle: u32,
-            SourceFileOffset: LARGE_INTEGER,
-            TargetFileOffset: LARGE_INTEGER,
-            ByteCount: LARGE_INTEGER,
+            SourceFileOffset: i64,
+            TargetFileOffset: i64,
+            ByteCount: i64,
             Flags: u32,
         }
         const DUPLICATE_EXTENTS_DATA_EX_ASYNC: i32 = 2;
@@ -1210,8 +1210,8 @@ mod Windows {
         const FILESYSTEM_STATISTICS_TYPE_NTFS: i32 = 1;
         const FILESYSTEM_STATISTICS_TYPE_REFS: i32 = 4;
         struct FILE_ALLOCATED_RANGE_BUFFER {
-            FileOffset: LARGE_INTEGER,
-            Length: LARGE_INTEGER,
+            FileOffset: i64,
+            Length: i64,
         }
         const FILE_ANY_ACCESS: i32 = 0;
         const FILE_CLEAR_ENCRYPTION: i32 = 2;
@@ -1382,10 +1382,10 @@ mod Windows {
         }
         struct FILE_LAYOUT_INFO_ENTRY {
             BasicInformation: struct {
-                CreationTime: LARGE_INTEGER,
-                LastAccessTime: LARGE_INTEGER,
-                LastWriteTime: LARGE_INTEGER,
-                ChangeTime: LARGE_INTEGER,
+                CreationTime: i64,
+                LastAccessTime: i64,
+                LastWriteTime: i64,
+                ChangeTime: i64,
                 FileAttributes: u32,
             },
             OwnerId: u32,
@@ -1416,7 +1416,7 @@ mod Windows {
             Length: DWORDLONG,
         }
         struct FILE_MAKE_COMPATIBLE_BUFFER {
-            CloseDisc: BOOLEAN,
+            CloseDisc: bool,
         }
         struct FILE_OBJECTID_BUFFER {
             ObjectId: [u8; 16],
@@ -1464,13 +1464,13 @@ mod Windows {
         const FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE: i32 = 1;
         const FILE_PROVIDER_SINGLE_FILE: i32 = 1;
         struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
-            DirectoryCount: LARGE_INTEGER,
-            FileCount: LARGE_INTEGER,
+            DirectoryCount: i64,
+            FileCount: i64,
             FsFormatMajVersion: u16,
             FsFormatMinVersion: u16,
             FsFormatName: [u16; 12],
-            FormatTime: LARGE_INTEGER,
-            LastUpdateTime: LARGE_INTEGER,
+            FormatTime: i64,
+            LastUpdateTime: i64,
             CopyrightInfo: [u16; 34],
             AbstractInfo: [u16; 34],
             FormattingImplementationInfo: [u16; 34],
@@ -1478,7 +1478,7 @@ mod Windows {
         }
         struct FILE_QUERY_SPARING_BUFFER {
             SparingUnitBytes: u32,
-            SoftwareSparing: BOOLEAN,
+            SoftwareSparing: bool,
             TotalSpareBlocks: u32,
             FreeSpareBlocks: u32,
         }
@@ -1516,11 +1516,11 @@ mod Windows {
         const FILE_REGION_USAGE_VALID_CACHED_DATA: i32 = 1;
         const FILE_REGION_USAGE_VALID_NONCACHED_DATA: i32 = 2;
         struct FILE_SET_DEFECT_MGMT_BUFFER {
-            Disable: BOOLEAN,
+            Disable: bool,
         }
         const FILE_SET_ENCRYPTION: i32 = 1;
         struct FILE_SET_SPARSE_BUFFER {
-            SetSparse: BOOLEAN,
+            SetSparse: bool,
         }
         const FILE_SPECIAL_ACCESS: i32 = 0;
         struct FILE_STORAGE_TIER {
@@ -1574,12 +1574,12 @@ mod Windows {
         }
         const FILE_WRITE_ACCESS: i32 = 2;
         struct FILE_ZERO_DATA_INFORMATION {
-            FileOffset: LARGE_INTEGER,
-            BeyondFinalZero: LARGE_INTEGER,
+            FileOffset: i64,
+            BeyondFinalZero: i64,
         }
         struct FILE_ZERO_DATA_INFORMATION_EX {
-            FileOffset: LARGE_INTEGER,
-            BeyondFinalZero: LARGE_INTEGER,
+            FileOffset: i64,
+            BeyondFinalZero: i64,
             Flags: u32,
         }
         const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: i32 = 1;
@@ -2070,7 +2070,7 @@ mod Windows {
             FilterFileIdentifier: [u8; 1],
         }
         struct GET_LENGTH_INFORMATION {
-            Length: LARGE_INTEGER,
+            Length: i64,
         }
         struct GET_MEDIA_TYPES {
             DeviceType: u32,
@@ -2292,8 +2292,8 @@ mod Windows {
         struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
             OffsetToNext: u32,
             Flags: u32,
-            Reserved: LARGE_INTEGER,
-            Cluster: LARGE_INTEGER,
+            Reserved: i64,
+            Cluster: i64,
             FileName: [u16; 1],
         }
         const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_DATA: i32 = 16777216;
@@ -2307,7 +2307,7 @@ mod Windows {
         struct LOOKUP_STREAM_FROM_CLUSTER_INPUT {
             Flags: u32,
             NumberOfClusters: u32,
-            Cluster: [LARGE_INTEGER; 1],
+            Cluster: [i64; 1],
         }
         struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
             Offset: u32,
@@ -2412,21 +2412,21 @@ mod Windows {
         }
         struct MOVE_FILE_DATA {
             FileHandle: HANDLE,
-            StartingVcn: LARGE_INTEGER,
-            StartingLcn: LARGE_INTEGER,
+            StartingVcn: i64,
+            StartingLcn: i64,
             ClusterCount: u32,
         }
         #[arch(X64 | Arm64)]
         struct MOVE_FILE_DATA32 {
             FileHandle: u32,
-            StartingVcn: LARGE_INTEGER,
-            StartingLcn: LARGE_INTEGER,
+            StartingVcn: i64,
+            StartingLcn: i64,
             ClusterCount: u32,
         }
         struct MOVE_FILE_RECORD_DATA {
             FileHandle: HANDLE,
-            SourceFileRecord: LARGE_INTEGER,
-            TargetFileRecord: LARGE_INTEGER,
+            SourceFileRecord: i64,
+            TargetFileRecord: i64,
         }
         const NO_SRBTYPE_ADAPTER_DESCRIPTOR_SIZE: u32 = 30;
         struct NTFS_EXTENDED_VOLUME_DATA {
@@ -2442,10 +2442,10 @@ mod Windows {
             MaxVolumeTrimByteCount: u32,
         }
         struct NTFS_FILE_RECORD_INPUT_BUFFER {
-            FileReferenceNumber: LARGE_INTEGER,
+            FileReferenceNumber: i64,
         }
         struct NTFS_FILE_RECORD_OUTPUT_BUFFER {
-            FileReferenceNumber: LARGE_INTEGER,
+            FileReferenceNumber: i64,
             FileRecordLength: u32,
             FileRecordBuffer: [u8; 1],
         }
@@ -2618,20 +2618,20 @@ mod Windows {
             NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount: DWORDLONG,
         }
         struct NTFS_VOLUME_DATA_BUFFER {
-            VolumeSerialNumber: LARGE_INTEGER,
-            NumberSectors: LARGE_INTEGER,
-            TotalClusters: LARGE_INTEGER,
-            FreeClusters: LARGE_INTEGER,
-            TotalReserved: LARGE_INTEGER,
+            VolumeSerialNumber: i64,
+            NumberSectors: i64,
+            TotalClusters: i64,
+            FreeClusters: i64,
+            TotalReserved: i64,
             BytesPerSector: u32,
             BytesPerCluster: u32,
             BytesPerFileRecordSegment: u32,
             ClustersPerFileRecordSegment: u32,
-            MftValidDataLength: LARGE_INTEGER,
-            MftStartLcn: LARGE_INTEGER,
-            Mft2StartLcn: LARGE_INTEGER,
-            MftZoneStart: LARGE_INTEGER,
-            MftZoneEnd: LARGE_INTEGER,
+            MftValidDataLength: i64,
+            MftStartLcn: i64,
+            Mft2StartLcn: i64,
+            MftZoneStart: i64,
+            MftZoneEnd: i64,
         }
         const OBSOLETE_DISK_GET_WRITE_CACHE_STATE: i32 = 475356;
         const OBSOLETE_IOCTL_STORAGE_RESET_BUS: i32 = 3002368;
@@ -2655,23 +2655,23 @@ mod Windows {
         const PARTITION_HUGE: i32 = 6;
         const PARTITION_IFS: i32 = 7;
         struct PARTITION_INFORMATION {
-            StartingOffset: LARGE_INTEGER,
-            PartitionLength: LARGE_INTEGER,
+            StartingOffset: i64,
+            PartitionLength: i64,
             HiddenSectors: u32,
             PartitionNumber: u32,
             PartitionType: u8,
-            BootIndicator: BOOLEAN,
-            RecognizedPartition: BOOLEAN,
-            RewritePartition: BOOLEAN,
+            BootIndicator: bool,
+            RecognizedPartition: bool,
+            RewritePartition: bool,
         }
         struct PARTITION_INFORMATION_EX {
             PartitionStyle: PARTITION_STYLE,
             PartitionOrdinal: u16,
-            StartingOffset: LARGE_INTEGER,
-            PartitionLength: LARGE_INTEGER,
+            StartingOffset: i64,
+            PartitionLength: i64,
             PartitionNumber: u32,
-            RewritePartition: BOOLEAN,
-            IsServicePartition: BOOLEAN,
+            RewritePartition: bool,
+            IsServicePartition: bool,
             Anonymous: union {
                 Mbr: PARTITION_INFORMATION_MBR,
                 Gpt: PARTITION_INFORMATION_GPT,
@@ -2685,8 +2685,8 @@ mod Windows {
         }
         struct PARTITION_INFORMATION_MBR {
             PartitionType: u8,
-            BootIndicator: BOOLEAN,
-            RecognizedPartition: BOOLEAN,
+            BootIndicator: bool,
+            RecognizedPartition: bool,
             HiddenSectors: u32,
             PartitionId: GUID,
         }
@@ -3000,7 +3000,7 @@ mod Windows {
         extern fn PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(SourceContext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, #[in] #[out] TargetContext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, RelativeOffset: i64);
         type PIO_IRP_EXT_TRACK_OFFSET_HEADER = *mut IO_IRP_EXT_TRACK_OFFSET_HEADER;
         struct PLEX_READ_DATA_REQUEST {
-            ByteOffset: LARGE_INTEGER,
+            ByteOffset: i64,
             ByteLength: u32,
             PlexNumber: u32,
         }
@@ -3069,7 +3069,7 @@ mod Windows {
         type PRETRIEVAL_POINTER_BASE = *mut RETRIEVAL_POINTER_BASE;
         type PRETRIEVAL_POINTER_COUNT = *mut RETRIEVAL_POINTER_COUNT;
         struct PREVENT_MEDIA_REMOVAL {
-            PreventMediaRemoval: BOOLEAN,
+            PreventMediaRemoval: bool,
         }
         const PRODUCT_ID_LENGTH: i32 = 16;
         const PROJFS_PROTOCOL_VERSION: i32 = 3;
@@ -3458,7 +3458,7 @@ mod Windows {
         struct REASSIGN_BLOCKS_EX {
             Reserved: u16,
             Count: u16,
-            BlockNumber: [LARGE_INTEGER; 1],
+            BlockNumber: [i64; 1],
         }
         const RECOVERED_READS_VALID: i32 = 4;
         const RECOVERED_WRITES_VALID: i32 = 1;
@@ -3495,11 +3495,11 @@ mod Windows {
         struct REFS_SMR_VOLUME_INFO_OUTPUT {
             Version: u32,
             Flags: u32,
-            SizeOfRandomlyWritableTier: LARGE_INTEGER,
-            FreeSpaceInRandomlyWritableTier: LARGE_INTEGER,
-            SizeofSMRTier: LARGE_INTEGER,
-            FreeSpaceInSMRTier: LARGE_INTEGER,
-            UsableFreeSpaceInSMRTier: LARGE_INTEGER,
+            SizeOfRandomlyWritableTier: i64,
+            FreeSpaceInRandomlyWritableTier: i64,
+            SizeofSMRTier: i64,
+            FreeSpaceInSMRTier: i64,
+            UsableFreeSpaceInSMRTier: i64,
             VolumeGcState: REFS_SMR_VOLUME_GC_STATE,
             VolumeGcLastStatus: u32,
             CurrentGcBandFillPercentage: u32,
@@ -3512,14 +3512,14 @@ mod Windows {
             MajorVersion: u32,
             MinorVersion: u32,
             BytesPerPhysicalSector: u32,
-            VolumeSerialNumber: LARGE_INTEGER,
-            NumberSectors: LARGE_INTEGER,
-            TotalClusters: LARGE_INTEGER,
-            FreeClusters: LARGE_INTEGER,
-            TotalReserved: LARGE_INTEGER,
+            VolumeSerialNumber: i64,
+            NumberSectors: i64,
+            TotalClusters: i64,
+            FreeClusters: i64,
+            TotalReserved: i64,
             BytesPerSector: u32,
             BytesPerCluster: u32,
-            MaximumSizeOfResidentFile: LARGE_INTEGER,
+            MaximumSizeOfResidentFile: i64,
             FastTierDataFillRatio: u16,
             SlowTierDataFillRatio: u16,
             DestagesFastTierToSlowTierRate: u32,
@@ -3527,7 +3527,7 @@ mod Windows {
             Reserved0: [u8; 6],
             DriverMajorVersion: u32,
             DriverMinorVersion: u32,
-            Reserved: [LARGE_INTEGER; 7],
+            Reserved: [i64; 7],
         }
         struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
             Version: u32,
@@ -3539,7 +3539,7 @@ mod Windows {
         struct REPAIR_COPIES_INPUT {
             Size: u32,
             Flags: u32,
-            FileOffset: LARGE_INTEGER,
+            FileOffset: i64,
             Length: u32,
             SourceCopy: u32,
             NumberOfRepairCopies: u32,
@@ -3548,7 +3548,7 @@ mod Windows {
         struct REPAIR_COPIES_OUTPUT {
             Size: u32,
             Status: u32,
-            ResumeFileOffset: LARGE_INTEGER,
+            ResumeFileOffset: i64,
         }
         const REPLACE_ALTERNATE: i32 = 11;
         const REPLACE_PRIMARY: i32 = 10;
@@ -3585,25 +3585,25 @@ mod Windows {
         const RETRACT_IEPORT: i32 = 3;
         struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
             ExtentCount: u32,
-            StartingVcn: LARGE_INTEGER,
+            StartingVcn: i64,
             Extents: [RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0; 1],
         }
         struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
-            NextVcn: LARGE_INTEGER,
-            Lcn: LARGE_INTEGER,
+            NextVcn: i64,
+            Lcn: i64,
             ReferenceCount: u32,
         }
         struct RETRIEVAL_POINTERS_BUFFER {
             ExtentCount: u32,
-            StartingVcn: LARGE_INTEGER,
+            StartingVcn: i64,
             Extents: [RETRIEVAL_POINTERS_BUFFER_0; 1],
         }
         struct RETRIEVAL_POINTERS_BUFFER_0 {
-            NextVcn: LARGE_INTEGER,
-            Lcn: LARGE_INTEGER,
+            NextVcn: i64,
+            Lcn: i64,
         }
         struct RETRIEVAL_POINTER_BASE {
-            FileAreaOffset: LARGE_INTEGER,
+            FileAreaOffset: i64,
         }
         struct RETRIEVAL_POINTER_COUNT {
             ExtentCount: u32,
@@ -3630,7 +3630,7 @@ mod Windows {
             DeviceSize: DWORDLONG,
         }
         struct SCM_BUS_DEDICATED_MEMORY_STATE {
-            ActivateState: BOOLEAN,
+            ActivateState: bool,
         }
         #[repr(i32)]
         enum SCM_BUS_FIRMWARE_ACTIVATION_STATE {
@@ -3668,7 +3668,7 @@ mod Windows {
         struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
             Version: u32,
             Size: u32,
-            RuntimeFwActivationSupported: BOOLEAN,
+            RuntimeFwActivationSupported: bool,
             FirmwareActivationState: SCM_BUS_FIRMWARE_ACTIVATION_STATE,
             FirmwareActivationCapability: struct {
                 _bitfield: u32 {
@@ -3963,7 +3963,7 @@ mod Windows {
             Status: SCM_PD_MEDIA_REINITIALIZATION_STATUS,
         }
         struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
-            ArmState: BOOLEAN,
+            ArmState: bool,
         }
         struct SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
             Version: u32,
@@ -4128,7 +4128,7 @@ mod Windows {
         }
         struct SET_DISK_ATTRIBUTES {
             Version: u32,
-            Persist: BOOLEAN,
+            Persist: bool,
             Reserved1: [u8; 3],
             Attributes: DWORDLONG,
             AttributesMask: DWORDLONG,
@@ -4209,14 +4209,14 @@ mod Windows {
         const SRB_TYPE_SCSI_REQUEST_BLOCK: i32 = 0;
         const SRB_TYPE_STORAGE_REQUEST_BLOCK: i32 = 1;
         struct STARTING_LCN_INPUT_BUFFER {
-            StartingLcn: LARGE_INTEGER,
+            StartingLcn: i64,
         }
         struct STARTING_LCN_INPUT_BUFFER_EX {
-            StartingLcn: LARGE_INTEGER,
+            StartingLcn: i64,
             Flags: u32,
         }
         struct STARTING_VCN_INPUT_BUFFER {
-            StartingVcn: LARGE_INTEGER,
+            StartingVcn: i64,
         }
         struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
             Version: u32,
@@ -4233,10 +4233,10 @@ mod Windows {
             MaximumTransferLength: u32,
             MaximumPhysicalPages: u32,
             AlignmentMask: u32,
-            AdapterUsesPio: BOOLEAN,
-            AdapterScansDown: BOOLEAN,
-            CommandQueueing: BOOLEAN,
-            AcceleratedTransfer: BOOLEAN,
+            AdapterUsesPio: bool,
+            AdapterScansDown: bool,
+            CommandQueueing: bool,
+            AcceleratedTransfer: bool,
             BusType: u8,
             BusMajorVersion: u16,
             BusMinorVersion: u16,
@@ -4254,9 +4254,9 @@ mod Windows {
             Version: u32,
             RequestsPerPeriod: u32,
             Period: u32,
-            RetryFailures: BOOLEAN,
-            Discardable: BOOLEAN,
-            Reserved1: [BOOLEAN; 2],
+            RetryFailures: bool,
+            Discardable: bool,
+            Reserved1: [bool; 2],
             AccessType: u32,
             AccessMode: u32,
         }
@@ -4472,8 +4472,8 @@ mod Windows {
             Size: u32,
             DeviceType: u8,
             DeviceTypeModifier: u8,
-            RemovableMedia: BOOLEAN,
-            CommandQueueing: BOOLEAN,
+            RemovableMedia: bool,
+            CommandQueueing: bool,
             VendorIdOffset: u32,
             ProductIdOffset: u32,
             ProductRevisionOffset: u32,
@@ -4589,12 +4589,12 @@ mod Windows {
         struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
             Version: u32,
             Size: u32,
-            SupportsSelfEncryption: BOOLEAN,
+            SupportsSelfEncryption: bool,
         }
         struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
             Version: u32,
             Size: u32,
-            SupportsSelfEncryption: BOOLEAN,
+            SupportsSelfEncryption: bool,
             EncryptionType: STORAGE_ENCRYPTION_TYPE,
         }
         #[encoding("utf-16")]
@@ -4680,8 +4680,8 @@ mod Windows {
         struct STORAGE_FAILURE_PREDICTION_CONFIG {
             Version: u32,
             Size: u32,
-            Set: BOOLEAN,
-            Enabled: BOOLEAN,
+            Set: bool,
+            Enabled: bool,
             Reserved: u16,
         }
         const STORAGE_FAILURE_PREDICTION_CONFIG_V1: i32 = 1;
@@ -4716,10 +4716,10 @@ mod Windows {
         }
         struct STORAGE_HOTPLUG_INFO {
             Size: u32,
-            MediaRemovable: BOOLEAN,
-            MediaHotplug: BOOLEAN,
-            DeviceHotplug: BOOLEAN,
-            WriteCacheEnableOverride: BOOLEAN,
+            MediaRemovable: bool,
+            MediaHotplug: bool,
+            DeviceHotplug: bool,
+            WriteCacheEnableOverride: bool,
         }
         struct STORAGE_HW_BOOT_PARTITION_ACTIVATE {
             Version: u32,
@@ -4834,7 +4834,7 @@ mod Windows {
             SlotCount: u8,
             ActiveSlot: u8,
             PendingActivateSlot: u8,
-            FirmwareShared: BOOLEAN,
+            FirmwareShared: bool,
             Reserved: [u8; 3],
             ImagePayloadAlignment: u32,
             ImagePayloadMaxSize: u32,
@@ -5019,10 +5019,10 @@ mod Windows {
             Version: u32,
             Size: u32,
             Portdriver: STORAGE_PORT_CODE_SET,
-            LUNResetSupported: BOOLEAN,
-            TargetResetSupported: BOOLEAN,
+            LUNResetSupported: bool,
+            TargetResetSupported: bool,
             IoTimeoutValue: u16,
-            ExtraIoInfoSupported: BOOLEAN,
+            ExtraIoInfoSupported: bool,
             Flags: union {
                 Anonymous: struct {
                     _bitfield: u8 {
@@ -5121,7 +5121,7 @@ mod Windows {
             Model: [u8; 40],
             FirmwareRevision: [u8; 16],
             PhysicalLocation: [u8; 32],
-            ExpanderConnected: BOOLEAN,
+            ExpanderConnected: bool,
             Reserved0: [u8; 3],
             Reserved1: [u32; 3],
         }
@@ -5401,8 +5401,8 @@ mod Windows {
             Version: u32,
             Size: u32,
             BlockLength: u32,
-            NumberOfBlocks: LARGE_INTEGER,
-            DiskLength: LARGE_INTEGER,
+            NumberOfBlocks: i64,
+            DiskLength: i64,
         }
         struct STORAGE_REINITIALIZE_MEDIA {
             Version: u32,
@@ -5520,9 +5520,9 @@ mod Windows {
             Temperature: i16,
             OverThreshold: i16,
             UnderThreshold: i16,
-            OverThresholdChangable: BOOLEAN,
-            UnderThresholdChangable: BOOLEAN,
-            EventGenerated: BOOLEAN,
+            OverThresholdChangable: bool,
+            UnderThresholdChangable: bool,
+            EventGenerated: bool,
             Reserved0: u8,
             Reserved1: u32,
         }
@@ -5532,7 +5532,7 @@ mod Windows {
             Flags: u16,
             Index: u16,
             Threshold: i16,
-            OverThreshold: BOOLEAN,
+            OverThreshold: bool,
             Reserved: u8,
         }
         const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: i32 = 1;
@@ -5580,9 +5580,9 @@ mod Windows {
             WriteCacheEnabled: WRITE_CACHE_ENABLE,
             WriteCacheChangeable: WRITE_CACHE_CHANGE,
             WriteThroughSupported: WRITE_THROUGH,
-            FlushCacheSupported: BOOLEAN,
-            UserDefinedPowerProtection: BOOLEAN,
-            NVCacheEnabled: BOOLEAN,
+            FlushCacheSupported: bool,
+            UserDefinedPowerProtection: bool,
+            NVCacheEnabled: bool,
         }
         struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
             Version: u32,
@@ -5592,7 +5592,7 @@ mod Windows {
             ZoneAttributes: union {
                 SequentialRequiredZone: struct {
                     MaxOpenZoneCount: u32,
-                    UnrestrictedRead: BOOLEAN,
+                    UnrestrictedRead: bool,
                     Reserved: [u8; 3],
                 },
                 SequentialPreferredZone: struct {
@@ -5632,7 +5632,7 @@ mod Windows {
             Size: u32,
             ZoneType: STORAGE_ZONE_TYPES,
             ZoneCondition: STORAGE_ZONE_CONDITION,
-            ResetWritePointerRecommend: BOOLEAN,
+            ResetWritePointerRecommend: bool,
             Reserved0: [u8; 3],
             ZoneSize: DWORDLONG,
             WritePointerOffset: DWORDLONG,
@@ -5716,8 +5716,8 @@ mod Windows {
             NextStreamOffset: u32,
             Flags: u32,
             ExtentInformationOffset: u32,
-            AllocationSize: LARGE_INTEGER,
-            EndOfFile: LARGE_INTEGER,
+            AllocationSize: i64,
+            EndOfFile: i64,
             StreamInformationOffset: u32,
             AttributeTypeCode: u32,
             AttributeFlags: u32,
@@ -5740,10 +5740,10 @@ mod Windows {
         struct TAPE_STATISTICS {
             Version: u32,
             Flags: u32,
-            RecoveredWrites: LARGE_INTEGER,
-            UnrecoveredWrites: LARGE_INTEGER,
-            RecoveredReads: LARGE_INTEGER,
-            UnrecoveredReads: LARGE_INTEGER,
+            RecoveredWrites: i64,
+            UnrecoveredWrites: i64,
+            RecoveredReads: i64,
+            UnrecoveredReads: i64,
             CompressionRatioReads: u8,
             CompressionRatioWrites: u8,
         }
@@ -5825,7 +5825,7 @@ mod Windows {
             CurrentLsn: DWORDLONG,
             ArchiveTailLsn: DWORDLONG,
             LogContainerSize: DWORDLONG,
-            HighestVirtualClock: LARGE_INTEGER,
+            HighestVirtualClock: i64,
             LogContainerCount: u32,
             LogContainerCountMax: u32,
             LogContainerCountMin: u32,
@@ -5878,7 +5878,7 @@ mod Windows {
         const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN: i32 = 1;
         const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK: i32 = 2;
         struct TXFS_ROLLFORWARD_REDO_INFORMATION {
-            LastVirtualClock: LARGE_INTEGER,
+            LastVirtualClock: i64,
             LastRedoLsn: DWORDLONG,
             HighestRecoveryLsn: DWORDLONG,
             Flags: u32,
@@ -5924,7 +5924,7 @@ mod Windows {
         const TXFS_TRANSACTED_VERSION_NONTRANSACTED: u32 = 4294967294;
         const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295;
         struct TXFS_TRANSACTION_ACTIVE_INFO {
-            TransactionsActiveAtSnapshot: BOOLEAN,
+            TransactionsActiveAtSnapshot: bool,
         }
         const TXFS_TRANSACTION_STATE_ACTIVE: i32 = 1;
         const TXFS_TRANSACTION_STATE_NONE: i32 = 0;
@@ -6027,7 +6027,7 @@ mod Windows {
             FileReferenceNumber: DWORDLONG,
             ParentFileReferenceNumber: DWORDLONG,
             Usn: USN,
-            TimeStamp: LARGE_INTEGER,
+            TimeStamp: i64,
             Reason: u32,
             SourceInfo: u32,
             SecurityId: u32,
@@ -6043,7 +6043,7 @@ mod Windows {
             FileReferenceNumber: FILE_ID_128,
             ParentFileReferenceNumber: FILE_ID_128,
             Usn: USN,
-            TimeStamp: LARGE_INTEGER,
+            TimeStamp: i64,
             Reason: u32,
             SourceInfo: u32,
             SecurityId: u32,
@@ -6079,7 +6079,7 @@ mod Windows {
         const VALID_WRITE_USN_REASON_MASK: u32 = 2147483649;
         const VENDOR_ID_LENGTH: i32 = 8;
         struct VERIFY_INFORMATION {
-            StartingOffset: LARGE_INTEGER,
+            StartingOffset: i64,
             Length: u32,
         }
         struct VIRTUALIZATION_INSTANCE_INFO_INPUT {
@@ -6113,8 +6113,8 @@ mod Windows {
             VendorId: GUID,
         }
         struct VOLUME_BITMAP_BUFFER {
-            StartingLcn: LARGE_INTEGER,
-            BitmapSize: LARGE_INTEGER,
+            StartingLcn: i64,
+            BitmapSize: i64,
             Buffer: [u8; 1],
         }
         struct VOLUME_DISK_EXTENTS {
@@ -6141,13 +6141,13 @@ mod Windows {
         struct WIM_PROVIDER_EXTERNAL_INFO {
             Version: u32,
             Flags: u32,
-            DataSourceId: LARGE_INTEGER,
+            DataSourceId: i64,
             ResourceHash: [u8; 20],
         }
         const WIM_PROVIDER_HASH_SIZE: i32 = 20;
         struct WIM_PROVIDER_OVERLAY_ENTRY {
             NextEntryOffset: u32,
-            DataSourceId: LARGE_INTEGER,
+            DataSourceId: i64,
             WimGuid: GUID,
             WimFileNameOffset: u32,
             WimType: u32,
@@ -6155,13 +6155,13 @@ mod Windows {
             Flags: u32,
         }
         struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
-            DataSourceId: LARGE_INTEGER,
+            DataSourceId: i64,
         }
         struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
-            DataSourceId: LARGE_INTEGER,
+            DataSourceId: i64,
         }
         struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
-            DataSourceId: LARGE_INTEGER,
+            DataSourceId: i64,
             WimFileNameOffset: u32,
             WimFileNameLength: u32,
         }

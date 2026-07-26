@@ -37,15 +37,7 @@ where
     fn on_disappeared(&self, _props: &P, _cx: &mut RenderCx) {}
 }
 
-/// Blanket impl: any `Fn(&P, &mut RenderCx) -> Element` is a [`Component<P>`].
-///
-/// ```ignore
-/// fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> Element {
-///     text_block(format!("Hello, {}!", props.name)).into()
-/// }
-/// ```
-///
-/// For unit-props, use `fn(_: &(), cx: &mut RenderCx) -> Element`.
+/// Any `Fn(&P, &mut RenderCx) -> Element` is a [`Component<P>`].
 impl<F, P> Component<P> for F
 where
     F: Fn(&P, &mut RenderCx) -> Element + 'static,
@@ -256,8 +248,7 @@ enum HookSlot {
         cleanup: Option<Cleanup>,
         pending_cleanup: Option<Cleanup>,
     },
-    /// State slot whose cell is `Arc<Mutex<...>>` so writes can come from
-    /// any thread. Backs [`RenderCx::use_async_state`].
+    /// State slot shared with off-thread setters.
     AsyncState {
         cell: Arc<Mutex<Box<dyn Any + Send>>>,
         type_name: &'static str,
@@ -282,8 +273,7 @@ impl fmt::Debug for HookSlot {
 }
 
 impl_rc_fn_wrapper! {
-    /// Setter returned by `use_state`; replaces the slot value and
-    /// requests a rerender.
+    /// Setter returned by `use_state`.
     pub struct SetState<T>(dyn Fn(T));
 }
 
@@ -316,8 +306,7 @@ impl<T: 'static> From<SetState<T>> for Callback<T> {
 type ReducerClosure<T> = Box<dyn FnOnce(T) -> T>;
 
 impl_rc_fn_wrapper! {
-    /// Functional updater returned by `use_state`; mutates the slot value
-    /// via `f(prev) -> next` and requests a rerender.
+    /// Functional updater returned by `use_state`.
     pub struct Updater<T>(dyn Fn(ReducerClosure<T>));
 }
 
@@ -353,12 +342,9 @@ impl<A: 'static> From<Dispatch<A>> for Callback<A> {
 pub struct AsyncSetState<T: Send + 'static> {
     cell: Arc<Mutex<Box<dyn Any + Send>>>,
     marshaller: UiMarshaller,
-    /// Owning component's `state_dirty` flag (shared with `RenderCx`), set on
-    /// a real change so the reconciler re-renders the component even when
-    /// nested under a parent whose element tree is unchanged.
+    /// Forces this component to render even under an unchanged parent.
     dirty: Arc<AtomicBool>,
     type_name: &'static str,
-    /// Owning host, so the marshalled write re-renders the correct host.
     host_id: HostId,
     _marker: std::marker::PhantomData<fn(T)>,
 }
@@ -405,16 +391,14 @@ impl<T: Send + Clone + PartialEq + 'static> AsyncSetState<T> {
             }
             *slot = Box::new(value);
             drop(slot);
-            // Mark the owning component dirty so the reconciler does not skip
-            // it; a bare rerender request only re-renders the root.
+            // A bare rerender request only re-renders the root.
             dirty.store(true, Ordering::Relaxed);
             request_ui_rerender_on_ui_thread(host_id);
         });
     }
 }
 
-/// `Rc<RefCell<T>>` wrapper returned by `use_ref`; identity-stable across
-/// renders so callers can pin mutable state outside the hooks vector.
+/// Identity-stable `Rc<RefCell<T>>` returned by `use_ref`.
 pub struct HookRef<T> {
     inner: Rc<RefCell<T>>,
 }
@@ -460,51 +444,31 @@ impl<T: fmt::Debug> fmt::Debug for HookRef<T> {
     }
 }
 
-/// Stable `ContextId` used to track which components subscribed to
-/// [`RenderCx::use_inner_size`].
 fn inner_size_context_id() -> ContextId {
     static ID: OnceLock<ContextId> = OnceLock::new();
     *ID.get_or_init(ContextId::new)
 }
 
-/// Stable `ContextId` used to track which components subscribed to
-/// [`RenderCx::use_dpi`].
 fn dpi_context_id() -> ContextId {
     static ID: OnceLock<ContextId> = OnceLock::new();
     *ID.get_or_init(ContextId::new)
 }
 
-/// Per-component render context: hooks vector cursor, the rerender
-/// request closure, and ambient context-provider stack. Passed to every
-/// [`Component::render`] call.
+/// Per-component render context passed to [`Component::render`].
 pub struct RenderCx {
     hooks: Rc<RefCell<Vec<HookSlot>>>,
     cursor: usize,
     request_rerender: Rc<dyn Fn()>,
-    /// Shared flag set whenever a hook value changes, by both the synchronous
-    /// setters (`SetState`/`Updater`/`Dispatch`) and the off-thread
-    /// [`AsyncSetState`]. The reconciler checks this to force a re-render of
-    /// the owning component even when the parent's element tree is
-    /// structurally identical, so nested components are not skipped after a
-    /// state update. It is an `Arc<AtomicBool>` rather than a `Cell` because
-    /// [`AsyncSetState`] captures it into a `Send` closure that is marshalled
-    /// onto the UI thread; the synchronous setters only ever touch it from the
-    /// UI thread.
+    /// Forces this component to render after hook writes, even under an unchanged
+    /// parent. `AsyncSetState` captures it into a `Send` closure.
     state_dirty: Arc<AtomicBool>,
     ui_thread: Option<ThreadId>,
     context_stack: Option<Rc<ContextStack>>,
     read_contexts: RefCell<FxHashSet<ContextId>>,
-    /// `Send + Sync` handle to the UI thread's render-aware dispatcher,
-    /// populated by the host for [`Self::use_ui_marshaller`] /
-    /// [`Self::use_async_state`].
     marshaller: Option<UiMarshaller>,
     inner_size: Rc<Cell<WindowSize>>,
-    /// Per-monitor DPI for the host window. Shared with the
-    /// reconciler via [`Self::set_dpi_cell`]; updated by the host when the
-    /// window moves across monitors.
+    /// Per-monitor DPI for the host window.
     dpi: Rc<Cell<u32>>,
-    /// Identifies the owning host so off-thread [`AsyncSetState`] writes route
-    /// their rerender request to the correct host on the UI thread.
     host_id: HostId,
 }
 
@@ -583,13 +547,10 @@ impl RenderCx {
         self.request_rerender = request_rerender;
     }
 
-    /// Returns `true` if any state write (synchronous or off-thread async)
-    /// has changed a hook value since the last render, and clears the flag.
     pub fn take_state_dirty(&self) -> bool {
         self.state_dirty.swap(false, Ordering::Relaxed)
     }
 
-    /// Returns the current dirty state without clearing it.
     pub fn peek_state_dirty(&self) -> bool {
         self.state_dirty.load(Ordering::Relaxed)
     }
@@ -679,12 +640,7 @@ impl RenderCx {
         (current, setter)
     }
 
-    /// Returns a per-slot handle (`SetState`, `Updater`, ...) that is built once
-    /// and reused for the life of the slot, so re-renders hand out the same
-    /// `Rc` instead of allocating a fresh one each time. Stable identity also
-    /// lets the reconciler skip subtrees whose handlers are unchanged. Only
-    /// safe for handles that capture nothing render-specific (the synchronous
-    /// state/reducer setters capture only the slot's stable context).
+    /// Reuses per-slot handles so handler identity stays stable across renders.
     fn memo_handle<H>(&self, slot_index: usize, build: impl FnOnce() -> H) -> H
     where
         H: Clone + 'static,
@@ -1274,9 +1230,6 @@ struct RenderHostInner<B: Backend, D: Dispatcher> {
     last_tree: RefCell<Option<Element>>,
     render_state: Cell<RenderState>,
     dispatcher: D,
-    /// Optional `Send + Sync` marshaller used to support
-    /// [`RenderCx::use_async_state`]. When `None`, async setters
-    /// will panic if any component asks for one.
     marshaller: RefCell<Option<UiMarshaller>>,
     render_count: Cell<u32>,
     stats: Cell<RenderStats>,
@@ -1285,9 +1238,7 @@ struct RenderHostInner<B: Backend, D: Dispatcher> {
     stats_accum: StatsAccumulator,
     inner_size: Rc<Cell<WindowSize>>,
     dpi: Rc<Cell<u32>>,
-    /// Owning host id, mirrored from the `RenderCx` so `set_marshaller` can
-    /// install/clear this host's UI-thread rerender hook, and `Drop` can
-    /// remove it when the host (e.g. a secondary window) is torn down.
+    /// Key for this host's UI-thread rerender hook.
     host_id: HostId,
 }
 
@@ -1336,10 +1287,7 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         self.inner.stats.get()
     }
 
-    /// Install (or replace) the [`UiMarshaller`] used to support
-    /// off-UI-thread state writes via [`RenderCx::use_async_state`], and
-    /// publish the host's rerender hook to the UI thread's `UI_RERENDER`
-    /// slot. Passing `None` clears both.
+    /// Install or clear off-thread state marshalling for this host.
     pub fn set_marshaller(&self, marshaller: Option<UiMarshaller>) {
         self.inner.marshaller.borrow_mut().clone_from(&marshaller);
         self.inner

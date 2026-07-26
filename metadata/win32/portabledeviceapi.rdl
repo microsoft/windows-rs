@@ -166,7 +166,7 @@ mod Windows {
         }
         #[guid(0x5e98025f_bfc4_47a2_9a5f_bc900a507c67)]
         interface IPortableDeviceUnitsStream: IUnknown {
-            fn SeekInUnits(&self, dlibMove: LARGE_INTEGER, units: WPD_STREAM_UNITS, dwOrigin: u32, #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+            fn SeekInUnits(&self, dlibMove: i64, units: WPD_STREAM_UNITS, dwOrigin: u32, #[opt] plibNewPosition: *mut u64) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0x94fc7953_5ca1_483a_8aee_df52e7747d00)]

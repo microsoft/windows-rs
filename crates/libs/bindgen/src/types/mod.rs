@@ -103,18 +103,12 @@ impl PartialOrd for Type {
 #[derive(PartialEq)]
 pub enum Remap {
     Type(Type),
-    Name(TypeName),
     None,
 }
 
 impl Type {
     fn sort_key(&self) -> (bool, TypeName, i32, i32) {
-        // This sorts types as follows:
-        // 1. functions are placed first
-        // 2. type name
-        // 3. type namespace
-        // 4. architecture
-        // 5. overloaded types
+        // Sort functions first, then by name, namespace, architecture, and kind.
 
         let kind = match self {
             Self::CppFn(..) => 0,
@@ -143,12 +137,7 @@ impl Type {
         (kind != 0, self.type_name(), arches, kind)
     }
 
-    /// A stable secondary key that breaks ties between two distinct types sharing
-    /// the same `sort_key`. Such collisions only arise in `--flat` layouts, where
-    /// collapsing namespaces lands two same-name types in one bucket (e.g.
-    /// `D3DFMT_P8` defined as both the `D3DFORMAT` enum and a raw `u32`). Ordering
-    /// by the underlying metadata row - whose `(file, pos)` is stable across runs
-    /// for identical inputs - makes the resulting collapse deterministic.
+    /// Stable tie-breaker for same-name `--flat` collisions.
     fn row_key(&self) -> (usize, usize) {
         let row = match self {
             Self::CppFn(ty) => Some(ty.method.to_row()),
@@ -167,9 +156,7 @@ impl Type {
         row.map(|r| (r.file, r.pos)).unwrap_or_default()
     }
 
-    /// Total ordering used when inserting into the codegen `BTreeSet`. Extends
-    /// `sort_key` with `row_key` so that when two distinct types collapse to one
-    /// (equal `sort_key`), the surviving element is chosen deterministically.
+    /// Total ordering used when inserting into the codegen `BTreeSet`.
     pub(crate) fn dedup_cmp(&self, other: &Self) -> Ordering {
         self.sort_key()
             .cmp(&other.sort_key())
@@ -198,10 +185,8 @@ impl Type {
         )
     }
 
-    pub fn remap(namespace: &str, name: &str, sys: bool) -> Remap {
-        // WinRT / .NET system projections keep full-name matching: their names
-        // (`Guid`, `HResult`, `Type`) differ from the C spellings and would be
-        // ambiguous if matched by name alone.
+    pub fn remap(namespace: &str, name: &str) -> Remap {
+        // WinRT/.NET system projections need full-name matching.
         match (namespace, name) {
             ("System", "Guid") => return Remap::Type(Self::GUID),
             ("System", "Type") => return Remap::Type(Self::Type),
@@ -210,14 +195,7 @@ impl Type {
             _ => {}
         }
 
-        // The Win32 core types are matched by name alone so that the win32metadata
-        // namespaces (e.g. `Windows.Win32.Foundation.HRESULT`), the in-house
-        // metadata's flat namespace (`Windows.Win32.HRESULT`), and the published
-        // package's per-header namespaces (`Windows.guiddef.GUID`, produced by the
-        // package remapper) all resolve to the same hard-coded core type. These C
-        // spellings are unambiguous, so the namespace they live in does not matter.
-        // WinRT namespaces always have PascalCase leaves, so a lowercase leaf directly
-        // under `Windows.` uniquely identifies a flat Win32/WDK header stem.
+        // Win32 core C spellings are unique across metadata namespace layouts.
         let win32_meta = namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.");
         let is_flat_win32_stem = namespace
             .strip_prefix("Windows.")
@@ -235,71 +213,15 @@ impl Type {
                 "HSTRING" => return Remap::Type(Self::String),
                 "IInspectable" => return Remap::Type(Self::Object),
                 "IUnknown" => return Remap::Type(Self::IUnknown),
-                "CHAR" => return Remap::Type(Self::I8),
-                "BOOLEAN" => return Remap::Type(Self::Bool),
                 "BOOL" => return Remap::Type(Self::BOOL),
                 "NTSTATUS" => return Remap::Type(Self::NTSTATUS),
                 "RPC_STATUS" => return Remap::Type(Self::RPC_STATUS),
                 "EventRegistrationToken" => return Remap::Type(Self::I64),
-
-                // `LARGE_INTEGER` / `ULARGE_INTEGER` are scraped as unions
-                // (their `QuadPart` / `LowPart`+`HighPart` overlay), but the reference
-                // winmd and every published `windows` / `windows-sys` binding collapse
-                // them to their 64-bit scalar. Remap at gen time - like `CHAR` / `BOOLEAN`
-                // above - so the in-house metadata keeps the union layout while consumers
-                // see the ergonomic `i64` / `u64`.
-                "LARGE_INTEGER" => return Remap::Type(Self::I64),
-                "ULARGE_INTEGER" => return Remap::Type(Self::U64),
-                _ => {}
-            }
-        }
-
-        // Numerics substitutions swap a Win32 struct for its
-        // layout-identical `Windows.Foundation.Numerics` projection (the winmd
-        // keeps the D2D/D3D struct). These must be matched by name, not shape:
-        // the same `{ f32; f32 }` layout is reused under many names that map to
-        // *different* Numerics types.
-        //
-        // The projection is applied for the `windows` crate, whose input carries
-        // the WinRT `Windows.Foundation.Numerics` types (re-exported from the
-        // `windows-numerics` crate). It is gated off for `windows-sys` because the
-        // sys package is generated from the Win32/WDK winmd alone: those Numerics
-        // types are not in its input, so the remap target would be unresolvable.
-        // `windows-sys` therefore keeps the raw D2D/D3D structs.
-        if (win32_meta || is_flat_win32_stem) && !sys {
-            match name {
-                "D2D_MATRIX_3X2_F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix3x2"));
-                }
-                "D3DMATRIX" | "D2D_MATRIX_4X4_F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix4x4"));
-                }
-                "D2D_POINT_2F" | "D2D_VECTOR_2F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector2"));
-                }
-                "D2D_VECTOR_3F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector3"));
-                }
-                "D2D_VECTOR_4F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector4"));
-                }
                 _ => {}
             }
         }
 
         Remap::None
-    }
-
-    /// A WinRT metadata namespace: `Windows.`-prefixed with a PascalCase leaf (e.g.
-    /// `Windows.Foundation.Collections`), as opposed to a flat Win32/WDK header stem
-    /// (`Windows.roregistrationapi`, lowercase leaf) or the `Windows.Win32*` partitions.
-    fn is_winrt_namespace(namespace: &str) -> bool {
-        if namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.") {
-            return false;
-        }
-        namespace
-            .strip_prefix("Windows.")
-            .is_some_and(|leaf| leaf.starts_with(|c: char| c.is_ascii_uppercase()))
     }
 
     pub fn generic_placeholders(count: usize) -> Vec<windows_metadata::Type> {
@@ -321,14 +243,10 @@ impl Type {
             return Self::from_metadata_type(&metadata_type, None, generics, reader);
         }
 
-        let mut code_name = code.type_name();
+        let code_name = code.type_name();
 
-        match Self::remap(code_name.namespace(), code_name.name(), reader.sys) {
-            Remap::Type(ty) => return ty,
-            Remap::Name(type_name) => {
-                code_name = type_name;
-            }
-            Remap::None => {}
+        if let Remap::Type(ty) = Self::remap(code_name.namespace(), code_name.name()) {
+            return ty;
         }
 
         if let Some(outer) = enclosing {
@@ -369,9 +287,8 @@ impl Type {
                 let ns: &str = &tn.namespace;
                 let n: &str = &tn.name;
 
-                let (ns, n) = match Self::remap(ns, n, reader.sys) {
+                let (ns, n) = match Self::remap(ns, n) {
                     Remap::Type(ty) => return ty,
-                    Remap::Name(type_name) => (type_name.namespace(), type_name.name()),
                     Remap::None => (ns, n),
                 };
 
@@ -379,19 +296,6 @@ impl Type {
                     if ns.is_empty() {
                         return Self::CppStruct(outer.nested[n].clone());
                     }
-                }
-                // A WinRT reference type (interface/class/delegate) that the Win32-only
-                // `windows-sys` reader cannot resolve degrades to the opaque COM pointer,
-                // matching how sys renders every interface. This lets the flat Win32 winmd
-                // reference genuine WinRT interop types (e.g. `IActivatableClassRegistration`'s
-                // `IMapView<String, Object>`) while keeping `windows-sys` free of WinRT: the
-                // full `windows` crate loads `Windows.winmd` and resolves them normally.
-                if reader.sys
-                    && matches!(ty, windows_metadata::Type::ClassName(_))
-                    && Self::is_winrt_namespace(ns)
-                    && reader.with_full_name(ns, n).next().is_none()
-                {
-                    return Self::Object;
                 }
                 let mut bindgen_ty = reader.unwrap_full_name(ns, n);
                 if !tn.generics.is_empty() {
@@ -841,10 +745,7 @@ impl Type {
         None
     }
 
-    /// If this type is `Windows.Foundation.IReference<T>` whose inner `T` is
-    /// sugar-eligible (primitives, enums, copyable structs, GUID, or `HSTRING`),
-    /// returns `Some(&T)`. Used by both input-parameter and return-position
-    /// `Option`/unwrap sugar in bindgen.
+    /// Returns the inner value type for eligible `IReference<T>` sugar.
     pub fn ireference_inner_for_sugar(&self, reader: &Reader) -> Option<&Self> {
         let inner = self.as_ireference_inner()?;
         match inner {
@@ -1251,23 +1152,13 @@ pub fn write_arch_bits(value: i32) -> TokenStream {
     tokens
 }
 
-/// Wraps a primitive `value` through the nested newtype layers of `ty` so it can
-/// stand in for a full-mode handle / scalar-typedef value. The new metadata
-/// preserves scalar typedefs (e.g. `JET_UINT32`, `DBLENGTH`) as named types; in
-/// full mode these render as newtype structs, so a bare integer (a constant, or an
-/// array length via `len().try_into()`) must be wrapped in one constructor per
-/// layer, bottoming out at the primitive or pointer. In `--sys`/`--minimal` mode
-/// these typedefs collapse to bare aliases, so no wrapping is applied and output is
-/// unchanged (which is also why the published bindings are byte-identical).
+/// Wraps a primitive value through full-mode handle/scalar typedef newtype layers.
 pub(crate) fn write_newtype_wrap(ty: &Type, value: &TokenStream, config: &Config) -> TokenStream {
     if let Type::CppStruct(s) = ty {
         if s.is_handle(config.reader) {
             let inner = ty.underlying_type(config.reader);
             let arg = write_newtype_wrap(&inner, value, config);
-            // A handle typedef emitted as a transparent alias (`HCERTCHAINENGINE = HANDLE`, or any
-            // handle in --sys/--minimal) is not a tuple-struct constructor, so wrap through the
-            // underlying representation without adding this layer. Only a typedef emitted as a real
-            // newtype contributes a `Name(..)` constructor.
+            // Transparent handle aliases do not contribute a `Name(..)` constructor layer.
             if config.typedef_emits_bare(s.def) {
                 return arg;
             }

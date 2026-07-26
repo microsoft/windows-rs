@@ -6,27 +6,27 @@ use super::*;
 pub struct PSTR(pub *mut u8);
 
 impl PSTR {
-    /// Construct a new `PSTR` from a raw pointer
+    /// Constructs a `PSTR` from a raw pointer.
     pub const fn from_raw(ptr: *mut u8) -> Self {
         Self(ptr)
     }
 
-    /// Construct a null `PSTR`
+    /// Constructs a null `PSTR`.
     pub const fn null() -> Self {
         Self(core::ptr::null_mut())
     }
 
-    /// Returns a raw pointer to the `PSTR`
+    /// Returns the raw pointer.
     pub const fn as_ptr(&self) -> *mut u8 {
         self.0
     }
 
-    /// Checks whether the `PSTR` is null
+    /// Returns whether the pointer is null.
     pub fn is_null(&self) -> bool {
         self.0.is_null()
     }
 
-    /// String data without the trailing 0
+    /// Returns the string data without the trailing null.
     ///
     /// # Safety
     ///
@@ -38,7 +38,7 @@ impl PSTR {
         }
     }
 
-    /// Copy the `PSTR` into a Rust `String`.
+    /// Copies the string into a Rust `String`.
     ///
     /// # Safety
     ///
@@ -47,7 +47,7 @@ impl PSTR {
         unsafe { String::from_utf8(self.as_bytes().into()) }
     }
 
-    /// Allow this string to be displayed.
+    /// Returns a display adapter for the string.
     ///
     /// # Safety
     ///

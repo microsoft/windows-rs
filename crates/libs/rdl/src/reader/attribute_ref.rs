@@ -1,25 +1,17 @@
 use super::guid;
 use super::*;
 
-/// A parsed and validated reference to a custom attribute defined in metadata or RDL.
-///
-/// Built-in RDL attributes (`win32`, `winrt`, `repr`, `link`, etc.) are
-/// handled separately by the individual encode functions and are never represented here.
 pub struct AttributeRef {
     pub type_name: metadata::TypeName,
     pub args: Vec<(String, metadata::Value)>,
 }
 
-/// Collected information about an attribute type: constructor overloads and named
-/// instance-field properties (e.g. `version: u32`).
 struct AttributeInfo {
     type_name: metadata::TypeName,
     constructors: Vec<Vec<metadata::Type>>,
-    /// Named instance fields: `(field_name, field_type)`.
     properties: Vec<(String, metadata::Type)>,
 }
 
-/// Positional and named arguments split from a raw argument list.
 struct SplitArgs<'a> {
     positional: Vec<&'a syn::Expr>,
     named: Vec<(String, &'a syn::Expr)>,
@@ -468,7 +460,6 @@ impl Encoder<'_> {
         );
     }
 
-    /// Emits the `Windows.Win32.Metadata.NativeTypedefAttribute` on `target`.
     pub fn encode_native_typedef_attribute(&mut self, target: metadata::writer::HasAttribute) {
         let attr_ref = AttributeRef {
             type_name: metadata::TypeName::named(METADATA_NAMESPACE, "NativeTypedefAttribute"),
@@ -477,14 +468,6 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
-    /// Emits the metadata attribute for a naturalized pseudo-attribute (e.g. `#[retval]` ->
-    /// `RetValAttribute`, `#[len_param(2)]` -> `NativeArrayInfoAttribute(CountParamIndex = 2)`) on
-    /// `target`.
-    ///
-    /// Marker pseudo-attributes (no arguments) emit a parameterless attribute; argument-carrying
-    /// ones (`len_param`/`len_const`/`size_param`/`encoding`) resolve their arguments against the
-    /// real attribute type so the emitted metadata is identical to the fully-qualified spelling.
-    /// The winmd is therefore unaffected by which spelling the RDL uses.
     pub fn emit_pseudo_attribute(
         &mut self,
         target: metadata::writer::HasAttribute,
@@ -503,11 +486,6 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    /// Resolves the arguments of an argument-carrying pseudo-attribute against the real metadata
-    /// attribute type, mirroring [`Self::resolve_attribute_ref`] but with the type looked up by
-    /// its metadata name rather than the attribute's (short) path. When the pseudo binds its
-    /// single positional argument to a named metadata property (`pseudo.prop`), that value is
-    /// re-routed to the property so the emitted metadata matches the fully-qualified spelling.
     fn resolve_pseudo_attr_ref(
         &self,
         attr: &syn::Attribute,
@@ -552,8 +530,6 @@ impl Encoder<'_> {
         })
     }
 
-    /// Emits a `Windows.Win32.Metadata.SupportedArchitectureAttribute` on `target`
-    /// with the given architecture bitmask value (1=X86, 2=X64, 4=Arm64, combinable with `|`).
     pub fn emit_arch_attribute(&mut self, target: metadata::writer::HasAttribute, arch_bits: i32) {
         let attr_ref = AttributeRef {
             type_name: metadata::TypeName::named(
@@ -565,11 +541,6 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
-    /// Emit `[AlignmentAttribute(N)]`, the winmd encoding of forced over-alignment
-    /// (`__declspec(align(N))` / `alignas(N)`). The winmd `ClassLayout` can only
-    /// lower alignment via its packing size, so raised alignment is carried by this
-    /// custom attribute - a 1:1 mirror of the C declaration - and consumed by
-    /// bindgen to emit `#[repr(C, align(N))]`.
     pub fn emit_align_attribute(&mut self, target: metadata::writer::HasAttribute, alignment: u16) {
         let attr_ref = AttributeRef {
             type_name: metadata::TypeName::named(METADATA_NAMESPACE, "AlignmentAttribute"),
@@ -578,12 +549,6 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
-    /// Emit `[NativeBitfieldAttribute(name, offset, length)]`, the winmd encoding of one
-    /// bit-field member packed into a backing integer field. The winmd format has no
-    /// bit-field concept, so each named member of a `_bitfield` block is recorded as an
-    /// instance of this attribute (following Microsoft's win32metadata convention);
-    /// `windows-bindgen` reads them to generate typed get/set accessors. Anonymous
-    /// padding members carry no attribute - they only advance the offset.
     pub fn emit_bitfield_attribute(
         &mut self,
         target: metadata::writer::HasAttribute,
@@ -613,10 +578,6 @@ impl Encoder<'_> {
         })
     }
 
-    /// Processes `#[guid(0x...)]` and `#[no_guid]` pseudo-attributes in `attrs`, emitting a
-    /// `GuidAttribute` on `target` when an explicit GUID is supplied.  Returns `true` when the
-    /// attribute list already carries GUID information (explicit `#[guid]`, `#[no_guid]`, or an
-    /// existing `GuidAttribute`), so the caller can skip automatic GUID derivation.
     pub fn encode_guid_pseudo_attrs(
         &mut self,
         target: metadata::writer::HasAttribute,

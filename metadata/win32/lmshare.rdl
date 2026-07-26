@@ -115,7 +115,7 @@ mod Windows {
         struct SERVER_ALIAS_INFO_0 {
             srvai0_alias: PWSTR,
             srvai0_target: PWSTR,
-            srvai0_default: BOOLEAN,
+            srvai0_default: bool,
             srvai0_reserved: u32,
         }
         const SESI1_NUM_ELEMENTS: i32 = 8;

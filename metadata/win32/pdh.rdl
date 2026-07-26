@@ -467,9 +467,9 @@ mod Windows {
         #[library("pdh.dll")]
         extern fn PdhFormatFromRawValue(dwCounterType: u32, dwFormat: u32, #[opt] pTimeBase: *const i64, pRawValue1: *const PDH_RAW_COUNTER, pRawValue2: *const PDH_RAW_COUNTER, pFmtValue: *mut PDH_FMT_COUNTERVALUE) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetCounterInfoA(hCounter: PDH_HCOUNTER, bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: *mut u32, #[size_param(2)] #[opt] lpBuffer: *mut PDH_COUNTER_INFO_A) -> PDH_STATUS;
+        extern fn PdhGetCounterInfoA(hCounter: PDH_HCOUNTER, bRetrieveExplainText: bool, #[in] #[out] pdwBufferSize: *mut u32, #[size_param(2)] #[opt] lpBuffer: *mut PDH_COUNTER_INFO_A) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetCounterInfoW(hCounter: PDH_HCOUNTER, bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: *mut u32, #[size_param(2)] #[opt] lpBuffer: *mut PDH_COUNTER_INFO_W) -> PDH_STATUS;
+        extern fn PdhGetCounterInfoW(hCounter: PDH_HCOUNTER, bRetrieveExplainText: bool, #[in] #[out] pdwBufferSize: *mut u32, #[size_param(2)] #[opt] lpBuffer: *mut PDH_COUNTER_INFO_W) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhGetCounterTimeBase(hCounter: PDH_HCOUNTER, pTimeBase: *mut i64) -> PDH_STATUS;
         #[library("pdh.dll")]

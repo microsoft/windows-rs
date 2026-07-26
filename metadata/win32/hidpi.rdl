@@ -4,20 +4,20 @@ mod Windows {
         const FACILITY_HID_ERROR_CODE: i32 = 17;
         struct HIDP_BUTTON_ARRAY_DATA {
             ArrayIndex: u16,
-            On: BOOLEAN,
+            On: bool,
         }
         struct HIDP_BUTTON_CAPS {
             UsagePage: USAGE,
             ReportID: u8,
-            IsAlias: BOOLEAN,
+            IsAlias: bool,
             BitField: u16,
             LinkCollection: u16,
             LinkUsage: USAGE,
             LinkUsagePage: USAGE,
-            IsRange: BOOLEAN,
-            IsStringRange: BOOLEAN,
-            IsDesignatorRange: BOOLEAN,
-            IsAbsolute: BOOLEAN,
+            IsRange: bool,
+            IsStringRange: bool,
+            IsDesignatorRange: bool,
+            IsAbsolute: bool,
             ReportCount: u16,
             Reserved2: u16,
             Reserved: [u32; 9],
@@ -67,7 +67,7 @@ mod Windows {
             Reserved: u16,
             Anonymous: union {
                 RawValue: u32,
-                On: BOOLEAN,
+                On: bool,
             },
         }
         #[arch(X86)]
@@ -179,16 +179,16 @@ mod Windows {
         struct HIDP_VALUE_CAPS {
             UsagePage: USAGE,
             ReportID: u8,
-            IsAlias: BOOLEAN,
+            IsAlias: bool,
             BitField: u16,
             LinkCollection: u16,
             LinkUsage: USAGE,
             LinkUsagePage: USAGE,
-            IsRange: BOOLEAN,
-            IsStringRange: BOOLEAN,
-            IsDesignatorRange: BOOLEAN,
-            IsAbsolute: BOOLEAN,
-            HasNull: BOOLEAN,
+            IsRange: bool,
+            IsStringRange: bool,
+            IsDesignatorRange: bool,
+            IsAbsolute: bool,
+            HasNull: bool,
             Reserved: u8,
             BitSize: u16,
             ReportCount: u16,
@@ -280,7 +280,7 @@ mod Windows {
         type PHIDP_CAPS = *mut HIDP_CAPS;
         type PHIDP_DATA = *mut HIDP_DATA;
         type PHIDP_EXTENDED_ATTRIBUTES = *mut HIDP_EXTENDED_ATTRIBUTES;
-        extern fn PHIDP_INSERT_SCANCODES(#[opt] Context: *const void, #[size_param(2)] NewScanCodes: *const i8, Length: u32) -> BOOLEAN;
+        extern fn PHIDP_INSERT_SCANCODES(#[opt] Context: *const void, #[size_param(2)] NewScanCodes: *const i8, Length: u32) -> bool;
         type PHIDP_KEYBOARD_MODIFIER_STATE = *mut HIDP_KEYBOARD_MODIFIER_STATE;
         type PHIDP_LINK_COLLECTION_NODE = *mut HIDP_LINK_COLLECTION_NODE;
         type PHIDP_PREPARSED_DATA = *mut _HIDP_PREPARSED_DATA;

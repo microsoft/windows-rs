@@ -66,12 +66,12 @@ mod Windows {
         struct LDAPControlA {
             ldctl_oid: PCHAR,
             ldctl_value: LDAP_BERVAL,
-            ldctl_iscritical: BOOLEAN,
+            ldctl_iscritical: bool,
         }
         struct LDAPControlW {
             ldctl_oid: PWCHAR,
             ldctl_value: LDAP_BERVAL,
-            ldctl_iscritical: BOOLEAN,
+            ldctl_iscritical: bool,
         }
         struct LDAPMessage {
             lm_msgid: u32,
@@ -84,9 +84,9 @@ mod Windows {
             Request: *mut void,
             lm_returncode: u32,
             lm_referral: u16,
-            lm_chased: BOOLEAN,
-            lm_eom: BOOLEAN,
-            ConnectionReferenced: BOOLEAN,
+            lm_chased: bool,
+            lm_eom: bool,
+            ConnectionReferenced: bool,
         }
         struct LDAPModA {
             mod_op: u32,
@@ -108,12 +108,12 @@ mod Windows {
         struct LDAPSortKeyA {
             sk_attrtype: PCHAR,
             sk_matchruleoid: PCHAR,
-            sk_reverseorder: BOOLEAN,
+            sk_reverseorder: bool,
         }
         struct LDAPSortKeyW {
             sk_attrtype: PWCHAR,
             sk_matchruleoid: PWCHAR,
-            sk_reverseorder: BOOLEAN,
+            sk_reverseorder: bool,
         }
         struct LDAPVLVInfo {
             ldvlv_version: i32,
@@ -394,7 +394,7 @@ mod Windows {
         extern "C" fn LdapUTF8ToUnicode(#[len_param(1)] lpSrcStr: PCSTR, cchSrc: i32, #[len_param(3)] #[out] lpDestStr: PWSTR, cchDest: i32) -> i32;
         #[library("WLDAP32.dll")]
         extern "C" fn LdapUnicodeToUTF8(#[len_param(1)] lpSrcStr: PCWSTR, cchSrc: i32, #[len_param(3)] #[out] lpDestStr: PSTR, cchDest: i32) -> i32;
-        extern "C" fn NOTIFYOFNEWCONNECTION(PrimaryConnection: *mut LDAP, ReferralFromConnection: *mut LDAP, NewDN: *mut u16, HostName: *mut i8, NewConnection: *mut LDAP, PortNumber: u32, SecAuthIdentity: *mut void, CurrentUser: *mut void, ErrorCodeFromBind: u32) -> BOOLEAN;
+        extern "C" fn NOTIFYOFNEWCONNECTION(PrimaryConnection: *mut LDAP, ReferralFromConnection: *mut LDAP, NewDN: *mut u16, HostName: *mut i8, NewConnection: *mut LDAP, PortNumber: u32, SecAuthIdentity: *mut void, CurrentUser: *mut void, ErrorCodeFromBind: u32) -> bool;
         type PBERVAL = *mut LDAP_BERVAL;
         type PLDAP = *mut LDAP;
         type PLDAPControlA = *mut LDAPControlA;
@@ -410,9 +410,9 @@ mod Windows {
         type PLDAP_REFERRAL_CALLBACK = *mut LDAP_REFERRAL_CALLBACK;
         type PLDAP_TIMEVAL = *mut LDAP_TIMEVAL;
         type PLDAP_VERSION_INFO = *mut LDAP_VERSION_INFO;
-        extern "C" fn QUERYCLIENTCERT(Connection: *mut LDAP, trusted_CAs: *mut SecPkgContext_IssuerListInfoEx, ppCertificate: *mut PCCERT_CONTEXT) -> BOOLEAN;
+        extern "C" fn QUERYCLIENTCERT(Connection: *mut LDAP, trusted_CAs: *mut SecPkgContext_IssuerListInfoEx, ppCertificate: *mut PCCERT_CONTEXT) -> bool;
         extern "C" fn QUERYFORCONNECTION(PrimaryConnection: *mut LDAP, ReferralFromConnection: *mut LDAP, NewDN: *mut u16, HostName: *mut i8, PortNumber: u32, SecAuthIdentity: *mut void, CurrentUserToken: *mut void, ConnectionToUse: *mut PLDAP) -> u32;
-        extern "C" fn VERIFYSERVERCERT(Connection: *mut LDAP, pServerCert: *mut PCCERT_CONTEXT) -> BOOLEAN;
+        extern "C" fn VERIFYSERVERCERT(Connection: *mut LDAP, pServerCert: *mut PCCERT_CONTEXT) -> bool;
         #[library("WLDAP32.dll")]
         extern "C" fn ber_bvfree(bv: *mut LDAP_BERVAL);
         #[library("WLDAP32.dll")]
@@ -566,9 +566,9 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_dn2ufnW(dn: PCWSTR) -> PWCHAR;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_encode_sort_controlA(ExternalHandle: *mut LDAP, SortKeys: *mut PLDAPSortKeyA, Control: *mut LDAPControlA, Criticality: BOOLEAN) -> u32;
+        extern "C" fn ldap_encode_sort_controlA(ExternalHandle: *mut LDAP, SortKeys: *mut PLDAPSortKeyA, Control: *mut LDAPControlA, Criticality: bool) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_encode_sort_controlW(ExternalHandle: *mut LDAP, SortKeys: *mut PLDAPSortKeyW, Control: *mut LDAPControlW, Criticality: BOOLEAN) -> u32;
+        extern "C" fn ldap_encode_sort_controlW(ExternalHandle: *mut LDAP, SortKeys: *mut PLDAPSortKeyW, Control: *mut LDAPControlW, Criticality: bool) -> u32;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_err2string(err: u32) -> PCHAR;
         #[library("WLDAP32.dll")]
@@ -720,9 +720,9 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_openW(HostName: PCWSTR, PortNumber: u32) -> *mut LDAP;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_extended_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ResultOID: *mut PSTR, ResultData: *mut *mut LDAP_BERVAL, Freeit: BOOLEAN) -> u32;
+        extern "C" fn ldap_parse_extended_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ResultOID: *mut PSTR, ResultData: *mut *mut LDAP_BERVAL, Freeit: bool) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_extended_resultW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ResultOID: *mut PWSTR, ResultData: *mut *mut LDAP_BERVAL, Freeit: BOOLEAN) -> u32;
+        extern "C" fn ldap_parse_extended_resultW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ResultOID: *mut PWSTR, ResultData: *mut *mut LDAP_BERVAL, Freeit: bool) -> u32;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_page_control(ExternalHandle: *mut LDAP, ServerControls: *mut PLDAPControlA, TotalCount: *mut u32, Cookie: *mut *mut LDAP_BERVAL) -> u32;
         #[library("WLDAP32.dll")]
@@ -736,11 +736,11 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_referenceW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, Referrals: *mut *mut PWCHAR) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_result(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut u32, MatchedDNs: *mut PSTR, ErrorMessage: *mut PSTR, Referrals: *mut *mut PSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: BOOLEAN) -> u32;
+        extern "C" fn ldap_parse_result(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut u32, MatchedDNs: *mut PSTR, ErrorMessage: *mut PSTR, Referrals: *mut *mut PSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: bool) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut u32, MatchedDNs: *mut PSTR, ErrorMessage: *mut PSTR, Referrals: *mut PZPSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: BOOLEAN) -> u32;
+        extern "C" fn ldap_parse_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut u32, MatchedDNs: *mut PSTR, ErrorMessage: *mut PSTR, Referrals: *mut PZPSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: bool) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_resultW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut u32, MatchedDNs: *mut PWSTR, ErrorMessage: *mut PWSTR, Referrals: *mut PZPWSTR, ServerControls: *mut *mut PLDAPControlW, Freeit: BOOLEAN) -> u32;
+        extern "C" fn ldap_parse_resultW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut u32, MatchedDNs: *mut PWSTR, ErrorMessage: *mut PWSTR, Referrals: *mut PZPWSTR, ServerControls: *mut *mut PLDAPControlW, Freeit: bool) -> u32;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_sort_control(ExternalHandle: *mut LDAP, Control: *mut PLDAPControlA, Result: *mut u32, Attribute: *mut PCHAR) -> u32;
         #[library("WLDAP32.dll")]
@@ -848,7 +848,7 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_startup(version: *mut LDAP_VERSION_INFO, Instance: *mut HANDLE) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_stop_tls_s(ExternalHandle: *mut LDAP) -> BOOLEAN;
+        extern "C" fn ldap_stop_tls_s(ExternalHandle: *mut LDAP) -> bool;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_ufn2dn(ufn: PCSTR, pDn: *mut PSTR) -> u32;
         #[library("WLDAP32.dll")]

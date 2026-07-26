@@ -193,9 +193,9 @@ mod Windows {
             fn BeginScene(&self) -> HRESULT;
             fn EndScene(&self) -> HRESULT;
             fn Clear(&self, Count: u32, pRects: *const D3DRECT, Flags: u32, Color: D3DCOLOR, Z: f32, Stencil: u32) -> HRESULT;
-            fn SetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *const D3DMATRIX) -> HRESULT;
-            fn GetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *mut D3DMATRIX) -> HRESULT;
-            fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const D3DMATRIX) -> HRESULT;
+            fn SetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *const super::Foundation::Numerics::Matrix4x4) -> HRESULT;
+            fn GetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *mut super::Foundation::Numerics::Matrix4x4) -> HRESULT;
+            fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const super::Foundation::Numerics::Matrix4x4) -> HRESULT;
             fn SetViewport(&self, pViewport: *const D3DVIEWPORT9) -> HRESULT;
             fn GetViewport(&self, pViewport: *mut D3DVIEWPORT9) -> HRESULT;
             fn SetMaterial(&self, pMaterial: *const D3DMATERIAL9) -> HRESULT;

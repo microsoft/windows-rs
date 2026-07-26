@@ -1,10 +1,6 @@
 use super::*;
 
 /// Cargo-feature `#[cfg(...)]` emission for `--package` output.
-///
-/// Only the package layout emits per-namespace cargo features; other layouts
-/// never call any of this machinery. Call sites are expected to gate
-/// construction on `config.bindgen.layout.is_package()`.
 #[derive(Default)]
 pub struct Cfg {
     features: BTreeSet<&'static str>,
@@ -110,16 +106,12 @@ impl Config<'_> {
 
         let trees = tree.flatten_trees();
 
-        // In the flat `windows-sys` package a namespace of pure COM interfaces emits
-        // nothing - sys renders no interfaces - leaving an empty module file and a dead
-        // Cargo feature. Collect those prunable namespaces so their module declaration,
-        // file, feature, and any dependency-list references are all suppressed.
+        // Pure COM-interface namespaces are empty in `windows-sys` and can be pruned.
         let mut prunable = BTreeSet::new();
         if self.bindgen.style.is_sys() {
             self.collect_prunable(tree, &mut prunable);
         }
-        // Share the pruned set with every type writer so `Cfg::write` never emits a
-        // `#[cfg(feature = ...)]` gate naming a pruned namespace.
+        // Share pruned namespaces so cfg gates never reference them.
         let prunable = std::sync::Arc::new(prunable);
 
         for_each(trees.iter(), |tree| {
@@ -129,27 +121,17 @@ impl Config<'_> {
 
             let directory = format!("{output}/src/{}", tree.namespace.replace('.', "/"));
 
-            // Children of a `Win32`/`Wdk` umbrella are per-header submodules whose contents are
-            // glob-re-exported, so the whole flat Win32/WDK surface is reachable directly under
-            // `Win32`/`Wdk` (e.g. `windows::Win32::CreateFileW`); each is also a `pub mod`, so an
-            // item is still reachable at `Win32::<stem>::Name` (the only way to reach a name the
-            // flat glob leaves ambiguous), and each compiles as its own feature-gated file.
+            // Flat Win32/WDK umbrellas glob-reexport private per-header child modules.
             let flatten_children = is_flat_container(tree.namespace);
 
             let mut tokens = TokenStream::new();
 
             if flatten_children {
-                // Every per-header stem is glob-re-exported into the flat umbrella, and two headers
-                // can export the same free constant (exactly one across the whole SDK today:
-                // `Network`, in both `devicetopology` and `ntsecapi`). Each stays reachable via its
-                // own `pub mod <stem>` path below; the flat `Win32::Network` is intentionally
-                // ambiguous, so silence the glob-re-export lint on the umbrella.
+                // Duplicate Win32 free constants stay reachable through their header modules.
                 tokens.combine(quote! { #![allow(ambiguous_glob_reexports)] });
             }
 
-            // Free constants under a flattened Win32/WDK umbrella whose names shadow a Rust prelude
-            // item (e.g. `None`), mapped to the features that define them, so the glob re-export can
-            // be shadowed back to the prelude below.
+            // Prelude-name constants are shadowed back to the prelude after glob reexports.
             let mut prelude_shadows: BTreeMap<&'static str, BTreeSet<String>> = BTreeMap::new();
 
             for (name, tree) in &tree.nested {
@@ -180,8 +162,7 @@ impl Config<'_> {
                         pub use #name::*;
                     });
                 } else if is_flat_container(tree.namespace) {
-                    // The `Win32`/`Wdk` umbrella is an always-present container; its per-header
-                    // children carry the Cargo features, so the umbrella itself is never gated.
+                    // The umbrella is always present; only per-header children are feature-gated.
                     tokens.combine(quote! {
                         pub mod #name;
                     });
@@ -243,9 +224,7 @@ impl Config<'_> {
             .filter(|namespace| !is_flat_container(namespace))
             .collect();
 
-        // Collect the feature lines and sort them before writing so the generated feature table is
-        // ordered by feature name rather than by namespace-tree traversal, keeping the Cargo.toml
-        // stable and diff-friendly (the dependency list inside each line is already sorted).
+        // Sort feature lines by feature name for stable Cargo.toml output.
         let mut feature_lines: Vec<String> = Vec::new();
 
         for tree in trees.iter().skip(1) {
@@ -253,28 +232,18 @@ impl Config<'_> {
                 continue;
             }
 
-            // The `Win32`/`Wdk` umbrella is a pure container with no types of its own; it has no
-            // Cargo feature (its per-header children do), so it is skipped here entirely.
+            // The flat umbrella has no feature; its per-header children do.
             if is_flat_container(tree.namespace) {
                 continue;
             }
 
             let feature = tree.feature();
 
-            // Derive the dependency from the namespace's dot structure. A per-header Win32
-            // namespace (`Windows.Win32.<stem>`) pulls in the other header stems its APIs
-            // reference; a nested WinRT namespace depends on its parent root; a WinRT root depends
-            // on the always-on `Foundation` base.
+            // Dependencies follow namespace shape: Win32 peers, WinRT parent, or Foundation.
             let (parent, _leaf) = tree.namespace.rsplit_once('.').unwrap();
 
             if parent == "Windows.Win32" {
-                // A flat Win32 header-stem module. There is no umbrella feature, so the
-                // stem's cargo feature must pull in exactly the other stems whose types its
-                // APIs reference (the same namespaces that gate its items per `Cfg`), so that
-                // enabling one header's feature makes its whole surface usable. This mirrors
-                // the classic per-feature dependency lists (cargo tolerates the resulting
-                // cycles between mutually-referencing headers). References that resolve to
-                // always-on core types (no emitted feature) are filtered out.
+                // Win32 header features depend on the other header stems their APIs reference.
                 let config = self.with_namespace(tree.namespace);
                 let mut dependencies = BTreeSet::new();
 
@@ -285,9 +254,7 @@ impl Config<'_> {
 
                 dependencies.remove(tree.namespace);
 
-                // Sort by the emitted feature name (not the source namespace) so the list stays
-                // stable and readable regardless of how the `Windows.Win32` umbrella orders the
-                // underlying namespaces.
+                // Sort dependencies by emitted feature name.
                 let list = dependencies
                     .iter()
                     .filter(|namespace| feature_namespaces.contains(*namespace))
@@ -300,16 +267,13 @@ impl Config<'_> {
 
                 feature_lines.push(format!("{feature} = [{list}]"));
             } else if parent != "Windows" {
-                // A nested WinRT namespace (e.g. `Foundation.Collections`) depends on its
-                // parent root feature.
+                // Nested WinRT namespaces depend on their parent root feature.
                 let dependency = namespace_feature(parent);
 
                 feature_lines.push(format!("{feature} = [\"{dependency}\"]"));
             } else if tree.namespace == "Windows.Foundation" {
-                // The WinRT `Foundation` base is always available with no dependency.
                 feature_lines.push(format!("{feature} = []"));
             } else {
-                // Other WinRT roots depend on the always-on `Foundation` base.
                 feature_lines.push(format!("{feature} = [\"Foundation\"]"));
             }
         }
@@ -323,10 +287,7 @@ impl Config<'_> {
         write_to_file(&toml_path, toml);
     }
 
-    /// Records every namespace whose module would be empty in this package layout -
-    /// its own types all emit nothing (a `windows-sys` namespace of pure COM
-    /// interfaces) and every nested child is likewise prunable - into `prunable`.
-    /// Returns whether `tree` itself is prunable so the recursion can fold children.
+    /// Records package namespaces whose modules would be empty.
     fn collect_prunable(&self, tree: &TypeTree, prunable: &mut BTreeSet<&'static str>) -> bool {
         let config = self.with_namespace(tree.namespace);
 
@@ -335,8 +296,7 @@ impl Config<'_> {
             .iter()
             .all(|ty| ty.write(&config).into_string().trim().is_empty());
 
-        // Recurse into every child (no short-circuit) so all prunable descendants are
-        // recorded even when a sibling keeps the subtree.
+        // Visit every child so all prunable descendants are recorded.
         let mut children_prunable = true;
         for child in tree.nested.values() {
             if !self.collect_prunable(child, prunable) {
@@ -352,19 +312,12 @@ impl Config<'_> {
     }
 }
 
-/// The always-present umbrella module that groups the flat Win32 header stems (every non-WinRT
-/// type, including the kernel-mode WDK headers). It owns no types (its per-header children do) and
-/// so carries no Cargo feature and no feature gate.
+/// Always-present umbrella module for flat Win32 header stems.
 fn is_flat_container(namespace: &str) -> bool {
     namespace == "Windows.Win32"
 }
 
-/// Path to the standard-library item a flat Win32/WDK free constant would shadow if glob-re-exported
-/// under its umbrella. Win32 metadata carries unscoped-enum values as free constants (e.g.
-/// `Windows.Win32.ro` emits `pub const None: RoErrorReportingFlags`); flattening every header into a
-/// single `Win32` glob would bring such a name into scope and shadow the Rust prelude for anyone
-/// doing `use windows::Win32::*`. Emitting an explicit `pub use` of the prelude item shadows the glob
-/// (explicit imports win over glob imports), restoring prelude behaviour and hiding the raw constant.
+/// Prelude item shadowed by a flat Win32/WDK free constant, if any.
 fn prelude_value_shadow(name: &str) -> Option<TokenStream> {
     Some(match name {
         "None" => quote! { core::option::Option::None },

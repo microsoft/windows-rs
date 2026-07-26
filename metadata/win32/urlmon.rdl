@@ -544,7 +544,7 @@ mod Windows {
         #[guid(0x79eac9e4_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetProtocol: IInternetProtocolRoot {
             fn Read(&self, #[in] #[out] pv: *mut void, cb: u32, pcbRead: *mut u32) -> HRESULT;
-            fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: u32, plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+            fn Seek(&self, dlibMove: i64, dwOrigin: u32, plibNewPosition: *mut u64) -> HRESULT;
             fn LockRequest(&self, dwOptions: u32) -> HRESULT;
             fn UnlockRequest(&self) -> HRESULT;
         }

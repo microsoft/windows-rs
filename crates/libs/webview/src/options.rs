@@ -132,10 +132,7 @@ impl EnvironmentOptions {
     }
 }
 
-/// A read-only `ICoreWebView2EnvironmentOptions` implementation backed by an
-/// [`EnvironmentOptions`]. WebView2 reads the configured values through the
-/// getters; the setters exist only to satisfy the COM vtable and are never
-/// invoked, so they are inert.
+/// Read-only COM options object backed by [`EnvironmentOptions`].
 pub(crate) struct OptionsObject {
     additional_browser_arguments: String,
     language: String,
@@ -150,10 +147,7 @@ implement_decl! {
         [ICoreWebView2EnvironmentOptions, ICoreWebView2EnvironmentOptions6, ICoreWebView2EnvironmentOptions8]
 }
 
-/// The WebView2 general-availability baseline (`CORE_WEBVIEW_TARGET_PRODUCT_VERSION`).
-/// Used as the default `TargetCompatibleBrowserVersion`; WebView2 rejects an empty
-/// or null value with `E_INVALIDARG`, so a valid baseline that every supported
-/// runtime satisfies is supplied when the caller does not set one.
+/// Default `TargetCompatibleBrowserVersion`; WebView2 rejects an empty value.
 const DEFAULT_TARGET_COMPATIBLE_BROWSER_VERSION: &str = "86.0.616.0";
 
 impl OptionsObject {

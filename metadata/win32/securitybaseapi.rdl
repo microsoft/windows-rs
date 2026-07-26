@@ -60,7 +60,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CheckTokenMembershipEx(#[opt] TokenHandle: HANDLE, SidToCheck: PSID, Flags: u32, IsMember: *mut BOOL) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ConvertToAutoInheritPrivateObjectSecurity(#[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, CurrentSecurityDescriptor: PSECURITY_DESCRIPTOR, NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] ObjectType: *const GUID, IsDirectoryObject: BOOLEAN, GenericMapping: *const GENERIC_MAPPING) -> BOOL;
+        extern fn ConvertToAutoInheritPrivateObjectSecurity(#[opt] ParentDescriptor: PSECURITY_DESCRIPTOR, CurrentSecurityDescriptor: PSECURITY_DESCRIPTOR, NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] ObjectType: *const GUID, IsDirectoryObject: bool, GenericMapping: *const GENERIC_MAPPING) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CopySid(nDestinationSidLength: u32, #[size_param(0)] #[out] pDestinationSid: PSID, pSourceSid: PSID) -> BOOL;
         #[library("ADVAPI32.dll")]
