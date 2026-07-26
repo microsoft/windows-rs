@@ -1,45 +1,35 @@
 use super::*;
 
-/// A single method on a COM interface, parsed from a pure-virtual `CXCursor_CXXMethod`.
+/// COM interface method.
 #[derive(Debug)]
 pub struct InterfaceMethod {
     pub name: String,
     pub params: Vec<Param>,
     pub return_type: metadata::Type,
-    /// True if `[propget]` was found in the block comment preceding the method name.
+    /// `[propget]` marker from the MIDL method comment.
     pub is_propget: bool,
-    /// True if `[propput]` was found in the block comment preceding the method name.
+    /// `[propput]` marker from the MIDL method comment.
     pub is_propput: bool,
 }
 
-/// A COM-style abstract interface parsed from a C++ `struct`/`class` that has at least one
-/// pure-virtual method (and optionally a `__declspec(uuid(...))` attribute).
+/// COM-style abstract interface parsed from a C++ `struct`/`class`.
 #[derive(Debug)]
 pub struct Interface {
     pub name: String,
-    /// The UUID string (without braces or quotes), e.g.
-    /// `"00000000-0000-0000-c000-000000000046"`, if a `__declspec(uuid(...))` attribute was found.
+    /// UUID string without braces or quotes.
     pub guid: Option<String>,
-    /// The base interface type (with its namespace from `ref_map` when available), if any.
+    /// Base interface type, qualified from `ref_map` when needed.
     pub base: Option<metadata::Type>,
     pub methods: Vec<InterfaceMethod>,
 }
 
 impl Interface {
-    /// Parse a `CXCursor_StructDecl` or `CXCursor_ClassDecl` cursor as a COM interface.
+    /// Parse a C++ abstract record as a COM interface.
     ///
-    /// Extracts:
-    /// - The type name from the cursor spelling.
-    /// - An optional UUID from any `__declspec(uuid("..."))` attribute (`CXCursor_UnexposedAttr`).
-    /// - An optional single base interface from the first `CXCursor_CXXBaseSpecifier` child.
-    /// - All pure-virtual `CXCursor_CXXMethod` children as interface methods.
-    ///
-    /// Overloaded (same-name) methods are reordered to match MSVC's vtable layout:
-    /// a run of consecutive same-name virtual functions is emitted in reverse
-    /// declaration order (see the reversal note near the end of this function).
+    /// Consecutive same-name overloads are reversed to match MSVC vtable layout.
     pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Self, Error> {
         let tag_name = cursor.name();
-        // Use the public typedef alias if one exists (e.g. `_IFoo` -> `IFoo`).
+        // Use the public typedef alias if one exists.
         let name = parser
             .tag_rename
             .get(&tag_name)
@@ -47,16 +37,12 @@ impl Interface {
             .unwrap_or(tag_name);
         let guid = cursor.extract_uuid(parser.tu);
 
-        // Find the first base class (COM interfaces only inherit from one base).
+        // COM interfaces inherit from at most one base.
         let base = cursor.children().iter().find_map(|c| {
             if c.kind() == CXCursor_CXXBaseSpecifier {
-                // Use the type declaration's spelling to get the unqualified base name.
                 let base_name = c.ty().ty().name();
                 if !base_name.is_empty() {
-                    // Check if the base interface exists in the reference metadata; if so,
-                    // use its reference namespace so the emitted path is fully qualified.
-                    // In flat per-header mode every interface lives in the single root
-                    // namespace, so the base resolves there by name.
+                    // Flat mode resolves in the root namespace; namespaced mode qualifies bases.
                     let base_ns = if parser.header_root.is_some() {
                         parser.namespace.to_string()
                     } else {
@@ -72,18 +58,13 @@ impl Interface {
             None
         });
 
-        // Collect pure-virtual methods as interface methods.
         let mut methods = vec![];
         for child in cursor.children() {
             if child.kind() != CXCursor_CXXMethod || !child.is_pure_virtual() {
                 continue;
             }
 
-            // Old-style `DECLARE_INTERFACE_` headers redeclare the entire inherited method
-            // chain in each derived interface. Those redeclarations override base-class
-            // virtuals and reuse their vtable slots, so skip them - the emitted `base__`
-            // vtable already reconstructs the full inherited chain. Emitting them again
-            // would double the inherited slots and corrupt the vtable layout.
+            // `DECLARE_INTERFACE_` redeclarations reuse base slots; emitting them doubles slots.
             if child.overrides_base_method() {
                 continue;
             }
@@ -93,17 +74,13 @@ impl Interface {
                 .tu
                 .tokenize(parser.tu.to_expansion_range(child.extent()));
             let method_annotation = extract_method_annotation(&tokens, &method_name);
-            // Pre-scan the method tokens for MIDL parameter comment annotations.
-            // SAL annotations on each ParmDecl cursor take priority; MIDL comments
-            // are used as a fallback.
+            // SAL annotations take priority; MIDL comments are a fallback.
             let midl_param_annotations = scan_method_param_annotations(&tokens, &method_name);
             let return_type = child.result_type().to_type(parser);
 
             let mut params = parse_params(&child, &midl_param_annotations, parser);
 
-            // Recover the `ComOutPtr` (`#[iid_is]`) marker on caller-chosen-type COM methods
-            // (`GetService`, `Activate`, `CreateInstance`, ...) that the SDK headers leave
-            // unannotated, from the signature shape. See [`infer_iid_is`] for the gate.
+            // Recover missing caller-chosen-type COM annotations from signature shape.
             infer_iid_is(&mut params, &return_type);
 
             methods.push(InterfaceMethod {
@@ -115,10 +92,7 @@ impl Interface {
             });
         }
 
-        // MSVC lays out a run of overloaded (same-name) virtual functions into the
-        // vtable in reverse declaration order. libclang yields cursors in source
-        // order, so reverse each maximal run of consecutive same-name methods to
-        // match the real COM vtable ABI. Runs of length one are unaffected.
+        // MSVC vtables store consecutive same-name overloads in reverse source order.
         let mut start = 0;
         while start < methods.len() {
             let mut end = start + 1;
@@ -137,16 +111,6 @@ impl Interface {
         })
     }
 
-    /// Emit this interface as an RDL token stream.
-    ///
-    /// Produces:
-    /// ```text
-    /// #[guid(0x...)] | #[no_guid]
-    /// interface Name [: Base] {
-    ///     fn Method(&self, params...) [-> RetType];
-    ///     ...
-    /// }
-    /// ```
     pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
 
@@ -201,17 +165,7 @@ impl Interface {
     }
 }
 
-/// Restores a COM method's true member name when it was rewritten by a Win32
-/// A/W name macro during preprocessing.
-///
-/// The scrape runs without `UNICODE` defined, so headers like `winuser.h`
-/// leave object-like aliases such as `#define DrawText DrawTextA` active. When
-/// a COM interface declares a method whose identifier collides with one of
-/// those macros (e.g. `ID2D1RenderTarget::DrawText`), libclang reports the
-/// expanded spelling (`DrawTextA`). If `macro_defs` holds an alias whose sole
-/// replacement token is the expanded name, the base identifier is the real
-/// member name and is restored. Free functions are unaffected: their real
-/// exported symbols already are the `A`/`W` names.
+/// Restore COM method names rewritten by active A/W macros such as `DrawText`.
 fn demacro_member_name(name: String, parser: &Parser<'_>) -> String {
     if let Some(base) = name.strip_suffix('A').or_else(|| name.strip_suffix('W'))
         && parser

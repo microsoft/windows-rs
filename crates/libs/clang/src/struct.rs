@@ -1,22 +1,14 @@
 use super::*;
 
-/// Returns `true` when `record` is an anonymous struct/union defined inline as the
-/// direct (non-array, non-pointer) type of a named field of its enclosing record -
-/// the "named instance" idiom `struct { ... } field;`. Such a record is emitted inline
-/// as a nested field (`field: struct { ... }`) by [`Struct::parse`], producing a real
-/// `NestedClass`, so it must **not** also be hoisted to a `{Outer}_{n}` sibling.
+/// True for `struct { ... } field;` records that are emitted inline, not hoisted.
 ///
-/// The C11 field-less anonymous aggregate (`struct { ... };`) is handled separately
-/// (it reports `is_anonymous_record()`), and array/pointer-wrapped inline records
-/// (`struct { ... } arr[N];` / `*p;`) keep the hoisting path because the RDL grammar
-/// cannot express a nested record inside an array/pointer type.
+/// Array/pointer-wrapped inline records still hoist because RDL cannot nest them there.
 pub fn is_named_instance_record(record: &Cursor) -> bool {
     let kind = record.kind();
     if kind != CXCursor_StructDecl && kind != CXCursor_UnionDecl {
         return false;
     }
-    // A field-less C11 anonymous aggregate is inlined via the `is_anonymous_record`
-    // path; a named nested type keeps its own identity and stays hoisted.
+    // Field-less anonymous aggregates and named nested types use other paths.
     if !record.is_definition() || record.is_anonymous_record() || !is_anonymous_name(&record.name())
     {
         return false;
@@ -25,9 +17,7 @@ pub fn is_named_instance_record(record: &Cursor) -> bool {
     if parent.kind() != CXCursor_StructDecl && parent.kind() != CXCursor_UnionDecl {
         return false;
     }
-    // The record is a named instance iff some field of the parent has it *directly*
-    // as its type. A field wrapping it in an array/pointer yields a different type
-    // declaration (or none), so those correctly fail this test and stay hoisted.
+    // Only a direct field type is emitted inline; arrays/pointers stay hoisted.
     let loc = record.location_id();
     parent
         .children()
@@ -40,20 +30,14 @@ pub struct Struct {
     pub name: String,
     pub fields: Vec<Field>,
     pub is_union: bool,
-    /// Non-zero packing size in bytes (e.g. 1 for `#pragma pack(push, 1)`),
-    /// or `None` when the type uses its natural alignment.
+    /// Non-zero packing size in bytes, or `None` for natural alignment.
     pub packing: Option<u16>,
-    /// Forced over-alignment in bytes from `__declspec(align(N))` / `alignas(N)`
-    /// when the declared alignment is *raised above* the natural field
-    /// alignment, or `None` otherwise. Mutually exclusive with `packing`.
+    /// Forced over-alignment in bytes; mutually exclusive with `packing`.
     pub alignment: Option<u16>,
 }
 
 impl Struct {
-    /// Builds an opaque (empty) struct for a record that is only ever forward-declared
-    /// and never defined in the translation unit (e.g. `struct NDR_ALLOC_ALL_NODES_CONTEXT;`).
-    /// Such incomplete types are referenced only through pointers; emitting an empty struct
-    /// lets those references resolve, mirroring the opaque structs in the canonical metadata.
+    /// Build an opaque struct for a forward declaration referenced through pointers.
     pub fn opaque(name: &str) -> Self {
         Self {
             name: name.to_string(),
@@ -66,8 +50,7 @@ impl Struct {
 
     pub fn parse(cursor: Cursor, parser: &mut Parser<'_>, is_union: bool) -> Result<Self, Error> {
         let tag_name = cursor.name();
-        // Use the public typedef alias if one exists (e.g. `_TEST` -> `TEST`).
-        // For anonymous types the spelling is empty; fall back to location_id.
+        // Use the public typedef alias; anonymous types are keyed by source location.
         let name = if is_anonymous_name(&tag_name) {
             parser
                 .tag_rename
@@ -83,38 +66,24 @@ impl Struct {
         };
         let mut fields = vec![];
 
-        // The struct is packed when its alignment is strictly less than the maximum
-        // natural alignment of its fields; the packing factor is then the struct's own
-        // alignment in bytes (as reported under `#pragma pack(N)`).
+        // Packing lowers the struct alignment below its largest field alignment.
         let struct_align_bytes = cursor.ty().align_of();
         let mut max_field_align_bytes: i64 = 0;
 
-        // Bit-field coalescing state.  The winmd format has no notion of a
-        // bit-field, so consecutive bit-fields are merged into backing integer
-        // fields (named `_bitfield` / `_bitfield1` / `_bitfield2` ...) exactly as
-        // the field sequence packs them into storage units.  `unit_size` is the
-        // byte size of the storage unit currently being filled (0 when none is
-        // open) and `remaining_bits` how many bits are still free in it.
+        // Coalesce consecutive bit-fields into backing integer fields; winmd has no
+        // bit-field concept.
         let mut bitfield_indices: Vec<usize> = vec![];
         let mut unit_size: i64 = 0;
         let mut remaining_bits: i64 = 0;
 
-        // Count of anonymous record members seen so far, used to name the
-        // synthetic fields `Anonymous`, `Anonymous2`, ... in declaration order.
+        // Names anonymous aggregate fields in declaration order.
         let mut anonymous_count: usize = 0;
 
-        // Count of C++ base subobjects seen so far (the Win32 `*EX`/`*2`/`*3`
-        // extension structs derive from their base via `: public Base`).
+        // Names C++ base subobjects in declaration order.
         let mut base_count: usize = 0;
 
         for child in cursor.children() {
-            // A C++ base class (`struct tagMONITORINFOEXA : public tagMONITORINFO`)
-            // produces a `CXCursor_CXXBaseSpecifier`, not a `FieldDecl`, so its
-            // members would otherwise be dropped - the struct would be too small.
-            // The base subobject sits at the front of the layout, so emit it as a
-            // leading field of the base type (named `Base`, `Base2`, ...), matching
-            // both the C anonymous-member spelling (`MONITORINFO;`) and the
-            // single-field-per-base layout the canonical metadata records.
+            // C++ base subobjects sit at the front of the layout; emit leading fields.
             if child.kind() == CXCursor_CXXBaseSpecifier {
                 unit_size = 0;
                 remaining_bits = 0;
@@ -138,12 +107,7 @@ impl Struct {
                 continue;
             }
 
-            // An anonymous struct/union member (the C11 / MSVC anonymous aggregate
-            // idiom) produces no `FieldDecl`; libclang promotes its members and
-            // exposes only the nested record declaration. Reconstruct it inline as
-            // a nested record (`Anonymous: struct { ... }`) so the RDL reader rebuilds
-            // it as a true nested type (`NestedClass`) instead of a hoisted
-            // `{Outer}_{n}` sibling. The parent's layout is unchanged.
+            // Reconstruct field-less anonymous aggregates inline as nested records.
             if matches!(child.kind(), CXCursor_StructDecl | CXCursor_UnionDecl)
                 && child.is_anonymous_record()
             {
@@ -155,11 +119,7 @@ impl Struct {
                 } else {
                     format!("Anonymous{anonymous_count}")
                 };
-                // An anonymous aggregate member contributes its own alignment to the
-                // parent's natural alignment just like a named field; without this it
-                // would be undercounted and a struct whose largest alignment comes from
-                // an anonymous member (e.g. `STRRET`'s 8-aligned union) would be wrongly
-                // flagged as forced-over-aligned.
+                // Anonymous aggregate members contribute to the parent's natural alignment.
                 let field_align = child.ty().align_of();
                 if field_align > max_field_align_bytes {
                     max_field_align_bytes = field_align;
@@ -184,13 +144,9 @@ impl Struct {
                 max_field_align_bytes = field_align;
             }
 
-            // A named instance of an inline anonymous record (`struct { ... } field;`)
-            // is emitted inline as a nested field so the RDL reader rebuilds it as a
-            // real nested type (`NestedClass`) instead of a hoisted `{Outer}_{n}`
-            // sibling. The record declaration is the field's own type declaration.
+            // Emit `struct { ... } field;` inline so the reader rebuilds a nested type.
             let decl = child.ty().ty();
             if is_named_instance_record(&decl) {
-                // Close any open bit-field storage unit.
                 unit_size = 0;
                 remaining_bits = 0;
                 let child_is_union = decl.kind() == CXCursor_UnionDecl;
@@ -207,8 +163,7 @@ impl Struct {
             if child.is_bit_field() {
                 let width = child.bit_field_width() as i64;
                 if width <= 0 {
-                    // A zero-width bit-field (`int : 0`) carries no member; it
-                    // only forces the following field onto a fresh storage unit.
+                    // A zero-width bit-field only forces a fresh storage unit.
                     unit_size = 0;
                     remaining_bits = 0;
                     continue;
@@ -217,13 +172,10 @@ impl Struct {
                 let size = child.ty().size_of();
                 let member = child.name();
                 if size != unit_size || width > remaining_bits {
-                    // Open a new storage unit, backed by the bit-field's own
-                    // (possibly signed) declared type. The member sits at the low
-                    // end of the fresh unit (offset 0).
+                    // New storage units use the bit-field's declared signedness.
                     let ty = child.ty().to_type(parser);
                     bitfield_indices.push(fields.len());
-                    // An anonymous padding bit-field (`int : 4;`) consumes bits but
-                    // names no member, so it gets no accessor.
+                    // Anonymous padding consumes bits but gets no accessor.
                     let members = if member.is_empty() {
                         vec![]
                     } else {
@@ -238,9 +190,7 @@ impl Struct {
                     unit_size = size;
                     remaining_bits = size * 8 - width;
                 } else {
-                    // Continue filling the open unit: the member's offset is the
-                    // number of bits already consumed in it. Anonymous padding
-                    // bit-fields advance the offset but emit no accessor.
+                    // Continue filling the open unit; padding advances the offset only.
                     let offset = (unit_size * 8 - remaining_bits) as u32;
                     if !member.is_empty()
                         && let Some(&index) = bitfield_indices.last()
@@ -252,7 +202,6 @@ impl Struct {
                 continue;
             }
 
-            // A regular member closes any open bit-field storage unit.
             unit_size = 0;
             remaining_bits = 0;
 
@@ -266,9 +215,7 @@ impl Struct {
             });
         }
 
-        // Name the backing fields now that the total count is known: a lone
-        // backing field is `_bitfield`; multiple are `_bitfield1`, `_bitfield2`,
-        // ... numbered in declaration order across the whole type.
+        // Name backing fields after the total count is known.
         if bitfield_indices.len() == 1 {
             fields[bitfield_indices[0]].name = "_bitfield".to_string();
         } else {
@@ -277,22 +224,14 @@ impl Struct {
             }
         }
 
-        // Only emit packing when the struct's alignment is positive (valid) and
-        // strictly less than the largest field's natural alignment.  This avoids
-        // emitting `#[packed(N)]` for structs whose packing matches their natural
-        // alignment (which is a no-op and can be safely omitted).
+        // Emit packing only when it lowers natural alignment.
         let packing = if struct_align_bytes > 0 && max_field_align_bytes > struct_align_bytes {
             Some(struct_align_bytes as u16)
         } else {
             None
         };
 
-        // The inverse case: `__declspec(align(N))` / `alignas(N)` raises the
-        // declared alignment *above* the natural field alignment (the `CONTEXT` /
-        // #3761 class). The winmd `ClassLayout` can only lower alignment via its
-        // packing size, so this forced over-alignment is recorded separately and
-        // surfaced as `#[align(N)]`. The two are mutually exclusive: a type either
-        // packs below or is forced above its natural alignment, never both.
+        // Record forced over-alignment separately because `ClassLayout` can only lower it.
         let alignment = if struct_align_bytes > 0 && struct_align_bytes > max_field_align_bytes {
             Some(struct_align_bytes as u16)
         } else {
@@ -322,9 +261,7 @@ impl Struct {
         })
     }
 
-    /// Emits this record inline, without a name, as the type of an anonymous
-    /// nested field: `#attrs struct { ... }` / `#attrs union { ... }`. The RDL
-    /// reader turns this into a real nested type (`NestedClass`).
+    /// Emit this record inline as the type of an anonymous nested field.
     fn write_inline(&self, namespace: &str) -> TokenStream {
         let attrs = self.write_attrs();
         let keyword = self.write_keyword();
@@ -345,7 +282,7 @@ impl Struct {
         }
     }
 
-    /// The record's own `#[packed(N)]` / `#[align(N)]` attributes.
+    /// The record's layout attributes.
     fn write_attrs(&self) -> TokenStream {
         let packed_attr = if let Some(packing) = self.packing {
             let size = Literal::u16_unsuffixed(packing);
@@ -369,9 +306,7 @@ impl Struct {
             .iter()
             .map(|field| {
                 let name = write_ident(&field.name);
-                // A backing bit-field unit renders as a concise C-like block on the
-                // field (`_bitfield: u8 { a: 1, b: 2 }`). Offsets are implicit, so any
-                // gap between coalesced members becomes anonymous padding (`_: n`).
+                // RDL bit-field syntax uses implicit offsets; gaps become padding.
                 if !field.bitfields.is_empty() {
                     let ty = write_type(namespace, &field.ty);
                     let mut members = vec![];

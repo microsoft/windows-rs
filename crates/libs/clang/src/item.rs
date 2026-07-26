@@ -14,10 +14,7 @@ pub enum Item {
 }
 
 impl Item {
-    /// True for entities that can be the target of a *type* reference (a pointer typedef,
-    /// field, or parameter): callbacks, enums, interfaces, structs, and typedefs. Constants
-    /// and functions are values and return false. Used to keep the additive exclusion
-    /// category-matched so a dropped duplicate never dangles a surviving type reference.
+    /// True for entities that can be the target of a type reference.
     pub fn is_type(&self) -> bool {
         matches!(
             self,

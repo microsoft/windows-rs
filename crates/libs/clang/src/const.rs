@@ -1,6 +1,5 @@
 use super::*;
 
-/// A Win32-style `#define` constant that has been parsed into a typed value.
 #[derive(Debug)]
 pub struct Const {
     pub name: String,
@@ -8,21 +7,12 @@ pub struct Const {
 }
 
 impl Const {
-    /// Try to parse a `CXCursor_MacroDefinition` cursor as a typed constant.
-    ///
-    /// Returns `Ok(Some(Const))` when the macro is a simple object-like macro
-    /// whose body matches a recognised Win32 constant pattern, `Ok(None)` when
-    /// the macro should be silently skipped (built-in, function-like, or too
-    /// complex to represent as a constant).
+    /// Parse object-like macros whose token body has a fixed constant shape.
     pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Option<Self>, Error> {
-        // Skip built-in macros (e.g. `__LINE__`, `__FILE__`).
         if cursor.is_macro_builtin() {
             return Ok(None);
         }
-        // Skip function-like macros (e.g. `#define FOO(x) ...`). `is_macro_function_like`
-        // is the primary check, with a source-adjacency backstop for macros it
-        // misreports (e.g. `#define ASSERT(exp) ((VOID)0)`), which would otherwise leak
-        // the parameter name into the constant as a bogus type.
+        // Source-adjacency catches libclang misreports that leak macro parameters as types.
         if cursor.is_macro_function_like()
             || parser.tu.macro_is_function_like_by_source(cursor.extent())
         {
@@ -34,10 +24,7 @@ impl Const {
             return Ok(None);
         }
 
-        // Tokenize the macro definition extent.  The first token is always the
-        // macro name itself; the remaining tokens are the replacement list.
         let tokens = parser.tu.tokenize(cursor.extent());
-        // Body tokens = everything after the name token.
         let body: Vec<_> = tokens.into_iter().skip(1).collect();
 
         let Some(value) = parse_body(&body, parser.namespace, parser.ref_map, parser.header_names)
@@ -48,14 +35,7 @@ impl Const {
         Ok(Some(Self { name, value }))
     }
 
-    /// Try to parse a file-scope floating-point `const` variable declaration
-    /// (e.g. `const double UIA_ScrollPatternNoScroll = -1;`) as a typed
-    /// constant. Win32 headers use this pattern for a handful of floating-point
-    /// API constants that have no other representation in the flat metadata, so
-    /// they would otherwise be dropped entirely. Only const-qualified scalar
-    /// `float`/`double` variables with an evaluable constant initializer are
-    /// accepted; pointers, aggregates, integers, non-const variables, and
-    /// anything that fails constant evaluation return `None`.
+    /// Parse file-scope floating-point `const` variables that flat metadata would otherwise lose.
     pub fn parse_var_decl(cursor: &Cursor) -> Option<Self> {
         let name = cursor.name();
         if name.is_empty() || name.starts_with('_') {
@@ -97,18 +77,11 @@ impl Const {
     }
 }
 
-/// A GUID constant produced from a C++ class that is only forward-declared (no body) but
-/// carries a `__declspec(uuid("..."))` attribute.
-///
-/// This handles the MIDL pattern for COM server activation CLSIDs, e.g.:
-/// ```c
-/// class __declspec(uuid("e6756135-1e65-4d17-8576-610761398c3c")) DiaSource;
-/// ```
-/// which is emitted as: `const DiaSource: GUID = 0xe6756135_1e65_4d17_8576_610761398c3c;`
+/// A GUID constant from a forward-declared C++ class with `__declspec(uuid(...))`.
+/// MIDL uses this for COM server activation CLSIDs.
 #[derive(Debug)]
 pub struct GuidConst {
     pub name: String,
-    /// The UUID string without braces or quotes, e.g. `"e6756135-1e65-4d17-8576-610761398c3c"`.
     pub uuid: String,
 }
 
@@ -121,19 +94,12 @@ impl GuidConst {
     }
 }
 
-/// A `PROPERTYKEY`/`DEVPROPKEY` constant produced from a `DEFINE_PROPERTYKEY` or
-/// `DEFINE_DEVPROPKEY` macro invocation. Both expand to `{ { fmtid }, pid }`, so the value
-/// is a GUID plus a `u32`. The `fmtid` rides on a `#[guid]` attribute (the same
-/// encoding `DEFINE_GUID` uses) and the `pid` is an ordinary integer constant - no bespoke
-/// struct-initializer string is needed.
+/// A `PROPERTYKEY`/`DEVPROPKEY` macro constant: GUID in `#[guid]`, `pid` as the value.
 #[derive(Debug)]
 pub struct PropertyKeyConst {
     pub name: String,
-    /// The struct type name, `PROPERTYKEY` or `DEVPROPKEY`.
     pub ty: String,
-    /// The `fmtid` UUID without braces, e.g. `540b947e-8b40-45bc-a8a2-6a0b894cbda2`.
     pub uuid: String,
-    /// The `pid` field value.
     pub pid: u32,
 }
 
@@ -151,35 +117,9 @@ impl PropertyKeyConst {
 }
 
 impl Const {
-    /// Evaluate a batch of macro names that could not be parsed by the simple
-    /// token-based parser (e.g. arithmetic expressions, bitwise shifts, or
-    /// references to other macros).
-    ///
-    /// The technique matches what tools such as
-    /// `bindgen` use: for each candidate macro name we inject dedicated anonymous
-    /// `enum`s into a synthetic in-memory translation unit that `#include`s the
-    /// original header.  The C/C++ compiler then evaluates the constant
-    /// expression in full - handling operator precedence, integer promotions,
-    /// cross-macro references, etc. - and records the result as an
-    /// `EnumConstantDecl` in the AST.  We read the evaluated value via
-    /// `clang_getEnumConstantDeclValue`.
-    ///
-    /// Using independent `enum`s per name (see [`eval_probe`]) means that a
-    /// single bad macro (e.g. one whose replacement list is not a valid integer
-    /// constant expression) does not prevent the other macros from being
-    /// evaluated, and a paired `__rdl_ok_` enumerator lets us discard it from the
-    /// AST alone. Combining `CXTranslationUnit_KeepGoing` ensures libclang
-    /// continues past errors.
-    ///
-    /// # Type inference
-    ///
-    /// `clang_getEnumConstantDeclValue` returns the evaluated value as a signed
-    /// 64-bit integer but discards the expression's C type. The paired
-    /// `__rdl_sz_`/`__rdl_sg_` probes (see [`eval_probe`]) recover the width and
-    /// signedness so the value is typed as its C expression type
-    /// (`i32`/`u32`/`i64`/`u64`); a probe that is missing or error-recovered falls
-    /// back to a value-based default (see [`eval_integer_value`]). Simple literal
-    /// `#define`s take the token path instead and never reach here.
+    /// Evaluate macro expressions by injecting per-name enum probes into a synthetic TU.
+    /// Independent probes and `CXTranslationUnit_KeepGoing` let one bad macro fail without
+    /// hiding the rest; size/signedness probes recover the C integer type clang otherwise drops.
     pub fn evaluate_macros(
         input: &str,
         names: &[String],
@@ -190,32 +130,19 @@ impl Const {
             return Ok(vec![]);
         }
 
-        // Build the synthetic source prefix.  Use the basename of `input` in the
-        // #include so that libclang resolves it relative to the synthetic
-        // file's own directory (which shares the same parent directory as the
-        // real header).
+        // Put the synthetic file beside the header; include by basename so relative includes work.
         let input_basename = std::path::Path::new(input)
             .file_name()
             .and_then(|n| n.to_str())
             .unwrap_or(input);
         let prefix = format!("#include \"{input_basename}\"\n{NARG_PROLOGUE}");
 
-        // Name the synthetic file in the same directory as the real header so
-        // that relative #include paths inside the header continue to resolve.
         let synthetic = format!("{input}.__rdl_eval__.cpp");
 
         Self::evaluate_names(&prefix, &synthetic, names, index, args)
     }
 
-    /// Evaluate a batch of macro names from an in-memory source string.
-    ///
-    /// This is the `input_str` counterpart to [`evaluate_macros`].  Because
-    /// the source does not exist on disk there is no file to `#include`; the
-    /// original content is instead embedded directly at the top of the
-    /// synthetic translation unit, followed by one anonymous `enum` per
-    /// candidate macro name.
-    ///
-    /// See [`evaluate_macros`] for a detailed explanation of the technique.
+    /// Evaluate macro names from in-memory source by embedding it into the synthetic TU.
     pub fn evaluate_macros_str(
         content: &str,
         names: &[String],
@@ -226,33 +153,16 @@ impl Const {
             return Ok(vec![]);
         }
 
-        // Embed the original content directly; relative #includes inside that
-        // content will not resolve (there is no on-disk directory context) but
-        // simple self-contained headers work fine.
+        // There is no on-disk directory context, so relative includes may not resolve.
         let prefix = format!("{content}\n{NARG_PROLOGUE}");
         const SYNTHETIC: &str = "__rdl_input_str_eval__.cpp";
 
         Self::evaluate_names(&prefix, SYNTHETIC, names, index, args)
     }
 
-    /// Evaluate `names` by packing per-candidate probe enums (see [`eval_probe`])
-    /// after `prefix` into a single synthetic translation unit and reading the
-    /// recovered enum values.
-    ///
-    /// Parsing uses `CXTranslationUnit_KeepGoing` and `-ferror-limit=0` so clang
-    /// error-recovers every bad enumerator and evaluates the rest; validity is
-    /// read from the recovered enum *values*, never from diagnostics, so the
-    /// result is a deterministic function of the AST.
-    ///
-    /// A candidate whose replacement list expands to an unbalanced `{`/`(` would
-    /// otherwise swallow the enum declarations of every following candidate in the
-    /// same TU (an unbalanced delimiter consumes tokens up to a matching one),
-    /// silently dropping valid constants. [`collect_eval_results`] reports which
-    /// candidates were *fully present* in the recovered AST; any that were
-    /// swallowed are re-evaluated here in progressively smaller sub-batches until
-    /// the poison macro is isolated (and dropped) while its victims are recovered.
-    /// This keeps the outcome deterministic and independent of how the union batch
-    /// happened to be chunked.
+    /// Evaluate names in batches, retrying swallowed probe enums in smaller batches.
+    /// Validity comes from recovered enum values, not diagnostics; unbalanced delimiters can
+    /// consume following probes, so missing names are requeued until the poison macro is isolated.
     fn evaluate_names(
         prefix: &str,
         synthetic: &str,
@@ -262,17 +172,12 @@ impl Const {
     ) -> Result<Vec<Self>, Error> {
         let eval_args = with_unlimited_errors(args);
         let mut results = vec![];
-        // Work list of candidate batches still to evaluate. A batch that suffers
-        // a swallow re-queues just its swallowed names, split in half, so the
-        // poison converges to a singleton batch (where it is dropped).
+        // Swallowed probes are split until a singleton poison macro can be dropped.
         let mut queue: Vec<Vec<String>> = vec![names.to_vec()];
         while let Some(batch) = queue.pop() {
             let mut source = String::from(prefix);
             for name in &batch {
-                // Guard against macro names that are not valid C identifiers. In
-                // practice every name that reaches this point came from libclang's
-                // own cursor spelling (a validated preprocessor token), but we
-                // sanitise anyway before interpolating into generated C++ code.
+                // The name came from libclang, but validate before writing generated C++.
                 if !name.chars().all(|c| c.is_ascii_alphanumeric() || c == '_') {
                     continue;
                 }
@@ -283,8 +188,6 @@ impl Const {
             let (consts, present) = collect_eval_results(&tu);
             results.extend(consts);
 
-            // Names whose probe enums never made it into the AST were swallowed by
-            // a poison macro earlier in this batch. Re-evaluate them isolated.
             let missing: Vec<String> = batch
                 .iter()
                 .filter(|n| n.chars().all(|c| c.is_ascii_alphanumeric() || c == '_'))
@@ -292,8 +195,6 @@ impl Const {
                 .cloned()
                 .collect();
             if !missing.is_empty() && batch.len() > 1 {
-                // If nothing was recovered the poison is at the batch head, so
-                // split the whole batch; otherwise retry only the swallowed names.
                 let retry = if missing.len() == batch.len() {
                     &batch
                 } else {
@@ -304,94 +205,29 @@ impl Const {
                     queue.push(retry[mid..].to_vec());
                     queue.push(retry[..mid].to_vec());
                 }
-                // A singleton `retry` is an isolated poison: it evaluates to
-                // nothing on its own and is dropped (its constants were never
-                // added), so no further work is queued.
             }
         }
         Ok(results)
     }
 }
 
-/// Append `-ferror-limit=0` to the parse arguments for a synthetic evaluation TU.
-///
-/// A batch eval TU packs hundreds of candidate macros, and every macro that is
-/// not a valid integer constant expression (a pointer-valued `MAKEINTRESOURCE`,
-/// a function-style alias, ...) produces a compile error on its `__rdl_eval_`/
-/// `__rdl_ok_` enums. Under clang's *default* error limit (~20) the TU is aborted
-/// with "too many errors emitted, stopping now" once the cap is hit, so every
-/// enum declared after that point is never created - and the valid integer macros
-/// among them silently vanish. Worse, *which* macros fall past the cap depends on
-/// how the union batch is chunked, making the drop set environment-dependent.
-/// `-ferror-limit=0` (unlimited) keeps clang error-recovering each bad enumerator
-/// independently and evaluating the rest, so every macro's `__rdl_ok_`/`__rdl_eval_`
-/// pair is present in the AST and the keep/drop decision is deterministic.
+/// Disable clang's error cap so bad probe enums do not abort the TU before later valid macros.
 fn with_unlimited_errors<'a>(args: &[&'a str]) -> Vec<&'a str> {
     let mut out = args.to_vec();
     out.push("-ferror-limit=0");
     out
 }
 
-/// Preprocessor argument-counting macros injected once at the top of every
-/// synthetic evaluation TU. `__RDL_NARG(X)` expands to the number of top-level,
-/// comma-separated elements `X` yields *after* full macro expansion - `1` for a
-/// scalar constant, `> 1` for an initializer list.
-///
-/// This is what rejects GUID-valued macros. Some are raw comma lists
-/// (`#define STATIC_X 0x17f89cb3, 0xc38d, ...`); others hide the commas behind a
-/// helper macro (`#define STATIC_KSDATAFORMAT_SUBTYPE_ADPCM
-/// DEFINE_WAVEFORMATEX_GUID(WAVE_FORMAT_ADPCM)`, which expands to
-/// `(USHORT)(...), 0x0000, 0x0010, ...`). Wrapped in `(X)` by the value probe, the C
-/// comma operator would silently fold either form to its last element and leak a
-/// bogus integer. A raw-token comma scan cannot see the post-expansion form, but
-/// passing `X` as a *macro argument* expands it first, so the count is exact for
-/// both. The sequence runs to 20 to cover the 11-element GUID initializer.
+/// Counts top-level comma-separated macro-expansion results for the shape gate.
+/// This rejects GUID initializer lists before the C comma operator can fold them to an integer.
 const NARG_PROLOGUE: &str = "\
 #define __RDL_NARG(...) __RDL_NARG_(__VA_ARGS__,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0)\n\
 #define __RDL_NARG_(_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,N,...) N\n";
 
-/// The synthetic probe emitted for one candidate macro. It carries five
-/// *separate* anonymous enums:
-///
-/// - `__rdl_eval_<name> = (<name>)` - the evaluated value.
-/// - `__rdl_ok_<name>   = ((<name>) & 0) + 1` - a type gate that is `1` for
-///   **any** valid *integer* constant `<name>` on every architecture (`x & 0` is
-///   `0` for every integer value, so the enumerator is a fixed `1`), and
-///   error-recovers to `0` (the first enumerator of its own enum) when `<name>`
-///   is not a valid integer constant expression.
-/// - `__rdl_nc_<name>   = __RDL_NARG(<name>)` - a shape gate: the count of
-///   top-level comma-separated elements `<name>` expands to. A scalar constant
-///   yields `1`; a GUID/initializer list yields `> 1`.
-/// - `__rdl_sz_<name>   = sizeof(<name>)` - the width in bytes of `<name>`'s type
-///   (`4` for `int`/`long`, `8` for `long long` under LLP64), used to type the
-///   evaluated value faithfully (see [`collect_eval_results`]).
-/// - `__rdl_sg_<name>   = (((<name>) * 0 - 1) < 0) ? 1 : 2` - a signedness gate:
-///   `1` when `<name>`'s type is signed, `2` when unsigned. `(<name>) * 0` keeps
-///   the (promoted) type of `<name>` with value `0`; `- 1` then reads as `-1 < 0`
-///   for a signed type and `UINT_MAX < 0` (false) for an unsigned one.
-///
-/// A candidate is kept only when `__rdl_ok_ == 1` **and** `__rdl_nc_ == 1`; the
-/// `__rdl_sz_`/`__rdl_sg_` probes only refine the kept value's type and never gate
-/// it (a missing or error-recovered probe falls back to a value-based default).
-///
-/// The `& 0` type gate requires *integer* operands, so
-/// a macro that expands to a pointer (`MAKEINTRESOURCE(n)` -> `(LPWSTR)...`,
-/// `&global`) or a floating/string expression makes the gate ill-typed and clang
-/// error-recovers it to `0`. A `(<name>) - (<name>) + 1` gate would instead accept
-/// those, because pointer *subtraction* is a valid integer expression
-/// (`ptr - ptr == 0`), leaking `MAKEINTRESOURCE`-style macros as bogus
-/// `const X = 0`. The `__RDL_NARG` shape gate (see [`NARG_PROLOGUE`]) independently
-/// rejects comma-separated GUID initializers, which the type gate alone cannot -
-/// the comma operator folds them to a single valid integer.
-///
-/// Reading validity from the recovered enum *values* rather than from clang error
-/// diagnostics keeps the keep/drop decision a deterministic function of the AST.
-/// Diagnostic emission is environment-dependent (clang may cap or reorder it under
-/// `-ferror-limit`), which would drop different valid constants on different
-/// machines, producing spurious per-architecture `#[arch(...)]` tags on
-/// arch-invariant integer `#define`s (e.g. the IIS metabase `MD_*` ids). The enums
-/// must be independent so a bad `__rdl_eval` cannot bump a following gate to a
-/// non-zero error-recovery value.
+/// Emits independent enum probes for one macro: value, integer gate, comma-count gate,
+/// width, and signedness. `& 0` rejects pointer/string/floating expressions, while
+/// `__RDL_NARG` catches post-expansion comma lists such as GUID initializers.
+/// Validity is read from recovered enum values, not diagnostics.
 fn eval_probe(name: &str) -> String {
     format!(
         "enum {{ __rdl_eval_{name} = ({name}) }};\n\
@@ -402,29 +238,9 @@ fn eval_probe(name: &str) -> String {
     )
 }
 
-/// Collect the values of the `__rdl_eval_*` enum constants from a synthetic
-/// evaluation translation unit, keeping only those the paired `__rdl_ok_*` (type)
-/// and `__rdl_nc_*` (shape) enumerators both validate.
-///
-/// Each candidate macro contributes five anonymous enums (see [`eval_probe`]):
-/// the evaluated value, a type gate, a shape gate, and the width/signedness
-/// probes that type the kept value. A macro that fails to evaluate (a string
-/// macro, an empty include guard, keyword tokens like `STDAPI`, a pointer cast)
-/// error-recovers its type gate to `0`; a comma-list macro trips the shape gate.
-/// Only macros passing *both* gates are kept - no diagnostics are consulted, so
-/// the decision is a deterministic function of the AST across architectures and
-/// environments.
-///
-/// Returns the kept constants together with the set of candidate names that were
-/// *fully present* in the recovered AST - i.e. all three of their `__rdl_eval_`,
-/// `__rdl_ok_`, and `__rdl_nc_` enums were parsed. A name that is absent from
-/// this set was **swallowed**: a preceding candidate whose replacement list
-/// expands to an unbalanced `{`/`(` consumed the following enum declarations up
-/// to a matching delimiter. The caller re-evaluates swallowed names in smaller
-/// sub-batches (see [`Const::evaluate_names`]) so a single poison macro cannot
-/// silently drop every constant emitted after it. A name that *is* present but
-/// fails a gate (a pointer/string/init-list macro) is a genuine reject and is
-/// not retried.
+/// Collect kept eval probes and the names whose gating probes were fully parsed.
+/// Missing gates mean a preceding macro swallowed later enum declarations, so the caller
+/// retries those names; failed gates are real rejects and are not retried.
 fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
     let mut evals: Vec<(String, i64)> = vec![];
     let mut eval_seen: HashSet<String> = HashSet::new();
@@ -467,10 +283,7 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
         }
     }
 
-    // A candidate is "fully present" only when all three of its gating probe enums
-    // were parsed. If any is missing, the candidate was swallowed by a poison macro
-    // and must be retried in isolation rather than silently dropped. The `sz`/`sg`
-    // probes only refine the type and never gate, so they are not required here.
+    // Missing gating probes mean the candidate was swallowed and must be retried.
     let present: HashSet<String> = eval_seen
         .iter()
         .filter(|n| ok_seen.contains(*n) && nc_seen.contains(*n))
@@ -490,12 +303,7 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
     (kept, present)
 }
 
-/// Type the value of an evaluated constant expression from the `sizeof`/signedness
-/// probes clang recorded for it (see [`eval_probe`]), matching the C type of the
-/// expression: `sz` is the byte width (`4` -> 32-bit, `8` -> 64-bit) and `sg` is
-/// `1` for a signed type, `2` for unsigned. When either probe is missing or
-/// error-recovered (any other value), fall back to a value-based default that
-/// keeps a non-negative result unsigned and a negative one signed.
+/// Type an evaluated integer from size/signedness probes, with a value-based fallback.
 fn eval_integer_value(raw: i64, sz: Option<i64>, sg: Option<i64>) -> metadata::Value {
     match (sz, sg) {
         (Some(4), Some(1)) => metadata::Value::I32(raw as i32),
@@ -518,22 +326,7 @@ fn eval_integer_value(raw: i64, sz: Option<i64>, sg: Option<i64>) -> metadata::V
     }
 }
 
-/// Parse a Win32-style `#define` replacement-list token sequence.
-///
-/// Recognised patterns (body tokens after the macro name):
-/// - `LITERAL`                       -> numeric or string constant
-/// - `- LITERAL`                     -> negated integer constant
-/// - `( LITERAL )`                   -> parenthesized literal
-/// - `( ( IDENT ) LITERAL )`         -> typed integer cast (2 parens)
-/// - `( IDENT ) LITERAL`             -> typed integer cast (1 paren)
-/// - `( ( IDENT ) - LITERAL )`       -> typed negated cast (2 parens)
-/// - `( IDENT ) - LITERAL`           -> typed negated cast (1 paren)
-///
-/// Bodies that don't match a fixed pattern fall through to
-/// [`parse_nested_cast`], which recognises the nested handle/pointer casts used
-/// by macros such as `HKEY_LOCAL_MACHINE` and `INVALID_HANDLE_VALUE`. Anything
-/// still unrecognised (macro calls, arithmetic, etc.) returns `None` and is
-/// silently skipped.
+/// Parse fixed literal/cast macro bodies; nested handle casts fall through to `parse_nested_cast`.
 fn parse_body(
     body: &[(CXTokenKind, String)],
     namespace: &str,
@@ -541,19 +334,15 @@ fn parse_body(
     header_names: Option<&HashMap<String, String>>,
 ) -> Option<metadata::Value> {
     match body {
-        // Single literal token.
         [(CXToken_Literal, lit)] => parse_literal(lit, false),
-        // Negated literal.
         [(CXToken_Punctuation, minus), (CXToken_Literal, lit)] if minus == "-" => {
             parse_literal(lit, true)
         }
-        // (LITERAL) - parenthesized literal (e.g. `#define FOO ( "value" )`).
         [
             (CXToken_Punctuation, lp),
             (CXToken_Literal, lit),
             (CXToken_Punctuation, rp),
         ] if lp == "(" && rp == ")" => parse_literal(lit, false),
-        // ((TYPE)VALUE) - double-paren typed cast.
         [
             (CXToken_Punctuation, lp1),
             (CXToken_Punctuation, lp2),
@@ -564,7 +353,6 @@ fn parse_body(
         ] if lp1 == "(" && lp2 == "(" && rp1 == ")" && rp2 == ")" => {
             parse_named_cast(namespace, ref_map, header_names, ty, lit, false)
         }
-        // ((TYPE)-VALUE) - double-paren typed negated cast.
         [
             (CXToken_Punctuation, lp1),
             (CXToken_Punctuation, lp2),
@@ -576,7 +364,6 @@ fn parse_body(
         ] if lp1 == "(" && lp2 == "(" && rp1 == ")" && minus == "-" && rp2 == ")" => {
             parse_named_cast(namespace, ref_map, header_names, ty, lit, true)
         }
-        // (TYPE)VALUE - single-paren typed cast.
         [
             (CXToken_Punctuation, lp),
             (CXToken_Identifier, ty),
@@ -585,7 +372,6 @@ fn parse_body(
         ] if lp == "(" && rp == ")" => {
             parse_named_cast(namespace, ref_map, header_names, ty, lit, false)
         }
-        // (TYPE)-VALUE - single-paren typed negated cast.
         [
             (CXToken_Punctuation, lp),
             (CXToken_Identifier, ty),
@@ -595,7 +381,6 @@ fn parse_body(
         ] if lp == "(" && rp == ")" && minus == "-" => {
             parse_named_cast(namespace, ref_map, header_names, ty, lit, true)
         }
-        // ((KEYWORD)VALUE) - double-paren builtin-keyword cast, e.g. `((int)5)`.
         [
             (CXToken_Punctuation, lp1),
             (CXToken_Punctuation, lp2),
@@ -606,7 +391,6 @@ fn parse_body(
         ] if lp1 == "(" && lp2 == "(" && rp1 == ")" && rp2 == ")" => {
             parse_keyword_cast(kw, lit, false)
         }
-        // ((KEYWORD)-VALUE) - double-paren builtin-keyword negated cast.
         [
             (CXToken_Punctuation, lp1),
             (CXToken_Punctuation, lp2),
@@ -618,14 +402,12 @@ fn parse_body(
         ] if lp1 == "(" && lp2 == "(" && rp1 == ")" && minus == "-" && rp2 == ")" => {
             parse_keyword_cast(kw, lit, true)
         }
-        // (KEYWORD)VALUE - single-paren builtin-keyword cast.
         [
             (CXToken_Punctuation, lp),
             (CXToken_Keyword, kw),
             (CXToken_Punctuation, rp),
             (CXToken_Literal, lit),
         ] if lp == "(" && rp == ")" => parse_keyword_cast(kw, lit, false),
-        // (KEYWORD)-VALUE - single-paren builtin-keyword negated cast.
         [
             (CXToken_Punctuation, lp),
             (CXToken_Keyword, kw),
@@ -633,8 +415,7 @@ fn parse_body(
             (CXToken_Punctuation, minus),
             (CXToken_Literal, lit),
         ] if lp == "(" && rp == ")" && minus == "-" => parse_keyword_cast(kw, lit, true),
-        // WRAPPER(VALUE) - SDK error-code typedef wrapper macro, e.g.
-        // `_HRESULT_TYPEDEF_(0x80004005L)` (expands to `((HRESULT)0x80004005L)`).
+        // Preserve SDK error-code wrapper casts such as `_HRESULT_TYPEDEF_`.
         [
             (CXToken_Identifier, w),
             (CXToken_Punctuation, lp),
@@ -648,7 +429,6 @@ fn parse_body(
             lit,
             false,
         ),
-        // WRAPPER(-VALUE) - SDK error-code typedef wrapper macro, negated value.
         [
             (CXToken_Identifier, w),
             (CXToken_Punctuation, lp),
@@ -665,12 +445,8 @@ fn parse_body(
                 true,
             )
         }
-        // MAKEINTRESOURCE(ORDINAL) - a resource named by integer ordinal, e.g.
-        // `#define IDC_ARROW MAKEINTRESOURCE(32512)`. Same token shape as the
-        // WRAPPER(VALUE) arms above, disjoint by macro name. Emitted as a
-        // `PWSTR`/`PSTR` constant carrying the ordinal (see
-        // [`makeintresource_macro`]); the batch evaluator would otherwise drop
-        // it as pointer-valued.
+        // Ordinal resources are pointer-valued macros; parse them here so evaluation does
+        // not drop them.
         [
             (CXToken_Identifier, w),
             (CXToken_Punctuation, lp),
@@ -684,14 +460,8 @@ fn parse_body(
                 Box::new(metadata::Value::I32(raw as i32)),
             ))
         }
-        // MAKEINTRESOURCE(-ORDINAL) - a resource named by *negative* integer ordinal,
-        // e.g. `#define TD_ERROR_ICON MAKEINTRESOURCEW(-2)`. The macro truncates via
-        // `(WORD)(i)` *before* widening to the pointer (`((LPWSTR)((ULONG_PTR)((WORD)(i))))`),
-        // so a negative arg is a *zero-extended 16-bit* ordinal (`(WORD)-2 == 0xFFFE`), NOT a
-        // sign-extended pointer. Emitting the sign-extended value would give a non-zero high
-        // word and make `LoadIcon`/`FindResource` dereference it as a string pointer. Stored
-        // as the truncated ordinal (`TD_ERROR_ICON: PWSTR = 65534`, projected
-        // `PCWSTR(65534 as _)`, so `.0 as i16 == -2` while the high word stays zero).
+        // `MAKEINTRESOURCEW(-2)` truncates to `WORD` before widening to a pointer; keep the
+        // zero-extended 16-bit ordinal so resource APIs do not treat it as a string pointer.
         [
             (CXToken_Identifier, w),
             (CXToken_Punctuation, lp),
@@ -706,11 +476,7 @@ fn parse_body(
                 Box::new(metadata::Value::I32((raw as u16).wrapping_neg() as i32)),
             ))
         }
-        // ((TYPE *)(SCALAR)-VALUE) - an inline char-pointer sentinel, e.g.
-        // `#define COLE_DEFAULT_PRINCIPAL ((OLECHAR*)(INT_PTR)-1)`. The outer cast is an
-        // inline pointer-to-char rather than a named alias, so `parse_nested_cast` rejects
-        // it at the `*`. Emitted as the canonical `PWSTR`/`PSTR` carrying the sign-extended
-        // sentinel value (see [`char_pointer_target`]).
+        // Inline char-pointer sentinels are not named aliases, so match their token shape here.
         [
             (CXToken_Punctuation, lp1),
             (CXToken_Punctuation, lp2),
@@ -744,21 +510,13 @@ fn parse_body(
     }
 }
 
-/// Build the `#[encoding("ansi")]` / `#[encoding("utf-16")]` pseudo-attribute used to annotate
-/// narrow and wide string constants in the generated RDL; the RDL reader maps it to the metadata
-/// `NativeEncodingAttribute`.
+/// Build the pseudo-attribute the RDL reader maps to `NativeEncodingAttribute`.
 fn native_encoding_attr(encoding: &str) -> TokenStream {
     quote! { #[encoding(#encoding)] }
 }
 
-/// Parse a C integer or string literal spelling into a [`metadata::Value`].
-///
-/// Integer literals may carry type suffixes (`L`, `U`, `LL`, `ULL`) and use
-/// hexadecimal (`0x...`), octal, binary, or decimal notation. The integer type
-/// follows the C constant-typing rules (C11 6.4.4.1) under Windows LLP64; see
-/// [`integer_value`].
+/// Parse a C integer, float, or string literal into a `metadata::Value`.
 fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
-    // Wide string literal (L"...").
     if lit.starts_with("L\"") {
         if negate {
             return None;
@@ -767,7 +525,6 @@ fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
         return Some(metadata::Value::Utf16(decode_c_wide_string(inner)?));
     }
 
-    // Narrow string literal ("...").
     if lit.starts_with('"') {
         if negate {
             return None;
@@ -776,21 +533,16 @@ fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
         return Some(metadata::Value::Utf8(decode_c_narrow_string(inner)?));
     }
 
-    // Integer literal - strip suffix to isolate the digits.
     let (digits, suffix) = split_int_suffix(lit);
     let Some(raw) = parse_int_digits(digits) else {
-        // Not an integer - try a floating-point literal (e.g. `1.0f`, `.5`, `1e3`).
+        // Not an integer - try a floating-point literal.
         return parse_float_literal(lit, negate);
     };
 
     integer_value(raw, int_literal_is_decimal(digits), suffix, negate)
 }
 
-/// Classify a C integer literal's base for typing. A decimal constant may take an
-/// unsigned type only when it carries a `U` suffix; a hex/octal/binary constant
-/// may take an unsigned type to hold a value that overflows the signed candidate.
-/// A `0x`/`0X`/`0b`/`0B` prefix, or a leading `0` followed by more digits (octal),
-/// is non-decimal; everything else is decimal.
+/// Classify literal base for C typing: only decimal needs a `U` suffix to become unsigned.
 fn int_literal_is_decimal(digits: &str) -> bool {
     if digits.len() >= 2 {
         let prefix = &digits[..2];
@@ -801,15 +553,8 @@ fn int_literal_is_decimal(digits: &str) -> bool {
     !(digits.len() > 1 && digits.starts_with('0'))
 }
 
-/// Parse a C floating-point literal (`1.0f`, `0.5`, `.5f`, `1e-3`, `3.14`) into a
-/// [`metadata::Value::F32`] (an `f`/`F` suffix) or [`metadata::Value::F64`] (no
-/// suffix, or an `l`/`L` long-double suffix which projects to `f64`).
-///
-/// A literal qualifies as floating-point only when it carries a decimal point or
-/// a decimal exponent (`e`/`E`), which is what distinguishes it from an integer:
-/// this keeps hex integers such as `0xF` (whose trailing `F` is a hex digit, not a
-/// float suffix) on the integer path. Hex float literals (`0x1.8p3`) are not
-/// represented and return `None`.
+/// Parse decimal floating literals; hex floats are not represented.
+/// A decimal point or exponent is required so hex integers like `0xF` stay integer literals.
 fn parse_float_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
     let lower = lit.to_ascii_lowercase();
     if lower.starts_with("0x") {
@@ -837,14 +582,8 @@ fn parse_float_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
     }
 }
 
-/// Decode a C narrow-string literal body (the text between the quotes) into its
-/// actual bytes, then interpret those bytes as UTF-8.
-///
-/// Returns `None` when the decoded bytes are not valid UTF-8 - i.e. a raw byte
-/// array such as the `"\xaa\x31..."` GUID spellings, which has no exact `String`
-/// representation. The reference metadata omits such constants, and so do we: a
-/// `Value::Utf8` must hold real UTF-8, not a re-encoded copy that would change the
-/// byte length.
+/// Decode a narrow-string literal as bytes, then keep it only if those bytes are valid UTF-8.
+/// Raw byte arrays have no exact `String` representation and are omitted.
 fn decode_c_narrow_string(inner: &str) -> Option<String> {
     let mut bytes = Vec::with_capacity(inner.len());
     let mut chars = inner.chars().peekable();
@@ -889,10 +628,7 @@ fn decode_c_narrow_string(inner: &str) -> Option<String> {
     String::from_utf8(bytes).ok()
 }
 
-/// Decode a C wide-string literal body into a `String`, resolving the standard
-/// escape sequences plus `\xNN` / `\uNNNN` / `\UNNNNNNNN` universal characters.
-/// Each escape yields one Unicode scalar; an escape that does not name a valid
-/// scalar (e.g. a lone surrogate) drops the constant via `None`.
+/// Decode a wide-string literal, dropping escapes that do not name valid Unicode scalars.
 fn decode_c_wide_string(inner: &str) -> Option<String> {
     let mut out = String::with_capacity(inner.len());
     let mut chars = inner.chars().peekable();
@@ -936,8 +672,7 @@ fn decode_c_wide_string(inner: &str) -> Option<String> {
     Some(out)
 }
 
-/// Consume up to `max` leading digits of the given radix from `chars`, returning
-/// the accumulated value and the number of digits consumed.
+/// Consume up to `max` leading digits of `radix`.
 fn take_radix(
     chars: &mut std::iter::Peekable<std::str::Chars>,
     radix: u32,
@@ -958,24 +693,9 @@ fn take_radix(
     (value, count)
 }
 
-/// The Rust scalar type of a C integer constant per C11 6.4.4.1, using Windows
-/// LLP64 widths (`int` and `long` are both 32-bit, `long long` is 64-bit). The
-/// type is the first entry in the base+suffix candidate list that can represent
-/// the magnitude `raw`:
-///
-/// | suffix | decimal | hex/octal/binary |
-/// |--------|---------|------------------|
-/// | none   | `i32, i64` | `i32, u32, i64, u64` |
-/// | `U`    | `u32, u64` | `u32, u64` |
-/// | `L`    | `i32, i64` | `i32, u32, i64, u64` |
-/// | `UL`   | `u32, u64` | `u32, u64` |
-/// | `LL`   | `i64`      | `i64, u64` |
-/// | `ULL`  | `u64`      | `u64` |
-///
-/// A decimal constant never takes an unsigned type unless it carries a `U`
-/// suffix; a hex/octal constant may. The candidate lists collapse `int`/`long` to
-/// `i32` and `unsigned int`/`unsigned long` to `u32` because both are 32-bit on
-/// Windows, so a single `L` marks width, not signedness.
+/// Select the C11 integer literal type under Windows LLP64 widths.
+/// Decimal literals use signed candidates unless `U`-suffixed; non-decimal literals may
+/// take unsigned candidates to fit the magnitude.
 fn c_integer_constant_type(
     is_decimal: bool,
     has_u: bool,
@@ -989,8 +709,6 @@ fn c_integer_constant_type(
     } else if has_ll {
         if is_decimal { &[I64] } else { &[I64, U64] }
     } else if has_l || is_decimal {
-        // Decimal (bare or `L`-suffixed) uses the signed-only list; `L`-suffixed
-        // hex can also take unsigned types.
         if is_decimal {
             &[I32, I64]
         } else {
@@ -1014,12 +732,7 @@ fn c_integer_constant_type(
     U64
 }
 
-/// Parse a bare (possibly negated) C integer literal into a typed
-/// [`metadata::Value`] following the C11 constant-typing rules; see
-/// [`c_integer_constant_type`] for the base+suffix type table. Negation applies
-/// unary minus within the literal's own type (`-1` is a signed `int`,
-/// `-0x80000000` wraps in `unsigned int`); a `U`-suffixed magnitude that is
-/// negated yields the wrapped unsigned value.
+/// Parse a C integer literal using C11 typing; unary minus applies within that type.
 fn integer_value(
     raw: u64,
     is_decimal: bool,
@@ -1050,13 +763,8 @@ fn integer_value(
     })
 }
 
-/// Parse a builtin-keyword integer cast (`(int)5`, `((long)0x80000000)`) into a
-/// primitive [`metadata::Value`], honouring the cast type's width and signedness.
-///
-/// An explicit `(int)`/`(long)` cast is a deliberate type signal from the header
-/// author (e.g. `CW_USEDEFAULT = (int)0x80000000` is `INT_MIN`), so the cast type
-/// governs. Keywords with no single-token scalar mapping (e.g. `unsigned`,
-/// `long long`) return `None` and defer to the evaluation path.
+/// Parse a builtin-keyword integer cast; explicit casts govern width and signedness.
+/// Multi-token keywords fall through to batch evaluation.
 fn parse_keyword_cast(kw: &str, lit: &str, negate: bool) -> Option<metadata::Value> {
     let ty = keyword_scalar(kw)?;
     let (digits, _suffix) = split_int_suffix(lit);
@@ -1064,17 +772,8 @@ fn parse_keyword_cast(kw: &str, lit: &str, negate: bool) -> Option<metadata::Val
     scalar_value(&ty, raw, negate)
 }
 
-/// Maps an SDK error-code *typedef wrapper macro* to the cast type it applies.
-///
-/// The Windows SDK wraps its error-code constants in single-argument
-/// function-like macros that expand to a fixed cast, e.g.
-/// `#define _HRESULT_TYPEDEF_(_sc) ((HRESULT)_sc)` and
-/// `#define _NDIS_ERROR_TYPEDEF_(_sc) (DWORD)(_sc)`. A constant such as
-/// `#define E_FAIL _HRESULT_TYPEDEF_(0x80004005L)` therefore carries the same
-/// deliberate type as an explicit `(HRESULT)` cast; recognising the wrapper by
-/// name lets the token parser preserve that type (`HRESULT`) instead of letting
-/// the constant flatten to a bare integer on the evaluation path. The returned
-/// name is resolved through [`parse_named_cast`] like any other typed cast.
+/// Map SDK error-code typedef wrapper macros to their hidden cast type.
+/// This preserves `HRESULT`/`DWORD` instead of flattening constants to integers.
 fn cast_wrapper_macro(name: &str) -> Option<&'static str> {
     Some(match name {
         "_HRESULT_TYPEDEF_" | "_ASF_HRESULT_TYPEDEF_" => "HRESULT",
@@ -1083,19 +782,9 @@ fn cast_wrapper_macro(name: &str) -> Option<&'static str> {
     })
 }
 
-/// Maps a `MAKEINTRESOURCE`-family macro to the string-pointer type its integer
-/// argument is cast to.
-///
-/// A resource named by *ordinal* - `#define IDC_ARROW MAKEINTRESOURCE(32512)` -
-/// expands to `((LPWSTR)((ULONG_PTR)((WORD)(i))))`: a wide string pointer that
-/// *holds the integer id* rather than pointing at a character buffer. The batch
-/// evaluator rejects it as a pointer-valued (non-integer) macro, so it would
-/// otherwise be dropped. It is recognised here by name from the raw `#define`
-/// body and emitted as a `PWSTR`/`PSTR` constant carrying the ordinal; bindgen
-/// projects the const spelling (`IDC_ARROW: PCWSTR = PCWSTR(32512 as _)`). The
-/// scrape runs without `UNICODE`, so the *raw* body token is matched directly
-/// (bare `MAKEINTRESOURCE` is treated as wide, matching the reference metadata)
-/// rather than relying on the `...A`/`...W` expansion.
+/// Map a `MAKEINTRESOURCE` macro to the string-pointer type that carries its ordinal.
+/// The scrape is ANSI-default, but bare `MAKEINTRESOURCE` is treated as wide to match
+/// the reference metadata.
 fn makeintresource_macro(name: &str) -> Option<&'static str> {
     Some(match name {
         "MAKEINTRESOURCE" | "MAKEINTRESOURCEW" => "PWSTR",
@@ -1104,15 +793,7 @@ fn makeintresource_macro(name: &str) -> Option<&'static str> {
     })
 }
 
-/// Maps an inline *char-pointer* cast type (`OLECHAR`/`WCHAR` -> wide, `CHAR` -> narrow)
-/// to the canonical string-pointer spelling its sentinel value is carried as.
-///
-/// String-pointer *sentinel* constants are spelled with an inline pointer-to-char cast
-/// rather than a named alias - `#define COLE_DEFAULT_PRINCIPAL ((OLECHAR*)(INT_PTR)-1)`.
-/// `parse_nested_cast` rejects them at the `*` (its cast chain only accepts bare typedef
-/// names), so they are matched by their fixed token shape in [`parse_body`] and emitted as
-/// a `PWSTR`/`PSTR` const carrying the (sign-extended) sentinel - matching the reference
-/// metadata, which projects them as `PCWSTR(-1 as _)`.
+/// Map inline char-pointer sentinel casts to canonical string-pointer types.
 fn char_pointer_target(name: &str) -> Option<&'static str> {
     Some(match name {
         "OLECHAR" | "WCHAR" | "wchar_t" => "PWSTR",
@@ -1121,9 +802,7 @@ fn char_pointer_target(name: &str) -> Option<&'static str> {
     })
 }
 
-/// Maps a single C builtin integer *keyword* to its primitive [`metadata::Type`]
-/// under LLP64 (`long` = 32-bit). Multi-token spellings (`unsigned int`,
-/// `long long`) are not handled here and fall through to the evaluation path.
+/// Map a single C builtin integer keyword under LLP64; multi-token spellings fall through.
 fn keyword_scalar(name: &str) -> Option<metadata::Type> {
     Some(match name {
         "char" => metadata::Type::I8,
@@ -1145,47 +824,29 @@ fn parse_named_cast(
     let (digits, _suffix) = split_int_suffix(lit);
     let raw: u64 = parse_int_digits(digits)?;
 
-    // A cast to a *fundamental scalar* typedef (e.g. `(DWORD)0x42`) is just a typed
-    // integer of the underlying primitive - the same fundamentals that collapse
-    // elsewhere - so emit it as that primitive rather than a dangling named-type
-    // reference. A cast to a type the reference *preserves* (a real enum, or a seed
-    // scalar like `BOOL`/`HRESULT`) keeps the named type.
+    // Collapsed scalar typedefs have no emitted name; preserved seed scalars/enums stay named.
     if !ref_map.contains_key(type_name)
         && let Some(ty) = fundamental_scalar(type_name)
     {
         return scalar_value(&ty, raw, negate);
     }
 
-    // A cast to a *pointer-sized* typedef (`ULONG_PTR`/`DWORD_PTR`/`LONG_PTR`/...) is
-    // likewise collapsed to the native-int primitive (`usize`/`isize`) rather than a
-    // dangling named-type reference - matching the flat-mode alias collapse in
-    // `pointer_sized_abi`, which emits no `type ULONG_PTR = ...` item. Sentinel
-    // constants such as `#define SSRVOPT_RESET ((ULONG_PTR)-1)` reach us here.
+    // Pointer-sized typedefs are collapsed aliases, so sentinels use native-int primitives.
     if !ref_map.contains_key(type_name)
         && let Some(ty) = pointer_sized_abi(type_name)
     {
         return scalar_value(&ty, raw, negate);
     }
 
-    // A cast to a *void-pointer* alias (`((PVOID)-1)`, a pointer sentinel) collapses to the
-    // pointer-sized native integer, like the `pointer_sized_abi` aliases above:
-    // `void_pointer_alias` suppresses the named `PVOID`/`LPVOID` definition, so keeping the
-    // cast name here would dangle.
+    // Void-pointer aliases are collapsed too; keeping the alias name would dangle.
     if !ref_map.contains_key(type_name) && void_pointer_alias(type_name).is_some() {
         return scalar_value(&metadata::Type::USize, raw, negate);
     }
 
-    // A cast to a string-pointer alias - `#define CAT_MEMBERINFO_STRUCT ((LPCSTR)2222)`,
-    // a resource named by ordinal - normalises to the canonical `PWSTR`/`PCWSTR`/`PSTR`/
-    // `PCSTR` spelling, matching the field/parameter normalization in `to_type` and the
-    // reference metadata. The redundant `LP*` alias definition is suppressed, so keeping
-    // the raw cast name here would leave the constant's type dangling.
+    // String-pointer aliases normalize because redundant `LP*` alias definitions are suppressed.
     let type_name = string_alias_canonical(type_name).unwrap_or(type_name);
 
-    // Resolve the named type's namespace. In per-header mode the type carries no
-    // clang cursor (the cast is token-based), so the global name -> defining-header
-    // map locates its partition (e.g. `ATOM` -> `...Minwindef`); legacy mode uses the
-    // `ref_map`. Either way an unknown name falls back to the const's own namespace.
+    // Token casts have no cursor in per-header mode; `header_names` locates the type partition.
     let ns = header_names
         .and_then(|m| m.get(type_name))
         .or_else(|| ref_map.get(type_name))
@@ -1201,25 +862,9 @@ fn parse_named_cast(
     ))
 }
 
-/// Parse a *nested* C cast whose outermost cast targets a pointer/handle type,
-/// the form used by Win32 handle constants:
-///
-/// - `((HKEY)(ULONG_PTR)((LONG)0x80000002))`  -> `HKEY_LOCAL_MACHINE`
-/// - `((HANDLE)(LONG_PTR)-1)`                  -> `INVALID_HANDLE_VALUE`
-///
-/// The simple fixed patterns in [`parse_body`] only match a single cast, so
-/// these multi-cast bodies fall through to here. The value's bit
-/// pattern is determined by the *innermost* scalar cast (the SDK spells the
-/// reinterpreted integer there): `(LONG)0x80000002` is the signed `i32`
-/// `-2147483646`, which the reader/writer later sign-extends through the pointer
-/// type's `as _`. Emitting the outer (unsigned `ULONG_PTR`) reading instead
-/// would zero-extend and produce the wrong pointer.
-///
-/// The body is treated as a chain of casts wrapping one optionally-negated
-/// integer literal; parentheses are ignored and any other token (operators,
-/// extra identifiers) bails out as `None`. The outermost cast must be a real
-/// named (non-fundamental) type - a nested cast whose outer target is itself a
-/// fundamental scalar does not occur in SDK `#define`s and is left unhandled.
+/// Parse nested casts used by handle/pointer constants such as `INVALID_HANDLE_VALUE`.
+/// The innermost scalar cast supplies the bit pattern; reading the outer pointer-sized cast
+/// would zero-extend values that the SDK intends to sign-extend.
 fn parse_nested_cast(
     body: &[(CXTokenKind, String)],
     namespace: &str,
@@ -1238,15 +883,10 @@ fn parse_nested_cast(
                 _ => return None,
             },
             CXToken_Identifier => {
-                // An identifier after the literal is not part of a cast chain.
                 if literal.is_some() {
                     return None;
                 }
-                // A cast identifier is `(TYPE)` - always immediately closed by `)`.
-                // An identifier followed by `(` is a function-like macro invocation
-                // (e.g. `ARRAYSIZE(VOLUME_PREFIX)`), not a cast; bail so the batch
-                // evaluator can compute the real value instead of misreading the macro
-                // name as a bogus target type.
+                // Reject function-like macros so batch evaluation can compute them.
                 if !matches!(body.get(i + 1), Some((CXToken_Punctuation, p)) if p == ")") {
                     return None;
                 }
@@ -1263,27 +903,19 @@ fn parse_nested_cast(
     }
 
     let lit = literal?;
-    // A nested cast needs an outer (pointer/handle) cast plus at least one inner
-    // scalar cast; single casts are already handled by the fixed patterns.
     if casts.len() < 2 {
         return None;
     }
     let outer = casts[0];
     let inner = casts[casts.len() - 1];
-    // Scoped to genuine handle/pointer constants.
     if fundamental_scalar(outer).is_some() {
         return None;
     }
-    // A string-pointer alias outer cast normalises to its canonical spelling, as in
-    // [`parse_named_cast`] - the `LP*` alias definition is suppressed.
+    // Normalize suppressed string-pointer aliases, as in `parse_named_cast`.
     let outer = string_alias_canonical(outer).unwrap_or(outer);
 
-    // A *void*-pointer outer cast (`((PVOID)(MAXULONG_PTR - 1))`, the kernel
-    // `MM_ALL_PARTITIONS_OBJECT` sentinel) has no named type to reference -
-    // `void_pointer_alias` collapses `PVOID`/`LPVOID` rather than emitting it - and the
-    // arithmetic inner expression cannot be evaluated by the token parser. Drop
-    // it (as the batch evaluator drops any pointer-valued macro) rather than fabricate a
-    // value or dangle on the collapsed name.
+    // Void-pointer aliases have no emitted name, and arithmetic inner expressions are outside
+    // this token parser; drop them rather than dangling on the collapsed alias.
     if void_pointer_alias(outer).is_some() {
         return None;
     }
@@ -1301,11 +933,8 @@ fn parse_nested_cast(
         Box::new(inner_value),
     ))
 }
-/// Reads the innermost scalar cast of a nested handle constant into a
-/// fixed-width [`metadata::Value`]. A fundamental scalar (`LONG`, `INT`, ...)
-/// honours that type's width and signedness; a pointer-sized cast
-/// (`LONG_PTR`/`ULONG_PTR`/...) or any other integer cast is read as a 64-bit
-/// signed value (the widest safe reinterpretation).
+/// Read the innermost scalar cast of a nested handle constant.
+/// Unknown integer casts use `i64`, the widest safe reinterpretation.
 fn inner_scalar_value(inner: &str, raw: u64, negate: bool) -> metadata::Value {
     if let Some(ty) = fundamental_scalar(inner)
         && let Some(value) = scalar_value(&ty, raw, negate)
@@ -1320,9 +949,7 @@ fn inner_scalar_value(inner: &str, raw: u64, negate: bool) -> metadata::Value {
     metadata::Value::I64(v)
 }
 
-/// Builds a primitive integer [`metadata::Value`] of the given fixed-width scalar
-/// `ty` from a raw magnitude, applying `negate` as wrapping two's-complement (so an
-/// explicit cast such as `(UINT)-1` yields `0xFFFF_FFFF`, which is well-defined).
+/// Build a fixed-width scalar value, applying negation as wrapping two's-complement.
 fn scalar_value(ty: &metadata::Type, raw: u64, negate: bool) -> Option<metadata::Value> {
     let signed = if negate {
         (raw as i64).wrapping_neg()
@@ -1344,15 +971,7 @@ fn scalar_value(ty: &metadata::Type, raw: u64, negate: bool) -> Option<metadata:
     })
 }
 
-/// Split a C integer literal into its digit string and suffix string.
-///
-/// Examples: `"0x1"` -> `("0x1", "")`, `"42L"` -> `("42", "L")`,
-/// `"0xC0EA0002L"` -> `("0xC0EA0002", "L")`.
-///
-/// The `rfind` searches for the last character that is a valid hex digit or
-/// `x`/`X` (the hex prefix marker).  Suffix characters (`L`, `U`, `LL`,
-/// `ULL`, etc.) are never hex digits (`'L'` and `'U'` are not in `[0-9a-fA-F]`),
-/// so the boundary is always found at the correct position.
+/// Split a C integer literal after the last digit or `x`/`X` prefix marker.
 fn split_int_suffix(lit: &str) -> (&str, &str) {
     let suffix_start = lit
         .rfind(|c: char| c.is_ascii_hexdigit() || c == 'x' || c == 'X')
@@ -1360,10 +979,7 @@ fn split_int_suffix(lit: &str) -> (&str, &str) {
     (&lit[..suffix_start], &lit[suffix_start..])
 }
 
-/// Parse a C integer digit string (hex `0x...`, binary `0b...`, octal `0...`, or
-/// decimal) into a `u64`. A leading `0` followed by more digits is octal per C;
-/// an invalid octal digit (`08`/`09`) falls back to decimal rather than dropping
-/// the constant.
+/// Parse C integer digits, with invalid octal falling back to decimal.
 fn parse_int_digits(digits: &str) -> Option<u64> {
     if let Some(hex) = digits
         .strip_prefix("0x")
@@ -1401,14 +1017,12 @@ mod tests {
 
     #[test]
     fn narrow_octal_uses_digit_count_not_value() {
-        // `\101` is 'A' (0o101 = 65); the two trailing digits "01" must contribute
-        // as octal positions, not as their numeric value 1.
+        // The trailing octal digits are positional, not the numeric value 1.
         assert_eq!(decode_c_narrow_string("\\101").unwrap(), "A");
     }
 
     #[test]
     fn narrow_ascii_hex_bytes_are_kept() {
-        // icu bit-tables: every byte is < 0x80, so the result is valid UTF-8.
         assert_eq!(
             decode_c_narrow_string("\\x20\\x30\\x10").unwrap(),
             " 0\u{10}"
@@ -1417,7 +1031,7 @@ mod tests {
 
     #[test]
     fn narrow_non_utf8_byte_array_is_omitted() {
-        // GUID `\xaa\x31...` spellings are raw bytes, not UTF-8 - no exact String.
+        // Raw GUID byte spellings are not UTF-8.
         assert_eq!(decode_c_narrow_string("\\xaa\\x31\\x28"), None);
     }
 
@@ -1435,7 +1049,7 @@ mod tests {
         assert_eq!(parse_int_digits("010"), Some(8));
         assert_eq!(parse_int_digits("0"), Some(0));
         assert_eq!(parse_int_digits("42"), Some(42));
-        // Invalid octal digit falls back to decimal rather than dropping the value.
+        // Invalid octal falls back to decimal.
         assert_eq!(parse_int_digits("08"), Some(8));
     }
 
@@ -1444,14 +1058,13 @@ mod tests {
         use metadata::Value::{I32, I64, U32, U64};
         let v = |raw, decimal, suffix| integer_value(raw, decimal, suffix, false).unwrap();
 
-        // Bare decimal is signed; it widens to i64 rather than taking u32.
+        // Bare decimal widens to signed i64 rather than u32.
         assert_eq!(v(42, true, ""), I32(42));
         assert_eq!(v(2147483648, true, ""), I64(2147483648));
-        // Hex may take unsigned once it overflows the signed type of the same width.
+        // Hex may become unsigned after signed overflow at the same width.
         assert_eq!(v(31, false, ""), I32(31));
         assert_eq!(v(2147483648, false, ""), U32(2147483648));
         assert_eq!(v(4294967295, false, ""), U32(4294967295));
-        // Suffixes force the candidate list.
         assert_eq!(v(100, true, "U"), U32(100));
         assert_eq!(v(4000000000, true, "U"), U32(4000000000));
         assert_eq!(v(4294967296, true, "LL"), I64(4294967296));
@@ -1459,19 +1072,16 @@ mod tests {
             v(18446744073709551615, true, "ULL"),
             U64(18446744073709551615)
         );
-        // Negation applies within the literal's own type.
         assert_eq!(integer_value(5, true, "", true).unwrap(), I32(-5));
     }
 
     #[test]
     fn eval_values_use_probe_types() {
         use metadata::Value::{I32, I64, U32, U64};
-        // Probes present: type follows width (4/8) and sign (1/2).
         assert_eq!(eval_integer_value(1, Some(4), Some(1)), I32(1));
         assert_eq!(eval_integer_value(1, Some(4), Some(2)), U32(1));
         assert_eq!(eval_integer_value(1, Some(8), Some(1)), I64(1));
         assert_eq!(eval_integer_value(1, Some(8), Some(2)), U64(1));
-        // Missing or error-recovered probes fall back to the value-based default.
         assert_eq!(eval_integer_value(100, None, None), U32(100));
         assert_eq!(eval_integer_value(-1, None, None), I32(-1));
         assert_eq!(eval_integer_value(1, Some(0), Some(0)), U32(1));

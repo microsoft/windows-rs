@@ -11,56 +11,28 @@ impl Typedef {
         let name = cursor.name();
         let underlying = cursor.typedef_underlying_type();
 
-        // The public side of the C flags/enum idiom (`enum _FOO {...}; typedef DWORD FOO;`):
-        // `merge_enum_typedef_idiom` renamed the enum tag `_FOO` to `FOO`, which now carries
-        // the members and this typedef's storage type, so the integer typedef is redundant.
-        // Dropping it leaves a single unscoped enum `FOO` projecting as a bare integer alias.
+        // The enum/flags merge emits the public name with this typedef's storage type.
         if parser.enum_merge.contains_key(&name) {
             return Ok(None);
         }
 
-        // `IID`/`CLSID`/`FMTID` are `typedef GUID X` synonyms; every reference collapses
-        // to `GUID` (see `guid_alias` in `to_type`), so the redundant alias item is never
-        // emitted - matching the reference metadata, which carries no such types. This
-        // holds in both per-header and namespaced modes.
+        // GUID synonyms collapse to `GUID` at reference sites.
         if guid_alias(&name) {
             return Ok(None);
         }
 
-        // `PVOID`/`LPVOID`/`LPCVOID`/... are generic void-pointer portability spellings that
-        // collapse to raw `*mut void` / `*const void` at every reference (see
-        // [`void_pointer_alias`] in `to_type`), so the redundant `type LPVOID = *mut c_void`
-        // item is never emitted - matching the reference metadata, which has a bare
-        // `*mut c_void` everywhere and no such alias types. A `void*` *handle* (`HANDLE`,
-        // the `DECLARE_HANDLE` tags) is excluded and still emitted as a named opaque handle.
+        // Generic void-pointer aliases collapse at reference sites; handles stay named.
         if void_pointer_alias(&name).is_some() {
             return Ok(None);
         }
 
-        // `D2D1_POINT_2F`/`D2D1_RECT_F`/... are Direct2D 1.1 `typedef D2D_X D2D1_X`
-        // compatibility synonyms; every reference collapses to the shared `D2D_` base
-        // (see [`d2d_compat_alias`] in `to_type`), so the redundant
-        // `type D2D1_POINT_2F = D2D_POINT_2F` item is not emitted - matching the
-        // reference metadata, which has no `D2D1_*` alias layer. Flat scrape only,
-        // mirroring the reference-site collapse: a namespaced scrape resolves these
-        // against its reference winmd rather than a local root-namespace base.
+        // Flat Win32 scrapes collapse Direct2D 1.1 compatibility aliases to `D2D_*`.
         if parser.header_root.is_some() && d2d_compat_alias(&name).is_some() {
             return Ok(None);
         }
 
-        // A redundant string-pointer alias (`LPCWSTR`->`PCWSTR`, `LPWSTR`->`PWSTR`,
-        // `LPOLESTR`/`POLESTR`->`PWSTR`, ...) normalises to its canonical spelling at every
-        // reference (see [`string_alias_canonical`] / [`normalize_string_alias`] in
-        // `to_type`), so its `type LPCWSTR = *const u16` item is not emitted - matching the
-        // reference metadata, which carries only the four canonical wrappers and no `LP*`
-        // spellings. The canonical `PWSTR`/`PCWSTR`/`PSTR`/`PCSTR` themselves (where
-        // `canonical == name`) are the projection targets bindgen recognises and are kept.
-        //
-        // Gated to the flat per-header scrape, mirroring the reference-site normalization in
-        // `to_type`: a *namespaced* scrape (WebView2) does not normalise `LP*` references
-        // (its reference winmd lacks the const wrappers), so it still emits and references
-        // the local `LP*` typedef verbatim - suppressing the definition here would leave
-        // those references dangling ("type not found").
+        // Flat Win32 scrapes keep only the canonical string-pointer wrappers. Namespaced
+        // scrapes must keep local `LP*` aliases because their references are not normalized.
         if parser.header_root.is_some()
             && let Some(canonical) = string_alias_canonical(&name)
             && canonical != name
@@ -68,61 +40,30 @@ impl Typedef {
             return Ok(None);
         }
 
-        // A pure fixed-width portability alias (`DWORD` -> u32, `WORD` -> u16, ...) or a
-        // pointer-sized ABI alias (`ULONG_PTR`/`SIZE_T` -> usize, `LONG_PTR` -> isize, ...)
-        // is collapsed to its primitive at every reference (`to_type`), so the redundant
-        // `type DWORD = u32` / `type ULONG_PTR = usize` item is not emitted - matching the
-        // reference metadata, which has no such alias types. Emitting `ULONG_PTR` as a named
-        // typedef would also freeze its canonical width per-arch (u32 on x86, usize on 64-bit)
-        // and produce a spurious `#[arch]` split. Every other scalar typedef (`HFILE`, `ATOM`,
-        // `COLORREF`, ...) is preserved by name; the collapse-lists are curated, see
-        // [`fundamental_scalar`] and [`pointer_sized_abi`].
+        // Flat Win32 scrapes collapse curated portability/ABI aliases to primitives; keeping
+        // pointer-sized aliases named would create false per-arch width splits.
         if parser.header_root.is_some()
             && (fundamental_scalar(&name).is_some() || pointer_sized_abi(&name).is_some())
         {
             return Ok(None);
         }
 
-        // `BOOLEAN` -> bool collapses to a primitive at every reference (see [`semantic_scalar`]
-        // in `to_type`), so the redundant `type BOOLEAN = u8` alias is not emitted - matching the
-        // reference metadata. (`LARGE_INTEGER`/`ULARGE_INTEGER` also match here and short-circuit,
-        // but their overlay-union *records* are suppressed separately in `lib.rs`.)
+        // Semantic scalar aliases such as `BOOLEAN` collapse to primitives.
         if parser.header_root.is_some() && semantic_scalar(&name).is_some() {
             return Ok(None);
         }
 
-        // Floating-point typedefs (`FLOAT`/`DOUBLE` and every domain alias whose canonical
-        // type is `float`/`double`, e.g. `DATE`, `REFTIME`, `UI_ANIMATION_SECONDS`) collapse
-        // structurally to `f32`/`f64` at every reference (see [`floating_typedef`] in
-        // `to_type`), so the redundant `type FLOAT = f32` item is not emitted - matching the
-        // reference metadata, which carries no floating typedefs at all. Unlike the integer
-        // side there is no domain-vs-portability split to preserve, so this is keyed on the
-        // canonical kind rather than a curated name list.
+        // Floating typedefs all collapse by canonical kind to `f32`/`f64`.
         if parser.header_root.is_some() && floating_typedef(&underlying).is_some() {
             return Ok(None);
         }
 
-        // `LPSTORAGE`/`LPOLEOBJECT`/`LPDIRECTDRAWSURFACE`/... are `typedef IFoo *NAME`
-        // (or the rarer `typedef IFoo NAME`) aliases to a COM interface. Interfaces are
-        // implied pointers in Windows metadata, so every reference collapses to the
-        // interface itself (see [`is_interface_alias`] in `to_type`); the redundant alias
-        // is not emitted - matching the reference metadata, which omits these aliases and
-        // types the field/parameter as the interface directly. Flat scrape only, mirroring
-        // the reference-site collapse: a namespaced scrape resolves interfaces against its
-        // reference winmd rather than the local closure.
+        // Flat Win32 scrapes collapse COM interface pointer aliases to the interface type.
         if parser.header_root.is_some() && is_interface_alias(&underlying) {
             return Ok(None);
         }
 
-        // Skip idiomatic C `typedef struct Foo Foo;` aliases. They share a name with
-        // the underlying record and would produce a nonsensical `type Foo = Foo;`.
-        //
-        // A tagged record may, however, carry *several* typedef aliases
-        // (`typedef struct _CRYPTOAPI_BLOB { ... } CRYPT_INTEGER_BLOB, ..., DATA_BLOB;`).
-        // The struct is emitted once under its public name (the first alias, via the
-        // tag->typedef rename); in per-header mode the remaining aliases are
-        // preserved as `type DATA_BLOB = CRYPT_INTEGER_BLOB` so references to them
-        // resolve instead of dangling.
+        // Skip self-aliases, but preserve secondary record aliases in per-header mode.
         let elaborated = underlying.kind() == CXType_Elaborated;
         let inner_kind = if elaborated {
             underlying.underlying_type().kind()
@@ -137,8 +78,7 @@ impl Typedef {
             };
             let tag = inner.ty().name();
             if parser.header_root.is_none() || is_anonymous_name(&tag) {
-                // Legacy mode, or an anonymous tag emitted directly under this
-                // typedef name - nothing extra to alias.
+                // Legacy mode or an anonymous tag already emitted under this typedef name.
                 return Ok(None);
             }
             let public = parser
@@ -151,21 +91,14 @@ impl Typedef {
                     && inner_kind == CXType_Enum
                     && parser.enum_merge.contains_key(&public))
             {
-                // This typedef *is* the record/enum's public name, or the MIDL
-                // `[v1_enum]` self-alias (`typedef enum _FOO {...} _FOO;`) whose tag the
-                // flags/enum merge renamed to the public integer typedef `FOO` - either
-                // way the enum is already emitted under `FOO`, so this alias is redundant.
+                // The record/enum is already emitted under this public name.
                 return Ok(None);
             }
             let ty = inner.to_type(parser);
             return Ok(Some(Self { name, ty }));
         }
 
-        // Function-pointer typedefs are normally emitted as named callbacks
-        // (`Callback::parse`). Variadic ones cannot be represented as metadata
-        // delegates, so `Callback::parse` skips them; emit an opaque alias
-        // here instead so functions that take the typedef still resolve (matching the
-        // inline function-pointer convention, an opaque `*mut u8`).
+        // Variadic function-pointer typedefs cannot be metadata callbacks; keep an opaque alias.
         if underlying.is_function_pointer() {
             if let Some(fn_ty) = underlying.function_pointee()
                 && fn_ty.is_variadic()
@@ -176,9 +109,7 @@ impl Typedef {
             return Ok(None);
         }
 
-        // DECLARE_HANDLE idiom (`typedef struct X__ *X`): emit an opaque handle
-        // (`*mut void`) rather than a pointer to a one-off empty tag struct. The
-        // resulting `NativeTypedef` matches the hand-authored `Foundation::HANDLE`.
+        // `DECLARE_HANDLE` emits an opaque handle rather than a one-off empty tag pointer.
         if underlying.is_handle_tag(&name) {
             let ty = metadata::Type::PtrMut(Box::new(metadata::Type::Void), 1);
             return Ok(Some(Self { name, ty }));
@@ -186,11 +117,7 @@ impl Typedef {
 
         let ty = underlying.to_type(parser);
 
-        // Pointer-sized ABI typedefs (`ULONG_PTR`, `size_t`, `intptr_t`, ...) are
-        // `usize`/`isize`, not the fixed-width `u64`/`i64` their canonical type
-        // resolves to on a 64-bit parse. Only the *base* typedef (whose underlying is
-        // the raw integer) is remapped; chained aliases like `SIZE_T = ULONG_PTR`
-        // keep their alias and inherit the size through it.
+        // Base pointer-sized ABI typedefs become `usize`/`isize`; chained aliases inherit.
         let ty = match (pointer_sized_abi(&name), &ty) {
             (Some(scalar), metadata::Type::U64 | metadata::Type::I64) => scalar,
             _ => ty,

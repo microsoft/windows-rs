@@ -6,7 +6,7 @@ pub struct Enum {
     pub repr: &'static str,
     pub variants: Vec<(String, i64)>,
     pub flags: bool,
-    /// True for a C++ `enum class` / `enum struct` -> `ScopedEnum`.
+    /// C++ `enum class` / `enum struct` -> `ScopedEnum`.
     pub scoped: bool,
 }
 
@@ -48,13 +48,7 @@ impl Enum {
 
     pub fn write(&self) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
-        // Flag enums (`DEFINE_ENUM_FLAG_OPERATORS`) are logically unsigned - their
-        // members are bit masks (`0x8000_0000`-style values) combined with bitwise
-        // operators. C's default `int` backing only signs them by accident of its
-        // heritage (MSVC keeps the enum `int` and wraps a high-bit member such as
-        // `0x80000000` to a negative value). Promote the signed backing to the
-        // same-width unsigned type so the metadata reflects the flag semantics
-        // (matching win32metadata and enabling the bitwise-operator projection).
+        // Flag enums are bit masks; promote signed backing to same-width unsigned.
         let repr_str = if self.flags {
             match self.repr {
                 "i8" => "u8",
@@ -70,9 +64,7 @@ impl Enum {
 
         let variants = self.variants.iter().map(|(name, value)| {
             let name = write_ident(name);
-            // clang_getEnumConstantDeclValue returns a signed i64 bit pattern. Re-interpret
-            // the bits into the appropriate Rust literal so unsigned variants are written
-            // correctly (e.g. 200 stored as -56 for u8).
+            // clang returns a signed bit pattern; reinterpret it for unsigned reprs.
             let value = match repr_str {
                 "u8" => Literal::u8_unsuffixed(*value as u8),
                 "u16" => Literal::u16_unsuffixed(*value as u16),

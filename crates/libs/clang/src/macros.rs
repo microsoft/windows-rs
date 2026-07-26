@@ -8,25 +8,10 @@ pub(crate) enum MacroSource<'a> {
     Str(&'a str),
 }
 
-/// Evaluate every stem's pending macro names concurrently, returning one result vector
-/// per input entry in the original order.
+/// Evaluate all pending macros once, then route each result to its first owning partition.
 ///
-/// Evaluate the macro second pass for every partition, but parse the header closure as
-/// few times as possible.
-///
-/// A macro's *value* does not depend on which partition referenced it: every synthetic
-/// evaluation TU `#include`s the **whole** closure, so a given `#define` resolves to one
-/// translation-unit-wide value regardless of the file it is attributed to. The
-/// per-partition split only decides *which file owns* the emitted const (first-owner-wins).
-/// So instead of re-parsing the full closure once per macro-bearing partition (the dominant
-/// cost of the scrape - hundreds of redundant full-closure parses), the deduplicated
-/// **union** of all pending macro names is evaluated in a handful of synthetic TUs - one
-/// per worker thread - and the results are routed back to the first partition that
-/// requested each name, leaving the deterministic first-owner-wins merge byte-for-byte
-/// identical to a per-partition pass.
-///
-/// A libclang `CXIndex` must not be shared across threads, but independent indexes parse
-/// concurrently safely, so every worker owns its own [`Index`].
+/// Macro values are TU-wide because every evaluator includes the full closure. Each worker
+/// owns its own `CXIndex`; libclang indexes are not shared across threads.
 pub(crate) fn evaluate_macros_parallel(
     all_consts: &[(String, Vec<String>)],
     source: MacroSource<'_>,
@@ -37,9 +22,7 @@ pub(crate) fn evaluate_macros_parallel(
         return Ok(vec![]);
     }
 
-    // The deduplicated union of every partition's pending macro names, in first-seen order.
-    // Evaluating each name once (rather than once per partition that references it) is what
-    // collapses the redundant full-closure re-parses.
+    // Deduplicate in first-seen order to preserve first-owner-wins routing.
     let mut seen = HashSet::new();
     let mut union: Vec<String> = vec![];
     for (_, names) in all_consts {
@@ -50,9 +33,7 @@ pub(crate) fn evaluate_macros_parallel(
         }
     }
 
-    // Evaluate the union, split into one contiguous chunk per worker. Each chunk is a single
-    // synthetic TU (the closure plus that chunk's evaluation enums), so the closure is parsed
-    // `workers` times total instead of once per partition.
+    // Each chunk is one synthetic TU, so the full closure is parsed once per worker.
     let evaluated_union: Vec<Const> = if union.is_empty() {
         vec![]
     } else {
@@ -66,10 +47,8 @@ pub(crate) fn evaluate_macros_parallel(
                 .chunks(chunk_size)
                 .map(|chunk| {
                     scope.spawn(move || -> Result<Vec<Const>, Error> {
-                        // clang-sys loads `libclang` into thread-local storage, so each
-                        // worker must load it before use; the guard unloads it at thread end.
+                        // clang-sys stores libclang in TLS, so each worker loads it itself.
                         let _library = Library::new()?;
-                        // One index per worker: created and dropped on this thread, never shared.
                         let index = Index::new()?;
                         match source {
                             MacroSource::File(input) => {
@@ -95,11 +74,7 @@ pub(crate) fn evaluate_macros_parallel(
         })?
     };
 
-    // Route each evaluated const back to the *first* partition (in `all_consts` order) whose
-    // pending list requested it: `remove` hands the value to that partition and leaves later
-    // partitions with `None`, exactly reproducing the first-owner-wins selection a
-    // per-partition pass would make. Names that failed to evaluate are absent from the map
-    // and dropped everywhere, as before.
+    // `remove` gives a value only to the first partition that requested it.
     let mut map: HashMap<String, Const> = evaluated_union
         .into_iter()
         .map(|c| (c.name.clone(), c))
@@ -117,21 +92,14 @@ pub(crate) fn evaluate_macros_parallel(
     Ok(out)
 }
 
-/// The context the per-header walk needs to run the macro second-pass evaluator: the
-/// translation-unit source and argument list. Each evaluation creates its own libclang
-/// index so the per-stem passes can run concurrently (see [`evaluate_macros_parallel`]).
+/// Source and args needed by the macro second-pass evaluator.
 #[derive(Clone, Copy)]
 pub(crate) struct MacroEval<'a> {
     pub(crate) source: MacroSource<'a>,
     pub(crate) args: &'a [&'a str],
 }
 
-/// Returns `true` for C/C++ builtin arithmetic-type and signedness keywords that
-/// may legitimately appear inside an integer-constant cast (e.g. `(int)`,
-/// `(unsigned long)`, `(__int64)`). Such casts - used by `#define`s like
-/// `CW_USEDEFAULT ((int)0x80000000)` - are valid constant expressions and must
-/// not be filtered out along with genuinely non-constant keyword macros
-/// (`extern "C"`, `static`, ...).
+/// True for builtin type keywords allowed in integer-constant casts.
 pub(crate) fn is_type_keyword(spelling: &str) -> bool {
     matches!(
         spelling,
@@ -150,16 +118,10 @@ pub(crate) fn is_type_keyword(spelling: &str) -> bool {
     )
 }
 
-/// Returns `true` if the delimiters `()`, `[]`, `{}` in the token stream are
-/// balanced and correctly nested. Used to reject object-like macros whose
-/// replacement list has unbalanced delimiters before they reach the batch macro
-/// evaluator, where an unbalanced `{` or `(` would swallow the enum declarations
-/// of every following candidate in the same synthetic translation unit.
+/// Reject unbalanced macro bodies before they can swallow later synthetic enum probes.
 ///
-/// Delimiter *characters* are counted (skipping string/character literals and
-/// comments, whose contents may contain unmatched `(`/`{`), so a delimiter glued
-/// to a line-continuation by the tokenizer (e.g. `"\\\r\n}"`) is still counted
-/// correctly and a valid multi-line scalar macro is never mis-rejected.
+/// Counts delimiter characters outside literals/comments, including delimiters glued to
+/// line-continuation tokens.
 pub(crate) fn tokens_balanced<'a>(tokens: impl Iterator<Item = &'a (CXTokenKind, String)>) -> bool {
     let mut stack: Vec<char> = vec![];
     for (kind, spelling) in tokens {
@@ -179,14 +141,7 @@ pub(crate) fn tokens_balanced<'a>(tokens: impl Iterator<Item = &'a (CXTokenKind,
     stack.is_empty()
 }
 
-/// Collect every object-like macro definition in the translation unit, mapping
-/// each macro name to the spellings of its replacement-list tokens.
-///
-/// Used to resolve calling-convention macros (`WINAPI`, `CALLBACK`,
-/// `STDMETHODCALLTYPE`, ...) back to the underlying `__stdcall` / `__cdecl` /
-/// `__fastcall` keyword, transitively and regardless of which (possibly system)
-/// header defined them. Only short replacement lists are retained, since
-/// convention macros expand to a single token; this keeps the map small.
+/// Collect short macro replacement lists used to resolve calling-convention aliases.
 pub(crate) fn collect_macro_defs(tu: &TranslationUnit) -> HashMap<String, Vec<String>> {
     let mut defs = HashMap::new();
 
@@ -201,12 +156,9 @@ pub(crate) fn collect_macro_defs(tu: &TranslationUnit) -> HashMap<String, Vec<St
         }
 
         let tokens = tu.tokenize(child.extent());
-        // The first token is the macro name; the rest is the replacement list.
         let mut body: Vec<String> = tokens.into_iter().skip(1).map(|(_, s)| s).collect();
 
-        // A function-like macro (`STDAPI_(type) ...`) carries its parameter list
-        // between the name and the replacement list; strip `( ... )` so the body
-        // holds only replacement tokens (e.g. `EXTERN_C type STDAPICALLTYPE`).
+        // Strip a function-like macro's parameter list from its body.
         if child.is_macro_function_like() && body.first().map(String::as_str) == Some("(") {
             let mut depth = 0usize;
             let mut end = None;
@@ -228,15 +180,7 @@ pub(crate) fn collect_macro_defs(tu: &TranslationUnit) -> HashMap<String, Vec<St
             }
         }
 
-        // A storage-class specifier such as `__declspec(dllimport)` may prefix an
-        // export macro's replacement list (e.g. DWrite's
-        // `#define DWRITE_EXPORT __declspec(dllimport) WINAPI`). It is irrelevant to
-        // the calling convention but would otherwise push the body past the
-        // small-macro length gate below, dropping the macro - and with it the
-        // `WINAPI` token - from the table, so `DWriteCreateFactory` would fall back
-        // to its `EXTERN_C` linkage and be mis-typed `extern "C"` instead of the
-        // `extern "system"` (`__stdcall`) it really is. That mismatch corrupts the
-        // stack on the x86 `__stdcall`/`__cdecl` ABI split.
+        // Keep export macros with leading `__declspec(dllimport)` under the length gate.
         strip_declspec(&mut body);
 
         if !body.is_empty() && body.len() <= 4 {
@@ -247,21 +191,10 @@ pub(crate) fn collect_macro_defs(tu: &TranslationUnit) -> HashMap<String, Vec<St
     defs
 }
 
-/// Build the reverse alias map consumed by [`Parser::alias_map`] and [`Fn::parse`].
+/// Build `export -> source alias` for SDK macro forwarders like `RtlGenRandom`.
 ///
-/// Scans the object-like macro definitions for the `#define <Alias> <Export>` forwarders
-/// the SDK uses to expose an export under a documented name (`RtlGenRandom` ->
-/// `SystemFunction036`, `EnumProcesses` -> `K32EnumProcesses`, `GetMappedFileNameW` ->
-/// `K32GetMappedFileNameW`) and inverts them to `export -> alias` so a scraped function -
-/// whose clang name is the expanded export - can recover the source spelling.
-///
-/// ANSI/Unicode charset-selection macros (`#define GetWindowText GetWindowTextA`, the
-/// `#ifdef UNICODE` idiom) are excluded: their replacement is the same name with an `A`/`W`
-/// suffix, selecting a character-set variant rather than forwarding to a distinct export.
-/// The reference metadata emits only the explicit `...A`/`...W` functions, so renaming the `A`
-/// variant back to the bare name would both diverge from the reference and delete the
-/// variant. On the rare chance two aliases share one export, the lexicographically smallest
-/// is chosen so the result is deterministic across the unordered macro map.
+/// A/W selection macros are excluded because they select charset variants, not distinct
+/// export aliases. If aliases collide, the lexicographically smallest one wins.
 pub(crate) fn build_alias_map(
     macro_defs: &HashMap<String, Vec<String>>,
 ) -> HashMap<String, String> {
@@ -287,9 +220,7 @@ pub(crate) fn build_alias_map(
     map
 }
 
-/// True when `s` is a well-formed C identifier (leading letter/underscore, then
-/// letters/digits/underscores), used to reject macro replacement lists that are not a bare
-/// symbol name (`#define TRUE 1`, operator spellings, ...).
+/// True when `s` is a bare C identifier.
 pub(crate) fn is_c_identifier(s: &str) -> bool {
     let mut chars = s.chars();
     chars
@@ -298,10 +229,7 @@ pub(crate) fn is_c_identifier(s: &str) -> bool {
         && chars.all(|c| c.is_ascii_alphanumeric() || c == '_')
 }
 
-/// Strip a leading `__declspec(...)` / `_declspec(...)` storage-class specifier (either MSVC
-/// spelling) from a macro body, leaving only the tokens that matter for calling-convention
-/// detection - so an export macro like `#define ORAPI _declspec(dllimport) __stdcall` keeps its
-/// `__stdcall` and stays within the small-macro length gate.
+/// Strip leading MSVC `__declspec(...)` storage-class tokens from a macro body.
 pub(crate) fn strip_declspec(body: &mut Vec<String>) {
     let mut i = 0;
     while i < body.len() {

@@ -1,41 +1,25 @@
-//! The high-level, multi-architecture scrape - the [`Clang::scrape`](crate::Clang::scrape)
-//! terminal on the low-level [`clang()`](crate::clang) builder.
+//! Multi-architecture scrape orchestration for [`Clang::scrape`](crate::Clang::scrape).
 //!
-//! Where [`clang().write()`](crate::Clang::write) parses one translation unit for one architecture,
-//! `scrape` replays a configured [`Clang`](crate::Clang) builder once per architecture (swapping the
-//! target triple and per-arch defines), routes every declaration to its defining-header partition,
-//! arch-merges the per-arch results so a symbol that exists on (or differs across) only a subset of
-//! arches gains `SupportedArchitecture`, and re-derives a single unified winmd from the merged metadata.
-//!
-//! Everything that differs between scrapers is configured on the `Clang` builder - the headers, the
-//! include/lib directories, the import libraries, the reachability scope - exactly as a single-arch
-//! scrape would set them. Only the multi-arch orchestration state that is *not* expressible on the
-//! builder - the architectures, the output directories, an optional metadata seed, and the reference
-//! winmds an *additive* scrape (such as the WDK) resolves against - is captured in [`ScrapePlan`].
-//! Toolchain provisioning (which NuGet packages and versions supply the headers and libs) stays in
-//! each tool, because that is genuinely per-scraper.
+//! The builder holds the normal parse configuration. [`ScrapePlan`] carries the extra
+//! orchestration state: arches, outputs, seed metadata, and reference winmds.
 
 use crate::{Clang, clang_resource_dir};
 use windows_rdl::{ArchInput, merge_arch_rdl, reader};
 
-/// A target architecture: the clang triple, the `SupportedArchitecture` bitmask, and any extra
-/// preprocessor defines the headers need for this target (the kernel-mode headers, for example,
-/// require `_AMD64_`/`_ARM64_` in place of the `windows.h` closure that would otherwise set them).
+/// Target architecture settings that differ between scrape passes.
 pub struct Arch {
-    /// Short name (`x64`, `arm64`, `x86`); also the throwaway sub-directory name for non-canonical arches.
+    /// Short name (`x64`, `arm64`, `x86`) and throwaway subdirectory name.
     pub name: String,
     /// The clang `--target` triple, e.g. `x86_64-pc-windows-msvc`.
     pub triple: String,
     /// `SupportedArchitecture` bitmask: 1 = X86, 2 = X64, 4 = Arm64.
     pub bits: i32,
-    /// Extra `-D` defines for this architecture (empty for scrapes that get their arch macros
-    /// from a `windows.h` prelude).
+    /// Extra `-D` defines for this architecture.
     pub defines: Vec<String>,
 }
 
 impl Arch {
-    /// The known triple + `SupportedArchitecture` bit for a short arch name, with no extra
-    /// defines. Returns `None` for an unrecognized name so callers can validate a manifest.
+    /// Known triple + `SupportedArchitecture` bit for a short arch name.
     pub fn known(name: &str) -> Option<Self> {
         let (triple, bits) = match name {
             "x64" => ("x86_64-pc-windows-msvc", 2),
@@ -51,10 +35,7 @@ impl Arch {
         })
     }
 
-    /// Builds the canonical-first arch list a manifest-driven scrape runs: `x64` (always the
-    /// canonical arch that writes the committed metadata) followed by each `extra` name, skipping
-    /// a redundant `"x64"`. Each arch - including the canonical one - is constructed by `build`,
-    /// so a scraper that needs per-target preprocessor defines supplies them there.
+    /// Build the canonical-first arch list: `x64`, then non-`x64` extras.
     pub fn canonical_plus(extra: &[String], build: impl Fn(&str) -> Self) -> Vec<Self> {
         let mut archs = vec![build("x64")];
         for name in extra {
@@ -66,43 +47,25 @@ impl Arch {
     }
 }
 
-/// The orchestration plan for a [`Clang::scrape`](crate::Clang::scrape): the multi-arch and output
-/// state that is *not* expressed on the [`Clang`](crate::Clang) builder itself. Every parse knob
-/// (headers, args, reachability scope, import libraries) is configured on the builder as for a
-/// single-arch scrape; this carries only what the scrape pipeline layers on top. All paths are final
-/// (NuGet/SDK resolution has already happened in the caller).
+/// Multi-arch and output state layered on top of a configured [`Clang`](crate::Clang).
 pub struct ScrapePlan {
-    /// Root namespace; each emitted defining header becomes `<root>.<HeaderStem>` in a flat layout.
+    /// Root namespace; each defining header becomes `<root>.<HeaderStem>`.
     pub root: String,
-    /// The committed per-header RDL directory (e.g. `metadata/win32`). The canonical (first)
-    /// architecture writes its partitions here; the arch-merge writes the unified metadata here too.
+    /// Committed per-header RDL directory.
     pub rdl_dir: String,
-    /// A `target/`-side scratch directory for the per-arch throwaway RDL dirs and winmds.
+    /// Scratch directory for per-arch throwaway RDL dirs and winmds.
     pub out_dir: String,
-    /// The committed unified winmd output path (e.g. `crates/libs/bindgen/default/Windows.Win32.winmd`).
+    /// Committed unified winmd output path.
     pub winmd: String,
-    /// Architectures to scrape. `archs[0]` is canonical: it writes the committed `rdl_dir`; every
-    /// other arch is scraped to a throwaway dir under `out_dir` and folded in via arch-merge.
+    /// `archs[0]` writes `rdl_dir`; extras are folded in by arch-merge.
     pub archs: Vec<Arch>,
-    /// Reference winmds applied to the per-arch clang parse (as a scrape-time *exclusion* reference so
-    /// already-defined types are skipped) and to every RDL reader pass (so scraped types resolve their
-    /// dependencies by bare name). Empty for a base scrape; set for an additive scrape like the WDK.
-    /// These live on the plan rather than on [`Clang::input`](crate::Clang::input) because the reader
-    /// passes need them too, not only the clang parse.
+    /// Exclusion/reference winmds needed by both clang and RDL reader passes.
     pub reference_winmds: Vec<String>,
-    /// Resolution winmds (e.g. `Windows.winmd`) applied to the per-arch clang parse via
-    /// [`Clang::resolution_input`](crate::Clang::resolution_input) - classifying declarations in
-    /// the `ABI::Windows::*` C++/WinRT projection namespace - and to every RDL reader pass, so a
-    /// captured interop API's cross-winmd reference to a true WinRT type (`Windows.Foundation.*`)
-    /// resolves as an external assembly reference. Unlike [`reference_winmds`](Self::reference_winmds)
-    /// these are never an exclusion base: no entity they define is skipped or emitted. Empty for a
-    /// scrape that reaches no ABI interop surface (the default).
+    /// Resolution-only winmds: they qualify external references but never exclude entities.
     pub resolution_winmds: Vec<String>,
-    /// Optional hand-authored metadata seed RDL (full path). Typically lives outside `rdl_dir`
-    /// so the generated output can be cleared and rebuilt without disturbing it. Preserved
-    /// across the `rdl_dir` clear, added to every reader pass, and fed to the arch-merge.
+    /// Optional hand-authored seed RDL, preserved across generated output clears.
     pub seed: Option<String>,
-    /// Scrape the architectures concurrently (large SDK translation units are clang-bound).
+    /// Scrape architectures concurrently.
     pub parallel: bool,
 }
 
@@ -122,8 +85,7 @@ pub struct Summary {
     pub multi_arch: bool,
 }
 
-/// Prints the per-arch timings, the parallel-scrape wall time, and (for a multi-arch scrape) the
-/// arch-merge and unified-winmd times. Callers add their own trailing line naming the outputs.
+/// Prints timing details; callers add the output paths.
 impl std::fmt::Display for Summary {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         writeln!(f, "Timing:")?;
@@ -141,9 +103,7 @@ impl std::fmt::Display for Summary {
     }
 }
 
-/// Finds `name` in the first of `dirs` that contains it, returning the forward-slashed path. Used
-/// to resolve a bare import-library name against a scraper's pinned SDK/WDK lib directories before
-/// passing it to [`Clang::import_library`](crate::Clang::import_library).
+/// Find `name` in `dirs`, returning a forward-slashed path.
 pub fn find_in_dirs(name: &str, dirs: &[String]) -> Option<String> {
     dirs.iter()
         .map(|dir| std::path::Path::new(dir).join(name))
@@ -158,19 +118,7 @@ struct Job<'a> {
 }
 
 impl Clang {
-    /// Runs the full multi-architecture scrape described by `plan`, replaying this configured
-    /// builder once per architecture, and returns a [`Summary`]. Panics with a descriptive message on
-    /// any failure - these are unrecoverable build errors, matching the fail-loud behaviour of the
-    /// tools this drives.
-    ///
-    /// The builder carries the arch-invariant parse configuration: the translation-unit sources
-    /// ([`input_str`](Self::input_str)), the compiler [`args`](Self::args), the reachability
-    /// [`scope`](Self::scope)/[`scope_headers`](Self::scope_headers), the
-    /// [`import_library`](Self::import_library) mappings, and [`drop_lib_less`](Self::drop_lib_less).
-    /// `scrape` sets the per-arch [`target`](Self::target), its defines, and (for a multi-arch run)
-    /// the builtin `-resource-dir` itself, so any [`target`](Self::target) set on the builder is
-    /// overridden. The reference winmds live on [`ScrapePlan`] rather than on [`input`](Self::input)
-    /// so the RDL reader passes see them too.
+    /// Run the plan, replaying this builder once per architecture and merging the results.
     pub fn scrape(&self, plan: &ScrapePlan) -> Summary {
         assert!(
             !plan.archs.is_empty(),
@@ -190,7 +138,7 @@ impl Clang {
         let stem = winmd_file.strip_suffix(".winmd").unwrap_or(winmd_file);
         let canonical_winmd = format!("{}/{winmd_file}", plan.out_dir);
 
-        // The canonical arch writes the committed RDL dir; extras write throwaway dirs under out_dir.
+        // The canonical arch writes committed RDL; extras write throwaway dirs.
         let mut jobs = vec![Job {
             arch: canonical,
             rdl_dir: plan.rdl_dir.clone(),
@@ -205,9 +153,8 @@ impl Clang {
         }
         let multi_arch = jobs.len() > 1;
 
-        // Non-canonical arches need clang's version-matched builtin resource headers so the target's
-        // `intrin.h` reconciles with its compiler builtins. Resolved (and fetched on first use) once,
-        // before any concurrency, so parallel workers never race the one-time download.
+        // Non-canonical arches need version-matched clang resource headers; resolve before
+        // workers start so they do not race the one-time fetch.
         let resource_dir = multi_arch.then(clang_resource_dir);
 
         let timings = std::sync::Mutex::new(Vec::<(String, f32)>::new());
@@ -235,9 +182,7 @@ impl Clang {
         let mut merge_wall = 0.0;
         let mut winmd_wall = 0.0;
         if multi_arch {
-            // Fold every per-arch winmd together so subset/divergent symbols gain
-            // `SupportedArchitecture`, route each item back to its defining-header `<stem>.rdl`, and
-            // re-derive the unified winmd from the merged metadata (the source of truth).
+            // Fold per-arch winmds back into defining-header partitions and rebuild the winmd.
             let arch_inputs: Vec<ArchInput> = jobs
                 .iter()
                 .map(|j| ArchInput {
@@ -269,7 +214,7 @@ impl Clang {
                 .unwrap_or_else(|e| panic!("failed to compile merged winmd `{}`: {e}", plan.winmd));
             winmd_wall = w.elapsed().as_secs_f32();
         } else {
-            // Single arch: the canonical job's winmd is already the final output - publish it.
+            // Single arch: publish the canonical job's winmd.
             std::fs::copy(&canonical_winmd, &plan.winmd)
                 .unwrap_or_else(|e| panic!("failed to publish winmd to `{}`: {e}", plan.winmd));
         }
@@ -292,10 +237,7 @@ impl Clang {
         }
     }
 
-    /// Scrapes one architecture's translation units into `rdl_dir` (clearing stale partitions first,
-    /// preserving the seed) and compiles those partitions into `winmd`. Clones the configured builder
-    /// and layers on this arch's target, defines, optional builtin resource directory, and the plan's
-    /// reference winmds.
+    /// Scrape one architecture into `rdl_dir` and compile those partitions into `winmd`.
     fn scrape_arch(
         &self,
         plan: &ScrapePlan,
@@ -346,7 +288,7 @@ impl Clang {
     }
 }
 
-/// Removes stale `.rdl` partitions from `rdl_dir`, preserving the seed file (matched by name).
+/// Remove stale generated `.rdl` partitions, preserving the seed file by name.
 fn clear_rdl_dir(rdl_dir: &str, seed: Option<&str>) {
     std::fs::create_dir_all(rdl_dir)
         .unwrap_or_else(|e| panic!("failed to create `{rdl_dir}`: {e}"));
@@ -363,7 +305,7 @@ fn clear_rdl_dir(rdl_dir: &str, seed: Option<&str>) {
     }
 }
 
-/// The sorted, forward-slashed `.rdl` file paths in a directory.
+/// Sorted, forward-slashed `.rdl` file paths in a directory.
 fn collect_rdl_paths(rdl_dir: &str) -> Vec<String> {
     let mut paths: Vec<String> = std::fs::read_dir(rdl_dir)
         .unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
@@ -376,7 +318,7 @@ fn collect_rdl_paths(rdl_dir: &str) -> Vec<String> {
     paths
 }
 
-/// Counts committed partition files in `rdl_dir`, excluding the seed.
+/// Count committed partition files, excluding the seed.
 fn count_partitions(rdl_dir: &str, seed: Option<&str>) -> usize {
     let seed_name = seed.and_then(|s| std::path::Path::new(s).file_name());
     std::fs::read_dir(rdl_dir).map_or(0, |rd| {
