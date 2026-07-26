@@ -11,25 +11,13 @@ pub struct Config<'a> {
     pub derive: &'a Derive,
     pub link: &'a str,
     pub namespace: &'static str,
-    /// Delegates that are exclusively used as parameters in `add_*` SpecialName
-    /// methods (event handlers). In minimal mode these delegates have their
-    /// `new()` and `Invoke()` methods suppressed because the event-add wrapper
-    /// inlines the DelegateBox construction directly.
+    /// Event-only delegates whose constructor and `Invoke` can be suppressed in minimal mode.
     pub event_only_delegates: &'a HashSet<TypeName>,
-    /// The type whose `impl` block is currently being generated, if any. When a
-    /// reference to this exact type (with matching generics) is written inside the
-    /// block, it is emitted as `Self` so the generated code is `clippy::use_self`
-    /// friendly. See `TypeName::write`.
+    /// Current `impl` target, used by `TypeName::write` to emit `Self` when possible.
     pub self_ty: Option<TypeName>,
-    /// The generic arguments of `self_ty`'s enclosing `impl` block, used to ensure
-    /// `Self` is only substituted when the referenced generics match exactly.
+    /// Generics of `self_ty`, used to avoid incorrect `Self` substitutions.
     pub self_generics: Vec<Type>,
-    /// Namespaces that emit nothing in this package layout and so are pruned (no module,
-    /// no Cargo feature) - see `write_package`. A `#[cfg(feature = ...)]` gate must never
-    /// name one of these, so `Cfg::write` drops them: a type referencing a pruned namespace
-    /// has already degraded (e.g. a `windows-sys` interface pointer becomes `*mut c_void`),
-    /// so there is no real dependency to gate on. Empty (and inert) outside `--sys` package
-    /// output, where nothing is pruned.
+    /// Pruned empty namespaces; `Cfg::write` must not emit feature gates for them.
     pub prunable: std::sync::Arc<BTreeSet<&'static str>>,
 }
 
@@ -56,13 +44,7 @@ impl Config<'_> {
         clone
     }
 
-    /// Returns `true` if the `_Impl` scaffolding for the given type should be
-    /// emitted, based on the `--implement` option.
-    ///
-    /// `default` is the behavior to fall back on when `--implement` is not
-    /// set: `true` for types that are emitted unconditionally today (such
-    /// as COM/Win32 interfaces) and `false` (or some other condition such as
-    /// `!is_exclusive`) for WinRT interfaces.
+    /// Applies `--implement`, falling back to `default` when the option is absent.
     pub fn should_implement(&self, name: TypeName, default: bool) -> bool {
         match self.implement {
             None => default,
@@ -71,19 +53,12 @@ impl Config<'_> {
         }
     }
 
-    /// Returns `true` if the WinRT `RuntimeType::NAME` constant should be emitted
-    /// for the given interface. The constant is only needed for interfaces that
-    /// are implemented (for `GetRuntimeClassName`); minimal bindings omit it for
-    /// non-implemented interfaces, while other styles always emit it.
+    /// Minimal bindings emit `RuntimeType::NAME` only for implemented interfaces.
     pub fn emit_runtime_name(&self, name: TypeName) -> bool {
         !self.bindgen.style.is_minimal() || self.should_implement(name, false)
     }
 
-    /// Emits the `RuntimeType::NAME` constant for a value type (struct/enum).
-    /// Value types are never implemented as COM objects, so NAME is only useful
-    /// when the type appears as a generic argument in an implemented
-    /// parameterized interface; minimal bindings skip it (the trait default -
-    /// an empty name - is sufficient).
+    /// Emits the value-type runtime name used by non-minimal generic signatures.
     pub fn write_value_name_const(&self, type_name: TypeName) -> TokenStream {
         if self.bindgen.style.is_minimal() {
             quote! {}
@@ -95,10 +70,7 @@ impl Config<'_> {
         }
     }
 
-    /// Returns the visibility to emit on a generated item. With `--dead-code`
-    /// this is `pub(crate)` so the compiler's dead-code lint can flag unused
-    /// bindings (a `pub` item in a non-public module is not linted - see
-    /// <https://github.com/rust-lang/rust/issues/157961>); otherwise `pub`.
+    /// Emits `pub(crate)` under `--dead-code` so unused generated items are linted.
     pub fn item_vis(&self) -> TokenStream {
         if self.bindgen.dead_code {
             quote! { pub(crate) }

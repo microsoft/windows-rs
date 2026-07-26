@@ -28,8 +28,7 @@ impl std::fmt::Display for Error {
 #[derive(Default)]
 pub struct Merger {
     input: Vec<String>,
-    /// Arch-tagged inputs: `(path, arch_bits)` where arch_bits is a bitmask
-    /// (1=X86, 2=X64, 4=Arm64) indicating which architecture the file targets.
+    /// `(path, arch_bits)` where bits are 1=X86, 2=X64, 4=Arm64.
     arch_inputs: Vec<(String, i32)>,
     output: String,
 }
@@ -56,15 +55,6 @@ impl Merger {
     }
 
     /// Adds an architecture-tagged input winmd file.
-    ///
-    /// `arch` is a bitmask indicating which architecture this file was built for:
-    ///   - `1` -> X86
-    ///   - `2` -> X64
-    ///   - `4` -> Arm64
-    ///
-    /// When `merge()` is called, types present in **all** arch-tagged inputs get
-    /// no `SupportedArchitectureAttribute`; types present only in a **subset** get
-    /// `SupportedArchitectureAttribute(present_arch_mask)`.
     pub fn arch_input(&mut self, path: &str, arch: i32) -> &mut Self {
         self.arch_inputs.push((path.to_string(), arch));
         self
@@ -91,7 +81,6 @@ impl Merger {
 
         let mut file = writer::File::new(name);
 
-        // Write plain (untagged) inputs as-is.
         let mut types: Vec<reader::TypeDef<'_>> = index.types().collect();
         types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
 
@@ -99,12 +88,9 @@ impl Merger {
             write_type(&mut file, &index, ty, None, None);
         }
 
-        // Write arch-tagged inputs with computed SupportedArchitecture annotations.
         if !self.arch_inputs.is_empty() {
-            // Compute the bitmask for "all arches present in this merge run".
             let all_arches_mask: i32 = self.arch_inputs.iter().fold(0, |acc, (_, arch)| acc | arch);
 
-            // Load each arch-tagged file group.
             let mut arch_groups: Vec<(reader::Index, i32)> =
                 Vec::with_capacity(self.arch_inputs.len());
             for (path, arch_bits) in &self.arch_inputs {
@@ -112,7 +98,6 @@ impl Merger {
                 arch_groups.push((reader::Index::new(files), *arch_bits));
             }
 
-            // Group every arch copy by (namespace, name).
             let mut groups: BTreeMap<
                 (String, String),
                 Vec<(&reader::Index, reader::TypeDef<'_>, i32)>,
@@ -129,21 +114,10 @@ impl Merger {
             for copies in groups.values() {
                 let (idx, ty, _) = copies[0];
                 if ty.category() == reader::TypeCategory::Class {
-                    // Apis container (constants + functions): union the members so
-                    // arch-divergent ones are each kept and tagged. `write_type_arch_merged`
-                    // tags a member neutral only when it spans every arch in the run
-                    // (`all_arches_mask`), else per-arch.
+                    // Apis members can diverge by arch; union them instead of taking one copy.
                     write_type_arch_merged(&mut file, idx, ty, copies, all_arches_mask);
                 } else {
-                    // A value type. Group the per-arch copies by structural signature and
-                    // emit one copy per distinct shape, tagged with the union of the arch
-                    // bits of the copies sharing that shape. Arches with an identical shape
-                    // (e.g. `ARM64_NT_CONTEXT` is byte-identical on x64 and x86) collapse to
-                    // one `SupportedArchitecture(x64|x86)` definition; a shape that diverges
-                    // across arches (the CONTEXT class) is split per shape instead of
-                    // collapsing to `copies[0]` and dropping the other layout. A group
-                    // spanning every arch in the run is written arch-neutral (`Some(0)`);
-                    // anything narrower keeps its subset tag.
+                    // Split value types by shape so arch-specific layouts are not lost.
                     let mut by_sig: Vec<(String, &reader::Index, reader::TypeDef, i32)> = vec![];
                     for (cidx, c, bits) in copies {
                         let sig = type_sig(cidx, *c);
@@ -209,12 +183,7 @@ fn read_inputs(inputs: &[String]) -> Result<Vec<reader::File>, Error> {
     Ok(result)
 }
 
-/// Writes a `TypeDef` (and its nested types) from `index` into `file`.
-///
-/// `arch_override` controls the `SupportedArchitectureAttribute` on the TypeDef:
-///   - `None`     -> copy attributes as-is (plain merge, no arch logic)
-///   - `Some(0)`  -> drop any existing `SupportedArchitectureAttribute`
-///   - `Some(n)`  -> drop existing and write `SupportedArchitecture(n)`
+/// Writes a `TypeDef`, using `arch_override` to replace any existing arch attribute.
 fn write_type(
     file: &mut writer::File,
     index: &reader::Index,
@@ -302,7 +271,6 @@ fn write_type(
     }
 }
 
-/// Writes a field (and its constant) with an optional `SupportedArchitecture` override.
 fn write_field(file: &mut writer::File, field: reader::Field, arch_override: Option<i32>) {
     let field_def = file.Field(field.name(), &field.ty(), field.flags());
     if let Some(constant) = field.constant() {
@@ -316,7 +284,6 @@ fn write_field(file: &mut writer::File, field: reader::Field, arch_override: Opt
     );
 }
 
-/// Writes a method (params, impl map) with an optional `SupportedArchitecture` override.
 fn write_method(
     file: &mut writer::File,
     method: reader::MethodDef,
@@ -349,11 +316,7 @@ fn write_method(
     }
 }
 
-/// Writes a TypeDef present on every architecture, unioning its fields and methods across
-/// arch copies. Members shared by all arches stay arch-neutral; members present on only a
-/// subset (arch-divergent constants like `CONTEXT_ALL`, arch-only functions) are emitted
-/// once per distinct definition with a `SupportedArchitecture` tag. This keeps the apis
-/// container's per-arch constants/functions instead of dropping all but x64.
+/// Unions arch-specific Apis members and tags members absent from some arches.
 fn write_type_arch_merged(
     file: &mut writer::File,
     index: &reader::Index,
@@ -390,8 +353,7 @@ fn write_type_arch_merged(
         );
     }
 
-    // Union fields by (name, type, value); accumulate the arch bits each distinct field
-    // appears on, keeping a representative to re-emit.
+    // Include constant values in the key so divergent constants survive.
     let mut fields: BTreeMap<String, (reader::Field, i32)> = BTreeMap::new();
     for (_, ty, bits) in copies {
         for field in ty.fields() {
@@ -440,23 +402,8 @@ fn write_type_arch_merged(
     }
 }
 
-/// A structural signature for a value type: its fields (name + type + constant value),
-/// packing/size, and any forced over-alignment. Used to detect arch copies that diverge
-/// in shape (the CONTEXT class) so they are emitted per-arch instead of collapsed to one.
-///
-/// Methods are included so that reference TypeDefs whose divergence lives entirely in a
-/// method signature rather than in fields (Win32 callbacks and WinRT delegates, whose
-/// shape is the `Invoke` signature) are correctly detected as arch-divergent.
-///
-/// Field constant values are included so an enum whose members hold different per-arch
-/// values does not collapse (which would silently drop the divergent values), matching
-/// the apis-container member key which also folds in the constant value.
-///
-/// The `AlignmentAttribute` value is included because it is the *sole* winmd encoding of
-/// forced over-alignment (`__declspec(align(N))` / `alignas(N)`): the `ClassLayout` can
-/// only *lower* alignment via its packing size, so two copies identical in fields/layout
-/// but differing only in raised alignment would otherwise collapse to one arch-neutral
-/// copy and silently drop the other arch's alignment.
+/// Signatures include layout, methods, constants, alignment, and nested shapes so arch-specific
+/// value types do not collapse into one neutral definition.
 fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
     let fields: Vec<String> = def
         .fields()
@@ -478,13 +425,7 @@ fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
     let align = def
         .find_attribute("AlignmentAttribute")
         .map(|a| format!("{:?}", a.value()));
-    // Nested types are referenced by their (arch-invariant) leaf name, so a field
-    // referencing a nested type looks identical across arches even when the nested
-    // type's own shape diverges (e.g. `HSTRING_HEADER`'s inline union is `[24]` on
-    // 64-bit and `[20]` on x86). Recurse into the nested subtree so such divergence
-    // surfaces in the enclosing type's signature, so the arch merge then splits the
-    // enclosing type per arch (hoisting `#[arch]` up to it) instead of collapsing to
-    // one neutral copy and silently dropping the other arch's nested shape.
+    // Recurse into nested shapes; outer fields reference only invariant nested leaf names.
     let nested: Vec<String> = index
         .nested(def)
         .map(|inner| format!("{}={}", inner.name(), type_sig(index, inner)))
@@ -503,13 +444,7 @@ fn write_attributes<'a, R: HasAttributes<'a>>(
     write_attributes_with_arch(file, parent, row, None);
 }
 
-/// Like [`write_attributes`] but with optional architecture annotation overriding.
-///
-/// When `arch_override` is `Some`:
-///   - Any existing `SupportedArchitectureAttribute` on `row` is **dropped**.
-///   - If `arch_override` is `Some(bits)` with `bits != 0`, a new
-///     `SupportedArchitectureAttribute(bits)` is written.
-///   - If `arch_override` is `Some(0)`, no arch attribute is written (arch-neutral).
+/// Copies attributes, optionally replacing `SupportedArchitectureAttribute`.
 fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
     file: &mut writer::File,
     parent: writer::HasAttribute,
@@ -520,7 +455,6 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
         let ctor = attribute.ctor();
         let ty = ctor.parent();
 
-        // Skip the existing SupportedArchitectureAttribute when we're overriding arch.
         if arch_override.is_some()
             && ty.namespace() == "Windows.Win32.Metadata"
             && ty.name() == "SupportedArchitectureAttribute"
@@ -540,7 +474,6 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
         );
     }
 
-    // Emit the overriding arch attribute when requested (non-zero bits).
     if let Some(arch_bits) = arch_override {
         if arch_bits != 0 {
             write_supported_architecture_attr(file, parent, arch_bits);
@@ -548,7 +481,6 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
     }
 }
 
-/// Writes a `SupportedArchitectureAttribute` with the given `arch_bits` bitmask.
 fn write_supported_architecture_attr(
     file: &mut writer::File,
     parent: writer::HasAttribute,

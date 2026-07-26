@@ -10,9 +10,7 @@ pub(crate) const WEB_RESOURCE_CONTEXT_ALL: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 0
 const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
     u32::MAX;
 
-/// Registers a web-resource-requested filter for `uri`. On runtimes that support
-/// it (`ICoreWebView2_22`) the filter covers every request source - including
-/// iframes and workers - falling back to the document-only filter otherwise.
+/// Registers a filter for every request source when the runtime supports it.
 pub(crate) unsafe fn add_requested_filter(
     webview: &ICoreWebView2,
     uri: impl Param<PCWSTR>,
@@ -33,8 +31,7 @@ pub(crate) unsafe fn add_requested_filter(
     }
 }
 
-/// Removes a filter registered with [`add_requested_filter`], matching whichever
-/// API registered it.
+/// Removes a filter registered with [`add_requested_filter`].
 pub(crate) unsafe fn remove_requested_filter(webview: &ICoreWebView2, uri: impl Param<PCWSTR>) {
     let _ = unsafe {
         match webview.cast::<ICoreWebView2_22>() {
@@ -159,9 +156,7 @@ impl WebResourceResponse {
     }
 }
 
-/// Adapts a Rust closure to the `ICoreWebView2WebResourceRequestedEventHandler`
-/// COM interface. The captured environment turns the [`WebResourceResponse`] the
-/// closure returns into the COM response handed back to WebView2.
+/// Adapts a Rust request handler to WebView2's COM event interface.
 pub(crate) struct WebResourceRequested {
     handler: RefCell<Box<dyn FnMut(WebResourceRequest) -> Option<WebResourceResponse>>>,
     environment: ICoreWebView2Environment,

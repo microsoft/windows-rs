@@ -2,8 +2,6 @@ use super::*;
 use std::cell::{Cell, RefCell};
 use windows_core::implement_decl;
 
-/// Adapts a Rust closure to the `ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler`
-/// COM interface.
 pub(crate) struct EnvironmentCompleted(Cell<Option<Box<dyn FnOnce(Result<Environment>)>>>);
 
 implement_decl! {
@@ -33,8 +31,6 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for Environ
     }
 }
 
-/// Adapts a Rust closure to the `ICoreWebView2CreateCoreWebView2ControllerCompletedHandler`
-/// COM interface.
 pub(crate) struct ControllerCompleted(Cell<Option<Box<dyn FnOnce(Result<Controller>)>>>);
 
 implement_decl! {
@@ -64,8 +60,6 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for Controll
     }
 }
 
-/// Adapts a Rust closure to the `ICoreWebView2ExecuteScriptCompletedHandler`
-/// COM interface.
 pub(crate) struct ExecuteScriptCompleted(Cell<Option<Box<dyn FnOnce(Result<String>)>>>);
 
 implement_decl! {
@@ -95,9 +89,6 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Impl for ExecuteScriptCompleted_
     }
 }
 
-/// Adapts a Rust closure to the
-/// `ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler` COM
-/// interface. The completion result is the registered script's id.
 pub(crate) struct AddScriptCompleted(Cell<Option<Box<dyn FnOnce(Result<String>)>>>);
 
 implement_decl! {
@@ -129,9 +120,6 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl
     }
 }
 
-/// Adapts a Rust closure to the `ICoreWebView2GetCookiesCompletedHandler` COM
-/// interface. The completion result is the retrieved cookies, converted from the
-/// COM cookie list so the list type never reaches the public surface.
 pub(crate) struct GetCookiesCompleted(Cell<Option<Box<dyn FnOnce(Result<Vec<Cookie>>)>>>);
 
 implement_decl! {
@@ -159,8 +147,6 @@ impl ICoreWebView2GetCookiesCompletedHandler_Impl for GetCookiesCompleted_Impl {
     }
 }
 
-/// Adapts a Rust closure to the
-/// `ICoreWebView2ClearBrowsingDataCompletedHandler` COM interface.
 pub(crate) struct ClearBrowsingDataCompleted(Cell<Option<Box<dyn FnOnce(Result<()>)>>>);
 
 implement_decl! {
@@ -186,9 +172,6 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler_Impl for ClearBrowsingDataCo
     }
 }
 
-/// Adapts a Rust closure to the
-/// `ICoreWebView2CallDevToolsProtocolMethodCompletedHandler` COM interface. The
-/// completion result is the CDP method's return object as a JSON string.
 pub(crate) struct CallDevToolsProtocolMethodCompleted(
     Cell<Option<Box<dyn FnOnce(Result<String>)>>>,
 );
@@ -222,11 +205,7 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl
     }
 }
 
-/// Defines an event-handler adapter that forwards a WebView2 event to a Rust
-/// `FnMut` closure. The default form wraps the event's args interface with an
-/// `ICoreWebView2` sender; passing a sender type handles events raised on a
-/// different sender (such as the controller); the `sender` form (for events with
-/// no args interface) wraps the sender instead.
+/// Defines adapters from WebView2 event COM interfaces to Rust closures.
 macro_rules! event_handler {
     ($name:ident / $impl:ident, $handler:ident / $handler_trait:ident, $args:ident => $wrapper:ident) => {
         event_handler!($name / $impl, $handler / $handler_trait, ICoreWebView2, $args => $wrapper);
@@ -289,9 +268,6 @@ event_handler!(DevToolsProtocolEventReceived / DevToolsProtocolEventReceived_Imp
 event_handler!(MoveFocusRequested / MoveFocusRequested_Impl, ICoreWebView2MoveFocusRequestedEventHandler / ICoreWebView2MoveFocusRequestedEventHandler_Impl, ICoreWebView2Controller, ICoreWebView2MoveFocusRequestedEventArgs => MoveFocusRequestedArgs);
 event_handler!(AcceleratorKeyPressed / AcceleratorKeyPressed_Impl, ICoreWebView2AcceleratorKeyPressedEventHandler / ICoreWebView2AcceleratorKeyPressedEventHandler_Impl, ICoreWebView2Controller, ICoreWebView2AcceleratorKeyPressedEventArgs => AcceleratorKeyPressedArgs);
 
-/// Adapts a Rust closure to the `ICoreWebView2FocusChangedEventHandler` COM
-/// interface, shared by the controller's got-focus and lost-focus events. The
-/// event carries no args, so the closure takes none.
 pub(crate) struct FocusChanged(RefCell<Box<dyn FnMut()>>);
 
 implement_decl! {
@@ -314,9 +290,6 @@ impl ICoreWebView2FocusChangedEventHandler_Impl for FocusChanged_Impl {
     }
 }
 
-/// Adapts a Rust closure to the `ICoreWebView2DocumentTitleChangedEventHandler`
-/// COM interface. The event carries no args, so the new document title is read
-/// from the sender and handed to the closure.
 pub(crate) struct DocumentTitleChanged(RefCell<Box<dyn FnMut(String)>>);
 
 implement_decl! {
@@ -341,10 +314,6 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Impl for DocumentTitleChanged
     }
 }
 
-/// Adapts a Rust closure to the
-/// `ICoreWebView2ContainsFullScreenElementChangedEventHandler` COM interface.
-/// The event carries no args, so the new fullscreen state is read from the
-/// sender and handed to the closure.
 pub(crate) struct ContainsFullScreenElementChanged(RefCell<Box<dyn FnMut(bool)>>);
 
 implement_decl! {
@@ -373,8 +342,6 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl
     }
 }
 
-/// Adapts a Rust closure to the `ICoreWebView2WindowCloseRequestedEventHandler`
-/// COM interface. The event carries no args, so the closure takes none.
 pub(crate) struct WindowCloseRequested(RefCell<Box<dyn FnMut()>>);
 
 implement_decl! {
@@ -397,9 +364,7 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Impl for WindowCloseRequested
     }
 }
 
-/// Defines an event-subscription method on a wrapper that holds a WebView2
-/// interface in its first field. It registers the generated [`crate::handler`]
-/// adapter, then returns an [`EventRegistration`] that removes it on drop.
+/// Defines a subscription method that returns an RAII removal guard.
 macro_rules! subscription {
     (
         $(#[$doc:meta])*

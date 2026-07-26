@@ -118,11 +118,7 @@ impl CppFn {
         let window_long = self.write_window_long();
 
         if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
-            // The `link!` macro provided by `windows-link` (and re-exported by
-            // `windows-core`) already emits a `pub type Name = unsafe extern
-            // "abi" fn(...)` alias next to the `extern` declaration, so we
-            // only need to emit a standalone alias when bypassing that macro
-            // via `--extern`.
+            // `link!` already emits the function-pointer alias unless `--extern` bypasses it.
             let link_emits_fn_ptr = !config.bindgen.style.sys_fn_extern();
 
             let fn_ptr = if config.bindgen.style.is_sys() && !link_emits_fn_ptr {

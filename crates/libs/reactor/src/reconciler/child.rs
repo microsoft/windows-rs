@@ -3,9 +3,7 @@ use std::borrow::Cow;
 
 use super::*;
 
-/// Update the child at `index` in place. Returns the control now occupying that
-/// slot: the same id, a replacement id (when `update` remounts a subtree whose
-/// root kind changed), or `None` when the child rendered away (e.g. `Empty`).
+/// Update the child at `index` and return the control now occupying that slot.
 fn update_child_tracked<B: Backend + 'static>(
     reconciler: &mut Reconciler<B>,
     parent: ControlId,
@@ -27,9 +25,7 @@ fn update_child_tracked<B: Backend + 'static>(
     }
 }
 
-/// Current live index of `ctrl` among `parent`'s children, read from the
-/// authoritative children mirror. Returns `None` if the control is not a child
-/// of `parent` (it was removed or never inserted).
+/// Current live index of `ctrl` in the authoritative children mirror.
 fn live_index<B: Backend + 'static>(
     reconciler: &Reconciler<B>,
     parent: ControlId,
@@ -41,7 +37,6 @@ fn live_index<B: Backend + 'static>(
         .and_then(|v| v.iter().position(|&c| c == ctrl))
 }
 
-/// Number of live children currently tracked for `parent`.
 fn live_len<B: Backend + 'static>(reconciler: &Reconciler<B>, parent: ControlId) -> usize {
     reconciler
         .children_mirror
@@ -106,8 +101,7 @@ fn reconcile_positional_live<B: Backend + 'static>(
         let new_el = new_live.get(i).unwrap();
 
         if !reconciler.force_component_rerender && can_skip_update(old_el, new_el) {
-            // Even when elements are structurally identical, a child component
-            // whose state was mutated via SetState must still be re-rendered.
+            // Dirty child state must pierce structural equality.
             let child_id = reconciler.child_at(parent, i);
             let state_dirty = child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
             if !state_dirty {
@@ -324,11 +318,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
         }
     }
 
-    // Capture the live control backing each matched old-middle item, plus the
-    // anchor marking the right edge of the middle. After the removal pass above,
-    // the surviving matched controls occupy `[prefix .. prefix + matched_count)`
-    // in their original relative order, immediately followed by the untouched
-    // suffix region.
+    // Matched controls survive compaction in old relative order before the suffix.
     let mut old_ctrl: FxHashMap<usize, ControlId> = FxHashMap::default();
     old_ctrl.reserve(old_mid_len);
     let mut matched_count = 0usize;
@@ -344,24 +334,14 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
             }
         }
     }
-    // First control of the suffix region, or `None` to append at the tail. This
-    // is the stable right-edge anchor for the last middle item; the suffix never
-    // moves during middle reconciliation.
+    // Stable right-edge anchor; the suffix never moves during middle reconciliation.
     let suffix_anchor = reconciler.child_at(parent, prefix + matched_count);
 
-    // Right-to-left, anchor-based placement. Walking from the end lets every
-    // item be placed immediately *before* its already-final successor, so we
-    // only ever reason in live panel coordinates and never translate a
-    // final-model index into a panel still holding mixed old/new positions
-    // (see issue #4716). LIS members keep their slots (minimal backend moves);
-    // every other matched item moves to just before its anchor.
+    // Walk right-to-left so each item is placed before an already-final successor.
     let mut placed: Vec<Option<ControlId>> = vec![None; new_mid_len];
     for i in (0..new_mid_len).rev() {
         let new_el = new.get(new_start + i).unwrap();
 
-        // The successor this item must sit immediately before. `placed[i + 1]`
-        // is already in its final slot (we came from the right); the last item
-        // anchors on the suffix's first control (or the tail when there is none).
         let anchor = if i + 1 < new_mid_len {
             placed[i + 1]
         } else {
@@ -375,14 +355,11 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
         };
 
         if new_to_old[i] == -1 {
-            // Brand-new child: mount and insert directly before the anchor.
             match reconciler.mount(new_el) {
                 Some(ctrl) => {
                     reconciler.insert_child_tracked(parent, anchor_idx, ctrl);
                     placed[i] = Some(ctrl);
                 }
-                // No control materialised (e.g. `Empty`); the item to the left
-                // should anchor on this item's own successor instead.
                 None => placed[i] = anchor,
             }
             continue;
@@ -394,10 +371,7 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
         };
         let old_el = old.get(old_start + old_rel).unwrap();
 
-        // Non-LIS matched items move to just before the anchor. `move_child_tracked`
-        // removes then re-inserts, so a left-moving item (`from < anchor_idx`)
-        // lands one slot earlier; account for that when translating the anchor
-        // into the post-removal insertion index.
+        // Left-moving items shift the anchor during remove-then-insert.
         if !lis.contains(&i)
             && let Some(from) = live_index(reconciler, parent, ctrl)
         {
@@ -409,16 +383,8 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
             reconciler.move_child_tracked(parent, from, to);
         }
 
-        // Update in place at the control's current live index, then record what
-        // now occupies that slot as this item's anchor. The update can replace
-        // the control (a component re-rendering to a different root widget yields
-        // a new `ControlId`) or drop it entirely (rendering `Empty`), so the item
-        // to the left must anchor on the *current* id, or on this item's own
-        // successor when nothing remains. The middle patch has no
-        // `can_skip_update` fast-path of its own: routing unconditionally through
-        // `update` keeps skip accounting, the forced-rerender guard, and theme
-        // re-resolution in the single place they are defined, so a reordered
-        // survivor can never be wrongly skipped.
+        // Route through `update` so skip accounting, dirty-state forcing, and theme
+        // re-resolution stay centralized.
         placed[i] = match live_index(reconciler, parent, ctrl) {
             Some(cur) => update_child_tracked(reconciler, parent, cur, old_el, new_el).or(anchor),
             None => anchor,

@@ -86,8 +86,6 @@ impl<'a> Index<'a> {
             .map(|(_, item)| *item)
     }
 
-    /// Returns `Some(true)` if the named type is a WinRT type in the local index,
-    /// `Some(false)` if it is non-WinRT, or `None` if the type is not in the local index.
     pub fn is_winrt(&self, namespace: &str, name: &str) -> Option<bool> {
         self.namespaces
             .get(namespace)

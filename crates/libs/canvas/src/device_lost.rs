@@ -14,8 +14,7 @@ pub fn is_device_lost(hr: HRESULT) -> bool {
     )
 }
 
-/// Returns `true` if `result` is an error whose code [`is_device_lost`]. An
-/// `Ok` result is never device-lost.
+/// Returns whether `result` is a device-lost error.
 pub fn check_device_lost<T>(result: &Result<T>) -> bool {
     match result {
         Ok(_) => false,
@@ -23,13 +22,7 @@ pub fn check_device_lost<T>(result: &Result<T>) -> bool {
     }
 }
 
-/// Builds an [`Error`] representing device loss, using the canonical
-/// `D2DERR_RECREATE_TARGET` code.
-///
-/// Higher-level bridges return this when a present fails because the graphics
-/// device was lost and the exact underlying code was not surfaced (for example
-/// [`SwapChain::present`](crate::SwapChain::present), which reports device loss
-/// as `Ok(false)`). The resulting error satisfies [`is_device_lost`].
+/// Builds the canonical [`Error`] used when device loss has no surfaced HRESULT.
 pub fn device_lost_error() -> Error {
     Error::from_hresult(D2DERR_RECREATE_TARGET)
 }

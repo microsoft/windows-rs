@@ -1,14 +1,6 @@
 use super::*;
 
-/// Returns the overload-disambiguated Rust name produced by an
-/// `[overload("...")]` attribute on a non-`SpecialName` method, if any.
-///
-/// This is the same value `--filter` should accept for individually
-/// addressing a renamed overload (e.g. `InsertKeyFrameWithEasingFunction`
-/// rather than the shared metadata name `InsertKeyFrame`). `SpecialName`
-/// methods (property/event accessors) and "generated" overload suffixes
-/// like `InsertKeyFrame2` are skipped - those are handled by the existing
-/// raw-name + sugar paths in `filter.rs`.
+/// Returns the filterable overload-disambiguated Rust name, if any.
 pub fn method_overload_name(row: MethodDef) -> Option<String> {
     if row.flags().contains(MethodAttributes::SpecialName) {
         return None;

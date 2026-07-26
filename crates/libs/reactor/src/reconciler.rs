@@ -15,10 +15,7 @@ pub use self::child::compute_lis;
 pub use self::templated::TemplatedListState;
 pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_queue};
 
-/// Diff/apply engine that drives a [`Backend`] from successive
-/// [`Element`] trees. Owns the bookkeeping needed to reuse controls
-/// across renders (children mirror, component instances, custom
-/// handles, templated-list state, ...).
+/// Diff/apply engine that drives a [`Backend`] from successive [`Element`] trees.
 pub struct Reconciler<B: Backend> {
     pub backend: B,
     pub debug_elements_skipped: u64,
@@ -40,21 +37,13 @@ pub struct Reconciler<B: Backend> {
     pub realization_queue: RealizationQueue,
     pub selection_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<i32>>>>>,
     pub reorder_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<Vec<usize>>>>>>,
-    /// Pre-unmount callbacks keyed by control id, invoked with the native
-    /// element (or `None`) just before the control is destroyed (see
-    /// [`Widget::on_unmounted_callback`]).
+    /// Pre-unmount callbacks keyed by control id.
     pub unmount_callbacks: FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
-    /// Tracks header element control IDs for widgets that use header_element().
     pub header_elements: FxHashMap<ControlId, ControlId>,
-    /// Tracks pane element control IDs for widgets that use pane_element().
     pub pane_elements: FxHashMap<ControlId, ControlId>,
-    /// UI marshaller propagated into every nested component's
-    /// [`RenderCx`] for [`RenderCx::use_async_state`].
     pub marshaller: Option<UiMarshaller>,
     pub inner_size: Rc<Cell<WindowSize>>,
     pub dpi: Rc<Cell<u32>>,
-    /// Rerender hook propagated from the render host; child components
-    /// clone this into their `RenderCx` so `SetState` triggers re-render.
     pub request_rerender: Rc<dyn Fn()>,
 }
 
@@ -98,8 +87,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    /// Install the [`UiMarshaller`] propagated into nested
-    /// [`RenderCx`] instances.
     pub fn set_marshaller(&mut self, marshaller: Option<UiMarshaller>) {
         self.marshaller = marshaller;
     }
@@ -116,10 +103,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         Rc::clone(&self.context_stack)
     }
 
-    /// Returns `true` if the component instance at `id` has had state
-    /// modified since its last render (i.e. a `SetState`/`Updater`/`Dispatch`
-    /// fired). Used by child reconciliation to bypass `can_skip_update`.
-    /// Does NOT clear the flag - `update_component` consumes it.
+    /// Checks whether `id` has pending hook-state changes without clearing them.
     pub fn is_component_state_dirty(&self, id: ControlId) -> bool {
         self.component_instances
             .get(&id)
@@ -230,11 +214,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    /// Seed [`Self::forced_components`] with every mounted component instance
-    /// whose own `use_state` was written since the last pass, and enable
-    /// [`Self::force_component_rerender`] so `can_skip_update` pruning cannot
-    /// drop a dirty component nested under unchanged parents. Returns the seeded
-    /// ids. Mirrors [`Self::force_context_subscribers`] for plain state writes.
+    /// Forces dirty components to render even when unchanged parents can be skipped.
     fn force_state_dirty_components(&mut self) -> Vec<ControlId> {
         let dirty: Vec<ControlId> = self
             .component_instances
@@ -280,8 +260,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     pub fn update(&mut self, old: &Element, new: &Element, id: ControlId) -> Option<ControlId> {
         if !self.force_component_rerender && can_skip_update(old, new) {
-            // A component with dirty internal state must still be re-rendered
-            // even when its element is structurally identical.
+            // Dirty internal state must pierce structural equality.
             if !self.is_component_state_dirty(id) {
                 self.debug_elements_skipped += 1;
                 return Some(id);
@@ -347,8 +326,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             }
 
-            // Unmount header/pane element subtrees that are tracked outside
-            // children_mirror (mounted via Widget::header_element / pane_element).
+            // Header/pane element subtrees are tracked outside children_mirror.
             if let Some(hdr_id) = self.header_elements.remove(&node) {
                 self.unmount(hdr_id);
             }
@@ -359,10 +337,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.selection_callbacks.remove(&node);
             self.reorder_callbacks.remove(&node);
 
-            // Let the control tear down resources bound to it (e.g. join a
-            // render thread) while the native control still exists, before it
-            // is destroyed. The callback always runs when registered; the
-            // native element is passed when available, else `None`.
+            // Give external resources a chance to detach before native destroy.
             if let Some(cb) = self.unmount_callbacks.remove(&node) {
                 cb.invoke(self.backend.get_native_element(node));
             }
@@ -734,16 +709,14 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_keyboard_accelerators(id, new_ka);
         }
 
-        // Tooltip is a `ToolTipService` attached property and survives
-        // re-renders; emit a `None` clear on Some->None transitions.
+        // ToolTipService survives re-renders, so clear Some->None explicitly.
         let old_tt = old.tooltip.as_deref();
         let new_tt = new.tooltip.as_deref();
         if old_tt != new_tt {
             self.backend.set_tooltip(id, new_tt);
         }
 
-        // Pointer / tap handlers: clear on Some->None so we don't leak
-        // previously-attached event tokens.
+        // Clear Some->None so event tokens are dropped.
         let old_ph = old.pointer_handlers.as_deref();
         let new_ph = new.pointer_handlers.as_deref();
         if old_ph != new_ph {
@@ -766,8 +739,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_drag_handlers(id, new_dh);
         }
 
-        // Grid placement - fast path (avoids AttachedProps dynamic dispatch).
-        // Always emit all four props on change so stale values are cleared.
+        // Emit all grid props on change so stale values are cleared.
         if old.grid != new.grid {
             self.apply_grid_placement_full(id, new.grid.unwrap_or_default());
         }
@@ -850,13 +822,9 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 }
 
-/// A cow-like container that avoids allocating a `Vec<&Element>` when the
-/// input slice has no `Empty` or `Group` elements (the common fast-path for
-/// grids and most stack panels).
+/// Borrowed or filtered child slice.
 enum LiveChildren<'a> {
-    /// All elements are live - borrow the original slice directly.
     Flat(&'a [Element]),
-    /// Contains Empty/Group elements that need filtering.
     Filtered(Vec<&'a Element>),
 }
 
@@ -880,8 +848,6 @@ impl<'a> LiveChildren<'a> {
     }
 }
 
-/// Borrowable view into either flat or filtered children, providing
-/// slice-like access via `len`, `get`, and `iter`.
 pub enum LiveChildrenRef<'a> {
     Flat(&'a [Element]),
     Filtered(&'a [&'a Element]),
@@ -914,8 +880,7 @@ impl<'a> LiveChildrenRef<'a> {
     }
 }
 
-/// Flatten a child slice for reconciliation: drops `Element::Empty` and
-/// recursively splices `Element::Group` children into the output.
+/// Flatten children for reconciliation by dropping `Empty` and splicing `Group`.
 pub fn collect_live(slice: &[Element]) -> Vec<&Element> {
     let mut out = Vec::with_capacity(slice.len());
     for el in slice {

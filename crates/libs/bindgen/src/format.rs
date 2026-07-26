@@ -7,12 +7,7 @@ impl Config<'_> {
             .rustfmt(tokens)
             .unwrap_or_else(|| panic!("failed to format output with `rustfmt`"));
 
-        // `proc_macro2::TokenStream::to_string()` inserts a space between
-        // most adjacent tokens (e.g. `link ! (`, `windows_core :: BOOL`).
-        // `rustfmt` normalises that for ordinary Rust syntax but does not
-        // touch the contents of macro invocations, so we tighten up the
-        // whitespace ourselves in patterns that only appear inside macro
-        // bodies after `rustfmt` has run.
+        // `rustfmt` does not normalize token spacing inside macro invocation bodies.
         tighten_macro_whitespace(&formatted)
     }
 

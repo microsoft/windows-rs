@@ -1,16 +1,10 @@
 use windows_metadata::Type;
 use windows_metadata::writer;
 
-/// The midlrt namespace GUID {e72a134c-baf7-4dd3-b542-77848e87b138} in network (big-endian) byte
-/// order. This is used as the UUID v5 namespace for WinRT interface GUID derivation.
 const MIDLRT_NAMESPACE: [u8; 16] = [
     0xe7, 0x2a, 0x13, 0x4c, 0xba, 0xf7, 0x4d, 0xd3, 0xb5, 0x42, 0x77, 0x84, 0x8e, 0x87, 0xb1, 0x38,
 ];
 
-/// Computes a deterministic interface GUID from an interface string using RFC 4122 UUID v5
-/// (SHA-1 name-based UUID) with the midlrt namespace.
-///
-/// Returns `(data1, data2, data3, data4)` suitable for writing a `GuidAttribute`.
 pub fn guid_from_interface_string(interface_string: &str) -> (u32, u16, u16, [u8; 8]) {
     let hash = sha1(&MIDLRT_NAMESPACE, interface_string.as_bytes());
 
@@ -33,10 +27,6 @@ pub fn guid_from_interface_string(interface_string: &str) -> (u32, u16, u16, [u8
     (data1, data2, data3, data4)
 }
 
-/// Derives a GUID from the interface/delegate shape and emits a `GuidAttribute` on `target`.
-///
-/// Builds the interface string from `namespace`, `name`, and `methods`, computes the UUID v5
-/// GUID, and writes the attribute to `output`. Shared by both `interface.rs` and `delegate.rs`.
 pub fn derive_and_emit_guid(
     output: &mut writer::File,
     target: writer::HasAttribute,
@@ -49,7 +39,6 @@ pub fn derive_and_emit_guid(
     emit_guid_attribute(output, target, data1, data2, data3, data4);
 }
 
-/// Emits a `GuidAttribute` with the given GUID components to `target` in `output`.
 pub fn emit_guid_attribute(
     output: &mut writer::File,
     target: writer::HasAttribute,
@@ -104,13 +93,6 @@ pub fn emit_guid_attribute(
     );
 }
 
-/// Converts a u128 GUID value (big-endian interpretation) to `(data1, data2, data3, data4)`.
-///
-/// The u128 encodes the GUID fields in network (big-endian) byte order, matching the standard
-/// UUID string representation: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` read left-to-right.
-///
-/// For example, `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3` maps to
-/// `(0x005023ca, 0x72b1, 0x11d3, [0x9f, 0xc4, 0x00, 0xc0, 0x4f, 0x79, 0xa0, 0xa3])`.
 pub fn u128_to_guid(v: u128) -> (u32, u16, u16, [u8; 8]) {
     let bytes = v.to_be_bytes();
     let data1 = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
@@ -122,14 +104,6 @@ pub fn u128_to_guid(v: u128) -> (u32, u16, u16, [u8; 8]) {
     (data1, data2, data3, data4)
 }
 
-/// Builds the interface string for a method-based interface or delegate.
-///
-/// Format: `"namespace.Name:Method1(param1,param2,...);Method2(...);..."`
-///
-/// For empty interfaces (no methods): `"namespace.Name:"`
-///
-/// Each type is encoded using the literal `Type` variant name (e.g. `I32`, `Bool`,
-/// `PtrMut(I32,1)`, `Array(Bool)`), matching the `windows-metadata` type one-to-one.
 pub fn build_interface_string(
     namespace: &str,
     name: &str,
@@ -156,8 +130,6 @@ pub fn build_interface_string(
     s
 }
 
-/// Converts a `metadata::Type` to its literal variant-name representation, matching the
-/// `windows-metadata` `Type` enum one-to-one.
 pub fn type_to_string(ty: &Type) -> String {
     match ty {
         Type::Void => "Void".to_string(),
@@ -200,9 +172,6 @@ pub fn type_to_string(ty: &Type) -> String {
     }
 }
 
-/// A minimal runtime SHA-1 implementation (not const fn).
-/// Takes a 16-byte prefix (namespace GUID in network byte order) and the name bytes,
-/// and returns the 20-byte SHA-1 digest of their concatenation.
 fn sha1(prefix: &[u8; 16], name: &[u8]) -> [u8; 20] {
     let mut h: [u32; 5] = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0];
 

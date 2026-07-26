@@ -1,19 +1,10 @@
 use super::*;
 
-/// How the alpha channel of a bitmap's pixels is interpreted.
-///
-/// These are the alpha modes windows-canvas exposes for its 32-bit BGRA
-/// bitmaps. `Premultiplied` is the mode produced by most GPU drawing and the
-/// natural choice for composited content; `Ignore` treats the bitmap as opaque.
-/// (Direct2D also defines a straight/unpremultiplied mode, but it is not
-/// supported for the `B8G8R8A8_UNORM` format used here.)
+/// How a 32-bit BGRA bitmap's alpha channel is interpreted.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum AlphaMode {
-    /// Color components are premultiplied by the alpha value. This is the most
-    /// common mode for GPU compositing and the one produced by most drawing.
     #[default]
     Premultiplied,
-    /// The alpha channel is ignored and the bitmap is treated as opaque.
     Ignore,
 }
 
@@ -29,13 +20,9 @@ impl AlphaMode {
 /// A rectangle defined by its edges.
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct Rect {
-    /// Position of the left edge.
     pub left: f32,
-    /// Position of the top edge.
     pub top: f32,
-    /// Position of the right edge.
     pub right: f32,
-    /// Position of the bottom edge.
     pub bottom: f32,
 }
 
@@ -83,11 +70,8 @@ impl Rect {
 /// An ellipse defined by center point and radii.
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct Ellipse {
-    /// Center point of the ellipse.
     pub center: Vector2,
-    /// Radius along the x-axis.
     pub radius_x: f32,
-    /// Radius along the y-axis.
     pub radius_y: f32,
 }
 
@@ -122,11 +106,8 @@ impl Ellipse {
 /// A rectangle with rounded corners.
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct RoundedRect {
-    /// The base rectangle.
     pub rect: Rect,
-    /// Corner radius along the x-axis.
     pub radius_x: f32,
-    /// Corner radius along the y-axis.
     pub radius_y: f32,
 }
 
@@ -162,7 +143,6 @@ mod sealed {
     pub trait Sealed {}
 }
 
-/// Trait for types usable as brushes in draw calls. Sealed.
 pub trait Paint: sealed::Sealed {
     #[doc(hidden)]
     fn as_raw_brush(&self) -> &ID2D1Brush;
@@ -172,7 +152,6 @@ pub trait Paint: sealed::Sealed {
 pub struct Brush(pub(crate) ID2D1SolidColorBrush);
 
 impl Brush {
-    /// Sets the color of the brush.
     pub fn set_color(&self, color: ColorF) {
         let c: D2D_COLOR_F = color.into();
         unsafe { self.0.SetColor(&c) };
@@ -206,12 +185,10 @@ impl Paint for RadialGradient {
     }
 }
 
-/// A gradient stop (position 0.0-1.0 along the gradient axis).
+/// A color stop along a gradient axis, where `position` is 0.0-1.0.
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GradientStop {
-    /// Position along the gradient axis, from 0.0 to 1.0.
     pub position: f32,
-    /// Color at this stop.
     pub color: ColorF,
 }
 
@@ -232,14 +209,10 @@ impl GradientStop {
 /// Cap style applied to the start and end of stroked lines.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum CapStyle {
-    /// Flat cap flush with the line end.
     #[default]
     Flat,
-    /// Square cap extending half the line width past the end.
     Square,
-    /// Rounded cap centered on the line end.
     Round,
-    /// Triangular cap pointing past the line end.
     Triangle,
 }
 
@@ -257,12 +230,9 @@ impl CapStyle {
 /// Line join style for connected segments.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum LineJoin {
-    /// Sharp mitered corner.
     #[default]
     Miter,
-    /// Beveled (flattened) corner.
     Bevel,
-    /// Rounded corner.
     Round,
 }
 
@@ -279,14 +249,10 @@ impl LineJoin {
 /// Dash pattern for stroked lines.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum DashStyle {
-    /// Solid, unbroken line.
     #[default]
     Solid,
-    /// Repeating dashes.
     Dash,
-    /// Repeating dots.
     Dot,
-    /// Repeating dash-dot pattern.
     DashDot,
 }
 
@@ -328,7 +294,6 @@ pub struct StrokeStyleBuilder {
 }
 
 impl StrokeStyleBuilder {
-    /// Creates a new builder with default stroke properties.
     pub fn new() -> Self {
         Self {
             miter_limit: 10.0,
@@ -336,32 +301,27 @@ impl StrokeStyleBuilder {
         }
     }
 
-    /// Sets the cap style for the start of the line.
     pub fn start_cap(mut self, cap: CapStyle) -> Self {
         self.start_cap = cap;
         self
     }
 
-    /// Sets the cap style for the end of the line.
     pub fn end_cap(mut self, cap: CapStyle) -> Self {
         self.end_cap = cap;
         self
     }
 
-    /// Sets both the start and end cap styles.
     pub fn caps(mut self, cap: CapStyle) -> Self {
         self.start_cap = cap;
         self.end_cap = cap;
         self
     }
 
-    /// Sets the cap style applied to the ends of each dash.
     pub fn dash_cap(mut self, cap: CapStyle) -> Self {
         self.dash_cap = cap;
         self
     }
 
-    /// Sets the join style for connected segments.
     pub fn line_join(mut self, join: LineJoin) -> Self {
         self.line_join = join;
         self
@@ -373,7 +333,6 @@ impl StrokeStyleBuilder {
         self
     }
 
-    /// Sets the dash pattern.
     pub fn dash_style(mut self, style: DashStyle) -> Self {
         self.dash_style = style;
         self

@@ -1,27 +1,15 @@
 use super::*;
 
 /// Safe wrapper over `ID2D1DeviceContext`.
-///
-/// A session drives either a swap chain (owning the `BeginDraw`/`EndDraw`
-/// bracket) or a borrowed context that is already in a drawing state, such as the
-/// one handed back by a `SurfaceImageSource`. In the borrowed case an `offset`
-/// translation shifts every draw into the shared atlas surface; it composes with
-/// caller transforms so `set_transform`/`with_transform` behave as if the surface
-/// origin were `(0, 0)`.
 pub struct DrawingSession<'a> {
     context: &'a ID2D1DeviceContext,
     mode: Mode<'a>,
 }
 
-/// How a [`DrawingSession`] relates to its `ID2D1DeviceContext`.
 enum Mode<'a> {
-    /// The session owns the `BeginDraw`/`EndDraw` bracket (swap-chain path) and
-    /// flags device loss reported by `EndDraw`.
+    /// This session owns the `BeginDraw`/`EndDraw` bracket.
     Owned { device_lost_flag: &'a Cell<bool> },
-    /// The context is already in a drawing state and is bracketed by its owner
-    /// (e.g. a `SurfaceImageSource`), so the session neither begins nor ends
-    /// drawing. `offset` is a pure translation mapping surface-local coordinates
-    /// onto the shared-atlas position.
+    /// This borrowed context is already bracketed by its owner.
     Borrowed { offset: Matrix3x2 },
 }
 
@@ -37,15 +25,10 @@ impl<'a> DrawingSession<'a> {
         })
     }
 
-    /// Wrap an `ID2D1DeviceContext` that is *already in a drawing state* - for
-    /// example the one returned by `ISurfaceImageSourceNativeWithD2D::BeginDraw`
-    /// or a printing/interop context you drive yourself.
+    /// Wraps a context that is already inside a caller-owned `BeginDraw`/`EndDraw` bracket.
     ///
-    /// The session neither begins nor ends drawing: the caller owns the
-    /// `BeginDraw`/`EndDraw` bracket. `offset` is a pure translation applied
-    /// beneath every draw (composing with caller transforms), so you draw from a
-    /// `(0, 0)` origin even when the target is a sub-region of a shared surface;
-    /// pass `Matrix3x2::translation(0.0, 0.0)` for no offset.
+    /// `offset` maps surface-local coordinates into a shared atlas while keeping
+    /// caller-visible transforms relative to `(0, 0)`.
     pub fn from_borrowed_context(context: &'a ID2D1DeviceContext, offset: Matrix3x2) -> Self {
         debug_assert!(
             offset.m11 == 1.0 && offset.m12 == 0.0 && offset.m21 == 0.0 && offset.m22 == 1.0,
@@ -58,11 +41,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Like [`from_borrowed_context`](Self::from_borrowed_context), but first sets
-    /// the device-context DPI so drawing coordinates are in device-independent
-    /// pixels at `dpi` (96 = 1:1). On-demand surface bridges - such as reactor's
-    /// `CanvasImageSource`, which draws into a physical-pixel atlas - use this so
-    /// content stays crisp at high DPI without exposing the raw context.
+    /// Wraps a borrowed context whose coordinates are device-independent pixels at `dpi`.
     pub fn from_borrowed_context_with_dpi(
         context: &'a ID2D1DeviceContext,
         offset: Matrix3x2,
@@ -72,13 +51,11 @@ impl<'a> DrawingSession<'a> {
         Self::from_borrowed_context(context, offset)
     }
 
-    /// Clears the entire session to the given color.
     pub fn clear(&self, color: ColorF) {
         let c: D2D_COLOR_F = color.into();
         unsafe { self.context.Clear(Some(&c)) };
     }
 
-    /// Draws a straight line between two points.
     pub fn draw_line(&self, p0: Vector2, p1: Vector2, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -86,7 +63,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws a straight line using the given stroke style.
     pub fn draw_line_styled(
         &self,
         p0: Vector2,
@@ -101,7 +77,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the outline of a rectangle.
     pub fn draw_rect(&self, rect: &Rect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -109,7 +84,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the outline of a rectangle using the given stroke style.
     pub fn draw_rect_styled(
         &self,
         rect: &Rect,
@@ -123,7 +97,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Fills a rectangle.
     pub fn fill_rect(&self, rect: &Rect, brush: &impl Paint) {
         unsafe {
             self.context
@@ -131,7 +104,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the outline of a rounded rectangle.
     pub fn draw_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -139,7 +111,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the outline of a rounded rectangle using the given stroke style.
     pub fn draw_rounded_rect_styled(
         &self,
         rect: &RoundedRect,
@@ -157,7 +128,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Fills a rounded rectangle.
     pub fn fill_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint) {
         unsafe {
             self.context
@@ -165,7 +135,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the outline of an ellipse.
     pub fn draw_ellipse(&self, ellipse: &Ellipse, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -173,7 +142,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the outline of an ellipse using the given stroke style.
     pub fn draw_ellipse_styled(
         &self,
         ellipse: &Ellipse,
@@ -187,7 +155,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Fills an ellipse.
     pub fn fill_ellipse(&self, ellipse: &Ellipse, brush: &impl Paint) {
         unsafe {
             self.context
@@ -195,7 +162,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Creates a solid color brush.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
@@ -252,7 +218,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws text within a rectangle using the given format and brush.
     pub fn draw_text(&self, text: &str, format: &TextFormat, rect: &Rect, brush: &impl Paint) {
         let wide: Vec<u16> = text.encode_utf16().collect();
         unsafe {
@@ -267,7 +232,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the outline of a path.
     pub fn draw_path(&self, path: &Path, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -275,7 +239,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the outline of a path using the given stroke style.
     pub fn draw_path_styled(
         &self,
         path: &Path,
@@ -289,7 +252,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Fills a path.
     pub fn fill_path(&self, path: &Path, brush: &impl Paint) {
         unsafe {
             self.context
@@ -297,7 +259,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws a bitmap into the destination rectangle with the given opacity.
     pub fn draw_bitmap(&self, bitmap: &Bitmap, dest: &Rect, opacity: f32) {
         unsafe {
             self.context.DrawBitmap(
@@ -311,18 +272,11 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Loads a bitmap from an image file.
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> Result<Bitmap> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }
 
-    /// Creates a bitmap from a buffer of 32-bit premultiplied BGRA pixels.
-    ///
-    /// The pixels are laid out row by row with no padding (`width * 4` bytes per
-    /// row, `width * height * 4` bytes total). This is the natural path for
-    /// uploading CPU-generated or decoded images - for example shell icons - into
-    /// a drawable bitmap. Use [`create_bitmap_with_alpha`](Self::create_bitmap_with_alpha)
-    /// to select a different [`AlphaMode`].
+    /// Creates a bitmap from tightly packed 32-bit premultiplied BGRA pixels.
     pub fn create_bitmap(&self, pixels: &[u8], width: u32, height: u32) -> Result<Bitmap> {
         Bitmap::from_bytes(
             self.context,
@@ -333,10 +287,7 @@ impl<'a> DrawingSession<'a> {
         )
     }
 
-    /// Creates a bitmap from a buffer of 32-bit BGRA pixels with an explicit
-    /// [`AlphaMode`].
-    ///
-    /// See [`create_bitmap`](Self::create_bitmap) for the pixel layout.
+    /// Creates a bitmap from tightly packed 32-bit BGRA pixels with an explicit [`AlphaMode`].
     pub fn create_bitmap_with_alpha(
         &self,
         pixels: &[u8],
@@ -347,7 +298,6 @@ impl<'a> DrawingSession<'a> {
         Bitmap::from_bytes(self.context, pixels, width, height, alpha)
     }
 
-    /// Sets the current transform.
     pub fn set_transform(&self, transform: &Matrix3x2) {
         let m = match &self.mode {
             Mode::Borrowed { offset } => *transform * *offset,
@@ -356,13 +306,10 @@ impl<'a> DrawingSession<'a> {
         unsafe { self.context.SetTransform(&m) };
     }
 
-    /// Returns the current transform.
     pub fn transform(&self) -> Matrix3x2 {
         let mut transform = Matrix3x2::default();
         unsafe { self.context.GetTransform(&mut transform) };
         match &self.mode {
-            // Undo the atlas offset (a pure translation) so callers see the
-            // surface origin as `(0, 0)`.
             Mode::Borrowed { offset } => {
                 transform * Matrix3x2::translation(-offset.m31, -offset.m32)
             }
@@ -378,7 +325,6 @@ impl<'a> DrawingSession<'a> {
         self.set_transform(&prev);
     }
 
-    /// Returns the underlying `ID2D1DeviceContext`.
     pub fn raw(&self) -> &ID2D1DeviceContext {
         self.context
     }
@@ -408,7 +354,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Creates a shadow effect from the given bitmap.
     pub fn create_shadow(&self, source: &Bitmap) -> Result<Effect> {
         unsafe {
             let effect = self.context.CreateEffect(&CLSID_D2D1Shadow)?;
@@ -430,7 +375,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draw a bitmap at its natural size at the current transform.
     pub fn draw_image(&self, bitmap: &Bitmap) {
         unsafe {
             self.context.DrawImage(
@@ -443,7 +387,6 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Draws the output of an effect.
     pub fn draw_effect(&self, effect: &Effect) {
         if let Ok(output) = unsafe { effect.0.GetOutput() } {
             unsafe {
@@ -461,7 +404,6 @@ impl<'a> DrawingSession<'a> {
 
 impl Drop for DrawingSession<'_> {
     fn drop(&mut self) {
-        // A borrowed context is ended by its owner, not here.
         let Mode::Owned { device_lost_flag } = self.mode else {
             return;
         };

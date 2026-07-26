@@ -4,16 +4,9 @@ use super::*;
 pub struct CppConst {
     pub namespace: &'static str,
     pub field: Field,
-    /// Architecture bits of the parent unscoped enum when this constant is an enum member;
-    /// `0` for a free-standing constant. Enum-member fields are themselves arch-neutral (the
-    /// `SupportedArchitecture` tag sits on the enum type), so an arch-divergent member must
-    /// inherit the enum's arches - otherwise the neutral member collides with a same-named
-    /// arch-specific macro constant on the complementary architecture.
+    /// Parent enum architecture bits for unscoped enum members; `0` for free constants.
     pub enum_arches: i32,
-    /// `true` when this constant is a member of an unscoped enum. Such a member is always
-    /// projected as a bare alias constant, even when its type resolves by name to a same-named
-    /// non-enum sibling (e.g. `KSPIN_LOCK_QUEUE_NUMBER` is an enum on x86/arm64 but a pointer
-    /// typedef on x64), which would otherwise wrap the value in an invalid tuple constructor.
+    /// `true` for unscoped enum members, which are always bare alias constants.
     pub is_enum_member: bool,
 }
 
@@ -38,8 +31,7 @@ impl CppConst {
         TypeName(self.namespace, self.field.name())
     }
 
-    /// The architectures this constant is emitted for: the field's own `SupportedArchitecture`
-    /// bits when present, otherwise the parent enum's (for enum members).
+    /// Architectures this constant is emitted for.
     pub fn effective_arches(&self) -> i32 {
         let field_arches = self.field.arches();
         if field_arches != 0 {
@@ -79,10 +71,7 @@ impl CppConst {
         let cfg = quote! { #arches #cfg };
 
         if let Some(guid) = self.field.guid_attribute() {
-            // A `GuidAttribute` on a struct-typed field is a property-key constant
-            // (`PROPERTYKEY`/`DEVPROPKEY`): the attribute is the `fmtid` and the field's
-            // `Constant` the `pid`. Reconstruct the struct literal from those two structured
-            // pieces rather than parsing an initializer string.
+            // Property-key constants store `fmtid` in `GuidAttribute` and `pid` in `Constant`.
             if let Type::CppStruct(ty) = &field_ty {
                 let struct_ty = field_ty.write_name(config);
                 let mut fields = quote! {};
@@ -186,15 +175,7 @@ impl CppConst {
                 } else {
                     value = wide_int_cast(&constant.value());
                 }
-                // Constants of a bare-alias type must drop the `Self(value)` newtype constructor.
-                // Unscoped (C-style) enums are emitted as bare `pub type = <int>` aliases in every
-                // style (see `cpp_enum`), so their constants are plain integers everywhere. A native
-                // typedef that projects as a transparent `pub type` alias - a handle-of-handle
-                // (`HCERTCHAINENGINE = HANDLE`) or pointer alias (`PESILO = *mut ...`) in every
-                // style, and any handle in `--sys`/`--minimal` - likewise cannot be a tuple
-                // constructor. `write_newtype_wrap` still wraps the value through whatever concrete
-                // newtype the alias resolves to (`HANDLE(value)` for a handle-of-handle), skipping
-                // the bare-alias layers.
+                // Bare-alias constants cannot use tuple constructors; wrap only concrete newtype layers.
                 let unscoped_enum_const = self.is_enum_member
                     || matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"));
                 let field_ty_bare_alias =
@@ -202,11 +183,7 @@ impl CppConst {
                 let emit_alias_const =
                     config.bindgen.style.is_sys() || unscoped_enum_const || field_ty_bare_alias;
                 if emit_alias_const || field_ty == Type::Bool {
-                    // An unscoped enum member is always a plain integer, so it must never be
-                    // newtype-wrapped. When such an enum is arch-divergent (e.g.
-                    // `KSPIN_LOCK_QUEUE_NUMBER` is an enum on x86/arm64 but a `u64` handle typedef
-                    // on x64), the arch-blind name resolution picks the sibling `CppStruct`, which
-                    // `write_newtype_wrap` would otherwise wrap in an invalid tuple constructor.
+                    // Arch-blind lookup can find a same-name non-enum sibling; enum members stay integers.
                     let value = if unscoped_enum_const {
                         value
                     } else {
@@ -217,10 +194,7 @@ impl CppConst {
                         pub const #name: #ty = #value;
                     }
                 } else {
-                    // A non-handle native typedef (e.g. `LPCTSTR = PCSTR`) is
-                    // emitted as a transparent `pub type` alias, which cannot be
-                    // used as a tuple-struct constructor (E0423). Construct the
-                    // value through the underlying newtype instead.
+                    // Transparent native typedef aliases cannot be tuple constructors.
                     let ctor = match &field_ty {
                         Type::CppStruct(s)
                             if !s.is_handle(config.reader) && s.is_native_typedef() =>
@@ -229,10 +203,7 @@ impl CppConst {
                         }
                         _ => ty.clone(),
                     };
-                    // In full mode a handle may wrap another newtype handle (e.g.
-                    // `HCERTCHAINENGINE(HANDLE)` or `JET_GRBIT(JET_UINT32)`). A bare
-                    // `value as _` cannot cast to that wrapper, so build the argument
-                    // through each intervening newtype layer.
+                    // Full-mode handle constants must wrap through each nested newtype layer.
                     let arg = match &field_ty {
                         Type::CppStruct(s) if s.is_handle(config.reader) => {
                             write_newtype_wrap(&underlying_ty, &value, config)
@@ -251,13 +222,7 @@ impl CppConst {
     }
 }
 
-/// Emits a `usize`/`isize` constant value portably across 32- and 64-bit targets.
-/// A pointer-sized sentinel such as `#define ITSAT_DEFAULT_LPARAM ((DWORD_PTR)-1)` is
-/// stored as the 64-bit two's-complement value (`0xFFFF_FFFF_FFFF_FFFF`); written as a
-/// bare literal it overflows a 32-bit `usize` (`E0080`). Emitting `<value>u64 as usize`
-/// truncates to the target's pointer width, reproducing the correct arch-specific value
-/// (`0xFFFF_FFFF` on 32-bit, `0xFFFF_FFFF_FFFF_FFFF` on 64-bit). Values that already fit a
-/// 32-bit target keep the bare literal, so existing bindings are unaffected.
+/// Emits pointer-sized constants without overflowing 32-bit targets.
 fn pointer_sized_const_value(field_ty: &Type, value: &Value) -> TokenStream {
     match (field_ty, value) {
         (Type::USize, Value::USize(v)) if *v > u32::MAX as u64 => {
@@ -272,13 +237,7 @@ fn pointer_sized_const_value(field_ty: &Type, value: &Value) -> TokenStream {
     }
 }
 
-/// Emits `<literal> as _` for a constant value that is cast to a native-typedef /
-/// handle / pointer target. A bare unsuffixed literal defaults to `i32`, so a value
-/// outside `i32`'s range (e.g. `0xFFFF_FFFF` for an unsigned `JET_DBID`, or a wide
-/// handle sentinel) would overflow that default *before* the cast is applied. Such
-/// values are given an explicit unsigned/wide suffix so the literal type holds them;
-/// every value that already fits `i32` keeps the bare form, so published bindings are
-/// unaffected.
+/// Emits wide integer casts with suffixes so values outside `i32` do not overflow first.
 fn wide_int_cast(value: &Value) -> TokenStream {
     let fits_i32 = |v: i128| (i32::MIN as i128..=i32::MAX as i128).contains(&v);
     match value {

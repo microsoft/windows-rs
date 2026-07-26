@@ -1,23 +1,10 @@
 use super::*;
 
-/// A unified index over one or more metadata files.
-///
-/// `Index` indexes the contained [`File`]s in two parallel ways, built once at construction:
-///
-/// 1. **Types**: `(namespace, name) -> TypeDef`s, the raw ECMA-335 view, where the special
-///    Win32 `Apis` class appears verbatim and nested types are tracked separately.
-/// 2. **Items**: `(namespace, name) -> Item`s, a higher-level view in which the Win32
-///    `Apis` class is expanded so that its `MethodDef`s become [`Item::Fn`] entries and its
-///    `Field`s become [`Item::Const`] entries, while every other type becomes [`Item::Type`].
-///
-/// Both views share the same backing storage so neither walk requires re-reading metadata.
+/// Indexes metadata as raw types and as Win32 `Apis`-expanded items.
 pub struct Index {
     files: Vec<File>,
-    // namespace -> trim_tick'd name -> Vec<(file_pos, def_pos)>
     types: HashMap<String, HashMap<String, Vec<(usize, usize)>>>,
-    // namespace -> item name -> Vec<RawItem>
     items: HashMap<String, HashMap<String, Vec<RawItem>>>,
-    // (file_pos, outer def_pos) -> Vec<inner def_pos>
     nested: HashMap<(usize, usize), Vec<usize>>,
 }
 
@@ -46,9 +33,7 @@ impl Index {
     /// Builds an `Index` over the given metadata files.
     #[must_use]
     pub fn new(files: Vec<File>) -> Self {
-        // Stage 1: build the type map and the nested-class map. We need the fully-populated
-        // `Index` (or at least its `files` and `nested` data) before we can synthesize `TypeDef`
-        // values to inspect their flags/category for `Apis`-class detection.
+        // Build types first so `Apis` detection can inspect synthesized `TypeDef` values.
         let mut types: HashMap<String, HashMap<String, Vec<(usize, usize)>>> = HashMap::new();
         let mut nested: HashMap<(usize, usize), Vec<usize>> = HashMap::new();
 
@@ -57,7 +42,6 @@ impl Index {
                 let namespace = file.str(def_pos, TypeDef::TABLE, 2);
 
                 if namespace.is_empty() {
-                    // Skips `<Module>` as well as nested types.
                     continue;
                 }
 
@@ -85,8 +69,7 @@ impl Index {
             nested,
         };
 
-        // Stage 2: build the item map. The Win32 `Apis` class is expanded into its methods and
-        // fields; every other type contributes a single `Item::Type` entry.
+        // Expand Win32 `Apis` into function/constant items.
         let mut items: HashMap<String, HashMap<String, Vec<RawItem>>> = HashMap::new();
 
         for (namespace, name, ty) in index.iter() {
@@ -125,15 +108,13 @@ impl Index {
         index
     }
 
-    /// Leaks `self` to a `'static` reference. Useful for consumers (such as `windows-bindgen`)
-    /// that want to obtain `TypeDef<'static>` and friends without managing the lifetime themselves.
+    /// Leaks `self` for consumers that need `'static` metadata rows.
     #[must_use]
     pub fn leak(self) -> &'static Self {
         Box::leak(Box::new(self))
     }
 
-    /// Reads metadata file(s) from disk and returns a `'static` reference to the resulting `Index`.
-    /// Equivalent to `Index::new(...).leak()`.
+    /// Reads one metadata file and leaks the resulting `Index`.
     #[must_use]
     pub fn read_static<P: AsRef<std::path::Path>>(path: P) -> Option<&'static Self> {
         Some(Self::new(vec![File::read(path)?]).leak())
@@ -142,10 +123,6 @@ impl Index {
     pub(crate) fn files(&self, pos: usize) -> &File {
         &self.files[pos]
     }
-
-    // -------------------------------------------------------------------------
-    // Raw type-oriented view
-    // -------------------------------------------------------------------------
 
     /// Iterates `(namespace, name, TypeDef)` triples over every type in the index.
     pub fn iter(&self) -> impl Iterator<Item = (&str, &str, TypeDef<'_>)> + '_ {
@@ -250,10 +227,6 @@ impl Index {
             self.collect_nested(inner, out);
         }
     }
-
-    // -------------------------------------------------------------------------
-    // Higher-level item-oriented view
-    // -------------------------------------------------------------------------
 
     /// Iterates every namespace that contains at least one item.
     pub fn namespaces(&self) -> impl Iterator<Item = &str> + '_ {

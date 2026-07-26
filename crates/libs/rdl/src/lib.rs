@@ -25,28 +25,15 @@ pub use writer::Writer;
 /// The metadata namespace that owns the Win32 attribute vocabulary.
 pub(crate) const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 
-/// A naturalized pseudo-attribute: the short SAL/IDL-style RDL spelling paired with the
-/// `Windows.Win32.Metadata` attribute it maps to.
-///
-/// The RDL carries the concise source-style spelling (e.g. `#[len_param(2)]`, `#[reserved]`);
-/// the metadata-vocabulary mapping (e.g. `NativeArrayInfoAttribute`, `ReservedAttribute`) lives
-/// here in one place. The reader emits the metadata attribute from the short spelling and the
-/// writer re-emits the short spelling from the metadata attribute, so the winmd is unaffected.
+/// Short RDL attribute spelling and the metadata attribute it maps to.
 pub(crate) struct PseudoAttr {
-    /// Short RDL spelling, e.g. `"len_param"`.
     pub short: &'static str,
-    /// Metadata attribute type name, e.g. `"NativeArrayInfoAttribute"`.
     pub metadata: &'static str,
-    /// When the short spelling takes a single positional argument that binds to a *named*
-    /// metadata property (the attribute's constructor is parameterless), the property name -
-    /// e.g. `len_param(2)` binds `2` to `NativeArrayInfoAttribute::CountParamIndex`. `None`
-    /// means the pseudo is a bare marker or its argument maps to a positional constructor
-    /// argument that passes through unchanged (e.g. `encoding("ansi")`).
+    /// Named property receiving a short-form positional argument, if any.
     pub prop: Option<&'static str>,
 }
 
-/// The pseudo-attribute table. For parameters this is also the winmd custom-attribute emission
-/// order (see `encode_params`), kept stable so the metadata layout is byte-identical.
+/// Pseudo-attribute table; order is metadata-significant for parameters.
 pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
     PseudoAttr {
         short: "retval",
@@ -99,16 +86,8 @@ pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {
     PSEUDO_ATTRS.iter().find(|p| p.short == short)
 }
 
-/// Finds the pseudo-attribute that renders the given metadata attribute. When several pseudos
-/// share a metadata type - differing only by which named property they carry (e.g.
-/// `NativeArrayInfoAttribute` -> `len_param`/`len_const`) - `arg_names` disambiguates by the
-/// property present on the attribute. Property-less pseudos match by metadata name alone.
-///
-/// A property-bound pseudo only matches when its property is the attribute's *sole* argument:
-/// the short form emits its value positionally and the reader binds a single positional back to
-/// that one property, so an instance carrying additional values must fall back to the
-/// fully-qualified named spelling (which round-trips) rather than the short form (which would
-/// not parse back).
+/// Finds the short spelling for a metadata attribute, using property names to distinguish shared
+/// attribute types such as `NativeArrayInfoAttribute`.
 pub(crate) fn pseudo_for_metadata(name: &str, arg_names: &[String]) -> Option<&'static PseudoAttr> {
     let mut fallback = None;
     for pseudo in PSEUDO_ATTRS.iter().filter(|p| p.metadata == name) {
@@ -126,13 +105,7 @@ pub fn reader() -> Reader {
     Reader::new()
 }
 
-/// Parses a single `.rdl` file and returns the names of every type, function, and constant
-/// it defines under `namespace`. This is a pure syntactic walk - cross-file references are
-/// not resolved - so it succeeds even on a partition that references types defined elsewhere.
-///
-/// This is the routing signal for the downstream namespace map: each canonical `.rdl` file
-/// corresponds to one defining header, so its item names identify which types/functions/
-/// constants a header-based namespace should own.
+/// Parses one `.rdl` file and returns the items it defines under `namespace`.
 pub fn item_names(path: &str, namespace: &str) -> Result<Vec<String>, Error> {
     reader::item_names(path, namespace)
 }
@@ -142,29 +115,14 @@ pub fn writer() -> Writer {
     Writer::new()
 }
 
-/// One architecture's scrape outputs: the per-header RDL directory it wrote, the winmd
-/// compiled from that directory, and the `SupportedArchitecture` bitmask for the arch
-/// (1=X86, 2=X64, 4=Arm64).
+/// One architecture's RDL directory, compiled winmd, and architecture bitmask.
 pub struct ArchInput {
-    /// Directory of per-header `<stem>.rdl` files for this architecture.
     pub rdl_dir: String,
-    /// The winmd compiled from `rdl_dir` (used as the merge input).
     pub winmd: String,
-    /// Architecture bitmask: 1=X86, 2=X64, 4=Arm64.
     pub bits: i32,
 }
 
-/// Arch-merges the per-architecture scrape outputs into a single merged RDL directory that
-/// describes every architecture, then leaves the unified winmd derivable by
-/// re-reading that directory.
-///
-/// The winmd carries no defining-header information, so the per-header file layout is
-/// recovered from the per-arch RDL directories: each item is routed back to the
-/// `<stem>.rdl` it came from, with `SupportedArchitecture` attributes on items that are
-/// absent on (or differ across) some architectures. `seed` is the hand-authored metadata
-/// vocabulary `.rdl` (attribute definitions); it is preserved verbatim in `output_dir` and
-/// is needed to compile each partition. The heavy lifting is done by [`Reader`], [`Writer`]
-/// and [`metadata::merge()`]; the per-partition name discovery runs in parallel.
+/// Arch-merges per-architecture scrapes and restores the per-header RDL partition.
 pub fn merge_arch_rdl(
     inputs: &[ArchInput],
     seed: Option<&str>,
@@ -176,12 +134,7 @@ pub fn merge_arch_rdl(
         ));
     }
 
-    // Preserve the hand-authored seed: the Writer clears `*.rdl` from the output directory
-    // before writing. When the seed lives inside that directory it would be swept, so it is
-    // captured up front and restored afterwards; when it lives outside (the usual case) the
-    // restore is an idempotent rewrite to its own path. Metadata whose attributes are
-    // resolved from an external reference winmd (the WDK, which references the Win32 winmd)
-    // carries no seed of its own.
+    // `Writer` clears `*.rdl`; capture the seed first so it can be restored verbatim.
     let seed = seed
         .map(|seed| {
             let name = std::path::Path::new(seed)
@@ -195,10 +148,7 @@ pub fn merge_arch_rdl(
         })
         .transpose()?;
 
-    // 1. Arch-merge the per-arch winmds into one merged winmd with SupportedArchitecture.
-    //    The scratch dir is uniquely named (pid + nanos) so concurrent merges never share it,
-    //    and a `Drop` guard removes it on every return path - including the `?` early-returns
-    //    below, which the previous end-of-function cleanup missed.
+    // Unique scratch dirs avoid collisions between concurrent arch merges.
     let temp = std::env::temp_dir().join(format!(
         "win32-arch-merge-{}-{}",
         std::process::id(),
@@ -220,12 +170,7 @@ pub fn merge_arch_rdl(
         .merge()
         .map_err(|e| writer_err!("arch-merge failed: {e}"))?;
 
-    // 2. Build the item-name -> defining-header-stem map by parsing each per-arch
-    //    `<stem>.rdl` and reading back the names it defines. This is a pure syntactic walk
-    //    (cross-header references are not resolved), so a partition that references types
-    //    defined in another partition still parses cleanly. Names are unioned across
-    //    architectures (arch-divergent headers such as winnt.rdl define different names per
-    //    arch but share the stem).
+    // Recover item-name -> header-stem routing from the per-arch RDL partitions.
     let mut map = HashMap::<String, String>::new();
     for input in inputs {
         for entry in std::fs::read_dir(&input.rdl_dir)
@@ -249,16 +194,13 @@ pub fn merge_arch_rdl(
         }
     }
 
-    // 3. Decompile the merged winmd into per-stem RDL files using the name->stem map.
     writer()
         .input(&merged)
         .partition(map)
         .output(output_dir)
         .write()?;
 
-    // 4. Restore the hand-authored seed verbatim to its own path (corpora without a seed skip
-    //    this). When the seed lives inside `output_dir` this replaces the copy the Writer just
-    //    swept; when it lives outside, it rewrites identical bytes to the committed source.
+    // Restore the hand-authored seed if this metadata set has one.
     if let Some((_, seed_path, seed_text)) = seed {
         write_to_file(&seed_path, seed_text)?;
     }
@@ -266,8 +208,7 @@ pub fn merge_arch_rdl(
     Ok(())
 }
 
-/// Removes a scratch directory when dropped, so it is cleaned up on every return path
-/// (including error `?` early-returns), not just a single end-of-function call.
+/// Removes a scratch directory on every return path.
 struct ScratchDir(std::path::PathBuf);
 
 impl Drop for ScratchDir {
@@ -363,11 +304,6 @@ use writer_err;
 mod tests {
     use super::*;
 
-    /// A property-bound pseudo (`NativeArrayInfoAttribute` -> `len_param` via `CountParamIndex`)
-    /// is only used when its property is the attribute's sole argument. The short form emits its
-    /// value positionally and the reader binds a single positional back to that one property, so
-    /// a multi-valued instance must fall back to the fully-qualified spelling (returns `None`)
-    /// rather than a short form that would not parse back.
     #[test]
     fn prop_bound_pseudo_requires_sole_argument() {
         let sole = ["CountParamIndex".to_string()];
@@ -382,7 +318,6 @@ mod tests {
         );
     }
 
-    /// Property-less pseudos match by metadata name regardless of argument count.
     #[test]
     fn property_less_pseudo_matches_by_name() {
         let pseudo = pseudo_for_metadata("RetValAttribute", &[])

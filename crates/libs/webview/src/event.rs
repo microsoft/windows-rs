@@ -16,9 +16,7 @@ impl NavigationCompletedArgs {
     }
 }
 
-/// Details about a navigation that is about to start, delivered to a
-/// [`WebView::on_navigation_starting`] handler. The navigation can be cancelled
-/// with [`set_cancel`](Self::set_cancel).
+/// Details about a navigation that is about to start.
 pub struct NavigationStartingArgs(pub(crate) ICoreWebView2NavigationStartingEventArgs);
 
 impl NavigationStartingArgs {
@@ -94,10 +92,7 @@ impl ContentLoadingArgs {
     }
 }
 
-/// Details about a page requesting to open a new window (for example via
-/// `window.open` or a target link), delivered to a
-/// [`WebView::on_new_window_requested`] handler. Mark it
-/// [handled](Self::set_handled) to suppress the default new-window behaviour.
+/// Details about a page requesting to open a new window.
 pub struct NewWindowRequestedArgs(pub(crate) ICoreWebView2NewWindowRequestedEventArgs);
 
 impl NewWindowRequestedArgs {
@@ -326,10 +321,7 @@ impl MoveFocusReason {
     }
 }
 
-/// The request to move focus out of the browser (for example the user tabbed
-/// past the last element), delivered to a [`Controller::on_move_focus_requested`]
-/// handler. Move focus to the appropriate host control and call
-/// [`set_handled(true)`](Self::set_handled) to suppress the default behaviour.
+/// A request to move focus out of the browser.
 pub struct MoveFocusRequestedArgs(pub(crate) ICoreWebView2MoveFocusRequestedEventArgs);
 
 impl MoveFocusRequestedArgs {
@@ -372,11 +364,7 @@ impl KeyEventKind {
     }
 }
 
-/// An accelerator (browser-level) key press, delivered to a
-/// [`Controller::on_accelerator_key_pressed`] handler before the page sees it -
-/// the place to implement application keyboard shortcuts. Call
-/// [`set_handled(true)`](Self::set_handled) to stop WebView2 from acting on the
-/// key.
+/// A browser-level key press delivered before the page sees it.
 pub struct AcceleratorKeyPressedArgs(pub(crate) ICoreWebView2AcceleratorKeyPressedEventArgs);
 
 impl AcceleratorKeyPressedArgs {
@@ -418,8 +406,7 @@ impl DevToolsProtocolEventReceivedArgs {
     }
 }
 
-/// An RAII guard for an event subscription. The handler stays registered until
-/// this value is dropped or [`EventRegistration::remove`] is called.
+/// RAII guard for an event subscription.
 #[must_use]
 pub struct EventRegistration(Option<Box<dyn FnOnce()>>);
 

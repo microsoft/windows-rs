@@ -1,9 +1,6 @@
 use super::*;
 
-/// An [HSTRING] builder that supports preallocating the `HSTRING` to avoid extra allocations and copies.
-///
-/// This is similar to the `WindowsPreallocateStringBuffer` function but implemented directly in Rust for efficiency.
-/// It is implemented as a separate type since [HSTRING] values are immutable.
+/// Builder for preallocating immutable [`HSTRING`] values.
 pub struct HStringBuilder(*mut HStringHeader);
 
 impl HStringBuilder {
@@ -34,7 +31,7 @@ impl HStringBuilder {
         }
     }
 
-    /// Allows the `HSTRING` to be constructed from bytes.
+    /// Returns the mutable UTF-16 buffer as bytes.
     pub fn as_bytes_mut(&mut self) -> &mut [u8] {
         if let Some(header) = self.as_header() {
             unsafe {

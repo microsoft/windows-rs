@@ -1,8 +1,4 @@
-/// Identifies a script registered with
-/// [`WebView::add_script_to_execute_on_document_created`](crate::WebView::add_script_to_execute_on_document_created).
-/// Pass it to
-/// [`WebView::remove_script_to_execute_on_document_created`](crate::WebView::remove_script_to_execute_on_document_created)
-/// to unregister the script.
+/// Identifies a script registered on document creation.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct ScriptId(pub(crate) String);
 

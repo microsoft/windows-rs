@@ -48,13 +48,6 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
     })
 }
 
-/// Emit all interface members, converting SpecialName method pairs/singles into
-/// the simplified property and event shorthand syntax where possible.
-///
-/// The shorthand is only used for WinRT interfaces. Win32 COM-style property
-/// methods have a raw ABI layout (e.g. `get_X` returns `HRESULT` with an
-/// `[out][retval]` parameter) that does not map cleanly to the shorthand, so
-/// they are always written as explicit `#[special] fn` methods.
 fn write_members(
     namespace: &str,
     item: &metadata::reader::TypeDef,
@@ -74,10 +67,7 @@ fn write_members(
 
         let method = &methods[i];
 
-        // Only use simplified property/event shorthand for WinRT interfaces.
-        // Win32 COM-style property methods use a raw ABI layout (get_X returns
-        // HRESULT with an [out][retval] param) that does not map cleanly to the
-        // shorthand, so they are always written as explicit `#[special] fn` methods.
+        // Win32 COM properties stay as explicit `#[special] fn` ABI methods.
         if is_winrt
             && method
                 .flags()
@@ -91,14 +81,11 @@ fn write_members(
 
                 let sig = method.signature(generics);
 
-                // Only use simplified syntax when there are no custom attributes.
                 let no_attrs = method.attributes().next().is_none();
 
                 if let Some(j) = j {
                     let put_no_attrs = methods[j].attributes().next().is_none();
-                    // Only combine get_/put_ into a single `X: type` entry when the
-                    // setter immediately follows the getter in vtable order and their
-                    // types match. Otherwise preserve them with `#[get]`/`#[set]`.
+                    // Combine only adjacent get_/put_ pairs with matching types.
                     let put_sig = methods[j].signature(generics);
                     let types_match = put_sig.types.first() == Some(&sig.return_type);
                     if no_attrs && put_no_attrs && types_match && (i + 1..j).all(|k| consumed[k]) {
@@ -110,9 +97,6 @@ fn write_members(
                         continue;
                     }
                 }
-                // Either no matching put_ exists, or it cannot be combined (non-adjacent
-                // or has custom attributes).  Emit just the getter; when j is Some, the
-                // put_ method will be emitted separately when the loop reaches it.
                 if no_attrs {
                     let ty = write_type(namespace, &sig.return_type);
                     let prop_ident = write_ident(prop_name);
@@ -140,8 +124,7 @@ fn write_members(
 
                 if let Some(j) = j {
                     let remove_no_attrs = methods[j].attributes().next().is_none();
-                    // Only use event shorthand when remove_ immediately follows add_
-                    // in vtable order; non-adjacent pairs must be preserved verbatim.
+                    // Event shorthand requires adjacent add_/remove_ methods.
                     if no_attrs && remove_no_attrs && (i + 1..j).all(|k| consumed[k]) {
                         let sig = method.signature(generics);
                         if let Some(handler_ty) = sig.types.first() {
@@ -157,7 +140,6 @@ fn write_members(
             }
         }
 
-        // Fall back to the regular method representation.
         consumed[i] = true;
         tokens.push(write_method(namespace, method, generics)?);
     }
@@ -165,8 +147,6 @@ fn write_members(
     Ok(tokens)
 }
 
-/// Find an unconsumed method with the given name.  The search starts just after
-/// `from` and wraps around so that nearby methods are checked first.
 fn find_unconsumed(
     methods: &[metadata::reader::MethodDef],
     consumed: &[bool],
@@ -198,8 +178,7 @@ fn write_method(
 
     let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
-    // Emit the built-in `#[special]` pseudo-attribute when SpecialName is set,
-    // preserving properties and events on round-trip.
+    // Preserve property/event methods with the built-in `#[special]` pseudo.
     let special_attr = if item
         .flags()
         .contains(metadata::MethodAttributes::SpecialName)

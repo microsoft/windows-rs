@@ -5,12 +5,6 @@ use std::rc::Rc;
 
 /// Hosts a WebView2 inside a [`windows-reactor`](windows_reactor) UI tree.
 ///
-/// Returns the reactor [`WebView2`](windows_reactor::WebView2) control element.
-/// Once the underlying browser is ready, `on_ready` is called with a [`WebView`]
-/// that drives the same COM `ICoreWebView2` surface as the standalone crate, so
-/// every wrapper behaves identically whether the browser is hosted by
-/// `windows-window` or by a reactor XAML tree.
-///
 /// ```ignore
 /// webview(|web| {
 ///     web.navigate("https://example.com").unwrap();
@@ -28,9 +22,7 @@ pub fn webview(on_ready: impl Fn(WebView) + 'static) -> windows_reactor::WebView
                 return;
             };
 
-            // The XAML `WebView2` control can only create its `CoreWebView2` once
-            // it is loaded into a live visual tree, so creation is deferred to the
-            // `Loaded` event unless the control is already loaded.
+            // `CoreWebView2` cannot be created until the XAML control is loaded.
             let begin = make_begin(on_ready.clone(), mount_state.clone());
             if element.IsLoaded().unwrap_or(false) {
                 begin(&inspectable);
@@ -73,8 +65,7 @@ fn make_begin(
         if let Ok(registration) = registration {
             state.revoker = Some(registration);
         }
-        // The returned action is kept alive: dropping its last reference can
-        // cancel the in-flight initialization.
+        // Keep the async action alive until initialization completes.
         if let Ok(action) = control.EnsureCoreWebView2Async() {
             state.action = Some(action);
         }

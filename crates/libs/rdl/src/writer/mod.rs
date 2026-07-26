@@ -21,10 +21,6 @@ use metadata::AsRow;
 use metadata::HasAttributes;
 use r#struct::*;
 
-// The writer is primarily an internal tool as most developers will write their own
-// definitions or just accept whatever a component author provides. This is thus mostly for
-// generating rdl for backfilling definitions and for testing.
-
 #[derive(Default)]
 /// Builder that converts `.winmd` metadata into RDL.
 pub struct Writer {
@@ -79,15 +75,7 @@ impl Writer {
         self
     }
 
-    /// Filter what to include in the output.  Each call appends one rule.
-    ///
-    /// Rules are resolved against the input metadata and may be:
-    /// * `"Windows.Win32"` - a namespace prefix: includes all items in matching namespaces
-    /// * `"Windows.Win32.Foundation.POINT"` - a qualified type name: includes only that specific type
-    /// * `"POINT"` - an unqualified type name: includes every type named `POINT` across all namespaces
-    ///
-    /// Prefix a rule with `!` to exclude instead of include.  Exclusions win over inclusions.
-    /// If no filter rules are provided, everything from the input is written.
+    /// Adds an include/exclude filter rule. Prefix with `!` to exclude.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filter.push(filter.to_string());
         self
@@ -99,11 +87,7 @@ impl Writer {
         self
     }
 
-    /// Partitions the output into one `<stem>.rdl` file per *defining header* rather than
-    /// per namespace, routing each item by an explicit item-name -> header-stem map. The
-    /// `output` is treated as a directory. Items missing from the map are skipped. This is
-    /// how the arch-merged metadata is decompiled back to the per-header file layout that the
-    /// clang scraper produces (the winmd itself does not carry the defining header).
+    /// Partitions output into one `<stem>.rdl` per defining header.
     pub fn partition(&mut self, map: HashMap<String, String>) -> &mut Self {
         self.partition = Some(map);
         self
@@ -124,7 +108,6 @@ impl Writer {
         let rules = resolve_filter(&self.filter, &index);
 
         if let Some(map) = &self.partition {
-            // Remove any stale rdl files from a previous run before writing.
             if let Ok(entries) = std::fs::read_dir(&self.output) {
                 for entry in entries.flatten() {
                     let path = entry.path();
@@ -137,7 +120,6 @@ impl Writer {
                 }
             }
 
-            // Group items into one Layout per header stem, routing each by the supplied map.
             let mut layouts: BTreeMap<String, Layout> = BTreeMap::new();
             for namespace in index.namespaces() {
                 if namespace.is_empty() {
@@ -180,7 +162,6 @@ impl Writer {
         }
 
         if self.split {
-            // Remove any stale rdl files from a previous run before writing.
             if let Ok(entries) = std::fs::read_dir(&self.output) {
                 for entry in entries.flatten() {
                     let path = entry.path();
@@ -259,20 +240,11 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
 }
 
 enum FilterRule {
-    /// All items whose namespace has this prefix.
     Namespace(String),
-    /// A single specific (namespace, name) item.
     Type(String, String),
 }
 
-/// Resolves raw filter strings against the available metadata, producing typed rules.
-///
-/// The resolution order for each rule string `r` (after stripping `!`) is:
-/// 1. Namespace prefix - any known namespace starts with `r` -> [`FilterRule::Namespace`]
-/// 2. Qualified type - `r` is `"Namespace.TypeName"` and that type exists -> [`FilterRule::Type`]
-/// 3. Unqualified type - `r` contains no dot and exists as a type name in one or more
-///    namespaces -> one [`FilterRule::Type`] per matching namespace
-/// 4. Fallback - treat as a namespace prefix (may match nothing)
+/// Resolves filter strings as namespace prefixes, qualified names, or unqualified names.
 fn resolve_filter(filter: &[String], index: &metadata::reader::Index) -> Vec<(FilterRule, bool)> {
     let mut rules = vec![];
 
@@ -283,7 +255,6 @@ fn resolve_filter(filter: &[String], index: &metadata::reader::Index) -> Vec<(Fi
             (f.as_str(), true)
         };
 
-        // 1. Namespace prefix match.
         if index
             .namespaces()
             .any(|ns| namespace_starts_with(ns, rule_str))
@@ -292,7 +263,6 @@ fn resolve_filter(filter: &[String], index: &metadata::reader::Index) -> Vec<(Fi
             continue;
         }
 
-        // 2. Qualified type name: "Namespace.TypeName".
         if let Some((namespace, name)) = rule_str.rsplit_once('.')
             && index.get_item(namespace, name).next().is_some()
         {
@@ -303,7 +273,6 @@ fn resolve_filter(filter: &[String], index: &metadata::reader::Index) -> Vec<(Fi
             continue;
         }
 
-        // 3. Unqualified type name: search every namespace.
         let mut found = false;
         for ns in index.namespaces() {
             if index.get_item(ns, rule_str).next().is_some() {
@@ -318,18 +287,12 @@ fn resolve_filter(filter: &[String], index: &metadata::reader::Index) -> Vec<(Fi
             continue;
         }
 
-        // 4. Fallback: treat as a namespace prefix (may match nothing).
         rules.push((FilterRule::Namespace(rule_str.to_string()), include));
     }
 
     rules
 }
 
-/// Returns `true` if the item identified by `(namespace, name)` should be written.
-///
-/// When `rules` is empty every item is included.  Otherwise, an item is included when
-/// at least one include rule matches it and no exclude rule matches it.  Exclude rules
-/// are checked first and short-circuit immediately.
 fn item_included(rules: &[(FilterRule, bool)], namespace: &str, name: &str) -> bool {
     if rules.is_empty() {
         return true;
@@ -383,7 +346,7 @@ fn write_type_def_items(
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
     if item.category() == metadata::reader::TypeCategory::Struct {
-        // A struct with NativeTypedefAttribute is written as `type NAME = TYPE;`.
+        // Native typedefs round-trip as `type NAME = TYPE;`.
         if item.attributes().any(|attr| {
             attr.namespace() == METADATA_NAMESPACE && attr.name() == "NativeTypedefAttribute"
         }) {
@@ -409,9 +372,7 @@ fn write_type_def_items(
 }
 
 fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
-    // A GUID-typed constant carries its value in a `GuidAttribute` (the win32 scrape types
-    // it as `Windows.Win32.GUID`; win32metadata types it as `System.Guid`). Either way, emit
-    // the inline `= 0x...` literal rather than the raw attribute.
+    // GUID constants render as inline `0x...` literals, not raw attributes.
     let is_guid = match item.ty() {
         metadata::Type::ValueName(tn) => &tn == ("System", "Guid") || tn.name == "GUID",
         _ => false,
@@ -419,8 +380,7 @@ fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenS
     if is_guid && item.find_attribute("GuidAttribute").is_some() {
         write_const_guid(namespace, item)
     } else if item.find_attribute("GuidAttribute").is_some() {
-        // A non-GUID struct field carrying a `GuidAttribute` is a property-key constant
-        // (`PROPERTYKEY`/`DEVPROPKEY`): the attribute is the `fmtid` and the `Constant` the `pid`.
+        // Property-key constants split `fmtid` into GuidAttribute and `pid` into Constant.
         write_const_property_key(namespace, item)
     } else {
         write_const_value(namespace, item)
@@ -468,9 +428,7 @@ fn write_const_guid(
     Ok(quote! { #arch_attr const #name: GUID = #literal; })
 }
 
-/// Renders a property-key constant (`PROPERTYKEY`/`DEVPROPKEY`) back to its RDL spelling:
-/// `#[guid(0x...)] const NAME: TYPE = pid;`. The `fmtid` comes from the `GuidAttribute` and the
-/// `pid` from the field's `Constant` - the inverse of `encode_const_property_key`.
+/// Recombines a property-key constant's `fmtid` and `pid` into RDL form.
 fn write_const_property_key(
     namespace: &str,
     item: &metadata::reader::Field,
@@ -486,8 +444,7 @@ fn write_const_property_key(
     Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
 }
 
-/// Folds a field's `GuidAttribute` (11 typed args) into the `0x...`-underscore u128 literal used
-/// by both plain GUID constants and the `fmtid` of a property-key constant.
+/// Folds the 11-argument `GuidAttribute` into RDL's u128 GUID literal.
 fn guid_attribute_literal(item: &metadata::reader::Field) -> Result<syn::LitInt, Error> {
     let attribute = item
         .find_attribute("GuidAttribute")
@@ -532,8 +489,6 @@ fn write_params(
             let has_in = param.flags().contains(metadata::ParamAttributes::In);
             let has_out = param.flags().contains(metadata::ParamAttributes::Out);
             let is_mutable = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
-            // When neither `In` nor `Out` is set (e.g., metadata from external sources),
-            // assume `In` as the default.
             let effective_in = has_in || !has_out;
             let in_attr = if effective_in && (has_out || is_mutable) {
                 quote! { #[r#in] }
@@ -598,7 +553,6 @@ fn write_custom_attributes_except<'a>(
         .filter(|attr| {
             !(namespace_starts_with(attr.namespace(), "System")
                 || exclude.contains(&attr.name())
-                // `NativeTypedefAttribute` is handled by the typedef writer; skip it here.
                 || (attr.namespace() == METADATA_NAMESPACE
                     && attr.name() == "NativeTypedefAttribute"))
         })
@@ -606,10 +560,7 @@ fn write_custom_attributes_except<'a>(
             let attr_ns = attr.namespace();
             let values = attr.value();
 
-            // A naturalized pseudo-attribute renders as its short RDL spelling (e.g.
-            // `RetValAttribute` -> `#[retval]`, `NativeArrayInfoAttribute(CountParamIndex = 2)` ->
-            // `#[len_param(2)]`). Pseudos that bind a named metadata property re-emit its value
-            // positionally; property-less pseudos carry their arguments through unchanged.
+            // Naturalized metadata attributes render as short RDL spellings when possible.
             let pseudo = if attr_ns == METADATA_NAMESPACE {
                 let arg_names: Vec<String> = values.iter().map(|(n, _)| n.clone()).collect();
                 pseudo_for_metadata(attr.name(), &arg_names)
@@ -625,7 +576,6 @@ fn write_custom_attributes_except<'a>(
                     .strip_suffix("Attribute")
                     .unwrap_or_else(|| attr.name());
 
-                // Build the (possibly qualified) attribute path token stream.
                 if attr_ns.is_empty() || attr_ns == item_namespace {
                     write_ident(attr_short)
                 } else {
@@ -639,9 +589,7 @@ fn write_custom_attributes_except<'a>(
                 }
             };
 
-            // A pseudo that binds a named metadata property drops the property name and emits the
-            // value positionally (`#[len_param(2)]`); otherwise positional args stay positional and
-            // named args are emitted as `name = value`.
+            // Property-bound pseudos emit their single property value positionally.
             let drop_names = pseudo.and_then(|p| p.prop).is_some();
             let args: Vec<TokenStream> = values
                 .into_iter()
@@ -670,19 +618,12 @@ fn write_custom_attributes_except<'a>(
         })
         .collect::<Result<Vec<TokenStream>, Error>>()?;
 
-    // Custom attribute order is semantically insignificant in ECMA-335, and the raw
-    // CustomAttribute-table order varies between SDK/Contracts builds even when the attribute set
-    // is unchanged. Sort by rendered text so the snapshot is canonical - a version bump only diffs
-    // when the attribute set actually changes - matching how impls/enum fields/layout are sorted.
+    // Attribute table order varies between metadata builds; sort rendered text for stable output.
     rendered.sort_by_key(|ts| ts.to_string());
     Ok(rendered)
 }
 
-/// Writes an enum attribute argument as its variant name by looking up the integer
-/// value in the TypeIndex.  For flag enums (those with `System.FlagsAttribute`),
-/// falls back to decomposing the value into a `Flag1 | Flag2` combination when no
-/// exact variant match is found.  Returns an error when the enum type cannot be
-/// found in the index (e.g. the winmd that defines it was not provided).
+/// Renders enum-valued attribute arguments as variants, decomposing flags when needed.
 fn write_enum_value(
     namespace: &str,
     tn: &metadata::TypeName,
@@ -698,15 +639,13 @@ fn write_enum_value(
     for typedef in index.get(&tn.namespace, &tn.name) {
         found_in_index = true;
         if typedef.category() == metadata::reader::TypeCategory::Enum {
-            // First try an exact variant match.
             for field in typedef.fields() {
                 if field.flags().contains(metadata::FieldAttributes::Literal)
                     && let Some(constant) = field.constant()
                 {
                     let matches = match constant.value() {
                         metadata::Value::I32(v) => v == inner_i32,
-                        // Use bit-equal comparison so that `U32(0xFFFFFFFF)` matches
-                        // the `I32(-1)` that attribute blobs carry for that value.
+                        // Attribute blobs carry enum values as signed integers.
                         metadata::Value::U32(v) => v == inner_i32 as u32,
                         _ => false,
                     };
@@ -717,7 +656,6 @@ fn write_enum_value(
                 }
             }
 
-            // For flag enums, try to decompose into a `Flag1 | Flag2` combination.
             let has_flags = typedef.attributes().any(|attr| {
                 attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
             });
@@ -741,15 +679,11 @@ fn write_enum_value(
     Ok(write_value(namespace, inner))
 }
 
-/// Attempts to express `value` as a bitwise OR of known enum variants for a flags
-/// enum.  Returns `None` if the value cannot be fully covered by the available
-/// variants (i.e. there are leftover bits with no matching name).
 fn write_flags_combination(
     _namespace: &str,
     typedef: &metadata::reader::TypeDef,
     value: i32,
 ) -> Option<TokenStream> {
-    // Collect all non-zero literal fields together with their i32 values.
     let mut fields: Vec<(String, i32)> = typedef
         .fields()
         .filter_map(|field| {
@@ -759,8 +693,6 @@ fn write_flags_combination(
             let constant = field.constant()?;
             let v = match constant.value() {
                 metadata::Value::I32(v) => v,
-                // Reinterpret-cast U32 to i32 so that values like 0xFFFFFFFF
-                // (`All`) are included and compared bit-identically below.
                 metadata::Value::U32(v) => v as i32,
                 _ => return None,
             };
@@ -772,9 +704,7 @@ fn write_flags_combination(
         })
         .collect();
 
-    // Sort descending by the unsigned interpretation so that composite flags
-    // like `All = 0xFFFFFFFF` are tried before individual bits, giving more
-    // compact results.
+    // Prefer composite flags such as `All = 0xFFFFFFFF` over individual bits.
     fields.sort_by_key(|b| std::cmp::Reverse(b.1 as u32));
 
     let mut remaining = value;
@@ -791,10 +721,6 @@ fn write_flags_combination(
     }
 
     if remaining != 0 || components.is_empty() {
-        // `remaining != 0` means there are bits with no matching variant.
-        // `components.is_empty()` means `value` was 0 and no zero-valued variant
-        // was found - the caller's exact-match pass handles the named-zero case
-        // (e.g. `None = 0`), so falling back to the raw numeric value is correct.
         return None;
     }
 
@@ -808,13 +734,7 @@ fn write_flags_combination(
     Some(result)
 }
 
-/// Emits a `#[arch(...)]` token stream for the given `arches` bitmask, or an empty
-/// token stream when `arches` is zero (meaning "all architectures").
-///
-/// Bit layout (matching the Windows metadata):
-///   bit 0 (1) -> X86
-///   bit 1 (2) -> X64
-///   bit 2 (4) -> Arm64
+/// Emits `#[arch(...)]` for a non-zero X86/X64/Arm64 bitmask.
 pub(super) fn write_arch_attr(arches: i32) -> TokenStream {
     if arches == 0 {
         return quote! {};
@@ -845,9 +765,6 @@ pub(super) fn write_arch_attr(arches: i32) -> TokenStream {
 
 fn write_type_def(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     match item.category() {
-        // Structs/unions are handled by write_struct_items (which may return
-        // multiple flat items) so this branch is never reached from the main
-        // write loop.  It is kept for completeness and internal callers.
         metadata::reader::TypeCategory::Struct => Ok(quote! {}),
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
@@ -873,7 +790,6 @@ fn write_type_ref(namespace: &str, item: &metadata::reader::TypeDefOrRef) -> Tok
     )
 }
 
-/// Extracts the raw GUID tuple `(data1, data2, data3, data4)` from a `GuidAttribute`.
 fn extract_guid_from_attribute(
     attr: metadata::reader::Attribute,
 ) -> Result<(u32, u16, u16, [u8; 8]), Error> {
@@ -906,20 +822,13 @@ fn extract_guid_from_attribute(
     Ok((d1, d2, d3, d4))
 }
 
-/// Describes how a GUID should appear in the RDL output for an interface or delegate.
 enum GuidOutput {
-    /// The GUID matches what would be automatically derived - omit it from the output.
     Omit,
-    /// An explicit GUID is stored that differs from the derived value - emit `#[guid(0x...)]`.
     Explicit(u32, u16, u16, [u8; 8]),
-    /// No `GuidAttribute` is present - emit `#[no_guid]` to prevent re-derivation on read-back.
     None,
 }
 
-/// Core GUID-output logic shared by interfaces and delegates.
-///
-/// Compares the stored `GuidAttribute` against the value that would be derived from
-/// `methods` and returns the appropriate [`GuidOutput`] variant.
+/// Omits derived GUIDs while preserving explicit or absent GUID state.
 fn guid_output(
     item: &metadata::reader::TypeDef,
     methods: &[(&str, &[metadata::Type], &metadata::Type)],
@@ -941,7 +850,6 @@ fn guid_output(
     }
 }
 
-/// Determines the GUID output mode for an interface `TypeDef`.
 fn interface_guid_output(
     item: &metadata::reader::TypeDef,
     generics: &[metadata::Type],
@@ -960,7 +868,6 @@ fn interface_guid_output(
     guid_output(item, &methods)
 }
 
-/// Determines the GUID output mode for a delegate `TypeDef`.
 fn delegate_guid_output(
     item: &metadata::reader::TypeDef,
     generics: &[metadata::Type],
@@ -975,9 +882,7 @@ fn delegate_guid_output(
     guid_output(item, &[("Invoke", types.as_slice(), &return_type)])
 }
 
-/// Reads the raw `CallingConvention` value from an `UnmanagedFunctionPointerAttribute`, or
-/// `None` when the attribute is absent. Only Win32 callbacks carry this attribute; the caller
-/// maps the value to an ABI string.
+/// Reads the raw Win32 callback ABI value.
 fn read_unmanaged_abi(item: &metadata::reader::TypeDef) -> Option<i32> {
     item.find_attribute("UnmanagedFunctionPointerAttribute")
         .and_then(|attribute| attribute.value().into_iter().next())
@@ -991,10 +896,6 @@ fn read_unmanaged_abi(item: &metadata::reader::TypeDef) -> Option<i32> {
         })
 }
 
-/// Collects the generic type parameters of `item` as a `(types, tokens)` pair.
-///
-/// `types` is the `Vec<Type::Generic>` needed for signature computation; `tokens` is the
-/// `<T, U, ...>` token stream for the RDL output (empty when there are no generic params).
 fn write_generic_params(item: &metadata::reader::TypeDef) -> (Vec<metadata::Type>, TokenStream) {
     let types: Vec<_> = item
         .generic_params()

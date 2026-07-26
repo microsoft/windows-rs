@@ -31,9 +31,7 @@ impl ControlId {
     }
 }
 
-/// Closed enumeration of every control kind a backend must be able to
-/// create; one variant per built-in [`Element`]
-/// widget variant.
+/// One backend-createable kind per built-in widget.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
 pub enum ControlKind {
     TextBlock,
@@ -101,8 +99,7 @@ pub enum ControlKind {
     WebView2,
 }
 
-/// Closed enum of every property that can be set on a control. Each
-/// variant pairs with one or more [`PropValue`] kinds at runtime.
+/// Backend-observable property key.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
 pub enum Prop {
     AcceptsReturn,
@@ -255,12 +252,7 @@ pub enum Prop {
     YearVisible,
 }
 
-/// Tagged union of every value type that can appear in a [`Backend::set_prop`]
-/// call. `Unset` clears a previously-applied value.
-///
-/// Reactor enums that mirror WinRT enums are transported as `I32` - each
-/// reactor enum is `#[repr(i32)]` with discriminants matching WinRT, so the
-/// backend can construct the WinRT enum directly from the integer.
+/// Backend property value. `I32` carries reactor enums with WinRT-matching discriminants.
 #[derive(Clone, PartialEq, Debug)]
 pub enum PropValue {
     Str(String),
@@ -289,7 +281,6 @@ pub enum PropValue {
     Resources(HashMap<String, String>),
 }
 
-/// Closed enum of every backend-observable input event.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
 pub enum Event {
     ActionButtonClick,
@@ -319,9 +310,7 @@ pub enum Event {
     ValueChanged,
 }
 
-/// Typed wrapper around a callback for a specific [`Event`] payload shape.
-/// Variants are named by payload type, mirroring `PropValue`.
-/// The `invoke_*` accessors panic when called on a mismatching variant.
+/// Callback tagged by [`Event`] payload shape.
 #[derive(Clone, PartialEq, Eq)]
 pub enum EventHandler {
     Unit(Callback<()>),
@@ -417,9 +406,7 @@ impl EventHandler {
     }
 }
 
-/// UI backend the reconciler drives. Implemented by `RecordingBackend`
-/// for tests and by `WinUIBackend` for production. New methods must have
-/// default implementations so existing backends keep compiling.
+/// UI backend the reconciler drives. New methods need default implementations.
 pub trait Backend {
     fn create(&mut self, kind: ControlKind) -> ControlId;
 
@@ -469,18 +456,10 @@ pub trait Backend {
     /// Pass `None` to clear a previously set pane element.
     fn set_pane_element(&mut self, _id: ControlId, _pane_id: Option<ControlId>) {}
 
-    /// W1: scroll a templated list to the specified item index. Default
-    /// no-op; the WinUI backend implements this via
-    /// `ListViewBase::ScrollIntoView` when `id` resolves to a list/grid/flip
-    /// view. Negative indices are ignored.
     fn scroll_templated_to_index(&mut self, _id: ControlId, _index: i32) {}
 
     fn attach_templated_selection_changed(&mut self, _id: ControlId, _handler: Callback<i32>) {}
 
-    /// Attach a drag-reorder-completed handler for a templated list. The
-    /// handler receives the new order as the permutation of original item
-    /// indices. Default no-op; the WinUI backend wires it to
-    /// `ListViewBase::DragItemsCompleted`.
     fn attach_templated_reorder(&mut self, _id: ControlId, _handler: Callback<Vec<usize>>) {}
 
     fn set_theme_bindings(
@@ -519,33 +498,21 @@ pub trait Backend {
     fn set_keyboard_accelerators(&mut self, _id: ControlId, _accelerators: &[KeyboardAccelerator]) {
     }
 
-    /// Apply (or clear) the WinUI `ToolTipService` attached-property
-    /// tooltip for `id`. Passing `None` clears any prior tooltip.
     fn set_tooltip(&mut self, _id: ControlId, _tooltip: Option<&Tooltip>) {}
 
-    /// Attach (or clear) per-element pointer / tap callbacks for `id`.
-    /// `None` removes any prior handlers; `Some(_)` replaces them.
     fn set_pointer_handlers(&mut self, _id: ControlId, _handlers: Option<&PointerHandlers>) {}
 
-    /// Attach (or clear) per-element drag callbacks for `id`.
-    /// `None` removes any prior handlers; `Some(_)` replaces them.
     fn set_drag_handlers(&mut self, _id: ControlId, _handlers: Option<&DragHandlers>) {}
 
-    /// Retrieve the underlying platform element as an `IInspectable` for interop.
-    /// Returns `None` on non-WinUI backends or if `id` is invalid.
     fn get_native_element(&self, _id: ControlId) -> Option<windows_core::IInspectable> {
         None
     }
 }
 
-// Dispatcher
-
 pub trait Dispatcher {
     fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool;
 }
 
-/// Thread-safe variant of [`Dispatcher`] accepting `Send` closures.
-/// Implementations marshal the closure onto the UI thread.
 pub trait SendDispatcher: Send + Sync + 'static {
     fn enqueue_send(
         &self,
@@ -556,13 +523,10 @@ pub trait SendDispatcher: Send + Sync + 'static {
 
 /// Process-wide unique identifier for a [`RenderHost`]/[`RenderCx`] pair.
 ///
-/// Multiple hosts (e.g. secondary windows) can share one UI thread, so the
-/// UI-thread rerender hooks are keyed by this id rather than a single slot.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
 pub struct HostId(u64);
 
 impl HostId {
-    /// Allocate the next unique host id.
     pub fn next() -> Self {
         use std::sync::atomic::AtomicU64;
         static COUNTER: AtomicU64 = AtomicU64::new(1);
@@ -571,10 +535,7 @@ impl HostId {
 }
 
 thread_local! {
-    // UI thread's per-host rerender hooks, installed by
-    // `RenderHost::set_marshaller`. Keyed by `HostId` so multiple hosts
-    // (secondary windows) can coexist on one UI thread and each async state
-    // write re-renders the host that owns it.
+    // Per-host hooks allow secondary windows to share one UI thread.
     static UI_RERENDER: RefCell<rustc_hash::FxHashMap<HostId, Rc<dyn Fn()>>> =
         RefCell::new(rustc_hash::FxHashMap::default());
 }
@@ -596,8 +557,7 @@ pub fn set_ui_rerender(id: HostId, rerender: Option<Rc<dyn Fn()>>) {
 
 /// Request a rerender of host `id` on the UI thread the marshaller targets.
 pub fn request_ui_rerender_on_ui_thread(id: HostId) {
-    // Clone the closure out before invoking so the thread-local is not
-    // borrowed across the (re-entrant-capable) call.
+    // Avoid borrowing the thread-local across a re-entrant callback.
     let rerender = UI_RERENDER.with(|r| r.borrow().get(&id).cloned());
     if let Some(rr) = rerender {
         rr();

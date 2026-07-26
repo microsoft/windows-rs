@@ -19,12 +19,7 @@ impl MethodSet {
     }
 }
 
-/// The inclusion granularity of a type, following the Rust-`use`-style
-/// specificity model: a type that was requested by name (namespace, type, or
-/// method entry) is [`TypeRole::Named`] and projects its requested surface; a
-/// type pulled in only as a dependency of something named is [`TypeRole::Shell`]
-/// and projects name-only (opaque vtable slots), so the requested API stays
-/// usable without dragging in the dependency's full surface.
+/// Whether a type was requested directly or only pulled in as a dependency shell.
 #[derive(Debug, Clone)]
 pub enum TypeRole {
     /// Explicitly requested - project the given method set.
@@ -51,35 +46,12 @@ pub struct Filter {
     /// `true` if the filter includes broad entries (a whole namespace)
     /// that are not compatible with bottom-up type closure.
     pub has_broad_filter: bool,
-    /// `true` when this filter is resolved via the bottom-up type closure
-    /// ([`TypeClosure`]) rather than the namespace scan. A closure build only
-    /// names its explicit seeds; every other type it pulls in is a dependency
-    /// shell. A scan build (broad filter or `--package`) names everything it
-    /// matches.
+    /// `true` when bottom-up closure is used; non-seed types become shells.
     pub uses_closure: bool,
 }
 
-/// Per-type method filter. Entries are recorded as two parallel sets:
-///
-/// * `keep` - methods explicitly allow-listed via `Ns.Type::Method`.
-/// * `drop` - methods explicitly deny-listed via `!Ns.Type::Method`.
-///
-/// Entries may be either an exact `MethodDef` name (after property/event
-/// sugar expansion, e.g. `Property` -> `get_Property` + `put_Property`),
-/// or an overload-disambiguated Rust name produced by `[overload("...")]`
-/// (e.g. `InsertKeyFrameWithEasingFunction` on the `InsertKeyFrame`
-/// `MethodDef` row).
-///
-/// At lookup time both the raw `MethodDef` name and any overload name are
-/// checked against each set, so a single entry can address either form.
-///
-/// Allow and deny entries may coexist on the same type. The resolution
-/// rules at lookup time are (in order):
-///
-/// 1. If the method appears in `drop`, the slot is demoted.
-/// 2. If the method appears in `keep`, the slot is kept.
-/// 3. Otherwise: kept when `keep` is empty (deny-only mode), demoted
-///    otherwise (allow-list mode treats unlisted methods as opt-out).
+/// Per-type method filter. Both raw metadata names and overload names are recorded;
+/// deny entries win over allow entries, and a non-empty allow set makes unlisted methods opt out.
 #[derive(Debug, Default)]
 pub struct MethodFilter {
     /// Methods explicitly allow-listed.
@@ -146,22 +118,7 @@ impl Filter {
         false
     }
 
-    /// Classifies a type's inclusion granularity under the specificity model.
-    ///
-    /// Filtering reads like a Rust `use` declaration - a bare mention gives you
-    /// the whole thing; braces narrow it:
-    ///
-    /// * naming a **namespace** (a scan build) takes every type in it, fully;
-    /// * naming a **type** (`Ns.Type`) projects it in full - a bare interface
-    ///   seeds all its methods, so it resolves to [`TypeRole::Named`]`(All)`;
-    /// * naming specific **methods** (`Ns.Type::{a, b}`) resolves to
-    ///   [`TypeRole::Named`] with just the listed methods;
-    /// * an explicit name-only shell (`Ns.Type::{}`), and any type reached only
-    ///   as a dependency of a seed, resolve to [`TypeRole::Shell`].
-    ///
-    /// A scan build (broad filter / `--package`) has no cherry-pick closure, so
-    /// everything it matches is `Named`; the Shell role only arises on a closure
-    /// build (a precise filter), for `::{}` shells and dependency types.
+    /// Returns whether this type projects requested methods or only a name-only shell.
     pub fn type_role(&self, type_name: TypeName) -> TypeRole {
         let key = (
             type_name.namespace().to_string(),
@@ -179,24 +136,7 @@ impl Filter {
         }
     }
 
-    /// Returns `true` if `method` on `type_name` should be emitted as a real
-    /// vtable slot (rather than demoted to an opaque `Slot: usize`).
-    ///
-    /// With no explicit method filter for this type, inclusion follows the
-    /// type's [`Filter::type_role`]: a `Named` type keeps the methods in its
-    /// set, a `Shell` (a dependency, or an explicit `::{}` mention) keeps none.
-    ///
-    /// Matching considers both the raw `MethodDef` name and any
-    /// overload-disambiguated Rust name produced by `[overload("...")]`, so a
-    /// single filter entry can address either form. This lets callers write
-    /// e.g. `!IFoo::InsertKeyFrameWithEasingFunction` to deny only the
-    /// renamed overload while leaving the bare `InsertKeyFrame` slot intact.
-    ///
-    /// Allow (`IFoo::Method`) and deny (`!IFoo::Method`) entries may coexist
-    /// on the same type. Deny wins on overlap. When at least one allow entry
-    /// exists, unlisted methods are demoted (allow-list mode); otherwise
-    /// only listed deny entries are demoted (deny-only mode). When `minimal`
-    /// is true, overload matching uses the disambiguated name exclusively.
+    /// Decides whether a method is emitted or demoted to an opaque vtable slot.
     pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
         let key = (
             type_name.namespace().to_string(),
@@ -204,9 +144,7 @@ impl Filter {
         );
 
         let Some(filter) = self.methods.get(&key) else {
-            // No explicit method filter for this type. Its inclusion is decided
-            // by its role: a Named type projects the methods in its set, a Shell
-            // (a dependency pulled in only via the closure) projects name-only.
+            // No method filter: fall back to the type role.
             return match self.type_role(type_name) {
                 TypeRole::Named(set) => set.includes(method.name()),
                 TypeRole::Shell => false,
@@ -216,9 +154,7 @@ impl Filter {
         let raw = method.name();
         let overload = method_overload_name(method);
 
-        // Match by overload-disambiguated name when one exists - the raw
-        // metadata name is shared with other overloads and would include them
-        // all indiscriminately.
+        // Prefer overload names; raw names would match every row in the overload set.
         let in_set = |set: &BTreeSet<String>| -> bool {
             if let Some(ref name) = overload {
                 set.contains(name.as_str())
@@ -234,8 +170,7 @@ impl Filter {
         if in_set(&filter.keep) {
             return true;
         }
-        // Default: keep when there are no allow entries (deny-only mode),
-        // drop otherwise (allow-list mode treats unlisted methods as opt-out).
+        // Empty allow set means deny-only mode; otherwise unlisted methods are opt out.
         filter.keep.is_empty()
     }
 
@@ -253,24 +188,7 @@ impl Filter {
             .contains(&(namespace.to_string(), name.to_string()))
     }
 
-    /// Builds a [`Filter`] from resolved filter entries, recording the seeds
-    /// (types, methods, requested interfaces) that drive both the inclusion
-    /// rules and the [`TypeClosure`] walk. Method-level specificity is preserved
-    /// so that `type_role` / `includes_method` can later decide each type's
-    /// projected surface.
-    ///
-    /// Supported entry syntax (specificity drives granularity, inspired by
-    /// Rust's `use` declarations - a bare mention gives you the whole thing,
-    /// braces narrow it):
-    /// - `Namespace` - include everything in the namespace
-    /// - `Namespace.Type` - include a type in full (an interface projects all
-    ///   its methods; a struct all its fields; an enum all its variants; a
-    ///   class its default interface)
-    /// - `Namespace.Type::{}` - include a name-only shell (the type is usable
-    ///   in signatures but projects none of its own methods)
-    /// - `Namespace.Type::{a, b}` - include only the named methods; the rest
-    ///   become name-only
-    /// - `Namespace.Class::CreateInstance` - mark class as activatable
+    /// Builds the inclusion rules and closure seeds from resolved filter entries.
     #[track_caller]
     pub fn from_resolved(reader: &Reader, entries: &[filter_parser::ResolvedFilter]) -> Self {
         use filter_parser::ResolvedKind;
@@ -298,16 +216,12 @@ impl Filter {
                     rules.push((full, include));
 
                     if include {
-                        // A bare mention is "full": an interface seeds all its
-                        // methods; other kinds keep their natural surface via
-                        // `direct_types`.
+                        // Bare interface mentions seed all methods; other types use `direct_types`.
                         let key = (namespace.clone(), name.clone());
                         if Self::is_interface(reader, namespace, name) {
                             requested_interfaces.entry(key).or_insert(MethodSet::All);
                         } else {
-                            // Unscoped enum variants are standalone constants, not
-                            // associated consts, so record `All` to pull them in the
-                            // closure walk (see `type_closure`).
+                            // Unscoped enum variants are standalone constants; pull them in explicitly.
                             if Self::is_unscoped_enum(reader, namespace, name) {
                                 enum_variants.entry(key.clone()).or_insert(MethodSet::All);
                             }
@@ -550,9 +464,7 @@ impl Filter {
                     }
                 }
                 Type::Interface(_) | Type::CppInterface(_) | Type::Delegate(_) => {
-                    // Expand sugar (e.g. "Click" -> "add_Click" + "remove_Click")
-                    // before registering so both requested_interfaces and the
-                    // method filter use the real metadata method names.
+                    // Register property/event sugar under the real metadata method names.
                     let def = match &ty {
                         Type::Interface(t) => t.def,
                         Type::CppInterface(t) => t.def,
@@ -577,9 +489,7 @@ impl Filter {
                             .collect();
                         expanded.extend(remove_extras);
                     }
-                    // Register expanded names in requested_interfaces for the
-                    // type closure (used by [`TypeClosure`] to walk only requested
-                    // method signatures).
+                    // The closure walk only follows these requested method signatures.
                     let set = requested_interfaces
                         .entry(key.clone())
                         .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
@@ -609,12 +519,7 @@ fn expand_method_part(method_part: &str, defs: &[MethodDef]) -> Vec<String> {
         return vec![method_part.to_string()];
     }
 
-    // Bare-name accessor sugar. A property or event is named by its logical
-    // name (e.g. `Tick`, `Interval`) and expands to its accessors. Property
-    // accessors (`get_X` / `put_X`) are tried first; if none exist, event
-    // accessors (`add_X` / `remove_X`) are used. WinRT interfaces cannot define
-    // a property and an event under the same name, so the ordering is
-    // unambiguous.
+    // Bare property/event names expand to their accessor pairs; property wins if both match.
     let getter = format!("get_{method_part}");
     let setter = format!("put_{method_part}");
     let adder = format!("add_{method_part}");
@@ -639,10 +544,7 @@ fn expand_method_part(method_part: &str, defs: &[MethodDef]) -> Vec<String> {
         return expanded;
     }
 
-    // Overload-disambiguated name match. The set entry is the overload name
-    // itself - `Filter::includes_method` checks the overload name of each
-    // `MethodDef` alongside its raw name, so this addresses exactly the row
-    // whose `[overload("...")]` attribute carries this value.
+    // Overload names address the row carrying that `[overload("...")]` value.
     if defs
         .iter()
         .any(|m| method_overload_name(*m).as_deref() == Some(method_part))

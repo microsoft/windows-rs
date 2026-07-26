@@ -41,16 +41,7 @@ impl Delegate {
             true,
         );
 
-        // Suppress `new()` / `Invoke()` for delegates that are exclusively used
-        // as event handler parameters - the event-add wrapper inlines the
-        // DelegateBox construction directly. Safe when:
-        // 1. No broad namespace filter (hand-written code might call these)
-        // 2. The delegate only appears as a parameter in add_* event methods
-        // 3. In non-minimal mode, the delegate wasn't explicitly listed in the
-        //    filter (explicit inclusion means the caller may use it directly -
-        //    e.g. windows-collections calls .Invoke() on its event delegates).
-        //    In minimal mode, event wrappers always inline construction so
-        //    explicit filter listing doesn't imply direct usage.
+        // Event-only delegates can suppress `new`/`Invoke` when direct caller use is impossible.
         let type_name = self.type_name();
         let delegate_key = (
             type_name.namespace().to_string(),
@@ -61,8 +52,7 @@ impl Delegate {
             && (config.bindgen.style.is_minimal()
                 || !config.filter.direct_types.contains(&delegate_key));
         let invoke_method = if config.bindgen.style.is_minimal() {
-            // In minimal mode, delegates are invoked by the framework, not
-            // user code - suppress the public Invoke() wrapper entirely.
+            // Minimal delegates are framework-invoked, so hide public `Invoke`.
             quote! {}
         } else {
             invoke
@@ -111,10 +101,7 @@ impl Delegate {
             }
         };
 
-        // Under `--minimal`, the delegate's `new` accepts a closure that
-        // returns nothing; the boxed `Invoke` calls it and returns `S_OK`
-        // directly, avoiding a `Result` round trip. This also lets the
-        // generated event-add wrappers reuse the same closure signature.
+        // Minimal delegate constructors accept void closures and return `S_OK` from `Invoke`.
         let fn_constraint = {
             let signature = if config.bindgen.style.is_minimal() {
                 method.write_impl_signature_no_return(config)

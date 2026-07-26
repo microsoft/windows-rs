@@ -38,10 +38,7 @@ impl CppInterface {
             .collect()
     }
 
-    // Returns `true` if any of this interface's own methods would be skipped due to
-    // missing dependencies. Used (transitively across base interfaces) to decide
-    // whether to emit the `_Impl` trait, since a derived `_Impl` cannot reference a
-    // base `_Impl` that wasn't emitted.
+    // `_Impl` emission is omitted when this interface or a base has skipped methods.
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
@@ -157,10 +154,7 @@ impl CppInterface {
                 });
             }
 
-            // In minimal mode, interfaces listed in `--implement` are meant to be
-            // implemented via their `_Impl` trait rather than called, so suppress the
-            // caller-side method wrappers to avoid emitting dead code. This mirrors the
-            // WinRT interface path (see `interface.rs`).
+            // Minimal implemented interfaces are exposed through `_Impl`, not caller wrappers.
             let suppress_methods = config.bindgen.style.is_minimal()
                 && config.should_implement(self.def.type_name(), false);
 

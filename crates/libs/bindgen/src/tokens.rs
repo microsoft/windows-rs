@@ -1,7 +1,4 @@
-//! Thin shim around `proc_macro2` and `quote` for the bindgen emitter.
-//!
-//! It delegates to the upstream `quote` crate so the emitter operates on real
-//! token trees.
+//! Token helpers shared by the bindgen emitters.
 
 pub use proc_macro2::{Literal, TokenStream};
 pub use quote::{ToTokens, quote};
@@ -9,17 +6,12 @@ pub use quote::{ToTokens, quote};
 /// Extension methods on `TokenStream` used by the emitter.
 pub trait TokenStreamExt {
     /// Append another stream of tokens to this one.
-    ///
-    /// Accepts anything that implements [`ToTokens`], including
-    /// `&TokenStream`, `TokenStream`, `Ident`, etc.
     fn combine<T: ToTokens>(&mut self, other: T);
 
-    /// Append `suffix` to the textual form of `self` and re-parse, producing a
-    /// `TokenStream` that names `<self><suffix>`. Typically used to derive
-    /// identifiers like `Foo_Vtbl` from a parent name.
+    /// Append `suffix` to the textual form of `self` and re-parse.
     fn join(&self, suffix: &str) -> TokenStream;
 
-    /// Convert into an owned `String`. Equivalent to [`ToString::to_string`].
+    /// Convert into an owned `String`.
     fn into_string(self) -> String;
 }
 
@@ -41,9 +33,6 @@ impl TokenStreamExt for TokenStream {
 }
 
 /// Make a Rust identifier from a name, escaping keywords and reserved names.
-///
-/// The returned `TokenStream` always wraps exactly one identifier token, so it
-/// can be interpolated wherever an identifier is expected.
 pub fn to_ident(name: &str) -> TokenStream {
     // keywords list based on https://doc.rust-lang.org/reference/keywords.html
     match name {
@@ -62,9 +51,6 @@ pub fn to_ident(name: &str) -> TokenStream {
 }
 
 /// Convert a PascalCase or camelCase name to snake_case.
-///
-/// Used in minimal mode to emit struct field names that conform to Rust
-/// naming conventions (e.g. `TopLeft` -> `top_left`, `A` -> `a`).
 pub fn to_snake_case(name: &str) -> String {
     let mut result = String::with_capacity(name.len() + 4);
     for (i, c) in name.chars().enumerate() {

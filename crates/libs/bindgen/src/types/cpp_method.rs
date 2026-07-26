@@ -164,11 +164,7 @@ impl CppMethod {
                 if is_retval {
                     return_hint = ReturnHint::ResultValue;
                 } else {
-                    // A non-retval HRESULT method returns raw `-> HRESULT` on the
-                    // consumer side so success codes other than S_OK (S_FALSE,
-                    // DXGI_STATUS_OCCLUDED, ...) survive; callers append `.ok()` for a
-                    // `Result`. The `_Impl` producer side still uses `Result<()>` so
-                    // implementers keep `?` (the upcall converts it back to HRESULT).
+                    // Non-retval HRESULT consumers preserve non-S_OK success codes; producers use `Result`.
                     return_hint = ReturnHint::HResult;
                 }
 
@@ -656,11 +652,7 @@ impl CppMethod {
                             } else {
                                 quote! { #name.as_mut_ptr() }
                             };
-                            // The wrapper exposes a typed slice but the ABI slot is a raw
-                            // pointer, so a transmute is only needed when the slice element
-                            // type differs from the ABI pointee (interfaces, non-copyable
-                            // structs, byte buffers, ...). When they already match it is
-                            // redundant, so emit the pointer directly.
+                            // Transmute slice pointers only when the public element type differs from ABI.
                             let elem = if matches!(
                                 self.param_hints[position],
                                 ParamHint::ArrayRelativeByteLen(_)
@@ -683,11 +675,7 @@ impl CppMethod {
                         ParamHint::ArrayRelativePtr(relative) => {
                             let relative_param = &self.signature.params[relative];
                             let name = relative_param.write_ident();
-                            // The new metadata keeps scalar count typedefs (e.g.
-                            // `JET_UINT32`) as named types, which render as newtypes in
-                            // full mode; wrap the length so it matches the ABI param
-                            // type. In sys/minimal these collapse to bare integers, so
-                            // the wrap is a no-op.
+                            // Full-mode scalar count typedefs need newtype wrapping; sys/minimal aliases do not.
                             let zero = write_newtype_wrap(&param.ty, &quote! { 0 }, config);
                             let len = write_newtype_wrap(
                                 &param.ty,

@@ -1,30 +1,12 @@
 use super::*;
 
-/// Rewrites the namespaces of a flat winmd into a header-based partition.
-///
-/// The canonical Win32/WDK winmds live in a single flat namespace (`Windows.Win32`) because
-/// the Windows SDK is a flat C namespace with globally-unique symbol names. That is the right
-/// shape for every flat/minimal consumer, but `windows-bindgen --package` derives both the
-/// file layout and the per-namespace Cargo features from namespaces. This remapper is the
-/// "optional downstream map over the flat namespace": given a `name -> namespace` routing map
-/// (built upstream from the per-header `.rdl` partition), it reads the flat winmd(s) and emits
-/// a namespaced winmd suitable for `--package`.
-///
-/// The single flat `Apis` container (which holds every function and constant) is **split** into
-/// one `Apis` container per target namespace, routing each member by name. Every embedded type
-/// reference (`extends`, field types, method signatures, and interface impls) is rewritten
-/// through the same map. References whose name is not in the map (external types, the
-/// `Windows.Win32.Metadata` attribute types) pass through unchanged.
+/// Rewrites a flat winmd into header-based namespaces for package generation.
 #[derive(Default)]
 pub struct Remapper {
     input: Vec<String>,
     output: String,
-    /// Type/function/constant name -> target namespace.
     routes: HashMap<String, String>,
-    /// Namespaces whose members are subject to remapping (e.g. `Windows.Win32`). References in
-    /// any other namespace are copied verbatim.
     sources: Vec<String>,
-    /// Namespace used for a source-namespace member whose name is absent from `routes`.
     fallback: String,
 }
 
@@ -38,20 +20,17 @@ impl Remapper {
         self
     }
 
-    /// Registers a namespace whose members are remapped. Members of any namespace not listed
-    /// here are copied without change.
+    /// Registers a namespace whose members are remapped.
     pub fn source(&mut self, namespace: &str) -> &mut Self {
         self.sources.push(namespace.to_string());
         self
     }
 
-    /// Sets the target namespace for a member whose name is missing from the route map.
     pub fn fallback(&mut self, namespace: &str) -> &mut Self {
         self.fallback = namespace.to_string();
         self
     }
 
-    /// Bulk-registers `name -> namespace` routes.
     pub fn routes<I, K, V>(&mut self, routes: I) -> &mut Self
     where
         I: IntoIterator<Item = (K, V)>,
@@ -84,8 +63,7 @@ impl Remapper {
         let index = reader::Index::new(files);
         let mut file = writer::File::new(name);
 
-        // Collect the flat `Apis` container(s) to split after the regular types. Every other
-        // type is written directly with its namespace and references remapped.
+        // Split source `Apis` containers after all regular types have been written.
         let mut apis: Vec<reader::TypeDef> = Vec::new();
         let mut types: Vec<reader::TypeDef> = index.types().collect();
         types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
@@ -112,8 +90,6 @@ impl Remapper {
             && self.sources.iter().any(|s| s == ty.namespace())
     }
 
-    /// Target namespace for a `(namespace, name)` reference. Only names in a source namespace are
-    /// remapped; anything else keeps its namespace.
     fn target(&self, namespace: &str, name: &str) -> String {
         if self.sources.iter().any(|s| s == namespace) {
             self.routes
@@ -164,9 +140,7 @@ impl Remapper {
             .unwrap_or_default()
     }
 
-    /// Writes a single (non-`Apis`) type into `namespace`-remapped form, mirroring the ordering
-    /// invariants of `merge::write_type` (a `TypeDef`'s fields and methods must be emitted
-    /// contiguously right after it).
+    /// Writes one non-`Apis` type while preserving ECMA-335 TypeDef field/method ranges.
     fn write_type(
         &self,
         file: &mut writer::File,
@@ -266,11 +240,8 @@ impl Remapper {
         }
     }
 
-    /// Splits the flat `Apis` container(s) into one `Apis` per target namespace. Each member
-    /// (constant field or function method) is routed by name; the per-namespace containers are
-    /// emitted so that each `TypeDef`'s fields and methods stay contiguous.
+    /// Splits flat `Apis` containers while preserving each TypeDef's contiguous member range.
     fn split_apis(&self, file: &mut writer::File, apis: &[reader::TypeDef]) {
-        // Route every member to a target namespace, preserving encounter order per namespace.
         let mut namespaces: Vec<String> = Vec::new();
         let mut fields: HashMap<String, Vec<reader::Field>> = HashMap::new();
         let mut methods: HashMap<String, Vec<reader::MethodDef>> = HashMap::new();
@@ -281,7 +252,6 @@ impl Remapper {
             }
         };
 
-        // A representative `Apis` type per namespace to copy flags/extends from.
         let template = apis.first().copied();
 
         for &container in apis {

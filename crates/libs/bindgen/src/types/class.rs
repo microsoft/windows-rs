@@ -70,10 +70,7 @@ impl Class {
             // (needed for static caching). Instance methods live on their interfaces.
             let mut method_names = MethodNames::new();
 
-            // In minimal mode, compose() is only needed when the class is being
-            // subclassed (aggregated), which requires --implement on one of its
-            // interfaces - including overridable interfaces declared via
-            // OverridableAttribute (e.g. IApplicationOverrides).
+            // Minimal mode emits `compose()` only for implemented/overridable interfaces.
             let needs_compose = config.implement.is_some_and(|imp| {
                 required_interfaces
                     .iter()
@@ -213,11 +210,7 @@ impl Class {
                     .iter()
                     .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
                     .filter(|ty| {
-                        // On a closure build the referenced type is only emitted if it
-                        // survived the closure (i.e. it has requested methods or was
-                        // pulled in by other means). This avoids referencing interfaces
-                        // that were pruned. A broad / package build includes everything,
-                        // so nothing is pruned.
+                        // Closure builds must not reference interfaces pruned from the closure.
                         if config.filter.uses_closure {
                             let tn = Type::Interface((*ty).clone()).type_name();
                             config.types.contains_key(&tn)

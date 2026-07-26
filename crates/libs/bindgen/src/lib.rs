@@ -130,10 +130,7 @@ impl Style {
         matches!(self, Self::Sys { extern_fns: true })
     }
 
-    // The predicates below name the individual code-generation policies that
-    // distinguish the styles, so call sites read by intent rather than
-    // re-deriving the same `is_minimal()` checks. See the "Output-mode
-    // consolidation" tracking note in `docs/crates/windows-bindgen.md`.
+    // Name style-specific codegen policies at the call sites.
 
     /// Whether to emit per-class wrapper methods. Minimal bindings omit them;
     /// callers reach the methods through the class's default interface instead.
@@ -182,11 +179,7 @@ impl Style {
         !self.is_sys()
     }
 
-    /// Whether **handle** structs are emitted as a bare `pub type X = <underlying>` alias rather
-    /// than a newtype wrapper. Both sys and minimal bindings collapse them; this is why their
-    /// handle constants also drop the `Self(value)` constructor (see `cpp_const`). (Unscoped enums
-    /// are collapsed to bare aliases in *every* style - that decision lives in `cpp_enum`, not
-    /// here.)
+    /// Whether handle structs are emitted as bare aliases rather than newtypes.
     fn emit_bare_typedef(self) -> bool {
         self.is_sys() || self.is_minimal()
     }
@@ -371,8 +364,7 @@ impl Bindgen {
     /// Generate the bindings.
     #[track_caller]
     pub fn write(&self) {
-        // Validate up front so we fail fast before any expensive plumbing
-        // (link string, input vec, references, reader, ...) runs.
+        // Validate before setting up reader and reference state.
         assert!(
             !self.output.is_empty(),
             "output is required (call `.output()` or pass `--out`)"
@@ -406,8 +398,7 @@ impl Bindgen {
         let mut references: Vec<ReferenceStage> = Vec::new();
 
         if !sys {
-            // Register implicit references to sibling windows-* crates for
-            // common WinRT / Win32 types present in the input metadata.
+            // Register implicit references to sibling windows-* crates present in metadata.
             for (probe_namespace, crate_name, paths) in [
                 (
                     "Windows.Foundation",
@@ -513,12 +504,7 @@ impl Bindgen {
 
             let mut filter = Filter::from_resolved(&reader, &resolved);
 
-            // Seed the bottom-up type closure (`TypeClosure`) whenever the filter
-            // has precise entries without broad patterns. This walks the signatures
-            // of requested methods to discover the required types, so referenced
-            // types are auto-included and requested methods stay callable in every
-            // style. A broad filter (namespace / glob) or `--package` layout instead
-            // takes the top-down namespace scan (`TypeMap::filter`).
+            // Precise filters use bottom-up closure; broad filters and packages scan top-down.
             let types = if !filter.has_broad_filter && !self.layout.is_package() {
                 filter.uses_closure = true;
                 TypeClosure::build(&reader, &mut filter, &references)
@@ -629,10 +615,7 @@ fn expand_input(input: &[&str]) -> Vec<File> {
     input
 }
 
-/// Computes the set of delegate TypeNames that are exclusively used as
-/// parameters in `add_*` SpecialName methods (i.e., event handlers). These
-/// delegates never need a public `new()` or `Invoke()` because the event-add
-/// wrapper inlines the DelegateBox construction directly.
+/// Finds delegates used only as event-handler parameters.
 fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<TypeName> {
     let mut event_delegates: HashSet<TypeName> = HashSet::new();
     let mut non_event_delegates: HashSet<TypeName> = HashSet::new();
@@ -674,13 +657,7 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
-/// Collapses a per-header `Windows.Win32.<stem>` namespace to its `Windows.Win32` umbrella; every
-/// other namespace is returned unchanged.
-///
-/// In `--package` output the flat Win32 surface (which carries every non-WinRT type, including the
-/// kernel-mode WDK headers) is glob-re-exported from the umbrella module and each per-header
-/// submodule is private, so a reference must resolve to the umbrella (never the header stem). Used
-/// when writing cross-type reference paths.
+/// Collapses private per-header Win32 package namespaces to the public umbrella.
 fn flat_module_namespace(namespace: &str) -> &str {
     const UMBRELLA: &str = "Windows.Win32";
     if namespace.len() > UMBRELLA.len()
@@ -693,11 +670,6 @@ fn flat_module_namespace(namespace: &str) -> &str {
 }
 
 /// Derives the cargo-feature name for a `--package` namespace.
-///
-/// Win32 namespaces are flat (`Windows.Win32.<header>`) with globally unique
-/// header stems, so the feature is just the stem - the `Win32_` prefix
-/// would be redundant. The `Win32` umbrella module and the hierarchical
-/// WinRT namespaces keep their full path (after `Windows.`) joined with `_`.
 fn namespace_feature(namespace: &str) -> String {
     if let Some(stem) = namespace.strip_prefix("Windows.Win32.") {
         stem.replace('.', "_")

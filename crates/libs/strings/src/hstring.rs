@@ -7,36 +7,34 @@ use core::ops::Deref;
 pub struct HSTRING(pub(crate) *mut HStringHeader);
 
 impl HSTRING {
-    /// Create an empty `HSTRING`.
-    ///
-    /// This function does not allocate memory.
+    /// Creates an empty `HSTRING` without allocating.
     pub const fn new() -> Self {
         Self(core::ptr::null_mut())
     }
 
-    /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
+    /// Creates an `HSTRING` from UTF-16 code units.
     pub fn from_wide(value: &[u16]) -> Self {
         unsafe { Self::from_wide_iter(value.iter().copied(), value.len()) }
     }
 
-    /// Get the contents of this `HSTRING` as a String lossily.
+    /// Converts the string to a lossy UTF-8 `String`.
     pub fn to_string_lossy(&self) -> String {
         String::from_utf16_lossy(self)
     }
 
-    /// Get the contents of this `HSTRING` as a OsString.
+    /// Converts the string to an `OsString`.
     #[cfg(all(feature = "std", windows))]
     pub fn to_os_string(&self) -> std::ffi::OsString {
         std::os::windows::ffi::OsStringExt::from_wide(self)
     }
 
-    /// Allow this string to be displayed.
+    /// Returns a display adapter for the string.
     pub fn display(&self) -> impl core::fmt::Display + '_ {
         Decode(move || core::char::decode_utf16(self.iter().copied()))
     }
 
     /// # Safety
-    /// len must not be less than the number of items in the iterator.
+    /// `len` must not be less than the number of items in `iter`.
     unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: usize) -> Self {
         if len == 0 {
             return Self::new();
@@ -44,8 +42,6 @@ impl HSTRING {
 
         let ptr = HStringHeader::alloc(len.try_into().unwrap());
 
-        // Place each utf-16 character into the buffer and
-        // increase len as we go along.
         for (index, wide) in iter.enumerate() {
             debug_assert!(index < len);
 
@@ -56,7 +52,6 @@ impl HSTRING {
         }
 
         unsafe {
-            // Write a 0 byte to the end of the buffer.
             (*ptr).data.offset((*ptr).len as isize).write(0);
         }
         Self(ptr)
@@ -74,8 +69,7 @@ impl Deref for HSTRING {
         if let Some(header) = self.as_header() {
             unsafe { core::slice::from_raw_parts(header.data, header.len as usize) }
         } else {
-            // This ensures that if `as_ptr` is called on the slice that the resulting pointer
-            // will still refer to a null-terminated string.
+            // Keep `as_ptr` on the empty slice null-terminated.
             const EMPTY: [u16; 1] = [0];
             &EMPTY[..0]
         }
@@ -101,8 +95,7 @@ impl Clone for HSTRING {
 impl Drop for HSTRING {
     fn drop(&mut self) {
         if let Some(header) = self.as_header() {
-            // HSTRING_REFERENCE_FLAG indicates a string backed by static or stack memory that is
-            // thus not reference-counted and does not need to be freed.
+            // Fast-pass strings are borrowed and not reference-counted.
             unsafe {
                 if header.flags & HSTRING_REFERENCE_FLAG == 0 && header.count.release() == 0 {
                     HStringHeader::free(self.0);

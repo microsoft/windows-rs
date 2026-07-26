@@ -2,19 +2,9 @@ use super::*;
 use std::collections::{HashMap, HashSet};
 use windows_metadata::AsRow;
 
-/// Write a struct/union type definition, emitting any anonymous nested types
-/// inline at the field that references them.
-///
-/// Returns a list of `(name, tokens)` pairs. The top-level type is always
-/// present. Nested types that are referenced *directly* by a field (the common
-/// C anonymous-member case) are emitted inline within it; any nested type that
-/// is instead referenced through an array/pointer (or not referenced at all) is
-/// hoisted to a flat top-level sibling using the `windows-bindgen` naming scheme
-/// (`OUTER_0`, `OUTER_0_0`, ...) and appears as an additional entry in the list.
 pub fn write_struct_items(
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
-    // Nested types are only emitted as part of their enclosing type.
     if item
         .flags()
         .contains(metadata::TypeAttributes::NestedPublic)
@@ -36,17 +26,6 @@ pub fn write_struct_items(
     Ok(hoisted)
 }
 
-/// Recursively write a struct/union.
-///
-/// When `inline` is `true` the record is written as an anonymous inline nested
-/// type (no name, keyword-first) suitable for use at a field's type position;
-/// otherwise it is written as a named top-level type.
-///
-/// `parent_arches`/`parent_packing` carry the effective architecture and packing
-/// inherited from enclosing types so that any *hoisted* (array/pointer-wrapped)
-/// nested helper gets the correct `#[arch]`/`#[packed]` even when it has none of
-/// its own. Directly-inlined nested types instead carry their own attributes,
-/// which round-trip 1:1 through the reader.
 fn write_record(
     namespace: &str,
     item: &metadata::reader::TypeDef,
@@ -57,7 +36,6 @@ fn write_record(
 ) -> Result<TokenStream, Error> {
     let nested: Vec<metadata::reader::TypeDef> = item.index().nested(*item).collect();
 
-    // The leaf names referenced *directly* (bare) by a field - these are inlined.
     let bare: HashSet<String> = item
         .fields()
         .filter_map(|field| match field.ty() {
@@ -68,9 +46,7 @@ fn write_record(
         })
         .collect();
 
-    // Hoist any nested type that is not consumed by a bare field reference. Its
-    // index in the parent's nested-class list drives the flat name, matching the
-    // scheme used elsewhere so wrapped references resolve.
+    // Non-bare nested references must be hoisted to flat helper names.
     let mut flat_names: HashMap<String, String> = HashMap::new();
     for (index, child) in nested.iter().enumerate() {
         if bare.contains(child.name()) {
@@ -90,7 +66,6 @@ fn write_record(
         )?;
     }
 
-    // Nested children consumed inline, keyed by leaf name.
     let inline_map: HashMap<String, metadata::reader::TypeDef> = nested
         .iter()
         .filter(|child| bare.contains(child.name()))
@@ -126,9 +101,7 @@ fn write_record(
     let keyword = struct_keyword(item);
     let packed_attr = write_packed_attr(item);
     let align_attr = write_align_attr(item);
-    // A nested type's architecture is always that of its enclosing type - it cannot
-    // diverge - so the `#[arch]` is redundant noise on an inline nested record and is
-    // emitted only on top-level types. The reader re-derives it from the parent.
+    // Inline nested records inherit the parent's architecture.
     let arch_attr = if inline {
         quote! {}
     } else {
@@ -162,10 +135,6 @@ fn write_record(
     }
 }
 
-/// Recursively hoist a nested type (and all of its descendants) to flat
-/// top-level siblings, using `windows-bindgen`'s numeric-suffix naming scheme.
-/// This is the fallback path for nested types that cannot be inlined because
-/// they are referenced through an array/pointer.
 fn hoist_subtree(
     namespace: &str,
     node: &metadata::reader::TypeDef,
@@ -174,8 +143,7 @@ fn hoist_subtree(
     packing: Option<u16>,
     hoisted: &mut Vec<(String, TokenStream)>,
 ) -> Result<(), Error> {
-    // Hoist descendants first so leaves precede their parents, collecting the
-    // flat names used to rewrite this node's fields.
+    // Hoist descendants first so this node can rewrite references to them.
     let mut child_flat_names: HashMap<String, String> = HashMap::new();
     for (index, child) in node.index().nested(*node).enumerate() {
         let child_flat = format!("{flat_name}_{index}");
@@ -215,15 +183,12 @@ fn hoist_subtree(
     Ok(())
 }
 
-/// The non-zero packing size of a type's `ClassLayout`, if any.
 fn packing_of(item: &metadata::reader::TypeDef) -> Option<u16> {
     item.class_layout()
         .map(|l| l.packing_size())
         .filter(|&s| s > 0)
 }
 
-/// Write a single struct/union field, replacing any reference to a hoisted
-/// nested type with the corresponding flat name from `flat_names`.
 fn write_field_flat(
     namespace: &str,
     item: &metadata::reader::Field,
@@ -233,10 +198,7 @@ fn write_field_flat(
     let resolved_ty = resolve_nested(&item.ty(), namespace, flat_names);
     let ty = write_type(namespace, &resolved_ty);
 
-    // A backing bit-field unit renders in the concise C-like block form
-    // (`_bitfield: u8 { a: 1, b: 2 }`) rather than as a plain field carrying
-    // per-member `NativeBitfieldAttribute`s. Any *other* attributes on the field
-    // (rare) still render normally.
+    // Bit-field backing units render as C-like blocks instead of raw attributes.
     let members = collect_bitfield_members(item);
     if !members.is_empty() {
         let block = write_bitfield_block(&members);
@@ -253,8 +215,6 @@ fn write_field_flat(
     Ok(quote! { #(#field_attrs)* #name: #ty, })
 }
 
-/// Collects this field's `NativeBitfieldAttribute` members as `(name, offset, width)`,
-/// sorted by offset. Empty when the field is not a bit-field backing unit.
 fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32, u32)> {
     let mut members: Vec<(String, u32, u32)> = item
         .attributes()
@@ -278,9 +238,6 @@ fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32,
     members
 }
 
-/// Renders the members of a bit-field block, inserting anonymous padding (`_: n`)
-/// for any leading or interior gap so the reader recomputes each member's implicit
-/// offset (the cumulative width of the preceding members).
 fn write_bitfield_block(members: &[(String, u32, u32)]) -> Vec<TokenStream> {
     let mut out = vec![];
     let mut cursor = 0u32;
@@ -297,9 +254,6 @@ fn write_bitfield_block(members: &[(String, u32, u32)]) -> Vec<TokenStream> {
     out
 }
 
-/// Recursively replace nested-type references inside `ty` with their flat
-/// equivalents.  Any type whose name does not appear in `flat_names` is left
-/// unchanged (it is a regular, already-flat reference).
 fn resolve_nested(
     ty: &metadata::Type,
     namespace: &str,
@@ -340,14 +294,10 @@ fn struct_keyword(item: &metadata::reader::TypeDef) -> TokenStream {
     }
 }
 
-/// Emits a `#[packed(N)]` token stream if the type has a `ClassLayout` with a
-/// non-zero packing size, otherwise returns an empty token stream.
 fn write_packed_attr(item: &metadata::reader::TypeDef) -> TokenStream {
     write_packed_attr_value(packing_of(item))
 }
 
-/// Emits a `#[packed(N)]` token stream for the given packing size, or an empty
-/// token stream when `packing` is `None`.
 fn write_packed_attr_value(packing: Option<u16>) -> TokenStream {
     if let Some(size) = packing {
         let size_literal = Literal::u16_unsuffixed(size);
@@ -356,11 +306,6 @@ fn write_packed_attr_value(packing: Option<u16>) -> TokenStream {
     quote! {}
 }
 
-/// Emits an `#[align(N)]` token stream if the type carries an
-/// `AlignmentAttribute` (forced over-alignment from `__declspec(align(N))` /
-/// `alignas(N)`), otherwise returns an empty token stream. Unlike packing,
-/// forced alignment is *not* inherited by nested helper types - each type
-/// carries its own attribute.
 fn write_align_attr(item: &metadata::reader::TypeDef) -> TokenStream {
     let Some(attribute) = item.find_attribute("AlignmentAttribute") else {
         return quote! {};

@@ -41,18 +41,14 @@ impl Layout {
         }
     }
 
-    /// Returns true if this layout and all of its nested modules contain only winrt items.
     fn is_all_winrt(&self) -> bool {
         self.win32.is_empty() && self.modules.values().all(|m| m.is_all_winrt())
     }
 
-    /// Returns true if this layout and all of its nested modules contain only win32 items.
     fn is_all_win32(&self) -> bool {
         self.winrt.is_empty() && self.modules.values().all(|m| m.is_all_win32())
     }
 
-    /// Render this module as a plain `mod` block, without a kind attribute, for use inside an
-    /// already-annotated parent (`#[winrt]` or `#[win32]`).
     fn to_module_plain(&self, name: &str) -> String {
         let has_content =
             !self.modules.is_empty() || !self.winrt.is_empty() || !self.win32.is_empty();

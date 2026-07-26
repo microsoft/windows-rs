@@ -126,8 +126,7 @@ impl ImplicitTransitions {
     }
 }
 
-/// Implicit transitions applied to layout-managed properties of an
-/// element (offset/size). Fed to the backend via `set_layout_animation`.
+/// Implicit transitions for layout-managed properties.
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LayoutAnimationConfig {
     pub duration: Duration,
@@ -177,8 +176,7 @@ impl LayoutAnimationConfig {
     }
 }
 
-/// One-shot property animation (opacity / scale / ...) driven by
-/// `Backend::run_property_animation`.
+/// One-shot property animation.
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct AnimationConfig {
     pub opacity: Option<f64>,
@@ -226,8 +224,7 @@ pub enum Easing {
     EaseInOut,
 }
 
-/// Combined animation block stored on [`Modifiers`]`.animations`. All
-/// fields are optional and applied independently by the backend.
+/// Optional animation modifiers applied independently by the backend.
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct AnimationModifiers {
     pub implicit_transitions: Option<ImplicitTransitions>,
@@ -249,8 +246,6 @@ impl AnimationModifiers {
     }
 }
 
-/// Effective color scheme reported by
-/// [`RenderCx::use_color_scheme`].
 #[derive(Copy, Clone, Debug, Default, Hash, PartialEq, Eq)]
 pub enum ColorScheme {
     #[default]
@@ -262,19 +257,15 @@ thread_local! {
     static CURRENT_COLOR_SCHEME: Cell<ColorScheme> = const { Cell::new(ColorScheme::Light) };
 }
 
-/// Read the host's last-known [`ColorScheme`] for the current UI thread.
 pub fn current_color_scheme() -> ColorScheme {
     CURRENT_COLOR_SCHEME.with(|c| c.get())
 }
 
-/// Update the per-thread [`ColorScheme`]; called by the host on
-/// `ActualThemeChanged` (and once during initial attach).
 pub fn set_current_color_scheme(scheme: ColorScheme) {
     CURRENT_COLOR_SCHEME.with(|c| c.set(scheme));
 }
 
-/// Symbolic reference to a WinUI XAML theme resource (resolved at apply
-/// time so the binding tracks light/dark switches).
+/// Symbolic reference to a WinUI XAML theme resource.
 #[derive(Clone, Debug, Hash, PartialEq, Eq)]
 pub enum ThemeRef {
     Accent,
@@ -370,8 +361,7 @@ impl ThemeRef {
     }
 }
 
-/// Brush slot that can be either a literal [`Color`]
-/// or a [`ThemeRef`]; used for `background` / `foreground` modifiers.
+/// Brush slot backed by a literal [`Color`] or a [`ThemeRef`].
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub enum BrushBinding {
     Direct(Color),
@@ -455,9 +445,7 @@ pub mod tokens {
     pub const SystemSolidNeutral: ThemeRef = ThemeRef::SystemSolidNeutral;
 }
 
-/// Visual modifiers shared by every widget; carried on each element struct
-/// and applied uniformly via `FrameworkElement`-level setters at the
-/// backend.
+/// Visual modifiers shared by every widget.
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct Modifiers {
     pub margin: Option<Thickness>,
@@ -484,8 +472,7 @@ pub struct Modifiers {
     pub pointer_handlers: Option<Box<PointerHandlers>>,
     pub allow_drop: Option<bool>,
     pub drag_handlers: Option<Box<DragHandlers>>,
-    /// Fast-path for grid row/column placement - avoids the `AttachedProps`
-    /// HashMap + Box + thread_local overhead for the most common attached prop.
+    /// Fast path for grid row/column placement.
     pub grid: Option<GridPlacement>,
     pub resources: HashMap<String, String>,
 }
@@ -524,8 +511,7 @@ impl Modifiers {
     }
 }
 
-/// Type-erased bag of attached properties (e.g. [`GridPlacement`]) keyed
-/// by [`TypeId`]; values must be inserted via [`AttachedProps::set`].
+/// Type-erased bag of attached properties keyed by [`TypeId`].
 #[derive(Default, Debug)]
 pub struct AttachedProps(FxHashMap<TypeId, Box<dyn AttachedValue>>);
 
@@ -589,8 +575,6 @@ impl Default for GridPlacement {
     }
 }
 
-/// Trait object carrying clone/eq in its vtable so `AttachedProps` doesn't
-/// need a separate type-registry thread-local.
 trait AttachedValue: Any {
     fn clone_box(&self) -> Box<dyn AttachedValue>;
     fn eq_box(&self, other: &dyn Any) -> bool;
@@ -615,10 +599,7 @@ impl std::fmt::Debug for dyn AttachedValue {
     }
 }
 
-// --- Pointer event handlers ---
-
-/// Bundle of per-element pointer / tap callbacks; each slot is
-/// individually optional.
+/// Bundle of optional per-element pointer callbacks.
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct PointerHandlers {
     pub on_tapped: Option<Callback<()>>,
@@ -642,11 +623,7 @@ impl PointerHandlers {
     }
 }
 
-/// Pointer state captured at a pointer callback (`PointerPressed`,
-/// `PointerReleased`, `PointerMoved`, or `PointerEntered`). `x`/`y` are the
-/// pointer position in DIPs, relative to the top-left of the element the
-/// handler is attached to. Non-mouse pointer kinds report all three button
-/// flags as `false`.
+/// Pointer callback state, with `x`/`y` in DIPs relative to the element.
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PointerEventInfo {
     pub x: f64,
@@ -656,10 +633,7 @@ pub struct PointerEventInfo {
     pub is_middle_button_pressed: bool,
 }
 
-// --- Accessibility ---
-
-/// UI Automation properties applied to every widget kind via
-/// [`Modifiers::accessibility`].
+/// UI Automation properties applied via [`Modifiers::accessibility`].
 #[derive(Clone, Default, Debug, PartialEq, Eq)]
 pub struct AccessibilityModifiers {
     pub automation_name: Option<String>,
@@ -679,10 +653,7 @@ impl AccessibilityModifiers {
     }
 }
 
-// --- Tooltip ---
-
-/// Tooltip configuration applied via WinUI `ToolTipService`. Build from
-/// a plain string or `Tooltip::rich(element)` for templated content.
+/// Tooltip configuration applied through WinUI `ToolTipService`.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Tooltip {
     pub content: TooltipContent,
@@ -690,8 +661,7 @@ pub struct Tooltip {
 }
 
 impl Tooltip {
-    /// Plain-text tooltip; WinUI wraps the string in a default
-    /// `ToolTip` `TextBlock`.
+    /// Plain-text tooltip.
     pub fn text(s: impl Into<String>) -> Self {
         Self {
             content: TooltipContent::Text(s.into()),
@@ -699,8 +669,7 @@ impl Tooltip {
         }
     }
 
-    /// Rich tooltip; `element` is mounted as the `Content` of a
-    /// `ToolTip` instance at apply time.
+    /// Rich tooltip content.
     pub fn rich(element: impl Into<Element>) -> Self {
         Self {
             content: TooltipContent::Rich(Box::new(element.into())),
@@ -720,14 +689,12 @@ impl<S: Into<String>> From<S> for Tooltip {
     }
 }
 
-/// Tooltip payload: a plain string or a templated child element.
 #[derive(Clone, Debug, PartialEq)]
 pub enum TooltipContent {
     Text(String),
     Rich(Box<Element>),
 }
 
-/// Rust mirror of `Microsoft.UI.Xaml.Controls.Primitives.PlacementMode`.
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum TooltipPlacement {
     Top,

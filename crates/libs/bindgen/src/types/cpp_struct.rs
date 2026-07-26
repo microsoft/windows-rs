@@ -57,12 +57,7 @@ impl CppStruct {
         fields.next().is_none()
     }
 
-    // A `typedef void X;` is represented in metadata as a single-field `Value: void`
-    // struct. A C struct can never have a bare `void` field, so this shape is
-    // unambiguously a void typedef (possibly chained through another void typedef,
-    // e.g. `MENUTEMPLATE -> MENUTEMPLATEA -> void`). It is only ever used behind a
-    // pointer, so it is rendered as a plain alias rather than a struct (which could
-    // not derive `Copy`/`Default`).
+    // Single-field `Value: void` structs are typedef-void aliases, not real C structs.
     pub fn is_void_typedef(&self, reader: &Reader) -> bool {
         let mut fields = self.def.fields();
 
@@ -89,12 +84,7 @@ impl CppStruct {
         write_simple_cfg(self, config)
     }
 
-    // A `typedef Y X;` whose target `Y` is a named struct or interface - e.g.
-    // `typedef GUID IID;` or `typedef IUnknown *LPUNKNOWN;` - is represented in
-    // metadata as a single-field `Value: Y` struct carrying `NativeTypedefAttribute`.
-    // Primitive- and void-typed typedefs are already collapsed by `is_handle` and
-    // `is_void_typedef`; this covers the remaining non-primitive case, which must
-    // render as a transparent alias rather than a (broken) wrapper struct.
+    // Native typedefs over named types render as transparent aliases, not wrapper structs.
     pub fn is_native_typedef(&self) -> bool {
         if self.def.find_attribute("NativeTypedefAttribute").is_none() {
             return false;
@@ -109,9 +99,7 @@ impl CppStruct {
         field.name() == "Value" && fields.next().is_none()
     }
 
-    // A native typedef whose underlying type is (possibly through a chain of further
-    // native typedefs) a fixed-size array - e.g. `WINBIO_STRING = [u16; 256]`. Such an
-    // alias has no `Default` impl, so a struct field of this type cannot derive it.
+    // Native typedef chains to fixed arrays prevent deriving `Default`.
     fn resolves_to_fixed_array(&self, reader: &Reader) -> bool {
         if !self.is_native_typedef() {
             return false;
@@ -130,9 +118,7 @@ impl CppStruct {
         }
     }
 
-    // A native typedef whose underlying type is (possibly through a chain of further
-    // native typedefs) a pointer - e.g. `LPCTSTR = PCSTR = *const u8`. Such an alias
-    // has no `Default` impl, so a struct field of this type cannot derive it.
+    // Native typedef chains to pointers prevent deriving `Default` in sys mode.
     fn resolves_to_pointer(&self, reader: &Reader) -> bool {
         if !self.is_native_typedef() {
             return false;
@@ -410,11 +396,7 @@ impl CppStruct {
                         }
                     }
 
-                    // A scoped C++ enum projects to a newtype that does not derive
-                    // `Default` in sys mode (matching the published `windows-sys`), so a
-                    // struct embedding one cannot derive `Default` either; fall back to
-                    // the zeroed impl. Non-scoped enums are bare integer typedefs and
-                    // remain fine.
+                    // Scoped C++ enums do not derive `Default` in sys mode, so containing structs cannot.
                     if let Type::CppEnum(inner) = &ty {
                         if inner.def.has_attribute("ScopedEnumAttribute") {
                             return true;
@@ -474,9 +456,7 @@ impl CppStruct {
                 .any(|ty| ty.has_packing(reader))
     }
 
-    // Returns all possible struct field types including arch-specific overloads.
-    // This avoids skipping arch-specific definitions of structs that may have
-    // different layout or packing requirements.
+    // Include arch-specific overloads when checking layout and packing.
     fn multi_struct_fields<'a>(&'a self, reader: &'a Reader) -> impl Iterator<Item = Self> + 'a {
         self.def
             .fields()
@@ -531,17 +511,12 @@ impl CppStruct {
             .max()
             .unwrap_or(1);
 
-        // Forced over-alignment (`__declspec(align(N))`) can raise the type's
-        // alignment above what its fields imply, so it must win when larger.
+        // Forced over-alignment can exceed the field-derived alignment.
         self.forced_align()
             .map_or(derived, |forced| forced.max(derived))
     }
 
-    /// The forced over-alignment in bytes recorded by `[AlignmentAttribute(N)]`
-    /// (from `__declspec(align(N))` / `alignas(N)`), or `None` when the type uses
-    /// its natural field alignment. The winmd `ClassLayout` can only lower
-    /// alignment via its packing size, so raised alignment is carried by this
-    /// custom attribute instead.
+    /// Forced over-alignment in bytes from `[AlignmentAttribute(N)]`, if present.
     pub fn forced_align(&self) -> Option<usize> {
         match self
             .def
@@ -554,14 +529,7 @@ impl CppStruct {
         }
     }
 
-    /// Generates typed get/set accessors for any field that carries
-    /// `NativeBitfieldAttribute` records (a `_bitfield*` backing integer produced
-    /// by coalescing C bit-fields). Each attribute contributes one logical member
-    /// `(name, offset, length)`; a width-1 member projects as `bool`, wider members
-    /// project as the backing field's own integer type (sign-extended on read when
-    /// that type is signed). The raw `_bitfield*` field is left public and untouched,
-    /// so blitting and manual masking keep working. Emitted only for the ergonomic
-    /// (non-`sys`) projection.
+    /// Generates typed accessors for coalesced C bit-fields in non-sys projections.
     fn write_bitfield_accessors(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
         if config.bindgen.style.is_sys() {
             return quote! {};
@@ -620,10 +588,7 @@ impl CppStruct {
     }
 }
 
-/// The integer type backing a coalesced bit-field, resolved to the tokens bindgen
-/// needs to emit accessors: the field's own (possibly signed) primitive, its
-/// unsigned counterpart (used for masking so signed backings never overflow a mask
-/// literal), the bit width, and whether it is signed.
+/// Integer type backing a coalesced bit-field.
 struct BitfieldBacking {
     prim: TokenStream,
     uprim: TokenStream,
@@ -652,10 +617,7 @@ impl BitfieldBacking {
         })
     }
 
-    /// Emits the `get`/`set` pair for one logical member at `offset` (bits from the
-    /// low end of the backing field) with `width` bits. Identity shifts (`<< 0` /
-    /// `>> 0`) are elided so the output stays clean and clippy's `identity_op` lint
-    /// is satisfied.
+    /// Emits the get/set pair for one logical bit-field member.
     fn write_accessor(
         &self,
         field: &TokenStream,
@@ -691,10 +653,7 @@ impl BitfieldBacking {
             };
         }
 
-        // Multi-bit read: shift the member's top bit to the backing type's sign
-        // position, then shift back down. A signed backing uses an arithmetic right
-        // shift (sign-extending); an unsigned backing a logical shift (zero-extending).
-        // Both isolate exactly the member's bits.
+        // Signed backings use arithmetic shifts to sign-extend the isolated member bits.
         let hi = self.bits - offset - width;
         let lo = self.bits - width;
         let get_body = match (hi, lo) {
@@ -717,10 +676,7 @@ impl BitfieldBacking {
         };
         let mask = Literal::u64_unsuffixed(mask_val);
 
-        // The clear mask (`!(mask << offset)`) and the shifted value are computed in
-        // the unsigned counterpart for a signed backing, so the mask literal never
-        // overflows; the identity casts are elided for unsigned backings to keep
-        // clippy's `unnecessary_cast` happy.
+        // Signed backings use unsigned masks so literals never overflow.
         let clear = if offset == 0 {
             quote! { !#mask }
         } else {

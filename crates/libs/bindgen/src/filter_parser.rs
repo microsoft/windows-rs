@@ -1,28 +1,11 @@
 use super::*;
 
-/// Filter entry parser - Rust `use`-style path syntax.
-///
-/// Grammar:
-/// ```text
-/// entry   = ["!"] tree
-/// tree    = segment { "::" segment }
-/// segment = "{" [ tree { "," tree } ] "}" | ident
-/// ident   = [A-Za-z0-9_]+
-/// ```
-///
-/// Specificity drives granularity (inspired by Rust's `use`): a bare mention
-/// (`Ns::Type`) includes the whole type; `Ns::Type::{}` is a name-only shell;
-/// `Ns::Type::{a, b}` includes only the named methods.
-///
-/// Flattens grouped paths into a list of fully-qualified entries:
-///   `A::B::{C, D::E}` -> `["A::B::C", "A::B::D::E"]`
-///
-/// A parsed filter entry after flattening.
+/// Parsed Rust-use-style filter entry after flattening grouped paths.
 #[derive(Debug, Clone)]
 pub struct FilterEntry {
     /// True for `!` (exclusion) entries.
     pub exclude: bool,
-    /// Flattened path segments: ["Windows", "Win32", "Graphics", "Dxgi", "IDXGIDevice", "GetAdapter"]
+    /// Flattened path segments.
     pub segments: Vec<String>,
 }
 
@@ -34,14 +17,14 @@ pub fn parse_filter_entry(input: &str) -> Vec<FilterEntry> {
         return Vec::new();
     }
 
-    // Strip prefixes
+    // Strip exclusion prefix.
     let (exclude, rest) = if let Some(rest) = input.strip_prefix('!') {
         (true, rest.trim_start())
     } else {
         (false, input)
     };
 
-    // Parse the path tree and flatten
+    // Parse and flatten grouped paths.
     let paths = parse_tree(rest);
 
     paths
@@ -58,7 +41,7 @@ fn parse_tree(input: &str) -> Vec<Vec<String>> {
     for part in parts {
         let part = part.trim();
         if part.starts_with('{') && part.ends_with('}') {
-            // Group: expand combinatorially
+            // Expand grouped branches.
             let inner = &part[1..part.len() - 1];
             let branches = split_group(inner);
             let mut expanded = Vec::new();
@@ -74,8 +57,7 @@ fn parse_tree(input: &str) -> Vec<Vec<String>> {
             }
             result = expanded;
         } else {
-            // Simple segment: append to all current paths.
-            // If it contains dots, split further (legacy dot-path compat).
+            // Keep legacy dotted paths compatible with the `::` grammar.
             if part.contains('.') {
                 for dot_part in part.split('.') {
                     for path in &mut result {
@@ -173,18 +155,7 @@ pub enum ResolvedKind {
     },
 }
 
-/// Resolve parsed filter entries against the metadata reader.
-///
-/// Each `FilterEntry` is resolved by joining segments with `.` to find the
-/// longest namespace match, then checking if the next segment is a type, and
-/// remaining segments are members (methods/variants).
-///
-/// Special cases:
-/// - `Ns::Type::{}` (empty group) means a name-only shell (no members)
-/// - A single bare ident (no `::`) is searched across all namespaces
-///
-/// A bare namespace (e.g. `Windows` or `Windows::Foundation`) is recursive: it
-/// matches that namespace and every namespace nested beneath it.
+/// Resolve parsed entries to namespaces, types, or member filters.
 pub fn resolve_entries(reader: &Reader, entries: &[FilterEntry]) -> Vec<ResolvedFilter> {
     let mut resolved = Vec::new();
 
@@ -206,10 +177,10 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         kind,
     };
 
-    // Single segment: bare name (e.g. "CloseHandle") - search all namespaces
+    // Bare names are searched across namespaces.
     if segments.len() == 1 {
         let name = &segments[0];
-        // Search all namespaces for this name
+
         let mut found = false;
         let mut results = Vec::new();
         for (namespace, types) in reader.iter() {
@@ -222,7 +193,7 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
             }
         }
         if !found {
-            // Maybe it's a namespace (exact or prefix)?
+            // Fall back to namespace or namespace-prefix matching.
             if reader.contains_key(name.as_str())
                 || reader
                     .keys()
@@ -236,8 +207,7 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         return results;
     }
 
-    // Try progressively longer namespace prefixes.
-    // Join segments with "." and check reader.
+    // Prefer the longest namespace prefix.
     for split in (1..segments.len()).rev() {
         let ns_candidate = segments[..split].join(".");
         let rest = &segments[split..];
@@ -246,7 +216,6 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
             continue;
         }
 
-        // Found namespace. Next segment should be a type.
         let type_seg = &rest[0];
 
         assert!(
@@ -256,10 +225,8 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
             segments.join("::")
         );
 
-        // Look up the type
         let ns_map = reader.get(ns_candidate.as_str());
         if ns_map.is_none() || ns_map.unwrap().get(type_seg.as_str()).is_none() {
-            // Type not found in this namespace - try shorter namespace
             continue;
         }
 
@@ -267,12 +234,10 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         let name = type_seg.clone();
 
         if rest.len() == 1 {
-            // Just a type, no members
             return vec![base(ResolvedKind::Type { namespace, name })];
         }
 
-        // Remaining segments are members; an empty group (`::{}`) leaves a lone
-        // empty segment and means a name-only shell.
+        // `::{}` leaves a lone empty member segment, meaning a name-only shell.
         let members = collect_members(&rest[1..], segments);
         return vec![base(ResolvedKind::Members {
             namespace,
@@ -281,13 +246,12 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         })];
     }
 
-    // If nothing matched as namespace + type, try as a namespace path
+    // Then try the whole path as a namespace.
     let full_path = segments.join(".");
     if reader.contains_key(full_path.as_str()) {
         return vec![base(ResolvedKind::Namespace(full_path))];
     }
 
-    // Check if it's a namespace prefix
     if reader
         .keys()
         .any(|ns| namespace_starts_with(ns, &full_path))
@@ -295,11 +259,7 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         return vec![base(ResolvedKind::Namespace(full_path))];
     }
 
-    // Bare type with members: no namespace prefix matched, so treat the first
-    // segment as a type searched across all namespaces and the rest as members.
-    // This lets `--flat` filters drop namespaces entirely (e.g. `IAgileReference::Resolve`
-    // instead of `Windows::Win32::System::WinRT::IAgileReference::Resolve`), resolving
-    // identically against both namespaced and flat metadata.
+    // Bare member filters support flat-style `Type::Method` entries.
     let type_name = &segments[0];
     let members = collect_members(&segments[1..], segments);
     let mut results = Vec::new();

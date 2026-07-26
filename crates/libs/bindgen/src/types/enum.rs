@@ -1,9 +1,6 @@
 use super::*;
 
-// The literal-variant constants of an enum (`pub const X: Self = Self(value);`),
-// honoring any per-variant filter (`Enum::{A, B}`). Identical for WinRT (`Enum`) and
-// Win32/COM (`CppEnum`) enums; the callers differ only in how they wrap the result in an
-// `impl` block.
+// Literal-variant constants for WinRT and scoped C++ enums.
 pub fn write_enum_constants(def: TypeDef, config: &Config) -> Vec<TokenStream> {
     let tn = def.type_name();
     def.fields()
@@ -27,10 +24,7 @@ pub fn write_enum_constants(def: TypeDef, config: &Config) -> Vec<TokenStream> {
         .collect()
 }
 
-// The bitwise-operator impls shared by flag enums (`BitOr`/`BitAnd`/`BitOrAssign`/
-// `BitAndAssign`/`Not` plus `contains`). The guard deciding *whether* to emit differs
-// between generators (WinRT keys on a `u32` underlying type, COM on `FlagsAttribute`),
-// so the callers gate the call; the emitted tokens are identical.
+// Bitwise-operator impls shared by flag enums.
 pub fn write_enum_flags(name: &TokenStream) -> TokenStream {
     quote! {
         impl #name {

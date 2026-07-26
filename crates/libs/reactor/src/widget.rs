@@ -13,12 +13,7 @@ pub enum Binding {
 
 pub type PropBindings = Vec<Binding>;
 
-/// Converts a widget struct field to an optional `PropValue::Str`.
-///
-/// Generated binding code calls `w.field.to_prop_str()` for TextBlock
-/// and IReference setters. The trait lets the same generated code work
-/// whether the field is `String` (always `Some`) or `Option<String>`
-/// (mirrors the Option).
+/// Converts a widget string field to an optional `PropValue::Str`.
 pub trait ToPropStr {
     fn to_prop_str(&self) -> Option<PropValue>;
 }
@@ -198,13 +193,7 @@ pub trait Widget {
     fn on_mounted_callback(&self) -> Option<&Callback<Option<windows_core::IInspectable>>> {
         None
     }
-    /// Optional pre-unmount callback. When present, the reconciler invokes it
-    /// just before the control is destroyed, while the control still exists,
-    /// with the native element (`IInspectable`), or `None` if the backend
-    /// exposes no native element. Owners use this to tear down external
-    /// resources bound to the control (e.g. join a render thread that presents
-    /// into the control's swap chain) - teardown runs regardless of whether a
-    /// native element is present.
+    /// Optional pre-unmount callback, before native control destruction.
     fn on_unmounted_callback(&self) -> Option<&Callback<Option<windows_core::IInspectable>>> {
         None
     }
@@ -315,10 +304,7 @@ pub struct TemplatedListElement {
     pub allow_drop: bool,
     pub modifiers: Modifiers,
     pub items_impl: Rc<dyn TemplatedListImpl>,
-    /// Invoked after a drag-reorder completes, with the new order expressed
-    /// as the permutation of original item indices (position `i` holds the
-    /// original index now shown there). Apps use it to reorder their own
-    /// data so the change survives the next render.
+    /// Drag-reorder callback: position `i` holds the original index now shown there.
     pub on_reorder: Option<Callback<Vec<usize>>>,
 }
 
@@ -496,11 +482,7 @@ impl<T: 'static> TemplatedListBuilder<T> {
         self
     }
 
-    /// Handle drag-reorder completion. The callback receives the new order as
-    /// the permutation of original item indices (position `i` holds the
-    /// original index now displayed there). Reorder the backing data
-    /// accordingly and re-render so the change persists. Typically paired with
-    /// `can_drag_items(true)`, `can_reorder_items(true)`, and `allow_drop(true)`.
+    /// Handles drag-reorder completion with a permutation of original item indices.
     pub fn on_reorder(mut self, cb: impl IntoCallback<Vec<usize>>) -> Self {
         self.on_reorder = Some(cb.into_callback());
         self

@@ -100,11 +100,7 @@ impl DownloadInterruptReason {
     }
 }
 
-/// An in-progress or finished download, obtained from a
-/// [`DownloadStartingArgs`]. Query its [`state`](Self::state) and byte counts to
-/// track progress, subscribe with [`on_bytes_received_changed`](Self::on_bytes_received_changed)
-/// or [`on_state_changed`](Self::on_state_changed), and control it with
-/// [`cancel`](Self::cancel), [`pause`](Self::pause), and [`resume`](Self::resume).
+/// An in-progress or finished download.
 #[derive(Clone)]
 pub struct DownloadOperation(pub(crate) ICoreWebView2DownloadOperation);
 
@@ -194,11 +190,7 @@ impl DownloadOperation {
     }
 }
 
-/// Details about a download that is about to start, delivered to a
-/// [`WebView::on_download_starting`] handler. Inspect or control it via the
-/// [`DownloadOperation`], change where it is saved with
-/// [`set_result_file_path`](Self::set_result_file_path), or
-/// [cancel](Self::set_cancel) it.
+/// Details about a download that is about to start.
 pub struct DownloadStartingArgs(pub(crate) ICoreWebView2DownloadStartingEventArgs);
 
 impl DownloadStartingArgs {

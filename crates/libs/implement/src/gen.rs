@@ -257,11 +257,8 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
         impl #generics ::windows_core::ComObjectInner for #original_ident::#generics_idents where #constraints {
             type Outer = #impl_ident::#generics_idents;
 
-            // Assembles the boxed COM object. Move the value into a heap allocation and return
-            // only a `ComObject` reference, never an owned `Foo_Impl`: exposing an owned
-            // `Foo_Impl` to safe code would be unsound because of the reference-count
-            // adjustments it performs.
-
+            // Safe code must get only a `ComObject`, never an owned `Foo_Impl` with direct
+            // reference-count controls.
             fn into_object(self) -> ::windows_core::ComObject<Self> {
                 let boxed = ::windows_core::imp::box_new(self.into_outer());
                 unsafe {
@@ -277,9 +274,7 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
 
 /// Generates `Compose`, letting `Foo` back a composable WinRT runtime class.
 ///
-/// Returns an `IInspectable` for the new implementation plus a mutable reference to its
-/// `base` field (offset 0, just before `identity`); the composable factory writes the
-/// inner non-delegating `IInspectable` back through that reference.
+/// The factory writes the inner non-delegating `IInspectable` into the returned `base` slot.
 fn gen_impl_compose(inputs: &ImplementInputs) -> syn::Item {
     let original_ident = &inputs.original_type.ident;
     let generics = &inputs.generics;

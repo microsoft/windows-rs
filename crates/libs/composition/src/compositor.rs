@@ -1,21 +1,11 @@
 use super::*;
 
-/// The composition engine - the factory for visuals, brushes, and window
-/// targets.
-///
-/// Every visual and brush a `Compositor` creates belongs to that compositor and
-/// can only be combined with its siblings.
+/// Factory for visuals, brushes, and window targets.
 #[derive(Clone)]
 pub struct Compositor(pub(crate) bindings::Compositor);
 
 impl Compositor {
-    /// Creates a compositor.
-    ///
-    /// System composition (`Windows.UI.Composition`) is an OS component, so no
-    /// runtime bootstrap is required - but a dispatcher queue must exist on the
-    /// current thread first. Create a
-    /// [`DispatcherQueueController`](crate::DispatcherQueueController) and keep
-    /// it alive for the compositor's lifetime.
+    /// Creates a compositor. A dispatcher queue must exist on the current thread.
     ///
     /// ```no_run
     /// use windows_composition::{Compositor, DispatcherQueueController};
@@ -30,23 +20,12 @@ impl Compositor {
     }
 
     /// Wraps a lifted compositor obtained from a WinUI host element.
-    ///
-    /// This is the interop seam used by the reactor bridge: a WinUI element's
-    /// `Microsoft.UI.Composition.Compositor` (surfaced as an
-    /// [`IInspectable`](windows_core::IInspectable)) is adopted here so its
-    /// visual tree can be built with this crate's safe API. Lifted composition
-    /// can only be hosted inside a WinUI element, so this has no system-stack
-    /// counterpart.
     #[cfg(feature = "lifted")]
     pub fn from_host(compositor: windows_core::IInspectable) -> Result<Self> {
         Ok(Self(compositor.cast()?))
     }
 
-    /// Creates a composition target that hosts a visual tree inside a window.
-    ///
-    /// Set `is_topmost` to render above the window's other content. The returned
-    /// [`DesktopWindowTarget`](crate::DesktopWindowTarget) must be kept alive for
-    /// as long as its visual tree should be shown.
+    /// Creates a window target. Keep it alive while the visual tree is shown.
     ///
     /// ```no_run
     /// use windows_composition::{Compositor, DispatcherQueueController};
@@ -68,12 +47,7 @@ impl Compositor {
         unsafe { self.create_desktop_window_target_for_hwnd(window.hwnd(), is_topmost) }
     }
 
-    /// Creates a composition target that hosts a visual tree inside a raw window
-    /// handle.
-    ///
-    /// This is the escape hatch for callers that own an `HWND` from a source
-    /// other than [`windows_window`]; most callers should prefer the safe
-    /// [`create_desktop_window_target`](Self::create_desktop_window_target).
+    /// Creates a composition target for a raw window handle.
     ///
     /// # Safety
     ///
@@ -185,14 +159,7 @@ impl Compositor {
         ImplicitAnimationCollection(compositor.CreateImplicitAnimationCollection().unwrap())
     }
 
-    /// Creates a composition graphics device backed by a Direct2D (or DXGI)
-    /// rendering device.
-    ///
-    /// Pass the app's rendering device - for example canvas's `ID2D1Device`. The
-    /// returned [`CompositionGraphicsDevice`](crate::CompositionGraphicsDevice)
-    /// allocates drawing surfaces that Direct2D content can be drawn into and
-    /// shown through a [`CompositionSurfaceBrush`](crate::CompositionSurfaceBrush).
-    /// This is the entry point for the canvas bridge.
+    /// Creates a composition graphics device backed by a Direct2D or DXGI device.
     #[cfg(feature = "system")]
     pub fn create_graphics_device(
         &self,

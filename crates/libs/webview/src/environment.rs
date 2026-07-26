@@ -5,13 +5,9 @@ use super::*;
 pub struct Environment(pub(crate) ICoreWebView2Environment);
 
 impl Environment {
-    /// Creates the default WebView2 environment, pumping the calling thread's
-    /// message loop until it is ready.
+    /// Creates the default WebView2 environment, pumping the UI thread until it is ready.
     ///
-    /// This requires an installed WebView2 runtime and must be called on a UI
-    /// thread with a message loop. The calling thread is initialized as a COM
-    /// single-threaded apartment (STA) if it is not already; an error is
-    /// returned if the thread is already a multi-threaded apartment (MTA).
+    /// The calling thread is initialized as a COM STA if needed.
     pub fn new() -> Result<Self> {
         init_com()?;
         let slot = pump::slot();
@@ -19,11 +15,7 @@ impl Environment {
         pump::wait(&slot)
     }
 
-    /// Creates a WebView2 environment configured by `options`, pumping the
-    /// calling thread's message loop until it is ready.
-    ///
-    /// This requires an installed WebView2 runtime and must be called on a UI
-    /// thread with a message loop.
+    /// Creates a WebView2 environment configured by `options`, pumping the UI thread.
     pub fn with_options(options: &EnvironmentOptions) -> Result<Self> {
         init_com()?;
         let slot = pump::slot();
@@ -31,24 +23,14 @@ impl Environment {
         pump::wait(&slot)
     }
 
-    /// Creates a [`Controller`] that hosts a WebView2 browser in the given
-    /// window, pumping the calling thread's message loop until it is ready.
-    ///
-    /// This requires an installed WebView2 runtime and must be called on a UI
-    /// thread with a message loop.
+    /// Creates a [`Controller`] hosted in the given window, pumping the UI thread.
     pub fn create_controller(&self, window: &windows_window::Window) -> Result<Controller> {
         // SAFETY: `window` owns a live window handle for as long as the borrow
         // lasts.
         unsafe { self.create_controller_for_hwnd(window.hwnd()) }
     }
 
-    /// Creates a [`Controller`] that hosts a WebView2 browser in the given raw
-    /// window handle, pumping the calling thread's message loop until it is
-    /// ready.
-    ///
-    /// This is the escape hatch for callers that own an `HWND` from a source
-    /// other than [`windows_window`]; most callers should prefer the safe
-    /// [`create_controller`](Self::create_controller).
+    /// Creates a [`Controller`] hosted in a raw window handle, pumping the UI thread.
     ///
     /// # Safety
     ///
@@ -71,9 +53,7 @@ impl Environment {
         unsafe { self.0.CreateCoreWebView2Controller(parent, &handler) }.ok()
     }
 
-    /// Creates a [`Controller`] configured by `options` (profile, private mode,
-    /// background colour) that hosts a WebView2 browser in the given window,
-    /// pumping the calling thread's message loop until it is ready.
+    /// Creates an option-configured [`Controller`] hosted in the given window.
     pub fn create_controller_with_options(
         &self,
         window: &windows_window::Window,
@@ -84,9 +64,7 @@ impl Environment {
         unsafe { self.create_controller_with_options_for_hwnd(window.hwnd(), options) }
     }
 
-    /// Creates a [`Controller`] configured by `options` in the given raw window
-    /// handle. Most callers should prefer the safe
-    /// [`create_controller_with_options`](Self::create_controller_with_options).
+    /// Creates an option-configured [`Controller`] hosted in a raw window handle.
     ///
     /// # Safety
     ///
@@ -108,7 +86,6 @@ fn create_environment<F: FnOnce(Result<Environment>) + 'static>(handler: F) -> R
 }
 
 fn init_com() -> Result<()> {
-    // SAFETY: FFI call into ole32; the reserved argument must be null.
     let hr = unsafe { CoInitializeEx(std::ptr::null(), COINIT_APARTMENTTHREADED as u32) };
     if hr == RPC_E_CHANGED_MODE {
         return Err(Error::new(
