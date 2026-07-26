@@ -10,10 +10,10 @@
 //! # The two entry points
 //!
 //! - [`resolve_typedef`] - resolves a `CXType_Typedef` reference at *any* site (field, return,
-//!   parameter). It applies the **universal** collapses (string-wrapper normalise, fixed-width
-//!   / floating / pointer-sized scalar collapse, `GUID` synonyms, generic `void*`) and then
-//!   falls back to structural resolution (reference-metadata lookup, local
-//!   emission, pending-typedef scheduling).
+//!   parameter). The flat per-header scrape normalises string wrappers, then runs the ordered
+//!   collapses in [`flat_canonical`]; a namespaced scrape resolves through the reference
+//!   metadata with the every-mode collapses ([`universal_alias`]) and a structural scalar
+//!   collapse as fallbacks.
 //! - [`param_metadata_type`] - the **parameter-only** overlay, applied on top of a resolved
 //!   type: collapse `LP*`/`P*` pointer aliases to raw pointers, apply SAL-driven pointer
 //!   const-ness, promote raw null-terminated string pointers to the canonical wrapper, then
@@ -21,182 +21,131 @@
 //!
 //! # Precedence
 //!
-//! Universal (in [`resolve_typedef`], flat scrape unless noted): string-wrapper normalise
-//! ([`normalize_string_alias`]) -> fixed-width
-//! scalar ([`fundamental_scalar`]) -> floating ([`floating_typedef`]) -> pointer-sized
-//! ([`pointer_sized_abi`]) -> `GUID` synonym ([`guid_alias`]) -> generic `void*`
-//! ([`void_pointer_alias`]). Parameter overlay (in [`param_metadata_type`]): pointer-alias
-//! collapse ([`collapse_pointer_alias_param`]) -> SAL const-ness ([`apply_sal_constness`]) ->
+//! Flat reference-site collapses (in [`flat_canonical`], applied after string-wrapper
+//! normalisation): semantic scalar ([`semantic_scalar`]) -> fixed-width scalar
+//! ([`fundamental_scalar`]) -> floating ([`floating_typedef`]) -> pointer-sized
+//! ([`pointer_sized_abi`]) -> `GUID` synonym / generic `void*` ([`universal_alias`]) ->
+//! numerics ([`numerics_alias`]) -> D2D compat ([`d2d_compat_alias`]) -> interface alias
+//! ([`is_interface_alias`]). The tables are mutually exclusive, so the order is for reading,
+//! not tie-breaking. Parameter overlay (in [`param_metadata_type`]): pointer-alias collapse
+//! ([`collapse_pointer_alias_param`]) -> SAL const-ness ([`apply_sal_constness`]) ->
 //! null-terminated promotion ([`promote_null_terminated_string`]) -> namespace re-qualify
 //! ([`requalify_string_alias`]).
 //!
-//! Definition-suppression counterparts live in `typedef.rs` and `const.rs` and must always
-//! stay paired with the reference-site collapse here, or a use-site would dangle.
+//! Definition-suppression counterparts live in `typedef.rs`, `const.rs`, and `lib.rs` and must
+//! always stay paired with the reference-site collapse here, or a use-site would dangle.
 
 use super::*;
 
 /// Resolve a `CXType_Typedef` reference to its canonical [`metadata::Type`].
 ///
 /// This is the universal type entry point (see the [module docs](self)). `cursor` is the
-/// typedef-kinded clang type; the canonicalisation rules are applied in the precedence
-/// below,
-/// then structural resolution provides the fallback. Called from [`Type::to_type`] for every
-/// field, return and parameter type; parameters then receive the [`param_metadata_type`]
+/// typedef-kinded clang type. The flat scrape applies the [`flat_canonical`] collapses; the
+/// namespaced scrape resolves through the reference metadata. Called from [`Type::to_type`] for
+/// every field, return and parameter type; parameters then receive the [`param_metadata_type`]
 /// overlay.
 pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadata::Type {
     let decl = cursor.ty();
     let name = decl.name();
-    // A string-pointer alias (`LPCWSTR`, `LPWSTR`, `LPOLESTR`, the `P*`/`PC*`
-    // spellings) normalises to its canonical `PWSTR`/`PCWSTR`/`PSTR`/`PCSTR`
-    // at *every* site - field, return, or parameter - so bindgen's core string
-    // projection applies uniformly (an `LPCWSTR` field would otherwise become a
-    // raw `*const u16`, unlike an `LPCWSTR` parameter). SAL later re-selects the
-    // const variant for parameters. Universal like `guid_alias`/`void_pointer_alias`
-    // below, so it is resolved once here ahead of the mode split.
-    //
-    // Gated to the flat per-header scrape: there the four canonical wrappers are
-    // defined locally (`winnt.rdl`) in the single root namespace and resolve by
-    // name. A *namespaced* scrape (WebView2) instead references an external
-    // reference winmd whose const variants (`PCWSTR`/`PCSTR`) are not distinct
-    // types (win32metadata models them as `const PWSTR`); there the existing
-    // mode-split resolution - `ref_map` for the mutable base, `pending_typedefs`
-    // for the local const wrapper, plus the parameter-level `apply_sal_constness`
-    // - already yields the canonical spellings, so forcing it here would drop the
-    // local definition and leave the reference dangling ("type not found").
-    if parser.header_root.is_some()
-        && let Some(normalized) = normalize_string_alias(parser.namespace, &name)
-    {
-        return normalized;
-    }
+    // Flat per-header scrape: string-pointer aliases normalise first, then the ordered
+    // reference-site collapses ([`flat_canonical`]); anything unmatched resolves by its own
+    // name in the single root namespace. String normalisation and the collapses are gated to
+    // this mode because a namespaced scrape (WebView2) resolves the canonical wrappers through
+    // an external reference winmd - where `PCWSTR`/`PCSTR` are `const PWSTR`, not distinct
+    // types - so forcing them here would leave the local reference dangling.
     if parser.header_root.is_some() {
-        // Flat namespace: a named typedef is *not*
-        // collapsed to its primitive but resolves to the single root
-        // namespace by its own name, where it is emitted in its
-        // defining-header file (`type HRESULT = i32`, `struct PROPVARIANT`,
-        // `type CRM_PROTOCOL_ID = GUID`, ...). Whether the typedef is a
-        // record's public name or a distinct alias, the reference is by
-        // the typedef's name, which resolves within the flat namespace.
-        if let Some(canonical) = semantic_scalar(&name) {
-            // `BOOLEAN` -> bool, `LARGE_INTEGER`/`ULARGE_INTEGER` -> i64/u64: named Win32
-            // types whose canonical projection is a primitive, not their header shape (a
-            // `BYTE` typedef, a 64-bit overlay union). Collapse at every reference so the
-            // metadata carries the canonical type directly - like `DWORD` -> u32 - instead of
-            // deferring the mapping to every consumer. See [`semantic_scalar`]; definitions are
-            // suppressed in `typedef.rs` (BOOLEAN) and the union-record emission in `lib.rs`.
-            canonical
-        } else if let Some(scalar) = fundamental_scalar(&name) {
-            // A pure fixed-width portability alias (`DWORD` -> u32) carries no
-            // semantics beyond its bits; collapse it out of the canon. Every
-            // other scalar typedef (`HFILE`, `ATOM`, `COLORREF`, `LRESULT`, ...)
-            // is preserved by name; see [`fundamental_scalar`].
-            scalar
-        } else if let Some(scalar) = floating_typedef(cursor) {
-            // A floating-point typedef (`FLOAT`, `DOUBLE`, `DATE`, `D3DVALUE`,
-            // the OLE/GL/SQL float aliases, chained `UI_ANIMATION_SECONDS` -> ...)
-            // collapses structurally to `f32`/`f64`. Unlike the *integer* side -
-            // where domain names (`HFILE`/`COLORREF`) are byte-identical to the
-            // portability spellings and so must be told apart by name (see
-            // [`fundamental_scalar`]) - the reference metadata drops *every*
-            // floating typedef (zero `NativeTypedef`s with an `f32`/`f64` value),
-            // so there is no domain-vs-noise split to preserve and the collapse is
-            // decided by canonical kind, not a curated list. See [`floating_typedef`].
-            scalar
-        } else if let Some(scalar) = pointer_sized_abi(&name) {
-            // A pointer-sized ABI alias (`ULONG_PTR`, `SIZE_T`, `LONG_PTR`, ...)
-            // collapses to `usize`/`isize` just like the fixed-width aliases:
-            // it carries no semantics beyond being pointer-sized, and the
-            // reference metadata has no such `type` item. Collapsing here (vs.
-            // emitting a named alias whose canonical width resolves per-arch)
-            // also keeps it architecture-neutral - no spurious x86-vs-64-bit
-            // `#[arch]` split. See [`pointer_sized_abi`].
-            scalar
-        } else if guid_alias(&name) {
-            // `IID`/`CLSID`/`FMTID` are `typedef GUID X` synonyms - no distinct
-            // ABI, only a documentation name. Collapse them to `GUID` rather than
-            // emitting redundant `type IID = GUID` aliases, matching the reference
-            // metadata and enabling the ergonomic `QueryInterface<T>()`/
-            // `Resolve<T>()` COM projection. See [`guid_alias`]; mirrors the
-            // `fundamental_scalar` (`DWORD` -> u32) collapse.
-            metadata::Type::value_named(parser.namespace, "GUID")
-        } else if let Some(ptr) = void_pointer_alias(&name) {
-            // `PVOID`/`LPVOID`/`LPCVOID`/... are generic void-pointer portability
-            // spellings with no domain meaning; collapse them to the raw
-            // `*mut void` / `*const void` they spell at every site (matching the
-            // reference metadata's bare `*mut c_void`), rather than emitting a
-            // named alias. The pointer-world analog of the `DWORD` -> u32 collapse;
-            // a `void*` *handle* (`HANDLE`) is excluded and stays named. See
-            // [`void_pointer_alias`].
-            ptr
-        } else if let Some(num) = numerics_alias(&name) {
-            // A Win32 aggregate that is bit-identical to a `Windows.Foundation.Numerics`
-            // value type (`D2D_POINT_2F` -> `Vector2`, `D2D_MATRIX_3X2_F` -> `Matrix3x2`, ...):
-            // collapse every reference to the shared Numerics type so the metadata carries the
-            // canonical projection directly. The D2D/D3D struct definition is suppressed in
-            // `lib.rs`. See [`numerics_alias`].
-            metadata::Type::value_named(NUMERICS_NAMESPACE, num)
-        } else if let Some(base) = d2d_compat_alias(&name) {
-            // `D2D1_POINT_2F`/`D2D1_RECT_F`/... are `typedef D2D_X D2D1_X`
-            // compatibility synonyms: the Direct2D 1.1 headers re-export the shared
-            // `D2D_*` primitives (`dcommon.h`, `d2d1_1.h`) under a `D2D1_`-prefixed
-            // spelling with no distinct ABI. Collapse each to its `D2D_` base at
-            // every reference - matching the reference metadata, which carries no
-            // `D2D1_*` alias layer - so the shared primitive is the single referent.
-            // The numerics-mapped members (`D2D_POINT_2F` -> `Vector2`,
-            // `D2D_MATRIX_3X2_F` -> `Matrix3x2`, ...) then resolve straight to their
-            // `Windows.Foundation.Numerics` type via [`numerics_alias`], and the plain
-            // ones (`D2D_RECT_F`, `D2D_SIZE_F`, ...) resolve to the shared struct.
-            // See [`d2d_compat_alias`].
-            if let Some(num) = numerics_alias(base) {
-                metadata::Type::value_named(NUMERICS_NAMESPACE, num)
-            } else {
-                metadata::Type::value_named(parser.namespace, base)
-            }
-        } else if is_interface_alias(&decl.typedef_underlying_type()) {
-            // `LPSTORAGE`/`LPOLEOBJECT`/`LPDIRECTDRAWSURFACE`/... are `typedef IFoo *NAME`
-            // (or the rarer `typedef IFoo NAME`) aliases to a COM interface. Interfaces are
-            // implied pointers in Windows metadata, so the alias carries no distinct ABI -
-            // collapse every reference to the interface itself, matching the reference
-            // metadata, which omits these aliases and types the field/parameter as the
-            // interface directly. Emitting the alias would otherwise surface an
-            // interface-by-value field (no `Default`), breaking bindgen's struct derive.
-            // See [`is_interface_alias`]; definition suppressed in `typedef.rs`.
-            let underlying = decl.typedef_underlying_type();
-            if underlying.is_interface() {
-                underlying.to_type(parser)
-            } else {
-                underlying.pointee_type().to_type(parser)
-            }
-        } else {
-            metadata::Type::value_named(parser.namespace, &name)
+        if let Some(normalized) = normalize_string_alias(parser.namespace, &name) {
+            return normalized;
         }
-    } else if let Some(ns) = parser.ref_map.get(&name) {
-        // Type is known in the reference metadata - use the qualified name.
+        return flat_canonical(parser.namespace, &name, cursor, parser)
+            .unwrap_or_else(|| metadata::Type::value_named(parser.namespace, &name));
+    }
+
+    // Namespaced scrape: resolve through the reference metadata, then the every-mode GUID/void
+    // collapses ([`universal_alias`]) and a structural scalar collapse ([`collapse_scalar_typedef`]).
+    // A local typedef is emitted by name; an external one is scheduled for a follow-up pass.
+    if let Some(ns) = parser.ref_map.get(&name) {
         metadata::Type::value_named(ns, &name)
-    } else if guid_alias(&name) {
-        // `IID`/`CLSID`/`FMTID` collapse to `GUID` in every mode (see the
-        // header_root branch above and [`guid_alias`]).
-        metadata::Type::value_named(parser.namespace, "GUID")
-    } else if let Some(ptr) = void_pointer_alias(&name) {
-        // Generic void-pointer aliases collapse to `*mut`/`*const void` in every
-        // mode (see the header_root branch above and [`void_pointer_alias`]).
-        ptr
+    } else if let Some(ty) = universal_alias(parser.namespace, &name) {
+        ty
     } else if let Some(scalar) = collapse_scalar_typedef(&name, cursor) {
-        // A fundamental scalar typedef that the reference does not preserve
-        // as a distinct type (DWORD -> u32, UINT -> u32, ULONG_PTR -> usize,
-        // ...). Collapse to the primitive so it is not duplicated as a
-        // per-namespace `type` alias, matching the canonical Win32 metadata
-        // (which has no `DWORD`/`UINT`/`ULONG_PTR` types).
         scalar
     } else if decl.is_from_main_file() {
-        // Local typedef - it will be emitted separately as a `type` item.
         metadata::Type::value_named(parser.namespace, &name)
     } else {
-        // A non-scalar typedef from an included/system header that is not in
-        // the reference (e.g. a handle struct): preserve the name and
-        // schedule its definition for emission in a follow-up pass.
         parser.pending_typedefs.push(decl);
         metadata::Type::value_named(parser.namespace, &name)
     }
+}
+
+/// The ordered reference-site collapses for the flat per-header scrape, applied to a typedef
+/// named `name` (clang type `cursor`). The list *is* the precedence; each rule is a name- or
+/// kind-keyed table documented at its own definition. Returns `None` when no rule matches, so
+/// the caller resolves the typedef by its own name in the root namespace.
+///
+/// The tables are mutually exclusive by construction (a `GUID` synonym is never a float, a
+/// void-pointer alias is never a scalar, ...), so the order is for readability, not to break
+/// ties. Definition-suppression counterparts live in `typedef.rs` / `lib.rs` and must stay
+/// paired with each collapse, or a use-site would dangle.
+fn flat_canonical(
+    namespace: &str,
+    name: &str,
+    cursor: &Type,
+    parser: &mut Parser<'_>,
+) -> Option<metadata::Type> {
+    if let Some(scalar) = semantic_scalar(name) {
+        return Some(scalar);
+    }
+    if let Some(scalar) = fundamental_scalar(name) {
+        return Some(scalar);
+    }
+    if let Some(scalar) = floating_typedef(cursor) {
+        return Some(scalar);
+    }
+    if let Some(scalar) = pointer_sized_abi(name) {
+        return Some(scalar);
+    }
+    if let Some(ty) = universal_alias(namespace, name) {
+        return Some(ty);
+    }
+    if let Some(leaf) = numerics_alias(name) {
+        return Some(metadata::Type::value_named(NUMERICS_NAMESPACE, leaf));
+    }
+    if let Some(base) = d2d_compat_alias(name) {
+        // A `D2D1_*` compat synonym: its numerics-mapped members reach the Numerics type
+        // through their `D2D_*` base, the plain ones resolve to the shared struct.
+        return Some(match numerics_alias(base) {
+            Some(leaf) => metadata::Type::value_named(NUMERICS_NAMESPACE, leaf),
+            None => metadata::Type::value_named(namespace, base),
+        });
+    }
+    interface_alias(cursor, parser)
+}
+
+/// The GUID-synonym and generic-`void*` collapses that fire in *every* scrape mode:
+/// `IID`/`CLSID`/`FMTID`/`UUID` -> `GUID`, and `PVOID`/`LPVOID`/... -> the raw pointer they
+/// spell. See [`guid_alias`] and [`void_pointer_alias`].
+fn universal_alias(namespace: &str, name: &str) -> Option<metadata::Type> {
+    if guid_alias(name) {
+        return Some(metadata::Type::value_named(namespace, "GUID"));
+    }
+    void_pointer_alias(name)
+}
+
+/// Collapse a `typedef IFoo NAME` / `typedef IFoo *NAME` COM-interface alias to the interface
+/// itself - interfaces are implied pointers in Windows metadata, so the alias carries no
+/// distinct ABI. Returns `None` for any non-interface typedef; the redundant definition is
+/// suppressed in `typedef.rs`. See [`is_interface_alias`].
+fn interface_alias(cursor: &Type, parser: &mut Parser<'_>) -> Option<metadata::Type> {
+    let underlying = cursor.ty().typedef_underlying_type();
+    if !is_interface_alias(&underlying) {
+        return None;
+    }
+    Some(if underlying.is_interface() {
+        underlying.to_type(parser)
+    } else {
+        underlying.pointee_type().to_type(parser)
+    })
 }
 
 /// Whether a typedef's `underlying` type aliases a COM interface - either the direct
@@ -435,8 +384,9 @@ pub(crate) fn d2d_compat_alias(name: &str) -> Option<&'static str> {
 /// alongside the reference-site collapse (`lib.rs`'s `CXCursor_StructDecl` arm); they are in-scope
 /// header types, so the reachability sweep would not drop them on its own.
 ///
-/// `windows-sys` does not load `Windows.winmd`, so it cannot resolve these value types and drops
-/// every API that mentions one (see bindgen's `Type::Unresolved` sys handling).
+/// `windows-sys` excludes the `Windows.Foundation.Numerics` namespace through its package filter
+/// (`!Windows` / `Windows::Win32` in `sys.txt`), so every API that mentions one of these value
+/// types is dropped from the sys projection.
 ///
 /// Name-keyed like [`d2d_compat_alias`]: layout alone is ambiguous (`D2D_POINT_2F` and
 /// `D2D_SIZE_F` are both `{ f32; f32 }` but only the former is a `Vector2`), so only this fixed
