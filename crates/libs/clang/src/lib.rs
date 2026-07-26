@@ -316,12 +316,6 @@ impl<'a> Parser<'a> {
                 }
             }
             CXCursor_UnionDecl if child.is_definition() => {
-                // Recursively lift any named or anonymous nested struct/union
-                // declarations to the collector before processing the outer union.
-                self.process_nested_types(child, collector, extern_c)?;
-                if child.is_anonymous_record() || is_named_instance_record(&child) {
-                    return Ok(());
-                }
                 let tag_name = child.name();
                 let name = if is_anonymous_name(&tag_name) {
                     self.tag_rename
@@ -331,6 +325,19 @@ impl<'a> Parser<'a> {
                 } else {
                     self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
                 };
+                // `LARGE_INTEGER`/`ULARGE_INTEGER` are 64-bit overlay unions that collapse to
+                // the scalar `i64`/`u64` they project as (see `canon::semantic_scalar`), so
+                // neither the union nor its nested overlay structs are emitted. Skip before
+                // lifting nested types so no orphan `{Name}_0` sibling is left behind.
+                if semantic_scalar(&name).is_some() {
+                    return Ok(());
+                }
+                // Recursively lift any named or anonymous nested struct/union
+                // declarations to the collector before processing the outer union.
+                self.process_nested_types(child, collector, extern_c)?;
+                if child.is_anonymous_record() || is_named_instance_record(&child) {
+                    return Ok(());
+                }
                 if !is_anonymous_name(&name) && !self.ref_map.contains_key(&name) {
                     collector.insert(Item::Struct(Struct::parse(child, self, true)?));
                 }

@@ -83,6 +83,14 @@ impl Typedef {
             return Ok(None);
         }
 
+        // `BOOLEAN` -> bool collapses to a primitive at every reference (see [`semantic_scalar`]
+        // in `to_type`), so the redundant `type BOOLEAN = u8` alias is not emitted - matching the
+        // reference metadata. (`LARGE_INTEGER`/`ULARGE_INTEGER` also match here and short-circuit,
+        // but their overlay-union *records* are suppressed separately in `lib.rs`.)
+        if parser.header_root.is_some() && semantic_scalar(&name).is_some() {
+            return Ok(None);
+        }
+
         // Floating-point typedefs (`FLOAT`/`DOUBLE` and every domain alias whose canonical
         // type is `float`/`double`, e.g. `DATE`, `REFTIME`, `UI_ANIMATION_SECONDS`) collapse
         // structurally to `f32`/`f64` at every reference (see [`floating_typedef`] in

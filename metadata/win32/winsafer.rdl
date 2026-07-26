@@ -18,7 +18,7 @@ mod Windows {
             UrlZoneId: u32,
             ImageHash: [u8; 64],
             dwImageHashSize: u32,
-            ImageSize: LARGE_INTEGER,
+            ImageSize: i64,
             HashAlgorithm: ALG_ID,
             pByteBlock: LPBYTE,
             hWndParent: HWND,
@@ -32,7 +32,7 @@ mod Windows {
             UrlZoneId: u32,
             ImageHash: [u8; 64],
             dwImageHashSize: u32,
-            ImageSize: LARGE_INTEGER,
+            ImageSize: i64,
             HashAlgorithm: ALG_ID,
             pByteBlock: LPBYTE,
             hWndParent: HWND,
@@ -57,7 +57,7 @@ mod Windows {
             HashSize: u32,
             ImageHash: [u8; 64],
             HashAlgorithm: ALG_ID,
-            ImageSize: LARGE_INTEGER,
+            ImageSize: i64,
             dwSaferFlags: u32,
         }
         struct SAFER_HASH_IDENTIFICATION2 {
@@ -189,6 +189,6 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn SaferSetPolicyInformation(dwScopeId: u32, SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, InfoBufferSize: u32, #[size_param(2)] InfoBuffer: *const void, #[reserved] lpReserved: *const void) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferiIsExecutableFileType(szFullPathname: PCWSTR, bFromShellExecute: BOOLEAN) -> BOOL;
+        extern fn SaferiIsExecutableFileType(szFullPathname: PCWSTR, bFromShellExecute: bool) -> BOOL;
     }
 }

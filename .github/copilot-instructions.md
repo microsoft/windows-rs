@@ -204,6 +204,46 @@ These rules were established while cleaning up the docs and code comments and ap
 Enduring record of known issues to work on so they are not lost between sessions. Add findings here;
 remove or mark done as they are addressed.
 
+### Unify type normalization in the metadata layer (2026-07)
+
+Goal: do type mappings once, as early as possible (the windows-clang / tool_win32 scrape), so the
+canonical `Windows.Win32.winmd` already carries canonical types and every downstream consumer
+(windows-bindgen, other-language metadata consumers) sees them without re-mapping. Today
+`Type::remap` in `crates/libs/bindgen/src/types/mod.rs` still patches several types at generation
+time. Some (`CHAR` -> i8, `DWORD` -> u32, GUID synonyms, void pointers, `D2D1_*` -> `D2D_*`) already
+collapse in clang `canon.rs`; the ones below should join them.
+
+Stays in bindgen (they map to windows-core Rust types / WinRT intrinsics, not metadata primitives):
+`GUID`, `HRESULT`, `PSTR`/`PWSTR`/`PCSTR`/`PCWSTR`, `BSTR`, `HSTRING` -> String, `IInspectable`,
+`IUnknown`, `BOOL`, `NTSTATUS`, `RPC_STATUS`, `EventRegistrationToken`.
+
+Pattern for each move: add a name-keyed reference-site rule in `canon.rs`
+(`resolve_typedef`/`to_type`) returning the canonical `metadata::Type`, suppress the definition in
+`typedef.rs` (return `Ok(None)`, as GUID synonyms / `D2D1_*` / interface aliases already do), then
+delete the corresponding `Type::remap` entry once the regenerated winmd carries the canonical type.
+Any metadata change must be proven by re-running `tool_win32` + `tool_bindings`/`tool_package` and
+checking the generated-file diff.
+
+- **Stage 1 (output-neutral, both crates already collapse these; the remap is ungated on `sys`):**
+  - [x] `BOOLEAN` -> `Bool`. Scalar-style rule in `resolve_typedef` header_root branch + `Ok(None)`
+    in `typedef.rs`; delete `types/mod.rs` `BOOLEAN` entry. Regenerate -> zero generated-`.rs` diff
+    confirmed. (Added `semantic_scalar` helper in `canon.rs`; also removed the dead `CHAR` entry.)
+  - [x] `LARGE_INTEGER` / `ULARGE_INTEGER` -> i64 / u64. These are `typedef union {...} NAME` records
+    emitted via the tag-rename path, so suppression is in `lib.rs`'s `CXCursor_UnionDecl` arm (skip
+    before `process_nested_types` so no orphan `NAME_0` nested struct is lifted), plus the
+    `resolve_typedef` ref-site collapse. Deleted the two `types/mod.rs` entries. Zero generated-`.rs`
+    diff confirmed; `cargo fmt`, clippy (`-D warnings`), and `windows-clang`/`windows-bindgen` tests
+    all clean.
+- **Stage 2 (needs a decision - drops APIs from windows-sys):**
+  - [ ] numerics `D2D_MATRIX_3X2_F` -> `Matrix3x2`, `D3DMATRIX`/`D2D_MATRIX_4X4_F` -> `Matrix4x4`,
+    `D2D_POINT_2F`/`D2D_VECTOR_2F` -> `Vector2`, `D2D_VECTOR_3F` -> `Vector3`, `D2D_VECTOR_4F` ->
+    `Vector4`. Emit `value_named("Windows.Foundation.Numerics", ...)` refs in clang (like
+    `d2d_compat_alias` but targeting Numerics); orphaned `D2D_*` structs drop via reachability. The
+    `windows` crate resolves via `Windows.winmd` + the existing `windows_numerics` reference mapping
+    (`bindgen/src/lib.rs:460`), so the `!sys` numerics block and its reader-skip both disappear.
+    `windows-sys` doesn't load `Windows.winmd`, so add a general sys-mode filter that drops any item
+    whose signature references an unresolved value type (excludes the numerics-mentioning D2D APIs).
+
 ### windows-clang: subjective decisions that stray from a faithful header interpretation
 
 Context: issue [#4720](https://github.com/microsoft/windows-rs/issues/4720) and discussion

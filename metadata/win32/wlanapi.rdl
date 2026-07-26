@@ -298,7 +298,7 @@ mod Windows {
             dot11BssPhyType: DOT11_PHY_TYPE,
             lRssi: i32,
             uLinkQuality: u32,
-            bInRegDomain: BOOLEAN,
+            bInRegDomain: bool,
             usBeaconPeriod: u16,
             ullTimestamp: u64,
             ullHostTimestamp: u64,

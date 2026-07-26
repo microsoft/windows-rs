@@ -198,7 +198,7 @@ mod Windows {
         type HCATADMIN = HANDLE;
         struct INTENT_TO_SEAL_ATTRIBUTE {
             version: u32,
-            seal: BOOLEAN,
+            seal: bool,
         }
         const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: PCSTR = 2010;
         type LPWIN_CERTIFICATE = *mut WIN_CERTIFICATE;
@@ -492,7 +492,7 @@ mod Windows {
             pSignatureSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
         }
         struct WINTRUST_DETACHED_SIG_BLOBS {
-            cbContentObject: LARGE_INTEGER,
+            cbContentObject: i64,
             pbContentObject: *mut u8,
             cbSignatureObject: u32,
             pbSignatureObject: *mut u8,

@@ -4,7 +4,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn AddSIDToBoundaryDescriptor(#[in] #[out] BoundaryDescriptor: *mut HANDLE, RequiredSid: PSID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ClosePrivateNamespace(Handle: HANDLE, Flags: u32) -> BOOLEAN;
+        extern fn ClosePrivateNamespace(Handle: HANDLE, Flags: u32) -> bool;
         #[library("KERNEL32.dll")]
         extern fn CreateBoundaryDescriptorW(Name: PCWSTR, Flags: u32) -> HANDLE;
         #[library("KERNEL32.dll")]

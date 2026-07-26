@@ -6,7 +6,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn AbortSystemShutdownW(#[opt] lpMachineName: PCWSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CheckForHiberboot(#[in] #[out] pHiberboot: *mut BOOLEAN, bClearFlag: BOOLEAN) -> u32;
+        extern fn CheckForHiberboot(#[in] #[out] pHiberboot: *mut bool, bClearFlag: bool) -> u32;
         const HKEY_CLASSES_ROOT: HKEY = -2147483648;
         const HKEY_CURRENT_CONFIG: HKEY = -2147483643;
         const HKEY_CURRENT_USER: HKEY = -2147483647;

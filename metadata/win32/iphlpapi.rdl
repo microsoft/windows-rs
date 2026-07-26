@@ -140,26 +140,26 @@ mod Windows {
             SystemTimestamp2: u64,
         }
         struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-            PtpV2OverUdpIPv4EventMessageReceive: BOOLEAN,
-            PtpV2OverUdpIPv4AllMessageReceive: BOOLEAN,
-            PtpV2OverUdpIPv4EventMessageTransmit: BOOLEAN,
-            PtpV2OverUdpIPv4AllMessageTransmit: BOOLEAN,
-            PtpV2OverUdpIPv6EventMessageReceive: BOOLEAN,
-            PtpV2OverUdpIPv6AllMessageReceive: BOOLEAN,
-            PtpV2OverUdpIPv6EventMessageTransmit: BOOLEAN,
-            PtpV2OverUdpIPv6AllMessageTransmit: BOOLEAN,
-            AllReceive: BOOLEAN,
-            AllTransmit: BOOLEAN,
-            TaggedTransmit: BOOLEAN,
+            PtpV2OverUdpIPv4EventMessageReceive: bool,
+            PtpV2OverUdpIPv4AllMessageReceive: bool,
+            PtpV2OverUdpIPv4EventMessageTransmit: bool,
+            PtpV2OverUdpIPv4AllMessageTransmit: bool,
+            PtpV2OverUdpIPv6EventMessageReceive: bool,
+            PtpV2OverUdpIPv6AllMessageReceive: bool,
+            PtpV2OverUdpIPv6EventMessageTransmit: bool,
+            PtpV2OverUdpIPv6AllMessageTransmit: bool,
+            AllReceive: bool,
+            AllTransmit: bool,
+            TaggedTransmit: bool,
         }
         struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-            AllReceive: BOOLEAN,
-            AllTransmit: BOOLEAN,
-            TaggedTransmit: BOOLEAN,
+            AllReceive: bool,
+            AllTransmit: bool,
+            TaggedTransmit: bool,
         }
         struct INTERFACE_TIMESTAMP_CAPABILITIES {
             HardwareClockFrequencyHz: u64,
-            SupportsCrossTimestamp: BOOLEAN,
+            SupportsCrossTimestamp: bool,
             HardwareCapabilities: INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES,
             SoftwareCapabilities: INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES,
         }

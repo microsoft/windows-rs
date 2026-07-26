@@ -253,7 +253,7 @@ mod Windows {
             fn IsDirty(&self) -> HRESULT;
             fn Load(&self, pStm: IStream) -> HRESULT;
             fn Save(&self, pStm: IStream, fClearDirty: BOOL) -> HRESULT;
-            fn GetSizeMax(&self, pCbSize: *mut ULARGE_INTEGER) -> HRESULT;
+            fn GetSizeMax(&self, pCbSize: *mut u64) -> HRESULT;
             fn InitNew(&self) -> HRESULT;
         }
         #[guid(0x7bf80980_bf32_101a_8bbb_00aa00300cab)]

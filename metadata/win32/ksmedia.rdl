@@ -463,10 +463,10 @@ mod Windows {
             WriteOffset: DWORDLONG,
         }
         struct KSAUDIO_POSITIONEX {
-            TimerFrequency: LARGE_INTEGER,
-            TimeStamp1: LARGE_INTEGER,
+            TimerFrequency: i64,
+            TimeStamp1: i64,
             Position: KSAUDIO_POSITION,
-            TimeStamp2: LARGE_INTEGER,
+            TimeStamp2: i64,
         }
         struct KSAUDIO_PRESENTATION_POSITION {
             u64PositionInBlocks: u64,
@@ -808,7 +808,7 @@ mod Windows {
                 dbl: f64,
                 ull: u64,
                 ul: u32,
-                ratio: ULARGE_INTEGER,
+                ratio: u64,
                 l: i32,
                 ll: i64,
             },

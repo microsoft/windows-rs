@@ -76,9 +76,9 @@ mod Windows {
             NumObjectTypes: u32,
             DefaultObject: i32,
             SystemTime: SYSTEMTIME,
-            PerfTime: LARGE_INTEGER,
-            PerfFreq: LARGE_INTEGER,
-            PerfTime100nSec: LARGE_INTEGER,
+            PerfTime: i64,
+            PerfFreq: i64,
+            PerfTime100nSec: i64,
             SystemNameLength: u32,
             SystemNameOffset: u32,
         }
@@ -130,8 +130,8 @@ mod Windows {
             DefaultCounter: i32,
             NumInstances: i32,
             CodePage: u32,
-            PerfTime: LARGE_INTEGER,
-            PerfFreq: LARGE_INTEGER,
+            PerfTime: i64,
+            PerfFreq: i64,
         }
         #[arch(X86)]
         struct PERF_OBJECT_TYPE {
@@ -147,8 +147,8 @@ mod Windows {
             DefaultCounter: i32,
             NumInstances: i32,
             CodePage: u32,
-            PerfTime: LARGE_INTEGER,
-            PerfFreq: LARGE_INTEGER,
+            PerfTime: i64,
+            PerfFreq: i64,
         }
         const PERF_OBJ_TIME_TIMER: i32 = 543229184;
         const PERF_PRECISION_100NS_TIMER: i32 = 542573824;

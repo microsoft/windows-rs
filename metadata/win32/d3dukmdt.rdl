@@ -1448,7 +1448,7 @@ mod Windows {
                     FirstFreeEntryIndex: u32,
                     WraparoundCount: u32,
                 },
-                AtomicWraparoundAndEntryIndex: ULARGE_INTEGER,
+                AtomicWraparoundAndEntryIndex: u64,
             },
             Type: DXGK_NATIVE_FENCE_LOG_TYPE,
             NumberOfEntries: u64,

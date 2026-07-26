@@ -3669,7 +3669,7 @@ mod Windows {
         type PRAWINPUTHEADER = *mut RAWINPUTHEADER;
         type PRAWKEYBOARD = *mut RAWKEYBOARD;
         type PRAWMOUSE = *mut RAWMOUSE;
-        extern fn PREGISTERCLASSNAMEW(param0: PCWSTR) -> BOOLEAN;
+        extern fn PREGISTERCLASSNAMEW(param0: PCWSTR) -> bool;
         const PRF_CHECKVISIBLE: i32 = 1;
         const PRF_CHILDREN: i32 = 16;
         const PRF_CLIENT: i32 = 4;

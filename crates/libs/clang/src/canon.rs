@@ -76,7 +76,15 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
         // `type CRM_PROTOCOL_ID = GUID`, ...). Whether the typedef is a
         // record's public name or a distinct alias, the reference is by
         // the typedef's name, which resolves within the flat namespace.
-        if let Some(scalar) = fundamental_scalar(&name) {
+        if let Some(canonical) = semantic_scalar(&name) {
+            // `BOOLEAN` -> bool, `LARGE_INTEGER`/`ULARGE_INTEGER` -> i64/u64: named Win32
+            // types whose canonical projection is a primitive, not their header shape (a
+            // `BYTE` typedef, a 64-bit overlay union). Collapse at every reference so the
+            // metadata carries the canonical type directly - like `DWORD` -> u32 - instead of
+            // deferring the mapping to every consumer. See [`semantic_scalar`]; definitions are
+            // suppressed in `typedef.rs` (BOOLEAN) and the union-record emission in `lib.rs`.
+            canonical
+        } else if let Some(scalar) = fundamental_scalar(&name) {
             // A pure fixed-width portability alias (`DWORD` -> u32) carries no
             // semantics beyond its bits; collapse it out of the canon. Every
             // other scalar typedef (`HFILE`, `ATOM`, `COLORREF`, `LRESULT`, ...)
@@ -300,6 +308,28 @@ pub(crate) fn fundamental_scalar(name: &str) -> Option<metadata::Type> {
         "SHORT" | "INT16" | "int16_t" => metadata::Type::I16,
         "INT" | "LONG" | "INT32" | "LONG32" | "int32_t" => metadata::Type::I32,
         "LONGLONG" | "INT64" | "LONG64" | "int64_t" => metadata::Type::I64,
+        _ => return None,
+    })
+}
+
+/// The named Win32 types whose canonical projection is a Rust primitive rather than their
+/// header shape: `BOOLEAN` -> `bool` (a `BYTE` typedef that is semantically boolean, not an
+/// 8-bit integer) and `LARGE_INTEGER` / `ULARGE_INTEGER` -> `i64` / `u64` (64-bit overlay
+/// unions - `QuadPart` aliased over a `LowPart`+`HighPart` pair - that every consumer uses as
+/// a single scalar). Each collapses to the primitive at every reference, exactly as
+/// [`fundamental_scalar`] collapses `DWORD` -> `u32`, so the metadata carries the canonical
+/// type directly instead of leaving the mapping to every downstream consumer. This matches the
+/// reference metadata, which types these as the bare scalar.
+///
+/// Name-keyed like [`guid_alias`]: the collapse cannot be structural, because `BOOLEAN` is
+/// byte-identical to the `BYTE` portability alias and RPC's lowercase `boolean` stays `u8`.
+/// The definitions are suppressed alongside the reference-site collapse - the `BOOLEAN` alias
+/// in `typedef.rs`, the overlay-union records in `lib.rs`.
+pub(crate) fn semantic_scalar(name: &str) -> Option<metadata::Type> {
+    Some(match name {
+        "BOOLEAN" => metadata::Type::Bool,
+        "LARGE_INTEGER" => metadata::Type::I64,
+        "ULARGE_INTEGER" => metadata::Type::U64,
         _ => return None,
     })
 }

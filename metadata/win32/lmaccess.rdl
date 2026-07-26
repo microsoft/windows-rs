@@ -335,7 +335,7 @@ mod Windows {
         }
         struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
             InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-            PasswordMatched: BOOLEAN,
+            PasswordMatched: bool,
         }
         const NET_VALIDATE_BAD_PASSWORD_COUNT: i32 = 8;
         const NET_VALIDATE_BAD_PASSWORD_TIME: i32 = 2;
@@ -349,7 +349,7 @@ mod Windows {
             ClearPassword: PWSTR,
             UserAccountName: PWSTR,
             HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-            PasswordMatch: BOOLEAN,
+            PasswordMatch: bool,
         }
         struct NET_VALIDATE_PASSWORD_HASH {
             Length: u32,
@@ -363,8 +363,8 @@ mod Windows {
             ClearPassword: PWSTR,
             UserAccountName: PWSTR,
             HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-            PasswordMustChangeAtNextLogon: BOOLEAN,
-            ClearLockout: BOOLEAN,
+            PasswordMustChangeAtNextLogon: bool,
+            ClearLockout: bool,
         }
         #[repr(i32)]
         enum NET_VALIDATE_PASSWORD_TYPE {

@@ -304,7 +304,7 @@ mod Windows {
             VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
             VideoOutputHpdAwareness: DXGK_CHILD_DEVICE_HPD_AWARENESS,
             MonitorOrientationAwareness: D3DKMDT_MONITOR_ORIENTATION_AWARENESS,
-            SupportsSdtvModes: BOOLEAN,
+            SupportsSdtvModes: bool,
         }
         type D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID = u32;
         struct D3DKMDT_VIDEO_SIGNAL_INFO {
@@ -1171,7 +1171,7 @@ mod Windows {
             DXGK_DISPLAYMUX_RUNTIME_STATUS_CRITICAL_SYSTEM_INFO_MISSING = 4,
         }
         struct DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
-            Brightness3Supported: BOOLEAN,
+            Brightness3Supported: bool,
             Brightness3Caps: DXGK_BRIGHTNESS_CAPS,
             Bridgtness3Ranges: DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT,
         }
@@ -1318,8 +1318,8 @@ mod Windows {
             EngineType: DXGK_ENGINE_TYPE,
             FriendlyName: [u16; 32],
             Flags: DXGK_NODEMETADATA_FLAGS,
-            GpuMmuSupported: BOOLEAN,
-            IoMmuSupported: BOOLEAN,
+            GpuMmuSupported: bool,
+            IoMmuSupported: bool,
         }
         struct DXGK_NODEMETADATA_FLAGS {
             Anonymous: #[packed(1)] union {

@@ -23,7 +23,7 @@ mod Windows {
         struct MCA_EXCEPTION {
             VersionNumber: u32,
             ExceptionType: MCA_EXCEPTION_TYPE,
-            TimeStamp: LARGE_INTEGER,
+            TimeStamp: i64,
             ProcessorNumber: u32,
             Reserved1: u32,
             u: union {

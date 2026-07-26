@@ -18,7 +18,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn Wow64DisableWow64FsRedirection(OldValue: *mut *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn Wow64EnableWow64FsRedirection(Wow64FsEnableRedirection: BOOLEAN) -> BOOLEAN;
+        extern fn Wow64EnableWow64FsRedirection(Wow64FsEnableRedirection: bool) -> bool;
         #[library("KERNEL32.dll")]
         extern fn Wow64GetThreadContext(hThread: HANDLE, #[in] #[out] lpContext: *mut WOW64_CONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]

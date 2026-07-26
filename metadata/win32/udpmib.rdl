@@ -11,7 +11,7 @@ mod Windows {
             dwLocalScopeId: u32,
             dwLocalPort: u32,
             dwOwningPid: u32,
-            liCreateTimestamp: LARGE_INTEGER,
+            liCreateTimestamp: i64,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: i32 {
@@ -30,7 +30,7 @@ mod Windows {
             dwLocalScopeId: u32,
             dwLocalPort: u32,
             dwOwningPid: u32,
-            liCreateTimestamp: LARGE_INTEGER,
+            liCreateTimestamp: i64,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: i32 {
@@ -71,7 +71,7 @@ mod Windows {
             dwLocalAddr: u32,
             dwLocalPort: u32,
             dwOwningPid: u32,
-            liCreateTimestamp: LARGE_INTEGER,
+            liCreateTimestamp: i64,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: i32 {
@@ -88,7 +88,7 @@ mod Windows {
             dwLocalAddr: u32,
             dwLocalPort: u32,
             dwOwningPid: u32,
-            liCreateTimestamp: LARGE_INTEGER,
+            liCreateTimestamp: i64,
             Anonymous: union {
                 Anonymous: struct {
                     _bitfield: i32 {

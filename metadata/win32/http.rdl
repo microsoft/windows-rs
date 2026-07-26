@@ -47,8 +47,8 @@ mod Windows {
             RequestQueueHandle: HANDLE,
         }
         struct HTTP_BYTE_RANGE {
-            StartingOffset: ULARGE_INTEGER,
-            Length: ULARGE_INTEGER,
+            StartingOffset: u64,
+            Length: u64,
         }
         const HTTP_BYTE_RANGE_TO_EOF: u64 = 18446744073709551615;
         struct HTTP_CACHE_POLICY {
@@ -181,7 +181,7 @@ mod Windows {
         }
         struct HTTP_FAST_FORWARD_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            EnableFastForwarding: BOOLEAN,
+            EnableFastForwarding: bool,
         }
         #[repr(i32)]
         enum HTTP_FEATURE_ID {
@@ -279,7 +279,7 @@ mod Windows {
         const HTTP_LIMIT_INFINITE: u32 = 4294967295;
         struct HTTP_LISTEN_ENDPOINT_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            EnableSharing: BOOLEAN,
+            EnableSharing: bool,
         }
         const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: i32 = 1;
         const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: i32 = 4;
@@ -767,9 +767,9 @@ mod Windows {
         struct HTTP_SERVER_AUTHENTICATION_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
             AuthSchemes: u32,
-            ReceiveMutualAuth: BOOLEAN,
-            ReceiveContextHandle: BOOLEAN,
-            DisableNTLMCredentialCaching: BOOLEAN,
+            ReceiveMutualAuth: bool,
+            ReceiveContextHandle: bool,
+            DisableNTLMCredentialCaching: bool,
             ExFlags: u8,
             DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
             BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
@@ -1005,7 +1005,7 @@ mod Windows {
             CertEncodedSize: u32,
             pCertEncoded: PUCHAR,
             Token: HANDLE,
-            CertDeniedByMapper: BOOLEAN,
+            CertDeniedByMapper: bool,
         }
         struct HTTP_SSL_INFO {
             ServerCertKeySize: u16,

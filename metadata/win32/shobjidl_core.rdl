@@ -1363,8 +1363,8 @@ mod Windows {
         }
         #[guid(0x3acf075f_71db_4afa_81f0_3fc4fdf2a5b8)]
         interface IFileSystemBindData2: IFileSystemBindData {
-            fn SetFileID(&self, liFileID: LARGE_INTEGER) -> HRESULT;
-            fn GetFileID(&self, pliFileID: *mut LARGE_INTEGER) -> HRESULT;
+            fn SetFileID(&self, liFileID: i64) -> HRESULT;
+            fn GetFileID(&self, pliFileID: *mut i64) -> HRESULT;
             fn SetJunctionCLSID(&self, clsid: *const GUID) -> HRESULT;
             fn GetJunctionCLSID(&self, pclsid: *mut GUID) -> HRESULT;
         }

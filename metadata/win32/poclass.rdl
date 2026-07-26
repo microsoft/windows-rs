@@ -16,15 +16,15 @@ mod Windows {
         }
         const ACPI_TIME_ADJUST_DAYLIGHT: i32 = 1;
         struct ACPI_TIME_AND_ALARM_CAPABILITIES {
-            AcWakeSupported: BOOLEAN,
-            DcWakeSupported: BOOLEAN,
-            S4AcWakeSupported: BOOLEAN,
-            S4DcWakeSupported: BOOLEAN,
-            S5AcWakeSupported: BOOLEAN,
-            S5DcWakeSupported: BOOLEAN,
-            S4S5WakeStatusSupported: BOOLEAN,
+            AcWakeSupported: bool,
+            DcWakeSupported: bool,
+            S4AcWakeSupported: bool,
+            S4DcWakeSupported: bool,
+            S5AcWakeSupported: bool,
+            S5DcWakeSupported: bool,
+            S4S5WakeStatusSupported: bool,
             DeepestWakeSystemState: u32,
-            RealTimeFeaturesSupported: BOOLEAN,
+            RealTimeFeaturesSupported: bool,
             RealTimeResolution: ACPI_TIME_RESOLUTION,
         }
         const ACPI_TIME_IN_DAYLIGHT: i32 = 2;
@@ -49,7 +49,7 @@ mod Windows {
         }
         struct BATTERY_CHARGING_SOURCE_INFORMATION {
             Type: BATTERY_CHARGING_SOURCE_TYPE,
-            SourceOnline: BOOLEAN,
+            SourceOnline: bool,
         }
         #[repr(i32)]
         enum BATTERY_CHARGING_SOURCE_TYPE {
@@ -247,7 +247,7 @@ mod Windows {
         const POWER_ADAPTER_REC_TIME_NOT_AVAILABLE: u64 = 18446744073709551615;
         struct POWER_ADAPTER_SET_STATUS_BUFFER {
             Version: u8,
-            RecOverride: BOOLEAN,
+            RecOverride: bool,
             Reserved: [u8; 2],
         }
         struct POWER_ADAPTER_STATUS {
@@ -307,14 +307,14 @@ mod Windows {
         }
         struct THERMAL_POLICY {
             Version: u32,
-            WaitForUpdate: BOOLEAN,
-            Hibernate: BOOLEAN,
-            Critical: BOOLEAN,
-            ThermalStandby: BOOLEAN,
+            WaitForUpdate: bool,
+            Hibernate: bool,
+            Critical: bool,
+            ThermalStandby: bool,
             ActivationReasons: u32,
             PassiveLimit: u32,
             ActiveLevel: u32,
-            OverThrottled: BOOLEAN,
+            OverThrottled: bool,
         }
         const THERMAL_POLICY_VERSION_1: i32 = 1;
         const THERMAL_POLICY_VERSION_2: i32 = 2;

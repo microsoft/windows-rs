@@ -67,11 +67,11 @@ mod Windows {
             VolumeGuidName: PCWSTR,
             VolumeDosName: PCWSTR,
             VolumeSerialNumber: u32,
-            SyncRootFileId: LARGE_INTEGER,
+            SyncRootFileId: i64,
             SyncRootIdentity: *const void,
             SyncRootIdentityLength: u32,
-            FileId: LARGE_INTEGER,
-            FileSize: LARGE_INTEGER,
+            FileId: i64,
+            FileSize: i64,
             FileIdentity: *const void,
             FileIdentityLength: u32,
             NormalizedPath: PCWSTR,
@@ -95,24 +95,24 @@ mod Windows {
                     Flags: CF_CALLBACK_CANCEL_FLAGS,
                     Anonymous: union {
                         FetchData: struct {
-                            FileOffset: LARGE_INTEGER,
-                            Length: LARGE_INTEGER,
+                            FileOffset: i64,
+                            Length: i64,
                         },
                     },
                 },
                 FetchData: struct {
                     Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
-                    RequiredFileOffset: LARGE_INTEGER,
-                    RequiredLength: LARGE_INTEGER,
-                    OptionalFileOffset: LARGE_INTEGER,
-                    OptionalLength: LARGE_INTEGER,
-                    LastDehydrationTime: LARGE_INTEGER,
+                    RequiredFileOffset: i64,
+                    RequiredLength: i64,
+                    OptionalFileOffset: i64,
+                    OptionalLength: i64,
+                    LastDehydrationTime: i64,
                     LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
                 },
                 ValidateData: struct {
                     Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
-                    RequiredFileOffset: LARGE_INTEGER,
-                    RequiredLength: LARGE_INTEGER,
+                    RequiredFileOffset: i64,
+                    RequiredLength: i64,
                 },
                 FetchPlaceholders: struct {
                     Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
@@ -223,12 +223,12 @@ mod Windows {
         }
         const CF_EOF: i64 = -1;
         struct CF_FILE_RANGE {
-            StartingOffset: LARGE_INTEGER,
-            Length: LARGE_INTEGER,
+            StartingOffset: i64,
+            Length: i64,
         }
         struct CF_FS_METADATA {
             BasicInfo: FILE_BASIC_INFO,
-            FileSize: LARGE_INTEGER,
+            FileSize: i64,
         }
         #[repr(u32)]
         #[flags]
@@ -339,21 +339,21 @@ mod Windows {
                     Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
                     CompletionStatus: NTSTATUS,
                     Buffer: *const void,
-                    Offset: LARGE_INTEGER,
-                    Length: LARGE_INTEGER,
+                    Offset: i64,
+                    Length: i64,
                 },
                 RetrieveData: struct {
                     Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
                     Buffer: *mut void,
-                    Offset: LARGE_INTEGER,
-                    Length: LARGE_INTEGER,
-                    ReturnedLength: LARGE_INTEGER,
+                    Offset: i64,
+                    Length: i64,
+                    ReturnedLength: i64,
                 },
                 AckData: struct {
                     Flags: CF_OPERATION_ACK_DATA_FLAGS,
                     CompletionStatus: NTSTATUS,
-                    Offset: LARGE_INTEGER,
-                    Length: LARGE_INTEGER,
+                    Offset: i64,
+                    Length: i64,
                 },
                 RestartHydration: struct {
                     Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
@@ -364,7 +364,7 @@ mod Windows {
                 TransferPlaceholders: struct {
                     Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
                     CompletionStatus: NTSTATUS,
-                    PlaceholderTotalCount: LARGE_INTEGER,
+                    PlaceholderTotalCount: i64,
                     PlaceholderArray: *mut CF_PLACEHOLDER_CREATE_INFO,
                     PlaceholderCount: u32,
                     EntriesProcessed: u32,
@@ -430,8 +430,8 @@ mod Windows {
         struct CF_PLACEHOLDER_BASIC_INFO {
             PinState: CF_PIN_STATE,
             InSyncState: CF_IN_SYNC_STATE,
-            FileId: LARGE_INTEGER,
-            SyncRootFileId: LARGE_INTEGER,
+            FileId: i64,
+            SyncRootFileId: i64,
             FileIdentityLength: u32,
             FileIdentity: [u8; 1],
         }
@@ -473,14 +473,14 @@ mod Windows {
             CF_PLACEHOLDER_RANGE_INFO_MODIFIED = 3,
         }
         struct CF_PLACEHOLDER_STANDARD_INFO {
-            OnDiskDataSize: LARGE_INTEGER,
-            ValidatedDataSize: LARGE_INTEGER,
-            ModifiedDataSize: LARGE_INTEGER,
-            PropertiesSize: LARGE_INTEGER,
+            OnDiskDataSize: i64,
+            ValidatedDataSize: i64,
+            ModifiedDataSize: i64,
+            PropertiesSize: i64,
             PinState: CF_PIN_STATE,
             InSyncState: CF_IN_SYNC_STATE,
-            FileId: LARGE_INTEGER,
-            SyncRootFileId: LARGE_INTEGER,
+            FileId: i64,
+            SyncRootFileId: i64,
             FileIdentityLength: u32,
             FileIdentity: [u8; 1],
         }
@@ -539,7 +539,7 @@ mod Windows {
             CF_REGISTER_FLAG_DISABLE_ON_DEMAND_POPULATION_ON_ROOT = 2,
             CF_REGISTER_FLAG_MARK_IN_SYNC_ON_ROOT = 4,
         }
-        type CF_REQUEST_KEY = LARGE_INTEGER;
+        type CF_REQUEST_KEY = i64;
         const CF_REQUEST_KEY_DEFAULT: i32 = 0;
         #[repr(u32)]
         #[flags]
@@ -593,7 +593,7 @@ mod Windows {
             ProviderId: GUID,
         }
         struct CF_SYNC_ROOT_BASIC_INFO {
-            SyncRootFileId: LARGE_INTEGER,
+            SyncRootFileId: i64,
         }
         #[repr(i32)]
         enum CF_SYNC_ROOT_INFO_CLASS {
@@ -607,7 +607,7 @@ mod Windows {
             ProviderVersion: [u16; 256],
         }
         struct CF_SYNC_ROOT_STANDARD_INFO {
-            SyncRootFileId: LARGE_INTEGER,
+            SyncRootFileId: i64,
             HydrationPolicy: CF_HYDRATION_POLICY,
             PopulationPolicy: CF_POPULATION_POLICY,
             InSyncPolicy: CF_INSYNC_POLICY,
@@ -626,7 +626,7 @@ mod Windows {
             DeviceIdOffset: u32,
             DeviceIdLength: u32,
         }
-        type CF_TRANSFER_KEY = LARGE_INTEGER;
+        type CF_TRANSFER_KEY = i64;
         #[repr(u32)]
         #[flags]
         enum CF_UPDATE_FLAGS {
@@ -652,7 +652,7 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfCreatePlaceholders(BaseDirectoryPath: PCWSTR, #[len_param(2)] #[in] #[out] PlaceholderArray: *mut CF_PLACEHOLDER_CREATE_INFO, PlaceholderCount: u32, CreateFlags: CF_CREATE_FLAGS, #[opt] EntriesProcessed: *mut u32) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfDehydratePlaceholder(FileHandle: HANDLE, StartingOffset: LARGE_INTEGER, Length: LARGE_INTEGER, DehydrateFlags: CF_DEHYDRATE_FLAGS, #[in] #[out] #[opt] Overlapped: *mut OVERLAPPED) -> HRESULT;
+        extern fn CfDehydratePlaceholder(FileHandle: HANDLE, StartingOffset: i64, Length: i64, DehydrateFlags: CF_DEHYDRATE_FLAGS, #[in] #[out] #[opt] Overlapped: *mut OVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfDisconnectSyncRoot(ConnectionKey: CF_CONNECTION_KEY) -> HRESULT;
         #[library("cldapi.dll")]
@@ -662,9 +662,9 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfGetPlaceholderInfo(FileHandle: HANDLE, InfoClass: CF_PLACEHOLDER_INFO_CLASS, InfoBuffer: *mut void, InfoBufferLength: u32, #[opt] ReturnedLength: *mut u32) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetPlaceholderRangeInfo(FileHandle: HANDLE, InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, StartingOffset: LARGE_INTEGER, Length: LARGE_INTEGER, InfoBuffer: *mut void, InfoBufferLength: u32, #[opt] ReturnedLength: *mut u32) -> HRESULT;
+        extern fn CfGetPlaceholderRangeInfo(FileHandle: HANDLE, InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, StartingOffset: i64, Length: i64, InfoBuffer: *mut void, InfoBufferLength: u32, #[opt] ReturnedLength: *mut u32) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetPlaceholderRangeInfoForHydration(ConnectionKey: CF_CONNECTION_KEY, TransferKey: CF_TRANSFER_KEY, FileId: LARGE_INTEGER, InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, StartingOffset: LARGE_INTEGER, RangeLength: LARGE_INTEGER, #[size_param(7)] InfoBuffer: *mut void, InfoBufferSize: u32, #[opt] InfoBufferWritten: *mut u32) -> HRESULT;
+        extern fn CfGetPlaceholderRangeInfoForHydration(ConnectionKey: CF_CONNECTION_KEY, TransferKey: CF_TRANSFER_KEY, FileId: i64, InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, StartingOffset: i64, RangeLength: i64, #[size_param(7)] InfoBuffer: *mut void, InfoBufferSize: u32, #[opt] InfoBufferWritten: *mut u32) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfGetPlaceholderStateFromAttributeTag(FileAttributes: u32, ReparseTag: u32) -> CF_PLACEHOLDER_STATE;
         #[library("cldapi.dll")]
@@ -682,13 +682,13 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfGetWin32HandleFromProtectedHandle(ProtectedHandle: HANDLE) -> HANDLE;
         #[library("cldapi.dll")]
-        extern fn CfHydratePlaceholder(FileHandle: HANDLE, StartingOffset: LARGE_INTEGER, Length: LARGE_INTEGER, HydrateFlags: CF_HYDRATE_FLAGS, #[in] #[out] #[opt] Overlapped: *mut OVERLAPPED) -> HRESULT;
+        extern fn CfHydratePlaceholder(FileHandle: HANDLE, StartingOffset: i64, Length: i64, HydrateFlags: CF_HYDRATE_FLAGS, #[in] #[out] #[opt] Overlapped: *mut OVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfOpenFileWithOplock(FilePath: PCWSTR, Flags: CF_OPEN_FILE_FLAGS, ProtectedHandle: *mut HANDLE) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfQuerySyncProviderStatus(ConnectionKey: CF_CONNECTION_KEY, ProviderStatus: *mut CF_SYNC_PROVIDER_STATUS) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfReferenceProtectedHandle(ProtectedHandle: HANDLE) -> BOOLEAN;
+        extern fn CfReferenceProtectedHandle(ProtectedHandle: HANDLE) -> bool;
         #[library("cldapi.dll")]
         extern fn CfRegisterSyncRoot(SyncRootPath: PCWSTR, Registration: *const CF_SYNC_REGISTRATION, Policies: *const CF_SYNC_POLICIES, RegisterFlags: CF_REGISTER_FLAGS) -> HRESULT;
         #[library("cldapi.dll")]
@@ -696,9 +696,9 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfReleaseTransferKey(FileHandle: HANDLE, TransferKey: *mut CF_TRANSFER_KEY);
         #[library("cldapi.dll")]
-        extern fn CfReportProviderProgress(ConnectionKey: CF_CONNECTION_KEY, TransferKey: CF_TRANSFER_KEY, ProviderProgressTotal: LARGE_INTEGER, ProviderProgressCompleted: LARGE_INTEGER) -> HRESULT;
+        extern fn CfReportProviderProgress(ConnectionKey: CF_CONNECTION_KEY, TransferKey: CF_TRANSFER_KEY, ProviderProgressTotal: i64, ProviderProgressCompleted: i64) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfReportProviderProgress2(ConnectionKey: CF_CONNECTION_KEY, TransferKey: CF_TRANSFER_KEY, RequestKey: CF_REQUEST_KEY, ProviderProgressTotal: LARGE_INTEGER, ProviderProgressCompleted: LARGE_INTEGER, TargetSessionId: u32) -> HRESULT;
+        extern fn CfReportProviderProgress2(ConnectionKey: CF_CONNECTION_KEY, TransferKey: CF_TRANSFER_KEY, RequestKey: CF_REQUEST_KEY, ProviderProgressTotal: i64, ProviderProgressCompleted: i64, TargetSessionId: u32) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfReportSyncStatus(SyncRootPath: PCWSTR, #[opt] SyncStatus: *const CF_SYNC_STATUS) -> HRESULT;
         #[library("cldapi.dll")]

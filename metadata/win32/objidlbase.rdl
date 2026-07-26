@@ -398,13 +398,13 @@ mod Windows {
         }
         #[guid(0x0000000c_0000_0000_c000_000000000046)]
         interface IStream: ISequentialStream {
-            fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: u32, #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
-            fn SetSize(&self, libNewSize: ULARGE_INTEGER) -> HRESULT;
-            fn CopyTo(&self, pstm: IStream, cb: ULARGE_INTEGER, #[opt] pcbRead: *mut ULARGE_INTEGER, #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
+            fn Seek(&self, dlibMove: i64, dwOrigin: u32, #[opt] plibNewPosition: *mut u64) -> HRESULT;
+            fn SetSize(&self, libNewSize: u64) -> HRESULT;
+            fn CopyTo(&self, pstm: IStream, cb: u64, #[opt] pcbRead: *mut u64, #[opt] pcbWritten: *mut u64) -> HRESULT;
             fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
             fn Revert(&self) -> HRESULT;
-            fn LockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: u32) -> HRESULT;
-            fn UnlockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: u32) -> HRESULT;
+            fn LockRegion(&self, libOffset: u64, cb: u64, dwLockType: u32) -> HRESULT;
+            fn UnlockRegion(&self, libOffset: u64, cb: u64, dwLockType: u32) -> HRESULT;
             fn Stat(&self, pstatstg: *mut STATSTG, grfStatFlag: u32) -> HRESULT;
             fn Clone(&self, ppstm: *mut IStream) -> HRESULT;
         }
@@ -524,7 +524,7 @@ mod Windows {
         struct STATSTG {
             pwcsName: PWSTR,
             r#type: u32,
-            cbSize: ULARGE_INTEGER,
+            cbSize: u64,
             mtime: FILETIME,
             ctime: FILETIME,
             atime: FILETIME,

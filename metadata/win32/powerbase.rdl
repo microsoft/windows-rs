@@ -4,7 +4,7 @@ mod Windows {
         #[library("POWRPROF.dll")]
         extern fn CallNtPowerInformation(InformationLevel: POWER_INFORMATION_LEVEL, #[size_param(2)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(4)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> i32;
         #[library("POWRPROF.dll")]
-        extern fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> BOOLEAN;
+        extern fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> bool;
         #[library("POWRPROF.dll")]
         extern fn PowerDeterminePlatformRoleEx(Version: u32) -> POWER_PLATFORM_ROLE;
         #[library("POWRPROF.dll")]

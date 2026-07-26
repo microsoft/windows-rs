@@ -113,9 +113,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetEvent(hEvent: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetWaitableTimer(hTimer: HANDLE, lpDueTime: *const LARGE_INTEGER, lPeriod: i32, #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[opt] lpArgToCompletionRoutine: *const void, fResume: BOOL) -> BOOL;
+        extern fn SetWaitableTimer(hTimer: HANDLE, lpDueTime: *const i64, lPeriod: i32, #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[opt] lpArgToCompletionRoutine: *const void, fResume: BOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetWaitableTimerEx(hTimer: HANDLE, lpDueTime: *const LARGE_INTEGER, lPeriod: i32, #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[opt] lpArgToCompletionRoutine: *const void, #[opt] WakeContext: *const REASON_CONTEXT, TolerableDelay: u32) -> BOOL;
+        extern fn SetWaitableTimerEx(hTimer: HANDLE, lpDueTime: *const i64, lPeriod: i32, #[opt] pfnCompletionRoutine: PTIMERAPCROUTINE, #[opt] lpArgToCompletionRoutine: *const void, #[opt] WakeContext: *const REASON_CONTEXT, TolerableDelay: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SignalObjectAndWait(hObjectToSignal: HANDLE, hObjectToWaitOn: HANDLE, dwMilliseconds: u32, bAlertable: BOOL) -> u32;
         #[library("KERNEL32.dll")]
@@ -127,9 +127,9 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SleepEx(dwMilliseconds: u32, bAlertable: BOOL) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn TryAcquireSRWLockExclusive(#[in] #[out] SRWLock: *mut RTL_SRWLOCK) -> BOOLEAN;
+        extern fn TryAcquireSRWLockExclusive(#[in] #[out] SRWLock: *mut RTL_SRWLOCK) -> bool;
         #[library("KERNEL32.dll")]
-        extern fn TryAcquireSRWLockShared(#[in] #[out] SRWLock: *mut RTL_SRWLOCK) -> BOOLEAN;
+        extern fn TryAcquireSRWLockShared(#[in] #[out] SRWLock: *mut RTL_SRWLOCK) -> bool;
         #[library("KERNEL32.dll")]
         extern fn TryEnterCriticalSection(#[in] #[out] lpCriticalSection: LPCRITICAL_SECTION) -> BOOL;
         #[library("KERNEL32.dll")]

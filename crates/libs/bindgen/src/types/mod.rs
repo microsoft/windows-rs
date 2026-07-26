@@ -235,21 +235,10 @@ impl Type {
                 "HSTRING" => return Remap::Type(Self::String),
                 "IInspectable" => return Remap::Type(Self::Object),
                 "IUnknown" => return Remap::Type(Self::IUnknown),
-                "CHAR" => return Remap::Type(Self::I8),
-                "BOOLEAN" => return Remap::Type(Self::Bool),
                 "BOOL" => return Remap::Type(Self::BOOL),
                 "NTSTATUS" => return Remap::Type(Self::NTSTATUS),
                 "RPC_STATUS" => return Remap::Type(Self::RPC_STATUS),
                 "EventRegistrationToken" => return Remap::Type(Self::I64),
-
-                // `LARGE_INTEGER` / `ULARGE_INTEGER` are scraped as unions
-                // (their `QuadPart` / `LowPart`+`HighPart` overlay), but the reference
-                // winmd and every published `windows` / `windows-sys` binding collapse
-                // them to their 64-bit scalar. Remap at gen time - like `CHAR` / `BOOLEAN`
-                // above - so the in-house metadata keeps the union layout while consumers
-                // see the ergonomic `i64` / `u64`.
-                "LARGE_INTEGER" => return Remap::Type(Self::I64),
-                "ULARGE_INTEGER" => return Remap::Type(Self::U64),
                 _ => {}
             }
         }

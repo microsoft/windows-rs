@@ -182,7 +182,7 @@ mod Windows {
             cLength: u32,
             Anonymous: union {
                 Anonymous: struct {
-                    nFileOffset: LARGE_INTEGER,
+                    nFileOffset: i64,
                     hFile: HANDLE,
                 },
                 pBuffer: *mut void,

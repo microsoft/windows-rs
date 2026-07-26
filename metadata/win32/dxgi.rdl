@@ -45,8 +45,8 @@ mod Windows {
             PresentCount: u32,
             PresentRefreshCount: u32,
             SyncRefreshCount: u32,
-            SyncQPCTime: LARGE_INTEGER,
-            SyncGPUTime: LARGE_INTEGER,
+            SyncQPCTime: i64,
+            SyncGPUTime: i64,
         }
         struct DXGI_MAPPED_RECT {
             Pitch: i32,
@@ -142,7 +142,7 @@ mod Windows {
         interface IDXGIAdapter: IDXGIObject {
             fn EnumOutputs(&self, Output: u32, #[in] #[out] ppOutput: *mut IDXGIOutput) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut DXGI_ADAPTER_DESC) -> HRESULT;
-            fn CheckInterfaceSupport(&self, InterfaceName: *const GUID, pUMDVersion: *mut LARGE_INTEGER) -> HRESULT;
+            fn CheckInterfaceSupport(&self, InterfaceName: *const GUID, pUMDVersion: *mut i64) -> HRESULT;
         }
         #[guid(0x29038f61_3839_4626_91fd_086879011a05)]
         interface IDXGIAdapter1: IDXGIAdapter {

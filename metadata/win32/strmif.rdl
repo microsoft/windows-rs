@@ -2124,7 +2124,7 @@ mod Windows {
             dwFlags: u32,
             szDevice: [u16; 32],
             szDescription: [u16; 256],
-            liDriverVersion: LARGE_INTEGER,
+            liDriverVersion: i64,
             dwVendorId: u32,
             dwDeviceId: u32,
             dwSubSysId: u32,

@@ -30,7 +30,7 @@ mod Windows {
             dwRemotePort: u32,
             dwState: u32,
             dwOwningPid: u32,
-            liCreateTimestamp: LARGE_INTEGER,
+            liCreateTimestamp: i64,
             OwningModuleInfo: [u64; 16],
         }
         struct MIB_TCP6ROW_OWNER_PID {
@@ -86,7 +86,7 @@ mod Windows {
             dwRemoteAddr: u32,
             dwRemotePort: u32,
             dwOwningPid: u32,
-            liCreateTimestamp: LARGE_INTEGER,
+            liCreateTimestamp: i64,
             OwningModuleInfo: [u64; 16],
         }
         struct MIB_TCPROW_OWNER_PID {

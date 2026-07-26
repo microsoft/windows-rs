@@ -47,7 +47,7 @@ mod Windows {
         }
         struct CAH {
             cElems: u32,
-            pElems: *mut LARGE_INTEGER,
+            pElems: *mut i64,
         }
         struct CAI {
             cElems: u32,
@@ -79,7 +79,7 @@ mod Windows {
         }
         struct CAUH {
             cElems: u32,
-            pElems: *mut ULARGE_INTEGER,
+            pElems: *mut u64,
         }
         struct CAUI {
             cElems: u32,
@@ -168,8 +168,8 @@ mod Windows {
                         ulVal: u32,
                         intVal: i32,
                         uintVal: u32,
-                        hVal: LARGE_INTEGER,
-                        uhVal: ULARGE_INTEGER,
+                        hVal: i64,
+                        uhVal: u64,
                         fltVal: f32,
                         dblVal: f64,
                         boolVal: VARIANT_BOOL,

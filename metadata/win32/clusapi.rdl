@@ -789,7 +789,7 @@ mod Windows {
         }
         struct CLUSPROP_LARGE_INTEGER {
             Base: CLUSPROP_VALUE,
-            li: LARGE_INTEGER,
+            li: i64,
         }
         struct CLUSPROP_LIST {
             nPropertyCount: u32,
@@ -861,7 +861,7 @@ mod Windows {
         }
         struct CLUSPROP_ULARGE_INTEGER {
             Base: CLUSPROP_VALUE,
-            li: ULARGE_INTEGER,
+            li: u64,
         }
         struct CLUSPROP_VALUE {
             Syntax: CLUSPROP_SYNTAX,
@@ -2190,7 +2190,7 @@ mod Windows {
         const CLUSTER_SET_ACCESS_TYPE_DENIED: i32 = 1;
         struct CLUSTER_SET_PASSWORD_STATUS {
             NodeId: u32,
-            SetAttempted: BOOLEAN,
+            SetAttempted: bool,
             ReturnStatus: u32,
         }
         #[encoding("utf-16")]
@@ -2357,7 +2357,7 @@ mod Windows {
             VolumeName: [u16; 260],
         }
         struct CLUS_CSV_VOLUME_INFO {
-            VolumeOffset: ULARGE_INTEGER,
+            VolumeOffset: u64,
             PartitionNumber: u32,
             FaultState: CLUSTER_CSV_VOLUME_FAULT_STATE,
             BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
@@ -2365,7 +2365,7 @@ mod Windows {
             szVolumeName: [u16; 50],
         }
         struct CLUS_CSV_VOLUME_NAME {
-            VolumeOffset: LARGE_INTEGER,
+            VolumeOffset: i64,
             szVolumeName: [u16; 260],
             szRootPath: [u16; 263],
         }
@@ -2475,8 +2475,8 @@ mod Windows {
             rgdwMaximumComponentLength: u32,
             dwFileSystemFlags: u32,
             szFileSystem: [u16; 32],
-            TotalSizeInBytes: ULARGE_INTEGER,
-            FreeSizeInBytes: ULARGE_INTEGER,
+            TotalSizeInBytes: u64,
+            FreeSizeInBytes: u64,
             DeviceNumber: u32,
             PartitionNumber: u32,
             VolumeGuid: GUID,
@@ -2500,7 +2500,7 @@ mod Windows {
                     },
                     SubClass: u32,
                 },
-                li: ULARGE_INTEGER,
+                li: u64,
             },
         }
         #[repr(i32)]
@@ -2689,7 +2689,7 @@ mod Windows {
             ppszNodeNames: *mut PCWSTR,
             cIpEntries: u32,
             pIpEntries: PCLUSTER_IP_ENTRY,
-            fEmptyCluster: BOOLEAN,
+            fEmptyCluster: bool,
             managementPointType: CLUSTER_MGMT_POINT_TYPE,
             managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
             pszUserName: PCWSTR,
@@ -2706,7 +2706,7 @@ mod Windows {
             pszDomain: PCWSTR,
             managementPointType: CLUSTER_MGMT_POINT_TYPE,
             managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
-            bUpgradeVCOs: BOOLEAN,
+            bUpgradeVCOs: bool,
         }
         const CREATE_CLUSTER_VERSION: i32 = 1536;
         #[repr(i32)]
@@ -3789,9 +3789,9 @@ mod Windows {
             LogType: u16,
             ReplicationMode: u32,
             MinimumPartnersInSync: u32,
-            EnableWriteConsistency: BOOLEAN,
-            EnableEncryption: BOOLEAN,
-            EnableCompression: BOOLEAN,
+            EnableWriteConsistency: bool,
+            EnableEncryption: bool,
+            EnableCompression: bool,
             CertificateThumbprint: [u16; 260],
             VolumeNameCount: u32,
             VolumeNames: [[u16; 260]; 1],
@@ -3810,17 +3810,17 @@ mod Windows {
         }
         struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
             DataDiskGuid: GUID,
-            IncludeOfflineDisks: BOOLEAN,
+            IncludeOfflineDisks: bool,
         }
         struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
             DataDiskGuid: GUID,
-            IncludeAvailableStoargeDisks: BOOLEAN,
+            IncludeAvailableStoargeDisks: bool,
         }
         struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
             SourceDataDiskGuid: GUID,
             TargetReplicationGroupGuid: GUID,
-            SkipConnectivityCheck: BOOLEAN,
-            IncludeOfflineDisks: BOOLEAN,
+            SkipConnectivityCheck: bool,
+            IncludeOfflineDisks: bool,
         }
         struct SR_RESOURCE_TYPE_REPLICATED_DISK {
             Type: SR_REPLICATED_DISK_TYPE,

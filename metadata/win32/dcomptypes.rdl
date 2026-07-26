@@ -70,11 +70,11 @@ mod Windows {
             DCOMPOSITION_DEPTH_MODE_INHERIT = -1,
         }
         struct DCOMPOSITION_FRAME_STATISTICS {
-            lastFrameTime: LARGE_INTEGER,
+            lastFrameTime: i64,
             currentCompositionRate: DXGI_RATIONAL,
-            currentTime: LARGE_INTEGER,
-            timeFrequency: LARGE_INTEGER,
-            nextEstimatedFrameTime: LARGE_INTEGER,
+            currentTime: i64,
+            timeFrequency: i64,
+            nextEstimatedFrameTime: i64,
         }
         const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: i32 = 32;
         #[repr(i32)]

@@ -219,10 +219,10 @@ mod Windows {
             Subtype: WINBIO_BIOMETRIC_SUBTYPE,
             Purpose: WINBIO_BIR_PURPOSE,
             DataQuality: WINBIO_BIR_QUALITY,
-            CreationDate: LARGE_INTEGER,
+            CreationDate: i64,
             ValidityPeriod: struct {
-                BeginDate: LARGE_INTEGER,
-                EndDate: LARGE_INTEGER,
+                BeginDate: i64,
+                EndDate: i64,
             },
             BiometricDataFormat: WINBIO_REGISTERED_FORMAT,
             ProductId: WINBIO_REGISTERED_FORMAT,

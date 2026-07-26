@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         struct BLOCK_NTLM_INFO {
-            BlockNTLM: BOOLEAN,
+            BlockNTLM: bool,
             Reserved1: u8,
             Reserved2: u16,
             Reserved3: u32,
@@ -48,7 +48,7 @@ mod Windows {
         type PUSE_OPTION_PROPERTIES = *mut USE_OPTION_PROPERTIES;
         type PUSE_OPTION_TRANSPORT_PARAMETERS = *mut USE_OPTION_TRANSPORT_PARAMETERS;
         struct SMB_COMPRESSION_INFO {
-            Switch: BOOLEAN,
+            Switch: bool,
             Reserved1: u8,
             Reserved2: u16,
             Reserved3: u32,
@@ -66,7 +66,7 @@ mod Windows {
         }
         struct TRANSPORT_INFO {
             Type: TRANSPORT_TYPE,
-            SkipCertificateCheck: BOOLEAN,
+            SkipCertificateCheck: bool,
             TcpPort: u16,
             QuicPort: u16,
             RdmaPort: u16,

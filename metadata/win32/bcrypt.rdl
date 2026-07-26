@@ -811,7 +811,7 @@ mod Windows {
         #[library("bcrypt.dll")]
         extern fn BCryptGenerateSymmetricKey(#[in] #[out] hAlgorithm: BCRYPT_ALG_HANDLE, phKey: *mut BCRYPT_KEY_HANDLE, #[size_param(3)] #[opt] pbKeyObject: *mut u8, cbKeyObject: u32, #[size_param(5)] pbSecret: *const u8, cbSecret: u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]
-        extern fn BCryptGetFipsAlgorithmMode(pfEnabled: *mut BOOLEAN) -> NTSTATUS;
+        extern fn BCryptGetFipsAlgorithmMode(pfEnabled: *mut bool) -> NTSTATUS;
         #[library("bcrypt.dll")]
         extern fn BCryptGetProperty(hObject: BCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> NTSTATUS;
         #[library("bcrypt.dll")]

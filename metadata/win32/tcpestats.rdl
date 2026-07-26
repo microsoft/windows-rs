@@ -33,8 +33,8 @@ mod Windows {
             InboundBandwidth: u64,
             OutboundInstability: u64,
             InboundInstability: u64,
-            OutboundBandwidthPeaked: BOOLEAN,
-            InboundBandwidthPeaked: BOOLEAN,
+            OutboundBandwidthPeaked: bool,
+            InboundBandwidthPeaked: bool,
         }
         struct TCP_ESTATS_BANDWIDTH_RW_v0 {
             EnableCollectionOutbound: TCP_BOOLEAN_OPTIONAL,
@@ -57,7 +57,7 @@ mod Windows {
             ThruBytesReceived: u64,
         }
         struct TCP_ESTATS_DATA_RW_v0 {
-            EnableCollection: BOOLEAN,
+            EnableCollection: bool,
         }
         struct TCP_ESTATS_FINE_RTT_ROD_v0 {
             RttVar: u32,
@@ -66,7 +66,7 @@ mod Windows {
             SumRtt: u32,
         }
         struct TCP_ESTATS_FINE_RTT_RW_v0 {
-            EnableCollection: BOOLEAN,
+            EnableCollection: bool,
         }
         struct TCP_ESTATS_OBS_REC_ROD_v0 {
             CurRwinRcvd: u32,
@@ -75,7 +75,7 @@ mod Windows {
             WinScaleRcvd: u8,
         }
         struct TCP_ESTATS_OBS_REC_RW_v0 {
-            EnableCollection: BOOLEAN,
+            EnableCollection: bool,
         }
         struct TCP_ESTATS_PATH_ROD_v0 {
             FastRetran: u32,
@@ -120,7 +120,7 @@ mod Windows {
             SpuriousRtoDetections: u32,
         }
         struct TCP_ESTATS_PATH_RW_v0 {
-            EnableCollection: BOOLEAN,
+            EnableCollection: bool,
         }
         struct TCP_ESTATS_REC_ROD_v0 {
             CurRwinSent: u32,
@@ -139,7 +139,7 @@ mod Windows {
             WinScaleSent: u8,
         }
         struct TCP_ESTATS_REC_RW_v0 {
-            EnableCollection: BOOLEAN,
+            EnableCollection: bool,
         }
         struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
             CurRetxQueue: usize,
@@ -148,7 +148,7 @@ mod Windows {
             MaxAppWQueue: usize,
         }
         struct TCP_ESTATS_SEND_BUFF_RW_v0 {
-            EnableCollection: BOOLEAN,
+            EnableCollection: bool,
         }
         struct TCP_ESTATS_SND_CONG_ROD_v0 {
             SndLimTransRwin: u32,
@@ -174,10 +174,10 @@ mod Windows {
             LimCwnd: u32,
         }
         struct TCP_ESTATS_SND_CONG_RW_v0 {
-            EnableCollection: BOOLEAN,
+            EnableCollection: bool,
         }
         struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
-            ActiveOpen: BOOLEAN,
+            ActiveOpen: bool,
             MssRcvd: u32,
             MssSent: u32,
         }

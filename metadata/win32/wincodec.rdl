@@ -539,7 +539,7 @@ mod Windows {
             fn InitializeFromIStream(&self, pIStream: IStream) -> HRESULT;
             fn InitializeFromFilename(&self, wzFileName: PCWSTR, dwDesiredAccess: u32) -> HRESULT;
             fn InitializeFromMemory(&self, pbBuffer: *const u8, cbBufferSize: u32) -> HRESULT;
-            fn InitializeFromIStreamRegion(&self, pIStream: IStream, ulOffset: ULARGE_INTEGER, ulMaxSize: ULARGE_INTEGER) -> HRESULT;
+            fn InitializeFromIStreamRegion(&self, pIStream: IStream, ulOffset: u64, ulMaxSize: u64) -> HRESULT;
         }
         extern fn PFNProgressNotification(pvData: *mut void, uFrameNum: u32, operation: WICProgressOperation, dblProgress: f64) -> HRESULT;
         type REFWICPixelFormatGUID = *const GUID;
@@ -655,7 +655,7 @@ mod Windows {
             WICBITMAPPALETTETYPE_FORCE_DWORD = 2147483647,
         }
         struct WICBitmapPattern {
-            Position: ULARGE_INTEGER,
+            Position: u64,
             Length: u32,
             Pattern: *mut u8,
             Mask: *mut u8,

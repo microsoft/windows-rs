@@ -72,7 +72,7 @@ mod Windows {
         struct TRANSACTION_NOTIFICATION {
             TransactionKey: *mut void,
             TransactionNotification: u32,
-            TmVirtualClock: LARGE_INTEGER,
+            TmVirtualClock: i64,
             ArgumentLength: u32,
         }
         struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {

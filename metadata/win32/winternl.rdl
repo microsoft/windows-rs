@@ -105,11 +105,11 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtClose(Handle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtCreateFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *mut OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, AllocationSize: *mut LARGE_INTEGER, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, EaBuffer: *mut void, EaLength: u32) -> NTSTATUS;
+        extern fn NtCreateFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *mut OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, AllocationSize: *mut i64, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, EaBuffer: *mut void, EaLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtDeviceIoControlFile(FileHandle: HANDLE, Event: HANDLE, ApcRoutine: PIO_APC_ROUTINE, ApcContext: *mut void, IoStatusBlock: *mut IO_STATUS_BLOCK, IoControlCode: u32, InputBuffer: *mut void, InputBufferLength: u32, OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[opt] SubordinateObjects: *const OBJECT_ATTRIBUTES, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
+        extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[opt] SubordinateObjects: *const OBJECT_ATTRIBUTES, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: bool, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: bool) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtOpenFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *mut OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -123,7 +123,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: *mut void, SystemInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQuerySystemTime(SystemTime: *mut LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtQuerySystemTime(SystemTime: *mut i64) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtQueryTimerResolution(MaximumTime: *mut u32, MinimumTime: *mut u32, CurrentTime: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -133,7 +133,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] ThreadInformation: *const void, ThreadInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, Timeout: *mut LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: bool, Timeout: *mut i64) -> NTSTATUS;
         #[repr(i32)]
         enum OBJECT_INFORMATION_CLASS {
             ObjectBasicInformation = 0,
@@ -237,7 +237,7 @@ mod Windows {
             Reserved: [u32; 22],
         }
         type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
-        extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut void, param4: u32, param5: *mut u32) -> BOOLEAN;
+        extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut void, param4: u32, param5: *mut u32) -> bool;
         struct RTL_USER_PROCESS_PARAMETERS {
             Reserved1: [u8; 16],
             Reserved2: [*mut void; 10],
@@ -245,11 +245,11 @@ mod Windows {
             CommandLine: UNICODE_STRING,
         }
         #[library("ntdll.dll")]
-        extern fn RtlAnsiStringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCANSI_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlAnsiStringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCANSI_STRING, AllocateDestinationString: bool) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlCharToInteger(String: *const i8, Base: u32, Value: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlConvertSidToUnicodeString(UnicodeString: *mut UNICODE_STRING, Sid: PSID, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlConvertSidToUnicodeString(UnicodeString: *mut UNICODE_STRING, Sid: PSID, AllocateDestinationString: bool) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlFreeAnsiString(AnsiString: PANSI_STRING);
         #[library("ntdll.dll")]
@@ -267,17 +267,17 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlInitUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCWSTR);
         #[library("ntdll.dll")]
-        extern fn RtlIsNameLegalDOS8Dot3(Name: *mut UNICODE_STRING, OemName: POEM_STRING, NameContainsSpaces: *mut BOOLEAN) -> BOOLEAN;
+        extern fn RtlIsNameLegalDOS8Dot3(Name: *mut UNICODE_STRING, OemName: POEM_STRING, NameContainsSpaces: *mut bool) -> bool;
         #[library("ntdll.dll")]
-        extern fn RtlLocalTimeToSystemTime(LocalTime: *mut LARGE_INTEGER, SystemTime: *mut LARGE_INTEGER) -> NTSTATUS;
+        extern fn RtlLocalTimeToSystemTime(LocalTime: *mut i64, SystemTime: *mut i64) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlNtStatusToDosError(Status: NTSTATUS) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlTimeToSecondsSince1970(Time: *mut LARGE_INTEGER, ElapsedSeconds: *mut u32) -> BOOLEAN;
+        extern fn RtlTimeToSecondsSince1970(Time: *mut i64, ElapsedSeconds: *mut u32) -> bool;
         #[library("ntdll.dll")]
-        extern fn RtlUnicodeStringToAnsiString(DestinationString: PANSI_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlUnicodeStringToAnsiString(DestinationString: PANSI_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: bool) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn RtlUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: bool) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlUnicodeToMultiByteSize(BytesInMultiByteString: *mut u32, #[size_param(2)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -336,10 +336,10 @@ mod Windows {
             Reserved2: [u32; 3],
         }
         struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
-            IdleTime: LARGE_INTEGER,
-            KernelTime: LARGE_INTEGER,
-            UserTime: LARGE_INTEGER,
-            Reserved1: [LARGE_INTEGER; 2],
+            IdleTime: i64,
+            KernelTime: i64,
+            UserTime: i64,
+            Reserved1: [i64; 2],
             Reserved2: u32,
         }
         struct SYSTEM_PROCESS_INFORMATION {
@@ -365,7 +365,7 @@ mod Windows {
             PagefileUsage: usize,
             PeakPagefileUsage: usize,
             PrivatePageCount: usize,
-            Reserved7: [LARGE_INTEGER; 6],
+            Reserved7: [i64; 6],
         }
         struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
             RegistryQuotaAllowed: u32,
@@ -373,7 +373,7 @@ mod Windows {
             Reserved1: *mut void,
         }
         struct SYSTEM_THREAD_INFORMATION {
-            Reserved1: [LARGE_INTEGER; 3],
+            Reserved1: [i64; 3],
             Reserved2: u32,
             StartAddress: *mut void,
             ClientId: CLIENT_ID,

@@ -302,40 +302,40 @@ mod Windows {
                     dwReserved: u32,
                     hSourceFile: HANDLE,
                     hDestinationFile: HANDLE,
-                    uliChunkNumber: ULARGE_INTEGER,
-                    uliChunkSize: ULARGE_INTEGER,
-                    uliStreamSize: ULARGE_INTEGER,
-                    uliTotalFileSize: ULARGE_INTEGER,
+                    uliChunkNumber: u64,
+                    uliChunkSize: u64,
+                    uliStreamSize: u64,
+                    uliTotalFileSize: u64,
                 },
                 ChunkFinished: struct {
                     dwStreamNumber: u32,
                     dwFlags: u32,
                     hSourceFile: HANDLE,
                     hDestinationFile: HANDLE,
-                    uliChunkNumber: ULARGE_INTEGER,
-                    uliChunkSize: ULARGE_INTEGER,
-                    uliStreamSize: ULARGE_INTEGER,
-                    uliStreamBytesTransferred: ULARGE_INTEGER,
-                    uliTotalFileSize: ULARGE_INTEGER,
-                    uliTotalBytesTransferred: ULARGE_INTEGER,
+                    uliChunkNumber: u64,
+                    uliChunkSize: u64,
+                    uliStreamSize: u64,
+                    uliStreamBytesTransferred: u64,
+                    uliTotalFileSize: u64,
+                    uliTotalBytesTransferred: u64,
                 },
                 StreamStarted: struct {
                     dwStreamNumber: u32,
                     dwReserved: u32,
                     hSourceFile: HANDLE,
                     hDestinationFile: HANDLE,
-                    uliStreamSize: ULARGE_INTEGER,
-                    uliTotalFileSize: ULARGE_INTEGER,
+                    uliStreamSize: u64,
+                    uliTotalFileSize: u64,
                 },
                 StreamFinished: struct {
                     dwStreamNumber: u32,
                     dwReserved: u32,
                     hSourceFile: HANDLE,
                     hDestinationFile: HANDLE,
-                    uliStreamSize: ULARGE_INTEGER,
-                    uliStreamBytesTransferred: ULARGE_INTEGER,
-                    uliTotalFileSize: ULARGE_INTEGER,
-                    uliTotalBytesTransferred: ULARGE_INTEGER,
+                    uliStreamSize: u64,
+                    uliStreamBytesTransferred: u64,
+                    uliTotalFileSize: u64,
+                    uliTotalBytesTransferred: u64,
                 },
                 PollContinue: struct {
                     dwReserved: u32,
@@ -345,16 +345,16 @@ mod Windows {
                     dwStreamNumber: u32,
                     hrFailure: HRESULT,
                     dwReserved: u32,
-                    uliChunkNumber: ULARGE_INTEGER,
-                    uliStreamSize: ULARGE_INTEGER,
-                    uliStreamBytesTransferred: ULARGE_INTEGER,
-                    uliTotalFileSize: ULARGE_INTEGER,
-                    uliTotalBytesTransferred: ULARGE_INTEGER,
+                    uliChunkNumber: u64,
+                    uliStreamSize: u64,
+                    uliStreamBytesTransferred: u64,
+                    uliTotalFileSize: u64,
+                    uliTotalBytesTransferred: u64,
                 },
                 SparseChunkStatus: struct {
-                    uliChunkNumber: ULARGE_INTEGER,
-                    uliChunkSize: ULARGE_INTEGER,
-                    uliChunkOffset: ULARGE_INTEGER,
+                    uliChunkNumber: u64,
+                    uliChunkSize: u64,
+                    uliChunkOffset: u64,
                 },
             },
         }
@@ -527,13 +527,13 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateSemaphoreExA(#[opt] lpSemaphoreAttributes: *const SECURITY_ATTRIBUTES, lInitialCount: i32, lMaximumCount: i32, #[opt] lpName: PCSTR, #[reserved] dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateSymbolicLinkA(lpSymlinkFileName: PCSTR, lpTargetFileName: PCSTR, dwFlags: u32) -> BOOLEAN;
+        extern fn CreateSymbolicLinkA(lpSymlinkFileName: PCSTR, lpTargetFileName: PCSTR, dwFlags: u32) -> bool;
         #[library("KERNEL32.dll")]
-        extern fn CreateSymbolicLinkTransactedA(lpSymlinkFileName: PCSTR, lpTargetFileName: PCSTR, dwFlags: u32, hTransaction: HANDLE) -> BOOLEAN;
+        extern fn CreateSymbolicLinkTransactedA(lpSymlinkFileName: PCSTR, lpTargetFileName: PCSTR, dwFlags: u32, hTransaction: HANDLE) -> bool;
         #[library("KERNEL32.dll")]
-        extern fn CreateSymbolicLinkTransactedW(lpSymlinkFileName: PCWSTR, lpTargetFileName: PCWSTR, dwFlags: u32, hTransaction: HANDLE) -> BOOLEAN;
+        extern fn CreateSymbolicLinkTransactedW(lpSymlinkFileName: PCWSTR, lpTargetFileName: PCWSTR, dwFlags: u32, hTransaction: HANDLE) -> bool;
         #[library("KERNEL32.dll")]
-        extern fn CreateSymbolicLinkW(lpSymlinkFileName: PCWSTR, lpTargetFileName: PCWSTR, dwFlags: u32) -> BOOLEAN;
+        extern fn CreateSymbolicLinkW(lpSymlinkFileName: PCWSTR, lpTargetFileName: PCWSTR, dwFlags: u32) -> bool;
         #[library("KERNEL32.dll")]
         extern fn CreateTapePartition(hDevice: HANDLE, dwPartitionMethod: u32, dwCount: u32, dwSize: u32) -> u32;
         #[library("KERNEL32.dll")]
@@ -709,17 +709,17 @@ mod Windows {
             AlignmentRequirement: u32,
         }
         struct FILE_ALLOCATION_INFO {
-            AllocationSize: LARGE_INTEGER,
+            AllocationSize: i64,
         }
         struct FILE_ATTRIBUTE_TAG_INFO {
             FileAttributes: u32,
             ReparseTag: u32,
         }
         struct FILE_BASIC_INFO {
-            CreationTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            LastWriteTime: LARGE_INTEGER,
-            ChangeTime: LARGE_INTEGER,
+            CreationTime: i64,
+            LastAccessTime: i64,
+            LastWriteTime: i64,
+            ChangeTime: i64,
             FileAttributes: u32,
         }
         const FILE_BEGIN: i32 = 0;
@@ -727,7 +727,7 @@ mod Windows {
             Flags: u32,
         }
         struct FILE_COMPRESSION_INFO {
-            CompressedFileSize: LARGE_INTEGER,
+            CompressedFileSize: i64,
             CompressionFormat: u16,
             CompressionUnitShift: u8,
             ChunkShift: u8,
@@ -743,7 +743,7 @@ mod Windows {
         const FILE_DISPOSITION_FLAG_ON_CLOSE: i32 = 8;
         const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: i32 = 2;
         struct FILE_DISPOSITION_INFO {
-            DeleteFileA: BOOLEAN,
+            DeleteFileA: bool,
         }
         struct FILE_DISPOSITION_INFO_EX {
             Flags: u32,
@@ -751,7 +751,7 @@ mod Windows {
         const FILE_ENCRYPTABLE: i32 = 0;
         const FILE_END: i32 = 2;
         struct FILE_END_OF_FILE_INFO {
-            EndOfFile: LARGE_INTEGER,
+            EndOfFile: i64,
         }
         const FILE_FLAG_BACKUP_SEMANTICS: i32 = 33554432;
         const FILE_FLAG_DELETE_ON_CLOSE: i32 = 67108864;
@@ -778,12 +778,12 @@ mod Windows {
         struct FILE_FULL_DIR_INFO {
             NextEntryOffset: u32,
             FileIndex: u32,
-            CreationTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            LastWriteTime: LARGE_INTEGER,
-            ChangeTime: LARGE_INTEGER,
-            EndOfFile: LARGE_INTEGER,
-            AllocationSize: LARGE_INTEGER,
+            CreationTime: i64,
+            LastAccessTime: i64,
+            LastWriteTime: i64,
+            ChangeTime: i64,
+            EndOfFile: i64,
+            AllocationSize: i64,
             FileAttributes: u32,
             FileNameLength: u32,
             EaSize: u32,
@@ -792,25 +792,25 @@ mod Windows {
         struct FILE_ID_BOTH_DIR_INFO {
             NextEntryOffset: u32,
             FileIndex: u32,
-            CreationTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            LastWriteTime: LARGE_INTEGER,
-            ChangeTime: LARGE_INTEGER,
-            EndOfFile: LARGE_INTEGER,
-            AllocationSize: LARGE_INTEGER,
+            CreationTime: i64,
+            LastAccessTime: i64,
+            LastWriteTime: i64,
+            ChangeTime: i64,
+            EndOfFile: i64,
+            AllocationSize: i64,
             FileAttributes: u32,
             FileNameLength: u32,
             EaSize: u32,
             ShortNameLength: CCHAR,
             ShortName: [u16; 12],
-            FileId: LARGE_INTEGER,
+            FileId: i64,
             FileName: [u16; 1],
         }
         struct FILE_ID_DESCRIPTOR {
             dwSize: u32,
             Type: FILE_ID_TYPE,
             Anonymous: union {
-                FileId: LARGE_INTEGER,
+                FileId: i64,
                 ObjectId: GUID,
                 ExtendedFileId: FILE_ID_128,
             },
@@ -818,12 +818,12 @@ mod Windows {
         struct FILE_ID_EXTD_DIR_INFO {
             NextEntryOffset: u32,
             FileIndex: u32,
-            CreationTime: LARGE_INTEGER,
-            LastAccessTime: LARGE_INTEGER,
-            LastWriteTime: LARGE_INTEGER,
-            ChangeTime: LARGE_INTEGER,
-            EndOfFile: LARGE_INTEGER,
-            AllocationSize: LARGE_INTEGER,
+            CreationTime: i64,
+            LastAccessTime: i64,
+            LastWriteTime: i64,
+            ChangeTime: i64,
+            EndOfFile: i64,
+            AllocationSize: i64,
             FileAttributes: u32,
             FileNameLength: u32,
             EaSize: u32,
@@ -883,7 +883,7 @@ mod Windows {
         const FILE_RENAME_FLAG_SUPPRESS_PIN_STATE_INHERITANCE: i32 = 4;
         struct FILE_RENAME_INFO {
             Anonymous: union {
-                ReplaceIfExists: BOOLEAN,
+                ReplaceIfExists: bool,
                 Flags: u32,
             },
             RootDirectory: HANDLE,
@@ -894,11 +894,11 @@ mod Windows {
         const FILE_SKIP_COMPLETION_PORT_ON_SUCCESS: i32 = 1;
         const FILE_SKIP_SET_EVENT_ON_HANDLE: i32 = 2;
         struct FILE_STANDARD_INFO {
-            AllocationSize: LARGE_INTEGER,
-            EndOfFile: LARGE_INTEGER,
+            AllocationSize: i64,
+            EndOfFile: i64,
             NumberOfLinks: u32,
-            DeletePending: BOOLEAN,
-            Directory: BOOLEAN,
+            DeletePending: bool,
+            Directory: bool,
         }
         struct FILE_STORAGE_INFO {
             LogicalBytesPerSector: u32,
@@ -912,8 +912,8 @@ mod Windows {
         struct FILE_STREAM_INFO {
             NextEntryOffset: u32,
             StreamNameLength: u32,
-            StreamSize: LARGE_INTEGER,
-            StreamAllocationSize: LARGE_INTEGER,
+            StreamSize: i64,
+            StreamAllocationSize: i64,
             StreamName: [u16; 1],
         }
         const FILE_SYSTEM_ATTR: i32 = 2;
@@ -1386,7 +1386,7 @@ mod Windows {
         type LPMEMORYSTATUS = *mut MEMORYSTATUS;
         type LPOFSTRUCT = *mut OFSTRUCT;
         type LPPOWER_REQUEST_CONTEXT = *mut REASON_CONTEXT;
-        extern fn LPPROGRESS_ROUTINE(TotalFileSize: LARGE_INTEGER, TotalBytesTransferred: LARGE_INTEGER, StreamSize: LARGE_INTEGER, StreamBytesTransferred: LARGE_INTEGER, dwStreamNumber: u32, dwCallbackReason: u32, hSourceFile: HANDLE, hDestinationFile: HANDLE, #[opt] lpData: *const void) -> u32;
+        extern fn LPPROGRESS_ROUTINE(TotalFileSize: i64, TotalBytesTransferred: i64, StreamSize: i64, StreamBytesTransferred: i64, dwStreamNumber: u32, dwCallbackReason: u32, hSourceFile: HANDLE, hDestinationFile: HANDLE, #[opt] lpData: *const void) -> u32;
         type LPSTARTUPINFOEX = LPSTARTUPINFOEXA;
         type LPSTARTUPINFOEXA = *mut STARTUPINFOEXA;
         type LPSTARTUPINFOEXW = *mut STARTUPINFOEXW;
@@ -2001,7 +2001,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn QueryFullProcessImageNameW(hProcess: HANDLE, dwFlags: u32, #[len_param(3)] #[out] lpExeName: PWSTR, #[in] #[out] lpdwSize: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueryThreadProfiling(ThreadHandle: HANDLE, Enabled: *mut BOOLEAN) -> u32;
+        extern fn QueryThreadProfiling(ThreadHandle: HANDLE, Enabled: *mut bool) -> u32;
         #[library("KERNEL32.dll")]
         extern fn QueryUmsThreadInformation(UmsThread: PUMS_CONTEXT, UmsThreadInfoClass: UMS_THREAD_INFO_CLASS, #[size_param(3)] UmsThreadInformation: *mut void, UmsThreadInformationLength: u32, #[opt] ReturnLength: *mut u32) -> BOOL;
         const REALTIME_PRIORITY_CLASS: i32 = 256;
@@ -2357,7 +2357,7 @@ mod Windows {
         struct WIN32_STREAM_ID {
             dwStreamId: u32,
             dwStreamAttributes: u32,
-            Size: LARGE_INTEGER,
+            Size: i64,
             dwStreamNameSize: u32,
             cStreamName: [u16; 1],
         }

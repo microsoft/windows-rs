@@ -74,7 +74,7 @@ mod Windows {
             EventProperty: u16,
             ThreadId: u32,
             ProcessId: u32,
-            TimeStamp: LARGE_INTEGER,
+            TimeStamp: i64,
             ProviderId: GUID,
             EventDescriptor: EVENT_DESCRIPTOR,
             Anonymous: union {
@@ -142,7 +142,7 @@ mod Windows {
             UserContext: *mut void,
         }
         #[library("ADVAPI32.dll")]
-        extern fn EventAccessControl(Guid: *const GUID, Operation: u32, Sid: PSID, Rights: u32, AllowOrDeny: BOOLEAN) -> u32;
+        extern fn EventAccessControl(Guid: *const GUID, Operation: u32, Sid: PSID, Rights: u32, AllowOrDeny: bool) -> u32;
         #[library("ADVAPI32.dll")]
         extern fn EventAccessQuery(Guid: *const GUID, #[size_param(2)] #[out] #[opt] Buffer: PSECURITY_DESCRIPTOR, #[in] #[out] BufferSize: *mut u32) -> u32;
         #[library("ADVAPI32.dll")]

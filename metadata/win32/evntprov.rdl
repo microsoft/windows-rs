@@ -38,7 +38,7 @@ mod Windows {
             Type: u32,
         }
         struct EVENT_FILTER_EVENT_ID {
-            FilterIn: BOOLEAN,
+            FilterIn: bool,
             Reserved: u8,
             Count: u16,
             Events: [u16; 1],
@@ -47,7 +47,7 @@ mod Windows {
             MatchAnyKeyword: u64,
             MatchAllKeyword: u64,
             Level: u8,
-            FilterIn: BOOLEAN,
+            FilterIn: bool,
             NameCount: u16,
             Names: [u8; 1],
         }
@@ -63,7 +63,7 @@ mod Windows {
             MatchAnyKeyword: u64,
             MatchAllKeyword: u64,
             Level: u8,
-            FilterIn: BOOLEAN,
+            FilterIn: bool,
         }
         const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
         const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160;
@@ -96,9 +96,9 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn EventActivityIdControl(ControlCode: u32, #[in] #[out] ActivityId: *mut GUID) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EventEnabled(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR) -> BOOLEAN;
+        extern fn EventEnabled(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR) -> bool;
         #[library("ADVAPI32.dll")]
-        extern fn EventProviderEnabled(RegHandle: REGHANDLE, Level: u8, Keyword: u64) -> BOOLEAN;
+        extern fn EventProviderEnabled(RegHandle: REGHANDLE, Level: u8, Keyword: u64) -> bool;
         #[library("ADVAPI32.dll")]
         extern fn EventRegister(ProviderId: *const GUID, #[opt] EnableCallback: PENABLECALLBACK, #[opt] CallbackContext: *const void, RegHandle: *mut u64) -> u32;
         #[library("ADVAPI32.dll")]

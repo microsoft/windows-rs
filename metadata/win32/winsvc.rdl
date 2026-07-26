@@ -432,7 +432,7 @@ mod Windows {
         const SERVICE_PAUSE_PENDING: i32 = 6;
         struct SERVICE_PREFERRED_NODE_INFO {
             usPreferredNode: u16,
-            fDelete: BOOLEAN,
+            fDelete: bool,
         }
         struct SERVICE_PRESHUTDOWN_INFO {
             dwPreshutdownTimeout: u32,
@@ -556,8 +556,8 @@ mod Windows {
             lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
         }
         struct SERVICE_TIMECHANGE_INFO {
-            liNewTime: LARGE_INTEGER,
-            liOldTime: LARGE_INTEGER,
+            liNewTime: i64,
+            liOldTime: i64,
         }
         struct SERVICE_TRIGGER {
             dwTriggerType: u32,

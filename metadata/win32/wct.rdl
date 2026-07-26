@@ -20,7 +20,7 @@ mod Windows {
             Anonymous: union {
                 LockObject: struct {
                     ObjectName: [u16; 128],
-                    Timeout: LARGE_INTEGER,
+                    Timeout: i64,
                     Alertable: BOOL,
                 },
                 ThreadObject: struct {

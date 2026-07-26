@@ -11,7 +11,7 @@ mod Windows {
             Driver: [i8; 512],
             Description: [i8; 512],
             DeviceName: [i8; 32],
-            DriverVersion: LARGE_INTEGER,
+            DriverVersion: i64,
             VendorId: u32,
             DeviceId: u32,
             SubSysId: u32,
@@ -25,7 +25,7 @@ mod Windows {
             Driver: [i8; 512],
             Description: [i8; 512],
             DeviceName: [i8; 32],
-            DriverVersion: LARGE_INTEGER,
+            DriverVersion: i64,
             VendorId: u32,
             DeviceId: u32,
             SubSysId: u32,
@@ -803,8 +803,8 @@ mod Windows {
             PresentCount: u32,
             PresentRefreshCount: u32,
             SyncRefreshCount: u32,
-            SyncQPCTime: LARGE_INTEGER,
-            SyncGPUTime: LARGE_INTEGER,
+            SyncQPCTime: i64,
+            SyncGPUTime: i64,
         }
         #[packed(4)]
         #[arch(X86)]
@@ -812,8 +812,8 @@ mod Windows {
             PresentCount: u32,
             PresentRefreshCount: u32,
             SyncRefreshCount: u32,
-            SyncQPCTime: LARGE_INTEGER,
-            SyncGPUTime: LARGE_INTEGER,
+            SyncQPCTime: i64,
+            SyncGPUTime: i64,
         }
         struct D3DPRESENT_PARAMETERS {
             BackBufferWidth: u32,

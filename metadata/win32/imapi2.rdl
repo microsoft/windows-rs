@@ -492,11 +492,11 @@ mod Windows {
             fn GetDeviceDescriptor(&self, data: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
             fn GetDiscInformation(&self, discInformation: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
             fn GetTrackInformation(&self, address: u32, addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, trackInformation: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
-            fn GetFeaturePage(&self, requestedFeature: IMAPI_FEATURE_PAGE_TYPE, currentFeatureOnly: BOOLEAN, featureData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
+            fn GetFeaturePage(&self, requestedFeature: IMAPI_FEATURE_PAGE_TYPE, currentFeatureOnly: bool, featureData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
             fn GetModePage(&self, requestedModePage: IMAPI_MODE_PAGE_TYPE, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, modePageData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
             fn SetModePage(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
-            fn GetSupportedFeaturePages(&self, currentFeatureOnly: BOOLEAN, featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
-            fn GetSupportedProfiles(&self, currentOnly: BOOLEAN, profileTypes: *mut *mut IMAPI_PROFILE_TYPE, validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
+            fn GetSupportedFeaturePages(&self, currentFeatureOnly: bool, featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
+            fn GetSupportedProfiles(&self, currentOnly: bool, profileTypes: *mut *mut IMAPI_PROFILE_TYPE, validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
             fn GetSupportedModePages(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
             fn GetByteAlignmentMask(&self, #[retval] value: *mut u32) -> HRESULT;
             fn GetMaximumNonPageAlignedTransferSize(&self, #[retval] value: *mut u32) -> HRESULT;

@@ -20,8 +20,8 @@ mod Windows {
             PresentCount: u32,
             PresentRefreshCount: u32,
             SyncRefreshCount: u32,
-            SyncQPCTime: LARGE_INTEGER,
-            SyncGPUTime: LARGE_INTEGER,
+            SyncQPCTime: i64,
+            SyncGPUTime: i64,
             CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
             ApprovedPresentDuration: u32,
         }

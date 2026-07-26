@@ -44,7 +44,7 @@ mod Windows {
             CallerName: [u8; 64],
         }
         struct CDROM_EXCLUSIVE_LOCK_STATE {
-            LockState: BOOLEAN,
+            LockState: bool,
             CallerName: [u8; 64],
         }
         const CDROM_IN_EXCLUSIVE_MODE: i32 = 1;
@@ -142,15 +142,15 @@ mod Windows {
             StartLba: u32,
             EndLba: u32,
             RotationControl: WRITE_ROTATION,
-            RestoreDefaults: BOOLEAN,
-            SetExact: BOOLEAN,
-            RandomAccess: BOOLEAN,
-            Persistent: BOOLEAN,
+            RestoreDefaults: bool,
+            SetExact: bool,
+            RandomAccess: bool,
+            Persistent: bool,
         }
         struct CDROM_SIMPLE_OPC_INFO {
             RequestType: CDROM_OPC_INFO_TYPE,
-            Exclude0: BOOLEAN,
-            Exclude1: BOOLEAN,
+            Exclude0: bool,
+            Exclude1: bool,
         }
         #[repr(i32)]
         enum CDROM_SPEED_REQUEST {
@@ -389,7 +389,7 @@ mod Windows {
         type PVOLUME_CONTROL = *mut VOLUME_CONTROL;
         type PWRITE_ROTATION = *mut WRITE_ROTATION;
         struct RAW_READ_INFO {
-            DiskOffset: LARGE_INTEGER,
+            DiskOffset: i64,
             SectorCount: u32,
             TrackMode: TRACK_MODE_TYPE,
         }

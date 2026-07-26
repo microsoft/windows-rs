@@ -62,8 +62,8 @@ mod Windows {
             DesktopImageInSystemMemory: BOOL,
         }
         struct DXGI_OUTDUPL_FRAME_INFO {
-            LastPresentTime: LARGE_INTEGER,
-            LastMouseUpdateTime: LARGE_INTEGER,
+            LastPresentTime: i64,
+            LastMouseUpdateTime: i64,
             AccumulatedFrames: u32,
             RectsCoalesced: BOOL,
             ProtectedContentMaskedOut: BOOL,

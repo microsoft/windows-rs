@@ -14,11 +14,11 @@ mod Windows {
         #[library("AVRT.dll")]
         extern fn AvRevertMmThreadCharacteristics(AvrtHandle: HANDLE) -> BOOL;
         #[library("AVRT.dll")]
-        extern fn AvRtCreateThreadOrderingGroup(Context: *mut HANDLE, Period: *const LARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const LARGE_INTEGER) -> BOOL;
+        extern fn AvRtCreateThreadOrderingGroup(Context: *mut HANDLE, Period: *const i64, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const i64) -> BOOL;
         #[library("AVRT.dll")]
-        extern fn AvRtCreateThreadOrderingGroupExA(Context: *mut HANDLE, Period: *const LARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const LARGE_INTEGER, TaskName: PCSTR) -> BOOL;
+        extern fn AvRtCreateThreadOrderingGroupExA(Context: *mut HANDLE, Period: *const i64, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const i64, TaskName: PCSTR) -> BOOL;
         #[library("AVRT.dll")]
-        extern fn AvRtCreateThreadOrderingGroupExW(Context: *mut HANDLE, Period: *const LARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const LARGE_INTEGER, TaskName: PCWSTR) -> BOOL;
+        extern fn AvRtCreateThreadOrderingGroupExW(Context: *mut HANDLE, Period: *const i64, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[opt] Timeout: *const i64, TaskName: PCWSTR) -> BOOL;
         #[library("AVRT.dll")]
         extern fn AvRtDeleteThreadOrderingGroup(Context: HANDLE) -> BOOL;
         #[library("AVRT.dll")]

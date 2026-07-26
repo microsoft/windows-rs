@@ -22,7 +22,7 @@ mod Windows {
         const GUID_HID_INTERFACE_NOTIFY: GUID = 0x2c4e2e88_25e6_4c33_882f_3d82e6073681;
         struct HID_COLLECTION_INFORMATION {
             DescriptorSize: u32,
-            Polled: BOOLEAN,
+            Polled: bool,
             Reserved1: [u8; 1],
             VendorID: u16,
             ProductID: u16,

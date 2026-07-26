@@ -552,10 +552,10 @@ mod Windows {
             sv1598_enableW9xsecuritysignature: u32,
         }
         struct SERVER_INFO_1599 {
-            sv1598_enforcekerberosreauthentication: BOOLEAN,
+            sv1598_enforcekerberosreauthentication: bool,
         }
         struct SERVER_INFO_1600 {
-            sv1598_disabledos: BOOLEAN,
+            sv1598_disabledos: bool,
         }
         struct SERVER_INFO_1601 {
             sv1598_lowdiskspaceminimum: u32,

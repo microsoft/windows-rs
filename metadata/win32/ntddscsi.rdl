@@ -120,10 +120,10 @@ mod Windows {
             MappedRegisterBase: *mut void,
             DumpData: *mut void,
             CommonBufferVa: *mut void,
-            CommonBufferPa: LARGE_INTEGER,
+            CommonBufferPa: i64,
             CommonBufferSize: u32,
-            AllocateCommonBuffers: BOOLEAN,
-            UseDiskDump: BOOLEAN,
+            AllocateCommonBuffers: bool,
+            UseDiskDump: bool,
             Spare1: [u8; 2],
             DeviceObject: *mut void,
         }
@@ -132,7 +132,7 @@ mod Windows {
             DumpData: *mut void,
             CommonBufferVa: *mut void,
             CommonBufferSize: u32,
-            AllocateCommonBuffers: BOOLEAN,
+            AllocateCommonBuffers: bool,
             DeviceObject: *mut void,
             DriverList: *mut void,
             dwPortFlags: u32,
@@ -223,7 +223,7 @@ mod Windows {
         struct HYBRID_INFORMATION {
             Version: u32,
             Size: u32,
-            HybridSupported: BOOLEAN,
+            HybridSupported: bool,
             Status: NVCACHE_STATUS,
             CacheTypeEffective: NVCACHE_TYPE,
             CacheTypeDefault: NVCACHE_TYPE,
@@ -240,7 +240,7 @@ mod Windows {
             },
             Priorities: struct {
                 PriorityLevelCount: u8,
-                MaxPriorityBehavior: BOOLEAN,
+                MaxPriorityBehavior: bool,
                 OptimalWriteGranularity: u8,
                 Reserved: u8,
                 DirtyThresholdLow: u32,
@@ -340,9 +340,9 @@ mod Windows {
             MaximumPhysicalPages: u32,
             SupportedAsynchronousEvents: u32,
             AlignmentMask: u32,
-            TaggedQueuing: BOOLEAN,
-            AdapterScansDown: BOOLEAN,
-            AdapterUsesPio: BOOLEAN,
+            TaggedQueuing: bool,
+            AdapterScansDown: bool,
+            AdapterUsesPio: bool,
         }
         const MINIPORT_DSM_NOTIFICATION_VERSION: i32 = 1;
         const MINIPORT_DSM_NOTIFICATION_VERSION_1: i32 = 1;
@@ -649,7 +649,7 @@ mod Windows {
             PathId: u8,
             TargetId: u8,
             Lun: u8,
-            DeviceClaimed: BOOLEAN,
+            DeviceClaimed: bool,
             InquiryDataLength: u32,
             NextInquiryDataOffset: u32,
             InquiryData: [u8; 1],
@@ -892,7 +892,7 @@ mod Windows {
         struct STORAGE_FIRMWARE_INFO {
             Version: u32,
             Size: u32,
-            UpgradeSupport: BOOLEAN,
+            UpgradeSupport: bool,
             SlotCount: u8,
             ActiveSlot: u8,
             PendingActivateSlot: u8,
@@ -905,11 +905,11 @@ mod Windows {
         struct STORAGE_FIRMWARE_INFO_V2 {
             Version: u32,
             Size: u32,
-            UpgradeSupport: BOOLEAN,
+            UpgradeSupport: bool,
             SlotCount: u8,
             ActiveSlot: u8,
             PendingActivateSlot: u8,
-            FirmwareShared: BOOLEAN,
+            FirmwareShared: bool,
             Reserved: [u8; 3],
             ImagePayloadAlignment: u32,
             ImagePayloadMaxSize: u32,
@@ -917,7 +917,7 @@ mod Windows {
         }
         struct STORAGE_FIRMWARE_SLOT_INFO {
             SlotNumber: u8,
-            ReadOnly: BOOLEAN,
+            ReadOnly: bool,
             Reserved: [u8; 6],
             Revision: union {
                 Info: [u8; 8],
@@ -926,7 +926,7 @@ mod Windows {
         }
         struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
             SlotNumber: u8,
-            ReadOnly: BOOLEAN,
+            ReadOnly: bool,
             Reserved: [u8; 6],
             Revision: [u8; 16],
         }

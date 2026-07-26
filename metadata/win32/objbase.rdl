@@ -50,13 +50,13 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CoRegisterChannelHook(ExtensionUuid: *const GUID, pChannelHook: IChannelHook) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoRegisterInitializeSpy(pSpy: IInitializeSpy, puliCookie: *mut ULARGE_INTEGER) -> HRESULT;
+        extern fn CoRegisterInitializeSpy(pSpy: IInitializeSpy, puliCookie: *mut u64) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoRegisterMallocSpy(pMallocSpy: IMallocSpy) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoRegisterMessageFilter(#[opt] lpMessageFilter: IMessageFilter, lplpMessageFilter: *mut IMessageFilter) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoRevokeInitializeSpy(uliCookie: ULARGE_INTEGER) -> HRESULT;
+        extern fn CoRevokeInitializeSpy(uliCookie: u64) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoRevokeMallocSpy() -> HRESULT;
         #[library("ole32.dll")]

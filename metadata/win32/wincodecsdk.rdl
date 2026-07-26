@@ -209,7 +209,7 @@ mod Windows {
             fn RefreshStream(&self) -> HRESULT;
         }
         #[library("WindowsCodecs.dll")]
-        extern fn WICGetMetadataContentSize(guidContainerFormat: *const GUID, pIWriter: IWICMetadataWriter, pcbSize: *mut ULARGE_INTEGER) -> HRESULT;
+        extern fn WICGetMetadataContentSize(guidContainerFormat: *const GUID, pIWriter: IWICMetadataWriter, pcbSize: *mut u64) -> HRESULT;
         #[library("WindowsCodecs.dll")]
         extern fn WICMatchMetadataContent(guidContainerFormat: *const GUID, #[opt] pguidVendor: *const GUID, pIStream: IStream, pguidMetadataFormat: *mut GUID) -> HRESULT;
         #[repr(i32)]
@@ -220,17 +220,17 @@ mod Windows {
             WICMetadataCreationMask = -65536,
         }
         struct WICMetadataHeader {
-            Position: ULARGE_INTEGER,
+            Position: u64,
             Length: u32,
             Header: *mut u8,
-            DataOffset: ULARGE_INTEGER,
+            DataOffset: u64,
         }
         struct WICMetadataPattern {
-            Position: ULARGE_INTEGER,
+            Position: u64,
             Length: u32,
             Pattern: *mut u8,
             Mask: *mut u8,
-            DataOffset: ULARGE_INTEGER,
+            DataOffset: u64,
         }
         #[repr(i32)]
         enum WICPersistOptions {
