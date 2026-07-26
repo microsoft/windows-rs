@@ -1084,6 +1084,16 @@ impl Type {
                 if self.kind() == CXType_Enum && is_anonymous_name(&name) {
                     return decl.enum_repr().to_type(parser);
                 }
+                // A Win32 aggregate that is bit-identical to a `Windows.Foundation.Numerics`
+                // value type collapses to the shared Numerics type at every reference, so the
+                // metadata carries the canonical projection directly (the struct definition is
+                // suppressed in the `CXCursor_StructDecl` arm). Flat scrape only, like the
+                // `resolve_typedef` collapse. See [`numerics_alias`].
+                if parser.header_root.is_some()
+                    && let Some(num) = numerics_alias(&name)
+                {
+                    return metadata::Type::value_named(NUMERICS_NAMESPACE, num);
+                }
                 let ns = if parser.header_root.is_some() {
                     // Flat namespace: every in-closure record resolves to the single
                     // root namespace; the defining header only selects the output file.

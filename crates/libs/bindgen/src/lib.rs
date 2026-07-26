@@ -401,7 +401,7 @@ impl Bindgen {
             self.input.iter().map(|s| s.as_str()).collect()
         };
 
-        let reader = Reader::new(expand_input(&input), sys);
+        let reader = Reader::new(expand_input(&input));
 
         let mut references: Vec<ReferenceStage> = Vec::new();
 

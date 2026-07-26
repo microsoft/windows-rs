@@ -4,13 +4,13 @@ mod Windows {
         #[library("d2d1.dll")]
         extern fn D2D1CreateFactory(factoryType: D2D1_FACTORY_TYPE, riid: *const GUID, #[opt] pFactoryOptions: *const D2D1_FACTORY_OPTIONS, #[iid_is] ppIFactory: *mut *mut void) -> HRESULT;
         #[library("d2d1.dll")]
-        extern fn D2D1InvertMatrix(#[in] #[out] matrix: *mut D2D_MATRIX_3X2_F) -> BOOL;
+        extern fn D2D1InvertMatrix(#[in] #[out] matrix: *mut super::Foundation::Numerics::Matrix3x2) -> BOOL;
         #[library("d2d1.dll")]
-        extern fn D2D1IsMatrixInvertible(matrix: *const D2D_MATRIX_3X2_F) -> BOOL;
+        extern fn D2D1IsMatrixInvertible(matrix: *const super::Foundation::Numerics::Matrix3x2) -> BOOL;
         #[library("d2d1.dll")]
-        extern fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut D2D_MATRIX_3X2_F);
+        extern fn D2D1MakeRotateMatrix(angle: f32, center: super::Foundation::Numerics::Vector2, matrix: *mut super::Foundation::Numerics::Matrix3x2);
         #[library("d2d1.dll")]
-        extern fn D2D1MakeSkewMatrix(angleX: f32, angleY: f32, center: D2D_POINT_2F, matrix: *mut D2D_MATRIX_3X2_F);
+        extern fn D2D1MakeSkewMatrix(angleX: f32, angleY: f32, center: super::Foundation::Numerics::Vector2, matrix: *mut super::Foundation::Numerics::Matrix3x2);
         #[repr(i32)]
         enum D2D1_ANTIALIAS_MODE {
             D2D1_ANTIALIAS_MODE_PER_PRIMITIVE = 0,
@@ -18,7 +18,7 @@ mod Windows {
             D2D1_ANTIALIAS_MODE_FORCE_DWORD = -1,
         }
         struct D2D1_ARC_SEGMENT {
-            point: D2D_POINT_2F,
+            point: super::Foundation::Numerics::Vector2,
             size: D2D_SIZE_F,
             rotationAngle: f32,
             sweepDirection: D2D1_SWEEP_DIRECTION,
@@ -31,9 +31,9 @@ mod Windows {
             D2D1_ARC_SIZE_FORCE_DWORD = -1,
         }
         struct D2D1_BEZIER_SEGMENT {
-            point1: D2D_POINT_2F,
-            point2: D2D_POINT_2F,
-            point3: D2D_POINT_2F,
+            point1: super::Foundation::Numerics::Vector2,
+            point2: super::Foundation::Numerics::Vector2,
+            point3: super::Foundation::Numerics::Vector2,
         }
         struct D2D1_BITMAP_BRUSH_PROPERTIES {
             extendModeX: D2D1_EXTEND_MODE,
@@ -53,7 +53,7 @@ mod Windows {
         }
         struct D2D1_BRUSH_PROPERTIES {
             opacity: f32,
-            transform: D2D_MATRIX_3X2_F,
+            transform: super::Foundation::Numerics::Matrix3x2,
         }
         #[repr(i32)]
         enum D2D1_CAP_STYLE {
@@ -108,7 +108,7 @@ mod Windows {
             textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
             tag1: D2D1_TAG,
             tag2: D2D1_TAG,
-            transform: D2D_MATRIX_3X2_F,
+            transform: super::Foundation::Numerics::Matrix3x2,
         }
         #[repr(u32)]
         #[flags]
@@ -121,7 +121,7 @@ mod Windows {
             D2D1_DRAW_TEXT_OPTIONS_FORCE_DWORD = 4294967295,
         }
         struct D2D1_ELLIPSE {
-            point: D2D_POINT_2F,
+            point: super::Foundation::Numerics::Vector2,
             radiusX: f32,
             radiusY: f32,
         }
@@ -216,14 +216,14 @@ mod Windows {
             contentBounds: D2D_RECT_F,
             geometricMask: ID2D1Geometry,
             maskAntialiasMode: D2D1_ANTIALIAS_MODE,
-            maskTransform: D2D_MATRIX_3X2_F,
+            maskTransform: super::Foundation::Numerics::Matrix3x2,
             opacity: f32,
             opacityBrush: ID2D1Brush,
             layerOptions: D2D1_LAYER_OPTIONS,
         }
         struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-            startPoint: D2D_POINT_2F,
-            endPoint: D2D_POINT_2F,
+            startPoint: super::Foundation::Numerics::Vector2,
+            endPoint: super::Foundation::Numerics::Vector2,
         }
         #[repr(i32)]
         enum D2D1_LINE_JOIN {
@@ -257,12 +257,12 @@ mod Windows {
             D2D1_PRESENT_OPTIONS_FORCE_DWORD = 4294967295,
         }
         struct D2D1_QUADRATIC_BEZIER_SEGMENT {
-            point1: D2D_POINT_2F,
-            point2: D2D_POINT_2F,
+            point1: super::Foundation::Numerics::Vector2,
+            point2: super::Foundation::Numerics::Vector2,
         }
         struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-            center: D2D_POINT_2F,
-            gradientOriginOffset: D2D_POINT_2F,
+            center: super::Foundation::Numerics::Vector2,
+            gradientOriginOffset: super::Foundation::Numerics::Vector2,
             radiusX: f32,
             radiusY: f32,
         }
@@ -319,9 +319,9 @@ mod Windows {
             D2D1_TEXT_ANTIALIAS_MODE_FORCE_DWORD = -1,
         }
         struct D2D1_TRIANGLE {
-            point1: D2D_POINT_2F,
-            point2: D2D_POINT_2F,
-            point3: D2D_POINT_2F,
+            point1: super::Foundation::Numerics::Vector2,
+            point2: super::Foundation::Numerics::Vector2,
+            point3: super::Foundation::Numerics::Vector2,
         }
         #[repr(u32)]
         #[flags]
@@ -358,9 +358,9 @@ mod Windows {
         #[guid(0x2cd906a8_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1Brush: ID2D1Resource {
             fn SetOpacity(&self, opacity: f32);
-            fn SetTransform(&self, transform: *const D2D_MATRIX_3X2_F);
+            fn SetTransform(&self, transform: *const super::Foundation::Numerics::Matrix3x2);
             fn GetOpacity(&self) -> f32;
-            fn GetTransform(&self, transform: *mut D2D_MATRIX_3X2_F);
+            fn GetTransform(&self, transform: *mut super::Foundation::Numerics::Matrix3x2);
         }
         #[guid(0x1c51bc64_de61_46fd_9899_63a5d8f03950)]
         interface ID2D1DCRenderTarget: ID2D1RenderTarget {
@@ -385,7 +385,7 @@ mod Windows {
             fn CreateRoundedRectangleGeometry(&self, roundedRectangle: *const D2D1_ROUNDED_RECT, roundedRectangleGeometry: *mut ID2D1RoundedRectangleGeometry) -> HRESULT;
             fn CreateEllipseGeometry(&self, ellipse: *const D2D1_ELLIPSE, ellipseGeometry: *mut ID2D1EllipseGeometry) -> HRESULT;
             fn CreateGeometryGroup(&self, fillMode: D2D1_FILL_MODE, #[len_param(2)] geometries: *const ID2D1Geometry, geometriesCount: u32, geometryGroup: *mut ID2D1GeometryGroup) -> HRESULT;
-            fn CreateTransformedGeometry(&self, sourceGeometry: ID2D1Geometry, transform: *const D2D_MATRIX_3X2_F, transformedGeometry: *mut ID2D1TransformedGeometry) -> HRESULT;
+            fn CreateTransformedGeometry(&self, sourceGeometry: ID2D1Geometry, transform: *const super::Foundation::Numerics::Matrix3x2, transformedGeometry: *mut ID2D1TransformedGeometry) -> HRESULT;
             fn CreatePathGeometry(&self, pathGeometry: *mut ID2D1PathGeometry) -> HRESULT;
             fn CreateStrokeStyle(&self, strokeStyleProperties: *const D2D1_STROKE_STYLE_PROPERTIES, #[len_param(2)] #[opt] dashes: *const f32, dashesCount: u32, strokeStyle: *mut ID2D1StrokeStyle) -> HRESULT;
             fn CreateDrawingStateBlock(&self, #[opt] drawingStateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION, #[opt] textRenderingParams: IDWriteRenderingParams, drawingStateBlock: *mut ID2D1DrawingStateBlock) -> HRESULT;
@@ -401,19 +401,19 @@ mod Windows {
         }
         #[guid(0x2cd906a1_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1Geometry: ID2D1Resource {
-            fn GetBounds(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, bounds: *mut D2D_RECT_F) -> HRESULT;
-            fn GetWidenedBounds(&self, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, bounds: *mut D2D_RECT_F) -> HRESULT;
-            fn StrokeContainsPoint(&self, point: D2D_POINT_2F, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, contains: *mut BOOL) -> HRESULT;
-            fn FillContainsPoint(&self, point: D2D_POINT_2F, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, contains: *mut BOOL) -> HRESULT;
-            fn CompareWithGeometry(&self, inputGeometry: ID2D1Geometry, #[opt] inputGeometryTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> HRESULT;
-            fn Simplify(&self, simplificationOption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
-            fn Tessellate(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, tessellationSink: ID2D1TessellationSink) -> HRESULT;
-            fn CombineWithGeometry(&self, inputGeometry: ID2D1Geometry, combineMode: D2D1_COMBINE_MODE, #[opt] inputGeometryTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
-            fn Outline(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
-            fn ComputeArea(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, area: *mut f32) -> HRESULT;
-            fn ComputeLength(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, length: *mut f32) -> HRESULT;
-            fn ComputePointAtLength(&self, length: f32, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, #[opt] point: *mut D2D_POINT_2F, #[opt] unitTangentVector: *mut D2D_POINT_2F) -> HRESULT;
-            fn Widen(&self, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn GetBounds(&self, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, bounds: *mut D2D_RECT_F) -> HRESULT;
+            fn GetWidenedBounds(&self, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, bounds: *mut D2D_RECT_F) -> HRESULT;
+            fn StrokeContainsPoint(&self, point: super::Foundation::Numerics::Vector2, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, contains: *mut BOOL) -> HRESULT;
+            fn FillContainsPoint(&self, point: super::Foundation::Numerics::Vector2, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, contains: *mut BOOL) -> HRESULT;
+            fn CompareWithGeometry(&self, inputGeometry: ID2D1Geometry, #[opt] inputGeometryTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> HRESULT;
+            fn Simplify(&self, simplificationOption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn Tessellate(&self, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, tessellationSink: ID2D1TessellationSink) -> HRESULT;
+            fn CombineWithGeometry(&self, inputGeometry: ID2D1Geometry, combineMode: D2D1_COMBINE_MODE, #[opt] inputGeometryTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn Outline(&self, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn ComputeArea(&self, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, area: *mut f32) -> HRESULT;
+            fn ComputeLength(&self, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, length: *mut f32) -> HRESULT;
+            fn ComputePointAtLength(&self, length: f32, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, #[opt] point: *mut super::Foundation::Numerics::Vector2, #[opt] unitTangentVector: *mut super::Foundation::Numerics::Vector2) -> HRESULT;
+            fn Widen(&self, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
         }
         #[guid(0x2cd906a6_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1GeometryGroup: ID2D1Geometry {
@@ -423,7 +423,7 @@ mod Windows {
         }
         #[guid(0x2cd9069f_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1GeometrySink: ID2D1SimplifiedGeometrySink {
-            fn AddLine(&self, point: D2D_POINT_2F);
+            fn AddLine(&self, point: super::Foundation::Numerics::Vector2);
             fn AddBezier(&self, bezier: *const D2D1_BEZIER_SEGMENT);
             fn AddQuadraticBezier(&self, bezier: *const D2D1_QUADRATIC_BEZIER_SEGMENT);
             fn AddQuadraticBeziers(&self, #[len_param(1)] beziers: *const D2D1_QUADRATIC_BEZIER_SEGMENT, beziersCount: u32);
@@ -450,10 +450,10 @@ mod Windows {
         }
         #[guid(0x2cd906ab_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1LinearGradientBrush: ID2D1Brush {
-            fn SetStartPoint(&self, startPoint: D2D_POINT_2F);
-            fn SetEndPoint(&self, endPoint: D2D_POINT_2F);
-            fn GetStartPoint(&self) -> D2D_POINT_2F;
-            fn GetEndPoint(&self) -> D2D_POINT_2F;
+            fn SetStartPoint(&self, startPoint: super::Foundation::Numerics::Vector2);
+            fn SetEndPoint(&self, endPoint: super::Foundation::Numerics::Vector2);
+            fn GetStartPoint(&self) -> super::Foundation::Numerics::Vector2;
+            fn GetEndPoint(&self) -> super::Foundation::Numerics::Vector2;
             fn GetGradientStopCollection(&self, gradientStopCollection: *mut ID2D1GradientStopCollection);
         }
         #[guid(0x2cd906c2_12e2_11dc_9fed_001143a055f9)]
@@ -469,12 +469,12 @@ mod Windows {
         }
         #[guid(0x2cd906ac_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1RadialGradientBrush: ID2D1Brush {
-            fn SetCenter(&self, center: D2D_POINT_2F);
-            fn SetGradientOriginOffset(&self, gradientOriginOffset: D2D_POINT_2F);
+            fn SetCenter(&self, center: super::Foundation::Numerics::Vector2);
+            fn SetGradientOriginOffset(&self, gradientOriginOffset: super::Foundation::Numerics::Vector2);
             fn SetRadiusX(&self, radiusX: f32);
             fn SetRadiusY(&self, radiusY: f32);
-            fn GetCenter(&self) -> D2D_POINT_2F;
-            fn GetGradientOriginOffset(&self) -> D2D_POINT_2F;
+            fn GetCenter(&self) -> super::Foundation::Numerics::Vector2;
+            fn GetGradientOriginOffset(&self) -> super::Foundation::Numerics::Vector2;
             fn GetRadiusX(&self) -> f32;
             fn GetRadiusY(&self) -> f32;
             fn GetGradientStopCollection(&self, gradientStopCollection: *mut ID2D1GradientStopCollection);
@@ -496,7 +496,7 @@ mod Windows {
             fn CreateCompatibleRenderTarget(&self, #[opt] desiredSize: *const D2D_SIZE_F, #[opt] desiredPixelSize: *const D2D_SIZE_U, #[opt] desiredFormat: *const D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmapRenderTarget: *mut ID2D1BitmapRenderTarget) -> HRESULT;
             fn CreateLayer(&self, #[opt] size: *const D2D_SIZE_F, layer: *mut ID2D1Layer) -> HRESULT;
             fn CreateMesh(&self, mesh: *mut ID2D1Mesh) -> HRESULT;
-            fn DrawLine(&self, point0: D2D_POINT_2F, point1: D2D_POINT_2F, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
+            fn DrawLine(&self, point0: super::Foundation::Numerics::Vector2, point1: super::Foundation::Numerics::Vector2, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
             fn DrawRectangle(&self, rect: *const D2D_RECT_F, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
             fn FillRectangle(&self, rect: *const D2D_RECT_F, brush: ID2D1Brush);
             fn DrawRoundedRectangle(&self, roundedRect: *const D2D1_ROUNDED_RECT, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
@@ -509,10 +509,10 @@ mod Windows {
             fn FillOpacityMask(&self, opacityMask: ID2D1Bitmap, brush: ID2D1Brush, content: D2D1_OPACITY_MASK_CONTENT, #[opt] destinationRectangle: *const D2D_RECT_F, #[opt] sourceRectangle: *const D2D_RECT_F);
             fn DrawBitmap(&self, bitmap: ID2D1Bitmap, #[opt] destinationRectangle: *const D2D_RECT_F, opacity: f32, interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE, #[opt] sourceRectangle: *const D2D_RECT_F);
             fn DrawText(&self, #[len_param(1)] string: *const u16, stringLength: u32, textFormat: IDWriteTextFormat, layoutRect: *const D2D_RECT_F, defaultFillBrush: ID2D1Brush, options: D2D1_DRAW_TEXT_OPTIONS, measuringMode: DWRITE_MEASURING_MODE);
-            fn DrawTextLayout(&self, origin: D2D_POINT_2F, textLayout: IDWriteTextLayout, defaultFillBrush: ID2D1Brush, options: D2D1_DRAW_TEXT_OPTIONS);
-            fn DrawGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, foregroundBrush: ID2D1Brush, measuringMode: DWRITE_MEASURING_MODE);
-            fn SetTransform(&self, transform: *const D2D_MATRIX_3X2_F);
-            fn GetTransform(&self, transform: *mut D2D_MATRIX_3X2_F);
+            fn DrawTextLayout(&self, origin: super::Foundation::Numerics::Vector2, textLayout: IDWriteTextLayout, defaultFillBrush: ID2D1Brush, options: D2D1_DRAW_TEXT_OPTIONS);
+            fn DrawGlyphRun(&self, baselineOrigin: super::Foundation::Numerics::Vector2, glyphRun: *const DWRITE_GLYPH_RUN, foregroundBrush: ID2D1Brush, measuringMode: DWRITE_MEASURING_MODE);
+            fn SetTransform(&self, transform: *const super::Foundation::Numerics::Matrix3x2);
+            fn GetTransform(&self, transform: *mut super::Foundation::Numerics::Matrix3x2);
             fn SetAntialiasMode(&self, antialiasMode: D2D1_ANTIALIAS_MODE);
             fn GetAntialiasMode(&self) -> D2D1_ANTIALIAS_MODE;
             fn SetTextAntialiasMode(&self, textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE);
@@ -551,8 +551,8 @@ mod Windows {
         interface ID2D1SimplifiedGeometrySink: IUnknown {
             fn SetFillMode(&self, fillMode: D2D1_FILL_MODE);
             fn SetSegmentFlags(&self, vertexFlags: D2D1_PATH_SEGMENT);
-            fn BeginFigure(&self, startPoint: D2D_POINT_2F, figureBegin: D2D1_FIGURE_BEGIN);
-            fn AddLines(&self, #[len_param(1)] points: *const D2D_POINT_2F, pointsCount: u32);
+            fn BeginFigure(&self, startPoint: super::Foundation::Numerics::Vector2, figureBegin: D2D1_FIGURE_BEGIN);
+            fn AddLines(&self, #[len_param(1)] points: *const super::Foundation::Numerics::Vector2, pointsCount: u32);
             fn AddBeziers(&self, #[len_param(1)] beziers: *const D2D1_BEZIER_SEGMENT, beziersCount: u32);
             fn EndFigure(&self, figureEnd: D2D1_FIGURE_END);
             fn Close(&self) -> HRESULT;
@@ -582,7 +582,7 @@ mod Windows {
         #[guid(0x2cd906bb_12e2_11dc_9fed_001143a055f9)]
         interface ID2D1TransformedGeometry: ID2D1Geometry {
             fn GetSourceGeometry(&self, sourceGeometry: *mut ID2D1Geometry);
-            fn GetTransform(&self, transform: *mut D2D_MATRIX_3X2_F);
+            fn GetTransform(&self, transform: *mut super::Foundation::Numerics::Matrix3x2);
         }
     }
 }

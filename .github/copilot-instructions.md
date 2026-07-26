@@ -234,15 +234,53 @@ checking the generated-file diff.
     `resolve_typedef` ref-site collapse. Deleted the two `types/mod.rs` entries. Zero generated-`.rs`
     diff confirmed; `cargo fmt`, clippy (`-D warnings`), and `windows-clang`/`windows-bindgen` tests
     all clean.
-- **Stage 2 (needs a decision - drops APIs from windows-sys):**
-  - [ ] numerics `D2D_MATRIX_3X2_F` -> `Matrix3x2`, `D3DMATRIX`/`D2D_MATRIX_4X4_F` -> `Matrix4x4`,
-    `D2D_POINT_2F`/`D2D_VECTOR_2F` -> `Vector2`, `D2D_VECTOR_3F` -> `Vector3`, `D2D_VECTOR_4F` ->
-    `Vector4`. Emit `value_named("Windows.Foundation.Numerics", ...)` refs in clang (like
-    `d2d_compat_alias` but targeting Numerics); orphaned `D2D_*` structs drop via reachability. The
-    `windows` crate resolves via `Windows.winmd` + the existing `windows_numerics` reference mapping
-    (`bindgen/src/lib.rs:460`), so the `!sys` numerics block and its reader-skip both disappear.
-    `windows-sys` doesn't load `Windows.winmd`, so add a general sys-mode filter that drops any item
-    whose signature references an unresolved value type (excludes the numerics-mentioning D2D APIs).
+- **Stage 2 (complete):** map numerics
+  `D2D_MATRIX_3X2_F` -> `Matrix3x2`, `D3DMATRIX`/`D2D_MATRIX_4X4_F` -> `Matrix4x4`,
+  `D2D_POINT_2F`/`D2D_VECTOR_2F` -> `Vector2`, `D2D_VECTOR_3F` -> `Vector3`, `D2D_VECTOR_4F` ->
+  `Vector4`, all into `Windows.Foundation.Numerics`. Result: `windows` byte-neutral; `windows-sys`
+  drops the numerics structs and every API transitively depending on them (d2d/d3d9/dcommon).
+  - [x] clang: added `numerics_alias(name) -> Option<&'static str>` in `canon.rs`. Routes references
+    through it: (a) the `to_type` record arm (`cx.rs`), and (b) the `d2d_compat_alias` branch of
+    `resolve_typedef` (so `D2D1_*` -> base -> Numerics). Emits
+    `value_named("Windows.Foundation.Numerics", ...)`.
+  - [x] clang: suppress the 7 struct definitions in `lib.rs`'s `CXCursor_StructDecl` arm (compute
+    `name` early, `if numerics_alias(&name).is_some() { return Ok(()); }` BEFORE
+    `process_nested_types`). NOTE: reachability does NOT drop these - they are in-scope (defined in
+    dcommon.h/d3d9types.h), and the reachability sweep only drops OUT-of-scope orphans. Explicit
+    suppression is required or bindgen would emit the now-orphan structs into `windows`, breaking
+    neutrality.
+  - [x] Cross-winmd ref plumbing: the flat scrape emits everything under `Windows.Win32`; a
+    `Windows.Foundation.Numerics` ref is the first external ref. RDL emits it as
+    `super::Foundation::Numerics::<T>` (`rdl/src/emit.rs` write_type); the winmd is compiled from RDL
+    by the `windows_rdl` reader with `Windows.winmd` as resolution winmd (tool_win32
+    RESOLUTION_WINMDS), which supplies the AssemblyRef scope. Verified: RDL text + winmd compile.
+  - [x] bindgen: deleted the `!sys` numerics block in `types/mod.rs` `remap` (and dropped the now-dead
+    `Remap::Name` variant + its `sys` param; the reader-skip at `winmd/reader.rs:38` no-ops for these
+    since they're absent from the winmd).
+  - [x] bindgen sys-drop (config-only, no bindgen code): `windows` resolves numerics via
+    `Windows.winmd` + the `windows_numerics` reference mapping (`lib.rs`) - byte-neutral. `windows-sys`
+    drops the numerics-dependent APIs entirely through the existing filter machinery: `sys.txt` now
+    loads BOTH winmds (`--in target/package`, so `Windows.winmd` resolves) and filters with `!Windows`
+    / `Windows::Win32` / `!Windows::Win32::Metadata`. The `!Windows` exclude drops every non-`Win32`
+    namespace (Foundation.Numerics, UI.Composition, ...) via `TypeMap::excluded`/`included`, and
+    transitivity is automatic (`combine` recurses into struct fields, so any Win32 struct/function
+    carrying a numerics field is dropped too). Filter rules sort longest-first with excludes winning
+    ties, so the three-rule set is robust and future-proof against new WinRT refs.
+  - [x] Retired the earlier `Type::Unresolved` poison-marker experiment AND the pre-existing
+    `ClassName` -> `Object` sys-degradation. Both are unnecessary: loading `Windows.winmd` makes WinRT
+    refs resolvable (so the `Object` guard never fires), and the `!Windows` filter then drops the APIs.
+    Empirically the filter-only result is byte-identical to `Type::Unresolved` (365 deletions), because
+    windows-sys emits NO COM interfaces - all WinRT-interface refs (IMapView, ICompositor) live only
+    inside interface methods sys never generates, so only numerics value types (in structs/free
+    functions) ever mattered. Removed: `Type::Unresolved` variant + `resolve_named` + `is_winrt_namespace`
+    + `from_metadata_type` sys guard in `types/mod.rs`, the `Unresolved` branch in `type_map.rs`
+    `excluded`, and the now-dead `reader.sys` field/param (`winmd/reader.rs`, threaded out of `lib.rs`
+    and `filter_parser.rs`).
+  - [x] Regenerate + verify: `windows` generated `.rs` byte-neutral (empty `git diff`); `windows-sys`
+    drops the D2D/D3D numerics structs and every API using them - d2d (214 lines), d3d9 (41),
+    dcommon (110), 365 deletions total; the minimal per-crate `--flat --sys` builds regenerate with no
+    diff and no panic (proves removing the `Object` block is safe); both `windows` and `windows-sys`
+    build under `-D warnings`; fmt/clippy/tests clean.
 
 ### windows-clang: subjective decisions that stray from a faithful header interpretation
 

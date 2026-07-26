@@ -127,6 +127,13 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
             // a `void*` *handle* (`HANDLE`) is excluded and stays named. See
             // [`void_pointer_alias`].
             ptr
+        } else if let Some(num) = numerics_alias(&name) {
+            // A Win32 aggregate that is bit-identical to a `Windows.Foundation.Numerics`
+            // value type (`D2D_POINT_2F` -> `Vector2`, `D2D_MATRIX_3X2_F` -> `Matrix3x2`, ...):
+            // collapse every reference to the shared Numerics type so the metadata carries the
+            // canonical projection directly. The D2D/D3D struct definition is suppressed in
+            // `lib.rs`. See [`numerics_alias`].
+            metadata::Type::value_named(NUMERICS_NAMESPACE, num)
         } else if let Some(base) = d2d_compat_alias(&name) {
             // `D2D1_POINT_2F`/`D2D1_RECT_F`/... are `typedef D2D_X D2D1_X`
             // compatibility synonyms: the Direct2D 1.1 headers re-export the shared
@@ -135,11 +142,15 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
             // every reference - matching the reference metadata, which carries no
             // `D2D1_*` alias layer - so the shared primitive is the single referent.
             // The numerics-mapped members (`D2D_POINT_2F` -> `Vector2`,
-            // `D2D_MATRIX_3X2_F` -> `Matrix3x2`, ...) then resolve through bindgen's
-            // one substitution table instead of a redundant alias, and the plain
+            // `D2D_MATRIX_3X2_F` -> `Matrix3x2`, ...) then resolve straight to their
+            // `Windows.Foundation.Numerics` type via [`numerics_alias`], and the plain
             // ones (`D2D_RECT_F`, `D2D_SIZE_F`, ...) resolve to the shared struct.
             // See [`d2d_compat_alias`].
-            metadata::Type::value_named(parser.namespace, base)
+            if let Some(num) = numerics_alias(base) {
+                metadata::Type::value_named(NUMERICS_NAMESPACE, num)
+            } else {
+                metadata::Type::value_named(parser.namespace, base)
+            }
         } else if is_interface_alias(&decl.typedef_underlying_type()) {
             // `LPSTORAGE`/`LPOLEOBJECT`/`LPDIRECTDRAWSURFACE`/... are `typedef IFoo *NAME`
             // (or the rarer `typedef IFoo NAME`) aliases to a COM interface. Interfaces are
@@ -411,6 +422,39 @@ pub(crate) fn d2d_compat_alias(name: &str) -> Option<&'static str> {
         _ => return None,
     })
 }
+
+/// The Win32 aggregates that are bit-for-bit identical to a `Windows.Foundation.Numerics`
+/// value type, returned as the Numerics leaf name. `D2D_MATRIX_3X2_F` -> `Matrix3x2`,
+/// `D3DMATRIX` / `D2D_MATRIX_4X4_F` -> `Matrix4x4`, `D2D_POINT_2F` / `D2D_VECTOR_2F` ->
+/// `Vector2`, `D2D_VECTOR_3F` -> `Vector3`, `D2D_VECTOR_4F` -> `Vector4`.
+///
+/// Every reference to one of these collapses to the shared Numerics type in
+/// `Windows.Foundation.Numerics` - the metadata carries the canonical projection directly, so
+/// the `windows` crate resolves them through `Windows.winmd` (the `windows-numerics` reference
+/// crate) with no per-consumer substitution table. The D2D/D3D struct definitions are suppressed
+/// alongside the reference-site collapse (`lib.rs`'s `CXCursor_StructDecl` arm); they are in-scope
+/// header types, so the reachability sweep would not drop them on its own.
+///
+/// `windows-sys` does not load `Windows.winmd`, so it cannot resolve these value types and drops
+/// every API that mentions one (see bindgen's `Type::Unresolved` sys handling).
+///
+/// Name-keyed like [`d2d_compat_alias`]: layout alone is ambiguous (`D2D_POINT_2F` and
+/// `D2D_SIZE_F` are both `{ f32; f32 }` but only the former is a `Vector2`), so only this fixed
+/// set of names maps. The `D2D1_*` compatibility spellings reach here through
+/// [`d2d_compat_alias`], which first rewrites them to their `D2D_*` base.
+pub(crate) fn numerics_alias(name: &str) -> Option<&'static str> {
+    Some(match name {
+        "D2D_MATRIX_3X2_F" => "Matrix3x2",
+        "D3DMATRIX" | "D2D_MATRIX_4X4_F" => "Matrix4x4",
+        "D2D_POINT_2F" | "D2D_VECTOR_2F" => "Vector2",
+        "D2D_VECTOR_3F" => "Vector3",
+        "D2D_VECTOR_4F" => "Vector4",
+        _ => return None,
+    })
+}
+
+/// The metadata namespace the [`numerics_alias`] leaf names live in.
+pub(crate) const NUMERICS_NAMESPACE: &str = "Windows.Foundation.Numerics";
 
 /// Recognises a pointer-sized integer typedef by its ABI-defined name and returns
 /// `usize`/`isize`. Covers both the Windows aliases from `basetsd.h` (`ULONG_PTR`,

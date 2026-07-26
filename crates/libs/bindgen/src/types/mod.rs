@@ -103,7 +103,6 @@ impl PartialOrd for Type {
 #[derive(PartialEq)]
 pub enum Remap {
     Type(Type),
-    Name(TypeName),
     None,
 }
 
@@ -198,7 +197,7 @@ impl Type {
         )
     }
 
-    pub fn remap(namespace: &str, name: &str, sys: bool) -> Remap {
+    pub fn remap(namespace: &str, name: &str) -> Remap {
         // WinRT / .NET system projections keep full-name matching: their names
         // (`Guid`, `HResult`, `Type`) differ from the C spellings and would be
         // ambiguous if matched by name alone.
@@ -243,52 +242,7 @@ impl Type {
             }
         }
 
-        // Numerics substitutions swap a Win32 struct for its
-        // layout-identical `Windows.Foundation.Numerics` projection (the winmd
-        // keeps the D2D/D3D struct). These must be matched by name, not shape:
-        // the same `{ f32; f32 }` layout is reused under many names that map to
-        // *different* Numerics types.
-        //
-        // The projection is applied for the `windows` crate, whose input carries
-        // the WinRT `Windows.Foundation.Numerics` types (re-exported from the
-        // `windows-numerics` crate). It is gated off for `windows-sys` because the
-        // sys package is generated from the Win32/WDK winmd alone: those Numerics
-        // types are not in its input, so the remap target would be unresolvable.
-        // `windows-sys` therefore keeps the raw D2D/D3D structs.
-        if (win32_meta || is_flat_win32_stem) && !sys {
-            match name {
-                "D2D_MATRIX_3X2_F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix3x2"));
-                }
-                "D3DMATRIX" | "D2D_MATRIX_4X4_F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix4x4"));
-                }
-                "D2D_POINT_2F" | "D2D_VECTOR_2F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector2"));
-                }
-                "D2D_VECTOR_3F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector3"));
-                }
-                "D2D_VECTOR_4F" => {
-                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector4"));
-                }
-                _ => {}
-            }
-        }
-
         Remap::None
-    }
-
-    /// A WinRT metadata namespace: `Windows.`-prefixed with a PascalCase leaf (e.g.
-    /// `Windows.Foundation.Collections`), as opposed to a flat Win32/WDK header stem
-    /// (`Windows.roregistrationapi`, lowercase leaf) or the `Windows.Win32*` partitions.
-    fn is_winrt_namespace(namespace: &str) -> bool {
-        if namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.") {
-            return false;
-        }
-        namespace
-            .strip_prefix("Windows.")
-            .is_some_and(|leaf| leaf.starts_with(|c: char| c.is_ascii_uppercase()))
     }
 
     pub fn generic_placeholders(count: usize) -> Vec<windows_metadata::Type> {
@@ -310,14 +264,10 @@ impl Type {
             return Self::from_metadata_type(&metadata_type, None, generics, reader);
         }
 
-        let mut code_name = code.type_name();
+        let code_name = code.type_name();
 
-        match Self::remap(code_name.namespace(), code_name.name(), reader.sys) {
-            Remap::Type(ty) => return ty,
-            Remap::Name(type_name) => {
-                code_name = type_name;
-            }
-            Remap::None => {}
+        if let Remap::Type(ty) = Self::remap(code_name.namespace(), code_name.name()) {
+            return ty;
         }
 
         if let Some(outer) = enclosing {
@@ -358,9 +308,8 @@ impl Type {
                 let ns: &str = &tn.namespace;
                 let n: &str = &tn.name;
 
-                let (ns, n) = match Self::remap(ns, n, reader.sys) {
+                let (ns, n) = match Self::remap(ns, n) {
                     Remap::Type(ty) => return ty,
-                    Remap::Name(type_name) => (type_name.namespace(), type_name.name()),
                     Remap::None => (ns, n),
                 };
 
@@ -368,19 +317,6 @@ impl Type {
                     if ns.is_empty() {
                         return Self::CppStruct(outer.nested[n].clone());
                     }
-                }
-                // A WinRT reference type (interface/class/delegate) that the Win32-only
-                // `windows-sys` reader cannot resolve degrades to the opaque COM pointer,
-                // matching how sys renders every interface. This lets the flat Win32 winmd
-                // reference genuine WinRT interop types (e.g. `IActivatableClassRegistration`'s
-                // `IMapView<String, Object>`) while keeping `windows-sys` free of WinRT: the
-                // full `windows` crate loads `Windows.winmd` and resolves them normally.
-                if reader.sys
-                    && matches!(ty, windows_metadata::Type::ClassName(_))
-                    && Self::is_winrt_namespace(ns)
-                    && reader.with_full_name(ns, n).next().is_none()
-                {
-                    return Self::Object;
                 }
                 let mut bindgen_ty = reader.unwrap_full_name(ns, n);
                 if !tn.generics.is_empty() {

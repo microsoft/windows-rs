@@ -32,7 +32,7 @@ mod Windows {
         interface IDCompositionAffineTransform2DEffect: IDCompositionFilterEffect {
             fn SetInterpolationMode(&self, interpolationMode: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> HRESULT;
             fn SetBorderMode(&self, borderMode: D2D1_BORDER_MODE) -> HRESULT;
-            fn SetTransformMatrix(&self, transformMatrix: *const D2D_MATRIX_3X2_F) -> HRESULT;
+            fn SetTransformMatrix(&self, transformMatrix: *const super::Foundation::Numerics::Matrix3x2) -> HRESULT;
             fn SetTransformMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
             fn SetTransformMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
             fn SetSharpness(&self, animation: IDCompositionAnimation) -> HRESULT;
@@ -40,7 +40,7 @@ mod Windows {
         }
         #[guid(0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc)]
         interface IDCompositionArithmeticCompositeEffect: IDCompositionFilterEffect {
-            fn SetCoefficients(&self, coefficients: *const D2D_VECTOR_4F) -> HRESULT;
+            fn SetCoefficients(&self, coefficients: *const super::Foundation::Numerics::Vector4) -> HRESULT;
             fn SetClampOutput(&self, clampoutput: BOOL) -> HRESULT;
             fn SetCoefficient1(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCoefficient1(&self, Coeffcient1: f32) -> HRESULT;
@@ -57,8 +57,8 @@ mod Windows {
         }
         #[guid(0x6027496e_cb3a_49ab_934f_d798da4f7da6)]
         interface IDCompositionBrightnessEffect: IDCompositionFilterEffect {
-            fn SetWhitePoint(&self, whitePoint: *const D2D_VECTOR_2F) -> HRESULT;
-            fn SetBlackPoint(&self, blackPoint: *const D2D_VECTOR_2F) -> HRESULT;
+            fn SetWhitePoint(&self, whitePoint: *const super::Foundation::Numerics::Vector2) -> HRESULT;
+            fn SetBlackPoint(&self, blackPoint: *const super::Foundation::Numerics::Vector2) -> HRESULT;
             fn SetWhitePointX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetWhitePointX(&self, whitePointX: f32) -> HRESULT;
             fn SetWhitePointY(&self, animation: IDCompositionAnimation) -> HRESULT;
@@ -235,13 +235,13 @@ mod Windows {
         }
         #[guid(0x16cdff07_c503_419c_83f2_0965c7af1fa6)]
         interface IDCompositionMatrixTransform: IDCompositionTransform {
-            fn SetMatrix(&self, matrix: *const D2D_MATRIX_3X2_F) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const super::Foundation::Numerics::Matrix3x2) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
         }
         #[guid(0x4b3363f0_643b_41b7_b6e0_ccf22d34467c)]
         interface IDCompositionMatrixTransform3D: IDCompositionTransform3D {
-            fn SetMatrix(&self, matrix: *const D3DMATRIX) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const super::Foundation::Numerics::Matrix4x4) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
         }
@@ -333,7 +333,7 @@ mod Windows {
         interface IDCompositionShadowEffect: IDCompositionFilterEffect {
             fn SetStandardDeviation(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetStandardDeviation(&self, amount: f32) -> HRESULT;
-            fn SetColor(&self, color: *const D2D_VECTOR_4F) -> HRESULT;
+            fn SetColor(&self, color: *const super::Foundation::Numerics::Vector4) -> HRESULT;
             fn SetRed(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetRed(&self, amount: f32) -> HRESULT;
             fn SetGreen(&self, animation: IDCompositionAnimation) -> HRESULT;
@@ -420,9 +420,9 @@ mod Windows {
         }
         #[guid(0xa6a55bda_c09c_49f3_9193_a41922c89715)]
         interface IDCompositionTurbulenceEffect: IDCompositionFilterEffect {
-            fn SetOffset(&self, offset: *const D2D_VECTOR_2F) -> HRESULT;
-            fn SetBaseFrequency(&self, frequency: *const D2D_VECTOR_2F) -> HRESULT;
-            fn SetSize(&self, size: *const D2D_VECTOR_2F) -> HRESULT;
+            fn SetOffset(&self, offset: *const super::Foundation::Numerics::Vector2) -> HRESULT;
+            fn SetBaseFrequency(&self, frequency: *const super::Foundation::Numerics::Vector2) -> HRESULT;
+            fn SetSize(&self, size: *const super::Foundation::Numerics::Vector2) -> HRESULT;
             fn SetNumOctaves(&self, numOctaves: u32) -> HRESULT;
             fn SetSeed(&self, seed: u32) -> HRESULT;
             fn SetNoise(&self, noise: D2D1_TURBULENCE_NOISE) -> HRESULT;
@@ -440,7 +440,7 @@ mod Windows {
             fn SetOffsetY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetY(&self, offsetY: f32) -> HRESULT;
             fn SetTransform(&self, #[opt] transform: IDCompositionTransform) -> HRESULT;
-            fn SetTransform(&self, matrix: *const D2D_MATRIX_3X2_F) -> HRESULT;
+            fn SetTransform(&self, matrix: *const super::Foundation::Numerics::Matrix3x2) -> HRESULT;
             fn SetTransformParent(&self, #[opt] visual: IDCompositionVisual) -> HRESULT;
             fn SetEffect(&self, #[opt] effect: IDCompositionEffect) -> HRESULT;
             fn SetBitmapInterpolationMode(&self, interpolationMode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> HRESULT;
@@ -466,7 +466,7 @@ mod Windows {
             fn SetOpacity(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOpacity(&self, opacity: f32) -> HRESULT;
             fn SetTransform(&self, #[opt] transform: IDCompositionTransform3D) -> HRESULT;
-            fn SetTransform(&self, matrix: *const D2D_MATRIX_4X4_F) -> HRESULT;
+            fn SetTransform(&self, matrix: *const super::Foundation::Numerics::Matrix4x4) -> HRESULT;
             fn SetVisible(&self, visible: BOOL) -> HRESULT;
         }
         #[guid(0xfed2b808_5eb4_43a0_aea3_35f65280f91b)]

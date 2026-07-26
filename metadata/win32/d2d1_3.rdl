@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("d2d1.dll")]
-        extern fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(pPoint0: *const D2D_POINT_2F, pPoint1: *const D2D_POINT_2F, pPoint2: *const D2D_POINT_2F, pPoint3: *const D2D_POINT_2F, pPoint4: *const D2D_POINT_2F, pPoint5: *const D2D_POINT_2F, pPoint6: *const D2D_POINT_2F, pPoint7: *const D2D_POINT_2F, pPoint8: *const D2D_POINT_2F, pPoint9: *const D2D_POINT_2F, pPoint10: *const D2D_POINT_2F, pPoint11: *const D2D_POINT_2F, pTensorPoint11: *mut D2D_POINT_2F, pTensorPoint12: *mut D2D_POINT_2F, pTensorPoint21: *mut D2D_POINT_2F, pTensorPoint22: *mut D2D_POINT_2F);
+        extern fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(pPoint0: *const super::Foundation::Numerics::Vector2, pPoint1: *const super::Foundation::Numerics::Vector2, pPoint2: *const super::Foundation::Numerics::Vector2, pPoint3: *const super::Foundation::Numerics::Vector2, pPoint4: *const super::Foundation::Numerics::Vector2, pPoint5: *const super::Foundation::Numerics::Vector2, pPoint6: *const super::Foundation::Numerics::Vector2, pPoint7: *const super::Foundation::Numerics::Vector2, pPoint8: *const super::Foundation::Numerics::Vector2, pPoint9: *const super::Foundation::Numerics::Vector2, pPoint10: *const super::Foundation::Numerics::Vector2, pPoint11: *const super::Foundation::Numerics::Vector2, pTensorPoint11: *mut super::Foundation::Numerics::Vector2, pTensorPoint12: *mut super::Foundation::Numerics::Vector2, pTensorPoint21: *mut super::Foundation::Numerics::Vector2, pTensorPoint22: *mut super::Foundation::Numerics::Vector2);
         #[repr(i32)]
         enum D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
             D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT = 0,
@@ -24,22 +24,22 @@ mod Windows {
             D2D1_GAMMA1_FORCE_DWORD = -1,
         }
         struct D2D1_GRADIENT_MESH_PATCH {
-            point00: D2D_POINT_2F,
-            point01: D2D_POINT_2F,
-            point02: D2D_POINT_2F,
-            point03: D2D_POINT_2F,
-            point10: D2D_POINT_2F,
-            point11: D2D_POINT_2F,
-            point12: D2D_POINT_2F,
-            point13: D2D_POINT_2F,
-            point20: D2D_POINT_2F,
-            point21: D2D_POINT_2F,
-            point22: D2D_POINT_2F,
-            point23: D2D_POINT_2F,
-            point30: D2D_POINT_2F,
-            point31: D2D_POINT_2F,
-            point32: D2D_POINT_2F,
-            point33: D2D_POINT_2F,
+            point00: super::Foundation::Numerics::Vector2,
+            point01: super::Foundation::Numerics::Vector2,
+            point02: super::Foundation::Numerics::Vector2,
+            point03: super::Foundation::Numerics::Vector2,
+            point10: super::Foundation::Numerics::Vector2,
+            point11: super::Foundation::Numerics::Vector2,
+            point12: super::Foundation::Numerics::Vector2,
+            point13: super::Foundation::Numerics::Vector2,
+            point20: super::Foundation::Numerics::Vector2,
+            point21: super::Foundation::Numerics::Vector2,
+            point22: super::Foundation::Numerics::Vector2,
+            point23: super::Foundation::Numerics::Vector2,
+            point30: super::Foundation::Numerics::Vector2,
+            point31: super::Foundation::Numerics::Vector2,
+            point32: super::Foundation::Numerics::Vector2,
+            point33: super::Foundation::Numerics::Vector2,
             color00: D2D_COLOR_F,
             color03: D2D_COLOR_F,
             color30: D2D_COLOR_F,
@@ -82,7 +82,7 @@ mod Windows {
         }
         struct D2D1_INK_STYLE_PROPERTIES {
             nibShape: D2D1_INK_NIB_SHAPE,
-            nibTransform: D2D_MATRIX_3X2_F,
+            nibTransform: super::Foundation::Numerics::Matrix3x2,
         }
         #[repr(i32)]
         enum D2D1_ORIENTATION {
@@ -104,10 +104,10 @@ mod Windows {
             D2D1_PATCH_EDGE_MODE_FORCE_DWORD = -1,
         }
         struct D2D1_SIMPLE_COLOR_PROFILE {
-            redPrimary: D2D_POINT_2F,
-            greenPrimary: D2D_POINT_2F,
-            bluePrimary: D2D_POINT_2F,
-            whitePointXZ: D2D_POINT_2F,
+            redPrimary: super::Foundation::Numerics::Vector2,
+            greenPrimary: super::Foundation::Numerics::Vector2,
+            bluePrimary: super::Foundation::Numerics::Vector2,
+            whitePointXZ: super::Foundation::Numerics::Vector2,
             gamma: D2D1_GAMMA1,
         }
         #[repr(u32)]
@@ -153,7 +153,7 @@ mod Windows {
         }
         #[guid(0x7047dd26_b1e7_44a7_959a_8349e2144fa8)]
         interface ID2D1CommandSink5: ID2D1CommandSink4 {
-            fn BlendImage(&self, image: ID2D1Image, blendMode: D2D1_BLEND_MODE, #[opt] targetOffset: *const D2D_POINT_2F, #[opt] imageRectangle: *const D2D_RECT_F, interpolationMode: D2D1_INTERPOLATION_MODE) -> HRESULT;
+            fn BlendImage(&self, image: ID2D1Image, blendMode: D2D1_BLEND_MODE, #[opt] targetOffset: *const super::Foundation::Numerics::Vector2, #[opt] imageRectangle: *const D2D_RECT_F, interpolationMode: D2D1_INTERPOLATION_MODE) -> HRESULT;
         }
         #[guid(0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b)]
         interface ID2D1Device2: ID2D1Device1 {
@@ -206,11 +206,11 @@ mod Windows {
         interface ID2D1DeviceContext4: ID2D1DeviceContext3 {
             fn CreateSvgGlyphStyle(&self, svgGlyphStyle: *mut ID2D1SvgGlyphStyle) -> HRESULT;
             fn DrawText(&self, #[len_param(1)] string: *const u16, stringLength: u32, textFormat: IDWriteTextFormat, layoutRect: *const D2D_RECT_F, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringMode: DWRITE_MEASURING_MODE);
-            fn DrawTextLayout(&self, origin: D2D_POINT_2F, textLayout: IDWriteTextLayout, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, options: D2D1_DRAW_TEXT_OPTIONS);
-            fn DrawColorBitmapGlyphRun(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, bitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
-            fn DrawSvgGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE);
-            fn GetColorBitmapGlyphImage(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, glyphOrigin: D2D_POINT_2F, fontFace: IDWriteFontFace, fontEmSize: f32, glyphIndex: u16, isSideways: BOOL, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, dpiX: f32, dpiY: f32, glyphTransform: *mut D2D_MATRIX_3X2_F, glyphImage: *mut ID2D1Image) -> HRESULT;
-            fn GetSvgGlyphImage(&self, glyphOrigin: D2D_POINT_2F, fontFace: IDWriteFontFace, fontEmSize: f32, glyphIndex: u16, isSideways: BOOL, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, glyphTransform: *mut D2D_MATRIX_3X2_F, glyphImage: *mut ID2D1CommandList) -> HRESULT;
+            fn DrawTextLayout(&self, origin: super::Foundation::Numerics::Vector2, textLayout: IDWriteTextLayout, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, options: D2D1_DRAW_TEXT_OPTIONS);
+            fn DrawColorBitmapGlyphRun(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, baselineOrigin: super::Foundation::Numerics::Vector2, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, bitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
+            fn DrawSvgGlyphRun(&self, baselineOrigin: super::Foundation::Numerics::Vector2, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE);
+            fn GetColorBitmapGlyphImage(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, glyphOrigin: super::Foundation::Numerics::Vector2, fontFace: IDWriteFontFace, fontEmSize: f32, glyphIndex: u16, isSideways: BOOL, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, dpiX: f32, dpiY: f32, glyphTransform: *mut super::Foundation::Numerics::Matrix3x2, glyphImage: *mut ID2D1Image) -> HRESULT;
+            fn GetSvgGlyphImage(&self, glyphOrigin: super::Foundation::Numerics::Vector2, fontFace: IDWriteFontFace, fontEmSize: f32, glyphIndex: u16, isSideways: BOOL, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, glyphTransform: *mut super::Foundation::Numerics::Matrix3x2, glyphImage: *mut ID2D1CommandList) -> HRESULT;
         }
         #[guid(0x7836d248_68cc_4df6_b9e8_de991bf62eb7)]
         interface ID2D1DeviceContext5: ID2D1DeviceContext4 {
@@ -221,13 +221,13 @@ mod Windows {
         }
         #[guid(0x985f7e37_4ed0_4a19_98a3_15b0edfde306)]
         interface ID2D1DeviceContext6: ID2D1DeviceContext5 {
-            fn BlendImage(&self, image: ID2D1Image, blendMode: D2D1_BLEND_MODE, #[opt] targetOffset: *const D2D_POINT_2F, #[opt] imageRectangle: *const D2D_RECT_F, interpolationMode: D2D1_INTERPOLATION_MODE);
+            fn BlendImage(&self, image: ID2D1Image, blendMode: D2D1_BLEND_MODE, #[opt] targetOffset: *const super::Foundation::Numerics::Vector2, #[opt] imageRectangle: *const D2D_RECT_F, interpolationMode: D2D1_INTERPOLATION_MODE);
         }
         #[guid(0xec891cf7_9b69_4851_9def_4e0915771e62)]
         interface ID2D1DeviceContext7: ID2D1DeviceContext6 {
             fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
-            fn DrawPaintGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] defaultFillBrush: ID2D1Brush, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE);
-            fn DrawGlyphRunWithColorSupport(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[opt] foregroundBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE, bitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
+            fn DrawPaintGlyphRun(&self, baselineOrigin: super::Foundation::Numerics::Vector2, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] defaultFillBrush: ID2D1Brush, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE);
+            fn DrawGlyphRunWithColorSupport(&self, baselineOrigin: super::Foundation::Numerics::Vector2, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[opt] foregroundBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE, bitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
         }
         #[guid(0x0869759f_4f00_413f_b03e_2bda45404d0f)]
         interface ID2D1Factory3: ID2D1Factory2 {
@@ -288,13 +288,13 @@ mod Windows {
             fn SetSegmentAtEnd(&self, segment: *const D2D1_INK_BEZIER_SEGMENT) -> HRESULT;
             fn GetSegmentCount(&self) -> u32;
             fn GetSegments(&self, startSegment: u32, #[len_param(2)] segments: *mut D2D1_INK_BEZIER_SEGMENT, segmentsCount: u32) -> HRESULT;
-            fn StreamAsGeometry(&self, #[opt] inkStyle: ID2D1InkStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
-            fn GetBounds(&self, #[opt] inkStyle: ID2D1InkStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, bounds: *mut D2D_RECT_F) -> HRESULT;
+            fn StreamAsGeometry(&self, #[opt] inkStyle: ID2D1InkStyle, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn GetBounds(&self, #[opt] inkStyle: ID2D1InkStyle, #[opt] worldTransform: *const super::Foundation::Numerics::Matrix3x2, bounds: *mut D2D_RECT_F) -> HRESULT;
         }
         #[guid(0xbae8b344_23fc_4071_8cb5_d05d6f073848)]
         interface ID2D1InkStyle: ID2D1Resource {
-            fn SetNibTransform(&self, transform: *const D2D_MATRIX_3X2_F);
-            fn GetNibTransform(&self, transform: *mut D2D_MATRIX_3X2_F);
+            fn SetNibTransform(&self, transform: *const super::Foundation::Numerics::Matrix3x2);
+            fn GetNibTransform(&self, transform: *mut super::Foundation::Numerics::Matrix3x2);
             fn SetNibShape(&self, nibShape: D2D1_INK_NIB_SHAPE);
             fn GetNibShape(&self) -> D2D1_INK_NIB_SHAPE;
         }
@@ -302,9 +302,9 @@ mod Windows {
         interface ID2D1LookupTable3D: ID2D1Resource {}
         #[guid(0x4dc583bf_3a10_438a_8722_e9765224f1f1)]
         interface ID2D1SpriteBatch: ID2D1Resource {
-            fn AddSprites(&self, spriteCount: u32, destinationRectangles: *const D2D_RECT_F, #[opt] sourceRectangles: *const D2D_RECT_U, #[opt] colors: *const D2D_COLOR_F, #[opt] transforms: *const D2D_MATRIX_3X2_F, destinationRectanglesStride: u32, sourceRectanglesStride: u32, colorsStride: u32, transformsStride: u32) -> HRESULT;
-            fn SetSprites(&self, startIndex: u32, spriteCount: u32, #[opt] destinationRectangles: *const D2D_RECT_F, #[opt] sourceRectangles: *const D2D_RECT_U, #[opt] colors: *const D2D_COLOR_F, #[opt] transforms: *const D2D_MATRIX_3X2_F, destinationRectanglesStride: u32, sourceRectanglesStride: u32, colorsStride: u32, transformsStride: u32) -> HRESULT;
-            fn GetSprites(&self, startIndex: u32, spriteCount: u32, #[len_param(1)] #[opt] destinationRectangles: *mut D2D_RECT_F, #[len_param(1)] #[opt] sourceRectangles: *mut D2D_RECT_U, #[len_param(1)] #[opt] colors: *mut D2D_COLOR_F, #[len_param(1)] #[opt] transforms: *mut D2D_MATRIX_3X2_F) -> HRESULT;
+            fn AddSprites(&self, spriteCount: u32, destinationRectangles: *const D2D_RECT_F, #[opt] sourceRectangles: *const D2D_RECT_U, #[opt] colors: *const D2D_COLOR_F, #[opt] transforms: *const super::Foundation::Numerics::Matrix3x2, destinationRectanglesStride: u32, sourceRectanglesStride: u32, colorsStride: u32, transformsStride: u32) -> HRESULT;
+            fn SetSprites(&self, startIndex: u32, spriteCount: u32, #[opt] destinationRectangles: *const D2D_RECT_F, #[opt] sourceRectangles: *const D2D_RECT_U, #[opt] colors: *const D2D_COLOR_F, #[opt] transforms: *const super::Foundation::Numerics::Matrix3x2, destinationRectanglesStride: u32, sourceRectanglesStride: u32, colorsStride: u32, transformsStride: u32) -> HRESULT;
+            fn GetSprites(&self, startIndex: u32, spriteCount: u32, #[len_param(1)] #[opt] destinationRectangles: *mut D2D_RECT_F, #[len_param(1)] #[opt] sourceRectangles: *mut D2D_RECT_U, #[len_param(1)] #[opt] colors: *mut D2D_COLOR_F, #[len_param(1)] #[opt] transforms: *mut super::Foundation::Numerics::Matrix3x2) -> HRESULT;
             fn GetSpriteCount(&self) -> u32;
             fn Clear(&self);
         }

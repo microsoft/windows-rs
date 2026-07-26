@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("d2d1.dll")]
-        extern fn D2D1ComputeMaximumScaleFactor(matrix: *const D2D_MATRIX_3X2_F) -> f32;
+        extern fn D2D1ComputeMaximumScaleFactor(matrix: *const super::Foundation::Numerics::Matrix3x2) -> f32;
         #[repr(i32)]
         enum D2D1_RENDERING_PRIORITY {
             D2D1_RENDERING_PRIORITY_NORMAL = 0,

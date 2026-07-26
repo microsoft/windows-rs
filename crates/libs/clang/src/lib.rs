@@ -259,6 +259,24 @@ impl<'a> Parser<'a> {
         }
         match child.kind() {
             CXCursor_StructDecl if child.is_definition() => {
+                let tag_name = child.name();
+                let name = if is_anonymous_name(&tag_name) {
+                    self.tag_rename
+                        .get(&child.location_id())
+                        .cloned()
+                        .unwrap_or(tag_name)
+                } else {
+                    self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+                };
+                // A Win32 aggregate that projects to a `Windows.Foundation.Numerics` value type
+                // (`D2D_POINT_2F` -> `Vector2`, `D2D_MATRIX_3X2_F` -> `Matrix3x2`, ...) is not
+                // emitted: every reference collapses to the shared Numerics type (see
+                // `canon::numerics_alias`). Skip before lifting nested types so no orphan
+                // `{Name}_0` overlay sibling is left behind. These structs are in-scope header
+                // types, so the reachability sweep would not drop them on its own.
+                if numerics_alias(&name).is_some() {
+                    return Ok(());
+                }
                 // Recursively lift any named or anonymous nested struct/union
                 // declarations to the collector before processing the outer struct
                 // so that field type references to those nested types are already
@@ -272,15 +290,6 @@ impl<'a> Parser<'a> {
                 if child.is_anonymous_record() || is_named_instance_record(&child) {
                     return Ok(());
                 }
-                let tag_name = child.name();
-                let name = if is_anonymous_name(&tag_name) {
-                    self.tag_rename
-                        .get(&child.location_id())
-                        .cloned()
-                        .unwrap_or(tag_name)
-                } else {
-                    self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
-                };
                 // Skip anonymous types that were not given a synthetic name (e.g.
                 // an anonymous struct that is not nested inside any named type).
                 if is_anonymous_name(&name) {
