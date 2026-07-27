@@ -422,97 +422,28 @@ pub fn apply_midl_param_comment(comment: &str, annotation: &mut ParamAnnotation)
 
 /// Handles known Win32 SAL names and ignores unrelated annotations.
 fn apply_sal_string(sal: &str, annotation: &mut ParamAnnotation) {
-    match sal {
-        "_In_" | "_In_z_" | "_In_nz_" | "_In_reads_" | "_In_reads_bytes_" | "_In_reads_z_"
-        | "_In_reads_or_z_" | "_In_bytecount_" | "_In_count_" => {
-            annotation.in_param = true;
-        }
-
-        "_In_opt_"
-        | "_In_opt_z_"
-        | "_In_reads_opt_"
-        | "_In_reads_bytes_opt_"
-        | "_In_reads_or_z_opt_" => {
-            annotation.in_param = true;
-            annotation.optional = true;
-        }
-
-        "_Out_"
-        | "_Out_z_"
-        | "_Out_writes_"
-        | "_Out_writes_bytes_"
-        | "_Out_writes_z_"
-        | "_Out_writes_all_"
-        | "_Out_writes_bytes_all_"
-        | "_Out_writes_to_"
-        | "_Out_writes_bytes_to_"
-        | "_Out_writes_to_ptr_"
-        | "_Out_writes_to_ptr_z_"
-        | "_Outptr_"
-        | "_COM_Outptr_"
-        | "_COM_Outptr_result_maybenull_"
-        | "_Outptr_result_z_"
-        | "_Outptr_result_buffer_"
-        | "_Outptr_result_bytebuffer_" => {
-            annotation.out_param = true;
-        }
-
-        "_Out_opt_"
-        | "_Out_writes_opt_"
-        | "_Out_writes_bytes_opt_"
-        | "_Out_writes_all_opt_"
-        | "_Out_writes_bytes_all_opt_"
-        | "_Out_writes_to_opt_"
-        | "_Out_writes_bytes_to_opt_"
-        | "_Out_writes_opt_z_"
-        | "_Out_writes_to_ptr_opt_"
-        | "_Out_writes_to_ptr_opt_z_"
-        | "_Outptr_opt_"
-        | "_COM_Outptr_opt_"
-        | "_COM_Outptr_opt_result_maybenull_"
-        | "_Outptr_opt_result_z_"
-        | "_Outptr_result_maybenull_"
-        | "_Outptr_opt_result_maybenull_" => {
-            annotation.out_param = true;
-            annotation.optional = true;
-        }
-
-        "_Inout_"
-        | "_Inout_z_"
-        | "_Inout_updates_"
-        | "_Inout_updates_bytes_"
-        | "_Inout_updates_z_"
-        | "_Inout_updates_all_"
-        | "_Inout_updates_bytes_all_"
-        | "_Inout_updates_to_"
-        | "_Inout_updates_bytes_to_" => {
-            annotation.in_param = true;
-            annotation.out_param = true;
-        }
-
-        "_Inout_opt_"
-        | "_Inout_opt_z_"
-        | "_Inout_updates_opt_"
-        | "_Inout_updates_opt_z_"
-        | "_Inout_updates_bytes_opt_"
-        | "_Inout_updates_all_opt_"
-        | "_Inout_updates_bytes_all_opt_"
-        | "_Inout_updates_to_opt_"
-        | "_Inout_updates_bytes_to_opt_" => {
-            annotation.in_param = true;
-            annotation.out_param = true;
-            annotation.optional = true;
-        }
-
-        _ => {}
+    // Exact directional prefixes; near-namesakes (`_Outref_`, `_Inexpressible_`) carry no meaning.
+    if sal.starts_with("_In_") || sal.starts_with("_Inout_") {
+        annotation.in_param = true;
+    }
+    if sal.starts_with("_Out_")
+        || sal.starts_with("_Outptr_")
+        || sal.starts_with("_COM_Outptr_")
+        || sal.starts_with("_Inout_")
+    {
+        annotation.out_param = true;
+    }
+    // `_opt_`, or a plain (non-`_COM_`) `_Outptr_..._result_maybenull_`, marks optional.
+    if sal.contains("_opt_") || (sal.starts_with("_Outptr_") && sal.contains("_result_maybenull_"))
+    {
+        annotation.optional = true;
     }
 
-    // Orthogonal markers, independent of direction.
     if sal == "_Reserved_" {
         annotation.reserved = true;
     }
 
-    // Only pure `_z_` string SAL promotes raw character pointers to string wrappers.
+    // Only the pure `_z_` names promote a raw character pointer to a string wrapper.
     if matches!(
         sal,
         "_In_z_" | "_In_opt_z_" | "_Out_z_" | "_Inout_z_" | "_Inout_opt_z_"

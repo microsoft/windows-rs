@@ -201,47 +201,106 @@ These rules were established while cleaning up the docs and code comments and ap
 
 ## Open Investigations / TODO
 
-Enduring record of known issues to work on so they are not lost between sessions. Add findings here;
-remove or mark done as they are addressed.
+Enduring record of known issues so they are not lost between sessions. Add findings here; remove or
+mark done as they are addressed. Cite code by file + symbol name, not line number - line numbers go
+stale fast.
 
-### windows-clang: subjective decisions that stray from a faithful header interpretation
+### windows-clang: editorializing beyond the header
 
 Context: issue [#4720](https://github.com/microsoft/windows-rs/issues/4720) and discussion
 [#4725](https://github.com/microsoft/windows-rs/issues/4725) (the `SW_NORMAL` should-be-signed
-report). The scrape aims to be "faithful to the Windows SDK headers, not a theoretical C-standard
-purity," but several decisions editorialize beyond what the header literally declares. Two notions
-of "faithful" appear in the thread: faithful to C semantics (a token has an unambiguous type) vs
-faithful to the SDK header spellings. The constant-typing case where they diverged is now resolved;
-the items below remain. Sources studied:
-`crates/libs/clang/src/{const,canon,annotation,interface,lib}.rs`, `crates/tools/win32/src/main.rs`,
-`docs/crates/windows-clang.md`.
+report). The scrape aims to be "faithful to the SDK headers, not a theoretical C-standard purity,"
+yet a few rules still rewrite or drop what the header literally declares. The fundamental-type
+canonicalization (`DWORD`/`CHAR` -> primitives, `BOOLEAN` -> `bool`,
+`LARGE_INTEGER`/`ULARGE_INTEGER` -> `i64`/`u64`, the D2D numerics) is settled and intended; the
+items below are the ones still worth revisiting. Sources:
+`crates/libs/clang/src/{const,canon,annotation,interface,lib}.rs`,
+`crates/tools/win32/src/main.rs`, `docs/crates/windows-clang.md`.
+
+**Active type rewrites - faithful-ish, but restate the declared type:**
+
+- **Scalar collapse is a curated allowlist** (`canon.rs`: `fundamental_scalar`, `semantic_scalar`,
+  `pointer_sized_abi`, `floating_typedef`, `guid_alias`, `void_pointer_alias`, `d2d_compat_alias`).
+  `DWORD` -> `u32` - and now `BOOLEAN` -> `bool`, `LARGE_INTEGER` -> `i64` - erase the named alias,
+  while `COLORREF`/`ATOM`/`HFILE` (byte-identical underlying types) stay named. The split is
+  editorial. Fix: emit every typedef as a named alias in the winmd and move the collapse to the
+  Layer-B `windows-bindgen` projection, where it is an ergonomics choice, not a metadata fact.
+- **String-alias normalization + SAL const-flip** (`canon.rs`: `normalize_string_alias`,
+  `apply_sal_constness`, `promote_null_terminated_string`). `LPCWSTR` -> `PCWSTR`, and `_In_ LPWSTR`
+  -> `PCWSTR` flips a mutable pointer to const from the `_In_` bit. Declared type is mutable; the
+  emitted type is const. Fix: keep the header's pointer/const-ness; expose SAL direction as a
+  separate attribute.
+- **`[iid_is]` inferred from parameter name** (`annotation.rs` `infer_iid_is`,
+  `IID_SELECTOR_PARAM_NAMES = ["riid","iid","riidltf"]`). An un-annotated `_COM_Outptr_ IUnknown**`
+  becomes `void**` + `[iid_is]` because a sibling parameter is named `riid` (5 methods across 4
+  functions). The header never expressed the linkage. Fix: a "source-annotations-only" mode that
+  honors only an explicit MIDL `[iid_is]` comment.
+- **`D2D1_*` -> `D2D_*` compat collapse** (`canon.rs` `d2d_compat_alias`) - curated erasure of the
+  `D2D1_`-spelled alias the header declares. Same remedy as the scalar collapse.
+
+**Dropped / reshaped header content - coverage opinions:**
+
+- **Redundant-constant dropping** (`lib.rs` final pass) - drops a top-level constant whose name and
+  value match an enumerator elsewhere. Only needed because of the flat namespace below.
+- **Single flat `Windows.Win32` namespace** - lossy for genuine name collisions the reference
+  disambiguated by sub-namespace (`PID_SECURITY`, the `E_NOTFOUND` HRESULT-vs-`#define` class). Fix:
+  on a true USR/value collision, keep both under a disambiguating suffix instead of dropping.
+- **`UNICODE`/`_UNICODE` not defined** - the TU is built ANSI-default. Higher-coverage (defining
+  `UNICODE` drops 71 bare-ANSI exports) but the generic-text typedefs follow the ANSI branch.
+  Fix (large, what the reference does): scrape ANSI and Unicode in two passes and merge.
+- **Orphan named-type dropping** - a type an in-scope header declares but no emitted signature
+  references is dropped (`PROCESSOR_POWER_INFORMATION`, `FIRMWARE_TABLE_PROVIDER`,
+  `PROCESSOR_FEATURE_ID`). Fix: emit all named types defined in a `HEADERS` file, not only the
+  reachability closure.
+- **`intsafe.h` exclusion, `drop_lib_less`, `vertdll` ordering** (`tool_win32`) - pragmatic drops
+  and relinks of content the headers/libs provide. Low priority, defensible.
+
+**Correct as-is (do not "fix"):** overloaded-virtual vtable reversal (`interface.rs`, reproduces the
+true MSVC vtable slot order - ABI-critical); the `_HRESULT_TYPEDEF_`/`_NDIS_ERROR_TYPEDEF_`
+cast-wrapper map (`const.rs` `cast_wrapper_macro`, honors an explicit author type annotation).
+
+Suggested order: `UNICODE` two-pass (largest fidelity win), then the `[iid_is]` name-gate,
+orphan-type retention, the scalar/string/D2D collapses (move to Layer B), then flat-namespace
+disambiguation.
+
+### windows-clang: suppress-definition coupling
+
+`lib.rs` (`StructDecl`/`UnionDecl`) and `typedef.rs` consult the `canon.rs` collapse views
+(`numerics_alias`, `semantic_scalar`, the scalar/guid/void views) to skip emitting a collapsed
+type's definition, mirroring the reference-site collapses in `alias_collapse`. The name lists are
+not duplicated (both sides read the shared table), but nothing guarantees a collapse row and its
+suppression site stay paired. A suppress-definition column on `Collapse` carrying the cursor kind
+(typedef/struct/union) each row suppresses would make the pairing a compiler-checked fact.
+
+Output-neutrality check for any clang change: regenerate the three scrape consumers - `tool_win32`
+and `tool_wdk` (flat, `write_by_header`) and `tool_webview` (namespaced, `write`) - and confirm
+`git diff` shows no generated-file changes. `tool_bindings`/`tool_package`/`tool_features` derive
+from the winmds, so an unchanged winmd proves them unchanged too.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 
-Deep-dive after a month of churn across the hand-written crates (reactor, bindgen, rdl, clang,
-canvas, metadata, webview, core). The safe, output-neutral fixes have already been applied; the
-items below still need a design decision or a larger change. Remove each entry when it is
-addressed. Any bindgen source change must be proven output-neutral by running the `tool_*`
-generators and confirming `git diff` shows no generated-file changes (the `gen` workflow enforces
-this).
+Open items across the hand-written crates (reactor, bindgen, rdl, clang, canvas, metadata, webview,
+core) that need a design decision or a larger change. Any bindgen source change must be proven
+output-neutral by running the `tool_*` generators and confirming `git diff` shows no generated-file
+changes (the `gen` workflow enforces this).
 
 #### Behavioral / correctness (need a design decision)
 
 | Location | Issue |
 | --- | --- |
-| `reactor/src/style.rs:237` + `element.rs:730` | `exit_transition` is set but never read; `.transition(enter, exit)` silently discards the exit arg. Wire it up or drop the parameter. |
-| `reactor/src/reconciler.rs:775` + `backend/winui/mod.rs:893` | Verified: a resource-dict change `{k:v}` -> `{}` never reaches the backend (the `&& !new.resources.is_empty()` guard skips it), and the backend handler only inserts map entries - it never removes - so any key removal leaves stale entries. Unlike the pointer/drag-handler paths above, which always emit on change and clear when empty. Needs a replace-vs-merge decision. |
-| `reactor/src/reconciler/widget_dispatch.rs:238` | Verified: a `TabItem` key change `Some` -> `None` satisfies `o.key != n.key` but the `&& let Some(key) = &n.key` guard skips the body, so the stale key is retained. `is_closable`/`header` just below always emit on change. Needs a backend clear path for `Prop::ItemKey`. |
-| `webview/src/pump.rs:36` | `Err(Error::empty())` on `WM_QUIT` reports a success `HRESULT(0)` (the empty sentinel maps back to 0). Intentional but easy to misread as success. |
+| `reactor` `style.rs` `exit_transition` + `element.rs` `.transition` builder | `exit_transition` is set but never consumed - `enter_transition` is read in `reconciler.rs`, but exit is only tested via `.is_none()`, so `.transition(enter, exit)` silently discards the exit arg. Wire it up or drop the parameter. |
+| `reactor` `reconciler.rs` (resources guard) + `backend/winui/mod.rs` | A resource-dict change `{k:v}` -> `{}` never reaches the backend (the `&& !new.resources.is_empty()` guard skips it), and the backend handler only inserts entries, never removes - so any key removal leaves stale entries. Needs a replace-vs-merge decision. |
+| `reactor` `reconciler/widget_dispatch.rs` (`Prop::ItemKey`) | A `TabItem` key change `Some` -> `None` satisfies `o.key != n.key` but the `&& let Some(key) = &n.key` guard skips the body, retaining the stale key. Needs a backend clear path for `Prop::ItemKey`. |
+| `webview` `pump.rs` (`WM_QUIT` arm) | `Err(Error::empty())` reports a success `HRESULT(0)` (the empty sentinel maps back to 0). Intentional but easy to misread as success. |
 
 #### Duplication / refactor candidates
 
 | Location | Issue |
 | --- | --- |
-| `metadata/src/merge/mod.rs:218` (`write_type`) vs `merge/remap.rs:170` (`Remapper::write_type`) | Two ~60-line structurally identical functions; the remap copy's comment even says it mirrors `merge::write_type`. Any new ECMA table must be added to both, with no compiler guard. |
-| `canvas/src/session.rs` (211-217, 236-242, 394-404) | Duplicated gradient-stop and bitmap-properties builders. |
-| `bindgen/src/types/interface.rs:559` + `cpp_interface.rs:215` | Duplicate local `fn combine()`. |
-| `canvas/src/color.rs:57` | `DARK_SLATE_BLUE = rgb(0.05, 0.05, 0.1)` does not match the CSS color of that name (public API used by samples). |
+| `metadata` `merge/mod.rs` `write_type` vs `merge/remap.rs` `write_type` | Two ~60-line structurally identical functions; the remap copy's comment says it mirrors `merge::write_type`. Any new ECMA table must be added to both, with no compiler guard. |
+| `canvas` `session.rs` gradient-stop + bitmap-properties builders | Duplicated ABI-stop and bitmap-properties construction across the brush paths. |
+| `bindgen` `types/interface.rs` + `cpp_interface.rs` local `fn combine` | Duplicate local helper. |
+| `canvas` `color.rs` `DARK_SLATE_BLUE` | `rgb(0.05, 0.05, 0.1)` does not match the CSS color of that name (public API used by samples). |
 
 #### Coverage gaps
 
@@ -249,52 +308,3 @@ this).
 | --- | --- |
 | `metadata` `Remapper` (`merge/remap.rs`) | No tests anywhere; routing/`split_apis` logic is exercised only in the live build, so a regression yields a malformed namespaced winmd with no failing test. |
 | webview | `process-failed`, download, and deferral paths untested. |
-
-**Tier 2 - faithful-ish to the header, but an active rewrite of the declared type:**
-
-2. **Scalar typedef collapse is a curated allowlist** (`canon.rs` `fundamental_scalar` 289-305,
-   `pointer_sized_abi`, `floating_typedef`, `guid_alias`, `void_pointer_alias`, `d2d_compat_alias`).
-   `DWORD`->`u32` erases the named alias, but `COLORREF`/`ATOM`/`HFILE` (same underlying types) are
-   kept named. The header declares them identically; the split is editorial.
-   - Fix: emit every typedef as a named alias in the winmd and move the collapse to the Layer-B
-     projection (`windows-bindgen`) where it is an ergonomics choice, not a metadata fact.
-3. **String-alias normalization + SAL const-flip** (`canon.rs` rules 1/9/10, `alias_policy`).
-   `LPCWSTR`->`PCWSTR`, and `_In_ LPWSTR`->`PCWSTR` flips a non-const pointer to const from the
-   `_In_` annotation. Declared type is mutable; emitted type is const.
-   - Fix: keep the header's declared pointer/const-ness; expose SAL direction as a separate
-     attribute.
-4. **`[iid_is]` inferred from parameter name** (`annotation.rs` `infer_iid_is` 367+,
-   `IID_SELECTOR_PARAM_NAMES = ["riid","iid","riidltf"]`). An un-annotated
-   `_COM_Outptr_ IUnknown **` is rewritten to `void**` + `#[iid_is]` because a sibling parameter is
-   named `riid` (5 methods across 4 functions). The header never expressed the linkage.
-   - Fix: offer a "source-annotations-only" mode that honors only an explicit MIDL `[iid_is]`
-     comment.
-5. **`D2D1_*`->`D2D_*` compat collapse** (`canon.rs` `d2d_compat_alias` 363-383) - curated erasure
-   of the `D2D1_`-spelled alias the header declares. Same remedy as item 2.
-
-**Tier 3 - coverage / configuration opinions that drop or reshape real header content:**
-
-6. **Redundant-constant dropping** (`lib.rs` final pass) - drops a top-level constant whose name and
-   value match an enumerator elsewhere. Only needed because of item 7.
-7. **Single flat `Windows.Win32` namespace** - lossy for genuine name collisions the reference
-   disambiguated by sub-namespace (`PID_SECURITY`, the `E_NOTFOUND` HRESULT-vs-`#define` class).
-   - Fix: on a true USR/value collision, keep both under a disambiguating suffix instead of
-     dropping.
-8. **`UNICODE`/`_UNICODE` not defined** - the TU is built ANSI-default. This is the direct answer to
-   "what is the equivalent of `#include <windows.h>`?"; a normal app build defines `UNICODE`. The
-   choice is higher-coverage (defining `UNICODE` drops 71 bare-ANSI exports) but the emitted
-   generic-text typedefs follow the ANSI branch.
-   - Fix (biggest lift, what the reference does): scrape ANSI and Unicode in two passes and merge.
-9. **Orphan named-type dropping** (reachability, no header-scoped retention) - a type an in-scope
-   header declares but no emitted signature references is dropped (`PROCESSOR_POWER_INFORMATION`,
-   `FIRMWARE_TABLE_PROVIDER`, `PROCESSOR_FEATURE_ID`).
-   - Fix: emit all named types *defined in* a `HEADERS` file, not only the reachability closure.
-10. **`intsafe.h` exclusion, `drop_lib_less`, `vertdll` ordering** (`tool_win32`) - pragmatic drops/
-    relinks of content the headers/libs literally provide. Low priority, defensible.
-
-**Correct as-is (do not "fix"):** overloaded-virtual vtable reversal (`interface.rs`, reproduces the
-true MSVC vtable slot order - ABI-critical); the `_HRESULT_TYPEDEF_`/`_NDIS_ERROR_TYPEDEF_`
-cast-wrapper map (`const.rs` `cast_wrapper_macro` 983-987, honors an explicit author type
-annotation).
-
-Suggested order: item 8 (true `windows.h` fidelity, large), then 4 / 9 / 2-3-5 / 7.
