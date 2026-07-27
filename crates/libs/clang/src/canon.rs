@@ -139,7 +139,7 @@ pub(crate) fn floating_typedef(ty: &Type) -> Option<metadata::Type> {
 }
 
 /// The fundamental C builtin scalar kinds that map to a Rust primitive via [`scalar_kind_to_type`].
-fn is_fundamental_scalar_kind(kind: CXTypeKind) -> bool {
+pub(crate) fn is_fundamental_scalar_kind(kind: CXTypeKind) -> bool {
     matches!(
         kind,
         CXType_Bool
@@ -618,7 +618,7 @@ fn requalify_string_alias(ty: metadata::Type, parser: &Parser<'_>) -> metadata::
 }
 
 /// Map a builtin scalar [`CXTypeKind`] to its [`metadata::Type`] (LLP64 widths).
-fn scalar_kind_to_type(kind: CXTypeKind) -> metadata::Type {
+pub(crate) fn scalar_kind_to_type(kind: CXTypeKind) -> metadata::Type {
     match kind {
         CXType_Bool => metadata::Type::Bool,
         CXType_Char_U | CXType_UChar => metadata::Type::U8,
@@ -631,6 +631,6 @@ fn scalar_kind_to_type(kind: CXTypeKind) -> metadata::Type {
         CXType_LongLong => metadata::Type::I64,
         CXType_Float => metadata::Type::F32,
         CXType_Double => metadata::Type::F64,
-        _ => metadata::Type::I32,
+        rest => panic!("{rest:?}"),
     }
 }

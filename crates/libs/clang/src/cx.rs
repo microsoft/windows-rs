@@ -792,25 +792,12 @@ impl Type {
     }
 
     pub fn to_type(&self, parser: &mut Parser<'_>) -> metadata::Type {
+        if is_fundamental_scalar_kind(self.kind()) {
+            return scalar_kind_to_type(self.kind());
+        }
         match self.kind() {
             CXType_Void => metadata::Type::Void,
-            CXType_Bool => metadata::Type::Bool,
-            CXType_Char_U | CXType_UChar => metadata::Type::U8,
-            CXType_UShort => metadata::Type::U16,
-            CXType_UInt => metadata::Type::U32,
-            CXType_ULong => metadata::Type::U32,
-            CXType_ULongLong => metadata::Type::U64,
-            CXType_Char_S | CXType_SChar => metadata::Type::I8,
-            CXType_Short => metadata::Type::I16,
-            CXType_Int => metadata::Type::I32,
-            CXType_Long => metadata::Type::I32,
-            CXType_LongLong => metadata::Type::I64,
-            CXType_Float => metadata::Type::F32,
-            CXType_Double => metadata::Type::F64,
             CXType_LongDouble => metadata::Type::F64,
-            CXType_WChar => metadata::Type::U16,
-            CXType_Char16 => metadata::Type::U16,
-            CXType_Char32 => metadata::Type::U32,
             CXType_Enum | CXType_Record => {
                 if parser.winrt_types.is_some()
                     && let Some(projected) = self.abi_projection(parser)
