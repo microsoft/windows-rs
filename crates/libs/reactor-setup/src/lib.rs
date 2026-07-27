@@ -150,11 +150,12 @@ fn ensure_msix_extracted(runtime: &Path) -> PathBuf {
         .join("Microsoft.WindowsAppRuntime.2.msix");
     let extract = runtime.join(".msix_extract");
     if !extract.is_dir() {
-        if !msix.is_file() {
-            println!("MSIX not found at {}", msix.display());
-        } else {
-            extract_tar_atomic(&msix, &extract, &[]);
-        }
+        assert!(msix.is_file(), "MSIX not found at {}", msix.display());
+        assert!(
+            extract_tar_atomic(&msix, &extract, &[]),
+            "failed to extract {}",
+            msix.display()
+        );
     }
     extract
 }
@@ -219,7 +220,11 @@ fn stage_pkg(name: &str, ver: &str, temp: &Path) -> PathBuf {
         dl_nupkg(name, ver, &nupkg);
     }
     if !extract.is_dir() {
-        extract_tar_atomic(&nupkg, &extract, &["--strip-components=1"]);
+        assert!(
+            extract_tar_atomic(&nupkg, &extract, &["--strip-components=1"]),
+            "failed to extract {}",
+            nupkg.display()
+        );
     }
     extract
 }
@@ -279,6 +284,7 @@ fn extract_tar(src: &Path, dst: &Path, extra: &[&str]) -> bool {
 fn extract_tar_atomic(src: &Path, dst: &Path, extra: &[&str]) -> bool {
     let partial = dst.with_extension("partial");
     let _ = fs::remove_dir_all(&partial);
+    let _ = fs::remove_file(&partial);
     if fs::create_dir_all(&partial).is_err() {
         return false;
     }
