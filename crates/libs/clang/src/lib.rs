@@ -7,7 +7,9 @@ use windows_metadata as metadata;
 use proc_macro2::{Literal, Span, TokenStream};
 use quote::quote;
 
-use windows_rdl::emit::{uuid_to_u128_literal, write_ident, write_type, write_value};
+use windows_rdl::emit::{
+    associated_enum_attr, uuid_to_u128_literal, write_ident, write_type, write_value,
+};
 use windows_rdl::{Error, expand_input_paths, formatter, implib, write_to_file};
 
 mod cx;
@@ -286,6 +288,7 @@ impl<'a> Parser<'a> {
                         collector.insert(Item::Const(Const {
                             name,
                             value: const_value,
+                            group: None,
                         }));
                     }
                 } else if !self.ref_map.contains_key(&e.name) {
@@ -480,6 +483,7 @@ impl<'a> Parser<'a> {
                         collector.insert(Item::Const(Const {
                             name,
                             value: const_value,
+                            group: None,
                         }));
                     }
                 }
@@ -1612,6 +1616,7 @@ mod tests {
         b.insert(Item::Const(Const {
             name: "D3DFMT_X8R8G8B8".to_string(),
             value: metadata::Value::U32(22),
+            group: None,
         }));
 
         let collectors: BTreeMap<String, Collector> =
@@ -1621,5 +1626,25 @@ mod tests {
             members.get("D3DFMT_X8R8G8B8").map(Vec::as_slice),
             Some([22].as_slice())
         );
+    }
+
+    #[test]
+    fn parse_enum_comment_grammar() {
+        use annotation::parse_enum_comment;
+        let name = |s: &str, f: bool| Some((s.to_string(), f));
+        // Bare name -> scalar; the `flags` token -> bitwise-combinable.
+        assert_eq!(parse_enum_comment("[enum(FOO)]"), name("FOO", false));
+        assert_eq!(parse_enum_comment("[enum(FOO, flags)]"), name("FOO", true));
+        // Whitespace inside the block comment is tolerated.
+        assert_eq!(
+            parse_enum_comment("/* [enum( FOO , flags ) ] */"),
+            name("FOO", true)
+        );
+        // An unknown second token is ignored, staying scalar.
+        assert_eq!(parse_enum_comment("[enum(FOO, other)]"), name("FOO", false));
+        // Empty name, missing marker, and the retired `[flags(..)]` spelling are rejected.
+        assert_eq!(parse_enum_comment("[enum()]"), None);
+        assert_eq!(parse_enum_comment("no marker here"), None);
+        assert_eq!(parse_enum_comment("[flags(FOO)]"), None);
     }
 }

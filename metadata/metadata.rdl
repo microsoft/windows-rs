@@ -13,7 +13,7 @@ mod Windows {
                 fn();
             }
             // Records the native character encoding of a string constant or field.
-            // RDL: `#[encoding("…")]`.
+            // RDL: `#[encoding("...")]`.
             attribute NativeEncodingAttribute {
                 fn(encoding: String);
             }
@@ -65,6 +65,19 @@ mod Windows {
             attribute ComOutPtrAttribute {
                 fn();
             }
+            // Associates an integer constant, parameter, field, or return with a named
+            // enum without changing its ABI type. The integer stays a raw `u32`/`i32`, so
+            // a literal projection like Rust reproduces the header verbatim, while an
+            // enum-aware projection (e.g. the C#/SDK metadata) can synthesize the named
+            // enum and gather the constants tagged with the same `Name`. `Flags` marks the
+            // enum as bitwise-combinable; it is set once on the parameter/field/return so
+            // the loose member constants need only carry the name.
+            // RDL: `#[associated_enum("NAME")]` or
+            // `#[associated_enum("NAME", Flags = true)]`.
+            attribute AssociatedEnumAttribute {
+                fn(Name: String);
+                Flags: bool,
+            }
             // Marks an enum derived from a C++ scoped enum (`enum class`/`enum struct`),
             // which has distinct name-lookup/conversion semantics from a plain C enum.
             // RDL: `#[scoped]`.
@@ -74,8 +87,8 @@ mod Windows {
             // Records a bit-field member packed into a backing integer field. The C
             // bit-field concept has no winmd representation, so consecutive bit-fields
             // are coalesced into a single backing integer field (`_bitfield` /
-            // `_bitfield1` / …) and each logical member is recorded here — one
-            // attribute instance per member — carrying the member's name, its bit
+            // `_bitfield1` / ...) and each logical member is recorded here - one
+            // attribute instance per member - carrying the member's name, its bit
             // offset within the backing field, and its width in bits. bindgen reads
             // these to generate typed get/set accessors. Signedness of a multi-bit
             // member is taken from the backing field's own type.

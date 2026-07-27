@@ -4,6 +4,10 @@ use super::*;
 pub struct Const {
     pub name: String,
     pub value: metadata::Value,
+    /// Advisory enum name for other-language projections; Rust ignores this and keeps
+    /// the loose constant. The `Flags` marker rides the associated parameter/field, so
+    /// member constants carry only the name.
+    pub group: Option<String>,
 }
 
 impl Const {
@@ -25,14 +29,22 @@ impl Const {
         }
 
         let tokens = parser.tu.tokenize(cursor.extent());
-        let body: Vec<_> = tokens.into_iter().skip(1).collect();
+        // An inline `/* [enum(NAME)] */` comment between the macro name and its value
+        // rides the extent; capture the name, then drop comments so value parsing is
+        // unaffected. Flags is carried by the associated parameter, not each constant.
+        let group = extract_enum_comment_group(&tokens).map(|(name, _flags)| name);
+        let body: Vec<_> = tokens
+            .into_iter()
+            .skip(1)
+            .filter(|(kind, _)| *kind != CXToken_Comment)
+            .collect();
 
         let Some(value) = parse_body(&body, parser.namespace, parser.ref_map, parser.header_names)
         else {
             return Ok(None);
         };
 
-        Ok(Some(Self { name, value }))
+        Ok(Some(Self { name, value, group }))
     }
 
     /// Parse file-scope floating-point `const` variables that flat metadata would otherwise lose.
@@ -50,17 +62,26 @@ impl Const {
             CXType_Double | CXType_LongDouble => metadata::Value::F64(cursor.evaluate_double()?),
             _ => return None,
         };
-        Some(Self { name, value })
+        Some(Self {
+            name,
+            value,
+            group: None,
+        })
     }
 
     pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
         let ty = write_type(namespace, &self.value.ty());
         let value = write_value(namespace, &self.value);
+        let group_attr = self
+            .group
+            .as_ref()
+            .map(|group| associated_enum_attr(group, false));
         match &self.value {
             metadata::Value::Utf8(_) => {
                 let attr = native_encoding_attr("ansi");
                 Ok(quote! {
+                    #group_attr
                     #attr
                     const #name: #ty = #value;
                 })
@@ -68,11 +89,12 @@ impl Const {
             metadata::Value::Utf16(_) => {
                 let attr = native_encoding_attr("utf-16");
                 Ok(quote! {
+                    #group_attr
                     #attr
                     const #name: #ty = #value;
                 })
             }
-            _ => Ok(quote! { const #name: #ty = #value; }),
+            _ => Ok(quote! { #group_attr const #name: #ty = #value; }),
         }
     }
 }
@@ -296,7 +318,11 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
         .map(|(name, raw)| {
             let value =
                 eval_integer_value(raw, sizes.get(&name).copied(), signs.get(&name).copied());
-            Const { name, value }
+            Const {
+                name,
+                value,
+                group: None,
+            }
         })
         .collect();
 

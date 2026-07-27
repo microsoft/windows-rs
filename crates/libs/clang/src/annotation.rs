@@ -17,6 +17,10 @@ pub struct ParamAnnotation {
     pub size: Option<SalSize>,
     /// Resolved array/size attribute.
     pub array: Option<ArrayInfo>,
+    /// Inline MIDL comment `[enum(NAME)]` / `[enum(NAME, flags)]` — names an enum a
+    /// richer projection can synthesize over this integer, with `flags` marking it
+    /// bitwise-combinable; the ABI type is left unchanged.
+    pub associated_enum: Option<(String, bool)>,
 }
 
 impl ParamAnnotation {
@@ -29,6 +33,7 @@ impl ParamAnnotation {
             || self.com_out_ptr
             || self.size.is_some()
             || self.array.is_some()
+            || self.associated_enum.is_some()
     }
 }
 
@@ -254,11 +259,17 @@ pub(crate) fn parse_params(
             name = format!("param{param_idx}");
         }
         let sal_annotation = extract_param_annotation(&child, parser.tu);
+        let midl = midl_annotations.get(param_idx).cloned().unwrap_or_default();
         let mut annotation = if sal_annotation.is_annotated() {
             sal_annotation
         } else {
-            midl_annotations.get(param_idx).cloned().unwrap_or_default()
+            midl.clone()
         };
+        // The enum grouping rides a MIDL comment; overlay it even when SAL directional
+        // annotations won the choice above, so `_In_ DWORD /* [enum(X)] */` keeps X.
+        if annotation.associated_enum.is_none() {
+            annotation.associated_enum = midl.associated_enum;
+        }
         let mut ty = param_metadata_type(&child.ty(), &annotation, parser);
         // Token-recovered `_COM_Outptr_` becomes ComOutPtr only for caller-chosen `void**`.
         if annotation.com_out_ptr_token && is_void_double_ptr(&ty) {
@@ -418,6 +429,11 @@ pub fn apply_midl_param_comment(comment: &str, annotation: &mut ParamAnnotation)
     if comment.contains("[iid_is]") && annotation.out_param {
         annotation.com_out_ptr = true;
     }
+    // `[enum(NAME)]` / `[enum(NAME, flags)]` name a virtual enum a richer projection can
+    // synthesize over this integer; the ABI type is left unchanged.
+    if let Some((name, flags)) = parse_enum_comment(comment) {
+        annotation.associated_enum = Some((name, flags));
+    }
 }
 
 /// Handles known Win32 SAL names and ignores unrelated annotations.
@@ -480,6 +496,11 @@ pub fn param_attrs_for_annotation(
         attrs.push(array_info_attr(array));
     }
 
+    // Associated-enum advisory: type is unchanged, projections opt in.
+    if let Some((name, flags)) = &annotation.associated_enum {
+        attrs.push(associated_enum_attr(name, *flags));
+    }
+
     if annotation.reserved {
         attrs.push(quote! { #[reserved] });
     }
@@ -508,6 +529,35 @@ pub fn param_attrs_for_annotation(
     }
 
     attrs
+}
+
+/// Parses a MIDL-style enum grouping comment into `(enum_name, is_flags)`, or None.
+/// The grammar is a block/line comment containing `[enum(NAME)]` (scalar) or
+/// `[enum(NAME, flags)]` (bitwise-combinable). These are ordinary C comments, invisible
+/// to every compiler, so they can annotate real SDK headers without breaking source compat.
+pub fn parse_enum_comment(comment: &str) -> Option<(String, bool)> {
+    const MARKER: &str = "[enum(";
+    let start = comment.find(MARKER)?;
+    let rest = &comment[start + MARKER.len()..];
+    let end = rest.find(')')?;
+    let mut parts = rest[..end].split(',').map(str::trim);
+    let name = parts.next()?;
+    if name.is_empty() {
+        return None;
+    }
+    let flags = parts.any(|p| p == "flags");
+    Some((name.to_string(), flags))
+}
+
+/// Scans a token stream (a macro's extent or a parameter list) for the first enum
+/// grouping comment. Comments live inside the macro extent when written inline between
+/// the name and value (`#define X /* [enum(Y)] */ 1`), which is where the const and
+/// parameter pipelines already tokenize.
+pub fn extract_enum_comment_group(tokens: &[(CXTokenKind, String)]) -> Option<(String, bool)> {
+    tokens
+        .iter()
+        .filter(|(kind, _)| *kind == CXToken_Comment)
+        .find_map(|(_, spelling)| parse_enum_comment(spelling))
 }
 
 /// Detects no-return from type spelling or `_Analysis_noreturn_` SAL.

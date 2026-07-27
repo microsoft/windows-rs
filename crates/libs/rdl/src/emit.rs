@@ -201,6 +201,18 @@ pub fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
     }
 }
 
+/// Renders an `AssociatedEnumAttribute` reference in RDL as its short `associated_enum`
+/// spelling. `flags` adds the `Flags = true` named property (set once on the
+/// parameter/field/return so member constants carry only the name).
+pub fn associated_enum_attr(name: &str, flags: bool) -> TokenStream {
+    let name = Literal::string(name);
+    if flags {
+        quote! { #[associated_enum(#name, Flags = true)] }
+    } else {
+        quote! { #[associated_enum(#name)] }
+    }
+}
+
 /// Formats GUID components as a UUID-style hex u128 literal, e.g.
 /// `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3`.
 pub(crate) fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {

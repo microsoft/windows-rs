@@ -1,0 +1,21 @@
+#[win32]
+mod Test {
+    #[associated_enum("FILE_SHARE_MODE")]
+    const FILE_SHARE_DELETE: i32 = 4;
+    #[associated_enum("FILE_SHARE_MODE")]
+    const FILE_SHARE_READ: i32 = 1;
+    #[associated_enum("FILE_SHARE_MODE")]
+    const FILE_SHARE_WRITE: i32 = 2;
+    #[library("kernel32.dll")]
+    extern fn OpenThing(#[associated_enum("FILE_SHARE_MODE", Flags = true)] dwShareMode: u32);
+    #[library("kernel32.dll")]
+    extern fn OpenThing2(#[associated_enum("FILE_SHARE_MODE")] dwShareMode: u32);
+    #[library("kernel32.dll")]
+    extern fn OpenThing3(#[associated_enum("FILE_SHARE_MODE")] dwShareMode: u32);
+    #[associated_enum("PAGE_PROTECTION")]
+    const PAGE_READONLY: i32 = 2;
+    #[associated_enum("PAGE_PROTECTION")]
+    const PAGE_READWRITE: i32 = 4;
+    #[library("kernel32.dll")]
+    extern fn SetProtection(#[associated_enum("PAGE_PROTECTION")] flProtect: u32);
+}

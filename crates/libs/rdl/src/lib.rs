@@ -80,6 +80,11 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         metadata: "NativeEncodingAttribute",
         prop: None,
     },
+    PseudoAttr {
+        short: "associated_enum",
+        metadata: "AssociatedEnumAttribute",
+        prop: None,
+    },
 ];
 
 pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {

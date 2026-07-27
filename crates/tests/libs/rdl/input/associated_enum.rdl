@@ -1,0 +1,20 @@
+#[win32]
+mod Test {
+    #[associated_enum("FILE_SHARE_MODE")]
+    const FILE_SHARE_READ: u32 = 1;
+    #[library("kernel32.dll")]
+    extern fn OpenThing(#[associated_enum("FILE_SHARE_MODE", Flags = true)] dwShareMode: u32);
+    #[library("kernel32.dll")]
+    extern fn SetProtection(#[associated_enum("PAGE_PROTECTION")] flProtect: u32);
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute AssociatedEnumAttribute {
+                fn(Name: String);
+                Flags: bool,
+            }
+        }
+    }
+}
