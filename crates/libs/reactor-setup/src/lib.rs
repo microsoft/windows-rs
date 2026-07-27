@@ -150,11 +150,10 @@ fn ensure_msix_extracted(runtime: &Path) -> PathBuf {
         .join("Microsoft.WindowsAppRuntime.2.msix");
     let extract = runtime.join(".msix_extract");
     if !extract.is_dir() {
-        let _ = fs::create_dir_all(&extract);
         if !msix.is_file() {
             println!("MSIX not found at {}", msix.display());
         } else {
-            extract_tar(&msix, &extract, &[]);
+            extract_tar_atomic(&msix, &extract, &[]);
         }
     }
     extract
@@ -220,8 +219,7 @@ fn stage_pkg(name: &str, ver: &str, temp: &Path) -> PathBuf {
         dl_nupkg(name, ver, &nupkg);
     }
     if !extract.is_dir() {
-        let _ = fs::create_dir_all(&extract);
-        extract_tar(&nupkg, &extract, &["--strip-components=1"]);
+        extract_tar_atomic(&nupkg, &extract, &["--strip-components=1"]);
     }
     extract
 }
@@ -247,17 +245,52 @@ fn dl_nupkg(name: &str, ver: &str, dest: &Path) {
     }
 }
 
-fn extract_tar(src: &Path, dst: &Path, extra: &[&str]) {
+fn extract_tar(src: &Path, dst: &Path, extra: &[&str]) -> bool {
     println!("Extracting {} to {}", src.display(), dst.display());
     let tar = env::var_os("SystemRoot")
         .map(|r| PathBuf::from(r).join("System32\\tar.exe"))
         .filter(|p| p.is_file());
-    if let Some(t) = tar {
-        let _ = Command::new(&t)
-            .args(["-xf", src.to_str().unwrap(), "-C", dst.to_str().unwrap()])
-            .args(extra)
-            .output();
+    let Some(t) = tar else {
+        println!("tar.exe not found");
+        return false;
+    };
+    match Command::new(&t)
+        .args(["-xf", src.to_str().unwrap(), "-C", dst.to_str().unwrap()])
+        .args(extra)
+        .status()
+    {
+        Ok(status) if status.success() => true,
+        Ok(status) => {
+            println!("tar failed extracting {} (exit {status})", src.display());
+            false
+        }
+        Err(e) => {
+            println!("tar failed extracting {}: {e}", src.display());
+            false
+        }
     }
+}
+
+/// Extracts `src` into `dst` atomically: extraction runs in a sibling
+/// `.partial` directory that is renamed to `dst` only on success. This ensures
+/// an interrupted or failed extraction never leaves a partial directory that a
+/// later build would mistake for a complete one (the callers skip extraction
+/// whenever `dst` already exists).
+fn extract_tar_atomic(src: &Path, dst: &Path, extra: &[&str]) -> bool {
+    let partial = dst.with_extension("partial");
+    let _ = fs::remove_dir_all(&partial);
+    if fs::create_dir_all(&partial).is_err() {
+        return false;
+    }
+    if !extract_tar(src, &partial, extra) {
+        let _ = fs::remove_dir_all(&partial);
+        return false;
+    }
+    if fs::rename(&partial, dst).is_err() {
+        let _ = fs::remove_dir_all(&partial);
+        return false;
+    }
+    true
 }
 
 fn target_dir_from_out(out: &Path) -> PathBuf {
