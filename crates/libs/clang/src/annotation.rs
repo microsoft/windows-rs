@@ -17,9 +17,9 @@ pub struct ParamAnnotation {
     pub size: Option<SalSize>,
     /// Resolved array/size attribute.
     pub array: Option<ArrayInfo>,
-    /// Inline MIDL comment `[enum(NAME)]` / `[enum(NAME, flags)]` — names an enum a
+    /// Inline MIDL comment `[enum(NAME)]` or `[enum(NAME, flags)]`: names an enum a
     /// richer projection can synthesize over this integer, with `flags` marking it
-    /// bitwise-combinable; the ABI type is left unchanged.
+    /// bitwise-combinable. The ABI type is unchanged.
     pub associated_enum: Option<(String, bool)>,
 }
 
@@ -429,8 +429,7 @@ pub fn apply_midl_param_comment(comment: &str, annotation: &mut ParamAnnotation)
     if comment.contains("[iid_is]") && annotation.out_param {
         annotation.com_out_ptr = true;
     }
-    // `[enum(NAME)]` / `[enum(NAME, flags)]` name a virtual enum a richer projection can
-    // synthesize over this integer; the ABI type is left unchanged.
+    // Record the `[enum(NAME)]` / `[enum(NAME, flags)]` grouping carried by the comment.
     if let Some((name, flags)) = parse_enum_comment(comment) {
         annotation.associated_enum = Some((name, flags));
     }
@@ -496,7 +495,6 @@ pub fn param_attrs_for_annotation(
         attrs.push(array_info_attr(array));
     }
 
-    // Associated-enum advisory: type is unchanged, projections opt in.
     if let Some((name, flags)) = &annotation.associated_enum {
         attrs.push(associated_enum_attr(name, *flags));
     }

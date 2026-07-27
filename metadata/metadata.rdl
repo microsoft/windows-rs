@@ -66,14 +66,11 @@ mod Windows {
                 fn();
             }
             // Associates an integer constant, parameter, field, or return with a named
-            // enum without changing its ABI type. The integer stays a raw `u32`/`i32`, so
-            // a literal projection like Rust reproduces the header verbatim, while an
-            // enum-aware projection (e.g. the C#/SDK metadata) can synthesize the named
-            // enum and gather the constants tagged with the same `Name`. `Flags` marks the
-            // enum as bitwise-combinable; it is set once on the parameter/field/return so
-            // the loose member constants need only carry the name.
-            // RDL: `#[associated_enum("NAME")]` or
-            // `#[associated_enum("NAME", Flags = true)]`.
+            // enum without changing its ABI type, so a literal projection keeps the raw
+            // integer while an enum-aware projection can synthesize the enum. `Flags`
+            // marks it bitwise-combinable and is set once on the parameter/field/return,
+            // so member constants carry only the name.
+            // RDL: `#[associated_enum("NAME")]` or `#[associated_enum("NAME", Flags = true)]`.
             attribute AssociatedEnumAttribute {
                 fn(Name: String);
                 Flags: bool,
