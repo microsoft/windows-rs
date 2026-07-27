@@ -570,7 +570,9 @@ fn report_app_start_result(result: Result<()>) -> Result<()> {
 
 fn init_app_platform() -> Result<()> {
     // SAFETY: FFI call into user32; returns HRESULT and has no aliasing requirements.
-    unsafe { SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2).ok()? };
+    unsafe {
+        _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
+    }
 
     // SAFETY: FFI call into ole32; null reserved arg is documented as required.
     let coinit_hr = unsafe { CoInitializeEx(std::ptr::null(), COINIT_APARTMENTTHREADED as u32) };
