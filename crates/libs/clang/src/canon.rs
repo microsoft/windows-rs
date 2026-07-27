@@ -631,6 +631,6 @@ pub(crate) fn scalar_kind_to_type(kind: CXTypeKind) -> metadata::Type {
         CXType_LongLong => metadata::Type::I64,
         CXType_Float => metadata::Type::F32,
         CXType_Double => metadata::Type::F64,
-        _ => metadata::Type::I32,
+        rest => panic!("{rest:?}"),
     }
 }

@@ -209,7 +209,7 @@ stale fast.
 
 Context: issue [#4720](https://github.com/microsoft/windows-rs/issues/4720) and discussion
 [#4725](https://github.com/microsoft/windows-rs/issues/4725) (the `SW_NORMAL` should-be-signed
-report). The scrape aims to be "faithful to the SDK headers, not a theoretical C-standard purity,"
+report). The scrape aims to match the SDK headers, not a theoretical C-standard purity,
 yet a few rules still rewrite or drop what the header literally declares. The fundamental-type
 canonicalization (`DWORD`/`CHAR` -> primitives, `BOOLEAN` -> `bool`,
 `LARGE_INTEGER`/`ULARGE_INTEGER` -> `i64`/`u64`, the D2D numerics) is settled and intended; the
@@ -217,7 +217,7 @@ items below are the ones still worth revisiting. Sources:
 `crates/libs/clang/src/{const,canon,annotation,interface,lib}.rs`,
 `crates/tools/win32/src/main.rs`, `docs/crates/windows-clang.md`.
 
-**Active type rewrites - faithful-ish, but restate the declared type:**
+**Active type rewrites - close to the header, but restate the declared type:**
 
 - **Scalar collapse is a curated allowlist** (`canon.rs`: `fundamental_scalar`, `semantic_scalar`,
   `pointer_sized_abi`, `floating_typedef`, `guid_alias`, `void_pointer_alias`, `d2d_compat_alias`).
