@@ -2055,6 +2055,10 @@ pub use windowsgraphicscaptureinterop::*;
 pub mod windowsgraphicsdirectxdirect3d11interop;
 #[cfg(feature = "windowsgraphicsdirectxdirect3d11interop")]
 pub use windowsgraphicsdirectxdirect3d11interop::*;
+#[cfg(feature = "windowsgraphicsdisplayinterop")]
+pub mod windowsgraphicsdisplayinterop;
+#[cfg(feature = "windowsgraphicsdisplayinterop")]
+pub use windowsgraphicsdisplayinterop::*;
 #[cfg(feature = "windowsgraphicsimaginginterop")]
 pub mod windowsgraphicsimaginginterop;
 #[cfg(feature = "windowsgraphicsimaginginterop")]
