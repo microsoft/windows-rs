@@ -86,8 +86,10 @@ impl RenderState {
 ///
 /// ```ignore
 /// animated_canvas(|ctx| {
+///     let brush = ctx.create_solid_brush(ColorF::WHITE)?;
 ///     ctx.clear(ColorF::CORNFLOWER_BLUE);
 ///     ctx.fill_ellipse(&ellipse, &brush);
+///     Ok(())
 /// })
 /// ```
 pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> SwapChainPanel {
@@ -362,8 +364,9 @@ fn animated_canvas_impl(
 /// ```ignore
 /// let surface = CanvasImageSource::new(&device, 256.0, 256.0, scale)?;
 /// surface.draw(ColorF::CORNFLOWER_BLUE, |session| {
-///     let brush = session.create_solid_brush(ColorF::WHITE).unwrap();
+///     let brush = session.create_solid_brush(ColorF::WHITE)?;
 ///     session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &brush);
+///     Ok(())
 /// })?;
 /// let image = Image::new(surface.image_source());
 /// ```
