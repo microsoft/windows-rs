@@ -249,7 +249,8 @@ impl TextLayout {
 
     /// Returns the caret rectangle for the character at `position` (a UTF-16
     /// code-unit index). Pass `trailing = true` for the caret after the
-    /// character. Useful for drawing a text cursor or selection.
+    /// character. The rect is a zero-width vertical line at the caret, spanning
+    /// the line height, for drawing a text cursor.
     pub fn caret_bounds(&self, position: u32, trailing: bool) -> Rect {
         let mut x = 0.0f32;
         let mut y = 0.0f32;
@@ -259,7 +260,7 @@ impl TextLayout {
                 .raw
                 .HitTestTextPosition(position, trailing, &mut x, &mut y, &mut m);
         }
-        Rect::from_xywh(m.left, m.top, m.width, m.height)
+        Rect::from_xywh(x, y, 0.0, m.height)
     }
 
     /// Returns the layout box size (`max_width`, `max_height`).

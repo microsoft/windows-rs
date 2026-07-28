@@ -1152,10 +1152,17 @@ mod tests {
         let past = layout.hit_test_point(Vector2::new(1000.0, 1000.0));
         assert!(!past.is_inside);
 
-        // The caret for a later position sits further right than the first.
+        // The caret for a later position sits further right than the first, is a
+        // zero-width vertical line, and spans the line height.
         let caret0 = layout.caret_bounds(0, false);
         let caret3 = layout.caret_bounds(3, false);
         assert!(caret3.left > caret0.left);
+        assert_eq!(caret0.width(), 0.0);
+        assert!(caret0.height() > 0.0);
+
+        // `trailing` moves the caret to the far edge of the character.
+        let caret0_trailing = layout.caret_bounds(0, true);
+        assert!(caret0_trailing.left > caret0.left);
     }
 
     #[test]
