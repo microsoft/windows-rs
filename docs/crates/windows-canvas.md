@@ -63,9 +63,9 @@ let panel = canvas(|ctx| {
 });
 ```
 
-Because `draw` runs only on resize, resources built from the size (such as a `TextLayout` fitted to
-the client area) can be created inside `draw` without the cost of rebuilding them every frame. See
-the `text_layout` sample.
+Because `draw` runs only on resize, size-dependent resources such as a `TextLayout` fitted to the
+client area can be shaped once and cached in a `use_ref`, then rebuilt only when `device_changed`
+reports a resize or device loss. See the `text_layout` sample.
 
 When the content changes with app state rather than size - a value edited, a point added on a click -
 drive the repaints yourself with `canvas_invalidated(&inv, draw)`. Keep the drawing state in a
@@ -291,12 +291,13 @@ tree contains these samples:
 - **`readback`**: renders off-screen and reads pixels back to the CPU.
 - **`hit_test`**: tests whether the pointer is inside a filled `Path`, repainting on demand.
 - **`editor`**: combines reactor pointer events with canvas geometry queries, repainting on demand.
+- **`text_layout`**: caches a `TextLayout` in a `use_ref`, re-shaping it only when the window
+  resizes.
 
 The `samples` crate also has focused single-file examples under
 [`samples/examples`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/samples/examples),
-including `text_layout`, which fits a `TextLayout` to the window with the demand-driven `canvas`
-harness and measures it, redrawing only when the size changes, and `invalidate`, which links
-clicked points with a line and repaints only when `Invalidator::invalidate` is called.
+including `invalidate`, which links clicked points with a line and repaints only when
+`Invalidator::invalidate` is called.
 
 ## Future work
 
