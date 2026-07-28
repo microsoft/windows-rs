@@ -90,7 +90,7 @@ impl RenderState {
 ///     ctx.fill_ellipse(&ellipse, &brush);
 /// })
 /// ```
-pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPanel {
+pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> SwapChainPanel {
     animated_canvas_impl(
         Rc::new(GpuDevice::new_or_warp),
         draw,
@@ -113,7 +113,7 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
 /// [`animated_canvas`] (which owns its device) instead.
 pub fn animated_canvas_with_device(
     device: GpuDevice,
-    draw: impl Fn(&DrawContext<'_>) + 'static,
+    draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
 ) -> SwapChainPanel {
     animated_canvas_impl(
         Rc::new(move || Ok(device.clone())),
@@ -134,9 +134,10 @@ pub fn animated_canvas_with_device(
 ///     ctx.clear(ColorF::BLACK);
 ///     let rect = Rect::new(0.0, 0.0, ctx.width, ctx.height);
 ///     ctx.draw_text("Hello", &format, &rect, &brush);
+///     Ok(())
 /// })
 /// ```
-pub fn canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPanel {
+pub fn canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> SwapChainPanel {
     animated_canvas_impl(
         Rc::new(GpuDevice::new_or_warp),
         draw,
@@ -199,7 +200,7 @@ impl RenderCx {
 /// ```
 pub fn canvas_invalidated(
     inv: &Invalidator,
-    draw: impl Fn(&DrawContext<'_>) + 'static,
+    draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
 ) -> SwapChainPanel {
     animated_canvas_impl(
         Rc::new(GpuDevice::new_or_warp),
@@ -218,7 +219,7 @@ enum RenderMode {
 
 fn animated_canvas_impl(
     make_device: Rc<dyn Fn() -> Result<GpuDevice>>,
-    draw: impl Fn(&DrawContext<'_>) + 'static,
+    draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
     mode: RenderMode,
     changed: Rc<Cell<bool>>,
 ) -> SwapChainPanel {
@@ -296,29 +297,34 @@ fn animated_canvas_impl(
                     if mode == RenderMode::Demand && !render_changed.get() {
                         return;
                     }
-                    let Ok(session) = rs.chain.begin_draw() else {
-                        return;
-                    };
-                    let ctx = DrawContext {
-                        session,
-                        device: &rs.device,
-                        width: w,
-                        height: h,
-                        changed: render_changed.replace(false),
-                    };
-                    render_draw(&ctx);
-                    drop(ctx);
+                    // Consume `changed` only once a frame actually starts. A
+                    // device lost at `begin_draw`, mid-draw, or at `present` all
+                    // surface as an `Err`/`Ok(false)` that rebuilds the surface.
+                    let outcome = rs
+                        .chain
+                        .begin_draw()
+                        .and_then(|session| {
+                            let ctx = DrawContext {
+                                session,
+                                device: &rs.device,
+                                width: w,
+                                height: h,
+                                changed: render_changed.replace(false),
+                            };
+                            let result = render_draw(&ctx);
+                            drop(ctx);
+                            result
+                        })
+                        .and_then(|()| rs.chain.present());
 
-                    match rs.chain.present() {
-                        Ok(true) => {}
-                        Ok(false) => {
-                            let pw = surface_pixels(w, rs.scale);
-                            let ph = surface_pixels(h, rs.scale);
-                            if rs.rebuild(pw, ph) {
-                                render_changed.set(true);
-                            }
+                    if matches!(outcome, Ok(false))
+                        || matches!(&outcome, Err(e) if is_device_lost(e.code()))
+                    {
+                        let pw = surface_pixels(w, rs.scale);
+                        let ph = surface_pixels(h, rs.scale);
+                        if rs.rebuild(pw, ph) {
+                            render_changed.set(true);
                         }
-                        Err(_) => {}
                     }
                 }
             }) else {
@@ -388,7 +394,11 @@ impl CanvasImageSource {
     }
 
     /// Redraw and present. Returns `Ok(false)` after device loss.
-    pub fn draw(&self, clear: ColorF, f: impl FnOnce(&DrawingSession<'_>)) -> Result<bool> {
+    pub fn draw(
+        &self,
+        clear: ColorF,
+        f: impl FnOnce(&DrawingSession<'_>) -> Result<()>,
+    ) -> Result<bool> {
         let (context, (offset_x, offset_y)) = match self.source.begin_draw::<ID2D1DeviceContext>(
             0,
             0,
@@ -406,16 +416,20 @@ impl CanvasImageSource {
 
         // Pair every successful `begin_draw` with `end_draw`, even if `f` panics.
         let guard = EndDrawGuard(&self.source);
-        {
+        let draw_result = {
             let session =
                 DrawingSession::from_borrowed_context_with_dpi(&context, offset, self.dpi);
             session.clear(clear);
-            f(&session);
-        }
+            f(&session)
+        };
         std::mem::forget(guard);
 
         match self.source.end_draw() {
-            Ok(()) => Ok(true),
+            Ok(()) => match draw_result {
+                Ok(()) => Ok(true),
+                Err(e) if is_device_lost(e.code()) => Ok(false),
+                Err(e) => Err(e),
+            },
             Err(e) if is_device_lost(e.code()) => Ok(false),
             Err(e) => Err(e),
         }
@@ -467,7 +481,7 @@ impl SwapChainState {
     /// Returns an [`Err`] whose code satisfies [`is_device_lost`] if the GPU
     /// device was lost (the caller should [`rebuild`](Self::rebuild) and retry);
     /// any other `Err` is a hard failure that should be propagated as-is.
-    fn present_frame(&mut self, f: &dyn Fn(&DrawContext<'_>)) -> Result<()> {
+    fn present_frame(&mut self, f: &dyn Fn(&DrawContext<'_>) -> Result<()>) -> Result<()> {
         if self.width <= 0.0 || self.height <= 0.0 {
             return Ok(());
         }
@@ -480,8 +494,9 @@ impl SwapChainState {
             height: self.height,
             changed: false,
         };
-        f(&ctx);
+        let draw_result = f(&ctx);
         drop(ctx);
+        draw_result?;
         match self.chain.present() {
             Ok(true) => Ok(()),
             // `SwapChain::present` reports device loss as `Ok(false)` and does not
@@ -598,7 +613,7 @@ impl CanvasSwapChain {
     }
 
     /// Draws and presents one frame, retrying once after device loss.
-    pub fn draw(&self, f: impl Fn(&DrawContext<'_>)) -> Result<()> {
+    pub fn draw(&self, f: impl Fn(&DrawContext<'_>) -> Result<()>) -> Result<()> {
         let mut state = self.inner.borrow_mut();
         match state.present_frame(&f) {
             Ok(()) => Ok(()),

@@ -12,7 +12,7 @@ use windows_reactor::*;
 ///
 /// `draw` runs on the first layout and on resize or scale change, idle otherwise.
 /// For content that animates every frame, use [`run_animated`].
-pub fn run(title: &'static str, draw: fn(&DrawContext)) -> Result<()> {
+pub fn run(title: &'static str, draw: fn(&DrawContext) -> Result<()>) -> Result<()> {
     bootstrap()?;
     App::new()
         .title(title)
@@ -24,7 +24,7 @@ pub fn run(title: &'static str, draw: fn(&DrawContext)) -> Result<()> {
 ///
 /// Prefer [`run`] for static drawings; use this only when `draw` changes each
 /// frame.
-pub fn run_animated(title: &'static str, draw: fn(&DrawContext)) -> Result<()> {
+pub fn run_animated(title: &'static str, draw: fn(&DrawContext) -> Result<()>) -> Result<()> {
     bootstrap()?;
     App::new()
         .title(title)

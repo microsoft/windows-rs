@@ -19,8 +19,8 @@ Enable the reactor `canvas` feature. Then call `animated_canvas(draw)`. It retur
 `SwapChainPanel` element. The element creates the device and swap chain. It handles resize, DPI
 changes, and device loss.
 
-The closure receives a `DrawContext`. It derefs to the frame `DrawingSession`. Thus, all drawing
-methods are available on `ctx`.
+The closure receives a `DrawContext` and returns `Result<()>`, so resource creation inside it can
+use `?`. It derefs to the frame `DrawingSession`, so all drawing methods are available on `ctx`.
 
 ```toml
 [dependencies]
@@ -36,8 +36,9 @@ let panel = animated_canvas(|ctx| {
     ctx.clear(ColorF::CORNFLOWER_BLUE);
 
     let center = Vector2::new(ctx.width / 2.0, ctx.height / 2.0);
-    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else { return };
+    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
     ctx.fill_ellipse(&Ellipse::circle(center, 80.0), &brush);
+    Ok(())
 });
 ```
 
@@ -56,8 +57,9 @@ use windows_reactor::*;  // canvas, DrawContext
 let panel = canvas(|ctx| {
     ctx.clear(ColorF::BLACK);
     let rect = Rect::new(0.0, 0.0, ctx.width, ctx.height);
-    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else { return };
+    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
     ctx.draw_text("Resize me", &format, &rect, &brush);
+    Ok(())
 });
 ```
 
@@ -136,8 +138,9 @@ let surface = CanvasImageSource::new(&device, 320.0, 320.0, scale)?;
 
 // Redraw only when the data changes.
 surface.draw(ColorF::CORNFLOWER_BLUE, |session| {
-    let Ok(brush) = session.create_solid_brush(ColorF::WHITE) else { return };
+    let brush = session.create_solid_brush(ColorF::WHITE)?;
     session.fill_ellipse(&Ellipse::circle(Vector2::new(160.0, 160.0), 96.0), &brush);
+    Ok(())
 })?;
 
 // Display it with the reactor `Image` widget.
@@ -176,8 +179,9 @@ sprite.set_brush(&compositor.create_surface_brush(&surface)); // paint a visual
 
 surface.draw(|session| {
     session.clear(ColorF::CORNFLOWER_BLUE);
-    let Ok(brush) = session.create_solid_brush(ColorF::WHITE) else { return };
+    let brush = session.create_solid_brush(ColorF::WHITE)?;
     session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &brush);
+    Ok(())
 })?;
 ```
 

@@ -206,32 +206,31 @@ fn tool_button(model: &HookRef<Model>, inv: &Invalidator, kind: Kind) -> Button 
     })
 }
 
-fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) {
+fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) -> Result<()> {
     ctx.clear(ColorF::new(0.11, 0.12, 0.16, 1.0));
 
     // Faint grid lines for a map-like backdrop.
-    if let Ok(grid_brush) = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.06)) {
-        let step = 40.0;
-        let mut gx = step;
-        while gx < ctx.width {
-            ctx.draw_line(
-                Vector2::new(gx, 0.0),
-                Vector2::new(gx, ctx.height),
-                &grid_brush,
-                1.0,
-            );
-            gx += step;
-        }
-        let mut gy = step;
-        while gy < ctx.height {
-            ctx.draw_line(
-                Vector2::new(0.0, gy),
-                Vector2::new(ctx.width, gy),
-                &grid_brush,
-                1.0,
-            );
-            gy += step;
-        }
+    let grid_brush = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.06))?;
+    let step = 40.0;
+    let mut gx = step;
+    while gx < ctx.width {
+        ctx.draw_line(
+            Vector2::new(gx, 0.0),
+            Vector2::new(gx, ctx.height),
+            &grid_brush,
+            1.0,
+        );
+        gx += step;
+    }
+    let mut gy = step;
+    while gy < ctx.height {
+        ctx.draw_line(
+            Vector2::new(0.0, gy),
+            Vector2::new(ctx.width, gy),
+            &grid_brush,
+            1.0,
+        );
+        gy += step;
     }
 
     let device_changed = ctx.device_changed();
@@ -247,13 +246,11 @@ fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) {
             continue;
         };
 
-        if let Ok(brush) = ctx.create_solid_brush(s.color) {
-            ctx.fill_path(path, &brush);
-        }
+        let brush = ctx.create_solid_brush(s.color)?;
+        ctx.fill_path(path, &brush);
 
-        if Some(i) == selected
-            && let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE)
-        {
+        if Some(i) == selected {
+            let brush = ctx.create_solid_brush(ColorF::WHITE)?;
             let b = path.compute_bounds();
             let pad = 4.0;
             ctx.draw_rect(
@@ -264,17 +261,16 @@ fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) {
         }
     }
 
-    if let Ok(format) = TextFormat::with_weight("Segoe UI", 16.0, FontWeight::BOLD)
-        && let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE)
-    {
-        let label = format!(
-            "{} shape(s)  ·  tool: {}  ·  click to add, left-drag to move, right-click to delete",
-            m.shapes.len(),
-            m.kind.label()
-        );
-        let rect = Rect::new(12.0, ctx.height - 30.0, ctx.width, ctx.height);
-        ctx.draw_text(&label, &format, &rect, &brush);
-    }
+    let format = TextFormat::with_weight("Segoe UI", 16.0, FontWeight::BOLD)?;
+    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
+    let label = format!(
+        "{} shape(s)  ·  tool: {}  ·  click to add, left-drag to move, right-click to delete",
+        m.shapes.len(),
+        m.kind.label()
+    );
+    let rect = Rect::new(12.0, ctx.height - 30.0, ctx.width, ctx.height);
+    ctx.draw_text(&label, &format, &rect, &brush);
+    Ok(())
 }
 
 const SIZE: f32 = 38.0;

@@ -27,9 +27,10 @@ fn main() -> Result<()> {
     // Draw off-screen: a white disc on a dark background.
     target.draw(|session| {
         session.clear(ColorF::DARK_SLATE_BLUE);
-        let brush = session.create_solid_brush(ColorF::WHITE).unwrap();
+        let brush = session.create_solid_brush(ColorF::WHITE)?;
         let center = Vector2::new(WIDTH as f32 / 2.0, HEIGHT as f32 / 2.0);
         session.fill_ellipse(&Ellipse::circle(center, HEIGHT as f32 * 0.4), &brush);
+        Ok(())
     })?;
 
     // Copy the finished pixels back to CPU memory as tightly packed BGRA.

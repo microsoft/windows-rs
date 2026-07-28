@@ -146,10 +146,10 @@ fn background(i: usize) -> ColorF {
 }
 
 /// Draw distinct content per tile, in surface-local coordinates.
-fn draw_tile(session: &DrawingSession, i: usize) {
+fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
     let center = Vector2::new(TILE / 2.0, TILE / 2.0);
     let radius = TILE * 0.28;
-    let brush = session.create_solid_brush(ColorF::WHITE).unwrap();
+    let brush = session.create_solid_brush(ColorF::WHITE)?;
 
     match i % 4 {
         0 => session.fill_ellipse(&Ellipse::circle(center, radius), &brush),
@@ -187,16 +187,14 @@ fn draw_tile(session: &DrawingSession, i: usize) {
         }
     }
 
-    if let Ok(format) =
-        TextFormat::new("Segoe UI", 16.0).map(|f| f.with_alignment(TextAlignment::Center))
-    {
-        session.draw_text(
-            &format!("{i}"),
-            &format,
-            &Rect::new(0.0, TILE - 28.0, TILE, TILE),
-            &brush,
-        );
-    }
+    let format = TextFormat::new("Segoe UI", 16.0)?.with_alignment(TextAlignment::Center);
+    session.draw_text(
+        &format!("{i}"),
+        &format,
+        &Rect::new(0.0, TILE - 28.0, TILE, TILE),
+        &brush,
+    );
+    Ok(())
 }
 
 fn main() -> Result<()> {

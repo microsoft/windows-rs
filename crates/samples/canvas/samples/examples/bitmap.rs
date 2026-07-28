@@ -9,16 +9,14 @@
 use windows_canvas::*;
 use windows_reactor::DrawContext;
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::new(0.1, 0.1, 0.1, 1.0));
 
     let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("examples")
         .join("sample.png");
 
-    let Ok(bitmap) = ctx.load_bitmap(&path) else {
-        return;
-    };
+    let bitmap = ctx.load_bitmap(&path)?;
 
     // Draw at original size in top-left.
     let w = bitmap.width();
@@ -31,6 +29,7 @@ fn draw(ctx: &DrawContext) {
         &Rect::new(120.0, 20.0, ctx.width - 20.0, ctx.height - 20.0),
         0.8,
     );
+    Ok(())
 }
 
 fn main() -> Result<()> {

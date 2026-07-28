@@ -102,7 +102,7 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 /// Draws a bar chart in surface-local device-independent pixels.
-fn draw_chart(ctx: &DrawContext, seed: u32) {
+fn draw_chart(ctx: &DrawContext, seed: u32) -> Result<()> {
     ctx.clear(ColorF::new(0.10, 0.12, 0.16, 1.0));
 
     let pad = 24.0;
@@ -118,16 +118,15 @@ fn draw_chart(ctx: &DrawContext, seed: u32) {
         let left = pad + i as f32 * (bar_w + gap);
         let rect = Rect::new(left, baseline - bar_h, left + bar_w, baseline);
         let hue = i as f32 / BARS as f32;
-        let brush = ctx
-            .create_solid_brush(ColorF::new(
-                0.30 + 0.60 * (hue * TAU).cos().abs(),
-                0.35 + 0.55 * value,
-                0.75,
-                1.0,
-            ))
-            .unwrap();
+        let brush = ctx.create_solid_brush(ColorF::new(
+            0.30 + 0.60 * (hue * TAU).cos().abs(),
+            0.35 + 0.55 * value,
+            0.75,
+            1.0,
+        ))?;
         ctx.fill_rect(&rect, &brush);
     }
+    Ok(())
 }
 
 /// Cheap deterministic hash mapping `(seed, index)` to a bar height in `0.15..1.0`.

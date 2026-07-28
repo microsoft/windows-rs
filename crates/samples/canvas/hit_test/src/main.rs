@@ -56,14 +56,13 @@ fn app(cx: &mut RenderCx) -> Element {
 
             let cache = star_cache.borrow();
             let Some((_, _, star)) = &*cache else {
-                return;
+                return Ok(());
             };
 
             // Bounding box: where a naive rectangle hit-test would report a hit.
-            if let Ok(brush) = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.3)) {
-                let b = star.compute_bounds();
-                ctx.draw_rect(&Rect::new(b.left, b.top, b.right, b.bottom), &brush, 1.0);
-            }
+            let brush = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.3))?;
+            let b = star.compute_bounds();
+            ctx.draw_rect(&Rect::new(b.left, b.top, b.right, b.bottom), &brush, 1.0);
 
             let inside = (*pointer.borrow())
                 .is_some_and(|(x, y)| star.fill_contains_point(Vector2::new(x, y)));
@@ -73,22 +72,20 @@ fn app(cx: &mut RenderCx) -> Element {
             } else {
                 ColorF::new(1.0, 0.8, 0.0, 1.0)
             };
-            if let Ok(brush) = ctx.create_solid_brush(fill) {
-                ctx.fill_path(star, &brush);
-            }
+            let brush = ctx.create_solid_brush(fill)?;
+            ctx.fill_path(star, &brush);
 
-            if let Ok(format) = TextFormat::with_weight("Segoe UI", 18.0, FontWeight::BOLD)
-                .map(|f| f.with_alignment(TextAlignment::Center))
-                && let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE)
-            {
-                let label = if inside {
-                    "Inside the star"
-                } else {
-                    "Move the pointer over the star"
-                };
-                let rect = Rect::new(0.0, ctx.height - 36.0, ctx.width, ctx.height);
-                ctx.draw_text(label, &format, &rect, &brush);
-            }
+            let format = TextFormat::with_weight("Segoe UI", 18.0, FontWeight::BOLD)?
+                .with_alignment(TextAlignment::Center);
+            let brush = ctx.create_solid_brush(ColorF::WHITE)?;
+            let label = if inside {
+                "Inside the star"
+            } else {
+                "Move the pointer over the star"
+            };
+            let rect = Rect::new(0.0, ctx.height - 36.0, ctx.width, ctx.height);
+            ctx.draw_text(label, &format, &rect, &brush);
+            Ok(())
         }
     })
     .on_pointer_moved(on_move)

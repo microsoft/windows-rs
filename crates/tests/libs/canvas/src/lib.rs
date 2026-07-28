@@ -1046,7 +1046,12 @@ mod tests {
         assert_eq!(target.width(), 4);
         assert_eq!(target.height(), 4);
 
-        target.draw(|session| session.clear(ColorF::RED)).unwrap();
+        target
+            .draw(|session| {
+                session.clear(ColorF::RED);
+                Ok(())
+            })
+            .unwrap();
 
         let pixels = target.read_pixels().unwrap();
         // 4x4 BGRA, tightly packed.
@@ -1066,9 +1071,10 @@ mod tests {
         target
             .draw(|session| {
                 session.clear(ColorF::BLACK);
-                let brush = session.create_solid_brush(ColorF::GREEN).unwrap();
+                let brush = session.create_solid_brush(ColorF::GREEN)?;
                 // Fill the left half with green, leaving the right half black.
                 session.fill_rect(&Rect::new(0.0, 0.0, 4.0, 8.0), &brush);
+                Ok(())
             })
             .unwrap();
 
@@ -1194,8 +1200,9 @@ mod tests {
         target
             .draw(|session| {
                 session.clear(ColorF::BLACK);
-                let brush = session.create_solid_brush(ColorF::WHITE).unwrap();
+                let brush = session.create_solid_brush(ColorF::WHITE)?;
                 session.draw_text_layout(Vector2::new(0.0, 0.0), &layout, &brush);
+                Ok(())
             })
             .unwrap();
 

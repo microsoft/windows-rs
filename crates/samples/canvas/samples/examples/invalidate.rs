@@ -26,12 +26,10 @@ fn app(cx: &mut RenderCx) -> Element {
     .into()
 }
 
-fn draw(ctx: &DrawContext, points: &[Vector2]) {
+fn draw(ctx: &DrawContext, points: &[Vector2]) -> Result<()> {
     ctx.clear(ColorF::from_rgb8(0x10, 0x12, 0x18));
 
-    let Ok(brush) = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE) else {
-        return;
-    };
+    let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 
     for pair in points.windows(2) {
         ctx.draw_line(pair[0], pair[1], &brush, 2.0);
@@ -39,6 +37,7 @@ fn draw(ctx: &DrawContext, points: &[Vector2]) {
     for &p in points {
         ctx.fill_ellipse(&Ellipse::circle(p, 4.0), &brush);
     }
+    Ok(())
 }
 
 fn main() -> Result<()> {
