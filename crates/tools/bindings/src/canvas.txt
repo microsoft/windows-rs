@@ -54,7 +54,7 @@
     ID2D1Geometry::{GetBounds, FillContainsPoint, StrokeContainsPoint}
     ID2D1GeometrySink::{AddLine, AddBezier}
     ID2D1PathGeometry::Open
-    ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, GetTransform, SetTransform, SetDpi, GetDpi, GetPixelSize}
+    ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawTextLayout, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, GetTransform, SetTransform, SetDpi, GetDpi, GetPixelSize}
     ID2D1SolidColorBrush::SetColor
     D3D_DRIVER_TYPE_HARDWARE
     D3D_DRIVER_TYPE_WARP
@@ -71,9 +71,14 @@
     DWRITE_TEXT_ALIGNMENT_CENTER
     DWRITE_TEXT_ALIGNMENT_LEADING
     DWRITE_TEXT_ALIGNMENT_TRAILING
+    DWRITE_WORD_WRAPPING_WRAP
+    DWRITE_WORD_WRAPPING_NO_WRAP
+    DWRITE_TEXT_METRICS
+    DWRITE_HIT_TEST_METRICS
     DWriteCreateFactory
-    IDWriteFactory::CreateTextFormat
-    IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment}
+    IDWriteFactory::{CreateTextFormat, CreateTextLayout}
+    IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment, SetWordWrapping}
+    IDWriteTextLayout::{GetMetrics, HitTestPoint, HitTestTextPosition, GetMaxWidth, GetMaxHeight, SetMaxWidth, SetMaxHeight}
     DXGI_ALPHA_MODE_PREMULTIPLIED
     DXGI_FORMAT_B8G8R8A8_UNORM
     DXGI_FORMAT_UNKNOWN

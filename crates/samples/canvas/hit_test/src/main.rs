@@ -1,13 +1,9 @@
 //! Geometry hit-testing with `windows-canvas`.
 //!
-//! A star is filled gold and turns green only when the pointer is inside its
-//! *actual filled geometry* — not merely its bounding box (drawn as a faint
-//! outline for contrast). Pointer position comes from the reactor element
-//! callbacks; the inside/outside test uses `Path::fill_contains_point`.
-//!
-//! Pointer coordinates and the canvas drawing surface are both in
-//! device-independent pixels, so the pointer position can be fed straight into
-//! the geometry query with no conversion.
+//! A star fills gold and turns green only when the pointer is inside its filled
+//! geometry - not merely its bounding box (drawn as a faint outline). The test
+//! uses `Path::fill_contains_point`. Pointer coordinates and the surface are both
+//! in DIPs, so the position feeds straight into the query.
 
 #![windows_subsystem = "windows"]
 
@@ -15,23 +11,30 @@ use windows_canvas::*;
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
-    // Latest pointer position in DIPs, shared with the draw closure. Updating a
-    // `use_ref` does not trigger a re-render; the per-frame draw loop reads it.
+    // Latest pointer position in DIPs. Updating a `use_ref` does not re-render;
+    // the pointer handlers invalidate to repaint, and the draw closure reads it.
     let pointer = cx.use_ref(None::<(f32, f32)>);
+    let inv = cx.use_invalidator();
 
     // Cache the star geometry; rebuilding a `Path` every frame is wasteful.
     let star_cache = cx.use_ref(None::<(f32, f32, Path)>);
 
     let on_move = cx.use_callback((), {
-        let pointer = pointer.clone();
-        move |info: PointerEventInfo| pointer.set(Some((info.x as f32, info.y as f32)))
+        let (pointer, inv) = (pointer.clone(), inv.clone());
+        move |info: PointerEventInfo| {
+            pointer.set(Some((info.x as f32, info.y as f32)));
+            inv.invalidate();
+        }
     });
     let on_exit = cx.use_callback((), {
-        let pointer = pointer.clone();
-        move |()| pointer.set(None)
+        let (pointer, inv) = (pointer.clone(), inv.clone());
+        move |()| {
+            pointer.set(None);
+            inv.invalidate();
+        }
     });
 
-    animated_canvas({
+    canvas_invalidated(&inv, {
         move |ctx| {
             ctx.clear(ColorF::DARK_SLATE_BLUE);
 

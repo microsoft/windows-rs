@@ -232,6 +232,21 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a pre-shaped [`TextLayout`] with its top-left at `origin`.
+    ///
+    /// Prefer this over [`draw_text`](Self::draw_text) when the same text is
+    /// drawn across frames: the layout is shaped once and reused.
+    pub fn draw_text_layout(&self, origin: Vector2, layout: &TextLayout, brush: &impl Paint) {
+        unsafe {
+            self.context.DrawTextLayout(
+                origin,
+                layout.raw(),
+                brush.as_raw_brush(),
+                D2D1_DRAW_TEXT_OPTIONS_NONE,
+            );
+        }
+    }
+
     pub fn draw_path(&self, path: &Path, brush: &impl Paint, width: f32) {
         unsafe {
             self.context

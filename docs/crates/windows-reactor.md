@@ -218,10 +218,22 @@ automatically. See the `canvas` samples. To render on a device the app already c
 across many surfaces, use `animated_canvas_with_device(device, draw)` with a cloneable
 `windows_canvas::GpuDevice` (a clone shares the same underlying devices).
 
-For content that is static between updates, `CanvasImageSource` draws on demand into a
-`SurfaceImageSource` shown with the `Image` widget, and redraws only when you call `draw`.
-`Image::on_mounted` yields an `ImageHandle` whose `on_rasterization_scale_changed` reports the host
-DPI scale, so the surface stays crisp across monitor moves. See the canvas `image_source` sample.
+For content that changes with its size rather than every frame, `canvas(draw)` is the demand-driven
+counterpart. It manages the device, swap chain, resize, DPI, and device loss just like
+`animated_canvas`, but calls `draw` only on the first layout and on resize or scale change, staying
+idle otherwise. Use it for text, charts, or diagrams. See the canvas `text_layout` sample.
+
+When the content changes with app state rather than size, `canvas_invalidated(&inv, draw)` adds
+explicit repaint control. Get a stable `Invalidator` from `cx.use_invalidator()`, keep the drawing
+state in a `use_ref`, mutate it in an event handler, then call `inv.invalidate()` to schedule one
+repaint. Mutating a `use_ref` does not reconcile the tree, so nothing runs between changes - the
+cheapest way to drive interactive or data-driven drawing. See the canvas `invalidate`, `editor`, and
+`hit_test` samples.
+
+For a surface hosted in an `Image` widget rather than a `SwapChainPanel`, `CanvasImageSource` draws
+on demand into a `SurfaceImageSource` and redraws only when you call `draw`. `Image::on_mounted`
+yields an `ImageHandle` whose `on_rasterization_scale_changed` reports the host DPI scale, so the
+surface stays crisp across monitor moves. See the canvas `image_source` sample.
 
 For an on-demand surface that still presents through a swap chain (lower latency than a
 `SurfaceImageSource`, but only when the data changes), `CanvasSwapChain` hosts a composition swap
@@ -229,8 +241,9 @@ chain on a `SwapChainPanel`. Create it in the panel's `on_mounted`, store it in 
 `draw` from a `use_effect` on data change. It stays idle when nothing changes. See the canvas
 `chart` sample.
 
-`animated_canvas`, `CanvasImageSource`, and `CanvasSwapChain` are reactor exports. They own the
-WinUI element harness and build on the safe drawing surface that `windows-canvas` provides. For raw
+`animated_canvas`, `canvas`, `CanvasImageSource`, and `CanvasSwapChain` are reactor exports. They
+own the WinUI element harness and build on the safe drawing surface that `windows-canvas` provides.
+For raw
 Direct3D, the `swap_chain_panel` sample drives a `SwapChainPanel` with `on_rendering`.
 
 ## Web content integration

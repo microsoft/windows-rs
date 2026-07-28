@@ -49,5 +49,5 @@ fn draw(ctx: &DrawContext) {
 }
 
 fn main() -> Result<()> {
-    canvas_samples::run("Transform", draw)
+    canvas_samples::run_animated("Transform", draw)
 }
