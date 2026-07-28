@@ -1,0 +1,10 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x7449121c_382b_4705_8da7_a795ba482013)]
+        interface IDisplayInformationStaticsInterop: IInspectable {
+            fn GetForWindow(&self, window: HWND, riid: *const GUID, #[iid_is] #[retval] displayInfo: *mut *mut void) -> HRESULT;
+            fn GetForMonitor(&self, monitor: HMONITOR, riid: *const GUID, #[iid_is] #[retval] displayInfo: *mut *mut void) -> HRESULT;
+        }
+    }
+}

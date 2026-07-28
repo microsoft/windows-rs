@@ -458,6 +458,7 @@ const HEADERS: &[&str] = &[
     "windows.security.isolation.isolatedenvironmentinterop.h",
     "windows.ui.viewmanagement.core.coreframeworkinputviewinterop.h",
     "windows.graphics.directx.direct3d11.interop.h",
+    "windows.graphics.display.interop.h",
     "windows.graphics.imaging.interop.h",
     "windows.media.core.interop.h",
     "windows.data.pdf.interop.h",
