@@ -10,15 +10,13 @@ thread_local! {
     static FRAME: Cell<u64> = const { Cell::new(0) };
 }
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     FRAME.with(|f| f.set(f.get() + 1));
     let t = FRAME.with(|f| f.get()) as f32 * 0.01;
 
     ctx.clear(ColorF::BLACK);
 
-    let Ok(brush) = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE) else {
-        return;
-    };
+    let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 
     let cx = ctx.width / 2.0;
     let cy = ctx.height / 2.0;
@@ -46,8 +44,9 @@ fn draw(ctx: &DrawContext) {
             );
         });
     }
+    Ok(())
 }
 
 fn main() -> Result<()> {
-    canvas_samples::run("Transform", draw)
+    canvas_samples::run_animated("Transform", draw)
 }

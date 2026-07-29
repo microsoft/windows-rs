@@ -55,7 +55,7 @@ fn animated_canvas_installs_unmount_teardown() {
     // tree. Its `RenderState` holds the `CompositionTarget::Rendering`
     // subscription in a reference cycle, so without unmount teardown it leaks
     // forever and keeps presenting orphaned surfaces.
-    let panel = animated_canvas(|_| {});
+    let panel = animated_canvas(|_| Ok(()));
     assert!(
         panel.on_unmounted_callback().is_some(),
         "animated_canvas must install an on_unmounted teardown"

@@ -5,12 +5,10 @@
 use windows_canvas::*;
 use windows_reactor::DrawContext;
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::DARK_SLATE_BLUE);
 
-    let Ok(brush) = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE) else {
-        return;
-    };
+    let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 
     let cx = ctx.width / 2.0;
     let cy = ctx.height / 2.0;
@@ -29,6 +27,7 @@ fn draw(ctx: &DrawContext) {
         &brush,
         3.0,
     );
+    Ok(())
 }
 
 fn main() -> Result<()> {

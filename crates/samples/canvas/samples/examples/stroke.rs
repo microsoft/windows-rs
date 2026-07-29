@@ -5,12 +5,10 @@
 use windows_canvas::*;
 use windows_reactor::DrawContext;
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::BLACK);
 
-    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else {
-        return;
-    };
+    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
 
     let device = ctx.device();
     let margin = 30.0;
@@ -44,9 +42,7 @@ fn draw(ctx: &DrawContext) {
     .filter_map(|(name, builder)| device.create_stroke_style(&builder).ok().map(|s| (name, s)))
     .collect();
 
-    let Ok(label_fmt) = TextFormat::new("Segoe UI", 14.0) else {
-        return;
-    };
+    let label_fmt = TextFormat::new("Segoe UI", 14.0)?;
 
     for (i, (name, style)) in styles.iter().enumerate() {
         let y = margin + i as f32 * spacing + spacing / 2.0;
@@ -68,6 +64,7 @@ fn draw(ctx: &DrawContext) {
             style,
         );
     }
+    Ok(())
 }
 
 fn main() -> Result<()> {

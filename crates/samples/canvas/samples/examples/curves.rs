@@ -5,20 +5,17 @@
 use windows_canvas::*;
 use windows_reactor::DrawContext;
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::DARK_SLATE_BLUE);
 
-    if let Ok(path) = filled_blob(ctx)
-        && let Ok(brush) = ctx.create_solid_brush(ColorF::new(1.0, 0.8, 0.0, 1.0))
-    {
-        ctx.fill_path(&path, &brush);
-    }
+    let path = filled_blob(ctx)?;
+    let brush = ctx.create_solid_brush(ColorF::new(1.0, 0.8, 0.0, 1.0))?;
+    ctx.fill_path(&path, &brush);
 
-    if let Ok(path) = open_wave(ctx)
-        && let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE)
-    {
-        ctx.draw_path(&path, &brush, 3.0);
-    }
+    let path = open_wave(ctx)?;
+    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
+    ctx.draw_path(&path, &brush, 3.0);
+    Ok(())
 }
 
 fn filled_blob(ctx: &DrawContext) -> Result<Path> {

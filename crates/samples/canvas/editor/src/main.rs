@@ -1,21 +1,17 @@
-//! Interactive shape editor — composes the reactor pointer events (phases 1 & 2)
-//! with the `windows-canvas` geometry queries (phase 4) into a small map-style
-//! editor.
+//! Interactive shape editor composing reactor pointer events with
+//! `windows-canvas` geometry queries.
 //!
 //! - Click an empty spot to drop a shape of the current tool kind.
-//! - Click a shape to select it, then drag (pointer-moved while pressed) to move it.
+//! - Click a shape to select it, then drag to move it.
 //! - Right-click a shape to delete it.
-//! - The toolbar picks the active shape kind or clears the canvas.
+//! - The toolbar picks the shape kind or clears the canvas.
 //!
-//! Selection hit-tests against each shape's *actual filled polygon* via
-//! `Path::fill_contains_point`, not its bounding box; the selection outline comes
-//! from `Path::compute_bounds`. Pointer coordinates and the drawing surface are
-//! both in device-independent pixels, so positions feed straight into the
-//! geometry queries with no conversion.
+//! Selection hit-tests against each shape's filled polygon via
+//! `Path::fill_contains_point`, not its bounding box. Pointer coordinates and the
+//! surface are both in DIPs, so positions feed straight into the geometry queries.
 //!
-//! The whole editor model lives in a single `use_ref`, so high-frequency pointer
-//! handlers mutate it in place without triggering reconcile churn during a drag;
-//! the per-frame draw loop simply reflects the current model.
+//! The model lives in one `use_ref`, so pointer handlers mutate it in place with
+//! no reconcile; each then calls `Invalidator::invalidate` to repaint on demand.
 
 #![windows_subsystem = "windows"]
 
@@ -44,9 +40,8 @@ struct Shape {
     x: f32,
     y: f32,
     color: ColorF,
-    // Geometry cached in absolute coordinates, used for both drawing and
-    // `fill_contains_point`. Rebuilt only when the shape moves or the device is
-    // lost — see the draw loop.
+    // Geometry cached in absolute coordinates, used for drawing and
+    // `fill_contains_point`. Rebuilt when the shape moves or the device is lost.
     path: Option<Path>,
     built_at: Option<(f32, f32)>,
 }
@@ -100,9 +95,10 @@ impl Model {
 
 fn app(cx: &mut RenderCx) -> Element {
     let model = cx.use_ref(Model::new());
+    let inv = cx.use_invalidator();
 
     let on_pressed = cx.use_callback((), {
-        let model = model.clone();
+        let (model, inv) = (model.clone(), inv.clone());
         move |info: PointerEventInfo| {
             let (x, y) = (info.x as f32, info.y as f32);
             let mut m = model.borrow_mut();
@@ -114,6 +110,7 @@ fn app(cx: &mut RenderCx) -> Element {
                     m.selected = None;
                     m.drag_offset = None;
                 }
+                inv.invalidate();
                 return;
             }
 
@@ -129,11 +126,12 @@ fn app(cx: &mut RenderCx) -> Element {
                 m.selected = Some(m.shapes.len() - 1);
                 m.drag_offset = Some((0.0, 0.0));
             }
+            inv.invalidate();
         }
     });
 
     let on_moved = cx.use_callback((), {
-        let model = model.clone();
+        let (model, inv) = (model.clone(), inv.clone());
         move |info: PointerEventInfo| {
             if !info.is_left_button_pressed {
                 return;
@@ -144,6 +142,8 @@ fn app(cx: &mut RenderCx) -> Element {
             {
                 s.x = info.x as f32 - ox;
                 s.y = info.y as f32 - oy;
+                drop(m);
+                inv.invalidate();
             }
         }
     });
@@ -157,7 +157,7 @@ fn app(cx: &mut RenderCx) -> Element {
 
     grid((
         Element::from(
-            animated_canvas({
+            canvas_invalidated(&inv, {
                 let model = model.clone();
                 move |ctx| draw(ctx, &model)
             })
@@ -174,16 +174,18 @@ fn app(cx: &mut RenderCx) -> Element {
         .grid_row(0),
         Element::from(
             hstack((
-                tool_button(&model, Kind::Rectangle),
-                tool_button(&model, Kind::Triangle),
-                tool_button(&model, Kind::Star),
+                tool_button(&model, &inv, Kind::Rectangle),
+                tool_button(&model, &inv, Kind::Triangle),
+                tool_button(&model, &inv, Kind::Star),
                 button("Clear").on_click({
-                    let model = model.clone();
+                    let (model, inv) = (model.clone(), inv.clone());
                     move || {
                         let mut m = model.borrow_mut();
                         m.shapes.clear();
                         m.selected = None;
                         m.drag_offset = None;
+                        drop(m);
+                        inv.invalidate();
                     }
                 }),
             ))
@@ -196,37 +198,39 @@ fn app(cx: &mut RenderCx) -> Element {
     .into()
 }
 
-fn tool_button(model: &HookRef<Model>, kind: Kind) -> Button {
-    let model = model.clone();
-    button(kind.label()).on_click(move || model.borrow_mut().kind = kind)
+fn tool_button(model: &HookRef<Model>, inv: &Invalidator, kind: Kind) -> Button {
+    let (model, inv) = (model.clone(), inv.clone());
+    button(kind.label()).on_click(move || {
+        model.borrow_mut().kind = kind;
+        inv.invalidate();
+    })
 }
 
-fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) {
+fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) -> Result<()> {
     ctx.clear(ColorF::new(0.11, 0.12, 0.16, 1.0));
 
     // Faint grid lines for a map-like backdrop.
-    if let Ok(grid_brush) = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.06)) {
-        let step = 40.0;
-        let mut gx = step;
-        while gx < ctx.width {
-            ctx.draw_line(
-                Vector2::new(gx, 0.0),
-                Vector2::new(gx, ctx.height),
-                &grid_brush,
-                1.0,
-            );
-            gx += step;
-        }
-        let mut gy = step;
-        while gy < ctx.height {
-            ctx.draw_line(
-                Vector2::new(0.0, gy),
-                Vector2::new(ctx.width, gy),
-                &grid_brush,
-                1.0,
-            );
-            gy += step;
-        }
+    let grid_brush = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.06))?;
+    let step = 40.0;
+    let mut gx = step;
+    while gx < ctx.width {
+        ctx.draw_line(
+            Vector2::new(gx, 0.0),
+            Vector2::new(gx, ctx.height),
+            &grid_brush,
+            1.0,
+        );
+        gx += step;
+    }
+    let mut gy = step;
+    while gy < ctx.height {
+        ctx.draw_line(
+            Vector2::new(0.0, gy),
+            Vector2::new(ctx.width, gy),
+            &grid_brush,
+            1.0,
+        );
+        gy += step;
     }
 
     let device_changed = ctx.device_changed();
@@ -242,13 +246,11 @@ fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) {
             continue;
         };
 
-        if let Ok(brush) = ctx.create_solid_brush(s.color) {
-            ctx.fill_path(path, &brush);
-        }
+        let brush = ctx.create_solid_brush(s.color)?;
+        ctx.fill_path(path, &brush);
 
-        if Some(i) == selected
-            && let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE)
-        {
+        if Some(i) == selected {
+            let brush = ctx.create_solid_brush(ColorF::WHITE)?;
             let b = path.compute_bounds();
             let pad = 4.0;
             ctx.draw_rect(
@@ -259,17 +261,16 @@ fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) {
         }
     }
 
-    if let Ok(format) = TextFormat::with_weight("Segoe UI", 16.0, FontWeight::BOLD)
-        && let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE)
-    {
-        let label = format!(
-            "{} shape(s)  ·  tool: {}  ·  click to add, left-drag to move, right-click to delete",
-            m.shapes.len(),
-            m.kind.label()
-        );
-        let rect = Rect::new(12.0, ctx.height - 30.0, ctx.width, ctx.height);
-        ctx.draw_text(&label, &format, &rect, &brush);
-    }
+    let format = TextFormat::with_weight("Segoe UI", 16.0, FontWeight::BOLD)?;
+    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
+    let label = format!(
+        "{} shape(s)  ·  tool: {}  ·  click to add, left-drag to move, right-click to delete",
+        m.shapes.len(),
+        m.kind.label()
+    );
+    let rect = Rect::new(12.0, ctx.height - 30.0, ctx.width, ctx.height);
+    ctx.draw_text(&label, &format, &rect, &brush);
+    Ok(())
 }
 
 const SIZE: f32 = 38.0;

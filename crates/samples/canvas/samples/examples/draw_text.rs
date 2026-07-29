@@ -5,22 +5,18 @@
 use windows_canvas::*;
 use windows_reactor::DrawContext;
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::BLACK);
 
-    let Ok(format) = TextFormat::new("Segoe UI", 32.0)
-        .map(|f| f.with_alignment(TextAlignment::Center))
-        .map(|f| f.with_paragraph_alignment(ParagraphAlignment::Center))
-    else {
-        return;
-    };
+    let format = TextFormat::new("Segoe UI", 32.0)?
+        .with_alignment(TextAlignment::Center)
+        .with_paragraph_alignment(ParagraphAlignment::Center);
 
-    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else {
-        return;
-    };
+    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
 
     let rect = Rect::new(0.0, 0.0, ctx.width, ctx.height);
     ctx.draw_text("Hello, Canvas!", &format, &rect, &brush);
+    Ok(())
 }
 
 fn main() -> Result<()> {

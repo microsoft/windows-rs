@@ -57,6 +57,16 @@ impl Rect {
         self.bottom - self.top
     }
 
+    /// Returns a copy of the rectangle translated by `dx` and `dy`.
+    pub const fn offset(&self, dx: f32, dy: f32) -> Self {
+        Self {
+            left: self.left + dx,
+            top: self.top + dy,
+            right: self.right + dx,
+            bottom: self.bottom + dy,
+        }
+    }
+
     pub(crate) fn to_abi(self) -> D2D_RECT_F {
         D2D_RECT_F {
             left: self.left,

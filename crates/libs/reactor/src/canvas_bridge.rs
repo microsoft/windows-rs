@@ -86,12 +86,19 @@ impl RenderState {
 ///
 /// ```ignore
 /// animated_canvas(|ctx| {
+///     let brush = ctx.create_solid_brush(ColorF::WHITE)?;
 ///     ctx.clear(ColorF::CORNFLOWER_BLUE);
 ///     ctx.fill_ellipse(&ellipse, &brush);
+///     Ok(())
 /// })
 /// ```
-pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPanel {
-    animated_canvas_impl(Rc::new(GpuDevice::new_or_warp), draw)
+pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> SwapChainPanel {
+    animated_canvas_impl(
+        Rc::new(GpuDevice::new_or_warp),
+        draw,
+        RenderMode::Continuous,
+        Rc::new(Cell::new(true)),
+    )
 }
 
 /// Create an animated canvas that renders on a caller-provided [`GpuDevice`].
@@ -108,19 +115,119 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
 /// [`animated_canvas`] (which owns its device) instead.
 pub fn animated_canvas_with_device(
     device: GpuDevice,
-    draw: impl Fn(&DrawContext<'_>) + 'static,
+    draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
 ) -> SwapChainPanel {
-    animated_canvas_impl(Rc::new(move || Ok(device.clone())), draw)
+    animated_canvas_impl(
+        Rc::new(move || Ok(device.clone())),
+        draw,
+        RenderMode::Continuous,
+        Rc::new(Cell::new(true)),
+    )
+}
+
+/// Demand-driven canvas that calls `draw` only when it needs to repaint.
+///
+/// Like [`animated_canvas`], but `draw` runs only on the first layout and on
+/// resize or scale change - not every frame - so an idle window does no GPU
+/// work. Use it for size-driven content such as text or a chart.
+///
+/// ```ignore
+/// canvas(|ctx| {
+///     ctx.clear(ColorF::BLACK);
+///     let rect = Rect::new(0.0, 0.0, ctx.width, ctx.height);
+///     ctx.draw_text("Hello", &format, &rect, &brush);
+///     Ok(())
+/// })
+/// ```
+pub fn canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> SwapChainPanel {
+    animated_canvas_impl(
+        Rc::new(GpuDevice::new_or_warp),
+        draw,
+        RenderMode::Demand,
+        Rc::new(Cell::new(true)),
+    )
+}
+
+/// Requests repaints of a demand-driven [`canvas_invalidated`].
+///
+/// Get one from [`RenderCx::use_invalidator`], keep drawing state in a
+/// [`use_ref`](RenderCx::use_ref), and call [`invalidate`](Self::invalidate)
+/// after mutating that state.
+#[derive(Clone)]
+pub struct Invalidator(Rc<Cell<bool>>);
+
+impl Invalidator {
+    /// Creates an invalidator whose first frame paints on mount.
+    pub fn new() -> Self {
+        Self(Rc::new(Cell::new(true)))
+    }
+
+    /// Schedules a repaint on the next frame.
+    pub fn invalidate(&self) {
+        self.0.set(true);
+    }
+}
+
+impl Default for Invalidator {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl RenderCx {
+    /// Returns a stable [`Invalidator`] for [`canvas_invalidated`], the same one
+    /// every render so it can be cloned into event handlers.
+    pub fn use_invalidator(&mut self) -> Invalidator {
+        self.use_ref(Invalidator::new()).borrow().clone()
+    }
+}
+
+/// Demand-driven [`canvas`] that also repaints whenever `inv` is invalidated.
+///
+/// Keep drawing state in a [`use_ref`](RenderCx::use_ref), mutate it in an event
+/// handler, then call [`Invalidator::invalidate`]. Mutating a `use_ref` does not
+/// reconcile the tree, so nothing runs between changes.
+///
+/// ```ignore
+/// let inv = cx.use_invalidator();
+/// let model = cx.use_ref(Model::new());
+/// canvas_invalidated(&inv, {
+///     let model = model.clone();
+///     move |ctx| draw(ctx, &model)
+/// })
+/// .on_pointer_pressed(move |info| {
+///     model.borrow_mut().add(info.x as f32, info.y as f32);
+///     inv.invalidate();
+/// })
+/// ```
+pub fn canvas_invalidated(
+    inv: &Invalidator,
+    draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
+) -> SwapChainPanel {
+    animated_canvas_impl(
+        Rc::new(GpuDevice::new_or_warp),
+        draw,
+        RenderMode::Demand,
+        inv.0.clone(),
+    )
+}
+
+/// Whether a canvas repaints every frame or only when something changes.
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum RenderMode {
+    Continuous,
+    Demand,
 }
 
 fn animated_canvas_impl(
     make_device: Rc<dyn Fn() -> Result<GpuDevice>>,
-    draw: impl Fn(&DrawContext<'_>) + 'static,
+    draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
+    mode: RenderMode,
+    changed: Rc<Cell<bool>>,
 ) -> SwapChainPanel {
     let state: Rc<RefCell<Option<RenderState>>> = Rc::new(RefCell::new(None));
     let size: Rc<Cell<(f32, f32)>> = Rc::new(Cell::new((0.0, 0.0)));
     let scale: Rc<Cell<f32>> = Rc::new(Cell::new(1.0));
-    let changed: Rc<Cell<bool>> = Rc::new(Cell::new(true));
     let draw = Rc::new(draw);
 
     let ready_state = state.clone();
@@ -186,29 +293,40 @@ fn animated_canvas_impl(
                     if w <= 0.0 || h <= 0.0 {
                         return;
                     }
-                    let Ok(session) = rs.chain.begin_draw() else {
+                    // In demand mode, skip the frame unless something changed
+                    // since the last paint. The vsync callback still fires, but
+                    // no GPU work happens while the canvas is idle.
+                    if mode == RenderMode::Demand && !render_changed.get() {
                         return;
-                    };
-                    let ctx = DrawContext {
-                        session,
-                        device: &rs.device,
-                        width: w,
-                        height: h,
-                        changed: render_changed.replace(false),
-                    };
-                    render_draw(&ctx);
-                    drop(ctx);
+                    }
+                    // Consume `changed` only once a frame actually starts. A
+                    // device lost at `begin_draw`, mid-draw, or at `present` all
+                    // surface as an `Err`/`Ok(false)` that rebuilds the surface.
+                    let outcome = rs
+                        .chain
+                        .begin_draw()
+                        .and_then(|session| {
+                            let ctx = DrawContext {
+                                session,
+                                device: &rs.device,
+                                width: w,
+                                height: h,
+                                changed: render_changed.replace(false),
+                            };
+                            let result = render_draw(&ctx);
+                            drop(ctx);
+                            result
+                        })
+                        .and_then(|()| rs.chain.present());
 
-                    match rs.chain.present() {
-                        Ok(true) => {}
-                        Ok(false) => {
-                            let pw = surface_pixels(w, rs.scale);
-                            let ph = surface_pixels(h, rs.scale);
-                            if rs.rebuild(pw, ph) {
-                                render_changed.set(true);
-                            }
+                    if matches!(outcome, Ok(false))
+                        || matches!(&outcome, Err(e) if is_device_lost(e.code()))
+                    {
+                        let pw = surface_pixels(w, rs.scale);
+                        let ph = surface_pixels(h, rs.scale);
+                        if rs.rebuild(pw, ph) {
+                            render_changed.set(true);
                         }
-                        Err(_) => {}
                     }
                 }
             }) else {
@@ -246,8 +364,9 @@ fn animated_canvas_impl(
 /// ```ignore
 /// let surface = CanvasImageSource::new(&device, 256.0, 256.0, scale)?;
 /// surface.draw(ColorF::CORNFLOWER_BLUE, |session| {
-///     let brush = session.create_solid_brush(ColorF::WHITE).unwrap();
+///     let brush = session.create_solid_brush(ColorF::WHITE)?;
 ///     session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &brush);
+///     Ok(())
 /// })?;
 /// let image = Image::new(surface.image_source());
 /// ```
@@ -278,7 +397,11 @@ impl CanvasImageSource {
     }
 
     /// Redraw and present. Returns `Ok(false)` after device loss.
-    pub fn draw(&self, clear: ColorF, f: impl FnOnce(&DrawingSession<'_>)) -> Result<bool> {
+    pub fn draw(
+        &self,
+        clear: ColorF,
+        f: impl FnOnce(&DrawingSession<'_>) -> Result<()>,
+    ) -> Result<bool> {
         let (context, (offset_x, offset_y)) = match self.source.begin_draw::<ID2D1DeviceContext>(
             0,
             0,
@@ -296,16 +419,20 @@ impl CanvasImageSource {
 
         // Pair every successful `begin_draw` with `end_draw`, even if `f` panics.
         let guard = EndDrawGuard(&self.source);
-        {
+        let draw_result = {
             let session =
                 DrawingSession::from_borrowed_context_with_dpi(&context, offset, self.dpi);
             session.clear(clear);
-            f(&session);
-        }
+            f(&session)
+        };
         std::mem::forget(guard);
 
         match self.source.end_draw() {
-            Ok(()) => Ok(true),
+            Ok(()) => match draw_result {
+                Ok(()) => Ok(true),
+                Err(e) if is_device_lost(e.code()) => Ok(false),
+                Err(e) => Err(e),
+            },
             Err(e) if is_device_lost(e.code()) => Ok(false),
             Err(e) => Err(e),
         }
@@ -357,7 +484,7 @@ impl SwapChainState {
     /// Returns an [`Err`] whose code satisfies [`is_device_lost`] if the GPU
     /// device was lost (the caller should [`rebuild`](Self::rebuild) and retry);
     /// any other `Err` is a hard failure that should be propagated as-is.
-    fn present_frame(&mut self, f: &dyn Fn(&DrawContext<'_>)) -> Result<()> {
+    fn present_frame(&mut self, f: &dyn Fn(&DrawContext<'_>) -> Result<()>) -> Result<()> {
         if self.width <= 0.0 || self.height <= 0.0 {
             return Ok(());
         }
@@ -370,8 +497,9 @@ impl SwapChainState {
             height: self.height,
             changed: false,
         };
-        f(&ctx);
+        let draw_result = f(&ctx);
         drop(ctx);
+        draw_result?;
         match self.chain.present() {
             Ok(true) => Ok(()),
             // `SwapChain::present` reports device loss as `Ok(false)` and does not
@@ -488,7 +616,7 @@ impl CanvasSwapChain {
     }
 
     /// Draws and presents one frame, retrying once after device loss.
-    pub fn draw(&self, f: impl Fn(&DrawContext<'_>)) -> Result<()> {
+    pub fn draw(&self, f: impl Fn(&DrawContext<'_>) -> Result<()>) -> Result<()> {
         let mut state = self.inner.borrow_mut();
         match state.present_frame(&f) {
             Ok(()) => Ok(()),

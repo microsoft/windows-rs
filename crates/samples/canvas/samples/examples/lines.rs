@@ -5,12 +5,10 @@
 use windows_canvas::*;
 use windows_reactor::DrawContext;
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::BLACK);
 
-    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else {
-        return;
-    };
+    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
 
     let margin = 30.0;
     let count = 8;
@@ -30,6 +28,7 @@ fn draw(ctx: &DrawContext) {
             width,
         );
     }
+    Ok(())
 }
 
 fn main() -> Result<()> {

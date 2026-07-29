@@ -52,10 +52,11 @@ fn draw(surface: &CompositionDrawingSurface, side: f32) -> Result<()> {
     let center = Vector2::new(side / 2.0, side / 2.0);
     surface.draw(|session| {
         session.clear(ColorF::CORNFLOWER_BLUE);
-        let white = session.create_solid_brush(ColorF::WHITE).unwrap();
+        let white = session.create_solid_brush(ColorF::WHITE)?;
         session.fill_ellipse(&Ellipse::circle(center, side * 0.4), &white);
-        let blue = session.create_solid_brush(ColorF::CORNFLOWER_BLUE).unwrap();
+        let blue = session.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
         session.fill_ellipse(&Ellipse::circle(center, side * 0.24), &blue);
+        Ok(())
     })?;
     Ok(())
 }

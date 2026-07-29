@@ -58,7 +58,8 @@ pub use bindings::VirtualKeyModifiers;
 pub use bootstrap::*;
 #[cfg(feature = "canvas")]
 pub use canvas_bridge::{
-    CanvasImageSource, CanvasSwapChain, DrawContext, animated_canvas, animated_canvas_with_device,
+    CanvasImageSource, CanvasSwapChain, DrawContext, Invalidator, animated_canvas,
+    animated_canvas_with_device, canvas, canvas_invalidated,
 };
 pub use drag::*;
 pub use element::*;

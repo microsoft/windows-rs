@@ -14,8 +14,9 @@
 //!
 //! surface.draw(|session| {
 //!     session.clear(ColorF::CORNFLOWER_BLUE);
-//!     let white = session.create_solid_brush(ColorF::WHITE).unwrap();
+//!     let white = session.create_solid_brush(ColorF::WHITE)?;
 //!     session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &white);
+//!     Ok(())
 //! })?;
 //! # Ok(())
 //! # }
@@ -41,11 +42,11 @@ pub trait CanvasCompositionExt {
     /// Redraws the surface: runs `f` to draw, then presents.
     ///
     /// Returns `Ok(false)` if the GPU device was lost and the surface must be recreated.
-    fn draw(&self, f: impl FnOnce(&DrawingSession<'_>)) -> Result<bool>;
+    fn draw(&self, f: impl FnOnce(&DrawingSession<'_>) -> Result<()>) -> Result<bool>;
 }
 
 impl CanvasCompositionExt for CompositionDrawingSurface {
-    fn draw(&self, f: impl FnOnce(&DrawingSession<'_>)) -> Result<bool> {
+    fn draw(&self, f: impl FnOnce(&DrawingSession<'_>) -> Result<()>) -> Result<bool> {
         let (context, (offset_x, offset_y)) = match self.begin_draw::<ID2D1DeviceContext>() {
             Ok(v) => v,
             Err(e) if is_device_lost(e.code()) => return Ok(false),
@@ -56,14 +57,18 @@ impl CanvasCompositionExt for CompositionDrawingSurface {
 
         // Do not leave a successful begin_draw unpaired if `f` panics.
         let guard = EndDrawGuard(self);
-        {
+        let draw_result = {
             let session = DrawingSession::from_borrowed_context(&context, offset);
-            f(&session);
-        }
+            f(&session)
+        };
         std::mem::forget(guard);
 
         match self.end_draw() {
-            Ok(()) => Ok(true),
+            Ok(()) => match draw_result {
+                Ok(()) => Ok(true),
+                Err(e) if is_device_lost(e.code()) => Ok(false),
+                Err(e) => Err(e),
+            },
             Err(e) if is_device_lost(e.code()) => Ok(false),
             Err(e) => Err(e),
         }
