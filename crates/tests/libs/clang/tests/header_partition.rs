@@ -95,7 +95,7 @@ fn partition_by_defining_header() {
 }
 
 #[test]
-fn duplicate_typedef_first_partition_wins() {
+fn duplicate_typedef_prefers_direct_alias() {
     let _guard = test_clang::libclang_guard();
     let scratch = format!("{}/header_duplicate_typedef", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
@@ -120,6 +120,37 @@ fn duplicate_typedef_first_partition_wins() {
         "typedef_a.rdl:\n{a}"
     );
     assert!(!b.contains("type PUNICODE_STRING"), "typedef_b.rdl:\n{b}");
+}
+
+#[test]
+fn duplicate_typedef_ignores_excluded_owner() {
+    let _guard = test_clang::libclang_guard();
+    let scratch = format!("{}/header_duplicate_typedef_excluded", env!("OUT_DIR"));
+    if std::path::Path::new(&scratch).exists() {
+        std::fs::remove_dir_all(&scratch).unwrap();
+    }
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let mut clang = windows_clang::clang();
+    clang
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .exclude_headers(["duplicate_a.h"])
+        .input("partition_input/duplicate_a.h")
+        .input("partition_input/duplicate_b.h");
+
+    clang.write_by_header("Test", &[], &scratch).unwrap();
+
+    let b = read(&scratch, "duplicate_b");
+    assert!(b.contains("type DUPLICATE = i32"), "duplicate_b.rdl:\n{b}");
+    assert!(
+        !std::path::Path::new(&format!("{scratch}/duplicate_a.rdl")).exists(),
+        "excluded header `duplicate_a.h` must not produce `duplicate_a.rdl`"
+    );
 }
 
 // `exclude_headers` drops a named header's whole partition even though nothing else scopes it
@@ -201,10 +232,37 @@ fn scope_sweeps_unreferenced_out_of_scope() {
 
     // The referenced out-of-scope type survives the sweep, in its own (out-of-scope) file.
     assert!(crt.contains("type APITYPE = i32"), "crt.rdl:\n{crt}");
-
     // The unreferenced out-of-scope declarations are swept.
     assert!(!crt.contains("CRTNOISE"), "crt.rdl:\n{crt}");
     assert!(!crt.contains("CrtOnly"), "crt.rdl:\n{crt}");
+}
+
+#[test]
+fn preferred_duplicate_typedef_keeps_pointee_through_scope_sweep() {
+    let _guard = test_clang::libclang_guard();
+    let scratch = format!("{}/header_scope_duplicate", env!("OUT_DIR"));
+    if std::path::Path::new(&scratch).exists() {
+        std::fs::remove_dir_all(&scratch).unwrap();
+    }
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let mut clang = windows_clang::clang();
+    clang
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .scope(["scope_api"])
+        .input("partition_input/scope_api/z_api.h")
+        .input("partition_input/scope_crt/a_crt.h");
+
+    clang.write_by_header("Test", &[], &scratch).unwrap();
+
+    let crt = read(&scratch, "a_crt");
+    assert!(crt.contains("type PFOO = *mut FOO"), "a_crt.rdl:\n{crt}");
+    assert!(crt.contains("struct FOO"), "a_crt.rdl:\n{crt}");
 }
 
 // A dotted header file name (the WinRT interop headers, e.g.

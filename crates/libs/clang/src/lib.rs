@@ -867,8 +867,6 @@ impl Clang {
             )?;
         }
 
-        dedup_typedefs(&mut collectors);
-
         // Drop excluded root partitions before the sweep.
         if !self.exclude_headers.is_empty() {
             collectors.retain(|stem, _| !self.exclude_headers.contains(stem));
@@ -982,6 +980,9 @@ impl Clang {
                 });
             }
         }
+
+        // Choose duplicate typedef owners only after every partition and item filter has run.
+        dedup_typedefs(&mut collectors);
 
         let mut outputs = BTreeMap::new();
         for (stem, collector) in &collectors {
@@ -1374,7 +1375,8 @@ struct ParsedInputs {
 ///
 /// The SDK may declare the same public alias through different but compatible spellings, such as
 /// `PUNICODE_STRING` through `UNICODE_STRING` and its `LSA_UNICODE_STRING` base. Winmd cannot
-/// represent both rows under one flat name, so the first defining-header partition wins.
+/// represent both rows under one flat name, so a direct `PFOO -> FOO*` alias wins, then the first
+/// surviving defining-header partition.
 fn dedup_typedefs(collectors: &mut BTreeMap<String, Collector>) {
     let mut owners: HashMap<String, (String, bool)> = HashMap::new();
     for (stem, collector) in collectors.iter() {
