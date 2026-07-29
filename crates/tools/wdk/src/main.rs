@@ -37,7 +37,7 @@ const KM_WINMD: &str = "target/wdk/Windows.Win32.km.winmd";
 const RDL_DIR: &str = "metadata/wdk";
 
 /// Where intermediate binary winmd artifacts (per-arch throwaways and the x64 scrape that
-/// feeds arch-merge) are written. Under `target` and not tracked — regenerated on demand.
+/// feeds arch-merge) are written. Under `target` and not tracked - regenerated on demand.
 const OUT_DIR: &str = "target/wdk";
 
 /// SAL capture shim, shared with `tool_win32` and force-included (`-include`) ahead of the
@@ -56,7 +56,7 @@ const OFFREG_PRELUDE: &str = "crates/tools/wdk/src/offreg_prelude.h";
 /// WDK's servicing build lags the SDK's, so it is pinned independently here.
 const WDK_VERSION: &str = "10.0.28000.1839";
 
-/// The pinned Windows SDK version — the SDK's `um`/`shared`/`ucrt` headers and `ntdll.lib`
+/// The pinned Windows SDK version - the SDK's `um`/`shared`/`ucrt` headers and `ntdll.lib`
 /// complete the WDK translation unit, so this scrape must build against the *same* SDK as
 /// `tool_win32` (the shared types its exclusion reference resolves against must be identical).
 /// `tool_win32` is the single owner of that pin, so rather than duplicate the literal it is
@@ -78,7 +78,7 @@ const CLANG_ARGS: &[&str] = &["-x", "c++", "-DNTDDI_VERSION=0x0A000010"];
 // only the surface the WDK adds on top of Win32, into the same flat `Windows.Win32` namespace.
 // Every entity Win32 already defines is skipped (see [`REFERENCE_WINMDS`]) and resolved by bare
 // name once both winmds are loaded together. Like Win32 there is deliberately NO type-level
-// curation — the only inputs are mechanical.
+// curation - the only inputs are mechanical.
 
 /// Root namespace; the WDK surface is emitted into the same flat `Windows.Win32` namespace as
 /// Win32 so a WDK entity referencing a Win32 type just names it.
@@ -106,7 +106,7 @@ const SOURCE_HEADERS: &[&str] = &["ntifs.h", "wdm.h", "offreg.h"];
 /// The um Win32 winmd, used as the scrape-time *exclusion* reference (already-defined Win32 types
 /// are skipped rather than re-emitted, so the km scrape holds only the WDK-net-new surface, plus
 /// reference enums it extends in full) and the compile-time *resolution* reference (WDK types
-/// resolve their Win32 dependencies — `NTSTATUS`, `IO_STATUS_BLOCK`, `GENERIC_READ`, … — by bare
+/// resolve their Win32 dependencies - `NTSTATUS`, `IO_STATUS_BLOCK`, `GENERIC_READ`, … - by bare
 /// name). Re-derived from the committed `metadata/win32` RDL at the start of `main`.
 const REFERENCE_WINMDS: &[&str] = &[UM_WINMD];
 

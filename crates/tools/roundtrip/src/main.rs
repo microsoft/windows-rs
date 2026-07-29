@@ -6,8 +6,8 @@ use windows_rdl::{item_names, reader, write_to_file, writer};
 // committed RDL, decompiles it back, and relies on `git diff` to catch any drift, without
 // re-running the expensive SDK scrape/merge (it needs neither libclang nor NuGet). The single
 // committed `Windows.Win32.winmd` is `tool_wdk`'s merge of the um and km surfaces (with
-// same-named enums unioned) — a lossy transform that cannot be decompiled back to the split
-// Win32 and WDK RDL — so the round-trip works from that split RDL, compiling each winmd on demand.
+// same-named enums unioned) - a lossy transform that cannot be decompiled back to the split
+// Win32 and WDK RDL - so the round-trip works from that split RDL, compiling each winmd on demand.
 // Paths are relative to the workspace root, matching `tool_win32`/`tool_wdk`/`tool_winrt`.
 
 const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";

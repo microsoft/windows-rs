@@ -7,7 +7,7 @@
 //! resource headers would silently change the generated metadata. Both are keyed off the single
 //! `LIBCLANG_VERSION` const (the NuGet DLL by version, the headers by the derived `llvmorg-<ver>`
 //! git tag), so this tool confirms that pin loads and self-provisions rather than checking a
-//! version literal for drift — there is only one to bump.
+//! version literal for drift - there is only one to bump.
 
 use std::path::Path;
 use windows_clang::LIBCLANG_VERSION;

@@ -6,7 +6,7 @@ use windows_metadata::{Signature, Type};
 /// The metadata that backs the published `windows` and `windows-sys` crates. Both crates share the
 /// same namespace-to-feature taxonomy, so a single index answers "which feature do I enable?" for
 /// either crate. These are the header-namespaced winmds staged by [`prepare_metadata`] under
-/// `target` — the same remap `tool_package` applies — so the page reports the crates' actual
+/// `target` - the same remap `tool_package` applies - so the page reports the crates' actual
 /// header-stem features (`winnt`, `d2d`, …) rather than the retired editorial namespaces.
 const WINMD: [&str; 2] = [
     "target/features/Windows.Win32.winmd",
@@ -40,8 +40,8 @@ fn main() {
 }
 
 /// Remaps the flat canonical Win32/WDK winmds into the same header-based namespaces the published
-/// `windows`/`windows-sys` crates use — reusing `tool_package`'s routing so the feature names cannot
-/// drift — and stages the already-namespaced WinRT winmd alongside. Everything is written under
+/// `windows`/`windows-sys` crates use - reusing `tool_package`'s routing so the feature names cannot
+/// drift - and stages the already-namespaced WinRT winmd alongside. Everything is written under
 /// `target` (not committed); only the generated page is checked in.
 fn prepare_metadata() {
     std::fs::create_dir_all(PACKAGE_DIR)

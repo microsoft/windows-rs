@@ -17,7 +17,7 @@ use windows_clang::nuget_package;
 /// proves it matches the pin.
 const WINMD_DIR: &str = "crates/tools/reactor/winmd";
 
-/// The pinned Windows App SDK release — the single source of truth for the reactor's WinUI
+/// The pinned Windows App SDK release - the single source of truth for the reactor's WinUI
 /// metadata. The umbrella `Microsoft.WindowsAppSDK` metapackage at this version pins the exact
 /// component package versions (Foundation / InteractiveExperiences / WinUI) in its nuspec, and
 /// those components ship the `.winmd` [`refresh_winmd`] copies into [`WINMD_DIR`]. It equals the
@@ -90,8 +90,8 @@ fn main() {
     );
 }
 
-/// Fails loudly if `windows-reactor-setup` — the published crate that stages the WinAppSDK and
-/// WebView2 runtimes for reactor apps — drifts from the versions the rest of the toolchain is
+/// Fails loudly if `windows-reactor-setup` - the published crate that stages the WinAppSDK and
+/// WebView2 runtimes for reactor apps - drifts from the versions the rest of the toolchain is
 /// pinned to. `reactor-setup` is a runtime dependency with no generated artifact of its own, so
 /// this is the only place that keeps its pins honest: `tool_reactor` already runs in `gen.yml`,
 /// so a drifted pin turns into a red build here rather than a silent runtime mismatch.
@@ -134,7 +134,7 @@ fn assert_reactor_setup_pins() {
         .unwrap_or_else(|e| panic!("failed to read `{REACTOR_YML}`: {e}"));
     assert!(
         yml.contains(&expected),
-        "WinAppSDK runtime drift: `{REACTOR_YML}` does not install `{expected}` — \
+        "WinAppSDK runtime drift: `{REACTOR_YML}` does not install `{expected}` - \
          `windows-reactor-setup` pins `RUNTIME_VER = \"{runtime_ver}\"`. Update the installer URL \
          in {REACTOR_YML} to match."
     );
@@ -146,7 +146,7 @@ fn assert_reactor_setup_pins() {
 /// versions in its nuspec; this copies each component's `.winmd` (plus the WebView2 `Core.winmd`
 /// at `tool_webview`'s pinned version) into place. `gen.yml` re-runs this and fails on any diff,
 /// so bumping the pins is the single edit that updates them all. The generated
-/// `extras.winmd` is left untouched here — it is (re)built by [`generate_reactor_bindings`].
+/// `extras.winmd` is left untouched here - it is (re)built by [`generate_reactor_bindings`].
 fn refresh_winmd() {
     let umbrella = nuget_package("microsoft.windowsappsdk", WINDOWS_APP_SDK_VERSION);
     let nuspec = read_nuspec(&umbrella);
@@ -172,7 +172,7 @@ fn refresh_winmd() {
     }
 
     // Foundation and WinUI keep their `.winmd` directly under `metadata/`; InteractiveExperiences
-    // nests them under a Windows-SDK-version folder (e.g. `metadata/10.0.18362.0/`) — take the
+    // nests them under a Windows-SDK-version folder (e.g. `metadata/10.0.18362.0/`) - take the
     // highest, which is the newest API baseline.
     let foundation_pkg = nuget_package("microsoft.windowsappsdk.foundation", &foundation);
     copy_winmd(&foundation_pkg.join("metadata"), dir);

@@ -15,7 +15,7 @@ const WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
 const RDL_DIR: &str = "metadata/winrt";
 
 /// Where the intermediate merged winmd is written before it is decompiled to RDL. Under
-/// `target` and not tracked — regenerated on demand.
+/// `target` and not tracked - regenerated on demand.
 const OUT_DIR: &str = "target/winrt";
 
 /// The NuGet package that ships the per-contract WinRT `.winmd` files. Fetched into the
@@ -70,8 +70,8 @@ fn main() {
 
     // Decompile the merged winmd into the committed per-namespace RDL snapshot, then compile
     // that snapshot back into the canonical `Windows.winmd`. This makes the RDL the source of
-    // truth — consistent with `tool_win32`/`tool_wdk`, which likewise scrape to RDL and compile
-    // the winmd from it — and lets the `gen` `git diff` validate both the RDL and the winmd. The
+    // truth - consistent with `tool_win32`/`tool_wdk`, which likewise scrape to RDL and compile
+    // the winmd from it - and lets the `gen` `git diff` validate both the RDL and the winmd. The
     // WinRT surface is self-contained (`System.*` primitives are resolved by the reader), so the
     // reader needs no additional reference winmds; the `Win32` exclusion guards against any stray
     // references the merge might carry.

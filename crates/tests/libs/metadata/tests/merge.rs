@@ -203,7 +203,7 @@ fn arch_merge_divergent_struct() {
     std::fs::create_dir_all(&dir).unwrap();
 
     // CTX has a different shape per arch (the CONTEXT pattern): a 2-field struct on x64,
-    // a 1-field struct on arm64. It must NOT collapse — both copies survive, arch-tagged.
+    // a 1-field struct on arm64. It must NOT collapse - both copies survive, arch-tagged.
     let x64 = winmd(
         &dir,
         "x64",

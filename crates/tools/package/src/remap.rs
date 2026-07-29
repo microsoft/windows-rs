@@ -7,7 +7,7 @@
 //! a namespace named after its defining header under the target root (`wdm.rdl` -> `Windows.Win32.wdm`)
 //! and rewrites the flat winmds into that partition via `windows_metadata::remap`.
 //!
-//! The partition is metadata-derived — by default one namespace per `.rdl` file, with a small
+//! The partition is metadata-derived - by default one namespace per `.rdl` file, with a small
 //! curated allowlist of header-name prefixes (`FOLD_PREFIXES`) that fold obviously-related headers
 //! into one family namespace (`d2d1`, `d2d1_1`, `d2d1effects` -> `Windows.d2d`). There is no
 //! automatic name heuristic (it mis-groups prefix collisions like `msinkaut` under `msi`), no
@@ -36,8 +36,8 @@ const FLAT_NAMESPACE: &str = "Windows.Win32";
 ///
 /// This is deliberately an explicit allowlist rather than an automatic name heuristic. A purely
 /// name-based rule (fold any header into the shortest existing header-stem that is a prefix of it)
-/// mis-groups headers that merely share a prefix — `msinkaut` (Ink) under `msi` (Installer),
-/// `playsoundapi` under `pla`, `icmpapi` (ICMP) under `icm` — and cannot be told apart from real
+/// mis-groups headers that merely share a prefix - `msinkaut` (Ink) under `msi` (Installer),
+/// `playsoundapi` under `pla`, `icmpapi` (ICMP) under `icm` - and cannot be told apart from real
 /// families like `sql`/`sqlext` without curation. So instead we assert the safe prefixes here,
 /// each verified to cover only genuinely related headers. A header matching no prefix keeps its
 /// own name. The longest matching prefix wins (the current list has no overlaps).

@@ -13,8 +13,8 @@ fn main() {
 
     // Like `tool_win32`/`tool_wdk`, provision and pin libclang before the first parse: download
     // the exact `LIBCLANG_VERSION` wheel on demand (unless `LIBCLANG_PATH` is set) and assert the
-    // loaded version, so the WebView2 metadata is generated against the same clang everywhere — in
-    // CI and on a fresh checkout — instead of whatever LLVM happens to be installed.
+    // loaded version, so the WebView2 metadata is generated against the same clang everywhere - in
+    // CI and on a fresh checkout - instead of whatever LLVM happens to be installed.
     ensure_libclang();
     assert_libclang_version();
 
