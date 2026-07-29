@@ -75,7 +75,7 @@ release so the scrape is deterministic (see `tool_win32`).
 - `tool_wdk` - scrapes the WDK kernel-mode headers and merges them with the Win32 surface into the
   single `crates/libs/bindgen/default/Windows.Win32.winmd`. It re-derives a `um` winmd from the
   committed `metadata/win32` RDL, scrapes the `km` headers into `metadata/wdk` RDL, and unions the
-  two (same-named enums fold into one) so `windows-bindgen` sees one complete corpus (see
+  two (same-named enums fold into one) so `windows-bindgen` sees one complete set of metadata (see
   [tool_wdk](#the-wdk-metadata-tool_wdk)).
 - `tool_webview` - scrapes the WebView2 headers into `WebView2.rdl`.
 - `test_clang` - golden fixtures that pin the header -> RDL behavior.
@@ -870,7 +870,7 @@ member is missing.
 
 | Cause | Count | Names | Fixable here? |
 | --- | --- | --- | --- |
-| **A. Flat-namespace path mismatch.** The type/const exists; only Rust's sub-namespace path is wrong (the corpus is flat `Windows.Win32`). | 4 | `Windows.Win32.System.Diagnostics.Debug.XSAVE_FORMAT`, `Windows.Win32.System.Kernel.FLOATING_SAVE_AREA`, `Windows.Wdk.Storage.FileSystem.FILE_NO_COMPRESSION`, `Windows.Wdk.Storage.FileSystem.FILE_OPEN_NO_RECALL` | No - Rust should use bare names. |
+| **A. Flat-namespace path mismatch.** The type/const exists; only Rust's sub-namespace path is wrong (the metadata is flat `Windows.Win32`). | 4 | `Windows.Win32.System.Diagnostics.Debug.XSAVE_FORMAT`, `Windows.Win32.System.Kernel.FLOATING_SAVE_AREA`, `Windows.Wdk.Storage.FileSystem.FILE_NO_COMPRESSION`, `Windows.Wdk.Storage.FileSystem.FILE_OPEN_NO_RECALL` | No - Rust should use bare names. |
 | **B. Grouping enum/flag typedef collapsed to a scalar.** Win32metadata invented these to wrap loose `#define`s; the header declares plain constants + scalar params, so no named type is emitted. Members are present as flat constants. | 30 | `COMPARESTRING_RESULT`, `CONSOLE_MODE`, `DUPLICATE_HANDLE_OPTIONS`, `FILE_ACCESS_RIGHTS`, `FILE_CREATION_DISPOSITION`, `FILE_DISPOSITION_INFO_EX_FLAGS`, `FILE_FLAGS_AND_ATTRIBUTES`, `FILE_SHARE_MODE`, `FILE_TYPE`, `FORMAT_MESSAGE_OPTIONS`, `GENERIC_ACCESS_RIGHTS`, `GETFINALPATHNAMEBYHANDLE_FLAGS`, `HANDLE_FLAGS`, `LPPROGRESS_ROUTINE_CALLBACK_REASON`, `MOVE_FILE_FLAGS`, `MULTI_BYTE_TO_WIDE_CHAR_FLAGS`, `NAMED_PIPE_MODE`, `NTCREATEFILE_CREATE_DISPOSITION`, `NTCREATEFILE_CREATE_OPTIONS`, `PROCESS_CREATION_FLAGS`, `PROCESSOR_ARCHITECTURE`, `SEND_RECV_FLAGS`, `SET_FILE_POINTER_MOVE_METHOD`, `STARTUPINFOW_FLAGS`, `STD_HANDLE`, `SYMBOLIC_LINK_FLAGS`, `THREAD_CREATION_FLAGS`, `TOKEN_ACCESS_MASK`, `WINSOCK_SHUTDOWN_HOW`, `WINSOCK_SOCKET_TYPE` | Design choice - collapse is intended; Rust must switch to scalars or the projection layer must re-emit named aliases. |
 | **C. Error/status typedef collapsed to a scalar.** | 4 | `NTSTATUS`, `WIN32_ERROR`, `WSA_ERROR`, `FACILITY_CODE` | Design choice - same options as B. |
 | **D. Invented enum member with no SDK macro.** Members of Win32metadata grouping enums that no header declares. | 8 | `FILE_SHARE_NONE` (0), `THREAD_CREATE_RUN_IMMEDIATELY` (0), `THREAD_CREATE_SUSPENDED`, `TOKEN_ACCESS_SYSTEM_SECURITY`, `TOKEN_DELETE`, `TOKEN_READ_CONTROL`, `TOKEN_WRITE_DAC`, `TOKEN_WRITE_OWNER` | Only by emitting them as named constants; no header origin. |
@@ -900,7 +900,7 @@ single-element trailing field for pointer-provenance reasons and are not candida
 ### Fixes implemented for bucket E
 
 Two changes closed the three bucket-E gaps. Both were verified output-neutral for the rest of the
-corpus (regenerating `tool_win32`/`tool_wdk`/`tool_bindings`/`tool_package` adds only the new
+metadata (regenerating `tool_win32`/`tool_wdk`/`tool_bindings`/`tool_package` adds only the new
 symbols) and the regenerated `windows` / `windows-sys` compile with the affected features.
 
 - **`IPPROTO_RM`** - added `wsrm.h` to `tool_win32`'s `HEADERS`. This emits `const IPPROTO_RM: i32 =

@@ -2,12 +2,12 @@ use std::collections::HashMap;
 use std::time::Instant;
 use windows_rdl::{item_names, reader, write_to_file, writer};
 
-// The committed RDL corpora are the source of truth. `tool_roundtrip` re-derives each corpus's
-// winmd from its committed RDL, decompiles it back, and relies on `git diff` to catch any drift,
-// without re-running the expensive SDK scrape/merge (it needs neither libclang nor NuGet). The
-// single committed `Windows.Win32.winmd` is `tool_wdk`'s merge of the um and km surfaces (with
+// The committed RDL is the source of truth. `tool_roundtrip` re-derives each winmd from its
+// committed RDL, decompiles it back, and relies on `git diff` to catch any drift, without
+// re-running the expensive SDK scrape/merge (it needs neither libclang nor NuGet). The single
+// committed `Windows.Win32.winmd` is `tool_wdk`'s merge of the um and km surfaces (with
 // same-named enums unioned) — a lossy transform that cannot be decompiled back to the split
-// corpora — so the round-trip works from the split RDL, compiling each corpus's winmd on demand.
+// Win32 and WDK RDL — so the round-trip works from that split RDL, compiling each winmd on demand.
 // Paths are relative to the workspace root, matching `tool_win32`/`tool_wdk`/`tool_winrt`.
 
 const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
@@ -34,7 +34,7 @@ fn main() {
 
     winrt();
 
-    // Win32: compile the committed corpus (+ seed + WinRT resolution) to a um winmd, then
+    // Win32: compile the committed RDL (+ seed + WinRT resolution) to a um winmd, then
     // decompile it back under the committed header layout.
     compile(
         &[WIN32_RDL, WIN32_SEED, WINRT_RESOLUTION],
@@ -43,7 +43,7 @@ fn main() {
     );
     partitioned("Win32", WIN32_UM_WINMD, WIN32_RDL, Some(WIN32_SEED));
 
-    // WDK: compile the committed km corpus against the um winmd (its Win32 dependencies resolve
+    // WDK: compile the committed km RDL against the um winmd (its Win32 dependencies resolve
     // there), then decompile it back. Only WDK-defined types are emitted, so the round-trip
     // reproduces `metadata/wdk`.
     compile(&[WDK_RDL, WIN32_UM_WINMD], WDK_KM_WINMD, "WDK");
@@ -55,7 +55,7 @@ fn main() {
     );
 }
 
-/// Compiles RDL corpora and winmd references into a single winmd.
+/// Compiles RDL and winmd references into a single winmd.
 fn compile(inputs: &[&str], output: &str, label: &str) {
     reader()
         .inputs(inputs)
@@ -65,7 +65,7 @@ fn compile(inputs: &[&str], output: &str, label: &str) {
 }
 
 /// WinRT round-trips cleanly: the RDL partition key is the namespace, which the winmd carries,
-/// so the corpus is reconstructed from `Windows.winmd` alone (one `<namespace>.rdl` per
+/// so the RDL is reconstructed from `Windows.winmd` alone (one `<namespace>.rdl` per
 /// namespace). The `Windows.Win32` exclusion guards against any stray references the merged
 /// WinRT winmd might carry.
 fn winrt() {
@@ -82,7 +82,7 @@ fn winrt() {
 }
 
 /// Win32 and WDK partition their RDL by *defining header*, which the flat winmd does not carry.
-/// The committed corpus is the authority for that layout, so the item-name -> header-stem map is
+/// The committed RDL is the authority for that layout, so the item-name -> header-stem map is
 /// recovered from it (exactly as `merge_arch_rdl` does), the winmd is decompiled through that
 /// map, and the hand-authored seed (if any) is restored verbatim afterwards. The seed lives
 /// outside `rdl_dir` (the partition writer clears every `*.rdl` in it), so restoring it merely
@@ -98,7 +98,7 @@ fn partitioned(label: &str, winmd: &str, rdl_dir: &str, seed: Option<&str>) {
         std::fs::read(path).unwrap_or_else(|e| panic!("failed to read seed `{path}`: {e}"))
     });
 
-    // Build the item-name -> header-stem map from the committed corpus. Files are sorted for a
+    // Build the item-name -> header-stem map from the committed RDL. Files are sorted for a
     // deterministic map, and the seed is skipped so its attribute-definition types stay in the
     // seed file rather than being scattered into a header partition.
     let mut rdl_paths: Vec<_> = std::fs::read_dir(rdl_dir)

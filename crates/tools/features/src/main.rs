@@ -46,7 +46,7 @@ fn main() {
 fn prepare_metadata() {
     std::fs::create_dir_all(PACKAGE_DIR)
         .unwrap_or_else(|e| panic!("failed to create `{PACKAGE_DIR}`: {e}"));
-    tool_package::remap::run(&tool_package::corpora(), REMAP_OUTPUT);
+    tool_package::remap::run(&tool_package::remap_plan(), REMAP_OUTPUT);
     let winrt = format!("{PACKAGE_DIR}/Windows.winmd");
     std::fs::copy(tool_package::WINRT_WINMD, &winrt)
         .unwrap_or_else(|e| panic!("failed to stage `{}`: {e}", tool_package::WINRT_WINMD));

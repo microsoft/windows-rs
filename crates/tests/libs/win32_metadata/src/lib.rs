@@ -7,7 +7,7 @@
     clippy::missing_transmute_annotations
 )]
 
-// Compile-check the bindings generated from the in-house `metadata/win32` corpus.
+// Compile-check the bindings generated from the in-house `metadata/win32` RDL.
 // The module is produced by `build.rs` from `expected/slice.rs`, which the
 // `tests/win32.rs` harness regenerates.
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));

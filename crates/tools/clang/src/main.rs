@@ -4,7 +4,7 @@
 //!
 //! The metadata scrapers (`tool_win32`/`tool_wdk`/`tool_winrt`/`tool_webview`) all parse with
 //! the pinned libclang, so a drift between the loaded `libclang.dll` and the clang builtin
-//! resource headers would silently change the generated corpus. Both are keyed off the single
+//! resource headers would silently change the generated metadata. Both are keyed off the single
 //! `LIBCLANG_VERSION` const (the NuGet DLL by version, the headers by the derived `llvmorg-<ver>`
 //! git tag), so this tool confirms that pin loads and self-provisions rather than checking a
 //! version literal for drift — there is only one to bump.

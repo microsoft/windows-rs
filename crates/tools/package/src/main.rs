@@ -1,5 +1,5 @@
-use tool_package::remap::{self, Corpus};
-use tool_package::{WINRT_WINMD, corpora};
+use tool_package::remap::{self, RemapPlan};
+use tool_package::{WINRT_WINMD, remap_plan};
 
 /// Throwaway `--in` directory feeding `--package` generation (under `target`, not committed).
 /// Holds the remapped header-namespaced Win32/WDK winmd plus a copy of the WinRT `Windows.winmd`.
@@ -8,24 +8,22 @@ const REMAP_OUTPUT: &str = "target/package/Windows.Win32.winmd";
 
 /// Writes a `name<TAB>feature` map (e.g. `D2D1CreateFactory\td2d1`) for every routed item to
 /// `path`, so downstream consumer migration can look up the header feature/module for an API.
-fn dump_routes(corpora: &[Corpus], path: String) {
+fn dump_routes(plan: &RemapPlan, path: String) {
     let mut lines: Vec<String> = Vec::new();
-    for corpus in corpora {
-        let (routes, _) = remap::routes(corpus);
-        for (name, namespace) in routes {
-            // Mirror bindgen's `namespace_feature`: the `Windows.Win32` umbrella is stripped to
-            // the bare header stem; other namespaces drop the leading `Windows`.
-            let feature = namespace
-                .strip_prefix("Windows.Win32.")
-                .map(|stem| stem.replace('.', "_"))
-                .or_else(|| {
-                    namespace
-                        .strip_prefix("Windows.")
-                        .map(|rest| rest.replace('.', "_"))
-                })
-                .unwrap_or_else(|| namespace.clone());
-            lines.push(format!("{name}\t{feature}"));
-        }
+    let (routes, _) = remap::routes(plan);
+    for (name, namespace) in routes {
+        // Mirror bindgen's `namespace_feature`: the `Windows.Win32` umbrella is stripped to
+        // the bare header stem; other namespaces drop the leading `Windows`.
+        let feature = namespace
+            .strip_prefix("Windows.Win32.")
+            .map(|stem| stem.replace('.', "_"))
+            .or_else(|| {
+                namespace
+                    .strip_prefix("Windows.")
+                    .map(|rest| rest.replace('.', "_"))
+            })
+            .unwrap_or_else(|| namespace.clone());
+        lines.push(format!("{name}\t{feature}"));
     }
     lines.sort();
     std::fs::write(&path, lines.join("\n"))
@@ -40,17 +38,17 @@ fn dump_routes(corpora: &[Corpus], path: String) {
 fn main() {
     let time = std::time::Instant::now();
 
-    // Synthesise the header-based namespace partition from the flat canonical winmds. The Win32
+    // Synthesise the header-based namespace partition from the flat canonical winmd. The Win32
     // SDK is logically a flat global namespace, so the canonical winmd is flat; but `--package`
     // derives file layout and Cargo features from namespaces, so the published crates need a
     // partition. One namespace per defining header (`.rdl` stem) gives a mechanical, source-derived
-    // one. Both corpora are remapped together so WDK's references to Win32 types resolve to the
-    // remapped Win32 namespaces.
-    let corpora = corpora();
+    // one. The Win32 and WDK RDL directories are read together so WDK's references to Win32 types
+    // resolve to the remapped Win32 namespaces.
+    let plan = remap_plan();
 
-    let summary = remap::run(&corpora, REMAP_OUTPUT);
+    let summary = remap::run(&plan, REMAP_OUTPUT);
 
-    dump_routes(&corpora, format!("{PACKAGE_DIR}/routes.tsv"));
+    dump_routes(&plan, format!("{PACKAGE_DIR}/routes.tsv"));
 
     // The WinRT metadata is already namespaced; copy it verbatim into the `--in` directory so the
     // `windows` crate can project it alongside the remapped Win32/WDK partition.

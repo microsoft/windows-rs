@@ -11,7 +11,7 @@ use metadata::MetadataResolver;
 use std::path::{Path, PathBuf};
 use windows_clang::nuget_package;
 
-/// The directory holding the reactor's WinUI/WinAppSDK `.winmd` corpus. Committed (it is a
+/// The directory holding the reactor's WinUI/WinAppSDK `.winmd` files. Committed (it is a
 /// shared input for `tool_webview` and `tool_composition` too) but treated as *generated*: it
 /// is refreshed from the pinned packages by [`refresh_winmd`], so `gen.yml`'s zero-diff check
 /// proves it matches the pin.
@@ -140,12 +140,12 @@ fn assert_reactor_setup_pins() {
     );
 }
 
-/// Refresh the committed WinUI/WinAppSDK `.winmd` corpus in [`WINMD_DIR`] from the pinned
+/// Refresh the committed WinUI/WinAppSDK `.winmd` files in [`WINMD_DIR`] from the pinned
 /// packages so it is reproducible and drift-checked instead of hand-copied. The umbrella
 /// `Microsoft.WindowsAppSDK` metapackage at [`WINDOWS_APP_SDK_VERSION`] pins the component
 /// versions in its nuspec; this copies each component's `.winmd` (plus the WebView2 `Core.winmd`
 /// at `tool_webview`'s pinned version) into place. `gen.yml` re-runs this and fails on any diff,
-/// so bumping the pins is the single edit that updates the whole corpus. The generated
+/// so bumping the pins is the single edit that updates them all. The generated
 /// `extras.winmd` is left untouched here — it is (re)built by [`generate_reactor_bindings`].
 fn refresh_winmd() {
     let umbrella = nuget_package("microsoft.windowsappsdk", WINDOWS_APP_SDK_VERSION);
@@ -157,7 +157,7 @@ fn refresh_winmd() {
     let webview = ::helpers::read_str_const("crates/tools/webview/src/main.rs", "WEBVIEW2_VERSION");
 
     let dir = Path::new(WINMD_DIR);
-    // Clear the current corpus (but keep the generated `extras.winmd`) so a winmd dropped from a
+    // Clear the current winmds (but keep the generated `extras.winmd`) so a winmd dropped from a
     // newer package is removed rather than left orphaned.
     for entry in std::fs::read_dir(dir).unwrap_or_else(|e| panic!("cannot read `{WINMD_DIR}`: {e}"))
     {
@@ -213,7 +213,7 @@ const BOOTSTRAP_ARCHES: &[(&str, &str)] = &[
 
 /// Refresh the committed `windows-reactor-setup` bootstrap DLLs from the pinned Foundation
 /// package so they cannot silently drift from the runtime `reactor-setup` stages. The `.winmd`
-/// corpus and these DLLs are two faces of one Windows App SDK release, tied to a single pin.
+/// files and these DLLs are two faces of one Windows App SDK release, tied to a single pin.
 fn refresh_bootstrap(foundation_pkg: &Path) {
     for (arch, rid) in BOOTSTRAP_ARCHES {
         let src = foundation_pkg

@@ -63,7 +63,7 @@ pub fn assert_libclang_version() {
     });
     assert!(
         version_is_pinned(&version, LIBCLANG_VERSION),
-        "libclang version mismatch: the corpus is pinned to {LIBCLANG_VERSION} but the loaded \
+        "libclang version mismatch: the tooling is pinned to {LIBCLANG_VERSION} but the loaded \
          libclang reports `{version}`.\nUnset `LIBCLANG_PATH` to use the pinned \
          `libclang.runtime.win-<arch>` NuGet build, or point it at a matching libclang."
     );

@@ -11,7 +11,7 @@ source of truth). `tool_wdk` re-derives the um winmd from that RDL, scrapes the 
 headers into `metadata/wdk/*.rdl` (additive over Win32, in the same flat namespace), and merges the
 two winmds with `windows-metadata` — unioning same-named enums so a value type a um header truncates
 (for example `FILE_INFORMATION_CLASS`) carries the km definition's full member set in one enum. This
-winmd is derived from the two RDL corpora; `tool_roundtrip` re-validates the round-trip without the
+winmd is derived from the two RDL directories; `tool_roundtrip` re-validates the round-trip without the
 SDK.
 
 - SDK headers: `Microsoft.Windows.SDK.CPP` / `Microsoft.Windows.SDK.CPP.<arch>`, version

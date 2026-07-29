@@ -9,7 +9,7 @@ use windows_clang::*;
 /// Re-derived on every run; treat it as generated output.
 const WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
 
-/// The committed Win32 RDL corpus (`tool_win32`'s output, the source of truth) re-compiled here
+/// The committed Win32 RDL (`tool_win32`'s output, the source of truth) re-compiled here
 /// into the um winmd that this scrape resolves against and merges with.
 const WIN32_RDL_DIR: &str = "metadata/win32";
 
@@ -47,10 +47,10 @@ const SAL_SHIM: &str = "crates/tools/win32/src/sal.h";
 
 /// Force-included (`-include`) prelude that supplies the handful of Win32 `um` typedefs
 /// `offreg.h` needs (it is a user-mode API shipped in the WDK `km` folder). See the file
-/// header for why this is needed and why none of it reaches the corpus.
+/// header for why this is needed and why none of it reaches the metadata.
 const OFFREG_PRELUDE: &str = "crates/tools/wdk/src/offreg_prelude.h";
 
-/// Pinned WDK version. The corpus is generated against the `Microsoft.Windows.WDK.x64`
+/// Pinned WDK version. The metadata is generated against the `Microsoft.Windows.WDK.x64`
 /// NuGet package at this exact version, restored into the NuGet global cache. This is the
 /// latest servicing build of the `10.0.28000` marketing line that matches the SDK; the
 /// WDK's servicing build lags the SDK's, so it is pinned independently here.
@@ -87,7 +87,7 @@ const ROOT: &str = "Windows.Win32";
 /// In-scope header directory segments (`["km"]`): a declaration defined under the WDK kernel-mode
 /// include folder is emitted unconditionally; the SDK `um`/`shared`/`ucrt` closure the translation
 /// unit pulls in to compile is emitted only when a `km` declaration references it (and then dropped
-/// anyway if Win32 already defines it), so the CRT/toolset noise never reaches the corpus.
+/// anyway if Win32 already defines it), so the CRT/toolset noise never reaches the metadata.
 const SCOPE: &[&str] = &["km"];
 
 /// Architectures to scrape and arch-merge, mirroring `tool_win32`. x64 is always canonical; the
@@ -135,7 +135,7 @@ fn main() {
     assert_libclang_version();
 
     // Re-derive the um Win32 winmd from the committed `metadata/win32` RDL, matching
-    // `tool_win32`'s uncommitted winmd (same corpus, seed, and WinRT resolution reference). It is
+    // `tool_win32`'s uncommitted winmd (same RDL, seed, and WinRT resolution reference). It is
     // the scrape's exclusion + resolution reference and the first merge input, so it must exist
     // before the km scrape runs.
     compile_um_winmd();
@@ -282,7 +282,7 @@ fn include_args() -> Vec<String> {
 
 /// The x64 import-library search directories: the SDK's `um` tree (`ntdll.lib`) and the WDK's
 /// kernel-mode tree (`offreg.lib`). The symbol → DLL mapping is arch-invariant, so the x64 libs
-/// serve the canonical corpus and every additional arch pass.
+/// serve the canonical metadata and every additional arch pass.
 fn lib_dirs() -> Vec<String> {
     let sdk = nuget_package("microsoft.windows.sdk.cpp.x64", &sdk_version())
         .join("c")

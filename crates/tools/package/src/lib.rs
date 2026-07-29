@@ -6,29 +6,23 @@
 
 pub mod remap;
 
-use remap::Corpus;
+use remap::RemapPlan;
 
 /// The already-namespaced WinRT metadata, projected alongside the remapped Win32/WDK partition.
 pub const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
 
-/// The flat canonical Win32/WDK corpora — the committed per-header RDL (the routing signal) and the
-/// single flat winmd compiled from them — that [`remap`] partitions into header namespaces. Both
-/// share the single `Windows.Win32` root (the WDK headers are additive kernel-mode surface in the
-/// same global non-WinRT namespace) and point at the same merged winmd (`tool_wdk` merges the um
-/// and km surfaces, unioning same-named enums). They are remapped together, so a header stem in
-/// either RDL corpus routes its types to its own namespace and WDK references to Win32 types
-/// resolve to the remapped Win32 namespaces. The shared winmd is loaded once (see [`remap::run`]).
-pub fn corpora() -> [Corpus; 2] {
-    [
-        Corpus {
-            rdl_dir: "metadata/win32",
-            winmd: "crates/libs/bindgen/default/Windows.Win32.winmd",
-            root: "Windows.Win32",
-        },
-        Corpus {
-            rdl_dir: "metadata/wdk",
-            winmd: "crates/libs/bindgen/default/Windows.Win32.winmd",
-            root: "Windows.Win32",
-        },
-    ]
+/// The header remap plan for the published `windows` / `windows-sys` crates: the committed
+/// per-header RDL directories (the routing signal) and the single flat winmd compiled from them,
+/// which [`remap`] partitions into header namespaces. The Win32 and WDK RDL directories share the
+/// one `Windows.Win32` root (the WDK headers are additive kernel-mode surface in the same global
+/// non-WinRT namespace) and the one merged winmd (`tool_wdk` merges the um and km surfaces,
+/// unioning same-named enums). They are read together, so a header stem in either directory routes
+/// its types to its own namespace and WDK references to Win32 types resolve to the remapped Win32
+/// namespaces.
+pub fn remap_plan() -> RemapPlan {
+    RemapPlan {
+        rdl_dirs: &["metadata/win32", "metadata/wdk"],
+        winmd: "crates/libs/bindgen/default/Windows.Win32.winmd",
+        root: "Windows.Win32",
+    }
 }

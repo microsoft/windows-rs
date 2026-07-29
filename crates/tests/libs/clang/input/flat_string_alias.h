@@ -6,7 +6,7 @@
 // type, and parameter alike — so bindgen's core string projection applies uniformly.
 // Const-ness follows the alias spelling (`LPCWSTR` -> `PCWSTR`, `LPWSTR` -> `PWSTR`). The
 // redundant `LP*`/`*OLESTR` typedef *definitions* are suppressed (the canonical four are
-// defined once in `winnt.rdl` in the real corpus). Contrast `string_alias_normalize.h`,
+// defined once in `winnt.rdl` in the real scrape). Contrast `string_alias_normalize.h`,
 // the namespaced (`tool_webview`) counterpart, where only parameters normalise and the
 // `LP*` definitions are kept and referenced verbatim. See ledger #9.
 typedef char *LPSTR;
