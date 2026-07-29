@@ -123,11 +123,11 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 /// Draw a ring of `count` dots around a hub, in surface-local coordinates.
-fn draw_dial(session: &DrawingSession, count: u32) {
+fn draw_dial(session: &DrawingSession, count: u32) -> Result<()> {
     let center = Vector2::new(SIZE / 2.0, SIZE / 2.0);
     let radius = SIZE / 2.0 - 44.0;
 
-    let hub = session.create_solid_brush(ColorF::WHITE).unwrap();
+    let hub = session.create_solid_brush(ColorF::WHITE)?;
     session.fill_ellipse(&Ellipse::circle(center, 16.0), &hub);
 
     let count = count.max(1);
@@ -138,16 +138,15 @@ fn draw_dial(session: &DrawingSession, count: u32) {
             center.x + angle.cos() * radius,
             center.y + angle.sin() * radius,
         );
-        let brush = session
-            .create_solid_brush(ColorF::new(
-                0.5 + 0.5 * (phase * TAU).cos(),
-                0.5 + 0.5 * ((phase + 0.33) * TAU).cos(),
-                0.5 + 0.5 * ((phase + 0.66) * TAU).cos(),
-                1.0,
-            ))
-            .unwrap();
+        let brush = session.create_solid_brush(ColorF::new(
+            0.5 + 0.5 * (phase * TAU).cos(),
+            0.5 + 0.5 * ((phase + 0.33) * TAU).cos(),
+            0.5 + 0.5 * ((phase + 0.66) * TAU).cos(),
+            1.0,
+        ))?;
         session.fill_ellipse(&Ellipse::circle(position, 20.0), &brush);
     }
+    Ok(())
 }
 
 fn main() -> Result<()> {

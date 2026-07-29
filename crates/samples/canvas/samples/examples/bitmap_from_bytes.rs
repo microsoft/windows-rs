@@ -33,13 +33,11 @@ fn checkerboard() -> ([u8; 64 * 64 * 4], u32, u32) {
     (pixels, SIZE, SIZE)
 }
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::new(0.1, 0.1, 0.1, 1.0));
 
     let (pixels, w, h) = checkerboard();
-    let Ok(bitmap) = ctx.create_bitmap(&pixels, w, h) else {
-        return;
-    };
+    let bitmap = ctx.create_bitmap(&pixels, w, h)?;
 
     // Original size, top-left.
     ctx.draw_bitmap(
@@ -54,6 +52,7 @@ fn draw(ctx: &DrawContext) {
         &Rect::new(120.0, 20.0, ctx.width - 20.0, ctx.height - 20.0),
         1.0,
     );
+    Ok(())
 }
 
 fn main() -> Result<()> {

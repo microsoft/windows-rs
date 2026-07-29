@@ -48,9 +48,7 @@ fn app(cx: &mut RenderCx) -> Element {
                     ctx.clear(ColorF::TRANSPARENT);
 
                     // Create a brush once per frame (cheap — reuse via set_color).
-                    let Ok(brush) = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE) else {
-                        return;
-                    };
+                    let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 
                     for i in 0..count {
                         let phase = t + i as f32 * 1.2;
@@ -69,16 +67,14 @@ fn app(cx: &mut RenderCx) -> Element {
                     }
 
                     // Draw a label showing the count.
-                    let Ok(format) = TextFormat::with_weight("Segoe UI", 20.0, FontWeight::BOLD)
-                        .map(|f| f.with_alignment(TextAlignment::Center))
-                    else {
-                        return;
-                    };
+                    let format = TextFormat::with_weight("Segoe UI", 20.0, FontWeight::BOLD)?
+                        .with_alignment(TextAlignment::Center);
 
                     let label = format!("{count} circles");
                     brush.set_color(ColorF::WHITE);
                     let rect = Rect::new(0.0, ctx.height - 40.0, ctx.width, ctx.height);
                     ctx.draw_text(&label, &format, &rect, &brush);
+                    Ok(())
                 }
             })
             .margin(Thickness {

@@ -5,12 +5,10 @@
 use windows_canvas::*;
 use windows_reactor::DrawContext;
 
-fn draw(ctx: &DrawContext) {
+fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::BLACK);
 
-    let Ok(brush) = ctx.create_solid_brush(ColorF::RED) else {
-        return;
-    };
+    let brush = ctx.create_solid_brush(ColorF::RED)?;
 
     let colors = [ColorF::RED, ColorF::GREEN, ColorF::BLUE, ColorF::WHITE];
     let stripe_width = ctx.width / colors.len() as f32;
@@ -27,6 +25,7 @@ fn draw(ctx: &DrawContext) {
             &brush,
         );
     }
+    Ok(())
 }
 
 fn main() -> Result<()> {

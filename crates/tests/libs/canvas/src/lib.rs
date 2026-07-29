@@ -682,6 +682,15 @@ mod tests {
         assert_eq!(rect.bottom, 60.0);
         assert_eq!(rect.width(), 30.0);
         assert_eq!(rect.height(), 40.0);
+
+        let moved = rect.offset(5.0, -8.0);
+        assert_eq!(moved.left, 15.0);
+        assert_eq!(moved.top, 12.0);
+        assert_eq!(moved.right, 45.0);
+        assert_eq!(moved.bottom, 52.0);
+        // Offset preserves size.
+        assert_eq!(moved.width(), rect.width());
+        assert_eq!(moved.height(), rect.height());
     }
 
     #[test]
@@ -1037,7 +1046,12 @@ mod tests {
         assert_eq!(target.width(), 4);
         assert_eq!(target.height(), 4);
 
-        target.draw(|session| session.clear(ColorF::RED)).unwrap();
+        target
+            .draw(|session| {
+                session.clear(ColorF::RED);
+                Ok(())
+            })
+            .unwrap();
 
         let pixels = target.read_pixels().unwrap();
         // 4x4 BGRA, tightly packed.
@@ -1057,9 +1071,10 @@ mod tests {
         target
             .draw(|session| {
                 session.clear(ColorF::BLACK);
-                let brush = session.create_solid_brush(ColorF::GREEN).unwrap();
+                let brush = session.create_solid_brush(ColorF::GREEN)?;
                 // Fill the left half with green, leaving the right half black.
                 session.fill_rect(&Rect::new(0.0, 0.0, 4.0, 8.0), &brush);
+                Ok(())
             })
             .unwrap();
 
@@ -1079,5 +1094,124 @@ mod tests {
         let device = GpuDevice::new_warp().unwrap();
         assert!(device.create_render_target(0, 4).is_err());
         assert!(device.create_render_target(4, 0).is_err());
+    }
+
+    #[test]
+    fn text_layout_metrics() {
+        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let layout = TextLayout::new("Hello, Canvas!", &format, 400.0, 200.0).unwrap();
+
+        assert_eq!(layout.max_size(), (400.0, 200.0));
+
+        let m = layout.metrics();
+        // Single, unwrapped line of non-empty text.
+        assert_eq!(m.line_count, 1);
+        assert!(m.width > 0.0);
+        assert!(m.height > 0.0);
+        // Trailing-whitespace width is never smaller than the inked width.
+        assert!(m.width_including_trailing_whitespace >= m.width);
+        assert_eq!(m.layout_width, 400.0);
+        assert_eq!(m.layout_height, 200.0);
+        // The bounding rect matches the reported width/height.
+        assert_eq!(m.bounds().width(), m.width);
+        assert_eq!(m.bounds().height(), m.height);
+    }
+
+    #[test]
+    fn text_layout_wraps_when_narrow() {
+        let format = TextFormat::new("Segoe UI", 24.0)
+            .unwrap()
+            .with_word_wrapping(WordWrapping::Wrap);
+
+        let wide = TextLayout::new("word word word word word", &format, 1000.0, 500.0).unwrap();
+        assert_eq!(wide.metrics().line_count, 1);
+
+        // The same text in a narrow box must break onto multiple lines.
+        let narrow = TextLayout::new("word word word word word", &format, 60.0, 500.0).unwrap();
+        assert!(narrow.metrics().line_count > 1);
+
+        // Reflow the wide layout by shrinking it in place.
+        wide.set_max_size(60.0, 500.0);
+        assert!(wide.metrics().line_count > 1);
+    }
+
+    #[test]
+    fn text_layout_no_wrap_stays_one_line() {
+        let format = TextFormat::new("Segoe UI", 24.0)
+            .unwrap()
+            .with_word_wrapping(WordWrapping::NoWrap);
+        let layout = TextLayout::new("word word word word word", &format, 40.0, 500.0).unwrap();
+        assert_eq!(layout.metrics().line_count, 1);
+    }
+
+    #[test]
+    fn text_layout_hit_test_point_and_caret() {
+        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let layout = TextLayout::new("Hello", &format, 400.0, 200.0).unwrap();
+
+        // A point at the far left maps to the first character.
+        let first = layout.hit_test_point(Vector2::new(0.0, 5.0));
+        assert_eq!(first.text_position, 0);
+        assert!(first.bounds.width() > 0.0);
+
+        // A point well past the end of the text is outside any glyph box.
+        let past = layout.hit_test_point(Vector2::new(1000.0, 1000.0));
+        assert!(!past.is_inside);
+
+        // The caret for a later position sits further right than the first, is a
+        // zero-width vertical line, and spans the line height.
+        let caret0 = layout.caret_bounds(0, false);
+        let caret3 = layout.caret_bounds(3, false);
+        assert!(caret3.left > caret0.left);
+        assert_eq!(caret0.width(), 0.0);
+        assert!(caret0.height() > 0.0);
+
+        // `trailing` moves the caret to the far edge of the character.
+        let caret0_trailing = layout.caret_bounds(0, true);
+        assert!(caret0_trailing.left > caret0.left);
+    }
+
+    #[test]
+    fn text_layout_draws() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(256, 64).unwrap();
+
+        let format = TextFormat::new("Segoe UI", 20.0)
+            .unwrap()
+            .with_alignment(TextAlignment::Center);
+        let layout = TextLayout::new("Layout", &format, 256.0, 64.0).unwrap();
+        let brush = chain.create_solid_brush(ColorF::WHITE).unwrap();
+
+        let session = chain.begin_draw().unwrap();
+        session.clear(ColorF::BLACK);
+        session.draw_text_layout(Vector2::new(0.0, 0.0), &layout, &brush);
+        drop(session);
+        chain.present().unwrap();
+    }
+
+    #[test]
+    fn text_layout_renders_pixels() {
+        let device = GpuDevice::new_warp().unwrap();
+        let target = device.create_render_target(64, 32).unwrap();
+
+        let format = TextFormat::new("Segoe UI", 24.0).unwrap();
+        let layout = TextLayout::new("X", &format, 64.0, 32.0).unwrap();
+
+        target
+            .draw(|session| {
+                session.clear(ColorF::BLACK);
+                let brush = session.create_solid_brush(ColorF::WHITE)?;
+                session.draw_text_layout(Vector2::new(0.0, 0.0), &layout, &brush);
+                Ok(())
+            })
+            .unwrap();
+
+        // At least one pixel must be lit by the glyph.
+        let pixels = target.read_pixels().unwrap();
+        #[allow(clippy::chunks_exact_to_as_chunks)]
+        let any_lit = pixels
+            .chunks_exact(4)
+            .any(|p| p[0] > 0 || p[1] > 0 || p[2] > 0);
+        assert!(any_lit, "expected the glyph to light some pixels");
     }
 }

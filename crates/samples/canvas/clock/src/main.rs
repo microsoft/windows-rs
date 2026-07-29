@@ -99,6 +99,7 @@ fn app(cx: &mut RenderCx) -> Element {
         });
 
         ctx.draw_image(&r.target);
+        Ok(())
     })
     .into()
 }

@@ -51,18 +51,18 @@ impl RenderTarget {
     }
 
     /// Draws one frame into the target with a [`DrawingSession`].
-    pub fn draw(&self, f: impl FnOnce(&DrawingSession<'_>)) -> Result<()> {
+    pub fn draw(&self, f: impl FnOnce(&DrawingSession<'_>) -> Result<()>) -> Result<()> {
         self.device_lost_flag.set(false);
         unsafe { self.context.SetTarget(&self.target) };
-        {
+        let draw_result = {
             let session = DrawingSession::new(&self.context, &self.device_lost_flag)?;
-            f(&session);
-        } // `EndDraw` runs here, flagging any device loss.
+            f(&session)
+        }; // `EndDraw` runs here, flagging any device loss.
         unsafe { self.context.SetTarget(None::<&ID2D1Image>) };
         if self.device_lost_flag.get() {
             return Err(Error::from_hresult(D2DERR_RECREATE_TARGET));
         }
-        Ok(())
+        draw_result
     }
 
     /// Copies the rendered pixels as tightly packed, top-down 32-bit premultiplied BGRA.
