@@ -9,8 +9,8 @@
 //   * `shared.inl` → `shared.rdl`: owns the opaque handle `HFOO`, the pointer alias
 //     `PSHARED`, and the scalar typedef `LRESULT` (each canonically deduplicated, so the
 //     copy `b.h` also sees is never re-emitted).
-//   * `a.h` → `a.rdl`: `AThing(PSHARED)` — references `PSHARED` by bare name.
-//   * `b.h` → `b.rdl`: `BThing(HFOO, PSHARED)` and `BReturn() -> LRESULT` — all by name.
+//   * `a.h` → `a.rdl`: `AThing(PSHARED)` - references `PSHARED` by bare name.
+//   * `b.h` → `b.rdl`: `BThing(HFOO, PSHARED)` and `BReturn() -> LRESULT` - all by name.
 //
 // This is the faithful, source-expressed metadata that replaced the editorial namespace
 // machinery: one flat namespace, ownership from the clang cursor's defining header (which
@@ -22,6 +22,7 @@ fn read(dir: &str, leaf: &str) -> String {
 
 #[test]
 fn partition_by_defining_header() {
+    let _guard = test_clang::libclang_guard();
     let scratch = format!("{}/header_partition", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 
@@ -64,7 +65,7 @@ fn partition_by_defining_header() {
     assert!(a.contains("fn AThing"), "a.rdl:\n{a}");
     assert!(b.contains("fn BThing"), "b.rdl:\n{b}");
 
-    // Cross-header references resolve by bare name in the flat namespace — never a
+    // Cross-header references resolve by bare name in the flat namespace - never a
     // `super::<Header>::` qualified path.
     assert!(a.contains("PSHARED"), "a.rdl:\n{a}");
     assert!(b.contains("HFOO"), "b.rdl:\n{b}");
@@ -81,7 +82,7 @@ fn partition_by_defining_header() {
     assert!(!b.contains("type LRESULT"), "b.rdl:\n{b}");
 
     // Pointer-sized ABI typedefs collapse to `usize`/`isize` at every reference and are
-    // never emitted as named `type` items — exactly like the fixed-width portability
+    // never emitted as named `type` items - exactly like the fixed-width portability
     // aliases (`DWORD` -> u32). `ULONG_PTR`/`SIZE_T` carry no meaning beyond being
     // pointer-sized, the reference metadata has no such types, and collapsing keeps them
     // architecture-neutral (no per-arch `u32`-vs-`usize` split). `BSize(SIZE_T) -> SIZE_T`
@@ -94,12 +95,13 @@ fn partition_by_defining_header() {
 }
 
 // `exclude_headers` drops a named header's whole partition even though nothing else scopes it
-// out — the mechanism `tool_win32` uses to keep `intsafe.h` (inline safe-math helpers whose only
-// scraped output is standard C limit macros) out of the corpus. `a.h` is a leaf (its `AThing` is
+// out - the mechanism `tool_win32` uses to keep `intsafe.h` (inline safe-math helpers whose only
+// scraped output is standard C limit macros) out of the metadata. `a.h` is a leaf (its `AThing` is
 // referenced by nothing), so excluding it must delete `a.rdl` while leaving `b.rdl` and the
 // shared header it depends on completely intact.
 #[test]
 fn exclude_headers_drops_partition() {
+    let _guard = test_clang::libclang_guard();
     let scratch = format!("{}/header_exclude", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 
@@ -138,12 +140,13 @@ fn exclude_headers_drops_partition() {
 // the out-of-scope `scope_crt/crt.h` and references `APITYPE` from it. With
 // `scope(["scope_api"])`, every in-scope declaration is emitted, but an out-of-scope
 // declaration survives only when an in-scope declaration transitively references it:
-//   * `APITYPE` — referenced by the in-scope `ApiCall`, so it is kept (the genuine
-//     cross-over type, like `va_list`/`EXCEPTION_DISPOSITION` in the real corpus).
-//   * `CRTNOISE` / `CrtOnly` — referenced by nothing in scope, so they are swept (the
+//   * `APITYPE` - referenced by the in-scope `ApiCall`, so it is kept (the genuine
+//     cross-over type, like `va_list`/`EXCEPTION_DISPOSITION` in the real scrape).
+//   * `CRTNOISE` / `CrtOnly` - referenced by nothing in scope, so they are swept (the
 //     C-runtime noise `windows.h` drags in but the Windows API never references).
 #[test]
 fn scope_sweeps_unreferenced_out_of_scope() {
+    let _guard = test_clang::libclang_guard();
     let scratch = format!("{}/header_scope", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 
@@ -183,6 +186,7 @@ fn scope_sweeps_unreferenced_out_of_scope() {
 // root namespace.
 #[test]
 fn dotted_header_flattens_to_single_partition() {
+    let _guard = test_clang::libclang_guard();
     let scratch = format!("{}/header_dotted", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 
@@ -212,7 +216,7 @@ fn dotted_header_flattens_to_single_partition() {
     assert!(dotted.contains("fn DottedThing"), "dotted.rdl:\n{dotted}");
 }
 
-// A WinRT C++ projection header (`winrt/asyncinfo.h` in the real corpus) declares a type
+// A WinRT C++ projection header (`winrt/asyncinfo.h` in the real scrape) declares a type
 // inside the `ABI::Windows::*` namespace, re-exports it to global scope with `using`, and a
 // global-scope declaration references it through that alias. An in-scope interop header
 // (`UserConsentVerifierInterop.h`) `#include`s that projection header, so emission resolves the
@@ -222,6 +226,7 @@ fn dotted_header_flattens_to_single_partition() {
 // panicking on the unexposed `ABI::Windows::Foundation::ProjStatus` type.
 #[test]
 fn abi_projection_type_maps_and_sweeps() {
+    let _guard = test_clang::libclang_guard();
     let scratch = format!("{}/header_abi", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 

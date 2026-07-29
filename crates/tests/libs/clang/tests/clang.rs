@@ -10,22 +10,22 @@ fn run(name: &str) {
 
     // Extract directives from `//!` comment lines at the top of the .h file.
     // Supported directives:
-    //   //! namespace <Name>       — sets the RDL namespace (default: "Test")
-    //   //! library <name.dll>     — sets the library name
-    //   //! map <symbol>=<dll>      — overrides the DLL for one symbol (may repeat)
-    //   //! filter <suffix>        — adds a filter (may repeat)
-    //   //! args <arg> ...         — extra clang args
-    //   //! include <path>         — adds an include directory (-I)
-    //   //! reference <file>       — compiles `input/<file>.rdl` to a winmd and
+    //   //! namespace <Name>       - sets the RDL namespace (default: "Test")
+    //   //! library <name.dll>     - sets the library name
+    //   //! map <symbol>=<dll>      - overrides the DLL for one symbol (may repeat)
+    //   //! filter <suffix>        - adds a filter (may repeat)
+    //   //! args <arg> ...         - extra clang args
+    //   //! include <path>         - adds an include directory (-I)
+    //   //! reference <file>       - compiles `input/<file>.rdl` to a winmd and
     //                               feeds it as a reference (cross-namespace
     //                               resolution; the target namespace is excluded)
-    //   //! flat                    — use the faithful per-header (flat) scrape
+    //   //! flat                    - use the faithful per-header (flat) scrape
     //                               (`write_by_header`, as `tool_win32`) instead of
     //                               the namespaced scrape (`write`, as `tool_webview`).
     //                               Enables the flat-mode collapses/normalizations
     //                               (`header_root.is_some()`); references/filters/library
     //                               do not apply.
-    //   //! symbols <a>,<b>,...     — restricts emission to an allowlist of function
+    //   //! symbols <a>,<b>,...     - restricts emission to an allowlist of function
     //                               names (comma-separated); only those functions and
     //                               their transitive type/const closure are emitted,
     //                               every other root is suppressed.
@@ -116,6 +116,10 @@ fn run(name: &str) {
     if !symbols.is_empty() {
         clang.symbols(symbols.iter().map(|s| s.as_str()));
     }
+
+    // libclang's process-global state is not safe under the harness's parallel test threads;
+    // serialize the scrape (see `test_clang::libclang_guard`).
+    let _guard = test_clang::libclang_guard();
 
     if flat {
         // Faithful per-header (flat) scrape, as `tool_win32`: one flat root namespace,

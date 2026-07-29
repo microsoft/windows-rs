@@ -8,6 +8,7 @@ publish = false
 [dependencies]
 helpers = { workspace = true }
 windows-clang = { workspace = true }
+windows-metadata = { workspace = true }
 
 [lints]
 workspace = true

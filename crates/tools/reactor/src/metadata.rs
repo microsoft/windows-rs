@@ -65,9 +65,9 @@ pub struct MetadataResolver {
 }
 
 impl MetadataResolver {
-    /// Load all `.winmd` files from `winmd_dir` — plus the reference winmds
-    /// (`Windows.winmd`, `Windows.Win32.winmd`, `Windows.Wdk.winmd`) bundled in
-    /// `windows-bindgen`'s `default/` directory — and build the resolver.
+    /// Load all `.winmd` files from `winmd_dir` - plus the reference winmds
+    /// (`Windows.winmd`, `Windows.Win32.winmd`) bundled in `windows-bindgen`'s
+    /// `default/` directory - and build the resolver.
     ///
     /// The reference winmds live only in `crates/libs/bindgen/default` (the single
     /// source of truth); they are located relative to this crate's manifest so the
@@ -109,7 +109,7 @@ impl MetadataResolver {
             }
         }
 
-        // Validate all entries — remove any with namespaces that don't exist in the index.
+        // Validate all entries - remove any with namespaces that don't exist in the index.
         lookup.retain(|_, mref| {
             index
                 .get(&mref.interface.namespace, &mref.interface.name)
@@ -332,13 +332,13 @@ impl MetadataResolver {
         let delegate_type = add_ref.param_types.first()?;
         // Extract the args class name from the delegate type.
         let args_class = match delegate_type {
-            // TypedEventHandler<TSender, TArgs> — extract TArgs from generics.
+            // TypedEventHandler<TSender, TArgs> - extract TArgs from generics.
             Type::ClassName(tn) if tn.generics.len() == 2 => match &tn.generics[1] {
                 Type::ClassName(args_tn) => args_tn.name.clone(),
                 Type::ValueName(args_tn) => args_tn.name.clone(),
                 _ => return None,
             },
-            // Non-generic delegate — look up args class from Invoke signature.
+            // Non-generic delegate - look up args class from Invoke signature.
             Type::ClassName(tn) => self.delegate_args.get(&tn.name)?.clone(),
             _ => return None,
         };
@@ -406,9 +406,9 @@ impl MetadataResolver {
     /// Used as a fallback when no metadata method exists (setter_fn properties).
     /// Reverse-maps the name through `primitive_value_for_type` to find the
     /// underlying `Type` and checks `is_copy` on it. Unknown names default
-    /// to non-Copy (safe — `.clone()` always works on Clone types).
+    /// to non-Copy (safe - `.clone()` always works on Clone types).
     pub fn is_copy_value_name(&self, value_name: &str) -> bool {
-        // Check every primitive Type — if primitive_value_for_type produces
+        // Check every primitive Type - if primitive_value_for_type produces
         // this name, use is_copy on that Type.
         if [
             Type::String,
@@ -426,7 +426,7 @@ impl MetadataResolver {
         }) {
             return true;
         }
-        // Check metadata enums and value types by short name — enums and
+        // Check metadata enums and value types by short name - enums and
         // value-type structs are always Copy in WinUI.
         self.enum_variants
             .keys()
@@ -464,7 +464,7 @@ impl MetadataResolver {
     }
 
     /// Map primitive and well-known Type variants to PropValue names.
-    /// Does not require resolver state — used during construction.
+    /// Does not require resolver state - used during construction.
     fn primitive_value_for_type(ty: &Type) -> Option<String> {
         match ty {
             Type::String => Some("Str".to_string()),
@@ -630,7 +630,7 @@ mod tests {
         );
         // IsChecked takes IReference<bool> → unwraps to Copy bool
         assert!(resolver.is_method_copy("CheckBox", "put_IsChecked"));
-        // ContentDialog.IsOpen — might not exist as put_IsOpen in metadata
+        // ContentDialog.IsOpen - might not exist as put_IsOpen in metadata
         // (uses custom ShowAsync pattern)
         assert!(
             !resolver.has_method("ContentDialog", "put_IsOpen"),

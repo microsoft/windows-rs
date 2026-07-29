@@ -31,6 +31,7 @@ pub struct Merger {
     /// `(path, arch_bits)` where bits are 1=X86, 2=X64, 4=Arm64.
     arch_inputs: Vec<(String, i32)>,
     output: String,
+    union_enums: bool,
 }
 
 impl Merger {
@@ -60,6 +61,17 @@ impl Merger {
         self
     }
 
+    /// Unions same-named enums across inputs into a single enum, deduplicating members.
+    ///
+    /// Without this, two inputs that each define an enum with the same namespace and name
+    /// produce two `TypeDef` rows. `tool_win32` uses this to reconcile a value type an `um`
+    /// header truncates (for example `FILE_INFORMATION_CLASS`) with the complete `km`
+    /// definition, yielding one enum carrying every member.
+    pub fn union_enums(&mut self, union_enums: bool) -> &mut Self {
+        self.union_enums = union_enums;
+        self
+    }
+
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
@@ -81,11 +93,59 @@ impl Merger {
 
         let mut file = writer::File::new(name);
 
-        let mut types: Vec<reader::TypeDef<'_>> = index.types().collect();
-        types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
+        if self.union_enums {
+            let mut groups: BTreeMap<(String, String), Vec<reader::TypeDef<'_>>> = BTreeMap::new();
+            for ty in index.types() {
+                groups
+                    .entry((ty.namespace().to_string(), ty.name().to_string()))
+                    .or_default()
+                    .push(ty);
+            }
 
-        for ty in types {
-            write_type(&mut file, &index, ty, None, None);
+            for copies in groups.values() {
+                // The per-namespace `Apis` container is defined by both the `um` and `km` inputs;
+                // union its fields and methods so both function/constant surfaces survive. Each
+                // member keeps its own arch tag, so no arch sub-grouping applies here.
+                if copies
+                    .iter()
+                    .all(|ty| ty.category() == reader::TypeCategory::Class)
+                {
+                    write_class_union(&mut file, &index, copies);
+                    continue;
+                }
+
+                // Sub-group by architecture so arch-specific variants (an enum whose members
+                // differ per arch, like `INTERLOCKED_RESULT`) are never unioned across arches;
+                // each arch keeps its own copy, tagged as the inputs had it.
+                let mut by_arch: BTreeMap<i32, Vec<reader::TypeDef<'_>>> = BTreeMap::new();
+                for copy in copies {
+                    by_arch
+                        .entry(type_arch_bits(*copy))
+                        .or_default()
+                        .push(*copy);
+                }
+
+                for arch_copies in by_arch.values() {
+                    if arch_copies
+                        .iter()
+                        .all(|ty| ty.category() == reader::TypeCategory::Enum)
+                    {
+                        write_enum_union(&mut file, arch_copies)?;
+                    } else {
+                        // Remaining non-enum collisions are not expected within one arch (the `km`
+                        // scrape excludes reference types other than extended enums); keep the
+                        // first deterministically.
+                        write_type(&mut file, &index, arch_copies[0], None, None);
+                    }
+                }
+            }
+        } else {
+            let mut types: Vec<reader::TypeDef<'_>> = index.types().collect();
+            types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
+
+            for ty in types {
+                write_type(&mut file, &index, ty, None, None);
+            }
         }
 
         if !self.arch_inputs.is_empty() {
@@ -282,6 +342,208 @@ fn write_field(file: &mut writer::File, field: reader::Field, arch_override: Opt
         field,
         arch_override,
     );
+}
+
+/// Returns the `SupportedArchitectureAttribute` bits on a type, or 0 (arch-neutral) if absent.
+fn type_arch_bits(def: reader::TypeDef) -> i32 {
+    for attribute in def.attributes() {
+        let ty = attribute.ctor().parent();
+        if ty.namespace() == "Windows.Win32.Metadata"
+            && ty.name() == "SupportedArchitectureAttribute"
+        {
+            if let Some((_, Value::I32(bits))) = attribute.value().first() {
+                return *bits;
+            }
+        }
+    }
+    0
+}
+
+/// Extracts the integer value of an enum member for comparison, or `None` for non-integer values.
+fn enum_member_i64(value: &Value) -> Option<i64> {
+    match value {
+        Value::U8(v) => Some(*v as i64),
+        Value::I8(v) => Some(*v as i64),
+        Value::U16(v) => Some(*v as i64),
+        Value::I16(v) => Some(*v as i64),
+        Value::U32(v) => Some(*v as i64),
+        Value::I32(v) => Some(*v as i64),
+        Value::U64(v) => Some(*v as i64),
+        Value::I64(v) => Some(*v),
+        _ => None,
+    }
+}
+
+/// Unions same-named class copies (the per-namespace `Apis` container) into one, combining every
+/// copy's fields and methods. Each member keeps its own attributes, including any arch tag the
+/// input winmd already applied, so the `um` and `km` function/constant surfaces both survive.
+fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[reader::TypeDef]) {
+    let def = copies[0];
+
+    let extends = def
+        .extends()
+        .map(|extends| {
+            writer::TypeDefOrRef::TypeRef(file.TypeRef(extends.namespace(), extends.name()))
+        })
+        .unwrap_or_default();
+    let type_def = file.TypeDef(def.namespace(), def.name(), extends, def.flags());
+
+    write_attributes_with_arch(file, writer::HasAttribute::TypeDef(type_def), def, None);
+
+    let generics: Vec<_> = def
+        .generic_params()
+        .map(|param| Type::Generic(param.name().to_string(), param.sequence()))
+        .collect();
+
+    let mut seen_fields: HashSet<String> = HashSet::new();
+    for copy in copies {
+        for field in copy.fields() {
+            let value = field
+                .constant()
+                .map(|c| format!("{:?}", c.value()))
+                .unwrap_or_default();
+            let key = format!("{}|{:?}|{value}", field.name(), field.ty());
+            if seen_fields.insert(key) {
+                write_field(file, field, None);
+            }
+        }
+    }
+
+    let mut seen_methods: HashSet<String> = HashSet::new();
+    for copy in copies {
+        for method in copy.methods() {
+            let key = format!("{}|{:?}", method.name(), method.signature(&generics));
+            if seen_methods.insert(key) {
+                write_method(file, method, &generics, None);
+            }
+        }
+    }
+
+    for inner_def in index.nested(def) {
+        write_type(file, index, inner_def, Some(type_def), None);
+    }
+}
+
+/// Returns `true` if the member name marks a trailing count sentinel in the NT naming style.
+///
+/// These enums terminate with a member whose value equals the member count, not a real value.
+/// A truncated projection carries a smaller sentinel; the fuller definition carries a larger
+/// one. The sentinel is the only member allowed to disagree across copies of the same enum.
+///
+/// The match is limited to the NT sentinel spellings - a `Max` prefix (`MaxKeySetInfoClass`,
+/// `MaximumInterfaceType`) or a PascalCase `Maximum` suffix (`PowerSystemMaximum`,
+/// `FileMaximumInformation`). A broader `contains("Max")` would also treat the many real enum
+/// values that merely contain `MAX`/`_MAX` (`IPPROTO_MAX`, `WBEM_MAX_PATH`, `MaxPayload128Bytes`)
+/// as tolerable, silently masking a genuine value conflict.
+fn is_max_sentinel(name: &str) -> bool {
+    name.starts_with("Max") || name.ends_with("Maximum") || name.ends_with("MaximumInformation")
+}
+
+/// Unions same-named enum copies into one enum carrying every member.
+///
+/// A `um` header often projects a value type in truncated or partial form while the `km` scrape
+/// emits more of it; neither is guaranteed to be a superset (for example `THREADINFOCLASS`, where
+/// `um` contributes `ThreadNameInformation` that `km` omits). The fullest copy sets the member
+/// order, the type flags, and the attributes; members other copies add are appended. A member
+/// shared by two copies must agree on its value, except for the trailing `Max*` count sentinel,
+/// whose value legitimately grows with the member count. Any other disagreement is a real
+/// metadata conflict and is rejected.
+fn write_enum_union(file: &mut writer::File, copies: &[reader::TypeDef]) -> Result<(), Error> {
+    let base = *copies
+        .iter()
+        .max_by_key(|copy| copy.fields().count())
+        .unwrap();
+
+    let base_members: HashMap<String, Value> = base
+        .fields()
+        .filter_map(|field| {
+            field
+                .constant()
+                .map(|c| (field.name().to_string(), c.value()))
+        })
+        .collect();
+
+    // Members present in some copy but not the fullest one, kept in first-appearance order.
+    let mut extra_order: Vec<String> = Vec::new();
+    let mut extras: HashMap<String, reader::Field> = HashMap::new();
+
+    let conflict = |field: reader::Field| {
+        Error::new(format!(
+            "enum `{}.{}` member `{}` has conflicting values across inputs",
+            base.namespace(),
+            base.name(),
+            field.name()
+        ))
+    };
+
+    for copy in copies {
+        for field in copy.fields() {
+            let Some(constant) = field.constant() else {
+                continue;
+            };
+            let value = constant.value();
+
+            if let Some(base_value) = base_members.get(field.name()) {
+                if *base_value == value {
+                    continue;
+                }
+                // The fullest copy's sentinel is authoritative (its count is the largest); a
+                // smaller sentinel from a truncated copy is discarded.
+                let tolerated = is_max_sentinel(field.name())
+                    && matches!(
+                        (enum_member_i64(base_value), enum_member_i64(&value)),
+                        (Some(b), Some(v)) if b >= v
+                    );
+                if !tolerated {
+                    return Err(conflict(field));
+                }
+                continue;
+            }
+
+            match extras.get(field.name()) {
+                None => {
+                    extra_order.push(field.name().to_string());
+                    extras.insert(field.name().to_string(), field);
+                }
+                Some(existing) => {
+                    let existing_value = existing.constant().unwrap().value();
+                    if existing_value == value {
+                        continue;
+                    }
+                    let keep_larger = is_max_sentinel(field.name())
+                        && matches!(
+                            (enum_member_i64(&existing_value), enum_member_i64(&value)),
+                            (Some(a), Some(b)) if a != b
+                        );
+                    if !keep_larger {
+                        return Err(conflict(field));
+                    }
+                    if enum_member_i64(&value) > enum_member_i64(&existing_value) {
+                        extras.insert(field.name().to_string(), field);
+                    }
+                }
+            }
+        }
+    }
+
+    let extends = base
+        .extends()
+        .map(|extends| {
+            writer::TypeDefOrRef::TypeRef(file.TypeRef(extends.namespace(), extends.name()))
+        })
+        .unwrap_or_default();
+
+    let type_def = file.TypeDef(base.namespace(), base.name(), extends, base.flags());
+    write_attributes_with_arch(file, writer::HasAttribute::TypeDef(type_def), base, None);
+
+    for field in base.fields() {
+        write_field(file, field, None);
+    }
+    for name in &extra_order {
+        write_field(file, extras[name], None);
+    }
+
+    Ok(())
 }
 
 fn write_method(

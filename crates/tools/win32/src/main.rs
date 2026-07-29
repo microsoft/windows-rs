@@ -1,23 +1,36 @@
+mod km;
+
 use windows_clang::*;
 
 /// Where intermediate binary winmd artifacts (per-arch throwaways and the x64
 /// scrape that feeds arch-merge) are written. This is under `target` and not
-/// tracked — these are regenerated on demand.
+/// tracked - these are regenerated on demand.
 const OUT_DIR: &str = "target/win32";
 
-/// The committed, canonical merged winmd. Unlike the per-arch intermediates this
-/// is checked in as `windows-bindgen`'s default Win32 metadata, so downstream
-/// `tool_bindings` filters can point `--in` at a stable in-repo winmd (and the
-/// bundled `"default"` bindings resolve against it) without re-running this tool.
-/// Re-derived from the `metadata/win32` RDL corpus (the source of truth) on every
-/// run; treat it as generated output.
-const WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
+/// The intermediate um Win32 winmd, compiled from the `metadata/win32` RDL this same run writes
+/// (phase A). Written under `target` and NOT committed. It is both the km scrape's resolution +
+/// exclusion reference (phase B) and the first input to the final merge (phase C). Keeping it
+/// uncommitted, with only the single merged [`MERGED_WINMD`] tracked, means one `gen` job
+/// regenerates every tracked artifact this tool owns.
+const UM_WINMD: &str = "target/win32/Windows.Win32.winmd";
 
-/// Resolution winmd(s) — `Windows.winmd`, the WinRT projection — consulted only to classify
+/// The intermediate km winmd carrying only the WDK-net-new surface (plus reference enums the km
+/// scrape extends, emitted in full), written by phase B under `target` and not tracked. Second
+/// input to the final merge.
+const KM_WINMD: &str = "target/wdk/Windows.Win32.km.winmd";
+
+/// The single committed, canonical winmd: phase C merges the um ([`UM_WINMD`]) and km
+/// ([`KM_WINMD`]) surfaces with same-named enums unioned, so a value type a um header truncates
+/// (for example `FILE_INFORMATION_CLASS`) carries every member. Downstream `tool_bindings` filters
+/// point `--in` at this stable in-repo winmd (and the bundled `"default"` bindings resolve against
+/// it). Re-derived on every run; treat it as generated output.
+const MERGED_WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
+
+/// Resolution winmd(s) - `Windows.winmd`, the WinRT projection - consulted only to classify
 /// declarations in the `ABI::Windows::*` C++/WinRT projection namespace that `roregistrationapi.h`
 /// and its interop closure reach. A type present in it is a true WinRT projection (mapped to a
 /// cross-winmd reference); a type absent from it is a Win32 COM interop entity captured into the
-/// flat `Windows.Win32` corpus. Never an exclusion base — no WinRT type is skipped or emitted here.
+/// flat `Windows.Win32` metadata. Never an exclusion base - no WinRT type is skipped or emitted here.
 const RESOLUTION_WINMDS: &[&str] = &["crates/libs/bindgen/default/Windows.winmd"];
 
 /// Where the per-header RDL snapshot is written. Unlike the binary winmd, the
@@ -28,14 +41,14 @@ const RDL_DIR: &str = "metadata/win32";
 
 /// Hand-authored metadata vocabulary seed file (not generated from headers). Defines
 /// the `Windows.Win32.Metadata` attribute types the converter emits. Lives outside
-/// [`RDL_DIR`] so the generated corpus directory can be freely cleared and rebuilt
+/// [`RDL_DIR`] so the generated RDL directory can be freely cleared and rebuilt
 /// without disturbing this prerequisite.
 const METADATA_SEED: &str = "metadata/metadata.rdl";
 
-/// Pinned Windows SDK version. The corpus is generated against the
+/// Pinned Windows SDK version. The metadata is generated against the
 /// `Microsoft.Windows.SDK.CPP` (headers) and per-arch `Microsoft.Windows.SDK.CPP.<arch>`
 /// (import libs) NuGet packages at this exact version, restored into the NuGet global
-/// cache — NOT whatever SDK happens to be installed under `C:\Program Files`. This is
+/// cache - NOT whatever SDK happens to be installed under `C:\Program Files`. This is
 /// what makes the scrape reproducible on any machine and in CI: same headers in, same
 /// `.rdl` out. Servicing builds of the same marketing version (`10.0.26100.0`) differ in
 /// content, so pinning the package version is the only way to defeat that drift. Bumping
@@ -76,20 +89,20 @@ const PRELUDE: &str = "#define SECURITY_WIN32\n#include <winsock2.h>\n#include <
 /// Device-driver headers (`ntddstor.h`, `poclass.h`, …) place their `DEFINE_GUID` blocks
 /// *outside* their include guards, so a header pulled in more than once re-runs the block.
 /// In `INITGUID` *definition* mode that second pass is a `__declspec(selectany)`
-/// re-definition that clang rejects — which is why these headers cannot join the main
+/// re-definition that clang rejects - which is why these headers cannot join the main
 /// translation unit (where `winusb.h` → `initguid.h` leaves `INITGUID` defined). Parsed in
 /// their own satellite TU with this reset after every include, `INITGUID` stays undefined
 /// and `guiddef.h` re-derives `DEFINE_GUID` as a plain `extern const GUID` declaration that
 /// is harmless to repeat. The faithful GUID values are read from the `DEFINE_GUID` macro
 /// arguments, so the declaration/definition distinction does not affect the captured
-/// metadata. (The main TU keeps definition mode so its wrapper-macro GUIDs — `vfw.h`'s
-/// `DEFINE_AVIGUID`, … — whose values live only in the expanded initializer are preserved.)
+/// metadata. (The main TU keeps definition mode so its wrapper-macro GUIDs - `vfw.h`'s
+/// `DEFINE_AVIGUID`, … - whose values live only in the expanded initializer are preserved.)
 const GUID_RESET: &str = "\n#undef INITGUID\n#include <guiddef.h>";
 
 // The orchestration manifest, expressed as plain `const` slices (was `win32.toml`). This is a
 // small, mechanical description of which SDK headers to emit (partitioned by their defining
 // header) and the import libraries that record which DLL exports each function. There is
-// deliberately NO type-level curation — no per-symbol owners, no re-homing, no synthetic
+// deliberately NO type-level curation - no per-symbol owners, no re-homing, no synthetic
 // attributes. The only inputs are mechanical; everything about the *shape* of the API comes
 // from the headers and SAL. Every declaration lands in the single flat `Windows.Win32`
 // namespace; its defining header only determines which `.rdl` file it is written to.
@@ -102,20 +115,20 @@ const ROOT: &str = "Windows.Win32";
 /// `windows.h` prelude transitively pulls in (the C-runtime under `ucrt`, the MSVC toolset
 /// `include`) is emitted only when an in-scope declaration references it, and is otherwise
 /// dropped. This is reachability-by-reference capture: it scopes the metadata to the Windows API
-/// surface without an allowlist (the genuine cross-over types — `size_t`, `va_list`,
-/// `EXCEPTION_DISPOSITION` — survive because in-scope APIs reference them).
+/// surface without an allowlist (the genuine cross-over types - `size_t`, `va_list`,
+/// `EXCEPTION_DISPOSITION` - survive because in-scope APIs reference them).
 const SCOPE: &[&str] = &["um", "shared"];
 
 /// In-scope headers dropped wholesale because they carry no genuine Windows API surface. `intsafe.h`
-/// is a bundle of inline safe-integer-arithmetic helpers (`UIntAdd`, `SizeTMult`, … — inline, never
+/// is a bundle of inline safe-integer-arithmetic helpers (`UIntAdd`, `SizeTMult`, … - inline, never
 /// exported, so never in metadata); the only thing the scraper captures from it is standard C
 /// type-limit macros (`INT32_MAX`, `UINT8_MAX`, `DWORD_MAX`, …) and its internal `*_ERROR`
-/// sentinels — none of which are Windows APIs, and several of which libclang can only truncate to a
+/// sentinels - none of which are Windows APIs, and several of which libclang can only truncate to a
 /// degenerate `-1` (`UINT32_MAX`, `INT64_MAX`, …). Excluding the header keeps that noise out of the
-/// corpus (and makes the multi-arch scrape robust to clang's `stdint.h` drifting across versions).
+/// metadata (and makes the multi-arch scrape robust to clang's `stdint.h` drifting across versions).
 const EXCLUDE_HEADERS: &[&str] = &["intsafe.h"];
 
-/// Architectures to scrape and arch-merge. The committed RDL corpus is always x64-canonical; any
+/// Architectures to scrape and arch-merge. The committed RDL is always x64-canonical; any
 /// additional arch listed here (`arm64`, `x86`) is scraped to a throwaway winmd and folded in via
 /// `SupportedArchitecture` so symbols that exist on only a subset of arches are tagged.
 /// Empty/`["x64"]` = single-arch.
@@ -124,7 +137,7 @@ const ARCHS: &[&str] = &["x64", "arm64", "x86"];
 /// API header file names (resolved against the pinned Windows SDK include tree) that are
 /// `#include`d to bring the desired API surface into the translation unit, e.g. `wingdi.h`. Every
 /// *defining header* reachable from these (and the `windows.h` prelude) is emitted as its own
-/// partition — there is no separate list of foundational headers to maintain, and no allowlist:
+/// partition - there is no separate list of foundational headers to maintain, and no allowlist:
 /// the closure is automatic.
 const HEADERS: &[&str] = &[
     "shellscalingapi.h",
@@ -262,6 +275,7 @@ const HEADERS: &[&str] = &[
     "fwpmu.h",
     "icmpapi.h",
     "mstcpip.h",
+    "wsrm.h",
     "mfmediaengine.h",
     "wmcodecdsp.h",
     "exdisp.h",
@@ -435,7 +449,7 @@ const HEADERS: &[&str] = &[
     // C-ABI interop headers whose `HWND`/`REFIID`/`void**` (or DXGI/D2D) bridge interfaces
     // win32metadata mapped to `Windows.Win32.System.WinRT[.*]`. They include only light COM
     // headers (`windows.h`, `ole2.h`, `oaidl.h`, `inspectable.h`, `dxgi.h`, …) already in the
-    // main TU — *not* the C++/WinRT projection headers (`windows.*.h`) — so they parse cleanly;
+    // main TU - *not* the C++/WinRT projection headers (`windows.*.h`) - so they parse cleanly;
     // any WinRT type they reach is resolved via the resolution winmd (see [`RESOLUTION_WINMDS`]).
     "UserConsentVerifierInterop.h",
     "UIViewSettingsInterop.h",
@@ -475,7 +489,7 @@ const HEADERS: &[&str] = &[
     "windows.ui.composition.interop.h",
     // WinRT C-ABI interop (winrt\ dir, out of the um/shared scope but named here so
     // scope_headers makes them roots). These are the flat COM/C interop headers that
-    // win32metadata maps to Windows.Win32.System.WinRT[.Metadata] — NOT the winmd-generated
+    // win32metadata maps to Windows.Win32.System.WinRT[.Metadata] - NOT the winmd-generated
     // C++ projection (windows.*.h) nor the C++ template libraries (wrl.h / WinRTBase.h /
     // cppwinrt\), which stay excluded.
     "roerrorapi.h",
@@ -495,7 +509,7 @@ const HEADERS: &[&str] = &[
     "audiopolicy.h",
     // Excluded WinRT interop headers: `RoMetadataApi.h` and `rometadataresolution.h`
     // `#include <cor.h>`, the CLR unmanaged-metadata header, which ships only in the
-    // NETFXSDK (not the pinned Windows SDK NuGet) — pulling it in would make the scrape
+    // NETFXSDK (not the pinned Windows SDK NuGet) - pulling it in would make the scrape
     // depend on a non-pinned, system-autodetected header and break the hermetic CI build.
     // `RoMetadataApi.h`'s `IMetaData*` reader interfaces are low-value CLR plumbing, so the
     // header is dropped rather than dragging in the .NET metadata surface. `roregistrationapi.h`
@@ -505,7 +519,7 @@ const HEADERS: &[&str] = &[
 ];
 
 /// Headers parsed in their own *satellite* translation unit instead of the main one. Reserved for
-/// headers that cannot co-exist in the main TU — the device-driver families (`ntddstor.h`,
+/// headers that cannot co-exist in the main TU - the device-driver families (`ntddstor.h`,
 /// `usbiodef.h`, …) whose `DEFINE_GUID` blocks sit outside their include guards and collide under
 /// definition mode. Parsed in isolation (with `INITGUID` held off) they emit cleanly; every shared
 /// declaration is deduplicated against the main TU by clang USR, so only their own device
@@ -718,8 +732,8 @@ const IMPORT_LIBS: &[&str] = &[
     "quartz.lib",
     "mfplay.lib",
     // Apiset umbrella fallback (appended last). Modern APIs that no per-DLL host library
-    // claims — `CreateFileMapping2`, the `*FromApp` file APIs, the package-dependency APIs,
-    // … — are exported only through an `api-ms-win-*` apiset contract (or a host DLL the
+    // claims - `CreateFileMapping2`, the `*FromApp` file APIs, the package-dependency APIs,
+    // … - are exported only through an `api-ms-win-*` apiset contract (or a host DLL the
     // umbrella records). Because resolution is first-wins and these come last, every
     // classic host-DLL mapping above is untouched; only the previously-empty residue is
     // stamped with the faithful DLL the umbrella records, matching the reference metadata,
@@ -738,7 +752,6 @@ const IMPORT_LIBS: &[&str] = &[
 fn main() {
     let time = std::time::Instant::now();
 
-    assert_no_duplicate_headers();
     for name in ARCHS {
         assert!(
             Arch::known(name).is_some(),
@@ -746,14 +759,49 @@ fn main() {
         );
     }
 
-    // Validate the toolchain is the pinned, reproducible one before scraping a single
-    // header: the loaded libclang must match `LIBCLANG_VERSION`, and the pinned SDK
-    // packages must be restored. This is what guarantees the committed corpus can be
-    // regenerated byte-for-byte here and in CI. Both are provisioned on demand (the
-    // pinned libclang and SDK NuGet packages are fetched + cached on first use)
-    // so a fresh checkout "just works" without a manual `nuget restore`.
+    // Validate the toolchain is the pinned, reproducible one before scraping a single header:
+    // the loaded libclang must match `LIBCLANG_VERSION`, and the pinned SDK/WDK packages must be
+    // restorable. This is what guarantees the committed metadata can be regenerated byte-for-byte
+    // here and in CI. Everything is provisioned on demand (pinned libclang and the SDK/WDK NuGet
+    // packages are fetched + cached on first use) so a fresh checkout "just works" without a
+    // manual `nuget restore`. Shared by both scrape phases, so it runs once here.
     ensure_libclang();
     assert_libclang_version();
+
+    // Phase A: scrape the user-mode Win32 surface into `metadata/win32` (committed RDL) and
+    // [`UM_WINMD`] (uncommitted).
+    let um = scrape_um();
+
+    // Phase B: scrape the kernel-mode WDK surface into `metadata/wdk` (committed RDL) and
+    // [`KM_WINMD`] (uncommitted), resolving against phase A's [`UM_WINMD`] and emitting only the
+    // WDK-net-new surface. Phase A wrote that winmd from the same three inputs an isolated
+    // re-derivation would use, so referencing it directly is output-neutral.
+    let km = km::scrape();
+
+    // Phase C: merge the um and km winmds into the single committed [`MERGED_WINMD`], unioning
+    // same-named enums so a value type a um header truncates carries the km definition's full
+    // member set in one enum.
+    windows_metadata::merge()
+        .input(UM_WINMD)
+        .input(KM_WINMD)
+        .union_enums(true)
+        .output(MERGED_WINMD)
+        .merge()
+        .unwrap_or_else(|e| panic!("failed to merge um + km winmds into `{MERGED_WINMD}`: {e}"));
+
+    println!(
+        "Wrote `{MERGED_WINMD}` (um {} + km {} partition(s)) in {:.2}s",
+        um.partitions,
+        km.partitions,
+        time.elapsed().as_secs_f32()
+    );
+}
+
+/// Phase A: scrape the user-mode Win32 API surface into `metadata/win32` (committed RDL) and
+/// [`UM_WINMD`] (uncommitted).
+fn scrape_um() -> Summary {
+    assert_no_duplicate_headers();
+
     let include_dirs = sdk_include_dirs();
     let lib_dirs = sdk_lib_dirs();
 
@@ -798,7 +846,7 @@ fn main() {
         sources.push(satellite);
     }
 
-    // x64 is always canonical (its scrape writes the committed corpus); any other arch
+    // x64 is always canonical (its scrape writes the committed metadata); any other arch
     // `ARCHS` lists is folded in via arch-merge.
     let archs = canonical_archs();
 
@@ -829,7 +877,7 @@ fn main() {
         root: ROOT.to_string(),
         rdl_dir: RDL_DIR.to_string(),
         out_dir: OUT_DIR.to_string(),
-        winmd: WINMD.to_string(),
+        winmd: UM_WINMD.to_string(),
         archs,
         reference_winmds: Vec::new(),
         resolution_winmds: RESOLUTION_WINMDS.iter().map(|s| s.to_string()).collect(),
@@ -838,11 +886,11 @@ fn main() {
     });
 
     print!("{summary}");
-    println!("Wrote {WINMD} ({} partition(s))", summary.partitions);
-    println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
+    println!("Wrote {UM_WINMD} ({} partition(s))", summary.partitions);
+    summary
 }
 
-/// x64 is always canonical (its scrape writes the committed corpus); any other arch listed in
+/// x64 is always canonical (its scrape writes the committed metadata); any other arch listed in
 /// [`ARCHS`] is folded in via arch-merge. Every arch name in `ARCHS` is validated in `main`.
 fn canonical_archs() -> Vec<Arch> {
     let extra: Vec<String> = ARCHS.iter().map(|name| name.to_string()).collect();
@@ -876,7 +924,7 @@ fn sdk_include_dirs() -> Vec<String> {
 
 /// The pinned SDK x64 import-library directories. The function → DLL mapping recorded by
 /// an import lib is arch-invariant (the DLL that exports a symbol is the same on every
-/// arch), so the x64 libs serve the canonical corpus and every additional arch scrape.
+/// arch), so the x64 libs serve the canonical metadata and every additional arch scrape.
 fn sdk_lib_dirs() -> Vec<String> {
     let base = nuget_package("microsoft.windows.sdk.cpp.x64", SDK_VERSION).join("c");
     ["um", "ucrt"]

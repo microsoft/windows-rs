@@ -12,7 +12,7 @@ pub unsafe fn NtOpenProcess(processhandle: *mut super::HANDLE, desiredaccess: su
     windows_core::link!("ntdll.dll" "system" fn NtOpenProcess(processhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, clientid : *const super::CLIENT_ID) -> windows_core::NTSTATUS);
     unsafe { NtOpenProcess(processhandle as _, desiredaccess, objectattributes, clientid.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCompareString(string1: *const super::STRING, string2: *const super::STRING, caseinsensitive: bool) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlCompareString(string1 : *const super::STRING, string2 : *const super::STRING, caseinsensitive : bool) -> i32);
@@ -23,7 +23,7 @@ pub unsafe fn RtlContractHashTable(hashtable: *const RTL_DYNAMIC_HASH_TABLE) -> 
     windows_core::link!("ntdll.dll" "system" fn RtlContractHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE) -> bool);
     unsafe { RtlContractHashTable(hashtable) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCopyString(destinationstring: *mut super::STRING, sourcestring: Option<*const super::STRING>) {
     windows_core::link!("ntdll.dll" "system" fn RtlCopyString(destinationstring : *mut super::STRING, sourcestring : *const super::STRING));
@@ -126,7 +126,7 @@ pub unsafe fn RtlEnumerateGenericTableWithoutSplayingAvl(table: *const RTL_AVL_T
     windows_core::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableWithoutSplayingAvl(table : *const RTL_AVL_TABLE, restartkey : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
     unsafe { RtlEnumerateGenericTableWithoutSplayingAvl(table, restartkey as _) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlEqualString(string1: *const super::STRING, string2: *const super::STRING, caseinsensitive: bool) -> bool {
     windows_core::link!("ntdll.dll" "system" fn RtlEqualString(string1 : *const super::STRING, string2 : *const super::STRING, caseinsensitive : bool) -> bool);
@@ -350,13 +350,13 @@ pub unsafe fn RtlNumberGenericTableElementsAvl(table: *const RTL_AVL_TABLE) -> u
     windows_core::link!("ntdll.dll" "system" fn RtlNumberGenericTableElementsAvl(table : *const RTL_AVL_TABLE) -> u32);
     unsafe { RtlNumberGenericTableElementsAvl(table) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[inline]
 pub unsafe fn RtlPrefixUnicodeString(string1: *const super::UNICODE_STRING, string2: *const super::UNICODE_STRING, caseinsensitive: bool) -> bool {
     windows_core::link!("ntdll.dll" "system" fn RtlPrefixUnicodeString(string1 : *const super::UNICODE_STRING, string2 : *const super::UNICODE_STRING, caseinsensitive : bool) -> bool);
     unsafe { RtlPrefixUnicodeString(string1, string2, caseinsensitive) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlQueryRegistryValueWithFallback(primaryhandle: Option<super::HANDLE>, fallbackhandle: Option<super::HANDLE>, valuename: *const super::UNICODE_STRING, valuelength: u32, valuetype: Option<*mut u32>, valuedata: *mut core::ffi::c_void, resultlength: *mut u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlQueryRegistryValueWithFallback(primaryhandle : super::HANDLE, fallbackhandle : super::HANDLE, valuename : *const super::UNICODE_STRING, valuelength : u32, valuetype : *mut u32, valuedata : *mut core::ffi::c_void, resultlength : *mut u32) -> windows_core::NTSTATUS);
@@ -427,7 +427,7 @@ pub unsafe fn RtlSubtreeSuccessor(links: *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_L
     windows_core::link!("ntdll.dll" "system" fn RtlSubtreeSuccessor(links : *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
     unsafe { RtlSubtreeSuccessor(links) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeString(destinationstring: *mut super::UNICODE_STRING, sourcestring: *const super::UNICODE_STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
@@ -438,7 +438,7 @@ pub unsafe fn RtlUpperChar(character: i8) -> i8 {
     windows_core::link!("ntdll.dll" "system" fn RtlUpperChar(character : i8) -> i8);
     unsafe { RtlUpperChar(character) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlUpperString(destinationstring: *mut super::STRING, sourcestring: *const super::STRING) {
     windows_core::link!("ntdll.dll" "system" fn RtlUpperString(destinationstring : *mut super::STRING, sourcestring : *const super::STRING));
@@ -479,7 +479,7 @@ pub unsafe fn ZwDeviceIoControlFile(filehandle: super::HANDLE, event: Option<sup
     windows_core::link!("ntdll.dll" "system" fn ZwDeviceIoControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_core::NTSTATUS);
     unsafe { ZwDeviceIoControlFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, iocontrolcode, inputbuffer.unwrap_or(core::mem::zeroed()) as _, inputbufferlength, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbufferlength) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[inline]
 pub unsafe fn ZwDisplayString(string: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwDisplayString(string : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
@@ -509,10 +509,10 @@ pub unsafe fn ZwQueryVolumeInformationFile(filehandle: super::HANDLE, iostatusbl
     windows_core::link!("ntdll.dll" "system" fn ZwQueryVolumeInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fsinformation : *mut core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_core::NTSTATUS);
     unsafe { ZwQueryVolumeInformationFile(filehandle, iostatusblock as _, fsinformation as _, length, fsinformationclass) }
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwSetInformationThread(threadhandle: super::HANDLE, threadinformationclass: super::THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::HANDLE, threadinformationclass : super::THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwSetInformationThread(threadhandle: super::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> windows_core::NTSTATUS);
     unsafe { ZwSetInformationThread(threadhandle, threadinformationclass, threadinformation, threadinformationlength) }
 }
 #[cfg(feature = "winnt")]
@@ -914,7 +914,7 @@ pub type BDCB_CALLBACK_TYPE = i32;
 pub type BDCB_CLASSIFICATION = i32;
 pub const BDCB_IMAGEFLAGS_FAILED_CODE_INTEGRITY: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDCB_IMAGE_INFORMATION {
     pub Classification: BDCB_CLASSIFICATION,
@@ -930,7 +930,7 @@ pub struct BDCB_IMAGE_INFORMATION {
     pub ImageHashLength: u32,
     pub CertificateThumbprintLength: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for BDCB_IMAGE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -943,7 +943,7 @@ pub struct BDCB_STATUS_UPDATE_CONTEXT {
 }
 pub type BDCB_STATUS_UPDATE_TYPE = i32;
 pub const BMC_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x487565ba_6494_4367_95ca_4eff893522f6);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type BOOT_DRIVER_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, classification: BDCB_CALLBACK_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION)>;
 pub const BOOT_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x3d61a466_ab40_409a_a698_f362d464b38f);
 pub type BUS_DATA_TYPE = i32;
@@ -5140,7 +5140,9 @@ pub const MaxPayload2048Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 4;
 pub const MaxPayload256Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 1;
 pub const MaxPayload4096Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 5;
 pub const MaxPayload512Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 2;
+pub const MaxProcessInfoClass: PROCESSINFOCLASS = 118;
 pub const MaxSubsystemInformationType: SUBSYSTEM_INFORMATION_TYPE = 2;
+pub const MaxThreadInfoClass: THREADINFOCLASS = 60;
 pub const MaxTimerInfoClass: TIMER_SET_INFORMATION_CLASS = 1;
 pub const MaximumBusDataType: BUS_DATA_TYPE = 12;
 pub const MaximumType: CONFIGURATION_TYPE = 41;
@@ -5267,7 +5269,7 @@ pub type PBDCB_CALLBACK_TYPE = *mut BDCB_CALLBACK_TYPE;
 pub type PBDCB_CLASSIFICATION = *mut BDCB_CLASSIFICATION;
 pub type PBDCB_STATUS_UPDATE_CONTEXT = *mut BDCB_STATUS_UPDATE_CONTEXT;
 pub type PBDCB_STATUS_UPDATE_TYPE = *mut BDCB_STATUS_UPDATE_TYPE;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PBOOT_DRIVER_CALLBACK_FUNCTION = *mut BOOT_DRIVER_CALLBACK_FUNCTION;
 pub type PBUS_DATA_TYPE = *mut BUS_DATA_TYPE;
 pub type PBUS_HANDLER = *mut _BUS_HANDLER;
@@ -11564,7 +11566,7 @@ pub type PIO_DRIVER_CREATE_CONTEXT = *mut IO_DRIVER_CREATE_CONTEXT;
 pub type PIO_FOEXT_SHADOW_FILE = *mut IO_FOEXT_SHADOW_FILE;
 pub type PIO_FOEXT_SILO_PARAMETERS = *mut IO_FOEXT_SILO_PARAMETERS;
 pub type PIO_QUERY_DEVICE_DATA_FORMAT = *mut IO_QUERY_DEVICE_DATA_FORMAT;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "wdm"))]
+#[cfg(all(feature = "ntsecapi", feature = "wdm"))]
 pub type PIO_QUERY_DEVICE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pathname: *const super::UNICODE_STRING, bustype: super::INTERFACE_TYPE, busnumber: u32, businformation: *const super::PKEY_VALUE_FULL_INFORMATION, controllertype: CONFIGURATION_TYPE, controllernumber: u32, controllerinformation: *const super::PKEY_VALUE_FULL_INFORMATION, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: u32, peripheralinformation: *const super::PKEY_VALUE_FULL_INFORMATION) -> windows_core::NTSTATUS>;
 pub type PIPMI_OS_SEL_RECORD = *mut IPMI_OS_SEL_RECORD;
 pub type PIPMI_OS_SEL_RECORD_TYPE = *mut IPMI_OS_SEL_RECORD_TYPE;
@@ -11596,7 +11598,7 @@ pub type PKUMS_CONTEXT_HEADER = *mut KUMS_CONTEXT_HEADER;
 pub type PKUSER_SHARED_DATA = *mut KUSER_SHARED_DATA;
 pub const PLATFORM_EXTENDED_RAS_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xc6749ac0_16fb_4868_b976_65a61299834f);
 pub type PLOADER_PARAMETER_BLOCK = *mut _LOADER_PARAMETER_BLOCK;
-#[cfg(all(feature = "filter", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "filter", feature = "ntsecapi", feature = "winnt"))]
 pub type PLOAD_IMAGE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(fullimagename: *const super::UNICODE_STRING, processid: super::HANDLE, imageinfo: *const super::IMAGE_INFO)>;
 pub type PMAP_REGISTER_ENTRY = *mut MAP_REGISTER_ENTRY;
 #[cfg(all(feature = "basetsd", feature = "mce", feature = "ntdef", feature = "wdm", feature = "winnt"))]
@@ -11876,7 +11878,7 @@ pub type PPROCESS_DEVICEMAP_INFORMATION = *mut PROCESS_DEVICEMAP_INFORMATION;
 pub type PPROCESS_DEVICEMAP_INFORMATION_EX = *mut PROCESS_DEVICEMAP_INFORMATION_EX;
 #[cfg(feature = "winnt")]
 pub type PPROCESS_EXCEPTION_PORT = *mut PROCESS_EXCEPTION_PORT;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PPROCESS_EXTENDED_BASIC_INFORMATION = *mut PROCESS_EXTENDED_BASIC_INFORMATION;
 pub type PPROCESS_HANDLE_TRACING_ENABLE = *mut PROCESS_HANDLE_TRACING_ENABLE;
 pub type PPROCESS_HANDLE_TRACING_ENABLE_EX = *mut PROCESS_HANDLE_TRACING_ENABLE_EX;
@@ -11886,7 +11888,7 @@ pub type PPROCESS_HANDLE_TRACING_ENTRY = *mut PROCESS_HANDLE_TRACING_ENTRY;
 pub type PPROCESS_HANDLE_TRACING_QUERY = *mut PROCESS_HANDLE_TRACING_QUERY;
 pub type PPROCESS_KEEPALIVE_COUNT_INFORMATION = *mut PROCESS_KEEPALIVE_COUNT_INFORMATION;
 pub type PPROCESS_MEMBERSHIP_INFORMATION = *mut PROCESS_MEMBERSHIP_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PPROCESS_REVOKE_FILE_HANDLES_INFORMATION = *mut PROCESS_REVOKE_FILE_HANDLES_INFORMATION;
 pub type PPROCESS_SESSION_INFORMATION = *mut PROCESS_SESSION_INFORMATION;
 pub type PPROCESS_SYSCALL_PROVIDER_INFORMATION = *mut PROCESS_SYSCALL_PROVIDER_INFORMATION;
@@ -11899,6 +11901,7 @@ pub type PPSHED_PLATFORM_DETAILS = *mut PSHED_PLATFORM_DETAILS;
 pub type PPSHED_PLATFORM_DETAILS_VALID_BITS = *mut PSHED_PLATFORM_DETAILS_VALID_BITS;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PPS_CREATE_NOTIFY_INFO = *mut PS_CREATE_NOTIFY_INFO;
+pub type PROCESSINFOCLASS = i32;
 pub const PROCESSOR_GENERIC_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x9876ccad_47b4_4bdb_b65e_16f193c4f3db);
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -12009,39 +12012,39 @@ pub const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u32 = 7;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u64 = 7;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION {
     pub Size: usize,
     pub BasicInfo: super::PROCESS_BASIC_INFORMATION,
     pub Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for PROCESS_EXTENDED_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union PROCESS_EXTENDED_BASIC_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0_0,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
     pub fn IsProtectedProcess(&self) -> bool {
         self._bitfield & 1 != 0
@@ -12167,7 +12170,7 @@ pub struct PROCESS_MEMBERSHIP_INFORMATION {
     pub ServerSiloId: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
     pub TargetDevicePath: super::UNICODE_STRING,
@@ -12820,6 +12823,81 @@ pub const PowerOn: PCI_EXPRESS_POWER_STATE = 0;
 pub const PrimaryDcache: CONFIGURATION_TYPE = 4;
 pub const PrimaryIcache: CONFIGURATION_TYPE = 3;
 pub const PrinterPeripheral: CONFIGURATION_TYPE = 30;
+pub const ProcessAccessToken: PROCESSINFOCLASS = 9;
+pub const ProcessAffinityMask: PROCESSINFOCLASS = 21;
+pub const ProcessAffinityUpdateMode: PROCESSINFOCLASS = 45;
+pub const ProcessBasePriority: PROCESSINFOCLASS = 5;
+pub const ProcessBasicInformation: PROCESSINFOCLASS = 0;
+pub const ProcessBreakOnTermination: PROCESSINFOCLASS = 29;
+pub const ProcessCheckStackExtentsMode: PROCESSINFOCLASS = 59;
+pub const ProcessCommandLineInformation: PROCESSINFOCLASS = 60;
+pub const ProcessCommitReleaseInformation: PROCESSINFOCLASS = 65;
+pub const ProcessCookie: PROCESSINFOCLASS = 36;
+pub const ProcessCycleTime: PROCESSINFOCLASS = 38;
+pub const ProcessDebugFlags: PROCESSINFOCLASS = 31;
+pub const ProcessDebugObjectHandle: PROCESSINFOCLASS = 30;
+pub const ProcessDebugPort: PROCESSINFOCLASS = 7;
+pub const ProcessDefaultHardErrorMode: PROCESSINFOCLASS = 12;
+pub const ProcessDeviceMap: PROCESSINFOCLASS = 23;
+pub const ProcessDynamicFunctionTableInformation: PROCESSINFOCLASS = 53;
+pub const ProcessEnableAlignmentFaultFixup: PROCESSINFOCLASS = 17;
+pub const ProcessEnergyTrackingState: PROCESSINFOCLASS = 82;
+pub const ProcessExceptionPort: PROCESSINFOCLASS = 8;
+pub const ProcessExecuteFlags: PROCESSINFOCLASS = 34;
+pub const ProcessFaultInformation: PROCESSINFOCLASS = 63;
+pub const ProcessForegroundInformation: PROCESSINFOCLASS = 25;
+pub const ProcessGroupInformation: PROCESSINFOCLASS = 47;
+pub const ProcessHandleCheckingMode: PROCESSINFOCLASS = 54;
+pub const ProcessHandleCount: PROCESSINFOCLASS = 20;
+pub const ProcessHandleInformation: PROCESSINFOCLASS = 51;
+pub const ProcessHandleTable: PROCESSINFOCLASS = 58;
+pub const ProcessHandleTracing: PROCESSINFOCLASS = 32;
+pub const ProcessImageFileMapping: PROCESSINFOCLASS = 44;
+pub const ProcessImageFileName: PROCESSINFOCLASS = 27;
+pub const ProcessImageFileNameWin32: PROCESSINFOCLASS = 43;
+pub const ProcessImageInformation: PROCESSINFOCLASS = 37;
+pub const ProcessInPrivate: PROCESSINFOCLASS = 70;
+pub const ProcessInstrumentationCallback: PROCESSINFOCLASS = 40;
+pub const ProcessIoCounters: PROCESSINFOCLASS = 2;
+pub const ProcessIoPortHandlers: PROCESSINFOCLASS = 13;
+pub const ProcessIoPriority: PROCESSINFOCLASS = 33;
+pub const ProcessKeepAliveCount: PROCESSINFOCLASS = 55;
+pub const ProcessLUIDDeviceMapsEnabled: PROCESSINFOCLASS = 28;
+pub const ProcessLdtInformation: PROCESSINFOCLASS = 10;
+pub const ProcessLdtSize: PROCESSINFOCLASS = 11;
+pub const ProcessMemoryAllocationMode: PROCESSINFOCLASS = 46;
+pub const ProcessMemoryExhaustion: PROCESSINFOCLASS = 62;
+pub const ProcessMitigationPolicy: PROCESSINFOCLASS = 52;
+pub const ProcessNetworkIoCounters: PROCESSINFOCLASS = 114;
+pub const ProcessOwnerInformation: PROCESSINFOCLASS = 49;
+pub const ProcessPagePriority: PROCESSINFOCLASS = 39;
+pub const ProcessPooledUsageAndLimits: PROCESSINFOCLASS = 14;
+pub const ProcessPriorityBoost: PROCESSINFOCLASS = 22;
+pub const ProcessPriorityClass: PROCESSINFOCLASS = 18;
+pub const ProcessProtectionInformation: PROCESSINFOCLASS = 61;
+pub const ProcessQuotaLimits: PROCESSINFOCLASS = 1;
+pub const ProcessRaisePriority: PROCESSINFOCLASS = 6;
+pub const ProcessRaiseUMExceptionOnInvalidHandleClose: PROCESSINFOCLASS = 71;
+pub const ProcessReserved1Information: PROCESSINFOCLASS = 66;
+pub const ProcessReserved2Information: PROCESSINFOCLASS = 67;
+pub const ProcessRevokeFileHandles: PROCESSINFOCLASS = 56;
+pub const ProcessSessionInformation: PROCESSINFOCLASS = 24;
+pub const ProcessSubsystemInformation: PROCESSINFOCLASS = 75;
+pub const ProcessSubsystemProcess: PROCESSINFOCLASS = 68;
+pub const ProcessTelemetryIdInformation: PROCESSINFOCLASS = 64;
+pub const ProcessThreadStackAllocation: PROCESSINFOCLASS = 41;
+pub const ProcessTimes: PROCESSINFOCLASS = 4;
+pub const ProcessTlsInformation: PROCESSINFOCLASS = 35;
+pub const ProcessTokenVirtualizationEnabled: PROCESSINFOCLASS = 48;
+pub const ProcessUserModeIOPL: PROCESSINFOCLASS = 16;
+pub const ProcessVmCounters: PROCESSINFOCLASS = 3;
+pub const ProcessWin32kSyscallFilterInformation: PROCESSINFOCLASS = 79;
+pub const ProcessWindowInformation: PROCESSINFOCLASS = 50;
+pub const ProcessWorkingSetControl: PROCESSINFOCLASS = 57;
+pub const ProcessWorkingSetWatch: PROCESSINFOCLASS = 15;
+pub const ProcessWorkingSetWatchEx: PROCESSINFOCLASS = 42;
+pub const ProcessWow64Information: PROCESSINFOCLASS = 26;
+pub const ProcessWx86Information: PROCESSINFOCLASS = 19;
 pub const PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = 0;
 pub const PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = 0;
 pub const PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = 1;
@@ -13195,6 +13273,7 @@ pub const SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = 0;
 pub const SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = 1;
 pub const SystemMemory: CONFIGURATION_TYPE = 37;
 pub type TABLE_SEARCH_RESULT = i32;
+pub type THREADINFOCLASS = i32;
 pub const THREAD_CSWITCH_PMU_DISABLE: i32 = 0;
 pub const THREAD_CSWITCH_PMU_ENABLE: i32 = 1;
 #[repr(C)]
@@ -13255,6 +13334,46 @@ pub const TapeController: CONFIGURATION_TYPE = 14;
 pub const TapePeripheral: CONFIGURATION_TYPE = 27;
 pub const TcAdapter: CONFIGURATION_TYPE = 9;
 pub const TerminalPeripheral: CONFIGURATION_TYPE = 33;
+pub const ThreadActualBasePriority: THREADINFOCLASS = 25;
+pub const ThreadActualGroupAffinity: THREADINFOCLASS = 41;
+pub const ThreadAffinityMask: THREADINFOCLASS = 4;
+pub const ThreadAmILastThread: THREADINFOCLASS = 12;
+pub const ThreadBasePriority: THREADINFOCLASS = 3;
+pub const ThreadBasicInformation: THREADINFOCLASS = 0;
+pub const ThreadBreakOnTermination: THREADINFOCLASS = 18;
+pub const ThreadCSwitchMon: THREADINFOCLASS = 27;
+pub const ThreadCSwitchPmu: THREADINFOCLASS = 28;
+pub const ThreadCounterProfiling: THREADINFOCLASS = 32;
+pub const ThreadCpuAccountingInformation: THREADINFOCLASS = 34;
+pub const ThreadCycleTime: THREADINFOCLASS = 23;
+pub const ThreadDescriptorTableEntry: THREADINFOCLASS = 6;
+pub const ThreadDynamicCodePolicyInfo: THREADINFOCLASS = 42;
+pub const ThreadEnableAlignmentFaultFixup: THREADINFOCLASS = 7;
+pub const ThreadEventPair_Reusable: THREADINFOCLASS = 8;
+pub const ThreadGroupInformation: THREADINFOCLASS = 30;
+pub const ThreadHideFromDebugger: THREADINFOCLASS = 17;
+pub const ThreadIdealProcessor: THREADINFOCLASS = 13;
+pub const ThreadIdealProcessorEx: THREADINFOCLASS = 33;
+pub const ThreadImpersonationToken: THREADINFOCLASS = 5;
+pub const ThreadIoPriority: THREADINFOCLASS = 22;
+pub const ThreadIsIoPending: THREADINFOCLASS = 16;
+pub const ThreadIsTerminated: THREADINFOCLASS = 20;
+pub const ThreadLastSystemCall: THREADINFOCLASS = 21;
+pub const ThreadNameInformation: THREADINFOCLASS = 38;
+pub const ThreadPagePriority: THREADINFOCLASS = 24;
+pub const ThreadPerformanceCount: THREADINFOCLASS = 11;
+pub const ThreadPriority: THREADINFOCLASS = 2;
+pub const ThreadPriorityBoost: THREADINFOCLASS = 14;
+pub const ThreadQuerySetWin32StartAddress: THREADINFOCLASS = 9;
+pub const ThreadSetTlsArrayAddress: THREADINFOCLASS = 15;
+pub const ThreadSubsystemInformation: THREADINFOCLASS = 45;
+pub const ThreadSuspendCount: THREADINFOCLASS = 35;
+pub const ThreadSwitchLegacyState: THREADINFOCLASS = 19;
+pub const ThreadTebInformation: THREADINFOCLASS = 26;
+pub const ThreadTimes: THREADINFOCLASS = 1;
+pub const ThreadUmsInformation: THREADINFOCLASS = 31;
+pub const ThreadWow64Context: THREADINFOCLASS = 29;
+pub const ThreadZeroTlsCell: THREADINFOCLASS = 10;
 pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = 0;
 pub const TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = 0;
 pub const TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = 1;

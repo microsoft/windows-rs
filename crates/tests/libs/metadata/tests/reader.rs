@@ -25,7 +25,6 @@ fn item_index() {
     let index = reader::Index::new(vec![
         reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap(),
         reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap(),
-        reader::File::read("../../../libs/bindgen/default/Windows.Wdk.winmd").unwrap(),
     ]);
 
     let reader::Item::Type(ty) = index.expect_item("Windows.Foundation", "Point") else {

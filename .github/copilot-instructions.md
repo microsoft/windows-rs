@@ -272,10 +272,10 @@ not duplicated (both sides read the shared table), but nothing guarantees a coll
 suppression site stay paired. A suppress-definition column on `Collapse` carrying the cursor kind
 (typedef/struct/union) each row suppresses would make the pairing a compiler-checked fact.
 
-Output-neutrality check for any clang change: regenerate the three scrape consumers - `tool_win32`
-and `tool_wdk` (flat, `write_by_header`) and `tool_webview` (namespaced, `write`) - and confirm
-`git diff` shows no generated-file changes. `tool_bindings`/`tool_package`/`tool_features` derive
-from the winmds, so an unchanged winmd proves them unchanged too.
+Output-neutrality check for any clang change: regenerate the two scrape consumers - `tool_win32`
+(flat, `write_by_header`, both the um and km scrapes) and `tool_webview` (namespaced, `write`) - and
+confirm `git diff` shows no generated-file changes. `tool_bindings`/`tool_package`/`tool_features`
+derive from the winmds, so an unchanged winmd proves them unchanged too.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 

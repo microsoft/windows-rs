@@ -4,10 +4,10 @@
 //! every flat/minimal consumer but leaves `--package` generation (which derives file layout and
 //! Cargo features from namespaces) with nothing to partition on. This module synthesises the
 //! "optional downstream map over the flat namespace": it routes every type/function/constant to
-//! a namespace named after its defining header under the corpus root (`wdm.rdl` -> `Windows.Win32.wdm`)
+//! a namespace named after its defining header under the target root (`wdm.rdl` -> `Windows.Win32.wdm`)
 //! and rewrites the flat winmds into that partition via `windows_metadata::remap`.
 //!
-//! The partition is metadata-derived — by default one namespace per `.rdl` file, with a small
+//! The partition is metadata-derived - by default one namespace per `.rdl` file, with a small
 //! curated allowlist of header-name prefixes (`FOLD_PREFIXES`) that fold obviously-related headers
 //! into one family namespace (`d2d1`, `d2d1_1`, `d2d1effects` -> `Windows.d2d`). There is no
 //! automatic name heuristic (it mis-groups prefix collisions like `msinkaut` under `msi`), no
@@ -15,12 +15,14 @@
 
 use std::collections::HashMap;
 
-/// A flat corpus to remap: the committed per-header RDL directory (the routing signal), the flat
-/// winmd compiled from it, and the target namespace root the headers hang under.
-pub struct Corpus {
-    /// Committed per-header RDL directory, e.g. `metadata/wdk`.
-    pub rdl_dir: &'static str,
-    /// Flat winmd compiled from `rdl_dir`, e.g. `crates/libs/bindgen/default/Windows.Wdk.winmd`.
+/// The inputs to the header remap: the committed per-header RDL directories (the routing signal),
+/// the flat winmd compiled from them, and the target namespace root the headers hang under.
+pub struct RemapPlan {
+    /// Committed per-header RDL directories, e.g. `["metadata/win32", "metadata/wdk"]`. Every
+    /// `.rdl` file across them routes its declared items to a namespace named after its stem, so
+    /// the two directories are read together as one flat surface.
+    pub rdl_dirs: &'static [&'static str],
+    /// Flat winmd the routed types live in, e.g. the merged `Windows.Win32.winmd`.
     pub winmd: &'static str,
     /// Target namespace root, e.g. `Windows.Win32` (headers become `Windows.Win32.<stem>`).
     pub root: &'static str,
@@ -34,8 +36,8 @@ const FLAT_NAMESPACE: &str = "Windows.Win32";
 ///
 /// This is deliberately an explicit allowlist rather than an automatic name heuristic. A purely
 /// name-based rule (fold any header into the shortest existing header-stem that is a prefix of it)
-/// mis-groups headers that merely share a prefix — `msinkaut` (Ink) under `msi` (Installer),
-/// `playsoundapi` under `pla`, `icmpapi` (ICMP) under `icm` — and cannot be told apart from real
+/// mis-groups headers that merely share a prefix - `msinkaut` (Ink) under `msi` (Installer),
+/// `playsoundapi` under `pla`, `icmpapi` (ICMP) under `icm` - and cannot be told apart from real
 /// families like `sql`/`sqlext` without curation. So instead we assert the safe prefixes here,
 /// each verified to cover only genuinely related headers. A header matching no prefix keeps its
 /// own name. The longest matching prefix wins (the current list has no overlaps).
@@ -72,31 +74,34 @@ fn fold_stem(stem: &str) -> &str {
         .map_or(stem, |prefix| *prefix)
 }
 
-/// Builds the `name -> namespace` route map for a corpus by walking each `.rdl` file's declared
-/// item names. Returns the routes plus a per-namespace item-count summary for reporting.
-pub fn routes(corpus: &Corpus) -> (HashMap<String, String>, Vec<(String, usize)>) {
+/// Builds the `name -> namespace` route map by walking every `.rdl` file's declared item names
+/// across the plan's RDL directories. Returns the routes plus a per-namespace item-count summary
+/// for reporting.
+pub fn routes(plan: &RemapPlan) -> (HashMap<String, String>, Vec<(String, usize)>) {
     let mut per_file: Vec<(String, Vec<String>)> = Vec::new();
 
-    let mut entries: Vec<std::path::PathBuf> = std::fs::read_dir(corpus.rdl_dir)
-        .unwrap_or_else(|e| panic!("failed to read `{}`: {e}", corpus.rdl_dir))
-        .filter_map(|e| e.ok())
-        .map(|e| e.path())
-        .filter(|p| p.extension().is_some_and(|x| x == "rdl"))
-        .collect();
-    entries.sort();
+    for rdl_dir in plan.rdl_dirs {
+        let mut entries: Vec<std::path::PathBuf> = std::fs::read_dir(rdl_dir)
+            .unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
+            .filter_map(|e| e.ok())
+            .map(|e| e.path())
+            .filter(|p| p.extension().is_some_and(|x| x == "rdl"))
+            .collect();
+        entries.sort();
 
-    for path in &entries {
-        let stem = path
-            .file_stem()
-            .and_then(|s| s.to_str())
-            .expect("rdl file has a stem");
-        let path_str = path.to_string_lossy().replace('\\', "/");
-        let names = windows_rdl::item_names(&path_str, FLAT_NAMESPACE)
-            .unwrap_or_else(|e| panic!("failed to read `{path_str}`: {e:?}"));
-        // Files that declare nothing under the flat namespace (e.g. the metadata seed, whose
-        // types live in `Windows.Win32.Metadata`) contribute no routes and are skipped.
-        if !names.is_empty() {
-            per_file.push((stem.to_string(), names));
+        for path in &entries {
+            let stem = path
+                .file_stem()
+                .and_then(|s| s.to_str())
+                .expect("rdl file has a stem");
+            let path_str = path.to_string_lossy().replace('\\', "/");
+            let names = windows_rdl::item_names(&path_str, FLAT_NAMESPACE)
+                .unwrap_or_else(|e| panic!("failed to read `{path_str}`: {e:?}"));
+            // Files that declare nothing under the flat namespace (e.g. the metadata seed, whose
+            // types live in `Windows.Win32.Metadata`) contribute no routes and are skipped.
+            if !names.is_empty() {
+                per_file.push((stem.to_string(), names));
+            }
         }
     }
 
@@ -104,7 +109,7 @@ pub fn routes(corpus: &Corpus) -> (HashMap<String, String>, Vec<(String, usize)>
     let mut summary: HashMap<String, usize> = HashMap::new();
 
     for (stem, names) in &per_file {
-        let namespace = format!("{}.{}", corpus.root, fold_stem(stem));
+        let namespace = format!("{}.{}", plan.root, fold_stem(stem));
         for name in names {
             map.insert(name.clone(), namespace.clone());
         }
@@ -116,19 +121,11 @@ pub fn routes(corpus: &Corpus) -> (HashMap<String, String>, Vec<(String, usize)>
     (map, summary)
 }
 
-/// Remaps the flat winmds of every corpus into a single header-namespaced winmd at `output`.
-///
-/// All corpora are read together so cross-corpus references (a WDK type naming a Win32 type)
-/// resolve to the referent's remapped namespace. Returns the combined per-namespace summary.
-pub fn run(corpora: &[Corpus], output: &str) -> Vec<(String, usize)> {
-    let mut map = HashMap::new();
-    let mut summary = Vec::new();
-    for corpus in corpora {
-        let (routes, corpus_summary) = routes(corpus);
-        map.extend(routes);
-        summary.extend(corpus_summary);
-    }
-    summary.sort();
+/// Remaps the flat winmd into a single header-namespaced winmd at `output`. Every RDL directory in
+/// the plan is read together, so a cross-directory reference (a WDK type naming a Win32 type)
+/// resolves to the referent's remapped namespace. Returns the per-namespace item-count summary.
+pub fn run(plan: &RemapPlan, output: &str) -> Vec<(String, usize)> {
+    let (map, summary) = routes(plan);
 
     if let Some(parent) = std::path::Path::new(output).parent() {
         std::fs::create_dir_all(parent)
@@ -140,10 +137,8 @@ pub fn run(corpora: &[Corpus], output: &str) -> Vec<(String, usize)> {
         .source(FLAT_NAMESPACE)
         .fallback(FLAT_NAMESPACE)
         .routes(map)
+        .input(plan.winmd)
         .output(output);
-    for corpus in corpora {
-        remapper.input(corpus.winmd);
-    }
     remapper
         .remap()
         .unwrap_or_else(|e| panic!("failed to remap into `{output}`: {e:?}"));

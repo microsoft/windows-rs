@@ -2127,6 +2127,10 @@ pub use wsd::*;
 pub mod wsmandisp;
 #[cfg(feature = "wsmandisp")]
 pub use wsmandisp::*;
+#[cfg(feature = "wsrm")]
+pub mod wsrm;
+#[cfg(feature = "wsrm")]
+pub use wsrm::*;
 #[cfg(feature = "wtsapi32")]
 pub mod wtsapi32;
 #[cfg(feature = "wtsapi32")]

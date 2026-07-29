@@ -303,7 +303,7 @@ pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = 1;
 pub const Interactive: SECURITY_LOGON_TYPE = 2;
 pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub SinceLastUsed: u64,
@@ -319,7 +319,6 @@ pub struct KDC_PROXY_CACHE_ENTRY_DATA {
 pub const KERBEROS_REVISION: i32 = 6;
 pub const KERBEROS_VERSION: i32 = 5;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -329,7 +328,6 @@ pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub DcFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -338,7 +336,7 @@ pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub AddressType: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -349,14 +347,14 @@ pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub Flags: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST_EX {
     pub Credentials: KERB_ADD_CREDENTIALS_REQUEST,
     pub PrincipalNameCount: u32,
     pub PrincipalNames: [UNICODE_STRING; 1],
 }
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 impl Default for KERB_ADD_CREDENTIALS_REQUEST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -377,7 +375,6 @@ impl Default for KERB_AUTH_DATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub DiscoveryTime: u64,
@@ -403,7 +400,7 @@ pub struct KERB_CERTIFICATE_INFO {
 }
 pub type KERB_CERTIFICATE_INFO_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct KERB_CERTIFICATE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -414,7 +411,7 @@ pub struct KERB_CERTIFICATE_LOGON {
     pub CspDataLength: u32,
     pub CspData: super::PUCHAR,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 impl Default for KERB_CERTIFICATE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -423,7 +420,7 @@ impl Default for KERB_CERTIFICATE_LOGON {
 pub const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: i32 = 1;
 pub const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct KERB_CERTIFICATE_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -433,7 +430,7 @@ pub struct KERB_CERTIFICATE_S4U_LOGON {
     pub CertificateLength: u32,
     pub Certificate: super::PUCHAR,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 impl Default for KERB_CERTIFICATE_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -444,7 +441,7 @@ pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: i32 = 4;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CERTIFICATE_UNLOCK_LOGON {
     pub Logon: KERB_CERTIFICATE_LOGON,
@@ -457,7 +454,6 @@ pub struct KERB_CHANGEMACHINEPASSWORD_REQUEST {
     pub ForcePasswordChange: bool,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -624,21 +620,19 @@ pub const KERB_ETYPE_RSA_PUB_MD5: i32 = 11;
 pub const KERB_ETYPE_RSA_PUB_SHA1: i32 = 12;
 pub const KERB_ETYPE_RSA_SHA1_CMS: i32 = 11;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_EXTERNAL_NAME {
     pub NameType: i16,
     pub NameCount: u16,
     pub Names: [UNICODE_STRING; 1],
 }
-#[cfg(feature = "lsalookup")]
 impl Default for KERB_EXTERNAL_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct KERB_EXTERNAL_TICKET {
     pub ServiceName: PKERB_EXTERNAL_NAME,
@@ -658,14 +652,13 @@ pub struct KERB_EXTERNAL_TICKET {
     pub EncodedTicketSize: u32,
     pub EncodedTicket: super::PUCHAR,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 impl Default for KERB_EXTERNAL_TICKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_INTERACTIVE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -674,7 +667,6 @@ pub struct KERB_INTERACTIVE_LOGON {
     pub Password: UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_INTERACTIVE_PROFILE {
     pub MessageType: KERB_PROFILE_BUFFER_TYPE,
@@ -695,7 +687,7 @@ pub struct KERB_INTERACTIVE_PROFILE {
     pub UserFlags: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON {
     pub Logon: KERB_INTERACTIVE_LOGON,
@@ -754,7 +746,7 @@ pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     pub CountOfPurged: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -763,7 +755,7 @@ pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub TicketTemplate: KERB_TICKET_CACHE_INFO_EX,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -777,21 +769,18 @@ pub struct KERB_QUERY_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_BINDING_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfEntries: u32,
     pub Entries: PKERB_BINDING_CACHE_ENTRY_DATA,
 }
-#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_BINDING_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -816,14 +805,14 @@ pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfEntries: u32,
     pub Entries: PKDC_PROXY_CACHE_ENTRY_DATA,
 }
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 impl Default for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -838,56 +827,48 @@ pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfCreds: u32,
     pub Creds: PKERB_S4U2PROXY_CRED,
 }
-#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX2; 1],
 }
-#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX3; 1],
 }
-#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX; 1],
 }
-#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -901,14 +882,12 @@ pub struct KERB_QUERY_TKT_CACHE_REQUEST {
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO; 1],
 }
-#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -931,7 +910,7 @@ pub struct KERB_REFRESH_POLICY_RESPONSE {
 pub const KERB_REFRESH_SCCRED_GETTGT: i32 = 1;
 pub const KERB_REFRESH_SCCRED_RELEASE: i32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_REFRESH_SCCRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -944,7 +923,6 @@ pub const KERB_REQUEST_CRED_LOCAL_ACCOUNT: i32 = 8;
 pub const KERB_REQUEST_REMOVE_CREDENTIAL: i32 = 4;
 pub const KERB_REQUEST_REPLACE_CREDENTIAL: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -976,7 +954,7 @@ pub const KERB_RETRIEVE_TICKET_USE_CACHE_ONLY: i32 = 2;
 pub const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: i32 = 4;
 pub const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: i32 = 16;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -988,13 +966,12 @@ pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub CredentialsHandle: super::SecHandle,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_TKT_RESPONSE {
     pub Ticket: KERB_EXTERNAL_TICKET,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     pub ServerName: UNICODE_STRING,
@@ -1004,7 +981,6 @@ pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
 }
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_S4U2PROXY_CRED {
     pub UserName: UNICODE_STRING,
@@ -1015,7 +991,6 @@ pub struct KERB_S4U2PROXY_CRED {
     pub CountOfEntries: u32,
     pub Entries: PKERB_S4U2PROXY_CACHE_ENTRY_INFO,
 }
-#[cfg(feature = "lsalookup")]
 impl Default for KERB_S4U2PROXY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1023,7 +998,6 @@ impl Default for KERB_S4U2PROXY_CRED {
 }
 pub const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -1034,7 +1008,7 @@ pub struct KERB_S4U_LOGON {
 pub const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
 pub const KERB_S4U_LOGON_FLAG_IDENTIFY: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1051,7 +1025,7 @@ pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub KdcAddressType: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SETPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -1065,7 +1039,7 @@ pub struct KERB_SETPASSWORD_REQUEST {
 pub const KERB_SETPASS_USE_CREDHANDLE: i32 = 2;
 pub const KERB_SETPASS_USE_LOGONID: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct KERB_SMART_CARD_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
@@ -1073,28 +1047,28 @@ pub struct KERB_SMART_CARD_LOGON {
     pub CspDataLength: u32,
     pub CspData: super::PUCHAR,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 impl Default for KERB_SMART_CARD_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct KERB_SMART_CARD_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub CertificateSize: u32,
     pub CertificateData: super::PUCHAR,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 impl Default for KERB_SMART_CARD_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON {
     pub Logon: KERB_SMART_CARD_LOGON,
@@ -1112,7 +1086,6 @@ pub struct KERB_SUBMIT_TKT_REQUEST {
     pub KerbCredOffset: u32,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_CACHE_INFO {
     pub ServerName: UNICODE_STRING,
@@ -1124,7 +1097,6 @@ pub struct KERB_TICKET_CACHE_INFO {
     pub TicketFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_CACHE_INFO_EX {
     pub ClientName: UNICODE_STRING,
@@ -1138,7 +1110,6 @@ pub struct KERB_TICKET_CACHE_INFO_EX {
     pub TicketFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub ClientName: UNICODE_STRING,
@@ -1154,7 +1125,6 @@ pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub BranchId: u32,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub ClientName: UNICODE_STRING,
@@ -1205,7 +1175,7 @@ impl Default for KERB_TICKET_LOGON {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
@@ -1561,7 +1531,6 @@ pub struct MSV1_0_AV_PAIR {
 }
 pub const MSV1_0_CHALLENGE_LENGTH: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -1609,7 +1578,6 @@ pub const MSV1_0_CRED_VERSION_V3: i32 = 4;
 pub const MSV1_0_DISABLE_PERSONAL_FALLBACK: i32 = 4096;
 pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_INTERACTIVE_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1618,7 +1586,6 @@ pub struct MSV1_0_INTERACTIVE_LOGON {
     pub Password: UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
@@ -1653,7 +1620,7 @@ impl Default for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
 }
 pub const MSV1_0_LANMAN_SESSION_KEY_LENGTH: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_LM20_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1665,14 +1632,13 @@ pub struct MSV1_0_LM20_LOGON {
     pub CaseInsensitiveChallengeResponse: STRING,
     pub ParameterControl: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 impl Default for MSV1_0_LM20_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
@@ -1685,7 +1651,6 @@ pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub LogonServer: UNICODE_STRING,
     pub UserParameters: UNICODE_STRING,
 }
-#[cfg(feature = "lsalookup")]
 impl Default for MSV1_0_LM20_LOGON_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1723,7 +1688,7 @@ pub const MSV1_0_OWF_PASSWORD_LENGTH: i32 = 16;
 pub const MSV1_0_PACKAGE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 pub const MSV1_0_PACKAGE_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -1733,7 +1698,7 @@ pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub LogonData: super::PUCHAR,
     pub Pad: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 impl Default for MSV1_0_PASSTHROUGH_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1776,7 +1741,6 @@ pub const MSV1_0_RETURN_PROFILE_PATH: i32 = 512;
 pub const MSV1_0_RETURN_USER_PARAMETERS: i32 = 8;
 pub const MSV1_0_S4U2SELF: i32 = 131072;
 #[repr(C)]
-#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_S4U_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1795,7 +1759,7 @@ pub const MSV1_0_SUBAUTHENTICATION_FLAGS: u32 = 4278190080;
 pub const MSV1_0_SUBAUTHENTICATION_KEY: windows_sys::core::PCSTR = windows_sys::core::s!("SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0");
 pub const MSV1_0_SUBAUTHENTICATION_VALUE: windows_sys::core::PCSTR = windows_sys::core::s!("Auth");
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_SUBAUTH_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
@@ -1808,7 +1772,7 @@ pub struct MSV1_0_SUBAUTH_LOGON {
     pub ParameterControl: u32,
     pub SubAuthPackageId: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 impl Default for MSV1_0_SUBAUTH_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2005,31 +1969,27 @@ pub const PER_USER_AUDIT_NONE: i32 = 16;
 pub const PER_USER_AUDIT_SUCCESS_EXCLUDE: i32 = 2;
 pub const PER_USER_AUDIT_SUCCESS_INCLUDE: i32 = 1;
 pub const PER_USER_POLICY_UNCHANGED: i32 = 0;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PKDC_PROXY_CACHE_ENTRY_DATA = *mut KDC_PROXY_CACHE_ENTRY_DATA;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_REQUEST;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PKERB_ADD_CREDENTIALS_REQUEST = *mut KERB_ADD_CREDENTIALS_REQUEST;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PKERB_ADD_CREDENTIALS_REQUEST_EX = *mut KERB_ADD_CREDENTIALS_REQUEST_EX;
 #[cfg(feature = "minwindef")]
 pub type PKERB_AUTH_DATA = *mut KERB_AUTH_DATA;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_BINDING_CACHE_ENTRY_DATA = *mut KERB_BINDING_CACHE_ENTRY_DATA;
 pub type PKERB_CERTIFICATE_HASHINFO = *mut KERB_CERTIFICATE_HASHINFO;
 pub type PKERB_CERTIFICATE_INFO = *mut KERB_CERTIFICATE_INFO;
 pub type PKERB_CERTIFICATE_INFO_TYPE = *mut KERB_CERTIFICATE_INFO_TYPE;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PKERB_CERTIFICATE_LOGON = *mut KERB_CERTIFICATE_LOGON;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PKERB_CERTIFICATE_S4U_LOGON = *mut KERB_CERTIFICATE_S4U_LOGON;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKERB_CERTIFICATE_UNLOCK_LOGON = *mut KERB_CERTIFICATE_UNLOCK_LOGON;
 pub type PKERB_CHANGEMACHINEPASSWORD_REQUEST = *mut KERB_CHANGEMACHINEPASSWORD_REQUEST;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_CHANGEPASSWORD_REQUEST = *mut KERB_CHANGEPASSWORD_REQUEST;
 #[cfg(feature = "winnt")]
 pub type PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST = *mut KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST;
@@ -2044,15 +2004,12 @@ pub type PKERB_CRYPTO_KEY32 = *mut KERB_CRYPTO_KEY32;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKERB_DECRYPT_REQUEST = *mut KERB_DECRYPT_REQUEST;
 pub type PKERB_DECRYPT_RESPONSE = *mut KERB_DECRYPT_RESPONSE;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_EXTERNAL_NAME = *mut KERB_EXTERNAL_NAME;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PKERB_EXTERNAL_TICKET = *mut KERB_EXTERNAL_TICKET;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_INTERACTIVE_LOGON = *mut KERB_INTERACTIVE_LOGON;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_INTERACTIVE_PROFILE = *mut KERB_INTERACTIVE_PROFILE;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PKERB_INTERACTIVE_UNLOCK_LOGON = *mut KERB_INTERACTIVE_UNLOCK_LOGON;
 pub type PKERB_LOGON_SUBMIT_TYPE = *mut KERB_LOGON_SUBMIT_TYPE;
 #[cfg(feature = "winnt")]
@@ -2065,82 +2022,67 @@ pub type PKERB_PURGE_BINDING_CACHE_REQUEST = *mut KERB_PURGE_BINDING_CACHE_REQUE
 #[cfg(feature = "winnt")]
 pub type PKERB_PURGE_KDC_PROXY_CACHE_REQUEST = *mut KERB_PURGE_KDC_PROXY_CACHE_REQUEST;
 pub type PKERB_PURGE_KDC_PROXY_CACHE_RESPONSE = *mut KERB_PURGE_KDC_PROXY_CACHE_RESPONSE;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PKERB_PURGE_TKT_CACHE_EX_REQUEST = *mut KERB_PURGE_TKT_CACHE_EX_REQUEST;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PKERB_PURGE_TKT_CACHE_REQUEST = *mut KERB_PURGE_TKT_CACHE_REQUEST;
 pub type PKERB_QUERY_BINDING_CACHE_REQUEST = *mut KERB_QUERY_BINDING_CACHE_REQUEST;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_BINDING_CACHE_RESPONSE = *mut KERB_QUERY_BINDING_CACHE_RESPONSE;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST = *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST;
 pub type PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE = *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE;
 #[cfg(feature = "winnt")]
 pub type PKERB_QUERY_KDC_PROXY_CACHE_REQUEST = *mut KERB_QUERY_KDC_PROXY_CACHE_REQUEST;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE = *mut KERB_QUERY_KDC_PROXY_CACHE_RESPONSE;
 #[cfg(feature = "winnt")]
 pub type PKERB_QUERY_S4U2PROXY_CACHE_REQUEST = *mut KERB_QUERY_S4U2PROXY_CACHE_REQUEST;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE = *mut KERB_QUERY_S4U2PROXY_CACHE_RESPONSE;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_TKT_CACHE_EX2_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX2_RESPONSE;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_TKT_CACHE_EX3_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX3_RESPONSE;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_TKT_CACHE_EX_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX_RESPONSE;
 #[cfg(feature = "winnt")]
 pub type PKERB_QUERY_TKT_CACHE_REQUEST = *mut KERB_QUERY_TKT_CACHE_REQUEST;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_TKT_CACHE_RESPONSE = *mut KERB_QUERY_TKT_CACHE_RESPONSE;
 pub type PKERB_REFRESH_POLICY_REQUEST = *mut KERB_REFRESH_POLICY_REQUEST;
 pub type PKERB_REFRESH_POLICY_RESPONSE = *mut KERB_REFRESH_POLICY_RESPONSE;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PKERB_REFRESH_SCCRED_REQUEST = *mut KERB_REFRESH_SCCRED_REQUEST;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_RETRIEVE_KEY_TAB_REQUEST = *mut KERB_RETRIEVE_KEY_TAB_REQUEST;
 #[cfg(feature = "minwindef")]
 pub type PKERB_RETRIEVE_KEY_TAB_RESPONSE = *mut KERB_RETRIEVE_KEY_TAB_RESPONSE;
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt"))]
 pub type PKERB_RETRIEVE_TKT_REQUEST = *mut KERB_RETRIEVE_TKT_REQUEST;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PKERB_RETRIEVE_TKT_RESPONSE = *mut KERB_RETRIEVE_TKT_RESPONSE;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_S4U2PROXY_CACHE_ENTRY_INFO = *mut KERB_S4U2PROXY_CACHE_ENTRY_INFO;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_S4U2PROXY_CRED = *mut KERB_S4U2PROXY_CRED;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_S4U_LOGON = *mut KERB_S4U_LOGON;
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt"))]
 pub type PKERB_SETPASSWORD_EX_REQUEST = *mut KERB_SETPASSWORD_EX_REQUEST;
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt"))]
 pub type PKERB_SETPASSWORD_REQUEST = *mut KERB_SETPASSWORD_REQUEST;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PKERB_SMART_CARD_LOGON = *mut KERB_SMART_CARD_LOGON;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PKERB_SMART_CARD_PROFILE = *mut KERB_SMART_CARD_PROFILE;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKERB_SMART_CARD_UNLOCK_LOGON = *mut KERB_SMART_CARD_UNLOCK_LOGON;
 #[cfg(feature = "winnt")]
 pub type PKERB_SUBMIT_TKT_REQUEST = *mut KERB_SUBMIT_TKT_REQUEST;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_TICKET_CACHE_INFO = *mut KERB_TICKET_CACHE_INFO;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_TICKET_CACHE_INFO_EX = *mut KERB_TICKET_CACHE_INFO_EX;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_TICKET_CACHE_INFO_EX2 = *mut KERB_TICKET_CACHE_INFO_EX2;
-#[cfg(feature = "lsalookup")]
 pub type PKERB_TICKET_CACHE_INFO_EX3 = *mut KERB_TICKET_CACHE_INFO_EX3;
 #[cfg(feature = "minwindef")]
 pub type PKERB_TICKET_LOGON = *mut KERB_TICKET_LOGON;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PKERB_TICKET_PROFILE = *mut KERB_TICKET_PROFILE;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKERB_TICKET_UNLOCK_LOGON = *mut KERB_TICKET_UNLOCK_LOGON;
 #[cfg(feature = "winnt")]
 pub type PKERB_TRANSFER_CRED_REQUEST = *mut KERB_TRANSFER_CRED_REQUEST;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub MessageType: PKU2U_LOGON_SUBMIT_TYPE,
@@ -2150,7 +2092,7 @@ pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub CertificateLength: u32,
     pub Certificate: super::PUCHAR,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 impl Default for PKU2U_CERTIFICATE_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2204,31 +2146,26 @@ pub type PLSA_OPERATIONAL_MODE = *mut u32;
 #[cfg(feature = "winnt")]
 pub type PLSA_TRANSLATED_SID = *mut LSA_TRANSLATED_SID;
 pub type PMSV1_0_AV_PAIR = *mut MSV1_0_AV_PAIR;
-#[cfg(feature = "lsalookup")]
 pub type PMSV1_0_CHANGEPASSWORD_REQUEST = *mut MSV1_0_CHANGEPASSWORD_REQUEST;
 pub type PMSV1_0_CHANGEPASSWORD_RESPONSE = *mut MSV1_0_CHANGEPASSWORD_RESPONSE;
 pub type PMSV1_0_CREDENTIAL_KEY = *mut MSV1_0_CREDENTIAL_KEY;
-#[cfg(feature = "lsalookup")]
 pub type PMSV1_0_INTERACTIVE_LOGON = *mut MSV1_0_INTERACTIVE_LOGON;
-#[cfg(feature = "lsalookup")]
 pub type PMSV1_0_INTERACTIVE_PROFILE = *mut MSV1_0_INTERACTIVE_PROFILE;
 pub type PMSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PMSV1_0_LM20_LOGON = *mut MSV1_0_LM20_LOGON;
-#[cfg(feature = "lsalookup")]
 pub type PMSV1_0_LM20_LOGON_PROFILE = *mut MSV1_0_LM20_LOGON_PROFILE;
 pub type PMSV1_0_LOGON_SUBMIT_TYPE = *mut MSV1_0_LOGON_SUBMIT_TYPE;
 pub type PMSV1_0_NTLM3_RESPONSE = *mut MSV1_0_NTLM3_RESPONSE;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PMSV1_0_PASSTHROUGH_REQUEST = *mut MSV1_0_PASSTHROUGH_REQUEST;
 #[cfg(feature = "minwindef")]
 pub type PMSV1_0_PASSTHROUGH_RESPONSE = *mut MSV1_0_PASSTHROUGH_RESPONSE;
 pub type PMSV1_0_PROFILE_BUFFER_TYPE = *mut MSV1_0_PROFILE_BUFFER_TYPE;
 pub type PMSV1_0_PROTOCOL_MESSAGE_TYPE = *mut MSV1_0_PROTOCOL_MESSAGE_TYPE;
 pub type PMSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL;
-#[cfg(feature = "lsalookup")]
 pub type PMSV1_0_S4U_LOGON = *mut MSV1_0_S4U_LOGON;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PMSV1_0_SUBAUTH_LOGON = *mut MSV1_0_SUBAUTH_LOGON;
 #[cfg(feature = "minwindef")]
 pub type PMSV1_0_SUBAUTH_REQUEST = *mut MSV1_0_SUBAUTH_REQUEST;
@@ -2432,7 +2369,7 @@ pub const POLICY_TRUST_ADMIN: i32 = 8;
 pub const POLICY_VIEW_AUDIT_INFORMATION: i32 = 2;
 pub const POLICY_VIEW_LOCAL_INFORMATION: i32 = 1;
 pub const POLICY_WRITE: i32 = 133112;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+#[cfg(feature = "minwindef")]
 pub type PPKU2U_CERTIFICATE_S4U_LOGON = *mut PKU2U_CERTIFICATE_S4U_LOGON;
 pub type PPKU2U_CERT_BLOB = *mut PKU2U_CERT_BLOB;
 pub type PPKU2U_CREDUI_CONTEXT = *mut PKU2U_CREDUI_CONTEXT;

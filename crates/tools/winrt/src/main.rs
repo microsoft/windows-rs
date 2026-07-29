@@ -15,7 +15,7 @@ const WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
 const RDL_DIR: &str = "metadata/winrt";
 
 /// Where the intermediate merged winmd is written before it is decompiled to RDL. Under
-/// `target` and not tracked — regenerated on demand.
+/// `target` and not tracked - regenerated on demand.
 const OUT_DIR: &str = "target/winrt";
 
 /// The NuGet package that ships the per-contract WinRT `.winmd` files. Fetched into the
@@ -54,8 +54,8 @@ fn main() {
     );
 
     // Merge the per-contract winmds into one intermediate winmd, replacing the external
-    // `mdmerge` tool with `windows-metadata`'s in-house merger (the same one `tool_win32`/
-    // `tool_wdk` use). The per-contract WinRT runtime-class methods and Property/Event tables
+    // `mdmerge` tool with `windows-metadata`'s in-house merger (the same one `tool_win32`
+    // uses). The per-contract WinRT runtime-class methods and Property/Event tables
     // are dropped by the merge; `windows-bindgen` reconstructs properties/events from the
     // surviving `get_`/`put_`/`add_`/`remove_` accessor methods on the interfaces and never
     // reads class methods.
@@ -70,14 +70,14 @@ fn main() {
 
     // Decompile the merged winmd into the committed per-namespace RDL snapshot, then compile
     // that snapshot back into the canonical `Windows.winmd`. This makes the RDL the source of
-    // truth — consistent with `tool_win32`/`tool_wdk`, which likewise scrape to RDL and compile
-    // the winmd from it — and lets the `gen` `git diff` validate both the RDL and the winmd. The
+    // truth - consistent with `tool_win32`, which likewise scrapes to RDL and compiles
+    // the winmd from it - and lets the `gen` `git diff` validate both the RDL and the winmd. The
     // WinRT surface is self-contained (`System.*` primitives are resolved by the reader), so the
-    // reader needs no additional reference winmds; the `Win32`/`Wdk` exclusions guard against any
-    // stray references the merge might carry.
+    // reader needs no additional reference winmds; the `Win32` exclusion guards against any stray
+    // references the merge might carry.
     windows_rdl::writer()
         .input(&merged)
-        .filters(["Windows", "!Windows.Win32", "!Windows.Wdk"])
+        .filters(["Windows", "!Windows.Win32"])
         .split(true)
         .output(RDL_DIR)
         .write()

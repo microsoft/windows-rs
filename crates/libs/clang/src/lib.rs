@@ -800,9 +800,26 @@ impl Clang {
         let reference = self.load_reference()?;
         let mut exclude_types: HashSet<String> = HashSet::new();
         let mut exclude_values: HashSet<String> = HashSet::new();
+        // Reference enums the scrape may carry in full: a reference (`um`) header can truncate
+        // an enum (for example `winternl.h` cuts `FILE_INFORMATION_CLASS` to one member) while
+        // the scraped (`km`) headers define it completely. Record each reference enum's member
+        // set so an enum the scrape extends can be un-excluded below and emitted in full; the
+        // winmd merge then unions the truncated reference copy with this complete one.
+        let mut reference_enums: HashMap<String, HashSet<String>> = HashMap::new();
         for (_, name, item) in reference.iter_items() {
             match item {
-                metadata::reader::Item::Type(_) => exclude_types.insert(name.to_string()),
+                metadata::reader::Item::Type(def) => {
+                    if def.category() == metadata::reader::TypeCategory::Enum {
+                        reference_enums.insert(
+                            name.to_string(),
+                            def.fields()
+                                .filter(|field| field.constant().is_some())
+                                .map(|field| field.name().to_string())
+                                .collect(),
+                        );
+                    }
+                    exclude_types.insert(name.to_string())
+                }
                 metadata::reader::Item::Fn(_) | metadata::reader::Item::Const(_) => {
                     exclude_values.insert(name.to_string())
                 }
@@ -859,6 +876,33 @@ impl Clang {
         // Keep out-of-scope declarations only when referenced from an in-scope root.
         if !self.scope.is_empty() {
             sweep_unreferenced(&mut collectors, &scope_in);
+        }
+
+        // Un-exclude a reference enum the scrape carries with members the reference lacks: emit
+        // the complete enum so the winmd merge can union it with the truncated reference copy
+        // into a single enum. An enum the scrape does not extend stays excluded (the reference
+        // copy already covers it).
+        if !reference_enums.is_empty() {
+            let mut keep: HashSet<String> = HashSet::new();
+            for collector in collectors.values() {
+                for item in collector.values() {
+                    let Item::Enum(e) = item else {
+                        continue;
+                    };
+                    let Some(members) = reference_enums.get(&e.name) else {
+                        continue;
+                    };
+                    if e.variants
+                        .iter()
+                        .any(|(member, _)| !members.contains(member))
+                    {
+                        keep.insert(e.name.clone());
+                    }
+                }
+            }
+            for name in &keep {
+                exclude_types.remove(name);
+            }
         }
 
         // Exclude same-category names already in the reference winmd; cross-category clashes

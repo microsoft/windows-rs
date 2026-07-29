@@ -6,7 +6,7 @@ use windows_metadata::{Signature, Type};
 /// The metadata that backs the published `windows` and `windows-sys` crates. Both crates share the
 /// same namespace-to-feature taxonomy, so a single index answers "which feature do I enable?" for
 /// either crate. These are the header-namespaced winmds staged by [`prepare_metadata`] under
-/// `target` — the same remap `tool_package` applies — so the page reports the crates' actual
+/// `target` - the same remap `tool_package` applies - so the page reports the crates' actual
 /// header-stem features (`winnt`, `d2d`, …) rather than the retired editorial namespaces.
 const WINMD: [&str; 2] = [
     "target/features/Windows.Win32.winmd",
@@ -40,13 +40,13 @@ fn main() {
 }
 
 /// Remaps the flat canonical Win32/WDK winmds into the same header-based namespaces the published
-/// `windows`/`windows-sys` crates use — reusing `tool_package`'s routing so the feature names cannot
-/// drift — and stages the already-namespaced WinRT winmd alongside. Everything is written under
+/// `windows`/`windows-sys` crates use - reusing `tool_package`'s routing so the feature names cannot
+/// drift - and stages the already-namespaced WinRT winmd alongside. Everything is written under
 /// `target` (not committed); only the generated page is checked in.
 fn prepare_metadata() {
     std::fs::create_dir_all(PACKAGE_DIR)
         .unwrap_or_else(|e| panic!("failed to create `{PACKAGE_DIR}`: {e}"));
-    tool_package::remap::run(&tool_package::corpora(), REMAP_OUTPUT);
+    tool_package::remap::run(&tool_package::remap_plan(), REMAP_OUTPUT);
     let winrt = format!("{PACKAGE_DIR}/Windows.winmd");
     std::fs::copy(tool_package::WINRT_WINMD, &winrt)
         .unwrap_or_else(|e| panic!("failed to stage `{}`: {e}", tool_package::WINRT_WINMD));
