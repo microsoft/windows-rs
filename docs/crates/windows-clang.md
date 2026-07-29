@@ -951,16 +951,14 @@ equal).
 
 ## Open investigations: orchestration simplification
 
-The `tool_win32` pipeline is correct and reproducible. This section maps the data flow and records
-the simplifications still worth making. The goal is reduced complexity and easier comprehension, not
-speed - wall-clock is dominated by the libclang parses, which are irreducible.
+The `tool_win32` pipeline is correct and reproducible. This section records the changes still worth
+making. The goal is reduced complexity and easier comprehension, not speed - wall-clock is dominated
+by the libclang parses, which are irreducible.
 
-**S1 (merge the two tools) is done.** `tool_win32` now runs the `um` scrape (`main.rs`), the `km`
-scrape (`km.rs`), and the union-merge in one process; the former `tool_wdk` crate is gone. This
-removed the `um` re-derivation and its byte-identity invariant (old #2), the mirrored second
-orchestrator (old #3), the second libclang provision, and the cross-tool `SDK_VERSION` readback. One
-idempotent unit, one `gen` CI job. Verified output-neutral: regenerating produces a zero `git diff`
-on `metadata/win32`, `metadata/wdk`, and `Windows.Win32.winmd`.
+Two design constraints bound what can be simplified, so do not attempt to remove them: `um` and `km`
+are conflicting translation units compiled to two winmds (reconciled only by phase C's `union_enums`
+merge, e.g. the truncated vs full `FILE_INFORMATION_CLASS`), and RDL is the committed source of
+truth with the winmd always `compile(RDL)`.
 
 ### The pipeline as it stands
 
@@ -984,43 +982,20 @@ for arch in [x64, arm64, x86]:  headers (ref: phase A's um winmd) --> RDL --> wi
 merge(um winmd, km.winmd, union_enums) --> bindgen/default/Windows.Win32.winmd  (committed)
 ```
 
-Phase B references phase A's `target/win32/Windows.Win32.winmd` directly - phase A wrote it from the
-committed RDL, the seed, and `Windows.winmd`, the same inputs a standalone re-derivation would use.
-
-`tool_package` later re-reads `metadata/win32` + `metadata/wdk` again to synthesise the
+`tool_package` later re-reads `metadata/win32` + `metadata/wdk` to synthesise the
 `Windows.Win32.<header>` namespaces for the published crates.
 
-### Load-bearing vs incidental complexity
+### Outstanding work
 
-Essential (do not remove):
-
-- **Six libclang parses (2 translation units x 3 arches).** `um` and `km` are conflicting TUs
-  (`winternl.h` and `wdm.h` cannot co-include), and each arch has genuinely different layouts. The
-  parses are already parallel, so wall-clock is roughly one parse, not six.
-- **RDL is the committed source of truth and the winmd is always `compile(RDL)`.** Deriving the
-  winmd from the reviewed RDL (rather than emitting it straight from the clang model) is what keeps
-  the two representations from drifting. Keep it.
-- The `union_enums` merge.
-
-Incidental (the fixable part that remains after S1):
-
-| # | Issue |
-| --- | --- |
-| 1 | **Header provenance lives only in RDL filenames.** The flat `Windows.Win32` winmd does not record which header defined each type, so provenance is recovered by re-parsing RDL in two places (`merge_arch_rdl`'s `item_names` and `tool_package`'s `routes()`). This is the deepest driver of the round-tripping - the winmd is not self-describing. |
-| 4 | **The canonical winmd is materialised three times** in multi-arch (per-arch, merged-temp, final-from-RDL). Cheap next to the clang parse, but many moving parts. |
-| 5 | **Latent libclang concurrency risk in production.** The process-global-state hazard that crashes the `test_clang` suite under high thread counts (fixed there with a serialization guard) also exists in the 3-way parallel arch scrape: each thread loads libclang into its own TLS, but the LLVM globals are shared. It rarely triggers at three threads but is real. (S1 does not change this - the two phases run sequentially, so peak parallelism is unchanged at three.) |
-
-### Recommendations (ranked)
-
-- **S2 - Make the winmd self-describing about header provenance** (a `DefiningHeader` attribute or a
-  sub-namespace). Both RDL re-scans in #1 then disappear: RDL becomes a pure projection of the
-  winmd, and package remap reads the winmd alone. Removes the deepest structural reason for the
-  round-trips.
-- **S3 - Collapse `metadata/win32` + `metadata/wdk` into one `metadata/win32`** now that one tool
-  and one winmd own both surfaces (provenance carried by filename or the S2 attribute). Aligns the
-  committed layout with the single-winmd, single-tool model.
+- **S-scrape - Remove the canonical-arch RDL double-write.** In multi-arch, `scrape_arch` writes
+  `metadata/win32/*.rdl` with x64-only content (to compile the canonical winmd that arch-merge
+  consumes), then `merge_arch_rdl` immediately overwrites the same files with the arch-merged
+  content. The x64 winmd must exist, but it need not be compiled from the *committed* dir - a
+  throwaway dir (like the extra arches use) would do, leaving `merge_arch_rdl` as the sole writer of
+  the committed RDL. Removes redundant I/O at the cost of a `multi_arch ? throwaway : committed`
+  conditional. Low priority.
 - **S4 - Run arch scrapes as subprocesses, not threads.** libclang global state is per-process, so
-  process isolation removes the concurrency hazard (#5) while keeping real parallelism.
-
-After S1, the remaining non-simplicity is concentrated in provenance-by-filename forcing repeated
-RDL re-scans (#1). S2 removes the bulk of it; S3 then aligns the on-disk layout. Start with S2.
+  the 3-way parallel arch scrape shares LLVM globals across threads - the same hazard that crashes
+  the `test_clang` suite under high thread counts (fixed there with a serialization guard). It
+  rarely triggers at three threads but is real. Process isolation removes it while keeping real
+  parallelism.
