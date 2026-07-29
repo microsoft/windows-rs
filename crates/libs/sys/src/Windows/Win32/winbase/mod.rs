@@ -1431,7 +1431,7 @@ pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_DISPOSITION_INFO {
-    pub DeleteFileA: bool,
+    pub DeleteFile: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

@@ -383,6 +383,17 @@ fn parse_body(
         }
         [
             (CXToken_Punctuation, lp1),
+            (CXToken_Identifier, ty),
+            (CXToken_Punctuation, rp1),
+            (CXToken_Punctuation, lp2),
+            (CXToken_Punctuation, not),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp2),
+        ] if lp1 == "(" && rp1 == ")" && lp2 == "(" && not == "~" && rp2 == ")" => {
+            parse_named_all_ones(namespace, ref_map, header_names, ty, lit)
+        }
+        [
+            (CXToken_Punctuation, lp1),
             (CXToken_Punctuation, lp2),
             (CXToken_Keyword, kw),
             (CXToken_Punctuation, rp1),
@@ -859,6 +870,35 @@ fn parse_named_cast(
     Some(metadata::Value::EnumValue(
         metadata::TypeName::named(ns, type_name),
         Box::new(metadata::Value::I64(v)),
+    ))
+}
+
+/// Parse a named cast of an all-ones expression such as `(SOCKET)(~0)`.
+fn parse_named_all_ones(
+    namespace: &str,
+    ref_map: &HashMap<String, String>,
+    header_names: Option<&HashMap<String, String>>,
+    type_name: &str,
+    lit: &str,
+) -> Option<metadata::Value> {
+    let (digits, _suffix) = split_int_suffix(lit);
+    if parse_int_digits(digits)? != 0 {
+        return None;
+    }
+
+    if !ref_map.contains_key(type_name)
+        && let Some(ty) = fundamental_scalar(type_name).or_else(|| pointer_sized_abi(type_name))
+    {
+        return scalar_value(&ty, u64::MAX, false);
+    }
+
+    let ns = header_names
+        .and_then(|m| m.get(type_name))
+        .or_else(|| ref_map.get(type_name))
+        .map_or(namespace, |s| s.as_str());
+    Some(metadata::Value::EnumValue(
+        metadata::TypeName::named(ns, type_name),
+        Box::new(metadata::Value::I64(-1)),
     ))
 }
 

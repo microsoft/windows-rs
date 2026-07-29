@@ -529,9 +529,13 @@ for those rules. Keep the list short. Justify each entry from original header in
 matching win32metadata for its own sake. If a change makes the metadata diverge from a literal
 reading of the headers, it belongs in this table with a rationale.
 
+Integer literals follow the C11 candidate-type lists, including radix and `U`/`L`/`LL` suffixes.
+Thus `#define SW_NORMAL 1` is `i32`, while `0x80000000` is `u32`. Explicit named casts are
+preserved, including all-ones sentinels such as `(SOCKET)(~0)`, which remains typed as `SOCKET`
+rather than becoming an architecture-specific `u32` or `u64`.
+
 | # | Deviation | Rule (automatable - no per-symbol list) | Preserve-set (the only curation) | Where | Rationale |
 |---|-----------|------------------------------------------|-----------------------------------|-------|-----------|
-| 1 | Non-negative integer constants -> `u32`/`u64` | A `#define` literal's suffix (`L`/`LL`) encodes *width*, not *signedness*; default unsigned, negated -> `i32`/`i64`, explicit keyword/named cast wins. | - | `const.rs` | `L` means "at least `long`", never "signed value". Win32 flag/id constants are unsigned domains. |
 | 2 | `_HRESULT_TYPEDEF_(x)` etc. -> typed `HRESULT` | A hardcoded 3-macro map of the canonical SDK error-typedef cast macros routes through `parse_named_cast`. | 3 SDK macros (`_HRESULT_TYPEDEF_`, `_NDIS_ERROR_TYPEDEF_`, and more) | `const.rs` | The macro *is* the author's type annotation; `E_FAIL` is an `HRESULT`, not a bare `i32`. |
 | 4 | Pointer const-ness follows SAL direction (parameters) | `_In_`/`_In_opt_`/`_Reserved_` (read-only) pointer param -> `*const`; `_Out_`/`_Inout_` (writable) -> `*mut`. Overrides the C typedef's own mutability. A string wrapper flips its *named* const variant instead (`PWSTR`<->`PCWSTR`, `PSTR`<->`PCSTR`). | - | `canon.rs` (`apply_sal_constness`), from `fn.rs`, `interface.rs` | SAL is the author's read/write contract; `_In_ LPWSTR` is a *read-only* string despite `LPWSTR` being `*mut`. Matches the reference. Parameters only - struct fields keep their C const-ness. |
 | 5 | `LP*`/`P*` pointer aliases collapse to raw pointers (parameters only) | At a parameter site, a typedef whose one-level underlying type is a pointer is inlined to the raw pointer it spells, keeping the *named* pointee (`LPDWORD`->`*mut DWORD`, `PHKEY`->`*mut HKEY`). The string wrappers are normalised *everywhere*, not just parameters (see #9). | Kept named: string wrappers (per #9); `BSTR` (a length-prefixed, `SysAllocString`-owned COM string, never collapsed to `*const OLECHAR`); handles (`HANDLE` = `void*`, `HWND` = `struct HWND__*`); function-pointer aliases (`FARPROC`); non-pointer aliases. | `canon.rs` (`collapse_pointer_alias_param`; name-keyed cases in `alias_policy`) | These aliases are pure portability spelling (`LPDWORD`=`DWORD*`); the pointer *is* the ABI, and SAL const (#4) cannot be expressed while it is hidden inside an opaque `*mut` alias. Collapsing only at parameter sites keeps the change surgical - fields, returns and constants keep their named aliases, so no `type LP* = <alias>` is left dangling. The pointee keeps its Win32 name (`*mut DWORD`): ABI-identical. |
@@ -858,8 +862,12 @@ lives in `rust-lang/rust`:
 | File | Role |
 | --- | --- |
 | `src/tools/generate-windows-sys/src/main.rs` | Runs `windows_bindgen::bindgen(["--etc", "bindings.txt"])` and appends an ARM32 `WSADATA`/`CONTEXT` shim. |
-| `library/std/src/sys/pal/windows/c/bindings.txt` | The filter: `--out windows_sys.rs --flat --sys --no-deps --link windows_link` plus 2,642 flat API names. |
+| `library/std/src/sys/pal/windows/c/bindings.txt` | The filter: `--out windows_sys.rs --flat --sys --no-deps` plus 2,642 flat API names. Its `--link windows_link` argument is redundant. |
 | `library/std/src/sys/pal/windows/c.rs` | Hand-written overrides and functions the generated file does not provide (`windows_sys.rs` is generated and must not be edited). |
+
+`--sys` already emits `windows_link::link!`, so the consumer does not need
+`--link windows_link`. The `windows_link` macro still selects raw-dylib linking when its
+`windows_raw_dylib` feature is enabled.
 
 Every one of the 2,642 filter names was resolved against the default metadata (the single
 `crates/libs/bindgen/default/Windows.Win32.winmd`, merged from `metadata/win32/*.rdl` and

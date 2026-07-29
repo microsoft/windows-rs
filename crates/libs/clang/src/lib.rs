@@ -867,6 +867,8 @@ impl Clang {
             )?;
         }
 
+        dedup_typedefs(&mut collectors);
+
         // Drop excluded root partitions before the sweep.
         if !self.exclude_headers.is_empty() {
             collectors.retain(|stem, _| !self.exclude_headers.contains(stem));
@@ -1366,6 +1368,40 @@ struct ParsedInputs {
     str_tus: Vec<(String, TranslationUnit)>,
     index: Index,
     _library: Library,
+}
+
+/// Keep one stable definition when separate headers repeat an equivalent typedef.
+///
+/// The SDK may declare the same public alias through different but compatible spellings, such as
+/// `PUNICODE_STRING` through `UNICODE_STRING` and its `LSA_UNICODE_STRING` base. Winmd cannot
+/// represent both rows under one flat name, so the first defining-header partition wins.
+fn dedup_typedefs(collectors: &mut BTreeMap<String, Collector>) {
+    let mut owners: HashMap<String, (String, bool)> = HashMap::new();
+    for (stem, collector) in collectors.iter() {
+        for (name, item) in collector.iter() {
+            let Item::Typedef(ty) = item else {
+                continue;
+            };
+            let direct = ty.is_direct_pointer_alias();
+            match owners.entry(name.clone()) {
+                std::collections::hash_map::Entry::Vacant(entry) => {
+                    entry.insert((stem.clone(), direct));
+                }
+                std::collections::hash_map::Entry::Occupied(mut entry)
+                    if direct && !entry.get().1 =>
+                {
+                    entry.insert((stem.clone(), true));
+                }
+                _ => {}
+            }
+        }
+    }
+    for (stem, collector) in collectors.iter_mut() {
+        collector.retain_items(|name, item| {
+            !matches!(item, Item::Typedef(_))
+                || owners.get(name).is_some_and(|(owner, _)| owner == stem)
+        });
+    }
 }
 
 /// Flattens linkage blocks and, when configured, descends into `ABI::Windows::*`.

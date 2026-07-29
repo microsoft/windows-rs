@@ -1,5 +1,20 @@
 use super::*;
 
+/// Restore member names rewritten by active A/W macros such as `DeleteFile`.
+pub(crate) fn demacro_member_name(
+    name: String,
+    macro_defs: &HashMap<String, Vec<String>>,
+) -> String {
+    if let Some(base) = name.strip_suffix('A').or_else(|| name.strip_suffix('W'))
+        && macro_defs
+            .get(base)
+            .is_some_and(|body| body.len() == 1 && body[0] == name)
+    {
+        return base.to_string();
+    }
+    name
+}
+
 /// Build `tag_name -> typedef_name` for public C struct/enum aliases.
 pub(crate) fn build_tag_rename_map(tu: &TranslationUnit) -> HashMap<String, String> {
     let mut map = HashMap::new();

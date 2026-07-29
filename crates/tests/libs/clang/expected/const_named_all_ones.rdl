@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    const INVALID_SOCKET: SOCKET = -1;
+    type SOCKET = usize;
+}

@@ -685,10 +685,7 @@ pub const IMPLINK_IP: i32 = 155;
 pub const IMPLINK_LOWEXPER: i32 = 156;
 pub const INCL_WINSOCK_API_PROTOTYPES: i32 = 1;
 pub const INCL_WINSOCK_API_TYPEDEFS: i32 = 0;
-#[cfg(target_arch = "x86")]
-pub const INVALID_SOCKET: u32 = 4294967295;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const INVALID_SOCKET: u64 = 18446744073709551615;
+pub const INVALID_SOCKET: SOCKET = SOCKET(18446744073709551615);
 pub const JL_BOTH: i32 = 4;
 pub const JL_RECEIVER_ONLY: i32 = 2;
 pub const JL_SENDER_ONLY: i32 = 1;

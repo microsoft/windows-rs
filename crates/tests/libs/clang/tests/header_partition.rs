@@ -94,6 +94,34 @@ fn partition_by_defining_header() {
     assert!(b.contains("-> usize"), "b.rdl:\n{b}");
 }
 
+#[test]
+fn duplicate_typedef_first_partition_wins() {
+    let _guard = test_clang::libclang_guard();
+    let scratch = format!("{}/header_duplicate_typedef", env!("OUT_DIR"));
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let mut clang = windows_clang::clang();
+    clang
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .input("partition_input/typedef_a.h")
+        .input("partition_input/typedef_b.h");
+
+    clang.write_by_header("Test", &[], &scratch).unwrap();
+
+    let a = read(&scratch, "typedef_a");
+    let b = read(&scratch, "typedef_b");
+    assert!(
+        a.contains("type PUNICODE_STRING = *mut UNICODE_STRING"),
+        "typedef_a.rdl:\n{a}"
+    );
+    assert!(!b.contains("type PUNICODE_STRING"), "typedef_b.rdl:\n{b}");
+}
+
 // `exclude_headers` drops a named header's whole partition even though nothing else scopes it
 // out - the mechanism `tool_win32` uses to keep `intsafe.h` (inline safe-math helpers whose only
 // scraped output is standard C limit macros) out of the metadata. `a.h` is a leaf (its `AThing` is

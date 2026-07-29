@@ -209,6 +209,7 @@ mod Windows {
             Reserved3: *mut void,
         }
         type PRTL_USER_PROCESS_PARAMETERS = *mut RTL_USER_PROCESS_PARAMETERS;
+        type PSTRING = *mut STRING;
         type PSYSTEM_BASICPROCESS_INFORMATION = *mut SYSTEM_BASICPROCESS_INFORMATION;
         type PSYSTEM_BASIC_INFORMATION = *mut SYSTEM_BASIC_INFORMATION;
         type PSYSTEM_CODEINTEGRITY_INFORMATION = *mut SYSTEM_CODEINTEGRITY_INFORMATION;
@@ -236,6 +237,7 @@ mod Windows {
             TypeName: UNICODE_STRING,
             Reserved: [u32; 22],
         }
+        type PUNICODE_STRING = *mut UNICODE_STRING;
         type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
         extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut void, param4: u32, param5: *mut u32) -> bool;
         struct RTL_USER_PROCESS_PARAMETERS {
