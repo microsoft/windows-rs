@@ -20,7 +20,8 @@ use std::collections::HashMap;
 pub struct Corpus {
     /// Committed per-header RDL directory, e.g. `metadata/wdk`.
     pub rdl_dir: &'static str,
-    /// Flat winmd compiled from `rdl_dir`, e.g. `crates/libs/bindgen/default/Windows.Wdk.winmd`.
+    /// Flat winmd the corpus's types live in, e.g. the merged `Windows.Win32.winmd`. Multiple
+    /// corpora may share one winmd (routed by their separate RDL dirs); it is loaded once.
     pub winmd: &'static str,
     /// Target namespace root, e.g. `Windows.Win32` (headers become `Windows.Win32.<stem>`).
     pub root: &'static str,
@@ -141,8 +142,13 @@ pub fn run(corpora: &[Corpus], output: &str) -> Vec<(String, usize)> {
         .fallback(FLAT_NAMESPACE)
         .routes(map)
         .output(output);
+    // Corpora may share a winmd (the merged Win32/WDK winmd routed by two RDL corpora); load each
+    // distinct winmd once so its types are not duplicated in the remapped output.
+    let mut seen = std::collections::HashSet::new();
     for corpus in corpora {
-        remapper.input(corpus.winmd);
+        if seen.insert(corpus.winmd) {
+            remapper.input(corpus.winmd);
+        }
     }
     remapper
         .remap()

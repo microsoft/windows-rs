@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum FILE_INFORMATION_CLASS {
+        FileDirectoryInformation = 1,
+    }
+
+    #[repr(i32)]
+    enum KEY_INFO_CLASS {
+        KeyBasicInformation = 0,
+    }
+}

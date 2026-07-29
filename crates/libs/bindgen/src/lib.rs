@@ -593,7 +593,6 @@ fn expand_input(input: &[&str]) -> Vec<File> {
         input = [
             std::include_bytes!("../default/Windows.winmd").to_vec(),
             std::include_bytes!("../default/Windows.Win32.winmd").to_vec(),
-            std::include_bytes!("../default/Windows.Wdk.winmd").to_vec(),
         ]
         .into_iter()
         .map(|bytes| File::new(bytes).unwrap())

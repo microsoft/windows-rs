@@ -66,8 +66,8 @@ pub struct MetadataResolver {
 
 impl MetadataResolver {
     /// Load all `.winmd` files from `winmd_dir` — plus the reference winmds
-    /// (`Windows.winmd`, `Windows.Win32.winmd`, `Windows.Wdk.winmd`) bundled in
-    /// `windows-bindgen`'s `default/` directory — and build the resolver.
+    /// (`Windows.winmd`, `Windows.Win32.winmd`) bundled in `windows-bindgen`'s
+    /// `default/` directory — and build the resolver.
     ///
     /// The reference winmds live only in `crates/libs/bindgen/default` (the single
     /// source of truth); they are located relative to this crate's manifest so the

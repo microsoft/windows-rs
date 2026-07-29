@@ -1,0 +1,81 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BITS_PER_BYTE: i32 = 8;
+        const IPPROTO_RM: i32 = 113;
+        const LOG2_BITS_PER_BYTE: i32 = 3;
+        const MAX_MCAST_TTL: i32 = 255;
+        const MAX_WINDOW_INCREMENT_PERCENTAGE: i32 = 25;
+        const RM_ADD_RECEIVE_IF: i32 = 1008;
+        const RM_DEL_RECEIVE_IF: i32 = 1009;
+        struct RM_FEC_INFO {
+            FECBlockSize: u16,
+            FECProActivePackets: u16,
+            FECGroupSize: u8,
+            fFECOnDemandParityEnabled: bool,
+        }
+        const RM_FLUSHCACHE: i32 = 1003;
+        const RM_HIGH_SPEED_INTRANET_OPT: i32 = 1014;
+        const RM_LATEJOIN: i32 = 1006;
+        const RM_OPTIONSBASE: i32 = 1000;
+        const RM_RATE_WINDOW_SIZE: i32 = 1001;
+        const RM_RECEIVER_STATISTICS: i32 = 1013;
+        struct RM_RECEIVER_STATS {
+            NumODataPacketsReceived: u64,
+            NumRDataPacketsReceived: u64,
+            NumDuplicateDataPackets: u64,
+            DataBytesReceived: u64,
+            TotalBytesReceived: u64,
+            RateKBitsPerSecOverall: u64,
+            RateKBitsPerSecLast: u64,
+            TrailingEdgeSeqId: u64,
+            LeadingEdgeSeqId: u64,
+            AverageSequencesInWindow: u64,
+            MinSequencesInWindow: u64,
+            MaxSequencesInWindow: u64,
+            FirstNakSequenceNumber: u64,
+            NumPendingNaks: u64,
+            NumOutstandingNaks: u64,
+            NumDataPacketsBuffered: u64,
+            TotalSelectiveNaksSent: u64,
+            TotalParityNaksSent: u64,
+        }
+        const RM_SENDER_STATISTICS: i32 = 1005;
+        struct RM_SENDER_STATS {
+            DataBytesSent: u64,
+            TotalBytesSent: u64,
+            NaksReceived: u64,
+            NaksReceivedTooLate: u64,
+            NumOutstandingNaks: u64,
+            NumNaksAfterRData: u64,
+            RepairPacketsSent: u64,
+            BufferSpaceAvailable: u64,
+            TrailingEdgeSeqId: u64,
+            LeadingEdgeSeqId: u64,
+            RateKBitsPerSecOverall: u64,
+            RateKBitsPerSecLast: u64,
+            TotalODataPacketsSent: u64,
+        }
+        const RM_SENDER_WINDOW_ADVANCE_METHOD: i32 = 1004;
+        struct RM_SEND_WINDOW {
+            RateKbitsPerSec: u32,
+            WindowSizeInMSecs: u32,
+            WindowSizeInBytes: u32,
+        }
+        const RM_SEND_WINDOW_ADV_RATE: i32 = 1010;
+        const RM_SET_MCAST_TTL: i32 = 1012;
+        const RM_SET_MESSAGE_BOUNDARY: i32 = 1002;
+        const RM_SET_SEND_IF: i32 = 1007;
+        const RM_USE_FEC: i32 = 1011;
+        const SENDER_DEFAULT_LATE_JOINER_PERCENTAGE: i32 = 0;
+        const SENDER_DEFAULT_RATE_KBITS_PER_SEC: i32 = 56;
+        const SENDER_DEFAULT_WINDOW_ADV_PERCENTAGE: i32 = 15;
+        const SENDER_DEFAULT_WINDOW_SIZE_BYTES: i32 = 10000000;
+        const SENDER_MAX_LATE_JOINER_PERCENTAGE: i32 = 75;
+        #[repr(i32)]
+        enum eWINDOW_ADVANCE_METHOD {
+            E_WINDOW_ADVANCE_BY_TIME = 1,
+            E_WINDOW_USE_AS_DATA_CACHE = 2,
+        }
+    }
+}

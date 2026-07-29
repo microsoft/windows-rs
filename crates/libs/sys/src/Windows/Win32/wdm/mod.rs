@@ -67,7 +67,7 @@ windows_link::link!("ntdll.dll" "system" fn NtRecoverResourceManager(resourceman
 windows_link::link!("ntdll.dll" "system" fn NtRecoverTransactionManager(transactionmanagerhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtRegisterProtocolAddressInformation(resourcemanager : super::HANDLE, protocolid : *const windows_sys::core::GUID, protocolinformationsize : u32, protocolinformation : *const core::ffi::c_void, createoptions : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn NtRenameTransactionManager(logfilename : *const super::UNICODE_STRING, existingtransactionmanagerguid : *const windows_sys::core::GUID) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtRollbackComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_sys::core::NTSTATUS);
@@ -89,9 +89,9 @@ windows_link::link!("ntdll.dll" "system" fn NtSetInformationTransaction(transact
 windows_link::link!("ntdll.dll" "system" fn NtSetInformationTransactionManager(tmhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : *const core::ffi::c_void, transactionmanagerinformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtSinglePhaseReject(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlAppendUnicodeStringToString(destination : *mut super::UNICODE_STRING, source : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlAppendUnicodeToString(destination : *mut super::UNICODE_STRING, source : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("ntdll.dll" "system" fn RtlAreBitsClear(bitmapheader : *const RTL_BITMAP, startingindex : u32, length : u32) -> bool);
@@ -109,21 +109,21 @@ windows_link::link!("ntdll.dll" "system" fn RtlClearBits(bitmapheader : *const R
 windows_link::link!("ntdll.dll" "system" fn RtlCmDecodeMemIoResource(descriptor : *const CM_PARTIAL_RESOURCE_DESCRIPTOR, start : *mut u64) -> u64);
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 windows_link::link!("ntdll.dll" "system" fn RtlCmEncodeMemIoResource(descriptor : *const CM_PARTIAL_RESOURCE_DESCRIPTOR, r#type : u8, length : u64, start : u64) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlCompareUnicodeString(string1 : *const super::UNICODE_STRING, string2 : *const super::UNICODE_STRING, caseinsensitive : bool) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlCompareUnicodeStrings(string1 : *const u16, string1length : usize, string2 : *const u16, string2length : usize, caseinsensitive : bool) -> i32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("ntdll.dll" "system" fn RtlCopyBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32));
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("ntdll.dll" "system" fn RtlCopyMemoryNonTemporal(destination : *mut core::ffi::c_void, source : *const core::ffi::c_void, length : usize));
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlCopyUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : *const super::UNICODE_STRING));
 windows_link::link!("ntdll.dll" "system" fn RtlCreateRegistryKey(relativeto : u32, path : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlCreateSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, revision : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlDeleteRegistryValue(relativeto : u32, path : windows_sys::core::PCWSTR, valuename : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeChar(sourcecharacter : u16) -> u16);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlEqualUnicodeString(string1 : *const super::UNICODE_STRING, string2 : *const super::UNICODE_STRING, caseinsensitive : bool) -> bool);
 #[cfg(feature = "minwindef")]
 windows_link::link!("ntdll.dll" "system" fn RtlExtractBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32, numberofbits : u32));
@@ -152,11 +152,11 @@ windows_link::link!("ntdll.dll" "system" fn RtlFindSetBits(bitmapheader : *const
 windows_link::link!("ntdll.dll" "system" fn RtlFindSetBitsAndClear(bitmapheader : *const RTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
 #[cfg(all(feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlFreeUTF8String(utf8string : super::PUTF8_STRING));
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlGUIDFromString(guidstring : *const super::UNICODE_STRING, guid : *mut windows_sys::core::GUID) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : *mut super::OSVERSIONINFOW) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlHashUnicodeString(string : *const super::UNICODE_STRING, caseinsensitive : bool, hashalgorithm : u32, hashvalue : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlInitUTF8String(destinationstring : super::PUTF8_STRING, sourcestring : windows_sys::core::PCSTR));
@@ -164,9 +164,9 @@ windows_link::link!("ntdll.dll" "system" fn RtlInitUTF8String(destinationstring 
 windows_link::link!("ntdll.dll" "system" fn RtlInitUTF8StringEx(destinationstring : super::PUTF8_STRING, sourcestring : windows_sys::core::PCSTR) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("ntdll.dll" "system" fn RtlInitializeBitMap(bitmapheader : *mut RTL_BITMAP, bitmapbuffer : *const u32, sizeofbitmap : u32));
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlInt64ToUnicodeString(value : u64, base : u32, string : *mut super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlIntegerToUnicodeString(value : u32, base : u32, string : *mut super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 windows_link::link!("ntdll.dll" "system" fn RtlIoDecodeMemIoResource(descriptor : *const IO_RESOURCE_DESCRIPTOR, alignment : *mut u64, minimumaddress : *mut u64, maximumaddress : *mut u64) -> u64);
@@ -186,7 +186,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlNumberOfSetBits(bitmapheader : *c
 windows_link::link!("ntdll.dll" "system" fn RtlNumberOfSetBitsInRange(bitmapheader : *const RTL_BITMAP, startingindex : u32, length : u32) -> u32);
 windows_link::link!("ntdll.dll" "system" fn RtlNumberOfSetBitsUlongPtr(target : usize) -> u32);
 windows_link::link!("ntdll.dll" "system" fn RtlQueryRegistryValues(relativeto : u32, path : windows_sys::core::PCWSTR, querytable : *mut RTL_QUERY_REGISTRY_TABLE, context : *const core::ffi::c_void, environment : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlQueryValidationRunlevel(componentname : *const super::UNICODE_STRING) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("ntdll.dll" "system" fn RtlSetAllBits(bitmapheader : *const RTL_BITMAP));
@@ -196,7 +196,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlSetBit(bitmapheader : *const RTL_
 windows_link::link!("ntdll.dll" "system" fn RtlSetBits(bitmapheader : *const RTL_BITMAP, startingindex : u32, numbertoset : u32));
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlSetDaclSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, daclpresent : bool, dacl : *const super::ACL, dacldefaulted : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlStringFromGUID(guid : *const windows_sys::core::GUID, guidstring : *mut super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("ntdll.dll" "system" fn RtlTestBit(bitmapheader : *const RTL_BITMAP, bitnumber : u32) -> bool);
@@ -207,7 +207,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlTimeToTimeFields(time : *const i6
 #[cfg(all(feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUTF8StringToUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : super::PUTF8_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlUTF8ToUnicodeN(unicodestringdestination : windows_sys::core::PWSTR, unicodestringmaxbytecount : u32, unicodestringactualbytecount : *mut u32, utf8stringsource : *const i8, utf8stringbytecount : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeStringToInteger(string : *const super::UNICODE_STRING, base : u32, value : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeStringToUTF8String(destinationstring : super::PUTF8_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
@@ -222,7 +222,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlVerifyVersionInfo(versioninfo : *
 windows_link::link!("ntdll.dll" "system" fn RtlWriteRegistryValue(relativeto : u32, path : windows_sys::core::PCWSTR, valuename : windows_sys::core::PCWSTR, valuetype : u32, valuedata : *const core::ffi::c_void, valuelength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlxAnsiStringToUnicodeSize(ansistring : super::PCANSI_STRING) -> u32);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlxUnicodeStringToAnsiSize(unicodestring : *const super::UNICODE_STRING) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwClose(handle : super::HANDLE) -> windows_sys::core::NTSTATUS);
@@ -260,7 +260,7 @@ windows_link::link!("ntdll.dll" "system" fn ZwCreateTransaction(transactionhandl
 windows_link::link!("ntdll.dll" "system" fn ZwCreateTransactionManager(tmhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, logfilename : *const super::UNICODE_STRING, createoptions : u32, commitstrength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwDeleteKey(keyhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn ZwDeleteValueKey(keyhandle : super::HANDLE, valuename : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwEnumerateKey(keyhandle : super::HANDLE, index : u32, keyinformationclass : KEY_INFORMATION_CLASS, keyinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> windows_sys::core::NTSTATUS);
@@ -272,7 +272,7 @@ windows_link::link!("ntdll.dll" "system" fn ZwEnumerateValueKey(keyhandle : supe
 windows_link::link!("ntdll.dll" "system" fn ZwFlushKey(keyhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ktmtypes", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn ZwGetNotificationResourceManager(resourcemanagerhandle : super::HANDLE, transactionnotification : *mut super::TRANSACTION_NOTIFICATION, notificationlength : u32, timeout : *const i64, returnlength : *mut u32, asynchronous : u32, asynchronouscontext : usize) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn ZwLoadDriver(driverservicename : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwMakeTemporaryObject(handle : super::HANDLE) -> windows_sys::core::NTSTATUS);
@@ -315,11 +315,11 @@ windows_link::link!("ntdll.dll" "system" fn ZwPrepareEnlistment(enlistmenthandle
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn ZwQueryFullAttributesFile(objectattributes : *const super::OBJECT_ATTRIBUTES, fileinformation : *mut FILE_NETWORK_OPEN_INFORMATION) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationByName(objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationByName(objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationEnlistment(enlistmenthandle : super::HANDLE, enlistmentinformationclass : super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation : *mut core::ffi::c_void, enlistmentinformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationResourceManager(resourcemanagerhandle : super::HANDLE, resourcemanagerinformationclass : super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation : *mut core::ffi::c_void, resourcemanagerinformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
@@ -328,9 +328,9 @@ windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationTransaction(transa
 windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationTransactionManager(transactionmanagerhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : *mut core::ffi::c_void, transactionmanagerinformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwQueryKey(keyhandle : super::HANDLE, keyinformationclass : KEY_INFORMATION_CLASS, keyinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn ZwQuerySymbolicLinkObject(linkhandle : super::HANDLE, linktarget : *mut super::UNICODE_STRING, returnedlength : *mut u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn ZwQueryValueKey(keyhandle : super::HANDLE, valuename : *const super::UNICODE_STRING, keyvalueinformationclass : KEY_VALUE_INFORMATION_CLASS, keyvalueinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn ZwReadFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> windows_sys::core::NTSTATUS);
@@ -342,7 +342,7 @@ windows_link::link!("ntdll.dll" "system" fn ZwRecoverEnlistment(enlistmenthandle
 windows_link::link!("ntdll.dll" "system" fn ZwRecoverResourceManager(resourcemanagerhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwRecoverTransactionManager(transactionmanagerhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn ZwRenameKey(keyhandle : super::HANDLE, newname : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwRestoreKey(keyhandle : super::HANDLE, filehandle : super::HANDLE, flags : u32) -> windows_sys::core::NTSTATUS);
@@ -361,20 +361,20 @@ windows_link::link!("ntdll.dll" "system" fn ZwSaveKeyEx(keyhandle : super::HANDL
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwSetInformationEnlistment(enlistmenthandle : super::HANDLE, enlistmentinformationclass : super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation : *const core::ffi::c_void, enlistmentinformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwSetInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *const core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwSetInformationKey(keyhandle : super::HANDLE, keysetinformationclass : super::KEY_SET_INFORMATION_CLASS, keysetinformation : *const core::ffi::c_void, keysetinformationlength : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwSetInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *const core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("ntdll.dll" "system" fn ZwSetInformationKey(keyhandle : super::HANDLE, keysetinformationclass : KEY_SET_INFORMATION_CLASS, keysetinformation : *const core::ffi::c_void, keysetinformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwSetInformationResourceManager(resourcemanagerhandle : super::HANDLE, resourcemanagerinformationclass : super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation : *const core::ffi::c_void, resourcemanagerinformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwSetInformationTransaction(transactionhandle : super::HANDLE, transactioninformationclass : super::TRANSACTION_INFORMATION_CLASS, transactioninformation : *const core::ffi::c_void, transactioninformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwSetInformationTransactionManager(tmhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : *const core::ffi::c_void, transactionmanagerinformationlength : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn ZwSetValueKey(keyhandle : super::HANDLE, valuename : *const super::UNICODE_STRING, titleindex : u32, r#type : u32, data : *const core::ffi::c_void, datasize : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwSinglePhaseReject(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn ZwUnloadDriver(driverservicename : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwUnmapViewOfSection(processhandle : super::HANDLE, baseaddress : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
@@ -383,7 +383,7 @@ windows_link::link!("ntdll.dll" "system" fn ZwWriteFile(filehandle : super::HAND
 windows_link::link!("ntdll.dll" "system" fn vDbgPrintEx(componentid : u32, level : u32, format : windows_sys::core::PCSTR, arglist : *const i8) -> u32);
 windows_link::link!("ntdll.dll" "system" fn vDbgPrintExWithPrefix(prefix : windows_sys::core::PCSTR, componentid : u32, level : u32, format : windows_sys::core::PCSTR, arglist : *const i8) -> u32);
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ACCESS_STATE {
     pub OperationID: super::LUID,
@@ -403,20 +403,20 @@ pub struct ACCESS_STATE {
     pub ObjectName: super::UNICODE_STRING,
     pub ObjectTypeName: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for ACCESS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union ACCESS_STATE_0 {
     pub InitialPrivilegeSet: INITIAL_PRIVILEGE_SET,
     pub PrivilegeSet: super::PRIVILEGE_SET,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for ACCESS_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3871,6 +3871,7 @@ impl Default for FILE_FULL_EA_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
+pub type FILE_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
@@ -4167,6 +4168,24 @@ pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 4;
 pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = 1;
 pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = 0;
 pub const FaultInformationX64: FAULT_INFORMATION_ARCH = 2;
+pub const FileAccessInformation: FILE_INFORMATION_CLASS = 8;
+pub const FileAlignmentInformation: FILE_INFORMATION_CLASS = 17;
+pub const FileAllInformation: FILE_INFORMATION_CLASS = 18;
+pub const FileAllocationInformation: FILE_INFORMATION_CLASS = 19;
+pub const FileAlternateNameInformation: FILE_INFORMATION_CLASS = 21;
+pub const FileAttributeTagInformation: FILE_INFORMATION_CLASS = 35;
+pub const FileBasicInformation: FILE_INFORMATION_CLASS = 4;
+pub const FileBothDirectoryInformation: FILE_INFORMATION_CLASS = 3;
+pub const FileCaseSensitiveInformation: FILE_INFORMATION_CLASS = 71;
+pub const FileCaseSensitiveInformationForceAccessCheck: FILE_INFORMATION_CLASS = 75;
+pub const FileCompletionInformation: FILE_INFORMATION_CLASS = 30;
+pub const FileCompressionInformation: FILE_INFORMATION_CLASS = 28;
+pub const FileDesiredStorageClassInformation: FILE_INFORMATION_CLASS = 67;
+pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = 1;
+pub const FileDispositionInformation: FILE_INFORMATION_CLASS = 13;
+pub const FileDispositionInformationEx: FILE_INFORMATION_CLASS = 64;
+pub const FileEaInformation: FILE_INFORMATION_CLASS = 7;
+pub const FileEndOfFileInformation: FILE_INFORMATION_CLASS = 20;
 pub const FileFsAttributeInformation: FS_INFORMATION_CLASS = 5;
 pub const FileFsControlInformation: FS_INFORMATION_CLASS = 6;
 pub const FileFsDataCopyInformation: FS_INFORMATION_CLASS = 12;
@@ -4183,6 +4202,72 @@ pub const FileFsSectorSizeInformation: FS_INFORMATION_CLASS = 11;
 pub const FileFsSizeInformation: FS_INFORMATION_CLASS = 3;
 pub const FileFsVolumeFlagsInformation: FS_INFORMATION_CLASS = 10;
 pub const FileFsVolumeInformation: FS_INFORMATION_CLASS = 1;
+pub const FileFullDirectoryInformation: FILE_INFORMATION_CLASS = 2;
+pub const FileFullEaInformation: FILE_INFORMATION_CLASS = 15;
+pub const FileHardLinkFullIdInformation: FILE_INFORMATION_CLASS = 62;
+pub const FileHardLinkInformation: FILE_INFORMATION_CLASS = 46;
+pub const FileId64ExtdBothDirectoryInformation: FILE_INFORMATION_CLASS = 79;
+pub const FileId64ExtdDirectoryInformation: FILE_INFORMATION_CLASS = 78;
+pub const FileIdAllExtdBothDirectoryInformation: FILE_INFORMATION_CLASS = 81;
+pub const FileIdAllExtdDirectoryInformation: FILE_INFORMATION_CLASS = 80;
+pub const FileIdBothDirectoryInformation: FILE_INFORMATION_CLASS = 37;
+pub const FileIdExtdBothDirectoryInformation: FILE_INFORMATION_CLASS = 63;
+pub const FileIdExtdDirectoryInformation: FILE_INFORMATION_CLASS = 60;
+pub const FileIdFullDirectoryInformation: FILE_INFORMATION_CLASS = 38;
+pub const FileIdGlobalTxDirectoryInformation: FILE_INFORMATION_CLASS = 50;
+pub const FileIdInformation: FILE_INFORMATION_CLASS = 59;
+pub const FileInternalInformation: FILE_INFORMATION_CLASS = 6;
+pub const FileIoCompletionNotificationInformation: FILE_INFORMATION_CLASS = 41;
+pub const FileIoPriorityHintInformation: FILE_INFORMATION_CLASS = 43;
+pub const FileIoStatusBlockRangeInformation: FILE_INFORMATION_CLASS = 42;
+pub const FileIsRemoteDeviceInformation: FILE_INFORMATION_CLASS = 51;
+pub const FileKnownFolderInformation: FILE_INFORMATION_CLASS = 76;
+pub const FileLinkInformation: FILE_INFORMATION_CLASS = 11;
+pub const FileLinkInformationBypassAccessCheck: FILE_INFORMATION_CLASS = 57;
+pub const FileLinkInformationEx: FILE_INFORMATION_CLASS = 72;
+pub const FileLinkInformationExBypassAccessCheck: FILE_INFORMATION_CLASS = 73;
+pub const FileMailslotQueryInformation: FILE_INFORMATION_CLASS = 26;
+pub const FileMailslotSetInformation: FILE_INFORMATION_CLASS = 27;
+pub const FileMaximumInformation: FILE_INFORMATION_CLASS = 84;
+pub const FileMemoryPartitionInformation: FILE_INFORMATION_CLASS = 69;
+pub const FileModeInformation: FILE_INFORMATION_CLASS = 16;
+pub const FileMoveClusterInformation: FILE_INFORMATION_CLASS = 31;
+pub const FileMupProviderInfo: FILE_INFORMATION_CLASS = 83;
+pub const FileNameInformation: FILE_INFORMATION_CLASS = 9;
+pub const FileNamesInformation: FILE_INFORMATION_CLASS = 12;
+pub const FileNetworkOpenInformation: FILE_INFORMATION_CLASS = 34;
+pub const FileNetworkPhysicalNameInformation: FILE_INFORMATION_CLASS = 49;
+pub const FileNormalizedNameInformation: FILE_INFORMATION_CLASS = 48;
+pub const FileNumaNodeInformation: FILE_INFORMATION_CLASS = 53;
+pub const FileObjectIdInformation: FILE_INFORMATION_CLASS = 29;
+pub const FilePipeInformation: FILE_INFORMATION_CLASS = 23;
+pub const FilePipeLocalInformation: FILE_INFORMATION_CLASS = 24;
+pub const FilePipeRemoteInformation: FILE_INFORMATION_CLASS = 25;
+pub const FilePositionInformation: FILE_INFORMATION_CLASS = 14;
+pub const FileProcessIdsUsingFileInformation: FILE_INFORMATION_CLASS = 47;
+pub const FileQuotaInformation: FILE_INFORMATION_CLASS = 32;
+pub const FileRemoteProtocolInformation: FILE_INFORMATION_CLASS = 55;
+pub const FileRenameInformation: FILE_INFORMATION_CLASS = 10;
+pub const FileRenameInformationBypassAccessCheck: FILE_INFORMATION_CLASS = 56;
+pub const FileRenameInformationEx: FILE_INFORMATION_CLASS = 65;
+pub const FileRenameInformationExBypassAccessCheck: FILE_INFORMATION_CLASS = 66;
+pub const FileReparsePointInformation: FILE_INFORMATION_CLASS = 33;
+pub const FileReplaceCompletionInformation: FILE_INFORMATION_CLASS = 61;
+pub const FileSfioReserveInformation: FILE_INFORMATION_CLASS = 44;
+pub const FileSfioVolumeInformation: FILE_INFORMATION_CLASS = 45;
+pub const FileShortNameInformation: FILE_INFORMATION_CLASS = 40;
+pub const FileStandardInformation: FILE_INFORMATION_CLASS = 5;
+pub const FileStandardLinkInformation: FILE_INFORMATION_CLASS = 54;
+pub const FileStatBasicInformation: FILE_INFORMATION_CLASS = 77;
+pub const FileStatInformation: FILE_INFORMATION_CLASS = 68;
+pub const FileStatLxInformation: FILE_INFORMATION_CLASS = 70;
+pub const FileStorageReserveIdInformation: FILE_INFORMATION_CLASS = 74;
+pub const FileStreamInformation: FILE_INFORMATION_CLASS = 22;
+pub const FileStreamReservationInformation: FILE_INFORMATION_CLASS = 82;
+pub const FileTrackingInformation: FILE_INFORMATION_CLASS = 36;
+pub const FileUnusedInformation: FILE_INFORMATION_CLASS = 52;
+pub const FileValidDataLengthInformation: FILE_INFORMATION_CLASS = 39;
+pub const FileVolumeNameInformation: FILE_INFORMATION_CLASS = 58;
 pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 13;
 pub const FreePage: KWAIT_REASON = 1;
 pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = 0;
@@ -5650,7 +5735,7 @@ impl Default for IO_RESOURCE_REQUIREMENTS_LIST {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IO_SECURITY_CONTEXT {
     pub SecurityQos: super::PSECURITY_QUALITY_OF_SERVICE,
@@ -5658,7 +5743,7 @@ pub struct IO_SECURITY_CONTEXT {
     pub DesiredAccess: super::ACCESS_MASK,
     pub FullCreateOptions: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for IO_SECURITY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6255,7 +6340,7 @@ pub struct IO_STACK_LOCATION_0_4 {
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: u32,
     pub FileName: super::PUNICODE_STRING,
-    pub FileInformationClass: super::FILE_INFORMATION_CLASS,
+    pub FileInformationClass: FILE_INFORMATION_CLASS,
     pub FileIndex: u32,
 }
 #[cfg(target_arch = "x86")]
@@ -6288,7 +6373,7 @@ pub struct IO_STACK_LOCATION_0_7 {
 #[derive(Clone, Copy, Default)]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Length: u32,
-    pub FileInformationClass: super::FILE_INFORMATION_CLASS,
+    pub FileInformationClass: FILE_INFORMATION_CLASS,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -6296,7 +6381,7 @@ pub struct IO_STACK_LOCATION_0_8 {
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_9 {
     pub Length: u32,
-    pub FileInformationClass: super::FILE_INFORMATION_CLASS,
+    pub FileInformationClass: FILE_INFORMATION_CLASS,
     pub FileObject: PFILE_OBJECT,
     pub Anonymous: IO_STACK_LOCATION_0_9_0,
 }
@@ -6878,7 +6963,7 @@ pub struct IO_STACK_LOCATION_0_4 {
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: u32,
     pub FileName: super::PUNICODE_STRING,
-    pub FileInformationClass: super::FILE_INFORMATION_CLASS,
+    pub FileInformationClass: FILE_INFORMATION_CLASS,
     pub FileIndex: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6911,7 +6996,7 @@ pub struct IO_STACK_LOCATION_0_7 {
 #[derive(Clone, Copy, Default)]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Length: u32,
-    pub FileInformationClass: super::FILE_INFORMATION_CLASS,
+    pub FileInformationClass: FILE_INFORMATION_CLASS,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6919,7 +7004,7 @@ pub struct IO_STACK_LOCATION_0_8 {
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_9 {
     pub Length: u32,
-    pub FileInformationClass: super::FILE_INFORMATION_CLASS,
+    pub FileInformationClass: FILE_INFORMATION_CLASS,
     pub FileObject: PFILE_OBJECT,
     pub Anonymous: IO_STACK_LOCATION_0_9_0,
 }
@@ -8038,6 +8123,7 @@ impl Default for KEY_NODE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
+pub type KEY_SET_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct KEY_SET_VIRTUALIZATION_INFORMATION {
@@ -8437,12 +8523,17 @@ pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 0;
 pub const KeepObject: IO_ALLOCATION_ACTION = 1;
 pub const KeyBasicInformation: KEY_INFORMATION_CLASS = 0;
 pub const KeyCachedInformation: KEY_INFORMATION_CLASS = 4;
+pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2;
 pub const KeyFlagsInformation: KEY_INFORMATION_CLASS = 5;
 pub const KeyFullInformation: KEY_INFORMATION_CLASS = 2;
 pub const KeyHandleTagsInformation: KEY_INFORMATION_CLASS = 7;
 pub const KeyLayerInformation: KEY_INFORMATION_CLASS = 9;
 pub const KeyNameInformation: KEY_INFORMATION_CLASS = 3;
 pub const KeyNodeInformation: KEY_INFORMATION_CLASS = 1;
+pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = 4;
+pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = 5;
+pub const KeySetLayerInformation: KEY_SET_INFORMATION_CLASS = 6;
+pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = 3;
 pub const KeyTrustInformation: KEY_INFORMATION_CLASS = 8;
 pub const KeyValueBasicInformation: KEY_VALUE_INFORMATION_CLASS = 0;
 pub const KeyValueFullInformation: KEY_VALUE_INFORMATION_CLASS = 1;
@@ -8451,6 +8542,8 @@ pub const KeyValueLayerInformation: KEY_VALUE_INFORMATION_CLASS = 5;
 pub const KeyValuePartialInformation: KEY_VALUE_INFORMATION_CLASS = 2;
 pub const KeyValuePartialInformationAlign64: KEY_VALUE_INFORMATION_CLASS = 4;
 pub const KeyVirtualizationInformation: KEY_INFORMATION_CLASS = 6;
+pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = 1;
+pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LEGACY_BUS_INFORMATION {
@@ -8729,6 +8822,7 @@ pub const MapPhysicalAddressTypePfn: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 2;
 pub const MaxFaultType: FAULT_INFORMATION_ARM64_TYPE = 7;
 pub const MaxIoPriorityTypes: IO_PRIORITY_HINT = 5;
 pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = 10;
+pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 7;
 pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = 6;
 pub const MaxPoolType: POOL_TYPE = 7;
 pub const MaxRegNtNotifyClass: REG_NOTIFY_CLASS = 51;
@@ -8878,7 +8972,7 @@ pub struct OBJECT_HANDLE_INFORMATION {
     pub GrantedAccess: super::ACCESS_MASK,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy, Default)]
 pub struct OBJECT_NAME_INFORMATION {
     pub Name: super::UNICODE_STRING,
@@ -8887,7 +8981,7 @@ pub const OBJECT_TYPE_ALL_ACCESS: i32 = 983041;
 pub const OBJECT_TYPE_CREATE: i32 = 1;
 pub const OBJ_NAME_PATH_SEPARATOR: u32 = 92;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct OB_CALLBACK_REGISTRATION {
     pub Version: u16,
@@ -8896,7 +8990,7 @@ pub struct OB_CALLBACK_REGISTRATION {
     pub RegistrationContext: *mut core::ffi::c_void,
     pub OperationRegistration: *mut OB_OPERATION_REGISTRATION,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for OB_CALLBACK_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9096,7 +9190,7 @@ pub struct OWNER_ENTRY_COUNTS_0 {
     pub _bitfield: u32,
 }
 pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 2;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PACCESS_STATE = *mut ACCESS_STATE;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PACPI_INTERFACE_STANDARD = *mut ACPI_INTERFACE_STANDARD;
@@ -9166,7 +9260,7 @@ pub type PAMD_L3_CACHE_INFO = *mut AMD_L3_CACHE_INFO;
 #[cfg(target_arch = "aarch64")]
 pub type PARM64_IDCODE = *mut ARM64_IDCODE;
 pub type PARTITION_INFORMATION_CLASS = i32;
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
+#[cfg(all(feature = "ntddk", feature = "ntsecapi"))]
 pub type PBDCB_IMAGE_INFORMATION = *mut super::BDCB_IMAGE_INFORMATION;
 pub type PBOOTDISK_INFORMATION = *mut BOOTDISK_INFORMATION;
 pub type PBOOTDISK_INFORMATION_EX = *mut BOOTDISK_INFORMATION_EX;
@@ -10656,9 +10750,9 @@ pub type PCM_VIDEO_DEVICE_DATA = *mut CM_VIDEO_DEVICE_DATA;
 pub type PCONFIGURE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, functionnumber: u32, context: *const core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PCOUNTED_REASON_CONTEXT = *mut COUNTED_REASON_CONTEXT;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PCPOOL_CREATE_EXTENDED_PARAMETER = *const POOL_CREATE_EXTENDED_PARAMETER;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PCPOOL_CREATE_EXTENDED_PARAMS = *const POOL_CREATE_EXTENDED_PARAMS;
 #[cfg(feature = "winnt")]
 pub type PCPOOL_EXTENDED_PARAMETER = *const POOL_EXTENDED_PARAMETER;
@@ -10666,10 +10760,10 @@ pub type PCRASHDUMP_FUNCTIONS_INTERFACE = *mut CRASHDUMP_FUNCTIONS_INTERFACE;
 pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PCREATE_COMMON_BUFFER_FROM_MDL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, extendedconfigs: *const DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION, extendedconfigscount: u32, logicaladdress: *mut i64) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union PCW_CALLBACK_INFORMATION {
     pub AddCounter: PCW_COUNTER_INFORMATION,
@@ -10677,7 +10771,7 @@ pub union PCW_CALLBACK_INFORMATION {
     pub EnumerateInstances: PCW_MASK_INFORMATION,
     pub CollectData: PCW_MASK_INFORMATION,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for PCW_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10693,13 +10787,13 @@ pub struct PCW_COUNTER_DESCRIPTOR {
     pub Size: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PCW_COUNTER_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: super::PCUNICODE_STRING,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
 impl Default for PCW_COUNTER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10718,7 +10812,7 @@ impl Default for PCW_DATA {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PCW_MASK_INFORMATION {
     pub CounterMask: u64,
@@ -10728,7 +10822,7 @@ pub struct PCW_MASK_INFORMATION {
     pub Buffer: PPCW_BUFFER,
     pub CancelEvent: PKEVENT,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for PCW_MASK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10736,7 +10830,7 @@ impl Default for PCW_MASK_INFORMATION {
 }
 pub type PCW_REGISTRATION_FLAGS = i32;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PCW_REGISTRATION_INFORMATION {
     pub Version: u32,
@@ -10747,7 +10841,7 @@ pub struct PCW_REGISTRATION_INFORMATION {
     pub CallbackContext: *mut core::ffi::c_void,
     pub Flags: PCW_REGISTRATION_FLAGS,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for PCW_REGISTRATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10762,7 +10856,7 @@ pub type PD3COLD_REQUEST_CORE_POWER_RAIL = *mut D3COLD_REQUEST_CORE_POWER_RAIL;
 pub type PD3COLD_REQUEST_PERST_DELAY = *mut D3COLD_REQUEST_PERST_DELAY;
 #[cfg(feature = "winnt")]
 pub type PD3COLD_SUPPORT_INTERFACE = *mut D3COLD_SUPPORT_INTERFACE;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PDEBUG_PRINT_CALLBACK = Option<unsafe extern "system" fn(output: *const super::STRING, componentid: u32, level: u32)>;
 pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = *mut DEVICE_BUS_SPECIFIC_RESET_HANDLER;
 pub type PDEVICE_BUS_SPECIFIC_RESET_INFO = *mut DEVICE_BUS_SPECIFIC_RESET_INFO;
@@ -10985,8 +11079,7 @@ pub type PFILE_FS_DEVICE_INFORMATION = *mut FILE_FS_DEVICE_INFORMATION;
 pub type PFILE_FULL_EA_INFORMATION = *mut FILE_FULL_EA_INFORMATION;
 #[cfg(all(feature = "ntifs", feature = "winnt"))]
 pub type PFILE_GET_QUOTA_INFORMATION = *mut super::FILE_GET_QUOTA_INFORMATION;
-#[cfg(feature = "winternl")]
-pub type PFILE_INFORMATION_CLASS = *mut super::FILE_INFORMATION_CLASS;
+pub type PFILE_INFORMATION_CLASS = *mut FILE_INFORMATION_CLASS;
 #[cfg(feature = "minwindef")]
 pub type PFILE_IOSTATUSBLOCK_RANGE_INFORMATION = *mut FILE_IOSTATUSBLOCK_RANGE_INFORMATION;
 #[cfg(feature = "winternl")]
@@ -11250,7 +11343,7 @@ pub type PIO_RESOURCE_DESCRIPTOR = *mut IO_RESOURCE_DESCRIPTOR;
 pub type PIO_RESOURCE_LIST = *mut IO_RESOURCE_LIST;
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 pub type PIO_RESOURCE_REQUIREMENTS_LIST = *mut IO_RESOURCE_REQUIREMENTS_LIST;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PIO_SECURITY_CONTEXT = *mut IO_SECURITY_CONTEXT;
 pub type PIO_SESSION_CONNECT_INFO = *mut IO_SESSION_CONNECT_INFO;
 pub type PIO_SESSION_EVENT = *mut IO_SESSION_EVENT;
@@ -11392,10 +11485,10 @@ pub type PMAP_TRANSFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const 
 pub type PMDLX = *mut MDL;
 #[cfg(feature = "winnt")]
 pub type PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION = *mut MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PMM_DLL_INITIALIZE = Option<unsafe extern "system" fn(registrypath: *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS>;
 pub type PMM_DLL_UNLOAD = Option<unsafe extern "system" fn() -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "system" fn(modulename: *const super::UNICODE_STRING, functionname: windows_sys::core::PCSTR) -> *mut core::ffi::c_void>;
 pub type PMM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE;
 pub type PMM_MDL_ROUTINE = *mut MM_MDL_ROUTINE;
@@ -11555,10 +11648,10 @@ pub const PNP_REPLACE_PROCESSOR_SUPPORTED: i32 = 2;
 pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = *mut NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR;
 #[cfg(feature = "winnt")]
 pub type POBJECT_HANDLE_INFORMATION = *mut OBJECT_HANDLE_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type POBJECT_NAME_INFORMATION = *mut OBJECT_NAME_INFORMATION;
 pub type POBJECT_TYPE = *mut _OBJECT_TYPE;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type POB_CALLBACK_REGISTRATION = *mut OB_CALLBACK_REGISTRATION;
 #[cfg(feature = "winnt")]
 pub type POB_OPERATION_REGISTRATION = *mut OB_OPERATION_REGISTRATION;
@@ -11586,25 +11679,25 @@ pub type POB_PRE_OPERATION_PARAMETERS = *mut OB_PRE_OPERATION_PARAMETERS;
 pub type POHANDLE = *mut core::ffi::c_void;
 pub const POOL_COLD_ALLOCATION: i32 = 256;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy)]
 pub struct POOL_CREATE_EXTENDED_PARAMETER {
     pub Type: POOL_CREATE_EXTENDED_PARAMETER_TYPE,
     pub Anonymous: POOL_CREATE_EXTENDED_PARAMETER_0,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for POOL_CREATE_EXTENDED_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy)]
 pub union POOL_CREATE_EXTENDED_PARAMETER_0 {
     pub PoolName: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for POOL_CREATE_EXTENDED_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11612,14 +11705,14 @@ impl Default for POOL_CREATE_EXTENDED_PARAMETER_0 {
 }
 pub type POOL_CREATE_EXTENDED_PARAMETER_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: u32,
     pub ParameterCount: u32,
     pub Parameters: PPOOL_CREATE_EXTENDED_PARAMETER,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for POOL_CREATE_EXTENDED_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11776,20 +11869,20 @@ pub struct PO_FX_COMPONENT_IDLE_STATE {
 }
 pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, state: u32)>;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_INFO {
     pub PerfStateSetsCount: u32,
     pub PerfStateSets: [PO_FX_COMPONENT_PERF_SET; 1],
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for PO_FX_COMPONENT_PERF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_SET {
     pub Name: super::UNICODE_STRING,
@@ -11798,40 +11891,40 @@ pub struct PO_FX_COMPONENT_PERF_SET {
     pub Type: PO_FX_PERF_STATE_TYPE,
     pub Anonymous: PO_FX_COMPONENT_PERF_SET_0,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for PO_FX_COMPONENT_PERF_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy)]
 pub union PO_FX_COMPONENT_PERF_SET_0 {
     pub Discrete: PO_FX_COMPONENT_PERF_SET_0_0,
     pub Range: PO_FX_COMPONENT_PERF_SET_0_1,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for PO_FX_COMPONENT_PERF_SET_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_0 {
     pub Count: u32,
     pub States: PPO_FX_PERF_STATE,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for PO_FX_COMPONENT_PERF_SET_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy, Default)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
     pub Minimum: u64,
@@ -12094,20 +12187,20 @@ pub type PPCI_SLOT_NUMBER = *mut PCI_SLOT_NUMBER;
 pub type PPCI_VIRTUALIZATION_INTERFACE = *mut PCI_VIRTUALIZATION_INTERFACE;
 pub type PPCI_X_CAPABILITY = *mut PCI_X_CAPABILITY;
 pub type PPCW_BUFFER = *mut _PCW_BUFFER;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PPCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PPCW_CALLBACK_INFORMATION = *mut PCW_CALLBACK_INFORMATION;
 pub type PPCW_CALLBACK_TYPE = *mut PCW_CALLBACK_TYPE;
 pub type PPCW_COUNTER_DESCRIPTOR = *mut PCW_COUNTER_DESCRIPTOR;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
 pub type PPCW_COUNTER_INFORMATION = *mut PCW_COUNTER_INFORMATION;
 pub type PPCW_DATA = *mut PCW_DATA;
 pub type PPCW_INSTANCE = *mut _PCW_INSTANCE;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PPCW_MASK_INFORMATION = *mut PCW_MASK_INFORMATION;
 pub type PPCW_REGISTRATION = *mut _PCW_REGISTRATION;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PPCW_REGISTRATION_INFORMATION = *mut PCW_REGISTRATION_INFORMATION;
 #[cfg(target_arch = "x86")]
 pub type PPFN_NUMBER = *mut u32;
@@ -12129,10 +12222,10 @@ pub type PPNP_REPLACE_PARAMETERS = *mut PNP_REPLACE_PARAMETERS;
 pub type PPNP_REPLACE_PROCESSOR_LIST = *mut PNP_REPLACE_PROCESSOR_LIST;
 #[cfg(feature = "basetsd")]
 pub type PPNP_REPLACE_PROCESSOR_LIST_V1 = *mut PNP_REPLACE_PROCESSOR_LIST_V1;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PPOOL_CREATE_EXTENDED_PARAMETER = *mut POOL_CREATE_EXTENDED_PARAMETER;
 pub type PPOOL_CREATE_EXTENDED_PARAMETER_TYPE = *mut POOL_CREATE_EXTENDED_PARAMETER_TYPE;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PPOOL_CREATE_EXTENDED_PARAMS = *mut POOL_CREATE_EXTENDED_PARAMS;
 #[cfg(feature = "winnt")]
 pub type PPOOL_EXTENDED_PARAMETER = *mut POOL_EXTENDED_PARAMETER;
@@ -12150,9 +12243,9 @@ pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = *mut PO_FX_COMPONENT_CR
 pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = *mut PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK;
 pub type PPO_FX_COMPONENT_IDLE_STATE = *mut PO_FX_COMPONENT_IDLE_STATE;
 pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = *mut PO_FX_COMPONENT_IDLE_STATE_CALLBACK;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PPO_FX_COMPONENT_PERF_INFO = *mut PO_FX_COMPONENT_PERF_INFO;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PPO_FX_COMPONENT_PERF_SET = *mut PO_FX_COMPONENT_PERF_SET;
 pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = *mut PO_FX_COMPONENT_PERF_STATE_CALLBACK;
 pub type PPO_FX_COMPONENT_V1 = *mut PO_FX_COMPONENT_V1;
@@ -12230,7 +12323,7 @@ pub type PREG_PRE_CREATE_KEY_INFORMATION = *mut REG_PRE_CREATE_KEY_INFORMATION;
 pub type PREG_PRE_OPEN_KEY_INFORMATION = *mut REG_PRE_CREATE_KEY_INFORMATION;
 #[cfg(feature = "minwindef")]
 pub type PREG_QUERY_KEY_INFORMATION = *mut REG_QUERY_KEY_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
 pub type PREG_QUERY_KEY_NAME = *mut REG_QUERY_KEY_NAME;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PREG_QUERY_KEY_SECURITY_INFORMATION = *mut REG_QUERY_KEY_SECURITY_INFORMATION;
@@ -12248,7 +12341,6 @@ pub type PREG_RESTORE_KEY_INFORMATION = *mut REG_RESTORE_KEY_INFORMATION;
 pub type PREG_SAVE_KEY_INFORMATION = *mut REG_SAVE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_SAVE_MERGED_KEY_INFORMATION = *mut REG_SAVE_MERGED_KEY_INFORMATION;
-#[cfg(feature = "winternl")]
 pub type PREG_SET_INFORMATION_KEY_INFORMATION = *mut REG_SET_INFORMATION_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_SET_KEY_SECURITY_INFORMATION = *mut REG_SET_KEY_SECURITY_INFORMATION;
@@ -12336,7 +12428,7 @@ pub type PSEND_DOE_REQUEST_ASYNC = *mut SEND_DOE_REQUEST_ASYNC;
 pub type PSET_D3COLD_SUPPORT = *mut SET_D3COLD_SUPPORT;
 pub type PSET_VIRTUAL_DEVICE_DATA = *mut SET_VIRTUAL_DEVICE_DATA;
 pub type PSE_IMAGE_TYPE = *mut SE_IMAGE_TYPE;
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
+#[cfg(all(feature = "ntddk", feature = "ntsecapi"))]
 pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = *mut SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION;
 pub type PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut *mut core::ffi::c_void;
 pub type PSE_IMAGE_VERIFICATION_CALLBACK_TYPE = *mut SE_IMAGE_VERIFICATION_CALLBACK_TYPE;
@@ -12784,7 +12876,7 @@ impl Default for REG_QUERY_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
 #[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_NAME {
     pub Object: *mut core::ffi::c_void,
@@ -12795,7 +12887,7 @@ pub struct REG_QUERY_KEY_NAME {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
 impl Default for REG_QUERY_KEY_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12945,18 +13037,16 @@ impl Default for REG_SAVE_MERGED_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
-    pub KeySetInformationClass: super::KEY_SET_INFORMATION_CLASS,
+    pub KeySetInformationClass: KEY_SET_INFORMATION_CLASS,
     pub KeySetInformation: *mut core::ffi::c_void,
     pub KeySetInformationLength: u32,
     pub CallContext: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(feature = "winternl")]
 impl Default for REG_SET_INFORMATION_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13292,7 +13382,7 @@ pub const SE_DEBUG_PRIVILEGE: i32 = 20;
 pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_PRIVILEGE: i32 = 36;
 pub const SE_ENABLE_DELEGATION_PRIVILEGE: i32 = 27;
 pub type SE_IMAGE_TYPE = i32;
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
+#[cfg(all(feature = "ntddk", feature = "ntsecapi"))]
 pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, imagetype: SE_IMAGE_TYPE, imageinformation: *mut super::BDCB_IMAGE_INFORMATION)>;
 pub type SE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut core::ffi::c_void;
 pub type SE_IMAGE_VERIFICATION_CALLBACK_TYPE = i32;

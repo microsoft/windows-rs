@@ -68,12 +68,15 @@ release so the scrape is deterministic (see `tool_win32`).
 
 ## Consumers
 
-- `tool_win32` - scrapes the Windows SDK headers into
-  `crates/libs/bindgen/default/Windows.Win32.winmd` (the in-house Win32 metadata that backs
-  `windows-bindgen`'s bundled `"default"` bindings).
-- `tool_wdk` - scrapes the WDK kernel-mode headers into
-  `crates/libs/bindgen/default/Windows.Wdk.winmd`, an *additive* winmd carrying only the surface the
-  WDK adds on top of Win32 (see [tool_wdk](#the-wdk-metadata-tool_wdk)).
+- `tool_win32` - scrapes the Windows SDK headers into `metadata/win32/*.rdl` (committed) and a
+  `target/win32/Windows.Win32.winmd` (uncommitted). `tool_wdk` re-derives that `um` winmd from the
+  committed RDL and folds it into the shipped winmd, so the SDK surface reaches
+  `windows-bindgen`'s bundled `"default"` bindings through the merge.
+- `tool_wdk` - scrapes the WDK kernel-mode headers and merges them with the Win32 surface into the
+  single `crates/libs/bindgen/default/Windows.Win32.winmd`. It re-derives a `um` winmd from the
+  committed `metadata/win32` RDL, scrapes the `km` headers into `metadata/wdk` RDL, and unions the
+  two (same-named enums fold into one) so `windows-bindgen` sees one complete corpus (see
+  [tool_wdk](#the-wdk-metadata-tool_wdk)).
 - `tool_webview` - scrapes the WebView2 headers into `WebView2.rdl`.
 - `test_clang` - golden fixtures that pin the header -> RDL behavior.
 
@@ -418,8 +421,8 @@ that need opposite handling:
   `Windows.Win32` namespace like any other Win32 type.
 - *True WinRT projection types* that already exist in `Windows.winmd` (e.g.
   ``Windows.Foundation.Collections.IMapView`2``). Flattening these would drag the whole WinRT
-  surface into Win32, so a referenced one must become a cross-winmd reference (the `Windows.Wdk` ->
-  `Windows.Win32` pattern, here an `AssemblyRef` on the `Windows` assembly).
+  surface into Win32, so a referenced one must become a cross-winmd reference (an `AssemblyRef` on
+  the `Windows` assembly).
 
 `tool_win32` tells the two apart by carrying `Windows.winmd` as a resolution winmd
 (`RESOLUTION_WINMDS`, threaded through `Clang::resolution_input`): a *resolution-only* input that is
@@ -478,26 +481,40 @@ representation it already gives every interface (`windows-bindgen`, `types::from
 
 ### The WDK metadata: tool_wdk
 
-`cargo run -p tool_wdk` builds `Windows.Wdk.winmd` the same way `tool_win32` builds the Win32
-winmd - a whole-header scrape, not a symbol allowlist. Both tools drive the *same*
-[`scrape`](#scraper-layering-one-crate-two-levels) terminal from plain `const` slices in `main.rs`
-(`crates/tools/wdk/src/main.rs`); the WDK is just that builder configured for three things:
+`cargo run -p tool_wdk` owns the single committed `crates/libs/bindgen/default/Windows.Win32.winmd`.
+It scrapes the WDK kernel-mode headers the same way `tool_win32` scrapes the SDK - a whole-header
+scrape, not a symbol allowlist - and then merges that surface with the Win32 surface into one
+winmd. Both scrapes drive the *same* [`scrape`](#scraper-layering-one-crate-two-levels) terminal
+from plain `const` slices in `main.rs` (`crates/tools/wdk/src/main.rs`). Three steps run in order:
 
-- **Same flat `Windows.Win32` namespace.** The WDK surface is emitted into the *global, not-WinRT*
-  namespace shared with Win32, so a WDK entity referencing a Win32 type (`NTSTATUS`,
-  `LARGE_INTEGER`, `LIST_ENTRY`, and more) just names it and bindgen resolves it by bare name once
-  both winmds are loaded together - no cross-namespace resolution.
-- **Additive (exclusion-referenced).** The Win32 winmd is fed to `write_by_header` as an *exclusion
-  reference*: any entity Win32 already defines is skipped rather than re-emitted, so
-  `Windows.Wdk.winmd` carries only the WDK-net-new surface. This sidesteps the reader's
-  duplicate-`(namespace, name)` panic and keeps the winmd small (only kernel types like
-  `IO_STATUS_BLOCK` land; the shared closure resolves against Win32).
-- **User-mode only.** `scope(["km"])` keeps kernel-mode declarations in scope, and `drop_lib_less` +
-  the `ntdll.lib` import library scope the emitted *functions* to the user-callable native surface:
-  a routine exported from `ntdll.dll` (`NtReadFile`, `RtlGetVersion`, and more) is stamped and kept,
-  while a kernel-only routine (exported from `ntoskrnl`, absent from any user-mode import library)
-  resolves to an empty library and is dropped. No fallback `library` is set - one would make
-  every function lib-ful and drag in the whole kernel export surface.
+1. **Re-derive the `um` winmd.** The committed `metadata/win32/*.rdl` (plus the metadata seed and
+   `Windows.winmd` for resolution) is compiled to a `target/` winmd - the same content `tool_win32`
+   produces, rebuilt from committed inputs so the tool is self-contained.
+2. **Scrape the `km` headers.** The WDK headers are scraped into `metadata/wdk/*.rdl` (committed) and
+   a `target/` `km` winmd, with the `um` winmd as the reference. This gives the WDK scrape two roles:
+
+   - **Same flat `Windows.Win32` namespace.** The WDK surface is emitted into the *global, not-WinRT*
+     namespace shared with Win32, so a WDK entity referencing a Win32 type (`NTSTATUS`,
+     `LARGE_INTEGER`, `LIST_ENTRY`, and more) just names it and bindgen resolves it by bare name.
+   - **Additive, except for extended enums.** The `um` winmd is fed to `write_by_header` as an
+     *exclusion reference*: any entity Win32 already defines is skipped rather than re-emitted, so
+     the `km` RDL carries only the WDK-net-new surface. The one exception is an enum the WDK headers
+     *extend* (define members the reference lacks, such as `FILE_INFORMATION_CLASS`): that enum is
+     un-excluded and emitted in full, so the union in step 3 has a complete copy to fold in.
+   - **User-mode only.** `scope(["km"])` keeps kernel-mode declarations in scope, and `drop_lib_less`
+     + the `ntdll.lib` import library scope the emitted *functions* to the user-callable native
+     surface: a routine exported from `ntdll.dll` (`NtReadFile`, `RtlGetVersion`, and more) is
+     stamped and kept, while a kernel-only routine (exported from `ntoskrnl`, absent from any
+     user-mode import library) resolves to an empty library and is dropped. No fallback `library`
+     is set - one would make every function lib-ful and drag in the whole kernel export surface.
+3. **Merge `um` + `km` with enum-union.** `Merger::union_enums` writes the committed
+   `Windows.Win32.winmd`, folding a same-named enum defined in both inputs into one that carries
+   every member (`merge/mod.rs` `write_enum_union`). This is why a truncated `winternl.h` enum and
+   the full WDK enum become a single complete type rather than a duplicate.
+
+Because `tool_wdk` re-derives the `um` winmd from committed RDL, it is idempotent on its own from a
+fresh checkout - the constraint the `gen` CI workflow enforces by running each tool in isolation
+and rejecting any `git diff`.
 
 New WDK APIs are added exactly like Win32 ones: list the defining header in `main.rs`'s
 `SOURCE_HEADERS` and regenerate. The WDK NuGet version is pinned independently of the SDK (its
@@ -829,3 +846,103 @@ collisions (`WIN32_ERROR`, `NTSTATUS`, `RPC_STATUS`) are gone.
 namespaced (`write`) and flat per-header (`write_by_header`) scrape modes so a mode-specific
 carve-out cannot silently regress. Fixture headers live in `crates/tests/libs/clang/input/`. CI
 exports `LIBCLANG_PATH` from `tool_clang path` so the suite loads the pinned libclang.
+
+## rust-lang/rust `windows-sys` compatibility
+
+The Rust standard library generates its own `windows_sys.rs` with `windows-bindgen`, so the
+in-house metadata this scrape produces has to cover everything Rust's filter names. The consumer
+lives in `rust-lang/rust`:
+
+| File | Role |
+| --- | --- |
+| `src/tools/generate-windows-sys/src/main.rs` | Runs `windows_bindgen::bindgen(["--etc", "bindings.txt"])` and appends an ARM32 `WSADATA`/`CONTEXT` shim. |
+| `library/std/src/sys/pal/windows/c/bindings.txt` | The filter: `--out windows_sys.rs --flat --sys --no-deps --link windows_link` plus 2,642 flat API names. |
+| `library/std/src/sys/pal/windows/c.rs` | Hand-written overrides and functions the generated file does not provide (`windows_sys.rs` is generated and must not be edited). |
+
+Every one of the 2,642 filter names was resolved against the default metadata (the single
+`crates/libs/bindgen/default/Windows.Win32.winmd`, merged from `metadata/win32/*.rdl` and
+`metadata/wdk/*.rdl`) using the bindgen filter resolver. **49 names did not resolve; the three
+bucket-E gaps are now fixed (see below), leaving 46.** In every remaining case the member
+*constants* of a collapsed type are still present; only the wrapper *type name* or an invented
+member is missing.
+
+### Unresolved filter entries (49; 3 now fixed)
+
+| Cause | Count | Names | Fixable here? |
+| --- | --- | --- | --- |
+| **A. Flat-namespace path mismatch.** The type/const exists; only Rust's sub-namespace path is wrong (the corpus is flat `Windows.Win32`). | 4 | `Windows.Win32.System.Diagnostics.Debug.XSAVE_FORMAT`, `Windows.Win32.System.Kernel.FLOATING_SAVE_AREA`, `Windows.Wdk.Storage.FileSystem.FILE_NO_COMPRESSION`, `Windows.Wdk.Storage.FileSystem.FILE_OPEN_NO_RECALL` | No - Rust should use bare names. |
+| **B. Grouping enum/flag typedef collapsed to a scalar.** Win32metadata invented these to wrap loose `#define`s; the header declares plain constants + scalar params, so no named type is emitted. Members are present as flat constants. | 30 | `COMPARESTRING_RESULT`, `CONSOLE_MODE`, `DUPLICATE_HANDLE_OPTIONS`, `FILE_ACCESS_RIGHTS`, `FILE_CREATION_DISPOSITION`, `FILE_DISPOSITION_INFO_EX_FLAGS`, `FILE_FLAGS_AND_ATTRIBUTES`, `FILE_SHARE_MODE`, `FILE_TYPE`, `FORMAT_MESSAGE_OPTIONS`, `GENERIC_ACCESS_RIGHTS`, `GETFINALPATHNAMEBYHANDLE_FLAGS`, `HANDLE_FLAGS`, `LPPROGRESS_ROUTINE_CALLBACK_REASON`, `MOVE_FILE_FLAGS`, `MULTI_BYTE_TO_WIDE_CHAR_FLAGS`, `NAMED_PIPE_MODE`, `NTCREATEFILE_CREATE_DISPOSITION`, `NTCREATEFILE_CREATE_OPTIONS`, `PROCESS_CREATION_FLAGS`, `PROCESSOR_ARCHITECTURE`, `SEND_RECV_FLAGS`, `SET_FILE_POINTER_MOVE_METHOD`, `STARTUPINFOW_FLAGS`, `STD_HANDLE`, `SYMBOLIC_LINK_FLAGS`, `THREAD_CREATION_FLAGS`, `TOKEN_ACCESS_MASK`, `WINSOCK_SHUTDOWN_HOW`, `WINSOCK_SOCKET_TYPE` | Design choice - collapse is intended; Rust must switch to scalars or the projection layer must re-emit named aliases. |
+| **C. Error/status typedef collapsed to a scalar.** | 4 | `NTSTATUS`, `WIN32_ERROR`, `WSA_ERROR`, `FACILITY_CODE` | Design choice - same options as B. |
+| **D. Invented enum member with no SDK macro.** Members of Win32metadata grouping enums that no header declares. | 8 | `FILE_SHARE_NONE` (0), `THREAD_CREATE_RUN_IMMEDIATELY` (0), `THREAD_CREATE_SUSPENDED`, `TOKEN_ACCESS_SYSTEM_SECURITY`, `TOKEN_DELETE`, `TOKEN_READ_CONTROL`, `TOKEN_WRITE_DAC`, `TOKEN_WRITE_OWNER` | Only by emitting them as named constants; no header origin. |
+| **E. Real value dropped by scrape logic.** | 3 | `FileRenameInformation` (10), `FileRenameInformationEx` (65) - the public `winternl.h` truncates `FILE_INFORMATION_CLASS` to its single `FileDirectoryInformation` member, and the fuller WDK enum used to be suppressed as a duplicate; `IPPROTO_RM` (113) - lived only in `wsrm.h`, which was not in the scrape's `HEADERS`. | **Fixed** - see below. |
+
+None of the remaining 46 are header-coverage gaps: the defining headers are already scraped. B and
+C are the deliberate scalar canonicalization, and D are Win32metadata inventions. E was the one
+real dropping/coverage gap and is now closed (`IPPROTO_RM` needed a new header; the `FileRename*`
+members needed a member-level enum merge).
+
+### Moving Rust's hand-written `c.rs` bindings into the generated surface
+
+Rust hand-writes a set of externs and types in `c.rs`. Checking each against the in-house metadata
+sorts them into three groups:
+
+| Group | Symbols | Status |
+| --- | --- | --- |
+| **Already generated - Rust hand-writes only for linking/OS-version reasons.** | `NtCreateFile`, `NtOpenFile`, `NtReadFile`, `NtWriteFile`, `RtlNtStatusToDosError` (Rust uses `link_raw_dylib!` only on UWP); `WaitOnAddress`, `WakeByAddressSingle`, `WakeByAddressAll` (raw-dylib to dodge an old mingw import lib); `GetHostNameW`; the `compat_fn_with_fallback!` set `SetThreadDescription`, `GetThreadDescription`, `GetSystemTimePreciseAsFileTime`, `GetTempPath2W` (runtime availability fallbacks) | Present in metadata. Rust could drop the hand-written copies post-migration, but the hand-writing is not driven by a metadata gap. Confirm signature parity first. |
+| **Missing, now generated after the bucket-E fix.** | `FileRenameInformation`, `FileRenameInformationEx` | The fuller `FILE_INFORMATION_CLASS` is in `ntifs.h`/`wdm.h` (scraped by `tool_wdk`). The `km` scrape now emits that enum in full, and `tool_wdk` unions it with the truncated `winternl.h` copy into a single enum when it merges the `um` and `km` winmds, so every member surfaces. |
+| **Missing, and not scrapeable - keep hand-written.** | `ProcessPrng`, `NtCreateNamedPipeFile`, `NtCreateKeyedEvent`, `NtReleaseKeyedEvent`, `NtWaitForKeyedEvent`, `atexit` | No SDK or WDK header declares a prototype for these (the `NtCreateNamedPipeFile` hits in `ntifs.h`/`wdm.h` are comments describing its flag `#define`s, not a declaration). `ProcessPrng` and the keyed-event exports exist in `ntdll.lib`/`bcryptprimitives.dll` but have no header. `atexit` is CRT (`ucrt`), outside the Win32 scrape scope. |
+
+The reparse-buffer structs (`REPARSE_DATA_BUFFER`, `SYMBOLIC_LINK_REPARSE_BUFFER`,
+`MOUNT_POINT_REPARSE_BUFFER`) are deliberately hand-rolled in `c.rs` with a `rest: ()` /
+single-element trailing field for pointer-provenance reasons and are not candidates to generate.
+`INVALID_HANDLE_VALUE` is excluded in the filter (`!INVALID_HANDLE_VALUE`) and defined by hand.
+
+### Fixes implemented for bucket E
+
+Two changes closed the three bucket-E gaps. Both were verified output-neutral for the rest of the
+corpus (regenerating `tool_win32`/`tool_wdk`/`tool_bindings`/`tool_package` adds only the new
+symbols) and the regenerated `windows` / `windows-sys` compile with the affected features.
+
+- **`IPPROTO_RM`** - added `wsrm.h` to `tool_win32`'s `HEADERS`. This emits `const IPPROTO_RM: i32 =
+  113` plus the `RM_*` socket surface (structs, consts, the `eWINDOW_ADVANCE_METHOD` enum). Note
+  the type: a bare `#define IPPROTO_RM 113` carries no enum association, so it scrapes as `i32`, not
+  the `IPPROTO` enum Rust's old Win32metadata output used. For a `--sys` crate the two are
+  interchangeable, and `i32` is what the header literally declares.
+- **`FileRenameInformation` / `FileRenameInformationEx`** - two changes work together. First, the
+  `km` scrape stops suppressing an enum the WDK headers *extend*: when an unscoped enum's name is in
+  the reference winmd but the headers define members the reference lacks, the whole enum is
+  un-excluded and emitted in full into the `km` winmd (`clang/src/lib.rs`
+  `parse_and_emit_by_header`), rather than dropped as a duplicate. Second, `tool_wdk` merges the
+  `um` and `km` winmds with `Merger::union_enums`, which unions same-named enums into one carrying
+  every member (`metadata` `merge/mod.rs` `write_enum_union`). The result is a single
+  `FILE_INFORMATION_CLASS` with the complete member set, projected identically in `windows` and
+  `windows-sys` (an unscoped `Type::CppEnum` renders as a `pub type = iN` alias plus bare member
+  constants). The union is architecture-aware (arch-tagged variants such as `INTERLOCKED_RESULT`
+  stay separate) and tolerates only the trailing `Max*` count sentinel differing between a
+  truncated and a full copy; any other value disagreement is a hard error. A supporting fix to
+  `metadata` `TypeDef::underlying_type()` (resolve an enum's backing integer from its non-constant
+  `value__` field) lets the RDL->winmd compiler encode the full enum. The same union restores the
+  complete member sets of `KEY_SET_INFORMATION_CLASS`, `PROCESSINFOCLASS`, and `THREADINFOCLASS`
+  (the last a genuine union, since `winternl.h` contributes `ThreadNameInformation` that the WDK
+  headers omit). Locked in by the `enum_extend` golden fixture in `test_clang` (an extended enum
+  emitted in full, a non-extended one still excluded) and the `union_enums_*` tests in
+  `test_metadata`.
+
+### Header coverage: one header added, the rest internal
+
+The intuition that a missing header is the cause mostly does not hold for this consumer. Of the
+fixable gaps, only `IPPROTO_RM` needed a header (`wsrm.h`); everything else Rust needs is either
+already reachable from the scraped headers (buckets A-C, and the `FileRename*` members) or has no
+header declaration at all (bucket D and the keep-hand-written group). The remaining levers are
+internal to the scrape/projection, not the `HEADERS`/`SOURCE_HEADERS` lists:
+
+- **Buckets B and C (34 grouping/error typedefs)** - the real decision: either re-introduce these
+  as named scalar aliases in the projection layer (`windows-bindgen`) for parity with Rust, or Rust
+  updates `bindings.txt` and `c.rs` to use raw scalars. This is the bulk of the remaining
+  compatibility work.
+
+Any parity move must be verified output-neutral by regenerating `tool_win32`/`tool_wdk` (and the
+`tool_bindings`/`tool_package` consumers) and confirming `git diff` shows no unexpected
+generated-file changes, then confirming each moved symbol matches Rust's hand-written signature
+(some hand-written forms exist to work around old Win32metadata bugs and must be diffed, not assumed
+equal).

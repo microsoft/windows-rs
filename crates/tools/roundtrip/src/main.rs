@@ -1,21 +1,27 @@
 use std::collections::HashMap;
 use std::time::Instant;
-use windows_rdl::{item_names, write_to_file, writer};
+use windows_rdl::{item_names, reader, write_to_file, writer};
 
-// The committed winmds and their RDL corpora. `tool_roundtrip` re-derives each RDL corpus
-// from its committed winmd and relies on `git diff` to catch any drift, without re-running the
-// expensive SDK scrape/merge (it needs neither libclang nor NuGet). Paths are relative to the
-// workspace root, matching `tool_win32`/`tool_wdk`/`tool_winrt`.
+// The committed RDL corpora are the source of truth. `tool_roundtrip` re-derives each corpus's
+// winmd from its committed RDL, decompiles it back, and relies on `git diff` to catch any drift,
+// without re-running the expensive SDK scrape/merge (it needs neither libclang nor NuGet). The
+// single committed `Windows.Win32.winmd` is `tool_wdk`'s merge of the um and km surfaces (with
+// same-named enums unioned) — a lossy transform that cannot be decompiled back to the split
+// corpora — so the round-trip works from the split RDL, compiling each corpus's winmd on demand.
+// Paths are relative to the workspace root, matching `tool_win32`/`tool_wdk`/`tool_winrt`.
 
 const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
 const WINRT_RDL: &str = "metadata/winrt";
 
-const WIN32_WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
 const WIN32_RDL: &str = "metadata/win32";
 const WIN32_SEED: &str = "metadata/metadata.rdl";
+const WIN32_UM_WINMD: &str = "target/roundtrip/Windows.Win32.um.winmd";
 
-const WDK_WINMD: &str = "crates/libs/bindgen/default/Windows.Wdk.winmd";
 const WDK_RDL: &str = "metadata/wdk";
+const WDK_KM_WINMD: &str = "target/roundtrip/Windows.Win32.km.winmd";
+
+// The WinRT projection winmd, a resolution reference so the um compile resolves `ABI::Windows::*`.
+const WINRT_RESOLUTION: &str = "crates/libs/bindgen/default/Windows.winmd";
 
 // The flat namespace the header-scraped Win32 and WDK surfaces share.
 const WIN32_ROOT: &str = "Windows.Win32";
@@ -23,9 +29,25 @@ const WIN32_ROOT: &str = "Windows.Win32";
 fn main() {
     let time = Instant::now();
 
+    std::fs::create_dir_all("target/roundtrip")
+        .unwrap_or_else(|e| panic!("failed to create `target/roundtrip`: {e}"));
+
     winrt();
-    partitioned("Win32", WIN32_WINMD, WIN32_RDL, Some(WIN32_SEED));
-    partitioned("WDK", WDK_WINMD, WDK_RDL, None);
+
+    // Win32: compile the committed corpus (+ seed + WinRT resolution) to a um winmd, then
+    // decompile it back under the committed header layout.
+    compile(
+        &[WIN32_RDL, WIN32_SEED, WINRT_RESOLUTION],
+        WIN32_UM_WINMD,
+        "Win32",
+    );
+    partitioned("Win32", WIN32_UM_WINMD, WIN32_RDL, Some(WIN32_SEED));
+
+    // WDK: compile the committed km corpus against the um winmd (its Win32 dependencies resolve
+    // there), then decompile it back. Only WDK-defined types are emitted, so the round-trip
+    // reproduces `metadata/wdk`.
+    compile(&[WDK_RDL, WIN32_UM_WINMD], WDK_KM_WINMD, "WDK");
+    partitioned("WDK", WDK_KM_WINMD, WDK_RDL, None);
 
     println!(
         "roundtripped WinRT, Win32 and WDK metadata in {:.2}s",
@@ -33,17 +55,26 @@ fn main() {
     );
 }
 
+/// Compiles RDL corpora and winmd references into a single winmd.
+fn compile(inputs: &[&str], output: &str, label: &str) {
+    reader()
+        .inputs(inputs)
+        .output(output)
+        .write()
+        .unwrap_or_else(|e| panic!("{label} winmd compile failed: {e}"));
+}
+
 /// WinRT round-trips cleanly: the RDL partition key is the namespace, which the winmd carries,
 /// so the corpus is reconstructed from `Windows.winmd` alone (one `<namespace>.rdl` per
-/// namespace). The `Windows.Win32`/`Windows.Wdk` exclusions guard against any stray references
-/// the merged WinRT winmd might carry.
+/// namespace). The `Windows.Win32` exclusion guards against any stray references the merged
+/// WinRT winmd might carry.
 fn winrt() {
     std::fs::create_dir_all(WINRT_RDL)
         .unwrap_or_else(|e| panic!("failed to create `{WINRT_RDL}`: {e}"));
 
     writer()
         .input(WINRT_WINMD)
-        .filters(["Windows", "!Windows.Win32", "!Windows.Wdk"])
+        .filters(["Windows", "!Windows.Win32"])
         .split(true)
         .output(WINRT_RDL)
         .write()

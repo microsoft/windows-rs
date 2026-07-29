@@ -73,11 +73,11 @@ fn main() {
     // truth — consistent with `tool_win32`/`tool_wdk`, which likewise scrape to RDL and compile
     // the winmd from it — and lets the `gen` `git diff` validate both the RDL and the winmd. The
     // WinRT surface is self-contained (`System.*` primitives are resolved by the reader), so the
-    // reader needs no additional reference winmds; the `Win32`/`Wdk` exclusions guard against any
-    // stray references the merge might carry.
+    // reader needs no additional reference winmds; the `Win32` exclusion guards against any stray
+    // references the merge might carry.
     windows_rdl::writer()
         .input(&merged)
-        .filters(["Windows", "!Windows.Win32", "!Windows.Wdk"])
+        .filters(["Windows", "!Windows.Win32"])
         .split(true)
         .output(RDL_DIR)
         .write()

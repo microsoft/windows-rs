@@ -19,7 +19,6 @@ fn index() {
     let index = reader::Index::new(vec![
         reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap(),
         reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap(),
-        reader::File::read("../../../libs/bindgen/default/Windows.Wdk.winmd").unwrap(),
     ]);
 
     assert_eq!(
@@ -32,7 +31,7 @@ fn index() {
     );
     assert_eq!(
         index.assembly_name("Windows.Win32", "DRIVER_OBJECT"),
-        Some("Windows.Wdk")
+        Some("Windows.Win32")
     );
     assert_eq!(index.assembly_name("Windows.Win32", "NotAttribute"), None);
 }

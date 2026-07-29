@@ -28,16 +28,16 @@ pub unsafe fn NtOpenFile(filehandle: *mut super::HANDLE, desiredaccess: super::A
     windows_core::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *mut super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_core::NTSTATUS);
     unsafe { NtOpenFile(filehandle as _, desiredaccess, objectattributes as _, iostatusblock as _, shareaccess, openoptions) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryInformationProcess(processhandle: super::HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: *mut core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtQueryInformationProcess(processhandle: super::HANDLE, processinformationclass: super::PROCESSINFOCLASS, processinformation: *mut core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::HANDLE, processinformationclass : super::PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
     unsafe { NtQueryInformationProcess(processhandle, processinformationclass, processinformation as _, processinformationlength, returnlength as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryInformationThread(threadhandle: super::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *mut core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtQueryInformationThread(threadhandle: super::HANDLE, threadinformationclass: super::THREADINFOCLASS, threadinformation: *mut core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::HANDLE, threadinformationclass : super::THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
     unsafe { NtQueryInformationThread(threadhandle, threadinformationclass, threadinformation as _, threadinformationlength, returnlength as _) }
 }
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
@@ -67,22 +67,22 @@ pub unsafe fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u3
     windows_core::link!("ntdll.dll" "system" fn NtQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> windows_core::NTSTATUS);
     unsafe { NtQueryTimerResolution(maximumtime as _, minimumtime as _, currenttime as _) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn NtRenameKey(keyhandle: super::HANDLE, newname: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtRenameKey(keyhandle : super::HANDLE, newname : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { NtRenameKey(keyhandle, newname) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "wdm", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtSetInformationKey(keyhandle: super::HANDLE, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const core::ffi::c_void, keysetinformationlength: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtSetInformationKey(keyhandle : super::HANDLE, keysetinformationclass : KEY_SET_INFORMATION_CLASS, keysetinformation : *const core::ffi::c_void, keysetinformationlength : u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtSetInformationKey(keyhandle: super::HANDLE, keysetinformationclass: super::KEY_SET_INFORMATION_CLASS, keysetinformation: *const core::ffi::c_void, keysetinformationlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetInformationKey(keyhandle : super::HANDLE, keysetinformationclass : super::KEY_SET_INFORMATION_CLASS, keysetinformation : *const core::ffi::c_void, keysetinformationlength : u32) -> windows_core::NTSTATUS);
     unsafe { NtSetInformationKey(keyhandle, keysetinformationclass, keysetinformation, keysetinformationlength) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtSetInformationThread(threadhandle: super::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtSetInformationThread(threadhandle: super::HANDLE, threadinformationclass: super::THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::HANDLE, threadinformationclass : super::THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> windows_core::NTSTATUS);
     unsafe { NtSetInformationThread(threadhandle, threadinformationclass, threadinformation, threadinformationlength) }
 }
 #[cfg(feature = "winnt")]
@@ -102,7 +102,7 @@ pub unsafe fn RtlCharToInteger(string: *const i8, base: u32, value: *mut u32) ->
     windows_core::link!("ntdll.dll" "system" fn RtlCharToInteger(string : *const i8, base : u32, value : *mut u32) -> windows_core::NTSTATUS);
     unsafe { RtlCharToInteger(string, base, value as _) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlConvertSidToUnicodeString(unicodestring: *mut super::UNICODE_STRING, sid: super::PSID, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlConvertSidToUnicodeString(unicodestring : *mut super::UNICODE_STRING, sid : super::PSID, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
@@ -120,7 +120,7 @@ pub unsafe fn RtlFreeOemString(oemstring: POEM_STRING) {
     windows_core::link!("ntdll.dll" "system" fn RtlFreeOemString(oemstring : POEM_STRING));
     unsafe { RtlFreeOemString(oemstring) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[inline]
 pub unsafe fn RtlFreeUnicodeString() -> super::UNICODE_STRING {
     windows_core::link!("ntdll.dll" "system" fn RtlFreeUnicodeString(unicodestring : *mut super::UNICODE_STRING));
@@ -142,19 +142,19 @@ pub unsafe fn RtlInitAnsiStringEx(destinationstring: PANSI_STRING, sourcestring:
     windows_core::link!("ntdll.dll" "system" fn RtlInitAnsiStringEx(destinationstring : PANSI_STRING, sourcestring : *const i8) -> windows_core::NTSTATUS);
     unsafe { RtlInitAnsiStringEx(destinationstring, sourcestring) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlInitString(destinationstring: *mut super::STRING, sourcestring: *const i8) {
     windows_core::link!("ntdll.dll" "system" fn RtlInitString(destinationstring : *mut super::STRING, sourcestring : *const i8));
     unsafe { RtlInitString(destinationstring as _, sourcestring) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlInitStringEx(destinationstring: *mut super::STRING, sourcestring: *const i8) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlInitStringEx(destinationstring : *mut super::STRING, sourcestring : *const i8) -> windows_core::NTSTATUS);
     unsafe { RtlInitStringEx(destinationstring as _, sourcestring) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[inline]
 pub unsafe fn RtlInitUnicodeString<P1>(destinationstring: *mut super::UNICODE_STRING, sourcestring: P1)
 where
@@ -206,7 +206,7 @@ pub unsafe fn RtlUniform(seed: *mut u32) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlUniform(seed : *mut u32) -> u32);
     unsafe { RtlUniform(seed as _) }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type ANSI_STRING = super::STRING;
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -237,7 +237,6 @@ pub const FILE_DELETE_ON_CLOSE: i32 = 4096;
 pub const FILE_DIRECTORY_FILE: i32 = 1;
 pub const FILE_DOES_NOT_EXIST: i32 = 5;
 pub const FILE_EXISTS: i32 = 4;
-pub type FILE_INFORMATION_CLASS = i32;
 pub const FILE_MAXIMUM_DISPOSITION: i32 = 5;
 pub const FILE_NON_DIRECTORY_FILE: i32 = 64;
 pub const FILE_NO_COMPRESSION: i32 = 32768;
@@ -268,7 +267,6 @@ pub const FILE_VALID_OPTION_FLAGS: i32 = 16777215;
 pub const FILE_VALID_PIPE_OPTION_FLAGS: i32 = 50;
 pub const FILE_VALID_SET_FLAGS: i32 = 54;
 pub const FILE_WRITE_THROUGH: i32 = 2;
-pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_STATUS_BLOCK {
@@ -291,7 +289,6 @@ impl Default for IO_STATUS_BLOCK_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type KEY_SET_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -304,14 +301,8 @@ pub struct KEY_VALUE_ENTRY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KPRIORITY(pub i32);
-pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2;
-pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = 4;
-pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = 5;
-pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = 3;
-pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = 1;
-pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = 0;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LDR_DATA_TABLE_ENTRY {
     pub Reserved1: [*mut core::ffi::c_void; 2],
@@ -325,27 +316,26 @@ pub struct LDR_DATA_TABLE_ENTRY {
     pub Anonymous: LDR_DATA_TABLE_ENTRY_0,
     pub TimeDateStamp: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for LDR_DATA_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union LDR_DATA_TABLE_ENTRY_0 {
     pub CheckSum: u32,
     pub Reserved6: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for LDR_DATA_TABLE_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const LOGONID_CURRENT: u32 = 4294967295;
-pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 6;
 pub type OBJECT_INFORMATION_CLASS = i32;
 pub const OBJ_CASE_INSENSITIVE: i32 = 64;
 pub const OBJ_DONT_REPARSE: i32 = 4096;
@@ -358,7 +348,7 @@ pub const OBJ_OPENIF: i32 = 128;
 pub const OBJ_OPENLINK: i32 = 256;
 pub const OBJ_PERMANENT: i32 = 16;
 pub const OBJ_VALID_ATTRIBUTES: i32 = 8178;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type OEM_STRING = super::STRING;
 pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = 0;
 pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = 2;
@@ -366,13 +356,13 @@ pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = 2;
 pub type PANSI_STRING = super::PSTRING;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type PCANSI_STRING = super::PSTRING;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PCOEM_STRING = *const super::STRING;
 pub type PCSZ = *const i8;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PCUNICODE_STRING = *const super::UNICODE_STRING;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
 pub struct PEB {
     pub Reserved1: [u8; 2],
@@ -395,7 +385,7 @@ pub struct PEB {
     pub Reserved12: [*mut core::ffi::c_void; 1],
     pub SessionId: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for PEB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -419,24 +409,23 @@ pub type PIO_APC_ROUTINE = Option<unsafe extern "system" fn(apccontext: *mut cor
 pub type PIO_STATUS_BLOCK = *mut IO_STATUS_BLOCK;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PKEY_VALUE_ENTRY = *mut KEY_VALUE_ENTRY;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PLDR_DATA_TABLE_ENTRY = *mut LDR_DATA_TABLE_ENTRY;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type POEM_STRING = super::PSTRING;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PPEB = *mut PEB;
 #[cfg(feature = "winnt")]
 pub type PPEB_LDR_DATA = *mut PEB_LDR_DATA;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PPROCESS_BASIC_INFORMATION = *mut PROCESS_BASIC_INFORMATION;
 pub type PPS_POST_PROCESS_INIT_ROUTINE = Option<unsafe extern "system" fn()>;
 #[cfg(feature = "winnt")]
 pub type PPUBLIC_OBJECT_BASIC_INFORMATION = *mut PUBLIC_OBJECT_BASIC_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PPUBLIC_OBJECT_TYPE_INFORMATION = *mut PUBLIC_OBJECT_TYPE_INFORMATION;
-pub type PROCESSINFOCLASS = i32;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_BASIC_INFORMATION {
     pub Reserved1: *mut core::ffi::c_void,
@@ -445,15 +434,15 @@ pub struct PROCESS_BASIC_INFORMATION {
     pub UniqueProcessId: usize,
     pub Reserved3: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for PROCESS_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PRTL_USER_PROCESS_PARAMETERS = *mut RTL_USER_PROCESS_PARAMETERS;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PSYSTEM_BASICPROCESS_INFORMATION = *mut SYSTEM_BASICPROCESS_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PSYSTEM_BASIC_INFORMATION = *mut SYSTEM_BASIC_INFORMATION;
@@ -465,15 +454,15 @@ pub type PSYSTEM_LOOKASIDE_INFORMATION = *mut SYSTEM_LOOKASIDE_INFORMATION;
 pub type PSYSTEM_PERFORMANCE_INFORMATION = *mut SYSTEM_PERFORMANCE_INFORMATION;
 pub type PSYSTEM_POLICY_INFORMATION = *mut SYSTEM_POLICY_INFORMATION;
 pub type PSYSTEM_PROCESSOR_PERFORMANCE_INFORMATION = *mut SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PSYSTEM_PROCESS_INFORMATION = *mut SYSTEM_PROCESS_INFORMATION;
 pub type PSYSTEM_REGISTRY_QUOTA_INFORMATION = *mut SYSTEM_REGISTRY_QUOTA_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PSYSTEM_THREAD_INFORMATION = *mut SYSTEM_THREAD_INFORMATION;
 pub type PSYSTEM_TIMEOFDAY_INFORMATION = *mut SYSTEM_TIMEOFDAY_INFORMATION;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PTEB = *mut TEB;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PTHREAD_NAME_INFORMATION = *mut THREAD_NAME_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -492,13 +481,13 @@ impl Default for PUBLIC_OBJECT_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBLIC_OBJECT_TYPE_INFORMATION {
     pub TypeName: super::UNICODE_STRING,
     pub Reserved: [u32; 22],
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for PUBLIC_OBJECT_TYPE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -507,13 +496,8 @@ impl Default for PUBLIC_OBJECT_TYPE_INFORMATION {
 pub type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
 #[cfg(feature = "winnt")]
 pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> bool>;
-pub const ProcessBasicInformation: PROCESSINFOCLASS = 0;
-pub const ProcessBreakOnTermination: PROCESSINFOCLASS = 29;
-pub const ProcessDebugPort: PROCESSINFOCLASS = 7;
-pub const ProcessImageFileName: PROCESSINFOCLASS = 27;
-pub const ProcessWow64Information: PROCESSINFOCLASS = 26;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_USER_PROCESS_PARAMETERS {
     pub Reserved1: [u8; 16],
@@ -521,14 +505,14 @@ pub struct RTL_USER_PROCESS_PARAMETERS {
     pub ImagePathName: super::UNICODE_STRING,
     pub CommandLine: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for RTL_USER_PROCESS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_BASICPROCESS_INFORMATION {
     pub NextEntryOffset: u32,
@@ -631,7 +615,7 @@ impl Default for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_PROCESS_INFORMATION {
     pub NextEntryOffset: u32,
@@ -658,7 +642,7 @@ pub struct SYSTEM_PROCESS_INFORMATION {
     pub PrivatePageCount: usize,
     pub Reserved7: [i64; 6],
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for SYSTEM_PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -720,7 +704,7 @@ pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = 8;
 pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = 37;
 pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = 3;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TEB {
     pub Reserved1: [*mut core::ffi::c_void; 12],
@@ -734,21 +718,18 @@ pub struct TEB {
     pub Reserved6: [*mut core::ffi::c_void; 4],
     pub TlsExpansionSlots: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 impl Default for TEB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type THREADINFOCLASS = i32;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_NAME_INFORMATION {
     pub ThreadName: super::UNICODE_STRING,
 }
-pub const ThreadIsIoPending: THREADINFOCLASS = 16;
-pub const ThreadNameInformation: THREADINFOCLASS = 38;
 pub type WINSTATIONINFOCLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

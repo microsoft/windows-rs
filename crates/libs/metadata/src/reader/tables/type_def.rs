@@ -48,6 +48,16 @@ impl<'a> TypeDef<'a> {
     }
 
     pub fn underlying_type(&self) -> Option<Type> {
+        // An enum's backing integer is its sole non-literal (instance) field; the members
+        // are static literal fields. A constant typed as the enum encodes against that
+        // integer, so resolve it here even when the enum carries members.
+        if self.category() == TypeCategory::Enum {
+            return self
+                .fields()
+                .find(|field| field.constant().is_none())
+                .map(|field| field.ty());
+        }
+
         let mut fields = self.fields();
 
         if fields.len() == 1 {

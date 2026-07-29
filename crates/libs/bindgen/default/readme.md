@@ -4,22 +4,20 @@ These `.winmd` files provide the default metadata for the Windows API, bundled i
 
 ## `Windows.Win32.winmd`
 
-Generated in-house by `tool_win32` (`cargo run -p tool_win32`) directly from the Windows SDK C/C++
-headers via `windows-clang`, with `windows-metadata` performing the per-architecture merge. The
-committed `metadata/win32/*.rdl` files are the human-reviewable snapshot; this winmd is derived from
-it.
+The single flat `Windows.Win32` metadata for the whole native API surface, owned by `tool_wdk`
+(`cargo run -p tool_wdk`). `tool_win32` (`cargo run -p tool_win32`) scrapes the Windows SDK C/C++
+headers via `windows-clang` into the committed `metadata/win32/*.rdl` snapshot (the human-reviewable
+source of truth). `tool_wdk` re-derives the um winmd from that RDL, scrapes the WDK kernel-mode
+headers into `metadata/wdk/*.rdl` (additive over Win32, in the same flat namespace), and merges the
+two winmds with `windows-metadata` — unioning same-named enums so a value type a um header truncates
+(for example `FILE_INFORMATION_CLASS`) carries the km definition's full member set in one enum. This
+winmd is derived from the two RDL corpora; `tool_roundtrip` re-validates the round-trip without the
+SDK.
 
-- Headers: `Microsoft.Windows.SDK.CPP` / `Microsoft.Windows.SDK.CPP.<arch>`
-- Version: `10.0.28000.2270` (pinned in `crates/tools/win32/src/main.rs`)
-
-## `Windows.Wdk.winmd`
-
-Generated in-house by `tool_wdk` (`cargo run -p tool_wdk`) from the WDK kernel-mode headers, in the
-same flat `Windows.Win32` namespace and *additive* over `Windows.Win32.winmd` (types the Win32 winmd
-already defines are dropped). The committed `metadata/wdk/*.rdl` files are the snapshot.
-
-- Headers: `Microsoft.Windows.WDK.x64`
-- Version: `10.0.28000.1839` (pinned in `crates/tools/wdk/src/main.rs`)
+- SDK headers: `Microsoft.Windows.SDK.CPP` / `Microsoft.Windows.SDK.CPP.<arch>`, version
+  `10.0.28000.2270` (pinned in `crates/tools/win32/src/main.rs`)
+- WDK headers: `Microsoft.Windows.WDK.x64`, version `10.0.28000.1839` (pinned in
+  `crates/tools/wdk/src/main.rs`)
 
 ## `Windows.winmd`
 

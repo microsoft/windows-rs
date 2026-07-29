@@ -1,14 +1,35 @@
 use std::path::PathBuf;
 use windows_clang::*;
 
-/// The committed, canonical WDK winmd. Like the Win32 winmd this is checked in as
-/// `windows-bindgen`'s default WDK metadata (alongside the `metadata/wdk` RDL corpus) so
-/// downstream `tool_bindings` filters can point `--in` at a stable in-repo winmd without
-/// re-running this tool. It is *additive*: it carries only the surface the WDK adds on top
-/// of Win32, in the same flat namespace, so a filter loads both winmds together and every
-/// symbol resolves by bare name. Re-derived from the RDL on every run; treat it as
-/// generated output.
-const WINMD: &str = "crates/libs/bindgen/default/Windows.Wdk.winmd";
+/// The single committed, canonical winmd. `tool_wdk` owns it: it re-derives the um Win32 winmd
+/// from the committed `metadata/win32` RDL, scrapes the kernel-mode WDK surface, and merges the
+/// two with same-named enums unioned so a value type a um header truncates (for example
+/// `FILE_INFORMATION_CLASS`) carries every member. Downstream `tool_bindings` filters point
+/// `--in` at this stable in-repo winmd (and the bundled `"default"` bindings resolve against it).
+/// Re-derived on every run; treat it as generated output.
+const WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
+
+/// The committed Win32 RDL corpus (`tool_win32`'s output, the source of truth) re-compiled here
+/// into the um winmd that this scrape resolves against and merges with.
+const WIN32_RDL_DIR: &str = "metadata/win32";
+
+/// The hand-authored metadata vocabulary seed (`tool_win32`'s `METADATA_SEED`), compiled into the
+/// um winmd so its `Windows.Win32.Metadata` attribute types resolve.
+const METADATA_SEED: &str = "metadata/metadata.rdl";
+
+/// The WinRT projection winmd (`tool_win32`'s `RESOLUTION_WINMDS`), a resolution reference for the
+/// um compile so `ABI::Windows::*` interop references resolve.
+const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
+
+/// The intermediate um winmd re-derived from `metadata/win32`. Under `target`, not tracked. It
+/// matches `tool_win32`'s uncommitted winmd byte-for-byte (same RDL, seed, and resolution
+/// reference), which is why re-deriving it here keeps both tools idempotent in isolation.
+const UM_WINMD: &str = "target/wdk/Windows.Win32.um.winmd";
+
+/// The intermediate km winmd carrying only the WDK-net-new surface (plus reference enums the km
+/// scrape extends, emitted in full). Under `target`, not tracked. Merged with [`UM_WINMD`] into
+/// the committed [`WINMD`].
+const KM_WINMD: &str = "target/wdk/Windows.Win32.km.winmd";
 
 /// Where the WDK RDL snapshot is written (committed, human-reviewable), one file per
 /// defining header (`wdm.rdl`, `ntifs.rdl`, …) exactly like `metadata/win32`. Regenerated
@@ -82,12 +103,12 @@ const ARCHS: &[&str] = &["x64", "arm64", "x86"];
 /// types the earlier headers bring in, so it is included last.
 const SOURCE_HEADERS: &[&str] = &["ntifs.h", "wdm.h", "offreg.h"];
 
-/// The in-house Win32 winmd(s), used as the scrape-time *exclusion* reference (already-defined
-/// Win32 types are skipped rather than re-emitted, so this winmd holds only the WDK-net-new surface)
-/// and the compile-time *resolution* reference (WDK types resolve their Win32 dependencies —
-/// `NTSTATUS`, `IO_STATUS_BLOCK`, `GENERIC_READ`, … — by bare name once both winmds are loaded
-/// together).
-const REFERENCE_WINMDS: &[&str] = &["crates/libs/bindgen/default/Windows.Win32.winmd"];
+/// The um Win32 winmd, used as the scrape-time *exclusion* reference (already-defined Win32 types
+/// are skipped rather than re-emitted, so the km scrape holds only the WDK-net-new surface, plus
+/// reference enums it extends in full) and the compile-time *resolution* reference (WDK types
+/// resolve their Win32 dependencies — `NTSTATUS`, `IO_STATUS_BLOCK`, `GENERIC_READ`, … — by bare
+/// name). Re-derived from the committed `metadata/win32` RDL at the start of `main`.
+const REFERENCE_WINMDS: &[&str] = &[UM_WINMD];
 
 /// Import libraries (bare names, resolved against the SDK and WDK x64 lib trees) read to recover
 /// the faithful function → DLL mapping the headers do not carry: `ntdll.lib` (`NtReadFile`,
@@ -112,6 +133,13 @@ fn main() {
     // SDK/WDK NuGet packages are likewise fetched on first use by `nuget_package`.
     ensure_libclang();
     assert_libclang_version();
+
+    // Re-derive the um Win32 winmd from the committed `metadata/win32` RDL, matching
+    // `tool_win32`'s uncommitted winmd (same corpus, seed, and WinRT resolution reference). It is
+    // the scrape's exclusion + resolution reference and the first merge input, so it must exist
+    // before the km scrape runs.
+    compile_um_winmd();
+
     let include_args = include_args();
     let lib_dirs = lib_dirs();
 
@@ -161,7 +189,7 @@ fn main() {
         root: ROOT.to_string(),
         rdl_dir: RDL_DIR.to_string(),
         out_dir: OUT_DIR.to_string(),
-        winmd: WINMD.to_string(),
+        winmd: KM_WINMD.to_string(),
         archs,
         reference_winmds: REFERENCE_WINMDS.iter().map(|s| s.to_string()).collect(),
         resolution_winmds: Vec::new(),
@@ -169,12 +197,38 @@ fn main() {
         parallel: true,
     });
 
+    // Merge the um and km winmds into the single committed winmd, unioning same-named enums so a
+    // value type a um header truncates carries the km definition's full member set in one enum.
+    windows_metadata::merge()
+        .input(UM_WINMD)
+        .input(KM_WINMD)
+        .union_enums(true)
+        .output(WINMD)
+        .merge()
+        .unwrap_or_else(|e| panic!("failed to merge um + km winmds into `{WINMD}`: {e}"));
+
     print!("{summary}");
     println!(
         "generated `{RDL_DIR}` ({} partition(s)) and `{WINMD}` in {:.2}s",
         summary.partitions,
         time.elapsed().as_secs_f32()
     );
+}
+
+/// Compiles the committed `metadata/win32` RDL (plus the metadata seed and the WinRT resolution
+/// reference) into [`UM_WINMD`], reproducing `tool_win32`'s uncommitted um winmd byte-for-byte.
+fn compile_um_winmd() {
+    if let Some(parent) = std::path::Path::new(UM_WINMD).parent() {
+        std::fs::create_dir_all(parent)
+            .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", parent.display()));
+    }
+    windows_rdl::reader()
+        .input(WIN32_RDL_DIR)
+        .input(METADATA_SEED)
+        .input(WINRT_WINMD)
+        .output(UM_WINMD)
+        .write()
+        .unwrap_or_else(|e| panic!("failed to compile um winmd `{UM_WINMD}`: {e}"));
 }
 
 /// The known arch plus the preprocessor defines the kernel-mode headers need for this target.

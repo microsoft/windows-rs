@@ -5,13 +5,13 @@ use windows_clang::*;
 /// tracked — these are regenerated on demand.
 const OUT_DIR: &str = "target/win32";
 
-/// The committed, canonical merged winmd. Unlike the per-arch intermediates this
-/// is checked in as `windows-bindgen`'s default Win32 metadata, so downstream
-/// `tool_bindings` filters can point `--in` at a stable in-repo winmd (and the
-/// bundled `"default"` bindings resolve against it) without re-running this tool.
-/// Re-derived from the `metadata/win32` RDL corpus (the source of truth) on every
-/// run; treat it as generated output.
-const WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
+/// The Win32 winmd, compiled from the `metadata/win32` RDL corpus (the committed source of
+/// truth). This is written under `target` and NOT committed: `tool_wdk` owns the single
+/// committed `Windows.Win32.winmd`, which it produces by re-deriving this um winmd from the
+/// committed RDL, scraping the kernel-mode surface, and merging the two with same-named enums
+/// unioned. Keeping the um winmd uncommitted lets each tool stay idempotent in isolation (the
+/// `gen` CI runs each tool alone on a fresh checkout and rejects any tracked-file diff).
+const WINMD: &str = "target/win32/Windows.Win32.winmd";
 
 /// Resolution winmd(s) — `Windows.winmd`, the WinRT projection — consulted only to classify
 /// declarations in the `ABI::Windows::*` C++/WinRT projection namespace that `roregistrationapi.h`
@@ -262,6 +262,7 @@ const HEADERS: &[&str] = &[
     "fwpmu.h",
     "icmpapi.h",
     "mstcpip.h",
+    "wsrm.h",
     "mfmediaengine.h",
     "wmcodecdsp.h",
     "exdisp.h",

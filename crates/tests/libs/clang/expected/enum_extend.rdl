@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum FILE_INFORMATION_CLASS {
+        FileDirectoryInformation = 1,
+        FileRenameInformation = 10,
+        FileRenameInformationEx = 65,
+    }
+}
