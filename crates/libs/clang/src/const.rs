@@ -383,6 +383,17 @@ fn parse_body(
         }
         [
             (CXToken_Punctuation, lp1),
+            (CXToken_Identifier, ty),
+            (CXToken_Punctuation, rp1),
+            (CXToken_Punctuation, lp2),
+            (CXToken_Punctuation, not),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp2),
+        ] if lp1 == "(" && rp1 == ")" && lp2 == "(" && not == "~" && rp2 == ")" => {
+            parse_named_complement(namespace, ref_map, header_names, ty, lit)
+        }
+        [
+            (CXToken_Punctuation, lp1),
             (CXToken_Punctuation, lp2),
             (CXToken_Keyword, kw),
             (CXToken_Punctuation, rp1),
@@ -860,6 +871,66 @@ fn parse_named_cast(
         metadata::TypeName::named(ns, type_name),
         Box::new(metadata::Value::I64(v)),
     ))
+}
+
+/// Parse a named cast of a complemented integer literal such as `(SOCKET)(~0)`.
+fn parse_named_complement(
+    namespace: &str,
+    ref_map: &HashMap<String, String>,
+    header_names: Option<&HashMap<String, String>>,
+    type_name: &str,
+    lit: &str,
+) -> Option<metadata::Value> {
+    let (digits, suffix) = split_int_suffix(lit);
+    let raw = parse_int_digits(digits)?;
+    let value = integer_complement_value(raw, int_literal_is_decimal(digits), suffix)?;
+
+    if !ref_map.contains_key(type_name)
+        && let Some(ty) = fundamental_scalar(type_name).or_else(|| pointer_sized_abi(type_name))
+    {
+        return cast_integer_value(&ty, &value);
+    }
+
+    let ns = header_names
+        .and_then(|m| m.get(type_name))
+        .or_else(|| ref_map.get(type_name))
+        .map_or(namespace, |s| s.as_str());
+    Some(metadata::Value::EnumValue(
+        metadata::TypeName::named(ns, type_name),
+        Box::new(value),
+    ))
+}
+
+/// Apply integer promotion and complement within the literal's C11 candidate type.
+fn integer_complement_value(raw: u64, is_decimal: bool, suffix: &str) -> Option<metadata::Value> {
+    let suffix = suffix.to_ascii_uppercase();
+    let ty = c_integer_constant_type(
+        is_decimal,
+        suffix.contains('U'),
+        suffix.contains('L'),
+        suffix.contains("LL"),
+        raw,
+    );
+    Some(match ty {
+        metadata::Type::I32 => metadata::Value::I32(!(raw as i32)),
+        metadata::Type::U32 => metadata::Value::U32(!(raw as u32)),
+        metadata::Type::I64 => metadata::Value::I64(!(raw as i64)),
+        metadata::Type::U64 => metadata::Value::U64(!raw),
+        _ => return None,
+    })
+}
+
+/// Cast an integer value to a collapsed scalar typedef.
+fn cast_integer_value(ty: &metadata::Type, value: &metadata::Value) -> Option<metadata::Value> {
+    let (signed, unsigned) = match value {
+        metadata::Value::I32(value) => (Some(*value as i64), None),
+        metadata::Value::I64(value) => (Some(*value), None),
+        metadata::Value::U32(value) => (None, Some(*value as u64)),
+        metadata::Value::U64(value) => (None, Some(*value)),
+        _ => return None,
+    };
+    let raw = signed.map_or_else(|| unsigned.unwrap(), |value| value as u64);
+    scalar_value(ty, raw, false)
 }
 
 /// Parse nested casts used by handle/pointer constants such as `INVALID_HANDLE_VALUE`.

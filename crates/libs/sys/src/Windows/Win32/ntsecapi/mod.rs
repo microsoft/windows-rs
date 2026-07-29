@@ -2423,8 +2423,6 @@ pub type PSE_ADT_PARAMETER_ARRAY = *mut SE_ADT_PARAMETER_ARRAY;
 pub type PSE_ADT_PARAMETER_ARRAY_ENTRY = *mut SE_ADT_PARAMETER_ARRAY_ENTRY;
 pub type PSE_ADT_PARAMETER_ARRAY_EX = *mut SE_ADT_PARAMETER_ARRAY_EX;
 pub type PSE_ADT_PARAMETER_TYPE = *mut SE_ADT_PARAMETER_TYPE;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type PSTRING = *mut super::LSA_STRING;
 #[cfg(feature = "lsalookup")]
 pub type PTRUSTED_CONTROLLERS_INFO = *mut TRUSTED_CONTROLLERS_INFO;
 #[cfg(feature = "minwindef")]
@@ -2446,8 +2444,6 @@ pub type PTRUSTED_INFORMATION_CLASS = *mut TRUSTED_INFORMATION_CLASS;
 #[cfg(feature = "lsalookup")]
 pub type PTRUSTED_PASSWORD_INFO = *mut TRUSTED_PASSWORD_INFO;
 pub type PTRUSTED_POSIX_OFFSET_INFO = *mut TRUSTED_POSIX_OFFSET_INFO;
-#[cfg(feature = "lsalookup")]
-pub type PUNICODE_STRING = *mut super::LSA_UNICODE_STRING;
 pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = 14;
 pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = 5;
 pub const PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = 2;

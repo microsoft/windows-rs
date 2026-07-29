@@ -69,7 +69,7 @@ impl Interface {
                 continue;
             }
 
-            let method_name = demacro_member_name(child.name(), parser);
+            let method_name = demacro_member_name(child.name(), parser.macro_defs);
             let tokens = parser
                 .tu
                 .tokenize(parser.tu.to_expansion_range(child.extent()));
@@ -163,17 +163,4 @@ impl Interface {
             }
         })
     }
-}
-
-/// Restore COM method names rewritten by active A/W macros such as `DrawText`.
-fn demacro_member_name(name: String, parser: &Parser<'_>) -> String {
-    if let Some(base) = name.strip_suffix('A').or_else(|| name.strip_suffix('W'))
-        && parser
-            .macro_defs
-            .get(base)
-            .is_some_and(|body| body.len() == 1 && body[0] == name)
-    {
-        return base.to_string();
-    }
-    name
 }

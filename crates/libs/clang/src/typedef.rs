@@ -7,6 +7,23 @@ pub struct Typedef {
 }
 
 impl Typedef {
+    /// Prefer `PFOO -> *mut FOO` over an equivalent pointer through another alias.
+    pub fn is_direct_pointer_alias(&self) -> bool {
+        let Some(target) = self.name.strip_prefix('P') else {
+            return false;
+        };
+        let pointee = match &self.ty {
+            metadata::Type::PtrMut(ty, 1) | metadata::Type::PtrConst(ty, 1) => ty.as_ref(),
+            _ => return false,
+        };
+        match pointee {
+            metadata::Type::ClassName(name) | metadata::Type::ValueName(name) => {
+                name.name == target
+            }
+            _ => false,
+        }
+    }
+
     pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Option<Self>, Error> {
         let name = cursor.name();
         let underlying = cursor.typedef_underlying_type();

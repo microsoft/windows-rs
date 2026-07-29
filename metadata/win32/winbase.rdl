@@ -743,7 +743,7 @@ mod Windows {
         const FILE_DISPOSITION_FLAG_ON_CLOSE: i32 = 8;
         const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: i32 = 2;
         struct FILE_DISPOSITION_INFO {
-            DeleteFileA: bool,
+            DeleteFile: bool,
         }
         struct FILE_DISPOSITION_INFO_EX {
             Flags: u32,

@@ -152,7 +152,7 @@ impl Struct {
                 let child_is_union = decl.kind() == CXCursor_UnionDecl;
                 let nested = Self::parse(decl, parser, child_is_union)?;
                 fields.push(Field {
-                    name: child.name(),
+                    name: demacro_member_name(child.name(), parser.macro_defs),
                     ty: metadata::Type::Void,
                     nested: Some(Box::new(nested)),
                     bitfields: vec![],
@@ -170,7 +170,7 @@ impl Struct {
                 }
 
                 let size = child.ty().size_of();
-                let member = child.name();
+                let member = demacro_member_name(child.name(), parser.macro_defs);
                 if size != unit_size || width > remaining_bits {
                     // New storage units use the bit-field's declared signedness.
                     let ty = child.ty().to_type(parser);
@@ -205,7 +205,7 @@ impl Struct {
             unit_size = 0;
             remaining_bits = 0;
 
-            let name = child.name();
+            let name = demacro_member_name(child.name(), parser.macro_defs);
             let ty = child.ty().to_type(parser);
             fields.push(Field {
                 name,
