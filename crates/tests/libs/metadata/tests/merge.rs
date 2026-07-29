@@ -140,6 +140,39 @@ fn union_enums_rejects_conflicting_values() {
 }
 
 #[test]
+fn union_enums_rejects_conflicting_non_sentinel_max() {
+    let dir = std::env::temp_dir().join("win_merge_enum_max_conflict");
+    std::fs::create_dir_all(&dir).unwrap();
+
+    // `FOO_MAX` contains "Max" but is a real value, not an NT count sentinel (which is spelled
+    // `Max*` or `*Maximum`). A differing value across copies is a genuine conflict and must be
+    // rejected, not silently reconciled by the sentinel tolerance.
+    let a = winmd(
+        &dir,
+        "a",
+        "#[win32] mod Test { #[repr(i32)] enum E { A = 0, FOO_MAX = 1 } }",
+    );
+    let b = winmd(
+        &dir,
+        "b",
+        "#[win32] mod Test { #[repr(i32)] enum E { A = 0, FOO_MAX = 2 } }",
+    );
+
+    let merged = dir.join("merged.winmd");
+    let result = merge()
+        .input(&a)
+        .input(&b)
+        .union_enums(true)
+        .output(merged.to_string_lossy().as_ref())
+        .merge();
+
+    assert!(
+        result.is_err(),
+        "a conflicting non-sentinel `Max` member must error"
+    );
+}
+
+#[test]
 fn union_enums_merges_partial_copies() {
     let dir = std::env::temp_dir().join("win_merge_enum_partial");
     std::fs::create_dir_all(&dir).unwrap();

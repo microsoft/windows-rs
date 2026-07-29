@@ -424,13 +424,19 @@ fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[r
     }
 }
 
-/// Returns `true` if the member name marks a trailing count sentinel (NT `Max*` / `*Maximum*`).
+/// Returns `true` if the member name marks a trailing count sentinel in the NT naming style.
 ///
 /// These enums terminate with a member whose value equals the member count, not a real value.
 /// A truncated projection carries a smaller sentinel; the fuller definition carries a larger
 /// one. The sentinel is the only member allowed to disagree across copies of the same enum.
+///
+/// The match is limited to the NT sentinel spellings - a `Max` prefix (`MaxKeySetInfoClass`,
+/// `MaximumInterfaceType`) or a PascalCase `Maximum` suffix (`PowerSystemMaximum`,
+/// `FileMaximumInformation`). A broader `contains("Max")` would also treat the many real enum
+/// values that merely contain `MAX`/`_MAX` (`IPPROTO_MAX`, `WBEM_MAX_PATH`, `MaxPayload128Bytes`)
+/// as tolerable, silently masking a genuine value conflict.
 fn is_max_sentinel(name: &str) -> bool {
-    name.contains("Max")
+    name.starts_with("Max") || name.ends_with("Maximum") || name.ends_with("MaximumInformation")
 }
 
 /// Unions same-named enum copies into one enum carrying every member.
