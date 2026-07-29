@@ -1337,14 +1337,11 @@ impl Backend for WinUIBackend {
                     .and_then(|_| l.SetY1(p.y1))
                     .and_then(|_| l.SetX2(p.x2))
                     .and_then(|_| l.SetY2(p.y2)),
-                (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
-                    let uri = bindings::Uri::CreateUri(s.as_str())?;
-                    let bmp = bindings::BitmapImage::new()?;
-                    bmp.SetUriSource(&uri)?;
-                    img.SetSource(&bmp.cast::<bindings::ImageSource>()?)
-                }
-                (Prop::ImageSource, PropValue::SurfaceImageSource(sis), Handle::Image(img)) => {
-                    img.SetSource(&sis.image_source()?)
+                (Prop::ImageSource, PropValue::ImageSource(source), Handle::Image(img)) => {
+                    match build_image_source(source)? {
+                        Some(source) => img.SetSource(&source),
+                        None => img.SetSource(None),
+                    }
                 }
                 (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.SetSource(None),
                 (Prop::Header, PropValue::Str(s), Handle::TabViewItem(ti)) => {
@@ -3389,23 +3386,8 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
         }
         Element::Image(img) => {
             let i = bindings::Image::new().ok()?;
-            match &img.source {
-                ImageSource::Uri(uri_str) => {
-                    if let Ok(uri) = bindings::Uri::CreateUri(uri_str.as_str())
-                        && let Ok(bmp) = bindings::BitmapImage::new()
-                    {
-                        diag::dropped(bmp.SetUriSource(&uri));
-                        if let Ok(src) = bmp.cast::<bindings::ImageSource>() {
-                            diag::dropped(i.SetSource(&src));
-                        }
-                    }
-                }
-                ImageSource::Surface(sis) => {
-                    if let Ok(src) = sis.image_source() {
-                        diag::dropped(i.SetSource(&src));
-                    }
-                }
-                ImageSource::None => {}
+            if let Ok(Some(source)) = build_image_source(&img.source) {
+                diag::dropped(i.SetSource(&source));
             }
             i.cast::<bindings::UIElement>().ok()
         }

@@ -490,18 +490,14 @@ pub fn button_icon_glyph_change_preserves_text(h: Harness) -> FixtureFuture {
 }
 
 /// Verify that the non-`Symbol` [`Icon`](windows_reactor::Icon) kinds construct
-/// and attach real WinUI elements: `Icon::font` yields a `FontIcon` and
-/// `Icon::bitmap` yields a `BitmapIcon`. Element presence proves the whole
-/// `build_icon_element` path ran — factory activation, the `SetGlyph` /
-/// `SetUriSource` setters, and the cast to `IconElement` — without erroring.
-pub fn button_bitmap_and_font_icons(h: Harness) -> FixtureFuture {
+/// and attach real WinUI elements.
+pub fn button_image_and_font_icons(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
             vstack((
                 button("Starred").icon(Icon::font("\u{E734}")),
-                // A syntactically valid package URI; the image need not resolve
-                // for the BitmapIcon element itself to be created and attached.
-                button("Repo").icon(Icon::bitmap("ms-appx:///Assets/logo.png")),
+                button("Raster").icon(Icon::image("ms-appx:///Assets/logo.png")),
+                button("Vector").icon(Icon::image("ms-appx:///Assets/logo.svg")),
             ))
             .into()
         }));
@@ -513,11 +509,29 @@ pub fn button_bitmap_and_font_icons(h: Harness) -> FixtureFuture {
             font_icons.len() == 1,
         );
 
-        let bitmap_icons = h.find_all::<crate::bindings::BitmapIcon>(&|_| true);
+        let image_icons = h.find_all::<crate::bindings::ImageIcon>(&|_| true);
         h.check(
-            "Interaction_ButtonIcon_BitmapIconCreated",
-            bitmap_icons.len() == 1,
+            "Interaction_ButtonIcon_ImageIconsCreated",
+            image_icons.len() == 2,
         );
+
+        let sources: Vec<_> = image_icons
+            .iter()
+            .map(|icon| icon.Source().unwrap())
+            .collect();
+        let bitmap_sources = sources
+            .iter()
+            .filter(|source| source.cast::<crate::bindings::BitmapImage>().is_ok())
+            .count();
+        h.check(
+            "Interaction_ButtonIcon_BitmapSourceCreated",
+            bitmap_sources == 1,
+        );
+        let svg_sources = sources
+            .iter()
+            .filter(|source| source.cast::<crate::bindings::SvgImageSource>().is_ok())
+            .count();
+        h.check("Interaction_ButtonIcon_SvgSourceCreated", svg_sources == 1);
     })
 }
 

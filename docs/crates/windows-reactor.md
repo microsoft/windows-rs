@@ -122,9 +122,12 @@ Build elements with plain builder functions. Each returns a widget that becomes 
 - Icons: any control that takes an icon (`button`, `NavViewItem`, command-bar buttons,
   `selector_bar_item`) accepts `impl Into<Icon>`. `Icon` has three kinds: `Symbol(Symbol)` for a
   built-in system glyph (a bare `Symbol` converts automatically, so `.icon(Symbol::Home)` keeps
-  working), `Icon::bitmap(uri)` for an image (`BitmapIcon`), and `Icon::font(glyph)` or
-  `Icon::font_family(glyph, family)` for a font glyph (`FontIcon`). Sample:
+  working), `Icon::image(source)` for a raster or SVG image (`ImageIcon`), and `Icon::font(glyph)`
+  or `Icon::font_family(glyph, family)` for a font glyph (`FontIcon`). Sample:
   `cargo run -p reactor_samples --example icon_elements`.
+- Images: `Image::new(source)` accepts a URI or `ImageSource`. URI paths ending in `.svg`
+  (case-insensitive, before any query or fragment) use the platform SVG decoder; other URIs use
+  the bitmap decoder. Sample: `cargo run -p reactor_samples --example image`.
 - Layout: `vstack((..))` and `hstack((..))` with `.spacing(..)`; `grid((..))` with `.rows([..])` and
   `.columns([..])` (using `GridLength::STAR` and `GridLength::Auto`) and per-child `.grid_row(n)`
   and `.grid_column(n)`.

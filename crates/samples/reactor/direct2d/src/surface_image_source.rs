@@ -85,7 +85,7 @@ pub fn surface_image_source_sample(_: &(), cx: &mut RenderCx) -> Element {
     });
 
     let image: Element = match surface {
-        Some(sis) => Image::new(sis.into())
+        Some(sis) => Image::new(sis)
             .width(SIZE as f64)
             .height(SIZE as f64)
             .into(),
