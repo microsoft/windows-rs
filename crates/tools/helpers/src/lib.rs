@@ -82,9 +82,9 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
 ///
 /// This is the single shared mechanism for the *paired* dependency-pin validators: a pin is
 /// declared as an ordinary constant in exactly one crate (its owner), and any other tool that
-/// must stay in lock-step reads it back from source and asserts agreement — e.g. `tool_wdk`
-/// reads `tool_win32`'s `SDK_VERSION`, and `tool_reactor` reads `windows-reactor-setup`'s
-/// `RUNTIME_VER` / `WEBVIEW2_VER`. Keeping one reader keeps every such check consistent.
+/// must stay in lock-step reads it back from source and asserts agreement - e.g. `tool_reactor`
+/// reads `windows-reactor-setup`'s `RUNTIME_VER` / `WEBVIEW2_VER`, and reads the pinned WebView2
+/// version back from `tool_webview`. Keeping one reader keeps every such check consistent.
 pub fn read_str_const<P: AsRef<Path>>(path: P, name: &str) -> String {
     let path = path.as_ref();
     let text = std::fs::read_to_string(path)

@@ -12,7 +12,7 @@ There is no central version registry. Every external dependency has a single **o
 declares the pin as a `const`, downloads/consumes the artifact at that exact version, and runs in CI
 (`.github/workflows/gen.yml`) - so *running the tool proves the pin is current*, in one of two ways:
 
-- **Generators** (`tool_win32`, `tool_wdk`, `tool_winrt`, `tool_webview`, `tool_reactor`) regenerate
+- **Generators** (`tool_win32`, `tool_winrt`, `tool_webview`, `tool_reactor`) regenerate
   committed artifacts; `gen.yml` runs each then `git diff --exit-code`, so a stale pin produces a
   diff and fails.
 - **Validators** (`tool_clang`, and guards inside generators) assert invariants and write nothing; a
@@ -29,7 +29,7 @@ libclang library and is **not** a shared home for SDK/runtime versions.
 | --- | --- | --- | --- | --- |
 | libclang | `22.1.8` | `LIBCLANG_VERSION` - `crates/libs/clang/src/provision.rs` | download (NuGet: `libclang.runtime.win-<arch>` + `git` sparse checkout of LLVM headers) | `tool_clang` validator + runtime assert |
 | Windows SDK | `10.0.28000.2270` | `SDK_VERSION` - `crates/tools/win32/src/main.rs` | download (NuGet) | `tool_win32` zero-diff regen |
-| Windows WDK | `10.0.28000.1839` | `WDK_VERSION` - `crates/tools/wdk/src/main.rs` | download (NuGet) | `tool_wdk` zero-diff regen; reads `SDK_VERSION` from `tool_win32` |
+| Windows WDK | `10.0.28000.1839` | `WDK_VERSION` - `crates/tools/win32/src/km.rs` | download (NuGet) | `tool_win32` zero-diff regen |
 | SDK Contracts (WinRT) | `10.0.28000.2270` | `CONTRACTS_VERSION` - `crates/tools/winrt/src/main.rs` | download (NuGet) | `tool_winrt` zero-diff regen |
 | WebView2 SDK headers | `1.0.4078.44` | `WEBVIEW2_VERSION` - `crates/tools/webview/src/main.rs` | download (NuGet) | `tool_webview` zero-diff regen |
 | WinUI / Windows App SDK metadata (`.winmd` files) | `2.3.1` | `WINDOWS_APP_SDK_VERSION` - `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed metadata |
@@ -39,7 +39,7 @@ libclang library and is **not** a shared home for SDK/runtime versions.
 
 ## Toolchain: libclang
 
-The header scrapers (`tool_win32`, `tool_wdk`, `tool_webview`) parse C/C++ with libclang. The
+The header scrapers (`tool_win32`, `tool_webview`) parse C/C++ with libclang. The
 version is pinned because clang's macro-capture behavior drifts across majors, which would silently
 change the generated metadata.
 
@@ -78,18 +78,18 @@ documented in [`crates/libs/bindgen/default/readme.md`](../crates/libs/bindgen/d
 
 | Package | Owner (pin) | Produces |
 | --- | --- | --- |
-| `Microsoft.Windows.SDK.CPP[.<arch>]` | `SDK_VERSION` - `tool_win32` | `Windows.Win32.winmd` |
-| `Microsoft.Windows.WDK.x64` | `WDK_VERSION` - `tool_wdk` | `Windows.Wdk.winmd` |
+| `Microsoft.Windows.SDK.CPP[.<arch>]` | `SDK_VERSION` - `tool_win32` | um scrape half of `Windows.Win32.winmd` |
+| `Microsoft.Windows.WDK.x64` | `WDK_VERSION` - `tool_win32` | km scrape half of `Windows.Win32.winmd` |
 | `Microsoft.Windows.SDK.Contracts` | `CONTRACTS_VERSION` - `tool_winrt` | `Windows.winmd` |
 
 - **Obtained:** `windows_clang::nuget_package(id, version)` restores from the NuGet global cache or
   downloads from nuget.org (`NUGET_PACKAGES` overrides the cache).
-- **`tool_wdk` needs the SDK headers too**, so it reads `SDK_VERSION` back from `tool_win32` rather
-  than carry its own copy; `WDK_VERSION` is its own pin.
+- **`tool_win32` runs both scrapes**, so the WDK km scrape reuses the same `SDK_VERSION` headers as
+  the um scrape (they share the crate); `WDK_VERSION` is a separate pin in `km.rs`.
 - The "marketing" include/lib folder nested in each package (e.g. `10.0.28000.0`) is **derived**
   from the version via `helpers::marketing_dir` (first three components + `.0`), so the version is
   the single edit - never a second folder constant to keep in sync.
-- **To update:** bump the owning constant, run `cargo run -p tool_<win32|wdk|winrt>`, and commit the
+- **To update:** bump the owning constant, run `cargo run -p tool_<win32|winrt>`, and commit the
   regenerated `.rdl` snapshot(s) and `.winmd`.
 
 `CONTRACTS_VERSION` happens to share the `10.0.28000` build number with `SDK_VERSION`, but it is a
@@ -109,7 +109,7 @@ metadata and runtime projection DLL are separate artifacts.
 
 - **Headers are downloaded, not vendored:** `tool_webview` fetches the pinned NuGet package via
   `nuget_package` and parses the headers from it. A bump is a one-line `WEBVIEW2_VERSION` edit.
-- **Pinned libclang:** like `tool_win32`/`tool_wdk`, `tool_webview` calls `ensure_libclang` +
+- **Pinned libclang:** like `tool_win32`, `tool_webview` calls `ensure_libclang` +
   `assert_libclang_version`, so it parses with the exact pinned `22.1.8` (its `gen.yml` job needs no
   LLVM install - only the SDK include paths for the system headers `WebView2.h` pulls in).
 - **Runtime projection:** bump `WEBVIEW2_VER` in `reactor-setup`; it must equal `WEBVIEW2_VERSION` -
@@ -172,7 +172,7 @@ See [windows-reactor](crates/windows-reactor.md) and
 
 Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{id}/{version}`:
 
-- **`windows_clang::nuget_package`** - used by the scraping/codegen tools (`tool_win32`, `tool_wdk`,
+- **`windows_clang::nuget_package`** - used by the scraping/codegen tools (`tool_win32`,
   `tool_winrt`, `tool_webview`, `tool_reactor`). Restores into the NuGet global cache
   (`NUGET_PACKAGES` overrides), else downloads via bundled `curl`/`tar`. Layout-agnostic - each
   caller indexes the subtree it needs.
@@ -184,8 +184,7 @@ Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{i
 
 | Tool | Proves | How |
 | --- | --- | --- |
-| `tool_win32` | `SDK_VERSION` | zero-diff regen of `Windows.Win32.winmd` |
-| `tool_wdk` | `WDK_VERSION`; SDK sync | zero-diff regen; reads `tool_win32`'s `SDK_VERSION` |
+| `tool_win32` | `SDK_VERSION`, `WDK_VERSION` | zero-diff regen of `Windows.Win32.winmd` (um + km scrapes and their merge) |
 | `tool_winrt` | `CONTRACTS_VERSION` | zero-diff regen of `Windows.winmd` |
 | `tool_webview` | `WEBVIEW2_VERSION` | zero-diff regen of `webview/src/bindings.rs` |
 | `tool_clang` | `LIBCLANG_VERSION` (drives NuGet DLL + `llvmorg-<ver>` header tag) | pure-check assertion |

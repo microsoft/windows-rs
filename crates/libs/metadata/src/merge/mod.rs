@@ -64,7 +64,7 @@ impl Merger {
     /// Unions same-named enums across inputs into a single enum, deduplicating members.
     ///
     /// Without this, two inputs that each define an enum with the same namespace and name
-    /// produce two `TypeDef` rows. `tool_wdk` uses this to reconcile a value type an `um`
+    /// produce two `TypeDef` rows. `tool_win32` uses this to reconcile a value type an `um`
     /// header truncates (for example `FILE_INFORMATION_CLASS`) with the complete `km`
     /// definition, yielding one enum carrying every member.
     pub fn union_enums(&mut self, union_enums: bool) -> &mut Self {

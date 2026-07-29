@@ -68,15 +68,13 @@ release so the scrape is deterministic (see `tool_win32`).
 
 ## Consumers
 
-- `tool_win32` - scrapes the Windows SDK headers into `metadata/win32/*.rdl` (committed) and a
-  `target/win32/Windows.Win32.winmd` (uncommitted). `tool_wdk` re-derives that `um` winmd from the
-  committed RDL and folds it into the shipped winmd, so the SDK surface reaches
-  `windows-bindgen`'s bundled `"default"` bindings through the merge.
-- `tool_wdk` - scrapes the WDK kernel-mode headers and merges them with the Win32 surface into the
-  single `crates/libs/bindgen/default/Windows.Win32.winmd`. It re-derives a `um` winmd from the
-  committed `metadata/win32` RDL, scrapes the `km` headers into `metadata/wdk` RDL, and unions the
-  two (same-named enums fold into one) so `windows-bindgen` sees one complete set of metadata (see
-  [tool_wdk](#the-wdk-metadata-tool_wdk)).
+- `tool_win32` - owns the single committed `crates/libs/bindgen/default/Windows.Win32.winmd` for
+  the whole native API surface. It runs three phases: (A) scrape the Windows SDK `um`/`shared`
+  headers into `metadata/win32/*.rdl` (committed) and an uncommitted `target/win32/Windows.Win32.winmd`;
+  (B) scrape the WDK kernel-mode `km` headers into `metadata/wdk/*.rdl` (committed) and an
+  uncommitted km winmd, resolving against phase A's winmd; (C) union-merge the two winmds
+  (same-named enums fold into one) so `windows-bindgen` sees one complete set of metadata (see
+  [The Win32 metadata](#the-win32-metadata-tool_win32)).
 - `tool_webview` - scrapes the WebView2 headers into `WebView2.rdl`.
 - `test_clang` - golden fixtures that pin the header -> RDL behavior.
 
@@ -96,7 +94,7 @@ is a scraping toolkit with a clean two-level API, layered on the metadata crates
 windows-metadata          base: winmd read/write
   +- windows-rdl          RDL text <-> winmd; reader(), merge_arch_rdl, ArchInput
        +- windows-clang   provisioning + parse (clang()) + partitioning + multi-arch scrape()
-            +- tool_win32 / tool_wdk / tool_webview / <third-party scraper>
+            +- tool_win32 / tool_webview / <third-party scraper>
 ```
 
 It is *one* builder, `clang()`, with *two* terminals. A consumer configures the builder the same way
@@ -110,9 +108,9 @@ for either and picks the terminal that fits its output:
   once per architecture (swapping the target triple + per-arch defines): scrape each arch into its
   own per-header RDL partition and winmd, `merge_arch_rdl` so a symbol that only exists on (or
   differs across) a subset of arches gains `SupportedArchitecture`, then re-derive one unified winmd
-  from the merged metadata. `tool_win32` and `tool_wdk` are both just: resolve the toolchain (NuGet
-  packages -> include/lib dirs), configure a `clang()` builder (TU sources, include args, scope,
-  import libraries), and call `.scrape` with a small [`ScrapePlan`].
+  from the merged metadata. `tool_win32`'s two scrape phases are both just: resolve the toolchain
+  (NuGet packages -> include/lib dirs), configure a `clang()` builder (TU sources, include args,
+  scope, import libraries), and call `.scrape` with a small [`ScrapePlan`].
 
 The two terminals share the builder because the multi-arch scrape *is* a single-arch scrape
 replayed - so every parse knob (headers, args, scope, import libraries, `drop_lib_less`) is set
@@ -161,7 +159,7 @@ terminals; its cross-cutting free helpers are grouped into focused sibling modul
 header-in-scope tests), `naming` (tag-rename and nested-type synthetic naming), and `macros` (the
 object-like-macro evaluation pass). Both emit paths - `parse_and_emit` (the namespaced `write` path
 used by `tool_webview`) and `parse_and_emit_by_header` (the flat per-header `write_by_header` path
-used by `tool_win32`/`tool_wdk`) - share one `parse_inputs` helper that loads libclang and parses
+used by `tool_win32`, both its scrape phases) - share one `parse_inputs` helper that loads libclang and parses
 every header and in-memory source into translation units once. Its `ParsedInputs` return owns the
 libclang `Library` guard and `Index` so the translation units stay valid for its whole lifetime; the
 paths bind it whole (never destructure it) so its field declaration order governs drop, disposing
@@ -433,7 +431,7 @@ backtick-stripped `Namespace.Name` set; `flatten_decls` then recurses into the `
 instantiation (`IMapView<HSTRING, IInspectable *>`) is rebuilt into its closed WinRT form
 (`IMapView<String, Object>`) from the clang template arguments, mapping the C++/WinRT ABI spellings
 back to WinRT primitives (`HSTRING` -> `String`, `IInspectable *` -> `Object`). With no resolution
-winmd supplied (e.g. `tool_wdk`) the `ABI` namespace is skipped entirely, as before.
+winmd supplied the `ABI` namespace is skipped entirely, as before.
 
 The MIDL-mangled parameterized-interface aliases those headers emit
 (`typedef ABI::Windows::Foundation::Collections::IMapView<HSTRING, IInspectable *> __FIMapView_2_HSTRING_IInspectable_t;`)
@@ -479,44 +477,47 @@ re-exported from `windows-collections`); `windows-sys`, which reads only the Win
 degrades an unresolvable WinRT reference type to the opaque COM pointer (`*mut c_void`) - the same
 representation it already gives every interface (`windows-bindgen`, `types::from_metadata_type`).
 
-### The WDK metadata: tool_wdk
+### The WDK metadata: the km scrape
 
-`cargo run -p tool_wdk` owns the single committed `crates/libs/bindgen/default/Windows.Win32.winmd`.
-It scrapes the WDK kernel-mode headers the same way `tool_win32` scrapes the SDK - a whole-header
-scrape, not a symbol allowlist - and then merges that surface with the Win32 surface into one
-winmd. Both scrapes drive the *same* [`scrape`](#scraper-layering-one-crate-two-levels) terminal
-from plain `const` slices in `main.rs` (`crates/tools/wdk/src/main.rs`). Three steps run in order:
+Phase A above produces the `um` Win32 surface. `tool_win32` then scrapes the WDK kernel-mode headers
+the same way it scrapes the SDK - a whole-header scrape, not a symbol allowlist - and merges that
+surface with the `um` surface into the single committed
+`crates/libs/bindgen/default/Windows.Win32.winmd`. Both scrapes drive the *same*
+[`scrape`](#scraper-layering-one-crate-two-levels) terminal from plain `const` slices; the km
+configuration lives in `crates/tools/win32/src/km.rs`. Two phases run in order after phase A:
 
-1. **Re-derive the `um` winmd.** The committed `metadata/win32/*.rdl` (plus the metadata seed and
-   `Windows.winmd` for resolution) is compiled to a `target/` winmd - the same content `tool_win32`
-   produces, rebuilt from committed inputs so the tool is self-contained.
-2. **Scrape the `km` headers.** The WDK headers are scraped into `metadata/wdk/*.rdl` (committed) and
-   a `target/` `km` winmd, with the `um` winmd as the reference. This gives the WDK scrape two roles:
+**Phase B - scrape the `km` headers.** The WDK headers are scraped into `metadata/wdk/*.rdl`
+(committed) and an uncommitted `target/` `km` winmd, with phase A's `um` winmd as the reference.
+Phase A wrote that winmd from the committed RDL, the metadata seed, and `Windows.winmd` - the exact
+inputs an isolated re-derivation would use - so referencing it directly is output-neutral and no
+separate re-compile step is needed. This gives the WDK scrape two roles:
 
-   - **Same flat `Windows.Win32` namespace.** The WDK surface is emitted into the *global, not-WinRT*
-     namespace shared with Win32, so a WDK entity referencing a Win32 type (`NTSTATUS`,
-     `LARGE_INTEGER`, `LIST_ENTRY`, and more) just names it and bindgen resolves it by bare name.
-   - **Additive, except for extended enums.** The `um` winmd is fed to `write_by_header` as an
-     *exclusion reference*: any entity Win32 already defines is skipped rather than re-emitted, so
-     the `km` RDL carries only the WDK-net-new surface. The one exception is an enum the WDK headers
-     *extend* (define members the reference lacks, such as `FILE_INFORMATION_CLASS`): that enum is
-     un-excluded and emitted in full, so the union in step 3 has a complete copy to fold in.
-   - **User-mode only.** `scope(["km"])` keeps kernel-mode declarations in scope, and `drop_lib_less`
-     + the `ntdll.lib` import library scope the emitted *functions* to the user-callable native
-     surface: a routine exported from `ntdll.dll` (`NtReadFile`, `RtlGetVersion`, and more) is
-     stamped and kept, while a kernel-only routine (exported from `ntoskrnl`, absent from any
-     user-mode import library) resolves to an empty library and is dropped. No fallback `library`
-     is set - one would make every function lib-ful and drag in the whole kernel export surface.
-3. **Merge `um` + `km` with enum-union.** `Merger::union_enums` writes the committed
-   `Windows.Win32.winmd`, folding a same-named enum defined in both inputs into one that carries
-   every member (`merge/mod.rs` `write_enum_union`). This is why a truncated `winternl.h` enum and
-   the full WDK enum become a single complete type rather than a duplicate.
+- **Same flat `Windows.Win32` namespace.** The WDK surface is emitted into the *global, not-WinRT*
+  namespace shared with Win32, so a WDK entity referencing a Win32 type (`NTSTATUS`,
+  `LARGE_INTEGER`, `LIST_ENTRY`, and more) just names it and bindgen resolves it by bare name.
+- **Additive, except for extended enums.** The `um` winmd is fed to `write_by_header` as an
+  *exclusion reference*: any entity Win32 already defines is skipped rather than re-emitted, so the
+  `km` RDL carries only the WDK-net-new surface. The one exception is an enum the WDK headers
+  *extend* (define members the reference lacks, such as `FILE_INFORMATION_CLASS`): that enum is
+  un-excluded and emitted in full, so the union in phase C has a complete copy to fold in.
+- **User-mode only.** `scope(["km"])` keeps kernel-mode declarations in scope, and `drop_lib_less`
+  + the `ntdll.lib` import library scope the emitted *functions* to the user-callable native
+  surface: a routine exported from `ntdll.dll` (`NtReadFile`, `RtlGetVersion`, and more) is stamped
+  and kept, while a kernel-only routine (exported from `ntoskrnl`, absent from any user-mode import
+  library) resolves to an empty library and is dropped. No fallback `library` is set - one would
+  make every function lib-ful and drag in the whole kernel export surface.
 
-Because `tool_wdk` re-derives the `um` winmd from committed RDL, it is idempotent on its own from a
-fresh checkout - the constraint the `gen` CI workflow enforces by running each tool in isolation
-and rejecting any `git diff`.
+**Phase C - merge `um` + `km` with enum-union.** `Merger::union_enums` writes the committed
+`Windows.Win32.winmd`, folding a same-named enum defined in both inputs into one that carries every
+member (`merge/mod.rs` `write_enum_union`). This is why a truncated `winternl.h` enum and the full
+WDK enum become a single complete type rather than a duplicate.
 
-New WDK APIs are added exactly like Win32 ones: list the defining header in `main.rs`'s
+Because all three phases run in one tool from committed inputs, the tool is idempotent on its own
+from a fresh checkout - the constraint the `gen` CI workflow enforces by running each tool in
+isolation and rejecting any `git diff`. One `gen` job now regenerates every tracked artifact the
+Win32 surface owns (`metadata/win32`, `metadata/wdk`, and the merged winmd).
+
+New WDK APIs are added exactly like Win32 ones: list the defining header in `km.rs`'s
 `SOURCE_HEADERS` and regenerate. The WDK NuGet version is pinned independently of the SDK (its
 servicing build lags), but tracks the same marketing line.
 
@@ -646,7 +647,7 @@ leaks onto the public surface.
 
 The `provision` module fetches the pinned libclang and NuGet packages the scrapers depend on, so a
 fresh checkout regenerates without a manual `nuget restore`. It is shared by every consumer
-(`tool_win32`, `tool_wdk`, and more) rather than duplicated per tool:
+(`tool_win32`, `tool_webview`, and more) rather than duplicated per tool:
 
 - `ensure_libclang()` - respects an explicit `LIBCLANG_PATH`; otherwise fetches the pinned host-arch
   `libclang.runtime.win-<arch>` NuGet package (`dotnet/clangsharp`) via `nuget_package` and points
@@ -715,10 +716,11 @@ consequence of the source-first approach above.
 ### Known limitations
 
 - **Coverage is the `HEADERS` list.** The metadata covers exactly the headers listed in
-  `tool_win32`/`tool_wdk`'s `HEADERS`/`SOURCE_HEADERS` consts; a missing API is usually a one-line
-  header addition (the reachability closure does the rest). Some surface is still structurally out
-  of reach: headers needing compiler-intrinsic or out-of-SDK toolchains (DirectXMath -> `cpuid.h`;
-  DISM/WIMGAPI in the ADK; `mscoree.h` in the NETFXSDK), and headers that `#include` the C++/WinRT
+  `tool_win32`'s `HEADERS` (um, `main.rs`) and `SOURCE_HEADERS` (km, `km.rs`) consts; a missing API
+  is usually a one-line header addition (the reachability closure does the rest). Some surface is
+  still structurally out of reach: headers needing compiler-intrinsic or out-of-SDK toolchains
+  (DirectXMath -> `cpuid.h`; DISM/WIMGAPI in the ADK; `mscoree.h` in the NETFXSDK), and headers that
+  `#include` the C++/WinRT
   (`cppwinrt\`) projection, which does not parse in the definition-mode scrape - though a header
   that only *references* a handful of `ABI::Windows::*` interfaces is reached via error-tolerant
   parsing (the scrape tolerates parse errors in the transitive-only `winrt\` projection closure
@@ -889,7 +891,7 @@ sorts them into three groups:
 | Group | Symbols | Status |
 | --- | --- | --- |
 | **Already generated - Rust hand-writes only for linking/OS-version reasons.** | `NtCreateFile`, `NtOpenFile`, `NtReadFile`, `NtWriteFile`, `RtlNtStatusToDosError` (Rust uses `link_raw_dylib!` only on UWP); `WaitOnAddress`, `WakeByAddressSingle`, `WakeByAddressAll` (raw-dylib to dodge an old mingw import lib); `GetHostNameW`; the `compat_fn_with_fallback!` set `SetThreadDescription`, `GetThreadDescription`, `GetSystemTimePreciseAsFileTime`, `GetTempPath2W` (runtime availability fallbacks) | Present in metadata. Rust could drop the hand-written copies post-migration, but the hand-writing is not driven by a metadata gap. Confirm signature parity first. |
-| **Missing, now generated after the bucket-E fix.** | `FileRenameInformation`, `FileRenameInformationEx` | The fuller `FILE_INFORMATION_CLASS` is in `ntifs.h`/`wdm.h` (scraped by `tool_wdk`). The `km` scrape now emits that enum in full, and `tool_wdk` unions it with the truncated `winternl.h` copy into a single enum when it merges the `um` and `km` winmds, so every member surfaces. |
+| **Missing, now generated after the bucket-E fix.** | `FileRenameInformation`, `FileRenameInformationEx` | The fuller `FILE_INFORMATION_CLASS` is in `ntifs.h`/`wdm.h` (scraped by `tool_win32`'s km phase). The `km` scrape now emits that enum in full, and `tool_win32` unions it with the truncated `winternl.h` copy into a single enum when it merges the `um` and `km` winmds, so every member surfaces. |
 | **Missing, and not scrapeable - keep hand-written.** | `ProcessPrng`, `NtCreateNamedPipeFile`, `NtCreateKeyedEvent`, `NtReleaseKeyedEvent`, `NtWaitForKeyedEvent`, `atexit` | No SDK or WDK header declares a prototype for these (the `NtCreateNamedPipeFile` hits in `ntifs.h`/`wdm.h` are comments describing its flag `#define`s, not a declaration). `ProcessPrng` and the keyed-event exports exist in `ntdll.lib`/`bcryptprimitives.dll` but have no header. `atexit` is CRT (`ucrt`), outside the Win32 scrape scope. |
 
 The reparse-buffer structs (`REPARSE_DATA_BUFFER`, `SYMBOLIC_LINK_REPARSE_BUFFER`,
@@ -900,7 +902,7 @@ single-element trailing field for pointer-provenance reasons and are not candida
 ### Fixes implemented for bucket E
 
 Two changes closed the three bucket-E gaps. Both were verified output-neutral for the rest of the
-metadata (regenerating `tool_win32`/`tool_wdk`/`tool_bindings`/`tool_package` adds only the new
+metadata (regenerating `tool_win32`/`tool_bindings`/`tool_package` adds only the new
 symbols) and the regenerated `windows` / `windows-sys` compile with the affected features.
 
 - **`IPPROTO_RM`** - added `wsrm.h` to `tool_win32`'s `HEADERS`. This emits `const IPPROTO_RM: i32 =
@@ -912,9 +914,9 @@ symbols) and the regenerated `windows` / `windows-sys` compile with the affected
   `km` scrape stops suppressing an enum the WDK headers *extend*: when an unscoped enum's name is in
   the reference winmd but the headers define members the reference lacks, the whole enum is
   un-excluded and emitted in full into the `km` winmd (`clang/src/lib.rs`
-  `parse_and_emit_by_header`), rather than dropped as a duplicate. Second, `tool_wdk` merges the
-  `um` and `km` winmds with `Merger::union_enums`, which unions same-named enums into one carrying
-  every member (`metadata` `merge/mod.rs` `write_enum_union`). The result is a single
+  `parse_and_emit_by_header`), rather than dropped as a duplicate. Second, `tool_win32`'s merge
+  phase combines the `um` and `km` winmds with `Merger::union_enums`, which unions same-named enums
+  into one carrying every member (`metadata` `merge/mod.rs` `write_enum_union`). The result is a single
   `FILE_INFORMATION_CLASS` with the complete member set, projected identically in `windows` and
   `windows-sys` (an unscoped `Type::CppEnum` renders as a `pub type = iN` alias plus bare member
   constants). The union is architecture-aware (arch-tagged variants such as `INTERLOCKED_RESULT`
@@ -941,8 +943,84 @@ internal to the scrape/projection, not the `HEADERS`/`SOURCE_HEADERS` lists:
   updates `bindings.txt` and `c.rs` to use raw scalars. This is the bulk of the remaining
   compatibility work.
 
-Any parity move must be verified output-neutral by regenerating `tool_win32`/`tool_wdk` (and the
+Any parity move must be verified output-neutral by regenerating `tool_win32` (and the
 `tool_bindings`/`tool_package` consumers) and confirming `git diff` shows no unexpected
 generated-file changes, then confirming each moved symbol matches Rust's hand-written signature
 (some hand-written forms exist to work around old Win32metadata bugs and must be diffed, not assumed
 equal).
+
+## Open investigations: orchestration simplification
+
+The `tool_win32` pipeline is correct and reproducible. This section maps the data flow and records
+the simplifications still worth making. The goal is reduced complexity and easier comprehension, not
+speed - wall-clock is dominated by the libclang parses, which are irreducible.
+
+**S1 (merge the two tools) is done.** `tool_win32` now runs the `um` scrape (`main.rs`), the `km`
+scrape (`km.rs`), and the union-merge in one process; the former `tool_wdk` crate is gone. This
+removed the `um` re-derivation and its byte-identity invariant (old #2), the mirrored second
+orchestrator (old #3), the second libclang provision, and the cross-tool `SDK_VERSION` readback. One
+idempotent unit, one `gen` CI job. Verified output-neutral: regenerating produces a zero `git diff`
+on `metadata/win32`, `metadata/wdk`, and `Windows.Win32.winmd`.
+
+### The pipeline as it stands
+
+`tool_win32`, phase A (`main.rs`, SDK `um`/`shared` headers):
+
+```
+for arch in [x64, arm64, x86]  (parallel threads):
+    headers --libclang--> model --> RDL text (write_by_header)
+                                --> winmd (rdl reader re-parses that RDL)
+arch-merge: [3 winmds] --metadata::merge--> merged winmd (temp)
+            re-read the 3 RDL dirs --> item -> header routing map
+            merged winmd --writer--> metadata/win32/*.rdl  (committed)
+    metadata/win32/*.rdl --rdl reader--> target/win32/Windows.Win32.winmd  (NOT committed)
+```
+
+`tool_win32`, phase B (`km.rs`, WDK `km` headers) + phase C (merge):
+
+```
+for arch in [x64, arm64, x86]:  headers (ref: phase A's um winmd) --> RDL --> winmd (+ arch-merge)
+    --> metadata/wdk/*.rdl (committed) + target/wdk km.winmd
+merge(um winmd, km.winmd, union_enums) --> bindgen/default/Windows.Win32.winmd  (committed)
+```
+
+Phase B references phase A's `target/win32/Windows.Win32.winmd` directly - phase A wrote it from the
+committed RDL, the seed, and `Windows.winmd`, the same inputs a standalone re-derivation would use.
+
+`tool_package` later re-reads `metadata/win32` + `metadata/wdk` again to synthesise the
+`Windows.Win32.<header>` namespaces for the published crates.
+
+### Load-bearing vs incidental complexity
+
+Essential (do not remove):
+
+- **Six libclang parses (2 translation units x 3 arches).** `um` and `km` are conflicting TUs
+  (`winternl.h` and `wdm.h` cannot co-include), and each arch has genuinely different layouts. The
+  parses are already parallel, so wall-clock is roughly one parse, not six.
+- **RDL is the committed source of truth and the winmd is always `compile(RDL)`.** Deriving the
+  winmd from the reviewed RDL (rather than emitting it straight from the clang model) is what keeps
+  the two representations from drifting. Keep it.
+- The `union_enums` merge.
+
+Incidental (the fixable part that remains after S1):
+
+| # | Issue |
+| --- | --- |
+| 1 | **Header provenance lives only in RDL filenames.** The flat `Windows.Win32` winmd does not record which header defined each type, so provenance is recovered by re-parsing RDL in two places (`merge_arch_rdl`'s `item_names` and `tool_package`'s `routes()`). This is the deepest driver of the round-tripping - the winmd is not self-describing. |
+| 4 | **The canonical winmd is materialised three times** in multi-arch (per-arch, merged-temp, final-from-RDL). Cheap next to the clang parse, but many moving parts. |
+| 5 | **Latent libclang concurrency risk in production.** The process-global-state hazard that crashes the `test_clang` suite under high thread counts (fixed there with a serialization guard) also exists in the 3-way parallel arch scrape: each thread loads libclang into its own TLS, but the LLVM globals are shared. It rarely triggers at three threads but is real. (S1 does not change this - the two phases run sequentially, so peak parallelism is unchanged at three.) |
+
+### Recommendations (ranked)
+
+- **S2 - Make the winmd self-describing about header provenance** (a `DefiningHeader` attribute or a
+  sub-namespace). Both RDL re-scans in #1 then disappear: RDL becomes a pure projection of the
+  winmd, and package remap reads the winmd alone. Removes the deepest structural reason for the
+  round-trips.
+- **S3 - Collapse `metadata/win32` + `metadata/wdk` into one `metadata/win32`** now that one tool
+  and one winmd own both surfaces (provenance carried by filename or the S2 attribute). Aligns the
+  committed layout with the single-winmd, single-tool model.
+- **S4 - Run arch scrapes as subprocesses, not threads.** libclang global state is per-process, so
+  process isolation removes the concurrency hazard (#5) while keeping real parallelism.
+
+After S1, the remaining non-simplicity is concentrated in provenance-by-filename forcing repeated
+RDL re-scans (#1). S2 removes the bulk of it; S3 then aligns the on-disk layout. Start with S2.

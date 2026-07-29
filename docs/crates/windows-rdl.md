@@ -235,8 +235,7 @@ cargo test -p test_clang
 | File | Source | Writer |
 |------|--------|--------|
 | `crates/libs/bindgen/default/Windows.winmd` | SDK Contracts winmds, merged and written through RDL | `tool_winrt` |
-| `crates/libs/bindgen/default/Windows.Win32.winmd` | Windows SDK headers scraped to RDL | `tool_win32` |
-| `crates/libs/bindgen/default/Windows.Wdk.winmd` | WDK headers scraped to RDL | `tool_wdk` |
+| `crates/libs/bindgen/default/Windows.Win32.winmd` | Windows SDK + WDK headers scraped to RDL, um + km merged | `tool_win32` |
 
 The committed RDL files are the reviewable source for these metadata files:
 

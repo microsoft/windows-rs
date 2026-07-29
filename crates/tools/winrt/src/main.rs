@@ -54,8 +54,8 @@ fn main() {
     );
 
     // Merge the per-contract winmds into one intermediate winmd, replacing the external
-    // `mdmerge` tool with `windows-metadata`'s in-house merger (the same one `tool_win32`/
-    // `tool_wdk` use). The per-contract WinRT runtime-class methods and Property/Event tables
+    // `mdmerge` tool with `windows-metadata`'s in-house merger (the same one `tool_win32`
+    // uses). The per-contract WinRT runtime-class methods and Property/Event tables
     // are dropped by the merge; `windows-bindgen` reconstructs properties/events from the
     // surviving `get_`/`put_`/`add_`/`remove_` accessor methods on the interfaces and never
     // reads class methods.
@@ -70,7 +70,7 @@ fn main() {
 
     // Decompile the merged winmd into the committed per-namespace RDL snapshot, then compile
     // that snapshot back into the canonical `Windows.winmd`. This makes the RDL the source of
-    // truth - consistent with `tool_win32`/`tool_wdk`, which likewise scrape to RDL and compile
+    // truth - consistent with `tool_win32`, which likewise scrapes to RDL and compiles
     // the winmd from it - and lets the `gen` `git diff` validate both the RDL and the winmd. The
     // WinRT surface is self-contained (`System.*` primitives are resolved by the reader), so the
     // reader needs no additional reference winmds; the `Win32` exclusion guards against any stray
