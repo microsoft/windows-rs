@@ -4,10 +4,7 @@ mod Windows {
         type ATOM = u16;
         type BOOL = i32;
         const FALSE: i32 = 0;
-        #[arch(X64 | Arm64)]
         extern fn FARPROC() -> isize;
-        #[arch(X86)]
-        extern fn FARPROC() -> i32;
         struct FILETIME {
             dwLowDateTime: u32,
             dwHighDateTime: u32,
@@ -40,10 +37,7 @@ mod Windows {
         type LPWORD = *mut u16;
         type LRESULT = isize;
         const MAX_PATH: i32 = 260;
-        #[arch(X64 | Arm64)]
         extern fn NEARPROC() -> isize;
-        #[arch(X86)]
-        extern fn NEARPROC() -> i32;
         type PBOOL = *mut BOOL;
         type PBYTE = *mut u8;
         type PDWORD = *mut u32;
@@ -51,10 +45,7 @@ mod Windows {
         type PFLOAT = *mut f32;
         type PHKEY = *mut HKEY;
         type PINT = *mut i32;
-        #[arch(X64 | Arm64)]
         extern fn PROC() -> isize;
-        #[arch(X86)]
-        extern fn PROC() -> i32;
         type PSZ = *mut i8;
         type PUCHAR = *mut u8;
         type PUINT = *mut u32;

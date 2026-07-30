@@ -24,6 +24,17 @@ fn arch_bits(field: reader::Field) -> Option<i32> {
     })
 }
 
+fn type_arch_bits(ty: reader::TypeDef) -> Option<i32> {
+    ty.attributes().find_map(|a| {
+        (a.ctor().parent().name() == "SupportedArchitectureAttribute").then(|| {
+            match a.value().first() {
+                Some((_, Value::I32(v))) => *v,
+                _ => 0,
+            }
+        })
+    })
+}
+
 #[test]
 fn arch_merge_constants() {
     let dir = std::env::temp_dir().join("win_merge_test");
@@ -272,4 +283,132 @@ fn arch_merge_divergent_struct() {
             .collect();
     tags.sort();
     assert_eq!(tags, vec![2, 4]);
+}
+
+#[test]
+fn arch_merge_normalizes_native_sized_callback_signature() {
+    let dir = std::env::temp_dir().join("win_merge_native_callback");
+    std::fs::create_dir_all(&dir).unwrap();
+
+    let wide = "#[win32] mod Test { extern fn CB(value: usize) -> isize; }";
+    let x64 = winmd(&dir, "x64", wide);
+    let arm = winmd(&dir, "arm", wide);
+    let x86 = winmd(
+        &dir,
+        "x86",
+        "#[win32] mod Test { extern fn CB(value: u32) -> i32; }",
+    );
+
+    let merged = dir.join("merged.winmd");
+    merge()
+        .arch_input(&x64, 2)
+        .arch_input(&arm, 4)
+        .arch_input(&x86, 1)
+        .output(merged.to_string_lossy().as_ref())
+        .merge()
+        .unwrap();
+
+    let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
+    let callbacks: Vec<_> = index.types().filter(|ty| ty.name() == "CB").collect();
+    assert_eq!(callbacks.len(), 1);
+    assert_eq!(type_arch_bits(callbacks[0]), None);
+
+    let signature = callbacks[0]
+        .methods()
+        .find(|method| method.name() == "Invoke")
+        .unwrap()
+        .signature(&[]);
+    assert_eq!(signature.return_type, Type::ISize);
+    assert_eq!(signature.types, vec![Type::USize]);
+}
+
+#[test]
+fn arch_merge_does_not_infer_native_size_without_native_evidence() {
+    let dir = std::env::temp_dir().join("win_merge_fixed_callback");
+    std::fs::create_dir_all(&dir).unwrap();
+
+    let wide = "#[win32] mod Test { extern fn CB() -> i64; }";
+    let x64 = winmd(&dir, "x64", wide);
+    let arm = winmd(&dir, "arm", wide);
+    let x86 = winmd(&dir, "x86", "#[win32] mod Test { extern fn CB() -> i32; }");
+
+    let merged = dir.join("merged.winmd");
+    merge()
+        .arch_input(&x64, 2)
+        .arch_input(&arm, 4)
+        .arch_input(&x86, 1)
+        .output(merged.to_string_lossy().as_ref())
+        .merge()
+        .unwrap();
+
+    let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
+    let mut arches: Vec<_> = index
+        .types()
+        .filter(|ty| ty.name() == "CB")
+        .filter_map(type_arch_bits)
+        .collect();
+    arches.sort();
+    assert_eq!(arches, vec![1, 6]);
+}
+
+#[test]
+fn arch_merge_rejects_fixed_integer_with_wrong_pointer_width() {
+    let dir = std::env::temp_dir().join("win_merge_wrong_width_callback");
+    std::fs::create_dir_all(&dir).unwrap();
+
+    let x64 = winmd(
+        &dir,
+        "x64",
+        "#[win32] mod Test { extern fn CB() -> isize; }",
+    );
+    let arm = winmd(&dir, "arm", "#[win32] mod Test { extern fn CB() -> i32; }");
+    let x86 = winmd(&dir, "x86", "#[win32] mod Test { extern fn CB() -> i32; }");
+
+    let merged = dir.join("merged.winmd");
+    merge()
+        .arch_input(&x64, 2)
+        .arch_input(&arm, 4)
+        .arch_input(&x86, 1)
+        .output(merged.to_string_lossy().as_ref())
+        .merge()
+        .unwrap();
+
+    let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
+    let mut arches: Vec<_> = index
+        .types()
+        .filter(|ty| ty.name() == "CB")
+        .filter_map(type_arch_bits)
+        .collect();
+    arches.sort();
+    assert_eq!(arches, vec![2, 5]);
+}
+
+#[test]
+fn arch_merge_rejects_callback_attribute_mismatch() {
+    let dir = std::env::temp_dir().join("win_merge_callback_attributes");
+    std::fs::create_dir_all(&dir).unwrap();
+
+    let x64 = winmd(
+        &dir,
+        "x64",
+        "#[win32] mod Test { extern \"C\" fn CB() -> isize; }",
+    );
+    let x86 = winmd(&dir, "x86", "#[win32] mod Test { extern fn CB() -> i32; }");
+
+    let merged = dir.join("merged.winmd");
+    merge()
+        .arch_input(&x64, 2)
+        .arch_input(&x86, 1)
+        .output(merged.to_string_lossy().as_ref())
+        .merge()
+        .unwrap();
+
+    let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
+    let mut arches: Vec<_> = index
+        .types()
+        .filter(|ty| ty.name() == "CB")
+        .filter_map(type_arch_bits)
+        .collect();
+    arches.sort();
+    assert_eq!(arches, vec![1, 2]);
 }
