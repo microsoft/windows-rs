@@ -327,9 +327,9 @@ where
     unsafe { ClusterGroupOpenEnumEx(hcluster, lpszproperties.param().abi(), cbproperties, lpszroproperties.param().abi(), cbroproperties, dwflags) }
 }
 #[inline]
-pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: *mut _HGROUPSETENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetCloseEnum(hgroupsetenum : *mut _HGROUPSETENUM) -> u32);
-    unsafe { ClusterGroupSetCloseEnum(hgroupsetenum as _) }
+pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: *const _HGROUPSETENUM) -> u32 {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetCloseEnum(hgroupsetenum : *const _HGROUPSETENUM) -> u32);
+    unsafe { ClusterGroupSetCloseEnum(hgroupsetenum) }
 }
 #[inline]
 pub unsafe fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>) -> u32 {
@@ -350,14 +350,14 @@ pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: *const _HGROUPSETENUM, dwindex:
     unsafe { ClusterGroupSetEnum(hgroupsetenum, dwindex, lpszname, lpcchname as _) }
 }
 #[inline]
-pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) -> u32 {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetGetEnumCount(hgroupsetenum : *mut _HGROUPSETENUM) -> u32);
-    unsafe { ClusterGroupSetGetEnumCount(hgroupsetenum as _) }
+pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: *const _HGROUPSETENUM) -> u32 {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetGetEnumCount(hgroupsetenum : *const _HGROUPSETENUM) -> u32);
+    unsafe { ClusterGroupSetGetEnumCount(hgroupsetenum) }
 }
 #[inline]
-pub unsafe fn ClusterGroupSetOpenEnum(hcluster: *mut _HCLUSTER) -> HGROUPSETENUM {
-    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetOpenEnum(hcluster : *mut _HCLUSTER) -> HGROUPSETENUM);
-    unsafe { ClusterGroupSetOpenEnum(hcluster as _) }
+pub unsafe fn ClusterGroupSetOpenEnum(hcluster: *const _HCLUSTER) -> HGROUPSETENUM {
+    windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetOpenEnum(hcluster : *const _HCLUSTER) -> HGROUPSETENUM);
+    unsafe { ClusterGroupSetOpenEnum(hcluster) }
 }
 #[inline]
 pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM) -> u32 {

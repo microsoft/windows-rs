@@ -157,7 +157,7 @@ impl Fn {
             .cloned();
         let anchor = source_name.as_deref().unwrap_or(&export_name);
 
-        let midl_annotations = scan_method_param_annotations(&fn_tokens, anchor);
+        let midl_annotations = scan_method_param_annotations(&fn_tokens, anchor, parser.macro_defs);
         let calling_convention = detect_calling_convention(&fn_tokens, anchor, parser.macro_defs);
 
         let mut params = parse_params(&cursor, &midl_annotations, parser);

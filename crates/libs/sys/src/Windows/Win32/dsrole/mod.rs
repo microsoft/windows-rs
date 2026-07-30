@@ -1,4 +1,4 @@
-windows_link::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *mut core::ffi::c_void));
+windows_link::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *const core::ffi::c_void));
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn DsRoleGetPrimaryDomainInformation(lpserver : windows_sys::core::PCWSTR, infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer : *mut super::PBYTE) -> u32);
 pub type DSROLE_MACHINE_ROLE = i32;

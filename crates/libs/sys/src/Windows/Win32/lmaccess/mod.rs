@@ -66,8 +66,8 @@ windows_link::link!("netapi32.dll" "system" fn NetUserModalsGet(servername : win
 windows_link::link!("netapi32.dll" "system" fn NetUserModalsSet(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetUserSetGroups(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, buf : *const u8, num_entries : u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetUserSetInfo(servername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetValidatePasswordPolicy(servername : windows_sys::core::PCWSTR, qualifier : *mut core::ffi::c_void, validationtype : NET_VALIDATE_PASSWORD_TYPE, inputarg : *mut core::ffi::c_void, outputarg : *mut *mut core::ffi::c_void) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetValidatePasswordPolicyFree(outputarg : *mut *mut core::ffi::c_void) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetValidatePasswordPolicy(servername : windows_sys::core::PCWSTR, qualifier : *const core::ffi::c_void, validationtype : NET_VALIDATE_PASSWORD_TYPE, inputarg : *const core::ffi::c_void, outputarg : *mut *mut core::ffi::c_void) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetValidatePasswordPolicyFree(outputarg : *const *const core::ffi::c_void) -> u32);
 pub const ACCESS_ACCESS_LIST_INFOLEVEL: i32 = 1004;
 pub const ACCESS_ACCESS_LIST_PARMNUM: i32 = 4;
 pub const ACCESS_ALL: i32 = 127;

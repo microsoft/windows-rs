@@ -24,7 +24,7 @@ mod Windows {
         #[library("RPCNS4.dll")]
         extern fn RpcNsBindingImportBeginW(EntryNameSyntax: u32, #[opt] EntryName: *const u16, #[opt] IfSpec: RPC_IF_HANDLE, #[opt] ObjUuid: *const GUID, ImportContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsBindingImportDone(ImportContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
+        extern fn RpcNsBindingImportDone(#[in] #[out] ImportContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
         extern fn RpcNsBindingImportNext(ImportContext: RPC_NS_HANDLE, Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
@@ -32,11 +32,11 @@ mod Windows {
         #[library("RPCNS4.dll")]
         extern fn RpcNsBindingLookupBeginW(EntryNameSyntax: u32, #[opt] EntryName: *const u16, #[opt] IfSpec: RPC_IF_HANDLE, #[opt] ObjUuid: *const GUID, BindingMaxCount: u32, LookupContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsBindingLookupDone(LookupContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
+        extern fn RpcNsBindingLookupDone(#[in] #[out] LookupContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
         extern fn RpcNsBindingLookupNext(LookupContext: RPC_NS_HANDLE, BindingVec: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsBindingSelect(BindingVec: *mut RPC_BINDING_VECTOR, Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        extern fn RpcNsBindingSelect(#[in] #[out] BindingVec: *mut RPC_BINDING_VECTOR, Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
         extern fn RpcNsBindingUnexportA(EntryNameSyntax: u32, #[opt] EntryName: *const u8, #[opt] IfSpec: RPC_IF_HANDLE, #[opt] ObjectUuidVec: *const UUID_VECTOR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
@@ -54,7 +54,7 @@ mod Windows {
         #[library("RPCNS4.dll")]
         extern fn RpcNsEntryObjectInqBeginW(EntryNameSyntax: u32, EntryName: *const u16, InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsEntryObjectInqDone(InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
+        extern fn RpcNsEntryObjectInqDone(#[in] #[out] InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
         extern fn RpcNsEntryObjectInqNext(InquiryContext: RPC_NS_HANDLE, ObjUuid: *mut GUID) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
@@ -70,7 +70,7 @@ mod Windows {
         #[library("RPCNS4.dll")]
         extern fn RpcNsGroupMbrInqBeginW(GroupNameSyntax: u32, GroupName: *const u16, MemberNameSyntax: u32, InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsGroupMbrInqDone(InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
+        extern fn RpcNsGroupMbrInqDone(#[in] #[out] InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
         extern fn RpcNsGroupMbrInqNextA(#[in] #[out] InquiryContext: RPC_NS_HANDLE, MemberName: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
@@ -114,7 +114,7 @@ mod Windows {
         #[library("RPCNS4.dll")]
         extern fn RpcNsProfileEltInqBeginW(ProfileNameSyntax: u32, ProfileName: *const u16, InquiryType: u32, #[opt] IfId: *const RPC_IF_ID, VersOption: u32, MemberNameSyntax: u32, #[opt] MemberName: *const u16, InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsProfileEltInqDone(InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
+        extern fn RpcNsProfileEltInqDone(#[in] #[out] InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
         extern fn RpcNsProfileEltInqNextA(InquiryContext: RPC_NS_HANDLE, #[opt] IfId: *mut RPC_IF_ID, MemberName: *mut RPC_CSTR, Priority: *mut u32, Annotation: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]

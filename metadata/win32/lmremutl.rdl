@@ -7,7 +7,7 @@ mod Windows {
         type LPTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
         const NO_PERMISSION_REQUIRED: i32 = 1;
         #[library("NETAPI32.dll")]
-        extern fn NetRemoteComputerSupports(UncServerName: PCWSTR, OptionsWanted: u32, OptionsSupported: *mut u32) -> u32;
+        extern fn NetRemoteComputerSupports(#[opt] UncServerName: PCWSTR, OptionsWanted: u32, OptionsSupported: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetRemoteTOD(#[opt] UncServerName: PCWSTR, BufferPtr: *mut LPBYTE) -> u32;
         type PTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;

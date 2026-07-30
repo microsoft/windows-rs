@@ -1,6 +1,6 @@
 use super::*;
 
-/// SAL and MIDL parameter flags; unset flags let the reader infer direction from type.
+/// SAL, legacy direction, and MIDL parameter flags; unset flags let the reader infer from type.
 #[derive(Debug, Default, Clone)]
 pub struct ParamAnnotation {
     pub in_param: bool,
@@ -330,6 +330,7 @@ pub fn resolve_param_array_info(params: &mut [Param]) {
 pub fn scan_method_param_annotations(
     tokens: &[(CXTokenKind, String)],
     method_name: &str,
+    macro_defs: &HashMap<String, Vec<String>>,
 ) -> Vec<ParamAnnotation> {
     let mut result = Vec::new();
     let mut current = ParamAnnotation::default();
@@ -371,6 +372,29 @@ pub fn scan_method_param_annotations(
             }
             (CXToken_Comment, s) if in_params && paren_depth == 1 => {
                 apply_midl_param_comment(s, &mut current);
+            }
+            // The SDK's empty legacy macros are the predecessors of `_In_`, `_Out_`, and `_opt_`.
+            // Require the empty macro definition so unrelated identifiers are not annotations.
+            (CXToken_Identifier, "IN")
+                if in_params
+                    && paren_depth == 1
+                    && macro_defs.get("IN").is_some_and(Vec::is_empty) =>
+            {
+                current.in_param = true;
+            }
+            (CXToken_Identifier, "OUT")
+                if in_params
+                    && paren_depth == 1
+                    && macro_defs.get("OUT").is_some_and(Vec::is_empty) =>
+            {
+                current.out_param = true;
+            }
+            (CXToken_Identifier, "OPTIONAL")
+                if in_params
+                    && paren_depth == 1
+                    && macro_defs.get("OPTIONAL").is_some_and(Vec::is_empty) =>
+            {
+                current.optional = true;
             }
             // Recover bare pure `_z_` SAL tokens for COM methods; counted buffers stay raw.
             (CXToken_Identifier, s)
@@ -471,8 +495,6 @@ pub fn param_attrs_for_annotation(
 
     let is_mutable = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
 
-    let effective_in = in_param || !out_param;
-
     let mut attrs = vec![];
 
     // Keep array/size attributes before direction attributes to match the writer.
@@ -490,12 +512,12 @@ pub fn param_attrs_for_annotation(
     }
 
     // Emit `#[in]` only when it overrides the type-based default or marks In+Out.
-    if effective_in && (out_param || is_mutable) {
+    if in_param && (out_param || is_mutable) {
         attrs.push(quote! { #[r#in] });
     }
 
     // Emit `#[out]` only when it overrides the type-based default or marks In+Out.
-    if out_param && (effective_in || !is_mutable) {
+    if out_param && (in_param || !is_mutable) {
         attrs.push(quote! { #[out] });
     }
 

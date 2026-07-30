@@ -75,7 +75,8 @@ impl Interface {
                 .tokenize(parser.tu.to_expansion_range(child.extent()));
             let method_annotation = extract_method_annotation(&tokens, &method_name);
             // SAL annotations take priority; MIDL comments are a fallback.
-            let midl_param_annotations = scan_method_param_annotations(&tokens, &method_name);
+            let midl_param_annotations =
+                scan_method_param_annotations(&tokens, &method_name, parser.macro_defs);
             let return_type = child.result_type().to_type(parser);
 
             let mut params = parse_params(&child, &midl_param_annotations, parser);

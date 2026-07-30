@@ -183,7 +183,7 @@ mod Windows {
         #[library("WTSAPI32.dll")]
         extern fn WTSEnumerateSessionsW(hServer: HANDLE, Reserved: u32, Version: u32, ppSessionInfo: *mut PWTS_SESSION_INFOW, pCount: *mut u32) -> BOOL;
         #[library("WTSAPI32.dll")]
-        extern fn WTSFreeMemory(pMemory: *mut void);
+        extern fn WTSFreeMemory(pMemory: *const void);
         #[library("WTSAPI32.dll")]
         extern fn WTSFreeMemoryExA(WTSTypeClass: WTS_TYPE_CLASS, pMemory: *const void, NumberOfEntries: u32) -> BOOL;
         #[library("WTSAPI32.dll")]

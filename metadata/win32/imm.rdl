@@ -251,9 +251,9 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmAssociateContextEx(param0: HWND, param1: HIMC, param2: u32) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmConfigureIMEA(param0: HKL, param1: HWND, param2: u32, param3: *mut void) -> BOOL;
+        extern fn ImmConfigureIMEA(param0: HKL, param1: HWND, param2: u32, param3: *const void) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmConfigureIMEW(param0: HKL, param1: HWND, param2: u32, param3: *mut void) -> BOOL;
+        extern fn ImmConfigureIMEW(param0: HKL, param1: HWND, param2: u32, param3: *const void) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmCreateContext() -> HIMC;
         #[library("IMM32.dll")]
@@ -267,13 +267,13 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmEnumInputContext(idThread: u32, lpfn: IMCENUMPROC, lParam: LPARAM) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmEnumRegisterWordA(param0: HKL, param1: REGISTERWORDENUMPROCA, #[opt] lpszReading: PCSTR, param3: u32, #[opt] lpszRegister: PCSTR, param5: *mut void) -> u32;
+        extern fn ImmEnumRegisterWordA(param0: HKL, param1: REGISTERWORDENUMPROCA, #[opt] lpszReading: PCSTR, param3: u32, #[opt] lpszRegister: PCSTR, param5: *const void) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmEnumRegisterWordW(param0: HKL, param1: REGISTERWORDENUMPROCW, #[opt] lpszReading: PCWSTR, param3: u32, #[opt] lpszRegister: PCWSTR, param5: *mut void) -> u32;
+        extern fn ImmEnumRegisterWordW(param0: HKL, param1: REGISTERWORDENUMPROCW, #[opt] lpszReading: PCWSTR, param3: u32, #[opt] lpszRegister: PCWSTR, param5: *const void) -> u32;
         #[library("IMM32.dll")]
-        extern fn ImmEscapeA(param0: HKL, param1: HIMC, param2: u32, param3: *mut void) -> LRESULT;
+        extern fn ImmEscapeA(param0: HKL, param1: HIMC, param2: u32, param3: *const void) -> LRESULT;
         #[library("IMM32.dll")]
-        extern fn ImmEscapeW(param0: HKL, param1: HIMC, param2: u32, param3: *mut void) -> LRESULT;
+        extern fn ImmEscapeW(param0: HKL, param1: HIMC, param2: u32, param3: *const void) -> LRESULT;
         #[library("IMM32.dll")]
         extern fn ImmGetCandidateListA(param0: HIMC, deIndex: u32, #[size_param(3)] #[opt] lpCandList: *mut CANDIDATELIST, dwBufLen: u32) -> u32;
         #[library("IMM32.dll")]

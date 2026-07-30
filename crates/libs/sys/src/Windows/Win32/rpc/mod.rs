@@ -25,11 +25,11 @@ windows_link::link!("rpcrt4.dll" "system" fn I_RpcBindingToStaticStringBindingW(
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcClearMutex(mutex : I_RPC_MUTEX));
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcDeleteMutex(mutex : I_RPC_MUTEX));
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcExceptionFilter(exceptioncode : u32) -> i32);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcFree(object : *mut core::ffi::c_void));
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcFree(object : *const core::ffi::c_void));
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcFreeBuffer(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcFreePipeBuffer(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcGetBuffer(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcGetBufferWithObject(message : *mut RPC_MESSAGE, objectuuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcGetBufferWithObject(message : *mut RPC_MESSAGE, objectuuid : *const windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcGetCurrentCallHandle() -> RPC_BINDING_HANDLE);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcGetDefaultSD(ppsecuritydescriptor : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcGetExtendedError() -> windows_sys::core::RPC_STATUS);
@@ -39,17 +39,17 @@ windows_link::link!("rpcrt4.dll" "system" fn I_RpcMgmtEnableDedicatedThreadPool(
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcNegotiateTransferSyntax(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameA(binding : RPC_BINDING_HANDLE, entrynamesyntax : u32, entryname : *const u8) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameW(binding : RPC_BINDING_HANDLE, entrynamesyntax : u32, entryname : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn I_RpcNsGetBuffer(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceExported(entrynamesyntax : u32, entryname : *mut u16, rpcinterfaceinformation : *mut RPC_SERVER_INTERFACE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceUnexported(entrynamesyntax : u32, entryname : *mut u16, rpcinterfaceinformation : *mut RPC_SERVER_INTERFACE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn I_RpcNsRaiseException(message : *mut RPC_MESSAGE, status : windows_sys::core::RPC_STATUS));
-windows_link::link!("rpcns4.dll" "system" fn I_RpcNsSendReceive(message : *mut RPC_MESSAGE, handle : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn I_RpcNsGetBuffer(message : *const RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceExported(entrynamesyntax : u32, entryname : *const u16, rpcinterfaceinformation : *const RPC_SERVER_INTERFACE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceUnexported(entrynamesyntax : u32, entryname : *const u16, rpcinterfaceinformation : *const RPC_SERVER_INTERFACE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn I_RpcNsRaiseException(message : *const RPC_MESSAGE, status : windows_sys::core::RPC_STATUS));
+windows_link::link!("rpcns4.dll" "system" fn I_RpcNsSendReceive(message : *const RPC_MESSAGE, handle : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcOpenClientProcess(binding : RPC_BINDING_HANDLE, desiredaccess : u32, clientprocess : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcPauseExecution(milliseconds : u32));
-windows_link::link!("rpcns4.dll" "system" fn I_RpcReBindBuffer(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn I_RpcReBindBuffer(message : *const RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcReallocPipeBuffer(message : *const RPC_MESSAGE, newsize : u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcReceive(message : *mut RPC_MESSAGE, size : u32) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcRecordCalloutFailure(rpcstatus : windows_sys::core::RPC_STATUS, calloutstate : *mut RDR_CALLOUT_STATE, dllname : *mut u16));
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcRecordCalloutFailure(rpcstatus : windows_sys::core::RPC_STATUS, calloutstate : *const RDR_CALLOUT_STATE, dllname : *const u16));
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcRequestMutex(mutex : *mut I_RPC_MUTEX));
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcSend(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcSendReceive(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
@@ -1218,7 +1218,7 @@ pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = 4;
 pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = 5;
 pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = 1;
 pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = 3;
-pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
+pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 pub type RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 pub type RPC_ADDRESS_CHANGE_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void)>;
@@ -1412,7 +1412,7 @@ impl Default for RPC_BINDING_VECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type RPC_BLOCKING_FN = Option<unsafe extern "system" fn(hwnd: *mut core::ffi::c_void, context: *mut core::ffi::c_void, hsyncevent: *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS>;
+pub type RPC_BLOCKING_FN = Option<unsafe extern "system" fn(hwnd: *const core::ffi::c_void, context: *const core::ffi::c_void, hsyncevent: *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS>;
 pub const RPC_BUFFER_ASYNC: i32 = 32768;
 pub const RPC_BUFFER_COMPLETE: i32 = 4096;
 pub const RPC_BUFFER_EXTRA: i32 = 16384;

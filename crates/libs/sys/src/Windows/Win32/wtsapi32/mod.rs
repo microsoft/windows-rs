@@ -39,7 +39,7 @@ windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsExA(hserver :
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsExW(hserver : super::HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut PWTS_SESSION_INFO_1W, pcount : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsW(hserver : super::HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut PWTS_SESSION_INFOW, pcount : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut core::ffi::c_void));
+windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *const core::ffi::c_void));
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const core::ffi::c_void, numberofentries : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const core::ffi::c_void, numberofentries : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "C" fn WTSGetChildSessionId(psessionid : *mut u32) -> windows_sys::core::BOOL);

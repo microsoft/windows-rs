@@ -736,7 +736,7 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_referenceW(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, Referrals: *mut *mut PWCHAR) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_parse_result(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut u32, MatchedDNs: *mut PSTR, ErrorMessage: *mut PSTR, Referrals: *mut *mut PSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: bool) -> u32;
+        extern "C" fn ldap_parse_result(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, #[opt] ReturnCode: *mut u32, #[opt] MatchedDNs: *mut PSTR, #[opt] ErrorMessage: *mut PSTR, #[opt] Referrals: *mut *mut PSTR, #[opt] ServerControls: *mut *mut PLDAPControlA, Freeit: bool) -> u32;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_parse_resultA(Connection: *mut LDAP, ResultMessage: *mut LDAPMessage, ReturnCode: *mut u32, MatchedDNs: *mut PSTR, ErrorMessage: *mut PSTR, Referrals: *mut PZPSTR, ServerControls: *mut *mut PLDAPControlA, Freeit: bool) -> u32;
         #[library("WLDAP32.dll")]
@@ -842,13 +842,13 @@ mod Windows {
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_sslinitW(HostName: PCWSTR, PortNumber: u32, secure: i32) -> *mut LDAP;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_start_tls_sA(ExternalHandle: *mut LDAP, ServerReturnValue: *mut u32, result: *mut *mut LDAPMessage, ServerControls: *mut PLDAPControlA, ClientControls: *mut PLDAPControlA) -> u32;
+        extern "C" fn ldap_start_tls_sA(ExternalHandle: *const LDAP, ServerReturnValue: *mut u32, result: *mut *mut LDAPMessage, ServerControls: *const PLDAPControlA, ClientControls: *const PLDAPControlA) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_start_tls_sW(ExternalHandle: *mut LDAP, ServerReturnValue: *mut u32, result: *mut *mut LDAPMessage, ServerControls: *mut PLDAPControlW, ClientControls: *mut PLDAPControlW) -> u32;
+        extern "C" fn ldap_start_tls_sW(ExternalHandle: *const LDAP, ServerReturnValue: *mut u32, result: *mut *mut LDAPMessage, ServerControls: *const PLDAPControlW, ClientControls: *const PLDAPControlW) -> u32;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_startup(version: *mut LDAP_VERSION_INFO, Instance: *mut HANDLE) -> u32;
         #[library("WLDAP32.dll")]
-        extern "C" fn ldap_stop_tls_s(ExternalHandle: *mut LDAP) -> bool;
+        extern "C" fn ldap_stop_tls_s(ExternalHandle: *const LDAP) -> bool;
         #[library("WLDAP32.dll")]
         extern "C" fn ldap_ufn2dn(ufn: PCSTR, pDn: *mut PSTR) -> u32;
         #[library("WLDAP32.dll")]

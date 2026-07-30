@@ -1,10 +1,10 @@
 #[inline]
-pub unsafe fn NetScheduleJobAdd<P0>(servername: P0, buffer: *mut u8, jobid: *mut u32) -> u32
+pub unsafe fn NetScheduleJobAdd<P0>(servername: P0, buffer: *const u8, jobid: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : windows_core::PCWSTR, buffer : *mut u8, jobid : *mut u32) -> u32);
-    unsafe { NetScheduleJobAdd(servername.param().abi(), buffer as _, jobid as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : windows_core::PCWSTR, buffer : *const u8, jobid : *mut u32) -> u32);
+    unsafe { NetScheduleJobAdd(servername.param().abi(), buffer, jobid as _) }
 }
 #[inline]
 pub unsafe fn NetScheduleJobDel<P0>(servername: P0, minjobid: u32, maxjobid: u32) -> u32
