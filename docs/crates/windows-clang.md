@@ -382,8 +382,10 @@ automatic. A full generational SDK bump (e.g. 24H2 -> 25H2) is absorbed the same
 scraper changes.
 
 The prelude defines `WIN32_NO_STATUS` while including `windows.h`, then includes `ntstatus.h`.
-This is the SDK-supported include pattern for keeping overlapping `STATUS_*` constants typed as
-`NTSTATUS` rather than the `DWORD` compatibility definitions in `winnt.h`.
+This is the SDK-supported include pattern for keeping overlapping `STATUS_*` and `DBG_*` constants
+typed as `NTSTATUS` rather than the `DWORD` compatibility definitions in `winnt.h`. APIs whose
+headers accept those values as `DWORD`, such as `ContinueDebugEvent`, still require a conversion
+from `NTSTATUS`.
 
 Functions whose exporting DLL cannot be recovered from any import library in the manifest are
 dropped (matching the reference, which carries none): a function with an empty `#[library("")]`

@@ -81,7 +81,7 @@ const SAL_SHIM: &str = "crates/tools/win32/src/sal.h";
 /// `SECURITY_WIN32` selects the user-mode SSPI surface so `sspi.h` (and the headers
 /// that include it) compile rather than `#error`-ing on an undefined security package.
 /// `WIN32_NO_STATUS` suppresses `winnt.h`'s `DWORD` compatibility status macros so
-/// `ntstatus.h` supplies the same names with their declared `NTSTATUS` type.
+/// `ntstatus.h` supplies the `STATUS_*` and `DBG_*` names with their declared `NTSTATUS` type.
 const PRELUDE: &str = "#define SECURITY_WIN32\n#define WIN32_NO_STATUS\n#include <winsock2.h>\n#include <windows.h>\n#undef WIN32_NO_STATUS\n#include <ntstatus.h>";
 
 /// Reset emitted after the prelude and after every header *in a satellite translation
