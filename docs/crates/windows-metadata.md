@@ -50,6 +50,14 @@ that is present on x64+arm64 (but not x86) and *diverges* between those two is s
 than collapsing to whichever copy happened to be first. A group is emitted arch-neutral only when
 its signature spans every arch in the run.
 
+Unmanaged callbacks have one narrow semantic reconciliation before that split. If at least one
+architecture explicitly uses `isize` or `usize` and every other copy uses the same native-sized
+integer for its architecture (`i32`/`u32` on x86, `i64`/`u64` on x64 or arm64), the callback keeps
+one native-sized signature. It becomes arch-neutral when present on every merged architecture;
+otherwise it keeps its subset arch tag. This handles SDK declarations such as `FARPROC`, whose
+return is spelled `INT_PTR` on 64-bit but historical `int` on x86. A plain `i32`/`i64` pair does not
+qualify: the explicit native-sized spelling is required as semantic evidence.
+
 The merge is deterministic: it stages through `BTreeMap`s and insertion-ordered `Vec`s, with no
 `HashMap` reaching the output.
 
@@ -76,4 +84,5 @@ Notable invariants in the ECMA-335 tables:
 
 Run `cargo test -p windows-metadata`; see also the workspace test crates. The arch-merge
 collapse/split rules are pinned by `arch_roundtrip.rs` (divergent fields, callbacks, forced
-alignment, enum constant values, subset-present divergence).
+alignment, enum constant values, subset-present divergence) and `merge.rs` (native-sized callback
+reconciliation).
