@@ -53,9 +53,10 @@ its signature spans every arch in the run.
 Unmanaged callbacks have one narrow semantic reconciliation before that split. If at least one
 architecture explicitly uses `isize` or `usize` and every other copy uses the same native-sized
 integer for its architecture (`i32`/`u32` on x86, `i64`/`u64` on x64 or arm64), the callback keeps
-the native-sized type and becomes arch-neutral. This handles SDK declarations such as `FARPROC`,
-whose return is spelled `INT_PTR` on 64-bit but historical `int` on x86. A plain `i32`/`i64` pair
-does not qualify: the explicit native-sized spelling is required as semantic evidence.
+one native-sized signature. It becomes arch-neutral when present on every merged architecture;
+otherwise it keeps its subset arch tag. This handles SDK declarations such as `FARPROC`, whose
+return is spelled `INT_PTR` on 64-bit but historical `int` on x86. A plain `i32`/`i64` pair does not
+qualify: the explicit native-sized spelling is required as semantic evidence.
 
 The merge is deterministic: it stages through `BTreeMap`s and insertion-ordered `Vec`s, with no
 `HashMap` reaching the output.

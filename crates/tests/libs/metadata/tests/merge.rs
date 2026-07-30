@@ -25,14 +25,8 @@ fn arch_bits(field: reader::Field) -> Option<i32> {
 }
 
 fn type_arch_bits(ty: reader::TypeDef) -> Option<i32> {
-    ty.attributes().find_map(|a| {
-        (a.ctor().parent().name() == "SupportedArchitectureAttribute").then(|| {
-            match a.value().first() {
-                Some((_, Value::I32(v))) => *v,
-                _ => 0,
-            }
-        })
-    })
+    ty.has_attribute("SupportedArchitectureAttribute")
+        .then(|| ty.arches())
 }
 
 #[test]
