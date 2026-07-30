@@ -2794,7 +2794,7 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterGroupOpenEnumEx(hCluster: *const _HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HGROUPENUMEX;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetCloseEnum(hGroupSetEnum: *mut _HGROUPSETENUM) -> u32;
+        extern fn ClusterGroupSetCloseEnum(hGroupSetEnum: *const _HGROUPSETENUM) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn ClusterGroupSetControl(hGroupSet: *const _HGROUPSET, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
         #[library("CLUSAPI.dll")]
@@ -2802,9 +2802,9 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterGroupSetEnum(hGroupSetEnum: *const _HGROUPSETENUM, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetGetEnumCount(hGroupSetEnum: *mut _HGROUPSETENUM) -> u32;
+        extern fn ClusterGroupSetGetEnumCount(hGroupSetEnum: *const _HGROUPSETENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetOpenEnum(hCluster: *mut _HCLUSTER) -> HGROUPSETENUM;
+        extern fn ClusterGroupSetOpenEnum(hCluster: *const _HCLUSTER) -> HGROUPSETENUM;
         #[library("CLUSAPI.dll")]
         extern fn ClusterNetInterfaceCloseEnum(hNetInterfaceEnum: *const _HNETINTERFACEENUM) -> u32;
         #[library("CLUSAPI.dll")]

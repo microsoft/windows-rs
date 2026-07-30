@@ -1,39 +1,39 @@
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMAcquireAdvisories<P1, P2>(hlicensestorage: super::DRMHSESSION, wszlicense: P1, wszurl: P2, pvcontext: *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DRMAcquireAdvisories<P1, P2>(hlicensestorage: super::DRMHSESSION, wszlicense: P1, wszurl: P2, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMAcquireAdvisories(hlicensestorage : super::DRMHSESSION, wszlicense : windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMAcquireAdvisories(hlicensestorage, wszlicense.param().abi(), wszurl.param().abi(), pvcontext as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMAcquireAdvisories(hlicensestorage : super::DRMHSESSION, wszlicense : windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DRMAcquireAdvisories(hlicensestorage, wszlicense.param().abi(), wszurl.param().abi(), pvcontext) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMAcquireIssuanceLicenseTemplate<P5>(hclient: super::DRMHSESSION, uflags: u32, pvreserved: *mut core::ffi::c_void, pwsztemplateids: Option<&[windows_core::PCWSTR]>, wszurl: P5, pvcontext: *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DRMAcquireIssuanceLicenseTemplate<P5>(hclient: super::DRMHSESSION, uflags: u32, pvreserved: *const core::ffi::c_void, pwsztemplateids: Option<&[windows_core::PCWSTR]>, wszurl: P5, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMAcquireIssuanceLicenseTemplate(hclient : super::DRMHSESSION, uflags : u32, pvreserved : *mut core::ffi::c_void, ctemplates : u32, pwsztemplateids : *const windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved as _, pwsztemplateids.map_or(0, |slice| slice.len().try_into().unwrap()), pwsztemplateids.map_or(core::ptr::null(), |slice| slice.as_ptr()), wszurl.param().abi(), pvcontext as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMAcquireIssuanceLicenseTemplate(hclient : super::DRMHSESSION, uflags : u32, pvreserved : *const core::ffi::c_void, ctemplates : u32, pwsztemplateids : *const windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved, pwsztemplateids.map_or(0, |slice| slice.len().try_into().unwrap()), pwsztemplateids.map_or(core::ptr::null(), |slice| slice.as_ptr()), wszurl.param().abi(), pvcontext) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMAcquireLicense<P2, P3, P4, P5>(hsession: super::DRMHSESSION, uflags: u32, wszgroupidentitycredential: P2, wszrequestedrights: P3, wszcustomdata: P4, wszurl: P5, pvcontext: *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DRMAcquireLicense<P2, P3, P4, P5>(hsession: super::DRMHSESSION, uflags: u32, wszgroupidentitycredential: P2, wszrequestedrights: P3, wszcustomdata: P4, wszurl: P5, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMAcquireLicense(hsession : super::DRMHSESSION, uflags : u32, wszgroupidentitycredential : windows_core::PCWSTR, wszrequestedrights : windows_core::PCWSTR, wszcustomdata : windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMAcquireLicense(hsession, uflags, wszgroupidentitycredential.param().abi(), wszrequestedrights.param().abi(), wszcustomdata.param().abi(), wszurl.param().abi(), pvcontext as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMAcquireLicense(hsession : super::DRMHSESSION, uflags : u32, wszgroupidentitycredential : windows_core::PCWSTR, wszrequestedrights : windows_core::PCWSTR, wszcustomdata : windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DRMAcquireLicense(hsession, uflags, wszgroupidentitycredential.param().abi(), wszrequestedrights.param().abi(), wszcustomdata.param().abi(), wszurl.param().abi(), pvcontext) }
 }
 #[cfg(all(feature = "msdrmdefs", feature = "windef"))]
 #[inline]
-pub unsafe fn DRMActivate(hclient: super::DRMHSESSION, uflags: u32, ulangid: u32, pactservinfo: *mut super::DRM_ACTSERV_INFO, pvcontext: *mut core::ffi::c_void, hparentwnd: super::HWND) -> windows_core::HRESULT {
-    windows_core::link!("msdrm.dll" "system" fn DRMActivate(hclient : super::DRMHSESSION, uflags : u32, ulangid : u32, pactservinfo : *mut super::DRM_ACTSERV_INFO, pvcontext : *mut core::ffi::c_void, hparentwnd : super::HWND) -> windows_core::HRESULT);
-    unsafe { DRMActivate(hclient, uflags, ulangid, pactservinfo as _, pvcontext as _, hparentwnd) }
+pub unsafe fn DRMActivate(hclient: super::DRMHSESSION, uflags: u32, ulangid: u32, pactservinfo: *const super::DRM_ACTSERV_INFO, pvcontext: *const core::ffi::c_void, hparentwnd: super::HWND) -> windows_core::HRESULT {
+    windows_core::link!("msdrm.dll" "system" fn DRMActivate(hclient : super::DRMHSESSION, uflags : u32, ulangid : u32, pactservinfo : *const super::DRM_ACTSERV_INFO, pvcontext : *const core::ffi::c_void, hparentwnd : super::HWND) -> windows_core::HRESULT);
+    unsafe { DRMActivate(hclient, uflags, ulangid, pactservinfo, pvcontext, hparentwnd) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -108,12 +108,12 @@ pub unsafe fn DRMConstructCertificateChain(rgwszcertificates: &[windows_core::PC
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMCreateBoundLicense<P2>(henv: super::DRMENVHANDLE, pparams: *mut super::DRMBOUNDLICENSEPARAMS, wszlicensechain: P2, phboundlicense: *mut super::DRMHANDLE, pherrorlog: *mut super::DRMHANDLE) -> windows_core::HRESULT
+pub unsafe fn DRMCreateBoundLicense<P2>(henv: super::DRMENVHANDLE, pparams: *const super::DRMBOUNDLICENSEPARAMS, wszlicensechain: P2, phboundlicense: *mut super::DRMHANDLE, pherrorlog: *mut super::DRMHANDLE) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMCreateBoundLicense(henv : super::DRMENVHANDLE, pparams : *mut super::DRMBOUNDLICENSEPARAMS, wszlicensechain : windows_core::PCWSTR, phboundlicense : *mut super::DRMHANDLE, pherrorlog : *mut super::DRMHANDLE) -> windows_core::HRESULT);
-    unsafe { DRMCreateBoundLicense(henv, pparams as _, wszlicensechain.param().abi(), phboundlicense as _, pherrorlog as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMCreateBoundLicense(henv : super::DRMENVHANDLE, pparams : *const super::DRMBOUNDLICENSEPARAMS, wszlicensechain : windows_core::PCWSTR, phboundlicense : *mut super::DRMHANDLE, pherrorlog : *mut super::DRMHANDLE) -> windows_core::HRESULT);
+    unsafe { DRMCreateBoundLicense(henv, pparams, wszlicensechain.param().abi(), phboundlicense as _, pherrorlog as _) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -156,24 +156,30 @@ where
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMCreateEnablingPrincipal<P2, P4>(henv: super::DRMENVHANDLE, hlibrary: super::DRMHANDLE, wszobject: P2, pidprincipal: *mut super::DRMID, wszcredentials: P4, phenablingprincipal: *mut super::DRMHANDLE) -> windows_core::HRESULT
+pub unsafe fn DRMCreateEnablingPrincipal<P2, P4>(henv: super::DRMENVHANDLE, hlibrary: super::DRMHANDLE, wszobject: P2, pidprincipal: *const super::DRMID, wszcredentials: P4) -> windows_core::Result<super::DRMHANDLE>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMCreateEnablingPrincipal(henv : super::DRMENVHANDLE, hlibrary : super::DRMHANDLE, wszobject : windows_core::PCWSTR, pidprincipal : *mut super::DRMID, wszcredentials : windows_core::PCWSTR, phenablingprincipal : *mut super::DRMHANDLE) -> windows_core::HRESULT);
-    unsafe { DRMCreateEnablingPrincipal(henv, hlibrary, wszobject.param().abi(), pidprincipal as _, wszcredentials.param().abi(), phenablingprincipal as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMCreateEnablingPrincipal(henv : super::DRMENVHANDLE, hlibrary : super::DRMHANDLE, wszobject : windows_core::PCWSTR, pidprincipal : *const super::DRMID, wszcredentials : windows_core::PCWSTR, phenablingprincipal : *mut super::DRMHANDLE) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        DRMCreateEnablingPrincipal(henv, hlibrary, wszobject.param().abi(), pidprincipal, wszcredentials.param().abi(), &mut result__).map(|| result__)
+    }
 }
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs"))]
 #[inline]
-pub unsafe fn DRMCreateIssuanceLicense<P2, P3, P5>(psttimefrom: *mut super::SYSTEMTIME, psttimeuntil: *mut super::SYSTEMTIME, wszreferralinfoname: P2, wszreferralinfourl: P3, howner: super::DRMPUBHANDLE, wszissuancelicense: P5, hboundlicense: super::DRMHANDLE, phissuancelicense: *mut super::DRMPUBHANDLE) -> windows_core::HRESULT
+pub unsafe fn DRMCreateIssuanceLicense<P2, P3, P5>(psttimefrom: *const super::SYSTEMTIME, psttimeuntil: *const super::SYSTEMTIME, wszreferralinfoname: P2, wszreferralinfourl: P3, howner: super::DRMPUBHANDLE, wszissuancelicense: P5, hboundlicense: super::DRMHANDLE) -> windows_core::Result<super::DRMPUBHANDLE>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMCreateIssuanceLicense(psttimefrom : *mut super::SYSTEMTIME, psttimeuntil : *mut super::SYSTEMTIME, wszreferralinfoname : windows_core::PCWSTR, wszreferralinfourl : windows_core::PCWSTR, howner : super::DRMPUBHANDLE, wszissuancelicense : windows_core::PCWSTR, hboundlicense : super::DRMHANDLE, phissuancelicense : *mut super::DRMPUBHANDLE) -> windows_core::HRESULT);
-    unsafe { DRMCreateIssuanceLicense(psttimefrom as _, psttimeuntil as _, wszreferralinfoname.param().abi(), wszreferralinfourl.param().abi(), howner, wszissuancelicense.param().abi(), hboundlicense, phissuancelicense as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMCreateIssuanceLicense(psttimefrom : *const super::SYSTEMTIME, psttimeuntil : *const super::SYSTEMTIME, wszreferralinfoname : windows_core::PCWSTR, wszreferralinfourl : windows_core::PCWSTR, howner : super::DRMPUBHANDLE, wszissuancelicense : windows_core::PCWSTR, hboundlicense : super::DRMHANDLE, phissuancelicense : *mut super::DRMPUBHANDLE) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        DRMCreateIssuanceLicense(psttimefrom, psttimeuntil, wszreferralinfoname.param().abi(), wszreferralinfourl.param().abi(), howner, wszissuancelicense.param().abi(), hboundlicense, &mut result__).map(|| result__)
+    }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -189,12 +195,15 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs"))]
 #[inline]
-pub unsafe fn DRMCreateRight<P0>(wszrightname: P0, pstfrom: *mut super::SYSTEMTIME, pstuntil: *mut super::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: Option<*const windows_core::PCWSTR>, pwszextendedinfovalue: Option<*const windows_core::PCWSTR>, phright: *mut super::DRMPUBHANDLE) -> windows_core::HRESULT
+pub unsafe fn DRMCreateRight<P0>(wszrightname: P0, pstfrom: *const super::SYSTEMTIME, pstuntil: *const super::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: Option<*const windows_core::PCWSTR>, pwszextendedinfovalue: Option<*const windows_core::PCWSTR>) -> windows_core::Result<super::DRMPUBHANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMCreateRight(wszrightname : windows_core::PCWSTR, pstfrom : *mut super::SYSTEMTIME, pstuntil : *mut super::SYSTEMTIME, cextendedinfo : u32, pwszextendedinfoname : *const windows_core::PCWSTR, pwszextendedinfovalue : *const windows_core::PCWSTR, phright : *mut super::DRMPUBHANDLE) -> windows_core::HRESULT);
-    unsafe { DRMCreateRight(wszrightname.param().abi(), pstfrom as _, pstuntil as _, cextendedinfo, pwszextendedinfoname.unwrap_or(core::mem::zeroed()) as _, pwszextendedinfovalue.unwrap_or(core::mem::zeroed()) as _, phright as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMCreateRight(wszrightname : windows_core::PCWSTR, pstfrom : *const super::SYSTEMTIME, pstuntil : *const super::SYSTEMTIME, cextendedinfo : u32, pwszextendedinfoname : *const windows_core::PCWSTR, pwszextendedinfovalue : *const windows_core::PCWSTR, phright : *mut super::DRMPUBHANDLE) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        DRMCreateRight(wszrightname.param().abi(), pstfrom, pstuntil, cextendedinfo, pwszextendedinfoname.unwrap_or(core::mem::zeroed()) as _, pwszextendedinfovalue.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+    }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -229,9 +238,9 @@ where
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMDecrypt(hcryptoprovider: super::DRMHANDLE, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> windows_core::HRESULT {
-    windows_core::link!("msdrm.dll" "system" fn DRMDecrypt(hcryptoprovider : super::DRMHANDLE, iposition : u32, cnuminbytes : u32, pbindata : *mut u8, pcnumoutbytes : *mut u32, pboutdata : *mut u8) -> windows_core::HRESULT);
-    unsafe { DRMDecrypt(hcryptoprovider, iposition, cnuminbytes, pbindata as _, pcnumoutbytes as _, pboutdata as _) }
+pub unsafe fn DRMDecrypt(hcryptoprovider: super::DRMHANDLE, iposition: u32, cnuminbytes: u32, pbindata: *const u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> windows_core::HRESULT {
+    windows_core::link!("msdrm.dll" "system" fn DRMDecrypt(hcryptoprovider : super::DRMHANDLE, iposition : u32, cnuminbytes : u32, pbindata : *const u8, pcnumoutbytes : *mut u32, pboutdata : *mut u8) -> windows_core::HRESULT);
+    unsafe { DRMDecrypt(hcryptoprovider, iposition, cnuminbytes, pbindata, pcnumoutbytes as _, pboutdata as _) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -279,18 +288,18 @@ pub unsafe fn DRMDuplicateSession(hsessionin: super::DRMHSESSION) -> windows_cor
     }
 }
 #[inline]
-pub unsafe fn DRMEncode<P0>(wszalgid: P0, udatalen: u32, pbdecodeddata: *mut u8, puencodedstringlen: *mut u32, wszencodedstring: Option<windows_core::PWSTR>) -> windows_core::HRESULT
+pub unsafe fn DRMEncode<P0>(wszalgid: P0, udatalen: u32, pbdecodeddata: *const u8, puencodedstringlen: *mut u32, wszencodedstring: Option<windows_core::PWSTR>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMEncode(wszalgid : windows_core::PCWSTR, udatalen : u32, pbdecodeddata : *mut u8, puencodedstringlen : *mut u32, wszencodedstring : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { DRMEncode(wszalgid.param().abi(), udatalen, pbdecodeddata as _, puencodedstringlen as _, wszencodedstring.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMEncode(wszalgid : windows_core::PCWSTR, udatalen : u32, pbdecodeddata : *const u8, puencodedstringlen : *mut u32, wszencodedstring : windows_core::PWSTR) -> windows_core::HRESULT);
+    unsafe { DRMEncode(wszalgid.param().abi(), udatalen, pbdecodeddata, puencodedstringlen as _, wszencodedstring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMEncrypt(hcryptoprovider: super::DRMHANDLE, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> windows_core::HRESULT {
-    windows_core::link!("msdrm.dll" "system" fn DRMEncrypt(hcryptoprovider : super::DRMHANDLE, iposition : u32, cnuminbytes : u32, pbindata : *mut u8, pcnumoutbytes : *mut u32, pboutdata : *mut u8) -> windows_core::HRESULT);
-    unsafe { DRMEncrypt(hcryptoprovider, iposition, cnuminbytes, pbindata as _, pcnumoutbytes as _, pboutdata as _) }
+pub unsafe fn DRMEncrypt(hcryptoprovider: super::DRMHANDLE, iposition: u32, cnuminbytes: u32, pbindata: *const u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> windows_core::HRESULT {
+    windows_core::link!("msdrm.dll" "system" fn DRMEncrypt(hcryptoprovider : super::DRMHANDLE, iposition : u32, cnuminbytes : u32, pbindata : *const u8, pcnumoutbytes : *mut u32, pboutdata : *mut u8) -> windows_core::HRESULT);
+    unsafe { DRMEncrypt(hcryptoprovider, iposition, cnuminbytes, pbindata, pcnumoutbytes as _, pboutdata as _) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -469,14 +478,14 @@ where
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMGetSignedIssuanceLicense<P5, P6, P8>(henv: super::DRMENVHANDLE, hissuancelicense: super::DRMPUBHANDLE, uflags: u32, pbsymkey: *mut u8, cbsymkey: u32, wszsymkeytype: P5, wszclientlicensorcertificate: P6, pfncallback: super::DRMCALLBACK, wszurl: P8, pvcontext: *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DRMGetSignedIssuanceLicense<P5, P6, P8>(henv: super::DRMENVHANDLE, hissuancelicense: super::DRMPUBHANDLE, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: P5, wszclientlicensorcertificate: P6, pfncallback: super::DRMCALLBACK, wszurl: P8, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMGetSignedIssuanceLicense(henv : super::DRMENVHANDLE, hissuancelicense : super::DRMPUBHANDLE, uflags : u32, pbsymkey : *mut u8, cbsymkey : u32, wszsymkeytype : windows_core::PCWSTR, wszclientlicensorcertificate : windows_core::PCWSTR, pfncallback : super::DRMCALLBACK, wszurl : windows_core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMGetSignedIssuanceLicense(henv, hissuancelicense, uflags, pbsymkey as _, cbsymkey, wszsymkeytype.param().abi(), wszclientlicensorcertificate.param().abi(), pfncallback, wszurl.param().abi(), pvcontext as _) }
+    windows_core::link!("msdrm.dll" "system" fn DRMGetSignedIssuanceLicense(henv : super::DRMENVHANDLE, hissuancelicense : super::DRMPUBHANDLE, uflags : u32, pbsymkey : *const u8, cbsymkey : u32, wszsymkeytype : windows_core::PCWSTR, wszclientlicensorcertificate : windows_core::PCWSTR, pfncallback : super::DRMCALLBACK, wszurl : windows_core::PCWSTR, pvcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DRMGetSignedIssuanceLicense(henv, hissuancelicense, uflags, pbsymkey, cbsymkey, wszsymkeytype.param().abi(), wszclientlicensorcertificate.param().abi(), pfncallback, wszurl.param().abi(), pvcontext) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -584,12 +593,9 @@ where
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMIsActivated(hclient: super::DRMHSESSION, uflags: u32) -> windows_core::Result<super::DRM_ACTSERV_INFO> {
-    windows_core::link!("msdrm.dll" "system" fn DRMIsActivated(hclient : super::DRMHSESSION, uflags : u32, pactservinfo : *mut super::DRM_ACTSERV_INFO) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DRMIsActivated(hclient, uflags, &mut result__).map(|| result__)
-    }
+pub unsafe fn DRMIsActivated(hclient: super::DRMHSESSION, uflags: u32, pactservinfo: *const super::DRM_ACTSERV_INFO) -> windows_core::HRESULT {
+    windows_core::link!("msdrm.dll" "system" fn DRMIsActivated(hclient : super::DRMHSESSION, uflags : u32, pactservinfo : *const super::DRM_ACTSERV_INFO) -> windows_core::HRESULT);
+    unsafe { DRMIsActivated(hclient, uflags, pactservinfo) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -662,9 +668,9 @@ where
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMSetGlobalOptions(eglobaloptions: super::DRMGLOBALOPTIONS, pvdata: *mut core::ffi::c_void, dwlen: u32) -> windows_core::HRESULT {
-    windows_core::link!("msdrm.dll" "system" fn DRMSetGlobalOptions(eglobaloptions : super::DRMGLOBALOPTIONS, pvdata : *mut core::ffi::c_void, dwlen : u32) -> windows_core::HRESULT);
-    unsafe { DRMSetGlobalOptions(eglobaloptions, pvdata as _, dwlen) }
+pub unsafe fn DRMSetGlobalOptions(eglobaloptions: super::DRMGLOBALOPTIONS, pvdata: *const core::ffi::c_void, dwlen: u32) -> windows_core::HRESULT {
+    windows_core::link!("msdrm.dll" "system" fn DRMSetGlobalOptions(eglobaloptions : super::DRMGLOBALOPTIONS, pvdata : *const core::ffi::c_void, dwlen : u32) -> windows_core::HRESULT);
+    unsafe { DRMSetGlobalOptions(eglobaloptions, pvdata, dwlen) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -698,7 +704,7 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs"))]
 #[inline]
-pub unsafe fn DRMSetRevocationPoint<P2, P3, P4, P6, P7>(hissuancelicense: super::DRMPUBHANDLE, fdelete: bool, wszid: P2, wszidtype: P3, wszurl: P4, pstfrequency: *mut super::SYSTEMTIME, wszname: P6, wszpublickey: P7) -> windows_core::HRESULT
+pub unsafe fn DRMSetRevocationPoint<P2, P3, P4, P6, P7>(hissuancelicense: super::DRMPUBHANDLE, fdelete: bool, wszid: P2, wszidtype: P3, wszurl: P4, pstfrequency: *const super::SYSTEMTIME, wszname: P6, wszpublickey: P7) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
@@ -706,12 +712,12 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMSetRevocationPoint(hissuancelicense : super::DRMPUBHANDLE, fdelete : windows_core::BOOL, wszid : windows_core::PCWSTR, wszidtype : windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pstfrequency : *mut super::SYSTEMTIME, wszname : windows_core::PCWSTR, wszpublickey : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { DRMSetRevocationPoint(hissuancelicense, fdelete.into(), wszid.param().abi(), wszidtype.param().abi(), wszurl.param().abi(), pstfrequency as _, wszname.param().abi(), wszpublickey.param().abi()) }
+    windows_core::link!("msdrm.dll" "system" fn DRMSetRevocationPoint(hissuancelicense : super::DRMPUBHANDLE, fdelete : windows_core::BOOL, wszid : windows_core::PCWSTR, wszidtype : windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pstfrequency : *const super::SYSTEMTIME, wszname : windows_core::PCWSTR, wszpublickey : windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { DRMSetRevocationPoint(hissuancelicense, fdelete.into(), wszid.param().abi(), wszidtype.param().abi(), wszurl.param().abi(), pstfrequency, wszname.param().abi(), wszpublickey.param().abi()) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
-pub unsafe fn DRMSetUsagePolicy<P4, P5, P6, P7, P8>(hissuancelicense: super::DRMPUBHANDLE, eusagepolicytype: super::DRM_USAGEPOLICY_TYPE, fdelete: bool, fexclusion: bool, wszname: P4, wszminversion: P5, wszmaxversion: P6, wszpublickey: P7, wszdigestalgorithm: P8, pbdigest: *mut u8, cbdigest: u32) -> windows_core::HRESULT
+pub unsafe fn DRMSetUsagePolicy<P4, P5, P6, P7, P8>(hissuancelicense: super::DRMPUBHANDLE, eusagepolicytype: super::DRM_USAGEPOLICY_TYPE, fdelete: bool, fexclusion: bool, wszname: P4, wszminversion: P5, wszmaxversion: P6, wszpublickey: P7, wszdigestalgorithm: P8, pbdigest: *const u8, cbdigest: u32) -> windows_core::HRESULT
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
@@ -719,8 +725,8 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdrm.dll" "system" fn DRMSetUsagePolicy(hissuancelicense : super::DRMPUBHANDLE, eusagepolicytype : super::DRM_USAGEPOLICY_TYPE, fdelete : windows_core::BOOL, fexclusion : windows_core::BOOL, wszname : windows_core::PCWSTR, wszminversion : windows_core::PCWSTR, wszmaxversion : windows_core::PCWSTR, wszpublickey : windows_core::PCWSTR, wszdigestalgorithm : windows_core::PCWSTR, pbdigest : *mut u8, cbdigest : u32) -> windows_core::HRESULT);
-    unsafe { DRMSetUsagePolicy(hissuancelicense, eusagepolicytype, fdelete.into(), fexclusion.into(), wszname.param().abi(), wszminversion.param().abi(), wszmaxversion.param().abi(), wszpublickey.param().abi(), wszdigestalgorithm.param().abi(), pbdigest as _, cbdigest) }
+    windows_core::link!("msdrm.dll" "system" fn DRMSetUsagePolicy(hissuancelicense : super::DRMPUBHANDLE, eusagepolicytype : super::DRM_USAGEPOLICY_TYPE, fdelete : windows_core::BOOL, fexclusion : windows_core::BOOL, wszname : windows_core::PCWSTR, wszminversion : windows_core::PCWSTR, wszmaxversion : windows_core::PCWSTR, wszpublickey : windows_core::PCWSTR, wszdigestalgorithm : windows_core::PCWSTR, pbdigest : *const u8, cbdigest : u32) -> windows_core::HRESULT);
+    unsafe { DRMSetUsagePolicy(hissuancelicense, eusagepolicytype, fdelete.into(), fexclusion.into(), wszname.param().abi(), wszminversion.param().abi(), wszmaxversion.param().abi(), wszpublickey.param().abi(), wszdigestalgorithm.param().abi(), pbdigest, cbdigest) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]

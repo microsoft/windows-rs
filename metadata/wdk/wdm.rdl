@@ -4119,7 +4119,7 @@ mod Windows {
             Checksum: usize,
             State: u8,
         }
-        extern fn KBUGCHECK_CALLBACK_ROUTINE(Buffer: *mut void, Length: u32);
+        extern fn KBUGCHECK_CALLBACK_ROUTINE(Buffer: *const void, Length: u32);
         struct KBUGCHECK_DUMP_IO {
             Offset: u64,
             Buffer: *mut void,

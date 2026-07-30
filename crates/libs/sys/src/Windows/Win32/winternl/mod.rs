@@ -1,13 +1,13 @@
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtClose(handle : super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtCreateFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *mut super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, allocationsize : *mut i64, fileattributes : u32, shareaccess : u32, createdisposition : u32, createoptions : u32, eabuffer : *mut core::ffi::c_void, ealength : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn NtCreateFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, allocationsize : *const i64, fileattributes : u32, shareaccess : u32, createdisposition : u32, createoptions : u32, eabuffer : *const core::ffi::c_void, ealength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtDeviceIoControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *mut core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *mut core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn NtDeviceIoControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::HANDLE, count : u32, subordinateobjects : *const super::OBJECT_ATTRIBUTES, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, completionfilter : u32, watchtree : bool, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : bool) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *mut super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::HANDLE, processinformationclass : super::PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
@@ -26,7 +26,7 @@ windows_link::link!("ntdll.dll" "system" fn NtSetInformationKey(keyhandle : supe
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::HANDLE, threadinformationclass : super::THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::HANDLE, alertable : bool, timeout : *mut i64) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::HANDLE, alertable : bool, timeout : *const i64) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlAnsiStringToUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : PCANSI_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlCharToInteger(string : *const i8, base : u32, value : *mut u32) -> windows_sys::core::NTSTATUS);
@@ -49,8 +49,8 @@ windows_link::link!("ntdll.dll" "system" fn RtlInitStringEx(destinationstring : 
 #[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlInitUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : windows_sys::core::PCWSTR));
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *mut super::UNICODE_STRING, oemname : POEM_STRING, namecontainsspaces : *mut bool) -> bool);
-windows_link::link!("ntdll.dll" "system" fn RtlLocalTimeToSystemTime(localtime : *mut i64, systemtime : *mut i64) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *const super::UNICODE_STRING, oemname : POEM_STRING, namecontainsspaces : *mut bool) -> bool);
+windows_link::link!("ntdll.dll" "system" fn RtlLocalTimeToSystemTime(localtime : *const i64, systemtime : *mut i64) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : windows_sys::core::NTSTATUS) -> u32);
 windows_link::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1970(time : *mut i64, elapsedseconds : *mut u32) -> bool);
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]

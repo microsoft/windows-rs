@@ -1302,9 +1302,9 @@ pub unsafe fn ldap_parse_referenceW(connection: *mut LDAP, resultmessage: *mut L
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ldap_parse_result(connection: *mut LDAP, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut windows_core::PSTR, errormessage: *mut windows_core::PSTR, referrals: *mut *mut windows_core::PSTR, servercontrols: *mut *mut PLDAPControlA, freeit: bool) -> u32 {
+pub unsafe fn ldap_parse_result(connection: *mut LDAP, resultmessage: *mut LDAPMessage, returncode: Option<*mut u32>, matcheddns: Option<*mut windows_core::PSTR>, errormessage: Option<*mut windows_core::PSTR>, referrals: Option<*mut *mut windows_core::PSTR>, servercontrols: Option<*mut *mut PLDAPControlA>, freeit: bool) -> u32 {
     windows_core::link!("wldap32.dll" "C" fn ldap_parse_result(connection : *mut LDAP, resultmessage : *mut LDAPMessage, returncode : *mut u32, matcheddns : *mut windows_core::PSTR, errormessage : *mut windows_core::PSTR, referrals : *mut *mut windows_core::PSTR, servercontrols : *mut *mut PLDAPControlA, freeit : bool) -> u32);
-    unsafe { ldap_parse_result(connection as _, resultmessage as _, returncode as _, matcheddns as _, errormessage as _, referrals as _, servercontrols as _, freeit) }
+    unsafe { ldap_parse_result(connection as _, resultmessage as _, returncode.unwrap_or(core::mem::zeroed()) as _, matcheddns.unwrap_or(core::mem::zeroed()) as _, errormessage.unwrap_or(core::mem::zeroed()) as _, referrals.unwrap_or(core::mem::zeroed()) as _, servercontrols.unwrap_or(core::mem::zeroed()) as _, freeit) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1769,15 +1769,15 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ldap_start_tls_sA(externalhandle: *mut LDAP, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut PLDAPControlA, clientcontrols: *mut PLDAPControlA) -> u32 {
-    windows_core::link!("wldap32.dll" "C" fn ldap_start_tls_sA(externalhandle : *mut LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
-    unsafe { ldap_start_tls_sA(externalhandle as _, serverreturnvalue as _, result as _, servercontrols as _, clientcontrols as _) }
+pub unsafe fn ldap_start_tls_sA(externalhandle: *const LDAP, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *const PLDAPControlA, clientcontrols: *const PLDAPControlA) -> u32 {
+    windows_core::link!("wldap32.dll" "C" fn ldap_start_tls_sA(externalhandle : *const LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *const PLDAPControlA, clientcontrols : *const PLDAPControlA) -> u32);
+    unsafe { ldap_start_tls_sA(externalhandle, serverreturnvalue as _, result as _, servercontrols, clientcontrols) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ldap_start_tls_sW(externalhandle: *mut LDAP, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut PLDAPControlW, clientcontrols: *mut PLDAPControlW) -> u32 {
-    windows_core::link!("wldap32.dll" "C" fn ldap_start_tls_sW(externalhandle : *mut LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW) -> u32);
-    unsafe { ldap_start_tls_sW(externalhandle as _, serverreturnvalue as _, result as _, servercontrols as _, clientcontrols as _) }
+pub unsafe fn ldap_start_tls_sW(externalhandle: *const LDAP, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *const PLDAPControlW, clientcontrols: *const PLDAPControlW) -> u32 {
+    windows_core::link!("wldap32.dll" "C" fn ldap_start_tls_sW(externalhandle : *const LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *const PLDAPControlW, clientcontrols : *const PLDAPControlW) -> u32);
+    unsafe { ldap_start_tls_sW(externalhandle, serverreturnvalue as _, result as _, servercontrols, clientcontrols) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1787,9 +1787,9 @@ pub unsafe fn ldap_startup(version: *mut LDAP_VERSION_INFO, instance: *mut super
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ldap_stop_tls_s(externalhandle: *mut LDAP) -> bool {
-    windows_core::link!("wldap32.dll" "C" fn ldap_stop_tls_s(externalhandle : *mut LDAP) -> bool);
-    unsafe { ldap_stop_tls_s(externalhandle as _) }
+pub unsafe fn ldap_stop_tls_s(externalhandle: *const LDAP) -> bool {
+    windows_core::link!("wldap32.dll" "C" fn ldap_stop_tls_s(externalhandle : *const LDAP) -> bool);
+    unsafe { ldap_stop_tls_s(externalhandle) }
 }
 #[inline]
 pub unsafe fn ldap_ufn2dn<P0>(ufn: P0, pdn: *mut windows_core::PSTR) -> u32

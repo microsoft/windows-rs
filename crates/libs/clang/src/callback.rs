@@ -63,7 +63,8 @@ impl Callback {
             .tokenize(parser.tu.to_expansion_range(param_source.extent()));
 
         // Use the shared SAL/MIDL path so callbacks match functions and COM methods.
-        let midl_annotations = scan_method_param_annotations(&tokens, &source_name);
+        let midl_annotations =
+            scan_method_param_annotations(&tokens, &source_name, parser.macro_defs);
         let params = parse_params(&param_source, &midl_annotations, parser);
 
         // clang erases x64 conventions from the type, so recover non-default ones from tokens.

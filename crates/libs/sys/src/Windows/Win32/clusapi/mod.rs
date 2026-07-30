@@ -52,12 +52,12 @@ windows_link::link!("clusapi.dll" "system" fn ClusterGroupGetEnumCount(hgroupenu
 windows_link::link!("clusapi.dll" "system" fn ClusterGroupGetEnumCountEx(hgroupenumex : *const _HGROUPENUMEX) -> u32);
 windows_link::link!("clusapi.dll" "system" fn ClusterGroupOpenEnum(hgroup : *const _HGROUP, dwtype : u32) -> HGROUPENUM);
 windows_link::link!("clusapi.dll" "system" fn ClusterGroupOpenEnumEx(hcluster : *const _HCLUSTER, lpszproperties : windows_sys::core::PCWSTR, cbproperties : u32, lpszroproperties : windows_sys::core::PCWSTR, cbroproperties : u32, dwflags : u32) -> HGROUPENUMEX);
-windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetCloseEnum(hgroupsetenum : *mut _HGROUPSETENUM) -> u32);
+windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetCloseEnum(hgroupsetenum : *const _HGROUPSETENUM) -> u32);
 windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetControl(hgroupset : *const _HGROUPSET, hhostnode : *const _HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
 windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetControlEx(hgroupset : *const _HGROUPSET, hhostnode : *const _HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetEnum(hgroupsetenum : *const _HGROUPSETENUM, dwindex : u32, lpszname : windows_sys::core::PWSTR, lpcchname : *mut u32) -> u32);
-windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetGetEnumCount(hgroupsetenum : *mut _HGROUPSETENUM) -> u32);
-windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetOpenEnum(hcluster : *mut _HCLUSTER) -> HGROUPSETENUM);
+windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetGetEnumCount(hgroupsetenum : *const _HGROUPSETENUM) -> u32);
+windows_link::link!("clusapi.dll" "system" fn ClusterGroupSetOpenEnum(hcluster : *const _HCLUSTER) -> HGROUPSETENUM);
 windows_link::link!("clusapi.dll" "system" fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum : *const _HNETINTERFACEENUM) -> u32);
 windows_link::link!("clusapi.dll" "system" fn ClusterNetInterfaceControl(hnetinterface : *const _HNETINTERFACE, hhostnode : *const _HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32) -> u32);
 windows_link::link!("clusapi.dll" "system" fn ClusterNetInterfaceControlEx(hnetinterface : *const _HNETINTERFACE, hhostnode : *const _HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_sys::core::PCWSTR) -> u32);

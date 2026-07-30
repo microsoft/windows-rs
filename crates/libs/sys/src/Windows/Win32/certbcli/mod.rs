@@ -1,6 +1,6 @@
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupClose(hbc : HCSBC) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupEnd(hbc : HCSBC) -> windows_sys::core::HRESULT);
-windows_link::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut core::ffi::c_void));
+windows_link::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *const core::ffi::c_void));
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : HCSBC, ppwszzbackuplogfiles : *mut windows_sys::core::PWSTR, pcbsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : HCSBC, ppwszzattachmentinformation : *mut windows_sys::core::PWSTR, pcbsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : HCSBC, ppwszzfilelist : *mut windows_sys::core::PWSTR, pcbsize : *mut u32) -> windows_sys::core::HRESULT);
@@ -13,8 +13,8 @@ windows_link::link!("certadm.dll" "system" fn CertSrvRestoreEnd(hbc : HCSBC) -> 
 windows_link::link!("certadm.dll" "system" fn CertSrvRestoreGetDatabaseLocationsW(hbc : HCSBC, ppwszzdatabaselocationlist : *mut windows_sys::core::PWSTR, pcbsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvRestorePrepareW(pwszservername : *const u16, dwrestoreflags : u32, phbc : *mut HCSBC) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterComplete(hbc : HCSBC, hrrestorestate : windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
-windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *const CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *const CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : *const u16, dwcontrolflags : u32, pcbout : *mut u32, ppbout : *mut *mut u8) -> windows_sys::core::HRESULT);
 pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295;
 pub const CSBACKUP_TYPE_FULL: i32 = 1;

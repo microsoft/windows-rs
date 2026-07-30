@@ -27,7 +27,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn I_RpcBindingInqWireIdForSnego(Binding: RPC_BINDING_HANDLE, WireId: *mut u8) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcBindingIsClientLocal(BindingHandle: RPC_BINDING_HANDLE, ClientLocalFlag: *mut u32) -> RPC_STATUS;
+        extern fn I_RpcBindingIsClientLocal(#[opt] BindingHandle: RPC_BINDING_HANDLE, ClientLocalFlag: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcBindingIsServerLocal(Binding: RPC_BINDING_HANDLE, ServerLocalFlag: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
@@ -39,16 +39,16 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn I_RpcDeleteMutex(Mutex: I_RPC_MUTEX);
         #[library("RPCRT4.dll")]
-        extern fn I_RpcFree(Object: *mut void);
+        extern fn I_RpcFree(Object: *const void);
         #[library("RPCRT4.dll")]
-        extern fn I_RpcFreeBuffer(Message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        extern fn I_RpcFreeBuffer(#[in] #[out] Message: *mut RPC_MESSAGE) -> RPC_STATUS;
         extern fn I_RpcFreeCalloutStateFn(CallOutState: *mut RDR_CALLOUT_STATE);
         #[library("RPCRT4.dll")]
-        extern fn I_RpcFreePipeBuffer(Message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        extern fn I_RpcFreePipeBuffer(#[in] #[out] Message: *mut RPC_MESSAGE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcGetBuffer(Message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        extern fn I_RpcGetBuffer(#[in] #[out] Message: *mut RPC_MESSAGE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcGetBufferWithObject(Message: *mut RPC_MESSAGE, ObjectUuid: *mut GUID) -> RPC_STATUS;
+        extern fn I_RpcGetBufferWithObject(#[in] #[out] Message: *mut RPC_MESSAGE, ObjectUuid: *const GUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcGetCurrentCallHandle() -> RPC_BINDING_HANDLE;
         #[library("RPCRT4.dll")]
@@ -62,15 +62,15 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn I_RpcMgmtEnableDedicatedThreadPool() -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcNegotiateTransferSyntax(Message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        extern fn I_RpcNegotiateTransferSyntax(#[in] #[out] Message: *mut RPC_MESSAGE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcNsBindingSetEntryNameA(Binding: RPC_BINDING_HANDLE, EntryNameSyntax: u32, EntryName: *const u8) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcNsBindingSetEntryNameW(Binding: RPC_BINDING_HANDLE, EntryNameSyntax: u32, EntryName: *const u16) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcNsInterfaceExported(EntryNameSyntax: u32, EntryName: *mut u16, RpcInterfaceInformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+        extern fn I_RpcNsInterfaceExported(EntryNameSyntax: u32, EntryName: *const u16, RpcInterfaceInformation: *const RPC_SERVER_INTERFACE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcNsInterfaceUnexported(EntryNameSyntax: u32, EntryName: *mut u16, RpcInterfaceInformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+        extern fn I_RpcNsInterfaceUnexported(EntryNameSyntax: u32, EntryName: *const u16, RpcInterfaceInformation: *const RPC_SERVER_INTERFACE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcOpenClientProcess(#[opt] Binding: RPC_BINDING_HANDLE, DesiredAccess: u32, ClientProcess: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
@@ -97,15 +97,15 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn I_RpcReallocPipeBuffer(Message: *const RPC_MESSAGE, NewSize: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcReceive(Message: *mut RPC_MESSAGE, Size: u32) -> RPC_STATUS;
+        extern fn I_RpcReceive(#[in] #[out] Message: *mut RPC_MESSAGE, Size: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcRecordCalloutFailure(RpcStatus: RPC_STATUS, CallOutState: *mut RDR_CALLOUT_STATE, DllName: *mut u16);
+        extern fn I_RpcRecordCalloutFailure(RpcStatus: RPC_STATUS, CallOutState: *const RDR_CALLOUT_STATE, DllName: *const u16);
         #[library("RPCRT4.dll")]
-        extern fn I_RpcRequestMutex(Mutex: *mut I_RPC_MUTEX);
+        extern fn I_RpcRequestMutex(#[in] #[out] Mutex: *mut I_RPC_MUTEX);
         #[library("RPCRT4.dll")]
-        extern fn I_RpcSend(Message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        extern fn I_RpcSend(#[in] #[out] Message: *mut RPC_MESSAGE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcSendReceive(Message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        extern fn I_RpcSendReceive(#[in] #[out] Message: *mut RPC_MESSAGE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcServerCheckClientRestriction(Context: RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
@@ -115,9 +115,9 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcServerInqLocalConnAddress(Binding: RPC_BINDING_HANDLE, Buffer: *mut void, BufferSize: *mut u32, AddressFormat: *mut u32) -> RPC_STATUS;
+        extern fn I_RpcServerInqLocalConnAddress(Binding: RPC_BINDING_HANDLE, #[in] #[out] Buffer: *mut void, #[in] #[out] BufferSize: *mut u32, AddressFormat: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcServerInqRemoteConnAddress(Binding: RPC_BINDING_HANDLE, Buffer: *mut void, BufferSize: *mut u32, AddressFormat: *mut u32) -> RPC_STATUS;
+        extern fn I_RpcServerInqRemoteConnAddress(Binding: RPC_BINDING_HANDLE, #[in] #[out] Buffer: *mut void, #[in] #[out] BufferSize: *mut u32, AddressFormat: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcServerInqTransportType(Type: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
@@ -197,7 +197,7 @@ mod Windows {
         const RPCFLG_NON_NDR: u32 = 2147483648;
         const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608;
         const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32;
-        extern fn RPCLT_PDU_FILTER_FUNC(Buffer: *mut void, BufferLength: u32, fDatagram: i32);
+        extern fn RPCLT_PDU_FILTER_FUNC(Buffer: *const void, BufferLength: u32, fDatagram: i32);
         extern fn RPC_ADDRESS_CHANGE_FN(arg: *mut void);
         #[repr(i32)]
         enum RPC_ADDRESS_CHANGE_TYPE {
@@ -205,7 +205,7 @@ mod Windows {
             PROTOCOL_LOADED = 2,
             PROTOCOL_ADDRESS_CHANGE = 3,
         }
-        extern fn RPC_BLOCKING_FN(hWnd: *mut void, Context: *mut void, hSyncEvent: *mut void) -> RPC_STATUS;
+        extern fn RPC_BLOCKING_FN(hWnd: *const void, Context: *const void, #[opt] hSyncEvent: *const void) -> RPC_STATUS;
         const RPC_BUFFER_ASYNC: i32 = 32768;
         const RPC_BUFFER_COMPLETE: i32 = 4096;
         const RPC_BUFFER_EXTRA: i32 = 16384;

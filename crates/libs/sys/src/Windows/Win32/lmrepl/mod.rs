@@ -1,15 +1,15 @@
-windows_link::link!("netapi32.dll" "system" fn NetReplExportDirAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetReplExportDirAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetReplExportDirDel(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetReplExportDirEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetReplExportDirGetInfo(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetReplExportDirLock(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetReplExportDirSetInfo(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetReplExportDirSetInfo(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetReplExportDirUnlock(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR, unlockforce : u32) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetReplGetInfo(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetReplImportDirAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetReplImportDirAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetReplImportDirDel(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetReplImportDirEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
@@ -17,7 +17,7 @@ windows_link::link!("netapi32.dll" "system" fn NetReplImportDirEnum(servername :
 windows_link::link!("netapi32.dll" "system" fn NetReplImportDirGetInfo(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetReplImportDirLock(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetReplImportDirUnlock(servername : windows_sys::core::PCWSTR, dirname : windows_sys::core::PCWSTR, unlockforce : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetReplSetInfo(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetReplSetInfo(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
 pub type LPREPL_EDIR_INFO_0 = *mut REPL_EDIR_INFO_0;
 pub type LPREPL_EDIR_INFO_1 = *mut REPL_EDIR_INFO_1;
 pub type LPREPL_EDIR_INFO_1000 = *mut REPL_EDIR_INFO_1000;

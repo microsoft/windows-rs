@@ -6,15 +6,15 @@ pub unsafe fn NtClose(handle: super::HANDLE) -> windows_core::NTSTATUS {
 }
 #[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtCreateFile(filehandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *mut super::OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: u32, createdisposition: u32, createoptions: u32, eabuffer: *mut core::ffi::c_void, ealength: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCreateFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *mut super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, allocationsize : *mut i64, fileattributes : u32, shareaccess : u32, createdisposition : u32, createoptions : u32, eabuffer : *mut core::ffi::c_void, ealength : u32) -> windows_core::NTSTATUS);
-    unsafe { NtCreateFile(filehandle as _, desiredaccess, objectattributes as _, iostatusblock as _, allocationsize as _, fileattributes, shareaccess, createdisposition, createoptions, eabuffer as _, ealength) }
+pub unsafe fn NtCreateFile(filehandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, allocationsize: Option<*const i64>, fileattributes: u32, shareaccess: u32, createdisposition: u32, createoptions: u32, eabuffer: Option<*const core::ffi::c_void>, ealength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, allocationsize : *const i64, fileattributes : u32, shareaccess : u32, createdisposition : u32, createoptions : u32, eabuffer : *const core::ffi::c_void, ealength : u32) -> windows_core::NTSTATUS);
+    unsafe { NtCreateFile(filehandle as _, desiredaccess, objectattributes, iostatusblock as _, allocationsize.unwrap_or(core::mem::zeroed()) as _, fileattributes, shareaccess, createdisposition, createoptions, eabuffer.unwrap_or(core::mem::zeroed()) as _, ealength) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtDeviceIoControlFile(filehandle: super::HANDLE, event: super::HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: *mut core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut core::ffi::c_void, outputbufferlength: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtDeviceIoControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *mut core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *mut core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_core::NTSTATUS);
-    unsafe { NtDeviceIoControlFile(filehandle, event, apcroutine, apccontext as _, iostatusblock as _, iocontrolcode, inputbuffer as _, inputbufferlength, outputbuffer as _, outputbufferlength) }
+pub unsafe fn NtDeviceIoControlFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: Option<*const core::ffi::c_void>, inputbufferlength: u32, outputbuffer: Option<*mut core::ffi::c_void>, outputbufferlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtDeviceIoControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_core::NTSTATUS);
+    unsafe { NtDeviceIoControlFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, iocontrolcode, inputbuffer.unwrap_or(core::mem::zeroed()) as _, inputbufferlength, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbufferlength) }
 }
 #[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
@@ -24,21 +24,21 @@ pub unsafe fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::HANDLE, subordi
 }
 #[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtOpenFile(filehandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *mut super::OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *mut super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_core::NTSTATUS);
-    unsafe { NtOpenFile(filehandle as _, desiredaccess, objectattributes as _, iostatusblock as _, shareaccess, openoptions) }
+pub unsafe fn NtOpenFile(filehandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_core::NTSTATUS);
+    unsafe { NtOpenFile(filehandle as _, desiredaccess, objectattributes, iostatusblock as _, shareaccess, openoptions) }
 }
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryInformationProcess(processhandle: super::HANDLE, processinformationclass: super::PROCESSINFOCLASS, processinformation: *mut core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
+pub unsafe fn NtQueryInformationProcess(processhandle: super::HANDLE, processinformationclass: super::PROCESSINFOCLASS, processinformation: *mut core::ffi::c_void, processinformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::HANDLE, processinformationclass : super::PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
-    unsafe { NtQueryInformationProcess(processhandle, processinformationclass, processinformation as _, processinformationlength, returnlength as _) }
+    unsafe { NtQueryInformationProcess(processhandle, processinformationclass, processinformation as _, processinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryInformationThread(threadhandle: super::HANDLE, threadinformationclass: super::THREADINFOCLASS, threadinformation: *mut core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
+pub unsafe fn NtQueryInformationThread(threadhandle: super::HANDLE, threadinformationclass: super::THREADINFOCLASS, threadinformation: *mut core::ffi::c_void, threadinformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::HANDLE, threadinformationclass : super::THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
-    unsafe { NtQueryInformationThread(threadhandle, threadinformationclass, threadinformation as _, threadinformationlength, returnlength as _) }
+    unsafe { NtQueryInformationThread(threadhandle, threadinformationclass, threadinformation as _, threadinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
@@ -53,9 +53,9 @@ pub unsafe fn NtQueryObject(handle: Option<super::HANDLE>, objectinformationclas
     unsafe { NtQueryObject(handle.unwrap_or(core::mem::zeroed()) as _, objectinformationclass, objectinformation.unwrap_or(core::mem::zeroed()) as _, objectinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
+pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut core::ffi::c_void, systeminformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
-    unsafe { NtQuerySystemInformation(systeminformationclass, systeminformation as _, systeminformationlength, returnlength as _) }
+    unsafe { NtQuerySystemInformation(systeminformationclass, systeminformation as _, systeminformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NtQuerySystemTime(systemtime: *mut i64) -> windows_core::NTSTATUS {
@@ -87,9 +87,9 @@ pub unsafe fn NtSetInformationThread(threadhandle: super::HANDLE, threadinformat
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtWaitForSingleObject(handle: super::HANDLE, alertable: bool, timeout: *mut i64) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::HANDLE, alertable : bool, timeout : *mut i64) -> windows_core::NTSTATUS);
-    unsafe { NtWaitForSingleObject(handle, alertable, timeout as _) }
+pub unsafe fn NtWaitForSingleObject(handle: super::HANDLE, alertable: bool, timeout: Option<*const i64>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::HANDLE, alertable : bool, timeout : *const i64) -> windows_core::NTSTATUS);
+    unsafe { NtWaitForSingleObject(handle, alertable, timeout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
@@ -165,14 +165,14 @@ where
 }
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlIsNameLegalDOS8Dot3(name: *mut super::UNICODE_STRING, oemname: POEM_STRING, namecontainsspaces: *mut bool) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *mut super::UNICODE_STRING, oemname : POEM_STRING, namecontainsspaces : *mut bool) -> bool);
-    unsafe { RtlIsNameLegalDOS8Dot3(name as _, oemname, namecontainsspaces as _) }
+pub unsafe fn RtlIsNameLegalDOS8Dot3(name: *const super::UNICODE_STRING, oemname: Option<POEM_STRING>, namecontainsspaces: Option<*mut bool>) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *const super::UNICODE_STRING, oemname : POEM_STRING, namecontainsspaces : *mut bool) -> bool);
+    unsafe { RtlIsNameLegalDOS8Dot3(name, oemname.unwrap_or(core::mem::zeroed()) as _, namecontainsspaces.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RtlLocalTimeToSystemTime(localtime: *mut i64, systemtime: *mut i64) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlLocalTimeToSystemTime(localtime : *mut i64, systemtime : *mut i64) -> windows_core::NTSTATUS);
-    unsafe { RtlLocalTimeToSystemTime(localtime as _, systemtime as _) }
+pub unsafe fn RtlLocalTimeToSystemTime(localtime: *const i64, systemtime: *mut i64) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlLocalTimeToSystemTime(localtime : *const i64, systemtime : *mut i64) -> windows_core::NTSTATUS);
+    unsafe { RtlLocalTimeToSystemTime(localtime, systemtime as _) }
 }
 #[inline]
 pub unsafe fn RtlNtStatusToDosError(status: windows_core::NTSTATUS) -> u32 {

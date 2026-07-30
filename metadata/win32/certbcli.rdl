@@ -31,7 +31,7 @@ mod Windows {
         #[library("certadm.dll")]
         extern fn CertSrvBackupEnd(hbc: HCSBC) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvBackupFree(pv: *mut void);
+        extern fn CertSrvBackupFree(pv: *const void);
         #[library("certadm.dll")]
         extern fn CertSrvBackupGetBackupLogsW(hbc: HCSBC, ppwszzBackupLogFiles: *mut PWSTR, pcbSize: *mut u32) -> HRESULT;
         #[library("certadm.dll")]
@@ -55,13 +55,13 @@ mod Windows {
         #[library("certadm.dll")]
         extern fn CertSrvRestorePrepareW(pwszServerName: *const u16, dwRestoreFlags: u32, phbc: *mut HCSBC) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvRestoreRegisterComplete(hbc: HCSBC, hrRestoreState: HRESULT) -> HRESULT;
+        extern fn CertSrvRestoreRegisterComplete(#[opt] hbc: HCSBC, hrRestoreState: HRESULT) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        extern fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, #[opt] pwszCheckPointFilePath: *const u16, #[opt] pwszLogPath: *const u16, #[opt] rgrstmap: *const CSEDB_RSTMAPW, crstmap: i32, #[opt] pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvRestoreRegisterW(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        extern fn CertSrvRestoreRegisterW(#[opt] hbc: HCSBC, #[opt] pwszCheckPointFilePath: *const u16, #[opt] pwszLogPath: *const u16, #[opt] rgrstmap: *const CSEDB_RSTMAPW, crstmap: i32, #[opt] pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvServerControlW(pwszServerName: *const u16, dwControlFlags: u32, pcbOut: *mut u32, ppbOut: *mut *mut u8) -> HRESULT;
+        extern fn CertSrvServerControlW(pwszServerName: *const u16, dwControlFlags: u32, #[opt] pcbOut: *mut u32, #[opt] ppbOut: *mut *mut u8) -> HRESULT;
         extern fn FNCERTSRVBACKUPCLOSE(hbc: HCSBC) -> HRESULT;
         extern fn FNCERTSRVBACKUPEND(hbc: HCSBC) -> HRESULT;
         extern fn FNCERTSRVBACKUPFREE(pv: *mut void);

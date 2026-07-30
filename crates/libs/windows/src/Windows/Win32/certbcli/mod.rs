@@ -9,9 +9,9 @@ pub unsafe fn CertSrvBackupEnd(hbc: HCSBC) -> windows_core::HRESULT {
     unsafe { CertSrvBackupEnd(hbc) }
 }
 #[inline]
-pub unsafe fn CertSrvBackupFree(pv: *mut core::ffi::c_void) {
-    windows_core::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut core::ffi::c_void));
-    unsafe { CertSrvBackupFree(pv as _) }
+pub unsafe fn CertSrvBackupFree(pv: *const core::ffi::c_void) {
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *const core::ffi::c_void));
+    unsafe { CertSrvBackupFree(pv) }
 }
 #[inline]
 pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: HCSBC, ppwszzbackuplogfiles: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::HRESULT {
@@ -81,24 +81,24 @@ pub unsafe fn CertSrvRestorePrepareW(pwszservername: *const u16, dwrestoreflags:
     }
 }
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterComplete(hbc: HCSBC, hrrestorestate: windows_core::HRESULT) -> windows_core::HRESULT {
+pub unsafe fn CertSrvRestoreRegisterComplete(hbc: Option<HCSBC>, hrrestorestate: windows_core::HRESULT) -> windows_core::HRESULT {
     windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterComplete(hbc : HCSBC, hrrestorestate : windows_core::HRESULT) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterComplete(hbc, hrrestorestate) }
+    unsafe { CertSrvRestoreRegisterComplete(hbc.unwrap_or(core::mem::zeroed()) as _, hrrestorestate) }
 }
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, pwszcheckpointfilepath: *const u16, pwszlogpath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: *const u16, genlow: u32, genhigh: u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterThroughFile(hbc, pwszcheckpointfilepath, pwszlogpath, rgrstmap as _, crstmap, pwszbackuplogpath, genlow, genhigh) }
+pub unsafe fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, pwszcheckpointfilepath: Option<*const u16>, pwszlogpath: Option<*const u16>, rgrstmap: Option<*const CSEDB_RSTMAPW>, crstmap: i32, pwszbackuplogpath: Option<*const u16>, genlow: u32, genhigh: u32) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *const CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
+    unsafe { CertSrvRestoreRegisterThroughFile(hbc, pwszcheckpointfilepath.unwrap_or(core::mem::zeroed()) as _, pwszlogpath.unwrap_or(core::mem::zeroed()) as _, rgrstmap.unwrap_or(core::mem::zeroed()) as _, crstmap, pwszbackuplogpath.unwrap_or(core::mem::zeroed()) as _, genlow, genhigh) }
 }
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterW(hbc: HCSBC, pwszcheckpointfilepath: *const u16, pwszlogpath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: *const u16, genlow: u32, genhigh: u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterW(hbc, pwszcheckpointfilepath, pwszlogpath, rgrstmap as _, crstmap, pwszbackuplogpath, genlow, genhigh) }
+pub unsafe fn CertSrvRestoreRegisterW(hbc: Option<HCSBC>, pwszcheckpointfilepath: Option<*const u16>, pwszlogpath: Option<*const u16>, rgrstmap: Option<*const CSEDB_RSTMAPW>, crstmap: i32, pwszbackuplogpath: Option<*const u16>, genlow: u32, genhigh: u32) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *const CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
+    unsafe { CertSrvRestoreRegisterW(hbc.unwrap_or(core::mem::zeroed()) as _, pwszcheckpointfilepath.unwrap_or(core::mem::zeroed()) as _, pwszlogpath.unwrap_or(core::mem::zeroed()) as _, rgrstmap.unwrap_or(core::mem::zeroed()) as _, crstmap, pwszbackuplogpath.unwrap_or(core::mem::zeroed()) as _, genlow, genhigh) }
 }
 #[inline]
-pub unsafe fn CertSrvServerControlW(pwszservername: *const u16, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> windows_core::HRESULT {
+pub unsafe fn CertSrvServerControlW(pwszservername: *const u16, dwcontrolflags: u32, pcbout: Option<*mut u32>, ppbout: Option<*mut *mut u8>) -> windows_core::HRESULT {
     windows_core::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : *const u16, dwcontrolflags : u32, pcbout : *mut u32, ppbout : *mut *mut u8) -> windows_core::HRESULT);
-    unsafe { CertSrvServerControlW(pwszservername, dwcontrolflags, pcbout as _, ppbout as _) }
+    unsafe { CertSrvServerControlW(pwszservername, dwcontrolflags, pcbout.unwrap_or(core::mem::zeroed()) as _, ppbout.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295;
 pub const CSBACKUP_TYPE_FULL: i32 = 1;

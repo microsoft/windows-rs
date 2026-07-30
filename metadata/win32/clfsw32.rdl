@@ -6,84 +6,84 @@ mod Windows {
         #[library("clfsw32.dll")]
         extern fn AddLogContainerSet(hLog: HANDLE, cContainer: u16, #[opt] pcbContainer: *const u64, #[len_param(1)] rgwszContainerPath: *const PWSTR, #[in] #[out] #[opt] pReserved: *mut void) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn AdvanceLogBase(pvMarshal: *mut void, plsnBase: *mut CLFS_LSN, fFlags: u32, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn AdvanceLogBase(#[in] #[out] pvMarshal: *mut void, plsnBase: *const CLFS_LSN, fFlags: u32, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn AlignReservedLog(pvMarshal: *mut void, cReservedRecords: u32, rgcbReservation: *mut i64, pcbAlignReservation: *mut i64) -> BOOL;
+        extern fn AlignReservedLog(#[in] #[out] pvMarshal: *mut void, cReservedRecords: u32, rgcbReservation: *const i64, pcbAlignReservation: *mut i64) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn AllocReservedLog(pvMarshal: *mut void, cReservedRecords: u32, pcbAdjustment: *mut i64) -> BOOL;
+        extern fn AllocReservedLog(#[in] #[out] pvMarshal: *mut void, cReservedRecords: u32, #[in] #[out] pcbAdjustment: *mut i64) -> BOOL;
         type CLFS_LOG_ARCHIVE_CONTEXT = *mut void;
         extern fn CLFS_PRINT_RECORD_ROUTINE(pstrmOut: *mut FILE, fRecordType: CLFS_RECORD_TYPE, pvBuffer: *mut void, cbBuffer: u32) -> u32;
         #[library("clfsw32.dll")]
         extern fn CloseAndResetLogFile(hLog: HANDLE) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn CreateLogContainerScanContext(hLog: HANDLE, cFromContainer: u32, cContainers: u32, eScanMode: CLFS_SCAN_MODE, pcxScan: *mut CLFS_SCAN_CONTEXT, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn CreateLogContainerScanContext(hLog: HANDLE, cFromContainer: u32, cContainers: u32, eScanMode: CLFS_SCAN_MODE, #[in] #[out] pcxScan: *mut CLFS_SCAN_CONTEXT, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn CreateLogFile(pszLogFileName: PCWSTR, fDesiredAccess: ACCESS_MASK, dwShareMode: u32, psaLogFile: *mut SECURITY_ATTRIBUTES, fCreateDisposition: u32, fFlagsAndAttributes: u32) -> HANDLE;
+        extern fn CreateLogFile(pszLogFileName: PCWSTR, fDesiredAccess: ACCESS_MASK, dwShareMode: u32, #[opt] psaLogFile: *const SECURITY_ATTRIBUTES, fCreateDisposition: u32, fFlagsAndAttributes: u32) -> HANDLE;
         #[library("clfsw32.dll")]
-        extern fn CreateLogMarshallingArea(hLog: HANDLE, pfnAllocBuffer: CLFS_BLOCK_ALLOCATION, pfnFreeBuffer: CLFS_BLOCK_DEALLOCATION, pvBlockAllocContext: *mut void, cbMarshallingBuffer: u32, cMaxWriteBuffers: u32, cMaxReadBuffers: u32, ppvMarshal: *mut *mut void) -> BOOL;
+        extern fn CreateLogMarshallingArea(hLog: HANDLE, #[opt] pfnAllocBuffer: CLFS_BLOCK_ALLOCATION, #[opt] pfnFreeBuffer: CLFS_BLOCK_DEALLOCATION, #[opt] pvBlockAllocContext: *const void, cbMarshallingBuffer: u32, cMaxWriteBuffers: u32, cMaxReadBuffers: u32, ppvMarshal: *mut *mut void) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn DeleteLogByHandle(hLog: HANDLE) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn DeleteLogFile(pszLogFileName: PCWSTR, pvReserved: *mut void) -> BOOL;
+        extern fn DeleteLogFile(pszLogFileName: PCWSTR, #[opt] pvReserved: *const void) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn DeleteLogMarshallingArea(pvMarshal: *mut void) -> BOOL;
+        extern fn DeleteLogMarshallingArea(pvMarshal: *const void) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn DumpLogRecords(pwszLogFileName: PCWSTR, fRecordType: CLFS_RECORD_TYPE, #[opt] plsnStart: *const CLFS_LSN, #[opt] plsnEnd: *const CLFS_LSN, #[opt] pstrmOut: *const FILE, #[opt] pfnPrintRecord: CLFS_PRINT_RECORD_ROUTINE, #[opt] pfnAllocBlock: CLFS_BLOCK_ALLOCATION, #[opt] pfnFreeBlock: CLFS_BLOCK_DEALLOCATION, #[opt] pvBlockAllocContext: *const void, cbBlock: u32, cMaxBlocks: u32) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn FlushLogBuffers(pvMarshal: *mut void, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn FlushLogBuffers(pvMarshal: *const void, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn FlushLogToLsn(pvMarshalContext: *mut void, plsnFlush: *mut CLFS_LSN, plsnLastFlushed: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn FlushLogToLsn(pvMarshalContext: *const void, plsnFlush: *const CLFS_LSN, #[opt] plsnLastFlushed: *mut CLFS_LSN, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn FreeReservedLog(pvMarshal: *mut void, cReservedRecords: u32, pcbAdjustment: *mut i64) -> BOOL;
+        extern fn FreeReservedLog(#[in] #[out] pvMarshal: *mut void, cReservedRecords: u32, #[in] #[out] pcbAdjustment: *mut i64) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn GetLogContainerName(hLog: HANDLE, cidLogicalContainer: CLFS_CONTAINER_ID, pwstrContainerName: PCWSTR, cLenContainerName: u32, pcActualLenContainerName: *mut u32) -> BOOL;
+        extern fn GetLogContainerName(hLog: HANDLE, cidLogicalContainer: CLFS_CONTAINER_ID, #[in] #[out] pwstrContainerName: PWSTR, cLenContainerName: u32, #[in] #[out] #[opt] pcActualLenContainerName: *mut u32) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn GetLogFileInformation(hLog: HANDLE, pinfoBuffer: *mut CLFS_INFORMATION, cbBuffer: *mut u32) -> BOOL;
+        extern fn GetLogFileInformation(hLog: HANDLE, #[in] #[out] pinfoBuffer: *mut CLFS_INFORMATION, #[in] #[out] cbBuffer: *mut u32) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn GetLogIoStatistics(hLog: HANDLE, pvStatsBuffer: *mut void, cbStatsBuffer: u32, eStatsClass: CLFS_IOSTATS_CLASS, pcbStatsWritten: *mut u32) -> BOOL;
+        extern fn GetLogIoStatistics(hLog: HANDLE, #[in] #[out] pvStatsBuffer: *mut void, cbStatsBuffer: u32, eStatsClass: CLFS_IOSTATS_CLASS, #[opt] pcbStatsWritten: *mut u32) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn GetLogReservationInfo(pvMarshal: *const void, pcbRecordNumber: *mut u32, pcbUserReservation: *mut i64, pcbCommitReservation: *mut i64) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn GetNextLogArchiveExtent(pvArchiveContext: CLFS_LOG_ARCHIVE_CONTEXT, rgadExtent: *mut CLFS_ARCHIVE_DESCRIPTOR, cDescriptors: u32, pcDescriptorsReturned: *mut u32) -> BOOL;
+        extern fn GetNextLogArchiveExtent(pvArchiveContext: CLFS_LOG_ARCHIVE_CONTEXT, #[in] #[out] rgadExtent: *mut CLFS_ARCHIVE_DESCRIPTOR, cDescriptors: u32, pcDescriptorsReturned: *mut u32) -> BOOL;
         extern fn PCLFS_COMPLETION_ROUTINE(pvOverlapped: *mut void, ulReserved: u32);
         type PCLFS_LOG_ARCHIVE_CONTEXT = *mut *mut void;
         #[library("clfsw32.dll")]
         extern fn PrepareLogArchive(hLog: HANDLE, #[len_param(2)] #[in] #[out] pszBaseLogFileName: PWSTR, cLen: u32, #[opt] plsnLow: *const CLFS_LSN, #[opt] plsnHigh: *const CLFS_LSN, #[opt] pcActualLength: *mut u32, poffBaseLogFileData: *mut u64, pcbBaseLogFileLength: *mut u64, plsnBase: *mut CLFS_LSN, plsnLast: *mut CLFS_LSN, plsnCurrentArchiveTail: *mut CLFS_LSN, ppvArchiveContext: *mut *mut void) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReadLogArchiveMetadata(pvArchiveContext: CLFS_LOG_ARCHIVE_CONTEXT, cbOffset: u32, cbBytesToRead: u32, pbReadBuffer: *mut u8, pcbBytesRead: *mut u32) -> BOOL;
+        extern fn ReadLogArchiveMetadata(pvArchiveContext: CLFS_LOG_ARCHIVE_CONTEXT, cbOffset: u32, cbBytesToRead: u32, #[in] #[out] pbReadBuffer: *mut u8, pcbBytesRead: *mut u32) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReadLogRecord(pvMarshal: *mut void, plsnFirst: *mut CLFS_LSN, eContextMode: CLFS_CONTEXT_MODE, ppvReadBuffer: *mut *mut void, pcbReadBuffer: *mut u32, peRecordType: *mut CLS_RECORD_TYPE, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, ppvReadContext: *mut *mut void, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReadLogRecord(pvMarshal: *const void, plsnFirst: *const CLFS_LSN, eContextMode: CLFS_CONTEXT_MODE, ppvReadBuffer: *mut *mut void, pcbReadBuffer: *mut u32, peRecordType: *mut CLS_RECORD_TYPE, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, ppvReadContext: *mut *mut void, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReadLogRestartArea(pvMarshal: *mut void, ppvRestartBuffer: *mut *mut void, pcbRestartBuffer: *mut u32, plsn: *mut CLFS_LSN, ppvContext: *mut *mut void, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReadLogRestartArea(pvMarshal: *const void, ppvRestartBuffer: *mut *mut void, pcbRestartBuffer: *mut u32, plsn: *mut CLFS_LSN, ppvContext: *mut *mut void, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReadNextLogRecord(pvReadContext: *mut void, ppvBuffer: *mut *mut void, pcbBuffer: *mut u32, peRecordType: *mut CLS_RECORD_TYPE, plsnUser: *mut CLFS_LSN, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, plsnRecord: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReadNextLogRecord(#[in] #[out] pvReadContext: *mut void, ppvBuffer: *mut *mut void, pcbBuffer: *mut u32, #[in] #[out] peRecordType: *mut CLS_RECORD_TYPE, #[opt] plsnUser: *const CLFS_LSN, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, plsnRecord: *mut CLFS_LSN, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReadPreviousLogRestartArea(pvReadContext: *mut void, ppvRestartBuffer: *mut *mut void, pcbRestartBuffer: *mut u32, plsnRestart: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReadPreviousLogRestartArea(pvReadContext: *const void, ppvRestartBuffer: *mut *mut void, pcbRestartBuffer: *mut u32, plsnRestart: *mut CLFS_LSN, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn RemoveLogContainer(hLog: HANDLE, pwszContainerPath: PCWSTR, fForce: BOOL, #[in] #[out] #[opt] pReserved: *mut void) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn RemoveLogContainerSet(hLog: HANDLE, cContainer: u16, #[len_param(1)] rgwszContainerPath: *const PWSTR, fForce: BOOL, #[in] #[out] #[opt] pReserved: *mut void) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReserveAndAppendLog(pvMarshal: *mut void, rgWriteEntries: *mut CLFS_WRITE_ENTRY, cWriteEntries: u32, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, cReserveRecords: u32, rgcbReservation: *mut i64, fFlags: u32, plsn: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReserveAndAppendLog(pvMarshal: *const void, #[opt] rgWriteEntries: *const CLFS_WRITE_ENTRY, cWriteEntries: u32, #[opt] plsnUndoNext: *const CLFS_LSN, #[opt] plsnPrevious: *const CLFS_LSN, cReserveRecords: u32, #[in] #[out] #[opt] rgcbReservation: *mut i64, fFlags: u32, #[opt] plsn: *mut CLFS_LSN, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ReserveAndAppendLogAligned(pvMarshal: *mut void, rgWriteEntries: *mut CLFS_WRITE_ENTRY, cWriteEntries: u32, cbEntryAlignment: u32, plsnUndoNext: *mut CLFS_LSN, plsnPrevious: *mut CLFS_LSN, cReserveRecords: u32, rgcbReservation: *mut i64, fFlags: u32, plsn: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn ReserveAndAppendLogAligned(pvMarshal: *const void, #[opt] rgWriteEntries: *const CLFS_WRITE_ENTRY, cWriteEntries: u32, cbEntryAlignment: u32, #[opt] plsnUndoNext: *const CLFS_LSN, #[opt] plsnPrevious: *const CLFS_LSN, cReserveRecords: u32, #[in] #[out] #[opt] rgcbReservation: *mut i64, fFlags: u32, #[opt] plsn: *mut CLFS_LSN, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ScanLogContainers(pcxScan: *mut CLFS_SCAN_CONTEXT, eScanMode: CLFS_SCAN_MODE, pReserved: *mut void) -> BOOL;
+        extern fn ScanLogContainers(#[in] #[out] pcxScan: *mut CLFS_SCAN_CONTEXT, eScanMode: CLFS_SCAN_MODE, #[in] #[out] #[opt] pReserved: *mut void) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn SetEndOfLog(hLog: HANDLE, plsnEnd: *mut CLFS_LSN, lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn SetEndOfLog(hLog: HANDLE, plsnEnd: *const CLFS_LSN, #[in] #[out] lpOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn SetLogArchiveMode(hLog: HANDLE, eMode: CLFS_LOG_ARCHIVE_MODE) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn SetLogArchiveTail(hLog: HANDLE, plsnArchiveTail: *mut CLFS_LSN, pReserved: *mut void) -> BOOL;
+        extern fn SetLogArchiveTail(hLog: HANDLE, plsnArchiveTail: *const CLFS_LSN, #[in] #[out] #[opt] pReserved: *mut void) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn TerminateLogArchive(pvArchiveContext: CLFS_LOG_ARCHIVE_CONTEXT) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn TerminateReadLog(pvCursorContext: *mut void) -> BOOL;
+        extern fn TerminateReadLog(pvCursorContext: *const void) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn TruncateLog(pvMarshal: *const void, plsnEnd: *const CLFS_LSN, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn ValidateLog(pszLogFileName: PCWSTR, psaLogFile: *mut SECURITY_ATTRIBUTES, pinfoBuffer: *mut CLFS_INFORMATION, pcbBuffer: *mut u32) -> BOOL;
+        extern fn ValidateLog(pszLogFileName: PCWSTR, #[opt] psaLogFile: *const SECURITY_ATTRIBUTES, #[opt] pinfoBuffer: *mut CLFS_INFORMATION, #[in] #[out] pcbBuffer: *mut u32) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn WriteLogRestartArea(pvMarshal: *mut void, pvRestartBuffer: *mut void, cbRestartBuffer: u32, plsnBase: *mut CLFS_LSN, fFlags: u32, pcbWritten: *mut u32, plsnNext: *mut CLFS_LSN, pOverlapped: *mut OVERLAPPED) -> BOOL;
+        extern fn WriteLogRestartArea(#[in] #[out] pvMarshal: *mut void, pvRestartBuffer: *const void, cbRestartBuffer: u32, #[opt] plsnBase: *const CLFS_LSN, fFlags: u32, #[opt] pcbWritten: *mut u32, #[opt] plsnNext: *mut CLFS_LSN, #[in] #[out] #[opt] pOverlapped: *mut OVERLAPPED) -> BOOL;
     }
 }

@@ -7818,7 +7818,7 @@ impl Default for KBUGCHECK_CALLBACK_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, length: u32)>;
+pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void, length: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KBUGCHECK_DUMP_IO {
