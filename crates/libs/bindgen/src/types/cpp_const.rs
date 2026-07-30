@@ -159,7 +159,11 @@ impl CppConst {
                 let underlying_ty = field_ty.underlying_type(config.reader);
                 let ty = field_ty.write_name(config);
 
-                let value = if underlying_ty == constant_ty {
+                let value = if let Some(value) =
+                    fixed_to_native_const_value(&underlying_ty, &constant.value())
+                {
+                    value
+                } else if underlying_ty == constant_ty {
                     let mut value = pointer_sized_const_value(&underlying_ty, &constant.value());
                     if is_signed_error(&field_ty, config.reader) {
                         if let Value::I32(signed) = constant.value() {
@@ -236,6 +240,28 @@ fn pointer_sized_const_value(field_ty: &Type, value: &Value) -> TokenStream {
         }
         _ => value.write(),
     }
+}
+
+fn fixed_to_native_const_value(ty: &Type, value: &Value) -> Option<TokenStream> {
+    Some(match (ty, value) {
+        (Type::ISize, Value::I32(value)) => {
+            let literal = Literal::i32_unsuffixed(*value);
+            quote! { #literal }
+        }
+        (Type::USize, Value::U32(value)) => {
+            let literal = Literal::u32_unsuffixed(*value);
+            quote! { #literal }
+        }
+        (Type::ISize, Value::I64(value)) => {
+            let literal = Literal::i64_suffixed(*value);
+            quote! { #literal as isize }
+        }
+        (Type::USize, Value::U64(value)) => {
+            let literal = Literal::u64_suffixed(*value);
+            quote! { #literal as usize }
+        }
+        _ => return None,
+    })
 }
 
 /// Emits wide integer casts with suffixes so values outside `i32` do not overflow first.

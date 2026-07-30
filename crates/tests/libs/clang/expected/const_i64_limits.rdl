@@ -3,13 +3,15 @@ mod Test {
     type INT64 = i64;
     type INT_PTR = isize;
     const MAXINT64: i64 = 9223372036854775807;
-    const MAXINT_PTR: isize = 9223372036854775807i64;
+    const MAXINT_PTR: isize = 9223372036854775807;
     const MAXUINT64: u64 = 18446744073709551615;
-    const MAXUINT_PTR: usize = 18446744073709551615u64;
+    const MAXUINT_PTR: usize = 18446744073709551615;
     const MININT64: i64 = -9223372036854775808;
-    const MININT_PTR: isize = -9223372036854775808i64;
+    const MININT_PTR: isize = -9223372036854775808;
     type PINT_PTR = *mut i64;
     type PUINT_PTR = *mut u64;
+    const SMALL_INT_PTR: isize = -24;
+    const SMALL_UINT_PTR: usize = 24;
     type UINT64 = u64;
     type UINT_PTR = usize;
 }

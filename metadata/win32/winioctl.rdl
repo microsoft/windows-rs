@@ -1970,10 +1970,7 @@ mod Windows {
                 GetInfo: FS_BPIO_INFO,
             },
         }
-        #[arch(X64 | Arm64)]
-        const FS_BPIO_OUTPUT_DISABLE_SIZE: usize = 24u64;
-        #[arch(X86)]
-        const FS_BPIO_OUTPUT_DISABLE_SIZE: usize = 24u32;
+        const FS_BPIO_OUTPUT_DISABLE_SIZE: usize = 24;
         #[arch(X64 | Arm64)]
         const FS_BPIO_OUTPUT_ENABLE_SIZE: u64 = 352;
         #[arch(X86)]
@@ -1986,18 +1983,12 @@ mod Windows {
         const FS_BPIO_OUTPUT_QUERY_SIZE: u64 = 352;
         #[arch(X86)]
         const FS_BPIO_OUTPUT_QUERY_SIZE: u32 = 352;
-        #[arch(X64 | Arm64)]
-        const FS_BPIO_OUTPUT_STREAM_PAUSE_SIZE: usize = 24u64;
-        #[arch(X86)]
-        const FS_BPIO_OUTPUT_STREAM_PAUSE_SIZE: usize = 24u32;
+        const FS_BPIO_OUTPUT_STREAM_PAUSE_SIZE: usize = 24;
         #[arch(X64 | Arm64)]
         const FS_BPIO_OUTPUT_STREAM_RESUME_SIZE: u64 = 352;
         #[arch(X86)]
         const FS_BPIO_OUTPUT_STREAM_RESUME_SIZE: u32 = 352;
-        #[arch(X64 | Arm64)]
-        const FS_BPIO_OUTPUT_VOLUME_STACK_PAUSE_SIZE: usize = 24u64;
-        #[arch(X86)]
-        const FS_BPIO_OUTPUT_VOLUME_STACK_PAUSE_SIZE: usize = 24u32;
+        const FS_BPIO_OUTPUT_VOLUME_STACK_PAUSE_SIZE: usize = 24;
         #[arch(X64 | Arm64)]
         const FS_BPIO_OUTPUT_VOLUME_STACK_RESUME_SIZE: u64 = 352;
         #[arch(X86)]

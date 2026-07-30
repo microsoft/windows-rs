@@ -208,19 +208,11 @@ pub fn write_typed_value(
     value: &metadata::Value,
 ) -> TokenStream {
     match (ty, value) {
-        (metadata::Type::ISize, metadata::Value::I32(value)) => {
-            let literal = Literal::i32_suffixed(*value);
-            quote! { #literal }
-        }
-        (metadata::Type::ISize, metadata::Value::I64(value)) => {
+        (metadata::Type::ISize, metadata::Value::I64(value)) if i32::try_from(*value).is_ok() => {
             let literal = Literal::i64_suffixed(*value);
             quote! { #literal }
         }
-        (metadata::Type::USize, metadata::Value::U32(value)) => {
-            let literal = Literal::u32_suffixed(*value);
-            quote! { #literal }
-        }
-        (metadata::Type::USize, metadata::Value::U64(value)) => {
+        (metadata::Type::USize, metadata::Value::U64(value)) if u32::try_from(*value).is_ok() => {
             let literal = Literal::u64_suffixed(*value);
             quote! { #literal }
         }

@@ -9,3 +9,5 @@ typedef unsigned __int64 UINT_PTR, *PUINT_PTR;
 #define MAXUINT_PTR (~((UINT_PTR)0))
 #define MAXINT_PTR ((INT_PTR)(MAXUINT_PTR >> 1))
 #define MININT_PTR (~MAXINT_PTR)
+#define SMALL_INT_PTR ((INT_PTR)-24)
+#define SMALL_UINT_PTR ((UINT_PTR)24)

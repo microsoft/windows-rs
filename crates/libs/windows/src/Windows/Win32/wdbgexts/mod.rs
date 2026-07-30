@@ -1195,9 +1195,9 @@ impl Default for WDBGEXTS_DISASSEMBLE_BUFFER {
     }
 }
 #[cfg(target_arch = "x86")]
-pub const WDBGEXTS_MAXSIZE_T: usize = 4294967295u32 as _;
+pub const WDBGEXTS_MAXSIZE_T: usize = 4294967295;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WDBGEXTS_MAXSIZE_T: usize = 18446744073709551615u64 as _;
+pub const WDBGEXTS_MAXSIZE_T: usize = 18446744073709551615u64 as usize;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDBGEXTS_MODULE_IN_RANGE {

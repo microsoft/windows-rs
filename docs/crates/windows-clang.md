@@ -988,21 +988,28 @@ changes:
    comma-shape, size, and signedness enum gates remain unchanged.
 2. A typed variable probe also retains declarations such as `INT_PTR` and `UINT_PTR`. These map
    through the existing `pointer_sized_abi` table to an `isize` or `usize` field signature. The
-   ECMA-335 Constant row must still retain the architecture's fixed-width value (`I32`/`U32` on
-   x86, `I64`/`U64` on 64-bit). RDL represents the split with a suffixed value:
+   ECMA-335 Constant row cannot use native `I`/`U` element types, so it stores the value in the
+   smallest fixed-width signed or unsigned type that retains it. The RDL reader infers that
+   storage type from the native field and numeric value:
 
    ```rust
    #[arch(X64 | Arm64)]
-   const MAXINT_PTR: isize = 9223372036854775807i64;
+   const MAXINT_PTR: isize = 9223372036854775807;
    #[arch(X86)]
-   const MAXINT_PTR: isize = 2147483647i32;
+   const MAXINT_PTR: isize = 2147483647;
    ```
 
 This follows the existing metadata model used by pointer and handle constants. For example,
 `TD_WARNING_ICON` has a pointer field signature and an `I32(65535)` Constant row; bindgen emits the
-constructor and cast. Native-sized primitive fields needed one additional bindgen case so a
-mismatched Constant row emits `9223372036854775807i64 as _`, not the invalid
-`isize(9223372036854775807i64 as _)`.
+constructor and cast. Native-sized fields use an unsuffixed literal for canonical `I32`/`U32`
+storage because that value fits every supported pointer width. Canonical `I64`/`U64` storage uses
+an explicit `as isize`/`as usize` cast. This also handles named wrappers such as `SOCKET` without
+producing primitive constructor syntax.
+
+An explicit suffix is needed only to preserve a noncanonical Constant storage width. Generated
+native constants use canonical unsuffixed RDL. Equal small values use one row across architectures:
+`FS_BPIO_OUTPUT_DISABLE_SIZE` is `const ...: usize = 24;`, not separate x86 `u32` and 64-bit `u64`
+rows. Max/min constants remain architecture-tagged because their numeric values differ.
 
 The full scrape found these native-sized constant families:
 
@@ -1012,11 +1019,11 @@ The full scrape found these native-sized constant families:
 | Other UM headers | `SEC_DELETED_HANDLE`, `WDBGEXTS_MAXSIZE_T`, `FS_BPIO_OUTPUT_*_SIZE`, `FLUSH_NV_MEMORY_DEFAULT_TOKEN` |
 | WDK headers | `PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS` |
 
-The values remain architecture-tagged even when both fields are `isize`/`usize`; signed x86 and
-64-bit limits cannot be represented by one shared Constant value. The value-probe fix also corrects
-unrelated narrowed 64-bit constants (`ADDRESS_TAG_BIT`, the `POOL_FLAG_*` masks, mitigation-policy
-bits, ICU limits, and others). Keep that generated delta separate from the native-sized field-type
-change so each rule can be reviewed on its own.
+Values remain architecture-tagged when the numeric value differs even though both fields are
+`isize`/`usize`; signed x86 and 64-bit limits cannot use one shared Constant row. The value-probe
+fix also corrects unrelated narrowed 64-bit constants (`ADDRESS_TAG_BIT`, the `POOL_FLAG_*` masks,
+mitigation-policy bits, ICU limits, and others). Keep that generated delta separate from the
+native-sized field-type change so each rule can be reviewed on its own.
 
 An audit against the 10.0.26100 headers found the regenerated values match the source expressions:
 

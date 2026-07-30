@@ -1160,9 +1160,9 @@ pub const SEC_CHANNEL_BINDINGS_VALID_FLAGS: i32 = 1;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SEC_CHAR(pub i8);
 #[cfg(target_arch = "x86")]
-pub const SEC_DELETED_HANDLE: usize = 4294967294u32 as _;
+pub const SEC_DELETED_HANDLE: usize = 4294967294;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const SEC_DELETED_HANDLE: usize = 18446744073709551614u64 as _;
+pub const SEC_DELETED_HANDLE: usize = 18446744073709551614u64 as usize;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_DTLS_MTU {

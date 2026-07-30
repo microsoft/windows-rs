@@ -872,9 +872,9 @@ mod Windows {
             Reserved0: [u64; 3],
         }
         #[arch(X64 | Arm64)]
-        const WDBGEXTS_MAXSIZE_T: usize = 18446744073709551615u64;
+        const WDBGEXTS_MAXSIZE_T: usize = 18446744073709551615;
         #[arch(X86)]
-        const WDBGEXTS_MAXSIZE_T: usize = 4294967295u32;
+        const WDBGEXTS_MAXSIZE_T: usize = 4294967295;
         struct WDBGEXTS_MODULE_IN_RANGE {
             Start: u64,
             End: u64,

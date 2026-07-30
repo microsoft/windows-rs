@@ -1,21 +1,21 @@
 pub const INVALID_SOCKET: SOCKET = SOCKET(18446744073709551615u64 as usize);
 #[cfg(target_arch = "x86")]
-pub const PTR_MAX: usize = 4294967295u32 as _;
+pub const PTR_MAX: usize = 4294967295;
 #[cfg(any(
     target_arch = "aarch64",
     target_arch = "arm64ec",
     target_arch = "x86_64"
 ))]
-pub const PTR_MAX: usize = 18446744073709551615u64 as _;
+pub const PTR_MAX: usize = 18446744073709551615u64 as usize;
 pub const PTR_SENTINEL: usize = 18446744073709551615u64 as usize;
 #[cfg(target_arch = "x86")]
-pub const SIGNED_MAX: isize = 2147483647 as _;
+pub const SIGNED_MAX: isize = 2147483647;
 #[cfg(any(
     target_arch = "aarch64",
     target_arch = "arm64ec",
     target_arch = "x86_64"
 ))]
-pub const SIGNED_MAX: isize = 9223372036854775807i64 as _;
+pub const SIGNED_MAX: isize = 9223372036854775807i64 as isize;
 pub const SIGNED_SENTINEL: isize = -1;
 pub const SMALL_ISIZE: isize = -4096;
 pub const SMALL_USIZE: usize = 4096;

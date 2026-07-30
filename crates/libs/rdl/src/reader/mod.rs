@@ -39,6 +39,18 @@ use typedef::*;
 use union::*;
 use windows_metadata as metadata;
 
+fn fixed_signed_value(value: i64) -> metadata::Value {
+    i32::try_from(value)
+        .map(metadata::Value::I32)
+        .unwrap_or(metadata::Value::I64(value))
+}
+
+fn fixed_unsigned_value(value: u64) -> metadata::Value {
+    u32::try_from(value)
+        .map(metadata::Value::U32)
+        .unwrap_or(metadata::Value::U64(value))
+}
+
 #[derive(Default)]
 /// Builder that compiles RDL files into `.winmd` metadata.
 pub struct Reader {
@@ -610,8 +622,8 @@ impl Encoder<'_> {
             metadata::Type::F32 => metadata::Value::F32(self.encode_neg_lit_float::<f32>(value)?),
             metadata::Type::F64 => metadata::Value::F64(self.encode_neg_lit_float::<f64>(value)?),
             metadata::Type::String => metadata::Value::Utf16(self.encode_lit_string(value)?),
-            metadata::Type::ISize => metadata::Value::ISize(self.encode_lit_sint(value, 64)?),
-            metadata::Type::USize => metadata::Value::USize(self.encode_lit_uint(value, 64)?),
+            metadata::Type::ISize => fixed_signed_value(self.encode_lit_sint(value, 64)?),
+            metadata::Type::USize => fixed_unsigned_value(self.encode_lit_uint(value, 64)?),
             metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
                 let v = self.encode_neg_lit_int::<i64>(value)?;
                 if let Ok(v) = i32::try_from(v) {

@@ -313,12 +313,16 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
         .into_iter()
         .filter(|(name, _, _, _)| type_ok.contains(name) && shape_ok.contains(name))
         .map(|(name, unsigned, signed, ty)| {
-            let value = eval_integer_value(
-                unsigned,
-                signed,
-                sizes.get(&name).copied(),
-                signs.get(&name).copied(),
-            );
+            let value = if let Some(ty) = &ty {
+                native_integer_value(unsigned, signed, ty)
+            } else {
+                eval_integer_value(
+                    unsigned,
+                    signed,
+                    sizes.get(&name).copied(),
+                    signs.get(&name).copied(),
+                )
+            };
             Const { name, ty, value }
         })
         .collect();
@@ -351,6 +355,19 @@ fn eval_integer_value(
                 metadata::Value::I64(signed)
             }
         }
+    }
+}
+
+/// Store native-sized fields in the smallest fixed-width Constant type that retains the value.
+fn native_integer_value(unsigned: u64, signed: i64, ty: &metadata::Type) -> metadata::Value {
+    match ty {
+        metadata::Type::USize => u32::try_from(unsigned)
+            .map(metadata::Value::U32)
+            .unwrap_or(metadata::Value::U64(unsigned)),
+        metadata::Type::ISize => i32::try_from(signed)
+            .map(metadata::Value::I32)
+            .unwrap_or(metadata::Value::I64(signed)),
+        _ => unreachable!(),
     }
 }
 
@@ -1188,5 +1205,26 @@ mod tests {
         assert_eq!(eval_integer_value(100, 100, None, None), U32(100));
         assert_eq!(eval_integer_value(u64::MAX, -1, None, None), I32(-1));
         assert_eq!(eval_integer_value(1, 1, Some(0), Some(0)), U32(1));
+    }
+
+    #[test]
+    fn native_values_use_fixed_width_storage() {
+        use metadata::Value::{I32, I64, U32, U64};
+        assert_eq!(
+            native_integer_value(24, 24, &metadata::Type::USize),
+            U32(24)
+        );
+        assert_eq!(
+            native_integer_value(u64::MAX, -1, &metadata::Type::USize),
+            U64(u64::MAX)
+        );
+        assert_eq!(
+            native_integer_value((-24i64) as u64, -24, &metadata::Type::ISize),
+            I32(-24)
+        );
+        assert_eq!(
+            native_integer_value(i64::MAX as u64, i64::MAX, &metadata::Type::ISize),
+            I64(i64::MAX)
+        );
     }
 }
