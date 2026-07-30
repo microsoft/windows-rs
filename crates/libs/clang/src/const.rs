@@ -3,6 +3,7 @@ use super::*;
 #[derive(Debug)]
 pub struct Const {
     pub name: String,
+    pub ty: Option<metadata::Type>,
     pub value: metadata::Value,
 }
 
@@ -27,12 +28,24 @@ impl Const {
         let tokens = parser.tu.tokenize(cursor.extent());
         let body: Vec<_> = tokens.into_iter().skip(1).collect();
 
+        if let Some((ty, value)) = parse_native_negative_cast(&body, parser.ref_map) {
+            return Ok(Some(Self {
+                name,
+                ty: Some(ty),
+                value,
+            }));
+        }
+
         let Some(value) = parse_body(&body, parser.namespace, parser.ref_map, parser.header_names)
         else {
             return Ok(None);
         };
 
-        Ok(Some(Self { name, value }))
+        Ok(Some(Self {
+            name,
+            ty: None,
+            value,
+        }))
     }
 
     /// Parse file-scope floating-point `const` variables that flat metadata would otherwise lose.
@@ -50,13 +63,19 @@ impl Const {
             CXType_Double | CXType_LongDouble => metadata::Value::F64(cursor.evaluate_double()?),
             _ => return None,
         };
-        Some(Self { name, value })
+        Some(Self {
+            name,
+            ty: None,
+            value,
+        })
     }
 
     pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
-        let ty = write_type(namespace, &self.value.ty());
-        let value = write_value(namespace, &self.value);
+        let value_ty = self.value.ty();
+        let ty = self.ty.as_ref().unwrap_or(&value_ty);
+        let value = write_typed_value(namespace, ty, &self.value);
+        let ty = write_type(namespace, ty);
         match &self.value {
             metadata::Value::Utf8(_) => {
                 let attr = native_encoding_attr("ansi");
@@ -75,6 +94,51 @@ impl Const {
             _ => Ok(quote! { const #name: #ty = #value; }),
         }
     }
+}
+
+/// Preserve a direct negative literal cast as a fixed signed Constant row on a native field.
+///
+/// `(ULONG_PTR)-1` is one architecture-neutral source spelling. Keeping `I32(-1)` separate from
+/// the `usize` field lets the projection apply the cast for each target instead of materializing
+/// separate x86 and 64-bit maximum values.
+fn parse_native_negative_cast(
+    body: &[(CXTokenKind, String)],
+    ref_map: &HashMap<String, String>,
+) -> Option<(metadata::Type, metadata::Value)> {
+    let mut ty = None;
+    let mut literal = None;
+    let mut negate = false;
+
+    for (kind, token) in body {
+        match *kind {
+            CXToken_Punctuation if token == "(" || token == ")" => {}
+            CXToken_Punctuation if token == "-" && !negate && literal.is_none() => negate = true,
+            CXToken_Identifier if ty.is_none() => {
+                if ref_map.contains_key(token) {
+                    return None;
+                }
+                ty = pointer_sized_abi(token);
+                ty.as_ref()?;
+            }
+            CXToken_Literal if literal.is_none() => literal = Some(token.as_str()),
+            _ => return None,
+        }
+    }
+
+    if !negate {
+        return None;
+    }
+    let value = parse_literal(literal?, true)?;
+    if !matches!(
+        value,
+        metadata::Value::I32(_)
+            | metadata::Value::U32(_)
+            | metadata::Value::I64(_)
+            | metadata::Value::U64(_)
+    ) {
+        return None;
+    }
+    Some((ty?, value))
 }
 
 /// A GUID constant from a forward-declared C++ class with `__declspec(uuid(...))`.
@@ -230,7 +294,7 @@ const NARG_PROLOGUE: &str = "\
 /// Validity is read from recovered enum values, not diagnostics.
 fn eval_probe(name: &str) -> String {
     format!(
-        "enum {{ __rdl_eval_{name} = ({name}) }};\n\
+        "constexpr auto __rdl_eval_{name} = ({name});\n\
          enum {{ __rdl_ok_{name} = (({name}) & 0) + 1 }};\n\
          enum {{ __rdl_nc_{name} = __RDL_NARG({name}) }};\n\
          enum {{ __rdl_sz_{name} = sizeof({name}) }};\n\
@@ -242,7 +306,7 @@ fn eval_probe(name: &str) -> String {
 /// Missing gates mean a preceding macro swallowed later enum declarations, so the caller
 /// retries those names; failed gates are real rejects and are not retried.
 fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
-    let mut evals: Vec<(String, i64)> = vec![];
+    let mut evals: Vec<(String, u64, i64, Option<metadata::Type>)> = vec![];
     let mut eval_seen: HashSet<String> = HashSet::new();
     let mut ok_seen: HashSet<String> = HashSet::new();
     let mut nc_seen: HashSet<String> = HashSet::new();
@@ -254,6 +318,17 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
         if !child.is_from_main_file() {
             continue;
         }
+        if child.kind() == CXCursor_VarDecl
+            && let Some(original_name) = child.name().strip_prefix("__rdl_eval_")
+        {
+            eval_seen.insert(original_name.to_string());
+            if let Some((unsigned, signed)) = child.evaluate_integer() {
+                let ty = child.ty();
+                let semantic = pointer_sized_abi(&ty.ty().name());
+                evals.push((original_name.to_string(), unsigned, signed, semantic));
+            }
+            continue;
+        }
         if child.kind() != CXCursor_EnumDecl {
             continue;
         }
@@ -262,10 +337,7 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
                 continue;
             }
             let const_name = constant.name();
-            if let Some(original_name) = const_name.strip_prefix("__rdl_eval_") {
-                evals.push((original_name.to_string(), constant.enum_value()));
-                eval_seen.insert(original_name.to_string());
-            } else if let Some(original_name) = const_name.strip_prefix("__rdl_ok_") {
+            if let Some(original_name) = const_name.strip_prefix("__rdl_ok_") {
                 ok_seen.insert(original_name.to_string());
                 if constant.enum_value() == 1 {
                     type_ok.insert(original_name.to_string());
@@ -292,11 +364,19 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
 
     let kept = evals
         .into_iter()
-        .filter(|(name, _)| type_ok.contains(name) && shape_ok.contains(name))
-        .map(|(name, raw)| {
-            let value =
-                eval_integer_value(raw, sizes.get(&name).copied(), signs.get(&name).copied());
-            Const { name, value }
+        .filter(|(name, _, _, _)| type_ok.contains(name) && shape_ok.contains(name))
+        .map(|(name, unsigned, signed, ty)| {
+            let value = if let Some(ty) = &ty {
+                native_integer_value(unsigned, signed, ty)
+            } else {
+                eval_integer_value(
+                    unsigned,
+                    signed,
+                    sizes.get(&name).copied(),
+                    signs.get(&name).copied(),
+                )
+            };
+            Const { name, ty, value }
         })
         .collect();
 
@@ -304,25 +384,43 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
 }
 
 /// Type an evaluated integer from size/signedness probes, with a value-based fallback.
-fn eval_integer_value(raw: i64, sz: Option<i64>, sg: Option<i64>) -> metadata::Value {
+fn eval_integer_value(
+    unsigned: u64,
+    signed: i64,
+    sz: Option<i64>,
+    sg: Option<i64>,
+) -> metadata::Value {
     match (sz, sg) {
-        (Some(4), Some(1)) => metadata::Value::I32(raw as i32),
-        (Some(4), Some(2)) => metadata::Value::U32(raw as u32),
-        (Some(8), Some(1)) => metadata::Value::I64(raw),
-        (Some(8), Some(2)) => metadata::Value::U64(raw as u64),
+        (Some(4), Some(1)) => metadata::Value::I32(signed as i32),
+        (Some(4), Some(2)) => metadata::Value::U32(unsigned as u32),
+        (Some(8), Some(1)) => metadata::Value::I64(signed),
+        (Some(8), Some(2)) => metadata::Value::U64(unsigned),
         _ => {
-            if raw >= 0 {
-                if let Ok(v) = u32::try_from(raw) {
+            if signed >= 0 {
+                if let Ok(v) = u32::try_from(unsigned) {
                     metadata::Value::U32(v)
                 } else {
-                    metadata::Value::U64(raw as u64)
+                    metadata::Value::U64(unsigned)
                 }
-            } else if let Ok(v) = i32::try_from(raw) {
+            } else if let Ok(v) = i32::try_from(signed) {
                 metadata::Value::I32(v)
             } else {
-                metadata::Value::I64(raw)
+                metadata::Value::I64(signed)
             }
         }
+    }
+}
+
+/// Store native-sized fields in the smallest fixed-width Constant type that retains the value.
+fn native_integer_value(unsigned: u64, signed: i64, ty: &metadata::Type) -> metadata::Value {
+    match ty {
+        metadata::Type::USize => u32::try_from(unsigned)
+            .map(metadata::Value::U32)
+            .unwrap_or(metadata::Value::U64(unsigned)),
+        metadata::Type::ISize => i32::try_from(signed)
+            .map(metadata::Value::I32)
+            .unwrap_or(metadata::Value::I64(signed)),
+        _ => unreachable!(),
     }
 }
 
@@ -842,11 +940,10 @@ fn parse_named_cast(
         return scalar_value(&ty, raw, negate);
     }
 
-    // Pointer-sized typedefs are collapsed aliases, so sentinels use native-int primitives.
-    if !ref_map.contains_key(type_name)
-        && let Some(ty) = pointer_sized_abi(type_name)
-    {
-        return scalar_value(&ty, raw, negate);
+    // Pointer-sized casts need target-width evaluation. Returning `None` sends the macro through
+    // the typed batch evaluator, which retains both the native field type and the per-arch value.
+    if !ref_map.contains_key(type_name) && pointer_sized_abi(type_name).is_some() {
+        return None;
     }
 
     // Void-pointer aliases are collapsed too; keeping the alias name would dangle.
@@ -885,8 +982,12 @@ fn parse_named_complement(
     let raw = parse_int_digits(digits)?;
     let value = integer_complement_value(raw, int_literal_is_decimal(digits), suffix)?;
 
+    if !ref_map.contains_key(type_name) && pointer_sized_abi(type_name).is_some() {
+        return None;
+    }
+
     if !ref_map.contains_key(type_name)
-        && let Some(ty) = fundamental_scalar(type_name).or_else(|| pointer_sized_abi(type_name))
+        && let Some(ty) = fundamental_scalar(type_name)
     {
         return cast_integer_value(&ty, &value);
     }
@@ -1149,12 +1250,37 @@ mod tests {
     #[test]
     fn eval_values_use_probe_types() {
         use metadata::Value::{I32, I64, U32, U64};
-        assert_eq!(eval_integer_value(1, Some(4), Some(1)), I32(1));
-        assert_eq!(eval_integer_value(1, Some(4), Some(2)), U32(1));
-        assert_eq!(eval_integer_value(1, Some(8), Some(1)), I64(1));
-        assert_eq!(eval_integer_value(1, Some(8), Some(2)), U64(1));
-        assert_eq!(eval_integer_value(100, None, None), U32(100));
-        assert_eq!(eval_integer_value(-1, None, None), I32(-1));
-        assert_eq!(eval_integer_value(1, Some(0), Some(0)), U32(1));
+        assert_eq!(eval_integer_value(1, 1, Some(4), Some(1)), I32(1));
+        assert_eq!(eval_integer_value(1, 1, Some(4), Some(2)), U32(1));
+        assert_eq!(eval_integer_value(1, 1, Some(8), Some(1)), I64(1));
+        assert_eq!(eval_integer_value(1, 1, Some(8), Some(2)), U64(1));
+        assert_eq!(
+            eval_integer_value(u64::MAX, -1, Some(8), Some(2)),
+            U64(u64::MAX)
+        );
+        assert_eq!(eval_integer_value(100, 100, None, None), U32(100));
+        assert_eq!(eval_integer_value(u64::MAX, -1, None, None), I32(-1));
+        assert_eq!(eval_integer_value(1, 1, Some(0), Some(0)), U32(1));
+    }
+
+    #[test]
+    fn native_values_use_fixed_width_storage() {
+        use metadata::Value::{I32, I64, U32, U64};
+        assert_eq!(
+            native_integer_value(24, 24, &metadata::Type::USize),
+            U32(24)
+        );
+        assert_eq!(
+            native_integer_value(u64::MAX, -1, &metadata::Type::USize),
+            U64(u64::MAX)
+        );
+        assert_eq!(
+            native_integer_value((-24i64) as u64, -24, &metadata::Type::ISize),
+            I32(-24)
+        );
+        assert_eq!(
+            native_integer_value(i64::MAX as u64, i64::MAX, &metadata::Type::ISize),
+            I64(i64::MAX)
+        );
     }
 }

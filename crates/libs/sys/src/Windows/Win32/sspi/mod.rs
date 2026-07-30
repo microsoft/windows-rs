@@ -736,10 +736,7 @@ pub const SEC_CHANNEL_BINDINGS_RESULT_VALID_MISSING: i32 = 64;
 pub const SEC_CHANNEL_BINDINGS_RESULT_VALID_PROXY: i32 = 32;
 pub const SEC_CHANNEL_BINDINGS_VALID_FLAGS: i32 = 1;
 pub type SEC_CHAR = i8;
-#[cfg(target_arch = "x86")]
-pub const SEC_DELETED_HANDLE: u32 = 4294967294;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const SEC_DELETED_HANDLE: u64 = 18446744073709551614;
+pub const SEC_DELETED_HANDLE: usize = -2i32 as usize;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SEC_DTLS_MTU {

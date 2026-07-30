@@ -2113,7 +2113,7 @@ pub struct PKU2U_CREDUI_CONTEXT {
     pub CertArrayCount: u16,
     pub CertArrayOffset: u32,
 }
-pub const PKU2U_CREDUI_CONTEXT_VERSION: i64 = 1414677827;
+pub const PKU2U_CREDUI_CONTEXT_VERSION: i64 = 4707459272237270339;
 pub type PKU2U_LOGON_SUBMIT_TYPE = i32;
 pub const PKU2U_PACKAGE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("pku2u");
 pub const PKU2U_PACKAGE_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("pku2u");

@@ -602,10 +602,7 @@ mod Windows {
         const SEC_CHANNEL_BINDINGS_RESULT_VALID_PROXY: i32 = 32;
         const SEC_CHANNEL_BINDINGS_VALID_FLAGS: i32 = 1;
         type SEC_CHAR = i8;
-        #[arch(X64 | Arm64)]
-        const SEC_DELETED_HANDLE: u64 = 18446744073709551614;
-        #[arch(X86)]
-        const SEC_DELETED_HANDLE: u32 = 4294967294;
+        const SEC_DELETED_HANDLE: usize = -2i32;
         struct SEC_DTLS_MTU {
             PathMTU: u16,
         }

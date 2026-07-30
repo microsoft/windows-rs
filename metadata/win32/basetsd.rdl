@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[arch(X64 | Arm64)]
-        const ADDRESS_TAG_BIT: u64 = 0;
+        const ADDRESS_TAG_BIT: u64 = 4398046511104;
         #[arch(X86)]
         const ADDRESS_TAG_BIT: u32 = 2147483648;
         #[arch(X64 | Arm64)]
@@ -24,26 +24,26 @@ mod Windows {
         const MAXINT: i32 = 2147483647;
         const MAXINT16: u32 = 32767;
         const MAXINT32: i32 = 2147483647;
-        const MAXINT64: i64 = -1;
+        const MAXINT64: i64 = 9223372036854775807;
         const MAXINT8: u32 = 127;
         #[arch(X64 | Arm64)]
-        const MAXINT_PTR: i64 = -1;
+        const MAXINT_PTR: isize = 9223372036854775807;
         #[arch(X86)]
-        const MAXINT_PTR: i32 = 2147483647;
+        const MAXINT_PTR: isize = 2147483647;
         const MAXLONG32: i32 = 2147483647;
-        const MAXLONG64: i64 = -1;
+        const MAXLONG64: i64 = 9223372036854775807;
         #[arch(X64 | Arm64)]
-        const MAXLONG_PTR: i64 = -1;
+        const MAXLONG_PTR: isize = 9223372036854775807;
         #[arch(X86)]
-        const MAXLONG_PTR: i32 = 2147483647;
+        const MAXLONG_PTR: isize = 2147483647;
         #[arch(X64 | Arm64)]
-        const MAXSIZE_T: u64 = 18446744073709551615;
+        const MAXSIZE_T: usize = 18446744073709551615;
         #[arch(X86)]
-        const MAXSIZE_T: u32 = 4294967295;
+        const MAXSIZE_T: usize = 4294967295;
         #[arch(X64 | Arm64)]
-        const MAXSSIZE_T: i64 = -1;
+        const MAXSSIZE_T: isize = 9223372036854775807;
         #[arch(X86)]
-        const MAXSSIZE_T: i32 = 2147483647;
+        const MAXSSIZE_T: isize = 2147483647;
         #[arch(X64 | Arm64)]
         const MAXUHALF_PTR: u32 = 4294967295;
         #[arch(X86)]
@@ -54,16 +54,16 @@ mod Windows {
         const MAXUINT64: u64 = 18446744073709551615;
         const MAXUINT8: u32 = 255;
         #[arch(X64 | Arm64)]
-        const MAXUINT_PTR: u64 = 18446744073709551615;
+        const MAXUINT_PTR: usize = 18446744073709551615;
         #[arch(X86)]
-        const MAXUINT_PTR: u32 = 4294967295;
+        const MAXUINT_PTR: usize = 4294967295;
         const MAXULONG32: u32 = 4294967295;
         const MAXULONG64: u64 = 18446744073709551615;
         const MAXULONGLONG: u64 = 18446744073709551615;
         #[arch(X64 | Arm64)]
-        const MAXULONG_PTR: u64 = 18446744073709551615;
+        const MAXULONG_PTR: usize = 18446744073709551615;
         #[arch(X86)]
-        const MAXULONG_PTR: u32 = 4294967295;
+        const MAXULONG_PTR: usize = 4294967295;
         #[arch(X64 | Arm64)]
         const MINHALF_PTR: i32 = -2147483648;
         #[arch(X86)]
@@ -71,23 +71,23 @@ mod Windows {
         const MININT: i32 = -2147483648;
         const MININT16: i32 = -32768;
         const MININT32: i32 = -2147483648;
-        const MININT64: i64 = 0;
+        const MININT64: i64 = -9223372036854775808;
         const MININT8: i32 = -128;
         #[arch(X64 | Arm64)]
-        const MININT_PTR: i64 = 0;
+        const MININT_PTR: isize = -9223372036854775808;
         #[arch(X86)]
-        const MININT_PTR: i32 = -2147483648;
+        const MININT_PTR: isize = -2147483648;
         const MINLONG32: i32 = -2147483648;
-        const MINLONG64: i64 = 0;
-        const MINLONGLONG: i64 = 0;
+        const MINLONG64: i64 = -9223372036854775808;
+        const MINLONGLONG: i64 = -9223372036854775808;
         #[arch(X64 | Arm64)]
-        const MINLONG_PTR: i64 = 0;
+        const MINLONG_PTR: isize = -9223372036854775808;
         #[arch(X86)]
-        const MINLONG_PTR: i32 = -2147483648;
+        const MINLONG_PTR: isize = -2147483648;
         #[arch(X64 | Arm64)]
-        const MINSSIZE_T: i64 = 0;
+        const MINSSIZE_T: isize = -9223372036854775808;
         #[arch(X86)]
-        const MINSSIZE_T: i32 = -2147483648;
+        const MINSSIZE_T: isize = -2147483648;
         type PDWORD32 = *mut u32;
         type PDWORD64 = *mut u64;
         type PDWORD_PTR = *mut usize;

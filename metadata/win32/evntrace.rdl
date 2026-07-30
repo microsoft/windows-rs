@@ -574,7 +574,10 @@ mod Windows {
         extern fn GetTraceEnableLevel(TraceHandle: TRACELOGGER_HANDLE) -> u8;
         #[library("ADVAPI32.dll")]
         extern fn GetTraceLoggerHandle(Buffer: *const void) -> TRACELOGGER_HANDLE;
+        #[arch(X64 | Arm64)]
         const INVALID_PROCESSTRACE_HANDLE: u64 = 18446744073709551615;
+        #[arch(X86)]
+        const INVALID_PROCESSTRACE_HANDLE: u64 = 4294967295;
         #[encoding("ansi")]
         const KERNEL_LOGGER_NAMEA: String = "NT Kernel Logger";
         #[encoding("utf-16")]

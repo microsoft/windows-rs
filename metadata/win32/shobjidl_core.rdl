@@ -2109,7 +2109,7 @@ mod Windows {
             fn GroupChildWithParent(&self, childProcessHandle: HANDLE) -> HRESULT;
             fn UngroupChildFromParent(&self, childProcessHandle: HANDLE) -> HRESULT;
         }
-        const ITSAT_DEFAULT_LPARAM: usize = 18446744073709551615;
+        const ITSAT_DEFAULT_LPARAM: usize = -1i32;
         const ITSAT_DEFAULT_PRIORITY: i32 = 268435456;
         const ITSAT_MAX_PRIORITY: i32 = 2147483647;
         const ITSAT_MIN_PRIORITY: i32 = 0;

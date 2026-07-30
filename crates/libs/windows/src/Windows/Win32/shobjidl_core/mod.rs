@@ -18799,7 +18799,7 @@ impl ISuspensionDependencyManager_Vtbl {
 }
 #[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for ISuspensionDependencyManager {}
-pub const ITSAT_DEFAULT_LPARAM: usize = 18446744073709551615u64 as usize;
+pub const ITSAT_DEFAULT_LPARAM: usize = -1i32 as usize;
 pub const ITSAT_DEFAULT_PRIORITY: i32 = 268435456;
 pub const ITSAT_MAX_PRIORITY: i32 = 2147483647;
 pub const ITSAT_MIN_PRIORITY: i32 = 0;

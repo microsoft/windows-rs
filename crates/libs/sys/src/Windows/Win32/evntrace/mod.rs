@@ -927,6 +927,9 @@ pub const EventTraceConfigGuid: windows_sys::core::GUID = windows_sys::core::GUI
 pub const EventTraceGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x68fdd900_4a3e_11d1_84f4_0000f80464e3);
 pub const GLOBAL_LOGGER_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("GlobalLogger");
 pub const GLOBAL_LOGGER_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("GlobalLogger");
+#[cfg(target_arch = "x86")]
+pub const INVALID_PROCESSTRACE_HANDLE: u64 = 4294967295;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const INVALID_PROCESSTRACE_HANDLE: u64 = 18446744073709551615;
 pub const KERNEL_LOGGER_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("NT Kernel Logger");
 pub const KERNEL_LOGGER_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("NT Kernel Logger");

@@ -602,7 +602,7 @@ mod Windows {
         const CERT_CHAIN_WEAK_MIN_BIT_LENGTH_NAME: String = "MinBitLength";
         #[encoding("utf-16")]
         const CERT_CHAIN_WEAK_PREFIX_NAME: String = "Weak";
-        const CERT_CHAIN_WEAK_RSA_PUB_KEY_TIME_DEFAULT: u64 = 1550712832;
+        const CERT_CHAIN_WEAK_RSA_PUB_KEY_TIME_DEFAULT: u64 = 129067776000000000;
         #[encoding("utf-16")]
         const CERT_CHAIN_WEAK_RSA_PUB_KEY_TIME_VALUE_NAME: String = "WeakRsaPubKeyTime";
         #[encoding("utf-16")]

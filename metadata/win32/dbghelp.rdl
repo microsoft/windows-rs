@@ -864,7 +864,7 @@ mod Windows {
         const SSRVOPT_PARENTWIN: i32 = 128;
         const SSRVOPT_PROXY: i32 = 4096;
         const SSRVOPT_PROXYW: i32 = 262144;
-        const SSRVOPT_RESET: usize = 18446744073709551615;
+        const SSRVOPT_RESET: usize = -1i32;
         const SSRVOPT_RESETTOU: i32 = 32768;
         const SSRVOPT_RETRY_APP_HANG: u32 = 2147483648;
         const SSRVOPT_SECURE: i32 = 512;

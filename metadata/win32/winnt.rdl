@@ -1754,10 +1754,7 @@ mod Windows {
         const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: i32 = 4;
         const FLUSH_FLAGS_FLUSH_AND_PURGE: i32 = 8;
         const FLUSH_FLAGS_NO_SYNC: i32 = 2;
-        #[arch(X64 | Arm64)]
-        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: u64 = 18446744073709551615;
-        #[arch(X86)]
-        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: u32 = 4294967295;
+        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = -1i32;
         const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
         const FOREST_USER_RID_MAX: i32 = 499;
         struct FPO_DATA {
@@ -3126,7 +3123,7 @@ mod Windows {
             DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
         }
         #[arch(X64 | Arm64)]
-        const IMAGE_ORDINAL_FLAG: u64 = 0;
+        const IMAGE_ORDINAL_FLAG: u64 = 9223372036854775808;
         #[arch(X86)]
         const IMAGE_ORDINAL_FLAG: u32 = 2147483648;
         const IMAGE_ORDINAL_FLAG32: u32 = 2147483648;
@@ -4900,7 +4897,7 @@ mod Windows {
         const MEM_EXTENDED_PARAMETER_NONPAGED: i32 = 2;
         const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: i32 = 16;
         const MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: i32 = 8;
-        const MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY: i64 = 0;
+        const MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY: i64 = -9223372036854775808;
         const MEM_EXTENDED_PARAMETER_SECURE_PAGES: i32 = 128;
         const MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES: i32 = 32;
         const MEM_EXTENDED_PARAMETER_TAGGED: i32 = 256;
@@ -9972,7 +9969,7 @@ mod Windows {
         const XSTATE_CET_S: i32 = 12;
         const XSTATE_CET_U: i32 = 11;
         const XSTATE_COMPACTION_ENABLE: i32 = 63;
-        const XSTATE_COMPACTION_ENABLE_MASK: u64 = 0;
+        const XSTATE_COMPACTION_ENABLE_MASK: u64 = 9223372036854775808;
         struct XSTATE_CONFIGURATION {
             EnabledFeatures: u64,
             EnabledVolatileFeatures: u64,
@@ -10055,9 +10052,9 @@ mod Windows {
         #[arch(Arm64)]
         const XSTATE_MASK_ALLOWED: u64 = 60;
         #[arch(X64)]
-        const XSTATE_MASK_ALLOWED: u64 = 396799;
+        const XSTATE_MASK_ALLOWED: u64 = 4611686018427784703;
         #[arch(X86)]
-        const XSTATE_MASK_ALLOWED: u64 = 511;
+        const XSTATE_MASK_ALLOWED: u64 = 4611686018427388415;
         const XSTATE_MASK_AMD64_LEGACY: u64 = 3;
         const XSTATE_MASK_AMX_TILE_CONFIG: u64 = 131072;
         const XSTATE_MASK_AMX_TILE_DATA: u64 = 262144;
@@ -10081,13 +10078,13 @@ mod Windows {
         const XSTATE_MASK_LEGACY: u64 = 3;
         const XSTATE_MASK_LEGACY_FLOATING_POINT: u64 = 1;
         const XSTATE_MASK_LEGACY_SSE: u64 = 2;
-        const XSTATE_MASK_LWP: u64 = 0;
+        const XSTATE_MASK_LWP: u64 = 4611686018427387904;
         const XSTATE_MASK_MPX: u64 = 24;
         const XSTATE_MASK_PASID: u64 = 1024;
         #[arch(Arm64)]
         const XSTATE_MASK_PERSISTENT: u64 = 0;
         #[arch(X86 | X64)]
-        const XSTATE_MASK_PERSISTENT: u64 = 16;
+        const XSTATE_MASK_PERSISTENT: u64 = 4611686018427387920;
         #[arch(Arm64)]
         const XSTATE_MASK_USER_VISIBLE_SUPERVISOR: u64 = 0;
         #[arch(X86 | X64)]

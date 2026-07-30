@@ -155,7 +155,12 @@ pub(crate) fn item_refs(item: &Item, out: &mut HashSet<String>) {
         }
         Item::Struct(item) => collect_field_refs(&item.fields, out),
         Item::Typedef(item) => collect_type_refs(&item.ty, out),
-        Item::Const(item) => collect_value_refs(&item.value, out),
+        Item::Const(item) => {
+            if let Some(ty) = &item.ty {
+                collect_type_refs(ty, out);
+            }
+            collect_value_refs(&item.value, out);
+        }
         Item::PropertyKeyConst(item) => {
             out.insert(item.ty.clone());
         }

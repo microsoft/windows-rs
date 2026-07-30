@@ -6228,10 +6228,7 @@ impl Default for PROCESS_EXCEPTION_PORT {
     }
 }
 pub const PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: u32 = 3;
-#[cfg(target_arch = "x86")]
-pub const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u32 = 7;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u64 = 7;
+pub const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: usize = 7;
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]

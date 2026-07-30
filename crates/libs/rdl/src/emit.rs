@@ -201,6 +201,41 @@ pub fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
     }
 }
 
+/// Renders a constant value, preserving a fixed-width Constant row for a native-sized field.
+pub fn write_typed_value(
+    namespace: &str,
+    ty: &metadata::Type,
+    value: &metadata::Value,
+) -> TokenStream {
+    match (ty, value) {
+        (metadata::Type::ISize, metadata::Value::I64(value)) if i32::try_from(*value).is_ok() => {
+            let literal = Literal::i64_suffixed(*value);
+            quote! { #literal }
+        }
+        (metadata::Type::ISize, metadata::Value::U32(value)) => {
+            let literal = Literal::u32_suffixed(*value);
+            quote! { #literal }
+        }
+        (metadata::Type::ISize, metadata::Value::U64(value)) => {
+            let literal = Literal::u64_suffixed(*value);
+            quote! { #literal }
+        }
+        (metadata::Type::USize, metadata::Value::U64(value)) if u32::try_from(*value).is_ok() => {
+            let literal = Literal::u64_suffixed(*value);
+            quote! { #literal }
+        }
+        (metadata::Type::USize, metadata::Value::I32(value)) => {
+            let literal = Literal::i32_suffixed(*value);
+            quote! { #literal }
+        }
+        (metadata::Type::USize, metadata::Value::I64(value)) => {
+            let literal = Literal::i64_suffixed(*value);
+            quote! { #literal }
+        }
+        _ => write_value(namespace, value),
+    }
+}
+
 /// Formats GUID components as a UUID-style hex u128 literal, e.g.
 /// `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3`.
 pub(crate) fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {

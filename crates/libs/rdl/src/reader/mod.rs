@@ -39,6 +39,18 @@ use typedef::*;
 use union::*;
 use windows_metadata as metadata;
 
+fn fixed_signed_value(value: i64) -> metadata::Value {
+    i32::try_from(value)
+        .map(metadata::Value::I32)
+        .unwrap_or(metadata::Value::I64(value))
+}
+
+fn fixed_unsigned_value(value: u64) -> metadata::Value {
+    u32::try_from(value)
+        .map(metadata::Value::U32)
+        .unwrap_or(metadata::Value::U64(value))
+}
+
 #[derive(Default)]
 /// Builder that compiles RDL files into `.winmd` metadata.
 pub struct Reader {
@@ -592,6 +604,12 @@ impl Encoder<'_> {
         ty: &metadata::Type,
         value: &syn::Expr,
     ) -> Result<metadata::Value, Error> {
+        if matches!(ty, metadata::Type::ISize | metadata::Type::USize)
+            && let Some(value) = self.encode_fixed_width_value(value)?
+        {
+            return Ok(value);
+        }
+
         let value = match ty {
             metadata::Type::I8 => metadata::Value::I8(self.encode_lit_sint(value, 8)? as i8),
             metadata::Type::U8 => metadata::Value::U8(self.encode_lit_uint(value, 8)? as u8),
@@ -604,8 +622,8 @@ impl Encoder<'_> {
             metadata::Type::F32 => metadata::Value::F32(self.encode_neg_lit_float::<f32>(value)?),
             metadata::Type::F64 => metadata::Value::F64(self.encode_neg_lit_float::<f64>(value)?),
             metadata::Type::String => metadata::Value::Utf16(self.encode_lit_string(value)?),
-            metadata::Type::ISize => metadata::Value::ISize(self.encode_lit_sint(value, 64)?),
-            metadata::Type::USize => metadata::Value::USize(self.encode_lit_uint(value, 64)?),
+            metadata::Type::ISize => fixed_signed_value(self.encode_lit_sint(value, 64)?),
+            metadata::Type::USize => fixed_unsigned_value(self.encode_lit_uint(value, 64)?),
             metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
                 let v = self.encode_neg_lit_int::<i64>(value)?;
                 if let Ok(v) = i32::try_from(v) {
@@ -633,6 +651,38 @@ impl Encoder<'_> {
         };
 
         Ok(value)
+    }
+
+    fn encode_fixed_width_value(
+        &self,
+        value: &syn::Expr,
+    ) -> Result<Option<metadata::Value>, Error> {
+        let int = match value {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int,
+            syn::Expr::Unary(syn::ExprUnary { expr, .. }) => {
+                let syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) = expr.as_ref()
+                else {
+                    return Ok(None);
+                };
+                int
+            }
+            _ => return Ok(None),
+        };
+
+        let value = match int.suffix() {
+            "i32" => metadata::Value::I32(self.encode_lit_sint(value, 32)? as i32),
+            "u32" => metadata::Value::U32(self.encode_lit_uint(value, 32)? as u32),
+            "i64" => metadata::Value::I64(self.encode_lit_sint(value, 64)?),
+            "u64" => metadata::Value::U64(self.encode_lit_uint(value, 64)?),
+            _ => return Ok(None),
+        };
+        Ok(Some(value))
     }
 
     fn rdl_underlying_type(&self, namespace: &str, name: &str) -> Option<metadata::Type> {

@@ -1520,7 +1520,7 @@ mod Windows {
             CertArrayCount: u16,
             CertArrayOffset: u32,
         }
-        const PKU2U_CREDUI_CONTEXT_VERSION: i64 = 1414677827;
+        const PKU2U_CREDUI_CONTEXT_VERSION: i64 = 4707459272237270339;
         #[repr(i32)]
         enum PKU2U_LOGON_SUBMIT_TYPE {
             Pku2uCertificateS4ULogon = 14,

@@ -3025,10 +3025,7 @@ impl Default for FS_BPIO_OUTPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-pub const FS_BPIO_OUTPUT_DISABLE_SIZE: u32 = 24;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const FS_BPIO_OUTPUT_DISABLE_SIZE: u64 = 24;
+pub const FS_BPIO_OUTPUT_DISABLE_SIZE: usize = 24;
 #[cfg(target_arch = "x86")]
 pub const FS_BPIO_OUTPUT_ENABLE_SIZE: u32 = 352;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3041,18 +3038,12 @@ pub const FS_BPIO_OUTPUT_GET_INFO_SIZE: u64 = 96;
 pub const FS_BPIO_OUTPUT_QUERY_SIZE: u32 = 352;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const FS_BPIO_OUTPUT_QUERY_SIZE: u64 = 352;
-#[cfg(target_arch = "x86")]
-pub const FS_BPIO_OUTPUT_STREAM_PAUSE_SIZE: u32 = 24;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const FS_BPIO_OUTPUT_STREAM_PAUSE_SIZE: u64 = 24;
+pub const FS_BPIO_OUTPUT_STREAM_PAUSE_SIZE: usize = 24;
 #[cfg(target_arch = "x86")]
 pub const FS_BPIO_OUTPUT_STREAM_RESUME_SIZE: u32 = 352;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const FS_BPIO_OUTPUT_STREAM_RESUME_SIZE: u64 = 352;
-#[cfg(target_arch = "x86")]
-pub const FS_BPIO_OUTPUT_VOLUME_STACK_PAUSE_SIZE: u32 = 24;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const FS_BPIO_OUTPUT_VOLUME_STACK_PAUSE_SIZE: u64 = 24;
+pub const FS_BPIO_OUTPUT_VOLUME_STACK_PAUSE_SIZE: usize = 24;
 #[cfg(target_arch = "x86")]
 pub const FS_BPIO_OUTPUT_VOLUME_STACK_RESUME_SIZE: u32 = 352;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
