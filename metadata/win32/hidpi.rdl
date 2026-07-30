@@ -1,7 +1,6 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const FACILITY_HID_ERROR_CODE: i32 = 17;
         struct HIDP_BUTTON_ARRAY_DATA {
             ArrayIndex: u16,
             On: bool,

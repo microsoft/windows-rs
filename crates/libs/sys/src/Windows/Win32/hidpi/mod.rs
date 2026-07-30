@@ -43,7 +43,6 @@ windows_link::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(c
 #[cfg(feature = "hidusage")]
 windows_link::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *const i8, reportlength : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_UsageListDifference(previoususagelist : *const u16, currentusagelist : *const u16, breakusagelist : *mut u16, makeusagelist : *mut u16, usagelistlength : u32) -> windows_sys::core::NTSTATUS);
-pub const FACILITY_HID_ERROR_CODE: i32 = 17;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct HIDP_BUTTON_ARRAY_DATA {

@@ -80,7 +80,9 @@ const SAL_SHIM: &str = "crates/tools/win32/src/sal.h";
 /// fundamental types (`HANDLE`, `DWORD`, `HWND`, …) are in scope via `windows.h`.
 /// `SECURITY_WIN32` selects the user-mode SSPI surface so `sspi.h` (and the headers
 /// that include it) compile rather than `#error`-ing on an undefined security package.
-const PRELUDE: &str = "#define SECURITY_WIN32\n#include <winsock2.h>\n#include <windows.h>";
+/// `WIN32_NO_STATUS` suppresses `winnt.h`'s `DWORD` compatibility status macros so
+/// `ntstatus.h` supplies the same names with their declared `NTSTATUS` type.
+const PRELUDE: &str = "#define SECURITY_WIN32\n#define WIN32_NO_STATUS\n#include <winsock2.h>\n#include <windows.h>\n#undef WIN32_NO_STATUS\n#include <ntstatus.h>";
 
 /// Reset emitted after the prelude and after every header *in a satellite translation
 /// unit* (see [`SATELLITE_HEADERS`]) to keep `DEFINE_GUID` in its declaration

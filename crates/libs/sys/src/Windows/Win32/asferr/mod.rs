@@ -42,7 +42,3 @@ pub const ASF_E_WRITEFAILED: windows_sys::core::HRESULT = 0xC00D0808_u32 as _;
 pub const ASF_E_WRONGVERSION: windows_sys::core::HRESULT = 0xC00D07EE_u32 as _;
 pub const ASF_S_OPAQUEPACKET: windows_sys::core::HRESULT = 0xD07F0_u32 as _;
 pub const FACILITY_NS: i32 = 13;
-pub const STATUS_SEVERITY_ERROR: i32 = 3;
-pub const STATUS_SEVERITY_INFORMATIONAL: i32 = 1;
-pub const STATUS_SEVERITY_SUCCESS: i32 = 0;
-pub const STATUS_SEVERITY_WARNING: i32 = 2;
