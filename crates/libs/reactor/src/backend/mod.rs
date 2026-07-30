@@ -521,7 +521,8 @@ pub trait SendDispatcher: Send + Sync + 'static {
     ) -> bool;
 }
 
-/// Process-wide unique identifier for a [`RenderHost`]/[`RenderCx`] pair.
+/// Process-wide unique identifier for a [`RenderHost`] and all of its
+/// [`RenderCx`] instances.
 ///
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
 pub struct HostId(u64);

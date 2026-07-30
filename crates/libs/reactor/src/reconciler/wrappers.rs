@@ -9,6 +9,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut cx = RenderCx::new(Rc::clone(&self.request_rerender));
         cx.set_context_stack(self.context_stack_handle());
         cx.set_marshaller(self.marshaller.clone());
+        cx.set_host_id(self.host_id);
         cx.set_inner_size_cell(Rc::clone(&self.inner_size));
         cx.set_dpi_cell(Rc::clone(&self.dpi));
         cx.begin_render();
