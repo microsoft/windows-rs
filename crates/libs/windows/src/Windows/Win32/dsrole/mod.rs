@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn DsRoleFreeMemory(buffer: *mut core::ffi::c_void) {
-    windows_core::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *mut core::ffi::c_void));
-    unsafe { DsRoleFreeMemory(buffer as _) }
+pub unsafe fn DsRoleFreeMemory(buffer: *const core::ffi::c_void) {
+    windows_core::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *const core::ffi::c_void));
+    unsafe { DsRoleFreeMemory(buffer) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

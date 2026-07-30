@@ -165,9 +165,9 @@ pub unsafe fn WTSEnumerateSessionsW(hserver: super::HANDLE, reserved: u32, versi
     unsafe { WTSEnumerateSessionsW(hserver, reserved, version, ppsessioninfo as _, pcount as _) }
 }
 #[inline]
-pub unsafe fn WTSFreeMemory(pmemory: *mut core::ffi::c_void) {
-    windows_core::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut core::ffi::c_void));
-    unsafe { WTSFreeMemory(pmemory as _) }
+pub unsafe fn WTSFreeMemory(pmemory: *const core::ffi::c_void) {
+    windows_core::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *const core::ffi::c_void));
+    unsafe { WTSFreeMemory(pmemory) }
 }
 #[inline]
 pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const core::ffi::c_void, numberofentries: u32) -> windows_core::BOOL {

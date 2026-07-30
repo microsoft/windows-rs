@@ -147,7 +147,6 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusa
     windows_core::link!("hid.dll" "system" fn HidP_UsageListDifference(previoususagelist : *const u16, currentusagelist : *const u16, breakusagelist : *mut u16, makeusagelist : *mut u16, usagelistlength : u32) -> windows_core::NTSTATUS);
     unsafe { HidP_UsageListDifference(previoususagelist, currentusagelist, breakusagelist as _, makeusagelist as _, usagelistlength) }
 }
-pub const FACILITY_HID_ERROR_CODE: i32 = 17;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_ARRAY_DATA {

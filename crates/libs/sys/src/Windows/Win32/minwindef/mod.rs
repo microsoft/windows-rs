@@ -1,8 +1,5 @@
 pub type ATOM = u16;
 pub const FALSE: i32 = 0;
-#[cfg(target_arch = "x86")]
-pub type FARPROC = Option<unsafe extern "system" fn() -> i32>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -43,9 +40,6 @@ pub type LPLONG = *mut i32;
 pub type LPWORD = *mut u16;
 pub type LRESULT = isize;
 pub const MAX_PATH: i32 = 260;
-#[cfg(target_arch = "x86")]
-pub type NEARPROC = Option<unsafe extern "system" fn() -> i32>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type NEARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub type PBOOL = *mut windows_sys::core::BOOL;
 pub type PBYTE = *mut u8;
@@ -54,9 +48,6 @@ pub type PFILETIME = *mut FILETIME;
 pub type PFLOAT = *mut f32;
 pub type PHKEY = *mut HKEY;
 pub type PINT = *mut i32;
-#[cfg(target_arch = "x86")]
-pub type PROC = Option<unsafe extern "system" fn() -> i32>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PROC = Option<unsafe extern "system" fn() -> isize>;
 pub type PSZ = *mut i8;
 pub type PUCHAR = *mut u8;

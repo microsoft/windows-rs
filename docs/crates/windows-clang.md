@@ -381,6 +381,12 @@ listing the defining header in the manifest and regenerating - the reachability 
 automatic. A full generational SDK bump (e.g. 24H2 -> 25H2) is absorbed the same way, with no
 scraper changes.
 
+The prelude defines `WIN32_NO_STATUS` while including `windows.h`, then includes `ntstatus.h`.
+This is the SDK-supported include pattern for keeping overlapping `STATUS_*` and `DBG_*` constants
+typed as `NTSTATUS` rather than the `DWORD` compatibility definitions in `winnt.h`. APIs whose
+headers accept those values as `DWORD`, such as `ContinueDebugEvent`, still require a conversion
+from `NTSTATUS`.
+
 Functions whose exporting DLL cannot be recovered from any import library in the manifest are
 dropped (matching the reference, which carries none): a function with an empty `#[library("")]`
 would otherwise force `windows-bindgen` to emit an empty `link!` library name, a hard `E0454` error.
@@ -529,11 +535,15 @@ for those rules. Keep the list short. Justify each entry from original header in
 matching win32metadata for its own sake. If a change makes the metadata diverge from a literal
 reading of the headers, it belongs in this table with a rationale.
 
+Integer literals follow the C11 candidate-type lists, including radix and `U`/`L`/`LL` suffixes.
+Thus `#define SW_NORMAL 1` is `i32`, while `0x80000000` is `u32`. Explicit named casts are
+preserved, including all-ones sentinels such as `(SOCKET)(~0)`, which remains typed as `SOCKET`
+rather than becoming an architecture-specific `u32` or `u64`.
+
 | # | Deviation | Rule (automatable - no per-symbol list) | Preserve-set (the only curation) | Where | Rationale |
 |---|-----------|------------------------------------------|-----------------------------------|-------|-----------|
-| 1 | Non-negative integer constants -> `u32`/`u64` | A `#define` literal's suffix (`L`/`LL`) encodes *width*, not *signedness*; default unsigned, negated -> `i32`/`i64`, explicit keyword/named cast wins. | - | `const.rs` | `L` means "at least `long`", never "signed value". Win32 flag/id constants are unsigned domains. |
 | 2 | `_HRESULT_TYPEDEF_(x)` etc. -> typed `HRESULT` | A hardcoded 3-macro map of the canonical SDK error-typedef cast macros routes through `parse_named_cast`. | 3 SDK macros (`_HRESULT_TYPEDEF_`, `_NDIS_ERROR_TYPEDEF_`, and more) | `const.rs` | The macro *is* the author's type annotation; `E_FAIL` is an `HRESULT`, not a bare `i32`. |
-| 4 | Pointer const-ness follows SAL direction (parameters) | `_In_`/`_In_opt_`/`_Reserved_` (read-only) pointer param -> `*const`; `_Out_`/`_Inout_` (writable) -> `*mut`. Overrides the C typedef's own mutability. A string wrapper flips its *named* const variant instead (`PWSTR`<->`PCWSTR`, `PSTR`<->`PCSTR`). | - | `canon.rs` (`apply_sal_constness`), from `fn.rs`, `interface.rs` | SAL is the author's read/write contract; `_In_ LPWSTR` is a *read-only* string despite `LPWSTR` being `*mut`. Matches the reference. Parameters only - struct fields keep their C const-ness. |
+| 4 | Pointer const-ness follows source direction annotations (parameters) | `_In_`/`_In_opt_`/`_Reserved_` and legacy empty `IN` (read-only) pointer param -> `*const`; `_Out_`/`_Inout_` and legacy empty `OUT` (writable) -> `*mut`. Legacy `OPTIONAL` maps to `#[opt]`. Overrides the C typedef's own mutability. A string wrapper flips its *named* const variant instead (`PWSTR`<->`PCWSTR`, `PSTR`<->`PCSTR`). Legacy words are recognized only when the translation unit defines the corresponding empty macro. | - | `annotation.rs`, `canon.rs` (`apply_sal_constness`), from `fn.rs`, `interface.rs`, `callback.rs` | SAL and its legacy predecessors are the author's read/write contract; `_In_ LPWSTR` and `IN LPWSTR` are read-only strings despite `LPWSTR` being `*mut`. Parameters only - struct fields keep their C const-ness. |
 | 5 | `LP*`/`P*` pointer aliases collapse to raw pointers (parameters only) | At a parameter site, a typedef whose one-level underlying type is a pointer is inlined to the raw pointer it spells, keeping the *named* pointee (`LPDWORD`->`*mut DWORD`, `PHKEY`->`*mut HKEY`). The string wrappers are normalised *everywhere*, not just parameters (see #9). | Kept named: string wrappers (per #9); `BSTR` (a length-prefixed, `SysAllocString`-owned COM string, never collapsed to `*const OLECHAR`); handles (`HANDLE` = `void*`, `HWND` = `struct HWND__*`); function-pointer aliases (`FARPROC`); non-pointer aliases. | `canon.rs` (`collapse_pointer_alias_param`; name-keyed cases in `alias_policy`) | These aliases are pure portability spelling (`LPDWORD`=`DWORD*`); the pointer *is* the ABI, and SAL const (#4) cannot be expressed while it is hidden inside an opaque `*mut` alias. Collapsing only at parameter sites keeps the change surgical - fields, returns and constants keep their named aliases, so no `type LP* = <alias>` is left dangling. The pointee keeps its Win32 name (`*mut DWORD`): ABI-identical. |
 | 6 | Fixed-width portability scalar aliases -> primitive (`DWORD`->`u32`, `WORD`->`u16`, `LONG`->`i32`, `WCHAR`->`u16`, the `INTn`/`UINTn` and C99 `intN_t`/`uintN_t`) | A curated name list (`fundamental_scalar`) collapses only the pure width spellings to their primitive at every use site; the list is *shared* with the const-cast collapse so a typedef and any constant typed by it never disagree. | The collapse-list is the curation - every other scalar stays named: `HFILE`/`ATOM`/`COLORREF`/`LANGID`/`LCID`/`BOOL`/`BOOLEAN`/`NTSTATUS`/`HRESULT`, and the pointer-sized aliases (`ULONG_PTR`/`SIZE_T` -> `usize`, via `pointer_sized_abi`). | `canon.rs` (`fundamental_scalar`), `typedef.rs`, `const.rs` | `DWORD`=`unsigned long` is pure C portability spelling; `HFILE`(`int`)/`DWORD`(`unsigned long`) are *identical* at the type level - only the name separates a domain concept from width noise, so the curation must be name-keyed. Collapsing the width spellings matches the reference; the preserved domain names stay aligned with the header. |
 | 7 | Floating-point typedefs -> `f32`/`f64` (`FLOAT`, `DOUBLE`, `DATE`, `REFTIME`, OLE/GL/SQL float aliases, chained `UI_ANIMATION_SECONDS`->`DOUBLE`) | Structural, no name list: a typedef whose *canonical* kind is `float`/`double`/`long double` collapses to the primitive at every use site and its definition is suppressed (`floating_typedef`). | - (the float side has no domain/noise split to preserve) | `canon.rs` (`floating_typedef`), `typedef.rs` | The reference metadata contains zero floating `NativeTypedef`s - win32metadata drops *every* one. Unlike the integer side (#6), the float side is uniform, so the rule is structural (by canonical kind) rather than a curated list - self-maintaining as the SDK grows. |
@@ -858,30 +868,32 @@ lives in `rust-lang/rust`:
 | File | Role |
 | --- | --- |
 | `src/tools/generate-windows-sys/src/main.rs` | Runs `windows_bindgen::bindgen(["--etc", "bindings.txt"])` and appends an ARM32 `WSADATA`/`CONTEXT` shim. |
-| `library/std/src/sys/pal/windows/c/bindings.txt` | The filter: `--out windows_sys.rs --flat --sys --no-deps --link windows_link` plus 2,642 flat API names. |
+| `library/std/src/sys/pal/windows/c/bindings.txt` | The filter: `--out windows_sys.rs --flat --sys` plus 2,641 flat API names. Its `--link windows_link` argument is redundant. |
 | `library/std/src/sys/pal/windows/c.rs` | Hand-written overrides and functions the generated file does not provide (`windows_sys.rs` is generated and must not be edited). |
 
-Every one of the 2,642 filter names was resolved against the default metadata (the single
-`crates/libs/bindgen/default/Windows.Win32.winmd`, merged from `metadata/win32/*.rdl` and
-`metadata/wdk/*.rdl`) using the bindgen filter resolver. **49 names did not resolve; the three
-bucket-E gaps are now fixed (see below), leaving 46.** In every remaining case the member
-*constants* of a collapsed type are still present; only the wrapper *type name* or an invented
-member is missing.
+`--sys` already emits `windows_link::link!`, so the consumer does not need
+`--link windows_link`. The `windows_link` macro still selects raw-dylib linking when its
+`windows_raw_dylib` feature is enabled.
 
-### Unresolved filter entries (49; 3 now fixed)
+Every one of the 2,641 filter names was resolved against the default metadata (the single
+`crates/libs/bindgen/default/Windows.Win32.winmd`, merged from `metadata/win32/*.rdl` and
+`metadata/wdk/*.rdl`) using the bindgen filter resolver. **2,596 resolve and 45 do not.** In every
+remaining case the member *constants* of a collapsed type are still present; only the wrapper
+*type name* or an invented member is missing.
+
+### Unresolved filter entries (45)
 
 | Cause | Count | Names | Fixable here? |
 | --- | --- | --- | --- |
 | **A. Flat-namespace path mismatch.** The type/const exists; only Rust's sub-namespace path is wrong (the metadata is flat `Windows.Win32`). | 4 | `Windows.Win32.System.Diagnostics.Debug.XSAVE_FORMAT`, `Windows.Win32.System.Kernel.FLOATING_SAVE_AREA`, `Windows.Wdk.Storage.FileSystem.FILE_NO_COMPRESSION`, `Windows.Wdk.Storage.FileSystem.FILE_OPEN_NO_RECALL` | No - Rust should use bare names. |
 | **B. Grouping enum/flag typedef collapsed to a scalar.** Win32metadata invented these to wrap loose `#define`s; the header declares plain constants + scalar params, so no named type is emitted. Members are present as flat constants. | 30 | `COMPARESTRING_RESULT`, `CONSOLE_MODE`, `DUPLICATE_HANDLE_OPTIONS`, `FILE_ACCESS_RIGHTS`, `FILE_CREATION_DISPOSITION`, `FILE_DISPOSITION_INFO_EX_FLAGS`, `FILE_FLAGS_AND_ATTRIBUTES`, `FILE_SHARE_MODE`, `FILE_TYPE`, `FORMAT_MESSAGE_OPTIONS`, `GENERIC_ACCESS_RIGHTS`, `GETFINALPATHNAMEBYHANDLE_FLAGS`, `HANDLE_FLAGS`, `LPPROGRESS_ROUTINE_CALLBACK_REASON`, `MOVE_FILE_FLAGS`, `MULTI_BYTE_TO_WIDE_CHAR_FLAGS`, `NAMED_PIPE_MODE`, `NTCREATEFILE_CREATE_DISPOSITION`, `NTCREATEFILE_CREATE_OPTIONS`, `PROCESS_CREATION_FLAGS`, `PROCESSOR_ARCHITECTURE`, `SEND_RECV_FLAGS`, `SET_FILE_POINTER_MOVE_METHOD`, `STARTUPINFOW_FLAGS`, `STD_HANDLE`, `SYMBOLIC_LINK_FLAGS`, `THREAD_CREATION_FLAGS`, `TOKEN_ACCESS_MASK`, `WINSOCK_SHUTDOWN_HOW`, `WINSOCK_SOCKET_TYPE` | Design choice - collapse is intended; Rust must switch to scalars or the projection layer must re-emit named aliases. |
-| **C. Error/status typedef collapsed to a scalar.** | 4 | `NTSTATUS`, `WIN32_ERROR`, `WSA_ERROR`, `FACILITY_CODE` | Design choice - same options as B. |
+| **C. Error/status typedef collapsed to a scalar.** | 3 | `WIN32_ERROR`, `WSA_ERROR`, `FACILITY_CODE` | Design choice - same options as B. |
 | **D. Invented enum member with no SDK macro.** Members of Win32metadata grouping enums that no header declares. | 8 | `FILE_SHARE_NONE` (0), `THREAD_CREATE_RUN_IMMEDIATELY` (0), `THREAD_CREATE_SUSPENDED`, `TOKEN_ACCESS_SYSTEM_SECURITY`, `TOKEN_DELETE`, `TOKEN_READ_CONTROL`, `TOKEN_WRITE_DAC`, `TOKEN_WRITE_OWNER` | Only by emitting them as named constants; no header origin. |
-| **E. Real value dropped by scrape logic.** | 3 | `FileRenameInformation` (10), `FileRenameInformationEx` (65) - the public `winternl.h` truncates `FILE_INFORMATION_CLASS` to its single `FileDirectoryInformation` member, and the fuller WDK enum used to be suppressed as a duplicate; `IPPROTO_RM` (113) - lived only in `wsrm.h`, which was not in the scrape's `HEADERS`. | **Fixed** - see below. |
 
-None of the remaining 46 are header-coverage gaps: the defining headers are already scraped. B and
-C are the deliberate scalar canonicalization, and D are Win32metadata inventions. E was the one
-real dropping/coverage gap and is now closed (`IPPROTO_RM` needed a new header; the `FileRename*`
-members needed a member-level enum merge).
+None of the 45 are header-coverage gaps: the defining headers are already scraped. B and C are the
+deliberate scalar canonicalization, and D are Win32metadata inventions. `NTSTATUS` now resolves as
+a named `i32` alias, and `STATUS_*` constants duplicated by `winnt.h` and `ntstatus.h` use the
+`NTSTATUS` definitions.
 
 ### Moving Rust's hand-written `c.rs` bindings into the generated surface
 
@@ -938,7 +950,7 @@ already reachable from the scraped headers (buckets A-C, and the `FileRename*` m
 header declaration at all (bucket D and the keep-hand-written group). The remaining levers are
 internal to the scrape/projection, not the `HEADERS`/`SOURCE_HEADERS` lists:
 
-- **Buckets B and C (34 grouping/error typedefs)** - the real decision: either re-introduce these
+- **Buckets B and C (33 grouping/error typedefs)** - the real decision: either re-introduce these
   as named scalar aliases in the projection layer (`windows-bindgen`) for parity with Rust, or Rust
   updates `bindings.txt` and `c.rs` to use raw scalars. This is the bulk of the remaining
   compatibility work.
@@ -948,6 +960,20 @@ Any parity move must be verified output-neutral by regenerating `tool_win32` (an
 generated-file changes, then confirming each moved symbol matches Rust's hand-written signature
 (some hand-written forms exist to work around old Win32metadata bugs and must be diffed, not assumed
 equal).
+
+### Issue #4758 findings
+
+One report exposed a source-annotation gap. The others do not identify literal-header scrape bugs:
+
+| Report | Header finding | Action |
+| --- | --- | --- |
+| `_PROC_THREAD_ATTRIBUTE_LIST` should omit the underscore. | The SDK declares only `typedef struct _PROC_THREAD_ATTRIBUTE_LIST *PPROC_THREAD_ATTRIBUTE_LIST, *LPPROC_THREAD_ATTRIBUTE_LIST;`. The existing tag-rename rule removes `_`/`tag` spellings only when a direct public struct typedef exists; there is none here. | Keep the declared tag. Deriving a struct name by removing `P`/`LP` from a pointer alias would invent names for many pointer-only opaque records. |
+| Legacy `IN` parameters should use `*const`. | The SDK defines `IN`, `OUT`, and `OPTIONAL` as empty predecessor macros for modern SAL. The scraper already lets `_In_`/`_Out_` override a pointer typedef's C mutability. | Fixed by recovering the empty legacy macros from source tokens and routing them through the same direction and optionality logic. This corrects `NtCreateFile`, `NtOpenFile`, and the other legacy declarations without a symbol list. |
+| `IPPROTO_IP` and `IPPROTO_RM` should have type `IPPROTO`. | Both are bare integer macros with no cast or enum association. `IPPROTO` itself projects as an `i32` alias in `--sys` bindings. | Keep `i32`. A named type requires a header cast or an editorial projection rule. |
+| Many constants require `i32`/`u32` casts at Rust call sites. | The scraper follows C literal candidate types. For example, `GENERIC_READ` is the unsuffixed hexadecimal `0x80000000L` and becomes `u32`, while `GENERIC_WRITE` fits in `long` and becomes `i32`. C APIs hide these differences through implicit conversions. | Use consumer casts, correct the header literals/casts, or add an explicitly editorial compatibility projection. No global scrape rule is correct. |
+| `FARPROC` should always return `isize`. | The SDK declares `int` on x86 and `INT_PTR` on 64-bit. `INT_PTR` already collapses through the pointer-sized ABI rule, but the x86 branch contains only raw `int`. The same pattern exists only for `FARPROC`, `NEARPROC`, and `PROC`. | Fixed in the cross-architecture merger. An unmanaged callback is normalized only when one copy explicitly uses `isize`/`usize` and every fixed-width copy has the matching native width for its architecture. This preserves the SDK's pointer-sized evidence without a callback-name list or a general `i32`/`i64` guess. |
+| `INVALID_SOCKET` should be pointer-sized. | The header spells `(SOCKET)(~0)`, and `SOCKET` aliases `UINT_PTR`. This supplies both the named semantic cast and pointer-sized ABI chain. | Fixed: named complemented casts preserve `SOCKET`, while the existing `UINT_PTR` rule makes `SOCKET = usize`. The generated constant is `INVALID_SOCKET: SOCKET`. |
+| Generated bindings changed from LF to CRLF. | This is a `windows-bindgen` formatting issue, not metadata. A token stream with no newline makes rustfmt's `Auto` setting fall back to native CRLF on Windows. | `windows-bindgen` should default rustfmt to `newline_style=Unix`, while allowing an explicit user setting to override it. |
 
 ## Open investigations: orchestration simplification
 

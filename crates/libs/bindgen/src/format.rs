@@ -16,13 +16,7 @@ impl Config<'_> {
         cmd.stdin(std::process::Stdio::piped());
         cmd.stdout(std::process::Stdio::piped());
         cmd.stderr(std::process::Stdio::null());
-        cmd.arg("--edition");
-        cmd.arg("2024");
-
-        if let Some(config) = self.bindgen.rustfmt.as_deref() {
-            cmd.arg("--config");
-            cmd.arg(config);
-        }
+        cmd.args(rustfmt_args(self.bindgen.rustfmt.as_deref()));
 
         let mut child = cmd.spawn().ok()?;
         let mut stdin = child.stdin.take()?;
@@ -36,6 +30,16 @@ impl Config<'_> {
 
         String::from_utf8(output.stdout).ok()
     }
+}
+
+fn rustfmt_args(config: Option<&str>) -> Vec<&str> {
+    let mut args = vec!["--edition", "2024", "--config", "newline_style=Unix"];
+
+    if let Some(config) = config {
+        args.extend(["--config", config]);
+    }
+
+    args
 }
 
 /// Tighten whitespace inside macro invocations that `rustfmt` leaves untouched.
@@ -268,6 +272,25 @@ fn collapse_space_before_paren(s: String) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn rustfmt_defaults_to_unix_line_endings() {
+        assert_eq!(
+            rustfmt_args(None),
+            ["--edition", "2024", "--config", "newline_style=Unix"]
+        );
+        assert_eq!(
+            rustfmt_args(Some("newline_style=Windows")),
+            [
+                "--edition",
+                "2024",
+                "--config",
+                "newline_style=Unix",
+                "--config",
+                "newline_style=Windows"
+            ]
+        );
+    }
 
     #[test]
     fn macro_header_collapsed() {

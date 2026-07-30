@@ -445,17 +445,17 @@ where
     unsafe { NetUserSetInfo(servername.param().abi(), username.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn NetValidatePasswordPolicy<P0>(servername: P0, qualifier: *mut core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut core::ffi::c_void, outputarg: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn NetValidatePasswordPolicy<P0>(servername: P0, qualifier: *const core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *const core::ffi::c_void, outputarg: *mut *mut core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetValidatePasswordPolicy(servername : windows_core::PCWSTR, qualifier : *mut core::ffi::c_void, validationtype : NET_VALIDATE_PASSWORD_TYPE, inputarg : *mut core::ffi::c_void, outputarg : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { NetValidatePasswordPolicy(servername.param().abi(), qualifier as _, validationtype, inputarg as _, outputarg as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetValidatePasswordPolicy(servername : windows_core::PCWSTR, qualifier : *const core::ffi::c_void, validationtype : NET_VALIDATE_PASSWORD_TYPE, inputarg : *const core::ffi::c_void, outputarg : *mut *mut core::ffi::c_void) -> u32);
+    unsafe { NetValidatePasswordPolicy(servername.param().abi(), qualifier, validationtype, inputarg, outputarg as _) }
 }
 #[inline]
-pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut core::ffi::c_void) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn NetValidatePasswordPolicyFree(outputarg : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { NetValidatePasswordPolicyFree(outputarg as _) }
+pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *const *const core::ffi::c_void) -> u32 {
+    windows_core::link!("netapi32.dll" "system" fn NetValidatePasswordPolicyFree(outputarg : *const *const core::ffi::c_void) -> u32);
+    unsafe { NetValidatePasswordPolicyFree(outputarg) }
 }
 pub const ACCESS_ACCESS_LIST_INFOLEVEL: i32 = 1004;
 pub const ACCESS_ACCESS_LIST_PARMNUM: i32 = 4;

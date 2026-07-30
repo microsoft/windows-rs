@@ -423,13 +423,13 @@ windows_link::link!("wldap32.dll" "C" fn ldap_sslinitA(hostname : windows_sys::c
 #[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_sslinitW(hostname : windows_sys::core::PCWSTR, portnumber : u32, secure : i32) -> *mut LDAP);
 #[cfg(feature = "winnt")]
-windows_link::link!("wldap32.dll" "C" fn ldap_start_tls_sA(externalhandle : *mut LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *mut PLDAPControlA, clientcontrols : *mut PLDAPControlA) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_start_tls_sA(externalhandle : *const LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *const PLDAPControlA, clientcontrols : *const PLDAPControlA) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wldap32.dll" "C" fn ldap_start_tls_sW(externalhandle : *mut LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *mut PLDAPControlW, clientcontrols : *mut PLDAPControlW) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_start_tls_sW(externalhandle : *const LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *const PLDAPControlW, clientcontrols : *const PLDAPControlW) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("wldap32.dll" "C" fn ldap_startup(version : *mut LDAP_VERSION_INFO, instance : *mut super::HANDLE) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wldap32.dll" "C" fn ldap_stop_tls_s(externalhandle : *mut LDAP) -> bool);
+windows_link::link!("wldap32.dll" "C" fn ldap_stop_tls_s(externalhandle : *const LDAP) -> bool);
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dn(ufn : windows_sys::core::PCSTR, pdn : *mut windows_sys::core::PSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dnA(ufn : windows_sys::core::PCSTR, pdn : *mut windows_sys::core::PSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dnW(ufn : windows_sys::core::PCWSTR, pdn : *mut windows_sys::core::PWSTR) -> u32);

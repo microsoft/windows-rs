@@ -1,13 +1,13 @@
 #[inline]
-pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> windows_core::BOOL {
-    windows_core::link!("crypt32.dll" "system" fn CryptSIPAddProvider(psnewprov : *mut SIP_ADD_NEWPROVIDER) -> windows_core::BOOL);
-    unsafe { CryptSIPAddProvider(psnewprov as _) }
+pub unsafe fn CryptSIPAddProvider(psnewprov: *const SIP_ADD_NEWPROVIDER) -> windows_core::BOOL {
+    windows_core::link!("crypt32.dll" "system" fn CryptSIPAddProvider(psnewprov : *const SIP_ADD_NEWPROVIDER) -> windows_core::BOOL);
+    unsafe { CryptSIPAddProvider(psnewprov) }
 }
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_core::BOOL {
-    windows_core::link!("crypt32.dll" "system" fn CryptSIPCreateIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pcbindirectdata : *mut u32, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_core::BOOL);
-    unsafe { CryptSIPCreateIndirectData(psubjectinfo as _, pcbindirectdata as _, pindirectdata as _) }
+pub unsafe fn CryptSIPCreateIndirectData(psubjectinfo: *const SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_core::BOOL {
+    windows_core::link!("crypt32.dll" "system" fn CryptSIPCreateIndirectData(psubjectinfo : *const SIP_SUBJECTINFO, pcbindirectdata : *mut u32, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_core::BOOL);
+    unsafe { CryptSIPCreateIndirectData(psubjectinfo, pcbindirectdata as _, pindirectdata as _) }
 }
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[inline]
@@ -23,9 +23,9 @@ pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig
 }
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> windows_core::BOOL {
-    windows_core::link!("crypt32.dll" "system" fn CryptSIPGetSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, pdwencodingtype : *mut u32, dwindex : u32, pcbsigneddatamsg : *mut u32, pbsigneddatamsg : *mut u8) -> windows_core::BOOL);
-    unsafe { CryptSIPGetSignedDataMsg(psubjectinfo as _, pdwencodingtype as _, dwindex, pcbsigneddatamsg as _, pbsigneddatamsg as _) }
+pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *const SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> windows_core::BOOL {
+    windows_core::link!("crypt32.dll" "system" fn CryptSIPGetSignedDataMsg(psubjectinfo : *const SIP_SUBJECTINFO, pdwencodingtype : *mut u32, dwindex : u32, pcbsigneddatamsg : *mut u32, pbsigneddatamsg : *mut u8) -> windows_core::BOOL);
+    unsafe { CryptSIPGetSignedDataMsg(psubjectinfo, pdwencodingtype as _, dwindex, pcbsigneddatamsg as _, pbsigneddatamsg as _) }
 }
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[inline]
@@ -35,44 +35,44 @@ pub unsafe fn CryptSIPLoad(pgsubject: *const windows_core::GUID, dwflags: u32, p
 }
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> windows_core::BOOL {
-    windows_core::link!("crypt32.dll" "system" fn CryptSIPPutSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwencodingtype : u32, pdwindex : *mut u32, cbsigneddatamsg : u32, pbsigneddatamsg : *mut u8) -> windows_core::BOOL);
-    unsafe { CryptSIPPutSignedDataMsg(psubjectinfo as _, dwencodingtype, pdwindex as _, cbsigneddatamsg, pbsigneddatamsg as _) }
+pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *const SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *const u8) -> windows_core::BOOL {
+    windows_core::link!("crypt32.dll" "system" fn CryptSIPPutSignedDataMsg(psubjectinfo : *const SIP_SUBJECTINFO, dwencodingtype : u32, pdwindex : *mut u32, cbsigneddatamsg : u32, pbsigneddatamsg : *const u8) -> windows_core::BOOL);
+    unsafe { CryptSIPPutSignedDataMsg(psubjectinfo, dwencodingtype, pdwindex as _, cbsigneddatamsg, pbsigneddatamsg) }
 }
 #[inline]
-pub unsafe fn CryptSIPRemoveProvider(pgprov: *mut windows_core::GUID) -> windows_core::BOOL {
-    windows_core::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *mut windows_core::GUID) -> windows_core::BOOL);
-    unsafe { CryptSIPRemoveProvider(pgprov as _) }
+pub unsafe fn CryptSIPRemoveProvider(pgprov: *const windows_core::GUID) -> windows_core::BOOL {
+    windows_core::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *const windows_core::GUID) -> windows_core::BOOL);
+    unsafe { CryptSIPRemoveProvider(pgprov) }
 }
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> windows_core::BOOL {
-    windows_core::link!("crypt32.dll" "system" fn CryptSIPRemoveSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwindex : u32) -> windows_core::BOOL);
-    unsafe { CryptSIPRemoveSignedDataMsg(psubjectinfo as _, dwindex) }
+pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *const SIP_SUBJECTINFO, dwindex: u32) -> windows_core::BOOL {
+    windows_core::link!("crypt32.dll" "system" fn CryptSIPRemoveSignedDataMsg(psubjectinfo : *const SIP_SUBJECTINFO, dwindex : u32) -> windows_core::BOOL);
+    unsafe { CryptSIPRemoveSignedDataMsg(psubjectinfo, dwindex) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuid<P0>(filename: P0, hfilein: super::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::BOOL
+pub unsafe fn CryptSIPRetrieveSubjectGuid<P0>(filename: P0, hfilein: Option<super::HANDLE>, pgsubject: *mut windows_core::GUID) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_core::PCWSTR, hfilein : super::HANDLE, pgsubject : *mut windows_core::GUID) -> windows_core::BOOL);
-    unsafe { CryptSIPRetrieveSubjectGuid(filename.param().abi(), hfilein, pgsubject as _) }
+    unsafe { CryptSIPRetrieveSubjectGuid(filename.param().abi(), hfilein.unwrap_or(core::mem::zeroed()) as _, pgsubject as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0>(filename: P0, hfilein: super::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::BOOL
+pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0>(filename: P0, hfilein: Option<super::HANDLE>, pgsubject: *mut windows_core::GUID) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_core::PCWSTR, hfilein : super::HANDLE, pgsubject : *mut windows_core::GUID) -> windows_core::BOOL);
-    unsafe { CryptSIPRetrieveSubjectGuidForCatalogFile(filename.param().abi(), hfilein, pgsubject as _) }
+    unsafe { CryptSIPRetrieveSubjectGuidForCatalogFile(filename.param().abi(), hfilein.unwrap_or(core::mem::zeroed()) as _, pgsubject as _) }
 }
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_core::BOOL {
-    windows_core::link!("crypt32.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_core::BOOL);
-    unsafe { CryptSIPVerifyIndirectData(psubjectinfo as _, pindirectdata as _) }
+pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *const SIP_SUBJECTINFO, pindirectdata: *const SIP_INDIRECT_DATA) -> windows_core::BOOL {
+    windows_core::link!("crypt32.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *const SIP_SUBJECTINFO, pindirectdata : *const SIP_INDIRECT_DATA) -> windows_core::BOOL);
+    unsafe { CryptSIPVerifyIndirectData(psubjectinfo, pindirectdata) }
 }
 #[cfg(feature = "wincrypt")]
 pub type CRYPT_DIGEST_DATA = super::CRYPT_HASH_BLOB;

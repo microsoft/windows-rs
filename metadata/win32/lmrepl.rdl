@@ -14,35 +14,35 @@ mod Windows {
         type LPREPL_INFO_1002 = *mut REPL_INFO_1002;
         type LPREPL_INFO_1003 = *mut REPL_INFO_1003;
         #[library("NETAPI32.dll")]
-        extern fn NetReplExportDirAdd(servername: PCWSTR, level: u32, buf: *mut u8, parm_err: *mut u32) -> u32;
+        extern fn NetReplExportDirAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplExportDirDel(servername: PCWSTR, dirname: PCWSTR) -> u32;
+        extern fn NetReplExportDirDel(#[opt] servername: PCWSTR, dirname: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplExportDirEnum(servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+        extern fn NetReplExportDirEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplExportDirGetInfo(servername: PCWSTR, dirname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetReplExportDirGetInfo(#[opt] servername: PCWSTR, dirname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplExportDirLock(servername: PCWSTR, dirname: PCWSTR) -> u32;
+        extern fn NetReplExportDirLock(#[opt] servername: PCWSTR, dirname: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplExportDirSetInfo(servername: PCWSTR, dirname: PCWSTR, level: u32, buf: *mut u8, parm_err: *mut u32) -> u32;
+        extern fn NetReplExportDirSetInfo(#[opt] servername: PCWSTR, dirname: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplExportDirUnlock(servername: PCWSTR, dirname: PCWSTR, unlockforce: u32) -> u32;
+        extern fn NetReplExportDirUnlock(#[opt] servername: PCWSTR, dirname: PCWSTR, unlockforce: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplGetInfo(servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetReplGetInfo(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplImportDirAdd(servername: PCWSTR, level: u32, buf: *mut u8, parm_err: *mut u32) -> u32;
+        extern fn NetReplImportDirAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplImportDirDel(servername: PCWSTR, dirname: PCWSTR) -> u32;
+        extern fn NetReplImportDirDel(#[opt] servername: PCWSTR, dirname: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplImportDirEnum(servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+        extern fn NetReplImportDirEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplImportDirGetInfo(servername: PCWSTR, dirname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
+        extern fn NetReplImportDirGetInfo(#[opt] servername: PCWSTR, dirname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplImportDirLock(servername: PCWSTR, dirname: PCWSTR) -> u32;
+        extern fn NetReplImportDirLock(#[opt] servername: PCWSTR, dirname: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplImportDirUnlock(servername: PCWSTR, dirname: PCWSTR, unlockforce: u32) -> u32;
+        extern fn NetReplImportDirUnlock(#[opt] servername: PCWSTR, dirname: PCWSTR, unlockforce: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetReplSetInfo(servername: PCWSTR, level: u32, buf: *mut u8, parm_err: *mut u32) -> u32;
+        extern fn NetReplSetInfo(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
         type PREPL_EDIR_INFO_0 = *mut REPL_EDIR_INFO_0;
         type PREPL_EDIR_INFO_1 = *mut REPL_EDIR_INFO_1;
         type PREPL_EDIR_INFO_1000 = *mut REPL_EDIR_INFO_1000;

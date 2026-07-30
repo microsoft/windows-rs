@@ -12,15 +12,15 @@ pub unsafe fn ImmAssociateContextEx(param0: super::HWND, param1: HIMC, param2: u
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn ImmConfigureIMEA(param0: super::HKL, param1: super::HWND, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ImmConfigureIMEA(param0, param1, param2, param3 as _) }
+pub unsafe fn ImmConfigureIMEA(param0: super::HKL, param1: super::HWND, param2: u32, param3: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ImmConfigureIMEA(param0, param1, param2, param3) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn ImmConfigureIMEW(param0: super::HKL, param1: super::HWND, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ImmConfigureIMEW(param0, param1, param2, param3 as _) }
+pub unsafe fn ImmConfigureIMEW(param0: super::HKL, param1: super::HWND, param2: u32, param3: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ImmConfigureIMEW(param0, param1, param2, param3) }
 }
 #[inline]
 pub unsafe fn ImmCreateContext() -> HIMC {
@@ -55,35 +55,35 @@ pub unsafe fn ImmEnumInputContext(idthread: u32, lpfn: IMCENUMPROC, lparam: supe
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordA<P2, P4>(param0: super::HKL, param1: REGISTERWORDENUMPROCA, lpszreading: P2, param3: u32, lpszregister: P4, param5: *mut core::ffi::c_void) -> u32
+pub unsafe fn ImmEnumRegisterWordA<P2, P4>(param0: super::HKL, param1: REGISTERWORDENUMPROCA, lpszreading: P2, param3: u32, lpszregister: P4, param5: *const core::ffi::c_void) -> u32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
-    unsafe { ImmEnumRegisterWordA(param0, param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5 as _) }
+    windows_core::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *const core::ffi::c_void) -> u32);
+    unsafe { ImmEnumRegisterWordA(param0, param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordW<P2, P4>(param0: super::HKL, param1: REGISTERWORDENUMPROCW, lpszreading: P2, param3: u32, lpszregister: P4, param5: *mut core::ffi::c_void) -> u32
+pub unsafe fn ImmEnumRegisterWordW<P2, P4>(param0: super::HKL, param1: REGISTERWORDENUMPROCW, lpszreading: P2, param3: u32, lpszregister: P4, param5: *const core::ffi::c_void) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
-    unsafe { ImmEnumRegisterWordW(param0, param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5 as _) }
+    windows_core::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *const core::ffi::c_void) -> u32);
+    unsafe { ImmEnumRegisterWordW(param0, param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmEscapeA(param0: super::HKL, param1: HIMC, param2: u32, param3: *mut core::ffi::c_void) -> super::LRESULT {
-    windows_core::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *mut core::ffi::c_void) -> super::LRESULT);
-    unsafe { ImmEscapeA(param0, param1, param2, param3 as _) }
+pub unsafe fn ImmEscapeA(param0: super::HKL, param1: HIMC, param2: u32, param3: *const core::ffi::c_void) -> super::LRESULT {
+    windows_core::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *const core::ffi::c_void) -> super::LRESULT);
+    unsafe { ImmEscapeA(param0, param1, param2, param3) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmEscapeW(param0: super::HKL, param1: HIMC, param2: u32, param3: *mut core::ffi::c_void) -> super::LRESULT {
-    windows_core::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *mut core::ffi::c_void) -> super::LRESULT);
-    unsafe { ImmEscapeW(param0, param1, param2, param3 as _) }
+pub unsafe fn ImmEscapeW(param0: super::HKL, param1: HIMC, param2: u32, param3: *const core::ffi::c_void) -> super::LRESULT {
+    windows_core::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *const core::ffi::c_void) -> super::LRESULT);
+    unsafe { ImmEscapeW(param0, param1, param2, param3) }
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListA(param0: HIMC, deindex: u32, lpcandlist: Option<*mut CANDIDATELIST>, dwbuflen: u32) -> u32 {

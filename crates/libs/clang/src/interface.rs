@@ -69,13 +69,14 @@ impl Interface {
                 continue;
             }
 
-            let method_name = demacro_member_name(child.name(), parser);
+            let method_name = demacro_member_name(child.name(), parser.macro_defs);
             let tokens = parser
                 .tu
                 .tokenize(parser.tu.to_expansion_range(child.extent()));
             let method_annotation = extract_method_annotation(&tokens, &method_name);
             // SAL annotations take priority; MIDL comments are a fallback.
-            let midl_param_annotations = scan_method_param_annotations(&tokens, &method_name);
+            let midl_param_annotations =
+                scan_method_param_annotations(&tokens, &method_name, parser.macro_defs);
             let return_type = child.result_type().to_type(parser);
 
             let mut params = parse_params(&child, &midl_param_annotations, parser);
@@ -163,17 +164,4 @@ impl Interface {
             }
         })
     }
-}
-
-/// Restore COM method names rewritten by active A/W macros such as `DrawText`.
-fn demacro_member_name(name: String, parser: &Parser<'_>) -> String {
-    if let Some(base) = name.strip_suffix('A').or_else(|| name.strip_suffix('W'))
-        && parser
-            .macro_defs
-            .get(base)
-            .is_some_and(|body| body.len() == 1 && body[0] == name)
-    {
-        return base.to_string();
-    }
-    name
 }

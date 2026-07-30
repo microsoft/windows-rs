@@ -176,6 +176,17 @@ impl Merger {
                 if ty.category() == reader::TypeCategory::Class {
                     // Apis members can diverge by arch; union them instead of taking one copy.
                     write_type_arch_merged(&mut file, idx, ty, copies, all_arches_mask);
+                } else if let Some(signature) = merge_native_sized_callback(copies) {
+                    let bits = copies.iter().fold(0, |acc, (_, _, bits)| acc | bits);
+                    let arch = if bits == all_arches_mask { 0 } else { bits };
+                    write_type_with_signature(
+                        &mut file,
+                        idx,
+                        ty,
+                        None,
+                        Some(arch),
+                        Some(&signature),
+                    );
                 } else {
                     // Split value types by shape so arch-specific layouts are not lost.
                     let mut by_sig: Vec<(String, &reader::Index, reader::TypeDef, i32)> = vec![];
@@ -251,6 +262,17 @@ fn write_type(
     outer: Option<writer::TypeDef>,
     arch_override: Option<i32>,
 ) {
+    write_type_with_signature(file, index, def, outer, arch_override, None);
+}
+
+fn write_type_with_signature(
+    file: &mut writer::File,
+    index: &reader::Index,
+    def: reader::TypeDef,
+    outer: Option<writer::TypeDef>,
+    arch_override: Option<i32>,
+    signature_override: Option<&Signature>,
+) {
     let extends = def
         .extends()
         .map(|extends| {
@@ -312,7 +334,13 @@ fn write_type(
 
     if !is_winrt_class {
         for method in def.methods() {
-            write_method(file, method, &generics, None);
+            write_method_with_signature(
+                file,
+                method,
+                &generics,
+                None,
+                signature_override.filter(|_| method.name() == "Invoke"),
+            );
         }
     }
 
@@ -552,9 +580,26 @@ fn write_method(
     generics: &[Type],
     arch_override: Option<i32>,
 ) {
+    write_method_with_signature(file, method, generics, arch_override, None);
+}
+
+fn write_method_with_signature(
+    file: &mut writer::File,
+    method: reader::MethodDef,
+    generics: &[Type],
+    arch_override: Option<i32>,
+    signature_override: Option<&Signature>,
+) {
+    let signature;
+    let signature = if let Some(signature) = signature_override {
+        signature
+    } else {
+        signature = method.signature(generics);
+        &signature
+    };
     let method_def = file.MethodDef(
         method.name(),
-        &method.signature(generics),
+        signature,
         method.flags(),
         method.impl_flags(),
     );
@@ -575,6 +620,182 @@ fn write_method(
             impl_map.import_name(),
             impl_map.import_scope().name(),
         );
+    }
+}
+
+/// Reconciles an unmanaged callback whose SDK signature explicitly uses a native-sized integer on
+/// at least one architecture and the same-width fixed integer on the others.
+///
+/// This is intentionally not a general `i32`/`i64` merge heuristic. The `isize`/`usize` spelling
+/// supplies the semantic evidence, and each fixed integer must match that input's pointer width.
+fn merge_native_sized_callback(
+    copies: &[(&reader::Index, reader::TypeDef, i32)],
+) -> Option<Signature> {
+    if copies.len() < 2
+        || copies
+            .iter()
+            .any(|(_, def, _)| !is_unmanaged_callback(*def))
+    {
+        return None;
+    }
+
+    let first_def = copies[0].1;
+    if copies.iter().any(|(_, def, _)| {
+        def.flags() != first_def.flags()
+            || callback_attributes(*def) != callback_attributes(first_def)
+    }) {
+        return None;
+    }
+
+    let methods: Vec<_> = copies
+        .iter()
+        .map(|(_, def, bits)| {
+            let mut methods = def.methods();
+            let method = methods.next()?;
+            (method.name() == "Invoke" && methods.next().is_none()).then_some((method, *bits))
+        })
+        .collect::<Option<_>>()?;
+
+    let first = methods[0].0;
+    if methods.iter().any(|(method, _)| {
+        method.flags() != first.flags()
+            || method.impl_flags() != first.impl_flags()
+            || callback_attributes(*method) != callback_attributes(first)
+            || callback_params(*method) != callback_params(first)
+    }) {
+        return None;
+    }
+
+    let signatures: Vec<_> = methods
+        .iter()
+        .map(|(method, bits)| (method.signature(&[]), *bits))
+        .collect();
+    let flags = signatures[0].0.flags;
+    if signatures.iter().any(|(signature, _)| {
+        signature.flags != flags || signature.types.len() != signatures[0].0.types.len()
+    }) {
+        return None;
+    }
+
+    let (return_type, mut changed) = merge_native_sized_type(
+        &signatures
+            .iter()
+            .map(|(signature, bits)| (&signature.return_type, *bits))
+            .collect::<Vec<_>>(),
+    )?;
+
+    let mut types = Vec::with_capacity(signatures[0].0.types.len());
+    for index in 0..signatures[0].0.types.len() {
+        let (ty, position_changed) = merge_native_sized_type(
+            &signatures
+                .iter()
+                .map(|(signature, bits)| (&signature.types[index], *bits))
+                .collect::<Vec<_>>(),
+        )?;
+        changed |= position_changed;
+        types.push(ty);
+    }
+
+    changed.then_some(Signature {
+        flags,
+        return_type,
+        types,
+    })
+}
+
+fn is_unmanaged_callback(def: reader::TypeDef) -> bool {
+    def.category() == reader::TypeCategory::Delegate
+        && def.attributes().any(|attribute| {
+            let ty = attribute.ctor().parent();
+            ty.namespace() == "System.Runtime.InteropServices"
+                && ty.name() == "UnmanagedFunctionPointerAttribute"
+        })
+}
+
+fn callback_params(
+    method: reader::MethodDef,
+) -> Vec<(
+    String,
+    u16,
+    ParamAttributes,
+    Vec<(String, String, Vec<(String, Value)>)>,
+)> {
+    method
+        .params()
+        .map(|param| {
+            (
+                param.name().to_string(),
+                param.sequence(),
+                param.flags(),
+                callback_attributes(param),
+            )
+        })
+        .collect()
+}
+
+fn callback_attributes<'a, R: HasAttributes<'a>>(
+    row: R,
+) -> Vec<(String, String, Vec<(String, Value)>)> {
+    row.attributes()
+        .filter_map(|attribute| {
+            let ty = attribute.ctor().parent();
+            (!(ty.namespace() == "Windows.Win32.Metadata"
+                && ty.name() == "SupportedArchitectureAttribute"))
+                .then(|| {
+                    (
+                        ty.namespace().to_string(),
+                        ty.name().to_string(),
+                        attribute.value(),
+                    )
+                })
+        })
+        .collect()
+}
+
+fn merge_native_sized_type(copies: &[(&Type, i32)]) -> Option<(Type, bool)> {
+    let first = copies.first()?.0;
+    if copies.iter().all(|(ty, _)| *ty == first) {
+        return Some((first.clone(), false));
+    }
+
+    if copies.iter().any(|(ty, _)| **ty == Type::ISize)
+        && copies
+            .iter()
+            .all(|(ty, bits)| native_signed_compatible(ty, *bits))
+    {
+        return Some((Type::ISize, true));
+    }
+    if copies.iter().any(|(ty, _)| **ty == Type::USize)
+        && copies
+            .iter()
+            .all(|(ty, bits)| native_unsigned_compatible(ty, *bits))
+    {
+        return Some((Type::USize, true));
+    }
+    None
+}
+
+fn native_signed_compatible(ty: &Type, bits: i32) -> bool {
+    matches!(ty, Type::ISize)
+        || matches!(
+            (ty, pointer_width(bits)),
+            (Type::I32, Some(32)) | (Type::I64, Some(64))
+        )
+}
+
+fn native_unsigned_compatible(ty: &Type, bits: i32) -> bool {
+    matches!(ty, Type::USize)
+        || matches!(
+            (ty, pointer_width(bits)),
+            (Type::U32, Some(32)) | (Type::U64, Some(64))
+        )
+}
+
+fn pointer_width(bits: i32) -> Option<u8> {
+    match bits {
+        1 => Some(32),
+        2 | 4 => Some(64),
+        _ => None,
     }
 }
 

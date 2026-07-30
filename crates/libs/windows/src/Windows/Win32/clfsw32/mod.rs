@@ -15,14 +15,14 @@ pub unsafe fn AddLogContainerSet(hlog: super::HANDLE, pcbcontainer: Option<*cons
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn AdvanceLogBase(pvmarshal: *mut core::ffi::c_void, plsnbase: *mut super::CLFS_LSN, fflags: u32, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn AdvanceLogBase(pvmarshal : *mut core::ffi::c_void, plsnbase : *mut super::CLFS_LSN, fflags : u32, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { AdvanceLogBase(pvmarshal as _, plsnbase as _, fflags, poverlapped as _) }
+pub unsafe fn AdvanceLogBase(pvmarshal: *mut core::ffi::c_void, plsnbase: *const super::CLFS_LSN, fflags: u32, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn AdvanceLogBase(pvmarshal : *mut core::ffi::c_void, plsnbase : *const super::CLFS_LSN, fflags : u32, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { AdvanceLogBase(pvmarshal as _, plsnbase, fflags, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AlignReservedLog(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn AlignReservedLog(pvmarshal : *mut core::ffi::c_void, creservedrecords : u32, rgcbreservation : *mut i64, pcbalignreservation : *mut i64) -> windows_core::BOOL);
-    unsafe { AlignReservedLog(pvmarshal as _, creservedrecords, rgcbreservation as _, pcbalignreservation as _) }
+pub unsafe fn AlignReservedLog(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, rgcbreservation: *const i64, pcbalignreservation: *mut i64) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn AlignReservedLog(pvmarshal : *mut core::ffi::c_void, creservedrecords : u32, rgcbreservation : *const i64, pcbalignreservation : *mut i64) -> windows_core::BOOL);
+    unsafe { AlignReservedLog(pvmarshal as _, creservedrecords, rgcbreservation, pcbalignreservation as _) }
 }
 #[inline]
 pub unsafe fn AllocReservedLog(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> windows_core::BOOL {
@@ -37,24 +37,24 @@ pub unsafe fn CloseAndResetLogFile(hlog: super::HANDLE) -> windows_core::BOOL {
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateLogContainerScanContext(hlog: super::HANDLE, cfromcontainer: u32, ccontainers: u32, escanmode: super::CLFS_SCAN_MODE, pcxscan: *mut super::CLFS_SCAN_CONTEXT, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
+pub unsafe fn CreateLogContainerScanContext(hlog: super::HANDLE, cfromcontainer: u32, ccontainers: u32, escanmode: super::CLFS_SCAN_MODE, pcxscan: *mut super::CLFS_SCAN_CONTEXT, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn CreateLogContainerScanContext(hlog : super::HANDLE, cfromcontainer : u32, ccontainers : u32, escanmode : super::CLFS_SCAN_MODE, pcxscan : *mut super::CLFS_SCAN_CONTEXT, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { CreateLogContainerScanContext(hlog, cfromcontainer, ccontainers, escanmode, pcxscan as _, poverlapped as _) }
+    unsafe { CreateLogContainerScanContext(hlog, cfromcontainer, ccontainers, escanmode, pcxscan as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateLogFile<P0>(pszlogfilename: P0, fdesiredaccess: super::ACCESS_MASK, dwsharemode: u32, psalogfile: *mut super::SECURITY_ATTRIBUTES, fcreatedisposition: u32, fflagsandattributes: u32) -> super::HANDLE
+pub unsafe fn CreateLogFile<P0>(pszlogfilename: P0, fdesiredaccess: super::ACCESS_MASK, dwsharemode: u32, psalogfile: Option<*const super::SECURITY_ATTRIBUTES>, fcreatedisposition: u32, fflagsandattributes: u32) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clfsw32.dll" "system" fn CreateLogFile(pszlogfilename : windows_core::PCWSTR, fdesiredaccess : super::ACCESS_MASK, dwsharemode : u32, psalogfile : *mut super::SECURITY_ATTRIBUTES, fcreatedisposition : u32, fflagsandattributes : u32) -> super::HANDLE);
-    unsafe { CreateLogFile(pszlogfilename.param().abi(), fdesiredaccess, dwsharemode, psalogfile as _, fcreatedisposition, fflagsandattributes) }
+    windows_core::link!("clfsw32.dll" "system" fn CreateLogFile(pszlogfilename : windows_core::PCWSTR, fdesiredaccess : super::ACCESS_MASK, dwsharemode : u32, psalogfile : *const super::SECURITY_ATTRIBUTES, fcreatedisposition : u32, fflagsandattributes : u32) -> super::HANDLE);
+    unsafe { CreateLogFile(pszlogfilename.param().abi(), fdesiredaccess, dwsharemode, psalogfile.unwrap_or(core::mem::zeroed()) as _, fcreatedisposition, fflagsandattributes) }
 }
 #[cfg(all(feature = "clfs", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateLogMarshallingArea(hlog: super::HANDLE, pfnallocbuffer: super::CLFS_BLOCK_ALLOCATION, pfnfreebuffer: super::CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: *mut core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn CreateLogMarshallingArea(hlog : super::HANDLE, pfnallocbuffer : super::CLFS_BLOCK_ALLOCATION, pfnfreebuffer : super::CLFS_BLOCK_DEALLOCATION, pvblockalloccontext : *mut core::ffi::c_void, cbmarshallingbuffer : u32, cmaxwritebuffers : u32, cmaxreadbuffers : u32, ppvmarshal : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreateLogMarshallingArea(hlog, pfnallocbuffer, pfnfreebuffer, pvblockalloccontext as _, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ppvmarshal as _) }
+pub unsafe fn CreateLogMarshallingArea(hlog: super::HANDLE, pfnallocbuffer: super::CLFS_BLOCK_ALLOCATION, pfnfreebuffer: super::CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: Option<*const core::ffi::c_void>, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn CreateLogMarshallingArea(hlog : super::HANDLE, pfnallocbuffer : super::CLFS_BLOCK_ALLOCATION, pfnfreebuffer : super::CLFS_BLOCK_DEALLOCATION, pvblockalloccontext : *const core::ffi::c_void, cbmarshallingbuffer : u32, cmaxwritebuffers : u32, cmaxreadbuffers : u32, ppvmarshal : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { CreateLogMarshallingArea(hlog, pfnallocbuffer, pfnfreebuffer, pvblockalloccontext.unwrap_or(core::mem::zeroed()) as _, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ppvmarshal as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -63,17 +63,17 @@ pub unsafe fn DeleteLogByHandle(hlog: super::HANDLE) -> windows_core::BOOL {
     unsafe { DeleteLogByHandle(hlog) }
 }
 #[inline]
-pub unsafe fn DeleteLogFile<P0>(pszlogfilename: P0, pvreserved: *mut core::ffi::c_void) -> windows_core::BOOL
+pub unsafe fn DeleteLogFile<P0>(pszlogfilename: P0, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clfsw32.dll" "system" fn DeleteLogFile(pszlogfilename : windows_core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { DeleteLogFile(pszlogfilename.param().abi(), pvreserved as _) }
+    windows_core::link!("clfsw32.dll" "system" fn DeleteLogFile(pszlogfilename : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { DeleteLogFile(pszlogfilename.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn DeleteLogMarshallingArea(pvmarshal : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { DeleteLogMarshallingArea(pvmarshal as _) }
+pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn DeleteLogMarshallingArea(pvmarshal : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { DeleteLogMarshallingArea(pvmarshal) }
 }
 #[cfg(all(feature = "clfs", feature = "corecrt_wstdio"))]
 #[inline]
@@ -86,15 +86,15 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn FlushLogBuffers(pvmarshal: *mut core::ffi::c_void, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn FlushLogBuffers(pvmarshal : *mut core::ffi::c_void, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { FlushLogBuffers(pvmarshal as _, poverlapped as _) }
+pub unsafe fn FlushLogBuffers(pvmarshal: *const core::ffi::c_void, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn FlushLogBuffers(pvmarshal : *const core::ffi::c_void, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { FlushLogBuffers(pvmarshal, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut core::ffi::c_void, plsnflush: *mut super::CLFS_LSN, plsnlastflushed: *mut super::CLFS_LSN, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn FlushLogToLsn(pvmarshalcontext : *mut core::ffi::c_void, plsnflush : *mut super::CLFS_LSN, plsnlastflushed : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { FlushLogToLsn(pvmarshalcontext as _, plsnflush as _, plsnlastflushed as _, poverlapped as _) }
+pub unsafe fn FlushLogToLsn(pvmarshalcontext: *const core::ffi::c_void, plsnflush: *const super::CLFS_LSN, plsnlastflushed: Option<*mut super::CLFS_LSN>, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn FlushLogToLsn(pvmarshalcontext : *const core::ffi::c_void, plsnflush : *const super::CLFS_LSN, plsnlastflushed : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { FlushLogToLsn(pvmarshalcontext, plsnflush, plsnlastflushed.unwrap_or(core::mem::zeroed()) as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn FreeReservedLog(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> windows_core::BOOL {
@@ -103,12 +103,9 @@ pub unsafe fn FreeReservedLog(pvmarshal: *mut core::ffi::c_void, creservedrecord
 }
 #[cfg(all(feature = "clfs", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetLogContainerName<P2>(hlog: super::HANDLE, cidlogicalcontainer: super::CLFS_CONTAINER_ID, pwstrcontainername: P2, clencontainername: u32, pcactuallencontainername: *mut u32) -> windows_core::BOOL
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("clfsw32.dll" "system" fn GetLogContainerName(hlog : super::HANDLE, cidlogicalcontainer : super::CLFS_CONTAINER_ID, pwstrcontainername : windows_core::PCWSTR, clencontainername : u32, pcactuallencontainername : *mut u32) -> windows_core::BOOL);
-    unsafe { GetLogContainerName(hlog, cidlogicalcontainer, pwstrcontainername.param().abi(), clencontainername, pcactuallencontainername as _) }
+pub unsafe fn GetLogContainerName(hlog: super::HANDLE, cidlogicalcontainer: super::CLFS_CONTAINER_ID, pwstrcontainername: windows_core::PWSTR, clencontainername: u32, pcactuallencontainername: Option<*mut u32>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn GetLogContainerName(hlog : super::HANDLE, cidlogicalcontainer : super::CLFS_CONTAINER_ID, pwstrcontainername : windows_core::PWSTR, clencontainername : u32, pcactuallencontainername : *mut u32) -> windows_core::BOOL);
+    unsafe { GetLogContainerName(hlog, cidlogicalcontainer, pwstrcontainername, clencontainername, pcactuallencontainername.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "winnt"))]
 #[inline]
@@ -118,9 +115,9 @@ pub unsafe fn GetLogFileInformation(hlog: super::HANDLE, pinfobuffer: *mut super
 }
 #[cfg(all(feature = "clfs", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetLogIoStatistics(hlog: super::HANDLE, pvstatsbuffer: *mut core::ffi::c_void, cbstatsbuffer: u32, estatsclass: super::CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> windows_core::BOOL {
+pub unsafe fn GetLogIoStatistics(hlog: super::HANDLE, pvstatsbuffer: *mut core::ffi::c_void, cbstatsbuffer: u32, estatsclass: super::CLFS_IOSTATS_CLASS, pcbstatswritten: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn GetLogIoStatistics(hlog : super::HANDLE, pvstatsbuffer : *mut core::ffi::c_void, cbstatsbuffer : u32, estatsclass : super::CLFS_IOSTATS_CLASS, pcbstatswritten : *mut u32) -> windows_core::BOOL);
-    unsafe { GetLogIoStatistics(hlog, pvstatsbuffer as _, cbstatsbuffer, estatsclass, pcbstatswritten as _) }
+    unsafe { GetLogIoStatistics(hlog, pvstatsbuffer as _, cbstatsbuffer, estatsclass, pcbstatswritten.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetLogReservationInfo(pvmarshal: *const core::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> windows_core::BOOL {
@@ -146,27 +143,27 @@ pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: CLFS_LOG_ARCHIVE_CONTEXT,
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadLogRecord(pvmarshal: *mut core::ffi::c_void, plsnfirst: *mut super::CLFS_LSN, econtextmode: super::CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut super::CLS_RECORD_TYPE, plsnundonext: *mut super::CLFS_LSN, plsnprevious: *mut super::CLFS_LSN, ppvreadcontext: *mut *mut core::ffi::c_void, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn ReadLogRecord(pvmarshal : *mut core::ffi::c_void, plsnfirst : *mut super::CLFS_LSN, econtextmode : super::CLFS_CONTEXT_MODE, ppvreadbuffer : *mut *mut core::ffi::c_void, pcbreadbuffer : *mut u32, perecordtype : *mut super::CLS_RECORD_TYPE, plsnundonext : *mut super::CLFS_LSN, plsnprevious : *mut super::CLFS_LSN, ppvreadcontext : *mut *mut core::ffi::c_void, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { ReadLogRecord(pvmarshal as _, plsnfirst as _, econtextmode, ppvreadbuffer as _, pcbreadbuffer as _, perecordtype as _, plsnundonext as _, plsnprevious as _, ppvreadcontext as _, poverlapped as _) }
+pub unsafe fn ReadLogRecord(pvmarshal: *const core::ffi::c_void, plsnfirst: *const super::CLFS_LSN, econtextmode: super::CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut super::CLS_RECORD_TYPE, plsnundonext: *mut super::CLFS_LSN, plsnprevious: *mut super::CLFS_LSN, ppvreadcontext: *mut *mut core::ffi::c_void, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn ReadLogRecord(pvmarshal : *const core::ffi::c_void, plsnfirst : *const super::CLFS_LSN, econtextmode : super::CLFS_CONTEXT_MODE, ppvreadbuffer : *mut *mut core::ffi::c_void, pcbreadbuffer : *mut u32, perecordtype : *mut super::CLS_RECORD_TYPE, plsnundonext : *mut super::CLFS_LSN, plsnprevious : *mut super::CLFS_LSN, ppvreadcontext : *mut *mut core::ffi::c_void, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { ReadLogRecord(pvmarshal, plsnfirst, econtextmode, ppvreadbuffer as _, pcbreadbuffer as _, perecordtype as _, plsnundonext as _, plsnprevious as _, ppvreadcontext as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadLogRestartArea(pvmarshal: *mut core::ffi::c_void, ppvrestartbuffer: *mut *mut core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut super::CLFS_LSN, ppvcontext: *mut *mut core::ffi::c_void, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn ReadLogRestartArea(pvmarshal : *mut core::ffi::c_void, ppvrestartbuffer : *mut *mut core::ffi::c_void, pcbrestartbuffer : *mut u32, plsn : *mut super::CLFS_LSN, ppvcontext : *mut *mut core::ffi::c_void, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { ReadLogRestartArea(pvmarshal as _, ppvrestartbuffer as _, pcbrestartbuffer as _, plsn as _, ppvcontext as _, poverlapped as _) }
+pub unsafe fn ReadLogRestartArea(pvmarshal: *const core::ffi::c_void, ppvrestartbuffer: *mut *mut core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut super::CLFS_LSN, ppvcontext: *mut *mut core::ffi::c_void, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn ReadLogRestartArea(pvmarshal : *const core::ffi::c_void, ppvrestartbuffer : *mut *mut core::ffi::c_void, pcbrestartbuffer : *mut u32, plsn : *mut super::CLFS_LSN, ppvcontext : *mut *mut core::ffi::c_void, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { ReadLogRestartArea(pvmarshal, ppvrestartbuffer as _, pcbrestartbuffer as _, plsn as _, ppvcontext as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut core::ffi::c_void, ppvbuffer: *mut *mut core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut super::CLS_RECORD_TYPE, plsnuser: *mut super::CLFS_LSN, plsnundonext: *mut super::CLFS_LSN, plsnprevious: *mut super::CLFS_LSN, plsnrecord: *mut super::CLFS_LSN, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn ReadNextLogRecord(pvreadcontext : *mut core::ffi::c_void, ppvbuffer : *mut *mut core::ffi::c_void, pcbbuffer : *mut u32, perecordtype : *mut super::CLS_RECORD_TYPE, plsnuser : *mut super::CLFS_LSN, plsnundonext : *mut super::CLFS_LSN, plsnprevious : *mut super::CLFS_LSN, plsnrecord : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { ReadNextLogRecord(pvreadcontext as _, ppvbuffer as _, pcbbuffer as _, perecordtype as _, plsnuser as _, plsnundonext as _, plsnprevious as _, plsnrecord as _, poverlapped as _) }
+pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut core::ffi::c_void, ppvbuffer: *mut *mut core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut super::CLS_RECORD_TYPE, plsnuser: Option<*const super::CLFS_LSN>, plsnundonext: *mut super::CLFS_LSN, plsnprevious: *mut super::CLFS_LSN, plsnrecord: *mut super::CLFS_LSN, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn ReadNextLogRecord(pvreadcontext : *mut core::ffi::c_void, ppvbuffer : *mut *mut core::ffi::c_void, pcbbuffer : *mut u32, perecordtype : *mut super::CLS_RECORD_TYPE, plsnuser : *const super::CLFS_LSN, plsnundonext : *mut super::CLFS_LSN, plsnprevious : *mut super::CLFS_LSN, plsnrecord : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { ReadNextLogRecord(pvreadcontext as _, ppvbuffer as _, pcbbuffer as _, perecordtype as _, plsnuser.unwrap_or(core::mem::zeroed()) as _, plsnundonext as _, plsnprevious as _, plsnrecord as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut core::ffi::c_void, ppvrestartbuffer: *mut *mut core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut super::CLFS_LSN, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn ReadPreviousLogRestartArea(pvreadcontext : *mut core::ffi::c_void, ppvrestartbuffer : *mut *mut core::ffi::c_void, pcbrestartbuffer : *mut u32, plsnrestart : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { ReadPreviousLogRestartArea(pvreadcontext as _, ppvrestartbuffer as _, pcbrestartbuffer as _, plsnrestart as _, poverlapped as _) }
+pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *const core::ffi::c_void, ppvrestartbuffer: *mut *mut core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut super::CLFS_LSN, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn ReadPreviousLogRestartArea(pvreadcontext : *const core::ffi::c_void, ppvrestartbuffer : *mut *mut core::ffi::c_void, pcbrestartbuffer : *mut u32, plsnrestart : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { ReadPreviousLogRestartArea(pvreadcontext, ppvrestartbuffer as _, pcbrestartbuffer as _, plsnrestart as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -185,27 +182,27 @@ pub unsafe fn RemoveLogContainerSet(hlog: super::HANDLE, rgwszcontainerpath: &[w
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut core::ffi::c_void, rgwriteentries: *mut super::CLFS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut super::CLFS_LSN, plsnprevious: *mut super::CLFS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: u32, plsn: *mut super::CLFS_LSN, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn ReserveAndAppendLog(pvmarshal : *mut core::ffi::c_void, rgwriteentries : *mut super::CLFS_WRITE_ENTRY, cwriteentries : u32, plsnundonext : *mut super::CLFS_LSN, plsnprevious : *mut super::CLFS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : u32, plsn : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { ReserveAndAppendLog(pvmarshal as _, rgwriteentries as _, cwriteentries, plsnundonext as _, plsnprevious as _, creserverecords, rgcbreservation as _, fflags, plsn as _, poverlapped as _) }
+pub unsafe fn ReserveAndAppendLog(pvmarshal: *const core::ffi::c_void, rgwriteentries: Option<*const super::CLFS_WRITE_ENTRY>, cwriteentries: u32, plsnundonext: Option<*const super::CLFS_LSN>, plsnprevious: Option<*const super::CLFS_LSN>, creserverecords: u32, rgcbreservation: Option<*mut i64>, fflags: u32, plsn: Option<*mut super::CLFS_LSN>, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn ReserveAndAppendLog(pvmarshal : *const core::ffi::c_void, rgwriteentries : *const super::CLFS_WRITE_ENTRY, cwriteentries : u32, plsnundonext : *const super::CLFS_LSN, plsnprevious : *const super::CLFS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : u32, plsn : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { ReserveAndAppendLog(pvmarshal, rgwriteentries.unwrap_or(core::mem::zeroed()) as _, cwriteentries, plsnundonext.unwrap_or(core::mem::zeroed()) as _, plsnprevious.unwrap_or(core::mem::zeroed()) as _, creserverecords, rgcbreservation.unwrap_or(core::mem::zeroed()) as _, fflags, plsn.unwrap_or(core::mem::zeroed()) as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut core::ffi::c_void, rgwriteentries: *mut super::CLFS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut super::CLFS_LSN, plsnprevious: *mut super::CLFS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: u32, plsn: *mut super::CLFS_LSN, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn ReserveAndAppendLogAligned(pvmarshal : *mut core::ffi::c_void, rgwriteentries : *mut super::CLFS_WRITE_ENTRY, cwriteentries : u32, cbentryalignment : u32, plsnundonext : *mut super::CLFS_LSN, plsnprevious : *mut super::CLFS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : u32, plsn : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { ReserveAndAppendLogAligned(pvmarshal as _, rgwriteentries as _, cwriteentries, cbentryalignment, plsnundonext as _, plsnprevious as _, creserverecords, rgcbreservation as _, fflags, plsn as _, poverlapped as _) }
+pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *const core::ffi::c_void, rgwriteentries: Option<*const super::CLFS_WRITE_ENTRY>, cwriteentries: u32, cbentryalignment: u32, plsnundonext: Option<*const super::CLFS_LSN>, plsnprevious: Option<*const super::CLFS_LSN>, creserverecords: u32, rgcbreservation: Option<*mut i64>, fflags: u32, plsn: Option<*mut super::CLFS_LSN>, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn ReserveAndAppendLogAligned(pvmarshal : *const core::ffi::c_void, rgwriteentries : *const super::CLFS_WRITE_ENTRY, cwriteentries : u32, cbentryalignment : u32, plsnundonext : *const super::CLFS_LSN, plsnprevious : *const super::CLFS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : u32, plsn : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { ReserveAndAppendLogAligned(pvmarshal, rgwriteentries.unwrap_or(core::mem::zeroed()) as _, cwriteentries, cbentryalignment, plsnundonext.unwrap_or(core::mem::zeroed()) as _, plsnprevious.unwrap_or(core::mem::zeroed()) as _, creserverecords, rgcbreservation.unwrap_or(core::mem::zeroed()) as _, fflags, plsn.unwrap_or(core::mem::zeroed()) as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "winnt"))]
 #[inline]
-pub unsafe fn ScanLogContainers(pcxscan: *mut super::CLFS_SCAN_CONTEXT, escanmode: super::CLFS_SCAN_MODE, preserved: *mut core::ffi::c_void) -> windows_core::BOOL {
+pub unsafe fn ScanLogContainers(pcxscan: *mut super::CLFS_SCAN_CONTEXT, escanmode: super::CLFS_SCAN_MODE, preserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn ScanLogContainers(pcxscan : *mut super::CLFS_SCAN_CONTEXT, escanmode : super::CLFS_SCAN_MODE, preserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ScanLogContainers(pcxscan as _, escanmode, preserved as _) }
+    unsafe { ScanLogContainers(pcxscan as _, escanmode, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetEndOfLog(hlog: super::HANDLE, plsnend: *mut super::CLFS_LSN, lpoverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn SetEndOfLog(hlog : super::HANDLE, plsnend : *mut super::CLFS_LSN, lpoverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { SetEndOfLog(hlog, plsnend as _, lpoverlapped as _) }
+pub unsafe fn SetEndOfLog(hlog: super::HANDLE, plsnend: *const super::CLFS_LSN, lpoverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn SetEndOfLog(hlog : super::HANDLE, plsnend : *const super::CLFS_LSN, lpoverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { SetEndOfLog(hlog, plsnend, lpoverlapped as _) }
 }
 #[cfg(all(feature = "clfs", feature = "winnt"))]
 #[inline]
@@ -215,9 +212,9 @@ pub unsafe fn SetLogArchiveMode(hlog: super::HANDLE, emode: super::CLFS_LOG_ARCH
 }
 #[cfg(all(feature = "clfs", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetLogArchiveTail(hlog: super::HANDLE, plsnarchivetail: *mut super::CLFS_LSN, preserved: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn SetLogArchiveTail(hlog : super::HANDLE, plsnarchivetail : *mut super::CLFS_LSN, preserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetLogArchiveTail(hlog, plsnarchivetail as _, preserved as _) }
+pub unsafe fn SetLogArchiveTail(hlog: super::HANDLE, plsnarchivetail: *const super::CLFS_LSN, preserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn SetLogArchiveTail(hlog : super::HANDLE, plsnarchivetail : *const super::CLFS_LSN, preserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { SetLogArchiveTail(hlog, plsnarchivetail, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn TerminateLogArchive(pvarchivecontext: CLFS_LOG_ARCHIVE_CONTEXT) -> windows_core::BOOL {
@@ -225,9 +222,9 @@ pub unsafe fn TerminateLogArchive(pvarchivecontext: CLFS_LOG_ARCHIVE_CONTEXT) ->
     unsafe { TerminateLogArchive(pvarchivecontext) }
 }
 #[inline]
-pub unsafe fn TerminateReadLog(pvcursorcontext: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn TerminateReadLog(pvcursorcontext : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { TerminateReadLog(pvcursorcontext as _) }
+pub unsafe fn TerminateReadLog(pvcursorcontext: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn TerminateReadLog(pvcursorcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { TerminateReadLog(pvcursorcontext) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
@@ -237,18 +234,18 @@ pub unsafe fn TruncateLog(pvmarshal: *const core::ffi::c_void, plsnend: *const s
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase"))]
 #[inline]
-pub unsafe fn ValidateLog<P0>(pszlogfilename: P0, psalogfile: *mut super::SECURITY_ATTRIBUTES, pinfobuffer: *mut super::CLFS_INFORMATION, pcbbuffer: *mut u32) -> windows_core::BOOL
+pub unsafe fn ValidateLog<P0>(pszlogfilename: P0, psalogfile: Option<*const super::SECURITY_ATTRIBUTES>, pinfobuffer: Option<*mut super::CLFS_INFORMATION>, pcbbuffer: *mut u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("clfsw32.dll" "system" fn ValidateLog(pszlogfilename : windows_core::PCWSTR, psalogfile : *mut super::SECURITY_ATTRIBUTES, pinfobuffer : *mut super::CLFS_INFORMATION, pcbbuffer : *mut u32) -> windows_core::BOOL);
-    unsafe { ValidateLog(pszlogfilename.param().abi(), psalogfile as _, pinfobuffer as _, pcbbuffer as _) }
+    windows_core::link!("clfsw32.dll" "system" fn ValidateLog(pszlogfilename : windows_core::PCWSTR, psalogfile : *const super::SECURITY_ATTRIBUTES, pinfobuffer : *mut super::CLFS_INFORMATION, pcbbuffer : *mut u32) -> windows_core::BOOL);
+    unsafe { ValidateLog(pszlogfilename.param().abi(), psalogfile.unwrap_or(core::mem::zeroed()) as _, pinfobuffer.unwrap_or(core::mem::zeroed()) as _, pcbbuffer as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteLogRestartArea(pvmarshal: *mut core::ffi::c_void, pvrestartbuffer: *mut core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut super::CLFS_LSN, fflags: u32, pcbwritten: *mut u32, plsnnext: *mut super::CLFS_LSN, poverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("clfsw32.dll" "system" fn WriteLogRestartArea(pvmarshal : *mut core::ffi::c_void, pvrestartbuffer : *mut core::ffi::c_void, cbrestartbuffer : u32, plsnbase : *mut super::CLFS_LSN, fflags : u32, pcbwritten : *mut u32, plsnnext : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { WriteLogRestartArea(pvmarshal as _, pvrestartbuffer as _, cbrestartbuffer, plsnbase as _, fflags, pcbwritten as _, plsnnext as _, poverlapped as _) }
+pub unsafe fn WriteLogRestartArea(pvmarshal: *mut core::ffi::c_void, pvrestartbuffer: *const core::ffi::c_void, cbrestartbuffer: u32, plsnbase: Option<*const super::CLFS_LSN>, fflags: u32, pcbwritten: Option<*mut u32>, plsnnext: Option<*mut super::CLFS_LSN>, poverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("clfsw32.dll" "system" fn WriteLogRestartArea(pvmarshal : *mut core::ffi::c_void, pvrestartbuffer : *const core::ffi::c_void, cbrestartbuffer : u32, plsnbase : *const super::CLFS_LSN, fflags : u32, pcbwritten : *mut u32, plsnnext : *mut super::CLFS_LSN, poverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { WriteLogRestartArea(pvmarshal as _, pvrestartbuffer, cbrestartbuffer, plsnbase.unwrap_or(core::mem::zeroed()) as _, fflags, pcbwritten.unwrap_or(core::mem::zeroed()) as _, plsnnext.unwrap_or(core::mem::zeroed()) as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

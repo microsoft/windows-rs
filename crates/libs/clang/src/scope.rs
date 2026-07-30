@@ -181,7 +181,7 @@ pub(crate) fn sweep_unreferenced(
             known.insert(name.clone());
             let mut refs = HashSet::new();
             item_refs(item, &mut refs);
-            edges.insert(name.clone(), refs);
+            edges.entry(name.clone()).or_default().extend(refs);
             if roots && seen.insert(name.clone()) {
                 stack.push(name.clone());
             }

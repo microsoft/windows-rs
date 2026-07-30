@@ -105,23 +105,23 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtClose(Handle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtCreateFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *mut OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, AllocationSize: *mut i64, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, EaBuffer: *mut void, EaLength: u32) -> NTSTATUS;
+        extern fn NtCreateFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[opt] AllocationSize: *const i64, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, #[opt] EaBuffer: *const void, EaLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtDeviceIoControlFile(FileHandle: HANDLE, Event: HANDLE, ApcRoutine: PIO_APC_ROUTINE, ApcContext: *mut void, IoStatusBlock: *mut IO_STATUS_BLOCK, IoControlCode: u32, InputBuffer: *mut void, InputBufferLength: u32, OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        extern fn NtDeviceIoControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, IoControlCode: u32, #[opt] InputBuffer: *const void, InputBufferLength: u32, #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtNotifyChangeMultipleKeys(MasterKeyHandle: HANDLE, #[opt] Count: u32, #[len_param(1)] #[opt] SubordinateObjects: *const OBJECT_ATTRIBUTES, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: bool, #[size_param(10)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: bool) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtOpenFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *mut OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
+        extern fn NtOpenFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryInformationProcess(ProcessHandle: HANDLE, ProcessInformationClass: PROCESSINFOCLASS, ProcessInformation: *mut void, ProcessInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationProcess(ProcessHandle: HANDLE, ProcessInformationClass: PROCESSINFOCLASS, ProcessInformation: *mut void, ProcessInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: *mut void, ThreadInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: *mut void, ThreadInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtQueryMultipleValueKey(KeyHandle: HANDLE, #[len_param(2)] #[in] #[out] ValueEntries: *mut KEY_VALUE_ENTRY, EntryCount: u32, #[size_param(4)] ValueBuffer: *mut void, #[in] #[out] BufferLength: *mut u32, #[opt] RequiredBufferLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtQueryObject(#[opt] Handle: HANDLE, ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[size_param(3)] #[opt] ObjectInformation: *mut void, ObjectInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: *mut void, SystemInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: *mut void, SystemInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtQuerySystemTime(SystemTime: *mut i64) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -133,7 +133,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn NtSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] ThreadInformation: *const void, ThreadInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: bool, Timeout: *mut i64) -> NTSTATUS;
+        extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: bool, #[opt] Timeout: *const i64) -> NTSTATUS;
         #[repr(i32)]
         enum OBJECT_INFORMATION_CLASS {
             ObjectBasicInformation = 0,
@@ -209,6 +209,7 @@ mod Windows {
             Reserved3: *mut void,
         }
         type PRTL_USER_PROCESS_PARAMETERS = *mut RTL_USER_PROCESS_PARAMETERS;
+        type PSTRING = *mut STRING;
         type PSYSTEM_BASICPROCESS_INFORMATION = *mut SYSTEM_BASICPROCESS_INFORMATION;
         type PSYSTEM_BASIC_INFORMATION = *mut SYSTEM_BASIC_INFORMATION;
         type PSYSTEM_CODEINTEGRITY_INFORMATION = *mut SYSTEM_CODEINTEGRITY_INFORMATION;
@@ -236,6 +237,7 @@ mod Windows {
             TypeName: UNICODE_STRING,
             Reserved: [u32; 22],
         }
+        type PUNICODE_STRING = *mut UNICODE_STRING;
         type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
         extern fn PWINSTATIONQUERYINFORMATIONW(param0: HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut void, param4: u32, param5: *mut u32) -> bool;
         struct RTL_USER_PROCESS_PARAMETERS {
@@ -267,9 +269,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlInitUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCWSTR);
         #[library("ntdll.dll")]
-        extern fn RtlIsNameLegalDOS8Dot3(Name: *mut UNICODE_STRING, OemName: POEM_STRING, NameContainsSpaces: *mut bool) -> bool;
+        extern fn RtlIsNameLegalDOS8Dot3(Name: *const UNICODE_STRING, #[in] #[out] #[opt] OemName: POEM_STRING, #[in] #[out] #[opt] NameContainsSpaces: *mut bool) -> bool;
         #[library("ntdll.dll")]
-        extern fn RtlLocalTimeToSystemTime(LocalTime: *mut i64, SystemTime: *mut i64) -> NTSTATUS;
+        extern fn RtlLocalTimeToSystemTime(LocalTime: *const i64, SystemTime: *mut i64) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlNtStatusToDosError(Status: NTSTATUS) -> u32;
         #[library("ntdll.dll")]

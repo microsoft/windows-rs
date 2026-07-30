@@ -3,29 +3,29 @@ mod Windows {
     mod Win32 {
         type CRYPT_DIGEST_DATA = CRYPT_HASH_BLOB;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPAddProvider(psNewProv: *mut SIP_ADD_NEWPROVIDER) -> BOOL;
+        extern fn CryptSIPAddProvider(psNewProv: *const SIP_ADD_NEWPROVIDER) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut u32, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
+        extern fn CryptSIPCreateIndirectData(pSubjectInfo: *const SIP_SUBJECTINFO, #[in] #[out] pcbIndirectData: *mut u32, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSIPGetCaps(pSubjInfo: *const SIP_SUBJECTINFO, #[in] #[out] pCaps: *mut SIP_CAP_SET) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSIPGetSealedDigest(pSubjectInfo: *const SIP_SUBJECTINFO, pSig: *const u8, dwSig: u32, #[len_param(4)] #[opt] pbDigest: *mut u8, #[in] #[out] pcbDigest: *mut u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut u32, dwIndex: u32, pcbSignedDataMsg: *mut u32, pbSignedDataMsg: *mut u8) -> BOOL;
+        extern fn CryptSIPGetSignedDataMsg(pSubjectInfo: *const SIP_SUBJECTINFO, pdwEncodingType: *mut u32, dwIndex: u32, #[in] #[out] pcbSignedDataMsg: *mut u32, pbSignedDataMsg: *mut u8) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPLoad(pgSubject: *const GUID, dwFlags: u32, pSipDispatch: *mut SIP_DISPATCH_INFO) -> BOOL;
+        extern fn CryptSIPLoad(pgSubject: *const GUID, dwFlags: u32, #[in] #[out] pSipDispatch: *mut SIP_DISPATCH_INFO) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPPutSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: u32, pdwIndex: *mut u32, cbSignedDataMsg: u32, pbSignedDataMsg: *mut u8) -> BOOL;
+        extern fn CryptSIPPutSignedDataMsg(pSubjectInfo: *const SIP_SUBJECTINFO, dwEncodingType: u32, pdwIndex: *mut u32, cbSignedDataMsg: u32, pbSignedDataMsg: *const u8) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPRemoveProvider(pgProv: *mut GUID) -> BOOL;
+        extern fn CryptSIPRemoveProvider(pgProv: *const GUID) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPRemoveSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwIndex: u32) -> BOOL;
+        extern fn CryptSIPRemoveSignedDataMsg(pSubjectInfo: *const SIP_SUBJECTINFO, dwIndex: u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPRetrieveSubjectGuid(FileName: PCWSTR, hFileIn: HANDLE, pgSubject: *mut GUID) -> BOOL;
+        extern fn CryptSIPRetrieveSubjectGuid(FileName: PCWSTR, #[opt] hFileIn: HANDLE, pgSubject: *mut GUID) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPRetrieveSubjectGuidForCatalogFile(FileName: PCWSTR, hFileIn: HANDLE, pgSubject: *mut GUID) -> BOOL;
+        extern fn CryptSIPRetrieveSubjectGuidForCatalogFile(FileName: PCWSTR, #[opt] hFileIn: HANDLE, pgSubject: *mut GUID) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPVerifyIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
+        extern fn CryptSIPVerifyIndirectData(pSubjectInfo: *const SIP_SUBJECTINFO, pIndirectData: *const SIP_INDIRECT_DATA) -> BOOL;
         type LPSIP_DISPATCH_INFO = *mut SIP_DISPATCH_INFO;
         type LPSIP_SUBJECTINFO = *mut SIP_SUBJECTINFO;
         const MSSIP_ADDINFO_BLOB: i32 = 3;

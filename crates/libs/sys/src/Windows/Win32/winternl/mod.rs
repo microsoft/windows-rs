@@ -1,18 +1,18 @@
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtClose(handle : super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtCreateFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *mut super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, allocationsize : *mut i64, fileattributes : u32, shareaccess : u32, createdisposition : u32, createoptions : u32, eabuffer : *mut core::ffi::c_void, ealength : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
+windows_link::link!("ntdll.dll" "system" fn NtCreateFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, allocationsize : *const i64, fileattributes : u32, shareaccess : u32, createdisposition : u32, createoptions : u32, eabuffer : *const core::ffi::c_void, ealength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtDeviceIoControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *mut core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *mut core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+windows_link::link!("ntdll.dll" "system" fn NtDeviceIoControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::HANDLE, count : u32, subordinateobjects : *const super::OBJECT_ATTRIBUTES, event : super::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, completionfilter : u32, watchtree : bool, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *mut super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt"))]
+windows_link::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::HANDLE, processinformationclass : super::PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::HANDLE, threadinformationclass : super::THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtQueryMultipleValueKey(keyhandle : super::HANDLE, valueentries : *mut KEY_VALUE_ENTRY, entrycount : u32, valuebuffer : *mut core::ffi::c_void, bufferlength : *mut u32, requiredbufferlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtQueryObject(handle : super::HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
@@ -26,21 +26,21 @@ windows_link::link!("ntdll.dll" "system" fn NtSetInformationKey(keyhandle : supe
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::HANDLE, threadinformationclass : super::THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::HANDLE, alertable : bool, timeout : *mut i64) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+windows_link::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::HANDLE, alertable : bool, timeout : *const i64) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlAnsiStringToUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : PCANSI_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlCharToInteger(string : *const i8, base : u32, value : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlConvertSidToUnicodeString(unicodestring : *mut super::UNICODE_STRING, sid : super::PSID, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlFreeAnsiString(ansistring : PANSI_STRING));
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlFreeOemString(oemstring : POEM_STRING));
 #[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlFreeUnicodeString(unicodestring : *mut super::UNICODE_STRING));
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlInitAnsiString(destinationstring : PANSI_STRING, sourcestring : *const i8));
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlInitAnsiStringEx(destinationstring : PANSI_STRING, sourcestring : *const i8) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlInitString(destinationstring : *mut super::STRING, sourcestring : *const i8));
@@ -48,14 +48,14 @@ windows_link::link!("ntdll.dll" "system" fn RtlInitString(destinationstring : *m
 windows_link::link!("ntdll.dll" "system" fn RtlInitStringEx(destinationstring : *mut super::STRING, sourcestring : *const i8) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "ntsecapi")]
 windows_link::link!("ntdll.dll" "system" fn RtlInitUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : windows_sys::core::PCWSTR));
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *mut super::UNICODE_STRING, oemname : POEM_STRING, namecontainsspaces : *mut bool) -> bool);
-windows_link::link!("ntdll.dll" "system" fn RtlLocalTimeToSystemTime(localtime : *mut i64, systemtime : *mut i64) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+windows_link::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *const super::UNICODE_STRING, oemname : POEM_STRING, namecontainsspaces : *mut bool) -> bool);
+windows_link::link!("ntdll.dll" "system" fn RtlLocalTimeToSystemTime(localtime : *const i64, systemtime : *mut i64) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : windows_sys::core::NTSTATUS) -> u32);
 windows_link::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1970(time : *mut i64, elapsedseconds : *mut u32) -> bool);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeStringToAnsiString(destinationstring : PANSI_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeStringToOemString(destinationstring : POEM_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteSize(bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlUniform(seed : *mut u32) -> u32);
@@ -149,15 +149,15 @@ impl Default for IO_STATUS_BLOCK_0 {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 #[derive(Clone, Copy)]
 pub struct KEY_VALUE_ENTRY {
-    pub ValueName: super::PUNICODE_STRING,
+    pub ValueName: PUNICODE_STRING,
     pub DataLength: u32,
     pub DataOffset: u32,
     pub Type: u32,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 impl Default for KEY_VALUE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -215,10 +215,10 @@ pub const OBJ_VALID_ATTRIBUTES: i32 = 8178;
 pub type OEM_STRING = super::STRING;
 pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = 0;
 pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = 2;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PANSI_STRING = super::PSTRING;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PCANSI_STRING = super::PSTRING;
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+pub type PANSI_STRING = PSTRING;
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+pub type PCANSI_STRING = PSTRING;
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PCOEM_STRING = *const super::STRING;
 pub type PCSZ = *const i8;
@@ -270,12 +270,12 @@ impl Default for PEB_LDR_DATA {
 }
 pub type PIO_APC_ROUTINE = Option<unsafe extern "system" fn(apccontext: *mut core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;
 pub type PIO_STATUS_BLOCK = *mut IO_STATUS_BLOCK;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+#[cfg(feature = "ntsecapi")]
 pub type PKEY_VALUE_ENTRY = *mut KEY_VALUE_ENTRY;
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PLDR_DATA_TABLE_ENTRY = *mut LDR_DATA_TABLE_ENTRY;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type POEM_STRING = super::PSTRING;
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+pub type POEM_STRING = PSTRING;
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PPEB = *mut PEB;
 #[cfg(feature = "winnt")]
@@ -305,6 +305,8 @@ impl Default for PROCESS_BASIC_INFORMATION {
 }
 #[cfg(feature = "ntsecapi")]
 pub type PRTL_USER_PROCESS_PARAMETERS = *mut RTL_USER_PROCESS_PARAMETERS;
+#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+pub type PSTRING = *mut super::STRING;
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PSYSTEM_BASICPROCESS_INFORMATION = *mut SYSTEM_BASICPROCESS_INFORMATION;
 #[cfg(feature = "winnt")]
@@ -356,6 +358,8 @@ impl Default for PUBLIC_OBJECT_TYPE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "ntsecapi")]
+pub type PUNICODE_STRING = *mut super::UNICODE_STRING;
 pub type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
 #[cfg(feature = "winnt")]
 pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> bool>;

@@ -3,9 +3,9 @@ windows_link::link!("imm32.dll" "system" fn ImmAssociateContext(param0 : super::
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::HWND, param1 : HIMC, param2 : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmCreateContext() -> HIMC);
 windows_link::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : HIMC) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> windows_sys::core::BOOL);
@@ -14,13 +14,13 @@ windows_link::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread 
 #[cfg(feature = "minwindef")]
 windows_link::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_sys::core::PCSTR, param3 : u32, lpszregister : windows_sys::core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_sys::core::PCSTR, param3 : u32, lpszregister : windows_sys::core::PCSTR, param5 : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_sys::core::PCWSTR, param3 : u32, lpszregister : windows_sys::core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_sys::core::PCWSTR, param3 : u32, lpszregister : windows_sys::core::PCWSTR, param5 : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *mut core::ffi::c_void) -> super::LRESULT);
+windows_link::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *const core::ffi::c_void) -> super::LRESULT);
 #[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *mut core::ffi::c_void) -> super::LRESULT);
+windows_link::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *const core::ffi::c_void) -> super::LRESULT);
 windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
 windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
 windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);

@@ -387,13 +387,13 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetAccessAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessDel(servername: PCWSTR, resource: PCWSTR) -> u32;
+        extern fn NetAccessDel(#[opt] servername: PCWSTR, resource: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetAccessEnum(#[opt] servername: PCWSTR, BasePath: PCWSTR, Recursive: u32, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetAccessGetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessGetUserPerms(servername: PCWSTR, UGname: PCWSTR, resource: PCWSTR, Perms: *mut u32) -> u32;
+        extern fn NetAccessGetUserPerms(#[opt] servername: PCWSTR, UGname: PCWSTR, resource: PCWSTR, Perms: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetAccessSetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
@@ -405,7 +405,7 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetGetDCName(#[opt] ServerName: PCWSTR, #[opt] DomainName: PCWSTR, Buffer: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetGetDisplayInformationIndex(ServerName: PCWSTR, Level: u32, Prefix: PCWSTR, Index: *mut u32) -> u32;
+        extern fn NetGetDisplayInformationIndex(#[opt] ServerName: PCWSTR, Level: u32, Prefix: PCWSTR, Index: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
@@ -451,7 +451,7 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetLocalGroupSetMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetQueryDisplayInformation(ServerName: PCWSTR, Level: u32, Index: u32, EntriesRequested: u32, PreferredMaximumLength: u32, ReturnedEntryCount: *mut u32, SortedBuffer: *mut *mut void) -> u32;
+        extern fn NetQueryDisplayInformation(#[opt] ServerName: PCWSTR, Level: u32, Index: u32, EntriesRequested: u32, PreferredMaximumLength: u32, ReturnedEntryCount: *mut u32, SortedBuffer: *mut *mut void) -> u32;
         #[library("NETAPI32.dll")]
         extern "C" fn NetQueryServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, InfoLevel: u32, Buffer: *mut PBYTE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
@@ -479,9 +479,9 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetUserSetInfo(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetValidatePasswordPolicy(ServerName: PCWSTR, Qualifier: *mut void, ValidationType: NET_VALIDATE_PASSWORD_TYPE, InputArg: *mut void, OutputArg: *mut *mut void) -> u32;
+        extern fn NetValidatePasswordPolicy(ServerName: PCWSTR, Qualifier: *const void, ValidationType: NET_VALIDATE_PASSWORD_TYPE, InputArg: *const void, OutputArg: *mut *mut void) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetValidatePasswordPolicyFree(OutputArg: *mut *mut void) -> u32;
+        extern fn NetValidatePasswordPolicyFree(OutputArg: *const *const void) -> u32;
         const ONE_DAY: u32 = 86400;
         type PACCESS_INFO_0 = *mut ACCESS_INFO_0;
         type PACCESS_INFO_1 = *mut ACCESS_INFO_1;

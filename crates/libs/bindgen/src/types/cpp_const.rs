@@ -158,23 +158,24 @@ impl CppConst {
             } else {
                 let underlying_ty = field_ty.underlying_type(config.reader);
                 let ty = field_ty.write_name(config);
-                let mut value = constant.value().write();
 
-                if underlying_ty == constant_ty {
+                let value = if underlying_ty == constant_ty {
+                    let mut value = pointer_sized_const_value(&underlying_ty, &constant.value());
                     if is_signed_error(&field_ty, config.reader) {
                         if let Value::I32(signed) = constant.value() {
                             value = format!("0x{signed:X}_u32 as _").parse().unwrap();
                         }
                     }
+                    value
                 } else if field_ty == Type::Bool {
-                    value = match constant.value() {
+                    match constant.value() {
                         Value::U8(1) => quote! { true },
                         Value::U8(0) => quote! { false },
                         _ => panic!(),
-                    };
+                    }
                 } else {
-                    value = wide_int_cast(&constant.value());
-                }
+                    wide_int_cast(&constant.value())
+                };
                 // Bare-alias constants cannot use tuple constructors; wrap only concrete newtype layers.
                 let unscoped_enum_const = self.is_enum_member
                     || matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"));

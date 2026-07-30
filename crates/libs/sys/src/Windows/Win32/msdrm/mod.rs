@@ -1,11 +1,11 @@
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMAcquireAdvisories(hlicensestorage : super::DRMHSESSION, wszlicense : windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMAcquireAdvisories(hlicensestorage : super::DRMHSESSION, wszlicense : windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pvcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMAcquireIssuanceLicenseTemplate(hclient : super::DRMHSESSION, uflags : u32, pvreserved : *mut core::ffi::c_void, ctemplates : u32, pwsztemplateids : *const windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMAcquireIssuanceLicenseTemplate(hclient : super::DRMHSESSION, uflags : u32, pvreserved : *const core::ffi::c_void, ctemplates : u32, pwsztemplateids : *const windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pvcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMAcquireLicense(hsession : super::DRMHSESSION, uflags : u32, wszgroupidentitycredential : windows_sys::core::PCWSTR, wszrequestedrights : windows_sys::core::PCWSTR, wszcustomdata : windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMAcquireLicense(hsession : super::DRMHSESSION, uflags : u32, wszgroupidentitycredential : windows_sys::core::PCWSTR, wszrequestedrights : windows_sys::core::PCWSTR, wszcustomdata : windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pvcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "msdrmdefs", feature = "windef"))]
-windows_link::link!("msdrm.dll" "system" fn DRMActivate(hclient : super::DRMHSESSION, uflags : u32, ulangid : u32, pactservinfo : *mut super::DRM_ACTSERV_INFO, pvcontext : *mut core::ffi::c_void, hparentwnd : super::HWND) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMActivate(hclient : super::DRMHSESSION, uflags : u32, ulangid : u32, pactservinfo : *const super::DRM_ACTSERV_INFO, pvcontext : *const core::ffi::c_void, hparentwnd : super::HWND) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMAddLicense(hlicensestorage : super::DRMHSESSION, uflags : u32, wszlicense : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
@@ -28,7 +28,7 @@ windows_link::link!("msdrm.dll" "system" fn DRMCloseQueryHandle(hquery : super::
 windows_link::link!("msdrm.dll" "system" fn DRMCloseSession(hsession : super::DRMHSESSION) -> windows_sys::core::HRESULT);
 windows_link::link!("msdrm.dll" "system" fn DRMConstructCertificateChain(ccertificates : u32, rgwszcertificates : *const windows_sys::core::PCWSTR, pcchain : *mut u32, wszchain : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMCreateBoundLicense(henv : super::DRMENVHANDLE, pparams : *mut super::DRMBOUNDLICENSEPARAMS, wszlicensechain : windows_sys::core::PCWSTR, phboundlicense : *mut super::DRMHANDLE, pherrorlog : *mut super::DRMHANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMCreateBoundLicense(henv : super::DRMENVHANDLE, pparams : *const super::DRMBOUNDLICENSEPARAMS, wszlicensechain : windows_sys::core::PCWSTR, phboundlicense : *mut super::DRMHANDLE, pherrorlog : *mut super::DRMHANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMCreateClientSession(pfncallback : super::DRMCALLBACK, ucallbackversion : u32, wszgroupidprovidertype : windows_sys::core::PCWSTR, wszgroupid : windows_sys::core::PCWSTR, phclient : *mut super::DRMHSESSION) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
@@ -36,19 +36,19 @@ windows_link::link!("msdrm.dll" "system" fn DRMCreateEnablingBitsDecryptor(hboun
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMCreateEnablingBitsEncryptor(hboundlicense : super::DRMHANDLE, wszright : windows_sys::core::PCWSTR, hauxlib : super::DRMHANDLE, wszauxplug : windows_sys::core::PCWSTR, phencryptor : *mut super::DRMHANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMCreateEnablingPrincipal(henv : super::DRMENVHANDLE, hlibrary : super::DRMHANDLE, wszobject : windows_sys::core::PCWSTR, pidprincipal : *mut super::DRMID, wszcredentials : windows_sys::core::PCWSTR, phenablingprincipal : *mut super::DRMHANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMCreateEnablingPrincipal(henv : super::DRMENVHANDLE, hlibrary : super::DRMHANDLE, wszobject : windows_sys::core::PCWSTR, pidprincipal : *const super::DRMID, wszcredentials : windows_sys::core::PCWSTR, phenablingprincipal : *mut super::DRMHANDLE) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs"))]
-windows_link::link!("msdrm.dll" "system" fn DRMCreateIssuanceLicense(psttimefrom : *mut super::SYSTEMTIME, psttimeuntil : *mut super::SYSTEMTIME, wszreferralinfoname : windows_sys::core::PCWSTR, wszreferralinfourl : windows_sys::core::PCWSTR, howner : super::DRMPUBHANDLE, wszissuancelicense : windows_sys::core::PCWSTR, hboundlicense : super::DRMHANDLE, phissuancelicense : *mut super::DRMPUBHANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMCreateIssuanceLicense(psttimefrom : *const super::SYSTEMTIME, psttimeuntil : *const super::SYSTEMTIME, wszreferralinfoname : windows_sys::core::PCWSTR, wszreferralinfourl : windows_sys::core::PCWSTR, howner : super::DRMPUBHANDLE, wszissuancelicense : windows_sys::core::PCWSTR, hboundlicense : super::DRMHANDLE, phissuancelicense : *mut super::DRMPUBHANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMCreateLicenseStorageSession(henv : super::DRMENVHANDLE, hdefaultlibrary : super::DRMHANDLE, hclient : super::DRMHSESSION, uflags : u32, wszissuancelicense : windows_sys::core::PCWSTR, phlicensestorage : *mut super::DRMHSESSION) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs"))]
-windows_link::link!("msdrm.dll" "system" fn DRMCreateRight(wszrightname : windows_sys::core::PCWSTR, pstfrom : *mut super::SYSTEMTIME, pstuntil : *mut super::SYSTEMTIME, cextendedinfo : u32, pwszextendedinfoname : *const windows_sys::core::PCWSTR, pwszextendedinfovalue : *const windows_sys::core::PCWSTR, phright : *mut super::DRMPUBHANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMCreateRight(wszrightname : windows_sys::core::PCWSTR, pstfrom : *const super::SYSTEMTIME, pstuntil : *const super::SYSTEMTIME, cextendedinfo : u32, pwszextendedinfoname : *const windows_sys::core::PCWSTR, pwszextendedinfovalue : *const windows_sys::core::PCWSTR, phright : *mut super::DRMPUBHANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMCreateUser(wszusername : windows_sys::core::PCWSTR, wszuserid : windows_sys::core::PCWSTR, wszuseridtype : windows_sys::core::PCWSTR, phuser : *mut super::DRMPUBHANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("msdrm.dll" "system" fn DRMDecode(wszalgid : windows_sys::core::PCWSTR, wszencodedstring : windows_sys::core::PCWSTR, pudecodeddatalen : *mut u32, pbdecodeddata : *mut u8) -> windows_sys::core::HRESULT);
 windows_link::link!("msdrm.dll" "system" fn DRMDeconstructCertificateChain(wszchain : windows_sys::core::PCWSTR, iwhich : u32, pccert : *mut u32, wszcert : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMDecrypt(hcryptoprovider : super::DRMHANDLE, iposition : u32, cnuminbytes : u32, pbindata : *mut u8, pcnumoutbytes : *mut u32, pboutdata : *mut u8) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMDecrypt(hcryptoprovider : super::DRMHANDLE, iposition : u32, cnuminbytes : u32, pbindata : *const u8, pcnumoutbytes : *mut u32, pboutdata : *mut u8) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMDeleteLicense(hsession : super::DRMHSESSION, wszlicenseid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
@@ -59,9 +59,9 @@ windows_link::link!("msdrm.dll" "system" fn DRMDuplicateHandle(htocopy : super::
 windows_link::link!("msdrm.dll" "system" fn DRMDuplicatePubHandle(hpubin : super::DRMPUBHANDLE, phpubout : *mut super::DRMPUBHANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMDuplicateSession(hsessionin : super::DRMHSESSION, phsessionout : *mut super::DRMHSESSION) -> windows_sys::core::HRESULT);
-windows_link::link!("msdrm.dll" "system" fn DRMEncode(wszalgid : windows_sys::core::PCWSTR, udatalen : u32, pbdecodeddata : *mut u8, puencodedstringlen : *mut u32, wszencodedstring : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMEncode(wszalgid : windows_sys::core::PCWSTR, udatalen : u32, pbdecodeddata : *const u8, puencodedstringlen : *mut u32, wszencodedstring : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMEncrypt(hcryptoprovider : super::DRMHANDLE, iposition : u32, cnuminbytes : u32, pbindata : *mut u8, pcnumoutbytes : *mut u32, pboutdata : *mut u8) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMEncrypt(hcryptoprovider : super::DRMHANDLE, iposition : u32, cnuminbytes : u32, pbindata : *const u8, pcnumoutbytes : *mut u32, pboutdata : *mut u8) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMEnumerateLicense(hsession : super::DRMHSESSION, uflags : u32, uindex : u32, pfsharedflag : *mut windows_sys::core::BOOL, pucertificatedatalen : *mut u32, wszcertificatedata : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
@@ -105,7 +105,7 @@ windows_link::link!("msdrm.dll" "system" fn DRMGetSecurityProvider(uflags : u32,
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMGetServiceLocation(hclient : super::DRMHSESSION, uservicetype : u32, uservicelocation : u32, wszissuancelicense : windows_sys::core::PCWSTR, puserviceurllength : *mut u32, wszserviceurl : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMGetSignedIssuanceLicense(henv : super::DRMENVHANDLE, hissuancelicense : super::DRMPUBHANDLE, uflags : u32, pbsymkey : *mut u8, cbsymkey : u32, wszsymkeytype : windows_sys::core::PCWSTR, wszclientlicensorcertificate : windows_sys::core::PCWSTR, pfncallback : super::DRMCALLBACK, wszurl : windows_sys::core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMGetSignedIssuanceLicense(henv : super::DRMENVHANDLE, hissuancelicense : super::DRMPUBHANDLE, uflags : u32, pbsymkey : *const u8, cbsymkey : u32, wszsymkeytype : windows_sys::core::PCWSTR, wszclientlicensorcertificate : windows_sys::core::PCWSTR, pfncallback : super::DRMCALLBACK, wszurl : windows_sys::core::PCWSTR, pvcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMGetSignedIssuanceLicenseEx(henv : super::DRMENVHANDLE, hissuancelicense : super::DRMPUBHANDLE, uflags : u32, pbsymkey : *const u8, cbsymkey : u32, wszsymkeytype : windows_sys::core::PCWSTR, pvreserved : *const core::ffi::c_void, henablingprincipal : super::DRMHANDLE, hboundlicenseclc : super::DRMHANDLE, pfncallback : super::DRMCALLBACK, pvcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs"))]
@@ -129,7 +129,7 @@ windows_link::link!("msdrm.dll" "system" fn DRMGetUsers(hissuancelicense : super
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMInitEnvironment(esecurityprovidertype : super::DRMSECURITYPROVIDERTYPE, especification : super::DRMSPECTYPE, wszsecurityprovider : windows_sys::core::PCWSTR, wszmanifestcredentials : windows_sys::core::PCWSTR, wszmachinecredentials : windows_sys::core::PCWSTR, phenv : *mut super::DRMENVHANDLE, phdefaultlibrary : *mut super::DRMHANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMIsActivated(hclient : super::DRMHSESSION, uflags : u32, pactservinfo : *mut super::DRM_ACTSERV_INFO) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMIsActivated(hclient : super::DRMHSESSION, uflags : u32, pactservinfo : *const super::DRM_ACTSERV_INFO) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("msdrm.dll" "system" fn DRMIsWindowProtected(hwnd : super::HWND, pfprotected : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
@@ -145,7 +145,7 @@ windows_link::link!("msdrm.dll" "system" fn DRMRepair() -> windows_sys::core::HR
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMSetApplicationSpecificData(hissuancelicense : super::DRMPUBHANDLE, fdelete : windows_sys::core::BOOL, wszname : windows_sys::core::PCWSTR, wszvalue : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMSetGlobalOptions(eglobaloptions : super::DRMGLOBALOPTIONS, pvdata : *mut core::ffi::c_void, dwlen : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMSetGlobalOptions(eglobaloptions : super::DRMGLOBALOPTIONS, pvdata : *const core::ffi::c_void, dwlen : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMSetIntervalTime(hissuancelicense : super::DRMPUBHANDLE, cdays : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
@@ -153,8 +153,8 @@ windows_link::link!("msdrm.dll" "system" fn DRMSetMetaData(hissuancelicense : su
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMSetNameAndDescription(hissuancelicense : super::DRMPUBHANDLE, fdelete : windows_sys::core::BOOL, lcid : u32, wszname : windows_sys::core::PCWSTR, wszdescription : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs"))]
-windows_link::link!("msdrm.dll" "system" fn DRMSetRevocationPoint(hissuancelicense : super::DRMPUBHANDLE, fdelete : windows_sys::core::BOOL, wszid : windows_sys::core::PCWSTR, wszidtype : windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pstfrequency : *mut super::SYSTEMTIME, wszname : windows_sys::core::PCWSTR, wszpublickey : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMSetRevocationPoint(hissuancelicense : super::DRMPUBHANDLE, fdelete : windows_sys::core::BOOL, wszid : windows_sys::core::PCWSTR, wszidtype : windows_sys::core::PCWSTR, wszurl : windows_sys::core::PCWSTR, pstfrequency : *const super::SYSTEMTIME, wszname : windows_sys::core::PCWSTR, wszpublickey : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
-windows_link::link!("msdrm.dll" "system" fn DRMSetUsagePolicy(hissuancelicense : super::DRMPUBHANDLE, eusagepolicytype : super::DRM_USAGEPOLICY_TYPE, fdelete : windows_sys::core::BOOL, fexclusion : windows_sys::core::BOOL, wszname : windows_sys::core::PCWSTR, wszminversion : windows_sys::core::PCWSTR, wszmaxversion : windows_sys::core::PCWSTR, wszpublickey : windows_sys::core::PCWSTR, wszdigestalgorithm : windows_sys::core::PCWSTR, pbdigest : *mut u8, cbdigest : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("msdrm.dll" "system" fn DRMSetUsagePolicy(hissuancelicense : super::DRMPUBHANDLE, eusagepolicytype : super::DRM_USAGEPOLICY_TYPE, fdelete : windows_sys::core::BOOL, fexclusion : windows_sys::core::BOOL, wszname : windows_sys::core::PCWSTR, wszminversion : windows_sys::core::PCWSTR, wszmaxversion : windows_sys::core::PCWSTR, wszpublickey : windows_sys::core::PCWSTR, wszdigestalgorithm : windows_sys::core::PCWSTR, pbdigest : *const u8, cbdigest : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "msdrmdefs")]
 windows_link::link!("msdrm.dll" "system" fn DRMVerify(wszdata : windows_sys::core::PCWSTR, pcattesteddata : *mut u32, wszattesteddata : windows_sys::core::PWSTR, petype : *mut super::DRMATTESTTYPE, pcprincipal : *mut u32, wszprincipal : windows_sys::core::PWSTR, pcmanifest : *mut u32, wszmanifest : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);

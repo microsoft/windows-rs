@@ -16,7 +16,7 @@ windows_link::link!("winhttp.dll" "system" fn WinHttpFreeProxySettingsEx(proxyse
 windows_link::link!("winhttp.dll" "system" fn WinHttpFreeQueryConnectionGroupResult(presult : *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT));
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetDefaultProxyConfiguration(pproxyinfo : *mut WINHTTP_PROXY_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig : *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG) -> windows_sys::core::BOOL);
-windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrl(hsession : HINTERNET, lpcwszurl : windows_sys::core::PCWSTR, pautoproxyoptions : *mut WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo : *mut WINHTTP_PROXY_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrl(hsession : HINTERNET, lpcwszurl : windows_sys::core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo : *mut WINHTTP_PROXY_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrlEx(hresolver : HINTERNET, pcwszurl : windows_sys::core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, pcontext : usize) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrlEx2(hresolver : HINTERNET, pcwszurl : windows_sys::core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext : u32, pinterfaceselectioncontext : *const u8, pcontext : usize) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxyResult(hresolver : HINTERNET, pproxyresult : *mut WINHTTP_PROXY_RESULT) -> u32);
@@ -26,7 +26,7 @@ windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxySettingsEx(hresolve
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxySettingsResultEx(hresolver : HINTERNET, pproxysettingsex : *mut core::ffi::c_void) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpGetProxySettingsVersion(hsession : HINTERNET, pdwproxysettingsversion : *mut u32) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpOpen(pszagentw : windows_sys::core::PCWSTR, dwaccesstype : u32, pszproxyw : windows_sys::core::PCWSTR, pszproxybypassw : windows_sys::core::PCWSTR, dwflags : u32) -> HINTERNET);
-windows_link::link!("winhttp.dll" "system" fn WinHttpOpenRequest(hconnect : HINTERNET, pwszverb : windows_sys::core::PCWSTR, pwszobjectname : windows_sys::core::PCWSTR, pwszversion : windows_sys::core::PCWSTR, pwszreferrer : windows_sys::core::PCWSTR, ppwszaccepttypes : *mut windows_sys::core::PCWSTR, dwflags : u32) -> HINTERNET);
+windows_link::link!("winhttp.dll" "system" fn WinHttpOpenRequest(hconnect : HINTERNET, pwszverb : windows_sys::core::PCWSTR, pwszobjectname : windows_sys::core::PCWSTR, pwszversion : windows_sys::core::PCWSTR, pwszreferrer : windows_sys::core::PCWSTR, ppwszaccepttypes : *const windows_sys::core::PCWSTR, dwflags : u32) -> HINTERNET);
 windows_link::link!("winhttp.dll" "system" fn WinHttpProtocolCompleteUpgrade(hrequest : HINTERNET, dwcontext : usize) -> HINTERNET);
 windows_link::link!("winhttp.dll" "system" fn WinHttpProtocolReceive(protocolhandle : HINTERNET, flags : u64, pvbuffer : *mut core::ffi::c_void, dwbufferlength : u32, pdwbytesread : *mut u32) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpProtocolSend(protocolhandle : HINTERNET, flags : u64, pvbuffer : *const core::ffi::c_void, dwbufferlength : u32) -> u32);
@@ -40,12 +40,12 @@ windows_link::link!("winhttp.dll" "system" fn WinHttpReadData(hrequest : HINTERN
 windows_link::link!("winhttp.dll" "system" fn WinHttpReadDataEx(hrequest : HINTERNET, lpbuffer : *mut core::ffi::c_void, dwnumberofbytestoread : u32, lpdwnumberofbytesread : *mut u32, ullflags : u64, cbproperty : u32, pvproperty : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("winhttp.dll" "system" fn WinHttpReadProxySettings(hsession : HINTERNET, pcwszconnectionname : windows_sys::core::PCWSTR, ffallbacktodefaultsettings : windows_sys::core::BOOL, fsetautodiscoverfordefaultsettings : windows_sys::core::BOOL, pdwsettingsversion : *mut u32, pfdefaultsettingsarereturned : *mut windows_sys::core::BOOL, pwinhttpproxysettings : *mut WINHTTP_PROXY_SETTINGS) -> u32);
-windows_link::link!("winhttp.dll" "system" fn WinHttpReceiveResponse(hrequest : HINTERNET, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("winhttp.dll" "system" fn WinHttpReceiveResponse(hrequest : HINTERNET, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpRegisterProxyChangeNotification(ullflags : u64, pfncallback : WINHTTP_PROXY_CHANGE_CALLBACK, pvcontext : *const core::ffi::c_void, hregistration : *mut WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpResetAutoProxy(hsession : HINTERNET, dwflags : u32) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpSendRequest(hrequest : HINTERNET, lpszheaders : windows_sys::core::PCWSTR, dwheaderslength : u32, lpoptional : *const core::ffi::c_void, dwoptionallength : u32, dwtotallength : u32, dwcontext : usize) -> windows_sys::core::BOOL);
-windows_link::link!("winhttp.dll" "system" fn WinHttpSetCredentials(hrequest : HINTERNET, authtargets : u32, authscheme : u32, pwszusername : windows_sys::core::PCWSTR, pwszpassword : windows_sys::core::PCWSTR, pauthparams : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("winhttp.dll" "system" fn WinHttpSetDefaultProxyConfiguration(pproxyinfo : *mut WINHTTP_PROXY_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("winhttp.dll" "system" fn WinHttpSetCredentials(hrequest : HINTERNET, authtargets : u32, authscheme : u32, pwszusername : windows_sys::core::PCWSTR, pwszpassword : windows_sys::core::PCWSTR, pauthparams : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("winhttp.dll" "system" fn WinHttpSetDefaultProxyConfiguration(pproxyinfo : *const WINHTTP_PROXY_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpSetOption(hinternet : HINTERNET, dwoption : u32, lpbuffer : *mut core::ffi::c_void, dwbufferlength : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winhttp.dll" "system" fn WinHttpSetProxySettingsPerUser(fproxysettingsperuser : windows_sys::core::BOOL) -> u32);
 windows_link::link!("winhttp.dll" "system" fn WinHttpSetStatusCallback(hinternet : HINTERNET, lpfninternetcallback : WINHTTP_STATUS_CALLBACK, dwnotificationflags : u32, dwreserved : usize) -> WINHTTP_STATUS_CALLBACK);

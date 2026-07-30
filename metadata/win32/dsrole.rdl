@@ -49,9 +49,9 @@ mod Windows {
             PreviousServerState: DSROLE_SERVER_STATE,
         }
         #[library("NETAPI32.dll")]
-        extern fn DsRoleFreeMemory(Buffer: *mut void);
+        extern fn DsRoleFreeMemory(Buffer: *const void);
         #[library("NETAPI32.dll")]
-        extern fn DsRoleGetPrimaryDomainInformation(lpServer: PCWSTR, InfoLevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, Buffer: *mut PBYTE) -> u32;
+        extern fn DsRoleGetPrimaryDomainInformation(#[opt] lpServer: PCWSTR, InfoLevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, Buffer: *mut PBYTE) -> u32;
         type PDSROLE_OPERATION_STATE_INFO = *mut DSROLE_OPERATION_STATE_INFO;
         type PDSROLE_PRIMARY_DOMAIN_INFO_BASIC = *mut DSROLE_PRIMARY_DOMAIN_INFO_BASIC;
         type PDSROLE_SERVER_STATE = *mut DSROLE_SERVER_STATE;
