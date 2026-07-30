@@ -1914,10 +1914,10 @@ mod Windows {
             ullQueuedInterest: u64,
             ulCount: u32,
         }
-        const SPFEI_ALL_EVENTS: u64 = 18446744073709551615;
-        const SPFEI_ALL_SR_EVENTS: u64 = 1073741824;
-        const SPFEI_ALL_TTS_EVENTS: u64 = 1073807358;
-        const SPFEI_FLAGCHECK: u64 = 1073741824;
+        const SPFEI_ALL_EVENTS: u64 = 17293822569102704639;
+        const SPFEI_ALL_SR_EVENTS: u64 = 18014390993289216;
+        const SPFEI_ALL_TTS_EVENTS: u64 = 9663741950;
+        const SPFEI_FLAGCHECK: u64 = 9663676416;
         #[repr(i32)]
         enum SPFILEMODE {
             SPFM_OPEN_READONLY = 0,

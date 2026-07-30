@@ -537,6 +537,26 @@ impl Cursor {
         }
     }
 
+    pub fn evaluate_integer(&self) -> Option<(u64, i64)> {
+        unsafe {
+            let result = clang_Cursor_Evaluate(self.0);
+            if result.is_null() {
+                return None;
+            }
+            let kind = clang_EvalResult_getKind(result);
+            let value = if kind == CXEval_Int {
+                Some((
+                    clang_EvalResult_getAsUnsigned(result),
+                    clang_EvalResult_getAsLongLong(result),
+                ))
+            } else {
+                None
+            };
+            clang_EvalResult_dispose(result);
+            value
+        }
+    }
+
     /// Allows integer initializers for floating constants, matching libclang evaluation.
     pub fn evaluate_double(&self) -> Option<f64> {
         unsafe {

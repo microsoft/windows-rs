@@ -403,7 +403,7 @@ fn write_const_value(
     )?;
 
     Ok(if let Some(constant) = constant {
-        let value = write_value(namespace, &constant.value());
+        let value = write_typed_value(namespace, &item.ty(), &constant.value());
         quote! {
             #arch_attr
             #(#custom_attrs)*

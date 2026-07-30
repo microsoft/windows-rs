@@ -2781,9 +2781,9 @@ pub const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: i32 = 4;
 pub const FLUSH_FLAGS_FLUSH_AND_PURGE: i32 = 8;
 pub const FLUSH_FLAGS_NO_SYNC: i32 = 2;
 #[cfg(target_arch = "x86")]
-pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: u32 = 4294967295;
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 4294967295u32 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: u64 = 18446744073709551615;
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 18446744073709551615u64 as _;
 pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
 pub const FOREST_USER_RID_MAX: i32 = 499;
 #[repr(C)]
@@ -4914,7 +4914,7 @@ impl Default for IMAGE_OPTIONAL_HEADER64 {
 #[cfg(target_arch = "x86")]
 pub const IMAGE_ORDINAL_FLAG: u32 = 2147483648;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const IMAGE_ORDINAL_FLAG: u64 = 0;
+pub const IMAGE_ORDINAL_FLAG: u64 = 9223372036854775808;
 pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648;
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808;
 #[repr(C, packed(2))]
@@ -7329,7 +7329,7 @@ pub const MEM_EXTENDED_PARAMETER_GRAPHICS: i32 = 1;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED: i32 = 2;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: i32 = 16;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: i32 = 8;
-pub const MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY: i64 = 0;
+pub const MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY: i64 = -9223372036854775808;
 pub const MEM_EXTENDED_PARAMETER_SECURE_PAGES: i32 = 128;
 pub const MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES: i32 = 32;
 pub const MEM_EXTENDED_PARAMETER_TAGGED: i32 = 256;
@@ -14393,7 +14393,7 @@ pub const XSTATE_AVX512_ZMM_H: i32 = 6;
 pub const XSTATE_CET_S: i32 = 12;
 pub const XSTATE_CET_U: i32 = 11;
 pub const XSTATE_COMPACTION_ENABLE: i32 = 63;
-pub const XSTATE_COMPACTION_ENABLE_MASK: u64 = 0;
+pub const XSTATE_COMPACTION_ENABLE_MASK: u64 = 9223372036854775808;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct XSTATE_CONFIGURATION {
@@ -14567,9 +14567,9 @@ pub const XSTATE_LEGACY_FLOATING_POINT: i32 = 0;
 pub const XSTATE_LEGACY_SSE: i32 = 1;
 pub const XSTATE_LWP: i32 = 62;
 #[cfg(target_arch = "x86")]
-pub const XSTATE_MASK_ALLOWED: u64 = 511;
+pub const XSTATE_MASK_ALLOWED: u64 = 4611686018427388415;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const XSTATE_MASK_ALLOWED: u64 = 396799;
+pub const XSTATE_MASK_ALLOWED: u64 = 4611686018427784703;
 #[cfg(target_arch = "aarch64")]
 pub const XSTATE_MASK_ALLOWED: u64 = 60;
 pub const XSTATE_MASK_AMD64_LEGACY: u64 = 3;
@@ -14595,11 +14595,11 @@ pub const XSTATE_MASK_LEGACY: u64 = 3;
 pub const XSTATE_MASK_LEGACY: u64 = 0;
 pub const XSTATE_MASK_LEGACY_FLOATING_POINT: u64 = 1;
 pub const XSTATE_MASK_LEGACY_SSE: u64 = 2;
-pub const XSTATE_MASK_LWP: u64 = 0;
+pub const XSTATE_MASK_LWP: u64 = 4611686018427387904;
 pub const XSTATE_MASK_MPX: u64 = 24;
 pub const XSTATE_MASK_PASID: u64 = 1024;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub const XSTATE_MASK_PERSISTENT: u64 = 16;
+pub const XSTATE_MASK_PERSISTENT: u64 = 4611686018427387920;
 #[cfg(target_arch = "aarch64")]
 pub const XSTATE_MASK_PERSISTENT: u64 = 0;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]

@@ -975,6 +975,66 @@ One report exposed a source-annotation gap. The others do not identify literal-h
 | `INVALID_SOCKET` should be pointer-sized. | The header spells `(SOCKET)(~0)`, and `SOCKET` aliases `UINT_PTR`. This supplies both the named semantic cast and pointer-sized ABI chain. | Fixed: named complemented casts preserve `SOCKET`, while the existing `UINT_PTR` rule makes `SOCKET = usize`. The generated constant is `INVALID_SOCKET: SOCKET`. |
 | Generated bindings changed from LF to CRLF. | This is a `windows-bindgen` formatting issue, not metadata. A token stream with no newline makes rustfmt's `Auto` setting fall back to native CRLF on Windows. | `windows-bindgen` should default rustfmt to `newline_style=Unix`, while allowing an explicit user setting to override it. |
 
+### Native-sized constants investigation
+
+The remaining native-sized constant work has two independent parts and should be reviewed as two
+changes:
+
+1. The batch macro evaluator uses an enum member as its value probe. C++ enum members have `int`
+   type here, so Clang inserts a narrowing conversion before
+   `clang_getEnumConstantDeclValue`. This corrupts signed 64-bit limits such as `MAXINT64` (`-1`
+   instead of `i64::MAX`) and `MININT64` (`0` instead of `i64::MIN`). A
+   `constexpr auto` variable probe retains the evaluated type and value. The existing integer,
+   comma-shape, size, and signedness enum gates remain unchanged.
+2. A typed variable probe also retains declarations such as `INT_PTR` and `UINT_PTR`. These map
+   through the existing `pointer_sized_abi` table to an `isize` or `usize` field signature. The
+   ECMA-335 Constant row must still retain the architecture's fixed-width value (`I32`/`U32` on
+   x86, `I64`/`U64` on 64-bit). RDL represents the split with a suffixed value:
+
+   ```rust
+   #[arch(X64 | Arm64)]
+   const MAXINT_PTR: isize = 9223372036854775807i64;
+   #[arch(X86)]
+   const MAXINT_PTR: isize = 2147483647i32;
+   ```
+
+This follows the existing metadata model used by pointer and handle constants. For example,
+`TD_WARNING_ICON` has a pointer field signature and an `I32(65535)` Constant row; bindgen emits the
+constructor and cast. Native-sized primitive fields needed one additional bindgen case so a
+mismatched Constant row emits `9223372036854775807i64 as _`, not the invalid
+`isize(9223372036854775807i64 as _)`.
+
+The full scrape found these native-sized constant families:
+
+| Header area | Constants |
+| --- | --- |
+| `basetsd.h` | `MAXINT_PTR`, `MININT_PTR`, `MAXLONG_PTR`, `MINLONG_PTR`, `MAXUINT_PTR`, `MAXULONG_PTR`, `MAXSIZE_T`, `MAXSSIZE_T`, `MINSSIZE_T` |
+| Other UM headers | `SEC_DELETED_HANDLE`, `WDBGEXTS_MAXSIZE_T`, `FS_BPIO_OUTPUT_*_SIZE`, `FLUSH_NV_MEMORY_DEFAULT_TOKEN` |
+| WDK headers | `PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS` |
+
+The values remain architecture-tagged even when both fields are `isize`/`usize`; signed x86 and
+64-bit limits cannot be represented by one shared Constant value. The value-probe fix also corrects
+unrelated narrowed 64-bit constants (`ADDRESS_TAG_BIT`, the `POOL_FLAG_*` masks, mitigation-policy
+bits, ICU limits, and others). Keep that generated delta separate from the native-sized field-type
+change so each rule can be reviewed on its own.
+
+An audit against the 10.0.26100 headers found the regenerated values match the source expressions:
+
+- `POOL_FLAG_REQUIRED_MASK` is `0x00000000FFFFFFFFUI64`, not `u64::MAX`;
+  `POOL_FLAG_OPTIONAL_END` is `0x8000000000000000UI64`, not zero.
+- `PNP_REPLACE_NO_MAP` is `MAXLONGLONG` in the current WDK, so `i64::MAX` is correct.
+- The high mitigation-policy and XSTATE bits use `ui64` shifts; the old enum probe discarded or
+  sign-extended those bits.
+- `INVALID_PROCESSTRACE_HANDLE` evaluates to `0xFFFFFFFF` on x86 and `u64::MAX` on x64. MSVC
+  accepts static assertions for both target values.
+
+One fidelity gap remains in that changed set: the header casts `INVALID_PROCESSTRACE_HANDLE` to
+`PROCESSTRACE_HANDLE`, but the metadata field is still raw `u64`. The typed probe retains that
+typedef declaration, but the current change consumes only declarations listed by
+`pointer_sized_abi`. The value and architecture split are correct; preserving arbitrary named
+typedefs from evaluated expressions needs a separate rule so it does not create dangling or
+unresolved constant types.
+
 ## Open investigations: orchestration simplification
 
 The `tool_win32` pipeline is correct and reproducible. This section records the changes still worth

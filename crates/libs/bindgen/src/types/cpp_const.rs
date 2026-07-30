@@ -183,7 +183,7 @@ impl CppConst {
                     matches!(&field_ty, Type::CppStruct(s) if config.typedef_emits_bare(s.def));
                 let emit_alias_const =
                     config.bindgen.style.is_sys() || unscoped_enum_const || field_ty_bare_alias;
-                if emit_alias_const || field_ty == Type::Bool {
+                if emit_alias_const || matches!(field_ty, Type::Bool | Type::ISize | Type::USize) {
                     // Arch-blind lookup can find a same-name non-enum sibling; enum members stay integers.
                     let value = if unscoped_enum_const {
                         value

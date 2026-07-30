@@ -3,4 +3,8 @@ mod Test {
     const A: i32 = 1;
     const B: u32 = 42;
     const C: f64 = 3.14;
+    const D: isize = 2147483647i32;
+    const E: isize = 9223372036854775807i64;
+    const F: usize = 4294967295u32;
+    const G: usize = 18446744073709551615u64;
 }

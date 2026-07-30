@@ -15381,7 +15381,7 @@ pub struct PNP_REPLACE_MEMORY_LIST_0 {
     pub Length: u64,
 }
 pub const PNP_REPLACE_MEMORY_SUPPORTED: i32 = 1;
-pub const PNP_REPLACE_NO_MAP: i64 = -1;
+pub const PNP_REPLACE_NO_MAP: i64 = 9223372036854775807;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -15594,21 +15594,21 @@ pub const POOL_FLAG_CACHE_ALIGNED: u64 = 8;
 pub const POOL_FLAG_LAST_KNOWN_REQUIRED: u64 = 2048;
 pub const POOL_FLAG_NON_PAGED: u64 = 64;
 pub const POOL_FLAG_NON_PAGED_EXECUTE: u64 = 128;
-pub const POOL_FLAG_OPTIONAL_END: u64 = 0;
-pub const POOL_FLAG_OPTIONAL_START: u64 = 0;
+pub const POOL_FLAG_OPTIONAL_END: u64 = 9223372036854775808;
+pub const POOL_FLAG_OPTIONAL_START: u64 = 4294967296;
 pub const POOL_FLAG_PAGED: u64 = 256;
 pub const POOL_FLAG_RAISE_ON_FAILURE: u64 = 32;
-pub const POOL_FLAG_REQUIRED_END: u64 = 18446744071562067968;
-pub const POOL_FLAG_REQUIRED_MASK: u64 = 18446744073709551615;
+pub const POOL_FLAG_REQUIRED_END: u64 = 2147483648;
+pub const POOL_FLAG_REQUIRED_MASK: u64 = 4294967295;
 pub const POOL_FLAG_REQUIRED_START: u64 = 1;
 pub const POOL_FLAG_RESERVED1: u64 = 16;
 pub const POOL_FLAG_RESERVED3: u64 = 1024;
 pub const POOL_FLAG_RESERVED4: u64 = 2048;
 pub const POOL_FLAG_SESSION: u64 = 4;
-pub const POOL_FLAG_SPECIAL_POOL: u64 = 0;
+pub const POOL_FLAG_SPECIAL_POOL: u64 = 4294967296;
 pub const POOL_FLAG_TAGGED_VA: u64 = 512;
 pub const POOL_FLAG_UNINITIALIZED: u64 = 2;
-pub const POOL_FLAG_UNUSED_REQUIRED_BITS: u64 = 18446744073709547520;
+pub const POOL_FLAG_UNUSED_REQUIRED_BITS: u64 = 4294963200;
 pub const POOL_FLAG_USE_QUOTA: u64 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

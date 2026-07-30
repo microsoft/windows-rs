@@ -4522,9 +4522,9 @@ mod Windows {
         }
         const PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: u32 = 3;
         #[arch(X64 | Arm64)]
-        const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u64 = 7;
+        const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: usize = 7u64;
         #[arch(X86)]
-        const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u32 = 7;
+        const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: usize = 7u32;
         struct PROCESS_EXTENDED_BASIC_INFORMATION {
             Size: usize,
             BasicInfo: PROCESS_BASIC_INFORMATION,

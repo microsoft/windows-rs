@@ -7,7 +7,7 @@ use windows_metadata as metadata;
 use proc_macro2::{Literal, Span, TokenStream};
 use quote::quote;
 
-use windows_rdl::emit::{uuid_to_u128_literal, write_ident, write_type, write_value};
+use windows_rdl::emit::{uuid_to_u128_literal, write_ident, write_type, write_typed_value};
 use windows_rdl::{Error, expand_input_paths, formatter, implib, write_to_file};
 
 mod cx;
@@ -285,6 +285,7 @@ impl<'a> Parser<'a> {
                         let const_value = enum_variant_value(e.repr, value);
                         collector.insert(Item::Const(Const {
                             name,
+                            ty: None,
                             value: const_value,
                         }));
                     }
@@ -479,6 +480,7 @@ impl<'a> Parser<'a> {
                         let const_value = enum_variant_value(e.repr, value);
                         collector.insert(Item::Const(Const {
                             name,
+                            ty: None,
                             value: const_value,
                         }));
                     }
@@ -1693,6 +1695,7 @@ mod tests {
         let mut b = Collector::new();
         b.insert(Item::Const(Const {
             name: "D3DFMT_X8R8G8B8".to_string(),
+            ty: None,
             value: metadata::Value::U32(22),
         }));
 

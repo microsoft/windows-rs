@@ -2854,8 +2854,8 @@ mod Windows {
         const U_ICU_DATA_KEY: String = "DataVersion";
         #[encoding("ansi")]
         const U_ICU_VERSION_BUNDLE: String = "icuver";
-        const U_INT64_MAX: i64 = -1;
-        const U_INT64_MIN: i64 = 0;
+        const U_INT64_MAX: i64 = 9223372036854775807;
+        const U_INT64_MIN: i64 = -9223372036854775808;
         const U_IS_BIG_ENDIAN: i32 = 0;
         #[encoding("ansi")]
         const U_LIB_SUFFIX_C_NAME_STRING: String = "";

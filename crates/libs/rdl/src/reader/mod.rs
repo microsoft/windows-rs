@@ -592,6 +592,12 @@ impl Encoder<'_> {
         ty: &metadata::Type,
         value: &syn::Expr,
     ) -> Result<metadata::Value, Error> {
+        if matches!(ty, metadata::Type::ISize | metadata::Type::USize)
+            && let Some(value) = self.encode_fixed_width_value(value)?
+        {
+            return Ok(value);
+        }
+
         let value = match ty {
             metadata::Type::I8 => metadata::Value::I8(self.encode_lit_sint(value, 8)? as i8),
             metadata::Type::U8 => metadata::Value::U8(self.encode_lit_uint(value, 8)? as u8),
@@ -633,6 +639,38 @@ impl Encoder<'_> {
         };
 
         Ok(value)
+    }
+
+    fn encode_fixed_width_value(
+        &self,
+        value: &syn::Expr,
+    ) -> Result<Option<metadata::Value>, Error> {
+        let int = match value {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int,
+            syn::Expr::Unary(syn::ExprUnary { expr, .. }) => {
+                let syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) = expr.as_ref()
+                else {
+                    return Ok(None);
+                };
+                int
+            }
+            _ => return Ok(None),
+        };
+
+        let value = match int.suffix() {
+            "i32" => metadata::Value::I32(self.encode_lit_sint(value, 32)? as i32),
+            "u32" => metadata::Value::U32(self.encode_lit_uint(value, 32)? as u32),
+            "i64" => metadata::Value::I64(self.encode_lit_sint(value, 64)?),
+            "u64" => metadata::Value::U64(self.encode_lit_uint(value, 64)?),
+            _ => return Ok(None),
+        };
+        Ok(Some(value))
     }
 
     fn rdl_underlying_type(&self, namespace: &str, name: &str) -> Option<metadata::Type> {
