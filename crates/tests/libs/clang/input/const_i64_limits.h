@@ -11,3 +11,6 @@ typedef unsigned __int64 UINT_PTR, *PUINT_PTR;
 #define MININT_PTR (~MAXINT_PTR)
 #define SMALL_INT_PTR ((INT_PTR)-24)
 #define SMALL_UINT_PTR ((UINT_PTR)24)
+#define NEG_ONE_UINT_PTR ((UINT_PTR)-1)
+#define NEG_TWO_UINT_PTR ((UINT_PTR)(-2))
+#define COMPLEMENT_UINT_PTR ((UINT_PTR)(~0))

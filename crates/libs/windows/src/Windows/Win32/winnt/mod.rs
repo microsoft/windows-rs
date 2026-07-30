@@ -2780,10 +2780,7 @@ pub const FLUSH_FLAGS_FILE_DATA_ONLY: i32 = 1;
 pub const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: i32 = 4;
 pub const FLUSH_FLAGS_FLUSH_AND_PURGE: i32 = 8;
 pub const FLUSH_FLAGS_NO_SYNC: i32 = 2;
-#[cfg(target_arch = "x86")]
-pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 4294967295;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 18446744073709551615u64 as usize;
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = -1i32 as usize;
 pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
 pub const FOREST_USER_RID_MAX: i32 = 499;
 #[repr(C)]

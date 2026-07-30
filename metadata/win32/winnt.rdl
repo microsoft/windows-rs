@@ -1754,10 +1754,7 @@ mod Windows {
         const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: i32 = 4;
         const FLUSH_FLAGS_FLUSH_AND_PURGE: i32 = 8;
         const FLUSH_FLAGS_NO_SYNC: i32 = 2;
-        #[arch(X64 | Arm64)]
-        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 18446744073709551615;
-        #[arch(X86)]
-        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 4294967295;
+        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = -1i32;
         const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
         const FOREST_USER_RID_MAX: i32 = 499;
         struct FPO_DATA {

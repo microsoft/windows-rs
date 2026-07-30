@@ -28,6 +28,14 @@ impl Const {
         let tokens = parser.tu.tokenize(cursor.extent());
         let body: Vec<_> = tokens.into_iter().skip(1).collect();
 
+        if let Some((ty, value)) = parse_native_negative_cast(&body, parser.ref_map) {
+            return Ok(Some(Self {
+                name,
+                ty: Some(ty),
+                value,
+            }));
+        }
+
         let Some(value) = parse_body(&body, parser.namespace, parser.ref_map, parser.header_names)
         else {
             return Ok(None);
@@ -86,6 +94,51 @@ impl Const {
             _ => Ok(quote! { const #name: #ty = #value; }),
         }
     }
+}
+
+/// Preserve a direct negative literal cast as a fixed signed Constant row on a native field.
+///
+/// `(ULONG_PTR)-1` is one architecture-neutral source spelling. Keeping `I32(-1)` separate from
+/// the `usize` field lets the projection apply the cast for each target instead of materializing
+/// separate x86 and 64-bit maximum values.
+fn parse_native_negative_cast(
+    body: &[(CXTokenKind, String)],
+    ref_map: &HashMap<String, String>,
+) -> Option<(metadata::Type, metadata::Value)> {
+    let mut ty = None;
+    let mut literal = None;
+    let mut negate = false;
+
+    for (kind, token) in body {
+        match *kind {
+            CXToken_Punctuation if token == "(" || token == ")" => {}
+            CXToken_Punctuation if token == "-" && !negate && literal.is_none() => negate = true,
+            CXToken_Identifier if ty.is_none() => {
+                if ref_map.contains_key(token) {
+                    return None;
+                }
+                ty = pointer_sized_abi(token);
+                ty.as_ref()?;
+            }
+            CXToken_Literal if literal.is_none() => literal = Some(token.as_str()),
+            _ => return None,
+        }
+    }
+
+    if !negate {
+        return None;
+    }
+    let value = parse_literal(literal?, true)?;
+    if !matches!(
+        value,
+        metadata::Value::I32(_)
+            | metadata::Value::U32(_)
+            | metadata::Value::I64(_)
+            | metadata::Value::U64(_)
+    ) {
+        return None;
+    }
+    Some((ty?, value))
 }
 
 /// A GUID constant from a forward-declared C++ class with `__declspec(uuid(...))`.
@@ -887,11 +940,10 @@ fn parse_named_cast(
         return scalar_value(&ty, raw, negate);
     }
 
-    // Pointer-sized typedefs are collapsed aliases, so sentinels use native-int primitives.
-    if !ref_map.contains_key(type_name)
-        && let Some(ty) = pointer_sized_abi(type_name)
-    {
-        return scalar_value(&ty, raw, negate);
+    // Pointer-sized casts need target-width evaluation. Returning `None` sends the macro through
+    // the typed batch evaluator, which retains both the native field type and the per-arch value.
+    if !ref_map.contains_key(type_name) && pointer_sized_abi(type_name).is_some() {
+        return None;
     }
 
     // Void-pointer aliases are collapsed too; keeping the alias name would dangle.
@@ -930,8 +982,12 @@ fn parse_named_complement(
     let raw = parse_int_digits(digits)?;
     let value = integer_complement_value(raw, int_literal_is_decimal(digits), suffix)?;
 
+    if !ref_map.contains_key(type_name) && pointer_sized_abi(type_name).is_some() {
+        return None;
+    }
+
     if !ref_map.contains_key(type_name)
-        && let Some(ty) = fundamental_scalar(type_name).or_else(|| pointer_sized_abi(type_name))
+        && let Some(ty) = fundamental_scalar(type_name)
     {
         return cast_integer_value(&ty, &value);
     }

@@ -256,8 +256,24 @@ fn fixed_to_native_const_value(ty: &Type, value: &Value) -> Option<TokenStream> 
             let literal = Literal::i64_suffixed(*value);
             quote! { #literal as isize }
         }
+        (Type::ISize, Value::U32(value)) => {
+            let literal = Literal::u32_suffixed(*value);
+            quote! { #literal as isize }
+        }
+        (Type::ISize, Value::U64(value)) => {
+            let literal = Literal::u64_suffixed(*value);
+            quote! { #literal as isize }
+        }
         (Type::USize, Value::U64(value)) => {
             let literal = Literal::u64_suffixed(*value);
+            quote! { #literal as usize }
+        }
+        (Type::USize, Value::I32(value)) => {
+            let literal = Literal::i32_suffixed(*value);
+            quote! { #literal as usize }
+        }
+        (Type::USize, Value::I64(value)) => {
+            let literal = Literal::i64_suffixed(*value);
             quote! { #literal as usize }
         }
         _ => return None,

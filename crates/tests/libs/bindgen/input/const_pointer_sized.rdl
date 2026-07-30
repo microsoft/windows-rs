@@ -13,6 +13,10 @@ mod Test {
     const SIGNED_MAX: isize = 2147483647i32;
     const SMALL_USIZE: usize = 4096;
     const SMALL_ISIZE: isize = -4096;
+    const SIGNED_FROM_U32: isize = 4294967295u32;
+    const SIGNED_FROM_U64: isize = 18446744073709551615u64;
+    const UNSIGNED_FROM_I32: usize = -1i32;
+    const UNSIGNED_FROM_I64: usize = -1i64;
     type SOCKET = usize;
     const INVALID_SOCKET: SOCKET = -1;
 }

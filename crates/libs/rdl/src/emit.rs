@@ -212,8 +212,24 @@ pub fn write_typed_value(
             let literal = Literal::i64_suffixed(*value);
             quote! { #literal }
         }
+        (metadata::Type::ISize, metadata::Value::U32(value)) => {
+            let literal = Literal::u32_suffixed(*value);
+            quote! { #literal }
+        }
+        (metadata::Type::ISize, metadata::Value::U64(value)) => {
+            let literal = Literal::u64_suffixed(*value);
+            quote! { #literal }
+        }
         (metadata::Type::USize, metadata::Value::U64(value)) if u32::try_from(*value).is_ok() => {
             let literal = Literal::u64_suffixed(*value);
+            quote! { #literal }
+        }
+        (metadata::Type::USize, metadata::Value::I32(value)) => {
+            let literal = Literal::i32_suffixed(*value);
+            quote! { #literal }
+        }
+        (metadata::Type::USize, metadata::Value::I64(value)) => {
+            let literal = Literal::i64_suffixed(*value);
             quote! { #literal }
         }
         _ => write_value(namespace, value),

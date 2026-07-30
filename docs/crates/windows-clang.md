@@ -1006,24 +1006,32 @@ storage because that value fits every supported pointer width. Canonical `I64`/`
 an explicit `as isize`/`as usize` cast. This also handles named wrappers such as `SOCKET` without
 producing primitive constructor syntax.
 
-An explicit suffix is needed only to preserve a noncanonical Constant storage width. Generated
-native constants use canonical unsuffixed RDL. Equal small values use one row across architectures:
-`FS_BPIO_OUTPUT_DISABLE_SIZE` is `const ...: usize = 24;`, not separate x86 `u32` and 64-bit `u64`
-rows. Max/min constants remain architecture-tagged because their numeric values differ.
+An explicit suffix is needed only to preserve a noncanonical Constant storage width or signedness.
+Generated native constants use canonical unsuffixed RDL. Equal small values use one row across
+architectures: `FS_BPIO_OUTPUT_DISABLE_SIZE` is `const ...: usize = 24;`, not separate x86 `u32`
+and 64-bit `u64` rows.
+
+Direct negative literal casts retain the source literal as the Constant row. For example,
+`(ULONG_PTR)-1` becomes `const ...: usize = -1i32;`; bindgen emits `-1i32 as usize`. This is one
+architecture-neutral field instead of separate x86 and 64-bit maximum values, and preserves the
+field/Constant split the header expresses. Expressions that compute the maximum value, such as
+`~((SIZE_T)0)`, still evaluate per architecture and remain split.
 
 The full scrape found these native-sized constant families:
 
 | Header area | Constants |
 | --- | --- |
 | `basetsd.h` | `MAXINT_PTR`, `MININT_PTR`, `MAXLONG_PTR`, `MINLONG_PTR`, `MAXUINT_PTR`, `MAXULONG_PTR`, `MAXSIZE_T`, `MAXSSIZE_T`, `MINSSIZE_T` |
-| Other UM headers | `SEC_DELETED_HANDLE`, `WDBGEXTS_MAXSIZE_T`, `FS_BPIO_OUTPUT_*_SIZE`, `FLUSH_NV_MEMORY_DEFAULT_TOKEN` |
+| Other UM headers | `SSRVOPT_RESET`, `WMDRMDEVICEAPP_USE_WPD_DEVICE_PTR`, `ITSAT_DEFAULT_LPARAM`, `SEC_DELETED_HANDLE`, `WDBGEXTS_MAXSIZE_T`, `FS_BPIO_OUTPUT_*_SIZE`, `FLUSH_NV_MEMORY_DEFAULT_TOKEN` |
 | WDK headers | `PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS` |
 
-Values remain architecture-tagged when the numeric value differs even though both fields are
-`isize`/`usize`; signed x86 and 64-bit limits cannot use one shared Constant row. The value-probe
-fix also corrects unrelated narrowed 64-bit constants (`ADDRESS_TAG_BIT`, the `POOL_FLAG_*` masks,
-mitigation-policy bits, ICU limits, and others). Keep that generated delta separate from the
-native-sized field-type change so each rule can be reviewed on its own.
+Evaluated values remain architecture-tagged when the numeric value differs even though both fields
+are `isize`/`usize`; signed x86 and 64-bit limits cannot use one shared Constant row. Direct negative
+literal casts are the exception above because the fixed signed Constant row plus the native field
+reconstructs the target value. The value-probe fix also corrects unrelated narrowed 64-bit constants
+(`ADDRESS_TAG_BIT`, the `POOL_FLAG_*` masks, mitigation-policy bits, ICU limits, and others). Keep
+that generated delta separate from the native-sized field-type change so each rule can be reviewed
+on its own.
 
 An audit against the 10.0.26100 headers found the regenerated values match the source expressions:
 
