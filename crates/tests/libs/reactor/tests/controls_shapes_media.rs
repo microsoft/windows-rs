@@ -2,7 +2,7 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
-use windows_reactor::{Color, Element};
+use windows_reactor::{Color, Element, ImageSource};
 use windows_reactor::{ControlKind, Prop, PropValue};
 use windows_reactor::{HyperlinkButton, Image, ProgressBar, ProgressRing, Shape, Stretch};
 
@@ -134,7 +134,14 @@ fn image_mounts_with_source_and_stretch() {
     assert_eq!(kind, ControlKind::Image);
 
     let saw_src = r.backend.ops.iter().any(|op| {
-        matches!(op, Op::SetProp { prop: Prop::ImageSource, value: PropValue::Str(s), .. } if s == "ms-appx:///Assets/logo.png")
+        matches!(
+            op,
+            Op::SetProp {
+                prop: Prop::ImageSource,
+                value: PropValue::ImageSource(source),
+                ..
+            } if source == &ImageSource::uri("ms-appx:///Assets/logo.png")
+        )
     });
     assert!(saw_src);
     let saw_stretch = r.backend.ops.iter().any(|op| {
@@ -148,6 +155,49 @@ fn image_mounts_with_source_and_stretch() {
         )
     });
     assert!(saw_stretch);
+}
+
+#[test]
+fn image_source_update_sets_new_source_without_remounting() {
+    let old: Element = Image::new("ms-appx:///Assets/logo.png").into();
+    let new: Element = Image::new("ms-appx:///Assets/logo.svg").into();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let id = r.reconcile(None, &old, None, Rc::new(|| {})).unwrap();
+    r.backend.clear_ops();
+    r.reconcile(Some(&old), &new, Some(id), Rc::new(|| {}));
+
+    assert_eq!(r.backend.ops.len(), 1, "{:?}", r.backend.ops);
+    assert!(matches!(
+        &r.backend.ops[0],
+        Op::SetProp {
+            id: changed_id,
+            prop: Prop::ImageSource,
+            value: PropValue::ImageSource(source),
+        } if *changed_id == id && source == &ImageSource::uri("ms-appx:///Assets/logo.svg")
+    ));
+}
+
+#[test]
+fn image_source_removal_unsets_existing_source() {
+    let old: Element = Image::new("ms-appx:///Assets/logo.svg").into();
+    let new: Element = Image::default().into();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let id = r.reconcile(None, &old, None, Rc::new(|| {})).unwrap();
+    r.backend.clear_ops();
+    r.reconcile(Some(&old), &new, Some(id), Rc::new(|| {}));
+
+    assert!(r.backend.ops.iter().any(|op| {
+        matches!(
+            op,
+            Op::SetProp {
+                id: changed_id,
+                prop: Prop::ImageSource,
+                value: PropValue::Unset,
+            } if *changed_id == id
+        )
+    }));
 }
 
 #[test]

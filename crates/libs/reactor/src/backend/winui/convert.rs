@@ -36,18 +36,49 @@ pub(super) fn string_as_textblock(s: &str) -> Result<bindings::TextBlock> {
     Ok(tb)
 }
 
+fn is_svg_uri(uri: &str) -> bool {
+    let uri = uri.split(['?', '#']).next().unwrap_or(uri);
+    let path = uri.split_once("://").map_or(uri, |(_, remainder)| {
+        remainder.find('/').map_or("", |index| &remainder[index..])
+    });
+    let name = path.rsplit(['/', '\\']).next().unwrap_or(path);
+    name.rsplit_once('.')
+        .is_some_and(|(_, extension)| extension.eq_ignore_ascii_case("svg"))
+}
+
+fn build_uri_image_source(uri: &str) -> Result<bindings::ImageSource> {
+    let is_svg = is_svg_uri(uri);
+    let uri = bindings::Uri::CreateUri(uri)?;
+    if is_svg {
+        let source = bindings::SvgImageSource::new()?;
+        source.SetUriSource(&uri)?;
+        source.cast()
+    } else {
+        let source = bindings::BitmapImage::new()?;
+        source.SetUriSource(&uri)?;
+        source.cast()
+    }
+}
+
+pub(super) fn build_image_source(source: &ImageSource) -> Result<Option<bindings::ImageSource>> {
+    match source {
+        ImageSource::None => Ok(None),
+        ImageSource::Uri(uri) => build_uri_image_source(uri).map(Some),
+        ImageSource::Surface(source) => source.image_source().map(Some),
+    }
+}
+
 /// Builds the WinUI `IconElement` for an [`Icon`], dispatching to the matching
-/// concrete type: `SymbolIcon`, `BitmapIcon`, or `FontIcon`.
+/// concrete type: `SymbolIcon`, `ImageIcon`, or `FontIcon`.
 pub(super) fn build_icon_element(icon: &Icon) -> Result<bindings::IconElement> {
     match icon {
         Icon::Symbol(sym) => bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?.cast(),
-        Icon::Bitmap { uri } => {
-            let bitmap_icon = bindings::BitmapIcon::new()?;
-            bitmap_icon.SetUriSource(&bindings::Uri::CreateUri(uri)?)?;
-            // Render the source image in full color rather than tinting it to
-            // the foreground brush (the WinUI default for a BitmapIcon).
-            bitmap_icon.SetShowAsMonochrome(false)?;
-            bitmap_icon.cast()
+        Icon::Image(source) => {
+            let icon = bindings::ImageIcon::new()?;
+            if let Some(source) = build_image_source(source)? {
+                icon.SetSource(&source)?;
+            }
+            icon.cast()
         }
         Icon::Font { glyph, family } => {
             let font_icon = bindings::FontIcon::new()?;
@@ -207,5 +238,27 @@ pub(super) fn build_command_bar_element(
             let sep = bindings::AppBarSeparator::new()?;
             sep.cast()
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::is_svg_uri;
+
+    #[test]
+    fn classifies_svg_uri_by_final_extension() {
+        assert!(is_svg_uri("file:///image.svg"));
+        assert!(is_svg_uri("file:///image.SvG"));
+        assert!(is_svg_uri("https://example.test/image.svg?theme=dark"));
+        assert!(is_svg_uri("https://example.test/image.svg#icon"));
+    }
+
+    #[test]
+    fn does_not_classify_non_svg_uri() {
+        assert!(!is_svg_uri("file:///image.png"));
+        assert!(!is_svg_uri("https://example.test/image"));
+        assert!(!is_svg_uri("https://example.svg"));
+        assert!(!is_svg_uri("https://example.test/svg.assets/image.png"));
+        assert!(!is_svg_uri("https://example.test/image.svg/"));
     }
 }

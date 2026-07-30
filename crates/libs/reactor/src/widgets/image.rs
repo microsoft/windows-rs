@@ -73,6 +73,11 @@ impl Default for Image {
         }
     }
 }
+/// Content displayed by an [`Image`] or image-backed [`Icon`].
+///
+/// URI formats are selected automatically from the final path extension. SVG
+/// paths use the platform SVG decoder; other paths use the bitmap decoder.
+#[non_exhaustive]
 #[derive(Clone, Default, Debug, PartialEq)]
 pub enum ImageSource {
     #[default]
@@ -80,26 +85,58 @@ pub enum ImageSource {
     Uri(String),
     Surface(SurfaceImageSource),
 }
+
+impl ImageSource {
+    /// Creates a source from a URI.
+    pub fn uri(source: impl Into<String>) -> Self {
+        Self::Uri(source.into())
+    }
+
+    pub fn is_none(&self) -> bool {
+        matches!(self, Self::None)
+    }
+}
+
+impl From<String> for ImageSource {
+    fn from(source: String) -> Self {
+        Self::uri(source)
+    }
+}
+
+impl From<&str> for ImageSource {
+    fn from(source: &str) -> Self {
+        Self::uri(source)
+    }
+}
+
+impl From<&String> for ImageSource {
+    fn from(source: &String) -> Self {
+        Self::uri(source)
+    }
+}
+
 impl From<SurfaceImageSource> for ImageSource {
     fn from(source: SurfaceImageSource) -> Self {
         Self::Surface(source)
     }
 }
+
 impl From<Option<SurfaceImageSource>> for ImageSource {
     fn from(source: Option<SurfaceImageSource>) -> Self {
-        source.map_or(Self::None, ImageSource::Surface)
+        source.map_or_else(Self::default, Self::from)
     }
 }
+
 impl Image {
-    pub fn new(source: ImageSource) -> Self {
+    pub fn new(source: impl Into<ImageSource>) -> Self {
         Self {
-            source,
+            source: source.into(),
             ..Default::default()
         }
     }
 
     pub fn new_with_uri(source: impl Into<String>) -> Self {
-        Self::new(ImageSource::Uri(source.into()))
+        Self::new(ImageSource::uri(source))
     }
 
     pub fn stretch(mut self, v: Stretch) -> Self {
@@ -126,17 +163,11 @@ impl Widget for Image {
     fn bindings(&self) -> PropBindings {
         let mut out = generated::image_bindings(self);
         // ImageSource is a compound type not expressible in TOML.
-        match &self.source {
-            ImageSource::Uri(uri) => {
-                out.push(Binding::Prop(Prop::ImageSource, PropValue::Str(uri.clone())));
-            }
-            ImageSource::Surface(s) => {
-                out.push(Binding::Prop(
-                    Prop::ImageSource,
-                    PropValue::SurfaceImageSource(s.clone()),
-                ));
-            }
-            ImageSource::None => {}
+        if !self.source.is_none() {
+            out.push(Binding::Prop(
+                Prop::ImageSource,
+                PropValue::ImageSource(self.source.clone()),
+            ));
         }
         out
     }

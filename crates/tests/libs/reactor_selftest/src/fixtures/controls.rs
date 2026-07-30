@@ -184,10 +184,36 @@ pub fn mount_info_badge(h: Harness) -> FixtureFuture {
 pub fn mount_image(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
-            Image::new_with_uri("ms-appx:///Assets/none.png").into()
+            vstack((
+                Image::new("ms-appx:///Assets/none.png"),
+                Image::new("ms-appx:///Assets/none.svg"),
+            ))
+            .into()
         }));
         h.render().await;
-        assert_present!(h, "Reconciler_Mount_Image", bindings::Image);
+
+        let images = h.find_all::<bindings::Image>(&|_| true);
+        h.check("Reconciler_Mount_Image", images.len() == 2);
+
+        let bitmap_sources = images
+            .iter()
+            .filter(|image| {
+                image
+                    .Source()
+                    .is_ok_and(|source| source.cast::<bindings::BitmapImage>().is_ok())
+            })
+            .count();
+        h.check("Reconciler_Image_BitmapSource", bitmap_sources == 1);
+
+        let svg_sources = images
+            .iter()
+            .filter(|image| {
+                image
+                    .Source()
+                    .is_ok_and(|source| source.cast::<bindings::SvgImageSource>().is_ok())
+            })
+            .count();
+        h.check("Reconciler_Image_SvgSource", svg_sources == 1);
     })
 }
 

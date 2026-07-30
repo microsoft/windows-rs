@@ -2,7 +2,7 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
-use windows_reactor::{Button, Element, Icon, Symbol};
+use windows_reactor::{Button, Element, Icon, ImageSource, Symbol};
 use windows_reactor::{ControlId, Prop, PropValue};
 
 fn noop_rr() -> Rc<dyn Fn()> {
@@ -37,15 +37,35 @@ fn symbol_shorthand_emits_symbol_icon() {
 }
 
 #[test]
-fn bitmap_icon_carries_uri() {
+fn image_icon_carries_source() {
+    let el: Element = Button::new("b")
+        .icon(Icon::image("ms-appx:///logo.svg"))
+        .into();
+    assert_eq!(
+        icon_value(&el),
+        Some(PropValue::Icon(Icon::Image(ImageSource::uri(
+            "ms-appx:///logo.svg"
+        ))))
+    );
+}
+
+#[test]
+fn image_source_converts_into_icon() {
+    let source = ImageSource::uri("ms-appx:///logo.png");
+    let el: Element = Button::new("b").icon(source.clone()).into();
+    assert_eq!(icon_value(&el), Some(PropValue::Icon(Icon::Image(source))));
+}
+
+#[test]
+fn bitmap_shorthand_uses_generic_image_source() {
     let el: Element = Button::new("b")
         .icon(Icon::bitmap("ms-appx:///logo.png"))
         .into();
     assert_eq!(
         icon_value(&el),
-        Some(PropValue::Icon(Icon::Bitmap {
-            uri: "ms-appx:///logo.png".into()
-        }))
+        Some(PropValue::Icon(Icon::Image(ImageSource::uri(
+            "ms-appx:///logo.png"
+        ))))
     );
 }
 

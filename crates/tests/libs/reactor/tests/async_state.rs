@@ -1,12 +1,49 @@
 //! Tests for gap H5: off-UI-thread setter auto-marshal via
 //! `cx.use_async_state` + `AsyncSetState`.
 
-use std::cell::Cell;
+use std::cell::{Cell, RefCell};
 use std::rc::Rc;
+use std::sync::{Arc, Mutex};
 use std::thread;
 
-use windows_reactor::RenderCx;
-use windows_reactor::{ChannelDispatcher, UiMarshaller, UiRerenderGuard};
+use test_reactor::RecordingBackend;
+use windows_reactor::{
+    AsyncSetState, ChannelDispatcher, Component, Dispatcher, DispatcherQueuePriority, Element,
+    RenderCx, RenderHost, UiMarshaller, UiRerenderGuard, component, text_block,
+};
+
+type Job = Box<dyn FnOnce()>;
+
+#[derive(Clone, Default)]
+struct TestDispatcher {
+    queue: Rc<RefCell<Vec<Job>>>,
+}
+
+impl TestDispatcher {
+    fn drain(&self) {
+        loop {
+            let job = {
+                let mut queue = self.queue.borrow_mut();
+                if queue.is_empty() {
+                    None
+                } else {
+                    Some(queue.remove(0))
+                }
+            };
+            match job {
+                Some(job) => job(),
+                None => break,
+            }
+        }
+    }
+}
+
+impl Dispatcher for TestDispatcher {
+    fn enqueue(&self, _priority: DispatcherQueuePriority, job: Job) -> bool {
+        self.queue.borrow_mut().push(job);
+        true
+    }
+}
 
 #[test]
 fn async_state_initial_value_returned_to_caller() {
@@ -153,8 +190,8 @@ fn use_ui_marshaller_returns_send_sync_handle() {
 
     let m: UiMarshaller = cx.use_ui_marshaller();
 
-    let ran = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
-    let ran_c = std::sync::Arc::clone(&ran);
+    let ran = Arc::new(std::sync::atomic::AtomicBool::new(false));
+    let ran_c = Arc::clone(&ran);
     let m_clone = m;
     let handle = thread::spawn(move || {
         m_clone.dispatch(move || {
@@ -222,4 +259,64 @@ fn async_writes_route_rerender_to_owning_host() {
 
     assert_eq!(a_rerenders.get(), 1, "host A must re-render");
     assert_eq!(b_rerenders.get(), 0, "host B must not re-render");
+}
+
+#[test]
+fn nested_async_state_routes_rerender_to_owning_host() {
+    struct Inner {
+        renders: Rc<Cell<u32>>,
+        setter: Arc<Mutex<Option<AsyncSetState<i32>>>>,
+    }
+
+    impl Component for Inner {
+        fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+            let (value, setter) = cx.use_async_state(0);
+            *self.setter.lock().unwrap() = Some(setter);
+            self.renders.set(self.renders.get() + 1);
+            text_block(value.to_string()).into()
+        }
+    }
+
+    struct Root {
+        renders: Rc<Cell<u32>>,
+        setter: Arc<Mutex<Option<AsyncSetState<i32>>>>,
+    }
+
+    impl Component for Root {
+        fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+            component(
+                Inner {
+                    renders: Rc::clone(&self.renders),
+                    setter: Arc::clone(&self.setter),
+                },
+                (),
+            )
+        }
+    }
+
+    let dispatcher = TestDispatcher::default();
+    let async_dispatcher = ChannelDispatcher::new();
+    let renders = Rc::new(Cell::new(0));
+    let setter = Arc::new(Mutex::new(None));
+    let root: Box<dyn Component> = Box::new(Root {
+        renders: Rc::clone(&renders),
+        setter: Arc::clone(&setter),
+    });
+    let host = RenderHost::new(RecordingBackend::new(), root, dispatcher.clone());
+    host.set_marshaller(Some(async_dispatcher.marshaller()));
+    host.kick();
+    dispatcher.drain();
+
+    assert_eq!(renders.get(), 1);
+
+    let setter = setter.lock().unwrap().clone().unwrap();
+    thread::spawn(move || setter.call(42)).join().unwrap();
+    async_dispatcher.drain();
+    dispatcher.drain();
+
+    assert_eq!(
+        renders.get(),
+        2,
+        "nested async state must rerender through the owning host"
+    );
 }

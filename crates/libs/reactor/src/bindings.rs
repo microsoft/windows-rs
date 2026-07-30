@@ -802,61 +802,6 @@ unsafe impl Send for AutomationProperties {}
 unsafe impl Sync for AutomationProperties {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct BitmapIcon(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    BitmapIcon,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-windows_core::imp::required_hierarchy!(
-    BitmapIcon,
-    IconElement,
-    FrameworkElement,
-    UIElement,
-    DependencyObject
-);
-impl BitmapIcon {
-    pub(crate) fn new() -> windows_core::Result<Self> {
-        Self::IBitmapIconFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
-                windows_core::Interface::as_raw(this),
-                core::ptr::null_mut(),
-                core::ptr::null_mut(),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IBitmapIconFactory<R, F: FnOnce(&IBitmapIconFactory) -> windows_core::Result<R>>(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<BitmapIcon, IBitmapIconFactory> =
-            windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for BitmapIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IBitmapIcon>();
-}
-unsafe impl windows_core::Interface for BitmapIcon {
-    type Vtable = <IBitmapIcon as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBitmapIcon as windows_core::Interface>::IID;
-}
-impl core::ops::Deref for BitmapIcon {
-    type Target = IBitmapIcon;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-impl windows_core::RuntimeName for BitmapIcon {
-    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.BitmapIcon";
-}
-unsafe impl Send for BitmapIcon {}
-unsafe impl Sync for BitmapIcon {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapImage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     BitmapImage,
@@ -4774,69 +4719,6 @@ pub struct IAutomationPropertiesStatics_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
-    IBitmapIcon,
-    IBitmapIcon_Vtbl,
-    0xc370bc29_805b_5bad_b615_ec640e579dbb
-);
-impl windows_core::RuntimeType for IBitmapIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl IBitmapIcon {
-    pub(crate) fn SetUriSource<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<Uri>,
-    {
-        unsafe {
-            (windows_core::Interface::vtable(self).SetUriSource)(
-                windows_core::Interface::as_raw(self),
-                value.param().abi(),
-            )
-            .ok()
-        }
-    }
-    pub(crate) fn SetShowAsMonochrome(&self, value: bool) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).SetShowAsMonochrome)(
-                windows_core::Interface::as_raw(self),
-                value,
-            )
-            .ok()
-        }
-    }
-}
-#[repr(C)]
-pub struct IBitmapIcon_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    UriSource: usize,
-    pub SetUriSource: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    ShowAsMonochrome: usize,
-    pub SetShowAsMonochrome:
-        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IBitmapIconFactory,
-    IBitmapIconFactory_Vtbl,
-    0xb43b5ddc_cdb5_5ad6_8ac1_2fcca33be39e
-);
-impl windows_core::RuntimeType for IBitmapIconFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IBitmapIconFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
     IBitmapImage,
     IBitmapImage_Vtbl,
     0x5cc29916_a411_5bc2_a3c5_a00d99a59da8
@@ -8653,6 +8535,57 @@ pub struct IImage_Vtbl {
     Stretch: usize,
     pub SetStretch:
         unsafe extern "system" fn(*mut core::ffi::c_void, Stretch) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IImageIcon,
+    IImageIcon_Vtbl,
+    0x78a7b526_e635_59c6_93a1_d7e3c2fac6d5
+);
+impl windows_core::RuntimeType for IImageIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IImageIcon {
+    pub(crate) fn SetSource<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ImageSource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSource)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IImageIcon_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Source: usize,
+    pub SetSource: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IImageIconFactory,
+    IImageIconFactory_Vtbl,
+    0x235e0279_a7d0_5fda_a308_9b7cb9c4c912
+);
+impl windows_core::RuntimeType for IImageIconFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IImageIconFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IImageSource,
@@ -13663,6 +13596,64 @@ pub struct ISurfaceImageSourceNativeWithD2D_Vtbl {
     pub ResumeDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ISvgImageSource,
+    ISvgImageSource_Vtbl,
+    0xd5b61d3c_b68d_53a2_b07b_ba6adfdd5887
+);
+impl windows_core::RuntimeType for ISvgImageSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ISvgImageSource {
+    pub(crate) fn SetUriSource<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<Uri>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetUriSource)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ISvgImageSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    UriSource: usize,
+    pub SetUriSource: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ISvgImageSourceFactory,
+    ISvgImageSourceFactory_Vtbl,
+    0x2f85673f_ac64_570d_9bda_94fa082eead9
+);
+impl windows_core::RuntimeType for ISvgImageSourceFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISvgImageSourceFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub CreateInstanceWithUriSource: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ISwapChainPanel,
     ISwapChainPanel_Vtbl,
     0x08844f85_aa1b_540d_bef2_b2bb7b257f8c
@@ -17256,6 +17247,61 @@ impl windows_core::RuntimeName for Image {
 }
 unsafe impl Send for Image {}
 unsafe impl Sync for Image {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ImageIcon(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ImageIcon,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    ImageIcon,
+    IconElement,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl ImageIcon {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IImageIconFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IImageIconFactory<R, F: FnOnce(&IImageIconFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ImageIcon, IImageIconFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ImageIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IImageIcon>();
+}
+unsafe impl windows_core::Interface for ImageIcon {
+    type Vtable = <IImageIcon as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IImageIcon as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ImageIcon {
+    type Target = IImageIcon;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ImageIcon {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ImageIcon";
+}
+unsafe impl Send for ImageIcon {}
+unsafe impl Sync for ImageIcon {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageSource(windows_core::IUnknown);
@@ -21412,6 +21458,71 @@ impl windows_core::RuntimeName for SurfaceImageSource {
 }
 unsafe impl Send for SurfaceImageSource {}
 unsafe impl Sync for SurfaceImageSource {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SvgImageSource(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    SvgImageSource,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(SvgImageSource, ImageSource, DependencyObject);
+impl SvgImageSource {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::ISvgImageSourceFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn CreateInstanceWithUriSource<P0>(urisource: P0) -> windows_core::Result<Self>
+    where
+        P0: windows_core::Param<Uri>,
+    {
+        Self::ISvgImageSourceFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstanceWithUriSource)(
+                windows_core::Interface::as_raw(this),
+                urisource.param().abi(),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISvgImageSourceFactory<R, F: FnOnce(&ISvgImageSourceFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SvgImageSource, ISvgImageSourceFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SvgImageSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ISvgImageSource>();
+}
+unsafe impl windows_core::Interface for SvgImageSource {
+    type Vtable = <ISvgImageSource as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISvgImageSource as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for SvgImageSource {
+    type Target = ISvgImageSource;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for SvgImageSource {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Media.Imaging.SvgImageSource";
+}
+unsafe impl Send for SvgImageSource {}
+unsafe impl Sync for SvgImageSource {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SwapChainPanel(windows_core::IUnknown);

@@ -265,7 +265,7 @@ pub enum PropValue {
     Color(Color),
     Unset,
     GridLengths(Vec<GridLength>),
-    SurfaceImageSource(SurfaceImageSource),
+    ImageSource(ImageSource),
     LineEndpoints(LineEndpoints),
     NavMenuItems(Vec<NavViewItem>),
     StrList(Vec<String>),
@@ -521,7 +521,8 @@ pub trait SendDispatcher: Send + Sync + 'static {
     ) -> bool;
 }
 
-/// Process-wide unique identifier for a [`RenderHost`]/[`RenderCx`] pair.
+/// Process-wide unique identifier for a [`RenderHost`] and all of its
+/// [`RenderCx`] instances.
 ///
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
 pub struct HostId(u64);

@@ -3,23 +3,15 @@ use super::*;
 /// An icon displayed by controls that accept a WinUI `IconElement` - buttons,
 /// [`NavViewItem`]s, command-bar buttons, and [`SelectorBarItemDef`]s.
 ///
-/// Construct one from a built-in [`Symbol`], an image URI, or a font glyph.
+/// Construct one from a built-in [`Symbol`], an [`ImageSource`], or a font glyph.
 /// A bare [`Symbol`] converts into an `Icon` automatically (`impl Into<Icon>`),
-/// so `.icon(Symbol::Home)` keeps working alongside `.icon(Icon::bitmap(...))`.
+/// so `.icon(Symbol::Home)` keeps working alongside `.icon(Icon::image(...))`.
 #[derive(Clone, Debug, PartialEq)]
 pub enum Icon {
     /// A built-in system glyph from the [`Symbol`] enum (WinUI `SymbolIcon`).
     Symbol(Symbol),
-    /// A raster image loaded from a URI - PNG, JPG, or other bitmap formats
-    /// (WinUI `BitmapIcon`). `BitmapIcon` does not render SVG; use an
-    /// `ImageIcon` with an `SvgImageSource` for vector artwork.
-    ///
-    /// The URI may be an app package path (`ms-appx:///Assets/logo.png`) or an
-    /// absolute `http(s)` URL. Rendered in full color (not tinted monochrome).
-    Bitmap {
-        /// The image URI.
-        uri: String,
-    },
+    /// An image rendered in full color using the source's native format.
+    Image(ImageSource),
     /// A glyph from a font (WinUI `FontIcon`). When `family` is `None`, the
     /// control's default icon font is used.
     Font {
@@ -36,10 +28,16 @@ impl Icon {
         Self::Symbol(symbol)
     }
 
-    /// A bitmap icon loaded from a URI (e.g. `ms-appx:///Assets/logo.png` or an
-    /// `https://` URL).
+    /// An image icon loaded from a URI, surface, or other [`ImageSource`].
+    pub fn image(source: impl Into<ImageSource>) -> Self {
+        Self::Image(source.into())
+    }
+
+    /// A raster image loaded from a URI.
+    ///
+    /// This is a compatibility shorthand for [`Icon::image`].
     pub fn bitmap(uri: impl Into<String>) -> Self {
-        Self::Bitmap { uri: uri.into() }
+        Self::image(ImageSource::uri(uri))
     }
 
     /// A font glyph rendered with the control's default icon font.
@@ -62,5 +60,11 @@ impl Icon {
 impl From<Symbol> for Icon {
     fn from(symbol: Symbol) -> Self {
         Self::Symbol(symbol)
+    }
+}
+
+impl From<ImageSource> for Icon {
+    fn from(source: ImageSource) -> Self {
+        Self::Image(source)
     }
 }

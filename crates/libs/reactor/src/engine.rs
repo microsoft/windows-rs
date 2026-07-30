@@ -543,6 +543,10 @@ impl RenderCx {
         self.host_id
     }
 
+    pub(crate) fn set_host_id(&mut self, host_id: HostId) {
+        self.host_id = host_id;
+    }
+
     fn set_request_rerender(&mut self, request_rerender: Rc<dyn Fn()>) {
         self.request_rerender = request_rerender;
     }
@@ -1258,6 +1262,7 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         let dpi = Rc::new(Cell::new(96_u32));
         render_cx.set_inner_size_cell(Rc::clone(&inner_size));
         render_cx.set_dpi_cell(Rc::clone(&dpi));
+        reconciler.set_host_id(host_id);
         reconciler.set_inner_size_cell(Rc::clone(&inner_size));
         reconciler.set_dpi_cell(Rc::clone(&dpi));
 

@@ -42,6 +42,7 @@ pub struct Reconciler<B: Backend> {
     pub header_elements: FxHashMap<ControlId, ControlId>,
     pub pane_elements: FxHashMap<ControlId, ControlId>,
     pub marshaller: Option<UiMarshaller>,
+    pub host_id: HostId,
     pub inner_size: Rc<Cell<WindowSize>>,
     pub dpi: Rc<Cell<u32>>,
     pub request_rerender: Rc<dyn Fn()>,
@@ -81,6 +82,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             defer_templated_unmounts: false,
             deferred_unmounts: Vec::new(),
             marshaller: None,
+            host_id: HostId::next(),
             inner_size: Rc::new(Cell::new(WindowSize::default())),
             dpi: Rc::new(Cell::new(96_u32)),
             request_rerender: Rc::new(|| {}),
@@ -89,6 +91,10 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     pub fn set_marshaller(&mut self, marshaller: Option<UiMarshaller>) {
         self.marshaller = marshaller;
+    }
+
+    pub fn set_host_id(&mut self, host_id: HostId) {
+        self.host_id = host_id;
     }
 
     #[cfg(feature = "test")]

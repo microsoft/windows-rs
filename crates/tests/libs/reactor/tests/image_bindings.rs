@@ -1,4 +1,4 @@
-use windows_reactor::{Binding, Image, Prop, PropValue, Widget};
+use windows_reactor::{Binding, Image, ImageSource, Prop, PropValue, Widget};
 
 fn image_source(image: &Image) -> Option<PropValue> {
     image
@@ -15,7 +15,19 @@ fn new_emits_uri_image_source() {
     let image = Image::new_with_uri("file:///pic.png");
     assert_eq!(
         image_source(&image),
-        Some(PropValue::Str("file:///pic.png".into()))
+        Some(PropValue::ImageSource(ImageSource::uri("file:///pic.png")))
+    );
+}
+
+#[test]
+fn image_new_accepts_uri_conversions() {
+    assert_eq!(
+        Image::new("file:///pic.svg").source,
+        Image::new_with_uri("file:///pic.svg").source
+    );
+    assert_eq!(
+        Image::new(String::from("file:///pic.png")).source,
+        ImageSource::uri("file:///pic.png")
     );
 }
 

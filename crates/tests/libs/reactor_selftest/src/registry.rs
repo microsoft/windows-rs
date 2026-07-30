@@ -187,8 +187,8 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         interactions::button_icon_glyph_change_preserves_text,
     ),
     (
-        "Interaction_ButtonIcon_BitmapAndFont",
-        interactions::button_bitmap_and_font_icons,
+        "Interaction_ButtonIcon_ImageAndFont",
+        interactions::button_image_and_font_icons,
     ),
     (
         "Interaction_ButtonIcon_Removal",

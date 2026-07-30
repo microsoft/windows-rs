@@ -36,7 +36,6 @@ Microsoft::UI::Xaml::Controls::AutoSuggestBoxQuerySubmittedEventArgs
 Microsoft::UI::Xaml::Controls::AutoSuggestBoxSuggestionChosenEventArgs
 Microsoft::UI::Xaml::Controls::AutoSuggestBoxTextChangedEventArgs
 Microsoft::UI::Xaml::Controls::AutoSuggestionBoxTextChangeReason
-Microsoft::UI::Xaml::Controls::BitmapIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::BreadcrumbBarItemClickedEventArgs
 Microsoft::UI::Xaml::Controls::CalendarDatePickerDateChangedEventArgs
 Microsoft::UI::Xaml::Controls::CalendarViewSelectedDatesChangedEventArgs
@@ -58,13 +57,13 @@ Microsoft::UI::Xaml::Controls::FontIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::Flyout::CreateInstance
 Microsoft::UI::Xaml::Controls::Grid::{SetColumn, SetColumnSpan, SetRow, SetRowSpan}
 Microsoft::UI::Xaml::Controls::GridView::CreateInstance
+Microsoft::UI::Xaml::Controls::ImageIcon::CreateInstance
 Microsoft::UI::Xaml::Controls::IAppBarButton::{put_Label, get_Label, put_Icon}
 Microsoft::UI::Xaml::Controls::IAppBarToggleButton::{put_Label, put_Icon}
 Microsoft::UI::Xaml::Controls::IAutoSuggestBox::{put_Text, get_Text, QuerySubmitted, TextChanged, SuggestionChosen}
 Microsoft::UI::Xaml::Controls::IAutoSuggestBoxQuerySubmittedEventArgs::get_QueryText
 Microsoft::UI::Xaml::Controls::IAutoSuggestBoxSuggestionChosenEventArgs::get_SelectedItem
 Microsoft::UI::Xaml::Controls::IAutoSuggestBoxTextChangedEventArgs::get_Reason
-Microsoft::UI::Xaml::Controls::IBitmapIcon::{put_UriSource, put_ShowAsMonochrome}
 Microsoft::UI::Xaml::Controls::IBorder::{put_Child, put_Padding, put_Background, put_CornerRadius, put_BorderBrush, put_BorderThickness}
 Microsoft::UI::Xaml::Controls::IBreadcrumbBar::{put_ItemsSource, ItemClicked}
 Microsoft::UI::Xaml::Controls::IBreadcrumbBarItemClickedEventArgs::get_Index
@@ -90,6 +89,7 @@ Microsoft::UI::Xaml::Controls::IFlyout::put_Content
 Microsoft::UI::Xaml::Controls::IFontIcon::{put_Glyph, put_FontFamily}
 Microsoft::UI::Xaml::Controls::IGrid::{get_RowDefinitions, get_ColumnDefinitions, put_Padding}
 Microsoft::UI::Xaml::Controls::IHyperlinkButton::put_NavigateUri
+Microsoft::UI::Xaml::Controls::IImageIcon::put_Source
 Microsoft::UI::Xaml::Controls::IImage::put_Source
 Microsoft::UI::Xaml::Controls::IInfoBar::Closed
 Microsoft::UI::Xaml::Controls::IItemsControl::{get_Items, put_ItemsSource, put_ItemTemplate}
@@ -259,7 +259,9 @@ Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color
 Microsoft::UI::Xaml::Media::ImageSource
 Microsoft::UI::Xaml::Media::Imaging::BitmapImage::CreateInstance
 Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::put_UriSource
+Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::put_UriSource
 Microsoft::UI::Xaml::Media::Imaging::SurfaceImageSource::CreateInstanceWithDimensions
+Microsoft::UI::Xaml::Media::Imaging::SvgImageSource::CreateInstance
 Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::SolidColorBrush::CreateInstance
 Microsoft::UI::Xaml::Media::Stretch
