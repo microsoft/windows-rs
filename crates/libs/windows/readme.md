@@ -1,7 +1,8 @@
 ## Rust for Windows
 
 The [windows](https://crates.io/crates/windows) crate provides Rust bindings for Win32, COM, and
-WinRT APIs generated from [Windows metadata](../bindgen/default).
+WinRT APIs generated from
+[Windows metadata](https://github.com/microsoft/windows-rs/tree/master/crates/libs/bindgen/default).
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)

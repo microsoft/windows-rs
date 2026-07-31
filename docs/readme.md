@@ -1,5 +1,5 @@
 `windows-rs` is a family of crates for Windows APIs, from raw bindings to declarative UI. This page
-lists the crate for each task.
+lists the crates by task.
 
 - [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 - [Releases](https://github.com/microsoft/windows-rs/releases)

@@ -69,7 +69,7 @@ keyboard and screen-reader users:
 strings. `open_dev_tools_window()` opens the browser DevTools.
 
 For a navigation with a custom HTTP method, request headers, or a body, build a `NavigationRequest`
-and pass it to `navigate_with_request`:
+and pass it to `navigate_with_request`.
 
 `NavigationRequest` configures the method, headers, and body for a navigation.
 
@@ -173,7 +173,7 @@ Use `on_web_resource_requested` when responses are generated in memory.
 ## Cookies
 
 `webview.cookie_manager()` returns a `CookieManager`. Reading cookies is asynchronous and
-callback-based, like `execute_script`:
+callback-based, like `execute_script`.
 
 `CookieManager` reads and updates cookies for a URI.
 
@@ -188,7 +188,7 @@ with `delete_cookies(name, uri)`, `delete_cookies_with_domain_and_path(..)`, or
 by every `WebView` created with it. It exposes `name`, `path`, and `is_in_private_mode`. Set
 `preferred_color_scheme(PreferredColorScheme::Dark)` to drive a site's `prefers-color-scheme` theme.
 Change `default_download_folder_path`, or clear browsing data with the callback-based
-`clear_browsing_data_all`:
+`clear_browsing_data_all`.
 
 `Profile` controls profile settings and browsing-data cleanup.
 
@@ -232,7 +232,7 @@ Run one with `cargo run -p webview_samples --example <name>`:
 
 With the optional `reactor` feature, `windows-webview` can host a browser inside a
 [`windows-reactor`](windows-reactor.md) UI tree. The feature adds `webview`, which returns a reactor
-`WebView2` control element. It hands you a ready [`WebView`] when the browser initializes:
+`WebView2` control element. It hands you a ready [`WebView`] when the browser initializes.
 
 Enable the `reactor` feature to host WebView2 as a reactor widget.
 
