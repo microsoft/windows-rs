@@ -452,15 +452,14 @@ impl Class {
             };
 
             for (_, arg) in attribute.value() {
-                if let Value::TypeName(tn) = arg {
-                    if let Some(Type::Interface(mut interface)) = reader
+                if let Value::TypeName(tn) = arg
+                    && let Some(Type::Interface(mut interface)) = reader
                         .with_full_name(tn.namespace.as_str(), tn.name.as_str())
                         .next()
-                    {
-                        interface.kind = kind;
-                        set.push(interface);
-                        break;
-                    }
+                {
+                    interface.kind = kind;
+                    set.push(interface);
+                    break;
                 }
             }
         }

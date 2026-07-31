@@ -179,10 +179,10 @@ impl CppStruct {
             };
         }
 
-        if self.def.fields().next().is_none() {
-            if let Some(guid) = self.def.guid_attribute() {
-                return config.write_cpp_const_guid(to_ident(self.name), &guid);
-            }
+        if self.def.fields().next().is_none()
+            && let Some(guid) = self.def.guid_attribute()
+        {
+            return config.write_cpp_const_guid(to_ident(self.name), &guid);
         }
 
         let arches = write_arches(self.def);
@@ -318,16 +318,16 @@ impl CppStruct {
 
         let constants = {
             let constants = self.def.fields().filter_map(|f| {
-                if f.flags().contains(FieldAttributes::Literal) {
-                    if let Some(constant) = f.constant() {
-                        let name = to_ident(f.name());
-                        let ty = constant.constant_type(config.reader).write_name(config);
-                        let value = constant.value().write();
+                if f.flags().contains(FieldAttributes::Literal)
+                    && let Some(constant) = f.constant()
+                {
+                    let name = to_ident(f.name());
+                    let ty = constant.constant_type(config.reader).write_name(config);
+                    let value = constant.value().write();
 
-                        return Some(quote! {
-                            pub const #name: #ty = #value;
-                        });
-                    }
+                    return Some(quote! {
+                        pub const #name: #ty = #value;
+                    });
                 }
 
                 None
@@ -388,19 +388,18 @@ impl CppStruct {
                 }
 
                 if config.bindgen.style.is_sys() {
-                    if let Type::CppStruct(ty) = &ty {
-                        if ty.is_handle(config.reader)
-                            && ty.def.underlying_type_ext(config.reader).is_pointer()
-                        {
-                            return true;
-                        }
+                    if let Type::CppStruct(ty) = &ty
+                        && ty.is_handle(config.reader)
+                        && ty.def.underlying_type_ext(config.reader).is_pointer()
+                    {
+                        return true;
                     }
 
                     // Scoped C++ enums do not derive `Default` in sys mode, so containing structs cannot.
-                    if let Type::CppEnum(inner) = &ty {
-                        if inner.def.has_attribute("ScopedEnumAttribute") {
-                            return true;
-                        }
+                    if let Type::CppEnum(inner) = &ty
+                        && inner.def.has_attribute("ScopedEnumAttribute")
+                    {
+                        return true;
                     }
 
                     matches!(

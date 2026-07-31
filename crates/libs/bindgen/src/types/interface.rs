@@ -748,12 +748,11 @@ impl Interface {
             match attribute.name() {
                 "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                     for (_, arg) in attribute.value() {
-                        if let Value::TypeName(tn) = arg {
-                            if tn.namespace.as_str() == our_namespace
-                                && tn.name.as_str() == our_name
-                            {
-                                return true;
-                            }
+                        if let Value::TypeName(tn) = arg
+                            && tn.namespace.as_str() == our_namespace
+                            && tn.name.as_str() == our_name
+                        {
+                            return true;
                         }
                     }
                 }

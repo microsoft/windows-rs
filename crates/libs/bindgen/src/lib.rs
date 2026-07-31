@@ -465,10 +465,10 @@ impl Bindgen {
                         .iter()
                         .copied()
                         .filter(|path| {
-                            if let Some((namespace, name)) = path.rsplit_once('.') {
-                                if let Some(ns_map) = reader.get(namespace) {
-                                    return ns_map.contains_key(name);
-                                }
+                            if let Some((namespace, name)) = path.rsplit_once('.')
+                                && let Some(ns_map) = reader.get(namespace)
+                            {
+                                return ns_map.contains_key(name);
                             }
                             false
                         })

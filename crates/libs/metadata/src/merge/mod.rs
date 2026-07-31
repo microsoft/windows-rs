@@ -378,10 +378,9 @@ fn type_arch_bits(def: reader::TypeDef) -> i32 {
         let ty = attribute.ctor().parent();
         if ty.namespace() == "Windows.Win32.Metadata"
             && ty.name() == "SupportedArchitectureAttribute"
+            && let Some((_, Value::I32(bits))) = attribute.value().first()
         {
-            if let Some((_, Value::I32(bits))) = attribute.value().first() {
-                return *bits;
-            }
+            return *bits;
         }
     }
     0
@@ -957,10 +956,10 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
         );
     }
 
-    if let Some(arch_bits) = arch_override {
-        if arch_bits != 0 {
-            write_supported_architecture_attr(file, parent, arch_bits);
-        }
+    if let Some(arch_bits) = arch_override
+        && arch_bits != 0
+    {
+        write_supported_architecture_attr(file, parent, arch_bits);
     }
 }
 

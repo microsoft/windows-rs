@@ -127,11 +127,11 @@ impl CppMethod {
 
         // Remove any byte arrays that aren't byte-sized types.
         for position in 0..param_hints.len() {
-            if let ParamHint::ArrayRelativeByteLen(relative) = param_hints[position] {
-                if !signature.params[position].is_byte_size() {
-                    param_hints[position] = ParamHint::None;
-                    param_hints[relative] = ParamHint::None;
-                }
+            if let ParamHint::ArrayRelativeByteLen(relative) = param_hints[position]
+                && !signature.params[position].is_byte_size()
+            {
+                param_hints[position] = ParamHint::None;
+                param_hints[relative] = ParamHint::None;
             }
         }
 
@@ -168,13 +168,13 @@ impl CppMethod {
                     return_hint = ReturnHint::HResult;
                 }
 
-                if signature.params.len() >= 2 {
-                    if let Some((guid, object)) = signature_param_is_query(&signature.params) {
-                        if signature.params[object].is_optional() {
-                            return_hint = ReturnHint::QueryOptional(object, guid);
-                        } else {
-                            return_hint = ReturnHint::Query(object, guid);
-                        }
+                if signature.params.len() >= 2
+                    && let Some((guid, object)) = signature_param_is_query(&signature.params)
+                {
+                    if signature.params[object].is_optional() {
+                        return_hint = ReturnHint::QueryOptional(object, guid);
+                    } else {
+                        return_hint = ReturnHint::Query(object, guid);
                     }
                 }
             }
@@ -792,13 +792,12 @@ fn signature_param_is_query(params: &[Param]) -> Option<(usize, usize)> {
     if let Some(guid) = params
         .iter()
         .rposition(|param| param.ty == Type::PtrConst(Box::new(Type::GUID), 1) && param.is_input())
-    {
-        if let Some(object) = params.iter().rposition(|param| {
+        && let Some(object) = params.iter().rposition(|param| {
             param.ty == Type::PtrMut(Box::new(Type::Void), 2)
                 && param.def.has_attribute("ComOutPtrAttribute")
-        }) {
-            return Some((guid, object));
-        }
+        })
+    {
+        return Some((guid, object));
     }
 
     None

@@ -269,15 +269,19 @@ impl<'a> Blob<'a> {
                 String::from_utf16_lossy(chars)
             } else {
                 let chars: Vec<u16> = slice
-                    .chunks_exact(2)
-                    .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
+                    .as_chunks::<2>()
+                    .0
+                    .iter()
+                    .map(|chunk| u16::from_le_bytes(*chunk))
                     .collect();
                 String::from_utf16_lossy(&chars)
             }
         } else {
             let chars: Vec<u16> = slice
-                .chunks_exact(2)
-                .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
+                .as_chunks::<2>()
+                .0
+                .iter()
+                .map(|chunk| u16::from_le_bytes(*chunk))
                 .collect();
             String::from_utf16_lossy(&chars)
         };
