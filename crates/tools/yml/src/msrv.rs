@@ -6,9 +6,10 @@ pub fn yml() {
         let mut current_version = None;
         let mut manifests = helpers::crates("crates/libs");
         manifests.sort_by(|a, b| {
-            b.package
-                .rust_version
-                .cmp(&a.package.rust_version)
+            rust_version_key(b.package.rust_version.as_deref().expect("rust-version"))
+                .cmp(&rust_version_key(
+                    a.package.rust_version.as_deref().expect("rust-version"),
+                ))
                 .then_with(|| a.package.name.cmp(&b.package.name))
         });
 
@@ -86,4 +87,26 @@ pub fn yml() {
             .unwrap();
         }
     });
+}
+
+fn rust_version_key(version: &str) -> [u32; 3] {
+    let mut parts = version.split('.').map(|part| part.parse().unwrap());
+    let key = [
+        parts.next().unwrap(),
+        parts.next().unwrap(),
+        parts.next().unwrap_or(0),
+    ];
+    assert!(parts.next().is_none());
+    key
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn versions_sort_numerically() {
+        assert!(rust_version_key("1.100") > rust_version_key("1.95"));
+        assert_eq!(rust_version_key("1.95"), rust_version_key("1.95.0"));
+    }
 }
