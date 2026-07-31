@@ -1,8 +1,5 @@
-//! Controller display-property fixtures: zoom, rasterization scale, visibility.
-
 use crate::harness::Harness;
 
-/// The zoom factor round-trips through the setter and getter.
 pub fn zoom_round_trip(harness: &Harness) {
     let controller = harness.controller();
     harness.check(
@@ -16,14 +13,12 @@ pub fn zoom_round_trip(harness: &Harness) {
     let _ = controller.set_zoom_factor(1.0);
 }
 
-/// Visibility can be toggled off and back on.
 pub fn visibility_toggle(harness: &Harness) {
     let controller = harness.controller();
     harness.check("Controller_Hide", controller.set_visible(false).is_ok());
     harness.check("Controller_Show", controller.set_visible(true).is_ok());
 }
 
-/// The default background colour round-trips through the setter and getter.
 pub fn background_color_round_trip(harness: &Harness) {
     use windows_webview::Color;
 
@@ -48,7 +43,6 @@ pub fn background_color_round_trip(harness: &Harness) {
     }
 }
 
-/// The rasterization scale round-trips through the setter and getter.
 pub fn rasterization_scale_round_trip(harness: &Harness) {
     let controller = harness.controller();
     let original = controller.rasterization_scale().unwrap_or(1.0);
@@ -65,7 +59,6 @@ pub fn rasterization_scale_round_trip(harness: &Harness) {
     let _ = controller.set_rasterization_scale(original);
 }
 
-/// Monitor-scale-change detection round-trips through the setter and getter.
 pub fn detect_monitor_scale_changes_round_trip(harness: &Harness) {
     let controller = harness.controller();
     let original = controller

@@ -3,8 +3,6 @@
 use windows_core::*;
 use windows_reference::*;
 
-// ---------- IReference::Value() round-trip for all supported primitive types ----------
-
 #[test]
 fn value_u8() -> Result<()> {
     let r = IReference::<u8>::from(255);
@@ -82,8 +80,6 @@ fn value_bool_false() -> Result<()> {
     Ok(())
 }
 
-// ---------- HSTRING conversions ----------
-
 #[test]
 fn hstring_value() -> Result<()> {
     let r = IReference::<HSTRING>::from(HSTRING::from("hello"));
@@ -120,8 +116,6 @@ fn hstring_empty() -> Result<()> {
     Ok(())
 }
 
-// ---------- GUID ----------
-
 #[test]
 fn guid_value() -> Result<()> {
     let g = GUID::from_u128(0x11223344_5566_7788_99AA_BBCCDDEEFF00);
@@ -129,8 +123,6 @@ fn guid_value() -> Result<()> {
     assert_eq!(r.Value()?, g);
     Ok(())
 }
-
-// ---------- Interface hierarchy ----------
 
 #[test]
 fn cast_to_inspectable() -> Result<()> {
@@ -145,8 +137,6 @@ fn cast_to_iunknown() -> Result<()> {
     let _unknown: IUnknown = r.cast()?;
     Ok(())
 }
-
-// ---------- Clone / equality ----------
 
 #[test]
 fn clone_preserves_value() -> Result<()> {
@@ -165,7 +155,6 @@ fn equality() {
     assert_eq!(r1, r2);
 }
 
-// ---------- IPropertyValue ABI conformance ----------
 //
 // `IReference<T>` derives from `IPropertyValue`. The stock implementation:
 // - Reports the correct `PropertyType` for known types.
@@ -351,8 +340,6 @@ fn property_type_other() {
     assert_eq!(pv.GetSize().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetRect().unwrap_err().code(), E_NOTIMPL);
 }
-
-// ---------- GetRuntimeClassName ----------
 
 #[test]
 fn runtime_class_name_i32() {

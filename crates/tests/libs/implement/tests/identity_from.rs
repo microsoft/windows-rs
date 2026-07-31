@@ -16,7 +16,6 @@ impl IClosable_Impl for Test_Impl {
     }
 }
 
-// This tests that the interface_hierarchy macro correctly implement From<T> and From<&T> for interfaces.
 #[test]
 fn identity_from() -> Result<()> {
     {

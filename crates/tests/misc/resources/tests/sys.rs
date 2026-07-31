@@ -1,8 +1,7 @@
 #![cfg(windows)]
 use windows_sys::Win32::*;
 
-/// These tests ensure `MAKEINTRESOURCEW` style constants an in particular negative constants like TD_ERROR_ICON
-/// work as expected.
+/// Ensures negative `MAKEINTRESOURCEW` constants work as expected.
 #[test]
 fn sys() {
     unsafe {

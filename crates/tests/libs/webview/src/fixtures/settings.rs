@@ -1,5 +1,3 @@
-//! Settings fixture: disabling script prevents the page from running it.
-
 use std::cell::RefCell;
 use std::rc::Rc;
 use std::time::Duration;
@@ -9,8 +7,6 @@ use crate::harness::Harness;
 const SETS_TITLE: &str = "<!DOCTYPE html><html><head><title>original</title></head>\
      <body><script>document.title = 'changed';</script></body></html>";
 
-/// With script disabled the page's inline script does not run, so the title
-/// stays as authored; re-enabling lets it run.
 pub fn disable_script_blocks_execution(harness: &Harness) {
     let Ok(settings) = harness.webview().settings() else {
         harness.check("Settings_Get", false);
@@ -33,8 +29,6 @@ pub fn disable_script_blocks_execution(harness: &Harness) {
     harness.check("Settings_ScriptEnabled_TitleChanged", changed);
 }
 
-/// The user-agent string round-trips through the setter and getter, and the
-/// page sees the overridden value.
 pub fn user_agent_round_trip(harness: &Harness) {
     let Ok(settings) = harness.webview().settings() else {
         harness.check("Settings_UserAgent_Get", false);
@@ -61,9 +55,6 @@ pub fn user_agent_round_trip(harness: &Harness) {
     let _ = settings.set_user_agent(&original);
 }
 
-/// `chrome.webview.postMessage` is only delivered to the host when
-/// `is_web_message_enabled` is set: with it off the host receives nothing, and
-/// turning it back on delivers the message.
 pub fn web_message_enabled_gates_ipc(harness: &Harness) {
     let Ok(settings) = harness.webview().settings() else {
         harness.check("Settings_WebMessage_Get", false);
@@ -81,14 +72,12 @@ pub fn web_message_enabled_gates_ipc(harness: &Harness) {
         return;
     };
 
-    // The page always posts (ignoring any error when the API is gated off) and
-    // signals via its title that it finished running.
+    // The title signals that the page attempted the gated API call.
     const PAGE: &str = "<!DOCTYPE html><html><body><script>\
         try { window.chrome.webview.postMessage('hi'); } catch (e) {}\
         document.title = 'ran';\
         </script></body></html>";
 
-    // Disabled: the page runs and posts, but nothing reaches the host.
     if settings.set_web_message_enabled(false).is_err() {
         harness.check("Settings_WebMessage_Disable", false);
         drop(registration);
@@ -97,14 +86,13 @@ pub fn web_message_enabled_gates_ipc(harness: &Harness) {
     *received.borrow_mut() = None;
     harness.navigate_html(PAGE);
     let ran = harness.wait(|| harness.webview().document_title() == "ran");
-    // Give any (erroneously delivered) message time to arrive before asserting.
+    // Allow time for an erroneously delivered message to arrive.
     harness.pump_until(|| false, Duration::from_millis(500));
     harness.check(
         "Settings_WebMessage_DisabledNotReceived",
         ran && received.borrow().is_none(),
     );
 
-    // Enabled: the message is delivered.
     if settings.set_web_message_enabled(true).is_err() {
         harness.check("Settings_WebMessage_Enable", false);
         drop(registration);

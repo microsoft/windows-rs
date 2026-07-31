@@ -1,6 +1,3 @@
-//! Chrome DevTools Protocol fixtures: calling a CDP method and receiving a CDP
-//! event.
-
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -8,8 +5,6 @@ use windows_core::Result;
 
 use crate::harness::Harness;
 
-/// Calls a CDP method and pumps until it returns, yielding the JSON result or
-/// `None` if it did not return within the timeout.
 fn call(harness: &Harness, method: &str, params_json: &str) -> Option<Result<String>> {
     let slot: Rc<RefCell<Option<Result<String>>>> = Rc::new(RefCell::new(None));
     let sink = slot.clone();
@@ -28,19 +23,13 @@ fn call(harness: &Harness, method: &str, params_json: &str) -> Option<Result<Str
     slot.borrow_mut().take()
 }
 
-/// `call_dev_tools_protocol_method` returns the CDP method's result as JSON, and
-/// forwards a non-empty parameter object to the browser.
 pub fn call_returns_json(harness: &Harness) {
-    // No parameters: `Browser.getVersion` reports browser details that page
-    // script cannot obtain, confirming the call reaches the CDP channel.
     let version = call(harness, "Browser.getVersion", "{}");
     harness.check(
         "DevTools_Call_Result",
         matches!(version, Some(Ok(ref value)) if value.contains("product")),
     );
 
-    // With parameters: the `expression` must reach the browser for the evaluated
-    // result to come back, proving `params_json` is forwarded rather than ignored.
     let evaluated = call(
         harness,
         "Runtime.evaluate",
@@ -52,7 +41,6 @@ pub fn call_returns_json(harness: &Harness) {
     );
 }
 
-/// A subscribed CDP event fires and carries its parameters as JSON.
 pub fn event_received(harness: &Harness) {
     let received: Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
     let sink = received.clone();
@@ -67,8 +55,7 @@ pub fn event_received(harness: &Harness) {
         return;
     };
 
-    // Console messages are only reported over CDP once the Runtime domain is
-    // enabled, so enable it and wait for the acknowledgement before navigating.
+    // CDP reports console messages only after enabling the Runtime domain.
     harness.check(
         "DevTools_Event_Enable",
         matches!(call(harness, "Runtime.enable", "{}"), Some(Ok(_))),

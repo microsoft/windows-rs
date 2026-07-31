@@ -27,7 +27,7 @@ fn primitive() -> Result<()> {
     assert_eq!(index, 1);
     assert!(v.IndexOf(3, &mut index)?);
     assert_eq!(index, 2);
-    // IndexOf resets *result to 0 when the value is not found
+    // WinRT requires the out index to be zero when no value is found.
     index = 99;
     assert!(!(v.IndexOf(0, &mut index)?));
     assert_eq!(index, 0);
@@ -110,7 +110,6 @@ fn primitive_iterator() -> Result<()> {
     assert_eq!(values, [2, 3]);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    // MoveNext followed by GetMany reads from the advanced position
     let iter = v.First()?;
     assert!(iter.MoveNext()?);
     let mut values = [0; 5];
@@ -125,7 +124,6 @@ fn primitive_iterator() -> Result<()> {
 fn primitive_mutable() -> Result<()> {
     let v = IVector::<i32>::from(vec![]);
 
-    // Append
     v.Append(1)?;
     v.Append(2)?;
     v.Append(3)?;
@@ -134,12 +132,10 @@ fn primitive_mutable() -> Result<()> {
     assert_eq!(v.GetAt(1)?, 2);
     assert_eq!(v.GetAt(2)?, 3);
 
-    // SetAt
     v.SetAt(1, 20)?;
     assert_eq!(v.GetAt(1)?, 20);
     assert_eq!(v.SetAt(3, 0).unwrap_err().code(), E_BOUNDS);
 
-    // InsertAt
     v.InsertAt(1, 10)?;
     assert_eq!(v.Size()?, 4);
     assert_eq!(v.GetAt(0)?, 1);
@@ -148,36 +144,30 @@ fn primitive_mutable() -> Result<()> {
     assert_eq!(v.GetAt(3)?, 3);
     assert_eq!(v.InsertAt(5, 0).unwrap_err().code(), E_BOUNDS);
 
-    // InsertAt at end (equivalent to append)
     v.InsertAt(4, 99)?;
     assert_eq!(v.Size()?, 5);
     assert_eq!(v.GetAt(4)?, 99);
 
-    // RemoveAt
     v.RemoveAt(4)?;
     assert_eq!(v.Size()?, 4);
     assert_eq!(v.RemoveAt(4).unwrap_err().code(), E_BOUNDS);
 
-    // RemoveAtEnd
     v.RemoveAtEnd()?;
     assert_eq!(v.Size()?, 3);
     assert_eq!(v.GetAt(0)?, 1);
     assert_eq!(v.GetAt(1)?, 10);
     assert_eq!(v.GetAt(2)?, 20);
 
-    // Clear
     v.Clear()?;
     assert_eq!(v.Size()?, 0);
     assert_eq!(v.RemoveAtEnd().unwrap_err().code(), E_BOUNDS);
 
-    // ReplaceAll
     v.ReplaceAll(&[7, 8, 9])?;
     assert_eq!(v.Size()?, 3);
     assert_eq!(v.GetAt(0)?, 7);
     assert_eq!(v.GetAt(1)?, 8);
     assert_eq!(v.GetAt(2)?, 9);
 
-    // ReplaceAll with empty clears the vector
     v.ReplaceAll(&[])?;
     assert_eq!(v.Size()?, 0);
 
@@ -196,18 +186,14 @@ fn buffered_iterator_sizes() {
         let source: Vec<i32> = (0..size as i32).collect();
         let v = IVector::<i32>::from(source.clone());
 
-        // Borrowed IntoIterator yields exactly the source, in order.
         let collected: Vec<i32> = (&v).into_iter().collect();
         assert_eq!(collected, source, "borrowed iterate size {size}");
 
-        // Owned IntoIterator yields the same.
         let collected: Vec<i32> = v.clone().into_iter().collect();
         assert_eq!(collected, source, "owned iterate size {size}");
 
-        // count() drains every element including the final empty refill.
         assert_eq!((&v).into_iter().count(), size, "count size {size}");
 
-        // sum verifies no element is dropped, duplicated, or shifted.
         let sum: i64 = (&v).into_iter().map(i64::from).sum();
         let expect: i64 = (0..size as i64).sum();
         assert_eq!(sum, expect, "sum size {size}");
@@ -295,14 +281,12 @@ fn buffered_iterator_view_and_iterable() -> Result<()> {
 fn get_view() -> Result<()> {
     let v = IVector::<i32>::from(vec![1, 2, 3]);
 
-    // GetView returns a snapshot
     let view = v.GetView()?;
     assert_eq!(view.Size()?, 3);
     assert_eq!(view.GetAt(0)?, 1);
     assert_eq!(view.GetAt(1)?, 2);
     assert_eq!(view.GetAt(2)?, 3);
 
-    // Mutating the vector after GetView does not affect the snapshot
     v.Append(4)?;
     assert_eq!(v.Size()?, 4);
     assert_eq!(view.Size()?, 3);

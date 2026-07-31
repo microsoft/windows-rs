@@ -8,7 +8,7 @@ fn bad_string() -> Result<()> {
     _ = CURRENT_USER.remove_tree(test_key);
     let key = CURRENT_USER.create(test_key)?;
 
-    // Test value taken from https://github.com/rust-lang/rustup/blob/master/tests/suite/cli_paths.rs
+    // Regression value from rustup's `cli_paths` tests.
     let bad_string_bytes = [
         0x00, 0xD8, // leading surrogate
         0x01, 0x01, // bogus trailing surrogate

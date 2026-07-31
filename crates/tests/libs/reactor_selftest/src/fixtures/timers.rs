@@ -83,7 +83,7 @@ pub fn rendering_subscription_fires(h: Harness) -> FixtureFuture {
         };
 
         // Composition frames only flow when the compositor is producing them,
-        // which a headless/non-presenting agent may not do — soft-SKIP rather
+        // which a headless/non-presenting agent may not do. Soft-SKIP rather
         // than fail so CI stays green.
         let got = h
             .pump_until(Duration::from_secs(1), || frames.get() >= 2)

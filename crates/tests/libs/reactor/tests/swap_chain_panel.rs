@@ -122,7 +122,7 @@ fn on_unmount_stores_callback() {
 fn on_unmount_fires_before_destroy() {
     // With native elements enabled, the pre-unmount callback fires. Because the
     // backend drops a control's native element in `destroy`, the callback can
-    // only run while the element still exists — i.e. *before* destroy. If the
+    // only run while the element still exists, before destroy. If the
     // reconciler invoked it after `backend.destroy`, `get_native_element` would
     // return `None` and the callback would not fire, failing this test.
     let called = Rc::new(Cell::new(0));
@@ -254,8 +254,8 @@ fn on_unmount_callback_removed_on_update() {
 fn canvas_swap_chain_new_fails_gracefully_without_real_panel() {
     // `CanvasSwapChain` attaches a composition swap chain to the panel's native
     // control inside `on_mounted`. The RecordingBackend hands out a *stub*
-    // native element (not a real `SwapChainPanel`), so the attach — or the WARP
-    // device creation on a headless host — must fail by returning an `Err`, not
+    // native element (not a real `SwapChainPanel`), so attach or WARP device
+    // creation on a headless host must fail by returning an `Err`, not
     // by panicking. The app relies on this to leave its `host` unset and try
     // again later, so a clean error here is the contract under test.
     let result = Rc::new(RefCell::new(None));

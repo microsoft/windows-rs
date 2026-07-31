@@ -1,4 +1,4 @@
-// The stock `spawn` implementations can receive the `Completed` handler while still in the `Started` state
+// `spawn` may receive `Completed` while still in the `Started` state.
 // and must hold on to the handler and call it when execution completes.
 
 use std::sync::mpsc::channel;

@@ -40,7 +40,7 @@ fn visual_property_round_trips() {
     assert!(v.is_visible());
 
     // Exercises the IVisual2 cast path (RelativeSizeAdjustment) and setters that
-    // have no getter — a failure here surfaces as a panic.
+    // have no getter, so a failure here surfaces as a panic.
     v.set_scale(Vector3::new(2.0, 2.0, 1.0));
     v.set_center_point(Vector3::new(60.0, 40.0, 0.0));
     v.set_anchor_point(Vector2::new(0.5, 0.5));

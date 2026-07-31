@@ -7,7 +7,6 @@ fn rotation_test() {
 
 #[test]
 fn rotation_around_zero_yields_identity() {
-    // 0° rotation around any center is the identity matrix
     let m = Matrix3x2::rotation_around(0.0, Vector2::new(3.0, 5.0));
     assert_eq!(m, Matrix3x2::identity());
 }
@@ -19,14 +18,12 @@ fn skew_test() {
 
 #[test]
 fn skew_around_zero_yields_identity() {
-    // 0°/0° skew around any center is the identity matrix (tan(0) = 0)
     let m = Matrix3x2::skew_around(0.0, 0.0, Vector2::new(3.0, 5.0));
     assert_eq!(m, Matrix3x2::identity());
 }
 
 #[test]
 fn rotation_y_zero_yields_identity() {
-    // 0° rotation_y is the identity matrix (sin(0)=0, cos(0)=1)
     let m = Matrix4x4::rotation_y(0.0);
     assert_eq!(m.m11, 1.0);
     assert_eq!(m.m13, 0.0);

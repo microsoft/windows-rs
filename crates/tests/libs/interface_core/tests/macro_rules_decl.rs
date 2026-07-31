@@ -1,7 +1,7 @@
 //! Exercises the `interface_decl!` and `implement_decl!` macro_rules! alternatives to
 //! `#[interface]` / `#[implement]`.
 //!
-//! Both sides — interface declaration and implementer wiring — are done with declarative
+//! Both interface declaration and implementer wiring use declarative
 //! macros, so this test doubles as proof that the fully proc-macro-free path produces an
 //! object that is layout- and ABI-compatible with what the proc-macros would have emitted.
 //! Coverage spans the non-generic and `impl<T>` arms, the IInspectable identity, and

@@ -1,4 +1,4 @@
-// The stock `spawn` implementations can receive the `Completed` handler after execution has finished
+// `spawn` may receive `Completed` after execution finishes.
 // and must call the handler immediately.
 
 use std::sync::mpsc::channel;

@@ -322,27 +322,12 @@ impl Harness {
         }
     }
 
-    /// Pump the dispatcher in a bounded loop until `pred` returns `true`,
-    /// running a full `render()` between each check. Returns `true` if the
-    /// predicate held within the budget. On timeout, emits a TAP `#`
-    /// diagnostic naming `label` and dumping the visual tree, then returns
-    /// `false`. The caller decides whether timing out is fatal (typically
-    /// by feeding the return value into a `check`/`check_with`).
-    ///
-    /// This is the scalable companion to `render()` for control surfaces
-    /// (RadioButtons, ComboBox, ItemsRepeater-backed lists, etc.) whose
-    /// items materialize across multiple dispatcher turns: instead of
-    /// hard-coding extra `render().await` calls per fixture, wait on the
-    /// observable condition you actually need.
+    /// Render until `pred` succeeds or the bounded iteration budget expires.
     pub async fn render_until<F>(&self, label: &str, mut pred: F) -> bool
     where
         F: FnMut(&Self) -> bool,
     {
-        // 30 iterations × (10 low-priority yields per `render` + UpdateLayout
-        // + 3 trailing yields) is enough budget for every ItemsRepeater-backed
-        // control we've shipped fixtures for to materialize its items on a
-        // loaded CI agent, while still capping a stuck test at well under a
-        // second. Raise this only if a new control type genuinely needs more.
+        // This budget materializes ItemsRepeater controls on loaded CI agents.
         const MAX_ITERATIONS: u32 = 30;
         self.render().await;
         for _ in 0..MAX_ITERATIONS {
@@ -362,9 +347,7 @@ impl Harness {
         false
     }
 
-    /// Like [`render_until`](Self::render_until), but does not emit a
-    /// diagnostic tree dump on timeout. Use for conditions that are
-    /// expected to time out (e.g. known-flaky WinUI programmatic input).
+    /// Render until `pred` succeeds without diagnosing an expected timeout.
     pub async fn render_until_quiet<F>(&self, _label: &str, mut pred: F) -> bool
     where
         F: FnMut(&Self) -> bool,
@@ -381,12 +364,7 @@ impl Harness {
         pred(self)
     }
 
-    /// Pump the dispatcher until `pred` holds or `max` wall-clock time elapses,
-    /// returning the final value of `pred`. Unlike [`render_until`](Self::render_until)
-    /// this is time-bounded rather than iteration-bounded and does not force
-    /// layout — use it to wait on `DispatcherQueue`-driven work such as
-    /// [`DispatcherTimer`](windows_reactor::DispatcherTimer) ticks or
-    /// `CompositionTarget::Rendering` frames.
+    /// Wait for dispatcher-driven work without forcing layout.
     pub async fn pump_until<F>(&self, max: std::time::Duration, mut pred: F) -> bool
     where
         F: FnMut() -> bool,
@@ -403,8 +381,7 @@ impl Harness {
         }
     }
 
-    /// Pump the dispatcher for a fixed wall-clock duration, e.g. to confirm a
-    /// dropped timer or subscription produces no further callbacks.
+    /// Pump the dispatcher for a fixed duration.
     pub async fn pump_for(&self, dur: std::time::Duration) {
         let _ = self.pump_until(dur, || false).await;
     }
@@ -421,10 +398,7 @@ impl Harness {
         self.check_with(name, ok, || String::from("assertion failed"));
     }
 
-    /// Like `check`, but `diag` is invoked only when the assertion fails and
-    /// its returned string is appended to the TAP `not ok` line. Use this
-    /// whenever a bare boolean assertion would not give enough context to
-    /// diagnose a failure without re-running with a debugger attached.
+    /// Invoke `diag` only when the assertion fails.
     pub fn check_with<F>(&self, name: &str, ok: bool, diag: F)
     where
         F: FnOnce() -> String,
@@ -442,9 +416,6 @@ impl Harness {
         let _ = std::io::stdout().flush();
     }
 
-    /// Equality assertion that prints `expected=… actual=…` on failure.
-    /// Prefer this over `check` whenever the value being compared has a
-    /// useful `Debug` representation (numbers, strings, enums, etc.).
     pub fn check_eq<T>(&self, name: &str, expected: T, actual: T)
     where
         T: std::fmt::Debug + PartialEq,
@@ -455,29 +426,18 @@ impl Harness {
         });
     }
 
-    /// Emit `ok NAME # SKIP reason` — a TAP-spec skip directive. The test
-    /// is counted as passing for plan-count purposes but the harness/CI
-    /// understands it as "intentionally not run on this platform / under
-    /// these conditions". Use for assertions that cannot be reliably
-    /// verified in-process (e.g. WinUI controls whose event chain only
-    /// fires for real input).
+    /// Emit a TAP skip directive.
     #[allow(clippy::unused_self)] // method for API consistency
     pub fn check_skip(&self, name: &str, reason: &str) {
         println!("ok {name} # SKIP {reason}");
         let _ = std::io::stdout().flush();
     }
 
-    /// Begin capturing stderr output. Returns a [`StderrCapture`] that,
-    /// when finished, yields the captured bytes as a string. Use this to
-    /// detect `windows-reactor:` diagnostic warnings emitted by the
-    /// backend's `eprintln!` calls.
     #[allow(clippy::unused_self)]
     pub fn capture_stderr(&self) -> StderrCapture {
         StderrCapture::start()
     }
 
-    /// Assert that the captured stderr contains no `windows-reactor:`
-    /// diagnostic lines.
     pub fn check_no_reactor_warnings(&self, name: &str, captured: &str) {
         let warnings: Vec<&str> = captured
             .lines()
@@ -488,9 +448,6 @@ impl Harness {
         });
     }
 
-    /// Emit a free-form TAP diagnostic comment. Useful from driver helpers
-    /// to record why a side-effect could not be performed (e.g. control not
-    /// found in the tree, HRESULT error from the underlying setter).
     #[allow(clippy::unused_self)] // method for API consistency
     pub fn diag(&self, msg: &str) {
         for line in msg.lines() {
@@ -499,11 +456,7 @@ impl Harness {
         let _ = std::io::stdout().flush();
     }
 
-    /// Walk the current visual tree and return a compact textual snapshot
-    /// — one indented line per node, with the type name and a few useful
-    /// properties (text content, selected index, IsChecked, etc.). Intended
-    /// for use inside `check_with` diagnostics; never inspected as a string
-    /// by the test runner, so the exact format can evolve.
+    /// Return a best-effort visual tree snapshot for diagnostics.
     pub fn dump_tree(&self) -> String {
         let mut out = String::new();
         match self.search_root() {
@@ -619,9 +572,6 @@ impl Harness {
         Ok(())
     }
 
-    /// Set the underlying WinUI value on the first CheckBox in the tree.
-    /// Fires the Checked/Unchecked event the reactor has wired, which in
-    /// turn drives any `on_checked` callback.
     pub fn set_checkbox_value(&self, checked: bool) -> Result<()> {
         let Some(cb) = self.find_first::<CheckBox>(&|_| true) else {
             self.diag("set_checkbox_value: no CheckBox found in visual tree");
@@ -634,7 +584,6 @@ impl Harness {
         })
     }
 
-    /// Set the underlying WinUI value on the first ToggleSwitch in the tree.
     pub fn set_toggle_switch_value(&self, on: bool) -> Result<()> {
         let Some(ts) = self.find_first::<ToggleSwitch>(&|_| true) else {
             self.diag("set_toggle_switch_value: no ToggleSwitch found in visual tree");
@@ -646,7 +595,6 @@ impl Harness {
         })
     }
 
-    /// Set the underlying WinUI value on the first Slider in the tree.
     pub fn set_slider_value(&self, value: f64) -> Result<()> {
         let Some(s) = self.find_first::<Slider>(&|_| true) else {
             self.diag("set_slider_value: no Slider found in visual tree");
@@ -658,7 +606,6 @@ impl Harness {
         })
     }
 
-    /// Set the underlying WinUI text on the first TextBox in the tree.
     pub fn set_text_field_value(&self, text: &str) -> Result<()> {
         let Some(tb) = self.find_first::<TextBox>(&|_| true) else {
             self.diag("set_text_field_value: no TextBox found in visual tree");
@@ -670,8 +617,6 @@ impl Harness {
         })
     }
 
-    /// Set the password value on the first PasswordBox in the tree, which
-    /// fires the WinUI `PasswordChanged` event the reactor has wired.
     pub fn set_password_box_value(&self, text: &str) -> Result<()> {
         let Some(pb) = self.find_first::<PasswordBox>(&|_| true) else {
             self.diag("set_password_box_value: no PasswordBox found in visual tree");
@@ -684,34 +629,10 @@ impl Harness {
         })
     }
 
-    /// Drive a selection change on the first `RadioButtons` in the tree by
-    /// invoking the Nth child `RadioButton` through its UI Automation peer.
+    /// WinUI does not reliably fire `SelectionChanged` for in-process input:
     ///
-    /// **Known limitation:** WinUI's `RadioButtons` control does not
-    /// reliably fire `SelectionChanged` for *any* in-process programmatic
-    /// input. We have empirically tried three driving paths and observed
-    /// the same failure mode on a loaded CI agent for all three:
-    ///
-    /// * `RadioButtons::SetSelectedIndex(n)` on the host — sets the
-    ///   wrapper's `SelectedIndex` but children stay `IsChecked=false`
-    ///   and `SelectionChanged` does not fire.
-    /// * `IToggleButton::SetIsChecked(true)` on the Nth child — wrapper
-    ///   reaches `SelectedIndex=n` but `SelectionChanged` still drops.
-    /// * `IInvokeProvider::Invoke()` on the Nth child's automation peer
-    ///   (the canonical WinUI "simulate a click" hook) — same outcome.
-    ///
-    /// The wrapper's `SelectionChanged` only fires reliably for real
-    /// input events fed through XAML's input pipeline (e.g. WinAppDriver).
-    /// Callers that need to verify the event chain end-to-end should use
-    /// `Harness::check_skip` when this driver's effect cannot be observed
-    /// within the `render_until` budget — see the
-    /// `radio_buttons_change_selection` fixture for the pattern.
-    ///
-    /// This helper keeps the Automation peer Invoke path because it is
-    /// the canonical hook and at least sometimes works; future bindgen
-    /// work could switch to `ISelectionItemProvider::Select()` which is
-    /// the spec-prescribed pattern for radio buttons but is not in our
-    /// current `--minimal` binding set.
+    /// real input through XAML is required on affected hosts. The automation peer
+    /// remains the closest available hook in the current minimal bindings.
     pub fn set_radio_buttons_selected_index(&self, index: i32) -> Result<()> {
         if self.find_first::<RadioButtons>(&|_| true).is_none() {
             self.diag("set_radio_buttons_selected_index: no RadioButtons found in visual tree");
@@ -741,7 +662,6 @@ impl Harness {
         invoke.Invoke()
     }
 
-    /// Set the selected index on the first ComboBox in the tree.
     pub fn set_combo_box_selected_index(&self, index: i32) -> Result<()> {
         let Some(c) = self.find_first::<ComboBox>(&|_| true) else {
             self.diag("set_combo_box_selected_index: no ComboBox found in visual tree");
@@ -754,8 +674,6 @@ impl Harness {
         })
     }
 
-    /// Internal helper: invokes `f` and, if it returns an `Err`, emits a TAP
-    /// diagnostic comment tagging it with `op` before re-returning the error.
     fn report_hresult<F>(&self, op: &str, f: F) -> Result<()>
     where
         F: FnOnce() -> Result<()>,
@@ -787,12 +705,7 @@ fn find_in_tree<T: Interface>(root: &DependencyObject, pred: &dyn Fn(&T) -> bool
     None
 }
 
-/// Recursively pretty-print a DependencyObject subtree. Each node is shown
-/// on its own line, prefixed with two spaces per depth level, followed by
-/// the runtime class name and any easy-to-read properties (text content,
-/// selected index, IsChecked). This is best-effort: any HRESULT error
-/// during introspection is swallowed so a malformed tree still produces
-/// useful output for diagnostics.
+// Introspection errors are ignored so malformed trees still produce diagnostics.
 fn dump_node(node: &DependencyObject, depth: usize, out: &mut String) {
     for _ in 0..depth {
         out.push_str("  ");
@@ -874,8 +787,6 @@ fn window_hwnd(window: &Window) -> Result<HWND> {
     unsafe { native.WindowHandle(&mut hwnd as *mut HWND).ok()? };
     Ok(hwnd)
 }
-
-// ── Stderr capture ─────────────────────────────────────────────────────
 
 type RawHandle = *mut core::ffi::c_void;
 const STD_ERROR_HANDLE: u32 = 0xFFFF_FFF4; // (DWORD)-12

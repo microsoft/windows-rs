@@ -1,22 +1,4 @@
-//! Live self-test for `windows-webview`.
-//!
-//! Hosts a real WebView2 in a [`windows_window`] window and drives each unique
-//! capability end-to-end through the real COM surface and message pump,
-//! reporting results as TAP. It is the WebView2 analogue of
-//! `test_reactor_selftest`.
-//!
-//! WebView2 has no headless/software mode, so this is a live binary rather than
-//! a unit-test crate. Run it with:
-//!
-//! ```text
-//! cargo run -p test_webview                 # interactive: keeps the window open
-//! cargo run -p test_webview -- --headless   # CI: auto-exits with a status code
-//! cargo run -p test_webview -- --filter Ipc # run a subset by name substring
-//! cargo run -p test_webview -- --list-fixtures
-//! ```
-//!
-//! Requires the Microsoft Edge WebView2 runtime. If it is unavailable the run
-//! reports a TAP skip and exits successfully so CI stays green.
+//! Live WebView2 self-test that reports TAP results.
 
 #![windows_subsystem = "console"]
 

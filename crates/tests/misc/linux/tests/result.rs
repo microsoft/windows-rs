@@ -1,4 +1,3 @@
-// This tests code paths in `windows-result` that are different on non-Windows platforms.
 #![cfg(not(windows))]
 
 use windows_result::*;

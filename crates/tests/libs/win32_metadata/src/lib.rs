@@ -16,7 +16,7 @@ include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 // architecture. The generated slice arch-gates CONTEXT three ways; these asserts
 // fail to compile if a scrape regression drops an alignment or mis-sizes a union.
 // The expected sizes/alignments are clang ground truth from the pinned SDK headers
-// (x64 1232/16, x86 716/4, arm64 912/16 — arm64 CONTEXT is ARM64_NT_CONTEXT). The
+// (x64 1232/16, x86 716/4, arm64 912/16; arm64 CONTEXT is ARM64_NT_CONTEXT). The
 // x64 align comes from M128A's `align(16)` (never explicit on CONTEXT), which is the
 // exact fidelity win32metadata#1044 has lacked for years.
 #[cfg(target_arch = "x86_64")]

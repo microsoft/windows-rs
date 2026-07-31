@@ -57,12 +57,10 @@ fn arch_merge_constants() {
     let apis = index.types().find(|t| t.name() == "Apis").unwrap();
     let consts: Vec<_> = apis.fields().filter(|f| f.constant().is_some()).collect();
 
-    // SHARED identical on both → exactly one, untagged.
     let shared: Vec<_> = consts.iter().filter(|f| f.name() == "SHARED").collect();
     assert_eq!(shared.len(), 1);
     assert_eq!(arch_bits(*shared[0]), None);
 
-    // CTX_ALL differs by value → two copies, each tagged with its arch.
     let mut ctx: Vec<_> = consts
         .iter()
         .filter(|f| f.name() == "CTX_ALL")

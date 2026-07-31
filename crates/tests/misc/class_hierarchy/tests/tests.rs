@@ -10,7 +10,7 @@ fn test() -> Result<()> {
     as_class(&class)?;
     as_interface(&class)?;
 
-    // `IMemoryBuffer` is `MemoryBuffer`'s default interface, even though it is not an exclusive interface.
+    // `IMemoryBuffer` is the non-exclusive default interface for `MemoryBuffer`.
     // So this `into` cast should succeed without requiring a call to `QueryInterface`.
     let interface: IMemoryBuffer = class.into();
 

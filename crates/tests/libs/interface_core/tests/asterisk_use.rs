@@ -1,6 +1,5 @@
 #![expect(non_snake_case)]
 
-// This tests uses `windows_core` via an asterisk to test that the interface/implement macros support this mode
 // as opposed to no_use.rs which tests the opposite.
 
 use windows_core::*;

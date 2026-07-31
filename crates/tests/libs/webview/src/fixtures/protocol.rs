@@ -1,6 +1,3 @@
-//! Custom-protocol and virtual-host fixtures: serve pages from memory and from
-//! a mapped local folder.
-
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -8,8 +5,6 @@ use windows_webview::{HostResourceAccessKind, NavigationRequest, WebResourceResp
 
 use crate::harness::Harness;
 
-/// `on_web_resource_requested` serves an in-memory document that then loads, and
-/// the handler sees the intercepted request's URI and method.
 pub fn web_resource_served_from_memory(harness: &Harness) {
     let webview = harness.webview();
     let request: Rc<RefCell<Option<(String, String)>>> = Rc::new(RefCell::new(None));
@@ -54,8 +49,6 @@ pub fn web_resource_served_from_memory(harness: &Harness) {
     drop(registration);
 }
 
-/// `set_virtual_host_name_to_folder_mapping` serves files from a local folder
-/// over a normal `https` URL.
 pub fn virtual_host_serves_folder(harness: &Harness) {
     let folder = std::env::temp_dir().join("windows-webview-selftest-vhost");
     if std::fs::create_dir_all(&folder).is_err()
@@ -94,8 +87,6 @@ pub fn virtual_host_serves_folder(harness: &Harness) {
     let _ = webview.clear_virtual_host_name_to_folder_mapping("vhost.example");
 }
 
-/// `navigate_with_request` sends the chosen HTTP method and body, which the
-/// `on_web_resource_requested` handler reads back from the intercepted request.
 pub fn navigate_with_request_post(harness: &Harness) {
     let webview = harness.webview();
     let request: Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
@@ -116,8 +107,7 @@ pub fn navigate_with_request_post(harness: &Harness) {
         return;
     };
 
-    // Wait for the navigation to fully complete so it does not bleed into the
-    // next fixture's navigation.
+    // Prevent this navigation from bleeding into the next fixture.
     let completed: Rc<RefCell<Option<bool>>> = Rc::new(RefCell::new(None));
     let sink = completed.clone();
     let Ok(nav_registration) =

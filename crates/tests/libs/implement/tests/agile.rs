@@ -40,7 +40,7 @@ fn test_agile_false() {
 
 #[test]
 fn test_agile_true() {
-    let test: ITest = DefaultAgile.into();
+    let test: ITest = AgileTrue.into();
     test.cast::<ITest>().unwrap();
     test.cast::<IAgileObject>().unwrap();
     test.cast::<IMarshal>().unwrap();

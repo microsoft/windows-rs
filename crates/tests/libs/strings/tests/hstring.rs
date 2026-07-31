@@ -97,7 +97,7 @@ fn hstring_to_string() {
 
 #[test]
 fn hstring_to_string_err() {
-    // 𝄞mu<invalid>ic
+    // The invalid sequence is between valid UTF-16 text.
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
     let h = HSTRING::from_wide(wide_data);
     let err = String::try_from(h);
@@ -106,7 +106,7 @@ fn hstring_to_string_err() {
 
 #[test]
 fn hstring_to_string_lossy() {
-    // 𝄞mu<invalid>ic
+    // The invalid sequence is between valid UTF-16 text.
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
     let h = HSTRING::from_wide(wide_data);
     let s = h.to_string_lossy();
@@ -115,7 +115,7 @@ fn hstring_to_string_lossy() {
 
 #[test]
 fn hstring_to_os_string() {
-    // 𝄞mu<invalid>ic
+    // The invalid sequence is between valid UTF-16 text.
     let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
     let h = HSTRING::from_wide(wide_data);
     let s = h.to_os_string();
@@ -256,16 +256,13 @@ fn hstring_compat() -> Result<()> {
             [87, 111, 114, 108, 100, 0]
         );
 
-        // We need to drop to raw bindings to call the raw WindowsDeleteString function to avoid double-freeing the HSTRING,
+        // Raw deletion avoids double-free and preserves invalid UTF-16.
         // but this test is important as it ensures that the allocators match.
         let hresult =
             sys::WindowsDeleteString(std::mem::transmute_copy(&*std::mem::ManuallyDrop::new(hey)));
         assert_eq!(hresult, 0);
 
-        // An HSTRING reference a.k.a. "fast pass" string is a kind of stack-based HSTRING used by C++ callers
-        // to avoid the heap allocation in some cases. It's not used in Rust since it assumes a wide character
-        // string literal, which is inconvenient to create in Rust. Here we again use raw bindings to make one
-        // and thereby exercise the windows::core::HSTRING support for HSTRING reference duplication.
+        // Raw bindings create a C++ fast-pass HSTRING reference for duplication testing.
         let mut header: sys::HSTRING_HEADER = std::mem::zeroed();
         let mut stack_hstring: sys::HSTRING = std::mem::zeroed();
         let hresult = sys::WindowsCreateStringReference(

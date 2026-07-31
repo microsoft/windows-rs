@@ -1,4 +1,4 @@
-//! Coverage for the W1–W5 widgets added per `docs/gaps.md`:
+//! Coverage for the W1-W5 widgets added per `docs/gaps.md`:
 //!
 //! * **W1**: `list_view` constructor and `scroll_templated_to_index`
 //! * **W2**: `PasswordBox`
@@ -38,8 +38,6 @@ fn first_create(r: &Reconciler<RecordingBackend>) -> (ControlKind, windows_react
         })
         .expect("no Create op")
 }
-
-// ── W2: PasswordBox ─────────────────────────────────────────────────────
 
 #[test]
 fn password_box_mounts_with_value_header_and_reveal_mode() {
@@ -102,8 +100,6 @@ fn password_box_attaches_password_changed_event() {
     assert_eq!(captured.take().as_deref(), Some("abc"));
 }
 
-// ── W3: RadioButtons ────────────────────────────────────────────────────
-
 #[test]
 fn radio_buttons_mounts_with_items_and_selection() {
     let el: Element = RadioButtons::new(["A", "B", "C"])
@@ -155,8 +151,6 @@ fn radio_buttons_fires_selection_changed() {
     r.backend.fire_i32(id, Event::SelectionChanged, 1);
     assert_eq!(chosen.get(), 1);
 }
-
-// ── W4: ComboBox ────────────────────────────────────────────────────────
 
 #[test]
 fn combo_box_mounts_with_items_placeholder_and_selection() {
@@ -227,8 +221,6 @@ fn combo_box_fires_selection_changed() {
     assert_eq!(chosen.get(), 1);
 }
 
-// ── W5: Canvas + attached position ─────────────────────────────────────
-
 #[test]
 fn canvas_mounts_children() {
     let el: Element = Canvas::new([TextBlock::new("a"), TextBlock::new("b")]).into();
@@ -288,8 +280,6 @@ fn canvas_position_emits_attached_set_props_on_mount() {
     assert!(left_ok, "missing AttachedCanvasLeft=40.0");
     assert!(top_ok, "missing AttachedCanvasTop=80.0");
 }
-
-// ── W1: list_view + scroll_to_index plumbing ──────────────────
 
 #[test]
 fn list_view_produces_templated_list() {

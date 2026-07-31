@@ -98,7 +98,6 @@ fn primitive_iterator() -> Result<()> {
     assert!(compare_with(&values[1], &3, &30)?);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    // MoveNext followed by GetMany reads from the advanced position
     let iter = m.First()?;
     assert!(iter.MoveNext()?);
     let mut values = vec![];
@@ -127,7 +126,6 @@ fn primitive_mutable() -> Result<()> {
     let m = IObservableMap::<i32, u64>::from(BTreeMap::new());
     assert_eq!(m.Size()?, 0);
 
-    // Insert new keys
     assert!(!(m.Insert(1, 10u64)?)); // returns false: key did not exist
     assert!(!(m.Insert(2, 20u64)?));
     assert!(!(m.Insert(3, 30u64)?));
@@ -136,20 +134,16 @@ fn primitive_mutable() -> Result<()> {
     assert_eq!(m.Lookup(2)?, 20u64);
     assert_eq!(m.Lookup(3)?, 30u64);
 
-    // Replace an existing key
     assert!(m.Insert(2, 200u64)?); // returns true: key was replaced
     assert_eq!(m.Lookup(2)?, 200u64);
     assert_eq!(m.Size()?, 3);
 
-    // Remove an existing key
     m.Remove(1)?;
     assert_eq!(m.Size()?, 2);
     assert!(!(m.HasKey(1)?));
 
-    // Remove a non-existing key returns E_BOUNDS
     assert_eq!(m.Remove(99).unwrap_err().code(), E_BOUNDS);
 
-    // Clear
     m.Clear()?;
     assert_eq!(m.Size()?, 0);
     assert!(!(m.HasKey(2)?));
@@ -162,13 +156,11 @@ fn primitive_mutable() -> Result<()> {
 fn get_view() -> Result<()> {
     let m = IObservableMap::<i32, u64>::from(BTreeMap::from([(1, 10), (2, 20)]));
 
-    // GetView returns a snapshot
     let view = m.GetView()?;
     assert_eq!(view.Size()?, 2);
     assert_eq!(view.Lookup(1)?, 10u64);
     assert_eq!(view.Lookup(2)?, 20u64);
 
-    // Mutating the map after GetView does not affect the snapshot
     m.Insert(3, 30u64)?;
     assert_eq!(m.Size()?, 3);
     assert_eq!(view.Size()?, 2);
@@ -190,7 +182,6 @@ fn map_changed_event() -> Result<()> {
         events_clone.lock().unwrap().push((change, key));
     })?;
 
-    // Insert new key fires ItemInserted
     m.Insert(2, 20u64)?;
     {
         let ev = events.lock().unwrap();
@@ -199,7 +190,6 @@ fn map_changed_event() -> Result<()> {
         assert_eq!(ev[0].1, Some(2));
     }
 
-    // Replace existing key fires ItemChanged
     m.Insert(1, 100u64)?;
     {
         let ev = events.lock().unwrap();
@@ -208,7 +198,6 @@ fn map_changed_event() -> Result<()> {
         assert_eq!(ev[1].1, Some(1));
     }
 
-    // Remove fires ItemRemoved
     m.Remove(2)?;
     {
         let ev = events.lock().unwrap();
@@ -217,7 +206,6 @@ fn map_changed_event() -> Result<()> {
         assert_eq!(ev[2].1, Some(2));
     }
 
-    // Clear fires Reset; key is unspecified for Reset
     m.Clear()?;
     {
         let ev = events.lock().unwrap();
@@ -226,7 +214,6 @@ fn map_changed_event() -> Result<()> {
         assert_eq!(ev[3].1, None);
     }
 
-    // Removing the handler means no more events
     drop(revoker);
     m.Insert(5, 50u64)?;
     {
@@ -258,7 +245,6 @@ fn multiple_handlers() -> Result<()> {
     assert_eq!(count1.load(std::sync::atomic::Ordering::Relaxed), 1);
     assert_eq!(count2.load(std::sync::atomic::Ordering::Relaxed), 1);
 
-    // Remove first handler
     drop(revoker1);
     m.Insert(2, 20u64)?;
     assert_eq!(count1.load(std::sync::atomic::Ordering::Relaxed), 1); // no change
@@ -287,7 +273,6 @@ fn hstring() -> Result<()> {
     assert!(m.HasKey(h!("one"))?);
     assert!(!(m.HasKey(h!("three"))?));
 
-    // Replace
     assert!(m.Insert(h!("one"), 100)?);
     assert_eq!(m.Lookup(h!("one"))?, 100);
 

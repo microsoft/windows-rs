@@ -18,7 +18,6 @@ fn uri() -> windows::core::Result<()> {
     assert!(uri.Domain()? == "kennykerr.ca");
     assert!(uri.Port()? == 80);
 
-    // Calls QueryInterface followed by IStringable::ToString.
     assert!(uri.ToString()? == "http://kennykerr.ca/");
 
     let stringable: IStringable = uri.cast()?;

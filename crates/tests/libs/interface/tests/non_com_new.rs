@@ -3,7 +3,7 @@
 
 use windows::core::*;
 
-// The `interface` macro defines a new local interface that does not derive from `IUnknown` and thus is not a COM interface at all.
+// This local interface does not derive from `IUnknown`.
 #[interface]
 unsafe trait IBase {
     unsafe fn BaseValue(&self) -> i32;
@@ -24,7 +24,7 @@ unsafe fn base_value(test: &IBase) -> i32 {
 #[test]
 fn base() {
     unsafe {
-        // Since the interface is not rooted in `IUnknown`, there's no COM-style lifetime and the resulting implementation merely
+        // Without `IUnknown`, the interface pointer has no COM lifetime and merely
         // exists for the lifetime of the referenced implementation.
         let test = Base(456);
         let interface = IBase::new(&test);

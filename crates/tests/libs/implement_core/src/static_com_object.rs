@@ -37,16 +37,13 @@ fn as_interface() {
     let factory_outer: &MyFactory_Impl = NUMBER_FACTORY_INSTANCE.get();
     let ifactory: InterfaceRef<INumberFactory> = factory_outer.as_interface::<INumberFactory>();
 
-    // Produce the next number. We don't verify the value since tests are multi-threaded.
-    // This just demonstrates that you can have shared state with interior mutability (such as
-    // atomics) in a static COM object.
+    // The shared counter is nondeterministic because tests run concurrently.
     let n = unsafe { ifactory.next() };
     println!("n = {n:?}");
 
     assert_eq!(unsafe { ifactory.add(333, 444) }, 777);
 }
 
-// This tests that we can safely AddRef/Release a StaticComObject.
 #[test]
 fn to_interface() {
     let factory_outer: &MyFactory_Impl = NUMBER_FACTORY_INSTANCE.get();
@@ -62,11 +59,7 @@ fn to_object() {
     assert_eq!(unsafe { factory_object.add(333, 444) }, 777);
 }
 
-// This tests the behavior when dropping a StaticComObject. Since static variables are never
-// dropped, this isn't relevant to normal usage. However, if app code constructs a StaticComObject
-// in local variables (not statics) and them drops them, then we still need well-defined behavior.
-// Basically, we are testing that the reference-count field does not panic when being dropped
-// with a non-zero reference count.
+// Local `StaticComObject` values must tolerate a nonzero reference count on drop.
 #[test]
 fn drop_half_constructed() {
     let _static_com_object: StaticComObject<MyFactory> = MyFactory {

@@ -89,7 +89,6 @@ fn observable_map_string_i32() {
 #[cfg(windows)]
 #[test]
 fn nested_vector_of_reference() {
-    // IVector<IReference<Single>> - tests nested generic type name composition
     let v = IVector::<IReference<f32>>::from(vec![Some(IReference::<f32>::from(2.5f32))]);
     let inspectable: IInspectable = v.cast().unwrap();
     let name = inspectable.GetRuntimeClassName().unwrap();

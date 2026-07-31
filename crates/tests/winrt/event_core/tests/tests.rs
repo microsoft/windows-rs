@@ -7,19 +7,16 @@ use windows::{Foundation::*, core::*};
 fn add_remove() -> Result<()> {
     let event = Event::<EventHandler<i32>>::new();
 
-    // Remove a bogus event handler from an empty event source.
     event.remove(-123);
 
     let check = Arc::new(AtomicI32::new(0));
     let check_sender = check.clone();
 
-    // Add event handler.
     event.add(&EventHandler::<i32>::new(move |_, args| {
         check_sender.store(args, Ordering::Relaxed);
         Ok(())
     }))?;
 
-    // Remove a bogus event handler from a non-empty event source.
     event.remove(-123);
 
     // Raise and observe event.
@@ -27,7 +24,6 @@ fn add_remove() -> Result<()> {
     event.call(|delegate| delegate.Invoke(None, 123));
     assert_eq!(check.load(Ordering::Relaxed), 123);
 
-    // Remove event handler.
     event.clear();
 
     // Raise event without effect.

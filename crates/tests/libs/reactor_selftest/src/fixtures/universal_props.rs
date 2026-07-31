@@ -5,7 +5,7 @@
 //! Most of these cannot read back values from WinUI (the selftest bindings
 //! are minimal), so the tests verify:
 //! 1. Mount with the prop set succeeds (COM call doesn't fail/panic).
-//! 2. Prop transitions (set → clear → set) succeed without errors.
+//! 2. Prop transitions (set -> clear -> set) succeed without errors.
 //! 3. No `windows-reactor:` diagnostic warnings are emitted.
 
 use windows_reactor::{Canvas, Color, Element, RelativePanel};

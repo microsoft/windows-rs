@@ -72,7 +72,7 @@ fn reads_single_import() {
 #[test]
 fn skips_bookkeeping_and_non_import_members() {
     // A realistic archive: the two linker members (`/`), the long-name table
-    // (`//`), a full COFF object (the import descriptor — no short-import
+    // (`//`), a full COFF object (the import descriptor, with no short-import
     // signature), and two genuine short imports. Only the latter two count.
     let bytes = archive(&[
         member("/", &[0u8; 4]),

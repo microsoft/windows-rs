@@ -51,7 +51,7 @@ pub fn tooltip_clear_on_update(h: Harness) -> FixtureFuture {
             tooltip_string_for_button(&h, "Hover").as_deref() == Some("first"),
         );
 
-        // Re-render without the modifier — the WinUI attached property
+        // Rerender without the modifier; the WinUI attached property
         // would otherwise persist across re-renders; the reconciler
         // must emit a `SetTooltip(None)` so the slot is cleared.
         h.mount(cc(|_| {

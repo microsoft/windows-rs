@@ -3,7 +3,7 @@
 
 use windows::{Win32::*, core::*};
 
-// The interface macro detects `-> Result<()>` and implements the interface as if it is returning an HRESULT.
+// `-> Result<()>` projects as an HRESULT return.
 // This would be simpler if `HRESULT` could just implement `Try` but that is not yet stable.
 #[interface("d83c9307-b31c-4cbc-8ab7-be9b24abba33")]
 unsafe trait IResult: IUnknown {

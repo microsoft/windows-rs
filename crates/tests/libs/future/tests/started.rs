@@ -1,6 +1,4 @@
-// The stock `ready` implementations are never in the `Started` state as they're either `Completed` and `Error`.
-// This tests the `spawn` implementations to confirm that we can observe the `Started` state.
-// The `GetResults` method may not be called in this state.
+// `GetResults` is invalid while `spawn` remains in the observable `Started` state.
 
 use windows_core::*;
 use windows_future::*;

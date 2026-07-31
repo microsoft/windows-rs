@@ -15,8 +15,6 @@ use windows_reactor::{ElementExt, button, text_block};
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 
-// ── use_reducer ─────────────────────────────────────────────────────────
-
 pub fn use_reducer_increment(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|cx| {
@@ -59,8 +57,6 @@ pub fn use_reducer_increment(h: Harness) -> FixtureFuture {
         );
     })
 }
-
-// ── use_reducer_fn ──────────────────────────────────────────────────────
 
 #[derive(Clone, PartialEq)]
 enum CountAction {
@@ -112,8 +108,6 @@ pub fn use_reducer_fn_actions(h: Harness) -> FixtureFuture {
     })
 }
 
-// ── use_memo ────────────────────────────────────────────────────────────
-
 pub fn use_memo_caches(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         // use_memo should only recompute when deps change.
@@ -148,7 +142,6 @@ pub fn use_memo_caches(h: Harness) -> FixtureFuture {
 
         let count_after_initial = call_count.get();
 
-        // Bump unrelated state — memo should NOT recompute
         let _ = h.click_button("BumpUnrelated");
         h.render().await;
         h.check(
@@ -156,7 +149,6 @@ pub fn use_memo_caches(h: Harness) -> FixtureFuture {
             call_count.get() == count_after_initial,
         );
 
-        // Change n — memo SHOULD recompute
         let _ = h.click_button("ChangeN");
         h.render().await;
         h.check("Hook_UseMemo_Recomputed", h.find_text("memo=12").is_some());
@@ -166,8 +158,6 @@ pub fn use_memo_caches(h: Harness) -> FixtureFuture {
         );
     })
 }
-
-// ── use_ref ─────────────────────────────────────────────────────────────
 
 pub fn use_ref_persists(h: Harness) -> FixtureFuture {
     Box::pin(async move {
@@ -204,8 +194,6 @@ pub fn use_ref_persists(h: Harness) -> FixtureFuture {
     })
 }
 
-// ── use_effect ──────────────────────────────────────────────────────────
-
 pub fn use_effect_fires(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         let effect_log: Rc<RefCell<Vec<String>>> = Rc::new(RefCell::new(Vec::new()));
@@ -237,7 +225,6 @@ pub fn use_effect_fires(h: Harness) -> FixtureFuture {
             effect_log.borrow().contains(&"effect-1".to_string()),
         );
 
-        // Bump again without changing — just trigger a rerender via same button
         let _ = h.click_button("Bump");
         h.render().await;
         h.check(
@@ -246,8 +233,6 @@ pub fn use_effect_fires(h: Harness) -> FixtureFuture {
         );
     })
 }
-
-// ── use_callback ────────────────────────────────────────────────────────
 
 pub fn use_callback_stable(h: Harness) -> FixtureFuture {
     Box::pin(async move {
@@ -290,8 +275,6 @@ pub fn use_callback_stable(h: Harness) -> FixtureFuture {
     })
 }
 
-// ── use_context ─────────────────────────────────────────────────────────
-
 static THEME_CTX: std::sync::LazyLock<Context<String>> =
     std::sync::LazyLock::new(|| Context::new("light".to_string()));
 
@@ -305,10 +288,7 @@ impl Component for ContextConsumer {
 
 pub fn use_context_reads_default(h: Harness) -> FixtureFuture {
     Box::pin(async move {
-        h.mount(cc(|_cx| {
-            // No provider — should get the default value "light"
-            windows_reactor::component(ContextConsumer, ())
-        }));
+        h.mount(cc(|_cx| windows_reactor::component(ContextConsumer, ())));
         h.render().await;
         h.check(
             "Hook_UseContext_ReadsDefault",
@@ -320,7 +300,6 @@ pub fn use_context_reads_default(h: Harness) -> FixtureFuture {
 pub fn use_context_reads_provided(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
-            // Provide "dark" — consumer should see it
             windows_reactor::component(ContextConsumer, ()).provide(&THEME_CTX, "dark".to_string())
         }));
         h.render().await;

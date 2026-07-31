@@ -1,17 +1,11 @@
-//! Environment fixture: a custom-options environment hosts a working browser.
-
 use windows_webview::{Environment, EnvironmentOptions};
 use windows_window::Window;
 
 use crate::harness::Harness;
 
-/// `Environment::with_options` creates a usable environment whose controller
-/// hosts a browser that navigates. This guards the options object's default
-/// `TargetCompatibleBrowserVersion`, which WebView2 rejects when empty.
+// WebView2 rejects an empty default `TargetCompatibleBrowserVersion`.
 pub fn with_options_creates_environment(harness: &Harness) {
-    // A distinct user-data folder is required: WebView2 rejects a second
-    // environment that shares the primary environment's default folder but
-    // carries different browser arguments.
+    // WebView2 rejects different browser arguments for a shared user-data folder.
     let user_data = std::env::temp_dir().join("windows-webview-selftest");
     let options = EnvironmentOptions::new()
         .user_data_folder(user_data.to_string_lossy())

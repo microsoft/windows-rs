@@ -7,10 +7,6 @@ use windows::{
     core::{HSTRING, Interface, Result},
 };
 
-// Calling RoActivateInstance is a useful interop test because it is a function defined by Win32 metadata
-// but refers to three types that are intrinsic to WinRT and thus directly mapped to type in the Windows
-// crate. Calling RoActivateInstance in production code is discouraged. Instead, let the Windows crate
-// activate WinRT types directly as it can do so far more efficiently.
 #[test]
 fn test() -> Result<()> {
     unsafe { CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()? };

@@ -120,7 +120,7 @@ pub fn text_field_changes_state(h: Harness) -> FixtureFuture {
 }
 
 pub fn button_disabled_to_enabled_prop_update(h: Harness) -> FixtureFuture {
-    // Exercises the IsEnabled→Unset fallback path (disabled→enabled transition).
+    // Exercises the `IsEnabled` unset fallback.
     Box::pin(async move {
         h.mount(cc(|cx| {
             let (enabled, set) = cx.use_state(false);
@@ -288,7 +288,7 @@ pub fn radio_buttons_change_selection(h: Harness) -> FixtureFuture {
             initial,
         );
 
-        // Try programmatic selection — this is known to fail reliably
+        // Programmatic selection is expected to fail reliably.
         // because WinUI RadioButtons.SelectionChanged only fires for real
         // input events. Silence errors and fall through to the SKIP path.
         let _ = h.set_radio_buttons_selected_index(2);
@@ -379,7 +379,6 @@ pub fn button_icon_label_preserved(h: Harness) -> FixtureFuture {
             h.find_text("Clicked 0").is_some(),
         );
 
-        // Click — label changes to "Clicked 1".
         let btn = h
             .find_all::<crate::bindings::Button>(&|_| true)
             .into_iter()
@@ -450,7 +449,6 @@ pub fn button_icon_glyph_change_preserves_text(h: Harness) -> FixtureFuture {
             h.find_text("Action").is_some(),
         );
 
-        // Click — icon changes from Favorite to Save.
         let btn = h
             .find_all::<crate::bindings::Button>(&|_| true)
             .into_iter()
@@ -535,7 +533,7 @@ pub fn button_image_and_font_icons(h: Harness) -> FixtureFuture {
     })
 }
 
-/// Verify that removing a button's icon (`Some(Icon)` → `None`) actually clears
+/// Verify that removing a button's icon (`Some(Icon)` -> `None`) clears
 /// the previously-applied `IconElement` and restores the plain text label. This
 /// exercises the `(Prop::Icon, PropValue::Unset, Handle::Button)` backend arm.
 pub fn button_icon_removal_clears_icon(h: Harness) -> FixtureFuture {
@@ -560,7 +558,6 @@ pub fn button_icon_removal_clears_icon(h: Harness) -> FixtureFuture {
             h.find_text("Action").is_some(),
         );
 
-        // Click — the icon is removed (Some → None).
         let btn = h
             .find_all::<crate::bindings::Button>(&|_| true)
             .into_iter()

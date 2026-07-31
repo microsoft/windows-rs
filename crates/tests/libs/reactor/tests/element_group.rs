@@ -1,7 +1,4 @@
-//! Tests for `Element::Group` — fragment-style flattening into the parent's
-//! child list during reconciliation.
-//!
-//! See [`docs/roadmap.md`](../../../../docs/roadmap.md) item 1a-i.
+//! `Element::Group` reconciliation tests.
 
 use std::rc::Rc;
 
@@ -28,7 +25,6 @@ fn keyed_label(key: &str, name: &str) -> Element {
 }
 
 fn appends_for(ops: &[Op]) -> Vec<(usize, usize)> {
-    // Flatten append/insert into (parent_raw, child_raw) pairs in order.
     let mut out = Vec::new();
     for op in ops {
         match op {
@@ -45,8 +41,6 @@ fn child_text_contents(
     r: &Reconciler<RecordingBackend>,
     parent: windows_reactor::ControlId,
 ) -> Vec<String> {
-    // Walk children_of(parent) in order; for each child, find the most
-    // recent SetProp(TextBlock) on that id and return its string value.
     let kids = r.backend.children_of(parent).to_vec();
     kids.into_iter()
         .map(|cid| {
@@ -69,7 +63,6 @@ fn child_text_contents(
 
 #[test]
 fn group_flattens_into_parent_child_list() {
-    // <StackPanel> a, <Group>[b, c], d </StackPanel>  ⇒  StackPanel with children a, b, c, d
     let stack = StackPanel {
         orientation: Orientation::Vertical,
         children: vec![
@@ -133,12 +126,7 @@ fn empty_inside_group_is_filtered() {
 
 #[test]
 fn group_preserves_keys_across_structure_change() {
-    // Initial:  StackPanel[ keyed("x"), Group[ keyed("y"), keyed("z") ] ]    → x, y, z
-    // Update:   StackPanel[ Group[ keyed("y") ], keyed("x"), keyed("z") ]    → y, x, z
-    //
-    // The group structure changed, but the keys are preserved. Keyed
-    // reconciliation should recognise the same three text controls and
-    // reorder them — NOT destroy and re-create.
+    // Changing group structure must preserve keyed control identities.
     let initial = Element::StackPanel(StackPanel {
         orientation: Orientation::Vertical,
         children: vec![
@@ -162,7 +150,6 @@ fn group_preserves_keys_across_structure_change() {
     let initial_kids = r.backend.children_of(parent).to_vec();
     assert_eq!(initial_kids.len(), 3);
 
-    // Snapshot ops, then apply the update.
     let baseline_op_count = r.backend.ops.len();
     let same = r
         .reconcile(Some(&initial), &updated, Some(parent), noop())
@@ -172,7 +159,6 @@ fn group_preserves_keys_across_structure_change() {
     let after_kids = r.backend.children_of(parent).to_vec();
     assert_eq!(after_kids.len(), 3, "no children added or removed");
 
-    // Same ControlIds, just reordered — nothing was destroyed.
     let mut sorted_initial = initial_kids;
     sorted_initial.sort_by_key(|c| c.get());
     let mut sorted_after = after_kids;
@@ -182,7 +168,6 @@ fn group_preserves_keys_across_structure_change() {
         "control ids must be preserved"
     );
 
-    // No Destroy ops emitted during the update.
     let new_ops = &r.backend.ops[baseline_op_count..];
     let destroyed: Vec<_> = new_ops
         .iter()
@@ -193,14 +178,11 @@ fn group_preserves_keys_across_structure_change() {
         "structure-changing keyed reconciliation should not destroy controls; got {destroyed:?}"
     );
 
-    // And the text content lines up with the new order.
     assert_eq!(child_text_contents(&r, parent), vec!["Y", "X", "Z"]);
 }
 
 #[test]
 fn group_with_changed_arity_drives_positional_add_remove() {
-    // Positional (no keys): Group with 2 children → Group with 3 children
-    // should add one new child to the parent.
     let initial = Element::StackPanel(StackPanel {
         orientation: Orientation::Vertical,
         children: vec![label("a"), group(vec![label("b"), label("c")])],
@@ -224,7 +206,6 @@ fn group_with_changed_arity_drives_positional_add_remove() {
 #[test]
 fn group_at_top_level_panics_with_clear_message() {
     use std::panic::AssertUnwindSafe;
-    // Root Group has no parent child list to flatten into — must panic.
     let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
         let mut r = Reconciler::new(RecordingBackend::new());
         r.reconcile(
@@ -249,8 +230,7 @@ fn group_at_top_level_panics_with_clear_message() {
 #[test]
 fn group_as_border_child_panics() {
     use std::panic::AssertUnwindSafe;
-    // Border has a single-child slot, which is not a "child list" the
-    // group can flatten into. Must panic with the same diagnostic.
+    // A group cannot flatten into a single-child slot.
     use windows_reactor::Border;
     let border = Border::new(group(vec![label("a"), label("b")]));
     let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
@@ -282,10 +262,6 @@ fn group_with_key_carries_key() {
     assert_eq!(e.key(), Some("k1"));
 }
 
-// Smoke check: the existence of a Group in a child list shouldn't
-// inflate the number of (parent, child) attach ops compared with the
-// equivalent flat list. Documents the "fragments are zero-cost at the
-// backend level" property.
 #[test]
 fn group_does_not_emit_extra_attach_ops() {
     let flat = Element::StackPanel(StackPanel {
@@ -311,7 +287,6 @@ fn group_does_not_emit_extra_attach_ops() {
     );
 }
 
-// Sanity: `Button` works in a Group too — Group is widget-agnostic.
 #[test]
 fn group_works_with_mixed_widget_kinds() {
     let stack = StackPanel {

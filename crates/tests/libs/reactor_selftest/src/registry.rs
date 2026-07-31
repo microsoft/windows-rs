@@ -204,7 +204,6 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         tooltip::tooltip_clear_on_update,
     ),
     ("Tooltip_Placement_Top", tooltip::tooltip_placement),
-    // ── Extended controls (previously missing mount coverage) ───────────
     (
         "Reconciler_Mount_AutoSuggestBox",
         controls_extended::mount_auto_suggest_box,
@@ -293,12 +292,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "Reconciler_Mount_TreeView",
         controls_extended::mount_tree_view,
     ),
-    // ── Image rasterization-scale hook (live XamlRoot) ─────────────────
     (
         "Image_RasterizationScale_Delivered",
         image_scale::rasterization_scale_delivered,
     ),
-    // ── Hook fixtures ──────────────────────────────────────────────────
     ("Hook_UseReducer_Increment", hooks::use_reducer_increment),
     ("Hook_UseReducerFn_Actions", hooks::use_reducer_fn_actions),
     ("Hook_UseMemo_Caches", hooks::use_memo_caches),
@@ -313,14 +310,12 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "Hook_UseContext_ReadsProvided",
         hooks::use_context_reads_provided,
     ),
-    // ── Dispatcher-thread hook fixtures (timers + rendering) ────────────
     ("Timer_Repeating_Fires", timers::timer_repeating_fires),
     ("Timer_OneShot_Fires", timers::timer_one_shot_fires_once),
     (
         "Rendering_Subscription_Fires",
         timers::rendering_subscription_fires,
     ),
-    // ── Prop update fixtures (control diff without recreate) ────────────
     ("PropUpdate_TextBlock", prop_updates::text_block_update),
     ("PropUpdate_SliderValue", prop_updates::slider_value_update),
     (
@@ -332,7 +327,6 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "PropUpdate_ButtonEnabled",
         prop_updates::button_enabled_update,
     ),
-    // ── Event detachment fixtures ──────────────────────────────────────
     (
         "EventDetach_OnClick_Unmount",
         event_detachment::on_click_detach_on_unmount,
@@ -345,7 +339,6 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "EventDetach_HandlerReplacement",
         event_detachment::on_changed_handler_replacement,
     ),
-    // ── Reconciler stress fixtures ─────────────────────────────────────
     (
         "KeyedStress_MiddleRemoval",
         reconciler_stress::keyed_middle_removal,
@@ -367,7 +360,6 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "KeyedStress_TypeMismatch",
         reconciler_stress::positional_type_mismatch,
     ),
-    // ── Universal prop fixtures (try_universal_prop live coverage) ──────
     (
         "UniversalProp_MinMaxSizing",
         universal_props::min_max_sizing,
@@ -388,7 +380,6 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "UniversalProp_OpacityTransition",
         universal_props::opacity_transition,
     ),
-    // ── Secondary window support (#4703) ───────────────────────────────
     (
         "SecondaryWindow_OpenRenderClose",
         secondary_window::open_close_secondary,

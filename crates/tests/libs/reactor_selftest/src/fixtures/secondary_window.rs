@@ -21,7 +21,7 @@ use crate::harness::Harness;
 /// anchor is intentionally left open when the fixture returns.
 pub fn open_close_secondary(h: Harness) -> FixtureFuture {
     Box::pin(async move {
-        // Anchor window — kept open for the whole fixture so the registry never
+        // Keep the anchor open so the registry never
         // drains to empty (which would exit the process).
         let anchor = match ReactorWindow::new()
             .title("Reactor Anchor")
@@ -40,7 +40,6 @@ pub fn open_close_secondary(h: Harness) -> FixtureFuture {
             with_active_host(|_| ()).is_some(),
         );
 
-        // --- Independent secondary window via the ReactorWindow builder ---
         // A per-window render counter proves the tree renders independently
         // without reaching into the window's content.
         let b_renders = Rc::new(Cell::new(0u32));
@@ -75,7 +74,6 @@ pub fn open_close_secondary(h: Harness) -> FixtureFuture {
             with_active_host(|_| ()).is_some(),
         );
 
-        // --- Secondary window opened via the use_open_window hook ---
         // A launcher component grabs an opener from its RenderCx and, on mount,
         // opens a child window whose reactor tree renders independently. This
         // exercises the documented in-component path (open a window from within
@@ -139,7 +137,7 @@ pub fn open_close_secondary(h: Harness) -> FixtureFuture {
             with_active_host(|_| ()).is_some(),
         );
 
-        // Intentionally leave the anchor open — see the fixture doc comment.
+        // Leave the anchor open; see the fixture doc comment.
         let _ = anchor;
     })
 }

@@ -83,7 +83,7 @@ fn lis_realistic_reconcile_shift_one() {
 /// 3, 4 with old positions 1, 2, 3, 4). With the buggy left-to-right
 /// pass, the LIS update for new[0]=X runs at `target_panel_idx=0`
 /// while slot 0 still holds the empty TextBlock, so Click bindings
-/// get attached to the TextBlock — that's the crash.
+/// get attached to the TextBlock, which causes the crash.
 #[test]
 fn keyed_reorder_with_mixed_kinds_keeps_controls_aligned() {
     fn tile(key: &'static str) -> Element {

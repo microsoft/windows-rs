@@ -22,9 +22,6 @@ fn generic_guids() {
     type A = IIterable<IStringable>;
     type B = IKeyValuePair<HSTRING, IAsyncOperationWithProgress<A, f32>>;
 
-    //
-    // Generated Windows.Foundation GUIDs
-    //
     assert_eq!(
         IAsyncActionWithProgress::<A>::IID,
         GUID::try_from("DD725452-2DA3-5103-9C7D-22EE9BB14AD3").unwrap()
@@ -85,10 +82,6 @@ fn generic_guids() {
         GUID::try_from("EDB31843-B4CF-56EB-925A-D4D0CE97A08D").unwrap()
     );
 
-    //
-    // Generated Windows.Foundation.Collections GUIDs
-    //
-
     assert_eq!(
         IIterable::<A>::IID,
         GUID::try_from("96565EB9-A692-59C8-BCB5-647CDE4E6C4D").unwrap()
@@ -148,10 +141,6 @@ fn generic_guids() {
         VectorChangedEventHandler::<A>::IID,
         GUID::try_from("A1E9ACD7-E4DF-5A79-AEFA-DE07934AB0FB").unwrap()
     );
-
-    //
-    // Generated primitive GUIDs
-    //
 
     assert_eq!(
         IReference::<bool>::IID,
@@ -221,11 +210,9 @@ fn generic_guids() {
     // TODO: structs and enums
 }
 
-// Test for https://github.com/microsoft/windows-rs/issues/2922
+// Regression test for #2922.
 #[test]
 fn generic_class_guid() {
-    // First the non-generic case...
-
     unsafe {
         assert_eq!(
             std::str::from_utf8_unchecked(IUriRuntimeClass::SIGNATURE.as_slice()),
@@ -242,8 +229,6 @@ fn generic_class_guid() {
         Uri::IID,
         GUID::try_from("9E365E57-48B2-4160-956F-C7385120BBFC").unwrap()
     );
-
-    // Then the generic case...
 
     unsafe {
         assert_eq!(

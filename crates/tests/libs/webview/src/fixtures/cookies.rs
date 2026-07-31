@@ -1,5 +1,3 @@
-//! Cookie manager fixture: add a cookie and read it back.
-
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -8,7 +6,6 @@ use windows_webview::Cookie;
 
 use crate::harness::Harness;
 
-/// A cookie written with `add_or_update_cookie` is returned by `get_cookies`.
 pub fn add_and_get(harness: &Harness) {
     let Ok(manager) = harness.webview().cookie_manager() else {
         harness.check("Cookie_Manager", false);
@@ -41,7 +38,6 @@ pub fn add_and_get(harness: &Harness) {
     harness.check("Cookie_Found", got && found);
 }
 
-/// `delete_all_cookies` removes cookies previously written to the store.
 pub fn add_then_delete_all(harness: &Harness) {
     let Ok(manager) = harness.webview().cookie_manager() else {
         harness.check("CookieDelete_Manager", false);

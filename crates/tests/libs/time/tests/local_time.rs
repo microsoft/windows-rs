@@ -70,7 +70,6 @@ fn decompose_with_milliseconds() {
 
 #[test]
 fn decompose_leap_year() {
-    // 2024-02-29T00:00:00Z (Thursday) — leap day
     // Unix secs for 2024-02-29: days since 1970-01-01 = 19_782
     let t = DateTime::from_unix_secs(19_782 * 86_400);
     assert_eq!(t.year(), 2024);
@@ -105,11 +104,10 @@ fn decompose_year_boundary() {
 #[cfg(windows)]
 #[test]
 fn to_local_plausible() {
-    // to_local should produce a DateTime whose decomposition is within ±14 hours of UTC.
+    // Local time must be within 14 hours of UTC.
     let utc = DateTime::now();
     let local = utc.to_local();
 
-    // The difference between local and UTC ticks should be at most ±14 hours
     // (the maximum timezone offset on Earth).
     let diff_ticks = (local.ticks() - utc.ticks()).unsigned_abs();
     let max_offset_ticks = 14 * 3600 * 10_000_000_u64;
@@ -137,7 +135,6 @@ fn to_local_decomposition_plausible() {
 #[test]
 fn to_local_preserves_sub_second() {
     use windows_time::TimeSpan;
-    // A known UTC time with 750ms — to_local should preserve the sub-second part
     // (timezone offsets are always whole minutes).
     let utc = DateTime::UNIX_EPOCH + TimeSpan::from_millis(750);
     let local = utc.to_local();

@@ -1,4 +1,4 @@
-// Implementations of `SetCompleted` must fail with `E_ILLEGAL_DELEGATE_ASSIGNMENT` if they are called twice.
+// A second `SetCompleted` call must fail with `E_ILLEGAL_DELEGATE_ASSIGNMENT`.
 // Also tests that any error from the handler is ignored by the implementation.
 
 use windows_core::*;

@@ -14,7 +14,7 @@ fn winmd(dir: &std::path::Path, name: &str, rdl: &str) -> String {
 }
 
 /// `Outer` must decompose into a top-level type with one anonymous nested struct,
-/// which in turn contains one anonymous nested union — expressed as real
+/// which in turn contains one anonymous nested union, expressed as real
 /// `NestedClass` rows (nested types living in the empty namespace, `NestedPublic`).
 fn assert_nested(index: &reader::Index) {
     let outer = index
@@ -123,7 +123,7 @@ fn nested_types_survive_rdl_merge_and_writer() {
 }
 
 /// The architecture of a nested type is always that of its enclosing type, so the
-/// RDL omits the redundant `#[arch]` on inline nested records — but the winmd must
+/// RDL omits the redundant `#[arch]` on inline nested records, but the winmd must
 /// still carry it (bindgen hoists nested types to arch-gated flat helpers). The
 /// reader therefore inherits the parent's architecture onto a nested type that has
 /// no explicit `#[arch]`, and the writer omits it again on the way out.

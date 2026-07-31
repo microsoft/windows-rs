@@ -1,5 +1,5 @@
 //! Selftest fixture for the `Image` rasterization-scale hook.
-//! Exercises `Image::on_mounted` → `ImageHandle::on_rasterization_scale_changed`
+//! Exercises `Image::on_mounted` -> `ImageHandle::on_rasterization_scale_changed`
 //! against a live WinUI window.
 //!
 //! The wiring (mount callback fires, the cast chain succeeds, and the `Loaded`

@@ -182,7 +182,7 @@ pub fn grid_attached_props_all_widget_kinds(h: Harness) -> FixtureFuture {
         h.render().await;
 
         // Each (kind, expected_row) pair below mirrors the placement above.
-        // We probe by WinUI control type — find_all<T> walks the visual tree
+        // `find_all<T>` walks the visual tree, so probe by WinUI control type.
         // and returns the first match. For controls that may also appear
         // *inside* a templated parent (e.g. a Button realized inside an
         // Expander or NavigationView header), we match the *first* hit; the

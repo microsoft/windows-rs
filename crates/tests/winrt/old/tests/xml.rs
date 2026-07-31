@@ -2,7 +2,6 @@
 use windows::Data::Xml::Dom::XmlDocument;
 use windows::core::HSTRING;
 
-// Simple test to validate that default constructors are projected as static `new` methods.
 #[test]
 fn xml() -> windows::core::Result<()> {
     let doc = XmlDocument::new()?;

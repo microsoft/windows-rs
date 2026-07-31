@@ -1,6 +1,5 @@
 use windows_metadata::*;
 
-/// Compiles inline RDL into `dir/name.winmd` and returns its path.
 fn winmd(dir: &std::path::Path, name: &str, rdl: &str) -> String {
     let rdl_path = dir.join(format!("{name}.rdl"));
     std::fs::write(&rdl_path, rdl).unwrap();
@@ -32,11 +31,7 @@ fn arch_value<'a>(attrs: impl Iterator<Item = reader::Attribute<'a>>) -> Option<
     })
 }
 
-/// The full multi-arch pipeline must round-trip `SupportedArchitecture` through the
-/// RDL text form: per-arch winmd -> arch-merge -> RDL (writer) -> winmd (reader). The
-/// merged winmd defines the output; the committed RDL is its text view,
-/// so the writer and reader must agree on the `#[arch(...)]` form for both types and
-/// constants (the CONTEXT / CONTEXT_ARM64_* pattern).
+// The writer and reader must agree on `#[arch(...)]` for types and constants.
 #[test]
 fn arch_survives_winmd_rdl_roundtrip() {
     let dir = std::env::temp_dir().join("win_arch_roundtrip");
@@ -61,7 +56,6 @@ fn arch_survives_winmd_rdl_roundtrip() {
         .merge()
         .unwrap();
 
-    // Writer: merged winmd -> RDL (split per namespace).
     let rdl_dir = dir.join("rdl");
     std::fs::create_dir_all(&rdl_dir).unwrap();
     windows_rdl::writer()
@@ -71,9 +65,7 @@ fn arch_survives_winmd_rdl_roundtrip() {
         .write()
         .unwrap();
 
-    // The text form must use the `#[arch(...)]` sugar uniformly - including on
-    // constants, which previously leaked the raw long-form attribute the reader
-    // could not parse.
+    // Raw attributes on constants cannot be parsed by the RDL reader.
     let rdl = std::fs::read_to_string(rdl_dir.join("Test.rdl")).unwrap();
     assert!(
         rdl.contains("#[arch(X64)]"),
@@ -88,7 +80,6 @@ fn arch_survives_winmd_rdl_roundtrip() {
         "raw SupportedArchitecture attribute leaked into RDL:\n{rdl}"
     );
 
-    // Reader: RDL -> winmd, arch tags must match the merged winmd exactly.
     let out = dir.join("roundtrip.winmd");
     windows_rdl::reader()
         .input(rdl_dir.to_string_lossy().as_ref())
@@ -97,7 +88,6 @@ fn arch_survives_winmd_rdl_roundtrip() {
         .unwrap();
     let index = reader::Index::read(out.to_string_lossy().as_ref()).unwrap();
 
-    // CTX: two arch-tagged copies (the divergent CONTEXT shape).
     let mut ctx: Vec<_> = index
         .types()
         .filter(|t| t.name() == "CTX")
@@ -106,9 +96,7 @@ fn arch_survives_winmd_rdl_roundtrip() {
     ctx.sort();
     assert_eq!(ctx, vec![2, 4], "CTX struct arch tags lost on round-trip");
 
-    // CB: an arch-divergent Win32 callback (different signature per arch) must also
-    // survive as two arch-tagged copies - callbacks are reference TypeDefs, so this
-    // exercises the merge split + the callback #[arch] writer/reader path.
+    // Callbacks are reference TypeDefs and use a separate arch writer/reader path.
     let mut cb: Vec<_> = index
         .types()
         .filter(|t| t.name() == "CB")
@@ -117,9 +105,7 @@ fn arch_survives_winmd_rdl_roundtrip() {
     cb.sort();
     assert_eq!(cb, vec![2, 4], "CB callback arch tags lost on round-trip");
 
-    // AL: an arch-divergent `type X = Y` alias (NativeTypedef) with a different underlying
-    // type per arch. These decompile to the bare `type` form, which must carry `#[arch(...)]`
-    // through the writer and reader (otherwise arch-only pointer/scalar aliases lose their tag).
+    // NativeTypedef aliases decompile to bare `type` forms that must retain their arch tags.
     let mut al: Vec<_> = index
         .types()
         .filter(|t| t.name() == "AL")
@@ -132,7 +118,6 @@ fn arch_survives_winmd_rdl_roundtrip() {
         "AL typedef alias arch tags lost on round-trip"
     );
 
-    // Constants: CTX_ALL split per arch, plus the arch-only constants.
     let apis = index.types().find(|t| t.name() == "Apis").unwrap();
     let consts: Vec<_> = apis.fields().filter(|f| f.constant().is_some()).collect();
 
@@ -162,19 +147,12 @@ fn arch_survives_winmd_rdl_roundtrip() {
     );
 }
 
-/// A struct whose *inline nested* type diverges per arch must be split per arch,
-/// with the `#[arch(...)]` hoisted onto the enclosing struct. The enclosing struct's
-/// own fields reference the nested type by its (arch-invariant) leaf name, so the
-/// divergence is invisible unless the merge signature recurses into nested types.
-/// This is the `HSTRING_HEADER` case: its inline union is `char[24]` on 64-bit and
-/// `char[20]` on x86. Without the recursion the merge collapses the enclosing struct
-/// to one neutral copy and silently drops the other arch's nested shape.
+// Regression for `HSTRING_HEADER`: nested type shape must participate in the merge signature.
 #[test]
 fn arch_divergent_nested_type_hoists_arch_to_enclosing() {
     let dir = std::env::temp_dir().join("win_arch_nested");
     std::fs::create_dir_all(&dir).unwrap();
 
-    // 64-bit (x64, arm64) share the `[i8; 24]` inline union; x86 has `[i8; 20]`.
     let wide = "#[win32] mod Test { struct HDR { Reserved: union { Reserved1: i64, Reserved2: [i8; 24] } } }";
     let narrow = "#[win32] mod Test { struct HDR { Reserved: union { Reserved1: i64, Reserved2: [i8; 20] } } }";
     let x64 = winmd(&dir, "x64", wide);
@@ -191,7 +169,6 @@ fn arch_divergent_nested_type_hoists_arch_to_enclosing() {
         .unwrap();
     let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
 
-    // The enclosing struct is split: x64|arm64 (2|4 = 6) share `[24]`, x86 (1) has `[20]`.
     let mut hdr: Vec<_> = index
         .types()
         .filter(|t| t.name() == "HDR" && !t.flags().is_nested())
@@ -204,7 +181,6 @@ fn arch_divergent_nested_type_hoists_arch_to_enclosing() {
         "arch-divergent nested type must split enclosing struct into x86 (1) + x64|arm64 (6)"
     );
 
-    // Both copies must retain their nested union (nesting not dropped by the split).
     for t in index
         .types()
         .filter(|t| t.name() == "HDR" && !t.flags().is_nested())
@@ -217,17 +193,12 @@ fn arch_divergent_nested_type_hoists_arch_to_enclosing() {
     }
 }
 
-/// Two arch copies identical in fields and layout but differing *only* in forced
-/// over-alignment (`__declspec(align(N))`, carried by `AlignmentAttribute`) must be
-/// split per arch. `ClassLayout` can only lower alignment, so the raised value lives
-/// solely in the attribute; if the merge signature ignores it, the copies collapse to
-/// one arch-neutral definition and the other arch's `#[repr(C, align(N))]` is wrong.
+// `ClassLayout` cannot represent forced over-alignment, so the merge must compare its attribute.
 #[test]
 fn arch_divergent_forced_alignment_splits() {
     let dir = std::env::temp_dir().join("win_arch_align");
     std::fs::create_dir_all(&dir).unwrap();
 
-    // Same single `i64` field on both arches; only the forced alignment differs.
     let x64 = winmd(
         &dir,
         "x64",
@@ -261,16 +232,12 @@ fn arch_divergent_forced_alignment_splits() {
     );
 }
 
-/// A type present on only a *subset* of the arches in the run, whose shape *diverges*
-/// across that subset, must still be split per arch - not emitted once from `copies[0]`
-/// tagged with the whole subset union (which would give the other arch the wrong layout).
+// Divergent types present on only an arch subset must not inherit the subset's union tag.
 #[test]
 fn subset_present_divergent_type_splits() {
     let dir = std::env::temp_dir().join("win_arch_subset");
     std::fs::create_dir_all(&dir).unwrap();
 
-    // CTX exists only on x64 (2) and arm64 (4) - x86 (1) has an unrelated type - and its
-    // shape diverges between the two arches it appears on.
     let x64 = winmd(
         &dir,
         "x64",
@@ -302,9 +269,7 @@ fn subset_present_divergent_type_splits() {
     );
 }
 
-/// An enum whose members share names and types but hold *different constant values*
-/// per arch must be split per arch. Fields are keyed by name + type + constant value so
-/// the divergence surfaces; otherwise the copies collapse and one arch's values are lost.
+// Enum constant values must participate in the arch merge signature.
 #[test]
 fn arch_divergent_enum_constant_values_split() {
     let dir = std::env::temp_dir().join("win_arch_enum_vals");
@@ -343,16 +308,12 @@ fn arch_divergent_enum_constant_values_split() {
     );
 }
 
-/// When a type's shape differs on *some* arches but is byte-identical on others,
-/// the merge coalesces the identical arches into a single definition tagged with
-/// the union of their arch bits, instead of emitting duplicate copies. (E.g.
-/// `ARM64_NT_CONTEXT` is identical on x64 and x86 but differs on arm64.)
+// Identical shapes share the union of their arch bits.
 #[test]
 fn structurally_identical_arch_copies_coalesce() {
     let dir = std::env::temp_dir().join("win_arch_coalesce");
     std::fs::create_dir_all(&dir).unwrap();
 
-    // CTX is identical on x64 (2) and x86 (1); arm64 (4) diverges.
     let same = "#[win32] mod Test { struct CTX { a: i32, b: i32 } }";
     let x64 = winmd(&dir, "x64", same);
     let x86 = winmd(&dir, "x86", same);

@@ -159,10 +159,7 @@ fn no_tooltip_does_not_emit_set_tooltip_on_mount() {
 
 #[test]
 fn update_emits_set_tooltip_on_add_change_and_clear() {
-    // Add → Change → Clear. Each transition must emit exactly one
-    // `SetTooltip` op carrying the new tooltip (or `None` when cleared,
-    // so the WinUI backend can reset the attached property — tooltips
-    // are an attached property and otherwise survive re-renders).
+    // Clearing must emit `None` because attached tooltips otherwise survive rerenders.
     let plain: Element = Button::new("b").into();
     let labelled: Element = Button::new("b").tooltip("one").into();
     let relabelled: Element = Button::new("b").tooltip("two").into();
@@ -179,7 +176,6 @@ fn update_emits_set_tooltip_on_add_change_and_clear() {
         "no op expected on initial mount without tooltip"
     );
 
-    // Add a tooltip — update path should set it.
     r.backend.clear_ops();
     let _ = r.reconcile(Some(&plain), &labelled, Some(id), Rc::new(|| {}));
     let set_ops: Vec<_> = r
@@ -197,7 +193,6 @@ fn update_emits_set_tooltip_on_add_change_and_clear() {
         _ => panic!("expected Text"),
     }
 
-    // Change the tooltip — update path should re-set the new value.
     r.backend.clear_ops();
     let _ = r.reconcile(Some(&labelled), &relabelled, Some(id), Rc::new(|| {}));
     let set_ops: Vec<_> = r
@@ -215,8 +210,6 @@ fn update_emits_set_tooltip_on_add_change_and_clear() {
         _ => panic!("expected Text"),
     }
 
-    // Clear the tooltip — update path should re-set with `None` so the
-    // backend can clear the attached property (it otherwise persists).
     r.backend.clear_ops();
     let _ = r.reconcile(Some(&relabelled), &plain, Some(id), Rc::new(|| {}));
     let set_ops: Vec<_> = r

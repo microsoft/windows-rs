@@ -140,7 +140,7 @@ fn round2(v: f64) -> f64 {
     } else if diff < 0.5 {
         floor
     } else {
-        // exact 0.5 — round half to even
+        // Exact 0.5 rounds to even.
         if (floor as i64) & 1 == 0 {
             floor
         } else {
@@ -154,7 +154,7 @@ fn format_cell(item: &StockItem) -> String {
     format!("{} {:.2}", item.symbol, item.current_price)
 }
 
-/// Bit-identical port of .NET's seeded `System.Random` (CompatPrng — Knuth's
+/// Bit-identical port of .NET's seeded `System.Random` (CompatPrng, Knuth's
 /// subtractive generator from Numerical Recipes via Mitchell-Moore). This
 /// matches `new Random(42)` byte-for-byte across `NextDouble()` and
 /// `Next(maxValue)` so the StressPerf.Reactor data sequence is identical
@@ -277,7 +277,7 @@ struct PerfTracker {
     total_elements_skipped: u64,
     total_elements_created: u64,
     /// Cross-variant render counter. See `tests/stress_perf/METHODOLOGY.md`
-    /// on the C# branch — Reactor increments this when the reconcile
+    /// on the C# branch. Reactor increments this when the reconcile
     /// completes (via `record_phases`). Emitted as `Total Renders: N`.
     render_count: u32,
 }
@@ -474,7 +474,7 @@ impl PerfTracker {
             eprintln!("WARNING: failed to write {}: {e}", csv_path.display());
         }
 
-        // Summary CSV — one row, machine-parseable, compatible with the C#
+        // Machine-readable summary row compatible with the C#
         // stress_perf benchmark_results.csv format for cross-comparison.
         let avg = |v: &[f64]| {
             if v.is_empty() {
@@ -570,7 +570,7 @@ struct State {
     perf: PerfTracker,
     percent: Cell<f64>,
     pending_phases: Cell<bool>,
-    /// Cached cell elements — only dirty indices are rebuilt each tick.
+    /// Cached cell elements; only dirty indices are rebuilt each tick.
     cells: RefCell<Vec<Element>>,
     set_generation: RefCell<Option<SetState<u64>>>,
     set_fps: RefCell<Option<SetState<String>>>,
