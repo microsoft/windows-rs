@@ -1,13 +1,8 @@
-//! The visual tree for the tile grid: a container visual holding one sprite
-//! visual per tile, plus a hollow nine-grid "selection" visual that highlights
-//! the tile under the pointer.
-
 use crate::colors;
 use crate::minesweeper::{GridSize, IndexHelper};
 use crate::numerics::from_vector2;
 use windows_composition::{Compositor, ContainerVisual, Result, SpriteVisual, Vector2};
 
-/// The `(x, y)` coordinate of a tile on the board.
 #[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub struct TileCoordinate {
     pub x: i32,

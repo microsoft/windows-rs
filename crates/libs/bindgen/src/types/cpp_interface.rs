@@ -97,11 +97,9 @@ impl CppInterface {
             let mut result = quote! {};
 
             if !config.bindgen.layout.is_package() {
-                if has_unknown_base {
-                    if let Some(guid) = self.def.guid_attribute() {
-                        let name: TokenStream = format!("IID_{}", self.def.name()).parse().unwrap();
-                        result.combine(config.write_cpp_const_guid(name, &guid));
-                    }
+                if has_unknown_base && let Some(guid) = self.def.guid_attribute() {
+                    let name: TokenStream = format!("IID_{}", self.def.name()).parse().unwrap();
+                    result.combine(config.write_cpp_const_guid(name, &guid));
                 }
 
                 result.combine(vtbl);

@@ -1,7 +1,3 @@
-//! The reusable composition assets (brushes and dot-pattern shapes) that render
-//! tile states and neighbor counts. Assets are created once and cloned onto
-//! tiles as needed (a clone is a cheap COM `AddRef`).
-
 use crate::colors;
 use crate::minesweeper::MineState;
 use std::collections::HashMap;
@@ -114,13 +110,11 @@ impl CompAssets {
             Ok(())
         };
 
-        // 1
         {
             let container_shape = compositor.create_container_shape();
             append_dot(&container_shape, *tile_size / 2.0)?;
             self.mine_count_shapes.insert(1, container_shape);
         }
-        // 2
         {
             let container_shape = compositor.create_container_shape();
             let third_x = tile_size.x / 3.0;
@@ -129,7 +123,6 @@ impl CompAssets {
             append_dot(&container_shape, Vector2::new(third_x * 2.0, half_y))?;
             self.mine_count_shapes.insert(2, container_shape);
         }
-        // 3
         {
             let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
@@ -139,7 +132,6 @@ impl CompAssets {
             append_dot(&container_shape, Vector2::new(fourth_x * 3.0, fourth_y))?;
             self.mine_count_shapes.insert(3, container_shape);
         }
-        // 4
         {
             let container_shape = compositor.create_container_shape();
             let third_x = tile_size.x / 3.0;
@@ -150,7 +142,6 @@ impl CompAssets {
             append_dot(&container_shape, Vector2::new(third_x * 2.0, third_y * 2.0))?;
             self.mine_count_shapes.insert(4, container_shape);
         }
-        // 5
         {
             let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
@@ -165,7 +156,6 @@ impl CompAssets {
             )?;
             self.mine_count_shapes.insert(5, container_shape);
         }
-        // 6
         {
             let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
@@ -184,7 +174,6 @@ impl CompAssets {
             )?;
             self.mine_count_shapes.insert(6, container_shape);
         }
-        // 7
         {
             let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
@@ -204,7 +193,6 @@ impl CompAssets {
             append_dot(&container_shape, *tile_size / 2.0)?;
             self.mine_count_shapes.insert(7, container_shape);
         }
-        // 8
         {
             let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;

@@ -1,4 +1,3 @@
-/// Metadata for a single control in the gallery.
 #[derive(Clone)]
 pub struct ControlInfo {
     pub title: &'static str,
@@ -23,7 +22,6 @@ pub const CATEGORIES: &[&str] = &[
 ];
 
 pub const ALL_CONTROLS: &[ControlInfo] = &[
-    // ── Basic Input ─────────────────────────────────────────────────
     ControlInfo {
         title: "Button",
         description: "A button that responds to user clicks.",
@@ -136,7 +134,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "toggle-switch",
         image: "ToggleSwitch.png",
     },
-    // ── Collections ─────────────────────────────────────────────────
     ControlInfo {
         title: "FlipView",
         description: "Presents one item at a time with flipping navigation.",
@@ -172,7 +169,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "tree-view",
         image: "TreeView.png",
     },
-    // ── Date and Time ───────────────────────────────────────────────
     ControlInfo {
         title: "CalendarDatePicker",
         description: "Pick a date from a calendar dropdown.",
@@ -201,7 +197,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "time-picker",
         image: "TimePicker.png",
     },
-    // ── Design Guidance ─────────────────────────────────────────────
     ControlInfo {
         title: "Typography",
         description: "The WinUI 3 type ramp and text styles.",
@@ -251,7 +246,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "materials",
         image: "Acrylic.png",
     },
-    // ── Dialogs and Flyouts ─────────────────────────────────────────
     ControlInfo {
         title: "CommandBarFlyout",
         description: "A flyout that provides quick access to common commands.",
@@ -287,7 +281,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "menu-flyout",
         image: "MenuFlyout.png",
     },
-    // ── Layout ──────────────────────────────────────────────────────
     ControlInfo {
         title: "Border",
         description: "A container that draws a border around its child.",
@@ -351,7 +344,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "viewbox",
         image: "Viewbox.png",
     },
-    // ── Media ───────────────────────────────────────────────────────
     ControlInfo {
         title: "Image",
         description: "Displays an image from a file or URI.",
@@ -366,7 +358,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "person-picture",
         image: "PersonPicture.png",
     },
-    // ── Menus and Toolbars ──────────────────────────────────────────
     ControlInfo {
         title: "CommandBar",
         description: "A toolbar for app commands and actions.",
@@ -388,7 +379,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "selector-bar",
         image: "",
     },
-    // ── Navigation ──────────────────────────────────────────────────
     ControlInfo {
         title: "BreadcrumbBar",
         description: "A trail showing the navigation path.",
@@ -424,7 +414,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "title-bar",
         image: "TitleBar.png",
     },
-    // ── Status and Info ─────────────────────────────────────────────
     ControlInfo {
         title: "InfoBadge",
         description: "A small indicator conveying status.",
@@ -460,7 +449,6 @@ pub const ALL_CONTROLS: &[ControlInfo] = &[
         tag: "tool-tip",
         image: "ToolTip.png",
     },
-    // ── Text ────────────────────────────────────────────────────────
     ControlInfo {
         title: "AutoSuggestBox",
         description: "Text input that shows suggestions as you type.",

@@ -1,22 +1,12 @@
-//! Geometry hit-testing with `windows-canvas`.
-//!
-//! A star fills gold and turns green only when the pointer is inside its filled
-//! geometry - not merely its bounding box (drawn as a faint outline). The test
-//! uses `Path::fill_contains_point`. Pointer coordinates and the surface are both
-//! in DIPs, so the position feeds straight into the query.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
-    // Latest pointer position in DIPs. Updating a `use_ref` does not re-render;
-    // the pointer handlers invalidate to repaint, and the draw closure reads it.
     let pointer = cx.use_ref(None::<(f32, f32)>);
     let inv = cx.use_invalidator();
 
-    // Cache the star geometry; rebuilding a `Path` every frame is wasteful.
     let star_cache = cx.use_ref(None::<(f32, f32, Path)>);
 
     let on_move = cx.use_callback((), {
@@ -42,7 +32,6 @@ fn app(cx: &mut RenderCx) -> Element {
             let center_y = ctx.height / 2.0;
             let radius = center_x.min(center_y) * 0.8;
 
-            // Rebuild the star only on resize or device loss, not every frame.
             let stale = ctx.device_changed()
                 || match &*star_cache.borrow() {
                     Some((w, h, _)) => {
@@ -59,7 +48,6 @@ fn app(cx: &mut RenderCx) -> Element {
                 return Ok(());
             };
 
-            // Bounding box: where a naive rectangle hit-test would report a hit.
             let brush = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.3))?;
             let b = star.compute_bounds();
             ctx.draw_rect(&Rect::new(b.left, b.top, b.right, b.bottom), &brush, 1.0);

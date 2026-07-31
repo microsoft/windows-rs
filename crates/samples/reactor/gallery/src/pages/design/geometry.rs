@@ -20,7 +20,6 @@ pub fn geometry_page(_: &(), _cx: &mut RenderCx) -> Element {
                 r#"// ControlCornerRadius = 4px
 border(content).corner_radius(4.0)
 
-// OverlayCornerRadius = 8px
 border(dialog).corner_radius(8.0)"#,
             ),
             sample_card(

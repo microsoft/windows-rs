@@ -1,7 +1,3 @@
-//! Chrome DevTools Protocol: call a CDP method for browser-level information and
-//! subscribe to a CDP event, the programmatic automation channel that reaches
-//! past page JavaScript.
-
 use webview_samples::*;
 
 const PAGE: &str = r#"<!DOCTYPE html><html><body>
@@ -14,13 +10,10 @@ fn main() -> Result<()> {
     run(
         "WebView2 DevTools protocol - windows-rs",
         |_controller, webview| {
-            // Browser-level info that page script cannot reach.
             webview.call_dev_tools_protocol_method("Browser.getVersion", "{}", |result| {
                 println!("Browser.getVersion -> {result:?}");
             })?;
 
-            // Console messages are only reported over CDP once the Runtime domain
-            // is enabled.
             webview.call_dev_tools_protocol_method("Runtime.enable", "{}", |_| {})?;
 
             let registration =

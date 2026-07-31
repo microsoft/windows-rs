@@ -66,25 +66,23 @@ impl TypeClosure {
                 types.insert(ty.clone());
 
                 // Unscoped enum variants are standalone constants; include the requested set explicitly.
-                if let Type::CppEnum(e) = &ty {
-                    if !e.def.has_attribute("ScopedEnumAttribute") {
-                        if let Some(variant_set) =
-                            filter.enum_variant_filter(e.def.namespace(), e.def.name())
+                if let Type::CppEnum(e) = &ty
+                    && !e.def.has_attribute("ScopedEnumAttribute")
+                    && let Some(variant_set) =
+                        filter.enum_variant_filter(e.def.namespace(), e.def.name())
+                {
+                    let enum_arches = e.def.arches();
+                    for field in e.def.fields() {
+                        if field.flags().contains(FieldAttributes::Literal)
+                            && variant_set.includes(field.name())
                         {
-                            let enum_arches = e.def.arches();
-                            for field in e.def.fields() {
-                                if field.flags().contains(FieldAttributes::Literal)
-                                    && variant_set.includes(field.name())
-                                {
-                                    Type::CppConst(CppConst {
-                                        namespace: e.def.namespace(),
-                                        field,
-                                        enum_arches,
-                                        is_enum_member: true,
-                                    })
-                                    .combine_closure(&mut types, reader, references);
-                                }
-                            }
+                            Type::CppConst(CppConst {
+                                namespace: e.def.namespace(),
+                                field,
+                                enum_arches,
+                                is_enum_member: true,
+                            })
+                            .combine_closure(&mut types, reader, references);
                         }
                     }
                 }

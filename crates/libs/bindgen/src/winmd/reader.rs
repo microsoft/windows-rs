@@ -140,12 +140,11 @@ impl Reader {
                     }
                 }
                 windows_metadata::reader::Item::Fn(method) => {
-                    if let Some(map) = method.impl_map() {
-                        if map.import_scope().name() == "FORCEINLINE"
-                            || map.import_name().starts_with('#')
-                        {
-                            continue;
-                        }
+                    if let Some(map) = method.impl_map()
+                        && (map.import_scope().name() == "FORCEINLINE"
+                            || map.import_name().starts_with('#'))
+                    {
+                        continue;
                     }
 
                     let types = reader.map.entry(namespace).or_default();

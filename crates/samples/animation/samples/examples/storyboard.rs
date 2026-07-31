@@ -1,5 +1,3 @@
-//! Sequence two transitions on a storyboard: rise to a peak, then fall back.
-
 use animation_samples::*;
 
 fn main() -> Result<()> {

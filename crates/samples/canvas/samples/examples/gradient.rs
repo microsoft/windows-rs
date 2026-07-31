@@ -1,5 +1,3 @@
-//! Demonstrates linear and radial gradient brushes.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
@@ -11,7 +9,6 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let margin = 40.0;
     let half = ctx.height / 2.0;
 
-    // Linear gradient: blue to orange across the full width.
     let linear = ctx.create_linear_gradient(
         Vector2::new(margin, 0.0),
         Vector2::new(ctx.width - margin, 0.0),
@@ -29,7 +26,6 @@ fn draw(ctx: &DrawContext) -> Result<()> {
         &linear,
     );
 
-    // Radial gradient: white center fading out.
     let cx = ctx.width / 2.0;
     let cy = half + (ctx.height - half) / 2.0;
     let r = (ctx.width - margin * 2.0).min(ctx.height - half - margin) / 2.0;

@@ -1,5 +1,3 @@
-//! Card layout composing `Border` and `Grid`.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {

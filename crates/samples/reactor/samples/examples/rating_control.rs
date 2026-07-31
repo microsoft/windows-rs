@@ -1,5 +1,3 @@
-//! Sample for the `RatingControl` element.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

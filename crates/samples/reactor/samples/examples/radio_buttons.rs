@@ -1,5 +1,3 @@
-//! Sample for the `RadioButtons` element.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

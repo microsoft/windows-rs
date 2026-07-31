@@ -1,13 +1,3 @@
-//! Minimal DPI interop: read the host element's rasterization (DPI) scale and
-//! surface it as reactor state. The `on_rasterization_scale_changed` hook fires
-//! after the element loads and again whenever the scale changes (e.g. the window
-//! moves to a monitor with a different DPI). The returned revoker is kept alive
-//! in a `use_ref` so the subscription outlives the callback.
-//!
-//! ```text
-//! cargo run -p reactor_composition --example dpi
-//! ```
-
 #![windows_subsystem = "windows"]
 
 use windows_composition::{Color, SpriteVisual};

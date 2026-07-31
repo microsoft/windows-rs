@@ -1,17 +1,8 @@
-//! Minimal show/hide: a reactor button toggles the visibility of the host's
-//! composition visual, showing that the composition tree and the reactor UI are
-//! independent and can be wired together by ordinary reactor state.
-//!
-//! ```text
-//! cargo run -p reactor_composition --example toggle
-//! ```
-
 #![windows_subsystem = "windows"]
 
 use windows_composition::{Color, SpriteVisual};
 use windows_reactor::*;
 
-/// Builds a solid-colored visual and attaches it as the host's child visual.
 fn build(host: &CompositionHostHandle) -> Result<SpriteVisual> {
     let compositor = host.compositor()?;
     let visual = compositor.create_sprite_visual();
@@ -24,7 +15,6 @@ fn app(cx: &mut RenderCx) -> Element {
     let (shown, set_shown) = cx.use_state(true);
     let visual = cx.use_ref::<Option<SpriteVisual>>(None);
 
-    // Mirror reactor state onto the composition visual's visibility.
     {
         let visual = visual.clone();
         cx.use_effect((shown,), move || {

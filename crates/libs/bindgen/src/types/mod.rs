@@ -249,10 +249,10 @@ impl Type {
             return ty;
         }
 
-        if let Some(outer) = enclosing {
-            if code_name.namespace().is_empty() {
-                return Self::CppStruct(outer.nested[code_name.name()].clone());
-            }
+        if let Some(outer) = enclosing
+            && code_name.namespace().is_empty()
+        {
+            return Self::CppStruct(outer.nested[code_name.name()].clone());
         }
 
         reader.unwrap_full_name(code_name.namespace(), code_name.name())
@@ -292,10 +292,10 @@ impl Type {
                     Remap::None => (ns, n),
                 };
 
-                if let Some(outer) = enclosing {
-                    if ns.is_empty() {
-                        return Self::CppStruct(outer.nested[n].clone());
-                    }
+                if let Some(outer) = enclosing
+                    && ns.is_empty()
+                {
+                    return Self::CppStruct(outer.nested[n].clone());
                 }
                 let mut bindgen_ty = reader.unwrap_full_name(ns, n);
                 if !tn.generics.is_empty() {
@@ -735,12 +735,11 @@ impl Type {
 
     /// If this is `Windows.Foundation.IReference<T>` returns `Some(&T)`.
     pub fn as_ireference_inner(&self) -> Option<&Self> {
-        if let Self::Interface(iface) = self {
-            if iface.generics.len() == 1
-                && iface.type_name() == TypeName("Windows.Foundation", "IReference")
-            {
-                return Some(&iface.generics[0]);
-            }
+        if let Self::Interface(iface) = self
+            && iface.generics.len() == 1
+            && iface.type_name() == TypeName("Windows.Foundation", "IReference")
+        {
+            return Some(&iface.generics[0]);
         }
         None
     }
@@ -1014,10 +1013,10 @@ impl Dependencies for Type {
 
         let mut nested = false;
 
-        if let Self::CppStruct(ty) = ty {
-            if ty.def.namespace().is_empty() {
-                nested = true;
-            }
+        if let Self::CppStruct(ty) = ty
+            && ty.def.namespace().is_empty()
+        {
+            nested = true;
         }
 
         let (ty, generics) = ty.split_generic(reader);
@@ -1154,17 +1153,17 @@ pub fn write_arch_bits(value: i32) -> TokenStream {
 
 /// Wraps a primitive value through full-mode handle/scalar typedef newtype layers.
 pub(crate) fn write_newtype_wrap(ty: &Type, value: &TokenStream, config: &Config) -> TokenStream {
-    if let Type::CppStruct(s) = ty {
-        if s.is_handle(config.reader) {
-            let inner = ty.underlying_type(config.reader);
-            let arg = write_newtype_wrap(&inner, value, config);
-            // Transparent handle aliases do not contribute a `Name(..)` constructor layer.
-            if config.typedef_emits_bare(s.def) {
-                return arg;
-            }
-            let name = ty.write_name(config);
-            return quote! { #name(#arg) };
+    if let Type::CppStruct(s) = ty
+        && s.is_handle(config.reader)
+    {
+        let inner = ty.underlying_type(config.reader);
+        let arg = write_newtype_wrap(&inner, value, config);
+        // Transparent handle aliases do not contribute a `Name(..)` constructor layer.
+        if config.typedef_emits_bare(s.def) {
+            return arg;
         }
+        let name = ty.write_name(config);
+        return quote! { #name(#arg) };
     }
     value.clone()
 }

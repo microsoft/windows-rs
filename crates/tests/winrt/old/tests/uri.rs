@@ -18,7 +18,7 @@ fn uri() -> windows::core::Result<()> {
     assert!(uri.Domain()? == "kennykerr.ca");
     assert!(uri.Port()? == 80);
 
-    // Calls QueryInterface followed by IStringable::ToString under the hood
+    // Calls QueryInterface followed by IStringable::ToString.
     assert!(uri.ToString()? == "http://kennykerr.ca/");
 
     let stringable: IStringable = uri.cast()?;
@@ -31,11 +31,13 @@ fn uri() -> windows::core::Result<()> {
 fn interface_conversion() -> windows::core::Result<()> {
     // TODO: Find an example where the default constructor is not exclusive.
 
-    // TODO: Convert from ??? class to (non-exclusive) default interface by value (dropping the class).
+    // TODO: Convert from ??? class to (non-exclusive) default interface by value (dropping the
+    // class).
     let uri: Uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let _default: IUriRuntimeClass = uri.cast()?;
 
-    // TODO: Convert from ??? class to (non-exclusive) default interface by reference (retaining the class).
+    // TODO: Convert from ??? class to (non-exclusive) default interface by reference (retaining
+    // the class).
     let uri: &Uri = &Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let _default: IUriRuntimeClass = uri.cast()?;
 

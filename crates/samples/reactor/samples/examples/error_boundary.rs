@@ -1,5 +1,3 @@
-//! Sample for `error_boundary`.
-
 #![windows_subsystem = "windows"]
 
 use windows_reactor::*;

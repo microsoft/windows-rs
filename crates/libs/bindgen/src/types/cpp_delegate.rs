@@ -55,15 +55,15 @@ impl CppDelegate {
 
         let mut abi = None;
 
-        if let Some(attribute) = self.def.find_attribute("UnmanagedFunctionPointerAttribute") {
-            if let Some((_, Value::EnumValue(_, value))) = attribute.value().first() {
-                match &**value {
-                    Value::I32(1) | Value::I32(5) => abi = Some("system"),
-                    Value::I32(2) => abi = Some("C"),
-                    rest => unreachable!(
-                        "unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"
-                    ),
-                }
+        if let Some(attribute) = self.def.find_attribute("UnmanagedFunctionPointerAttribute")
+            && let Some((_, Value::EnumValue(_, value))) = attribute.value().first()
+        {
+            match &**value {
+                Value::I32(1) | Value::I32(5) => abi = Some("system"),
+                Value::I32(2) => abi = Some("C"),
+                rest => unreachable!(
+                    "unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"
+                ),
             }
         }
 

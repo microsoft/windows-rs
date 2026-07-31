@@ -70,11 +70,11 @@ release so the scrape is deterministic (see `tool_win32`).
 
 - `tool_win32` - owns the single committed `crates/libs/bindgen/default/Windows.Win32.winmd` for
   the whole native API surface. It runs three phases: (A) scrape the Windows SDK `um`/`shared`
-  headers into `metadata/win32/*.rdl` (committed) and an uncommitted `target/win32/Windows.Win32.winmd`;
-  (B) scrape the WDK kernel-mode `km` headers into `metadata/wdk/*.rdl` (committed) and an
-  uncommitted km winmd, resolving against phase A's winmd; (C) union-merge the two winmds
-  (same-named enums fold into one) so `windows-bindgen` sees one complete set of metadata (see
-  [The Win32 metadata](#the-win32-metadata-tool_win32)).
+  headers into `metadata/win32/*.rdl` (committed) and an uncommitted
+  `target/win32/Windows.Win32.winmd`; (B) scrape the WDK kernel-mode `km` headers into
+  `metadata/wdk/*.rdl` (committed) and an uncommitted km winmd, resolving against phase A's winmd;
+  (C) union-merge the two winmds (same-named enums fold into one) so `windows-bindgen` sees one
+  complete set of metadata (see [The Win32 metadata](#the-win32-metadata-tool_win32)).
 - `tool_webview` - scrapes the WebView2 headers into `WebView2.rdl`.
 - `test_clang` - golden fixtures that pin the header -> RDL behavior.
 
@@ -159,11 +159,11 @@ terminals; its cross-cutting free helpers are grouped into focused sibling modul
 header-in-scope tests), `naming` (tag-rename and nested-type synthetic naming), and `macros` (the
 object-like-macro evaluation pass). Both emit paths - `parse_and_emit` (the namespaced `write` path
 used by `tool_webview`) and `parse_and_emit_by_header` (the flat per-header `write_by_header` path
-used by `tool_win32`, both its scrape phases) - share one `parse_inputs` helper that loads libclang and parses
-every header and in-memory source into translation units once. Its `ParsedInputs` return owns the
-libclang `Library` guard and `Index` so the translation units stay valid for its whole lifetime; the
-paths bind it whole (never destructure it) so its field declaration order governs drop, disposing
-the units and index before the guard unloads libclang.
+used by `tool_win32`, both its scrape phases) - share one `parse_inputs` helper that loads libclang
+and parses every header and in-memory source into translation units once. Its `ParsedInputs` return
+owns the libclang `Library` guard and `Index` so the translation units stay valid for its whole
+lifetime; the paths bind it whole (never destructure it) so its field declaration order governs
+drop, disposing the units and index before the guard unloads libclang.
 
 Because `windows-clang` reuses `windows_rdl::emit`, the RDL it produces is spelled identically to
 the RDL the winmd -> RDL writer produces - the round-trip `headers to RDL to winmd to RDL`
@@ -907,7 +907,7 @@ sorts them into three groups:
 | **Missing, and not scrapeable - keep hand-written.** | `ProcessPrng`, `NtCreateNamedPipeFile`, `NtCreateKeyedEvent`, `NtReleaseKeyedEvent`, `NtWaitForKeyedEvent`, `atexit` | No SDK or WDK header declares a prototype for these (the `NtCreateNamedPipeFile` hits in `ntifs.h`/`wdm.h` are comments describing its flag `#define`s, not a declaration). `ProcessPrng` and the keyed-event exports exist in `ntdll.lib`/`bcryptprimitives.dll` but have no header. `atexit` is CRT (`ucrt`), outside the Win32 scrape scope. |
 
 The reparse-buffer structs (`REPARSE_DATA_BUFFER`, `SYMBOLIC_LINK_REPARSE_BUFFER`,
-`MOUNT_POINT_REPARSE_BUFFER`) are deliberately hand-rolled in `c.rs` with a `rest: ()` /
+`MOUNT_POINT_REPARSE_BUFFER`) are hand-rolled in `c.rs` with a `rest: ()` /
 single-element trailing field for pointer-provenance reasons and are not candidates to generate.
 `INVALID_HANDLE_VALUE` is excluded in the filter (`!INVALID_HANDLE_VALUE`) and defined by hand.
 
@@ -928,12 +928,13 @@ symbols) and the regenerated `windows` / `windows-sys` compile with the affected
   un-excluded and emitted in full into the `km` winmd (`clang/src/lib.rs`
   `parse_and_emit_by_header`), rather than dropped as a duplicate. Second, `tool_win32`'s merge
   phase combines the `um` and `km` winmds with `Merger::union_enums`, which unions same-named enums
-  into one carrying every member (`metadata` `merge/mod.rs` `write_enum_union`). The result is a single
-  `FILE_INFORMATION_CLASS` with the complete member set, projected identically in `windows` and
-  `windows-sys` (an unscoped `Type::CppEnum` renders as a `pub type = iN` alias plus bare member
-  constants). The union is architecture-aware (arch-tagged variants such as `INTERLOCKED_RESULT`
-  stay separate) and tolerates only the trailing `Max*` count sentinel differing between a
-  truncated and a full copy; any other value disagreement is a hard error. A supporting fix to
+  into one carrying every member (`metadata` `merge/mod.rs` `write_enum_union`). The result is a
+  single `FILE_INFORMATION_CLASS` with the complete member set, projected identically in `windows`
+  and `windows-sys` (an unscoped `Type::CppEnum` renders as a `pub type = iN` alias plus bare member
+  constants). The union is architecture-aware (arch-tagged variants such as
+  `INTERLOCKED_RESULT` stay separate) and tolerates only the trailing `Max*` count sentinel
+  differing between a truncated and a full copy; any other value disagreement is a hard error. A
+  supporting fix to
   `metadata` `TypeDef::underlying_type()` (resolve an enum's backing integer from its non-constant
   `value__` field) lets the RDL->winmd compiler encode the full enum. The same union restores the
   complete member sets of `KEY_SET_INFORMATION_CLASS`, `PROCESSINFOCLASS`, and `THREADINFOCLASS`
@@ -1026,12 +1027,12 @@ The full scrape found these native-sized constant families:
 | WDK headers | `PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS` |
 
 Evaluated values remain architecture-tagged when the numeric value differs even though both fields
-are `isize`/`usize`; signed x86 and 64-bit limits cannot use one shared Constant row. Direct negative
-literal casts are the exception above because the fixed signed Constant row plus the native field
-reconstructs the target value. The value-probe fix also corrects unrelated narrowed 64-bit constants
-(`ADDRESS_TAG_BIT`, the `POOL_FLAG_*` masks, mitigation-policy bits, ICU limits, and others). Keep
-that generated delta separate from the native-sized field-type change so each rule can be reviewed
-on its own.
+are `isize`/`usize`; signed x86 and 64-bit limits cannot use one shared Constant row. Direct
+negative literal casts are the exception above because the fixed signed Constant row plus the
+native field reconstructs the target value. The value-probe fix also corrects unrelated narrowed
+64-bit constants (`ADDRESS_TAG_BIT`, the `POOL_FLAG_*` masks, mitigation-policy bits, ICU limits,
+and others). Keep that generated delta separate from the native-sized field-type change so each
+rule can be reviewed on its own.
 
 An audit against the 10.0.26100 headers found the regenerated values match the source expressions:
 

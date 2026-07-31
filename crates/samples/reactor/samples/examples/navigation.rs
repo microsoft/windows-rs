@@ -1,5 +1,3 @@
-//! Multi-page navigation using enum-based routing.
-
 use std::thread;
 use std::time::Duration;
 

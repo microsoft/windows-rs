@@ -1,6 +1,3 @@
-//! Host ↔ JavaScript messaging: an injected bootstrap script, received
-//! messages, replies from Rust, and `execute_script`.
-
 use webview_samples::*;
 
 const PAGE: &str = r#"<!DOCTYPE html><html><body>

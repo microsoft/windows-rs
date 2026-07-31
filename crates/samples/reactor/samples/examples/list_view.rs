@@ -1,10 +1,8 @@
-//! Sample for the `list_view` templated list with drag-and-drop reordering.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(-1_i32);
-    let (mode_idx, set_mode_idx) = cx.use_state(1_i32); // default = Single
+    let (mode_idx, set_mode_idx) = cx.use_state(1_i32);
     let (items, set_items) = cx.use_state(
         ["Red", "Green", "Blue", "Yellow", "Magenta"]
             .iter()
@@ -34,9 +32,6 @@ fn app(cx: &mut RenderCx) -> Element {
         .map(|s| (*s).to_string())
         .collect();
 
-    // Reorder mirrors the drag result back into state so it survives the next
-    // render — essential under virtualization, where WinUI reorders containers
-    // rather than the live elements.
     let reorder_source = items.clone();
 
     vstack((

@@ -35,7 +35,9 @@ metadata tooling (`bindgen`, `metadata`, `rdl`, `riddle`, `cppwinrt`); and the f
 cargo fmt --all
 ```
 
-CI enforces rustfmt. Always format before finalizing changes.
+CI enforces rustfmt. Always format before finalizing changes. On Windows, the workspace-wide
+command may exceed the process command-line limit; use `cargo fmt -p <crate>` for each affected
+crate instead.
 
 ## Build & Test Commands
 

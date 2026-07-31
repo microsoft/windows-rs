@@ -1,8 +1,3 @@
-//! The minesweeper game logic: board state, mine generation, flood-fill sweep,
-//! win detection, and the spiral mine-reveal animation. This module is
-//! rendering-agnostic — it drives [`CompUI`] but knows nothing about
-//! composition.
-
 use crate::comp_ui::CompUI;
 use crate::rng::Rng;
 use crate::visual_grid::TileCoordinate;
@@ -10,7 +5,6 @@ use std::collections::VecDeque;
 use std::time::{SystemTime, UNIX_EPOCH};
 use windows_composition::{ContainerVisual, Result, Vector2};
 
-/// A board size in tiles.
 #[derive(Copy, Clone)]
 pub struct GridSize {
     pub width: i32,
@@ -41,7 +35,6 @@ enum MineGenerationState {
     Generated,
 }
 
-/// Maps between `(x, y)` tile coordinates and flat vector indices.
 pub struct IndexHelper {
     width: i32,
     height: i32,
@@ -162,8 +155,6 @@ impl Minesweeper {
     }
 
     pub fn on_pointer_pressed(&mut self, is_right_button: bool, is_eraser: bool) -> Result<()> {
-        // We can't subscribe to the animation-completed event yet, so restart on
-        // any press once the game is over.
         if self.game_over {
             self.new_game(
                 self.game_board_width,
@@ -186,11 +177,9 @@ impl Minesweeper {
                 } else if self.mine_states[index] == MineState::Empty
                     && self.sweep(current_selection.x, current_selection.y)?
                 {
-                    // We hit a mine! Setup and play an animation while locking any input.
                     let hit_x = current_selection.x;
                     let hit_y = current_selection.y;
 
-                    // First, hide the selection visual and reset the selection.
                     self.ui.select_tile(None)?;
 
                     self.play_animation_on_all_mines(hit_x, hit_y)?;
@@ -203,7 +192,6 @@ impl Minesweeper {
             }
         } else {
             if is_right_button || is_eraser {
-                // Do nothing on right click or eraser mode.
                 return Ok(());
             }
             self.check_and_clear_satisfied()?;
@@ -212,8 +200,6 @@ impl Minesweeper {
     }
 
     pub fn check_and_clear_satisfied(&mut self) -> Result<()> {
-        // We're outside the unrevealed/flagged/etc tiles, but we should be at
-        // last_tile.
         if self.last_tile.is_none() {
             return Ok(());
         }
@@ -222,14 +208,11 @@ impl Minesweeper {
             .last_tile
             .expect("Somehow last tile became None after test");
 
-        // Does the current tile have a number in it?
         let index = self.index_helper.compute_index(cur_tile.x, cur_tile.y);
         if self.neighbor_counts[index] < 1 || self.mine_states[index] != MineState::Revealed {
-            // No neighbors, or not revealed, do nothing!
             return Ok(());
         }
 
-        // Make a vector of coordinates to query based on the current coordinate.
         let base_vec: Vec<(i32, i32)> = vec![
             (cur_tile.x - 1, cur_tile.y - 1),
             (cur_tile.x, cur_tile.y - 1),
@@ -241,14 +224,12 @@ impl Minesweeper {
             (cur_tile.x + 1, cur_tile.y + 1),
         ];
 
-        // Filter out-of-bounds if we're on the edges.
         let width = self.game_board_width;
         let height = self.game_board_height;
         let query_vec: Vec<(i32, i32)> = base_vec
             .into_iter()
             .filter(|cur| cur.0 >= 0 && cur.0 < width && cur.1 >= 0 && cur.1 < height)
             .collect();
-        // See if all mines are marked that are in those 8 (or fewer) tiles.
         let mut flag_count = 0;
         for query_coord in &query_vec {
             let query_index = self
@@ -259,18 +240,14 @@ impl Minesweeper {
             }
         }
         if flag_count != self.neighbor_counts[index] {
-            // Too many or not enough flags.
             return Ok(());
         }
 
-        // Go through the query_vec and try to reveal all of them with sweep if
-        // they're not flagged.
         let mut hit_coordinate: Option<TileCoordinate> = None;
         for query_coord in &query_vec {
             let query_index = self
                 .index_helper
                 .compute_index(query_coord.0, query_coord.1);
-            // Is it unrevealed? Only click on those spaces.
             if self.mine_states[query_index] != MineState::Empty {
                 continue;
             }
@@ -284,7 +261,6 @@ impl Minesweeper {
         }
 
         if let Some(cur_coordinate) = hit_coordinate {
-            // We hit a mine! Setup and play an animation while locking any input.
             let hit_x = cur_coordinate.x;
             let hit_y = cur_coordinate.y;
 
@@ -321,8 +297,6 @@ impl Minesweeper {
 
     fn sweep(&mut self, x: i32, y: i32) -> Result<bool> {
         if self.mine_generation_state == MineGenerationState::Deferred {
-            // We don't want the first thing the user clicks to be a mine, so
-            // generate mines avoiding the clicked tile.
             self.generate_mines(self.num_mines, x, y);
             self.mine_generation_state = MineGenerationState::Generated;
         }
@@ -413,7 +387,6 @@ impl Minesweeper {
             let y = self.index_helper.compute_y_from_index(i);
 
             if self.mines[i] {
-                // -1 means a mine.
                 self.neighbor_counts.push(-1);
             } else {
                 let count = self.get_surrounding_mine_count(x, y);
@@ -476,8 +449,6 @@ impl Minesweeper {
     }
 
     fn play_animation_on_all_mines(&mut self, center_x: i32, center_y: i32) -> Result<()> {
-        // Build a queue containing the indices of the mines in a spiral starting
-        // from the clicked mine.
         let mut mine_indices: VecDeque<usize> = VecDeque::new();
         let mut mines_per_ring: VecDeque<i32> = VecDeque::new();
         let mut visited_tiles: i32 = 0;
@@ -491,7 +462,6 @@ impl Minesweeper {
             } else {
                 let mut current_mines_in_ring = 0;
 
-                // Top side.
                 for x in (center_x - ring_level)..=(center_x + ring_level) {
                     let y = center_y - ring_level;
                     self.check_tile_for_mine_for_animation(
@@ -503,7 +473,6 @@ impl Minesweeper {
                     );
                 }
 
-                // Right side.
                 for y in (center_y - ring_level + 1)..=(center_y + ring_level) {
                     let x = center_x + ring_level;
                     self.check_tile_for_mine_for_animation(
@@ -515,7 +484,6 @@ impl Minesweeper {
                     );
                 }
 
-                // Bottom side.
                 for x in (center_x - ring_level)..(center_x + ring_level) {
                     let y = center_y + ring_level;
                     self.check_tile_for_mine_for_animation(
@@ -527,7 +495,6 @@ impl Minesweeper {
                     );
                 }
 
-                // Left side.
                 for y in (center_y - ring_level + 1)..(center_y + ring_level) {
                     let x = center_x - ring_level;
                     self.check_tile_for_mine_for_animation(

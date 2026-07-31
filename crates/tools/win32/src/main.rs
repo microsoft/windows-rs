@@ -30,7 +30,8 @@ const MERGED_WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
 /// declarations in the `ABI::Windows::*` C++/WinRT projection namespace that `roregistrationapi.h`
 /// and its interop closure reach. A type present in it is a true WinRT projection (mapped to a
 /// cross-winmd reference); a type absent from it is a Win32 COM interop entity captured into the
-/// flat `Windows.Win32` metadata. Never an exclusion base - no WinRT type is skipped or emitted here.
+/// flat `Windows.Win32` metadata. Never an exclusion base - no WinRT type is skipped or emitted
+/// here.
 const RESOLUTION_WINMDS: &[&str] = &["crates/libs/bindgen/default/Windows.winmd"];
 
 /// Where the per-header RDL snapshot is written. Unlike the binary winmd, the
@@ -77,7 +78,7 @@ const SAL_SHIM: &str = "crates/tools/win32/src/sal.h";
 /// Prelude included ahead of every API header. `winsock2.h` precedes `windows.h` so
 /// its include guard suppresses the legacy `winsock.h` that `windows.h` would otherwise
 /// pull (avoiding the `sockaddr` redefinition); most SDK headers then assume the
-/// fundamental types (`HANDLE`, `DWORD`, `HWND`, …) are in scope via `windows.h`.
+/// fundamental types (`HANDLE`, `DWORD`, `HWND`, ...) are in scope via `windows.h`.
 /// `SECURITY_WIN32` selects the user-mode SSPI surface so `sspi.h` (and the headers
 /// that include it) compile rather than `#error`-ing on an undefined security package.
 /// `WIN32_NO_STATUS` suppresses `winnt.h`'s `DWORD` compatibility status macros so
@@ -88,23 +89,23 @@ const PRELUDE: &str = "#define SECURITY_WIN32\n#define WIN32_NO_STATUS\n#include
 /// unit* (see [`SATELLITE_HEADERS`]) to keep `DEFINE_GUID` in its declaration
 /// form.
 ///
-/// Device-driver headers (`ntddstor.h`, `poclass.h`, …) place their `DEFINE_GUID` blocks
+/// Device-driver headers (`ntddstor.h`, `poclass.h`, ...) place their `DEFINE_GUID` blocks
 /// *outside* their include guards, so a header pulled in more than once re-runs the block.
 /// In `INITGUID` *definition* mode that second pass is a `__declspec(selectany)`
 /// re-definition that clang rejects - which is why these headers cannot join the main
-/// translation unit (where `winusb.h` → `initguid.h` leaves `INITGUID` defined). Parsed in
+/// translation unit (where `winusb.h` -> `initguid.h` leaves `INITGUID` defined). Parsed in
 /// their own satellite TU with this reset after every include, `INITGUID` stays undefined
 /// and `guiddef.h` re-derives `DEFINE_GUID` as a plain `extern const GUID` declaration that
-/// is harmless to repeat. The faithful GUID values are read from the `DEFINE_GUID` macro
+/// is harmless to repeat. The GUID values are read from the `DEFINE_GUID` macro
 /// arguments, so the declaration/definition distinction does not affect the captured
 /// metadata. (The main TU keeps definition mode so its wrapper-macro GUIDs - `vfw.h`'s
-/// `DEFINE_AVIGUID`, … - whose values live only in the expanded initializer are preserved.)
+/// `DEFINE_AVIGUID`, ... - whose values live only in the expanded initializer are preserved.)
 const GUID_RESET: &str = "\n#undef INITGUID\n#include <guiddef.h>";
 
 // The orchestration manifest, expressed as plain `const` slices (was `win32.toml`). This is a
 // small, mechanical description of which SDK headers to emit (partitioned by their defining
 // header) and the import libraries that record which DLL exports each function. There is
-// deliberately NO type-level curation - no per-symbol owners, no re-homing, no synthetic
+// contains no type-level curation - no per-symbol owners, no re-homing, no synthetic
 // attributes. The only inputs are mechanical; everything about the *shape* of the API comes
 // from the headers and SAL. Every declaration lands in the single flat `Windows.Win32`
 // namespace; its defining header only determines which `.rdl` file it is written to.
@@ -121,13 +122,14 @@ const ROOT: &str = "Windows.Win32";
 /// `EXCEPTION_DISPOSITION` - survive because in-scope APIs reference them).
 const SCOPE: &[&str] = &["um", "shared"];
 
-/// In-scope headers dropped wholesale because they carry no genuine Windows API surface. `intsafe.h`
-/// is a bundle of inline safe-integer-arithmetic helpers (`UIntAdd`, `SizeTMult`, … - inline, never
-/// exported, so never in metadata); the only thing the scraper captures from it is standard C
-/// type-limit macros (`INT32_MAX`, `UINT8_MAX`, `DWORD_MAX`, …) and its internal `*_ERROR`
+/// In-scope headers dropped wholesale because they carry no genuine Windows API surface.
+/// `intsafe.h` is a bundle of inline safe-integer-arithmetic helpers (`UIntAdd`, `SizeTMult`,
+/// ... - inline, never exported, so never in metadata); the only thing the scraper captures is
+/// standard C
+/// type-limit macros (`INT32_MAX`, `UINT8_MAX`, `DWORD_MAX`, ...) and its internal `*_ERROR`
 /// sentinels - none of which are Windows APIs, and several of which libclang can only truncate to a
-/// degenerate `-1` (`UINT32_MAX`, `INT64_MAX`, …). Excluding the header keeps that noise out of the
-/// metadata (and makes the multi-arch scrape robust to clang's `stdint.h` drifting across versions).
+/// degenerate `-1` (`UINT32_MAX`, `INT64_MAX`, ...). Excluding the header keeps that noise out of
+/// the metadata and prevents clang `stdint.h` changes from affecting the multi-arch scrape.
 const EXCLUDE_HEADERS: &[&str] = &["intsafe.h"];
 
 /// Architectures to scrape and arch-merge. The committed RDL is always x64-canonical; any
@@ -450,7 +452,7 @@ const HEADERS: &[&str] = &[
     // WinRT interop factory/native bridge headers (`um\` dir). These are the MIDL-generated
     // C-ABI interop headers whose `HWND`/`REFIID`/`void**` (or DXGI/D2D) bridge interfaces
     // win32metadata mapped to `Windows.Win32.System.WinRT[.*]`. They include only light COM
-    // headers (`windows.h`, `ole2.h`, `oaidl.h`, `inspectable.h`, `dxgi.h`, …) already in the
+    // headers (`windows.h`, `ole2.h`, `oaidl.h`, `inspectable.h`, `dxgi.h`, ...) already in the
     // main TU - *not* the C++/WinRT projection headers (`windows.*.h`) - so they parse cleanly;
     // any WinRT type they reach is resolved via the resolution winmd (see [`RESOLUTION_WINMDS`]).
     "UserConsentVerifierInterop.h",
@@ -522,7 +524,7 @@ const HEADERS: &[&str] = &[
 
 /// Headers parsed in their own *satellite* translation unit instead of the main one. Reserved for
 /// headers that cannot co-exist in the main TU - the device-driver families (`ntddstor.h`,
-/// `usbiodef.h`, …) whose `DEFINE_GUID` blocks sit outside their include guards and collide under
+/// `usbiodef.h`, ...) whose `DEFINE_GUID` blocks sit outside their include guards and collide under
 /// definition mode. Parsed in isolation (with `INITGUID` held off) they emit cleanly; every shared
 /// declaration is deduplicated against the main TU by clang USR, so only their own device
 /// partitions are added.
@@ -542,12 +544,12 @@ const SATELLITE_HEADERS: &[&str] = &[
 ];
 
 /// Import libraries (resolved against the pinned Windows SDK x64 lib tree) read to recover the
-/// faithful function → DLL mapping the headers do not carry. Ordered first-wins, so position is
-/// precedence: the per-DLL host libraries (`kernel32.lib` → `KERNEL32.dll`) that match the classic
+/// function -> DLL mapping the headers do not carry. Ordered first-wins, so position is precedence:
+/// the per-DLL host libraries (`kernel32.lib` -> `KERNEL32.dll`) that match the classic
 /// Win32 desktop surface come first, so every classic export keeps its host DLL; the trailing
 /// `api-ms-win-*` umbrella libraries (`onecore.lib`, `onecoreuap.lib`) then stamp the modern
-/// apiset-only residue (`CreateFileMapping2`, the `*FromApp` file APIs, …) with the faithful apiset
-/// contract name, matching the reference metadata, which likewise leaves no function with an empty
+/// apiset-only residue (`CreateFileMapping2`, the `*FromApp` file APIs, ...) with the apiset
+/// contract name recorded by the reference metadata, which leaves no function with an empty
 /// library.
 const IMPORT_LIBS: &[&str] = &[
     "shcore.lib",
@@ -735,10 +737,10 @@ const IMPORT_LIBS: &[&str] = &[
     "mfplay.lib",
     // Apiset umbrella fallback (appended last). Modern APIs that no per-DLL host library
     // claims - `CreateFileMapping2`, the `*FromApp` file APIs, the package-dependency APIs,
-    // … - are exported only through an `api-ms-win-*` apiset contract (or a host DLL the
+    // ... - are exported only through an `api-ms-win-*` apiset contract (or a host DLL the
     // umbrella records). Because resolution is first-wins and these come last, every
     // classic host-DLL mapping above is untouched; only the previously-empty residue is
-    // stamped with the faithful DLL the umbrella records, matching the reference metadata,
+    // stamped with the DLL the umbrella records, matching the reference metadata,
     // which likewise leaves no function with an empty library.
     "onecore.lib",
     "onecoreuap.lib",
@@ -747,7 +749,7 @@ const IMPORT_LIBS: &[&str] = &[
     // `WakeByAddress*`, `CallEnclave`, `TerminateEnclave`); importing those from
     // `vertdll.dll` faults a normal process at load. Placing it after the apiset umbrella
     // lets those functions resolve to their loadable `api-ms-win-*` contract first, leaving
-    // `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSealData`, …).
+    // `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSealData`, ...).
     "vertdll.lib",
 ];
 
@@ -807,7 +809,7 @@ fn scrape_um() -> Summary {
     let include_dirs = sdk_include_dirs();
     let lib_dirs = sdk_lib_dirs();
 
-    // The faithful function → DLL mapping the headers don't carry, resolved to absolute
+    // The function -> DLL mapping the headers don't carry, resolved to absolute
     // paths against the pinned SDK import libraries (per-DLL host libs first, `api-ms-win-*`
     // umbrella last).
     let import_libs: Vec<String> = IMPORT_LIBS
@@ -815,7 +817,7 @@ fn scrape_um() -> Summary {
         .map(|lib| resolve(lib, &lib_dirs, "import library", "pinned SDK lib"))
         .collect();
     println!("Import libraries: {} entries", import_libs.len());
-    // SDK include directories, passed to clang as `-isystem` so `#include <…>` resolves.
+    // SDK include directories, passed to clang as `-isystem` so `#include <...>` resolves.
     let include_args: Vec<String> = include_dirs
         .iter()
         .cloned()
@@ -825,7 +827,7 @@ fn scrape_um() -> Summary {
     // Build the main translation unit: the prelude (windows.h) followed by every API
     // header. This TU keeps `DEFINE_GUID` in its definition mode (an included header turns
     // `INITGUID` on), so wrapper-macro GUIDs whose values exist only in the expanded
-    // initializer (`vfw.h`'s `DEFINE_AVIGUID`, …) are captured.
+    // initializer (`vfw.h`'s `DEFINE_AVIGUID`, ...) are captured.
     let mut source = String::from(PRELUDE);
     for header in HEADERS {
         source.push_str(&format!("\n#include <{header}>"));
@@ -854,9 +856,9 @@ fn scrape_um() -> Summary {
 
     let scope_headers: Vec<&str> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
 
-    // Configure the arch-invariant parse: C++ mode, the SAL capture shim force-included ahead of the
-    // TU, the SDK include dirs, and the reachability scope. The per-arch target/defines are set by
-    // `scrape`.
+    // Configure the arch-invariant parse: C++ mode, the SAL capture shim force-included ahead of
+    // the TU, the SDK include dirs, and the reachability scope. The per-arch target/defines are
+    // set by `scrape`.
     let mut clang = clang();
     clang
         .args(CLANG_ARGS)
@@ -924,7 +926,7 @@ fn sdk_include_dirs() -> Vec<String> {
         .collect()
 }
 
-/// The pinned SDK x64 import-library directories. The function → DLL mapping recorded by
+/// The pinned SDK x64 import-library directories. The function -> DLL mapping recorded by
 /// an import lib is arch-invariant (the DLL that exports a symbol is the same on every
 /// arch), so the x64 libs serve the canonical metadata and every additional arch scrape.
 fn sdk_lib_dirs() -> Vec<String> {

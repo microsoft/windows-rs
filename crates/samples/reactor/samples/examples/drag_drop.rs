@@ -38,24 +38,19 @@ fn app(cx: &mut RenderCx) -> Element {
     .horizontal_alignment(HorizontalAlignment::Stretch)
     .vertical_alignment(VerticalAlignment::Stretch)
     .margin(Thickness::uniform(40.0))
-    // 1. Enables drag-and-drop on the target element.
     .allow_drop(true)
-    // 2a. Fires once when the drag enters the target. Inspect and accept or reject.
     .drag_enter({
         let set_hover = set_hover.clone();
         move |ctx| accept(ctx, &set_hover)
     })
-    // 2b. Fires once when the drag leaves the target. Clear all hover feedback.
     .drag_leave({
         let set_hover = set_hover.clone();
         move |_ctx| set_hover.call(HoverKind::None)
     })
-    // 3. Fires continuously while hovering (including modifier-key changes). Re-run accept logic.
     .drag_over({
         let set_hover = set_hover.clone();
         move |ctx| accept(ctx, &set_hover)
     })
-    // 4. Fires once on release. Read the dropped data and update state.
     .drag_drop({
         move |ctx| {
             set_hover.call(HoverKind::None);

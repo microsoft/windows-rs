@@ -1,9 +1,3 @@
-//! Klondike Solitaire.
-//!
-//! Click any face-up card to auto-move it to its best destination (foundation
-//! first, then tableau). Click the stock to draw; click the recycle icon to
-//! flip the waste back. Only Kings may fill empty tableau columns.
-
 use windows_reactor::*;
 
 const PILES: usize = 7;
@@ -40,7 +34,7 @@ impl Suit {
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 struct Card {
-    rank: u8, // 1=A, 11=J, 12=Q, 13=K
+    rank: u8,
     suit: Suit,
 }
 
@@ -78,14 +72,14 @@ enum Click {
     Stock,
     Waste,
     Foundation(usize),
-    Tableau(usize, usize), // (pile, card_index)
+    Tableau(usize, usize),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 enum Source {
     Waste,
     Foundation(usize),
-    Tableau(usize, usize), // (pile, first_card_index)
+    Tableau(usize, usize),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -109,10 +103,10 @@ enum FailedMove {
 #[derive(Clone, PartialEq, Eq, Debug)]
 struct Game {
     tableau: Vec<Vec<Card>>,
-    face_up: Vec<usize>,         // cards at indices >= face_up[p] are face-up
-    foundations: Vec<Vec<Card>>, // indexed by Suit, builds A→K
-    stock: Vec<Card>,            // last = next to draw
-    waste: Vec<Card>,            // last = top
+    face_up: Vec<usize>,
+    foundations: Vec<Vec<Card>>,
+    stock: Vec<Card>,
+    waste: Vec<Card>,
     last_move: Option<LastMove>,
     failed_move: Option<FailedMove>,
     moves: u32,
@@ -131,9 +125,6 @@ impl Game {
         }
         let face_up: Vec<usize> = tableau.iter().map(|p| p.len() - 1).collect();
 
-        // Ace rescue: swap any face-down Ace in the tableau with a non-Ace
-        // from the stock so Aces are always reachable. This significantly
-        // improves the odds of a winnable deal without removing all challenge.
         #[allow(clippy::needless_range_loop)]
         for p in 0..PILES {
             for i in 0..face_up[p] {
@@ -197,7 +188,6 @@ fn can_place_on_foundation(moving: Card, foundation: &[Card], f_idx: usize) -> b
     }
 }
 
-/// Returns the card(s) that `src` would move (a single card, or a tableau run).
 fn moving_cards(game: &Game, src: Source) -> Option<Vec<Card>> {
     match src {
         Source::Waste => game.waste.last().map(|c| vec![*c]),
@@ -215,7 +205,6 @@ fn moving_cards(game: &Game, src: Source) -> Option<Vec<Card>> {
     }
 }
 
-/// Apply `src` → `dst`. Returns `None` if the move is illegal.
 fn try_apply(game: &Game, src: Source, dst: Dest) -> Option<Game> {
     let cards = moving_cards(game, src)?;
     if cards.is_empty() {
@@ -291,8 +280,6 @@ fn draw_stock(game: &Game) -> Game {
     next
 }
 
-/// Auto-move: try foundation first (single card), then the tableau pile with
-/// the most face-down cards (productive move), then an empty pile (Kings only).
 fn auto_move(game: &Game, src: Source) -> Option<Game> {
     let cards = moving_cards(game, src)?;
     if cards.is_empty() {
@@ -346,7 +333,6 @@ fn auto_move(game: &Game, src: Source) -> Option<Game> {
     None
 }
 
-/// Interpret a click and return the new game state.
 fn handle_click(game: &Game, click: Click) -> Game {
     match click {
         Click::Stock => {
@@ -400,7 +386,6 @@ fn handle_click(game: &Game, click: Click) -> Game {
     }
 }
 
-/// Deterministic LCG PRNG.
 struct Lcg {
     state: u64,
 }
@@ -418,8 +403,6 @@ impl Lcg {
         self.state
     }
 }
-
-// UI
 
 const CARD_W: f64 = 56.0;
 const CARD_H: f64 = 80.0;
@@ -513,7 +496,6 @@ fn build_board(game: &Game, click: impl Fn(Click) + Clone + 'static) -> Element 
     for f in 0..FOUNDATIONS {
         children.push(foundation_view(game, f, click.clone()));
     }
-    // Stable-keyed nested Canvas per pile isolates card add/remove diffs.
     for p in 0..PILES {
         children.push(tableau_pile_view(game, p, click.clone()));
     }
@@ -525,8 +507,6 @@ fn build_board(game: &Game, click: impl Fn(Click) + Clone + 'static) -> Element 
         .horizontal_alignment(HorizontalAlignment::Center)
         .into()
 }
-
-// ---- top row ----------------------------------------------------------------
 
 fn stock_view(game: &Game, click: impl Fn(Click) + 'static) -> Element {
     let x = pile_x(0);
@@ -616,8 +596,6 @@ fn foundation_view(game: &Game, f: usize, click: impl Fn(Click) + 'static) -> El
     }
 }
 
-// ---- tableau ----------------------------------------------------------------
-
 fn tableau_pile_view(game: &Game, p: usize, click: impl Fn(Click) + Clone + 'static) -> Element {
     let pile = &game.tableau[p];
     let x = pile_x(p);
@@ -671,8 +649,6 @@ fn tableau_pile_view(game: &Game, p: usize, click: impl Fn(Click) + Clone + 'sta
         .canvas_top(TABLEAU_Y)
         .into()
 }
-
-// ---- card visuals -----------------------------------------------------------
 
 fn card_face(
     card: Card,

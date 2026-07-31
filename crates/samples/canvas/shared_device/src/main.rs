@@ -1,17 +1,3 @@
-//! One shared `GpuDevice` backing many on-demand surfaces.
-//!
-//! A real data-dense app (an icon cache, a wall of small charts) needs *many*
-//! independent drawing surfaces, but creating a Direct3D/Direct2D device per
-//! surface is wasteful. `windows-canvas` is built for this: create one
-//! [`GpuDevice`] and share it — `GpuDevice` is [`Clone`], and every surface
-//! (here a grid of [`CanvasImageSource`]) is created from that single device.
-//!
-//! Each tile is an on-demand `SurfaceImageSource`: it is drawn once and then
-//! only redrawn when something changes (here, the DPI scale), so a grid of them
-//! costs one device and no continuous render loop. This is the structure the
-//! shipping Task Manager uses for its per-process icons — all on one device,
-//! with no dependency on the raw `windows` crate.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
@@ -20,19 +6,15 @@ use windows_reactor::*;
 const COLS: usize = 4;
 const ROWS: usize = 3;
 const TILES: usize = COLS * ROWS;
-/// Tile size in device-independent pixels; also the displayed size.
 const TILE: f32 = 132.0;
 
 fn app(cx: &mut RenderCx) -> Element {
-    // The one device shared by every tile.
     let device = cx.use_ref::<Option<GpuDevice>>(None);
     let surfaces = cx.use_ref::<Vec<CanvasImageSource>>(Vec::new());
     let (images, set_images) = cx.use_state::<Vec<ImageSource>>(Vec::new());
     let (scale, set_scale) = cx.use_state(1.0_f64);
     let scale_sub = cx.use_ref::<Option<windows_core::EventRevoker>>(None);
 
-    // Build every surface on the shared device, redrawing when the display scale
-    // changes so the whole grid stays crisp across monitor moves.
     let scale_sub_effect = scale_sub.clone();
     cx.use_effect((scale,), move || {
         let stale = surfaces
@@ -56,7 +38,6 @@ fn app(cx: &mut RenderCx) -> Element {
                 let mut sources = Vec::new();
                 let mut lost = false;
                 {
-                    // One borrow of the shared device builds all tiles.
                     let device = device.borrow();
                     let device = device.as_ref().unwrap();
                     for i in 0..TILES {
@@ -79,7 +60,6 @@ fn app(cx: &mut RenderCx) -> Element {
                 }
 
                 if lost {
-                    // Drop the shared device and every surface, then rebuild once.
                     device.set(None);
                     surfaces.set(Vec::new());
                     set_images.call(Vec::new());
@@ -108,8 +88,6 @@ fn app(cx: &mut RenderCx) -> Element {
                     .width(TILE as f64)
                     .height(TILE as f64);
                 if r == 0 && c == 0 {
-                    // Track the host DPI scale on one tile; a change rebuilds the
-                    // whole grid at the new resolution.
                     let set_scale = set_scale.clone();
                     let scale_sub = scale_sub.clone();
                     tile = tile.on_mounted(move |handle| {
@@ -139,13 +117,11 @@ fn app(cx: &mut RenderCx) -> Element {
     .into()
 }
 
-/// A distinct background color per tile.
 fn background(i: usize) -> ColorF {
     let t = i as f32 / TILES as f32;
     ColorF::new(0.12 + 0.10 * t, 0.14, 0.30 - 0.12 * t, 1.0)
 }
 
-/// Draw distinct content per tile, in surface-local coordinates.
 fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
     let center = Vector2::new(TILE / 2.0, TILE / 2.0);
     let radius = TILE * 0.28;

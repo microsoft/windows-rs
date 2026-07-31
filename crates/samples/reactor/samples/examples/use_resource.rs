@@ -1,5 +1,3 @@
-//! Sample for the `cx.use_resource` hook.
-
 use std::thread;
 use std::time::Duration;
 

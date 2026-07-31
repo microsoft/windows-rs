@@ -1,18 +1,10 @@
-//! Standalone composition sample — hosts a `Windows.UI.Composition` visual tree
-//! in a plain Win32 window (via `windows-window`), with no WinUI / Windows App
-//! SDK dependency.
-
 #![windows_subsystem = "windows"]
 
 use windows_composition::*;
 use windows_window::*;
 
 fn main() -> Result<()> {
-    // A dispatcher queue must exist on the thread before creating a compositor.
-    // It is declared first so that it (and the compositor) outlive every
-    // composition object and the window — they must be dropped last, otherwise
-    // the composition engine is torn down while visuals are still being released
-    // and the process crashes on exit.
+    // Declare these first so they outlive every composition object.
     let _queue = DispatcherQueueController::create_on_current_thread()?;
     let compositor = Compositor::new()?;
 
@@ -20,12 +12,10 @@ fn main() -> Result<()> {
         .size(800, 600)
         .create()?;
 
-    // Host a visual tree in the window.
     let target = compositor.create_desktop_window_target(&window, false)?;
     let root = compositor.create_container_visual();
     target.set_root(&root);
 
-    // A background that fills the window.
     let (width, height) = window.client_size();
     let background = compositor.create_sprite_visual();
     background.set_size(width as f32, height as f32);
@@ -33,7 +23,6 @@ fn main() -> Result<()> {
     background.set_brush(&background_brush);
     root.children().insert_at_top(&background);
 
-    // A row of colored squares on top.
     let colors = [
         Color::rgb(0, 120, 215),
         Color::rgb(216, 59, 1),

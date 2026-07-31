@@ -4,11 +4,6 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
-# This crate exists solely to compile-verify the code samples in `docs/crates/*.md`
-# as rustdoc doctests. Each crate page is included as documentation below, so
-# `cargo test --doc -p test_docs` typechecks every non-`ignore` sample against
-# the real crate APIs.
-
 [dependencies.windows-animation]
 workspace = true
 

@@ -1,6 +1,7 @@
 #![cfg(windows)]
-// This test validates that free functions are not affected by the Visual C++ quirk affecting member functions
-// returning structs where the return value is effectively a trailing out parameter.
+// This test validates that free functions are not affected by the Visual C++ quirk affecting
+// member functions
+// returning structs where the return value is modeled as a trailing out parameter.
 #[test]
 fn test() {
     use windows::Win32::*;

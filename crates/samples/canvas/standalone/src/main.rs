@@ -1,8 +1,3 @@
-//! Standalone canvas sample — no windows-reactor dependency.
-//!
-//! Demonstrates `windows-canvas` with a plain Win32 window provided by
-//! `windows-window`, driving a continuous render loop.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

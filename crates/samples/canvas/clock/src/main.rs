@@ -1,7 +1,3 @@
-//! Analog clock with drop shadow rendered with `windows-canvas`.
-//!
-//! Compare with `crates/samples/windows/direct2d/src/main.rs`.
-
 #![windows_subsystem = "windows"]
 
 use std::time::Instant;
@@ -114,7 +110,6 @@ fn draw_clock(
     let radius = ctx.width.min(ctx.height).max(200.0) / 2.0 - 50.0;
     let translation = Matrix3x2::translation(ctx.width / 2.0, ctx.height / 2.0);
 
-    // Clock face.
     ctx.with_transform(&translation, || {
         ctx.draw_ellipse(
             &Ellipse::circle(Vector2::zero(), radius),
@@ -141,7 +136,6 @@ fn draw_clock(
         hour *= swing;
     }
 
-    // Second hand.
     ctx.with_transform(&(Matrix3x2::rotation(second) * translation), || {
         ctx.draw_line_styled(
             Vector2::zero(),
@@ -152,7 +146,6 @@ fn draw_clock(
         );
     });
 
-    // Minute hand.
     ctx.with_transform(&(Matrix3x2::rotation(minute) * translation), || {
         ctx.draw_line_styled(
             Vector2::zero(),
@@ -163,7 +156,6 @@ fn draw_clock(
         );
     });
 
-    // Hour hand.
     ctx.with_transform(&(Matrix3x2::rotation(hour) * translation), || {
         ctx.draw_line_styled(
             Vector2::zero(),

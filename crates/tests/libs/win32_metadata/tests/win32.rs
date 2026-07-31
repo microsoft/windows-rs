@@ -8,7 +8,7 @@
 //! surface growth honest: if a scrape change produces metadata that no longer
 //! lowers to compilable bindings, this fails on the regenerated golden.
 //!
-//! The slice is deliberately narrow. The full closure contains ~4.5k functions
+//! The slice is narrow. The full closure contains ~4.5k functions
 //! whose exporting `.lib` is not in the dev `import-libs` set; those get an empty
 //! `link!("")` (`E0454`) by design, so a whole-namespace filter would not
 //! compile. The names below are chosen to (a) resolve to a real DLL the dev
@@ -23,7 +23,7 @@ fn slice() {
     let rdl_dir = format!("{manifest}/../../../../metadata/win32");
     let seed = format!("{manifest}/../../../../metadata/metadata.rdl");
     // The RDL carries cross-winmd references (WinRT interop APIs name true `Windows.*` types),
-    // so `Windows.winmd` is supplied as a resolution reference — exactly as the scrape does via its
+    // so `Windows.winmd` is supplied as a resolution reference - exactly as the scrape does via its
     // `RESOLUTION_WINMDS`.
     let winrt = format!("{manifest}/../../../../crates/libs/bindgen/default/Windows.winmd");
     let scratch = format!("{}/win32", env!("OUT_DIR"));
@@ -57,16 +57,16 @@ fn slice() {
 /// listed `import-libs`) and the structs/typedefs/callbacks cover the converter
 /// edges most prone to regression.
 const FILTER: &[&str] = &[
-    // Forced over-alignment (`__declspec(align(16))`) — must keep `#[repr(align(16))]`.
+    // Forced over-alignment (`__declspec(align(16))`) - must keep `#[repr(align(16))]`.
     "M128A",
     // CONTEXT (#3761): x64 inherits align 16 from its M128A members; layout must be
     // 1232 bytes / align 16. Asserted in lib.rs.
     "CONTEXT",
     // `#[repr(C, packed(1))]` transitively containing the 8-aligned `STRRET`
-    // union — a regression here (spurious `#[align]` on `STRRET`) makes Rust
+    // union - a regression here (spurious `#[align]` on `STRRET`) makes Rust
     // reject the packed parent (`E0588`).
     "SHELLDETAILS",
-    // `typedef void` — must lower to `core::ffi::c_void`, not a by-value struct.
+    // `typedef void` - must lower to `core::ffi::c_void`, not a by-value struct.
     "MENUTEMPLATEA",
     // A callback/function-pointer typedef embedded in a struct field
     // (`WNDCLASSEXA::lpfnWndProc: WNDPROC`) alongside a wide spread of opaque
@@ -75,7 +75,7 @@ const FILTER: &[&str] = &[
     // A nested struct (`MSG` embeds `POINT`) reached as an out-pointer param.
     "MSG",
     // `gdi32` functions: exercise `link!` lowering and opaque handle params
-    // (`HDC`/`HGDIOBJ`/`HBITMAP` → `*mut c_void`).
+    // (`HDC`/`HGDIOBJ`/`HBITMAP` -> `*mut c_void`).
     "BitBlt",
     "CreateCompatibleBitmap",
     "CreateCompatibleDC",
@@ -92,7 +92,7 @@ const FILTER: &[&str] = &[
     "GetMessageA",
     // Nested handle-cast `#define` constants (`parse_nested_cast`): a pointer
     // typedef'd const whose value is the innermost signed scalar reinterpretation
-    // — must render as `<signed int> as _` so the pointer sign-extends.
+    // - must render as `<signed int> as _` so the pointer sign-extends.
     "HKEY_LOCAL_MACHINE",
     "INVALID_HANDLE_VALUE",
     // A `DEFINE_GUID` named GUID constant (`parse_define_guid_tokens`): the value

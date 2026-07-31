@@ -1,18 +1,3 @@
-//! Interactive shape editor composing reactor pointer events with
-//! `windows-canvas` geometry queries.
-//!
-//! - Click an empty spot to drop a shape of the current tool kind.
-//! - Click a shape to select it, then drag to move it.
-//! - Right-click a shape to delete it.
-//! - The toolbar picks the shape kind or clears the canvas.
-//!
-//! Selection hit-tests against each shape's filled polygon via
-//! `Path::fill_contains_point`, not its bounding box. Pointer coordinates and the
-//! surface are both in DIPs, so positions feed straight into the geometry queries.
-//!
-//! The model lives in one `use_ref`, so pointer handlers mutate it in place with
-//! no reconcile; each then calls `Invalidator::invalidate` to repaint on demand.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
@@ -40,8 +25,6 @@ struct Shape {
     x: f32,
     y: f32,
     color: ColorF,
-    // Geometry cached in absolute coordinates, used for drawing and
-    // `fill_contains_point`. Rebuilt when the shape moves or the device is lost.
     path: Option<Path>,
     built_at: Option<(f32, f32)>,
 }
@@ -78,7 +61,6 @@ impl Model {
         }
     }
 
-    // Topmost shape whose filled geometry contains the point, if any.
     fn hit(&self, x: f32, y: f32) -> Option<usize> {
         self.shapes
             .iter()
@@ -209,7 +191,6 @@ fn tool_button(model: &HookRef<Model>, inv: &Invalidator, kind: Kind) -> Button 
 fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) -> Result<()> {
     ctx.clear(ColorF::new(0.11, 0.12, 0.16, 1.0));
 
-    // Faint grid lines for a map-like backdrop.
     let grid_brush = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.06))?;
     let step = 40.0;
     let mut gx = step;

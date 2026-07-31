@@ -1,6 +1,3 @@
-//! The navigation lifecycle plus window, new-window, permission, and
-//! process-failed events.
-
 use webview_samples::*;
 
 fn main() -> Result<()> {

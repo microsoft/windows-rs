@@ -1,8 +1,5 @@
-//! Sample for function components via `component(f, props)`.
-
 use windows_reactor::*;
 
-/// A function component — no struct needed.
 fn counter(_: &(), cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
 
@@ -18,7 +15,6 @@ fn counter(_: &(), cx: &mut RenderCx) -> Element {
     .into()
 }
 
-/// A function component with typed props.
 #[derive(Clone, PartialEq)]
 struct GreetingProps {
     name: String,
@@ -31,7 +27,6 @@ fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> Element {
         .into()
 }
 
-/// Root component that composes both function components.
 fn app(cx: &mut RenderCx) -> Element {
     let (name, set_name) = cx.use_state(String::from("world"));
 

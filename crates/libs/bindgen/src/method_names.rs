@@ -9,12 +9,12 @@ pub fn method_overload_name(row: MethodDef) -> Option<String> {
     let name = row.name();
     for (_, arg) in attribute.value() {
         if let Value::Utf8(overload) = arg {
-            if let Some(suffix) = overload.strip_prefix(name) {
-                if suffix.parse::<u32>().is_ok() {
-                    // Generated `Name2`/`Name3` overload - not a real
-                    // rename, so no disambiguated handle to filter on.
-                    return None;
-                }
+            if let Some(suffix) = overload.strip_prefix(name)
+                && suffix.parse::<u32>().is_ok()
+            {
+                // Generated `Name2`/`Name3` overload - not a real
+                // rename, so no disambiguated handle to filter on.
+                return None;
             }
             if overload == name {
                 return None;
@@ -68,10 +68,10 @@ fn method_def_special_name(row: MethodDef) -> String {
             for (_, arg) in attribute.value() {
                 if let Value::Utf8(overload) = arg {
                     // Detect generated overload and revert back to original name.
-                    if let Some(suffix) = overload.strip_prefix(name) {
-                        if suffix.parse::<u32>().is_ok() {
-                            return name.to_string();
-                        }
+                    if let Some(suffix) = overload.strip_prefix(name)
+                        && suffix.parse::<u32>().is_ok()
+                    {
+                        return name.to_string();
                     }
 
                     return overload;

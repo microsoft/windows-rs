@@ -1,5 +1,3 @@
-//! Adding a cookie and enumerating cookies with the cookie manager.
-
 use webview_samples::*;
 
 fn main() -> Result<()> {

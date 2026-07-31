@@ -19,10 +19,6 @@ windows-strings = { workspace = true }
 [features]
 default = ["std", "proc-macros"]
 std = ["windows-result/std", "windows-strings/std"]
-# Re-exports the `#[implement]` and `#[interface]` proc-macro attributes.
-# Disable to drop the `syn`, `quote`, and `proc-macro2` build-time dependencies.
-# Bindgen-generated bindings do not require this feature; only hand-written
-# uses of `#[implement]` / `#[interface]` do.
 proc-macros = ["dep:windows-implement", "dep:windows-interface"]
 
 [lints]

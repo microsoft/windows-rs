@@ -1,5 +1,3 @@
-//! Sample for the `cx.use_effect` hook.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
@@ -28,7 +26,6 @@ fn app(cx: &mut RenderCx) -> Element {
         hstack((
             button("-").on_click(dec),
             button("+").on_click(inc),
-            // Rerenders without changing effect deps.
             button("toggle unrelated state").on_click(toggle),
         ))
         .spacing(8.0),

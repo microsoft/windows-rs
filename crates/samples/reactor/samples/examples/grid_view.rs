@@ -1,5 +1,3 @@
-//! Sample for the `grid_view` templated list with drag-and-drop reordering.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

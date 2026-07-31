@@ -1,18 +1,8 @@
-//! Hosts Direct2D content inside a reactor UI via `SwapChainPanel`, with WinUI
-//! buttons to add/remove animated circles. Direct2D rendering runs on a
-//! dedicated worker thread that presents into a composition swap chain.
-//!
-//! The D3D/D2D device is not created here; it is the app-wide shared `Device`
-//! taken from the `Gpu` context and handed to the worker thread as an owned
-//! `SharedDevice` snapshot.
-
 use crate::device::{Device, Gpu, gpu_context};
 use render::{RenderThread, SendSwap};
 use std::rc::Rc;
 use windows_reactor::*;
 
-/// Direct2D rendering, isolated on a dedicated worker thread. Only the handle
-/// to that thread and the swap chain it hands back are visible to the UI.
 mod render {
     use std::sync::mpsc::{Receiver, Sender, TryRecvError, channel};
     use std::thread::{self, JoinHandle};
@@ -30,50 +20,35 @@ mod render {
         frame: u64,
     }
 
-    /// Messages sent from the UI thread to the render thread.
     enum RenderCommand {
         SetCircleCount(u32),
         Resize(u32, u32),
         Shutdown,
     }
 
-    /// Result of presenting a frame. `Idle` means no frame was presented (the
-    /// surface was occluded or had zero size), so the caller should throttle.
     enum FrameStatus {
         Presented,
         Idle,
     }
 
-    /// Wraps `IDXGISwapChain1` so it can be handed back to the UI thread. Sound
-    /// because swap chains are agile and only the render thread presents/resizes
-    /// this one.
     #[derive(Clone, PartialEq)]
     pub struct SendSwap(IDXGISwapChain1);
 
     impl SendSwap {
-        /// The swap chain, for attaching to the UI-thread presentation surface.
         pub fn swap_chain(&self) -> &IDXGISwapChain1 {
             &self.0
         }
     }
 
-    // SAFETY: DXGI swap chains are agile COM objects. This one is only ever
-    // presented and resized on the render thread; the UI thread merely reads the
-    // pointer to attach it to its `SwapChainPanel` surface.
+    // SAFETY: swap chains are agile; only the render thread presents or resizes this one.
     unsafe impl Send for SendSwap {}
 
-    /// Owns the render thread and the channel to it. Dropping it stops and joins
-    /// the thread.
     pub struct RenderThread {
         commands: Sender<RenderCommand>,
         worker: Option<JoinHandle<()>>,
     }
 
     impl RenderThread {
-        /// Spawn the render thread, rendering with the shared `device`.
-        /// `on_swap_chain` runs once the swap chain is created, so the caller can
-        /// attach it. `on_device_lost` runs if rendering fails from device loss,
-        /// after which the worker exits.
         pub fn new(
             device: SharedDevice,
             initial_count: u32,
@@ -95,32 +70,23 @@ mod render {
             }
         }
 
-        /// Send a command to the render thread. No-op if it has already shut down.
         fn send(&self, command: RenderCommand) {
             let _ = self.commands.send(command);
         }
 
-        /// Set the number of circles to animate.
         pub fn set_circle_count(&self, count: u32) {
             self.send(RenderCommand::SetCircleCount(count));
         }
 
-        /// Resize the render surface.
         pub fn resize(&self, width: u32, height: u32) {
             self.send(RenderCommand::Resize(width, height));
         }
     }
 
     impl Drop for RenderThread {
-        /// Stop and join the worker so it has released its device and swap-chain
-        /// references before we return. Joining prevents an orphaned worker from
-        /// racing a freshly spawned one when the sample is switched away and back.
-        ///
-        /// Safe on the UI thread: the worker only blocks in `Present(1)`, which
-        /// returns at vblank regardless of the message pump, so it promptly sees
-        /// `Shutdown`.
         fn drop(&mut self) {
             self.send(RenderCommand::Shutdown);
+            // Join before releasing the worker's device and swap-chain references.
             if let Some(worker) = self.worker.take() {
                 let _ = worker.join();
             }
@@ -159,7 +125,6 @@ mod render {
     }
 
     fn create_d2d_state(device: &SharedDevice, width: u32, height: u32) -> Result<D2DState> {
-        // Per-thread device context from the shared D2D device.
         let target = unsafe {
             device
                 .d2d_device()
@@ -181,8 +146,6 @@ mod render {
             ..Default::default()
         };
 
-        // Swap-chain creation and the initial bitmap binding are D3D/DXGI interop
-        // on the shared device.
         let swap_chain = unsafe {
             device
                 .dxgi_factory()
@@ -226,8 +189,6 @@ mod render {
     fn render_frame(state: &mut D2DState, count: u32, size: (u32, u32)) -> Result<FrameStatus> {
         let (w, h) = size;
 
-        // While minimized or before the first layout the size can be (0, 0);
-        // there is nothing to draw, so report it so the caller can idle.
         if w == 0 || h == 0 {
             return Ok(FrameStatus::Idle);
         }
@@ -272,12 +233,8 @@ mod render {
 
             state.target.EndDraw(None, None).ok()?;
 
-            // `Present(1)` blocks until vblank to pace the loop. DXGI_STATUS_OCCLUDED
-            // is a success status, so inspect the raw `HRESULT` before `.ok()` would
-            // discard it. Non-WinRT methods that have no logical return value project
-            // as `-> HRESULT` (not `Result<()>`), so the success code is preserved
-            // here without dropping to the raw vtable.
             let present = state.swap_chain.Present(1, 0);
+            // DXGI_STATUS_OCCLUDED is successful, so inspect it before present.ok().
             if present == DXGI_STATUS_OCCLUDED {
                 return Ok(FrameStatus::Idle);
             }
@@ -287,9 +244,6 @@ mod render {
         Ok(FrameStatus::Presented)
     }
 
-    /// Render-thread entry point: drives the animation loop on the shared
-    /// `device`, draining commands. `on_swap_chain` runs once after the swap
-    /// chain is created.
     fn render_loop(
         rx: Receiver<RenderCommand>,
         device: SharedDevice,
@@ -301,11 +255,9 @@ mod render {
         let mut count = initial_count;
         let mut state = create_d2d_state(&device, size.0, size.1)?;
 
-        // Hand the swap chain back to the caller to attach it to its surface.
         on_swap_chain(SendSwap(state.swap_chain.clone()));
 
         loop {
-            // Drain all pending commands without blocking.
             loop {
                 match rx.try_recv() {
                     Ok(RenderCommand::SetCircleCount(c)) => count = c,
@@ -320,9 +272,6 @@ mod render {
                 }
             }
 
-            // `Present(1)` normally blocks to pace the loop at the refresh rate.
-            // When no frame is presented (zero size or occluded) it returns
-            // immediately, so idle briefly to avoid a busy loop.
             if let FrameStatus::Idle = render_frame(&mut state, count, size)? {
                 thread::sleep(Duration::from_millis(100));
             }
@@ -330,9 +279,6 @@ mod render {
     }
 }
 
-/// Hosts the Direct2D render worker behind a `SwapChainPanel`: (re)spawns it for
-/// the shared device, attaches the swap chain it produces, pushes circle-count
-/// changes, and routes device loss back to the root for recovery.
 #[derive(Clone)]
 struct RenderHost {
     panel: HookRef<Option<SwapChainPanelHandle>>,
@@ -342,17 +288,13 @@ struct RenderHost {
 }
 
 impl RenderHost {
-    /// Store the panel handle and start the worker once the panel mounts.
     fn mount(&self, handle: SwapChainPanelHandle) {
         self.panel.set(Some(handle));
         (self.try_start)();
     }
 
-    /// Stop and join the worker while the panel and its swap chain still exist,
-    /// so it never presents into a destroyed panel.
     fn unmount(&self) {
-        // Release the borrow before the worker is dropped, so the join does not
-        // run while the ref is held.
+        // Release the RefMut before RenderThread::drop joins the worker.
         let thread = self.render_thread.borrow_mut().take();
         drop(thread);
     }
@@ -365,20 +307,13 @@ impl RenderHost {
     }
 }
 
-/// Drive the render worker for the shared device, returning a [`RenderHost`] to
-/// wire into the `SwapChainPanel`'s lifecycle callbacks.
 fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHost {
     let device = gpu.as_ref().and_then(Gpu::device);
     let panel = cx.use_ref::<Option<SwapChainPanelHandle>>(None);
     let panel_size = cx.use_ref::<(u32, u32)>((400, 300));
     let (swap_chain, set_swap_chain) = cx.use_async_state::<Option<SendSwap>>(None);
     let render_thread = cx.use_ref::<Option<RenderThread>>(None);
-    // Which device the live worker was started with, to avoid respawning it for
-    // the same device.
     let started_for = cx.use_ref::<Option<Device>>(None);
-    // Token marshalled back from the worker on device loss. A fresh token per
-    // worker means a new loss always changes the value, firing the recovery
-    // effect below.
     let (lost_token, set_lost_token) = cx.use_async_state::<u64>(0);
     let next_token = cx.use_ref::<u64>(0);
 
@@ -415,7 +350,6 @@ fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHos
         })
     };
 
-    // Attach the swap chain to the panel once the worker reports it.
     cx.use_effect(swap_chain.clone(), {
         let panel = panel.clone();
         move || {
@@ -428,14 +362,11 @@ fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHos
         }
     });
 
-    // (Re)start the worker when the shared device appears or changes.
     cx.use_effect(device, {
         let try_start = try_start.clone();
         move || try_start()
     });
 
-    // On device loss the worker marshals a token here; ask the root to recreate
-    // the device. Token 0 means nothing was lost.
     cx.use_effect(lost_token, move || {
         if lost_token != 0
             && let Some(gpu) = gpu.as_ref()
@@ -444,7 +375,6 @@ fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHos
         }
     });
 
-    // Push circle-count changes to the worker.
     cx.use_effect(count, {
         let render_thread = render_thread.clone();
         move || {
@@ -462,8 +392,6 @@ fn use_render_host(cx: &mut RenderCx, gpu: Option<Gpu>, count: u32) -> RenderHos
     }
 }
 
-/// Sample page: animated Direct2D circles presented through a `SwapChainPanel`,
-/// with buttons to add or remove circles.
 pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
     let (count, set_count) = cx.use_state(5_u32);
     let gpu = cx.use_context(&gpu_context());

@@ -1,5 +1,3 @@
-//! Text rendering with `TextFormat` and `draw_text`.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

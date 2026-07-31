@@ -1,5 +1,3 @@
-//! Sample for the `SplitView` element.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
@@ -13,7 +11,6 @@ fn app(cx: &mut RenderCx) -> Element {
     let on_closed = move || set_open.call(false);
 
     split_view(
-        // Content area
         vstack((
             text_block(format!("Pane is {}", if open { "open" } else { "closed" })),
             button("Toggle Pane").on_click(toggle),

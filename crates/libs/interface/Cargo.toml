@@ -2,7 +2,7 @@
 name = "windows-interface"
 version = "0.59.3"
 edition = "2024"
-rust-version = "1.85"
+rust-version = "1.95"
 license = "MIT OR Apache-2.0"
 description = "The interface macro for the Windows crates"
 repository = "https://github.com/microsoft/windows-rs"

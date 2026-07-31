@@ -69,7 +69,6 @@ set_backdrop(None); // remove backdrop"#,
                 r#"// At app level:
 App::new(root).backdrop(Backdrop::Mica).run()
 
-// Runtime switching:
 set_backdrop(Some(Backdrop::Acrylic));"#,
             ),
         ],

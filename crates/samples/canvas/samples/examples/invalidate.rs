@@ -1,9 +1,3 @@
-//! Demand-driven drawing with explicit invalidation.
-//!
-//! Click the canvas to drop a point; each click links the points with a line and
-//! redraws once. The points live in a `use_ref`, so a click mutates them in place
-//! and calls `Invalidator::invalidate` to repaint - idle between clicks.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

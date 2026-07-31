@@ -1,15 +1,12 @@
 fn main() {
     use windows_sys::{Win32::*, core::*};
 
-    // Sample logs to this file for illustration purposes.
     const LOG_FILE: PCWSTR = w!("D:\\service.txt");
 
-    // The service spawns a thread and calls `service_thread` to do some actual work.
     fn service_thread() {
         for i in 0..10 {
             log(&format!("...{i}\n"));
 
-            // Replace with whatever work the service needs to do.
             std::thread::sleep(std::time::Duration::from_millis(1000));
 
             if stop_request() {
@@ -18,15 +15,11 @@ fn main() {
         }
     }
 
-    // Minimal state required to support the service sample.
     struct State {
-        // Service handle returned by `RegisterServiceCtrlHandlerW` and used to update the service status.
         handle: SERVICE_STATUS_HANDLE,
 
-        // The join handle used to wait for the service thread to stop.
         thread: Option<std::thread::JoinHandle<()>>,
 
-        // The service status and supported service bevavior for `SetServiceStatus`.
         status: SERVICE_STATUS,
     }
 
@@ -108,9 +101,9 @@ fn main() {
         let mut writer = STATE.write().unwrap();
         writer.status.dwCurrentState = state;
 
-        // Makes a copy to avoid holding a lock while calling `SetServiceStatus`.
         let handle = writer.handle;
         let status = writer.status;
+        // Avoid holding the state lock across the service API call.
         drop(writer);
 
         unsafe {
@@ -122,8 +115,6 @@ fn main() {
         let thread = std::thread::spawn(|| {
             service_thread();
 
-            // If the service thread returns without an external request, the service will signal that
-            // it has stopped and cause the process to terminate normally.
             if state() == SERVICE_RUNNING as u32 {
                 set_state(SERVICE_STOPPED as u32);
                 log("service stopped\n");
@@ -147,14 +138,13 @@ fn main() {
     fn join_thread() {
         let mut writer = STATE.write().unwrap();
 
-        // Takes the join handle and drops the lock before calling `join`.
         let thread = writer.thread.take();
+        // The worker reads STATE before exiting, so release the lock before joining.
         drop(writer);
 
         thread.unwrap().join().unwrap();
     }
 
-    // Simply appends the string to the log file.
     fn log(message: &str) {
         unsafe {
             let file = CreateFileW(

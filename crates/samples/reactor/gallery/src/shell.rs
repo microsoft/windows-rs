@@ -136,7 +136,6 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
     let nav_view = NavigationView::new(nav_items, content)
         .selected_tag(&selected_tag)
         .on_selection_changed({
-            // Last uses of set_nav, selected_tag, history — move directly.
             let (set_nav, tag, hist) = (set_nav, selected_tag, history);
             move |new_tag: String| {
                 let effective = if new_tag.is_empty() || new_tag.eq_ignore_ascii_case("settings") {

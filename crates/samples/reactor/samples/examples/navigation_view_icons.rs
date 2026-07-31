@@ -1,5 +1,3 @@
-//! Sample for `NavigationView` items with symbol icons.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

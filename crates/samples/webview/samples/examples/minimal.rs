@@ -1,5 +1,3 @@
-//! The smallest host: create a webview and navigate to a page.
-
 use webview_samples::*;
 
 fn main() -> Result<()> {

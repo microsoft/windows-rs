@@ -1,5 +1,3 @@
-//! Sample for the `Image` element.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {

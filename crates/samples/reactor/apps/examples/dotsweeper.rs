@@ -1,20 +1,9 @@
 #![windows_subsystem = "windows"]
 
-//! `dotsweeper` — a Reactor port of classic Minesweeper.
-//!
-//! Pure game logic (`Board`, `reveal`, `toggle_flag`, `chord`, `new_game`)
-//! lives below in plain Rust. The view wires state to Reactor DSL via
-//! `use_reducer` + a `DispatcherTimer` for the elapsed-seconds counter.
-//!
-//! Input: left-tap reveals/chords, right-tap cycles marks, right-press
-//! on a revealed cell shows chord preview (release commits, drag cancels).
-
 use std::rc::Rc;
 use std::time::Duration;
 
 use windows_reactor::*;
-
-// ─── Difficulty ────────────────────────────────────────────────────────
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 enum DifficultyKind {
@@ -59,8 +48,6 @@ impl Difficulty {
         }
     }
 }
-
-// ─── Cells & board ────────────────────────────────────────────────────
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 enum CellMark {
@@ -158,13 +145,6 @@ impl Board {
     }
 }
 
-// ─── Pure reducer functions ───────────────────────────────────────────
-
-/// Reveal `(row, col)`. On the first reveal of a fresh board, mines are
-/// placed avoiding the click and its 8 neighbors (first-click safety).
-/// Reveals cascade through empty (zero-adjacent) regions. Hitting a mine
-/// transitions to `GamePhase::Lost`; clearing the last safe cell
-/// transitions to `GamePhase::Won`.
 fn reveal(mut board: Board, row: usize, col: usize, rng: &mut Lcg) -> Board {
     if matches!(board.phase, GamePhase::Won | GamePhase::Lost) {
         return board;
@@ -188,7 +168,6 @@ fn reveal(mut board: Board, row: usize, col: usize, rng: &mut Lcg) -> Board {
     cascade_reveal(board, row, col)
 }
 
-/// Cycle the mark on a hidden cell: None → Flag → Question → None.
 fn toggle_flag(mut board: Board, row: usize, col: usize) -> Board {
     if matches!(board.phase, GamePhase::Won | GamePhase::Lost) {
         return board;
@@ -214,9 +193,6 @@ fn toggle_flag(mut board: Board, row: usize, col: usize) -> Board {
     board
 }
 
-/// Chord reveal at a revealed numbered cell: if the count of flagged
-/// neighbors equals the cell's `adjacent_mines`, reveal every
-/// non-flagged neighbor.
 fn chord(mut board: Board, row: usize, col: usize, rng: &mut Lcg) -> Board {
     if board.phase != GamePhase::Playing {
         return board;
@@ -274,14 +250,12 @@ fn place_mines_avoiding(
     let mut candidates: Vec<usize> = (0..total).filter(|&i| !forbidden[i]).collect();
     let picks = board.difficulty.mines.min(candidates.len());
 
-    // Partial Fisher–Yates: shuffle the first `picks` slots.
     for i in 0..picks {
         let j = rng.range(i, candidates.len() - 1);
         candidates.swap(i, j);
     }
 
     let cols = board.cols();
-    // Preserve any pre-first-click marks; only set mine bits and recompute counts.
     let mut cells = board.cells.clone();
     if cells.len() != total {
         cells = vec![BoardCell::EMPTY_HIDDEN; total];
@@ -294,7 +268,6 @@ fn place_mines_avoiding(
         cells[idx].is_mine = true;
     }
 
-    // Adjacency counts.
     for r in 0..board.rows() {
         for c in 0..cols {
             let i = r * cols + c;
@@ -356,7 +329,6 @@ fn cascade_reveal(mut board: Board, start_row: usize, start_col: usize) -> Board
     board.revealed_safe += new_reveals;
     if board.revealed_safe >= board.total_safe_cells() {
         board.phase = GamePhase::Won;
-        // Auto-flag remaining mines so the mines-remaining display reads 0.
         for cell in &mut board.cells {
             if cell.is_mine && cell.mark != CellMark::Flag {
                 cell.mark = CellMark::Flag;
@@ -380,8 +352,6 @@ fn reveal_all_mines(mut board: Board, exploded_row: usize, exploded_col: usize) 
     board
 }
 
-// ─── RNG (LCG; no external crate) ─────────────────────────────────────
-
 #[derive(Clone, Debug)]
 struct Lcg {
     state: u64,
@@ -398,7 +368,6 @@ impl Lcg {
             .wrapping_add(1_442_695_040_888_963_407);
         self.state
     }
-    /// Inclusive range `[lo, hi]`.
     fn range(&mut self, lo: usize, hi: usize) -> usize {
         debug_assert!(hi >= lo);
         let span = (hi - lo + 1) as u64;
@@ -412,19 +381,12 @@ fn fresh_seed() -> u64 {
         .map_or(0xCAFE_BABE_DEAD_BEEF, |d| d.as_nanos() as u64)
 }
 
-/// Golden-ratio-derived constant used to perturb the RNG seed between
-/// games so successive boards don't all share the same mine layout.
 const RNG_SEED_INCREMENT: u64 = 0x9E37_79B9_7F4A_7C15;
-
-// ─── App state + reducer ──────────────────────────────────────────────
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 struct AppState {
     board: Board,
     elapsed_seconds: u32,
-    /// Center cell of an in-flight chord preview, set when the user
-    /// right-presses a revealed numbered cell and cleared on release /
-    /// pointer-exit. Drives the `CoveredPreview` skin on the 8 neighbors.
     chord_preview: Option<(usize, usize)>,
     rng_seed: u64,
 }
@@ -440,14 +402,9 @@ impl AppState {
     }
 }
 
-// ─── Cell visuals ─────────────────────────────────────────────────────
-
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 enum CellSkin {
     Covered,
-    /// Non-flagged covered cell rendered with a flattened, lighter
-    /// background while the user is right-pressing the central revealed
-    /// numbered cell of a chord — see `chord_preview` in `AppState`.
     CoveredPreview,
     Revealed,
     ExplodedMine,
@@ -495,9 +452,6 @@ fn cell_glyph(skin: CellSkin, cell: BoardCell) -> String {
     }
 }
 
-/// Classic-palette number color. Tuned to read against `LayerFill` in
-/// both light and dark themes. `adjacent_mines` is at most 8 on a
-/// standard board; values >= 7 share a neutral light-gray.
 fn number_color(n: u8) -> Color {
     match n {
         1 => Color::rgb(0x42, 0x9B, 0xE6),
@@ -507,7 +461,6 @@ fn number_color(n: u8) -> Color {
         5 => Color::rgb(0xAB, 0x47, 0xBC),
         6 => Color::rgb(0x26, 0xA6, 0xA4),
         7 => Color::rgb(0x9E, 0x9E, 0x9E),
-        // n >= 8 (max possible is 8 on a standard grid).
         _ => Color::rgb(0xBD, 0xBD, 0xBD),
     }
 }
@@ -532,10 +485,6 @@ fn smiley(phase: GamePhase) -> &'static str {
     }
 }
 
-// ─── View helpers ─────────────────────────────────────────────────────
-
-/// Per-cell input handlers, passed down so the cell view can wire the
-/// pointer events without owning the reducer.
 #[derive(Clone)]
 struct CellHandlers {
     on_reveal: Rc<dyn Fn(usize, usize)>,
@@ -586,7 +535,6 @@ fn build_cell(
     let chordable_here = cell.is_revealed && cell.adjacent_mines > 0;
     let covered_here = !cell.is_revealed && cell.mark != CellMark::Flag;
 
-    // Press: right-press on a revealed number → begin chord preview.
     let pp_handler = {
         let begin = handlers.on_begin_chord_preview.clone();
         move |info: PointerEventInfo| {
@@ -599,7 +547,6 @@ fn build_cell(
         }
     };
 
-    // Release: commit chord only when right button is actually released.
     let pr_handler = {
         let end = handlers.on_end_chord_preview.clone();
         move |info: PointerEventInfo| {
@@ -612,13 +559,11 @@ fn build_cell(
         }
     };
 
-    // Exit: pointer leaves the cell while a preview is in flight → cancel.
     let pe_handler = {
         let end = handlers.on_end_chord_preview.clone();
         move || end(false)
     };
 
-    // Left-tap: chord shortcut on revealed numbers, otherwise reveal.
     let tap_handler = {
         let reveal_cb = handlers.on_reveal.clone();
         let chord_cb = handlers.on_chord.clone();
@@ -634,7 +579,6 @@ fn build_cell(
         }
     };
 
-    // Right-tap: flag toggle on covered cells (swallow if chord just resolved).
     let rtap_handler = {
         let flag_cb = handlers.on_flag.clone();
         move || {
@@ -699,8 +643,6 @@ fn build_board(
         .into()
 }
 
-/// Red-on-black three-digit LED-style display. Negative values render as
-/// `-NN` (sign + 2 digits) to fit in the 3-character slot.
 fn led_display(value: i32) -> Element {
     let clamped = value.clamp(-99, 999);
     let text = if clamped < 0 {
@@ -735,12 +677,9 @@ fn status_subtitle(state: &AppState) -> String {
     }
 }
 
-// ─── The component ────────────────────────────────────────────────────
-
 fn app(cx: &mut RenderCx) -> Element {
     let (state, update) = cx.use_reducer(AppState::initial(Difficulty::BEGINNER, fresh_seed()));
 
-    // Left-tap on a covered cell → reveal.
     let on_reveal: Rc<dyn Fn(usize, usize)> = {
         let u = update.clone();
         Rc::new(move |r: usize, c: usize| {
@@ -754,7 +693,6 @@ fn app(cx: &mut RenderCx) -> Element {
         })
     };
 
-    // Right-tap on a covered cell → cycle the flag/question mark.
     let on_flag: Rc<dyn Fn(usize, usize)> = {
         let u = update.clone();
         Rc::new(move |r: usize, c: usize| {
@@ -765,7 +703,6 @@ fn app(cx: &mut RenderCx) -> Element {
         })
     };
 
-    // Left-tap on a revealed number → chord.
     let on_chord: Rc<dyn Fn(usize, usize)> = {
         let u = update.clone();
         Rc::new(move |r: usize, c: usize| {
@@ -779,7 +716,6 @@ fn app(cx: &mut RenderCx) -> Element {
         })
     };
 
-    // Right-press on a revealed number → start chord preview.
     let on_begin_chord_preview: Rc<dyn Fn(usize, usize)> = {
         let u = update.clone();
         Rc::new(move |r: usize, c: usize| {
@@ -790,9 +726,6 @@ fn app(cx: &mut RenderCx) -> Element {
         })
     };
 
-    // Pointer release / exit → commit the preview as a chord if
-    // `commit` is true (release inside the cell), otherwise just
-    // cancel it.
     let on_end_chord_preview: Rc<dyn Fn(bool)> = {
         let u = update.clone();
         Rc::new(move |commit: bool| {
@@ -836,7 +769,6 @@ fn app(cx: &mut RenderCx) -> Element {
         }
     };
 
-    // ── Timer effect ───────────────────────────────────────────────
     let should_tick = state.board.phase == GamePhase::Playing;
     let timer_update = update;
     cx.use_effect_with_cleanup((should_tick,), move || {
@@ -853,11 +785,9 @@ fn app(cx: &mut RenderCx) -> Element {
             });
         })
         .ok();
-        // Drop on cleanup stops the timer.
         Some(move || drop(timer))
     });
 
-    // ── Header: mines-remaining LED · 🙂 · timer LED ────────────────
     let smiley_button = button(smiley(state.board.phase))
         .on_click(on_reset)
         .width(56.0)
@@ -877,7 +807,6 @@ fn app(cx: &mut RenderCx) -> Element {
         .padding(Thickness::xy(2.0, 2.0))
         .horizontal_alignment(HorizontalAlignment::Center);
 
-    // ── Toolbar: difficulty buttons ────────────────────────────────
     let mk_diff = |label: &'static str, d: Difficulty| -> Element {
         let h = on_new_game.clone();
         let mut b = button(label).on_click(move || h(d));
@@ -895,7 +824,6 @@ fn app(cx: &mut RenderCx) -> Element {
     .spacing(8.0)
     .horizontal_alignment(HorizontalAlignment::Center);
 
-    // ── Board ──────────────────────────────────────────────────────
     let cell_handlers = CellHandlers {
         on_reveal,
         on_flag,
@@ -905,7 +833,6 @@ fn app(cx: &mut RenderCx) -> Element {
     };
     let board_view = build_board(&state.board, state.chord_preview, cell_handlers);
 
-    // ── Compose ────────────────────────────────────────────────────
     let title_bar = TitleBar::new("windows_reactor — dotsweeper").subtitle(status_subtitle(&state));
 
     vstack((
@@ -933,8 +860,6 @@ fn main() -> Result<()> {
     App::new().title("windows_reactor — dotsweeper").render(app)
 }
 
-// ─── Tests ────────────────────────────────────────────────────────────
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -959,14 +884,12 @@ mod tests {
             let mut r = Lcg::new(seed.wrapping_mul(RNG_SEED_INCREMENT).max(1));
             let b = Board::new_game(Difficulty::BEGINNER);
             let next = reveal(b, 4, 4, &mut r);
-            // The clicked cell must be revealed and non-mine.
             let clicked = next.cell(4, 4);
             assert!(clicked.is_revealed, "seed={seed} click hidden");
             assert!(
                 !clicked.is_mine,
                 "seed={seed} clicked a mine on first reveal"
             );
-            // First-click pocket: 8 neighbors also non-mine.
             for (nr, nc) in next.neighbors(4, 4) {
                 assert!(!next.cell(nr, nc).is_mine, "seed={seed} neighbor is mine");
             }
@@ -1009,7 +932,6 @@ mod tests {
     #[test]
     fn revealing_a_mine_loses_the_game() {
         let mut b = Board::new_game(Difficulty::BEGINNER);
-        // Hand-place a single mine far from the click.
         b.phase = GamePhase::Playing;
         let mines_idx = b.idx(8, 8);
         b.cells[mines_idx].is_mine = true;
@@ -1021,8 +943,6 @@ mod tests {
 
     #[test]
     fn winning_auto_flags_remaining_mines() {
-        // Tiny hand-built board: 2x2, 1 mine at (0,0). Reveal the three
-        // safe cells and the game should be Won with the mine auto-flagged.
         let diff = Difficulty {
             kind: DifficultyKind::Beginner,
             rows: 2,
@@ -1031,8 +951,6 @@ mod tests {
         };
         let mut b = Board::new_game(diff);
         b.phase = GamePhase::Playing;
-        // (0,0) is the only mine; pre-fill adjacency counts so every
-        // safe cell sees it as a 1-neighbor.
         b.cells[0].is_mine = true;
         b.cells[1].adjacent_mines = 1;
         b.cells[2].adjacent_mines = 1;
@@ -1051,8 +969,6 @@ mod tests {
 
     #[test]
     fn cascade_reveals_empty_region() {
-        // 3x3, single mine in a corner — the opposite corner reveal
-        // should cascade through every empty cell.
         let diff = Difficulty {
             kind: DifficultyKind::Beginner,
             rows: 3,
@@ -1061,16 +977,12 @@ mod tests {
         };
         let mut b = Board::new_game(diff);
         b.phase = GamePhase::Playing;
-        // (0,0) is the only mine; the three cells touching it have
-        // adjacent_mines=1. The other 5 cells stay 0-adjacent so a
-        // single reveal at (2,2) cascades through all of them and wins.
         b.cells[0].is_mine = true;
         b.cells[1].adjacent_mines = 1;
         b.cells[3].adjacent_mines = 1;
         b.cells[4].adjacent_mines = 1;
         let mut r = rng();
         b = reveal(b, 2, 2, &mut r);
-        // All 8 non-mine cells revealed → Won.
         assert_eq!(b.phase, GamePhase::Won);
         let revealed: usize = b.cells.iter().filter(|c| c.is_revealed).count();
         assert_eq!(revealed, 8);
@@ -1078,8 +990,6 @@ mod tests {
 
     #[test]
     fn chord_reveals_neighbors_when_flag_count_matches() {
-        // 3x3, single mine at (0,0). Reveal (1,1) so it shows "1", flag
-        // (0,0), then chord on (1,1) → should reveal all the rest.
         let diff = Difficulty {
             kind: DifficultyKind::Beginner,
             rows: 3,
@@ -1102,9 +1012,6 @@ mod tests {
 
     #[test]
     fn chord_with_wrong_flag_loses() {
-        // Mine at (0,0). Flag (0,1) instead. Reveal (1,1) so it shows "1"
-        // (the flag count matches), then chord — the un-flagged real mine
-        // at (0,0) gets revealed and we lose.
         let diff = Difficulty {
             kind: DifficultyKind::Beginner,
             rows: 3,
@@ -1166,5 +1073,3 @@ mod tests {
         assert_eq!(same, b);
     }
 }
-
-// (no module-level stubs)

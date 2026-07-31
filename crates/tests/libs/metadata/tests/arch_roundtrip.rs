@@ -34,7 +34,7 @@ fn arch_value<'a>(attrs: impl Iterator<Item = reader::Attribute<'a>>) -> Option<
 
 /// The full multi-arch pipeline must round-trip `SupportedArchitecture` through the
 /// RDL text form: per-arch winmd -> arch-merge -> RDL (writer) -> winmd (reader). The
-/// merged winmd is the source of truth; the committed RDL is its faithful text view,
+/// merged winmd defines the output; the committed RDL is its text view,
 /// so the writer and reader must agree on the `#[arch(...)]` form for both types and
 /// constants (the CONTEXT / CONTEXT_ARM64_* pattern).
 #[test]
@@ -71,7 +71,7 @@ fn arch_survives_winmd_rdl_roundtrip() {
         .write()
         .unwrap();
 
-    // The text form must use the `#[arch(...)]` sugar uniformly — including on
+    // The text form must use the `#[arch(...)]` sugar uniformly - including on
     // constants, which previously leaked the raw long-form attribute the reader
     // could not parse.
     let rdl = std::fs::read_to_string(rdl_dir.join("Test.rdl")).unwrap();
@@ -107,7 +107,7 @@ fn arch_survives_winmd_rdl_roundtrip() {
     assert_eq!(ctx, vec![2, 4], "CTX struct arch tags lost on round-trip");
 
     // CB: an arch-divergent Win32 callback (different signature per arch) must also
-    // survive as two arch-tagged copies — callbacks are reference TypeDefs, so this
+    // survive as two arch-tagged copies - callbacks are reference TypeDefs, so this
     // exercises the merge split + the callback #[arch] writer/reader path.
     let mut cb: Vec<_> = index
         .types()
@@ -262,14 +262,14 @@ fn arch_divergent_forced_alignment_splits() {
 }
 
 /// A type present on only a *subset* of the arches in the run, whose shape *diverges*
-/// across that subset, must still be split per arch — not emitted once from `copies[0]`
+/// across that subset, must still be split per arch - not emitted once from `copies[0]`
 /// tagged with the whole subset union (which would give the other arch the wrong layout).
 #[test]
 fn subset_present_divergent_type_splits() {
     let dir = std::env::temp_dir().join("win_arch_subset");
     std::fs::create_dir_all(&dir).unwrap();
 
-    // CTX exists only on x64 (2) and arm64 (4) — x86 (1) has an unrelated type — and its
+    // CTX exists only on x64 (2) and arm64 (4) - x86 (1) has an unrelated type - and its
     // shape diverges between the two arches it appears on.
     let x64 = winmd(
         &dir,

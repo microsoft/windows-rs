@@ -1,17 +1,8 @@
-//! Minimal composition interop: obtain the host element's compositor, build a
-//! tiny visual tree, and attach it. The "hello world" of hosting a lifted
-//! `Microsoft.UI.Composition` tree in a reactor element.
-//!
-//! ```text
-//! cargo run -p reactor_composition --example host
-//! ```
-
 #![windows_subsystem = "windows"]
 
 use windows_composition::{Color, ContainerVisual, SpriteVisual};
 use windows_reactor::*;
 
-/// A background that fills the host and a centered blue square on top.
 struct Scene {
     root: ContainerVisual,
     background: SpriteVisual,

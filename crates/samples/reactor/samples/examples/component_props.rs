@@ -1,5 +1,3 @@
-//! Sample for passing typed props to a child component.
-
 #![windows_subsystem = "windows"]
 
 use windows_reactor::*;

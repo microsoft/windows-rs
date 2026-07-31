@@ -1,5 +1,3 @@
-//! Sample for the `cx.use_color_scheme` hook.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

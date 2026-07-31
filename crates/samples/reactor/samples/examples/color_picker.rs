@@ -1,5 +1,3 @@
-//! Sample for the `ColorPicker` element.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

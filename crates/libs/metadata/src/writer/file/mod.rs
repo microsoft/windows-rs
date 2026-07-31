@@ -148,10 +148,10 @@ impl File {
     }
 
     pub fn TypeRef(&mut self, namespace: &str, name: &str) -> TypeRef {
-        if let Some(key) = self.TypeRef.get(namespace) {
-            if let Some(pos) = key.get(name) {
-                return *pos;
-            }
+        if let Some(key) = self.TypeRef.get(namespace)
+            && let Some(pos) = key.get(name)
+        {
+            return *pos;
         }
 
         let pos = if let Some((parent, leaf)) = name.rsplit_once('/') {

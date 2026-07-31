@@ -52,10 +52,9 @@ impl CppConst {
     pub fn write(&self, config: &Config) -> TokenStream {
         if let windows_metadata::Type::ClassName(type_name)
         | windows_metadata::Type::ValueName(type_name) = self.field.ty()
+            && type_name.namespace.is_empty()
         {
-            if type_name.namespace.is_empty() {
-                return quote! {};
-            }
+            return quote! {};
         }
 
         let field_ty = self.field.field_type(None, config.reader).to_const_type();
@@ -165,10 +164,10 @@ impl CppConst {
                     value
                 } else if underlying_ty == constant_ty {
                     let mut value = pointer_sized_const_value(&underlying_ty, &constant.value());
-                    if is_signed_error(&field_ty, config.reader) {
-                        if let Value::I32(signed) = constant.value() {
-                            value = format!("0x{signed:X}_u32 as _").parse().unwrap();
-                        }
+                    if is_signed_error(&field_ty, config.reader)
+                        && let Value::I32(signed) = constant.value()
+                    {
+                        value = format!("0x{signed:X}_u32 as _").parse().unwrap();
                     }
                     value
                 } else if field_ty == Type::Bool {
@@ -315,10 +314,9 @@ impl Dependencies for CppConst {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         if let windows_metadata::Type::ClassName(type_name)
         | windows_metadata::Type::ValueName(type_name) = self.field.ty()
+            && type_name.namespace.is_empty()
         {
-            if type_name.namespace.is_empty() {
-                return;
-            }
+            return;
         }
 
         let ty = self.field.field_type(None, reader).to_const_type();

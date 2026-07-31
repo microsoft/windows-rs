@@ -213,13 +213,6 @@ fn app(cx: &mut RenderCx) -> Element {
         .accent()
         .into();
 
-    // Button grid matching Windows Calculator Standard layout:
-    // Row 0: %    CE   C    ⌫
-    // Row 1: 1/x  x²   √x   ÷
-    // Row 2: 7    8    9    ×
-    // Row 3: 4    5    6    −
-    // Row 4: 1    2    3    +
-    // Row 5: ±    0    .    =
     let button_grid = grid(vec![
         percent_button.grid_row(0).grid_column(0),
         ce_button.grid_row(0).grid_column(1),
@@ -259,7 +252,6 @@ fn app(cx: &mut RenderCx) -> Element {
         bottom: 4.0,
     });
 
-    // Numpad keyboard accelerators
     let numpad_digits: [(VirtualKey, &str); 10] = [
         (VirtualKey::NumberPad0, "0"),
         (VirtualKey::NumberPad1, "1"),
@@ -362,7 +354,6 @@ fn format_display(s: &str) -> String {
         ("", integer_part)
     };
 
-    // Insert thousands separators
     let mut result = String::new();
     for (i, ch) in digits.chars().rev().enumerate() {
         if i > 0 && i % 3 == 0 {

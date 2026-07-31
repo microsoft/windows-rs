@@ -1,5 +1,3 @@
-//! Demonstrates brush reuse and ColorF changes.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

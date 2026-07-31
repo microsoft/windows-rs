@@ -1,5 +1,3 @@
-//! Demonstrates rounded rectangles.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
@@ -14,13 +12,11 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     let cy = ctx.height / 2.0;
     let size = cx.min(cy) * 0.6;
 
-    // Filled rounded rect.
     ctx.fill_rounded_rect(
         &RoundedRect::uniform(Rect::new(cx - size, cy - size, cx, cy), 15.0),
         &brush,
     );
 
-    // Outlined rounded rect.
     brush.set_color(ColorF::WHITE);
     ctx.draw_rounded_rect(
         &RoundedRect::uniform(Rect::new(cx, cy, cx + size, cy + size), 25.0),

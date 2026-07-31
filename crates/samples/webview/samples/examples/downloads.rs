@@ -1,11 +1,8 @@
-//! Watching downloads and reporting per-operation progress and state.
-
 use webview_samples::*;
 
 fn main() -> Result<()> {
     run("WebView2 downloads - windows-rs", |_controller, webview| {
-        // The download handler owns the per-download registrations so they stay
-        // alive for as long as the handler does.
+        // Keep each download's event registrations alive in the starting handler.
         let mut downloads: Vec<EventRegistration> = Vec::new();
 
         let download = webview.on_download_starting(move |args| {
@@ -34,9 +31,6 @@ fn main() -> Result<()> {
             downloads.extend(bytes.into_iter().chain(state));
         })?;
 
-        // Trigger a download as soon as the page loads so the handler fires
-        // without any user interaction. The blob is saved to the default
-        // downloads folder.
         webview.navigate_to_string(
             "<!DOCTYPE html><html><body><script>\
              const blob = new Blob(['hello from windows-rs'], { type: 'application/octet-stream' });\

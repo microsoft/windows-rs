@@ -1,5 +1,3 @@
-//! Sample for the `flip_view` templated list.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

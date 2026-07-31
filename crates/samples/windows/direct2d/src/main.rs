@@ -344,16 +344,12 @@ fn main() -> windows::core::Result<()> {
                         }
                     }
                     WM_ACTIVATE => {
-                        // HIWORD(wparam) is non-zero when the window is minimized; only
-                        // render when the window is not minimized.
                         self.visible = (wparam.0 >> 16) as u16 == 0;
                     }
                     WM_DESTROY => {
                         PostQuitMessage(0);
                     }
-                    // Returning `false` lets `windows-window` call `DefWindowProc` after it
-                    // restores the message handler, so messages that pump a nested modal loop
-                    // (e.g. dragging the window border to resize) still deliver `WM_SIZE`.
+                    // Default processing keeps nested resize loops delivering WM_SIZE.
                     _ => return false,
                 }
 

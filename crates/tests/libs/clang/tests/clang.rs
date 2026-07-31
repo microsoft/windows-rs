@@ -19,7 +19,7 @@ fn run(name: &str) {
     //   //! reference <file>       - compiles `input/<file>.rdl` to a winmd and
     //                               feeds it as a reference (cross-namespace
     //                               resolution; the target namespace is excluded)
-    //   //! flat                    - use the faithful per-header (flat) scrape
+    //   //! flat                    - use the source-based per-header (flat) scrape
     //                               (`write_by_header`, as `tool_win32`) instead of
     //                               the namespaced scrape (`write`, as `tool_webview`).
     //                               Enables the flat-mode collapses/normalizations
@@ -122,7 +122,7 @@ fn run(name: &str) {
     let _guard = test_clang::libclang_guard();
 
     if flat {
-        // Faithful per-header (flat) scrape, as `tool_win32`: one flat root namespace,
+        // Source-based per-header (flat) scrape, as `tool_win32`: one flat root namespace,
         // `header_root.is_some()`. Emits every defining header in the parse (empty
         // partition allowlist) into `scratch`; a self-contained fixture yields a single
         // `<stem>.rdl` (the lowercased header stem, which matches `rdl_out`).

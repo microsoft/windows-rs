@@ -8,13 +8,11 @@ fn main() {
         .output(&bindings)
         .flat()
         .filters([
-            // Direct3D 11
             "D3D11CreateDevice",
             "D3D_DRIVER_TYPE_HARDWARE",
             "D3D_FEATURE_LEVEL_11_0",
             "D3D11_CREATE_DEVICE_BGRA_SUPPORT",
             "D3D11_SDK_VERSION",
-            // Direct2D
             "D2D1CreateFactory",
             "D2D1_FACTORY_TYPE_MULTI_THREADED",
             "D2D1_DEVICE_CONTEXT_OPTIONS_NONE",
@@ -27,11 +25,10 @@ fn main() {
             "D2DERR_RECREATE_TARGET",
             "ID2D1Factory1",
             "ID2D1Device",
+            // Referenced types must be filtered in or their methods are omitted.
             "ID2D1DeviceContext",
             "ID2D1RenderTarget",
             "ID2D1SolidColorBrush",
-            // Interfaces and structs referenced by the methods above; without these
-            // the referencing methods are silently dropped from the projection.
             "ID3D11Device",
             "ID3D11DeviceContext",
             "ID2D1Image",
@@ -40,7 +37,6 @@ fn main() {
             "D2D1_TAG",
             "D2D1_BRUSH_PROPERTIES",
             "D2D1_FACTORY_OPTIONS",
-            // DXGI
             "IDXGIDevice",
             "IDXGIObject",
             "IDXGIFactory2",

@@ -1,16 +1,5 @@
 #!/usr/bin/env pwsh
-# Builds the language-projection benchmarks (Release) and runs the full matrix: every
-# consumer (C#, C++, Rust) calling every no-op WinRT component (Rust, C++), all projecting
-# the identical `lang.winmd`. C#/WinRT runs on the JIT runtime by default; pass -IncludeAot
-# to also measure a Native AOT build. The C# benchmark is built with `dotnet`, not cargo.
-#
-# Each component crate is a cdylib with a distinct name (langperf_rust.dll, langperf_cpp.dll)
-# so both builds coexist in one target directory. The Rust and C++ consumers take
-# `--component rust|cpp` and copy the chosen DLL in as LangPerf.dll -- the name WinRT
-# activation probes -- next to the executable at startup. The C# consumer resolves
-# LangPerf.dll from PATH, so each component is staged into its own directory and selected
-# per run. The `Lang` method printed in each consumer's header confirms which component
-# actually answered.
+# Runs the language-projection benchmark matrix.
 [CmdletBinding()]
 param(
     [long]$Iterations = 10000000,
@@ -23,16 +12,11 @@ $releaseDir = Join-Path $root 'target/release'
 $csharp = Join-Path $PSScriptRoot 'csharp'
 
 Write-Host 'Building Rust and C++ consumers (release)...' -ForegroundColor Cyan
-# Build the component that generates lang.winmd first, on its own, so its build script
-# (the winmd writer) never runs in parallel with the C++ component/consumer build scripts
-# that read the same winmd -- otherwise a clean build can fail with a file-locking error.
-# The C++ component (lang_perf_component_cpp -> langperf_cpp.dll) is named explicitly so
-# cargo places its cdylib in target/release; built only transitively it lands in deps/.
+# Generate lang.winmd before parallel readers can lock it.
 cargo build --release --manifest-path "$root/Cargo.toml" -p lang_perf_component | Out-Null
 cargo build --release --manifest-path "$root/Cargo.toml" -p lang_perf_component_cpp -p lang_perf_rust -p lang_perf_cpp | Out-Null
 
-# Stage each component as LangPerf.dll in its own directory so the C# consumer (which
-# resolves the native DLL from PATH) can be pointed at either implementation per run.
+# WinRT activation and the C# consumer both resolve the component as LangPerf.dll.
 $components = 'rust', 'cpp'
 $componentLabel = @{ rust = 'Rust'; cpp = 'C++' }
 $componentDir = @{}
@@ -46,7 +30,6 @@ foreach ($comp in $components) {
 $aotExe = $null
 if ($IncludeAot) {
     Write-Host 'Publishing C# Native AOT...' -ForegroundColor Cyan
-    # The Native AOT linker step shells out to vswhere.exe to locate the MSVC toolchain.
     $env:PATH = "C:\Program Files (x86)\Microsoft Visual Studio\Installer;$env:PATH"
     $aotDir = Join-Path $csharp 'aot-publish'
     dotnet publish $csharp -c Release -r win-x64 /p:PublishAot=true -o $aotDir | Out-Null
@@ -82,7 +65,6 @@ foreach ($consumer in $consumers) {
         }
         $lines | Write-Host
 
-        # Confirm the component that answered matches the one we asked for.
         $loaded = ($lines | Select-String -Pattern '->\s+(\S+)\s+component' | Select-Object -First 1).Matches.Groups[1].Value
         if ($loaded -and $loaded -ne $componentLabel[$comp]) {
             Write-Warning "$combo loaded the $loaded component, not $($componentLabel[$comp])"

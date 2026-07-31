@@ -363,11 +363,11 @@ impl Interface {
 
     /// Returns the `ParentName_Impl` supertrait constraint, except for `IUnknown`.
     fn parent_trait_constraint(&self) -> proc_macro2::TokenStream {
-        if let Some((ident, path)) = self.parent_path().split_last() {
-            if ident != "IUnknown" {
-                let ident = quote::format_ident!("{}_Impl", ident);
-                return quote! { #(#path::)* #ident };
-            }
+        if let Some((ident, path)) = self.parent_path().split_last()
+            && ident != "IUnknown"
+        {
+            let ident = quote::format_ident!("{}_Impl", ident);
+            return quote! { #(#path::)* #ident };
         }
 
         quote! {}
@@ -377,18 +377,16 @@ impl Interface {
 impl InterfaceMethod {
     /// Returns `true` when the method's return type is `Result<T>`.
     pub(crate) fn is_result(&self) -> bool {
-        if let syn::ReturnType::Type(_, ty) = &self.ret {
-            if let syn::Type::Path(path) = &**ty {
-                if let Some(segment) = path.path.segments.last() {
-                    let ident = segment.ident.to_string();
-                    if ident == "Result" {
-                        if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
-                            if args.args.len() == 1 {
-                                return true;
-                            }
-                        }
-                    }
-                }
+        if let syn::ReturnType::Type(_, ty) = &self.ret
+            && let syn::Type::Path(path) = &**ty
+            && let Some(segment) = path.path.segments.last()
+        {
+            let ident = segment.ident.to_string();
+            if ident == "Result"
+                && let syn::PathArguments::AngleBracketed(args) = &segment.arguments
+                && args.args.len() == 1
+            {
+                return true;
             }
         }
 
@@ -472,18 +470,16 @@ impl InterfaceMethod {
 impl InterfaceMethodArg {
     /// If this argument is `Ref<T>` or `OutRef<T>`, returns `(T, "Ref")` or `(T, "OutRef")`.
     pub(crate) fn borrow_type(&self) -> Option<(syn::Type, String)> {
-        if let syn::Type::Path(path) = &*self.ty {
-            if let Some(segment) = path.path.segments.last() {
-                let ident = segment.ident.to_string();
-                if matches!(ident.as_str(), "Ref" | "OutRef") {
-                    if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
-                        if args.args.len() == 1 {
-                            if let Some(syn::GenericArgument::Type(ty)) = args.args.first() {
-                                return Some((ty.clone(), ident));
-                            }
-                        }
-                    }
-                }
+        if let syn::Type::Path(path) = &*self.ty
+            && let Some(segment) = path.path.segments.last()
+        {
+            let ident = segment.ident.to_string();
+            if matches!(ident.as_str(), "Ref" | "OutRef")
+                && let syn::PathArguments::AngleBracketed(args) = &segment.arguments
+                && args.args.len() == 1
+                && let Some(syn::GenericArgument::Type(ty)) = args.args.first()
+            {
+                return Some((ty.clone(), ident));
             }
         }
 

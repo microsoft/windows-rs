@@ -1,18 +1,7 @@
 #![windows_subsystem = "windows"]
 
-//! Secondary windows (#4703).
-//!
-//! The primary window is a launcher. Every time you press **Open counter
-//! window** it opens a brand-new top-level window that hosts its own
-//! independent reactor tree — each window has its own `use_state`, so the
-//! counters never share a value. Windows can be closed in any order; when the
-//! *last* remaining window closes (including this launcher) the app exits.
-
 use windows_reactor::*;
 
-/// A self-contained counter. Both secondary windows and (conceptually) any
-/// other host can render this — because each window drives its own reactor
-/// tree, every instance keeps a fully independent count.
 fn counter_view(cx: &mut RenderCx, heading: &str) -> Element {
     let (count, set_count) = cx.use_state(0_i32);
 
@@ -36,8 +25,6 @@ fn counter_view(cx: &mut RenderCx, heading: &str) -> Element {
 }
 
 fn app(cx: &mut RenderCx) -> Element {
-    // How many secondary windows this launcher has opened so far — used only to
-    // give each new window a distinct title.
     let (opened, set_opened) = cx.use_state(0_u32);
 
     let open = {
@@ -56,7 +43,7 @@ fn app(cx: &mut RenderCx) -> Element {
     };
 
     vstack((
-        TitleBar::new("windows_reactor — secondary windows"),
+        TitleBar::new("windows_reactor - secondary windows"),
         text_block("Each window you open hosts its own independent counter.").opacity(0.75),
         text_block("Closing the last remaining window exits the app.").opacity(0.75),
         button("Open counter window")

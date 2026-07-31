@@ -1,5 +1,3 @@
-//! Sample for `MenuFlyout` on a `Button`.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

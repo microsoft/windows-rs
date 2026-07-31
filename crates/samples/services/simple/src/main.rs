@@ -1,7 +1,6 @@
 fn main() {
     use std::io::Write;
 
-    // Simple log file can be used to observe the service commands.
     let mut log = std::fs::File::create("D:\\service.txt").unwrap();
 
     let result =

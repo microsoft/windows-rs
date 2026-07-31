@@ -1,14 +1,3 @@
-//! Minesweeper — a port of robmikh's `minesweeper-rs`
-//! (<https://github.com/robmikh/minesweeper-rs>) onto `windows-composition`.
-//!
-//! The whole board is drawn with the system composition engine
-//! (`Windows.UI.Composition`) hosted in a plain Win32 window via
-//! `windows-window`. There is no WinUI / Windows App SDK dependency.
-//!
-//! Left-click sweeps a tile, right-click cycles flag / question / empty, and the
-//! board scales to fit the window. Hitting a mine plays a spiral reveal
-//! animation; click again to start a new game.
-
 #![windows_subsystem = "windows"]
 
 mod colors;
@@ -30,16 +19,12 @@ const WM_LBUTTONDOWN: u32 = 0x0201;
 const WM_RBUTTONDOWN: u32 = 0x0204;
 
 fn main() -> Result<()> {
-    // A dispatcher queue must exist on the thread before creating a compositor.
     let _queue = DispatcherQueueController::create_on_current_thread()?;
     let compositor = Compositor::new()?;
 
     let root = compositor.create_container_visual();
     root.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
 
-    // The game is built after the window so the board can be sized to the
-    // window's client area. It is shared with the input closures, which observe
-    // messages and forward pointer input to the game.
     let game: Rc<RefCell<Option<Minesweeper>>> = Rc::new(RefCell::new(None));
 
     let window = {
@@ -56,7 +41,6 @@ fn main() -> Result<()> {
                         _ => {}
                     }
                 }
-                // Observe only; let default window processing run.
                 None
             })
             .on_resize(move |width, height| {
@@ -81,8 +65,6 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-/// Extracts a client-area point from a mouse message's `lParam` (the signed low
-/// and high 16-bit words).
 fn point_from_lparam(lparam: isize) -> Vector2 {
     Vector2::new((lparam as i16) as f32, ((lparam >> 16) as i16) as f32)
 }

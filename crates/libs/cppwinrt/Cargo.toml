@@ -2,7 +2,7 @@
 name = "cppwinrt"
 version = "0.3.4"
 edition = "2024"
-rust-version = "1.85"
+rust-version = "1.95"
 license = "MIT OR Apache-2.0"
 description = "C++/WinRT"
 repository = "https://github.com/microsoft/windows-rs"

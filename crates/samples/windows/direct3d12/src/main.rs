@@ -29,8 +29,6 @@ fn main() -> windows::core::Result<()> {
         pso: ID3D12PipelineState,
         command_list: ID3D12GraphicsCommandList,
 
-        // we need to keep this around to keep the reference alive, even though
-        // nothing reads from it
         _vertex_buffer: ID3D12Resource,
 
         vbv: D3D12_VERTEX_BUFFER_VIEW,
@@ -89,7 +87,6 @@ fn main() -> windows::core::Result<()> {
             }
             .cast()?;
 
-            // This sample does not support fullscreen transitions
             unsafe {
                 self.dxgi_factory
                     .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER as u32)
@@ -204,11 +201,9 @@ fn main() -> windows::core::Result<()> {
             if let Some(resources) = &mut self.resources {
                 populate_command_list(resources).unwrap();
 
-                // Execute the command list.
                 let command_list = Some(resources.command_list.cast().unwrap());
                 unsafe { resources.command_queue.ExecuteCommandLists(&[command_list]) };
 
-                // Present the frame.
                 unsafe { resources.swap_chain.Present(1, 0) }.ok().unwrap();
 
                 wait_for_previous_frame(resources);
@@ -223,13 +218,9 @@ fn main() -> windows::core::Result<()> {
             unsafe { adapter.GetDesc1(&mut desc) }.ok()?;
 
             if (desc.Flags as i32 & DXGI_ADAPTER_FLAG_SOFTWARE) != DXGI_ADAPTER_FLAG_NONE {
-                // Don't select the Basic Render Driver adapter. If you want a
-                // software adapter, pass in "/warp" on the command line.
                 continue;
             }
 
-            // Check to see whether the adapter supports Direct3D 12, but don't
-            // create the actual device yet.
             if unsafe {
                 D3D12CreateDevice(
                     &adapter,
@@ -451,11 +442,6 @@ fn main() -> windows::core::Result<()> {
             },
         ];
 
-        // Note: using upload heaps to transfer static data like vert buffers is
-        // not recommended. Every time the GPU needs it, the upload heap will be
-        // marshalled over. Please read up on Default Heap usage. An upload heap
-        // is used here for code simplicity and because there are very few verts
-        // to actually transfer.
         let mut vertex_buffer: Option<ID3D12Resource> = None;
         unsafe {
             device.CreateCommittedResource(
@@ -484,7 +470,6 @@ fn main() -> windows::core::Result<()> {
         };
         let vertex_buffer = vertex_buffer.unwrap();
 
-        // Copy the triangle data to the vertex buffer.
         unsafe {
             let mut data = std::ptr::null_mut();
             vertex_buffer.Map(0, None, &mut data).ok()?;
@@ -502,32 +487,24 @@ fn main() -> windows::core::Result<()> {
     }
 
     fn populate_command_list(resources: &Resources) -> Result<()> {
-        // Command list allocators can only be reset when the associated
-        // command lists have finished execution on the GPU; apps should use
-        // fences to determine GPU execution progress.
         unsafe {
             resources.command_allocator.Reset().ok()?;
         }
 
         let command_list = &resources.command_list;
 
-        // However, when ExecuteCommandList() is called on a particular
-        // command list, that command list can then be reset at any time and
-        // must be before re-recording.
         unsafe {
             command_list
                 .Reset(&resources.command_allocator, &resources.pso)
                 .ok()?;
         }
 
-        // Set necessary state.
         unsafe {
             command_list.SetGraphicsRootSignature(&resources.root_signature);
             command_list.RSSetViewports(&[resources.viewport]);
             command_list.RSSetScissorRects(&[resources.scissor_rect]);
         }
 
-        // Indicate that the back buffer will be used as a render target.
         let barrier = transition_barrier(
             &resources.render_targets[resources.frame_index as usize],
             D3D12_RESOURCE_STATE_PRESENT,
@@ -542,7 +519,6 @@ fn main() -> windows::core::Result<()> {
 
         unsafe { command_list.OMSetRenderTargets(1, Some(&rtv_handle), false, None) };
 
-        // Record commands.
         unsafe {
             command_list.ClearRenderTargetView(
                 rtv_handle,
@@ -555,7 +531,6 @@ fn main() -> windows::core::Result<()> {
             command_list.IASetVertexBuffers(0, Some(&[resources.vbv]));
             command_list.DrawInstanced(3, 1, 0, 0);
 
-            // Indicate that the back buffer will now be used to present.
             command_list.ResourceBarrier(&[transition_barrier(
                 &resources.render_targets[resources.frame_index as usize],
                 D3D12_RESOURCE_STATE_RENDER_TARGET,
@@ -586,12 +561,6 @@ fn main() -> windows::core::Result<()> {
     }
 
     fn wait_for_previous_frame(resources: &mut Resources) {
-        // WAITING FOR THE FRAME TO COMPLETE BEFORE CONTINUING IS NOT BEST
-        // PRACTICE. This is code implemented as such for simplicity. The
-        // D3D12HelloFrameBuffering sample illustrates how to use fences for
-        // efficient resource usage and to maximize GPU utilization.
-
-        // Signal and increment the fence value.
         let fence = resources.fence_value;
 
         unsafe { resources.command_queue.Signal(&resources.fence, fence) }
@@ -600,7 +569,6 @@ fn main() -> windows::core::Result<()> {
 
         resources.fence_value += 1;
 
-        // Wait until the previous frame is finished.
         if unsafe { resources.fence.GetCompletedValue() } < fence {
             unsafe {
                 resources

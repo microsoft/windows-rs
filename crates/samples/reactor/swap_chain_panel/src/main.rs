@@ -1,5 +1,3 @@
-//! Direct3D11 swap chain hosted in a `SwapChainPanel`.
-
 #![windows_subsystem = "windows"]
 
 use windows::Win32::*;

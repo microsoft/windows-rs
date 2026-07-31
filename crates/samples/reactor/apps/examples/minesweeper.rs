@@ -1,24 +1,14 @@
 #![windows_subsystem = "windows"]
 
-//! A `windows-reactor` port of <https://github.com/robmikh/minesweeper-rs>.
-//!
-//! The board is a grid of `button` widgets with all state in `cx.use_state`.
-//! Left-tap reveals, right-tap cycles flag/question. Defaults to 9×9 / 10 mines.
-
 use std::time::{SystemTime, UNIX_EPOCH};
 
 use windows_reactor::*;
-
-// ---------------------------------------------------------------------------
-// Game model
-// ---------------------------------------------------------------------------
 
 const WIDTH: usize = 9;
 const HEIGHT: usize = 9;
 const TOTAL: usize = WIDTH * HEIGHT;
 const MINES: usize = 10;
 
-/// Per-tile UI state, mirroring `MineState` in the original sample.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 enum TileState {
     Hidden,
@@ -28,13 +18,11 @@ enum TileState {
 }
 
 impl TileState {
-    /// Cycle through flag/question/hidden on a flag-mode click.
     fn cycle(self) -> Self {
         match self {
             Self::Hidden => Self::Flag,
             Self::Flag => Self::Question,
             Self::Question => Self::Hidden,
-            // Revealed tiles cannot be flagged; callers must check first.
             Self::Revealed => Self::Revealed,
         }
     }
@@ -49,18 +37,10 @@ enum Status {
 
 #[derive(Clone, PartialEq, Eq, Debug)]
 struct Game {
-    /// Per-tile UI state.
     tiles: Vec<TileState>,
-    /// True iff the tile is a mine. Filled in lazily on the first reveal so
-    /// the first click is always safe (matching the original sample).
     mines: Vec<bool>,
-    /// Neighbour mine counts for non-mine tiles; `-1` for mine tiles. Filled
-    /// in alongside `mines`.
     neighbors: Vec<i8>,
-    /// True once `mines`/`neighbors` have been populated.
     generated: bool,
-    /// Set to `Some(index)` when the player triggers a mine, so the UI can
-    /// highlight the fatal tile.
     hit_mine: Option<usize>,
     status: Status,
     seed: u64,
@@ -91,13 +71,11 @@ impl Game {
         (index % WIDTH, index / WIDTH)
     }
 
-    /// Count of `TileState::Flag` tiles. Used to derive "mines remaining".
     fn flag_count(&self) -> usize {
         self.tiles.iter().filter(|t| **t == TileState::Flag).count()
     }
 }
 
-/// Iterate the (up to) eight neighbours of `(x, y)`.
 fn neighbors(x: usize, y: usize) -> impl Iterator<Item = (usize, usize)> {
     const OFFSETS: [(i32, i32); 8] = [
         (-1, -1),
@@ -120,8 +98,6 @@ fn neighbors(x: usize, y: usize) -> impl Iterator<Item = (usize, usize)> {
     })
 }
 
-/// Populate `game.mines` and `game.neighbors`, avoiding the tile at
-/// `(exclude_x, exclude_y)` so the first click is never a mine.
 fn generate_mines(game: &mut Game, exclude_x: usize, exclude_y: usize) {
     let exclude = Game::index(exclude_x, exclude_y);
     let mut rng = XorShift64::new(game.seed);
@@ -151,9 +127,6 @@ fn generate_mines(game: &mut Game, exclude_x: usize, exclude_y: usize) {
     game.generated = true;
 }
 
-/// Try to reveal `(x, y)`. Returns `None` if the click is a no-op (e.g.
-/// game over, already revealed, or flagged); otherwise returns the new
-/// `Game`. Mirrors `Minesweeper::sweep` + reveal bookkeeping in the original.
 fn apply_reveal(game: &Game, x: usize, y: usize) -> Option<Game> {
     if x >= WIDTH || y >= HEIGHT {
         return None;
@@ -173,8 +146,6 @@ fn apply_reveal(game: &Game, x: usize, y: usize) -> Option<Game> {
     }
 
     if next.mines[idx] {
-        // Reveal every mine so the player can see the layout, then mark
-        // the fatal tile and lose.
         for i in 0..TOTAL {
             if next.mines[i] {
                 next.tiles[i] = TileState::Revealed;
@@ -185,8 +156,6 @@ fn apply_reveal(game: &Game, x: usize, y: usize) -> Option<Game> {
         return Some(next);
     }
 
-    // BFS flood fill: reveal this tile and, for every revealed 0-neighbour
-    // tile, expand to its hidden neighbours.
     let mut queue: Vec<usize> = Vec::new();
     queue.push(idx);
     next.tiles[idx] = TileState::Revealed;
@@ -197,8 +166,6 @@ fn apply_reveal(game: &Game, x: usize, y: usize) -> Option<Game> {
         let (cx, cy) = Game::xy(cur);
         for (nx, ny) in neighbors(cx, cy) {
             let nidx = Game::index(nx, ny);
-            // Only reveal hidden tiles — flag/question stay as the player
-            // left them, which matches typical minesweeper behaviour.
             if next.tiles[nidx] == TileState::Hidden && !next.mines[nidx] {
                 next.tiles[nidx] = TileState::Revealed;
                 queue.push(nidx);
@@ -212,8 +179,6 @@ fn apply_reveal(game: &Game, x: usize, y: usize) -> Option<Game> {
     Some(next)
 }
 
-/// Cycle hidden → flag → question → hidden on `(x, y)`. Returns `None` if
-/// the click is a no-op (game over or tile already revealed).
 fn apply_flag(game: &Game, x: usize, y: usize) -> Option<Game> {
     if x >= WIDTH || y >= HEIGHT {
         return None;
@@ -230,7 +195,6 @@ fn apply_flag(game: &Game, x: usize, y: usize) -> Option<Game> {
     Some(next)
 }
 
-/// Win = every non-mine tile is revealed.
 fn check_won(game: &Game) -> bool {
     if !game.generated {
         return false;
@@ -243,19 +207,10 @@ fn check_won(game: &Game) -> bool {
     true
 }
 
-// ---------------------------------------------------------------------------
-// Tiny seedable PRNG
-// ---------------------------------------------------------------------------
-//
-// Marsaglia xorshift64. Plenty good enough to scatter ten mines across an
-// 81-tile board and lets us seed deterministically from unit tests without
-// pulling in `rand`.
-
 struct XorShift64(u64);
 
 impl XorShift64 {
     fn new(seed: u64) -> Self {
-        // 0 is a fixed point for xorshift64; substitute a non-zero constant.
         Self(if seed == 0 {
             0xDEAD_BEEF_CAFE_F00D
         } else {
@@ -279,12 +234,6 @@ fn seed_from_clock() -> u64 {
         .map_or(0xA5A5_5A5A_A5A5_5A5A, |d| d.as_nanos() as u64)
 }
 
-// ---------------------------------------------------------------------------
-// Rendering
-// ---------------------------------------------------------------------------
-
-/// Color-coded foreground for a revealed number tile, matching the classic
-/// Windows Minesweeper palette.
 fn number_color(n: i8) -> Color {
     match n {
         1 => Color::rgb(0, 0, 200),
@@ -323,10 +272,6 @@ fn status_line(game: &Game) -> String {
     }
 }
 
-/// Per-tile screen-reader label, derived from the same data that drives
-/// the visible glyph. Without this, hidden tiles and revealed zero-neighbour
-/// tiles have an empty button content and become indistinguishable to
-/// assistive tech.
 fn tile_automation_name(game: &Game, idx: usize) -> String {
     let (x, y) = Game::xy(idx);
     let position = format!("row {}, column {}", y + 1, x + 1);
@@ -352,10 +297,6 @@ fn tile_automation_name(game: &Game, idx: usize) -> String {
     format!("Tile {position}, {state}")
 }
 
-/// Actions dispatched to the game reducer. Routing clicks through actions
-/// (instead of capturing the rendered `Game` in the click handler) lets the
-/// reducer always see the latest board state, so two clicks delivered before
-/// the next render are both applied in order.
 enum Action {
     Reveal(usize, usize),
     Flag(usize, usize),
@@ -441,8 +382,6 @@ fn build_cells(
                 .horizontal_alignment(HorizontalAlignment::Stretch)
                 .vertical_alignment(VerticalAlignment::Stretch);
 
-            // Pick a foreground that matches the classic palette for number
-            // tiles, and a red highlight for the mine that ended the game.
             if tile == TileState::Revealed && !game.mines[idx] && game.neighbors[idx] > 0 {
                 btn = btn.foreground(number_color(game.neighbors[idx]));
             }
@@ -450,9 +389,6 @@ fn build_cells(
                 btn = btn.background(Color::rgb(220, 80, 80));
             }
 
-            // Disable every tile once the game ends, and any tile that has
-            // already been revealed (revealed tiles, including 0-neighbour
-            // blanks, carry no further interaction).
             let is_inert_revealed = tile == TileState::Revealed;
             if game_over || is_inert_revealed {
                 btn = btn.enabled(false);
@@ -482,10 +418,6 @@ fn main() -> Result<()> {
         .render(app)
 }
 
-// ---------------------------------------------------------------------------
-// Tests
-// ---------------------------------------------------------------------------
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -505,8 +437,6 @@ mod tests {
 
     #[test]
     fn first_reveal_is_never_a_mine() {
-        // Try across many seeds; the first revealed tile must not be a mine
-        // for any of them.
         for seed in 1..200u64 {
             let g = fresh(seed);
             let g = apply_reveal(&g, 4, 4).expect("legal reveal");
@@ -547,7 +477,6 @@ mod tests {
     #[test]
     fn revealed_tile_cannot_be_flagged_or_revealed_again() {
         let g = apply_reveal(&fresh(7), 0, 0).expect("legal");
-        // The corner is now revealed (and safe because of first-click safety).
         assert_eq!(g.tiles[0], TileState::Revealed);
         assert!(apply_flag(&g, 0, 0).is_none());
         assert!(apply_reveal(&g, 0, 0).is_none());
@@ -555,9 +484,6 @@ mod tests {
 
     #[test]
     fn bfs_flood_reveals_connected_zero_region() {
-        // A 9×9 board with 10 mines has plenty of 0-neighbour tiles, so a
-        // first reveal must expand into more than one tile for at least
-        // some seed/position combinations. Try several until we find one.
         let mut found = false;
         'outer: for seed in 1..200u64 {
             for x in 0..WIDTH {
@@ -569,7 +495,6 @@ mod tests {
                         .filter(|t| **t == TileState::Revealed)
                         .count();
                     if revealed > 1 {
-                        // All revealed tiles must be non-mines.
                         for i in 0..TOTAL {
                             if g.tiles[i] == TileState::Revealed {
                                 assert!(!g.mines[i]);
@@ -586,11 +511,9 @@ mod tests {
 
     #[test]
     fn revealing_a_mine_loses_and_reveals_all_mines() {
-        // Seed and generate so we know mine positions, then click one.
         let mut g = apply_reveal(&fresh(9), 0, 0).expect("legal");
         let mine_idx = (0..TOTAL).find(|i| g.mines[*i]).expect("must have a mine");
         let (mx, my) = Game::xy(mine_idx);
-        // Clear any flag the BFS-less path didn't set, just in case.
         g.tiles[mine_idx] = TileState::Hidden;
         let g = apply_reveal(&g, mx, my).expect("legal click on hidden mine");
         assert_eq!(g.status, Status::Lost);
@@ -615,22 +538,17 @@ mod tests {
         let g = apply_reveal(&g, mx, my).expect("legal");
         assert_eq!(g.status, Status::Lost);
 
-        // Any further action is a no-op.
         assert!(apply_reveal(&g, 0, 0).is_none());
         assert!(apply_flag(&g, 0, 0).is_none());
     }
 
     #[test]
     fn revealing_every_non_mine_wins() {
-        // Force-reveal every non-mine tile via the engine and assert that
-        // the status flips to Won.
         let g = apply_reveal(&fresh(11), 0, 0).expect("legal");
         let mut g = g;
-        // Reveal every still-hidden non-mine tile.
         for i in 0..TOTAL {
             if !g.mines[i] && g.tiles[i] != TileState::Revealed {
                 let (x, y) = Game::xy(i);
-                // Clear any leftover flag/question first.
                 if g.tiles[i] != TileState::Hidden {
                     g.tiles[i] = TileState::Hidden;
                 }

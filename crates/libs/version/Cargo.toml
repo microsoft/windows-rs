@@ -2,7 +2,7 @@
 name = "windows-version"
 version = "0.1.7"
 edition = "2024"
-rust-version = "1.85"
+rust-version = "1.95"
 license = "MIT OR Apache-2.0"
 description = "Windows version information"
 repository = "https://github.com/microsoft/windows-rs"

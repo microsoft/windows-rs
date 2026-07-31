@@ -2,9 +2,6 @@ fn main() -> windows::core::Result<()> {
     use windows::Win32::*;
     use windows_window::{Window, run};
 
-    // `on_message` exposes every message with the raw `wparam`/`lparam` for apps
-    // that need to handle messages the crate doesn't model. Return `Some(result)`
-    // to handle a message, or `None` to fall through to default processing.
     let _window = Window::new("Window Messages")
         .on_message(|hwnd, message, wparam, lparam| match message as i32 {
             WM_PAINT => {
