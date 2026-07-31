@@ -1,11 +1,8 @@
-//! Navigation lifecycle, document title, and `data:` URI fixtures.
-
 use std::cell::RefCell;
 use std::rc::Rc;
 
 use crate::harness::Harness;
 
-/// The navigation events fire in order and the completed event reports success.
 pub fn lifecycle_order(harness: &Harness) {
     let events: Rc<RefCell<Vec<&'static str>>> = Rc::new(RefCell::new(Vec::new()));
     let webview = harness.webview();
@@ -49,8 +46,6 @@ pub fn lifecycle_order(harness: &Harness) {
     drop((starting, loading, completed));
 }
 
-/// The document-title-changed event delivers the new title and `document_title`
-/// reflects it.
 pub fn document_title(harness: &Harness) {
     let title: Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
     let sink = title.clone();
@@ -76,22 +71,18 @@ pub fn document_title(harness: &Harness) {
     drop(registration);
 }
 
-/// A `data:` URI navigates and completes successfully.
 pub fn data_uri(harness: &Harness) {
     let ok = harness.navigate_uri("data:text/html,<h1>ok</h1>");
     harness.check("Navigation_DataUri_Success", ok);
 }
 
-/// `go_back` and `go_forward` move through the session history.
 pub fn history_back_forward(harness: &Harness) {
     let page_a = "<!DOCTYPE html><html><head><title>HistoryA</title></head></html>";
     let page_b = "<!DOCTYPE html><html><head><title>HistoryB</title></head></html>";
     harness.check("History_NavA", harness.navigate_html(page_a));
     harness.check("History_NavB", harness.navigate_html(page_b));
 
-    // Wait for NavigationCompleted (not just the title), so the back/forward
-    // navigations fully settle before the fixture returns and the next
-    // navigation begins.
+    // Wait for completion because title changes can precede settled navigation.
     let completed: Rc<RefCell<u32>> = Rc::new(RefCell::new(0));
     let sink = completed.clone();
     let Ok(registration) = harness
@@ -129,7 +120,6 @@ pub fn history_back_forward(harness: &Harness) {
     drop(registration);
 }
 
-/// `reload` triggers a fresh navigation of the current page.
 pub fn reload(harness: &Harness) {
     harness.check(
         "Reload_Nav",

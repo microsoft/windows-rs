@@ -31,8 +31,6 @@ fn props_for(r: &Reconciler<RecordingBackend>, prop: Prop) -> Vec<PropValue> {
         .collect()
 }
 
-// ── Min/Max sizing ──────────────────────────────────────────────────────
-
 #[test]
 fn min_width_emits_set_prop() {
     let el = Element::TextBlock(TextBlock {
@@ -120,8 +118,6 @@ fn min_max_unset_on_diff() {
     assert_eq!(max_h, vec![PropValue::Unset]);
 }
 
-// ── Canvas ZIndex ───────────────────────────────────────────────────────
-
 #[test]
 fn canvas_z_index_emits_set_prop() {
     use windows_reactor::Canvas;
@@ -134,7 +130,6 @@ fn canvas_z_index_emits_set_prop() {
     assert_eq!(vals, vec![PropValue::I32(5)]);
 }
 
-// ── RelativePanel attached props ────────────────────────────────────────
 // The relative_align_* methods store RelativePanelAlignment in the element's
 // attached props. The reconciler dispatches them regardless of parent type.
 
@@ -221,8 +216,6 @@ fn relative_panel_align_v_center_emits_set_prop() {
     let vals = props_for(&r, Prop::AlignVCenterWithPanel);
     assert_eq!(vals, vec![PropValue::Bool(true)]);
 }
-
-// ── IsEnabled transition ─────────────────────────────────────────────────
 
 #[test]
 fn is_enabled_false_to_true_emits_set_prop() {

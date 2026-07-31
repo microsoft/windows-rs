@@ -1,5 +1,3 @@
-//! The ordered list of fixtures the self-test runs.
-
 use crate::fixtures::*;
 use crate::harness::Harness;
 

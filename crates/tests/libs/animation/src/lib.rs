@@ -84,7 +84,6 @@ mod tests {
         let transition = library.accelerate_decelerate(1.0, 180.0, 0.2, 0.8).unwrap();
         let keyframe = storyboard.add_transition(&variable, &transition).unwrap();
 
-        // Add a second transition starting at the keyframe
         let transition2 = library.accelerate_decelerate(1.0, 0.0, 0.2, 0.8).unwrap();
         storyboard
             .add_transition_at_keyframe(&variable, &transition2, keyframe)

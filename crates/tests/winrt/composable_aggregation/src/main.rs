@@ -1,10 +1,4 @@
-//! Linux-runnable harness for windows-rs composable / aggregation support.
-//!
-//! Mirrors the bindgen-emitted shape from
-//! `crates/tests/fixtures/harness/data/bindgen/composable_class/expected.rs`,
-//! but bypasses `FactoryCache::call` (which requires `RoGetActivationFactory`)
-//! by instantiating a mock `IFooFactory` directly. This lets us exercise the
-//! `Compose::compose` path end-to-end on a non-Windows host.
+//! Linux-runnable composable aggregation test with a mock `IFooFactory`.
 
 #[allow(
     non_snake_case,
@@ -22,17 +16,10 @@ use windows_implement::implement;
 const DERIVED_VALUE: i32 = 42;
 const INNER_VALUE: i32 = 7;
 
-// Drop counters let us verify outer/inner teardown order. The aggregation
-// contract is: dropping the outer must `Release` the inner stored in
-// `ComposeBase`, so `INNER_DROPS` must reach 1 before the program exits, and
-// it must do so as a side effect of the outer (`DERIVED_DROPS`) being dropped.
 static DERIVED_DROPS: AtomicUsize = AtomicUsize::new(0);
 static INNER_DROPS: AtomicUsize = AtomicUsize::new(0);
 
-/// Stands in for the "inner non-delegating IInspectable" that a real WinRT
-/// composable factory would create. It implements `IFoo` so we can detect when
-/// `QueryInterface` falls through from the derived (outer) to the inner via
-/// `aggregation_query` in the `#[implement]`-generated QueryInterface.
+// The inner implements `IFoo` to exercise `aggregation_query` fallback.
 #[implement(IFoo)]
 struct Inner;
 
@@ -49,8 +36,6 @@ impl Drop for Inner {
     }
 }
 
-/// Rust derived type that aggregates `Foo`. Hello returns `DERIVED_VALUE` so we
-/// can tell which side of the aggregate dispatched a call.
 #[implement(IFoo)]
 struct Derived;
 
@@ -67,20 +52,11 @@ impl Drop for Derived {
     }
 }
 
-/// Mock CRT-side factory. Plays the role normally played by the WinRT runtime
-/// class implementation living in (e.g.) `Windows.UI.Xaml.dll`.
 #[implement(IFooFactory)]
 struct MockFactory;
 
 impl IFooFactory_Impl for MockFactory_Impl {
     fn CreateInstance(&self, outer: Ref<IInspectable>, inner: OutRef<IInspectable>) -> Result<Foo> {
-        // Aggregation contract:
-        //   * `outer` is the controlling-unknown supplied by the derived caller.
-        //   * `inner` receives the freshly-allocated non-delegating IInspectable
-        //     that the outer will use to resolve QI for interfaces it doesn't
-        //     handle locally.
-        //   * Return value is the outer's default interface for the runtime
-        //     class (here, `IFoo` reinterpreted as `Foo`).
         let inner_inspectable: IInspectable = Inner.into();
         inner.write(Some(inner_inspectable))?;
 
@@ -92,41 +68,29 @@ impl IFooFactory_Impl for MockFactory_Impl {
 fn main() -> Result<()> {
     let factory: IFooFactory = MockFactory.into();
 
-    // Manually drive what `Foo::compose::<Derived>(Derived)` would do, minus
-    // the `FactoryCache::call` step that depends on `RoGetActivationFactory`.
     let derived = Derived;
     // SAFETY: `outer` is kept alive across the factory call below; `base_slot`
     // points into the heap allocation that backs `outer`.
     let (outer, base_slot) = unsafe { Compose::compose(derived) };
 
     let foo_outer = factory.CreateInstance(&outer, base_slot)?;
-    // Keep `outer` alive until after the factory has populated `base_slot`.
+    // The factory writes through `base_slot`, which points into `outer`.
     let _ = &outer;
 
-    // The base slot must now contain the inner produced by the factory.
     assert!(
         base_slot.is_some(),
         "factory must have populated inner slot"
     );
 
-    // 1. Hello() on the returned Foo (outer's IFoo) dispatches to the derived
-    //    implementation, not the inner.
     let n = foo_outer.Hello()?;
     assert_eq!(
         n, DERIVED_VALUE,
         "Hello() on outer should dispatch to derived (got {n}, expected {DERIVED_VALUE})"
     );
 
-    // 2. QI for IInspectable from the outer succeeds locally (identity_query).
     let _: IInspectable = foo_outer.cast()?;
 
-    // 3. QI fall-through: the outer (Derived_Impl) has only IFoo + IInspectable
-    //    + IUnknown in its interface chain. Issuing a raw QueryInterface for an
-    //    arbitrary IID that *neither* outer nor inner implements should reach
-    //    the `aggregation_query` branch in the generated QueryInterface, which
-    //    calls `query` on the inner stored in `ComposeBase`. The inner returns
-    //    E_NOINTERFACE for unknown IIDs. We just need to confirm we don't
-    //    crash and we get a clean E_NOINTERFACE.
+    // An unknown IID reaches the generated `aggregation_query` fallback.
     let unknown_iid = windows_core::GUID::from_u128(0xdead_beef_dead_beef_dead_beef_dead_beef);
     unsafe {
         use windows_core::HRESULT;
@@ -146,9 +110,7 @@ fn main() -> Result<()> {
         assert!(sink.is_null(), "failed QI must leave out-pointer null");
     }
 
-    // 4. Drop order: drop `foo_outer` first (releases one strong ref on outer), then
-    //    drop `outer`. That last drop must run `Derived::drop` *and* release
-    //    the inner stored in `ComposeBase`, which in turn runs `Inner::drop`.
+    // The final outer release must also release the inner stored in `ComposeBase`.
     drop(foo_outer);
     assert_eq!(
         DERIVED_DROPS.load(Ordering::SeqCst),

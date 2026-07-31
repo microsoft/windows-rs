@@ -207,7 +207,7 @@ fn empty_theme_bindings_map_still_allows_skip() {
 }
 
 // A stable `Callback` (e.g. from `use_callback`) passed through the `on_click`
-// setter must keep its identity so the control is skippable — unlike the tests
+// setter must keep its identity so the control is skippable, unlike the tests
 // above, this exercises the setter, where re-wrapping would silently regress.
 #[test]
 fn on_click_setter_preserves_callback_identity() {

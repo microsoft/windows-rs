@@ -210,10 +210,7 @@ fn empty_keyboard_accelerators_does_not_emit_op_on_mount() {
 
 #[test]
 fn update_emits_set_keyboard_accelerators_when_modifiers_change() {
-    // Add → Change → Clear. Each transition must emit exactly one
-    // `SetKeyboardAccelerators` op carrying the new list (or the
-    // empty list when cleared, so the WinUI backend can clear the
-    // `UIElement.KeyboardAccelerators` collection).
+    // Clearing must emit an empty list so the backend clears the WinUI collection.
     let plain: Element = Button::new("b").into();
     let accel_a = KeyboardAccelerator::new(VirtualKey::S, VirtualKeyModifiers::Control, || {});
     let accel_b = KeyboardAccelerator::new(VirtualKey::Escape, VirtualKeyModifiers::None, || {});
@@ -237,7 +234,6 @@ fn update_emits_set_keyboard_accelerators_when_modifiers_change() {
         "no op expected on initial mount without accelerators"
     );
 
-    // Add an accelerator — update path should set it.
     r.backend.clear_ops();
     let _ = r.reconcile(Some(&plain), &labelled, Some(id), Rc::new(|| {}));
     let ops: Vec<_> = r
@@ -253,8 +249,6 @@ fn update_emits_set_keyboard_accelerators_when_modifiers_change() {
     assert_eq!(ops[0].len(), 1);
     assert_eq!(ops[0][0].key, VirtualKey::S);
 
-    // Append a second accelerator — update path should re-set the
-    // full list.
     r.backend.clear_ops();
     let _ = r.reconcile(Some(&labelled), &relabelled, Some(id), Rc::new(|| {}));
     let ops: Vec<_> = r
@@ -270,8 +264,6 @@ fn update_emits_set_keyboard_accelerators_when_modifiers_change() {
     assert_eq!(ops[0].len(), 2);
     assert_eq!(ops[0][1].key, VirtualKey::Escape);
 
-    // Clear all accelerators — update path should emit an empty
-    // list so the backend can clear the WinUI collection.
     r.backend.clear_ops();
     let _ = r.reconcile(Some(&relabelled), &plain, Some(id), Rc::new(|| {}));
     let ops: Vec<_> = r

@@ -97,7 +97,6 @@ fn primitive_iterator() -> Result<()> {
     assert!(compare_with(&values[1], &3, &30)?);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    // MoveNext followed by GetMany reads from the advanced position
     let iter = able.First()?;
     assert!(iter.MoveNext()?);
     let mut values = vec![];

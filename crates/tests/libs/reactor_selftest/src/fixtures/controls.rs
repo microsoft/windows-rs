@@ -480,8 +480,6 @@ pub fn mount_templated_flip_view(h: Harness) -> FixtureFuture {
     })
 }
 
-// ── W1: virtualised lists (named alias) ────────────────────────────────
-
 pub fn mount_virtual_list_alias(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         const TOTAL: usize = 300;
@@ -497,7 +495,7 @@ pub fn mount_virtual_list_alias(h: Harness) -> FixtureFuture {
 
         // Rows realize lazily via ContainerContentChanging once WinUI lays the
         // ListView out. Wait for the first row's content to appear, proving the
-        // realize→SetContent path works end-to-end.
+        // This exercises the realize-to-SetContent path.
         let realized = h
             .render_until("virtual list first row to realize", |h| {
                 h.find_text("row #0").is_some()
@@ -523,8 +521,6 @@ pub fn mount_virtual_list_alias(h: Harness) -> FixtureFuture {
     })
 }
 
-// ── W2: PasswordBox ────────────────────────────────────────────────────
-
 pub fn mount_password_box(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
@@ -539,8 +535,6 @@ pub fn mount_password_box(h: Harness) -> FixtureFuture {
     })
 }
 
-// ── W3: RadioButtons grouped container ─────────────────────────────────
-
 pub fn mount_radio_buttons(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
@@ -554,8 +548,6 @@ pub fn mount_radio_buttons(h: Harness) -> FixtureFuture {
     })
 }
 
-// ── W4: ComboBox ───────────────────────────────────────────────────────
-
 pub fn mount_combo_box(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
@@ -568,8 +560,6 @@ pub fn mount_combo_box(h: Harness) -> FixtureFuture {
         assert_present!(h, "Reconciler_Mount_ComboBox", bindings::ComboBox);
     })
 }
-
-// ── W5: Canvas + canvas_left / canvas_top attached props ───────────────
 
 pub fn mount_canvas(h: Harness) -> FixtureFuture {
     Box::pin(async move {

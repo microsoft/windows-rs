@@ -8,8 +8,8 @@
 //! `collect_subtree()`. Widgets that use `header_element()` or `pane_element()`
 //! (Expander, TitleBar, SplitView) stored those sub-trees in separate maps
 //! (`self.header_elements`, `self.pane_elements`) which were **never** walked,
-//! unmounted, or destroyed. Their entire subtrees — XAML handles, component
-//! instances, event closures — were leaked on every unmount.
+//! unmounted, or destroyed. Their subtrees, XAML handles, component instances,
+//! and event closures were leaked on every unmount.
 //!
 //! This affected any page-switching scenario where the unmounted subtree
 //! contained an Expander with a complex header, a SplitView with a pane, or
@@ -66,7 +66,7 @@ fn make_expander_with_header() -> Element {
 }
 
 /// Simulates a page inside a NavigationView that contains an Expander
-/// with a complex header — a realistic scenario matching both #4491 and #4500.
+/// with a complex header matching #4491 and #4500.
 fn make_page() -> Element {
     vstack((
         text_block("Page Title"),
@@ -92,7 +92,6 @@ fn header_element_subtree_leaked_on_unmount() {
     let root_id = reconciler.reconcile(None, &tree, None, Rc::clone(&rerender));
     assert!(root_id.is_some(), "mount should produce a root control");
 
-    // 2. Replace the tree with Empty — this triggers unmount of the root
     let _new_id = reconciler.reconcile(Some(&tree), &Element::Empty, root_id, Rc::clone(&rerender));
 
     // 3. Check: every Create should have a matching Destroy
@@ -129,7 +128,6 @@ fn repeated_navigation_accumulates_leaked_controls() {
     for _cycle in 0..10 {
         let page = make_page();
         let id = reconciler.reconcile(None, &page, None, Rc::clone(&rerender));
-        // Simulate navigating away — full unmount
         let _ = reconciler.reconcile(Some(&page), &Element::Empty, id, Rc::clone(&rerender));
     }
 

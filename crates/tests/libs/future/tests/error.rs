@@ -1,7 +1,5 @@
 #![cfg(windows)]
-// Tests error propagation for all stock implementations. Here we're using `get` which calls `GetResults`
-// as that is the normal path for most callers. Older callers may also use `ErrorCode` so that is tested
-// as well.
+// Cover both `GetResults` and the legacy `ErrorCode` path.
 //
 // This file is Windows-only because `windows_core::Error::new(code, message)` only stores the
 // message text on Windows (via `IErrorInfo`/`OriginateError`); on other targets the message is

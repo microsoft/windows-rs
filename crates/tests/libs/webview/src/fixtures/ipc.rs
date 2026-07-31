@@ -1,11 +1,8 @@
-//! Host <-> page messaging fixtures.
-
 use std::cell::RefCell;
 use std::rc::Rc;
 
 use crate::harness::Harness;
 
-/// A page that calls `chrome.webview.postMessage` is delivered to the host.
 pub fn page_to_host(harness: &Harness) {
     let received: Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
     let sink = received.clone();
@@ -39,7 +36,6 @@ pub fn page_to_host(harness: &Harness) {
     drop(registration);
 }
 
-/// A message posted from the host reaches the page, which echoes it back.
 pub fn host_to_page_round_trip(harness: &Harness) {
     let received: Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
     let sink = received.clone();
@@ -76,8 +72,6 @@ pub fn host_to_page_round_trip(harness: &Harness) {
     drop(registration);
 }
 
-/// A JSON message posted from the host is delivered to the page as a parsed
-/// object, which reads a field and posts it back.
 pub fn json_round_trip(harness: &Harness) {
     let received: Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
     let sink = received.clone();

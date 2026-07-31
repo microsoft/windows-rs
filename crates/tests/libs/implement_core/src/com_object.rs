@@ -119,7 +119,6 @@ impl PartialEq for MyApp {
 
 impl Eq for MyApp {}
 
-/// This lets us detect when an object has been dropped.
 #[derive(Default)]
 struct Tombstone {
     cell: AtomicBool,
@@ -167,7 +166,6 @@ fn basic() {
     let ifoo: IFoo = app.cast().unwrap();
     assert_eq!(unsafe { ifoo.get_x() }, 42);
 
-    // check lifetimes
     let tombstone = app.tombstone.clone();
     assert!(!tombstone.is_dead());
 
@@ -189,7 +187,6 @@ fn casting() {
     let ifoo: IFoo = app.cast().unwrap();
     assert_eq!(unsafe { app.get_x() }, 42);
 
-    // check lifetimes
     assert!(!tombstone.is_dead());
 
     drop(app);
@@ -313,21 +310,18 @@ fn into_interface() {
 
 #[test]
 fn construct_with_com_object_new() {
-    // Test that we can construct using ComObject::new().
     let app: ComObject<MyApp> = ComObject::new(MyApp::default());
     let _ = app;
 }
 
 #[test]
 fn construct_with_com_object_from() {
-    // Test that we can construct using ComObject::from().
     let app: ComObject<MyApp> = ComObject::from(MyApp::default());
     let _ = app;
 }
 
 #[test]
 fn construct_with_into() {
-    // Test that we can construct using ComObject::from().
     fn consume(_: ComObject<MyApp>) {}
 
     consume(MyApp::default().into());
@@ -401,9 +395,6 @@ fn dynamic_cast() {
     assert_eq!(dyn_app_owned_2.signature, APP_SIGNATURE);
 }
 
-// Test that we can invoke the correct method in situations where two different
-// interfaces declare a method with the same name, including situations where
-// one of the interfaces inherits from the other.
 #[test]
 fn common_method_name() {
     let app = MyApp::new(42);
@@ -431,8 +422,7 @@ fn interface_debug_fmt() {
     assert!(foo_dbg.starts_with("IFoo(0x"), "{foo_dbg:?}");
 }
 
-// Test that we always get the same IUnknown pointer for an object, regardless of which
-// interface we use to query for it.
+// COM identity requires every interface chain to return the canonical `IUnknown`.
 #[test]
 fn iunknown_identity() {
     let app = MyApp::new(0);
@@ -440,7 +430,6 @@ fn iunknown_identity() {
     // iunknown is from the identity vtable slot. It is the canonical IUnknown pointer.
     let iunknown: IUnknown = app.to_interface();
 
-    // Get the most-derived interface of each interface chain.
     let _ifoo: IFoo = app.to_interface();
     let ibar: IBar = app.to_interface();
     let ibar2: IBar2 = app.to_interface();
@@ -455,7 +444,7 @@ fn iunknown_identity() {
             "IBar-to-IUnknown is non-canonical interface chain"
         );
 
-        // The equality implementation uses QueryInterface to check that they are the same pointer.
+        // Equality canonicalizes through `QueryInterface`.
         assert_eq!(
             ibar_iunknown_static, iunknown,
             "QueryInterface for IUnknown yields same pointer"
@@ -476,8 +465,7 @@ fn iunknown_identity() {
     );
 }
 
-// This tests that we can place a type that is not Send in a ComObject.
-// Compilation is sufficient to test.
+// Compilation verifies that `ComObject` accepts a non-`Send` implementation.
 #[implement(IBar)]
 struct UnsendableThing {
     cell: core::cell::Cell<u32>,

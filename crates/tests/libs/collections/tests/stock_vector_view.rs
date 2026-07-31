@@ -25,7 +25,7 @@ fn primitive() -> Result<()> {
     assert_eq!(index, 1);
     assert!(v.IndexOf(3, &mut index)?);
     assert_eq!(index, 2);
-    // IndexOf resets *result to 0 when the value is not found
+    // WinRT requires the out index to be zero when no value is found.
     index = 99;
     assert!(!(v.IndexOf(0, &mut index)?));
     assert_eq!(index, 0);
@@ -108,7 +108,6 @@ fn primitive_iterator() -> Result<()> {
     assert_eq!(values, [2, 3]);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    // MoveNext followed by GetMany reads from the advanced position
     let iter = able.First()?;
     assert!(iter.MoveNext()?);
     let mut values = [0; 5];

@@ -163,7 +163,6 @@ fn empty_accessibility_does_not_emit_set_accessibility_on_mount() {
 
 #[test]
 fn update_emits_set_accessibility_when_modifiers_change() {
-    // Add → Change → Clear transitions.
     let plain: Element = Button::new("b").into();
     let labelled: Element = Button::new("b").automation_name("submit").into();
     let relabelled: Element = Button::new("b")

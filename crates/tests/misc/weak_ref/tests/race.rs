@@ -43,7 +43,7 @@ fn test_race() {
             break;
         }
 
-        // Normally, the progress for each thread should advance within a long time period, say 1 sec here.
+        // Each thread should make progress within one second.
         // Otherwise, it indicates that there is an infinite loop.
         assert!(
             !new_progress

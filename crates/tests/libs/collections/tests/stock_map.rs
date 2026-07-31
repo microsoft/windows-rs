@@ -30,8 +30,7 @@ fn primitive_mutable() -> Result<()> {
     let m = IMap::<i32, u64>::from(BTreeMap::new());
     assert_eq!(m.Size()?, 0);
 
-    // Insert new keys
-    assert!(!(m.Insert(1, 10u64)?)); // returns false: key did not exist
+    assert!(!(m.Insert(1, 10u64)?));
     assert!(!(m.Insert(2, 20u64)?));
     assert!(!(m.Insert(3, 30u64)?));
     assert_eq!(m.Size()?, 3);
@@ -39,20 +38,16 @@ fn primitive_mutable() -> Result<()> {
     assert_eq!(m.Lookup(2)?, 20u64);
     assert_eq!(m.Lookup(3)?, 30u64);
 
-    // Replace an existing key
-    assert!(m.Insert(2, 200u64)?); // returns true: key was replaced
+    assert!(m.Insert(2, 200u64)?);
     assert_eq!(m.Lookup(2)?, 200u64);
     assert_eq!(m.Size()?, 3);
 
-    // Remove an existing key
     m.Remove(1)?;
     assert_eq!(m.Size()?, 2);
     assert!(!(m.HasKey(1)?));
 
-    // Remove a non-existing key returns E_BOUNDS
     assert_eq!(m.Remove(99).unwrap_err().code(), E_BOUNDS);
 
-    // Clear
     m.Clear()?;
     assert_eq!(m.Size()?, 0);
     assert!(!(m.HasKey(2)?));
@@ -130,7 +125,6 @@ fn primitive_iterator() -> Result<()> {
     assert!(compare_with(&values[1], &3, &30)?);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    // MoveNext followed by GetMany reads from the advanced position
     let iter = m.First()?;
     assert!(iter.MoveNext()?);
     let mut values = vec![];
@@ -147,13 +141,11 @@ fn primitive_iterator() -> Result<()> {
 fn get_view() -> Result<()> {
     let m = IMap::<i32, u64>::from(BTreeMap::from([(1, 10), (2, 20)]));
 
-    // GetView returns a snapshot
     let view = m.GetView()?;
     assert_eq!(view.Size()?, 2);
     assert_eq!(view.Lookup(1)?, 10u64);
     assert_eq!(view.Lookup(2)?, 20u64);
 
-    // Mutating the map after GetView does not affect the snapshot
     m.Insert(3, 30u64)?;
     assert_eq!(m.Size()?, 3);
     assert_eq!(view.Size()?, 2);
@@ -176,7 +168,6 @@ fn hstring() -> Result<()> {
     assert!(m.HasKey(h!("one"))?);
     assert!(!(m.HasKey(h!("three"))?));
 
-    // Replace
     assert!(m.Insert(h!("one"), 100)?);
     assert_eq!(m.Lookup(h!("one"))?, 100);
 

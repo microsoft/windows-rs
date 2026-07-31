@@ -1,4 +1,4 @@
-//! Tests for `CustomElement` — the open/closed extension hatch that lets
+//! Tests for `CustomElement`, the open/closed extension hatch that lets
 //! third-party code add widgets without modifying the core `Element` enum.
 //!
 //! See [`docs/roadmap.md`](../../../../docs/roadmap.md) item 1a-ii.
@@ -35,13 +35,11 @@ fn into_element<C: CustomElement>(c: C) -> Element {
     Element::Custom(CustomElementHandle::new(c))
 }
 
-// ---------------------------------------------------------------------------
 // Test fixture: a `BadgeText` widget defined entirely outside the core crate.
 //
 // It composes a TextBlock control with a formatted "{label} ({count})" label.
 // Lives in a sibling test crate so this also documents the externally-defined
 // widget pattern.
-// ---------------------------------------------------------------------------
 
 #[derive(Clone)]
 struct BadgeText {
@@ -82,7 +80,7 @@ impl CustomElement for BadgeText {
     fn eq_dyn(&self, other: &dyn CustomElement) -> bool {
         other.as_any().downcast_ref::<Self>().is_some_and(|o| {
             // destroy_counter is a test-fixture concern, not a logical
-            // prop — exclude it from equality.
+            // prop, so exclude it from equality.
             self.key == o.key && self.label == o.label && self.count == o.count
         })
     }
@@ -108,7 +106,7 @@ impl CustomElement for BadgeText {
     }
 }
 
-/// A second, distinct CustomElement type — used to verify that swapping
+/// A second, distinct CustomElement type used to verify that swapping
 /// to a different `type_id` triggers a full unmount + remount.
 #[derive(Clone)]
 struct AltCustom;
@@ -184,9 +182,7 @@ fn keyed_badge(key: &str, label: &str, count: i32) -> Element {
     })
 }
 
-// ---------------------------------------------------------------------------
 // Tests
-// ---------------------------------------------------------------------------
 
 #[test]
 fn custom_mount_records_create_and_initial_prop() {
@@ -334,7 +330,6 @@ fn custom_before_destroy_uses_latest_handle_after_updates() {
     r.reconcile(Some(&initial), &updated, Some(id), noop())
         .unwrap();
 
-    // Now swap to a different custom type → unmount.
     let replacement = into_element(AltCustom);
     r.reconcile(Some(&updated), &replacement, Some(id), noop())
         .unwrap();

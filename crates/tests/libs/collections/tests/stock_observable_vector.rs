@@ -102,7 +102,6 @@ fn primitive_iterator() -> Result<()> {
     assert_eq!(values, [2, 3]);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    // MoveNext followed by GetMany reads from the advanced position
     let iter = v.First()?;
     assert!(iter.MoveNext()?);
     let mut values = [0; 5];
@@ -117,7 +116,6 @@ fn primitive_iterator() -> Result<()> {
 fn primitive_mutable() -> Result<()> {
     let v = IObservableVector::<i32>::from(vec![]);
 
-    // Append
     v.Append(1)?;
     v.Append(2)?;
     v.Append(3)?;
@@ -126,12 +124,10 @@ fn primitive_mutable() -> Result<()> {
     assert_eq!(v.GetAt(1)?, 2);
     assert_eq!(v.GetAt(2)?, 3);
 
-    // SetAt
     v.SetAt(1, 20)?;
     assert_eq!(v.GetAt(1)?, 20);
     assert_eq!(v.SetAt(3, 0).unwrap_err().code(), E_BOUNDS);
 
-    // InsertAt
     v.InsertAt(1, 10)?;
     assert_eq!(v.Size()?, 4);
     assert_eq!(v.GetAt(0)?, 1);
@@ -140,30 +136,25 @@ fn primitive_mutable() -> Result<()> {
     assert_eq!(v.GetAt(3)?, 3);
     assert_eq!(v.InsertAt(5, 0).unwrap_err().code(), E_BOUNDS);
 
-    // RemoveAt
     v.RemoveAt(0)?;
     assert_eq!(v.Size()?, 3);
     assert_eq!(v.RemoveAt(3).unwrap_err().code(), E_BOUNDS);
 
-    // RemoveAtEnd
     v.RemoveAtEnd()?;
     assert_eq!(v.Size()?, 2);
     assert_eq!(v.GetAt(0)?, 10);
     assert_eq!(v.GetAt(1)?, 20);
 
-    // Clear
     v.Clear()?;
     assert_eq!(v.Size()?, 0);
     assert_eq!(v.RemoveAtEnd().unwrap_err().code(), E_BOUNDS);
 
-    // ReplaceAll
     v.ReplaceAll(&[7, 8, 9])?;
     assert_eq!(v.Size()?, 3);
     assert_eq!(v.GetAt(0)?, 7);
     assert_eq!(v.GetAt(1)?, 8);
     assert_eq!(v.GetAt(2)?, 9);
 
-    // ReplaceAll with empty clears the vector
     v.ReplaceAll(&[])?;
     assert_eq!(v.Size()?, 0);
 
@@ -174,14 +165,12 @@ fn primitive_mutable() -> Result<()> {
 fn get_view() -> Result<()> {
     let v = IObservableVector::<i32>::from(vec![1, 2, 3]);
 
-    // GetView returns a snapshot
     let view = v.GetView()?;
     assert_eq!(view.Size()?, 3);
     assert_eq!(view.GetAt(0)?, 1);
     assert_eq!(view.GetAt(1)?, 2);
     assert_eq!(view.GetAt(2)?, 3);
 
-    // Mutating the vector after GetView does not affect the snapshot
     v.Append(4)?;
     assert_eq!(v.Size()?, 4);
     assert_eq!(view.Size()?, 3);
@@ -204,7 +193,6 @@ fn vector_changed_event() -> Result<()> {
         events_clone.lock().unwrap().push((change, index));
     })?;
 
-    // Append fires ItemInserted
     v.Append(4)?;
     {
         let ev = events.lock().unwrap();
@@ -213,7 +201,6 @@ fn vector_changed_event() -> Result<()> {
         assert_eq!(ev[0].1, 3);
     }
 
-    // SetAt fires ItemChanged
     v.SetAt(0, 10)?;
     {
         let ev = events.lock().unwrap();
@@ -222,7 +209,6 @@ fn vector_changed_event() -> Result<()> {
         assert_eq!(ev[1].1, 0);
     }
 
-    // RemoveAt fires ItemRemoved
     v.RemoveAt(0)?;
     {
         let ev = events.lock().unwrap();
@@ -231,7 +217,6 @@ fn vector_changed_event() -> Result<()> {
         assert_eq!(ev[2].1, 0);
     }
 
-    // RemoveAtEnd fires ItemRemoved
     v.RemoveAtEnd()?;
     {
         let ev = events.lock().unwrap();
@@ -240,7 +225,6 @@ fn vector_changed_event() -> Result<()> {
         assert_eq!(ev[3].1, 2); // index of last element before removal
     }
 
-    // InsertAt fires ItemInserted
     v.InsertAt(0, 99)?;
     {
         let ev = events.lock().unwrap();
@@ -249,7 +233,6 @@ fn vector_changed_event() -> Result<()> {
         assert_eq!(ev[4].1, 0);
     }
 
-    // Clear fires Reset
     v.Clear()?;
     {
         let ev = events.lock().unwrap();
@@ -258,7 +241,6 @@ fn vector_changed_event() -> Result<()> {
         assert_eq!(ev[5].1, 0);
     }
 
-    // ReplaceAll fires Reset
     v.ReplaceAll(&[1, 2])?;
     {
         let ev = events.lock().unwrap();
@@ -267,7 +249,6 @@ fn vector_changed_event() -> Result<()> {
         assert_eq!(ev[6].1, 0);
     }
 
-    // Removing the handler means no more events
     drop(revoker);
     v.Append(5)?;
     {
@@ -299,7 +280,6 @@ fn multiple_handlers() -> Result<()> {
     assert_eq!(count1.load(std::sync::atomic::Ordering::Relaxed), 1);
     assert_eq!(count2.load(std::sync::atomic::Ordering::Relaxed), 1);
 
-    // Remove first handler
     drop(revoker1);
     v.Append(2)?;
     assert_eq!(count1.load(std::sync::atomic::Ordering::Relaxed), 1); // no change

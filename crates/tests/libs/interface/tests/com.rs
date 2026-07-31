@@ -156,7 +156,6 @@ fn test_custom_interface() -> Result<()> {
         assert_eq!(memory, [0xAAu8, 0xBB, 0xCC, 0x00]);
         assert_eq!(p.IsDirty(), S_FALSE);
 
-        // Use the custom implementation of `Persist` through the custom interface of `ICustomPersist`
         let p: ICustomPersistMemory = p.cast()?;
         let mut size = 0;
         p.GetSizeMax(&mut size).ok()?;

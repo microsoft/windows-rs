@@ -1,5 +1,5 @@
 #![cfg(windows)]
-// This just confirms that the default feature "std" for the `windows-registry` crate also enables the
+// The default `std` feature must also enable
 // default feature "std" for both the `windows-result` and `windows-strings` dependencies.
 //
 // `Box<dyn std::error::Error>` requires "std" feature for the `windows-result` crate.

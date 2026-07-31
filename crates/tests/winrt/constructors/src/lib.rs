@@ -29,7 +29,7 @@ unsafe extern "system" fn DllGetActivationFactory(
 struct ActivatableFactory;
 
 impl IActivationFactory_Impl for ActivatableFactory_Impl {
-    // Activatable types implement their default constructors using `IActivationFactory::ActivateInstance`.
+    // Activatable constructors use `IActivationFactory::ActivateInstance`.
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(Activatable::new(0).into())
     }
@@ -60,8 +60,7 @@ impl Activatable {
 struct ComposableFactory;
 
 impl IActivationFactory_Impl for ComposableFactory_Impl {
-    // Composable types implement their default constructors using custom composable factory interfaces.
-    // `IComposableFactory::CreateInstance` in this case.
+    // Composable constructors use custom factory interfaces.
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Err(E_NOTIMPL.into())
     }

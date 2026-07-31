@@ -51,7 +51,7 @@ fn integer_constants_reinterpret_bits_across_partitions() {
     //   * `(ATOM)0` cast routed to a cross-partition typedef whose body names a
     //     bare sibling (`type ATOM = WORD`)
     //   * an `HRESULT` (`i32`) whose macro evaluates to a positive literal beyond
-    //     `i32::MAX` — the two's-complement negative (OLE_E_FIRST)
+    //     `i32::MAX`, the two's-complement negative (OLE_E_FIRST)
     //   * `(LPCSTR)2` MAKEINTRESOURCE pointer constant
     //   * a constant typed by an enum, encoded against its `#[repr]` integer
     windows_rdl::reader()

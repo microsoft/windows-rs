@@ -1,9 +1,5 @@
-//! Script execution fixtures: host-initiated `execute_script` and
-//! document-created bootstrap scripts.
-
 use crate::harness::Harness;
 
-/// `execute_script` returns the evaluated expression's JSON-encoded result.
 pub fn execute_returns_value(harness: &Harness) {
     harness.check(
         "Script_Execute_NavReady",
@@ -17,8 +13,6 @@ pub fn execute_returns_value(harness: &Harness) {
     );
 }
 
-/// A document-created script runs before page scripts and is observable through
-/// a later `execute_script`.
 pub fn on_document_created(harness: &Harness) {
     let webview = harness.webview();
     let Ok(id) = webview.add_script_to_execute_on_document_created("window.__selftest = 42;")

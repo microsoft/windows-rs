@@ -1,11 +1,8 @@
-//! Profile fixtures: private mode, colour scheme, and download folder.
-
 use windows_webview::{ControllerOptions, PreferredColorScheme};
 use windows_window::Window;
 
 use crate::harness::Harness;
 
-/// A controller created with `in_private_mode` exposes a private profile.
 pub fn private_mode(harness: &Harness) {
     let Ok(window) = Window::new("selftest-private").size(640, 480).create() else {
         harness.check("Profile_Window", false);
@@ -34,8 +31,6 @@ pub fn private_mode(harness: &Harness) {
     let _ = controller.close();
 }
 
-/// The preferred colour scheme round-trips through the setter and getter, and
-/// the page's `prefers-color-scheme` media query reflects the chosen scheme.
 pub fn color_scheme_round_trip(harness: &Harness) {
     let Ok(profile) = harness.webview().profile() else {
         harness.check("Profile_ColorScheme_Get", false);
@@ -69,7 +64,6 @@ pub fn color_scheme_round_trip(harness: &Harness) {
     let _ = profile.set_preferred_color_scheme(original);
 }
 
-/// Evaluates `prefers-color-scheme: dark` in the current page.
 fn prefers_dark(harness: &Harness) -> bool {
     matches!(
         harness.execute_script("matchMedia('(prefers-color-scheme: dark)').matches"),
@@ -77,7 +71,6 @@ fn prefers_dark(harness: &Harness) -> bool {
     )
 }
 
-/// The profile exposes a non-empty default download folder path.
 pub fn default_download_folder_path(harness: &Harness) {
     let Ok(profile) = harness.webview().profile() else {
         harness.check("Profile_DownloadFolder_Get", false);

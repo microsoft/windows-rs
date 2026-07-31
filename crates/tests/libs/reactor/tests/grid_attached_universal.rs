@@ -5,7 +5,7 @@
 //! Background: prior to this test, only `TextBlock`, `Button`, `CheckBox`,
 //! `TextBox`, `Grid`, `ScrollViewer`, and `RichTextBlock` carried an
 //! `attached: Option<AttachedProps>` field. The other 20 widget kinds
-//! silently dropped `grid_row`/`grid_column` — `Element::attached_mut`
+//! silently dropped `grid_row`/`grid_column`; `Element::attached_mut`
 //! returned `None` and the chained setters were no-ops. PR #79 patched
 //! `Button` because it was discovered visually in the tic-tac-toe sample;
 //! this test ensures no other widget regresses to that state by

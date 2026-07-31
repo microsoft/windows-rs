@@ -7,7 +7,6 @@ struct Async;
 
 impl IAsyncAction_Impl for Async_Impl {
     fn SetCompleted(&self, handler: Ref<AsyncActionCompletedHandler>) -> Result<()> {
-        // This validates that `as_interface` may be used to call a bindgen-produced method expecting a `Param<T>` argument.
         handler
             .unwrap()
             .Invoke(self.as_interface(), AsyncStatus::Completed)

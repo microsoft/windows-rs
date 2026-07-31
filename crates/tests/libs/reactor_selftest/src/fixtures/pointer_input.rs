@@ -60,7 +60,7 @@ fn client_screen_point(hwnd: HWND, fx: f64, fy: f64) -> Option<(i32, i32)> {
 }
 
 /// Inject a single mouse event at absolute screen pixel (`sx`, `sy`) carrying
-/// the extra option flags (`Move`, `LeftDown`, `LeftUp`, …). Coordinates are
+/// the extra option flags (`Move`, `LeftDown`, `LeftUp`, etc.). Coordinates are
 /// normalized over the virtual desktop, matching `MOUSEEVENTF_ABSOLUTE`.
 fn inject_at(
     injector: &InputInjector,

@@ -21,14 +21,12 @@ fn run(name: &str) {
     let winmd_path = out_dir.join(format!("{name}.winmd"));
     let winmd_str = winmd_path.to_str().unwrap();
 
-    // RDL → winmd
     windows_rdl::reader()
         .input(&input_path)
         .output(winmd_str)
         .write()
         .unwrap_or_else(|e| panic!("{name}: reader failed: {e}"));
 
-    // winmd → RDL
     let rdl_out_path = out_dir.join(format!("{name}.rdl"));
     let rdl_out_str = rdl_out_path.to_str().unwrap();
 

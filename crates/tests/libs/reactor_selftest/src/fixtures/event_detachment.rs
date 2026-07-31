@@ -48,7 +48,6 @@ pub fn on_click_detach_on_unmount(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
 
-        // Click the button — handler should fire
         let _ = h.click_button("Clickable");
         h.render().await;
         h.check(
@@ -110,7 +109,6 @@ pub fn on_changed_detach_on_rerender(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
 
-        // Toggle checkbox — handler fires
         let _ = h.set_checkbox_value(true);
         h.render().await;
         h.check(
@@ -127,7 +125,6 @@ pub fn on_changed_detach_on_rerender(h: Harness) -> FixtureFuture {
         );
 
         let count_before = fire_count.get();
-        // Toggle again — handler should NOT fire
         let _ = h.set_checkbox_value(false);
         h.render().await;
 
@@ -159,7 +156,6 @@ pub fn on_changed_handler_replacement(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
 
-        // Initial: multiplier=1, slide to 3 → result=3
         let _ = h.set_slider_value(3.0);
         h.render().await;
         h.check(
@@ -175,7 +171,7 @@ pub fn on_changed_handler_replacement(h: Harness) -> FixtureFuture {
             h.find_text("mult=2").is_some(),
         );
 
-        // Slide to 4 → result should be 4*2=8, not 4*1=4 (stale closure)
+        // The updated handler must not retain the old multiplier.
         let _ = h.set_slider_value(4.0);
         h.render().await;
         h.check(

@@ -37,7 +37,7 @@ fn update_ops(old: Element, new: Element) -> Vec<Op> {
 }
 
 /// Every `set_pointer_handlers` call recorded, in order. `None` means the
-/// handlers were cleared (Some→None transition); `Some` means attach/update.
+/// handlers were cleared (`Some` -> `None`); `Some` means attach/update.
 fn pointer_ops(ops: &[Op]) -> Vec<&Option<PointerHandlers>> {
     ops.iter()
         .filter_map(|o| match o {
@@ -81,7 +81,7 @@ fn all_handlers_attach_as_a_single_bundle() {
 #[test]
 fn stable_callback_is_not_reattached_on_rerender() {
     // A memoized callback (same `Rc`, as produced by `cx.use_callback`) must
-    // compare equal across renders so the reconciler skips re-attaching — the
+    // compare equal across renders so the reconciler skips reattaching; the
     // perf-critical behaviour for drag/hover handlers that fire continuously.
     let cb: Callback<PointerEventInfo> = (|_: PointerEventInfo| {}).into_callback();
     let old: Element = Border::new(Element::Empty)
@@ -99,7 +99,7 @@ fn stable_callback_is_not_reattached_on_rerender() {
 #[test]
 fn fresh_callback_reattaches_on_rerender() {
     // Two distinct closures (no memoization) are not equal, so the handler is
-    // re-applied — this is what `cx.use_callback` exists to avoid.
+    // reapplied. This is what `cx.use_callback` exists to avoid.
     let old: Element = Border::new(Element::Empty).on_pointer_moved(|_| {}).into();
     let new: Element = Border::new(Element::Empty).on_pointer_moved(|_| {}).into();
 
@@ -111,7 +111,7 @@ fn fresh_callback_reattaches_on_rerender() {
 
 #[test]
 fn removing_handler_clears_to_none() {
-    // Some→None must emit a clear so the previously-attached token is released
+    // `Some` -> `None` must release the previously attached token.
     // (no leak), rather than silently leaving the old handler bound.
     let old: Element = Border::new(Element::Empty).on_pointer_moved(|_| {}).into();
     let new: Element = Border::new(Element::Empty).into();

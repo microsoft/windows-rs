@@ -1,8 +1,6 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-// This is a variant of the interface_core/no_use.rs test for use with more complex paths provided by the windows crate.
-
 #[windows::core::interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]
 unsafe trait ITestPersistMemory: windows::Win32::IPersist {
     unsafe fn IsDirty(&self) -> windows::core::HRESULT;

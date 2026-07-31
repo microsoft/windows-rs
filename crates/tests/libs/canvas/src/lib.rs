@@ -108,7 +108,6 @@ mod tests {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
-        // Build a triangle path.
         let path = PathBuilder::new(&device)
             .unwrap()
             .begin(Vector2::new(32.0, 0.0))
@@ -137,7 +136,6 @@ mod tests {
         session.clear(ColorF::BLACK);
         drop(session);
 
-        // Normal present should return Ok(true) — device is fine.
         let result = chain.present().unwrap();
         assert!(result, "Expected present to succeed (no device lost)");
         assert!(!chain.is_device_lost());
@@ -173,7 +171,6 @@ mod tests {
         assert_eq!(identity.m22, 1.0);
         assert_eq!(identity.m31, 0.0);
 
-        // Set a translation.
         let translated = Matrix3x2 {
             m11: 1.0,
             m12: 0.0,
@@ -226,7 +223,6 @@ mod tests {
             )
             .unwrap();
 
-        // Use gradient with various draw methods (same as solid brush).
         session.fill_rect(&Rect::new(0.0, 0.0, 64.0, 32.0), &gradient);
         session.fill_ellipse(&Ellipse::circle(Vector2::new(32.0, 48.0), 12.0), &gradient);
 
@@ -304,7 +300,6 @@ mod tests {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();
 
-        // Build a hollow open path (stroke-only, not closed).
         let path = PathBuilder::new(&device)
             .unwrap()
             .begin_hollow(Vector2::new(0.0, 32.0))
@@ -384,7 +379,6 @@ mod tests {
             )
             .unwrap();
 
-        // Use radial gradient with fill_ellipse (not just fill_rect).
         session.fill_ellipse(&Ellipse::circle(Vector2::new(32.0, 32.0), 30.0), &gradient);
 
         drop(session);
@@ -851,7 +845,6 @@ mod tests {
     fn path_stroke_contains_point() {
         let device = GpuDevice::new_warp().unwrap();
 
-        // Open horizontal segment from (10, 32) to (54, 32).
         let path = PathBuilder::new(&device)
             .unwrap()
             .begin_hollow(Vector2::new(10.0, 32.0))
@@ -890,7 +883,6 @@ mod tests {
     fn path_polygon() {
         let device = GpuDevice::new_warp().unwrap();
 
-        // Same triangle as path_fill_contains_point, built via the polygon helper.
         let path = PathBuilder::new(&device)
             .unwrap()
             .polygon([
@@ -1112,7 +1104,6 @@ mod tests {
         assert!(m.width_including_trailing_whitespace >= m.width);
         assert_eq!(m.layout_width, 400.0);
         assert_eq!(m.layout_height, 200.0);
-        // The bounding rect matches the reported width/height.
         assert_eq!(m.bounds().width(), m.width);
         assert_eq!(m.bounds().height(), m.height);
     }
@@ -1126,7 +1117,6 @@ mod tests {
         let wide = TextLayout::new("word word word word word", &format, 1000.0, 500.0).unwrap();
         assert_eq!(wide.metrics().line_count, 1);
 
-        // The same text in a narrow box must break onto multiple lines.
         let narrow = TextLayout::new("word word word word word", &format, 60.0, 500.0).unwrap();
         assert!(narrow.metrics().line_count > 1);
 
@@ -1149,12 +1139,10 @@ mod tests {
         let format = TextFormat::new("Segoe UI", 24.0).unwrap();
         let layout = TextLayout::new("Hello", &format, 400.0, 200.0).unwrap();
 
-        // A point at the far left maps to the first character.
         let first = layout.hit_test_point(Vector2::new(0.0, 5.0));
         assert_eq!(first.text_position, 0);
         assert!(first.bounds.width() > 0.0);
 
-        // A point well past the end of the text is outside any glyph box.
         let past = layout.hit_test_point(Vector2::new(1000.0, 1000.0));
         assert!(!past.is_inside);
 

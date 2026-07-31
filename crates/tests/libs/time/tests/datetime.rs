@@ -97,7 +97,7 @@ fn system_time_round_trip() {
     let now = SystemTime::now();
     let dt: DateTime = now.try_into().unwrap();
     let back: SystemTime = dt.try_into().unwrap();
-    // Round-trip should be within 1µs.
+    // Round-trip tolerance is one microsecond.
     let delta = match back.duration_since(now) {
         Ok(d) => d,
         Err(e) => e.duration(),

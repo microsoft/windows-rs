@@ -1,10 +1,7 @@
 #![cfg(windows)]
-// Tests that the async interfaces can be used with Rust futures because `IntoFuture` and `Future` implementations
-// are provided by the `windows` crate.
 
 use windows::{Storage::Streams::*, System::Threading::*, core::*};
 
-// A simple example of blocking synchronously with the `get` method.
 #[test]
 fn simple_sync() -> Result<()> {
     ThreadPool::RunAsync(&WorkItemHandler::new(|_| Ok(())))?.join()

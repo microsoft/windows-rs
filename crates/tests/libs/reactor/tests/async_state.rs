@@ -82,7 +82,7 @@ fn async_setter_from_off_thread_marshals_back_and_persists() {
     });
     handle.join().unwrap();
 
-    // The write was marshalled — it lives in the channel waiting for the
+    // The marshalled write remains in the channel until the dispatcher runs.
     // UI thread to drain it. Nothing has applied yet.
     assert_eq!(rerenders.get(), 0);
     assert_eq!(dispatcher.pending(), 1);
