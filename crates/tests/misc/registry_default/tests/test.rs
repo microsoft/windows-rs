@@ -1,8 +1,7 @@
 #![cfg(windows)]
-// The default `std` feature must also enable
-// default feature "std" for both the `windows-result` and `windows-strings` dependencies.
+// The default `std` feature must enable `std` for `windows-result` and `windows-strings`.
 //
-// `Box<dyn std::error::Error>` requires "std" feature for the `windows-result` crate.
+// `Box<dyn std::error::Error>` requires `std` from `windows-result`.
 #[test]
 fn test() -> Result<(), Box<dyn std::error::Error>> {
     let test_key = "software\\windows-rs\\tests\\default";
@@ -12,7 +11,7 @@ fn test() -> Result<(), Box<dyn std::error::Error>> {
     key.set_u32("u32", 123u32)?;
     assert_eq!(key.get_u32("u32")?, 123u32);
 
-    // `to_os_string` requires the "std" feature for the `windows-strings` crate.
+    // `to_os_string` requires `std` from `windows-strings`.
     assert_eq!(
         windows_registry::HSTRING::from("value").to_os_string(),
         "value"
