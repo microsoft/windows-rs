@@ -59,7 +59,7 @@ pub fn builder() -> Bindgen {
 
 /// Builder for generating Windows API bindings.
 ///
-/// This provides a fluent builder API as an alternative to the command-line-like [`bindgen`] function.
+/// This is the fluent alternative to [`bindgen`].
 ///
 /// # Example
 ///
@@ -130,51 +130,37 @@ impl Style {
         matches!(self, Self::Sys { extern_fns: true })
     }
 
-    // Name style-specific codegen policies at the call sites.
-
-    /// Whether to emit per-class wrapper methods. Minimal bindings omit them;
-    /// callers reach the methods through the class's default interface instead.
+    /// Minimal bindings use the class's default interface directly.
     fn emit_class_methods(self) -> bool {
         !self.is_minimal()
     }
 
-    /// Whether to emit caller-side wrappers that forward to a type's
-    /// **inherited** interface methods. Minimal bindings omit these; callers
-    /// `cast` to the owning interface instead.
+    /// Minimal bindings require casting to the interface that owns an inherited method.
     fn emit_inherited_forwarders(self) -> bool {
         !self.is_minimal()
     }
 
-    /// Whether to emit the `IntoIterator` bridge that forwards to an inherited
-    /// `IIterable<T>`. Minimal bindings omit it (an iterable's own
-    /// `BufferedIterator` impl is still emitted); callers `cast` to `IIterable`.
+    /// Minimal bindings require casting inherited iterables to `IIterable<T>`.
     fn emit_iterable_into_iterator(self) -> bool {
         !self.is_minimal()
     }
 
-    /// Whether an HSTRING **input** parameter is exposed as `&str` (converted to
-    /// `HSTRING` inside the method body). Minimal bindings do this; other styles
-    /// route strings through the `Param`/`IntoParam` machinery instead.
+    /// Minimal bindings expose input strings as `&str`.
     fn minimal_string_input(self, param: &Param) -> bool {
         self.is_minimal() && param.is_input() && matches!(param.ty, Type::String)
     }
 
-    /// Whether an HSTRING **return** value is exposed as an owned `String`.
-    /// Minimal bindings do this; other styles return `HSTRING`.
+    /// Minimal bindings return strings as `String`.
     fn minimal_string_return(self, ty: &Type) -> bool {
         self.is_minimal() && matches!(ty, Type::String)
     }
 
-    /// Whether plain value types (structs/enums) derive the standard
-    /// `Default`/`Debug`/`PartialEq` traits (on top of the always-emitted
-    /// `Copy`/`Clone`). Sys bindings emit bare value types with no extra derives.
+    /// Sys bindings omit standard derives beyond `Copy` and `Clone`.
     fn derive_std_traits(self) -> bool {
         !self.is_sys()
     }
 
-    /// Whether to emit the `windows-core` trait block (type-kind, runtime
-    /// signature, and `NAME`) for a value type. Sys bindings have no
-    /// `windows-core` dependency, so they omit it.
+    /// Sys bindings omit traits that require `windows-core`.
     fn emit_core_traits(self) -> bool {
         !self.is_sys()
     }
@@ -191,14 +177,12 @@ impl Bindgen {
         Self::default()
     }
 
-    /// Add a `.winmd` file or directory containing `.winmd` files.
-    /// Use `"default"` to include the metadata bundled with `windows-bindgen`.
+    /// Adds a `.winmd` file or directory. `"default"` selects the bundled metadata.
     pub fn input(&mut self, input: &str) -> &mut Self {
         self.inputs(std::iter::once(input))
     }
 
-    /// Add multiple `.winmd` files or directories containing `.winmd` files.
-    /// Use `"default"` to include the metadata bundled with `windows-bindgen`.
+    /// Adds `.winmd` files or directories.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -210,7 +194,7 @@ impl Bindgen {
         self
     }
 
-    /// Set the output file where generated bindings will be written.
+    /// Sets the generated Rust file.
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self

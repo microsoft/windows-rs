@@ -115,7 +115,7 @@ impl File {
         let valid_bits = result.bytes.copy_as::<u64>(tables_data.0 + 8)?;
         view = tables_data.0 + 24;
 
-        // These tables are unused by the reader, but needed temporarily to calculate sizes and offsets for subsequent tables.
+        // These tables determine sizes and offsets for later tables.
         let unused_empty = Table::default();
         let mut unused_assembly_os = Table::default();
         let mut unused_assembly_processor = Table::default();
@@ -779,9 +779,7 @@ struct METADATA_HEADER {
 
 const METADATA_SIGNATURE: u32 = 0x424A_5342;
 
-// A coded index (see codes.rs) is a table index that may refer to different tables. The size of the column in memory
-// must therefore be large enough to hold an index for a row in the largest possible table. This function determines
-// this size for the given winmd file.
+// A coded index must fit the largest table selected by its tag.
 fn coded_index_size(tables: &[usize]) -> usize {
     fn small(row_count: usize, bits: u8) -> bool {
         (row_count as u64) < (1u64 << (16 - bits))

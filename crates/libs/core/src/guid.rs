@@ -1,20 +1,20 @@
 use super::*;
 
-/// A globally unique identifier ([GUID](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid))
-/// used to identify COM and WinRT interfaces.
+/// A
+/// [globally unique identifier](https://learn.microsoft.com/windows/win32/api/guiddef/ns-guiddef-guid).
 #[repr(C)]
 #[derive(Clone, Copy, Default, PartialEq, Eq, Hash)]
 pub struct GUID {
-    /// Specifies the first 8 hexadecimal digits.
+    /// The first eight hexadecimal digits.
     pub data1: u32,
 
-    /// Specifies the first group of 4 hexadecimal digits.
+    /// The second group of four hexadecimal digits.
     pub data2: u16,
 
-    /// Specifies the second group of 4 hexadecimal digits.
+    /// The third group of four hexadecimal digits.
     pub data3: u16,
 
-    /// The first 2 bytes contain the third group of 4 hexadecimal digits. The remaining 6 bytes contain the final 12 hexadecimal digits.
+    /// The final two groups of four and twelve hexadecimal digits.
     pub data4: [u8; 8],
 }
 

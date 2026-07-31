@@ -1,6 +1,6 @@
 use super::*;
 
-/// A 32-bit value representing boolean values and returned by some functions to indicate success or failure.
+/// A 32-bit Windows Boolean value.
 #[must_use]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

@@ -1,6 +1,7 @@
 ## Windows numeric types
 
-The [windows-numerics](https://crates.io/crates/windows-numerics) crate provides graphics-oriented math types for Windows.
+The [windows-numerics](https://crates.io/crates/windows-numerics) crate provides Windows vector,
+matrix, plane, and quaternion types.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)

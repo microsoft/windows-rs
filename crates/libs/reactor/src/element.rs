@@ -180,7 +180,7 @@ impl GroupElement {
     }
 }
 
-/// Convenience constructor: `group([a, b, c].into())` -> `Element::Group(...)`.
+/// Creates a fragment that is flattened into its parent's child list.
 pub fn group(children: Vec<Element>) -> Element {
     Element::Group(GroupElement::new(children))
 }

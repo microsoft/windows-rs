@@ -4,22 +4,14 @@ use std::pin::Pin;
 use std::sync::{Arc, Mutex};
 use std::task::{Context, Poll, Waker};
 
-// The `AsyncFuture` is needed to store some extra state needed to keep async execution up to date with possible changes
-// to Rust execution context. Each async type implements `IntoFuture` rather than implementing `Future` directly so that
-// this adapter may be used.
+/// Adapts a WinRT asynchronous operation to [`Future`].
 pub struct AsyncFuture<A: Async> {
-    // Represents the async execution and provides the virtual methods for setting up a `Completed` handler and
-    // calling `GetResults` when execution is completed.
     inner: A,
 
-    // Provides the `Status` virtual method and saves repeated calls to `QueryInterface` during polling.
+    // Cached to avoid querying IAsyncInfo on every poll.
     status: IAsyncInfo,
 
-    // A shared waker is needed to keep the `Completed` handler updated.
-    // - `Option` is used to avoid allocations for async objects that have already completed.
-    // - `Arc` is used to share the `Waker` with the `Completed` handler and potentially replace the `Waker`
-    //   since we don't have the ability to replace the `Completed` handler itself.
-    // - `Mutex` is used to synchronize replacing the `Waker` across threads.
+    // The completion handler is fixed, so later polls replace this shared waker.
     waker: Option<Arc<Mutex<Waker>>>,
 }
 
@@ -42,35 +34,24 @@ impl<A: Async> Future for AsyncFuture<A> {
     type Output = Result<A::Output>;
 
     fn poll(mut self: Pin<&mut Self>, cx: &mut Context) -> Poll<Self::Output> {
-        // A status of `Started` just means async execution is still in flight. Since WinRT async is always
-        // "hot start", if its not `Started` then its ready for us to call `GetResults` so we can skip all of
-        // the remaining set up.
+        // WinRT operations start eagerly, so any state other than Started has a result.
         if self.status.Status()? != AsyncStatus::Started {
             return Poll::Ready(self.inner.get_results());
         }
 
         if let Some(shared_waker) = &self.waker {
-            // We have a shared waker which means we're either getting polled again or been transferred to
-            // another execution context. As we can't tell the difference, we need to update the shared waker
-            // to make sure we've got the "current" waker.
             let mut guard = shared_waker.lock().unwrap();
             guard.clone_from(cx.waker());
 
-            // It may be possible that the `Completed` handler acquired the lock and signaled the old waker
-            // before we managed to acquire the lock to update it with the current waker. We check the status
-            // again here just in case this happens.
+            // Completion may have signaled the previous waker before it was replaced.
             if self.status.Status()? != AsyncStatus::Started {
                 return Poll::Ready(self.inner.get_results());
             }
         } else {
-            // If we don't have a saved waker it means this is the first time we're getting polled and should
-            // create the shared waker and set up a `Completed` handler.
             let shared_waker = Arc::new(Mutex::new(cx.waker().clone()));
             self.waker = Some(shared_waker.clone());
 
-            // The handler can only be set once, which is why we need a shared waker in the first
-            // place. On the other hand, the handler will get called even if async execution has already
-            // completed, so we can just return `Pending` after setting the Completed handler.
+            // The handler runs even if the operation completed before registration.
             self.inner.set_completed(move |_| {
                 shared_waker.lock().unwrap().wake_by_ref();
             })?;
@@ -79,10 +60,6 @@ impl<A: Async> Future for AsyncFuture<A> {
         Poll::Pending
     }
 }
-
-//
-// The four `IntoFuture` trait implementations.
-//
 
 impl IntoFuture for IAsyncAction {
     type Output = Result<()>;

@@ -1,6 +1,7 @@
 ## Windows collection types
 
-The [windows-collections](https://crates.io/crates/windows-collections) crate provides stock collection support for Windows APIs.
+The [windows-collections](https://crates.io/crates/windows-collections) crate implements Windows
+collection interfaces for Rust collections.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
@@ -13,8 +14,6 @@ Start by adding the following to your Cargo.toml file:
 version = "0.3"
 ```
 
-Use the Windows collection types as needed:
-
 ```rust
 use windows_collections::*;
 
@@ -24,8 +23,6 @@ for value in numbers {
     println!("{value}");
 }
 ```
-
-Naturally, the Windows collection types work with other Windows crates:
 
 ```rust
 use windows_collections::*;

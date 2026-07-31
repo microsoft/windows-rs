@@ -1,11 +1,7 @@
 #![doc = include_str!("../readme.md")]
 
-// A single wrapper surface over two composition stacks, forked at compile time.
-// Exactly one of `system` (Windows.UI.Composition, default) or `lifted`
-// (the lifted Microsoft.UI.Composition stack) selects the generated bindings.
-// Both are generated from one filter by `tool_composition` and expose the same
-// type and method names, so every wrapper module below compiles unchanged
-// against either.
+// `system` and `lifted` select compatible generated bindings for the same
+// handwritten wrappers.
 #[cfg(all(not(feature = "system"), not(feature = "lifted")))]
 compile_error!(
     "enable exactly one composition stack: the `system` feature (default) or the `lifted` feature"
@@ -42,9 +38,8 @@ mod compositor;
 mod shape;
 mod visual;
 
-// Standalone HWND hosting is a system-stack capability (it also owns the
-// `windows-window` dependency); lifted composition is hosted inside a WinUI
-// element instead.
+// Only system composition hosts an HWND directly. Lifted composition is hosted
+// in a WinUI element.
 #[cfg(feature = "system")]
 mod stack;
 #[cfg(feature = "system")]
@@ -59,9 +54,7 @@ mod sealed {
     pub trait Sealed {}
 }
 
-// Re-exported crate-wide so every wrapper module can `use super::*;` instead of
-// naming these explicitly. `Sealed` and `Interface` stay crate-internal; only
-// the wrapper types and `Result` form the public surface.
+// Wrapper modules import these through `super::*`.
 pub(crate) use sealed::Sealed;
 pub(crate) use windows_core::Interface;
 

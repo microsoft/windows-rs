@@ -4,12 +4,9 @@ use super::*;
 /// [`on_mounted`](WebView2::on_mounted) / [`on_unmounted`](WebView2::on_unmounted)
 /// callbacks.
 ///
-/// `windows-reactor` hosts the control but knows nothing about the
-/// WebView2 API. The native `Microsoft.UI.Xaml.Controls.WebView2` instance is
-/// exposed as an [`IInspectable`](windows_core::IInspectable) so a higher layer
-/// (the `windows-webview` crate's optional `reactor` feature) can drive it -
-/// `EnsureCoreWebView2Async`, the WinRT -> COM `ICoreWebView2` bridge, navigation,
-/// and events all live there, not here.
+/// The native control is exposed as an
+/// [`IInspectable`](windows_core::IInspectable) for use by a WebView2 binding
+/// such as the `windows-webview` crate's `reactor` feature.
 #[derive(Clone)]
 pub struct WebView2Handle(windows_core::IInspectable);
 
@@ -21,8 +18,7 @@ impl WebView2Handle {
     }
 }
 
-/// Built-in widget for `Microsoft.UI.Xaml.Controls.WebView2` - hosts a WebView2
-/// browser control inside a WinUI 3 XAML tree.
+/// Hosts a `Microsoft.UI.Xaml.Controls.WebView2` control in the XAML tree.
 ///
 /// Like [`SwapChainPanel`](crate::SwapChainPanel), this is a thin native-control
 /// host with no reactive properties: use [`on_mounted`](WebView2::on_mounted) to
@@ -86,7 +82,7 @@ impl Widget for WebView2 {
     }
 }
 
-/// Factory function for a [`WebView2`].
+/// Creates a [`WebView2`].
 pub fn web_view2() -> WebView2 {
     WebView2::new()
 }

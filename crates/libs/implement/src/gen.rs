@@ -116,17 +116,10 @@ fn gen_impl_deref(inputs: &ImplementInputs) -> syn::Item {
     }
 }
 
-/// Generates an `impl` block for the generated `Foo_Impl` block.
+/// Generates the vtable constants for `Foo_Impl`.
 ///
-/// This generates:
-///
-/// ```rust,ignore
-/// const VTABLE_IDENTITY = IInspectable_Vtbl = ...;
-/// const VTABLE_INTERFACE1_IFOO: IFoo_Vtbl = ...;
-/// const VTABLE_INTERFACE2_IBAR: IBar_Vtbl = ...;
-/// ```
-///
-/// Using associated constants works around limitations on generics in const contexts.
+/// Associated constants support generic implementers where local constants cannot refer to
+/// outer generic parameters.
 fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
     let impl_ident = &inputs.impl_ident;
     let generics = &inputs.generics;

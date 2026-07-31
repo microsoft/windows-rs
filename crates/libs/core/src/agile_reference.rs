@@ -24,7 +24,7 @@ impl<T: Interface> AgileReference<T> {
         imp::AgileSlot::new(object).map(|slot| Self(slot, PhantomData))
     }
 
-    /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.
+    /// Returns a proxy valid in the calling thread's apartment.
     pub fn resolve(&self) -> Result<T> {
         self.0.resolve()
     }

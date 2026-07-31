@@ -334,13 +334,14 @@ impl App {
         report_app_start_result(result)
     }
 
-    /// Convenience entry point that accepts a render function directly,
-    /// avoiding the empty-struct `Component` pattern.
+    /// Runs the app with a render function instead of a [`Component`] type.
     ///
     /// The render function should return `Element`. Use `.into()` to convert
     /// widget builders into `Element`:
     ///
-    /// ```ignore
+    /// ```no_run
+    /// use windows_reactor::*;
+    ///
     /// fn app(cx: &mut RenderCx) -> Element {
     ///     let (count, set_count) = cx.use_state(0);
     ///     button(format!("Clicks: {count}"))
@@ -371,22 +372,10 @@ where
     }
 }
 
-/// Builder for a secondary reactor window, opened at runtime on the current UI
-/// thread (for example from an event handler). Mirrors [`App`]'s window options
-/// but, unlike [`App::run`], hosts an additional window inside an already
-/// running reactor application rather than bootstrapping the process.
+/// Builder for a secondary reactor window opened on the current UI thread.
 ///
-/// The process exits when the **last** open window closes, so a secondary
-/// window keeps the app alive until it (and every other window) is closed.
-///
-/// ```ignore
-/// button("Open window").on_click(|| {
-///     let _ = ReactorWindow::new()
-///         .title("Details")
-///         .inner_size(480.0, 320.0)
-///         .render(details_page);
-/// });
-/// ```
+/// It opens another window in the running application. The process exits after
+/// the last window closes.
 pub struct ReactorWindow {
     title: Option<String>,
     inner_size: Option<WindowSize>,

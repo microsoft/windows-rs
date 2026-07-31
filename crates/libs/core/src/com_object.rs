@@ -294,30 +294,9 @@ impl<T: ComObjectInner> Borrow<T> for ComObject<T> {
     }
 }
 
-/// Enables defining COM objects in static storage, useful for factory objects, stateless
-/// objects, or objects that contain mutable global state.
+/// Stores a COM object in static memory.
 ///
-/// Unlike [`ComObject`], `StaticComObject` storage is placed directly in static memory
-/// rather than on the heap.
-///
-/// `StaticComObject`s have a reference count that is adjusted when owned COM interface
-/// references (e.g. `IFoo` and `IUnknown`) are created. The reference count is initialized
-/// to 1.
-///
-/// # Example
-///
-/// ```rust,ignore
-/// #[implement(IFoo)]
-/// struct MyApp {
-///     // ...
-/// }
-///
-/// static MY_STATIC_APP: StaticComObject<MyApp> = MyApp { ... }.into_static();
-///
-/// fn get_my_static_ifoo() -> IFoo {
-///     MY_STATIC_APP.to_interface()
-/// }
-/// ```
+/// Its reference count starts at one and tracks owned interface references.
 pub struct StaticComObject<T>
 where
     T: ComObjectInner,

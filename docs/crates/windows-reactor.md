@@ -29,35 +29,12 @@ windows-reactor-setup = "..."
 
 `build.rs`. Pick the helper that matches your deployment model:
 
-```rust,ignore
-fn main() {
-    // For a self-contained app that carries its own runtime:
-    windows_reactor_setup::as_self_contained();
-    // Other options: as_framework_dependent(), as_example().
-}
-```
+The build script selects `as_self_contained`, `as_framework_dependent`, or `as_example`.
 
 `src/main.rs`. A render function plus `App`:
 
-```rust,ignore
-use windows_reactor::*;
-
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_i32);
-
-    vstack((
-        text_block(format!("Count: {count}")).font_size(28.0).bold(),
-        button("+").on_click(move || set_count.call(count + 1)),
-    ))
-    .spacing(12.0)
-    .into()
-}
-
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("Counter").render(app)
-}
-```
+The crate readme contains a checked counter example. The sample applications cover packaging,
+layout, events, and state.
 
 `bootstrap()` initializes the Windows App SDK runtime. Call it once at startup. `App::new()` is a
 builder. Common options are `title`, `inner_size`, `backdrop` (for example `Backdrop::Mica`), `icon`
@@ -97,14 +74,7 @@ Hooks are methods on `RenderCx`. They give a render function persistent state wi
 - `use_open_window()`: returns an opener for secondary top-level windows (see [Multiple
   windows](#multiple-windows)).
 
-```rust,ignore
-fn counter(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_i32);
-    button(format!("Clicks: {count}"))
-        .on_click(move || set_count.call(count + 1))
-        .into()
-}
-```
+Render functions receive `&mut RenderCx` and return `Element`.
 
 The `apps/examples` and `minimal/examples` directories include a focused sample for each hook
 (`use_state`, `use_ref`, `use_memo`, `use_effect`, `use_reducer`, `use_resource`, `use_callback`,
@@ -156,13 +126,7 @@ directly wherever a handler is expected (through `IntoCallback`).
 When a value-carrying event just forwards its argument to a setter, pass the setter directly instead
 of wrapping it in a closure:
 
-```rust,ignore
-// Prefer this. It is shorter, and the handler keeps a stable identity:
-text_box(text).on_text_changed(set_text)
-
-// Avoid this. A fresh closure is allocated every render:
-text_box(text).on_text_changed(move |value| set_text.call(value))
-```
+Pass a state setter directly when its argument type matches the event.
 
 This is not only cosmetic. Setters from `use_state` and `use_reducer` are memoized per hook slot.
 Passing one straight through hands the reconciler the same handler identity each render, so the diff
@@ -181,19 +145,7 @@ fixed or pre-computed value, `SetState::setter(value)` is shorthand for `move ||
 render function, while sharing the one UI thread and message loop. WinUI is single-threaded
 apartment, so every window runs on the same thread.
 
-```rust,ignore
-fn app(cx: &mut RenderCx) -> Element {
-    button("Open counter window")
-        .on_click(|| {
-            // Opens immediately on the UI thread and returns a handle.
-            let _ = ReactorWindow::new()
-                .title("Counter")
-                .inner_size(320.0, 220.0)
-                .render(counter); // counter: Fn(&mut RenderCx) -> Element
-        })
-        .into()
-}
-```
+`ReactorWindow` opens another top-level window from an event handler.
 
 `ReactorWindow` mirrors the `App` window options (`title`, `inner_size`, `inner_constraints`,
 `presenter`, `fullscreen`, `backdrop`, `icon`). `.render(f)` takes a `Fn(&mut RenderCx) -> Element`.
@@ -260,9 +212,7 @@ For how the widget bridges the WinRT control to the COM `ICoreWebView2`, see
 
 ## Samples
 
-The
-[`crates/samples/reactor`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
-tree is the best reference:
+The [`crates/samples/reactor`](../../crates/samples/reactor) tree is the best reference:
 
 - `samples`: the smallest app plus an `examples/` folder with about 90 focused per-control and
   per-hook examples (`counter`, `calculator`, `navigation_view`, `list_view`, `content_dialog`,

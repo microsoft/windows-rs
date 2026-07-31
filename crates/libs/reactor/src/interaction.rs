@@ -134,15 +134,6 @@ impl<T> Callback<T> {
 }
 
 /// Converts closures and state setters into [`Callback<T>`].
-///
-/// # Examples
-/// ```ignore
-/// // Before: manual adapter closure
-/// text_box(name).on_text_changed(move |v| set_name.call(v))
-///
-/// // After: pass the setter directly
-/// text_box(name).on_text_changed(set_name)
-/// ```
 pub trait IntoCallback<T> {
     fn into_callback(self) -> Callback<T>;
 }
@@ -440,18 +431,8 @@ impl<T> Resource<T> {
         matches!(self, Self::Ready(_) | Self::Reloading(_))
     }
 
-    /// Render the resource with a `ready` closure; loading and error use
-    /// sensible defaults (overridable via [`ResourceView::loading`] /
-    /// [`ResourceView::error`]).
-    ///
-    /// # Example
-    /// ```ignore
-    /// let items = cx.use_resource(fetch_items, page);
-    /// items.view(|data| {
-    ///     vstack(data.iter().map(|s| -> Element { text_block(s).into() }).collect::<Vec<Element>>())
-    ///         .into()
-    /// })
-    /// ```
+    /// Renders ready data. Loading and error states have defaults that
+    /// [`ResourceView::loading`] and [`ResourceView::error`] can replace.
     pub fn view<F, R>(&self, ready: F) -> ResourceView<'_, T, impl FnOnce(&T) -> Element>
     where
         F: FnOnce(&T) -> R,
@@ -574,13 +555,6 @@ impl Generation {
 impl RenderCx {
     /// Fetch data on a background thread, refetching when `deps` change.
     ///
-    /// ```ignore
-    /// let users = cx.use_resource(
-    ///     |filter| api::search_users_blocking(&filter),
-    ///     search_term.clone(),
-    /// );
-    /// ```
-    ///
     /// If you need an async runtime, create one inside the fetcher:
     /// `|deps| { tokio::runtime::Runtime::new()?.block_on(fetch(deps)) }`
     pub fn use_resource<T, D, F>(&mut self, fetcher: F, deps: D) -> Resource<T>
@@ -620,12 +594,6 @@ impl RenderCx {
 
     /// Mutation hook for async write operations. Returns the mutation state
     /// and a trigger function.
-    ///
-    /// ```ignore
-    /// let (state, mutate) = cx.use_mutation();
-    /// // In an event handler:
-    /// mutate.fire(|| api::save_user_blocking(&user));
-    /// ```
     pub fn use_mutation<T>(&mut self) -> (MutationState<T>, MutationTrigger<T>)
     where
         T: Send + Clone + PartialEq + 'static,
@@ -661,7 +629,7 @@ impl<T: Send + Clone + PartialEq + 'static> MutationTrigger<T> {
         });
     }
 
-    /// Reset the mutation state back to Idle (e.g. after showing success).
+    /// Resets the mutation state to `Idle`.
     pub fn reset(&self) {
         self.set_state.call(MutationState::Idle);
     }

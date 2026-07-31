@@ -1,46 +1,6 @@
 //! Define COM interfaces to call or implement.
 //!
-//! Take a look at [macro@interface] for an example.
-//!
-//! Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
-//!
-//! # Architecture
-//!
-//! ## What this macro generates
-//!
-//! For an interface declared as:
-//!
-//! ```rust,ignore
-//! #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
-//! unsafe trait IFoo: IUnknown {
-//!     fn GetValue(&self, value: *mut i32) -> HRESULT;
-//! }
-//! ```
-//!
-//! The macro emits:
-//!
-//! - `struct IFoo(IUnknown)` - a `#[repr(transparent)]` struct wrapping the parent.
-//! - `unsafe impl Interface for IFoo` - with the IID constant.
-//! - `impl Deref for IFoo` - to reach parent-interface methods.
-//! - `impl IFoo { fn GetValue(...) }` - safe wrapper that calls through the vtable.
-//! - `trait IFoo_Impl: Sized` - the trait that `#[implement]` users must implement on
-//!   their `Foo_Impl` type.
-//! - `struct IFoo_Vtbl` - the vtable layout, with a `new::<Identity, OFFSET>()` constructor
-//!   and a `matches(iid)` helper used by `QueryInterface`.
-//! - `Clone`, `PartialEq`, `Eq`, `Debug`, and `From<IFoo> for IUnknown` implementations.
-//!
-//! ## Naming conventions
-//!
-//! - `IFoo` - the interface struct, usable as a COM pointer.
-//! - `IFoo_Vtbl` - the vtable struct (hidden from docs).
-//! - `IFoo_Impl` - the implementation trait; see `windows-implement` for who implements it.
-//!
-//! ## Relationship to `windows-implement`
-//!
-//! `#[interface]` and `#[implement]` (in `windows-implement`) must agree on:
-//! - The `_Impl` naming convention.
-//! - The vtable `new::<Identity, OFFSET>()` constructor signature.
-//! - The `matches(iid)` helper used during `QueryInterface`.
+//! See [`interface`] for an example.
 
 use syn::spanned::Spanned;
 
@@ -53,8 +13,7 @@ mod tests;
 
 /// Defines a COM interface to call or implement.
 ///
-/// # Example
-/// ```rust,no_run
+/// ```
 /// use windows_core::*;
 ///
 /// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
@@ -67,13 +26,12 @@ mod tests;
 ///
 /// impl IValue_Impl for Value_Impl {
 ///     unsafe fn GetValue(&self, value: *mut i32) -> HRESULT {
-///         *value = self.0;
+///         unsafe { *value = self.0 };
 ///         HRESULT(0)
 ///     }
 /// }
 ///
-/// let object: IValue = Value(123).into();
-/// // Call interface methods...
+/// let _: IValue = Value(123).into();
 /// ```
 #[proc_macro_attribute]
 pub fn interface(
@@ -102,14 +60,6 @@ fn interface_core(
 }
 
 /// A parsed `#[interface]` trait definition.
-///
-/// ```rust,ignore
-/// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
-/// unsafe trait IUIAnimationVariable: IUnknown {
-/// //^ this is parsed as an Interface
-///     fn GetValue(&self, value: *mut f64) -> HRESULT;
-/// }
-/// ```
 pub(crate) struct Interface {
     pub(crate) visibility: syn::Visibility,
     pub(crate) name: syn::Ident,
@@ -153,15 +103,7 @@ impl syn::parse::Parse for Interface {
     }
 }
 
-/// A single method declaration inside an `#[interface]` trait body.
-///
-/// ```rust,ignore
-/// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
-/// unsafe trait IUIAnimationVariable: IUnknown {
-///     fn GetValue(&self, value: *mut f64) -> HRESULT;
-///   //^ this is parsed as an InterfaceMethod
-/// }
-/// ```
+/// A method declaration inside an `#[interface]` trait.
 pub(crate) struct InterfaceMethod {
     pub(crate) name: syn::Ident,
     pub(crate) visibility: syn::Visibility,

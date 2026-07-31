@@ -2,16 +2,9 @@
 
 use quote::quote;
 
-/// The parsed GUID attribute on an `#[interface]` invocation.
+/// The optional GUID attribute on an `#[interface]` invocation.
 ///
-/// ```rust,ignore
-/// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
-///                              //^ this part is parsed as a Guid
-/// unsafe trait IUIAnimationVariable: IUnknown { ... }
-/// ```
-///
-/// When the attribute is absent (i.e. `#[interface]` with no argument), the GUID is `None`
-/// and `to_tokens` emits `GUID::zeroed()`.
+/// An omitted attribute produces `GUID::zeroed()`.
 pub(crate) struct Guid(pub(crate) Option<syn::LitStr>);
 
 impl Guid {

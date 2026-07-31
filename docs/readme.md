@@ -1,18 +1,14 @@
-`windows-rs` lets you call Windows APIs - past, present, and future - directly from Rust. It is not
-a single crate but a family of them, from low-level API access to high-level declarative UI. This
-page helps you find the right crate for the job; each crate's own documentation then covers how to
-use it, with examples.
+`windows-rs` is a family of crates for Windows APIs, from raw bindings to declarative UI. This page
+lists the crates by task.
 
 - [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 - [Releases](https://github.com/microsoft/windows-rs/releases)
 
 ## A family of crates
 
-Most of these crates are small and focused - string types, error handling, the registry,
-collections, and so on - and you depend only on what you actually use. For broad, exploratory access
-to the *entire* Windows API surface, the [`windows`](crates/windows.md) and
-[`windows-sys`](crates/windows-sys.md) crates project everything past, present, and future, gated
-behind per-namespace features.
+Most crates cover one area, such as strings, errors, registry access, or collections. The
+[`windows`](crates/windows.md) and [`windows-sys`](crates/windows-sys.md) crates provide broad API
+coverage behind API-group features.
 
 For most projects, prefer the focused crates below, and generate a minimal, project-specific binding
 with [`windows-bindgen`](crates/windows-bindgen.md) for any additional APIs you need.

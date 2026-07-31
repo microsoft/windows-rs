@@ -10,9 +10,7 @@ pub fn guid_from_interface_string(interface_string: &str) -> (u32, u16, u16, [u8
 
     let data1 = u32::from_be_bytes([hash[0], hash[1], hash[2], hash[3]]);
     let data2 = u16::from_be_bytes([hash[4], hash[5]]);
-    // Set version = 5 in the high nibble of data3
     let data3 = (u16::from_be_bytes([hash[6], hash[7]]) & 0x0fff) | 0x5000;
-    // Set RFC 4122 variant in the high bits of data4[0]
     let data4 = [
         (hash[8] & 0x3f) | 0x80,
         hash[9],
@@ -175,14 +173,12 @@ pub fn type_to_string(ty: &Type) -> String {
 fn sha1(prefix: &[u8; 16], name: &[u8]) -> [u8; 20] {
     let mut h: [u32; 5] = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0];
 
-    // Build padded message: prefix || name || padding
     let total_len = prefix.len() + name.len();
     let bit_len = (total_len as u64) * 8;
 
-    // Pad to a multiple of 64 bytes: append 0x80, then zeros, then 8-byte big-endian length
     let padded_len = {
-        let raw = total_len + 1 + 8; // +1 for 0x80, +8 for length
-        (raw + 63) & !63 // round up to multiple of 64
+        let raw = total_len + 1 + 8;
+        (raw + 63) & !63
     };
 
     let mut msg = vec![0u8; padded_len];
@@ -191,16 +187,13 @@ fn sha1(prefix: &[u8; 16], name: &[u8]) -> [u8; 20] {
     msg[total_len] = 0x80;
     msg[padded_len - 8..].copy_from_slice(&bit_len.to_be_bytes());
 
-    // Process each 64-byte chunk
     for chunk in msg.chunks(64) {
         let mut w = [0u32; 80];
 
-        // Fill first 16 words from chunk (big-endian)
         for (i, word) in w[..16].iter_mut().enumerate() {
             *word = u32::from_be_bytes(chunk[i * 4..i * 4 + 4].try_into().unwrap());
         }
 
-        // Expand to 80 words
         for i in 16..80 {
             w[i] = (w[i - 3] ^ w[i - 8] ^ w[i - 14] ^ w[i - 16]).rotate_left(1);
         }

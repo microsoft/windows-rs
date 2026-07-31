@@ -1,7 +1,7 @@
 use super::*;
 use core::mem::transmute;
 
-/// A borrowed type with the same memory layout as the type itself that can be used to construct ABI-compatible function signatures.
+/// A borrowed ABI-compatible input parameter.
 #[repr(transparent)]
 pub struct InRef<'a, T: Type<T>>(T::Abi, core::marker::PhantomData<&'a T>);
 
@@ -11,13 +11,13 @@ impl<T: Type<T>> InRef<'_, T> {
         T::is_null(&self.0)
     }
 
-    /// Converts the argument to a [`Result<&T>`] reference.
+    /// Returns the referenced value or `E_POINTER` if null.
     pub fn ok(&self) -> Result<&T> {
         self.as_ref()
             .ok_or_else(|| Error::from_hresult(imp::E_POINTER))
     }
 
-    /// Converts the argument to a [`Option<&T>`] reference.
+    /// Returns the referenced value if non-null.
     pub fn as_ref(&self) -> Option<&T> {
         if self.is_null() {
             None
@@ -26,7 +26,7 @@ impl<T: Type<T>> InRef<'_, T> {
         }
     }
 
-    /// Converts the argument to a `&T` reference.
+    /// Returns the referenced value.
     ///
     /// # Panics
     ///

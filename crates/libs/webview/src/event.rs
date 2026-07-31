@@ -41,12 +41,12 @@ impl NavigationStartingArgs {
         unsafe { self.0.NavigationId() }.unwrap_or(0)
     }
 
-    /// Returns `true` if the navigation is currently marked to be cancelled.
+    /// Returns `true` if the navigation is currently marked to be canceled.
     pub fn is_cancelled(&self) -> bool {
         unsafe { self.0.Cancel() }.is_ok_and(|value| value.as_bool())
     }
 
-    /// Cancels (or un-cancels) the navigation.
+    /// Sets whether the navigation is canceled.
     pub fn set_cancel(&self, cancel: bool) -> Result<()> {
         unsafe { self.0.SetCancel(cancel) }.ok()
     }
@@ -336,7 +336,7 @@ impl MoveFocusRequestedArgs {
     }
 
     /// Marks the request as handled, indicating the host moved focus itself and
-    /// WebView2 should not apply its default focus behaviour.
+    /// WebView2 should not apply its default focus behavior.
     pub fn set_handled(&self, handled: bool) -> Result<()> {
         unsafe { self.0.SetHandled(handled) }.ok()
     }

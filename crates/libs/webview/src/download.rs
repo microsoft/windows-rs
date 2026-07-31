@@ -151,7 +151,7 @@ impl DownloadOperation {
         )
     }
 
-    /// Returns `true` if a [interrupted](DownloadState::Interrupted) download can
+    /// Returns `true` if an [interrupted](DownloadState::Interrupted) download can
     /// be [resumed](Self::resume).
     pub fn can_resume(&self) -> bool {
         unsafe { self.0.CanResume() }.is_ok_and(|value| value.as_bool())
@@ -163,7 +163,7 @@ impl DownloadOperation {
     }
 
     /// Pauses the download. It stays [in progress](DownloadState::InProgress)
-    /// until [resumed](Self::resume) or [cancelled](Self::cancel).
+    /// until [resumed](Self::resume) or [canceled](Self::cancel).
     pub fn pause(&self) -> Result<()> {
         unsafe { self.0.Pause() }.ok()
     }
@@ -199,12 +199,12 @@ impl DownloadStartingArgs {
         unsafe { Ok(DownloadOperation(self.0.DownloadOperation()?)) }
     }
 
-    /// Returns `true` if the download is currently marked to be cancelled.
+    /// Returns `true` if the download is currently marked to be canceled.
     pub fn is_cancelled(&self) -> bool {
         unsafe { self.0.Cancel() }.is_ok_and(|value| value.as_bool())
     }
 
-    /// Cancels (or un-cancels) the download.
+    /// Sets whether the download is canceled.
     pub fn set_cancel(&self, cancel: bool) -> Result<()> {
         unsafe { self.0.SetCancel(cancel) }.ok()
     }

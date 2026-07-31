@@ -218,7 +218,7 @@ impl WebView {
         Ok(CookieManager(unsafe { source.CookieManager()? }))
     }
 
-    /// Returns the [`Profile`] this browser belongs to, exposing its colour
+    /// Returns the [`Profile`] this browser belongs to, exposing its color
     /// scheme, download folder, and browsing-data controls.
     pub fn profile(&self) -> Result<Profile> {
         let source: ICoreWebView2_13 = self.0.cast()?;

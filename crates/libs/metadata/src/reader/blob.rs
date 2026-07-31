@@ -97,7 +97,7 @@ impl<'a> Blob<'a> {
         }
     }
 
-    // Used to parse field and methods type signatures
+    /// Reads a field or method type signature.
     pub fn read_type_signature(&mut self, generics: &[Type]) -> Type {
         let is_const = self.read_modifiers().iter().any(|def| {
             def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst"
