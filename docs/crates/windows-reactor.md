@@ -37,9 +37,10 @@ The build script selects `as_self_contained`, `as_framework_dependent`, or `as_e
 The crate readme contains a checked counter example. The sample applications cover packaging,
 layout, events, and state.
 
-`bootstrap()` initializes the Windows App SDK runtime. Call it once at startup. `App::new()` is a
-builder. Common options are `title`, `inner_size`, `backdrop` (for example `Backdrop::Mica`), `icon`
-(path to an `.ico` file), `fullscreen`, and `presenter`. `render(app)` takes your
+For a framework-dependent app, `bootstrap()` initializes the Windows App SDK runtime and must be
+called once at startup. A self-contained app does not call it. `App::new()` is a builder. Common
+options are `title`, `inner_size`, `backdrop` (for example `Backdrop::Mica`), `icon` (path to an
+`.ico` file), `fullscreen`, and `presenter`. `render(app)` takes your
 `Fn(&mut RenderCx) -> Element` and runs the message loop.
 
 Reactor catches panics at the FFI boundaries it owns (render and event callbacks, and
