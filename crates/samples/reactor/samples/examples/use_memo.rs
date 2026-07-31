@@ -1,5 +1,3 @@
-//! Sample for the `cx.use_memo` hook.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
@@ -20,7 +18,6 @@ fn app(cx: &mut RenderCx) -> Element {
     };
     let inc = {
         let s = set_n;
-        // 20! fits in i64; 21! overflows.
         move || s.call((n + 1).min(20))
     };
     let toggle_hint = move || set_hint.call(!show_hint);
@@ -36,7 +33,6 @@ fn app(cx: &mut RenderCx) -> Element {
         hstack((
             button("-").on_click(dec),
             button("+").on_click(inc),
-            // Rerenders without changing memo deps.
             button("toggle unrelated state").on_click(toggle_hint),
         ))
         .spacing(8.0),

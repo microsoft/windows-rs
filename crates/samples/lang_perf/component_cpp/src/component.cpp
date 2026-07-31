@@ -6,9 +6,7 @@
 
 using namespace winrt;
 
-// A no-op WinRT component authored in C++/WinRT, mirroring the Rust component in
-// `../component`. Every method ignores its arguments and returns a fixed value so the
-// benchmark measures projection/ABI cost rather than any work in the component.
+// No-op C++/WinRT component for projection benchmarks.
 struct Class : implements<Class, LangPerf::IClass, LangPerf::INonDefault> {
     int32_t Int32Property() const noexcept {
         return 0;

@@ -1,5 +1,3 @@
-//! Sample for the `RadioButton` element.
-
 use windows_reactor::*;
 
 #[derive(Copy, Clone, PartialEq, Eq, Default)]

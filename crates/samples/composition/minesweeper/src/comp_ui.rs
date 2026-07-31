@@ -1,7 +1,3 @@
-//! The presentation layer: owns the visual grid and assets, translates game
-//! state into visuals, scales the board to fit the window, and plays the
-//! game-over mine animation.
-
 use crate::colors;
 use crate::comp_assets::CompAssets;
 use crate::minesweeper::{GridSize, IndexHelper, MineState};
@@ -166,8 +162,6 @@ impl CompUI {
         mut mine_indices: VecDeque<usize>,
         mut mines_per_ring: VecDeque<i32>,
     ) -> Result<()> {
-        // Create an animation batch so that we can know when the animations
-        // complete.
         let batch = self.compositor.create_scoped_batch(BatchKind::Animation);
 
         let animation_delay_step = Duration::from_millis(100);
@@ -234,14 +228,10 @@ impl CompUI {
                 self.index_helper.compute_y_from_index(index),
             )
             .unwrap();
-        // First, promote the visual to the top so it animates above its
-        // neighbors.
         let parent_children = visual.parent().unwrap().children();
         parent_children.remove(visual);
         parent_children.insert_at_top(visual);
-        // Make sure the visual has the mine brush.
         visual.set_brush(&self.assets.get_mine_brush());
-        // Play the animation.
         let animation = self.compositor.create_vector3_key_frame_animation();
         animation.insert_key_frame(0.0, Vector3::new(1.0, 1.0, 1.0));
         animation.insert_key_frame(0.7, Vector3::new(2.0, 2.0, 1.0));

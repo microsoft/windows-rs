@@ -76,15 +76,12 @@ impl Game {
 }
 
 const LINES: [[usize; 3]; 8] = [
-    // rows
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
-    // columns
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
-    // diagonals
     [0, 4, 8],
     [2, 4, 6],
 ];
@@ -99,7 +96,6 @@ fn detect_winner(cells: &[Cell; TOTAL]) -> Option<Player> {
             return match a {
                 Cell::X => Some(Player::X),
                 Cell::O => Some(Player::O),
-                // Unreachable: filtered out by the `Cell::Empty` check above.
                 Cell::Empty => None,
             };
         }
@@ -273,7 +269,6 @@ mod tests {
 
     #[test]
     fn detects_row_win_for_x() {
-        // X: 0,1,2 ; O: 3,4
         let mut g = Game::new();
         for pos in [0_usize, 3, 1, 4, 2] {
             g = apply_move(&g, pos).expect("legal");
@@ -283,7 +278,6 @@ mod tests {
 
     #[test]
     fn detects_column_win_for_o() {
-        // X: 0,1,4 ; O: 2,5,8 (column 2)
         let mut g = Game::new();
         for pos in [0_usize, 2, 1, 5, 4, 8] {
             g = apply_move(&g, pos).expect("legal");
@@ -293,7 +287,6 @@ mod tests {
 
     #[test]
     fn detects_diagonal_win() {
-        // X: 0,4,8 ; O: 1,2
         let mut g = Game::new();
         for pos in [0_usize, 1, 4, 2, 8] {
             g = apply_move(&g, pos).expect("legal");
@@ -303,10 +296,6 @@ mod tests {
 
     #[test]
     fn detects_draw() {
-        // A classic full-board draw:
-        // X O X
-        // X O O
-        // O X X
         let mut g = Game::new();
         for pos in [0_usize, 1, 2, 4, 3, 5, 7, 6, 8] {
             g = apply_move(&g, pos).expect("legal");
@@ -322,7 +311,6 @@ mod tests {
             g = apply_move(&g, pos).expect("legal");
         }
         assert_eq!(g.status, Status::Won(Player::X));
-        // any further move must be rejected
         assert!(apply_move(&g, 5).is_none());
         assert!(apply_move(&g, 6).is_none());
     }

@@ -1,7 +1,3 @@
-//! The named sRGB colors used by the minesweeper board. `windows-composition`
-//! keeps its `Color` type minimal (just `rgb`/`rgba`), so the sample defines the
-//! handful of named colors it needs here.
-
 use windows_composition::Color;
 
 pub const RED: Color = Color::rgb(255, 0, 0);

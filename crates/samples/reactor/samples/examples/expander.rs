@@ -1,5 +1,3 @@
-//! Sample for the `Expander` element.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {
@@ -16,7 +14,6 @@ fn app(_cx: &mut RenderCx) -> Element {
         Expander::new(text_block("Collapsed by default."))
             .header("More")
             .expanded(false),
-        // Complex header: an element tree instead of plain text.
         Expander::new(text_block("Body content for the rich header expander."))
             .header_content(
                 hstack((

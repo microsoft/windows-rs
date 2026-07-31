@@ -1,5 +1,3 @@
-//! Sample for the `cx.use_state` hook.
-
 use windows_reactor::*;
 
 fn main() -> Result<()> {

@@ -1,5 +1,3 @@
-//! Sample for rich tooltip content.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {

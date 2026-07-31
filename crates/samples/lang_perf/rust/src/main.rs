@@ -7,8 +7,6 @@
 )]
 mod bindings;
 
-// Default to a tiny count so `cargo run`/CI stays fast. Pass `--iterations N` or set
-// `LANG_PERF_ITER=N` for a real measurement (the original used 10_000_000).
 const DEFAULT_ITERATIONS: u64 = 1_000;
 
 fn iterations() -> u64 {
@@ -148,19 +146,15 @@ fn report(label: &str, start: std::time::Instant) {
     println!("{label}: {} ms", start.elapsed().as_millis());
 }
 
-// The component cdylibs use distinct names so every language's build can coexist in one
-// target directory. Copy this consumer's own component in as LangPerf.dll -- the name
-// WinRT activation probes -- right next to the executable so it is the one that loads.
 fn stage_component(file: &str) {
     if let Ok(exe) = std::env::current_exe()
         && let Some(dir) = exe.parent()
     {
+        // WinRT activation probes the namespace-derived module name.
         let _ = std::fs::copy(dir.join(file), dir.join("LangPerf.dll"));
     }
 }
 
-// `--component rust|cpp` selects which language's component this consumer activates, so the
-// matrix benchmark can point every consumer at either implementation. Defaults to Rust.
 fn component_file() -> &'static str {
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
@@ -177,10 +171,6 @@ fn component_file() -> &'static str {
     "langperf_rust.dll"
 }
 
-// Runs the Rust consumer against the Rust component with a tiny iteration count so `cargo
-// test` exercises the projection end to end - activation, events, collections, async, and
-// error propagation - not just that the bindings compile. The component cdylib is a build
-// dependency, so cargo stages it beside this test binary.
 #[cfg(test)]
 mod tests {
     #[test]

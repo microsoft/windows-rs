@@ -1,8 +1,3 @@
-//! Sample for setting the window icon via `App::icon`.
-//!
-//! WinUI 3 does not adopt the executable's embedded icon for the window, so the
-//! title-bar and taskbar icon are set explicitly from a path to an `.ico` file.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {

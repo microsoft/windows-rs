@@ -12,7 +12,6 @@ fn main() -> Result<()> {
         let factory: ISpellCheckerFactory =
             CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL as u32)?;
 
-        // Make sure that the "en-US" locale is supported.
         let locale = w!("en-US");
         assert!(
             factory.IsSupported(locale)?.as_bool(),
@@ -25,13 +24,10 @@ fn main() -> Result<()> {
         let text = HSTRING::from(&input);
         let errors = checker.ComprehensiveCheck(&text)?;
 
-        // `ISpellingError` reports offsets into the UTF-16 text the spell checker
-        // sees, so slice the wide `HSTRING` rather than the original UTF-8 `String`.
+        // Error offsets index the UTF-16 input, not the original UTF-8 string.
         let wide: &[u16] = &text;
 
-        // `IEnumSpellingError::Next` carries a `[retval]`, so it projects as
-        // `-> Result<ISpellingError>`; the terminal `S_FALSE` surfaces as `Err`, so
-        // iterating until the first `Err` walks the whole enumeration.
+        // The terminal S_FALSE projects as Err, ending this Result-based enumeration.
         while let Ok(error) = errors.Next() {
             let start_index = error.StartIndex()? as usize;
             let length = error.Length()? as usize;
@@ -52,12 +48,9 @@ fn main() -> Result<()> {
                 CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                     let suggestions = checker.Suggest(&HSTRING::from(&substring))?;
 
-                    // `IEnumString::Next` has no `[retval]` (it takes an array plus a
-                    // count out-param), so it projects as `-> HRESULT`; propagate real
-                    // failures with `.ok()?`, then a null slot signals the end of the
-                    // enumeration.
                     loop {
                         let mut suggestion = [PWSTR::null()];
+                        // This enumerator returns HRESULT and signals completion with a null slot.
                         suggestions.Next(&mut suggestion, None).ok()?;
 
                         if suggestion[0].is_null() {

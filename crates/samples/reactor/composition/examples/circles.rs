@@ -1,16 +1,3 @@
-//! Off-thread composition animation inside a reactor UI — the composition
-//! counterpart of [`canvas/circles`](../../canvas/circles).
-//!
-//! The canvas sample redraws every frame from a reactor render callback. This
-//! one builds a ring of `SpriteVisual`s **once** and starts a looping
-//! `Vector3KeyFrameAnimation` on each; the pulse then runs entirely on the
-//! *compositor thread* with zero reactor involvement. Reactor only rebuilds the
-//! ring when the **Add**/**Remove** buttons change the circle count.
-//!
-//! ```text
-//! cargo run -p reactor_composition --example circles
-//! ```
-
 #![windows_subsystem = "windows"]
 
 use std::f32::consts::TAU;
@@ -19,12 +6,10 @@ use windows_composition::{Color, Compositor, ContainerVisual, SpriteVisual};
 use windows_numerics::Vector3;
 use windows_reactor::*;
 
-/// Diameter of one circle, in DIPs (before the pulse scales it up).
 const CIRCLE: f32 = 72.0;
 const MIN_CIRCLES: u32 = 1;
 const MAX_CIRCLES: u32 = 24;
 
-/// The hosted composition visual tree: a container of pulsing circles.
 struct Scene {
     compositor: Compositor,
     root: ContainerVisual,
@@ -34,7 +19,6 @@ struct Scene {
 }
 
 impl Scene {
-    /// Attaches an empty root container to the host element.
     fn new(host: &CompositionHostHandle) -> Result<Self> {
         let compositor = host.compositor()?;
         let root = compositor.create_container_visual();
@@ -48,7 +32,6 @@ impl Scene {
         })
     }
 
-    /// Rebuilds the ring so it holds exactly `count` pulsing circles.
     fn set_count(&mut self, count: usize) -> Result<()> {
         let children = self.root.children();
         children.remove_all();
@@ -56,7 +39,6 @@ impl Scene {
         for i in 0..count {
             let circle = self.compositor.create_sprite_visual();
             circle.set_size(CIRCLE, CIRCLE);
-            // Pulse (scale) about the circle's own center, not its top-left.
             circle.set_center_point(Vector3 {
                 x: CIRCLE / 2.0,
                 y: CIRCLE / 2.0,
@@ -70,7 +52,6 @@ impl Scene {
         self.layout()
     }
 
-    /// Starts an endless scale pulse, staggered so it travels around the ring.
     fn start_pulse(&self, circle: &SpriteVisual, index: usize, count: usize) -> Result<()> {
         let pulse = self.compositor.create_vector3_key_frame_animation();
         pulse.insert_key_frame(
@@ -111,7 +92,6 @@ impl Scene {
         self.layout()
     }
 
-    /// Positions the circles evenly around a centered ring.
     fn layout(&self) -> Result<()> {
         self.root.set_size(self.width, self.height);
         let n = self.circles.len();
@@ -133,7 +113,6 @@ impl Scene {
     }
 }
 
-/// A saturated rainbow color for circle `i` of `count`.
 fn ring_color(i: usize, count: usize) -> Color {
     let hue = i as f32 / count.max(1) as f32 * 6.0;
     let x = (255.0 * (1.0 - (hue % 2.0 - 1.0).abs())) as u8;
@@ -153,8 +132,6 @@ fn app(cx: &mut RenderCx) -> Element {
     let scene = cx.use_ref::<Option<Scene>>(None);
     let first_effect = cx.use_ref(true);
 
-    // The initial ring is built in `on_mounted`; rebuild it only when the count
-    // actually changes (skip the effect's initial run).
     {
         let scene = scene.clone();
         cx.use_effect((count,), move || {

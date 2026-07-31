@@ -1,5 +1,3 @@
-//! Sample for `with_scale_transition`.
-
 use std::time::Duration;
 
 use windows_reactor::*;

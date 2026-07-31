@@ -1,5 +1,3 @@
-//! Sample for `cx.use_async_state` — set state from any thread.
-
 use std::thread;
 use std::time::Duration;
 

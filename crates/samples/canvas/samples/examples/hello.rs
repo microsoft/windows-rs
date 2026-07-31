@@ -1,5 +1,3 @@
-//! Minimal canvas example: a filled ellipse.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

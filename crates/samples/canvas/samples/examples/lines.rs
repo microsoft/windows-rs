@@ -1,5 +1,3 @@
-//! Demonstrates drawing lines with varying widths.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

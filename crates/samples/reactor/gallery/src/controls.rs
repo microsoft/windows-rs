@@ -1,8 +1,5 @@
-//! Reusable UI building blocks for gallery pages.
-
 use windows_reactor::*;
 
-/// Renders a page header with title and description (matches C# PageHeader).
 pub fn page_header(title: &str, description: &str) -> Element {
     vstack((
         text_block(title).font_size(28.0).bold(),
@@ -27,8 +24,6 @@ pub fn page_header(title: &str, description: &str) -> Element {
     .into()
 }
 
-/// Renders a sample card matching the C# GalleryControls.SampleCard layout:
-/// title → bordered card (sample area + source expander).
 pub fn sample_card(title: &str, sample: impl Into<Element>, source: &str) -> Element {
     let sample_area: Element = border(sample.into())
         .corner_radius(8.0)
@@ -63,7 +58,6 @@ pub fn sample_card(title: &str, sample: impl Into<Element>, source: &str) -> Ele
     .into()
 }
 
-/// Data for a single tile in a [`card_grid`].
 #[derive(Clone, PartialEq)]
 pub struct CardItem {
     pub title: String,
@@ -72,8 +66,6 @@ pub struct CardItem {
     pub key: String,
 }
 
-/// Renders a virtualized grid of icon + text tiles, one per [`CardItem`].
-/// `on_click` receives the `key` of the tapped tile.
 pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + 'static) -> Element {
     let items_owned = items.to_vec();
     let items_for_handler = items_owned.clone();
@@ -132,7 +124,6 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + 'static) -> Ele
     .build()
 }
 
-/// Wraps page content in a ScrollView with header + sample cards (matches C# PageContent).
 pub fn page_content(title: &str, description: &str, cards: Vec<Element>) -> Element {
     let mut items: Vec<Element> = vec![page_header(title, description)];
     items.extend(cards);

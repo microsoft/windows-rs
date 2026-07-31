@@ -1,5 +1,3 @@
-//! Button text preserved when its icon glyph changes dynamically.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

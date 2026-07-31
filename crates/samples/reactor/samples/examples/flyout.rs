@@ -1,5 +1,3 @@
-//! Sample for the `Flyout` modifier on `Button`.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

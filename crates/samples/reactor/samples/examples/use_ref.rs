@@ -1,5 +1,3 @@
-//! Sample for the `cx.use_ref` hook.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

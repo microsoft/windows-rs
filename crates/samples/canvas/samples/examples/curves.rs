@@ -1,5 +1,3 @@
-//! Bézier curves with `PathFigure`: a closed filled shape and an open stroke.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

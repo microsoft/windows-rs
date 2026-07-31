@@ -1,5 +1,3 @@
-//! Sample for the `AutoSuggestBox` element.
-
 use windows_reactor::*;
 
 const FRUITS: &[&str] = &[
@@ -23,7 +21,6 @@ fn app(cx: &mut RenderCx) -> Element {
     let (query, set_query) = cx.use_state(String::new());
     let (chosen, set_chosen) = cx.use_state(String::new());
 
-    // Filter suggestions based on current text.
     let suggestions: Vec<String> = if query.is_empty() {
         Vec::new()
     } else {

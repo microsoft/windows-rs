@@ -1,5 +1,3 @@
-//! Sample for theme-brush bindings.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {

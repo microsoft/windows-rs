@@ -1,5 +1,3 @@
-//! Sample for `with_opacity_transition`.
-
 use std::time::Duration;
 
 use windows_reactor::*;

@@ -12,10 +12,6 @@ readme = "readme.md"
 [features]
 default = []
 test = []
-# Optional typed bridge to windows-canvas, pulled in only when enabled to keep
-# the default reactor build lean. windows-composition is a required dependency
-# (the transition/animation engine is composition-based), always in its `lifted`
-# stack — the only stack reactor can host.
 canvas = ["dep:windows-canvas"]
 
 [dependencies]

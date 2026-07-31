@@ -1,5 +1,3 @@
-//! Sample for `use_resource` with error handling and retry.
-
 use std::thread;
 use std::time::Duration;
 

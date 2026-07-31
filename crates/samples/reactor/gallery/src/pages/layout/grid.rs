@@ -158,7 +158,6 @@ pub fn grid_page(_: &(), cx: &mut RenderCx) -> Element {
                 "Basic Grid (2×3)",
                 basic_grid,
                 r#"grid(()).rows([Auto, Auto]).columns([Star(1.0), Star(1.0), Star(1.0)])
-// children placed with .grid_row(r).grid_column(c)"#,
             ),
             sample_card(
                 "Column & Row Spanning",
@@ -170,7 +169,6 @@ text_block("Center").grid_column(1).grid_column_span(2)"#,
                 "Mixed Sizing (Pixel + Star)",
                 mixed_grid,
                 r#"grid(()).columns([Pixel(100.0), Star(1.0), Star(2.0)])
-// 100px fixed, 1* proportional, 2* double proportional"#,
             ),
             sample_card(
                 "Switchable Layout",

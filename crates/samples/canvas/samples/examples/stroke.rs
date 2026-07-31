@@ -1,5 +1,3 @@
-//! Demonstrates stroke styles: dashed, dotted, and custom caps.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

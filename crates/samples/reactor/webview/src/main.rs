@@ -1,12 +1,3 @@
-//! A minimal browser: a `windows-reactor` toolbar driving a WebView2.
-//!
-//! The reactor owns the WinUI XAML `WebView2` control; `windows-webview`'s
-//! `reactor` feature bridges it to the same COM `ICoreWebView2` surface used by
-//! the standalone crate, so the [`WebView`] handed to `on_ready` drives
-//! navigation just like any other host. Here an address bar plus Back / Forward
-//! / Reload / Go buttons — ordinary reactor controls — interact with it, and the
-//! address bar reflects link clicks back via the navigation-completed event.
-
 #![windows_subsystem = "windows"]
 
 use windows_reactor::*;
@@ -82,9 +73,6 @@ fn app(cx: &mut RenderCx) -> Element {
     .into()
 }
 
-/// Turns a user-typed address into a navigable absolute URI. WebView2's
-/// `Navigate` rejects a bare host such as `example.com`, so a missing scheme is
-/// filled in with `https://`.
 fn normalize(address: &str) -> String {
     let address = address.trim();
     if address.contains("://") {
@@ -94,7 +82,6 @@ fn normalize(address: &str) -> String {
     }
 }
 
-/// Builds a button click handler that runs `action` against the ready WebView.
 fn with_web(
     web: &HookRef<Option<WebView>>,
     action: fn(&WebView) -> Result<()>,

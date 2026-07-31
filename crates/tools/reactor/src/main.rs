@@ -17,7 +17,7 @@ use windows_clang::nuget_package;
 /// proves it matches the pin.
 const WINMD_DIR: &str = "crates/tools/reactor/winmd";
 
-/// The pinned Windows App SDK release - the single source of truth for the reactor's WinUI
+/// The pinned Windows App SDK release used for the reactor's WinUI
 /// metadata. The umbrella `Microsoft.WindowsAppSDK` metapackage at this version pins the exact
 /// component package versions (Foundation / InteractiveExperiences / WinUI) in its nuspec, and
 /// those components ship the `.winmd` [`refresh_winmd`] copies into [`WINMD_DIR`]. It equals the
@@ -249,7 +249,7 @@ fn read_nuspec(package_dir: &Path) -> String {
 }
 
 /// Extracts the pinned `version` of a `<dependency id="..." version="..." />` from a nuspec,
-/// stripping any NuGet version-range brackets (`[2.1.3]` → `2.1.3`).
+/// stripping any NuGet version-range brackets (`[2.1.3]` -> `2.1.3`).
 fn nuspec_dependency_version(nuspec: &str, dependency_id: &str) -> String {
     let needle = format!("id=\"{dependency_id}\"");
     let element = nuspec.find(&needle).map_or_else(

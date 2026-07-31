@@ -4,7 +4,8 @@
 //! every flat/minimal consumer but leaves `--package` generation (which derives file layout and
 //! Cargo features from namespaces) with nothing to partition on. This module synthesises the
 //! "optional downstream map over the flat namespace": it routes every type/function/constant to
-//! a namespace named after its defining header under the target root (`wdm.rdl` -> `Windows.Win32.wdm`)
+//! a namespace named after its defining header under the target root
+//! (`wdm.rdl` -> `Windows.Win32.wdm`)
 //! and rewrites the flat winmds into that partition via `windows_metadata::remap`.
 //!
 //! The partition is metadata-derived - by default one namespace per `.rdl` file, with a small
@@ -32,9 +33,9 @@ pub struct RemapPlan {
 const FLAT_NAMESPACE: &str = "Windows.Win32";
 
 /// Curated header-name prefixes whose headers are safe to fold into a single family namespace
-/// (`d2d1`, `d2d1_1`, `d2d1effects`, `d2dbasetypes`, … -> `Windows.d2d`).
+/// (`d2d1`, `d2d1_1`, `d2d1effects`, `d2dbasetypes`, ... -> `Windows.d2d`).
 ///
-/// This is deliberately an explicit allowlist rather than an automatic name heuristic. A purely
+/// This uses an explicit allowlist rather than an automatic name heuristic. A purely
 /// name-based rule (fold any header into the shortest existing header-stem that is a prefix of it)
 /// mis-groups headers that merely share a prefix - `msinkaut` (Ink) under `msi` (Installer),
 /// `playsoundapi` under `pla`, `icmpapi` (ICMP) under `icm` - and cannot be told apart from real

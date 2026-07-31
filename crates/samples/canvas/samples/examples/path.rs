@@ -1,5 +1,3 @@
-//! Path geometry using the typestate `PathBuilder`.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;

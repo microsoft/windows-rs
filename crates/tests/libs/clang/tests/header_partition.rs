@@ -6,15 +6,14 @@
 // RDL is the single flat root namespace (`Test`); each entity is emitted exactly once,
 // in the file named after its defining header, and cross-header references resolve by
 // bare name:
-//   * `shared.inl` → `shared.rdl`: owns the opaque handle `HFOO`, the pointer alias
+//   * `shared.inl` -> `shared.rdl`: owns the opaque handle `HFOO`, the pointer alias
 //     `PSHARED`, and the scalar typedef `LRESULT` (each canonically deduplicated, so the
 //     copy `b.h` also sees is never re-emitted).
-//   * `a.h` → `a.rdl`: `AThing(PSHARED)` - references `PSHARED` by bare name.
-//   * `b.h` → `b.rdl`: `BThing(HFOO, PSHARED)` and `BReturn() -> LRESULT` - all by name.
+//   * `a.h` -> `a.rdl`: `AThing(PSHARED)` - references `PSHARED` by bare name.
+//   * `b.h` -> `b.rdl`: `BThing(HFOO, PSHARED)` and `BReturn() -> LRESULT` - all by name.
 //
-// This is the faithful, source-expressed metadata that replaced the editorial namespace
-// machinery: one flat namespace, ownership from the clang cursor's defining header (which
-// only selects the file), and duplicates weeded out by USR.
+// This checks source-expressed metadata: one flat namespace, ownership from the clang cursor's
+// defining header (which only selects the file), and duplicates removed by USR.
 
 fn read(dir: &str, leaf: &str) -> String {
     std::fs::read_to_string(format!("{dir}/{leaf}.rdl")).unwrap()
@@ -72,7 +71,7 @@ fn partition_by_defining_header() {
     assert!(!a.contains("super::"), "a.rdl:\n{a}");
     assert!(!b.contains("super::"), "b.rdl:\n{b}");
 
-    // A scalar typedef stays faithful: emitted as a named type in its defining header
+    // A scalar typedef stays named: emitted as a type in its defining header
     // and referenced by bare name, never collapsed to the primitive nor re-emitted.
     assert!(
         shared.contains("type LRESULT = i32"),
@@ -268,7 +267,7 @@ fn preferred_duplicate_typedef_keeps_pointee_through_scope_sweep() {
 // A dotted header file name (the WinRT interop headers, e.g.
 // `Windows.Devices.Display.Core.Interop.h`) must collapse to a single flat partition
 // leaf, not a nested namespace/module tree under the root. The leftover dots in the
-// stem are stripped so `Dotted.Name.Interop.h` → `dottednameinterop.rdl` in the flat
+// stem are stripped so `Dotted.Name.Interop.h` -> `dottednameinterop.rdl` in the flat
 // root namespace.
 #[test]
 fn dotted_header_flattens_to_single_partition() {

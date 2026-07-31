@@ -1,9 +1,3 @@
-//! Sample for the [`Icon`] kinds beyond [`Symbol`]: `Icon::image` and
-//! `Icon::font`.
-//!
-//! This mirrors the common need to show a custom/brand icon — such as a GitHub
-//! repository link — in a `NavigationView`, which `Symbol` alone cannot express.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
@@ -23,11 +17,9 @@ fn app(cx: &mut RenderCx) -> Element {
     NavigationView::new(
         [
             NavViewItem::new("Home").tag("home").icon(Symbol::Home),
-            // A glyph from the default icon font.
             NavViewItem::new("Starred")
                 .tag("starred")
                 .icon(Icon::font("\u{E734}")),
-            // A brand image loaded from a URI.
             NavViewItem::new("Repository")
                 .tag("repo")
                 .icon(Icon::image(image)),

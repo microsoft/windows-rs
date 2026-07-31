@@ -134,7 +134,6 @@ fn main() -> windows::core::Result<()> {
                 self.device = Some(device_3d);
                 let desktop: IDCompositionDesktopDevice = DCompositionCreateDevice2(&device_2d)?;
 
-                // First release any previous target, otherwise `CreateTargetForHwnd` will find the HWND occupied.
                 self.target = None;
                 let target = desktop.CreateTargetForHwnd(self.handle, true)?;
                 let root_visual = create_visual(&desktop)?;
@@ -400,7 +399,6 @@ fn main() -> windows::core::Result<()> {
                     WM_LBUTTONUP => self.click_handler(lparam).expect("WM_LBUTTONUP"),
                     WM_PAINT => {
                         self.paint_handler().unwrap_or_else(|_| {
-                            // Device loss can cause rendering to fail and should not be considered fatal.
                             if cfg!(debug_assertions) {
                                 println!("WM_PAINT failed");
                             }
@@ -410,9 +408,7 @@ fn main() -> windows::core::Result<()> {
                     WM_DPICHANGED => self
                         .dpi_changed_handler(wparam, lparam)
                         .expect("WM_DPICHANGED"),
-                    WM_WINDOWPOSCHANGING => {
-                        // Prevents window resizing due to device loss
-                    }
+                    WM_WINDOWPOSCHANGING => {}
                     WM_DESTROY => PostQuitMessage(0),
                     _ => return DefWindowProcA(self.handle, message, wparam, lparam),
                 }
@@ -449,7 +445,6 @@ fn main() -> windows::core::Result<()> {
             let factory: IWICImagingFactory2 =
                 CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER)?;
 
-            // Just a little hack to make it simpler to run the sample from the root of the workspace.
             let path = if PathFileExistsW(w!("image.jpg")).as_bool() {
                 w!("image.jpg")
             } else {
@@ -723,8 +718,7 @@ fn main() -> windows::core::Result<()> {
     app.borrow_mut().handle = HWND(window.hwnd());
     let size = app.borrow_mut().create_handler()?;
 
-    // Resize the window outside of any `RefCell` borrow: `SetWindowPos` dispatches
-    // messages synchronously, which reenter the message handler and borrow the app.
+    // SetWindowPos reenters the handler, so call it outside the RefCell borrow.
     unsafe {
         SetWindowPos(
             HWND(window.hwnd()),

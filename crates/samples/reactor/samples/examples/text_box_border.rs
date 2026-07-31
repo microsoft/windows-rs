@@ -1,11 +1,3 @@
-//! Sample for `TextBox` background / border customization (issue 4671).
-//!
-//! Shows three variants:
-//!   1. A default TextBox (for comparison).
-//!   2. A thick colored border via `border_brush` + `border_thickness`.
-//!   3. A borderless, transparent input (e.g. a chat/search bar) using
-//!      `background(Color::transparent())` + `border_thickness(uniform(0.0))`.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

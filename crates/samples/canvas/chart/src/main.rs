@@ -1,25 +1,11 @@
-//! On-demand swap-chain drawing with `windows-canvas` hosted in a reactor UI.
-//!
-//! A [`CanvasSwapChain`] presents through a composition swap chain — low-latency,
-//! like [`animated_canvas`] — but only when its data changes, like
-//! [`CanvasImageSource`]. Here the "New data" button changes the bar chart; each
-//! change redraws exactly one frame. While the data is idle nothing is drawn and
-//! no render loop runs, so an idle chart costs no GPU work.
-//!
-//! Compare with the continuous per-vsync loop in `crates/samples/canvas/clock`
-//! and the `SurfaceImageSource` on-demand path in
-//! `crates/samples/canvas/image_source`.
-
 #![windows_subsystem = "windows"]
 
 use std::f32::consts::TAU;
 use windows_canvas::*;
 use windows_reactor::*;
 
-/// Number of bars in the chart.
 const BARS: usize = 12;
 
-/// Displayed surface size, in device-independent pixels.
 const WIDTH: f32 = 640.0;
 const HEIGHT: f32 = 320.0;
 
@@ -31,9 +17,6 @@ fn app(cx: &mut RenderCx) -> Element {
     let host = cx.use_ref::<Option<CanvasSwapChain>>(None);
     let scale_sub = cx.use_ref::<Option<windows_core::EventRevoker>>(None);
 
-    // One process-wide device, shared by every surface (here, just this chart —
-    // but the same device could back a wall of charts). Created lazily so the
-    // whole tree can render before any GPU work happens.
     if device.borrow().is_none() {
         match GpuDevice::new_or_warp() {
             Ok(d) => device.set(Some(d)),
@@ -41,9 +24,6 @@ fn app(cx: &mut RenderCx) -> Element {
         }
     }
 
-    // Redraw only when the data (`seed`), the panel size, or the DPI scale
-    // changes. On an idle frame this effect does not run, so the swap chain
-    // presents nothing.
     {
         let host = host.clone();
         cx.use_effect((seed, size, scale), move || {
@@ -64,8 +44,6 @@ fn app(cx: &mut RenderCx) -> Element {
             let Some(device) = device.as_ref() else {
                 return;
             };
-            // The panel's native control now exists, so a swap chain can be
-            // attached. Draw the first frame immediately.
             match CanvasSwapChain::with_device(&panel, device, WIDTH, HEIGHT, s) {
                 Ok(chain) => {
                     let _ = chain.draw(|ctx| draw_chart(ctx, seed));
@@ -74,8 +52,6 @@ fn app(cx: &mut RenderCx) -> Element {
                 Err(e) => return eprintln!("failed to create swap chain: {e}"),
             }
 
-            // Keep the chart crisp when the window moves to a monitor with a
-            // different scale factor.
             let set_scale = set_scale.clone();
             if let Ok(revoker) = panel.on_composition_scale_changed(move |x, _| set_scale.call(x)) {
                 scale_sub.set(Some(revoker));
@@ -101,7 +77,6 @@ fn app(cx: &mut RenderCx) -> Element {
     .into()
 }
 
-/// Draws a bar chart in surface-local device-independent pixels.
 fn draw_chart(ctx: &DrawContext, seed: u32) -> Result<()> {
     ctx.clear(ColorF::new(0.10, 0.12, 0.16, 1.0));
 
@@ -129,7 +104,6 @@ fn draw_chart(ctx: &DrawContext, seed: u32) -> Result<()> {
     Ok(())
 }
 
-/// Cheap deterministic hash mapping `(seed, index)` to a bar height in `0.15..1.0`.
 fn bar_value(seed: u32, index: usize) -> f32 {
     let mut x = seed
         .wrapping_mul(2_654_435_761)

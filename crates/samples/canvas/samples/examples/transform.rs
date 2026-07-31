@@ -1,5 +1,3 @@
-//! Demonstrates transforms (animated rotation).
-
 #![windows_subsystem = "windows"]
 
 use std::cell::Cell;

@@ -1,5 +1,3 @@
-//! An in-private controller, the dark color scheme, and clearing browsing data.
-
 use webview_samples::*;
 
 fn main() -> Result<()> {

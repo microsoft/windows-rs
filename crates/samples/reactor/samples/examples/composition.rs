@@ -1,5 +1,3 @@
-//! Sample for `Element::Group` and `CustomElement`.
-
 #![windows_subsystem = "windows"]
 
 use std::any::Any;
@@ -84,7 +82,6 @@ fn app(cx: &mut RenderCx) -> Element {
         text_block("Settings (LabeledRow uses Element::Group)")
             .bold()
             .font_size(20.0),
-        // Each labeled_row contributes two children directly into this vstack.
         vstack((
             labeled_row("Username", text_block("alice").into()),
             labeled_row("Theme", text_block("Dark").into()),

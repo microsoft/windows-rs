@@ -1,5 +1,3 @@
-//! Sample for `App::render` — just a render function.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

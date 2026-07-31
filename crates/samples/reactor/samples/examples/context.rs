@@ -1,5 +1,3 @@
-//! Sample for the context API.
-
 use std::sync::LazyLock;
 
 use windows_reactor::*;

@@ -1,5 +1,3 @@
-//! Sample for tooltip `placement`.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {

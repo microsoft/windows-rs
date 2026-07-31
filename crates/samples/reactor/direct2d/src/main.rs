@@ -1,6 +1,3 @@
-//! A hub of Direct2D samples hosted in a reactor UI. Each sample lives in its
-//! own module and is selected from a `NavigationView` in [`shell`].
-
 #![windows_subsystem = "windows"]
 
 use windows_reactor::*;

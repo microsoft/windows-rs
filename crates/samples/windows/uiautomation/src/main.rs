@@ -8,19 +8,15 @@ fn main() -> windows::core::Result<()> {
             return Err(Error::from_thread());
         }
 
-        // Start with COM API
         let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL as u32)?;
         let element: IUIAutomationElement = automation.ElementFromHandle(UIA_HWND(window.0))?;
 
-        // Use COM API
         let name = element.CurrentName()?;
         println!("window name: {name:?}");
 
-        // Query for WinRT API (will fail on earlier versions of Windows)
         let element: Result<AutomationElement> = element.cast();
 
         if let Ok(element) = element {
-            // Use WinRT API
             println!("file name: {:?}", element.ExecutableFileName()?);
         }
     }

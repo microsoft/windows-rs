@@ -1,5 +1,3 @@
-//! Animate a single variable with one transition, sampling the value over time.
-
 use animation_samples::*;
 
 fn main() -> Result<()> {

@@ -56,10 +56,6 @@ fn main() -> windows::core::Result<()> {
             None,
         )?;
 
-        //
-        // ExecQuery example
-        //
-
         let query = server.ExecQuery(
             &BSTR::from("WQL"),
             &BSTR::from("select Caption from Win32_LogicalDisk"),
@@ -91,10 +87,6 @@ fn main() -> windows::core::Result<()> {
                 break;
             }
         }
-
-        //
-        // ExecMethod example
-        //
 
         let class_name = BSTR::from("Win32_Process");
         let method_name = BSTR::from("Create");

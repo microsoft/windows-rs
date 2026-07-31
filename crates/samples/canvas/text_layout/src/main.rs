@@ -1,11 +1,3 @@
-//! Shaping a paragraph once with `TextLayout` and redrawing it on demand.
-//!
-//! `TextFormat` and `TextLayout` are device-independent, so the paragraph is
-//! shaped once and re-shaped only when the window resizes - never per frame. The
-//! shaped layout, its measurements, and the brushes live in a `use_ref` and are
-//! rebuilt only when `device_changed` reports a resize or device loss. Compare
-//! with `draw_text`, which re-shapes its string on every call.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::Brush;
@@ -63,8 +55,6 @@ fn app(cx: &mut RenderCx) -> Element {
         let res = res.borrow();
         let res = res.as_ref().unwrap();
 
-        // The box the text fills, the measured bounds of the inked text, the
-        // paragraph, and a line-count readout.
         let box_rect = Rect::new(MARGIN, MARGIN, ctx.width - MARGIN, ctx.height - MARGIN);
         ctx.draw_rect(&box_rect, &res.outline, 1.0);
         ctx.draw_rect(

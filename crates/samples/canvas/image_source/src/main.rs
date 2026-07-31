@@ -1,19 +1,9 @@
-//! On-demand Direct2D drawing with `windows-canvas` hosted in a reactor UI.
-//!
-//! Unlike [`animated_canvas`], which presents a new frame every vsync, a
-//! [`CanvasImageSource`] repaints only when its data changes. Here the "+"/"−"
-//! buttons change the number of dots; each change redraws the surface once. When
-//! nothing changes, nothing is drawn and no GPU work happens.
-//!
-//! Compare with the continuous render loop in `crates/samples/canvas/clock`.
-
 #![windows_subsystem = "windows"]
 
 use std::f32::consts::TAU;
 use windows_canvas::*;
 use windows_reactor::*;
 
-/// Surface size in device-independent pixels; also the displayed size.
 const SIZE: f32 = 320.0;
 
 fn app(cx: &mut RenderCx) -> Element {
@@ -24,13 +14,8 @@ fn app(cx: &mut RenderCx) -> Element {
     let scale_sub = cx.use_ref::<Option<windows_core::EventRevoker>>(None);
     let (image, set_image) = cx.use_state::<Option<ImageSource>>(None);
 
-    // Redraw whenever `count` or the display `scale` changes (and once on mount).
-    // The surface and its device are created lazily on the first draw, rebuilt at
-    // the new resolution when the scale changes, and recreated if the GPU device
-    // is lost.
     let scale_sub_reset = scale_sub.clone();
     cx.use_effect((count, scale), move || {
-        // Rebuild the surface if it was allocated at a different scale.
         if surface
             .borrow()
             .as_ref()
@@ -69,12 +54,10 @@ fn app(cx: &mut RenderCx) -> Element {
 
             match result {
                 Ok(true) => return,
-                // Device lost: drop the surface and device and try once more.
                 Ok(false) if attempt == 0 => {
                     surface.set(None);
                     device.set(None);
                     set_image.call(None);
-                    // Revoke the old scale subscription with its now-removed Image.
                     scale_sub_reset.set(None);
                 }
                 Ok(false) => return eprintln!("device lost during redraw"),
@@ -88,9 +71,6 @@ fn app(cx: &mut RenderCx) -> Element {
             .width(SIZE as f64)
             .height(SIZE as f64)
             .on_mounted(move |handle| {
-                // Track the host DPI scale so the surface stays crisp when the
-                // window moves to a monitor with different scaling. The revoker is
-                // kept in hook state so the subscription lives with the control.
                 let set_scale = set_scale.clone();
                 if let Ok(revoker) =
                     handle.on_rasterization_scale_changed(move |s| set_scale.call(s))
@@ -122,7 +102,6 @@ fn app(cx: &mut RenderCx) -> Element {
     .into()
 }
 
-/// Draw a ring of `count` dots around a hub, in surface-local coordinates.
 fn draw_dial(session: &DrawingSession, count: u32) -> Result<()> {
     let center = Vector2::new(SIZE / 2.0, SIZE / 2.0);
     let radius = SIZE / 2.0 - 44.0;

@@ -1,5 +1,3 @@
-//! Sample for the `TextBlock` element, including text selection support.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {

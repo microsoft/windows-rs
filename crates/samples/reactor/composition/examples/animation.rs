@@ -1,12 +1,3 @@
-//! Minimal off-thread animation: after a single `start_animation` call the
-//! visual pulses forever on the compositor thread — reactor never re-renders
-//! and no per-frame callback runs. This is composition's distinctive value over
-//! immediate-mode drawing.
-//!
-//! ```text
-//! cargo run -p reactor_composition --example animation
-//! ```
-
 #![windows_subsystem = "windows"]
 
 use std::time::Duration;

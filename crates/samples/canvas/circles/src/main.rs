@@ -1,12 +1,3 @@
-//! Animated circles rendered with `windows-canvas` inside a reactor UI.
-//!
-//! Compare with `crates/samples/reactor/minimal/examples/direct2d.rs` —
-//! that sample requires ~250 lines of raw D2D/DXGI setup. This one
-//! uses `animated_canvas()` which handles everything automatically.
-//!
-//! State is managed entirely through reactor hooks (`use_state` and
-//! `use_ref`) — no `thread_local!` needed. See `docs/reactor-state.md`.
-
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
@@ -47,7 +38,6 @@ fn app(cx: &mut RenderCx) -> Element {
 
                     ctx.clear(ColorF::TRANSPARENT);
 
-                    // Create a brush once per frame (cheap — reuse via set_color).
                     let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 
                     for i in 0..count {
@@ -66,7 +56,6 @@ fn app(cx: &mut RenderCx) -> Element {
                         ctx.fill_ellipse(&Ellipse::circle(Vector2::new(x, y), radius), &brush);
                     }
 
-                    // Draw a label showing the count.
                     let format = TextFormat::with_weight("Segoe UI", 20.0, FontWeight::BOLD)?
                         .with_alignment(TextAlignment::Center);
 

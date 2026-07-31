@@ -8,10 +8,6 @@ publish = false
 doc = false
 doctest = false
 
-# Tests that exercise WinRT activation (`Calendar`, `StringMap`) need the
-# `windows` mega-crate and therefore only build on Windows. The portable stock
-# collection tests use `windows-core` / `windows-strings` / `windows-collections`
-# directly.
 [target.'cfg(windows)'.dependencies.windows]
 workspace = true
 features = [

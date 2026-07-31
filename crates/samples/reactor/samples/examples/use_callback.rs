@@ -1,5 +1,3 @@
-//! Sample for the `cx.use_callback` hook.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {
@@ -30,7 +28,6 @@ fn app(cx: &mut RenderCx) -> Element {
         hstack((
             button("Fire (A)").on_click(fire_a),
             button("Fire (B)").on_click(fire_b),
-            // Rerenders without changing callback deps.
             button("Force rerender").on_click(rerender),
         ))
         .spacing(8.0),

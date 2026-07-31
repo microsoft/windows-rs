@@ -297,7 +297,7 @@ fn rust_iterator_adapter() -> Result<()> {
 // failure the iterator is considered broken: `HasCurrent` reports an error
 // (which the generated adapter treats as `false` via `.unwrap_or(false)`).
 // This is used to verify that `Iterator::next` does NOT silently drop the
-// item already fetched by `Current` when `MoveNext` returns Err — see
+// item already fetched by `Current` when `MoveNext` returns Err - see
 // `windows-bindgen`'s `IIterator` adapter.
 #[implement(IIterator<i32>)]
 struct FailingIterator {
@@ -350,7 +350,7 @@ impl IIterator_Impl<i32> for FailingIterator_Impl {
 // Regression test for the `windows-bindgen` IIterator adapter: when
 // `MoveNext` returns Err mid-iteration, the value already fetched by
 // `Current` for the current step must still be yielded; the error is
-// effectively treated as end-of-stream on the next call (because the
+// treated as end-of-stream on the next call (because the
 // failed iterator subsequently reports !HasCurrent).
 #[test]
 fn rust_iterator_adapter_yields_value_when_move_next_fails() {

@@ -1,5 +1,3 @@
-//! Sample for the `MenuBar` and `DropDownButton` menu flyout.
-
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

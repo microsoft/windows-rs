@@ -3,19 +3,31 @@ use super::*;
 pub fn yml() {
     write_yml(".github/workflows/msrv.yml", |yml| {
         let mut first = true;
-        for manifest in helpers::crates("crates/libs") {
+        let mut current_version = None;
+        let mut manifests = helpers::crates("crates/libs");
+        manifests.sort_by(|a, b| {
+            b.package
+                .rust_version
+                .cmp(&a.package.rust_version)
+                .then_with(|| a.package.name.cmp(&b.package.name))
+        });
+
+        for manifest in manifests {
             let name = manifest.package.name;
             if name == "windows" {
                 continue;
             }
             let version = manifest.package.rust_version.expect("rust-version");
 
-            writeln!(
-                yml,
-                r"      - name: Rust version
+            if current_version.as_deref() != Some(version.as_str()) {
+                writeln!(
+                    yml,
+                    r"      - name: Rust version
         run: rustup update --no-self-update {version} && rustup default {version}"
-            )
-            .unwrap();
+                )
+                .unwrap();
+                current_version = Some(version);
+            }
 
             if first {
                 writeln!(yml, "      - uses: Swatinem/rust-cache@v2").unwrap();

@@ -1,5 +1,3 @@
-//! Sample for the `cx.use_reducer_fn` hook.
-
 use windows_reactor::*;
 
 #[derive(Clone, PartialEq, Default)]

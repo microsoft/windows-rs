@@ -1,5 +1,3 @@
-//! Sample for the `RichTextBlock` element.
-
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {
@@ -22,7 +20,6 @@ fn app(_cx: &mut RenderCx) -> Element {
             uri: "https://github.com/microsoft/windows-rs".to_string(),
         }),
         RichTextInline::Run(RichTextRun::plain(" all in one paragraph.")),
-        // Soft break — same paragraph, new visual line.
         RichTextInline::LineBreak,
         RichTextInline::Run(RichTextRun::plain(
             "This continuation lives in the same paragraph but on a new visual line.",
