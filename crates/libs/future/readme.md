@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-future]
-version = "0.3"
+version = "0.100"
 ```
 
 Use the Windows async types as needed:

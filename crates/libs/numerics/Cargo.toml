@@ -1,6 +1,6 @@
 [package]
 name = "windows-numerics"
-version = "0.3.1"
+version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"

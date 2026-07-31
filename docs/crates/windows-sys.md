@@ -2,10 +2,10 @@
 
 > Zero-overhead raw bindings (externs, structs, constants) for Windows APIs.
 
-- [crates.io](https://crates.io/crates/windows-sys)
-- [docs.rs](https://docs.rs/windows-sys)
-- [Getting started](../../crates/libs/sys/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
+- 📦 [crates.io](https://crates.io/crates/windows-sys)
+- 📖 [docs.rs](https://docs.rs/windows-sys)
+- 🚀 [Getting started](../../crates/libs/sys/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
 
 `windows-sys` contains raw Windows API declarations, structs, and constants without wrapper traits.
 APIs are gated by Cargo features, such as `combaseapi`.

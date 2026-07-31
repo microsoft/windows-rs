@@ -14,7 +14,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-numerics]
-version = "0.3"
+version = "0.100"
 ```
 
 Use the vector and matrix types as needed:

@@ -2,10 +2,10 @@
 
 > A parser for RDL (Rust Definition Language) and an ECMA-335 metadata generator.
 
-- [crates.io](https://crates.io/crates/windows-rdl)
-- [docs.rs](https://docs.rs/windows-rdl)
-- [Getting started](../../crates/libs/rdl/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
+- 📦 [crates.io](https://crates.io/crates/windows-rdl)
+- 📖 [docs.rs](https://docs.rs/windows-rdl)
+- 🚀 [Getting started](../../crates/libs/rdl/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
 
 `windows-rdl` is the front of the metadata authoring pipeline. It parses RDL (Rust Definition
 Language), a small Rust-like syntax for Windows APIs. It emits ECMA-335 `.winmd` metadata for
@@ -22,7 +22,7 @@ not a runtime dependency.
 
 ```toml
 [build-dependencies]
-windows-rdl = "0.0.0"
+windows-rdl = "0.100"
 ```
 
 The crate exposes two builders:

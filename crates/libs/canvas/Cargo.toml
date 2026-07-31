@@ -1,6 +1,6 @@
 [package]
 name = "windows-canvas"
-version = "0.0.0"
+version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"
@@ -24,3 +24,8 @@ optional = true
 
 [lints]
 workspace = true
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []
+features = ["composition"]

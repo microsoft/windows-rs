@@ -2,10 +2,10 @@
 
 > Stock WinRT collection types backed by Rust containers.
 
-- [crates.io](https://crates.io/crates/windows-collections)
-- [docs.rs](https://docs.rs/windows-collections)
-- [Getting started](../../crates/libs/collections/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/collections)
+- 📦 [crates.io](https://crates.io/crates/windows-collections)
+- 📖 [docs.rs](https://docs.rs/windows-collections)
+- 🚀 [Getting started](../../crates/libs/collections/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/collections)
 
 `windows-collections` provides ready-made implementations of the WinRT collection interfaces -
 `IIterable`, `IVector`, `IVectorView`, `IMap`, and `IMapView` - so you can hand a Rust `Vec` or

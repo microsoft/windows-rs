@@ -2,10 +2,11 @@
 
 > A declarative, React-style UI library for Rust, backed by WinUI 3.
 
-- Not published to crates.io
-- [Getting started](../../crates/libs/reactor/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
-- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
+- 📦 [crates.io](https://crates.io/crates/windows-reactor)
+- 📖 [docs.rs](https://docs.rs/windows-reactor)
+- 🚀 [Getting started](../../crates/libs/reactor/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
 
 `windows-reactor` lets you describe a WinUI 3 user interface as a function of state. You write a
 render function that takes a `RenderCx` and returns an `Element`. The reactor diffs the result
@@ -21,10 +22,10 @@ stages the Windows App SDK runtime with [`windows-reactor-setup`](windows-reacto
 
 ```toml
 [dependencies]
-windows-reactor = "..."
+windows-reactor = "0.100"
 
 [build-dependencies]
-windows-reactor-setup = "..."
+windows-reactor-setup = "0.100"
 ```
 
 `build.rs`. Pick the helper that matches your deployment model:

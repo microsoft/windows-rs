@@ -1,6 +1,6 @@
 [package]
 name = "windows-reactor"
-version = "0.0.0"
+version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"
@@ -23,7 +23,7 @@ windows-future = { workspace = true }
 windows-reference = { workspace = true, features = ["std"] }
 windows-threading = { workspace = true }
 windows-time = { workspace = true }
-windows-composition = { workspace = true, default-features = false, features = ["lifted"] }
+windows-composition = { workspace = true, default-features = false, features = ["reactor"] }
 
 [dependencies.windows-canvas]
 workspace = true
@@ -31,3 +31,8 @@ optional = true
 
 [lints]
 workspace = true
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []
+features = ["canvas"]

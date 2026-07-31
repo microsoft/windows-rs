@@ -2,10 +2,10 @@
 
 > The code generator that turns Windows metadata (`.winmd`) into Rust bindings.
 
-- [crates.io](https://crates.io/crates/windows-bindgen)
-- [docs.rs](https://docs.rs/windows-bindgen)
-- [Getting started](../../crates/libs/bindgen/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/bindgen)
+- 📦 [crates.io](https://crates.io/crates/windows-bindgen)
+- 📖 [docs.rs](https://docs.rs/windows-bindgen)
+- 🚀 [Getting started](../../crates/libs/bindgen/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/bindgen)
 
 `windows-bindgen` generates Rust bindings from Windows metadata. It powers the `windows` and
 `windows-sys` crates. You can also use it from `build.rs` to make a small binding set for the APIs
@@ -22,10 +22,10 @@ dependency that the generated code uses:
 
 ```toml
 [dependencies]
-windows-link = "0.2"
+windows-link = "0.100"
 
 [build-dependencies]
-windows-bindgen = "0.66"
+windows-bindgen = "0.100"
 ```
 
 Generate bindings from `build.rs` with either command-line-style arguments or the builder:
@@ -178,7 +178,7 @@ The pattern has three parts.
 ```toml
 # tickcount/Cargo.toml
 [dependencies]
-windows-link = "0.2"
+windows-link = "0.100"
 ```
 
 The library module includes the generated bindings and exposes the safe API used by the binary.
@@ -193,7 +193,7 @@ name = "gen"
 publish = false
 
 [dependencies]
-windows-bindgen = "0.66"
+windows-bindgen = "0.100"
 ```
 
 ```rust,no_run

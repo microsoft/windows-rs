@@ -2,10 +2,10 @@
 
 > WinRT `TimeSpan` and `DateTime` with idiomatic Rust conversions.
 
-- [crates.io](https://crates.io/crates/windows-time)
-- [docs.rs](https://docs.rs/windows-time)
-- [Getting started](../../crates/libs/time/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/time)
+- 📦 [crates.io](https://crates.io/crates/windows-time)
+- 📖 [docs.rs](https://docs.rs/windows-time)
+- 🚀 [Getting started](../../crates/libs/time/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/time)
 
 `windows-time` provides the two WinRT time primitives as plain `#[repr(C)]` Rust types: `TimeSpan`
 (a duration, stored as 100-nanosecond ticks) and `DateTime` (an instant on a 1601-based UTC clock).

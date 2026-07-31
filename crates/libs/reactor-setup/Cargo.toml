@@ -1,9 +1,17 @@
 [package]
 name = "windows-reactor-setup"
-version = "0.0.0"
+version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"
-publish = false
+license = "MIT OR Apache-2.0"
+description = "Windows App SDK runtime setup for windows-reactor"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
 
 [lints]
 workspace = true
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []

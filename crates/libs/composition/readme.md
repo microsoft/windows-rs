@@ -1,7 +1,7 @@
 ## Windows Composition
 
 Windows Composition wraps the retained-mode Windows composition engine. Choose one Cargo feature:
-`system` (default) uses `Windows.UI.Composition` and hosts a visual tree in a window; `lifted` uses
+`system` (default) uses `Windows.UI.Composition` and hosts a visual tree in a window; `reactor` uses
 `Microsoft.UI.Composition` and hosts it in a WinUI 3 element through the
 [`windows-reactor`][reactor-guide] bridge.
 

@@ -1,6 +1,6 @@
 [package]
 name = "windows-time"
-version = "0.1.0"
+version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"

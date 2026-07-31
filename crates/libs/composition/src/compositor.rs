@@ -20,7 +20,7 @@ impl Compositor {
     }
 
     /// Wraps a lifted compositor obtained from a WinUI host element.
-    #[cfg(feature = "lifted")]
+    #[cfg(feature = "reactor")]
     pub fn from_host(compositor: windows_core::IInspectable) -> Result<Self> {
         Ok(Self(compositor.cast()?))
     }

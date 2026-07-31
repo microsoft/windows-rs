@@ -2,10 +2,10 @@
 
 > The `link!` macro for linking to Windows functions without import libraries.
 
-- [crates.io](https://crates.io/crates/windows-link)
-- [docs.rs](https://docs.rs/windows-link)
-- [Getting started](../../crates/libs/link/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/link)
+- 📦 [crates.io](https://crates.io/crates/windows-link)
+- 📖 [docs.rs](https://docs.rs/windows-link)
+- 🚀 [Getting started](../../crates/libs/link/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/link)
 
 `windows-link` provides the `link!` macro for declaring external Windows functions. It uses
 `raw-dylib`, so it does not require import `.lib` files. The macro declares the function and also

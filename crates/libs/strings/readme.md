@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-strings]
-version = "0.5"
+version = "0.100"
 ```
 
 Use the Windows string types as needed:

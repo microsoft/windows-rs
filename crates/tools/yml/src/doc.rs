@@ -8,7 +8,7 @@ pub fn yml() {
                 c.package.publish != Some(false)
                     && c.package.name != "windows"
                     && c.package.name != "windows-link"
-                    // `windows-reactor` pulls in the `lifted` composition stack, so
+                    // `windows-reactor` pulls in the `reactor` composition stack, so
                     // documenting `windows-composition` (system) in the same
                     // invocation would enable both mutually exclusive stacks at
                     // once. Document it separately below.
@@ -27,13 +27,19 @@ pub fn yml() {
         );
         yml.push_str(&line);
 
-        // The `system` and `lifted` stacks are mutually exclusive, so document each
-        // on its own rather than alongside the `lifted` consumers above.
+        // The `system` and `reactor` stacks are mutually exclusive, so document each
+        // on its own rather than alongside the `reactor` consumers above.
         yml.push_str(
             "      - name: Check windows-composition\n        run: cargo doc --no-deps -p windows-composition\n",
         );
         yml.push_str(
-            "      - name: Check windows-composition (lifted)\n        run: cargo doc --no-deps -p windows-composition --no-default-features --features lifted\n",
+            "      - name: Check windows-composition (reactor)\n        run: cargo doc --no-deps -p windows-composition --no-default-features --features reactor\n",
+        );
+        yml.push_str(
+            "      - name: Check windows-canvas (composition)\n        run: cargo doc --no-deps -p windows-canvas --features composition\n",
+        );
+        yml.push_str(
+            "      - name: Check reactor features\n        run: cargo doc --no-deps -p windows-reactor -p windows-webview --features windows-reactor/canvas,windows-webview/reactor\n",
         );
     });
 }

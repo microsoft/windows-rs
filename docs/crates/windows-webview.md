@@ -3,11 +3,11 @@
 > A safe Rust wrapper around the [WebView2](https://aka.ms/webview2) COM APIs for hosting Microsoft
 > Edge in a window.
 
-- [crates.io](https://crates.io/crates/windows-webview)
-- [docs.rs](https://docs.rs/windows-webview)
-- [Getting started](../../crates/libs/webview/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/webview)
-- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview)
+- 📦 [crates.io](https://crates.io/crates/windows-webview)
+- 📖 [docs.rs](https://docs.rs/windows-webview)
+- 🚀 [Getting started](../../crates/libs/webview/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/webview)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview)
 
 `windows-webview` hosts WebView2 inside a Win32 window. Use it to render web content and run
 JavaScript from Rust. The three core types are `Environment`, `Controller`, and `WebView`.
@@ -238,7 +238,7 @@ Enable the `reactor` feature to host WebView2 as a reactor widget.
 
 The `WebView` passed to the closure is the same type used for HWND hosting. Navigation, scripting,
 IPC, cookies, settings, profiles, and the other wrappers work the same way. Enable it with
-`windows-webview = { version = "...", features = ["reactor"] }`.
+`windows-webview = { version = "0.100", features = ["reactor"] }`.
 
 The reactor path hosts the WinUI XAML `WebView2` control. The app must deploy
 `Microsoft.Web.WebView2.Core.dll` next to the executable. The COM-only path does not need it. The

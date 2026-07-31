@@ -18,7 +18,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-core]
-version = "0.62"
+version = "0.100"
 ```
 
 Use the core types as needed:

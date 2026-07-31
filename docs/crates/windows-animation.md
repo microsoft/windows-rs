@@ -2,10 +2,11 @@
 
 > A safe wrapper around the Windows Animation Manager (`IUIAnimationManager`).
 
-- Not published to crates.io
-- [Getting started](../../crates/libs/animation/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
-- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
+- 📦 [crates.io](https://crates.io/crates/windows-animation)
+- 📖 [docs.rs](https://docs.rs/windows-animation)
+- 🚀 [Getting started](../../crates/libs/animation/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
 
 `windows-animation` wraps the Win32 Windows Animation Manager COM APIs in safe Rust types. A
 `Manager` owns animation `Variable`s. Each one is a smoothly animated `f64`. You describe motion
