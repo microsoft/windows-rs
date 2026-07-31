@@ -145,9 +145,9 @@ stays committed because `tool_webview` and `tool_composition` also read it.
 | `resources.pri`, `app.manifest`, `runtime.txt` | `crates/libs/reactor-setup/assets/` (committed) | runtime staging |
 | Runtime installer | `.github/workflows/reactor.yml` | CI test host |
 
-`reactor-setup` is a published runtime crate with no generated artifact, so its pins can't be proven
-by regen. Instead **`tool_reactor` guards them** on every run, asserting (and failing loudly on
-drift) that:
+`windows-reactor-setup` is a published runtime helper with no generated artifact, so its pins can't
+be proven by regen. Instead **`tool_reactor` guards them** on every run, asserting (and failing
+loudly on drift) that:
 
 - `WINDOWS_APP_SDK_VERSION` (metadata) equals `RUNTIME_VER` (runtime) - one number drives both;
 - `WEBVIEW2_VER` equals `WEBVIEW2_VERSION`, so the staged WebView2 runtime matches the ABI the
@@ -192,4 +192,3 @@ Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{i
 
 All cross-file reads go through `helpers::read_str_const`, so each pin is declared once by its owner
 and read back everywhere else.
-

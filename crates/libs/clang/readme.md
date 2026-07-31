@@ -12,7 +12,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-clang]
-version = "0.0.0"
+version = "0.100"
 ```
 
 Point it at one or more headers and write the resulting per-header RDL, then feed that RDL to

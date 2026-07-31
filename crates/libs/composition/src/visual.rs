@@ -72,13 +72,13 @@ impl Visual {
     }
 
     /// Surfaces the underlying visual as an [`IInspectable`](windows_core::IInspectable).
-    #[cfg(feature = "lifted")]
+    #[cfg(feature = "reactor")]
     pub fn as_raw(&self) -> windows_core::IInspectable {
         self.0.clone().into()
     }
 
     /// Adopts a lifted composition visual from a WinUI host element.
-    #[cfg(feature = "lifted")]
+    #[cfg(feature = "reactor")]
     pub fn from_host(visual: windows_core::IInspectable) -> Result<Self> {
         Ok(Self(visual.cast()?))
     }

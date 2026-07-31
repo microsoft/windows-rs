@@ -2,10 +2,10 @@
 
 > Generates RDL from C/C++ headers using libclang.
 
-- [crates.io](https://crates.io/crates/windows-clang)
-- [docs.rs](https://docs.rs/windows-clang)
-- [Getting started](../../crates/libs/clang/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/clang)
+- 📦 [crates.io](https://crates.io/crates/windows-clang)
+- 📖 [docs.rs](https://docs.rs/windows-clang)
+- 🚀 [Getting started](../../crates/libs/clang/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/clang)
 
 `windows-clang` is the header-facing front end of the Win32 metadata pipeline. It parses C/C++
 headers with libclang and emits RDL (Rust Definition Language) - the text format that
@@ -43,7 +43,7 @@ Add `windows-clang` as a build dependency (it is run from a codegen tool, not sh
 
 ```toml
 [build-dependencies]
-windows-clang = "0.0.0"
+windows-clang = "0.100"
 ```
 
 Point `clang()` at one or more headers and write the resulting per-header RDL. Each header is parsed

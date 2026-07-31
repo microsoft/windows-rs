@@ -2,10 +2,10 @@
 
 > Efficient Windows error handling and propagation for Win32, COM, and WinRT.
 
-- [crates.io](https://crates.io/crates/windows-result)
-- [docs.rs](https://docs.rs/windows-result)
-- [Getting started](../../crates/libs/result/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/result)
+- 📦 [crates.io](https://crates.io/crates/windows-result)
+- 📖 [docs.rs](https://docs.rs/windows-result)
+- 🚀 [Getting started](../../crates/libs/result/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/result)
 
 `windows-result` is the error layer shared by the windows-* crates. Its building blocks are
 `HRESULT` (a Windows status code, with `.ok()` to convert into a `Result`), `Error` (a rich error

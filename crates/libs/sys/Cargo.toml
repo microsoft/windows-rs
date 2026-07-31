@@ -1,6 +1,6 @@
 [package]
 name = "windows-sys"
-version = "0.61.2"
+version = "0.100.0"
 edition = "2024"
 rust-version = "1.85"
 license = "MIT OR Apache-2.0"

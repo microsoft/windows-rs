@@ -1,14 +1,14 @@
 #![doc = include_str!("../readme.md")]
 
-// `system` and `lifted` select compatible generated bindings for the same
+// `system` and `reactor` select compatible generated bindings for the same
 // handwritten wrappers.
-#[cfg(all(not(feature = "system"), not(feature = "lifted")))]
+#[cfg(all(not(feature = "system"), not(feature = "reactor")))]
 compile_error!(
-    "enable exactly one composition stack: the `system` feature (default) or the `lifted` feature"
+    "enable exactly one composition stack: the `system` feature (default) or the `reactor` feature"
 );
-#[cfg(all(feature = "system", feature = "lifted"))]
+#[cfg(all(feature = "system", feature = "reactor"))]
 compile_error!(
-    "the `system` and `lifted` composition stacks are mutually exclusive; enable only one"
+    "the `system` and `reactor` composition stacks are mutually exclusive; enable only one"
 );
 
 #[cfg(feature = "system")]
@@ -20,7 +20,7 @@ compile_error!(
 )]
 #[path = "bindings.rs"]
 mod bindings;
-#[cfg(feature = "lifted")]
+#[cfg(feature = "reactor")]
 #[allow(
     non_snake_case,
     non_upper_case_globals,

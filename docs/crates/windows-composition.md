@@ -2,10 +2,11 @@
 
 > Safe Rust wrappers for the Windows composition engine.
 
-- Not published to crates.io
-- [Getting started](../../crates/libs/composition/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/composition)
-- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition)
+- 📦 [crates.io](https://crates.io/crates/windows-composition)
+- 📖 [docs.rs](https://docs.rs/windows-composition)
+- 🚀 [Getting started](../../crates/libs/composition/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/composition)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition)
 
 `windows-composition` wraps `Windows.UI.Composition` and `Microsoft.UI.Composition`. It gives you a
 `Compositor`, visuals, brushes, shapes, animations, and hosting helpers. The wrappers use minimal
@@ -27,7 +28,7 @@ surface and selects the stack at compile time.
 
 - `system` is the default feature. It targets `Windows.UI.Composition` and enables
   `DispatcherQueueController`, `DesktopWindowTarget`, and the `windows-window` dependency.
-- `lifted` targets `Microsoft.UI.Composition`. It selects the lifted bindings and adds no
+- `reactor` targets `Microsoft.UI.Composition`. It selects the lifted bindings and adds no
   dependency. Reactor enables this feature and hosts lifted visuals through `CompositionHost`.
 
 The features are mutually exclusive. Enabling neither feature or both features is a compile error.
@@ -158,7 +159,7 @@ rewrites `Windows.UI.Composition.` to `Microsoft.UI.Composition.` Shared `Window
 Edit `composition.txt` to change either stack. Then run `cargo run -p tool_composition` and verify
 the affected crate.
 
-`lib.rs` selects `bindings.rs` for `system` and `bindings_lifted.rs` for `lifted`. Compile errors
+`lib.rs` selects `bindings.rs` for `system` and `bindings_lifted.rs` for `reactor`. Compile errors
 reject invalid feature combinations.
 
 `stack.rs` declares `CreateDispatcherQueueController` with `windows_core::link!`. That function
@@ -167,11 +168,11 @@ queue on the current thread.
 
 ### Feature unification and CI
 
-The `system` and `lifted` features cannot build together. Cargo unifies features across a build
+The `system` and `reactor` features cannot build together. Cargo unifies features across a build
 graph. A workspace build that includes both stack consumers would enable both features and hit the
 compile error.
 
-Unified CI jobs are lifted-primary. Reactor and its tests use the lifted stack, so the unified
+Unified CI jobs are reactor-primary. Reactor and its tests use the lifted stack, so the unified
 clippy and test jobs exclude system-stack consumers. A second step checks those system crates
 together. Add a new system-stack crate to both the exclusion list and the second step.
 
@@ -182,7 +183,7 @@ together. Add a new system-stack crate to both the exclusion list and the second
 ### Reactor host bridge
 
 Lifted composition is hosted inside a WinUI element. Reactor owns that element tree. Reactor depends
-on `windows-composition` with the `lifted` feature.
+on `windows-composition` with the `reactor` feature.
 
 Reactor's `CompositionHost` widget exposes typed methods on `CompositionHostHandle`:
 

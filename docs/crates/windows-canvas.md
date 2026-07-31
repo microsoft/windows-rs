@@ -2,10 +2,11 @@
 
 > A safe, fast 2D graphics library backed by Direct2D, Direct3D 11, DXGI, DirectWrite, and WIC.
 
-- Not published to crates.io
-- [Getting started](../../crates/libs/canvas/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/canvas)
-- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas)
+- 📦 [crates.io](https://crates.io/crates/windows-canvas)
+- 📖 [docs.rs](https://docs.rs/windows-canvas)
+- 🚀 [Getting started](../../crates/libs/canvas/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/canvas)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas)
 
 `windows-canvas` wraps the DirectX graphics stack behind safe Rust types. A `GpuDevice` owns the
 Direct3D and Direct2D devices. From it, you create a `SwapChain` to present frames. Each frame,
@@ -24,8 +25,8 @@ use `?`. It derefs to the frame `DrawingSession`, so all drawing methods are ava
 
 ```toml
 [dependencies]
-windows-reactor = { version = "...", features = ["canvas"] }
-windows-canvas = "..."
+windows-reactor = { version = "0.100", features = ["canvas"] }
+windows-canvas = "0.100"
 ```
 
 See the reactor canvas samples for a complete animated drawing loop.
@@ -95,8 +96,8 @@ drawing.
 
 ```toml
 [dependencies]
-windows-canvas = { version = "...", features = ["composition"] }
-windows-composition = { version = "...", features = ["system"] }
+windows-canvas = { version = "0.100", features = ["composition"] }
+windows-composition = { version = "0.100", features = ["system"] }
 ```
 
 The composition bridge creates a graphics device and drawing surface from an existing compositor.

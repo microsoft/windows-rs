@@ -2,10 +2,10 @@
 
 > A low-level reader and writer for the ECMA-335 metadata format.
 
-- [crates.io](https://crates.io/crates/windows-metadata)
-- [docs.rs](https://docs.rs/windows-metadata)
-- [Getting started](../../crates/libs/metadata/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/metadata)
+- 📦 [crates.io](https://crates.io/crates/windows-metadata)
+- 📖 [docs.rs](https://docs.rs/windows-metadata)
+- 🚀 [Getting started](../../crates/libs/metadata/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/metadata)
 
 `windows-metadata` reads and writes the ECMA-335 metadata format used by .NET, WinRT, and the Win32
 metadata. It is the foundation [`windows-bindgen`](windows-bindgen.md) builds on. The

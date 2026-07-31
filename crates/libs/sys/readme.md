@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-sys]
-version = "0.61"
+version = "0.100"
 features = [
     "handleapi",
     "synchapi",

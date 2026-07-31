@@ -2,10 +2,10 @@
 
 > Core COM and WinRT type support shared by the windows-* crates.
 
-- [crates.io](https://crates.io/crates/windows-core)
-- [docs.rs](https://docs.rs/windows-core)
-- [Getting started](../../crates/libs/core/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/core)
+- 📦 [crates.io](https://crates.io/crates/windows-core)
+- 📖 [docs.rs](https://docs.rs/windows-core)
+- 🚀 [Getting started](../../crates/libs/core/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/core)
 
 `windows-core` is the foundation that nearly every other crate builds on. It provides the COM/WinRT
 runtime machinery - `IUnknown`, `IInspectable`, the `Interface` trait, reference counting, agile

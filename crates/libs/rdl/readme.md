@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-rdl]
-version = "0.0.0"
+version = "0.100"
 ```
 
 Use the `reader` to compile `.rdl` source into a `.winmd`, and the `writer` to regenerate canonical

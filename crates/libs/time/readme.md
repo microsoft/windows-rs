@@ -13,7 +13,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-time]
-version = "0.1"
+version = "0.100"
 ```
 
 Use the time types as needed:

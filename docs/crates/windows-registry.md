@@ -2,10 +2,10 @@
 
 > Simple, safe, and efficient access to the Windows registry.
 
-- [crates.io](https://crates.io/crates/windows-registry)
-- [docs.rs](https://docs.rs/windows-registry)
-- [Getting started](../../crates/libs/registry/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/registry)
+- 📦 [crates.io](https://crates.io/crates/windows-registry)
+- 📖 [docs.rs](https://docs.rs/windows-registry)
+- 🚀 [Getting started](../../crates/libs/registry/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/registry)
 
 `windows-registry` wraps the Win32 registry APIs behind a small, safe surface. Start from one of the
 predefined roots - `CURRENT_USER`, `LOCAL_MACHINE`, or `CLASSES_ROOT` - then `create` or `open` keys

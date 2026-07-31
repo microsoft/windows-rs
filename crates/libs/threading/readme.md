@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-threading]
-version = "0.2"
+version = "0.100"
 ```
 
 Submit work to the default pool:

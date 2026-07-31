@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-registry]
-version = "0.6"
+version = "0.100"
 ```
 
 ```rust,no_run

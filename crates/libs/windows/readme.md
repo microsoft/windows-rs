@@ -12,7 +12,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.62"
+version = "0.100"
 features = [
     "Data_Xml_Dom",
     "handleapi",

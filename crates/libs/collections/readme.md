@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-collections]
-version = "0.3"
+version = "0.100"
 ```
 
 ```rust

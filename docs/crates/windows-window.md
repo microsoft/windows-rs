@@ -2,9 +2,10 @@
 
 > Minimal window creation and message-loop support for content hosted by a raw `HWND`.
 
-- Not published to crates.io
-- [Getting started](../../crates/libs/window/readme.md)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/window)
+- 📦 [crates.io](https://crates.io/crates/windows-window)
+- 📖 [docs.rs](https://docs.rs/windows-window)
+- 🚀 [Getting started](../../crates/libs/window/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/window)
 
 `windows-window` provides just enough Win32 windowing to open a top-level window and run a message
 loop, so crates and samples that need a host window - [`windows-canvas`](windows-canvas.md) swap

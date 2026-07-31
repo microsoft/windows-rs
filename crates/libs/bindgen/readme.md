@@ -11,10 +11,10 @@ Add the generator as a build dependency and the generated code's runtime depende
 
 ```toml
 [dependencies.windows-link]
-version = "0.2"
+version = "0.100"
 
 [build-dependencies.windows-bindgen]
-version = "0.66"
+version = "0.100"
 ```
 
 Generate bindings from `build.rs`:

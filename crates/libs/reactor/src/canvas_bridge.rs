@@ -163,7 +163,7 @@ impl RenderCx {
     }
 }
 
-/// Demand-driven [`canvas`] that also repaints whenever `inv` is invalidated.
+/// Demand-driven [`canvas()`] that also repaints whenever `inv` is invalidated.
 ///
 /// Keep drawing state in a [`use_ref`](RenderCx::use_ref), mutate it in an event
 /// handler, then call [`Invalidator::invalidate`]. Mutating a `use_ref` does not
