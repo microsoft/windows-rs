@@ -1,6 +1,5 @@
-//! Built-in widget catalogue. One file per widget; each file owns the
-//! widget struct, its builder methods, its `impl Widget`, any related
-//! support types, and the convenience factory function (if any).
+//! Built-in widget catalog. Each file defines a widget, its builders,
+//! `Widget` implementation, support types, and constructor.
 
 // Make the core types each widget module depends on visible via
 // `use super::*;` inside the per-widget files.

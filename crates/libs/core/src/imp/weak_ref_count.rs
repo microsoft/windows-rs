@@ -40,8 +40,7 @@ impl WeakRefCount {
                     let tear_off = TearOff::decode(pointer);
                     let remaining = tear_off.strong_count.release();
 
-                    // If this is the last strong reference, we can release the weak reference implied by the strong reference.
-                    // There may still be weak references, so the WeakRelease is called to handle such possibilities.
+                    // The last strong reference also releases its implied weak reference.
                     if remaining == 0 {
                         TearOff::WeakRelease(&mut tear_off.weak_vtable as *mut _ as _);
                     }

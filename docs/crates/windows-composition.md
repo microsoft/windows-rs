@@ -186,11 +186,7 @@ on `windows-composition` with the `lifted` feature.
 
 Reactor's `CompositionHost` widget exposes typed methods on `CompositionHostHandle`:
 
-```rust,ignore
-let compositor = host.compositor()?;         // Compositor::from_host(element's compositor)
-let root = compositor.create_container_visual();
-host.set_child_visual(&root)?;               // set the element's child visual
-```
+The host exposes its compositor and accepts a root child visual.
 
 This crate provides the lifted binding set and seam helpers for that bridge.
 `Compositor::from_host(&IInspectable)` adopts the element's compositor.

@@ -12,13 +12,11 @@ extern crate alloc;
 use alloc::boxed::Box;
 use core::ffi::c_void;
 
-/// Submit the closure to the default thread pool.
+/// Submits a closure to the default thread pool.
 ///
-/// * The closure must have `'static` lifetime as the thread may outlive the lifetime in which `submit` is called.
-/// * The closure must be `Send` as it will be sent to another thread for execution.
+/// The closure must be `Send + 'static`.
 ///
-/// This dispatches through the Win32 thread pool (`TrySubmitThreadpoolCallback`), which reuses
-/// worker threads and is dramatically cheaper than spawning a new OS thread per call.
+/// This uses `TrySubmitThreadpoolCallback` and reuses worker threads.
 pub fn submit<F: FnOnce() + Send + 'static>(f: F) {
     // SAFETY: the closure has `'static` lifetime.
     unsafe {
@@ -26,11 +24,9 @@ pub fn submit<F: FnOnce() + Send + 'static>(f: F) {
     }
 }
 
-/// Calls the closure on each element of the iterator in parallel, waiting for all closures to finish.
+/// Calls the closure on each item in parallel and waits for completion.
 ///
-/// * The closure does not require `'static` lifetime since the `for_each` function bounds the lifetime of all submitted closures.
-/// * The closure must be `Sync` as multiple threads will refer to it.
-/// * The iterator items must be `Send` as they will be sent from one thread to another.
+/// The closure must be `Sync`, and iterator items must be `Send`.
 pub fn for_each<I, F, T>(i: I, f: F)
 where
     I: Iterator<Item = T>,
@@ -56,7 +52,7 @@ pub fn sleep(milliseconds: u32) {
     }
 }
 
-// When used correctly, the Windows thread pool APIs only fail when memory is exhausted. This function will cause such failures to `panic`.
+// Thread-pool allocation failures are unrecoverable here.
 fn check<D: Default + PartialEq>(result: D) -> D {
     assert!(result != D::default(), "allocation failed");
 

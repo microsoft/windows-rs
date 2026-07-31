@@ -312,7 +312,7 @@ impl<T: RuntimeType> IAsyncOperation<T> {
 }
 
 impl<P: RuntimeType> IAsyncActionWithProgress<P> {
-    /// Creates an `IAsyncActionWithProgress<P>` that waits for the closure to execute on the Windows thread pool.
+    /// Runs the closure on the Windows thread pool with progress reporting.
     pub fn spawn<F>(f: F) -> Self
     where
         F: FnOnce() -> Result<()> + Send + 'static,
@@ -329,7 +329,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
 }
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
-    /// Creates an `IAsyncOperationWithProgress<T, P>` that waits for the closure to execute on the Windows thread pool.
+    /// Runs the value-producing closure on the Windows thread pool with progress reporting.
     pub fn spawn<F>(f: F) -> Self
     where
         F: FnOnce() -> Result<T> + Send + 'static,

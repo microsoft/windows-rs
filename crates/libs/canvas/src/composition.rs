@@ -2,11 +2,16 @@
 //!
 //! Draw Direct2D content into a `windows-composition` [`CompositionDrawingSurface`].
 //!
-//! ```ignore
-//! use windows_canvas::{CanvasCompositionExt, ColorF, GpuDevice, Vector2};
+//! ```no_run
+//! use windows_canvas::{
+//!     CanvasCompositionExt, ColorF, Ellipse, GpuDevice, Vector2,
+//! };
 //! use windows_composition::Compositor;
-//! # fn demo(device: &GpuDevice, compositor: &Compositor, visual: &windows_composition::SpriteVisual)
-//! #     -> windows_core::Result<()> {
+//! # fn demo(
+//! #     device: &GpuDevice,
+//! #     compositor: &Compositor,
+//! #     visual: &windows_composition::SpriteVisual,
+//! # ) -> windows_core::Result<()> {
 //! let graphics = device.create_graphics_device(compositor)?;
 //! let surface = graphics.create_drawing_surface(256.0, 256.0)?;
 //! let brush = compositor.create_surface_brush(&surface);
@@ -27,7 +32,6 @@ use windows_composition::{CompositionDrawingSurface, CompositionGraphicsDevice, 
 
 impl GpuDevice {
     /// Creates a composition graphics device backed by this device.
-    ///
     pub fn create_graphics_device(
         &self,
         compositor: &Compositor,
@@ -37,11 +41,11 @@ impl GpuDevice {
 }
 
 /// Extends [`CompositionDrawingSurface`] with Direct2D drawing.
-///
 pub trait CanvasCompositionExt {
     /// Redraws the surface: runs `f` to draw, then presents.
     ///
-    /// Returns `Ok(false)` if the GPU device was lost and the surface must be recreated.
+    /// Returns `Ok(false)` if the GPU device was lost and the surface must be
+    /// recreated.
     fn draw(&self, f: impl FnOnce(&DrawingSession<'_>) -> Result<()>) -> Result<bool>;
 }
 

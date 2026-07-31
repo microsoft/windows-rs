@@ -1,6 +1,6 @@
 use super::*;
 
-/// The conventional way of calling the `bindgen` function is as follows:
+/// Generates bindings using command-line-style arguments.
 ///
 /// ```rust,no_run
 /// let args = [
@@ -13,32 +13,27 @@ use super::*;
 /// windows_bindgen::bindgen(args);
 /// ```
 ///
-/// Here is a list of supported arguments.
+/// Supported arguments:
 ///
-/// | Argument | Description |
-/// |----------|-------------|
-/// | `--in` | .winmd files or directories to include. |
-/// | `--out` | File name where the generated bindings will be saved. |
-/// | `--filter` | APIs to include or exclude in the generated bindings. |
-/// | `--rustfmt` | Overrides the default Rust formatting. |
-/// | `--derive` | Extra traits for types to derive. |
-/// | `--flat` | Avoids the default namespace-to-module conversion. |
-/// | `--sys` | Generates raw C-style bindings with no `windows-core` dependency (only `windows-link`). |
-/// | `--extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. Only valid with `--sys`. |
-/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time. Mutually exclusive with `--sys`. |
-/// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |
-/// | `--dead-code` | Emits `pub(crate)` instead of `pub` on generated items so the compiler's dead-code lint can flag unused bindings. |
-/// | `--etc` | Reads additional whitespace-separated arguments from one or more response files (lines beginning with `//` are ignored). |
-///
-///
+/// - `--in`: Metadata files or directories.
+/// - `--out`: Generated Rust file.
+/// - `--filter`: Included or excluded APIs.
+/// - `--rustfmt`: Rust formatter override.
+/// - `--derive`: Extra derived traits.
+/// - `--flat`: Omits namespace modules.
+/// - `--sys`: Generates raw bindings that depend only on `windows-link`.
+/// - `--extern`: Uses extern declarations with `--sys`.
+/// - `--minimal`: Omits class wrappers, inherited forwarders, and handle wrappers.
+/// - `--implement`: Emits implementation traits for selected WinRT interfaces.
+/// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
+/// - `--etc`: Reads arguments from response files.
 /// # `--out`
 ///
-/// Exactly one `--out` argument is required and instructs the `bindgen` function where to write the bindings.
+/// Exactly one `--out` argument is required.
 ///
 /// # `--filter`
 ///
-/// The `--filter` option controls which APIs are included or excluded in the generated bindings. You can
-/// specify one or more include patterns and optionally exclude patterns prefixed with `!`.
+/// Filters select APIs to include. Prefix a filter with `!` to exclude it.
 ///
 /// ```text
 /// --filter Windows.Win32.Storage.FileSystem.GetFullPathNameW
@@ -52,8 +47,7 @@ use super::*;
 ///          !Windows.Win32.Storage.FileSystem.WIN32_FIND_DATAW
 /// ```
 ///
-/// There is a filter convention that uses `--etc` response files that makes it easy to separate include
-/// and exclude filters in a separate file:
+/// Use a response file for longer filter lists:
 ///
 /// ```text
 /// --etc path/to/file.txt
@@ -64,16 +58,11 @@ use super::*;
 ///
 /// ## Method-level filtering
 ///
-/// Filters can target individual methods, properties, and events on an
-/// interface, class, or struct - in any style.  The syntax looks like
-/// `Namespace.Type::Member`.  You can also use `Property.Name`
-/// or `Event.Name` sugar to target a getter/setter pair or an event pair.
+/// Filters can target methods, properties, and events with `Namespace.Type::Member`.
+/// `Property.Name` and `Event.Name` select accessor pairs.
 ///
-/// The *specificity* of an entry determines how much of the type is projected,
-/// like a Rust `use` declaration: naming a bare type projects it in full (a bare
-/// interface gets all its methods), `Type::{}` makes it available as a name-only
-/// shell, and `Type::Member` / `Type::{a, b}` projects only the named methods.
-/// See the filter model discussion in `docs/crates/windows-bindgen.md`.
+/// A bare type projects the full type. `Type::{}` emits a name-only shell, while
+/// `Type::Member` and `Type::{a, b}` select members.
 ///
 /// ```text
 /// --filter Windows.UI.Xaml.Controls.Button
@@ -81,99 +70,6 @@ use super::*;
 ///          Windows.UI.Xaml.Controls.TextBlock::Property.FontSize
 ///          Windows.UI.Xaml.UIElement::Event.PointerPressed
 /// ```
-///
-/// # `--in`
-///
-/// The `--in` option specifies the `.winmd` files to include for the generation.
-///
-/// ```rust,no_run
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--in",
-///     "my.winmd",
-///     "--filter",
-///     "MyApi",
-/// ];
-///
-/// windows_bindgen::bindgen(args);
-/// ```
-///
-/// # `--flat`
-///
-/// The `--flat` option avoids the default namespace-to-module conversion and instead generates
-/// all the bindings in a single flat list in the `--out` output file. This avoids namespace module
-/// nesting and makes the output more straightforward.
-///
-/// ```rust,no_run
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "GetTickCount",
-///     "--flat",
-/// ];
-///
-/// windows_bindgen::bindgen(args);
-/// ```
-///
-/// The resulting bindings now look something like this:
-///
-/// ```rust
-/// #[inline]
-/// pub unsafe fn GetTickCount() -> u32 {
-///     windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
-///     unsafe { GetTickCount() }
-/// }
-/// ```
-///
-/// # `--derive`
-///
-/// The `--derive` option instructs the code generator to add the specified traits to the
-/// default `derive` list for all generated types that support it.
-///
-/// ```rust,no_run
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "GetTickCount",
-///     "--derive",
-///     "PartialEq",
-///     "Eq",
-/// ];
-///
-/// windows_bindgen::bindgen(args);
-/// ```
-///
-/// # `--sys`
-///
-/// The `--sys` option generates raw or sys-style Rust bindings that do not include some of
-/// the wrappers and other conveniences provided by the default bindings.
-///
-/// ```rust,no_run
-/// let args = [
-///     "--out",
-///     "src/bindings.rs",
-///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
-///     "--sys",
-///     "--flat",
-/// ];
-///
-/// windows_bindgen::bindgen(args);
-/// ```
-///
-/// The resulting bindings now look something like this:
-///
-/// ```rust
-/// windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
-/// windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
-/// ```
-///
-/// You'll notice that the bindings are simpler as there's no wrapper functions and other
-/// conveniences. You just need to add a dependency on the tiny [windows-link](https://crates.io/crates/windows-link) crate and you're all set.
 ///
 #[track_caller]
 pub fn bindgen<I, S>(args: I)

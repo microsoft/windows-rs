@@ -33,6 +33,7 @@ pub(crate) fn wait<T>(slot: &Slot<T>) -> Result<T> {
         unsafe {
             match GetMessageW(&mut message, std::ptr::null_mut(), 0, 0).0 {
                 -1 => return Err(Error::from_thread()),
+                // WM_QUIT ended the nested pump before the completion handler ran.
                 0 => return Err(Error::empty()),
                 _ => {
                     let _ = TranslateMessage(&message);

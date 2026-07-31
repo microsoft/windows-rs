@@ -18,14 +18,12 @@ Use the `reader` to compile `.rdl` source into a `.winmd`, and the `writer` to r
 `.rdl` from a `.winmd`:
 
 ```rust,no_run
-// RDL source -> winmd metadata.
 windows_rdl::reader()
     .input("example.rdl")
     .output("example.winmd")
     .write()
     .unwrap();
 
-// winmd metadata -> canonical RDL source.
 windows_rdl::writer()
     .input("example.winmd")
     .output("example.rdl")

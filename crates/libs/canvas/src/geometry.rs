@@ -1,15 +1,6 @@
 use super::*;
 
 /// A completed path geometry.
-///
-/// ```ignore
-/// let path = PathBuilder::new(&device)?
-///     .begin(Vector2::new(0.0, 0.0))
-///     .line_to(Vector2::new(100.0, 0.0))
-///     .line_to(Vector2::new(50.0, 80.0))
-///     .close()
-///     .build()?;
-/// ```
 #[derive(Clone)]
 pub struct Path {
     raw: ID2D1PathGeometry1,
@@ -59,15 +50,6 @@ impl Path {
 }
 
 /// Type-safe path builder.
-///
-/// ```ignore
-/// let path = PathBuilder::new(&device)?
-///     .begin(point)
-///     .line_to(point2)
-///     .bezier_to(c1, c2, end)
-///     .close()
-///     .build()?;
-/// ```
 pub struct PathBuilder {
     sink: ID2D1GeometrySink,
     geometry: ID2D1PathGeometry1,
@@ -107,8 +89,7 @@ impl PathBuilder {
 
     /// Builds a closed, filled polygon from a sequence of points.
     ///
-    /// Convenience for `begin(first).line_to(rest)...close().build()`. Returns an
-    /// error if `points` yields no points.
+    /// Returns an error if `points` is empty.
     pub fn polygon(self, points: impl IntoIterator<Item = Vector2>) -> Result<Path> {
         let mut points = points.into_iter();
         let Some(first) = points.next() else {

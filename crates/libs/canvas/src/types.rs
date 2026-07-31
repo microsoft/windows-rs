@@ -284,14 +284,6 @@ impl DashStyle {
 pub struct StrokeStyle(pub(crate) ID2D1StrokeStyle1);
 
 /// Builder for [`StrokeStyle`].
-///
-/// ```ignore
-/// let style = device.create_stroke_style(
-///     StrokeStyleBuilder::new()
-///         .caps(CapStyle::Round)
-///         .line_join(LineJoin::Round)
-/// )?;
-/// ```
 #[derive(Clone, Debug, Default)]
 pub struct StrokeStyleBuilder {
     pub(crate) start_cap: CapStyle,

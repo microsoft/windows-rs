@@ -81,17 +81,7 @@ impl RenderState {
 
 /// Create an animated canvas that calls `draw` every frame.
 ///
-/// Handles device creation, swap chain management, resize, and device-lost
-/// recovery automatically.
-///
-/// ```ignore
-/// animated_canvas(|ctx| {
-///     let brush = ctx.create_solid_brush(ColorF::WHITE)?;
-///     ctx.clear(ColorF::CORNFLOWER_BLUE);
-///     ctx.fill_ellipse(&ellipse, &brush);
-///     Ok(())
-/// })
-/// ```
+/// Manages the device, swap chain, resizing, and device-loss recovery.
 pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> SwapChainPanel {
     animated_canvas_impl(
         Rc::new(GpuDevice::new_or_warp),
@@ -130,15 +120,6 @@ pub fn animated_canvas_with_device(
 /// Like [`animated_canvas`], but `draw` runs only on the first layout and on
 /// resize or scale change - not every frame - so an idle window does no GPU
 /// work. Use it for size-driven content such as text or a chart.
-///
-/// ```ignore
-/// canvas(|ctx| {
-///     ctx.clear(ColorF::BLACK);
-///     let rect = Rect::new(0.0, 0.0, ctx.width, ctx.height);
-///     ctx.draw_text("Hello", &format, &rect, &brush);
-///     Ok(())
-/// })
-/// ```
 pub fn canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> SwapChainPanel {
     animated_canvas_impl(
         Rc::new(GpuDevice::new_or_warp),
@@ -187,19 +168,6 @@ impl RenderCx {
 /// Keep drawing state in a [`use_ref`](RenderCx::use_ref), mutate it in an event
 /// handler, then call [`Invalidator::invalidate`]. Mutating a `use_ref` does not
 /// reconcile the tree, so nothing runs between changes.
-///
-/// ```ignore
-/// let inv = cx.use_invalidator();
-/// let model = cx.use_ref(Model::new());
-/// canvas_invalidated(&inv, {
-///     let model = model.clone();
-///     move |ctx| draw(ctx, &model)
-/// })
-/// .on_pointer_pressed(move |info| {
-///     model.borrow_mut().add(info.x as f32, info.y as f32);
-///     inv.invalidate();
-/// })
-/// ```
 pub fn canvas_invalidated(
     inv: &Invalidator,
     draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
@@ -360,16 +328,6 @@ fn animated_canvas_impl(
 ///
 /// Draws on demand into a `SurfaceImageSource`, for content that is static between
 /// updates. Create it on the UI thread with a shared [`GpuDevice`].
-///
-/// ```ignore
-/// let surface = CanvasImageSource::new(&device, 256.0, 256.0, scale)?;
-/// surface.draw(ColorF::CORNFLOWER_BLUE, |session| {
-///     let brush = session.create_solid_brush(ColorF::WHITE)?;
-///     session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &brush);
-///     Ok(())
-/// })?;
-/// let image = Image::new(surface.image_source());
-/// ```
 #[derive(Clone, PartialEq, Debug)]
 pub struct CanvasImageSource {
     source: SurfaceImageSource,
@@ -380,7 +338,7 @@ pub struct CanvasImageSource {
 }
 
 impl CanvasImageSource {
-    /// Create a `width`x`height` DIP surface backed by `device`.
+    /// Creates a `width`x`height` DIP surface backed by `device`.
     pub fn new(device: &GpuDevice, width: f32, height: f32, scale: f32) -> Result<Self> {
         let scale = if scale > 0.0 { scale } else { 1.0 };
         let pixel_width = ((width * scale).round() as i32).max(1);
@@ -534,27 +492,8 @@ impl SwapChainState {
 
 /// An on-demand swap-chain surface hosted on a reactor [`SwapChainPanel`].
 ///
-/// On-demand swap-chain drawing for data-driven views. Create it inside
-/// [`SwapChainPanel::on_mounted`] so the native control exists before attach.
-///
-/// ```ignore
-/// let host = cx.use_ref::<Option<CanvasSwapChain>>(None);
-///
-/// // Redraw when the data (`revision`) changes.
-/// cx.use_effect((revision,), move || {
-///     if let Some(chain) = host.borrow().as_ref() {
-///         let _ = chain.draw(|ctx| draw_chart(ctx, revision));
-///     }
-/// });
-///
-/// swap_chain_panel().on_mounted(move |panel| {
-///     let scale = panel.composition_scale().map_or(1.0, |(x, _)| x);
-///     if let Ok(chain) = CanvasSwapChain::with_device(&panel, &device, 640.0, 360.0, scale) {
-///         let _ = chain.draw(|ctx| draw_chart(ctx, revision));
-///         host.set(Some(chain));
-///     }
-/// })
-/// ```
+/// Create it inside [`SwapChainPanel::on_mounted`] so the native control exists
+/// before the swap chain is attached.
 #[derive(Clone)]
 pub struct CanvasSwapChain {
     inner: Rc<RefCell<SwapChainState>>,
@@ -634,7 +573,6 @@ impl CanvasSwapChain {
 
     /// Resizes the surface to `width`x`height` device-independent pixels. A
     /// no-op if the size is unchanged. Redraw with [`draw`](Self::draw) after.
-    ///
     pub fn resize(&self, width: f32, height: f32) -> Result<()> {
         let mut state = self.inner.borrow_mut();
         if state.width == width && state.height == height {
@@ -651,7 +589,6 @@ impl CanvasSwapChain {
     /// Updates the rasterization (DPI) scale (for example after the window moves
     /// to a monitor with different scaling). A no-op if unchanged. Redraw with
     /// [`draw`](Self::draw) after.
-    ///
     pub fn set_scale(&self, scale: f32) -> Result<()> {
         let scale = if scale > 0.0 { scale } else { 1.0 };
         let mut state = self.inner.borrow_mut();

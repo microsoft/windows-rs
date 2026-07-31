@@ -1,7 +1,6 @@
 use super::*;
 
-/// Describes the content for a Flyout attached to a button.
-/// Currently supports text content; element-tree content is planned.
+/// Text content for a flyout attached to a button.
 #[derive(Clone, Debug, PartialEq)]
 pub struct FlyoutDef {
     pub text: String,

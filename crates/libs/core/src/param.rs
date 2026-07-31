@@ -2,9 +2,9 @@ use super::*;
 use core::mem::transmute_copy;
 use core::mem::zeroed;
 
-/// Provides automatic parameter conversion in cases where the Windows API expects implicit conversion support.
+/// Converts values to Windows API input parameters.
 ///
-/// There is no need to implement this trait. Blanket implementations are provided for all applicable Windows types.
+/// Implementations are provided for supported Windows types.
 pub trait Param<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
 where
     T: Type<T>,

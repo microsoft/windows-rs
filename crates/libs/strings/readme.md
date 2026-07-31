@@ -1,6 +1,7 @@
 ## Windows string types
 
-The [windows-strings](https://crates.io/crates/windows-strings) crate provides common Windows string types used by various Windows APIs.
+The [windows-strings](https://crates.io/crates/windows-strings) crate provides Windows string types
+and literals.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)

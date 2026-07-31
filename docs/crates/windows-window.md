@@ -1,6 +1,6 @@
 # windows-window
 
-> Minimal window creation and message-loop support for hosting graphics and other content against a raw `HWND`.
+> Minimal window creation and message-loop support for content hosted by a raw `HWND`.
 
 - Not published to crates.io
 - [Getting started](../../crates/libs/window/readme.md)
@@ -17,21 +17,7 @@ raw `HWND` it exposes for interop.
 
 ## Getting started
 
-```rust,ignore
-use windows_window::*;
-
-let window = Window::new("Hello")
-    .size(800, 600)
-    .on_resize(|width, height| {
-        // forward the new client size to your renderer
-    })
-    .create()?;
-
-// Hand window.hwnd() to windows-canvas, WebView2, Direct2D, etc.
-let hwnd = window.hwnd();
-
-run(); // blocking, event-driven message loop
-```
+The crate readme contains a checked window and message-loop example.
 
 ## The API
 
@@ -76,19 +62,19 @@ capture mutable state).
 
 ## Samples
 
-- [`create_window`](https://github.com/microsoft/windows-rs/blob/master/crates/samples/windows/samples/examples/create_window.rs)
+- [`create_window`](../../crates/samples/windows/samples/examples/create_window.rs)
   the minimal case - open a window and pump messages with `run_with`, depending only on
   `windows-window` (no `windows` crate).
-- [`window_message`](https://github.com/microsoft/windows-rs/blob/master/crates/samples/windows/samples/examples/window_message.rs)
+- [`window_message`](../../crates/samples/windows/samples/examples/window_message.rs)
   handles raw messages (`WM_PAINT`, mouse, keyboard) via `on_message`, with direct access to
   `wparam`/`lparam`.
-- [`canvas/standalone`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/standalone)
+- [`canvas/standalone`](../../crates/samples/canvas/standalone)
   hosts a `windows-canvas` swap chain in a `windows-window` window driven by `run_with`.
-- [`windows/direct2d`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/direct2d)
+- [`windows/direct2d`](../../crates/samples/windows/direct2d)
   drives a Direct2D swap chain with `run_with`, rendering only while visible.
-- [`windows/direct3d12`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/direct3d12)
+- [`windows/direct3d12`](../../crates/samples/windows/direct3d12)
   binds a Direct3D 12 swap chain to `window.hwnd()` and renders on `WM_PAINT`.
-- [`windows/dcomp`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/dcomp)
+- [`windows/dcomp`](../../crates/samples/windows/dcomp)
   hosts a DirectComposition target (custom `ex_style`) and pumps with `run`, relying on
   reentrancy-safe handlers for its DPI handling.
 
@@ -128,4 +114,3 @@ handful of structs and constants they need. Everything in `window.rs` (the `Wind
 
 `cargo check -p windows-window` and `cargo clippy -p windows-window --all-targets`. The
 `canvas/standalone` sample exercises it end to end.
-

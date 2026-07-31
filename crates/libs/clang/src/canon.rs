@@ -1,17 +1,11 @@
-//! Every rewrite of a C header type to its canonical Win32 metadata type. Collecting the rules
-//! here, instead of an implicit-precedence `if`/`else` chain in `cx.rs`, gives each rule one
-//! home and one declared order.
+//! Canonical C header type mappings for Win32 metadata.
 //!
-//! Two entry points: [`resolve_typedef`] for any reference site (field, return, parameter), and
-//! [`param_metadata_type`] for the parameter-only overlay on top of it.
-//!
-//! Each reference-site collapse has a definition-suppression counterpart in `typedef.rs`,
-//! `const.rs`, or `lib.rs`; they must stay paired or a use-site dangles.
+//! [`resolve_typedef`] handles references. [`param_metadata_type`] adds parameter-only rules.
+//! Definition suppression in `typedef.rs`, `const.rs`, and `lib.rs` must match these mappings.
 
 use super::*;
 
-/// Resolve a `CXType_Typedef` reference to its canonical type. Called from [`Type::to_type`] for
-/// every field, return and parameter; parameters then get the [`param_metadata_type`] overlay.
+/// Resolves a typedef reference before parameter-specific mapping.
 pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadata::Type {
     let decl = cursor.ty();
     let name = decl.name();
@@ -128,8 +122,9 @@ fn collapse_scalar_typedef(name: &str, ty: &Type) -> Option<metadata::Type> {
 
 /// Collapse a typedef whose canonical type is floating-point to the bare primitive
 /// (`float`/`double`/`long double` -> `f32`/`f64`). Structural, not name-keyed: the reference
-/// metadata drops every floating typedef (unlike the integer aliases, which need [`fundamental_scalar`]'s
-/// curated list). MSVC `long double` is 64-bit. Also backs the definition skip in [`Typedef::parse`].
+/// metadata drops every floating typedef (unlike integer aliases, which use
+/// [`fundamental_scalar`]). MSVC `long double` is 64-bit. Also backs the definition skip in
+/// [`Typedef::parse`].
 pub(crate) fn floating_typedef(ty: &Type) -> Option<metadata::Type> {
     match ty.canonical_type().kind() {
         CXType_Float => Some(metadata::Type::F32),

@@ -3,13 +3,9 @@ use crate::reactor_bindings::{CoreWebView2, IFrameworkElement, IWebView2};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/// Hosts a WebView2 inside a [`windows-reactor`](windows_reactor) UI tree.
+/// Hosts a WebView2 in a [`windows-reactor`](windows_reactor) UI tree.
 ///
-/// ```ignore
-/// webview(|web| {
-///     web.navigate("https://example.com").unwrap();
-/// })
-/// ```
+/// Calls `on_ready` on the UI thread after the XAML control initializes.
 pub fn webview(on_ready: impl Fn(WebView) + 'static) -> windows_reactor::WebView2 {
     let on_ready: Rc<dyn Fn(WebView)> = Rc::new(on_ready);
     let state: Rc<RefCell<Mounted>> = Rc::new(RefCell::new(Mounted::default()));

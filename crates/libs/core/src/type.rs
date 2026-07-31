@@ -170,21 +170,7 @@ pub type AbiType<T> = <T as Type<T>>::Abi;
 
 /// The parameter type for a generic type `T` used in `_Impl` trait method signatures.
 ///
-/// For `CopyType` (primitives, enums, GUID, etc.) this resolves to `T` directly - the type
-/// itself, since these are cheap to copy and no wrapper is needed.  For all other types
-/// (`CloneType` such as `HSTRING`, and `InterfaceType` such as COM interfaces) this resolves
-/// to [`Ref<'a, T>`], a borrowed wrapper that matches the ABI layout.
-///
-/// # Example
-///
-/// ```rust,ignore
-/// impl IMap_Impl<i32, f32> for MyMap_Impl {
-///     fn HasKey(&self, key: Ref<i32>) -> Result<bool> {
-///         // key is just i32 - no InRef wrapper needed
-///         Ok(self.map.contains_key(&key))
-///     }
-/// }
-/// ```
+/// Copy types resolve to `T`; strings and interfaces use a borrowed ABI-compatible wrapper.
 pub type Ref<'a, T> = <T as Type<T>>::Ref<'a>;
 
 /// Converts a [`Ref<T>`](Ref) reference into a reference to the corresponding

@@ -1,6 +1,6 @@
 use super::*;
 
-/// The colour scheme a [`Profile`] reports to pages through the
+/// The color scheme a [`Profile`] reports to pages through the
 /// `prefers-color-scheme` media query.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PreferredColorScheme {
@@ -29,7 +29,7 @@ impl PreferredColorScheme {
 }
 
 /// A WebView2 browser profile - the on-disk identity (name, path, private mode)
-/// shared by every `WebView` created with it, plus its colour scheme, download
+/// shared by every `WebView` created with it, plus its color scheme, download
 /// folder, and browsing-data controls. Obtain it with [`WebView::profile`].
 pub struct Profile(pub(crate) ICoreWebView2Profile);
 
@@ -60,13 +60,13 @@ impl Profile {
         unsafe { self.0.SetDefaultDownloadFolderPath(&path) }.ok()
     }
 
-    /// Returns the colour scheme reported to pages.
+    /// Returns the color scheme reported to pages.
     pub fn preferred_color_scheme(&self) -> PreferredColorScheme {
         unsafe { self.0.PreferredColorScheme() }
             .map_or(PreferredColorScheme::Auto, PreferredColorScheme::from_raw)
     }
 
-    /// Sets the colour scheme reported to pages through `prefers-color-scheme`,
+    /// Sets the color scheme reported to pages through `prefers-color-scheme`,
     /// driving a site's light/dark theme.
     pub fn set_preferred_color_scheme(&self, scheme: PreferredColorScheme) -> Result<()> {
         unsafe { self.0.SetPreferredColorScheme(scheme.to_raw()) }.ok()

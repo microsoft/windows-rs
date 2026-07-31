@@ -1,30 +1,13 @@
-//! A `macro_rules!` declarative alternative to the `#[implement]` proc-macro.
+//! Implements COM interfaces without the `windows-implement` proc-macro dependency.
 //!
-//! `#[implement]` is the canonical way to wire up a Rust type as the implementer of one or
-//! more COM interfaces, but it pulls in `syn`, `quote`, and `proc-macro2`. Consumers who
-//! disable the `proc-macros` default feature on `windows-core` still need a way to do this;
-//! [`implement_decl!`] fills that role.
+//! Implementers are always agile and support aggregation and dynamic casting. Per-instance
+//! trust levels or opt-outs require `#[implement]`.
 //!
-//! ## Scope
-//!
-//! `implement_decl!` targets the dominant hand-written case: an **always-agile** Rust type
-//! (generic or non-generic) that implements **one or more** COM interfaces (each declared
-//! either by [`crate::interface_decl!`] or by `#[interface]`). It does not support:
-//!
-//! - per-instance `trust_level` configuration (always `0` / Base),
-//! - per-instance opt-out of agility,
-//! - per-instance opt-out of dynamic casting.
-//!
-//! It **does** support COM aggregation (a `Compose` impl is emitted unconditionally), the
-//! IMarshal tear-off, the dynamic-cast pseudo-IID, and the agile-object IID.
-//!
-//! ## Syntax
-//!
-//! ```rust,ignore
+//! ```
 //! use windows_core::*;
 //!
 //! interface_decl! {
-//!     pub unsafe trait IFoo(IFoo_Vtbl, IFoo_Impl) : IUnknown
+//!     unsafe trait IFoo(IFoo_Vtbl, IFoo_Impl) : IUnknown
 //!         = 0x094d70d6_5202_44b8_abb8_43860da5aca2
 //!     {
 //!         unsafe fn Method(&self) -> HRESULT;
@@ -42,69 +25,11 @@
 //! }
 //! ```
 //!
-//! - `Foo` is the user-defined implementer type - declared **separately**, before invoking
-//!   the macro.
-//! - `Foo_Impl` is the wrapper that the macro defines. Visibility (`pub`, `pub(crate)`, ...)
-//!   may be supplied before the ident; it defaults to private.
-//! - Each list entry is just the interface ident. The associated `_Vtbl` type is reached
-//!   through `<IFoo as Interface>::Vtable`, so it does not need to be spelled out, and
-//!   the `_Impl` trait is referenced only by user code outside the macro.
-//! - At least one interface must be supplied.
-//!
-//! ## Generic implementer types
-//!
-//! For generic implementers like `StockIterable<T>` that implement generic interfaces such
-//! as `IIterable<T>`, the macro accepts a leading `<G...>` generic-parameter list and a
-//! mandatory trailing `where` clause. Each interface entry is then spelled out as a full
-//! type rather than a bare ident:
-//!
-//! ```rust,ignore
-//! implement_decl! {
-//!     impl<T> StockIterable as pub(crate) StockIterable_Impl: [
-//!         IIterable<T>,
-//!     ]
-//!     where T: RuntimeType + 'static, T::Default: Clone
-//! }
-//! ```
-//!
-//! The `where` clause is forwarded verbatim to every emitted impl and to the `Foo_Impl`
-//! struct definition.
-//!
-//! Generic invocations differ from non-generic ones in two emission details:
-//!
-//! - per-interface vtables are stored as **associated constants** on `impl<G...> Foo_Impl<G...>`
-//!   (an in-`fn` `const C: T = ...;` cannot reference outer generic parameters; an associated
-//!   constant can),
-//! - `into_outer` is *not* `const fn` (a generic `fn` cannot be `const fn` while reading
-//!   associated constants whose values depend on `Self`'s type arguments), and there is no
-//!   `into_static` (a generic type has no fixed layout for static storage).
-//!
-//! ## Generated items
-//!
-//! - `struct Foo_Impl` - `#[repr(C)]` with leading `base: ComposeBase`, `identity:
-//!   &'static IInspectable_Vtbl`, one `&'static IFace_Vtbl` field per interface (named
-//!   after the interface ident), then `this: Foo`, `count: WeakRefCount`.
-//! - `impl Foo { fn into_outer, fn into_static }` - the same shape as the proc-macro.
-//!   Vtables are stored as const-promoted `&'static` references to `const fn` results;
-//!   this avoids needing to synthesize per-interface const identifiers.
-//! - `impl Deref<Target=Foo> for Foo_Impl`.
-//! - `impl IUnknownImpl for Foo_Impl` with a `QueryInterface` that handles, in order:
-//!   - `IUnknown` / `IInspectable` / `IAgileObject` -> identity vtable,
-//!   - each declared interface IID -> that interface's vtable,
-//!   - `IMarshal` (Windows only) -> standard marshaler,
-//!   - `DYNAMIC_CAST_IID` -> `&dyn Any` write,
-//!   - weak-reference tear-off,
-//!   - aggregation fall-through to the inner non-delegating `IInspectable`.
-//! - `impl ComObjectInner for Foo`.
-//! - `impl Compose for Foo` so the type can participate in WinRT aggregation.
-//! - `impl From<Foo>` for `IUnknown`, `IInspectable`, and each declared interface.
-//! - `impl ComObjectInterface<I> for Foo_Impl` for `IUnknown`, `IInspectable`, and each
-//!   declared interface.
-//! - `impl AsImpl<Foo> for I` for each declared interface.
+//! Generic implementers use `impl<T> Type as Type_Impl: [Interface<T>] where ...` and do not
+//! support static storage.
 
 /// Declares a Rust type as the COM implementer of one or more interfaces, without using
-/// the `#[implement]` proc-macro. See the module-level documentation for the supported
-/// syntax and scope.
+/// the `#[implement]` proc-macro.
 #[macro_export]
 macro_rules! implement_decl {
     // Listed before the non-generic arm so a leading `<` reliably steers here.
@@ -546,10 +471,6 @@ macro_rules! __implement_decl_unit_to_one {
     };
 }
 
-// Recursive emission of:
-//   - `From<Foo> for IFace`
-//   - `ComObjectInterface<IFace> for Foo_Impl`
-//   - `AsImpl<Foo> for IFace`
 // The unary interface index gives the `AsImpl::as_impl_ptr` back-offset.
 
 #[doc(hidden)]
@@ -711,8 +632,6 @@ macro_rules! __implement_decl_g_first_iface {
     };
 }
 
-// --- Main accumulator -------------------------------------------------------------------
-//
 // Walks the interface list and accumulates:
 //   * struct field declarations (`fields`),
 //   * associated-constant declarations on `Foo_Impl` (`consts`),
@@ -881,8 +800,6 @@ macro_rules! __implement_decl_g_struct {
     };
 }
 
-// --- Per-interface impls ----------------------------------------------------------------
-//
 // Emits `From<Foo<G...>> for IFace`, `ComObjectInterface<IFace> for Foo_Impl<G...>`, and
 // `AsImpl<Foo<G...>> for IFace`, mirroring the per-interface emission in `implement_decl!`.
 

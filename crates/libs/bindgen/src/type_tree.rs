@@ -1,6 +1,6 @@
 use super::*;
 
-// This uses BTree rather than Hash as we're getting close to writing the tokens in sorted order.
+// BTree collections preserve output order.
 #[derive(Debug)]
 pub struct TypeTree {
     pub namespace: &'static str,
@@ -27,7 +27,7 @@ impl TypeTree {
         tree
     }
 
-    // This is used to provide a flat iterator of trees so that they can be processed in parallel.
+    /// Returns namespace trees in output order.
     pub fn flatten_trees(&self) -> Vec<&Self> {
         let mut flatten = if self.namespace.is_empty() {
             vec![]
@@ -38,9 +38,7 @@ impl TypeTree {
         flatten
     }
 
-    // This is used to actually remove the tree structure and just have a flat iterator or types
-    // that just happen to be sorted, thanks to BTreeSet, so that a flat list of types can be
-    // generated in sort order.
+    /// Flattens all namespace types into output order.
     pub fn flatten_types(mut self) -> BTreeSet<Type> {
         fn flatten(set: &mut BTreeSet<Type>, tree: &mut TypeTree) {
             set.append(&mut tree.types);

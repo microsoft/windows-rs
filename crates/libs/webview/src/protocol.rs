@@ -84,7 +84,7 @@ impl WebResourceRequest {
 }
 
 /// The response returned from a [`WebView::on_web_resource_requested`] handler
-/// to fulfil a request from memory. Defaults to `200 OK` with no headers; add a
+/// to fulfill a request from memory. Defaults to `200 OK` with no headers; add a
 /// [`content_type`](Self::content_type) so the page interprets the body
 /// correctly.
 pub struct WebResourceResponse {

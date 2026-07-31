@@ -102,27 +102,29 @@ impl SwapChainPanel {
     pub fn on_resize(mut self, f: impl Fn(f64, f64) + 'static) -> Self {
         let f = Rc::new(f);
         let prev = self.mounted.take();
-        self.mounted = Some(Callback::new(move |native: Option<windows_core::IInspectable>| {
-            if let Some(ref cb) = prev {
-                cb.invoke(native.clone());
-            }
-            let Some(native) = native else {
-                return;
-            };
-            if let Ok(fe) = native.cast::<bindings::IFrameworkElement>() {
-                let f = f.clone();
-                if let Ok(revoker) = fe.SizeChanged(move |_sender, args| {
-                    if let Some(args) = args.as_ref()
-                        && let Ok(s) = args.NewSize()
-                    {
-                        f(s.width as f64, s.height as f64);
-                    }
-                }) {
-                    // `into_token` avoids pinning the element alive forever.
-                    let _ = revoker.into_token();
+        self.mounted = Some(Callback::new(
+            move |native: Option<windows_core::IInspectable>| {
+                if let Some(ref cb) = prev {
+                    cb.invoke(native.clone());
                 }
-            }
-        }));
+                let Some(native) = native else {
+                    return;
+                };
+                if let Ok(fe) = native.cast::<bindings::IFrameworkElement>() {
+                    let f = f.clone();
+                    if let Ok(revoker) = fe.SizeChanged(move |_sender, args| {
+                        if let Some(args) = args.as_ref()
+                            && let Ok(s) = args.NewSize()
+                        {
+                            f(s.width as f64, s.height as f64);
+                        }
+                    }) {
+                        // `into_token` avoids pinning the element alive forever.
+                        let _ = revoker.into_token();
+                    }
+                }
+            },
+        ));
         self
     }
 }
@@ -140,7 +142,7 @@ impl Widget for SwapChainPanel {
     }
 }
 
-/// Factory function for a [`SwapChainPanel`].
+/// Creates a [`SwapChainPanel`].
 pub fn swap_chain_panel() -> SwapChainPanel {
     SwapChainPanel::new()
 }

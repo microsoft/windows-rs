@@ -4,34 +4,15 @@ use core::num::NonZeroI32;
 #[expect(unused_imports)]
 use core::mem::size_of;
 
-/// An error object consists of both an error code and optional detailed error information for debugging.
+/// A Windows error code with optional COM error information.
 ///
-/// # Extended error info and the `windows_slim_errors` configuration option
+/// # Extended error information
 ///
-/// `Error` contains an [`HRESULT`] value that describes the error, as well as an optional
-/// `IErrorInfo` COM object. The `IErrorInfo` object is a COM object that can provide detailed information
-/// about an error, such as a text string, a `ProgID` of the originator, etc. If the error object
-/// was originated in an WinRT component, then additional information such as a stack track may be
-/// captured.
+/// By default, `Error` retains an `IErrorInfo` object when available. This may include a message,
+/// source, and WinRT stack trace.
 ///
-/// However, many systems based on COM do not use `IErrorInfo`. For these systems, the optional error
-/// info within `Error` has no benefits, but has substantial costs because it increases the size of
-/// the `Error` object, which also increases the size of `Result<T>`.
-///
-/// This error information can be disabled at compile time by setting `RUSTFLAGS=--cfg=windows_slim_errors`.
-/// This removes the `IErrorInfo` support within the [`Error`] type, which has these benefits:
-///
-/// * It reduces the size of [`Error`] to 4 bytes (the size of [`HRESULT`]).
-///
-/// * It reduces the size of `Result<(), Error>` to 4 bytes, allowing it to be returned in a single
-///   machine register.
-///
-/// * The `Error` (and `Result<T, Error>`) types no longer have a [`Drop`] impl. This removes the need
-///   for lifetime checking and running drop code when [`Error`] and [`Result`] go out of scope. This
-///   significantly reduces code size for codebase that make extensive use of [`Error`].
-///
-/// Of course, these benefits come with a cost; you lose extended error information for those
-/// COM objects that support it.
+/// Set `RUSTFLAGS=--cfg=windows_slim_errors` to omit `IErrorInfo`. This reduces `Error` to the
+/// four-byte [`HRESULT`] and removes its `Drop` implementation, but discards extended information.
 ///
 /// This is controlled by a `--cfg` option rather than a Cargo feature because this compilation
 /// option sets a policy that applies to an entire graph of crates. Individual crates that take a

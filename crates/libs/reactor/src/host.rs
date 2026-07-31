@@ -15,7 +15,7 @@ pub enum RequestedTheme {
     Dark,
 }
 
-/// Set the theme on the active window (app-global theme, v1).
+/// Sets the theme on the active window.
 ///
 /// If that window's root element isn't attached yet, the request is queued and
 /// applied when it attaches. This is a no-op if no window has been registered
@@ -63,7 +63,7 @@ impl HostWindowState {
         &self.window
     }
 
-    /// Record the content root once attached, flushing any queued theme.
+    /// Records the content root and applies any queued theme.
     fn set_root(&self, fe: FrameworkElement) {
         if let Some(theme) = self.pending_theme.take() {
             let _ = fe.SetRequestedTheme(theme);

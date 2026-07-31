@@ -1,6 +1,7 @@
 ## windows-sys
 
-The `windows-sys` crate is a zero-overhead fallback for the most demanding situations and primarily where the absolute best compile time is essential. It only includes function declarations (externs), structs, and constants. No convenience helpers, traits, or wrappers are provided.
+The `windows-sys` crate provides raw Windows API declarations, structs, and constants without
+wrappers or helper traits.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)

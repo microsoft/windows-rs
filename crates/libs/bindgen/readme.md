@@ -1,12 +1,13 @@
-## Code generator for Windows metadata
+## Windows metadata binding generator
 
-The [windows-bindgen](https://crates.io/crates/windows-bindgen) crate automatically generates Rust bindings from Windows metadata.
+The [windows-bindgen](https://crates.io/crates/windows-bindgen) crate generates Rust bindings from
+Windows metadata.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 
-Start by adding the following to your Cargo.toml file:
+Add the generator as a build dependency and the generated code's runtime dependency:
 
 ```toml
 [dependencies.windows-link]
@@ -16,7 +17,7 @@ version = "0.2"
 version = "0.66"
 ```
 
-Generate Rust bindings in a build script as follows:
+Generate bindings from `build.rs`:
 
 ```rust,no_run
 let args = [
@@ -27,16 +28,5 @@ let args = [
     "--filter",
     "GetTickCount",
 ];
-
 windows_bindgen::bindgen(args);
-```
-
-And then use the bindings as follows:
-
-```rust,ignore
-mod bindings;
-
-unsafe {
-    println!("{}", bindings::GetTickCount());
-}
 ```

@@ -1,6 +1,6 @@
 use super::*;
 
-// Minimal `Vec<u8>` replacement providing at least `u16` alignment so that it can be used for wide strings.
+// Byte storage aligned for wide strings.
 pub struct Data {
     ptr: *mut u8,
     len: usize,

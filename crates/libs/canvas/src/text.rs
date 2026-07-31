@@ -61,11 +61,6 @@ impl Default for FontWeight {
 }
 
 /// A text format describing font family, size, weight, and alignment.
-///
-/// ```ignore
-/// let format = TextFormat::new("Segoe UI", 24.0)?
-///     .with_alignment(TextAlignment::Center);
-/// ```
 #[derive(Clone)]
 pub struct TextFormat {
     raw: IDWriteTextFormat,
@@ -189,13 +184,6 @@ pub struct HitTest {
 /// A layout shapes the text once, then answers geometry queries and draws
 /// without re-shaping. Reuse it across frames instead of calling
 /// [`DrawingSession::draw_text`], which re-shapes every call.
-///
-/// ```ignore
-/// let format = TextFormat::new("Segoe UI", 24.0)?;
-/// let layout = TextLayout::new("Hello, Canvas!", &format, 400.0, 200.0)?;
-/// let size = layout.metrics();
-/// session.draw_text_layout(Vector2::new(8.0, 8.0), &layout, &brush);
-/// ```
 #[derive(Clone)]
 pub struct TextLayout {
     raw: IDWriteTextLayout,
@@ -283,9 +271,8 @@ impl TextLayout {
 }
 
 pub(crate) fn dwrite_factory() -> Result<IDWriteFactory> {
-    // The DirectWrite shared factory is thread-safe, but the in-house
-    // metadata does not mark `IDWriteFactory` `[agile]`, so it is neither `Send` nor
-    // `Sync`. Wrap it for the process-wide `OnceLock`.
+    // The DirectWrite shared factory is thread-safe, but the metadata does not
+    // mark `IDWriteFactory` `[agile]`. Wrap it for the process-wide `OnceLock`.
     struct SharedFactory(IDWriteFactory);
     unsafe impl Send for SharedFactory {}
     unsafe impl Sync for SharedFactory {}

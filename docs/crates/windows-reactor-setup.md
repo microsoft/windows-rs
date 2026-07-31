@@ -11,12 +11,7 @@ executable so the app can start WinUI 3, and writes the required application man
 helper that matches your deployment model - for example a framework-dependent app or a
 self-contained one.
 
-```rust,ignore
-// build.rs
-fn main() {
-    windows_reactor_setup::as_self_contained();
-}
-```
+Call `windows_reactor_setup::as_self_contained()` from `build.rs`.
 
 See the [samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor) for
 complete project layouts.

@@ -2,12 +2,9 @@ use super::*;
 use core::ffi::c_void;
 use core::ptr::null_mut;
 
-/// Parent interface for all WinRT interfaces.
+/// The base interface for WinRT classes, interfaces, and boxed values.
 ///
-/// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
-/// [`IInspectable`] represents the
-/// [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
-/// interface.
+/// See [IInspectable](https://learn.microsoft.com/windows/win32/api/inspectable/).
 #[repr(transparent)]
 #[derive(Clone, PartialEq, Eq, Debug)]
 pub struct IInspectable(pub IUnknown);
@@ -71,9 +68,7 @@ impl IInspectable_Vtbl {
                 if count.is_null() || values.is_null() {
                     return imp::E_POINTER;
                 }
-                // Note: even if we end up implementing this in future, it still doesn't need a this pointer
-                // since the data to be returned is type- not instance-specific so can be shared for all
-                // interfaces.
+                // Interface IDs are type-specific, so this does not need an instance pointer.
                 *count = 0;
                 *values = null_mut();
                 HRESULT(0)

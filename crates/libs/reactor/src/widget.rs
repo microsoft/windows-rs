@@ -206,7 +206,7 @@ pub enum TemplatedKind {
     FlipView,
 }
 
-/// Selection behaviour for templated lists (ListView, GridView).
+/// Selection behavior for templated lists (ListView, GridView).
 #[derive(Copy, Clone, Debug, Default, PartialEq, Eq, Hash)]
 pub enum SelectionMode {
     /// No selection allowed.

@@ -28,19 +28,7 @@ windows-reactor = { version = "...", features = ["canvas"] }
 windows-canvas = "..."
 ```
 
-```rust,ignore
-use windows_canvas::*;   // drawing types: ColorF, Ellipse, Vector2, DrawingSession
-use windows_reactor::*;  // the harness: animated_canvas, DrawContext
-
-let panel = animated_canvas(|ctx| {
-    ctx.clear(ColorF::CORNFLOWER_BLUE);
-
-    let center = Vector2::new(ctx.width / 2.0, ctx.height / 2.0);
-    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
-    ctx.fill_ellipse(&Ellipse::circle(center, 80.0), &brush);
-    Ok(())
-});
-```
+See the reactor canvas samples for a complete animated drawing loop.
 
 `ctx.width` and `ctx.height` give the surface size in DIPs. Use `ctx.device()` and
 `ctx.device_changed()` for cached resources. Recreate bitmaps and brushes when the device changes.
@@ -50,45 +38,18 @@ For content that changes with its size rather than every frame - text, a chart, 
 `animated_canvas`, but calls `draw` only on the first layout and when the surface resizes or the
 display scale changes. When the window is idle, no GPU work happens.
 
-```rust,ignore
-use windows_canvas::*;
-use windows_reactor::*;  // canvas, DrawContext
-
-let panel = canvas(|ctx| {
-    ctx.clear(ColorF::BLACK);
-    let rect = Rect::new(0.0, 0.0, ctx.width, ctx.height);
-    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
-    ctx.draw_text("Resize me", &format, &rect, &brush);
-    Ok(())
-});
-```
+Use `canvas` for content that changes only when its size or scale changes.
 
 Because `draw` runs only on resize, size-dependent resources such as a `TextLayout` fitted to the
 client area can be shaped once and cached in a `use_ref`, then rebuilt only when `device_changed`
 reports a resize or device loss. See the `text_layout` sample.
 
-When the content changes with app state rather than size - a value edited, a point added on a click -
-drive the repaints yourself with `canvas_invalidated(&inv, draw)`. Keep the drawing state in a
-`use_ref`, mutate it in an event handler, then call `inv.invalidate()` to schedule one repaint.
-Mutating a `use_ref` does not reconcile the tree, so nothing runs between changes. Get a stable
-invalidator from `cx.use_invalidator()`:
+When content changes with app state rather than size, drive repaints with
+`canvas_invalidated(&inv, draw)`. Keep drawing state in a `use_ref`, mutate it in an event handler,
+then call `inv.invalidate()` to schedule one repaint. Mutating a `use_ref` does not reconcile the
+tree. Get a stable invalidator from `cx.use_invalidator()`:
 
-```rust,ignore
-use windows_canvas::*;
-use windows_reactor::*;  // canvas_invalidated, Invalidator, DrawContext
-
-let points = cx.use_ref(Vec::<Vector2>::new());
-let inv = cx.use_invalidator();
-
-let panel = canvas_invalidated(&inv, {
-    let points = points.clone();
-    move |ctx| draw(ctx, &points.borrow())
-})
-.on_pointer_pressed(move |info: PointerEventInfo| {
-    points.borrow_mut().push(Vector2::new(info.x as f32, info.y as f32));
-    inv.invalidate();
-});
-```
+Use `canvas_invalidated` when event handlers mutate drawing state between renders.
 
 The `invalidate` sample draws this way, and the `editor` and `hit_test` samples use the same pattern
 to repaint only in response to pointer input.
@@ -100,23 +61,7 @@ chain for the window. You drive the frame loop.
 
 For a raw handle from another source, `create_swap_chain_for_hwnd` is the `unsafe` escape hatch.
 
-```rust,ignore
-use windows_canvas::*;
-use windows_window::Window;
-
-let device = GpuDevice::new()?;                 // or GpuDevice::new_warp()? (software)
-let chain = device.create_swap_chain_for_window(&window, width, height)?;
-
-// each frame / on paint:
-let session = chain.begin_draw()?;
-session.clear(ColorF::DARK_SLATE_BLUE);
-
-let brush = session.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
-session.fill_ellipse(&Ellipse::circle(Vector2::new(200.0, 150.0), 100.0), &brush);
-
-drop(session);                                  // Drop ends the draw
-chain.present()?;
-```
+The standalone canvas samples show swap-chain creation, drawing, presentation, and resize handling.
 
 On resize, call `chain.resize(width, height)`. Use `chain.set_dpi(..)` and
 `chain.set_composition_scale(..)` for sharp output. `chain.is_device_lost()` reports device loss.
@@ -129,23 +74,7 @@ redraws only when you call `draw`.
 Enable the reactor `canvas` feature. Create a `CanvasImageSource` from a device that you own.
 Display it with a reactor `Image` widget.
 
-```rust,ignore
-use windows_canvas::*;   // ColorF, Ellipse, Vector2, DrawingSession
-use windows_reactor::*;  // CanvasImageSource, Image
-
-// Create once, on the UI thread, from a device you own.
-let surface = CanvasImageSource::new(&device, 320.0, 320.0, scale)?;
-
-// Redraw only when the data changes.
-surface.draw(ColorF::CORNFLOWER_BLUE, |session| {
-    let brush = session.create_solid_brush(ColorF::WHITE)?;
-    session.fill_ellipse(&Ellipse::circle(Vector2::new(160.0, 160.0), 96.0), &brush);
-    Ok(())
-})?;
-
-// Display it with the reactor `Image` widget.
-let image = Image::new(surface.image_source());
-```
+`CanvasImageSource` draws on demand and exposes an image source for reactor's `Image` widget.
 
 `new(device, width, height, scale)` takes a size in DIPs. It uses the host DPI scale to allocate
 physical pixels. Drawing inside `draw` uses DIPs and origin `(0, 0)`.
@@ -170,28 +99,14 @@ windows-canvas = { version = "...", features = ["composition"] }
 windows-composition = { version = "...", features = ["system"] }
 ```
 
-```rust,ignore
-use windows_canvas::{CanvasCompositionExt, ColorF, Ellipse, GpuDevice, Vector2};
-
-let graphics = device.create_graphics_device(&compositor)?;   // adopt the D2D device
-let surface = graphics.create_drawing_surface(256.0, 256.0)?; // premultiplied BGRA
-sprite.set_brush(&compositor.create_surface_brush(&surface)); // paint a visual
-
-surface.draw(|session| {
-    session.clear(ColorF::CORNFLOWER_BLUE);
-    let brush = session.create_solid_brush(ColorF::WHITE)?;
-    session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &brush);
-    Ok(())
-})?;
-```
+The composition bridge creates a graphics device and drawing surface from an existing compositor.
 
 `draw` runs inside the surface native `BeginDraw` and `EndDraw` bracket. It returns `Ok(false)` on
 device loss. Recreate the device, graphics device, and surface. Then draw again.
 
 There is no implicit clear. Clear or draw over the full surface. Coordinates are pixels with origin
 `(0, 0)`. The backing-atlas offset is applied for you. This path is system-only. See the
-[`composition/canvas`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition/canvas)
-sample.
+[`composition/canvas`](../../crates/samples/composition/canvas) sample.
 
 ## Drawing basics
 
@@ -233,12 +148,7 @@ Configure strokes with `StrokeStyleBuilder`. It sets `start_cap`, `end_cap`, `ca
 
 Create a `TextFormat`, then call `draw_text(text, &format, &Rect, &paint)`:
 
-```rust,ignore
-let format = TextFormat::new("Segoe UI", 24.0)
-    .with_alignment(TextAlignment::Center)
-    .with_paragraph_alignment(ParagraphAlignment::Center);
-session.draw_text("Hello", &format, &Rect::from_xywh(0.0, 0.0, w, h), &brush);
-```
+`TextFormat` controls font, alignment, wrapping, and paragraph alignment.
 
 `TextFormat::new_bold(..)` and `with_weight(family, size, FontWeight::BOLD)` set weight.
 `TextAlignment` and `ParagraphAlignment` control placement. `with_word_wrapping(..)` sets
@@ -248,16 +158,7 @@ For repeated text, or when you need to measure or hit-test, build a `TextLayout`
 text once, then answers geometry queries and draws without re-shaping (unlike `draw_text`, which
 re-shapes every call):
 
-```rust,ignore
-let format = TextFormat::new("Segoe UI", 24.0)?;
-let layout = TextLayout::new("Hello, Canvas!", &format, 400.0, 200.0)?;
-
-let m = layout.metrics();                 // width, height, line_count, bounds()
-let hit = layout.hit_test_point(point);   // nearest character to a point
-let caret = layout.caret_bounds(3, false);// caret rect for a text position
-
-session.draw_text_layout(Vector2::new(8.0, 8.0), &layout, &brush);
-```
+`TextLayout` caches shaped text and provides metrics, hit testing, caret bounds, and drawing.
 
 Use `set_max_size(..)` to reflow the layout when its box changes. `TextMetrics::bounds()` returns
 the inked text rectangle within the layout box.
@@ -295,9 +196,8 @@ tree contains these samples:
   resizes.
 
 The `samples` crate also has focused single-file examples under
-[`samples/examples`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/samples/examples),
-including `invalidate`, which links clicked points with a line and repaints only when
-`Invalidator::invalidate` is called.
+[`samples/examples`](../../crates/samples/canvas/samples/examples), including `invalidate`, which
+links clicked points with a line and repaints only when `Invalidator::invalidate` is called.
 
 ## Future work
 

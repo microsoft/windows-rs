@@ -1,6 +1,7 @@
 ## Windows services
 
-The [windows-services](https://crates.io/crates/windows-services) crate provides a simple and safe way to implement Windows services in Rust.
+The [windows-services](https://crates.io/crates/windows-services) crate implements Windows service
+processes.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
@@ -13,14 +14,10 @@ Start by adding the following to your Cargo.toml file:
 version = "0.26"
 ```
 
-Use the Windows services support as needed. Here is how you might write a simple Windows services process:
-
 ```rust,no_run
 windows_services::Service::new()
     .can_pause()
     .can_stop()
-    .run(|service, command| {
-        // Respond to service commands...
-    })
+    .run(|_service, _command| {})
     .unwrap();
 ```

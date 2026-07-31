@@ -1,6 +1,7 @@
 ## Windows registry
 
-The [windows-registry](https://crates.io/crates/windows-registry) crate provides simple, safe, and efficient access to the Windows registry.
+The [windows-registry](https://crates.io/crates/windows-registry) crate reads and writes the Windows
+registry.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
@@ -12,8 +13,6 @@ Start by adding the following to your Cargo.toml file:
 [dependencies.windows-registry]
 version = "0.6"
 ```
-
-Read and write registry keys and values as needed:
 
 ```rust,no_run
 use windows_registry::*;
@@ -31,7 +30,7 @@ fn main() -> Result<()> {
 }
 ```
 
-Use the `options()` method for even more control:
+Use `options()` to select access rights, creation behavior, and a transaction:
 
 ```rust,no_run
 use windows_registry::*;

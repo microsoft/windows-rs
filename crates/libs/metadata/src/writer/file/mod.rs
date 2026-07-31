@@ -338,7 +338,7 @@ impl File {
         }))
     }
 
-    /// Adds an `Attribute` row to the file. This is a sorted table so the row offset is not yet available.
+    /// Adds an `Attribute` row without assigning its sorted row offset.
     pub fn Attribute(
         &mut self,
         parent: HasAttribute,
@@ -565,7 +565,7 @@ impl File {
         self.blobs.insert(&buffer)
     }
 
-    /// Writes the method signature into a `MethodDefSig` buffer and stores it in the file, returning the blob offset.
+    /// Stores a method signature and returns its blob offset.
     fn MethodDefSig(&mut self, signature: &Signature) -> BlobId {
         let mut buffer = vec![signature.flags.0];
         buffer.write_compressed(signature.types.len());

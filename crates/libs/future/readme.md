@@ -1,6 +1,7 @@
 ## Windows async types
 
-The [windows-future](https://crates.io/crates/windows-future) crate provides stock async support for Windows APIs.
+The [windows-future](https://crates.io/crates/windows-future) crate adapts WinRT asynchronous
+operations to Rust futures.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)

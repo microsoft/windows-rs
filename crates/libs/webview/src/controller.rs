@@ -1,7 +1,7 @@
 use super::*;
 use crate::handler::subscription;
 
-/// A 32-bit RGBA colour, used for the browser's
+/// A 32-bit RGBA color, used for the browser's
 /// [default background](Controller::set_default_background_color).
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Color {
@@ -12,7 +12,7 @@ pub struct Color {
 }
 
 impl Color {
-    /// A fully transparent colour, letting the host window show through where the
+    /// A fully transparent color, letting the host window show through where the
     /// page has not painted.
     pub const TRANSPARENT: Self = Self {
         r: 0,
@@ -41,7 +41,7 @@ impl Color {
 }
 
 /// Configures a [`Controller`] at creation time - its profile, whether it runs
-/// in private mode, and the colour painted before content loads. Build one with
+/// in private mode, and the color painted before content loads. Build one with
 /// the fluent setters and pass it to
 /// [`Environment::create_controller_with_options`].
 #[derive(Clone, Debug, Default)]
@@ -71,7 +71,7 @@ impl ControllerOptions {
         self
     }
 
-    /// Sets the colour painted behind the page before content loads. Use
+    /// Sets the color painted behind the page before content loads. Use
     /// [`Color::TRANSPARENT`] for a transparent browser from the first frame.
     pub fn default_background_color(mut self, color: Color) -> Self {
         self.default_background_color = Some(color);
@@ -171,14 +171,14 @@ impl Controller {
         unsafe { self.0.SetZoomFactor(zoom_factor) }.ok()
     }
 
-    /// Returns the colour painted behind the page before content loads and
+    /// Returns the color painted behind the page before content loads and
     /// wherever the page is transparent.
     pub fn default_background_color(&self) -> Result<Color> {
         let source: ICoreWebView2Controller2 = self.0.cast()?;
         Ok(Color::from_raw(unsafe { source.DefaultBackgroundColor()? }))
     }
 
-    /// Sets the colour painted behind the page before content loads and wherever
+    /// Sets the color painted behind the page before content loads and wherever
     /// the page is transparent. Use [`Color::TRANSPARENT`] to let the host window
     /// show through; only fully opaque (`a = 255`) and fully transparent
     /// (`a = 0`) colours are supported.
@@ -196,7 +196,8 @@ impl Controller {
 
     /// Sets the scale used to rasterize page content.
     ///
-    /// Disable monitor-scale detection first to stop browser DPI changes from overriding this.
+    /// Disable monitor-scale detection first so browser DPI changes do not
+    /// override this value.
     pub fn set_rasterization_scale(&self, scale: f64) -> Result<()> {
         let source: ICoreWebView2Controller3 = self.0.cast()?;
         unsafe { source.SetRasterizationScale(scale) }.ok()

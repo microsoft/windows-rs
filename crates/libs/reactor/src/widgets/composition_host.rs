@@ -5,17 +5,7 @@ use std::rc::Rc;
 /// Opaque handle to a composition host element.
 ///
 /// Use [`compositor`](Self::compositor) to create visuals and
-/// [`set_child_visual`](Self::set_child_visual) to attach them:
-///
-/// ```ignore
-/// # use windows_reactor::CompositionHostHandle;
-/// # fn demo(host: CompositionHostHandle) -> windows_core::Result<()> {
-/// let compositor = host.compositor()?;
-/// let root = compositor.create_container_visual();
-/// host.set_child_visual(&root)?;
-/// # Ok(())
-/// # }
-/// ```
+/// [`set_child_visual`](Self::set_child_visual) to attach them.
 #[derive(Clone)]
 pub struct CompositionHostHandle(windows_core::IInspectable);
 
@@ -44,7 +34,9 @@ impl CompositionHostHandle {
         // Revoked when the returned Loaded revoker is dropped.
         let changed: Rc<RefCell<Option<windows_core::EventRevoker>>> = Rc::new(RefCell::new(None));
         element.Loaded(move |sender, _| {
-            let Some(element) = sender.as_ref().and_then(|s| s.cast::<bindings::IUIElement>().ok())
+            let Some(element) = sender
+                .as_ref()
+                .and_then(|s| s.cast::<bindings::IUIElement>().ok())
             else {
                 return;
             };
@@ -116,27 +108,29 @@ impl CompositionHost {
     pub fn on_resize(mut self, f: impl Fn(f64, f64) + 'static) -> Self {
         let f = Rc::new(f);
         let prev = self.mounted.take();
-        self.mounted = Some(Callback::new(move |native: Option<windows_core::IInspectable>| {
-            if let Some(ref cb) = prev {
-                cb.invoke(native.clone());
-            }
-            let Some(native) = native else {
-                return;
-            };
-            if let Ok(fe) = native.cast::<bindings::IFrameworkElement>() {
-                let f = f.clone();
-                if let Ok(revoker) = fe.SizeChanged(move |_sender, args| {
-                    if let Some(args) = args.as_ref()
-                        && let Ok(s) = args.NewSize()
-                    {
-                        f(s.width as f64, s.height as f64);
-                    }
-                }) {
-                    // `into_token` avoids pinning the element alive forever.
-                    let _ = revoker.into_token();
+        self.mounted = Some(Callback::new(
+            move |native: Option<windows_core::IInspectable>| {
+                if let Some(ref cb) = prev {
+                    cb.invoke(native.clone());
                 }
-            }
-        }));
+                let Some(native) = native else {
+                    return;
+                };
+                if let Ok(fe) = native.cast::<bindings::IFrameworkElement>() {
+                    let f = f.clone();
+                    if let Ok(revoker) = fe.SizeChanged(move |_sender, args| {
+                        if let Some(args) = args.as_ref()
+                            && let Ok(s) = args.NewSize()
+                        {
+                            f(s.width as f64, s.height as f64);
+                        }
+                    }) {
+                        // `into_token` avoids pinning the element alive forever.
+                        let _ = revoker.into_token();
+                    }
+                }
+            },
+        ));
         self
     }
 }
@@ -154,7 +148,7 @@ impl Widget for CompositionHost {
     }
 }
 
-/// Factory function for a [`CompositionHost`].
+/// Creates a [`CompositionHost`].
 pub fn composition_host() -> CompositionHost {
     CompositionHost::new()
 }

@@ -1,7 +1,7 @@
 ## Low-level metadata library for ECMA-335
 
-The [windows-metadata](https://crates.io/crates/windows-metadata) crate provides a reader and writer
-for the ECMA-335 metadata format used by .NET, WinRT, and more recently the Win32 metadata. 
+The [windows-metadata](https://crates.io/crates/windows-metadata) crate reads and writes the
+ECMA-335 metadata format used by .NET, WinRT, and Win32 metadata.
 
 * [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
@@ -14,7 +14,7 @@ Start by adding the following to your Cargo.toml file:
 version = "0.60"
 ```
 
-Use the Windows metadata support as needed. Here is how you might use the reader to query type information:
+Query a type with the metadata reader:
 
 ```rust,no_run
 use windows_metadata::*;

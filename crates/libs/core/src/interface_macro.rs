@@ -1,24 +1,10 @@
-//! A `macro_rules!` declarative alternative to the `#[interface]` proc-macro.
+//! Declares COM interfaces without the `windows-interface` proc-macro dependency.
 //!
-//! Defines COM interfaces without pulling in the `windows-interface` proc-macro dependencies.
+//! The direct parent must be `IUnknown`. Methods may return `Result<()>`, nothing, or a raw
+//! ABI type. Use an out parameter for other result values. `Ref<T>`, `OutRef<T>`, scoped
+//! interfaces, and WinRT interfaces require `#[interface]`.
 //!
-//! ## Scope
-//!
-//! `interface_decl!` targets the dominant case: a COM interface whose direct parent is
-//! `IUnknown`, whose methods either return `windows_core::Result<()>`, return nothing,
-//! or return a raw ABI type (most commonly `HRESULT`) that is passed through unchanged
-//! to the caller.
-//! It does **not** support `Result<T>` for non-unit `T` (the safe caller wrapper would
-//! discard the value); model that case with a `*mut T` out-parameter and `Result<()>`.
-//! It does **not** support `Ref<T>` / `OutRef<T>` parameters with the implicit `Param` /
-//! `OutParam` bound generation that `#[interface]` provides - pass the underlying ABI
-//! types instead. It does not support scoped (non-`IUnknown`) interfaces or
-//! `IInspectable`-derived (WinRT) interfaces. The matching chain for derived custom
-//! interfaces is not traversed; use the proc-macro for those cases.
-//!
-//! ## Syntax
-//!
-//! ```rust,ignore
+//! ```
 //! use windows_core::*;
 //!
 //! interface_decl! {
@@ -30,25 +16,9 @@
 //!     }
 //! }
 //! ```
-//!
-//! The struct ident (`IFoo`), the vtable struct ident (`IFoo_Vtbl`), and the implementation
-//! trait ident (`IFoo_Impl`) are all spelled out by the caller; `macro_rules!` cannot
-//! synthesize identifiers from another ident the way a proc-macro can. The IID is supplied
-//! as a `u128` integer literal. The generated interface struct is always `pub`, matching
-//! the proc-macro's behavior.
-//!
-//! ## Semantics
-//!
-//! - `-> Result<()>` methods produce a safe caller-side wrapper that appends `.ok()` and a
-//!   vtable entry typed `-> HRESULT`. The thunk converts the implementer's `Result<()>`
-//!   back into an `HRESULT` via `Into`.
-//! - A method with no return type produces a void-returning thunk.
-//! - A method with any other return type (e.g. `-> HRESULT`) is passed through verbatim:
-//!   the vtable entry, the safe caller-side wrapper, and the implementer trait all use the
-//!   declared return type as-is, and the thunk forwards the implementer's value unchanged.
 
 /// Declares a COM interface inheriting from `IUnknown`, without using the `#[interface]`
-/// proc-macro. See the module-level documentation for the supported syntax and scope.
+/// proc-macro.
 #[macro_export]
 macro_rules! interface_decl {
     (
@@ -93,9 +63,6 @@ macro_rules! interface_decl {
         }
     };
 }
-
-// One arm per supported return-type shape (Result<()>, void); each arm peels off the
-// head method and recurses on the tail.
 
 #[doc(hidden)]
 #[macro_export]
@@ -170,9 +137,7 @@ macro_rules! __interface_decl_trait_methods {
     };
 }
 
-// We can't use helper macros in struct field lists or struct-expression initializers, so
-// this macro accumulates three token lists (vtbl fields, vtbl initializers, thunk fn
-// defs) and emits the whole `struct $vtbl { ... } impl $vtbl { ... }` block at the end.
+// Helper macros cannot expand into struct fields, so this accumulates and emits the entire vtable.
 
 #[doc(hidden)]
 #[macro_export]

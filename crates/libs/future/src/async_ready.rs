@@ -22,8 +22,7 @@ impl<T: Async> ReadyState<T> {
         }
     }
 
-    // The "Ready" implementations don't need to store the handler since the handler is invoked immediately
-    // but still need to confirm that `SetCompleted` is called at most once.
+    // Ready operations invoke the handler immediately but still permit only one assignment.
     fn invoke_completed(&self, sender: &T, handler: Ref<T::CompletedHandler>) -> Result<()> {
         if !self.set_completed.swap(true, Ordering::SeqCst) {
             sender.invoke_completed(handler.ok()?, self.status());
@@ -33,8 +32,7 @@ impl<T: Async> ReadyState<T> {
         }
     }
 
-    // The `From` implementation is not used here since we don't want to transfer any error object to the calling thread.
-    // That happens when `GetResults` is called.
+    // Preserve the error object until GetResults transfers it to the calling thread.
     fn error_code(&self) -> HRESULT {
         match &self.result {
             Ok(_) => HRESULT(0),

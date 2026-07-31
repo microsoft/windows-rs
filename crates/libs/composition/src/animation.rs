@@ -23,11 +23,8 @@ pub trait Animation: Sealed {
 
 /// An easing function that shapes a key frame's interpolation curve.
 ///
-/// Create one with
-/// [`Compositor::create_linear_easing_function`](crate::Compositor::create_linear_easing_function)
-/// or
-/// [`Compositor::create_cubic_bezier_easing_function`](crate::Compositor::create_cubic_bezier_easing_function)
-/// and pass it to a key frame with `insert_key_frame_with_easing`.
+/// Create one with [`Compositor::create_linear_easing_function`] or
+/// [`Compositor::create_cubic_bezier_easing_function`].
 #[derive(Clone)]
 pub struct CompositionEasingFunction(pub(crate) bindings::CompositionEasingFunction);
 
@@ -173,9 +170,8 @@ impl Animation for Vector3KeyFrameAnimation {
 /// A map of property-name -> animation applied to a visual so that changes to
 /// those properties animate automatically.
 ///
-/// Create one with
-/// [`Compositor::create_implicit_animation_collection`](crate::Compositor::create_implicit_animation_collection),
-/// populate it with [`insert`](Self::insert), then attach it via
+/// Create one with [`Compositor::create_implicit_animation_collection`],
+/// populate it with [`insert`](Self::insert), and attach it with
 /// [`Visual::set_implicit_animations`](crate::Visual::set_implicit_animations).
 #[derive(Clone)]
 pub struct ImplicitAnimationCollection(pub(crate) bindings::ImplicitAnimationCollection);

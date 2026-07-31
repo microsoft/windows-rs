@@ -1,6 +1,7 @@
 # windows-webview
 
-> A safe Rust wrapper around the [WebView2](https://aka.ms/webview2) COM APIs for hosting the Microsoft Edge (Chromium) browser in a window.
+> A safe Rust wrapper around the [WebView2](https://aka.ms/webview2) COM APIs for hosting Microsoft
+> Edge in a window.
 
 - [crates.io](https://crates.io/crates/windows-webview)
 - [docs.rs](https://docs.rs/windows-webview)
@@ -26,26 +27,14 @@ needed. You do not need to call `CoInitializeEx`. It returns an error if the thr
 multi-threaded apartment. The samples use [`windows-window`](windows-window.md) for the window and
 message loop.
 
-```rust,ignore
-use windows_webview::*;
-use windows_window::Window;
-
-fn host(window: &Window) -> Result<()> {
-    let environment = Environment::new()?;
-    let controller = environment.create_controller(window)?;
-    let webview = controller.webview()?;
-    webview.navigate("https://github.com/microsoft/windows-rs")?;
-    Ok(())
-}
-```
+The crate readme contains a checked hosting example.
 
 `Environment::with_options(&EnvironmentOptions::new()...)` configures the user-data folder, browser
 arguments, and language. Resize the browser from your window's `WM_SIZE` handler with
 `controller.set_bounds(..)`.
 
 Use `create_controller_with_options` when you need a profile name, private mode, or a background
-color before the first frame:
-`create_controller_with_options(window, &ControllerOptions::new().profile_name("work").in_private_mode(true))`.
+color before the first frame.
 
 ## Zoom, background, and DPI
 
@@ -82,14 +71,7 @@ strings. `open_dev_tools_window()` opens the browser DevTools.
 For a navigation with a custom HTTP method, request headers, or a body, build a `NavigationRequest`
 and pass it to `navigate_with_request`:
 
-```rust,ignore
-webview.navigate_with_request(
-    &NavigationRequest::new("https://api.example/data")
-        .method("POST")
-        .header("Authorization", "******")
-        .body("{}"),
-)?;
-```
+`NavigationRequest` configures the method, headers, and body for a navigation.
 
 Call `controller.notify_parent_window_position_changed()` from your window's `WM_MOVE` handler. This
 lets the browser reposition popups and dialogs that it owns.
@@ -170,15 +152,7 @@ useful for a self-contained app that serves its bundled assets without a local s
 is `FnMut(WebResourceRequest) -> Option<WebResourceResponse>` and runs on the UI thread. Return
 `Some(response)` to handle the request. Return `None` to let WebView2 handle it normally.
 
-```rust,ignore
-let registration = webview.on_web_resource_requested("https://app.example/*", |request| {
-    println!("serving from memory: {}", request.uri());
-    let html = "<!DOCTYPE html><html><body><h1>Served from Rust</h1></body></html>";
-    Some(WebResourceResponse::new(html).content_type("text/html"))
-})?;
-
-webview.navigate("https://app.example/")?;
-```
+`on_web_resource_requested` can return an in-memory response for a matching URI.
 
 `WebResourceRequest` exposes `uri()`, `method()`, and `headers()`. `WebResourceResponse::new(bytes)`
 defaults to `200 OK`. Chain `.status(code, reason)`, `.header(name, value)`, and
@@ -192,14 +166,7 @@ through an ordinary URL, such as `https://app.example/index.html`. WebView2 supp
 no per-request handler is needed. `HostResourceAccessKind` controls cross-origin access: `Deny`,
 `Allow`, or `DenyCors`. Use `clear_virtual_host_name_to_folder_mapping(host)` to remove the mapping.
 
-```rust,ignore
-webview.set_virtual_host_name_to_folder_mapping(
-    "app.example",
-    r"C:\path\to\assets",
-    HostResourceAccessKind::Deny,
-)?;
-webview.navigate("https://app.example/index.html")?;
-```
+Virtual-host mappings expose a local folder through an HTTPS origin.
 
 Use `on_web_resource_requested` when responses are generated in memory.
 
@@ -208,16 +175,7 @@ Use `on_web_resource_requested` when responses are generated in memory.
 `webview.cookie_manager()` returns a `CookieManager`. Reading cookies is asynchronous and
 callback-based, like `execute_script`:
 
-```rust,ignore
-let manager = webview.cookie_manager()?;
-manager.get_cookies("https://example.com", |result| {
-    if let Ok(cookies) = result {
-        for cookie in cookies {
-            println!("{} = {}", cookie.name, cookie.value);
-        }
-    }
-})?;
-```
+`CookieManager` reads and updates cookies for a URI.
 
 Write with `add_or_update_cookie(&Cookie)`. Build one with `Cookie::new(name, value, domain, path)`
 and set the public fields: `is_secure`, `is_http_only`, `same_site`, and `expires`. Remove cookies
@@ -232,13 +190,7 @@ by every `WebView` created with it. It exposes `name`, `path`, and `is_in_privat
 Change `default_download_folder_path`, or clear browsing data with the callback-based
 `clear_browsing_data_all`:
 
-```rust,ignore
-let profile = webview.profile()?;
-profile.set_preferred_color_scheme(PreferredColorScheme::Dark)?;
-profile.clear_browsing_data_all(|result| {
-    let _ = result;
-})?;
-```
+`Profile` controls profile settings and browsing-data cleanup.
 
 Choose the profile, private mode, and background color up front with `ControllerOptions`. See
 [Getting started](#getting-started). Enable browser extensions and pick a scrollbar style with
@@ -254,11 +206,10 @@ subscriptions for progress updates.
 
 ## Samples
 
-The
-[`crates/samples/webview/samples`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview/samples)
-crate has one example per capability under `examples/`. A shared `run` helper in `src/lib.rs` holds
-the hosting boilerplate: a [`windows-window`](windows-window.md) window whose `on_resize` forwards
-to `Controller::set_bounds`, an `Environment`, and a `Controller`. Each example can focus on its
+The [`crates/samples/webview/samples`](../../crates/samples/webview/samples) crate has one example
+per capability under `examples/`. A shared `run` helper in `src/lib.rs` holds the hosting
+boilerplate: a [`windows-window`](windows-window.md) window whose `on_resize` forwards to
+`Controller::set_bounds`, an `Environment`, and a `Controller`. Each example can focus on its
 feature. The only dependencies are `windows-webview` and `windows-window`. There is no hand-written
 Win32 message loop and no `windows` crate. All examples require the Microsoft Edge WebView2 runtime.
 
@@ -283,21 +234,7 @@ With the optional `reactor` feature, `windows-webview` can host a browser inside
 [`windows-reactor`](windows-reactor.md) UI tree. The feature adds `webview`, which returns a reactor
 `WebView2` control element. It hands you a ready [`WebView`] when the browser initializes:
 
-```rust,ignore
-use windows_reactor::*;
-use windows_webview::webview;
-
-fn app(_cx: &mut RenderCx) -> Element {
-    webview(|web| {
-        web.navigate("https://learn.microsoft.com/windows/apps/").unwrap();
-    })
-    .into()
-}
-
-fn main() -> Result<()> {
-    App::new().title("WebView2").render(app)
-}
-```
+Enable the `reactor` feature to host WebView2 as a reactor widget.
 
 The `WebView` passed to the closure is the same type used for HWND hosting. Navigation, scripting,
 IPC, cookies, settings, profiles, and the other wrappers work the same way. Enable it with
@@ -306,8 +243,8 @@ IPC, cookies, settings, profiles, and the other wrappers work the same way. Enab
 The reactor path hosts the WinUI XAML `WebView2` control. The app must deploy
 `Microsoft.Web.WebView2.Core.dll` next to the executable. The COM-only path does not need it. The
 self-contained reactor setup does this for you: `windows_reactor_setup::as_self_contained()` carries
-that DLL with the other runtime files. The runnable sample is
-[`crates/samples/reactor/webview`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/webview).
+that DLL with the other runtime files. See the
+[`crates/samples/reactor/webview`](../../crates/samples/reactor/webview) sample.
 
 ---
 

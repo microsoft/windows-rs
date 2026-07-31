@@ -8,32 +8,30 @@ use std::boxed::Box;
 use std::ffi::c_void;
 use std::sync::RwLock;
 
-/// The commands are sent by the service control manager to the service through the closure or callback
-/// passed to the service `run` method.
+/// A command sent by the service control manager.
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum Command {
-    /// The start command is sent when the service first starts.
+    /// Starts the service.
     Start,
 
-    /// The stop command is sent when the service is stopping just prior to process termination.
+    /// Stops the service before process termination.
     ///
     /// This command will only be sent if the `can_stop` method is called as part of construction.
     Stop,
 
-    /// The pause command is sent when the service is being paused but not stopping.
+    /// Pauses the service.
     ///
     /// This command will only be sent if the `can_pause` method is called as part of construction.
     Pause,
 
-    /// The resume command is sent when the service is being resumed following a pause.
+    /// Resumes the service.
     ///
     /// This command will only be sent if the `can_pause` method is called as part of construction.
     Resume,
 
     /// An extended command.
     ///
-    /// Specific commands will only be received if the `can_accept` methods is called to specify those
-    /// commands the service accepts.
+    /// The service receives only controls enabled with [`Service::can_accept`].
     Extended(ExtendedCommand),
 }
 
@@ -53,29 +51,26 @@ pub struct ExtendedCommand {
 unsafe impl Send for ExtendedCommand {}
 unsafe impl Sync for ExtendedCommand {}
 
-/// Possible service states including transitional states.
-///
-/// This can be useful to query the current state with the `state` function or set the state with
-/// the `set_state` function.
+/// A service state, including transitional states.
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum State {
-    /// The service continue is pending.
+    /// Resume is pending.
     ContinuePending,
     /// The service is paused.
     Paused,
-    /// The service pause is pending.
+    /// Pause is pending.
     PausePending,
     /// The service is running.
     Running,
-    /// The service start is pending.
+    /// Start is pending.
     StartPending,
     /// The service is stopped.
     Stopped,
-    /// The service stop is pending.
+    /// Stop is pending.
     StopPending,
 }
 
-/// A service builder, providing control over what commands the service supports before the service begins to run.
+/// Configures and runs a Windows service.
 pub struct Service<'a> {
     accept: u32,
     fallback: Option<Box<dyn FnOnce(&Service) + 'a>>,
@@ -94,9 +89,7 @@ unsafe impl Send for Service<'_> {}
 unsafe impl Sync for Service<'_> {}
 
 impl<'a> Service<'a> {
-    /// Creates a new `Service` object.
-    ///
-    /// By default, the service does not accept any service commands other than start.
+    /// Creates a service that accepts only the start command.
     pub fn new() -> Self {
         Self {
             accept: 0,
@@ -287,7 +280,7 @@ extern "system" fn handler(control: u32, ty: u32, data: *mut c_void, context: *m
     NO_ERROR as u32
 }
 
-// Unlike `RegisterServiceCtrlHandlerExW`, `StartServiceCtrlDispatcherW` has no user-defined "context" parameter.
+// The dispatcher callback has no user-defined context parameter.
 // This lock allows us to safely retrieve the service instance from the service callback.
 #[derive(Debug)]
 struct ServiceContext(*const c_void);

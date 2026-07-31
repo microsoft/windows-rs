@@ -28,11 +28,9 @@ windows-link = "0.2"
 windows-bindgen = "0.66"
 ```
 
-Generate bindings from `build.rs`. There are two equivalent entry points. Use `bindgen(args)` for
-command-line style arguments. Use `Bindgen` for a builder.
+Generate bindings from `build.rs` with either command-line-style arguments or the builder:
 
 ```rust,no_run
-// Command-line style: the same arguments the CLI accepts.
 windows_bindgen::bindgen([
     "--out", "src/bindings.rs",
     "--flat",
@@ -42,7 +40,6 @@ windows_bindgen::bindgen([
 ```
 
 ```rust,no_run
-// Builder style: the same options as method calls.
 windows_bindgen::Bindgen::new()
     .output("src/bindings.rs")
     .flat()
@@ -51,13 +48,7 @@ windows_bindgen::Bindgen::new()
     .write();
 ```
 
-Then include the generated file and call the API:
-
-```rust,ignore
-mod bindings;
-
-unsafe { println!("{}", bindings::GetTickCount()); }
-```
+Include the generated file as a module in your crate.
 
 ## Filters
 
@@ -154,9 +145,7 @@ applies only to `--sys`. The full `windows` crate emits interfaces, so those mod
 
 Each WinRT `add_X` and `remove_X` pair becomes one method:
 
-```rust,ignore
-X<F>(handler) -> Result<EventRevoker>
-```
+Event add methods return `Result<EventRevoker>`.
 
 The method takes the closure directly. It returns an
 [`EventRevoker`](https://docs.rs/windows-core/latest/windows_core/struct.EventRevoker.html). The
@@ -192,15 +181,7 @@ The pattern has three parts.
 windows-link = "0.2"
 ```
 
-```rust,ignore
-// tickcount/src/lib.rs
-mod bindings;
-
-/// Milliseconds elapsed since the system was started.
-pub fn get_tick_count() -> u64 {
-    unsafe { bindings::GetTickCount64() }
-}
-```
+The library module includes the generated bindings and exposes the safe API used by the binary.
 
 **2. A separate, unpublished binary owns code generation.** Keep it as a workspace member. It does
 not become a dependency of the published crate:
@@ -351,28 +332,11 @@ The winmd format has no bit-field concept. The scrape coalesces each run of bit-
 backing integer field named `_bitfield`. If a struct has more runs, the fields are named
 `_bitfield1`, `_bitfield2`, and more. The backing field is emitted as public FFI data:
 
-```rust,ignore
-pub struct MIB_IF_ROW2 {
-    // ...
-    pub _bitfield: u8,
-}
-```
-
 `windows-bindgen` also generates a typed getter and setter for each logical member. The data comes
 from `NativeBitfieldAttribute` metadata on the backing field. The accessors are generated for
 non-`sys` styles.
 
-```rust,ignore
-impl MIB_IF_ROW2 {
-    pub fn HardwareInterface(&self) -> bool {
-        self._bitfield & 1 != 0
-    }
-    pub fn set_HardwareInterface(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
-    }
-    // FilterInterface at offset 1, ConnectorPresent at offset 2, ...
-}
-```
+Generated accessors read and update each member without manual bit arithmetic.
 
 A width-1 member projects as `bool`. Wider members project as the backing integer type. Reads shift
 through the backing type so signed backing fields sign-extend and unsigned backing fields

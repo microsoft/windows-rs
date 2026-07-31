@@ -7,11 +7,12 @@
 - [Getting started](../../crates/libs/sys/readme.md)
 - [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
 
-`windows-sys` is the minimal, fastest-compiling projection of the Windows API. It contains only raw
-function declarations, structs, and constants - no traits, helpers, or wrappers. Choose it when
-compile time matters most and you are comfortable working with raw pointers and unsafe calls;
-otherwise prefer the richer [`windows`](windows.md) crate. As with `windows`, APIs are gated behind
-namespace features.
+`windows-sys` contains raw Windows API declarations, structs, and constants without wrapper traits.
+APIs are gated by Cargo features, such as `combaseapi`.
+
+Use `windows-sys` when raw pointers and unsafe calls are appropriate. Use
+[`windows`](windows.md) for COM and WinRT wrappers, or
+[`windows-bindgen`](windows-bindgen.md) to generate a smaller binding set.
 
 ---
 
