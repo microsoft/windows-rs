@@ -493,7 +493,7 @@ impl Bindgen {
                 filter.uses_closure = true;
                 TypeClosure::build(&reader, &mut filter, &references)
             } else {
-                TypeMap::filter(&reader, &filter, &references)
+                TypeMap::filter(&reader, &filter, &references, self.style.is_sys())
             };
 
             (filter, types)

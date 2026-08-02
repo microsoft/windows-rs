@@ -1,3 +1,4 @@
+windows_core::link!("coremessaging.dll" "system" fn CreateDispatcherQueueController(options : DispatcherQueueOptions, dispatcherqueuecontroller : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnimationIterationBehavior(pub i32);
@@ -703,6 +704,10 @@ impl windows_core::RuntimeName for CubicBezierEasingFunction {
 }
 unsafe impl Send for CubicBezierEasingFunction {}
 unsafe impl Sync for CubicBezierEasingFunction {}
+pub type DISPATCHERQUEUE_THREAD_APARTMENTTYPE = i32;
+pub type DISPATCHERQUEUE_THREAD_TYPE = i32;
+pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 1;
+pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = 2;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DesktopWindowTarget(windows_core::IUnknown);
@@ -910,6 +915,13 @@ impl windows_core::RuntimeName for DispatcherQueueController {
 }
 unsafe impl Send for DispatcherQueueController {}
 unsafe impl Sync for DispatcherQueueController {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DispatcherQueueOptions {
+    pub dwSize: u32,
+    pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
+    pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
+}
 pub type HWND = *mut core::ffi::c_void;
 windows_core::imp::define_interface!(
     ICompositionAnimation,

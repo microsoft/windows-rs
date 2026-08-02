@@ -162,9 +162,9 @@ the affected crate.
 `lib.rs` selects `bindings.rs` for `system` and `bindings_lifted.rs` for `reactor`. Compile errors
 reject invalid feature combinations.
 
-`stack.rs` declares `CreateDispatcherQueueController` with `windows_core::link!`. That function
-comes from `dispatcherqueue.h` and is not in the repo's Win32 metadata. It creates the dispatcher
-queue on the current thread.
+`stack.rs` uses the `CreateDispatcherQueueController` function and supporting types generated from
+`DispatcherQueue.h` in the repo's Win32 metadata. It creates the dispatcher queue on the current
+thread.
 
 ### Feature unification and CI
 

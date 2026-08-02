@@ -12,6 +12,11 @@
 // `tests/win32.rs` harness regenerates.
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 
+const _: () = {
+    assert!(size_of::<slice::DispatcherQueueOptions>() == 12);
+    assert!(align_of::<slice::DispatcherQueueOptions>() == 4);
+};
+
 // #3761 / win32metadata#1044: CONTEXT layout + alignment correctness across every
 // architecture. The generated slice arch-gates CONTEXT three ways; these asserts
 // fail to compile if a scrape regression drops an alignment or mis-sizes a union.

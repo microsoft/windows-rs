@@ -399,6 +399,10 @@ pub use directmanipulation::*;
 pub mod directml;
 #[cfg(feature = "directml")]
 pub use directml::*;
+#[cfg(feature = "dispatcherqueue")]
+pub mod dispatcherqueue;
+#[cfg(feature = "dispatcherqueue")]
+pub use dispatcherqueue::*;
 #[cfg(feature = "dispex")]
 pub mod dispex;
 #[cfg(feature = "dispex")]

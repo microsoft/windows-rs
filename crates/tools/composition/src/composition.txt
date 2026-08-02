@@ -33,11 +33,13 @@ Windows.UI.Composition.ICompositionObject2::{put_ImplicitAnimations}
 
 // region: system-only
 // A dispatcher queue must exist on the thread before the compositor is created.
-// The current-thread factory (CreateDispatcherQueueController) is not in this
-// repo's Win32 metadata, so stack.rs declares it directly; we only need the type.
-// (Lifted composition runs on the reactor/WinUI dispatcher, so this is not part
-// of the lifted surface.)
+// Lifted composition runs on the reactor/WinUI dispatcher, so this is not part
+// of the lifted surface.
 Windows.System.DispatcherQueueController
+Windows.Win32.CreateDispatcherQueueController
+Windows.Win32.DISPATCHERQUEUE_THREAD_APARTMENTTYPE::{DQTAT_COM_ASTA}
+Windows.Win32.DISPATCHERQUEUE_THREAD_TYPE::{DQTYPE_THREAD_CURRENT}
+Windows.Win32.DispatcherQueueOptions
 // endregion
 
 Windows.UI.Composition.Visual
