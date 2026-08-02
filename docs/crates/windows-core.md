@@ -59,6 +59,18 @@ count; you write the methods in `impl IValue_Impl for Value_Impl`. Converting th
 an interface yields a reference-counted COM object, and `cast` moves between interfaces on the same
 object.
 
+## Initializing COM for apartment-agnostic code
+
+`init_mta` places an uninitialized calling thread into the multithreaded apartment and keeps
+the process MTA alive until the process exits:
+
+```rust
+windows_core::init_mta()?;
+```
+
+The call does not change a thread that is already initialized in another apartment. Use the
+generated Win32 COM APIs directly when explicit MTA usage lifetime management is required.
+
 ## Without the proc macros
 
 Disabling the default `proc-macros` feature drops the `syn`/`quote`/`proc-macro2` build

@@ -81,9 +81,7 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
         // If combase hasn't been loaded yet, load it automatically so that this "just works"
         // for apartment-agnostic code, then retry.
         if code == CO_E_NOTINITIALIZED {
-            let mut cookie = null_mut();
-            let _ = CoIncrementMTAUsage(&mut cookie);
-
+            let _ = crate::init_mta();
             code = get_com_factory();
         }
 

@@ -33,6 +33,8 @@ mod in_ref;
 mod inspectable;
 mod interface;
 mod interface_macro;
+#[cfg(windows)]
+mod mta;
 mod out_param;
 mod out_ref;
 mod param;
@@ -55,6 +57,8 @@ pub use guid::*;
 pub use in_ref::*;
 pub use inspectable::*;
 pub use interface::*;
+#[cfg(windows)]
+pub use mta::*;
 pub use out_param::*;
 pub use out_ref::*;
 pub use param::*;

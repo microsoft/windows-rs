@@ -1,6 +1,16 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 
+#[allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    clippy::upper_case_acronyms
+)]
+mod bindings;
+
+use bindings::*;
+
 /// Calls the C++/WinRT compiler with the given arguments.
 ///
 /// Use `cppwinrt(["-help"])` for available options.
@@ -29,17 +39,7 @@ where
 }
 
 fn unique() -> String {
-    #[repr(C)]
-    #[derive(Default)]
-    pub struct Guid {
-        pub data1: u32,
-        pub data2: u16,
-        pub data3: u16,
-        pub data4: [u8; 8],
-    }
-
-    windows_link::link!("ole32.dll" "system" fn CoCreateGuid(pguid: *mut Guid) -> i32);
-    let mut guid = Guid::default();
+    let mut guid = GUID::default();
     unsafe { CoCreateGuid(&mut guid) };
 
     format!(

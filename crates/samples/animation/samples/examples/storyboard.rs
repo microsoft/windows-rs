@@ -1,7 +1,7 @@
 use animation_samples::*;
 
 fn main() -> Result<()> {
-    init_com();
+    windows_core::init_mta()?;
 
     let manager = Manager::new()?;
     let library = TransitionLibrary::new()?;

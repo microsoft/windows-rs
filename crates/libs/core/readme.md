@@ -38,3 +38,18 @@ fn check(code: HRESULT) -> Result<()> {
 assert!(check(HRESULT(0)).is_ok());
 assert!(check(HRESULT(-2147467259)).is_err());
 ```
+
+Initialize COM for apartment-agnostic code and keep the process MTA available:
+
+```rust,no_run
+fn main() -> windows_core::Result<()> {
+    windows_core::init_mta()?;
+
+    // Use apartment-agnostic COM APIs.
+
+    Ok(())
+}
+```
+
+If the calling thread is not already in an apartment, this places it into the MTA. The MTA remains
+available until the process exits.
