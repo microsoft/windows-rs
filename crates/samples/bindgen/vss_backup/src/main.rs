@@ -5,9 +5,9 @@ include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 use windows_core::*;
 
 fn main() -> Result<()> {
-    unsafe {
-        CoIncrementMTAUsage()?;
+    init_mta()?;
 
+    unsafe {
         let backup = CreateVssBackupComponentsInternal()?;
         backup.InitializeForBackup(&BSTR::new()).ok()?;
         backup.SetBackupState(true, true, VSS_BT_FULL, false).ok()?;

@@ -27,7 +27,7 @@ impl TypeMap {
     }
 
     #[track_caller]
-    pub fn filter(reader: &Reader, filter: &Filter, references: &References) -> Self {
+    pub fn filter(reader: &Reader, filter: &Filter, references: &References, sys: bool) -> Self {
         let mut dependencies = Self::new();
 
         for namespace in reader.keys() {
@@ -48,7 +48,11 @@ impl TypeMap {
                         let mut item_dependencies = Self::new();
 
                         for ty in types {
-                            ty.combine(&mut item_dependencies, reader);
+                            if sys && let Type::CppFn(function) = ty {
+                                function.combine_sys(&mut item_dependencies, reader);
+                            } else {
+                                ty.combine(&mut item_dependencies, reader);
+                            }
                         }
 
                         if item_dependencies.excluded(filter, references) {

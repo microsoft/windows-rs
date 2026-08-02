@@ -107,6 +107,65 @@ pub enum Remap {
 }
 
 impl Type {
+    /// Collects sys ABI dependencies without projected interfaces, which sys signatures erase to
+    /// raw pointers.
+    pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        let ty = self.decay();
+
+        if ty.is_intrinsic() || ty.is_interface() {
+            return;
+        }
+
+        let nested = matches!(ty, Self::CppStruct(s) if s.def.namespace().is_empty());
+        let (ty, generics) = ty.split_generic(reader);
+
+        for ty in generics {
+            ty.combine_sys(dependencies, reader);
+        }
+
+        if !nested && !dependencies.insert(ty.clone()) {
+            return;
+        }
+
+        if let Some(multi) = match &ty {
+            Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
+            Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
+            Self::CppDelegate(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
+            _ => None,
+        } {
+            multi.for_each(|multi| {
+                if ty != multi {
+                    multi.combine_sys(dependencies, reader);
+                }
+            });
+        }
+
+        match &ty {
+            Self::Struct(ty) => {
+                for field in ty.def.fields() {
+                    field
+                        .field_type(None, reader)
+                        .combine_sys(dependencies, reader);
+                }
+            }
+            Self::CppDelegate(ty) => {
+                let signature = ty.method().method_signature(&[], reader);
+                for ty in signature.types() {
+                    ty.combine_sys(dependencies, reader);
+                }
+            }
+            Self::CppFn(ty) => ty.combine_sys(dependencies, reader),
+            Self::CppStruct(ty) => {
+                for field in ty.def.fields() {
+                    field
+                        .field_type(Some(ty), reader)
+                        .combine_sys(dependencies, reader);
+                }
+            }
+            _ => {}
+        }
+    }
+
     fn sort_key(&self) -> (bool, TypeName, i32, i32) {
         // Sort functions first, then by name, namespace, architecture, and kind.
 

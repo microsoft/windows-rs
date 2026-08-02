@@ -5,6 +5,7 @@ fn main() {
 
     bindgen(["--etc", "crates/tools/bindings/src/collections.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/core.txt"]);
+    bindgen(["--etc", "crates/tools/bindings/src/cppwinrt.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/future_impl.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/future.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/metadata.txt"]);

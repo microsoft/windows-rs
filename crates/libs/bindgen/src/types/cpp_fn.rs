@@ -107,6 +107,20 @@ impl CppFn {
         write_simple_cfg(self, config)
     }
 
+    pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        let signature = self.method.method_signature(&[], reader);
+
+        for ty in signature.types() {
+            ty.combine_sys(dependencies, reader);
+        }
+
+        if let Some(dependency) = self.window_long_dependency() {
+            reader
+                .unwrap_full_name(self.namespace, dependency)
+                .combine_sys(dependencies, reader);
+        }
+    }
+
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.method_signature(&[], config.reader);

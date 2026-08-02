@@ -6,7 +6,6 @@ fn main() {
         .output(&bindings)
         .filters([
             "CreateVssBackupComponentsInternal",
-            "CoIncrementMTAUsage",
             "VSS_BT_FULL",
             "IVssBackupComponents",
         ])

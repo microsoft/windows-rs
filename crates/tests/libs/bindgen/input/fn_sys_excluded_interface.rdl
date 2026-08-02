@@ -1,0 +1,16 @@
+//! --filter !Projected Native --sys --flat
+#[winrt]
+mod Projected {
+    interface IController {
+        fn Value(&self) -> i32;
+    }
+}
+#[win32]
+mod Native {
+    struct ControllerOptions {
+        controller: *mut Projected::IController,
+        value: u32,
+    }
+    #[library("test.dll")]
+    extern fn CreateController(options: ControllerOptions, controller: *mut Projected::IController) -> HRESULT;
+}

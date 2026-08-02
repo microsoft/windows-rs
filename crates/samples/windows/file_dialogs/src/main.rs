@@ -1,9 +1,10 @@
-fn main() -> windows::core::Result<()> {
-    use windows::{Win32::*, core::*};
+fn main() -> windows_core::Result<()> {
+    use windows::Win32::*;
+    use windows_core::w;
+
+    windows_core::init_mta()?;
 
     unsafe {
-        CoIncrementMTAUsage()?;
-
         let dialog: IFileSaveDialog = CoCreateInstance(&FileSaveDialog, None, CLSCTX_ALL as u32)?;
 
         let filters = [

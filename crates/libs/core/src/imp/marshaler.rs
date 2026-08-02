@@ -4,8 +4,6 @@ use core::ffi::c_void;
 use core::mem::{transmute, transmute_copy};
 use core::ptr::null_mut;
 
-windows_link::link!("ole32.dll" "system" fn CoCreateFreeThreadedMarshaler(punkouter: *mut c_void, ppunkmarshal: *mut *mut c_void) -> HRESULT);
-
 pub unsafe fn marshaler(outer: IUnknown, result: *mut *mut c_void) -> HRESULT {
     unsafe {
         let mut marshaler_raw = null_mut();

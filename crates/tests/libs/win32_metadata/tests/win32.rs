@@ -44,13 +44,15 @@ fn slice() {
     // Lower the bounded slice to flat `--sys` bindings, written straight to the
     // golden so `git diff` surfaces any change.
     let out_rs = format!("{manifest}/expected/slice.rs");
-    let mut cli: Vec<String> = vec!["--in".into(), winmd, "--out".into(), out_rs];
+    let mut cli: Vec<String> = vec!["--in".into(), winmd.clone(), "--out".into(), out_rs];
     cli.push("--filter".into());
     cli.extend(FILTER.iter().map(|name| (*name).to_string()));
     cli.push("--sys".into());
     cli.push("--flat".into());
 
     windows_bindgen::bindgen(cli);
+
+    assert_dispatcher_queue_function(&winmd);
 }
 
 /// A self-contained slice: every function resolves to `gdi32` or `user32` (both
@@ -90,6 +92,11 @@ const FILTER: &[&str] = &[
     // `user32` functions: confirm the DLL resolves after adding `user32.lib`.
     "MessageBoxA",
     "GetMessageA",
+    // `DispatcherQueue.h`: the by-value options struct and enums used by windows-composition.
+    // The function's WinRT interop pointer and CoreMessaging import are checked separately below.
+    "DISPATCHERQUEUE_THREAD_APARTMENTTYPE",
+    "DISPATCHERQUEUE_THREAD_TYPE",
+    "DispatcherQueueOptions",
     // Nested handle-cast `#define` constants (`parse_nested_cast`): a pointer
     // typedef'd const whose value is the innermost signed scalar reinterpretation
     // - must render as `<signed int> as _` so the pointer sign-extends.
@@ -104,3 +111,38 @@ const FILTER: &[&str] = &[
     // captured as a leading `Base: MONITORINFO` field, or the struct is too small.
     "MONITORINFOEXA",
 ];
+
+fn assert_dispatcher_queue_function(winmd: &str) {
+    use windows_metadata::Type;
+    use windows_metadata::reader::Item;
+
+    let index = windows_metadata::reader::Index::read(winmd).unwrap();
+    let Item::Fn(function) = index.expect_item("Windows.Win32", "CreateDispatcherQueueController")
+    else {
+        panic!("CreateDispatcherQueueController is not a function");
+    };
+
+    let import = function.impl_map().unwrap();
+    assert_eq!(import.import_name(), "CreateDispatcherQueueController");
+    assert_eq!(import.import_scope().name(), "CoreMessaging.dll");
+    assert_eq!(function.calling_convention(), "system");
+
+    let signature = function.signature(&[]);
+    assert_eq!(
+        signature.return_type,
+        Type::value_named("Windows.Win32", "HRESULT")
+    );
+    assert_eq!(
+        signature.types,
+        [
+            Type::value_named("Windows.Win32", "DispatcherQueueOptions"),
+            Type::PtrMut(
+                Box::new(Type::class_named(
+                    "Windows.System",
+                    "IDispatcherQueueController"
+                )),
+                1
+            ),
+        ]
+    );
+}
