@@ -65,7 +65,10 @@ object.
 the process MTA alive until the process exits:
 
 ```rust
-windows_core::init_mta()?;
+fn main() -> windows_core::Result<()> {
+    windows_core::init_mta()?;
+    Ok(())
+}
 ```
 
 The call does not change a thread that is already initialized in another apartment. Use the
