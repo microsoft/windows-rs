@@ -1,0 +1,22 @@
+[package]
+name = "test_bench_rust"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "test_bench_rust"
+path = "src/main.rs"
+
+[dependencies]
+windows-core = { workspace = true, default-features = true }
+windows-collections = { workspace = true, features = ["std"] }
+windows-reference = { workspace = true, features = ["std"] }
+windows-future = { workspace = true, features = ["std"] }
+test_bench_component = { path = "../component" }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

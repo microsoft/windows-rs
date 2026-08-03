@@ -1,0 +1,337 @@
+//! Headless reconciler micro-benchmarks for `windows-reactor`.
+//!
+//! Ported in spirit from Microsoft.UI.Reactor's `PerfBench.ControlModel`
+//! (spec-047 M1-M13). Unlike `test_reactor_perf`, which drives a live WinUI
+//! window and is render-bound (so per-reconcile deltas are diluted by the
+//! render pipeline), this crate brackets only the reconcile body against the
+//! headless `RecordingBackend`. That makes it ns-resolution and free of WinUI
+//! noise - the right instrument for evaluating Rust-side reconciler changes
+//! (structural-skip / diff hints, keyed-diff scratch allocation).
+//!
+//! It measures two things per benchmark:
+//!
+//! - ns/op: wall-clock nanoseconds per reconcile, best-of-`reps` to shed
+//!   scheduler noise.
+//! - bytes/op and allocs/op: heap traffic per reconcile, captured by a
+//!   counting global allocator. This is deterministic for identical code and
+//!   is the sensitive signal for allocation-reduction work (for example
+//!   reusing the keyed-diff scratch buffers).
+//!
+//! `RecordingBackend::create` is a trivial id bump, so these numbers are the
+//! Rust-side reconciler cost only. The native WinUI control create/destroy
+//! cost that control pooling targets is not modeled here - that question
+//! belongs to `test_reactor_perf`'s churn scenario, which drives real XAML
+//! controls.
+
+use std::alloc::{GlobalAlloc, Layout, System};
+use std::rc::Rc;
+use std::sync::atomic::{AtomicU64, Ordering};
+use std::time::Instant;
+
+use test_reactor::RecordingBackend;
+use windows_reactor::{Element, ElementExt, Reconciler, text_block, vstack};
+
+static BYTES: AtomicU64 = AtomicU64::new(0);
+static ALLOCS: AtomicU64 = AtomicU64::new(0);
+
+/// Global allocator that counts bytes and allocation calls. Wraps `System`;
+/// tracks only growth (alloc plus grow-realloc), which is enough for a
+/// per-op relative signal.
+struct Counting;
+
+unsafe impl GlobalAlloc for Counting {
+    unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
+        let p = unsafe { System.alloc(layout) };
+        if !p.is_null() {
+            BYTES.fetch_add(layout.size() as u64, Ordering::Relaxed);
+            ALLOCS.fetch_add(1, Ordering::Relaxed);
+        }
+        p
+    }
+
+    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
+        unsafe { System.dealloc(ptr, layout) };
+    }
+
+    unsafe fn realloc(&self, ptr: *mut u8, layout: Layout, new_size: usize) -> *mut u8 {
+        let p = unsafe { System.realloc(ptr, layout, new_size) };
+        if !p.is_null() && new_size > layout.size() {
+            BYTES.fetch_add((new_size - layout.size()) as u64, Ordering::Relaxed);
+            ALLOCS.fetch_add(1, Ordering::Relaxed);
+        }
+        p
+    }
+}
+
+#[global_allocator]
+static GLOBAL: Counting = Counting;
+
+struct Perf {
+    ns: f64,
+    bytes: f64,
+    allocs: f64,
+}
+
+/// Runs `op` for `warmup` discarded passes, then `reps` timed passes of
+/// `iters` each. Reports the fastest pass (ns) with its heap traffic.
+fn measure(iters: u64, reps: u32, warmup: u32, mut op: impl FnMut()) -> Perf {
+    for _ in 0..warmup {
+        for _ in 0..iters {
+            op();
+        }
+    }
+
+    let mut best = Perf {
+        ns: f64::MAX,
+        bytes: 0.0,
+        allocs: 0.0,
+    };
+    for _ in 0..reps {
+        let b0 = BYTES.load(Ordering::Relaxed);
+        let a0 = ALLOCS.load(Ordering::Relaxed);
+        let start = Instant::now();
+        for _ in 0..iters {
+            op();
+        }
+        let ns = start.elapsed().as_nanos() as f64 / iters as f64;
+        if ns < best.ns {
+            best.ns = ns;
+            best.bytes = (BYTES.load(Ordering::Relaxed) - b0) as f64 / iters as f64;
+            best.allocs = (ALLOCS.load(Ordering::Relaxed) - a0) as f64 / iters as f64;
+        }
+    }
+    best
+}
+
+struct Row {
+    name: String,
+    n: usize,
+    perf: Perf,
+    skipped: u64,
+    diffed: u64,
+    created: u64,
+}
+
+fn no_rerender() -> Rc<dyn Fn()> {
+    Rc::new(|| {})
+}
+
+fn labels(n: usize, prefix: &str) -> Vec<String> {
+    (0..n).map(|i| format!("{prefix}{i}")).collect()
+}
+
+fn plain_stack(labels: &[String]) -> Element {
+    let children: Vec<Element> = labels
+        .iter()
+        .map(|s| text_block(s.clone()).into())
+        .collect();
+    vstack(children).into()
+}
+
+fn keyed_stack(keys: &[String]) -> Element {
+    let children: Vec<Element> = keys
+        .iter()
+        .map(|k| text_block(k.clone()).with_key(k.clone()).into())
+        .collect();
+    let mut s = vstack(children);
+    s.key = Some("root".to_string());
+    s.into()
+}
+
+/// One reconcile A -> B per op, alternating direction so the live tree stays
+/// consistent and each op is a real diff in one direction or the other.
+fn bench_update(name: &str, n: usize, a: Element, b: Element, iters: u64, reps: u32) -> Row {
+    let rr = no_rerender();
+
+    let (skipped, diffed, created) = {
+        let mut r = Reconciler::new(RecordingBackend::new());
+        let id = r.reconcile(None, &a, None, Rc::clone(&rr)).unwrap();
+        r.reset_stats();
+        r.reconcile(Some(&a), &b, Some(id), Rc::clone(&rr));
+        (
+            r.debug_elements_skipped,
+            r.debug_elements_diffed,
+            r.debug_ui_elements_created,
+        )
+    };
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let id = r.reconcile(None, &a, None, Rc::clone(&rr)).unwrap();
+    let mut flip = false;
+    let perf = measure(iters, reps, 2, || {
+        if flip {
+            r.reconcile(Some(&b), &a, Some(id), Rc::clone(&rr));
+        } else {
+            r.reconcile(Some(&a), &b, Some(id), Rc::clone(&rr));
+        }
+        flip = !flip;
+    });
+
+    Row {
+        name: name.to_string(),
+        n,
+        perf,
+        skipped,
+        diffed,
+        created,
+    }
+}
+
+/// One mount + unmount of the whole subtree per op. This is the Rust-side
+/// create/destroy cost that a control pool would try to avoid (the native
+/// side is not modeled by `RecordingBackend`).
+fn bench_mount_unmount(name: &str, n: usize, tree: Element, iters: u64, reps: u32) -> Row {
+    let rr = no_rerender();
+
+    let (skipped, diffed, created) = {
+        let mut r = Reconciler::new(RecordingBackend::new());
+        r.reset_stats();
+        let id = r.reconcile(None, &tree, None, Rc::clone(&rr)).unwrap();
+        let counts = (
+            r.debug_elements_skipped,
+            r.debug_elements_diffed,
+            r.debug_ui_elements_created,
+        );
+        r.unmount(id);
+        counts
+    };
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let perf = measure(iters, reps, 2, || {
+        let id = r.reconcile(None, &tree, None, Rc::clone(&rr)).unwrap();
+        r.unmount(id);
+    });
+
+    Row {
+        name: name.to_string(),
+        n,
+        perf,
+        skipped,
+        diffed,
+        created,
+    }
+}
+
+fn parse_arg(name: &str, default: u64) -> u64 {
+    let args: Vec<String> = std::env::args().collect();
+    for w in args.windows(2) {
+        if w[0] == name {
+            return w[1].parse().unwrap_or(default);
+        }
+    }
+    default
+}
+
+fn main() {
+    let iters = parse_arg("--iters", 2_000);
+    let reps = parse_arg("--reps", 6) as u32;
+
+    let mut rows: Vec<Row> = Vec::new();
+
+    // Mount + unmount: Rust-side create/destroy cost (control-pooling relevance).
+    for &n in &[64usize, 512] {
+        let tree = plain_stack(&labels(n, "cell"));
+        rows.push(bench_mount_unmount(
+            "mount_unmount",
+            n,
+            tree,
+            iters / (n as u64 / 32).max(1),
+            reps,
+        ));
+    }
+
+    // Update with one leaf changed: forces the per-child skip-walk of N-1
+    // untouched siblings. This is the diff-hints target - the (N-1) skips are
+    // exactly what a changed-index hint would eliminate. ns scaling with N
+    // gives the per-skip cost.
+    for &n in &[64usize, 512, 4096] {
+        let base = labels(n, "cell");
+        let mut changed = base.clone();
+        changed[0] = "CHANGED".to_string();
+        rows.push(bench_update(
+            "update_1_changed",
+            n,
+            plain_stack(&base),
+            plain_stack(&changed),
+            iters,
+            reps,
+        ));
+    }
+
+    // Update with every leaf changed: full per-child diff, the upper bound of
+    // real reconcile work at this size (context for the skip cost above).
+    {
+        let n = 512;
+        let a = labels(n, "a");
+        let b = labels(n, "b");
+        rows.push(bench_update(
+            "update_all_changed",
+            n,
+            plain_stack(&a),
+            plain_stack(&b),
+            iters,
+            reps,
+        ));
+    }
+
+    // Identical tree: the whole subtree is structurally equal, so the root
+    // `can_skip_update` short-circuits in O(1) (1 skip for the whole tree).
+    {
+        let n = 512;
+        let a = plain_stack(&labels(n, "cell"));
+        let b = a.clone();
+        rows.push(bench_update("update_no_change", n, a, b, iters, reps));
+    }
+
+    // Keyed full reversal: takes the keyed arm (prefix/suffix strip, key map,
+    // LIS) every op. bytes/op here is the keyed-diff scratch allocation - the
+    // scratch-reuse target.
+    for &n in &[64usize, 512] {
+        let keys = labels(n, "k");
+        let mut rev = keys.clone();
+        rev.reverse();
+        rows.push(bench_update(
+            "keyed_reverse",
+            n,
+            keyed_stack(&keys),
+            keyed_stack(&rev),
+            iters / (n as u64 / 64).max(1),
+            reps,
+        ));
+    }
+
+    // Keyed rotate-by-one: a common insert/remove-shaped edit; the prefix and
+    // suffix strip cover nothing, so the whole middle takes the key map + LIS.
+    {
+        let n = 512;
+        let keys = labels(n, "k");
+        let mut rot = keys.clone();
+        rot.rotate_left(1);
+        rows.push(bench_update(
+            "keyed_rotate1",
+            n,
+            keyed_stack(&keys),
+            keyed_stack(&rot),
+            iters,
+            reps,
+        ));
+    }
+
+    print_table(&rows);
+}
+
+fn print_table(rows: &[Row]) {
+    println!("windows-reactor headless reconciler micro-benchmarks");
+    println!("(RecordingBackend; ns/op is best-of-reps, Rust-side cost only)\n");
+    println!(
+        "{:<20} {:>6} {:>12} {:>11} {:>10} {:>7} {:>6} {:>6}",
+        "bench", "N", "ns/op", "bytes/op", "allocs/op", "skip", "diff", "crt"
+    );
+    println!("{}", "-".repeat(86));
+    for r in rows {
+        println!(
+            "{:<20} {:>6} {:>12.1} {:>11.1} {:>10.2} {:>7} {:>6} {:>6}",
+            r.name, r.n, r.perf.ns, r.perf.bytes, r.perf.allocs, r.skipped, r.diffed, r.created,
+        );
+    }
+}

@@ -1,3 +1,4 @@
+use std::alloc::{GlobalAlloc, Layout, System};
 use std::cell::{Cell, RefCell};
 use std::env;
 use std::fs;
@@ -5,6 +6,7 @@ use std::io::Write;
 use std::path::PathBuf;
 use std::rc::Rc;
 use std::sync::OnceLock;
+use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::{Duration, Instant};
 
 use windows::Win32::GetCurrentProcess;
@@ -13,9 +15,51 @@ use windows::core::Result;
 
 use windows_reactor::*;
 
+/// Process-wide bytes allocated through the Rust global allocator. This is the
+/// analog of C#'s `GC.GetTotalAllocatedBytes()` used by `StressPerf.Shared`'s
+/// `PerfTracker` for the `allocBytesPerRender` metric: both count only their
+/// own managed/Rust heap, not native WinUI/COM allocations. Baseline is taken
+/// on the first recorded render so app startup is excluded.
+static ALLOC_BYTES: AtomicU64 = AtomicU64::new(0);
+
+struct Counting;
+
+unsafe impl GlobalAlloc for Counting {
+    unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
+        let p = unsafe { System.alloc(layout) };
+        if !p.is_null() {
+            ALLOC_BYTES.fetch_add(layout.size() as u64, Ordering::Relaxed);
+        }
+        p
+    }
+
+    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
+        unsafe { System.dealloc(ptr, layout) };
+    }
+
+    unsafe fn realloc(&self, ptr: *mut u8, layout: Layout, new_size: usize) -> *mut u8 {
+        let p = unsafe { System.realloc(ptr, layout, new_size) };
+        if !p.is_null() && new_size > layout.size() {
+            ALLOC_BYTES.fetch_add((new_size - layout.size()) as u64, Ordering::Relaxed);
+        }
+        p
+    }
+}
+
+#[global_allocator]
+static GLOBAL: Counting = Counting;
+
+fn total_alloc_bytes() -> u64 {
+    ALLOC_BYTES.load(Ordering::Relaxed)
+}
+
 const APP_NAME: &str = "StressPerf.Reactor";
-const COLUMNS: usize = 80;
-const ROWS: usize = 60;
+// Grid dimensions match the C# StressPerf.Shared/StockDataSource (70x70 = 4900
+// cells) so the two harnesses drive an identical workload for cross-language
+// comparison. The seeded NetRandom below is a bit-identical port of .NET's
+// Random(42), so with the same cell count the dirty-index stream is identical.
+const COLUMNS: usize = 70;
+const ROWS: usize = 70;
 const TOTAL: usize = COLUMNS * ROWS;
 const CELL_WIDTH: f64 = 64.0;
 const CELL_HEIGHT: f64 = 18.0;
@@ -31,6 +75,17 @@ struct CliOptions {
     percent: f64,
     duration_seconds: u64,
     headless: bool,
+    /// When set, each tick removes then re-adds `churn_count` trailing cells,
+    /// forcing the reconciler to destroy and recreate that many same-typed
+    /// native controls. This is the workload control pooling targets - the
+    /// positional price-update grid never creates or destroys controls, so
+    /// only this scenario exercises the native create/destroy path.
+    churn: bool,
+    churn_count: usize,
+    /// When set (via `--json`), also write `{APP_NAME}.metrics.json` next to the
+    /// exe and echo a single `REACTOR_PERF_JSON {..}` line, matching the C#
+    /// StressPerf harness for cross-language metric comparison.
+    json: bool,
 }
 
 impl Default for CliOptions {
@@ -39,6 +94,9 @@ impl Default for CliOptions {
             percent: 10.0,
             duration_seconds: 10,
             headless: false,
+            churn: false,
+            churn_count: 400,
+            json: false,
         }
     }
 }
@@ -59,6 +117,18 @@ fn parse_cli() -> CliOptions {
             }
             "--headless" => {
                 o.headless = true;
+                i += 1;
+            }
+            "--churn" => {
+                o.churn = true;
+                i += 1;
+            }
+            "--churn-count" if i + 1 < args.len() => {
+                o.churn_count = args[i + 1].parse().unwrap_or(o.churn_count);
+                i += 2;
+            }
+            "--json" => {
+                o.json = true;
                 i += 1;
             }
             _ => i += 1,
@@ -280,6 +350,14 @@ struct PerfTracker {
     /// on the C# branch. Reactor increments this when the reconcile
     /// completes (via `record_phases`). Emitted as `Total Renders: N`.
     render_count: u32,
+    /// Allocation accounting, mirroring C# `PerfTracker`. Baseline is captured
+    /// on the first recorded render (excludes startup); the end snapshot is
+    /// frozen once at report/JSON time via `capture_final_snapshot`.
+    alloc_baseline_captured: Cell<bool>,
+    start_alloc_bytes: Cell<u64>,
+    alloc_end_captured: Cell<bool>,
+    end_alloc_bytes: Cell<u64>,
+    end_render_count: Cell<u32>,
 }
 
 impl PerfTracker {
@@ -305,6 +383,11 @@ impl PerfTracker {
             total_elements_skipped: 0,
             total_elements_created: 0,
             render_count: 0,
+            alloc_baseline_captured: Cell::new(false),
+            start_alloc_bytes: Cell::new(0),
+            alloc_end_captured: Cell::new(false),
+            end_alloc_bytes: Cell::new(0),
+            end_render_count: Cell::new(0),
         }
     }
 
@@ -350,8 +433,51 @@ impl PerfTracker {
         self.total_elements_diffed += elements_diffed;
         self.total_elements_skipped += elements_skipped;
         self.total_elements_created += elements_created;
+        // Capture the allocation baseline on the first render so per-render
+        // figures reflect the steady-state loop, not app startup (matches C#).
+        if !self.alloc_baseline_captured.get() {
+            self.alloc_baseline_captured.set(true);
+            self.start_alloc_bytes.set(total_alloc_bytes());
+        }
         // Reactor counts a render once the reconcile completes.
         self.render_count += 1;
+    }
+
+    /// Freeze the end-of-measurement allocation counter exactly once, before any
+    /// report/JSON string is built, so report generation's own allocations do
+    /// not enter the measured window. Mirrors C# `CaptureFinalSnapshot`.
+    fn capture_final_snapshot(&self) {
+        if self.alloc_end_captured.get() || !self.alloc_baseline_captured.get() {
+            return;
+        }
+        self.end_alloc_bytes.set(total_alloc_bytes());
+        self.end_render_count.set(self.render_count);
+        self.alloc_end_captured.set(true);
+    }
+
+    /// Renders inside the allocation window. The baseline is captured during the
+    /// first render, so only renders 2..N contribute to the measured delta;
+    /// normalise by (N-1) to keep numerator and denominator over one window.
+    fn alloc_window_renders(&self) -> u32 {
+        if self.alloc_end_captured.get() {
+            self.end_render_count.get().saturating_sub(1)
+        } else {
+            0
+        }
+    }
+
+    fn alloc_bytes_per_render(&self) -> f64 {
+        self.capture_final_snapshot();
+        let n = self.alloc_window_renders();
+        if n > 0 {
+            (self
+                .end_alloc_bytes
+                .get()
+                .saturating_sub(self.start_alloc_bytes.get())) as f64
+                / n as f64
+        } else {
+            0.0
+        }
     }
 
     fn current_memory_mb() -> u64 {
@@ -449,7 +575,69 @@ impl PerfTracker {
             "Peak Memory: {:.1} MB\n",
             mem_max / (1024.0 * 1024.0)
         ));
+        // Allocation accounting (steady-state render loop; baseline = first
+        // render). Rust has no GC, so the GC-gen lines the C# harness prints are
+        // reported as zero for schema parity. See METHODOLOGY.md.
+        s.push_str(&format!(
+            "Alloc/render: {:.0} bytes\n",
+            self.alloc_bytes_per_render()
+        ));
+        s.push_str("GC Gen0/1/2: 0 / 0 / 0\n");
+        s.push_str("Gen0/Krender: 0.00\n");
         s
+    }
+
+    /// Compact, single-line JSON with the same field names and order as the C#
+    /// `PerfTracker.GetMetricsJson`, so the two harnesses' `--json` output is
+    /// directly comparable. `gen0/1/2` and `gen0PerKRenders` are always 0 (no
+    /// GC in Rust); `allocBytesPerRender` is the meaningful allocation signal.
+    fn metrics_json(&self, app_name: &str, percent: f64) -> String {
+        self.capture_final_snapshot();
+        let elapsed = self.elapsed_seconds();
+        let renders_per_sec = if elapsed > 0.0 {
+            self.render_count as f64 / elapsed
+        } else {
+            0.0
+        };
+        let avg = |v: &[f64]| {
+            if v.is_empty() {
+                0.0
+            } else {
+                v.iter().sum::<f64>() / v.len() as f64
+            }
+        };
+        let avg_reconcile = avg(&self.reconcile_time_samples);
+        let avg_diff = avg(&self.diff_patch_samples);
+        let avg_mem = if self.memory_samples.is_empty() {
+            0.0
+        } else {
+            self.memory_samples.iter().copied().sum::<u64>() as f64
+                / self.memory_samples.len() as f64
+                / (1024.0 * 1024.0)
+        };
+        let avg_fps = avg(&self.fps_samples);
+        format!(
+            "{{\"app\":\"{app_name}\",\"percent\":{percent},\"durationSeconds\":{elapsed:.4},\
+             \"rendersPerSec\":{renders_per_sec:.4},\"totalRenders\":{},\
+             \"avgReconcileMs\":{avg_reconcile:.4},\"avgDiffMs\":{avg_diff:.4},\
+             \"avgMemoryMB\":{avg_mem:.4},\"allocBytesPerRender\":{:.4},\
+             \"gen0\":0,\"gen1\":0,\"gen2\":0,\"gen0PerKRenders\":0,\
+             \"avgFps\":{avg_fps:.4},\"sampleCount\":{}}}",
+            self.render_count,
+            self.alloc_bytes_per_render(),
+            self.fps_samples.len(),
+        )
+    }
+
+    fn write_metrics_json_file(&self, app_name: &str, percent: f64) {
+        let json = self.metrics_json(app_name, percent);
+        let dir = exe_dir();
+        let path = dir.join(format!("{app_name}.metrics.json"));
+        if let Err(e) = fs::write(&path, &json) {
+            eprintln!("WARNING: failed to write {}: {e}", path.display());
+        }
+        println!("REACTOR_PERF_JSON {json}");
+        let _ = std::io::stdout().flush();
     }
 
     fn write_report_file(&self, app_name: &str, percent: f64) {
@@ -577,6 +765,9 @@ struct State {
     set_upd: RefCell<Option<SetState<String>>>,
     set_mem: RefCell<Option<SetState<String>>>,
     generation: Cell<u64>,
+    /// Number of cells currently rendered. Fixed at `TOTAL` unless `--churn`
+    /// is set, where it alternates between `TOTAL` and `TOTAL - churn_count`.
+    visible: Cell<usize>,
 }
 
 impl State {
@@ -594,6 +785,7 @@ impl State {
             set_upd: RefCell::new(None),
             set_mem: RefCell::new(None),
             generation: Cell::new(0),
+            visible: Cell::new(TOTAL),
         }
     }
 }
@@ -633,6 +825,17 @@ fn data_tick(state: &Rc<RefCell<State>>) {
         s.pending_phases.set(true);
         let generation = s.generation.get() + 1;
         s.generation.set(generation);
+
+        let cli = CLI.get().cloned().unwrap_or_default();
+        if cli.churn {
+            let reduced = TOTAL.saturating_sub(cli.churn_count);
+            let next = if s.visible.get() == TOTAL {
+                reduced
+            } else {
+                TOTAL
+            };
+            s.visible.set(next);
+        }
     };
 
     if let Some(setter) = set_generation {
@@ -752,10 +955,11 @@ impl Component for StockGridApp {
                 let timer = DispatcherTimer::new_one_shot(
                     Duration::from_secs(cli_for_autostart.duration_seconds),
                     move || {
-                        state_for_shutdown
-                            .borrow()
-                            .perf
-                            .write_report_file(app_name, percent);
+                        let s = state_for_shutdown.borrow();
+                        s.perf.write_report_file(app_name, percent);
+                        if cli_for_autostart.json {
+                            s.perf.write_metrics_json_file(app_name, percent);
+                        }
                         // Flush stderr so the report printed by
                         // write_report_file is visible even though
                         // process::exit skips destructors/drop.
@@ -794,7 +998,11 @@ impl Component for StockGridApp {
         .spacing(12.0)
         .padding(Thickness::uniform(8.0));
 
-        let cells = state.borrow().cells.borrow().clone();
+        let cells = {
+            let s = state.borrow();
+            let vis = s.visible.get();
+            s.cells.borrow()[..vis].to_vec()
+        };
         let game_grid = grid(cells)
             .columns(std::iter::repeat_n(GridLength::Pixel(CELL_WIDTH), COLUMNS))
             .rows(std::iter::repeat_n(GridLength::Pixel(CELL_HEIGHT), ROWS));

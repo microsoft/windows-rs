@@ -1,0 +1,22 @@
+[package]
+name = "test_winui_bench_rust"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "test_winui_bench_rust"
+path = "src/main.rs"
+
+[dependencies]
+windows = { workspace = true, features = ["processthreadsapi", "psapi", "sysinfoapi", "winuser"] }
+windows-collections = { workspace = true }
+windows-core = { workspace = true }
+windows-reactor = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true
