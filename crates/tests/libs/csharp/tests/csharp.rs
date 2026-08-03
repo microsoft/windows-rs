@@ -2,8 +2,8 @@
 //!
 //! Golden tests: `build.rs` emits one `#[test]` per `input/*.rdl` fixture, each calling
 //! `golden(name)`, which authors a winmd from the fixture and writes the projection fragment to
-//! `expected/{name}.cs`. Like the windows-bindgen harness, the golden is rewritten on every run, so
-//! CI's `gen`/`test` workflows fail if a checked-in golden is stale.
+//! `expected/{name}.cs` on x64. Like the windows-bindgen harness, the golden is rewritten on the
+//! canonical architecture, so CI's `gen`/`test` workflows fail if a checked-in golden is stale.
 //!
 //! `compile_goldens` generates one combined projection over every fixture (single header, single
 //! runtime support, all namespaces) and compiles it with `dotnet`, proving the emitted C# builds.
@@ -71,7 +71,7 @@ fn scratch(name: &str) -> PathBuf {
     dir
 }
 
-/// Authors the fixture, generates the projection fragment, and writes the self-updating golden.
+/// Authors the fixture, generates the projection fragment, and updates the x64 golden.
 fn golden(name: &str) {
     let scratch = scratch(name);
     let winmd = author(name, &scratch);
@@ -87,8 +87,10 @@ fn golden(name: &str) {
     }
     builder.write().unwrap();
 
-    let actual = std::fs::read_to_string(&generated).unwrap();
-    std::fs::write(format!("expected/{name}.cs"), actual).unwrap();
+    if cfg!(target_arch = "x86_64") {
+        let actual = std::fs::read_to_string(&generated).unwrap();
+        std::fs::write(format!("expected/{name}.cs"), actual).unwrap();
+    }
 }
 
 /// Enumerates the fixture names (`input/*.rdl` stems), sorted.
