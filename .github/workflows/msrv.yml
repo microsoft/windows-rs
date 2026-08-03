@@ -89,6 +89,8 @@ jobs:
         run:  cargo check -p windows-window --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85
+      - name: Check windows-csharp
+        run:  cargo check -p windows-csharp --all-features
       - name: Check windows-link
         run:  cargo check -p windows-link --all-features
       - name: Check windows-sys

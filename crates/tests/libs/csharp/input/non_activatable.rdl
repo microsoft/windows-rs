@@ -1,0 +1,14 @@
+//! --filter Sample
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    class Handle {
+        IHandle,
+    }
+
+    #[ExclusiveTo(Handle)]
+    interface IHandle {
+        Id: i32;
+    }
+}

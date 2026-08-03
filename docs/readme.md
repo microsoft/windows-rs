@@ -2,6 +2,8 @@
 lists the crates by task.
 
 - [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
+- Direct C# samples: [Minesweeper](../crates/samples/csharp/minesweeper) and
+  [WinUI Tic-Tac-Toe](../crates/samples/csharp/tictactoe)
 - [Releases](https://github.com/microsoft/windows-rs/releases)
 
 ## A family of crates
@@ -34,6 +36,7 @@ usage and examples.
 | The OS version at runtime | [windows-version](crates/windows-version.md) |
 | To link C-style functions without import libs (`link!`, `raw-dylib`) | [windows-link](crates/windows-link.md) |
 | To generate your own focused bindings | [windows-bindgen](crates/windows-bindgen.md) |
+| Direct C# metadata projection (experimental) | [windows-csharp](crates/windows-csharp.md) |
 | A declarative WinUI 3 UI, 2D graphics, a WebView, or a window | [windows-reactor](crates/windows-reactor.md), [windows-canvas](crates/windows-canvas.md), [windows-webview](crates/windows-webview.md), [windows-window](crates/windows-window.md) |
 
 ## Crates
@@ -103,13 +106,14 @@ above); Rust requires their proc macros to live in a dedicated `proc-macro` crat
 | [windows-webview](crates/windows-webview.md) | Safe wrapper around the WebView2 browser control. |
 | [windows-window](crates/windows-window.md) | Minimal window creation and message loop. |
 | [windows-animation](crates/windows-animation.md) | Wrapper around the Windows Animation Manager. |
-| [windows-reactor-setup](crates/windows-reactor-setup.md) | Windows App Runtime installer for reactor apps. |
+| [windows-reactor-setup](crates/windows-reactor-setup.md) | Stages the Windows App Runtime. |
 
 ### Codegen & metadata tooling
 
 | Crate | Description |
 | --- | --- |
 | [windows-bindgen](crates/windows-bindgen.md) | Code generator for Windows metadata. |
+| [windows-csharp](crates/windows-csharp.md) | Experimental direct C# projection generator. |
 | [windows-clang](crates/windows-clang.md) | Generates RDL from C/C++ headers using libclang. |
 | [windows-metadata](crates/windows-metadata.md) | Low-level ECMA-335 metadata library. |
 | [windows-rdl](crates/windows-rdl.md) | RDL parser and ECMA-335 generator. |

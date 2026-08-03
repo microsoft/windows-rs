@@ -1,0 +1,32 @@
+//! --filter Sample
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    delegate fn Compute(x: i32, y: i32) -> i32;
+    delegate fn Classify(value: Shade) -> Shade;
+    delegate fn Transform(p: Coord) -> Coord;
+
+    #[Activatable(1)]
+    class Engine {
+        IEngine,
+    }
+
+    #[ExclusiveTo(Engine)]
+    interface IEngine {
+        fn Run(&self, c: Compute) -> i32;
+        event Computed: Compute;
+    }
+
+    #[repr(i32)]
+    enum Shade {
+        Red = 0,
+        Green = 1,
+        Blue = 2,
+    }
+
+    struct Coord {
+        X: f32,
+        Y: f32,
+    }
+}

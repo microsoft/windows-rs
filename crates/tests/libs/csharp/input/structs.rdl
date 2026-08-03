@@ -1,0 +1,41 @@
+//! --filter Sample
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    #[Activatable(1)]
+    class Shape {
+        IShape,
+    }
+
+    #[ExclusiveTo(Shape)]
+    interface IShape {
+        Bounds: Rect;
+        Caption: Description;
+        fn Move(&self, delta: Point) -> Rect;
+        fn InspectDescription(&self, value: Description) -> bool;
+        fn CurrentDescription(&self) -> Description;
+        fn FailingDescription(&self) -> Description;
+    }
+
+    struct Point {
+        X: f32,
+        Y: f32,
+    }
+
+    struct Rect {
+        Origin: Point,
+        Width: f32,
+        Height: f32,
+    }
+
+    struct Text {
+        Value: String,
+    }
+
+    struct Description {
+        Title: String,
+        Detail: Text,
+        Visible: bool,
+    }
+}

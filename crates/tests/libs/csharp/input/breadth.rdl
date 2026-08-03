@@ -1,0 +1,34 @@
+//! --filter Breadth
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Breadth {
+    delegate fn Handler(sender: Object, value: i32);
+
+    #[Activatable(1)]
+    class Store {
+        IStore,
+    }
+
+    #[Activatable(1)]
+    class Item {
+        IItem,
+    }
+
+    #[ExclusiveTo(Item)]
+    interface IItem {
+        Value: i32;
+    }
+
+    #[ExclusiveTo(Store)]
+    interface IStore {
+        ObjectProperty: Object;
+        ReferenceProperty: Windows::Foundation::IReference<i32>;
+        fn EchoReference(&self, value: Windows::Foundation::IReference<i32>) -> Windows::Foundation::IReference<i32>;
+        fn Operation(&self) -> Windows::Foundation::IAsyncOperation<i32>;
+        fn StringOperation(&self) -> Windows::Foundation::IAsyncOperation<String>;
+        fn ItemOperation(&self) -> Windows::Foundation::IAsyncOperation<Item>;
+        fn Map(&self) -> Windows::Foundation::Collections::IMap<String, i32>;
+        event Changed: Handler;
+    }
+}

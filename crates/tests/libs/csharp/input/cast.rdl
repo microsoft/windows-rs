@@ -1,0 +1,22 @@
+//! --filter Sample
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    #[Activatable(1)]
+    class Gadget {
+        IGadget,
+        IExtra,
+    }
+
+    #[ExclusiveTo(Gadget)]
+    interface IGadget {
+        Value: i32;
+    }
+
+    #[ExclusiveTo(Gadget)]
+    interface IExtra {
+        fn Extra(&self) -> i32;
+        Label: String;
+    }
+}
