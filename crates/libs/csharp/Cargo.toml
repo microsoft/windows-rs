@@ -2,7 +2,7 @@
 name = "windows-csharp"
 version = "0.0.0"
 edition = "2024"
-rust-version = "1.85"
+rust-version = "1.95"
 license = "MIT OR Apache-2.0"
 description = "Code generator for an efficient C# projection of Windows metadata"
 repository = "https://github.com/microsoft/windows-rs"
