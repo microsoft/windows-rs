@@ -1,8 +1,8 @@
-//! --filter Test --sys --flat
+//! --filter Test --sys --extern --flat
 #[win32]
 mod Test {
     #[library("test.dll")]
-    extern "system" fn VariadicFunc(count: u32, ...) -> u32;
+    extern "system" fn VariadicSystem(count: u32, ...) -> u32;
 
     #[library("test.dll")]
     extern "C" fn VariadicC(count: u32, ...) -> u32;

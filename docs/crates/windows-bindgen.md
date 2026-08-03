@@ -110,6 +110,24 @@ Style:
 WinRT event accessors are always collapsed into an `Event` wrapper. This applies to all styles and
 layouts. See [Event accessors](#event-accessors).
 
+### Variadic native functions
+
+Native variadic exports carry `MethodCallAttributes::VARARG` in the method signature. Only
+`--sys` emits them, because sys output can retain the literal `...` tail in a raw foreign
+declaration. Both `link!` output and `--sys --extern` preserve metadata `C` and `system` calling
+conventions. Rust lowers a Windows `system` C-variadic declaration to the compatible C variadic ABI
+on X86 while retaining `system` for fixed signatures.
+
+Default and minimal output cannot forward an unknown variadic tail through a Rust wrapper. Broad
+filters omit those exports. Selecting one by exact function name reports that rich and minimal
+bindings cannot project it and directs the caller to `--sys`; it never emits the fixed prefix as a
+callable function. Stable Rust cannot declare a `fastcall` C-variadic function, so broad sys
+generation omits that metadata shape and exact selection reports the unsupported convention.
+
+The published `windows-sys` crate therefore retains raw declarations such as
+`AuthzReportSecurityEvent(...)`, while the `windows` crate omits the 31 Win32 and WDK variadic
+exports that previously appeared as unsafe fixed-prefix wrappers.
+
 Layout:
 
 - The default layout emits one Rust module per metadata namespace.
@@ -353,7 +371,43 @@ See [`windows-rdl`](windows-rdl.md) for RDL input. Test coverage lives in
 `crates/tests/libs/clang/input/bitfields.h` and
 `crates/tests/libs/bindgen/input/struct_bitfield.rdl`.
 
+### Counted-buffer metadata
+
+`NativeArrayInfoAttribute` and `MemorySizeAttribute` can replace a raw pointer/count pair with a
+slice parameter in rich output. The decoder keeps this as Rust projection policy rather than a
+shared metadata rule: windows-csharp has different span eligibility and already validates its own
+relationships.
+
+Before `CppMethod` indexes a related parameter, it checks the named property and integer type,
+rejects negative, out-of-range, and self-relative indexes, and verifies that the count is one
+input scalar used by one buffer. Byte counts still require byte-sized elements. A fixed
+`CountConst` must be nonnegative and fit the maximum Rust object size on 32-bit Windows. If any
+check fails, generation keeps the pointer and count parameters exactly as the ABI declares them and
+adds no slice or array sugar.
+
+### Parameter direction and retval policy
+
+`windows-metadata::reader::MethodParam` supplies the raw direction, optional, reserved, and retval
+facts. Bindgen's local `Param::is_input_only` then applies Rust policy: `Input` and `Unspecified`
+are input-only, while `Output` and `InputOutput` take the output-capable branch. This is why an
+In+Out pointer remains `*mut T` and an eligible counted buffer becomes `&mut [T]`; treating the
+presence of `In` as input-only would incorrectly make writable storage const.
+
+Bindgen also keeps its optional-or-reserved `Option` shaping local. Metadata does not combine those
+facts, and windows-csharp does not use the same public-surface rule.
+
+A trailing parameter becomes a projected return only when it is an output-only, required,
+non-reserved, uncounted pointer. An explicit `RetValAttribute` bypasses the heuristic requirements
+that every preceding parameter be input-only, that the pointee is not void, and that it fit the
+existing 128-bit size limit; it does not bypass the other candidate checks. Without that attribute,
+any preceding `Output` or `InputOutput` parameter keeps the trailing pointer in the parameter list.
+
 ### Testing
 
 Dedicated test crates cover the generator and related metadata tools: `test_bindgen`, `test_rdl`,
-and `test_clang`.
+and `test_clang`. `variadic_fn*` covers rich, minimal, sys-link, sys-extern, `C`, `system`, and
+unsupported `fastcall` output. `buffer_relationships` covers valid, negative, out-of-range,
+self-relative, byte-counted, and fixed-count metadata. The existing `interface_out_array` golden
+pins valid counted-buffer output. `method_params` pins In+Out mutable projection, and
+`method_return` covers explicit and heuristic retval selection with In+Out, optional, reserved, and
+counted exclusions plus explicit void-pointer and large-pointee returns.

@@ -17,18 +17,18 @@ impl Signature {
     pub fn is_retval(&self, reader: &Reader) -> bool {
         // First we check whether there's an explicit retval parameter.
         if let Some(param) = self.params.last()
-            && param.def.has_attribute("RetValAttribute")
+            && param.is_retval_attribute()
         {
-            return true;
+            return param.is_explicit_retval_candidate(reader);
         }
 
-        // Otherwise we check for heuristically for additional candidates.
+        // Otherwise we check heuristically for additional candidates.
         if let Some(param) = self.params.last()
-            && param.is_retval(reader)
+            && param.is_heuristic_retval_candidate(reader)
         {
             return self.params[..self.params.len() - 1]
                 .iter()
-                .all(|param| param.is_input());
+                .all(Param::is_input_only);
         }
 
         false

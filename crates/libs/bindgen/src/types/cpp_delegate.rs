@@ -91,7 +91,7 @@ fn write_param(config: &Config, param: &Param) -> TokenStream {
         return quote! { #name: #type_name, };
     }
 
-    if param.is_input() {
+    if param.is_input_only() {
         if param.is_copyable(config.reader) {
             return quote! { #name: #type_name, };
         } else {

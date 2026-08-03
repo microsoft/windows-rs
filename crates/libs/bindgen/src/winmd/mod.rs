@@ -21,7 +21,7 @@ pub type File = windows_metadata::reader::File;
 
 pub use windows_metadata::HasAttributes;
 pub use windows_metadata::reader::AsRow;
-pub use windows_metadata::{FieldAttributes, MethodAttributes, ParamAttributes, TypeAttributes};
+pub use windows_metadata::{FieldAttributes, MethodAttributes, TypeAttributes};
 
 pub use windows_metadata::MethodCallAttributes;
 

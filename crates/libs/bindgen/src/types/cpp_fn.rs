@@ -42,9 +42,7 @@ impl CppFn {
 
         let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
 
-        let vararg = if config.bindgen.style.is_sys()
-            && signature.call_flags.contains(MethodCallAttributes::VARARG)
-        {
+        let vararg = if signature.call_flags.contains(MethodCallAttributes::VARARG) {
             quote! { , ... }
         } else {
             quote! {}
@@ -56,19 +54,48 @@ impl CppFn {
     }
 
     fn abi(&self, config: &Config<'_>) -> &'static str {
-        // A variadic function is always `__cdecl` on Windows regardless of the
-        // stated convention, and rustc rejects `extern "system"` C-variadics on
-        // non-MSVC targets, so force `"C"` whenever the signature is VARARG.
-        if self
+        self.variadic_abi(config)
+            .unwrap_or_else(|| self.method.calling_convention())
+    }
+
+    fn variadic_abi(&self, config: &Config<'_>) -> Option<&'static str> {
+        if !self
             .method
             .method_signature(&[], config.reader)
             .call_flags
             .contains(MethodCallAttributes::VARARG)
         {
-            "C"
-        } else {
-            self.method.calling_convention()
+            return None;
         }
+
+        let flags = self.method.impl_map()?.flags();
+        if flags.contains(windows_metadata::PInvokeAttributes::CallConvFastcall) {
+            None
+        } else if flags.contains(windows_metadata::PInvokeAttributes::CallConvCdecl) {
+            Some("C")
+        } else if flags.contains(windows_metadata::PInvokeAttributes::CallConvPlatformapi) {
+            Some("system")
+        } else {
+            None
+        }
+    }
+
+    fn directly_selected(&self, config: &Config<'_>) -> bool {
+        config
+            .filter
+            .direct_types
+            .iter()
+            .any(|(namespace, name)| namespace == self.namespace && name == self.method.name())
+    }
+
+    fn reject_variadic(&self, config: &Config<'_>, reason: &str) -> TokenStream {
+        assert!(
+            !self.directly_selected(config),
+            "windows-bindgen: selected variadic function `{}.{}` {reason}",
+            self.namespace,
+            self.method.name()
+        );
+        quote! {}
     }
 
     pub fn write_fn_ptr(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
@@ -124,6 +151,21 @@ impl CppFn {
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.method_signature(&[], config.reader);
+        let variadic = signature.call_flags.contains(MethodCallAttributes::VARARG);
+
+        if variadic && !config.bindgen.style.is_sys() {
+            return self.reject_variadic(
+                config,
+                "cannot be projected by rich or minimal bindings; use `--sys` for its raw \
+                 declaration",
+            );
+        }
+        if variadic && self.variadic_abi(config).is_none() {
+            return self.reject_variadic(
+                config,
+                "uses a calling convention that stable Rust cannot represent for C variadics",
+            );
+        }
 
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);

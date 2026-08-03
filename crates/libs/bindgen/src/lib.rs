@@ -147,7 +147,7 @@ impl Style {
 
     /// Minimal bindings expose input strings as `&str`.
     fn minimal_string_input(self, param: &Param) -> bool {
-        self.is_minimal() && param.is_input() && matches!(param.ty, Type::String)
+        self.is_minimal() && param.is_input_only() && matches!(param.ty, Type::String)
     }
 
     /// Minimal bindings return strings as `String`.

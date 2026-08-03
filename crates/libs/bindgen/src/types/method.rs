@@ -155,7 +155,7 @@ impl Method {
                 let abi_size_name: TokenStream =
                     format!("{}_array_size", param.write_ident()).parse().unwrap();
 
-                if param.is_input() {
+                if param.is_input_only() {
                     if param.is_winrt_array() {
                         quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
                     } else if param.is_primitive(reader) {
@@ -237,7 +237,7 @@ impl Method {
             .map(|p| {
                 let default_type = p.write_default(config);
 
-                let sig = if p.is_input() {
+                let sig = if p.is_input_only() {
                     if p.is_winrt_array() {
                         quote! { &[#default_type] }
                     } else if p.is_primitive(config.reader) {
@@ -261,7 +261,7 @@ impl Method {
                 };
 
                 if named_params {
-                    let name = to_ident(p.def.name());
+                    let name = to_ident(p.name());
                     quote! { #name: #sig }
                 } else {
                     sig
@@ -276,7 +276,7 @@ impl Method {
             let abi = param.write_abi(config);
             let abi_size_name: TokenStream = format!("{name}_array_size").parse().unwrap();
 
-            if param.is_input() {
+            if param.is_input_only() {
                 if param.is_winrt_array() {
                     if named_params {
                         quote! { #abi_size_name: u32, #name: *const #abi }
@@ -376,7 +376,7 @@ impl Method {
         let typed_args: Vec<TokenStream> = params.iter().map(|param|{
             let name = param.write_ident();
 
-            if param.is_input() {
+            if param.is_input_only() {
                 if param.is_winrt_array() {
                     if param.is_copyable(config.reader) {
                         quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
@@ -554,7 +554,7 @@ impl Method {
                 let kind = param.write_name(config);
                 let default_type = param.write_default(config);
 
-                if param.is_input() {
+                if param.is_input_only() {
                     if param.is_winrt_array() {
                         quote! { #name: &[#default_type], }
                     } else if is_ireference_string(param) {

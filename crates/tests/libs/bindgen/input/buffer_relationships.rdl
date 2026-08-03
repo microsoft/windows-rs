@@ -1,0 +1,53 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    interface Interface {
+        fn ValidElements(&self, count: u32, #[len_param(0)] values: *const u32);
+        fn NegativeElements(&self, count: u32, #[len_param(-1)] values: *const u32);
+        fn OutOfRangeElements(&self, count: u32, #[len_param(2)] values: *const u32);
+        fn SelfElements(&self, #[len_param(0)] values: *const u32);
+        fn SharedCount(
+            &self,
+            count: u32,
+            #[len_param(0)] left: *const u32,
+            #[len_param(0)] right: *const u32,
+        );
+
+        fn ValidBytes(&self, count: u32, #[size_param(0)] values: *const u8);
+        fn NegativeBytes(&self, count: u32, #[size_param(-1)] values: *const u8);
+        fn OutOfRangeBytes(&self, count: u32, #[size_param(2)] values: *const u8);
+        fn SelfBytes(&self, #[size_param(0)] values: *const u8);
+
+        fn ValidConstant(&self, #[len_const(4)] values: *const u32);
+        fn NegativeConstant(&self, #[len_const(-1)] values: *const u32);
+        fn OutOfRangeConstant(
+            &self,
+            #[len_const(2147483647)] values: *const u32,
+        );
+    }
+
+    #[library("test.dll")]
+    extern fn ValidFunction(count: u32, #[len_param(0)] values: *const u32);
+
+    #[library("test.dll")]
+    extern fn InvalidFunction(count: u32, #[len_param(2)] values: *const u32);
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute NativeArrayInfoAttribute {
+                fn();
+                CountParamIndex: i16,
+                CountConst: i32,
+                CountFieldName: String,
+            }
+
+            attribute MemorySizeAttribute {
+                fn();
+                BytesParamIndex: i16,
+            }
+        }
+    }
+}
