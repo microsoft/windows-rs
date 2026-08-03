@@ -7,7 +7,7 @@ use windows_metadata as metadata;
 use proc_macro2::{Literal, Span, TokenStream};
 use quote::quote;
 
-use windows_rdl::emit::{uuid_to_u128_literal, write_ident, write_type, write_typed_value};
+use windows_rdl::emit::{uuid_to_u128_literal, write_ident, write_typed_value};
 use windows_rdl::{Error, expand_input_paths, formatter, implib, write_to_file};
 
 mod cx;
@@ -48,6 +48,10 @@ mod naming;
 use naming::*;
 mod macros;
 use macros::*;
+
+fn write_type(namespace: &str, ty: &metadata::Type) -> TokenStream {
+    windows_rdl::emit::write_type(namespace, &normalize_rdl_type(ty))
+}
 
 /// Creates a libclang-backed RDL generator.
 pub fn clang() -> Clang {

@@ -15,11 +15,11 @@ mod Test {
     #[library("kernel32.dll")]
     extern "C" fn GetName(#[len_param(1)] #[opt] buffer: *mut u16, size: u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn GetPath(#[len_param(1)] buffer: *mut u16, #[r#in] #[out] len: *mut u32) -> i32;
+    extern "C" fn GetPath(#[len_param(1)] buffer: *mut u16, #[in] #[out] len: *mut u32) -> i32;
     #[library("kernel32.dll")]
     extern "C" fn GetValue(result: *mut u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn GrowBuffer(#[len_param(1)] #[r#in] #[out] buffer: *mut u32, count: u32) -> i32;
+    extern "C" fn GrowBuffer(#[len_param(1)] #[in] #[out] buffer: *mut u32, count: u32) -> i32;
     type HANDLE = *mut void;
     type LPCSTR = *const i8;
     #[library("kernel32.dll")]
@@ -35,13 +35,13 @@ mod Test {
     #[library("kernel32.dll")]
     extern "C" fn TryGetValue(#[opt] result: *mut u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn UpdateBuffer(#[len_param(1)] #[r#in] #[out] buffer: *mut u32, count: u32) -> i32;
+    extern "C" fn UpdateBuffer(#[len_param(1)] #[in] #[out] buffer: *mut u32, count: u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn UpdateOptional(#[r#in] #[out] #[opt] value: *mut u32) -> i32;
+    extern "C" fn UpdateOptional(#[in] #[out] #[opt] value: *mut u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn UpdateString(#[len_param(1)] #[r#in] #[out] buffer: *mut u16, count: u32) -> i32;
+    extern "C" fn UpdateString(#[len_param(1)] #[in] #[out] buffer: *mut u16, count: u32) -> i32;
     #[library("kernel32.dll")]
-    extern "C" fn UpdateValue(#[r#in] #[out] value: *mut u32) -> i32;
+    extern "C" fn UpdateValue(#[in] #[out] value: *mut u32) -> i32;
     #[library("kernel32.dll")]
     extern "C" fn WriteBuffer(#[len_param(1)] buffer: *mut void, size: u32) -> i32;
     #[library("kernel32.dll")]

@@ -3,7 +3,7 @@ mod Test {
     #[library("kernel32.dll")]
     extern "C" fn GetName() -> *const u16;
     #[library("kernel32.dll")]
-    extern "C" fn GetNames(count: *mut u32) -> *mut *const u16;
+    extern "C" fn GetNames(count: *mut u32) -> *const *const u16;
     struct StringView {
         data: *const u16,
         length: u32,

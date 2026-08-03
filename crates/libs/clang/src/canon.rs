@@ -472,6 +472,57 @@ fn normalize_pointer_const_chain(ty: metadata::Type) -> metadata::Type {
     }
 }
 
+/// Makes every pointer run representable in RDL by applying its innermost qualifier to the run.
+///
+/// Non-parameter C types retain pointee constness when per-level qualifiers cannot all be stored.
+/// Parameter types are already uniform here because SAL direction is applied before emission.
+pub(crate) fn normalize_rdl_type(ty: &metadata::Type) -> metadata::Type {
+    fn pointer_run(inner: &metadata::Type, depth: usize, is_const: bool) -> metadata::Type {
+        match inner {
+            metadata::Type::PtrMut(deeper, pointers) => {
+                pointer_run(deeper, depth + pointers, false)
+            }
+            metadata::Type::PtrConst(deeper, pointers) => {
+                pointer_run(deeper, depth + pointers, true)
+            }
+            leaf => {
+                let leaf = normalize_rdl_type(leaf);
+                if is_const {
+                    metadata::Type::PtrConst(Box::new(leaf), depth)
+                } else {
+                    metadata::Type::PtrMut(Box::new(leaf), depth)
+                }
+            }
+        }
+    }
+
+    match ty {
+        metadata::Type::Array(inner) => metadata::Type::Array(Box::new(normalize_rdl_type(inner))),
+        metadata::Type::ArrayFixed(inner, len) => {
+            metadata::Type::ArrayFixed(Box::new(normalize_rdl_type(inner)), *len)
+        }
+        metadata::Type::RefMut(inner) => {
+            metadata::Type::RefMut(Box::new(normalize_rdl_type(inner)))
+        }
+        metadata::Type::RefConst(inner) => {
+            metadata::Type::RefConst(Box::new(normalize_rdl_type(inner)))
+        }
+        metadata::Type::PtrMut(inner, pointers) => pointer_run(inner, *pointers, false),
+        metadata::Type::PtrConst(inner, pointers) => pointer_run(inner, *pointers, true),
+        metadata::Type::ClassName(type_name) => {
+            let mut type_name = type_name.clone();
+            type_name.generics = type_name.generics.iter().map(normalize_rdl_type).collect();
+            metadata::Type::ClassName(type_name)
+        }
+        metadata::Type::ValueName(type_name) => {
+            let mut type_name = type_name.clone();
+            type_name.generics = type_name.generics.iter().map(normalize_rdl_type).collect();
+            metadata::Type::ValueName(type_name)
+        }
+        other => other.clone(),
+    }
+}
+
 /// Collapse an `LP*`/`P*` pointer typedef parameter (`LPDWORD`, `PHKEY`, ...) to the raw pointer it
 /// spells, so the pointer level - and its SAL-driven const-ness - is expressed structurally rather
 /// than hidden in an opaque alias bindgen cannot const-qualify. The named pointee and its C

@@ -7,7 +7,7 @@ mod Test {
     #[library("")]
     extern fn ReadOptionalLegacy(#[opt] value: *const u32);
     #[library("")]
-    extern fn UpdateLegacy(#[r#in] #[out] value: *mut u32);
+    extern fn UpdateLegacy(#[in] #[out] value: *mut u32);
     #[library("")]
     extern fn WriteLegacy(value: *mut u32);
 }
