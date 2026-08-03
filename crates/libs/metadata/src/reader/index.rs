@@ -6,6 +6,7 @@ pub struct Index {
     types: HashMap<String, HashMap<String, Vec<(usize, usize)>>>,
     items: HashMap<String, HashMap<String, Vec<RawItem>>>,
     nested: HashMap<(usize, usize), Vec<usize>>,
+    architecture: i32,
 }
 
 #[derive(Copy, Clone)]
@@ -33,6 +34,13 @@ impl Index {
     /// Builds an `Index` over the given metadata files.
     #[must_use]
     pub fn new(files: Vec<File>) -> Self {
+        Self::new_for_architecture(files, 0)
+    }
+
+    /// Builds an `Index` filtered to one architecture bit (1=X86, 2=X64, 4=Arm64). A zero bit
+    /// preserves all architecture-specific rows.
+    #[must_use]
+    pub fn new_for_architecture(files: Vec<File>, architecture: i32) -> Self {
         // Build types first so `Apis` detection can inspect synthesized `TypeDef` values.
         let mut types: HashMap<String, HashMap<String, Vec<(usize, usize)>>> = HashMap::new();
         let mut nested: HashMap<(usize, usize), Vec<usize>> = HashMap::new();
@@ -67,6 +75,7 @@ impl Index {
             types,
             items: HashMap::new(),
             nested,
+            architecture,
         };
 
         // Expand Win32 `Apis` into function/constant items.
@@ -78,7 +87,10 @@ impl Index {
                 && name == "Apis";
 
             if apis {
-                for method in ty.methods() {
+                for method in ty
+                    .methods()
+                    .filter(|method| index.supports_architecture(*method))
+                {
                     items
                         .entry(namespace.to_string())
                         .or_default()
@@ -86,7 +98,10 @@ impl Index {
                         .or_default()
                         .push(RawItem::Fn(ty.0.file, method.0.pos));
                 }
-                for field in ty.fields() {
+                for field in ty
+                    .fields()
+                    .filter(|field| index.supports_architecture(*field))
+                {
                     items
                         .entry(namespace.to_string())
                         .or_default()
@@ -137,6 +152,7 @@ impl Index {
             .map(|(namespace, name, (file, pos))| {
                 (namespace, name, TypeDef(Row::new(self, *file, *pos)))
             })
+            .filter(|(_, _, def)| self.supports_architecture(*def))
     }
 
     /// Iterates every `TypeDef` in the index.
@@ -146,6 +162,7 @@ impl Index {
             .flat_map(|types| types.values())
             .flatten()
             .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
+            .filter(|def| self.supports_architecture(*def))
     }
 
     /// Iterates the `TypeDef`s matching `(namespace, name)`.
@@ -156,19 +173,22 @@ impl Index {
             .into_iter()
             .flatten()
             .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
+            .filter(|def| self.supports_architecture(*def))
     }
 
     /// Returns whether any type lives in `namespace`.
     pub fn contains_namespace(&self, namespace: &str) -> bool {
-        self.types.contains_key(namespace)
+        self.types.get(namespace).is_some_and(|types| {
+            types
+                .values()
+                .flatten()
+                .any(|(file, pos)| self.supports_architecture(TypeDef(Row::new(self, *file, *pos))))
+        })
     }
 
     /// Returns whether the `(namespace, name)` type exists.
     pub fn contains(&self, namespace: &str, name: &str) -> bool {
-        self.types
-            .get(namespace)
-            .and_then(|types| types.get(name))
-            .is_some()
+        self.get(namespace, name).next().is_some()
     }
 
     /// Returns the assembly name of the first file in which `(namespace, name)` was defined.
@@ -176,7 +196,11 @@ impl Index {
         self.types
             .get(namespace)
             .and_then(|types| types.get(name))
-            .and_then(|types| types.first())
+            .and_then(|types| {
+                types.iter().find(|(file, pos)| {
+                    self.supports_architecture(TypeDef(Row::new(self, *file, *pos)))
+                })
+            })
             .map(|(file, _)| self.files(*file))
             .and_then(|file| file.assembly_name())
     }
@@ -212,6 +236,7 @@ impl Index {
                     pos,
                 })
             })
+            .filter(|def| self.supports_architecture(*def))
     }
 
     /// Depth-first walk of every type nested directly or transitively inside `ty`.
@@ -226,6 +251,11 @@ impl Index {
             out.push(inner);
             self.collect_nested(inner, out);
         }
+    }
+
+    fn supports_architecture<'a, R: HasAttributes<'a>>(&self, row: R) -> bool {
+        let arches = row.arches();
+        self.architecture == 0 || arches == 0 || arches & self.architecture != 0
     }
 
     /// Iterates every namespace that contains at least one item.

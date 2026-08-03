@@ -36,3 +36,14 @@ assert_eq!(fields[1].name(), "Y");
 assert_eq!(fields[0].ty(), Type::F32);
 assert_eq!(fields[1].ty(), Type::F32);
 ```
+
+ECMA-335 associates a method's `Param` rows with signature positions through the one-based
+`Param.Sequence` column. Use `MethodDef::params_by_sequence(signature.types.len())` for semantic
+association. The result keeps a separate Sequence 0 return row and one `Option<MethodParam>` per
+signature parameter, so absent and sparse rows do not truncate the signature. Duplicate or
+out-of-range sequences are reported as errors. `MethodDef::params()` remains physical table-order
+iteration for lossless metadata copying.
+
+`MethodParam::direction()` reports the literal `In`/`Out` combination as `ParamDirection`,
+including `Unspecified`. `is_optional`, `is_reserved`, and `is_retval_attribute` expose separate
+facts. They do not infer direction from the type or treat a reserved parameter as optional.
