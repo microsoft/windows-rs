@@ -167,9 +167,7 @@ fn async_operation_round_trip_with(name: &str, synchronized: bool) {
     std::fs::write(project.join("project.csproj"), EXE_CSPROJ).unwrap();
     std::fs::write(project.join("Program.cs"), ASYNC_PROGRAM).unwrap();
 
-    let output = std::process::Command::new("dotnet.exe")
-        .arg("run")
-        .args(["--project", project.to_str().unwrap()])
+    let output = dotnet_run(&project)
         .output()
         .expect("failed to run synthetic async operation");
 
@@ -227,9 +225,7 @@ fn delegate_marshalling_round_trip_with(name: &str, synchronized: bool) {
     std::fs::write(project.join("project.csproj"), EXE_CSPROJ).unwrap();
     std::fs::write(project.join("Program.cs"), DELEGATE_MARSHALLING_PROGRAM).unwrap();
 
-    let output = std::process::Command::new("dotnet.exe")
-        .arg("run")
-        .args(["--project", project.to_str().unwrap()])
+    let output = dotnet_run(&project)
         .output()
         .expect("failed to run synthetic delegate marshalling");
 
@@ -686,9 +682,7 @@ internal static unsafe class Program
     )
     .unwrap();
 
-    let output = std::process::Command::new("dotnet.exe")
-        .arg("run")
-        .args(["--project", project.to_str().unwrap()])
+    let output = dotnet_run(&project)
         .output()
         .expect("failed to run array projection");
     assert!(
@@ -890,9 +884,7 @@ internal static unsafe class Program
     )
     .unwrap();
 
-    let output = std::process::Command::new("dotnet.exe")
-        .arg("run")
-        .args(["--project", project.to_str().unwrap()])
+    let output = dotnet_run(&project)
         .output()
         .expect("failed to run string struct projection");
     assert!(
@@ -1086,7 +1078,6 @@ fn win32_round_trip() {
         "public Win32Test.Variant.Variant_1 data;",
         "public struct Variant_1",
         "public struct ArchValue",
-        "public ulong value;",
         // `HWND` crosses `LibraryImport` directly by value (no ABI decomposition), matching a
         // blittable struct; the returned handle from one real user32 export feeds directly into
         // the `HWND` parameter of another, and the out-`Rect` sugar applies exactly as it does for
@@ -1161,6 +1152,15 @@ fn win32_round_trip() {
             "missing Win32 stream projection `{expected}`"
         );
     }
+    let arch_value = if cfg!(target_pointer_width = "32") {
+        "public uint value;"
+    } else {
+        "public ulong value;"
+    };
+    assert!(
+        source.contains(arch_value),
+        "missing Win32 stream projection `{arch_value}`"
+    );
     std::fs::write(project.join("project.csproj"), EXE_CSPROJ).unwrap();
     std::fs::write(
         project.join("Program.cs"),
@@ -1673,9 +1673,7 @@ internal sealed unsafe partial class ManagedStream : IStreamAbi
     )
     .unwrap();
 
-    let output = std::process::Command::new("dotnet.exe")
-        .arg("run")
-        .args(["--project", project.to_str().unwrap()])
+    let output = dotnet_run(&project)
         .output()
         .expect("failed to run Win32 projection");
     assert!(
@@ -1727,10 +1725,7 @@ fn round_trip() {
     // inherited `PATH`, and a stale `Bench.dll` left in `target/debug` by an earlier run would
     // otherwise win the bare-name lookup -- loading an old component whose signature-derived
     // interface IIDs no longer match the regenerated projection (a QI then fails with E_NOINTERFACE).
-    let mut command = std::process::Command::new("dotnet.exe");
-    command
-        .arg("run")
-        .args(["--project", project.to_str().unwrap()]);
+    let mut command = dotnet_run(&project);
     if let Some(dir) = &staged {
         command.current_dir(dir);
     }
@@ -1761,6 +1756,16 @@ fn stage_component() -> Option<PathBuf> {
     let dir = exe.parent()?;
     std::fs::copy(dir.join("bench_component.dll"), dir.join("Bench.dll")).ok()?;
     Some(dir.to_path_buf())
+}
+
+fn dotnet_run(project: &Path) -> std::process::Command {
+    let mut command = std::process::Command::new("dotnet.exe");
+    command
+        .arg("run")
+        .args(["--project", project.to_str().unwrap()]);
+    #[cfg(target_arch = "x86")]
+    command.args(["--runtime", "win-x86", "/p:PlatformTarget=x86"]);
+    command
 }
 
 /// Returns whether `dotnet` is available, so the `dotnet`-backed tests can skip where it is absent.
