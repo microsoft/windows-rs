@@ -59,16 +59,16 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: ${{ matrix.target }}
-      - name: Install .NET 9 x86 runtime
-        # The windows-2025-vs2026 image ships .NET 9 only for x64/arm64; the
-        # i686 csharp_client test launches a win-x86 process that needs the
-        # x86 .NET 9 runtime.
+      - name: Install .NET x86 runtimes
+        # The windows-2025-vs2026 image ships .NET only for x64/arm64. The
+        # i686 C# tests launch win-x86 processes targeting .NET 9 and .NET 10.
         if: matrix.target == 'i686-pc-windows-msvc'
         shell: pwsh
         run: |
           $script = Join-Path $env:RUNNER_TEMP 'dotnet-install.ps1'
           Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile $script
           & $script -Channel 9.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
+          & $script -Channel 10.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
       - uses: Swatinem/rust-cache@v2
         with:
           key: ${{ matrix.target }}
