@@ -4468,22 +4468,6 @@ pub unsafe fn mouse_event(dwflags: u32, dx: u32, dy: u32, dwdata: u32, dwextrain
     windows_core::link!("user32.dll" "system" fn mouse_event(dwflags : u32, dx : u32, dy : u32, dwdata : u32, dwextrainfo : usize));
     unsafe { mouse_event(dwflags, dx, dy, dwdata, dwextrainfo) }
 }
-#[inline]
-pub unsafe fn wsprintfA<P1>(param0: windows_core::PSTR, param1: P1) -> i32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("user32.dll" "C" fn wsprintfA(param0 : windows_core::PSTR, param1 : windows_core::PCSTR) -> i32);
-    unsafe { wsprintfA(param0, param1.param().abi()) }
-}
-#[inline]
-pub unsafe fn wsprintfW<P1>(param0: windows_core::PWSTR, param1: P1) -> i32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("user32.dll" "C" fn wsprintfW(param0 : windows_core::PWSTR, param1 : windows_core::PCWSTR) -> i32);
-    unsafe { wsprintfW(param0, param1.param().abi()) }
-}
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn wvsprintfA<P1>(param0: windows_core::PSTR, param1: P1, arglist: *const i8) -> i32

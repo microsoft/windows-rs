@@ -472,26 +472,6 @@ where
     windows_core::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : super::HWND, lpoperation : windows_core::PCWSTR, lpfile : windows_core::PCWSTR, lpparameters : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, nshowcmd : i32) -> super::HINSTANCE);
     unsafe { ShellExecuteW(hwnd.unwrap_or(core::mem::zeroed()) as _, lpoperation.param().abi(), lpfile.param().abi(), lpparameters.param().abi(), lpdirectory.param().abi(), nshowcmd) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[inline]
-pub unsafe fn ShellMessageBoxA<P2, P3>(happinst: Option<super::HINSTANCE>, hwnd: Option<super::HWND>, lpctext: P2, lpctitle: P3, fustyle: u32) -> i32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("shlwapi.dll" "C" fn ShellMessageBoxA(happinst : super::HINSTANCE, hwnd : super::HWND, lpctext : windows_core::PCSTR, lpctitle : windows_core::PCSTR, fustyle : u32) -> i32);
-    unsafe { ShellMessageBoxA(happinst.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, lpctext.param().abi(), lpctitle.param().abi(), fustyle) }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[inline]
-pub unsafe fn ShellMessageBoxW<P2, P3>(happinst: Option<super::HINSTANCE>, hwnd: Option<super::HWND>, lpctext: P2, lpctitle: P3, fustyle: u32) -> i32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("shlwapi.dll" "C" fn ShellMessageBoxW(happinst : super::HINSTANCE, hwnd : super::HWND, lpctext : windows_core::PCWSTR, lpctitle : windows_core::PCWSTR, fustyle : u32) -> i32);
-    unsafe { ShellMessageBoxW(happinst.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, lpctext.param().abi(), lpctitle.param().abi(), fustyle) }
-}
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn Shell_NotifyIconA(dwmessage: u32, lpdata: *const NOTIFYICONDATAA) -> windows_core::BOOL {

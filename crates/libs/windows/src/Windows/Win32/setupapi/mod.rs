@@ -2373,24 +2373,6 @@ where
 }
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupWriteTextLog<P3>(logtoken: super::SP_LOG_TOKEN, category: u32, flags: u32, messagestr: P3)
-where
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("setupapi.dll" "C" fn SetupWriteTextLog(logtoken : super::SP_LOG_TOKEN, category : u32, flags : u32, messagestr : windows_core::PCSTR));
-    unsafe { SetupWriteTextLog(logtoken, category, flags, messagestr.param().abi()) }
-}
-#[cfg(all(feature = "spapidef", feature = "winnt"))]
-#[inline]
-pub unsafe fn SetupWriteTextLogError<P4>(logtoken: super::SP_LOG_TOKEN, category: u32, logflags: u32, error: u32, messagestr: P4)
-where
-    P4: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("setupapi.dll" "C" fn SetupWriteTextLogError(logtoken : super::SP_LOG_TOKEN, category : u32, logflags : u32, error : u32, messagestr : windows_core::PCSTR));
-    unsafe { SetupWriteTextLogError(logtoken, category, logflags, error, messagestr.param().abi()) }
-}
-#[cfg(all(feature = "spapidef", feature = "winnt"))]
-#[inline]
 pub unsafe fn SetupWriteTextLogInfLine(logtoken: super::SP_LOG_TOKEN, flags: u32, infhandle: HINF, context: *const INFCONTEXT) {
     windows_core::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : super::SP_LOG_TOKEN, flags : u32, infhandle : HINF, context : *const INFCONTEXT));
     unsafe { SetupWriteTextLogInfLine(logtoken, flags, infhandle, context) }
