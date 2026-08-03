@@ -1307,12 +1307,11 @@ fn native_interface_chain<'a>(index: &'a Index, def: TypeDef<'a>) -> Vec<TypeDef
         if !seen.insert(identity) {
             return;
         }
-        if let Some(extends) = def.extends() {
-            if extends.name() != "IUnknown"
-                && let Some(base) = index.get(extends.namespace(), extends.name()).next()
-            {
-                visit(index, base, seen, chain);
-            }
+        if let Some(extends) = def.extends()
+            && extends.name() != "IUnknown"
+            && let Some(base) = index.get(extends.namespace(), extends.name()).next()
+        {
+            visit(index, base, seen, chain);
         }
         for imp in def.interface_impls() {
             let Type::ClassName(name) = imp.interface(&type_generics(def)) else {
@@ -2795,10 +2794,10 @@ fn member_signature_types_with<'a>(
             if let Some(method) = get_slot.and_then(&mut method_at) {
                 types.push(method.signature(&[]).return_type);
             }
-            if let Some(method) = put_slot.and_then(&mut method_at) {
-                if let Some(ty) = method.signature(&[]).types.into_iter().next() {
-                    types.push(ty);
-                }
+            if let Some(method) = put_slot.and_then(&mut method_at)
+                && let Some(ty) = method.signature(&[]).types.into_iter().next()
+            {
+                types.push(ty);
             }
             types
         }
@@ -3777,12 +3776,11 @@ fn interface_compatible_types(index: &Index, def: TypeDef) -> Vec<String> {
             return;
         }
         result.push(name);
-        if let Some(extends) = def.extends() {
-            if extends.name() != "IUnknown"
-                && let Some(base) = index.get(extends.namespace(), extends.name()).next()
-            {
-                visit(index, base, seen, result);
-            }
+        if let Some(extends) = def.extends()
+            && extends.name() != "IUnknown"
+            && let Some(base) = index.get(extends.namespace(), extends.name()).next()
+        {
+            visit(index, base, seen, result);
         }
         for imp in def.interface_impls() {
             let Type::ClassName(name) = imp.interface(&type_generics(def)) else {

@@ -178,7 +178,7 @@ pub fn merge_arch_rdl(
             .flatten()
         {
             let path = entry.path();
-            if !path.extension().is_some_and(|x| x == "rdl")
+            if path.extension().is_none_or(|x| x != "rdl")
                 || path.file_name().and_then(|n| n.to_str())
                     == seed.as_ref().map(|(name, _, _)| name.as_str())
             {

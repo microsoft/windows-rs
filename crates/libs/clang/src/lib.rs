@@ -163,13 +163,13 @@ impl<'a> Parser<'a> {
         // not scheduled here; a missing one fails later as an unresolved reference.
         if !self.symbols.is_empty() {
             match child.kind() {
-                CXCursor_FunctionDecl if !child.is_definition() => {
-                    if self.symbols.contains(&child.name())
-                        && !is_midl_proxy_stub(&child, self.libraries)
-                    {
-                        let item = Fn::parse(child, self, extern_c)?;
-                        self.insert_fn(item, collector);
-                    }
+                CXCursor_FunctionDecl
+                    if !child.is_definition()
+                        && self.symbols.contains(&child.name())
+                        && !is_midl_proxy_stub(&child, self.libraries) =>
+                {
+                    let item = Fn::parse(child, self, extern_c)?;
+                    self.insert_fn(item, collector);
                 }
                 CXCursor_LinkageSpec => {
                     for inner in child.children() {
@@ -315,13 +315,14 @@ impl<'a> Parser<'a> {
                     }
                 }
             }
-            CXCursor_FunctionDecl if !child.is_definition() => {
-                // Skip MIDL marshaling thunks: RPC internals, not public API.
-                if !is_midl_proxy_stub(&child, self.libraries) && !is_midl_user_marshal_stub(&child)
-                {
-                    let item = Fn::parse(child, self, extern_c)?;
-                    self.insert_fn(item, collector);
-                }
+            // Skip MIDL marshaling thunks: RPC internals, not public API.
+            CXCursor_FunctionDecl
+                if !child.is_definition()
+                    && !is_midl_proxy_stub(&child, self.libraries)
+                    && !is_midl_user_marshal_stub(&child) =>
+            {
+                let item = Fn::parse(child, self, extern_c)?;
+                self.insert_fn(item, collector);
             }
             // Linkage blocks may nest; recurse with the per-child language.
             CXCursor_LinkageSpec => {

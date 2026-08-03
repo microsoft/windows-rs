@@ -369,14 +369,14 @@ fn write_projection(
             first = false;
             write_inspectable(w);
         }
-        if namespace == "Windows.Foundation" {
-            if let Some(async_operation) = async_operation {
-                if !first {
-                    w.line("");
-                }
-                first = false;
-                write_async_operation(w, async_operation);
+        if namespace == "Windows.Foundation"
+            && let Some(async_operation) = async_operation
+        {
+            if !first {
+                w.line("");
             }
+            first = false;
+            write_async_operation(w, async_operation);
         }
 
         for e in enums.iter().filter(|e| e.namespace == namespace) {
@@ -657,10 +657,10 @@ fn write_apis(w: &mut Writer, functions: &[&Function], constants: &[&ApiConstant
                 w.line(&format!(
                     "return WindowsCsharp.Com.Wrap<{object}>({name})!;"
                 ));
-            } else if let Some(ret) = &function.ret {
-                if !function.hresult {
-                    w.line(&format!("return {};", ret.abi_to_surface("result")));
-                }
+            } else if let Some(ret) = &function.ret
+                && !function.hresult
+            {
+                w.line(&format!("return {};", ret.abi_to_surface("result")));
             }
             if owned_result {
                 w.close();
@@ -3941,13 +3941,11 @@ fn write_marshalled_call(
         .collect();
 
     for (i, pname) in &object_params {
-        if compatible {
-            if let Some(target) = compatible_object_name(&params[*i].ty) {
-                w.line(&format!(
-                    "using WindowsCsharp.InterfaceLease _olease{i} = WindowsCsharp.InterfaceLease.From({pname}, {target}.Iid);"
-                ));
-                continue;
-            }
+        if compatible && let Some(target) = compatible_object_name(&params[*i].ty) {
+            w.line(&format!(
+                "using WindowsCsharp.InterfaceLease _olease{i} = WindowsCsharp.InterfaceLease.From({pname}, {target}.Iid);"
+            ));
+            continue;
         }
         w.line(&format!(
             "using WindowsCsharp.ComLease _olease{i} = WindowsCsharp.ComLease.From({pname});"
