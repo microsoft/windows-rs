@@ -170,6 +170,10 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
 fn format_attribute(g: &Group, output: &mut String) {
     output.push_str("#[");
     let inner: Vec<TokenTree> = g.stream().into_iter().collect();
+    if matches!(&inner[..], [TokenTree::Ident(ident)] if ident == "r#in") {
+        output.push_str("in]");
+        return;
+    }
     format_seq(&inner, output, 0, true);
     trim_space(output);
     output.push(']');
@@ -188,5 +192,15 @@ fn push_indent(output: &mut String, level: usize) {
 fn trim_space(output: &mut String) {
     if output.ends_with(' ') {
         output.pop();
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn input_direction_uses_rdl_spelling() {
+        assert_eq!(format("#[r#in]"), "#[in]\n");
     }
 }

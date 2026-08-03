@@ -152,10 +152,7 @@ impl Writer {
                 let path_str = path
                     .to_str()
                     .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?;
-                write_to_file(
-                    path_str,
-                    formatter::format(&output).replace("#[r#in]", "#[in]"),
-                )?;
+                write_to_file(path_str, formatter::format(&output))?;
             }
 
             return Ok(());
@@ -203,10 +200,7 @@ impl Writer {
                 let path_str = path
                     .to_str()
                     .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?;
-                write_to_file(
-                    path_str,
-                    formatter::format(&output).replace("#[r#in]", "#[in]"),
-                )?;
+                write_to_file(path_str, formatter::format(&output))?;
             }
         } else {
             let mut layout = Layout::new();
@@ -223,10 +217,7 @@ impl Writer {
             }
 
             let output = layout.to_string();
-            write_to_file(
-                &self.output,
-                formatter::format(&output).replace("#[r#in]", "#[in]"),
-            )?;
+            write_to_file(&self.output, formatter::format(&output))?;
         }
 
         Ok(())
@@ -481,15 +472,37 @@ fn write_params(
     method: &metadata::reader::MethodDef,
     signature_types: Vec<metadata::Type>,
 ) -> Result<Vec<TokenStream>, Error> {
-    method
-        .params()
-        .filter(|param| param.sequence() != 0)
-        .zip(signature_types)
-        .map(|(param, ty)| {
-            let has_in = param.flags().contains(metadata::ParamAttributes::In);
-            let has_out = param.flags().contains(metadata::ParamAttributes::Out);
+    let params = method
+        .params_by_sequence(signature_types.len())
+        .map_err(|error| {
+            writer_err!(
+                "method `{}` has invalid parameter metadata: {error}",
+                method.name()
+            )
+        })?;
+
+    signature_types
+        .into_iter()
+        .enumerate()
+        .map(|(position, ty)| {
+            let param = params.params()[position];
             let is_mutable = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
-            let effective_in = has_in || !has_out;
+            let direction = param.map_or_else(
+                || {
+                    if is_mutable {
+                        metadata::reader::ParamDirection::Output
+                    } else {
+                        metadata::reader::ParamDirection::Input
+                    }
+                },
+                |param| param.direction(),
+            );
+            let (effective_in, has_out) = match direction {
+                metadata::reader::ParamDirection::Unspecified
+                | metadata::reader::ParamDirection::Input => (true, false),
+                metadata::reader::ParamDirection::Output => (false, true),
+                metadata::reader::ParamDirection::InputOutput => (true, true),
+            };
             let in_attr = if effective_in && (has_out || is_mutable) {
                 quote! { #[r#in] }
             } else {
@@ -500,14 +513,24 @@ fn write_params(
             } else {
                 quote! {}
             };
-            let opt_attr = if param.flags().contains(metadata::ParamAttributes::Optional) {
+            let opt_attr = if param.is_some_and(|param| param.is_optional()) {
                 quote! { #[opt] }
             } else {
                 quote! {}
             };
-            let name = write_ident(param.name());
-            let param_attrs =
-                write_custom_attributes_except(param.attributes(), namespace, method.index(), &[])?;
+            let name = param.map_or_else(
+                || write_ident(&format!("p{position}")),
+                |param| write_ident(param.name()),
+            );
+            let param_attrs = match param {
+                Some(param) => write_custom_attributes_except(
+                    param.attributes(),
+                    namespace,
+                    method.index(),
+                    &[],
+                )?,
+                None => Vec::new(),
+            };
             let ty = write_type(namespace, &ty);
             Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
         })
@@ -519,9 +542,16 @@ fn write_return_type(
     method: &metadata::reader::MethodDef,
     signature: &metadata::Signature,
 ) -> Result<TokenStream, Error> {
-    let return_attrs: Vec<TokenStream> = method
-        .params()
-        .find(|p| p.sequence() == 0)
+    let params = method
+        .params_by_sequence(signature.types.len())
+        .map_err(|error| {
+            writer_err!(
+                "method `{}` has invalid parameter metadata: {error}",
+                method.name()
+            )
+        })?;
+    let return_attrs: Vec<TokenStream> = params
+        .return_param()
         .map(|p| write_custom_attributes(p.attributes(), namespace, method.index()))
         .transpose()?
         .unwrap_or_default();

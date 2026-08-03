@@ -480,6 +480,12 @@ pointers and references (`*mut T`, `&mut T`) default to `#[out]`. Everything els
 When `#[in]` and `#[out]` appear on one parameter, they map to `_Inout_`. The parameter is both
 input and output.
 
+The formatter writes `#[in]`. The reader also accepts the Rust raw-identifier spelling
+`#[r#in]`.
+
+RDL cannot spell a `Param` row with neither the In nor Out flag. Omitting both attributes invokes
+the type-based default instead. A metadata row with neither flag therefore reads back as In.
+
 Example:
 
 ```rust
@@ -511,6 +517,15 @@ When `windows-clang` parses Windows SDK headers, it extracts SAL annotations aut
 the matching direction attributes in generated RDL. Supported SAL macros include `_In_`, `_Out_`,
 `_Inout_`, `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, `_Outptr_`, `_COM_Outptr_`, `_In_reads_`,
 `_Out_writes_`, and their opt, z, and bytes variants.
+
+Raw pointer chains must use one constness at every depth. `*mut *mut T` and
+`*const *const T` are supported. Mixed chains such as `*mut *const T` are rejected because the
+metadata type model stores one constness bit for the whole pointer depth. The same check applies
+when a pointer chain appears inside a reference.
+
+`#[len_param(N)]` and `#[size_param(N)]` record a raw zero-based parameter position. They do not
+refer to a parameter by name. If parameters are reordered, these values must be updated by hand.
+`#[len_const(N)]` records a constant element count and has no parameter relationship.
 
 ### Array types
 

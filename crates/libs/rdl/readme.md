@@ -30,3 +30,22 @@ windows_rdl::writer()
     .write()
     .unwrap();
 ```
+
+The winmd writer matches `Param` rows by ECMA-335 `Param.Sequence`, not table order. Sparse methods
+still emit every signature parameter, using `pN` and the reader's type-based default direction when
+a row is absent. Sequence 0 return attributes are emitted on the return type. Duplicate and
+out-of-range sequences are errors.
+
+The writer reads raw direction and optionality through `MethodParam::direction()` and
+`is_optional()`. Reserved, retval, and count attributes remain separate pseudos/custom attributes;
+the metadata layer does not merge them with projection policy.
+
+Canonical output spells the input direction as `#[in]`; the reader also accepts Rust's raw
+identifier spelling, `#[r#in]`.
+
+Some metadata states do not have a lossless RDL spelling. Parameter direction cannot be neither
+In nor Out because an omitted direction is inferred. Attributes on a void return row cannot be
+written because there is no return type to carry them. `#[len_param(N)]` and `#[size_param(N)]`
+store raw parameter positions, so reordering parameters also requires updating `N`. Pointer chains
+must use one constness throughout, such as `*mut *mut T` or `*const *const T`; mixed chains are
+rejected.
