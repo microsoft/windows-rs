@@ -21,7 +21,7 @@ mod Test {
 "#,
         )
         .input_default()
-        .output(&temp_path("default_input", "winmd"))
+        .output(temp_path("default_input", "winmd"))
         .write()
         .unwrap();
 }
@@ -61,7 +61,7 @@ mod Test {
 "#,
         )
         .reference_bytes(&bytes)
-        .output(&temp_path("reference_bytes", "winmd"))
+        .output(temp_path("reference_bytes", "winmd"))
         .write()
         .unwrap();
 }
@@ -100,7 +100,7 @@ mod Test {
 "#,
         )
         .reference(&reference)
-        .output(&temp_path("reference_path", "winmd"))
+        .output(temp_path("reference_path", "winmd"))
         .write()
         .unwrap();
 }

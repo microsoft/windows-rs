@@ -4,11 +4,8 @@
 // `Debug` output, which defers to `Display`, so `should_panic` exercises all
 // three `Display` branches in `src/error.rs`.
 
-fn out_path(name: &str) -> String {
-    std::path::Path::new(env!("OUT_DIR"))
-        .join(format!("test_rdl_err_{name}.winmd"))
-        .to_string_lossy()
-        .into_owned()
+fn out_path(name: &str) -> std::path::PathBuf {
+    std::path::Path::new(env!("OUT_DIR")).join(format!("test_rdl_err_{name}.winmd"))
 }
 
 #[test]
@@ -17,7 +14,7 @@ fn syntax_error_reports_line_and_column() {
     // `Display` branch 1: a parse error carries a `file:line:column` location.
     windows_rdl::reader()
         .input_str("#[winrt] mod Test { this is not valid rdl }")
-        .output(&out_path("syntax"))
+        .output(out_path("syntax"))
         .write()
         .unwrap();
 }
@@ -38,7 +35,7 @@ fn unsupported_input_extension_is_rejected() {
     // `Display` branch 3: a file name but no source location (line/column 0).
     windows_rdl::reader()
         .input("definitely_not_here.txt")
-        .output(&out_path("ext"))
+        .output(out_path("ext"))
         .write()
         .unwrap();
 }
@@ -74,7 +71,7 @@ fn integer_constants_reinterpret_bits_across_partitions() {
              }\n\
              }",
         )
-        .output(&out_path("const_reinterpret"))
+        .output(out_path("const_reinterpret"))
         .write()
         .unwrap();
 }
@@ -93,7 +90,7 @@ fn mixed_pointer_constness_is_rejected() {
         );
         let error = windows_rdl::reader()
             .input_str(&source)
-            .output(&out_path(name))
+            .output(out_path(name))
             .write()
             .unwrap_err();
 
