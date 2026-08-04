@@ -119,7 +119,6 @@ above); Rust requires their proc macros to live in a dedicated `proc-macro` crat
 | [windows-default](crates/windows-default.md) | Default Windows metadata for build tools. |
 | [windows-metadata](crates/windows-metadata.md) | Low-level ECMA-335 metadata library. |
 | [windows-rdl](crates/windows-rdl.md) | RDL parser and ECMA-335 generator. |
-| [riddle](crates/riddle.md) | Windows metadata compiler. |
 | [cppwinrt](crates/cppwinrt.md) | Bundles the C++/WinRT compiler. |
 
 ### Full Windows API projection

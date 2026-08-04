@@ -46,7 +46,6 @@ serde_json = {version = "1.0", default-features = false }
 rustc-hash = { version = "2" }
 # generated dependencies
 cppwinrt = { version = "0.100.0", path = "crates/libs/cppwinrt", default-features = false }
-riddle = { version = "0.100.0", path = "crates/libs/riddle", default-features = false }
 windows = { version = "0.100.0", path = "crates/libs/windows", default-features = false }
 windows-animation = { version = "0.100.0", path = "crates/libs/animation", default-features = false }
 windows-bindgen = { version = "0.100.0", path = "crates/libs/bindgen", default-features = false }
