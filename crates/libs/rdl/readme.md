@@ -32,7 +32,8 @@ windows_rdl::writer()
 ```
 
 Use `.reference("dependency.winmd")` when the RDL refers to types defined by another metadata file.
-Use `.input_default()` for the standard Windows metadata.
+Use `.input_text(source)` or `.input_texts(sources)` for RDL already in memory. Use
+`.input_default()` for the standard Windows metadata.
 
 The winmd writer matches `Param` rows by ECMA-335 `Param.Sequence`, not table order. Sparse methods
 still emit every signature parameter, using `pN` and the reader's type-based default direction when

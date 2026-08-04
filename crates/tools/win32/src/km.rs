@@ -113,7 +113,7 @@ pub fn scrape() -> Summary {
         .drop_lib_less()
         .scopes(SCOPE.iter().copied())
         .scope_headers(SOURCE_HEADERS.iter().copied());
-    clang.input_str(&source);
+    clang.input_text(&source);
     for lib in &import_libs {
         clang
             .import_library(lib)

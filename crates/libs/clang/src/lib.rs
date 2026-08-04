@@ -501,7 +501,7 @@ impl<'a> Parser<'a> {
 /// Builder that generates RDL from C/C++ headers using libclang.
 pub struct Clang {
     input: Vec<PathBuf>,
-    input_str: Vec<String>,
+    input_text: Vec<String>,
     reference: Vec<PathBuf>,
     output: PathBuf,
     namespace: String,
@@ -563,8 +563,20 @@ impl Clang {
     }
 
     /// Adds inline source text to compile instead of a file on disk.
-    pub fn input_str(&mut self, input: &str) -> &mut Self {
-        self.input_str.push(input.to_string());
+    pub fn input_text(&mut self, input: &str) -> &mut Self {
+        self.input_text.push(input.to_string());
+        self
+    }
+
+    /// Adds inline source texts to compile instead of files on disk.
+    pub fn input_texts<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input_text(input.as_ref());
+        }
         self
     }
 
@@ -883,7 +895,7 @@ impl Clang {
             h_tus.push((source.replace('\\', "/"), index.parse(source, &arg_refs)?));
         }
         let mut str_tus = vec![];
-        for content in &self.input_str {
+        for content in &self.input_text {
             str_tus.push((
                 content.clone(),
                 index.parse_unsaved(

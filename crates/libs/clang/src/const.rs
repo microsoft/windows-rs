@@ -219,7 +219,7 @@ impl Const {
 
         // There is no on-disk directory context, so relative includes may not resolve.
         let prefix = format!("{content}\n{NARG_PROLOGUE}");
-        const SYNTHETIC: &str = "__rdl_input_str_eval__.cpp";
+        const SYNTHETIC: &str = "__rdl_input_text_eval__.cpp";
 
         Self::evaluate_names(&prefix, SYNTHETIC, names, index, args)
     }

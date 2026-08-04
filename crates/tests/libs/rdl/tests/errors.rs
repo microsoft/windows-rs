@@ -13,7 +13,7 @@ fn out_path(name: &str) -> std::path::PathBuf {
 fn syntax_error_reports_line_and_column() {
     // `Display` branch 1: a parse error carries a `file:line:column` location.
     windows_rdl::reader()
-        .input_str("#[winrt] mod Test { this is not valid rdl }")
+        .input_text("#[winrt] mod Test { this is not valid rdl }")
         .output(out_path("syntax"))
         .write()
         .unwrap();
@@ -24,7 +24,7 @@ fn syntax_error_reports_line_and_column() {
 fn missing_output_is_rejected() {
     // `Display` branch 2: empty file name yields a bare message with no `-->`.
     windows_rdl::reader()
-        .input_str("#[winrt] mod Test {}")
+        .input_text("#[winrt] mod Test {}")
         .write()
         .unwrap();
 }
@@ -52,7 +52,7 @@ fn integer_constants_reinterpret_bits_across_partitions() {
     //   * `(LPCSTR)2` MAKEINTRESOURCE pointer constant
     //   * a constant typed by an enum, encoded against its `#[repr]` integer
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             "#[win32] mod Test {\n\
              mod Win {\n\
              type WORD = u16;\n\
@@ -89,7 +89,7 @@ fn mixed_pointer_constness_is_rejected() {
             "#[win32]\nmod Test {{\n    #[library(\"test.dll\")]\n    extern fn Mixed(value: {ty});\n}}\n"
         );
         let error = windows_rdl::reader()
-            .input_str(&source)
+            .input_text(&source)
             .output(out_path(name))
             .write()
             .unwrap_err();

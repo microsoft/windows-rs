@@ -870,9 +870,7 @@ fn scrape_um() -> Summary {
         .scopes(SCOPE.iter().copied())
         .scope_headers(scope_headers.iter().copied())
         .exclude_headers(EXCLUDE_HEADERS.iter().copied());
-    for source in &sources {
-        clang.input_str(source);
-    }
+    clang.input_texts(&sources);
     for lib in &import_libs {
         clang
             .import_library(lib)

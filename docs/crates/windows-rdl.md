@@ -31,7 +31,8 @@ The crate exposes two builders:
 - `writer()` writes canonical RDL source from `.winmd` metadata.
 
 Input, reference, and output paths accept strings, `Path`, or `PathBuf`, so build scripts can pass
-paths without converting them to UTF-8 strings.
+paths without converting them to UTF-8 strings. `.input_text(..)` and `.input_texts(..)` compile RDL
+source already in memory.
 
 ### RDL to winmd, and back
 

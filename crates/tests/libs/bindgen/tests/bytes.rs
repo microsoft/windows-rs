@@ -5,15 +5,13 @@ fn bindgen_accepts_metadata_bytes() {
     let output = temp.join("windows_bindgen_bytes.rs");
 
     windows_rdl::reader()
-        .input_str(
-            r#"
+        .input_texts([r#"
 #[win32]
 mod Test {
     #[library("test.dll")]
     extern fn Function() -> u32;
 }
-"#,
-        )
+"#])
         .output(&winmd)
         .write()
         .unwrap();

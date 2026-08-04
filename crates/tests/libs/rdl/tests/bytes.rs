@@ -8,7 +8,7 @@ fn temp_path(name: &str, extension: &str) -> String {
 #[test]
 fn default_input_resolves_default_metadata() {
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 use Windows::Foundation::*;
 
@@ -31,7 +31,7 @@ fn reference_bytes_resolve_metadata() {
     let reference = temp_path("reference_bytes_reference", "winmd");
 
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 #[winrt]
 mod Other {
@@ -48,7 +48,7 @@ mod Other {
 
     let bytes = std::fs::read(reference).unwrap();
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 use Other::*;
 
@@ -61,7 +61,6 @@ mod Test {
 "#,
         )
         .reference_byte_sets([bytes])
-        
         .output(temp_path("reference_bytes", "winmd"))
         .write()
         .unwrap();
@@ -72,7 +71,7 @@ fn reference_path_resolves_metadata() {
     let reference = temp_path("reference_path_reference", "winmd");
 
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 #[winrt]
 mod Other {
@@ -88,7 +87,7 @@ mod Other {
         .unwrap();
 
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 use Other::*;
 
@@ -112,7 +111,7 @@ fn writer_accepts_metadata_bytes() {
     let rdl = temp_path("writer_bytes_output", "rdl");
 
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 #[win32]
 mod Test {

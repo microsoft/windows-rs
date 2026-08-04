@@ -66,6 +66,8 @@ windows_clang::clang()
 `clang_version()` returns the loaded libclang's version string; the tooling pins a specific libclang
 release so the scrape is deterministic (see `tool_win32`).
 
+Use `.input_text(..)` and `.input_texts(..)` when the C/C++ source is already in memory.
+
 ### Default metadata
 
 `.input_default()` adds the standard WinRT and Win32 metadata as references for declarations used by
@@ -138,9 +140,10 @@ Everything generic to *any* header scrape lives in `windows-clang`:
 - **Provisioning** - `ensure_libclang` / `assert_libclang_version` (the pinned `LIBCLANG_VERSION`
   wheel, fetched + cached on first use), `clang_resource_dir`, and `nuget_package` (restore a pinned
   NuGet package into the global cache).
-- **Parse + emit** - the `clang()` builder (target, args, `input`/`input_str`, `scope`/`scopes`,
-  `scope_header`/`scope_headers`, `exclude_header`/`exclude_headers`, `import_library`,
-  `drop_lib_less`), header partitioning (`write_by_header`), and the per-kind cursor->RDL modules.
+- **Parse + emit** - the `clang()` builder (target, args, `input`/`input_text`/`input_texts`,
+  `scope`/`scopes`, `scope_header`/`scope_headers`, `exclude_header`/`exclude_headers`,
+  `import_library`, `drop_lib_less`), header partitioning (`write_by_header`), and the per-kind
+  cursor->RDL modules.
 - **Multi-arch orchestration** - the `Clang::scrape` terminal, `Arch` (clang triple +
   `SupportedArchitecture` bits + per-target defines), `ScrapePlan` (the orchestration-only state:
   `PathBuf` outputs, arches, reference winmds, seed - *not* a mirror of the builder), and `Summary`.

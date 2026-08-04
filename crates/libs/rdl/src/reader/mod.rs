@@ -55,7 +55,7 @@ fn fixed_unsigned_value(value: u64) -> metadata::Value {
 /// Builder that compiles RDL files into `.winmd` metadata.
 pub struct Reader {
     input: Vec<PathBuf>,
-    input_str: Vec<String>,
+    input_text: Vec<String>,
     reference: Vec<PathBuf>,
     input_default: bool,
     reference_bytes: Vec<Vec<u8>>,
@@ -75,8 +75,20 @@ impl Reader {
     }
 
     /// Adds inline RDL source text to compile instead of a file on disk.
-    pub fn input_str(&mut self, input: &str) -> &mut Self {
-        self.input_str.push(input.to_string());
+    pub fn input_text(&mut self, input: &str) -> &mut Self {
+        self.input_text.push(input.to_string());
+        self
+    }
+
+    /// Adds inline RDL source texts to compile instead of files on disk.
+    pub fn input_texts<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input_text(input.as_ref());
+        }
         self
     }
 
@@ -149,7 +161,7 @@ impl Reader {
         let rdl_paths = expand_input_files(&self.input, "rdl")?;
         let reference_paths = expand_input_files(&self.reference, "winmd")?;
 
-        let input = expand_rdl_files(&rdl_paths, &self.input_str)?;
+        let input = expand_rdl_files(&rdl_paths, &self.input_text)?;
 
         let mut index = Index::new();
 
@@ -315,7 +327,7 @@ fn preprocess_rdl(contents: &str) -> std::borrow::Cow<'_, str> {
     std::borrow::Cow::Owned(result)
 }
 
-fn expand_rdl_files(paths: &[PathBuf], input_str: &[String]) -> Result<Vec<File>, Error> {
+fn expand_rdl_files(paths: &[PathBuf], input_text: &[String]) -> Result<Vec<File>, Error> {
     let mut input = vec![];
 
     for path in paths {
@@ -334,7 +346,7 @@ fn expand_rdl_files(paths: &[PathBuf], input_str: &[String]) -> Result<Vec<File>
         input.push(file);
     }
 
-    for contents in input_str {
+    for contents in input_text {
         let contents = preprocess_rdl(contents);
         let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
             let start = error.span().start();
@@ -1336,7 +1348,7 @@ fn use_glob_resolves_type() {
     let output = std::env::temp_dir().join("windows_rdl_use_glob_resolves_type.winmd");
 
     reader()
-        .input_str(
+        .input_text(
             r#"
 use Other::*;
 
