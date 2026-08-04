@@ -2,17 +2,15 @@ use windows_csharp::Architecture;
 
 fn main() {
     const FOUNDATION: &str = r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd";
-    const DEFAULT: &str = "../../../libs/bindgen/default";
     const REACTOR: &str = "../../../tools/reactor/winmd";
 
-    println!("cargo:rerun-if-changed={DEFAULT}");
     println!("cargo:rerun-if-changed={REACTOR}");
     println!("cargo:rerun-if-changed={FOUNDATION}");
     windows_reactor_setup::as_framework_dependent();
 
     windows_csharp::builder()
         .input(REACTOR)
-        .input(DEFAULT)
+        .input_default()
         .input(FOUNDATION)
         .architecture(Architecture::X64)
         .member("Microsoft.UI.Xaml.Application", "Start")

@@ -55,7 +55,7 @@ cross-header type references resolve:
 windows_clang::clang()
     .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
     .input("Example.h")
-    .input("crates/libs/bindgen/default/Windows.Win32.winmd")
+    .input_default()
     .output("example.rdl")
     .namespace("Example")
     .library("Example.dll")
@@ -68,7 +68,7 @@ release so the scrape is deterministic (see `tool_win32`).
 
 ## Consumers
 
-- `tool_win32` - owns the single committed `crates/libs/bindgen/default/Windows.Win32.winmd` for
+- `tool_win32` - owns the single committed `crates/libs/default/Windows.Win32.winmd` for
   the whole native API surface. It runs three phases: (A) scrape the Windows SDK `um`/`shared`
   headers into `metadata/win32/*.rdl` (committed) and an uncommitted
   `target/win32/Windows.Win32.winmd`; (B) scrape the WDK kernel-mode `km` headers into
@@ -488,7 +488,7 @@ representation it already gives every interface (`windows-bindgen`, `types::from
 Phase A above produces the `um` Win32 surface. `tool_win32` then scrapes the WDK kernel-mode headers
 the same way it scrapes the SDK - a whole-header scrape, not a symbol allowlist - and merges that
 surface with the `um` surface into the single committed
-`crates/libs/bindgen/default/Windows.Win32.winmd`. Both scrapes drive the *same*
+`crates/libs/default/Windows.Win32.winmd`. Both scrapes drive the *same*
 [`scrape`](#scraper-layering-one-crate-two-levels) terminal from plain `const` slices; the km
 configuration lives in `crates/tools/win32/src/km.rs`. Two phases run in order after phase A:
 
@@ -900,7 +900,7 @@ lives in `rust-lang/rust`:
 `windows_raw_dylib` feature is enabled.
 
 Every one of the 2,641 filter names was resolved against the default metadata (the single
-`crates/libs/bindgen/default/Windows.Win32.winmd`, merged from `metadata/win32/*.rdl` and
+`crates/libs/default/Windows.Win32.winmd`, merged from `metadata/win32/*.rdl` and
 `metadata/wdk/*.rdl`) using the bindgen filter resolver. **2,596 resolve and 45 do not.** In every
 remaining case the member *constants* of a collapsed type are still present; only the wrapper
 *type name* or an invented member is missing.
@@ -1105,7 +1105,7 @@ arch-merge: [3 winmds] --metadata::merge--> merged winmd (temp)
 ```
 for arch in [x64, arm64, x86]:  headers (ref: phase A's um winmd) --> RDL --> winmd (+ arch-merge)
     --> metadata/wdk/*.rdl (committed) + target/wdk km.winmd
-merge(um winmd, km.winmd, union_enums) --> bindgen/default/Windows.Win32.winmd  (committed)
+merge(um winmd, km.winmd, union_enums) --> default/Windows.Win32.winmd  (committed)
 ```
 
 `tool_package` later re-reads `metadata/win32` + `metadata/wdk` to synthesise the

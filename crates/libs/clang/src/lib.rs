@@ -521,6 +521,10 @@ pub struct Clang {
     drop_lib_less: bool,
     /// Winmds used only to classify `ABI::Windows::*` projection declarations.
     resolution_input: Vec<String>,
+    input_default: bool,
+    resolution_default: bool,
+    reference_bytes: Vec<std::sync::Arc<[u8]>>,
+    resolution_bytes: Vec<std::sync::Arc<[u8]>>,
 }
 
 /// Read-only inputs shared by every per-header pass.
@@ -540,10 +544,15 @@ impl Clang {
         Self::default()
     }
 
-    /// Adds an input header (`.h`) or `.winmd` file or directory.
+    /// Adds an input header (`.h`) or `.winmd` file or directory. `"default"` selects the default
+    /// Windows metadata references.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(input.to_string());
-        self
+        if input == "default" {
+            self.input_default()
+        } else {
+            self.input.push(input.to_string());
+            self
+        }
     }
 
     /// Adds input headers or `.winmd` files.
@@ -553,7 +562,7 @@ impl Clang {
         S: AsRef<str>,
     {
         for input in inputs {
-            self.input.push(input.as_ref().to_string());
+            self.input(input.as_ref());
         }
         self
     }
@@ -561,6 +570,18 @@ impl Clang {
     /// Adds inline source text to compile instead of a file on disk.
     pub fn input_str(&mut self, input: &str) -> &mut Self {
         self.input_str.push(input.to_string());
+        self
+    }
+
+    /// Adds a reference winmd from memory.
+    pub fn reference_bytes(&mut self, input: &[u8]) -> &mut Self {
+        self.reference_bytes.push(input.into());
+        self
+    }
+
+    /// Adds the default Windows metadata as references.
+    pub fn input_default(&mut self) -> &mut Self {
+        self.input_default = true;
         self
     }
 
@@ -588,9 +609,26 @@ impl Clang {
         self
     }
 
-    /// Adds a winmd used only to classify `ABI::Windows::*` projection declarations.
+    /// Adds a winmd used only to classify `ABI::Windows::*` projection declarations. `"default"`
+    /// selects the default Windows Runtime metadata.
     pub fn resolution_input(&mut self, input: &str) -> &mut Self {
-        self.resolution_input.push(input.to_string());
+        if input == "default" {
+            self.resolution_default()
+        } else {
+            self.resolution_input.push(input.to_string());
+            self
+        }
+    }
+
+    /// Adds a resolution-only winmd from memory.
+    pub fn resolution_bytes(&mut self, input: &[u8]) -> &mut Self {
+        self.resolution_bytes.push(input.into());
+        self
+    }
+
+    /// Adds the default Windows Runtime metadata as a resolution-only input.
+    pub fn resolution_default(&mut self) -> &mut Self {
+        self.resolution_default = true;
         self
     }
 
@@ -1191,6 +1229,19 @@ impl Clang {
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
             );
         }
+        if self.input_default {
+            winmd_files.extend(
+                [windows_default::WINRT, windows_default::WIN32]
+                    .into_iter()
+                    .map(|bytes| metadata::reader::File::new(bytes.to_vec()).unwrap()),
+            );
+        }
+        for bytes in &self.reference_bytes {
+            winmd_files.push(
+                metadata::reader::File::new(bytes.to_vec())
+                    .ok_or_else(|| Error::new("invalid input", "<memory>", 0, 0))?,
+            );
+        }
 
         Ok(metadata::reader::Index::new(winmd_files))
     }
@@ -1202,6 +1253,15 @@ impl Clang {
             winmd_files.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+            );
+        }
+        if self.resolution_default {
+            winmd_files.push(metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap());
+        }
+        for bytes in &self.resolution_bytes {
+            winmd_files.push(
+                metadata::reader::File::new(bytes.to_vec())
+                    .ok_or_else(|| Error::new("invalid input", "<memory>", 0, 0))?,
             );
         }
         let index = metadata::reader::Index::new(winmd_files);

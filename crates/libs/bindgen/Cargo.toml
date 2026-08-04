@@ -10,6 +10,7 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [dependencies]
+windows-default = { workspace = true }
 windows-metadata = { workspace = true }
 proc-macro2 = { workspace = true }
 quote = { workspace = true }

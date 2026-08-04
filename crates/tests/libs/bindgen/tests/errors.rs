@@ -92,7 +92,7 @@ fn exact_real_variadic_selection_panics() {
     let output = std::path::Path::new(env!("OUT_DIR")).join("real_variadic.rs");
     windows_bindgen::bindgen([
         "--in",
-        "../../../libs/bindgen/default/Windows.Win32.winmd",
+        "default",
         "--out",
         output.to_str().unwrap(),
         "--flat",

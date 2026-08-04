@@ -268,7 +268,7 @@ not needed to use `windows-bindgen`.
 
 `windows-bindgen` is hand-written. It is the generator that other crates use. It reads ECMA-335
 metadata through [`windows-metadata`](windows-metadata.md). The bundled metadata inputs live in
-`crates/libs/bindgen/default`.
+the [`windows-default`](windows-default.md) crate.
 
 Two tools drive it in this repository:
 

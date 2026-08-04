@@ -72,9 +72,13 @@ change the generated metadata.
 
 ## Windows SDK, WDK, and WinRT contracts
 
-Each feeds an in-house generator producing a committed `.winmd` under
-`crates/libs/bindgen/default/`, consumed by `windows-bindgen` as `--in default`. Provenance is
-documented in [`crates/libs/bindgen/default/readme.md`](../crates/libs/bindgen/default/readme.md).
+Each feeds an in-house generator producing a committed `.winmd` in `windows-default`. The metadata
+is embedded for Rust build tools and remains available as files for external tools. Provenance is
+documented in [`crates/libs/default/readme.md`](../crates/libs/default/readme.md).
+
+`windows-bindgen`, `windows-rdl`, `windows-clang`, and `windows-csharp` depend on `windows-default`
+so their builders can select this metadata without filesystem paths. Binaries linking those crates
+include both metadata files.
 
 | Package | Owner (pin) | Produces |
 | --- | --- | --- |

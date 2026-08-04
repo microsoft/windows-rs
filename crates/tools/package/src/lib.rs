@@ -9,7 +9,7 @@ pub mod remap;
 use remap::RemapPlan;
 
 /// The already-namespaced WinRT metadata, projected alongside the remapped Win32/WDK partition.
-pub const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
+pub const WINRT_WINMD: &str = "crates/libs/default/Windows.winmd";
 
 /// The header remap plan for the published `windows` / `windows-sys` crates: the committed
 /// per-header RDL directories (the routing signal) and the single flat winmd compiled from them,
@@ -22,7 +22,7 @@ pub const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
 pub fn remap_plan() -> RemapPlan {
     RemapPlan {
         rdl_dirs: &["metadata/win32", "metadata/wdk"],
-        winmd: "crates/libs/bindgen/default/Windows.Win32.winmd",
+        winmd: "crates/libs/default/Windows.Win32.winmd",
         root: "Windows.Win32",
     }
 }

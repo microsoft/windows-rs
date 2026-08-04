@@ -65,14 +65,8 @@ pub struct MetadataResolver {
 }
 
 impl MetadataResolver {
-    /// Load all `.winmd` files from `winmd_dir` - plus the reference winmds
-    /// (`Windows.winmd`, `Windows.Win32.winmd`) bundled in `windows-bindgen`'s
-    /// `default/` directory - and build the resolver.
-    ///
-    /// The reference winmds live only in `crates/libs/bindgen/default` (the single
-    /// source of truth); they are located relative to this crate's manifest so the
-    /// path resolves the same whether the tool is run from the repo root or a test's
-    /// crate directory.
+    /// Load all `.winmd` files from `winmd_dir`, add the default Windows metadata, and build the
+    /// resolver.
     pub fn load(winmd_dir: &Path) -> Self {
         let read_dir = |dir: &Path| -> Vec<File> {
             std::fs::read_dir(dir)
@@ -87,10 +81,12 @@ impl MetadataResolver {
                 .collect()
         };
 
-        let default_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../libs/bindgen/default");
-
         let mut files = read_dir(winmd_dir);
-        files.extend(read_dir(&default_dir));
+        files.extend(
+            [windows_default::WINRT, windows_default::WIN32]
+                .into_iter()
+                .map(|bytes| File::new(bytes.to_vec()).unwrap()),
+        );
 
         assert!(
             !files.is_empty(),

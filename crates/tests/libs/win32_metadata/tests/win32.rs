@@ -25,7 +25,7 @@ fn slice() {
     // The RDL carries cross-winmd references (WinRT interop APIs name true `Windows.*` types),
     // so `Windows.winmd` is supplied as a resolution reference - exactly as the scrape does via its
     // `RESOLUTION_WINMDS`.
-    let winrt = format!("{manifest}/../../../../crates/libs/bindgen/default/Windows.winmd");
+    let winrt = format!("{manifest}/../../../../crates/libs/default/Windows.winmd");
     let scratch = format!("{}/win32", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 

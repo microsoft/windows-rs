@@ -13,6 +13,7 @@ readme = "readme.md"
 workspace = true
 
 [dependencies]
+windows-default = { workspace = true }
 windows-metadata = { workspace = true }
 syn = { workspace = true, features = ["full", "parsing", "clone-impls", "printing", "extra-traits"] }
 quote = { workspace = true }

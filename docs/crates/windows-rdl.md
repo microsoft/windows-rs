@@ -52,13 +52,13 @@ windows_rdl::writer()
 ```
 
 RDL can reference types it does not define. Examples include `HRESULT` and
-`Windows::Win32::System::Com::IUnknown`. Add the standard metadata as another `reader` input so
-those references resolve. The bundled metadata lives in `crates/libs/bindgen/default`.
+`Windows::Win32::System::Com::IUnknown`. Add the standard metadata as byte references so those
+references resolve.
 
 ```rust,no_run
 windows_rdl::reader()
     .input("example.rdl")
-    .input("crates/libs/bindgen/default")
+    .input_default()
     .output("example.winmd")
     .write()
     .unwrap();
@@ -77,7 +77,7 @@ separate input.
 windows_clang::clang()
     .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
     .input("Example.h")
-    .input("crates/libs/bindgen/default/Windows.Win32.winmd")
+    .input_default()
     .output("example.rdl")
     .namespace("Example")
     .library("Example.dll")
@@ -234,8 +234,8 @@ cargo test -p test_clang
 
 | File | Source | Writer |
 |------|--------|--------|
-| `crates/libs/bindgen/default/Windows.winmd` | SDK Contracts winmds, merged and written through RDL | `tool_winrt` |
-| `crates/libs/bindgen/default/Windows.Win32.winmd` | Windows SDK + WDK headers scraped to RDL, um + km merged | `tool_win32` |
+| `crates/libs/default/Windows.winmd` | SDK Contracts winmds, merged and written through RDL | `tool_winrt` |
+| `crates/libs/default/Windows.Win32.winmd` | Windows SDK + WDK headers scraped to RDL, um + km merged | `tool_win32` |
 
 The committed RDL files are the reviewable source for these metadata files:
 

@@ -514,7 +514,7 @@ fn production_parameter_directions_are_representable() {
     let manifest = Path::new(env!("CARGO_MANIFEST_DIR"));
 
     for name in ["Windows.winmd", "Windows.Win32.winmd"] {
-        let path = manifest.join("../../../libs/bindgen/default").join(name);
+        let path = manifest.join("../../../libs/default").join(name);
         let index = metadata::reader::Index::read(&path).unwrap();
 
         for ty in index.types() {

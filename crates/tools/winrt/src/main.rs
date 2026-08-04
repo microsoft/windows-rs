@@ -5,7 +5,7 @@ use windows_metadata::merge;
 /// metadata (selected with `--in default`), so downstream filters resolve against a stable
 /// in-repo winmd without re-running this tool. Re-derived from the pinned SDK Contracts
 /// package on every run; treat it as generated output.
-const WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
+const WINMD: &str = "crates/libs/default/Windows.winmd";
 
 /// Where the WinRT RDL snapshot is written (committed, human-reviewable), one file per
 /// namespace (`Windows.Foundation.rdl`, `Windows.Globalization.rdl`, …). Like `metadata/win32`

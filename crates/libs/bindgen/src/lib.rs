@@ -80,7 +80,7 @@ pub fn builder() -> Bindgen {
 /// ```
 #[derive(Default)]
 pub struct Bindgen {
-    input: Vec<String>,
+    input: Vec<Input>,
     filter: Vec<String>,
     output: String,
     derive: Vec<String>,
@@ -89,6 +89,12 @@ pub struct Bindgen {
     layout: Layout,
     style: Style,
     dead_code: bool,
+}
+
+enum Input {
+    Default,
+    Path(String),
+    Bytes(Vec<u8>),
 }
 
 /// Output layout for the generated bindings.
@@ -188,7 +194,24 @@ impl Bindgen {
 
     /// Adds a `.winmd` file or directory. `"default"` selects the bundled metadata.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        self.inputs(std::iter::once(input))
+        if input == "default" {
+            self.input_default()
+        } else {
+            self.input.push(Input::Path(input.to_string()));
+            self
+        }
+    }
+
+    /// Adds the default Windows metadata.
+    pub fn input_default(&mut self) -> &mut Self {
+        self.input.push(Input::Default);
+        self
+    }
+
+    /// Adds a `.winmd` file from memory.
+    pub fn input_bytes(&mut self, input: &[u8]) -> &mut Self {
+        self.input.push(Input::Bytes(input.to_vec()));
+        self
     }
 
     /// Adds `.winmd` files or directories.
@@ -198,7 +221,7 @@ impl Bindgen {
         S: AsRef<str>,
     {
         for input in inputs {
-            self.input.push(input.as_ref().to_string());
+            self.input(input.as_ref());
         }
         self
     }
@@ -381,19 +404,17 @@ impl Bindgen {
         let sys = self.style.is_sys();
         let link = if sys { "windows_link" } else { "windows_core" };
 
-        let default_input = ["default"];
-        let input: Vec<&str> = if self.input.is_empty() {
-            default_input.to_vec()
-        } else {
-            self.input.iter().map(|s| s.as_str()).collect()
-        };
-
         let phase = std::time::Instant::now();
         let reader_storage;
-        let reader = if input == default_input {
+        let reader = if self.input.is_empty()
+            || self
+                .input
+                .iter()
+                .all(|input| matches!(input, Input::Default))
+        {
             default_reader()
         } else {
-            reader_storage = Reader::new(expand_input(&input));
+            reader_storage = Reader::new(expand_input(&self.input));
             &reader_storage
         };
         report_timing(&self.output, "metadata", phase.elapsed());
@@ -555,17 +576,24 @@ impl Bindgen {
 
 fn default_reader() -> &'static Reader {
     static READER: std::sync::OnceLock<Reader> = std::sync::OnceLock::new();
-    READER.get_or_init(|| Reader::new(expand_input(&["default"])))
+    READER.get_or_init(|| Reader::new(default_input()))
 }
 
 #[track_caller]
-fn expand_input(input: &[&str]) -> Vec<File> {
+fn default_input() -> Vec<File> {
+    [windows_default::WINRT, windows_default::WIN32]
+        .into_iter()
+        .map(|bytes| File::new(bytes.to_vec()).unwrap())
+        .collect()
+}
+
+fn expand_input(input: &[Input]) -> Vec<File> {
     #[track_caller]
-    fn expand_input(result: &mut Vec<String>, input: &str) {
+    fn expand_path(result: &mut Vec<File>, input: &str) {
         let path = std::path::Path::new(input);
 
         if path.is_dir() {
-            let prev_len = result.len();
+            let mut paths = vec![];
 
             for path in path
                 .read_dir()
@@ -578,55 +606,51 @@ fn expand_input(input: &[&str]) -> Vec<File> {
                         .extension()
                         .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"))
                 {
-                    result.push(path.to_string_lossy().to_string());
+                    paths.push(path);
                 }
             }
 
             assert!(
-                result.len() != prev_len,
+                !paths.is_empty(),
                 "failed to find .winmd files in directory `{input}`"
             );
+
+            for path in paths {
+                let bytes = std::fs::read(&path)
+                    .unwrap_or_else(|_| panic!("failed to read binary file `{}`", path.display()));
+                let file = File::new(bytes)
+                    .unwrap_or_else(|| panic!("failed to read .winmd format `{}`", path.display()));
+                result.push(file);
+            }
         } else {
-            result.push(input.to_string());
+            let Ok(bytes) = std::fs::read(path) else {
+                panic!("failed to read binary file `{input}`");
+            };
+            let Some(file) = File::new(bytes) else {
+                panic!("failed to read .winmd format `{input}`");
+            };
+            result.push(file);
         }
     }
 
-    let mut paths = vec![];
-    let mut use_default = false;
+    let mut result = if input.iter().any(|input| matches!(input, Input::Default)) {
+        default_input()
+    } else {
+        vec![]
+    };
 
     for input in input {
-        if *input == "default" {
-            use_default = true;
-        } else {
-            expand_input(&mut paths, input);
+        match input {
+            Input::Default => {}
+            Input::Path(path) => expand_path(&mut result, path),
+            Input::Bytes(bytes) => result.push(
+                File::new(bytes.clone())
+                    .unwrap_or_else(|| panic!("failed to read .winmd format from memory")),
+            ),
         }
     }
 
-    let mut input = vec![];
-
-    if use_default {
-        input = [
-            std::include_bytes!("../default/Windows.winmd").to_vec(),
-            std::include_bytes!("../default/Windows.Win32.winmd").to_vec(),
-        ]
-        .into_iter()
-        .map(|bytes| File::new(bytes).unwrap())
-        .collect();
-    }
-
-    for path in &paths {
-        let Ok(bytes) = std::fs::read(path) else {
-            panic!("failed to read binary file `{path}`");
-        };
-
-        let Some(file) = File::new(bytes) else {
-            panic!("failed to read .winmd format `{path}`");
-        };
-
-        input.push(file);
-    }
-
-    input
+    result
 }
 
 /// Finds delegates used only as event-handler parameters.

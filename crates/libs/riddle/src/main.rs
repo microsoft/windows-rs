@@ -6,7 +6,7 @@ fn main() {
             r#"Usage: riddle.exe [options...]
 
 Options:
-  --in  <path>          Path to files and directories containing .winmd and .rdl files
+  --in  <path>          Path to .winmd/.rdl inputs or "default" Windows metadata
   --out <path>          Path to .winmd or .rdl file to generate
   --filter <namespace>  Namespaces to include or !exclude in output
   --split               Split output across multiple files

@@ -56,6 +56,8 @@ fn fixed_unsigned_value(value: u64) -> metadata::Value {
 pub struct Reader {
     input: Vec<String>,
     input_str: Vec<String>,
+    input_default: bool,
+    reference_bytes: Vec<Vec<u8>>,
     output: String,
 }
 
@@ -65,15 +67,32 @@ impl Reader {
         Self::default()
     }
 
-    /// Adds an input `.rdl` file (or `.winmd` reference) or directory.
+    /// Adds an input `.rdl` file (or `.winmd` reference) or directory. `"default"` selects the
+    /// default Windows metadata references.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(input.to_string());
-        self
+        if input == "default" {
+            self.input_default()
+        } else {
+            self.input.push(input.to_string());
+            self
+        }
     }
 
     /// Adds inline RDL source text to compile instead of a file on disk.
     pub fn input_str(&mut self, input: &str) -> &mut Self {
         self.input_str.push(input.to_string());
+        self
+    }
+
+    /// Adds a `.winmd` reference from memory.
+    pub fn reference_bytes(&mut self, input: &[u8]) -> &mut Self {
+        self.reference_bytes.push(input.to_vec());
+        self
+    }
+
+    /// Adds the default Windows metadata references.
+    pub fn input_default(&mut self) -> &mut Self {
+        self.input_default = true;
         self
     }
 
@@ -84,9 +103,8 @@ impl Reader {
         S: AsRef<str>,
     {
         for input in inputs {
-            self.input.push(input.as_ref().to_string());
+            self.input(input.as_ref());
         }
-
         self
     }
 
@@ -120,6 +138,21 @@ impl Reader {
             reference.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid reference", file_name, 0, 0))?,
+            );
+        }
+
+        if self.input_default {
+            reference.extend(
+                [windows_default::WINRT, windows_default::WIN32]
+                    .into_iter()
+                    .map(|bytes| metadata::reader::File::new(bytes.to_vec()).unwrap()),
+            );
+        }
+
+        for bytes in &self.reference_bytes {
+            reference.push(
+                metadata::reader::File::new(bytes.clone())
+                    .ok_or_else(|| Error::new("invalid reference", "<memory>", 0, 0))?,
             );
         }
 

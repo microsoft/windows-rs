@@ -56,6 +56,7 @@ windows-collections = { version = "0.100.0", path = "crates/libs/collections", d
 windows-composition = { version = "0.100.0", path = "crates/libs/composition", default-features = false }
 windows-core = { version = "0.100.0", path = "crates/libs/core", default-features = false }
 windows-csharp = { version = "0.0.0", path = "crates/libs/csharp", default-features = false }
+windows-default = { version = "0.100.0", path = "crates/libs/default", default-features = false }
 windows-future = { version = "0.100.0", path = "crates/libs/future", default-features = false }
 windows-implement = { version = "0.100.0", path = "crates/libs/implement", default-features = false }
 windows-interface = { version = "0.100.0", path = "crates/libs/interface", default-features = false }

@@ -12,8 +12,7 @@ fn main() {
     // namespace-free (see docs/crates/windows-composition.md).
     bindgen([
         "--in",
-        "crates/libs/bindgen/default/Windows.winmd",
-        "crates/libs/bindgen/default/Windows.Win32.winmd",
+        "default",
         "--out",
         "crates/libs/composition/src/bindings.rs",
         "--minimal",
@@ -33,7 +32,7 @@ fn main() {
     bindgen([
         "--in",
         "crates/tools/reactor/winmd/Microsoft.UI.winmd",
-        "crates/libs/bindgen/default/Windows.winmd",
+        "crates/libs/default/Windows.winmd",
         "--out",
         "crates/libs/composition/src/bindings_lifted.rs",
         "--minimal",

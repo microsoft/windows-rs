@@ -382,7 +382,7 @@ mod resolution_tests {
     fn test_reader() -> &'static Reader {
         use std::sync::OnceLock;
         static READER: OnceLock<Reader> = OnceLock::new();
-        READER.get_or_init(|| Reader::new(expand_input(&["default"])))
+        READER.get_or_init(|| Reader::new(default_input()))
     }
 
     #[test]

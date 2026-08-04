@@ -3,7 +3,7 @@ fn main() {
 
     windows_bindgen::builder()
         .input("../component/robot.winmd")
-        .input("../../../libs/bindgen/default")
+        .input_default()
         .output("src/bindings.rs")
         .filter("Robotics")
         .flat()

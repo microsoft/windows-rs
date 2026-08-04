@@ -24,7 +24,7 @@ const KM_WINMD: &str = "target/wdk/Windows.Win32.km.winmd";
 /// (for example `FILE_INFORMATION_CLASS`) carries every member. Downstream `tool_bindings` filters
 /// point `--in` at this stable in-repo winmd (and the bundled `"default"` bindings resolve against
 /// it). Re-derived on every run; treat it as generated output.
-const MERGED_WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
+const MERGED_WINMD: &str = "crates/libs/default/Windows.Win32.winmd";
 
 /// Resolution winmd(s) - `Windows.winmd`, the WinRT projection - consulted only to classify
 /// declarations in the `ABI::Windows::*` C++/WinRT projection namespace that `roregistrationapi.h`
@@ -32,7 +32,7 @@ const MERGED_WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
 /// cross-winmd reference); a type absent from it is a Win32 COM interop entity captured into the
 /// flat `Windows.Win32` metadata. Never an exclusion base - no WinRT type is skipped or emitted
 /// here.
-const RESOLUTION_WINMDS: &[&str] = &["crates/libs/bindgen/default/Windows.winmd"];
+const RESOLUTION_WINMDS: &[&str] = &["crates/libs/default/Windows.winmd"];
 
 /// Where the per-header RDL snapshot is written. Unlike the binary winmd, the
 /// `.rdl` text is committed to the repository so the canonical Windows API surface

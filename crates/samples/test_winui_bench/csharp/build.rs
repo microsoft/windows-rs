@@ -3,7 +3,7 @@ fn main() {
 
     windows_csharp::builder()
         .input("../../../tools/reactor/winmd")
-        .input("../../../libs/bindgen/default")
+        .input_default()
         .input(r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd")
         .member("Microsoft.UI.Xaml.Window", "Content")
         .member("Microsoft.UI.Xaml.Window", "Activate")

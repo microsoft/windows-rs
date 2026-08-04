@@ -26,7 +26,7 @@ unsafe extern "system" {
 fn test() {
     unsafe {
         let module = LoadLibraryExA(
-            c"../../../libs/bindgen/default/Windows.winmd".as_ptr() as _,
+            c"../../../libs/default/Windows.winmd".as_ptr() as _,
             core::ptr::null_mut(),
             LOAD_LIBRARY_AS_IMAGE_RESOURCE,
         );

@@ -172,6 +172,7 @@ Namespace filtering projects every supported item in a namespace:
 ```rust,no_run
 windows_csharp::builder()
     .input("component.winmd")
+    .input_default()
     .filter("Component")
     .output("Component.cs")
     .write()

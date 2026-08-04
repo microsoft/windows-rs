@@ -1,6 +1,12 @@
-These `.winmd` files provide the default metadata for the Windows API, bundled into
-`windows-bindgen` and selected with `--in default`. To view the metadata, use a tool like
-[ILSpy](https://github.com/icsharpcode/ILSpy).
+## Default Windows metadata
+
+The [windows-default](https://crates.io/crates/windows-default) crate provides the default metadata
+for Windows APIs as embedded byte slices. Build tools can use [`WINRT`] and [`WIN32`] without
+locating or distributing separate `.winmd` files.
+
+Programs that link this crate include both metadata files in their binary.
+
+To view the metadata, use a tool like [ILSpy](https://github.com/icsharpcode/ILSpy).
 
 ## `Windows.Win32.winmd`
 
@@ -34,5 +40,8 @@ round-trip without the SDK.
 
 ---
 
-As with everything else in this repo, the `.winmd` files in this folder are licensed via MIT or
+As with everything else in this repo, the `.winmd` files in this crate are licensed via MIT or
 Apache-2.0.
+
+[`WINRT`]: https://docs.rs/windows-default/latest/windows_default/static.WINRT.html
+[`WIN32`]: https://docs.rs/windows-default/latest/windows_default/static.WIN32.html

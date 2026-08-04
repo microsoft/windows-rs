@@ -18,10 +18,6 @@ include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 use std::path::{Path, PathBuf};
 
-/// The bindgen default winmds, used to resolve the `Windows.Foundation.Metadata` attributes the
-/// fixtures reference (`Activatable`, `ExclusiveTo`, ...).
-const REFERENCE: &str = "../../../libs/bindgen/default";
-
 /// The system WinRT metadata that defines the projected generic collections (`IVector`1` and its
 /// PIID), needed to compute the parameterized IIDs of any `IVector<...>` a fixture names. Callers
 /// of `windows-csharp` that use WinRT generics supply this the same way windows-rs consumes the
@@ -57,7 +53,7 @@ fn author(name: &str, scratch: &Path) -> PathBuf {
     let winmd = scratch.join(format!("{name}.winmd"));
     windows_rdl::reader()
         .input(format!("input/{name}.rdl").as_str())
-        .input(REFERENCE)
+        .input_default()
         .output(winmd.to_str().unwrap())
         .write()
         .unwrap();
@@ -1712,7 +1708,7 @@ fn round_trip() {
     std::fs::create_dir_all(&project).unwrap();
     windows_csharp::builder()
         .input(winmd)
-        .input(REFERENCE)
+        .input_default()
         .input(FOUNDATION)
         .filter("Bench")
         .output(project.join("Bench.cs").to_str().unwrap())
@@ -2362,7 +2358,7 @@ fn exact_variadic_function_selection_errors() {
 #[test]
 fn real_variadic_function_selection_errors() {
     let scratch = scratch("real_variadic_function");
-    let input = Path::new("../../../libs/bindgen/default/Windows.Win32.winmd");
+    let input = Path::new("../../../libs/default/Windows.Win32.winmd");
     let output = scratch.join("Generated.cs");
     let error = windows_csharp::builder()
         .input(input.to_str().unwrap())
@@ -2382,7 +2378,7 @@ fn real_variadic_function_selection_errors() {
 #[test]
 fn real_inout_buffer_projects_as_span() {
     let scratch = scratch("real_inout_buffer");
-    let input = Path::new("../../../libs/bindgen/default/Windows.Win32.winmd");
+    let input = Path::new("../../../libs/default/Windows.Win32.winmd");
     let output = scratch.join("Generated.cs");
     windows_csharp::builder()
         .input(input.to_str().unwrap())
@@ -2539,7 +2535,7 @@ fn selection_win32_architecture_specific_layout() {
 #[test]
 fn selection_real_native_com_record_returns() {
     let scratch = scratch("selection_real_native_com_record_returns");
-    let input = Path::new("../../../libs/bindgen/default/Windows.Win32.winmd");
+    let input = Path::new("../../../libs/default/Windows.Win32.winmd");
 
     for (architecture, target) in [
         (windows_csharp::Architecture::X86, "x86"),
@@ -2976,7 +2972,7 @@ fn winui_slice_compiles() {
 
     windows_csharp::builder()
         .input(WINUI)
-        .input(REFERENCE)
+        .input_default()
         .input(FOUNDATION)
         .member("Microsoft.UI.Xaml.Application", "Start")
         .member("Microsoft.UI.Xaml.Window", "Content")
@@ -3072,7 +3068,7 @@ fn winui_generic_default_collections_and_bootstrap_compile() {
 
     windows_csharp::builder()
         .input(WINUI)
-        .input(REFERENCE)
+        .input_default()
         .input(FOUNDATION)
         .member("Microsoft.UI.Xaml.Controls.Grid", "RowDefinitions")
         .member("Microsoft.UI.Xaml.Controls.Grid", "ColumnDefinitions")

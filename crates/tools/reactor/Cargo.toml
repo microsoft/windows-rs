@@ -13,6 +13,7 @@ serde = { workspace = true, features = ["derive"] }
 toml = "0.8"
 windows-bindgen = { workspace = true }
 windows-clang = { workspace = true }
+windows-default = { workspace = true }
 windows-metadata = { workspace = true }
 windows-rdl = { workspace = true }
 

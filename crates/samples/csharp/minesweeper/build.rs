@@ -2,16 +2,11 @@ use windows_csharp::Architecture;
 
 fn main() {
     const FOUNDATION: &str = r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd";
-    const DEFAULT: &str = "../../../libs/bindgen/default";
-    const WINDOWS: &str = "../../../libs/bindgen/default/Windows.winmd";
-    const WIN32: &str = "../../../libs/bindgen/default/Windows.Win32.winmd";
 
     println!("cargo:rerun-if-changed={FOUNDATION}");
-    println!("cargo:rerun-if-changed={WINDOWS}");
-    println!("cargo:rerun-if-changed={WIN32}");
 
     windows_csharp::builder()
-        .input(DEFAULT)
+        .input_default()
         .input(FOUNDATION)
         .architecture(Architecture::X64)
         .member("Windows.UI.Composition.Compositor", "CreateContainerVisual")

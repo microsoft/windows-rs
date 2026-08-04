@@ -10,7 +10,7 @@ fn main() {
 
     windows_csharp::builder()
         .input("../component/bench.winmd")
-        .input("../../../libs/bindgen/default")
+        .input_default()
         .input(r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd")
         .filter("Bench")
         .output("Bench.cs")
