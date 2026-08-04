@@ -52,8 +52,7 @@ windows_rdl::writer()
 ```
 
 RDL can reference types it does not define. Examples include `HRESULT` and
-`Windows::Win32::System::Com::IUnknown`. Add the standard metadata as byte references so those
-references resolve.
+`Windows::Win32::System::Com::IUnknown`. Add the standard metadata so those references resolve.
 
 ```rust,no_run
 windows_rdl::reader()
@@ -63,6 +62,10 @@ windows_rdl::reader()
     .write()
     .unwrap();
 ```
+
+The reader treats the default metadata as references while compiling the input RDL. The writer
+treats it as metadata to render. Both builders also accept metadata already in memory through their
+byte-input APIs.
 
 ### C/C++ headers to RDL
 

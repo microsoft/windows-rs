@@ -4,6 +4,10 @@ The [windows-default](https://crates.io/crates/windows-default) crate provides t
 for Windows APIs as embedded byte slices. Build tools can use [`WINRT`] and [`WIN32`] without
 locating or distributing separate `.winmd` files.
 
+Most callers should use `.input_default()` on `windows-bindgen`, `windows-rdl`, `windows-clang`, or
+`windows-csharp`. Use this crate directly when implementing another tool that accepts metadata
+bytes.
+
 Programs that link this crate include both metadata files in their binary.
 
 To view the metadata, use a tool like [ILSpy](https://github.com/icsharpcode/ILSpy).

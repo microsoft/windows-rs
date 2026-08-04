@@ -1,5 +1,12 @@
 # windows-csharp
 
+> Experimental direct C# projection generator for Windows metadata.
+
+- 📦 [crates.io](https://crates.io/crates/windows-csharp)
+- 📖 [docs.rs](https://docs.rs/windows-csharp)
+- 🚀 [Getting started](../../crates/libs/csharp/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/csharp)
+
 `windows-csharp` is an experimental code generator that projects Windows metadata directly into
 C#. It uses the same metadata model as windows-rs but emits direct COM and native ABI calls instead
 of using the managed-wrapper model employed by C#/WinRT.
@@ -184,7 +191,7 @@ Exact selection projects named roots and their transitive dependencies:
 ```rust,no_run
 windows_csharp::builder()
     .input("component.winmd")
-    .input("Windows.Foundation.winmd")
+    .input_default()
     .select("Component.Widget")
     .member("Component.Gadget", "Value")
     .function("Component.GetWidget")

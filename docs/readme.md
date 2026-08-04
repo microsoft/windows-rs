@@ -37,6 +37,7 @@ usage and examples.
 | To link C-style functions without import libs (`link!`, `raw-dylib`) | [windows-link](crates/windows-link.md) |
 | To generate your own focused bindings | [windows-bindgen](crates/windows-bindgen.md) |
 | Direct C# metadata projection (experimental) | [windows-csharp](crates/windows-csharp.md) |
+| Embedded Windows metadata for custom build tools | [windows-default](crates/windows-default.md) |
 | A declarative WinUI 3 UI, 2D graphics, a WebView, or a window | [windows-reactor](crates/windows-reactor.md), [windows-canvas](crates/windows-canvas.md), [windows-webview](crates/windows-webview.md), [windows-window](crates/windows-window.md) |
 
 ## Crates

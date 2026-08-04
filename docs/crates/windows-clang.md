@@ -66,6 +66,16 @@ windows_clang::clang()
 `clang_version()` returns the loaded libclang's version string; the tooling pins a specific libclang
 release so the scrape is deterministic (see `tool_win32`).
 
+### Default metadata
+
+`.input_default()` adds the standard WinRT and Win32 metadata as references for declarations used by
+the scraped headers. `.reference_bytes(..)` adds custom reference metadata already in memory.
+
+`.resolution_default()` is different: it adds only the WinRT metadata to the resolution set used to
+classify `ABI::Windows::*` declarations. This lets `tool_win32` distinguish real WinRT types from
+Win32 COM interop types without treating the Win32 metadata being generated as an existing
+definition. `.resolution_bytes(..)` provides the same role for custom metadata.
+
 ## Consumers
 
 - `tool_win32` - owns the single committed `crates/libs/default/Windows.Win32.winmd` for
