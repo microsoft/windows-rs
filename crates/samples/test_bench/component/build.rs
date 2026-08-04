@@ -14,6 +14,6 @@ fn main() {
         .output("src/bindings.rs")
         .filter("Bench")
         .flat()
-        .implement(std::iter::empty::<&str>())
+        .implement_all()
         .write();
 }

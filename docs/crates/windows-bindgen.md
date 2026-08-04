@@ -181,7 +181,9 @@ and `remove_X`.
   `--in default` form provides the same behavior.
 - `.output(..)` accepts a string, `Path`, or `PathBuf`.
 - `--derive` and `.derive(..)` add derives to generated types.
-- `--implement` and `.implement(..)` emit `_Impl` scaffolding for WinRT interface implementations.
+- Bare `--implement` and `.implement_all()` emit `_Impl` scaffolding for every WinRT interface in
+  scope. Use `.implement(name)` or `.implements(names)` to limit scaffolding to type names or
+  namespace prefixes.
 - `--rustfmt` and `.rustfmt(..)` set the formatter for the output.
 - `--dead-code` and `.dead_code()` emit `pub(crate)` for callable items. This lets the compiler flag
   unused generated callables.

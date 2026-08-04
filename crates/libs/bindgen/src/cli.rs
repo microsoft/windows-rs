@@ -81,6 +81,7 @@ where
     let mut builder = Bindgen::new();
     let mut kind = ArgKind::None;
     let mut has_output = false;
+    let mut implement = None::<Vec<String>>;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -113,7 +114,7 @@ where
                     builder.extern_fns();
                 }
                 "--implement" => {
-                    builder.implement.get_or_insert_with(Vec::new);
+                    implement.get_or_insert_with(Vec::new);
                     kind = ArgKind::Implement;
                 }
                 _ => panic!("invalid option `{arg}`"),
@@ -137,14 +138,19 @@ where
                 builder.derive(arg);
             }
             ArgKind::Implement => {
-                builder
-                    .implement
-                    .get_or_insert_with(Vec::new)
-                    .push(arg.clone());
+                implement.as_mut().unwrap().push(arg.clone());
             }
             ArgKind::Rustfmt => {
                 builder.rustfmt(arg);
             }
+        }
+    }
+
+    if let Some(implement) = implement {
+        if implement.is_empty() {
+            builder.implement_all();
+        } else {
+            builder.implements(implement);
         }
     }
 

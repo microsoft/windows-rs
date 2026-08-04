@@ -304,25 +304,41 @@ impl Bindgen {
         self
     }
 
-    /// Include implementation traits for WinRT interfaces.
+    /// Includes implementation traits for every WinRT interface in scope.
+    #[track_caller]
+    pub fn implement_all(&mut self) -> &mut Self {
+        match &self.implement {
+            None => self.implement = Some(vec![]),
+            Some(names) if names.is_empty() => {}
+            Some(_) => panic!("cannot combine `implement_all` with selected implementations"),
+        }
+        self
+    }
+
+    /// Includes implementation traits for a WinRT interface or namespace prefix.
     ///
-    /// Each entry may be a fully-qualified type name (`Namespace.Name`) or a
-    /// namespace prefix that matches every type defined under it. When called
-    /// with no patterns (an empty iterator), `_Impl` scaffolding is emitted for
-    /// every WinRT interface in scope. When called with one or more patterns,
-    /// `_Impl` scaffolding is emitted only for types matching the patterns,
-    /// rather than for every interface/class in the filter set. The latter is
-    /// a finer-grained alternative to the broad form and can significantly
-    /// reduce build time when only a handful of interfaces need to be
-    /// implemented.
-    pub fn implement<I, S>(&mut self, names: I) -> &mut Self
+    /// The name may be a fully-qualified type name (`Namespace.Name`) or a namespace prefix that
+    /// matches every type defined under it.
+    #[track_caller]
+    pub fn implement(&mut self, name: &str) -> &mut Self {
+        assert!(
+            !self.implement.as_ref().is_some_and(Vec::is_empty),
+            "cannot combine selected implementations with `implement_all`"
+        );
+        self.implement
+            .get_or_insert_with(Vec::new)
+            .push(name.to_string());
+        self
+    }
+
+    /// Includes implementation traits for multiple WinRT interfaces or namespace prefixes.
+    pub fn implements<I, S>(&mut self, names: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
-        let list = self.implement.get_or_insert_with(Vec::new);
         for name in names {
-            list.push(name.as_ref().to_string());
+            self.implement(name.as_ref());
         }
         self
     }
@@ -747,5 +763,41 @@ mod tests {
     #[test]
     fn default_metadata_reader_is_reused() {
         assert!(std::ptr::eq(default_reader(), default_reader()));
+    }
+
+    #[test]
+    fn implementation_selection() {
+        let mut builder = Bindgen::new();
+        builder
+            .implement("Test.IFirst")
+            .implements(["Test.ISecond", "Other"]);
+        assert_eq!(
+            builder.implement,
+            Some(vec![
+                "Test.IFirst".to_string(),
+                "Test.ISecond".to_string(),
+                "Other".to_string()
+            ])
+        );
+
+        let mut builder = Bindgen::new();
+        builder.implement_all().implement_all();
+        assert_eq!(builder.implement, Some(vec![]));
+
+        let mut builder = Bindgen::new();
+        builder.implements(std::iter::empty::<&str>());
+        assert_eq!(builder.implement, None);
+    }
+
+    #[test]
+    #[should_panic(expected = "cannot combine selected implementations with `implement_all`")]
+    fn implementation_after_all_panics() {
+        Bindgen::new().implement_all().implement("Test.IFirst");
+    }
+
+    #[test]
+    #[should_panic(expected = "cannot combine `implement_all` with selected implementations")]
+    fn implementation_all_after_selection_panics() {
+        Bindgen::new().implement("Test.IFirst").implement_all();
     }
 }
