@@ -56,6 +56,7 @@ fn fixed_unsigned_value(value: u64) -> metadata::Value {
 pub struct Reader {
     input: Vec<String>,
     input_str: Vec<String>,
+    reference: Vec<String>,
     input_default: bool,
     reference_bytes: Vec<Vec<u8>>,
     output: String,
@@ -67,20 +68,33 @@ impl Reader {
         Self::default()
     }
 
-    /// Adds an input `.rdl` file (or `.winmd` reference) or directory. `"default"` selects the
-    /// default Windows metadata references.
+    /// Adds an input `.rdl` file or directory.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.input_default()
-        } else {
-            self.input.push(input.to_string());
-            self
-        }
+        self.input.push(input.to_string());
+        self
     }
 
     /// Adds inline RDL source text to compile instead of a file on disk.
     pub fn input_str(&mut self, input: &str) -> &mut Self {
         self.input_str.push(input.to_string());
+        self
+    }
+
+    /// Adds a `.winmd` reference file or directory.
+    pub fn reference(&mut self, input: &str) -> &mut Self {
+        self.reference.push(input.to_string());
+        self
+    }
+
+    /// Adds multiple `.winmd` reference files or directories.
+    pub fn references<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.reference(input.as_ref());
+        }
         self
     }
 
@@ -96,7 +110,7 @@ impl Reader {
         self
     }
 
-    /// Adds multiple input `.rdl` files or `.winmd` references.
+    /// Adds multiple input `.rdl` files or directories.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -120,7 +134,8 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
-        let (rdl_paths, reference_paths) = expand_input_paths(&self.input, "rdl", "winmd")?;
+        let rdl_paths = expand_input_files(&self.input, "rdl")?;
+        let reference_paths = expand_input_files(&self.reference, "winmd")?;
 
         let input = expand_rdl_files(&rdl_paths, &self.input_str)?;
 

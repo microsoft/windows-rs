@@ -25,3 +25,6 @@ windows_clang::clang()
     .write()
     .unwrap();
 ```
+
+Use `.reference("dependency.winmd")` when the headers refer to types defined by another metadata
+file. Use `.input_default()` for the standard Windows metadata.

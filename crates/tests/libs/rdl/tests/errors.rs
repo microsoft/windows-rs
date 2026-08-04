@@ -33,7 +33,7 @@ fn missing_output_is_rejected() {
 }
 
 #[test]
-#[should_panic(expected = "expected .rdl or .winmd")]
+#[should_panic(expected = "expected .rdl file")]
 fn unsupported_input_extension_is_rejected() {
     // `Display` branch 3: a file name but no source location (line/column 0).
     windows_rdl::reader()

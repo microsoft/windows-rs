@@ -253,12 +253,12 @@ pub fn expand_input_paths(
             }
 
             if paths1.len() + paths2.len() == prev_total {
-                return Err(Error::new(
-                    &format!("failed to find .{ext1} or .{ext2} files in directory"),
-                    input,
-                    0,
-                    0,
-                ));
+                let message = if ext1 == ext2 {
+                    format!("failed to find .{ext1} files in directory")
+                } else {
+                    format!("failed to find .{ext1} or .{ext2} files in directory")
+                };
+                return Err(Error::new(&message, input, 0, 0));
             }
         } else if path
             .extension()
@@ -271,16 +271,21 @@ pub fn expand_input_paths(
         {
             paths2.push(input.clone());
         } else {
-            return Err(Error::new(
-                &format!("expected .{ext1} or .{ext2} file"),
-                input,
-                0,
-                0,
-            ));
+            let message = if ext1 == ext2 {
+                format!("expected .{ext1} file")
+            } else {
+                format!("expected .{ext1} or .{ext2} file")
+            };
+            return Err(Error::new(&message, input, 0, 0));
         }
     }
 
     Ok((paths1, paths2))
+}
+
+/// Expands file and directory inputs containing one file type.
+pub fn expand_input_files(inputs: &[String], extension: &str) -> Result<Vec<String>, Error> {
+    Ok(expand_input_paths(inputs, extension, extension)?.0)
 }
 
 pub fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {

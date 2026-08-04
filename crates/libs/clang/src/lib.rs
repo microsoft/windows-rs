@@ -8,7 +8,7 @@ use proc_macro2::{Literal, Span, TokenStream};
 use quote::quote;
 
 use windows_rdl::emit::{uuid_to_u128_literal, write_ident, write_typed_value};
-use windows_rdl::{Error, expand_input_paths, formatter, implib, write_to_file};
+use windows_rdl::{Error, expand_input_files, formatter, implib, write_to_file};
 
 mod cx;
 use cx::*;
@@ -501,6 +501,7 @@ impl<'a> Parser<'a> {
 pub struct Clang {
     input: Vec<String>,
     input_str: Vec<String>,
+    reference: Vec<String>,
     output: String,
     namespace: String,
     args: Vec<String>,
@@ -544,15 +545,10 @@ impl Clang {
         Self::default()
     }
 
-    /// Adds an input header (`.h`) or `.winmd` file or directory. `"default"` selects the default
-    /// Windows metadata references.
+    /// Adds an input header (`.h`) file or directory.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.input_default()
-        } else {
-            self.input.push(input.to_string());
-            self
-        }
+        self.input.push(input.to_string());
+        self
     }
 
     /// Adds input headers or `.winmd` files.
@@ -570,6 +566,24 @@ impl Clang {
     /// Adds inline source text to compile instead of a file on disk.
     pub fn input_str(&mut self, input: &str) -> &mut Self {
         self.input_str.push(input.to_string());
+        self
+    }
+
+    /// Adds a reference winmd file or directory.
+    pub fn reference(&mut self, input: &str) -> &mut Self {
+        self.reference.push(input.to_string());
+        self
+    }
+
+    /// Adds multiple reference winmd files or directories.
+    pub fn references<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.reference(input.as_ref());
+        }
         self
     }
 
@@ -609,15 +623,10 @@ impl Clang {
         self
     }
 
-    /// Adds a winmd used only to classify `ABI::Windows::*` projection declarations. `"default"`
-    /// selects the default Windows Runtime metadata.
+    /// Adds a winmd used only to classify `ABI::Windows::*` projection declarations.
     pub fn resolution_input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.resolution_default()
-        } else {
-            self.resolution_input.push(input.to_string());
-            self
-        }
+        self.resolution_input.push(input.to_string());
+        self
     }
 
     /// Adds a resolution-only winmd from memory.
@@ -794,7 +803,7 @@ impl Clang {
 
     /// Parses inputs once and returns the libclang state that keeps the TUs valid.
     fn parse_inputs(&self) -> Result<ParsedInputs, Error> {
-        let (h_paths, _) = expand_input_paths(&self.input, "h", "winmd")?;
+        let h_paths = expand_input_files(&self.input, "h")?;
         let library = Library::new()?;
         let index = Index::new()?;
 
@@ -1220,7 +1229,7 @@ impl Clang {
 
     /// Loads `.winmd` reference inputs for cross-namespace resolution.
     fn load_reference(&self) -> Result<metadata::reader::Index, Error> {
-        let (_, winmd_paths) = expand_input_paths(&self.input, "h", "winmd")?;
+        let winmd_paths = expand_input_files(&self.reference, "winmd")?;
 
         let mut winmd_files = vec![];
         for file_name in &winmd_paths {

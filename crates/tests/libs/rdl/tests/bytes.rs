@@ -20,7 +20,7 @@ mod Test {
 }
 "#,
         )
-        .input("default")
+        .input_default()
         .output(&temp_path("default_input", "winmd"))
         .write()
         .unwrap();
@@ -62,6 +62,45 @@ mod Test {
         )
         .reference_bytes(&bytes)
         .output(&temp_path("reference_bytes", "winmd"))
+        .write()
+        .unwrap();
+}
+
+#[test]
+fn reference_path_resolves_metadata() {
+    let reference = temp_path("reference_path_reference", "winmd");
+
+    windows_rdl::reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Other {
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+}
+"#,
+        )
+        .output(&reference)
+        .write()
+        .unwrap();
+
+    windows_rdl::reader()
+        .input_str(
+            r#"
+use Other::*;
+
+#[winrt]
+mod Test {
+    struct Wrapper {
+        value: Point,
+    }
+}
+"#,
+        )
+        .reference(&reference)
+        .output(&temp_path("reference_path", "winmd"))
         .write()
         .unwrap();
 }

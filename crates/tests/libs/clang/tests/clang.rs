@@ -2,6 +2,15 @@
 
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
+#[test]
+fn reference_rejects_non_winmd_input() {
+    let error = windows_clang::clang()
+        .reference("reference.rdl")
+        .write()
+        .unwrap_err();
+    assert_eq!(error.message, "expected .winmd file");
+}
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.h");
     let expected_path = format!("expected/{name}.rdl");

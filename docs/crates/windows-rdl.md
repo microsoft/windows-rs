@@ -63,9 +63,9 @@ windows_rdl::reader()
     .unwrap();
 ```
 
-The reader treats the default metadata as references while compiling the input RDL. The writer
-treats it as metadata to render. Both builders also accept metadata already in memory through their
-byte-input APIs.
+The reader treats the default metadata as references while compiling the input RDL. Add other
+reference metadata with `.reference(path)` or `.reference_bytes(bytes)`. The writer treats default
+metadata as input to render.
 
 ### C/C++ headers to RDL
 
@@ -193,7 +193,7 @@ Two in-repo tools show both uses:
   SDK metadata. The tool compiles them with the standard Win32 winmd into `extras.winmd`. Then it
   feeds that winmd to `windows_bindgen::bindgen` for [`windows-reactor`](windows-reactor.md).
 
-In both tools, `reader` also gets the standard metadata as input. That lets RDL references resolve
+In both tools, `reader` also gets the standard metadata as references. That lets RDL names resolve
 against the standard definitions.
 
 ---

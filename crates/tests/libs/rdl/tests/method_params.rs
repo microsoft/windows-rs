@@ -425,7 +425,7 @@ fn all_supported_param_attributes_and_directions_round_trip() {
 
     windows_rdl::reader()
         .input(rdl.to_str().unwrap())
-        .input(attributes.to_str().unwrap())
+        .reference(attributes.to_str().unwrap())
         .output(roundtrip.to_str().unwrap())
         .write()
         .unwrap();
