@@ -14,9 +14,8 @@ dotnet run --project crates\samples\csharp\minesweeper\minesweeper.csproj `
 ```
 
 The MSBuild target runs `cargo build -p csharp_minesweeper` before C# compilation. The Cargo build
-script reads the repository Windows metadata plus the installed
-`C:\Windows\System32\WinMetadata\Windows.Foundation.winmd`, then regenerates the committed
-`Windows.cs` projection. No separate Cargo command is needed.
+script reads the repository Windows metadata and regenerates the committed `Windows.cs`
+projection. No separate Cargo command is needed.
 
 Left-click reveals a tile. Right-click cycles flag, question, and empty. The first reveal generates
 40 mines while excluding that tile. The 16x16 board scales with the client area, and hitting a mine

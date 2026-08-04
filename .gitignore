@@ -5,6 +5,7 @@
 /temp
 *.lock
 *.winmd
+!crates/libs/default/*.winmd
 obj
 bin
 aot-publish

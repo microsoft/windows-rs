@@ -78,6 +78,8 @@ enum Selection {
 /// ```
 pub struct Builder {
     input: Vec<String>,
+    input_default: bool,
+    input_bytes: Vec<Vec<u8>>,
     filter: Vec<String>,
     output: String,
     fragment: bool,
@@ -92,6 +94,8 @@ impl Default for Builder {
     fn default() -> Self {
         Self {
             input: Vec::new(),
+            input_default: false,
+            input_bytes: Vec::new(),
             filter: Vec::new(),
             output: String::new(),
             fragment: false,
@@ -106,8 +110,26 @@ impl Default for Builder {
 
 impl Builder {
     /// Adds a metadata input. The path may be a single `.winmd` file or a directory of them.
+    /// `"default"` selects the default Windows metadata.
     pub fn input<S: Into<String>>(mut self, input: S) -> Self {
-        self.input.push(input.into());
+        let input = input.into();
+        if input == "default" {
+            self.input_default = true;
+        } else {
+            self.input.push(input);
+        }
+        self
+    }
+
+    /// Adds the default Windows metadata.
+    pub fn input_default(mut self) -> Self {
+        self.input_default = true;
+        self
+    }
+
+    /// Adds a `.winmd` file from memory.
+    pub fn input_bytes(mut self, input: &[u8]) -> Self {
+        self.input_bytes.push(input.to_vec());
         self
     }
 
@@ -216,7 +238,7 @@ impl Builder {
                 "windows-csharp: output path is required",
             ));
         }
-        let files = read_files(&self.input)?;
+        let files = read_inputs(&self.input, self.input_default, &self.input_bytes)?;
         if files.is_empty() {
             return Err(std::io::Error::new(
                 std::io::ErrorKind::InvalidInput,
@@ -227,7 +249,11 @@ impl Builder {
             || !self.selected_functions.is_empty()
             || !self.selected_constants.is_empty()
         {
-            let all_index = Index::new(read_files(&self.input)?);
+            let all_index = Index::new(read_inputs(
+                &self.input,
+                self.input_default,
+                &self.input_bytes,
+            )?);
             let index =
                 Index::new_for_architecture(files, self.architecture.map_or(0, Architecture::bit));
             let source = self
@@ -965,6 +991,33 @@ fn read_files(inputs: &[String]) -> std::io::Result<Vec<File>> {
             files.push(read_winmd(path)?);
         }
     }
+    Ok(files)
+}
+
+fn read_inputs(
+    inputs: &[String],
+    input_default: bool,
+    input_bytes: &[Vec<u8>],
+) -> std::io::Result<Vec<File>> {
+    let mut files = read_files(inputs)?;
+
+    if input_default {
+        files.extend(
+            [windows_default::WINRT, windows_default::WIN32]
+                .into_iter()
+                .map(|bytes| File::new(bytes.to_vec()).unwrap()),
+        );
+    }
+
+    for bytes in input_bytes {
+        files.push(File::new(bytes.clone()).ok_or_else(|| {
+            std::io::Error::new(
+                std::io::ErrorKind::InvalidData,
+                "windows-csharp: failed to read metadata input from memory",
+            )
+        })?);
+    }
+
     Ok(files)
 }
 
@@ -4460,8 +4513,8 @@ mod tests {
 
     #[test]
     fn real_win32_istream_shapes() {
-        let input = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../bindgen/default/Windows.Win32.winmd");
+        let input =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../default/Windows.Win32.winmd");
         let files = read_files(&[input.to_string_lossy().into_owned()]).unwrap();
         let index = Index::new(files);
 
@@ -4560,8 +4613,8 @@ mod tests {
 
     #[test]
     fn real_win32_callback_shape() {
-        let input = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../bindgen/default/Windows.Win32.winmd");
+        let input =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../default/Windows.Win32.winmd");
         let files = read_files(&[input.to_string_lossy().into_owned()]).unwrap();
         let index = Index::new(files);
 
@@ -4600,8 +4653,8 @@ mod tests {
 
     #[test]
     fn real_win32_architecture_layouts() {
-        let input = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../bindgen/default/Windows.Win32.winmd");
+        let input =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../default/Windows.Win32.winmd");
         let input = input.to_string_lossy().into_owned();
 
         let all = Index::new(read_files(std::slice::from_ref(&input)).unwrap());
@@ -4629,8 +4682,8 @@ mod tests {
     /// Validates output and input/output direction analysis against real Win32 exports.
     #[test]
     fn real_win32_direction_analysis() {
-        let input = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../bindgen/default/Windows.Win32.winmd");
+        let input =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../default/Windows.Win32.winmd");
         let files = read_files(&[input.to_string_lossy().into_owned()]).unwrap();
         let index = Index::new(files);
 
@@ -4688,8 +4741,8 @@ mod tests {
 
     #[test]
     fn real_win32_buffer_analysis() {
-        let input = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../bindgen/default/Windows.Win32.winmd");
+        let input =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../default/Windows.Win32.winmd");
         let files = read_files(&[input.to_string_lossy().into_owned()]).unwrap();
         let index = Index::new(files);
 
@@ -4740,8 +4793,8 @@ mod tests {
     /// docs and the cross-crate review in `docs/crates/windows-csharp.md`).
     #[test]
     fn real_win32_handle_shapes() {
-        let input = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join("../bindgen/default/Windows.Win32.winmd");
+        let input =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../default/Windows.Win32.winmd");
         let files = read_files(&[input.to_string_lossy().into_owned()]).unwrap();
         let index = Index::new(files);
 

@@ -298,7 +298,7 @@ fn copy_winmd(src: &Path, dest: &Path) {
 fn generate_reactor_bindings() {
     windows_rdl::Reader::new()
         .input("crates/tools/reactor/src/extras.rdl")
-        .input("crates/libs/bindgen/default/Windows.Win32.winmd")
+        .reference_bytes(windows_default::WIN32)
         .output("crates/tools/reactor/winmd/extras.winmd")
         .write()
         .unwrap();
@@ -306,8 +306,7 @@ fn generate_reactor_bindings() {
     let reactor_args = [
         "--in",
         "crates/tools/reactor/winmd",
-        "crates/libs/bindgen/default/Windows.winmd",
-        "crates/libs/bindgen/default/Windows.Win32.winmd",
+        "default",
         "--out",
         "crates/libs/reactor/src/bindings.rs",
         "--implement",
@@ -326,8 +325,7 @@ fn generate_reactor_bindings() {
     let test_args = [
         "--in",
         "crates/tools/reactor/winmd",
-        "crates/libs/bindgen/default/Windows.winmd",
-        "crates/libs/bindgen/default/Windows.Win32.winmd",
+        "default",
         "--out",
         "crates/tests/libs/reactor_selftest/src/bindings.rs",
         "--minimal",

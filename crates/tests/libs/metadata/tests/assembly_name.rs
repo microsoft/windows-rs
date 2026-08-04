@@ -10,15 +10,15 @@ fn file() {
     let reader = reader::File::read("tests/assembly_name.winmd").unwrap();
     assert_eq!(reader.assembly_name(), Some("TestName"));
 
-    let reader = reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let reader = reader::File::new(windows_default::WIN32.to_vec()).unwrap();
     assert_eq!(reader.assembly_name(), Some("Windows.Win32"));
 }
 
 #[test]
 fn index() {
     let index = reader::Index::new(vec![
-        reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap(),
-        reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap(),
+        reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+        reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
     ]);
 
     assert_eq!(

@@ -37,6 +37,7 @@ usage and examples.
 | To link C-style functions without import libs (`link!`, `raw-dylib`) | [windows-link](crates/windows-link.md) |
 | To generate your own focused bindings | [windows-bindgen](crates/windows-bindgen.md) |
 | Direct C# metadata projection (experimental) | [windows-csharp](crates/windows-csharp.md) |
+| Embedded Windows metadata for custom build tools | [windows-default](crates/windows-default.md) |
 | A declarative WinUI 3 UI, 2D graphics, a WebView, or a window | [windows-reactor](crates/windows-reactor.md), [windows-canvas](crates/windows-canvas.md), [windows-webview](crates/windows-webview.md), [windows-window](crates/windows-window.md) |
 
 ## Crates
@@ -115,9 +116,9 @@ above); Rust requires their proc macros to live in a dedicated `proc-macro` crat
 | [windows-bindgen](crates/windows-bindgen.md) | Code generator for Windows metadata. |
 | [windows-csharp](crates/windows-csharp.md) | Experimental direct C# projection generator. |
 | [windows-clang](crates/windows-clang.md) | Generates RDL from C/C++ headers using libclang. |
+| [windows-default](crates/windows-default.md) | Default Windows metadata for build tools. |
 | [windows-metadata](crates/windows-metadata.md) | Low-level ECMA-335 metadata library. |
 | [windows-rdl](crates/windows-rdl.md) | RDL parser and ECMA-335 generator. |
-| [riddle](crates/riddle.md) | Windows metadata compiler. |
 | [cppwinrt](crates/cppwinrt.md) | Bundles the C++/WinRT compiler. |
 
 ### Full Windows API projection

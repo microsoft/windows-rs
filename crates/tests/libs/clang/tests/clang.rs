@@ -70,7 +70,7 @@ fn run(name: &str) {
 
     // Compile any reference RDL fixtures to winmd so they can be fed to the
     // scraper as cross-namespace references.
-    let mut reference_winmds: Vec<String> = vec![];
+    let mut reference_winmds: Vec<Vec<u8>> = vec![];
     for reference in &references {
         let ref_rdl = format!("input/{reference}.rdl");
         let ref_winmd = format!("{scratch}/{reference}.winmd");
@@ -79,7 +79,7 @@ fn run(name: &str) {
             .output(&ref_winmd)
             .write()
             .unwrap();
-        reference_winmds.push(ref_winmd);
+        reference_winmds.push(std::fs::read(ref_winmd).unwrap());
     }
 
     let rdl_out = format!("{scratch}/{name}.rdl");
@@ -97,8 +97,10 @@ fn run(name: &str) {
         .output(&rdl_out)
         .namespace(&namespace);
 
-    for ref_winmd in &reference_winmds {
-        clang.input(ref_winmd);
+    clang.resolution_default();
+
+    for bytes in &reference_winmds {
+        clang.reference_bytes(bytes);
     }
 
     if !library.is_empty() {

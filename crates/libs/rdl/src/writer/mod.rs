@@ -25,6 +25,8 @@ use r#struct::*;
 /// Builder that converts `.winmd` metadata into RDL.
 pub struct Writer {
     input: Vec<String>,
+    input_default: bool,
+    input_bytes: Vec<Vec<u8>>,
     filter: Vec<String>,
     output: String,
     split: bool,
@@ -37,9 +39,25 @@ impl Writer {
         Self::default()
     }
 
-    /// Adds an input `.winmd` file or directory.
+    /// Adds an input `.winmd` file or directory. `"default"` selects the default Windows metadata.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(input.to_string());
+        if input == "default" {
+            self.input_default()
+        } else {
+            self.input.push(input.to_string());
+            self
+        }
+    }
+
+    /// Adds a `.winmd` file from memory.
+    pub fn input_bytes(&mut self, input: &[u8]) -> &mut Self {
+        self.input_bytes.push(input.to_vec());
+        self
+    }
+
+    /// Adds the default Windows metadata inputs.
+    pub fn input_default(&mut self) -> &mut Self {
+        self.input_default = true;
         self
     }
 
@@ -56,9 +74,8 @@ impl Writer {
         S: AsRef<str>,
     {
         for input in inputs {
-            self.input.push(input.as_ref().to_string());
+            self.input(input.as_ref());
         }
-
         self
     }
 
@@ -101,6 +118,21 @@ impl Writer {
             files.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+            );
+        }
+
+        if self.input_default {
+            files.extend(
+                [windows_default::WINRT, windows_default::WIN32]
+                    .into_iter()
+                    .map(|bytes| metadata::reader::File::new(bytes.to_vec()).unwrap()),
+            );
+        }
+
+        for bytes in &self.input_bytes {
+            files.push(
+                metadata::reader::File::new(bytes.clone())
+                    .ok_or_else(|| Error::new("invalid input", "<memory>", 0, 0))?,
             );
         }
 

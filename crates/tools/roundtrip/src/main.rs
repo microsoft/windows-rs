@@ -10,7 +10,7 @@ use windows_rdl::{item_names, reader, write_to_file, writer};
 // Win32 and WDK RDL - so the round-trip works from that split RDL, compiling each winmd on demand.
 // Paths are relative to the workspace root, matching `tool_win32`/`tool_winrt`.
 
-const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
+const WINRT_WINMD: &str = "crates/libs/default/Windows.winmd";
 const WINRT_RDL: &str = "metadata/winrt";
 
 const WIN32_RDL: &str = "metadata/win32";
@@ -21,7 +21,7 @@ const WDK_RDL: &str = "metadata/wdk";
 const WDK_KM_WINMD: &str = "target/roundtrip/Windows.Win32.km.winmd";
 
 // The WinRT projection winmd, a resolution reference so the um compile resolves `ABI::Windows::*`.
-const WINRT_RESOLUTION: &str = "crates/libs/bindgen/default/Windows.winmd";
+const WINRT_RESOLUTION: &str = "crates/libs/default/Windows.winmd";
 
 // The flat namespace the header-scraped Win32 and WDK surfaces share.
 const WIN32_ROOT: &str = "Windows.Win32";

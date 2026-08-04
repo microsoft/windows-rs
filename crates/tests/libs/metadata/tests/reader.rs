@@ -2,7 +2,9 @@ use windows_metadata::*;
 
 #[test]
 fn type_index() {
-    let index = reader::Index::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
+    let index = reader::Index::new(vec![
+        reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+    ]);
 
     let def = index.expect("Windows.Foundation", "Point");
     assert_eq!(def.namespace(), "Windows.Foundation");
@@ -23,8 +25,8 @@ fn type_index() {
 #[test]
 fn item_index() {
     let index = reader::Index::new(vec![
-        reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap(),
-        reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap(),
+        reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+        reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
     ]);
 
     let reader::Item::Type(ty) = index.expect_item("Windows.Foundation", "Point") else {
@@ -46,7 +48,9 @@ fn item_index() {
 
 #[test]
 fn array() {
-    let index = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let index = reader::Index::new(vec![
+        reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
+    ]);
     let def = index
         .types()
         .find(|def| def.name() == "SID_IDENTIFIER_AUTHORITY")
@@ -59,7 +63,9 @@ fn array() {
 
 #[test]
 fn nested() {
-    let index = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let index = reader::Index::new(vec![
+        reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
+    ]);
 
     let def = index
         .types()

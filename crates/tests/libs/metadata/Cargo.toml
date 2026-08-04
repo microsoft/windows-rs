@@ -5,6 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
+windows-default = { workspace = true }
 windows-metadata = { workspace = true }
 windows-rdl = { workspace = true }
 

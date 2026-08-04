@@ -16,6 +16,7 @@ for the design rationale, the benchmark results that motivate it, and the roadma
 ```rust,no_run
 windows_csharp::builder()
     .input("component.winmd")
+    .input_default()
     .filter("Thin")
     .output("Thin.cs")
     .write()

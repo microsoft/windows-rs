@@ -33,8 +33,6 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --all-features
-      - name: Check riddle
-        run:  cargo check -p riddle --all-features
       - name: Check windows-animation
         run:  cargo check -p windows-animation --all-features
       - name: Check windows-bindgen
@@ -53,6 +51,8 @@ jobs:
         run:  cargo check -p windows-core --all-features
       - name: Check windows-csharp
         run:  cargo check -p windows-csharp --all-features
+      - name: Check windows-default
+        run:  cargo check -p windows-default --all-features
       - name: Check windows-future
         run:  cargo check -p windows-future --all-features
       - name: Check windows-implement

@@ -3,7 +3,7 @@ fn main() {
 
     windows_bindgen::builder()
         .input("../component/bench.winmd")
-        .input("../../../libs/bindgen/default")
+        .input_default()
         .output("src/bindings.rs")
         .filter("Bench")
         .flat()

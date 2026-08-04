@@ -13,9 +13,8 @@ commits manually. Make changes locally, run fmt/clippy/tests to verify, and repo
 Cargo workspace (`resolver = "3"`). Members are globbed from:
 
 - `crates/libs/*` - the published/library crates (`windows`, `windows-sys`, `windows-core`, plus
-  `windows-bindgen`, `metadata`, `rdl`, `riddle`, and the newer
-  `reactor`/`canvas`/`webview`/`window` crates). See `docs/readme.md` for the full categorized crate
-  index, and `docs/crates/<crate>.md` per crate.
+  `windows-bindgen`, `metadata`, `rdl`, and the newer `reactor`/`canvas`/`webview`/`window` crates).
+  See `docs/readme.md` for the full categorized crate index, and `docs/crates/<crate>.md` per crate.
 - `crates/tools/*` - code generators and CI helpers, run via `cargo run -p tool_*`.
 - `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors each library crate (e.g.
   `test_reactor`, `test_webview`). Crate names are `test_<dir>`.
@@ -26,8 +25,8 @@ The crates fall into rough groups (see `docs/readme.md` for the authoritative li
 `collections`, `reference`, `time`); async & threading (`future`, `threading`); system services
 (`registry`, `services`, `version`); COM macros & linking (`implement`, `interface`, `link`); UI &
 graphics (`reactor`, `canvas`, `webview`, `window`, `animation`, `reactor-setup`); codegen &
-metadata tooling (`bindgen`, `metadata`, `rdl`, `riddle`, `cppwinrt`); and the full API projection
-(`windows`, `windows-sys`).
+metadata tooling (`bindgen`, `metadata`, `rdl`, `cppwinrt`); and the full API projection (`windows`,
+`windows-sys`).
 
 ## Before Finalizing Changes
 
@@ -104,8 +103,8 @@ produces a diff (the `gen` workflow runs each `cargo run -p tool_*` and rejects 
 re-run the tool and commit the result.
 
 The core `windows` / `windows-sys` crates are generated from Windows metadata (`.winmd`) via
-`windows-bindgen` (driven by `tool_package`). `windows-metadata`, `windows-rdl`, and `riddle`
-support reading/authoring that metadata. The reactor / canvas / webview pipelines layer on top:
+`windows-bindgen` (driven by `tool_package`). `windows-metadata` and `windows-rdl` support
+reading/authoring that metadata. The reactor / canvas / webview pipelines layer on top:
 
 1. **`tool_reactor`** - reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd` metadata ->
    generates `generated.rs`, `generated_set_prop.rs`, `generated_attach_event.rs`, and

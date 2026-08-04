@@ -29,17 +29,16 @@ fn generate() -> String {
     let cs = dir.join("Sample.cs");
     std::fs::write(&rdl, RDL).unwrap();
 
-    let reference = concat!(env!("CARGO_MANIFEST_DIR"), "/../bindgen/default");
-
     windows_rdl::reader()
         .input(rdl.to_str().unwrap())
-        .input(reference)
+        .input_default()
         .output(winmd.to_str().unwrap())
         .write()
         .unwrap();
 
+    let bytes = std::fs::read(&winmd).unwrap();
     windows_csharp::builder()
-        .input(winmd.to_str().unwrap())
+        .input_bytes(&bytes)
         .filter("Sample")
         .output(cs.to_str().unwrap())
         .write()

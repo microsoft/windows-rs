@@ -11,9 +11,10 @@
 `windows-sys` crates. You can also use it from `build.rs` to make a small binding set for the APIs
 that your crate calls.
 
-The crate includes the standard Windows metadata. Most projects only need an output file and a
-filter. If an API has no metadata, use [`windows-rdl`](windows-rdl.md) to create a `.winmd` file.
-Then pass that file to `windows-bindgen`.
+The crate includes the standard Windows metadata through
+[`windows-default`](windows-default.md). Most projects only need an output file and a filter. If an
+API has no metadata, use [`windows-rdl`](windows-rdl.md) to create a `.winmd` file. Then pass that
+file to `windows-bindgen`.
 
 ## Getting started
 
@@ -174,8 +175,9 @@ and `remove_X`.
 
 ### Other useful options
 
-- `--in`, `.input(..)`, and `.inputs(..)` add `.winmd` files or directories. Use the literal
-  `"default"` to include the bundled Windows metadata.
+- `--in`, `.input(..)`, and `.inputs(..)` add `.winmd` files or directories.
+  `.input_default()` or the literal `"default"` includes the standard metadata. The builder uses
+  it implicitly when no input is supplied.
 - `--derive` and `.derive(..)` add derives to generated types.
 - `--implement` and `.implement(..)` emit `_Impl` scaffolding for WinRT interface implementations.
 - `--rustfmt` and `.rustfmt(..)` set the formatter for the output.
@@ -268,7 +270,7 @@ not needed to use `windows-bindgen`.
 
 `windows-bindgen` is hand-written. It is the generator that other crates use. It reads ECMA-335
 metadata through [`windows-metadata`](windows-metadata.md). The bundled metadata inputs live in
-`crates/libs/bindgen/default`.
+the [`windows-default`](windows-default.md) crate.
 
 Two tools drive it in this repository:
 

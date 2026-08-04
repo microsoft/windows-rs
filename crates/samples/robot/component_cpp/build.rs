@@ -14,11 +14,11 @@ fn msvc_main() {
     println!("cargo:rustc-link-arg-cdylib=/export:CreateRobotFromHandle");
 
     let include = std::env::var("OUT_DIR").unwrap();
-    let reference = "../../../libs/bindgen/default";
+    let reference = "../../../libs/default";
 
     windows_rdl::reader()
         .input("src/robot.rdl")
-        .input(reference)
+        .input_default()
         .output("robot.winmd")
         .write()
         .unwrap();

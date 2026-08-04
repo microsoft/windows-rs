@@ -9,8 +9,6 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::time::{Duration, Instant};
 
-const REFERENCE: &str = "../../../libs/bindgen/default";
-const FOUNDATION: &str = r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd";
 const BREADTHS: &[usize] = &[1, 8, 32, 64, 80, 82, 128];
 
 #[test]
@@ -25,7 +23,7 @@ fn broad_maps_use_static_function_specialization() {
     let winmd = scratch.join("scale.winmd");
     windows_rdl::reader()
         .input(rdl.to_str().unwrap())
-        .input(REFERENCE)
+        .input_default()
         .output(winmd.to_str().unwrap())
         .write()
         .unwrap();
@@ -83,7 +81,7 @@ fn measure(breadth: usize) {
     let winmd = scratch.join("scale.winmd");
     windows_rdl::reader()
         .input(rdl.to_str().unwrap())
-        .input(REFERENCE)
+        .input_default()
         .output(winmd.to_str().unwrap())
         .write()
         .unwrap();
@@ -172,7 +170,7 @@ fn median_generation(winmd: &Path, output: &Path, exact: bool) -> Duration {
 fn generate(winmd: &Path, output: &Path, exact: bool) {
     let mut builder = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .output(output.to_str().unwrap());
     if exact {
         builder = builder.select("Scale.IScale");

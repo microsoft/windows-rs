@@ -16,7 +16,7 @@ fn msvc_main() {
     cppwinrt::cppwinrt([
         "-in",
         "../component/robot.winmd",
-        "../../../libs/bindgen/default",
+        "../../../libs/default",
         "-out",
         &include,
     ]);

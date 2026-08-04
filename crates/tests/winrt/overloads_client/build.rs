@@ -8,7 +8,7 @@ fn main() {
     windows_bindgen::bindgen([
         "--in",
         "../overloads/metadata.winmd",
-        "../../../libs/bindgen/default",
+        "default",
         "--out",
         "src/bindings.rs",
         "--filter",

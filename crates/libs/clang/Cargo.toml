@@ -13,6 +13,7 @@ readme = "readme.md"
 workspace = true
 
 [dependencies]
+windows-default = { workspace = true }
 windows-rdl = { workspace = true }
 windows-metadata = { workspace = true }
 windows-threading = { workspace = true }

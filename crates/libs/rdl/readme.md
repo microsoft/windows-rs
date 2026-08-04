@@ -2,7 +2,7 @@
 
 The [windows-rdl](https://crates.io/crates/windows-rdl) crate compiles **RDL** (Rust Definition
 Language) - a Rust-like text format for describing Windows APIs - into ECMA-335 `.winmd` metadata,
-and back again. It is the engine behind the `riddle` metadata compiler.
+and back again.
 
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)

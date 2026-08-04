@@ -4,14 +4,14 @@ fn main() {
     windows_rdl::reader()
         .output("metadata.winmd")
         .input("src/metadata.rdl")
-        .input("../../../libs/bindgen/default")
+        .input_default()
         .write()
         .unwrap();
 
     windows_bindgen::bindgen([
         "--in",
         "metadata.winmd",
-        "../../../libs/bindgen/default",
+        "default",
         "--out",
         "src/bindings.rs",
         "--filter",

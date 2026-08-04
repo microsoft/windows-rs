@@ -14,7 +14,7 @@ fn msvc_main() {
     windows_bindgen::bindgen([
         "--in",
         "../composable/metadata.winmd",
-        "../../../libs/bindgen/default",
+        "default",
         "--out",
         "src/bindings.rs",
         "--filter",
@@ -27,7 +27,7 @@ fn msvc_main() {
     cppwinrt::cppwinrt([
         "-in",
         "../composable/metadata.winmd",
-        "../../../libs/bindgen/default",
+        "../../../libs/default",
         "-out",
         &include,
     ]);
