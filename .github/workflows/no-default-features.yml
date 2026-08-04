@@ -92,6 +92,8 @@ jobs:
         run:  cargo check -p windows-core --no-default-features
       - name: Check windows-csharp
         run:  cargo check -p windows-csharp --no-default-features
+      - name: Check windows-default
+        run:  cargo check -p windows-default --no-default-features
       - name: Check windows-future
         run:  cargo check -p windows-future --no-default-features
       - name: Check windows-implement

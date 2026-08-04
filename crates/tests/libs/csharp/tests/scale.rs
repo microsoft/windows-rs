@@ -9,7 +9,6 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::time::{Duration, Instant};
 
-const FOUNDATION: &str = r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd";
 const BREADTHS: &[usize] = &[1, 8, 32, 64, 80, 82, 128];
 
 #[test]
@@ -171,7 +170,7 @@ fn median_generation(winmd: &Path, output: &Path, exact: bool) -> Duration {
 fn generate(winmd: &Path, output: &Path, exact: bool) {
     let mut builder = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .output(output.to_str().unwrap());
     if exact {
         builder = builder.select("Scale.IScale");

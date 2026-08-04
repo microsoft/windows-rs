@@ -8,13 +8,6 @@ description = "Default Windows metadata"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
-include = [
-    "src/**/*.rs",
-    "Windows.winmd",
-    "Windows.Win32.winmd",
-    "readme.md",
-    "license-*",
-]
 
 [lints]
 workspace = true

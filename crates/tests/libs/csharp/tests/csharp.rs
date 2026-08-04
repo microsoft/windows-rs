@@ -18,12 +18,6 @@ include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 use std::path::{Path, PathBuf};
 
-/// The system WinRT metadata that defines the projected generic collections (`IVector`1` and its
-/// PIID), needed to compute the parameterized IIDs of any `IVector<...>` a fixture names. Callers
-/// of `windows-csharp` that use WinRT generics supply this the same way windows-rs consumes the
-/// WinRT metadata.
-const FOUNDATION: &str = r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd";
-
 /// The pinned Windows App SDK metadata used by windows-reactor. The direct WinUI projection test
 /// consumes this same input so the C# slice cannot drift onto a separate metadata pipeline.
 const WINUI: &str = "../../../tools/reactor/winmd";
@@ -75,7 +69,7 @@ fn golden(name: &str) {
     let generated = scratch.join(format!("{name}.cs"));
     let mut builder = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .output(generated.to_str().unwrap())
         .fragment();
     for filter in filters(&format!("input/{name}.rdl")) {
@@ -131,7 +125,7 @@ fn async_operation_round_trip_with(name: &str, synchronized: bool) {
 
     let mut builder = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .filter("Breadth")
         .output(project.join("Generated.cs").to_str().unwrap());
     if synchronized {
@@ -196,7 +190,7 @@ fn delegate_marshalling_round_trip_with(name: &str, synchronized: bool) {
 
     let mut builder = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .filter("DelegateMarshalling")
         .output(project.join("Generated.cs").to_str().unwrap());
     if synchronized {
@@ -250,7 +244,7 @@ fn array_round_trip() {
 
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .filter("Sample")
         .output(project.join("Generated.cs").to_str().unwrap())
         .synchronized()
@@ -920,7 +914,7 @@ fn compile_goldens_with(name: &str, synchronized: bool) {
         }
     }
     let mut builder = builder
-        .input(FOUNDATION)
+        .input_default()
         .output(project.join("Generated.cs").to_str().unwrap());
     if synchronized {
         builder = builder.synchronized();
@@ -1709,7 +1703,6 @@ fn round_trip() {
     windows_csharp::builder()
         .input(winmd)
         .input_default()
-        .input(FOUNDATION)
         .filter("Bench")
         .output(project.join("Bench.cs").to_str().unwrap())
         .write()
@@ -1783,7 +1776,7 @@ fn selection_builder(scratch_name: &str) -> (windows_csharp::Builder, PathBuf) {
     let generated = scratch.join("generated.cs");
     let builder = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .output(generated.to_str().unwrap())
         .fragment();
     (builder, generated)
@@ -1795,7 +1788,7 @@ fn delegate_selection_builder(scratch_name: &str) -> (windows_csharp::Builder, P
     let generated = scratch.join("generated.cs");
     let builder = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .output(generated.to_str().unwrap())
         .fragment();
     (builder, generated)
@@ -1807,7 +1800,7 @@ fn diagnostic_selection_builder(scratch_name: &str) -> (windows_csharp::Builder,
     let generated = scratch.join("generated.cs");
     let builder = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .output(generated.to_str().unwrap())
         .fragment();
     (builder, generated)
@@ -1886,7 +1879,7 @@ fn selection_supported_activation_and_static_root() {
     let generated = scratch.join("generated.cs");
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .select("Activation.Widget")
         .output(generated.to_str().unwrap())
         .fragment()
@@ -1909,7 +1902,7 @@ fn selection_allows_empty_composable_factory() {
     let generated = scratch.join("generated.cs");
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .member("Activation.Hosted", "Value")
         .output(generated.to_str().unwrap())
         .fragment()
@@ -2217,7 +2210,7 @@ fn selection_async_dependency_closure() {
 
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .select("Breadth.Store")
         .output(generated.to_str().unwrap())
         .fragment()
@@ -2249,7 +2242,7 @@ fn object_vector_enumerator_is_disposable() {
 
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .filter("Sample")
         .output(generated.to_str().unwrap())
         .fragment()
@@ -2324,7 +2317,7 @@ fn win32_selection_builder(name: &str) -> (windows_csharp::Builder, PathBuf) {
     (
         windows_csharp::builder()
             .input(winmd.to_str().unwrap())
-            .input(FOUNDATION)
+            .input_default()
             .output(generated.to_str().unwrap())
             .fragment(),
         generated,
@@ -2510,7 +2503,7 @@ fn selection_win32_architecture_specific_layout() {
         let generated = scratch.join(format!("{target}.cs"));
         windows_csharp::builder()
             .input(winmd.to_str().unwrap())
-            .input(FOUNDATION)
+            .input_default()
             .architecture(architecture)
             .function("Win32Test.TransformArch")
             .member("Win32Test.INativeAbiCases", "GetFloatPair")
@@ -2894,7 +2887,7 @@ fn selection_compiles() {
 
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .select("Selection.Widget")
         .member("Selection.IStandalone", "Ping")
         .output(project.join("Generated.cs").to_str().unwrap())
@@ -2930,7 +2923,7 @@ fn selection_win32_compiles() {
 
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .select("Win32Test.IBufferOps")
         .function("Win32Test.GetWindowRect")
         .function("Win32Test.EnumWindows")
@@ -2973,7 +2966,6 @@ fn winui_slice_compiles() {
     windows_csharp::builder()
         .input(WINUI)
         .input_default()
-        .input(FOUNDATION)
         .member("Microsoft.UI.Xaml.Application", "Start")
         .member("Microsoft.UI.Xaml.Window", "Content")
         .member("Microsoft.UI.Xaml.Window", "Activate")
@@ -3069,7 +3061,6 @@ fn winui_generic_default_collections_and_bootstrap_compile() {
     windows_csharp::builder()
         .input(WINUI)
         .input_default()
-        .input(FOUNDATION)
         .member("Microsoft.UI.Xaml.Controls.Grid", "RowDefinitions")
         .member("Microsoft.UI.Xaml.Controls.Grid", "ColumnDefinitions")
         .member("Microsoft.UI.Xaml.Controls.RowDefinition", "Height")
@@ -3170,7 +3161,7 @@ fn activation_source(scratch_name: &str) -> String {
     let generated = scratch.join("generated.cs");
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .filter("Activation")
         .output(generated.to_str().unwrap())
         .fragment()
@@ -3305,7 +3296,7 @@ fn activation_selection() {
     let whole = scratch.join("whole.cs");
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .select("Activation.Widget")
         .output(whole.to_str().unwrap())
         .fragment()
@@ -3331,7 +3322,7 @@ fn activation_selection() {
     let member = scratch.join("member.cs");
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .member("Activation.Widget", "Start")
         .output(member.to_str().unwrap())
         .fragment()
@@ -3350,7 +3341,7 @@ fn activation_selection() {
     // Selecting an unknown member still errors, having searched the static surface too.
     let error = windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .member("Activation.Widget", "DoesNotExist")
         .output(scratch.join("err.cs").to_str().unwrap())
         .fragment()
@@ -3375,7 +3366,7 @@ fn activation_compiles() {
 
     windows_csharp::builder()
         .input(winmd.to_str().unwrap())
-        .input(FOUNDATION)
+        .input_default()
         .filter("Activation")
         .output(project.join("Generated.cs").to_str().unwrap())
         .write()

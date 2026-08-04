@@ -4,7 +4,6 @@ fn main() {
     windows_bindgen::builder()
         .input("../../../tools/reactor/winmd")
         .input_default()
-        .input(r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd")
         .output("src/bindings.rs")
         .filter("Microsoft.UI.Xaml.Controls.TextBlock.CreateInstance")
         .filter("Microsoft.UI.Xaml.Controls.ITextBlock.put_Text")

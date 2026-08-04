@@ -1,13 +1,8 @@
 use windows_csharp::Architecture;
 
 fn main() {
-    const FOUNDATION: &str = r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd";
-
-    println!("cargo:rerun-if-changed={FOUNDATION}");
-
     windows_csharp::builder()
         .input_default()
-        .input(FOUNDATION)
         .architecture(Architecture::X64)
         .member("Windows.UI.Composition.Compositor", "CreateContainerVisual")
         .member("Windows.UI.Composition.Compositor", "CreateSpriteVisual")
