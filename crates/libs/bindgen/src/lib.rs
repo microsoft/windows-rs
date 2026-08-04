@@ -23,7 +23,7 @@ mod types;
 mod value;
 mod winmd;
 
-pub use cli::bindgen;
+pub use cli::{bindgen, bindgen_file};
 use config::*;
 use derive::*;
 use derive_writer::*;
@@ -250,6 +250,23 @@ impl Bindgen {
     /// docs for the full grammar.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filters(std::iter::once(filter))
+    }
+
+    /// Adds filter rules from a text file.
+    pub fn filter_file(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.filters(cli::read_tokens(input))
+    }
+
+    /// Adds filter rules from text files.
+    pub fn filter_files<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.filter_file(input);
+        }
+        self
     }
 
     /// Add multiple filter rules to include or exclude APIs.

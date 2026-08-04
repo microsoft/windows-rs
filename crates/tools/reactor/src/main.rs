@@ -303,41 +303,36 @@ fn generate_reactor_bindings() {
         .write()
         .unwrap();
 
-    let reactor_args = [
-        "--in",
-        "crates/tools/reactor/winmd",
-        "default",
-        "--out",
-        "crates/libs/reactor/src/bindings.rs",
-        "--implement",
-        "Microsoft.UI.Xaml.IApplicationOverrides",
-        "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
-        "--minimal",
-        "--dead-code",
-        "--flat",
-        "--filter",
-        "--etc",
-        "crates/tools/reactor/src/base.txt",
-        "crates/tools/reactor/src/generated.txt",
-    ];
-    windows_bindgen::bindgen(reactor_args);
+    windows_bindgen::builder()
+        .input("crates/tools/reactor/winmd")
+        .input_default()
+        .output("crates/libs/reactor/src/bindings.rs")
+        .implements([
+            "Microsoft.UI.Xaml.IApplicationOverrides",
+            "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
+        ])
+        .minimal()
+        .dead_code()
+        .flat()
+        .filter_files([
+            "crates/tools/reactor/src/base.txt",
+            "crates/tools/reactor/src/generated.txt",
+        ])
+        .write();
 
-    let test_args = [
-        "--in",
-        "crates/tools/reactor/winmd",
-        "default",
-        "--out",
-        "crates/tests/libs/reactor_selftest/src/bindings.rs",
-        "--minimal",
-        "--dead-code",
-        "--flat",
-        "--filter",
-        "--etc",
-        "crates/tools/reactor/src/base.txt",
-        "crates/tools/reactor/src/generated.txt",
-        "crates/tools/reactor/src/test.txt",
-    ];
-    windows_bindgen::bindgen(test_args);
+    windows_bindgen::builder()
+        .input("crates/tools/reactor/winmd")
+        .input_default()
+        .output("crates/tests/libs/reactor_selftest/src/bindings.rs")
+        .minimal()
+        .dead_code()
+        .flat()
+        .filter_files([
+            "crates/tools/reactor/src/base.txt",
+            "crates/tools/reactor/src/generated.txt",
+            "crates/tools/reactor/src/test.txt",
+        ])
+        .write();
 }
 
 /// Write `content` to `path` if changed. Runs `rustfmt` when `format` is true.

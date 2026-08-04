@@ -31,6 +31,9 @@ let args = [
 windows_bindgen::bindgen(args);
 ```
 
+Use `windows_bindgen::bindgen_file("bindings.txt")` when the commands live in a text file. For a
+filter-only file, use `Bindgen::filter_file`/`filter_files` or `--filter-file`.
+
 Variadic native exports are emitted only by `--sys`, where the generated declaration retains the
 literal `...` tail. Default and minimal bindings omit them rather than exposing a callable
 fixed-prefix wrapper.

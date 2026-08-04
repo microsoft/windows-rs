@@ -72,8 +72,8 @@ to select a smaller surface.
 Prefix a rule with `!` to exclude it. A selected type also pulls in the types that its signatures
 require. Those dependency types are emitted as shells.
 
-For more than a few names, keep the arguments in a response file. Pass it with `--etc`. Lines that
-start with `//` are comments:
+For a complete command file, use `bindgen_file`. Blank lines and lines that start with `//` are
+ignored:
 
 ```text
 --out crates/libs/version/src/bindings.rs
@@ -86,11 +86,14 @@ start with `//` are comments:
 ```
 
 ```rust,no_run
-windows_bindgen::bindgen(["--etc", "bindings.txt"]);
+windows_bindgen::bindgen_file("bindings.txt");
 ```
 
-The in-repo crates use this pattern. `tool_bindings` runs
-`bindgen(["--etc", "crates/tools/bindings/src/<crate>.txt"])` for each library.
+When only the filter list is large, keep it in a filter-only file and use
+`Bindgen::filter_file`/`filter_files` or the textual `--filter-file` option.
+
+The in-repo crates use both patterns. `tool_bindings` runs
+`bindgen_file("crates/tools/bindings/src/<crate>.txt")` for each library.
 
 ## Choosing the output shape
 
