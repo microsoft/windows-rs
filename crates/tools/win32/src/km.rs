@@ -111,7 +111,7 @@ pub fn scrape() -> Summary {
         .args(["-include", OFFREG_PRELUDE])
         .args(include_args)
         .drop_lib_less()
-        .scope(SCOPE.iter().copied())
+        .scopes(SCOPE.iter().copied())
         .scope_headers(SOURCE_HEADERS.iter().copied());
     clang.input_str(&source);
     for lib in &import_libs {

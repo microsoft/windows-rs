@@ -867,7 +867,7 @@ fn scrape_um() -> Summary {
         .args(["-include", SAL_SHIM])
         .args(include_args)
         .drop_lib_less()
-        .scope(SCOPE.iter().copied())
+        .scopes(SCOPE.iter().copied())
         .scope_headers(scope_headers.iter().copied())
         .exclude_headers(EXCLUDE_HEADERS.iter().copied());
     for source in &sources {

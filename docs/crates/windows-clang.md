@@ -135,9 +135,9 @@ Everything generic to *any* header scrape lives in `windows-clang`:
 - **Provisioning** - `ensure_libclang` / `assert_libclang_version` (the pinned `LIBCLANG_VERSION`
   wheel, fetched + cached on first use), `clang_resource_dir`, and `nuget_package` (restore a pinned
   NuGet package into the global cache).
-- **Parse + emit** - the `clang()` builder (target, args, `input`/`input_str`, `scope`,
-  `scope_headers`, `exclude_headers`, `import_library`, `drop_lib_less`), header partitioning
-  (`write_by_header`), and the per-kind cursor->RDL modules.
+- **Parse + emit** - the `clang()` builder (target, args, `input`/`input_str`, `scope`/`scopes`,
+  `scope_header`/`scope_headers`, `exclude_header`/`exclude_headers`, `import_library`,
+  `drop_lib_less`), header partitioning (`write_by_header`), and the per-kind cursor->RDL modules.
 - **Multi-arch orchestration** - the `Clang::scrape` terminal, `Arch` (clang triple +
   `SupportedArchitecture` bits + per-target defines), `ScrapePlan` (the orchestration-only state:
   output paths, arches, reference winmds, seed - *not* a mirror of the builder), and `Summary`. This

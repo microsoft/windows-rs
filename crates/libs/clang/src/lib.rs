@@ -706,45 +706,69 @@ impl Clang {
         self
     }
 
-    /// Sets header directory segments that act as roots for the reachability sweep.
-    pub fn scope<I, S>(&mut self, scope: I) -> &mut Self
+    /// Adds a header directory segment that acts as a root for the reachability sweep.
+    pub fn scope(&mut self, scope: &str) -> &mut Self {
+        self.scope.push(scope.to_string());
+        self
+    }
+
+    /// Adds multiple header directory segments as roots for the reachability sweep.
+    pub fn scopes<I, S>(&mut self, scopes: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
-        for seg in scope {
-            self.scope.push(seg.as_ref().to_string());
+        for scope in scopes {
+            self.scope(scope.as_ref());
         }
         self
     }
 
-    /// Marks specific headers as sweep roots regardless of SDK directory.
+    /// Marks a header as a sweep root regardless of SDK directory.
+    pub fn scope_header(&mut self, header: &str) -> &mut Self {
+        let stem = header_stem_to_namespace(header);
+        if !stem.is_empty() {
+            self.scope_headers.insert(stem);
+        }
+        self
+    }
+
+    /// Marks multiple headers as sweep roots regardless of SDK directory.
     pub fn scope_headers<I, S>(&mut self, headers: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
         for header in headers {
-            let stem = header_stem_to_namespace(header.as_ref());
-            if !stem.is_empty() {
-                self.scope_headers.insert(stem);
-            }
+            self.scope_header(header.as_ref());
         }
         self
     }
 
-    /// Drops named header partitions before the reachability sweep.
+    /// Drops a named header partition before the reachability sweep.
+    pub fn exclude_header(&mut self, header: &str) -> &mut Self {
+        let stem = header_stem_to_namespace(header);
+        if !stem.is_empty() {
+            self.exclude_headers.insert(stem);
+        }
+        self
+    }
+
+    /// Drops multiple named header partitions before the reachability sweep.
     pub fn exclude_headers<I, S>(&mut self, headers: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
         for header in headers {
-            let stem = header_stem_to_namespace(header.as_ref());
-            if !stem.is_empty() {
-                self.exclude_headers.insert(stem);
-            }
+            self.exclude_header(header.as_ref());
         }
+        self
+    }
+
+    /// Restricts root emission to a named function symbol.
+    pub fn symbol(&mut self, symbol: &str) -> &mut Self {
+        self.symbols.insert(symbol.to_string());
         self
     }
 
@@ -755,7 +779,7 @@ impl Clang {
         S: AsRef<str>,
     {
         for symbol in symbols {
-            self.symbols.insert(symbol.as_ref().to_string());
+            self.symbol(symbol.as_ref());
         }
         self
     }
