@@ -42,8 +42,8 @@ fn main() {
             "-fms-extensions",
             &include_arg,
         ])
-        .input(include.join("WebView2.h").to_str().unwrap())
-        .input(include_winrt.join("WebView2Interop.h").to_str().unwrap())
+        .input(include.join("WebView2.h"))
+        .input(include_winrt.join("WebView2Interop.h"))
         .input_default()
         .output("target/webview/WebView2.rdl")
         .namespace("WebView2")

@@ -234,8 +234,8 @@ fn sparse_out_of_order_params_round_trip_with_flags_and_pseudos() {
     );
 
     windows_rdl::writer()
-        .input(input.to_str().unwrap())
-        .output(rdl.to_str().unwrap())
+        .input(&input)
+        .output(&rdl)
         .write()
         .unwrap();
 
@@ -248,8 +248,8 @@ fn sparse_out_of_order_params_round_trip_with_flags_and_pseudos() {
     assert!(method.contains("-> #[noreturn] i32"));
 
     windows_rdl::reader()
-        .input(rdl.to_str().unwrap())
-        .output(roundtrip.to_str().unwrap())
+        .input(&rdl)
+        .output(&roundtrip)
         .write()
         .unwrap();
 
@@ -397,8 +397,8 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     write_attribute_definitions(&attributes);
 
     windows_rdl::writer()
-        .input(input.to_str().unwrap())
-        .output(rdl.to_str().unwrap())
+        .input(&input)
+        .output(&rdl)
         .write()
         .unwrap();
 
@@ -424,9 +424,9 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     assert!(method.contains("-> #[encoding(\"ansi\")] #[noreturn] i32"));
 
     windows_rdl::reader()
-        .input(rdl.to_str().unwrap())
-        .reference(attributes.to_str().unwrap())
-        .output(roundtrip.to_str().unwrap())
+        .input(&rdl)
+        .reference(&attributes)
+        .output(&roundtrip)
         .write()
         .unwrap();
 
@@ -558,8 +558,8 @@ fn malformed_param_sequence_is_reported() {
     );
 
     let error = windows_rdl::writer()
-        .input(input.to_str().unwrap())
-        .output(rdl.to_str().unwrap())
+        .input(&input)
+        .output(&rdl)
         .write()
         .unwrap_err();
 

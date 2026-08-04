@@ -2,6 +2,7 @@
 #![doc = include_str!("../readme.md")]
 
 use std::collections::{BTreeMap, HashMap, HashSet};
+use std::path::{Path, PathBuf};
 use windows_metadata as metadata;
 
 use proc_macro2::{Literal, Span, TokenStream};
@@ -499,10 +500,10 @@ impl<'a> Parser<'a> {
 #[derive(Default, Clone)]
 /// Builder that generates RDL from C/C++ headers using libclang.
 pub struct Clang {
-    input: Vec<String>,
+    input: Vec<PathBuf>,
     input_str: Vec<String>,
-    reference: Vec<String>,
-    output: String,
+    reference: Vec<PathBuf>,
+    output: PathBuf,
     namespace: String,
     args: Vec<String>,
     library: String,
@@ -521,7 +522,7 @@ pub struct Clang {
     /// Drops functions with no resolved import library; off for fixtures without `.lib` inputs.
     drop_lib_less: bool,
     /// Winmds used only to classify `ABI::Windows::*` projection declarations.
-    resolution_input: Vec<String>,
+    resolution_input: Vec<PathBuf>,
     input_default: bool,
     resolution_default: bool,
     reference_bytes: Vec<std::sync::Arc<[u8]>>,
@@ -546,8 +547,8 @@ impl Clang {
     }
 
     /// Adds an input header (`.h`) file or directory.
-    pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(input.to_string());
+    pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.input.push(input.as_ref().to_path_buf());
         self
     }
 
@@ -555,10 +556,10 @@ impl Clang {
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+        S: AsRef<Path>,
     {
         for input in inputs {
-            self.input(input.as_ref());
+            self.input(input);
         }
         self
     }
@@ -570,8 +571,8 @@ impl Clang {
     }
 
     /// Adds a reference winmd file or directory.
-    pub fn reference(&mut self, input: &str) -> &mut Self {
-        self.reference.push(input.to_string());
+    pub fn reference(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.reference.push(input.as_ref().to_path_buf());
         self
     }
 
@@ -579,10 +580,10 @@ impl Clang {
     pub fn references<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+        S: AsRef<Path>,
     {
         for input in inputs {
-            self.reference(input.as_ref());
+            self.reference(input);
         }
         self
     }
@@ -600,8 +601,8 @@ impl Clang {
     }
 
     /// Sets the output `.rdl` file path.
-    pub fn output(&mut self, output: &str) -> &mut Self {
-        self.output = output.to_string();
+    pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
+        self.output = output.as_ref().to_path_buf();
         self
     }
 
@@ -624,8 +625,8 @@ impl Clang {
     }
 
     /// Adds a winmd used only to classify `ABI::Windows::*` projection declarations.
-    pub fn resolution_input(&mut self, input: &str) -> &mut Self {
-        self.resolution_input.push(input.to_string());
+    pub fn resolution_input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.resolution_input.push(input.as_ref().to_path_buf());
         self
     }
 
@@ -659,8 +660,8 @@ impl Clang {
     }
 
     /// Reads a COFF import library and adds its symbol -> DLL mappings.
-    pub fn import_library(&mut self, path: &str) -> Result<&mut Self, Error> {
-        extend_libraries(&mut self.libraries, path)?;
+    pub fn import_library(&mut self, path: impl AsRef<Path>) -> Result<&mut Self, Error> {
+        extend_libraries(&mut self.libraries, path.as_ref())?;
         Ok(self)
     }
 
@@ -820,7 +821,7 @@ impl Clang {
         for (stem, rdl) in outputs {
             // File names are lowercased defining-header stems.
             let leaf = stem.to_lowercase();
-            write_to_file(&format!("{output_dir}/{leaf}.rdl"), formatter::format(&rdl))?;
+            write_to_file(format!("{output_dir}/{leaf}.rdl"), formatter::format(&rdl))?;
         }
         Ok(())
     }
@@ -843,7 +844,15 @@ impl Clang {
 
         let mut h_tus = vec![];
         for input in &h_paths {
-            h_tus.push((input.clone(), index.parse(input, &arg_refs)?));
+            let source = input.to_str().ok_or_else(|| {
+                Error::new(
+                    "input path is not valid UTF-8",
+                    &input.to_string_lossy(),
+                    0,
+                    0,
+                )
+            })?;
+            h_tus.push((source.replace('\\', "/"), index.parse(source, &arg_refs)?));
         }
         let mut str_tus = vec![];
         for content in &self.input_str {
@@ -1257,9 +1266,10 @@ impl Clang {
 
         let mut winmd_files = vec![];
         for file_name in &winmd_paths {
+            let source = file_name.to_string_lossy();
             winmd_files.push(
                 metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid input", &source, 0, 0))?,
             );
         }
         if self.input_default {
@@ -1283,9 +1293,10 @@ impl Clang {
     fn load_winrt_types(&self) -> Result<HashSet<String>, Error> {
         let mut winmd_files = vec![];
         for file_name in &self.resolution_input {
+            let source = file_name.to_string_lossy();
             winmd_files.push(
                 metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid input", &source, 0, 0))?,
             );
         }
         if self.resolution_default {

@@ -38,6 +38,7 @@ use signature::*;
 use std::cmp::Ordering;
 use std::collections::*;
 use std::fmt::Write;
+use std::path::{Path, PathBuf};
 use tables::*;
 use tokens::*;
 use type_map::*;
@@ -52,10 +53,11 @@ mod type_closure;
 use method_names::*;
 use type_closure::*;
 
-fn report_timing(output: &str, phase: &str, elapsed: std::time::Duration) {
+fn report_timing(output: &Path, phase: &str, elapsed: std::time::Duration) {
     if std::env::var_os("WINDOWS_BINDGEN_TIMINGS").is_some() {
         eprintln!(
-            "windows-bindgen timing `{output}` {phase}: {:.3} ms",
+            "windows-bindgen timing `{}` {phase}: {:.3} ms",
+            output.display(),
             elapsed.as_secs_f64() * 1_000.0
         );
     }
@@ -83,7 +85,7 @@ pub struct Bindgen {
     input: Vec<Input>,
     input_default: bool,
     filter: Vec<String>,
-    output: String,
+    output: PathBuf,
     derive: Vec<String>,
     implement: Option<Vec<String>>,
     rustfmt: Option<String>,
@@ -93,7 +95,7 @@ pub struct Bindgen {
 }
 
 enum Input {
-    Path(String),
+    Path(PathBuf),
     Bytes(Vec<u8>),
 }
 
@@ -193,8 +195,8 @@ impl Bindgen {
     }
 
     /// Adds a `.winmd` file or directory.
-    pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(Input::Path(input.to_string()));
+    pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.input.push(Input::Path(input.as_ref().to_path_buf()));
         self
     }
 
@@ -214,17 +216,17 @@ impl Bindgen {
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+        S: AsRef<Path>,
     {
         for input in inputs {
-            self.input(input.as_ref());
+            self.input(input);
         }
         self
     }
 
     /// Sets the generated Rust file.
-    pub fn output(&mut self, output: &str) -> &mut Self {
-        self.output = output.to_string();
+    pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
+        self.output = output.as_ref().to_path_buf();
         self
     }
 
@@ -380,7 +382,7 @@ impl Bindgen {
 
         // Validate before setting up reader and reference state.
         assert!(
-            !self.output.is_empty(),
+            !self.output.as_os_str().is_empty(),
             "output is required (call `.output()` or pass `--out`)"
         );
 
@@ -580,15 +582,13 @@ fn default_input() -> Vec<File> {
 
 fn expand_input(input: &[Input], input_default: bool) -> Vec<File> {
     #[track_caller]
-    fn expand_path(result: &mut Vec<File>, input: &str) {
-        let path = std::path::Path::new(input);
-
+    fn expand_path(result: &mut Vec<File>, path: &Path) {
         if path.is_dir() {
             let mut paths = vec![];
 
             for path in path
                 .read_dir()
-                .unwrap_or_else(|_| panic!("failed to read directory `{input}`"))
+                .unwrap_or_else(|_| panic!("failed to read directory `{}`", path.display()))
                 .flatten()
                 .map(|entry| entry.path())
             {
@@ -603,7 +603,8 @@ fn expand_input(input: &[Input], input_default: bool) -> Vec<File> {
 
             assert!(
                 !paths.is_empty(),
-                "failed to find .winmd files in directory `{input}`"
+                "failed to find .winmd files in directory `{}`",
+                path.display()
             );
 
             for path in paths {
@@ -615,10 +616,10 @@ fn expand_input(input: &[Input], input_default: bool) -> Vec<File> {
             }
         } else {
             let Ok(bytes) = std::fs::read(path) else {
-                panic!("failed to read binary file `{input}`");
+                panic!("failed to read binary file `{}`", path.display());
             };
             let Some(file) = File::new(bytes) else {
-                panic!("failed to read .winmd format `{input}`");
+                panic!("failed to read .winmd format `{}`", path.display());
             };
             result.push(file);
         }

@@ -13,6 +13,7 @@ mod writer;
 
 use emit::*;
 use std::collections::{BTreeMap, HashMap, HashSet};
+use std::path::{Path, PathBuf};
 use syn::spanned::Spanned;
 use windows_metadata as metadata;
 
@@ -106,7 +107,7 @@ pub fn reader() -> Reader {
 }
 
 /// Parses one `.rdl` file and returns the items it defines under `namespace`.
-pub fn item_names(path: &str, namespace: &str) -> Result<Vec<String>, Error> {
+pub fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
     reader::item_names(path, namespace)
 }
 
@@ -137,7 +138,7 @@ pub fn merge_arch_rdl(
     // `Writer` clears `*.rdl`; capture the seed first so it can be restored verbatim.
     let seed = seed
         .map(|seed| {
-            let name = std::path::Path::new(seed)
+            let name = Path::new(seed)
                 .file_name()
                 .and_then(|n| n.to_str())
                 .ok_or_else(|| writer_err!("invalid seed path `{seed}`"))?
@@ -209,7 +210,7 @@ pub fn merge_arch_rdl(
 }
 
 /// Removes a scratch directory on every return path.
-struct ScratchDir(std::path::PathBuf);
+struct ScratchDir(PathBuf);
 
 impl Drop for ScratchDir {
     fn drop(&mut self) {
@@ -217,23 +218,24 @@ impl Drop for ScratchDir {
     }
 }
 
-pub fn expand_input_paths(
-    inputs: &[String],
+pub fn expand_input_paths<P: AsRef<Path>>(
+    inputs: &[P],
     ext1: &str,
     ext2: &str,
-) -> Result<(Vec<String>, Vec<String>), Error> {
+) -> Result<(Vec<PathBuf>, Vec<PathBuf>), Error> {
     let mut paths1 = vec![];
     let mut paths2 = vec![];
 
     for input in inputs {
-        let path = std::path::Path::new(input);
+        let path = input.as_ref();
+        let display = path.to_string_lossy();
 
         if path.is_dir() {
             let prev_total = paths1.len() + paths2.len();
 
             for entry_path in path
                 .read_dir()
-                .map_err(|_| Error::new("failed to read directory", input, 0, 0))?
+                .map_err(|_| Error::new("failed to read directory", &display, 0, 0))?
                 .flatten()
                 .map(|entry| entry.path())
             {
@@ -242,12 +244,12 @@ pub fn expand_input_paths(
                         .extension()
                         .is_some_and(|ext| ext.eq_ignore_ascii_case(ext1))
                     {
-                        paths1.push(entry_path.to_string_lossy().replace('\\', "/"));
+                        paths1.push(entry_path);
                     } else if entry_path
                         .extension()
                         .is_some_and(|ext| ext.eq_ignore_ascii_case(ext2))
                     {
-                        paths2.push(entry_path.to_string_lossy().replace('\\', "/"));
+                        paths2.push(entry_path);
                     }
                 }
             }
@@ -258,25 +260,25 @@ pub fn expand_input_paths(
                 } else {
                     format!("failed to find .{ext1} or .{ext2} files in directory")
                 };
-                return Err(Error::new(&message, input, 0, 0));
+                return Err(Error::new(&message, &display, 0, 0));
             }
         } else if path
             .extension()
             .is_some_and(|ext| ext.eq_ignore_ascii_case(ext1))
         {
-            paths1.push(input.clone());
+            paths1.push(path.to_path_buf());
         } else if path
             .extension()
             .is_some_and(|ext| ext.eq_ignore_ascii_case(ext2))
         {
-            paths2.push(input.clone());
+            paths2.push(path.to_path_buf());
         } else {
             let message = if ext1 == ext2 {
                 format!("expected .{ext1} file")
             } else {
                 format!("expected .{ext1} or .{ext2} file")
             };
-            return Err(Error::new(&message, input, 0, 0));
+            return Err(Error::new(&message, &display, 0, 0));
         }
     }
 
@@ -284,17 +286,22 @@ pub fn expand_input_paths(
 }
 
 /// Expands file and directory inputs containing one file type.
-pub fn expand_input_files(inputs: &[String], extension: &str) -> Result<Vec<String>, Error> {
+pub fn expand_input_files<P: AsRef<Path>>(
+    inputs: &[P],
+    extension: &str,
+) -> Result<Vec<PathBuf>, Error> {
     Ok(expand_input_paths(inputs, extension, extension)?.0)
 }
 
-pub fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
-    if let Some(parent) = std::path::Path::new(path).parent() {
+pub fn write_to_file<P: AsRef<Path>, C: AsRef<[u8]>>(path: P, contents: C) -> Result<(), Error> {
+    let path = path.as_ref();
+    let display = path.to_string_lossy();
+    if let Some(parent) = path.parent() {
         std::fs::create_dir_all(parent)
-            .map_err(|_| writer_err!("failed to create directory `{path}`"))?;
+            .map_err(|_| writer_err!("failed to create directory `{display}`"))?;
     }
 
-    std::fs::write(path, contents).map_err(|_| writer_err!("failed to write file `{path}`"))
+    std::fs::write(path, contents).map_err(|_| writer_err!("failed to write file `{display}`"))
 }
 
 macro_rules! writer_err {

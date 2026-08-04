@@ -5,8 +5,8 @@ fn winmd(dir: &std::path::Path, name: &str, rdl: &str) -> String {
     std::fs::write(&rdl_path, rdl).unwrap();
     let out = dir.join(format!("{name}.winmd"));
     windows_rdl::reader()
-        .input(rdl_path.to_string_lossy().as_ref())
-        .output(out.to_string_lossy().as_ref())
+        .input(&rdl_path)
+        .output(&out)
         .write()
         .unwrap();
     out.to_string_lossy().into_owned()
@@ -59,8 +59,8 @@ fn arch_survives_winmd_rdl_roundtrip() {
     let rdl_dir = dir.join("rdl");
     std::fs::create_dir_all(&rdl_dir).unwrap();
     windows_rdl::writer()
-        .input(merged.to_string_lossy().as_ref())
-        .output(rdl_dir.to_string_lossy().as_ref())
+        .input(&merged)
+        .output(&rdl_dir)
         .split()
         .write()
         .unwrap();
@@ -82,8 +82,8 @@ fn arch_survives_winmd_rdl_roundtrip() {
 
     let out = dir.join("roundtrip.winmd");
     windows_rdl::reader()
-        .input(rdl_dir.to_string_lossy().as_ref())
-        .output(out.to_string_lossy().as_ref())
+        .input(&rdl_dir)
+        .output(&out)
         .write()
         .unwrap();
     let index = reader::Index::read(out.to_string_lossy().as_ref()).unwrap();

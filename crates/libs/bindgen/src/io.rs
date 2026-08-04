@@ -1,9 +1,11 @@
 use std::io::BufRead;
+use std::path::Path;
 
 #[track_caller]
-pub fn read_file_lines(path: &str) -> Vec<String> {
+pub fn read_file_lines(path: impl AsRef<Path>) -> Vec<String> {
+    let path = path.as_ref();
     let Ok(file) = std::fs::File::open(path) else {
-        panic!("failed to open file `{path}`")
+        panic!("failed to open file `{}`", path.display())
     };
 
     let file = std::io::BufReader::new(file);
@@ -11,7 +13,7 @@ pub fn read_file_lines(path: &str) -> Vec<String> {
 
     for line in file.lines() {
         let Ok(line) = line else {
-            panic!("failed to read file lines `{path}`");
+            panic!("failed to read file lines `{}`", path.display());
         };
 
         lines.push(line);
@@ -21,22 +23,25 @@ pub fn read_file_lines(path: &str) -> Vec<String> {
 }
 
 #[track_caller]
-pub fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> bool {
+pub fn write_to_file<P: AsRef<Path>, C: AsRef<[u8]>>(path: P, contents: C) -> bool {
+    let path = path.as_ref();
     let contents = contents.as_ref();
     if std::fs::read(path).is_ok_and(|existing| existing == contents) {
         return false;
     }
 
-    if let Some(parent) = std::path::Path::new(path).parent() {
+    if let Some(parent) = path.parent() {
         assert!(
             std::fs::create_dir_all(parent).is_ok(),
-            "failed to create directory `{path}`"
+            "failed to create directory `{}`",
+            path.display()
         );
     }
 
     assert!(
         std::fs::write(path, contents).is_ok(),
-        "failed to write file `{path}`"
+        "failed to write file `{}`",
+        path.display()
     );
     true
 }
@@ -55,13 +60,11 @@ mod tests {
                 .unwrap()
                 .as_nanos()
         ));
-        let path = path.to_str().unwrap();
+        assert!(write_to_file(&path, b"one"));
+        assert!(!write_to_file(&path, b"one"));
+        assert!(write_to_file(&path, b"two"));
+        assert_eq!(std::fs::read(&path).unwrap(), b"two");
 
-        assert!(write_to_file(path, b"one"));
-        assert!(!write_to_file(path, b"one"));
-        assert!(write_to_file(path, b"two"));
-        assert_eq!(std::fs::read(path).unwrap(), b"two");
-
-        std::fs::remove_file(path).unwrap();
+        std::fs::remove_file(&path).unwrap();
     }
 }

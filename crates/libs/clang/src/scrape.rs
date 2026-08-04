@@ -4,6 +4,7 @@
 //! orchestration state: arches, outputs, seed metadata, and reference winmds.
 
 use crate::{Clang, clang_resource_dir};
+use std::path::Path;
 use windows_rdl::{ArchInput, merge_arch_rdl, reader};
 
 /// Target architecture settings that differ between scrape passes.
@@ -106,7 +107,7 @@ impl std::fmt::Display for Summary {
 /// Find `name` in `dirs`, returning a forward-slashed path.
 pub fn find_in_dirs(name: &str, dirs: &[String]) -> Option<String> {
     dirs.iter()
-        .map(|dir| std::path::Path::new(dir).join(name))
+        .map(|dir| Path::new(dir).join(name))
         .find(|path| path.is_file())
         .map(|path| path.to_string_lossy().replace('\\', "/"))
 }
@@ -131,7 +132,7 @@ impl Clang {
             .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", plan.rdl_dir));
 
         let canonical = &plan.archs[0];
-        let winmd_file = std::path::Path::new(&plan.winmd)
+        let winmd_file = Path::new(&plan.winmd)
             .file_name()
             .and_then(|n| n.to_str())
             .unwrap_or_else(|| panic!("`plan.winmd` has no file name: `{}`", plan.winmd));
@@ -203,10 +204,10 @@ impl Clang {
                 reader.input(seed);
             }
             for reference in &plan.reference_winmds {
-                reader.input(reference);
+                reader.reference(reference);
             }
             for resolution in &plan.resolution_winmds {
-                reader.input(resolution);
+                reader.reference(resolution);
             }
             reader
                 .output(&plan.winmd)
@@ -256,7 +257,7 @@ impl Clang {
             clang.args(["-resource-dir", dir]);
         }
         for reference in &plan.reference_winmds {
-            clang.input(reference);
+            clang.reference(reference);
         }
         for resolution in &plan.resolution_winmds {
             clang.resolution_input(resolution);
@@ -276,10 +277,10 @@ impl Clang {
         let mut reader = reader();
         reader.inputs(&rdl_paths);
         for reference in &plan.reference_winmds {
-            reader.input(reference);
+            reader.reference(reference);
         }
         for resolution in &plan.resolution_winmds {
-            reader.input(resolution);
+            reader.reference(resolution);
         }
         reader
             .output(winmd)
@@ -292,7 +293,7 @@ impl Clang {
 fn clear_rdl_dir(rdl_dir: &str, seed: Option<&str>) {
     std::fs::create_dir_all(rdl_dir)
         .unwrap_or_else(|e| panic!("failed to create `{rdl_dir}`: {e}"));
-    let seed_name = seed.and_then(|s| std::path::Path::new(s).file_name());
+    let seed_name = seed.and_then(|s| Path::new(s).file_name());
     for entry in
         std::fs::read_dir(rdl_dir).unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
     {
@@ -320,7 +321,7 @@ fn collect_rdl_paths(rdl_dir: &str) -> Vec<String> {
 
 /// Count committed partition files, excluding the seed.
 fn count_partitions(rdl_dir: &str, seed: Option<&str>) -> usize {
-    let seed_name = seed.and_then(|s| std::path::Path::new(s).file_name());
+    let seed_name = seed.and_then(|s| Path::new(s).file_name());
     std::fs::read_dir(rdl_dir).map_or(0, |rd| {
         rd.filter_map(|e| e.ok())
             .filter(|e| {

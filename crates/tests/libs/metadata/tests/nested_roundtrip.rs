@@ -6,8 +6,8 @@ fn winmd(dir: &std::path::Path, name: &str, rdl: &str) -> String {
     std::fs::write(&rdl_path, rdl).unwrap();
     let out = dir.join(format!("{name}.winmd"));
     windows_rdl::reader()
-        .input(rdl_path.to_string_lossy().as_ref())
-        .output(out.to_string_lossy().as_ref())
+        .input(&rdl_path)
+        .output(&out)
         .write()
         .unwrap();
     out.to_string_lossy().into_owned()
@@ -97,7 +97,7 @@ fn nested_types_survive_rdl_merge_and_writer() {
     std::fs::create_dir_all(&rdl_dir).unwrap();
     windows_rdl::writer()
         .input(&winmd_path)
-        .output(rdl_dir.to_string_lossy().as_ref())
+        .output(&rdl_dir)
         .split()
         .write()
         .unwrap();
@@ -114,8 +114,8 @@ fn nested_types_survive_rdl_merge_and_writer() {
     // 4. Reading that RDL back reproduces the nested structure.
     let roundtrip = dir.join("roundtrip.winmd");
     windows_rdl::reader()
-        .input(rdl_dir.to_string_lossy().as_ref())
-        .output(roundtrip.to_string_lossy().as_ref())
+        .input(&rdl_dir)
+        .output(&roundtrip)
         .write()
         .unwrap();
     let roundtrip_index = reader::Index::read(roundtrip.to_string_lossy().as_ref()).unwrap();
@@ -177,7 +177,7 @@ fn nested_type_inherits_parent_arch() {
     std::fs::create_dir_all(&rdl_dir).unwrap();
     windows_rdl::writer()
         .input(&winmd_path)
-        .output(rdl_dir.to_string_lossy().as_ref())
+        .output(&rdl_dir)
         .split()
         .write()
         .unwrap();

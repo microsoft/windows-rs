@@ -195,7 +195,7 @@ impl Const {
         }
 
         // Put the synthetic file beside the header; include by basename so relative includes work.
-        let input_basename = std::path::Path::new(input)
+        let input_basename = Path::new(input)
             .file_name()
             .and_then(|n| n.to_str())
             .unwrap_or(input);

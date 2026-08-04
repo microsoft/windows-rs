@@ -70,7 +70,8 @@ release so the scrape is deterministic (see `tool_win32`).
 
 `.input_default()` adds the standard WinRT and Win32 metadata as references for declarations used by
 the scraped headers. `.reference(..)` adds reference metadata from a file or directory, while
-`.reference_bytes(..)` accepts metadata already in memory.
+`.reference_bytes(..)` accepts metadata already in memory. Input, reference, resolution, import
+library, and output paths accept strings, `Path`, or `PathBuf`.
 
 `.resolution_default()` is different: it adds only the WinRT metadata to the resolution set used to
 classify `ABI::Windows::*` declarations. This lets `tool_win32` distinguish real WinRT types from

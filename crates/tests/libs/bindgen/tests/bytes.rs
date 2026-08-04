@@ -14,14 +14,14 @@ mod Test {
 }
 "#,
         )
-        .output(&winmd.to_string_lossy())
+        .output(&winmd)
         .write()
         .unwrap();
 
     let bytes = std::fs::read(winmd).unwrap();
     windows_bindgen::builder()
         .input_bytes(&bytes)
-        .output(&output.to_string_lossy())
+        .output(&output)
         .filter("Test")
         .flat()
         .write();

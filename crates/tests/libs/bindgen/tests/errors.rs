@@ -19,7 +19,7 @@ fn author_variadic(name: &str) -> (String, String) {
     let winmd = scratch.join("out.winmd");
     windows_rdl::reader()
         .input("input/variadic_fn_sys.rdl")
-        .output(winmd.to_str().unwrap())
+        .output(&winmd)
         .write()
         .unwrap();
     (
