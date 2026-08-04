@@ -20,9 +20,10 @@ Point it at one or more headers and write the resulting per-header RDL, then fee
 
 ```rust,no_run
 windows_clang::clang()
-    .input_str("#include <windows.h>")
-    .output("example.rdl")
-    .write()
+    .input("Example.h")
+    .output("rdl")
+    .namespace("Example")
+    .write_by_header()
     .unwrap();
 ```
 

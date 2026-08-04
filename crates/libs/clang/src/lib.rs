@@ -534,8 +534,6 @@ pub struct Clang {
 struct HeaderPass<'a> {
     /// Flat namespace root every partition emits into (`Windows.Win32`).
     root: &'a str,
-    /// Defining-header stems whose partitions are written (empty writes all).
-    allow: &'a HashSet<&'a str>,
     /// Resolution-winmd type-name membership for `ABI::Windows::*` declarations.
     winrt_types: &'a HashSet<String>,
 }
@@ -807,21 +805,15 @@ impl Clang {
     }
 
     /// Writes one flat-root RDL file per defining header.
-    ///
-    /// `partitions` limits which files are written, not which references resolve. Winmd
-    /// inputs act as exclusion references for additive scrapes.
-    pub fn write_by_header(
-        &self,
-        root: &str,
-        partitions: &[&str],
-        output_dir: &str,
-    ) -> Result<(), Error> {
-        let allow: HashSet<&str> = partitions.iter().copied().collect();
-        let outputs = self.parse_and_emit_by_header(root, &allow)?;
+    pub fn write_by_header(&self) -> Result<(), Error> {
+        let outputs = self.parse_and_emit_by_header(&self.namespace)?;
         for (stem, rdl) in outputs {
             // File names are lowercased defining-header stems.
             let leaf = stem.to_lowercase();
-            write_to_file(format!("{output_dir}/{leaf}.rdl"), formatter::format(&rdl))?;
+            write_to_file(
+                self.output.join(format!("{leaf}.rdl")),
+                formatter::format(&rdl),
+            )?;
         }
         Ok(())
     }
@@ -877,11 +869,7 @@ impl Clang {
     }
 
     /// Emits one flat-root RDL string per defining-header stem.
-    fn parse_and_emit_by_header(
-        &self,
-        root: &str,
-        allow: &HashSet<&str>,
-    ) -> Result<BTreeMap<String, String>, Error> {
+    fn parse_and_emit_by_header(&self, root: &str) -> Result<BTreeMap<String, String>, Error> {
         // Additive scrapes skip entities already defined by input winmds. Split type and
         // value names because functions/constants live on `Apis`, not in `iter()`.
         let reference = self.load_reference()?;
@@ -925,7 +913,6 @@ impl Clang {
 
         let pass = HeaderPass {
             root,
-            allow,
             winrt_types: &winrt_types,
         };
 
@@ -1092,11 +1079,7 @@ impl Clang {
         scope_in: &mut BTreeMap<String, bool>,
         eval: MacroEval<'_>,
     ) -> Result<(), Error> {
-        let HeaderPass {
-            root,
-            allow,
-            winrt_types,
-        } = *pass;
+        let HeaderPass { root, winrt_types } = *pass;
         // Abort on diagnostics in emitted headers; tolerate transitive-only include errors
         // so interop headers can survive broken C++/WinRT projection includes.
         for diag in tu.diagnostics() {
@@ -1168,13 +1151,9 @@ impl Clang {
             }
         }
 
-        // The allowlist limits written files, not cross-header resolution.
         let mut buckets: BTreeMap<String, Vec<(Cursor, bool)>> = BTreeMap::new();
         for (_, (child, extern_c)) in chosen {
             let stem = header_stem_of(&child).expect("filtered above");
-            if !allow.is_empty() && !allow.contains(stem.as_str()) {
-                continue;
-            }
             // Keep a partition in-scope if any contributing cursor is in-scope.
             if !self.scope.is_empty() {
                 let in_scope = self.scope_headers.contains(&stem)

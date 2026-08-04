@@ -56,10 +56,10 @@ windows_clang::clang()
     .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
     .input("Example.h")
     .input_default()
-    .output("example.rdl")
+    .output("rdl")
     .namespace("Example")
     .library("Example.dll")
-    .write()
+    .write_by_header()
     .unwrap();
 ```
 

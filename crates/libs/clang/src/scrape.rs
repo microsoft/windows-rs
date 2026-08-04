@@ -264,7 +264,9 @@ impl Clang {
         }
 
         clang
-            .write_by_header(&plan.root, &[], rdl_dir)
+            .namespace(&plan.root)
+            .output(rdl_dir)
+            .write_by_header()
             .unwrap_or_else(|e| panic!("failed to generate partitions in `{rdl_dir}`: {e}"));
 
         let mut rdl_paths = collect_rdl_paths(rdl_dir);

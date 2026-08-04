@@ -137,7 +137,11 @@ fn run(name: &str) {
         // `header_root.is_some()`. Emits every defining header in the parse (empty
         // partition allowlist) into `scratch`; a self-contained fixture yields a single
         // `<stem>.rdl` (the lowercased header stem, which matches `rdl_out`).
-        clang.write_by_header(&namespace, &[], &scratch).unwrap();
+        clang
+            .namespace(&namespace)
+            .output(&scratch)
+            .write_by_header()
+            .unwrap();
     } else {
         // Namespaced scrape, as `tool_webview`: `header_root.is_none()`, resolves external
         // types via the reference winmds.

@@ -22,7 +22,11 @@ fn partition_by_defining_header() {
         .input("partition_input/a.h")
         .input("partition_input/b.h");
 
-    clang.write_by_header("Test", &[], &scratch).unwrap();
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
 
     let shared = read(&scratch, "shared");
     let a = read(&scratch, "a");
@@ -82,7 +86,11 @@ fn duplicate_typedef_prefers_direct_alias() {
         .input("partition_input/typedef_a.h")
         .input("partition_input/typedef_b.h");
 
-    clang.write_by_header("Test", &[], &scratch).unwrap();
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
 
     let a = read(&scratch, "typedef_a");
     let b = read(&scratch, "typedef_b");
@@ -114,7 +122,11 @@ fn duplicate_typedef_ignores_excluded_owner() {
         .input("partition_input/duplicate_a.h")
         .input("partition_input/duplicate_b.h");
 
-    clang.write_by_header("Test", &[], &scratch).unwrap();
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
 
     let b = read(&scratch, "duplicate_b");
     assert!(b.contains("type DUPLICATE = i32"), "duplicate_b.rdl:\n{b}");
@@ -144,7 +156,11 @@ fn exclude_headers_drops_partition() {
         .input("partition_input/a.h")
         .input("partition_input/b.h");
 
-    clang.write_by_header("Test", &[], &scratch).unwrap();
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
 
     assert!(
         !std::path::Path::new(&format!("{scratch}/a.rdl")).exists(),
@@ -179,7 +195,11 @@ fn scope_sweeps_unreferenced_out_of_scope() {
         .scope("scope_api")
         .input("partition_input/scope_api/api.h");
 
-    clang.write_by_header("Test", &[], &scratch).unwrap();
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
 
     let api = read(&scratch, "api");
     let crt = read(&scratch, "crt");
@@ -213,7 +233,11 @@ fn preferred_duplicate_typedef_keeps_pointee_through_scope_sweep() {
         .input("partition_input/scope_api/z_api.h")
         .input("partition_input/scope_crt/a_crt.h");
 
-    clang.write_by_header("Test", &[], &scratch).unwrap();
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
 
     let crt = read(&scratch, "a_crt");
     assert!(crt.contains("type PFOO = *mut FOO"), "a_crt.rdl:\n{crt}");
@@ -238,7 +262,11 @@ fn dotted_header_flattens_to_single_partition() {
         .library("test.dll")
         .input("partition_input/Dotted.Name.Interop.h");
 
-    clang.write_by_header("Test", &[], &scratch).unwrap();
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
 
     let dotted = read(&scratch, "dottednameinterop");
     assert!(
@@ -269,7 +297,11 @@ fn abi_projection_type_maps_and_sweeps() {
         .scope("abi_interop")
         .input("partition_input/abi_interop/interop.h");
 
-    clang.write_by_header("Test", &[], &scratch).unwrap();
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
 
     let interop = read(&scratch, "interop");
     assert!(
