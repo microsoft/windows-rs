@@ -124,7 +124,11 @@ where
                 has_output = true;
             }
             ArgKind::Input => {
-                builder.input(arg);
+                if arg == "default" {
+                    builder.input_default();
+                } else {
+                    builder.input(arg);
+                }
             }
             ArgKind::Filter => {
                 builder.filter(arg);

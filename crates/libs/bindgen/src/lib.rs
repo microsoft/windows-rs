@@ -81,6 +81,7 @@ pub fn builder() -> Bindgen {
 #[derive(Default)]
 pub struct Bindgen {
     input: Vec<Input>,
+    input_default: bool,
     filter: Vec<String>,
     output: String,
     derive: Vec<String>,
@@ -92,7 +93,6 @@ pub struct Bindgen {
 }
 
 enum Input {
-    Default,
     Path(String),
     Bytes(Vec<u8>),
 }
@@ -192,19 +192,15 @@ impl Bindgen {
         Self::default()
     }
 
-    /// Adds a `.winmd` file or directory. `"default"` selects the bundled metadata.
+    /// Adds a `.winmd` file or directory.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.input_default()
-        } else {
-            self.input.push(Input::Path(input.to_string()));
-            self
-        }
+        self.input.push(Input::Path(input.to_string()));
+        self
     }
 
     /// Adds the default Windows metadata.
     pub fn input_default(&mut self) -> &mut Self {
-        self.input.push(Input::Default);
+        self.input_default = true;
         self
     }
 
@@ -406,15 +402,10 @@ impl Bindgen {
 
         let phase = std::time::Instant::now();
         let reader_storage;
-        let reader = if self.input.is_empty()
-            || self
-                .input
-                .iter()
-                .all(|input| matches!(input, Input::Default))
-        {
+        let reader = if self.input.is_empty() {
             default_reader()
         } else {
-            reader_storage = Reader::new(expand_input(&self.input));
+            reader_storage = Reader::new(expand_input(&self.input, self.input_default));
             &reader_storage
         };
         report_timing(&self.output, "metadata", phase.elapsed());
@@ -587,7 +578,7 @@ fn default_input() -> Vec<File> {
         .collect()
 }
 
-fn expand_input(input: &[Input]) -> Vec<File> {
+fn expand_input(input: &[Input], input_default: bool) -> Vec<File> {
     #[track_caller]
     fn expand_path(result: &mut Vec<File>, input: &str) {
         let path = std::path::Path::new(input);
@@ -633,7 +624,7 @@ fn expand_input(input: &[Input]) -> Vec<File> {
         }
     }
 
-    let mut result = if input.iter().any(|input| matches!(input, Input::Default)) {
+    let mut result = if input_default {
         default_input()
     } else {
         vec![]
@@ -641,7 +632,6 @@ fn expand_input(input: &[Input]) -> Vec<File> {
 
     for input in input {
         match input {
-            Input::Default => {}
             Input::Path(path) => expand_path(&mut result, path),
             Input::Bytes(bytes) => result.push(
                 File::new(bytes.clone())

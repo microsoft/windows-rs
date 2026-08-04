@@ -39,14 +39,10 @@ impl Writer {
         Self::default()
     }
 
-    /// Adds an input `.winmd` file or directory. `"default"` selects the default Windows metadata.
+    /// Adds an input `.winmd` file or directory.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.input_default()
-        } else {
-            self.input.push(input.to_string());
-            self
-        }
+        self.input.push(input.to_string());
+        self
     }
 
     /// Adds a `.winmd` file from memory.

@@ -175,9 +175,9 @@ and `remove_X`.
 
 ### Other useful options
 
-- `--in`, `.input(..)`, and `.inputs(..)` add `.winmd` files or directories.
-  `.input_default()` or the literal `"default"` includes the standard metadata. The builder uses
-  it implicitly when no input is supplied.
+- `--in`, `.input(..)`, and `.inputs(..)` add `.winmd` files or directories. The builder uses the
+  standard metadata implicitly when no input is supplied. Use `.input_default()` to combine it with
+  custom builder inputs; the textual `--in default` form provides the same behavior.
 - `--derive` and `.derive(..)` add derives to generated types.
 - `--implement` and `.implement(..)` emit `_Impl` scaffolding for WinRT interface implementations.
 - `--rustfmt` and `.rustfmt(..)` set the formatter for the output.
