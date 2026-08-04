@@ -34,30 +34,32 @@ pub enum ParamHint {
     Bool,
 }
 
-impl From<&Param> for ParamHint {
-    fn from(param: &Param) -> Self {
-        for attribute in param.def.attributes() {
-            match attribute.name() {
-                "NativeArrayInfoAttribute" => {
-                    for (_, value) in attribute.value() {
-                        match value {
-                            Value::I16(value) => return Self::ArrayRelativeLen(value as usize),
-                            Value::I32(value) => return Self::ArrayFixed(value as usize),
-                            _ => {}
-                        }
-                    }
-                }
-                "MemorySizeAttribute" => {
-                    for (_, value) in attribute.value() {
-                        if let Value::I16(value) = value {
-                            return Self::ArrayRelativeByteLen(value as usize);
-                        }
-                    }
-                }
-                _ => {}
-            }
-        }
-        Self::None
+fn param_hint(
+    param: &Param,
+    position: usize,
+    parameter_count: usize,
+    reader: &Reader,
+) -> ParamHint {
+    match param.buffer_relationship() {
+        Some(BufferRelationship::ElementsParam(relative)) => usize::try_from(relative)
+            .ok()
+            .filter(|relative| *relative < parameter_count && *relative != position)
+            .map_or(ParamHint::None, ParamHint::ArrayRelativeLen),
+        Some(BufferRelationship::BytesParam(relative)) => usize::try_from(relative)
+            .ok()
+            .filter(|relative| *relative < parameter_count && *relative != position)
+            .map_or(ParamHint::None, ParamHint::ArrayRelativeByteLen),
+        Some(BufferRelationship::ElementsConst(fixed)) => usize::try_from(fixed)
+            .ok()
+            .filter(|fixed| {
+                param
+                    .deref()
+                    .size(reader)
+                    .checked_mul(*fixed)
+                    .is_some_and(|size| size <= i32::MAX as usize)
+            })
+            .map_or(ParamHint::None, ParamHint::ArrayFixed),
+        None => ParamHint::None,
     }
 }
 
@@ -80,7 +82,7 @@ impl CppMethod {
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
         for (position, param) in signature.params.iter().enumerate() {
-            param_hints[position] = param.into();
+            param_hints[position] = param_hint(param, position, signature.params.len(), reader);
         }
 
         for position in 0..signature.params.len() {
@@ -88,11 +90,12 @@ impl CppMethod {
             match param_hints[position] {
                 ParamHint::ArrayRelativeLen(relative)
                 | ParamHint::ArrayRelativeByteLen(relative) => {
+                    let Some(relative_param) = signature.params.get(relative) else {
+                        param_hints[position] = ParamHint::None;
+                        continue;
+                    };
                     // The len params must be input only.
-                    if signature.params[relative].is_input()
-                        && position != relative
-                        && !signature.params[relative].is_pointer()
-                    {
+                    if relative_param.is_input_only() && !relative_param.is_pointer() {
                         param_hints[relative] = ParamHint::ArrayRelativePtr(position);
                     } else {
                         param_hints[position] = ParamHint::None;
@@ -141,9 +144,9 @@ impl CppMethod {
 
                 if param.is_convertible() && !hint.is_array() {
                     *hint = ParamHint::IntoParam;
-                } else if param.is_copyable(reader) && param.is_optional() {
+                } else if param.is_copyable(reader) && param.is_optional_or_reserved() {
                     *hint = ParamHint::Optional;
-                } else if param.is_input() && param.ty == Type::BOOL {
+                } else if param.is_input_only() && param.ty == Type::BOOL {
                     *hint = ParamHint::Bool;
                 } else if param.is_primitive(reader)
                     && (!param.is_pointer() || param.deref().is_copyable(reader))
@@ -171,7 +174,7 @@ impl CppMethod {
                 if signature.params.len() >= 2
                     && let Some((guid, object)) = signature_param_is_query(&signature.params)
                 {
-                    if signature.params[object].is_optional() {
+                    if signature.params[object].is_optional_or_reserved() {
                         return_hint = ReturnHint::QueryOptional(object, guid);
                     } else {
                         return_hint = ReturnHint::Query(object, guid);
@@ -546,12 +549,12 @@ impl CppMethod {
                     let ty = param.deref();
                     let ty = ty.write_default(config);
                     let len = Literal::u32_unsuffixed(fixed as u32);
-                    let ty = if param.is_input() {
+                    let ty = if param.is_input_only() {
                         quote! { &[#ty; #len] }
                     } else {
                         quote! { &mut [#ty; #len] }
                     };
-                    if param.is_optional() {
+                    if param.is_optional_or_reserved() {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -560,24 +563,24 @@ impl CppMethod {
                 ParamHint::ArrayRelativeLen(_) => {
                     let ty = param.deref();
                     let ty = ty.write_default(config);
-                    let ty = if param.is_input() {
+                    let ty = if param.is_input_only() {
                         quote! { &[#ty] }
                     } else {
                         quote! { &mut [#ty] }
                     };
-                    if param.is_optional() {
+                    if param.is_optional_or_reserved() {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
                 }
                 ParamHint::ArrayRelativeByteLen(_) => {
-                    let ty = if param.is_input() {
+                    let ty = if param.is_input_only() {
                         quote! { &[u8] }
                     } else {
                         quote! { &mut [u8] }
                     };
-                    if param.is_optional() {
+                    if param.is_optional_or_reserved() {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -641,13 +644,13 @@ impl CppMethod {
                         ParamHint::ArrayFixed(_)
                         | ParamHint::ArrayRelativeLen(_)
                         | ParamHint::ArrayRelativeByteLen(_) => {
-                            let map = if param.is_optional() {
-                                if param.is_input() {
+                            let map = if param.is_optional_or_reserved() {
+                                if param.is_input_only() {
                                     quote! { #name.map_or(core::ptr::null(), |slice|slice.as_ptr()) }
                                 } else {
                                     quote! { #name.as_deref().map_or(core::ptr::null_mut(), |slice|slice.as_ptr().cast_mut()) }
                                 }
-                            } else if param.is_input() {
+                            } else if param.is_input_only() {
                                 quote! { #name.as_ptr() }
                             } else {
                                 quote! { #name.as_mut_ptr() }
@@ -661,7 +664,7 @@ impl CppMethod {
                             } else {
                                 param.deref().write_default(config)
                             };
-                            let ptr = if param.is_input() {
+                            let ptr = if param.is_input_only() {
                                 quote! { *const #elem }
                             } else {
                                 quote! { *mut #elem }
@@ -682,8 +685,8 @@ impl CppMethod {
                                 &quote! { slice.len().try_into().unwrap() },
                                 config,
                             );
-                            if relative_param.is_optional() {
-                                if relative_param.is_input() {
+                            if relative_param.is_optional_or_reserved() {
+                                if relative_param.is_input_only() {
                                     quote! { #name.map_or(#zero, |slice| #len), }
                                 } else {
                                     quote! { #name.as_deref().map_or(#zero, |slice| #len), }
@@ -711,7 +714,7 @@ impl CppMethod {
                             quote! { #name.into(), }
                         }
                         ParamHint::ValueType => {
-                            if param.is_input() {
+                            if param.is_input_only() {
                                 quote! { #name, }
                             } else {
                                 quote! { #name as _, }
@@ -757,13 +760,13 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
     let name = param.write_ident();
     let kind = param.write_default(config);
 
-    if param.is_input() && param.is_interface() {
+    if param.is_input_only() && param.is_interface() {
         let type_name = param.write_name(config);
         quote! { #name: windows_core::Ref<#type_name>, }
-    } else if !param.is_input() && param.deref().is_interface() && !hint.is_array() {
+    } else if !param.is_input_only() && param.deref().is_interface() && !hint.is_array() {
         let type_name = param.deref().write_name(config);
         quote! { #name: windows_core::OutRef<#type_name>, }
-    } else if param.is_input() {
+    } else if param.is_input_only() {
         if param.is_primitive(config.reader) {
             quote! { #name: #kind, }
         } else {
@@ -777,10 +780,10 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
 fn write_invoke_arg(param: &Param, reader: &Reader) -> TokenStream {
     let name = param.write_ident();
 
-    if param.is_input() && param.is_interface() {
+    if param.is_input_only() && param.is_interface() {
         quote! { core::mem::transmute_copy(&#name) }
     } else if (!param.is_pointer() && param.is_interface())
-        || (param.is_input() && !param.is_primitive(reader))
+        || (param.is_input_only() && !param.is_primitive(reader))
     {
         quote! { core::mem::transmute(&#name) }
     } else {
@@ -789,14 +792,12 @@ fn write_invoke_arg(param: &Param, reader: &Reader) -> TokenStream {
 }
 
 fn signature_param_is_query(params: &[Param]) -> Option<(usize, usize)> {
-    if let Some(guid) = params
-        .iter()
-        .rposition(|param| param.ty == Type::PtrConst(Box::new(Type::GUID), 1) && param.is_input())
-        && let Some(object) = params.iter().rposition(|param| {
-            param.ty == Type::PtrMut(Box::new(Type::Void), 2)
-                && param.def.has_attribute("ComOutPtrAttribute")
-        })
-    {
+    if let Some(guid) = params.iter().rposition(|param| {
+        param.ty == Type::PtrConst(Box::new(Type::GUID), 1) && param.is_input_only()
+    }) && let Some(object) = params.iter().rposition(|param| {
+        param.ty == Type::PtrMut(Box::new(Type::Void), 2)
+            && param.has_attribute("ComOutPtrAttribute")
+    }) {
         return Some((guid, object));
     }
 

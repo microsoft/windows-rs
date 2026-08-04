@@ -1,0 +1,17 @@
+//! --filter Sample
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    #[Activatable(1)]
+    class Calculator {
+        ICalculator,
+    }
+
+    #[ExclusiveTo(Calculator)]
+    interface ICalculator {
+        fn Reset(&self);
+        fn Value(&self) -> i32;
+        fn Add(&self, a: i32, b: i32) -> i32;
+    }
+}

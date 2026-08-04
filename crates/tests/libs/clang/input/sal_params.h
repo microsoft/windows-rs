@@ -33,13 +33,13 @@ extern "C" {
     // _In_ on an opaque typedef matches the inferred In default (no attribute).
     BOOL CloseObject(_In_ HANDLE object);
 
-    // _In_ on a mutable pointer overrides the inferred Out default -> #[r#in].
+    // _In_ on a mutable pointer overrides the inferred Out default -> #[in].
     BOOL ScanValue(_In_ DWORD* value);
 
     // _Out_ on a mutable pointer matches the inferred default (no attribute).
     BOOL GetValue(_Out_ DWORD* result);
 
-    // _Inout_ on a mutable pointer is both In and Out -> #[r#in] #[out].
+    // _Inout_ on a mutable pointer is both In and Out -> #[in] #[out].
     BOOL UpdateValue(_Inout_ DWORD* value);
 
     // _In_opt_ on a non-mutable type -> #[opt].
@@ -48,7 +48,7 @@ extern "C" {
     // _Out_opt_ on a mutable pointer -> #[opt].
     BOOL TryGetValue(_Out_opt_ DWORD* result);
 
-    // _Inout_opt_ -> #[r#in] #[out] #[opt].
+    // _Inout_opt_ -> #[in] #[out] #[opt].
     BOOL UpdateOptional(_Inout_opt_ DWORD* value);
 
     // Element-count buffer: the count parameter resolves to a 0-based index
@@ -64,14 +64,14 @@ extern "C" {
     // Fixed element count -> NativeArrayInfo(CountConst = 16).
     BOOL FillFixed(_Out_writes_(16) DWORD* buffer);
 
-    // _Inout_updates_ count parameter -> #[r#in] #[out] + NativeArrayInfo(CountParamIndex = 1).
+    // _Inout_updates_ count parameter -> #[in] #[out] + NativeArrayInfo(CountParamIndex = 1).
     BOOL UpdateBuffer(_Inout_updates_(count) DWORD* buffer, DWORD count);
 
     // _Out_writes_z_ null-terminated element-count buffer: the _z_ contract adds no
     // attribute of its own, so this matches _Out_writes_ -> NativeArrayInfo(CountParamIndex = 1).
     BOOL WriteString(_Out_writes_z_(size) unsigned short* buffer, DWORD size);
 
-    // _Inout_updates_z_ -> #[r#in] #[out] + NativeArrayInfo(CountParamIndex = 1).
+    // _Inout_updates_z_ -> #[in] #[out] + NativeArrayInfo(CountParamIndex = 1).
     BOOL UpdateString(_Inout_updates_z_(count) unsigned short* buffer, DWORD count);
 
     // _Out_writes_to_opt_ is an output buffer written up to a count; the [Out]
@@ -89,7 +89,7 @@ extern "C" {
     // _Out_writes_all_ output buffer fully written -> #[out] + NativeArrayInfo.
     BOOL FillAll(_Out_writes_all_(count) DWORD* buffer, DWORD count);
 
-    // _Inout_updates_to_ -> #[r#in] #[out] + NativeArrayInfo(CountParamIndex = 1).
+    // _Inout_updates_to_ -> #[in] #[out] + NativeArrayInfo(CountParamIndex = 1).
     BOOL GrowBuffer(_Inout_updates_to_(count, *count) DWORD* buffer, DWORD count);
 
     // _Outptr_result_buffer_ marks an out-pointer; its element count is not captured

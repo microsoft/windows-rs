@@ -304,7 +304,39 @@ RDL stable.
 | Event remove parameter names | `token` | The remove accessor takes an event token. |
 | Property and event accessors | Property or event shorthand | The writer tracks consumed `get_`, `put_`, `add_`, and `remove_` methods. |
 | Unconsumed interface methods | Full method form | Methods that are not part of shorthand stay explicit. |
+| Input direction | `#[in]` | The reader accepts `#[r#in]`; the formatter emits `#[in]`. |
 | Raw identifiers, GUID constants, and delegate ABI spelling | Canonical writer output | Text can differ while metadata stays equivalent. |
 
 The reader rejects unsupported forms with errors. It does not silently drop them. Examples include
 unsupported types, constants, callback ABIs, variadic callback parameters, and function ABIs.
+
+### Method parameter rows
+
+The winmd writer uses `MethodDef::params_by_sequence` from
+[`windows-metadata`](windows-metadata.md). Sequence 0 supplies return-type attributes. Nonzero rows
+are matched to one-based signature positions, so sparse or out-of-order metadata cannot rename or
+reflag another parameter. Every signature parameter is emitted; a missing row uses `pN` with no
+explicit direction or optional marker, which the RDL reader lowers with its existing type-based
+direction default. Duplicate and out-of-range sequences stop the write with a diagnostic.
+
+Direction and optionality come from `MethodParam::direction()` and `is_optional()`. Reserved,
+retval, and count attributes remain independent pseudos or custom attributes. The writer applies
+RDL's format boundary only when spelling them: In+Out emits both markers, while Unspecified emits
+the input spelling because RDL has no literal unspecified-direction syntax.
+
+`test_rdl::method_params` authors sparse and out-of-order rows directly, checks parameter and
+return pseudos in the generated RDL, and compiles the RDL back to dense metadata with the same
+associations. It also checks that every non-return `Param` row in the committed WinRT, Win32, and
+WDK metadata has at least one representable direction flag.
+
+### Lossless round-trip limits
+
+- **Direction flags:** RDL has no spelling for a `Param` row with neither In nor Out. Omitting both
+  invokes the type-based default, so a metadata row with neither flag reads back as In.
+- **Void return rows:** Return attributes are written after `->`. A void method has no return type
+  to carry them, so attributes on its sequence 0 row are not represented.
+- **Count relationships:** `#[len_param(N)]` and `#[size_param(N)]` store raw zero-based signature
+  positions. Reordering parameters without updating `N` changes the relationship.
+- **Pointer constness:** `metadata::Type` stores one constness bit with a pointer depth. Uniform
+  chains such as `*mut *mut T` and `*const *const T` round-trip. Mixed chains are rejected before
+  metadata is written, including chains nested inside a reference.

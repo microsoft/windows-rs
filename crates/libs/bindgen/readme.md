@@ -30,3 +30,23 @@ let args = [
 ];
 windows_bindgen::bindgen(args);
 ```
+
+Variadic native exports are emitted only by `--sys`, where the generated declaration retains the
+literal `...` tail. Default and minimal bindings omit them rather than exposing a callable
+fixed-prefix wrapper.
+
+Parameter direction uses the shared raw facts from `windows-metadata`, but Rust projection policy
+stays local. `Input` and `Unspecified` take the input-only branch; `Output` and `InputOutput` keep
+mutable/output-capable ABI and slice shapes. A trailing retval must be output-only, required,
+non-reserved, uncounted, and pointer-shaped. The existing void-pointee and size limits apply only
+to unmarked heuristic candidates.
+
+And then use the bindings as follows:
+
+```rust,ignore
+mod bindings;
+
+unsafe {
+    println!("{}", bindings::GetTickCount());
+}
+```

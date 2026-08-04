@@ -18,6 +18,9 @@ mod type_def;
 mod type_ref;
 mod type_spec;
 
+pub use method_def::{MethodParamMap, MethodParamSequenceError};
+pub use method_param::{BufferRelationship, ParamDirection};
+
 macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {
         $(

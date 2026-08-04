@@ -1,0 +1,29 @@
+//! --filter Sample
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    #[Activatable(1)]
+    class Device {
+        IDevice,
+        IReadable,
+        IWritable,
+    }
+
+    #[ExclusiveTo(Device)]
+    interface IDevice {
+        Name: String;
+    }
+
+    interface IReadable {
+        fn Read(&self) -> i32;
+    }
+
+    interface IWritable {
+        fn Write(&self, value: i32);
+    }
+
+    interface IStandalone {
+        fn Ping(&self) -> i32;
+    }
+}

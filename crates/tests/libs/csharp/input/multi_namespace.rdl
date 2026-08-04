@@ -1,0 +1,28 @@
+//! --filter Alpha --filter Beta
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Alpha {
+    #[Activatable(1)]
+    class Thing {
+        IThing,
+    }
+
+    #[ExclusiveTo(Thing)]
+    interface IThing {
+        Value: i32;
+    }
+}
+
+#[winrt]
+mod Beta {
+    #[Activatable(1)]
+    class Gadget {
+        IGadget,
+    }
+
+    #[ExclusiveTo(Gadget)]
+    interface IGadget {
+        Name: String;
+    }
+}

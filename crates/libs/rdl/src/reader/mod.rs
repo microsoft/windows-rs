@@ -919,16 +919,26 @@ impl Encoder<'_> {
 
     fn encode_type_ptr(&self, ty: &syn::TypePtr) -> Result<metadata::Type, Error> {
         let is_mut = ty.mutability.is_some();
-        let ty = self.encode_type(&ty.elem)?;
+        let encoded = self.encode_type(&ty.elem)?;
 
-        let ty = match ty {
-            metadata::Type::PtrMut(ty, pointers) => metadata::Type::PtrMut(ty, pointers + 1),
-            metadata::Type::PtrConst(ty, pointers) => metadata::Type::PtrConst(ty, pointers + 1),
+        let ty = match encoded {
+            metadata::Type::PtrMut(inner, pointers) if is_mut => {
+                metadata::Type::PtrMut(inner, pointers + 1)
+            }
+            metadata::Type::PtrConst(inner, pointers) if !is_mut => {
+                metadata::Type::PtrConst(inner, pointers + 1)
+            }
+            metadata::Type::PtrMut(..) | metadata::Type::PtrConst(..) => {
+                return self.err(
+                    ty.elem.as_ref(),
+                    "mixed `*mut` and `*const` pointer chains are not representable",
+                );
+            }
             _ => {
                 if is_mut {
-                    metadata::Type::PtrMut(Box::new(ty), 1)
+                    metadata::Type::PtrMut(Box::new(encoded), 1)
                 } else {
-                    metadata::Type::PtrConst(Box::new(ty), 1)
+                    metadata::Type::PtrConst(Box::new(encoded), 1)
                 }
             }
         };

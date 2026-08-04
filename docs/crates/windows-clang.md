@@ -852,6 +852,30 @@ Net: the flat `Windows.Win32` surface is collision-free except for `Network` (in
 ambiguous, reachable via its stems) and the protective `None` prelude re-export; the core-vs-`Win32`
 collisions (`WIN32_ERROR`, `NTSTATUS`, `RPC_STATUS`) are gone.
 
+### windows-csharp lang_perf consolidation
+
+Complete. `crates/samples/test_bench` now contains every canonical operation from `lang_perf`,
+uses the canonical `IterateVector` and `Error` names, and reports cppwinrt, windows-rs,
+windows-csharp, and cswinrt 2 in that order. The merged matrix covers metadata `Object`,
+`GetMany`, `IMap<string, int>` value enumeration, nullable `IReference<int>`, and
+`IAsyncOperation<int>`. The measured table is in `windows-csharp.md`, and the duplicate
+`crates/samples/lang_perf` tree has been removed.
+
+The follow-up cast audit split `Cast`, `CastOwned`, and `Interface`. Runtime classes now forward
+collision-free non-default-interface methods through QI + call + Release, with no temporary
+managed owner or interface cache; `As<T>()` remains the escapable form. HRESULT failures now
+become one raw `COMException` with the original code and any restricted or regular thread error
+description; the projection does not globally reinterpret `E_BOUNDS`.
+
+Remaining projection breadth exposed by this work:
+
+1. Map enumeration entries expose `Value`; projecting an HSTRING `Key` safely remains.
+2. The async awaiter polls `IAsyncInfo::Status`. Use the completion delegate to avoid holding a
+   thread-pool worker while an incomplete operation runs.
+3. Collection element coverage still excludes string and `IReference<T>` vector elements.
+4. Delegate inputs support metadata `Object` through callback-confined borrowed views. Other
+   non-blittable inputs and owned non-blittable returns remain unsupported.
+
 ### Testing
 
 `test_clang` holds golden fixtures that pin the header-to-RDL behavior. It exercises both the

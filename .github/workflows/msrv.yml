@@ -51,6 +51,8 @@ jobs:
         run:  cargo check -p windows-composition --no-default-features --features reactor
       - name: Check windows-core
         run:  cargo check -p windows-core --all-features
+      - name: Check windows-csharp
+        run:  cargo check -p windows-csharp --all-features
       - name: Check windows-future
         run:  cargo check -p windows-future --all-features
       - name: Check windows-implement

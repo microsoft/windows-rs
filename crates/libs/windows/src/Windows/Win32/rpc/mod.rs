@@ -416,12 +416,6 @@ pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: RPC_BINDING_HANDLE, pbuff: 
     windows_core::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshallEx(bindinghandle : RPC_BINDING_HANDLE, pbuff : *const core::ffi::c_void, datarepresentation : u32) -> NDR_SCONTEXT);
     unsafe { NDRSContextUnmarshallEx(bindinghandle, pbuff, datarepresentation) }
 }
-#[cfg(feature = "objidlbase")]
-#[inline]
-pub unsafe fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
-    windows_core::link!("rpcrt4.dll" "C" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
-    unsafe { Ndr64AsyncClientCall(pproxyinfo as _, nprocnum, preturnvalue as _) }
-}
 #[inline]
 pub unsafe fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCall64(prpcmsg : *mut RPC_MESSAGE));
@@ -431,12 +425,6 @@ pub unsafe fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE) {
 pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCallAll(prpcmsg : *mut RPC_MESSAGE));
     unsafe { Ndr64AsyncServerCallAll(prpcmsg as _) }
-}
-#[cfg(feature = "objidlbase")]
-#[inline]
-pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
-    windows_core::link!("rpcrt4.dll" "C" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
-    unsafe { Ndr64DcomAsyncClientCall(pproxyinfo as _, nprocnum, preturnvalue as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -453,12 +441,6 @@ where
 pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut core::ffi::c_void {
     windows_core::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : *mut MIDL_STUB_MESSAGE, len : usize) -> *mut core::ffi::c_void);
     unsafe { NdrAllocate(pstubmsg, len) }
-}
-#[cfg(feature = "objidlbase")]
-#[inline]
-pub unsafe fn NdrAsyncClientCall(pstubdescriptor: *const MIDL_STUB_DESC, pformat: *const u8) -> CLIENT_CALL_RETURN {
-    windows_core::link!("rpcrt4.dll" "C" fn NdrAsyncClientCall(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8) -> CLIENT_CALL_RETURN);
-    unsafe { NdrAsyncClientCall(pstubdescriptor, pformat) }
 }
 #[inline]
 pub unsafe fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE) {
@@ -494,18 +476,6 @@ pub unsafe fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
 pub unsafe fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *const u8, argaddr: *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8, argaddr : *mut core::ffi::c_void));
     unsafe { NdrClearOutParameters(pstubmsg, pformat, argaddr as _) }
-}
-#[cfg(feature = "objidlbase")]
-#[inline]
-pub unsafe fn NdrClientCall2(pstubdescriptor: *const MIDL_STUB_DESC, pformat: *const u8) -> CLIENT_CALL_RETURN {
-    windows_core::link!("rpcrt4.dll" "C" fn NdrClientCall2(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8) -> CLIENT_CALL_RETURN);
-    unsafe { NdrClientCall2(pstubdescriptor, pformat) }
-}
-#[cfg(feature = "objidlbase")]
-#[inline]
-pub unsafe fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
-    windows_core::link!("rpcrt4.dll" "C" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
-    unsafe { NdrClientCall3(pproxyinfo as _, nprocnum, preturnvalue as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -785,12 +755,6 @@ where
 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrCreateServerInterfaceFromStub(pstub : *mut core::ffi::c_void, pserverif : *mut RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS);
     unsafe { NdrCreateServerInterfaceFromStub(pstub.param().abi(), pserverif as _) }
-}
-#[cfg(feature = "objidlbase")]
-#[inline]
-pub unsafe fn NdrDcomAsyncClientCall(pstubdescriptor: *const MIDL_STUB_DESC, pformat: *const u8) -> CLIENT_CALL_RETURN {
-    windows_core::link!("rpcrt4.dll" "C" fn NdrDcomAsyncClientCall(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8) -> CLIENT_CALL_RETURN);
-    unsafe { NdrDcomAsyncClientCall(pstubdescriptor, pformat) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]

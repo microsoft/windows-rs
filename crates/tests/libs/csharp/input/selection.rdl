@@ -1,0 +1,57 @@
+//! --filter Selection
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Selection {
+    delegate fn ChangedHandler(value: i32);
+
+    #[Activatable(1)]
+    class Gadget {
+        IGadget,
+    }
+
+    #[ExclusiveTo(Gadget)]
+    interface IGadget {
+        Id: i32;
+    }
+
+    #[Activatable(1)]
+    class Widget {
+        IWidget,
+        IWidgetExtra,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        Value: i32;
+        Location: Point;
+        State: Mode;
+        Peer: Gadget;
+        fn Compute(&self, input: i32) -> i32;
+        event Changed: ChangedHandler;
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidgetExtra {
+        fn Extra(&self) -> i32;
+        #[Overload("Transform")]
+        fn Transform(&self) -> i32;
+        #[Overload("TransformWithValue")]
+        fn Transform(&self, value: i32) -> i32;
+    }
+
+    interface IStandalone {
+        fn Ping(&self) -> i32;
+    }
+
+    struct Point {
+        X: i32,
+        Y: i32,
+    }
+
+    #[repr(i32)]
+    enum Mode {
+        Off = 0,
+        On = 1,
+    }
+}

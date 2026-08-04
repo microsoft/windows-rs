@@ -12,6 +12,7 @@ test = false
 
 [dev-dependencies]
 windows-rdl = { workspace = true }
+windows-metadata = { workspace = true }
 
 [lints]
 workspace = true

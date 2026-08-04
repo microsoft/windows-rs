@@ -1,0 +1,21 @@
+//! --filter Sample
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    #[Activatable(1)]
+    class Node {
+        INode,
+    }
+
+    #[ExclusiveTo(Node)]
+    interface INode {
+        Value: i32;
+        Peer: IPeer;
+        fn Link(&self, other: IPeer) -> IPeer;
+    }
+
+    interface IPeer {
+        Id: i32;
+    }
+}

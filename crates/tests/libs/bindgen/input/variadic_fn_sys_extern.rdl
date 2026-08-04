@@ -1,0 +1,15 @@
+//! --filter Test --sys --extern --flat
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "system" fn VariadicSystem(count: u32, ...) -> u32;
+
+    #[library("test.dll")]
+    extern "C" fn VariadicC(count: u32, ...) -> u32;
+
+    #[library("test.dll")]
+    extern "fastcall" fn VariadicFastcall(count: u32, ...) -> u32;
+
+    #[library("test.dll")]
+    extern fn Fixed(count: u32) -> u32;
+}

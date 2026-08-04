@@ -28,7 +28,7 @@ void SetNameAnsi(_In_z_ char const* name);
 // wrapper is a by-value type whose inferred direction is In).
 void GetName(_Out_z_ WCHAR* buffer);
 
-// _Inout_z_ WCHAR* -> PWSTR (wide, writable; #[r#in] #[out]).
+// _Inout_z_ WCHAR* -> PWSTR (wide, writable; #[in] #[out]).
 void EditName(_Inout_z_ WCHAR* buffer);
 
 // _In_opt_z_ WCHAR const* -> PCWSTR + #[opt].

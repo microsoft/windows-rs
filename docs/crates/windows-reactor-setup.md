@@ -9,17 +9,17 @@
 
 `windows-reactor-setup` is used from the `build.rs` of a [`windows-reactor`](windows-reactor.md)
 application. It downloads and stages the Windows App SDK runtime bootstrap files next to the built
-executable so the app can start WinUI 3, and writes the required application manifest. Choose the
-helper that matches your deployment model - for example a framework-dependent app or a
-self-contained one.
+executable so the app can start WinUI 3. The self-contained helper also writes the application
+manifest. Choose the helper that matches your deployment model - for example a framework-dependent
+app or a self-contained one.
 
 Call `windows_reactor_setup::as_self_contained()` or
 `windows_reactor_setup::as_framework_dependent()` from `build.rs`. A framework-dependent
 application also calls `windows_reactor::bootstrap()` at startup. A self-contained application
 does not.
 
-See the [samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor) for
-complete project layouts.
+See the [samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
+for complete project layouts.
 
 ---
 
@@ -47,4 +47,5 @@ uses for the `.winmd` metadata, and `gen.yml` fails on any drift. See
 
 ### Testing
 
-Run `cargo test -p windows-reactor-setup`; see also the workspace test crates.
+Run `cargo test -p windows-reactor-setup`. The unit test stages the files for x86, x64, and arm64
+and compares them byte-for-byte with the committed assets.

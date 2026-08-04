@@ -11,6 +11,14 @@ impl Interface {
             );
         }
     }
+    pub unsafe fn InputOutput(&self, value: *mut Struct) {
+        unsafe {
+            (windows_core::Interface::vtable(self).InputOutput)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            );
+        }
+    }
     pub unsafe fn Optional(&self, value: Option<*const Struct>) {
         unsafe {
             (windows_core::Interface::vtable(self).Optional)(
@@ -39,12 +47,14 @@ impl Interface {
 #[repr(C)]
 pub struct Interface_Vtbl {
     pub IntoParam: unsafe extern "system" fn(*mut core::ffi::c_void, *const Struct),
+    pub InputOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Struct),
     pub Optional: unsafe extern "system" fn(*mut core::ffi::c_void, *const Struct),
     pub BoolParam: unsafe extern "system" fn(*mut core::ffi::c_void, BOOL),
     pub ValueType: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
 pub trait Interface_Impl {
     fn IntoParam(&self, value: *const Struct);
+    fn InputOutput(&self, value: *mut Struct);
     fn Optional(&self, value: *const Struct);
     fn BoolParam(&self, value: BOOL);
     fn ValueType(&self, value: u32);
@@ -59,6 +69,16 @@ impl Interface_Vtbl {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
                 Interface_Impl::IntoParam(this, core::mem::transmute_copy(&value));
+            }
+        }
+        unsafe extern "system" fn InputOutput<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            value: *mut Struct,
+        ) {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                Interface_Impl::InputOutput(this, core::mem::transmute_copy(&value));
             }
         }
         unsafe extern "system" fn Optional<Identity: Interface_Impl>(
@@ -93,6 +113,7 @@ impl Interface_Vtbl {
         }
         Self {
             IntoParam: IntoParam::<Identity>,
+            InputOutput: InputOutput::<Identity>,
             Optional: Optional::<Identity>,
             BoolParam: BoolParam::<Identity>,
             ValueType: ValueType::<Identity>,

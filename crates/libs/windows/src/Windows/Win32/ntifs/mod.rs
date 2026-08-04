@@ -575,12 +575,6 @@ pub unsafe fn RtlInitializeSid(sid: super::PSID, identifierauthority: *const sup
     windows_core::link!("ntdll.dll" "system" fn RtlInitializeSid(sid : super::PSID, identifierauthority : *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> windows_core::NTSTATUS);
     unsafe { RtlInitializeSid(sid as _, identifierauthority, subauthoritycount) }
 }
-#[cfg(feature = "winnt")]
-#[inline]
-pub unsafe fn RtlInitializeSidEx(sid: super::PSID, identifierauthority: *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "C" fn RtlInitializeSidEx(sid : super::PSID, identifierauthority : *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> windows_core::NTSTATUS);
-    unsafe { RtlInitializeSidEx(sid as _, identifierauthority, subauthoritycount) }
-}
 #[inline]
 pub unsafe fn RtlIsCloudFilesPlaceholder(fileattributes: u32, reparsetag: u32) -> bool {
     windows_core::link!("ntdll.dll" "system" fn RtlIsCloudFilesPlaceholder(fileattributes : u32, reparsetag : u32) -> bool);

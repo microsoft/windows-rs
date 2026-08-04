@@ -270,11 +270,6 @@ pub unsafe fn TraceEventInstance(tracehandle: TRACELOGGER_HANDLE, eventtrace: *c
     windows_core::link!("advapi32.dll" "system" fn TraceEventInstance(tracehandle : TRACELOGGER_HANDLE, eventtrace : *const EVENT_INSTANCE_HEADER, instinfo : *const EVENT_INSTANCE_INFO, parentinstinfo : *const EVENT_INSTANCE_INFO) -> u32);
     unsafe { TraceEventInstance(tracehandle, eventtrace, instinfo, parentinstinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[inline]
-pub unsafe fn TraceMessage(loggerhandle: TRACELOGGER_HANDLE, messageflags: u32, messageguid: *const windows_core::GUID, messagenumber: u16) -> u32 {
-    windows_core::link!("advapi32.dll" "C" fn TraceMessage(loggerhandle : TRACELOGGER_HANDLE, messageflags : u32, messageguid : *const windows_core::GUID, messagenumber : u16) -> u32);
-    unsafe { TraceMessage(loggerhandle, messageflags, messageguid, messagenumber) }
-}
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn TraceMessageVa(loggerhandle: TRACELOGGER_HANDLE, messageflags: u32, messageguid: *const windows_core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32 {

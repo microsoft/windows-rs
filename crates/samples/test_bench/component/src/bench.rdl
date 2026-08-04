@@ -1,0 +1,46 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Bench {
+    delegate fn ChangedHandler(sender: Object, value: i32);
+
+    #[Activatable(1)]
+    #[MarshalingBehavior(Agile)]
+    class Widget {
+        IWidget,
+        INonDefault,
+    }
+
+    #[ExclusiveTo(Widget)]
+    interface IWidget {
+        Int32Property: i32;
+        StringProperty: String;
+        ObjectProperty: Object;
+        ReferenceProperty: Windows::Foundation::IReference<i32>;
+        fn Operation(&self) -> Windows::Foundation::IAsyncOperation<i32>;
+        fn StringOperation(&self) -> Windows::Foundation::IAsyncOperation<String>;
+        fn ObjectOperation(&self) -> Windows::Foundation::IAsyncOperation<INonDefault>;
+        fn Add(&self, a: i32, b: i32) -> i32;
+        fn SumArray(&self, values: [i32]) -> i32;
+        fn Values(&self) -> [i32];
+        fn GetValues(&self, values: &mut [i32]);
+        fn EchoString(&self, value: String) -> String;
+        fn Echo(&self, value: INonDefault) -> INonDefault;
+        fn LiveCount(&self) -> i32;
+        fn Fail(&self);
+        fn FailWithMessage(&self);
+        fn Signal(&self, value: i32);
+        fn Items(&self, count: u32) -> Windows::Foundation::Collections::IVector<i32>;
+        fn StringItems(&self, count: u32) -> Windows::Foundation::Collections::IVector<String>;
+        fn Map(&self, count: u32) -> Windows::Foundation::Collections::IMap<i32, i32>;
+        fn StringMap(&self, count: u32) -> Windows::Foundation::Collections::IMap<String, i32>;
+        fn StringValues(&self, count: u32) -> Windows::Foundation::Collections::IMap<i32, String>;
+        fn ItemsView(&self, count: u32) -> Windows::Foundation::Collections::IVectorView<i32>;
+        fn MapView(&self, count: u32) -> Windows::Foundation::Collections::IMapView<i32, i32>;
+        event Changed: ChangedHandler;
+    }
+
+    interface INonDefault {
+        fn Value(&self) -> i32;
+    }
+}

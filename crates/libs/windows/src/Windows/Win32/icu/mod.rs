@@ -157,16 +157,6 @@ pub unsafe fn u_forDigit(digit: i32, radix: i8) -> UChar32 {
     unsafe { u_forDigit(digit, radix) }
 }
 #[inline]
-pub unsafe fn u_formatMessage(locale: *const i8, pattern: *const UChar, patternlength: i32, result: *mut UChar, resultlength: i32, status: *mut UErrorCode) -> i32 {
-    windows_core::link!("icuin.dll" "C" fn u_formatMessage(locale : *const i8, pattern : *const UChar, patternlength : i32, result : *mut UChar, resultlength : i32, status : *mut UErrorCode) -> i32);
-    unsafe { u_formatMessage(locale, pattern, patternlength, result as _, resultlength, status as _) }
-}
-#[inline]
-pub unsafe fn u_formatMessageWithError(locale: *const i8, pattern: *const UChar, patternlength: i32, result: *mut UChar, resultlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32 {
-    windows_core::link!("icuin.dll" "C" fn u_formatMessageWithError(locale : *const i8, pattern : *const UChar, patternlength : i32, result : *mut UChar, resultlength : i32, parseerror : *mut UParseError, status : *mut UErrorCode) -> i32);
-    unsafe { u_formatMessageWithError(locale, pattern, patternlength, result as _, resultlength, parseerror as _, status as _) }
-}
-#[inline]
 pub unsafe fn u_getBidiPairedBracket(c: UChar32) -> UChar32 {
     windows_core::link!("icuuc.dll" "C" fn u_getBidiPairedBracket(c : UChar32) -> UChar32);
     unsafe { u_getBidiPairedBracket(c) }
@@ -457,20 +447,6 @@ pub unsafe fn u_memrchr32(s: *const UChar, c: UChar32, count: i32) -> *mut UChar
 pub unsafe fn u_memset(dest: *mut UChar, c: UChar, count: i32) -> *mut UChar {
     windows_core::link!("icuuc.dll" "C" fn u_memset(dest : *mut UChar, c : UChar, count : i32) -> *mut UChar);
     unsafe { u_memset(dest as _, c, count) }
-}
-#[inline]
-pub unsafe fn u_parseMessage(locale: *const i8, pattern: *const UChar, patternlength: i32, source: *const UChar, sourcelength: i32) -> UErrorCode {
-    windows_core::link!("icuin.dll" "C" fn u_parseMessage(locale : *const i8, pattern : *const UChar, patternlength : i32, source : *const UChar, sourcelength : i32, status : *mut UErrorCode));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        u_parseMessage(locale, pattern, patternlength, source, sourcelength, &mut result__);
-        result__
-    }
-}
-#[inline]
-pub unsafe fn u_parseMessageWithError(locale: *const i8, pattern: *const UChar, patternlength: i32, source: *const UChar, sourcelength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
-    windows_core::link!("icuin.dll" "C" fn u_parseMessageWithError(locale : *const i8, pattern : *const UChar, patternlength : i32, source : *const UChar, sourcelength : i32, parseerror : *mut UParseError, status : *mut UErrorCode));
-    unsafe { u_parseMessageWithError(locale, pattern, patternlength, source, sourcelength, parseerror as _, status as _) }
 }
 #[inline]
 pub unsafe fn u_setMemoryFunctions(context: *const core::ffi::c_void, a: UMemAllocFn, r: UMemReallocFn, f: UMemFreeFn) -> UErrorCode {
@@ -3438,11 +3414,6 @@ pub unsafe fn umsg_close() -> UMessageFormat {
     }
 }
 #[inline]
-pub unsafe fn umsg_format(fmt: *const UMessageFormat, result: *mut UChar, resultlength: i32, status: *mut UErrorCode) -> i32 {
-    windows_core::link!("icuin.dll" "C" fn umsg_format(fmt : *const UMessageFormat, result : *mut UChar, resultlength : i32, status : *mut UErrorCode) -> i32);
-    unsafe { umsg_format(fmt, result as _, resultlength, status as _) }
-}
-#[inline]
 pub unsafe fn umsg_getLocale(fmt: *const UMessageFormat) -> *const i8 {
     windows_core::link!("icuin.dll" "C" fn umsg_getLocale(fmt : *const UMessageFormat) -> *const i8);
     unsafe { umsg_getLocale(fmt) }
@@ -3451,11 +3422,6 @@ pub unsafe fn umsg_getLocale(fmt: *const UMessageFormat) -> *const i8 {
 pub unsafe fn umsg_open(pattern: *const UChar, patternlength: i32, locale: *const i8, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut UMessageFormat {
     windows_core::link!("icuin.dll" "C" fn umsg_open(pattern : *const UChar, patternlength : i32, locale : *const i8, parseerror : *mut UParseError, status : *mut UErrorCode) -> *mut UMessageFormat);
     unsafe { umsg_open(pattern, patternlength, locale, parseerror as _, status as _) }
-}
-#[inline]
-pub unsafe fn umsg_parse(fmt: *const UMessageFormat, source: *const UChar, sourcelength: i32, count: *mut i32, status: *mut UErrorCode) {
-    windows_core::link!("icuin.dll" "C" fn umsg_parse(fmt : *const UMessageFormat, source : *const UChar, sourcelength : i32, count : *mut i32, status : *mut UErrorCode));
-    unsafe { umsg_parse(fmt, source, sourcelength, count as _, status as _) }
 }
 #[inline]
 pub unsafe fn umsg_setLocale(fmt: *mut UMessageFormat, locale: *const i8) {
@@ -5471,11 +5437,6 @@ pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTime
 pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
     windows_core::link!("icuin.dll" "C" fn utmscale_toInt64(universaltime : i64, timescale : UDateTimeScale, status : *mut UErrorCode) -> i64);
     unsafe { utmscale_toInt64(universaltime, timescale, status as _) }
-}
-#[inline]
-pub unsafe fn utrace_format(outbuf: *mut i8, capacity: i32, indent: i32, fmt: *const i8) -> i32 {
-    windows_core::link!("icuuc.dll" "C" fn utrace_format(outbuf : *mut i8, capacity : i32, indent : i32, fmt : *const i8) -> i32);
-    unsafe { utrace_format(outbuf as _, capacity, indent, fmt) }
 }
 #[inline]
 pub unsafe fn utrace_functionName(fnnumber: i32) -> *const i8 {

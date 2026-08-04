@@ -1,0 +1,32 @@
+fn main() {
+    println!("cargo:rerun-if-changed=../../../tools/reactor/winmd");
+
+    windows_csharp::builder()
+        .input("../../../tools/reactor/winmd")
+        .input("../../../libs/bindgen/default")
+        .input(r"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd")
+        .member("Microsoft.UI.Xaml.Window", "Content")
+        .member("Microsoft.UI.Xaml.Window", "Activate")
+        .member("Microsoft.UI.Xaml.Window", "Close")
+        .member("Microsoft.UI.Xaml.Window", "Title")
+        .member("Microsoft.UI.Xaml.Controls.StackPanel", "Children")
+        .member("Microsoft.UI.Xaml.Controls.Button", "Content")
+        .member("Microsoft.UI.Xaml.Controls.ContentControl", "Content")
+        .member("Microsoft.UI.Xaml.Controls.Canvas", "SetLeft")
+        .member("Microsoft.UI.Xaml.Controls.Canvas", "SetTop")
+        .member("Microsoft.UI.Xaml.Controls.ScrollViewer", "Content")
+        .member("Microsoft.UI.Xaml.FrameworkElement", "Height")
+        .member("Microsoft.UI.Xaml.FrameworkElement", "Width")
+        .member("Microsoft.UI.Xaml.Media.SolidColorBrush", "Color")
+        .member("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase", "Click")
+        .member("Microsoft.UI.Xaml.Controls.Control", "IsEnabled")
+        .member("Microsoft.UI.Xaml.Controls.Panel", "Children")
+        .member("Microsoft.UI.Xaml.Controls.TextBlock", "Text")
+        .member("Microsoft.UI.Xaml.Controls.TextBlock", "FontSize")
+        .member("Microsoft.UI.Xaml.Controls.TextBlock", "Foreground")
+        .member("Microsoft.UI.Xaml.Controls.TextBlock", "Height")
+        .member("Microsoft.UI.Xaml.Controls.TextBlock", "Width")
+        .output("WinUI.cs")
+        .write()
+        .unwrap();
+}

@@ -58,7 +58,9 @@ samples for a published release, use its tag - for example
 | Sample | Description |
 | --- | --- |
 | `robot` / `robot_client` / `robot_client_cpp` / `robot_client_cs` / `robot_cpp` | A component whose metadata is authored once (RDL) and consumed from Rust, C++, and C#. |
-| `lang_perf_component` / `lang_perf_rust` / `lang_perf_cpp` / `lang_perf_cs` | Benchmark of WinRT language-projection overhead - C++/WinRT vs C#/WinRT vs Rust calling one Rust-authored no-op component. See its [readme](lang_perf/readme.md). |
+| `test_bench_*` | WinRT language-projection benchmark comparing C++/WinRT, windows-rs, windows-csharp, and CsWinRT against one Rust-authored component. See its [readme](test_bench/readme.md). |
+| `test_winui_bench_*` | Direct WinUI projection benchmark comparing retained-tree creation, updates, allocation, and working set. See its [readme](test_winui_bench/readme.md). |
+| `csharp_minesweeper` / `csharp_tictactoe` | Direct windows-csharp applications covering Win32 + Composition and WinUI 3. |
 | `csharp_component` / `csharp_client` | Author a component in Rust and host it from C#. |
 
 ## Whole-API projection

@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("")]
-        extern fn EditName(#[r#in] #[out] buffer: PWSTR);
+        extern fn EditName(#[in] #[out] buffer: PWSTR);
         #[library("")]
         extern fn GetName(#[out] buffer: PWSTR);
         #[library("")]

@@ -16,6 +16,6 @@ extern "C" {
     // Return type is a pointer-to-const.
     const WCHAR* GetName(void);
 
-    // Pointer-to-pointer-to-const (the inner const is preserved).
+    // Pointer-to-pointer-to-const uses the inner qualifier for the uniform metadata pointer run.
     const WCHAR** GetNames(unsigned int* count);
 }
