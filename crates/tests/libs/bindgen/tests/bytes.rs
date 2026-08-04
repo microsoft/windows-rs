@@ -20,7 +20,7 @@ mod Test {
 
     let bytes = std::fs::read(winmd).unwrap();
     windows_bindgen::builder()
-        .input_bytes(&bytes)
+        .input_byte_sets([bytes])
         .output(&output)
         .filter("Test")
         .flat()

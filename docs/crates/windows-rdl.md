@@ -67,8 +67,9 @@ windows_rdl::reader()
 ```
 
 The reader treats the default metadata as references while compiling the input RDL. Add other
-reference metadata with `.reference(path)` or `.reference_bytes(bytes)`. The writer treats default
-metadata as input to render.
+reference metadata with `.reference(path)`, `.references(paths)`, `.reference_bytes(bytes)`, or
+`.reference_byte_sets(byte_sets)`. The writer has the corresponding `.input`, `.inputs`,
+`.input_bytes`, and `.input_byte_sets` methods and treats default metadata as input to render.
 
 ### C/C++ headers to RDL
 

@@ -51,6 +51,18 @@ impl Writer {
         self
     }
 
+    /// Adds `.winmd` files from memory.
+    pub fn input_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = B>,
+        B: AsRef<[u8]>,
+    {
+        for input in inputs {
+            self.input_bytes(input.as_ref());
+        }
+        self
+    }
+
     /// Adds the default Windows metadata inputs.
     pub fn input_default(&mut self) -> &mut Self {
         self.input_default = true;

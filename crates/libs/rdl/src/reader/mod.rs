@@ -104,6 +104,18 @@ impl Reader {
         self
     }
 
+    /// Adds `.winmd` references from memory.
+    pub fn reference_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = B>,
+        B: AsRef<[u8]>,
+    {
+        for input in inputs {
+            self.reference_bytes(input.as_ref());
+        }
+        self
+    }
+
     /// Adds the default Windows metadata references.
     pub fn input_default(&mut self) -> &mut Self {
         self.input_default = true;

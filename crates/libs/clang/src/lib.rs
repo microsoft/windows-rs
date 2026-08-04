@@ -550,7 +550,7 @@ impl Clang {
         self
     }
 
-    /// Adds input headers or `.winmd` files.
+    /// Adds input headers.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -592,6 +592,18 @@ impl Clang {
         self
     }
 
+    /// Adds reference winmds from memory.
+    pub fn reference_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = B>,
+        B: AsRef<[u8]>,
+    {
+        for input in inputs {
+            self.reference_bytes(input.as_ref());
+        }
+        self
+    }
+
     /// Adds the default Windows metadata as references.
     pub fn input_default(&mut self) -> &mut Self {
         self.input_default = true;
@@ -628,9 +640,33 @@ impl Clang {
         self
     }
 
+    /// Adds winmds used only to classify `ABI::Windows::*` projection declarations.
+    pub fn resolution_inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.resolution_input(input);
+        }
+        self
+    }
+
     /// Adds a resolution-only winmd from memory.
     pub fn resolution_bytes(&mut self, input: &[u8]) -> &mut Self {
         self.resolution_bytes.push(input.into());
+        self
+    }
+
+    /// Adds resolution-only winmds from memory.
+    pub fn resolution_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = B>,
+        B: AsRef<[u8]>,
+    {
+        for input in inputs {
+            self.resolution_bytes(input.as_ref());
+        }
         self
     }
 

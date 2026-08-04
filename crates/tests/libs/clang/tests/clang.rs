@@ -108,9 +108,7 @@ fn run(name: &str) {
 
     clang.resolution_default();
 
-    for bytes in &reference_winmds {
-        clang.reference_bytes(bytes);
-    }
+    clang.reference_byte_sets(&reference_winmds);
 
     if !library.is_empty() {
         clang.library(&library);

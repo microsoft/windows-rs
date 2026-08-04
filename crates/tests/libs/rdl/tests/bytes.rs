@@ -60,7 +60,8 @@ mod Test {
 }
 "#,
         )
-        .reference_bytes(&bytes)
+        .reference_byte_sets([bytes])
+        
         .output(temp_path("reference_bytes", "winmd"))
         .write()
         .unwrap();
@@ -127,7 +128,7 @@ mod Test {
 
     let bytes = std::fs::read(&winmd).unwrap();
     windows_rdl::writer()
-        .input_bytes(&bytes)
+        .input_byte_sets([bytes])
         .output(&rdl)
         .write()
         .unwrap();
