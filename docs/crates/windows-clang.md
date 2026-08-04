@@ -143,8 +143,8 @@ Everything generic to *any* header scrape lives in `windows-clang`:
   `drop_lib_less`), header partitioning (`write_by_header`), and the per-kind cursor->RDL modules.
 - **Multi-arch orchestration** - the `Clang::scrape` terminal, `Arch` (clang triple +
   `SupportedArchitecture` bits + per-target defines), `ScrapePlan` (the orchestration-only state:
-  output paths, arches, reference winmds, seed - *not* a mirror of the builder), and `Summary`. This
-  is pure driver: nothing in it is win32- or wdk-specific.
+  `PathBuf` outputs, arches, reference winmds, seed - *not* a mirror of the builder), and `Summary`.
+  This is pure driver: nothing in it is win32- or wdk-specific.
 
 Only what is *genuinely per-scraper* stays in each tool: the NuGet package IDs and pinned versions,
 the SDK/WDK include+lib directory layout, the translation-unit source assembly (the `windows.h`

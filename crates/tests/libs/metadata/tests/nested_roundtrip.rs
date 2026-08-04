@@ -84,11 +84,7 @@ fn nested_types_survive_rdl_merge_and_writer() {
 
     // 2. merge() preserves the nested structure.
     let merged = dir.join("merged.winmd");
-    merge()
-        .input(&winmd_path)
-        .output(merged.to_string_lossy().as_ref())
-        .merge()
-        .unwrap();
+    merge().input(&winmd_path).output(&merged).merge().unwrap();
     let merged_index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
     assert_nested(&merged_index);
 

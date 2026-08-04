@@ -65,6 +65,9 @@ qualify: the explicit native-sized spelling is required as semantic evidence.
 The merge is deterministic: it stages through `BTreeMap`s and insertion-ordered `Vec`s, with no
 `HashMap` reaching the output.
 
+The merger and namespace remapper accept strings, `Path`, or `PathBuf` for input and output paths
+and retain them as `PathBuf`.
+
 ### Method parameter association
 
 ECMA-335 `Param` rows are not positional. `Param.Sequence == 0` describes the return value, and a

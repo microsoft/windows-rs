@@ -881,13 +881,13 @@ fn scrape_um() -> Summary {
 
     let summary = clang.scrape(&ScrapePlan {
         root: ROOT.to_string(),
-        rdl_dir: RDL_DIR.to_string(),
-        out_dir: OUT_DIR.to_string(),
-        winmd: UM_WINMD.to_string(),
+        rdl_dir: RDL_DIR.into(),
+        out_dir: OUT_DIR.into(),
+        winmd: UM_WINMD.into(),
         archs,
         reference_winmds: Vec::new(),
-        resolution_winmds: RESOLUTION_WINMDS.iter().map(|s| s.to_string()).collect(),
-        seed: Some(METADATA_SEED.to_string()),
+        resolution_winmds: RESOLUTION_WINMDS.iter().map(Into::into).collect(),
+        seed: Some(METADATA_SEED.into()),
         parallel: true,
     });
 

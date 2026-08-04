@@ -118,17 +118,19 @@ pub fn writer() -> Writer {
 
 /// One architecture's RDL directory, compiled winmd, and architecture bitmask.
 pub struct ArchInput {
-    pub rdl_dir: String,
-    pub winmd: String,
+    pub rdl_dir: PathBuf,
+    pub winmd: PathBuf,
     pub bits: i32,
 }
 
 /// Arch-merges per-architecture scrapes and restores the per-header RDL partition.
 pub fn merge_arch_rdl(
     inputs: &[ArchInput],
-    seed: Option<&str>,
-    output_dir: &str,
+    seed: Option<&Path>,
+    output_dir: impl AsRef<Path>,
 ) -> Result<(), Error> {
+    let output_dir = output_dir.as_ref();
+
     if inputs.is_empty() {
         return Err(writer_err!(
             "merge_arch_rdl requires at least one arch input"
@@ -138,14 +140,13 @@ pub fn merge_arch_rdl(
     // `Writer` clears `*.rdl`; capture the seed first so it can be restored verbatim.
     let seed = seed
         .map(|seed| {
-            let name = Path::new(seed)
+            let name = seed
                 .file_name()
-                .and_then(|n| n.to_str())
-                .ok_or_else(|| writer_err!("invalid seed path `{seed}`"))?
-                .to_string();
+                .ok_or_else(|| writer_err!("invalid seed path `{}`", seed.display()))?
+                .to_os_string();
             let text = std::fs::read(seed)
-                .map_err(|e| writer_err!("failed to read seed `{seed}`: {e}"))?;
-            Ok::<_, Error>((name, seed.to_string(), text))
+                .map_err(|e| writer_err!("failed to read seed `{}`: {e}", seed.display()))?;
+            Ok::<_, Error>((name, seed.to_path_buf(), text))
         })
         .transpose()?;
 
@@ -161,7 +162,6 @@ pub fn merge_arch_rdl(
         .map_err(|e| writer_err!("failed to create temp dir `{}`: {e}", temp.display()))?;
     let _scratch = ScratchDir(temp.clone());
     let merged = temp.join("Windows.Win32.merged.winmd");
-    let merged = merged.to_string_lossy().to_string();
     let mut merger = metadata::merge();
     for input in inputs {
         merger.arch_input(&input.winmd, input.bits);
@@ -175,21 +175,19 @@ pub fn merge_arch_rdl(
     let mut map = HashMap::<String, String>::new();
     for input in inputs {
         for entry in std::fs::read_dir(&input.rdl_dir)
-            .map_err(|e| writer_err!("failed to read `{}`: {e}", input.rdl_dir))?
+            .map_err(|e| writer_err!("failed to read `{}`: {e}", input.rdl_dir.display()))?
             .flatten()
         {
             let path = entry.path();
             if path.extension().is_none_or(|x| x != "rdl")
-                || path.file_name().and_then(|n| n.to_str())
-                    == seed.as_ref().map(|(name, _, _)| name.as_str())
+                || path.file_name() == seed.as_ref().map(|(name, _, _)| name.as_os_str())
             {
                 continue;
             }
             let Some(stem) = path.file_stem().and_then(|s| s.to_str()) else {
                 continue;
             };
-            let rdl_path = path.to_string_lossy().to_string();
-            for name in reader::item_names(&rdl_path, "Windows.Win32")? {
+            for name in reader::item_names(&path, "Windows.Win32")? {
                 map.entry(name).or_insert_with(|| stem.to_string());
             }
         }
@@ -203,7 +201,7 @@ pub fn merge_arch_rdl(
 
     // Restore the hand-authored seed if this metadata set has one.
     if let Some((_, seed_path, seed_text)) = seed {
-        write_to_file(&seed_path, seed_text)?;
+        write_to_file(seed_path, seed_text)?;
     }
 
     Ok(())

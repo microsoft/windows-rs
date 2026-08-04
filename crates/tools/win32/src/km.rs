@@ -122,11 +122,11 @@ pub fn scrape() -> Summary {
 
     let summary = clang.scrape(&ScrapePlan {
         root: crate::ROOT.to_string(),
-        rdl_dir: RDL_DIR.to_string(),
-        out_dir: OUT_DIR.to_string(),
-        winmd: crate::KM_WINMD.to_string(),
+        rdl_dir: RDL_DIR.into(),
+        out_dir: OUT_DIR.into(),
+        winmd: crate::KM_WINMD.into(),
         archs,
-        reference_winmds: vec![REFERENCE_WINMD.to_string()],
+        reference_winmds: vec![REFERENCE_WINMD.into()],
         resolution_winmds: Vec::new(),
         seed: None,
         parallel: true,

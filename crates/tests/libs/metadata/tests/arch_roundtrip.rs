@@ -52,7 +52,7 @@ fn arch_survives_winmd_rdl_roundtrip() {
     merge()
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
 
@@ -164,7 +164,7 @@ fn arch_divergent_nested_type_hoists_arch_to_enclosing() {
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
         .arch_input(&x86, 1)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
     let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
@@ -214,7 +214,7 @@ fn arch_divergent_forced_alignment_splits() {
     merge()
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
     let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
@@ -251,7 +251,7 @@ fn subset_present_divergent_type_splits() {
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
         .arch_input(&x86, 1)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
     let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
@@ -290,7 +290,7 @@ fn arch_divergent_enum_constant_values_split() {
     merge()
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
     let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();
@@ -324,7 +324,7 @@ fn structurally_identical_arch_copies_coalesce() {
         .arch_input(&x64, 2)
         .arch_input(&x86, 1)
         .arch_input(&arm, 4)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
     let index = reader::Index::read(merged.to_string_lossy().as_ref()).unwrap();

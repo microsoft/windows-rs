@@ -265,7 +265,7 @@ differs by architecture is split into per-architecture copies tagged `#[arch(X86
 
 The merge compares type structure through [`windows-metadata`](windows-metadata.md).
 `merge_arch_rdl` handles orchestration. It reads each architecture's RDL, runs the merge, and writes
-the combined output.
+the combined output. `ArchInput` stores its RDL directory and winmd as `PathBuf`.
 
 ### Published crates and namespace remap
 
