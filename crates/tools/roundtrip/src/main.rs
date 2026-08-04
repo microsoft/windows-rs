@@ -75,7 +75,7 @@ fn winrt() {
     writer()
         .input(WINRT_WINMD)
         .filters(["Windows", "!Windows.Win32"])
-        .split(true)
+        .split()
         .output(WINRT_RDL)
         .write()
         .unwrap_or_else(|e| panic!("WinRT roundtrip failed: {e}"));

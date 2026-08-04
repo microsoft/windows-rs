@@ -618,8 +618,8 @@ impl Clang {
     }
 
     /// Drops functions with no resolved import library; leave off without `.lib` inputs.
-    pub fn drop_lib_less(&mut self, drop_lib_less: bool) -> &mut Self {
-        self.drop_lib_less = drop_lib_less;
+    pub fn drop_lib_less(&mut self) -> &mut Self {
+        self.drop_lib_less = true;
         self
     }
 

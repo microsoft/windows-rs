@@ -866,7 +866,7 @@ fn scrape_um() -> Summary {
         .args(CLANG_ARGS)
         .args(["-include", SAL_SHIM])
         .args(include_args)
-        .drop_lib_less(true)
+        .drop_lib_less()
         .scope(SCOPE.iter().copied())
         .scope_headers(scope_headers.iter().copied())
         .exclude_headers(EXCLUDE_HEADERS.iter().copied());

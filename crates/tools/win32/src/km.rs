@@ -110,7 +110,7 @@ pub fn scrape() -> Summary {
         .args(["-include", crate::SAL_SHIM])
         .args(["-include", OFFREG_PRELUDE])
         .args(include_args)
-        .drop_lib_less(true)
+        .drop_lib_less()
         .scope(SCOPE.iter().copied())
         .scope_headers(SOURCE_HEADERS.iter().copied());
     clang.input_str(&source);

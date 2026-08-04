@@ -61,7 +61,7 @@ fn arch_survives_winmd_rdl_roundtrip() {
     windows_rdl::writer()
         .input(merged.to_string_lossy().as_ref())
         .output(rdl_dir.to_string_lossy().as_ref())
-        .split(true)
+        .split()
         .write()
         .unwrap();
 

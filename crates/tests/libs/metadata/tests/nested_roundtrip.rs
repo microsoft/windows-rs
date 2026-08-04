@@ -98,7 +98,7 @@ fn nested_types_survive_rdl_merge_and_writer() {
     windows_rdl::writer()
         .input(&winmd_path)
         .output(rdl_dir.to_string_lossy().as_ref())
-        .split(true)
+        .split()
         .write()
         .unwrap();
     let rdl_text = std::fs::read_to_string(rdl_dir.join("Test.rdl")).unwrap();
@@ -178,7 +178,7 @@ fn nested_type_inherits_parent_arch() {
     windows_rdl::writer()
         .input(&winmd_path)
         .output(rdl_dir.to_string_lossy().as_ref())
-        .split(true)
+        .split()
         .write()
         .unwrap();
     let rdl_text = std::fs::read_to_string(rdl_dir.join("Test.rdl")).unwrap();

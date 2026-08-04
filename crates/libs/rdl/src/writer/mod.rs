@@ -94,9 +94,9 @@ impl Writer {
         self
     }
 
-    /// Writes each namespace to a separate file when `true`.
-    pub fn split(&mut self, split: bool) -> &mut Self {
-        self.split = split;
+    /// Writes each namespace to a separate file.
+    pub fn split(&mut self) -> &mut Self {
+        self.split = true;
         self
     }
 

@@ -289,7 +289,7 @@ changes tracked files.
 
 `tool_roundtrip` validates the reverse direction:
 
-- WinRT uses `writer(Windows.winmd).split(true)` to write `metadata/winrt`.
+- WinRT uses `writer(Windows.winmd).split()` to write `metadata/winrt`.
 - Win32 and WDK cannot recover header files from flat winmd alone. The tool reads the committed RDL
   layout to map type names back to header stems. Then it writes `metadata/win32` or `metadata/wdk`
   with `writer(winmd).partition(map)`.
