@@ -95,7 +95,9 @@ impl Config<'_> {
     #[track_caller]
     pub fn write(&self, tree: TypeTree) {
         if self.bindgen.layout.is_package() {
+            let phase = std::time::Instant::now();
             self.write_package(&tree);
+            report_timing(&self.bindgen.output, "package output", phase.elapsed());
         } else {
             self.write_file(tree);
         }
@@ -103,13 +105,22 @@ impl Config<'_> {
 
     #[track_caller]
     fn write_file(&self, tree: TypeTree) {
+        let phase = std::time::Instant::now();
         let tokens = if self.bindgen.layout.is_flat() {
             self.write_flat(tree)
         } else {
             self.write_modules(&tree)
         };
+        let tokens = tokens.into_string();
+        report_timing(&self.bindgen.output, "render", phase.elapsed());
 
-        write_to_file(&self.bindgen.output, self.format(&tokens.into_string()));
+        let phase = std::time::Instant::now();
+        let formatted = self.format(&tokens);
+        report_timing(&self.bindgen.output, "format", phase.elapsed());
+
+        let phase = std::time::Instant::now();
+        write_to_file(&self.bindgen.output, formatted);
+        report_timing(&self.bindgen.output, "write", phase.elapsed());
     }
 
     fn write_flat(&self, tree: TypeTree) -> TokenStream {

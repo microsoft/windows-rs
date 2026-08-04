@@ -34,58 +34,22 @@ pub enum ParamHint {
     Bool,
 }
 
-#[derive(Copy, Clone)]
-enum RawParamHint {
-    Fixed(i32),
-    RelativeLen(i16),
-    RelativeByteLen(i16),
-}
-
-fn decode_param_hint(param: &Param) -> Option<RawParamHint> {
-    let mut result = None;
-
-    for attribute in param.attributes() {
-        for (name, value) in attribute.value() {
-            let hint = match (attribute.name(), name.as_str(), value) {
-                ("NativeArrayInfoAttribute", "CountParamIndex", Value::I16(value)) => {
-                    RawParamHint::RelativeLen(value)
-                }
-                ("NativeArrayInfoAttribute", "CountConst", Value::I32(value)) => {
-                    RawParamHint::Fixed(value)
-                }
-                ("MemorySizeAttribute", "BytesParamIndex", Value::I16(value)) => {
-                    RawParamHint::RelativeByteLen(value)
-                }
-                ("NativeArrayInfoAttribute", "CountParamIndex" | "CountConst", _)
-                | ("MemorySizeAttribute", "BytesParamIndex", _) => return None,
-                _ => continue,
-            };
-
-            if result.replace(hint).is_some() {
-                return None;
-            }
-        }
-    }
-
-    result
-}
-
 fn param_hint(
     param: &Param,
     position: usize,
     parameter_count: usize,
     reader: &Reader,
 ) -> ParamHint {
-    match decode_param_hint(param) {
-        Some(RawParamHint::RelativeLen(relative)) => usize::try_from(relative)
+    match param.buffer_relationship() {
+        Some(BufferRelationship::ElementsParam(relative)) => usize::try_from(relative)
             .ok()
             .filter(|relative| *relative < parameter_count && *relative != position)
             .map_or(ParamHint::None, ParamHint::ArrayRelativeLen),
-        Some(RawParamHint::RelativeByteLen(relative)) => usize::try_from(relative)
+        Some(BufferRelationship::BytesParam(relative)) => usize::try_from(relative)
             .ok()
             .filter(|relative| *relative < parameter_count && *relative != position)
             .map_or(ParamHint::None, ParamHint::ArrayRelativeByteLen),
-        Some(RawParamHint::Fixed(fixed)) => usize::try_from(fixed)
+        Some(BufferRelationship::ElementsConst(fixed)) => usize::try_from(fixed)
             .ok()
             .filter(|fixed| {
                 param

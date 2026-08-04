@@ -72,6 +72,52 @@ fn index_with_markers(rows: &[(&str, u16, ParamAttributes, &[&str])]) -> reader:
     reader::Index::new(vec![reader::File::new(file.into_stream()).unwrap()])
 }
 
+fn index_with_buffer_relationships(
+    rows: &[(&str, &[(&str, &[(String, Value)])])],
+) -> reader::Index {
+    let mut file = writer::File::new("test");
+
+    file.TypeDef(
+        "Test",
+        "I",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
+    );
+
+    let signature = Signature {
+        return_type: Type::Void,
+        types: vec![Type::I32; rows.len()],
+        ..Default::default()
+    };
+    file.MethodDef(
+        "Method",
+        &signature,
+        MethodAttributes::Public,
+        Default::default(),
+    );
+
+    for (position, (name, attributes)) in rows.iter().enumerate() {
+        let param = file.Param(name, position as u16 + 1, ParamAttributes::In);
+        for (attribute, values) in *attributes {
+            let parent =
+                writer::MemberRefParent::TypeRef(file.TypeRef("Windows.Win32.Metadata", attribute));
+            let signature = Signature {
+                flags: MethodCallAttributes::HASTHIS,
+                return_type: Type::Void,
+                ..Default::default()
+            };
+            let ctor = file.MemberRef(".ctor", &signature, parent);
+            file.Attribute(
+                writer::HasAttribute::Param(param),
+                writer::AttributeType::MemberRef(ctor),
+                values,
+            );
+        }
+    }
+
+    reader::Index::new(vec![reader::File::new(file.into_stream()).unwrap()])
+}
+
 fn method(index: &reader::Index) -> reader::MethodDef<'_> {
     index.expect("Test", "I").methods().next().unwrap()
 }
@@ -136,6 +182,58 @@ fn parameter_facts_remain_independent() {
     assert!(!input_output.is_reserved());
     assert!(input_output.is_retval_attribute());
     assert!(input_output.has_attribute("MemorySizeAttribute"));
+}
+
+#[test]
+fn buffer_relationships_preserve_raw_signed_values() {
+    let elements_param = vec![("CountParamIndex".to_string(), Value::I16(-1))];
+    let bytes_param = vec![("BytesParamIndex".to_string(), Value::I16(2))];
+    let elements_const = vec![("CountConst".to_string(), Value::I32(16))];
+    let index = index_with_buffer_relationships(&[
+        (
+            "elements_param",
+            &[("NativeArrayInfoAttribute", &elements_param)],
+        ),
+        ("bytes_param", &[("MemorySizeAttribute", &bytes_param)]),
+        (
+            "elements_const",
+            &[("NativeArrayInfoAttribute", &elements_const)],
+        ),
+    ]);
+    let params = method(&index).params_by_sequence(3).unwrap();
+
+    assert_eq!(
+        params.params()[0].unwrap().buffer_relationship(),
+        Some(reader::BufferRelationship::ElementsParam(-1))
+    );
+    assert_eq!(
+        params.params()[1].unwrap().buffer_relationship(),
+        Some(reader::BufferRelationship::BytesParam(2))
+    );
+    assert_eq!(
+        params.params()[2].unwrap().buffer_relationship(),
+        Some(reader::BufferRelationship::ElementsConst(16))
+    );
+}
+
+#[test]
+fn malformed_buffer_relationships_are_ignored() {
+    let invalid = vec![("CountParamIndex".to_string(), Value::I32(1))];
+    let conflicting = vec![
+        ("CountParamIndex".to_string(), Value::I16(1)),
+        ("CountConst".to_string(), Value::I32(4)),
+    ];
+    let ignored = vec![("Unrelated".to_string(), Value::I16(3))];
+    let index = index_with_buffer_relationships(&[
+        ("invalid", &[("NativeArrayInfoAttribute", &invalid)]),
+        ("conflicting", &[("NativeArrayInfoAttribute", &conflicting)]),
+        ("ignored", &[("NativeArrayInfoAttribute", &ignored)]),
+    ]);
+    let params = method(&index).params_by_sequence(3).unwrap();
+
+    assert_eq!(params.params()[0].unwrap().buffer_relationship(), None);
+    assert_eq!(params.params()[1].unwrap().buffer_relationship(), None);
+    assert_eq!(params.params()[2].unwrap().buffer_relationship(), None);
 }
 
 #[test]

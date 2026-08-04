@@ -52,6 +52,15 @@ mod type_closure;
 use method_names::*;
 use type_closure::*;
 
+fn report_timing(output: &str, phase: &str, elapsed: std::time::Duration) {
+    if std::env::var_os("WINDOWS_BINDGEN_TIMINGS").is_some() {
+        eprintln!(
+            "windows-bindgen timing `{output}` {phase}: {:.3} ms",
+            elapsed.as_secs_f64() * 1_000.0
+        );
+    }
+}
+
 /// Creates a new [`Bindgen`] builder for generating Windows API bindings.
 pub fn builder() -> Bindgen {
     Bindgen::new()
@@ -348,6 +357,8 @@ impl Bindgen {
     /// Generate the bindings.
     #[track_caller]
     pub fn write(&self) {
+        let total = std::time::Instant::now();
+
         // Validate before setting up reader and reference state.
         assert!(
             !self.output.is_empty(),
@@ -377,8 +388,17 @@ impl Bindgen {
             self.input.iter().map(|s| s.as_str()).collect()
         };
 
-        let reader = Reader::new(expand_input(&input));
+        let phase = std::time::Instant::now();
+        let reader_storage;
+        let reader = if input == default_input {
+            default_reader()
+        } else {
+            reader_storage = Reader::new(expand_input(&input));
+            &reader_storage
+        };
+        report_timing(&self.output, "metadata", phase.elapsed());
 
+        let phase = std::time::Instant::now();
         let mut references: Vec<ReferenceStage> = Vec::new();
 
         if !sys {
@@ -470,8 +490,10 @@ impl Bindgen {
             Implements::new(&names_str)
         });
 
-        let references = References::new(&reader, references);
+        let references = References::new(reader, references);
+        report_timing(&self.output, "references", phase.elapsed());
 
+        let phase = std::time::Instant::now();
         let (filter, types) = {
             let mut all_parsed = Vec::new();
             for entry in &include {
@@ -484,31 +506,33 @@ impl Bindgen {
                 }
                 all_parsed.extend(entries);
             }
-            let resolved = filter_parser::resolve_entries(&reader, &all_parsed);
+            let resolved = filter_parser::resolve_entries(reader, &all_parsed);
 
-            let mut filter = Filter::from_resolved(&reader, &resolved);
+            let mut filter = Filter::from_resolved(reader, &resolved);
 
             // Precise filters use bottom-up closure; broad filters and packages scan top-down.
             let types = if !filter.has_broad_filter && !self.layout.is_package() {
                 filter.uses_closure = true;
-                TypeClosure::build(&reader, &mut filter, &references)
+                TypeClosure::build(reader, &mut filter, &references)
             } else {
-                TypeMap::filter(&reader, &filter, &references, self.style.is_sys())
+                TypeMap::filter(reader, &filter, &references, self.style.is_sys())
             };
 
             (filter, types)
         };
+        report_timing(&self.output, "selection", phase.elapsed());
 
-        let derive = Derive::new(&reader, &types, &derive_str);
+        let phase = std::time::Instant::now();
+        let derive = Derive::new(reader, &types, &derive_str);
         if let Some(implements) = &implements {
             filter.validate_implements(implements);
         }
 
-        let event_only_delegates = compute_event_only_delegates(&types, &reader);
+        let event_only_delegates = compute_event_only_delegates(&types, reader);
 
         let config = Config {
             bindgen: self,
-            reader: &reader,
+            reader,
             types: &types,
             references: &references,
             filter: &filter,
@@ -523,8 +547,15 @@ impl Bindgen {
         };
 
         let tree = TypeTree::new(&types);
+        report_timing(&self.output, "planning", phase.elapsed());
         config.write(tree);
+        report_timing(&self.output, "total", total.elapsed());
     }
+}
+
+fn default_reader() -> &'static Reader {
+    static READER: std::sync::OnceLock<Reader> = std::sync::OnceLock::new();
+    READER.get_or_init(|| Reader::new(expand_input(&["default"])))
 }
 
 #[track_caller]
@@ -696,5 +727,10 @@ mod tests {
             "Windows.Win32.Graphics.Direct3D",
             "Windows.Win32.Graphics.Direct3D11"
         ));
+    }
+
+    #[test]
+    fn default_metadata_reader_is_reused() {
+        assert!(std::ptr::eq(default_reader(), default_reader()));
     }
 }

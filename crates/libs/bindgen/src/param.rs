@@ -68,6 +68,10 @@ impl Param {
         self.def.is_some_and(|def| def.is_retval_attribute())
     }
 
+    pub fn buffer_relationship(&self) -> Option<BufferRelationship> {
+        self.def?.buffer_relationship()
+    }
+
     pub fn is_explicit_retval_candidate(&self, reader: &Reader) -> bool {
         self.is_retval_candidate(reader, true)
     }

@@ -2010,22 +2010,15 @@ fn read_params(
 }
 
 fn param_buffer_length(def: Option<&MethodParam<'_>>) -> Option<BufferLength> {
-    let def = def?;
-    for attribute in def.attributes() {
-        let kind = match attribute.name() {
-            "NativeArrayInfoAttribute" => BufferLength::Elements,
-            "MemorySizeAttribute" => BufferLength::Bytes,
-            _ => continue,
-        };
-        for (_, value) in attribute.value() {
-            if let Value::I16(value) = value
-                && value >= 0
-            {
-                return Some(kind(value as usize));
-            }
+    match def?.buffer_relationship()? {
+        BufferRelationship::ElementsParam(value) if value >= 0 => {
+            Some(BufferLength::Elements(value as usize))
         }
+        BufferRelationship::BytesParam(value) if value >= 0 => {
+            Some(BufferLength::Bytes(value as usize))
+        }
+        _ => None,
     }
-    None
 }
 
 fn normalize_buffer_lengths(params: &mut [Param]) {
