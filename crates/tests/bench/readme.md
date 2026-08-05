@@ -24,10 +24,10 @@ provides the QueryInterface fixture, and `LiveCount` reports native ownership ba
 
 ```powershell
 # Full run (10,000,000 iterations, median of three runs by default)
-crates/samples/test_bench/run.ps1
+crates/tests/bench/run.ps1
 
 # Quick run
-crates/samples/test_bench/run.ps1 -Iterations 100000 -Runs 1
+crates/tests/bench/run.ps1 -Iterations 100000 -Runs 1
 ```
 
 `run.ps1` builds the component first so its metadata writer does not race a consumer build, builds
@@ -36,6 +36,36 @@ memory, and leak values. The lower native result and the CsWinRT result are bold
 
 Each consumer also has a `cargo test` that runs the same path with a small iteration count, so CI
 exercises the matrix wherever the .NET SDK and MSVC toolchain are present.
+
+## Results
+
+Measured on August 5, 2026 with .NET SDK 10.0.302 and CsWinRT 2.3.1. Times are milliseconds for
+10,000,000 operations (median of three runs); `Error` uses 1,000,000 operations. Lower is better.
+
+| Metric | C++/WinRT | windows-rs | CsWinRT 2 |
+| --- | ---: | ---: | ---: |
+| Create | 624 | 567 | 11,075 |
+| Int32 | 25 | 24 | 45 |
+| String | 298 | 291 | 1,588 |
+| Add | 14 | 17 | 25 |
+| Cast | 153 | 146 | 26 |
+| CastOwned | 151 | 145 | 149 |
+| Interface | 14 | 17 | 64 |
+| Object | 141 | 138 | 1,205 |
+| Event | 219 | 218 | 929 |
+| AddRemove | 353 | 781 | 24,526 |
+| Vector | 119 | 121 | 254 |
+| IterateVector | 1,287 | 129 | 4,516 |
+| GetMany | 2 | 2 | 183 |
+| Map | 722 | 579 | 17,012 |
+| Lookup | 219 | 183 | 297 |
+| VectorView | 19 | 24 | 139 |
+| MapView | 152 | 167 | 246 |
+| Reference | 2,323 | 766 | 24,049 |
+| Async | 579 | 490 | 54,547 |
+| Error | 21,263 | 7 | 2,858 |
+| Memory (bytes/object) | 8 | 8 | 296 |
+| Leak (live objects) | 0 | 0 | 0 |
 
 ## Metrics
 

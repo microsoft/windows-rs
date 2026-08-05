@@ -627,29 +627,28 @@ the naive numbers are included only as the upper bound C# pays without that hint
 
 Sweep of `--percent` 0/10/50/100, headless, 10 s per point, same machine, Release/optimized both
 sides (Rust `--headless --percent N --duration 10 --json`; C#
-`StressPerf.ReactorOptimized --headless --percent N --duration 10 --json`):
+`StressPerf.ReactorOptimized --headless --percent N --duration 10 --json`). These results were
+measured on August 5, 2026 with .NET SDK 10.0.302 and C# Reactor 0.1.0-preview.13 (`c9191b97`).
+Rust used Windows App SDK 2.3.1; the C# repository used its validated Runtime 2.1.3 and WinUI 2.1.0
+pins. See the [`test_reactor_perf` readme](../../crates/tests/libs/reactor_perf/readme.md) for the
+commands and environment caveat.
 
 | percent | Avg Reconcile (ms) Rust / C# | Avg Diff (ms) Rust / C# | renders/s Rust / C# | Avg FPS Rust / C# | Alloc/render Rust / C# | GC gen0/1/2 Rust / C# |
 | --- | --- | --- | --- | --- | --- | --- |
-| 0 | 2.42 / 11.91 | 0.99 / 11.16 | 23.6 / 14.4 | 57.9 / 56.8 | 3.60M / 0.86M | 0/0/0 / 16/15/13 |
-| 10 | 3.50 / 19.62 | 2.49 / 17.55 | 23.9 / 12.3 | 50.8 / 26.1 | 3.97M / 2.13M | 0/0/0 / 30/28/18 |
-| 50 | 7.92 / 35.60 | 7.02 / 29.78 | 8.8 / 4.2 | 11.9 / 9.6 | 5.16M / 5.06M | 0/0/0 / 19/19/8 |
-| 100 | 10.82 / 51.07 | 10.01 / 41.87 | 6.0 / 3.1 | 7.9 / 7.7 | 6.12M / 7.84M | 0/0/0 / 21/20/7 |
-
-Naive `StressPerf.Reactor` (full rebuild every tick, for reference): p=10 reconcile 44.1 ms (tree
-20.1 + diff 24.0), 20.4 FPS; p=100 reconcile 68.8 ms (tree 21.6 + diff 47.3), 6.8 FPS.
+| 0 | 2.29 / 11.84 | 1.00 / 11.05 | 24.40 / 14.17 | 57.63 / 55.49 | 3.75M / 0.84M | 0/0/0 / 14/13/12 |
+| 10 | 3.53 / 19.69 | 2.50 / 17.61 | 23.29 / 13.22 | 51.74 / 28.34 | 4.13M / 2.16M | 0/0/0 / 34/30/20 |
+| 50 | 7.87 / 39.08 | 7.01 / 32.91 | 8.59 / 4.12 | 13.42 / 9.60 | 5.32M / 5.23M | 0/0/0 / 18/18/7 |
+| 100 | 10.90 / 52.08 | 10.04 / 42.52 | 6.01 / 3.23 | 8.17 / 7.56 | 6.28M / 7.94M | 0/0/0 / 22/21/7 |
 
 What the numbers say:
 
-- **Reconcile is 4.5-5.6x faster in Rust** across the sweep (2.42 vs 11.91 ms at p=0, up to 10.82 vs
-  51.07 ms at p=100), against the *optimized* C# variant. Against naive C# the gap is ~12x at p=10.
-  Throughput is roughly 2x higher and stays above 20 renders/s at low churn where C# has already
-  dropped to 12-14.
+- **Reconcile is 4.8-5.6x faster in Rust** across the sweep (2.29 vs 11.84 ms at p=0, up to 10.90 vs
+  52.08 ms at p=100), against the optimized C# variant. Throughput is 1.7-2.1x higher.
 - **Zero GC versus frequent gen2 collections.** Rust runs the entire sweep with no garbage
-  collector; C# takes 16-30 gen0 and 7-18 gen2 collections per 10 s window. Gen2 collections are the
+  collector; C# takes 14-34 gen0 and 7-20 gen2 collections per 10 s window. Gen2 collections are the
   usual source of frame hitches, and they appear even in the optimized variant.
-- **Allocation is a wash, and at low churn Rust allocates more** (3.60M vs 0.86M bytes/render at
-  p=0), crossing over near p=50 and coming out ahead at p=100 (6.12M vs 7.84M). This is a harness
+- **Allocation is a wash, and at low churn Rust allocates more** (3.75M vs 0.84M bytes/render at
+  p=0), crossing over near p=50 and coming out ahead at p=100 (6.28M vs 7.94M). This is a harness
   choice, not an inherent cost: the Rust scenario clones the full 4900-element cells vec every render
   (`s.cells.borrow()[..vis].to_vec()`), so its allocation is dominated by a constant ~3.5M baseline
   regardless of churn, whereas C#'s `UseMemoCellsByIndex` reuses unchanged Element records. Matching

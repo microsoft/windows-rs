@@ -10,7 +10,7 @@
 #
 # The cswinrt 3 preview column is disabled: the package omits the `WinRT.Interop` assembly that its
 # delegate marshaller loads, so the first event subscription throws. The project is a focused,
-# ignored regression probe until a complete preview ships. See crates/samples/test_bench/readme.md.
+# ignored regression probe until a complete preview ships. See crates/tests/bench/readme.md.
 #
 # Every build runs through Invoke-Build, which stops the script on a non-zero exit instead of
 # swallowing the error and running a stale binary. Stale executables are deleted before building,
