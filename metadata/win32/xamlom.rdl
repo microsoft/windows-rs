@@ -1,0 +1,169 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum BaseValueSource {
+            BaseValueSourceUnknown = 0,
+            BaseValueSourceDefault = 1,
+            BaseValueSourceBuiltInStyle = 2,
+            BaseValueSourceStyle = 3,
+            BaseValueSourceLocal = 4,
+            Inherited = 5,
+            DefaultStyleTrigger = 6,
+            TemplateTrigger = 7,
+            StyleTrigger = 8,
+            ImplicitStyleReference = 9,
+            ParentTemplate = 10,
+            ParentTemplateTrigger = 11,
+            Animation = 12,
+            Coercion = 13,
+            BaseValueSourceVisualState = 14,
+        }
+        struct BitmapDescription {
+            Width: u32,
+            Height: u32,
+            Format: DXGI_FORMAT,
+            AlphaMode: DXGI_ALPHA_MODE,
+        }
+        struct CollectionElementValue {
+            Index: u32,
+            ValueType: BSTR,
+            Value: BSTR,
+            MetadataBits: i64,
+        }
+        const E_UNKNOWNTYPE: i32 = -2144665560;
+        struct EnumType {
+            Name: BSTR,
+            ValueInts: *mut SAFEARRAY,
+            ValueStrings: *mut SAFEARRAY,
+        }
+        #[guid(0xd1a34ef2_cad8_4635_a3d2_fcda8d3f3caf)]
+        interface IBitmapData: IUnknown {
+            fn CopyBytesTo(&self, sourceOffsetInBytes: u32, maxBytesToCopy: u32, pvBytes: *mut byte, numberOfBytesCopied: *mut u32) -> HRESULT;
+            fn GetStride(&self, pStride: *mut u32) -> HRESULT;
+            fn GetBitmapDescription(&self, pBitmapDescription: *mut BitmapDescription) -> HRESULT;
+            fn GetSourceBitmapDescription(&self, pBitmapDescription: *mut BitmapDescription) -> HRESULT;
+        }
+        #[guid(0xa593b11a_d17f_48bb_8f66_83910731c8a5)]
+        interface IVisualTreeService: IUnknown {
+            fn AdviseVisualTreeChange(&self, pCallback: IVisualTreeServiceCallback) -> HRESULT;
+            fn UnadviseVisualTreeChange(&self, pCallback: IVisualTreeServiceCallback) -> HRESULT;
+            fn GetEnums(&self, pCount: *mut u32, ppEnums: *mut *mut EnumType) -> HRESULT;
+            fn CreateInstance(&self, typeName: BSTR, value: BSTR, #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
+            fn GetPropertyValuesChain(&self, instanceHandle: InstanceHandle, pSourceCount: *mut u32, ppPropertySources: *mut *mut PropertyChainSource, pPropertyCount: *mut u32, ppPropertyValues: *mut *mut PropertyChainValue) -> HRESULT;
+            fn SetProperty(&self, instanceHandle: InstanceHandle, value: InstanceHandle, propertyIndex: u32) -> HRESULT;
+            fn ClearProperty(&self, instanceHandle: InstanceHandle, propertyIndex: u32) -> HRESULT;
+            fn GetCollectionCount(&self, instanceHandle: InstanceHandle, pCollectionSize: *mut u32) -> HRESULT;
+            fn GetCollectionElements(&self, instanceHandle: InstanceHandle, startIndex: u32, #[in] #[out] pElementCount: *mut u32, ppElementValues: *mut *mut CollectionElementValue) -> HRESULT;
+            fn AddChild(&self, parent: InstanceHandle, child: InstanceHandle, index: u32) -> HRESULT;
+            fn RemoveChild(&self, parent: InstanceHandle, index: u32) -> HRESULT;
+            fn ClearChildren(&self, parent: InstanceHandle) -> HRESULT;
+        }
+        #[guid(0x130f5136_ec43_4f61_89c7_9801a36d2e95)]
+        interface IVisualTreeService2: IVisualTreeService {
+            fn GetPropertyIndex(&self, object: InstanceHandle, propertyName: PCWSTR, pPropertyIndex: *mut u32) -> HRESULT;
+            fn GetProperty(&self, object: InstanceHandle, propertyIndex: u32, pValue: *mut InstanceHandle) -> HRESULT;
+            fn ReplaceResource(&self, resourceDictionary: InstanceHandle, key: InstanceHandle, newValue: InstanceHandle) -> HRESULT;
+            fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxPixelWidth: u32, maxPixelHeight: u32, ppBitmapData: *mut IBitmapData) -> HRESULT;
+        }
+        #[guid(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd)]
+        interface IVisualTreeService3: IVisualTreeService2 {
+            fn ResolveResource(&self, resourceContext: InstanceHandle, resourceName: PCWSTR, resourceType: ResourceType, propertyIndex: u32) -> HRESULT;
+            fn GetDictionaryItem(&self, dictionaryHandle: InstanceHandle, resourceName: PCWSTR, resourceIsImplicitStyle: BOOL, resourceHandle: *mut InstanceHandle) -> HRESULT;
+            fn AddDictionaryItem(&self, dictionaryHandle: InstanceHandle, resourceKey: InstanceHandle, resourceHandle: InstanceHandle) -> HRESULT;
+            fn RemoveDictionaryItem(&self, dictionaryHandle: InstanceHandle, resourceKey: InstanceHandle) -> HRESULT;
+        }
+        #[guid(0xaa7a8931_80e4_4fec_8f3b_553f87b4966e)]
+        interface IVisualTreeServiceCallback: IUnknown {
+            fn OnVisualTreeChange(&self, relation: ParentChildRelation, element: VisualElement, mutationType: VisualMutationType) -> HRESULT;
+        }
+        #[guid(0xbad9eb88_ae77_4397_b948_5fa2db0a19ea)]
+        interface IVisualTreeServiceCallback2: IVisualTreeServiceCallback {
+            fn OnElementStateChanged(&self, element: InstanceHandle, elementState: VisualElementState, context: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2)]
+        interface IXamlDiagnostics: IUnknown {
+            fn GetDispatcher(&self, #[retval] ppDispatcher: *mut IInspectable) -> HRESULT;
+            fn GetUiLayer(&self, #[retval] ppLayer: *mut IInspectable) -> HRESULT;
+            fn GetApplication(&self, #[retval] ppApplication: *mut IInspectable) -> HRESULT;
+            fn GetIInspectableFromHandle(&self, instanceHandle: InstanceHandle, #[retval] ppInstance: *mut IInspectable) -> HRESULT;
+            fn GetHandleFromIInspectable(&self, pInstance: IInspectable, #[retval] pHandle: *mut InstanceHandle) -> HRESULT;
+            fn HitTest(&self, rect: RECT, pCount: *mut u32, ppInstanceHandles: *mut *mut InstanceHandle) -> HRESULT;
+            fn RegisterInstance(&self, pInstance: IInspectable, #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
+            fn GetInitializationData(&self, #[retval] pInitializationData: *mut BSTR) -> HRESULT;
+        }
+        #[library("Windows.UI.Xaml.dll")]
+        extern "C" fn InitializeXamlDiagnosticsEx(endPointName: PCWSTR, pid: u32, wszDllXamlDiagnostics: PCWSTR, wszTAPDllName: PCWSTR, tapClsid: GUID, wszInitializationData: PCWSTR) -> HRESULT;
+        type InstanceHandle = u64;
+        #[repr(i32)]
+        enum MetadataBit {
+            None = 0,
+            IsValueHandle = 1,
+            IsPropertyReadOnly = 2,
+            IsValueCollection = 4,
+            IsValueCollectionReadOnly = 8,
+            IsValueBindingExpression = 16,
+            IsValueNull = 32,
+            IsValueHandleAndEvaluatedValue = 64,
+        }
+        struct ParentChildRelation {
+            Parent: InstanceHandle,
+            Child: InstanceHandle,
+            ChildIndex: u32,
+        }
+        struct PropertyChainSource {
+            Handle: InstanceHandle,
+            TargetType: BSTR,
+            Name: BSTR,
+            Source: BaseValueSource,
+            SrcInfo: SourceInfo,
+        }
+        struct PropertyChainValue {
+            Index: u32,
+            Type: BSTR,
+            DeclaringType: BSTR,
+            ValueType: BSTR,
+            ItemType: BSTR,
+            Value: BSTR,
+            Overridden: BOOL,
+            MetadataBits: i64,
+            PropertyName: BSTR,
+            PropertyChainIndex: u32,
+        }
+        #[repr(i32)]
+        enum RenderTargetBitmapOptions {
+            RenderTarget = 0,
+            RenderTargetAndChildren = 1,
+        }
+        #[repr(i32)]
+        enum ResourceType {
+            ResourceTypeStatic = 0,
+            ResourceTypeTheme = 1,
+        }
+        struct SourceInfo {
+            FileName: BSTR,
+            LineNumber: u32,
+            ColumnNumber: u32,
+            CharPosition: u32,
+            Hash: BSTR,
+        }
+        struct VisualElement {
+            Handle: InstanceHandle,
+            SrcInfo: SourceInfo,
+            Type: BSTR,
+            Name: BSTR,
+            NumChildren: u32,
+        }
+        #[repr(i32)]
+        enum VisualElementState {
+            ErrorResolved = 0,
+            ErrorResourceNotFound = 1,
+            ErrorInvalidResource = 2,
+        }
+        #[repr(i32)]
+        enum VisualMutationType {
+            Add = 0,
+            Remove = 1,
+        }
+    }
+}

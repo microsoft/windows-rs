@@ -705,6 +705,11 @@ impl Clang {
         self
     }
 
+    /// Returns the DLL currently mapped to a function symbol.
+    pub fn resolved_library(&self, symbol: &str) -> Option<&str> {
+        self.libraries.get(symbol).map(String::as_str)
+    }
+
     /// Reads a COFF import library and adds its symbol -> DLL mappings.
     pub fn import_library(&mut self, path: impl AsRef<Path>) -> Result<&mut Self, Error> {
         extend_libraries(&mut self.libraries, path.as_ref())?;

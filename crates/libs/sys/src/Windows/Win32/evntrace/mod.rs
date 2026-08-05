@@ -22,20 +22,20 @@ windows_link::link!("advapi32.dll" "system" fn GetTraceLoggerHandle(buffer : *co
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 windows_link::link!("advapi32.dll" "system" fn OpenTraceA(logfile : *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE);
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-windows_link::link!("advapi32.dll" "system" fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const core::ffi::c_void) -> PROCESSTRACE_HANDLE);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const core::ffi::c_void) -> PROCESSTRACE_HANDLE);
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-windows_link::link!("advapi32.dll" "system" fn OpenTraceFromFile(logfilename : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn OpenTraceFromFile(logfilename : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-windows_link::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 windows_link::link!("advapi32.dll" "system" fn OpenTraceW(logfile : *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE);
 #[cfg(feature = "minwindef")]
 windows_link::link!("advapi32.dll" "system" fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : u32, starttime : *const super::FILETIME, endtime : *const super::FILETIME) -> u32);
-windows_link::link!("advapi32.dll" "system" fn ProcessTraceAddBufferToBufferStream(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER, buffersize : u32) -> u32);
-windows_link::link!("advapi32.dll" "system" fn ProcessTraceBufferDecrementReference(buffer : *const ETW_BUFFER_HEADER) -> u32);
-windows_link::link!("advapi32.dll" "system" fn ProcessTraceBufferIncrementReference(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER) -> u32);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn ProcessTraceAddBufferToBufferStream(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER, buffersize : u32) -> u32);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn ProcessTraceBufferDecrementReference(buffer : *const ETW_BUFFER_HEADER) -> u32);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn ProcessTraceBufferIncrementReference(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER) -> u32);
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn QueryAllTracesA(propertyarray : *mut PEVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> u32);
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
@@ -59,7 +59,7 @@ windows_link::link!("advapi32.dll" "system" fn StartTraceW(traceid : *mut CONTRO
 windows_link::link!("advapi32.dll" "system" fn StopTraceA(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
 windows_link::link!("advapi32.dll" "system" fn StopTraceW(traceid : CONTROLTRACE_ID, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> u32);
-windows_link::link!("advapi32.dll" "C" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : u32) -> u32);
+windows_link::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "C" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn TraceEvent(tracehandle : TRACELOGGER_HANDLE, eventtrace : *const EVENT_TRACE_HEADER) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("advapi32.dll" "system" fn TraceEventInstance(tracehandle : TRACELOGGER_HANDLE, eventtrace : *const EVENT_INSTANCE_HEADER, instinfo : *const EVENT_INSTANCE_INFO, parentinstinfo : *const EVENT_INSTANCE_INFO) -> u32);

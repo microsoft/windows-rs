@@ -591,13 +591,13 @@ mod Windows {
         }
         #[library("ADVAPI32.dll")]
         extern fn OpenTraceA(#[in] #[out] Logfile: *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE;
-        #[library("ADVAPI32.dll")]
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromBufferStream(Options: *const ETW_OPEN_TRACE_OPTIONS, BufferCompletionCallback: PETW_BUFFER_COMPLETION_CALLBACK, #[opt] BufferCompletionContext: *const void) -> PROCESSTRACE_HANDLE;
-        #[library("ADVAPI32.dll")]
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromFile(LogFileName: PCWSTR, Options: *const ETW_OPEN_TRACE_OPTIONS, #[opt] LogFileHeader: *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE;
-        #[library("ADVAPI32.dll")]
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromRealTimeLogger(LoggerName: PCWSTR, Options: *const ETW_OPEN_TRACE_OPTIONS, #[opt] LogFileHeader: *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE;
-        #[library("ADVAPI32.dll")]
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn OpenTraceFromRealTimeLoggerWithAllocationOptions(LoggerName: PCWSTR, Options: *const ETW_OPEN_TRACE_OPTIONS, AllocationSize: usize, #[opt] MemoryPartitionHandle: HANDLE, #[opt] LogFileHeader: *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE;
         #[library("ADVAPI32.dll")]
         extern fn OpenTraceW(#[in] #[out] Logfile: *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE;
@@ -652,11 +652,11 @@ mod Windows {
         const PrivateLoggerNotificationGuid: GUID = 0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1;
         #[library("ADVAPI32.dll")]
         extern fn ProcessTrace(#[len_param(1)] HandleArray: *const PROCESSTRACE_HANDLE, HandleCount: u32, #[opt] StartTime: *const FILETIME, #[opt] EndTime: *const FILETIME) -> u32;
-        #[library("ADVAPI32.dll")]
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn ProcessTraceAddBufferToBufferStream(TraceHandle: PROCESSTRACE_HANDLE, #[size_param(2)] Buffer: *const ETW_BUFFER_HEADER, BufferSize: u32) -> u32;
-        #[library("ADVAPI32.dll")]
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn ProcessTraceBufferDecrementReference(Buffer: *const ETW_BUFFER_HEADER) -> u32;
-        #[library("ADVAPI32.dll")]
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern fn ProcessTraceBufferIncrementReference(TraceHandle: PROCESSTRACE_HANDLE, Buffer: *const ETW_BUFFER_HEADER) -> u32;
         #[library("ADVAPI32.dll")]
         extern fn QueryAllTracesA(#[len_param(1)] PropertyArray: *mut PEVENT_TRACE_PROPERTIES, PropertyArrayCount: u32, LoggerCount: *mut u32) -> u32;
@@ -1051,7 +1051,7 @@ mod Windows {
             EtwTraceProcessingVersion: u32,
             Reserved: u32,
         }
-        #[library("ADVAPI32.dll")]
+        #[library("api-ms-win-eventing-consumer-l1-1-2.dll")]
         extern "C" fn TraceConfigureLastBranchRecord(TraceId: CONTROLTRACE_ID, LbrConfiguration: TRACE_LBR_CONFIGURATION, #[len_param(3)] Events: *const CLASSIC_EVENT_ID, EventCount: u32) -> u32;
         #[library("ADVAPI32.dll")]
         extern fn TraceEvent(TraceHandle: TRACELOGGER_HANDLE, EventTrace: *const EVENT_TRACE_HEADER) -> u32;

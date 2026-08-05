@@ -428,6 +428,12 @@ at load; ordering it after the apiset umbrella lets them resolve to their loadab
 `api-ms-win-core-synch`/`-enclave` contract, leaving `vertdll.lib` to stamp only genuinely
 enclave-only residue (`EnclaveSealData`, and more).
 
+`LIBRARY_OVERRIDES` corrects confirmed SDK import-library defects after that first-wins pass. Each
+entry records both the SDK value and its replacement. Generation fails if an SDK update changes the
+original value, making a fixed or changed upstream mapping prompt removal or revalidation of the
+override. The table also supplies a DLL for an exported header declaration that has no SDK import
+library, such as `InitializeXamlDiagnosticsEx`.
+
 #### WinRT interop headers and the `ABI::Windows::*` split
 
 A handful of SDK headers declare Win32 COM entry points whose signatures reach into the

@@ -96,7 +96,7 @@ pub unsafe fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HAN
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 #[inline]
 pub unsafe fn OpenTraceFromBufferStream(options: *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback: PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext: Option<*const core::ffi::c_void>) -> PROCESSTRACE_HANDLE {
-    windows_core::link!("advapi32.dll" "system" fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const core::ffi::c_void) -> PROCESSTRACE_HANDLE);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const core::ffi::c_void) -> PROCESSTRACE_HANDLE);
     unsafe { OpenTraceFromBufferStream(options, buffercompletioncallback, buffercompletioncontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
@@ -105,7 +105,7 @@ pub unsafe fn OpenTraceFromFile<P0>(logfilename: P0, options: *const ETW_OPEN_TR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn OpenTraceFromFile(logfilename : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn OpenTraceFromFile(logfilename : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
     unsafe { OpenTraceFromFile(logfilename.param().abi(), options, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
@@ -114,7 +114,7 @@ pub unsafe fn OpenTraceFromRealTimeLogger<P0>(loggername: P0, options: *const ET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
     unsafe { OpenTraceFromRealTimeLogger(loggername.param().abi(), options, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
@@ -123,7 +123,7 @@ pub unsafe fn OpenTraceFromRealTimeLoggerWithAllocationOptions<P0>(loggername: P
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
     unsafe { OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.param().abi(), options, allocationsize, memorypartitionhandle.unwrap_or(core::mem::zeroed()) as _, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
@@ -140,17 +140,17 @@ pub unsafe fn ProcessTrace(handlearray: &[PROCESSTRACE_HANDLE], starttime: Optio
 }
 #[inline]
 pub unsafe fn ProcessTraceAddBufferToBufferStream(tracehandle: PROCESSTRACE_HANDLE, buffer: *const ETW_BUFFER_HEADER, buffersize: u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn ProcessTraceAddBufferToBufferStream(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER, buffersize : u32) -> u32);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn ProcessTraceAddBufferToBufferStream(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER, buffersize : u32) -> u32);
     unsafe { ProcessTraceAddBufferToBufferStream(tracehandle, buffer, buffersize) }
 }
 #[inline]
 pub unsafe fn ProcessTraceBufferDecrementReference(buffer: *const ETW_BUFFER_HEADER) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn ProcessTraceBufferDecrementReference(buffer : *const ETW_BUFFER_HEADER) -> u32);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn ProcessTraceBufferDecrementReference(buffer : *const ETW_BUFFER_HEADER) -> u32);
     unsafe { ProcessTraceBufferDecrementReference(buffer) }
 }
 #[inline]
 pub unsafe fn ProcessTraceBufferIncrementReference(tracehandle: PROCESSTRACE_HANDLE, buffer: *const ETW_BUFFER_HEADER) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn ProcessTraceBufferIncrementReference(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER) -> u32);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "system" fn ProcessTraceBufferIncrementReference(tracehandle : PROCESSTRACE_HANDLE, buffer : *const ETW_BUFFER_HEADER) -> u32);
     unsafe { ProcessTraceBufferIncrementReference(tracehandle, buffer) }
 }
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
@@ -256,7 +256,7 @@ where
 }
 #[inline]
 pub unsafe fn TraceConfigureLastBranchRecord(traceid: CONTROLTRACE_ID, lbrconfiguration: TRACE_LBR_CONFIGURATION, events: &[CLASSIC_EVENT_ID]) -> u32 {
-    windows_core::link!("advapi32.dll" "C" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : u32) -> u32);
+    windows_core::link!("api-ms-win-eventing-consumer-l1-1-2.dll" "C" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : u32) -> u32);
     unsafe { TraceConfigureLastBranchRecord(traceid, lbrconfiguration, events.as_ptr(), events.len().try_into().unwrap()) }
 }
 #[inline]

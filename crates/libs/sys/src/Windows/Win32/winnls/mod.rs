@@ -143,7 +143,7 @@ windows_link::link!("kernel32.dll" "system" fn LocaleNameToLCID(lpname : windows
 windows_link::link!("kernel32.dll" "system" fn NormalizeString(normform : NORM_FORM, lpsrcstring : windows_sys::core::PCWSTR, cwsrclength : i32, lpdststring : windows_sys::core::PWSTR, cwdstlength : i32) -> i32);
 windows_link::link!("kernel32.dll" "system" fn NotifyUILanguageChange(dwflags : u32, pcwstrnewlanguage : windows_sys::core::PCWSTR, pcwstrpreviouslanguage : windows_sys::core::PCWSTR, dwreserved : u32, pdwstatusrtrn : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ResolveLocaleName(lpnametoresolve : windows_sys::core::PCWSTR, lplocalename : windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
-windows_link::link!("kernel32.dll" "system" fn RestoreThreadPreferredUILanguages(snapshot : HSAVEDUILANGUAGES));
+windows_link::link!("kernelbase.dll" "system" fn RestoreThreadPreferredUILanguages(snapshot : HSAVEDUILANGUAGES));
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SetCalendarInfoA(locale : super::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
@@ -156,7 +156,7 @@ windows_link::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dw
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SetThreadLocale(locale : super::LCID) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : *const u16, pulnumlanguages : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : *const u16, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> windows_sys::core::BOOL);
+windows_link::link!("kernelbase.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : *const u16, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SetThreadUILanguage(langid : super::LANGID) -> super::LANGID);
 windows_link::link!("kernel32.dll" "system" fn SetUserGeoID(geoid : GEOID) -> windows_sys::core::BOOL);
