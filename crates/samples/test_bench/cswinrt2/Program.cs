@@ -1,8 +1,7 @@
 // Standard C#/WinRT (CsWinRT) consumer of the Bench.Widget component, generated from the same
 // bench.winmd the other consumers use. This is the idiomatic projection: a projected `Widget`
 // class backed by an RCW. It measures what the conventional projection model costs relative to
-// the windows-csharp direct-vtable client, Rust, and C++/WinRT -- throughput and,
-// especially, the per-object memory of the RCW.
+// Rust and C++/WinRT, including the per-object memory of the RCW.
 
 using System;
 using System.Diagnostics;
@@ -253,10 +252,10 @@ GC.KeepAlive(errors);
 Report("Error", sw);
 
 // Leak check: activate and use N objects, then confirm the component's live instance count
-// returns to the baseline. Unlike Rust, C++/WinRT, and windows-csharp -- which Release
-// deterministically at scope exit -- CsWinRT's RCWs hold their native reference until the GC
-// finalizes them, so the count only returns to baseline after a forced collection. This is not a
-// leak, but it does mean native objects outlive their last managed use by an unbounded interval.
+// returns to the baseline. Unlike Rust and C++/WinRT, which release deterministically at scope
+// exit, CsWinRT's RCWs hold their native reference until the GC finalizes them, so the count only
+// returns to baseline after a forced collection. This is not a leak, but it does mean native
+// objects outlive their last managed use by an unbounded interval.
 // The baseline is read after a forced collection so earlier dead-but-unfinalized RCWs (from the
 // Create/String/Cast loops above) do not inflate it.
 GC.Collect();
@@ -273,7 +272,7 @@ Console.WriteLine($"Leak: {widget.LiveCount() - baseline}");
 
 // Scalability: retain N live objects and report the managed heap cost per object. Each
 // projected Widget is an RCW-backed managed object, so this is where the projection model's
-// per-object overhead shows up against the single pointer Rust and windows-csharp hold.
+// per-object overhead shows up against the single pointer held by Rust and C++/WinRT.
 int live = (int)Math.Min(iterations, 1_000_000);
 long before = GC.GetTotalAllocatedBytes(precise: true);
 var widgets = new Widget[live];

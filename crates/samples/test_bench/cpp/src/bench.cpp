@@ -285,7 +285,7 @@ extern "C" int32_t __stdcall test_bench_cpp(uint64_t iterations) noexcept
         printf("Leak: %d\n", object.LiveCount() - baseline);
 
         // Scalability: hold N live objects and report the client-side bytes per object. A
-        // winrt::Bench::Widget is one interface pointer, matching Rust and windows-csharp.
+        // winrt::Bench::Widget is one interface pointer, matching windows-rs.
         uint32_t live = iterations > 1000000 ? 1000000u : static_cast<uint32_t>(iterations);
         std::vector<Widget> widgets;
         widgets.reserve(live);

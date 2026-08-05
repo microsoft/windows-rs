@@ -53,7 +53,6 @@ Callers therefore do not need a separate dependency or a path into the Windows S
 | [`bindgen`](windows-bindgen.md) | Implicit if no input; explicit with `.input_default()`. |
 | [`rdl`](windows-rdl.md) | `.reference_default()` adds both files as references. |
 | [`clang`](windows-clang.md) | `.reference_default()` plus WinRT-only `.resolution_default()`. |
-| [`csharp`](windows-csharp.md) | `.input_default()` adds both files. |
 
 The `windows-bindgen` textual adapter accepts `--in default`. The bindgen, RDL, and Clang builders
 use explicit default methods instead; their path-style input methods treat `"default"` as an
@@ -96,7 +95,7 @@ separate `include` list. `cargo package -p windows-default` must contain both `.
 
 The metadata is exercised through its consumers:
 
-- `test_bindgen`, `test_rdl`, `test_clang`, and `test_csharp` cover default and byte inputs.
+- `test_bindgen`, `test_rdl`, and `test_clang` cover default and byte inputs.
 - `tool_winrt`, `tool_win32`, and `tool_roundtrip` verify deterministic metadata generation.
 - The `tool_yml` generated workflows build and document `windows-default` like the other library
   crates.

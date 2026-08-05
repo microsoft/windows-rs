@@ -23,17 +23,9 @@ $root = (Resolve-Path "$PSScriptRoot\..\..\..").Path
 
 Push-Location $root
 try {
-    cargo build --release -p test_winui_bench_host -p test_winui_bench_rust `
-        -p test_winui_bench_csharp --quiet
+    cargo build --release -p test_winui_bench_host -p test_winui_bench_rust --quiet
     if ($LASTEXITCODE -ne 0) {
         throw "Rust build failed."
-    }
-
-    dotnet build `
-        crates\samples\test_winui_bench\csharp\test_winui_bench_csharp.csproj `
-        -c Release -p:Platform=x64 --nologo --verbosity:quiet
-    if ($LASTEXITCODE -ne 0) {
-        throw "windows-csharp build failed."
     }
 
     dotnet build `
@@ -46,22 +38,15 @@ try {
     $target = Join-Path $root "target\release"
     $outputs = @{
         "windows-rs" = $target
-        "windows-csharp" = Join-Path $root `
-            "crates\samples\test_winui_bench\csharp\bin\x64\Release\net10.0-windows10.0.19041.0"
         "cswinrt" = Join-Path $root `
             "crates\samples\test_winui_bench\cswinrt\bin\x64\Release\net10.0-windows10.0.19041.0"
     }
 
-    foreach ($consumer in @("windows-csharp", "cswinrt")) {
-        Copy-Item "$target\test_winui_bench_host.dll" $outputs[$consumer] -Force
-        Copy-Item "$target\resources.pri" $outputs[$consumer] -Force
-    }
-    Copy-Item "$target\Microsoft.WindowsAppRuntime.Bootstrap.dll" `
-        $outputs["windows-csharp"] -Force
+    Copy-Item "$target\test_winui_bench_host.dll" $outputs["cswinrt"] -Force
+    Copy-Item "$target\resources.pri" $outputs["cswinrt"] -Force
 
     $executables = @{
         "windows-rs" = "$target\test_winui_bench_rust.exe"
-        "windows-csharp" = Join-Path $outputs["windows-csharp"] "test_winui_bench_csharp.exe"
         "cswinrt" = Join-Path $outputs["cswinrt"] "test_winui_bench_cswinrt.exe"
     }
 
@@ -104,7 +89,7 @@ try {
         return $line.Substring("WINUI_BENCH_JSON ".Length) | ConvertFrom-Json
     }
 
-    $consumers = @("windows-rs", "windows-csharp", "cswinrt")
+    $consumers = @("windows-rs", "cswinrt")
     foreach ($run in 1..$Runs) {
         $offset = ($run - 1) % $consumers.Count
         foreach ($index in 0..($consumers.Count - 1)) {
@@ -162,7 +147,7 @@ try {
         return ([double]$sorted[$middle - 1] + [double]$sorted[$middle]) / 2
     }
 
-    $medians = foreach ($consumer in @("windows-rs", "windows-csharp", "cswinrt")) {
+    $medians = foreach ($consumer in @("windows-rs", "cswinrt")) {
         $rows = @($results | Where-Object consumer -eq $consumer)
         [pscustomobject]@{
             Consumer = $consumer

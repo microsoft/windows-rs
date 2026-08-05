@@ -1,15 +1,12 @@
 #!/usr/bin/env pwsh
-# Builds a thin WinRT slice (Release) and runs four consumers against the same Rust WinRT
+# Builds a thin WinRT slice (Release) and runs three consumers against the same Rust WinRT
 # component, printing a side-by-side table. The component (test_bench_component ->
 # bench_component.dll) is a real WinRT component: RDL -> winmd -> windows-bindgen ->
 # #[implement], activated registration-free via DllGetActivationFactory. The consumers:
 #   - windows-rs    : the generated windows-rs projection
-#   - windows-csharp: the generated raw IDisposable C# projection (delegate* unmanaged vtable
-#                     calls, one small managed owner, callback-confined borrowed hot paths) --
-#                     dogfooded from the same winmd via the windows-csharp generator at build time
 #   - cppwinrt      : the header-only cppwinrt projection
 #   - cswinrt 2     : the conventional C#/WinRT projection, latest released stable (2.x)
-# All four activate the identical component, so per-call deltas are pure projection cost.
+# All three activate the identical component, so per-call deltas are pure projection cost.
 #
 # The cswinrt 3 preview column is disabled: the package omits the `WinRT.Interop` assembly that its
 # delegate marshaller loads, so the first event subscription throws. The project is a focused,
@@ -32,7 +29,6 @@ $ErrorActionPreference = 'Stop'
 $here = $PSScriptRoot
 $root = (Resolve-Path "$here/../../..").Path
 $releaseDir = Join-Path $root 'target/release'
-$csharp = Join-Path $here 'csharp'
 $cswinrt2 = Join-Path $here 'cswinrt2'
 
 # Runs a build step and stops the whole script if it fails, printing the captured output. A bare
@@ -51,13 +47,11 @@ function Invoke-Build([string]$label, [scriptblock]$step) {
 # Each consumer's binary directory and executable. Defined before the builds so stale executables
 # can be deleted up front: if a later build fails, the missing-executable check in the run loop
 # turns it into a hard error rather than a silent run of the previous build's binary.
-$csBin = Join-Path $csharp 'bin/x64/Release/net10.0'
 $cw2Bin = Join-Path $cswinrt2 'bin/x64/Release/net10.0-windows10.0.19041.0'
 
 $consumers = @(
     @{ Name = 'cppwinrt'; Exe = (Join-Path $releaseDir 'test_bench_cpp.exe') },
     @{ Name = 'windows-rs'; Exe = (Join-Path $releaseDir 'test_bench_rust.exe') },
-    @{ Name = 'windows-csharp'; Exe = (Join-Path $csBin 'test_bench_cs.exe') },
     @{ Name = 'cswinrt 2'; Exe = (Join-Path $cw2Bin 'test_bench_cswinrt2.exe') }
 )
 
@@ -72,19 +66,12 @@ Invoke-Build 'Building Rust component (release)...' {
 Invoke-Build 'Building Rust and C++ consumers (release)...' {
     cargo build --release --manifest-path "$root/Cargo.toml" -p test_bench_rust -p test_bench_cpp
 }
-# Build the windows-csharp consumer crate so its build script regenerates Bench.cs before the
-# csproj compiles it.
-Invoke-Build 'Building windows-csharp consumer crate (regenerates Bench.cs)...' {
-    cargo build --release --manifest-path "$root/Cargo.toml" -p test_bench_cs
-}
-Invoke-Build 'Building windows-csharp consumer (dotnet)...' { dotnet build $csharp -c Release }
 Invoke-Build 'Building cswinrt 2 consumer (dotnet)...' { dotnet build $cswinrt2 -c Release }
 
 # WinRT registration-free activation probes for a module named after the type's namespace
 # (Bench.dll), loaded from the executable's directory. Stage the component cdylib under that
 # name beside each consumer's binary.
 Copy-Item (Join-Path $releaseDir 'bench_component.dll') (Join-Path $releaseDir 'Bench.dll') -Force
-Copy-Item (Join-Path $releaseDir 'bench_component.dll') (Join-Path $csBin 'Bench.dll') -Force
 Copy-Item (Join-Path $releaseDir 'bench_component.dll') (Join-Path $cw2Bin 'Bench.dll') -Force
 
 # Metric names in report order, defined here so the run loop can verify every consumer emitted
@@ -169,7 +156,7 @@ function Median($values) {
 
 function PairwiseWinners($values) {
     $cells = @($values | ForEach-Object { Integer $_ })
-    foreach ($group in @(@(0, 1), @(2, 3))) {
+    foreach ($group in @(@(0, 1), @(2))) {
         $winner = ($group | ForEach-Object { $values[$_] } | Measure-Object -Minimum).Minimum
         foreach ($index in $group) {
             if ($values[$index] -eq $winner) {
@@ -199,8 +186,9 @@ foreach ($metric in $Metrics) {
 $memoryValues = @($names | ForEach-Object { [Math]::Round($mem[$_]) })
 Row 'Memory' (PairwiseWinners $memoryValues)
 Write-Host "`nError runs a reduced $([Math]::Min($Iterations, 1000000))-iteration loop: it calls a method that always returns a"
-Write-Host 'failing HRESULT. Rust observes it as a `Result` (a branch, no unwind); the other three throw and'
-Write-Host 'catch an exception, which is orders of magnitude more expensive, so a full-count loop would'
+Write-Host 'failing HRESULT. Rust observes it as a `Result` (a branch, no unwind); C++/WinRT and'
+Write-Host 'CsWinRT throw and catch an exception, which is orders of magnitude more expensive, so a'
+Write-Host 'full-count loop would'
 Write-Host 'dominate the run.'
 
 Write-Host "`n## Leak (live native objects above baseline after the run, 0 is correct)`n"

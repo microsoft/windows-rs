@@ -76,9 +76,9 @@ Each feeds an in-house generator producing a committed `.winmd` in `windows-defa
 is embedded for Rust build tools and remains available as files for external tools. Provenance is
 documented in [`crates/libs/default/readme.md`](../crates/libs/default/readme.md).
 
-`windows-bindgen`, `windows-rdl`, `windows-clang`, and `windows-csharp` depend on `windows-default`
-so their builders can select this metadata without filesystem paths. Binaries linking those crates
-include both metadata files.
+`windows-bindgen`, `windows-rdl`, and `windows-clang` depend on `windows-default` so their builders
+can select this metadata without filesystem paths. Binaries linking those crates include both
+metadata files.
 
 | Package | Owner (pin) | Produces |
 | --- | --- | --- |

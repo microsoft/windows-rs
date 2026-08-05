@@ -409,7 +409,7 @@ In+Out pointer remains `*mut T` and an eligible counted buffer becomes `&mut [T]
 presence of `In` as input-only would incorrectly make writable storage const.
 
 Bindgen also keeps its optional-or-reserved `Option` shaping local. Metadata does not combine those
-facts, and windows-csharp does not use the same public-surface rule.
+facts because they are projection policy rather than metadata structure.
 
 A trailing parameter becomes a projected return only when it is an output-only, required,
 non-reserved, uncounted pointer. An explicit `RetValAttribute` bypasses the heuristic requirements
@@ -463,41 +463,25 @@ paths.
 
 The API audit is complete. Public methods, rustdoc, crate readmes, crate pages, samples, tools, and
 tests use the current names. Remaining `"default"` arguments use bindgen's textual `--in` adapter;
-programmatic builders use explicit default methods. `windows-csharp` remains outside this API pass
-because it is a removal candidate.
+programmatic builders use explicit default methods.
 
 The affected tests and clippy targets pass. `tool_bindings`, `tool_composition`, `tool_reactor`,
 `tool_webview`, `tool_package`, `tool_winrt`, `tool_roundtrip`, and `tool_win32` regenerate without
 unexpected tracked output. This closes the API harmonization phase.
 
-## Investigation: lessons from windows-csharp
+## Metadata and performance audit
 
-The windows-csharp generator starts from the same metadata but builds a different public language
-surface. Comparing the two generators is useful when it exposes duplicated metadata decoding,
-missing ABI tests, or measured costs. C# runtime mechanisms are not assumptions that the Rust
-projection should adopt.
+### Shared literal buffer relationships
 
-This investigation excludes two larger API changes:
-
-- `Bindgen::write` remains the existing panic-based API. A fallible generation API needs a separate
-  design for errors produced across filtering, metadata conversion, formatting, and file output.
-- Broad-filter omission reporting remains deferred. Exact selection already reports unsupported
-  requested shapes, while broad generation intentionally retains the supported subset.
-
-### Changes supported by the comparison
-
-#### Shared literal buffer relationships
-
-Both generators decoded the same three metadata properties. That decoding now lives on
+The decoding of `MemorySize`, `NativeArrayInfo`, and `ConstAttribute` properties lives on
 `windows-metadata::reader::MethodParam` as `BufferRelationship`. The values stay signed and retain
-their literal metadata meaning. The Rust and C# generators separately decide whether an index is
-valid and whether the pointer/count pair can become a slice or span.
+their literal metadata meaning. Bindgen separately decides whether an index is valid and whether
+the pointer/count pair can become a slice or array.
 
-This boundary removes duplicate attribute parsing without forcing the languages to share public API
-policy. It also tightens the C# path: an `I16` value on an unrelated property is no longer accepted
-as a count parameter.
+This boundary keeps metadata parsing in `windows-metadata` without moving Rust projection policy
+out of bindgen. An `I16` value on an unrelated property is not accepted as a count parameter.
 
-#### Unchanged generated files
+### Unchanged generated files
 
 `write_to_file` now compares the completed output with the existing file and skips an identical
 write. Generation and formatting still run, so this does not make the generator itself faster. It
@@ -507,44 +491,9 @@ regenerates committed bindings.
 The comparison happens after generation and formatting. This keeps output validation unchanged and
 does not introduce a separate cache or stale-input problem.
 
-### Changes not supported by the comparison
+### ABI coverage
 
-#### A new signature projection plan
-
-windows-csharp has an explicit `ParamProjection` model because C# spans, strings, raw pointers, and
-generated COM companions need several distinct managed surfaces. Rust already has one shared
-`method_signature` path for WinRT methods, native COM methods, delegates, and functions.
-`CppMethod` then adds native-only buffer, retval, optional, and conversion policy.
-
-Adding another plan object would move the existing boundary without removing duplicate
-construction. A larger rewrite is not justified unless a new ABI shape causes the writers to
-derive the same policy in different places.
-
-#### Copied runtime ownership mechanisms
-
-Rust already has the runtime properties that required new machinery in C#:
-
-- interface owners are one pointer and release deterministically through `Drop`;
-- borrowed interface parameters do not create another owner;
-- vtables and generic interface identifiers are compile-time data;
-- `AsyncFuture` caches `IAsyncInfo` rather than querying it on each poll;
-- collection iteration batches through `GetMany`;
-- `EventRevoker` is an inline owner and does not allocate its own heap object.
-
-C# finalizers, synchronized owners, generated runtime support, and callback-confined borrowing solve
-managed-runtime constraints. Copying them would add state or code to Rust without addressing a Rust
-problem.
-
-Borrowed HSTRING construction also does not transfer directly. A managed `string` is already UTF-16,
-while Rust `str` is UTF-8 and must be transcoded for an HSTRING.
-
-### ABI test transfer
-
-The C# work found several cases that matter to any projection: sequence-correct parameter rows,
-native COM record returns, failed `HRESULT` cleanup, required success-null interface outputs,
-generic default-interface identifiers, malformed counted buffers, and variadic functions.
-
-The shared branch work already added the missing Rust coverage:
+The bindgen tests cover the metadata and ABI cases found during the audit:
 
 - `method_params` covers sparse and out-of-order parameter rows and direction flags.
 - `method_return` and `com_implement` cover native record returns and retval shaping.
@@ -552,9 +501,8 @@ The shared branch work already added the missing Rust coverage:
 - `variadic_fn*` covers rich omission and raw sys declarations.
 - existing interface and runtime tests cover null interface conversion and generic identifiers.
 
-Duplicating C# fake-vtable harnesses in the bindgen tests would test the same generated contracts
-with more maintenance. New runtime tests should be added only when they exercise ownership or
-cleanup that a golden file cannot establish.
+New runtime tests should be added only when they exercise ownership or cleanup that a golden file
+cannot establish.
 
 ### Generation measurements
 
