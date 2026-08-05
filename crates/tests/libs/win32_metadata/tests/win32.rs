@@ -36,7 +36,7 @@ fn slice() {
     windows_rdl::reader()
         .input(&rdl_dir)
         .input(&seed)
-        .input(&winrt)
+        .reference(&winrt)
         .output(&winmd)
         .write()
         .unwrap();

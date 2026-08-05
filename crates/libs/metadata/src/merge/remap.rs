@@ -3,8 +3,8 @@ use super::*;
 /// Rewrites a flat winmd into header-based namespaces for package generation.
 #[derive(Default)]
 pub struct Remapper {
-    input: Vec<String>,
-    output: String,
+    input: Vec<PathBuf>,
+    output: PathBuf,
     routes: HashMap<String, String>,
     sources: Vec<String>,
     fallback: String,
@@ -15,8 +15,19 @@ impl Remapper {
         Self::default()
     }
 
-    pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(input.to_string());
+    pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.input.push(input.as_ref().to_path_buf());
+        self
+    }
+
+    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.input(input);
+        }
         self
     }
 
@@ -26,8 +37,25 @@ impl Remapper {
         self
     }
 
+    /// Registers namespaces whose members are remapped.
+    pub fn sources<I, S>(&mut self, namespaces: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for namespace in namespaces {
+            self.source(namespace.as_ref());
+        }
+        self
+    }
+
     pub fn fallback(&mut self, namespace: &str) -> &mut Self {
         self.fallback = namespace.to_string();
+        self
+    }
+
+    pub fn route(&mut self, name: impl Into<String>, namespace: impl Into<String>) -> &mut Self {
+        self.routes.insert(name.into(), namespace.into());
         self
     }
 
@@ -38,26 +66,28 @@ impl Remapper {
         V: Into<String>,
     {
         for (name, namespace) in routes {
-            self.routes.insert(name.into(), namespace.into());
+            self.route(name, namespace);
         }
         self
     }
 
-    pub fn output(&mut self, output: &str) -> &mut Self {
-        self.output = output.to_string();
+    pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
+        self.output = output.as_ref().to_path_buf();
         self
     }
 
     pub fn remap(&self) -> Result<(), Error> {
-        if self.output.is_empty() {
+        if self.output.as_os_str().is_empty() {
             return Err(Error::new("output is required"));
         }
 
-        let output_path = std::path::Path::new(&self.output);
-        let name = output_path
+        let name = self
+            .output
             .file_stem()
             .and_then(|s| s.to_str())
-            .ok_or_else(|| Error::new(format!("invalid output path `{}`", self.output)))?;
+            .ok_or_else(|| {
+                Error::new(format!("invalid output path `{}`", self.output.display()))
+            })?;
 
         let files = read_inputs(&self.input)?;
         let index = reader::Index::new(files);
@@ -80,7 +110,7 @@ impl Remapper {
 
         let bytes = file.into_stream();
         std::fs::write(&self.output, bytes)
-            .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output)))
+            .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output.display())))
     }
 
     fn is_source_apis(&self, ty: reader::TypeDef) -> bool {

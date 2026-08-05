@@ -19,25 +19,23 @@ fn run(name: &str) {
     std::fs::create_dir_all(out_dir).unwrap();
 
     let winmd_path = out_dir.join(format!("{name}.winmd"));
-    let winmd_str = winmd_path.to_str().unwrap();
 
     windows_rdl::reader()
         .input(&input_path)
-        .output(winmd_str)
+        .output(&winmd_path)
         .write()
         .unwrap_or_else(|e| panic!("{name}: reader failed: {e}"));
 
     let rdl_out_path = out_dir.join(format!("{name}.rdl"));
-    let rdl_out_str = rdl_out_path.to_str().unwrap();
 
     windows_rdl::writer()
-        .input(winmd_str)
-        .output(rdl_out_str)
+        .input(&winmd_path)
+        .output(&rdl_out_path)
         .write()
         .unwrap_or_else(|e| panic!("{name}: writer failed: {e}"));
 
     let actual = std::fs::read_to_string(&rdl_out_path)
-        .unwrap_or_else(|e| panic!("failed to read {rdl_out_str}: {e}"));
+        .unwrap_or_else(|e| panic!("failed to read {}: {e}", rdl_out_path.display()));
 
     if actual != original {
         // Overwrite input with canonical form so the user can review the diff.

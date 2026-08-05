@@ -790,7 +790,7 @@ fn main() {
     windows_metadata::merge()
         .input(UM_WINMD)
         .input(KM_WINMD)
-        .union_enums(true)
+        .union_enums()
         .output(MERGED_WINMD)
         .merge()
         .unwrap_or_else(|e| panic!("failed to merge um + km winmds into `{MERGED_WINMD}`: {e}"));
@@ -866,13 +866,11 @@ fn scrape_um() -> Summary {
         .args(CLANG_ARGS)
         .args(["-include", SAL_SHIM])
         .args(include_args)
-        .drop_lib_less(true)
-        .scope(SCOPE.iter().copied())
+        .drop_lib_less()
+        .scopes(SCOPE.iter().copied())
         .scope_headers(scope_headers.iter().copied())
         .exclude_headers(EXCLUDE_HEADERS.iter().copied());
-    for source in &sources {
-        clang.input_str(source);
-    }
+    clang.input_texts(&sources);
     for lib in &import_libs {
         clang
             .import_library(lib)
@@ -881,13 +879,13 @@ fn scrape_um() -> Summary {
 
     let summary = clang.scrape(&ScrapePlan {
         root: ROOT.to_string(),
-        rdl_dir: RDL_DIR.to_string(),
-        out_dir: OUT_DIR.to_string(),
-        winmd: UM_WINMD.to_string(),
+        rdl_dir: RDL_DIR.into(),
+        out_dir: OUT_DIR.into(),
+        winmd: UM_WINMD.into(),
         archs,
         reference_winmds: Vec::new(),
-        resolution_winmds: RESOLUTION_WINMDS.iter().map(|s| s.to_string()).collect(),
-        seed: Some(METADATA_SEED.to_string()),
+        resolution_winmds: RESOLUTION_WINMDS.iter().map(Into::into).collect(),
+        seed: Some(METADATA_SEED.into()),
         parallel: true,
     });
 

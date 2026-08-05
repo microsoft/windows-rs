@@ -51,12 +51,13 @@ Callers therefore do not need a separate dependency or a path into the Windows S
 | Crate | Default behavior |
 | --- | --- |
 | [`bindgen`](windows-bindgen.md) | Implicit if no input; explicit with `.input_default()`. |
-| [`rdl`](windows-rdl.md) | `.input_default()` adds both files. |
-| [`clang`](windows-clang.md) | Standard references plus WinRT-only resolution metadata. |
+| [`rdl`](windows-rdl.md) | `.reference_default()` adds both files as references. |
+| [`clang`](windows-clang.md) | `.reference_default()` plus WinRT-only `.resolution_default()`. |
 | [`csharp`](windows-csharp.md) | `.input_default()` adds both files. |
 
-Path-style input APIs also accept the literal `"default"` for compatibility. Byte-input APIs
-remain available for custom metadata that is already in memory.
+The `windows-bindgen` textual adapter accepts `--in default`. The bindgen, RDL, and Clang builders
+use explicit default methods instead; their path-style input methods treat `"default"` as an
+ordinary path. Byte-input APIs remain available for custom metadata that is already in memory.
 
 Programs that link one of these build crates include both metadata payloads in the binary. These
 crates are intended for build tools rather than runtime dependencies.

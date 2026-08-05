@@ -38,6 +38,7 @@ use signature::*;
 use std::cmp::Ordering;
 use std::collections::*;
 use std::fmt::Write;
+use std::path::{Path, PathBuf};
 use tables::*;
 use tokens::*;
 use type_map::*;
@@ -52,10 +53,11 @@ mod type_closure;
 use method_names::*;
 use type_closure::*;
 
-fn report_timing(output: &str, phase: &str, elapsed: std::time::Duration) {
+fn report_timing(output: &Path, phase: &str, elapsed: std::time::Duration) {
     if std::env::var_os("WINDOWS_BINDGEN_TIMINGS").is_some() {
         eprintln!(
-            "windows-bindgen timing `{output}` {phase}: {:.3} ms",
+            "windows-bindgen timing `{}` {phase}: {:.3} ms",
+            output.display(),
             elapsed.as_secs_f64() * 1_000.0
         );
     }
@@ -81,8 +83,9 @@ pub fn builder() -> Bindgen {
 #[derive(Default)]
 pub struct Bindgen {
     input: Vec<Input>,
+    input_default: bool,
     filter: Vec<String>,
-    output: String,
+    output: PathBuf,
     derive: Vec<String>,
     implement: Option<Vec<String>>,
     rustfmt: Option<String>,
@@ -92,8 +95,7 @@ pub struct Bindgen {
 }
 
 enum Input {
-    Default,
-    Path(String),
+    Path(PathBuf),
     Bytes(Vec<u8>),
 }
 
@@ -192,19 +194,15 @@ impl Bindgen {
         Self::default()
     }
 
-    /// Adds a `.winmd` file or directory. `"default"` selects the bundled metadata.
-    pub fn input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.input_default()
-        } else {
-            self.input.push(Input::Path(input.to_string()));
-            self
-        }
+    /// Adds a `.winmd` file or directory.
+    pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.input.push(Input::Path(input.as_ref().to_path_buf()));
+        self
     }
 
     /// Adds the default Windows metadata.
     pub fn input_default(&mut self) -> &mut Self {
-        self.input.push(Input::Default);
+        self.input_default = true;
         self
     }
 
@@ -214,21 +212,33 @@ impl Bindgen {
         self
     }
 
+    /// Adds `.winmd` files from memory.
+    pub fn input_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = B>,
+        B: AsRef<[u8]>,
+    {
+        for input in inputs {
+            self.input_bytes(input.as_ref());
+        }
+        self
+    }
+
     /// Adds `.winmd` files or directories.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+        S: AsRef<Path>,
     {
         for input in inputs {
-            self.input(input.as_ref());
+            self.input(input);
         }
         self
     }
 
     /// Sets the generated Rust file.
-    pub fn output(&mut self, output: &str) -> &mut Self {
-        self.output = output.to_string();
+    pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
+        self.output = output.as_ref().to_path_buf();
         self
     }
 
@@ -240,6 +250,25 @@ impl Bindgen {
     /// docs for the full grammar.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filters(std::iter::once(filter))
+    }
+
+    /// Adds filter rules from a text file.
+    #[track_caller]
+    pub fn filter_file(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.filters(cli::read_tokens(input))
+    }
+
+    /// Adds filter rules from text files.
+    #[track_caller]
+    pub fn filter_files<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.filter_file(input);
+        }
+        self
     }
 
     /// Add multiple filter rules to include or exclude APIs.
@@ -306,25 +335,41 @@ impl Bindgen {
         self
     }
 
-    /// Include implementation traits for WinRT interfaces.
+    /// Includes implementation traits for every WinRT interface in scope.
+    #[track_caller]
+    pub fn implement_all(&mut self) -> &mut Self {
+        match &self.implement {
+            None => self.implement = Some(vec![]),
+            Some(names) if names.is_empty() => {}
+            Some(_) => panic!("cannot combine `implement_all` with selected implementations"),
+        }
+        self
+    }
+
+    /// Includes implementation traits for a WinRT interface or namespace prefix.
     ///
-    /// Each entry may be a fully-qualified type name (`Namespace.Name`) or a
-    /// namespace prefix that matches every type defined under it. When called
-    /// with no patterns (an empty iterator), `_Impl` scaffolding is emitted for
-    /// every WinRT interface in scope. When called with one or more patterns,
-    /// `_Impl` scaffolding is emitted only for types matching the patterns,
-    /// rather than for every interface/class in the filter set. The latter is
-    /// a finer-grained alternative to the broad form and can significantly
-    /// reduce build time when only a handful of interfaces need to be
-    /// implemented.
-    pub fn implement<I, S>(&mut self, names: I) -> &mut Self
+    /// The name may be a fully-qualified type name (`Namespace.Name`) or a namespace prefix that
+    /// matches every type defined under it.
+    #[track_caller]
+    pub fn implement(&mut self, name: &str) -> &mut Self {
+        assert!(
+            !self.implement.as_ref().is_some_and(Vec::is_empty),
+            "cannot combine selected implementations with `implement_all`"
+        );
+        self.implement
+            .get_or_insert_with(Vec::new)
+            .push(name.to_string());
+        self
+    }
+
+    /// Includes implementation traits for multiple WinRT interfaces or namespace prefixes.
+    pub fn implements<I, S>(&mut self, names: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
-        let list = self.implement.get_or_insert_with(Vec::new);
         for name in names {
-            list.push(name.as_ref().to_string());
+            self.implement(name.as_ref());
         }
         self
     }
@@ -384,7 +429,7 @@ impl Bindgen {
 
         // Validate before setting up reader and reference state.
         assert!(
-            !self.output.is_empty(),
+            !self.output.as_os_str().is_empty(),
             "output is required (call `.output()` or pass `--out`)"
         );
 
@@ -406,15 +451,10 @@ impl Bindgen {
 
         let phase = std::time::Instant::now();
         let reader_storage;
-        let reader = if self.input.is_empty()
-            || self
-                .input
-                .iter()
-                .all(|input| matches!(input, Input::Default))
-        {
+        let reader = if self.input.is_empty() {
             default_reader()
         } else {
-            reader_storage = Reader::new(expand_input(&self.input));
+            reader_storage = Reader::new(expand_input(&self.input, self.input_default));
             &reader_storage
         };
         report_timing(&self.output, "metadata", phase.elapsed());
@@ -587,17 +627,15 @@ fn default_input() -> Vec<File> {
         .collect()
 }
 
-fn expand_input(input: &[Input]) -> Vec<File> {
+fn expand_input(input: &[Input], input_default: bool) -> Vec<File> {
     #[track_caller]
-    fn expand_path(result: &mut Vec<File>, input: &str) {
-        let path = std::path::Path::new(input);
-
+    fn expand_path(result: &mut Vec<File>, path: &Path) {
         if path.is_dir() {
             let mut paths = vec![];
 
             for path in path
                 .read_dir()
-                .unwrap_or_else(|_| panic!("failed to read directory `{input}`"))
+                .unwrap_or_else(|_| panic!("failed to read directory `{}`", path.display()))
                 .flatten()
                 .map(|entry| entry.path())
             {
@@ -612,7 +650,8 @@ fn expand_input(input: &[Input]) -> Vec<File> {
 
             assert!(
                 !paths.is_empty(),
-                "failed to find .winmd files in directory `{input}`"
+                "failed to find .winmd files in directory `{}`",
+                path.display()
             );
 
             for path in paths {
@@ -624,16 +663,16 @@ fn expand_input(input: &[Input]) -> Vec<File> {
             }
         } else {
             let Ok(bytes) = std::fs::read(path) else {
-                panic!("failed to read binary file `{input}`");
+                panic!("failed to read binary file `{}`", path.display());
             };
             let Some(file) = File::new(bytes) else {
-                panic!("failed to read .winmd format `{input}`");
+                panic!("failed to read .winmd format `{}`", path.display());
             };
             result.push(file);
         }
     }
 
-    let mut result = if input.iter().any(|input| matches!(input, Input::Default)) {
+    let mut result = if input_default {
         default_input()
     } else {
         vec![]
@@ -641,7 +680,6 @@ fn expand_input(input: &[Input]) -> Vec<File> {
 
     for input in input {
         match input {
-            Input::Default => {}
             Input::Path(path) => expand_path(&mut result, path),
             Input::Bytes(bytes) => result.push(
                 File::new(bytes.clone())
@@ -756,5 +794,41 @@ mod tests {
     #[test]
     fn default_metadata_reader_is_reused() {
         assert!(std::ptr::eq(default_reader(), default_reader()));
+    }
+
+    #[test]
+    fn implementation_selection() {
+        let mut builder = Bindgen::new();
+        builder
+            .implement("Test.IFirst")
+            .implements(["Test.ISecond", "Other"]);
+        assert_eq!(
+            builder.implement,
+            Some(vec![
+                "Test.IFirst".to_string(),
+                "Test.ISecond".to_string(),
+                "Other".to_string()
+            ])
+        );
+
+        let mut builder = Bindgen::new();
+        builder.implement_all().implement_all();
+        assert_eq!(builder.implement, Some(vec![]));
+
+        let mut builder = Bindgen::new();
+        builder.implements(std::iter::empty::<&str>());
+        assert_eq!(builder.implement, None);
+    }
+
+    #[test]
+    #[should_panic(expected = "cannot combine selected implementations with `implement_all`")]
+    fn implementation_after_all_panics() {
+        Bindgen::new().implement_all().implement("Test.IFirst");
+    }
+
+    #[test]
+    #[should_panic(expected = "cannot combine `implement_all` with selected implementations")]
+    fn implementation_all_after_selection_panics() {
+        Bindgen::new().implement("Test.IFirst").implement_all();
     }
 }

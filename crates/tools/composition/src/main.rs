@@ -1,5 +1,5 @@
 use std::io::Write;
-use windows_bindgen::bindgen;
+use windows_bindgen::builder;
 
 const FILTER: &str = "crates/tools/composition/src/composition.txt";
 
@@ -10,18 +10,14 @@ fn main() {
     // supplies ICompositorDesktopInterop and the HWND/BOOL types used to host a visual
     // tree in a plain window. Flat + minimal keeps the crate's own surface small and
     // namespace-free (see docs/crates/windows-composition.md).
-    bindgen([
-        "--in",
-        "default",
-        "--out",
-        "crates/libs/composition/src/bindings.rs",
-        "--minimal",
-        "--dead-code",
-        "--flat",
-        "--filter",
-        "--etc",
-        FILTER,
-    ]);
+    builder()
+        .input_default()
+        .output("crates/libs/composition/src/bindings.rs")
+        .minimal()
+        .dead_code()
+        .flat()
+        .filter_file(FILTER)
+        .write();
 
     // Lifted stack: Microsoft.UI.Composition (Microsoft.UI.winmd) mirrors the system
     // API, so the same wrapper source compiles against it. The filter is derived from
@@ -29,19 +25,17 @@ fn main() {
     // single filter stays the source of truth for both stacks. Windows.winmd resolves
     // the shared foundation types (Color, TimeSpan, IVector, numerics).
     let lifted_filter = write_lifted_filter();
-    bindgen([
-        "--in",
-        "crates/tools/reactor/winmd/Microsoft.UI.winmd",
-        "crates/libs/default/Windows.winmd",
-        "--out",
-        "crates/libs/composition/src/bindings_lifted.rs",
-        "--minimal",
-        "--dead-code",
-        "--flat",
-        "--filter",
-        "--etc",
-        lifted_filter.to_str().expect("utf-8 temp path"),
-    ]);
+    builder()
+        .inputs([
+            "crates/tools/reactor/winmd/Microsoft.UI.winmd",
+            "crates/libs/default/Windows.winmd",
+        ])
+        .output("crates/libs/composition/src/bindings_lifted.rs")
+        .minimal()
+        .dead_code()
+        .flat()
+        .filter_file(lifted_filter)
+        .write();
 
     println!(
         "tool_composition: generated system + lifted bindings in {:.2}s",

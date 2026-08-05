@@ -42,9 +42,9 @@ fn main() {
             "-fms-extensions",
             &include_arg,
         ])
-        .input(include.join("WebView2.h").to_str().unwrap())
-        .input(include_winrt.join("WebView2Interop.h").to_str().unwrap())
-        .input_default()
+        .input(include.join("WebView2.h"))
+        .input(include_winrt.join("WebView2Interop.h"))
+        .reference_default()
         .output("target/webview/WebView2.rdl")
         .namespace("WebView2")
         .library("WebView2Loader.dll")
@@ -53,7 +53,7 @@ fn main() {
 
     reader()
         .input("target/webview/WebView2.rdl")
-        .input_default()
+        .reference_default()
         .output("target/webview/WebView2.winmd")
         .write()
         .unwrap();

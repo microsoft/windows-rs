@@ -30,6 +30,10 @@ The crate exposes two builders:
 - `reader()` compiles RDL source to `.winmd` metadata.
 - `writer()` writes canonical RDL source from `.winmd` metadata.
 
+Input, reference, and output paths accept strings, `Path`, or `PathBuf`, so build scripts can pass
+paths without converting them to UTF-8 strings. `.input_text(..)` and `.input_texts(..)` compile RDL
+source already in memory.
+
 ### RDL to winmd, and back
 
 Use `reader` to compile `.rdl` into `.winmd`. Use `writer` to regenerate canonical `.rdl` from
@@ -57,15 +61,16 @@ RDL can reference types it does not define. Examples include `HRESULT` and
 ```rust,no_run
 windows_rdl::reader()
     .input("example.rdl")
-    .input_default()
+    .reference_default()
     .output("example.winmd")
     .write()
     .unwrap();
 ```
 
-The reader treats the default metadata as references while compiling the input RDL. The writer
-treats it as metadata to render. Both builders also accept metadata already in memory through their
-byte-input APIs.
+The reader treats the default metadata as references while compiling the input RDL. Add other
+reference metadata with `.reference(path)`, `.references(paths)`, `.reference_bytes(bytes)`, or
+`.reference_byte_sets(byte_sets)`. The writer has the corresponding `.input`, `.inputs`,
+`.input_bytes`, and `.input_byte_sets` methods and treats default metadata as input to render.
 
 ### C/C++ headers to RDL
 
@@ -80,7 +85,7 @@ separate input.
 windows_clang::clang()
     .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
     .input("Example.h")
-    .input_default()
+    .reference_default()
     .output("example.rdl")
     .namespace("Example")
     .library("Example.dll")
@@ -193,7 +198,7 @@ Two in-repo tools show both uses:
   SDK metadata. The tool compiles them with the standard Win32 winmd into `extras.winmd`. Then it
   feeds that winmd to `windows_bindgen::bindgen` for [`windows-reactor`](windows-reactor.md).
 
-In both tools, `reader` also gets the standard metadata as input. That lets RDL references resolve
+In both tools, `reader` also gets the standard metadata as references. That lets RDL names resolve
 against the standard definitions.
 
 ---
@@ -261,7 +266,7 @@ differs by architecture is split into per-architecture copies tagged `#[arch(X86
 
 The merge compares type structure through [`windows-metadata`](windows-metadata.md).
 `merge_arch_rdl` handles orchestration. It reads each architecture's RDL, runs the merge, and writes
-the combined output.
+the combined output. `ArchInput` stores its RDL directory and winmd as `PathBuf`.
 
 ### Published crates and namespace remap
 
@@ -289,7 +294,7 @@ changes tracked files.
 
 `tool_roundtrip` validates the reverse direction:
 
-- WinRT uses `writer(Windows.winmd).split(true)` to write `metadata/winrt`.
+- WinRT uses `writer(Windows.winmd).split()` to write `metadata/winrt`.
 - Win32 and WDK cannot recover header files from flat winmd alone. The tool reads the committed RDL
   layout to map type names back to header stems. Then it writes `metadata/win32` or `metadata/wdk`
   with `writer(winmd).partition(map)`.

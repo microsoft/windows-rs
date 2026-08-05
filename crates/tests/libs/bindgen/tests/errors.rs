@@ -1,10 +1,10 @@
 // Negative tests for windows-bindgen. The golden harness only feeds valid
 // input, so this exercises the panic path in `src/io.rs::read_file_lines`,
-// reached when an `--etc` response file cannot be opened.
+// reached when a command file cannot be opened.
 
 #[test]
 #[should_panic(expected = "failed to open file")]
-fn etc_missing_response_file_panics() {
+fn missing_command_file_panics() {
     let missing = std::env::temp_dir()
         .join("test_bindgen_missing_response_file.rsp")
         .to_string_lossy()
@@ -13,13 +13,45 @@ fn etc_missing_response_file_panics() {
     windows_bindgen::bindgen(["--etc", &missing]);
 }
 
+#[test]
+#[should_panic(expected = "failed to open file")]
+fn missing_filter_file_panics() {
+    let missing = std::env::temp_dir().join("test_bindgen_missing_filter_file.txt");
+    windows_bindgen::builder().filter_file(missing);
+}
+
+#[test]
+#[should_panic(expected = "invalid option `--unknown`")]
+fn invalid_option_panics() {
+    windows_bindgen::bindgen(["--unknown"]);
+}
+
+#[test]
+#[should_panic(expected = "output is required")]
+fn missing_output_panics() {
+    windows_bindgen::bindgen(["--filter", "GetTickCount"]);
+}
+
+#[test]
+#[should_panic(expected = "cannot combine `--sys` and `--minimal`")]
+fn conflicting_styles_panic() {
+    windows_bindgen::bindgen([
+        "--out",
+        "unused.rs",
+        "--filter",
+        "GetTickCount",
+        "--sys",
+        "--minimal",
+    ]);
+}
+
 fn author_variadic(name: &str) -> (String, String) {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join(name);
     std::fs::create_dir_all(&scratch).unwrap();
     let winmd = scratch.join("out.winmd");
     windows_rdl::reader()
         .input("input/variadic_fn_sys.rdl")
-        .output(winmd.to_str().unwrap())
+        .output(&winmd)
         .write()
         .unwrap();
     (

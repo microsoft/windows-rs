@@ -2,6 +2,44 @@
 
 include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
+#[test]
+fn reference_rejects_non_winmd_input() {
+    let error = windows_clang::clang()
+        .reference("reference.rdl")
+        .output("unused.rdl")
+        .write()
+        .unwrap_err();
+    assert_eq!(error.message, "expected .winmd file");
+}
+
+#[test]
+fn terminals_require_output() {
+    let write = windows_clang::clang().write().unwrap_err();
+    assert_eq!(write.message, "output is required");
+
+    let partition = windows_clang::clang().write_by_header().unwrap_err();
+    assert_eq!(partition.message, "output is required");
+}
+
+#[test]
+fn malformed_metadata_reports_its_role() {
+    let reference = windows_clang::clang()
+        .reference_bytes(b"not metadata")
+        .output("unused.rdl")
+        .write()
+        .unwrap_err();
+    assert_eq!(reference.message, "invalid reference");
+    assert_eq!(reference.file_name, "<memory>");
+
+    let resolution = windows_clang::clang()
+        .resolution_bytes(b"not metadata")
+        .output("unused")
+        .write_by_header()
+        .unwrap_err();
+    assert_eq!(resolution.message, "invalid resolution input");
+    assert_eq!(resolution.file_name, "<memory>");
+}
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.h");
     let expected_path = format!("expected/{name}.rdl");
@@ -99,9 +137,7 @@ fn run(name: &str) {
 
     clang.resolution_default();
 
-    for bytes in &reference_winmds {
-        clang.reference_bytes(bytes);
-    }
+    clang.reference_byte_sets(&reference_winmds);
 
     if !library.is_empty() {
         clang.library(&library);
@@ -125,10 +161,14 @@ fn run(name: &str) {
 
     if flat {
         // Source-based per-header (flat) scrape, as `tool_win32`: one flat root namespace,
-        // `header_root.is_some()`. Emits every defining header in the parse (empty
-        // partition allowlist) into `scratch`; a self-contained fixture yields a single
-        // `<stem>.rdl` (the lowercased header stem, which matches `rdl_out`).
-        clang.write_by_header(&namespace, &[], &scratch).unwrap();
+        // `header_root.is_some()`. Emits every defining header in the parse into `scratch`;
+        // a self-contained fixture yields a single `<stem>.rdl` (the lowercased header stem,
+        // which matches `rdl_out`).
+        clang
+            .namespace(&namespace)
+            .output(&scratch)
+            .write_by_header()
+            .unwrap();
     } else {
         // Namespaced scrape, as `tool_webview`: `header_root.is_none()`, resolves external
         // types via the reference winmds.

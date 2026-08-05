@@ -2,13 +2,14 @@
 #![doc = include_str!("../readme.md")]
 
 use std::collections::{BTreeMap, HashMap, HashSet};
+use std::path::{Path, PathBuf};
 use windows_metadata as metadata;
 
 use proc_macro2::{Literal, Span, TokenStream};
 use quote::quote;
 
 use windows_rdl::emit::{uuid_to_u128_literal, write_ident, write_typed_value};
-use windows_rdl::{Error, expand_input_paths, formatter, implib, write_to_file};
+use windows_rdl::{Error, expand_input_files, formatter, implib, write_to_file};
 
 mod cx;
 use cx::*;
@@ -499,9 +500,10 @@ impl<'a> Parser<'a> {
 #[derive(Default, Clone)]
 /// Builder that generates RDL from C/C++ headers using libclang.
 pub struct Clang {
-    input: Vec<String>,
-    input_str: Vec<String>,
-    output: String,
+    input: Vec<PathBuf>,
+    input_text: Vec<String>,
+    reference: Vec<PathBuf>,
+    output: PathBuf,
     namespace: String,
     args: Vec<String>,
     library: String,
@@ -520,8 +522,8 @@ pub struct Clang {
     /// Drops functions with no resolved import library; off for fixtures without `.lib` inputs.
     drop_lib_less: bool,
     /// Winmds used only to classify `ABI::Windows::*` projection declarations.
-    resolution_input: Vec<String>,
-    input_default: bool,
+    resolution_input: Vec<PathBuf>,
+    reference_default: bool,
     resolution_default: bool,
     reference_bytes: Vec<std::sync::Arc<[u8]>>,
     resolution_bytes: Vec<std::sync::Arc<[u8]>>,
@@ -532,8 +534,6 @@ pub struct Clang {
 struct HeaderPass<'a> {
     /// Flat namespace root every partition emits into (`Windows.Win32`).
     root: &'a str,
-    /// Defining-header stems whose partitions are written (empty writes all).
-    allow: &'a HashSet<&'a str>,
     /// Resolution-winmd type-name membership for `ABI::Windows::*` declarations.
     winrt_types: &'a HashSet<String>,
 }
@@ -544,32 +544,57 @@ impl Clang {
         Self::default()
     }
 
-    /// Adds an input header (`.h`) or `.winmd` file or directory. `"default"` selects the default
-    /// Windows metadata references.
-    pub fn input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.input_default()
-        } else {
-            self.input.push(input.to_string());
-            self
-        }
+    /// Adds an input header (`.h`) file or directory.
+    pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.input.push(input.as_ref().to_path_buf());
+        self
     }
 
-    /// Adds input headers or `.winmd` files.
+    /// Adds input headers.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+        S: AsRef<Path>,
     {
         for input in inputs {
-            self.input(input.as_ref());
+            self.input(input);
         }
         self
     }
 
     /// Adds inline source text to compile instead of a file on disk.
-    pub fn input_str(&mut self, input: &str) -> &mut Self {
-        self.input_str.push(input.to_string());
+    pub fn input_text(&mut self, input: &str) -> &mut Self {
+        self.input_text.push(input.to_string());
+        self
+    }
+
+    /// Adds inline source texts to compile instead of files on disk.
+    pub fn input_texts<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input_text(input.as_ref());
+        }
+        self
+    }
+
+    /// Adds a reference winmd file or directory.
+    pub fn reference(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.reference.push(input.as_ref().to_path_buf());
+        self
+    }
+
+    /// Adds multiple reference winmd files or directories.
+    pub fn references<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.reference(input);
+        }
         self
     }
 
@@ -579,15 +604,27 @@ impl Clang {
         self
     }
 
+    /// Adds reference winmds from memory.
+    pub fn reference_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = B>,
+        B: AsRef<[u8]>,
+    {
+        for input in inputs {
+            self.reference_bytes(input.as_ref());
+        }
+        self
+    }
+
     /// Adds the default Windows metadata as references.
-    pub fn input_default(&mut self) -> &mut Self {
-        self.input_default = true;
+    pub fn reference_default(&mut self) -> &mut Self {
+        self.reference_default = true;
         self
     }
 
     /// Sets the output `.rdl` file path.
-    pub fn output(&mut self, output: &str) -> &mut Self {
-        self.output = output.to_string();
+    pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
+        self.output = output.as_ref().to_path_buf();
         self
     }
 
@@ -604,25 +641,44 @@ impl Clang {
     }
 
     /// Drops functions with no resolved import library; leave off without `.lib` inputs.
-    pub fn drop_lib_less(&mut self, drop_lib_less: bool) -> &mut Self {
-        self.drop_lib_less = drop_lib_less;
+    pub fn drop_lib_less(&mut self) -> &mut Self {
+        self.drop_lib_less = true;
         self
     }
 
-    /// Adds a winmd used only to classify `ABI::Windows::*` projection declarations. `"default"`
-    /// selects the default Windows Runtime metadata.
-    pub fn resolution_input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.resolution_default()
-        } else {
-            self.resolution_input.push(input.to_string());
-            self
+    /// Adds a winmd used only to classify `ABI::Windows::*` projection declarations.
+    pub fn resolution_input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.resolution_input.push(input.as_ref().to_path_buf());
+        self
+    }
+
+    /// Adds winmds used only to classify `ABI::Windows::*` projection declarations.
+    pub fn resolution_inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.resolution_input(input);
         }
+        self
     }
 
     /// Adds a resolution-only winmd from memory.
     pub fn resolution_bytes(&mut self, input: &[u8]) -> &mut Self {
         self.resolution_bytes.push(input.into());
+        self
+    }
+
+    /// Adds resolution-only winmds from memory.
+    pub fn resolution_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = B>,
+        B: AsRef<[u8]>,
+    {
+        for input in inputs {
+            self.resolution_bytes(input.as_ref());
+        }
         self
     }
 
@@ -650,8 +706,8 @@ impl Clang {
     }
 
     /// Reads a COFF import library and adds its symbol -> DLL mappings.
-    pub fn import_library(&mut self, path: &str) -> Result<&mut Self, Error> {
-        extend_libraries(&mut self.libraries, path)?;
+    pub fn import_library(&mut self, path: impl AsRef<Path>) -> Result<&mut Self, Error> {
+        extend_libraries(&mut self.libraries, path.as_ref())?;
         Ok(self)
     }
 
@@ -697,45 +753,69 @@ impl Clang {
         self
     }
 
-    /// Sets header directory segments that act as roots for the reachability sweep.
-    pub fn scope<I, S>(&mut self, scope: I) -> &mut Self
+    /// Adds a header directory segment that acts as a root for the reachability sweep.
+    pub fn scope(&mut self, scope: &str) -> &mut Self {
+        self.scope.push(scope.to_string());
+        self
+    }
+
+    /// Adds multiple header directory segments as roots for the reachability sweep.
+    pub fn scopes<I, S>(&mut self, scopes: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
-        for seg in scope {
-            self.scope.push(seg.as_ref().to_string());
+        for scope in scopes {
+            self.scope(scope.as_ref());
         }
         self
     }
 
-    /// Marks specific headers as sweep roots regardless of SDK directory.
+    /// Marks a header as a sweep root regardless of SDK directory.
+    pub fn scope_header(&mut self, header: &str) -> &mut Self {
+        let stem = header_stem_to_namespace(header);
+        if !stem.is_empty() {
+            self.scope_headers.insert(stem);
+        }
+        self
+    }
+
+    /// Marks multiple headers as sweep roots regardless of SDK directory.
     pub fn scope_headers<I, S>(&mut self, headers: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
         for header in headers {
-            let stem = header_stem_to_namespace(header.as_ref());
-            if !stem.is_empty() {
-                self.scope_headers.insert(stem);
-            }
+            self.scope_header(header.as_ref());
         }
         self
     }
 
-    /// Drops named header partitions before the reachability sweep.
+    /// Drops a named header partition before the reachability sweep.
+    pub fn exclude_header(&mut self, header: &str) -> &mut Self {
+        let stem = header_stem_to_namespace(header);
+        if !stem.is_empty() {
+            self.exclude_headers.insert(stem);
+        }
+        self
+    }
+
+    /// Drops multiple named header partitions before the reachability sweep.
     pub fn exclude_headers<I, S>(&mut self, headers: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
         for header in headers {
-            let stem = header_stem_to_namespace(header.as_ref());
-            if !stem.is_empty() {
-                self.exclude_headers.insert(stem);
-            }
+            self.exclude_header(header.as_ref());
         }
+        self
+    }
+
+    /// Restricts root emission to a named function symbol.
+    pub fn symbol(&mut self, symbol: &str) -> &mut Self {
+        self.symbols.insert(symbol.to_string());
         self
     }
 
@@ -746,7 +826,7 @@ impl Clang {
         S: AsRef<str>,
     {
         for symbol in symbols {
-            self.symbols.insert(symbol.as_ref().to_string());
+            self.symbol(symbol.as_ref());
         }
         self
     }
@@ -759,6 +839,7 @@ impl Clang {
 
     /// Generates the RDL and writes it to the configured output.
     pub fn write(&self) -> Result<(), Error> {
+        self.validate_output()?;
         let reference = self.load_reference()?;
         let spec = NamespaceSpec {
             namespace: &self.namespace,
@@ -773,28 +854,31 @@ impl Clang {
     }
 
     /// Writes one flat-root RDL file per defining header.
-    ///
-    /// `partitions` limits which files are written, not which references resolve. Winmd
-    /// inputs act as exclusion references for additive scrapes.
-    pub fn write_by_header(
-        &self,
-        root: &str,
-        partitions: &[&str],
-        output_dir: &str,
-    ) -> Result<(), Error> {
-        let allow: HashSet<&str> = partitions.iter().copied().collect();
-        let outputs = self.parse_and_emit_by_header(root, &allow)?;
+    pub fn write_by_header(&self) -> Result<(), Error> {
+        self.validate_output()?;
+        let outputs = self.parse_and_emit_by_header(&self.namespace)?;
         for (stem, rdl) in outputs {
             // File names are lowercased defining-header stems.
             let leaf = stem.to_lowercase();
-            write_to_file(&format!("{output_dir}/{leaf}.rdl"), formatter::format(&rdl))?;
+            write_to_file(
+                self.output.join(format!("{leaf}.rdl")),
+                formatter::format(&rdl),
+            )?;
         }
         Ok(())
     }
 
+    fn validate_output(&self) -> Result<(), Error> {
+        if self.output.as_os_str().is_empty() {
+            Err(Error::new("output is required", "", 0, 0))
+        } else {
+            Ok(())
+        }
+    }
+
     /// Parses inputs once and returns the libclang state that keeps the TUs valid.
     fn parse_inputs(&self) -> Result<ParsedInputs, Error> {
-        let (h_paths, _) = expand_input_paths(&self.input, "h", "winmd")?;
+        let h_paths = expand_input_files(&self.input, "h")?;
         let library = Library::new()?;
         let index = Index::new()?;
 
@@ -810,10 +894,18 @@ impl Clang {
 
         let mut h_tus = vec![];
         for input in &h_paths {
-            h_tus.push((input.clone(), index.parse(input, &arg_refs)?));
+            let source = input.to_str().ok_or_else(|| {
+                Error::new(
+                    "input path is not valid UTF-8",
+                    &input.to_string_lossy(),
+                    0,
+                    0,
+                )
+            })?;
+            h_tus.push((source.replace('\\', "/"), index.parse(source, &arg_refs)?));
         }
         let mut str_tus = vec![];
-        for content in &self.input_str {
+        for content in &self.input_text {
             str_tus.push((
                 content.clone(),
                 index.parse_unsaved(
@@ -835,11 +927,7 @@ impl Clang {
     }
 
     /// Emits one flat-root RDL string per defining-header stem.
-    fn parse_and_emit_by_header(
-        &self,
-        root: &str,
-        allow: &HashSet<&str>,
-    ) -> Result<BTreeMap<String, String>, Error> {
+    fn parse_and_emit_by_header(&self, root: &str) -> Result<BTreeMap<String, String>, Error> {
         // Additive scrapes skip entities already defined by input winmds. Split type and
         // value names because functions/constants live on `Apis`, not in `iter()`.
         let reference = self.load_reference()?;
@@ -883,7 +971,6 @@ impl Clang {
 
         let pass = HeaderPass {
             root,
-            allow,
             winrt_types: &winrt_types,
         };
 
@@ -1050,11 +1137,7 @@ impl Clang {
         scope_in: &mut BTreeMap<String, bool>,
         eval: MacroEval<'_>,
     ) -> Result<(), Error> {
-        let HeaderPass {
-            root,
-            allow,
-            winrt_types,
-        } = *pass;
+        let HeaderPass { root, winrt_types } = *pass;
         // Abort on diagnostics in emitted headers; tolerate transitive-only include errors
         // so interop headers can survive broken C++/WinRT projection includes.
         for diag in tu.diagnostics() {
@@ -1126,13 +1209,9 @@ impl Clang {
             }
         }
 
-        // The allowlist limits written files, not cross-header resolution.
         let mut buckets: BTreeMap<String, Vec<(Cursor, bool)>> = BTreeMap::new();
         for (_, (child, extern_c)) in chosen {
             let stem = header_stem_of(&child).expect("filtered above");
-            if !allow.is_empty() && !allow.contains(stem.as_str()) {
-                continue;
-            }
             // Keep a partition in-scope if any contributing cursor is in-scope.
             if !self.scope.is_empty() {
                 let in_scope = self.scope_headers.contains(&stem)
@@ -1220,16 +1299,17 @@ impl Clang {
 
     /// Loads `.winmd` reference inputs for cross-namespace resolution.
     fn load_reference(&self) -> Result<metadata::reader::Index, Error> {
-        let (_, winmd_paths) = expand_input_paths(&self.input, "h", "winmd")?;
+        let winmd_paths = expand_input_files(&self.reference, "winmd")?;
 
         let mut winmd_files = vec![];
         for file_name in &winmd_paths {
+            let source = file_name.to_string_lossy();
             winmd_files.push(
                 metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid reference", &source, 0, 0))?,
             );
         }
-        if self.input_default {
+        if self.reference_default {
             winmd_files.extend(
                 [windows_default::WINRT, windows_default::WIN32]
                     .into_iter()
@@ -1239,7 +1319,7 @@ impl Clang {
         for bytes in &self.reference_bytes {
             winmd_files.push(
                 metadata::reader::File::new(bytes.to_vec())
-                    .ok_or_else(|| Error::new("invalid input", "<memory>", 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid reference", "<memory>", 0, 0))?,
             );
         }
 
@@ -1250,9 +1330,10 @@ impl Clang {
     fn load_winrt_types(&self) -> Result<HashSet<String>, Error> {
         let mut winmd_files = vec![];
         for file_name in &self.resolution_input {
+            let source = file_name.to_string_lossy();
             winmd_files.push(
                 metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid resolution input", &source, 0, 0))?,
             );
         }
         if self.resolution_default {
@@ -1261,7 +1342,7 @@ impl Clang {
         for bytes in &self.resolution_bytes {
             winmd_files.push(
                 metadata::reader::File::new(bytes.to_vec())
-                    .ok_or_else(|| Error::new("invalid input", "<memory>", 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid resolution input", "<memory>", 0, 0))?,
             );
         }
         let index = metadata::reader::Index::new(winmd_files);

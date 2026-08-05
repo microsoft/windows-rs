@@ -8,7 +8,7 @@ fn temp_path(name: &str, extension: &str) -> String {
 #[test]
 fn default_input_resolves_default_metadata() {
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 use Windows::Foundation::*;
 
@@ -20,8 +20,8 @@ mod Test {
 }
 "#,
         )
-        .input("default")
-        .output(&temp_path("default_input", "winmd"))
+        .reference_default()
+        .output(temp_path("default_input", "winmd"))
         .write()
         .unwrap();
 }
@@ -31,7 +31,7 @@ fn reference_bytes_resolve_metadata() {
     let reference = temp_path("reference_bytes_reference", "winmd");
 
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 #[winrt]
 mod Other {
@@ -48,7 +48,7 @@ mod Other {
 
     let bytes = std::fs::read(reference).unwrap();
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 use Other::*;
 
@@ -60,8 +60,47 @@ mod Test {
 }
 "#,
         )
-        .reference_bytes(&bytes)
-        .output(&temp_path("reference_bytes", "winmd"))
+        .reference_byte_sets([bytes])
+        .output(temp_path("reference_bytes", "winmd"))
+        .write()
+        .unwrap();
+}
+
+#[test]
+fn reference_path_resolves_metadata() {
+    let reference = temp_path("reference_path_reference", "winmd");
+
+    windows_rdl::reader()
+        .input_text(
+            r#"
+#[winrt]
+mod Other {
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+}
+"#,
+        )
+        .output(&reference)
+        .write()
+        .unwrap();
+
+    windows_rdl::reader()
+        .input_text(
+            r#"
+use Other::*;
+
+#[winrt]
+mod Test {
+    struct Wrapper {
+        value: Point,
+    }
+}
+"#,
+        )
+        .reference(&reference)
+        .output(temp_path("reference_path", "winmd"))
         .write()
         .unwrap();
 }
@@ -72,7 +111,7 @@ fn writer_accepts_metadata_bytes() {
     let rdl = temp_path("writer_bytes_output", "rdl");
 
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             r#"
 #[win32]
 mod Test {
@@ -88,7 +127,7 @@ mod Test {
 
     let bytes = std::fs::read(&winmd).unwrap();
     windows_rdl::writer()
-        .input_bytes(&bytes)
+        .input_byte_sets([bytes])
         .output(&rdl)
         .write()
         .unwrap();
