@@ -161,9 +161,9 @@ fn run(name: &str) {
 
     if flat {
         // Source-based per-header (flat) scrape, as `tool_win32`: one flat root namespace,
-        // `header_root.is_some()`. Emits every defining header in the parse (empty
-        // partition allowlist) into `scratch`; a self-contained fixture yields a single
-        // `<stem>.rdl` (the lowercased header stem, which matches `rdl_out`).
+        // `header_root.is_some()`. Emits every defining header in the parse into `scratch`;
+        // a self-contained fixture yields a single `<stem>.rdl` (the lowercased header stem,
+        // which matches `rdl_out`).
         clang
             .namespace(&namespace)
             .output(&scratch)
