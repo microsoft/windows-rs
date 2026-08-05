@@ -1,0 +1,19 @@
+[package]
+name = "reactor_startup_perf"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "BlankWindowsReactor"
+path = "src/main.rs"
+
+[dependencies]
+windows-reactor = { workspace = true }
+windows-tracing = { workspace = true }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

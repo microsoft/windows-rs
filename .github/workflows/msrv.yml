@@ -81,6 +81,10 @@ jobs:
         run:  cargo check -p windows-threading --all-features
       - name: Check windows-time
         run:  cargo check -p windows-time --all-features
+      - name: Check windows-tracing
+        run:  cargo check -p windows-tracing --all-features
+      - name: Check windows-tracing-macros
+        run:  cargo check -p windows-tracing-macros --all-features
       - name: Check windows-version
         run:  cargo check -p windows-version --all-features
       - name: Check windows-webview

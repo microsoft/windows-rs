@@ -36,6 +36,9 @@ whose `call` schedules a rerender. `ReactorWindow` opens more top-level windows.
 guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for
 components, hooks, layout, styling, and widgets.
 
+`App::on_exit` registers synchronous cleanup or instrumentation that runs once on the UI thread
+immediately before Reactor exits the process after the final window closes.
+
 WinUI lightweight styling resources use typed values:
 
 ```rust,ignore

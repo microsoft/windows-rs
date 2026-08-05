@@ -43,6 +43,11 @@ options are `title`, `inner_size`, `backdrop` (for example `Backdrop::Mica`), `i
 `.ico` file), `fullscreen`, and `presenter`. `render(app)` takes your
 `Fn(&mut RenderCx) -> Element` and runs the message loop.
 
+`App::on_exit` runs once on the UI thread immediately before Reactor exits the process after the
+final window closes. The callback must finish synchronously. Use it for cleanup or process-lifetime
+instrumentation that cannot run after `App::render`, since the normal final-window path terminates
+the process.
+
 Reactor catches panics at the FFI boundaries it owns (render and event callbacks, and
 `ErrorBoundary`) and converts them to errors, so they never unwind across the WinUI ABI. It does not
 install a global panic hook. For panics that escape those boundaries, add `panic = "abort"` to your
