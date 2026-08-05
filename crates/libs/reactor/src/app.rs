@@ -54,6 +54,7 @@ thread_local! {
     static WINDOW_REGISTRY: RefCell<WindowRegistry<ReactorHost>> =
         const { RefCell::new(WindowRegistry::new()) };
     static APP_SLOT: RefCell<Option<Application>> = const { RefCell::new(None) };
+    static ON_EXIT: RefCell<Option<Box<dyn FnOnce() + Send>>> = const { RefCell::new(None) };
 }
 
 /// Run `f` with the first window opened on the current UI thread.
@@ -121,7 +122,18 @@ fn on_window_closed(key: u64) {
     let (removed, empty) = WINDOW_REGISTRY.with(|reg| reg.borrow_mut().remove(key));
     drop(removed);
     if empty {
+        run_exit_callback();
         std::process::exit(0);
+    }
+}
+
+fn set_exit_callback(callback: Option<Box<dyn FnOnce() + Send>>) {
+    ON_EXIT.with(|slot| *slot.borrow_mut() = callback);
+}
+
+fn run_exit_callback() {
+    if let Some(callback) = ON_EXIT.with(|slot| slot.borrow_mut().take()) {
+        fault::catch("app exit", callback);
     }
 }
 
@@ -134,6 +146,7 @@ pub struct App {
     backdrop: Option<Backdrop>,
     icon: Option<String>,
     on_fault: Option<Box<dyn Fn(&Fault) + Send>>,
+    on_exit: Option<Box<dyn FnOnce() + Send>>,
 }
 
 impl Default for App {
@@ -152,6 +165,7 @@ impl App {
             backdrop: None,
             icon: None,
             on_fault: None,
+            on_exit: None,
         }
     }
 
@@ -215,6 +229,16 @@ impl App {
         self
     }
 
+    /// Set a callback invoked on the UI thread immediately before the process exits after the
+    /// final reactor window closes.
+    pub fn on_exit<F>(mut self, f: F) -> Self
+    where
+        F: FnOnce() + Send + 'static,
+    {
+        self.on_exit = Some(Box::new(f));
+        self
+    }
+
     /// Run with custom WinUI setup; the caller manages windows and content.
     pub fn run_custom<F>(self, setup: F) -> Result<()>
     where
@@ -223,6 +247,7 @@ impl App {
         init_app_platform()?;
         let setup = Mutex::new(Some(setup));
         let on_fault = Mutex::new(self.on_fault);
+        let on_exit = Mutex::new(self.on_exit);
         let result_slot: Arc<Mutex<Result<()>>> = Arc::new(Mutex::new(Ok(())));
         let result_slot_cb = Arc::clone(&result_slot);
         let start_result =
@@ -230,11 +255,13 @@ impl App {
                 let inner = || -> Result<()> {
                     let setup = setup.lock().unwrap().take().unwrap();
                     let on_fault = on_fault.lock().unwrap().take();
+                    let on_exit = on_exit.lock().unwrap().take();
 
                     let on_launched: Box<dyn FnOnce() -> Result<()>> = Box::new(move || {
                         if let Some(on_fault) = on_fault {
                             fault::set_handler(on_fault);
                         }
+                        set_exit_callback(on_exit);
                         let app = APP_SLOT.with(|slot| slot.borrow().clone()).unwrap();
                         install_xaml_controls_resources(&app)?;
                         run_callback("setup", || setup(&app))
@@ -270,6 +297,7 @@ impl App {
         let backdrop = self.backdrop;
         let icon = self.icon;
         let on_fault = Mutex::new(self.on_fault);
+        let on_exit = Mutex::new(self.on_exit);
         if let Some(icon) = &icon
             && !std::path::Path::new(icon).is_file()
         {
@@ -286,6 +314,7 @@ impl App {
                 let inner = || -> Result<()> {
                     let factory = factory.lock().unwrap().take().unwrap();
                     let on_fault = on_fault.lock().unwrap().take();
+                    let on_exit = on_exit.lock().unwrap().take();
 
                     let title = title.clone();
                     let icon = icon.clone();
@@ -293,6 +322,7 @@ impl App {
                         if let Some(on_fault) = on_fault {
                             fault::set_handler(on_fault);
                         }
+                        set_exit_callback(on_exit);
                         let app = APP_SLOT.with(|slot| slot.borrow().clone()).unwrap();
                         install_xaml_controls_resources(&app)?;
 
@@ -549,6 +579,7 @@ where
 }
 
 fn report_app_start_result(result: Result<()>) -> Result<()> {
+    set_exit_callback(None);
     if let Err(err) = &result {
         diagnostics::emit(&format!(
             "windows_reactor: Application::Start failed: {err:?}"
@@ -579,7 +610,10 @@ fn init_app_platform() -> Result<()> {
 
 #[cfg(test)]
 mod tests {
-    use super::WindowRegistry;
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
+    use super::{WindowRegistry, report_app_start_result, run_exit_callback, set_exit_callback};
 
     #[test]
     fn insert_assigns_unique_increasing_keys() {
@@ -641,5 +675,33 @@ mod tests {
         // Remove the real one, then a stale double-remove on an empty registry.
         assert_eq!(reg.remove(k0), (Some(1), true));
         assert_eq!(reg.remove(k0), (None, true));
+    }
+
+    #[test]
+    fn exit_callback_runs_once() {
+        let calls = Arc::new(AtomicUsize::new(0));
+        let callback_calls = Arc::clone(&calls);
+        set_exit_callback(Some(Box::new(move || {
+            callback_calls.fetch_add(1, Ordering::Relaxed);
+        })));
+
+        run_exit_callback();
+        run_exit_callback();
+
+        assert_eq!(calls.load(Ordering::Relaxed), 1);
+    }
+
+    #[test]
+    fn returning_from_app_start_discards_exit_callback() {
+        let calls = Arc::new(AtomicUsize::new(0));
+        let callback_calls = Arc::clone(&calls);
+        set_exit_callback(Some(Box::new(move || {
+            callback_calls.fetch_add(1, Ordering::Relaxed);
+        })));
+
+        report_app_start_result(Ok(())).unwrap();
+        run_exit_callback();
+
+        assert_eq!(calls.load(Ordering::Relaxed), 0);
     }
 }
