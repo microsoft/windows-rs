@@ -413,7 +413,7 @@ pub fn navigation_view_state_callbacks(h: Harness) -> FixtureFuture {
                     text_block("navigation body"),
                 )
                 .pane_open(pane_open)
-                .pane_display_mode(NavigationViewPaneDisplayMode::Auto)
+                .pane_display_mode(NavigationViewPaneDisplayMode::Left)
                 .on_pane_open_changed(move |open| set_pane_open.call(open))
                 .on_display_mode_changed(move |mode| set_display_mode.call(mode))
                 .settings_visible(false),
@@ -452,6 +452,11 @@ pub fn navigation_view_state_callbacks(h: Harness) -> FixtureFuture {
             navigation.IsPaneOpen().unwrap_or(false),
         );
 
+        navigation
+            .cast::<bindings::INavigationView2>()
+            .unwrap()
+            .SetPaneDisplayMode(bindings::NavigationViewPaneDisplayMode::Auto)
+            .unwrap();
         for (width, expected) in [
             (1200.0, NavigationViewDisplayMode::Expanded),
             (800.0, NavigationViewDisplayMode::Compact),
