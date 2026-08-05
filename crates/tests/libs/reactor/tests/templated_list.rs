@@ -487,3 +487,234 @@ fn reorder_callback_refreshes_on_update() {
     assert!(!first.get(), "stale reorder closure must not fire");
     assert_eq!(second.take(), Some(vec![1, 0]));
 }
+
+#[test]
+fn keyed_reorder_moves_realized_controls_without_recreating_them() {
+    let make = |items: Vec<&'static str>| {
+        list_view(items, |item, idx| {
+            TextBlock::new(format!("{item} at {idx}"))
+        })
+        .with_key_selector(|item| (*item).to_string())
+        .build()
+    };
+    let old_el = make(vec!["A", "B", "C"]);
+    let new_el = make(vec!["C", "A", "B"]);
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    for row_idx in 0..3 {
+        r.backend.simulate_prepare_row(list_id, row_idx);
+    }
+    r.drain_realizations();
+    let before = r.backend.row_contents_of(list_id);
+
+    r.backend.clear_ops();
+    let _ = r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+    let after = r.backend.row_contents_of(list_id);
+
+    assert_eq!(after[&0], before[&2]);
+    assert_eq!(after[&1], before[&0]);
+    assert_eq!(after[&2], before[&1]);
+    assert!(
+        !r.backend
+            .ops
+            .iter()
+            .any(|op| matches!(op, Op::Create { .. } | Op::Destroy { .. })),
+        "a keyed reorder should move realized controls: {:?}",
+        r.backend.ops
+    );
+    assert!(
+        r.backend.ops.iter().any(|op| matches!(
+            op,
+            Op::SetProp {
+                prop: windows_reactor::Prop::Text,
+                value: windows_reactor::PropValue::Str(text),
+                ..
+            } if text == "C at 0"
+        )),
+        "the moved control must still receive index-dependent updates"
+    );
+}
+
+#[test]
+fn keyed_reorder_does_not_detach_an_unchanged_realized_row() {
+    let make = |items: Vec<&'static str>| {
+        list_view(items, |item, _| TextBlock::new(*item))
+            .with_key_selector(|item| (*item).to_string())
+            .build()
+    };
+    let old_el = make(vec!["A", "B", "C"]);
+    let new_el = make(vec!["A", "C", "B"]);
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    for row_idx in 0..3 {
+        r.backend.simulate_prepare_row(list_id, row_idx);
+    }
+    r.drain_realizations();
+    let before = r.backend.row_contents_of(list_id);
+
+    r.backend.clear_ops();
+    let _ = r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+    let after = r.backend.row_contents_of(list_id);
+
+    assert_eq!(after[&0], before[&0]);
+    assert!(!r.backend.ops.iter().any(|op| matches!(
+        op,
+        Op::ClearRowContent {
+            list_id: id,
+            row_idx: 0
+        } if *id == list_id
+    )));
+    assert!(!r.backend.ops.iter().any(|op| matches!(
+        op,
+        Op::MountRowContent {
+            list_id: id,
+            row_idx: 0,
+            ..
+        } if *id == list_id
+    )));
+}
+
+#[test]
+fn keyed_reorder_clears_an_unchanged_slot_that_becomes_empty() {
+    let make = |items: Vec<(&'static str, bool)>| {
+        list_view(items, |(item, visible), _| {
+            if *visible {
+                TextBlock::new(*item).into()
+            } else {
+                Element::Empty
+            }
+        })
+        .with_key_selector(|(item, _)| (*item).to_string())
+        .build()
+    };
+    let old_el = make(vec![("A", true), ("B", true), ("C", true)]);
+    let new_el = make(vec![("A", false), ("C", true), ("B", true)]);
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    for row_idx in 0..3 {
+        r.backend.simulate_prepare_row(list_id, row_idx);
+    }
+    r.drain_realizations();
+
+    r.backend.clear_ops();
+    let _ = r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+
+    assert!(!r.backend.row_contents_of(list_id).contains_key(&0));
+    assert!(r.backend.ops.iter().any(|op| matches!(
+        op,
+        Op::ClearRowContent {
+            list_id: id,
+            row_idx: 0
+        } if *id == list_id
+    )));
+}
+
+#[test]
+fn duplicate_keys_keep_positional_realized_controls() {
+    let make = |items: Vec<&'static str>| {
+        list_view(items, |item, _| TextBlock::new(*item))
+            .with_key_selector(|item| (*item).to_string())
+            .build()
+    };
+    let old_el = make(vec!["A", "A", "B"]);
+    let new_el = make(vec!["B", "A", "A"]);
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    for row_idx in 0..3 {
+        r.backend.simulate_prepare_row(list_id, row_idx);
+    }
+    r.drain_realizations();
+    let before = r.backend.row_contents_of(list_id);
+
+    r.backend.clear_ops();
+    let _ = r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+    let after = r.backend.row_contents_of(list_id);
+
+    assert_eq!(after, before, "duplicate keys must use positional fallback");
+}
+
+#[test]
+fn keyed_reorder_replaces_only_rows_crossing_the_realized_boundary() {
+    let make = |items: Vec<&'static str>| {
+        list_view(items, |item, _| TextBlock::new(*item))
+            .with_key_selector(|item| (*item).to_string())
+            .build()
+    };
+    let old_el = make(vec!["A", "B", "C", "D"]);
+    let new_el = make(vec!["B", "C", "D", "A"]);
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    r.backend.simulate_prepare_row(list_id, 0);
+    r.backend.simulate_prepare_row(list_id, 1);
+    r.drain_realizations();
+    let before = r.backend.row_contents_of(list_id);
+
+    r.backend.clear_ops();
+    let _ = r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+    let after = r.backend.row_contents_of(list_id);
+
+    assert_eq!(
+        after[&0], before[&1],
+        "B should retain its realized control"
+    );
+    assert_ne!(
+        after[&1], before[&0],
+        "C entered the realized range and needs a new control"
+    );
+    assert_eq!(
+        r.backend
+            .ops
+            .iter()
+            .filter(|op| matches!(op, Op::Create { .. }))
+            .count(),
+        1
+    );
+    assert_eq!(
+        r.backend
+            .ops
+            .iter()
+            .filter(|op| matches!(op, Op::Destroy { .. }))
+            .count(),
+        1
+    );
+}

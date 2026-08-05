@@ -120,7 +120,8 @@ Two patterns keep private `bindings::` types out of the public API.
   expected.
 - `Brush`, `Shape`, and `Animation` are sealed marker traits. Each trait exposes an `as_brush`,
   `as_shape`, or `as_animation` method. A method such as `SpriteVisual::set_brush(&impl Brush)`
-  accepts any crate-defined brush type.
+  accepts any crate-defined brush type. `CompositionAnimationGroup::add` accepts any `Animation`,
+  so scalar and vector animations can start together as one implicit animation.
 
 ### Module layout
 
@@ -134,7 +135,7 @@ Two patterns keep private `bindings::` types out of the public API.
 | `visual.rs` | Visual wrappers, child collections, and visual properties. Lifted builds expose `Visual::as_raw`. |
 | `shape.rs` | Shape visuals, shape traits, sprite and container shapes, ellipse geometry, and shape collections. |
 | `brush.rs` | Brush traits, color brushes, nine-grid brushes, and surface brushes. |
-| `animation.rs` | Animation traits, key-frame animations, easing functions, and implicit animation collections. |
+| `animation.rs` | Animation traits, key-frame animations, animation groups, easing functions, and implicit animation collections. |
 | `batch.rs` | `CompositionScopedBatch` and `BatchKind`. |
 | `color.rs` | `Color` newtype over `Windows.UI.Color`. |
 
@@ -194,8 +195,9 @@ This crate provides the lifted binding set and seam helpers for that bridge.
 `Visual::{from_host, as_raw}` adopts or exposes a visual's interop `IInspectable`.
 
 Both crates use the same `Microsoft.UI.winmd` input for lifted bindings. The `IInspectable` values
-have matching IIDs, so the casts in the seam helpers are ABI-safe. Reactor's animation engine also
-uses this crate's key-frame, easing, and implicit-animation wrappers.
+have matching IIDs, so the casts in the seam helpers are ABI-safe. Reactor's animation engine also uses this crate's key-frame, animation-group, easing, and
+implicit-animation wrappers. Element lifecycle transitions use one group when opacity and scale
+must animate together.
 
 ### Canvas bridge
 

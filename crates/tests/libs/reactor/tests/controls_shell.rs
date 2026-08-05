@@ -8,9 +8,9 @@ use windows_reactor::text_block;
 use windows_reactor::{
     BreadcrumbBar, CommandBar, CommandBarCommandDef, CommandBarDefaultLabelPosition, ContentDialog,
     InfoBadge, InfoBar, InfoBarSeverity, MenuBar, MenuBarItemDef, MenuItemDef, NavViewItem,
-    NavigationView, NavigationViewPaneDisplayMode, Pivot, PivotItem, SelectorBar,
-    SelectorBarItemDef, TabItem, TabView, TeachingTip, TeachingTipPlacementMode, TitleBar,
-    TreeNodeDef, TreeView, TreeViewSelectionMode,
+    NavigationView, NavigationViewDisplayMode, NavigationViewPaneDisplayMode, Pivot, PivotItem,
+    SelectorBar, SelectorBarItemDef, TabItem, TabView, TeachingTip, TeachingTipPlacementMode,
+    TitleBar, TreeNodeDef, TreeView, TreeViewSelectionMode,
 };
 use windows_reactor::{ControlKind, Event, Prop, PropValue};
 
@@ -103,6 +103,40 @@ fn tab_view_selected_index_update_emits_single_set() {
         })
         .collect();
     assert_eq!(selected_sets.len(), 1);
+}
+
+#[test]
+fn tab_item_key_removal_clears_the_existing_item() {
+    let tabs_a: Element =
+        TabView::new([TabItem::new("A", text_block("a")).with_key("stable")]).into();
+    let tabs_b: Element = TabView::new([TabItem::new("A", text_block("a"))]).into();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let parent = r.reconcile(None, &tabs_a, None, Rc::new(|| {})).unwrap();
+    let item = r.backend.children_of(parent)[0];
+    r.backend.clear_ops();
+
+    r.reconcile(Some(&tabs_a), &tabs_b, Some(parent), Rc::new(|| {}));
+
+    assert!(r.backend.ops.iter().any(|op| {
+        matches!(
+            op,
+            Op::SetProp {
+                id,
+                prop: Prop::ItemKey,
+                value: PropValue::Unset,
+            } if *id == item
+        )
+    }));
+    assert!(!r.backend.ops.iter().any(|op| {
+        matches!(
+            op,
+            Op::Create {
+                kind: ControlKind::TabViewItem,
+                ..
+            } | Op::Destroy { .. }
+        )
+    }));
 }
 
 #[test]
@@ -382,6 +416,47 @@ fn navigation_view_back_requested_fires_zero_arg() {
 
     r.backend.fire(nv_id, Event::BackRequested);
     assert_eq!(count.get(), 1);
+}
+
+#[test]
+fn navigation_view_state_callbacks_report_control_state() {
+    let pane_open = Rc::new(Cell::new(None));
+    let display_mode = Rc::new(Cell::new(None));
+    let nv: Element = NavigationView::new([NavViewItem::new("Home")], text_block("page"))
+        .on_pane_open_changed({
+            let pane_open = pane_open.clone();
+            move |open| pane_open.set(Some(open))
+        })
+        .on_display_mode_changed({
+            let display_mode = display_mode.clone();
+            move |mode| display_mode.set(Some(mode))
+        })
+        .into();
+    let r = mount(&nv);
+
+    let nv_id = match r.backend.ops.iter().find(|op| {
+        matches!(
+            op,
+            Op::Create {
+                kind: ControlKind::NavigationView,
+                ..
+            }
+        )
+    }) {
+        Some(Op::Create { id, .. }) => *id,
+        _ => panic!("no NavigationView Create op"),
+    };
+
+    r.backend
+        .fire_bool(nv_id, Event::NavigationPaneOpenChanged, false);
+    r.backend.fire_navigation_display_mode(
+        nv_id,
+        Event::NavigationDisplayModeChanged,
+        NavigationViewDisplayMode::Compact,
+    );
+
+    assert_eq!(pane_open.get(), Some(false));
+    assert_eq!(display_mode.get(), Some(NavigationViewDisplayMode::Compact));
 }
 
 #[test]

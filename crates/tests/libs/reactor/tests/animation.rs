@@ -48,6 +48,15 @@ fn property_op(ops: &[Op]) -> Option<&AnimationConfig> {
     })
 }
 
+fn element_transition_op(
+    ops: &[Op],
+) -> Option<(&Option<AnimationConfig>, &Option<AnimationConfig>)> {
+    ops.iter().rev().find_map(|op| match op {
+        Op::SetElementTransitions { enter, exit, .. } => Some((enter, exit)),
+        _ => None,
+    })
+}
+
 #[test]
 fn with_opacity_transition_emits_set_implicit_transitions() {
     let mut r = fresh();
@@ -271,8 +280,67 @@ fn enter_transition_fires_at_mount_time() {
         .into();
     let _ = r.reconcile(None, &el, None, no_rerender());
 
-    let p = property_op(&r.backend.ops).expect("enter should produce a run-property-animation op");
-    assert_eq!(p.opacity, Some(1.0));
+    let (enter, exit) =
+        element_transition_op(&r.backend.ops).expect("expected element transitions");
+    assert_eq!(enter.unwrap().opacity, Some(1.0));
+    assert!(exit.is_none());
+    assert!(
+        property_op(&r.backend.ops).is_none(),
+        "enter transitions use WinUI's implicit show lifecycle"
+    );
+}
+
+#[test]
+fn exit_transition_is_registered_at_mount_time() {
+    let mut r = fresh();
+    let exit = AnimationConfig::fade_out(Duration::from_millis(200));
+    let el: Element = button("hi").transition(None, Some(exit)).into();
+    let _ = r.reconcile(None, &el, None, no_rerender());
+
+    let (enter, registered_exit) =
+        element_transition_op(&r.backend.ops).expect("expected element transitions");
+    assert!(enter.is_none());
+    assert_eq!(*registered_exit, Some(exit));
+}
+
+#[test]
+fn property_animation_suppresses_enter_but_keeps_exit() {
+    let mut r = fresh();
+    let property = AnimationConfig::fade_in(Duration::from_millis(100));
+    let enter = AnimationConfig::fade_in(Duration::from_millis(200));
+    let exit = AnimationConfig::fade_out(Duration::from_millis(300));
+    let el: Element = button("hi")
+        .animate(property)
+        .transition(Some(enter), Some(exit))
+        .into();
+    let _ = r.reconcile(None, &el, None, no_rerender());
+
+    assert_eq!(property_op(&r.backend.ops), Some(&property));
+    let (registered_enter, registered_exit) =
+        element_transition_op(&r.backend.ops).expect("expected element transitions");
+    assert!(registered_enter.is_none());
+    assert_eq!(*registered_exit, Some(exit));
+}
+
+#[test]
+fn dropping_element_transitions_clears_them() {
+    let mut r = fresh();
+    let v1: Element = button("hi")
+        .transition(
+            Some(AnimationConfig::fade_in(Duration::from_millis(100))),
+            Some(AnimationConfig::fade_out(Duration::from_millis(100))),
+        )
+        .into();
+    let id = r.reconcile(None, &v1, None, no_rerender()).unwrap();
+    r.backend.clear_ops();
+
+    let v2: Element = button("hi").into();
+    let _ = r.reconcile(Some(&v1), &v2, Some(id), no_rerender());
+
+    let (enter, exit) =
+        element_transition_op(&r.backend.ops).expect("expected transition clearing");
+    assert!(enter.is_none());
+    assert!(exit.is_none());
 }
 
 #[test]

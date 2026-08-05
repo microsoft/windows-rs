@@ -59,8 +59,8 @@ pub(crate) use sealed::Sealed;
 pub(crate) use windows_core::Interface;
 
 pub use animation::{
-    Animation, CompositionAnimation, CompositionEasingFunction, ImplicitAnimationCollection,
-    ScalarKeyFrameAnimation, Vector3KeyFrameAnimation,
+    Animation, CompositionAnimation, CompositionAnimationGroup, CompositionEasingFunction,
+    ImplicitAnimationCollection, ScalarKeyFrameAnimation, Vector3KeyFrameAnimation,
 };
 pub use batch::{BatchKind, CompositionScopedBatch};
 pub use brush::{Brush, CompositionBrush, CompositionColorBrush, CompositionNineGridBrush};

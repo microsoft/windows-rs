@@ -61,6 +61,38 @@ impl windows_core::RuntimeName for CompositionAnimation {
 unsafe impl Send for CompositionAnimation {}
 unsafe impl Sync for CompositionAnimation {}
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CompositionAnimationGroup(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    CompositionAnimationGroup,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    CompositionAnimationGroup,
+    ICompositionAnimationBase,
+    CompositionObject
+);
+impl windows_core::RuntimeType for CompositionAnimationGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimationGroup>();
+}
+unsafe impl windows_core::Interface for CompositionAnimationGroup {
+    type Vtable = <ICompositionAnimationGroup as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ICompositionAnimationGroup as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for CompositionAnimationGroup {
+    type Target = ICompositionAnimationGroup;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for CompositionAnimationGroup {
+    const NAME: &'static str = "Microsoft.UI.Composition.CompositionAnimationGroup";
+}
+unsafe impl Send for CompositionAnimationGroup {}
+unsafe impl Sync for CompositionAnimationGroup {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
@@ -646,6 +678,38 @@ pub struct ICompositionAnimationBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
+    ICompositionAnimationGroup,
+    ICompositionAnimationGroup_Vtbl,
+    0xa51cdcac_b972_5ae7_81d0_9d91c71ecb7a
+);
+impl windows_core::RuntimeType for ICompositionAnimationGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ICompositionAnimationGroup {
+    pub(crate) fn Add<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<CompositionAnimation>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Add)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICompositionAnimationGroup_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Count: usize,
+    pub Add: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ICompositionBrush,
     ICompositionBrush_Vtbl,
     0x483924e7_99a5_5377_968b_dec6d40bbccd
@@ -1211,6 +1275,16 @@ impl windows_core::RuntimeType for ICompositor2 {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ICompositor2 {
+    pub(crate) fn CreateAnimationGroup(&self) -> windows_core::Result<CompositionAnimationGroup> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateAnimationGroup)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn CreateImplicitAnimationCollection(
         &self,
     ) -> windows_core::Result<ImplicitAnimationCollection> {
@@ -1238,7 +1312,10 @@ impl ICompositor2 {
 pub struct ICompositor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     CreateAmbientLight: usize,
-    CreateAnimationGroup: usize,
+    pub CreateAnimationGroup: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateBackdropBrush: usize,
     CreateDistantLight: usize,
     CreateDropShadow: usize,

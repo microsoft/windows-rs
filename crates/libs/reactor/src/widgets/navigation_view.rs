@@ -44,7 +44,9 @@ pub struct NavigationView {
     pub selected_tag: Option<String>,
     pub on_selection_changed: Option<Callback<String>>,
     pub is_pane_open: bool,
+    pub on_pane_open_changed: Option<Callback<bool>>,
     pub pane_display_mode: NavigationViewPaneDisplayMode,
+    pub on_display_mode_changed: Option<Callback<NavigationViewDisplayMode>>,
     pub is_back_enabled: bool,
     pub on_back_requested: Option<Callback<()>>,
     pub is_settings_visible: bool,
@@ -70,7 +72,9 @@ impl Default for NavigationView {
             selected_tag: None,
             on_selection_changed: None,
             is_pane_open: true,
+            on_pane_open_changed: None,
             pane_display_mode: NavigationViewPaneDisplayMode::Auto,
+            on_display_mode_changed: None,
             is_back_enabled: false,
             on_back_requested: None,
             is_settings_visible: true,
@@ -111,8 +115,19 @@ impl NavigationView {
         self.is_pane_open = v;
         self
     }
+    pub fn on_pane_open_changed(mut self, f: impl IntoCallback<bool>) -> Self {
+        self.on_pane_open_changed = Some(f.into_callback());
+        self
+    }
     pub fn pane_display_mode(mut self, mode: NavigationViewPaneDisplayMode) -> Self {
         self.pane_display_mode = mode;
+        self
+    }
+    pub fn on_display_mode_changed(
+        mut self,
+        f: impl IntoCallback<NavigationViewDisplayMode>,
+    ) -> Self {
+        self.on_display_mode_changed = Some(f.into_callback());
         self
     }
     pub fn back_enabled(mut self, v: bool) -> Self {
@@ -203,6 +218,18 @@ impl Widget for NavigationView {
         out.push(Binding::Prop(
             Prop::AutoSuggestItems,
             PropValue::StrList(self.auto_suggest_items.clone()),
+        ));
+        out.push(Binding::Event(
+            Event::NavigationPaneOpenChanged,
+            self.on_pane_open_changed
+                .as_ref()
+                .map(|callback| EventHandler::Bool(callback.clone())),
+        ));
+        out.push(Binding::Event(
+            Event::NavigationDisplayModeChanged,
+            self.on_display_mode_changed
+                .as_ref()
+                .map(|callback| EventHandler::NavigationDisplayMode(callback.clone())),
         ));
         out
     }

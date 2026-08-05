@@ -3,10 +3,15 @@
 //! fires and the next render reflects the new state. These complement the
 //! purely-structural `mount_*` fixtures, which only assert initial render.
 
+use std::time::Duration;
+
 use windows_core::Interface as _;
 
+use windows_reactor::AnimationConfig;
 use windows_reactor::Element;
 use windows_reactor::Icon;
+use windows_reactor::NavViewItem;
+use windows_reactor::NavigationView;
 use windows_reactor::Symbol;
 use windows_reactor::vstack;
 use windows_reactor::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
@@ -488,14 +493,27 @@ pub fn button_icon_glyph_change_preserves_text(h: Harness) -> FixtureFuture {
 }
 
 /// Verify that the non-`Symbol` [`Icon`](windows_reactor::Icon) kinds construct
-/// and attach real WinUI elements.
-pub fn button_image_and_font_icons(h: Harness) -> FixtureFuture {
+/// and attach the intended WinUI `IconElement` subclasses.
+pub fn button_icon_subclasses(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
             vstack((
                 button("Starred").icon(Icon::font("\u{E734}")),
                 button("Raster").icon(Icon::image("ms-appx:///Assets/logo.png")),
                 button("Vector").icon(Icon::image("ms-appx:///Assets/logo.svg")),
+                button("Monochrome bitmap")
+                    .icon(Icon::bitmap_icon("ms-appx:///Assets/logo.png", true)),
+                button("Color bitmap").icon(Icon::bitmap_icon("ms-appx:///Assets/logo.png", false)),
+                button("Path").icon(Icon::path("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z")),
+                NavigationView::new(
+                    [
+                        NavViewItem::new("Bitmap item")
+                            .icon(Icon::bitmap_icon("ms-appx:///Assets/logo.png", false)),
+                        NavViewItem::new("Path item").icon(Icon::path("F1 M 0,0 L 12,0 L 6,12 Z")),
+                    ],
+                    text_block("Navigation icon host"),
+                )
+                .settings_visible(false),
             ))
             .into()
         }));
@@ -530,6 +548,96 @@ pub fn button_image_and_font_icons(h: Harness) -> FixtureFuture {
             .filter(|source| source.cast::<crate::bindings::SvgImageSource>().is_ok())
             .count();
         h.check("Interaction_ButtonIcon_SvgSourceCreated", svg_sources == 1);
+
+        let bitmap_icons = h.find_all::<crate::bindings::BitmapIcon>(&|_| true);
+        h.check(
+            "Interaction_ButtonIcon_BitmapIconsCreated",
+            bitmap_icons.len() >= 2,
+        );
+        let monochrome_modes: Vec<_> = bitmap_icons
+            .iter()
+            .map(|icon| icon.ShowAsMonochrome().unwrap())
+            .collect();
+        h.check(
+            "Interaction_ButtonIcon_BitmapModesApplied",
+            monochrome_modes.contains(&false) && monochrome_modes.contains(&true),
+        );
+
+        let path_icons = h.find_all::<crate::bindings::PathIcon>(&|_| true);
+        h.check(
+            "Interaction_ButtonIcon_PathIconCreated",
+            !path_icons.is_empty(),
+        );
+        h.check(
+            "Interaction_ButtonIcon_PathDataParsed",
+            path_icons.first().is_some_and(|icon| icon.Data().is_ok()),
+        );
+
+        let navigation = h
+            .find_all::<crate::bindings::NavigationView>(&|_| true)
+            .into_iter()
+            .next()
+            .unwrap();
+        let items = navigation.MenuItems().unwrap();
+        let bitmap_item: crate::bindings::NavigationViewItem =
+            items.GetAt(0).unwrap().cast().unwrap();
+        let path_item: crate::bindings::NavigationViewItem =
+            items.GetAt(1).unwrap().cast().unwrap();
+        h.check(
+            "Interaction_NavigationViewItem_CustomIconsCreated",
+            bitmap_item
+                .Icon()
+                .is_ok_and(|icon| icon.cast::<crate::bindings::BitmapIcon>().is_ok())
+                && path_item
+                    .Icon()
+                    .is_ok_and(|icon| icon.cast::<crate::bindings::PathIcon>().is_ok()),
+        );
+    })
+}
+
+pub fn element_exit_transition(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|cx| {
+            let (visible, set_visible) = cx.use_state(true);
+            let (transition_enabled, set_transition_enabled) = cx.use_state(true);
+            let child: Element = if visible {
+                let mut child = button("Animated child");
+                if transition_enabled {
+                    child = child.transition(
+                        Some(AnimationConfig::fade_in(Duration::from_millis(100))),
+                        Some(AnimationConfig::fade_out(Duration::from_millis(800))),
+                    );
+                }
+                child.into()
+            } else {
+                Element::Empty
+            };
+
+            vstack((
+                button("Toggle child transition")
+                    .on_click(move || set_transition_enabled.call(!transition_enabled)),
+                button("Remove animated child").on_click(move || set_visible.call(false)),
+                child,
+            ))
+            .into()
+        }));
+        h.render().await;
+
+        let _ = h.click_button("Toggle child transition");
+        h.render().await;
+        h.check(
+            "Interaction_ExitTransition_ClearedWithoutRemoval",
+            h.find_button("Animated child").is_some(),
+        );
+
+        let _ = h.click_button("Toggle child transition");
+        h.render().await;
+        let _ = h.click_button("Remove animated child");
+        h.render().await;
+        h.check(
+            "Interaction_ExitTransition_LogicalRemovalImmediate",
+            h.find_button("Animated child").is_none(),
+        );
     })
 }
 

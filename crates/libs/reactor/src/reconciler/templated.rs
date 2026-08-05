@@ -207,9 +207,161 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
         }
 
-        if !old.same_items_as(new) {
+        if !old.same_items_as(new) && !self.remap_keyed_realized_rows(id, old, new) {
             self.refresh_realized_rows(id, new);
         }
+    }
+
+    /// Preserves realized row controls across an equal-length keyed reorder.
+    ///
+    /// The backend's item source remains an identity vector of native slots. Moving a logical item
+    /// therefore means detaching its realized control from the old slot and attaching it to the
+    /// slot where the same key now appears. Count changes stay on the positional path because they
+    /// can synchronously change WinUI realization while the item source is being resized.
+    fn remap_keyed_realized_rows(
+        &mut self,
+        id: ControlId,
+        old: &TemplatedListElement,
+        new: &TemplatedListElement,
+    ) -> bool {
+        let count = old.item_count();
+        if count != new.item_count() || matches!(new.kind, TemplatedKind::FlipView) {
+            return false;
+        }
+
+        let realized_indices: Vec<usize> = {
+            let state = self.templated_lists.get(&id).unwrap();
+            state
+                .rows
+                .iter()
+                .enumerate()
+                .filter_map(|(idx, row)| row.as_ref().map(|_| idx))
+                .collect()
+        };
+        if realized_indices.is_empty() {
+            return false;
+        }
+
+        // Content-only updates are common and should remain proportional to the realized window.
+        // A full key map is only needed when a visible slot actually changed identity.
+        let visible_order_changed = realized_indices.iter().copied().any(|idx| {
+            let old_key = old.item_key(idx);
+            let new_key = new.item_key(idx);
+            old_key.is_none() || new_key.is_none() || old_key != new_key
+        });
+        if !visible_order_changed {
+            return false;
+        }
+
+        let mut realized_slots = vec![false; count];
+        for idx in realized_indices {
+            realized_slots[idx] = true;
+        }
+
+        let mut new_indices = FxHashMap::default();
+        for new_idx in 0..count {
+            let Some(key) = new.item_key(new_idx) else {
+                return false;
+            };
+            if new_indices.insert(key, new_idx).is_some() {
+                return false;
+            }
+        }
+
+        let mut old_keys = rustc_hash::FxHashSet::default();
+        let mut old_to_new = Vec::with_capacity(count);
+        let mut order_changed = false;
+        for old_idx in 0..count {
+            let Some(key) = old.item_key(old_idx) else {
+                return false;
+            };
+            let Some(new_idx) = new_indices.get(&key).copied() else {
+                return false;
+            };
+            if !old_keys.insert(key) {
+                return false;
+            }
+            order_changed |= old_idx != new_idx;
+            old_to_new.push(new_idx);
+        }
+        if !order_changed {
+            return false;
+        }
+
+        let old_rows = {
+            let state = self.templated_lists.get_mut(&id).unwrap();
+            std::mem::take(&mut state.rows)
+        };
+        let mut new_rows: Vec<Option<RealizedRow>> = Vec::with_capacity(count);
+        new_rows.resize_with(count, || None);
+        let mut moved_into = vec![false; count];
+        let mut dropped = Vec::new();
+
+        for (old_idx, row) in old_rows.into_iter().enumerate() {
+            let Some(row) = row else { continue };
+            let new_idx = old_to_new[old_idx];
+            if realized_slots[new_idx] {
+                new_rows[new_idx] = Some(row);
+                moved_into[new_idx] = old_idx != new_idx;
+            } else {
+                dropped.push(row.content_id);
+            }
+        }
+
+        for (row_idx, realized) in realized_slots.iter().copied().enumerate() {
+            if realized && old_to_new[row_idx] != row_idx {
+                self.backend.set_templated_row_content(id, row_idx, None);
+            }
+        }
+        for content_id in dropped {
+            self.dispatch_disappeared(content_id);
+            self.unmount(content_id);
+        }
+
+        if let Some(state) = self.templated_lists.get_mut(&id) {
+            state.rows = new_rows;
+        }
+
+        for (row_idx, realized) in realized_slots.into_iter().enumerate() {
+            if !realized {
+                continue;
+            }
+            let existing = self
+                .templated_lists
+                .get_mut(&id)
+                .and_then(|state| state.rows[row_idx].take());
+            let new_el = new.build_item_view(row_idx);
+
+            if let Some(row) = existing {
+                let new_id = self.update(&row.rendered, &new_el, row.content_id);
+                if let Some(content_id) = new_id {
+                    if moved_into[row_idx] || content_id != row.content_id {
+                        self.backend
+                            .set_templated_row_content(id, row_idx, Some(content_id));
+                    }
+                    if let Some(state) = self.templated_lists.get_mut(&id) {
+                        state.rows[row_idx] = Some(RealizedRow {
+                            rendered: new_el,
+                            content_id,
+                        });
+                    }
+                } else {
+                    self.backend.set_templated_row_content(id, row_idx, None);
+                }
+            } else if let Some(content_id) = self.mount(&new_el) {
+                self.backend
+                    .set_templated_row_content(id, row_idx, Some(content_id));
+                if let Some(state) = self.templated_lists.get_mut(&id) {
+                    state.rows[row_idx] = Some(RealizedRow {
+                        rendered: new_el,
+                        content_id,
+                    });
+                }
+                self.dispatch_appeared(content_id);
+            }
+        }
+
+        true
     }
 
     fn refresh_realized_rows(&mut self, id: ControlId, new: &TemplatedListElement) {
@@ -234,7 +386,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             };
             let new_el = new.build_item_view(row_idx);
 
-            if can_skip_update(&old_el, &new_el) {
+            if !self.force_component_rerender && can_skip_update(&old_el, &new_el) {
                 self.debug_elements_skipped += 1;
                 if let Some(state) = self.templated_lists.get_mut(&id)
                     && let Some(Some(row)) = state.rows.get_mut(row_idx)

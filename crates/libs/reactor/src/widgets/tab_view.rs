@@ -73,6 +73,7 @@ impl TabView {
 }
 
 impl TabItem {
+    /// Sets the stable identity reported by [`TabView::on_close_requested`].
     pub fn with_key(mut self, key: impl Into<String>) -> Self {
         self.key = Some(key.into());
         self

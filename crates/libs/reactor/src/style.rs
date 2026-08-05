@@ -35,6 +35,112 @@ impl From<f64> for Thickness {
     }
 }
 
+#[derive(Copy, Clone, Debug, PartialEq)]
+pub struct CornerRadius {
+    pub top_left: f64,
+    pub top_right: f64,
+    pub bottom_right: f64,
+    pub bottom_left: f64,
+}
+
+impl CornerRadius {
+    pub const fn uniform(v: f64) -> Self {
+        Self {
+            top_left: v,
+            top_right: v,
+            bottom_right: v,
+            bottom_left: v,
+        }
+    }
+
+    pub const fn new(top_left: f64, top_right: f64, bottom_right: f64, bottom_left: f64) -> Self {
+        Self {
+            top_left,
+            top_right,
+            bottom_right,
+            bottom_left,
+        }
+    }
+}
+
+impl From<f64> for CornerRadius {
+    fn from(v: f64) -> Self {
+        Self::uniform(v)
+    }
+}
+
+/// A typed value stored in an element's WinUI resource dictionary.
+#[derive(Clone, Debug, PartialEq)]
+pub enum ResourceValue {
+    String(String),
+    /// A [`Color`] converted to a WinUI `SolidColorBrush`.
+    SolidColorBrush(Color),
+    F64(f64),
+    Thickness(Thickness),
+    CornerRadius(CornerRadius),
+}
+
+impl From<&str> for ResourceValue {
+    fn from(value: &str) -> Self {
+        Self::String(value.into())
+    }
+}
+
+impl From<String> for ResourceValue {
+    fn from(value: String) -> Self {
+        Self::String(value)
+    }
+}
+
+impl From<Color> for ResourceValue {
+    fn from(value: Color) -> Self {
+        Self::SolidColorBrush(value)
+    }
+}
+
+impl From<f64> for ResourceValue {
+    fn from(value: f64) -> Self {
+        Self::F64(value)
+    }
+}
+
+impl From<Thickness> for ResourceValue {
+    fn from(value: Thickness) -> Self {
+        Self::Thickness(value)
+    }
+}
+
+impl From<CornerRadius> for ResourceValue {
+    fn from(value: CornerRadius) -> Self {
+        Self::CornerRadius(value)
+    }
+}
+
+#[derive(Default)]
+pub struct ResourceBuilder {
+    pub(crate) entries: HashMap<String, ResourceValue>,
+}
+
+impl ResourceBuilder {
+    pub fn set(mut self, key: impl Into<String>, value: impl Into<ResourceValue>) -> Self {
+        self.entries.insert(key.into(), value.into());
+        self
+    }
+
+    pub fn extend<K, V>(mut self, entries: impl IntoIterator<Item = (K, V)>) -> Self
+    where
+        K: Into<String>,
+        V: Into<ResourceValue>,
+    {
+        self.entries.extend(
+            entries
+                .into_iter()
+                .map(|(key, value)| (key.into(), value.into())),
+        );
+        self
+    }
+}
+
 impl Color {
     pub const fn rgb(r: u8, g: u8, b: u8) -> Self {
         Self { a: 255, r, g, b }
@@ -474,7 +580,7 @@ pub struct Modifiers {
     pub drag_handlers: Option<Box<DragHandlers>>,
     /// Fast path for grid row/column placement.
     pub grid: Option<GridPlacement>,
-    pub resources: HashMap<String, String>,
+    pub resources: HashMap<String, ResourceValue>,
 }
 
 impl Modifiers {
@@ -609,6 +715,9 @@ pub struct PointerHandlers {
     pub on_pointer_moved: Option<Callback<PointerEventInfo>>,
     pub on_pointer_entered: Option<Callback<PointerEventInfo>>,
     pub on_pointer_exited: Option<Callback<()>>,
+    pub on_pointer_capture_lost: Option<Callback<()>>,
+    pub on_pointer_canceled: Option<Callback<()>>,
+    pub capture_pointer_on_press: bool,
 }
 
 impl PointerHandlers {
@@ -620,14 +729,27 @@ impl PointerHandlers {
             && self.on_pointer_moved.is_none()
             && self.on_pointer_entered.is_none()
             && self.on_pointer_exited.is_none()
+            && self.on_pointer_capture_lost.is_none()
+            && self.on_pointer_canceled.is_none()
+            && !self.capture_pointer_on_press
     }
 }
 
-/// Pointer callback state, with `x`/`y` in DIPs relative to the element.
+/// Pointer callback state in element-local and window-relative DIPs.
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PointerEventInfo {
+    /// Horizontal position relative to the element.
     pub x: f64,
+    /// Vertical position relative to the element.
     pub y: f64,
+    /// Horizontal position relative to the overall window.
+    pub window_x: f64,
+    /// Vertical position relative to the overall window.
+    pub window_y: f64,
+    /// Whether `.capture_pointer_on_press()` captured this pointer.
+    ///
+    /// This is only set for `on_pointer_pressed` callbacks.
+    pub capture_succeeded: bool,
     pub is_left_button_pressed: bool,
     pub is_right_button_pressed: bool,
     pub is_middle_button_pressed: bool,

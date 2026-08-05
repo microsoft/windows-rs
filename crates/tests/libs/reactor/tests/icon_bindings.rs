@@ -57,15 +57,16 @@ fn image_source_converts_into_icon() {
 }
 
 #[test]
-fn bitmap_shorthand_uses_generic_image_source() {
+fn bitmap_icon_carries_native_rendering_mode() {
     let el: Element = Button::new("b")
-        .icon(Icon::bitmap("ms-appx:///logo.png"))
+        .icon(Icon::bitmap_icon("ms-appx:///logo.png", true))
         .into();
     assert_eq!(
         icon_value(&el),
-        Some(PropValue::Icon(Icon::Image(ImageSource::uri(
-            "ms-appx:///logo.png"
-        ))))
+        Some(PropValue::Icon(Icon::Bitmap {
+            uri: "ms-appx:///logo.png".into(),
+            show_as_monochrome: true,
+        }))
     );
 }
 
@@ -89,6 +90,19 @@ fn font_icon_carries_glyph_and_optional_family() {
             glyph: "\u{E734}".into(),
             family: Some("Segoe Fluent Icons".into()),
         }))
+    );
+}
+
+#[test]
+fn path_icon_carries_geometry_data() {
+    let el: Element = Button::new("b")
+        .icon(Icon::path("F1 M 16,12 20,2L 20,16 1,16"))
+        .into();
+    assert_eq!(
+        icon_value(&el),
+        Some(PropValue::Icon(Icon::Path(
+            "F1 M 16,12 20,2L 20,16 1,16".into()
+        )))
     );
 }
 

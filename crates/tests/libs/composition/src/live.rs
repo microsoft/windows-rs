@@ -130,6 +130,22 @@ fn key_frame_animation_starts_on_visual() {
 }
 
 #[test]
+fn animation_group_accepts_multiple_animations() {
+    let c = compositor();
+    let opacity = c.create_scalar_key_frame_animation();
+    opacity.set_target("Opacity");
+    opacity.insert_key_frame_with_easing(1.0, 1.0, &c.create_linear_easing_function());
+
+    let scale = c.create_vector3_key_frame_animation();
+    scale.set_target("Scale");
+    scale.insert_key_frame(1.0, Vector3::new(1.0, 1.0, 1.0));
+
+    let group = c.create_animation_group();
+    group.add(&opacity);
+    group.add(&scale);
+}
+
+#[test]
 fn scoped_batch_ends() {
     let c = compositor();
     let batch = c.create_scoped_batch(BatchKind::Animation);

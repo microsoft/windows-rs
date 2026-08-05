@@ -3,15 +3,23 @@ use super::*;
 /// An icon displayed by controls that accept a WinUI `IconElement` - buttons,
 /// [`NavViewItem`]s, command-bar buttons, and [`SelectorBarItemDef`]s.
 ///
-/// Construct one from a built-in [`Symbol`], an [`ImageSource`], or a font glyph.
-/// A bare [`Symbol`] converts into an `Icon` automatically (`impl Into<Icon>`),
-/// so `.icon(Symbol::Home)` keeps working alongside `.icon(Icon::image(...))`.
+/// Construct one from a built-in [`Symbol`], an [`ImageSource`], a bitmap mask,
+/// a font glyph, or vector path data. A bare [`Symbol`] converts into an `Icon`
+/// automatically (`impl Into<Icon>`), so `.icon(Symbol::Home)` keeps working
+/// alongside `.icon(Icon::image(...))`.
 #[derive(Clone, Debug, PartialEq)]
 pub enum Icon {
     /// A built-in system glyph from the [`Symbol`] enum (WinUI `SymbolIcon`).
     Symbol(Symbol),
     /// An image rendered in full color using the source's native format.
     Image(ImageSource),
+    /// A URI image rendered by WinUI `BitmapIcon`.
+    Bitmap {
+        /// The image URI.
+        uri: String,
+        /// Whether WinUI replaces non-transparent pixels with the icon foreground.
+        show_as_monochrome: bool,
+    },
     /// A glyph from a font (WinUI `FontIcon`). When `family` is `None`, the
     /// control's default icon font is used.
     Font {
@@ -20,6 +28,8 @@ pub enum Icon {
         /// The font family to select the glyph from, e.g. `"Segoe Fluent Icons"`.
         family: Option<String>,
     },
+    /// XAML path mini-language data rendered by WinUI `PathIcon`.
+    Path(String),
 }
 
 impl Icon {
@@ -33,11 +43,17 @@ impl Icon {
         Self::Image(source.into())
     }
 
-    /// A raster image loaded from a URI.
+    /// A native WinUI `BitmapIcon` loaded from a URI.
     ///
-    /// This is a compatibility shorthand for [`Icon::image`].
-    pub fn bitmap(uri: impl Into<String>) -> Self {
-        Self::image(ImageSource::uri(uri))
+    /// Set `show_as_monochrome` to `true` for a foreground-tinted mask or
+    /// `false` to preserve the bitmap's colors. Use [`Icon::image`] for SVG
+    /// sources, surfaces, and full-color images that do not need `BitmapIcon`
+    /// behavior.
+    pub fn bitmap_icon(uri: impl Into<String>, show_as_monochrome: bool) -> Self {
+        Self::Bitmap {
+            uri: uri.into(),
+            show_as_monochrome,
+        }
     }
 
     /// A font glyph rendered with the control's default icon font.
@@ -54,6 +70,13 @@ impl Icon {
             glyph: glyph.into(),
             family: Some(family.into()),
         }
+    }
+
+    /// A vector icon described with the XAML path mini-language.
+    ///
+    /// WinUI parses the path data when the native icon is created.
+    pub fn path(data: impl Into<String>) -> Self {
+        Self::Path(data.into())
     }
 }
 

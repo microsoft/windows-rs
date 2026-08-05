@@ -235,11 +235,16 @@ impl<B: Backend + 'static> Reconciler<B> {
                 self.backend
                     .set_prop(tab_id, Prop::Header, &PropValue::Str(n.header.clone()));
             }
-            if o.key != n.key
-                && let Some(key) = &n.key
-            {
-                self.backend
-                    .set_prop(tab_id, Prop::ItemKey, &PropValue::Str(key.clone()));
+            if o.key != n.key {
+                match &n.key {
+                    Some(key) => {
+                        self.backend
+                            .set_prop(tab_id, Prop::ItemKey, &PropValue::Str(key.clone()));
+                    }
+                    None => self
+                        .backend
+                        .set_prop(tab_id, Prop::ItemKey, &PropValue::Unset),
+                }
             }
             if o.is_closable != n.is_closable {
                 // Either explicit value (set new), or transition to default

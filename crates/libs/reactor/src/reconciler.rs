@@ -571,10 +571,17 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_layout_animation(id, Some(la));
         }
 
+        let enter = match anim.property_animation {
+            None => anim.enter_transition,
+            Some(_) => None,
+        };
+        if enter.is_some() || anim.exit_transition.is_some() {
+            self.backend
+                .set_element_transitions(id, enter, anim.exit_transition);
+        }
+
         if let Some(p) = anim.property_animation {
             self.backend.run_property_animation(id, Some(p));
-        } else if let Some(enter) = anim.enter_transition {
-            self.backend.run_property_animation(id, Some(enter));
         }
     }
 
@@ -600,6 +607,21 @@ impl<B: Backend + 'static> Reconciler<B> {
         let new_pa = new.and_then(|a| a.property_animation);
         if old_pa != new_pa {
             self.backend.run_property_animation(id, new_pa);
+        }
+
+        let old_enter = old.and_then(|a| match a.property_animation {
+            None => a.enter_transition,
+            Some(_) => None,
+        });
+        let new_enter = new.and_then(|a| match a.property_animation {
+            None => a.enter_transition,
+            Some(_) => None,
+        });
+        let old_exit = old.and_then(|a| a.exit_transition);
+        let new_exit = new.and_then(|a| a.exit_transition);
+        if old_enter != new_enter || old_exit != new_exit {
+            self.backend
+                .set_element_transitions(id, new_enter, new_exit);
         }
     }
 
@@ -750,7 +772,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.apply_grid_placement_full(id, new.grid.unwrap_or_default());
         }
 
-        if old.resources != new.resources && !new.resources.is_empty() {
+        if old.resources != new.resources {
             self.backend.set_prop(
                 id,
                 Prop::Resources,
