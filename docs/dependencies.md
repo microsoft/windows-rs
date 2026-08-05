@@ -76,9 +76,9 @@ Each feeds an in-house generator producing a committed `.winmd` in `windows-defa
 is embedded for Rust build tools and remains available as files for external tools. Provenance is
 documented in [`crates/libs/default/readme.md`](../crates/libs/default/readme.md).
 
-`windows-bindgen`, `windows-rdl`, `windows-clang`, and `windows-csharp` depend on `windows-default`
-so their builders can select this metadata without filesystem paths. Binaries linking those crates
-include both metadata files.
+`windows-bindgen`, `windows-rdl`, and `windows-clang` depend on `windows-default` so their builders
+can select this metadata without filesystem paths. Binaries linking those crates include both
+metadata files.
 
 | Package | Owner (pin) | Produces |
 | --- | --- | --- |
@@ -166,8 +166,7 @@ loudly on drift) that:
 - `assets/app.manifest` / `assets/resources.pri` are **generated activation assets with no committed
   generator** - `app.manifest` transforms the App SDK `package.appxfragment` files into SxS fusion
   format (source versions in its header). They are forward-compatible, so refreshed only when the
-  reactor control set needs newly-moved classes, not on every bump. Automating them is tracked in
-  [windows-reactor](crates/windows-reactor.md).
+  reactor control set needs newly-moved classes, not on every bump.
 
 See [windows-reactor](crates/windows-reactor.md) and
 [windows-reactor-setup](crates/windows-reactor-setup.md).
