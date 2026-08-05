@@ -10,6 +10,8 @@ use windows_core::Interface as _;
 use windows_reactor::AnimationConfig;
 use windows_reactor::Element;
 use windows_reactor::Icon;
+use windows_reactor::NavViewItem;
+use windows_reactor::NavigationView;
 use windows_reactor::Symbol;
 use windows_reactor::vstack;
 use windows_reactor::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
@@ -503,6 +505,15 @@ pub fn button_icon_subclasses(h: Harness) -> FixtureFuture {
                     .icon(Icon::bitmap_icon("ms-appx:///Assets/logo.png", true)),
                 button("Color bitmap").icon(Icon::bitmap_icon("ms-appx:///Assets/logo.png", false)),
                 button("Path").icon(Icon::path("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z")),
+                NavigationView::new(
+                    [
+                        NavViewItem::new("Bitmap item")
+                            .icon(Icon::bitmap_icon("ms-appx:///Assets/logo.png", false)),
+                        NavViewItem::new("Path item").icon(Icon::path("F1 M 0,0 L 12,0 L 6,12 Z")),
+                    ],
+                    text_block("Navigation icon host"),
+                )
+                .settings_visible(false),
             ))
             .into()
         }));
@@ -555,11 +566,31 @@ pub fn button_icon_subclasses(h: Harness) -> FixtureFuture {
         let path_icons = h.find_all::<crate::bindings::PathIcon>(&|_| true);
         h.check(
             "Interaction_ButtonIcon_PathIconCreated",
-            path_icons.len() == 1,
+            !path_icons.is_empty(),
         );
         h.check(
             "Interaction_ButtonIcon_PathDataParsed",
             path_icons.first().is_some_and(|icon| icon.Data().is_ok()),
+        );
+
+        let navigation = h
+            .find_all::<crate::bindings::NavigationView>(&|_| true)
+            .into_iter()
+            .next()
+            .unwrap();
+        let items = navigation.MenuItems().unwrap();
+        let bitmap_item: crate::bindings::NavigationViewItem =
+            items.GetAt(0).unwrap().cast().unwrap();
+        let path_item: crate::bindings::NavigationViewItem =
+            items.GetAt(1).unwrap().cast().unwrap();
+        h.check(
+            "Interaction_NavigationViewItem_CustomIconsCreated",
+            bitmap_item
+                .Icon()
+                .is_ok_and(|icon| icon.cast::<crate::bindings::BitmapIcon>().is_ok())
+                && path_item
+                    .Icon()
+                    .is_ok_and(|icon| icon.cast::<crate::bindings::PathIcon>().is_ok()),
         );
     })
 }

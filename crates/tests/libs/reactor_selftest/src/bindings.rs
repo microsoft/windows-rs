@@ -11266,6 +11266,16 @@ impl windows_core::RuntimeType for INavigationViewItem {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl INavigationViewItem {
+    pub(crate) fn Icon(&self) -> windows_core::Result<IconElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Icon)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IconElement>,
@@ -11282,7 +11292,10 @@ impl INavigationViewItem {
 #[repr(C)]
 pub struct INavigationViewItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    Icon: usize,
+    pub Icon: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub SetIcon: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,

@@ -5,7 +5,7 @@ use windows_reactor::{
     PasswordBox, PasswordRevealMode, PersonPicture, Pivot, PivotItem, ProgressBar, ProgressRing,
     RadioButton, RadioButtons, Shape, Slider, TabItem, TabView, TitleBar, ToggleSwitch, Viewbox,
 };
-use windows_reactor::{Color, GridLength, RenderCx, component};
+use windows_reactor::{Color, CornerRadius, GridLength, RenderCx, Thickness, component};
 use windows_reactor::{
     ElementExt, border, button, check_box, scroll_viewer, swap_chain_panel, text_block, text_box,
 };
@@ -36,6 +36,40 @@ fn resource_value(
     key: &str,
 ) -> Option<windows_core::IInspectable> {
     map.Lookup(&windows_reference::IReference::from(key)).ok()
+}
+
+fn resource_string(
+    map: &windows_collections::IMap<windows_core::IInspectable, windows_core::IInspectable>,
+    key: &str,
+) -> Option<String> {
+    resource_value(map, key)?
+        .cast::<windows_reference::IReference<windows_core::HSTRING>>()
+        .ok()?
+        .Value()
+        .ok()
+        .map(|value| value.to_string_lossy())
+}
+
+fn resource_thickness(
+    map: &windows_collections::IMap<windows_core::IInspectable, windows_core::IInspectable>,
+    key: &str,
+) -> Option<bindings::Thickness> {
+    resource_value(map, key)?
+        .cast::<windows_reference::IReference<bindings::Thickness>>()
+        .ok()?
+        .Value()
+        .ok()
+}
+
+fn resource_corner_radius(
+    map: &windows_collections::IMap<windows_core::IInspectable, windows_core::IInspectable>,
+    key: &str,
+) -> Option<bindings::CornerRadius> {
+    resource_value(map, key)?
+        .cast::<windows_reference::IReference<bindings::CornerRadius>>()
+        .ok()?
+        .Value()
+        .ok()
 }
 
 fn has_resource_key(
@@ -379,7 +413,7 @@ pub fn navigation_view_state_callbacks(h: Harness) -> FixtureFuture {
                     text_block("navigation body"),
                 )
                 .pane_open(pane_open)
-                .pane_display_mode(NavigationViewPaneDisplayMode::Left)
+                .pane_display_mode(NavigationViewPaneDisplayMode::Auto)
                 .on_pane_open_changed(move |open| set_pane_open.call(open))
                 .on_display_mode_changed(move |mode| set_display_mode.call(mode))
                 .settings_visible(false),
@@ -418,30 +452,28 @@ pub fn navigation_view_state_callbacks(h: Harness) -> FixtureFuture {
             navigation.IsPaneOpen().unwrap_or(false),
         );
 
-        navigation
-            .cast::<bindings::INavigationView2>()
-            .unwrap()
-            .SetPaneDisplayMode(bindings::NavigationViewPaneDisplayMode::Top)
-            .unwrap();
-        h.render_until("navigation display mode callback", |h| {
-            navigation.DisplayMode().is_ok_and(|mode| {
-                h.find_text(&format!(
-                    "Display mode: {}",
-                    navigation_display_mode_name(mode.0)
-                ))
-                .is_some()
-            })
-        })
-        .await;
-        let actual_mode = navigation.DisplayMode().unwrap();
-        h.check(
-            "NavigationState_DisplayModeReported",
-            h.find_text(&format!(
-                "Display mode: {}",
-                navigation_display_mode_name(actual_mode.0)
-            ))
-            .is_some(),
-        );
+        for (width, expected) in [
+            (1200.0, NavigationViewDisplayMode::Expanded),
+            (800.0, NavigationViewDisplayMode::Compact),
+            (500.0, NavigationViewDisplayMode::Minimal),
+        ] {
+            navigation
+                .cast::<bindings::IFrameworkElement>()
+                .unwrap()
+                .SetWidth(width)
+                .unwrap();
+            let expected_name = navigation_display_mode_name(expected.0);
+            let reached = h
+                .render_until("navigation responsive display mode", |h| {
+                    navigation
+                        .DisplayMode()
+                        .is_ok_and(|mode| mode.0 == expected.0)
+                        && h.find_text(&format!("Display mode: {expected_name}"))
+                            .is_some()
+                })
+                .await;
+            h.check(&format!("NavigationState_AutoMode{expected_name}"), reached);
+        }
     })
 }
 
@@ -893,11 +925,17 @@ pub fn lightweight_resources(h: Harness) -> FixtureFuture {
                     resources
                         .set("ButtonBackground", Color::rgb(178, 34, 34))
                         .set("ReactorScalar", 1.0)
+                        .set("ReactorString", "Destructive")
+                        .set("ReactorThickness", Thickness::uniform(3.0))
+                        .set("ReactorCornerRadius", CornerRadius::uniform(6.0))
                 }),
                 1 => button("Resource target").resource_overrides(|resources| {
                     resources
                         .set("ButtonBackground", Color::rgb(30, 90, 180))
                         .set("ReactorScalar", 2.0)
+                        .set("ReactorString", "Updated")
+                        .set("ReactorThickness", Thickness::uniform(4.0))
+                        .set("ReactorCornerRadius", CornerRadius::uniform(8.0))
                 }),
                 _ => button("Resource target"),
             };
@@ -930,6 +968,30 @@ pub fn lightweight_resources(h: Harness) -> FixtureFuture {
                 .and_then(|value| value.Value().ok())
                 == Some(1.0),
         );
+        h.check(
+            "Resources_TypedString",
+            resource_string(&map, "ReactorString").as_deref() == Some("Destructive"),
+        );
+        h.check(
+            "Resources_TypedThickness",
+            resource_thickness(&map, "ReactorThickness")
+                == Some(bindings::Thickness {
+                    left: 3.0,
+                    top: 3.0,
+                    right: 3.0,
+                    bottom: 3.0,
+                }),
+        );
+        h.check(
+            "Resources_TypedCornerRadius",
+            resource_corner_radius(&map, "ReactorCornerRadius")
+                == Some(bindings::CornerRadius {
+                    top_left: 6.0,
+                    top_right: 6.0,
+                    bottom_right: 6.0,
+                    bottom_left: 6.0,
+                }),
+        );
 
         let _ = h.click_button("Update resources");
         h.render().await;
@@ -949,6 +1011,14 @@ pub fn lightweight_resources(h: Harness) -> FixtureFuture {
                 .and_then(|value| value.Value().ok())
                 == Some(2.0),
         );
+        h.check(
+            "Resources_UpdateTypedValues",
+            resource_string(&map, "ReactorString").as_deref() == Some("Updated")
+                && resource_thickness(&map, "ReactorThickness")
+                    .is_some_and(|value| value.left == 4.0)
+                && resource_corner_radius(&map, "ReactorCornerRadius")
+                    .is_some_and(|value| value.top_left == 8.0),
+        );
 
         let unrelated_key = windows_reference::IReference::from("UnrelatedResource");
         let unrelated_value = windows_reference::IReference::from("keep");
@@ -967,6 +1037,12 @@ pub fn lightweight_resources(h: Harness) -> FixtureFuture {
         h.check(
             "Resources_ClearOwnedNumber",
             !has_resource_key(&map, "ReactorScalar"),
+        );
+        h.check(
+            "Resources_ClearOwnedTypedValues",
+            !has_resource_key(&map, "ReactorString")
+                && !has_resource_key(&map, "ReactorThickness")
+                && !has_resource_key(&map, "ReactorCornerRadius"),
         );
         h.check(
             "Resources_PreserveUnrelatedKeys",
