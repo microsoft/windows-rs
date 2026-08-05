@@ -24,11 +24,11 @@ use r#struct::*;
 #[derive(Default)]
 /// Builder that converts `.winmd` metadata into RDL.
 pub struct Writer {
-    input: Vec<String>,
+    input: Vec<PathBuf>,
     input_default: bool,
     input_bytes: Vec<Vec<u8>>,
     filter: Vec<String>,
-    output: String,
+    output: PathBuf,
     split: bool,
     partition: Option<HashMap<String, String>>,
 }
@@ -39,19 +39,27 @@ impl Writer {
         Self::default()
     }
 
-    /// Adds an input `.winmd` file or directory. `"default"` selects the default Windows metadata.
-    pub fn input(&mut self, input: &str) -> &mut Self {
-        if input == "default" {
-            self.input_default()
-        } else {
-            self.input.push(input.to_string());
-            self
-        }
+    /// Adds an input `.winmd` file or directory.
+    pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.input.push(input.as_ref().to_path_buf());
+        self
     }
 
     /// Adds a `.winmd` file from memory.
     pub fn input_bytes(&mut self, input: &[u8]) -> &mut Self {
         self.input_bytes.push(input.to_vec());
+        self
+    }
+
+    /// Adds `.winmd` files from memory.
+    pub fn input_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = B>,
+        B: AsRef<[u8]>,
+    {
+        for input in inputs {
+            self.input_bytes(input.as_ref());
+        }
         self
     }
 
@@ -62,8 +70,8 @@ impl Writer {
     }
 
     /// Sets the output `.rdl` file or directory path.
-    pub fn output(&mut self, output: &str) -> &mut Self {
-        self.output = output.to_string();
+    pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
+        self.output = output.as_ref().to_path_buf();
         self
     }
 
@@ -71,10 +79,10 @@ impl Writer {
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+        S: AsRef<Path>,
     {
         for input in inputs {
-            self.input(input.as_ref());
+            self.input(input);
         }
         self
     }
@@ -98,9 +106,9 @@ impl Writer {
         self
     }
 
-    /// Writes each namespace to a separate file when `true`.
-    pub fn split(&mut self, split: bool) -> &mut Self {
-        self.split = split;
+    /// Writes each namespace to a separate file.
+    pub fn split(&mut self) -> &mut Self {
+        self.split = true;
         self
     }
 
@@ -112,12 +120,17 @@ impl Writer {
 
     /// Converts the inputs and writes the RDL to the configured output.
     pub fn write(&self) -> Result<(), Error> {
+        if self.output.as_os_str().is_empty() {
+            return Err(Error::new("output is required", "", 0, 0));
+        }
+
         let mut files = vec![];
 
-        for file_name in &expand_input_paths(&self.input, "winmd", ".")?.0 {
+        for file_name in &expand_input_files(&self.input, "winmd")? {
+            let source = file_name.to_string_lossy();
             files.push(
                 metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid input", &source, 0, 0))?,
             );
         }
 
@@ -177,14 +190,11 @@ impl Writer {
                     continue;
                 }
 
-                let mut path = std::path::PathBuf::new();
+                let mut path = PathBuf::new();
                 path.push(&self.output);
                 path.push(format!("{stem}.rdl"));
 
-                let path_str = path
-                    .to_str()
-                    .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?;
-                write_to_file(path_str, formatter::format(&output))?;
+                write_to_file(path, formatter::format(&output))?;
             }
 
             return Ok(());
@@ -225,14 +235,11 @@ impl Writer {
                     continue;
                 }
 
-                let mut path = std::path::PathBuf::new();
+                let mut path = PathBuf::new();
                 path.push(&self.output);
                 path.push(format!("{namespace}.rdl"));
 
-                let path_str = path
-                    .to_str()
-                    .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?;
-                write_to_file(path_str, formatter::format(&output))?;
+                write_to_file(path, formatter::format(&output))?;
             }
         } else {
             let mut layout = Layout::new();

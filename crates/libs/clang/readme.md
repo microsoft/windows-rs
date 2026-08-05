@@ -20,8 +20,13 @@ Point it at one or more headers and write the resulting per-header RDL, then fee
 
 ```rust,no_run
 windows_clang::clang()
-    .input_str("#include <windows.h>")
-    .output("example.rdl")
-    .write()
+    .input("Example.h")
+    .output("rdl")
+    .namespace("Example")
+    .write_by_header()
     .unwrap();
 ```
+
+Use `.reference("dependency.winmd")` when the headers refer to types defined by another metadata
+file. Use `.input_text(source)` or `.input_texts(sources)` for C/C++ source already in memory. Use
+`.reference_default()` for the standard Windows metadata.

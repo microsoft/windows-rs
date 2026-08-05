@@ -4,6 +4,7 @@
 //! orchestration state: arches, outputs, seed metadata, and reference winmds.
 
 use crate::{Clang, clang_resource_dir};
+use std::path::{Path, PathBuf};
 use windows_rdl::{ArchInput, merge_arch_rdl, reader};
 
 /// Target architecture settings that differ between scrape passes.
@@ -52,19 +53,19 @@ pub struct ScrapePlan {
     /// Root namespace; each defining header becomes `<root>.<HeaderStem>`.
     pub root: String,
     /// Committed per-header RDL directory.
-    pub rdl_dir: String,
+    pub rdl_dir: PathBuf,
     /// Scratch directory for per-arch throwaway RDL dirs and winmds.
-    pub out_dir: String,
+    pub out_dir: PathBuf,
     /// Committed unified winmd output path.
-    pub winmd: String,
+    pub winmd: PathBuf,
     /// `archs[0]` writes `rdl_dir`; extras are folded in by arch-merge.
     pub archs: Vec<Arch>,
     /// Exclusion/reference winmds needed by both clang and RDL reader passes.
-    pub reference_winmds: Vec<String>,
+    pub reference_winmds: Vec<PathBuf>,
     /// Resolution-only winmds: they qualify external references but never exclude entities.
-    pub resolution_winmds: Vec<String>,
+    pub resolution_winmds: Vec<PathBuf>,
     /// Optional hand-authored seed RDL, preserved across generated output clears.
-    pub seed: Option<String>,
+    pub seed: Option<PathBuf>,
     /// Scrape architectures concurrently.
     pub parallel: bool,
 }
@@ -106,15 +107,15 @@ impl std::fmt::Display for Summary {
 /// Find `name` in `dirs`, returning a forward-slashed path.
 pub fn find_in_dirs(name: &str, dirs: &[String]) -> Option<String> {
     dirs.iter()
-        .map(|dir| std::path::Path::new(dir).join(name))
+        .map(|dir| Path::new(dir).join(name))
         .find(|path| path.is_file())
         .map(|path| path.to_string_lossy().replace('\\', "/"))
 }
 
 struct Job<'a> {
     arch: &'a Arch,
-    rdl_dir: String,
-    winmd: String,
+    rdl_dir: PathBuf,
+    winmd: PathBuf,
 }
 
 impl Clang {
@@ -126,17 +127,20 @@ impl Clang {
         );
 
         std::fs::create_dir_all(&plan.out_dir)
-            .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", plan.out_dir));
+            .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", plan.out_dir.display()));
         std::fs::create_dir_all(&plan.rdl_dir)
-            .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", plan.rdl_dir));
+            .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", plan.rdl_dir.display()));
 
         let canonical = &plan.archs[0];
-        let winmd_file = std::path::Path::new(&plan.winmd)
+        let winmd_file = plan
+            .winmd
             .file_name()
-            .and_then(|n| n.to_str())
-            .unwrap_or_else(|| panic!("`plan.winmd` has no file name: `{}`", plan.winmd));
-        let stem = winmd_file.strip_suffix(".winmd").unwrap_or(winmd_file);
-        let canonical_winmd = format!("{}/{winmd_file}", plan.out_dir);
+            .unwrap_or_else(|| panic!("`plan.winmd` has no file name: `{}`", plan.winmd.display()));
+        let stem = plan
+            .winmd
+            .file_stem()
+            .unwrap_or_else(|| panic!("`plan.winmd` has no file stem: `{}`", plan.winmd.display()));
+        let canonical_winmd = plan.out_dir.join(winmd_file);
 
         // The canonical arch writes committed RDL; extras write throwaway dirs.
         let mut jobs = vec![Job {
@@ -145,10 +149,12 @@ impl Clang {
             winmd: canonical_winmd.clone(),
         }];
         for arch in &plan.archs[1..] {
+            let mut winmd_file = stem.to_os_string();
+            winmd_file.push(format!(".{}.winmd", arch.name));
             jobs.push(Job {
                 arch,
-                rdl_dir: format!("{}/{}", plan.out_dir, arch.name),
-                winmd: format!("{}/{stem}.{}.winmd", plan.out_dir, arch.name),
+                rdl_dir: plan.out_dir.join(&arch.name),
+                winmd: plan.out_dir.join(winmd_file),
             });
         }
         let multi_arch = jobs.len() > 1;
@@ -203,20 +209,23 @@ impl Clang {
                 reader.input(seed);
             }
             for reference in &plan.reference_winmds {
-                reader.input(reference);
+                reader.reference(reference);
             }
             for resolution in &plan.resolution_winmds {
-                reader.input(resolution);
+                reader.reference(resolution);
             }
-            reader
-                .output(&plan.winmd)
-                .write()
-                .unwrap_or_else(|e| panic!("failed to compile merged winmd `{}`: {e}", plan.winmd));
+            reader.output(&plan.winmd).write().unwrap_or_else(|e| {
+                panic!(
+                    "failed to compile merged winmd `{}`: {e}",
+                    plan.winmd.display()
+                )
+            });
             winmd_wall = w.elapsed().as_secs_f32();
         } else {
             // Single arch: publish the canonical job's winmd.
-            std::fs::copy(&canonical_winmd, &plan.winmd)
-                .unwrap_or_else(|e| panic!("failed to publish winmd to `{}`: {e}", plan.winmd));
+            std::fs::copy(&canonical_winmd, &plan.winmd).unwrap_or_else(|e| {
+                panic!("failed to publish winmd to `{}`: {e}", plan.winmd.display())
+            });
         }
 
         let mut arch_timings = timings.into_inner().unwrap();
@@ -242,8 +251,8 @@ impl Clang {
         &self,
         plan: &ScrapePlan,
         arch: &Arch,
-        rdl_dir: &str,
-        winmd: &str,
+        rdl_dir: &Path,
+        winmd: &Path,
         resource_dir: Option<&str>,
     ) {
         clear_rdl_dir(rdl_dir, plan.seed.as_deref());
@@ -256,15 +265,22 @@ impl Clang {
             clang.args(["-resource-dir", dir]);
         }
         for reference in &plan.reference_winmds {
-            clang.input(reference);
+            clang.reference(reference);
         }
         for resolution in &plan.resolution_winmds {
             clang.resolution_input(resolution);
         }
 
         clang
-            .write_by_header(&plan.root, &[], rdl_dir)
-            .unwrap_or_else(|e| panic!("failed to generate partitions in `{rdl_dir}`: {e}"));
+            .namespace(&plan.root)
+            .output(rdl_dir)
+            .write_by_header()
+            .unwrap_or_else(|e| {
+                panic!(
+                    "failed to generate partitions in `{}`: {e}",
+                    rdl_dir.display()
+                )
+            });
 
         let mut rdl_paths = collect_rdl_paths(rdl_dir);
         if let Some(seed) = &plan.seed
@@ -276,25 +292,28 @@ impl Clang {
         let mut reader = reader();
         reader.inputs(&rdl_paths);
         for reference in &plan.reference_winmds {
-            reader.input(reference);
+            reader.reference(reference);
         }
         for resolution in &plan.resolution_winmds {
-            reader.input(resolution);
+            reader.reference(resolution);
         }
-        reader
-            .output(winmd)
-            .write()
-            .unwrap_or_else(|e| panic!("failed to compile `{rdl_dir}` into `{winmd}`: {e}"));
+        reader.output(winmd).write().unwrap_or_else(|e| {
+            panic!(
+                "failed to compile `{}` into `{}`: {e}",
+                rdl_dir.display(),
+                winmd.display()
+            )
+        });
     }
 }
 
 /// Remove stale generated `.rdl` partitions, preserving the seed file by name.
-fn clear_rdl_dir(rdl_dir: &str, seed: Option<&str>) {
+fn clear_rdl_dir(rdl_dir: &Path, seed: Option<&Path>) {
     std::fs::create_dir_all(rdl_dir)
-        .unwrap_or_else(|e| panic!("failed to create `{rdl_dir}`: {e}"));
-    let seed_name = seed.and_then(|s| std::path::Path::new(s).file_name());
-    for entry in
-        std::fs::read_dir(rdl_dir).unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
+        .unwrap_or_else(|e| panic!("failed to create `{}`: {e}", rdl_dir.display()));
+    let seed_name = seed.and_then(Path::file_name);
+    for entry in std::fs::read_dir(rdl_dir)
+        .unwrap_or_else(|e| panic!("failed to read `{}`: {e}", rdl_dir.display()))
     {
         let path = entry.unwrap().path();
         let is_seed = path.file_name() == seed_name;
@@ -305,22 +324,21 @@ fn clear_rdl_dir(rdl_dir: &str, seed: Option<&str>) {
     }
 }
 
-/// Sorted, forward-slashed `.rdl` file paths in a directory.
-fn collect_rdl_paths(rdl_dir: &str) -> Vec<String> {
-    let mut paths: Vec<String> = std::fs::read_dir(rdl_dir)
-        .unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
+/// Sorted `.rdl` file paths in a directory.
+fn collect_rdl_paths(rdl_dir: &Path) -> Vec<PathBuf> {
+    let mut paths: Vec<PathBuf> = std::fs::read_dir(rdl_dir)
+        .unwrap_or_else(|e| panic!("failed to read `{}`: {e}", rdl_dir.display()))
         .filter_map(|entry| entry.ok())
         .map(|entry| entry.path())
         .filter(|path| path.extension().is_some_and(|x| x == "rdl"))
-        .map(|path| path.to_string_lossy().replace('\\', "/"))
         .collect();
     paths.sort();
     paths
 }
 
 /// Count committed partition files, excluding the seed.
-fn count_partitions(rdl_dir: &str, seed: Option<&str>) -> usize {
-    let seed_name = seed.and_then(|s| std::path::Path::new(s).file_name());
+fn count_partitions(rdl_dir: &Path, seed: Option<&Path>) -> usize {
+    let seed_name = seed.and_then(Path::file_name);
     std::fs::read_dir(rdl_dir).map_or(0, |rd| {
         rd.filter_map(|e| e.ok())
             .filter(|e| {

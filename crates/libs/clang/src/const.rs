@@ -195,7 +195,7 @@ impl Const {
         }
 
         // Put the synthetic file beside the header; include by basename so relative includes work.
-        let input_basename = std::path::Path::new(input)
+        let input_basename = Path::new(input)
             .file_name()
             .and_then(|n| n.to_str())
             .unwrap_or(input);
@@ -219,7 +219,7 @@ impl Const {
 
         // There is no on-disk directory context, so relative includes may not resolve.
         let prefix = format!("{content}\n{NARG_PROLOGUE}");
-        const SYNTHETIC: &str = "__rdl_input_str_eval__.cpp";
+        const SYNTHETIC: &str = "__rdl_input_text_eval__.cpp";
 
         Self::evaluate_names(&prefix, SYNTHETIC, names, index, args)
     }

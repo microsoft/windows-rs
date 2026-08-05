@@ -101,7 +101,7 @@ impl Config<'_> {
     pub(crate) fn write_package(&self, tree: &TypeTree) {
         let output = &self.bindgen.output;
         for name in tree.nested.keys() {
-            _ = std::fs::remove_dir_all(format!("{output}/src/{name}"));
+            _ = std::fs::remove_dir_all(output.join("src").join(name));
         }
 
         let trees = tree.flatten_trees();
@@ -119,7 +119,7 @@ impl Config<'_> {
                 return;
             }
 
-            let directory = format!("{output}/src/{}", tree.namespace.replace('.', "/"));
+            let directory = output.join("src").join(tree.namespace.replace('.', "/"));
 
             // Flat Win32/WDK umbrellas glob-reexport private per-header child modules.
             let flatten_children = is_flat_container(tree.namespace);
@@ -200,11 +200,11 @@ impl Config<'_> {
                 tokens.combine(ty.write(&config));
             }
 
-            let path = format!("{directory}/mod.rs");
+            let path = directory.join("mod.rs");
             write_to_file(&path, self.format(&tokens.into_string()));
         });
 
-        let toml_path = format!("{output}/Cargo.toml");
+        let toml_path = output.join("Cargo.toml");
         let mut toml = String::new();
 
         for line in read_file_lines(&toml_path) {

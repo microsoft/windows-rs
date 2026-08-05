@@ -31,7 +31,7 @@ fn generate() -> String {
 
     windows_rdl::reader()
         .input(rdl.to_str().unwrap())
-        .input_default()
+        .reference_default()
         .output(winmd.to_str().unwrap())
         .write()
         .unwrap();

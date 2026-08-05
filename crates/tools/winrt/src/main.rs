@@ -78,7 +78,7 @@ fn main() {
     windows_rdl::writer()
         .input(&merged)
         .filters(["Windows", "!Windows.Win32"])
-        .split(true)
+        .split()
         .output(RDL_DIR)
         .write()
         .unwrap_or_else(|e| panic!("failed to write WinRT RDL to `{RDL_DIR}`: {e}"));

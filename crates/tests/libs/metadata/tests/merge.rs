@@ -6,8 +6,8 @@ fn winmd(dir: &std::path::Path, name: &str, rdl: &str) -> String {
     std::fs::write(&rdl_path, rdl).unwrap();
     let out = dir.join(format!("{name}.winmd"));
     windows_rdl::reader()
-        .input(rdl_path.to_string_lossy().as_ref())
-        .output(out.to_string_lossy().as_ref())
+        .input(&rdl_path)
+        .output(&out)
         .write()
         .unwrap();
     out.to_string_lossy().into_owned()
@@ -49,7 +49,7 @@ fn arch_merge_constants() {
     merge()
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
 
@@ -97,8 +97,8 @@ fn union_enums_merges_members() {
     merge()
         .input(&um)
         .input(&km)
-        .union_enums(true)
-        .output(merged.to_string_lossy().as_ref())
+        .union_enums()
+        .output(&merged)
         .merge()
         .unwrap();
 
@@ -135,8 +135,8 @@ fn union_enums_rejects_conflicting_values() {
     let result = merge()
         .input(&a)
         .input(&b)
-        .union_enums(true)
-        .output(merged.to_string_lossy().as_ref())
+        .union_enums()
+        .output(&merged)
         .merge();
 
     assert!(result.is_err(), "conflicting member values must error");
@@ -165,8 +165,8 @@ fn union_enums_rejects_conflicting_non_sentinel_max() {
     let result = merge()
         .input(&a)
         .input(&b)
-        .union_enums(true)
-        .output(merged.to_string_lossy().as_ref())
+        .union_enums()
+        .output(&merged)
         .merge();
 
     assert!(
@@ -198,8 +198,8 @@ fn union_enums_merges_partial_copies() {
     merge()
         .input(&um)
         .input(&km)
-        .union_enums(true)
-        .output(merged.to_string_lossy().as_ref())
+        .union_enums()
+        .output(&merged)
         .merge()
         .unwrap();
 
@@ -251,7 +251,7 @@ fn arch_merge_divergent_struct() {
     merge()
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
 
@@ -296,7 +296,7 @@ fn arch_merge_normalizes_native_sized_callback_signature() {
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
         .arch_input(&x86, 1)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
 
@@ -329,7 +329,7 @@ fn arch_merge_does_not_infer_native_size_without_native_evidence() {
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
         .arch_input(&x86, 1)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
 
@@ -361,7 +361,7 @@ fn arch_merge_rejects_fixed_integer_with_wrong_pointer_width() {
         .arch_input(&x64, 2)
         .arch_input(&arm, 4)
         .arch_input(&x86, 1)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
 
@@ -391,7 +391,7 @@ fn arch_merge_rejects_callback_attribute_mismatch() {
     merge()
         .arch_input(&x64, 2)
         .arch_input(&x86, 1)
-        .output(merged.to_string_lossy().as_ref())
+        .output(&merged)
         .merge()
         .unwrap();
 

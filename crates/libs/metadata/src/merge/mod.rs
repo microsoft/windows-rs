@@ -1,4 +1,5 @@
 use super::*;
+use std::path::{Path, PathBuf};
 
 mod remap;
 pub use remap::Remapper;
@@ -27,10 +28,10 @@ impl std::fmt::Display for Error {
 
 #[derive(Default)]
 pub struct Merger {
-    input: Vec<String>,
+    input: Vec<PathBuf>,
     /// `(path, arch_bits)` where bits are 1=X86, 2=X64, 4=Arm64.
-    arch_inputs: Vec<(String, i32)>,
-    output: String,
+    arch_inputs: Vec<(PathBuf, i32)>,
+    output: PathBuf,
     union_enums: bool,
 }
 
@@ -39,25 +40,25 @@ impl Merger {
         Self::default()
     }
 
-    pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(input.to_string());
+    pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.input.push(input.as_ref().to_path_buf());
         self
     }
 
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+        S: AsRef<Path>,
     {
         for input in inputs {
-            self.input.push(input.as_ref().to_string());
+            self.input(input);
         }
         self
     }
 
     /// Adds an architecture-tagged input winmd file.
-    pub fn arch_input(&mut self, path: &str, arch: i32) -> &mut Self {
-        self.arch_inputs.push((path.to_string(), arch));
+    pub fn arch_input(&mut self, path: impl AsRef<Path>, arch: i32) -> &mut Self {
+        self.arch_inputs.push((path.as_ref().to_path_buf(), arch));
         self
     }
 
@@ -67,26 +68,28 @@ impl Merger {
     /// produce two `TypeDef` rows. `tool_win32` uses this to reconcile a value type an `um`
     /// header truncates (for example `FILE_INFORMATION_CLASS`) with the complete `km`
     /// definition, yielding one enum carrying every member.
-    pub fn union_enums(&mut self, union_enums: bool) -> &mut Self {
-        self.union_enums = union_enums;
+    pub fn union_enums(&mut self) -> &mut Self {
+        self.union_enums = true;
         self
     }
 
-    pub fn output(&mut self, output: &str) -> &mut Self {
-        self.output = output.to_string();
+    pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
+        self.output = output.as_ref().to_path_buf();
         self
     }
 
     pub fn merge(&self) -> Result<(), Error> {
-        if self.output.is_empty() {
+        if self.output.as_os_str().is_empty() {
             return Err(Error::new("output is required"));
         }
 
-        let output_path = std::path::Path::new(&self.output);
-        let name = output_path
+        let name = self
+            .output
             .file_stem()
             .and_then(|s| s.to_str())
-            .ok_or_else(|| Error::new(format!("invalid output path `{}`", self.output)))?;
+            .ok_or_else(|| {
+                Error::new(format!("invalid output path `{}`", self.output.display()))
+            })?;
 
         let files = read_inputs(&self.input)?;
         let index = reader::Index::new(files);
@@ -208,21 +211,23 @@ impl Merger {
 
         let bytes = file.into_stream();
         std::fs::write(&self.output, bytes)
-            .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output)))
+            .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output.display())))
     }
 }
 
-fn read_inputs(inputs: &[String]) -> Result<Vec<reader::File>, Error> {
+fn read_inputs(inputs: &[PathBuf]) -> Result<Vec<reader::File>, Error> {
     let mut result = vec![];
 
     for input in inputs {
-        let path = std::path::Path::new(input);
-
-        if path.is_dir() {
+        if input.is_dir() {
             let prev_len = result.len();
 
-            let entries = std::fs::read_dir(path)
-                .map_err(|e| Error::new(format!("failed to read directory `{input}`: {e}")))?;
+            let entries = std::fs::read_dir(input).map_err(|e| {
+                Error::new(format!(
+                    "failed to read directory `{}`: {e}",
+                    input.display()
+                ))
+            })?;
 
             for entry in entries.flatten() {
                 let entry_path = entry.path();
@@ -232,21 +237,22 @@ fn read_inputs(inputs: &[String]) -> Result<Vec<reader::File>, Error> {
                         .extension()
                         .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
                 {
-                    let path_str = entry_path.to_string_lossy().to_string();
-                    let file = reader::File::read(&entry_path)
-                        .ok_or_else(|| Error::new(format!("failed to read `{path_str}`")))?;
+                    let file = reader::File::read(&entry_path).ok_or_else(|| {
+                        Error::new(format!("failed to read `{}`", entry_path.display()))
+                    })?;
                     result.push(file);
                 }
             }
 
             if result.len() == prev_len {
                 return Err(Error::new(format!(
-                    "no .winmd files found in directory `{input}`"
+                    "no .winmd files found in directory `{}`",
+                    input.display()
                 )));
             }
         } else {
-            let file = reader::File::read(path)
-                .ok_or_else(|| Error::new(format!("failed to read `{input}`")))?;
+            let file = reader::File::read(input)
+                .ok_or_else(|| Error::new(format!("failed to read `{}`", input.display())))?;
             result.push(file);
         }
     }

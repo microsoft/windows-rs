@@ -23,7 +23,7 @@ fn broad_maps_use_static_function_specialization() {
     let winmd = scratch.join("scale.winmd");
     windows_rdl::reader()
         .input(rdl.to_str().unwrap())
-        .input_default()
+        .reference_default()
         .output(winmd.to_str().unwrap())
         .write()
         .unwrap();
@@ -81,7 +81,7 @@ fn measure(breadth: usize) {
     let winmd = scratch.join("scale.winmd");
     windows_rdl::reader()
         .input(rdl.to_str().unwrap())
-        .input_default()
+        .reference_default()
         .output(winmd.to_str().unwrap())
         .write()
         .unwrap();

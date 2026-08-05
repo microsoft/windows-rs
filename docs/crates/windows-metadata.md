@@ -65,6 +65,10 @@ qualify: the explicit native-sized spelling is required as semantic evidence.
 The merge is deterministic: it stages through `BTreeMap`s and insertion-ordered `Vec`s, with no
 `HashMap` reaching the output.
 
+The merger and namespace remapper accept strings, `Path`, or `PathBuf` for input and output paths
+and retain them as `PathBuf`. The remapper provides singular/plural `input`/`inputs`,
+`source`/`sources`, and `route`/`routes` methods.
+
 ### Method parameter association
 
 ECMA-335 `Param` rows are not positional. `Param.Sequence == 0` describes the return value, and a
@@ -113,4 +117,5 @@ alignment, enum constant values, subset-present divergence) and `merge.rs` (nati
 reconciliation). `method_params.rs` authors metadata directly with `writer::File` and covers dense,
 absent, return, sparse, out-of-order, duplicate, and out-of-range parameter rows. It also covers all
 four raw directions and verifies that optional, reserved, retval, and count attributes remain
-independent facts.
+independent facts. `remap.rs` covers explicit and fallback namespace routing, singular/plural
+builder methods, missing outputs, and invalid inputs.

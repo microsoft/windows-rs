@@ -29,7 +29,7 @@ windows-link = "0.100"
 windows-bindgen = "0.100"
 ```
 
-Generate bindings from `build.rs` with either command-line-style arguments or the builder:
+Generate bindings from `build.rs` with command-line-style arguments, a command file, or the builder:
 
 ```rust,no_run
 windows_bindgen::bindgen([
@@ -72,8 +72,8 @@ to select a smaller surface.
 Prefix a rule with `!` to exclude it. A selected type also pulls in the types that its signatures
 require. Those dependency types are emitted as shells.
 
-For more than a few names, keep the arguments in a response file. Pass it with `--etc`. Lines that
-start with `//` are comments:
+For a complete command file, use `--etc`. Blank lines and lines whose first non-whitespace
+characters are `//` are ignored:
 
 ```text
 --out crates/libs/version/src/bindings.rs
@@ -89,7 +89,10 @@ start with `//` are comments:
 windows_bindgen::bindgen(["--etc", "bindings.txt"]);
 ```
 
-The in-repo crates use this pattern. `tool_bindings` runs
+When only the filter list is large, keep it in a filter-only file and use
+`Bindgen::filter_file`/`filter_files` or the textual `--filter-file` option.
+
+The in-repo crates use both patterns. `tool_bindings` runs
 `bindgen(["--etc", "crates/tools/bindings/src/<crate>.txt"])` for each library.
 
 ## Choosing the output shape
@@ -175,11 +178,15 @@ and `remove_X`.
 
 ### Other useful options
 
-- `--in`, `.input(..)`, and `.inputs(..)` add `.winmd` files or directories.
-  `.input_default()` or the literal `"default"` includes the standard metadata. The builder uses
-  it implicitly when no input is supplied.
+- `--in`, `.input(..)`, and `.inputs(..)` add `.winmd` files or directories. The builder uses the
+  standard metadata implicitly when no input is supplied. Builder inputs accept strings, `Path`, or
+  `PathBuf`. Use `.input_default()` to combine the bundled metadata with custom inputs; the textual
+  `--in default` form provides the same behavior.
+- `.output(..)` accepts a string, `Path`, or `PathBuf`.
 - `--derive` and `.derive(..)` add derives to generated types.
-- `--implement` and `.implement(..)` emit `_Impl` scaffolding for WinRT interface implementations.
+- Bare `--implement` and `.implement_all()` emit `_Impl` scaffolding for every WinRT interface in
+  scope. Use `.implement(name)` or `.implements(names)` to limit scaffolding to type names or
+  namespace prefixes.
 - `--rustfmt` and `.rustfmt(..)` set the formatter for the output.
 - `--dead-code` and `.dead_code()` emit `pub(crate)` for callable items. This lets the compiler flag
   unused generated callables.
@@ -419,6 +426,49 @@ self-relative, byte-counted, and fixed-count metadata. The existing `interface_o
 pins valid counted-buffer output. `method_params` pins In+Out mutable projection, and
 `method_return` covers explicit and heuristic retval selection with In+Out, optional, reserved, and
 counted exclusions plus explicit void-pointer and large-pointee returns.
+
+## Build-tool API harmonization
+
+The major-version API pass covers `windows-default`, `windows-bindgen`, `windows-rdl`,
+`windows-clang`, and the merge/remap surface in `windows-metadata`. Compatibility with the removed
+spellings is not required.
+
+| Surface | Current contract |
+| --- | --- |
+| Default metadata | `windows-default` exposes the bundled `WINRT` and `WIN32` byte slices. |
+| Bindgen metadata | `input`/`inputs`, `input_bytes`/`input_byte_sets`, and `input_default`. |
+| RDL source | `input`/`inputs` for paths and `input_text`/`input_texts` for source in memory. |
+| RDL references | `reference(s)`, byte-set variants, and `reference_default`. |
+| Clang source | `input`/`inputs` for headers and `input_text`/`input_texts` for source in memory. |
+| Clang metadata | Reference and resolution metadata support every input form. |
+| Paths | Builders and merge plans retain `PathBuf`; strings remain valid inputs. |
+| Boolean options | `split`, `drop_lib_less`, `dead_code`, and `union_enums` are enabling methods. |
+| Implementations | `implement_all`, `implement`, and `implements` select the mode. |
+| Command files | `bindgen --etc` reads commands; `filter_file(s)` read filters. |
+| Terminals | Builder state owns configuration; terminals do not repeat it. |
+
+Bindgen keeps one intentional default difference. A builder with no metadata inputs uses the
+bundled metadata, preserving its small-build-script workflow. Once a caller supplies inputs,
+`input_default()` adds the bundled metadata explicitly. The textual adapter expresses the same
+choice as `--in default`; the programmatic builders do not recognize `"default"` as a path
+sentinel.
+
+Command files are for complete textual configurations with large filters. `--etc` keeps the
+established `bindgen` response-file contract, including nested and multiple command files.
+`--filter-file` includes a filter-only file from textual arguments or another command file.
+Programmatic callers should use the builder and `filter_file`/`filter_files`, which retain typed
+paths.
+
+### Audit result
+
+The API audit is complete. Public methods, rustdoc, crate readmes, crate pages, samples, tools, and
+tests use the current names. Remaining `"default"` arguments use bindgen's textual `--in` adapter;
+programmatic builders use explicit default methods. `windows-csharp` remains outside this API pass
+because it is a removal candidate.
+
+The affected tests and clippy targets pass. `tool_bindings`, `tool_composition`, `tool_reactor`,
+`tool_webview`, `tool_package`, `tool_winrt`, `tool_roundtrip`, and `tool_win32` regenerate without
+unexpected tracked output. This closes the API harmonization phase.
 
 ## Investigation: lessons from windows-csharp
 

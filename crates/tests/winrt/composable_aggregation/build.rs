@@ -4,7 +4,7 @@ fn main() {
     windows_rdl::reader()
         .output("metadata.winmd")
         .input("src/metadata.rdl")
-        .input_default()
+        .reference_default()
         .write()
         .unwrap();
 

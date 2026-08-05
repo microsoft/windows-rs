@@ -4,11 +4,8 @@
 // `Debug` output, which defers to `Display`, so `should_panic` exercises all
 // three `Display` branches in `src/error.rs`.
 
-fn out_path(name: &str) -> String {
-    std::path::Path::new(env!("OUT_DIR"))
-        .join(format!("test_rdl_err_{name}.winmd"))
-        .to_string_lossy()
-        .into_owned()
+fn out_path(name: &str) -> std::path::PathBuf {
+    std::path::Path::new(env!("OUT_DIR")).join(format!("test_rdl_err_{name}.winmd"))
 }
 
 #[test]
@@ -16,8 +13,8 @@ fn out_path(name: &str) -> String {
 fn syntax_error_reports_line_and_column() {
     // `Display` branch 1: a parse error carries a `file:line:column` location.
     windows_rdl::reader()
-        .input_str("#[winrt] mod Test { this is not valid rdl }")
-        .output(&out_path("syntax"))
+        .input_text("#[winrt] mod Test { this is not valid rdl }")
+        .output(out_path("syntax"))
         .write()
         .unwrap();
 }
@@ -27,18 +24,55 @@ fn syntax_error_reports_line_and_column() {
 fn missing_output_is_rejected() {
     // `Display` branch 2: empty file name yields a bare message with no `-->`.
     windows_rdl::reader()
-        .input_str("#[winrt] mod Test {}")
+        .input_text("#[winrt] mod Test {}")
         .write()
         .unwrap();
 }
 
 #[test]
-#[should_panic(expected = "expected .rdl or .winmd")]
+fn writer_missing_output_is_rejected() {
+    let error = windows_rdl::writer().split().write().unwrap_err();
+    assert_eq!(error.message, "output is required");
+}
+
+#[test]
+fn malformed_metadata_reports_its_role() {
+    let reference_error = windows_rdl::reader()
+        .input_text("#[winrt] mod Test {}")
+        .reference_bytes(b"not metadata")
+        .output(out_path("invalid_reference"))
+        .write()
+        .unwrap_err();
+    assert_eq!(reference_error.message, "invalid reference");
+    assert_eq!(reference_error.file_name, "<memory>");
+
+    let input_error = windows_rdl::writer()
+        .input_bytes(b"not metadata")
+        .output(out_path("invalid_input").with_extension("rdl"))
+        .write()
+        .unwrap_err();
+    assert_eq!(input_error.message, "invalid input");
+    assert_eq!(input_error.file_name, "<memory>");
+}
+
+#[test]
+fn writer_rejects_non_winmd_input() {
+    let error = windows_rdl::writer()
+        .input("input.rdl")
+        .output(out_path("writer_extension").with_extension("rdl"))
+        .write()
+        .unwrap_err();
+    assert_eq!(error.message, "expected .winmd file");
+    assert_eq!(error.file_name, "input.rdl");
+}
+
+#[test]
+#[should_panic(expected = "expected .rdl file")]
 fn unsupported_input_extension_is_rejected() {
     // `Display` branch 3: a file name but no source location (line/column 0).
     windows_rdl::reader()
         .input("definitely_not_here.txt")
-        .output(&out_path("ext"))
+        .output(out_path("ext"))
         .write()
         .unwrap();
 }
@@ -55,7 +89,7 @@ fn integer_constants_reinterpret_bits_across_partitions() {
     //   * `(LPCSTR)2` MAKEINTRESOURCE pointer constant
     //   * a constant typed by an enum, encoded against its `#[repr]` integer
     windows_rdl::reader()
-        .input_str(
+        .input_text(
             "#[win32] mod Test {\n\
              mod Win {\n\
              type WORD = u16;\n\
@@ -74,7 +108,7 @@ fn integer_constants_reinterpret_bits_across_partitions() {
              }\n\
              }",
         )
-        .output(&out_path("const_reinterpret"))
+        .output(out_path("const_reinterpret"))
         .write()
         .unwrap();
 }
@@ -92,8 +126,8 @@ fn mixed_pointer_constness_is_rejected() {
             "#[win32]\nmod Test {{\n    #[library(\"test.dll\")]\n    extern fn Mixed(value: {ty});\n}}\n"
         );
         let error = windows_rdl::reader()
-            .input_str(&source)
-            .output(&out_path(name))
+            .input_text(&source)
+            .output(out_path(name))
             .write()
             .unwrap_err();
 

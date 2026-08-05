@@ -26,7 +26,8 @@ use super::*;
 /// - `--minimal`: Omits class wrappers, inherited forwarders, and handle wrappers.
 /// - `--implement`: Emits implementation traits for selected WinRT interfaces.
 /// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
-/// - `--etc`: Reads arguments from response files.
+/// - `--etc`: Reads arguments from command files.
+/// - `--filter-file`: Reads filters from text files.
 /// # `--out`
 ///
 /// Exactly one `--out` argument is required.
@@ -47,10 +48,10 @@ use super::*;
 ///          !Windows.Win32.Storage.FileSystem.WIN32_FIND_DATAW
 /// ```
 ///
-/// Use a response file for longer filter lists:
+/// Use a filter file for longer filter lists:
 ///
 /// ```text
-/// --etc path/to/file.txt
+/// --filter-file path/to/filter.txt
 /// ```
 ///
 /// The in-repo crates use this convention; see the filter `.txt` files in
@@ -81,8 +82,9 @@ where
     let mut builder = Bindgen::new();
     let mut kind = ArgKind::None;
     let mut has_output = false;
+    let mut implement = None::<Vec<String>>;
 
-    for arg in &args {
+    for arg in args {
         if arg.starts_with('-') {
             kind = ArgKind::None;
         }
@@ -92,6 +94,7 @@ where
                 "--in" => kind = ArgKind::Input,
                 "--out" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
+                "--filter-file" => kind = ArgKind::FilterFile,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
                 "--derive" => kind = ArgKind::Derive,
                 "--flat" => {
@@ -113,7 +116,7 @@ where
                     builder.extern_fns();
                 }
                 "--implement" => {
-                    builder.implement.get_or_insert_with(Vec::new);
+                    implement.get_or_insert_with(Vec::new);
                     kind = ArgKind::Implement;
                 }
                 _ => panic!("invalid option `{arg}`"),
@@ -124,23 +127,35 @@ where
                 has_output = true;
             }
             ArgKind::Input => {
-                builder.input(arg);
+                if arg == "default" {
+                    builder.input_default();
+                } else {
+                    builder.input(arg);
+                }
             }
             ArgKind::Filter => {
-                builder.filter(arg);
+                builder.filter(&arg);
+            }
+            ArgKind::FilterFile => {
+                builder.filter_file(&arg);
             }
             ArgKind::Derive => {
-                builder.derive(arg);
+                builder.derive(&arg);
             }
             ArgKind::Implement => {
-                builder
-                    .implement
-                    .get_or_insert_with(Vec::new)
-                    .push(arg.clone());
+                implement.as_mut().unwrap().push(arg.clone());
             }
             ArgKind::Rustfmt => {
-                builder.rustfmt(arg);
+                builder.rustfmt(&arg);
             }
+        }
+    }
+
+    if let Some(implement) = implement {
+        if implement.is_empty() {
+            builder.implement_all();
+        } else {
+            builder.implements(implement);
         }
     }
 
@@ -152,6 +167,7 @@ enum ArgKind {
     Input,
     Output,
     Filter,
+    FilterFile,
     Rustfmt,
     Derive,
     Implement,
@@ -163,16 +179,49 @@ where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
 {
-    // This function is needed to avoid a recursion limit in the Rust compiler.
     #[track_caller]
-    fn from_string(result: &mut Vec<String>, value: &str) {
+    fn expand<I, S>(result: &mut Vec<String>, args: I)
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        let mut command_files = false;
+
+        for arg in args.into_iter().map(|arg| arg.as_ref().to_string()) {
+            if arg.starts_with('-') {
+                command_files = false;
+            }
+
+            if command_files {
+                expand(result, read_tokens(arg));
+            } else if arg == "--etc" {
+                command_files = true;
+            } else {
+                result.push(arg);
+            }
+        }
+    }
+
+    let mut result = Vec::new();
+    expand(&mut result, args);
+    result
+}
+
+#[track_caller]
+pub(super) fn read_tokens(input: impl AsRef<Path>) -> Vec<String> {
+    let mut result = Vec::new();
+
+    for line in read_file_lines(input) {
+        if line.trim_start().starts_with("//") {
+            continue;
+        }
+
         // Split on whitespace but keep `{...}` groups together so that
-        // `Type::{a, b}` is not split across multiple args.
-        let mut args = Vec::new();
+        // `Type::{a, b}` is not split across multiple filters.
         let mut current = String::new();
         let mut brace_depth = 0u32;
 
-        for ch in value.chars() {
+        for ch in line.chars() {
             if ch == '{' {
                 brace_depth += 1;
                 current.push(ch);
@@ -181,46 +230,16 @@ where
                 current.push(ch);
             } else if ch.is_whitespace() && brace_depth == 0 {
                 if !current.is_empty() {
-                    args.push(std::mem::take(&mut current));
+                    result.push(std::mem::take(&mut current));
                 }
             } else {
                 current.push(ch);
             }
         }
         if !current.is_empty() {
-            args.push(current);
-        }
-
-        expand_args(result, args);
-    }
-
-    #[track_caller]
-    fn expand_args<I, S>(result: &mut Vec<String>, args: I)
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        let mut expand = false;
-
-        for arg in args.into_iter().map(|arg| arg.as_ref().to_string()) {
-            if arg.starts_with('-') {
-                expand = false;
-            }
-            if expand {
-                for args in read_file_lines(&arg) {
-                    if !args.starts_with("//") {
-                        from_string(result, &args);
-                    }
-                }
-            } else if arg == "--etc" {
-                expand = true;
-            } else {
-                result.push(arg);
-            }
+            result.push(current);
         }
     }
 
-    let mut result = vec![];
-    expand_args(&mut result, args);
     result
 }
