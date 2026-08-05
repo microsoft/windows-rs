@@ -127,11 +127,13 @@ indices exact during reconciliation instead of reinserting a temporary "ghost" e
 and scale are supported, including both in one animation group:
 
 ```rust
+# use std::time::Duration;
+# use windows_reactor::*;
 button("Animated")
     .transition(
         Some(AnimationConfig::fade_in(Duration::from_millis(200))),
         Some(AnimationConfig::fade_out(Duration::from_millis(300))),
-    )
+    );
 ```
 
 An explicit `.animate(..)` on the same element takes precedence over its enter transition because
@@ -159,11 +161,15 @@ light-dismiss and adaptive changes made by WinUI. `on_display_mode_changed` repo
 continues to configure the layout policy (`Auto`, `Left`, `Top`, and so on):
 
 ```rust
+# use windows_reactor::*;
+# let items = [NavViewItem::new("Home")];
+# let content = text_block("Content");
+# let pane_open = true;
 NavigationView::new(items, content)
     .pane_open(pane_open)
-    .on_pane_open_changed(set_pane_open)
+    .on_pane_open_changed(|_| {})
     .pane_display_mode(NavigationViewPaneDisplayMode::Auto)
-    .on_display_mode_changed(set_display_mode)
+    .on_display_mode_changed(|_| {});
 ```
 
 The callbacks observe dependency properties rather than guessing state from pane transition
@@ -755,12 +761,13 @@ meet the same invariant more directly.
 WinUI value types:
 
 ```rust
+# use windows_reactor::*;
 button("Delete").resource_overrides(|resources| {
     resources
         .set("ButtonBackground", Color::rgb(178, 34, 34))
         .set("ButtonBorderThemeThickness", Thickness::uniform(0.0))
         .set("ControlCornerRadius", CornerRadius::uniform(8.0))
-})
+});
 ```
 
 Each native element tracks only the keys that Reactor inserted. Updating the builder removes

@@ -9,7 +9,6 @@ fn app(cx: &mut RenderCx) -> Element {
     let drag_start = cx.use_ref(None::<(f64, f64)>);
 
     let on_pressed = cx.use_callback((), {
-        let width_ref = width_ref.clone();
         let drag_start = drag_start.clone();
         move |info: PointerEventInfo| {
             if info.is_left_button_pressed && info.capture_succeeded {
@@ -33,10 +32,7 @@ fn app(cx: &mut RenderCx) -> Element {
         let drag_start = drag_start.clone();
         move |_: PointerEventInfo| drag_start.set(None)
     });
-    let on_capture_ended = cx.use_callback((), {
-        let drag_start = drag_start.clone();
-        move |()| drag_start.set(None)
-    });
+    let on_capture_ended = cx.use_callback((), move |()| drag_start.set(None));
 
     vstack((
         TitleBar::new("windows_reactor - pointer resize"),
