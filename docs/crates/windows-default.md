@@ -55,8 +55,9 @@ Callers therefore do not need a separate dependency or a path into the Windows S
 | [`clang`](windows-clang.md) | Standard references plus WinRT-only resolution metadata. |
 | [`csharp`](windows-csharp.md) | `.input_default()` adds both files. |
 
-Path-style input APIs also accept the literal `"default"` for compatibility. Byte-input APIs
-remain available for custom metadata that is already in memory.
+The `windows-bindgen` textual adapter accepts `--in default`. Programmatic builders use
+`.input_default()` instead; path-style input methods treat `"default"` as an ordinary path.
+Byte-input APIs remain available for custom metadata that is already in memory.
 
 Programs that link one of these build crates include both metadata payloads in the binary. These
 crates are intended for build tools rather than runtime dependencies.

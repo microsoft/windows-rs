@@ -68,8 +68,8 @@ impl Merger {
     /// produce two `TypeDef` rows. `tool_win32` uses this to reconcile a value type an `um`
     /// header truncates (for example `FILE_INFORMATION_CLASS`) with the complete `km`
     /// definition, yielding one enum carrying every member.
-    pub fn union_enums(&mut self, union_enums: bool) -> &mut Self {
-        self.union_enums = union_enums;
+    pub fn union_enums(&mut self) -> &mut Self {
+        self.union_enums = true;
         self
     }
 

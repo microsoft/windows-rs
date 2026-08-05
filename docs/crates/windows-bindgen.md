@@ -29,7 +29,7 @@ windows-link = "0.100"
 windows-bindgen = "0.100"
 ```
 
-Generate bindings from `build.rs` with either command-line-style arguments or the builder:
+Generate bindings from `build.rs` with command-line-style arguments, a command file, or the builder:
 
 ```rust,no_run
 windows_bindgen::bindgen([
@@ -426,6 +426,47 @@ self-relative, byte-counted, and fixed-count metadata. The existing `interface_o
 pins valid counted-buffer output. `method_params` pins In+Out mutable projection, and
 `method_return` covers explicit and heuristic retval selection with In+Out, optional, reserved, and
 counted exclusions plus explicit void-pointer and large-pointee returns.
+
+## Build-tool API harmonization
+
+The major-version API pass covers `windows-default`, `windows-bindgen`, `windows-rdl`,
+`windows-clang`, and the merge/remap surface in `windows-metadata`. Compatibility with the removed
+spellings is not required.
+
+| Surface | Current contract |
+| --- | --- |
+| Default metadata | `windows-default` exposes the bundled `WINRT` and `WIN32` byte slices. |
+| Bindgen metadata | `input`/`inputs`, `input_bytes`/`input_byte_sets`, and `input_default`. |
+| RDL source | `input`/`inputs` for paths and `input_text`/`input_texts` for source in memory. |
+| RDL references | `reference(s)`, byte-set variants, and `input_default`. |
+| Clang source | `input`/`inputs` for headers and `input_text`/`input_texts` for source in memory. |
+| Clang metadata | Reference and resolution metadata support every input form. |
+| Paths | Builders and merge plans retain `PathBuf`; strings remain valid inputs. |
+| Boolean options | `split`, `drop_lib_less`, `dead_code`, and `union_enums` are enabling methods. |
+| Implementations | `implement_all`, `implement`, and `implements` select the mode. |
+| Command files | `bindgen_file` reads commands; `filter_file(s)` read filters. |
+| Terminals | Builder state owns configuration; terminals do not repeat it. |
+
+Bindgen keeps one intentional default difference. A builder with no metadata inputs uses the
+bundled metadata, preserving its small-build-script workflow. Once a caller supplies inputs,
+`input_default()` adds the bundled metadata explicitly. The textual adapter expresses the same
+choice as `--in default`; the programmatic builders do not recognize `"default"` as a path
+sentinel.
+
+Command files are for complete textual configurations with large filters. `--filter-file` includes
+a filter-only file from textual arguments or another command file. Programmatic callers should use
+the builder and `filter_file`/`filter_files`, which retain typed paths.
+
+### Audit result
+
+The API audit is complete. Public methods, rustdoc, crate readmes, crate pages, samples, tools, and
+tests use the current names. Remaining `"default"` arguments use bindgen's textual `--in` adapter;
+programmatic builders use `input_default()`. `windows-csharp` remains outside this API pass because
+it is a removal candidate.
+
+The affected tests and clippy targets pass. `tool_bindings`, `tool_composition`, `tool_reactor`,
+`tool_webview`, `tool_package`, `tool_winrt`, `tool_roundtrip`, and `tool_win32` regenerate without
+unexpected tracked output. This closes the API harmonization phase.
 
 ## Investigation: lessons from windows-csharp
 

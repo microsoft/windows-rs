@@ -790,7 +790,7 @@ fn main() {
     windows_metadata::merge()
         .input(UM_WINMD)
         .input(KM_WINMD)
-        .union_enums(true)
+        .union_enums()
         .output(MERGED_WINMD)
         .merge()
         .unwrap_or_else(|e| panic!("failed to merge um + km winmds into `{MERGED_WINMD}`: {e}"));

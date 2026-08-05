@@ -97,7 +97,7 @@ fn union_enums_merges_members() {
     merge()
         .input(&um)
         .input(&km)
-        .union_enums(true)
+        .union_enums()
         .output(&merged)
         .merge()
         .unwrap();
@@ -135,7 +135,7 @@ fn union_enums_rejects_conflicting_values() {
     let result = merge()
         .input(&a)
         .input(&b)
-        .union_enums(true)
+        .union_enums()
         .output(&merged)
         .merge();
 
@@ -165,7 +165,7 @@ fn union_enums_rejects_conflicting_non_sentinel_max() {
     let result = merge()
         .input(&a)
         .input(&b)
-        .union_enums(true)
+        .union_enums()
         .output(&merged)
         .merge();
 
@@ -198,7 +198,7 @@ fn union_enums_merges_partial_copies() {
     merge()
         .input(&um)
         .input(&km)
-        .union_enums(true)
+        .union_enums()
         .output(&merged)
         .merge()
         .unwrap();
