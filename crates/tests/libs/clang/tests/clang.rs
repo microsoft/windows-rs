@@ -6,9 +6,38 @@ include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 fn reference_rejects_non_winmd_input() {
     let error = windows_clang::clang()
         .reference("reference.rdl")
+        .output("unused.rdl")
         .write()
         .unwrap_err();
     assert_eq!(error.message, "expected .winmd file");
+}
+
+#[test]
+fn terminals_require_output() {
+    let write = windows_clang::clang().write().unwrap_err();
+    assert_eq!(write.message, "output is required");
+
+    let partition = windows_clang::clang().write_by_header().unwrap_err();
+    assert_eq!(partition.message, "output is required");
+}
+
+#[test]
+fn malformed_metadata_reports_its_role() {
+    let reference = windows_clang::clang()
+        .reference_bytes(b"not metadata")
+        .output("unused.rdl")
+        .write()
+        .unwrap_err();
+    assert_eq!(reference.message, "invalid reference");
+    assert_eq!(reference.file_name, "<memory>");
+
+    let resolution = windows_clang::clang()
+        .resolution_bytes(b"not metadata")
+        .output("unused")
+        .write_by_header()
+        .unwrap_err();
+    assert_eq!(resolution.message, "invalid resolution input");
+    assert_eq!(resolution.file_name, "<memory>");
 }
 
 fn run(name: &str) {

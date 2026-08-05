@@ -61,7 +61,7 @@ RDL can reference types it does not define. Examples include `HRESULT` and
 ```rust,no_run
 windows_rdl::reader()
     .input("example.rdl")
-    .input_default()
+    .reference_default()
     .output("example.winmd")
     .write()
     .unwrap();
@@ -85,7 +85,7 @@ separate input.
 windows_clang::clang()
     .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
     .input("Example.h")
-    .input_default()
+    .reference_default()
     .output("example.rdl")
     .namespace("Example")
     .library("Example.dll")

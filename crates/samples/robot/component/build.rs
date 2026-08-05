@@ -3,7 +3,7 @@ fn main() {
 
     windows_rdl::reader()
         .input("src/robot.rdl")
-        .input_default()
+        .reference_default()
         .output("robot.winmd")
         .write()
         .unwrap();

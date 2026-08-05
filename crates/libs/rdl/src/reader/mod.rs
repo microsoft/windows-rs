@@ -57,7 +57,7 @@ pub struct Reader {
     input: Vec<PathBuf>,
     input_text: Vec<String>,
     reference: Vec<PathBuf>,
-    input_default: bool,
+    reference_default: bool,
     reference_bytes: Vec<Vec<u8>>,
     output: PathBuf,
 }
@@ -129,8 +129,8 @@ impl Reader {
     }
 
     /// Adds the default Windows metadata references.
-    pub fn input_default(&mut self) -> &mut Self {
-        self.input_default = true;
+    pub fn reference_default(&mut self) -> &mut Self {
+        self.reference_default = true;
         self
     }
 
@@ -181,7 +181,7 @@ impl Reader {
             );
         }
 
-        if self.input_default {
+        if self.reference_default {
             reference.extend(
                 [windows_default::WINRT, windows_default::WIN32]
                     .into_iter()

@@ -55,7 +55,7 @@ cross-header type references resolve:
 windows_clang::clang()
     .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
     .input("Example.h")
-    .input_default()
+    .reference_default()
     .output("rdl")
     .namespace("Example")
     .library("Example.dll")
@@ -70,10 +70,10 @@ Use `.input_text(..)` and `.input_texts(..)` when the C/C++ source is already in
 
 ### Default metadata
 
-`.input_default()` adds the standard WinRT and Win32 metadata as references for declarations used by
-the scraped headers. `.reference(..)` and `.references(..)` add reference metadata from files or
-directories. `.reference_bytes(..)` and `.reference_byte_sets(..)` accept metadata already in
-memory. Input, reference, resolution, import library, and output paths accept strings, `Path`, or
+`.reference_default()` adds the standard WinRT and Win32 metadata as references for declarations
+used by the scraped headers. `.reference(..)` and `.references(..)` add reference metadata from
+files or directories. `.reference_bytes(..)` and `.reference_byte_sets(..)` accept metadata already
+in memory. Input, reference, resolution, import library, and output paths accept strings, `Path`, or
 `PathBuf`.
 
 `.resolution_default()` is different: it adds only the WinRT metadata to the resolution set used to
@@ -908,7 +908,7 @@ lives in `rust-lang/rust`:
 
 | File | Role |
 | --- | --- |
-| `src/tools/generate-windows-sys/src/main.rs` | Runs `windows_bindgen::bindgen_file("bindings.txt")` and appends an ARM32 `WSADATA`/`CONTEXT` shim. |
+| `src/tools/generate-windows-sys/src/main.rs` | Runs `windows_bindgen::bindgen(["--etc", "bindings.txt"])` and appends an ARM32 `WSADATA`/`CONTEXT` shim. |
 | `library/std/src/sys/pal/windows/c/bindings.txt` | The filter: `--out windows_sys.rs --flat --sys` plus 2,641 flat API names. Its `--link windows_link` argument is redundant. |
 | `library/std/src/sys/pal/windows/c.rs` | Hand-written overrides and functions the generated file does not provide (`windows_sys.rs` is generated and must not be edited). |
 

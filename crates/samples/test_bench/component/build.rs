@@ -3,7 +3,7 @@ fn main() {
 
     windows_rdl::reader()
         .input("src/bench.rdl")
-        .input_default()
+        .reference_default()
         .output("bench.winmd")
         .write()
         .unwrap();

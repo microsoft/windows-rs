@@ -523,7 +523,7 @@ pub struct Clang {
     drop_lib_less: bool,
     /// Winmds used only to classify `ABI::Windows::*` projection declarations.
     resolution_input: Vec<PathBuf>,
-    input_default: bool,
+    reference_default: bool,
     resolution_default: bool,
     reference_bytes: Vec<std::sync::Arc<[u8]>>,
     resolution_bytes: Vec<std::sync::Arc<[u8]>>,
@@ -617,8 +617,8 @@ impl Clang {
     }
 
     /// Adds the default Windows metadata as references.
-    pub fn input_default(&mut self) -> &mut Self {
-        self.input_default = true;
+    pub fn reference_default(&mut self) -> &mut Self {
+        self.reference_default = true;
         self
     }
 
@@ -839,6 +839,7 @@ impl Clang {
 
     /// Generates the RDL and writes it to the configured output.
     pub fn write(&self) -> Result<(), Error> {
+        self.validate_output()?;
         let reference = self.load_reference()?;
         let spec = NamespaceSpec {
             namespace: &self.namespace,
@@ -854,6 +855,7 @@ impl Clang {
 
     /// Writes one flat-root RDL file per defining header.
     pub fn write_by_header(&self) -> Result<(), Error> {
+        self.validate_output()?;
         let outputs = self.parse_and_emit_by_header(&self.namespace)?;
         for (stem, rdl) in outputs {
             // File names are lowercased defining-header stems.
@@ -864,6 +866,14 @@ impl Clang {
             )?;
         }
         Ok(())
+    }
+
+    fn validate_output(&self) -> Result<(), Error> {
+        if self.output.as_os_str().is_empty() {
+            Err(Error::new("output is required", "", 0, 0))
+        } else {
+            Ok(())
+        }
     }
 
     /// Parses inputs once and returns the libclang state that keeps the TUs valid.
@@ -1296,10 +1306,10 @@ impl Clang {
             let source = file_name.to_string_lossy();
             winmd_files.push(
                 metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid input", &source, 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid reference", &source, 0, 0))?,
             );
         }
-        if self.input_default {
+        if self.reference_default {
             winmd_files.extend(
                 [windows_default::WINRT, windows_default::WIN32]
                     .into_iter()
@@ -1309,7 +1319,7 @@ impl Clang {
         for bytes in &self.reference_bytes {
             winmd_files.push(
                 metadata::reader::File::new(bytes.to_vec())
-                    .ok_or_else(|| Error::new("invalid input", "<memory>", 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid reference", "<memory>", 0, 0))?,
             );
         }
 
@@ -1323,7 +1333,7 @@ impl Clang {
             let source = file_name.to_string_lossy();
             winmd_files.push(
                 metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid input", &source, 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid resolution input", &source, 0, 0))?,
             );
         }
         if self.resolution_default {
@@ -1332,7 +1342,7 @@ impl Clang {
         for bytes in &self.resolution_bytes {
             winmd_files.push(
                 metadata::reader::File::new(bytes.to_vec())
-                    .ok_or_else(|| Error::new("invalid input", "<memory>", 0, 0))?,
+                    .ok_or_else(|| Error::new("invalid resolution input", "<memory>", 0, 0))?,
             );
         }
         let index = metadata::reader::Index::new(winmd_files);

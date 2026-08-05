@@ -29,4 +29,4 @@ windows_clang::clang()
 
 Use `.reference("dependency.winmd")` when the headers refer to types defined by another metadata
 file. Use `.input_text(source)` or `.input_texts(sources)` for C/C++ source already in memory. Use
-`.input_default()` for the standard Windows metadata.
+`.reference_default()` for the standard Windows metadata.

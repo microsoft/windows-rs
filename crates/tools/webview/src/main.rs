@@ -44,7 +44,7 @@ fn main() {
         ])
         .input(include.join("WebView2.h"))
         .input(include_winrt.join("WebView2Interop.h"))
-        .input_default()
+        .reference_default()
         .output("target/webview/WebView2.rdl")
         .namespace("WebView2")
         .library("WebView2Loader.dll")
@@ -53,19 +53,19 @@ fn main() {
 
     reader()
         .input("target/webview/WebView2.rdl")
-        .input_default()
+        .reference_default()
         .output("target/webview/WebView2.winmd")
         .write()
         .unwrap();
 
-    windows_bindgen::bindgen_file("crates/tools/webview/src/webview.txt");
+    windows_bindgen::bindgen(["--etc", "crates/tools/webview/src/webview.txt"]);
 
     // Feature-gated WinRT bindings for the `reactor` integration: the WinUI XAML
     // `WebView2` control (Microsoft.UI.Xaml.winmd) and the WinRT `CoreWebView2`
     // (Microsoft.Web.WebView2.Core.winmd), generated straight from the vendored
     // winmd metadata. The control's `CoreWebView2` is bridged to the COM
     // `ICoreWebView2` above via `ICoreWebView2Interop2::GetComICoreWebView2`.
-    windows_bindgen::bindgen_file("crates/tools/webview/src/reactor.txt");
+    windows_bindgen::bindgen(["--etc", "crates/tools/webview/src/reactor.txt"]);
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }

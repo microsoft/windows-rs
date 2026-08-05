@@ -26,6 +26,7 @@ use super::*;
 /// - `--minimal`: Omits class wrappers, inherited forwarders, and handle wrappers.
 /// - `--implement`: Emits implementation traits for selected WinRT interfaces.
 /// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
+/// - `--etc`: Reads arguments from command files.
 /// - `--filter-file`: Reads filters from text files.
 /// # `--out`
 ///
@@ -77,12 +78,13 @@ where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
 {
+    let args = expand_args(args);
     let mut builder = Bindgen::new();
     let mut kind = ArgKind::None;
     let mut has_output = false;
     let mut implement = None::<Vec<String>>;
 
-    for arg in args.into_iter().map(|arg| arg.as_ref().to_string()) {
+    for arg in args {
         if arg.starts_with('-') {
             kind = ArgKind::None;
         }
@@ -160,15 +162,6 @@ where
     builder.write();
 }
 
-/// Generates bindings using commands from a text file.
-///
-/// Blank lines and lines beginning with `//` are ignored. Use `--filter-file` within the command
-/// file to load filter-only files.
-#[track_caller]
-pub fn bindgen_file(input: impl AsRef<Path>) {
-    bindgen(read_tokens(input));
-}
-
 enum ArgKind {
     None,
     Input,
@@ -178,6 +171,40 @@ enum ArgKind {
     Rustfmt,
     Derive,
     Implement,
+}
+
+#[track_caller]
+fn expand_args<I, S>(args: I) -> Vec<String>
+where
+    I: IntoIterator<Item = S>,
+    S: AsRef<str>,
+{
+    #[track_caller]
+    fn expand<I, S>(result: &mut Vec<String>, args: I)
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        let mut command_files = false;
+
+        for arg in args.into_iter().map(|arg| arg.as_ref().to_string()) {
+            if arg.starts_with('-') {
+                command_files = false;
+            }
+
+            if command_files {
+                expand(result, read_tokens(arg));
+            } else if arg == "--etc" {
+                command_files = true;
+            } else {
+                result.push(arg);
+            }
+        }
+    }
+
+    let mut result = Vec::new();
+    expand(&mut result, args);
+    result
 }
 
 #[track_caller]

@@ -20,7 +20,7 @@ mod Test {
 }
 "#,
         )
-        .input_default()
+        .reference_default()
         .output(temp_path("default_input", "winmd"))
         .write()
         .unwrap();

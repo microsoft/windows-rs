@@ -47,7 +47,7 @@ fn author(name: &str, scratch: &Path) -> PathBuf {
     let winmd = scratch.join(format!("{name}.winmd"));
     windows_rdl::reader()
         .input(format!("input/{name}.rdl").as_str())
-        .input_default()
+        .reference_default()
         .output(winmd.to_str().unwrap())
         .write()
         .unwrap();

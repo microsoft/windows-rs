@@ -120,9 +120,13 @@ impl Writer {
 
     /// Converts the inputs and writes the RDL to the configured output.
     pub fn write(&self) -> Result<(), Error> {
+        if self.output.as_os_str().is_empty() {
+            return Err(Error::new("output is required", "", 0, 0));
+        }
+
         let mut files = vec![];
 
-        for file_name in &expand_input_paths(&self.input, "winmd", ".")?.0 {
+        for file_name in &expand_input_files(&self.input, "winmd")? {
             let source = file_name.to_string_lossy();
             files.push(
                 metadata::reader::File::read(file_name)

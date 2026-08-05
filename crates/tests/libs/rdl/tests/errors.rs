@@ -30,6 +30,43 @@ fn missing_output_is_rejected() {
 }
 
 #[test]
+fn writer_missing_output_is_rejected() {
+    let error = windows_rdl::writer().split().write().unwrap_err();
+    assert_eq!(error.message, "output is required");
+}
+
+#[test]
+fn malformed_metadata_reports_its_role() {
+    let reference_error = windows_rdl::reader()
+        .input_text("#[winrt] mod Test {}")
+        .reference_bytes(b"not metadata")
+        .output(out_path("invalid_reference"))
+        .write()
+        .unwrap_err();
+    assert_eq!(reference_error.message, "invalid reference");
+    assert_eq!(reference_error.file_name, "<memory>");
+
+    let input_error = windows_rdl::writer()
+        .input_bytes(b"not metadata")
+        .output(out_path("invalid_input").with_extension("rdl"))
+        .write()
+        .unwrap_err();
+    assert_eq!(input_error.message, "invalid input");
+    assert_eq!(input_error.file_name, "<memory>");
+}
+
+#[test]
+fn writer_rejects_non_winmd_input() {
+    let error = windows_rdl::writer()
+        .input("input.rdl")
+        .output(out_path("writer_extension").with_extension("rdl"))
+        .write()
+        .unwrap_err();
+    assert_eq!(error.message, "expected .winmd file");
+    assert_eq!(error.file_name, "input.rdl");
+}
+
+#[test]
 #[should_panic(expected = "expected .rdl file")]
 fn unsupported_input_extension_is_rejected() {
     // `Display` branch 3: a file name but no source location (line/column 0).

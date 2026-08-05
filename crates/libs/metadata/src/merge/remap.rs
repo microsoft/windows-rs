@@ -20,14 +20,42 @@ impl Remapper {
         self
     }
 
+    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.input(input);
+        }
+        self
+    }
+
     /// Registers a namespace whose members are remapped.
     pub fn source(&mut self, namespace: &str) -> &mut Self {
         self.sources.push(namespace.to_string());
         self
     }
 
+    /// Registers namespaces whose members are remapped.
+    pub fn sources<I, S>(&mut self, namespaces: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for namespace in namespaces {
+            self.source(namespace.as_ref());
+        }
+        self
+    }
+
     pub fn fallback(&mut self, namespace: &str) -> &mut Self {
         self.fallback = namespace.to_string();
+        self
+    }
+
+    pub fn route(&mut self, name: impl Into<String>, namespace: impl Into<String>) -> &mut Self {
+        self.routes.insert(name.into(), namespace.into());
         self
     }
 
@@ -38,7 +66,7 @@ impl Remapper {
         V: Into<String>,
     {
         for (name, namespace) in routes {
-            self.routes.insert(name.into(), namespace.into());
+            self.route(name, namespace);
         }
         self
     }
