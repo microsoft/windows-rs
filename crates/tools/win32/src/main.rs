@@ -484,6 +484,9 @@ const HEADERS: &[&str] = &[
     "windows.ui.xaml.media.dxinterop.h",
     "windows.ui.xaml.hosting.desktopwindowxamlsource.h",
     "windows.ui.xaml.hosting.referencetracker.h",
+    // XAML diagnostics has no SDK import library. Its exported entry point is mapped by
+    // `LIBRARY_OVERRIDES`.
+    "xamlOM.h",
     "WindowsStorageCOM.h",
     // Interop headers that `#include` a `winrt\` C++/WinRT projection header whose transitive
     // closure fails to parse; the scraper tolerates errors in those out-of-scope projection
@@ -755,6 +758,95 @@ const IMPORT_LIBS: &[&str] = &[
     "vertdll.lib",
 ];
 
+/// Corrections for known defects in the pinned SDK import-library data.
+///
+/// `sdk` is the value that must be present before applying the correction. This makes an SDK
+/// update fail generation when upstream changes the mapping, prompting removal or revalidation
+/// instead of silently retaining a stale override.
+struct LibraryOverride {
+    symbol: &'static str,
+    sdk_library: Option<&'static str>,
+    corrected_library: &'static str,
+}
+
+const LIBRARY_OVERRIDES: &[LibraryOverride] = &[
+    LibraryOverride {
+        symbol: "DecodeRemotePointer",
+        sdk_library: Some("api-ms-win-core-util-l1-1-1.dll"),
+        corrected_library: "KernelBase.dll",
+    },
+    LibraryOverride {
+        symbol: "EncodeRemotePointer",
+        sdk_library: Some("api-ms-win-core-util-l1-1-1.dll"),
+        corrected_library: "KernelBase.dll",
+    },
+    LibraryOverride {
+        symbol: "OpenTraceFromBufferStream",
+        sdk_library: Some("ADVAPI32.dll"),
+        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
+    },
+    LibraryOverride {
+        symbol: "OpenTraceFromFile",
+        sdk_library: Some("ADVAPI32.dll"),
+        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
+    },
+    LibraryOverride {
+        symbol: "OpenTraceFromRealTimeLogger",
+        sdk_library: Some("ADVAPI32.dll"),
+        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
+    },
+    LibraryOverride {
+        symbol: "OpenTraceFromRealTimeLoggerWithAllocationOptions",
+        sdk_library: Some("ADVAPI32.dll"),
+        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
+    },
+    LibraryOverride {
+        symbol: "ProcessTraceAddBufferToBufferStream",
+        sdk_library: Some("ADVAPI32.dll"),
+        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
+    },
+    LibraryOverride {
+        symbol: "ProcessTraceBufferDecrementReference",
+        sdk_library: Some("ADVAPI32.dll"),
+        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
+    },
+    LibraryOverride {
+        symbol: "ProcessTraceBufferIncrementReference",
+        sdk_library: Some("ADVAPI32.dll"),
+        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
+    },
+    LibraryOverride {
+        symbol: "TraceConfigureLastBranchRecord",
+        sdk_library: Some("ADVAPI32.dll"),
+        corrected_library: "api-ms-win-eventing-consumer-l1-1-2.dll",
+    },
+    LibraryOverride {
+        symbol: "GetRuntimeAttestationReport",
+        sdk_library: Some("KERNEL32.dll"),
+        corrected_library: "KernelBase.dll",
+    },
+    LibraryOverride {
+        symbol: "GetSystemLeapSecondInformation",
+        sdk_library: Some("KERNEL32.dll"),
+        corrected_library: "KernelBase.dll",
+    },
+    LibraryOverride {
+        symbol: "RestoreThreadPreferredUILanguages",
+        sdk_library: Some("KERNEL32.dll"),
+        corrected_library: "KernelBase.dll",
+    },
+    LibraryOverride {
+        symbol: "SetThreadPreferredUILanguages2",
+        sdk_library: Some("KERNEL32.dll"),
+        corrected_library: "KernelBase.dll",
+    },
+    LibraryOverride {
+        symbol: "InitializeXamlDiagnosticsEx",
+        sdk_library: None,
+        corrected_library: "Windows.UI.Xaml.dll",
+    },
+];
+
 fn main() {
     let time = std::time::Instant::now();
 
@@ -876,6 +968,7 @@ fn scrape_um() -> Summary {
             .import_library(lib)
             .unwrap_or_else(|e| panic!("failed to read import library `{lib}`: {e}"));
     }
+    apply_library_overrides(&mut clang);
 
     let summary = clang.scrape(&ScrapePlan {
         root: ROOT.to_string(),
@@ -892,6 +985,23 @@ fn scrape_um() -> Summary {
     print!("{summary}");
     println!("Wrote {UM_WINMD} ({} partition(s))", summary.partitions);
     summary
+}
+
+fn apply_library_overrides(clang: &mut Clang) {
+    for entry in LIBRARY_OVERRIDES {
+        assert_eq!(
+            clang.resolved_library(entry.symbol),
+            entry.sdk_library,
+            "SDK library mapping for `{}` changed; remove or update the override",
+            entry.symbol
+        );
+    }
+
+    clang.libraries(
+        LIBRARY_OVERRIDES
+            .iter()
+            .map(|entry| (entry.symbol, entry.corrected_library)),
+    );
 }
 
 /// x64 is always canonical (its scrape writes the committed metadata); any other arch listed in
@@ -945,4 +1055,35 @@ fn sdk_lib_dirs() -> Vec<String> {
 fn resolve(name: &str, dirs: &[String], kind: &str, var: &str) -> String {
     find_in_dirs(name, dirs)
         .unwrap_or_else(|| panic!("{kind} `{name}` not found in any `{var}` directory"))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn library_overrides_are_checked_and_applied() {
+        let mut clang = clang();
+        let mut symbols = std::collections::HashSet::new();
+
+        clang.libraries(LIBRARY_OVERRIDES.iter().filter_map(|entry| {
+            assert!(
+                symbols.insert(entry.symbol),
+                "duplicate library override for `{}`",
+                entry.symbol
+            );
+            entry
+                .sdk_library
+                .map(|sdk_library| (entry.symbol, sdk_library))
+        }));
+
+        apply_library_overrides(&mut clang);
+
+        for entry in LIBRARY_OVERRIDES {
+            assert_eq!(
+                clang.resolved_library(entry.symbol),
+                Some(entry.corrected_library)
+            );
+        }
+    }
 }

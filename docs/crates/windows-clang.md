@@ -153,6 +153,10 @@ The header lists and import-library order are defined by `crates/tools/win32`. A
 resolved exporting library is omitted when `drop_lib_less` is enabled. The generated metadata is
 partitioned by defining header rather than by a curated API namespace.
 
+`LIBRARY_OVERRIDES` corrects confirmed SDK import-library defects after the normal first-wins
+resolution pass. Each entry records the SDK value and its replacement. Generation fails if an SDK
+update changes the original value, prompting removal or revalidation of the override.
+
 WinRT projection types referenced from native interop headers are resolved against `Windows.winmd`.
 True WinRT types remain cross-metadata references. Native COM types declared under
 `ABI::Windows::*` are emitted as Win32 declarations.

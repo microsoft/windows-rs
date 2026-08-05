@@ -50,7 +50,7 @@ mod Windows {
         extern fn GetProcessorSystemCycleTime(Group: u16, #[size_param(2)] #[opt] Buffer: *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, #[in] #[out] ReturnedLength: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetProductInfo(dwOSMajorVersion: u32, dwOSMinorVersion: u32, dwSpMajorVersion: u32, dwSpMinorVersion: u32, pdwReturnedProductType: *mut u32) -> BOOL;
-        #[library("KERNEL32.dll")]
+        #[library("KernelBase.dll")]
         extern fn GetRuntimeAttestationReport(#[opt] Nonce: *const u8, PackageVersion: u16, ReportTypesBitmap: u64, #[size_param(4)] #[opt] ReportBuffer: *mut void, #[in] #[out] ReportBufferSize: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetSystemDirectoryA(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32) -> u32;
@@ -60,7 +60,7 @@ mod Windows {
         extern fn GetSystemFirmwareTable(FirmwareTableProviderSignature: u32, FirmwareTableID: u32, #[size_param(3)] #[opt] pFirmwareTableBuffer: *mut void, BufferSize: u32) -> u32;
         #[library("KERNEL32.dll")]
         extern fn GetSystemInfo(lpSystemInfo: *mut SYSTEM_INFO);
-        #[library("KERNEL32.dll")]
+        #[library("KernelBase.dll")]
         extern fn GetSystemLeapSecondInformation(Enabled: *mut BOOL, Flags: *mut u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetSystemTime(lpSystemTime: *mut SYSTEMTIME);

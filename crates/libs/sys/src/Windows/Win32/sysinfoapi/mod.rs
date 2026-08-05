@@ -17,12 +17,12 @@ windows_link::link!("kernel32.dll" "system" fn GetPhysicallyInstalledSystemMemor
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn GetProcessorSystemCycleTime(group : u16, buffer : *mut super::SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetProductInfo(dwosmajorversion : u32, dwosminorversion : u32, dwspmajorversion : u32, dwspminorversion : u32, pdwreturnedproducttype : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetRuntimeAttestationReport(nonce : *const u8, packageversion : u16, reporttypesbitmap : u64, reportbuffer : *mut core::ffi::c_void, reportbuffersize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernelbase.dll" "system" fn GetRuntimeAttestationReport(nonce : *const u8, packageversion : u16, reporttypesbitmap : u64, reportbuffer : *mut core::ffi::c_void, reportbuffersize : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetSystemDirectoryA(lpbuffer : windows_sys::core::PSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetSystemDirectoryW(lpbuffer : windows_sys::core::PWSTR, usize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetSystemFirmwareTable(firmwaretableprovidersignature : u32, firmwaretableid : u32, pfirmwaretablebuffer : *mut core::ffi::c_void, buffersize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetSystemInfo(lpsysteminfo : *mut SYSTEM_INFO));
-windows_link::link!("kernel32.dll" "system" fn GetSystemLeapSecondInformation(enabled : *mut windows_sys::core::BOOL, flags : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernelbase.dll" "system" fn GetSystemLeapSecondInformation(enabled : *mut windows_sys::core::BOOL, flags : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwinbase")]
 windows_link::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::SYSTEMTIME));
 windows_link::link!("kernel32.dll" "system" fn GetSystemTimeAdjustment(lptimeadjustment : *mut u32, lptimeincrement : *mut u32, lptimeadjustmentdisabled : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);

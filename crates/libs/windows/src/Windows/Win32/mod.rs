@@ -2295,6 +2295,10 @@ pub use wtypesbase::*;
 pub mod wuapi;
 #[cfg(feature = "wuapi")]
 pub use wuapi::*;
+#[cfg(feature = "xamlom")]
+pub mod xamlom;
+#[cfg(feature = "xamlom")]
+pub use xamlom::*;
 #[cfg(feature = "xaudio2")]
 pub mod xaudio2;
 #[cfg(feature = "xaudio2")]
@@ -2309,7 +2313,7 @@ pub mod xmllite;
 pub use xmllite::*;
 #[cfg(feature = "xps")]
 pub mod xps;
-#[cfg(feature = "ro")]
+#[cfg(any(feature = "ro", feature = "xamlom"))]
 pub use core::option::Option::None;
 #[cfg(feature = "xps")]
 pub use xps::*;

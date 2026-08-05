@@ -864,7 +864,7 @@ mod Windows {
         type PFILEMUIINFO = *mut FILEMUIINFO;
         #[library("KERNEL32.dll")]
         extern fn ResolveLocaleName(#[opt] lpNameToResolve: PCWSTR, #[len_param(2)] #[out] #[opt] lpLocaleName: PWSTR, cchLocaleName: i32) -> i32;
-        #[library("KERNEL32.dll")]
+        #[library("KernelBase.dll")]
         extern fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES);
         const SORTING_PARADIGM_ICU: i32 = 16777216;
         const SORTING_PARADIGM_NLS: i32 = 0;
@@ -915,7 +915,7 @@ mod Windows {
         extern fn SetThreadLocale(Locale: LCID) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadPreferredUILanguages(dwFlags: u32, #[opt] pwszLanguagesBuffer: *const u16, #[opt] pulNumLanguages: *mut u32) -> BOOL;
-        #[library("KERNEL32.dll")]
+        #[library("KernelBase.dll")]
         extern fn SetThreadPreferredUILanguages2(flags: u32, #[opt] languages: *const u16, #[opt] numLanguagesSet: *mut u32, #[opt] snapshot: *mut HSAVEDUILANGUAGES) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadUILanguage(LangId: LANGID) -> LANGID;

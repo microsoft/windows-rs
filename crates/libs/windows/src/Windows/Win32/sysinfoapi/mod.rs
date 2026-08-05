@@ -89,7 +89,7 @@ pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspm
 }
 #[inline]
 pub unsafe fn GetRuntimeAttestationReport(nonce: Option<*const u8>, packageversion: u16, reporttypesbitmap: u64, reportbuffer: Option<*mut core::ffi::c_void>, reportbuffersize: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetRuntimeAttestationReport(nonce : *const u8, packageversion : u16, reporttypesbitmap : u64, reportbuffer : *mut core::ffi::c_void, reportbuffersize : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("kernelbase.dll" "system" fn GetRuntimeAttestationReport(nonce : *const u8, packageversion : u16, reporttypesbitmap : u64, reportbuffer : *mut core::ffi::c_void, reportbuffersize : *mut u32) -> windows_core::BOOL);
     unsafe { GetRuntimeAttestationReport(nonce.unwrap_or(core::mem::zeroed()) as _, packageversion, reporttypesbitmap, reportbuffer.unwrap_or(core::mem::zeroed()) as _, reportbuffersize as _) }
 }
 #[inline]
@@ -114,7 +114,7 @@ pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
 }
 #[inline]
 pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut windows_core::BOOL, flags: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetSystemLeapSecondInformation(enabled : *mut windows_core::BOOL, flags : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("kernelbase.dll" "system" fn GetSystemLeapSecondInformation(enabled : *mut windows_core::BOOL, flags : *mut u32) -> windows_core::BOOL);
     unsafe { GetSystemLeapSecondInformation(enabled as _, flags as _) }
 }
 #[cfg(feature = "minwinbase")]

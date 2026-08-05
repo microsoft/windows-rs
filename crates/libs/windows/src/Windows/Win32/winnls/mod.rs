@@ -609,7 +609,7 @@ where
 }
 #[inline]
 pub unsafe fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES) {
-    windows_core::link!("kernel32.dll" "system" fn RestoreThreadPreferredUILanguages(snapshot : HSAVEDUILANGUAGES));
+    windows_core::link!("kernelbase.dll" "system" fn RestoreThreadPreferredUILanguages(snapshot : HSAVEDUILANGUAGES));
     unsafe { RestoreThreadPreferredUILanguages(snapshot) }
 }
 #[cfg(feature = "winnt")]
@@ -666,7 +666,7 @@ pub unsafe fn SetThreadPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: O
 }
 #[inline]
 pub unsafe fn SetThreadPreferredUILanguages2(flags: u32, languages: Option<*const u16>, numlanguagesset: Option<*mut u32>, snapshot: Option<*mut HSAVEDUILANGUAGES>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : *const u16, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> windows_core::BOOL);
+    windows_core::link!("kernelbase.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : *const u16, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> windows_core::BOOL);
     unsafe { SetThreadPreferredUILanguages2(flags, languages.unwrap_or(core::mem::zeroed()) as _, numlanguagesset.unwrap_or(core::mem::zeroed()) as _, snapshot.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
