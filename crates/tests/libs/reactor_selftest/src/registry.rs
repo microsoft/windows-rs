@@ -62,6 +62,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "Reconciler_Mount_ButtonTextLink",
         controls::mount_button_text_link,
     ),
+    (
+        "Resources_TypedUpdateAndClear",
+        controls::lightweight_resources,
+    ),
     ("Reconciler_Mount_CheckBox", controls::mount_check_box),
     ("Reconciler_Mount_TextField", controls::mount_text_field),
     (
@@ -89,6 +93,7 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         controls::mount_person_picture,
     ),
     ("Reconciler_Mount_TabView", controls::mount_tab_view),
+    ("TabView_ItemKey_Clear", controls::tab_item_key_clear),
     (
         "Reconciler_Mount_TabView_AddButton",
         controls::mount_tab_view_add_button,
@@ -96,6 +101,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     (
         "Reconciler_Mount_NavigationView",
         controls::mount_navigation_view,
+    ),
+    (
+        "NavigationView_StateCallbacks",
+        controls::navigation_view_state_callbacks,
     ),
     ("Reconciler_Mount_TitleBar", controls::mount_title_bar),
     ("Reconciler_Mount_Pivot", controls::mount_pivot),
@@ -130,6 +139,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     (
         "Reconciler_Mount_VirtualList",
         controls::mount_virtual_list_alias,
+    ),
+    (
+        "Reconciler_KeyedTemplatedListState",
+        controls::keyed_templated_list_state,
     ),
     ("Reconciler_Mount_PasswordBox", controls::mount_password_box),
     (
@@ -187,8 +200,12 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         interactions::button_icon_glyph_change_preserves_text,
     ),
     (
-        "Interaction_ButtonIcon_ImageAndFont",
-        interactions::button_image_and_font_icons,
+        "Interaction_ButtonIcon_Subclasses",
+        interactions::button_icon_subclasses,
+    ),
+    (
+        "Interaction_ElementExitTransition",
+        interactions::element_exit_transition,
     ),
     (
         "Interaction_ButtonIcon_Removal",

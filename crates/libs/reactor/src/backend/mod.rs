@@ -278,7 +278,7 @@ pub enum PropValue {
         secondary: Vec<CommandBarCommandDef>,
     },
     SelectorBarItems(Vec<SelectorBarItemDef>),
-    Resources(HashMap<String, String>),
+    Resources(HashMap<String, ResourceValue>),
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
@@ -296,6 +296,8 @@ pub enum Event {
     Expanding,
     ItemClicked,
     ItemInvoked,
+    NavigationDisplayModeChanged,
+    NavigationPaneOpenChanged,
     PaneClosed,
     PaneToggleRequested,
     PasswordChanged,
@@ -320,6 +322,7 @@ pub enum EventHandler {
     I32(Callback<i32>),
     Color(Callback<(u8, u8, u8, u8)>),
     DateTime(Callback<DateTime>),
+    NavigationDisplayMode(Callback<NavigationViewDisplayMode>),
     TimeSpan(Callback<TimeSpan>),
 }
 
@@ -333,6 +336,9 @@ impl fmt::Debug for EventHandler {
             Self::I32(_) => f.write_str("EventHandler::I32(..)"),
             Self::Color(_) => f.write_str("EventHandler::Color(..)"),
             Self::DateTime(_) => f.write_str("EventHandler::DateTime(..)"),
+            Self::NavigationDisplayMode(_) => {
+                f.write_str("EventHandler::NavigationDisplayMode(..)")
+            }
             Self::TimeSpan(_) => f.write_str("EventHandler::TimeSpan(..)"),
         }
     }
@@ -395,6 +401,15 @@ impl EventHandler {
         match self {
             Self::DateTime(cb) => cb.invoke(dt),
             other => panic!("EventHandler::invoke_datetime() called on {other:?}"),
+        }
+    }
+
+    pub fn invoke_navigation_display_mode(&self, mode: NavigationViewDisplayMode) {
+        match self {
+            Self::NavigationDisplayMode(cb) => cb.invoke(mode),
+            other => {
+                panic!("EventHandler::invoke_navigation_display_mode() called on {other:?}")
+            }
         }
     }
 
@@ -482,6 +497,14 @@ pub trait Backend {
     fn set_layout_animation(&mut self, _id: ControlId, _config: Option<LayoutAnimationConfig>) {}
 
     fn run_property_animation(&mut self, _id: ControlId, _config: Option<AnimationConfig>) {}
+
+    fn set_element_transitions(
+        &mut self,
+        _id: ControlId,
+        _enter: Option<AnimationConfig>,
+        _exit: Option<AnimationConfig>,
+    ) {
+    }
 
     fn set_rich_text_paragraphs(&mut self, _id: ControlId, _paragraphs: &[RichTextParagraph]) {}
 

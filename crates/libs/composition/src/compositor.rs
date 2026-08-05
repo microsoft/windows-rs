@@ -126,6 +126,12 @@ impl Compositor {
         Vector3KeyFrameAnimation(self.0.CreateVector3KeyFrameAnimation().unwrap())
     }
 
+    /// Creates an empty group whose animations start together.
+    pub fn create_animation_group(&self) -> CompositionAnimationGroup {
+        let compositor: bindings::ICompositor2 = self.0.cast().unwrap();
+        CompositionAnimationGroup(compositor.CreateAnimationGroup().unwrap())
+    }
+
     /// Creates a scalar (`f32`) key-frame animation.
     pub fn create_scalar_key_frame_animation(&self) -> ScalarKeyFrameAnimation {
         ScalarKeyFrameAnimation(self.0.CreateScalarKeyFrameAnimation().unwrap())

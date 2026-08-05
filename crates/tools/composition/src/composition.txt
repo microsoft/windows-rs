@@ -24,7 +24,7 @@ Windows.UI.Composition.Compositor
 Windows.UI.Composition.Compositor::CreateInstance
 // endregion
 Windows.UI.Composition.ICompositor::{CreateContainerVisual, CreateSpriteVisual, CreateColorBrushWithColor, CreateScopedBatch, CreateScalarKeyFrameAnimation, CreateVector3KeyFrameAnimation, CreateLinearEasingFunction, CreateCubicBezierEasingFunction}
-Windows.UI.Composition.ICompositor2::{CreateNineGridBrush, CreateImplicitAnimationCollection}
+Windows.UI.Composition.ICompositor2::{CreateAnimationGroup, CreateNineGridBrush, CreateImplicitAnimationCollection}
 Windows.UI.Composition.ICompositor5::{CreateShapeVisual, CreateSpriteShapeWithGeometry, CreateContainerShape, CreateEllipseGeometry}
 
 Windows.UI.Composition.CompositionObject
@@ -84,6 +84,8 @@ Windows.UI.Composition.ICompositionEllipseGeometry::{put_Radius}
 Windows.UI.Composition.CompositionAnimation
 Windows.UI.Composition.ICompositionAnimation2::{put_Target}
 Windows.UI.Composition.ICompositionAnimationBase
+Windows.UI.Composition.CompositionAnimationGroup
+Windows.UI.Composition.ICompositionAnimationGroup::Add
 Windows.UI.Composition.KeyFrameAnimation
 Windows.UI.Composition.IKeyFrameAnimation::{put_Duration, put_DelayTime, put_IterationBehavior, put_IterationCount, InsertExpressionKeyFrameWithEasingFunction}
 Windows.UI.Composition.ScalarKeyFrameAnimation

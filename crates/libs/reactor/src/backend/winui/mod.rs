@@ -1,6 +1,6 @@
 use std::cell::RefCell;
 
-use rustc_hash::FxHashMap;
+use rustc_hash::{FxHashMap, FxHashSet};
 
 use super::*;
 
@@ -127,6 +127,7 @@ define_handles! {
 pub struct WinUIBackend {
     controls: RefCell<FxHashMap<ControlId, Handle>>,
     event_revokers: RefCell<FxHashMap<(ControlId, Event), Vec<windows_core::EventRevoker>>>,
+    property_observers: RefCell<FxHashMap<(ControlId, Event), PropertyObserver>>,
     templated_selection_revokers: RefCell<FxHashMap<ControlId, windows_core::EventRevoker>>,
     /// Per-list virtualization state for templated ListView/GridView/FlipView.
     templated: RefCell<FxHashMap<ControlId, TemplatedList>>,
@@ -140,6 +141,7 @@ pub struct WinUIBackend {
     menu_click_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
     command_bar_flyout_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
     theme_brush_registry: RefCell<FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>>,
+    resource_keys: RefCell<FxHashMap<ControlId, FxHashSet<String>>>,
     /// Per-host window state for window-level props.
     window_state: RefCell<Option<Rc<HostWindowState>>>,
     next_id: RefCell<u32>,
@@ -154,6 +156,24 @@ struct PointerRevokerSet {
     moved: Option<windows_core::EventRevoker>,
     entered: Option<windows_core::EventRevoker>,
     exited: Option<windows_core::EventRevoker>,
+    capture_lost: Option<windows_core::EventRevoker>,
+    canceled: Option<windows_core::EventRevoker>,
+    capture_on_press: bool,
+}
+
+struct PropertyObserver {
+    object: bindings::DependencyObject,
+    property: bindings::DependencyProperty,
+    token: i64,
+}
+
+impl Drop for PropertyObserver {
+    fn drop(&mut self) {
+        diag::dropped(
+            self.object
+                .UnregisterPropertyChangedCallback(&self.property, self.token),
+        );
+    }
 }
 
 #[derive(Default)]
@@ -200,6 +220,7 @@ impl WinUIBackend {
         Self {
             controls: RefCell::new(FxHashMap::default()),
             event_revokers: RefCell::new(FxHashMap::default()),
+            property_observers: RefCell::new(FxHashMap::default()),
             templated_selection_revokers: RefCell::new(FxHashMap::default()),
             templated: RefCell::new(FxHashMap::default()),
             content_template: RefCell::new(None),
@@ -209,6 +230,7 @@ impl WinUIBackend {
             menu_click_handlers: RefCell::new(FxHashMap::default()),
             command_bar_flyout_handlers: RefCell::new(FxHashMap::default()),
             theme_brush_registry: RefCell::new(FxHashMap::default()),
+            resource_keys: RefCell::new(FxHashMap::default()),
             window_state: RefCell::new(None),
             next_id: RefCell::new(0),
         }
@@ -245,6 +267,110 @@ impl WinUIBackend {
         let mut counter = self.next_id.borrow_mut();
         *counter += 1;
         ControlId::new(*counter)
+    }
+
+    fn observe_navigation_state(
+        &self,
+        id: ControlId,
+        event: Event,
+        navigation: &bindings::NavigationView,
+        handler: EventHandler,
+    ) -> Result<()> {
+        let property = match event {
+            Event::NavigationPaneOpenChanged => bindings::NavigationView::IsPaneOpenProperty()?,
+            Event::NavigationDisplayModeChanged => bindings::NavigationView::DisplayModeProperty()?,
+            _ => unreachable!(),
+        };
+        let object = navigation.cast::<bindings::DependencyObject>()?;
+        let navigation = navigation.clone();
+        let callback = bindings::DependencyPropertyChangedCallback::new(
+            move |_sender, _property| match event {
+                Event::NavigationPaneOpenChanged => match navigation.IsPaneOpen() {
+                    Ok(open) => handler.invoke_bool(open),
+                    Err(error) => diag::warn(format_args!(
+                        "failed to read NavigationView.IsPaneOpen for {id}: {error:?}"
+                    )),
+                },
+                Event::NavigationDisplayModeChanged => match navigation.DisplayMode() {
+                    Ok(mode) => handler.invoke_navigation_display_mode(mode),
+                    Err(error) => diag::warn(format_args!(
+                        "failed to read NavigationView.DisplayMode for {id}: {error:?}"
+                    )),
+                },
+                _ => unreachable!(),
+            },
+        );
+        let token = object.RegisterPropertyChangedCallback(&property, &callback)?;
+        self.property_observers.borrow_mut().insert(
+            (id, event),
+            PropertyObserver {
+                object,
+                property,
+                token,
+            },
+        );
+        Ok(())
+    }
+
+    fn set_resources(
+        &self,
+        id: ControlId,
+        handle: &Handle,
+        resources: &HashMap<String, ResourceValue>,
+    ) -> Result<()> {
+        let dictionary = handle.as_framework_element().Resources()?;
+        let map = dictionary.cast::<windows_collections::IMap<
+            windows_core::IInspectable,
+            windows_core::IInspectable,
+        >>()?;
+
+        let previous = self
+            .resource_keys
+            .borrow()
+            .get(&id)
+            .cloned()
+            .unwrap_or_default();
+        for key in previous {
+            if resources.contains_key(&key) {
+                continue;
+            }
+            let key = windows_reference::IReference::from(key.as_str());
+            if map.HasKey(&key)? {
+                map.Remove(&key)?;
+            }
+        }
+
+        for (key, value) in resources {
+            let key = windows_reference::IReference::from(key.as_str());
+            let value: windows_core::IInspectable = match value {
+                ResourceValue::String(value) => {
+                    windows_reference::IReference::from(value.as_str()).cast()?
+                }
+                ResourceValue::SolidColorBrush(color) => solid_brush(*color)?.cast()?,
+                ResourceValue::F64(value) => windows_reference::IReference::from(*value).cast()?,
+                ResourceValue::Thickness(value) => {
+                    windows_reference::IReference::from(*value).cast()?
+                }
+                ResourceValue::CornerRadius(value) => {
+                    windows_reference::IReference::from(bindings::CornerRadius {
+                        top_left: value.top_left,
+                        top_right: value.top_right,
+                        bottom_right: value.bottom_right,
+                        bottom_left: value.bottom_left,
+                    })
+                    .cast()?
+                }
+            };
+            map.Insert(&key, &value)?;
+        }
+
+        let mut resource_keys = self.resource_keys.borrow_mut();
+        if resources.is_empty() {
+            resource_keys.remove(&id);
+        } else {
+            resource_keys.insert(id, resources.keys().cloned().collect::<FxHashSet<_>>());
+        }
+        Ok(())
     }
     /// `ContentDialog` is tracked logically but not attached as a visual child.
     fn is_phantom_child(&self, id: ControlId) -> bool {
@@ -687,6 +813,77 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
     Ok(())
 }
 
+fn build_element_transition_animation(
+    ui: &bindings::UIElement,
+    cfg: AnimationConfig,
+    is_enter: bool,
+) -> Result<Option<bindings::ICompositionAnimationBase>> {
+    if cfg.opacity.is_none() && cfg.scale.is_none() {
+        return Ok(None);
+    }
+
+    let visual = element_visual(ui)?;
+    let compositor = visual.compositor();
+    let easing = easing_for(&compositor, cfg.easing);
+    let group = compositor.create_animation_group();
+
+    if let Some(opacity) = cfg.opacity {
+        let animation = compositor.create_scalar_key_frame_animation();
+        animation.set_duration(cfg.duration);
+        animation.set_target("Opacity");
+        if is_enter {
+            animation.insert_key_frame_with_easing(0.0, 0.0, &easing);
+        }
+        animation.insert_key_frame_with_easing(1.0, opacity as f32, &easing);
+        group.add(&animation);
+    }
+
+    if let Some(scale) = cfg.scale {
+        let z = visual.scale().z;
+        let animation = compositor.create_vector3_key_frame_animation();
+        animation.set_duration(cfg.duration);
+        animation.set_target("Scale");
+        if is_enter {
+            animation.insert_key_frame_with_easing(
+                0.0,
+                windows_numerics::Vector3 { x: 0.0, y: 0.0, z },
+                &easing,
+            );
+        }
+        let scale = scale as f32;
+        animation.insert_key_frame_with_easing(
+            1.0,
+            windows_numerics::Vector3 {
+                x: scale,
+                y: scale,
+                z,
+            },
+            &easing,
+        );
+        group.add(&animation);
+    }
+
+    Ok(Some(group.as_host().cast()?))
+}
+
+fn apply_element_transitions(
+    ui: &bindings::UIElement,
+    enter: Option<AnimationConfig>,
+    exit: Option<AnimationConfig>,
+) -> Result<()> {
+    let enter = enter
+        .map(|config| build_element_transition_animation(ui, config, true))
+        .transpose()?
+        .flatten();
+    let exit = exit
+        .map(|config| build_element_transition_animation(ui, config, false))
+        .transpose()?
+        .flatten();
+
+    bindings::ElementCompositionPreview::SetImplicitShowAnimation(ui, enter.as_ref())?;
+    bindings::ElementCompositionPreview::SetImplicitHideAnimation(ui, exit.as_ref())
+}
+
 /// Handles props shared by base-class interfaces.
 fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> {
     match (prop, value) {
@@ -808,20 +1005,6 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
                 .as_ui_element()
                 .cast::<bindings::IControl>()?
                 .SetIsEnabled(true)?;
-            Ok(true)
-        }
-        (Prop::Resources, PropValue::Resources(map)) => {
-            let rd = handle.as_framework_element().Resources()?;
-            let imap =
-                rd.cast::<windows_collections::IMap<
-                    windows_core::IInspectable,
-                    windows_core::IInspectable,
-                >>()?;
-            for (k, v) in map {
-                let key = windows_reference::IReference::from(k.as_str());
-                let val = windows_reference::IReference::from(v.as_str());
-                imap.Insert(&key, &val)?;
-            }
             Ok(true)
         }
         (Prop::AttachedGridRow, PropValue::I32(v)) => {
@@ -1103,6 +1286,10 @@ impl Backend for WinUIBackend {
             if generated_set_prop::dispatch(handle, prop, value)? {
                 return Ok(());
             }
+            if let (Prop::Resources, PropValue::Resources(resources)) = (prop, value) {
+                self.set_resources(id, handle, resources)?;
+                return Ok(());
+            }
             if try_universal_prop(handle, prop, value)? {
                 return Ok(());
             }
@@ -1356,6 +1543,9 @@ impl Backend for WinUIBackend {
                 (Prop::ItemKey, PropValue::Str(s), Handle::TabViewItem(ti)) => {
                     let tag = windows_reference::IReference::from(s.as_str());
                     ti.cast::<bindings::IFrameworkElement>()?.SetTag(&tag)
+                }
+                (Prop::ItemKey, PropValue::Unset, Handle::TabViewItem(ti)) => {
+                    ti.cast::<bindings::IFrameworkElement>()?.SetTag(None)
                 }
                 (Prop::MenuItems, PropValue::NavMenuItems(items), Handle::NavigationView(nv)) => {
                     let menu = nv.MenuItems()?;
@@ -2198,10 +2388,20 @@ impl Backend for WinUIBackend {
     fn destroy(&mut self, id: ControlId) {
         self.templated_selection_revokers.borrow_mut().remove(&id);
         self.templated.borrow_mut().remove(&id);
-        self.pointer_revokers.borrow_mut().remove(&id);
+        let captured = self
+            .pointer_revokers
+            .borrow_mut()
+            .remove(&id)
+            .is_some_and(|tokens| tokens.capture_on_press);
+        if captured && let Some(handle) = self.controls.borrow().get(&id) {
+            diag::dropped(handle.as_ui_element().ReleasePointerCaptures());
+        }
         self.drag_revokers.borrow_mut().remove(&id);
         self.controls.borrow_mut().remove(&id);
         self.event_revokers
+            .borrow_mut()
+            .retain(|(hid, _), _| *hid != id);
+        self.property_observers
             .borrow_mut()
             .retain(|(hid, _), _| *hid != id);
         let mut kids = self.parent_children.borrow_mut();
@@ -2212,12 +2412,28 @@ impl Backend for WinUIBackend {
         self.menu_click_handlers.borrow_mut().remove(&id);
         self.command_bar_flyout_handlers.borrow_mut().remove(&id);
         self.theme_brush_registry.borrow_mut().remove(&id);
+        self.resource_keys.borrow_mut().remove(&id);
     }
     fn attach_event(&mut self, id: ControlId, event: Event, handler: EventHandler) {
         let map = self.controls.borrow();
         let handle = map
             .get(&id)
             .unwrap_or_else(|| panic!("WinUIBackend::attach_event: unknown control {id}"));
+
+        if matches!(
+            event,
+            Event::NavigationPaneOpenChanged | Event::NavigationDisplayModeChanged
+        ) && let Handle::NavigationView(navigation) = handle
+        {
+            self.observe_navigation_state(id, event, navigation, handler)
+                .unwrap_or_else(|error| {
+                    panic!(
+                        "WinUIBackend::attach_event: failed to observe {event:?} \
+                         for control {id}: {error}"
+                    )
+                });
+            return;
+        }
 
         if let Some(revs) = generated_attach_event::dispatch(handle, event, &handler) {
             if !revs.is_empty() {
@@ -2591,6 +2807,7 @@ impl Backend for WinUIBackend {
     }
     fn detach_event(&mut self, id: ControlId, event: Event) {
         self.event_revokers.borrow_mut().remove(&(id, event));
+        self.property_observers.borrow_mut().remove(&(id, event));
     }
     fn set_theme_bindings(
         &mut self,
@@ -2734,6 +2951,21 @@ impl Backend for WinUIBackend {
             diag::warn(format_args!("run_property_animation failed: {e:?}"));
         }
     }
+    fn set_element_transitions(
+        &mut self,
+        id: ControlId,
+        enter: Option<AnimationConfig>,
+        exit: Option<AnimationConfig>,
+    ) {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else {
+            return;
+        };
+        let ui = handle.as_ui_element();
+        if let Err(error) = apply_element_transitions(&ui, enter, exit) {
+            diag::warn(format_args!("set_element_transitions failed: {error:?}"));
+        }
+    }
     fn set_rich_text_paragraphs(&mut self, id: ControlId, paragraphs: &[RichTextParagraph]) {
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else {
@@ -2844,19 +3076,29 @@ impl Backend for WinUIBackend {
     }
 
     fn set_pointer_handlers(&mut self, id: ControlId, handlers: Option<&PointerHandlers>) {
-        // Replacing handlers must drop old event tokens first.
+        // Remove the old token set from backend ownership before replacing it.
         let prev = self.pointer_revokers.borrow_mut().remove(&id);
         let map = self.controls.borrow();
         let Some(handle) = map.get(&id) else {
             return;
         };
         let ui = handle.as_ui_element();
+        let previous_capture = prev.as_ref().is_some_and(|tokens| tokens.capture_on_press);
+        let next_capture = handlers.is_some_and(|handlers| handlers.capture_pointer_on_press);
+        if previous_capture && !next_capture {
+            // Keep the previous capture-lost callback attached while ending
+            // an active gesture.
+            diag::dropped(ui.ReleasePointerCaptures());
+        }
         drop(prev);
 
         let Some(handlers) = handlers else {
             return;
         };
-        let mut tokens = PointerRevokerSet::default();
+        let mut tokens = PointerRevokerSet {
+            capture_on_press: handlers.capture_pointer_on_press,
+            ..PointerRevokerSet::default()
+        };
 
         if let Some(cb) = handlers.on_tapped.clone() {
             tokens.tapped = ui
@@ -2874,22 +3116,54 @@ impl Backend for WinUIBackend {
                 .ok();
         }
 
-        if let Some(cb) = handlers.on_pointer_pressed.clone() {
+        if handlers.on_pointer_pressed.is_some() || handlers.capture_pointer_on_press {
             let element = ui.clone();
+            let cb = handlers.on_pointer_pressed.clone();
+            let capture = handlers.capture_pointer_on_press;
             tokens.pressed = ui
                 .PointerPressed(move |_sender, args| {
-                    let info = pointer_event_info(&element, args);
-                    cb.invoke(info);
+                    let capture_succeeded = if capture {
+                        args.as_ref()
+                            .and_then(|args| args.Pointer().ok())
+                            .is_some_and(|pointer| match element.CapturePointer(&pointer) {
+                                Ok(true) => true,
+                                Ok(false) => {
+                                    diag::warn(format_args!("pointer capture was refused"));
+                                    false
+                                }
+                                Err(error) => {
+                                    diag::warn(format_args!("pointer capture failed: {error:?}"));
+                                    false
+                                }
+                            })
+                    } else {
+                        false
+                    };
+                    if let Some(cb) = &cb {
+                        let mut info = pointer_event_info(&element, args);
+                        info.capture_succeeded = capture_succeeded;
+                        cb.invoke(info);
+                    }
                 })
                 .ok();
         }
 
-        if let Some(cb) = handlers.on_pointer_released.clone() {
+        if handlers.on_pointer_released.is_some() || handlers.capture_pointer_on_press {
             let element = ui.clone();
+            let cb = handlers.on_pointer_released.clone();
+            let capture = handlers.capture_pointer_on_press;
             tokens.released = ui
                 .PointerReleased(move |_sender, args| {
+                    let pointer = capture
+                        .then(|| args.as_ref().and_then(|args| args.Pointer().ok()))
+                        .flatten();
                     let info = pointer_event_info(&element, args);
-                    cb.invoke(info);
+                    if let Some(pointer) = pointer {
+                        diag::dropped(element.ReleasePointerCapture(&pointer));
+                    }
+                    if let Some(cb) = &cb {
+                        cb.invoke(info);
+                    }
                 })
                 .ok();
         }
@@ -2917,6 +3191,22 @@ impl Backend for WinUIBackend {
         if let Some(cb) = handlers.on_pointer_exited.clone() {
             tokens.exited = ui
                 .PointerExited(move |_sender, _args| {
+                    cb.invoke(());
+                })
+                .ok();
+        }
+
+        if let Some(cb) = handlers.on_pointer_capture_lost.clone() {
+            tokens.capture_lost = ui
+                .PointerCaptureLost(move |_sender, _args| {
+                    cb.invoke(());
+                })
+                .ok();
+        }
+
+        if let Some(cb) = handlers.on_pointer_canceled.clone() {
+            tokens.canceled = ui
+                .PointerCanceled(move |_sender, _args| {
                     cb.invoke(());
                 })
                 .ok();
@@ -3320,13 +3610,11 @@ fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs
     }
 }
 
-/// Extract the pointer position and button state for a `PointerPressed` /
-/// `PointerReleased` callback; falls back to defaults on any null hop.
+/// Extract local/window pointer positions and button state for a pointer callback.
 ///
 /// `element` is captured once at attach time (the handler's own element), so
 /// there is no per-event `QueryInterface`: the arg/point/properties classes
-/// each `Deref` to their default interface, and the coordinates are read
-/// relative to `element` directly.
+/// each `Deref` to their default interface.
 fn pointer_event_info(
     element: &bindings::UIElement,
     args: windows_core::InRef<'_, bindings::PointerRoutedEventArgs>,
@@ -3335,19 +3623,26 @@ fn pointer_event_info(
     let Some(args) = args.as_ref() else {
         return info;
     };
-    let Ok(point) = args.GetCurrentPoint(element) else {
-        return info;
-    };
-    if let Ok(pos) = point.Position() {
-        info.x = pos.x as f64;
-        info.y = pos.y as f64;
+
+    if let Ok(point) = args.GetCurrentPoint(element) {
+        if let Ok(pos) = point.Position() {
+            info.x = pos.x as f64;
+            info.y = pos.y as f64;
+        }
+        if let Ok(props) = point.Properties() {
+            info.is_left_button_pressed = props.IsLeftButtonPressed().unwrap_or(false);
+            info.is_right_button_pressed = props.IsRightButtonPressed().unwrap_or(false);
+            info.is_middle_button_pressed = props.IsMiddleButtonPressed().unwrap_or(false);
+        }
     }
-    let Ok(props) = point.Properties() else {
-        return info;
-    };
-    info.is_left_button_pressed = props.IsLeftButtonPressed().unwrap_or(false);
-    info.is_right_button_pressed = props.IsRightButtonPressed().unwrap_or(false);
-    info.is_middle_button_pressed = props.IsMiddleButtonPressed().unwrap_or(false);
+
+    if let Ok(point) = args.GetCurrentPoint(None::<&bindings::UIElement>)
+        && let Ok(pos) = point.Position()
+    {
+        info.window_x = pos.x as f64;
+        info.window_y = pos.y as f64;
+    }
+
     info
 }
 

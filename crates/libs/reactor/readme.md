@@ -35,3 +35,60 @@ builders convert to `Element` with `.into()`. `cx.use_state` returns the current
 whose `call` schedules a rerender. `ReactorWindow` opens more top-level windows. See the [reactor
 guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for
 components, hooks, layout, styling, and widgets.
+
+WinUI lightweight styling resources use typed values:
+
+```rust,ignore
+button("Delete").resource_overrides(|resources| {
+    resources
+        .set("ButtonBackground", Color::rgb(178, 34, 34))
+        .set("ButtonBorderThemeThickness", Thickness::uniform(0.0))
+        .set("ControlCornerRadius", CornerRadius::uniform(8.0))
+})
+```
+
+Replacing or clearing the builder removes only the resource keys previously owned by Reactor.
+
+`PointerEventInfo` reports both element-local `x`/`y` coordinates and stable window-relative
+`window_x`/`window_y` coordinates for drag calculations whose target moves during the gesture.
+Use `.capture_pointer_on_press()` for drag handles that must keep receiving moves outside their
+hit-test bounds, and clear drag state from capture-lost and canceled callbacks.
+
+`NavigationView` can keep pane state controlled and react to its actual responsive display mode:
+
+```rust,ignore
+NavigationView::new(items, content)
+    .pane_open(pane_open)
+    .on_pane_open_changed(set_pane_open)
+    .pane_display_mode(NavigationViewPaneDisplayMode::Auto)
+    .on_display_mode_changed(set_display_mode)
+```
+
+The callbacks report settled WinUI dependency-property values rather than pane transition intent.
+
+Lifecycle transitions run when an element enters or leaves the WinUI visual tree:
+
+```rust,ignore
+button("Animated").transition(
+    Some(AnimationConfig::fade_in(Duration::from_millis(200))),
+    Some(AnimationConfig::fade_out(Duration::from_millis(300))),
+)
+```
+
+Reactor removes the logical element immediately while WinUI Composition keeps the departing visual
+alive until its exit animation finishes. See the `exit_transition` sample.
+
+`TabItem::with_key` supplies the identity returned by `TabView::on_close_requested`. Key changes,
+including removal, update the existing native item without leaving stale close-callback identity.
+See the `tab_view_item_key` sample.
+
+Icon-taking controls share one `Icon` model:
+
+```rust,ignore
+button("Confirm").icon(Icon::path("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z"));
+button("Mask").icon(Icon::bitmap_icon("ms-appx:///Assets/mask.png", true));
+button("Logo").icon(Icon::image("ms-appx:///Assets/logo.svg"));
+```
+
+`bitmap_icon` uses WinUI `BitmapIcon` and makes monochrome rendering explicit. `image` uses
+full-color `ImageIcon` and accepts raster, SVG, or surface sources.

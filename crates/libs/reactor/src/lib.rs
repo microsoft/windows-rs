@@ -41,6 +41,7 @@ pub use bindings::DispatcherQueuePriority;
 pub use bindings::FlyoutPlacementMode;
 pub use bindings::HorizontalAlignment;
 pub use bindings::InfoBarSeverity;
+pub use bindings::NavigationViewDisplayMode;
 pub use bindings::NavigationViewPaneDisplayMode;
 pub use bindings::Orientation;
 pub use bindings::PasswordRevealMode;

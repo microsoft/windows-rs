@@ -92,10 +92,11 @@ Build elements with plain builder functions. Each returns a widget that becomes 
 - Buttons: `button(content)` with `.on_click(..)`, `.accent()`, `.subtle()`, `.enabled(..)`,
   `.icon(..)`, `.flyout(..)`, `.menu_flyout(..)`.
 - Icons: any control that takes an icon (`button`, `NavViewItem`, command-bar buttons,
-  `selector_bar_item`) accepts `impl Into<Icon>`. `Icon` has three kinds: `Symbol(Symbol)` for a
-  built-in system glyph (a bare `Symbol` converts automatically, so `.icon(Symbol::Home)` keeps
-  working), `Icon::image(source)` for a raster or SVG image (`ImageIcon`), and `Icon::font(glyph)`
-  or `Icon::font_family(glyph, family)` for a font glyph (`FontIcon`). Sample:
+  `selector_bar_item`) accepts `impl Into<Icon>`. A bare `Symbol` creates a `SymbolIcon`;
+  `Icon::image(source)` creates a full-color `ImageIcon` from raster, SVG, or surface data;
+  `Icon::bitmap_icon(uri, show_as_monochrome)` creates a native `BitmapIcon`; `Icon::font(glyph)`
+  and `Icon::font_family(glyph, family)` create a `FontIcon`; and `Icon::path(data)` creates a
+  `PathIcon` from XAML path mini-language data. Sample:
   `cargo run -p reactor_samples --example icon_elements`.
 - Images: `Image::new(source)` accepts a URI or `ImageSource`. URI paths ending in `.svg`
   (case-insensitive, before any query or fragment) use the platform SVG decoder; other URIs use
@@ -109,11 +110,33 @@ About 60 WinUI controls are wrapped, including `check_box`, `combo_box`, `slider
 `calendar_view`, `content_dialog`, `info_bar`, `teaching_tip`, and `command_bar`. See the [full
 catalog](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor/src/widgets).
 
+`TabItem::with_key` supplies the stable identity returned by `TabView::on_close_requested`. Adding,
+changing, or removing that key updates the existing native `TabViewItem`; removing it also clears
+the WinUI `Tag` instead of retaining stale callback identity. See the `tab_view_item_key` sample.
+
 Layout and appearance modifiers are available on any `Element` through the `ElementExt` trait:
 `.margin(..)`, `.padding(..)`, `.width(..)`, `.height(..)`, `.horizontal_alignment(..)`,
 `.vertical_alignment(..)` (with `HorizontalAlignment` and `VerticalAlignment`), `.background(..)`,
 `.foreground(..)`, `.opacity(..)`, and transition helpers such as `.with_opacity_transition(..)`.
 Spacing values use `Thickness` (with `Thickness::uniform(..)`).
+
+`transition(enter, exit)` runs lifecycle animations when an element enters or leaves the WinUI
+visual tree. The logical Reactor element is removed synchronously; WinUI Composition retains its
+departing visual until the implicit hide animation finishes. This keeps keyed and positional child
+indices exact during reconciliation instead of reinserting a temporary "ghost" element. Opacity
+and scale are supported, including both in one animation group:
+
+```rust
+button("Animated")
+    .transition(
+        Some(AnimationConfig::fade_in(Duration::from_millis(200))),
+        Some(AnimationConfig::fade_out(Duration::from_millis(300))),
+    )
+```
+
+An explicit `.animate(..)` on the same element takes precedence over its enter transition because
+both target the initial property animation. The exit transition remains registered. See the
+`exit_transition` sample.
 
 ## Handling events
 
@@ -122,6 +145,31 @@ keyboard handlers live on `ElementExt`: `.on_tapped(..)`, `.on_pointer_pressed(.
 `.on_pointer_released(..)`, `.on_pointer_moved(..)`, `.on_pointer_entered(..)`,
 `.on_pointer_exited(..)`, `.keyboard_accelerator(..)`. You can pass a `SetState` or `Dispatch`
 directly wherever a handler is expected (through `IntoCallback`).
+
+`PointerEventInfo::x` and `y` are relative to the element receiving the event. `window_x` and
+`window_y` are relative to the overall window, so drag deltas remain stable when the element moves
+while handling the gesture. A moving drag handle can also lose hit testing when the cursor outruns
+layout. Add `.capture_pointer_on_press()` to keep receiving events until release, begin the drag
+only when `PointerEventInfo::capture_succeeded` is true, and clear drag state from
+`.on_pointer_capture_lost(..)` and `.on_pointer_canceled(..)`. See the `pointer_resize` sample.
+
+`NavigationView::on_pane_open_changed` reports the settled `IsPaneOpen` property, including
+light-dismiss and adaptive changes made by WinUI. `on_display_mode_changed` reports the actual
+`NavigationViewDisplayMode` (`Minimal`, `Compact`, or `Expanded`), while `pane_display_mode`
+continues to configure the layout policy (`Auto`, `Left`, `Top`, and so on):
+
+```rust
+NavigationView::new(items, content)
+    .pane_open(pane_open)
+    .on_pane_open_changed(set_pane_open)
+    .pane_display_mode(NavigationViewPaneDisplayMode::Auto)
+    .on_display_mode_changed(set_display_mode)
+```
+
+The callbacks observe dependency properties rather than guessing state from pane transition
+events. Transition events can be canceled and do not cover every property change. Observers are
+attached only for callbacks the element requests, so an unused callback adds no native observer or
+reconciliation work. See the `responsive_navigation` sample.
 
 ### Handler identity
 
@@ -218,7 +266,8 @@ The [`crates/samples/reactor`](../../crates/samples/reactor) tree is the best re
 
 - `samples`: the smallest app plus an `examples/` folder with about 90 focused per-control and
   per-hook examples (`counter`, `calculator`, `navigation_view`, `list_view`, `content_dialog`,
-  `color_picker`, `secondary_window`, and more).
+  `keyed_list_reorder`, `lightweight_resources`, `pointer_resize`, `color_picker`,
+  `secondary_window`, and more).
 - `apps`: complete applications (`notepad`, `solitaire`, `minesweeper`, `tictactoe`, `dotsweeper`).
 - `gallery`: a WinUI-gallery-style shell with navigation across many controls.
 - `direct2d` and `swap_chain_panel`: hosting Direct2D and Direct3D content.
@@ -634,12 +683,13 @@ keyed `Memo(key, ...)` wrapper. A small `when(cond, || el)` helper and a keyed m
 virtualized rows would read better at near-zero cost. These are ergonomics, not performance, and do
 not need the benchmark gate above.
 
-### Known bug (fix regardless of the comparison)
+### Element lifecycle transitions
 
-`ElementExt::transition(enter, exit)` sets an exit transition that the reconciler never consumes:
-`enter_transition` is read during reconciliation but the exit configuration is dropped. This is
-already tracked in the repo-wide open-investigations list. Fix it independently of any feature work
-here.
+Lifecycle transitions use WinUI Composition implicit show/hide animations. This is smaller than
+the C# Reactor implementation, which retains and reinserts removed controls until their exit
+animations complete. Rust can destroy the logical subtree immediately while WinUI keeps only the
+departing composition visual alive. The reconciler therefore needs no asynchronous removal state,
+and keyed and positional child indices remain correct while an exit animation runs.
 
 ### Larger feature areas (product decisions, likely out of scope)
 
@@ -652,3 +702,73 @@ localization, Roslyn-style analyzers that enforce rules of hooks (this crate rel
 hook-order checks; a clippy lint could cover part of this), hot reload and live preview, and a
 scaffolding CLI. Each is a large investment, and most cut against this crate's minimal, WinUI-native
 design. They belong in a separate decision, not in the reconciler or hooks work above.
+
+## Open issue working plan
+
+This plan tracks the open `windows-reactor` issues reviewed in August 2026. The order favors
+correctness and common WinUI authoring needs. C# Reactor is a reference for behavior and test cases,
+not a surface-area target. Each change must fit the Rust design, include focused headless coverage
+where possible, and add the smallest runnable sample that proves the user-facing behavior.
+
+Before expanding an issue beyond its reported case:
+
+1. Reproduce the failure with a test or sample.
+2. Identify the invariant that is missing from the current design.
+3. Prefer a local correction over a new subsystem.
+4. Compare the proposed behavior with C# Reactor, React, and WinUI where relevant.
+5. Measure hot-path changes and reject added machinery that does not buy correctness or speed.
+6. Reevaluate the remaining plan after the change lands.
+
+| Priority | Issue | Assessment | Direction |
+| --- | --- | --- | --- |
+| Done | [#4778](https://github.com/microsoft/windows-rs/issues/4778) keyed templated lists | Correctness bug: realized rows followed slots instead of keys. | Equal-count keyed reorders now preserve realized controls and row-local state. Missing and duplicate keys retain positional behavior. |
+| Done | [#4776](https://github.com/microsoft/windows-rs/issues/4776) resources | Valid request, plus stale keys were never removed. | Typed string, solid-color brush, number, thickness, and corner-radius values now replace Reactor-owned keys. Theme references remain deferred because resolving them to concrete values would break WinUI theme-resource behavior. |
+| Done | [#4772](https://github.com/microsoft/windows-rs/issues/4772) pointer coordinates | Element-relative coordinates cannot anchor a moving drag target, and a moving handle can lose routed events. | `PointerEventInfo` now copies both element-local and window-relative positions. Opt-in pointer capture keeps fast drags routed and exposes capture-loss/cancellation without raw WinRT arguments. |
+| Done | [#4771](https://github.com/microsoft/windows-rs/issues/4771) navigation pane events | Valid state gap, but transition events are an unreliable controlled-state foundation. | Settled `IsPaneOpen` and actual `DisplayMode` callbacks now cover light dismiss, adaptive layout, and programmatic changes. Transition events remain deferred until a separate use case requires them. |
+| Done | [#4720](https://github.com/microsoft/windows-rs/issues/4720) icon subclasses | Image and font icons worked, but native `BitmapIcon` and `PathIcon` support was missing. | `bitmap_icon(uri, mode)` now exposes native monochrome/full-color `BitmapIcon` behavior, while `path(data)` adds vector paths. Generic images remain a separate `ImageSource` path. |
+| Done | Exit transition correctness | `transition(enter, exit)` stored the exit configuration but never consumed it. | WinUI implicit show/hide animations now run opacity and scale lifecycle transitions without retaining logical ghost children or adding asynchronous reconciler state. |
+| Done | `TabItem` key clearing | Removing a key updated the Rust model but left the old native `Tag`, so close callbacks reported stale identity. | Key removal now emits the existing `Unset` property path and clears `FrameworkElement.Tag` on the same native item without remounting it. |
+| Close | [#4753](https://github.com/microsoft/windows-rs/issues/4753) SVG support | Fixed by PR #4764 and covered by `ImageSource` extension dispatch. | Close after confirming the existing SVG sample. File/memory loading and colorization are separate requests. |
+| Deferred | [#4692](https://github.com/microsoft/windows-rs/issues/4692) bootstrap mismatch | Documentation is fixed; the loader failure remains a sharp edge. | Leave `windows-reactor-setup` unchanged for now. If resumed, evaluate dynamic loading that reports misuse without silently bootstrapping a self-contained deployment. |
+
+### Planned order
+
+1. Fix keyed templated-list identity and add reorder tests plus a visible shuffle sample.
+2. Correct resource ownership/removal, then add typed resource values and a lightweight-styling
+   sample.
+3. Add root-relative pointer coordinates and a resize-drag sample.
+4. Add `NavigationView` pane-open and display-mode callbacks with a responsive navigation sample.
+5. Finish the remaining icon forms and separate unrelated image-loading requests.
+6. Fix exit transitions without adding asynchronous reconciler state or temporary ghost children.
+7. Clear stale native `TabItem` identity when an optional item key is removed.
+8. Leave the bootstrap sharp edge deferred until setup work resumes.
+
+After each item, rerun the Rust/C# stress comparison if the reconciler or allocation behavior
+changes. Rust should retain its smaller runtime model and reconciliation advantage; copying C#
+pooling, collection, or descriptor machinery requires evidence that the existing Rust path cannot
+meet the same invariant more directly.
+
+### Resource ownership and typed values
+
+`ElementExt::resources` still accepts an iterator when every entry has the same Rust value type.
+`resource_overrides` uses a consuming builder when one resource dictionary contains different
+WinUI value types:
+
+```rust
+button("Delete").resource_overrides(|resources| {
+    resources
+        .set("ButtonBackground", Color::rgb(178, 34, 34))
+        .set("ButtonBorderThemeThickness", Thickness::uniform(0.0))
+        .set("ControlCornerRadius", CornerRadius::uniform(8.0))
+})
+```
+
+Each native element tracks only the keys that Reactor inserted. Updating the builder removes
+missing Reactor-owned keys before inserting current values, including when the new builder is
+empty. Native or application code can keep unrelated entries in the same resource dictionary.
+
+`Color` values intentionally create `SolidColorBrush` instances because lightweight control
+resources such as `ButtonBackground` expect brushes. Use strings only for resources that actually
+expect strings. `ThemeRef` is not accepted here: looking up a theme key and storing its current
+value would lose WinUI's element-aware `{ThemeResource}` resolution. Theme-aware control
+properties continue to use the existing theme-binding APIs.

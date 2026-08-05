@@ -22,9 +22,9 @@ fn build(compositor: &Compositor) -> SpriteVisual {
 }
 ```
 
-Core types include `Compositor`, the visual types, brushes, shapes, and key-frame animations. For
-system composition, create a `DispatcherQueueController` and `Compositor`, then host the root
-visual with `Compositor::create_desktop_window_target`, which takes a
+Core types include `Compositor`, the visual types, brushes, shapes, key-frame animations, and
+animation groups. For system composition, create a `DispatcherQueueController` and `Compositor`,
+then host the root visual with `Compositor::create_desktop_window_target`, which takes a
 [`windows-window`][window-guide] `Window`. See the [composition
 guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-composition.md) for
 the API and hosting options.

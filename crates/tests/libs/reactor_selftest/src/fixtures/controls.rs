@@ -1,11 +1,11 @@
 use windows_reactor::BreadcrumbBar;
 use windows_reactor::{
     Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar, NavViewItem,
-    NavigationView, NumberBox, PasswordBox, PasswordRevealMode, PersonPicture, Pivot, PivotItem,
-    ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
-    TitleBar, ToggleSwitch, Viewbox,
+    NavigationView, NavigationViewDisplayMode, NavigationViewPaneDisplayMode, NumberBox,
+    PasswordBox, PasswordRevealMode, PersonPicture, Pivot, PivotItem, ProgressBar, ProgressRing,
+    RadioButton, RadioButtons, Shape, Slider, TabItem, TabView, TitleBar, ToggleSwitch, Viewbox,
 };
-use windows_reactor::{Color, GridLength};
+use windows_reactor::{Color, GridLength, RenderCx, component};
 use windows_reactor::{
     ElementExt, border, button, check_box, scroll_viewer, swap_chain_panel, text_block, text_box,
 };
@@ -18,6 +18,49 @@ use windows_core::Interface;
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 use windows_reactor::{grid, vstack};
+
+fn resource_map(
+    button: &bindings::Button,
+) -> windows_collections::IMap<windows_core::IInspectable, windows_core::IInspectable> {
+    button
+        .cast::<bindings::IFrameworkElement>()
+        .unwrap()
+        .Resources()
+        .unwrap()
+        .cast()
+        .unwrap()
+}
+
+fn resource_value(
+    map: &windows_collections::IMap<windows_core::IInspectable, windows_core::IInspectable>,
+    key: &str,
+) -> Option<windows_core::IInspectable> {
+    map.Lookup(&windows_reference::IReference::from(key)).ok()
+}
+
+fn has_resource_key(
+    map: &windows_collections::IMap<windows_core::IInspectable, windows_core::IInspectable>,
+    key: &str,
+) -> bool {
+    map.HasKey(&windows_reference::IReference::from(key))
+        .unwrap_or(false)
+}
+
+fn first_tab_item_tag(h: &Harness) -> Option<String> {
+    let tab_view = h
+        .find_all::<bindings::TabView>(&|_| true)
+        .into_iter()
+        .next()?;
+    let item = tab_view.TabItems().ok()?.GetAt(0).ok()?;
+    let tab_item: bindings::TabViewItem = item.cast().ok()?;
+    let tag = tab_item
+        .cast::<bindings::IFrameworkElement>()
+        .ok()?
+        .Tag()
+        .ok()?;
+    let value: windows_reference::IReference<windows_core::HSTRING> = tag.cast().ok()?;
+    value.Value().ok().map(|value| value.to_string_lossy())
+}
 
 macro_rules! assert_present {
     ($h:expr, $name:expr, $ty:ty) => {{
@@ -237,6 +280,33 @@ pub fn mount_tab_view(h: Harness) -> FixtureFuture {
     })
 }
 
+pub fn tab_item_key_clear(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|cx| {
+            let (keyed, set_keyed) = cx.use_state(true);
+            let mut item = TabItem::new("Document", text_block("document-content"));
+            if keyed {
+                item = item.with_key("document");
+            }
+
+            vstack((
+                button("Toggle tab key").on_click(move || set_keyed.call(!keyed)),
+                TabView::new([item]),
+            ))
+            .into()
+        }));
+        h.render().await;
+        h.check(
+            "TabView_ItemKey_InitiallySet",
+            first_tab_item_tag(&h).as_deref() == Some("document"),
+        );
+
+        let _ = h.click_button("Toggle tab key");
+        h.render().await;
+        h.check("TabView_ItemKey_Cleared", first_tab_item_tag(&h).is_none());
+    })
+}
+
 pub fn mount_tab_view_add_button(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
@@ -270,6 +340,107 @@ pub fn mount_navigation_view(h: Harness) -> FixtureFuture {
             h,
             "Reconciler_Mount_NavigationView",
             bindings::NavigationView
+        );
+    })
+}
+
+fn navigation_display_mode_name(mode: i32) -> &'static str {
+    match mode {
+        value if value == NavigationViewDisplayMode::Minimal.0 => "Minimal",
+        value if value == NavigationViewDisplayMode::Compact.0 => "Compact",
+        value if value == NavigationViewDisplayMode::Expanded.0 => "Expanded",
+        _ => "Unknown",
+    }
+}
+
+pub fn navigation_view_state_callbacks(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|cx| {
+            let (pane_open, set_pane_open) = cx.use_state(true);
+            let (display_mode, set_display_mode) =
+                cx.use_state(NavigationViewDisplayMode::Expanded);
+
+            vstack((
+                button("Toggle navigation pane").on_click({
+                    let set_pane_open = set_pane_open.clone();
+                    move || set_pane_open.call(!pane_open)
+                }),
+                text_block(if pane_open {
+                    "Pane state: open"
+                } else {
+                    "Pane state: closed"
+                }),
+                text_block(format!(
+                    "Display mode: {}",
+                    navigation_display_mode_name(display_mode.0)
+                )),
+                NavigationView::new(
+                    [NavViewItem::new("Home").tag("home")],
+                    text_block("navigation body"),
+                )
+                .pane_open(pane_open)
+                .pane_display_mode(NavigationViewPaneDisplayMode::Left)
+                .on_pane_open_changed(move |open| set_pane_open.call(open))
+                .on_display_mode_changed(move |mode| set_display_mode.call(mode))
+                .settings_visible(false),
+            ))
+            .into()
+        }));
+        h.render().await;
+
+        let navigation = h
+            .find_all::<bindings::NavigationView>(&|_| true)
+            .into_iter()
+            .next()
+            .unwrap();
+        h.check(
+            "NavigationState_StartsOpen",
+            navigation.IsPaneOpen().unwrap_or(false),
+        );
+
+        navigation.SetIsPaneOpen(false).unwrap();
+        h.render_until("navigation pane close callback", |h| {
+            h.find_text("Pane state: closed").is_some()
+        })
+        .await;
+        h.check(
+            "NavigationState_ControlCloseReported",
+            !navigation.IsPaneOpen().unwrap_or(true),
+        );
+
+        let _ = h.click_button("Toggle navigation pane");
+        h.render_until("navigation pane reopen", |_| {
+            navigation.IsPaneOpen().unwrap_or(false)
+        })
+        .await;
+        h.check(
+            "NavigationState_OneToggleReopens",
+            navigation.IsPaneOpen().unwrap_or(false),
+        );
+
+        navigation
+            .cast::<bindings::INavigationView2>()
+            .unwrap()
+            .SetPaneDisplayMode(bindings::NavigationViewPaneDisplayMode::Top)
+            .unwrap();
+        h.render_until("navigation display mode callback", |h| {
+            navigation.DisplayMode().is_ok_and(|mode| {
+                h.find_text(&format!(
+                    "Display mode: {}",
+                    navigation_display_mode_name(mode.0)
+                ))
+                .is_some()
+            })
+        })
+        .await;
+        let actual_mode = navigation.DisplayMode().unwrap();
+        h.check(
+            "NavigationState_DisplayModeReported",
+            h.find_text(&format!(
+                "Display mode: {}",
+                navigation_display_mode_name(actual_mode.0)
+            ))
+            .is_some(),
         );
     })
 }
@@ -521,6 +692,73 @@ pub fn mount_virtual_list_alias(h: Harness) -> FixtureFuture {
     })
 }
 
+#[derive(Clone, PartialEq)]
+struct KeyedRowProps {
+    name: String,
+}
+
+fn keyed_row(props: &KeyedRowProps, cx: &mut RenderCx) -> windows_reactor::Element {
+    let (clicks, set_clicks) = cx.use_state(0_u32);
+    vstack((
+        text_block(format!("{}: {clicks}", props.name)),
+        button(format!("Increment {}", props.name)).on_click(move || set_clicks.call(clicks + 1)),
+    ))
+    .into()
+}
+
+pub fn keyed_templated_list_state(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|cx| {
+            let (items, set_items) = cx.use_state(vec![
+                "Alpha".to_string(),
+                "Beta".to_string(),
+                "Gamma".to_string(),
+                "Delta".to_string(),
+            ]);
+            let rotated = {
+                let mut items = items.clone();
+                items.rotate_left(1);
+                items
+            };
+
+            vstack((
+                button("Rotate keyed rows").on_click(move || set_items.call(rotated.clone())),
+                list_view(items, |name, _| {
+                    component(keyed_row, KeyedRowProps { name: name.clone() })
+                })
+                .with_key_selector(|name| name.clone())
+                .height(240.0),
+            ))
+            .into()
+        }));
+
+        let realized = h
+            .render_until("keyed list rows to realize", |h| {
+                h.find_text("Alpha: 0").is_some() && h.find_text("Delta: 0").is_some()
+            })
+            .await;
+        h.check("Reconciler_KeyedList_RowsRealized", realized);
+
+        let _ = h.click_button("Increment Alpha");
+        h.render().await;
+        h.check(
+            "Reconciler_KeyedList_RowStateUpdates",
+            h.find_text("Alpha: 1").is_some(),
+        );
+
+        let _ = h.click_button("Rotate keyed rows");
+        let rotated = h
+            .render_until("keyed rows to rotate", |h| {
+                h.find_text("Alpha: 1").is_some()
+                    && h.find_text("Beta: 0").is_some()
+                    && h.find_text("Gamma: 0").is_some()
+                    && h.find_text("Delta: 0").is_some()
+            })
+            .await;
+        h.check("Reconciler_KeyedList_StateFollowsKey", rotated);
+    })
+}
+
 pub fn mount_password_box(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_| {
@@ -642,6 +880,97 @@ pub fn mount_button_text_link(h: Harness) -> FixtureFuture {
         h.check(
             "Reconciler_Mount_ButtonTextLink_HasLabel",
             h.find_button("Link").is_some(),
+        );
+    })
+}
+
+pub fn lightweight_resources(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|cx| {
+            let (mode, set_mode) = cx.use_state(0_u8);
+            let target = match mode {
+                0 => button("Resource target").resource_overrides(|resources| {
+                    resources
+                        .set("ButtonBackground", Color::rgb(178, 34, 34))
+                        .set("ReactorScalar", 1.0)
+                }),
+                1 => button("Resource target").resource_overrides(|resources| {
+                    resources
+                        .set("ButtonBackground", Color::rgb(30, 90, 180))
+                        .set("ReactorScalar", 2.0)
+                }),
+                _ => button("Resource target"),
+            };
+            vstack((
+                target,
+                button(match mode {
+                    0 => "Update resources",
+                    1 => "Clear resources",
+                    _ => "Resources cleared",
+                })
+                .on_click(move || set_mode.call(mode.saturating_add(1))),
+            ))
+            .into()
+        }));
+        h.render().await;
+
+        let target = h.find_button("Resource target").unwrap();
+        let map = resource_map(&target);
+        let initial_brush = resource_value(&map, "ButtonBackground");
+        h.check(
+            "Resources_TypedBrush",
+            initial_brush
+                .as_ref()
+                .is_some_and(|value| value.cast::<bindings::SolidColorBrush>().is_ok()),
+        );
+        h.check(
+            "Resources_TypedNumber",
+            resource_value(&map, "ReactorScalar")
+                .and_then(|value| value.cast::<windows_reference::IReference<f64>>().ok())
+                .and_then(|value| value.Value().ok())
+                == Some(1.0),
+        );
+
+        let _ = h.click_button("Update resources");
+        h.render().await;
+        let target = h.find_button("Resource target").unwrap();
+        let map = resource_map(&target);
+        let updated_brush = resource_value(&map, "ButtonBackground");
+        h.check(
+            "Resources_UpdateBrush",
+            initial_brush
+                .zip(updated_brush.clone())
+                .is_some_and(|(old, new)| old != new),
+        );
+        h.check(
+            "Resources_UpdateNumber",
+            resource_value(&map, "ReactorScalar")
+                .and_then(|value| value.cast::<windows_reference::IReference<f64>>().ok())
+                .and_then(|value| value.Value().ok())
+                == Some(2.0),
+        );
+
+        let unrelated_key = windows_reference::IReference::from("UnrelatedResource");
+        let unrelated_value = windows_reference::IReference::from("keep");
+        map.Insert(&unrelated_key, &unrelated_value).unwrap();
+
+        let _ = h.click_button("Clear resources");
+        h.render().await;
+        let target = h.find_button("Resource target").unwrap();
+        let map = resource_map(&target);
+        h.check(
+            "Resources_ClearOwnedBrush",
+            updated_brush
+                .zip(resource_value(&map, "ButtonBackground"))
+                .is_some_and(|(old, new)| old != new),
+        );
+        h.check(
+            "Resources_ClearOwnedNumber",
+            !has_resource_key(&map, "ReactorScalar"),
+        );
+        h.check(
+            "Resources_PreserveUnrelatedKeys",
+            has_resource_key(&map, "UnrelatedResource"),
         );
     })
 }

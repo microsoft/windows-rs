@@ -167,6 +167,23 @@ impl Animation for Vector3KeyFrameAnimation {
     }
 }
 
+/// A set of animations that start together.
+#[derive(Clone)]
+pub struct CompositionAnimationGroup(pub(crate) bindings::CompositionAnimationGroup);
+
+impl CompositionAnimationGroup {
+    /// Adds an animation to the group.
+    pub fn add(&self, animation: &impl Animation) {
+        self.0.Add(&animation.as_animation().0).unwrap();
+    }
+
+    /// Returns the lifted group as an inspectable object for a WinUI host.
+    #[cfg(feature = "reactor")]
+    pub fn as_host(&self) -> windows_core::IInspectable {
+        self.0.cast().unwrap()
+    }
+}
+
 /// A map of property-name -> animation applied to a visual so that changes to
 /// those properties animate automatically.
 ///

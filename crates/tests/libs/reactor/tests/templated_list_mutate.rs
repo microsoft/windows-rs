@@ -1,3 +1,4 @@
+use std::cell::Cell;
 use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
@@ -131,6 +132,40 @@ fn identical_list_update_emits_zero_ops() {
         0,
         "expected zero ops, got {:?}",
         r.backend.ops
+    );
+}
+
+#[test]
+fn content_update_checks_only_realized_keys_before_positional_refresh() {
+    let key_calls = Rc::new(Cell::new(0_usize));
+    let make = |prefix: &'static str| {
+        let key_calls = Rc::clone(&key_calls);
+        list_view((0..10_000_u32).collect::<Vec<_>>(), move |n, _| {
+            TextBlock::new(format!("{prefix}-{n}"))
+        })
+        .with_key_selector(move |n| {
+            key_calls.set(key_calls.get() + 1);
+            format!("k{n}")
+        })
+        .build()
+    };
+    let old_el = make("old");
+    let new_el = make("new");
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop())
+        .expect("mount produced an id");
+    r.backend.simulate_prepare_row(list_id, 5_000);
+    r.drain_realizations();
+
+    key_calls.set(0);
+    let _ = r.reconcile(Some(&old_el), &new_el, Some(list_id), noop());
+
+    assert_eq!(
+        key_calls.get(),
+        2,
+        "content-only updates should compare keys only at realized slots"
     );
 }
 

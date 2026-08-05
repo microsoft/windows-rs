@@ -68,8 +68,23 @@ pub(super) fn build_image_source(source: &ImageSource) -> Result<Option<bindings
     }
 }
 
+fn escape_xml_attribute(value: &str) -> String {
+    let mut escaped = String::with_capacity(value.len());
+    for character in value.chars() {
+        match character {
+            '&' => escaped.push_str("&amp;"),
+            '<' => escaped.push_str("&lt;"),
+            '>' => escaped.push_str("&gt;"),
+            '"' => escaped.push_str("&quot;"),
+            '\'' => escaped.push_str("&apos;"),
+            _ => escaped.push(character),
+        }
+    }
+    escaped
+}
+
 /// Builds the WinUI `IconElement` for an [`Icon`], dispatching to the matching
-/// concrete type: `SymbolIcon`, `ImageIcon`, or `FontIcon`.
+/// concrete type.
 pub(super) fn build_icon_element(icon: &Icon) -> Result<bindings::IconElement> {
     match icon {
         Icon::Symbol(sym) => bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?.cast(),
@@ -80,6 +95,15 @@ pub(super) fn build_icon_element(icon: &Icon) -> Result<bindings::IconElement> {
             }
             icon.cast()
         }
+        Icon::Bitmap {
+            uri,
+            show_as_monochrome,
+        } => {
+            let icon = bindings::BitmapIcon::new()?;
+            icon.SetUriSource(&bindings::Uri::CreateUri(uri)?)?;
+            icon.SetShowAsMonochrome(*show_as_monochrome)?;
+            icon.cast()
+        }
         Icon::Font { glyph, family } => {
             let font_icon = bindings::FontIcon::new()?;
             font_icon.SetGlyph(glyph)?;
@@ -87,6 +111,14 @@ pub(super) fn build_icon_element(icon: &Icon) -> Result<bindings::IconElement> {
                 font_icon.SetFontFamily(&bindings::FontFamily::CreateInstanceWithName(family)?)?;
             }
             font_icon.cast()
+        }
+        Icon::Path(data) => {
+            let data = escape_xml_attribute(data);
+            bindings::XamlReader::Load(&format!(
+                "<PathIcon xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' \
+                 Data=\"{data}\"/>"
+            ))?
+            .cast()
         }
     }
 }
@@ -243,7 +275,12 @@ pub(super) fn build_command_bar_element(
 
 #[cfg(test)]
 mod tests {
-    use super::is_svg_uri;
+    use super::{escape_xml_attribute, is_svg_uri};
+
+    #[test]
+    fn xml_attribute_escaping_covers_markup_delimiters() {
+        assert_eq!(escape_xml_attribute("&<>'\""), "&amp;&lt;&gt;&apos;&quot;");
+    }
 
     #[test]
     fn classifies_svg_uri_by_final_extension() {

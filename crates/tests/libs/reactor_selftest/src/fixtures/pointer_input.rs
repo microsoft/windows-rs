@@ -23,7 +23,7 @@ use crate::bindings::{
     SetForegroundWindow,
 };
 
-use windows_reactor::{Color, ElementExt, PointerEventInfo, text_block, vstack};
+use windows_reactor::{Color, ElementExt, PointerEventInfo, Thickness, text_block, vstack};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -35,10 +35,15 @@ struct PointerLog {
     pressed: u32,
     released: u32,
     exited: u32,
+    capture_lost: u32,
+    canceled: u32,
+    capture_succeeded: bool,
     left_on_press: bool,
     right_on_press: bool,
     last_x: f64,
     last_y: f64,
+    last_window_x: f64,
+    last_window_y: f64,
 }
 
 /// Screen pixel at a fraction (`fx`, `fy`) of the window's client area.
@@ -96,16 +101,18 @@ pub fn pointer_injection_gesture(h: Harness) -> FixtureFuture {
         let comp_log = log.clone();
 
         h.mount(cc(move |_cx| {
-            let (le, lm, lp, lr, lx) = (
+            let (le, lm, lp, lr, lx, lcl, lc) = (
+                comp_log.clone(),
+                comp_log.clone(),
                 comp_log.clone(),
                 comp_log.clone(),
                 comp_log.clone(),
                 comp_log.clone(),
                 comp_log.clone(),
             );
-            vstack((text_block("pointer target"),))
+            vstack((vstack((text_block("pointer target"),))
                 .width(6000.0)
-                .height(6000.0)
+                .height(180.0)
                 .background(Color {
                     a: 255,
                     r: 32,
@@ -120,10 +127,13 @@ pub fn pointer_injection_gesture(h: Harness) -> FixtureFuture {
                     b.moved += 1;
                     b.last_x = info.x;
                     b.last_y = info.y;
+                    b.last_window_x = info.window_x;
+                    b.last_window_y = info.window_y;
                 })
                 .on_pointer_pressed(move |info: PointerEventInfo| {
                     let mut b = lp.borrow_mut();
                     b.pressed += 1;
+                    b.capture_succeeded = info.capture_succeeded;
                     if info.is_left_button_pressed {
                         b.left_on_press = true;
                     }
@@ -137,7 +147,15 @@ pub fn pointer_injection_gesture(h: Harness) -> FixtureFuture {
                 .on_pointer_exited(move || {
                     lx.borrow_mut().exited += 1;
                 })
-                .into()
+                .on_pointer_capture_lost(move || {
+                    lcl.borrow_mut().capture_lost += 1;
+                })
+                .on_pointer_canceled(move || {
+                    lc.borrow_mut().canceled += 1;
+                })
+                .capture_pointer_on_press(),))
+            .padding(Thickness::uniform(80.0))
+            .into()
         }));
         h.render().await;
 
@@ -149,7 +167,7 @@ pub fn pointer_injection_gesture(h: Harness) -> FixtureFuture {
             return;
         };
 
-        let Some((cx, cy)) = client_screen_point(h.hwnd(), 0.5, 0.5) else {
+        let Some((cx, cy)) = client_screen_point(h.hwnd(), 0.5, 0.2) else {
             h.check_skip("Pointer_Injection_Gesture", "client rect unavailable");
             return;
         };
@@ -195,17 +213,63 @@ pub fn pointer_injection_gesture(h: Harness) -> FixtureFuture {
                 lx > 0.0 && ly > 0.0,
                 move || format!("last reported pointer position = ({lx}, {ly})"),
             );
+            let (wx, wy) = (b.last_window_x, b.last_window_y);
+            h.check_with(
+                "Pointer_Injection_PositionInWindow",
+                wx > lx + 60.0 && wy > ly + 60.0,
+                move || format!("element position = ({lx}, {ly}), window position = ({wx}, {wy})"),
+            );
         }
 
-        // Left press + release: PointerPressed (left flag), PointerReleased.
+        // Capture on left press, move outside the target, then release there.
         let _ = inject_at(&injector, cx, cy, InjectedInputMouseOptions::LeftDown);
         h.render_until_quiet("left button press", |_| log.borrow().pressed > 0)
             .await;
-        let _ = inject_at(&injector, cx, cy, InjectedInputMouseOptions::LeftUp);
-        h.render_until_quiet("left button release", |_| log.borrow().released > 0)
-            .await;
 
         h.check("Pointer_Injection_PressedLeft", log.borrow().left_on_press);
+        h.check(
+            "Pointer_Injection_CaptureSucceeded",
+            log.borrow().capture_succeeded,
+        );
+
+        let Some((outside_x, outside_y)) = client_screen_point(h.hwnd(), 0.5, 0.8) else {
+            h.check_skip(
+                "Pointer_Injection_CaptureOutside",
+                "client rect unavailable",
+            );
+            return;
+        };
+        let moved_before_capture_test = log.borrow().moved;
+        let _ = inject_at(
+            &injector,
+            outside_x,
+            outside_y,
+            InjectedInputMouseOptions::Move,
+        );
+        h.render_until_quiet("captured move outside target", |_| {
+            log.borrow().moved > moved_before_capture_test
+        })
+        .await;
+        h.check_with(
+            "Pointer_Injection_CaptureOutside",
+            log.borrow().moved > moved_before_capture_test && log.borrow().last_y > 180.0,
+            || {
+                let b = log.borrow();
+                format!(
+                    "moved before = {moved_before_capture_test}, moved after = {}, local y = {}",
+                    b.moved, b.last_y
+                )
+            },
+        );
+
+        let _ = inject_at(
+            &injector,
+            outside_x,
+            outside_y,
+            InjectedInputMouseOptions::LeftUp,
+        );
+        h.render_until_quiet("left button release", |_| log.borrow().released > 0)
+            .await;
         h.check("Pointer_Injection_Released", log.borrow().released > 0);
 
         // Right press + release: PointerPressed reports the right-button flag.

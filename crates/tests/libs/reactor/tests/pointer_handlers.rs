@@ -65,6 +65,9 @@ fn all_handlers_attach_as_a_single_bundle() {
         .on_pointer_moved(|_| {})
         .on_pointer_entered(|_| {})
         .on_pointer_exited(|| {})
+        .on_pointer_capture_lost(|| {})
+        .on_pointer_canceled(|| {})
+        .capture_pointer_on_press()
         .into();
     let (r, _) = mount(&el);
 
@@ -76,6 +79,9 @@ fn all_handlers_attach_as_a_single_bundle() {
     assert!(h.on_pointer_moved.is_some());
     assert!(h.on_pointer_entered.is_some());
     assert!(h.on_pointer_exited.is_some());
+    assert!(h.on_pointer_capture_lost.is_some());
+    assert!(h.on_pointer_canceled.is_some());
+    assert!(h.capture_pointer_on_press);
 }
 
 #[test]
@@ -156,6 +162,9 @@ fn recorded_handler_invokes_with_pointer_info() {
     let info = PointerEventInfo {
         x: 12.0,
         y: 34.0,
+        window_x: 112.0,
+        window_y: 234.0,
+        capture_succeeded: true,
         is_left_button_pressed: true,
         is_right_button_pressed: false,
         is_middle_button_pressed: false,
@@ -165,6 +174,9 @@ fn recorded_handler_invokes_with_pointer_info() {
     let got = seen.get().expect("callback fired");
     assert_eq!(got.x, 12.0);
     assert_eq!(got.y, 34.0);
+    assert_eq!(got.window_x, 112.0);
+    assert_eq!(got.window_y, 234.0);
+    assert!(got.capture_succeeded);
     assert!(got.is_left_button_pressed);
     assert!(!got.is_right_button_pressed);
 }

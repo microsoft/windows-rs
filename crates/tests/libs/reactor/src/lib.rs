@@ -122,6 +122,11 @@ pub enum Op {
         id: ControlId,
         config: Option<AnimationConfig>,
     },
+    SetElementTransitions {
+        id: ControlId,
+        enter: Option<AnimationConfig>,
+        exit: Option<AnimationConfig>,
+    },
     SetRichTextParagraphs {
         id: ControlId,
         paragraphs: Vec<RichTextParagraph>,
@@ -232,6 +237,19 @@ impl RecordingBackend {
             .get(&(id, event))
             .unwrap_or_else(|| panic!("no handler for ({id}, {event:?})"));
         h.invoke_i32(v);
+    }
+
+    pub fn fire_navigation_display_mode(
+        &self,
+        id: ControlId,
+        event: Event,
+        mode: NavigationViewDisplayMode,
+    ) {
+        let h = self
+            .handlers
+            .get(&(id, event))
+            .unwrap_or_else(|| panic!("no handler for ({id}, {event:?})"));
+        h.invoke_navigation_display_mode(mode);
     }
 
     pub fn fire_datetime(&self, id: ControlId, event: Event, dt: DateTime) {
@@ -534,6 +552,15 @@ impl Backend for RecordingBackend {
 
     fn run_property_animation(&mut self, id: ControlId, config: Option<AnimationConfig>) {
         self.ops.push(Op::RunPropertyAnimation { id, config });
+    }
+
+    fn set_element_transitions(
+        &mut self,
+        id: ControlId,
+        enter: Option<AnimationConfig>,
+        exit: Option<AnimationConfig>,
+    ) {
+        self.ops.push(Op::SetElementTransitions { id, enter, exit });
     }
 
     fn set_rich_text_paragraphs(&mut self, id: ControlId, paragraphs: &[RichTextParagraph]) {

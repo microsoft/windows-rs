@@ -855,6 +855,31 @@ pub trait ElementExt: Sized {
         self
     }
 
+    /// Capture the pressed pointer until release so moves continue outside
+    /// the element's hit-test bounds.
+    fn capture_pointer_on_press(mut self) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_pointer_handlers(m).capture_pointer_on_press = true;
+        }
+        self
+    }
+
+    /// Register a callback for an involuntarily lost pointer capture.
+    fn on_pointer_capture_lost(mut self, f: impl IntoUnitCallback) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_pointer_handlers(m).on_pointer_capture_lost = Some(f.into_unit_callback());
+        }
+        self
+    }
+
+    /// Register a callback for a canceled pointer interaction.
+    fn on_pointer_canceled(mut self, f: impl IntoUnitCallback) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_pointer_handlers(m).on_pointer_canceled = Some(f.into_unit_callback());
+        }
+        self
+    }
+
     // Accessibility modifiers
 
     fn automation_name(mut self, name: impl Into<String>) -> Self {
@@ -979,15 +1004,26 @@ pub trait ElementExt: Sized {
         self
     }
 
-    fn resources(
-        mut self,
-        entries: impl IntoIterator<Item = (impl Into<String>, impl Into<String>)>,
-    ) -> Self {
+    fn resources<K, V>(mut self, entries: impl IntoIterator<Item = (K, V)>) -> Self
+    where
+        K: Into<String>,
+        V: Into<ResourceValue>,
+    {
         if let Some(m) = self.modifiers_mut() {
             m.resources = entries
                 .into_iter()
-                .map(|(k, v)| (k.into(), v.into()))
+                .map(|(key, value)| (key.into(), value.into()))
                 .collect();
+        }
+        self
+    }
+
+    fn resource_overrides(
+        mut self,
+        configure: impl FnOnce(ResourceBuilder) -> ResourceBuilder,
+    ) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            m.resources = configure(ResourceBuilder::default()).entries;
         }
         self
     }
