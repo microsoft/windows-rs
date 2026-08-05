@@ -30,3 +30,30 @@ cargo run -p reactor_startup_perf --release
 
 The build script stages `Microsoft.WindowsAppRuntime.Bootstrap.dll` and `resources.pri` beside the
 executable.
+
+## MSIX package
+
+`package.ps1` builds the release executable and creates an x64 MSIX containing the executable,
+bootstrap DLL, PRI file, manifest, and generated placeholder logos. The publisher must match the
+certificate that will sign the package.
+
+Create an unsigned package for inspection:
+
+```powershell
+.\package.ps1 -Publisher "CN=Publisher"
+```
+
+Sign with a PFX:
+
+```powershell
+$password = Read-Host "Certificate password" -AsSecureString
+.\package.ps1 `
+    -Publisher "CN=Publisher" `
+    -CertificatePath C:\certificates\package.pfx `
+    -CertificatePassword $password
+```
+
+The output defaults to `target\reactor-startup-msix\BlankWindowsReactor_x64.msix`. The package
+remains framework-dependent; install `Microsoft.WindowsAppRuntime.2.msix` on the target machine
+before launching it. Certificate paths may be local or UNC paths; network PFX files are copied to a
+temporary local file for `signtool` and removed after signing.
