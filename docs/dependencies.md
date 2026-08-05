@@ -166,8 +166,7 @@ loudly on drift) that:
 - `assets/app.manifest` / `assets/resources.pri` are **generated activation assets with no committed
   generator** - `app.manifest` transforms the App SDK `package.appxfragment` files into SxS fusion
   format (source versions in its header). They are forward-compatible, so refreshed only when the
-  reactor control set needs newly-moved classes, not on every bump. Automating them is tracked in
-  [windows-reactor](crates/windows-reactor.md).
+  reactor control set needs newly-moved classes, not on every bump.
 
 See [windows-reactor](crates/windows-reactor.md) and
 [windows-reactor-setup](crates/windows-reactor-setup.md).

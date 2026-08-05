@@ -200,50 +200,6 @@ The `samples` crate also has focused single-file examples under
 [`samples/examples`](../../crates/samples/canvas/samples/examples), including `invalidate`, which
 links clicked points with a line and repaints only when `Invalidator::invalidate` is called.
 
-## Future work
-
-`windows-canvas` is a Rust-idiomatic wrapper over Direct2D, DirectWrite, DXGI, and WIC. It aims to
-be a natural Rust equivalent of [Win2D](https://github.com/microsoft/Win2D) rather than a port of
-its API. This section records how the two compare and what is worth adding next.
-
-### Where it already stands
-
-On efficiency it starts ahead of Win2D. There is no WinRT component or language projection in the
-way: the safe types call Direct2D/DXGI/DirectWrite/WIC COM directly, and classes `Deref` to their
-default interface for zero-cost casts. Sessions bracket `BeginDraw`/`EndDraw` with `Drop`, factories
-are cached, and `GpuDevice` is `Clone` to share one device across surfaces. Device-lost recovery,
-WARP fallback, DPI, and composition scale are all handled.
-
-On simplicity the surface is small and Rust-shaped: a typestate `PathBuilder`, builder patterns
-(`StrokeStyleBuilder`, `TextFormat::with_*`, `TextLayout`), a sealed `Paint` trait, and scoped
-`with_transform`/`with_target` closures. The `circles` and `clock` samples are far shorter than the
-raw Direct2D they replace.
-
-It covers the immediate-mode drawing subset of Win2D. The larger gaps are listed below, roughly in
-priority order.
-
-| Priority | Win2D feature | Status in windows-canvas | Impact |
-| --- | --- | --- | --- |
-| High | Layers and clipping (`PushLayer` / `PushAxisAlignedClip`) | Not exposed | No clip regions or group opacity |
-| High | Rich geometry: combine (union/intersect/xor/exclude), arcs, quadratic bezier, widen, outline, transformed geometry, length/area | `PathBuilder` does line/bezier/close, polygon, hit-test, bounds | No boolean geometry or arcs |
-| Medium | `CanvasImageBrush` (bitmap/image brush), brush opacity/transform/extend-mode | Solid, linear, radial only; gradient gamma/extend fixed | No tiled or pattern fills |
-| Medium | `DrawImage`/`DrawBitmap` with source rect, interpolation, composite mode | `draw_bitmap` (dest + opacity), `draw_image` (fixed mode) | Limited compositing control |
-| Medium | ~60 built-in effects | `create_shadow` plus generic `draw_effect` | Effects graph mostly absent |
-| Low | `CanvasSpriteBatch` | Not exposed | Perf for many sprites |
-| Low | Bitmap save/encode, `SetPixelBytes`, virtual bitmap, antialias/blend mode, DIP-vs-pixel units | Load plus `RenderTarget` readback only | Round-trip and export gaps |
-
-### Suggested order
-
-1. Clip and layer support, following the existing `with_*` scoped-closure pattern (for example
-   `with_clip` and `with_layer(opacity, ..)`).
-2. Geometry operations: arcs, quadratic bezier, boolean combine, and `Geometry` types for rect and
-   ellipse hit-testing.
-3. Image brush and a richer `draw_image`.
-4. A small curated set of effects.
-
-Effects breadth and sprite batch are where Win2D is largest, but most apps do not need the full
-surface, so they stay low priority.
-
 ---
 
 ## Internal documentation
