@@ -53,29 +53,6 @@ for (long i = 0; i < iterations; i++)
 GC.KeepAlive(sum);
 Report("Add", sw);
 
-// Cast: the runtime class directly exposes the declared non-default interface. Value uses
-// CsWinRT's lazily cached interface pointer rather than issuing a QI per iteration.
-sw = Stopwatch.StartNew();
-sum = 0;
-for (long i = 0; i < iterations; i++)
-{
-    sum += widget.Value();
-}
-GC.KeepAlive(sum);
-Report("Cast", sw);
-
-// CastOwned: CsWinRT preserves RCW identity, so even the explicitly owning spelling returns the
-// same cached RCW rather than creating an independently disposable interface owner.
-sw = Stopwatch.StartNew();
-sum = 0;
-for (long i = 0; i < iterations; i++)
-{
-    INonDefault value = widget.As<INonDefault>();
-    sum += value.Value();
-}
-GC.KeepAlive(sum);
-Report("CastOwned", sw);
-
 // Interface: acquire the projected interface once, then measure steady calls.
 INonDefault nonDefault = widget.As<INonDefault>();
 sw = Stopwatch.StartNew();

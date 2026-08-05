@@ -77,7 +77,7 @@ Copy-Item (Join-Path $releaseDir 'bench_component.dll') (Join-Path $cw2Bin 'Benc
 # Metric names in report order, defined here so the run loop can verify every consumer emitted
 # every one. Add a metric by emitting a matching `Name: <ms> ms` line from every consumer and
 # adding its name here.
-$Metrics = 'Create', 'Int32', 'String', 'Add', 'Cast', 'CastOwned', 'Interface', 'Object', 'Event', 'AddRemove', 'Vector', 'IterateVector', 'GetMany', 'Map', 'Lookup', 'VectorView', 'MapView', 'Reference', 'Async', 'Error'
+$Metrics = 'Create', 'Int32', 'String', 'Add', 'Interface', 'Object', 'Event', 'AddRemove', 'Vector', 'IterateVector', 'GetMany', 'Map', 'Lookup', 'VectorView', 'MapView', 'Reference', 'Async', 'Error'
 
 $timeSamples = @{}
 $memSamples = @{}

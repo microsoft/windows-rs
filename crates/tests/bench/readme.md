@@ -48,8 +48,6 @@ Measured on August 5, 2026 with .NET SDK 10.0.302 and CsWinRT 2.3.1. Times are m
 | Int32 | 25 | 24 | 45 |
 | String | 298 | 291 | 1,588 |
 | Add | 14 | 17 | 25 |
-| Cast | 153 | 146 | 26 |
-| CastOwned | 151 | 145 | 149 |
 | Interface | 14 | 17 | 64 |
 | Object | 141 | 138 | 1,205 |
 | Event | 219 | 218 | 929 |
@@ -75,8 +73,6 @@ Measured on August 5, 2026 with .NET SDK 10.0.302 and CsWinRT 2.3.1. Times are m
 | Int32 | Set and get the `Int32` property. |
 | String | Set and get the `String` property, including HSTRING conversion. |
 | Add | Call a method with two `Int32` arguments and a return value. |
-| Cast | Reach `INonDefault` with each projection's preferred short-lived cast. |
-| CastOwned | Request an owning projected interface and call `Value`. |
 | Interface | Acquire `INonDefault` once, then call `Value` repeatedly. |
 | Object | Set and get metadata `Object` (`IInspectable`). |
 | Event | Subscribe one handler and raise `Changed` through `Signal`. |
@@ -93,11 +89,6 @@ Measured on August 5, 2026 with .NET SDK 10.0.302 and CsWinRT 2.3.1. Times are m
 | Error | Propagate a failing `HRESULT` with a reduced iteration count. |
 | Memory | Client-side allocated bytes per retained live object. |
 | Leak | Component live-instance count above baseline after the run. |
-
-The three interface metrics separate distinct projection shapes. `Cast` uses the preferred
-short-lived form, `CastOwned` requests an owning interface value, and `Interface` acquires the
-interface once before the loop. C++/WinRT and windows-rs use stack-value pointer owners. CsWinRT
-preserves RCW identity and lazily caches interface state.
 
 The timed bodies use the same loop bounds, inputs, result retention, collection sizes, and reduced
 error count wherever the public projection surfaces permit. CsWinRT finalization is forced outside

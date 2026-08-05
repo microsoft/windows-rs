@@ -99,27 +99,6 @@ fn run(iterations: u64) -> windows_core::Result<()> {
     std::hint::black_box(sum);
     report("Add", start);
 
-    // Cast: reach the non-default INonDefault interface and call a method on it. The windows-rs
-    // projection puts `Value` on the class and QueryInterfaces to INonDefault on every call, so
-    // this measures the per-cast cost the projection adds over a raw QueryInterface.
-    let start = Instant::now();
-    let mut sum = 0i32;
-    for _ in 0..iterations {
-        sum = sum.wrapping_add(object.Value()?);
-    }
-    std::hint::black_box(sum);
-    report("Cast", start);
-
-    // CastOwned: explicitly materialize and drop an independently owned interface value.
-    let start = Instant::now();
-    let mut sum = 0i32;
-    for _ in 0..iterations {
-        let value = object.cast::<INonDefault>()?;
-        sum = sum.wrapping_add(value.Value()?);
-    }
-    std::hint::black_box(sum);
-    report("CastOwned", start);
-
     // Interface: acquire the interface once, then measure steady calls through it.
     let value = object.cast::<INonDefault>()?;
     let start = Instant::now();

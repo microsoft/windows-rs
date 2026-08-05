@@ -61,31 +61,6 @@ extern "C" int32_t __stdcall test_bench_cpp(uint64_t iterations) noexcept
         (void)sink;
         printf("Add: %lld ms\n", elapsed_ms(start));
 
-        // Cast: QueryInterface from the default interface to the non-default INonDefault and
-        // call a method on it -- the per-cast cost the projection adds over a raw as<>().
-        start = std::chrono::high_resolution_clock::now();
-        sum = 0;
-        for (uint64_t i = 0; i < iterations; i++)
-        {
-            sum += object.as<INonDefault>().Value();
-        }
-        volatile int32_t csink = sum;
-        (void)csink;
-        printf("Cast: %lld ms\n", elapsed_ms(start));
-
-        // CastOwned: C++/WinRT's normal cast is already a stack-value owner, so this repeats the
-        // same QI/call/destructor shape under the explicit ownership label.
-        start = std::chrono::high_resolution_clock::now();
-        sum = 0;
-        for (uint64_t i = 0; i < iterations; i++)
-        {
-            auto value = object.as<INonDefault>();
-            sum += value.Value();
-        }
-        volatile int32_t cosink = sum;
-        (void)cosink;
-        printf("CastOwned: %lld ms\n", elapsed_ms(start));
-
         // Interface: acquire the non-default interface once, then measure steady calls.
         auto non_default = object.as<INonDefault>();
         start = std::chrono::high_resolution_clock::now();

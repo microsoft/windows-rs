@@ -44,7 +44,6 @@ fn main() {
         "Int32:",
         "String:",
         "Add:",
-        "Cast:",
         "Object:",
         "Event:",
         "AddRemove:",
