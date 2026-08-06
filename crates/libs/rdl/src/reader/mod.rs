@@ -186,6 +186,23 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
+        let assembly_name = self
+            .output
+            .file_stem()
+            .and_then(|file_name| file_name.to_str())
+            .ok_or_else(|| Error::new("invalid output", &self.output.to_string_lossy(), 0, 0))?;
+
+        let output = self.compile(assembly_name)?;
+        std::fs::write(&self.output, output)
+            .map_err(|error| Error::new(&error.to_string(), &self.output.to_string_lossy(), 0, 0))
+    }
+
+    /// Parses, validates, resolves, and encodes the inputs without writing a `.winmd`.
+    pub fn check(&self) -> Result<(), Error> {
+        self.compile("check").map(|_| ())
+    }
+
+    fn compile(&self, assembly_name: &str) -> Result<Vec<u8>, Error> {
         let rdl_paths = expand_input_files(&self.input, "rdl")?;
         let reference_paths = expand_input_files(&self.reference, "winmd")?;
 
@@ -228,12 +245,6 @@ impl Reader {
 
         let reference = metadata::reader::Index::new(reference);
         validate_use_declarations(&input, &index, &reference)?;
-
-        let assembly_name = self
-            .output
-            .file_stem()
-            .and_then(|file_name| file_name.to_str())
-            .ok_or_else(|| Error::new("invalid output", &self.output.to_string_lossy(), 0, 0))?;
 
         let mut output = metadata::writer::File::new(assembly_name);
         output.set_reference(reference);
@@ -316,8 +327,7 @@ impl Reader {
             }
         }
 
-        std::fs::write(&self.output, output.into_stream())
-            .map_err(|error| Error::new(&error.to_string(), &self.output.to_string_lossy(), 0, 0))
+        Ok(output.into_stream())
     }
 }
 
@@ -363,7 +373,7 @@ fn expand_rdl_files(paths: &[PathBuf], input_text: &[InputText]) -> Result<Vec<F
     for path in paths {
         let source = path.to_string_lossy();
         let Ok(contents) = std::fs::read_to_string(path) else {
-            return Err(Error::new("failed to read binary file", &source, 0, 0));
+            return Err(Error::new("failed to read input file", &source, 0, 0));
         };
 
         let contents = preprocess_rdl(&contents);
@@ -372,7 +382,7 @@ fn expand_rdl_files(paths: &[PathBuf], input_text: &[InputText]) -> Result<Vec<F
             Error::new(&error.to_string(), &source, start.line, start.column)
         })?;
 
-        file.source = source.replace('\\', "/");
+        file.source = source.into_owned();
         input.push(file);
     }
 

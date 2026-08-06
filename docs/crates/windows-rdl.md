@@ -501,9 +501,15 @@ fields, enum variants, and semicolons. Semantic validation can then continue for
 
 ### `riddle` command-line tool
 
-Bring back `riddle` as a small binary crate built on the library APIs. Do not restore the old
-implementation. The binary should contain argument parsing, terminal rendering, file discovery,
-and exit-code policy; parsing, validation, formatting, and conversion should remain library code.
+`riddle` is a small binary crate built on the library APIs rather than the removed bindgen
+argument forwarder. The binary contains argument parsing, terminal rendering, standard input, and
+exit-code policy; parsing, validation, resolution, and metadata encoding remain library code.
+
+The initial implementation provides `riddle check` and `riddle build`. Both accept repeated file
+or directory inputs, repeated winmd references, standard input, and the default Windows metadata.
+`Reader::check` runs the same pipeline as `Reader::write` without creating a winmd. Diagnostics
+render with stable codes, source locations, labeled lines, notes, and help. Invalid RDL uses exit
+code 1, while invalid command lines use exit code 2.
 
 An initial command set:
 
@@ -515,9 +521,8 @@ An initial command set:
 | `riddle dump` | Write canonical RDL from winmd |
 | `riddle validate` | Validate an existing winmd and report unsupported or malformed metadata |
 
-All commands should accept repeated inputs and references, directories, standard input where it is
-unambiguous, and the default Windows metadata. They should share the same diagnostic renderer and
-support response files if Windows command-line limits become relevant.
+Future commands should use the same input and diagnostic behavior. Response files can be added if
+Windows command-line limits become relevant.
 
 ### Formatting
 
@@ -615,7 +620,7 @@ resulting RDL makes the ABI at least as reviewable as the current explicit inter
 3. Done: reject syntax and metadata states that are currently ignored or silently lost.
 4. Done: add Property/Event/MethodSemantics reading and preserve those tables through merge and
    remap.
-5. Restore a minimal `riddle check` and `riddle build` on the new library APIs.
+5. Done: restore a minimal `riddle check` and `riddle build` on the new library APIs.
 6. Replace the formatter's silent parse fallback, then add comment preservation and `riddle fmt`.
 7. Add named imports, aliases, grouped imports, and ambiguity diagnostics.
 8. Implement explicit overload authoring and canonical expansion.

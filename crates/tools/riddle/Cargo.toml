@@ -1,0 +1,16 @@
+[package]
+name = "riddle"
+version = "0.100.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+description = "RDL compiler and validation tool"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["command-line-utilities", "development-tools"]
+readme = "readme.md"
+
+[dependencies]
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true

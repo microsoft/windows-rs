@@ -64,6 +64,7 @@ Each crate page covers usage and maintenance. Generated API documentation is ava
 | [windows-default](crates/windows-default.md) | Embedded Windows metadata for build tools. |
 | [windows-metadata](crates/windows-metadata.md) | Reads and writes ECMA-335 metadata. |
 | [windows-rdl](crates/windows-rdl.md) | Parses RDL and generates ECMA-335 metadata. |
+| [riddle](crates/riddle.md) | Checks and compiles RDL from the command line. |
 | [cppwinrt](crates/cppwinrt.md) | Packages the C++/WinRT compiler. |
 
 ### Macro implementation

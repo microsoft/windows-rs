@@ -31,6 +31,9 @@ windows_rdl::writer()
     .unwrap();
 ```
 
+Use `.check()` to run the same parse, validation, resolution, and encoding pipeline without
+writing a `.winmd`.
+
 Use `.reference("dependency.winmd")` when the RDL refers to types defined by another metadata file.
 Use `.input_text(source)` or `.input_texts(sources)` for RDL already in memory. Use
 `.reference_default()` for the standard Windows metadata.
@@ -42,6 +45,13 @@ notes, and help. `Error` is a small owned wrapper that dereferences to its `Diag
 The reader reports `RDL0001` for duplicate symbols and `RDL0002` for accepted syntax that cannot be
 represented in metadata. The writer likewise rejects metadata forms that have no lossless RDL
 spelling rather than emitting incomplete source.
+
+The `riddle` binary provides the same operations from a terminal:
+
+```text
+riddle check example.rdl
+riddle build example.rdl --out example.winmd
+```
 
 The winmd writer matches `Param` rows by ECMA-335 `Param.Sequence`, not table order. Sparse methods
 still emit every signature parameter, using `pN` and the reader's type-based default direction when
