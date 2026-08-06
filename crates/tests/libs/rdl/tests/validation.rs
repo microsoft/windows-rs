@@ -375,6 +375,113 @@ mod Test {
 }
 
 #[test]
+fn attribute_paths_and_arguments_resolve_before_encoding() {
+    let report = windows_rdl::reader()
+        .input_text_named(
+            "src/test.rdl",
+            r#"
+#[win32]
+mod Test {
+    attribute MarkerAttribute {
+        fn(value: i32);
+    }
+
+    #[Marker("wrong")]
+    struct First {}
+
+    #[Missing]
+    struct Second {}
+}
+"#,
+        )
+        .check_all();
+
+    assert_eq!(report.diagnostics().len(), 2);
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .any(|diagnostic| diagnostic.message == "value not valid")
+    );
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .any(|diagnostic| diagnostic.message == "attribute type not found")
+    );
+}
+
+#[test]
+fn attribute_usage_targets_are_validated() {
+    let report = windows_rdl::reader()
+        .input_text_named(
+            "src/test.rdl",
+            r#"
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::AttributeUsage(Method)]
+    attribute MarkerAttribute {
+        fn();
+    }
+
+    #[Marker]
+    struct Value {}
+}
+"#,
+        )
+        .reference_default()
+        .check_all();
+
+    assert_eq!(report.diagnostics().len(), 1);
+    assert_eq!(report.diagnostics()[0].code.as_deref(), Some("RDL0006"));
+    assert!(
+        report.diagnostics()[0]
+            .message
+            .contains("cannot be applied to a struct")
+    );
+}
+
+#[test]
+fn class_interface_attributes_are_preserved() {
+    let path = out_path("interface_impl_attribute");
+    windows_rdl::reader()
+        .input_text_named(
+            "src/test.rdl",
+            r#"
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::AttributeUsage(InterfaceImpl)]
+    attribute MarkerAttribute {
+        fn();
+    }
+
+    interface IValue {}
+
+    class Value {
+        #[Marker]
+        IValue,
+    }
+}
+"#,
+        )
+        .reference_default()
+        .output(&path)
+        .write()
+        .unwrap();
+
+    let index = windows_metadata::reader::Index::read(&path).unwrap();
+    let implementation = index
+        .expect("Test", "Value")
+        .interface_impls()
+        .next()
+        .unwrap();
+    assert!(windows_metadata::HasAttributes::has_attribute(
+        &implementation,
+        "MarkerAttribute"
+    ));
+}
+
+#[test]
 fn unrepresentable_syntax_is_rejected() {
     let cases = [
         (

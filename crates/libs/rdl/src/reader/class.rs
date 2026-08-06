@@ -105,6 +105,11 @@ impl Encoder<'_> {
         self.validate_type_is_winrt(&interface.ty, &ty)?;
 
         let interface_impl = self.output.InterfaceImpl(class, &ty);
+        self.encode_attrs(
+            metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
+            &interface.attrs,
+            &[],
+        )?;
 
         if default {
             let default_attribute = metadata::writer::MemberRefParent::TypeRef(
@@ -126,10 +131,6 @@ impl Encoder<'_> {
                 metadata::writer::AttributeType::MemberRef(default_ctor),
                 &[],
             );
-        }
-
-        if let Some(attr) = interface.attrs.first() {
-            return self.err(attr, "class interface does not support attributes");
         }
 
         Ok(())

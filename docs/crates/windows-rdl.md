@@ -412,8 +412,9 @@ disjoint architecture variants, and matching split get/set properties remain val
 Top-level symbol checks still operate on indexed declaration names. Method overloads, attribute
 constructors, split properties, class interface lists, and required interfaces now compare
 resolved `metadata::Type` identities, so an import alias and a qualified path to the same type are
-equivalent. `RDL0005` rejects missing or extra generic arguments. Resolving custom-attribute usages
-and preventing every validation failure from reaching the encoder remain part of the work below.
+equivalent. `RDL0005` rejects missing or extra generic arguments. Custom-attribute paths,
+constructors, named arguments, enum values, and target rules also resolve before encoding;
+`RDL0006` rejects an attribute used outside its `AttributeUsage` targets.
 
 The same pre-emission pass now rejects accepted syntax that the encoder cannot represent.
 `RDL0002` covers attributes on event shorthand, generic functions/callbacks/interface methods,
@@ -516,8 +517,13 @@ future work.
 `ResolvedModel` assigns deterministic declaration IDs and resolves every authored type position,
 including fields, constants, typedefs, callbacks, returns, properties, events, class interfaces,
 base classes, and interface requirements. Metadata encoding starts only when model construction and
-validation have no errors. Custom-attribute paths and arguments are still resolved by the encoding
-path and are the next surface to move into the model.
+validation have no errors. It also stores canonical custom-attribute applications, including
+pseudo-attributes and `#[invoke(...)]` wrappers. The shared constant evaluator resolves constructor
+and named arguments identically for validation and encoding.
+
+Attribute target validation reads `Windows.Foundation.Metadata.AttributeUsageAttribute` from source
+or reference metadata. Interface-implementation attributes are now emitted on the InterfaceImpl row
+instead of being rejected after parsing.
 
 ### `riddle` command-line tool
 
@@ -680,7 +686,7 @@ The main findings are:
 - **Validation:** Most passes stop at the first error. Collect independent semantic diagnostics
   before encoding.
 - **Resolution:** Type and attribute lookup share `Resolver`, and `ResolvedModel` stores canonical
-  declaration and type identities. Custom-attribute applications still need resolved nodes.
+  declaration, type, and custom-attribute identities.
 - **Duplicate checks:** Method and attribute-constructor signatures, properties, class interface
   lists, and required interfaces compare resolved types and generic arity.
 - **Encoding:** Some unresolved or invalid states are found while the winmd writer is being
@@ -705,11 +711,12 @@ The next phase should proceed in this order:
    `DiagnosticReport` and `Resolver` provide these layers while preserving the current
    `Result<T, Error>` APIs as convenience wrappers. Stable numeric source and declaration IDs can
    be added with the resolved model.
-2. In progress: build a resolved model for declarations, types, attributes, parameters, and
-   imports. Declarations and every type-bearing position now resolve before encoding; custom
-   attributes and their arguments remain.
-3. Add generic-arity, attribute-target, profile, and resolved-signature validation. Finish the
-   metadata table and custom-attribute parent inventory with rejection tests for unsupported rows.
+2. Done: build a resolved model for declarations, types, attributes, parameters, and imports.
+   Declarations, every type-bearing position, and custom-attribute arguments resolve before
+   encoding.
+3. In progress: add generic-arity, attribute-target, profile, and resolved-signature validation.
+   Generic arity, resolved signatures, and WinRT `AttributeUsage` targets are checked. Finish the
+   profile rules and metadata table/custom-attribute parent inventory.
 4. Implement explicit overload authoring and canonical expansion using resolved signatures and
    stable metadata names.
 5. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete

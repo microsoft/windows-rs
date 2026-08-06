@@ -24,6 +24,7 @@ mod validate;
 
 use super::*;
 use attribute::*;
+use attribute_ref::*;
 use callback::*;
 use class::*;
 use r#const::*;
@@ -290,7 +291,7 @@ impl Reader {
             report.extend(validate_use_declarations(&input, &index, &reference));
             let (model, diagnostics) = resolve_model(&index, &reference);
             report.extend(diagnostics);
-            report.extend(validate_resolved_symbols(&model));
+            report.extend(validate_resolved_symbols(&model, &reference));
         }
         if !report.is_success() {
             return (None, report);
@@ -818,176 +819,7 @@ impl Encoder<'_> {
         ty: &metadata::Type,
         value: &syn::Expr,
     ) -> Result<metadata::Value, Error> {
-        if matches!(ty, metadata::Type::ISize | metadata::Type::USize)
-            && let Some(value) = self.encode_fixed_width_value(value)?
-        {
-            return Ok(value);
-        }
-
-        let value = match ty {
-            metadata::Type::I8 => metadata::Value::I8(self.encode_lit_sint(value, 8)? as i8),
-            metadata::Type::U8 => metadata::Value::U8(self.encode_lit_uint(value, 8)? as u8),
-            metadata::Type::I16 => metadata::Value::I16(self.encode_lit_sint(value, 16)? as i16),
-            metadata::Type::U16 => metadata::Value::U16(self.encode_lit_uint(value, 16)? as u16),
-            metadata::Type::I32 => metadata::Value::I32(self.encode_lit_sint(value, 32)? as i32),
-            metadata::Type::U32 => metadata::Value::U32(self.encode_lit_uint(value, 32)? as u32),
-            metadata::Type::I64 => metadata::Value::I64(self.encode_lit_sint(value, 64)?),
-            metadata::Type::U64 => metadata::Value::U64(self.encode_lit_uint(value, 64)?),
-            metadata::Type::F32 => metadata::Value::F32(self.encode_neg_lit_float::<f32>(value)?),
-            metadata::Type::F64 => metadata::Value::F64(self.encode_neg_lit_float::<f64>(value)?),
-            metadata::Type::String => metadata::Value::Utf16(self.encode_lit_string(value)?),
-            metadata::Type::ISize => fixed_signed_value(self.encode_lit_sint(value, 64)?),
-            metadata::Type::USize => fixed_unsigned_value(self.encode_lit_uint(value, 64)?),
-            metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
-                let v = self.encode_neg_lit_int::<i64>(value)?;
-                if let Ok(v) = i32::try_from(v) {
-                    metadata::Value::I32(v)
-                } else {
-                    metadata::Value::I64(v)
-                }
-            }
-            metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
-                let underlying = self
-                    .output
-                    .reference()
-                    .and_then(|r| r.get(&tn.namespace, &tn.name).next())
-                    .and_then(|def| def.underlying_type())
-                    .or_else(|| self.rdl_underlying_type(&tn.namespace, &tn.name));
-
-                match underlying {
-                    Some(underlying) => return self.encode_value(&underlying, value),
-                    None => {
-                        return self.err(value, &format!("constant type not supported: {ty:?}"));
-                    }
-                }
-            }
-            rest => return self.err(value, &format!("constant type not supported: {rest:?}")),
-        };
-
-        Ok(value)
-    }
-
-    fn encode_fixed_width_value(
-        &self,
-        value: &syn::Expr,
-    ) -> Result<Option<metadata::Value>, Error> {
-        let int = match value {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Int(int),
-                ..
-            }) => int,
-            syn::Expr::Unary(syn::ExprUnary { expr, .. }) => {
-                let syn::Expr::Lit(syn::ExprLit {
-                    lit: syn::Lit::Int(int),
-                    ..
-                }) = expr.as_ref()
-                else {
-                    return Ok(None);
-                };
-                int
-            }
-            _ => return Ok(None),
-        };
-
-        let value = match int.suffix() {
-            "i32" => metadata::Value::I32(self.encode_lit_sint(value, 32)? as i32),
-            "u32" => metadata::Value::U32(self.encode_lit_uint(value, 32)? as u32),
-            "i64" => metadata::Value::I64(self.encode_lit_sint(value, 64)?),
-            "u64" => metadata::Value::U64(self.encode_lit_uint(value, 64)?),
-            _ => return Ok(None),
-        };
-        Ok(Some(value))
-    }
-
-    fn rdl_underlying_type(&self, namespace: &str, name: &str) -> Option<metadata::Type> {
-        let item = self.index.get(namespace, name).next()?;
-
-        match item {
-            Item::Typedef(t) => self.encode_underlying(&t.ty, namespace),
-            Item::Enum(e) => {
-                // Enum-typed constants encode against the enum's `#[repr(iN)]` type.
-                let repr = e.attrs.iter().find(|a| a.path().is_ident("repr"))?;
-                let path = repr.parse_args::<syn::Path>().ok()?;
-                self.encode_path(&path).ok()
-            }
-            Item::Struct(s) => {
-                let mut fields = s.fields.iter();
-
-                if let Some(field) = fields.next()
-                    && fields.next().is_none()
-                    && let FieldType::Type(ty) = &field.ty
-                {
-                    return self.encode_underlying(ty, namespace);
-                }
-
-                None
-            }
-            _ => None,
-        }
-    }
-
-    /// Resolves a typedef's bare sibling names in the typedef namespace, not the constant namespace.
-    fn encode_underlying(&self, ty: &syn::Type, namespace: &str) -> Option<metadata::Type> {
-        match ty {
-            // MAKEINTRESOURCE-style pointer constants only need the pointer kind.
-            syn::Type::Ptr(ptr) => {
-                let pointee = self
-                    .encode_underlying(&ptr.elem, namespace)
-                    .unwrap_or(metadata::Type::Void);
-                Some(if ptr.mutability.is_some() {
-                    metadata::Type::PtrMut(Box::new(pointee), 1)
-                } else {
-                    metadata::Type::PtrConst(Box::new(pointee), 1)
-                })
-            }
-            syn::Type::Path(tp)
-                if tp.qself.is_none()
-                    && tp.path.segments.len() == 1
-                    && matches!(tp.path.segments[0].arguments, syn::PathArguments::None) =>
-            {
-                if let Ok(resolved) = self.encode_type(ty)
-                    && !matches!(
-                        resolved,
-                        metadata::Type::ValueName(_) | metadata::Type::ClassName(_)
-                    )
-                {
-                    return Some(resolved);
-                }
-                let ident = tp.path.segments[0].ident.unraw_to_string();
-                Some(metadata::Type::value_named(namespace, &ident))
-            }
-            _ => self.encode_type(ty).ok(),
-        }
-    }
-
-    fn encode_neg_lit_int<T>(&self, expr: &syn::Expr) -> Result<T, Error>
-    where
-        T: std::str::FromStr + TryFrom<i128>,
-        T::Err: std::fmt::Display,
-    {
-        let value = match expr {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Int(int),
-                ..
-            }) => int.base10_parse().ok(),
-            syn::Expr::Unary(syn::ExprUnary {
-                op: syn::UnOp::Neg(_),
-                expr,
-                ..
-            }) => match expr.as_ref() {
-                syn::Expr::Lit(syn::ExprLit {
-                    lit: syn::Lit::Int(int),
-                    ..
-                }) => int
-                    .base10_parse::<u64>()
-                    .ok()
-                    .and_then(|v| T::try_from(-(v as i128)).ok()),
-                _ => None,
-            },
-            _ => None,
-        };
-
-        value.ok_or_else(|| self.error(expr, "value not valid"))
+        self.resolver().resolve_value(ty, value)
     }
 
     fn encode_lit_int<T>(&self, expr: &syn::Expr) -> Result<T, Error>
@@ -995,127 +827,11 @@ impl Encoder<'_> {
         T: std::str::FromStr,
         T::Err: std::fmt::Display,
     {
-        let value = match expr {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Int(int),
-                ..
-            }) => int.base10_parse().ok(),
-
-            _ => None,
-        };
-
-        value.ok_or_else(|| self.error(expr, "value not valid"))
+        self.resolver().resolve_lit_int(expr)
     }
 
-    /// Accepts C unsigned sentinels spelled as negated casts by masking to the target width.
     fn encode_lit_uint(&self, expr: &syn::Expr, bits: u32) -> Result<u64, Error> {
-        let mask: u128 = if bits >= 128 {
-            u128::MAX
-        } else {
-            (1u128 << bits) - 1
-        };
-        let value = match expr {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Int(int),
-                ..
-            }) => int.base10_parse::<u64>().ok(),
-            syn::Expr::Unary(syn::ExprUnary {
-                op: syn::UnOp::Neg(_),
-                expr,
-                ..
-            }) => match expr.as_ref() {
-                syn::Expr::Lit(syn::ExprLit {
-                    lit: syn::Lit::Int(int),
-                    ..
-                }) => int
-                    .base10_parse::<u64>()
-                    .ok()
-                    .map(|v| ((v as i128).wrapping_neg() as u128 & mask) as u64),
-                _ => None,
-            },
-            _ => None,
-        };
-
-        value.ok_or_else(|| self.error(expr, "value not valid"))
-    }
-
-    /// Reinterprets signed constants from their C bit pattern, including overflowing HRESULTs.
-    fn encode_lit_sint(&self, expr: &syn::Expr, bits: u32) -> Result<i64, Error> {
-        let raw: Option<u64> = match expr {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Int(int),
-                ..
-            }) => int.base10_parse::<u64>().ok(),
-            syn::Expr::Unary(syn::ExprUnary {
-                op: syn::UnOp::Neg(_),
-                expr,
-                ..
-            }) => match expr.as_ref() {
-                syn::Expr::Lit(syn::ExprLit {
-                    lit: syn::Lit::Int(int),
-                    ..
-                }) => int
-                    .base10_parse::<u64>()
-                    .ok()
-                    .map(|v| (v as i128).wrapping_neg() as u64),
-                _ => None,
-            },
-            _ => None,
-        };
-
-        let raw = raw.ok_or_else(|| self.error(expr, "value not valid"))?;
-
-        if bits >= 64 {
-            Ok(raw as i64)
-        } else {
-            let mask = (1u64 << bits) - 1;
-            let masked = raw & mask;
-            let sign_bit = 1u64 << (bits - 1);
-            Ok(if masked & sign_bit != 0 {
-                (masked | !mask) as i64
-            } else {
-                masked as i64
-            })
-        }
-    }
-
-    fn encode_neg_lit_float<T>(&self, expr: &syn::Expr) -> Result<T, Error>
-    where
-        T: std::str::FromStr + std::ops::Neg<Output = T>,
-        T::Err: std::fmt::Display,
-    {
-        let value = match expr {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Float(float),
-                ..
-            }) => float.base10_parse().ok(),
-            syn::Expr::Unary(syn::ExprUnary {
-                op: syn::UnOp::Neg(_),
-                expr,
-                ..
-            }) => match expr.as_ref() {
-                syn::Expr::Lit(syn::ExprLit {
-                    lit: syn::Lit::Float(float),
-                    ..
-                }) => float.base10_parse().ok().map(|value: T| -value),
-                _ => None,
-            },
-            _ => None,
-        };
-
-        value.ok_or_else(|| self.error(expr, "value not valid"))
-    }
-
-    fn encode_lit_string(&self, expr: &syn::Expr) -> Result<String, Error> {
-        let value = match expr {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Str(string),
-                ..
-            }) => Some(string.value()),
-            _ => None,
-        };
-
-        value.ok_or_else(|| self.error(expr, "value not valid"))
+        self.resolver().resolve_lit_uint(expr, bits)
     }
 
     fn encode_path(&self, ty: &syn::Path) -> Result<metadata::Type, Error> {

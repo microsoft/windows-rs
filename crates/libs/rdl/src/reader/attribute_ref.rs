@@ -281,11 +281,7 @@ impl Resolver<'_, '_> {
     }
 }
 
-impl Encoder<'_> {
-    fn find_attribute_type(&self, path: &syn::Path) -> Result<Option<AttributeInfo>, Error> {
-        self.resolver().find_attribute_type(path)
-    }
-
+impl Resolver<'_, '_> {
     fn split_args<'a>(&self, args: &'a [syn::Expr]) -> Result<SplitArgs<'a>, Error> {
         let mut positional: Vec<&syn::Expr> = vec![];
         let mut named: Vec<(String, &syn::Expr)> = vec![];
@@ -332,7 +328,7 @@ impl Encoder<'_> {
             let mut type_error: Option<Error> = None;
 
             for (ty, arg) in types.iter().zip(positional.iter()) {
-                match self.encode_attr_value(ty, arg) {
+                match self.resolve_attr_value(ty, arg) {
                     Ok(v) => values.push((String::new(), v)),
                     Err(e) => {
                         type_error = Some(e);
@@ -365,14 +361,14 @@ impl Encoder<'_> {
                 .find(|(pname, _)| pname == name)
                 .map(|(_, ty)| ty)
                 .ok_or_else(|| self.error(attr, &format!("attribute has no property `{name}`")))?;
-            let value = self.encode_attr_value(prop_ty, value_expr)?;
+            let value = self.resolve_attr_value(prop_ty, value_expr)?;
             result.push((name.clone(), value));
         }
 
         Ok(result)
     }
 
-    fn encode_attr_value(
+    fn resolve_attr_value(
         &self,
         ty: &metadata::Type,
         value: &syn::Expr,
@@ -386,7 +382,7 @@ impl Encoder<'_> {
                 _ => self.err(value, "expected string literal"),
             },
             metadata::Type::ClassName(tn) if tn == ("System", "Type") => match value {
-                syn::Expr::Path(syn::ExprPath { path, .. }) => match self.encode_path(path)? {
+                syn::Expr::Path(syn::ExprPath { path, .. }) => match self.resolve_path(path)? {
                     metadata::Type::ClassName(tn) | metadata::Type::ValueName(tn) => {
                         Ok(metadata::Value::TypeName(tn))
                     }
@@ -433,21 +429,18 @@ impl Encoder<'_> {
                 }
                 self.err(value, &format!("expected `{}` variant name", tn.name))
             }
-            _ => self.encode_value(ty, value),
+            _ => self.resolve_value(ty, value),
         }
     }
 
     fn enum_is_flags(&self, tn: &metadata::TypeName) -> bool {
-        if let Some(reference) = self.output.reference() {
-            for typedef in reference.get(&tn.namespace, &tn.name) {
-                if typedef.category() == metadata::reader::TypeCategory::Enum
-                    && metadata::HasAttributes::attributes(&typedef).any(|attr| {
-                        attr.name() == "FlagsAttribute"
-                            && attr.ctor().parent().namespace() == "System"
-                    })
-                {
-                    return true;
-                }
+        for typedef in self.reference.get(&tn.namespace, &tn.name) {
+            if typedef.category() == metadata::reader::TypeCategory::Enum
+                && metadata::HasAttributes::attributes(&typedef).any(|attr| {
+                    attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
+                })
+            {
+                return true;
             }
         }
         if let Some(ns) = self.index.namespaces.get(&tn.namespace)
@@ -466,25 +459,23 @@ impl Encoder<'_> {
         variant_name: &str,
         spanned: &syn::Expr,
     ) -> Result<metadata::Value, Error> {
-        if let Some(reference) = self.output.reference() {
-            for typedef in reference.get(&tn.namespace, &tn.name) {
-                if typedef.category() == metadata::reader::TypeCategory::Enum {
-                    for field in typedef.fields() {
-                        if field.flags().contains(metadata::FieldAttributes::Literal)
-                            && field.name() == variant_name
-                            && let Some(constant) = field.constant()
-                        {
-                            return Ok(match constant.value() {
-                                metadata::Value::I32(v) => metadata::Value::I32(v),
-                                metadata::Value::U32(v) => metadata::Value::I32(v as i32),
-                                other => {
-                                    return self.err(
-                                        spanned,
-                                        &format!("unsupported enum constant type: {other:?}"),
-                                    );
-                                }
-                            });
-                        }
+        for typedef in self.reference.get(&tn.namespace, &tn.name) {
+            if typedef.category() == metadata::reader::TypeCategory::Enum {
+                for field in typedef.fields() {
+                    if field.flags().contains(metadata::FieldAttributes::Literal)
+                        && field.name() == variant_name
+                        && let Some(constant) = field.constant()
+                    {
+                        return Ok(match constant.value() {
+                            metadata::Value::I32(value) => metadata::Value::I32(value),
+                            metadata::Value::U32(value) => metadata::Value::I32(value as i32),
+                            other => {
+                                return self.err(
+                                    spanned,
+                                    &format!("unsupported enum constant type: {other:?}"),
+                                );
+                            }
+                        });
                     }
                 }
             }
@@ -498,15 +489,15 @@ impl Encoder<'_> {
                 if variant.ident == variant_name
                     && let Some((_, discriminant)) = &variant.discriminant
                 {
-                    let result = self
-                        .encode_value(&metadata::Type::I32, discriminant)
-                        .or_else(|_| {
-                            self.encode_value(&metadata::Type::U32, discriminant)
-                                .map(|v| match v {
-                                    metadata::Value::U32(n) => metadata::Value::I32(n as i32),
-                                    other => other,
-                                })
-                        });
+                    let result =
+                        self.resolve_value(&metadata::Type::I32, discriminant)
+                            .or_else(|_| {
+                                self.resolve_value(&metadata::Type::U32, discriminant)
+                                    .map(|v| match v {
+                                        metadata::Value::U32(n) => metadata::Value::I32(n as i32),
+                                        other => other,
+                                    })
+                            });
                     return result;
                 }
             }
@@ -547,6 +538,72 @@ impl Encoder<'_> {
             type_name: info.type_name,
             args,
         })
+    }
+
+    pub fn resolve_pseudo_attr_ref(
+        &self,
+        attr: &syn::Attribute,
+        pseudo: &PseudoAttr,
+    ) -> Result<AttributeRef, Error> {
+        if matches!(attr.meta, syn::Meta::Path(_)) {
+            return Ok(AttributeRef {
+                type_name: metadata::TypeName::named(METADATA_NAMESPACE, pseudo.metadata),
+                args: vec![],
+            });
+        }
+
+        let info = self
+            .find_in_reference(METADATA_NAMESPACE, pseudo.metadata)
+            .or_else(|| self.find_in_index(METADATA_NAMESPACE, pseudo.metadata))
+            .ok_or_else(|| self.error(attr, "pseudo-attribute type not found"))?;
+
+        let raw_args: Vec<syn::Expr> = match &attr.meta {
+            syn::Meta::Path(_) => vec![],
+            syn::Meta::List(_) => attr
+                .parse_args_with(
+                    syn::punctuated::Punctuated::<syn::Expr, syn::Token![,]>::parse_terminated,
+                )
+                .map_err(|error| {
+                    let start = error.span().start();
+                    Error::new(
+                        &error.to_string(),
+                        &self.file.source,
+                        start.line,
+                        start.column,
+                    )
+                })?
+                .into_iter()
+                .collect(),
+            syn::Meta::NameValue(_) => {
+                return self.err(attr, "attribute cannot use top-level `name = value` syntax");
+            }
+        };
+
+        let split = self.split_args(&raw_args)?;
+        let args = if let Some(property) = pseudo.prop {
+            if split.positional.len() != 1 || !split.named.is_empty() {
+                return self.err(attr, &format!("`{}` takes a single value", pseudo.short));
+            }
+            let named = [(property.to_string(), split.positional[0])];
+            self.resolve_attribute_args(attr, &info, &[], &named)?
+        } else {
+            self.resolve_attribute_args(attr, &info, &split.positional, &split.named)?
+        };
+
+        Ok(AttributeRef {
+            type_name: info.type_name,
+            args,
+        })
+    }
+}
+
+impl Encoder<'_> {
+    fn find_attribute_type(&self, path: &syn::Path) -> Result<Option<AttributeInfo>, Error> {
+        self.resolver().find_attribute_type(path)
+    }
+
+    pub fn resolve_attribute_ref(&self, attr: &syn::Attribute) -> Result<AttributeRef, Error> {
+        self.resolver().resolve_attribute_ref(attr)
     }
 
     pub fn encode_named_attribute(
@@ -613,44 +670,7 @@ impl Encoder<'_> {
         attr: &syn::Attribute,
         pseudo: &PseudoAttr,
     ) -> Result<AttributeRef, Error> {
-        let resolver = self.resolver();
-        let info = resolver
-            .find_in_reference(METADATA_NAMESPACE, pseudo.metadata)
-            .or_else(|| resolver.find_in_index(METADATA_NAMESPACE, pseudo.metadata))
-            .ok_or_else(|| self.error(attr, "pseudo-attribute type not found"))?;
-
-        let raw_args: Vec<syn::Expr> = match &attr.meta {
-            syn::Meta::Path(_) => vec![],
-            syn::Meta::List(_) => attr
-                .parse_args_with(
-                    syn::punctuated::Punctuated::<syn::Expr, syn::Token![,]>::parse_terminated,
-                )
-                .map_err(|e| {
-                    let start = e.span().start();
-                    Error::new(&e.to_string(), &self.file.source, start.line, start.column)
-                })?
-                .into_iter()
-                .collect(),
-            syn::Meta::NameValue(_) => {
-                return self.err(attr, "attribute cannot use top-level `name = value` syntax");
-            }
-        };
-
-        let split = self.split_args(&raw_args)?;
-        let args = if let Some(prop) = pseudo.prop {
-            if split.positional.len() != 1 || !split.named.is_empty() {
-                return self.err(attr, &format!("`{}` takes a single value", pseudo.short));
-            }
-            let named = [(prop.to_string(), split.positional[0])];
-            self.resolve_attribute_args(attr, &info, &[], &named)?
-        } else {
-            self.resolve_attribute_args(attr, &info, &split.positional, &split.named)?
-        };
-
-        Ok(AttributeRef {
-            type_name: info.type_name,
-            args,
-        })
+        self.resolver().resolve_pseudo_attr_ref(attr, pseudo)
     }
 
     pub fn emit_arch_attribute(&mut self, target: metadata::writer::HasAttribute, arch_bits: i32) {

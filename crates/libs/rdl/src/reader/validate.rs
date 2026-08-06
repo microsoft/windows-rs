@@ -50,7 +50,10 @@ pub fn validate_symbols(index: &Index) -> Vec<Error> {
     diagnostics
 }
 
-pub fn validate_resolved_symbols(model: &ResolvedModel) -> Vec<Error> {
+pub fn validate_resolved_symbols(
+    model: &ResolvedModel,
+    reference: &metadata::reader::Index,
+) -> Vec<Error> {
     let mut diagnostics = vec![];
 
     for (id, item) in model.items.iter().enumerate() {
@@ -176,7 +179,137 @@ pub fn validate_resolved_symbols(model: &ResolvedModel) -> Vec<Error> {
         }
     }
 
+    diagnostics.extend(validate_attribute_targets(model, reference));
     diagnostics
+}
+
+fn validate_attribute_targets(
+    model: &ResolvedModel,
+    reference: &metadata::reader::Index,
+) -> Vec<Error> {
+    let mut diagnostics = vec![];
+
+    for attribute in &model.attributes {
+        let Some(valid_on) = attribute_valid_on(model, reference, &attribute.value.type_name)
+        else {
+            continue;
+        };
+        let target = attribute_target_bit(attribute.target);
+        if valid_on & target != 0 {
+            continue;
+        }
+
+        let start = attribute.span.start();
+        let end = attribute.span.end();
+        diagnostics.push(
+            Error::new(
+                &format!(
+                    "attribute `{}.{}` cannot be applied to {}",
+                    attribute.value.type_name.namespace,
+                    attribute.value.type_name.name,
+                    attribute_target_name(attribute.target)
+                ),
+                &model.items[attribute.owner].file.source,
+                start.line,
+                start.column,
+            )
+            .with_code("RDL0006")
+            .with_primary_label(
+                Label::primary(
+                    &model.items[attribute.owner].file.source,
+                    start.line,
+                    start.column,
+                )
+                .with_end(end.line, end.column)
+                .with_message("attribute is not valid on this target"),
+            ),
+        );
+    }
+
+    diagnostics
+}
+
+fn attribute_valid_on(
+    model: &ResolvedModel,
+    reference: &metadata::reader::Index,
+    type_name: &metadata::TypeName,
+) -> Option<u32> {
+    if let Some(item) = model.items.iter().find(|item| {
+        item.namespace == type_name.namespace
+            && item.item.to_string() == type_name.name
+            && matches!(item.item, Item::Attribute(_))
+    }) {
+        return model
+            .attributes
+            .iter()
+            .filter(|attribute| attribute.owner == item.id)
+            .find_map(|attribute| attribute_usage_value(&attribute.value));
+    }
+
+    reference
+        .get(&type_name.namespace, &type_name.name)
+        .find_map(|def| {
+            metadata::HasAttributes::attributes(&def)
+                .find(|attribute| {
+                    attribute.namespace() == "Windows.Foundation.Metadata"
+                        && attribute.name() == "AttributeUsageAttribute"
+                })
+                .and_then(|attribute| {
+                    attribute
+                        .value()
+                        .first()
+                        .and_then(|(_, value)| attribute_target_value(value))
+                })
+        })
+}
+
+fn attribute_usage_value(attribute: &AttributeRef) -> Option<u32> {
+    if attribute.type_name.namespace != "Windows.Foundation.Metadata"
+        || attribute.type_name.name != "AttributeUsageAttribute"
+    {
+        return None;
+    }
+    attribute
+        .args
+        .first()
+        .and_then(|(_, value)| attribute_target_value(value))
+}
+
+fn attribute_target_value(value: &metadata::Value) -> Option<u32> {
+    match value {
+        metadata::Value::EnumValue(_, value) => attribute_target_value(value),
+        metadata::Value::I32(value) => Some(*value as u32),
+        metadata::Value::U32(value) => Some(*value),
+        _ => None,
+    }
+}
+
+fn attribute_target_bit(target: AttributeTarget) -> u32 {
+    match target {
+        AttributeTarget::Delegate => 1,
+        AttributeTarget::Enum => 2,
+        AttributeTarget::Field => 8,
+        AttributeTarget::Interface => 16,
+        AttributeTarget::Method => 64,
+        AttributeTarget::Parameter => 128,
+        AttributeTarget::RuntimeClass => 512,
+        AttributeTarget::Struct => 1024,
+        AttributeTarget::InterfaceImpl => 2048,
+    }
+}
+
+fn attribute_target_name(target: AttributeTarget) -> &'static str {
+    match target {
+        AttributeTarget::Delegate => "a delegate",
+        AttributeTarget::Enum => "an enum",
+        AttributeTarget::Field => "a field",
+        AttributeTarget::Interface => "an interface",
+        AttributeTarget::Method => "a method",
+        AttributeTarget::Parameter => "a parameter",
+        AttributeTarget::RuntimeClass => "a runtime class",
+        AttributeTarget::Struct => "a struct",
+        AttributeTarget::InterfaceImpl => "an interface implementation",
+    }
 }
 
 struct ResolvedPropertyState {

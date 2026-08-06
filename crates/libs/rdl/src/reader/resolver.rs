@@ -9,7 +9,7 @@ pub struct Resolver<'a, 'input> {
 }
 
 impl Resolver<'_, '_> {
-    fn error<S: Spanned>(&self, spanned: S, message: &str) -> Error {
+    pub(super) fn error<S: Spanned>(&self, spanned: S, message: &str) -> Error {
         let start = spanned.span().start();
         Error::new(message, &self.file.source, start.line, start.column)
     }
@@ -342,6 +342,308 @@ impl Resolver<'_, '_> {
         value
             .base10_parse()
             .map_err(|_| self.error(expr, "value not valid"))
+    }
+
+    pub fn resolve_value(
+        &self,
+        ty: &metadata::Type,
+        value: &syn::Expr,
+    ) -> Result<metadata::Value, Error> {
+        if matches!(ty, metadata::Type::ISize | metadata::Type::USize)
+            && let Some(value) = self.resolve_fixed_width_value(value)?
+        {
+            return Ok(value);
+        }
+
+        let value = match ty {
+            metadata::Type::I8 => metadata::Value::I8(self.resolve_lit_sint(value, 8)? as i8),
+            metadata::Type::U8 => metadata::Value::U8(self.resolve_lit_uint(value, 8)? as u8),
+            metadata::Type::I16 => metadata::Value::I16(self.resolve_lit_sint(value, 16)? as i16),
+            metadata::Type::U16 => metadata::Value::U16(self.resolve_lit_uint(value, 16)? as u16),
+            metadata::Type::I32 => metadata::Value::I32(self.resolve_lit_sint(value, 32)? as i32),
+            metadata::Type::U32 => metadata::Value::U32(self.resolve_lit_uint(value, 32)? as u32),
+            metadata::Type::I64 => metadata::Value::I64(self.resolve_lit_sint(value, 64)?),
+            metadata::Type::U64 => metadata::Value::U64(self.resolve_lit_uint(value, 64)?),
+            metadata::Type::F32 => metadata::Value::F32(self.resolve_neg_lit_float::<f32>(value)?),
+            metadata::Type::F64 => metadata::Value::F64(self.resolve_neg_lit_float::<f64>(value)?),
+            metadata::Type::String => metadata::Value::Utf16(self.resolve_lit_string(value)?),
+            metadata::Type::ISize => fixed_signed_value(self.resolve_lit_sint(value, 64)?),
+            metadata::Type::USize => fixed_unsigned_value(self.resolve_lit_uint(value, 64)?),
+            metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
+                let value = self.resolve_neg_lit_int::<i64>(value)?;
+                if let Ok(value) = i32::try_from(value) {
+                    metadata::Value::I32(value)
+                } else {
+                    metadata::Value::I64(value)
+                }
+            }
+            metadata::Type::ValueName(type_name) | metadata::Type::ClassName(type_name) => {
+                let underlying = self
+                    .reference
+                    .get(&type_name.namespace, &type_name.name)
+                    .next()
+                    .and_then(|def| def.underlying_type())
+                    .or_else(|| self.rdl_underlying_type(&type_name.namespace, &type_name.name));
+
+                match underlying {
+                    Some(underlying) => return self.resolve_value(&underlying, value),
+                    None => {
+                        return self.err(value, &format!("constant type not supported: {ty:?}"));
+                    }
+                }
+            }
+            rest => return self.err(value, &format!("constant type not supported: {rest:?}")),
+        };
+
+        Ok(value)
+    }
+
+    pub fn resolve_lit_int<T>(&self, expr: &syn::Expr) -> Result<T, Error>
+    where
+        T: std::str::FromStr,
+        T::Err: std::fmt::Display,
+    {
+        let syn::Expr::Lit(syn::ExprLit {
+            lit: syn::Lit::Int(value),
+            ..
+        }) = expr
+        else {
+            return self.err(expr, "value not valid");
+        };
+        value
+            .base10_parse()
+            .map_err(|_| self.error(expr, "value not valid"))
+    }
+
+    pub fn resolve_lit_uint(&self, expr: &syn::Expr, bits: u32) -> Result<u64, Error> {
+        let mask: u128 = if bits >= 128 {
+            u128::MAX
+        } else {
+            (1u128 << bits) - 1
+        };
+        let value = match expr {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int.base10_parse::<u64>().ok(),
+            syn::Expr::Unary(syn::ExprUnary {
+                op: syn::UnOp::Neg(_),
+                expr,
+                ..
+            }) => match expr.as_ref() {
+                syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) => int
+                    .base10_parse::<u64>()
+                    .ok()
+                    .map(|value| ((value as i128).wrapping_neg() as u128 & mask) as u64),
+                _ => None,
+            },
+            _ => None,
+        };
+
+        value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
+
+    fn resolve_fixed_width_value(
+        &self,
+        value: &syn::Expr,
+    ) -> Result<Option<metadata::Value>, Error> {
+        let int = match value {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int,
+            syn::Expr::Unary(syn::ExprUnary { expr, .. }) => {
+                let syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) = expr.as_ref()
+                else {
+                    return Ok(None);
+                };
+                int
+            }
+            _ => return Ok(None),
+        };
+
+        let value = match int.suffix() {
+            "i32" => metadata::Value::I32(self.resolve_lit_sint(value, 32)? as i32),
+            "u32" => metadata::Value::U32(self.resolve_lit_uint(value, 32)? as u32),
+            "i64" => metadata::Value::I64(self.resolve_lit_sint(value, 64)?),
+            "u64" => metadata::Value::U64(self.resolve_lit_uint(value, 64)?),
+            _ => return Ok(None),
+        };
+        Ok(Some(value))
+    }
+
+    fn rdl_underlying_type(&self, namespace: &str, name: &str) -> Option<metadata::Type> {
+        let item = self.index.get(namespace, name).next()?;
+
+        match item {
+            Item::Typedef(item) => self.resolve_underlying(&item.ty, namespace),
+            Item::Enum(item) => {
+                let repr = item
+                    .attrs
+                    .iter()
+                    .find(|attribute| attribute.path().is_ident("repr"))?;
+                let path = repr.parse_args::<syn::Path>().ok()?;
+                self.resolve_path(&path).ok()
+            }
+            Item::Struct(item) => {
+                let mut fields = item.fields.iter();
+                if let Some(field) = fields.next()
+                    && fields.next().is_none()
+                    && let FieldType::Type(ty) = &field.ty
+                {
+                    return self.resolve_underlying(ty, namespace);
+                }
+                None
+            }
+            _ => None,
+        }
+    }
+
+    fn resolve_underlying(&self, ty: &syn::Type, namespace: &str) -> Option<metadata::Type> {
+        match ty {
+            syn::Type::Ptr(pointer) => {
+                let pointee = self
+                    .resolve_underlying(&pointer.elem, namespace)
+                    .unwrap_or(metadata::Type::Void);
+                Some(if pointer.mutability.is_some() {
+                    metadata::Type::PtrMut(Box::new(pointee), 1)
+                } else {
+                    metadata::Type::PtrConst(Box::new(pointee), 1)
+                })
+            }
+            syn::Type::Path(type_path)
+                if type_path.qself.is_none()
+                    && type_path.path.segments.len() == 1
+                    && matches!(
+                        type_path.path.segments[0].arguments,
+                        syn::PathArguments::None
+                    ) =>
+            {
+                if let Ok(resolved) = self.resolve_type(ty)
+                    && !matches!(
+                        resolved,
+                        metadata::Type::ValueName(_) | metadata::Type::ClassName(_)
+                    )
+                {
+                    return Some(resolved);
+                }
+                let ident = type_path.path.segments[0].ident.unraw_to_string();
+                Some(metadata::Type::value_named(namespace, &ident))
+            }
+            _ => self.resolve_type(ty).ok(),
+        }
+    }
+
+    fn resolve_neg_lit_int<T>(&self, expr: &syn::Expr) -> Result<T, Error>
+    where
+        T: std::str::FromStr + TryFrom<i128>,
+        T::Err: std::fmt::Display,
+    {
+        let value = match expr {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int.base10_parse().ok(),
+            syn::Expr::Unary(syn::ExprUnary {
+                op: syn::UnOp::Neg(_),
+                expr,
+                ..
+            }) => match expr.as_ref() {
+                syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) => int
+                    .base10_parse::<u64>()
+                    .ok()
+                    .and_then(|value| T::try_from(-(value as i128)).ok()),
+                _ => None,
+            },
+            _ => None,
+        };
+
+        value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
+
+    fn resolve_lit_sint(&self, expr: &syn::Expr, bits: u32) -> Result<i64, Error> {
+        let raw: Option<u64> = match expr {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int.base10_parse::<u64>().ok(),
+            syn::Expr::Unary(syn::ExprUnary {
+                op: syn::UnOp::Neg(_),
+                expr,
+                ..
+            }) => match expr.as_ref() {
+                syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) => int
+                    .base10_parse::<u64>()
+                    .ok()
+                    .map(|value| (value as i128).wrapping_neg() as u64),
+                _ => None,
+            },
+            _ => None,
+        };
+
+        let raw = raw.ok_or_else(|| self.error(expr, "value not valid"))?;
+        if bits >= 64 {
+            Ok(raw as i64)
+        } else {
+            let mask = (1u64 << bits) - 1;
+            let masked = raw & mask;
+            let sign_bit = 1u64 << (bits - 1);
+            Ok(if masked & sign_bit != 0 {
+                (masked | !mask) as i64
+            } else {
+                masked as i64
+            })
+        }
+    }
+
+    fn resolve_neg_lit_float<T>(&self, expr: &syn::Expr) -> Result<T, Error>
+    where
+        T: std::str::FromStr + std::ops::Neg<Output = T>,
+        T::Err: std::fmt::Display,
+    {
+        let value = match expr {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Float(float),
+                ..
+            }) => float.base10_parse().ok(),
+            syn::Expr::Unary(syn::ExprUnary {
+                op: syn::UnOp::Neg(_),
+                expr,
+                ..
+            }) => match expr.as_ref() {
+                syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Float(float),
+                    ..
+                }) => float.base10_parse().ok().map(|value: T| -value),
+                _ => None,
+            },
+            _ => None,
+        };
+
+        value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
+
+    fn resolve_lit_string(&self, expr: &syn::Expr) -> Result<String, Error> {
+        let syn::Expr::Lit(syn::ExprLit {
+            lit: syn::Lit::Str(value),
+            ..
+        }) = expr
+        else {
+            return self.err(expr, "value not valid");
+        };
+        Ok(value.value())
     }
 
     fn one_imported_type(
