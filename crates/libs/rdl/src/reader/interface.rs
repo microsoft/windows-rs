@@ -251,10 +251,6 @@ impl Encoder<'_> {
                     let mut is_special = false;
                     for attr in &method.attrs {
                         if attr.path().is_ident("special") {
-                            if !matches!(attr.meta, syn::Meta::Path(_)) {
-                                return self
-                                    .err(attr, "`special` attribute does not accept arguments");
-                            }
                             is_special = true;
                         }
                     }
@@ -284,26 +280,6 @@ impl Encoder<'_> {
                 InterfaceMember::Property(prop) => {
                     let is_get_only = prop.attrs.iter().any(|a| a.path().is_ident("get"));
                     let is_set_only = prop.attrs.iter().any(|a| a.path().is_ident("set"));
-
-                    if is_get_only && is_set_only {
-                        return self.err(
-                            &prop.name,
-                            "property cannot have both `#[get]` and `#[set]` attributes",
-                        );
-                    }
-
-                    for attr in &prop.attrs {
-                        if !attr.path().is_ident("get") && !attr.path().is_ident("set") {
-                            return self.err(
-                                attr,
-                                "only `#[get]` and `#[set]` attributes are supported on properties",
-                            );
-                        }
-                        if !matches!(attr.meta, syn::Meta::Path(_)) {
-                            return self
-                                .err(attr, "`get`/`set` attribute does not accept arguments");
-                        }
-                    }
 
                     let ty = self.encode_type(&prop.ty)?;
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;

@@ -78,11 +78,7 @@ impl Encoder<'_> {
             return self.err(attribute, "`repr` must be an integer type");
         }
 
-        if let Some(attr) = item.attrs.iter().find(|a| a.path().is_ident("flags")) {
-            if !matches!(attr.meta, syn::Meta::Path(_)) {
-                return self.err(attr, "`flags` attribute does not accept arguments");
-            }
-
+        if item.attrs.iter().any(|attr| attr.path().is_ident("flags")) {
             let flags_type = self.output.TypeRef("System", "FlagsAttribute");
             let signature = metadata::Signature {
                 flags: metadata::MethodCallAttributes::HASTHIS,

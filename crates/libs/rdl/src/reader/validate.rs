@@ -2,6 +2,7 @@ use super::*;
 
 const DUPLICATE_CODE: &str = "RDL0001";
 const UNREPRESENTABLE_CODE: &str = "RDL0002";
+const CONTROL_CODE: &str = "RDL0007";
 
 enum Arch {
     None,
@@ -475,28 +476,47 @@ fn item_arch(item: &Item) -> Arch {
 }
 
 fn validate_item(file: &File, item: &Item) -> Result<(), Error> {
+    validate_common_controls(file, item.attrs())?;
+    if !matches!(
+        item,
+        Item::Attribute(_) | Item::Enum(_) | Item::Interface(_) | Item::Struct(_)
+    ) {
+        validate_profile_controls(file, item.attrs())?;
+    }
+
     match item {
         Item::Attribute(item) => validate_attribute(file, item),
         Item::Callback(item) => {
+            validate_abi(file, item.abi.as_ref())?;
             reject_generics(file, &item.sig.generics, "callbacks")?;
             reject_variadic(file, &item.sig, "callbacks")?;
             validate_signature_params(file, &item.sig)
         }
         Item::Class(item) => validate_class(file, item),
         Item::Delegate(item) => {
+            validate_guid_controls(file, &item.attrs)?;
             validate_type_generics(file, &item.sig.generics, "delegates")?;
             reject_variadic(file, &item.sig, "delegates")?;
             validate_signature_params(file, &item.sig)
         }
         Item::Enum(item) => validate_enum(file, item),
         Item::Fn(item) => {
+            validate_abi(file, item.abi.as_ref())?;
+            validate_library_control(file, item)?;
             reject_generics(file, &item.sig.generics, "functions")?;
             validate_signature_params(file, &item.sig)
         }
         Item::Interface(item) => validate_interface(file, item),
-        Item::Struct(item) => validate_fields(file, &item.fields),
-        Item::Union(item) => validate_fields(file, &item.fields),
-        Item::Const(_) | Item::Module(_) | Item::Typedef(_) => Ok(()),
+        Item::Struct(item) => {
+            validate_layout_controls(file, &item.attrs)?;
+            validate_fields(file, &item.fields)
+        }
+        Item::Union(item) => {
+            validate_layout_controls(file, &item.attrs)?;
+            validate_fields(file, &item.fields)
+        }
+        Item::Const(item) => validate_guid_controls(file, &item.attrs),
+        Item::Module(_) | Item::Typedef(_) => Ok(()),
     }
 }
 
@@ -532,6 +552,16 @@ fn validate_class(_file: &File, _item: &Class) -> Result<(), Error> {
 }
 
 fn validate_enum(file: &File, item: &Enum) -> Result<(), Error> {
+    validate_control_once(file, &item.attrs, "repr", true)?;
+    validate_control_once(file, &item.attrs, "flags", false)?;
+
+    let Some(repr) = item.attrs.iter().find(|attr| attr.path().is_ident("repr")) else {
+        return invalid_control(file, item.token.span(), "`repr` attribute not found");
+    };
+    if repr.parse_args::<syn::Path>().is_err() {
+        return invalid_control(file, repr.span(), "`repr` requires a type path");
+    }
+
     let mut variants = HashMap::<String, Span>::new();
     for variant in &item.variants {
         if !matches!(variant.fields, syn::Fields::Unit) {
@@ -547,6 +577,7 @@ fn validate_enum(file: &File, item: &Enum) -> Result<(), Error> {
 }
 
 fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
+    validate_guid_controls(file, &item.attrs)?;
     validate_type_generics(file, &item.generics, "interfaces")?;
 
     let mut events = HashMap::<String, Span>::new();
@@ -575,11 +606,12 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
 
         match member {
             InterfaceMember::Method(method) => {
+                validate_control_once(file, &method.attrs, "special", false)?;
                 reject_generics(file, &method.sig.generics, "interface methods")?;
                 reject_variadic(file, &method.sig, "interface methods")?;
                 validate_signature_params(file, &method.sig)?;
             }
-            InterfaceMember::Property(_) => {}
+            InterfaceMember::Property(property) => validate_property_controls(file, property)?,
             InterfaceMember::Event(event) => {
                 if let Some(attr) = event.attrs.first() {
                     return unsupported(
@@ -610,6 +642,7 @@ fn validate_fields(file: &File, fields: &[Field]) -> Result<(), Error> {
         }
 
         if let FieldType::Nested(record) = &field.ty {
+            validate_layout_controls(file, &record.attrs)?;
             validate_fields(file, &record.fields)?;
         }
     }
@@ -716,6 +749,7 @@ fn validate_signature_params(file: &File, signature: &syn::Signature) -> Result<
         if let syn::FnArg::Typed(param) = input
             && let syn::Pat::Ident(name) = param.pat.as_ref()
         {
+            validate_param_controls(file, &param.attrs)?;
             check_name(file, "parameter", &name.ident, &mut names)?;
         }
     }
@@ -725,8 +759,179 @@ fn validate_signature_params(file: &File, signature: &syn::Signature) -> Result<
 fn validate_bare_params(file: &File, signature: &syn::TypeBareFn) -> Result<(), Error> {
     let mut names = HashMap::<String, Span>::new();
     for input in &signature.inputs {
+        validate_param_controls(file, &input.attrs)?;
         if let Some((name, _)) = &input.name {
             check_name(file, "parameter", name, &mut names)?;
+        }
+    }
+    Ok(())
+}
+
+fn validate_common_controls(file: &File, attrs: &[syn::Attribute]) -> Result<(), Error> {
+    validate_control_once(file, attrs, "arch", true)?;
+
+    if let Some(attr) = attrs.iter().find(|attr| attr.path().is_ident("arch")) {
+        let Ok(expr) = attr.parse_args::<syn::Expr>() else {
+            return invalid_control(
+                file,
+                attr.span(),
+                "`arch` requires architecture arguments such as `#[arch(X86)]`",
+            );
+        };
+        if parse_arch_bitmask(&expr).is_none() {
+            return invalid_control(
+                file,
+                attr.span(),
+                "invalid `arch` value; expected `X86`, `X64`, `Arm64`, or a `|`-combination",
+            );
+        }
+    }
+
+    Ok(())
+}
+
+fn validate_profile_controls(file: &File, attrs: &[syn::Attribute]) -> Result<(), Error> {
+    validate_control_once(file, attrs, "win32", false)?;
+    validate_control_once(file, attrs, "winrt", false)
+}
+
+fn validate_guid_controls(file: &File, attrs: &[syn::Attribute]) -> Result<(), Error> {
+    validate_control_once(file, attrs, "guid", true)?;
+    validate_control_once(file, attrs, "no_guid", false)?;
+
+    let guid = attrs.iter().find(|attr| attr.path().is_ident("guid"));
+    let no_guid = attrs.iter().find(|attr| attr.path().is_ident("no_guid"));
+    if guid.is_some()
+        && let Some(no_guid) = no_guid
+    {
+        return invalid_control(
+            file,
+            no_guid.span(),
+            "`guid` and `no_guid` attributes are mutually exclusive",
+        );
+    }
+    if let Some(attr) = guid {
+        let Ok(literal) = attr.parse_args::<syn::LitInt>() else {
+            return invalid_control(file, attr.span(), "`guid` requires a single u128 literal");
+        };
+        if parse_guid_u128(&literal).is_err() {
+            return invalid_control(file, attr.span(), "invalid u128 literal in `guid`");
+        }
+    }
+
+    Ok(())
+}
+
+fn validate_layout_controls(file: &File, attrs: &[syn::Attribute]) -> Result<(), Error> {
+    for name in ["packed", "align"] {
+        validate_control_once(file, attrs, name, true)?;
+        if let Some(attr) = attrs.iter().find(|attr| attr.path().is_ident(name)) {
+            let Ok(literal) = attr.parse_args::<syn::LitInt>() else {
+                return invalid_control(
+                    file,
+                    attr.span(),
+                    &format!("`{name}` requires an integer argument"),
+                );
+            };
+            if literal.base10_parse::<u16>().is_err() {
+                return invalid_control(
+                    file,
+                    attr.span(),
+                    &format!("`{name}` size must be a valid u16"),
+                );
+            }
+        }
+    }
+    Ok(())
+}
+
+fn validate_library_control(file: &File, item: &Fn) -> Result<(), Error> {
+    validate_control_once(file, &item.attrs, "library", true)?;
+    let Some(attr) = item
+        .attrs
+        .iter()
+        .find(|attr| attr.path().is_ident("library"))
+    else {
+        return invalid_control(file, item.sig.span(), "`library` attribute not found");
+    };
+    if let Err(error) = parse_library_attribute(attr) {
+        return invalid_control(file, error.span(), &error.to_string());
+    }
+    Ok(())
+}
+
+fn validate_property_controls(file: &File, property: &Property) -> Result<(), Error> {
+    validate_control_once(file, &property.attrs, "get", false)?;
+    validate_control_once(file, &property.attrs, "set", false)?;
+
+    for attr in &property.attrs {
+        if !attr.path().is_ident("get") && !attr.path().is_ident("set") {
+            return invalid_control(
+                file,
+                attr.span(),
+                "only `get` and `set` attributes are supported on properties",
+            );
+        }
+    }
+    if property
+        .attrs
+        .iter()
+        .any(|attr| attr.path().is_ident("get"))
+        && property
+            .attrs
+            .iter()
+            .any(|attr| attr.path().is_ident("set"))
+    {
+        return invalid_control(
+            file,
+            property.name.span(),
+            "property cannot have both `get` and `set` attributes",
+        );
+    }
+    Ok(())
+}
+
+fn validate_param_controls(file: &File, attrs: &[syn::Attribute]) -> Result<(), Error> {
+    validate_control_once(file, attrs, "r#in", false)?;
+    validate_control_once(file, attrs, "out", false)?;
+    validate_control_once(file, attrs, "opt", false)
+}
+
+fn validate_abi(file: &File, abi: Option<&syn::LitStr>) -> Result<(), Error> {
+    if let Some(abi) = abi
+        && !matches!(abi.value().as_str(), "system" | "C" | "fastcall")
+    {
+        return invalid_control(file, abi.span(), "function ABI is not supported");
+    }
+    Ok(())
+}
+
+fn validate_control_once(
+    file: &File,
+    attrs: &[syn::Attribute],
+    name: &str,
+    accepts_arguments: bool,
+) -> Result<(), Error> {
+    let mut found = None;
+    for attr in attrs.iter().filter(|attr| attr.path().is_ident(name)) {
+        if let Some(previous) = found {
+            return invalid_control_with_previous(
+                file,
+                attr.span(),
+                previous,
+                &format!("duplicate `{}` attribute", name.trim_start_matches("r#")),
+            );
+        }
+        found = Some(attr.span());
+        if !accepts_arguments && !matches!(attr.meta, syn::Meta::Path(_)) {
+            return invalid_control(
+                file,
+                attr.span(),
+                &format!(
+                    "`{}` attribute does not accept arguments",
+                    name.trim_start_matches("r#")
+                ),
+            );
         }
     }
     Ok(())
@@ -816,4 +1021,64 @@ fn unsupported<T>(file: &File, span: Span, message: &str) -> Result<T, Error> {
                 .with_end(end.line, end.column)
                 .with_message("not represented in metadata"),
         ))
+}
+
+fn invalid_control<T>(file: &File, span: Span, message: &str) -> Result<T, Error> {
+    Err(control_error(&file.source, span, message))
+}
+
+pub(super) fn control_error(source: &str, span: Span, message: &str) -> Error {
+    let start = span.start();
+    let end = span.end();
+
+    Error::new(message, source, start.line, start.column)
+        .with_code(CONTROL_CODE)
+        .with_primary_label(
+            Label::primary(source, start.line, start.column)
+                .with_end(end.line, end.column)
+                .with_message("invalid control attribute"),
+        )
+}
+
+fn invalid_control_with_previous<T>(
+    file: &File,
+    span: Span,
+    previous: Span,
+    message: &str,
+) -> Result<T, Error> {
+    Err(duplicate_control_error(
+        &file.source,
+        span,
+        previous,
+        message,
+    ))
+}
+
+pub(super) fn duplicate_control_error(
+    source: &str,
+    span: Span,
+    previous: Span,
+    message: &str,
+) -> Error {
+    let start = span.start();
+    let end = span.end();
+    let previous_start = previous.start();
+    let previous_end = previous.end();
+
+    Error::new(message, source, start.line, start.column)
+        .with_code(CONTROL_CODE)
+        .with_primary_label(
+            Label::primary(source, start.line, start.column)
+                .with_end(end.line, end.column)
+                .with_message("duplicate control attribute"),
+        )
+        .with_label(
+            Label::secondary(
+                source,
+                previous_start.line,
+                previous_start.column,
+                "first applied here",
+            )
+            .with_end(previous_end.line, previous_end.column),
+        )
 }

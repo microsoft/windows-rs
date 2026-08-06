@@ -417,6 +417,11 @@ constructors, named arguments, enum values, and target rules also resolve before
 `RDL0006` rejects an attribute used outside its `AttributeUsage` targets or repeated on one
 metadata parent without `AllowMultiple`.
 
+Control attributes are validated before metadata encoding. `RDL0007` covers malformed, duplicate,
+or incompatible controls such as `arch`, `guid`/`no_guid`, `packed`, `align`, `library`, parameter
+direction, property accessors, and module profile markers. The `library` parser is shared with the
+encoder so option handling cannot drift.
+
 The same pre-emission pass now rejects accepted syntax that the encoder cannot represent.
 `RDL0002` covers attributes on event shorthand, generic functions/callbacks/interface methods,
 variadic callbacks/delegates/interface methods, generic bounds/defaults/attributes, attribute
@@ -719,7 +724,8 @@ The next phase should proceed in this order:
    encoding.
 3. In progress: add generic-arity, attribute-target, profile, and resolved-signature validation.
    Generic arity, resolved signatures, and WinRT `AttributeUsage` target and multiplicity rules are
-   checked. Finish the profile rules and metadata table/custom-attribute parent inventory.
+   checked. Control-attribute syntax and incompatible combinations are checked before encoding.
+   Finish the profile rules and metadata table/custom-attribute parent inventory.
 4. Implement explicit overload authoring and canonical expansion using resolved signatures and
    stable metadata names.
 5. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete

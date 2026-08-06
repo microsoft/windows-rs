@@ -743,8 +743,6 @@ impl Encoder<'_> {
                     .map_err(|_| self.error(attr, "invalid u128 literal in `#[guid]`"))?;
                 let (d1, d2, d3, d4) = guid::u128_to_guid(v);
                 guid::emit_guid_attribute(self.output, target, d1, d2, d3, d4);
-            } else if attr.path().is_ident("no_guid") && !matches!(attr.meta, syn::Meta::Path(_)) {
-                return self.err(attr, "`#[no_guid]` attribute does not accept arguments");
             }
         }
 

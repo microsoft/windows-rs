@@ -47,7 +47,8 @@ The reader reports `RDL0001` for duplicate symbols, `RDL0002` for accepted synta
 represented in metadata, `RDL0003`/`RDL0004` for import failures, and `RDL0005` for generic-arity
 errors. `RDL0006` reports custom attributes used outside their declared WinRT `AttributeUsage`
 targets or repeated without `AllowMultiple`. The writer likewise rejects metadata forms that have
-no lossless RDL spelling rather than emitting incomplete source.
+no lossless RDL spelling rather than emitting incomplete source. `RDL0007` reports malformed,
+duplicate, or incompatible RDL control attributes before metadata encoding begins.
 
 The `riddle` binary provides the same operations from a terminal:
 

@@ -45,6 +45,29 @@ impl syn::parse::Parse for Fn {
     }
 }
 
+pub fn parse_library_attribute(
+    attribute: &syn::Attribute,
+) -> syn::Result<(syn::LitStr, Option<String>)> {
+    attribute.parse_args_with(
+        |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, Option<String>)> {
+            let library: syn::LitStr = input.parse()?;
+            let mut import = None;
+            while input.peek(syn::Token![,]) {
+                input.parse::<syn::Token![,]>()?;
+                let ident: syn::Ident = input.parse()?;
+                input.parse::<syn::Token![=]>()?;
+                if ident == "import" {
+                    let value: syn::LitStr = input.parse()?;
+                    import = Some(value.value());
+                } else {
+                    return Err(syn::Error::new(ident.span(), "unknown library option"));
+                }
+            }
+            Ok((library, import))
+        },
+    )
+}
+
 impl Encoder<'_> {
     pub fn encode_fn(&mut self, item: &Fn) -> Result<(), Error> {
         let flags = metadata::MethodAttributes::Public
@@ -85,25 +108,7 @@ impl Encoder<'_> {
             return self.err(&item.sig, "`library` attribute not found");
         };
 
-        let (library, import) = attribute
-            .parse_args_with(
-                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, Option<String>)> {
-                    let library: syn::LitStr = input.parse()?;
-                    let mut import = None;
-                    while input.peek(syn::Token![,]) {
-                        input.parse::<syn::Token![,]>()?;
-                        let ident: syn::Ident = input.parse()?;
-                        input.parse::<syn::Token![=]>()?;
-                        if ident == "import" {
-                            let value: syn::LitStr = input.parse()?;
-                            import = Some(value.value());
-                        } else {
-                            return Err(syn::Error::new(ident.span(), "unknown library option"));
-                        }
-                    }
-                    Ok((library, import))
-                },
-            )
+        let (library, import) = parse_library_attribute(attribute)
             .or_else(|_| self.err(attribute.span(), "`library` name missing"))?;
 
         let mut flags = metadata::PInvokeAttributes::NoMangle;

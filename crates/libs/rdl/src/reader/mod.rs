@@ -564,11 +564,45 @@ fn read_winrt<S: Spanned>(
 ) -> Result<Option<bool>, Error> {
     let mut winrt = false;
     let mut win32 = false;
+    let mut winrt_span = None;
+    let mut win32_span = None;
 
     for attr in attrs {
         if attr.path().is_ident("winrt") {
+            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                return Err(control_error(
+                    source_file,
+                    attr.span(),
+                    "`winrt` attribute does not accept arguments",
+                ));
+            }
+            if let Some(previous) = winrt_span {
+                return Err(duplicate_control_error(
+                    source_file,
+                    attr.span(),
+                    previous,
+                    "duplicate `winrt` attribute",
+                ));
+            }
+            winrt_span = Some(attr.span());
             winrt = true;
         } else if attr.path().is_ident("win32") {
+            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                return Err(control_error(
+                    source_file,
+                    attr.span(),
+                    "`win32` attribute does not accept arguments",
+                ));
+            }
+            if let Some(previous) = win32_span {
+                return Err(duplicate_control_error(
+                    source_file,
+                    attr.span(),
+                    previous,
+                    "duplicate `win32` attribute",
+                ));
+            }
+            win32_span = Some(attr.span());
             win32 = true;
         }
     }

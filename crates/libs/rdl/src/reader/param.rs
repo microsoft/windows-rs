@@ -17,19 +17,10 @@ impl Encoder<'_> {
 
         for attr in attrs {
             if attr.path().is_ident("out") {
-                if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`out` attribute does not accept arguments");
-                }
                 attributes |= metadata::ParamAttributes::Out;
             } else if attr.path().is_ident("r#in") {
-                if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`in` attribute does not accept arguments");
-                }
                 attributes |= metadata::ParamAttributes::In;
             } else if attr.path().is_ident("opt") {
-                if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`opt` attribute does not accept arguments");
-                }
                 attributes |= metadata::ParamAttributes::Optional;
             }
         }

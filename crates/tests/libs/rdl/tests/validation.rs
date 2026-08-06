@@ -516,6 +516,60 @@ mod Test {
 }
 
 #[test]
+fn control_attributes_are_validated_before_encoding() {
+    let report = windows_rdl::reader()
+        .input_texts_named([
+            (
+                "src/property.rdl",
+                "#[winrt] mod Test { interface IProperty { #[get] #[set] Value: i32; } }",
+            ),
+            (
+                "src/method.rdl",
+                "#[winrt] mod Test { interface IMethod { #[special(1)] fn Get(&self); } }",
+            ),
+            (
+                "src/param.rdl",
+                "#[win32] mod Test { extern fn Callback(#[out(1)] value: *mut i32); }",
+            ),
+            (
+                "src/layout.rdl",
+                "#[win32] mod Test { #[packed(70000)] struct Value {} }",
+            ),
+            (
+                "src/guid.rdl",
+                "#[winrt] mod Test { #[guid(1)] #[no_guid] delegate fn GuidCallback(); }",
+            ),
+            (
+                "src/library.rdl",
+                r#"#[win32] mod Test { #[library("test.dll", typo = "Open")] extern fn Open(); }"#,
+            ),
+            (
+                "src/arch.rdl",
+                "#[win32] mod Test { #[arch(X86 + X64)] struct ArchValue {} }",
+            ),
+            (
+                "src/profile.rdl",
+                "#[win32(value)] mod ModuleControl { struct Value {} }",
+            ),
+        ])
+        .check_all();
+
+    assert_eq!(report.diagnostics().len(), 8, "{:#?}", report.diagnostics());
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .all(|diagnostic| diagnostic.code.as_deref() == Some("RDL0007"))
+    );
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .any(|diagnostic| diagnostic.message == "unknown library option")
+    );
+}
+
+#[test]
 fn class_interface_attributes_are_preserved() {
     let path = out_path("interface_impl_attribute");
     windows_rdl::reader()
