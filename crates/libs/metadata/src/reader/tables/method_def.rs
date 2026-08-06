@@ -74,6 +74,10 @@ impl<'a> MethodDef<'a> {
         self.blob(4).read_method_signature(generics)
     }
 
+    pub fn generic_params(&self) -> RowIterator<'a, GenericParam<'a>> {
+        self.equal_range(2, TypeOrMethodDef::MethodDef(*self).encode())
+    }
+
     /// Iterates the method's `Param` rows in physical table order.
     ///
     /// Use [`Self::params_by_sequence`] when associating rows with signature positions.

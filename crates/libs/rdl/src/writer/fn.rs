@@ -1,6 +1,7 @@
 use super::*;
 
 pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<TokenStream, Error> {
+    reject_method_generics(item)?;
     let name = write_ident(item.name());
     let signature = item.signature(&[]);
 

@@ -40,6 +40,11 @@ impl Encoder<'_> {
             .Field("Value", &mt, metadata::FieldAttributes::Public);
 
         self.encode_native_typedef_attribute(metadata::writer::HasAttribute::TypeDef(type_def));
+        self.encode_attrs(
+            metadata::writer::HasAttribute::TypeDef(type_def),
+            &item.attrs,
+            &[],
+        )?;
 
         if let Some(arch_bits) = self.read_arch(&item.attrs)? {
             self.emit_arch_attribute(metadata::writer::HasAttribute::TypeDef(type_def), arch_bits);

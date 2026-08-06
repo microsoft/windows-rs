@@ -2,6 +2,7 @@ use super::*;
 use quote::ToTokens;
 
 const DUPLICATE_CODE: &str = "RDL0001";
+const UNREPRESENTABLE_CODE: &str = "RDL0002";
 
 enum Arch {
     None,
@@ -125,17 +126,19 @@ fn validate_item(file: &File, item: &Item) -> Result<(), Error> {
     match item {
         Item::Attribute(item) => validate_attribute(file, item),
         Item::Callback(item) => {
-            validate_generics(file, &item.sig.generics)?;
+            reject_generics(file, &item.sig.generics, "callbacks")?;
+            reject_variadic(file, &item.sig, "callbacks")?;
             validate_signature_params(file, &item.sig)
         }
         Item::Class(item) => validate_class(file, item),
         Item::Delegate(item) => {
-            validate_generics(file, &item.sig.generics)?;
+            validate_type_generics(file, &item.sig.generics, "delegates")?;
+            reject_variadic(file, &item.sig, "delegates")?;
             validate_signature_params(file, &item.sig)
         }
         Item::Enum(item) => validate_enum(file, item),
         Item::Fn(item) => {
-            validate_generics(file, &item.sig.generics)?;
+            reject_generics(file, &item.sig.generics, "functions")?;
             validate_signature_params(file, &item.sig)
         }
         Item::Interface(item) => validate_interface(file, item),
@@ -154,6 +157,20 @@ fn validate_attribute(file: &File, item: &Attribute) -> Result<(), Error> {
     let mut constructors = HashMap::<String, Span>::new();
     for method in &item.methods {
         validate_bare_params(file, method)?;
+        if let Some(variadic) = &method.variadic {
+            return unsupported(
+                file,
+                variadic.span(),
+                "variadic attribute constructors are not supported",
+            );
+        }
+        if let syn::ReturnType::Type(_, ty) = &method.output {
+            return unsupported(
+                file,
+                ty.span(),
+                "attribute constructors cannot return a value",
+            );
+        }
         let key = bare_signature_key(method);
         if let Some(previous) = constructors.insert(key, method.span()) {
             return duplicate(
@@ -191,13 +208,20 @@ fn validate_class(file: &File, item: &Class) -> Result<(), Error> {
 fn validate_enum(file: &File, item: &Enum) -> Result<(), Error> {
     let mut variants = HashMap::<String, Span>::new();
     for variant in &item.variants {
+        if !matches!(variant.fields, syn::Fields::Unit) {
+            return unsupported(
+                file,
+                variant.fields.span(),
+                "enum variants with fields are not supported",
+            );
+        }
         check_name(file, "enum variant", &variant.ident, &mut variants)?;
     }
     Ok(())
 }
 
 fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
-    validate_generics(file, &item.generics)?;
+    validate_type_generics(file, &item.generics, "interfaces")?;
 
     let mut methods = HashMap::<String, HashMap<String, Span>>::new();
     let mut properties = HashMap::<String, PropertyState>::new();
@@ -227,7 +251,8 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
 
         match member {
             InterfaceMember::Method(method) => {
-                validate_generics(file, &method.sig.generics)?;
+                reject_generics(file, &method.sig.generics, "interface methods")?;
+                reject_variadic(file, &method.sig, "interface methods")?;
                 validate_signature_params(file, &method.sig)?;
 
                 let name = method.sig.ident.to_string();
@@ -248,6 +273,13 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
                 validate_property(file, property, &mut properties)?;
             }
             InterfaceMember::Event(event) => {
+                if let Some(attr) = event.attrs.first() {
+                    return unsupported(
+                        file,
+                        attr.span(),
+                        "attributes on event shorthand are not represented",
+                    );
+                }
                 check_name(file, "event", &event.name, &mut events)?;
             }
         }
@@ -334,7 +366,7 @@ fn validate_fields(file: &File, fields: &[Field]) -> Result<(), Error> {
     Ok(())
 }
 
-fn validate_generics(file: &File, generics: &syn::Generics) -> Result<(), Error> {
+fn validate_generic_names(file: &File, generics: &syn::Generics) -> Result<(), Error> {
     let mut names = HashMap::<String, Span>::new();
     for param in &generics.params {
         match param {
@@ -360,6 +392,71 @@ fn validate_generics(file: &File, generics: &syn::Generics) -> Result<(), Error>
         }
     }
     Ok(())
+}
+
+fn reject_generics(file: &File, generics: &syn::Generics, target: &str) -> Result<(), Error> {
+    if let Some(param) = generics.params.first() {
+        return unsupported(
+            file,
+            param.span(),
+            &format!("generic parameters are not supported on {target}"),
+        );
+    }
+    Ok(())
+}
+
+fn validate_type_generics(
+    file: &File,
+    generics: &syn::Generics,
+    target: &str,
+) -> Result<(), Error> {
+    validate_generic_names(file, generics)?;
+
+    for param in &generics.params {
+        let syn::GenericParam::Type(param) = param else {
+            return unsupported(
+                file,
+                param.span(),
+                &format!("only type generic parameters are supported on {target}"),
+            );
+        };
+
+        if let Some(attr) = param.attrs.first() {
+            return unsupported(
+                file,
+                attr.span(),
+                "attributes on generic parameters are not represented",
+            );
+        }
+        if let Some(bound) = param.bounds.first() {
+            return unsupported(
+                file,
+                bound.span(),
+                "generic parameter bounds are not represented",
+            );
+        }
+        if let Some(default) = &param.default {
+            return unsupported(
+                file,
+                default.span(),
+                "generic parameter defaults are not represented",
+            );
+        }
+    }
+
+    Ok(())
+}
+
+fn reject_variadic(file: &File, signature: &syn::Signature, target: &str) -> Result<(), Error> {
+    if let Some(variadic) = &signature.variadic {
+        unsupported(
+            file,
+            variadic.span(),
+            &format!("variadic parameters are not supported on {target}"),
+        )
+    } else {
+        Ok(())
+    }
 }
 
 fn validate_signature_params(file: &File, signature: &syn::Signature) -> Result<(), Error> {
@@ -466,4 +563,17 @@ fn duplicate<T>(
         )
         .with_end(previous_end.line, previous_end.column),
     ))
+}
+
+fn unsupported<T>(file: &File, span: Span, message: &str) -> Result<T, Error> {
+    let start = span.start();
+    let end = span.end();
+
+    Err(Error::new(message, &file.source, start.line, start.column)
+        .with_code(UNREPRESENTABLE_CODE)
+        .with_primary_label(
+            Label::primary(&file.source, start.line, start.column)
+                .with_end(end.line, end.column)
+                .with_message("not represented in metadata"),
+        ))
 }

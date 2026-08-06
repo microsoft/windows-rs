@@ -162,6 +162,94 @@ fn duplicate_labels_preserve_both_source_names() {
 }
 
 #[test]
+fn unrepresentable_syntax_is_rejected() {
+    let cases = [
+        (
+            "event_attributes",
+            "#[winrt] mod Test { interface IValue { #[Marker] event Changed: Object; } }",
+            "attributes on event shorthand are not represented",
+        ),
+        (
+            "function_generics",
+            "#[win32] mod Test { #[library(\"test.dll\")] extern fn Open<T>(); }",
+            "generic parameters are not supported on functions",
+        ),
+        (
+            "callback_generics",
+            "#[win32] mod Test { extern fn Callback<T>(); }",
+            "generic parameters are not supported on callbacks",
+        ),
+        (
+            "method_generics",
+            "#[winrt] mod Test { interface IValue { fn Get<T>(&self); } }",
+            "generic parameters are not supported on interface methods",
+        ),
+        (
+            "callback_variadic",
+            "#[win32] mod Test { extern \"C\" fn Callback(...); }",
+            "variadic parameters are not supported on callbacks",
+        ),
+        (
+            "delegate_variadic",
+            "#[winrt] mod Test { delegate fn Handler(...); }",
+            "variadic parameters are not supported on delegates",
+        ),
+        (
+            "method_variadic",
+            "#[winrt] mod Test { interface IValue { fn Get(&self, ...); } }",
+            "variadic parameters are not supported on interface methods",
+        ),
+        (
+            "attribute_constructor_variadic",
+            "#[win32] mod Test { attribute Value { fn(...); } }",
+            "variadic attribute constructors are not supported",
+        ),
+        (
+            "attribute_constructor_return",
+            "#[win32] mod Test { attribute Value { fn() -> i32; } }",
+            "attribute constructors cannot return a value",
+        ),
+        (
+            "enum_variant_fields",
+            "#[win32] mod Test { #[repr(i32)] enum Value { Item(i32) = 0 } }",
+            "enum variants with fields are not supported",
+        ),
+        (
+            "generic_attributes",
+            "#[winrt] mod Test { interface IValue<#[Marker] T> {} }",
+            "attributes on generic parameters are not represented",
+        ),
+        (
+            "generic_bounds",
+            "#[winrt] mod Test { interface IValue<T: Marker> {} }",
+            "generic parameter bounds are not represented",
+        ),
+        (
+            "generic_defaults",
+            "#[winrt] mod Test { interface IValue<T = i32> {} }",
+            "generic parameter defaults are not represented",
+        ),
+        (
+            "const_generics",
+            "#[winrt] mod Test { interface IValue<const N: usize> {} }",
+            "only type generic parameters are supported on interfaces",
+        ),
+    ];
+
+    for (name, source, message) in cases {
+        let error = error(name, source);
+        assert_eq!(error.code.as_deref(), Some("RDL0002"), "{name}");
+        assert_eq!(error.message, message, "{name}");
+        assert_eq!(error.file_name, "src/test.rdl", "{name}");
+        assert_eq!(error.labels.len(), 1, "{name}");
+        assert_eq!(
+            error.labels[0].message, "not represented in metadata",
+            "{name}"
+        );
+    }
+}
+
+#[test]
 fn method_overloads_are_allowed() {
     windows_rdl::reader()
         .input_text(

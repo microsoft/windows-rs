@@ -4,7 +4,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
-    let (generics, generics_tokens) = write_generic_params(item);
+    let (generics, generics_tokens) = write_generic_params(item)?;
 
     let is_winrt = item
         .flags()
@@ -55,6 +55,11 @@ fn write_members(
     is_winrt: bool,
 ) -> Result<Vec<TokenStream>, Error> {
     let methods: Vec<_> = item.methods().collect();
+    for method in &methods {
+        reject_method_generics(method)?;
+        let signature = method.signature(generics);
+        reject_variadic_method(method, &signature, "interface")?;
+    }
     let count = methods.len();
     let mut consumed = vec![false; count];
     let mut tokens = Vec::with_capacity(count);

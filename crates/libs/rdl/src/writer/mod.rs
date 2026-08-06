@@ -385,9 +385,25 @@ fn write_type_def_items(
                 .fields()
                 .next()
                 .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
+            if field.attributes().next().is_some() {
+                return Err(writer_err!(
+                    "typedef `{}` has unrepresentable attributes on its value field",
+                    item.name()
+                ));
+            }
             let ty = write_type(namespace, &field.ty());
             let arch_attr = write_arch_attr(item.arches());
-            let tokens = quote! { #arch_attr type #name = #ty; };
+            let custom_attrs = write_custom_attributes_except(
+                item.attributes(),
+                namespace,
+                item.index(),
+                &["SupportedArchitectureAttribute"],
+            )?;
+            let tokens = quote! {
+                #arch_attr
+                #(#custom_attrs)*
+                type #name = #ty;
+            };
             return Ok(vec![(item.name().to_string(), tokens)]);
         }
         write_struct_items(item)
@@ -448,14 +464,21 @@ fn write_const_value(
     })
 }
 
-fn write_const_guid(
-    _namespace: &str,
-    item: &metadata::reader::Field,
-) -> Result<TokenStream, Error> {
+fn write_const_guid(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let arch_attr = write_arch_attr(item.arches());
     let literal = guid_attribute_literal(item)?;
-    Ok(quote! { #arch_attr const #name: GUID = #literal; })
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
+    )?;
+    Ok(quote! {
+        #arch_attr
+        #(#custom_attrs)*
+        const #name: GUID = #literal;
+    })
 }
 
 /// Recombines a property-key constant's `fmtid` and `pid` into RDL form.
@@ -471,7 +494,18 @@ fn write_const_property_key(
         .constant()
         .ok_or_else(|| writer_err!("property key constant `{}` has no `pid` value", item.name()))?;
     let pid = write_value(namespace, &constant.value());
-    Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
+    )?;
+    Ok(quote! {
+        #arch_attr
+        #(#custom_attrs)*
+        #[guid(#guid)]
+        const #name: #ty = #pid;
+    })
 }
 
 /// Folds the 11-argument `GuidAttribute` into RDL's u128 GUID literal.
@@ -965,7 +999,28 @@ fn read_unmanaged_abi(item: &metadata::reader::TypeDef) -> Option<i32> {
         })
 }
 
-fn write_generic_params(item: &metadata::reader::TypeDef) -> (Vec<metadata::Type>, TokenStream) {
+fn write_generic_params(
+    item: &metadata::reader::TypeDef,
+) -> Result<(Vec<metadata::Type>, TokenStream), Error> {
+    if let Some(param) = item.generic_params().find(|param| {
+        param.flags() != metadata::GenericParamAttributes::None
+            || param.attributes().next().is_some()
+    }) {
+        if param.attributes().next().is_some() {
+            return Err(writer_err!(
+                "generic parameter `{}` on `{}` has unrepresentable custom attributes",
+                param.name(),
+                item.name()
+            ));
+        }
+        return Err(writer_err!(
+            "generic parameter `{}` on `{}` has unsupported flags {:?}",
+            param.name(),
+            item.name(),
+            param.flags()
+        ));
+    }
+
     let types: Vec<_> = item
         .generic_params()
         .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
@@ -976,5 +1031,35 @@ fn write_generic_params(item: &metadata::reader::TypeDef) -> (Vec<metadata::Type
         let names = item.generic_params().map(|param| write_ident(param.name()));
         quote! { <#(#names),*> }
     };
-    (types, tokens)
+    Ok((types, tokens))
+}
+
+fn reject_method_generics(item: &metadata::reader::MethodDef) -> Result<(), Error> {
+    if let Some(param) = item.generic_params().next() {
+        Err(writer_err!(
+            "method `{}` has unrepresentable generic parameter `{}`",
+            item.name(),
+            param.name()
+        ))
+    } else {
+        Ok(())
+    }
+}
+
+fn reject_variadic_method(
+    item: &metadata::reader::MethodDef,
+    signature: &metadata::Signature,
+    kind: &str,
+) -> Result<(), Error> {
+    if signature
+        .flags
+        .contains(metadata::MethodCallAttributes::VARARG)
+    {
+        Err(writer_err!(
+            "{kind} method `{}` has an unrepresentable variadic signature",
+            item.name()
+        ))
+    } else {
+        Ok(())
+    }
 }

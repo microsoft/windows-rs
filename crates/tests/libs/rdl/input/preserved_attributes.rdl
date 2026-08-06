@@ -1,0 +1,28 @@
+#[win32]
+mod Test {
+    #[Marker]
+    type Alias = i32;
+    #[repr(i32)]
+    enum Choice {
+        #[Marker]
+        One = 1,
+    }
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    #[Marker]
+    const ID: GUID = 0x00000001_0002_0003_0004_000000000005;
+    #[Marker]
+    #[guid(0x00000001_0002_0003_0004_000000000005)]
+    const KEY: PROPERTYKEY = 7;
+    attribute MarkerAttribute {
+        fn();
+    }
+    struct PROPERTYKEY {
+        fmtid: GUID,
+        pid: u32,
+    }
+}

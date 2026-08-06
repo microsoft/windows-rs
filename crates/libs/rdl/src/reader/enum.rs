@@ -135,6 +135,12 @@ impl Encoder<'_> {
                     | metadata::FieldAttributes::Literal,
             );
 
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Field(field),
+                &variant.attrs,
+                &[],
+            )?;
+
             let Some((_, value)) = &variant.discriminant else {
                 return self.err(variant, "variant value not found");
             };

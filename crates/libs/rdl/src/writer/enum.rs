@@ -8,6 +8,12 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
         .fields()
         .next()
         .ok_or_else(|| writer_err!("enum `{}` has no fields", item.name()))?;
+    if repr_field.attributes().next().is_some() {
+        return Err(writer_err!(
+            "enum `{}` has unrepresentable attributes on its backing field",
+            item.name()
+        ));
+    }
     let repr = if let Some(constant) = repr_field.constant() {
         constant.ty()
     } else {
@@ -16,13 +22,23 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
 
     let repr = write_type(namespace, &repr);
 
-    let fields = item.fields().filter_map(|field| {
-        field.constant().map(|constant| {
-            let name = write_ident(field.name());
-            let value = write_value(namespace, &constant.value());
-            quote! { #name = #value, }
+    let fields = item
+        .fields()
+        .filter_map(|field| {
+            field.constant().map(|constant| {
+                write_custom_attributes(field.attributes(), namespace, field.index()).map(
+                    |custom_attrs| {
+                        let name = write_ident(field.name());
+                        let value = write_value(namespace, &constant.value());
+                        quote! {
+                            #(#custom_attrs)*
+                            #name = #value,
+                        }
+                    },
+                )
+            })
         })
-    });
+        .collect::<Result<Vec<_>, Error>>()?;
 
     let is_flags_attr = |attr: metadata::reader::Attribute| {
         attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"

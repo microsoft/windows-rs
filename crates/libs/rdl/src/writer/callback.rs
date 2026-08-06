@@ -9,7 +9,15 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         .find(|method| method.name() == "Invoke")
         .ok_or_else(|| writer_err!("callback `{}` has no `Invoke` method", item.name()))?;
 
+    if method.attributes().next().is_some() {
+        return Err(writer_err!(
+            "callback `{}` has unrepresentable attributes on `Invoke`",
+            item.name()
+        ));
+    }
+    reject_method_generics(&method)?;
     let signature = method.signature(&[]);
+    reject_variadic_method(&method, &signature, "callback")?;
     let return_type = write_return_type(namespace, &method, &signature)?;
     let params = write_params(namespace, &method, signature.types)?;
 

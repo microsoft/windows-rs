@@ -39,6 +39,10 @@ Use `.input_text_named("schema.rdl", source)` or `.input_texts_named(sources)` w
 names should appear in diagnostics. `Diagnostic` stores a severity, optional code, source labels,
 notes, and help. `Error` is a small owned wrapper that dereferences to its `Diagnostic`.
 
+The reader reports `RDL0001` for duplicate symbols and `RDL0002` for accepted syntax that cannot be
+represented in metadata. The writer likewise rejects metadata forms that have no lossless RDL
+spelling rather than emitting incomplete source.
+
 The winmd writer matches `Param` rows by ECMA-335 `Param.Sequence`, not table order. Sparse methods
 still emit every signature parameter, using `pN` and the reader's type-based default direction when
 a row is absent. Sequence 0 return attributes are emitted on the return type. Duplicate and

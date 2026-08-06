@@ -24,6 +24,7 @@ pub struct Property {
 
 #[derive(Debug)]
 pub struct Event {
+    pub attrs: Vec<syn::Attribute>,
     pub name: syn::Ident,
     pub handler_ty: syn::Type,
 }
@@ -46,15 +47,17 @@ impl syn::parse::Parse for InterfaceMember {
         }
 
         if fork.peek(event) {
-            // Consume (and discard) any attributes before `event` - the event
-            // shorthand does not support per-member attributes.
-            input.call(syn::Attribute::parse_outer)?;
+            let attrs = input.call(syn::Attribute::parse_outer)?;
             let _event_token: event = input.parse()?;
             let name: syn::Ident = input.parse()?;
             input.parse::<syn::Token![:]>()?;
             let handler_ty: syn::Type = input.parse()?;
             input.parse::<syn::Token![;]>()?;
-            return Ok(Self::Event(Event { name, handler_ty }));
+            return Ok(Self::Event(Event {
+                attrs,
+                name,
+                handler_ty,
+            }));
         }
 
         // Property shorthand: `[#[get] | #[set]] Name: Type;`

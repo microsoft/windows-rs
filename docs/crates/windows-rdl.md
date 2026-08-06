@@ -412,6 +412,18 @@ This first pass compares syntax-level type and signature spellings. Moving it to
 collecting more than one diagnostic, and preventing every validation failure from reaching the
 encoder remain part of the work below.
 
+The same pre-emission pass now rejects accepted syntax that the encoder cannot represent.
+`RDL0002` covers attributes on event shorthand, generic functions/callbacks/interface methods,
+variadic callbacks/delegates/interface methods, generic bounds/defaults/attributes, attribute
+constructors with returns or variadic parameters, and enum variants with payload fields.
+
+Where metadata has a direct representation, the conversion now preserves it instead of rejecting
+it. Custom attributes on typedefs, enum variants, GUID constants, and property-key constants
+round-trip in both directions. The writer rejects equivalent winmd states that have no RDL
+spelling, including generic methods, variadic non-function methods, generic parameter flags,
+attributes on delegate/callback `Invoke` methods, and attributes on synthetic typedef, enum, or
+attribute-property fields.
+
 Initial validation work:
 
 1. Done: define initial syntax-level symbol keys and legal duplicate categories.
@@ -419,8 +431,8 @@ Initial validation work:
    constants, functions, architecture variants, and parameter names.
 3. Separate resolve and validate from `Encoder` so validation cannot partially mutate a winmd.
 4. Add target validation for every built-in and metadata-defined attribute.
-5. Add checks for parsed syntax that is currently ignored or not represented, including attributes
-   on event shorthand, method generics, and variadic interface methods.
+5. Done: add checks for parsed syntax that is currently ignored or not represented, including
+   attributes on event shorthand, method generics, and variadic interface methods.
 6. Done: run the validator over the committed WinRT, Win32, and WDK RDL as a compatibility
    baseline.
 
@@ -598,7 +610,7 @@ resulting RDL makes the ABI at least as reviewable as the current explicit inter
 
 1. Done: introduce structured diagnostics and named source inputs without changing parser behavior.
 2. Done: add duplicate-symbol validation and negative diagnostic fixtures.
-3. Reject syntax and metadata states that are currently ignored or silently lost.
+3. Done: reject syntax and metadata states that are currently ignored or silently lost.
 4. Add Property/Event/MethodSemantics reading and preserve those tables through merge and remap.
 5. Restore a minimal `riddle check` and `riddle build` on the new library APIs.
 6. Replace the formatter's silent parse fallback, then add comment preservation and `riddle fmt`.
