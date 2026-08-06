@@ -8279,6 +8279,16 @@ impl IFrameworkElement {
             .ok()
         }
     }
+    pub(crate) fn MaxWidth(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MaxWidth)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn SetMaxWidth(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetMaxWidth)(
@@ -8295,6 +8305,16 @@ impl IFrameworkElement {
                 value,
             )
             .ok()
+        }
+    }
+    pub(crate) fn MaxHeight(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MaxHeight)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
         }
     }
     pub(crate) fn SetMaxHeight(&self, value: f64) -> windows_core::Result<()> {
@@ -8493,13 +8513,15 @@ pub struct IFrameworkElement_Vtbl {
     MinWidth: usize,
     pub SetMinWidth:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    MaxWidth: usize,
+    pub MaxWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetMaxWidth:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     MinHeight: usize,
     pub SetMinHeight:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    MaxHeight: usize,
+    pub MaxHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetMaxHeight:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     HorizontalAlignment: usize,

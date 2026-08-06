@@ -184,7 +184,11 @@ fn direct_child_component_rerenders_from_own_use_state() {
 struct PassThrough;
 
 impl Component for PassThrough {
-    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        cx.use_effect_with_cleanup((), || {
+            PASS_THROUGH_WRAPPER_EFFECTS.set(PASS_THROUGH_WRAPPER_EFFECTS.get() + 1);
+            Some(|| PASS_THROUGH_WRAPPER_CLEANUPS.set(PASS_THROUGH_WRAPPER_CLEANUPS.get() + 1))
+        });
         component(StatefulLeaf, ())
     }
 }
@@ -194,14 +198,18 @@ struct StatefulLeaf;
 thread_local! {
     static PASS_THROUGH_SETTER: RefCell<Option<SetState<u64>>> = const { RefCell::new(None) };
     static PASS_THROUGH_EFFECTS: Cell<u32> = const { Cell::new(0) };
+    static PASS_THROUGH_CLEANUPS: Cell<u32> = const { Cell::new(0) };
+    static PASS_THROUGH_WRAPPER_EFFECTS: Cell<u32> = const { Cell::new(0) };
+    static PASS_THROUGH_WRAPPER_CLEANUPS: Cell<u32> = const { Cell::new(0) };
 }
 
 impl Component for StatefulLeaf {
     fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
         let (value, setter) = cx.use_state(0_u64);
         PASS_THROUGH_SETTER.set(Some(setter));
-        cx.use_effect((), || {
-            PASS_THROUGH_EFFECTS.set(PASS_THROUGH_EFFECTS.get() + 1)
+        cx.use_effect_with_cleanup((), || {
+            PASS_THROUGH_EFFECTS.set(PASS_THROUGH_EFFECTS.get() + 1);
+            Some(|| PASS_THROUGH_CLEANUPS.set(PASS_THROUGH_CLEANUPS.get() + 1))
         });
         TextBlock::new(format!("pass-through-{value}")).into()
     }
@@ -219,6 +227,9 @@ impl Component for MemoRoot {
 fn pass_through_component_keeps_independent_state_and_effects() {
     PASS_THROUGH_SETTER.set(None);
     PASS_THROUGH_EFFECTS.set(0);
+    PASS_THROUGH_CLEANUPS.set(0);
+    PASS_THROUGH_WRAPPER_EFFECTS.set(0);
+    PASS_THROUGH_WRAPPER_CLEANUPS.set(0);
 
     let dispatcher = TestDispatcher::default();
     let host = RenderHost::new(
@@ -230,6 +241,7 @@ fn pass_through_component_keeps_independent_state_and_effects() {
     dispatcher.drain();
 
     assert_eq!(PASS_THROUGH_EFFECTS.get(), 1);
+    assert_eq!(PASS_THROUGH_WRAPPER_EFFECTS.get(), 1);
     assert_eq!(
         host.with_reconciler(|r| last_text(&r.backend.ops)),
         Some("pass-through-0".to_string())
@@ -239,8 +251,14 @@ fn pass_through_component_keeps_independent_state_and_effects() {
     dispatcher.drain();
 
     assert_eq!(PASS_THROUGH_EFFECTS.get(), 1);
+    assert_eq!(PASS_THROUGH_WRAPPER_EFFECTS.get(), 1);
     assert_eq!(
         host.with_reconciler(|r| last_text(&r.backend.ops)),
         Some("pass-through-1".to_string())
     );
+
+    let root_id = host.root_id().unwrap();
+    host.with_reconciler_mut(|r| r.unmount(root_id));
+    assert_eq!(PASS_THROUGH_CLEANUPS.get(), 1);
+    assert_eq!(PASS_THROUGH_WRAPPER_CLEANUPS.get(), 1);
 }

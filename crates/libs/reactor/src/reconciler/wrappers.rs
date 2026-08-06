@@ -45,7 +45,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         let state_dirty = self
             .component_instances
             .get(&id)
-            .map(ComponentInstances::last)
             .is_some_and(|inst| inst.render_cx.take_state_dirty());
         let needs_update = if forced_by_context || state_dirty {
             true
@@ -56,11 +55,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         };
 
         if !needs_update {
-            if let Some(inst) = self
-                .component_instances
-                .get_mut(&id)
-                .map(ComponentInstances::last_mut)
-            {
+            if let Some(inst) = self.component_instances.get_mut(&id) {
                 inst.last_obj = Rc::clone(&new.obj);
             }
             return Some(id);

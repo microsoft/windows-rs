@@ -506,8 +506,15 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         let subtree = self.collect_subtree_ids(id);
         for node in subtree {
-            if let Some(instances) = self.component_instances.get_mut(&node) {
-                for inst in instances.as_mut_slice().iter_mut().rev() {
+            if let Some(inst) = self.component_instances.get_mut(&node)
+                && inst.last_obj.has_on_appeared()
+            {
+                inst.render_cx
+                    .set_context_stack(Rc::clone(&self.context_stack));
+                inst.last_obj.invoke_appeared(&mut inst.render_cx);
+            }
+            if let Some(instances) = self.component_instance_overflow.get_mut(&node) {
+                for inst in instances.iter_mut().rev() {
                     if !inst.last_obj.has_on_appeared() {
                         continue;
                     }
@@ -525,8 +532,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         let subtree = self.collect_subtree_ids(id);
         for node in subtree {
-            if let Some(instances) = self.component_instances.get_mut(&node) {
-                for inst in instances.as_mut_slice() {
+            if let Some(instances) = self.component_instance_overflow.get_mut(&node) {
+                for inst in instances {
                     if !inst.last_obj.has_on_disappeared() {
                         continue;
                     }
@@ -534,6 +541,13 @@ impl<B: Backend + 'static> Reconciler<B> {
                         .set_context_stack(Rc::clone(&self.context_stack));
                     inst.last_obj.invoke_disappeared(&mut inst.render_cx);
                 }
+            }
+            if let Some(inst) = self.component_instances.get_mut(&node)
+                && inst.last_obj.has_on_disappeared()
+            {
+                inst.render_cx
+                    .set_context_stack(Rc::clone(&self.context_stack));
+                inst.last_obj.invoke_disappeared(&mut inst.render_cx);
             }
         }
     }

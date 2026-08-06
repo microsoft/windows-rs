@@ -104,6 +104,33 @@ fn text_trimming_and_max_lines_emit_native_values() {
 }
 
 #[test]
+fn text_trimming_and_max_lines_emit_unset_when_removed() {
+    let old: Element = TextBlock::new("long")
+        .max_lines(2)
+        .text_trimming(TextTrimming::WordEllipsis)
+        .into();
+    let new: Element = TextBlock::new("long").into();
+    let ops = update_ops(old, new);
+
+    assert!(ops.iter().any(|op| matches!(
+        op,
+        Op::SetProp {
+            prop: Prop::MaxLines,
+            value: PropValue::Unset,
+            ..
+        }
+    )));
+    assert!(ops.iter().any(|op| matches!(
+        op,
+        Op::SetProp {
+            prop: Prop::TextTrimming,
+            value: PropValue::Unset,
+            ..
+        }
+    )));
+}
+
+#[test]
 fn diff_props_unchanged_text_emits_nothing_for_widget_props() {
     let ops = update_ops(
         text_with("hi", Some(12.0), None),

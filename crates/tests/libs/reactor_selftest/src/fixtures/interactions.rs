@@ -533,10 +533,9 @@ pub fn button_icon_subclasses(h: Harness) -> FixtureFuture {
         let image_icons_constrained = image_icons.iter().all(|icon| {
             icon.cast::<crate::bindings::IFrameworkElement>()
                 .ok()
-                .and_then(|element| {
-                    Some((element.ActualWidth().ok()?, element.ActualHeight().ok()?))
+                .is_some_and(|element| {
+                    element.MaxWidth().ok() == Some(20.0) && element.MaxHeight().ok() == Some(20.0)
                 })
-                .is_some_and(|(width, height)| width <= 20.0 && height <= 20.0)
         });
         h.check(
             "Interaction_ButtonIcon_ImageIconsConstrained",
