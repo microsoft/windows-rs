@@ -226,7 +226,11 @@ impl<'a> Parser<'a> {
                     let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
                     // Do not clobber a real definition aliased by another tag.
                     if !self.ref_map.contains_key(&name) && !collector.contains_key(&name) {
-                        collector.insert(Item::Struct(Struct::opaque(&name)));
+                        if self.header_root.is_some() {
+                            self.pending_opaque.push((String::new(), name));
+                        } else {
+                            collector.insert(Item::Struct(Struct::opaque(&name)));
+                        }
                     }
                 }
             }
@@ -536,6 +540,68 @@ struct HeaderPass<'a> {
     root: &'a str,
     /// Resolution-winmd type-name membership for `ABI::Windows::*` declarations.
     winrt_types: &'a HashSet<String>,
+}
+
+fn remove_shadowed_opaque(collectors: &mut BTreeMap<String, Collector>) {
+    let definitions: HashSet<String> = collectors
+        .values()
+        .flat_map(|collector| collector.iter())
+        .filter_map(|(name, item)| match item {
+            Item::Struct(item) if item.opaque => None,
+            _ if item.is_type() => Some(name.clone()),
+            _ => None,
+        })
+        .collect();
+
+    for collector in collectors.values_mut() {
+        collector.retain_items(|name, item| {
+            !matches!(item, Item::Struct(item) if item.opaque && definitions.contains(name))
+        });
+    }
+}
+
+fn dedup_identical_items(
+    collectors: &mut BTreeMap<String, Collector>,
+    namespace: &str,
+) -> Result<(), Error> {
+    let mut signatures = HashMap::<String, HashSet<String>>::new();
+    let mut duplicates = HashSet::<(String, String)>::new();
+
+    // Package remapping processes sorted RDL files with last-wins routing. Keep the same owner
+    // when removing duplicates so canonicalization does not move an API between header features.
+    for (stem, collector) in collectors.iter().rev() {
+        for (name, item) in collector.iter() {
+            let signature = item.write(namespace)?.to_string();
+            if !signatures
+                .entry(name.clone())
+                .or_default()
+                .insert(signature)
+            {
+                duplicates.insert((stem.clone(), name.clone()));
+            }
+        }
+    }
+
+    for (stem, collector) in collectors {
+        collector.retain_items(|name, _| !duplicates.contains(&(stem.clone(), name.to_string())));
+    }
+
+    Ok(())
+}
+
+fn remove_typedefs_shadowed_by_concrete_types(collectors: &mut BTreeMap<String, Collector>) {
+    let concrete: HashSet<String> = collectors
+        .values()
+        .flat_map(|collector| collector.iter())
+        .filter(|(_, item)| item.is_type() && !matches!(item, Item::Typedef(_)))
+        .map(|(name, _)| name.clone())
+        .collect();
+
+    for collector in collectors.values_mut() {
+        collector.retain_items(
+            |name, item| !matches!(item, Item::Typedef(_) if concrete.contains(name)),
+        );
+    }
 }
 
 impl Clang {
@@ -1004,6 +1070,8 @@ impl Clang {
             )?;
         }
 
+        remove_shadowed_opaque(&mut collectors);
+
         // Drop excluded root partitions before the sweep.
         if !self.exclude_headers.is_empty() {
             collectors.retain(|stem, _| !self.exclude_headers.contains(stem));
@@ -1117,6 +1185,9 @@ impl Clang {
                 });
             }
         }
+
+        remove_typedefs_shadowed_by_concrete_types(&mut collectors);
+        dedup_identical_items(&mut collectors, root)?;
 
         // Choose duplicate typedef owners only after every partition and item filter has run.
         dedup_typedefs(&mut collectors);
@@ -1765,6 +1836,7 @@ mod tests {
                 bitfields: vec![],
             }],
             is_union: true,
+            opaque: false,
             packing: None,
             alignment: None,
         };

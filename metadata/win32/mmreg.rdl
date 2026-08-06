@@ -238,6 +238,8 @@ mod Windows {
         const JPEG_Y: i32 = 1;
         const JPEG_YCbCr: i32 = 2;
         struct KSDATAFORMAT_SUBTYPE_IEEE_FLOAT {}
+        struct KSDATAFORMAT_SUBTYPE_PCM {}
+        struct KSDATAFORMAT_SUBTYPE_WAVEFORMATEX {}
         type LPADPCMCOEFSET = *mut ADPCMCOEFSET;
         type LPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
         type LPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
@@ -1959,6 +1961,7 @@ mod Windows {
         type PTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
         type PVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
         type PWAVEFILTER = *mut WAVEFILTER;
+        type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
         type PWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
         type PWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
         type PYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
@@ -2027,6 +2030,26 @@ mod Windows {
             wfx: WAVEFORMATEX,
             wCompType: u16,
         }
+        const SPEAKER_ALL: u32 = 2147483648;
+        const SPEAKER_BACK_CENTER: i32 = 256;
+        const SPEAKER_BACK_LEFT: i32 = 16;
+        const SPEAKER_BACK_RIGHT: i32 = 32;
+        const SPEAKER_FRONT_CENTER: i32 = 4;
+        const SPEAKER_FRONT_LEFT: i32 = 1;
+        const SPEAKER_FRONT_LEFT_OF_CENTER: i32 = 64;
+        const SPEAKER_FRONT_RIGHT: i32 = 2;
+        const SPEAKER_FRONT_RIGHT_OF_CENTER: i32 = 128;
+        const SPEAKER_LOW_FREQUENCY: i32 = 8;
+        const SPEAKER_RESERVED: i32 = 2147221504;
+        const SPEAKER_SIDE_LEFT: i32 = 512;
+        const SPEAKER_SIDE_RIGHT: i32 = 1024;
+        const SPEAKER_TOP_BACK_CENTER: i32 = 65536;
+        const SPEAKER_TOP_BACK_LEFT: i32 = 32768;
+        const SPEAKER_TOP_BACK_RIGHT: i32 = 131072;
+        const SPEAKER_TOP_CENTER: i32 = 2048;
+        const SPEAKER_TOP_FRONT_CENTER: i32 = 8192;
+        const SPEAKER_TOP_FRONT_LEFT: i32 = 4096;
+        const SPEAKER_TOP_FRONT_RIGHT: i32 = 16384;
         #[packed(1)]
         struct TRUESPEECHWAVEFORMAT {
             wfx: WAVEFORMATEX,
@@ -2045,6 +2068,17 @@ mod Windows {
             dwFilterTag: u32,
             fdwFilter: u32,
             dwReserved: [u32; 5],
+        }
+        #[packed(1)]
+        struct WAVEFORMATEXTENSIBLE {
+            Format: WAVEFORMATEX,
+            Samples: #[packed(1)] union {
+                wValidBitsPerSample: u16,
+                wSamplesPerBlock: u16,
+                wReserved: u16,
+            },
+            dwChannelMask: u32,
+            SubFormat: GUID,
         }
         type WAVEFORMATIEEEFLOATEX = WAVEFORMATEXTENSIBLE;
         type WAVEFORMATPCMEX = WAVEFORMATEXTENSIBLE;
@@ -2111,6 +2145,7 @@ mod Windows {
         const WAVE_FORMAT_ENCORE_G726: i32 = 41223;
         const WAVE_FORMAT_ESPCM: i32 = 97;
         const WAVE_FORMAT_ESST_AC3: i32 = 577;
+        const WAVE_FORMAT_EXTENSIBLE: i32 = 65534;
         const WAVE_FORMAT_FAAD_AAC: i32 = 28781;
         const WAVE_FORMAT_FLAC: i32 = 61868;
         const WAVE_FORMAT_FM_TOWNS_SND: i32 = 768;

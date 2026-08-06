@@ -30,6 +30,7 @@ pub struct Struct {
     pub name: String,
     pub fields: Vec<Field>,
     pub is_union: bool,
+    pub opaque: bool,
     /// Non-zero packing size in bytes, or `None` for natural alignment.
     pub packing: Option<u16>,
     /// Forced over-alignment in bytes; mutually exclusive with `packing`.
@@ -43,6 +44,7 @@ impl Struct {
             name: name.to_string(),
             fields: vec![],
             is_union: false,
+            opaque: true,
             packing: None,
             alignment: None,
         }
@@ -242,6 +244,7 @@ impl Struct {
             name,
             fields,
             is_union,
+            opaque: false,
             packing,
             alignment,
         })

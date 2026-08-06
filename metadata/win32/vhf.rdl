@@ -4,9 +4,15 @@ mod Windows {
         extern fn EVT_VHF_ASYNC_OPERATION(VhfClientContext: *const void, VhfOperationHandle: VHFOPERATIONHANDLE, #[opt] VhfOperationContext: *const void, HidTransferPacket: *const HID_XFER_PACKET);
         extern fn EVT_VHF_CLEANUP(VhfClientContext: *const void);
         extern fn EVT_VHF_READY_FOR_NEXT_READ_REPORT(VhfClientContext: *const void);
+        struct HID_XFER_PACKET {
+            reportBuffer: PUCHAR,
+            reportBufferLen: u32,
+            reportId: u8,
+        }
         type PEVT_VHF_ASYNC_OPERATION = *mut EVT_VHF_ASYNC_OPERATION;
         type PEVT_VHF_CLEANUP = *mut EVT_VHF_CLEANUP;
         type PEVT_VHF_READY_FOR_NEXT_READ_REPORT = *mut EVT_VHF_READY_FOR_NEXT_READ_REPORT;
+        type PHID_XFER_PACKET = *mut HID_XFER_PACKET;
         type PVHF_CONFIG = *mut VHF_CONFIG;
         type VHFHANDLE = *mut void;
         type VHFOPERATIONHANDLE = *mut void;

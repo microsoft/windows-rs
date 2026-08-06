@@ -10621,21 +10621,33 @@ pub type PTOKEN_STATISTICS = *mut TOKEN_STATISTICS;
 pub type PTOKEN_TYPE = *mut TOKEN_TYPE;
 pub type PTOKEN_USER = *mut TOKEN_USER;
 pub type PTOKEN_USER_CLAIMS = *mut TOKEN_USER_CLAIMS;
+#[cfg(feature = "threadpoolapiset")]
 pub type PTP_CALLBACK_ENVIRON = *mut TP_CALLBACK_ENVIRON_V3;
-pub type PTP_CALLBACK_INSTANCE = *mut TP_CALLBACK_INSTANCE;
-pub type PTP_CLEANUP_GROUP = *mut TP_CLEANUP_GROUP;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_CALLBACK_INSTANCE = *mut super::TP_CALLBACK_INSTANCE;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_CLEANUP_GROUP = *mut super::TP_CLEANUP_GROUP;
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, cleanupcontext: *mut core::ffi::c_void)>;
-pub type PTP_IO = *mut TP_IO;
-pub type PTP_POOL = *mut TP_POOL;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_IO = *mut super::TP_IO;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_POOL = *mut super::TP_POOL;
 pub type PTP_POOL_STACK_INFORMATION = *mut TP_POOL_STACK_INFORMATION;
-pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
-pub type PTP_TIMER = *mut TP_TIMER;
-pub type PTP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: *mut TP_TIMER)>;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: *mut super::TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_TIMER = *mut super::TP_TIMER;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: *mut super::TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: *mut super::TP_TIMER)>;
 pub type PTP_VERSION = *mut u32;
-pub type PTP_WAIT = *mut TP_WAIT;
-pub type PTP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: *mut TP_WAIT, waitresult: TP_WAIT_RESULT)>;
-pub type PTP_WORK = *mut TP_WORK;
-pub type PTP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: *mut TP_WORK)>;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_WAIT = *mut super::TP_WAIT;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: *mut super::TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: *mut super::TP_WAIT, waitresult: TP_WAIT_RESULT)>;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_WORK = *mut super::TP_WORK;
+#[cfg(feature = "threadpoolapiset")]
+pub type PTP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: *mut super::TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: *mut super::TP_WORK)>;
 pub type PTRANSACTIONMANAGER_BASIC_INFORMATION = *mut TRANSACTIONMANAGER_BASIC_INFORMATION;
 pub type PTRANSACTIONMANAGER_LOGPATH_INFORMATION = *mut TRANSACTIONMANAGER_LOGPATH_INFORMATION;
 pub type PTRANSACTIONMANAGER_LOG_INFORMATION = *mut TRANSACTIONMANAGER_LOG_INFORMATION;
@@ -13349,8 +13361,10 @@ pub struct TOKEN_USER_CLAIMS {
     pub UserClaims: PCLAIMS_BLOB,
 }
 pub const TOKEN_WRITE: i32 = 131296;
+#[cfg(feature = "threadpoolapiset")]
 pub type TP_CALLBACK_ENVIRON = TP_CALLBACK_ENVIRON_V3;
 #[repr(C)]
+#[cfg(feature = "threadpoolapiset")]
 #[derive(Clone, Copy)]
 pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: TP_VERSION,
@@ -13364,27 +13378,32 @@ pub struct TP_CALLBACK_ENVIRON_V3 {
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
     pub Size: u32,
 }
+#[cfg(feature = "threadpoolapiset")]
 impl Default for TP_CALLBACK_ENVIRON_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "threadpoolapiset")]
 #[derive(Clone, Copy)]
 pub union TP_CALLBACK_ENVIRON_V3_0 {
     pub Flags: u32,
     pub s: TP_CALLBACK_ENVIRON_V3_0_0,
 }
+#[cfg(feature = "threadpoolapiset")]
 impl Default for TP_CALLBACK_ENVIRON_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "threadpoolapiset")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "threadpoolapiset")]
 impl TP_CALLBACK_ENVIRON_V3_0_0 {
     pub fn LongFunction(&self) -> bool {
         self._bitfield & 1 != 0
@@ -13405,50 +13424,33 @@ impl TP_CALLBACK_ENVIRON_V3_0_0 {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_CALLBACK_INSTANCE(pub u8);
 pub type TP_CALLBACK_PRIORITY = i32;
 pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = 3;
 pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = 0;
 pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = 3;
 pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2;
 pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_CLEANUP_GROUP(pub u8);
 pub type TP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, cleanupcontext: *mut core::ffi::c_void)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_IO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_POOL(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
 }
-pub type TP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_TIMER(pub u8);
-pub type TP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: *mut TP_TIMER)>;
+#[cfg(feature = "threadpoolapiset")]
+pub type TP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: *mut super::TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
+#[cfg(feature = "threadpoolapiset")]
+pub type TP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: *mut super::TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: *mut super::TP_TIMER)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TP_VERSION(pub u32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_WAIT(pub u8);
-pub type TP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: *mut TP_WAIT, waitresult: TP_WAIT_RESULT)>;
+#[cfg(feature = "threadpoolapiset")]
+pub type TP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: *mut super::TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: *mut super::TP_WAIT, waitresult: TP_WAIT_RESULT)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TP_WAIT_RESULT(pub u32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_WORK(pub u8);
-pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: *mut TP_WORK)>;
+#[cfg(feature = "threadpoolapiset")]
+pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: *mut super::TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: *mut super::TP_WORK)>;
 pub const TRANSACTIONMANAGER_ALL_ACCESS: i32 = 983103;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

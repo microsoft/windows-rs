@@ -66,6 +66,13 @@ mod Windows {
         extern fn StartThreadpoolIo(#[in] #[out] pio: *mut TP_IO);
         #[library("KERNEL32.dll")]
         extern fn SubmitThreadpoolWork(#[in] #[out] pwk: *mut TP_WORK);
+        struct TP_CALLBACK_INSTANCE {}
+        struct TP_CLEANUP_GROUP {}
+        struct TP_IO {}
+        struct TP_POOL {}
+        struct TP_TIMER {}
+        struct TP_WAIT {}
+        struct TP_WORK {}
         #[library("KERNEL32.dll")]
         extern fn TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: *const TP_CALLBACK_ENVIRON_V3) -> BOOL;
         #[library("KERNEL32.dll")]

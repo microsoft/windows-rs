@@ -18,6 +18,7 @@ mod param;
 mod r#struct;
 mod typedef;
 mod union;
+mod validate;
 
 use super::*;
 use attribute::*;
@@ -37,6 +38,7 @@ use module::*;
 use r#struct::*;
 use typedef::*;
 use union::*;
+use validate::*;
 use windows_metadata as metadata;
 
 fn fixed_signed_value(value: i64) -> metadata::Value {
@@ -196,6 +198,8 @@ impl Reader {
                 index.insert(file, "", item);
             }
         }
+
+        validate_symbols(&index)?;
 
         let mut reference = vec![];
 

@@ -9349,7 +9349,6 @@ mod Windows {
             CallbackPriority: TP_CALLBACK_PRIORITY,
             Size: u32,
         }
-        struct TP_CALLBACK_INSTANCE {}
         #[repr(i32)]
         enum TP_CALLBACK_PRIORITY {
             TP_CALLBACK_PRIORITY_HIGH = 0,
@@ -9358,22 +9357,16 @@ mod Windows {
             TP_CALLBACK_PRIORITY_INVALID = 3,
             TP_CALLBACK_PRIORITY_COUNT = 3,
         }
-        struct TP_CLEANUP_GROUP {}
         extern fn TP_CLEANUP_GROUP_CANCEL_CALLBACK(#[in] #[out] #[opt] ObjectContext: *mut void, #[in] #[out] #[opt] CleanupContext: *mut void);
-        struct TP_IO {}
-        struct TP_POOL {}
         struct TP_POOL_STACK_INFORMATION {
             StackReserve: usize,
             StackCommit: usize,
         }
         extern fn TP_SIMPLE_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void);
-        struct TP_TIMER {}
         extern fn TP_TIMER_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Timer: *mut TP_TIMER);
         type TP_VERSION = u32;
-        struct TP_WAIT {}
         extern fn TP_WAIT_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Wait: *mut TP_WAIT, WaitResult: TP_WAIT_RESULT);
         type TP_WAIT_RESULT = u32;
-        struct TP_WORK {}
         extern fn TP_WORK_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Work: *mut TP_WORK);
         const TRANSACTIONMANAGER_ALL_ACCESS: i32 = 983103;
         struct TRANSACTIONMANAGER_BASIC_INFORMATION {

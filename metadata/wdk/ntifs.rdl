@@ -3250,6 +3250,7 @@ mod Windows {
         extern fn ZwUnlockFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const i64, Length: *const i64, Key: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwWaitForSingleObject(Handle: HANDLE, Alertable: bool, #[opt] Timeout: *const i64) -> NTSTATUS;
+        struct _OBJECT_TYPE {}
         struct _REAL_NOTIFY_SYNC {}
         struct sockaddr_storage {}
     }

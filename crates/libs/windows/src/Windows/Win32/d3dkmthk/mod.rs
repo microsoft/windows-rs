@@ -567,7 +567,7 @@ pub unsafe fn D3DKMTOpenNativeFenceFromNtHandle(param0: *mut D3DKMT_OPENNATIVEFE
     windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenNativeFenceFromNtHandle(param0 : *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenNativeFenceFromNtHandle(param0 as _) }
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn D3DKMTOpenNtHandleFromName(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> windows_core::NTSTATUS {
     windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> windows_core::NTSTATUS);
@@ -609,7 +609,7 @@ pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle2(param0: *mut D3DKMT_OPENSYNCOBJE
     windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenSyncObjectFromNtHandle2(param0 as _) }
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectNtHandleFromName(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> windows_core::NTSTATUS {
     windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> windows_core::NTSTATUS);
@@ -938,10 +938,10 @@ pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWN
     windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetVidPnSourceOwner2(param0) }
 }
-#[cfg(all(feature = "d3dukmdt", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn D3DKMTShareObjects(hobjects: &[super::D3DKMT_HANDLE], pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const super::D3DKMT_HANDLE, pobjectattributes : *const OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+pub unsafe fn D3DKMTShareObjects(hobjects: &[super::D3DKMT_HANDLE], pobjectattributes: *const super::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const super::D3DKMT_HANDLE, pobjectattributes : *const super::OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTShareObjects(hobjects.len().try_into().unwrap(), hobjects.as_ptr(), pobjectattributes, dwdesiredaccess, phsharednthandle as _) }
 }
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
@@ -5159,14 +5159,14 @@ impl Default for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
-    pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
+    pub pObjAttrib: *mut super::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::HANDLE,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for D3DKMT_OPENNTHANDLEFROMNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5322,14 +5322,14 @@ impl Default for D3DKMT_OPENSYNCOBJECTFROMSYNCFILE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
-    pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
+    pub pObjAttrib: *mut super::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::HANDLE,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9621,23 +9621,6 @@ pub const MiracastStopped: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = 0;
 pub const NUM_KMTUMDVERSIONS: KMTUMDVERSION = 6;
 pub const NUM_KMT_DISPLAY_UMDVERSIONS: KMT_DISPLAY_UMD_VERSION = 1;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct OBJECT_ATTRIBUTES {
-    pub Length: u32,
-    pub RootDirectory: super::HANDLE,
-    pub ObjectName: super::PUNICODE_STRING,
-    pub Attributes: u32,
-    pub SecurityDescriptor: *mut core::ffi::c_void,
-    pub SecurityQualityOfService: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl Default for OBJECT_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
@@ -9867,7 +9850,7 @@ pub type PFND3DKMT_OPENKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *m
 pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PFND3DKMT_OPENNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> windows_core::NTSTATUS>;
@@ -9883,7 +9866,7 @@ pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "windef"))]
 pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> windows_core::NTSTATUS>;
@@ -9998,8 +9981,8 @@ pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = Option<unsafe extern "system" fn(param
 pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "d3dukmdt", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const super::D3DKMT_HANDLE, pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt", feature = "winternl"))]
+pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const super::D3DKMT_HANDLE, pobjectattributes: *const super::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
@@ -10057,7 +10040,5 @@ pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "s
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type POBJECT_ATTRIBUTES = *mut OBJECT_ATTRIBUTES;
 pub const SHARED_ALLOCATION_ALL_ACCESS: i32 = 983041;
 pub const SHARED_ALLOCATION_WRITE: i32 = 1;

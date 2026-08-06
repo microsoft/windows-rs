@@ -134,6 +134,14 @@ mod Windows {
         extern fn NtSetInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, #[size_param(3)] ThreadInformation: *const void, ThreadInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn NtWaitForSingleObject(Handle: HANDLE, Alertable: bool, #[opt] Timeout: *const i64) -> NTSTATUS;
+        struct OBJECT_ATTRIBUTES {
+            Length: u32,
+            RootDirectory: HANDLE,
+            ObjectName: PUNICODE_STRING,
+            Attributes: u32,
+            SecurityDescriptor: *mut void,
+            SecurityQualityOfService: *mut void,
+        }
         #[repr(i32)]
         enum OBJECT_INFORMATION_CLASS {
             ObjectBasicInformation = 0,
@@ -186,6 +194,7 @@ mod Windows {
         type PIO_STATUS_BLOCK = *mut IO_STATUS_BLOCK;
         type PKEY_VALUE_ENTRY = *mut KEY_VALUE_ENTRY;
         type PLDR_DATA_TABLE_ENTRY = *mut LDR_DATA_TABLE_ENTRY;
+        type POBJECT_ATTRIBUTES = *mut OBJECT_ATTRIBUTES;
         type POEM_STRING = PSTRING;
         type PPEB = *mut PEB;
         type PPEB_LDR_DATA = *mut PEB_LDR_DATA;
@@ -284,6 +293,11 @@ mod Windows {
         extern fn RtlUnicodeToMultiByteSize(BytesInMultiByteString: *mut u32, #[size_param(2)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlUniform(Seed: *mut u32) -> u32;
+        struct STRING {
+            Length: u16,
+            MaximumLength: u16,
+            Buffer: PCHAR,
+        }
         struct SYSTEM_BASICPROCESS_INFORMATION {
             NextEntryOffset: u32,
             UniqueProcessId: HANDLE,
@@ -407,6 +421,11 @@ mod Windows {
         }
         struct THREAD_NAME_INFORMATION {
             ThreadName: UNICODE_STRING,
+        }
+        struct UNICODE_STRING {
+            Length: u16,
+            MaximumLength: u16,
+            Buffer: PWSTR,
         }
         #[repr(i32)]
         enum WINSTATIONINFOCLASS {

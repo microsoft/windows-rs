@@ -1923,12 +1923,6 @@ mod Windows {
         const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: i32 = 16;
         const SE_MAX_AUDIT_PARAMETERS: i32 = 32;
         const SE_MAX_GENERIC_AUDIT_PARAMETERS: i32 = 28;
-        struct STRING {
-            Length: u16,
-            MaximumLength: u16,
-            Buffer: PCHAR,
-        }
-        type STRING = LSA_STRING;
         struct TRUSTED_CONTROLLERS_INFO {
             Entries: u32,
             Names: PLSA_UNICODE_STRING,
@@ -2028,12 +2022,6 @@ mod Windows {
         const TRUST_TYPE_DOWNLEVEL: i32 = 1;
         const TRUST_TYPE_MIT: i32 = 3;
         const TRUST_TYPE_UPLEVEL: i32 = 2;
-        struct UNICODE_STRING {
-            Length: u16,
-            MaximumLength: u16,
-            Buffer: PWSTR,
-        }
-        type UNICODE_STRING = LSA_UNICODE_STRING;
         const VALID_PER_USER_AUDIT_POLICY_FLAG: i32 = 31;
     }
 }

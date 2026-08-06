@@ -206,7 +206,7 @@ pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: i32 = 2;
 pub const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
@@ -220,7 +220,7 @@ pub struct AM_SAMPLE2_PROPERTIES {
     pub pbBuffer: *mut u8,
     pub cbBuffer: i32,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl Default for AM_SAMPLE2_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -257,7 +257,7 @@ pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = 16;
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256;
 pub const AM_STREAM_CONTROL: tagAM_SAMPLE_PROPERTY_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_STREAM_INFO {
     pub tStart: super::REFERENCE_TIME,
@@ -932,7 +932,7 @@ pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = 13;
 pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5;
 pub type PhysicalConnectorType = i32;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct Quality {
     pub Type: QualityMessageType,
@@ -1232,7 +1232,7 @@ pub const VMRMode_Renderless: VMRMode = 4;
 pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
@@ -1245,7 +1245,7 @@ pub struct VMRPRESENTATIONINFO {
     pub dwTypeSpecificFlags: u32,
     pub dwInterlaceFlags: u32,
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 impl Default for VMRPRESENTATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

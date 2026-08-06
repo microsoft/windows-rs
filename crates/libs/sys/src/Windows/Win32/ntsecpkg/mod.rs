@@ -84,7 +84,7 @@ pub const LSA_AP_NAME_LOGON_USER_EX: windows_sys::core::PCSTR = windows_sys::cor
 pub const LSA_AP_NAME_LOGON_USER_EX2: windows_sys::core::PCSTR = windows_sys::core::s!("LsaApLogonUserEx2\u{0}");
 #[cfg(feature = "winnt")]
 pub type LSA_AP_POST_LOGON_USER = Option<unsafe extern "system" fn(postlogonuserinfo: *const SECPKG_POST_LOGON_USER_INFO) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type LSA_AP_POST_LOGON_USER_SURROGATE = Option<
     unsafe extern "system" fn(
         clientrequest: *const *const core::ffi::c_void,
@@ -215,9 +215,9 @@ pub type LSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = Option<unsafe extern "system" f
 pub type LSA_REDIRECTED_LOGON_GET_LOGON_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, logonbuffer: *mut super::PBYTE, logonbufferlength: *mut u32) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type LSA_REDIRECTED_LOGON_GET_SID = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, sid: *mut super::PSID) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type LSA_REDIRECTED_LOGON_GET_SUPP_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, supplementalcredentials: *mut PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type LSA_REDIRECTED_LOGON_INIT = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, packagename: *const super::UNICODE_STRING, sessionid: u32, logonid: *const super::LUID) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type LSA_REGISTER_CALLBACK = Option<unsafe extern "system" fn(callbackid: u32, callback: PLSA_CALLBACK_FUNCTION) -> windows_sys::core::NTSTATUS>;
@@ -226,7 +226,7 @@ pub type LSA_REGISTER_NOTIFICATION = Option<unsafe extern "system" fn(startfunct
 #[cfg(feature = "winnt")]
 pub type LSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::LUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: bool) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
@@ -356,7 +356,7 @@ impl Default for LSA_TOKEN_INFORMATION_V3 {
     }
 }
 pub type LSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type LSA_UPDATE_PRIMARY_CREDENTIALS = Option<unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_sys::core::NTSTATUS>;
 pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = 0;
 pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = 1;
@@ -410,7 +410,7 @@ pub type PLSA_AP_LOGON_USER_EX = Option<unsafe extern "system" fn(clientrequest:
 pub type PLSA_AP_LOGON_USER_EX2 = *mut LSA_AP_LOGON_USER_EX2;
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PLSA_AP_LOGON_USER_EX3 = *mut LSA_AP_LOGON_USER_EX3;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PLSA_AP_POST_LOGON_USER_SURROGATE = *mut LSA_AP_POST_LOGON_USER_SURROGATE;
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = *mut LSA_AP_PRE_LOGON_USER_SURROGATE;
@@ -506,9 +506,9 @@ pub type PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = Option<unsafe extern "system" 
 pub type PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, logonbuffer: *mut super::PBYTE, logonbufferlength: *mut u32) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PLSA_REDIRECTED_LOGON_GET_SID = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, sid: *mut super::PSID) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, supplementalcredentials: *mut PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PLSA_REDIRECTED_LOGON_INIT = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, packagename: *const super::UNICODE_STRING, sessionid: u32, logonid: *const super::LUID) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type PLSA_REGISTER_CALLBACK = Option<unsafe extern "system" fn(callbackid: u32, callback: PLSA_CALLBACK_FUNCTION) -> windows_sys::core::NTSTATUS>;
@@ -516,7 +516,7 @@ pub type PLSA_REGISTER_CALLBACK = Option<unsafe extern "system" fn(callbackid: u
 pub type PLSA_REGISTER_NOTIFICATION = Option<unsafe extern "system" fn(startfunction: SEC_THREAD_START, parameter: *const core::ffi::c_void, notificationtype: u32, notificationclass: u32, notificationflags: u32, intervalminutes: u32, waitevent: super::HANDLE) -> super::HANDLE>;
 #[cfg(feature = "winnt")]
 pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::LUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: bool) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PLSA_SECPKG_FUNCTION_TABLE = *mut LSA_SECPKG_FUNCTION_TABLE;
 pub type PLSA_SEC_HANDLE = *mut LSA_SEC_HANDLE;
 #[cfg(feature = "sspi")]
@@ -532,7 +532,7 @@ pub type PLSA_TOKEN_INFORMATION_V2 = *mut LSA_TOKEN_INFORMATION_V1;
 #[cfg(feature = "winnt")]
 pub type PLSA_TOKEN_INFORMATION_V3 = *mut LSA_TOKEN_INFORMATION_V3;
 pub type PLSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type PLSA_UPDATE_PRIMARY_CREDENTIALS = Option<unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_sys::core::NTSTATUS>;
 pub const PRIMARY_CRED_ARSO_LOGON: i32 = 2097152;
 pub const PRIMARY_CRED_AUTH_ID: i32 = 512;
@@ -573,7 +573,7 @@ pub type PSAM_REGISTER_MAPPING_TABLE = *mut SAM_REGISTER_MAPPING_TABLE;
 pub type PSECPKG_BYTE_VECTOR = *mut SECPKG_BYTE_VECTOR;
 pub type PSECPKG_CALL_INFO = *mut SECPKG_CALL_INFO;
 pub type PSECPKG_CALL_PACKAGE_MESSAGE_TYPE = *mut SECPKG_CALL_PACKAGE_MESSAGE_TYPE;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type PSECPKG_CALL_PACKAGE_PIN_DC_REQUEST = *mut SECPKG_CALL_PACKAGE_PIN_DC_REQUEST;
 #[cfg(feature = "winnt")]
 pub type PSECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST = *mut SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST;
@@ -587,7 +587,7 @@ pub type PSECPKG_CONTEXT_THUNKS = *mut SECPKG_CONTEXT_THUNKS;
 pub type PSECPKG_CREDENTIAL = *mut SECPKG_CREDENTIAL;
 #[cfg(feature = "sspi")]
 pub type PSECPKG_DLL_FUNCTIONS = *mut SECPKG_DLL_FUNCTIONS;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_EVENT_DOMAIN_CHANGE = *mut SECPKG_PARAMETERS;
 pub type PSECPKG_EVENT_NOTIFY = *mut SECPKG_EVENT_NOTIFY;
 #[cfg(feature = "sspi")]
@@ -609,21 +609,21 @@ pub type PSECPKG_MUTUAL_AUTH_LEVEL = *mut SECPKG_MUTUAL_AUTH_LEVEL;
 pub type PSECPKG_NEGO2_INFO = *mut SECPKG_NEGO2_INFO;
 #[cfg(feature = "minwindef")]
 pub type PSECPKG_NTLM_TARGETINFO = *mut SECPKG_NTLM_TARGETINFO;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_PARAMETERS = *mut SECPKG_PARAMETERS;
 #[cfg(feature = "winnt")]
 pub type PSECPKG_POST_LOGON_USER_INFO = *mut SECPKG_POST_LOGON_USER_INFO;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_PRIMARY_CRED = *mut SECPKG_PRIMARY_CRED;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_PRIMARY_CRED_EX = *mut SECPKG_PRIMARY_CRED_EX;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_REDIRECTED_LOGON_BUFFER = *mut SECPKG_REDIRECTED_LOGON_BUFFER;
 pub type PSECPKG_SERIALIZED_OID = *mut SECPKG_SERIALIZED_OID;
 pub type PSECPKG_SHORT_VECTOR = *mut SECPKG_SHORT_VECTOR;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PSECPKG_SUPPLEMENTAL_CRED = *mut SECPKG_SUPPLEMENTAL_CRED;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PSECPKG_SUPPLEMENTAL_CRED_ARRAY = *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY;
 pub type PSECPKG_SUPPLIED_CREDENTIAL = *mut SECPKG_SUPPLIED_CREDENTIAL;
 #[cfg(feature = "winnt")]
@@ -720,7 +720,7 @@ pub const SECPKG_CALL_NEGO_EXTENDER: i32 = 32768;
 pub const SECPKG_CALL_NETWORK_ONLY: i32 = 1024;
 pub type SECPKG_CALL_PACKAGE_MESSAGE_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     pub MessageType: u32,
@@ -850,7 +850,7 @@ pub struct SECPKG_DLL_FUNCTIONS {
     pub RegisterCallback: PLSA_REGISTER_CALLBACK,
     pub LocatePackageById: PLSA_LOCATE_PKG_BY_ID,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type SECPKG_EVENT_DOMAIN_CHANGE = SECPKG_PARAMETERS;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1084,7 +1084,7 @@ pub const SECPKG_PACKAGE_CHANGE_LOAD: i32 = 0;
 pub const SECPKG_PACKAGE_CHANGE_SELECT: i32 = 2;
 pub const SECPKG_PACKAGE_CHANGE_UNLOAD: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct SECPKG_PARAMETERS {
     pub Version: u32,
@@ -1095,7 +1095,7 @@ pub struct SECPKG_PARAMETERS {
     pub DnsDomainName: super::UNICODE_STRING,
     pub DomainGuid: windows_sys::core::GUID,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for SECPKG_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1110,7 +1110,7 @@ pub struct SECPKG_POST_LOGON_USER_INFO {
     pub LinkedLogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct SECPKG_PRIMARY_CRED {
     pub LogonId: super::LUID,
@@ -1128,14 +1128,14 @@ pub struct SECPKG_PRIMARY_CRED {
     pub Spare3: super::UNICODE_STRING,
     pub Spare4: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for SECPKG_PRIMARY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct SECPKG_PRIMARY_CRED_EX {
     pub LogonId: super::LUID,
@@ -1156,7 +1156,7 @@ pub struct SECPKG_PRIMARY_CRED_EX {
     pub PrevLogonId: super::LUID,
     pub FlagsEx: u32,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for SECPKG_PRIMARY_CRED_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1164,7 +1164,7 @@ impl Default for SECPKG_PRIMARY_CRED_EX {
 }
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: windows_sys::core::GUID,
@@ -1176,7 +1176,7 @@ pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub GetSupplementalCreds: PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS,
     pub GetRedirectedLogonSid: PLSA_REDIRECTED_LOGON_GET_SID,
 }
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 impl Default for SECPKG_REDIRECTED_LOGON_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1209,27 +1209,27 @@ pub const SECPKG_STATE_STANDALONE: i32 = 16;
 pub const SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED: i32 = 2;
 pub const SECPKG_STATE_WORKSTATION: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct SECPKG_SUPPLEMENTAL_CRED {
     pub PackageName: super::UNICODE_STRING,
     pub CredentialSize: u32,
     pub Credentials: super::PUCHAR,
 }
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for SECPKG_SUPPLEMENTAL_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     pub CredentialCount: u32,
     pub Credentials: [SECPKG_SUPPLEMENTAL_CRED; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1402,7 +1402,7 @@ pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = 7;
 pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = 4;
 #[cfg(all(feature = "sspi", feature = "winnt"))]
 pub type SecurityUserData = SECURITY_USER_DATA;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type SpAcceptCredentialsFn = Option<unsafe extern "system" fn(logontype: super::SECURITY_LOGON_TYPE, accountname: *const super::LSA_UNICODE_STRING, primarycredentials: *const SECPKG_PRIMARY_CRED, supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type SpAcceptLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, inputbuffer: *const super::SecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: *mut LSA_SEC_HANDLE, outputbuffer: *mut super::SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut super::SECURITY_INTEGER, mappedcontext: *mut bool, contextdata: *mut super::SecBuffer) -> windows_sys::core::NTSTATUS>;
@@ -1437,9 +1437,9 @@ pub type SpGetCredentialsFn = Option<unsafe extern "system" fn(credentialhandle:
 pub type SpGetExtendedInformationFn = Option<unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, ppinformation: *mut PSECPKG_EXTENDED_INFORMATION) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type SpGetInfoFn = Option<unsafe extern "system" fn(packageinfo: *mut super::SecPkgInfoA) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type SpGetRemoteCredGuardLogonBufferFn = Option<unsafe extern "system" fn(credhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, targetname: *const super::UNICODE_STRING, redirectedlogonhandle: *mut super::HANDLE, callback: *mut PLSA_REDIRECTED_LOGON_CALLBACK, cleanupcallback: *mut PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK, logonbuffersize: *mut u32, logonbuffer: *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type SpGetRemoteCredGuardSupplementalCredsFn = Option<unsafe extern "system" fn(credhandle: LSA_SEC_HANDLE, targetname: *const super::UNICODE_STRING, redirectedlogonhandle: *mut super::HANDLE, callback: *mut PLSA_REDIRECTED_LOGON_CALLBACK, cleanupcallback: *mut PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type SpGetTbalSupplementalCredsFn = Option<unsafe extern "system" fn(logonid: super::LUID, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
@@ -1451,7 +1451,7 @@ pub type SpImportSecurityContextFn = Option<unsafe extern "system" fn(ppackedcon
 pub type SpInitLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, targetname: *const super::LSA_UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const super::SecBufferDesc, newcontexthandle: *mut LSA_SEC_HANDLE, outputbuffers: *mut super::SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut super::SECURITY_INTEGER, mappedcontext: *mut bool, contextdata: *mut super::SecBuffer) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type SpInitUserModeContextFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, packedcontext: *const super::SecBuffer) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type SpInitializeFn = Option<unsafe extern "system" fn(packageid: usize, parameters: *const SECPKG_PARAMETERS, functiontable: *const LSA_SECPKG_FUNCTION_TABLE) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type SpInstanceInitFn = Option<unsafe extern "system" fn(version: u32, functiontable: *const SECPKG_DLL_FUNCTIONS, userfunctions: *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS>;

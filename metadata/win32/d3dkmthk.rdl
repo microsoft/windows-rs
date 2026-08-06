@@ -4349,15 +4349,6 @@ mod Windows {
             NUM_KMT_DISPLAY_UMDVERSIONS = 1,
         }
         const MAX_ENUM_ADAPTERS: i32 = 16;
-        struct OBJECT_ATTRIBUTES {
-            Length: u32,
-            RootDirectory: HANDLE,
-            ObjectName: PUNICODE_STRING,
-            Attributes: u32,
-            SecurityDescriptor: *mut void,
-            SecurityQualityOfService: *mut void,
-        }
-        struct OBJECT_ATTRIBUTES {}
         struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
             Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
             ProcessID: HANDLE,
@@ -4579,7 +4570,6 @@ mod Windows {
         extern fn PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> NTSTATUS;
         extern fn PFND3DKMT_WAITFORVERTICALBLANKEVENT(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> NTSTATUS;
         extern fn PFND3DKMT_WAITFORVERTICALBLANKEVENT2(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> NTSTATUS;
-        type POBJECT_ATTRIBUTES = *mut OBJECT_ATTRIBUTES;
         const SHARED_ALLOCATION_ALL_ACCESS: i32 = 983041;
         const SHARED_ALLOCATION_WRITE: i32 = 1;
     }

@@ -1,0 +1,2 @@
+struct SHARED_RECORD;
+typedef struct SHARED_RECORD* PSHARED_RECORD;

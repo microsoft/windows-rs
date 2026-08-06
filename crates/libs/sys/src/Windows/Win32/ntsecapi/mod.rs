@@ -303,58 +303,60 @@ pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = 1;
 pub const Interactive: SECURITY_LOGON_TYPE = 2;
 pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub SinceLastUsed: u64,
-    pub DomainName: UNICODE_STRING,
-    pub ProxyServerName: UNICODE_STRING,
-    pub ProxyServerVdir: UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub ProxyServerName: super::UNICODE_STRING,
+    pub ProxyServerVdir: super::UNICODE_STRING,
     pub ProxyServerPort: u16,
     pub LogonId: super::LUID,
-    pub CredUserName: UNICODE_STRING,
-    pub CredDomainName: UNICODE_STRING,
+    pub CredUserName: super::UNICODE_STRING,
+    pub CredDomainName: super::UNICODE_STRING,
     pub GlobalCache: bool,
 }
 pub const KERBEROS_REVISION: i32 = 6;
 pub const KERBEROS_VERSION: i32 = 5;
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub RealmName: UNICODE_STRING,
-    pub KdcAddress: UNICODE_STRING,
+    pub RealmName: super::UNICODE_STRING,
+    pub KdcAddress: super::UNICODE_STRING,
     pub AddressType: u32,
     pub DcFlags: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub RealmName: UNICODE_STRING,
-    pub KdcAddress: UNICODE_STRING,
+    pub RealmName: super::UNICODE_STRING,
+    pub KdcAddress: super::UNICODE_STRING,
     pub AddressType: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub UserName: UNICODE_STRING,
-    pub DomainName: UNICODE_STRING,
-    pub Password: UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub Password: super::UNICODE_STRING,
     pub LogonId: super::LUID,
     pub Flags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST_EX {
     pub Credentials: KERB_ADD_CREDENTIALS_REQUEST,
     pub PrincipalNameCount: u32,
-    pub PrincipalNames: [UNICODE_STRING; 1],
+    pub PrincipalNames: [super::UNICODE_STRING; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for KERB_ADD_CREDENTIALS_REQUEST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -375,16 +377,17 @@ impl Default for KERB_AUTH_DATA {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub DiscoveryTime: u64,
-    pub RealmName: UNICODE_STRING,
-    pub KdcAddress: UNICODE_STRING,
+    pub RealmName: super::UNICODE_STRING,
+    pub KdcAddress: super::UNICODE_STRING,
     pub AddressType: u32,
     pub Flags: u32,
     pub DcFlags: u32,
     pub CacheFlags: u32,
-    pub KdcName: UNICODE_STRING,
+    pub KdcName: super::UNICODE_STRING,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -400,18 +403,18 @@ pub struct KERB_CERTIFICATE_INFO {
 }
 pub type KERB_CERTIFICATE_INFO_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_CERTIFICATE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
-    pub DomainName: UNICODE_STRING,
-    pub UserName: UNICODE_STRING,
-    pub Pin: UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub Pin: super::UNICODE_STRING,
     pub Flags: u32,
     pub CspDataLength: u32,
     pub CspData: super::PUCHAR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for KERB_CERTIFICATE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -420,17 +423,17 @@ impl Default for KERB_CERTIFICATE_LOGON {
 pub const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: i32 = 1;
 pub const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_CERTIFICATE_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
-    pub UserPrincipalName: UNICODE_STRING,
-    pub DomainName: UNICODE_STRING,
+    pub UserPrincipalName: super::UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
     pub CertificateLength: u32,
     pub Certificate: super::PUCHAR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for KERB_CERTIFICATE_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -441,7 +444,7 @@ pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: i32 = 4;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CERTIFICATE_UNLOCK_LOGON {
     pub Logon: KERB_CERTIFICATE_LOGON,
@@ -454,13 +457,14 @@ pub struct KERB_CHANGEMACHINEPASSWORD_REQUEST {
     pub ForcePasswordChange: bool,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub DomainName: UNICODE_STRING,
-    pub AccountName: UNICODE_STRING,
-    pub OldPassword: UNICODE_STRING,
-    pub NewPassword: UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub AccountName: super::UNICODE_STRING,
+    pub OldPassword: super::UNICODE_STRING,
+    pub NewPassword: super::UNICODE_STRING,
     pub Impersonating: bool,
 }
 pub const KERB_CHECKSUM_CRC32: i32 = 1;
@@ -620,27 +624,29 @@ pub const KERB_ETYPE_RSA_PUB_MD5: i32 = 11;
 pub const KERB_ETYPE_RSA_PUB_SHA1: i32 = 12;
 pub const KERB_ETYPE_RSA_SHA1_CMS: i32 = 11;
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct KERB_EXTERNAL_NAME {
     pub NameType: i16,
     pub NameCount: u16,
-    pub Names: [UNICODE_STRING; 1],
+    pub Names: [super::UNICODE_STRING; 1],
 }
+#[cfg(feature = "winternl")]
 impl Default for KERB_EXTERNAL_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_EXTERNAL_TICKET {
     pub ServiceName: PKERB_EXTERNAL_NAME,
     pub TargetName: PKERB_EXTERNAL_NAME,
     pub ClientName: PKERB_EXTERNAL_NAME,
-    pub DomainName: UNICODE_STRING,
-    pub TargetDomainName: UNICODE_STRING,
-    pub AltTargetDomainName: UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub TargetDomainName: super::UNICODE_STRING,
+    pub AltTargetDomainName: super::UNICODE_STRING,
     pub SessionKey: KERB_CRYPTO_KEY,
     pub TicketFlags: u32,
     pub Flags: u32,
@@ -652,21 +658,23 @@ pub struct KERB_EXTERNAL_TICKET {
     pub EncodedTicketSize: u32,
     pub EncodedTicket: super::PUCHAR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for KERB_EXTERNAL_TICKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_INTERACTIVE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
-    pub LogonDomainName: UNICODE_STRING,
-    pub UserName: UNICODE_STRING,
-    pub Password: UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub Password: super::UNICODE_STRING,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_INTERACTIVE_PROFILE {
     pub MessageType: KERB_PROFILE_BUFFER_TYPE,
@@ -678,16 +686,16 @@ pub struct KERB_INTERACTIVE_PROFILE {
     pub PasswordLastSet: i64,
     pub PasswordCanChange: i64,
     pub PasswordMustChange: i64,
-    pub LogonScript: UNICODE_STRING,
-    pub HomeDirectory: UNICODE_STRING,
-    pub FullName: UNICODE_STRING,
-    pub ProfilePath: UNICODE_STRING,
-    pub HomeDirectoryDrive: UNICODE_STRING,
-    pub LogonServer: UNICODE_STRING,
+    pub LogonScript: super::UNICODE_STRING,
+    pub HomeDirectory: super::UNICODE_STRING,
+    pub FullName: super::UNICODE_STRING,
+    pub ProfilePath: super::UNICODE_STRING,
+    pub HomeDirectoryDrive: super::UNICODE_STRING,
+    pub LogonServer: super::UNICODE_STRING,
     pub UserFlags: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON {
     pub Logon: KERB_INTERACTIVE_LOGON,
@@ -746,7 +754,7 @@ pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     pub CountOfPurged: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
@@ -755,13 +763,13 @@ pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub TicketTemplate: KERB_TICKET_CACHE_INFO_EX,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
-    pub ServerName: UNICODE_STRING,
-    pub RealmName: UNICODE_STRING,
+    pub ServerName: super::UNICODE_STRING,
+    pub RealmName: super::UNICODE_STRING,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -769,23 +777,26 @@ pub struct KERB_QUERY_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_BINDING_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfEntries: u32,
     pub Entries: PKERB_BINDING_CACHE_ENTRY_DATA,
 }
+#[cfg(feature = "winternl")]
 impl Default for KERB_QUERY_BINDING_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
-    pub DomainName: UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -805,14 +816,14 @@ pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfEntries: u32,
     pub Entries: PKDC_PROXY_CACHE_ENTRY_DATA,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -827,48 +838,56 @@ pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub LogonId: super::LUID,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfCreds: u32,
     pub Creds: PKERB_S4U2PROXY_CRED,
 }
+#[cfg(feature = "winternl")]
 impl Default for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX2; 1],
 }
+#[cfg(feature = "winternl")]
 impl Default for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX3; 1],
 }
+#[cfg(feature = "winternl")]
 impl Default for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX; 1],
 }
+#[cfg(feature = "winternl")]
 impl Default for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -882,12 +901,14 @@ pub struct KERB_QUERY_TKT_CACHE_REQUEST {
     pub LogonId: super::LUID,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_TKT_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO; 1],
 }
+#[cfg(feature = "winternl")]
 impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -910,11 +931,11 @@ pub struct KERB_REFRESH_POLICY_RESPONSE {
 pub const KERB_REFRESH_SCCRED_GETTGT: i32 = 1;
 pub const KERB_REFRESH_SCCRED_RELEASE: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_REFRESH_SCCRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-    pub CredentialBlob: UNICODE_STRING,
+    pub CredentialBlob: super::UNICODE_STRING,
     pub LogonId: super::LUID,
     pub Flags: u32,
 }
@@ -923,13 +944,14 @@ pub const KERB_REQUEST_CRED_LOCAL_ACCOUNT: i32 = 8;
 pub const KERB_REQUEST_REMOVE_CREDENTIAL: i32 = 4;
 pub const KERB_REQUEST_REPLACE_CREDENTIAL: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
-    pub UserName: UNICODE_STRING,
-    pub DomainName: UNICODE_STRING,
-    pub Password: UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub Password: super::UNICODE_STRING,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -954,43 +976,46 @@ pub const KERB_RETRIEVE_TICKET_USE_CACHE_ONLY: i32 = 2;
 pub const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: i32 = 4;
 pub const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: i32 = 16;
 #[repr(C)]
-#[cfg(all(feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
-    pub TargetName: UNICODE_STRING,
+    pub TargetName: super::UNICODE_STRING,
     pub TicketFlags: u32,
     pub CacheOptions: u32,
     pub EncryptionType: i32,
     pub CredentialsHandle: super::SecHandle,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_RETRIEVE_TKT_RESPONSE {
     pub Ticket: KERB_EXTERNAL_TICKET,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
-    pub ServerName: UNICODE_STRING,
+    pub ServerName: super::UNICODE_STRING,
     pub Flags: u32,
     pub LastStatus: windows_sys::core::NTSTATUS,
     pub Expiry: i64,
 }
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct KERB_S4U2PROXY_CRED {
-    pub UserName: UNICODE_STRING,
-    pub DomainName: UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
     pub Flags: u32,
     pub LastStatus: windows_sys::core::NTSTATUS,
     pub Expiry: i64,
     pub CountOfEntries: u32,
     pub Entries: PKERB_S4U2PROXY_CACHE_ENTRY_INFO,
 }
+#[cfg(feature = "winternl")]
 impl Default for KERB_S4U2PROXY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -998,77 +1023,78 @@ impl Default for KERB_S4U2PROXY_CRED {
 }
 pub const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
-    pub ClientUpn: UNICODE_STRING,
-    pub ClientRealm: UNICODE_STRING,
+    pub ClientUpn: super::UNICODE_STRING,
+    pub ClientRealm: super::UNICODE_STRING,
 }
 pub const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
 pub const KERB_S4U_LOGON_FLAG_IDENTIFY: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
     pub CredentialsHandle: super::SecHandle,
     pub Flags: u32,
-    pub AccountRealm: UNICODE_STRING,
-    pub AccountName: UNICODE_STRING,
-    pub Password: UNICODE_STRING,
-    pub ClientRealm: UNICODE_STRING,
-    pub ClientName: UNICODE_STRING,
+    pub AccountRealm: super::UNICODE_STRING,
+    pub AccountName: super::UNICODE_STRING,
+    pub Password: super::UNICODE_STRING,
+    pub ClientRealm: super::UNICODE_STRING,
+    pub ClientName: super::UNICODE_STRING,
     pub Impersonating: bool,
-    pub KdcAddress: UNICODE_STRING,
+    pub KdcAddress: super::UNICODE_STRING,
     pub KdcAddressType: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SETPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
     pub CredentialsHandle: super::SecHandle,
     pub Flags: u32,
-    pub DomainName: UNICODE_STRING,
-    pub AccountName: UNICODE_STRING,
-    pub Password: UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub AccountName: super::UNICODE_STRING,
+    pub Password: super::UNICODE_STRING,
 }
 pub const KERB_SETPASS_USE_CREDHANDLE: i32 = 2;
 pub const KERB_SETPASS_USE_LOGONID: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_SMART_CARD_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
-    pub Pin: UNICODE_STRING,
+    pub Pin: super::UNICODE_STRING,
     pub CspDataLength: u32,
     pub CspData: super::PUCHAR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for KERB_SMART_CARD_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct KERB_SMART_CARD_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub CertificateSize: u32,
     pub CertificateData: super::PUCHAR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for KERB_SMART_CARD_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON {
     pub Logon: KERB_SMART_CARD_LOGON,
@@ -1086,10 +1112,11 @@ pub struct KERB_SUBMIT_TKT_REQUEST {
     pub KerbCredOffset: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_CACHE_INFO {
-    pub ServerName: UNICODE_STRING,
-    pub RealmName: UNICODE_STRING,
+    pub ServerName: super::UNICODE_STRING,
+    pub RealmName: super::UNICODE_STRING,
     pub StartTime: i64,
     pub EndTime: i64,
     pub RenewTime: i64,
@@ -1097,12 +1124,13 @@ pub struct KERB_TICKET_CACHE_INFO {
     pub TicketFlags: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_CACHE_INFO_EX {
-    pub ClientName: UNICODE_STRING,
-    pub ClientRealm: UNICODE_STRING,
-    pub ServerName: UNICODE_STRING,
-    pub ServerRealm: UNICODE_STRING,
+    pub ClientName: super::UNICODE_STRING,
+    pub ClientRealm: super::UNICODE_STRING,
+    pub ServerName: super::UNICODE_STRING,
+    pub ServerRealm: super::UNICODE_STRING,
     pub StartTime: i64,
     pub EndTime: i64,
     pub RenewTime: i64,
@@ -1110,12 +1138,13 @@ pub struct KERB_TICKET_CACHE_INFO_EX {
     pub TicketFlags: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_CACHE_INFO_EX2 {
-    pub ClientName: UNICODE_STRING,
-    pub ClientRealm: UNICODE_STRING,
-    pub ServerName: UNICODE_STRING,
-    pub ServerRealm: UNICODE_STRING,
+    pub ClientName: super::UNICODE_STRING,
+    pub ClientRealm: super::UNICODE_STRING,
+    pub ServerName: super::UNICODE_STRING,
+    pub ServerRealm: super::UNICODE_STRING,
     pub StartTime: i64,
     pub EndTime: i64,
     pub RenewTime: i64,
@@ -1125,12 +1154,13 @@ pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub BranchId: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_CACHE_INFO_EX3 {
-    pub ClientName: UNICODE_STRING,
-    pub ClientRealm: UNICODE_STRING,
-    pub ServerName: UNICODE_STRING,
-    pub ServerRealm: UNICODE_STRING,
+    pub ClientName: super::UNICODE_STRING,
+    pub ClientRealm: super::UNICODE_STRING,
+    pub ServerName: super::UNICODE_STRING,
+    pub ServerRealm: super::UNICODE_STRING,
     pub StartTime: i64,
     pub EndTime: i64,
     pub RenewTime: i64,
@@ -1139,7 +1169,7 @@ pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub SessionKeyType: u32,
     pub BranchId: u32,
     pub CacheFlags: u32,
-    pub KdcCalled: UNICODE_STRING,
+    pub KdcCalled: super::UNICODE_STRING,
 }
 pub const KERB_TICKET_FLAGS_enc_pa_rep: i32 = 65536;
 pub const KERB_TICKET_FLAGS_forwardable: i32 = 1073741824;
@@ -1175,7 +1205,7 @@ impl Default for KERB_TICKET_LOGON {
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_TICKET_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
@@ -1531,13 +1561,14 @@ pub struct MSV1_0_AV_PAIR {
 }
 pub const MSV1_0_CHALLENGE_LENGTH: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub DomainName: UNICODE_STRING,
-    pub AccountName: UNICODE_STRING,
-    pub OldPassword: UNICODE_STRING,
-    pub NewPassword: UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub AccountName: super::UNICODE_STRING,
+    pub OldPassword: super::UNICODE_STRING,
+    pub NewPassword: super::UNICODE_STRING,
     pub Impersonating: bool,
 }
 #[repr(C)]
@@ -1578,14 +1609,16 @@ pub const MSV1_0_CRED_VERSION_V3: i32 = 4;
 pub const MSV1_0_DISABLE_PERSONAL_FALLBACK: i32 = 4096;
 pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_INTERACTIVE_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
-    pub LogonDomainName: UNICODE_STRING,
-    pub UserName: UNICODE_STRING,
-    pub Password: UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub Password: super::UNICODE_STRING,
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
@@ -1597,12 +1630,12 @@ pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub PasswordLastSet: i64,
     pub PasswordCanChange: i64,
     pub PasswordMustChange: i64,
-    pub LogonScript: UNICODE_STRING,
-    pub HomeDirectory: UNICODE_STRING,
-    pub FullName: UNICODE_STRING,
-    pub ProfilePath: UNICODE_STRING,
-    pub HomeDirectoryDrive: UNICODE_STRING,
-    pub LogonServer: UNICODE_STRING,
+    pub LogonScript: super::UNICODE_STRING,
+    pub HomeDirectory: super::UNICODE_STRING,
+    pub FullName: super::UNICODE_STRING,
+    pub ProfilePath: super::UNICODE_STRING,
+    pub HomeDirectoryDrive: super::UNICODE_STRING,
+    pub LogonServer: super::UNICODE_STRING,
     pub UserFlags: u32,
 }
 pub const MSV1_0_INTERNET_DOMAIN: i32 = 524288;
@@ -1620,25 +1653,26 @@ impl Default for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
 }
 pub const MSV1_0_LANMAN_SESSION_KEY_LENGTH: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_LM20_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
-    pub LogonDomainName: UNICODE_STRING,
-    pub UserName: UNICODE_STRING,
-    pub Workstation: UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub Workstation: super::UNICODE_STRING,
     pub ChallengeToClient: [u8; 8],
-    pub CaseSensitiveChallengeResponse: STRING,
-    pub CaseInsensitiveChallengeResponse: STRING,
+    pub CaseSensitiveChallengeResponse: super::STRING,
+    pub CaseInsensitiveChallengeResponse: super::STRING,
     pub ParameterControl: u32,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_LM20_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
@@ -1646,11 +1680,12 @@ pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub LogoffTime: i64,
     pub UserFlags: u32,
     pub UserSessionKey: [u8; 16],
-    pub LogonDomainName: UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
     pub LanmanSessionKey: [u8; 8],
-    pub LogonServer: UNICODE_STRING,
-    pub UserParameters: UNICODE_STRING,
+    pub LogonServer: super::UNICODE_STRING,
+    pub UserParameters: super::UNICODE_STRING,
 }
+#[cfg(feature = "winternl")]
 impl Default for MSV1_0_LM20_LOGON_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1688,17 +1723,17 @@ pub const MSV1_0_OWF_PASSWORD_LENGTH: i32 = 16;
 pub const MSV1_0_PACKAGE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 pub const MSV1_0_PACKAGE_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub DomainName: UNICODE_STRING,
-    pub PackageName: UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
+    pub PackageName: super::UNICODE_STRING,
     pub DataLength: u32,
     pub LogonData: super::PUCHAR,
     pub Pad: u32,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for MSV1_0_PASSTHROUGH_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1741,12 +1776,13 @@ pub const MSV1_0_RETURN_PROFILE_PATH: i32 = 512;
 pub const MSV1_0_RETURN_USER_PARAMETERS: i32 = 8;
 pub const MSV1_0_S4U2SELF: i32 = 131072;
 #[repr(C)]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct MSV1_0_S4U_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
-    pub UserPrincipalName: UNICODE_STRING,
-    pub DomainName: UNICODE_STRING,
+    pub UserPrincipalName: super::UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
 }
 pub const MSV1_0_S4U_LOGON_FLAG_CHECK_LOGONHOURS: i32 = 2;
 pub const MSV1_0_SHA_PASSWORD_LENGTH: i32 = 20;
@@ -1759,20 +1795,20 @@ pub const MSV1_0_SUBAUTHENTICATION_FLAGS: u32 = 4278190080;
 pub const MSV1_0_SUBAUTHENTICATION_KEY: windows_sys::core::PCSTR = windows_sys::core::s!("SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0");
 pub const MSV1_0_SUBAUTHENTICATION_VALUE: windows_sys::core::PCSTR = windows_sys::core::s!("Auth");
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_SUBAUTH_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
-    pub LogonDomainName: UNICODE_STRING,
-    pub UserName: UNICODE_STRING,
-    pub Workstation: UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub Workstation: super::UNICODE_STRING,
     pub ChallengeToClient: [u8; 8],
-    pub AuthenticationInfo1: STRING,
-    pub AuthenticationInfo2: STRING,
+    pub AuthenticationInfo1: super::STRING,
+    pub AuthenticationInfo2: super::STRING,
     pub ParameterControl: u32,
     pub SubAuthPackageId: u32,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_SUBAUTH_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1969,27 +2005,31 @@ pub const PER_USER_AUDIT_NONE: i32 = 16;
 pub const PER_USER_AUDIT_SUCCESS_EXCLUDE: i32 = 2;
 pub const PER_USER_AUDIT_SUCCESS_INCLUDE: i32 = 1;
 pub const PER_USER_POLICY_UNCHANGED: i32 = 0;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PKDC_PROXY_CACHE_ENTRY_DATA = *mut KDC_PROXY_CACHE_ENTRY_DATA;
+#[cfg(feature = "winternl")]
 pub type PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST;
+#[cfg(feature = "winternl")]
 pub type PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PKERB_ADD_CREDENTIALS_REQUEST = *mut KERB_ADD_CREDENTIALS_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PKERB_ADD_CREDENTIALS_REQUEST_EX = *mut KERB_ADD_CREDENTIALS_REQUEST_EX;
 #[cfg(feature = "minwindef")]
 pub type PKERB_AUTH_DATA = *mut KERB_AUTH_DATA;
+#[cfg(feature = "winternl")]
 pub type PKERB_BINDING_CACHE_ENTRY_DATA = *mut KERB_BINDING_CACHE_ENTRY_DATA;
 pub type PKERB_CERTIFICATE_HASHINFO = *mut KERB_CERTIFICATE_HASHINFO;
 pub type PKERB_CERTIFICATE_INFO = *mut KERB_CERTIFICATE_INFO;
 pub type PKERB_CERTIFICATE_INFO_TYPE = *mut KERB_CERTIFICATE_INFO_TYPE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PKERB_CERTIFICATE_LOGON = *mut KERB_CERTIFICATE_LOGON;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PKERB_CERTIFICATE_S4U_LOGON = *mut KERB_CERTIFICATE_S4U_LOGON;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type PKERB_CERTIFICATE_UNLOCK_LOGON = *mut KERB_CERTIFICATE_UNLOCK_LOGON;
 pub type PKERB_CHANGEMACHINEPASSWORD_REQUEST = *mut KERB_CHANGEMACHINEPASSWORD_REQUEST;
+#[cfg(feature = "winternl")]
 pub type PKERB_CHANGEPASSWORD_REQUEST = *mut KERB_CHANGEPASSWORD_REQUEST;
 #[cfg(feature = "winnt")]
 pub type PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST = *mut KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST;
@@ -2004,12 +2044,15 @@ pub type PKERB_CRYPTO_KEY32 = *mut KERB_CRYPTO_KEY32;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKERB_DECRYPT_REQUEST = *mut KERB_DECRYPT_REQUEST;
 pub type PKERB_DECRYPT_RESPONSE = *mut KERB_DECRYPT_RESPONSE;
+#[cfg(feature = "winternl")]
 pub type PKERB_EXTERNAL_NAME = *mut KERB_EXTERNAL_NAME;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PKERB_EXTERNAL_TICKET = *mut KERB_EXTERNAL_TICKET;
+#[cfg(feature = "winternl")]
 pub type PKERB_INTERACTIVE_LOGON = *mut KERB_INTERACTIVE_LOGON;
+#[cfg(feature = "winternl")]
 pub type PKERB_INTERACTIVE_PROFILE = *mut KERB_INTERACTIVE_PROFILE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PKERB_INTERACTIVE_UNLOCK_LOGON = *mut KERB_INTERACTIVE_UNLOCK_LOGON;
 pub type PKERB_LOGON_SUBMIT_TYPE = *mut KERB_LOGON_SUBMIT_TYPE;
 #[cfg(feature = "winnt")]
@@ -2022,77 +2065,92 @@ pub type PKERB_PURGE_BINDING_CACHE_REQUEST = *mut KERB_PURGE_BINDING_CACHE_REQUE
 #[cfg(feature = "winnt")]
 pub type PKERB_PURGE_KDC_PROXY_CACHE_REQUEST = *mut KERB_PURGE_KDC_PROXY_CACHE_REQUEST;
 pub type PKERB_PURGE_KDC_PROXY_CACHE_RESPONSE = *mut KERB_PURGE_KDC_PROXY_CACHE_RESPONSE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PKERB_PURGE_TKT_CACHE_EX_REQUEST = *mut KERB_PURGE_TKT_CACHE_EX_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PKERB_PURGE_TKT_CACHE_REQUEST = *mut KERB_PURGE_TKT_CACHE_REQUEST;
 pub type PKERB_QUERY_BINDING_CACHE_REQUEST = *mut KERB_QUERY_BINDING_CACHE_REQUEST;
+#[cfg(feature = "winternl")]
 pub type PKERB_QUERY_BINDING_CACHE_RESPONSE = *mut KERB_QUERY_BINDING_CACHE_RESPONSE;
+#[cfg(feature = "winternl")]
 pub type PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST = *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST;
 pub type PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE = *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE;
 #[cfg(feature = "winnt")]
 pub type PKERB_QUERY_KDC_PROXY_CACHE_REQUEST = *mut KERB_QUERY_KDC_PROXY_CACHE_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE = *mut KERB_QUERY_KDC_PROXY_CACHE_RESPONSE;
 #[cfg(feature = "winnt")]
 pub type PKERB_QUERY_S4U2PROXY_CACHE_REQUEST = *mut KERB_QUERY_S4U2PROXY_CACHE_REQUEST;
+#[cfg(feature = "winternl")]
 pub type PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE = *mut KERB_QUERY_S4U2PROXY_CACHE_RESPONSE;
+#[cfg(feature = "winternl")]
 pub type PKERB_QUERY_TKT_CACHE_EX2_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX2_RESPONSE;
+#[cfg(feature = "winternl")]
 pub type PKERB_QUERY_TKT_CACHE_EX3_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX3_RESPONSE;
+#[cfg(feature = "winternl")]
 pub type PKERB_QUERY_TKT_CACHE_EX_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX_RESPONSE;
 #[cfg(feature = "winnt")]
 pub type PKERB_QUERY_TKT_CACHE_REQUEST = *mut KERB_QUERY_TKT_CACHE_REQUEST;
+#[cfg(feature = "winternl")]
 pub type PKERB_QUERY_TKT_CACHE_RESPONSE = *mut KERB_QUERY_TKT_CACHE_RESPONSE;
 pub type PKERB_REFRESH_POLICY_REQUEST = *mut KERB_REFRESH_POLICY_REQUEST;
 pub type PKERB_REFRESH_POLICY_RESPONSE = *mut KERB_REFRESH_POLICY_RESPONSE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PKERB_REFRESH_SCCRED_REQUEST = *mut KERB_REFRESH_SCCRED_REQUEST;
+#[cfg(feature = "winternl")]
 pub type PKERB_RETRIEVE_KEY_TAB_REQUEST = *mut KERB_RETRIEVE_KEY_TAB_REQUEST;
 #[cfg(feature = "minwindef")]
 pub type PKERB_RETRIEVE_KEY_TAB_RESPONSE = *mut KERB_RETRIEVE_KEY_TAB_RESPONSE;
-#[cfg(all(feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PKERB_RETRIEVE_TKT_REQUEST = *mut KERB_RETRIEVE_TKT_REQUEST;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PKERB_RETRIEVE_TKT_RESPONSE = *mut KERB_RETRIEVE_TKT_RESPONSE;
+#[cfg(feature = "winternl")]
 pub type PKERB_S4U2PROXY_CACHE_ENTRY_INFO = *mut KERB_S4U2PROXY_CACHE_ENTRY_INFO;
+#[cfg(feature = "winternl")]
 pub type PKERB_S4U2PROXY_CRED = *mut KERB_S4U2PROXY_CRED;
+#[cfg(feature = "winternl")]
 pub type PKERB_S4U_LOGON = *mut KERB_S4U_LOGON;
-#[cfg(all(feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PKERB_SETPASSWORD_EX_REQUEST = *mut KERB_SETPASSWORD_EX_REQUEST;
-#[cfg(all(feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PKERB_SETPASSWORD_REQUEST = *mut KERB_SETPASSWORD_REQUEST;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PKERB_SMART_CARD_LOGON = *mut KERB_SMART_CARD_LOGON;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PKERB_SMART_CARD_PROFILE = *mut KERB_SMART_CARD_PROFILE;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type PKERB_SMART_CARD_UNLOCK_LOGON = *mut KERB_SMART_CARD_UNLOCK_LOGON;
 #[cfg(feature = "winnt")]
 pub type PKERB_SUBMIT_TKT_REQUEST = *mut KERB_SUBMIT_TKT_REQUEST;
+#[cfg(feature = "winternl")]
 pub type PKERB_TICKET_CACHE_INFO = *mut KERB_TICKET_CACHE_INFO;
+#[cfg(feature = "winternl")]
 pub type PKERB_TICKET_CACHE_INFO_EX = *mut KERB_TICKET_CACHE_INFO_EX;
+#[cfg(feature = "winternl")]
 pub type PKERB_TICKET_CACHE_INFO_EX2 = *mut KERB_TICKET_CACHE_INFO_EX2;
+#[cfg(feature = "winternl")]
 pub type PKERB_TICKET_CACHE_INFO_EX3 = *mut KERB_TICKET_CACHE_INFO_EX3;
 #[cfg(feature = "minwindef")]
 pub type PKERB_TICKET_LOGON = *mut KERB_TICKET_LOGON;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PKERB_TICKET_PROFILE = *mut KERB_TICKET_PROFILE;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKERB_TICKET_UNLOCK_LOGON = *mut KERB_TICKET_UNLOCK_LOGON;
 #[cfg(feature = "winnt")]
 pub type PKERB_TRANSFER_CRED_REQUEST = *mut KERB_TRANSFER_CRED_REQUEST;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub MessageType: PKU2U_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
-    pub UserPrincipalName: UNICODE_STRING,
-    pub DomainName: UNICODE_STRING,
+    pub UserPrincipalName: super::UNICODE_STRING,
+    pub DomainName: super::UNICODE_STRING,
     pub CertificateLength: u32,
     pub Certificate: super::PUCHAR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for PKU2U_CERTIFICATE_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2146,26 +2204,31 @@ pub type PLSA_OPERATIONAL_MODE = *mut u32;
 #[cfg(feature = "winnt")]
 pub type PLSA_TRANSLATED_SID = *mut LSA_TRANSLATED_SID;
 pub type PMSV1_0_AV_PAIR = *mut MSV1_0_AV_PAIR;
+#[cfg(feature = "winternl")]
 pub type PMSV1_0_CHANGEPASSWORD_REQUEST = *mut MSV1_0_CHANGEPASSWORD_REQUEST;
 pub type PMSV1_0_CHANGEPASSWORD_RESPONSE = *mut MSV1_0_CHANGEPASSWORD_RESPONSE;
 pub type PMSV1_0_CREDENTIAL_KEY = *mut MSV1_0_CREDENTIAL_KEY;
+#[cfg(feature = "winternl")]
 pub type PMSV1_0_INTERACTIVE_LOGON = *mut MSV1_0_INTERACTIVE_LOGON;
+#[cfg(feature = "winternl")]
 pub type PMSV1_0_INTERACTIVE_PROFILE = *mut MSV1_0_INTERACTIVE_PROFILE;
 pub type PMSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_LM20_LOGON = *mut MSV1_0_LM20_LOGON;
+#[cfg(feature = "winternl")]
 pub type PMSV1_0_LM20_LOGON_PROFILE = *mut MSV1_0_LM20_LOGON_PROFILE;
 pub type PMSV1_0_LOGON_SUBMIT_TYPE = *mut MSV1_0_LOGON_SUBMIT_TYPE;
 pub type PMSV1_0_NTLM3_RESPONSE = *mut MSV1_0_NTLM3_RESPONSE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PMSV1_0_PASSTHROUGH_REQUEST = *mut MSV1_0_PASSTHROUGH_REQUEST;
 #[cfg(feature = "minwindef")]
 pub type PMSV1_0_PASSTHROUGH_RESPONSE = *mut MSV1_0_PASSTHROUGH_RESPONSE;
 pub type PMSV1_0_PROFILE_BUFFER_TYPE = *mut MSV1_0_PROFILE_BUFFER_TYPE;
 pub type PMSV1_0_PROTOCOL_MESSAGE_TYPE = *mut MSV1_0_PROTOCOL_MESSAGE_TYPE;
 pub type PMSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL;
+#[cfg(feature = "winternl")]
 pub type PMSV1_0_S4U_LOGON = *mut MSV1_0_S4U_LOGON;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_SUBAUTH_LOGON = *mut MSV1_0_SUBAUTH_LOGON;
 #[cfg(feature = "minwindef")]
 pub type PMSV1_0_SUBAUTH_REQUEST = *mut MSV1_0_SUBAUTH_REQUEST;
@@ -2369,7 +2432,7 @@ pub const POLICY_TRUST_ADMIN: i32 = 8;
 pub const POLICY_VIEW_AUDIT_INFORMATION: i32 = 2;
 pub const POLICY_VIEW_LOCAL_INFORMATION: i32 = 1;
 pub const POLICY_WRITE: i32 = 133112;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PPKU2U_CERTIFICATE_S4U_LOGON = *mut PKU2U_CERTIFICATE_S4U_LOGON;
 pub type PPKU2U_CERT_BLOB = *mut PKU2U_CERT_BLOB;
 pub type PPKU2U_CREDUI_CONTEXT = *mut PKU2U_CREDUI_CONTEXT;
@@ -2614,20 +2677,6 @@ pub type SE_ADT_PARAMETER_TYPE = i32;
 pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: i32 = 16;
 pub const SE_MAX_AUDIT_PARAMETERS: i32 = 32;
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: i32 = 28;
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct STRING {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Buffer: super::PCHAR,
-}
-#[cfg(feature = "winnt")]
-impl Default for STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SeAdtParmTypeAccessMask: SE_ADT_PARAMETER_TYPE = 7;
 pub const SeAdtParmTypeAccessReason: SE_ADT_PARAMETER_TYPE = 29;
 pub const SeAdtParmTypeClaims: SE_ADT_PARAMETER_TYPE = 32;
@@ -2815,18 +2864,6 @@ pub const TrustedDomainNameInformation: TRUSTED_INFORMATION_CLASS = 1;
 pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = 13;
 pub const TrustedPasswordInformation: TRUSTED_INFORMATION_CLASS = 4;
 pub const TrustedPosixOffsetInformation: TRUSTED_INFORMATION_CLASS = 3;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UNICODE_STRING {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Buffer: windows_sys::core::PWSTR,
-}
-impl Default for UNICODE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const UndefinedLogonType: SECURITY_LOGON_TYPE = 0;
 pub const Unlock: SECURITY_LOGON_TYPE = 7;
 pub const VALID_PER_USER_AUDIT_POLICY_FLAG: i32 = 31;

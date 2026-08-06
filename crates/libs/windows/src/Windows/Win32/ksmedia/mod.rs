@@ -1873,9 +1873,6 @@ pub struct KSDATAFORMAT_SUBTYPE_NABTS_FEC(pub u8);
 pub struct KSDATAFORMAT_SUBTYPE_OVERLAY(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_PCM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_RAW8(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1919,9 +1916,6 @@ pub struct KSDATAFORMAT_SUBTYPE_VPVBI(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_VPVideo(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_WAVEFORMATEX(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_WMAUDIO2(pub u8);
@@ -1999,13 +1993,13 @@ impl Default for KSDATAFORMAT_WAVEFORMATEX {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
 #[derive(Clone, Copy)]
 pub struct KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
     pub DataFormat: super::KSDATAFORMAT,
-    pub WaveFormatExt: WAVEFORMATEXTENSIBLE,
+    pub WaveFormatExt: super::WAVEFORMATEXTENSIBLE,
 }
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
 impl Default for KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5009,9 +5003,10 @@ pub const KS_AMVP_MODE_SKIPODD: KS_AMVP_MODE = 4;
 pub const KS_AMVP_MODE_WEAVE: KS_AMVP_MODE = 0;
 pub type KS_AMVP_SELECTFORMATBY = i32;
 #[repr(C)]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AM_ExactRateChange {
-    pub OutputZeroTime: REFERENCE_TIME,
+    pub OutputZeroTime: super::REFERENCE_TIME,
     pub Rate: i32,
 }
 #[repr(transparent)]
@@ -5023,9 +5018,10 @@ pub const KS_AM_RATE_MaxFullDataRate: KS_AM_PROPERTY_TS_RATE_CHANGE = 3;
 pub const KS_AM_RATE_SimpleRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = 1;
 pub const KS_AM_RATE_Step: KS_AM_PROPERTY_TS_RATE_CHANGE = 4;
 #[repr(C)]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AM_SimpleRateChange {
-    pub StartTime: REFERENCE_TIME,
+    pub StartTime: super::REFERENCE_TIME,
     pub Rate: i32,
 }
 #[repr(transparent)]
@@ -5033,14 +5029,14 @@ pub struct KS_AM_SimpleRateChange {
 pub struct KS_AM_Step(pub u32);
 pub const KS_AM_UseNewCSSKey: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_ANALOGVIDEOINFO {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
     pub dwActiveWidth: u32,
     pub dwActiveHeight: u32,
-    pub AvgTimePerFrame: REFERENCE_TIME,
+    pub AvgTimePerFrame: super::REFERENCE_TIME,
 }
 pub type KS_AnalogVideoStandard = i32;
 pub const KS_AnalogVideo_NTSC_433: KS_AnalogVideoStandard = 4;
@@ -5208,13 +5204,13 @@ impl Default for KS_DATAFORMAT_IMAGEINFO {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_MPEGVIDEOINFO2 {
     pub DataFormat: super::KSDATAFORMAT,
     pub MpegVideoInfoHeader2: KS_MPEGVIDEOINFO2,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATAFORMAT_MPEGVIDEOINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5234,52 +5230,52 @@ impl Default for KS_DATAFORMAT_VBIINFOHEADER {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER {
     pub DataFormat: super::KSDATAFORMAT,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
     pub DataFormat: super::KSDATAFORMAT,
     pub VideoInfoHeader2: KS_VIDEOINFOHEADER2,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFO_PALETTE {
     pub DataFormat: super::KSDATAFORMAT,
     pub VideoInfo: KS_VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_ANALOGVIDEO {
     pub DataRange: super::KSDATARANGE,
     pub AnalogVideoInfo: KS_ANALOGVIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_ANALOGVIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5318,7 +5314,7 @@ impl Default for KS_DATARANGE_IMAGE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub DataRange: super::KSDATARANGE,
@@ -5329,14 +5325,14 @@ pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEG1VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_MPEG1_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub DataRange: super::KSDATARANGE,
@@ -5347,14 +5343,14 @@ pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEGVIDEOINFO2,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_MPEG2_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO {
     pub DataRange: super::KSDATARANGE,
@@ -5365,14 +5361,14 @@ pub struct KS_DATARANGE_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO2 {
     pub DataRange: super::KSDATARANGE,
@@ -5383,14 +5379,14 @@ pub struct KS_DATARANGE_VIDEO2 {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER2,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub DataRange: super::KSDATARANGE,
@@ -5401,7 +5397,7 @@ pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfo: KS_VIDEOINFO,
 }
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 impl Default for KS_DATARANGE_VIDEO_PALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5635,7 +5631,7 @@ pub const KS_MACROVISION_LEVEL2: KS_COPY_MACROVISION_LEVEL = 2;
 pub const KS_MACROVISION_LEVEL3: KS_COPY_MACROVISION_LEVEL = 3;
 pub const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_MPEG1VIDEOINFO {
     pub hdr: KS_VIDEOINFOHEADER,
@@ -5643,7 +5639,7 @@ pub struct KS_MPEG1VIDEOINFO {
     pub cbSequenceHeader: u32,
     pub bSequenceHeader: [u8; 1],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5680,7 +5676,7 @@ pub struct KS_MPEGAUDIOINFO {
 }
 pub const KS_MPEGAUDIOINFO_27MhzTimebase: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_MPEGVIDEOINFO2 {
     pub hdr: KS_VIDEOINFOHEADER2,
@@ -5691,7 +5687,7 @@ pub struct KS_MPEGVIDEOINFO2 {
     pub dwFlags: u32,
     pub bSequenceHeader: [u32; 1],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_MPEGVIDEOINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5842,57 +5838,57 @@ pub const KS_VIDEODECODER_FLAGS_CAN_DISABLE_OUTPUT: KS_VIDEODECODER_FLAGS = 1;
 pub const KS_VIDEODECODER_FLAGS_CAN_INDICATE_LOCKED: KS_VIDEODECODER_FLAGS = 4;
 pub const KS_VIDEODECODER_FLAGS_CAN_USE_VCR_LOCKING: KS_VIDEODECODER_FLAGS = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_VIDEOINFO {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
     pub dwBitRate: u32,
     pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: REFERENCE_TIME,
+    pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: KS_BITMAPINFOHEADER,
     pub Anonymous: KS_VIDEOINFO_0,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union KS_VIDEOINFO_0 {
     pub bmiColors: [KS_RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: KS_TRUECOLORINFO,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VIDEOINFOHEADER {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
     pub dwBitRate: u32,
     pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: REFERENCE_TIME,
+    pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct KS_VIDEOINFOHEADER2 {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
     pub dwBitRate: u32,
     pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: REFERENCE_TIME,
+    pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub dwInterlaceFlags: u32,
     pub dwCopyProtectFlags: u32,
     pub dwPictAspectRatioX: u32,
@@ -5901,20 +5897,20 @@ pub struct KS_VIDEOINFOHEADER2 {
     pub dwReserved2: u32,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_VIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub union KS_VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 impl Default for KS_VIDEOINFOHEADER2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6209,7 +6205,7 @@ pub type PKSCAMERA_PROFILE_PININFO = *mut KSCAMERA_PROFILE_PININFO;
 pub type PKSDATAFORMAT_DSOUND = *mut KSDATAFORMAT_DSOUND;
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
 pub type PKSDATAFORMAT_WAVEFORMATEX = *mut KSDATAFORMAT_WAVEFORMATEX;
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
+#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
 pub type PKSDATAFORMAT_WAVEFORMATEXTENSIBLE = *mut KSDATAFORMAT_WAVEFORMATEXTENSIBLE;
 #[cfg(feature = "ks")]
 pub type PKSDATARANGE_AUDIO = *mut KSDATARANGE_AUDIO;
@@ -6453,9 +6449,11 @@ pub type PKS_AMVPDATAINFO = *mut KS_AMVPDATAINFO;
 #[cfg(feature = "windef")]
 pub type PKS_AMVPDIMINFO = *mut KS_AMVPDIMINFO;
 pub type PKS_AMVPSIZE = *mut KS_AMVPSIZE;
+#[cfg(feature = "mediaobj")]
 pub type PKS_AM_ExactRateChange = *mut KS_AM_ExactRateChange;
+#[cfg(feature = "mediaobj")]
 pub type PKS_AM_SimpleRateChange = *mut KS_AM_SimpleRateChange;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_ANALOGVIDEOINFO = *mut KS_ANALOGVIDEOINFO;
 pub type PKS_BITMAPINFOHEADER = *mut KS_BITMAPINFOHEADER;
 pub type PKS_COLCON = *mut KS_COLCON;
@@ -6465,31 +6463,31 @@ pub type PKS_COPY_MACROVISION_LEVEL = *mut KS_COPY_MACROVISION_LEVEL;
 pub type PKS_DATAFORMAT_H264VIDEOINFO = *mut KS_DATAFORMAT_H264VIDEOINFO;
 #[cfg(feature = "ks")]
 pub type PKS_DATAFORMAT_IMAGEINFO = *mut KS_DATAFORMAT_IMAGEINFO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATAFORMAT_MPEGVIDEOINFO2 = *mut KS_DATAFORMAT_MPEGVIDEOINFO2;
 #[cfg(feature = "ks")]
 pub type PKS_DATAFORMAT_VBIINFOHEADER = *mut KS_DATAFORMAT_VBIINFOHEADER;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFOHEADER = *mut KS_DATAFORMAT_VIDEOINFOHEADER;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFOHEADER2 = *mut KS_DATAFORMAT_VIDEOINFOHEADER2;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATAFORMAT_VIDEOINFO_PALETTE = *mut KS_DATAFORMAT_VIDEOINFO_PALETTE;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_ANALOGVIDEO = *mut KS_DATARANGE_ANALOGVIDEO;
 #[cfg(all(feature = "ks", feature = "windef"))]
 pub type PKS_DATARANGE_H264_VIDEO = *mut KS_DATARANGE_H264_VIDEO;
 #[cfg(all(feature = "ks", feature = "windef"))]
 pub type PKS_DATARANGE_IMAGE = *mut KS_DATARANGE_IMAGE;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_MPEG1_VIDEO = *mut KS_DATARANGE_MPEG1_VIDEO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_MPEG2_VIDEO = *mut KS_DATARANGE_MPEG2_VIDEO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO = *mut KS_DATARANGE_VIDEO;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO2 = *mut KS_DATARANGE_VIDEO2;
-#[cfg(all(feature = "ks", feature = "windef"))]
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO_PALETTE = *mut KS_DATARANGE_VIDEO_PALETTE;
 #[cfg(all(feature = "ks", feature = "windef"))]
 pub type PKS_DATARANGE_VIDEO_VBI = *mut KS_DATARANGE_VIDEO_VBI;
@@ -6504,21 +6502,21 @@ pub type PKS_DVD_YUV = *mut KS_DVD_YUV;
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PKS_FRAME_INFO = *mut KS_FRAME_INFO;
 pub type PKS_H264VIDEOINFO = *mut KS_H264VIDEOINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_MPEG1VIDEOINFO = *mut KS_MPEG1VIDEOINFO;
 pub type PKS_MPEGAUDIOINFO = *mut KS_MPEGAUDIOINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_MPEGVIDEOINFO2 = *mut KS_MPEGVIDEOINFO2;
 pub type PKS_RGBQUAD = *mut KS_RGBQUAD;
 pub type PKS_TRUECOLORINFO = *mut KS_TRUECOLORINFO;
 pub type PKS_TVTUNER_CHANGE_INFO = *mut KS_TVTUNER_CHANGE_INFO;
 pub type PKS_VBIINFOHEADER = *mut KS_VBIINFOHEADER;
 pub type PKS_VBI_FRAME_INFO = *mut KS_VBI_FRAME_INFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_VIDEOINFO = *mut KS_VIDEOINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_VIDEOINFOHEADER = *mut KS_VIDEOINFOHEADER;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 pub type PKS_VIDEOINFOHEADER2 = *mut KS_VIDEOINFOHEADER2;
 #[cfg(feature = "windef")]
 pub type PKS_VIDEO_STREAM_CONFIG_CAPS = *mut KS_VIDEO_STREAM_CONFIG_CAPS;
@@ -6616,16 +6614,11 @@ pub type PVIDEOFORMAT_DX12 = *mut VIDEOFORMAT_DX12;
 pub type PVRAM_SURFACE_INFO = *mut VRAM_SURFACE_INFO;
 #[cfg(feature = "ks")]
 pub type PVRAM_SURFACE_INFO_PROPERTY_S = *mut VRAM_SURFACE_INFO_PROPERTY_S;
-#[cfg(feature = "mmeapi")]
-pub type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
 pub type PWAVEFORMATEXTENSIBLE_IEC61937 = *mut WAVEFORMATEXTENSIBLE_IEC61937;
 pub type PWNF_KSCAMERA_STREAMSTATE_INFO = *mut WNF_KSCAMERA_STREAMSTATE_INFO;
 pub type PWST_BUFFER = *mut WST_BUFFER;
 pub type PWST_BUFFER_LINE = *mut WST_BUFFER_LINE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct REFERENCE_TIME(pub i64);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURE_BUFFER_INFO {
@@ -6646,26 +6639,6 @@ pub struct SOUNDDETECTOR_PATTERNHEADER {
     pub Size: u32,
     pub PatternType: windows_core::GUID,
 }
-pub const SPEAKER_ALL: u32 = 2147483648;
-pub const SPEAKER_BACK_CENTER: i32 = 256;
-pub const SPEAKER_BACK_LEFT: i32 = 16;
-pub const SPEAKER_BACK_RIGHT: i32 = 32;
-pub const SPEAKER_FRONT_CENTER: i32 = 4;
-pub const SPEAKER_FRONT_LEFT: i32 = 1;
-pub const SPEAKER_FRONT_LEFT_OF_CENTER: i32 = 64;
-pub const SPEAKER_FRONT_RIGHT: i32 = 2;
-pub const SPEAKER_FRONT_RIGHT_OF_CENTER: i32 = 128;
-pub const SPEAKER_LOW_FREQUENCY: i32 = 8;
-pub const SPEAKER_RESERVED: i32 = 2147221504;
-pub const SPEAKER_SIDE_LEFT: i32 = 512;
-pub const SPEAKER_SIDE_RIGHT: i32 = 1024;
-pub const SPEAKER_TOP_BACK_CENTER: i32 = 65536;
-pub const SPEAKER_TOP_BACK_LEFT: i32 = 32768;
-pub const SPEAKER_TOP_BACK_RIGHT: i32 = 131072;
-pub const SPEAKER_TOP_CENTER: i32 = 2048;
-pub const SPEAKER_TOP_FRONT_CENTER: i32 = 8192;
-pub const SPEAKER_TOP_FRONT_LEFT: i32 = 4096;
-pub const SPEAKER_TOP_FRONT_RIGHT: i32 = 16384;
 pub type TELEPHONY_CALLCONTROLOP = i32;
 pub const TELEPHONY_CALLCONTROLOP_DISABLE: TELEPHONY_CALLCONTROLOP = 0;
 pub const TELEPHONY_CALLCONTROLOP_ENABLE: TELEPHONY_CALLCONTROLOP = 1;
@@ -6968,50 +6941,20 @@ impl Default for VRAM_SURFACE_INFO_PROPERTY_S {
 pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = 1;
 pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = 2;
 #[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub struct WAVEFORMATEXTENSIBLE {
-    pub Format: super::WAVEFORMATEX,
-    pub Samples: WAVEFORMATEXTENSIBLE_0,
-    pub dwChannelMask: u32,
-    pub SubFormat: windows_core::GUID,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for WAVEFORMATEXTENSIBLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub union WAVEFORMATEXTENSIBLE_0 {
-    pub wValidBitsPerSample: u16,
-    pub wSamplesPerBlock: u16,
-    pub wReserved: u16,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for WAVEFORMATEXTENSIBLE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
 #[derive(Clone, Copy)]
 pub struct WAVEFORMATEXTENSIBLE_IEC61937 {
-    pub FormatExt: WAVEFORMATEXTENSIBLE,
+    pub FormatExt: super::WAVEFORMATEXTENSIBLE,
     pub dwEncodedSamplesPerSec: u32,
     pub dwEncodedChannelCount: u32,
     pub dwAverageBytesPerSec: u32,
 }
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
 impl Default for WAVEFORMATEXTENSIBLE_IEC61937 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WAVE_FORMAT_EXTENSIBLE: i32 = 65534;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNF_KSCAMERA_STREAMSTATE_INFO {

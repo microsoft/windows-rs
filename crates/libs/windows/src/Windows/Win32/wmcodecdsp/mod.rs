@@ -1287,7 +1287,7 @@ impl windows_core::RuntimeName for IWMCodecLeakyBucket {}
 windows_core::imp::define_interface!(IWMCodecOutputTimestamp, IWMCodecOutputTimestamp_Vtbl, 0xb72adf95_7adc_4a72_bc05_577d8ea6bf68);
 windows_core::imp::interface_hierarchy!(IWMCodecOutputTimestamp, windows_core::IUnknown);
 impl IWMCodecOutputTimestamp {
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetNextOutputTime(&self) -> windows_core::Result<super::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1299,16 +1299,16 @@ impl IWMCodecOutputTimestamp {
 #[doc(hidden)]
 pub struct IWMCodecOutputTimestamp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetNextOutputTime: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IWMCodecOutputTimestamp_Impl: windows_core::IUnknownImpl {
     fn GetNextOutputTime(&self) -> windows_core::Result<super::REFERENCE_TIME>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IWMCodecOutputTimestamp_Vtbl {
     pub const fn new<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNextOutputTime<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prttime: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
@@ -1329,7 +1329,7 @@ impl IWMCodecOutputTimestamp_Vtbl {
         iid == &<IWMCodecOutputTimestamp as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IWMCodecOutputTimestamp {}
 windows_core::imp::define_interface!(IWMCodecPrivateData, IWMCodecPrivateData_Vtbl, 0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e);
 windows_core::imp::interface_hierarchy!(IWMCodecPrivateData, windows_core::IUnknown);

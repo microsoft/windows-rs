@@ -714,5 +714,5 @@ pub type LPLPDIRECTSOUNDCAPTURE8 = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER8 = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDNOTIFY = *mut *mut core::ffi::c_void;
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub type LPREFERENCE_TIME = *mut super::REFERENCE_TIME;

@@ -15,32 +15,27 @@ pub type LPFN_CONNECTEX = Option<unsafe extern "system" fn(s: super::SOCKET, nam
 pub type LPFN_DISCONNECTEX = Option<unsafe extern "system" fn(s: super::SOCKET, lpoverlapped: *mut super::OVERLAPPED, dwflags: u32, dwreserved: u32) -> windows_sys::core::BOOL>;
 #[cfg(feature = "ws2")]
 pub type LPFN_GETACCEPTEXSOCKADDRS = Option<unsafe extern "system" fn(lpoutputbuffer: *const core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut super::SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut super::SOCKADDR, remotesockaddrlength: *mut i32)>;
-#[cfg(feature = "mswsockdef")]
-pub type LPFN_RIOCLOSECOMPLETIONQUEUE = Option<unsafe extern "system" fn(cq: *const super::RIO_CQ_t)>;
+pub type LPFN_RIOCLOSECOMPLETIONQUEUE = Option<unsafe extern "system" fn(cq: *const RIO_CQ_t)>;
 #[cfg(all(feature = "mswsockdef", feature = "winnt"))]
 pub type LPFN_RIOCREATECOMPLETIONQUEUE = Option<unsafe extern "system" fn(queuesize: u32, notificationcompletion: *const RIO_NOTIFICATION_COMPLETION) -> super::RIO_CQ>;
 #[cfg(all(feature = "mswsockdef", feature = "winsock2"))]
-pub type LPFN_RIOCREATEREQUESTQUEUE = Option<unsafe extern "system" fn(socket: super::SOCKET, maxoutstandingreceive: u32, maxreceivedatabuffers: u32, maxoutstandingsend: u32, maxsenddatabuffers: u32, receivecq: *const super::RIO_CQ_t, sendcq: *const super::RIO_CQ_t, socketcontext: *const core::ffi::c_void) -> super::RIO_RQ>;
+pub type LPFN_RIOCREATEREQUESTQUEUE = Option<unsafe extern "system" fn(socket: super::SOCKET, maxoutstandingreceive: u32, maxreceivedatabuffers: u32, maxoutstandingsend: u32, maxsenddatabuffers: u32, receivecq: *const RIO_CQ_t, sendcq: *const RIO_CQ_t, socketcontext: *const core::ffi::c_void) -> super::RIO_RQ>;
 #[cfg(feature = "mswsockdef")]
-pub type LPFN_RIODEQUEUECOMPLETION = Option<unsafe extern "system" fn(cq: *const super::RIO_CQ_t, array: *mut super::RIORESULT, arraysize: u32) -> u32>;
+pub type LPFN_RIODEQUEUECOMPLETION = Option<unsafe extern "system" fn(cq: *const RIO_CQ_t, array: *mut super::RIORESULT, arraysize: u32) -> u32>;
+pub type LPFN_RIODEREGISTERBUFFER = Option<unsafe extern "system" fn(bufferid: *const RIO_BUFFERID_t)>;
+pub type LPFN_RIONOTIFY = Option<unsafe extern "system" fn(cq: *const RIO_CQ_t) -> i32>;
 #[cfg(feature = "mswsockdef")]
-pub type LPFN_RIODEREGISTERBUFFER = Option<unsafe extern "system" fn(bufferid: *const super::RIO_BUFFERID_t)>;
+pub type LPFN_RIORECEIVE = Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const super::RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
 #[cfg(feature = "mswsockdef")]
-pub type LPFN_RIONOTIFY = Option<unsafe extern "system" fn(cq: *const super::RIO_CQ_t) -> i32>;
-#[cfg(feature = "mswsockdef")]
-pub type LPFN_RIORECEIVE = Option<unsafe extern "system" fn(socketqueue: *const super::RIO_RQ_t, pdata: *const super::RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "mswsockdef")]
-pub type LPFN_RIORECEIVEEX = Option<unsafe extern "system" fn(socketqueue: *const super::RIO_RQ_t, pdata: *const super::RIO_BUF, databuffercount: u32, plocaladdress: *const super::RIO_BUF, premoteaddress: *const super::RIO_BUF, pcontrolcontext: *const super::RIO_BUF, pflags: *const super::RIO_BUF, flags: u32, requestcontext: *const core::ffi::c_void) -> i32>;
+pub type LPFN_RIORECEIVEEX = Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const super::RIO_BUF, databuffercount: u32, plocaladdress: *const super::RIO_BUF, premoteaddress: *const super::RIO_BUF, pcontrolcontext: *const super::RIO_BUF, pflags: *const super::RIO_BUF, flags: u32, requestcontext: *const core::ffi::c_void) -> i32>;
 #[cfg(feature = "mswsockdef")]
 pub type LPFN_RIOREGISTERBUFFER = Option<unsafe extern "system" fn(databuffer: *const i8, datalength: u32) -> super::RIO_BUFFERID>;
+pub type LPFN_RIORESIZECOMPLETIONQUEUE = Option<unsafe extern "system" fn(cq: *const RIO_CQ_t, queuesize: u32) -> windows_sys::core::BOOL>;
+pub type LPFN_RIORESIZEREQUESTQUEUE = Option<unsafe extern "system" fn(rq: *const RIO_RQ_t, maxoutstandingreceive: u32, maxoutstandingsend: u32) -> windows_sys::core::BOOL>;
 #[cfg(feature = "mswsockdef")]
-pub type LPFN_RIORESIZECOMPLETIONQUEUE = Option<unsafe extern "system" fn(cq: *const super::RIO_CQ_t, queuesize: u32) -> windows_sys::core::BOOL>;
+pub type LPFN_RIOSEND = Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const super::RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
 #[cfg(feature = "mswsockdef")]
-pub type LPFN_RIORESIZEREQUESTQUEUE = Option<unsafe extern "system" fn(rq: *const super::RIO_RQ_t, maxoutstandingreceive: u32, maxoutstandingsend: u32) -> windows_sys::core::BOOL>;
-#[cfg(feature = "mswsockdef")]
-pub type LPFN_RIOSEND = Option<unsafe extern "system" fn(socketqueue: *const super::RIO_RQ_t, pdata: *const super::RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "mswsockdef")]
-pub type LPFN_RIOSENDEX = Option<unsafe extern "system" fn(socketqueue: *const super::RIO_RQ_t, pdata: *const super::RIO_BUF, databuffercount: u32, plocaladdress: *const super::RIO_BUF, premoteaddress: *const super::RIO_BUF, pcontrolcontext: *const super::RIO_BUF, pflags: *const super::RIO_BUF, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
+pub type LPFN_RIOSENDEX = Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const super::RIO_BUF, databuffercount: u32, plocaladdress: *const super::RIO_BUF, premoteaddress: *const super::RIO_BUF, pcontrolcontext: *const super::RIO_BUF, pflags: *const super::RIO_BUF, flags: u32, requestcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
 pub type LPFN_TRANSMITFILE = Option<unsafe extern "system" fn(hsocket: super::SOCKET, hfile: super::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
@@ -167,6 +162,12 @@ pub type PRIO_NOTIFICATION_COMPLETION_TYPE = *mut RIO_NOTIFICATION_COMPLETION_TY
 pub type PTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
 #[cfg(feature = "winnt")]
 pub type PTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct RIO_BUFFERID_t(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct RIO_CQ_t(pub u8);
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 1;
 #[repr(C)]
 #[cfg(all(feature = "mswsockdef", feature = "winnt", feature = "winsock2"))]
@@ -242,6 +243,9 @@ impl Default for RIO_NOTIFICATION_COMPLETION_0_1 {
     }
 }
 pub type RIO_NOTIFICATION_COMPLETION_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct RIO_RQ_t(pub u8);
 pub const SIO_BASE_HANDLE: i32 = 1207959586;
 pub const SIO_BSP_HANDLE: i32 = 1207959579;
 pub const SIO_BSP_HANDLE_POLL: i32 = 1207959581;

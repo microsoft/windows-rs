@@ -96,6 +96,8 @@ mod Windows {
         type PRIO_NOTIFICATION_COMPLETION_TYPE = *mut RIO_NOTIFICATION_COMPLETION_TYPE;
         type PTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
         type PTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
+        struct RIO_BUFFERID_t {}
+        struct RIO_CQ_t {}
         struct RIO_EXTENSION_FUNCTION_TABLE {
             cbSize: u32,
             RIOReceive: LPFN_RIORECEIVE,
@@ -131,6 +133,7 @@ mod Windows {
             RIO_EVENT_COMPLETION = 1,
             RIO_IOCP_COMPLETION = 2,
         }
+        struct RIO_RQ_t {}
         const SIO_BASE_HANDLE: i32 = 1207959586;
         const SIO_BSP_HANDLE: i32 = 1207959579;
         const SIO_BSP_HANDLE_POLL: i32 = 1207959581;

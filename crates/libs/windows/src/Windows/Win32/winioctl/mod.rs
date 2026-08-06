@@ -3213,7 +3213,26 @@ pub struct GP_LOG_PAGE_DESCRIPTOR {
     pub LogAddress: u16,
     pub LogSectors: u16,
 }
+pub const GUID_DEVINTERFACE_CDCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_CDROM: windows_core::GUID = windows_core::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_COMPORT: windows_core::GUID = windows_core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
+pub const GUID_DEVINTERFACE_DISK: windows_core::GUID = windows_core::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_FLOPPY: windows_core::GUID = windows_core::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_HIDDEN_DISK: windows_core::GUID = windows_core::GUID::from_u128(0x7fccc86c_228a_40ad_8a58_f590af7bfdce);
+pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
+pub const GUID_DEVINTERFACE_MEDIUMCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_PARTITION: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
 pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
+pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVINTERFACE_SERVICE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
+pub const GUID_DEVINTERFACE_SES: windows_core::GUID = windows_core::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
+pub const GUID_DEVINTERFACE_STORAGEPORT: windows_core::GUID = windows_core::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_TAPE: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: windows_core::GUID = windows_core::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
+pub const GUID_DEVINTERFACE_VMLUN: windows_core::GUID = windows_core::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
+pub const GUID_DEVINTERFACE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_WRITEONCEDISK: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_ZNSDISK: windows_core::GUID = windows_core::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
 pub const GUID_SCM_PD_HEALTH_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
 pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
 #[repr(C)]

@@ -1,0 +1,469 @@
+use super::*;
+use quote::ToTokens;
+
+const DUPLICATE_CODE: &str = "RDL0001";
+
+enum Arch {
+    None,
+    Valid(i32),
+    Invalid,
+}
+
+pub fn validate_symbols(index: &Index) -> Result<(), Error> {
+    for members in index.namespaces.values() {
+        validate_namespace_symbols(members)?;
+
+        for (name, variants) in &members.types {
+            validate_variants("type", name, variants)?;
+        }
+        for (name, variants) in &members.functions {
+            validate_variants("function", name, variants)?;
+        }
+        for (name, variants) in &members.constants {
+            validate_variants("constant", name, variants)?;
+        }
+
+        for variants in members
+            .types
+            .values()
+            .chain(members.functions.values())
+            .chain(members.constants.values())
+        {
+            for (file, item) in variants {
+                validate_item(file, item)?;
+            }
+        }
+    }
+
+    Ok(())
+}
+
+fn validate_namespace_symbols(members: &Namespace<'_>) -> Result<(), Error> {
+    let mut symbols = HashMap::<String, (&str, &File, Span)>::new();
+
+    for (kind, entries) in [
+        ("type", &members.types),
+        ("function", &members.functions),
+        ("constant", &members.constants),
+    ] {
+        for (name, variants) in entries {
+            let Some((file, item)) = variants.first() else {
+                continue;
+            };
+
+            if let Some((previous_kind, previous_file, previous_span)) = symbols.get(name) {
+                if *previous_kind != kind {
+                    return duplicate(
+                        "symbol",
+                        name,
+                        file,
+                        item.name_span(),
+                        previous_file,
+                        *previous_span,
+                    );
+                }
+            } else {
+                symbols.insert(name.clone(), (kind, file, item.name_span()));
+            }
+        }
+    }
+
+    Ok(())
+}
+
+fn validate_variants(kind: &str, name: &str, variants: &[(&File, &Item)]) -> Result<(), Error> {
+    for current in 1..variants.len() {
+        let current_arch = item_arch(variants[current].1);
+        if matches!(current_arch, Arch::Invalid) {
+            continue;
+        }
+
+        for previous in 0..current {
+            let previous_arch = item_arch(variants[previous].1);
+            if matches!(previous_arch, Arch::Invalid) {
+                continue;
+            }
+
+            let disjoint = matches!(
+                (&previous_arch, &current_arch),
+                (Arch::Valid(left), Arch::Valid(right)) if left & right == 0
+            );
+
+            if !disjoint {
+                return duplicate(
+                    kind,
+                    name,
+                    variants[current].0,
+                    variants[current].1.name_span(),
+                    variants[previous].0,
+                    variants[previous].1.name_span(),
+                );
+            }
+        }
+    }
+
+    Ok(())
+}
+
+fn item_arch(item: &Item) -> Arch {
+    let Some(attr) = item
+        .attrs()
+        .iter()
+        .find(|attr| attr.path().is_ident("arch"))
+    else {
+        return Arch::None;
+    };
+
+    let Ok(expr) = attr.parse_args::<syn::Expr>() else {
+        return Arch::Invalid;
+    };
+
+    parse_arch_bitmask(&expr).map_or(Arch::Invalid, Arch::Valid)
+}
+
+fn validate_item(file: &File, item: &Item) -> Result<(), Error> {
+    match item {
+        Item::Attribute(item) => validate_attribute(file, item),
+        Item::Callback(item) => {
+            validate_generics(file, &item.sig.generics)?;
+            validate_signature_params(file, &item.sig)
+        }
+        Item::Class(item) => validate_class(file, item),
+        Item::Delegate(item) => {
+            validate_generics(file, &item.sig.generics)?;
+            validate_signature_params(file, &item.sig)
+        }
+        Item::Enum(item) => validate_enum(file, item),
+        Item::Fn(item) => {
+            validate_generics(file, &item.sig.generics)?;
+            validate_signature_params(file, &item.sig)
+        }
+        Item::Interface(item) => validate_interface(file, item),
+        Item::Struct(item) => validate_fields(file, &item.fields),
+        Item::Union(item) => validate_fields(file, &item.fields),
+        Item::Const(_) | Item::Module(_) | Item::Typedef(_) => Ok(()),
+    }
+}
+
+fn validate_attribute(file: &File, item: &Attribute) -> Result<(), Error> {
+    let mut properties = HashMap::<String, Span>::new();
+    for (name, _) in &item.properties {
+        check_name(file, "attribute property", name, &mut properties)?;
+    }
+
+    let mut constructors = HashMap::<String, Span>::new();
+    for method in &item.methods {
+        validate_bare_params(file, method)?;
+        let key = bare_signature_key(method);
+        if let Some(previous) = constructors.insert(key, method.span()) {
+            return duplicate(
+                "attribute constructor",
+                &item.name.to_string(),
+                file,
+                method.span(),
+                file,
+                previous,
+            );
+        }
+    }
+
+    Ok(())
+}
+
+fn validate_class(file: &File, item: &Class) -> Result<(), Error> {
+    let mut interfaces = HashMap::<String, Span>::new();
+    for interface in &item.interfaces {
+        let name = interface.ty.to_token_stream().to_string();
+        if let Some(previous) = interfaces.insert(name.clone(), interface.ty.span()) {
+            return duplicate(
+                "class interface",
+                &name,
+                file,
+                interface.ty.span(),
+                file,
+                previous,
+            );
+        }
+    }
+    Ok(())
+}
+
+fn validate_enum(file: &File, item: &Enum) -> Result<(), Error> {
+    let mut variants = HashMap::<String, Span>::new();
+    for variant in &item.variants {
+        check_name(file, "enum variant", &variant.ident, &mut variants)?;
+    }
+    Ok(())
+}
+
+fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
+    validate_generics(file, &item.generics)?;
+
+    let mut methods = HashMap::<String, HashMap<String, Span>>::new();
+    let mut properties = HashMap::<String, PropertyState>::new();
+    let mut events = HashMap::<String, Span>::new();
+    let mut member_kinds = HashMap::<String, (&str, Span)>::new();
+
+    for member in &item.members {
+        let (kind, name, span) = match member {
+            InterfaceMember::Method(method) => (
+                "method",
+                method.sig.ident.to_string(),
+                method.sig.ident.span(),
+            ),
+            InterfaceMember::Property(property) => {
+                ("property", property.name.to_string(), property.name.span())
+            }
+            InterfaceMember::Event(event) => ("event", event.name.to_string(), event.name.span()),
+        };
+
+        if let Some((previous_kind, previous_span)) = member_kinds.get(&name) {
+            if *previous_kind != kind {
+                return duplicate("interface member", &name, file, span, file, *previous_span);
+            }
+        } else {
+            member_kinds.insert(name, (kind, span));
+        }
+
+        match member {
+            InterfaceMember::Method(method) => {
+                validate_generics(file, &method.sig.generics)?;
+                validate_signature_params(file, &method.sig)?;
+
+                let name = method.sig.ident.to_string();
+                let key = signature_key(&method.sig);
+                let overloads = methods.entry(name.clone()).or_default();
+                if let Some(previous) = overloads.insert(key, method.sig.ident.span()) {
+                    return duplicate(
+                        "method",
+                        &name,
+                        file,
+                        method.sig.ident.span(),
+                        file,
+                        previous,
+                    );
+                }
+            }
+            InterfaceMember::Property(property) => {
+                validate_property(file, property, &mut properties)?;
+            }
+            InterfaceMember::Event(event) => {
+                check_name(file, "event", &event.name, &mut events)?;
+            }
+        }
+    }
+
+    Ok(())
+}
+
+struct PropertyState {
+    get: bool,
+    set: bool,
+    ty: String,
+    span: Span,
+}
+
+fn validate_property(
+    file: &File,
+    property: &Property,
+    properties: &mut HashMap<String, PropertyState>,
+) -> Result<(), Error> {
+    let name = property.name.to_string();
+    let get_only = property
+        .attrs
+        .iter()
+        .any(|attr| attr.path().is_ident("get"));
+    let set_only = property
+        .attrs
+        .iter()
+        .any(|attr| attr.path().is_ident("set"));
+    let (get, set) = if get_only || set_only {
+        (get_only, set_only)
+    } else {
+        (true, true)
+    };
+    let ty = property.ty.to_token_stream().to_string();
+
+    if let Some(previous) = properties.get_mut(&name) {
+        if previous.ty != ty || previous.get && get || previous.set && set {
+            return duplicate(
+                "property",
+                &name,
+                file,
+                property.name.span(),
+                file,
+                previous.span,
+            );
+        }
+
+        previous.get |= get;
+        previous.set |= set;
+    } else {
+        properties.insert(
+            name,
+            PropertyState {
+                get,
+                set,
+                ty,
+                span: property.name.span(),
+            },
+        );
+    }
+
+    Ok(())
+}
+
+fn validate_fields(file: &File, fields: &[Field]) -> Result<(), Error> {
+    let mut names = HashMap::<String, Span>::new();
+
+    for field in fields {
+        check_name(file, "field", &field.name, &mut names)?;
+
+        let mut bitfields = HashMap::<String, Span>::new();
+        for member in &field.bitfields {
+            if let Some(name) = &member.name {
+                check_name(file, "bit-field member", name, &mut bitfields)?;
+            }
+        }
+
+        if let FieldType::Nested(record) = &field.ty {
+            validate_fields(file, &record.fields)?;
+        }
+    }
+
+    Ok(())
+}
+
+fn validate_generics(file: &File, generics: &syn::Generics) -> Result<(), Error> {
+    let mut names = HashMap::<String, Span>::new();
+    for param in &generics.params {
+        match param {
+            syn::GenericParam::Type(param) => {
+                check_name(file, "generic parameter", &param.ident, &mut names)?;
+            }
+            syn::GenericParam::Const(param) => {
+                check_name(file, "generic parameter", &param.ident, &mut names)?;
+            }
+            syn::GenericParam::Lifetime(param) => {
+                let name = param.lifetime.ident.to_string();
+                if let Some(previous) = names.insert(name.clone(), param.lifetime.ident.span()) {
+                    return duplicate(
+                        "generic parameter",
+                        &name,
+                        file,
+                        param.lifetime.ident.span(),
+                        file,
+                        previous,
+                    );
+                }
+            }
+        }
+    }
+    Ok(())
+}
+
+fn validate_signature_params(file: &File, signature: &syn::Signature) -> Result<(), Error> {
+    let mut names = HashMap::<String, Span>::new();
+    for input in &signature.inputs {
+        if let syn::FnArg::Typed(param) = input
+            && let syn::Pat::Ident(name) = param.pat.as_ref()
+        {
+            check_name(file, "parameter", &name.ident, &mut names)?;
+        }
+    }
+    Ok(())
+}
+
+fn validate_bare_params(file: &File, signature: &syn::TypeBareFn) -> Result<(), Error> {
+    let mut names = HashMap::<String, Span>::new();
+    for input in &signature.inputs {
+        if let Some((name, _)) = &input.name {
+            check_name(file, "parameter", name, &mut names)?;
+        }
+    }
+    Ok(())
+}
+
+fn check_name(
+    file: &File,
+    kind: &str,
+    name: &syn::Ident,
+    names: &mut HashMap<String, Span>,
+) -> Result<(), Error> {
+    let name_string = name.to_string();
+    if let Some(previous) = names.insert(name_string.clone(), name.span()) {
+        duplicate(kind, &name_string, file, name.span(), file, previous)
+    } else {
+        Ok(())
+    }
+}
+
+fn signature_key(signature: &syn::Signature) -> String {
+    let mut key = String::new();
+    for input in &signature.inputs {
+        match input {
+            syn::FnArg::Receiver(_) => key.push_str("self;"),
+            syn::FnArg::Typed(param) => {
+                key.push_str(&param.ty.to_token_stream().to_string());
+                key.push(';');
+            }
+        }
+    }
+    if signature.variadic.is_some() {
+        key.push_str("...;");
+    }
+    key
+}
+
+fn bare_signature_key(signature: &syn::TypeBareFn) -> String {
+    let mut key = String::new();
+    for input in &signature.inputs {
+        key.push_str(&input.ty.to_token_stream().to_string());
+        key.push(';');
+    }
+    if signature.variadic.is_some() {
+        key.push_str("...;");
+    }
+    key
+}
+
+fn duplicate<T>(
+    kind: &str,
+    name: &str,
+    current_file: &File,
+    current_span: Span,
+    previous_file: &File,
+    previous_span: Span,
+) -> Result<T, Error> {
+    let current_start = current_span.start();
+    let current_end = current_span.end();
+    let previous_start = previous_span.start();
+    let previous_end = previous_span.end();
+    let primary_message = format!("duplicate {kind}");
+
+    Err(Error::new(
+        &format!("duplicate {kind} `{name}`"),
+        &current_file.source,
+        current_start.line,
+        current_start.column,
+    )
+    .with_code(DUPLICATE_CODE)
+    .with_primary_label(
+        Label::primary(
+            &current_file.source,
+            current_start.line,
+            current_start.column,
+        )
+        .with_end(current_end.line, current_end.column)
+        .with_message(&primary_message),
+    )
+    .with_label(
+        Label::secondary(
+            &previous_file.source,
+            previous_start.line,
+            previous_start.column,
+            "first declared here",
+        )
+        .with_end(previous_end.line, previous_end.column),
+    ))
+}

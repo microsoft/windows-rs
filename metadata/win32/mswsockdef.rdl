@@ -21,13 +21,11 @@ mod Windows {
             Length: u32,
         }
         type RIO_BUFFERID = *mut RIO_BUFFERID_t;
-        struct RIO_BUFFERID_t {}
         struct RIO_CMSG_BUFFER {
             TotalLength: u32,
         }
         const RIO_CORRUPT_CQ: u32 = 4294967295;
         type RIO_CQ = *mut RIO_CQ_t;
-        struct RIO_CQ_t {}
         const RIO_INVALID_BUFFERID: RIO_BUFFERID = 4294967295;
         const RIO_INVALID_CQ: RIO_CQ = 0;
         const RIO_INVALID_RQ: RIO_RQ = 0;
@@ -37,7 +35,6 @@ mod Windows {
         const RIO_MSG_DONT_NOTIFY: i32 = 1;
         const RIO_MSG_WAITALL: i32 = 4;
         type RIO_RQ = *mut RIO_RQ_t;
-        struct RIO_RQ_t {}
         const SIO_SET_COMPATIBILITY_MODE: u32 = 2550137132;
         #[repr(i32)]
         enum WSA_COMPATIBILITY_BEHAVIOR_ID {

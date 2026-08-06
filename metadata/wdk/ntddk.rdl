@@ -9128,6 +9128,8 @@ mod Windows {
         struct _BUS_HANDLER {}
         struct _CREATE_DISK {}
         struct _DEVICE_HANDLER_OBJECT {}
+        struct _DRIVE_LAYOUT_INFORMATION {}
+        struct _DRIVE_LAYOUT_INFORMATION_EX {}
         struct _EJOB {}
         struct _FFA_MSG_SEND_DIRECT_REQ2_PARAMETERS {}
         struct _FFA_NOTIFICATION_REGISTRATION_PARAMETERS {}
@@ -9145,12 +9147,15 @@ mod Windows {
         struct _KIDTENTRY64 {}
         #[arch(X86 | X64)]
         struct _KPRCB {}
+        struct _KPROCESS {}
+        struct _KTHREAD {}
         #[arch(X86)]
         struct _KTSS {}
         #[arch(X64)]
         struct _KTSS64 {}
         struct _LOADER_PARAMETER_BLOCK {}
         struct _PEB {}
+        struct _SET_PARTITION_INFORMATION_EX {}
         struct _SILO_MONITOR {}
         extern fn _WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: *mut WHEA_ERROR_SOURCE_DESCRIPTOR, MaximumSectionLength: *mut u32) -> NTSTATUS;
         extern fn _WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: *mut void, MaximumSectionLength: *mut u32) -> NTSTATUS;

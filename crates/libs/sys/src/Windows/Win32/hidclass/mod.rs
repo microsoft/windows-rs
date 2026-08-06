@@ -39,20 +39,6 @@ pub struct HID_DRIVER_CONFIG {
     pub RingBufferSize: u32,
 }
 pub const HID_REVISION: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
-pub struct HID_XFER_PACKET {
-    pub reportBuffer: super::PUCHAR,
-    pub reportBufferLen: u32,
-    pub reportId: u8,
-}
-#[cfg(feature = "minwindef")]
-impl Default for HID_XFER_PACKET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IOCTL_GET_NUM_DEVICE_INPUT_BUFFERS: i32 = 721312;
 pub const IOCTL_GET_PHYSICAL_DESCRIPTOR: i32 = 721306;
 pub const IOCTL_HID_DEVICERESET_NOTIFICATION: i32 = 721459;
@@ -81,5 +67,3 @@ pub const IOCTL_HID_SET_S0_IDLE_TIMEOUT: i32 = 721328;
 pub const IOCTL_SET_NUM_DEVICE_INPUT_BUFFERS: i32 = 721316;
 pub type PHID_COLLECTION_INFORMATION = *mut HID_COLLECTION_INFORMATION;
 pub type PHID_DRIVER_CONFIG = *mut HID_DRIVER_CONFIG;
-#[cfg(feature = "minwindef")]
-pub type PHID_XFER_PACKET = *mut HID_XFER_PACKET;

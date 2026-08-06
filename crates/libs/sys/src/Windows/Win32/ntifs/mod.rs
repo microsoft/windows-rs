@@ -1,10 +1,10 @@
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtAccessCheckAndAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, desiredaccess : super::ACCESS_MASK, genericmapping : *const super::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::ACCESS_MASK, accessstatus : *mut windows_sys::core::NTSTATUS, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::ACCESS_MASK, accessstatus : *mut windows_sys::core::NTSTATUS, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::ACCESS_MASK, accessstatus : *mut windows_sys::core::NTSTATUS, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::HANDLE, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::ACCESS_MASK, accessstatus : *mut windows_sys::core::NTSTATUS, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtAdjustGroupsToken(tokenhandle : super::HANDLE, resettodefault : bool, newstate : *const super::TOKEN_GROUPS, bufferlength : u32, previousstate : *mut super::TOKEN_GROUPS, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
@@ -12,17 +12,17 @@ windows_link::link!("ntdll.dll" "system" fn NtAdjustGroupsToken(tokenhandle : su
 windows_link::link!("ntdll.dll" "system" fn NtAdjustPrivilegesToken(tokenhandle : super::HANDLE, disableallprivileges : bool, newstate : *const super::TOKEN_PRIVILEGES, bufferlength : u32, previousstate : *mut super::TOKEN_PRIVILEGES, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtAllocateVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, regionsize : *mut usize, allocationtype : u32, protect : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn NtCloseObjectAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : bool) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtCopyFileChunk(sourcehandle : super::HANDLE, desthandle : super::HANDLE, event : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, length : u32, sourceoffset : *const i64, destoffset : *const i64, sourcekey : *const u32, destkey : *const u32, flags : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtCreateSection(sectionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtCreateSectionEx(sectionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::HANDLE, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn NtDeleteObjectAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtDuplicateToken(existingtokenhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, effectiveonly : bool, tokentype : super::TOKEN_TYPE, newtokenhandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtFilterToken(existingtokenhandle : super::HANDLE, flags : u32, sidstodisable : *const super::TOKEN_GROUPS, privilegestodelete : *const super::TOKEN_PRIVILEGES, restrictedsids : *const super::TOKEN_GROUPS, newtokenhandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
@@ -36,7 +36,7 @@ windows_link::link!("ntdll.dll" "system" fn NtFsControlFile(filehandle : super::
 windows_link::link!("ntdll.dll" "system" fn NtImpersonateAnonymousToken(threadhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtLockFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32, failimmediately : bool, exclusivelock : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtOpenObjectAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, clienttoken : super::HANDLE, desiredaccess : super::ACCESS_MASK, grantedaccess : super::ACCESS_MASK, privileges : *const super::PRIVILEGE_SET, objectcreation : bool, accessgranted : bool, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtOpenProcessToken(processhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, tokenhandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
@@ -48,15 +48,15 @@ windows_link::link!("ntdll.dll" "system" fn NtOpenThreadToken(threadhandle : sup
 windows_link::link!("ntdll.dll" "system" fn NtOpenThreadTokenEx(threadhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, openasself : bool, handleattributes : u32, tokenhandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn NtPrivilegeCheck(clienttoken : super::HANDLE, requiredprivileges : *mut super::PRIVILEGE_SET, result : *mut bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtPrivilegeObjectAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::HANDLE, desiredaccess : super::ACCESS_MASK, privileges : *const super::PRIVILEGE_SET, accessgranted : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtPrivilegedServiceAuditAlarm(subsystemname : *const super::UNICODE_STRING, servicename : *const super::UNICODE_STRING, clienttoken : super::HANDLE, privileges : *const super::PRIVILEGE_SET, accessgranted : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtQueryDirectoryFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, returnsingleentry : bool, filename : *const super::UNICODE_STRING, restartscan : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtQueryDirectoryFileEx(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, queryflags : u32, filename : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtQueryInformationByName(objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtQueryInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
@@ -88,13 +88,13 @@ windows_link::link!("ntdll.dll" "system" fn NtSetVolumeInformationFile(filehandl
 windows_link::link!("ntdll.dll" "system" fn NtUnlockFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn NtWriteFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn PfxFindPrefix(prefixtable : *const PREFIX_TABLE, fullname : *const super::STRING) -> PPREFIX_TABLE_ENTRY);
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn PfxInitialize(prefixtable : *mut PREFIX_TABLE));
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn PfxInsertPrefix(prefixtable : *const PREFIX_TABLE, prefix : *const super::STRING, prefixtableentry : *mut PREFIX_TABLE_ENTRY) -> bool);
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn PfxRemovePrefix(prefixtable : *const PREFIX_TABLE, prefixtableentry : *const PREFIX_TABLE_ENTRY));
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor : super::PSECURITY_DESCRIPTOR, selfrelativesecuritydescriptor : super::PSECURITY_DESCRIPTOR, bufferlength : *mut u32) -> windows_sys::core::NTSTATUS);
@@ -109,9 +109,9 @@ windows_link::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSid(identifi
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthorities : *const u32, sid : *mut super::PSID) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlAllocateHeap(heaphandle : *const core::ffi::c_void, flags : u32, size : usize) -> *mut core::ffi::c_void);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlAppendStringToString(destination : *mut super::STRING, source : *const super::STRING) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlCompareAltitudes(altitude1 : *const super::UNICODE_STRING, altitude2 : *const super::UNICODE_STRING) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlCompareMemoryUlong(source : *const core::ffi::c_void, length : usize, pattern : u32) -> usize);
 windows_link::link!("ntdll.dll" "system" fn RtlCompressBuffer(compressionformatandengine : u16, uncompressedbuffer : *const u8, uncompressedbuffersize : u32, compressedbuffer : *mut u8, compressedbuffersize : u32, uncompressedchunksize : u32, finalcompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
@@ -122,13 +122,13 @@ windows_link::link!("ntdll.dll" "system" fn RtlCopySid(destinationsidlength : u3
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlCreateAcl(acl : *mut super::ACL, acllength : u32, aclrevision : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlCreateHeap(flags : u32, heapbase : *const core::ffi::c_void, reservesize : usize, commitsize : usize, lock : *const core::ffi::c_void, parameters : *mut RTL_HEAP_PARAMETERS) -> *mut core::ffi::c_void);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlCreateServiceSid(servicename : *const super::UNICODE_STRING, servicesid : super::PSID, servicesidlength : *mut u32) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlCreateSystemVolumeInformationFolder(volumerootpath : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlCreateUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : windows_sys::core::PCWSTR) -> bool);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlCreateVirtualAccountSid(name : *const super::UNICODE_STRING, basesubauthority : u32, sid : super::PSID, sidlength : *mut u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
 windows_link::link!("ntdll.dll" "system" fn RtlCustomCPToUnicodeN(customcp : *const super::CPTABLEINFO, unicodestring : *mut u16, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, customcpstring : *const i8, bytesincustomcpstring : u32) -> windows_sys::core::NTSTATUS);
@@ -138,9 +138,9 @@ windows_link::link!("ntdll.dll" "system" fn RtlDecompressFragment(compressionfor
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlDeleteAce(acl : *mut super::ACL, aceindex : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlDestroyHeap(heaphandle : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlDuplicateUnicodeString(flags : u32, stringin : *const super::UNICODE_STRING, stringout : *mut super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlEqualPrefixSid(sid1 : super::PSID, sid2 : super::PSID) -> bool);
@@ -150,7 +150,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlEqualSid(sid1 : super::PSID, sid2
 windows_link::link!("ntdll.dll" "system" fn RtlFreeHeap(heaphandle : *const core::ffi::c_void, flags : u32, baseaddress : *mut core::ffi::c_void) -> super::LOGICAL);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlFreeSid(sid : super::PSID) -> *mut core::ffi::c_void);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlGenerate8dot3Name(name : *const super::UNICODE_STRING, allowextendedcharacters : bool, context : *mut GENERATE_NAME_CONTEXT, name8dot3 : *mut super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlGetAce(acl : *const super::ACL, aceindex : u32, ace : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
@@ -172,7 +172,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlIdnToNameprepUnicode(flags : u32,
 windows_link::link!("ntdll.dll" "system" fn RtlIdnToUnicode(flags : u32, sourcestring : windows_sys::core::PCWSTR, sourcestringlength : i32, destinationstring : windows_sys::core::PWSTR, destinationstringlength : *mut i32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
 windows_link::link!("ntdll.dll" "system" fn RtlInitCodePageTable(tablebase : *const u16, codepagetable : *mut super::CPTABLEINFO));
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlInitUnicodeStringEx(destinationstring : *mut super::UNICODE_STRING, sourcestring : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlInitializeSid(sid : super::PSID, identifierauthority : *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> windows_sys::core::NTSTATUS);
@@ -193,10 +193,10 @@ windows_link::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeN(unicodestring
 windows_link::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeSize(bytesinunicodestring : *mut u32, multibytestring : *const i8, bytesinmultibytestring : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlNormalizeString(normform : u32, sourcestring : windows_sys::core::PCWSTR, sourcestringlength : i32, destinationstring : windows_sys::core::PWSTR, destinationstringlength : *mut i32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlNtStatusToDosErrorNoTeb(status : windows_sys::core::NTSTATUS) -> u32);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlOemStringToUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : *const super::STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlOemToUnicodeN(unicodestring : *mut u16, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, oemstring : *const i8, bytesinoemstring : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlPrefixString(string1 : *const super::STRING, string2 : *const super::STRING, caseinsensitive : bool) -> bool);
 windows_link::link!("ntdll.dll" "system" fn RtlQueryPackageIdentity(tokenobject : *const core::ffi::c_void, packagefullname : windows_sys::core::PWSTR, packagesize : *mut usize, appid : windows_sys::core::PWSTR, appidsize : *mut usize, packaged : *mut bool) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlQueryPackageIdentityEx(tokenobject : *const core::ffi::c_void, packagefullname : windows_sys::core::PWSTR, packagesize : *mut usize, appid : windows_sys::core::PWSTR, appidsize : *mut usize, dynamicid : *mut windows_sys::core::GUID, flags : *mut u64) -> windows_sys::core::NTSTATUS);
@@ -221,15 +221,15 @@ windows_link::link!("ntdll.dll" "system" fn RtlSubAuthorityCountSid(sid : super:
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlSubAuthoritySid(sid : super::PSID, subauthority : u32) -> super::PULONG);
 windows_link::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1980(time : *const i64, elapsedseconds : *mut u32) -> bool);
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeStringToCountedOemString(destinationstring : super::POEM_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeToCustomCPN(customcp : *const super::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToCountedOemString(destinationstring : super::POEM_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToOemString(destinationstring : super::POEM_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToCustomCPN(customcp : *const super::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
@@ -237,23 +237,23 @@ windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToMultiByteN(multiby
 windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlValidSid(sid : super::PSID) -> bool);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlValidateUnicodeString(flags : u32, string : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlxOemStringToUnicodeSize(oemstring : *const super::STRING) -> u32);
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 windows_link::link!("ntdll.dll" "system" fn RtlxUnicodeStringToOemSize(unicodestring : *const super::UNICODE_STRING) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, regionsize : *mut usize, allocationtype : u32, protect : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemoryEx(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntdef", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn ZwCreateEvent(eventhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, eventtype : super::EVENT_TYPE, initialstate : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn ZwDeleteFile(objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwDuplicateObject(sourceprocesshandle : super::HANDLE, sourcehandle : super::HANDLE, targetprocesshandle : super::HANDLE, targethandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, handleattributes : u32, options : u32) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn ZwDuplicateToken(existingtokenhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, effectiveonly : bool, tokentype : super::TOKEN_TYPE, newtokenhandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "C" fn ZwFlushBuffersFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK) -> windows_sys::core::NTSTATUS);
@@ -269,15 +269,15 @@ windows_link::link!("ntdll.dll" "system" fn ZwFsControlFile(filehandle : super::
 windows_link::link!("ntdll.dll" "system" fn ZwLockFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32, failimmediately : bool, exclusivelock : bool) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn ZwNotifyChangeKey(keyhandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, completionfilter : u32, watchtree : bool, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn ZwOpenDirectoryObject(directoryhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwOpenProcessTokenEx(processhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, handleattributes : u32, tokenhandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn ZwOpenThreadTokenEx(threadhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, openasself : bool, handleattributes : u32, tokenhandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn ZwQueryDirectoryFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, returnsingleentry : bool, filename : *const super::UNICODE_STRING, restartscan : bool) -> windows_sys::core::NTSTATUS);
-#[cfg(all(feature = "ntsecapi", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn ZwQueryDirectoryFileEx(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, queryflags : u32, filename : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "C" fn ZwQueryEaFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : bool) -> windows_sys::core::NTSTATUS);
@@ -519,13 +519,13 @@ pub const COMPRESSION_FORMAT_MASK: i32 = 255;
 pub const COMPRESSION_FORMAT_MAX: i32 = 8;
 pub const COPY_FILE_CHUNK_DUPLICATE_EXTENTS: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct COPY_INFORMATION {
     pub SourceFileObject: super::PFILE_OBJECT,
     pub SourceFileOffset: i64,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for COPY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -603,7 +603,7 @@ pub const DOS_STAR: u32 = 60;
 pub const DO_NOT_PURGE_DIRTY_PAGES: i32 = 4;
 pub const DO_NOT_RETRY_PURGE: i32 = 2;
 pub const DO_SUPPORTS_PERSISTENT_ACLS: i32 = 131072;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type DRIVER_FS_NOTIFICATION = Option<unsafe extern "system" fn(deviceobject: *const super::DEVICE_OBJECT, fsactive: bool)>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1231,7 +1231,7 @@ pub const FILE_LINK_PRESERVE_AVAILABLE_SPACE: i32 = 48;
 pub const FILE_LINK_REPLACE_IF_EXISTS: i32 = 1;
 pub const FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct FILE_LOCK {
     pub CompleteLockIrpRoutine: PCOMPLETE_LOCK_IRP_ROUTINE,
@@ -1243,14 +1243,14 @@ pub struct FILE_LOCK {
     pub LastReturnedLock: *mut core::ffi::c_void,
     pub LockRequestsInProgress: i32,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for FILE_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct FILE_LOCK_INFO {
     pub StartingByte: i64,
@@ -1261,7 +1261,7 @@ pub struct FILE_LOCK_INFO {
     pub ProcessId: *mut core::ffi::c_void,
     pub EndingByte: i64,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for FILE_LOCK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1942,7 +1942,7 @@ pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
     pub ProviderId: u32,
 }
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Default)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
     pub ProviderId: u32,
@@ -2076,7 +2076,7 @@ pub const FS_FILTER_ACQUIRE_FOR_CC_FLUSH: u8 = 251;
 pub const FS_FILTER_ACQUIRE_FOR_MOD_WRITE: u8 = 253;
 pub const FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u8 = 255;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Default)]
 pub struct FS_FILTER_CALLBACKS {
     pub SizeOfFsFilterCallbacks: u32,
@@ -2097,7 +2097,7 @@ pub struct FS_FILTER_CALLBACKS {
     pub PostQueryOpen: PFS_FILTER_COMPLETION_CALLBACK,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct FS_FILTER_CALLBACK_DATA {
     pub SizeOfFsFilterCallbackData: u32,
@@ -2107,7 +2107,7 @@ pub struct FS_FILTER_CALLBACK_DATA {
     pub FileObject: *mut super::FILE_OBJECT,
     pub Parameters: FS_FILTER_PARAMETERS,
 }
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for FS_FILTER_CALLBACK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2313,14 +2313,14 @@ pub const IOCTL_REDIR_QUERY_PATH_EX: i32 = 1311123;
 pub const IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES: i32 = 5488640;
 pub const IO_CREATE_STREAM_FILE_LITE: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_CREATE_STREAM_FILE_OPTIONS {
     pub Size: u16,
     pub Flags: u16,
     pub TargetDeviceObject: super::PDEVICE_OBJECT,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for IO_CREATE_STREAM_FILE_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2328,13 +2328,13 @@ impl Default for IO_CREATE_STREAM_FILE_OPTIONS {
 }
 pub const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_DEVICE_HINT_ECP_CONTEXT {
     pub TargetDevice: super::PDEVICE_OBJECT,
     pub RemainingName: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for IO_DEVICE_HINT_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2475,7 +2475,7 @@ pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
     pub RemainingPathLength: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KAPC_STATE {
     pub ApcListHead: [super::LIST_ENTRY; 2],
@@ -2484,46 +2484,46 @@ pub struct KAPC_STATE {
     pub KernelApcPending: bool,
     pub Anonymous2: KAPC_STATE_1,
 }
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 impl Default for KAPC_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KAPC_STATE_0 {
     pub InProgressFlags: u8,
     pub Anonymous: KAPC_STATE_0_0,
 }
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 impl Default for KAPC_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KAPC_STATE_0_0 {
     pub _bitfield: bool,
 }
 #[repr(C)]
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KAPC_STATE_1 {
     pub UserApcPendingAll: bool,
     pub Anonymous: KAPC_STATE_1_0,
 }
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 impl Default for KAPC_STATE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct KAPC_STATE_1_0 {
     pub _bitfield: bool,
@@ -2716,7 +2716,7 @@ impl Default for MSV1_0_ENUMUSERS_RESPONSE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_GETCHALLENRESP_REQUEST {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -2728,14 +2728,14 @@ pub struct MSV1_0_GETCHALLENRESP_REQUEST {
     pub LogonDomainName: super::UNICODE_STRING,
     pub ServerName: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_GETCHALLENRESP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -2744,14 +2744,14 @@ pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
     pub Password: super::UNICODE_STRING,
     pub ChallengeToClient: [u8; 8],
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_GETCHALLENRESP_REQUEST_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -2762,7 +2762,7 @@ pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
     pub UserSessionKey: [u8; 16],
     pub LanmanSessionKey: [u8; 8],
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_GETCHALLENRESP_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2776,7 +2776,7 @@ pub struct MSV1_0_GETUSERINFO_REQUEST {
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
@@ -2786,7 +2786,7 @@ pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub LogonServer: super::UNICODE_STRING,
     pub LogonType: super::SECURITY_LOGON_TYPE,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 impl Default for MSV1_0_GETUSERINFO_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2914,13 +2914,13 @@ pub type NETWORK_OPEN_IN_FLAGS = u32;
 pub type NETWORK_OPEN_LOCATION_QUALIFIER = i32;
 pub type NETWORK_OPEN_OUT_FLAGS = u32;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct NFS_OPEN_ECP_CONTEXT {
     pub ExportAlias: super::PUNICODE_STRING,
     pub ClientSocketAddress: PSOCKADDR_STORAGE_NFS,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 impl Default for NFS_OPEN_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3031,10 +3031,10 @@ pub type PCC_FILE_SIZES = *mut CC_FILE_SIZES;
 pub type PCC_POST_DEFERRED_WRITE = Option<unsafe extern "system" fn(context1: *const core::ffi::c_void, context2: *const core::ffi::c_void)>;
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 pub type PCHECK_FOR_TRAVERSE_ACCESS = Option<unsafe extern "system" fn(notifycontext: *const core::ffi::c_void, targetcontext: *const core::ffi::c_void, subjectcontext: *const super::SECURITY_SUBJECT_CONTEXT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PCOMPLETE_LOCK_IRP_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::IRP) -> windows_sys::core::NTSTATUS>;
 pub type PCOMPRESSED_DATA_INFO = *mut COMPRESSED_DATA_INFO;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PCOPY_INFORMATION = *mut COPY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PCREATE_REDIRECTION_ECP_CONTEXT = *mut CREATE_REDIRECTION_ECP_CONTEXT;
@@ -3043,9 +3043,9 @@ pub type PCSV_QUERY_FILE_REVISION_ECP_CONTEXT = *mut CSV_QUERY_FILE_REVISION_ECP
 #[cfg(feature = "winnt")]
 pub type PCSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 = *mut CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128;
 pub type PCSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT = *mut CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PDIRTY_PAGE_ROUTINE = Option<unsafe extern "system" fn(fileobject: *const super::FILE_OBJECT, fileoffset: *const i64, length: u32, oldestlsn: *const i64, newestlsn: *const i64, context1: *const core::ffi::c_void, context2: *const core::ffi::c_void)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PDRIVER_FS_NOTIFICATION = *mut DRIVER_FS_NOTIFICATION;
 pub type PDUAL_OPLOCK_KEY_ECP_CONTEXT = *mut DUAL_OPLOCK_KEY_ECP_CONTEXT;
 pub type PDUPLICATE_CLUSTER_DATA = *mut DUPLICATE_CLUSTER_DATA;
@@ -3107,9 +3107,9 @@ pub type PFILE_LINK_ENTRY_FULL_ID_INFORMATION = *mut FILE_LINK_ENTRY_FULL_ID_INF
 pub type PFILE_LINK_ENTRY_INFORMATION = *mut FILE_LINK_ENTRY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PFILE_LINK_INFORMATION = *mut FILE_LINK_INFORMATION;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFILE_LOCK = *mut FILE_LOCK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFILE_LOCK_INFO = *mut FILE_LOCK_INFO;
 pub type PFILE_MAILSLOT_QUERY_INFORMATION = *mut FILE_MAILSLOT_QUERY_INFORMATION;
 #[cfg(feature = "winnt")]
@@ -3171,7 +3171,7 @@ pub type PFSRTL_CHANGE_BACKING_TYPE = *mut FSRTL_CHANGE_BACKING_TYPE;
 pub type PFSRTL_COMMON_FCB_HEADER = *mut FSRTL_COMMON_FCB_HEADER;
 pub type PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(ecpcontext: *mut core::ffi::c_void, ecptype: *const windows_sys::core::GUID)>;
 pub type PFSRTL_MUP_PROVIDER_INFO_LEVEL_1 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_1;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type PFSRTL_MUP_PROVIDER_INFO_LEVEL_2 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_2;
 #[cfg(feature = "winnt")]
 pub type PFSRTL_PER_FILEOBJECT_CONTEXT = *mut FSRTL_PER_FILEOBJECT_CONTEXT;
@@ -3182,13 +3182,13 @@ pub type PFSRTL_PER_STREAM_CONTEXT = *mut FSRTL_PER_STREAM_CONTEXT;
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 pub type PFSRTL_STACK_OVERFLOW_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, event: *const super::KEVENT)>;
 pub type PFSRTL_UNC_PROVIDER_REGISTRATION = *mut FSRTL_UNC_PROVIDER_REGISTRATION;
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, completioncontext: *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_CALLBACKS = *mut FS_FILTER_CALLBACKS;
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_CALLBACK_DATA = *mut FS_FILTER_CALLBACK_DATA;
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, operationstatus: windows_sys::core::NTSTATUS, completioncontext: *const core::ffi::c_void)>;
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
 pub type PFS_FILTER_PARAMETERS = *mut FS_FILTER_PARAMETERS;
@@ -3247,14 +3247,14 @@ pub const PIN_IF_BCB: i32 = 8;
 pub const PIN_NO_READ: i32 = 4;
 pub const PIN_VERIFY_REQUIRED: i32 = 128;
 pub const PIN_WAIT: i32 = 1;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PIO_CREATE_STREAM_FILE_OPTIONS = *mut IO_CREATE_STREAM_FILE_OPTIONS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PIO_DEVICE_HINT_ECP_CONTEXT = *mut IO_DEVICE_HINT_ECP_CONTEXT;
 #[cfg(feature = "wdm")]
 pub type PIO_PRIORITY_INFO = *mut IO_PRIORITY_INFO;
 pub type PIO_STOP_ON_SYMLINK_FILTER_ECP_v0 = *mut IO_STOP_ON_SYMLINK_FILTER_ECP_v0;
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 pub type PKAPC_STATE = *mut KAPC_STATE;
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 pub type PKQUEUE = *mut KQUEUE;
@@ -3279,15 +3279,15 @@ pub type PMM_PREFETCH_FLAGS = *mut MM_PREFETCH_FLAGS;
 pub type PMSV1_0_ENUMUSERS_REQUEST = *mut MSV1_0_ENUMUSERS_REQUEST;
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 pub type PMSV1_0_ENUMUSERS_RESPONSE = *mut MSV1_0_ENUMUSERS_RESPONSE;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_GETCHALLENRESP_REQUEST = *mut MSV1_0_GETCHALLENRESP_REQUEST;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_GETCHALLENRESP_REQUEST_V1 = *mut MSV1_0_GETCHALLENRESP_REQUEST_V1;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_GETCHALLENRESP_RESPONSE = *mut MSV1_0_GETCHALLENRESP_RESPONSE;
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type PMSV1_0_GETUSERINFO_REQUEST = *mut MSV1_0_GETUSERINFO_REQUEST;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PMSV1_0_GETUSERINFO_RESPONSE = *mut MSV1_0_GETUSERINFO_RESPONSE;
 #[cfg(feature = "ntsecapi")]
 pub type PMSV1_0_LM20_CHALLENGE_REQUEST = *mut MSV1_0_LM20_CHALLENGE_REQUEST;
@@ -3299,7 +3299,7 @@ pub type PNETWORK_APP_INSTANCE_ECP_CONTEXT = *mut NETWORK_APP_INSTANCE_ECP_CONTE
 pub type PNETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT = *mut NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT;
 pub type PNETWORK_OPEN_ECP_CONTEXT = *mut NETWORK_OPEN_ECP_CONTEXT;
 pub type PNETWORK_OPEN_ECP_CONTEXT_V0 = *mut NETWORK_OPEN_ECP_CONTEXT_V0;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 pub type PNFS_OPEN_ECP_CONTEXT = *mut NFS_OPEN_ECP_CONTEXT;
 pub type PNOTIFY_SYNC = *mut _REAL_NOTIFY_SYNC;
 #[cfg(feature = "winnt")]
@@ -3307,13 +3307,13 @@ pub type POPEN_REPARSE_LIST = *mut OPEN_REPARSE_LIST;
 #[cfg(feature = "winnt")]
 pub type POPEN_REPARSE_LIST_ENTRY = *mut OPEN_REPARSE_LIST_ENTRY;
 pub type POPLOCK = *mut *mut core::ffi::c_void;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type POPLOCK_FS_PREPOST_IRP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::IRP)>;
 #[cfg(feature = "usb")]
 pub type POPLOCK_NOTIFY_PARAMS = *mut OPLOCK_NOTIFY_PARAMS;
 #[cfg(feature = "usb")]
 pub type POPLOCK_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(notifyparams: *const OPLOCK_NOTIFY_PARAMS) -> windows_sys::core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type POPLOCK_WAIT_COMPLETE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::IRP)>;
 #[cfg(feature = "wdm")]
 pub type PPHYSICAL_EXTENTS_DESCRIPTOR = *mut PHYSICAL_EXTENTS_DESCRIPTOR;
@@ -3321,12 +3321,12 @@ pub type PPHYSICAL_EXTENTS_DESCRIPTOR = *mut PHYSICAL_EXTENTS_DESCRIPTOR;
 pub type PPHYSICAL_MEMORY_DESCRIPTOR = *mut PHYSICAL_MEMORY_DESCRIPTOR;
 #[cfg(feature = "wdm")]
 pub type PPHYSICAL_MEMORY_RUN = *mut PHYSICAL_MEMORY_RUN;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 pub type PPNFS_OPEN_ECP_CONTEXT = *mut *mut NFS_OPEN_ECP_CONTEXT;
 pub type PPREFETCH_OPEN_ECP_CONTEXT = *mut PREFETCH_OPEN_ECP_CONTEXT;
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 pub type PPREFIX_TABLE = *mut PREFIX_TABLE;
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 pub type PPREFIX_TABLE_ENTRY = *mut PREFIX_TABLE_ENTRY;
 #[cfg(feature = "ntdef")]
 pub type PPUBLIC_BCB = *mut PUBLIC_BCB;
@@ -3343,16 +3343,16 @@ pub type PQUERY_ON_CREATE_FILE_STAT_INFORMATION = *mut QUERY_ON_CREATE_FILE_STAT
 pub type PQUERY_ON_CREATE_SECURITY_INFORMATION = *mut QUERY_ON_CREATE_SECURITY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PQUERY_ON_CREATE_USN_INFORMATION = *mut QUERY_ON_CREATE_USN_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PQUERY_PATH_REQUEST = *mut QUERY_PATH_REQUEST;
-#[cfg(all(feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PQUERY_PATH_REQUEST_EX = *mut QUERY_PATH_REQUEST_EX;
 pub type PQUERY_PATH_RESPONSE = *mut QUERY_PATH_RESPONSE;
 #[cfg(feature = "winnt")]
 pub type PQUERY_VIRTUAL_MEMORY_CALLBACK = *mut QUERY_VIRTUAL_MEMORY_CALLBACK;
 #[cfg(feature = "ntdef")]
 pub type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PREAD_LIST = *mut READ_LIST;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3365,21 +3365,21 @@ impl Default for PREFETCH_OPEN_ECP_CONTEXT {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PREFIX_TABLE {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: PPREFIX_TABLE_ENTRY,
 }
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 impl Default for PREFIX_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
@@ -3388,7 +3388,7 @@ pub struct PREFIX_TABLE_ENTRY {
     pub Links: super::RTL_SPLAY_LINKS,
     pub Prefix: super::PSTRING,
 }
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winnt", feature = "winternl"))]
 impl Default for PREFIX_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3430,7 +3430,7 @@ pub type PREPARSE_DATA_BUFFER = *mut REPARSE_DATA_BUFFER;
 #[cfg(feature = "winnt")]
 pub type PREPARSE_DATA_BUFFER_EX = *mut REPARSE_DATA_BUFFER_EX;
 pub type PREPARSE_INDEX_KEY = *mut REPARSE_INDEX_KEY;
-#[cfg(all(feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "winnt"))]
 pub type PRKAPC_STATE = *mut KAPC_STATE;
 pub type PRKF_BYPASS_ECP_CONTEXT = *mut RKF_BYPASS_ECP_CONTEXT;
 #[cfg(all(feature = "wdm", feature = "winnt"))]
@@ -3452,7 +3452,7 @@ pub type PRTL_SEGMENT_HEAP_VA_CALLBACKS = *mut RTL_SEGMENT_HEAP_VA_CALLBACKS;
 #[cfg(feature = "winnt")]
 pub type PSECURITY_CLIENT_CONTEXT = *mut SECURITY_CLIENT_CONTEXT;
 pub type PSET_CACHED_RUNS_STATE_INPUT_BUFFER = *mut SET_CACHED_RUNS_STATE_INPUT_BUFFER;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSE_AUDIT_INFO = *mut SE_AUDIT_INFO;
 pub type PSE_AUDIT_OPERATION = *mut SE_AUDIT_OPERATION;
 #[cfg(feature = "winnt")]
@@ -3466,7 +3466,7 @@ pub const PSMP_MINIMUM_SYSAPP_CLAIM_VALUES: i32 = 2;
 pub type PSOCKADDR_STORAGE_NFS = *mut sockaddr_storage;
 pub type PSOV_RANGE_CHECK_DATA = *mut SOV_RANGE_CHECK_DATA;
 pub type PSRV_INSTANCE_TYPE = *mut SRV_INSTANCE_TYPE;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 pub type PSRV_OPEN_ECP_CONTEXT = *mut SRV_OPEN_ECP_CONTEXT;
 #[cfg(all(feature = "ntddk", feature = "wdm", feature = "winnt"))]
 pub type PTUNNEL = *mut TUNNEL;
@@ -3479,11 +3479,11 @@ pub struct PUBLIC_BCB {
     pub MappedLength: u32,
     pub MappedFileOffset: i64,
 }
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winternl"))]
 pub type PUNICODE_PREFIX_TABLE = *mut UNICODE_PREFIX_TABLE;
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winternl"))]
 pub type PUNICODE_PREFIX_TABLE_ENTRY = *mut UNICODE_PREFIX_TABLE_ENTRY;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PUNLOCK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, filelockinfo: *const FILE_LOCK_INFO)>;
 pub const PURGE_WITH_ACTIVE_VIEWS: i32 = 8;
 pub type PVBN = *mut VBN;
@@ -3603,21 +3603,21 @@ pub struct QUERY_ON_CREATE_USN_INFORMATION {
     pub FileReferenceNumber: super::FILE_ID_128,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct QUERY_PATH_REQUEST {
     pub PathNameLength: u32,
     pub SecurityContext: super::PIO_SECURITY_CONTEXT,
     pub FilePathName: [u16; 1],
 }
-#[cfg(all(feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for QUERY_PATH_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct QUERY_PATH_REQUEST_EX {
     pub pSecurityContext: super::PIO_SECURITY_CONTEXT,
@@ -3629,7 +3629,7 @@ pub struct QUERY_PATH_REQUEST_EX {
     pub Silo: super::PESILO,
     pub Reserved: usize,
 }
-#[cfg(all(feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "ntddk", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for QUERY_PATH_REQUEST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3657,7 +3657,7 @@ pub struct READ_AHEAD_PARAMETERS {
     pub ReadAheadGrowthPercentage: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct READ_LIST {
     pub FileObject: super::PFILE_OBJECT,
@@ -3665,7 +3665,7 @@ pub struct READ_LIST {
     pub IsImage: super::LOGICAL,
     pub List: [super::FILE_SEGMENT_ELEMENT; 1],
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "ntddk", feature = "ntdef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for READ_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4343,7 +4343,7 @@ pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
     pub Enable: bool,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct SE_AUDIT_INFO {
     pub Size: u32,
@@ -4359,7 +4359,7 @@ pub struct SE_AUDIT_INFO {
     pub ObjectCreation: bool,
     pub GenerateOnClose: bool,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for SE_AUDIT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4476,7 +4476,7 @@ impl Default for SOV_RANGE_CHECK_DATA {
 pub const SPECIAL_ENCRYPTED_OPEN: i32 = 262144;
 pub type SRV_INSTANCE_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct SRV_OPEN_ECP_CONTEXT {
     pub ShareName: super::PUNICODE_STRING,
@@ -4487,7 +4487,7 @@ pub struct SRV_OPEN_ECP_CONTEXT {
     pub Version: u16,
     pub InstanceType: SRV_INSTANCE_TYPE,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 impl Default for SRV_OPEN_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4562,7 +4562,7 @@ impl Default for TUNNEL {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct UNICODE_PREFIX_TABLE {
     pub NodeTypeCode: super::CSHORT,
@@ -4570,14 +4570,14 @@ pub struct UNICODE_PREFIX_TABLE {
     pub NextPrefixTree: PUNICODE_PREFIX_TABLE_ENTRY,
     pub LastNextEntry: PUNICODE_PREFIX_TABLE_ENTRY,
 }
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winternl"))]
 impl Default for UNICODE_PREFIX_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
@@ -4587,7 +4587,7 @@ pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub Links: super::RTL_SPLAY_LINKS,
     pub Prefix: super::PUNICODE_STRING,
 }
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "winternl"))]
 impl Default for UNICODE_PREFIX_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4716,6 +4716,9 @@ pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_LAYER: i32 = 1;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER: i32 = 4;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: i32 = 8;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: i32 = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _OBJECT_TYPE(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct _REAL_NOTIFY_SYNC(pub u8);

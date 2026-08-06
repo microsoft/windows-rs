@@ -136,6 +136,54 @@ fn duplicate_typedef_ignores_excluded_owner() {
     );
 }
 
+#[test]
+fn definition_suppresses_cross_header_opaque_placeholder() {
+    let _guard = test_clang::libclang_guard();
+    let scratch = format!("{}/header_opaque_definition", env!("OUT_DIR"));
+    if std::path::Path::new(&scratch).exists() {
+        std::fs::remove_dir_all(&scratch).unwrap();
+    }
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let mut clang = windows_clang::clang();
+    clang
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .input("partition_input/opaque_forward.h")
+        .input("partition_input/opaque_definition.h")
+        .input("partition_input/opaque_definition_copy.h");
+
+    clang
+        .namespace("Test")
+        .output(&scratch)
+        .write_by_header()
+        .unwrap();
+
+    let forward = read(&scratch, "opaque_forward");
+    let definition = read(&scratch, "opaque_definition_copy");
+
+    assert!(
+        forward.contains("type PSHARED_RECORD = *mut SHARED_RECORD"),
+        "opaque_forward.rdl:\n{forward}"
+    );
+    assert!(
+        !forward.contains("struct SHARED_RECORD"),
+        "opaque_forward.rdl:\n{forward}"
+    );
+    assert!(
+        definition.contains("struct SHARED_RECORD {"),
+        "opaque_definition_copy.rdl:\n{definition}"
+    );
+    assert!(
+        !std::path::Path::new(&format!("{scratch}/opaque_definition.rdl")).exists(),
+        "earlier duplicate definition should not produce a partition"
+    );
+}
+
 // `tool_win32` uses this path to exclude `intsafe.h` from metadata.
 #[test]
 fn exclude_headers_drops_partition() {

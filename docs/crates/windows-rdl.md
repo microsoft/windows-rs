@@ -402,16 +402,27 @@ Each collision diagnostic should identify the new declaration and the earlier de
 work should resolve the rules tracked by
 [`windows-rdl` duplicate symbols](https://github.com/microsoft/windows-rs/issues/4186).
 
+The reader now runs an initial duplicate-symbol pass after indexing and before metadata emission.
+`RDL0001` diagnostics label both declarations. The pass rejects collisions between top-level
+types, functions, and constants; duplicate members and parameters; overlapping architecture
+variants; and method overloads with the same parameter types. Distinct method signatures,
+disjoint architecture variants, and matching split get/set properties remain valid.
+
+This first pass compares syntax-level type and signature spellings. Moving it to a resolved model,
+collecting more than one diagnostic, and preventing every validation failure from reaching the
+encoder remain part of the work below.
+
 Initial validation work:
 
-1. Define symbol keys and legal duplicate categories without changing emitted metadata.
-2. Add negative fixtures for duplicate properties, events, fields, methods, types, constants,
-   functions, architecture variants, and parameter names.
+1. Done: define initial syntax-level symbol keys and legal duplicate categories.
+2. Done: add negative fixtures for duplicate properties, events, fields, methods, types,
+   constants, functions, architecture variants, and parameter names.
 3. Separate resolve and validate from `Encoder` so validation cannot partially mutate a winmd.
 4. Add target validation for every built-in and metadata-defined attribute.
 5. Add checks for parsed syntax that is currently ignored or not represented, including attributes
    on event shorthand, method generics, and variadic interface methods.
-6. Run the validator over the committed WinRT, Win32, and WDK RDL as a compatibility baseline.
+6. Done: run the validator over the committed WinRT, Win32, and WDK RDL as a compatibility
+   baseline.
 
 ### Lossless metadata conversion
 
@@ -586,7 +597,7 @@ resulting RDL makes the ABI at least as reviewable as the current explicit inter
 ### Initial implementation order
 
 1. Done: introduce structured diagnostics and named source inputs without changing parser behavior.
-2. Add duplicate-symbol validation and negative diagnostic fixtures.
+2. Done: add duplicate-symbol validation and negative diagnostic fixtures.
 3. Reject syntax and metadata states that are currently ignored or silently lost.
 4. Add Property/Event/MethodSemantics reading and preserve those tables through merge and remap.
 5. Restore a minimal `riddle check` and `riddle build` on the new library APIs.

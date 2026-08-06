@@ -8783,8 +8783,6 @@ mod Windows {
         struct _DEVICE_OBJECT_POWER_EXTENSION {}
         struct _DISK_PARTITION {}
         struct _DRIVER_PROXY_EXTENSION {}
-        struct _DRIVE_LAYOUT_INFORMATION {}
-        struct _DRIVE_LAYOUT_INFORMATION_EX {}
         struct _EPROCESS {}
         struct _EX_RUNDOWN_REF_CACHE_AWARE {}
         struct _EX_TIMER {}
@@ -8796,14 +8794,10 @@ mod Windows {
         struct _KAFFINITY_EX {}
         struct _KE_SRCU {}
         struct _KINTERRUPT {}
-        struct _KPROCESS {}
-        struct _KTHREAD {}
-        struct _OBJECT_TYPE {}
         struct _PCW_BUFFER {}
         struct _PCW_INSTANCE {}
         struct _PCW_REGISTRATION {}
         struct _SCSI_REQUEST_BLOCK {}
-        struct _SET_PARTITION_INFORMATION_EX {}
         type __prefast_analysis_mode_flag0 = i32;
         type __prefast_analysis_mode_flag1 = i32;
         #[library("ntdll.dll")]

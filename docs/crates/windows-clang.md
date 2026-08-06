@@ -153,6 +153,12 @@ The header lists and import-library order are defined by `crates/tools/win32`. A
 resolved exporting library is omitted when `drop_lib_less` is enabled. The generated metadata is
 partitioned by defining header rather than by a curated API namespace.
 
+Per-header generation canonicalizes declarations repeated across translation units before writing
+RDL. Identical items keep the last sorted partition owner to match package remapping, a complete
+definition suppresses an opaque forward declaration, and a concrete type suppresses a same-named
+typedef. Non-equivalent same-named declarations remain visible and fail RDL validation instead of
+producing duplicate metadata rows.
+
 `LIBRARY_OVERRIDES` corrects confirmed SDK import-library defects after the normal first-wins
 resolution pass. Each entry records the SDK value and its replacement. Generation fails if an SDK
 update changes the original value, prompting removal or revalidation of the override.

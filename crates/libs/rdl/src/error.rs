@@ -133,6 +133,24 @@ impl Diagnostic {
         self
     }
 
+    /// Replaces the primary source label and legacy primary location.
+    pub fn with_primary_label(mut self, label: Label) -> Self {
+        self.file_name.clone_from(&label.source);
+        self.line = label.start.line;
+        self.column = label.start.column;
+
+        if let Some(primary) = self
+            .labels
+            .iter_mut()
+            .find(|existing| existing.style == LabelStyle::Primary)
+        {
+            *primary = label;
+        } else {
+            self.labels.insert(0, label);
+        }
+        self
+    }
+
     /// Adds explanatory context.
     pub fn with_note(mut self, note: &str) -> Self {
         self.notes.push(note.to_string());
@@ -178,6 +196,25 @@ impl Error {
     /// Adds a source label.
     pub fn with_label(mut self, label: Label) -> Self {
         self.0.labels.push(label);
+        self
+    }
+
+    /// Replaces the primary source label and legacy primary location.
+    pub fn with_primary_label(mut self, label: Label) -> Self {
+        self.0.file_name.clone_from(&label.source);
+        self.0.line = label.start.line;
+        self.0.column = label.start.column;
+
+        if let Some(primary) = self
+            .0
+            .labels
+            .iter_mut()
+            .find(|existing| existing.style == LabelStyle::Primary)
+        {
+            *primary = label;
+        } else {
+            self.0.labels.insert(0, label);
+        }
         self
     }
 

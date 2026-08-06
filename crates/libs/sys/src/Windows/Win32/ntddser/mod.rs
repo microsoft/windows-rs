@@ -1,6 +1,4 @@
 pub const EVEN_PARITY: i32 = 2;
-pub const GUID_DEVINTERFACE_COMPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
-pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
 pub const IOCTL_INTERNAL_SERENUM_REMOVE_SELF: i32 = 3604999;
 pub const IOCTL_SERIAL_APPLY_DEFAULT_CONFIGURATION: i32 = 1769632;
 pub const IOCTL_SERIAL_CLEAR_STATS: i32 = 1769616;
