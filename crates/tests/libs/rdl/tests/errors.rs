@@ -20,6 +20,70 @@ fn syntax_error_reports_line_and_column() {
 }
 
 #[test]
+fn named_source_populates_structured_diagnostic() {
+    let error = windows_rdl::reader()
+        .input_text_named(
+            "src/widget.rdl",
+            "#[winrt] mod Test { this is not valid rdl }",
+        )
+        .output(out_path("named_source"))
+        .write()
+        .unwrap_err();
+
+    assert_eq!(error.severity, windows_rdl::Severity::Error);
+    assert_eq!(error.file_name, "src/widget.rdl");
+    assert_eq!(error.labels.len(), 1);
+
+    let label = &error.labels[0];
+    assert_eq!(label.style, windows_rdl::LabelStyle::Primary);
+    assert_eq!(label.source, "src/widget.rdl");
+    assert_eq!(label.start.line, error.line);
+    assert_eq!(label.start.column, error.column);
+}
+
+#[test]
+fn multiple_named_sources_report_the_failing_source() {
+    let error = windows_rdl::reader()
+        .input_texts_named([
+            ("src/first.rdl", "#[winrt] mod First {}"),
+            (
+                "src/second.rdl",
+                "#[winrt] mod Second { this is not valid rdl }",
+            ),
+        ])
+        .output(out_path("multiple_named_sources"))
+        .write()
+        .unwrap_err();
+
+    assert_eq!(error.file_name, "src/second.rdl");
+    assert_eq!(error.labels[0].source, "src/second.rdl");
+}
+
+#[test]
+fn diagnostic_supports_codes_labels_notes_and_help() {
+    let diagnostic = windows_rdl::Diagnostic::new("duplicate property", "src/widget.rdl", 8, 4)
+        .with_code("RDL0007")
+        .with_label(windows_rdl::Label::secondary(
+            "src/widget.rdl",
+            3,
+            4,
+            "first declared here",
+        ))
+        .with_note("properties in an interface must be unique")
+        .with_help("rename or remove one property");
+
+    assert_eq!(diagnostic.code.as_deref(), Some("RDL0007"));
+    assert_eq!(diagnostic.labels.len(), 2);
+    assert_eq!(diagnostic.notes.len(), 1);
+    assert_eq!(diagnostic.help.len(), 1);
+    assert!(
+        diagnostic
+            .to_string()
+            .starts_with("\nerror[RDL0007]: duplicate property")
+    );
+}
+
+#[test]
 #[should_panic(expected = "error: output is required")]
 fn missing_output_is_rejected() {
     // `Display` branch 2: empty file name yields a bare message with no `-->`.

@@ -34,6 +34,10 @@ Input, reference, and output paths accept strings, `Path`, or `PathBuf`, so buil
 paths without converting them to UTF-8 strings. `.input_text(..)` and `.input_texts(..)` compile RDL
 source already in memory.
 
+Use `.input_text_named(name, source)` or `.input_texts_named(sources)` for in-memory sources whose
+names should appear in diagnostics. `Diagnostic` carries a severity, optional code, source labels,
+notes, and help. `Error` is a small owned wrapper that dereferences to its `Diagnostic`.
+
 ### RDL to winmd, and back
 
 Use `reader` to compile `.rdl` into `.winmd`. Use `writer` to regenerate canonical `.rdl` from
@@ -348,3 +352,247 @@ WDK metadata has at least one representable direction flag.
 - **Pointer constness:** `metadata::Type` stores one constness bit with a pointer depth. Uniform
   chains such as `*mut *mut T` and `*const *const T` round-trip. Mixed chains are rejected before
   metadata is written, including chains nested inside a reference.
+
+## Future development
+
+RDL should remain an explicit description of the API and its ABI. Concision is useful when it
+removes repetitive syntax without hiding interface boundaries, factory calls, allocations,
+marshaling, versioning, compatibility obligations, or other costs that API authors need to review.
+MIDL3 syntax is therefore an input for comparison, not a feature checklist.
+
+The first development work should focus on correctness, lossless conversion, diagnostics, and
+source-level usability. Runtime-class shorthand should be evaluated later and adopted only where
+the lowering remains visible and predictable.
+
+### Semantic validation
+
+The reader currently combines parsing, name resolution, validation, and metadata emission. This
+makes it difficult to report more than the first error and allows some invalid source shapes to
+reach the writer. Add a resolved RDL model and a validation pass before emitting metadata:
+
+```text
+source -> syntax tree -> resolved model -> validation -> metadata writer
+```
+
+The resolved model should retain source spans for declarations, names, types, attributes, attribute
+arguments, parameters, and references. Validation should produce a list of diagnostics rather than
+stopping at the first error. Metadata emission should run only when the list contains no errors.
+
+Validation rules should be grouped by profile:
+
+| Profile | Examples |
+|---------|----------|
+| Common | Names, attributes, generic arity, overloads |
+| Win32 | Calling conventions, libraries, pointers, arrays, architecture, layout |
+| WinRT | Type graph, classes, factories, contracts, versions, overloads |
+| Round trip | Source or metadata forms that cannot be represented |
+
+Duplicate handling needs an explicit symbol model rather than a blanket uniqueness check. A scope
+may contain several declarations with the same source name only when the declaration kind permits
+it and the variants are distinguishable:
+
+- Method overloads must have distinct signatures and valid overload metadata.
+- Architecture variants must have nonconflicting architecture masks.
+- Repeated partial declarations must follow a defined merge rule.
+- Properties, events, fields, enum members, generic parameters, and ordinary types must be unique.
+- A function, constant, and type sharing a metadata scope must be checked against the output
+  representation rather than accepted because they live in separate internal maps.
+
+Each collision diagnostic should identify the new declaration and the earlier declaration. This
+work should resolve the rules tracked by
+[`windows-rdl` duplicate symbols](https://github.com/microsoft/windows-rs/issues/4186).
+
+Initial validation work:
+
+1. Define symbol keys and legal duplicate categories without changing emitted metadata.
+2. Add negative fixtures for duplicate properties, events, fields, methods, types, constants,
+   functions, architecture variants, and parameter names.
+3. Separate resolve and validate from `Encoder` so validation cannot partially mutate a winmd.
+4. Add target validation for every built-in and metadata-defined attribute.
+5. Add checks for parsed syntax that is currently ignored or not represented, including attributes
+   on event shorthand, method generics, and variadic interface methods.
+6. Run the validator over the committed WinRT, Win32, and WDK RDL as a compatibility baseline.
+
+### Lossless metadata conversion
+
+RDL cannot serve as the reviewable source for arbitrary winmd files while metadata tables are
+silently discarded. `windows-metadata` currently skips the Property, PropertyMap, Event, EventMap,
+and MethodSemantics tables while reading. The merge and remap paths also omit WinRT runtime-class
+methods. `tool_winrt` relies on interface accessors being enough for `windows-bindgen`, but that is
+not a lossless metadata transformation.
+
+The desired rule is:
+
+> Every metadata fact is preserved, represented explicitly, or rejected with a diagnostic.
+
+Initial losslessness work:
+
+1. Add reader row types and traversal APIs for Property, PropertyMap, Event, EventMap, and
+   MethodSemantics.
+2. Preserve those tables and WinRT class methods through `windows-metadata` merge and remap.
+3. Add table-by-table winmd -> winmd tests that compare semantic rows before and after conversion.
+4. Add winmd -> RDL -> winmd tests for properties, events, class methods, return rows, and custom
+   attributes on every supported parent.
+5. Inventory every ECMA-335 table that the reader skips and classify it as preserved, irrelevant
+   to Windows metadata, or unsupported with an error.
+6. Replace known silent losses with errors until a lossless spelling or copy path exists.
+
+The existing round-trip limits above should become machine-readable capabilities so the writer can
+report the exact unrepresentable row rather than relying only on documentation.
+
+### Diagnostics
+
+Diagnostics should read naturally in a terminal and follow the useful parts of `rustc` output:
+
+```text
+error[RDL0007]: duplicate property `Name`
+  --> src/widget.rdl:18:9
+   |
+12 |         Name: String;
+   |         ------------ first declared here
+...
+18 |         Name: String;
+   |         ^^^^ duplicate property
+   |
+   = help: remove one declaration or use distinct property names
+```
+
+A diagnostic should contain:
+
+- Stable code, severity, message, and primary span.
+- Zero or more labeled secondary spans.
+- Notes and actionable help.
+- Source name and source text supplied independently, including named in-memory inputs.
+- A rendering API separate from the diagnostic data model.
+
+The library should return structured diagnostics and leave color, terminal width, and final
+rendering to the caller. The default renderer should support color auto-detection, `--color`, short
+and human-readable formats, and one final error count. JSON output should be available for editors
+and build systems.
+
+Parser recovery is needed to report several useful errors from one file. It does not need to accept
+an invalid tree for metadata emission. Recovery can synchronize at module items, interface members,
+fields, enum variants, and semicolons. Semantic validation can then continue for unaffected items.
+
+### `riddle` command-line tool
+
+Bring back `riddle` as a small binary crate built on the library APIs. Do not restore the old
+implementation. The binary should contain argument parsing, terminal rendering, file discovery,
+and exit-code policy; parsing, validation, formatting, and conversion should remain library code.
+
+An initial command set:
+
+| Command | Purpose |
+|---------|---------|
+| `riddle check` | Parse, resolve, and validate RDL without writing a winmd |
+| `riddle build` | Validate and compile RDL to winmd |
+| `riddle fmt` | Format files, with `--check` for CI |
+| `riddle dump` | Write canonical RDL from winmd |
+| `riddle validate` | Validate an existing winmd and report unsupported or malformed metadata |
+
+All commands should accept repeated inputs and references, directories, standard input where it is
+unambiguous, and the default Windows metadata. They should share the same diagnostic renderer and
+support response files if Windows command-line limits become relevant.
+
+### Formatting
+
+The current formatter reparses source as a `proc_macro2::TokenStream`. Invalid input becomes an
+empty token stream, and comments are not part of the token stream. This is unsafe for a user-facing
+`fmt` command.
+
+Formatting should:
+
+- Return diagnostics for invalid input and never replace it with empty output.
+- Preserve regular and documentation comments.
+- Be idempotent.
+- Format from the RDL syntax tree rather than from generic Rust tokens.
+- Preserve source constructs that are metadata-equivalent but meaningful to authors.
+- Support whole files and source ranges for editor integration.
+
+Start by changing `formatter::format` to return `Result` and adding comment-preserving lexer tokens.
+Add fixtures for comments between attributes, declarations, members, parameters, and closing
+delimiters before enabling in-place CLI formatting.
+
+### Imports and name resolution
+
+Only glob imports currently participate in name resolution. Expand this deliberately rather than
+inheriting every Rust `use` form without a metadata use case.
+
+The first useful forms are:
+
+```rust
+use Windows::Foundation::Point;
+use Windows::Foundation::Collections as Collections;
+use Windows::Foundation::{Point, Size};
+```
+
+Resolution should detect ambiguity instead of selecting the first match. Diagnostics should list
+the competing declarations and suggest qualification or an alias. Unused-import warnings and
+duplicate-import warnings can follow once resolution is stable. The writer should have a defined
+policy for choosing qualified names or imports; source compilation must not depend on writer style.
+
+### Overload authoring
+
+Overloads are a suitable convenience because the metadata already carries the distinction and the
+author must still write every ABI method signature. RDL should let authors use the public method
+name while supplying or deriving the metadata ABI name.
+
+Investigate a source-level spelling along these lines:
+
+```rust
+#[overload(MethodWithValue)]
+fn Method(&self, value: i32);
+```
+
+The final design should make these facts clear:
+
+- The public projected name.
+- The unique metadata method name.
+- The full signature used to distinguish overloads.
+- Whether a default overload is required.
+
+Automatic metadata-name generation may be offered, but canonical RDL should expose the generated
+name so ABI changes remain reviewable. Validation must detect duplicate signatures, reused metadata
+names, inconsistent overload groups, and invalid `DefaultOverloadAttribute` placement. This work
+should address [`windows-rdl` overload attribute should be supported directly][rdl-overloads].
+
+### Runtime-class authoring
+
+MIDL3 runtime-class bodies are much shorter because the compiler synthesizes default, factory,
+static, and composable interfaces. Those interfaces are real ABI and versioning boundaries. RDL
+should not copy this design without showing authors what is generated and how it changes.
+
+Investigate class conveniences with these constraints:
+
+- No hidden interface is added without a stable, inspectable name.
+- Constructor and static-member lowering is available through `riddle dump` or another expansion
+  view.
+- Interface assignment and method order are deterministic.
+- Adding a constructor or member cannot silently change an existing interface ABI.
+- Version and contract placement is explicit or derived by a documented, reviewable rule.
+- Authors can always write the fully lowered interface form.
+
+Compare three designs before implementation:
+
+1. Keep classes explicit and add only diagnostics and templates for common factory patterns.
+2. Add class-body syntax that requires authors to name the target interface for each member group.
+3. Add MIDL3-like synthesis, but require an expansion manifest that is committed and checked for
+   ABI changes.
+
+Use the remaining MIDLRT-backed activation, constructor, overload, composable, `noexcept`, and
+reference-parameter tests as study cases. Replacing MIDLRT in those tests is useful only when the
+resulting RDL makes the ABI at least as reviewable as the current explicit interface form.
+
+### Initial implementation order
+
+1. Done: introduce structured diagnostics and named source inputs without changing parser behavior.
+2. Add duplicate-symbol validation and negative diagnostic fixtures.
+3. Reject syntax and metadata states that are currently ignored or silently lost.
+4. Add Property/Event/MethodSemantics reading and preserve those tables through merge and remap.
+5. Restore a minimal `riddle check` and `riddle build` on the new library APIs.
+6. Replace the formatter's silent parse fallback, then add comment preservation and `riddle fmt`.
+7. Add named imports, aliases, grouped imports, and ambiguity diagnostics.
+8. Implement explicit overload authoring and canonical expansion.
+9. Evaluate runtime-class conveniences against the ABI-visibility constraints above.
+
+[rdl-overloads]: https://github.com/microsoft/windows-rs/issues/4166

@@ -17,7 +17,7 @@ use std::path::{Path, PathBuf};
 use syn::spanned::Spanned;
 use windows_metadata as metadata;
 
-pub use error::Error;
+pub use error::{Diagnostic, Error, Label, LabelStyle, Position, Severity};
 use proc_macro2::{Literal, Span, TokenStream};
 use quote::quote;
 pub use reader::Reader;

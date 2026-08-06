@@ -55,11 +55,16 @@ fn fixed_unsigned_value(value: u64) -> metadata::Value {
 /// Builder that compiles RDL files into `.winmd` metadata.
 pub struct Reader {
     input: Vec<PathBuf>,
-    input_text: Vec<String>,
+    input_text: Vec<InputText>,
     reference: Vec<PathBuf>,
     reference_default: bool,
     reference_bytes: Vec<Vec<u8>>,
     output: PathBuf,
+}
+
+struct InputText {
+    name: String,
+    text: String,
 }
 
 impl Reader {
@@ -76,7 +81,15 @@ impl Reader {
 
     /// Adds inline RDL source text to compile instead of a file on disk.
     pub fn input_text(&mut self, input: &str) -> &mut Self {
-        self.input_text.push(input.to_string());
+        self.input_text_named(".rdl", input)
+    }
+
+    /// Adds named inline RDL source text to compile instead of a file on disk.
+    pub fn input_text_named(&mut self, name: impl AsRef<str>, input: &str) -> &mut Self {
+        self.input_text.push(InputText {
+            name: name.as_ref().to_string(),
+            text: input.to_string(),
+        });
         self
     }
 
@@ -88,6 +101,19 @@ impl Reader {
     {
         for input in inputs {
             self.input_text(input.as_ref());
+        }
+        self
+    }
+
+    /// Adds named inline RDL source texts to compile instead of files on disk.
+    pub fn input_texts_named<I, N, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = (N, S)>,
+        N: AsRef<str>,
+        S: AsRef<str>,
+    {
+        for (name, input) in inputs {
+            self.input_text_named(name, input.as_ref());
         }
         self
     }
@@ -327,7 +353,7 @@ fn preprocess_rdl(contents: &str) -> std::borrow::Cow<'_, str> {
     std::borrow::Cow::Owned(result)
 }
 
-fn expand_rdl_files(paths: &[PathBuf], input_text: &[String]) -> Result<Vec<File>, Error> {
+fn expand_rdl_files(paths: &[PathBuf], input_text: &[InputText]) -> Result<Vec<File>, Error> {
     let mut input = vec![];
 
     for path in paths {
@@ -346,14 +372,19 @@ fn expand_rdl_files(paths: &[PathBuf], input_text: &[String]) -> Result<Vec<File
         input.push(file);
     }
 
-    for contents in input_text {
-        let contents = preprocess_rdl(contents);
+    for input_text in input_text {
+        let contents = preprocess_rdl(&input_text.text);
         let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
             let start = error.span().start();
-            Error::new(&error.to_string(), ".rdl", start.line, start.column)
+            Error::new(
+                &error.to_string(),
+                &input_text.name,
+                start.line,
+                start.column,
+            )
         })?;
 
-        file.source = ".rdl".to_string();
+        file.source.clone_from(&input_text.name);
         input.push(file);
     }
 
