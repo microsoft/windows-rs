@@ -3,7 +3,7 @@
 This blank app demonstrates TraceLogging events across the Windows Reactor startup lifecycle. It
 renders one static `TextBlock` in a 1000x1000 window.
 
-The app uses `windows-tracing` to emit TraceLogging events from the
+The app uses the ETW team's `tracelogging` crate to emit TraceLogging events from the
 `BenchmarkSyntheticApps` provider:
 
 - Provider GUID: `FD80D616-E92B-4B2B-9BED-131ADA36A8FD`
@@ -33,27 +33,81 @@ executable.
 
 ## MSIX package
 
-`package.ps1` builds the release executable and creates an x64 MSIX containing the executable,
-bootstrap DLL, PRI file, manifest, and generated placeholder logos. The publisher must match the
-certificate that will sign the package.
+Run these commands from the repository root:
 
-Create an unsigned package for inspection:
+1. Install Windows App Development CLI 0.5.0 or later, or upgrade an existing installation:
 
-```powershell
-.\package.ps1 -Publisher "CN=Publisher"
-```
+    ```powershell
+    # First installation:
+    winget install Microsoft.WinAppCli --source winget
 
-Sign with a PFX:
+    # Existing installation:
+    winget upgrade Microsoft.WinAppCli --source winget
 
-```powershell
-$password = Read-Host "Certificate password" -AsSecureString
-.\package.ps1 `
-    -Publisher "CN=Publisher" `
-    -CertificatePath C:\certificates\package.pfx `
-    -CertificatePassword $password
-```
+    winapp --version
+    ```
 
-The output defaults to `target\reactor-startup-msix\BlankWindowsReactor_x64.msix`. The package
-remains framework-dependent; install `Microsoft.WindowsAppRuntime.2.msix` on the target machine
-before launching it. Certificate paths may be local or UNC paths; network PFX files are copied to a
-temporary local file for `signtool` and removed after signing.
+2. Build the app and prepare the package layout:
+
+    ```powershell
+    cargo build -p reactor_startup_perf --release --quiet
+    $work = "target\reactor-startup-msix"
+    $layout = "$work\layout"
+    Remove-Item $layout -Recurse -Force -ErrorAction Ignore
+    New-Item $layout -ItemType Directory | Out-Null
+    Copy-Item `
+        target\release\BlankWindowsReactor.exe, `
+        target\release\microsoft.windowsappruntime.bootstrap.dll, `
+        target\release\resources.pri `
+        $layout
+    $output = "$work\BlankWindowsReactor_x64.msix"
+    $manifest = "crates\samples\reactor\startup_perf\package\Package.appxmanifest"
+    ```
+
+3. Create an unsigned package:
+
+    ```powershell
+    winapp pack $layout --manifest $manifest --output $output --skip-pri
+    ```
+
+    To sign without a timestamp, use one `winapp pack` call:
+
+    ```powershell
+    $certificate = "C:\certificates\package.pfx"
+    $securePassword = Read-Host "Certificate password" -AsSecureString
+    $certificatePassword = [Net.NetworkCredential]::new("", $securePassword).Password
+    winapp pack $layout `
+        --manifest $manifest `
+        --output $output `
+        --skip-pri `
+        --cert $certificate `
+        --cert-password $certificatePassword
+    ```
+
+    `winapp pack` cannot timestamp a signature. For timestamped signing, package first and then
+    sign:
+
+    ```powershell
+    $certificate = "C:\certificates\package.pfx"
+    $timestampUrl = "https://timestamp.example.com"
+    $securePassword = Read-Host "Certificate password" -AsSecureString
+    $certificatePassword = [Net.NetworkCredential]::new("", $securePassword).Password
+    winapp pack $layout --manifest $manifest --output $output --skip-pri
+    winapp sign $output `
+        $certificate `
+        --password $certificatePassword `
+        --timestamp $timestampUrl
+    ```
+
+The checked-in manifest uses version `1.0.0.0` and the Microsoft corporate publisher. Update its
+`Identity` before packaging if either value needs to change. The publisher must exactly match the
+signing certificate subject.
+
+`--skip-pri` preserves the WinUI `resources.pri` produced by the build. WinApp CLI accepts local and
+UNC certificate paths, but it passes the path directly to `signtool`; copy the PFX locally first if
+the signing environment does not allow `signtool` to read the share. Certificate passwords are
+command-line arguments because WinApp CLI does not provide a secure input or environment-variable
+option.
+
+The package remains framework-dependent. Install `Microsoft.WindowsAppRuntime.2.msix` on the target
+machine before launching it.
