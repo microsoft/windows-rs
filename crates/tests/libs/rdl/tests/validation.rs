@@ -162,6 +162,123 @@ fn duplicate_labels_preserve_both_source_names() {
 }
 
 #[test]
+fn duplicate_signatures_use_resolved_type_identity() {
+    for (name, source, message) in [
+        (
+            "resolved_method",
+            r#"
+use Other::Value as Alias;
+
+#[winrt]
+mod Test {
+    interface IValue {
+        fn Get(&self, value: Alias);
+        fn Get(&self, value: Other::Value);
+    }
+}
+
+#[winrt]
+mod Other {
+    struct Value {}
+}
+"#,
+            "duplicate method `Get`",
+        ),
+        (
+            "resolved_attribute",
+            r#"
+use Other::Value as Alias;
+
+#[win32]
+mod Test {
+    attribute Marker {
+        fn(value: Alias);
+        fn(value: Other::Value);
+    }
+}
+
+#[win32]
+mod Other {
+    struct Value {}
+}
+"#,
+            "duplicate attribute constructor `Marker`",
+        ),
+    ] {
+        let error = error(name, source);
+        assert_eq!(error.code.as_deref(), Some("RDL0001"));
+        assert_eq!(error.message, message);
+    }
+}
+
+#[test]
+fn unresolved_types_are_collected_before_encoding() {
+    let report = windows_rdl::reader()
+        .input_text_named(
+            "src/test.rdl",
+            r#"
+#[winrt]
+mod Test {
+    interface IValue {
+        fn First(&self, value: MissingFirst);
+        fn Second(&self, value: MissingSecond);
+    }
+}
+"#,
+        )
+        .check_all();
+
+    assert_eq!(report.diagnostics().len(), 2);
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .all(|diagnostic| diagnostic.message == "type not found")
+    );
+}
+
+#[test]
+fn generic_arity_is_validated_on_resolved_types() {
+    let report = windows_rdl::reader()
+        .input_text_named(
+            "src/test.rdl",
+            r#"
+#[winrt]
+mod Test {
+    interface IVector<T> {
+        fn Append(&self, value: T);
+    }
+    interface IUses {
+        fn Missing(&self, value: IVector);
+        fn Extra(&self, value: IVector<i32, u32>);
+    }
+}
+"#,
+        )
+        .check_all();
+
+    assert_eq!(report.diagnostics().len(), 2);
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .all(|diagnostic| diagnostic.code.as_deref() == Some("RDL0005"))
+    );
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .any(|diagnostic| diagnostic.message.contains("but 0 were provided"))
+    );
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .any(|diagnostic| diagnostic.message.contains("but 2 were provided"))
+    );
+}
+
+#[test]
 fn unrepresentable_syntax_is_rejected() {
     let cases = [
         (

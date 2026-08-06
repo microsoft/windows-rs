@@ -77,6 +77,19 @@ impl<'a> Index<'a> {
             })
     }
 
+    pub fn generic_arity(&self, namespace: &str, name: &str) -> Option<usize> {
+        self.namespaces
+            .get(namespace)?
+            .types
+            .get(name)?
+            .first()
+            .map(|(_, item)| match item {
+                Item::Delegate(item) => item.sig.generics.params.len(),
+                Item::Interface(item) => item.generics.params.len(),
+                _ => 0,
+            })
+    }
+
     pub fn get<'b>(&'b self, namespace: &str, name: &str) -> impl Iterator<Item = &'b Item> {
         self.namespaces
             .get(namespace)

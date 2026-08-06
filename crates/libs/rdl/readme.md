@@ -43,9 +43,10 @@ names should appear in diagnostics. `Diagnostic` stores a severity, optional cod
 notes, and help. `DiagnosticReport` stores the collected diagnostics and their original source
 text. `Error` is a small owned wrapper that dereferences to its `Diagnostic`.
 
-The reader reports `RDL0001` for duplicate symbols and `RDL0002` for accepted syntax that cannot be
-represented in metadata. The writer likewise rejects metadata forms that have no lossless RDL
-spelling rather than emitting incomplete source.
+The reader reports `RDL0001` for duplicate symbols, `RDL0002` for accepted syntax that cannot be
+represented in metadata, `RDL0003`/`RDL0004` for import failures, and `RDL0005` for generic-arity
+errors. The writer likewise rejects metadata forms that have no lossless RDL spelling rather than
+emitting incomplete source.
 
 The `riddle` binary provides the same operations from a terminal:
 

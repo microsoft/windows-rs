@@ -59,7 +59,7 @@ fn collect_bitor_variants_inner(expr: &syn::Expr, names: &mut Vec<String>) -> Op
     }
 }
 
-impl Encoder<'_> {
+impl Resolver<'_, '_> {
     fn find_attribute_type(&self, path: &syn::Path) -> Result<Option<AttributeInfo>, Error> {
         let mut segments: Vec<String> = path
             .segments
@@ -210,24 +210,22 @@ impl Encoder<'_> {
         let mut constructors = vec![];
         let mut properties = vec![];
 
-        if let Some(reference) = self.output.reference() {
-            for typedef in reference.get(namespace, attr_name) {
-                if typedef.category() == metadata::reader::TypeCategory::Attribute {
-                    for method in typedef.methods() {
-                        if method.name() == ".ctor" {
-                            let sig = method.signature(&[]);
-                            constructors.push(sig.types);
-                        }
+        for typedef in self.reference.get(namespace, attr_name) {
+            if typedef.category() == metadata::reader::TypeCategory::Attribute {
+                for method in typedef.methods() {
+                    if method.name() == ".ctor" {
+                        let sig = method.signature(&[]);
+                        constructors.push(sig.types);
                     }
-                    for field in typedef.fields() {
-                        let flags = field.flags();
-                        if flags.contains(metadata::FieldAttributes::Public)
-                            && !flags.contains(metadata::FieldAttributes::Static)
-                            && !flags.contains(metadata::FieldAttributes::Literal)
-                            && !flags.contains(metadata::FieldAttributes::SpecialName)
-                        {
-                            properties.push((field.name().to_string(), field.ty()));
-                        }
+                }
+                for field in typedef.fields() {
+                    let flags = field.flags();
+                    if flags.contains(metadata::FieldAttributes::Public)
+                        && !flags.contains(metadata::FieldAttributes::Static)
+                        && !flags.contains(metadata::FieldAttributes::Literal)
+                        && !flags.contains(metadata::FieldAttributes::SpecialName)
+                    {
+                        properties.push((field.name().to_string(), field.ty()));
                     }
                 }
             }
@@ -261,7 +259,7 @@ impl Encoder<'_> {
             let types: Result<Vec<_>, _> = method
                 .inputs
                 .iter()
-                .map(|arg| self.encode_type_in_attr_ns(namespace, &arg.ty))
+                .map(|arg| self.resolve_type_in_attr_ns(namespace, &arg.ty))
                 .collect();
             if let Ok(types) = types {
                 constructors.push(types);
@@ -270,7 +268,7 @@ impl Encoder<'_> {
 
         let mut properties = vec![];
         for (prop_name, prop_ty) in &attr_item.properties {
-            if let Ok(ty) = self.encode_type_in_attr_ns(namespace, prop_ty) {
+            if let Ok(ty) = self.resolve_type_in_attr_ns(namespace, prop_ty) {
                 properties.push((prop_name.to_string(), ty));
             }
         }
@@ -280,6 +278,12 @@ impl Encoder<'_> {
             constructors,
             properties,
         })
+    }
+}
+
+impl Encoder<'_> {
+    fn find_attribute_type(&self, path: &syn::Path) -> Result<Option<AttributeInfo>, Error> {
+        self.resolver().find_attribute_type(path)
     }
 
     fn split_args<'a>(&self, args: &'a [syn::Expr]) -> Result<SplitArgs<'a>, Error> {
@@ -609,9 +613,10 @@ impl Encoder<'_> {
         attr: &syn::Attribute,
         pseudo: &PseudoAttr,
     ) -> Result<AttributeRef, Error> {
-        let info = self
+        let resolver = self.resolver();
+        let info = resolver
             .find_in_reference(METADATA_NAMESPACE, pseudo.metadata)
-            .or_else(|| self.find_in_index(METADATA_NAMESPACE, pseudo.metadata))
+            .or_else(|| resolver.find_in_index(METADATA_NAMESPACE, pseudo.metadata))
             .ok_or_else(|| self.error(attr, "pseudo-attribute type not found"))?;
 
         let raw_args: Vec<syn::Expr> = match &attr.meta {

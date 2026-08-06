@@ -409,8 +409,10 @@ types, functions, and constants; duplicate members and parameters; overlapping a
 variants; and method overloads with the same parameter types. Distinct method signatures,
 disjoint architecture variants, and matching split get/set properties remain valid.
 
-This first pass compares syntax-level type and signature spellings. Moving it to a resolved model,
-collecting more than one diagnostic, and preventing every validation failure from reaching the
+Top-level symbol and property checks still compare syntax spellings. Method overloads and attribute
+constructors now compare resolved `metadata::Type` signatures, so an import alias and a qualified
+path to the same type collide. `RDL0005` rejects missing or extra generic arguments. Moving the
+remaining checks to a resolved model and preventing every validation failure from reaching the
 encoder remain part of the work below.
 
 The same pre-emission pass now rejects accepted syntax that the encoder cannot represent.
@@ -431,7 +433,9 @@ Initial validation work:
 1. Done: define initial syntax-level symbol keys and legal duplicate categories.
 2. Done: add negative fixtures for duplicate properties, events, fields, methods, types,
    constants, functions, architecture variants, and parameter names.
-3. Separate resolve and validate from `Encoder` so validation cannot partially mutate a winmd.
+3. In progress: separate resolve and validate from `Encoder` so validation cannot partially mutate
+   a winmd. Type and attribute lookup now share `Resolver`; signature and generic-arity checks run
+   before encoding.
 4. Add target validation for every built-in and metadata-defined attribute.
 5. Done: add checks for parsed syntax that is currently ignored or not represented, including
    attributes on event shorthand, method generics, and variadic interface methods.
@@ -501,11 +505,13 @@ an invalid tree for metadata emission. Recovery can synchronize at module items,
 fields, enum variants, and semicolons. Semantic validation can then continue for unaffected items.
 
 `Reader::check_all` now returns a `DiagnosticReport`. Parsing continues across input files, and
-syntax-level validation collects independent errors across declarations and namespaces. The report
-retains source text for named in-memory inputs and files, so terminal rendering does not need to
-re-read them. When one source name identifies different texts, the report omits that ambiguous
-lookup rather than showing the wrong source. Stable source IDs, parser recovery within one file,
-and collection of errors still discovered during encoding remain future work.
+validation collects independent errors across declarations and namespaces. Resolved method and
+attribute-constructor signatures, unresolved types, import ambiguity, and generic arity are checked
+before encoding. The report retains source text for named in-memory inputs and files, so terminal
+rendering does not need to re-read them. When one source name identifies different texts, the
+report omits that ambiguous lookup rather than showing the wrong source. Stable source IDs, parser
+recovery within one file, and collection of all errors still discovered during encoding remain
+future work.
 
 ### `riddle` command-line tool
 
@@ -667,10 +673,10 @@ The main findings are:
 
 - **Validation:** Most passes stop at the first error. Collect independent semantic diagnostics
   before encoding.
-- **Resolution:** Type and attribute lookup share import directives but still duplicate resolution
-  logic. Add one resolver that returns canonical symbol identities.
-- **Duplicate checks:** Signature keys compare token spelling, so aliases can hide equivalent
-  signatures. Compare resolved types, generic arity, and calling shape.
+- **Resolution:** Type and attribute lookup now share `Resolver` and produce canonical
+  `metadata::Type` identities. Declaration-level resolved nodes are still needed.
+- **Duplicate checks:** Method and attribute-constructor signatures now compare resolved types and
+  generic arity. Properties, class interface lists, and other checks still use syntax spelling.
 - **Encoding:** Some unresolved or invalid states are found while the winmd writer is being
   mutated. Make the encoder consume only a validated resolved model.
 - **Diagnostics:** The data model supports labels, but source text is external and `riddle` renders
@@ -689,9 +695,10 @@ round-trip coverage rather than parser coverage alone.
 
 The next phase should proceed in this order:
 
-1. Introduce a source registry, canonical symbol IDs, and a shared name resolver. Preserve the
-   current `Result<T, Error>` APIs as convenience wrappers while adding an internal diagnostic
-   collection.
+1. Done: introduce a source registry, canonical type identities, and a shared name resolver.
+   `DiagnosticReport` and `Resolver` provide these layers while preserving the current
+   `Result<T, Error>` APIs as convenience wrappers. Stable numeric source and declaration IDs can
+   be added with the resolved model.
 2. Build a resolved model for declarations, types, attributes, parameters, and imports. Move
    duplicate checks and import ambiguity checks onto that model, and emit no metadata when it has
    errors.

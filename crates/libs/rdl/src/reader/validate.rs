@@ -51,6 +51,128 @@ pub fn validate_symbols(index: &Index) -> Vec<Error> {
     diagnostics
 }
 
+pub fn validate_resolved_symbols(index: &Index, reference: &metadata::reader::Index) -> Vec<Error> {
+    let mut diagnostics = vec![];
+
+    for (namespace, members) in &index.namespaces {
+        for variants in members.types.values() {
+            for (file, item) in variants {
+                match item {
+                    Item::Attribute(item) => {
+                        let resolver = Resolver {
+                            index,
+                            reference,
+                            file,
+                            namespace,
+                            generics: &[],
+                        };
+                        let mut signatures = vec![];
+                        for method in &item.methods {
+                            match resolve_bare_signature(&resolver, method) {
+                                Ok(signature) => {
+                                    if let Some((_, previous)) = signatures
+                                        .iter()
+                                        .find(|(existing, _)| existing == &signature)
+                                    {
+                                        diagnostics.push(duplicate_error(
+                                            "attribute constructor",
+                                            &item.name.to_string(),
+                                            file,
+                                            method.span(),
+                                            file,
+                                            *previous,
+                                        ));
+                                    } else {
+                                        signatures.push((signature, method.span()));
+                                    }
+                                }
+                                Err(error) => diagnostics.push(error),
+                            }
+                        }
+                    }
+                    Item::Interface(item) => {
+                        let generics: Vec<String> = item
+                            .generics
+                            .type_params()
+                            .map(|param| param.ident.to_string())
+                            .collect();
+                        let resolver = Resolver {
+                            index,
+                            reference,
+                            file,
+                            namespace,
+                            generics: &generics,
+                        };
+                        let mut methods = HashMap::<String, Vec<(ResolvedSignature, Span)>>::new();
+                        for member in &item.members {
+                            let InterfaceMember::Method(method) = member else {
+                                continue;
+                            };
+                            match resolve_signature(&resolver, &method.sig) {
+                                Ok(signature) => {
+                                    let name = method.sig.ident.to_string();
+                                    let signatures = methods.entry(name.clone()).or_default();
+                                    if let Some((_, previous)) = signatures
+                                        .iter()
+                                        .find(|(existing, _)| existing == &signature)
+                                    {
+                                        diagnostics.push(duplicate_error(
+                                            "method",
+                                            &name,
+                                            file,
+                                            method.sig.ident.span(),
+                                            file,
+                                            *previous,
+                                        ));
+                                    } else {
+                                        signatures.push((signature, method.sig.ident.span()));
+                                    }
+                                }
+                                Err(error) => diagnostics.push(error),
+                            }
+                        }
+                    }
+                    _ => {}
+                }
+            }
+        }
+    }
+
+    diagnostics
+}
+
+#[derive(PartialEq)]
+struct ResolvedSignature {
+    receiver: bool,
+    types: Vec<metadata::Type>,
+}
+
+fn resolve_signature(
+    resolver: &Resolver,
+    signature: &syn::Signature,
+) -> Result<ResolvedSignature, Error> {
+    let mut receiver = false;
+    let mut types = vec![];
+    for input in &signature.inputs {
+        match input {
+            syn::FnArg::Receiver(_) => receiver = true,
+            syn::FnArg::Typed(param) => types.push(resolver.resolve_type(&param.ty)?),
+        }
+    }
+    Ok(ResolvedSignature { receiver, types })
+}
+
+fn resolve_bare_signature(
+    resolver: &Resolver,
+    signature: &syn::TypeBareFn,
+) -> Result<Vec<metadata::Type>, Error> {
+    signature
+        .inputs
+        .iter()
+        .map(|param| resolver.resolve_type(&param.ty))
+        .collect()
+}
+
 fn validate_namespace_symbols(members: &Namespace<'_>) -> Result<(), Error> {
     let mut symbols = HashMap::<String, (&str, &File, Span)>::new();
 
@@ -166,7 +288,6 @@ fn validate_attribute(file: &File, item: &Attribute) -> Result<(), Error> {
         check_name(file, "attribute property", name, &mut properties)?;
     }
 
-    let mut constructors = HashMap::<String, Span>::new();
     for method in &item.methods {
         validate_bare_params(file, method)?;
         if let Some(variadic) = &method.variadic {
@@ -181,17 +302,6 @@ fn validate_attribute(file: &File, item: &Attribute) -> Result<(), Error> {
                 file,
                 ty.span(),
                 "attribute constructors cannot return a value",
-            );
-        }
-        let key = bare_signature_key(method);
-        if let Some(previous) = constructors.insert(key, method.span()) {
-            return duplicate(
-                "attribute constructor",
-                &item.name.to_string(),
-                file,
-                method.span(),
-                file,
-                previous,
             );
         }
     }
@@ -235,7 +345,6 @@ fn validate_enum(file: &File, item: &Enum) -> Result<(), Error> {
 fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
     validate_type_generics(file, &item.generics, "interfaces")?;
 
-    let mut methods = HashMap::<String, HashMap<String, Span>>::new();
     let mut properties = HashMap::<String, PropertyState>::new();
     let mut events = HashMap::<String, Span>::new();
     let mut member_kinds = HashMap::<String, (&str, Span)>::new();
@@ -266,20 +375,6 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
                 reject_generics(file, &method.sig.generics, "interface methods")?;
                 reject_variadic(file, &method.sig, "interface methods")?;
                 validate_signature_params(file, &method.sig)?;
-
-                let name = method.sig.ident.to_string();
-                let key = signature_key(&method.sig);
-                let overloads = methods.entry(name.clone()).or_default();
-                if let Some(previous) = overloads.insert(key, method.sig.ident.span()) {
-                    return duplicate(
-                        "method",
-                        &name,
-                        file,
-                        method.sig.ident.span(),
-                        file,
-                        previous,
-                    );
-                }
             }
             InterfaceMember::Property(property) => {
                 validate_property(file, property, &mut properties)?;
@@ -507,35 +602,6 @@ fn check_name(
     }
 }
 
-fn signature_key(signature: &syn::Signature) -> String {
-    let mut key = String::new();
-    for input in &signature.inputs {
-        match input {
-            syn::FnArg::Receiver(_) => key.push_str("self;"),
-            syn::FnArg::Typed(param) => {
-                key.push_str(&param.ty.to_token_stream().to_string());
-                key.push(';');
-            }
-        }
-    }
-    if signature.variadic.is_some() {
-        key.push_str("...;");
-    }
-    key
-}
-
-fn bare_signature_key(signature: &syn::TypeBareFn) -> String {
-    let mut key = String::new();
-    for input in &signature.inputs {
-        key.push_str(&input.ty.to_token_stream().to_string());
-        key.push(';');
-    }
-    if signature.variadic.is_some() {
-        key.push_str("...;");
-    }
-    key
-}
-
 fn duplicate<T>(
     kind: &str,
     name: &str,
@@ -544,13 +610,31 @@ fn duplicate<T>(
     previous_file: &File,
     previous_span: Span,
 ) -> Result<T, Error> {
+    Err(duplicate_error(
+        kind,
+        name,
+        current_file,
+        current_span,
+        previous_file,
+        previous_span,
+    ))
+}
+
+fn duplicate_error(
+    kind: &str,
+    name: &str,
+    current_file: &File,
+    current_span: Span,
+    previous_file: &File,
+    previous_span: Span,
+) -> Error {
     let current_start = current_span.start();
     let current_end = current_span.end();
     let previous_start = previous_span.start();
     let previous_end = previous_span.end();
     let primary_message = format!("duplicate {kind}");
 
-    Err(Error::new(
+    Error::new(
         &format!("duplicate {kind} `{name}`"),
         &current_file.source,
         current_start.line,
@@ -574,7 +658,7 @@ fn duplicate<T>(
             "first declared here",
         )
         .with_end(previous_end.line, previous_end.column),
-    ))
+    )
 }
 
 fn unsupported<T>(file: &File, span: Span, message: &str) -> Result<T, Error> {

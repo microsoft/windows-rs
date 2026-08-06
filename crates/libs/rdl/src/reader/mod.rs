@@ -15,6 +15,7 @@ mod item;
 mod method;
 mod module;
 mod param;
+mod resolver;
 mod r#struct;
 mod typedef;
 mod union;
@@ -35,6 +36,7 @@ use interface::*;
 use item::*;
 use method::*;
 use module::*;
+use resolver::*;
 use r#struct::*;
 use typedef::*;
 use union::*;
@@ -284,6 +286,7 @@ impl Reader {
         let reference = metadata::reader::Index::new(reference);
         if !invalid_reference {
             report.extend(validate_use_declarations(&input, &index, &reference));
+            report.extend(validate_resolved_symbols(&index, &reference));
         }
         if !report.is_success() {
             return (None, report);
@@ -715,6 +718,16 @@ struct Encoder<'a> {
 }
 
 impl Encoder<'_> {
+    fn resolver(&self) -> Resolver<'_, '_> {
+        Resolver {
+            index: self.index,
+            reference: self.output.reference().unwrap(),
+            file: self.file,
+            namespace: self.namespace,
+            generics: &self.generics,
+        }
+    }
+
     fn error<S: Spanned>(&self, spanned: S, message: &str) -> Error {
         let start = spanned.span().start();
 
@@ -793,92 +806,7 @@ impl Encoder<'_> {
     }
 
     fn encode_type(&self, ty: &syn::Type) -> Result<metadata::Type, Error> {
-        match ty {
-            syn::Type::Path(ty) => self.encode_type_path(ty),
-            syn::Type::Ptr(ty) => self.encode_type_ptr(ty),
-            syn::Type::Reference(ty) => self.encode_type_reference(ty),
-            syn::Type::Slice(ty) => self.encode_type_slice(ty),
-            syn::Type::Array(ty) => self.encode_type_array(ty),
-            rest => self.err(rest, "type not supported"),
-        }
-    }
-
-    /// Resolves unqualified attribute-argument type names in the attribute's namespace first.
-    fn encode_type_in_attr_ns(
-        &self,
-        attr_ns: &str,
-        ty: &syn::Type,
-    ) -> Result<metadata::Type, Error> {
-        if attr_ns == self.namespace {
-            return self.encode_type(ty);
-        }
-
-        if let syn::Type::Path(type_path) = ty
-            && type_path.qself.is_none()
-            && type_path.path.leading_colon.is_none()
-        {
-            let segs: Vec<String> = type_path
-                .path
-                .segments
-                .iter()
-                .map(|s| s.ident.to_string())
-                .collect();
-
-            if !segs.is_empty() && !segs.iter().any(|s| s == "super") {
-                let name = segs.last().unwrap();
-                let candidate_ns = if segs.len() == 1 {
-                    attr_ns.to_string()
-                } else {
-                    format!("{}.{}", attr_ns, segs[..segs.len() - 1].join("."))
-                };
-
-                if self.index.contains(&candidate_ns, name)
-                    || self
-                        .output
-                        .reference()
-                        .is_some_and(|r| r.contains(&candidate_ns, name))
-                {
-                    let tn = metadata::TypeName {
-                        namespace: candidate_ns.clone(),
-                        name: name.clone(),
-                        generics: vec![],
-                    };
-                    return Ok(if self.type_is_value(&candidate_ns, name) {
-                        metadata::Type::ValueName(tn)
-                    } else {
-                        metadata::Type::ClassName(tn)
-                    });
-                }
-            }
-        }
-
-        self.encode_type(ty)
-    }
-
-    fn type_is_value(&self, namespace: &str, name: &str) -> bool {
-        self.index.is_value_type(namespace, name)
-            || self
-                .output
-                .reference()
-                .and_then(|r| r.get(namespace, name).next())
-                .is_some_and(|def| {
-                    matches!(
-                        def.category(),
-                        metadata::reader::TypeCategory::Struct
-                            | metadata::reader::TypeCategory::Enum
-                    )
-                })
-    }
-
-    fn encode_type_slice(&self, ty: &syn::TypeSlice) -> Result<metadata::Type, Error> {
-        Ok(metadata::Type::Array(Box::new(self.encode_type(&ty.elem)?)))
-    }
-
-    fn encode_type_array(&self, ty: &syn::TypeArray) -> Result<metadata::Type, Error> {
-        Ok(metadata::Type::ArrayFixed(
-            Box::new(self.encode_type(&ty.elem)?),
-            self.encode_lit_int::<usize>(&ty.len)?,
-        ))
+        self.resolver().resolve_type(ty)
     }
 
     fn encode_value(
@@ -1186,262 +1114,8 @@ impl Encoder<'_> {
         value.ok_or_else(|| self.error(expr, "value not valid"))
     }
 
-    fn encode_type_reference(&self, ty: &syn::TypeReference) -> Result<metadata::Type, Error> {
-        let is_mut = ty.mutability.is_some();
-        let ty = self.encode_type(&ty.elem)?;
-
-        let ty = if is_mut {
-            metadata::Type::RefMut(Box::new(ty))
-        } else {
-            metadata::Type::RefConst(Box::new(ty))
-        };
-
-        Ok(ty)
-    }
-
-    fn encode_type_ptr(&self, ty: &syn::TypePtr) -> Result<metadata::Type, Error> {
-        let is_mut = ty.mutability.is_some();
-        let encoded = self.encode_type(&ty.elem)?;
-
-        let ty = match encoded {
-            metadata::Type::PtrMut(inner, pointers) if is_mut => {
-                metadata::Type::PtrMut(inner, pointers + 1)
-            }
-            metadata::Type::PtrConst(inner, pointers) if !is_mut => {
-                metadata::Type::PtrConst(inner, pointers + 1)
-            }
-            metadata::Type::PtrMut(..) | metadata::Type::PtrConst(..) => {
-                return self.err(
-                    ty.elem.as_ref(),
-                    "mixed `*mut` and `*const` pointer chains are not representable",
-                );
-            }
-            _ => {
-                if is_mut {
-                    metadata::Type::PtrMut(Box::new(encoded), 1)
-                } else {
-                    metadata::Type::PtrConst(Box::new(encoded), 1)
-                }
-            }
-        };
-
-        Ok(ty)
-    }
-
-    fn encode_type_path(&self, ty: &syn::TypePath) -> Result<metadata::Type, Error> {
-        self.encode_path(&ty.path)
-    }
-
     fn encode_path(&self, ty: &syn::Path) -> Result<metadata::Type, Error> {
-        let mut path = vec![];
-
-        for segment in &ty.segments {
-            if segment.ident == "super" {
-                if path.is_empty() {
-                    for part in self.namespace.split('.') {
-                        path.push(part.to_string());
-                    }
-                }
-
-                if path.pop().is_none() {
-                    return self.err(ty, "too many leading `super` keywords");
-                }
-            } else {
-                path.push(segment.ident.to_string());
-            }
-        }
-
-        let mut generics = vec![];
-
-        if let Some(last) = ty.segments.last()
-            && let syn::PathArguments::AngleBracketed(arguments) = &last.arguments
-        {
-            for argument in &arguments.args {
-                if let syn::GenericArgument::Type(ty) = argument {
-                    generics.push(self.encode_type(ty)?);
-                }
-            }
-        }
-
-        if path.len() == 1 {
-            if let Some(number) = self.generics.iter().position(|generic| *generic == path[0]) {
-                return Ok(metadata::Type::Generic(
-                    path[0].clone(),
-                    number.try_into().unwrap(),
-                ));
-            }
-
-            match path[0].as_str() {
-                "bool" => return Ok(metadata::Type::Bool),
-                "i8" => return Ok(metadata::Type::I8),
-                "u8" => return Ok(metadata::Type::U8),
-                "i16" => return Ok(metadata::Type::I16),
-                "u16" => return Ok(metadata::Type::U16),
-                "i32" => return Ok(metadata::Type::I32),
-                "u32" => return Ok(metadata::Type::U32),
-                "i64" => return Ok(metadata::Type::I64),
-                "u64" => return Ok(metadata::Type::U64),
-                "f32" => return Ok(metadata::Type::F32),
-                "f64" => return Ok(metadata::Type::F64),
-                "isize" => return Ok(metadata::Type::ISize),
-                "usize" => return Ok(metadata::Type::USize),
-
-                "void" => return Ok(metadata::Type::Void),
-                "String" => return Ok(metadata::Type::String),
-                "Object" => return Ok(metadata::Type::Object),
-                "Char16" => return Ok(metadata::Type::Char),
-
-                _ => {}
-            }
-        }
-
-        let (name, namespace) = path.split_last().unwrap();
-
-        let namespace = if namespace.is_empty() {
-            self.namespace.to_string()
-        } else {
-            namespace.join(".")
-        };
-
-        let make_type = |namespace: &str, type_name: &str| -> Option<metadata::Type> {
-            if self.index.contains(namespace, type_name)
-                || self
-                    .output
-                    .reference()
-                    .is_some_and(|r| r.contains(namespace, type_name))
-            {
-                let tn = metadata::TypeName {
-                    namespace: namespace.to_string(),
-                    name: type_name.to_string(),
-                    generics: generics.clone(),
-                };
-                if self.type_is_value(namespace, type_name) {
-                    Some(metadata::Type::ValueName(tn))
-                } else {
-                    Some(metadata::Type::ClassName(tn))
-                }
-            } else {
-                None
-            }
-        };
-
-        if let Some(ty) = make_type(&namespace, name) {
-            return Ok(ty);
-        }
-
-        let namespace = format!("{}.{}", self.namespace, namespace);
-
-        if let Some(ty) = make_type(&namespace, name) {
-            return Ok(ty);
-        }
-
-        let mut imported = vec![];
-        if path.len() == 1 {
-            for import in &self.file.imports {
-                if import.glob || import.local.as_deref() != Some(name) {
-                    continue;
-                }
-                let (target_name, target_namespace) = import.path.split_last().unwrap();
-                if let Some(candidate) = make_type(&target_namespace.join("."), target_name) {
-                    push_import_candidate(&mut imported, import, candidate);
-                }
-            }
-        } else if !ty.segments.iter().any(|segment| segment.ident == "super") {
-            for import in &self.file.imports {
-                if import.glob || import.local.as_deref() != Some(&path[0]) {
-                    continue;
-                }
-                let target = import.path.join(".");
-                if !self.namespace_exists(&target) {
-                    continue;
-                }
-                let mut namespace = import.path.clone();
-                namespace.extend_from_slice(&path[1..path.len() - 1]);
-                if let Some(candidate) = make_type(&namespace.join("."), name) {
-                    push_import_candidate(&mut imported, import, candidate);
-                }
-            }
-        }
-        if let Some(ty) = self.one_imported_type(ty, name, imported)? {
-            return Ok(ty);
-        }
-
-        let mut globbed = vec![];
-        for import in &self.file.imports {
-            if import.glob
-                && let Some(candidate) = make_type(&import.path.join("."), name)
-            {
-                push_import_candidate(&mut globbed, import, candidate);
-            }
-        }
-        if let Some(ty) = self.one_imported_type(ty, name, globbed)? {
-            return Ok(ty);
-        }
-
-        // Fall back to core aliases only when the scrape did not define its own type.
-        if ty.segments.len() == 1 {
-            match name.as_str() {
-                "Type" => return Ok(metadata::Type::class_named("System", "Type")),
-                "GUID" => return Ok(metadata::Type::value_named("System", "Guid")),
-                "HRESULT" => {
-                    return Ok(metadata::Type::value_named("Windows.Foundation", "HResult"));
-                }
-                _ => {}
-            }
-        }
-
-        Err(self.error(ty, "type not found"))
-    }
-
-    fn namespace_exists(&self, namespace: &str) -> bool {
-        self.index.namespaces.contains_key(namespace)
-            || self
-                .output
-                .reference()
-                .is_some_and(|reference| reference.contains_namespace(namespace))
-    }
-
-    fn one_imported_type(
-        &self,
-        path: &syn::Path,
-        name: &str,
-        candidates: Vec<(&Import, metadata::Type)>,
-    ) -> Result<Option<metadata::Type>, Error> {
-        match candidates.as_slice() {
-            [] => Ok(None),
-            [(_, ty)] => Ok(Some(ty.clone())),
-            _ => {
-                let start = path.span().start();
-                let end = path.span().end();
-                let mut error = Error::new(
-                    &format!("type name `{name}` is ambiguous"),
-                    &self.file.source,
-                    start.line,
-                    start.column,
-                )
-                .with_code("RDL0004")
-                .with_primary_label(
-                    Label::primary(&self.file.source, start.line, start.column)
-                        .with_end(end.line, end.column)
-                        .with_message("ambiguous type name"),
-                )
-                .with_help("use a qualified path or add an explicit named import");
-                for (import, ty) in candidates {
-                    let import_start = import.span.start();
-                    let import_end = import.span.end();
-                    error = error.with_label(
-                        Label::secondary(
-                            &self.file.source,
-                            import_start.line,
-                            import_start.column,
-                            &format!("candidate `{}`", display_named_type(&ty)),
-                        )
-                        .with_end(import_end.line, import_end.column),
-                    );
-                }
-                Err(error)
-            }
-        }
+        self.resolver().resolve_path(ty)
     }
 
     fn encode_return_type(&self, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
