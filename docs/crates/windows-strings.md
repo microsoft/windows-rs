@@ -5,6 +5,7 @@
 - 📦 [crates.io](https://crates.io/crates/windows-strings)
 - 📖 [docs.rs](https://docs.rs/windows-strings)
 - 🚀 [Getting started](../../crates/libs/strings/readme.md)
+- 🧩 [Samples](../../crates/samples/strings)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/strings)
 
 `windows-strings` provides the owned and borrowed string types that Windows APIs expect: `HSTRING`

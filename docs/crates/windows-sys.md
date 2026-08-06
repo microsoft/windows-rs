@@ -5,6 +5,7 @@
 - 📦 [crates.io](https://crates.io/crates/windows-sys)
 - 📖 [docs.rs](https://docs.rs/windows-sys)
 - 🚀 [Getting started](../../crates/libs/sys/readme.md)
+- 🧩 [Samples](../../crates/samples/windows-sys)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
 
 `windows-sys` contains raw Windows API declarations, structs, and constants without wrapper traits.

@@ -5,6 +5,7 @@
 - 📦 [crates.io](https://crates.io/crates/windows-services)
 - 📖 [docs.rs](https://docs.rs/windows-services)
 - 🚀 [Getting started](../../crates/libs/services/readme.md)
+- 🧩 [Samples](../../crates/samples/services)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/services)
 
 `windows-services` lets you write a Windows service process with a builder. Use `Service::new` to

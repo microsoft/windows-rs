@@ -9,8 +9,8 @@ name = "BlankWindowsReactor"
 path = "src/main.rs"
 
 [dependencies]
+tracelogging = "1.2.4"
 windows-reactor = { workspace = true }
-windows-tracing = { workspace = true }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

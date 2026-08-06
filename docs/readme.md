@@ -1,78 +1,39 @@
-`windows-rs` is a family of crates for Windows APIs, from raw bindings to declarative UI. This page
-lists the crates by task.
+`windows-rs` provides Rust crates for Windows APIs, from COM support and system services to UI and
+raw bindings.
 
-- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-- [Releases](https://github.com/microsoft/windows-rs/releases)
+Prefer the focused crates below when they cover the functionality you need. For additional APIs,
+[`windows-bindgen`](crates/windows-bindgen.md) can generate a minimal project-specific binding,
+while [`windows`](crates/windows.md) and [`windows-sys`](crates/windows-sys.md) provide broad API
+coverage behind feature flags.
 
-## A family of crates
-
-Most crates cover one area, such as strings, errors, registry access, or collections. The
-[`windows`](crates/windows.md) and [`windows-sys`](crates/windows-sys.md) crates provide broad API
-coverage behind API-group features.
-
-For most projects, prefer the focused crates below, and generate a minimal, project-specific binding
-with [`windows-bindgen`](crates/windows-bindgen.md) for any additional APIs you need.
-
-## Choosing your crates
-
-Start with what you are trying to do and add the smallest crate that covers it. Follow the link for
-usage and examples.
-
-| If you need | Use |
-| --- | --- |
-| Windows error handling (`HRESULT`, `Error`, `Result`) | [windows-result](crates/windows-result.md) |
-| Windows string types and macros (`HSTRING`, `PCWSTR`, `h!`, `w!`, `s!`) | [windows-strings](crates/windows-strings.md) |
-| COM/WinRT type support (`IUnknown`, the `Interface` trait, `cast`, `GUID`) | [windows-core](crates/windows-core.md) |
-| To declare or implement a COM/WinRT interface | [windows-core](crates/windows-core.md) (`#[interface]` / `#[implement]`) |
-| Stock WinRT collections (`IVector`, `IMap`) | [windows-collections](crates/windows-collections.md) |
-| WinRT values (`IReference<T>`, `TimeSpan`, `DateTime`) | [windows-reference](crates/windows-reference.md), [windows-time](crates/windows-time.md) |
-| Graphics math (vectors, matrices) | [windows-numerics](crates/windows-numerics.md) |
-| WinRT async bridged to Rust futures | [windows-future](crates/windows-future.md) |
-| The Win32 thread pool | [windows-threading](crates/windows-threading.md) |
-| Manifest-free ETW events | [windows-tracing](crates/windows-tracing.md) |
-| The Windows registry | [windows-registry](crates/windows-registry.md) |
-| To author a Windows service | [windows-services](crates/windows-services.md) |
-| The OS version at runtime | [windows-version](crates/windows-version.md) |
-| To link C-style functions without import libs (`link!`, `raw-dylib`) | [windows-link](crates/windows-link.md) |
-| To generate your own focused bindings | [windows-bindgen](crates/windows-bindgen.md) |
-| Embedded Windows metadata for custom build tools | [windows-default](crates/windows-default.md) |
-| A declarative WinUI 3 UI, 2D graphics, a WebView, or a window | [windows-reactor](crates/windows-reactor.md), [windows-canvas](crates/windows-canvas.md), [windows-webview](crates/windows-webview.md), [windows-window](crates/windows-window.md) |
+Each crate page covers usage and maintenance. Generated API documentation is available on
+[docs.rs](https://docs.rs).
 
 ## Crates
 
-The full categorized index follows. Each crate has one page under [`crates/`](crates) covering both
-usage and internals - how the crate is built and maintained (the `tool_bindings` / `tool_reactor` /
-`tool_package` codegen pipeline, generated files, and conventions). Each crate's own `readme.md` is
-the user-facing introduction with a quick example, and the per-crate page links to it. Item-level
-API reference is the generated rustdoc on [docs.rs](https://docs.rs), linked from every page.
-
-### Core & error handling
+### Core types and interop
 
 | Crate | Description |
 | --- | --- |
-| [windows-core](crates/windows-core.md) | Fundamental COM and Windows type support, including the `#[interface]` / `#[implement]` authoring macros. |
+| [windows-core](crates/windows-core.md) | COM and WinRT types, traits, and authoring macros. |
 | [windows-result](crates/windows-result.md) | Windows error handling and propagation. |
-| [windows-strings](crates/windows-strings.md) | Windows string interop types and macros. |
+| [windows-strings](crates/windows-strings.md) | Windows string types, conversions, and macros. |
+| [windows-link](crates/windows-link.md) | Links C-style functions without import libraries. |
 
-The `#[interface]` and `#[implement]` macros are part of `windows-core`, split into the
-[windows-interface](crates/windows-interface.md) and
-[windows-implement](crates/windows-implement.md) crates only because Rust requires procedural macros
-to live in a dedicated `proc-macro` crate.
-
-### Values & collections
+### Values and collections
 
 | Crate | Description |
 | --- | --- |
-| [windows-numerics](crates/windows-numerics.md) | Graphics math types (vectors and matrices). |
-| [windows-collections](crates/windows-collections.md) | Stock WinRT collection types. |
-| [windows-reference](crates/windows-reference.md) | Stock `IReference<T>` implementation. |
-| [windows-time](crates/windows-time.md) | WinRT `TimeSpan` and `DateTime`. |
+| [windows-collections](crates/windows-collections.md) | WinRT collections. |
+| [windows-numerics](crates/windows-numerics.md) | Graphics vectors and matrices. |
+| [windows-reference](crates/windows-reference.md) | Implementation of WinRT `IReference<T>`. |
+| [windows-time](crates/windows-time.md) | WinRT `DateTime` and `TimeSpan` types. |
 
-### Async & threading
+### Async and threading
 
 | Crate | Description |
 | --- | --- |
-| [windows-future](crates/windows-future.md) | WinRT async bridged to Rust futures. |
+| [windows-future](crates/windows-future.md) | WinRT asynchronous operations as Rust futures. |
 | [windows-threading](crates/windows-threading.md) | Safe wrapper over the Win32 thread pool. |
 
 ### System services
@@ -80,59 +41,47 @@ to live in a dedicated `proc-macro` crate.
 | Crate | Description |
 | --- | --- |
 | [windows-registry](crates/windows-registry.md) | Safe Windows registry access. |
-| [windows-services](crates/windows-services.md) | Author Windows services in Rust. |
-| [windows-tracing](crates/windows-tracing.md) | Compile-time TraceLogging events for ETW. |
-| [windows-version](crates/windows-version.md) | Query the Windows version at runtime. |
+| [windows-services](crates/windows-services.md) | Support for authoring Windows services. |
+| [windows-version](crates/windows-version.md) | Queries the Windows version at runtime. |
 
-### Procedural macros & linking
-
-These crates package functionality that is part of other crates but must ship separately.
-`windows-interface` and `windows-implement` are part of [windows-core](crates/windows-core.md) (see
-above), while `windows-tracing-macros` is part of [windows-tracing](crates/windows-tracing.md).
-Rust requires their proc macros to live in a dedicated `proc-macro` crate.
-
-| Crate | Description |
-| --- | --- |
-| [windows-implement](crates/windows-implement.md) | `#[implement]` proc macro for COM/WinRT - part of `windows-core`. |
-| [windows-interface](crates/windows-interface.md) | `#[interface]` proc macro for COM interfaces - part of `windows-core`. |
-| [windows-link](crates/windows-link.md) | Raw-dylib import support (`link!`). |
-| [windows-tracing-macros](crates/windows-tracing-macros.md) | TraceLogging proc macros - part of `windows-tracing`. |
-
-### UI & graphics
+### UI and graphics
 
 | Crate | Description |
 | --- | --- |
 | [windows-reactor](crates/windows-reactor.md) | Declarative UI library backed by WinUI 3. |
 | [windows-canvas](crates/windows-canvas.md) | 2D graphics built on Direct2D. |
-| [windows-composition](crates/windows-composition.md) | Retained-mode visual layer built on the Windows composition engine. |
+| [windows-composition](crates/windows-composition.md) | Windows composition visuals. |
 | [windows-webview](crates/windows-webview.md) | Safe wrapper around the WebView2 browser control. |
-| [windows-window](crates/windows-window.md) | Minimal window creation and message loop. |
+| [windows-window](crates/windows-window.md) | Window creation and message dispatch. |
 | [windows-animation](crates/windows-animation.md) | Wrapper around the Windows Animation Manager. |
 | [windows-reactor-setup](crates/windows-reactor-setup.md) | Stages the Windows App Runtime. |
 
-### Codegen & metadata tooling
+### Code generation and metadata
 
 | Crate | Description |
 | --- | --- |
-| [windows-bindgen](crates/windows-bindgen.md) | Code generator for Windows metadata. |
-| [windows-clang](crates/windows-clang.md) | Generates RDL from C/C++ headers using libclang. |
-| [windows-default](crates/windows-default.md) | Default Windows metadata for build tools. |
-| [windows-metadata](crates/windows-metadata.md) | Low-level ECMA-335 metadata library. |
-| [windows-rdl](crates/windows-rdl.md) | RDL parser and ECMA-335 generator. |
-| [cppwinrt](crates/cppwinrt.md) | Bundles the C++/WinRT compiler. |
+| [windows-clang](crates/windows-clang.md) | Generates RDL from C and C++ headers using libclang. |
+| [windows-default](crates/windows-default.md) | Embedded Windows metadata for build tools. |
+| [windows-metadata](crates/windows-metadata.md) | Reads and writes ECMA-335 metadata. |
+| [windows-rdl](crates/windows-rdl.md) | Parses RDL and generates ECMA-335 metadata. |
+| [cppwinrt](crates/cppwinrt.md) | Packages the C++/WinRT compiler. |
 
-### Full Windows API projection
+### Macro implementation
 
-These crates project the entire Windows API surface. For new projects, prefer a focused binding
-generated with [windows-bindgen](crates/windows-bindgen.md), or compose the smaller crates above.
+These crates implement macros exported by `windows-core`. Applications should use the
+`windows-core` exports rather than depend on them directly.
 
 | Crate | Description |
 | --- | --- |
-| [windows](crates/windows.md) | Safer projection of C-style, COM, and WinRT APIs. |
-| [windows-sys](crates/windows-sys.md) | Zero-overhead raw bindings for C-style Windows APIs. |
+| [windows-implement](crates/windows-implement.md) | Implements the `#[implement]` macro. |
+| [windows-interface](crates/windows-interface.md) | Implements the `#[interface]` macro. |
 
-## Building & maintenance
+### Windows API bindings
 
-- [Dependencies](dependencies.md) - every external SDK, header set, metadata file, and runtime the
-  build and tooling depend on: what version is used, where it is set, how it is obtained, and how to
-  update it.
+Use these crates when the focused crates above do not cover the APIs you need.
+
+| Crate | Description |
+| --- | --- |
+| [windows-bindgen](crates/windows-bindgen.md) | Generates Rust bindings from Windows metadata. |
+| [windows](crates/windows.md) | Typed bindings for C-style, COM, and WinRT APIs. |
+| [windows-sys](crates/windows-sys.md) | Raw bindings for C-style Windows APIs. |

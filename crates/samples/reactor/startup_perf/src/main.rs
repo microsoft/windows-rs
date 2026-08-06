@@ -2,23 +2,36 @@
 
 use std::sync::atomic::{AtomicU64, Ordering};
 
+use tracelogging as tlg;
 use windows_reactor::*;
-use windows_tracing::{GUID, Level, Registration, Result, define_provider, write_event};
 
 const APP_NAME: &str = "blank_windows_reactor";
 const STARTUP_KEYWORD: u64 = 0x0000_4000_0000_0000;
 
-define_provider!(
+tlg::define_provider!(
     STARTUP_PROVIDER,
     "BenchmarkSyntheticApps",
-    id(GUID::from_u128(0xfd80d616_e92b_4b2b_9bed_131ada36a8fd))
+    id("fd80d616-e92b-4b2b-9bed-131ada36a8fd"),
 );
 
 static SEQUENCE: AtomicU64 = AtomicU64::new(0);
 
-fn register_provider() -> Result<Registration> {
+struct ProviderRegistration;
+
+impl Drop for ProviderRegistration {
+    fn drop(&mut self) {
+        _ = STARTUP_PROVIDER.unregister();
+    }
+}
+
+fn register_provider() -> std::io::Result<ProviderRegistration> {
     // SAFETY: This executable keeps the registration alive until process termination.
-    unsafe { STARTUP_PROVIDER.register() }
+    let error = unsafe { STARTUP_PROVIDER.register() };
+    if error == 0 {
+        Ok(ProviderRegistration)
+    } else {
+        Err(std::io::Error::from_raw_os_error(error as i32))
+    }
 }
 
 fn event_payload() -> (u64, u32) {
@@ -27,85 +40,85 @@ fn event_payload() -> (u64, u32) {
 
 fn trace_win_main_entry() {
     let (sequence, process_id) = event_payload();
-    let _ = write_event!(
+    let _ = tlg::write_event!(
         STARTUP_PROVIDER,
         "wWinMainEntry",
-        level(Level::INFORMATIONAL),
+        level(Informational),
         keyword(STARTUP_KEYWORD),
         id_version(1, 0),
-        str("AppName", APP_NAME),
-        u64("Seq", sequence),
-        u32("Pid", process_id),
+        str8("AppName", APP_NAME),
+        u64("Seq", &sequence),
+        u32("Pid", &process_id),
     );
 }
 
 fn trace_xaml_app_loaded() {
     let (sequence, process_id) = event_payload();
-    let _ = write_event!(
+    let _ = tlg::write_event!(
         STARTUP_PROVIDER,
         "XamlAppLoaded",
-        level(Level::INFORMATIONAL),
+        level(Informational),
         keyword(STARTUP_KEYWORD),
         id_version(2, 0),
-        str("AppName", APP_NAME),
-        u64("Seq", sequence),
-        u32("Pid", process_id),
+        str8("AppName", APP_NAME),
+        u64("Seq", &sequence),
+        u32("Pid", &process_id),
     );
 }
 
 fn trace_window_loaded() {
     let (sequence, process_id) = event_payload();
-    let _ = write_event!(
+    let _ = tlg::write_event!(
         STARTUP_PROVIDER,
         "WindowLoaded",
-        level(Level::INFORMATIONAL),
+        level(Informational),
         keyword(STARTUP_KEYWORD),
         id_version(3, 0),
-        str("AppName", APP_NAME),
-        u64("Seq", sequence),
-        u32("Pid", process_id),
+        str8("AppName", APP_NAME),
+        u64("Seq", &sequence),
+        u32("Pid", &process_id),
     );
 }
 
 fn trace_first_render() {
     let (sequence, process_id) = event_payload();
-    let _ = write_event!(
+    let _ = tlg::write_event!(
         STARTUP_PROVIDER,
         "FirstRender",
-        level(Level::INFORMATIONAL),
+        level(Informational),
         keyword(STARTUP_KEYWORD),
         id_version(4, 0),
-        str("AppName", APP_NAME),
-        u64("Seq", sequence),
-        u32("Pid", process_id),
+        str8("AppName", APP_NAME),
+        u64("Seq", &sequence),
+        u32("Pid", &process_id),
     );
 }
 
 fn trace_first_idle() {
     let (sequence, process_id) = event_payload();
-    let _ = write_event!(
+    let _ = tlg::write_event!(
         STARTUP_PROVIDER,
         "FirstIdle",
-        level(Level::INFORMATIONAL),
+        level(Informational),
         keyword(STARTUP_KEYWORD),
         id_version(5, 0),
-        str("AppName", APP_NAME),
-        u64("Seq", sequence),
-        u32("Pid", process_id),
+        str8("AppName", APP_NAME),
+        u64("Seq", &sequence),
+        u32("Pid", &process_id),
     );
 }
 
 fn trace_process_stop() {
     let (sequence, process_id) = event_payload();
-    let _ = write_event!(
+    let _ = tlg::write_event!(
         STARTUP_PROVIDER,
         "ProcessStop",
-        level(Level::INFORMATIONAL),
+        level(Informational),
         keyword(STARTUP_KEYWORD),
         id_version(6, 0),
-        str("AppName", APP_NAME),
-        u64("Seq", sequence),
-        u32("Pid", process_id),
+        str8("AppName", APP_NAME),
+        u64("Seq", &sequence),
+        u32("Pid", &process_id),
     );
 }
 

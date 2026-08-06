@@ -5,6 +5,7 @@
 - 📦 [crates.io](https://crates.io/crates/windows-bindgen)
 - 📖 [docs.rs](https://docs.rs/windows-bindgen)
 - 🚀 [Getting started](../../crates/libs/bindgen/readme.md)
+- 🧩 [Samples](../../crates/samples/bindgen)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/bindgen)
 
 `windows-bindgen` generates Rust bindings from Windows metadata. It powers the `windows` and
