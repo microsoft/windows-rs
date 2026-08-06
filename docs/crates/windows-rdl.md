@@ -414,7 +414,8 @@ constructors, split properties, class interface lists, and required interfaces n
 resolved `metadata::Type` identities, so an import alias and a qualified path to the same type are
 equivalent. `RDL0005` rejects missing or extra generic arguments. Custom-attribute paths,
 constructors, named arguments, enum values, and target rules also resolve before encoding;
-`RDL0006` rejects an attribute used outside its `AttributeUsage` targets.
+`RDL0006` rejects an attribute used outside its `AttributeUsage` targets or repeated on one
+metadata parent without `AllowMultiple`.
 
 The same pre-emission pass now rejects accepted syntax that the encoder cannot represent.
 `RDL0002` covers attributes on event shorthand, generic functions/callbacks/interface methods,
@@ -521,9 +522,11 @@ validation have no errors. It also stores canonical custom-attribute application
 pseudo-attributes and `#[invoke(...)]` wrappers. The shared constant evaluator resolves constructor
 and named arguments identically for validation and encoding.
 
-Attribute target validation reads `Windows.Foundation.Metadata.AttributeUsageAttribute` from source
-or reference metadata. Interface-implementation attributes are now emitted on the InterfaceImpl row
-instead of being rejected after parsing.
+Attribute usage validation reads `Windows.Foundation.Metadata.AttributeUsageAttribute` and
+`AllowMultipleAttribute` from source or reference metadata. Each application carries an explicit
+site identity so attributes on separate fields, methods, parameters, or other metadata parents are
+not conflated. Interface-implementation attributes are emitted on the InterfaceImpl row instead of
+being rejected after parsing.
 
 ### `riddle` command-line tool
 
@@ -715,8 +718,8 @@ The next phase should proceed in this order:
    Declarations, every type-bearing position, and custom-attribute arguments resolve before
    encoding.
 3. In progress: add generic-arity, attribute-target, profile, and resolved-signature validation.
-   Generic arity, resolved signatures, and WinRT `AttributeUsage` targets are checked. Finish the
-   profile rules and metadata table/custom-attribute parent inventory.
+   Generic arity, resolved signatures, and WinRT `AttributeUsage` target and multiplicity rules are
+   checked. Finish the profile rules and metadata table/custom-attribute parent inventory.
 4. Implement explicit overload authoring and canonical expansion using resolved signatures and
    stable metadata names.
 5. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete

@@ -65,6 +65,7 @@ pub struct ResolvedProperty {
 
 pub struct ResolvedAttribute {
     pub owner: usize,
+    pub site: usize,
     pub span: Span,
     pub target: AttributeTarget,
     pub value: AttributeRef,
@@ -96,6 +97,7 @@ pub fn resolve_model<'a>(
             reference,
             attributes: &mut attributes,
             diagnostics: &mut diagnostics,
+            next_attribute_site: 0,
         };
 
         for (namespace, members) in &index.namespaces {
@@ -128,6 +130,13 @@ struct ResolveContext<'a, 'input> {
     reference: &'a metadata::reader::Index,
     attributes: &'a mut Vec<ResolvedAttribute>,
     diagnostics: &'a mut Vec<Error>,
+    next_attribute_site: usize,
+}
+
+struct ResolveOutput<'a> {
+    attributes: &'a mut Vec<ResolvedAttribute>,
+    diagnostics: &'a mut Vec<Error>,
+    next_attribute_site: &'a mut usize,
 }
 
 fn resolve_item(
@@ -137,10 +146,18 @@ fn resolve_item(
     item: &Item,
     owner: usize,
 ) -> ResolvedItemKind {
-    let index = context.index;
-    let reference = context.reference;
-    let attributes = &mut *context.attributes;
-    let diagnostics = &mut *context.diagnostics;
+    let ResolveContext {
+        index,
+        reference,
+        attributes,
+        diagnostics,
+        next_attribute_site,
+    } = context;
+    let mut output = ResolveOutput {
+        attributes,
+        diagnostics,
+        next_attribute_site,
+    };
     let generics: Vec<String> = match item {
         Item::Delegate(item) => item
             .sig
@@ -171,8 +188,7 @@ fn resolve_item(
                 &[],
                 AttributeTarget::RuntimeClass,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             let constructors = item
                 .methods
@@ -185,11 +201,10 @@ fn resolve_item(
                             &["r#in", "out", "opt"],
                             AttributeTarget::Parameter,
                             owner,
-                            attributes,
-                            diagnostics,
+                            &mut output,
                         );
                     }
-                    resolve_bare_signature(&resolver, method, diagnostics)
+                    resolve_bare_signature(&resolver, method, output.diagnostics)
                 })
                 .collect();
             ResolvedItemKind::Attribute { constructors }
@@ -201,8 +216,7 @@ fn resolve_item(
                 &["invoke"],
                 AttributeTarget::Delegate,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             resolve_wrapped_attributes(
                 &resolver,
@@ -210,18 +224,16 @@ fn resolve_item(
                 "invoke",
                 AttributeTarget::Method,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             resolve_signature_attributes(
                 &resolver,
                 &item.sig,
                 &item.return_attrs,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
-            resolve_signature(&resolver, &item.sig, diagnostics);
+            resolve_signature(&resolver, &item.sig, output.diagnostics);
             ResolvedItemKind::Other
         }
         Item::Class(item) => {
@@ -231,11 +243,10 @@ fn resolve_item(
                 &[],
                 AttributeTarget::RuntimeClass,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             if let Some(extends) = &item.extends {
-                resolve_path(&resolver, extends, diagnostics);
+                resolve_path(&resolver, extends, output.diagnostics);
             }
             ResolvedItemKind::Class {
                 interfaces: item
@@ -248,10 +259,9 @@ fn resolve_item(
                             &[],
                             AttributeTarget::InterfaceImpl,
                             owner,
-                            attributes,
-                            diagnostics,
+                            &mut output,
                         );
-                        resolve_path(&resolver, &interface.ty, diagnostics).map(|ty| {
+                        resolve_path(&resolver, &interface.ty, output.diagnostics).map(|ty| {
                             ResolvedClassInterface {
                                 span: interface.ty.span(),
                                 ty,
@@ -268,10 +278,9 @@ fn resolve_item(
                 &["guid", "no_guid"],
                 AttributeTarget::Field,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
-            resolve_type(&resolver, &item.ty, diagnostics);
+            resolve_type(&resolver, &item.ty, output.diagnostics);
             ResolvedItemKind::Other
         }
         Item::Delegate(item) => {
@@ -281,8 +290,7 @@ fn resolve_item(
                 &["guid", "no_guid", "invoke"],
                 AttributeTarget::Delegate,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             resolve_wrapped_attributes(
                 &resolver,
@@ -290,18 +298,16 @@ fn resolve_item(
                 "invoke",
                 AttributeTarget::Method,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             resolve_signature_attributes(
                 &resolver,
                 &item.sig,
                 &item.return_attrs,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
-            resolve_signature(&resolver, &item.sig, diagnostics);
+            resolve_signature(&resolver, &item.sig, output.diagnostics);
             ResolvedItemKind::Other
         }
         Item::Enum(item) => {
@@ -311,8 +317,7 @@ fn resolve_item(
                 &["repr", "flags"],
                 AttributeTarget::Enum,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             for variant in &item.variants {
                 resolve_attributes(
@@ -321,14 +326,13 @@ fn resolve_item(
                     &[],
                     AttributeTarget::Field,
                     owner,
-                    attributes,
-                    diagnostics,
+                    &mut output,
                 );
             }
             if let Some(repr) = item.attrs.iter().find(|attr| attr.path().is_ident("repr"))
                 && let Ok(path) = repr.parse_args::<syn::Path>()
             {
-                resolve_path(&resolver, &path, diagnostics);
+                resolve_path(&resolver, &path, output.diagnostics);
             }
             ResolvedItemKind::Other
         }
@@ -339,18 +343,16 @@ fn resolve_item(
                 &["library"],
                 AttributeTarget::Method,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             resolve_signature_attributes(
                 &resolver,
                 &item.sig,
                 &item.return_attrs,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
-            resolve_signature(&resolver, &item.sig, diagnostics);
+            resolve_signature(&resolver, &item.sig, output.diagnostics);
             ResolvedItemKind::Other
         }
         Item::Interface(item) => {
@@ -360,14 +362,13 @@ fn resolve_item(
                 &["guid", "no_guid"],
                 AttributeTarget::Interface,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
             let requires = item
                 .requires
                 .iter()
                 .filter_map(|require| {
-                    resolve_path(&resolver, require, diagnostics).map(|ty| ResolvedTypeRef {
+                    resolve_path(&resolver, require, output.diagnostics).map(|ty| ResolvedTypeRef {
                         span: require.span(),
                         ty,
                     })
@@ -384,19 +385,17 @@ fn resolve_item(
                             &["special"],
                             AttributeTarget::Method,
                             owner,
-                            attributes,
-                            diagnostics,
+                            &mut output,
                         );
                         resolve_signature_attributes(
                             &resolver,
                             &method.sig,
                             &method.return_attrs,
                             owner,
-                            attributes,
-                            diagnostics,
+                            &mut output,
                         );
                         if let Some(signature) =
-                            resolve_signature(&resolver, &method.sig, diagnostics)
+                            resolve_signature(&resolver, &method.sig, output.diagnostics)
                         {
                             methods.push(ResolvedMethod {
                                 name: method.sig.ident.to_string(),
@@ -406,7 +405,8 @@ fn resolve_item(
                         }
                     }
                     InterfaceMember::Property(property) => {
-                        if let Some(ty) = resolve_type(&resolver, &property.ty, diagnostics) {
+                        if let Some(ty) = resolve_type(&resolver, &property.ty, output.diagnostics)
+                        {
                             let get_only = property
                                 .attrs
                                 .iter()
@@ -430,7 +430,7 @@ fn resolve_item(
                         }
                     }
                     InterfaceMember::Event(event) => {
-                        resolve_type(&resolver, &event.handler_ty, diagnostics);
+                        resolve_type(&resolver, &event.handler_ty, output.diagnostics);
                     }
                 }
             }
@@ -447,10 +447,9 @@ fn resolve_item(
                 &["packed", "align"],
                 AttributeTarget::Struct,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
-            resolve_fields(&resolver, &item.fields, owner, attributes, diagnostics);
+            resolve_fields(&resolver, &item.fields, owner, &mut output);
             ResolvedItemKind::Other
         }
         Item::Typedef(item) => {
@@ -460,10 +459,9 @@ fn resolve_item(
                 &[],
                 AttributeTarget::Struct,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
-            resolve_type(&resolver, &item.ty, diagnostics);
+            resolve_type(&resolver, &item.ty, output.diagnostics);
             ResolvedItemKind::Other
         }
         Item::Union(item) => {
@@ -473,10 +471,9 @@ fn resolve_item(
                 &["packed", "align"],
                 AttributeTarget::Struct,
                 owner,
-                attributes,
-                diagnostics,
+                &mut output,
             );
-            resolve_fields(&resolver, &item.fields, owner, attributes, diagnostics);
+            resolve_fields(&resolver, &item.fields, owner, &mut output);
             ResolvedItemKind::Other
         }
         Item::Module(_) => unreachable!("modules are expanded before resolution"),
@@ -545,8 +542,7 @@ fn resolve_signature_attributes(
     signature: &syn::Signature,
     return_attrs: &[syn::Attribute],
     owner: usize,
-    attributes: &mut Vec<ResolvedAttribute>,
-    diagnostics: &mut Vec<Error>,
+    output: &mut ResolveOutput,
 ) {
     resolve_attributes(
         resolver,
@@ -554,8 +550,7 @@ fn resolve_signature_attributes(
         &[],
         AttributeTarget::Parameter,
         owner,
-        attributes,
-        diagnostics,
+        output,
     );
     for input in &signature.inputs {
         if let syn::FnArg::Typed(param) = input {
@@ -565,8 +560,7 @@ fn resolve_signature_attributes(
                 &["r#in", "out", "opt"],
                 AttributeTarget::Parameter,
                 owner,
-                attributes,
-                diagnostics,
+                output,
             );
         }
     }
@@ -578,24 +572,18 @@ fn resolve_wrapped_attributes(
     wrapper: &str,
     target: AttributeTarget,
     owner: usize,
-    attributes: &mut Vec<ResolvedAttribute>,
-    diagnostics: &mut Vec<Error>,
+    output: &mut ResolveOutput,
 ) {
+    let site = output.take_attribute_site();
     for attr in attrs.iter().filter(|attr| attr.path().is_ident(wrapper)) {
         match attr.parse_args::<syn::Meta>() {
             Ok(meta) => {
                 let nested: syn::Attribute = syn::parse_quote_spanned!(attr.span()=> #[#meta]);
-                resolve_attributes(
-                    resolver,
-                    &[nested],
-                    &[],
-                    target,
-                    owner,
-                    attributes,
-                    diagnostics,
-                );
+                resolve_attributes_at_site(resolver, &[nested], &[], target, owner, site, output);
             }
-            Err(_) => diagnostics.push(resolver.error(attr, "invalid wrapped attribute")),
+            Err(_) => output
+                .diagnostics
+                .push(resolver.error(attr, "invalid wrapped attribute")),
         }
     }
 }
@@ -606,8 +594,20 @@ fn resolve_attributes(
     controls: &[&str],
     target: AttributeTarget,
     owner: usize,
-    attributes: &mut Vec<ResolvedAttribute>,
-    diagnostics: &mut Vec<Error>,
+    output: &mut ResolveOutput,
+) {
+    let site = output.take_attribute_site();
+    resolve_attributes_at_site(resolver, attrs, controls, target, owner, site, output);
+}
+
+fn resolve_attributes_at_site(
+    resolver: &Resolver,
+    attrs: &[syn::Attribute],
+    controls: &[&str],
+    target: AttributeTarget,
+    owner: usize,
+    site: usize,
+    output: &mut ResolveOutput,
 ) {
     for attr in attrs {
         let path = attr.path();
@@ -628,24 +628,19 @@ fn resolve_attributes(
             resolver.resolve_attribute_ref(attr)
         };
         match result {
-            Ok(value) => attributes.push(ResolvedAttribute {
+            Ok(value) => output.attributes.push(ResolvedAttribute {
                 owner,
+                site,
                 span: attr.span(),
                 target,
                 value,
             }),
-            Err(error) => diagnostics.push(error),
+            Err(error) => output.diagnostics.push(error),
         }
     }
 }
 
-fn resolve_fields(
-    resolver: &Resolver,
-    fields: &[Field],
-    owner: usize,
-    attributes: &mut Vec<ResolvedAttribute>,
-    diagnostics: &mut Vec<Error>,
-) {
+fn resolve_fields(resolver: &Resolver, fields: &[Field], owner: usize, output: &mut ResolveOutput) {
     for field in fields {
         resolve_attributes(
             resolver,
@@ -653,12 +648,11 @@ fn resolve_fields(
             &[],
             AttributeTarget::Field,
             owner,
-            attributes,
-            diagnostics,
+            output,
         );
         match &field.ty {
             FieldType::Type(ty) => {
-                resolve_type(resolver, ty, diagnostics);
+                resolve_type(resolver, ty, output.diagnostics);
             }
             FieldType::Nested(record) => {
                 resolve_attributes(
@@ -667,12 +661,19 @@ fn resolve_fields(
                     &["packed", "align"],
                     AttributeTarget::Struct,
                     owner,
-                    attributes,
-                    diagnostics,
+                    output,
                 );
-                resolve_fields(resolver, &record.fields, owner, attributes, diagnostics);
+                resolve_fields(resolver, &record.fields, owner, output);
             }
         }
+    }
+}
+
+impl ResolveOutput<'_> {
+    fn take_attribute_site(&mut self) -> usize {
+        let site = *self.next_attribute_site;
+        *self.next_attribute_site += 1;
+        site
     }
 }
 

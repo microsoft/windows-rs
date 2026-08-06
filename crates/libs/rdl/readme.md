@@ -46,8 +46,8 @@ text. `Error` is a small owned wrapper that dereferences to its `Diagnostic`.
 The reader reports `RDL0001` for duplicate symbols, `RDL0002` for accepted syntax that cannot be
 represented in metadata, `RDL0003`/`RDL0004` for import failures, and `RDL0005` for generic-arity
 errors. `RDL0006` reports custom attributes used outside their declared WinRT `AttributeUsage`
-targets. The writer likewise rejects metadata forms that have no lossless RDL spelling rather than
-emitting incomplete source.
+targets or repeated without `AllowMultiple`. The writer likewise rejects metadata forms that have
+no lossless RDL spelling rather than emitting incomplete source.
 
 The `riddle` binary provides the same operations from a terminal:
 

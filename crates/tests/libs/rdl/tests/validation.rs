@@ -442,6 +442,80 @@ mod Test {
 }
 
 #[test]
+fn attribute_usage_multiplicity_is_validated_per_metadata_parent() {
+    let report = windows_rdl::reader()
+        .input_text_named(
+            "src/test.rdl",
+            r#"
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::AttributeUsage(Struct)]
+    attribute MarkerAttribute {
+        fn();
+    }
+
+    #[Marker]
+    #[Marker]
+    struct Repeated {}
+
+    #[Marker]
+    struct First {}
+
+    #[Marker]
+    struct Second {}
+
+    interface IValue {
+        #[Windows::Foundation::Metadata::Overload("First")]
+        #[Windows::Foundation::Metadata::Overload("Second")]
+        fn Get(&self);
+
+        #[Windows::Foundation::Metadata::Overload("Other")]
+        fn Other(&self);
+    }
+}
+"#,
+        )
+        .reference_default()
+        .check_all();
+
+    assert_eq!(report.diagnostics().len(), 2);
+    assert!(report.diagnostics().iter().all(|diagnostic| {
+        diagnostic.code.as_deref() == Some("RDL0006")
+            && diagnostic
+                .message
+                .contains("cannot be applied more than once")
+            && diagnostic.labels.len() == 2
+            && diagnostic.labels[1].message == "first applied here"
+    }));
+}
+
+#[test]
+fn allow_multiple_attribute_permits_repeated_applications() {
+    windows_rdl::reader()
+        .input_text_named(
+            "src/test.rdl",
+            r#"
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::AllowMultiple]
+    #[Windows::Foundation::Metadata::AttributeUsage(Struct)]
+    attribute MarkerAttribute {
+        fn();
+    }
+
+    #[Marker]
+    #[Marker]
+    struct Value {}
+}
+"#,
+        )
+        .reference_default()
+        .output(out_path("allow_multiple"))
+        .write()
+        .unwrap();
+}
+
+#[test]
 fn class_interface_attributes_are_preserved() {
     let path = out_path("interface_impl_attribute");
     windows_rdl::reader()

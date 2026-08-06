@@ -188,68 +188,89 @@ fn validate_attribute_targets(
     reference: &metadata::reader::Index,
 ) -> Vec<Error> {
     let mut diagnostics = vec![];
+    let mut applied = HashMap::<(usize, &str, &str), &ResolvedAttribute>::new();
 
     for attribute in &model.attributes {
-        let Some(valid_on) = attribute_valid_on(model, reference, &attribute.value.type_name)
-        else {
+        let Some(usage) = attribute_usage(model, reference, &attribute.value.type_name) else {
             continue;
         };
         let target = attribute_target_bit(attribute.target);
-        if valid_on & target != 0 {
-            continue;
-        }
-
-        let start = attribute.span.start();
-        let end = attribute.span.end();
-        diagnostics.push(
-            Error::new(
-                &format!(
-                    "attribute `{}.{}` cannot be applied to {}",
-                    attribute.value.type_name.namespace,
-                    attribute.value.type_name.name,
-                    attribute_target_name(attribute.target)
-                ),
-                &model.items[attribute.owner].file.source,
-                start.line,
-                start.column,
-            )
-            .with_code("RDL0006")
-            .with_primary_label(
-                Label::primary(
+        if usage.valid_on & target == 0 {
+            let start = attribute.span.start();
+            let end = attribute.span.end();
+            diagnostics.push(
+                Error::new(
+                    &format!(
+                        "attribute `{}.{}` cannot be applied to {}",
+                        attribute.value.type_name.namespace,
+                        attribute.value.type_name.name,
+                        attribute_target_name(attribute.target)
+                    ),
                     &model.items[attribute.owner].file.source,
                     start.line,
                     start.column,
                 )
-                .with_end(end.line, end.column)
-                .with_message("attribute is not valid on this target"),
-            ),
-        );
+                .with_code("RDL0006")
+                .with_primary_label(
+                    Label::primary(
+                        &model.items[attribute.owner].file.source,
+                        start.line,
+                        start.column,
+                    )
+                    .with_end(end.line, end.column)
+                    .with_message("attribute is not valid on this target"),
+                ),
+            );
+        }
+
+        if !usage.allow_multiple {
+            let key = (
+                attribute.site,
+                attribute.value.type_name.namespace.as_str(),
+                attribute.value.type_name.name.as_str(),
+            );
+            if let Some(previous) = applied.insert(key, attribute) {
+                diagnostics.push(repeated_attribute_error(model, attribute, previous));
+            }
+        }
     }
 
     diagnostics
 }
 
-fn attribute_valid_on(
+struct AttributeUsage {
+    valid_on: u32,
+    allow_multiple: bool,
+}
+
+fn attribute_usage(
     model: &ResolvedModel,
     reference: &metadata::reader::Index,
     type_name: &metadata::TypeName,
-) -> Option<u32> {
+) -> Option<AttributeUsage> {
     if let Some(item) = model.items.iter().find(|item| {
         item.namespace == type_name.namespace
             && item.item.to_string() == type_name.name
             && matches!(item.item, Item::Attribute(_))
     }) {
-        return model
+        let valid_on = model
             .attributes
             .iter()
             .filter(|attribute| attribute.owner == item.id)
-            .find_map(|attribute| attribute_usage_value(&attribute.value));
+            .find_map(|attribute| attribute_usage_value(&attribute.value))?;
+        let allow_multiple = model.attributes.iter().any(|attribute| {
+            attribute.owner == item.id && is_allow_multiple_attribute(&attribute.value)
+        });
+        return Some(AttributeUsage {
+            valid_on,
+            allow_multiple,
+        });
     }
 
     reference
         .get(&type_name.namespace, &type_name.name)
         .find_map(|def| {
-            metadata::HasAttributes::attributes(&def)
+            let valid_on = metadata::HasAttributes::attributes(&def)
                 .find(|attribute| {
                     attribute.namespace() == "Windows.Foundation.Metadata"
                         && attribute.name() == "AttributeUsageAttribute"
@@ -259,7 +280,15 @@ fn attribute_valid_on(
                         .value()
                         .first()
                         .and_then(|(_, value)| attribute_target_value(value))
-                })
+                })?;
+            let allow_multiple = metadata::HasAttributes::attributes(&def).any(|attribute| {
+                attribute.namespace() == "Windows.Foundation.Metadata"
+                    && attribute.name() == "AllowMultipleAttribute"
+            });
+            Some(AttributeUsage {
+                valid_on,
+                allow_multiple,
+            })
         })
 }
 
@@ -273,6 +302,49 @@ fn attribute_usage_value(attribute: &AttributeRef) -> Option<u32> {
         .args
         .first()
         .and_then(|(_, value)| attribute_target_value(value))
+}
+
+fn is_allow_multiple_attribute(attribute: &AttributeRef) -> bool {
+    attribute.type_name.namespace == "Windows.Foundation.Metadata"
+        && attribute.type_name.name == "AllowMultipleAttribute"
+}
+
+fn repeated_attribute_error(
+    model: &ResolvedModel,
+    attribute: &ResolvedAttribute,
+    previous: &ResolvedAttribute,
+) -> Error {
+    let file = model.items[attribute.owner].file;
+    let start = attribute.span.start();
+    let end = attribute.span.end();
+    let previous_start = previous.span.start();
+    let previous_end = previous.span.end();
+    let name = format!(
+        "{}.{}",
+        attribute.value.type_name.namespace, attribute.value.type_name.name
+    );
+
+    Error::new(
+        &format!("attribute `{name}` cannot be applied more than once"),
+        &file.source,
+        start.line,
+        start.column,
+    )
+    .with_code("RDL0006")
+    .with_primary_label(
+        Label::primary(&file.source, start.line, start.column)
+            .with_end(end.line, end.column)
+            .with_message("repeated attribute"),
+    )
+    .with_label(
+        Label::secondary(
+            &file.source,
+            previous_start.line,
+            previous_start.column,
+            "first applied here",
+        )
+        .with_end(previous_end.line, previous_end.column),
+    )
 }
 
 fn attribute_target_value(value: &metadata::Value) -> Option<u32> {
