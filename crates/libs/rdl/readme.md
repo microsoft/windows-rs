@@ -32,7 +32,7 @@ windows_rdl::writer()
 ```
 
 Use `.check()` to run the same parse, validation, resolution, and encoding pipeline without
-writing a `.winmd`.
+writing a `.winmd`. Use `.check_all()` to collect independent diagnostics from every input.
 
 Use `.reference("dependency.winmd")` when the RDL refers to types defined by another metadata file.
 Use `.input_text(source)` or `.input_texts(sources)` for RDL already in memory. Use
@@ -40,7 +40,8 @@ Use `.input_text(source)` or `.input_texts(sources)` for RDL already in memory. 
 
 Use `.input_text_named("schema.rdl", source)` or `.input_texts_named(sources)` when in-memory source
 names should appear in diagnostics. `Diagnostic` stores a severity, optional code, source labels,
-notes, and help. `Error` is a small owned wrapper that dereferences to its `Diagnostic`.
+notes, and help. `DiagnosticReport` stores the collected diagnostics and their original source
+text. `Error` is a small owned wrapper that dereferences to its `Diagnostic`.
 
 The reader reports `RDL0001` for duplicate symbols and `RDL0002` for accepted syntax that cannot be
 represented in metadata. The writer likewise rejects metadata forms that have no lossless RDL

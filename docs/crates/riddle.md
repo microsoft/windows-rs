@@ -34,12 +34,13 @@ input.
 The binary owns command-line parsing, terminal rendering, standard input, file updates, and
 exit-code policy. Parsing, validation, resolution, formatting, and metadata encoding remain in
 `windows-rdl`. `Reader::check` runs the same pipeline as `Reader::write` but does not create a
-winmd.
+winmd. `riddle check` uses `Reader::check_all` to report independent errors from every input rather
+than stopping at the first source or declaration.
 
 RDL diagnostics use exit code 1. Invalid command lines use exit code 2. The renderer prints stable
-diagnostic codes, source locations, labeled source lines, notes, and help. Formatting reads and
-validates every input before updating any file, so one invalid input leaves the whole set
-unchanged.
+diagnostic codes, source locations, labeled source lines, notes, help, and a final error count when
+more than one error is found. Formatting reads and validates every input before updating any file,
+so one invalid input leaves the whole set unchanged.
 
 Run the command tests with:
 

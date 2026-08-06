@@ -2,7 +2,9 @@ use std::collections::HashMap;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::process::ExitCode;
-use windows_rdl::{Diagnostic, Error, Label, LabelStyle, Reader, Severity, formatter};
+use windows_rdl::{
+    Diagnostic, DiagnosticReport, Error, Label, LabelStyle, Reader, Severity, formatter,
+};
 
 const HELP: &str = "\
 Riddle checks and compiles RDL API descriptions.
@@ -71,25 +73,39 @@ fn main() -> ExitCode {
                     Ok(changed) if options.format_check && changed => ExitCode::from(1),
                     Ok(_) => ExitCode::SUCCESS,
                     Err(error) => {
-                        eprint!("{}", render(error.diagnostic(), options.stdin.as_deref()));
+                        eprint!(
+                            "{}",
+                            render(error.diagnostic(), None, options.stdin.as_deref())
+                        );
                         ExitCode::from(1)
                     }
                 }
             } else {
                 let mut reader = Reader::new();
                 configure(&mut reader, &options);
-                let result = match options.command {
-                    Command::Check => reader.check(),
-                    Command::Build => reader.output(options.output.as_ref().unwrap()).write(),
-                    Command::Fmt => unreachable!(),
-                };
-
-                match result {
-                    Ok(()) => ExitCode::SUCCESS,
-                    Err(error) => {
-                        eprint!("{}", render(error.diagnostic(), options.stdin.as_deref()));
-                        ExitCode::from(1)
+                match options.command {
+                    Command::Check => {
+                        let report = reader.check_all();
+                        if report.is_success() {
+                            ExitCode::SUCCESS
+                        } else {
+                            eprint!("{}", render_report(&report));
+                            ExitCode::from(1)
+                        }
                     }
+                    Command::Build => {
+                        match reader.output(options.output.as_ref().unwrap()).write() {
+                            Ok(()) => ExitCode::SUCCESS,
+                            Err(error) => {
+                                eprint!(
+                                    "{}",
+                                    render(error.diagnostic(), None, options.stdin.as_deref())
+                                );
+                                ExitCode::from(1)
+                            }
+                        }
+                    }
+                    Command::Fmt => unreachable!(),
                 }
             }
         }
@@ -269,7 +285,29 @@ fn format_inputs(options: &Options) -> Result<bool, Error> {
     Ok(changed)
 }
 
-fn render(diagnostic: &Diagnostic, stdin: Option<&str>) -> String {
+fn render_report(report: &DiagnosticReport) -> String {
+    let mut output = String::new();
+    for diagnostic in report.diagnostics() {
+        output.push_str(&render(diagnostic, Some(report), None));
+    }
+    let errors = report
+        .diagnostics()
+        .iter()
+        .filter(|diagnostic| diagnostic.severity == Severity::Error)
+        .count();
+    if errors > 1 {
+        output.push_str(&format!(
+            "error: aborting due to {errors} previous errors\n"
+        ));
+    }
+    output
+}
+
+fn render(
+    diagnostic: &Diagnostic,
+    report: Option<&DiagnosticReport>,
+    stdin: Option<&str>,
+) -> String {
     let severity = match diagnostic.severity {
         Severity::Error => "error",
         Severity::Warning => "warning",
@@ -291,7 +329,7 @@ fn render(diagnostic: &Diagnostic, stdin: Option<&str>) -> String {
     let mut sources = HashMap::new();
 
     for label in labels {
-        render_label(&mut output, &label, stdin, &mut sources);
+        render_label(&mut output, &label, report, stdin, &mut sources);
     }
     for note in &diagnostic.notes {
         output.push_str(&format!("  = note: {note}\n"));
@@ -305,6 +343,7 @@ fn render(diagnostic: &Diagnostic, stdin: Option<&str>) -> String {
 fn render_label(
     output: &mut String,
     label: &Label,
+    report: Option<&DiagnosticReport>,
     stdin: Option<&str>,
     sources: &mut HashMap<String, Option<String>>,
 ) {
@@ -319,7 +358,9 @@ fn render_label(
     let source = sources
         .entry(label.source.clone())
         .or_insert_with(|| {
-            if label.source == "<stdin>" {
+            if let Some(source) = report.and_then(|report| report.source(&label.source)) {
+                Some(source.to_string())
+            } else if label.source == "<stdin>" {
                 stdin.map(str::to_string)
             } else {
                 std::fs::read_to_string(&label.source).ok()

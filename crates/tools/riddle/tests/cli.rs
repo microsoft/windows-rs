@@ -88,6 +88,27 @@ fn duplicate_diagnostic_renders_both_labels() {
 }
 
 #[test]
+fn check_renders_every_independent_error() {
+    let dir = scratch("multiple_errors");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("api.rdl");
+    std::fs::write(
+        &input,
+        "#[win32]\nmod Test {\n\
+         struct First { value: i32, value: i32, }\n\
+         struct Second { value: i32, value: i32, }\n\
+         }\n",
+    )
+    .unwrap();
+
+    let output = riddle().arg("check").arg(&input).output().unwrap();
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8(output.stderr).unwrap();
+    assert_eq!(stderr.matches("error[RDL0001]:").count(), 2);
+    assert!(stderr.contains("aborting due to 2 previous errors"));
+}
+
+#[test]
 fn check_accepts_standard_input() {
     let mut child = riddle()
         .args(["check", "-"])

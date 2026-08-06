@@ -10,18 +10,28 @@ enum Arch {
     Invalid,
 }
 
-pub fn validate_symbols(index: &Index) -> Result<(), Error> {
+pub fn validate_symbols(index: &Index) -> Vec<Error> {
+    let mut diagnostics = vec![];
+
     for members in index.namespaces.values() {
-        validate_namespace_symbols(members)?;
+        if let Err(error) = validate_namespace_symbols(members) {
+            diagnostics.push(error);
+        }
 
         for (name, variants) in &members.types {
-            validate_variants("type", name, variants)?;
+            if let Err(error) = validate_variants("type", name, variants) {
+                diagnostics.push(error);
+            }
         }
         for (name, variants) in &members.functions {
-            validate_variants("function", name, variants)?;
+            if let Err(error) = validate_variants("function", name, variants) {
+                diagnostics.push(error);
+            }
         }
         for (name, variants) in &members.constants {
-            validate_variants("constant", name, variants)?;
+            if let Err(error) = validate_variants("constant", name, variants) {
+                diagnostics.push(error);
+            }
         }
 
         for variants in members
@@ -31,12 +41,14 @@ pub fn validate_symbols(index: &Index) -> Result<(), Error> {
             .chain(members.constants.values())
         {
             for (file, item) in variants {
-                validate_item(file, item)?;
+                if let Err(error) = validate_item(file, item) {
+                    diagnostics.push(error);
+                }
             }
         }
     }
 
-    Ok(())
+    diagnostics
 }
 
 fn validate_namespace_symbols(members: &Namespace<'_>) -> Result<(), Error> {

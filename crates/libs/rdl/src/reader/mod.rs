@@ -202,11 +202,44 @@ impl Reader {
         self.compile("check").map(|_| ())
     }
 
-    fn compile(&self, assembly_name: &str) -> Result<Vec<u8>, Error> {
-        let rdl_paths = expand_input_files(&self.input, "rdl")?;
-        let reference_paths = expand_input_files(&self.reference, "winmd")?;
+    /// Checks all inputs and returns every independent diagnostic found before encoding.
+    pub fn check_all(&self) -> DiagnosticReport {
+        self.compile_report("check").1
+    }
 
-        let input = expand_rdl_files(&rdl_paths, &self.input_text)?;
+    fn compile(&self, assembly_name: &str) -> Result<Vec<u8>, Error> {
+        let (output, report) = self.compile_report(assembly_name);
+        if let Some(error) = report.into_error() {
+            Err(error)
+        } else {
+            Ok(output.unwrap())
+        }
+    }
+
+    fn compile_report(&self, assembly_name: &str) -> (Option<Vec<u8>>, DiagnosticReport) {
+        let mut report = DiagnosticReport::default();
+        let rdl_paths = match expand_input_files(&self.input, "rdl") {
+            Ok(paths) => Some(paths),
+            Err(error) => {
+                report.push(error);
+                None
+            }
+        };
+        let reference_paths = match expand_input_files(&self.reference, "winmd") {
+            Ok(paths) => Some(paths),
+            Err(error) => {
+                report.push(error);
+                None
+            }
+        };
+        let Some(rdl_paths) = rdl_paths else {
+            return (None, report);
+        };
+        let Some(reference_paths) = reference_paths else {
+            return (None, report);
+        };
+
+        let input = expand_rdl_files(&rdl_paths, &self.input_text, &mut report);
 
         let mut index = Index::new();
 
@@ -216,16 +249,19 @@ impl Reader {
             }
         }
 
-        validate_symbols(&index)?;
+        report.extend(validate_symbols(&index));
 
         let mut reference = vec![];
+        let mut invalid_reference = false;
 
         for file_name in &reference_paths {
             let source = file_name.to_string_lossy();
-            reference.push(
-                metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid reference", &source, 0, 0))?,
-            );
+            if let Some(file) = metadata::reader::File::read(file_name) {
+                reference.push(file);
+            } else {
+                invalid_reference = true;
+                report.push(Error::new("invalid reference", &source, 0, 0));
+            }
         }
 
         if self.reference_default {
@@ -237,104 +273,128 @@ impl Reader {
         }
 
         for bytes in &self.reference_bytes {
-            reference.push(
-                metadata::reader::File::new(bytes.clone())
-                    .ok_or_else(|| Error::new("invalid reference", "<memory>", 0, 0))?,
-            );
+            if let Some(file) = metadata::reader::File::new(bytes.clone()) {
+                reference.push(file);
+            } else {
+                invalid_reference = true;
+                report.push(Error::new("invalid reference", "<memory>", 0, 0));
+            }
         }
 
         let reference = metadata::reader::Index::new(reference);
-        validate_use_declarations(&input, &index, &reference)?;
+        if !invalid_reference {
+            report.extend(validate_use_declarations(&input, &index, &reference));
+        }
+        if !report.is_success() {
+            return (None, report);
+        }
 
-        let mut output = metadata::writer::File::new(assembly_name);
-        output.set_reference(reference);
-
-        for (namespace, members) in &index.namespaces {
-            for variants in members.types.values() {
-                for (file, item) in variants {
-                    let name = item.to_string();
-                    let encoder = &mut Encoder {
-                        output: &mut output,
-                        index: &index,
-                        file,
-                        namespace,
-                        name: &name,
-                        generics: vec![],
-                    };
-                    match item {
-                        Item::Attribute(ty) => encoder.encode_attribute(ty),
-                        Item::Callback(ty) => encoder.encode_callback(ty),
-                        Item::Class(ty) => encoder.encode_class(ty),
-                        Item::Const(ty) => encoder.encode_const(ty),
-                        Item::Delegate(ty) => encoder.encode_delegate(ty),
-                        Item::Enum(ty) => encoder.encode_enum(ty),
-                        Item::Fn(ty) => encoder.encode_fn(ty),
-                        Item::Interface(ty) => encoder.encode_interface(ty),
-                        Item::Struct(ty) => encoder.encode_struct(ty),
-                        Item::Typedef(ty) => encoder.encode_typedef(ty),
-                        Item::Union(ty) => encoder.encode_union(ty),
-                        Item::Module(_) => unreachable!(
-                            "Module items are expanded during indexing and never encoded directly"
-                        ),
-                    }?;
-                }
+        match encode(assembly_name, &index, reference) {
+            Ok(output) => (Some(output), report),
+            Err(error) => {
+                report.push(error);
+                (None, report)
             }
+        }
+    }
+}
 
-            if !members.functions.is_empty() || !members.constants.is_empty() {
-                let class =
-                    metadata::writer::TypeDefOrRef::TypeRef(output.TypeRef("System", "Object"));
+fn encode(
+    assembly_name: &str,
+    index: &Index,
+    reference: metadata::reader::Index,
+) -> Result<Vec<u8>, Error> {
+    let mut output = metadata::writer::File::new(assembly_name);
+    output.set_reference(reference);
 
-                output.TypeDef(
+    for (namespace, members) in &index.namespaces {
+        for variants in members.types.values() {
+            for (file, item) in variants {
+                let name = item.to_string();
+                let encoder = &mut Encoder {
+                    output: &mut output,
+                    index,
+                    file,
                     namespace,
-                    "Apis",
-                    class,
-                    metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed,
-                );
-
-                for (name, variants) in &members.functions {
-                    for (file, item) in variants {
-                        let Item::Fn(ty) = item else {
-                            unreachable!("functions index only contains Item::Fn")
-                        };
-                        Encoder {
-                            output: &mut output,
-                            index: &index,
-                            file,
-                            namespace,
-                            name,
-                            generics: vec![],
-                        }
-                        .encode_fn(ty)?;
-                    }
-                }
-
-                for (name, variants) in &members.constants {
-                    for (file, item) in variants {
-                        let Item::Const(ty) = item else {
-                            unreachable!("constants index only contains Item::Const")
-                        };
-                        Encoder {
-                            output: &mut output,
-                            index: &index,
-                            file,
-                            namespace,
-                            name,
-                            generics: vec![],
-                        }
-                        .encode_const(ty)?;
-                    }
-                }
+                    name: &name,
+                    generics: vec![],
+                };
+                match item {
+                    Item::Attribute(ty) => encoder.encode_attribute(ty),
+                    Item::Callback(ty) => encoder.encode_callback(ty),
+                    Item::Class(ty) => encoder.encode_class(ty),
+                    Item::Const(ty) => encoder.encode_const(ty),
+                    Item::Delegate(ty) => encoder.encode_delegate(ty),
+                    Item::Enum(ty) => encoder.encode_enum(ty),
+                    Item::Fn(ty) => encoder.encode_fn(ty),
+                    Item::Interface(ty) => encoder.encode_interface(ty),
+                    Item::Struct(ty) => encoder.encode_struct(ty),
+                    Item::Typedef(ty) => encoder.encode_typedef(ty),
+                    Item::Union(ty) => encoder.encode_union(ty),
+                    Item::Module(_) => unreachable!(
+                        "Module items are expanded during indexing and never encoded directly"
+                    ),
+                }?;
             }
         }
 
-        Ok(output.into_stream())
+        if !members.functions.is_empty() || !members.constants.is_empty() {
+            let class = metadata::writer::TypeDefOrRef::TypeRef(output.TypeRef("System", "Object"));
+
+            output.TypeDef(
+                namespace,
+                "Apis",
+                class,
+                metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed,
+            );
+
+            for (name, variants) in &members.functions {
+                for (file, item) in variants {
+                    let Item::Fn(ty) = item else {
+                        unreachable!("functions index only contains Item::Fn")
+                    };
+                    Encoder {
+                        output: &mut output,
+                        index,
+                        file,
+                        namespace,
+                        name,
+                        generics: vec![],
+                    }
+                    .encode_fn(ty)?;
+                }
+            }
+
+            for (name, variants) in &members.constants {
+                for (file, item) in variants {
+                    let Item::Const(ty) = item else {
+                        unreachable!("constants index only contains Item::Const")
+                    };
+                    Encoder {
+                        output: &mut output,
+                        index,
+                        file,
+                        namespace,
+                        name,
+                        generics: vec![],
+                    }
+                    .encode_const(ty)?;
+                }
+            }
+        }
     }
+
+    Ok(output.into_stream())
 }
 
 /// Parses one `.rdl` file and returns the items it defines under `namespace`.
 pub(crate) fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
     let path = path.as_ref().to_path_buf();
-    let input = expand_rdl_files(std::slice::from_ref(&path), &[])?;
+    let mut report = DiagnosticReport::default();
+    let input = expand_rdl_files(std::slice::from_ref(&path), &[], &mut report);
+    if let Some(error) = report.into_error() {
+        return Err(error);
+    }
     let mut index = Index::new();
     for file in &input {
         for item in &file.items {
@@ -377,48 +437,68 @@ pub(crate) fn parse_source(name: &str, input: &str) -> Result<(), Error> {
         })
 }
 
-fn expand_rdl_files(paths: &[PathBuf], input_text: &[InputText]) -> Result<Vec<File>, Error> {
+fn expand_rdl_files(
+    paths: &[PathBuf],
+    input_text: &[InputText],
+    report: &mut DiagnosticReport,
+) -> Vec<File> {
     let mut input = vec![];
 
     for path in paths {
         let source = path.to_string_lossy();
         let Ok(contents) = std::fs::read_to_string(path) else {
-            return Err(Error::new("failed to read input file", &source, 0, 0));
+            report.push(Error::new("failed to read input file", &source, 0, 0));
+            continue;
         };
+        report.add_source(source.to_string(), contents.clone());
 
         let contents = preprocess_rdl(&contents);
-        let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
-            let start = error.span().start();
-            Error::new(&error.to_string(), &source, start.line, start.column)
-        })?;
-
-        file.source = source.into_owned();
-        input.push(file);
+        match syn::parse_str::<File>(&contents) {
+            Ok(mut file) => {
+                file.source = source.into_owned();
+                input.push(file);
+            }
+            Err(error) => {
+                let start = error.span().start();
+                report.push(Error::new(
+                    &error.to_string(),
+                    &source,
+                    start.line,
+                    start.column,
+                ));
+            }
+        }
     }
 
     for input_text in input_text {
+        report.add_source(input_text.name.clone(), input_text.text.clone());
         let contents = preprocess_rdl(&input_text.text);
-        let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
-            let start = error.span().start();
-            Error::new(
-                &error.to_string(),
-                &input_text.name,
-                start.line,
-                start.column,
-            )
-        })?;
-
-        file.source.clone_from(&input_text.name);
-        input.push(file);
+        match syn::parse_str::<File>(&contents) {
+            Ok(mut file) => {
+                file.source.clone_from(&input_text.name);
+                input.push(file);
+            }
+            Err(error) => {
+                let start = error.span().start();
+                report.push(Error::new(
+                    &error.to_string(),
+                    &input_text.name,
+                    start.line,
+                    start.column,
+                ));
+            }
+        }
     }
 
     for file in &mut input {
         for item in &mut file.items {
-            resolve_winrt(item, &file.source, None)?;
+            if let Err(error) = resolve_winrt(item, &file.source, None) {
+                report.push(error);
+            }
         }
     }
 
-    Ok(input)
+    input
 }
 
 fn resolve_winrt(item: &mut Item, source_file: &str, parent: Option<bool>) -> Result<(), Error> {
@@ -518,7 +598,9 @@ fn validate_use_declarations(
     input: &[File],
     index: &Index,
     reference: &metadata::reader::Index,
-) -> Result<(), Error> {
+) -> Vec<Error> {
+    let mut diagnostics = vec![];
+
     for file in input {
         let mut names = HashMap::<&str, &Import>::new();
         for import in &file.imports {
@@ -531,18 +613,20 @@ fn validate_use_declarations(
             if !found {
                 let start = import.span.start();
                 let end = import.span.end();
-                return Err(Error::new(
-                    &format!("import target `{target}` not found"),
-                    &file.source,
-                    start.line,
-                    start.column,
-                )
-                .with_code("RDL0003")
-                .with_primary_label(
-                    Label::primary(&file.source, start.line, start.column)
-                        .with_end(end.line, end.column)
-                        .with_message("unknown import target"),
-                ));
+                diagnostics.push(
+                    Error::new(
+                        &format!("import target `{target}` not found"),
+                        &file.source,
+                        start.line,
+                        start.column,
+                    )
+                    .with_code("RDL0003")
+                    .with_primary_label(
+                        Label::primary(&file.source, start.line, start.column)
+                            .with_end(end.line, end.column)
+                            .with_message("unknown import target"),
+                    ),
+                );
             }
 
             let Some(local) = import.local.as_deref() else {
@@ -555,32 +639,34 @@ fn validate_use_declarations(
                 let end = import.span.end();
                 let previous_start = previous.span.start();
                 let previous_end = previous.span.end();
-                return Err(Error::new(
-                    &format!("import name `{local}` is defined more than once"),
-                    &file.source,
-                    start.line,
-                    start.column,
-                )
-                .with_code("RDL0004")
-                .with_primary_label(
-                    Label::primary(&file.source, start.line, start.column)
-                        .with_end(end.line, end.column)
-                        .with_message("conflicting import"),
-                )
-                .with_label(
-                    Label::secondary(
+                diagnostics.push(
+                    Error::new(
+                        &format!("import name `{local}` is defined more than once"),
                         &file.source,
-                        previous_start.line,
-                        previous_start.column,
-                        "first imported here",
+                        start.line,
+                        start.column,
                     )
-                    .with_end(previous_end.line, previous_end.column),
-                )
-                .with_help("use distinct aliases for different import targets"));
+                    .with_code("RDL0004")
+                    .with_primary_label(
+                        Label::primary(&file.source, start.line, start.column)
+                            .with_end(end.line, end.column)
+                            .with_message("conflicting import"),
+                    )
+                    .with_label(
+                        Label::secondary(
+                            &file.source,
+                            previous_start.line,
+                            previous_start.column,
+                            "first imported here",
+                        )
+                        .with_end(previous_end.line, previous_end.column),
+                    )
+                    .with_help("use distinct aliases for different import targets"),
+                );
             }
         }
     }
-    Ok(())
+    diagnostics
 }
 
 fn namespace_exists(index: &Index, reference: &metadata::reader::Index, namespace: &str) -> bool {

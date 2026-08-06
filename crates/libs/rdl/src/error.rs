@@ -1,3 +1,5 @@
+use std::collections::{BTreeMap, BTreeSet};
+
 /// Diagnostic severity.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Severity {
@@ -290,5 +292,68 @@ impl std::fmt::Display for Diagnostic {
                 self.message, self.file_name
             )
         }
+    }
+}
+
+/// Diagnostics and source text produced by checking RDL inputs.
+#[derive(Clone, Default)]
+pub struct DiagnosticReport {
+    diagnostics: Vec<Diagnostic>,
+    sources: BTreeMap<String, String>,
+    ambiguous_sources: BTreeSet<String>,
+}
+
+impl DiagnosticReport {
+    /// Returns every diagnostic produced by the check.
+    pub fn diagnostics(&self) -> &[Diagnostic] {
+        &self.diagnostics
+    }
+
+    /// Returns the original source text for a diagnostic source name.
+    pub fn source(&self, name: &str) -> Option<&str> {
+        self.sources.get(name).map(String::as_str)
+    }
+
+    /// Returns whether the report contains no errors.
+    pub fn is_success(&self) -> bool {
+        !self
+            .diagnostics
+            .iter()
+            .any(|diagnostic| diagnostic.severity == Severity::Error)
+    }
+
+    pub(crate) fn add_source(&mut self, name: String, source: String) {
+        if self.ambiguous_sources.contains(&name) {
+            return;
+        }
+        if self
+            .sources
+            .get(&name)
+            .is_some_and(|existing| existing != &source)
+        {
+            self.sources.remove(&name);
+            self.ambiguous_sources.insert(name);
+        } else {
+            self.sources.entry(name).or_insert(source);
+        }
+    }
+
+    pub(crate) fn push(&mut self, error: Error) {
+        self.diagnostics.push(error.into_diagnostic());
+    }
+
+    pub(crate) fn extend(&mut self, errors: impl IntoIterator<Item = Error>) {
+        self.diagnostics
+            .extend(errors.into_iter().map(Error::into_diagnostic));
+    }
+
+    pub(crate) fn into_error(self) -> Option<Error> {
+        self.diagnostics.into_iter().next().map(Error::from)
+    }
+}
+
+impl From<Diagnostic> for Error {
+    fn from(value: Diagnostic) -> Self {
+        Self(Box::new(value))
     }
 }

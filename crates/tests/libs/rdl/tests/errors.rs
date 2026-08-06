@@ -1,8 +1,5 @@
-// Negative tests for windows-rdl error reporting. The golden round-trip harness
-// only ever feeds valid input, so these drive the failure paths in the reader
-// and the resulting `Error` formatting. Unwrapping the `Err` panics with the
-// `Debug` output, which defers to `Display`, so `should_panic` exercises all
-// three `Display` branches in `src/error.rs`.
+// Negative tests for windows-rdl error reporting. The golden round-trip harness only feeds valid
+// input, so these drive single-error compatibility and collected diagnostic paths.
 
 fn out_path(name: &str) -> std::path::PathBuf {
     std::path::Path::new(env!("OUT_DIR")).join(format!("test_rdl_err_{name}.winmd"))
@@ -57,6 +54,60 @@ fn multiple_named_sources_report_the_failing_source() {
 
     assert_eq!(error.file_name, "src/second.rdl");
     assert_eq!(error.labels[0].source, "src/second.rdl");
+}
+
+#[test]
+fn check_all_collects_sources_and_parse_errors() {
+    let first = "#[winrt] mod First { this is not valid rdl }";
+    let second = "#[winrt] mod Second { this is also not valid rdl }";
+    let report = windows_rdl::reader()
+        .input_texts_named([("src/first.rdl", first), ("src/second.rdl", second)])
+        .check_all();
+
+    assert!(!report.is_success());
+    assert_eq!(report.diagnostics().len(), 2);
+    assert_eq!(report.source("src/first.rdl"), Some(first));
+    assert_eq!(report.source("src/second.rdl"), Some(second));
+}
+
+#[test]
+fn report_does_not_guess_between_duplicate_source_names() {
+    let report = windows_rdl::reader()
+        .input_texts(["#[winrt] mod First {}", "#[winrt] mod Second {}"])
+        .check_all();
+
+    assert!(report.is_success());
+    assert_eq!(report.source(".rdl"), None);
+}
+
+#[test]
+fn check_all_collects_independent_semantic_errors() {
+    let report = windows_rdl::reader()
+        .input_text_named(
+            "src/duplicates.rdl",
+            r#"
+#[win32]
+mod Test {
+    struct First {
+        value: i32,
+        value: i32,
+    }
+    struct Second {
+        value: i32,
+        value: i32,
+    }
+}
+"#,
+        )
+        .check_all();
+
+    assert_eq!(report.diagnostics().len(), 2);
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .all(|diagnostic| diagnostic.code.as_deref() == Some("RDL0001"))
+    );
 }
 
 #[test]

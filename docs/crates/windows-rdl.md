@@ -36,7 +36,8 @@ source already in memory.
 
 Use `.input_text_named(name, source)` or `.input_texts_named(sources)` for in-memory sources whose
 names should appear in diagnostics. `Diagnostic` carries a severity, optional code, source labels,
-notes, and help. `Error` is a small owned wrapper that dereferences to its `Diagnostic`.
+notes, and help. `DiagnosticReport` stores collected diagnostics with their original source text.
+`Error` is a small owned wrapper that dereferences to its `Diagnostic`.
 
 ### RDL to winmd, and back
 
@@ -499,6 +500,13 @@ Parser recovery is needed to report several useful errors from one file. It does
 an invalid tree for metadata emission. Recovery can synchronize at module items, interface members,
 fields, enum variants, and semicolons. Semantic validation can then continue for unaffected items.
 
+`Reader::check_all` now returns a `DiagnosticReport`. Parsing continues across input files, and
+syntax-level validation collects independent errors across declarations and namespaces. The report
+retains source text for named in-memory inputs and files, so terminal rendering does not need to
+re-read them. When one source name identifies different texts, the report omits that ambiguous
+lookup rather than showing the wrong source. Stable source IDs, parser recovery within one file,
+and collection of errors still discovered during encoding remain future work.
+
 ### `riddle` command-line tool
 
 `riddle` is a small binary crate built on the library APIs rather than the removed bindgen
@@ -507,9 +515,10 @@ exit-code policy; parsing, validation, resolution, and metadata encoding remain 
 
 The initial implementation provides `riddle check` and `riddle build`. Both accept repeated file
 or directory inputs, repeated winmd references, standard input, and the default Windows metadata.
-`Reader::check` runs the same pipeline as `Reader::write` without creating a winmd. Diagnostics
-render with stable codes, source locations, labeled lines, notes, and help. Invalid RDL uses exit
-code 1, while invalid command lines use exit code 2.
+`Reader::check` runs the same pipeline as `Reader::write` without creating a winmd. `riddle check`
+uses `Reader::check_all`, rendering every independent diagnostic with source locations, labeled
+lines, notes, help, and a final error count. Invalid RDL uses exit code 1, while invalid command
+lines use exit code 2.
 
 An initial command set:
 
