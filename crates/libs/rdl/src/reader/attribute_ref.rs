@@ -6,6 +6,7 @@ pub struct AttributeRef {
     pub args: Vec<(String, metadata::Value)>,
 }
 
+#[derive(Clone)]
 struct AttributeInfo {
     type_name: metadata::TypeName,
     constructors: Vec<Vec<metadata::Type>>,
@@ -15,6 +16,19 @@ struct AttributeInfo {
 struct SplitArgs<'a> {
     positional: Vec<&'a syn::Expr>,
     named: Vec<(String, &'a syn::Expr)>,
+}
+
+fn push_attribute_candidate<'a>(
+    candidates: &mut Vec<(&'a Import, AttributeInfo)>,
+    import: &'a Import,
+    info: AttributeInfo,
+) {
+    if !candidates
+        .iter()
+        .any(|(_, existing)| existing.type_name == info.type_name)
+    {
+        candidates.push((import, info));
+    }
 }
 
 fn collect_bitor_variants(expr: &syn::Expr) -> Option<Vec<String>> {
@@ -46,46 +60,150 @@ fn collect_bitor_variants_inner(expr: &syn::Expr, names: &mut Vec<String>) -> Op
 }
 
 impl Encoder<'_> {
-    fn find_attribute_type(&self, path: &syn::Path) -> Option<AttributeInfo> {
-        let mut segments: Vec<String> = path.segments.iter().map(|s| s.ident.to_string()).collect();
-
-        let name = segments.pop()?;
-        let attr_name = format!("{name}Attribute");
-
-        let explicit_namespace = if segments.is_empty() {
-            None
-        } else {
-            Some(segments.join("."))
+    fn find_attribute_type(&self, path: &syn::Path) -> Result<Option<AttributeInfo>, Error> {
+        let mut segments: Vec<String> = path
+            .segments
+            .iter()
+            .map(|segment| segment.ident.unraw_to_string())
+            .collect();
+        let Some(name) = segments.pop() else {
+            return Ok(None);
         };
 
-        let namespaces: Vec<String> = if let Some(ns) = explicit_namespace {
-            vec![ns]
-        } else {
-            let parts: Vec<&str> = self.namespace.split('.').collect();
-            let mut nss: Vec<String> = (1..=parts.len())
-                .rev()
-                .map(|len| parts[..len].join("."))
-                .collect();
-            for use_item in &self.file.uses {
-                if let Some(ns) = glob_use_namespace(use_item)
-                    && !nss.contains(&ns)
-                {
-                    nss.push(ns);
+        if !segments.is_empty() {
+            if segments.iter().any(|segment| segment == "super") {
+                let mut namespace = vec![];
+                for segment in &segments {
+                    if segment == "super" {
+                        if namespace.is_empty() {
+                            namespace.extend(self.namespace.split('.').map(str::to_string));
+                        }
+                        if namespace.pop().is_none() {
+                            return self.err(path, "too many leading `super` keywords");
+                        }
+                    } else {
+                        namespace.push(segment.clone());
+                    }
+                }
+                return Ok(self.find_attribute_in_namespace(&namespace.join("."), &name));
+            }
+
+            let namespace = segments.join(".");
+            if let Some(info) = self.find_attribute_in_namespace(&namespace, &name) {
+                return Ok(Some(info));
+            }
+
+            let relative = format!("{}.{}", self.namespace, namespace);
+            if let Some(info) = self.find_attribute_in_namespace(&relative, &name) {
+                return Ok(Some(info));
+            }
+
+            let mut imported = vec![];
+            for import in &self.file.imports {
+                if import.glob || import.local.as_deref() != Some(&segments[0]) {
+                    continue;
+                }
+                let target = import.path.join(".");
+                if !self.namespace_exists(&target) {
+                    continue;
+                }
+                let mut namespace = import.path.clone();
+                namespace.extend_from_slice(&segments[1..]);
+                if let Some(info) = self.find_attribute_in_namespace(&namespace.join("."), &name) {
+                    push_attribute_candidate(&mut imported, import, info);
                 }
             }
-            nss
-        };
+            return self.one_imported_attribute(path, &name, imported);
+        }
 
-        for ns in &namespaces {
-            if let Some(info) = self
-                .find_in_reference(ns, &attr_name)
-                .or_else(|| self.find_in_index(ns, &attr_name))
-            {
-                return Some(info);
+        let parts: Vec<&str> = self.namespace.split('.').collect();
+        for namespace in (1..=parts.len()).rev().map(|len| parts[..len].join(".")) {
+            if let Some(info) = self.find_attribute_in_namespace(&namespace, &name) {
+                return Ok(Some(info));
             }
         }
 
-        None
+        let mut imported = vec![];
+        for import in &self.file.imports {
+            if import.glob || import.local.as_deref() != Some(&name) {
+                continue;
+            }
+            let (target_name, target_namespace) = import.path.split_last().unwrap();
+            if let Some(info) =
+                self.find_attribute_in_namespace(&target_namespace.join("."), target_name)
+            {
+                push_attribute_candidate(&mut imported, import, info);
+            }
+        }
+        if let Some(info) = self.one_imported_attribute(path, &name, imported)? {
+            return Ok(Some(info));
+        }
+
+        let mut globbed = vec![];
+        for import in &self.file.imports {
+            if import.glob
+                && let Some(info) = self.find_attribute_in_namespace(&import.path.join("."), &name)
+            {
+                push_attribute_candidate(&mut globbed, import, info);
+            }
+        }
+        self.one_imported_attribute(path, &name, globbed)
+    }
+
+    fn find_attribute_in_namespace(&self, namespace: &str, name: &str) -> Option<AttributeInfo> {
+        let physical_name = if name.ends_with("Attribute") {
+            name.to_string()
+        } else {
+            format!("{name}Attribute")
+        };
+        self.find_in_index(namespace, &physical_name)
+            .or_else(|| self.find_in_reference(namespace, &physical_name))
+    }
+
+    fn one_imported_attribute(
+        &self,
+        path: &syn::Path,
+        name: &str,
+        candidates: Vec<(&Import, AttributeInfo)>,
+    ) -> Result<Option<AttributeInfo>, Error> {
+        match candidates.as_slice() {
+            [] => Ok(None),
+            [(_, info)] => Ok(Some(info.clone())),
+            _ => {
+                let start = path.span().start();
+                let end = path.span().end();
+                let mut error = Error::new(
+                    &format!("attribute name `{name}` is ambiguous"),
+                    &self.file.source,
+                    start.line,
+                    start.column,
+                )
+                .with_code("RDL0004")
+                .with_primary_label(
+                    Label::primary(&self.file.source, start.line, start.column)
+                        .with_end(end.line, end.column)
+                        .with_message("ambiguous attribute name"),
+                )
+                .with_help("use a qualified path or add an explicit named import");
+                for (import, info) in candidates {
+                    let import_start = import.span.start();
+                    let import_end = import.span.end();
+                    error = error.with_label(
+                        Label::secondary(
+                            &self.file.source,
+                            import_start.line,
+                            import_start.column,
+                            &format!(
+                                "candidate `{}.{}`",
+                                info.type_name.namespace, info.type_name.name
+                            ),
+                        )
+                        .with_end(import_end.line, import_end.column),
+                    );
+                }
+                Err(error)
+            }
+        }
     }
 
     fn find_in_reference(&self, namespace: &str, attr_name: &str) -> Option<AttributeInfo> {
@@ -397,7 +515,7 @@ impl Encoder<'_> {
         let path = attr.path();
 
         let info = self
-            .find_attribute_type(path)
+            .find_attribute_type(path)?
             .ok_or_else(|| self.error(attr, "attribute type not found"))?;
 
         let raw_args: Vec<syn::Expr> = match &attr.meta {
@@ -567,15 +685,16 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
-    pub fn is_guid_attribute(&self, attr: &syn::Attribute) -> bool {
-        self.find_attribute_type(attr.path())
-            .is_some_and(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
+    pub fn is_guid_attribute(&self, attr: &syn::Attribute) -> Result<bool, Error> {
+        Ok(self.find_attribute_type(attr.path())?.is_some_and(|info| {
+            &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute")
+        }))
     }
 
-    pub fn is_exclusive_to_attribute(&self, attr: &syn::Attribute) -> bool {
-        self.find_attribute_type(attr.path()).is_some_and(|info| {
+    pub fn is_exclusive_to_attribute(&self, attr: &syn::Attribute) -> Result<bool, Error> {
+        Ok(self.find_attribute_type(attr.path())?.is_some_and(|info| {
             &info.type_name == ("Windows.Foundation.Metadata", "ExclusiveToAttribute")
-        })
+        }))
     }
 
     pub fn encode_guid_pseudo_attrs(
@@ -583,11 +702,12 @@ impl Encoder<'_> {
         target: metadata::writer::HasAttribute,
         attrs: &[syn::Attribute],
     ) -> Result<bool, Error> {
-        let already_has_guid = attrs.iter().any(|attr| {
-            self.is_guid_attribute(attr)
+        let mut already_has_guid = false;
+        for attr in attrs {
+            already_has_guid |= self.is_guid_attribute(attr)?
                 || attr.path().is_ident("guid")
-                || attr.path().is_ident("no_guid")
-        });
+                || attr.path().is_ident("no_guid");
+        }
 
         for attr in attrs {
             if attr.path().is_ident("guid") {

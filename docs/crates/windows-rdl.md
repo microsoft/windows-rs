@@ -543,21 +543,44 @@ preserve source constructs that are metadata-equivalent but meaningful to author
 
 ### Imports and name resolution
 
-Only glob imports currently participate in name resolution. Expand this deliberately rather than
-inheriting every Rust `use` form without a metadata use case.
-
-The first useful forms are:
+Imports are an authoring convenience for types and attributes. They are scoped to one RDL file,
+including every metadata namespace declared by that file. Import paths therefore name absolute
+metadata namespaces rather than paths relative to a module.
 
 ```rust
 use Windows::Foundation::Point;
 use Windows::Foundation::Collections as Collections;
-use Windows::Foundation::{Point, Size};
+use Windows::Foundation::{Point, Size as Extent};
+use Windows::Foundation::Metadata::*;
 ```
 
-Resolution should detect ambiguity instead of selecting the first match. Diagnostics should list
-the competing declarations and suggest qualification or an alias. Unused-import warnings and
-duplicate-import warnings can follow once resolution is stable. The writer should have a defined
-policy for choosing qualified names or imports; source compilation must not depend on writer style.
+Named imports, aliases, grouped imports, `self` within a group, and namespace globs are supported.
+An imported name can identify a type or a namespace according to where it is used, so a namespace
+alias such as `Collections` resolves `Collections::IIterable`. The same model applies to
+attributes. Importing `Marker` resolves the metadata type `MarkerAttribute` when `#[Marker]` is
+used.
+
+Names resolve in this order:
+
+1. Generic parameters, primitive types, and core spellings.
+2. A declaration in the current namespace.
+3. An explicit named or aliased import.
+4. Namespace glob imports.
+5. Core aliases such as `Type`, `GUID`, and `HRESULT`.
+
+An explicit import can disambiguate competing globs. Multiple glob matches produce `RDL0004` with
+a label for each candidate instead of selecting the first match. `RDL0003` reports an import whose
+target is not a known namespace, type, or source-spelled attribute. Reusing one local import name
+for different targets also produces `RDL0004`; repeating the same import is accepted.
+
+Leading `crate`, `self`, and `super` imports are rejected because their meaning would depend on
+which namespace in the file used them. `self` remains valid within a group such as
+`use Windows::Foundation::{self as Foundation, Point};`.
+
+The writer does not infer or emit imports. Canonical winmd -> RDL output uses qualified or
+namespace-relative paths, so metadata round trips do not depend on import style. Unused-import and
+shadowed-import warnings can follow after diagnostics support collecting warnings alongside
+errors.
 
 ### Overload authoring
 
@@ -620,8 +643,56 @@ resulting RDL makes the ABI at least as reviewable as the current explicit inter
    remap.
 5. Done: restore a minimal `riddle check` and `riddle build` on the new library APIs.
 6. Done: replace the formatter's silent parse fallback, preserve comments, and add `riddle fmt`.
-7. Add named imports, aliases, grouped imports, and ambiguity diagnostics.
-8. Implement explicit overload authoring and canonical expansion.
-9. Evaluate runtime-class conveniences against the ABI-visibility constraints above.
+7. Done: add named imports, aliases, grouped imports, and ambiguity diagnostics.
+8. Deferred: implement explicit overload authoring after the semantic foundation described below.
+9. Deferred: evaluate runtime-class conveniences after overload lowering is explicit and reviewable.
+
+### Review after the initial implementation
+
+Steps 1-7 removed several silent-loss paths and made the existing compiler usable from a terminal.
+They also made the next architectural limit clearer: validation and resolution still run partly
+inside `Encoder`, return the first error, and use syntax spellings for some semantic comparisons.
+Adding overload authoring directly to that design would make the coupling worse.
+
+The main findings are:
+
+- **Validation:** Most passes stop at the first error. Collect independent semantic diagnostics
+  before encoding.
+- **Resolution:** Type and attribute lookup share import directives but still duplicate resolution
+  logic. Add one resolver that returns canonical symbol identities.
+- **Duplicate checks:** Signature keys compare token spelling, so aliases can hide equivalent
+  signatures. Compare resolved types, generic arity, and calling shape.
+- **Encoding:** Some unresolved or invalid states are found while the winmd writer is being
+  mutated. Make the encoder consume only a validated resolved model.
+- **Diagnostics:** The data model supports labels, but source text is external and `riddle` renders
+  one label at a time. Add a source registry, diagnostic collections, color/short/JSON rendering,
+  and a final count.
+- **Formatting:** Token formatting is safe but does not understand all RDL constructs. Grouped
+  imports initially exposed poor brace layout. Keep focused fixes now; move final layout to the RDL
+  tree later.
+- **Losslessness:** Known losses are rejected or documented, but the ECMA table and parent inventory
+  is incomplete. Finish a machine-checked support inventory before claiming arbitrary winmd round
+  trips.
+
+Grouped imports are now formatted inline rather than as ordinary brace blocks. This is a useful
+example of why each new authoring feature needs parser, resolver, diagnostic, formatter, CLI, and
+round-trip coverage rather than parser coverage alone.
+
+The next phase should proceed in this order:
+
+1. Introduce a source registry, canonical symbol IDs, and a shared name resolver. Preserve the
+   current `Result<T, Error>` APIs as convenience wrappers while adding an internal diagnostic
+   collection.
+2. Build a resolved model for declarations, types, attributes, parameters, and imports. Move
+   duplicate checks and import ambiguity checks onto that model, and emit no metadata when it has
+   errors.
+3. Add generic-arity, attribute-target, profile, and resolved-signature validation. Finish the
+   metadata table and custom-attribute parent inventory with rejection tests for unsupported rows.
+4. Implement explicit overload authoring and canonical expansion using resolved signatures and
+   stable metadata names.
+5. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete
+   diagnostic collections and unsupported-metadata findings.
+6. Move formatting to the RDL syntax tree and add range formatting if editor use justifies it.
+7. Evaluate runtime-class conveniences only after the expanded ABI can be inspected and compared.
 
 [rdl-overloads]: https://github.com/microsoft/windows-rs/issues/4166

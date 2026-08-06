@@ -109,10 +109,10 @@ impl syn::parse::Parse for Interface {
 
 impl Encoder<'_> {
     pub fn encode_interface(&mut self, item: &Interface) -> Result<(), Error> {
-        let has_exclusive_to = item
-            .attrs
-            .iter()
-            .any(|attr| self.is_exclusive_to_attribute(attr));
+        let mut has_exclusive_to = false;
+        for attr in &item.attrs {
+            has_exclusive_to |= self.is_exclusive_to_attribute(attr)?;
+        }
 
         let mut flags = metadata::TypeAttributes::Abstract | metadata::TypeAttributes::Interface;
 

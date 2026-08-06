@@ -166,6 +166,13 @@ impl Formatter<'_> {
                     _ => output.push(p.as_char()),
                 },
                 TokenTree::Group(g) => match g.delimiter() {
+                    Delimiter::Brace if output.ends_with("::") => {
+                        output.push('{');
+                        let inner: Vec<TokenTree> = g.stream().into_iter().collect();
+                        self.format_seq(&inner, output, indent, true);
+                        trim_space(output);
+                        output.push_str("} ");
+                    }
                     Delimiter::Brace => {
                         let inner: Vec<TokenTree> = g.stream().into_iter().collect();
                         if inner.is_empty() {
@@ -425,6 +432,15 @@ mod tests {
         assert_eq!(
             format("#[win32] mod Test { struct Value { #[r#in] field: i32 } }").unwrap(),
             "#[win32]\nmod Test {\n    struct Value {\n        #[in]\n        field: i32\n    }\n}\n"
+        );
+    }
+
+    #[test]
+    fn grouped_imports_remain_inline() {
+        let input = "use Windows::Foundation::{self as Foundation, Point, Size as Extent};";
+        assert_eq!(
+            format(input).unwrap(),
+            "use Windows::Foundation::{self as Foundation, Point, Size as Extent};\n"
         );
     }
 

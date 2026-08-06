@@ -520,22 +520,87 @@ fn validate_use_declarations(
     reference: &metadata::reader::Index,
 ) -> Result<(), Error> {
     for file in input {
-        for use_item in &file.uses {
-            if let Some(ns) = glob_use_namespace(use_item)
-                && !index.namespaces.contains_key(&ns)
-                && !reference.contains_namespace(&ns)
-            {
-                let start = use_item.span().start();
+        let mut names = HashMap::<&str, &Import>::new();
+        for import in &file.imports {
+            let target = import.path.join(".");
+            let found = if import.glob {
+                namespace_exists(index, reference, &target)
+            } else {
+                import_target_exists(index, reference, &import.path)
+            };
+            if !found {
+                let start = import.span.start();
+                let end = import.span.end();
                 return Err(Error::new(
-                    "use namespace not found",
+                    &format!("import target `{target}` not found"),
                     &file.source,
                     start.line,
                     start.column,
+                )
+                .with_code("RDL0003")
+                .with_primary_label(
+                    Label::primary(&file.source, start.line, start.column)
+                        .with_end(end.line, end.column)
+                        .with_message("unknown import target"),
                 ));
+            }
+
+            let Some(local) = import.local.as_deref() else {
+                continue;
+            };
+            if let Some(previous) = names.insert(local, import)
+                && previous.path != import.path
+            {
+                let start = import.span.start();
+                let end = import.span.end();
+                let previous_start = previous.span.start();
+                let previous_end = previous.span.end();
+                return Err(Error::new(
+                    &format!("import name `{local}` is defined more than once"),
+                    &file.source,
+                    start.line,
+                    start.column,
+                )
+                .with_code("RDL0004")
+                .with_primary_label(
+                    Label::primary(&file.source, start.line, start.column)
+                        .with_end(end.line, end.column)
+                        .with_message("conflicting import"),
+                )
+                .with_label(
+                    Label::secondary(
+                        &file.source,
+                        previous_start.line,
+                        previous_start.column,
+                        "first imported here",
+                    )
+                    .with_end(previous_end.line, previous_end.column),
+                )
+                .with_help("use distinct aliases for different import targets"));
             }
         }
     }
     Ok(())
+}
+
+fn namespace_exists(index: &Index, reference: &metadata::reader::Index, namespace: &str) -> bool {
+    index.namespaces.contains_key(namespace) || reference.contains_namespace(namespace)
+}
+
+fn import_target_exists(
+    index: &Index,
+    reference: &metadata::reader::Index,
+    path: &[String],
+) -> bool {
+    let Some((name, namespace)) = path.split_last() else {
+        return false;
+    };
+    let namespace = namespace.join(".");
+    namespace_exists(index, reference, &path.join("."))
+        || index.contains(&namespace, name)
+        || reference.contains(&namespace, name)
+        || index.contains(&namespace, &format!("{name}Attribute"))
+        || reference.contains(&namespace, &format!("{name}Attribute"))
 }
 
 /// Parses a `syn::LitInt` as a `u128`, supporting both `0x...` hex and decimal literals.
@@ -1152,19 +1217,19 @@ impl Encoder<'_> {
             namespace.join(".")
         };
 
-        let make_type = |namespace: &str| -> Option<metadata::Type> {
-            if self.index.contains(namespace, name)
+        let make_type = |namespace: &str, type_name: &str| -> Option<metadata::Type> {
+            if self.index.contains(namespace, type_name)
                 || self
                     .output
                     .reference()
-                    .is_some_and(|r| r.contains(namespace, name))
+                    .is_some_and(|r| r.contains(namespace, type_name))
             {
                 let tn = metadata::TypeName {
                     namespace: namespace.to_string(),
-                    name: name.clone(),
+                    name: type_name.to_string(),
                     generics: generics.clone(),
                 };
-                if self.type_is_value(namespace, name) {
+                if self.type_is_value(namespace, type_name) {
                     Some(metadata::Type::ValueName(tn))
                 } else {
                     Some(metadata::Type::ClassName(tn))
@@ -1174,22 +1239,57 @@ impl Encoder<'_> {
             }
         };
 
-        if let Some(ty) = make_type(&namespace) {
+        if let Some(ty) = make_type(&namespace, name) {
             return Ok(ty);
         }
 
         let namespace = format!("{}.{}", self.namespace, namespace);
 
-        if let Some(ty) = make_type(&namespace) {
+        if let Some(ty) = make_type(&namespace, name) {
             return Ok(ty);
         }
 
-        for use_item in &self.file.uses {
-            if let Some(ns) = glob_use_namespace(use_item)
-                && let Some(ty) = make_type(&ns)
-            {
-                return Ok(ty);
+        let mut imported = vec![];
+        if path.len() == 1 {
+            for import in &self.file.imports {
+                if import.glob || import.local.as_deref() != Some(name) {
+                    continue;
+                }
+                let (target_name, target_namespace) = import.path.split_last().unwrap();
+                if let Some(candidate) = make_type(&target_namespace.join("."), target_name) {
+                    push_import_candidate(&mut imported, import, candidate);
+                }
             }
+        } else if !ty.segments.iter().any(|segment| segment.ident == "super") {
+            for import in &self.file.imports {
+                if import.glob || import.local.as_deref() != Some(&path[0]) {
+                    continue;
+                }
+                let target = import.path.join(".");
+                if !self.namespace_exists(&target) {
+                    continue;
+                }
+                let mut namespace = import.path.clone();
+                namespace.extend_from_slice(&path[1..path.len() - 1]);
+                if let Some(candidate) = make_type(&namespace.join("."), name) {
+                    push_import_candidate(&mut imported, import, candidate);
+                }
+            }
+        }
+        if let Some(ty) = self.one_imported_type(ty, name, imported)? {
+            return Ok(ty);
+        }
+
+        let mut globbed = vec![];
+        for import in &self.file.imports {
+            if import.glob
+                && let Some(candidate) = make_type(&import.path.join("."), name)
+            {
+                push_import_candidate(&mut globbed, import, candidate);
+            }
+        }
+        if let Some(ty) = self.one_imported_type(ty, name, globbed)? {
+            return Ok(ty);
         }
 
         // Fall back to core aliases only when the scrape did not define its own type.
@@ -1205,6 +1305,57 @@ impl Encoder<'_> {
         }
 
         Err(self.error(ty, "type not found"))
+    }
+
+    fn namespace_exists(&self, namespace: &str) -> bool {
+        self.index.namespaces.contains_key(namespace)
+            || self
+                .output
+                .reference()
+                .is_some_and(|reference| reference.contains_namespace(namespace))
+    }
+
+    fn one_imported_type(
+        &self,
+        path: &syn::Path,
+        name: &str,
+        candidates: Vec<(&Import, metadata::Type)>,
+    ) -> Result<Option<metadata::Type>, Error> {
+        match candidates.as_slice() {
+            [] => Ok(None),
+            [(_, ty)] => Ok(Some(ty.clone())),
+            _ => {
+                let start = path.span().start();
+                let end = path.span().end();
+                let mut error = Error::new(
+                    &format!("type name `{name}` is ambiguous"),
+                    &self.file.source,
+                    start.line,
+                    start.column,
+                )
+                .with_code("RDL0004")
+                .with_primary_label(
+                    Label::primary(&self.file.source, start.line, start.column)
+                        .with_end(end.line, end.column)
+                        .with_message("ambiguous type name"),
+                )
+                .with_help("use a qualified path or add an explicit named import");
+                for (import, ty) in candidates {
+                    let import_start = import.span.start();
+                    let import_end = import.span.end();
+                    error = error.with_label(
+                        Label::secondary(
+                            &self.file.source,
+                            import_start.line,
+                            import_start.column,
+                            &format!("candidate `{}`", display_named_type(&ty)),
+                        )
+                        .with_end(import_end.line, import_end.column),
+                    );
+                }
+                Err(error)
+            }
+        }
     }
 
     fn encode_return_type(&self, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
@@ -1368,22 +1519,24 @@ pub(crate) fn parse_return_type_with_attrs(
     }
 }
 
-fn glob_use_namespace(use_item: &syn::ItemUse) -> Option<String> {
-    fn extract(tree: &syn::UseTree, parts: &mut Vec<String>) -> bool {
-        match tree {
-            syn::UseTree::Path(p) => {
-                parts.push(p.ident.to_string());
-                extract(&p.tree, parts)
-            }
-            syn::UseTree::Glob(_) => true,
-            _ => false,
-        }
+fn push_import_candidate<'a>(
+    candidates: &mut Vec<(&'a Import, metadata::Type)>,
+    import: &'a Import,
+    ty: metadata::Type,
+) {
+    if !candidates.iter().any(|(_, existing)| existing == &ty) {
+        candidates.push((import, ty));
     }
-    let mut parts = vec![];
-    if extract(&use_item.tree, &mut parts) && !parts.is_empty() {
-        Some(parts.join("."))
+}
+
+fn display_named_type(ty: &metadata::Type) -> String {
+    let (metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn)) = ty else {
+        return format!("{ty:?}");
+    };
+    if tn.namespace.is_empty() {
+        tn.name.clone()
     } else {
-        None
+        format!("{}.{}", tn.namespace, tn.name)
     }
 }
 
