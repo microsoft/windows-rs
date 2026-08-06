@@ -24,7 +24,7 @@ pub struct Reconciler<B: Backend> {
     pub children_mirror: FxHashMap<ControlId, Vec<ControlId>>,
     pub id_kinds: FxHashMap<ControlId, ControlKind>,
     pub context_stack: Rc<ContextStack>,
-    pub component_instances: FxHashMap<ControlId, ComponentInstance>,
+    pub component_instances: FxHashMap<ControlId, ComponentInstances>,
     pub appeared_listener_count: usize,
     pub disappeared_listener_count: usize,
     pub force_component_rerender: bool,
@@ -53,6 +53,73 @@ pub struct ComponentInstance {
     pub last_rendered: Element,
     pub last_obj: Rc<dyn ComponentObject>,
     pub read_contexts: rustc_hash::FxHashSet<ContextId>,
+}
+
+/// Component state sharing one rendered native root.
+///
+/// The common case stores one component inline. A heap-backed stack is used
+/// only when transparent components render other components directly.
+#[allow(clippy::large_enum_variant)] // Boxing One would add an allocation to every component.
+pub enum ComponentInstances {
+    One(ComponentInstance),
+    Many(Vec<ComponentInstance>),
+}
+
+impl ComponentInstances {
+    fn as_slice(&self) -> &[ComponentInstance] {
+        match self {
+            Self::One(inst) => std::slice::from_ref(inst),
+            Self::Many(instances) => instances,
+        }
+    }
+
+    fn as_mut_slice(&mut self) -> &mut [ComponentInstance] {
+        match self {
+            Self::One(inst) => std::slice::from_mut(inst),
+            Self::Many(instances) => instances,
+        }
+    }
+
+    fn last(&self) -> &ComponentInstance {
+        self.as_slice().last().unwrap()
+    }
+
+    fn last_mut(&mut self) -> &mut ComponentInstance {
+        self.as_mut_slice().last_mut().unwrap()
+    }
+
+    fn push(&mut self, inst: ComponentInstance) {
+        match self {
+            Self::Many(instances) => instances.push(inst),
+            Self::One(_) => {
+                let previous = match std::mem::replace(self, Self::Many(Vec::with_capacity(2))) {
+                    Self::One(previous) => previous,
+                    Self::Many(_) => unreachable!(),
+                };
+                let Self::Many(instances) = self else {
+                    unreachable!()
+                };
+                instances.push(previous);
+                instances.push(inst);
+            }
+        }
+    }
+
+    fn pop(&mut self) -> ComponentInstance {
+        let Self::Many(instances) = self else {
+            unreachable!("single component entries are removed directly")
+        };
+        let inst = instances.pop().unwrap();
+        if instances.len() == 1 {
+            let remaining = instances.pop().unwrap();
+            *self = Self::One(remaining);
+        }
+        inst
+    }
+
+    fn is_one(&self) -> bool {
+        matches!(self, Self::One(_))
+    }
 }
 
 impl<B: Backend + 'static> Reconciler<B> {
@@ -111,9 +178,12 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     /// Checks whether `id` has pending hook-state changes without clearing them.
     pub fn is_component_state_dirty(&self, id: ControlId) -> bool {
-        self.component_instances
-            .get(&id)
-            .is_some_and(|inst| inst.render_cx.peek_state_dirty())
+        self.component_instances.get(&id).is_some_and(|instances| {
+            instances
+                .as_slice()
+                .iter()
+                .any(|inst| inst.render_cx.peek_state_dirty())
+        })
     }
 
     pub fn reset_stats(&mut self) {
@@ -132,7 +202,9 @@ impl<B: Backend + 'static> Reconciler<B> {
         let id = self.backend.create(kind);
 
         if let Some(stale) = self.component_instances.remove(&id) {
-            self.unregister_component_listeners(&stale);
+            for inst in stale.as_slice() {
+                self.unregister_component_listeners(inst);
+            }
         }
         self.templated_lists.remove(&id);
         self.selection_callbacks.remove(&id);
@@ -144,26 +216,31 @@ impl<B: Backend + 'static> Reconciler<B> {
         id
     }
 
-    pub fn register_component_instance(
-        &mut self,
-        id: ControlId,
-        inst: ComponentInstance,
-    ) -> Option<ComponentInstance> {
+    pub fn register_component_instance(&mut self, id: ControlId, inst: ComponentInstance) {
         if inst.last_obj.has_on_appeared() {
             self.appeared_listener_count += 1;
         }
         if inst.last_obj.has_on_disappeared() {
             self.disappeared_listener_count += 1;
         }
-        let displaced = self.component_instances.insert(id, inst);
-        if let Some(prev) = &displaced {
-            self.unregister_component_listeners(prev);
+        match self.component_instances.entry(id) {
+            std::collections::hash_map::Entry::Occupied(mut entry) => entry.get_mut().push(inst),
+            std::collections::hash_map::Entry::Vacant(entry) => {
+                entry.insert(ComponentInstances::One(inst));
+            }
         }
-        displaced
     }
 
     pub fn take_component_instance(&mut self, id: ControlId) -> Option<ComponentInstance> {
-        let inst = self.component_instances.remove(&id)?;
+        let remove_entry = self.component_instances.get(&id)?.is_one();
+        let inst = if remove_entry {
+            match self.component_instances.remove(&id)? {
+                ComponentInstances::One(inst) => inst,
+                ComponentInstances::Many(_) => unreachable!(),
+            }
+        } else {
+            self.component_instances.get_mut(&id)?.pop()
+        };
         self.unregister_component_listeners(&inst);
         Some(inst)
     }
@@ -225,7 +302,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         let dirty: Vec<ControlId> = self
             .component_instances
             .iter()
-            .filter(|(_, inst)| inst.render_cx.peek_state_dirty())
+            .filter(|(_, instances)| {
+                instances
+                    .as_slice()
+                    .iter()
+                    .any(|inst| inst.render_cx.peek_state_dirty())
+            })
             .map(|(id, _)| *id)
             .collect();
         if !dirty.is_empty() {
@@ -322,8 +404,19 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut to_release = Vec::new();
         self.collect_subtree(id, &mut to_release);
         for node in to_release.into_iter().rev() {
-            if let Some(mut inst) = self.take_component_instance(node) {
-                inst.render_cx.run_cleanups();
+            if let Some(instances) = self.component_instances.remove(&node) {
+                match instances {
+                    ComponentInstances::One(mut inst) => {
+                        self.unregister_component_listeners(&inst);
+                        inst.render_cx.run_cleanups();
+                    }
+                    ComponentInstances::Many(instances) => {
+                        for mut inst in instances {
+                            self.unregister_component_listeners(&inst);
+                            inst.render_cx.run_cleanups();
+                        }
+                    }
+                }
             }
 
             if let Some(state) = self.templated_lists.remove(&node) {
@@ -789,8 +882,11 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut result = Vec::new();
         let mut stack = vec![root_id];
         while let Some(id) = stack.pop() {
-            if let Some(inst) = self.component_instances.get(&id)
-                && inst.read_contexts.iter().any(|c| changed.contains(c))
+            if let Some(instances) = self.component_instances.get(&id)
+                && instances
+                    .as_slice()
+                    .iter()
+                    .any(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
             {
                 result.push(id);
             }

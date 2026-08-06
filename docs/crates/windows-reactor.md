@@ -93,7 +93,8 @@ Build elements with plain builder functions. Each returns a widget that becomes 
 `.into()`. Containers take a tuple of children.
 
 - Text: `text_block(content)` with `.bold()`, `.semibold()`, `.font_size(..)`, `.wrap()`,
-  `.selectable()`, and type-ramp helpers (`title`, `subtitle`, `body`, `caption`).
+  `.selectable()`, `.max_lines(..)`, `.text_trimming(..)`, and type-ramp helpers (`title`,
+  `subtitle`, `body`, `caption`).
 - Buttons: `button(content)` with `.on_click(..)`, `.accent()`, `.subtle()`, `.enabled(..)`,
   `.icon(..)`, `.flyout(..)`, `.menu_flyout(..)`.
 - Icons: any control that takes an icon (`button`, `NavViewItem`, command-bar buttons,
@@ -101,7 +102,8 @@ Build elements with plain builder functions. Each returns a widget that becomes 
   `Icon::image(source)` creates a full-color `ImageIcon` from raster, SVG, or surface data;
   `Icon::bitmap_icon(uri, show_as_monochrome)` creates a native `BitmapIcon`; `Icon::font(glyph)`
   and `Icon::font_family(glyph, family)` create a `FontIcon`; and `Icon::path(data)` creates a
-  `PathIcon` from XAML path mini-language data. Sample:
+  `PathIcon` from XAML path mini-language data. Full-color image icons are constrained to 20 DIPs
+  so large raster or SVG sources cannot consume the icon host's available space. Sample:
   `cargo run -p reactor_samples --example icon_elements`.
 - Images: `Image::new(source)` accepts a URI or `ImageSource`. URI paths ending in `.svg`
   (case-insensitive, before any query or fragment) use the platform SVG decoder; other URIs use

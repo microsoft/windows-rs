@@ -132,7 +132,7 @@ Microsoft::UI::Xaml::Controls::ITabView::{get_TabItems, get_SelectedIndex, Selec
 Microsoft::UI::Xaml::Controls::ITabViewItem::{put_Header, put_IsClosable}
 Microsoft::UI::Xaml::Controls::ITabViewTabCloseRequestedEventArgs::get_Tab
 Microsoft::UI::Xaml::Controls::ITeachingTip::{put_ActionButtonContent, put_CloseButtonContent, Closed, ActionButtonClick}
-Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_FontSize, put_FontWeight, put_FontFamily, put_Foreground, put_Padding}
+Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_FontSize, put_FontWeight, put_FontFamily, put_Foreground, put_MaxLines, put_Padding, put_TextTrimming}
 Microsoft::UI::Xaml::Controls::ITextBox::{get_Text, put_Text, TextChanged}
 Microsoft::UI::Xaml::Controls::ITimePicker::SelectedTimeChanged
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime

@@ -15987,6 +15987,15 @@ impl ITextBlock {
             .ok()
         }
     }
+    pub(crate) fn SetTextTrimming(&self, value: TextTrimming) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTextTrimming)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn Text(&self) -> windows_core::Result<String> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16027,6 +16036,15 @@ impl ITextBlock {
             .ok()
         }
     }
+    pub(crate) fn SetMaxLines(&self, value: i32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMaxLines)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct ITextBlock_Vtbl {
@@ -16057,7 +16075,8 @@ pub struct ITextBlock_Vtbl {
     pub SetTextWrapping:
         unsafe extern "system" fn(*mut core::ffi::c_void, TextWrapping) -> windows_core::HRESULT,
     TextTrimming: usize,
-    SetTextTrimming: usize,
+    pub SetTextTrimming:
+        unsafe extern "system" fn(*mut core::ffi::c_void, TextTrimming) -> windows_core::HRESULT,
     TextAlignment: usize,
     SetTextAlignment: usize,
     pub Text: unsafe extern "system" fn(
@@ -16079,6 +16098,17 @@ pub struct ITextBlock_Vtbl {
     IsTextSelectionEnabled: usize,
     pub SetIsTextSelectionEnabled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    SelectedText: usize,
+    ContentStart: usize,
+    ContentEnd: usize,
+    SelectionStart: usize,
+    SelectionEnd: usize,
+    BaselineOffset: usize,
+    SelectionHighlightColor: usize,
+    SetSelectionHighlightColor: usize,
+    MaxLines: usize,
+    pub SetMaxLines:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ITextBox,
@@ -24620,6 +24650,22 @@ impl core::ops::Not for TextSetOptions {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TextTrimming(pub i32);
+impl TextTrimming {
+    pub const None: Self = Self(0);
+    pub const CharacterEllipsis: Self = Self(1);
+    pub const WordEllipsis: Self = Self(2);
+    pub const Clip: Self = Self(3);
+}
+impl windows_core::TypeKind for TextTrimming {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for TextTrimming {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Xaml.TextTrimming;i4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

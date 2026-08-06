@@ -50,6 +50,7 @@ pub use bindings::ScrollingScrollBarVisibility;
 pub use bindings::Stretch;
 pub use bindings::Symbol;
 pub use bindings::TeachingTipPlacementMode;
+pub use bindings::TextTrimming;
 pub use bindings::TextWrapping;
 pub use bindings::Thickness;
 pub use bindings::TreeViewSelectionMode;

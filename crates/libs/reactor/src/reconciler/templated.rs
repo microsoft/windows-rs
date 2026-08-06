@@ -506,13 +506,15 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         let subtree = self.collect_subtree_ids(id);
         for node in subtree {
-            if let Some(inst) = self.component_instances.get_mut(&node) {
-                if !inst.last_obj.has_on_appeared() {
-                    continue;
+            if let Some(instances) = self.component_instances.get_mut(&node) {
+                for inst in instances.as_mut_slice().iter_mut().rev() {
+                    if !inst.last_obj.has_on_appeared() {
+                        continue;
+                    }
+                    inst.render_cx
+                        .set_context_stack(Rc::clone(&self.context_stack));
+                    inst.last_obj.invoke_appeared(&mut inst.render_cx);
                 }
-                inst.render_cx
-                    .set_context_stack(Rc::clone(&self.context_stack));
-                inst.last_obj.invoke_appeared(&mut inst.render_cx);
             }
         }
     }
@@ -523,13 +525,15 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         let subtree = self.collect_subtree_ids(id);
         for node in subtree {
-            if let Some(inst) = self.component_instances.get_mut(&node) {
-                if !inst.last_obj.has_on_disappeared() {
-                    continue;
+            if let Some(instances) = self.component_instances.get_mut(&node) {
+                for inst in instances.as_mut_slice() {
+                    if !inst.last_obj.has_on_disappeared() {
+                        continue;
+                    }
+                    inst.render_cx
+                        .set_context_stack(Rc::clone(&self.context_stack));
+                    inst.last_obj.invoke_disappeared(&mut inst.render_cx);
                 }
-                inst.render_cx
-                    .set_context_stack(Rc::clone(&self.context_stack));
-                inst.last_obj.invoke_disappeared(&mut inst.render_cx);
             }
         }
     }

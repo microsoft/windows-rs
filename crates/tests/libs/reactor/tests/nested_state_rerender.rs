@@ -10,7 +10,7 @@ use std::rc::Rc;
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
     Component, Dispatcher, DispatcherQueuePriority, Element, Prop, PropValue, RenderCx, RenderHost,
-    SetState, TextBlock, component, grid, scroll_viewer,
+    SetState, TextBlock, component, grid, memo, scroll_viewer,
 };
 
 type Job = Box<dyn FnOnce()>;
@@ -178,5 +178,69 @@ fn direct_child_component_rerenders_from_own_use_state() {
     assert_eq!(
         host.with_reconciler(|r| last_text(&r.backend.ops)),
         Some("count-1".to_string())
+    );
+}
+
+struct PassThrough;
+
+impl Component for PassThrough {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        component(StatefulLeaf, ())
+    }
+}
+
+struct StatefulLeaf;
+
+thread_local! {
+    static PASS_THROUGH_SETTER: RefCell<Option<SetState<u64>>> = const { RefCell::new(None) };
+    static PASS_THROUGH_EFFECTS: Cell<u32> = const { Cell::new(0) };
+}
+
+impl Component for StatefulLeaf {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let (value, setter) = cx.use_state(0_u64);
+        PASS_THROUGH_SETTER.set(Some(setter));
+        cx.use_effect((), || {
+            PASS_THROUGH_EFFECTS.set(PASS_THROUGH_EFFECTS.get() + 1)
+        });
+        TextBlock::new(format!("pass-through-{value}")).into()
+    }
+}
+
+struct MemoRoot;
+
+impl Component for MemoRoot {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        memo(PassThrough, ())
+    }
+}
+
+#[test]
+fn pass_through_component_keeps_independent_state_and_effects() {
+    PASS_THROUGH_SETTER.set(None);
+    PASS_THROUGH_EFFECTS.set(0);
+
+    let dispatcher = TestDispatcher::default();
+    let host = RenderHost::new(
+        RecordingBackend::new(),
+        Box::new(MemoRoot),
+        dispatcher.clone(),
+    );
+    host.kick();
+    dispatcher.drain();
+
+    assert_eq!(PASS_THROUGH_EFFECTS.get(), 1);
+    assert_eq!(
+        host.with_reconciler(|r| last_text(&r.backend.ops)),
+        Some("pass-through-0".to_string())
+    );
+
+    PASS_THROUGH_SETTER.with_borrow(|setter| setter.as_ref().unwrap().call(1));
+    dispatcher.drain();
+
+    assert_eq!(PASS_THROUGH_EFFECTS.get(), 1);
+    assert_eq!(
+        host.with_reconciler(|r| last_text(&r.backend.ops)),
+        Some("pass-through-1".to_string())
     );
 }
