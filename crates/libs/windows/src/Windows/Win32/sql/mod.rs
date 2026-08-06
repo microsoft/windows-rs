@@ -120,34 +120,23 @@ pub unsafe fn SQLCopyDesc(sourcedeschandle: super::SQLHDESC, targetdeschandle: s
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDataSources(environmenthandle: super::SQLHENV, direction: super::SQLUSMALLINT, servername: Option<&mut [super::SQLCHAR]>, namelength1ptr: Option<*mut super::SQLSMALLINT>, description: Option<&mut [super::SQLCHAR]>, namelength2ptr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDataSources(environmenthandle: super::SQLHENV, direction: super::SQLUSMALLINT, servername: Option<*mut super::SQLCHAR>, bufferlength1: super::SQLSMALLINT, namelength1ptr: Option<*mut super::SQLSMALLINT>, description: Option<*mut super::SQLCHAR>, bufferlength2: super::SQLSMALLINT, namelength2ptr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDataSources(environmenthandle : super::SQLHENV, direction : super::SQLUSMALLINT, servername : *mut super::SQLCHAR, bufferlength1 : super::SQLSMALLINT, namelength1ptr : *mut super::SQLSMALLINT, description : *mut super::SQLCHAR, bufferlength2 : super::SQLSMALLINT, namelength2ptr : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLDataSources(
-            environmenthandle,
-            direction,
-            servername.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            servername.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            namelength1ptr.unwrap_or(core::mem::zeroed()) as _,
-            description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            description.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            namelength2ptr.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLDataSources(environmenthandle, direction, servername.unwrap_or(core::mem::zeroed()) as _, bufferlength1, namelength1ptr.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _, bufferlength2, namelength2ptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDescribeCol(statementhandle: super::SQLHSTMT, columnnumber: super::SQLUSMALLINT, columnname: Option<&mut [super::SQLCHAR]>, namelength: Option<*mut super::SQLSMALLINT>, datatype: Option<*mut super::SQLSMALLINT>, columnsize: Option<*mut super::SQLUINTEGER>, decimaldigits: Option<*mut super::SQLSMALLINT>, nullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDescribeCol(statementhandle: super::SQLHSTMT, columnnumber: super::SQLUSMALLINT, columnname: Option<*mut super::SQLCHAR>, bufferlength: super::SQLSMALLINT, namelength: Option<*mut super::SQLSMALLINT>, datatype: Option<*mut super::SQLSMALLINT>, columnsize: Option<*mut super::SQLUINTEGER>, decimaldigits: Option<*mut super::SQLSMALLINT>, nullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : super::SQLHSTMT, columnnumber : super::SQLUSMALLINT, columnname : *mut super::SQLCHAR, bufferlength : super::SQLSMALLINT, namelength : *mut super::SQLSMALLINT, datatype : *mut super::SQLSMALLINT, columnsize : *mut super::SQLUINTEGER, decimaldigits : *mut super::SQLSMALLINT, nullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDescribeCol(statementhandle, columnnumber, columnname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), columnname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), namelength.unwrap_or(core::mem::zeroed()) as _, datatype.unwrap_or(core::mem::zeroed()) as _, columnsize.unwrap_or(core::mem::zeroed()) as _, decimaldigits.unwrap_or(core::mem::zeroed()) as _, nullable.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLDescribeCol(statementhandle, columnnumber, columnname.unwrap_or(core::mem::zeroed()) as _, bufferlength, namelength.unwrap_or(core::mem::zeroed()) as _, datatype.unwrap_or(core::mem::zeroed()) as _, columnsize.unwrap_or(core::mem::zeroed()) as _, decimaldigits.unwrap_or(core::mem::zeroed()) as _, nullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDescribeCol(statementhandle: super::SQLHSTMT, columnnumber: super::SQLUSMALLINT, columnname: Option<&mut [super::SQLCHAR]>, namelength: Option<*mut super::SQLSMALLINT>, datatype: Option<*mut super::SQLSMALLINT>, columnsize: Option<*mut super::SQLULEN>, decimaldigits: Option<*mut super::SQLSMALLINT>, nullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDescribeCol(statementhandle: super::SQLHSTMT, columnnumber: super::SQLUSMALLINT, columnname: Option<*mut super::SQLCHAR>, bufferlength: super::SQLSMALLINT, namelength: Option<*mut super::SQLSMALLINT>, datatype: Option<*mut super::SQLSMALLINT>, columnsize: Option<*mut super::SQLULEN>, decimaldigits: Option<*mut super::SQLSMALLINT>, nullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : super::SQLHSTMT, columnnumber : super::SQLUSMALLINT, columnname : *mut super::SQLCHAR, bufferlength : super::SQLSMALLINT, namelength : *mut super::SQLSMALLINT, datatype : *mut super::SQLSMALLINT, columnsize : *mut super::SQLULEN, decimaldigits : *mut super::SQLSMALLINT, nullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDescribeCol(statementhandle, columnnumber, columnname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), columnname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), namelength.unwrap_or(core::mem::zeroed()) as _, datatype.unwrap_or(core::mem::zeroed()) as _, columnsize.unwrap_or(core::mem::zeroed()) as _, decimaldigits.unwrap_or(core::mem::zeroed()) as _, nullable.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLDescribeCol(statementhandle, columnnumber, columnname.unwrap_or(core::mem::zeroed()) as _, bufferlength, namelength.unwrap_or(core::mem::zeroed()) as _, datatype.unwrap_or(core::mem::zeroed()) as _, columnsize.unwrap_or(core::mem::zeroed()) as _, decimaldigits.unwrap_or(core::mem::zeroed()) as _, nullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -163,9 +152,9 @@ pub unsafe fn SQLEndTran(handletype: super::SQLSMALLINT, handle: super::SQLHANDL
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLError(environmenthandle: super::SQLHENV, connectionhandle: super::SQLHDBC, statementhandle: super::SQLHSTMT, sqlstate: &mut [super::SQLCHAR; 6], nativeerror: Option<*mut super::SQLINTEGER>, messagetext: Option<&mut [super::SQLCHAR]>, textlength: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLError(environmenthandle: super::SQLHENV, connectionhandle: super::SQLHDBC, statementhandle: super::SQLHSTMT, sqlstate: *mut super::SQLCHAR, nativeerror: Option<*mut super::SQLINTEGER>, messagetext: Option<*mut super::SQLCHAR>, bufferlength: super::SQLSMALLINT, textlength: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLError(environmenthandle : super::SQLHENV, connectionhandle : super::SQLHDBC, statementhandle : super::SQLHSTMT, sqlstate : *mut super::SQLCHAR, nativeerror : *mut super::SQLINTEGER, messagetext : *mut super::SQLCHAR, bufferlength : super::SQLSMALLINT, textlength : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLError(environmenthandle, connectionhandle, statementhandle, sqlstate.as_mut_ptr(), nativeerror.unwrap_or(core::mem::zeroed()) as _, messagetext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), messagetext.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), textlength.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLError(environmenthandle, connectionhandle, statementhandle, sqlstate as _, nativeerror.unwrap_or(core::mem::zeroed()) as _, messagetext.unwrap_or(core::mem::zeroed()) as _, bufferlength, textlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -237,9 +226,9 @@ pub unsafe fn SQLGetConnectOption(connectionhandle: super::SQLHDBC, option: supe
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetCursorName(statementhandle: super::SQLHSTMT, cursorname: Option<&mut [super::SQLCHAR]>, namelengthptr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetCursorName(statementhandle: super::SQLHSTMT, cursorname: Option<*mut super::SQLCHAR>, bufferlength: super::SQLSMALLINT, namelengthptr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetCursorName(statementhandle : super::SQLHSTMT, cursorname : *mut super::SQLCHAR, bufferlength : super::SQLSMALLINT, namelengthptr : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLGetCursorName(statementhandle, cursorname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cursorname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), namelengthptr.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLGetCursorName(statementhandle, cursorname.unwrap_or(core::mem::zeroed()) as _, bufferlength, namelengthptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
@@ -264,44 +253,16 @@ pub unsafe fn SQLGetDescField(descriptorhandle: super::SQLHDESC, recnumber: supe
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDescRec(descriptorhandle: super::SQLHDESC, recnumber: super::SQLSMALLINT, name: Option<&mut [super::SQLCHAR]>, stringlengthptr: Option<*mut super::SQLSMALLINT>, typeptr: Option<*mut super::SQLSMALLINT>, subtypeptr: Option<*mut super::SQLSMALLINT>, lengthptr: Option<*mut super::SQLINTEGER>, precisionptr: Option<*mut super::SQLSMALLINT>, scaleptr: Option<*mut super::SQLSMALLINT>, nullableptr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetDescRec(descriptorhandle: super::SQLHDESC, recnumber: super::SQLSMALLINT, name: Option<*mut super::SQLCHAR>, bufferlength: super::SQLSMALLINT, stringlengthptr: Option<*mut super::SQLSMALLINT>, typeptr: Option<*mut super::SQLSMALLINT>, subtypeptr: Option<*mut super::SQLSMALLINT>, lengthptr: Option<*mut super::SQLINTEGER>, precisionptr: Option<*mut super::SQLSMALLINT>, scaleptr: Option<*mut super::SQLSMALLINT>, nullableptr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : super::SQLHDESC, recnumber : super::SQLSMALLINT, name : *mut super::SQLCHAR, bufferlength : super::SQLSMALLINT, stringlengthptr : *mut super::SQLSMALLINT, typeptr : *mut super::SQLSMALLINT, subtypeptr : *mut super::SQLSMALLINT, lengthptr : *mut super::SQLINTEGER, precisionptr : *mut super::SQLSMALLINT, scaleptr : *mut super::SQLSMALLINT, nullableptr : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLGetDescRec(
-            descriptorhandle,
-            recnumber,
-            name.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            name.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            stringlengthptr.unwrap_or(core::mem::zeroed()) as _,
-            typeptr.unwrap_or(core::mem::zeroed()) as _,
-            subtypeptr.unwrap_or(core::mem::zeroed()) as _,
-            lengthptr.unwrap_or(core::mem::zeroed()) as _,
-            precisionptr.unwrap_or(core::mem::zeroed()) as _,
-            scaleptr.unwrap_or(core::mem::zeroed()) as _,
-            nullableptr.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLGetDescRec(descriptorhandle, recnumber, name.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlengthptr.unwrap_or(core::mem::zeroed()) as _, typeptr.unwrap_or(core::mem::zeroed()) as _, subtypeptr.unwrap_or(core::mem::zeroed()) as _, lengthptr.unwrap_or(core::mem::zeroed()) as _, precisionptr.unwrap_or(core::mem::zeroed()) as _, scaleptr.unwrap_or(core::mem::zeroed()) as _, nullableptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDescRec(descriptorhandle: super::SQLHDESC, recnumber: super::SQLSMALLINT, name: Option<&mut [super::SQLCHAR]>, stringlengthptr: Option<*mut super::SQLSMALLINT>, typeptr: Option<*mut super::SQLSMALLINT>, subtypeptr: Option<*mut super::SQLSMALLINT>, lengthptr: Option<*mut super::SQLLEN>, precisionptr: Option<*mut super::SQLSMALLINT>, scaleptr: Option<*mut super::SQLSMALLINT>, nullableptr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetDescRec(descriptorhandle: super::SQLHDESC, recnumber: super::SQLSMALLINT, name: Option<*mut super::SQLCHAR>, bufferlength: super::SQLSMALLINT, stringlengthptr: Option<*mut super::SQLSMALLINT>, typeptr: Option<*mut super::SQLSMALLINT>, subtypeptr: Option<*mut super::SQLSMALLINT>, lengthptr: Option<*mut super::SQLLEN>, precisionptr: Option<*mut super::SQLSMALLINT>, scaleptr: Option<*mut super::SQLSMALLINT>, nullableptr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : super::SQLHDESC, recnumber : super::SQLSMALLINT, name : *mut super::SQLCHAR, bufferlength : super::SQLSMALLINT, stringlengthptr : *mut super::SQLSMALLINT, typeptr : *mut super::SQLSMALLINT, subtypeptr : *mut super::SQLSMALLINT, lengthptr : *mut super::SQLLEN, precisionptr : *mut super::SQLSMALLINT, scaleptr : *mut super::SQLSMALLINT, nullableptr : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLGetDescRec(
-            descriptorhandle,
-            recnumber,
-            name.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            name.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            stringlengthptr.unwrap_or(core::mem::zeroed()) as _,
-            typeptr.unwrap_or(core::mem::zeroed()) as _,
-            subtypeptr.unwrap_or(core::mem::zeroed()) as _,
-            lengthptr.unwrap_or(core::mem::zeroed()) as _,
-            precisionptr.unwrap_or(core::mem::zeroed()) as _,
-            scaleptr.unwrap_or(core::mem::zeroed()) as _,
-            nullableptr.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLGetDescRec(descriptorhandle, recnumber, name.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlengthptr.unwrap_or(core::mem::zeroed()) as _, typeptr.unwrap_or(core::mem::zeroed()) as _, subtypeptr.unwrap_or(core::mem::zeroed()) as _, lengthptr.unwrap_or(core::mem::zeroed()) as _, precisionptr.unwrap_or(core::mem::zeroed()) as _, scaleptr.unwrap_or(core::mem::zeroed()) as _, nullableptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -311,9 +272,9 @@ pub unsafe fn SQLGetDiagField(handletype: super::SQLSMALLINT, handle: super::SQL
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDiagRec(handletype: super::SQLSMALLINT, handle: super::SQLHANDLE, recnumber: super::SQLSMALLINT, sqlstate: Option<&mut [super::SQLCHAR; 6]>, nativeerror: *mut super::SQLINTEGER, messagetext: Option<&mut [super::SQLCHAR]>, textlength: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetDiagRec(handletype: super::SQLSMALLINT, handle: super::SQLHANDLE, recnumber: super::SQLSMALLINT, sqlstate: Option<*mut super::SQLCHAR>, nativeerror: *mut super::SQLINTEGER, messagetext: Option<*mut super::SQLCHAR>, bufferlength: super::SQLSMALLINT, textlength: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagRec(handletype : super::SQLSMALLINT, handle : super::SQLHANDLE, recnumber : super::SQLSMALLINT, sqlstate : *mut super::SQLCHAR, nativeerror : *mut super::SQLINTEGER, messagetext : *mut super::SQLCHAR, bufferlength : super::SQLSMALLINT, textlength : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLGetDiagRec(handletype, handle, recnumber, sqlstate.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), nativeerror as _, messagetext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), messagetext.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), textlength.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLGetDiagRec(handletype, handle, recnumber, sqlstate.unwrap_or(core::mem::zeroed()) as _, nativeerror as _, messagetext.unwrap_or(core::mem::zeroed()) as _, bufferlength, textlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]

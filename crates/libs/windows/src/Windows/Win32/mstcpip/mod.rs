@@ -1,12 +1,12 @@
 #[inline]
-pub unsafe fn RtlEthernetAddressToStringA(addr: *const DL_EUI48, s: &mut [u8; 18]) -> windows_core::PSTR {
+pub unsafe fn RtlEthernetAddressToStringA(addr: *const DL_EUI48, s: windows_core::PSTR) -> windows_core::PSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringA(addr : *const DL_EUI48, s : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { RtlEthernetAddressToStringA(addr, core::mem::transmute(s.as_mut_ptr())) }
+    unsafe { RtlEthernetAddressToStringA(addr, s) }
 }
 #[inline]
-pub unsafe fn RtlEthernetAddressToStringW(addr: *const DL_EUI48, s: &mut [u16; 18]) -> windows_core::PWSTR {
+pub unsafe fn RtlEthernetAddressToStringW(addr: *const DL_EUI48, s: windows_core::PWSTR) -> windows_core::PWSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringW(addr : *const DL_EUI48, s : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { RtlEthernetAddressToStringW(addr, core::mem::transmute(s.as_mut_ptr())) }
+    unsafe { RtlEthernetAddressToStringW(addr, s) }
 }
 #[inline]
 pub unsafe fn RtlEthernetStringToAddressA<P0>(s: P0, terminator: *mut windows_core::PCSTR, addr: *mut DL_EUI48) -> i32
@@ -26,9 +26,9 @@ where
 }
 #[cfg(feature = "inaddr")]
 #[inline]
-pub unsafe fn RtlIpv4AddressToStringA(addr: *const super::IN_ADDR, s: &mut [u8; 16]) -> windows_core::PSTR {
+pub unsafe fn RtlIpv4AddressToStringA(addr: *const super::IN_ADDR, s: windows_core::PSTR) -> windows_core::PSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringA(addr : *const super::IN_ADDR, s : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { RtlIpv4AddressToStringA(addr, core::mem::transmute(s.as_mut_ptr())) }
+    unsafe { RtlIpv4AddressToStringA(addr, s) }
 }
 #[cfg(feature = "inaddr")]
 #[inline]
@@ -44,9 +44,9 @@ pub unsafe fn RtlIpv4AddressToStringExW(address: *const super::IN_ADDR, port: u1
 }
 #[cfg(feature = "inaddr")]
 #[inline]
-pub unsafe fn RtlIpv4AddressToStringW(addr: *const super::IN_ADDR, s: &mut [u16; 16]) -> windows_core::PWSTR {
+pub unsafe fn RtlIpv4AddressToStringW(addr: *const super::IN_ADDR, s: windows_core::PWSTR) -> windows_core::PWSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringW(addr : *const super::IN_ADDR, s : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { RtlIpv4AddressToStringW(addr, core::mem::transmute(s.as_mut_ptr())) }
+    unsafe { RtlIpv4AddressToStringW(addr, s) }
 }
 #[cfg(feature = "inaddr")]
 #[inline]
@@ -86,9 +86,9 @@ where
 }
 #[cfg(feature = "in6addr")]
 #[inline]
-pub unsafe fn RtlIpv6AddressToStringA(addr: *const super::IN6_ADDR, s: &mut [u8; 46]) -> windows_core::PSTR {
+pub unsafe fn RtlIpv6AddressToStringA(addr: *const super::IN6_ADDR, s: windows_core::PSTR) -> windows_core::PSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringA(addr : *const super::IN6_ADDR, s : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { RtlIpv6AddressToStringA(addr, core::mem::transmute(s.as_mut_ptr())) }
+    unsafe { RtlIpv6AddressToStringA(addr, s) }
 }
 #[cfg(feature = "in6addr")]
 #[inline]
@@ -104,9 +104,9 @@ pub unsafe fn RtlIpv6AddressToStringExW(address: *const super::IN6_ADDR, scopeid
 }
 #[cfg(feature = "in6addr")]
 #[inline]
-pub unsafe fn RtlIpv6AddressToStringW(addr: *const super::IN6_ADDR, s: &mut [u16; 46]) -> windows_core::PWSTR {
+pub unsafe fn RtlIpv6AddressToStringW(addr: *const super::IN6_ADDR, s: windows_core::PWSTR) -> windows_core::PWSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringW(addr : *const super::IN6_ADDR, s : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { RtlIpv6AddressToStringW(addr, core::mem::transmute(s.as_mut_ptr())) }
+    unsafe { RtlIpv6AddressToStringW(addr, s) }
 }
 #[cfg(feature = "in6addr")]
 #[inline]

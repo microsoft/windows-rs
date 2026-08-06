@@ -463,12 +463,12 @@ impl IWbemHiPerfProvider {
         }
     }
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn GetObjects<P0, P4>(&self, pnamespace: P0, apobj: &mut [Option<super::IWbemObjectAccess>], lflags: i32, pcontext: P4) -> windows_core::HRESULT
+    pub unsafe fn GetObjects<P0, P4>(&self, pnamespace: P0, lnumobjects: i32, apobj: *mut Option<super::IWbemObjectAccess>, lflags: i32, pcontext: P4) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IWbemServices>,
         P4: windows_core::Param<super::IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), apobj.len().try_into().unwrap(), core::mem::transmute(apobj.as_mut_ptr()), lflags, pcontext.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), lnumobjects, core::mem::transmute(apobj), lflags, pcontext.param().abi()) }
     }
 }
 #[repr(C)]
@@ -507,7 +507,7 @@ pub trait IWbemHiPerfProvider_Impl: windows_core::IUnknownImpl {
     fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<super::IWbemServices>, ptemplate: windows_core::Ref<super::IWbemObjectAccess>, prefresher: windows_core::Ref<super::IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>, pprefreshable: windows_core::OutRef<super::IWbemObjectAccess>, plid: *mut i32) -> windows_core::Result<()>;
     fn StopRefreshing(&self, prefresher: windows_core::Ref<super::IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::Result<()>;
     fn CreateRefreshableEnum(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: &windows_core::PCWSTR, prefresher: windows_core::Ref<super::IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>, phiperfenum: windows_core::Ref<super::IWbemHiPerfEnum>) -> windows_core::Result<i32>;
-    fn GetObjects(&self, pnamespace: windows_core::Ref<super::IWbemServices>, lnumobjects: i32, apobj: *mut Option<super::IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>) -> windows_core::Result<()>;
+    fn GetObjects(&self, pnamespace: windows_core::Ref<super::IWbemServices>, lnumobjects: i32, apobj: windows_core::OutRef<super::IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "wbemcli")]
 impl IWbemHiPerfProvider_Vtbl {

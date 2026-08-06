@@ -664,9 +664,9 @@ pub unsafe fn StringFromCLSID(rclsid: *const windows_core::GUID) -> windows_core
     }
 }
 #[inline]
-pub unsafe fn StringFromGUID2(rguid: *const windows_core::GUID, lpsz: &mut [u16]) -> i32 {
+pub unsafe fn StringFromGUID2(rguid: *const windows_core::GUID, lpsz: windows_core::PWSTR, cchmax: i32) -> i32 {
     windows_core::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_core::GUID, lpsz : windows_core::PWSTR, cchmax : i32) -> i32);
-    unsafe { StringFromGUID2(rguid, core::mem::transmute(lpsz.as_mut_ptr()), lpsz.len().try_into().unwrap()) }
+    unsafe { StringFromGUID2(rguid, lpsz, cchmax) }
 }
 #[inline]
 pub unsafe fn StringFromIID(rclsid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {

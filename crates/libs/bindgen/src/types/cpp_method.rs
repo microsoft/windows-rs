@@ -118,13 +118,26 @@ impl CppMethod {
             }
         }
 
-        // Remove all sets.
+        // Remove shared-count sets and sets containing output-only buffers.
         for (len, ptrs) in sets {
-            if ptrs.len() > 1 {
+            if ptrs.len() > 1
+                || ptrs
+                    .iter()
+                    .any(|position| signature.params[*position].is_output_only())
+            {
                 param_hints[len] = ParamHint::None;
                 for ptr in ptrs {
                     param_hints[ptr] = ParamHint::None;
                 }
+            }
+        }
+
+        // Fixed-size output buffers likewise retain their raw pointer shape.
+        for (position, hint) in param_hints.iter_mut().enumerate() {
+            if signature.params[position].is_output_only()
+                && matches!(hint, ParamHint::ArrayFixed(_))
+            {
+                *hint = ParamHint::None;
             }
         }
 

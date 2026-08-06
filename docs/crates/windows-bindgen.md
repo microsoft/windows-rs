@@ -382,9 +382,10 @@ See [`windows-rdl`](windows-rdl.md) for RDL input. Test coverage lives in
 
 ### Counted-buffer metadata
 
-`NativeArrayInfoAttribute` and `MemorySizeAttribute` can replace a raw pointer/count pair with a
-slice parameter in rich output. `windows-metadata::reader::MethodParam::buffer_relationship`
-decodes the literal signed relationship:
+`NativeArrayInfoAttribute` and `MemorySizeAttribute` can replace an input or input/output
+pointer/count pair with a slice parameter in rich output.
+`windows-metadata::reader::MethodParam::buffer_relationship` decodes the literal signed
+relationship:
 
 - `CountParamIndex` identifies an element-count parameter.
 - `BytesParamIndex` identifies a byte-count parameter.
@@ -394,19 +395,22 @@ The metadata reader checks property names and value types. Invalid or conflictin
 return `None`, which keeps the raw ABI shape. It does not interpret parameter positions, pointer
 shapes, or public projection policy.
 
-Before `CppMethod` indexes a related parameter, it rejects negative, out-of-range, and self-relative
-indexes and verifies that the count is one input scalar used by one buffer. Byte counts still
-require byte-sized elements. A fixed `CountConst` must be nonnegative and fit the maximum Rust
-object size on 32-bit Windows. If any check fails, generation keeps the pointer and count parameters
-exactly as the ABI declares them and adds no slice or array sugar.
+Strictly output-only buffers keep their pointer and count parameters so callers may supply
+uninitialized storage. For other buffers, before `CppMethod` indexes a related parameter, it
+rejects negative, out-of-range, and self-relative indexes and verifies that the count is one input
+scalar used by one buffer. Byte counts still require byte-sized elements. A fixed `CountConst` must
+be nonnegative and fit the maximum Rust object size on 32-bit Windows. If any check fails,
+generation keeps the pointer and count parameters exactly as the ABI declares them and adds no
+slice or array sugar.
 
 ### Parameter direction and retval policy
 
 `windows-metadata::reader::MethodParam` supplies the raw direction, optional, reserved, and retval
 facts. Bindgen's local `Param::is_input_only` then applies Rust policy: `Input` and `Unspecified`
-are input-only, while `Output` and `InputOutput` take the output-capable branch. This is why an
-In+Out pointer remains `*mut T` and an eligible counted buffer becomes `&mut [T]`; treating the
-presence of `In` as input-only would incorrectly make writable storage const.
+are input-only, while `Output` and `InputOutput` take the output-capable branch. An eligible In+Out
+counted buffer becomes `&mut [T]`; treating the presence of `In` as input-only would incorrectly
+make writable storage const. An output-only counted buffer remains `*mut T` plus its count because
+`&mut [T]` would require initialized values before the call.
 
 Bindgen also keeps its optional-or-reserved `Option` shaping local. Metadata does not combine those
 facts because they are projection policy rather than metadata structure.
@@ -422,7 +426,7 @@ any preceding `Output` or `InputOutput` parameter keeps the trailing pointer in 
 Dedicated test crates cover the generator and related metadata tools: `test_bindgen`, `test_rdl`,
 and `test_clang`. `variadic_fn*` covers rich, minimal, sys-link, sys-extern, `C`, `system`, and
 unsupported `fastcall` output. `buffer_relationships` covers valid, negative, out-of-range,
-self-relative, byte-counted, and fixed-count metadata. The existing `interface_out_array` golden
-pins valid counted-buffer output. `method_params` pins In+Out mutable projection, and
+self-relative, byte-counted, and fixed-count metadata. The `interface_out_array` golden pins raw
+output buffers and In+Out mutable slices. `method_params` pins In+Out mutable projection, and
 `method_return` covers explicit and heuristic retval selection with In+Out, optional, reserved, and
 counted exclusions plus explicit void-pointer and large-pointee returns.

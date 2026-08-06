@@ -693,9 +693,9 @@ pub unsafe fn ExtCreateRegion(lpx: Option<*const XFORM>, ncount: u32, lpdata: *c
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ExtEscape(hdc: super::HDC, iescape: i32, lpindata: Option<&[u8]>, lpoutdata: Option<&mut [u8]>) -> i32 {
+pub unsafe fn ExtEscape(hdc: super::HDC, iescape: i32, lpindata: Option<&[u8]>, cjoutput: i32, lpoutdata: Option<windows_core::PSTR>) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::HDC, iescape : i32, cjinput : i32, lpindata : windows_core::PCSTR, cjoutput : i32, lpoutdata : windows_core::PSTR) -> i32);
-    unsafe { ExtEscape(hdc, iescape, lpindata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoutdata.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { ExtEscape(hdc, iescape, lpindata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.map_or(core::ptr::null(), |slice| slice.as_ptr())), cjoutput, lpoutdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -990,9 +990,9 @@ pub unsafe fn GetDCPenColor(hdc: super::HDC) -> super::COLORREF {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetDIBColorTable(hdc: super::HDC, istart: u32, prgbq: &mut [RGBQUAD]) -> u32 {
+pub unsafe fn GetDIBColorTable(hdc: super::HDC, istart: u32, centries: u32, prgbq: *mut RGBQUAD) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetDIBColorTable(hdc : super::HDC, istart : u32, centries : u32, prgbq : *mut RGBQUAD) -> u32);
-    unsafe { GetDIBColorTable(hdc, istart, prgbq.len().try_into().unwrap(), prgbq.as_mut_ptr()) }
+    unsafe { GetDIBColorTable(hdc, istart, centries, prgbq as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1023,21 +1023,21 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetEnhMetaFileBits(hemf: super::HENHMETAFILE, lpdata: Option<&mut [u8]>) -> u32 {
+pub unsafe fn GetEnhMetaFileBits(hemf: super::HENHMETAFILE, nsize: u32, lpdata: Option<*mut u8>) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFileBits(hemf : super::HENHMETAFILE, nsize : u32, lpdata : *mut u8) -> u32);
-    unsafe { GetEnhMetaFileBits(hemf, lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpdata.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
+    unsafe { GetEnhMetaFileBits(hemf, nsize, lpdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetEnhMetaFileDescriptionA(hemf: super::HENHMETAFILE, lpdescription: Option<&mut [u8]>) -> u32 {
+pub unsafe fn GetEnhMetaFileDescriptionA(hemf: super::HENHMETAFILE, cchbuffer: u32, lpdescription: Option<windows_core::PSTR>) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionA(hemf : super::HENHMETAFILE, cchbuffer : u32, lpdescription : windows_core::PSTR) -> u32);
-    unsafe { GetEnhMetaFileDescriptionA(hemf, lpdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetEnhMetaFileDescriptionA(hemf, cchbuffer, lpdescription.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetEnhMetaFileDescriptionW(hemf: super::HENHMETAFILE, lpdescription: Option<&mut [u16]>) -> u32 {
+pub unsafe fn GetEnhMetaFileDescriptionW(hemf: super::HENHMETAFILE, cchbuffer: u32, lpdescription: Option<windows_core::PWSTR>) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionW(hemf : super::HENHMETAFILE, cchbuffer : u32, lpdescription : windows_core::PWSTR) -> u32);
-    unsafe { GetEnhMetaFileDescriptionW(hemf, lpdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetEnhMetaFileDescriptionW(hemf, cchbuffer, lpdescription.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1047,9 +1047,9 @@ pub unsafe fn GetEnhMetaFileHeader(hemf: super::HENHMETAFILE, nsize: u32, lpenhm
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetEnhMetaFilePaletteEntries(hemf: super::HENHMETAFILE, lppaletteentries: Option<&mut [PALETTEENTRY]>) -> u32 {
+pub unsafe fn GetEnhMetaFilePaletteEntries(hemf: super::HENHMETAFILE, nnumentries: u32, lppaletteentries: Option<*mut PALETTEENTRY>) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFilePaletteEntries(hemf : super::HENHMETAFILE, nnumentries : u32, lppaletteentries : *mut PALETTEENTRY) -> u32);
-    unsafe { GetEnhMetaFilePaletteEntries(hemf, lppaletteentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lppaletteentries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
+    unsafe { GetEnhMetaFilePaletteEntries(hemf, nnumentries, lppaletteentries.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1134,15 +1134,15 @@ pub unsafe fn GetICMProfileW(hdc: super::HDC, pbufsize: *mut u32, pszfilename: O
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetKerningPairsA(hdc: super::HDC, lpkernpair: Option<&mut [KERNINGPAIR]>) -> u32 {
+pub unsafe fn GetKerningPairsA(hdc: super::HDC, npairs: u32, lpkernpair: Option<*mut KERNINGPAIR>) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetKerningPairsA(hdc : super::HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
-    unsafe { GetKerningPairsA(hdc, lpkernpair.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpkernpair.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
+    unsafe { GetKerningPairsA(hdc, npairs, lpkernpair.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetKerningPairsW(hdc: super::HDC, lpkernpair: Option<&mut [KERNINGPAIR]>) -> u32 {
+pub unsafe fn GetKerningPairsW(hdc: super::HDC, npairs: u32, lpkernpair: Option<*mut KERNINGPAIR>) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetKerningPairsW(hdc : super::HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
-    unsafe { GetKerningPairsW(hdc, lpkernpair.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpkernpair.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
+    unsafe { GetKerningPairsW(hdc, npairs, lpkernpair.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1248,9 +1248,9 @@ pub unsafe fn GetOutlineTextMetricsW(hdc: super::HDC, cjcopy: u32, potm: Option<
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetPaletteEntries(hpal: super::HPALETTE, istart: u32, ppalentries: Option<&mut [PALETTEENTRY]>) -> u32 {
+pub unsafe fn GetPaletteEntries(hpal: super::HPALETTE, istart: u32, centries: u32, ppalentries: Option<*mut PALETTEENTRY>) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetPaletteEntries(hpal : super::HPALETTE, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
-    unsafe { GetPaletteEntries(hpal, istart, ppalentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppalentries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
+    unsafe { GetPaletteEntries(hpal, istart, centries, ppalentries.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1319,9 +1319,9 @@ pub unsafe fn GetStretchBltMode(hdc: super::HDC) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetSystemPaletteEntries(hdc: super::HDC, istart: u32, ppalentries: Option<&mut [PALETTEENTRY]>) -> u32 {
+pub unsafe fn GetSystemPaletteEntries(hdc: super::HDC, istart: u32, centries: u32, ppalentries: Option<*mut PALETTEENTRY>) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetSystemPaletteEntries(hdc : super::HDC, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
-    unsafe { GetSystemPaletteEntries(hdc, istart, ppalentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ppalentries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
+    unsafe { GetSystemPaletteEntries(hdc, istart, centries, ppalentries.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1415,15 +1415,15 @@ pub unsafe fn GetTextExtentPointW(hdc: super::HDC, lpstring: &[u16], lpsz: *mut 
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextFaceA(hdc: super::HDC, lpname: Option<&mut [u8]>) -> i32 {
+pub unsafe fn GetTextFaceA(hdc: super::HDC, c: i32, lpname: Option<windows_core::PSTR>) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn GetTextFaceA(hdc : super::HDC, c : i32, lpname : windows_core::PSTR) -> i32);
-    unsafe { GetTextFaceA(hdc, lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetTextFaceA(hdc, c, lpname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextFaceW(hdc: super::HDC, lpname: Option<&mut [u16]>) -> i32 {
+pub unsafe fn GetTextFaceW(hdc: super::HDC, c: i32, lpname: Option<windows_core::PWSTR>) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn GetTextFaceW(hdc : super::HDC, c : i32, lpname : windows_core::PWSTR) -> i32);
-    unsafe { GetTextFaceW(hdc, lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetTextFaceW(hdc, c, lpname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1451,9 +1451,9 @@ pub unsafe fn GetViewportOrgEx(hdc: super::HDC, lppoint: *mut super::POINT) -> w
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetWinMetaFileBits(hemf: super::HENHMETAFILE, pdata16: Option<&mut [u8]>, imapmode: i32, hdcref: super::HDC) -> u32 {
+pub unsafe fn GetWinMetaFileBits(hemf: super::HENHMETAFILE, cbdata16: u32, pdata16: Option<*mut u8>, imapmode: i32, hdcref: super::HDC) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetWinMetaFileBits(hemf : super::HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, hdcref : super::HDC) -> u32);
-    unsafe { GetWinMetaFileBits(hemf, pdata16.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pdata16.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), imapmode, hdcref) }
+    unsafe { GetWinMetaFileBits(hemf, cbdata16, pdata16.unwrap_or(core::mem::zeroed()) as _, imapmode, hdcref) }
 }
 #[cfg(feature = "windef")]
 #[inline]

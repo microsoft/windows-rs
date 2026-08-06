@@ -355,9 +355,9 @@ pub unsafe fn RtlCompareMemoryUlong(source: *const core::ffi::c_void, length: us
     unsafe { RtlCompareMemoryUlong(source, length, pattern) }
 }
 #[inline]
-pub unsafe fn RtlCompressBuffer(compressionformatandengine: u16, uncompressedbuffer: &[u8], compressedbuffer: &mut [u8], uncompressedchunksize: u32, finalcompressedsize: *mut u32, workspace: *const core::ffi::c_void) -> windows_core::NTSTATUS {
+pub unsafe fn RtlCompressBuffer(compressionformatandengine: u16, uncompressedbuffer: &[u8], compressedbuffer: *mut u8, compressedbuffersize: u32, uncompressedchunksize: u32, finalcompressedsize: *mut u32, workspace: *const core::ffi::c_void) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlCompressBuffer(compressionformatandengine : u16, uncompressedbuffer : *const u8, uncompressedbuffersize : u32, compressedbuffer : *mut u8, compressedbuffersize : u32, uncompressedchunksize : u32, finalcompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_core::NTSTATUS);
-    unsafe { RtlCompressBuffer(compressionformatandengine, uncompressedbuffer.as_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_mut_ptr(), compressedbuffer.len().try_into().unwrap(), uncompressedchunksize, finalcompressedsize as _, workspace) }
+    unsafe { RtlCompressBuffer(compressionformatandengine, uncompressedbuffer.as_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer as _, compressedbuffersize, uncompressedchunksize, finalcompressedsize as _, workspace) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -416,19 +416,19 @@ pub unsafe fn RtlCustomCPToUnicodeN(customcp: *const super::CPTABLEINFO, unicode
     unsafe { RtlCustomCPToUnicodeN(customcp, unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn RtlDecompressBuffer(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], finaluncompressedsize: *mut u32) -> windows_core::NTSTATUS {
+pub unsafe fn RtlDecompressBuffer(compressionformat: u16, uncompressedbuffer: *mut u8, uncompressedbuffersize: u32, compressedbuffer: &[u8], finaluncompressedsize: *mut u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressBuffer(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32) -> windows_core::NTSTATUS);
-    unsafe { RtlDecompressBuffer(compressionformat, uncompressedbuffer.as_mut_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _) }
+    unsafe { RtlDecompressBuffer(compressionformat, uncompressedbuffer as _, uncompressedbuffersize, compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _) }
 }
 #[inline]
-pub unsafe fn RtlDecompressBufferEx(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], finaluncompressedsize: *mut u32, workspace: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS {
+pub unsafe fn RtlDecompressBufferEx(compressionformat: u16, uncompressedbuffer: *mut u8, uncompressedbuffersize: u32, compressedbuffer: &[u8], finaluncompressedsize: *mut u32, workspace: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressBufferEx(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_core::NTSTATUS);
-    unsafe { RtlDecompressBufferEx(compressionformat, uncompressedbuffer.as_mut_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _, workspace.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlDecompressBufferEx(compressionformat, uncompressedbuffer as _, uncompressedbuffersize, compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _, workspace.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RtlDecompressFragment(compressionformat: u16, uncompressedfragment: &mut [u8], compressedbuffer: &[u8], fragmentoffset: u32, finaluncompressedsize: *mut u32, workspace: *const core::ffi::c_void) -> windows_core::NTSTATUS {
+pub unsafe fn RtlDecompressFragment(compressionformat: u16, uncompressedfragment: *mut u8, uncompressedfragmentsize: u32, compressedbuffer: &[u8], fragmentoffset: u32, finaluncompressedsize: *mut u32, workspace: *const core::ffi::c_void) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressFragment(compressionformat : u16, uncompressedfragment : *mut u8, uncompressedfragmentsize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, fragmentoffset : u32, finaluncompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_core::NTSTATUS);
-    unsafe { RtlDecompressFragment(compressionformat, uncompressedfragment.as_mut_ptr(), uncompressedfragment.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), fragmentoffset, finaluncompressedsize as _, workspace) }
+    unsafe { RtlDecompressFragment(compressionformat, uncompressedfragment as _, uncompressedfragmentsize, compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), fragmentoffset, finaluncompressedsize as _, workspace) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -768,19 +768,19 @@ pub unsafe fn RtlUnicodeStringToCountedOemString(destinationstring: super::POEM_
 }
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
 #[inline]
-pub unsafe fn RtlUnicodeToCustomCPN(customcp: *const super::CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+pub unsafe fn RtlUnicodeToCustomCPN(customcp: *const super::CPTABLEINFO, customcpstring: *mut i8, maxbytesincustomcpstring: u32, bytesincustomcpstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToCustomCPN(customcp : *const super::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_mut_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUnicodeToCustomCPN(customcp, customcpstring as _, maxbytesincustomcpstring, bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[inline]
-pub unsafe fn RtlUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+pub unsafe fn RtlUnicodeToMultiByteN(multibytestring: *mut i8, maxbytesinmultibytestring: u32, bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_mut_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUnicodeToMultiByteN(multibytestring as _, maxbytesinmultibytestring, bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[inline]
-pub unsafe fn RtlUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+pub unsafe fn RtlUnicodeToOemN(oemstring: *mut i8, maxbytesinoemstring: u32, bytesinoemstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUnicodeToOemN(core::mem::transmute(oemstring.as_mut_ptr()), oemstring.len().try_into().unwrap(), bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUnicodeToOemN(oemstring as _, maxbytesinoemstring, bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -796,19 +796,19 @@ pub unsafe fn RtlUpcaseUnicodeStringToOemString(destinationstring: super::POEM_S
 }
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
 #[inline]
-pub unsafe fn RtlUpcaseUnicodeToCustomCPN(customcp: *const super::CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+pub unsafe fn RtlUpcaseUnicodeToCustomCPN(customcp: *const super::CPTABLEINFO, customcpstring: *mut i8, maxbytesincustomcpstring: u32, bytesincustomcpstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToCustomCPN(customcp : *const super::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUpcaseUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_mut_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUpcaseUnicodeToCustomCPN(customcp, customcpstring as _, maxbytesincustomcpstring, bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[inline]
-pub unsafe fn RtlUpcaseUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+pub unsafe fn RtlUpcaseUnicodeToMultiByteN(multibytestring: *mut i8, maxbytesinmultibytestring: u32, bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUpcaseUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_mut_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUpcaseUnicodeToMultiByteN(multibytestring as _, maxbytesinmultibytestring, bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[inline]
-pub unsafe fn RtlUpcaseUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+pub unsafe fn RtlUpcaseUnicodeToOemN(oemstring: *mut i8, maxbytesinoemstring: u32, bytesinoemstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUpcaseUnicodeToOemN(core::mem::transmute(oemstring.as_mut_ptr()), oemstring.len().try_into().unwrap(), bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUpcaseUnicodeToOemN(oemstring as _, maxbytesinoemstring, bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

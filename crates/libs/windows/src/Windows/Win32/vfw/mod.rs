@@ -1,12 +1,12 @@
 #[inline]
-pub unsafe fn AVIBuildFilterA(lpszfilter: &mut [u8], fsaving: bool) -> windows_core::HRESULT {
+pub unsafe fn AVIBuildFilterA(lpszfilter: windows_core::PSTR, cbfilter: i32, fsaving: bool) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_core::PSTR, cbfilter : i32, fsaving : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { AVIBuildFilterA(core::mem::transmute(lpszfilter.as_mut_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()) }
+    unsafe { AVIBuildFilterA(lpszfilter, cbfilter, fsaving.into()) }
 }
 #[inline]
-pub unsafe fn AVIBuildFilterW(lpszfilter: &mut [u16], fsaving: bool) -> windows_core::HRESULT {
+pub unsafe fn AVIBuildFilterW(lpszfilter: windows_core::PWSTR, cbfilter: i32, fsaving: bool) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_core::PWSTR, cbfilter : i32, fsaving : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { AVIBuildFilterW(core::mem::transmute(lpszfilter.as_mut_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()) }
+    unsafe { AVIBuildFilterW(lpszfilter, cbfilter, fsaving.into()) }
 }
 #[inline]
 pub unsafe fn AVIClearClipboard() -> windows_core::HRESULT {
@@ -733,14 +733,14 @@ where
     unsafe { capCreateCaptureWindowW(lpszwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.unwrap_or(core::mem::zeroed()) as _, nid) }
 }
 #[inline]
-pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: windows_core::PSTR, cbname: i32, lpszver: windows_core::PSTR, cbver: i32) -> windows_core::BOOL {
     windows_core::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_core::PSTR, cbname : i32, lpszver : windows_core::PSTR, cbver : i32) -> windows_core::BOOL);
-    unsafe { capGetDriverDescriptionA(wdriverindex, core::mem::transmute(lpszname.as_mut_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_mut_ptr()), lpszver.len().try_into().unwrap()) }
+    unsafe { capGetDriverDescriptionA(wdriverindex, lpszname, cbname, lpszver, cbver) }
 }
 #[inline]
-pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> windows_core::BOOL {
+pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: windows_core::PWSTR, cbname: i32, lpszver: windows_core::PWSTR, cbver: i32) -> windows_core::BOOL {
     windows_core::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_core::PWSTR, cbname : i32, lpszver : windows_core::PWSTR, cbver : i32) -> windows_core::BOOL);
-    unsafe { capGetDriverDescriptionW(wdriverindex, core::mem::transmute(lpszname.as_mut_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_mut_ptr()), lpszver.len().try_into().unwrap()) }
+    unsafe { capGetDriverDescriptionW(wdriverindex, lpszname, cbname, lpszver, cbver) }
 }
 pub const AVICOMPRESSF_DATARATE: i32 = 2;
 pub const AVICOMPRESSF_INTERLEAVE: i32 = 1;

@@ -576,9 +576,9 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn WcsCheckColors(hcolortransform: HTRANSFORM, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const core::ffi::c_void, paresult: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn WcsCheckColors(hcolortransform: HTRANSFORM, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const core::ffi::c_void, paresult: *mut u8) -> windows_core::BOOL {
     windows_core::link!("mscms.dll" "system" fn WcsCheckColors(hcolortransform : HTRANSFORM, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, paresult : *mut u8) -> windows_core::BOOL);
-    unsafe { WcsCheckColors(hcolortransform, paresult.len().try_into().unwrap(), ninputchannels, cdtinput, cbinput, pinputdata, paresult.as_mut_ptr()) }
+    unsafe { WcsCheckColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, paresult as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -596,9 +596,9 @@ where
     unsafe { WcsDisassociateColorProfileFromDevice(scope, pprofilename.param().abi(), pdevicename.param().abi()) }
 }
 #[inline]
-pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: &mut [u8], pnprofiles: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: *mut u8, dwsize: u32, pnprofiles: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("mscms.dll" "system" fn WcsEnumColorProfiles(scope : WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord : *const ENUMTYPEW, pbuffer : *mut u8, dwsize : u32, pnprofiles : *mut u32) -> windows_core::BOOL);
-    unsafe { WcsEnumColorProfiles(scope, penumrecord, pbuffer.as_mut_ptr(), pbuffer.len().try_into().unwrap(), pnprofiles.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WcsEnumColorProfiles(scope, penumrecord, pbuffer as _, dwsize, pnprofiles.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pdwsize: *mut u32) -> windows_core::BOOL {

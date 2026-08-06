@@ -542,14 +542,14 @@ pub unsafe fn WsReadBytes(reader: *const WS_XML_READER, bytes: *mut core::ffi::c
     unsafe { WsReadBytes(reader, bytes as _, maxbytecount, actualbytecount as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: &mut [u16], actualcharcount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: *mut u16, maxcharcount: u32, actualcharcount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsReadChars(reader : *const WS_XML_READER, chars : *mut u16, maxcharcount : u32, actualcharcount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadChars(reader, chars.as_mut_ptr(), chars.len().try_into().unwrap(), actualcharcount as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsReadChars(reader, chars as _, maxcharcount, actualcharcount as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: &mut [u8], actualbytecount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: *mut u8, maxbytecount: u32, actualbytecount: *mut u32, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
     windows_core::link!("webservices.dll" "system" fn WsReadCharsUtf8(reader : *const WS_XML_READER, bytes : *mut u8, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadCharsUtf8(reader, bytes.as_mut_ptr(), bytes.len().try_into().unwrap(), actualbytecount as _, error.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WsReadCharsUtf8(reader, bytes as _, maxbytecount, actualbytecount as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WsReadElement(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: Option<*const WS_HEAP>, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {

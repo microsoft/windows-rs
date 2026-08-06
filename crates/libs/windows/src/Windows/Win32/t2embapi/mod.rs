@@ -1,8 +1,8 @@
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TTCharToUnicode(hdc: super::HDC, puccharcodes: &[u8], pusshortcodes: &mut [u16], ulflags: u32) -> i32 {
+pub unsafe fn TTCharToUnicode(hdc: super::HDC, puccharcodes: &[u8], pusshortcodes: *mut u16, ulshortcodesize: u32, ulflags: u32) -> i32 {
     windows_core::link!("t2embed.dll" "system" fn TTCharToUnicode(hdc : super::HDC, puccharcodes : *const u8, ulcharcodesize : u32, pusshortcodes : *mut u16, ulshortcodesize : u32, ulflags : u32) -> i32);
-    unsafe { TTCharToUnicode(hdc, puccharcodes.as_ptr(), puccharcodes.len().try_into().unwrap(), pusshortcodes.as_mut_ptr(), pusshortcodes.len().try_into().unwrap(), ulflags) }
+    unsafe { TTCharToUnicode(hdc, puccharcodes.as_ptr(), puccharcodes.len().try_into().unwrap(), pusshortcodes as _, ulshortcodesize, ulflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -52,9 +52,9 @@ pub unsafe fn TTGetEmbeddingType(hdc: super::HDC, pulembedtype: *mut u32) -> i32
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TTGetNewFontName(phfontreference: *const super::HANDLE, wzwinfamilyname: &mut [u16], szmacfamilyname: &mut [u8]) -> i32 {
+pub unsafe fn TTGetNewFontName(phfontreference: *const super::HANDLE, wzwinfamilyname: windows_core::PWSTR, cchmaxwinname: i32, szmacfamilyname: windows_core::PSTR, cchmaxmacname: i32) -> i32 {
     windows_core::link!("t2embed.dll" "system" fn TTGetNewFontName(phfontreference : *const super::HANDLE, wzwinfamilyname : windows_core::PWSTR, cchmaxwinname : i32, szmacfamilyname : windows_core::PSTR, cchmaxmacname : i32) -> i32);
-    unsafe { TTGetNewFontName(phfontreference, core::mem::transmute(wzwinfamilyname.as_mut_ptr()), wzwinfamilyname.len().try_into().unwrap(), core::mem::transmute(szmacfamilyname.as_mut_ptr()), szmacfamilyname.len().try_into().unwrap()) }
+    unsafe { TTGetNewFontName(phfontreference, wzwinfamilyname, cchmaxwinname, szmacfamilyname, cchmaxmacname) }
 }
 #[cfg(feature = "windef")]
 #[inline]

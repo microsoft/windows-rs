@@ -39,10 +39,11 @@ literal `...` tail. Default and minimal bindings omit them rather than exposing 
 fixed-prefix wrapper.
 
 Parameter direction uses the shared raw facts from `windows-metadata`, but Rust projection policy
-stays local. `Input` and `Unspecified` take the input-only branch; `Output` and `InputOutput` keep
-mutable/output-capable ABI and slice shapes. A trailing retval must be output-only, required,
-non-reserved, uncounted, and pointer-shaped. The existing void-pointee and size limits apply only
-to unmarked heuristic candidates.
+stays local. `Input` and `Unspecified` take the input-only branch, `InputOutput` keeps mutable slice
+shapes, and `Output` keeps raw pointer/count parameters so callers may provide uninitialized
+storage. A trailing retval must be output-only, required, non-reserved, uncounted, and
+pointer-shaped. The existing void-pointee and size limits apply only to unmarked heuristic
+candidates.
 
 And then use the bindings as follows:
 

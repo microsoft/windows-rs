@@ -176,20 +176,20 @@ pub unsafe fn ImmGetDefaultIMEWnd(param0: super::HWND) -> super::HWND {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetDescriptionA(param0: super::HKL, lpszdescription: Option<&mut [u8]>) -> u32 {
+pub unsafe fn ImmGetDescriptionA(param0: super::HKL, lpszdescription: Option<windows_core::PSTR>, ubuflen: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::HKL, lpszdescription : windows_core::PSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetDescriptionA(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetDescriptionA(param0, lpszdescription.unwrap_or(core::mem::zeroed()) as _, ubuflen) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetDescriptionW(param0: super::HKL, lpszdescription: Option<&mut [u16]>) -> u32 {
+pub unsafe fn ImmGetDescriptionW(param0: super::HKL, lpszdescription: Option<windows_core::PWSTR>, ubuflen: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::HKL, lpszdescription : windows_core::PWSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetDescriptionW(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetDescriptionW(param0, lpszdescription.unwrap_or(core::mem::zeroed()) as _, ubuflen) }
 }
 #[inline]
-pub unsafe fn ImmGetGuideLineA(param0: HIMC, dwindex: u32, lpbuf: Option<&mut [u8]>) -> u32 {
+pub unsafe fn ImmGetGuideLineA(param0: HIMC, dwindex: u32, lpbuf: Option<windows_core::PSTR>, dwbuflen: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : u32, lpbuf : windows_core::PSTR, dwbuflen : u32) -> u32);
-    unsafe { ImmGetGuideLineA(param0, dwindex, core::mem::transmute(lpbuf.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetGuideLineA(param0, dwindex, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
 pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: u32, lpbuf: Option<windows_core::PWSTR>, dwbuflen: u32) -> u32 {
@@ -198,15 +198,15 @@ pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: u32, lpbuf: Option<windows
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetIMEFileNameA(param0: super::HKL, lpszfilename: Option<&mut [u8]>) -> u32 {
+pub unsafe fn ImmGetIMEFileNameA(param0: super::HKL, lpszfilename: Option<windows_core::PSTR>, ubuflen: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::HKL, lpszfilename : windows_core::PSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetIMEFileNameA(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetIMEFileNameA(param0, lpszfilename.unwrap_or(core::mem::zeroed()) as _, ubuflen) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetIMEFileNameW(param0: super::HKL, lpszfilename: Option<&mut [u16]>) -> u32 {
+pub unsafe fn ImmGetIMEFileNameW(param0: super::HKL, lpszfilename: Option<windows_core::PWSTR>, ubuflen: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::HKL, lpszfilename : windows_core::PWSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetIMEFileNameW(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetIMEFileNameW(param0, lpszfilename.unwrap_or(core::mem::zeroed()) as _, ubuflen) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -233,15 +233,15 @@ pub unsafe fn ImmGetProperty(param0: super::HKL, param1: u32) -> u32 {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetRegisterWordStyleA(param0: super::HKL, lpstylebuf: &mut [STYLEBUFA]) -> u32 {
+pub unsafe fn ImmGetRegisterWordStyleA(param0: super::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
-    unsafe { ImmGetRegisterWordStyleA(param0, lpstylebuf.len().try_into().unwrap(), lpstylebuf.as_mut_ptr()) }
+    unsafe { ImmGetRegisterWordStyleA(param0, nitem, lpstylebuf as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ImmGetRegisterWordStyleW(param0: super::HKL, lpstylebuf: &mut [STYLEBUFW]) -> u32 {
+pub unsafe fn ImmGetRegisterWordStyleW(param0: super::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
-    unsafe { ImmGetRegisterWordStyleW(param0, lpstylebuf.len().try_into().unwrap(), lpstylebuf.as_mut_ptr()) }
+    unsafe { ImmGetRegisterWordStyleW(param0, nitem, lpstylebuf as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]

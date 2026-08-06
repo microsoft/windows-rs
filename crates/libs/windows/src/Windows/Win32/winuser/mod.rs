@@ -324,20 +324,20 @@ where
     unsafe { CharToOemA(psrc.param().abi(), pdst) }
 }
 #[inline]
-pub unsafe fn CharToOemBuffA<P0>(lpszsrc: P0, lpszdst: &mut [u8]) -> windows_core::BOOL
+pub unsafe fn CharToOemBuffA<P0>(lpszsrc: P0, lpszdst: windows_core::PSTR, cchdstlength: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn CharToOemBuffA(lpszsrc : windows_core::PCSTR, lpszdst : windows_core::PSTR, cchdstlength : u32) -> windows_core::BOOL);
-    unsafe { CharToOemBuffA(lpszsrc.param().abi(), core::mem::transmute(lpszdst.as_mut_ptr()), lpszdst.len().try_into().unwrap()) }
+    unsafe { CharToOemBuffA(lpszsrc.param().abi(), lpszdst, cchdstlength) }
 }
 #[inline]
-pub unsafe fn CharToOemBuffW<P0>(lpszsrc: P0, lpszdst: &mut [u8]) -> windows_core::BOOL
+pub unsafe fn CharToOemBuffW<P0>(lpszsrc: P0, lpszdst: windows_core::PSTR, cchdstlength: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "system" fn CharToOemBuffW(lpszsrc : windows_core::PCWSTR, lpszdst : windows_core::PSTR, cchdstlength : u32) -> windows_core::BOOL);
-    unsafe { CharToOemBuffW(lpszsrc.param().abi(), core::mem::transmute(lpszdst.as_mut_ptr()), lpszdst.len().try_into().unwrap()) }
+    unsafe { CharToOemBuffW(lpszsrc.param().abi(), lpszdst, cchdstlength) }
 }
 #[inline]
 pub unsafe fn CharToOemW<P0>(psrc: P0, pdst: windows_core::PSTR) -> windows_core::BOOL
@@ -461,15 +461,15 @@ pub unsafe fn ConvertToInterceptWindow(toplevelwindow: super::HWND) -> windows_c
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CopyAcceleratorTableA(haccelsrc: super::HACCEL, lpacceldst: Option<&mut [ACCEL]>) -> i32 {
+pub unsafe fn CopyAcceleratorTableA(haccelsrc: super::HACCEL, lpacceldst: Option<*mut ACCEL>, caccelentries: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn CopyAcceleratorTableA(haccelsrc : super::HACCEL, lpacceldst : *mut ACCEL, caccelentries : i32) -> i32);
-    unsafe { CopyAcceleratorTableA(haccelsrc, lpacceldst.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lpacceldst.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CopyAcceleratorTableA(haccelsrc, lpacceldst.unwrap_or(core::mem::zeroed()) as _, caccelentries) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CopyAcceleratorTableW(haccelsrc: super::HACCEL, lpacceldst: Option<&mut [ACCEL]>) -> i32 {
+pub unsafe fn CopyAcceleratorTableW(haccelsrc: super::HACCEL, lpacceldst: Option<*mut ACCEL>, caccelentries: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn CopyAcceleratorTableW(haccelsrc : super::HACCEL, lpacceldst : *mut ACCEL, caccelentries : i32) -> i32);
-    unsafe { CopyAcceleratorTableW(haccelsrc, lpacceldst.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lpacceldst.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CopyAcceleratorTableW(haccelsrc, lpacceldst.unwrap_or(core::mem::zeroed()) as _, caccelentries) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -884,27 +884,27 @@ pub unsafe fn DlgDirListW(hdlg: super::HWND, lppathspec: windows_core::PWSTR, ni
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn DlgDirSelectComboBoxExA(hwnddlg: super::HWND, lpstring: &mut [u8], idcombobox: i32) -> windows_core::BOOL {
+pub unsafe fn DlgDirSelectComboBoxExA(hwnddlg: super::HWND, lpstring: windows_core::PSTR, cchout: i32, idcombobox: i32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::HWND, lpstring : windows_core::PSTR, cchout : i32, idcombobox : i32) -> windows_core::BOOL);
-    unsafe { DlgDirSelectComboBoxExA(hwnddlg, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap(), idcombobox) }
+    unsafe { DlgDirSelectComboBoxExA(hwnddlg, lpstring, cchout, idcombobox) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn DlgDirSelectComboBoxExW(hwnddlg: super::HWND, lpstring: &mut [u16], idcombobox: i32) -> windows_core::BOOL {
+pub unsafe fn DlgDirSelectComboBoxExW(hwnddlg: super::HWND, lpstring: windows_core::PWSTR, cchout: i32, idcombobox: i32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : super::HWND, lpstring : windows_core::PWSTR, cchout : i32, idcombobox : i32) -> windows_core::BOOL);
-    unsafe { DlgDirSelectComboBoxExW(hwnddlg, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap(), idcombobox) }
+    unsafe { DlgDirSelectComboBoxExW(hwnddlg, lpstring, cchout, idcombobox) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn DlgDirSelectExA(hwnddlg: super::HWND, lpstring: &mut [u8], idlistbox: i32) -> windows_core::BOOL {
+pub unsafe fn DlgDirSelectExA(hwnddlg: super::HWND, lpstring: windows_core::PSTR, chcount: i32, idlistbox: i32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::HWND, lpstring : windows_core::PSTR, chcount : i32, idlistbox : i32) -> windows_core::BOOL);
-    unsafe { DlgDirSelectExA(hwnddlg, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap(), idlistbox) }
+    unsafe { DlgDirSelectExA(hwnddlg, lpstring, chcount, idlistbox) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn DlgDirSelectExW(hwnddlg: super::HWND, lpstring: &mut [u16], idlistbox: i32) -> windows_core::BOOL {
+pub unsafe fn DlgDirSelectExW(hwnddlg: super::HWND, lpstring: windows_core::PWSTR, chcount: i32, idlistbox: i32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::HWND, lpstring : windows_core::PWSTR, chcount : i32, idlistbox : i32) -> windows_core::BOOL);
-    unsafe { DlgDirSelectExW(hwnddlg, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap(), idlistbox) }
+    unsafe { DlgDirSelectExW(hwnddlg, lpstring, chcount, idlistbox) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1315,15 +1315,15 @@ pub unsafe fn GetActiveWindow() -> super::HWND {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetAltTabInfoA(hwnd: Option<super::HWND>, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: Option<&mut [u8]>) -> windows_core::BOOL {
+pub unsafe fn GetAltTabInfoA(hwnd: Option<super::HWND>, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: Option<windows_core::PSTR>, cchitemtext: u32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetAltTabInfoA(hwnd : super::HWND, iitem : i32, pati : *mut ALTTABINFO, pszitemtext : windows_core::PSTR, cchitemtext : u32) -> windows_core::BOOL);
-    unsafe { GetAltTabInfoA(hwnd.unwrap_or(core::mem::zeroed()) as _, iitem, pati as _, core::mem::transmute(pszitemtext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszitemtext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetAltTabInfoA(hwnd.unwrap_or(core::mem::zeroed()) as _, iitem, pati as _, pszitemtext.unwrap_or(core::mem::zeroed()) as _, cchitemtext) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetAltTabInfoW(hwnd: Option<super::HWND>, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: Option<&mut [u16]>) -> windows_core::BOOL {
+pub unsafe fn GetAltTabInfoW(hwnd: Option<super::HWND>, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: Option<windows_core::PWSTR>, cchitemtext: u32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetAltTabInfoW(hwnd : super::HWND, iitem : i32, pati : *mut ALTTABINFO, pszitemtext : windows_core::PWSTR, cchitemtext : u32) -> windows_core::BOOL);
-    unsafe { GetAltTabInfoW(hwnd.unwrap_or(core::mem::zeroed()) as _, iitem, pati as _, core::mem::transmute(pszitemtext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszitemtext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetAltTabInfoW(hwnd.unwrap_or(core::mem::zeroed()) as _, iitem, pati as _, pszitemtext.unwrap_or(core::mem::zeroed()) as _, cchitemtext) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1433,15 +1433,15 @@ pub unsafe fn GetClassLongW(hwnd: super::HWND, nindex: i32) -> u32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetClassNameA(hwnd: super::HWND, lpclassname: &mut [u8]) -> i32 {
+pub unsafe fn GetClassNameA(hwnd: super::HWND, lpclassname: windows_core::PSTR, nmaxcount: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetClassNameA(hwnd : super::HWND, lpclassname : windows_core::PSTR, nmaxcount : i32) -> i32);
-    unsafe { GetClassNameA(hwnd, core::mem::transmute(lpclassname.as_mut_ptr()), lpclassname.len().try_into().unwrap()) }
+    unsafe { GetClassNameA(hwnd, lpclassname, nmaxcount) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetClassNameW(hwnd: super::HWND, lpclassname: &mut [u16]) -> i32 {
+pub unsafe fn GetClassNameW(hwnd: super::HWND, lpclassname: windows_core::PWSTR, nmaxcount: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetClassNameW(hwnd : super::HWND, lpclassname : windows_core::PWSTR, nmaxcount : i32) -> i32);
-    unsafe { GetClassNameW(hwnd, core::mem::transmute(lpclassname.as_mut_ptr()), lpclassname.len().try_into().unwrap()) }
+    unsafe { GetClassNameW(hwnd, lpclassname, nmaxcount) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1468,14 +1468,14 @@ pub unsafe fn GetClipboardData(uformat: u32) -> super::HANDLE {
     unsafe { GetClipboardData(uformat) }
 }
 #[inline]
-pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: &mut [u8]) -> i32 {
+pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: windows_core::PSTR, cchmaxcount: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetClipboardFormatNameA(format : u32, lpszformatname : windows_core::PSTR, cchmaxcount : i32) -> i32);
-    unsafe { GetClipboardFormatNameA(format, core::mem::transmute(lpszformatname.as_mut_ptr()), lpszformatname.len().try_into().unwrap()) }
+    unsafe { GetClipboardFormatNameA(format, lpszformatname, cchmaxcount) }
 }
 #[inline]
-pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: &mut [u16]) -> i32 {
+pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: windows_core::PWSTR, cchmaxcount: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetClipboardFormatNameW(format : u32, lpszformatname : windows_core::PWSTR, cchmaxcount : i32) -> i32);
-    unsafe { GetClipboardFormatNameW(format, core::mem::transmute(lpszformatname.as_mut_ptr()), lpszformatname.len().try_into().unwrap()) }
+    unsafe { GetClipboardFormatNameW(format, lpszformatname, cchmaxcount) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1593,15 +1593,15 @@ pub unsafe fn GetDlgItemInt(hdlg: super::HWND, niddlgitem: i32, lptranslated: Op
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetDlgItemTextA(hdlg: super::HWND, niddlgitem: i32, lpstring: &mut [u8]) -> u32 {
+pub unsafe fn GetDlgItemTextA(hdlg: super::HWND, niddlgitem: i32, lpstring: windows_core::PSTR, cchmax: i32) -> u32 {
     windows_core::link!("user32.dll" "system" fn GetDlgItemTextA(hdlg : super::HWND, niddlgitem : i32, lpstring : windows_core::PSTR, cchmax : i32) -> u32);
-    unsafe { GetDlgItemTextA(hdlg, niddlgitem, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { GetDlgItemTextA(hdlg, niddlgitem, lpstring, cchmax) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetDlgItemTextW(hdlg: super::HWND, niddlgitem: i32, lpstring: &mut [u16]) -> u32 {
+pub unsafe fn GetDlgItemTextW(hdlg: super::HWND, niddlgitem: i32, lpstring: windows_core::PWSTR, cchmax: i32) -> u32 {
     windows_core::link!("user32.dll" "system" fn GetDlgItemTextW(hdlg : super::HWND, niddlgitem : i32, lpstring : windows_core::PWSTR, cchmax : i32) -> u32);
-    unsafe { GetDlgItemTextW(hdlg, niddlgitem, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { GetDlgItemTextW(hdlg, niddlgitem, lpstring, cchmax) }
 }
 #[inline]
 pub unsafe fn GetDoubleClickTime() -> u32 {
@@ -1656,9 +1656,9 @@ pub unsafe fn GetGestureConfig(hwnd: super::HWND, dwreserved: u32, dwflags: u32,
     unsafe { GetGestureConfig(hwnd, dwreserved, dwflags, pcids, pgestureconfig as _, cbsize) }
 }
 #[inline]
-pub unsafe fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, pextraargs: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, cbextraargs: u32, pextraargs: *mut u8) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> windows_core::BOOL);
-    unsafe { GetGestureExtraArgs(hgestureinfo, pextraargs.len().try_into().unwrap(), pextraargs.as_mut_ptr()) }
+    unsafe { GetGestureExtraArgs(hgestureinfo, cbextraargs, pextraargs as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1701,14 +1701,14 @@ pub unsafe fn GetKBCodePage() -> u32 {
     unsafe { GetKBCodePage() }
 }
 #[inline]
-pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: &mut [u8]) -> i32 {
+pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: windows_core::PSTR, cchsize: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : windows_core::PSTR, cchsize : i32) -> i32);
-    unsafe { GetKeyNameTextA(lparam, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { GetKeyNameTextA(lparam, lpstring, cchsize) }
 }
 #[inline]
-pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: &mut [u16]) -> i32 {
+pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: windows_core::PWSTR, cchsize: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : i32, lpstring : windows_core::PWSTR, cchsize : i32) -> i32);
-    unsafe { GetKeyNameTextW(lparam, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { GetKeyNameTextW(lparam, lpstring, cchsize) }
 }
 #[inline]
 pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
@@ -1723,9 +1723,9 @@ pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::HKL {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetKeyboardLayoutList(lplist: Option<&mut [super::HKL]>) -> i32 {
+pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: Option<*mut super::HKL>) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetKeyboardLayoutList(nbuff : i32, lplist : *mut super::HKL) -> i32);
-    unsafe { GetKeyboardLayoutList(lplist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lplist.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
+    unsafe { GetKeyboardLayoutList(nbuff, lplist.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameA(pwszklid: windows_core::PSTR) -> windows_core::BOOL {
@@ -1738,9 +1738,9 @@ pub unsafe fn GetKeyboardLayoutNameW(pwszklid: windows_core::PWSTR) -> windows_c
     unsafe { GetKeyboardLayoutNameW(pwszklid) }
 }
 #[inline]
-pub unsafe fn GetKeyboardState(lpkeystate: &mut [u8; 256]) -> windows_core::BOOL {
+pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : *mut u8) -> windows_core::BOOL);
-    unsafe { GetKeyboardState(lpkeystate.as_mut_ptr()) }
+    unsafe { GetKeyboardState(lpkeystate as _) }
 }
 #[inline]
 pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
@@ -1843,15 +1843,15 @@ pub unsafe fn GetMenuState(hmenu: super::HMENU, uid: u32, uflags: u32) -> u32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetMenuStringA(hmenu: super::HMENU, uiditem: u32, lpstring: Option<&mut [u8]>, flags: u32) -> i32 {
+pub unsafe fn GetMenuStringA(hmenu: super::HMENU, uiditem: u32, lpstring: Option<windows_core::PSTR>, cchmax: i32, flags: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetMenuStringA(hmenu : super::HMENU, uiditem : u32, lpstring : windows_core::PSTR, cchmax : i32, flags : u32) -> i32);
-    unsafe { GetMenuStringA(hmenu, uiditem, core::mem::transmute(lpstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { GetMenuStringA(hmenu, uiditem, lpstring.unwrap_or(core::mem::zeroed()) as _, cchmax, flags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetMenuStringW(hmenu: super::HMENU, uiditem: u32, lpstring: Option<&mut [u16]>, flags: u32) -> i32 {
+pub unsafe fn GetMenuStringW(hmenu: super::HMENU, uiditem: u32, lpstring: Option<windows_core::PWSTR>, cchmax: i32, flags: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetMenuStringW(hmenu : super::HMENU, uiditem : u32, lpstring : windows_core::PWSTR, cchmax : i32, flags : u32) -> i32);
-    unsafe { GetMenuStringW(hmenu, uiditem, core::mem::transmute(lpstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { GetMenuStringW(hmenu, uiditem, lpstring.unwrap_or(core::mem::zeroed()) as _, cchmax, flags) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -1894,9 +1894,9 @@ pub unsafe fn GetMonitorInfoW(hmonitor: super::HMONITOR, lpmi: *mut MONITORINFO)
     unsafe { GetMonitorInfoW(hmonitor, lpmi as _) }
 }
 #[inline]
-pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: &mut [MOUSEMOVEPOINT], resolution: u32) -> i32 {
+pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : u32, lppt : *const MOUSEMOVEPOINT, lpptbuf : *mut MOUSEMOVEPOINT, nbufpoints : i32, resolution : u32) -> i32);
-    unsafe { GetMouseMovePointsEx(cbsize, lppt, lpptbuf.as_mut_ptr(), lpptbuf.len().try_into().unwrap(), resolution) }
+    unsafe { GetMouseMovePointsEx(cbsize, lppt, lpptbuf as _, nbufpoints, resolution) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1935,9 +1935,9 @@ pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> windows_
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetPointerDevice(device: super::HANDLE, pointerdevice: &mut [POINTER_DEVICE_INFO; 1]) -> windows_core::BOOL {
+pub unsafe fn GetPointerDevice(device: super::HANDLE, pointerdevice: *mut POINTER_DEVICE_INFO) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetPointerDevice(device : super::HANDLE, pointerdevice : *mut POINTER_DEVICE_INFO) -> windows_core::BOOL);
-    unsafe { GetPointerDevice(device, pointerdevice.as_mut_ptr()) }
+    unsafe { GetPointerDevice(device, pointerdevice as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1953,9 +1953,9 @@ pub unsafe fn GetPointerDeviceProperties(device: super::HANDLE, propertycount: *
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetPointerDeviceRects(device: super::HANDLE, pointerdevicerect: &mut [super::RECT; 1], displayrect: &mut [super::RECT; 1]) -> windows_core::BOOL {
+pub unsafe fn GetPointerDeviceRects(device: super::HANDLE, pointerdevicerect: *mut super::RECT, displayrect: *mut super::RECT) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::HANDLE, pointerdevicerect : *mut super::RECT, displayrect : *mut super::RECT) -> windows_core::BOOL);
-    unsafe { GetPointerDeviceRects(device, pointerdevicerect.as_mut_ptr(), displayrect.as_mut_ptr()) }
+    unsafe { GetPointerDeviceRects(device, pointerdevicerect as _, displayrect as _) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -2001,9 +2001,9 @@ pub unsafe fn GetPointerFrameTouchInfoHistory(pointerid: u32, entriescount: *mut
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetPointerInfo(pointerid: u32, pointerinfo: &mut [POINTER_INFO; 1]) -> windows_core::BOOL {
+pub unsafe fn GetPointerInfo(pointerid: u32, pointerinfo: *mut POINTER_INFO) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetPointerInfo(pointerid : u32, pointerinfo : *mut POINTER_INFO) -> windows_core::BOOL);
-    unsafe { GetPointerInfo(pointerid, pointerinfo.as_mut_ptr()) }
+    unsafe { GetPointerInfo(pointerid, pointerinfo as _) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -2012,15 +2012,15 @@ pub unsafe fn GetPointerInfoHistory(pointerid: u32, entriescount: *mut u32, poin
     unsafe { GetPointerInfoHistory(pointerid, entriescount as _, pointerinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetPointerInputTransform(pointerid: u32, inputtransform: &mut [INPUT_TRANSFORM]) -> windows_core::BOOL {
+pub unsafe fn GetPointerInputTransform(pointerid: u32, historycount: u32, inputtransform: *mut INPUT_TRANSFORM) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetPointerInputTransform(pointerid : u32, historycount : u32, inputtransform : *mut INPUT_TRANSFORM) -> windows_core::BOOL);
-    unsafe { GetPointerInputTransform(pointerid, inputtransform.len().try_into().unwrap(), inputtransform.as_mut_ptr()) }
+    unsafe { GetPointerInputTransform(pointerid, historycount, inputtransform as _) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetPointerPenInfo(pointerid: u32, peninfo: &mut [POINTER_PEN_INFO; 1]) -> windows_core::BOOL {
+pub unsafe fn GetPointerPenInfo(pointerid: u32, peninfo: *mut POINTER_PEN_INFO) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetPointerPenInfo(pointerid : u32, peninfo : *mut POINTER_PEN_INFO) -> windows_core::BOOL);
-    unsafe { GetPointerPenInfo(pointerid, peninfo.as_mut_ptr()) }
+    unsafe { GetPointerPenInfo(pointerid, peninfo as _) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -2030,9 +2030,9 @@ pub unsafe fn GetPointerPenInfoHistory(pointerid: u32, entriescount: *mut u32, p
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetPointerTouchInfo(pointerid: u32, touchinfo: &mut [POINTER_TOUCH_INFO; 1]) -> windows_core::BOOL {
+pub unsafe fn GetPointerTouchInfo(pointerid: u32, touchinfo: *mut POINTER_TOUCH_INFO) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetPointerTouchInfo(pointerid : u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_core::BOOL);
-    unsafe { GetPointerTouchInfo(pointerid, touchinfo.as_mut_ptr()) }
+    unsafe { GetPointerTouchInfo(pointerid, touchinfo as _) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -2237,9 +2237,9 @@ pub unsafe fn GetTopWindow(hwnd: Option<super::HWND>) -> super::HWND {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, pinputs: &mut [TOUCHINPUT], cbsize: i32) -> windows_core::BOOL {
+pub unsafe fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, cinputs: u32, pinputs: *mut TOUCHINPUT, cbsize: i32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> windows_core::BOOL);
-    unsafe { GetTouchInputInfo(htouchinput, pinputs.len().try_into().unwrap(), pinputs.as_mut_ptr(), cbsize) }
+    unsafe { GetTouchInputInfo(htouchinput, cinputs, pinputs as _, cbsize) }
 }
 #[inline]
 pub unsafe fn GetUnpredictedMessagePos() -> u32 {
@@ -2259,9 +2259,9 @@ pub unsafe fn GetUpdateRgn(hwnd: super::HWND, hrgn: super::HRGN, berase: bool) -
     unsafe { GetUpdateRgn(hwnd, hrgn, berase.into()) }
 }
 #[inline]
-pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: *mut u32) -> windows_core::BOOL {
+pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetUpdatedClipboardFormats(lpuiformats : *mut u32, cformats : u32, pcformatsout : *mut u32) -> windows_core::BOOL);
-    unsafe { GetUpdatedClipboardFormats(lpuiformats.as_mut_ptr(), lpuiformats.len().try_into().unwrap(), pcformatsout as _) }
+    unsafe { GetUpdatedClipboardFormats(lpuiformats as _, cformats, pcformatsout as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -2361,15 +2361,15 @@ pub unsafe fn GetWindowLongW(hwnd: super::HWND, nindex: i32) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetWindowModuleFileNameA(hwnd: super::HWND, pszfilename: &mut [u8]) -> u32 {
+pub unsafe fn GetWindowModuleFileNameA(hwnd: super::HWND, pszfilename: windows_core::PSTR, cchfilenamemax: u32) -> u32 {
     windows_core::link!("user32.dll" "system" fn GetWindowModuleFileNameA(hwnd : super::HWND, pszfilename : windows_core::PSTR, cchfilenamemax : u32) -> u32);
-    unsafe { GetWindowModuleFileNameA(hwnd, core::mem::transmute(pszfilename.as_mut_ptr()), pszfilename.len().try_into().unwrap()) }
+    unsafe { GetWindowModuleFileNameA(hwnd, pszfilename, cchfilenamemax) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetWindowModuleFileNameW(hwnd: super::HWND, pszfilename: &mut [u16]) -> u32 {
+pub unsafe fn GetWindowModuleFileNameW(hwnd: super::HWND, pszfilename: windows_core::PWSTR, cchfilenamemax: u32) -> u32 {
     windows_core::link!("user32.dll" "system" fn GetWindowModuleFileNameW(hwnd : super::HWND, pszfilename : windows_core::PWSTR, cchfilenamemax : u32) -> u32);
-    unsafe { GetWindowModuleFileNameW(hwnd, core::mem::transmute(pszfilename.as_mut_ptr()), pszfilename.len().try_into().unwrap()) }
+    unsafe { GetWindowModuleFileNameW(hwnd, pszfilename, cchfilenamemax) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -2397,9 +2397,9 @@ pub unsafe fn GetWindowRgnBox(hwnd: super::HWND, lprc: *mut super::RECT) -> i32 
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetWindowTextA(hwnd: super::HWND, lpstring: &mut [u8]) -> i32 {
+pub unsafe fn GetWindowTextA(hwnd: super::HWND, lpstring: windows_core::PSTR, nmaxcount: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetWindowTextA(hwnd : super::HWND, lpstring : windows_core::PSTR, nmaxcount : i32) -> i32);
-    unsafe { GetWindowTextA(hwnd, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { GetWindowTextA(hwnd, lpstring, nmaxcount) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -2415,9 +2415,9 @@ pub unsafe fn GetWindowTextLengthW(hwnd: super::HWND) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetWindowTextW(hwnd: super::HWND, lpstring: &mut [u16]) -> i32 {
+pub unsafe fn GetWindowTextW(hwnd: super::HWND, lpstring: windows_core::PWSTR, nmaxcount: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetWindowTextW(hwnd : super::HWND, lpstring : windows_core::PWSTR, nmaxcount : i32) -> i32);
-    unsafe { GetWindowTextW(hwnd, core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len().try_into().unwrap()) }
+    unsafe { GetWindowTextW(hwnd, lpstring, nmaxcount) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -2526,9 +2526,9 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn InternalGetWindowText(hwnd: super::HWND, pstring: &mut [u16]) -> i32 {
+pub unsafe fn InternalGetWindowText(hwnd: super::HWND, pstring: windows_core::PWSTR, cchmaxcount: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn InternalGetWindowText(hwnd : super::HWND, pstring : windows_core::PWSTR, cchmaxcount : i32) -> i32);
-    unsafe { InternalGetWindowText(hwnd, core::mem::transmute(pstring.as_mut_ptr()), pstring.len().try_into().unwrap()) }
+    unsafe { InternalGetWindowText(hwnd, pstring, cchmaxcount) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -3103,20 +3103,20 @@ where
     unsafe { OemToCharA(psrc.param().abi(), pdst) }
 }
 #[inline]
-pub unsafe fn OemToCharBuffA<P0>(lpszsrc: P0, lpszdst: &mut [u8]) -> windows_core::BOOL
+pub unsafe fn OemToCharBuffA<P0>(lpszsrc: P0, lpszdst: windows_core::PSTR, cchdstlength: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn OemToCharBuffA(lpszsrc : windows_core::PCSTR, lpszdst : windows_core::PSTR, cchdstlength : u32) -> windows_core::BOOL);
-    unsafe { OemToCharBuffA(lpszsrc.param().abi(), core::mem::transmute(lpszdst.as_mut_ptr()), lpszdst.len().try_into().unwrap()) }
+    unsafe { OemToCharBuffA(lpszsrc.param().abi(), lpszdst, cchdstlength) }
 }
 #[inline]
-pub unsafe fn OemToCharBuffW<P0>(lpszsrc: P0, lpszdst: &mut [u16]) -> windows_core::BOOL
+pub unsafe fn OemToCharBuffW<P0>(lpszsrc: P0, lpszdst: windows_core::PWSTR, cchdstlength: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn OemToCharBuffW(lpszsrc : windows_core::PCSTR, lpszdst : windows_core::PWSTR, cchdstlength : u32) -> windows_core::BOOL);
-    unsafe { OemToCharBuffW(lpszsrc.param().abi(), core::mem::transmute(lpszdst.as_mut_ptr()), lpszdst.len().try_into().unwrap()) }
+    unsafe { OemToCharBuffW(lpszsrc.param().abi(), lpszdst, cchdstlength) }
 }
 #[inline]
 pub unsafe fn OemToCharW<P0>(psrc: P0, pdst: windows_core::PWSTR) -> windows_core::BOOL
@@ -3295,15 +3295,15 @@ pub unsafe fn RealChildWindowFromPoint(hwndparent: super::HWND, ptparentclientco
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn RealGetWindowClassA(hwnd: super::HWND, ptszclassname: &mut [u8]) -> u32 {
+pub unsafe fn RealGetWindowClassA(hwnd: super::HWND, ptszclassname: windows_core::PSTR, cchclassnamemax: u32) -> u32 {
     windows_core::link!("user32.dll" "system" fn RealGetWindowClassA(hwnd : super::HWND, ptszclassname : windows_core::PSTR, cchclassnamemax : u32) -> u32);
-    unsafe { RealGetWindowClassA(hwnd, core::mem::transmute(ptszclassname.as_mut_ptr()), ptszclassname.len().try_into().unwrap()) }
+    unsafe { RealGetWindowClassA(hwnd, ptszclassname, cchclassnamemax) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn RealGetWindowClassW(hwnd: super::HWND, ptszclassname: &mut [u16]) -> u32 {
+pub unsafe fn RealGetWindowClassW(hwnd: super::HWND, ptszclassname: windows_core::PWSTR, cchclassnamemax: u32) -> u32 {
     windows_core::link!("user32.dll" "system" fn RealGetWindowClassW(hwnd : super::HWND, ptszclassname : windows_core::PWSTR, cchclassnamemax : u32) -> u32);
-    unsafe { RealGetWindowClassW(hwnd, core::mem::transmute(ptszclassname.as_mut_ptr()), ptszclassname.len().try_into().unwrap()) }
+    unsafe { RealGetWindowClassW(hwnd, ptszclassname, cchclassnamemax) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -4214,15 +4214,15 @@ pub unsafe fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 
     unsafe { ToAsciiEx(uvirtkey, uscancode, lpkeystate.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpchar as _, uflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: Option<*const u8>, pwszbuff: &mut [u16], wflags: u32) -> i32 {
+pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: Option<*const u8>, pwszbuff: windows_core::PWSTR, cchbuff: i32, wflags: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
-    unsafe { ToUnicode(wvirtkey, wscancode, lpkeystate.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pwszbuff.as_mut_ptr()), pwszbuff.len().try_into().unwrap(), wflags) }
+    unsafe { ToUnicode(wvirtkey, wscancode, lpkeystate.unwrap_or(core::mem::zeroed()) as _, pwszbuff, cchbuff, wflags) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: &mut [u16], wflags: u32, dwhkl: Option<super::HKL>) -> i32 {
+pub unsafe fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: windows_core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: Option<super::HKL>) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::HKL) -> i32);
-    unsafe { ToUnicodeEx(wvirtkey, wscancode, lpkeystate, core::mem::transmute(pwszbuff.as_mut_ptr()), pwszbuff.len().try_into().unwrap(), wflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ToUnicodeEx(wvirtkey, wscancode, lpkeystate, pwszbuff, cchbuff, wflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]

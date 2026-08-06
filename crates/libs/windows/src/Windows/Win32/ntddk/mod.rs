@@ -1,10 +1,10 @@
 #[inline]
-pub unsafe fn DbgPrompt<P0>(prompt: P0, response: &mut [u8]) -> u32
+pub unsafe fn DbgPrompt<P0>(prompt: P0, response: *mut i8, length: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn DbgPrompt(prompt : windows_core::PCSTR, response : *mut i8, length : u32) -> u32);
-    unsafe { DbgPrompt(prompt.param().abi(), core::mem::transmute(response.as_mut_ptr()), response.len().try_into().unwrap()) }
+    unsafe { DbgPrompt(prompt.param().abi(), response as _, length) }
 }
 #[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]

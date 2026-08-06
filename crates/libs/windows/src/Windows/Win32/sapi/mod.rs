@@ -2625,20 +2625,20 @@ impl windows_core::RuntimeName for ISpPhoneConverter {}
 windows_core::imp::define_interface!(ISpPhoneticAlphabetConverter, ISpPhoneticAlphabetConverter_Vtbl, 0x133adcd4_19b4_4020_9fdc_842e78253b17);
 windows_core::imp::interface_hierarchy!(ISpPhoneticAlphabetConverter, windows_core::IUnknown);
 impl ISpPhoneticAlphabetConverter {
-    pub unsafe fn GetLangId(&self, plangid: &mut [u16; 1]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLangId)(windows_core::Interface::as_raw(self), plangid.as_mut_ptr()) }
+    pub unsafe fn GetLangId(&self, plangid: *mut u16) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLangId)(windows_core::Interface::as_raw(self), plangid as _) }
     }
     pub unsafe fn SetLangId(&self, langid: u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLangId)(windows_core::Interface::as_raw(self), langid) }
     }
-    pub unsafe fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: &mut [SPPHONEID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SAPI2UPS)(windows_core::Interface::as_raw(self), pszsapiid, pszupsid.as_mut_ptr(), pszupsid.len().try_into().unwrap()) }
+    pub unsafe fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: *mut SPPHONEID, cmaxlength: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SAPI2UPS)(windows_core::Interface::as_raw(self), pszsapiid, pszupsid as _, cmaxlength) }
     }
-    pub unsafe fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: &mut [SPPHONEID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UPS2SAPI)(windows_core::Interface::as_raw(self), pszupsid, pszsapiid.as_mut_ptr(), pszsapiid.len().try_into().unwrap()) }
+    pub unsafe fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: *mut SPPHONEID, cmaxlength: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UPS2SAPI)(windows_core::Interface::as_raw(self), pszupsid, pszsapiid as _, cmaxlength) }
     }
-    pub unsafe fn GetMaxConvertLength(&self, csrclength: u32, bsapi2ups: bool, pcmaxdestlength: &mut [u32; 1]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMaxConvertLength)(windows_core::Interface::as_raw(self), csrclength, bsapi2ups.into(), pcmaxdestlength.as_mut_ptr()) }
+    pub unsafe fn GetMaxConvertLength(&self, csrclength: u32, bsapi2ups: bool, pcmaxdestlength: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMaxConvertLength)(windows_core::Interface::as_raw(self), csrclength, bsapi2ups.into(), pcmaxdestlength as _) }
     }
 }
 #[repr(C)]
@@ -2775,8 +2775,8 @@ impl ISpPhrase {
             (windows_core::Interface::vtable(self).GetSerializedPhrase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetText(&self, ulstart: u32, ulcount: u32, fusetextreplacements: bool, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: Option<&mut [u8; 1]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ulstart, ulcount, fusetextreplacements.into(), ppszcomemtext as _, pbdisplayattributes.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
+    pub unsafe fn GetText(&self, ulstart: u32, ulcount: u32, fusetextreplacements: bool, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: Option<*mut u8>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ulstart, ulcount, fusetextreplacements.into(), ppszcomemtext as _, pbdisplayattributes.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Discard)(windows_core::Interface::as_raw(self), dwvaluetypes) }
@@ -3995,8 +3995,8 @@ impl ISpRecoResult {
     pub unsafe fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetResultTimes)(windows_core::Interface::as_raw(self), ptimes as _) }
     }
-    pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ppphrases: &mut [Option<ISpPhraseAlt>], pcphrasesreturned: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAlternates)(windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len().try_into().unwrap(), core::mem::transmute(ppphrases.as_mut_ptr()), pcphrasesreturned as _) }
+    pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAlternates)(windows_core::Interface::as_raw(self), ulstartelement, celements, ulrequestcount, core::mem::transmute(ppphrases), pcphrasesreturned as _) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat> {
@@ -4052,7 +4052,7 @@ pub struct ISpRecoResult_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpRecoResult_Impl: ISpPhrase_Impl {
     fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> windows_core::Result<()>;
-    fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::Result<()>;
+    fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: windows_core::OutRef<ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::Result<()>;
     fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat>;
     fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32) -> windows_core::Result<u32>;
     fn Serialize(&self) -> windows_core::Result<*mut SPSERIALIZEDRESULT>;

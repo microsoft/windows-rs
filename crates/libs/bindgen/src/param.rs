@@ -57,6 +57,12 @@ impl Param {
         )
     }
 
+    /// Returns whether metadata marks this parameter as strictly output-only.
+    pub fn is_output_only(&self) -> bool {
+        self.def
+            .is_some_and(|def| def.direction() == windows_metadata::reader::ParamDirection::Output)
+    }
+
     /// Returns whether Rust's projection permits omitted storage for an optional or reserved
     /// parameter.
     pub fn is_optional_or_reserved(&self) -> bool {

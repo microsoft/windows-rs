@@ -228,9 +228,9 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn FindFirstVolumeW(lpszvolumename: &mut [u16]) -> super::HANDLE {
+pub unsafe fn FindFirstVolumeW(lpszvolumename: windows_core::PWSTR, cchbufferlength: u32) -> super::HANDLE {
     windows_core::link!("kernel32.dll" "system" fn FindFirstVolumeW(lpszvolumename : windows_core::PWSTR, cchbufferlength : u32) -> super::HANDLE);
-    unsafe { FindFirstVolumeW(core::mem::transmute(lpszvolumename.as_mut_ptr()), lpszvolumename.len().try_into().unwrap()) }
+    unsafe { FindFirstVolumeW(lpszvolumename, cchbufferlength) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -264,9 +264,9 @@ pub unsafe fn FindNextStreamW(hfindstream: super::HANDLE, lpfindstreamdata: *mut
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn FindNextVolumeW(hfindvolume: super::HANDLE, lpszvolumename: &mut [u16]) -> windows_core::BOOL {
+pub unsafe fn FindNextVolumeW(hfindvolume: super::HANDLE, lpszvolumename: windows_core::PWSTR, cchbufferlength: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn FindNextVolumeW(hfindvolume : super::HANDLE, lpszvolumename : windows_core::PWSTR, cchbufferlength : u32) -> windows_core::BOOL);
-    unsafe { FindNextVolumeW(hfindvolume as _, core::mem::transmute(lpszvolumename.as_mut_ptr()), lpszvolumename.len().try_into().unwrap()) }
+    unsafe { FindNextVolumeW(hfindvolume as _, lpszvolumename, cchbufferlength) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -426,36 +426,36 @@ pub unsafe fn GetFileType(hfile: super::HANDLE) -> u32 {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetFinalPathNameByHandleA(hfile: super::HANDLE, lpszfilepath: &mut [u8], dwflags: u32) -> u32 {
+pub unsafe fn GetFinalPathNameByHandleA(hfile: super::HANDLE, lpszfilepath: windows_core::PSTR, cchfilepath: u32, dwflags: u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleA(hfile : super::HANDLE, lpszfilepath : windows_core::PSTR, cchfilepath : u32, dwflags : u32) -> u32);
-    unsafe { GetFinalPathNameByHandleA(hfile, core::mem::transmute(lpszfilepath.as_mut_ptr()), lpszfilepath.len().try_into().unwrap(), dwflags) }
+    unsafe { GetFinalPathNameByHandleA(hfile, lpszfilepath, cchfilepath, dwflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetFinalPathNameByHandleW(hfile: super::HANDLE, lpszfilepath: &mut [u16], dwflags: u32) -> u32 {
+pub unsafe fn GetFinalPathNameByHandleW(hfile: super::HANDLE, lpszfilepath: windows_core::PWSTR, cchfilepath: u32, dwflags: u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleW(hfile : super::HANDLE, lpszfilepath : windows_core::PWSTR, cchfilepath : u32, dwflags : u32) -> u32);
-    unsafe { GetFinalPathNameByHandleW(hfile, core::mem::transmute(lpszfilepath.as_mut_ptr()), lpszfilepath.len().try_into().unwrap(), dwflags) }
+    unsafe { GetFinalPathNameByHandleW(hfile, lpszfilepath, cchfilepath, dwflags) }
 }
 #[inline]
-pub unsafe fn GetFullPathNameA<P0>(lpfilename: P0, lpbuffer: Option<&mut [u8]>, lpfilepart: *mut windows_core::PSTR) -> u32
+pub unsafe fn GetFullPathNameA<P0>(lpfilename: P0, nbufferlength: u32, lpbuffer: Option<windows_core::PSTR>, lpfilepart: *mut windows_core::PSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFullPathNameA(lpfilename : windows_core::PCSTR, nbufferlength : u32, lpbuffer : windows_core::PSTR, lpfilepart : *mut windows_core::PSTR) -> u32);
-    unsafe { GetFullPathNameA(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpfilepart as _) }
+    unsafe { GetFullPathNameA(lpfilename.param().abi(), nbufferlength, lpbuffer.unwrap_or(core::mem::zeroed()) as _, lpfilepart as _) }
 }
 #[inline]
-pub unsafe fn GetFullPathNameW<P0>(lpfilename: P0, lpbuffer: Option<&mut [u16]>, lpfilepart: *mut windows_core::PWSTR) -> u32
+pub unsafe fn GetFullPathNameW<P0>(lpfilename: P0, nbufferlength: u32, lpbuffer: Option<windows_core::PWSTR>, lpfilepart: *mut windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFullPathNameW(lpfilename : windows_core::PCWSTR, nbufferlength : u32, lpbuffer : windows_core::PWSTR, lpfilepart : *mut windows_core::PWSTR) -> u32);
-    unsafe { GetFullPathNameW(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpfilepart as _) }
+    unsafe { GetFullPathNameW(lpfilename.param().abi(), nbufferlength, lpbuffer.unwrap_or(core::mem::zeroed()) as _, lpfilepart as _) }
 }
 #[inline]
-pub unsafe fn GetLogicalDriveStringsW(lpbuffer: Option<&mut [u16]>) -> u32 {
+pub unsafe fn GetLogicalDriveStringsW(nbufferlength: u32, lpbuffer: Option<windows_core::PWSTR>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetLogicalDriveStringsW(nbufferlength : u32, lpbuffer : windows_core::PWSTR) -> u32);
-    unsafe { GetLogicalDriveStringsW(lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetLogicalDriveStringsW(nbufferlength, lpbuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetLogicalDrives() -> u32 {
@@ -463,28 +463,28 @@ pub unsafe fn GetLogicalDrives() -> u32 {
     unsafe { GetLogicalDrives() }
 }
 #[inline]
-pub unsafe fn GetLongPathNameA<P0>(lpszshortpath: P0, lpszlongpath: Option<&mut [u8]>) -> u32
+pub unsafe fn GetLongPathNameA<P0>(lpszshortpath: P0, lpszlongpath: Option<windows_core::PSTR>, cchbuffer: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetLongPathNameA(lpszshortpath : windows_core::PCSTR, lpszlongpath : windows_core::PSTR, cchbuffer : u32) -> u32);
-    unsafe { GetLongPathNameA(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetLongPathNameA(lpszshortpath.param().abi(), lpszlongpath.unwrap_or(core::mem::zeroed()) as _, cchbuffer) }
 }
 #[inline]
-pub unsafe fn GetLongPathNameW<P0>(lpszshortpath: P0, lpszlongpath: Option<&mut [u16]>) -> u32
+pub unsafe fn GetLongPathNameW<P0>(lpszshortpath: P0, lpszlongpath: Option<windows_core::PWSTR>, cchbuffer: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetLongPathNameW(lpszshortpath : windows_core::PCWSTR, lpszlongpath : windows_core::PWSTR, cchbuffer : u32) -> u32);
-    unsafe { GetLongPathNameW(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetLongPathNameW(lpszshortpath.param().abi(), lpszlongpath.unwrap_or(core::mem::zeroed()) as _, cchbuffer) }
 }
 #[inline]
-pub unsafe fn GetShortPathNameW<P0>(lpszlongpath: P0, lpszshortpath: Option<&mut [u16]>) -> u32
+pub unsafe fn GetShortPathNameW<P0>(lpszlongpath: P0, lpszshortpath: Option<windows_core::PWSTR>, cchbuffer: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetShortPathNameW(lpszlongpath : windows_core::PCWSTR, lpszshortpath : windows_core::PWSTR, cchbuffer : u32) -> u32);
-    unsafe { GetShortPathNameW(lpszlongpath.param().abi(), core::mem::transmute(lpszshortpath.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszshortpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetShortPathNameW(lpszlongpath.param().abi(), lpszshortpath.unwrap_or(core::mem::zeroed()) as _, cchbuffer) }
 }
 #[inline]
 pub unsafe fn GetTempFileNameA<P0, P1>(lppathname: P0, lpprefixstring: P1, uunique: u32, lptempfilename: windows_core::PSTR) -> u32
@@ -505,103 +505,70 @@ where
     unsafe { GetTempFileNameW(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, lptempfilename) }
 }
 #[inline]
-pub unsafe fn GetTempPath2A(buffer: Option<&mut [u8]>) -> u32 {
+pub unsafe fn GetTempPath2A(bufferlength: u32, buffer: Option<windows_core::PSTR>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetTempPath2A(bufferlength : u32, buffer : windows_core::PSTR) -> u32);
-    unsafe { GetTempPath2A(buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetTempPath2A(bufferlength, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetTempPath2W(buffer: Option<&mut [u16]>) -> u32 {
+pub unsafe fn GetTempPath2W(bufferlength: u32, buffer: Option<windows_core::PWSTR>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetTempPath2W(bufferlength : u32, buffer : windows_core::PWSTR) -> u32);
-    unsafe { GetTempPath2W(buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetTempPath2W(bufferlength, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetTempPathA(lpbuffer: Option<&mut [u8]>) -> u32 {
+pub unsafe fn GetTempPathA(nbufferlength: u32, lpbuffer: Option<windows_core::PSTR>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetTempPathA(nbufferlength : u32, lpbuffer : windows_core::PSTR) -> u32);
-    unsafe { GetTempPathA(lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetTempPathA(nbufferlength, lpbuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetTempPathW(lpbuffer: Option<&mut [u16]>) -> u32 {
+pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: Option<windows_core::PWSTR>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetTempPathW(nbufferlength : u32, lpbuffer : windows_core::PWSTR) -> u32);
-    unsafe { GetTempPathW(lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetTempPathW(nbufferlength, lpbuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetVolumeInformationA<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<&mut [u8]>, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<&mut [u8]>) -> windows_core::BOOL
+pub unsafe fn GetVolumeInformationA<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<windows_core::PSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<windows_core::PSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationA(lprootpathname : windows_core::PCSTR, lpvolumenamebuffer : windows_core::PSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_core::PSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
-    unsafe {
-        GetVolumeInformationA(
-            lprootpathname.param().abi(),
-            core::mem::transmute(lpvolumenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
-            lpvolumenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _,
-            lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _,
-            lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _,
-            core::mem::transmute(lpfilesystemnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
-            lpfilesystemnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { GetVolumeInformationA(lprootpathname.param().abi(), lpvolumenamebuffer.unwrap_or(core::mem::zeroed()) as _, nvolumenamesize, lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _, lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _, lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _, lpfilesystemnamebuffer.unwrap_or(core::mem::zeroed()) as _, nfilesystemnamesize) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetVolumeInformationByHandleW(hfile: super::HANDLE, lpvolumenamebuffer: Option<&mut [u16]>, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<&mut [u16]>) -> windows_core::BOOL {
+pub unsafe fn GetVolumeInformationByHandleW(hfile: super::HANDLE, lpvolumenamebuffer: Option<windows_core::PWSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<windows_core::PWSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationByHandleW(hfile : super::HANDLE, lpvolumenamebuffer : windows_core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_core::PWSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
-    unsafe {
-        GetVolumeInformationByHandleW(
-            hfile,
-            core::mem::transmute(lpvolumenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
-            lpvolumenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _,
-            lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _,
-            lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _,
-            core::mem::transmute(lpfilesystemnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
-            lpfilesystemnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { GetVolumeInformationByHandleW(hfile, lpvolumenamebuffer.unwrap_or(core::mem::zeroed()) as _, nvolumenamesize, lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _, lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _, lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _, lpfilesystemnamebuffer.unwrap_or(core::mem::zeroed()) as _, nfilesystemnamesize) }
 }
 #[inline]
-pub unsafe fn GetVolumeInformationW<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<&mut [u16]>, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<&mut [u16]>) -> windows_core::BOOL
+pub unsafe fn GetVolumeInformationW<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<windows_core::PWSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<windows_core::PWSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationW(lprootpathname : windows_core::PCWSTR, lpvolumenamebuffer : windows_core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_core::PWSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
-    unsafe {
-        GetVolumeInformationW(
-            lprootpathname.param().abi(),
-            core::mem::transmute(lpvolumenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
-            lpvolumenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _,
-            lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _,
-            lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _,
-            core::mem::transmute(lpfilesystemnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
-            lpfilesystemnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { GetVolumeInformationW(lprootpathname.param().abi(), lpvolumenamebuffer.unwrap_or(core::mem::zeroed()) as _, nvolumenamesize, lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _, lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _, lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _, lpfilesystemnamebuffer.unwrap_or(core::mem::zeroed()) as _, nfilesystemnamesize) }
 }
 #[inline]
-pub unsafe fn GetVolumeNameForVolumeMountPointW<P0>(lpszvolumemountpoint: P0, lpszvolumename: &mut [u16]) -> windows_core::BOOL
+pub unsafe fn GetVolumeNameForVolumeMountPointW<P0>(lpszvolumemountpoint: P0, lpszvolumename: windows_core::PWSTR, cchbufferlength: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint : windows_core::PCWSTR, lpszvolumename : windows_core::PWSTR, cchbufferlength : u32) -> windows_core::BOOL);
-    unsafe { GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint.param().abi(), core::mem::transmute(lpszvolumename.as_mut_ptr()), lpszvolumename.len().try_into().unwrap()) }
+    unsafe { GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint.param().abi(), lpszvolumename, cchbufferlength) }
 }
 #[inline]
-pub unsafe fn GetVolumePathNameW<P0>(lpszfilename: P0, lpszvolumepathname: &mut [u16]) -> windows_core::BOOL
+pub unsafe fn GetVolumePathNameW<P0>(lpszfilename: P0, lpszvolumepathname: windows_core::PWSTR, cchbufferlength: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumePathNameW(lpszfilename : windows_core::PCWSTR, lpszvolumepathname : windows_core::PWSTR, cchbufferlength : u32) -> windows_core::BOOL);
-    unsafe { GetVolumePathNameW(lpszfilename.param().abi(), core::mem::transmute(lpszvolumepathname.as_mut_ptr()), lpszvolumepathname.len().try_into().unwrap()) }
+    unsafe { GetVolumePathNameW(lpszfilename.param().abi(), lpszvolumepathname, cchbufferlength) }
 }
 #[inline]
-pub unsafe fn GetVolumePathNamesForVolumeNameW<P0>(lpszvolumename: P0, lpszvolumepathnames: Option<&mut [u16]>, lpcchreturnlength: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetVolumePathNamesForVolumeNameW<P0>(lpszvolumename: P0, lpszvolumepathnames: Option<*mut u16>, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameW(lpszvolumename : windows_core::PCWSTR, lpszvolumepathnames : *mut u16, cchbufferlength : u32, lpcchreturnlength : *mut u32) -> windows_core::BOOL);
-    unsafe { GetVolumePathNamesForVolumeNameW(lpszvolumename.param().abi(), lpszvolumepathnames.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchreturnlength as _) }
+    unsafe { GetVolumePathNamesForVolumeNameW(lpszvolumename.param().abi(), lpszvolumepathnames.unwrap_or(core::mem::zeroed()) as _, cchbufferlength, lpcchreturnlength as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -622,12 +589,12 @@ pub unsafe fn LockFileEx(hfile: super::HANDLE, dwflags: u32, dwreserved: Option<
     unsafe { LockFileEx(hfile, dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestolocklow, nnumberofbytestolockhigh, lpoverlapped as _) }
 }
 #[inline]
-pub unsafe fn QueryDosDeviceW<P0>(lpdevicename: P0, lptargetpath: Option<&mut [u16]>) -> u32
+pub unsafe fn QueryDosDeviceW<P0>(lpdevicename: P0, lptargetpath: Option<windows_core::PWSTR>, ucchmax: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn QueryDosDeviceW(lpdevicename : windows_core::PCWSTR, lptargetpath : windows_core::PWSTR, ucchmax : u32) -> u32);
-    unsafe { QueryDosDeviceW(lpdevicename.param().abi(), core::mem::transmute(lptargetpath.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lptargetpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { QueryDosDeviceW(lpdevicename.param().abi(), lptargetpath.unwrap_or(core::mem::zeroed()) as _, ucchmax) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]

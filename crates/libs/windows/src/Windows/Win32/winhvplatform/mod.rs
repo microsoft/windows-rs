@@ -139,9 +139,9 @@ pub unsafe fn WHvGetCapability(capabilitycode: super::WHV_CAPABILITY_CODE, capab
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]
 #[inline]
-pub unsafe fn WHvGetInterruptTargetVpSet(partition: super::WHV_PARTITION_HANDLE, destination: u64, destinationmode: super::WHV_INTERRUPT_DESTINATION_MODE, targetvps: &mut [u32], targetvpcount: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn WHvGetInterruptTargetVpSet(partition: super::WHV_PARTITION_HANDLE, destination: u64, destinationmode: super::WHV_INTERRUPT_DESTINATION_MODE, targetvps: *mut u32, vpcount: u32, targetvpcount: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetInterruptTargetVpSet(partition : super::WHV_PARTITION_HANDLE, destination : u64, destinationmode : super::WHV_INTERRUPT_DESTINATION_MODE, targetvps : *mut u32, vpcount : u32, targetvpcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetInterruptTargetVpSet(partition, destination, destinationmode, targetvps.as_mut_ptr(), targetvps.len().try_into().unwrap(), targetvpcount as _) }
+    unsafe { WHvGetInterruptTargetVpSet(partition, destination, destinationmode, targetvps as _, vpcount, targetvpcount as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]

@@ -348,14 +348,14 @@ where
     unsafe { RasGetEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: &mut [u8]) -> u32 {
+pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: windows_core::PSTR, inbufsize: u32) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetErrorStringA(resourceid : u32, lpszstring : windows_core::PSTR, inbufsize : u32) -> u32);
-    unsafe { RasGetErrorStringA(resourceid, core::mem::transmute(lpszstring.as_mut_ptr()), lpszstring.len().try_into().unwrap()) }
+    unsafe { RasGetErrorStringA(resourceid, lpszstring, inbufsize) }
 }
 #[inline]
-pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: &mut [u16]) -> u32 {
+pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: windows_core::PWSTR, inbufsize: u32) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetErrorStringW(resourceid : u32, lpszstring : windows_core::PWSTR, inbufsize : u32) -> u32);
-    unsafe { RasGetErrorStringW(resourceid, core::mem::transmute(lpszstring.as_mut_ptr()), lpszstring.len().try_into().unwrap()) }
+    unsafe { RasGetErrorStringW(resourceid, lpszstring, inbufsize) }
 }
 #[inline]
 pub unsafe fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32 {

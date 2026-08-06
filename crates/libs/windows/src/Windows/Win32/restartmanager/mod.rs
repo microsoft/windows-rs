@@ -19,9 +19,9 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     unsafe { RmEndSession(dwsessionhandle) }
 }
 #[inline]
-pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<&mut [u8]>, cbfilterbufneeded: *mut u32) -> u32 {
+pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<*mut u8>, cbfilterbuf: u32, cbfilterbufneeded: *mut u32) -> u32 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> u32);
-    unsafe { RmGetFilterList(dwsessionhandle, pbfilterbuf.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded as _) }
+    unsafe { RmGetFilterList(dwsessionhandle, pbfilterbuf.unwrap_or(core::mem::zeroed()) as _, cbfilterbuf, cbfilterbufneeded as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

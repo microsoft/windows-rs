@@ -94,9 +94,9 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PSFormatForDisplay(propkey: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn PSFormatForDisplay(propkey: *const super::PROPERTYKEY, propvar: *const super::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSFormatForDisplay(propkey : *const super::PROPERTYKEY, propvar : *const super::PROPVARIANT, pdfflags : PROPDESC_FORMAT_FLAGS, pwsztext : windows_core::PWSTR, cchtext : u32) -> windows_core::HRESULT);
-    unsafe { PSFormatForDisplay(propkey, propvar, pdfflags, core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len().try_into().unwrap()) }
+    unsafe { PSFormatForDisplay(propkey, propvar, pdfflags, pwsztext, cchtext) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -403,13 +403,13 @@ where
 }
 #[cfg(feature = "oaidl")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadStr<P0, P1>(propbag: P0, propname: P1, value: &mut [u16]) -> windows_core::HRESULT
+pub unsafe fn PSPropertyBag_ReadStr<P0, P1>(propbag: P0, propname: P1, value: windows_core::PWSTR, charactercount: i32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadStr(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : windows_core::PWSTR, charactercount : i32) -> windows_core::HRESULT);
-    unsafe { PSPropertyBag_ReadStr(propbag.param().abi(), propname.param().abi(), core::mem::transmute(value.as_mut_ptr()), value.len().try_into().unwrap()) }
+    unsafe { PSPropertyBag_ReadStr(propbag.param().abi(), propname.param().abi(), value, charactercount) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
@@ -659,9 +659,9 @@ where
 }
 #[cfg(feature = "wtypes")]
 #[inline]
-pub unsafe fn PSStringFromPropertyKey(pkey: *const super::PROPERTYKEY, psz: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn PSStringFromPropertyKey(pkey: *const super::PROPERTYKEY, psz: windows_core::PWSTR, cch: u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSStringFromPropertyKey(pkey : *const super::PROPERTYKEY, psz : windows_core::PWSTR, cch : u32) -> windows_core::HRESULT);
-    unsafe { PSStringFromPropertyKey(pkey, core::mem::transmute(psz.as_mut_ptr()), psz.len().try_into().unwrap()) }
+    unsafe { PSStringFromPropertyKey(pkey, psz, cch) }
 }
 #[inline]
 pub unsafe fn PSUnregisterPropertySchema<P0>(pszpath: P0) -> windows_core::HRESULT

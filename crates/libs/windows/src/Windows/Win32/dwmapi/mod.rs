@@ -68,9 +68,9 @@ pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut Mi
     unsafe { DwmGetGraphicsStreamTransformHint(uindex, ptransform as _) }
 }
 #[inline]
-pub unsafe fn DwmGetTransportAttributes(pfisremoting: &mut [windows_core::BOOL; 1], pfisconnected: &mut [windows_core::BOOL; 1], pdwgeneration: &mut [u32; 1]) -> windows_core::HRESULT {
+pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut windows_core::BOOL, pfisconnected: *mut windows_core::BOOL, pdwgeneration: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_core::BOOL, pfisconnected : *mut windows_core::BOOL, pdwgeneration : *mut u32) -> windows_core::HRESULT);
-    unsafe { DwmGetTransportAttributes(pfisremoting.as_mut_ptr(), pfisconnected.as_mut_ptr(), pdwgeneration.as_mut_ptr()) }
+    unsafe { DwmGetTransportAttributes(pfisremoting as _, pfisconnected as _, pdwgeneration as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
