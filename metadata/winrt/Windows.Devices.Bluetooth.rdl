@@ -18,6 +18,7 @@ mod Windows {
             enum BluetoothAddressType {
                 Public = 0,
                 Random = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 Unspecified = 2,
             }
             #[repr(i32)]
@@ -72,8 +73,11 @@ mod Windows {
                 OtherError = 4,
                 DisabledByPolicy = 5,
                 NotSupported = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 DisabledByUser = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 ConsentRequired = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 TransportNotSupported = 9,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]

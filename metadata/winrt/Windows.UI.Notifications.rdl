@@ -867,131 +867,257 @@ mod Windows {
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             enum TileTemplateType {
+                #[Windows::Foundation::Metadata::Deprecated("TileSquareImage may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150Image.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquareImage = 0,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquareBlock may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150Block.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquareBlock = 1,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquareText01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150Text01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquareText01 = 2,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquareText02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150Text02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquareText02 = 3,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquareText03 may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150Text03.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquareText03 = 4,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquareText04 may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150Text04.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquareText04 = 5,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquarePeekImageAndText01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150PeekImageAndText01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquarePeekImageAndText01 = 6,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquarePeekImageAndText02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150PeekImageAndText02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquarePeekImageAndText02 = 7,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquarePeekImageAndText03 may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150PeekImageAndText03.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquarePeekImageAndText03 = 8,
+                #[Windows::Foundation::Metadata::Deprecated("TileSquarePeekImageAndText04 may be altered or unavailable for releases after Windows 8.1. Instead, use TileSquare150x150PeekImageAndText04.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileSquarePeekImageAndText04 = 9,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideImage may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Image.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideImage = 10,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideImageCollection may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150ImageCollection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideImageCollection = 11,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideImageAndText01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150ImageAndText01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideImageAndText01 = 12,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideImageAndText02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150ImageAndText02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideImageAndText02 = 13,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideBlockAndText01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150BlockAndText01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideBlockAndText01 = 14,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideBlockAndText02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150BlockAndText02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideBlockAndText02 = 15,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImageCollection01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImageCollection01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImageCollection01 = 16,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImageCollection02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImageCollection02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImageCollection02 = 17,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImageCollection03 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImageCollection03.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImageCollection03 = 18,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImageCollection04 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImageCollection04.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImageCollection04 = 19,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImageCollection05 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImageCollection05.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImageCollection05 = 20,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImageCollection06 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImageCollection06.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImageCollection06 = 21,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImageAndText01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImageAndText01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImageAndText01 = 22,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImageAndText02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImageAndText02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImageAndText02 = 23,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImage01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImage01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImage01 = 24,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImage02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImage02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImage02 = 25,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImage03 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImage03.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImage03 = 26,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImage04 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImage04.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImage04 = 27,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImage05 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImage05.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImage05 = 28,
+                #[Windows::Foundation::Metadata::Deprecated("TileWidePeekImage06 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150PeekImage06.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWidePeekImage06 = 29,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideSmallImageAndText01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150SmallImageAndText01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideSmallImageAndText01 = 30,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideSmallImageAndText02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150SmallImageAndText02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideSmallImageAndText02 = 31,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideSmallImageAndText03 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150SmallImageAndText03.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideSmallImageAndText03 = 32,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideSmallImageAndText04 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150SmallImageAndText04.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideSmallImageAndText04 = 33,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideSmallImageAndText05 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150SmallImageAndText05.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideSmallImageAndText05 = 34,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText01 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text01.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText01 = 35,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText02 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text02.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText02 = 36,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText03 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text03.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText03 = 37,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText04 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text04.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText04 = 38,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText05 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text05.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText05 = 39,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText06 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text06.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText06 = 40,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText07 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text07.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText07 = 41,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText08 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text08.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText08 = 42,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText09 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text09.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText09 = 43,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText10 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText10 = 44,
+                #[Windows::Foundation::Metadata::Deprecated("TileWideText11 may be altered or unavailable for releases after Windows 8.1. Instead, use TileWide310x150Text11.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 TileWideText11 = 45,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150Image = 0,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150Block = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150Text01 = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150Text02 = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150Text03 = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150Text04 = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150PeekImageAndText01 = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150PeekImageAndText02 = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150PeekImageAndText03 = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150PeekImageAndText04 = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Image = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150ImageCollection = 11,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150ImageAndText01 = 12,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150ImageAndText02 = 13,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150BlockAndText01 = 14,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150BlockAndText02 = 15,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImageCollection01 = 16,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImageCollection02 = 17,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImageCollection03 = 18,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImageCollection04 = 19,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImageCollection05 = 20,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImageCollection06 = 21,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImageAndText01 = 22,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImageAndText02 = 23,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImage01 = 24,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImage02 = 25,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImage03 = 26,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImage04 = 27,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImage05 = 28,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150PeekImage06 = 29,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150SmallImageAndText01 = 30,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150SmallImageAndText02 = 31,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150SmallImageAndText03 = 32,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150SmallImageAndText04 = 33,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150SmallImageAndText05 = 34,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text01 = 35,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text02 = 36,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text03 = 37,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text04 = 38,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text05 = 39,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text06 = 40,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text07 = 41,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text08 = 42,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text09 = 43,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text10 = 44,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150Text11 = 45,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310BlockAndText01 = 46,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310BlockAndText02 = 47,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Image = 48,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310ImageAndText01 = 49,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310ImageAndText02 = 50,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310ImageAndTextOverlay01 = 51,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310ImageAndTextOverlay02 = 52,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310ImageAndTextOverlay03 = 53,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310ImageCollectionAndText01 = 54,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310ImageCollectionAndText02 = 55,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310ImageCollection = 56,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310SmallImagesAndTextList01 = 57,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310SmallImagesAndTextList02 = 58,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310SmallImagesAndTextList03 = 59,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310SmallImagesAndTextList04 = 60,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text01 = 61,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text02 = 62,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text03 = 63,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text04 = 64,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text05 = 65,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text06 = 66,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text07 = 67,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text08 = 68,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310TextList01 = 69,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310TextList02 = 70,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310TextList03 = 71,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310SmallImageAndText01 = 72,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310SmallImagesAndTextList05 = 73,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare310x310Text09 = 74,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare71x71IconWithBadge = 75,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare150x150IconWithBadge = 76,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileWide310x150IconWithBadgeAndText = 77,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileSquare71x71Image = 78,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TileTall150x310Image = 79,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

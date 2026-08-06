@@ -92,6 +92,7 @@ impl Remapper {
         let files = read_inputs(&self.input)?;
         let index = reader::Index::new(files);
         let mut file = writer::File::new(name);
+        let mut context = CopyContext::default();
 
         // Split source `Apis` containers after all regular types have been written.
         let mut apis: Vec<reader::TypeDef> = Vec::new();
@@ -102,12 +103,13 @@ impl Remapper {
             if self.is_source_apis(ty) {
                 apis.push(ty);
             } else {
-                self.write_type(&mut file, &index, ty, None);
+                self.write_type(&mut file, &mut context, &index, ty, None);
             }
         }
 
-        self.split_apis(&mut file, &apis);
+        self.split_apis(&mut file, &mut context, &apis);
 
+        context.finish(&mut file)?;
         let bytes = file.into_stream();
         std::fs::write(&self.output, bytes)
             .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output.display())))
@@ -174,6 +176,7 @@ impl Remapper {
     fn write_type(
         &self,
         file: &mut writer::File,
+        context: &mut CopyContext,
         index: &reader::Index,
         def: reader::TypeDef,
         outer: Option<writer::TypeDef>,
@@ -225,14 +228,10 @@ impl Remapper {
             );
         }
 
-        let is_winrt_class = def.category() == reader::TypeCategory::Class
-            && def.flags().contains(TypeAttributes::WindowsRuntime);
-
-        if !is_winrt_class {
-            for method in def.methods() {
-                self.write_method(file, method, &generics);
-            }
+        for method in def.methods() {
+            self.write_method(file, context, method, &generics);
         }
+        self.write_semantics(file, context, type_def, def, &generics);
 
         if let Some(class_layout) = def.class_layout() {
             file.ClassLayout(
@@ -243,11 +242,17 @@ impl Remapper {
         }
 
         for inner_def in index.nested(def) {
-            self.write_type(file, index, inner_def, Some(type_def));
+            self.write_type(file, context, index, inner_def, Some(type_def));
         }
     }
 
-    fn write_method(&self, file: &mut writer::File, method: reader::MethodDef, generics: &[Type]) {
+    fn write_method(
+        &self,
+        file: &mut writer::File,
+        context: &mut CopyContext,
+        method: reader::MethodDef,
+        generics: &[Type],
+    ) -> writer::MethodDef {
         let signature = self.remap_signature(&method.signature(generics));
         let method_def = file.MethodDef(
             method.name(),
@@ -255,6 +260,7 @@ impl Remapper {
             method.flags(),
             method.impl_flags(),
         );
+        context.method(method, method_def);
         for param_def in method.params() {
             let param = file.Param(param_def.name(), param_def.sequence(), param_def.flags());
             write_attributes(file, writer::HasAttribute::Param(param), param_def);
@@ -268,10 +274,86 @@ impl Remapper {
                 impl_map.import_scope().name(),
             );
         }
+        for generic in method.generic_params() {
+            file.GenericParam(
+                generic.name(),
+                writer::TypeOrMethodDef::MethodDef(method_def),
+                generic.sequence(),
+                generic.flags(),
+            );
+        }
+        method_def
+    }
+
+    fn write_semantics(
+        &self,
+        file: &mut writer::File,
+        context: &mut CopyContext,
+        type_def: writer::TypeDef,
+        def: reader::TypeDef,
+        generics: &[Type],
+    ) {
+        let mut first_property = None;
+        for property in def.properties() {
+            let signature = self.remap_signature(&property.signature(generics));
+            let property_def =
+                file.PropertyWithSignature(property.name(), &signature, property.flags());
+            first_property.get_or_insert(property_def);
+            write_attributes(file, writer::HasAttribute::Property(property_def), property);
+            if let Some(constant) = property.constant() {
+                file.Constant(
+                    writer::HasConstant::Property(property_def),
+                    &constant.value(),
+                );
+            }
+            for semantics in property.semantics() {
+                context.semantics(
+                    semantics.semantics(),
+                    semantics.method(),
+                    writer::HasSemantics::Property(property_def),
+                    format!(
+                        "property {}.{}.{}",
+                        def.namespace(),
+                        def.name(),
+                        property.name()
+                    ),
+                );
+            }
+        }
+        if let Some(first_property) = first_property {
+            file.PropertyMap(type_def, first_property);
+        }
+
+        let mut first_event = None;
+        for event in def.events() {
+            let event_def = file.EventWithFlags(
+                event.name(),
+                &self.remap_type(&event.ty(generics)),
+                event.flags(),
+            );
+            first_event.get_or_insert(event_def);
+            write_attributes(file, writer::HasAttribute::Event(event_def), event);
+            for semantics in event.semantics() {
+                context.semantics(
+                    semantics.semantics(),
+                    semantics.method(),
+                    writer::HasSemantics::Event(event_def),
+                    format!("event {}.{}.{}", def.namespace(), def.name(), event.name()),
+                );
+            }
+        }
+        if let Some(first_event) = first_event {
+            file.EventMap(type_def, first_event);
+        }
     }
 
     /// Splits flat `Apis` containers while preserving each TypeDef's contiguous member range.
-    fn split_apis(&self, file: &mut writer::File, apis: &[reader::TypeDef]) {
+    fn split_apis(
+        &self,
+        file: &mut writer::File,
+        context: &mut CopyContext,
+        apis: &[reader::TypeDef],
+    ) {
         let mut namespaces: Vec<String> = Vec::new();
         let mut fields: HashMap<String, Vec<reader::Field>> = HashMap::new();
         let mut methods: HashMap<String, Vec<reader::MethodDef>> = HashMap::new();
@@ -315,7 +397,7 @@ impl Remapper {
             }
 
             for method in methods.get(namespace).into_iter().flatten() {
-                self.write_method(file, *method, &[]);
+                self.write_method(file, context, *method, &[]);
             }
 
             write_attributes(file, writer::HasAttribute::TypeDef(type_def), template);

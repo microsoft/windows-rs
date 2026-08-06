@@ -347,6 +347,7 @@ mod Windows {
                 Color = 3,
                 Grayscale = 4,
                 Monochrome = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1048576)]
                 AutoSelect = 6,
             }
             #[repr(i32)]

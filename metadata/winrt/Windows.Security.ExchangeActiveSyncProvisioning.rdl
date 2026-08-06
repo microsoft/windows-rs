@@ -123,20 +123,33 @@ mod Windows {
                 Compliant = 1,
                 CanBeCompliant = 2,
                 NotProvisionedOnAllVolumes = 3,
+                #[Windows::Foundation::Metadata::Deprecated("DeFixedDataNotSupported may be altered or unavailable for releases after Windows 8.1. Instead, use FixedDataNotSupported.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeFixedDataNotSupported = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 FixedDataNotSupported = 4,
+                #[Windows::Foundation::Metadata::Deprecated("DeHardwareNotCompliant may be altered or unavailable for releases after Windows 8.1. Instead, use HardwareNotCompliant.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeHardwareNotCompliant = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 HardwareNotCompliant = 5,
+                #[Windows::Foundation::Metadata::Deprecated("DeWinReNotConfigured may be altered or unavailable for releases after Windows 8.1. Instead, use LockNotConfigured.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeWinReNotConfigured = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 LockNotConfigured = 6,
+                #[Windows::Foundation::Metadata::Deprecated("DeProtectionSuspended may be altered or unavailable for releases after Windows 8.1. Instead, use ProtectionSuspended.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeProtectionSuspended = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 ProtectionSuspended = 7,
+                #[Windows::Foundation::Metadata::Deprecated("DeOsVolumeNotProtected may be altered or unavailable for releases after Windows 8.1. Instead, use OsVolumeNotProtected.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeOsVolumeNotProtected = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 OsVolumeNotProtected = 8,
+                #[Windows::Foundation::Metadata::Deprecated("DeProtectionNotYetEnabled may be altered or unavailable for releases after Windows 8.1. Instead, use ProtectionNotYetEnabled.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeProtectionNotYetEnabled = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 ProtectionNotYetEnabled = 9,
                 NoFeatureLicense = 10,
                 OsNotProtected = 11,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 UnexpectedFailure = 12,
             }
             #[guid(0x54dfd981_1968_4ca3_b958_e595d16505eb)]

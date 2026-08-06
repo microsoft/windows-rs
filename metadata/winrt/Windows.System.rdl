@@ -62,6 +62,7 @@ mod Windows {
             Low = 0,
             Medium = 1,
             High = 2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
             OverLimit = 3,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -1137,7 +1138,9 @@ mod Windows {
             Arm = 5,
             X64 = 9,
             Neutral = 11,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
             Arm64 = 12,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
             X86OnArm64 = 14,
             Unknown = 65535,
         }
@@ -1279,6 +1282,7 @@ mod Windows {
             RemoteUser = 1,
             LocalGuest = 2,
             RemoteGuest = 3,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
             SystemManaged = 4,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -1324,11 +1328,13 @@ mod Windows {
             CapitalLock = 20,
             Kana = 21,
             Hangul = 21,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
             ImeOn = 22,
             Junja = 23,
             Final = 24,
             Hanja = 25,
             Kanji = 25,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
             ImeOff = 26,
             Escape = 27,
             Convert = 28,
@@ -1431,13 +1437,21 @@ mod Windows {
             F22 = 133,
             F23 = 134,
             F24 = 135,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             NavigationView = 136,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             NavigationMenu = 137,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             NavigationUp = 138,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             NavigationDown = 139,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             NavigationLeft = 140,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             NavigationRight = 141,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             NavigationAccept = 142,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             NavigationCancel = 143,
             NumberKeyLock = 144,
             Scroll = 145,
@@ -1447,36 +1461,67 @@ mod Windows {
             RightControl = 163,
             LeftMenu = 164,
             RightMenu = 165,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GoBack = 166,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GoForward = 167,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             Refresh = 168,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             Stop = 169,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             Search = 170,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             Favorites = 171,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GoHome = 172,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadA = 195,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadB = 196,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadX = 197,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadY = 198,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadRightShoulder = 199,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadLeftShoulder = 200,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadLeftTrigger = 201,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadRightTrigger = 202,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadDPadUp = 203,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadDPadDown = 204,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadDPadLeft = 205,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadDPadRight = 206,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadMenu = 207,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadView = 208,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadLeftThumbstickButton = 209,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadRightThumbstickButton = 210,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadLeftThumbstickUp = 211,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadLeftThumbstickDown = 212,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadLeftThumbstickRight = 213,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadLeftThumbstickLeft = 214,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadRightThumbstickUp = 215,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadRightThumbstickDown = 216,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadRightThumbstickRight = 217,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             GamepadRightThumbstickLeft = 218,
         }
         #[repr(u32)]

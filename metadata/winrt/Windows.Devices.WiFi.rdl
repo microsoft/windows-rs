@@ -273,8 +273,11 @@ mod Windows {
                 Erp = 6,
                 HT = 7,
                 Vht = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 Dmg = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 HE = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 Eht = 11,
             }
             #[repr(i32)]

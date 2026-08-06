@@ -161,8 +161,11 @@ mod Windows {
                 P208 = 130,
                 V208 = 131,
                 V408 = 132,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 SamplerFeedbackMinMipOpaque = 189,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 SamplerFeedbackMipRegionUsedOpaque = 190,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1048576)]
                 A4B4G4R4 = 191,
             }
             #[repr(i32)]

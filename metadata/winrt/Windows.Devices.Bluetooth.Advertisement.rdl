@@ -116,6 +116,7 @@ mod Windows {
                     ScannableUndirected = 2,
                     NonConnectableUndirected = 3,
                     ScanResponse = 4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                     Extended = 5,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -159,6 +160,7 @@ mod Windows {
                 enum BluetoothLEScanningMode {
                     Passive = 0,
                     Active = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                     None = 2,
                 }
                 #[guid(0x066fb2b7_33d1_4e7d_8367_cf81d0f79653)]

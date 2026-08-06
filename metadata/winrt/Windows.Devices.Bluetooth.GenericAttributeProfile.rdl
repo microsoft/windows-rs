@@ -62,7 +62,9 @@ mod Windows {
                 enum GattCommunicationStatus {
                     Success = 0,
                     Unreachable = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ProtocolError = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     AccessDenied = 3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -257,6 +259,7 @@ mod Windows {
                     Stopped = 1,
                     Started = 2,
                     Aborted = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                     StartedWithoutAllAdvertisementData = 4,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]

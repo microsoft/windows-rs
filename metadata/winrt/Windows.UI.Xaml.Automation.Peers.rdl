@@ -93,6 +93,7 @@ mod Windows {
                         TitleBar = 37,
                         Separator = 38,
                         SemanticZoom = 39,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         AppBar = 40,
                     }
                     #[repr(i32)]
@@ -121,13 +122,21 @@ mod Windows {
                         DragLeave = 19,
                         Dropped = 20,
                         LiveRegionChanged = 21,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         InputReachedTarget = 22,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         InputReachedOtherElement = 23,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         InputDiscarded = 24,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         WindowClosed = 25,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         WindowOpened = 26,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         ConversionTargetChanged = 27,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         TextEditTextChanged = 28,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         LayoutInvalidated = 29,
                     }
                     #[repr(i32)]
@@ -2000,13 +2009,21 @@ mod Windows {
                         Annotation = 23,
                         Drag = 24,
                         DropTarget = 25,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         ObjectModel = 26,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         Spreadsheet = 27,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         SpreadsheetItem = 28,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         Styles = 29,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         Transform2 = 30,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         SynchronizedInput = 31,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         TextEdit = 32,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         CustomNavigation = 33,
                     }
                     #[Windows::Foundation::Metadata::Composable(IPersonPictureAutomationPeerFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]

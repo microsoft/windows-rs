@@ -576,7 +576,9 @@ mod Windows {
         enum MediaTimelineControllerState {
             Paused = 0,
             Running = 1,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
             Stalled = 2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
             Error = 3,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]

@@ -15,6 +15,7 @@ mod Windows {
             enum AudioDecoderDegradationReason {
                 None = 0,
                 LicensingRequirement = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 SpatialAudioNotSupported = 2,
             }
             #[Windows::Foundation::Metadata::Activatable(IAudioStreamDescriptorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -1692,7 +1693,9 @@ mod Windows {
                 Data = 3,
                 Description = 4,
                 Subtitle = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ImageSubtitle = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 Speech = 7,
             }
             #[Windows::Foundation::Metadata::Activatable(ITimedMetadataStreamDescriptorFactory, 393216, "Windows.Foundation.UniversalApiContract")]

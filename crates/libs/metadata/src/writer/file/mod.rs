@@ -284,10 +284,27 @@ impl File {
 
     /// Adds a `Property` row to the file, returning the row offset.
     pub fn Property(&mut self, name: &str, ty: &Type) -> Property {
-        let signature = self.PropertySig(ty);
+        self.PropertyWithSignature(
+            name,
+            &Signature {
+                flags: MethodCallAttributes::HASTHIS,
+                return_type: ty.clone(),
+                types: vec![],
+            },
+            0,
+        )
+    }
 
+    /// Adds a `Property` row with its exact signature and flags.
+    pub fn PropertyWithSignature(
+        &mut self,
+        name: &str,
+        signature: &Signature,
+        flags: u16,
+    ) -> Property {
+        let signature = self.PropertySig(signature);
         Property(self.records.Property.push_pos(rec::Property {
-            Flags: 0,
+            Flags: flags,
             Name: self.strings.insert(name),
             Type: signature,
         }))
@@ -304,13 +321,18 @@ impl File {
     /// Adds an `Event` row to the file, returning the row offset. `ty` is the event's
     /// handler delegate type.
     pub fn Event(&mut self, name: &str, ty: &Type) -> Event {
+        self.EventWithFlags(name, ty, 0)
+    }
+
+    /// Adds an `Event` row with its exact flags.
+    pub fn EventWithFlags(&mut self, name: &str, ty: &Type, flags: u16) -> Event {
         let Type::ClassName(ty) = ty else {
             panic!("invalid event type");
         };
         let event_type = TypeDefOrRef::TypeRef(self.TypeRef(&ty.namespace, &ty.name));
 
         Event(self.records.Event.push_pos(rec::Event {
-            Flags: 0,
+            Flags: flags,
             Name: self.strings.insert(name),
             EventType: event_type,
         }))
@@ -558,10 +580,13 @@ impl File {
         self.blobs.insert(&buffer)
     }
 
-    fn PropertySig(&mut self, ty: &Type) -> BlobId {
-        let mut buffer = vec![0x28]; // HASTHIS | PROPERTY
-        buffer.write_compressed(0); // parameter count
-        self.Type(ty, &mut buffer);
+    fn PropertySig(&mut self, signature: &Signature) -> BlobId {
+        let mut buffer = vec![signature.flags.0 | 0x08]; // PROPERTY
+        buffer.write_compressed(signature.types.len());
+        self.Type(&signature.return_type, &mut buffer);
+        for ty in &signature.types {
+            self.Type(ty, &mut buffer);
+        }
         self.blobs.insert(&buffer)
     }
 

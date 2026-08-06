@@ -23,6 +23,7 @@ mod Windows {
                 Auto = 0,
                 Standard = 1,
                 Hdr = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 LowLight = 3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -784,7 +784,9 @@ mod Windows {
                     Unprotected = 0,
                     Aes128Ctr = 1,
                     Cocktail = 4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     Aes128Cbc = 5,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     Unspecified = 65535,
                     Uninitialized = 2147483647,
                 }
@@ -793,6 +795,7 @@ mod Windows {
                 enum PlayReadyHardwareDRMFeatures {
                     HardwareDRM = 1,
                     HEVC = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     Aes128Cbc = 3,
                 }
                 #[repr(i32)]

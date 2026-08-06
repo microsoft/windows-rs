@@ -109,6 +109,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IDisplayPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class DisplayProperties {}
             #[guid(0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980)]
+            #[invoke(Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract"))]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             delegate fn DisplayPropertiesEventHandler(sender: Object);
@@ -391,20 +392,33 @@ mod Windows {
             enum ResolutionScale {
                 Invalid = 0,
                 Scale100Percent = 100,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale120Percent = 120,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale125Percent = 125,
                 Scale140Percent = 140,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale150Percent = 150,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale160Percent = 160,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale175Percent = 175,
                 Scale180Percent = 180,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale200Percent = 200,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale225Percent = 225,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale250Percent = 250,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale300Percent = 300,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale350Percent = 350,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale400Percent = 400,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale450Percent = 450,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Scale500Percent = 500,
             }
         }

@@ -47,8 +47,11 @@ mod Windows {
                     HtmlDownload = 7,
                     Prefetch = 8,
                     Other = 9,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Web.Http.Diagnostics.HttpDiagnosticsContract", 131072)]
                     CrossOriginPreFlight = 10,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Web.Http.Diagnostics.HttpDiagnosticsContract", 131072)]
                     Fetch = 11,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Web.Http.Diagnostics.HttpDiagnosticsContract", 131072)]
                     Beacon = 12,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]

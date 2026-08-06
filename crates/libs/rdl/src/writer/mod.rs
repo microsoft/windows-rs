@@ -652,6 +652,16 @@ fn write_custom_attributes_except<'a>(
     index: &windows_metadata::reader::Index,
     exclude: &[&str],
 ) -> Result<Vec<TokenStream>, Error> {
+    write_custom_attributes_wrapped(attributes, item_namespace, index, exclude, None)
+}
+
+fn write_custom_attributes_wrapped<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    item_namespace: &str,
+    index: &windows_metadata::reader::Index,
+    exclude: &[&str],
+    wrapper: Option<&TokenStream>,
+) -> Result<Vec<TokenStream>, Error> {
     let mut rendered = attributes
         .filter(|attr| {
             !(namespace_starts_with(attr.namespace(), "System")
@@ -713,7 +723,13 @@ fn write_custom_attributes_except<'a>(
                 })
                 .collect::<Result<Vec<_>, Error>>()?;
 
-            Ok(if args.is_empty() {
+            Ok(if let Some(wrapper) = wrapper {
+                if args.is_empty() {
+                    quote! { #[#wrapper(#name_ts)] }
+                } else {
+                    quote! { #[#wrapper(#name_ts(#(#args),*))] }
+                }
+            } else if args.is_empty() {
                 quote! { #[#name_ts] }
             } else {
                 quote! { #[#name_ts(#(#args),*)] }

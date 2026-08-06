@@ -928,8 +928,10 @@ mod Windows {
                 BlockedByOobe = 30,
                 DeferredDuringOobe = 31,
                 DeferredForSustainableTime = 32,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Management.Update.WindowsUpdateContract", 131072)]
                 BlockedByAppClose = 33,
                 BlockedByAppRestart = 34,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Management.Update.WindowsUpdateContract", 131073)]
                 OtherUpdateReverting = 35,
             }
             #[Windows::Foundation::Metadata::ContractVersion(WindowsUpdateContract, 65536)]

@@ -80,6 +80,7 @@ mod Windows {
             enum BackgroundTransferPriority {
                 Default = 0,
                 High = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 Low = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -99,7 +100,9 @@ mod Windows {
                 Completed = 5,
                 Canceled = 6,
                 Error = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 PausedRecoverableWebErrorStatus = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 PausedSystemPolicy = 32,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

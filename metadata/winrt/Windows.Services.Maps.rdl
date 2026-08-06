@@ -528,6 +528,7 @@ mod Windows {
                 BadLocation = 3,
                 IndexFailure = 4,
                 NetworkFailure = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 NotSupported = 6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -593,6 +594,7 @@ mod Windows {
                 EndPointNotFound = 6,
                 NoPedestrianRouteFound = 7,
                 NetworkFailure = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 NotSupported = 9,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -649,6 +651,7 @@ mod Windows {
                 Time = 0,
                 Distance = 1,
                 TimeWithTraffic = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 Scenic = 3,
             }
             #[repr(u32)]
@@ -662,6 +665,7 @@ mod Windows {
                 Ferries = 4,
                 Tunnels = 8,
                 DirtRoads = 16,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Motorail = 32,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

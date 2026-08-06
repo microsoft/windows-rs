@@ -359,9 +359,13 @@ mod Windows {
                 AudioQualityFailure = 4,
                 UserCanceled = 5,
                 Unknown = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TimeoutExceeded = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 PauseLimitExceeded = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 NetworkFailure = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 MicrophoneUnavailable = 10,
             }
             #[repr(i32)]
@@ -369,6 +373,7 @@ mod Windows {
             enum SpeechRecognitionScenario {
                 WebSearch = 0,
                 Dictation = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 FormFilling = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -411,7 +416,9 @@ mod Windows {
                 Processing = 2,
                 SoundStarted = 3,
                 SoundEnded = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 SpeechDetected = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Paused = 6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -192,7 +192,9 @@ mod Windows {
                 None = 0,
                 Animation = 1,
                 Effect = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 InfiniteAnimation = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 AllAnimations = 5,
             }
             #[repr(i32)]
@@ -201,13 +203,21 @@ mod Windows {
             enum CompositionBitmapInterpolationMode {
                 NearestNeighbor = 0,
                 Linear = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 MagLinearMinLinearMipLinear = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 MagLinearMinLinearMipNearest = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 MagLinearMinNearestMipLinear = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 MagLinearMinNearestMipNearest = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 MagNearestMinLinearMipLinear = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 MagNearestMinLinearMipNearest = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 MagNearestMinNearestMipLinear = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 MagNearestMinNearestMipNearest = 9,
             }
             #[repr(i32)]
@@ -276,7 +286,9 @@ mod Windows {
                 Auto = 0,
                 Hsl = 1,
                 Rgb = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 HslLinear = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 RgbLinear = 4,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -294,6 +306,7 @@ mod Windows {
                 Inherit = 0,
                 SourceOver = 1,
                 DestinationInvert = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 MinBlend = 3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]

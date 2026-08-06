@@ -38,14 +38,28 @@ mod Windows {
                 File = 2,
                 Photo = 3,
                 Text = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 131072)]
                 StreamingText = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 131072)]
                 RemoteFile = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 196608)]
                 Table = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 196608)]
                 Contact = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 393216)]
+                #[Windows::Foundation::Metadata::Experimental]
                 Uri = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 393216)]
+                #[Windows::Foundation::Metadata::Experimental]
                 Array = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 458752)]
+                #[Windows::Foundation::Metadata::Experimental]
                 Appointment = 11,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 458752)]
+                #[Windows::Foundation::Metadata::Experimental]
                 Date = 12,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.AI.Actions.ActionsContract", 524288)]
+                #[Windows::Foundation::Metadata::Experimental]
                 CustomText = 13,
             }
             #[repr(i32)]

@@ -315,6 +315,7 @@ mod Windows {
                 None = 0,
                 Tpm = 1,
                 Uefi = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 Registry = 3,
             }
             #[repr(i32)]

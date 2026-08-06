@@ -29,7 +29,9 @@ mod Windows {
                 Protected = 1,
                 Revoked = 2,
                 Unprotected = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 131072)]
                 LicenseExpired = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 131072)]
                 AccessSuspended = 5,
             }
             #[repr(i32)]
@@ -62,17 +64,28 @@ mod Windows {
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
             enum FileProtectionStatus {
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Undetermined might be unavailable after Windows 10. Instead, use Unknown.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
                 Undetermined = 0,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 65536)]
                 Unknown = 0,
                 Unprotected = 1,
                 Revoked = 2,
                 Protected = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("ProtectedByOtherUser might be unavailable after Windows 10. Instead, use ProtectedToOtherIdentity.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
                 ProtectedByOtherUser = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("ProtectedToOtherEnterprise might be unavailable after Windows 10. Instead, use ProtectedToOtherIdentity.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
                 ProtectedToOtherEnterprise = 5,
                 NotProtectable = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 65536)]
                 ProtectedToOtherIdentity = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 131072)]
                 LicenseExpired = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 131072)]
                 AccessSuspended = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 196608)]
                 FileInUse = 10,
             }
             #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
@@ -461,7 +474,9 @@ mod Windows {
                 Revoked = 3,
                 NotRoamable = 4,
                 ProtectedToOtherIdentity = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 131072)]
                 LicenseExpired = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.EnterpriseData.EnterpriseDataContract", 131072)]
                 AccessSuspended = 7,
             }
             #[repr(i32)]

@@ -313,10 +313,12 @@ mod Windows {
                     IPerceptionPropertyChangeRequest,
                 }
                 #[guid(0x74816d2a_2090_4670_8c48_ef39e7ff7c26)]
+                #[invoke(Windows::Foundation::Metadata::Deprecated("PerceptionStartFaceAuthenticationHandler may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract"))]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionStartFaceAuthenticationHandler may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 delegate fn PerceptionStartFaceAuthenticationHandler(sender: PerceptionFaceAuthenticationGroup) -> bool;
                 #[guid(0x387ee6aa_89cd_481e_aade_dd92f70b2ad7)]
+                #[invoke(Windows::Foundation::Metadata::Deprecated("PerceptionStopFaceAuthenticationHandler may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract"))]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Deprecated("PerceptionStopFaceAuthenticationHandler may be unavailable after Windows Creator Update. Please refer to AVStream on MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 delegate fn PerceptionStopFaceAuthenticationHandler(sender: PerceptionFaceAuthenticationGroup);

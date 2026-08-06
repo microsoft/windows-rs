@@ -206,14 +206,23 @@ mod Windows {
                         Left = 2,
                         Right = 3,
                         Full = 4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         TopEdgeAlignedLeft = 5,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         TopEdgeAlignedRight = 6,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         BottomEdgeAlignedLeft = 7,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         BottomEdgeAlignedRight = 8,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         LeftEdgeAlignedTop = 9,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         LeftEdgeAlignedBottom = 10,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         RightEdgeAlignedTop = 11,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         RightEdgeAlignedBottom = 12,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         Auto = 13,
                     }
                     #[repr(i32)]

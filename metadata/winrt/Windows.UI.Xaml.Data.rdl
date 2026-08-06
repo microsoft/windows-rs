@@ -404,6 +404,7 @@ mod Windows {
                     Default = 0,
                     PropertyChanged = 1,
                     Explicit = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     LostFocus = 3,
                 }
             }

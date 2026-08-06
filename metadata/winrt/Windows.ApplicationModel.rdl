@@ -950,7 +950,9 @@ mod Windows {
             Disabled = 0,
             DisabledByUser = 1,
             Enabled = 2,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.StartupTaskContract", 131072)]
             DisabledByPolicy = 3,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.StartupTaskContract", 196608)]
             EnabledByPolicy = 4,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]

@@ -30,7 +30,9 @@ mod Windows {
             enum ControlChannelTriggerResetReason {
                 FastUserSwitched = 0,
                 LowPowerExit = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Networking.Sockets.ControlChannelTriggerContract", 65536)]
                 QuietHoursExit = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Networking.Sockets.ControlChannelTriggerContract", 65536)]
                 ApplicationRestart = 3,
             }
             #[repr(i32)]
@@ -904,15 +906,25 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             enum SocketProtectionLevel {
                 PlainSocket = 0,
+                #[Windows::Foundation::Metadata::Deprecated("Ssl may result in insecure connections and may be altered or unavailable for releases after Windows 8.1. Instead, use one of the TLS SocketProtectionLevel values.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 Ssl = 1,
                 SslAllowNullEncryption = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 BluetoothEncryptionAllowNullAuthentication = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 BluetoothEncryptionWithAuthentication = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Ssl3AllowWeakEncryption may result in insecure connections and may be altered or unavailable for releases after Windows 8.1. Instead, use one of the TLS SocketProtectionLevel values.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 Ssl3AllowWeakEncryption = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Tls10 = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Tls11 = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Tls12 = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 Unspecified = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1048576)]
                 Tls13 = 10,
             }
             #[repr(i32)]

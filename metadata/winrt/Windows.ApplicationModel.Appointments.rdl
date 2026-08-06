@@ -33,6 +33,7 @@ mod Windows {
                 SystemOnly = 0,
                 Limited = 1,
                 Full = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 None = 3,
             }
             #[repr(i32)]
@@ -40,6 +41,7 @@ mod Windows {
             enum AppointmentCalendarOtherAppWriteAccess {
                 None = 0,
                 SystemOnly = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 Limited = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -58,6 +60,7 @@ mod Windows {
                 AuthenticationError = 3,
                 PolicyError = 4,
                 UnknownError = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 ManualAccountRemovalRequired = 6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -181,6 +184,7 @@ mod Windows {
             enum AppointmentStoreAccessType {
                 AppCalendarsReadWrite = 0,
                 AllCalendarsReadOnly = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 AllCalendarsReadWrite = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -210,8 +214,11 @@ mod Windows {
                 AppointmentModified = 1,
                 AppointmentDeleted = 2,
                 ChangeTrackingLost = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 CalendarCreated = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 CalendarModified = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 CalendarDeleted = 6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

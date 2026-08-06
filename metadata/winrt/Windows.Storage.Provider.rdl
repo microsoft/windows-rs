@@ -482,7 +482,9 @@ mod Windows {
                 None = 0,
                 ValidationRequired = 1,
                 StreamingAllowed = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Storage.Provider.CloudFilesContract", 196608)]
                 AutoDehydrationAllowed = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Storage.Provider.CloudFilesContract", 393216)]
                 AllowFullRestartHydration = 8,
             }
             #[repr(u32)]

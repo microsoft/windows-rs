@@ -68,6 +68,7 @@ mod Windows {
                     ResourceTimedOut = 5,
                     ResourceParsingError = 6,
                     BitrateDisabled = 7,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     FatalMediaSourceError = 8,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -160,6 +161,7 @@ mod Windows {
                     MediaSegment = 2,
                     Key = 3,
                     InitializationVector = 4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     MediaSegmentIndex = 5,
                 }
                 #[guid(0x4c7332ef_d39f_4396_b4d9_043957a7c964)]

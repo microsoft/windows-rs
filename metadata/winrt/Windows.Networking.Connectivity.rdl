@@ -577,10 +577,15 @@ mod Windows {
                 Rsna = 7,
                 RsnaPsk = 8,
                 Ihv = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 Wpa3 = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 Wpa3Enterprise192Bits = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 Wpa3Sae = 11,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 Owe = 12,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 Wpa3Enterprise = 13,
             }
             #[repr(i32)]
@@ -612,7 +617,9 @@ mod Windows {
                 WpaUseGroup = 7,
                 RsnUseGroup = 8,
                 Ihv = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 Gcmp = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 Gcmp256 = 11,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -723,7 +730,9 @@ mod Windows {
                 Hsdpa = 8,
                 Hsupa = 16,
                 LteAdvanced = 32,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Networking.Connectivity.WwanContract", 196608)]
                 NewRadioNonStandalone = 64,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Networking.Connectivity.WwanContract", 196608)]
                 NewRadioStandalone = 128,
                 Cdma1xRtt = 65536,
                 Cdma1xEvdo = 131072,

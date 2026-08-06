@@ -210,14 +210,23 @@ mod Windows {
                         SayPassphrase = 17,
                         ReadyToSignIn = 18,
                         UseAnotherSignInOption = 19,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         ConnectionRequired = 20,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         TimeLimitExceeded = 21,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         CanceledByUser = 22,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         CenterHand = 23,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         MoveHandCloser = 24,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         MoveHandFarther = 25,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         PlaceHandAbove = 26,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         RecognitionFailed = 27,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                         DeviceUnavailable = 28,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -247,6 +256,8 @@ mod Windows {
                         CredentialAuthenticated = 5,
                         StoppingAuthentication = 6,
                         ReadyForLock = 7,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
+                        #[Windows::Foundation::Metadata::Deprecated("CheckingDevicePresence is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         CheckingDevicePresence = 8,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -284,9 +295,11 @@ mod Windows {
                         SecureStorage = 1,
                         StoreKeys = 2,
                         ConfirmUserIntentToAuthenticate = 4,
+                        #[Windows::Foundation::Metadata::Deprecated("SupportSecureUserPresenceCheck is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
                         SupportSecureUserPresenceCheck = 8,
                         TransmittedDataIsEncrypted = 16,
                         HMacSha256 = 32,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         CloseRangeDataTransmission = 64,
                     }
                     #[repr(i32)]

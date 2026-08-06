@@ -10,6 +10,7 @@ mod Windows {
                 InstallAllResources = 32,
                 ForceTargetAppShutdown = 64,
                 RequiredContentGroupOnly = 256,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 LimitToExistingPackages = 512,
             }
             #[Windows::Foundation::Metadata::Activatable(655360, "Windows.Foundation.UniversalApiContract")]
@@ -67,11 +68,17 @@ mod Windows {
                 None = 0,
                 ForceApplicationShutdown = 1,
                 DevelopmentMode = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 InstallAllResources = 32,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ForceTargetApplicationShutdown = 64,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 RequiredContentGroupOnly = 256,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ForceUpdateFromAnyVersion = 262144,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 RetainFilesOnFailure = 2097152,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 StageInPlace = 4194304,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -698,6 +705,7 @@ mod Windows {
                 NotInstalled = 0,
                 Staged = 1,
                 Installed = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 Paused = 6,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -767,8 +775,11 @@ mod Windows {
                 Framework = 2,
                 Resource = 4,
                 Bundle = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Xap = 16,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 Optional = 32,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 All = 4294967295,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -799,8 +810,11 @@ mod Windows {
             enum RemovalOptions {
                 None = 0,
                 PreserveApplicationData = 4096,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 PreserveRoamableApplicationData = 128,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 DeferRemovalWhenPackagesAreInUse = 8192,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 RemoveForAllUsers = 524288,
             }
             #[Windows::Foundation::Metadata::Activatable(1179648, "Windows.Foundation.UniversalApiContract")]

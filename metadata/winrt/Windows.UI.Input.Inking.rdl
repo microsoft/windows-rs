@@ -574,6 +574,7 @@ mod Windows {
                 enum InkPresenterStencilKind {
                     Other = 0,
                     Ruler = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     Protractor = 2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

@@ -444,6 +444,7 @@ mod Windows {
             enum FocusVisualKind {
                 DottedLine = 0,
                 HighVisibility = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 Reveal = 2,
             }
             #[repr(i32)]
@@ -2626,8 +2627,10 @@ mod Windows {
             enum TextAlignment {
                 Center = 0,
                 Left = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 Start = 1,
                 Right = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 End = 2,
                 Justify = 3,
                 DetectFromContent = 4,
@@ -2645,6 +2648,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             enum TextReadingOrder {
+                #[Windows::Foundation::Metadata::Deprecated("Consider using UseFlowDirection, which is an improved version of Default. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 Default = 0,
                 UseFlowDirection = 0,
                 DetectFromContent = 1,
@@ -2654,8 +2658,10 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             enum TextTrimming {
                 None = 0,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 CharacterEllipsis = 1,
                 WordEllipsis = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Clip = 3,
             }
             #[repr(i32)]
@@ -2664,6 +2670,7 @@ mod Windows {
             enum TextWrapping {
                 NoWrap = 1,
                 Wrap = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 WrapWholeWords = 3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

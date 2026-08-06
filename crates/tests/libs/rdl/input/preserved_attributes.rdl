@@ -2,6 +2,8 @@
 mod Test {
     #[Marker]
     type Alias = i32;
+    #[invoke(Marker)]
+    extern fn Callback();
     #[repr(i32)]
     enum Choice {
         #[Marker]

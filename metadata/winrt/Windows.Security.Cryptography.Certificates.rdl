@@ -675,6 +675,7 @@ mod Windows {
                     NoConsent = 0,
                     ConsentOnly = 1,
                     ConsentWithPassword = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     ConsentWithFingerprint = 3,
                 }
                 #[repr(i32)]

@@ -606,7 +606,9 @@ mod Windows {
                 enum VisualInteractionSourceRedirectionMode {
                     Off = 0,
                     CapableTouchpadOnly = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     PointerWheelOnly = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     CapableTouchpadAndPointerWheel = 3,
                 }
             }

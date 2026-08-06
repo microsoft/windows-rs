@@ -13,7 +13,9 @@ mod Windows {
                 Hsdpa = 8,
                 Hsupa = 16,
                 LteAdvanced = 32,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 NewRadioNonStandalone = 64,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 NewRadioStandalone = 128,
                 Cdma1xRtt = 65536,
                 Cdma1xEvdo = 131072,
@@ -91,21 +93,37 @@ mod Windows {
                 CardRemoved = 10,
                 CardBusy = 11,
                 Other = 12,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 CardGeneralFailure = 13,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ConfirmationCodeMissing = 14,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 InvalidMatchingId = 15,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 NoEligibleProfileForThisDevice = 16,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 OperationAborted = 17,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 EidMismatch = 18,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ProfileNotAvailableForNewBinding = 19,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ProfileNotReleasedByOperator = 20,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 OperationProhibitedByProfileClass = 21,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 ProfileNotPresent = 22,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 NoCorrespondingRequest = 23,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 TimeoutWaitingForResponse = 24,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 IccidAlreadyExists = 25,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 ProfileProcessingError = 26,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 ServerNotTrusted = 27,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 ProfileDownloadMaxRetriesExceeded = 28,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -1984,8 +2002,11 @@ mod Windows {
                 ProfileDisconnected = 7,
                 RegisteredRoaming = 8,
                 RegisteredHome = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TetheringEntitlementCheck = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TetheringOperationalStateChanged = 11,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 TetheringNumberOfClientsChanged = 12,
             }
             #[Windows::Foundation::Metadata::ContractVersion(LegacyNetworkOperatorsContract, 65536)]
@@ -2084,6 +2105,7 @@ mod Windows {
                 DisabledBySku = 4,
                 DisabledByRequiredAppNotInstalled = 5,
                 DisabledDueToUnknownCause = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 DisabledBySystemCapability = 7,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -2102,10 +2124,15 @@ mod Windows {
                 EntitlementCheckTimeout = 4,
                 EntitlementCheckFailure = 5,
                 OperationInProgress = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 BluetoothDeviceOff = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 NetworkLimitedConnectivity = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                 AlreadyOn = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                 RadioRestriction = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                 BandInterference = 11,
             }
             #[repr(i32)]
@@ -2129,6 +2156,7 @@ mod Windows {
                 Auto = 0,
                 TwoPointFourGigahertz = 1,
                 FiveGigahertz = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1048576)]
                 SixGigahertz = 3,
             }
             #[repr(i32)]

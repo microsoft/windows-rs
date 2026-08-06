@@ -30,6 +30,7 @@ mod Windows {
                     Default = 0,
                     MostRecent = 1,
                     OnlyFromCache = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     NoCache = 3,
                 }
                 #[repr(i32)]

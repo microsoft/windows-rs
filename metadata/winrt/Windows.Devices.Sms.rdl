@@ -589,6 +589,7 @@ mod Windows {
                 DeviceBlocked = 7,
             }
             #[guid(0x982b1162_3dd7_4618_af89_0c272d5d06d8)]
+            #[invoke(Windows::Foundation::Metadata::Deprecated("SmsDeviceStatusChangedEventHandler may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract"))]
             #[Windows::Foundation::Metadata::ContractVersion(LegacySmsApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SmsDeviceStatusChangedEventHandler may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             delegate fn SmsDeviceStatusChangedEventHandler(sender: SmsDevice);
@@ -608,11 +609,17 @@ mod Windows {
                 SevenBitAscii = 2,
                 Unicode = 3,
                 GsmSevenBit = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 EightBit = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Latin = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Korean = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IA5 = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ShiftJis = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 LatinHebrew = 10,
             }
             #[repr(i32)]
@@ -673,6 +680,7 @@ mod Windows {
                 ISmsMessageReceivedEventArgs,
             }
             #[guid(0x0b7ad409_ec2d_47ce_a253_732beeebcacd)]
+            #[invoke(Windows::Foundation::Metadata::Deprecated("SmsMessageReceivedEventHandler may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract"))]
             #[Windows::Foundation::Metadata::ContractVersion(LegacySmsApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("SmsMessageReceivedEventHandler may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Devices.Sms.LegacySmsApiContract")]
             delegate fn SmsMessageReceivedEventHandler(sender: SmsDevice, e: SmsMessageReceivedEventArgs);
@@ -695,10 +703,15 @@ mod Windows {
             enum SmsMessageType {
                 Binary = 0,
                 Text = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Wap = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 App = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Broadcast = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Voicemail = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Status = 6,
             }
             #[repr(i32)]

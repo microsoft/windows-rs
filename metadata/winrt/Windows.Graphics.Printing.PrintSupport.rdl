@@ -241,6 +241,7 @@ mod Windows {
                     Usb = 1,
                     PrinterConnection = 2,
                     UniversalPrint = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     VirtualPrinter = 4,
                 }
                 #[repr(u32)]

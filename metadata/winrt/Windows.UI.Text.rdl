@@ -549,6 +549,7 @@ mod Windows {
                 NoHidden = 32,
                 IncludeNumbering = 64,
                 FormatRtf = 8192,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 UseLf = 16777216,
             }
             #[repr(i32)]
@@ -586,6 +587,7 @@ mod Windows {
                 Superscript = 29,
                 FontBound = 30,
                 LinkProtected = 31,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ContentLink = 32,
             }
             #[repr(i32)]

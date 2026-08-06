@@ -421,8 +421,9 @@ Where metadata has a direct representation, the conversion now preserves it inst
 it. Custom attributes on typedefs, enum variants, GUID constants, and property-key constants
 round-trip in both directions. The writer rejects equivalent winmd states that have no RDL
 spelling, including generic methods, variadic non-function methods, generic parameter flags,
-attributes on delegate/callback `Invoke` methods, and attributes on synthetic typedef, enum, or
-attribute-property fields.
+attributes on synthetic typedef, enum, or attribute-property fields. Callback and delegate
+`Invoke` attributes use the explicit `#[invoke(Attribute(...))]` wrapper and round-trip without
+moving the attribute to the generated type.
 
 Initial validation work:
 
@@ -439,10 +440,10 @@ Initial validation work:
 ### Lossless metadata conversion
 
 RDL cannot serve as the reviewable source for arbitrary winmd files while metadata tables are
-silently discarded. `windows-metadata` currently skips the Property, PropertyMap, Event, EventMap,
-and MethodSemantics tables while reading. The merge and remap paths also omit WinRT runtime-class
-methods. `tool_winrt` relies on interface accessors being enough for `windows-bindgen`, but that is
-not a lossless metadata transformation.
+silently discarded. `windows-metadata` now reads Property, PropertyMap, Event, EventMap, and
+MethodSemantics rows and preserves them through merge and namespace remapping. Those copy paths
+also retain WinRT runtime-class methods, property constants, flags, signatures, and custom
+attributes on properties and events.
 
 The desired rule is:
 
@@ -450,10 +451,11 @@ The desired rule is:
 
 Initial losslessness work:
 
-1. Add reader row types and traversal APIs for Property, PropertyMap, Event, EventMap, and
+1. Done: add reader row types and traversal APIs for Property, PropertyMap, Event, EventMap, and
    MethodSemantics.
-2. Preserve those tables and WinRT class methods through `windows-metadata` merge and remap.
-3. Add table-by-table winmd -> winmd tests that compare semantic rows before and after conversion.
+2. Done: preserve those tables and WinRT class methods through `windows-metadata` merge and remap.
+3. Done: add focused winmd -> winmd tests that compare methods, property and event rows, flags,
+   signatures, constants, custom attributes, and accessor semantics before and after conversion.
 4. Add winmd -> RDL -> winmd tests for properties, events, class methods, return rows, and custom
    attributes on every supported parent.
 5. Inventory every ECMA-335 table that the reader skips and classify it as preserved, irrelevant
@@ -611,7 +613,8 @@ resulting RDL makes the ABI at least as reviewable as the current explicit inter
 1. Done: introduce structured diagnostics and named source inputs without changing parser behavior.
 2. Done: add duplicate-symbol validation and negative diagnostic fixtures.
 3. Done: reject syntax and metadata states that are currently ignored or silently lost.
-4. Add Property/Event/MethodSemantics reading and preserve those tables through merge and remap.
+4. Done: add Property/Event/MethodSemantics reading and preserve those tables through merge and
+   remap.
 5. Restore a minimal `riddle check` and `riddle build` on the new library APIs.
 6. Replace the formatter's silent parse fallback, then add comment preservation and `riddle fmt`.
 7. Add named imports, aliases, grouped imports, and ambiguity diagnostics.

@@ -57,6 +57,8 @@ code! { HasAttribute(5)
     (MemberRef, 6)
     (TypeSpec, 13)
     (GenericParam, 19)
+    (Property, 9)
+    (Event, 10)
 }
 
 code! { AttributeType(3)
@@ -69,6 +71,7 @@ code! { MemberRefParent(3)
 
 code! { HasConstant(2)
     (Field, 0)
+    (Property, 2)
 }
 
 code! { MemberForwarded(1)

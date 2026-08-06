@@ -60,6 +60,7 @@ mod Windows {
             Roaming = 1,
             Temporary = 2,
             LocalCache = 3,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
             SharedLocal = 4,
         }
         #[guid(0xa05791e6_cc9f_4687_acab_a364fd785463)]
@@ -96,6 +97,7 @@ mod Windows {
             Directory = 16,
             Archive = 32,
             Temporary = 256,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
             LocallyIncomplete = 512,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -990,8 +992,11 @@ mod Windows {
             SavedPictures = 11,
             Screenshots = 12,
             VideosLibrary = 13,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
             AllAppMods = 14,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
             CurrentAppMods = 15,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
             DownloadsFolder = 16,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -1012,6 +1017,7 @@ mod Windows {
             DeniedByUser = 2,
             UserPromptRequired = 3,
             Allowed = 4,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
             AllowedPerAppFolder = 5,
         }
         #[repr(i32)]
@@ -1152,6 +1158,7 @@ mod Windows {
         enum StorageOpenOptions {
             None = 0,
             AllowOnlyReaders = 1,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
             AllowReadersAndWriters = 2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]

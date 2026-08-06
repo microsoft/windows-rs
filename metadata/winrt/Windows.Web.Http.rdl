@@ -279,6 +279,7 @@ mod Windows {
                 None = 0,
                 Http10 = 1,
                 Http11 = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Http20 = 3,
             }
             #[guid(0xbc20c193_c41f_4ff7_9123_6435736eadc2)]

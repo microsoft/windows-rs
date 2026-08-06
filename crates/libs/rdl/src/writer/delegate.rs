@@ -11,12 +11,14 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         .find(|method| method.name() == "Invoke")
         .ok_or_else(|| writer_err!("delegate `{}` has no `Invoke` method", item.name()))?;
 
-    if method.attributes().next().is_some() {
-        return Err(writer_err!(
-            "delegate `{}` has unrepresentable attributes on `Invoke`",
-            item.name()
-        ));
-    }
+    let invoke = quote! { invoke };
+    let invoke_attrs = write_custom_attributes_wrapped(
+        method.attributes(),
+        namespace,
+        item.index(),
+        &[],
+        Some(&invoke),
+    )?;
     reject_method_generics(&method)?;
     let signature = method.signature(&generics);
     reject_variadic_method(&method, &signature, "delegate")?;
@@ -46,6 +48,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
     Ok(quote! {
         #guid_token
         #arch_attr
+        #(#invoke_attrs)*
         #(#custom_attrs)*
         delegate fn #name #generics_tokens (#(#params),*) #return_type;
     })

@@ -203,7 +203,9 @@ mod Windows {
                 VoiceTooSlow = 5,
                 VoiceQualityProblem = 6,
                 TrainingSystemInternalError = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 TrainingTimedOut = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                 ConfigurationNotFound = 9,
             }
             #[guid(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00)]

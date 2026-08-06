@@ -1748,10 +1748,13 @@ mod Windows {
                         Auto = 0,
                         Disabled = 1,
                         GestureOnly = 2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         PointerAndKeyboard = 2,
                         ControlOnly = 3,
                         GestureAndControl = 4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         PointerKeyboardAndControl = 4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         PointerOnly = 5,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -1779,7 +1782,9 @@ mod Windows {
                     enum MapLoadingStatus {
                         Loading = 0,
                         Loaded = 1,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         DataUnavailable = 2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                         DownloadedMapsManagerUnavailable = 3,
                     }
                     #[Windows::Foundation::Metadata::Composable(IMapModel3DFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
@@ -1865,8 +1870,11 @@ mod Windows {
                         Aerial = 2,
                         AerialWithRoads = 3,
                         Terrain = 4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         Aerial3D = 5,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         Aerial3DWithRoads = 6,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         Custom = 7,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]

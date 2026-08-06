@@ -562,6 +562,7 @@ mod Windows {
                     XpsToPdf = 0,
                     XpsToPwgr = 1,
                     XpsToPclm = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1114112)]
                     XpsToTiff = 3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
@@ -621,6 +622,7 @@ mod Windows {
                     Completed = 1,
                     Aborted = 2,
                     Closed = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 851968)]
                     PdlDataAvailableForModification = 4,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]

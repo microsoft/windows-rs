@@ -251,6 +251,7 @@ mod Windows {
             enum EmailMailboxOtherAppReadAccess {
                 SystemOnly = 0,
                 Full = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 None = 2,
             }
             #[repr(i32)]
@@ -300,6 +301,7 @@ mod Windows {
                 AuthenticationError = 3,
                 PolicyError = 4,
                 UnknownError = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 ManualAccountRemovalRequired = 6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

@@ -646,6 +646,7 @@ mod Windows {
                 Any = 0,
                 Proximal = 1,
                 Cloud = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 SpatiallyProximal = 3,
             }
             #[Windows::Foundation::Metadata::Activatable(IRemoteSystemDiscoveryTypeFilterFactory, 196608, "Windows.Foundation.UniversalApiContract")]

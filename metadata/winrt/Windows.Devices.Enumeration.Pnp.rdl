@@ -80,7 +80,9 @@ mod Windows {
                     AssociationEndpoint = 5,
                     AssociationEndpointContainer = 6,
                     AssociationEndpointService = 7,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     DevicePanel = 8,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                     AssociationEndpointProtocol = 9,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]

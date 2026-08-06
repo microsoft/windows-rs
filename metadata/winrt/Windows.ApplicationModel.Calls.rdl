@@ -917,6 +917,7 @@ mod Windows {
             enum PhoneCallMedia {
                 Audio = 0,
                 AudioAndVideo = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 262144)]
                 AudioAndRealTimeText = 2,
             }
             #[repr(i32)]
@@ -1015,6 +1016,7 @@ mod Windows {
             enum PhoneLineTransport {
                 Cellular = 0,
                 VoipApp = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.CallsPhoneContract", 327680)]
                 Bluetooth = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(CallsPhoneContract, 327680)]

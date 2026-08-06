@@ -44,7 +44,9 @@ mod Windows {
             UnexpectedRedirection = 19,
             UnexpectedClientError = 20,
             UnexpectedServerError = 21,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
             InsufficientRangeSupport = 22,
+            #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
             MissingContentLengthSupport = 23,
             MultipleChoices = 300,
             MovedPermanently = 301,

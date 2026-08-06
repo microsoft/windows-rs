@@ -17,6 +17,7 @@ mod Windows {
                 Detecting = 3,
                 Resolving = 4,
                 VerifyingResolution = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 720896)]
                 Executing = 6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]

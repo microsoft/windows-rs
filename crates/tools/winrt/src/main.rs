@@ -55,10 +55,8 @@ fn main() {
 
     // Merge the per-contract winmds into one intermediate winmd, replacing the external
     // `mdmerge` tool with `windows-metadata`'s in-house merger (the same one `tool_win32`
-    // uses). The per-contract WinRT runtime-class methods and Property/Event tables
-    // are dropped by the merge; `windows-bindgen` reconstructs properties/events from the
-    // surviving `get_`/`put_`/`add_`/`remove_` accessor methods on the interfaces and never
-    // reads class methods.
+    // uses). The merge preserves runtime-class methods and Property/Event/MethodSemantics rows,
+    // including associations whose accessors belong to an interface rather than the class.
     std::fs::create_dir_all(OUT_DIR)
         .unwrap_or_else(|e| panic!("failed to create `{OUT_DIR}`: {e}"));
     let merged = format!("{OUT_DIR}/Windows.merged.winmd");

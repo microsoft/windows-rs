@@ -75,12 +75,19 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             enum BackgroundAccessStatus {
                 Unspecified = 0,
+                #[Windows::Foundation::Metadata::Deprecated("Use AlwaysAllowed or AllowedSubjectToSystemPolicy instead of AllowedWithAlwaysOnRealTimeConnectivity. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 AllowedWithAlwaysOnRealTimeConnectivity = 1,
+                #[Windows::Foundation::Metadata::Deprecated("Use AlwaysAllowed or AllowedSubjectToSystemPolicy instead of AllowedMayUseActiveRealTimeConnectivity. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 AllowedMayUseActiveRealTimeConnectivity = 2,
+                #[Windows::Foundation::Metadata::Deprecated("Use DeniedByUser or DeniedBySystemPolicy instead of Denied. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 Denied = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 AlwaysAllowed = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 AllowedSubjectToSystemPolicy = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 DeniedBySystemPolicy = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 DeniedByUser = 7,
             }
             #[Windows::Foundation::Metadata::ApiContract]
@@ -115,13 +122,21 @@ mod Windows {
                 Terminating = 1,
                 LoggingOff = 2,
                 ServicingUpdate = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IdleTask = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Uninstall = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ConditionLoss = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 SystemPolicy = 7,
+                #[Windows::Foundation::Metadata::Deprecated("QuietHoursEntered is deprecated after Windows 8.1", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 QuietHoursEntered = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ExecutionTimeExceeded = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ResourceRevocation = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 EnergySaver = 11,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -1379,7 +1394,9 @@ mod Windows {
                 InternetNotAvailable = 4,
                 SessionConnected = 5,
                 SessionDisconnected = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 FreeNetworkAvailable = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 BackgroundWorkCostNotHigh = 8,
             }
             #[Windows::Foundation::Metadata::Activatable(ISystemTriggerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -1406,8 +1423,11 @@ mod Windows {
                 LockScreenApplicationRemoved = 10,
                 TimeZoneChange = 11,
                 OnlineIdConnectedStateChange = 12,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 BackgroundWorkCostChange = 13,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 PowerStateChange = 14,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 DefaultSignInAccountChange = 15,
             }
             #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]

@@ -34,7 +34,9 @@ mod Windows {
                 AudioRender = 2,
                 PortableStorageDevice = 3,
                 VideoCapture = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ImageScanner = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Location = 6,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -86,7 +88,9 @@ mod Windows {
                 AssociationEndpoint = 5,
                 AssociationEndpointContainer = 6,
                 AssociationEndpointService = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 DevicePanel = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 AssociationEndpointProtocol = 9,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -124,7 +128,9 @@ mod Windows {
                 DisplayPin = 2,
                 ProvidePin = 4,
                 ConfirmPinMatch = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                 ProvidePasswordCredential = 16,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 ProvideAddress = 32,
             }
             #[repr(i32)]
@@ -166,11 +172,17 @@ mod Windows {
                 ProtectionLevelCouldNotBeMet = 11,
                 AccessDenied = 12,
                 InvalidCeremonyData = 13,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 PairingCanceled = 14,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 OperationAlreadyInProgress = 15,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 RequiredHandlerNotRegistered = 16,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 RejectedByHandler = 17,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 RemoteDeviceHasAssociation = 18,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 Failed = 19,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]

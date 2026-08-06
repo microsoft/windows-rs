@@ -47,6 +47,7 @@ mod Windows {
                 enum AppBarClosedDisplayMode {
                     Compact = 0,
                     Minimal = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                     Hidden = 2,
                 }
                 #[Windows::Foundation::Metadata::Composable(IAppBarElementContainerFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
@@ -10883,6 +10884,7 @@ mod Windows {
                 enum ItemsUpdatingScrollMode {
                     KeepItemsInView = 0,
                     KeepScrollOffset = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     KeepLastItemInView = 2,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -11002,6 +11004,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn ListViewItemToKeyHandler(item: Object) -> String;
                 #[guid(0x26fd5855_b530_4688_b9f0_428249178ef8)]
+                #[invoke(Windows::Foundation::Metadata::RemoteAsync)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn ListViewKeyToItemHandler(key: String) -> super::super::super::Foundation::IAsyncOperation<Object>;
@@ -12305,9 +12308,13 @@ mod Windows {
                     FourBars = 57833,
                     Scan = 58004,
                     Preview = 58005,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     GlobalNavigationButton = 59136,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     Share = 59181,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     Print = 59209,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     XboxOneConsole = 59792,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -12811,6 +12818,7 @@ mod Windows {
                 enum WebViewExecutionMode {
                     SameThread = 0,
                     SeparateThread = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     SeparateProcess = 2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -12875,9 +12883,13 @@ mod Windows {
                     Geolocation = 0,
                     UnlimitedIndexedDBQuota = 1,
                     Media = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                     PointerLock = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     WebNotifications = 4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     Screen = 5,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     ImmersiveView = 6,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]

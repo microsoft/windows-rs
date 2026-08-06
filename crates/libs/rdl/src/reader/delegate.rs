@@ -83,7 +83,7 @@ impl Encoder<'_> {
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(delegate),
             &item.attrs,
-            &["guid", "no_guid"],
+            &["guid", "no_guid", "invoke"],
         )?;
 
         if let Some(arch_bits) = self.read_arch(&item.attrs)? {
@@ -145,12 +145,17 @@ impl Encoder<'_> {
 
         // Delegate methods are runtime-implemented, matching real WinRT delegate metadata
         // so that strict consumers (e.g. CsWinRT) recognize the `Invoke` method.
-        self.output.MethodDef(
+        let invoke = self.output.MethodDef(
             "Invoke",
             &signature,
             flags,
             metadata::MethodImplAttributes::Runtime,
         );
+        self.encode_wrapped_attrs(
+            metadata::writer::HasAttribute::MethodDef(invoke),
+            &item.attrs,
+            "invoke",
+        )?;
 
         self.encode_return_attrs(&item.return_attrs)?;
         self.encode_params(&params)?;

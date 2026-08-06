@@ -387,6 +387,7 @@ mod Windows {
                     UnknownFailure = 1,
                     DeviceNotAvailable = 2,
                     OutputFormatNotSupported = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     ExclusiveControlNotAvailable = 4,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -428,7 +429,9 @@ mod Windows {
                     UnknownFailure = 1,
                     NotSupported = 2,
                     DeviceNotAvailable = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     MaxPropertyValueSizeTooSmall = 4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     MaxPropertyValueSizeRequired = 5,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -456,8 +459,11 @@ mod Windows {
                     Color = 1,
                     Infrared = 2,
                     Depth = 3,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     Audio = 4,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     Image = 5,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                     Metadata = 6,
                 }
                 #[repr(i32)]

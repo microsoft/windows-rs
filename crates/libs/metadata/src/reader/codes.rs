@@ -68,10 +68,13 @@ code! { HasAttribute(5)
     (MemberRef, 6)
     (TypeSpec, 13)
     (GenericParam, 19)
+    (Property, 9)
+    (Event, 10)
 }
 
 code! { HasConstant(2)
     (Field, 0)
+    (Property, 2)
 }
 
 code! { MemberForwarded(1)
@@ -108,6 +111,11 @@ code! { TypeDefOrRef(2)
 code! { TypeOrMethodDef(1)
     (TypeDef, 0)
     (MethodDef, 1)
+}
+
+code! { HasSemantics(1)
+    (Event, 0)
+    (Property, 1)
 }
 
 impl<'a> TypeDefOrRef<'a> {

@@ -395,21 +395,29 @@ mod Windows {
             #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             enum TileOptions {
+                #[Windows::Foundation::Metadata::Deprecated("TileOptions.None may be altered or unavailable for release after Windows Phone 8.1.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 None = 0,
+                #[Windows::Foundation::Metadata::Deprecated("TileOptions.ShowNameOnLogo may be altered or unavailable for releases after Windows Phone 8.1. Instead, use SecondaryTile.VisualElements.ShowNameOnSquare150x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 ShowNameOnLogo = 1,
+                #[Windows::Foundation::Metadata::Deprecated("TileOptions.ShowNameWideOnLogo may be altered or unavailable for releases after Windows Phone 8.1. Instead, use SecondaryTile.VisualElements.ShowNameOnWide310x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 ShowNameOnWideLogo = 2,
+                #[Windows::Foundation::Metadata::Deprecated("TileOptions.CopyOnDeployment may be altered or unavailable for releases after Windows Phone 8.1. Instead, use SecondaryTile.RoamingEnabled to control roaming behavior.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 CopyOnDeployment = 4,
             }
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             enum TileSize {
                 Default = 0,
+                #[Windows::Foundation::Metadata::Deprecated("TileSize.Square30x30 may be altered or unavailable for release after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 Square30x30 = 1,
+                #[Windows::Foundation::Metadata::Deprecated("TileSize.Square70x70 may be altered or unavailable for release after Windows Phone 8.1.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 Square70x70 = 2,
                 Square150x150 = 3,
                 Wide310x150 = 4,
                 Square310x310 = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Square71x71 = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Square44x44 = 7,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]

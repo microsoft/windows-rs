@@ -53,7 +53,10 @@ mod Windows {
                 AudioCall = 4,
                 VideoCall = 8,
                 SocialFeeds = 16,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 Share = 32,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
+                #[Windows::Foundation::Metadata::Experimental]
                 Activity = 64,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -109,6 +112,7 @@ mod Windows {
                 Messaging = 2,
                 Phone = 3,
                 Video = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 OrganizationalHierarchy = 5,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -210,15 +214,28 @@ mod Windows {
             enum ContactFieldType {
                 Email = 0,
                 PhoneNumber = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Location  may be altered or unavailable for releases after Windows 8.1. Instead, use Address.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 Location = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("InstantMessage  may be altered or unavailable for releases after Windows 8.1. Instead, use ConnectedServiceAccount.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 InstantMessage = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Custom may be altered or unavailable for releases after Windows 8.1. Instead, use one of the specific types.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 Custom = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ConnectedServiceAccount = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 ImportantDate = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Address = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 SignificantOther = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Notes = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Website = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 JobInfo = 11,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
@@ -265,6 +282,7 @@ mod Windows {
                 SystemOnly = 0,
                 Limited = 1,
                 Full = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 None = 3,
             }
             #[repr(i32)]
@@ -272,6 +290,7 @@ mod Windows {
             enum ContactListOtherAppWriteAccess {
                 None = 0,
                 SystemOnly = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                 Limited = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -296,6 +315,7 @@ mod Windows {
                 AuthenticationError = 3,
                 PolicyError = 4,
                 UnknownError = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 ManualAccountRemovalRequired = 6,
             }
             #[Windows::Foundation::Metadata::Activatable(IContactLocationFieldFactory, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -370,11 +390,17 @@ mod Windows {
                 Mobile = 1,
                 Work = 2,
                 Other = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Pager = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 BusinessFax = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 HomeFax = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Company = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Assistant = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Radio = 9,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]

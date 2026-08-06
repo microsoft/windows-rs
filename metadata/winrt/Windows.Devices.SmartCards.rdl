@@ -656,6 +656,7 @@ mod Windows {
                 Sha1 = 5,
                 SignedDynamicApplicationData = 6,
                 RsaPkcs1 = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 262144)]
                 Sha256Hmac = 8,
             }
             #[Windows::Foundation::Metadata::ContractVersion(SmartCardEmulatorContract, 131072)]
@@ -682,7 +683,9 @@ mod Windows {
                 InvalidCryptogramMaterialUsage = 9,
                 ApduResponseNotSent = 10,
                 OtherError = 11,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 262144)]
                 ValidationFailed = 12,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 327680)]
                 NotSupported = 13,
             }
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Devices.SmartCards.SmartCardEmulatorContract")]
@@ -819,6 +822,7 @@ mod Windows {
             enum SmartCardEmulationType {
                 Host = 0,
                 Uicc = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardEmulatorContract", 196608)]
                 EmbeddedSE = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(SmartCardEmulatorContract, 65536)]
@@ -933,6 +937,7 @@ mod Windows {
                 Tpm = 2,
                 Nfc = 3,
                 Uicc = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 EmbeddedSE = 5,
             }
             #[repr(i32)]
@@ -965,8 +970,11 @@ mod Windows {
                 EmulatorTransaction = 0,
                 EmulatorNearFieldEntry = 1,
                 EmulatorNearFieldExit = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardBackgroundTriggerContract", 65536)]
                 EmulatorHostApplicationActivated = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardBackgroundTriggerContract", 65536)]
                 EmulatorAppletIdGroupRegistrationChanged = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Devices.SmartCards.SmartCardBackgroundTriggerContract", 131072)]
                 ReaderCardAdded = 5,
             }
             #[repr(i32)]

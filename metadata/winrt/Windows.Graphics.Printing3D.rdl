@@ -482,7 +482,9 @@ mod Windows {
                 R32G32B32A32UInt = 3,
                 R32G32B32Float = 6,
                 R32G32B32UInt = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Graphics.Printing3D.Printing3DContract", 131072)]
                 Printing3DDouble = 500,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Graphics.Printing3D.Printing3DContract", 131072)]
                 Printing3DUInt = 501,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Graphics.Printing3D.Printing3DContract")]

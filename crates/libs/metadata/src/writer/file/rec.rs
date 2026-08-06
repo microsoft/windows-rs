@@ -208,7 +208,8 @@ impl Records {
         ]);
         let type_def_or_ref =
             coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.TypeSpec.len()]);
-        let has_constant = coded_index_size(&[self.Field.len(), self.Param.len(), 0]);
+        let has_constant =
+            coded_index_size(&[self.Field.len(), self.Param.len(), self.Property.len()]);
 
         let type_or_method_def = coded_index_size(&[self.TypeDef.len(), self.MethodDef.len()]);
 
@@ -231,11 +232,12 @@ impl Records {
             self.MemberRef.len(),
             self.Module.len(),
             0,
-            0,
+            self.Property.len(),
+            self.Event.len(),
             0,
             self.ModuleRef.len(),
             self.TypeSpec.len(),
-            0,
+            self.Assembly.len(),
             self.AssemblyRef.len(),
             0,
             0,

@@ -176,9 +176,13 @@ mod Windows {
                     CallHistoryChanged = 1,
                     LineChanged = 2,
                     AirplaneModeDisabledForEmergencyCall = 3,
+                    #[Windows::Foundation::Metadata::Deprecated("CallOriginDataRequest is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
                     CallOriginDataRequest = 4,
                     CallBlocked = 5,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.Background.CallsBackgroundContract", 131072)]
+                    #[Windows::Foundation::Metadata::Deprecated("IncomingCallDismissed is deprecated and might not work for all platforms. For more info, see MSDN.", Deprecate, 262144, "Windows.ApplicationModel.Calls.Background.CallsBackgroundContract")]
                     IncomingCallDismissed = 6,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.ApplicationModel.Calls.Background.CallsBackgroundContract", 196608)]
                     IncomingCallNotification = 7,
                 }
             }

@@ -3,6 +3,7 @@ mod Windows {
     mod Security {
         mod Isolation {
             #[guid(0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3)]
+            #[invoke(Windows::Foundation::Metadata::Deprecated("HostMessageReceivedCallback is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract"))]
             #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 131072)]
             #[Windows::Foundation::Metadata::Deprecated("HostMessageReceivedCallback is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
             delegate fn HostMessageReceivedCallback(receiverId: GUID, message: super::super::Foundation::Collections::IVectorView<Object>);
@@ -494,6 +495,7 @@ mod Windows {
                 None = 0,
                 Text = 1,
                 Image = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 Rtf = 4,
             }
             #[repr(u32)]
@@ -585,6 +587,7 @@ mod Windows {
                 EnvironmentUnavailable = 2,
                 FileNotFound = 3,
                 TimedOut = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 196608)]
                 AlreadySharedWithConflictingOptions = 5,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
@@ -662,9 +665,13 @@ mod Windows {
                 Queued = 0,
                 Processing = 1,
                 Completed = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 Creating = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 Retrying = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 Starting = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.Isolation.IsolatedWindowsEnvironmentContract", 262144)]
                 Finalizing = 6,
             }
             #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
@@ -766,6 +773,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             class IsolatedWindowsHostMessenger {}
             #[guid(0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757)]
+            #[invoke(Windows::Foundation::Metadata::Deprecated("MessageReceivedCallback is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract"))]
             #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("MessageReceivedCallback is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
             delegate fn MessageReceivedCallback(receiverId: GUID, message: super::super::Foundation::Collections::IVectorView<Object>);

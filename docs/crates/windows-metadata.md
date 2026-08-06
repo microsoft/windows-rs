@@ -90,6 +90,18 @@ for an unspecified direction, combine `ReservedAttribute` with `Optional`, or de
 parameter should become a language return value. Array and byte-count attributes remain available
 through `attributes()` because each projection validates different public-surface shapes.
 
+### Property and event association
+
+The reader exposes Property, PropertyMap, Event, EventMap, and MethodSemantics rows. A `TypeDef`
+provides `properties()` and `events()` iterators, while each property or event provides its
+accessor semantics. Property signatures retain index parameters rather than reducing every
+property to a return type.
+
+Merge and namespace remapping copy these rows together with WinRT runtime-class methods. They also
+preserve property and event flags, custom attributes, property constants, and the association from
+each accessor to its property or event. Namespace remapping applies to event types and every type
+in a property signature.
+
 ### Determinism and the winmd writer
 
 The writer is the foundation of the pipeline's reproducible builds. It stages `Constant` /
@@ -117,5 +129,7 @@ alignment, enum constant values, subset-present divergence) and `merge.rs` (nati
 reconciliation). `method_params.rs` authors metadata directly with `writer::File` and covers dense,
 absent, return, sparse, out-of-order, duplicate, and out-of-range parameter rows. It also covers all
 four raw directions and verifies that optional, reserved, retval, and count attributes remain
-independent facts. `remap.rs` covers explicit and fallback namespace routing, singular/plural
-builder methods, missing outputs, and invalid inputs.
+independent facts. `semantic_roundtrip.rs` authors runtime-class methods, an indexed property, an
+event, constants, flags, custom attributes, and accessor semantics directly with `writer::File`,
+then verifies merge and namespace remapping preserve them. `remap.rs` covers explicit and fallback
+namespace routing, singular/plural builder methods, missing outputs, and invalid inputs.

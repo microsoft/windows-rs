@@ -640,4 +640,20 @@ impl Encoder<'_> {
 
         Ok(())
     }
+
+    pub fn encode_wrapped_attrs(
+        &mut self,
+        has_attribute: metadata::writer::HasAttribute,
+        attrs: &[syn::Attribute],
+        wrapper: &str,
+    ) -> Result<(), Error> {
+        for attr in attrs.iter().filter(|attr| attr.path().is_ident(wrapper)) {
+            let meta: syn::Meta = attr
+                .parse_args()
+                .map_err(|_| self.error(attr, "invalid wrapped attribute"))?;
+            let nested: syn::Attribute = syn::parse_quote_spanned!(attr.span()=> #[#meta]);
+            self.encode_attrs(has_attribute, &[nested], &[])?;
+        }
+        Ok(())
+    }
 }

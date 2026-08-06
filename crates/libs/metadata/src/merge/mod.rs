@@ -4,6 +4,50 @@ use std::path::{Path, PathBuf};
 mod remap;
 pub use remap::Remapper;
 
+type MethodKey = (usize, usize);
+
+#[derive(Default)]
+struct CopyContext {
+    methods: HashMap<MethodKey, writer::MethodDef>,
+    semantics: Vec<(u16, MethodKey, writer::HasSemantics, String)>,
+}
+
+impl CopyContext {
+    fn method_key(method: reader::MethodDef) -> MethodKey {
+        (method.file() as *const reader::File as usize, method.pos())
+    }
+
+    fn method(&mut self, source: reader::MethodDef, target: writer::MethodDef) {
+        self.methods.insert(Self::method_key(source), target);
+    }
+
+    fn semantics(
+        &mut self,
+        semantics: u16,
+        method: reader::MethodDef,
+        association: writer::HasSemantics,
+        description: String,
+    ) {
+        self.semantics.push((
+            semantics,
+            Self::method_key(method),
+            association,
+            description,
+        ));
+    }
+
+    fn finish(self, file: &mut writer::File) -> Result<(), Error> {
+        for (semantics, method, association, description) in self.semantics {
+            let method =
+                self.methods.get(&method).copied().ok_or_else(|| {
+                    Error::new(format!("missing accessor method for {description}"))
+                })?;
+            file.MethodSemantics(semantics, method, association);
+        }
+        Ok(())
+    }
+}
+
 pub struct Error(String);
 
 impl Error {
@@ -95,6 +139,7 @@ impl Merger {
         let index = reader::Index::new(files);
 
         let mut file = writer::File::new(name);
+        let mut context = CopyContext::default();
 
         if self.union_enums {
             let mut groups: BTreeMap<(String, String), Vec<reader::TypeDef<'_>>> = BTreeMap::new();
@@ -113,7 +158,7 @@ impl Merger {
                     .iter()
                     .all(|ty| ty.category() == reader::TypeCategory::Class)
                 {
-                    write_class_union(&mut file, &index, copies);
+                    write_class_union(&mut file, &mut context, &index, copies);
                     continue;
                 }
 
@@ -138,7 +183,7 @@ impl Merger {
                         // Remaining non-enum collisions are not expected within one arch (the `km`
                         // scrape excludes reference types other than extended enums); keep the
                         // first deterministically.
-                        write_type(&mut file, &index, arch_copies[0], None, None);
+                        write_type(&mut file, &mut context, &index, arch_copies[0], None, None);
                     }
                 }
             }
@@ -147,7 +192,7 @@ impl Merger {
             types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
 
             for ty in types {
-                write_type(&mut file, &index, ty, None, None);
+                write_type(&mut file, &mut context, &index, ty, None, None);
             }
         }
 
@@ -178,12 +223,20 @@ impl Merger {
                 let (idx, ty, _) = copies[0];
                 if ty.category() == reader::TypeCategory::Class {
                     // Apis members can diverge by arch; union them instead of taking one copy.
-                    write_type_arch_merged(&mut file, idx, ty, copies, all_arches_mask);
+                    write_type_arch_merged(
+                        &mut file,
+                        &mut context,
+                        idx,
+                        ty,
+                        copies,
+                        all_arches_mask,
+                    );
                 } else if let Some(signature) = merge_native_sized_callback(copies) {
                     let bits = copies.iter().fold(0, |acc, (_, _, bits)| acc | bits);
                     let arch = if bits == all_arches_mask { 0 } else { bits };
                     write_type_with_signature(
                         &mut file,
+                        &mut context,
                         idx,
                         ty,
                         None,
@@ -203,12 +256,13 @@ impl Merger {
                     }
                     for (_, cidx, c, bits) in &by_sig {
                         let arch = if *bits == all_arches_mask { 0 } else { *bits };
-                        write_type(&mut file, cidx, *c, None, Some(arch));
+                        write_type(&mut file, &mut context, cidx, *c, None, Some(arch));
                     }
                 }
             }
         }
 
+        context.finish(&mut file)?;
         let bytes = file.into_stream();
         std::fs::write(&self.output, bytes)
             .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output.display())))
@@ -263,16 +317,18 @@ fn read_inputs(inputs: &[PathBuf]) -> Result<Vec<reader::File>, Error> {
 /// Writes a `TypeDef`, using `arch_override` to replace any existing arch attribute.
 fn write_type(
     file: &mut writer::File,
+    context: &mut CopyContext,
     index: &reader::Index,
     def: reader::TypeDef,
     outer: Option<writer::TypeDef>,
     arch_override: Option<i32>,
 ) {
-    write_type_with_signature(file, index, def, outer, arch_override, None);
+    write_type_with_signature(file, context, index, def, outer, arch_override, None);
 }
 
 fn write_type_with_signature(
     file: &mut writer::File,
+    context: &mut CopyContext,
     index: &reader::Index,
     def: reader::TypeDef,
     outer: Option<writer::TypeDef>,
@@ -335,20 +391,17 @@ fn write_type_with_signature(
         );
     }
 
-    let is_winrt_class = def.category() == reader::TypeCategory::Class
-        && def.flags().contains(TypeAttributes::WindowsRuntime);
-
-    if !is_winrt_class {
-        for method in def.methods() {
-            write_method_with_signature(
-                file,
-                method,
-                &generics,
-                None,
-                signature_override.filter(|_| method.name() == "Invoke"),
-            );
-        }
+    for method in def.methods() {
+        write_method_with_signature(
+            file,
+            context,
+            method,
+            &generics,
+            None,
+            signature_override.filter(|_| method.name() == "Invoke"),
+        );
     }
+    write_semantics(file, context, type_def, def, &generics);
 
     if let Some(class_layout) = def.class_layout() {
         file.ClassLayout(
@@ -361,7 +414,14 @@ fn write_type_with_signature(
     for inner_def in index.nested(def) {
         debug_assert!(inner_def.namespace().is_empty());
         debug_assert!(inner_def.flags().is_nested());
-        write_type(file, index, inner_def, Some(type_def), arch_override);
+        write_type(
+            file,
+            context,
+            index,
+            inner_def,
+            Some(type_def),
+            arch_override,
+        );
     }
 }
 
@@ -410,7 +470,12 @@ fn enum_member_i64(value: &Value) -> Option<i64> {
 /// Unions same-named class copies (the per-namespace `Apis` container) into one, combining every
 /// copy's fields and methods. Each member keeps its own attributes, including any arch tag the
 /// input winmd already applied, so the `um` and `km` function/constant surfaces both survive.
-fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[reader::TypeDef]) {
+fn write_class_union(
+    file: &mut writer::File,
+    context: &mut CopyContext,
+    index: &reader::Index,
+    copies: &[reader::TypeDef],
+) {
     let def = copies[0];
 
     let extends = def
@@ -447,13 +512,14 @@ fn write_class_union(file: &mut writer::File, index: &reader::Index, copies: &[r
         for method in copy.methods() {
             let key = format!("{}|{:?}", method.name(), method.signature(&generics));
             if seen_methods.insert(key) {
-                write_method(file, method, &generics, None);
+                write_method(file, context, method, &generics, None);
             }
         }
     }
+    write_semantics(file, context, type_def, def, &generics);
 
     for inner_def in index.nested(def) {
-        write_type(file, index, inner_def, Some(type_def), None);
+        write_type(file, context, index, inner_def, Some(type_def), None);
     }
 }
 
@@ -581,20 +647,22 @@ fn write_enum_union(file: &mut writer::File, copies: &[reader::TypeDef]) -> Resu
 
 fn write_method(
     file: &mut writer::File,
+    context: &mut CopyContext,
     method: reader::MethodDef,
     generics: &[Type],
     arch_override: Option<i32>,
-) {
-    write_method_with_signature(file, method, generics, arch_override, None);
+) -> writer::MethodDef {
+    write_method_with_signature(file, context, method, generics, arch_override, None)
 }
 
 fn write_method_with_signature(
     file: &mut writer::File,
+    context: &mut CopyContext,
     method: reader::MethodDef,
     generics: &[Type],
     arch_override: Option<i32>,
     signature_override: Option<&Signature>,
-) {
+) -> writer::MethodDef {
     let signature;
     let signature = if let Some(signature) = signature_override {
         signature
@@ -608,6 +676,7 @@ fn write_method_with_signature(
         method.flags(),
         method.impl_flags(),
     );
+    context.method(method, method_def);
     for param_def in method.params() {
         let param = file.Param(param_def.name(), param_def.sequence(), param_def.flags());
         write_attributes(file, writer::HasAttribute::Param(param), param_def);
@@ -625,6 +694,74 @@ fn write_method_with_signature(
             impl_map.import_name(),
             impl_map.import_scope().name(),
         );
+    }
+    for generic in method.generic_params() {
+        file.GenericParam(
+            generic.name(),
+            writer::TypeOrMethodDef::MethodDef(method_def),
+            generic.sequence(),
+            generic.flags(),
+        );
+    }
+    method_def
+}
+
+fn write_semantics(
+    file: &mut writer::File,
+    context: &mut CopyContext,
+    type_def: writer::TypeDef,
+    def: reader::TypeDef,
+    generics: &[Type],
+) {
+    let mut first_property = None;
+    for property in def.properties() {
+        let property_def = file.PropertyWithSignature(
+            property.name(),
+            &property.signature(generics),
+            property.flags(),
+        );
+        first_property.get_or_insert(property_def);
+        write_attributes(file, writer::HasAttribute::Property(property_def), property);
+        if let Some(constant) = property.constant() {
+            file.Constant(
+                writer::HasConstant::Property(property_def),
+                &constant.value(),
+            );
+        }
+        for semantics in property.semantics() {
+            context.semantics(
+                semantics.semantics(),
+                semantics.method(),
+                writer::HasSemantics::Property(property_def),
+                format!(
+                    "property {}.{}.{}",
+                    def.namespace(),
+                    def.name(),
+                    property.name()
+                ),
+            );
+        }
+    }
+    if let Some(first_property) = first_property {
+        file.PropertyMap(type_def, first_property);
+    }
+
+    let mut first_event = None;
+    for event in def.events() {
+        let event_def = file.EventWithFlags(event.name(), &event.ty(generics), event.flags());
+        first_event.get_or_insert(event_def);
+        write_attributes(file, writer::HasAttribute::Event(event_def), event);
+        for semantics in event.semantics() {
+            context.semantics(
+                semantics.semantics(),
+                semantics.method(),
+                writer::HasSemantics::Event(event_def),
+                format!("event {}.{}.{}", def.namespace(), def.name(), event.name()),
+            );
+        }
+    }
+    if let Some(first_event) = first_event {
+        file.EventMap(type_def, first_event);
     }
 }
 
@@ -807,6 +944,7 @@ fn pointer_width(bits: i32) -> Option<u8> {
 /// Unions arch-specific Apis members and tags members absent from some arches.
 fn write_type_arch_merged(
     file: &mut writer::File,
+    context: &mut CopyContext,
     index: &reader::Index,
     def: reader::TypeDef,
     copies: &[(&reader::Index, reader::TypeDef, i32)],
@@ -857,25 +995,23 @@ fn write_type_arch_merged(
         write_field(file, field, Some(if bits == all_mask { 0 } else { bits }));
     }
 
-    let is_winrt_class = def.category() == reader::TypeCategory::Class
-        && def.flags().contains(TypeAttributes::WindowsRuntime);
-    if !is_winrt_class {
-        let mut methods: BTreeMap<String, (reader::MethodDef, i32)> = BTreeMap::new();
-        for (_, ty, bits) in copies {
-            for method in ty.methods() {
-                let key = format!("{}|{:?}", method.name(), method.signature(&generics));
-                methods.entry(key).or_insert((method, 0)).1 |= bits;
-            }
-        }
-        for (method, bits) in methods.into_values() {
-            write_method(
-                file,
-                method,
-                &generics,
-                Some(if bits == all_mask { 0 } else { bits }),
-            );
+    let mut method_copies: BTreeMap<String, (reader::MethodDef, i32)> = BTreeMap::new();
+    for (_, ty, bits) in copies {
+        for method in ty.methods() {
+            let key = format!("{}|{:?}", method.name(), method.signature(&generics));
+            method_copies.entry(key).or_insert((method, 0)).1 |= bits;
         }
     }
+    for (method, bits) in method_copies.into_values() {
+        write_method(
+            file,
+            context,
+            method,
+            &generics,
+            Some(if bits == all_mask { 0 } else { bits }),
+        );
+    }
+    write_semantics(file, context, type_def, def, &generics);
 
     if let Some(class_layout) = def.class_layout() {
         file.ClassLayout(
@@ -886,7 +1022,7 @@ fn write_type_arch_merged(
     }
 
     for inner_def in index.nested(def) {
-        write_type(file, index, inner_def, Some(type_def), Some(0));
+        write_type(file, context, index, inner_def, Some(type_def), Some(0));
     }
 }
 
