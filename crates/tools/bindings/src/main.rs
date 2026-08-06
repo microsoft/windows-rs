@@ -16,7 +16,6 @@ fn main() {
     bindgen(["--etc", "crates/tools/bindings/src/version.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/threading.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/time.txt"]);
-    bindgen(["--etc", "crates/tools/bindings/src/tracing.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/services.txt"]);
 
     bindgen(["--etc", "crates/tools/bindings/src/canvas.txt"]);
