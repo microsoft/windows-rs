@@ -367,6 +367,16 @@ fn preprocess_rdl(contents: &str) -> std::borrow::Cow<'_, str> {
     std::borrow::Cow::Owned(result)
 }
 
+pub(crate) fn parse_source(name: &str, input: &str) -> Result<(), Error> {
+    let contents = preprocess_rdl(input);
+    syn::parse_str::<File>(&contents)
+        .map(|_| ())
+        .map_err(|error| {
+            let start = error.span().start();
+            Error::new(&error.to_string(), name, start.line, start.column)
+        })
+}
+
 fn expand_rdl_files(paths: &[PathBuf], input_text: &[InputText]) -> Result<Vec<File>, Error> {
     let mut input = vec![];
 

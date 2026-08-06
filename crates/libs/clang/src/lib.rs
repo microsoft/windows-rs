@@ -920,7 +920,7 @@ impl Clang {
             symbols: &self.symbols,
         };
         let rdl = self.parse_and_emit(&reference, std::slice::from_ref(&spec))?;
-        write_to_file(&self.output, formatter::format(&rdl[0]))?;
+        write_to_file(&self.output, formatter::format(&rdl[0])?)?;
         Ok(())
     }
 
@@ -933,7 +933,7 @@ impl Clang {
             let leaf = stem.to_lowercase();
             write_to_file(
                 self.output.join(format!("{leaf}.rdl")),
-                formatter::format(&rdl),
+                formatter::format(&rdl)?,
             )?;
         }
         Ok(())

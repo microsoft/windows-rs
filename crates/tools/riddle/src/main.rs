@@ -2,7 +2,7 @@ use std::collections::HashMap;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::process::ExitCode;
-use windows_rdl::{Diagnostic, Label, LabelStyle, Reader, Severity};
+use windows_rdl::{Diagnostic, Error, Label, LabelStyle, Reader, Severity, formatter};
 
 const HELP: &str = "\
 Riddle checks and compiles RDL API descriptions.
@@ -10,20 +10,24 @@ Riddle checks and compiles RDL API descriptions.
 Usage:
   riddle check [options] <input>...
   riddle build [options] <input>... --out <path>
+  riddle fmt [--check] <input>...
 
 Options:
   -r, --reference <path>  Add a .winmd reference file or directory
       --no-default        Do not use the default Windows metadata references
   -o, --out <path>        Output .winmd path for build
+      --check             Check formatting without changing files
   -h, --help              Print help
   -V, --version           Print version
 
 Use - as an input to read RDL from standard input.
 ";
 
+#[derive(Clone, Copy)]
 enum Command {
     Check,
     Build,
+    Fmt,
 }
 
 struct Options {
@@ -32,6 +36,7 @@ struct Options {
     references: Vec<PathBuf>,
     output: Option<PathBuf>,
     reference_default: bool,
+    format_check: bool,
     stdin: Option<String>,
 }
 
@@ -61,18 +66,30 @@ fn main() -> ExitCode {
                 options.stdin = Some(source);
             }
 
-            let mut reader = Reader::new();
-            configure(&mut reader, &options);
-            let result = match options.command {
-                Command::Check => reader.check(),
-                Command::Build => reader.output(options.output.as_ref().unwrap()).write(),
-            };
+            if matches!(options.command, Command::Fmt) {
+                match format_inputs(&options) {
+                    Ok(changed) if options.format_check && changed => ExitCode::from(1),
+                    Ok(_) => ExitCode::SUCCESS,
+                    Err(error) => {
+                        eprint!("{}", render(error.diagnostic(), options.stdin.as_deref()));
+                        ExitCode::from(1)
+                    }
+                }
+            } else {
+                let mut reader = Reader::new();
+                configure(&mut reader, &options);
+                let result = match options.command {
+                    Command::Check => reader.check(),
+                    Command::Build => reader.output(options.output.as_ref().unwrap()).write(),
+                    Command::Fmt => unreachable!(),
+                };
 
-            match result {
-                Ok(()) => ExitCode::SUCCESS,
-                Err(error) => {
-                    eprint!("{}", render(error.diagnostic(), options.stdin.as_deref()));
-                    ExitCode::from(1)
+                match result {
+                    Ok(()) => ExitCode::SUCCESS,
+                    Err(error) => {
+                        eprint!("{}", render(error.diagnostic(), options.stdin.as_deref()));
+                        ExitCode::from(1)
+                    }
                 }
             }
         }
@@ -98,6 +115,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
     let command = match command.as_str() {
         "check" => Command::Check,
         "build" => Command::Build,
+        "fmt" => Command::Fmt,
         _ => return Err(format!("unknown command `{command}`")),
     };
 
@@ -105,6 +123,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
     let mut references = vec![];
     let mut output = None;
     let mut reference_default = true;
+    let mut format_check = false;
     let mut positional = false;
 
     while let Some(arg) = args.next() {
@@ -117,6 +136,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
             "-h" | "--help" => return Ok(ParseResult::Help),
             "-V" | "--version" => return Ok(ParseResult::Version),
             "--no-default" => reference_default = false,
+            "--check" => format_check = true,
             "-r" | "--reference" => {
                 let value = args
                     .next()
@@ -165,7 +185,18 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
                 return Err("build output must have a .winmd extension".to_string());
             }
         }
+        Command::Fmt => {
+            if output.is_some() {
+                return Err("`--out` is only valid with `riddle build`".to_string());
+            }
+            if !references.is_empty() || !reference_default {
+                return Err("references are not valid with `riddle fmt`".to_string());
+            }
+        }
         Command::Check => {}
+    }
+    if format_check && !matches!(command, Command::Fmt) {
+        return Err("`--check` is only valid with `riddle fmt`".to_string());
     }
 
     Ok(ParseResult::Run(Options {
@@ -174,6 +205,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
         references,
         output,
         reference_default,
+        format_check,
         stdin: None,
     }))
 }
@@ -191,6 +223,50 @@ fn configure(reader: &mut Reader, options: &Options) {
     if options.reference_default {
         reader.reference_default();
     }
+}
+
+fn format_inputs(options: &Options) -> Result<bool, Error> {
+    let paths: Vec<_> = options
+        .inputs
+        .iter()
+        .filter(|input| *input != Path::new("-"))
+        .collect();
+    let paths = windows_rdl::expand_input_files(&paths, "rdl")?;
+    let mut outputs = vec![];
+
+    for path in paths {
+        let name = path.to_string_lossy().into_owned();
+        let source = std::fs::read_to_string(&path)
+            .map_err(|_| Error::new("failed to read input file", &name, 0, 0))?;
+        let formatted = formatter::format_named(&name, &source)?;
+        outputs.push((Some(path), name, source, formatted));
+    }
+    if let Some(source) = &options.stdin {
+        let formatted = formatter::format_named("<stdin>", source)?;
+        outputs.push((None, "<stdin>".to_string(), source.clone(), formatted));
+    }
+
+    let changed = outputs
+        .iter()
+        .any(|(_, _, source, formatted)| source != formatted);
+    if options.format_check {
+        for (_, name, source, formatted) in &outputs {
+            if source != formatted {
+                eprintln!("needs formatting: {name}");
+            }
+        }
+    } else {
+        for (path, _, source, formatted) in outputs {
+            if let Some(path) = path {
+                if source != formatted {
+                    windows_rdl::write_to_file(path, formatted)?;
+                }
+            } else {
+                print!("{formatted}");
+            }
+        }
+    }
+    Ok(changed)
 }
 
 fn render(diagnostic: &Diagnostic, stdin: Option<&str>) -> String {

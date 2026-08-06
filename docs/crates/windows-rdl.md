@@ -526,22 +526,20 @@ Windows command-line limits become relevant.
 
 ### Formatting
 
-The current formatter reparses source as a `proc_macro2::TokenStream`. Invalid input becomes an
-empty token stream, and comments are not part of the token stream. This is unsafe for a user-facing
-`fmt` command.
+The formatter validates a complete RDL file before formatting and returns a named diagnostic for
+invalid input. A comment-aware lexer protects regular and documentation comments before the
+canonical token layout runs, then restores them at their source positions. Formatting is
+idempotent across comments between attributes, declarations, members, parameters, and closing
+delimiters.
 
-Formatting should:
+`riddle fmt` formats files or directories in place and writes formatted standard input to standard
+output. `riddle fmt --check` reports files that differ without changing them. All inputs are read,
+parsed, and formatted before any file is replaced, so one invalid file cannot cause a partial
+update.
 
-- Return diagnostics for invalid input and never replace it with empty output.
-- Preserve regular and documentation comments.
-- Be idempotent.
-- Format from the RDL syntax tree rather than from generic Rust tokens.
-- Preserve source constructs that are metadata-equivalent but meaningful to authors.
-- Support whole files and source ranges for editor integration.
-
-Start by changing `formatter::format` to return `Result` and adding comment-preserving lexer tokens.
-Add fixtures for comments between attributes, declarations, members, parameters, and closing
-delimiters before enabling in-place CLI formatting.
+The layout pass still operates on generic Rust tokens after RDL syntax validation. Moving layout to
+the RDL syntax tree and adding source-range formatting remain future work. That change should
+preserve source constructs that are metadata-equivalent but meaningful to authors.
 
 ### Imports and name resolution
 
@@ -621,7 +619,7 @@ resulting RDL makes the ABI at least as reviewable as the current explicit inter
 4. Done: add Property/Event/MethodSemantics reading and preserve those tables through merge and
    remap.
 5. Done: restore a minimal `riddle check` and `riddle build` on the new library APIs.
-6. Replace the formatter's silent parse fallback, then add comment preservation and `riddle fmt`.
+6. Done: replace the formatter's silent parse fallback, preserve comments, and add `riddle fmt`.
 7. Add named imports, aliases, grouped imports, and ambiguity diagnostics.
 8. Implement explicit overload authoring and canonical expansion.
 9. Evaluate runtime-class conveniences against the ABI-visibility constraints above.

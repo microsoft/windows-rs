@@ -194,7 +194,7 @@ impl Writer {
                 path.push(&self.output);
                 path.push(format!("{stem}.rdl"));
 
-                write_to_file(path, formatter::format(&output))?;
+                write_to_file(path, formatter::format(&output)?)?;
             }
 
             return Ok(());
@@ -239,7 +239,7 @@ impl Writer {
                 path.push(&self.output);
                 path.push(format!("{namespace}.rdl"));
 
-                write_to_file(path, formatter::format(&output))?;
+                write_to_file(path, formatter::format(&output)?)?;
             }
         } else {
             let mut layout = Layout::new();
@@ -256,7 +256,7 @@ impl Writer {
             }
 
             let output = layout.to_string();
-            write_to_file(&self.output, formatter::format(&output))?;
+            write_to_file(&self.output, formatter::format(&output)?)?;
         }
 
         Ok(())

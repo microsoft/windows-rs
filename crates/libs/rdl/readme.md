@@ -51,7 +51,12 @@ The `riddle` binary provides the same operations from a terminal:
 ```text
 riddle check example.rdl
 riddle build example.rdl --out example.winmd
+riddle fmt example.rdl
+riddle fmt --check example.rdl
 ```
+
+`formatter::format` and `formatter::format_named` validate complete RDL source and return a
+diagnostic on invalid input. Regular comments and documentation comments are preserved.
 
 The winmd writer matches `Param` rows by ECMA-335 `Param.Sequence`, not table order. Sparse methods
 still emit every signature parameter, using `pN` and the reader's type-based default direction when

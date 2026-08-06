@@ -1,10 +1,12 @@
 # Riddle
 
-Riddle checks and compiles RDL API descriptions.
+Riddle checks, compiles, and formats RDL API descriptions.
 
 ```text
 riddle check api.rdl
 riddle build api.rdl --out api.winmd
+riddle fmt api.rdl
+riddle fmt --check api.rdl
 ```
 
 Inputs may be files, directories containing `.rdl` files, or `-` for standard input. Use
