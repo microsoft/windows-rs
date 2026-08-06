@@ -15,6 +15,7 @@ mod item;
 mod method;
 mod module;
 mod param;
+mod resolved;
 mod resolver;
 mod r#struct;
 mod typedef;
@@ -36,6 +37,7 @@ use interface::*;
 use item::*;
 use method::*;
 use module::*;
+use resolved::*;
 use resolver::*;
 use r#struct::*;
 use typedef::*;
@@ -286,7 +288,9 @@ impl Reader {
         let reference = metadata::reader::Index::new(reference);
         if !invalid_reference {
             report.extend(validate_use_declarations(&input, &index, &reference));
-            report.extend(validate_resolved_symbols(&index, &reference));
+            let (model, diagnostics) = resolve_model(&index, &reference);
+            report.extend(diagnostics);
+            report.extend(validate_resolved_symbols(&model));
         }
         if !report.is_success() {
             return (None, report);

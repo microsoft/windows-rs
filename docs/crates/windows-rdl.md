@@ -409,11 +409,11 @@ types, functions, and constants; duplicate members and parameters; overlapping a
 variants; and method overloads with the same parameter types. Distinct method signatures,
 disjoint architecture variants, and matching split get/set properties remain valid.
 
-Top-level symbol and property checks still compare syntax spellings. Method overloads and attribute
-constructors now compare resolved `metadata::Type` signatures, so an import alias and a qualified
-path to the same type collide. `RDL0005` rejects missing or extra generic arguments. Moving the
-remaining checks to a resolved model and preventing every validation failure from reaching the
-encoder remain part of the work below.
+Top-level symbol checks still operate on indexed declaration names. Method overloads, attribute
+constructors, split properties, class interface lists, and required interfaces now compare
+resolved `metadata::Type` identities, so an import alias and a qualified path to the same type are
+equivalent. `RDL0005` rejects missing or extra generic arguments. Resolving custom-attribute usages
+and preventing every validation failure from reaching the encoder remain part of the work below.
 
 The same pre-emission pass now rejects accepted syntax that the encoder cannot represent.
 `RDL0002` covers attributes on event shorthand, generic functions/callbacks/interface methods,
@@ -512,6 +512,12 @@ rendering does not need to re-read them. When one source name identifies differe
 report omits that ambiguous lookup rather than showing the wrong source. Stable source IDs, parser
 recovery within one file, and collection of all errors still discovered during encoding remain
 future work.
+
+`ResolvedModel` assigns deterministic declaration IDs and resolves every authored type position,
+including fields, constants, typedefs, callbacks, returns, properties, events, class interfaces,
+base classes, and interface requirements. Metadata encoding starts only when model construction and
+validation have no errors. Custom-attribute paths and arguments are still resolved by the encoding
+path and are the next surface to move into the model.
 
 ### `riddle` command-line tool
 
@@ -673,10 +679,10 @@ The main findings are:
 
 - **Validation:** Most passes stop at the first error. Collect independent semantic diagnostics
   before encoding.
-- **Resolution:** Type and attribute lookup now share `Resolver` and produce canonical
-  `metadata::Type` identities. Declaration-level resolved nodes are still needed.
-- **Duplicate checks:** Method and attribute-constructor signatures now compare resolved types and
-  generic arity. Properties, class interface lists, and other checks still use syntax spelling.
+- **Resolution:** Type and attribute lookup share `Resolver`, and `ResolvedModel` stores canonical
+  declaration and type identities. Custom-attribute applications still need resolved nodes.
+- **Duplicate checks:** Method and attribute-constructor signatures, properties, class interface
+  lists, and required interfaces compare resolved types and generic arity.
 - **Encoding:** Some unresolved or invalid states are found while the winmd writer is being
   mutated. Make the encoder consume only a validated resolved model.
 - **Diagnostics:** The data model supports labels, but source text is external and `riddle` renders
@@ -699,9 +705,9 @@ The next phase should proceed in this order:
    `DiagnosticReport` and `Resolver` provide these layers while preserving the current
    `Result<T, Error>` APIs as convenience wrappers. Stable numeric source and declaration IDs can
    be added with the resolved model.
-2. Build a resolved model for declarations, types, attributes, parameters, and imports. Move
-   duplicate checks and import ambiguity checks onto that model, and emit no metadata when it has
-   errors.
+2. In progress: build a resolved model for declarations, types, attributes, parameters, and
+   imports. Declarations and every type-bearing position now resolve before encoding; custom
+   attributes and their arguments remain.
 3. Add generic-arity, attribute-target, profile, and resolved-signature validation. Finish the
    metadata table and custom-attribute parent inventory with rejection tests for unsupported rows.
 4. Implement explicit overload authoring and canonical expansion using resolved signatures and

@@ -111,7 +111,7 @@ fn duplicate_symbols_are_rejected() {
         (
             "class_interface",
             "#[winrt] mod Test { interface IValue {} class Value { IValue, IValue, } }",
-            "duplicate class interface `IValue`",
+            "duplicate class interface `Test.IValue`",
         ),
         (
             "generic_parameter",
@@ -212,6 +212,74 @@ mod Other {
 }
 
 #[test]
+fn properties_and_class_interfaces_use_resolved_type_identity() {
+    windows_rdl::reader()
+        .input_text_named(
+            "src/property.rdl",
+            r#"
+use Other::Value as Alias;
+
+#[winrt]
+mod Test {
+    interface IValue {
+        #[get]
+        Value: Alias;
+        #[set]
+        Value: Other::Value;
+    }
+}
+
+#[winrt]
+mod Other {
+    struct Value {}
+}
+"#,
+        )
+        .output(out_path("resolved_property"))
+        .write()
+        .unwrap();
+
+    let class_error = error(
+        "resolved_class_interface",
+        r#"
+use Test::IValue as Alias;
+
+#[winrt]
+mod Test {
+    interface IValue {}
+    class Value {
+        Alias,
+        Test::IValue,
+    }
+}
+"#,
+    );
+    assert_eq!(class_error.code.as_deref(), Some("RDL0001"));
+    assert_eq!(
+        class_error.message,
+        "duplicate class interface `Test.IValue`"
+    );
+
+    let require_error = error(
+        "resolved_required_interface",
+        r#"
+use Test::IValue as Alias;
+
+#[winrt]
+mod Test {
+    interface IValue {}
+    interface IDerived : Alias + Test::IValue {}
+}
+"#,
+    );
+    assert_eq!(require_error.code.as_deref(), Some("RDL0001"));
+    assert_eq!(
+        require_error.message,
+        "duplicate required interface `Test.IValue`"
+    );
+}
+
+#[test]
 fn unresolved_types_are_collected_before_encoding() {
     let report = windows_rdl::reader()
         .input_text_named(
@@ -229,6 +297,34 @@ mod Test {
         .check_all();
 
     assert_eq!(report.diagnostics().len(), 2);
+    assert!(
+        report
+            .diagnostics()
+            .iter()
+            .all(|diagnostic| diagnostic.message == "type not found")
+    );
+}
+
+#[test]
+fn all_declaration_type_positions_resolve_before_encoding() {
+    let report = windows_rdl::reader()
+        .input_text_named(
+            "src/test.rdl",
+            r#"
+#[win32]
+mod Test {
+    struct Value {
+        field: MissingField,
+    }
+    type Alias = MissingAlias;
+    const VALUE: MissingConst = 0;
+    extern fn Callback(value: MissingCallback) -> MissingReturn;
+}
+"#,
+        )
+        .check_all();
+
+    assert_eq!(report.diagnostics().len(), 5);
     assert!(
         report
             .diagnostics()

@@ -1,5 +1,4 @@
 use super::*;
-use quote::ToTokens;
 
 const DUPLICATE_CODE: &str = "RDL0001";
 const UNREPRESENTABLE_CODE: &str = "RDL0002";
@@ -51,126 +50,140 @@ pub fn validate_symbols(index: &Index) -> Vec<Error> {
     diagnostics
 }
 
-pub fn validate_resolved_symbols(index: &Index, reference: &metadata::reader::Index) -> Vec<Error> {
+pub fn validate_resolved_symbols(model: &ResolvedModel) -> Vec<Error> {
     let mut diagnostics = vec![];
 
-    for (namespace, members) in &index.namespaces {
-        for variants in members.types.values() {
-            for (file, item) in variants {
-                match item {
-                    Item::Attribute(item) => {
-                        let resolver = Resolver {
-                            index,
-                            reference,
-                            file,
-                            namespace,
-                            generics: &[],
-                        };
-                        let mut signatures = vec![];
-                        for method in &item.methods {
-                            match resolve_bare_signature(&resolver, method) {
-                                Ok(signature) => {
-                                    if let Some((_, previous)) = signatures
-                                        .iter()
-                                        .find(|(existing, _)| existing == &signature)
-                                    {
-                                        diagnostics.push(duplicate_error(
-                                            "attribute constructor",
-                                            &item.name.to_string(),
-                                            file,
-                                            method.span(),
-                                            file,
-                                            *previous,
-                                        ));
-                                    } else {
-                                        signatures.push((signature, method.span()));
-                                    }
-                                }
-                                Err(error) => diagnostics.push(error),
-                            }
-                        }
+    for (id, item) in model.items.iter().enumerate() {
+        debug_assert_eq!(item.id, id);
+        match (&item.kind, item.item) {
+            (ResolvedItemKind::Attribute { constructors }, Item::Attribute(attribute)) => {
+                let mut signatures = vec![];
+                for constructor in constructors {
+                    if let Some((_, previous)) = signatures
+                        .iter()
+                        .find(|(types, _)| types == &&constructor.types)
+                    {
+                        diagnostics.push(duplicate_error(
+                            "attribute constructor",
+                            &attribute.name.to_string(),
+                            item.file,
+                            constructor.span,
+                            item.file,
+                            *previous,
+                        ));
+                    } else {
+                        signatures.push((&constructor.types, constructor.span));
                     }
-                    Item::Interface(item) => {
-                        let generics: Vec<String> = item
-                            .generics
-                            .type_params()
-                            .map(|param| param.ident.to_string())
-                            .collect();
-                        let resolver = Resolver {
-                            index,
-                            reference,
-                            file,
-                            namespace,
-                            generics: &generics,
-                        };
-                        let mut methods = HashMap::<String, Vec<(ResolvedSignature, Span)>>::new();
-                        for member in &item.members {
-                            let InterfaceMember::Method(method) = member else {
-                                continue;
-                            };
-                            match resolve_signature(&resolver, &method.sig) {
-                                Ok(signature) => {
-                                    let name = method.sig.ident.to_string();
-                                    let signatures = methods.entry(name.clone()).or_default();
-                                    if let Some((_, previous)) = signatures
-                                        .iter()
-                                        .find(|(existing, _)| existing == &signature)
-                                    {
-                                        diagnostics.push(duplicate_error(
-                                            "method",
-                                            &name,
-                                            file,
-                                            method.sig.ident.span(),
-                                            file,
-                                            *previous,
-                                        ));
-                                    } else {
-                                        signatures.push((signature, method.sig.ident.span()));
-                                    }
-                                }
-                                Err(error) => diagnostics.push(error),
-                            }
-                        }
-                    }
-                    _ => {}
                 }
             }
+            (ResolvedItemKind::Class { interfaces }, Item::Class(_)) => {
+                let mut resolved = vec![];
+                for interface in interfaces {
+                    if let Some((_, previous)) =
+                        resolved.iter().find(|(ty, _)| ty == &&interface.ty)
+                    {
+                        diagnostics.push(duplicate_error(
+                            "class interface",
+                            &display_named_type(&interface.ty),
+                            item.file,
+                            interface.span,
+                            item.file,
+                            *previous,
+                        ));
+                    } else {
+                        resolved.push((&interface.ty, interface.span));
+                    }
+                }
+            }
+            (
+                ResolvedItemKind::Interface {
+                    requires,
+                    methods,
+                    properties,
+                },
+                Item::Interface(_),
+            ) => {
+                let mut resolved = vec![];
+                for require in requires {
+                    if let Some((_, previous)) = resolved.iter().find(|(ty, _)| ty == &&require.ty)
+                    {
+                        diagnostics.push(duplicate_error(
+                            "required interface",
+                            &display_named_type(&require.ty),
+                            item.file,
+                            require.span,
+                            item.file,
+                            *previous,
+                        ));
+                    } else {
+                        resolved.push((&require.ty, require.span));
+                    }
+                }
+
+                let mut overloads = HashMap::<&str, Vec<(&ResolvedSignature, Span)>>::new();
+                for method in methods {
+                    let signatures = overloads.entry(&method.name).or_default();
+                    if let Some((_, previous)) = signatures
+                        .iter()
+                        .find(|(signature, _)| *signature == &method.signature)
+                    {
+                        diagnostics.push(duplicate_error(
+                            "method",
+                            &method.name,
+                            item.file,
+                            method.span,
+                            item.file,
+                            *previous,
+                        ));
+                    } else {
+                        signatures.push((&method.signature, method.span));
+                    }
+                }
+
+                let mut resolved = HashMap::<&str, ResolvedPropertyState>::new();
+                for property in properties {
+                    if let Some(previous) = resolved.get_mut(property.name.as_str()) {
+                        if previous.ty != property.ty
+                            || previous.get && property.get
+                            || previous.set && property.set
+                        {
+                            diagnostics.push(duplicate_error(
+                                "property",
+                                &property.name,
+                                item.file,
+                                property.span,
+                                item.file,
+                                previous.span,
+                            ));
+                        } else {
+                            previous.get |= property.get;
+                            previous.set |= property.set;
+                        }
+                    } else {
+                        resolved.insert(
+                            &property.name,
+                            ResolvedPropertyState {
+                                get: property.get,
+                                set: property.set,
+                                ty: property.ty.clone(),
+                                span: property.span,
+                            },
+                        );
+                    }
+                }
+            }
+            _ => {}
         }
     }
 
     diagnostics
 }
 
-#[derive(PartialEq)]
-struct ResolvedSignature {
-    receiver: bool,
-    types: Vec<metadata::Type>,
-}
-
-fn resolve_signature(
-    resolver: &Resolver,
-    signature: &syn::Signature,
-) -> Result<ResolvedSignature, Error> {
-    let mut receiver = false;
-    let mut types = vec![];
-    for input in &signature.inputs {
-        match input {
-            syn::FnArg::Receiver(_) => receiver = true,
-            syn::FnArg::Typed(param) => types.push(resolver.resolve_type(&param.ty)?),
-        }
-    }
-    Ok(ResolvedSignature { receiver, types })
-}
-
-fn resolve_bare_signature(
-    resolver: &Resolver,
-    signature: &syn::TypeBareFn,
-) -> Result<Vec<metadata::Type>, Error> {
-    signature
-        .inputs
-        .iter()
-        .map(|param| resolver.resolve_type(&param.ty))
-        .collect()
+struct ResolvedPropertyState {
+    get: bool,
+    set: bool,
+    ty: metadata::Type,
+    span: Span,
 }
 
 fn validate_namespace_symbols(members: &Namespace<'_>) -> Result<(), Error> {
@@ -309,21 +322,7 @@ fn validate_attribute(file: &File, item: &Attribute) -> Result<(), Error> {
     Ok(())
 }
 
-fn validate_class(file: &File, item: &Class) -> Result<(), Error> {
-    let mut interfaces = HashMap::<String, Span>::new();
-    for interface in &item.interfaces {
-        let name = interface.ty.to_token_stream().to_string();
-        if let Some(previous) = interfaces.insert(name.clone(), interface.ty.span()) {
-            return duplicate(
-                "class interface",
-                &name,
-                file,
-                interface.ty.span(),
-                file,
-                previous,
-            );
-        }
-    }
+fn validate_class(_file: &File, _item: &Class) -> Result<(), Error> {
     Ok(())
 }
 
@@ -345,7 +344,6 @@ fn validate_enum(file: &File, item: &Enum) -> Result<(), Error> {
 fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
     validate_type_generics(file, &item.generics, "interfaces")?;
 
-    let mut properties = HashMap::<String, PropertyState>::new();
     let mut events = HashMap::<String, Span>::new();
     let mut member_kinds = HashMap::<String, (&str, Span)>::new();
 
@@ -376,9 +374,7 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
                 reject_variadic(file, &method.sig, "interface methods")?;
                 validate_signature_params(file, &method.sig)?;
             }
-            InterfaceMember::Property(property) => {
-                validate_property(file, property, &mut properties)?;
-            }
+            InterfaceMember::Property(_) => {}
             InterfaceMember::Event(event) => {
                 if let Some(attr) = event.attrs.first() {
                     return unsupported(
@@ -390,63 +386,6 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
                 check_name(file, "event", &event.name, &mut events)?;
             }
         }
-    }
-
-    Ok(())
-}
-
-struct PropertyState {
-    get: bool,
-    set: bool,
-    ty: String,
-    span: Span,
-}
-
-fn validate_property(
-    file: &File,
-    property: &Property,
-    properties: &mut HashMap<String, PropertyState>,
-) -> Result<(), Error> {
-    let name = property.name.to_string();
-    let get_only = property
-        .attrs
-        .iter()
-        .any(|attr| attr.path().is_ident("get"));
-    let set_only = property
-        .attrs
-        .iter()
-        .any(|attr| attr.path().is_ident("set"));
-    let (get, set) = if get_only || set_only {
-        (get_only, set_only)
-    } else {
-        (true, true)
-    };
-    let ty = property.ty.to_token_stream().to_string();
-
-    if let Some(previous) = properties.get_mut(&name) {
-        if previous.ty != ty || previous.get && get || previous.set && set {
-            return duplicate(
-                "property",
-                &name,
-                file,
-                property.name.span(),
-                file,
-                previous.span,
-            );
-        }
-
-        previous.get |= get;
-        previous.set |= set;
-    } else {
-        properties.insert(
-            name,
-            PropertyState {
-                get,
-                set,
-                ty,
-                span: property.name.span(),
-            },
-        );
     }
 
     Ok(())
