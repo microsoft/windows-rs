@@ -5,6 +5,7 @@
 - 📦 [crates.io](https://crates.io/crates/windows-threading)
 - 📖 [docs.rs](https://docs.rs/windows-threading)
 - 🚀 [Getting started](../../crates/libs/threading/readme.md)
+- 🧩 [Samples](../../crates/samples/threading)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/threading)
 
 `windows-threading` exposes the Windows thread pool through a small, safe API. `submit` runs a

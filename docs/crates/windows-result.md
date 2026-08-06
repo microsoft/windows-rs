@@ -5,6 +5,7 @@
 - 📦 [crates.io](https://crates.io/crates/windows-result)
 - 📖 [docs.rs](https://docs.rs/windows-result)
 - 🚀 [Getting started](../../crates/libs/result/readme.md)
+- 🧩 [Samples](../../crates/samples/result)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/result)
 
 `windows-result` is the error layer shared by the windows-* crates. Its building blocks are
