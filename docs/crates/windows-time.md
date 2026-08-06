@@ -5,6 +5,7 @@
 - 📦 [crates.io](https://crates.io/crates/windows-time)
 - 📖 [docs.rs](https://docs.rs/windows-time)
 - 🚀 [Getting started](../../crates/libs/time/readme.md)
+- 🧩 [Samples](../../crates/samples/time)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/time)
 
 `windows-time` provides the two WinRT time primitives as plain `#[repr(C)]` Rust types: `TimeSpan`

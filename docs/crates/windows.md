@@ -5,6 +5,7 @@
 - 📦 [crates.io](https://crates.io/crates/windows)
 - 📖 [docs.rs](https://docs.rs/windows)
 - 🚀 [Getting started](../../crates/libs/windows/readme.md)
+- 🧩 [Samples](../../crates/samples/windows)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/windows)
 
 The `windows` crate projects Win32, COM, and WinRT APIs from Windows metadata. APIs are gated by
