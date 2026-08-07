@@ -29,7 +29,9 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
 use test_reactor::RecordingBackend;
-use windows_reactor::{Element, ElementExt, Reconciler, text_block, vstack};
+use windows_reactor::{
+    Element, ElementExt, Reconciler, RenderCx, component, memo, text_block, vstack,
+};
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
 static ALLOCS: AtomicU64 = AtomicU64::new(0);
@@ -138,6 +140,14 @@ fn keyed_stack(keys: &[String]) -> Element {
     s.into()
 }
 
+fn component_leaf(_props: &(), _cx: &mut RenderCx) -> Element {
+    text_block("component").into()
+}
+
+fn pass_through_component(_props: &(), _cx: &mut RenderCx) -> Element {
+    component(component_leaf, ())
+}
+
 /// One reconcile A -> B per op, alternating direction so the live tree stays
 /// consistent and each op is a real diff in one direction or the other.
 fn bench_update(name: &str, n: usize, a: Element, b: Element, iters: u64, reps: u32) -> Row {
@@ -229,6 +239,20 @@ fn main() {
     let mut rows: Vec<Row> = Vec::new();
 
     // Mount + unmount: Rust-side create/destroy cost (control-pooling relevance).
+    rows.push(bench_mount_unmount(
+        "component_mount",
+        1,
+        component(component_leaf, ()),
+        iters,
+        reps,
+    ));
+    rows.push(bench_mount_unmount(
+        "pass_through_mount",
+        2,
+        memo(pass_through_component, ()),
+        iters,
+        reps,
+    ));
     for &n in &[64usize, 512] {
         let tree = plain_stack(&labels(n, "cell"));
         rows.push(bench_mount_unmount(

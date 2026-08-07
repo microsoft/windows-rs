@@ -83,6 +83,10 @@ Hooks are methods on `RenderCx`. They give a render function persistent state wi
 
 Render functions receive `&mut RenderCx` and return `Element`.
 
+Components may return another component directly without adding a native control. The
+`pass_through_component` sample combines this with a memoized wrapper and stateful child:
+`cargo run -p reactor_samples --example pass_through_component`.
+
 The `apps/examples` and `minimal/examples` directories include a focused sample for each hook
 (`use_state`, `use_ref`, `use_memo`, `use_effect`, `use_reducer`, `use_resource`, `use_callback`,
 `use_color_scheme`, and more).
@@ -93,7 +97,9 @@ Build elements with plain builder functions. Each returns a widget that becomes 
 `.into()`. Containers take a tuple of children.
 
 - Text: `text_block(content)` with `.bold()`, `.semibold()`, `.font_size(..)`, `.wrap()`,
-  `.selectable()`, and type-ramp helpers (`title`, `subtitle`, `body`, `caption`).
+  `.selectable()`, `.max_lines(..)`, `.text_trimming(..)`, and type-ramp helpers (`title`,
+  `subtitle`, `body`, `caption`). Sample:
+  `cargo run -p reactor_samples --example text_trimming`.
 - Buttons: `button(content)` with `.on_click(..)`, `.accent()`, `.subtle()`, `.enabled(..)`,
   `.icon(..)`, `.flyout(..)`, `.menu_flyout(..)`.
 - Icons: any control that takes an icon (`button`, `NavViewItem`, command-bar buttons,
@@ -101,8 +107,10 @@ Build elements with plain builder functions. Each returns a widget that becomes 
   `Icon::image(source)` creates a full-color `ImageIcon` from raster, SVG, or surface data;
   `Icon::bitmap_icon(uri, show_as_monochrome)` creates a native `BitmapIcon`; `Icon::font(glyph)`
   and `Icon::font_family(glyph, family)` create a `FontIcon`; and `Icon::path(data)` creates a
-  `PathIcon` from XAML path mini-language data. Sample:
-  `cargo run -p reactor_samples --example icon_elements`.
+  `PathIcon` from XAML path mini-language data. Full-color image icons are constrained to 20 DIPs
+  so large raster or SVG sources cannot consume the icon host's available space. Samples:
+  `cargo run -p reactor_samples --example icon_elements` and
+  `cargo run -p reactor_samples --example image_icon_size`.
 - Images: `Image::new(source)` accepts a URI or `ImageSource`. URI paths ending in `.svg`
   (case-insensitive, before any query or fragment) use the platform SVG decoder; other URIs use
   the bitmap decoder. Sample: `cargo run -p reactor_samples --example image`.

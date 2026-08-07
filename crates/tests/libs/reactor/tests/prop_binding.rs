@@ -3,7 +3,7 @@ use std::rc::Rc;
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
 use windows_reactor::{ControlId, Prop, PropValue};
-use windows_reactor::{Element, TextBlock};
+use windows_reactor::{Element, TextBlock, TextTrimming};
 
 fn noop_rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -73,6 +73,61 @@ fn mount_text_with_optionals_emits_all_expected_props() {
     ];
     expected.sort_by_key(|p| format!("{p:?}"));
     assert_eq!(props, expected);
+}
+
+#[test]
+fn text_trimming_and_max_lines_emit_native_values() {
+    let el = TextBlock::new("long")
+        .max_lines(2)
+        .text_trimming(TextTrimming::WordEllipsis)
+        .into();
+    let (r, _id) = mount(&el);
+    let values: Vec<_> = r
+        .backend
+        .ops
+        .iter()
+        .filter_map(|op| match op {
+            Op::SetProp { prop, value, .. }
+                if matches!(prop, Prop::MaxLines | Prop::TextTrimming) =>
+            {
+                Some((*prop, value.clone()))
+            }
+            _ => None,
+        })
+        .collect();
+
+    assert!(values.contains(&(Prop::MaxLines, PropValue::I32(2))));
+    assert!(values.contains(&(
+        Prop::TextTrimming,
+        PropValue::I32(TextTrimming::WordEllipsis.0)
+    )));
+}
+
+#[test]
+fn text_trimming_and_max_lines_emit_unset_when_removed() {
+    let old: Element = TextBlock::new("long")
+        .max_lines(2)
+        .text_trimming(TextTrimming::WordEllipsis)
+        .into();
+    let new: Element = TextBlock::new("long").into();
+    let ops = update_ops(old, new);
+
+    assert!(ops.iter().any(|op| matches!(
+        op,
+        Op::SetProp {
+            prop: Prop::MaxLines,
+            value: PropValue::Unset,
+            ..
+        }
+    )));
+    assert!(ops.iter().any(|op| matches!(
+        op,
+        Op::SetProp {
+            prop: Prop::TextTrimming,
+            value: PropValue::Unset,
+            ..
+        }
+    )));
 }
 
 #[test]

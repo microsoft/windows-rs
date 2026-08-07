@@ -1294,6 +1294,16 @@ impl Backend for WinUIBackend {
                 return Ok(());
             }
             match (prop, value, handle) {
+                (Prop::MaxLines, PropValue::I32(v), Handle::TextBlock(text)) => {
+                    text.SetMaxLines(*v)
+                }
+                (Prop::MaxLines, PropValue::Unset, Handle::TextBlock(text)) => text.SetMaxLines(0),
+                (Prop::TextTrimming, PropValue::I32(v), Handle::TextBlock(text)) => {
+                    text.SetTextTrimming(TextTrimming(*v))
+                }
+                (Prop::TextTrimming, PropValue::Unset, Handle::TextBlock(text)) => {
+                    text.SetTextTrimming(TextTrimming::None)
+                }
                 (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
                     tb.SetIsTextSelectionEnabled(*v)
                 }

@@ -530,6 +530,17 @@ pub fn button_icon_subclasses(h: Harness) -> FixtureFuture {
             "Interaction_ButtonIcon_ImageIconsCreated",
             image_icons.len() == 2,
         );
+        let image_icons_constrained = image_icons.iter().all(|icon| {
+            icon.cast::<crate::bindings::IFrameworkElement>()
+                .ok()
+                .is_some_and(|element| {
+                    element.MaxWidth().ok() == Some(20.0) && element.MaxHeight().ok() == Some(20.0)
+                })
+        });
+        h.check(
+            "Interaction_ButtonIcon_ImageIconsConstrained",
+            image_icons_constrained,
+        );
 
         let sources: Vec<_> = image_icons
             .iter()

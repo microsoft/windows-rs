@@ -7,6 +7,8 @@ pub struct TextBlock {
     pub text: String,
     pub font_size: Option<f64>,
     pub font_weight: Option<u16>,
+    pub max_lines: Option<i32>,
+    pub text_trimming: Option<TextTrimming>,
     pub text_wrapping: TextWrapping,
     pub is_text_selection_enabled: bool,
 }
@@ -28,6 +30,15 @@ impl Widget for TextBlock {
         }
         if let Some(v) = self.font_weight {
             out.push(Binding::Prop(Prop::FontWeight, PropValue::U16(v)));
+        }
+        if let Some(v) = self.max_lines {
+            out.push(Binding::Prop(Prop::MaxLines, PropValue::I32(v)));
+        }
+        if let Some(v) = self.text_trimming {
+            out.push(Binding::Prop(
+                Prop::TextTrimming,
+                PropValue::I32(v.0),
+            ));
         }
         out
     }
@@ -56,6 +67,16 @@ impl TextBlock {
 
     pub fn wrap(mut self) -> Self {
         self.text_wrapping = TextWrapping::Wrap;
+        self
+    }
+
+    pub fn max_lines(mut self, value: i32) -> Self {
+        self.max_lines = Some(value);
+        self
+    }
+
+    pub fn text_trimming(mut self, value: TextTrimming) -> Self {
+        self.text_trimming = Some(value);
         self
     }
 

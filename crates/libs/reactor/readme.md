@@ -94,4 +94,13 @@ button("Logo").icon(Icon::image("ms-appx:///Assets/logo.svg"));
 ```
 
 `bitmap_icon` uses WinUI `BitmapIcon` and makes monochrome rendering explicit. `image` uses
-full-color `ImageIcon` and accepts raster, SVG, or surface sources.
+full-color `ImageIcon` and accepts raster, SVG, or surface sources. Image icons are constrained to
+the standard 20-DIP icon box so an unconstrained SVG cannot consume the control's available space.
+
+Long text can be limited and trimmed with native WinUI behavior:
+
+```rust,ignore
+text_block("A long label")
+    .max_lines(1)
+    .text_trimming(TextTrimming::CharacterEllipsis)
+```
