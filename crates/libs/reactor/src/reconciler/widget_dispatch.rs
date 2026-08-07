@@ -1,4 +1,5 @@
 use super::*;
+use crate::reference::NativeElementRef;
 
 impl<B: Backend + 'static> Reconciler<B> {
     pub fn mount_widget(&mut self, w: &dyn Widget) -> ControlId {
@@ -19,11 +20,18 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_pane_element(id, Some(pane_id));
             self.tree.set_pane(id, Some(pane_id));
         }
-        if let Some(cb) = w.on_mounted_callback() {
-            cb.invoke(self.backend.get_native_element(id));
+        let native = self.backend.get_native_element(id);
+        if let Some(reference) = element_ref(w.modifiers()) {
+            reference.set_native(native.clone());
         }
-        self.tree
-            .set_before_unmount(id, w.on_unmounted_callback().cloned());
+        if let Some(cb) = w.on_mounted_callback() {
+            cb.invoke(native);
+        }
+        self.tree.set_before_unmount(
+            id,
+            element_ref(w.modifiers()).cloned(),
+            w.on_unmounted_callback().cloned(),
+        );
         id
     }
 
@@ -34,8 +42,21 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.update_widget_children(id, old.children(), new.children());
         self.update_header_element(id, old.header_element(), new.header_element());
         self.update_pane_element(id, old.pane_element(), new.pane_element());
-        self.tree
-            .set_before_unmount(id, new.on_unmounted_callback().cloned());
+        let old_reference = element_ref(old.modifiers());
+        let new_reference = element_ref(new.modifiers());
+        if old_reference != new_reference {
+            if let Some(reference) = old_reference {
+                reference.set_native(None);
+            }
+            if let Some(reference) = new_reference {
+                reference.set_native(self.backend.get_native_element(id));
+            }
+        }
+        self.tree.set_before_unmount(
+            id,
+            new_reference.cloned(),
+            new.on_unmounted_callback().cloned(),
+        );
     }
 
     fn mount_widget_children(&mut self, id: ControlId, children: Children<'_>) {
@@ -46,6 +67,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                     self.append_child_tracked(id, child_id);
                 }
             }
+
             Children::Keyed(list) => {
                 for child in list {
                     if matches!(child, Element::Empty) {
@@ -456,4 +478,11 @@ impl<B: Backend + 'static> Reconciler<B> {
             &PropValue::Bool(p.align_v_center_with_panel),
         );
     }
+}
+
+fn element_ref(modifiers: &Modifiers) -> Option<&NativeElementRef> {
+    modifiers
+        .attached
+        .as_ref()
+        .and_then(|attached| attached.get())
 }

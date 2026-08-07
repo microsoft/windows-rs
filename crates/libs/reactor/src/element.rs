@@ -550,6 +550,29 @@ pub trait ProvideExt: Into<Element> + Sized {
 
 impl<T: Into<Element>> ProvideExt for T {}
 
+/// Attaches a typed reference to a native widget.
+///
+/// The associated handle type prevents references from being attached to incompatible widgets.
+///
+/// ```compile_fail
+/// use windows_reactor::*;
+///
+/// let image = ElementRef::<ImageHandle>::new();
+/// let _ = text_box("").element_ref(&image);
+/// ```
+pub trait ElementRefExt: capability::Native + Sized {
+    type Handle: ElementHandle;
+
+    fn element_ref(mut self, reference: &ElementRef<Self::Handle>) -> Self {
+        let modifiers = self.native_modifiers_mut();
+        modifiers
+            .attached
+            .get_or_insert_with(AttachedProps::default)
+            .set(reference.binding());
+        self
+    }
+}
+
 pub(crate) mod capability {
     use super::Modifiers;
 

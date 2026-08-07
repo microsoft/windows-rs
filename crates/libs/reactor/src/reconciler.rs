@@ -1,6 +1,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
+use crate::reference::NativeElementRef;
 use rustc_hash::FxHashMap;
 
 pub use super::*;
@@ -136,7 +137,7 @@ struct MountedTree {
     headers: FxHashMap<ControlId, ControlId>,
     panes: FxHashMap<ControlId, ControlId>,
     custom: FxHashMap<ControlId, Box<dyn CustomElement>>,
-    before_unmount: FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
+    before_unmount: FxHashMap<ControlId, BeforeUnmount>,
     templated: MountedTemplatedTree,
     logical: MountedLogicalTree,
 }
@@ -144,6 +145,11 @@ struct MountedTree {
 struct MountedNativeNode {
     kind: Option<ControlKind>,
     parent: Option<ControlId>,
+}
+
+struct BeforeUnmount {
+    reference: Option<NativeElementRef>,
+    callback: Option<Callback<Option<windows_core::IInspectable>>>,
 }
 
 #[derive(Default)]
@@ -509,20 +515,24 @@ impl MountedTree {
     fn set_before_unmount(
         &mut self,
         id: ControlId,
+        reference: Option<NativeElementRef>,
         callback: Option<Callback<Option<windows_core::IInspectable>>>,
     ) {
         debug_assert!(self.nodes.contains_key(&id));
-        if let Some(callback) = callback {
-            self.before_unmount.insert(id, callback);
+        if reference.is_some() || callback.is_some() {
+            self.before_unmount.insert(
+                id,
+                BeforeUnmount {
+                    reference,
+                    callback,
+                },
+            );
         } else {
             self.before_unmount.remove(&id);
         }
     }
 
-    fn take_before_unmount(
-        &mut self,
-        id: ControlId,
-    ) -> Option<Callback<Option<windows_core::IInspectable>>> {
+    fn take_before_unmount(&mut self, id: ControlId) -> Option<BeforeUnmount> {
         self.before_unmount.remove(&id)
     }
 
@@ -1041,8 +1051,13 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.tree.templated.lists.remove(&node);
 
             // Give external resources a chance to detach before native destroy.
-            if let Some(cb) = self.tree.take_before_unmount(node) {
-                cb.invoke(self.backend.get_native_element(node));
+            if let Some(lifecycle) = self.tree.take_before_unmount(node) {
+                if let Some(reference) = lifecycle.reference {
+                    reference.set_native(None);
+                }
+                if let Some(callback) = lifecycle.callback {
+                    callback.invoke(self.backend.get_native_element(node));
+                }
             }
 
             if let Some(handle) = self.tree.take_custom(node) {

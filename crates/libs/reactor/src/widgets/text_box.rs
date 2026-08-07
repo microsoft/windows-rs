@@ -1,5 +1,25 @@
 use super::*;
 
+/// Typed access to a mounted native `TextBox`.
+#[derive(Clone)]
+pub struct TextBoxHandle(windows_core::IInspectable);
+
+impl TextBoxHandle {
+    /// Requests programmatic focus.
+    ///
+    /// A successful call can still return `false` when WinUI rejects the focus request.
+    pub fn focus(&self) -> Result<bool> {
+        let element: bindings::IUIElement = self.0.cast()?;
+        element.Focus(FocusState::Programmatic)
+    }
+}
+
+impl sealed::ElementHandle for TextBoxHandle {
+    fn from_native(native: windows_core::IInspectable) -> Self {
+        Self(native)
+    }
+}
+
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct TextBox {
     pub key: Option<String>,
@@ -13,6 +33,10 @@ pub struct TextBox {
     pub text_wrapping: TextWrapping,
     pub border_brush: Option<BrushBinding>,
     pub border_thickness: Option<Thickness>,
+}
+
+impl ElementRefExt for TextBox {
+    type Handle = TextBoxHandle;
 }
 impl TextBox {
     pub fn new(value: impl Into<String>) -> Self {

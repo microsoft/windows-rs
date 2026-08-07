@@ -3637,6 +3637,22 @@ impl windows_core::RuntimeType for FlyoutPlacementMode {
     );
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FocusState(pub i32);
+impl FocusState {
+    pub const Unfocused: Self = Self(0);
+    pub const Pointer: Self = Self(1);
+    pub const Keyboard: Self = Self(2);
+    pub const Programmatic: Self = Self(3);
+}
+impl windows_core::TypeKind for FocusState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for FocusState {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Xaml.FocusState;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FontFamily(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -17950,6 +17966,17 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn Focus(&self, value: FocusState) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Focus)(
+                windows_core::Interface::as_raw(self),
+                value,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
 }
 #[repr(C)]
 pub struct IUIElement_Vtbl {
@@ -18257,6 +18284,16 @@ pub struct IUIElement_Vtbl {
     InvalidateMeasure: usize,
     InvalidateArrange: usize,
     pub UpdateLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    CancelDirectManipulations: usize,
+    StartDragAsync: usize,
+    StartBringIntoView: usize,
+    StartBringIntoViewWithOptions: usize,
+    TryInvokeKeyboardAccelerator: usize,
+    pub Focus: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        FocusState,
+        *mut bool,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IUriRuntimeClass,

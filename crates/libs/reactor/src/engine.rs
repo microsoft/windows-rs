@@ -1214,8 +1214,26 @@ impl StatsAccumulator {
 
 /// Owns a [`Reconciler`] and a root [`Component`], coalescing render
 /// requests onto the supplied [`Dispatcher`] (typically the UI thread).
-pub struct RenderHost<B: Backend, D: Dispatcher> {
+pub struct RenderHost<B: Backend + 'static, D: Dispatcher> {
     inner: Rc<RenderHostInner<B, D>>,
+}
+
+pub struct WeakRenderHost<B: Backend + 'static, D: Dispatcher> {
+    inner: std::rc::Weak<RenderHostInner<B, D>>,
+}
+
+impl<B: Backend + 'static, D: Dispatcher> Clone for WeakRenderHost<B, D> {
+    fn clone(&self) -> Self {
+        Self {
+            inner: self.inner.clone(),
+        }
+    }
+}
+
+impl<B: Backend + 'static, D: Dispatcher> WeakRenderHost<B, D> {
+    pub fn upgrade(&self) -> Option<RenderHost<B, D>> {
+        self.inner.upgrade().map(|inner| RenderHost { inner })
+    }
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
@@ -1226,7 +1244,7 @@ enum RenderState {
     RenderingDirty,
 }
 
-struct RenderHostInner<B: Backend, D: Dispatcher> {
+struct RenderHostInner<B: Backend + 'static, D: Dispatcher> {
     reconciler: RefCell<Reconciler<B>>,
     root: RefCell<Box<dyn Component>>,
     render_cx: RefCell<RenderCx>,
@@ -1246,9 +1264,13 @@ struct RenderHostInner<B: Backend, D: Dispatcher> {
     host_id: HostId,
 }
 
-impl<B: Backend, D: Dispatcher> Drop for RenderHostInner<B, D> {
+impl<B: Backend + 'static, D: Dispatcher> Drop for RenderHostInner<B, D> {
     fn drop(&mut self) {
         set_ui_rerender(self.host_id, None);
+        if let Some(id) = self.root_id.take() {
+            self.reconciler.get_mut().unmount(id);
+        }
+        self.render_cx.get_mut().run_cleanups();
     }
 }
 
@@ -1379,6 +1401,12 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
     pub fn clone_inner(&self) -> Self {
         Self {
             inner: Rc::clone(&self.inner),
+        }
+    }
+
+    pub fn downgrade(&self) -> WeakRenderHost<B, D> {
+        WeakRenderHost {
+            inner: Rc::downgrade(&self.inner),
         }
     }
 

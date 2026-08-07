@@ -9,6 +9,12 @@ use std::rc::Rc;
 #[derive(Clone)]
 pub struct CompositionHostHandle(windows_core::IInspectable);
 
+impl sealed::ElementHandle for CompositionHostHandle {
+    fn from_native(native: windows_core::IInspectable) -> Self {
+        Self(native)
+    }
+}
+
 impl CompositionHostHandle {
     /// Returns the host element's lifted composition compositor.
     pub fn compositor(&self) -> Result<windows_composition::Compositor> {
@@ -66,6 +72,10 @@ pub struct CompositionHost {
     pub modifiers: Modifiers,
     pub mounted: Option<Callback<Option<windows_core::IInspectable>>>,
     pub unmounted: Option<Callback<Option<windows_core::IInspectable>>>,
+}
+
+impl ElementRefExt for CompositionHost {
+    type Handle = CompositionHostHandle;
 }
 
 impl Default for CompositionHost {

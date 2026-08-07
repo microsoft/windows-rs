@@ -276,7 +276,7 @@ impl Harness {
             .expect("Harness::mount must be called on the UI thread");
         let host = RenderHost::new(WinUIBackend::new(), root, dispatcher);
 
-        let host_for_post = host.clone_inner();
+        let host_for_post = host.downgrade();
         let content = inner.content_area.clone();
         let last_attached: Rc<Cell<Option<windows_reactor::ControlId>>> = Rc::new(Cell::new(None));
         host.set_post_render(move |new_id| {
@@ -285,7 +285,10 @@ impl Harness {
             }
             match new_id {
                 Some(rid) => {
-                    if let Some(ui) = host_for_post.with_backend(|b| b.get_ui_element(rid)) {
+                    let Some(host) = host_for_post.upgrade() else {
+                        return;
+                    };
+                    if let Some(ui) = host.with_backend(|b| b.get_ui_element(rid)) {
                         let ui: UIElement = ui.cast().unwrap();
                         let _ = content
                             .cast::<crate::bindings::IBorder>()

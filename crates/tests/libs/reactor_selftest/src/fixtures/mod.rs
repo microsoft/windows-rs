@@ -3,6 +3,7 @@ pub mod backdrop;
 pub mod controls;
 pub mod controls_extended;
 pub mod dynamic;
+pub mod element_ref;
 pub mod error_boundary;
 pub mod event_detachment;
 pub mod grid_attached;

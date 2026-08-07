@@ -967,6 +967,50 @@ Removing `Element::Group` makes the former runtime-invalid cases unrepresentable
 - a fragment inserted into a single-child control;
 - a keyed fragment whose key would be discarded when flattened.
 
+### Typed element references
+
+`ElementRef<T>` provides identity-stable access to a mounted native element without retaining it
+after unmount. `RenderCx::use_element_ref` creates the reference once for a hook slot, and
+`ElementRefExt::element_ref` attaches it to a compatible concrete widget:
+
+```rust,ignore
+let input = cx.use_element_ref::<TextBoxHandle>();
+let focus_target = input.clone();
+
+vstack((
+    text_box("").element_ref(&input),
+    button("Focus").on_click(move || {
+        let _ = focus_target.focus();
+    }),
+))
+```
+
+The reconciler populates the shared reference after native creation, moves it when the attached
+reference changes during an in-place update, and clears it before native destruction. The public
+reference stores a typed handle only while mounted; it does not expose a permanent raw
+`IInspectable`.
+
+The attachment trait has an associated handle type and is sealed by the existing native capability
+boundary. A `TextBox` accepts `ElementRef<TextBoxHandle>`, while `Image`, `SwapChainPanel`, and
+`CompositionHost` accept their existing handle types. Attaching an incompatible reference does not
+compile.
+
+`ElementRef<TextBoxHandle>::focus` calls WinUI `UIElement.Focus` with
+`FocusState::Programmatic`. It returns `Ok(false)` when the element is not mounted or WinUI rejects
+the request, and preserves COM errors as `Err`. This follows the useful lifecycle behavior of the
+C# Reactor reference API without copying its untyped reference layer, runtime type checks, or
+event-dispatch machinery.
+
+Headless tests cover stable hook identity, mount, in-place reference replacement, removal, and
+pre-destroy clearing. The `ElementRef_TextBoxFocusAndClear` WinUI fixture verifies real focus and
+clearing after host replacement. The `element_ref` sample provides a direct visual focus check.
+
+The host-replacement fixture exposed an existing teardown leak: production and test post-render
+callbacks strongly captured their own `RenderHost`, forming an `Rc` cycle. Post-render and native
+theme/size callbacks now hold `WeakRenderHost`, and dropping the final strong host unmounts the
+native root and runs root hook cleanups. This is required for references, effects, controls, and
+backend state to be released when a window host is replaced or destroyed.
+
 ### Reconciliation proof
 
 One authoritative node-update path must own:
@@ -1064,8 +1108,8 @@ surface.
 7. Separate multi-child collections from mountable elements.
 8. Generate and audit capability implementations.
 9. Consolidate remaining mounted ownership only where measurements and invariants require it.
-10. Resume dependent features such as typed element references, window lifecycle APIs, and encoded
-    image resources.
+10. Resume dependent features such as typed element references (TextBox focus complete), window
+    lifecycle APIs, and encoded image resources.
 
 Do not combine the internal identity migration with the public breaking API change. Each stage
 must pass formatting, clippy, headless tests, the relevant WinUI selftests, benchmark comparison,

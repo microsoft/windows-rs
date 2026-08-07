@@ -6,6 +6,12 @@ use std::rc::Rc;
 #[derive(Clone)]
 pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
+impl sealed::ElementHandle for SwapChainPanelHandle {
+    fn from_native(native: windows_core::IInspectable) -> Self {
+        Self(native)
+    }
+}
+
 impl SwapChainPanelHandle {
     /// Wraps a native `SwapChainPanel` created outside [`swap_chain_panel()`].
     pub fn from_native(native: windows_core::IInspectable) -> Self {
@@ -60,6 +66,10 @@ pub struct SwapChainPanel {
     pub modifiers: Modifiers,
     pub mounted: Option<Callback<Option<windows_core::IInspectable>>>,
     pub unmounted: Option<Callback<Option<windows_core::IInspectable>>>,
+}
+
+impl ElementRefExt for SwapChainPanel {
+    type Handle = SwapChainPanelHandle;
 }
 
 impl Default for SwapChainPanel {
