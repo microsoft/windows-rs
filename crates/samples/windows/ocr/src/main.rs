@@ -6,8 +6,7 @@ fn main() -> windows::core::Result<()> {
         core::*,
     };
 
-    let mut message = std::env::current_dir().unwrap();
-    message.push("message.png");
+    let message = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("message.png");
 
     let file =
         StorageFile::GetFileFromPathAsync(&HSTRING::from(message.to_str().unwrap()))?.join()?;
