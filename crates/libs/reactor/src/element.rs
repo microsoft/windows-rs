@@ -186,8 +186,53 @@ pub fn group(children: Vec<Element>) -> Element {
 }
 
 /// Built-in widget variants live here so enum arms and dispatch stay aligned.
+macro_rules! impl_styling_capabilities {
+    ($variant:ident, Control) => {
+        impl_styling_capabilities!($variant, Padding);
+        impl_styling_capabilities!($variant, Background);
+        impl_styling_capabilities!($variant, TextStyle);
+    };
+    ($variant:ident, PaddedPanel) => {
+        impl_styling_capabilities!($variant, Padding);
+        impl_styling_capabilities!($variant, Background);
+    };
+    ($variant:ident, Panel) => {
+        impl_styling_capabilities!($variant, Background);
+    };
+    ($variant:ident, Text) => {
+        impl_styling_capabilities!($variant, Padding);
+        impl_styling_capabilities!($variant, TextStyle);
+    };
+    ($variant:ident, Border) => {
+        impl_styling_capabilities!($variant, Padding);
+        impl_styling_capabilities!($variant, Background);
+    };
+    ($variant:ident, Visual) => {};
+    ($variant:ident, Padding) => {
+        impl capability::Padding for $variant {
+            fn padding_modifiers_mut(&mut self) -> &mut Modifiers {
+                &mut self.modifiers
+            }
+        }
+    };
+    ($variant:ident, Background) => {
+        impl capability::Background for $variant {
+            fn background_modifiers_mut(&mut self) -> &mut Modifiers {
+                &mut self.modifiers
+            }
+        }
+    };
+    ($variant:ident, TextStyle) => {
+        impl capability::TextStyle for $variant {
+            fn text_style_modifiers_mut(&mut self) -> &mut Modifiers {
+                &mut self.modifiers
+            }
+        }
+    };
+}
+
 macro_rules! define_element {
-    ( $( $variant:ident ),* $(,)? ) => {
+    ( $( $variant:ident : $styling:ident ),* $(,)? ) => {
         /// Element tree node the reconciler can mount.
         #[derive(Clone, Debug, PartialEq, Default)]
         pub enum Element {
@@ -273,6 +318,8 @@ macro_rules! define_element {
                     &mut self.modifiers
                 }
             }
+
+            impl_styling_capabilities!($variant, $styling);
         )*
 
         impl Element {
@@ -317,63 +364,63 @@ macro_rules! define_element {
 }
 
 define_element! {
-    TextBlock,
-    Button,
-    StackPanel,
-    Border,
-    CheckBox,
-    TextBox,
-    Grid,
-    ScrollViewer,
-    ToggleSwitch,
-    Slider,
-    RadioButton,
-    NumberBox,
-    ProgressBar,
-    ProgressRing,
-    Expander,
-    HyperlinkButton,
-    InfoBar,
-    InfoBadge,
-    PersonPicture,
-    Shape,
-    Image,
-    TabView,
-    NavigationView,
-    TitleBar,
-    Pivot,
-    BreadcrumbBar,
-    PasswordBox,
-    RadioButtons,
-    ComboBox,
-    Canvas,
-    RichTextBlock,
-    ContentDialog,
-    Viewbox,
-    RepeatButton,
-    RatingControl,
-    ColorPicker,
-    DatePicker,
-    TimePicker,
-    CalendarDatePicker,
-    CalendarView,
-    ListBox,
-    DropDownButton,
-    SplitButton,
-    AutoSuggestBox,
-    SplitView,
-    MenuBar,
-    ScrollView,
-    TreeView,
-    CommandBar,
-    TeachingTip,
-    SelectorBar,
-    RichEditBox,
-    RelativePanel,
-    ToggleButton,
-    SwapChainPanel,
-    CompositionHost,
-    WebView2,
+    TextBlock: Text,
+    Button: Control,
+    StackPanel: PaddedPanel,
+    Border: Border,
+    CheckBox: Control,
+    TextBox: Control,
+    Grid: PaddedPanel,
+    ScrollViewer: Control,
+    ToggleSwitch: Control,
+    Slider: Control,
+    RadioButton: Control,
+    NumberBox: Control,
+    ProgressBar: Control,
+    ProgressRing: Control,
+    Expander: Control,
+    HyperlinkButton: Control,
+    InfoBar: Control,
+    InfoBadge: Control,
+    PersonPicture: Control,
+    Shape: Visual,
+    Image: Visual,
+    TabView: Control,
+    NavigationView: Control,
+    TitleBar: Control,
+    Pivot: Control,
+    BreadcrumbBar: Control,
+    PasswordBox: Control,
+    RadioButtons: Control,
+    ComboBox: Control,
+    Canvas: Panel,
+    RichTextBlock: Text,
+    ContentDialog: Control,
+    Viewbox: Visual,
+    RepeatButton: Control,
+    RatingControl: Control,
+    ColorPicker: Control,
+    DatePicker: Control,
+    TimePicker: Control,
+    CalendarDatePicker: Control,
+    CalendarView: Control,
+    ListBox: Control,
+    DropDownButton: Control,
+    SplitButton: Control,
+    AutoSuggestBox: Control,
+    SplitView: Control,
+    MenuBar: Control,
+    ScrollView: Control,
+    TreeView: Control,
+    CommandBar: Control,
+    TeachingTip: Control,
+    SelectorBar: Control,
+    RichEditBox: Control,
+    RelativePanel: Panel,
+    ToggleButton: Control,
+    SwapChainPanel: PaddedPanel,
+    CompositionHost: Visual,
+    WebView2: Visual,
 }
 
 macro_rules! non_widget_from_table {
@@ -476,50 +523,11 @@ pub fn can_skip_update(old: &Element, new: &Element) -> bool {
     }
 }
 
-macro_rules! simple_setter {
-    ($name:ident, $field:ident, $ty:ty) => {
-        fn $name(mut self, v: $ty) -> Self {
-            if let Some(m) = self.modifiers_mut() {
-                m.$field = Some(v);
-            }
-            self
-        }
-    };
-    ($name:ident, $field:ident, $ty:ty, into) => {
-        fn $name(mut self, v: impl Into<$ty>) -> Self {
-            if let Some(m) = self.modifiers_mut() {
-                m.$field = Some(v.into());
-            }
-            self
-        }
-    };
-}
-
-/// Builder-style styling, identity, and context modifiers.
+/// Builder-style identity and context modifiers.
 ///
-/// Accessibility, attached layout, input, layout, resource dictionary, tooltip, and visual methods
-/// use separate sealed capability traits.
+/// Native modifiers use separate sealed capability traits.
 pub trait ElementExt: Sized {
     fn modifiers_mut(&mut self) -> Option<&mut Modifiers>;
-
-    simple_setter!(padding, padding, Thickness, into);
-
-    fn background(mut self, v: impl Into<BrushBinding>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            apply_brush_binding(m, Prop::Background, v.into(), true);
-        }
-        self
-    }
-
-    fn foreground(mut self, v: impl Into<BrushBinding>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            apply_brush_binding(m, Prop::Foreground, v.into(), false);
-        }
-        self
-    }
-
-    simple_setter!(font_family, font_family, String, into);
-    simple_setter!(font_size, font_size, f64);
 
     fn with_key(self, key: impl Into<String>) -> Self;
 
@@ -550,6 +558,10 @@ pub(crate) mod capability {
         fn accessibility_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 
+    pub trait Background {
+        fn background_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
     pub trait Input {
         fn input_modifiers_mut(&mut self) -> &mut Modifiers;
     }
@@ -570,8 +582,16 @@ pub(crate) mod capability {
         fn layout_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 
+    pub trait Padding {
+        fn padding_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
     pub trait Resources {
         fn resource_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
+    pub trait TextStyle {
+        fn text_style_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 
     pub trait Tooltip {
@@ -582,6 +602,87 @@ pub(crate) mod capability {
         fn visual_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 }
+
+/// Background styling for controls, panels, and borders.
+///
+/// ```compile_fail
+/// use windows_reactor::{BackgroundExt, text_block};
+///
+/// let _ = text_block("Label").background("#202020");
+/// ```
+///
+/// ```compile_fail
+/// use windows_reactor::{BackgroundExt, Element, button};
+///
+/// let element: Element = button("Save").into();
+/// let _ = element.background("#202020");
+/// ```
+pub trait BackgroundExt: capability::Background + Sized {
+    fn background(mut self, value: impl Into<BrushBinding>) -> Self {
+        apply_brush_binding(
+            capability::Background::background_modifiers_mut(&mut self),
+            Prop::Background,
+            value.into(),
+            true,
+        );
+        self
+    }
+}
+
+impl<T: capability::Background> BackgroundExt for T {}
+
+/// Padding for controls, text blocks, borders, and panels that expose padding.
+///
+/// ```compile_fail
+/// use windows_reactor::{Image, PaddingExt};
+///
+/// let _ = Image::new("asset.png").padding(8.0);
+/// ```
+pub trait PaddingExt: capability::Padding + Sized {
+    fn padding(mut self, value: impl Into<Thickness>) -> Self {
+        capability::Padding::padding_modifiers_mut(&mut self).padding = Some(value.into());
+        self
+    }
+}
+
+impl<T: capability::Padding> PaddingExt for T {}
+
+/// Foreground and font styling for controls and text blocks.
+///
+/// ```compile_fail
+/// use windows_reactor::{TextStyleExt, border, text_block};
+///
+/// let _ = border(text_block("Panel")).font_size(16.0);
+/// ```
+///
+/// ```compile_fail
+/// use windows_reactor::{Shape, TextStyleExt};
+///
+/// let _ = Shape::rectangle().foreground("#ffffff");
+/// ```
+pub trait TextStyleExt: capability::TextStyle + Sized {
+    fn foreground(mut self, value: impl Into<BrushBinding>) -> Self {
+        apply_brush_binding(
+            capability::TextStyle::text_style_modifiers_mut(&mut self),
+            Prop::Foreground,
+            value.into(),
+            false,
+        );
+        self
+    }
+
+    fn font_family(mut self, value: impl Into<String>) -> Self {
+        capability::TextStyle::text_style_modifiers_mut(&mut self).font_family = Some(value.into());
+        self
+    }
+
+    fn font_size(mut self, value: f64) -> Self {
+        capability::TextStyle::text_style_modifiers_mut(&mut self).font_size = Some(value);
+        self
+    }
+}
+
+impl<T: capability::TextStyle> TextStyleExt for T {}
 
 /// UI Automation modifiers for concrete native widgets.
 ///

@@ -1,8 +1,8 @@
 use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
-use windows_reactor::ElementExt;
 use windows_reactor::Reconciler;
+use windows_reactor::{BackgroundExt, TextStyleExt};
 use windows_reactor::{BrushBinding, ThemeRef, tokens};
 use windows_reactor::{Color, Element};
 use windows_reactor::{ControlKind, Prop};
@@ -212,7 +212,7 @@ fn different_kinds_with_same_binding_are_different_cache_entries() {
     let mut r = fresh();
     let tree: Element = vstack((
         button("b").background(ThemeRef::Accent),
-        text_block("t").background(ThemeRef::Accent),
+        vstack((text_block("t"),)).background(ThemeRef::Accent),
     ))
     .into();
     let _ = r.reconcile(None, &tree, None, no_rerender());

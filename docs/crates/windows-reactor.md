@@ -131,10 +131,11 @@ Framework layout modifiers are available on concrete widget builders through `La
 `.margin(..)`, `.width(..)`, `.height(..)`, minimum/maximum dimensions, and horizontal/vertical
 alignment. Pointer, keyboard, capture, and drag/drop modifiers are available through `InputExt`.
 UI Automation properties use `AccessibilityExt`, tooltips use `TooltipExt`, and opacity and
-composition animations use `VisualExt`. Styling remains on `ElementExt` while its narrower
-capabilities are classified. Grid, Canvas, and RelativePanel child placement use `GridChildExt`,
-`CanvasChildExt`, and `RelativePanelChildExt`. Apply modifiers before converting the builder into
-`Element`. Spacing values use `Thickness` (with `Thickness::uniform(..)`).
+composition animations use `VisualExt`. Styling uses `PaddingExt`, `BackgroundExt`, and
+`TextStyleExt`, implemented only for widgets whose WinUI type supports the property. Grid, Canvas,
+and RelativePanel child placement use `GridChildExt`, `CanvasChildExt`, and
+`RelativePanelChildExt`. Apply modifiers before converting the builder into `Element`. Spacing
+values use `Thickness` (with `Thickness::uniform(..)`).
 
 `transition(enter, exit)` runs lifecycle animations when an element enters or leaves the WinUI
 visual tree. The logical Reactor element is removed synchronously; WinUI Composition retains its
@@ -540,7 +541,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
 | Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
-| Typed element API | Universal, visual, and attached-layout capabilities are typed |
+| Typed element API | Universal, visual, attached-layout, and styling capabilities are typed |
 | Full mounted ownership evaluation | Complete |
 
 ### Invariants
@@ -834,6 +835,18 @@ let element: Element = text_block("Faded").into();
 element.opacity(0.5);
 ```
 
+Styling is also limited to native types that expose each property:
+
+```rust,compile_fail
+# use windows_reactor::*;
+Image::new("asset.png").padding(8.0);
+```
+
+```rust,compile_fail
+# use windows_reactor::*;
+border(text_block("Panel")).font_size(16.0);
+```
+
 Apply capabilities before erasure:
 
 ```rust
@@ -844,6 +857,9 @@ let element: Element = button("Delete")
     .on_tapped(|| {})
     .automation_name("Delete item")
     .tooltip("Delete the selected item")
+    .padding(8.0)
+    .background(ThemeRef::Accent)
+    .foreground(ThemeRef::AccentText)
     .opacity(0.8)
     .grid_row(1)
     .into();
@@ -851,39 +867,46 @@ let element: Element = button("Delete")
 ```
 
 The widget enum declaration now emits `ElementExt`, `ResourceExt`, `LayoutExt`, `InputExt`,
-`AccessibilityExt`, `TooltipExt`, `VisualExt`, and the three attached-layout trait implementations
-from one widget list. This removed a duplicated list that had omitted 13 newer widgets, including
-`AutoSuggestBox`, date/time pickers, split buttons, and menu/list controls. Future capability traits
-must use the same declaration rather than maintaining parallel coverage tables.
+`AccessibilityExt`, `TooltipExt`, `VisualExt`, `PaddingExt`, `BackgroundExt`, `TextStyleExt`, and
+the three attached-layout trait implementations from one widget list. This removed a duplicated
+list that had omitted 13 newer widgets, including `AutoSuggestBox`, date/time pickers, split
+buttons, and menu/list controls. Future capability traits must use the same declaration rather than
+maintaining parallel coverage tables.
 
 The migrations updated tests and samples to retain concrete widgets while adding modifiers, then
 erase them only at insertion. The attached-layout migration found calls made after provider
 wrapping and helper functions that returned `Element` too early. Applying placement before
 `provide`, and returning concrete widget builders from helpers, makes those mistakes visible in the
-types. `TemplatedListBuilder` implements the attached-layout and visual traits directly because it
-represents a native list control outside the widget enum.
+types. `TemplatedListBuilder` implements the attached-layout, visual, and styling traits directly
+because it represents a native `Control` outside the widget enum.
 
 The attached-layout traits prove that the target is a concrete native element. They cannot prove
 that the element will later be inserted under the matching Grid, Canvas, or RelativePanel parent.
 
-The remaining modifier family is styling. The WinUI backend already exposes three different
-support sets:
+Styling uses reviewed categories on each authoritative widget declaration:
 
-| Modifier family | Native support |
-| --- | --- |
-| Padding | `Border`, `StackPanel`, `Grid`, text blocks, and `Control` descendants |
-| Background | `Border`, `Panel` descendants, and `Control` descendants |
-| Foreground and fonts | text blocks and `Control` descendants |
+| Category | Capabilities | Widgets |
+| --- | --- | --- |
+| `Control` | Padding, background, foreground, and fonts | WinUI `Control` descendants |
+| `PaddedPanel` | Padding and background | `Grid`, `StackPanel`, `SwapChainPanel` |
+| `Panel` | Background | `Canvas`, `RelativePanel` |
+| `Text` | Padding, foreground, and fonts | `TextBlock`, `RichTextBlock` |
+| `Border` | Padding and background | `Border` |
+| `Visual` | None | Shapes, images, composition hosts, `WebView2` |
 
-These traits cannot use the universal widget list. The authoritative widget declaration needs
-reviewed capability annotations, derived from WinUI inheritance with explicit Reactor overrides,
-before `padding`, `background`, `foreground`, `font_family`, and `font_size` leave `ElementExt`.
-Separate parallel widget lists would recreate the coverage drift already removed.
+The categories follow both WinUI inheritance and the interfaces used by the backend. They generate
+selective trait implementations without a second widget list. The `SwapChainPanel` category also
+exposed a dispatch gap: it inherits `Grid` padding, but the backend handled only the exact `Grid`
+variant. Padding now dispatches through its `IGrid` interface.
+
+Unsupported calls now fail to compile instead of reaching `diag::unhandled_modifier`. Styling
+methods also leave erased `Element` unavailable, so a modifier cannot silently target a component,
+provider, error boundary, group, or empty element.
 
 `with_key` and `provide` are structural operations rather than native visual modifiers. They remain
-valid on erased or logical elements and should move to structural APIs when the styling methods
-leave `ElementExt`. The target is for logical constructors to retain a concrete wrapper until
-insertion:
+valid on erased or logical elements and are now the only operations left on `ElementExt`. They
+should move to structural APIs before `ElementExt` is retired. The target is for logical
+constructors to retain a concrete wrapper until insertion:
 
 ```rust,ignore
 component(app, ()) -> ComponentElement<App>

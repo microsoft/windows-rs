@@ -2,8 +2,8 @@ use std::rc::Rc;
 use std::time::Duration;
 
 use test_reactor::{Op, RecordingBackend};
+use windows_reactor::BackgroundExt;
 use windows_reactor::Element;
-use windows_reactor::ElementExt;
 use windows_reactor::LayoutExt;
 use windows_reactor::Reconciler;
 use windows_reactor::VisualExt;

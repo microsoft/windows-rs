@@ -8,10 +8,11 @@
 //! 2. Prop transitions (set -> clear -> set) succeed without errors.
 //! 3. No `windows-reactor:` diagnostic warnings are emitted.
 
-use windows_reactor::{Canvas, Color, RelativePanel};
 use windows_reactor::{
-    CanvasChildExt, ElementExt, LayoutExt, RelativePanelChildExt, VisualExt, button, text_block,
+    BackgroundExt, CanvasChildExt, LayoutExt, PaddingExt, RelativePanelChildExt, TextStyleExt,
+    VisualExt, button, swap_chain_panel, text_block,
 };
+use windows_reactor::{Canvas, Color, RelativePanel};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -118,9 +119,9 @@ pub fn relative_panel_alignment(h: Harness) -> FixtureFuture {
 }
 
 /// Mount with background/foreground/padding set, then clear them, then
-/// restore them. Verifies the set/unset COM calls on IControl/IPanel/IBorder
-/// don't fail. Uses a Button since it implements IControl (which supports
-/// Background, Foreground, and Padding).
+/// restore them. Verifies the set/unset COM calls on IControl and IGrid don't
+/// fail. The Button covers Background, Foreground, and Padding through
+/// IControl. SwapChainPanel covers inherited Grid padding through IGrid.
 pub fn background_foreground_padding_transition(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         let cap = h.capture_stderr();
@@ -144,7 +145,17 @@ pub fn background_foreground_padding_transition(h: Harness) -> FixtureFuture {
             } else {
                 button("plain")
             };
-            vstack((btn, button("Toggle").on_click(move || set.call(!styled)))).into()
+            let panel = if styled {
+                swap_chain_panel().height(1.0).padding(10.0)
+            } else {
+                swap_chain_panel().height(1.0)
+            };
+            vstack((
+                btn,
+                panel,
+                button("Toggle").on_click(move || set.call(!styled)),
+            ))
+            .into()
         }));
         h.render().await;
 

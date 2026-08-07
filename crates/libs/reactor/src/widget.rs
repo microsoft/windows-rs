@@ -555,6 +555,24 @@ impl<T: 'static> capability::Visual for TemplatedListBuilder<T> {
     }
 }
 
+impl<T: 'static> capability::Padding for TemplatedListBuilder<T> {
+    fn padding_modifiers_mut(&mut self) -> &mut Modifiers {
+        &mut self.modifiers
+    }
+}
+
+impl<T: 'static> capability::Background for TemplatedListBuilder<T> {
+    fn background_modifiers_mut(&mut self) -> &mut Modifiers {
+        &mut self.modifiers
+    }
+}
+
+impl<T: 'static> capability::TextStyle for TemplatedListBuilder<T> {
+    fn text_style_modifiers_mut(&mut self) -> &mut Modifiers {
+        &mut self.modifiers
+    }
+}
+
 pub fn list_view<T: 'static, R: Into<Element>>(
     items: Vec<T>,
     view: impl Fn(&T, usize) -> R + 'static,

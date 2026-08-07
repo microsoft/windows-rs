@@ -1,6 +1,6 @@
-use windows_reactor::{Element, HorizontalAlignment, Thickness};
-use windows_reactor::{ElementExt, LayoutExt, VisualExt};
-use windows_reactor::{button, text_block, vstack};
+use windows_reactor::{BackgroundExt, ElementExt, LayoutExt, PaddingExt, TextStyleExt, VisualExt};
+use windows_reactor::{Canvas, Color, Element, HorizontalAlignment, Thickness};
+use windows_reactor::{border, button, text_block, vstack};
 
 #[test]
 fn margin_chains_on_concrete_builder() {
@@ -45,4 +45,36 @@ fn with_key_sets_on_element_blanket() {
     let e: Element = text_block("row").into();
     let e = e.with_key("row-x");
     assert_eq!(e.key(), Some("row-x"));
+}
+
+#[test]
+fn styling_capabilities_match_native_support() {
+    let control = button("go")
+        .padding(4.0)
+        .background(Color::rgb(1, 2, 3))
+        .foreground(Color::rgb(4, 5, 6))
+        .font_family("Segoe UI")
+        .font_size(16.0);
+    assert_eq!(control.modifiers.padding, Some(Thickness::uniform(4.0)));
+    assert_eq!(control.modifiers.font_size, Some(16.0));
+
+    let panel = vstack(()).padding(8.0).background(Color::rgb(7, 8, 9));
+    assert_eq!(panel.modifiers.padding, Some(Thickness::uniform(8.0)));
+    assert!(panel.modifiers.background.is_some());
+
+    let text = text_block("label")
+        .padding(2.0)
+        .foreground(Color::rgb(10, 11, 12))
+        .font_family("Consolas");
+    assert_eq!(text.modifiers.padding, Some(Thickness::uniform(2.0)));
+    assert_eq!(text.modifiers.font_family.as_deref(), Some("Consolas"));
+
+    let border = border(text_block("content"))
+        .padding(6.0)
+        .background(Color::rgb(13, 14, 15));
+    assert_eq!(border.modifiers.padding, Some(Thickness::uniform(6.0)));
+    assert!(border.modifiers.background.is_some());
+
+    let canvas = Canvas::new(std::iter::empty::<Element>()).background(Color::rgb(16, 17, 18));
+    assert!(canvas.modifiers.background.is_some());
 }

@@ -17,9 +17,9 @@ use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
 use windows_reactor::RichTextBlock;
 use windows_reactor::{
-    Border, Button, CanvasChildExt, CanvasPosition, CheckBox, Color, Element, Grid, GridChildExt,
-    GridLength, RelativePanelAlignment, RelativePanelChildExt, ScrollViewer, StackPanel, TextBlock,
-    TextBox, VisualExt, list_view,
+    BackgroundExt, Border, Button, CanvasChildExt, CanvasPosition, CheckBox, Color, Element, Grid,
+    GridChildExt, GridLength, PaddingExt, RelativePanelAlignment, RelativePanelChildExt,
+    ScrollViewer, StackPanel, TextBlock, TextBox, TextStyleExt, VisualExt, list_view,
 };
 use windows_reactor::{
     BreadcrumbBar, Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar,
@@ -164,6 +164,10 @@ fn templated_list_builder_retains_attached_layout_capabilities() {
         .canvas_left(40.0)
         .relative_align_left()
         .opacity(0.5)
+        .padding(6.0)
+        .background(Color::rgb(1, 2, 3))
+        .foreground(Color::rgb(4, 5, 6))
+        .font_size(14.0)
         .into();
     let modifiers = element.modifiers().unwrap();
     let grid = modifiers.grid.unwrap();
@@ -172,6 +176,10 @@ fn templated_list_builder_retains_attached_layout_capabilities() {
     assert_eq!(grid.row, 2);
     assert_eq!(grid.column, 3);
     assert_eq!(modifiers.opacity, Some(0.5));
+    assert_eq!(modifiers.padding, Some(6.0.into()));
+    assert_eq!(modifiers.font_size, Some(14.0));
+    assert!(modifiers.background.is_some());
+    assert!(modifiers.foreground.is_some());
     assert_eq!(attached.get::<CanvasPosition>().unwrap().left, 40.0);
     assert!(
         attached
