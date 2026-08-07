@@ -8,12 +8,12 @@ impl<B: Backend + 'static> Reconciler<B> {
     pub fn mount_component(&mut self, ce: &ComponentElement) -> Option<ControlId> {
         let node_id = self.allocate_logical_node_id();
         let parent = self.active_logical_parent.get();
-        let mut cx = RenderCx::new(Rc::clone(&self.request_rerender));
+        let mut cx = RenderCx::new(Rc::clone(&self.host.request_rerender));
         cx.set_context_stack(self.context_stack_handle());
-        cx.set_marshaller(self.marshaller.clone());
-        cx.set_host_id(self.host_id);
-        cx.set_inner_size_cell(Rc::clone(&self.inner_size));
-        cx.set_dpi_cell(Rc::clone(&self.dpi));
+        cx.set_marshaller(self.host.marshaller.clone());
+        cx.set_host_id(self.host.host_id);
+        cx.set_inner_size_cell(Rc::clone(&self.host.inner_size));
+        cx.set_dpi_cell(Rc::clone(&self.host.dpi));
         cx.begin_render();
         let rendered = ce.obj.render(&mut cx);
         cx.flush_effects();
@@ -53,7 +53,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         let Some(node_id) = self.current_component_node(id) else {
             return self.mount_component(new);
         };
-        let forced = self.forced_nodes.contains(&node_id);
+        let forced = self.pass.forced_nodes.contains(&node_id);
         let state_dirty = self
             .component_instances
             .get(&node_id)
@@ -82,8 +82,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         inst.render_cx
             .set_context_stack(self.context_stack_handle());
         inst.render_cx
-            .set_inner_size_cell(Rc::clone(&self.inner_size));
-        inst.render_cx.set_dpi_cell(Rc::clone(&self.dpi));
+            .set_inner_size_cell(Rc::clone(&self.host.inner_size));
+        inst.render_cx.set_dpi_cell(Rc::clone(&self.host.dpi));
         inst.render_cx.begin_render();
         let rendered = new.obj.render(&mut inst.render_cx);
         inst.render_cx.flush_effects();
@@ -203,8 +203,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             changed_ids.insert(old_id);
         }
 
-        let saved_nodes = self.forced_nodes.clone();
-        let saved_controls = self.forced_controls.clone();
+        let saved_nodes = self.pass.forced_nodes.clone();
+        let saved_controls = self.pass.forced_controls.clone();
         if !changed_ids.is_empty() {
             let affected = self.collect_affected_components(id, &changed_ids);
             if !affected.is_empty() {
@@ -218,8 +218,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             std::panic::catch_unwind(AssertUnwindSafe(|| self.update(&old.child, &new.child, id)));
         self.pop_provisions(pushed);
 
-        self.forced_nodes = saved_nodes;
-        self.forced_controls = saved_controls;
+        self.pass.forced_nodes = saved_nodes;
+        self.pass.forced_controls = saved_controls;
 
         match result {
             Ok(nid) => nid,
@@ -229,15 +229,18 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     fn push_provisions(&self, provisions: &[ContextProvision]) -> usize {
         for p in provisions {
-            self.context_stack
-                .push_raw_retain(p.context_id, p.value_type_id, Rc::clone(&p.value));
+            self.host.context_stack.push_raw_retain(
+                p.context_id,
+                p.value_type_id,
+                Rc::clone(&p.value),
+            );
         }
         provisions.len()
     }
 
     fn pop_provisions(&self, count: usize) {
         for _ in 0..count {
-            self.context_stack.pop_raw();
+            self.host.context_stack.pop_raw();
         }
     }
 

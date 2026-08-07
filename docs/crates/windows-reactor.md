@@ -524,9 +524,13 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Dirty descendant behind memoized widget root | Regression, fix, benchmark, and sample added |
 | Context subscriber behind memoized widget root | Regression and fix added |
 | Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
+| Path-scoped dirty traversal | Global force flag removed; reusable pass scratch added |
+| Reconciler state consolidation review | Complete; mounted ownership model planned |
+| Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
+| Native ownership consolidation | `MountedTree` now owns kind, children, header, and pane maps |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
 | Typed element API and fragments | Not started |
-| Full mounted ownership evaluation | Not started |
+| Full mounted ownership evaluation | In progress |
 
 ### Invariants
 
@@ -601,6 +605,95 @@ lifecycle, and cleanup rules.
 Transparent wrappers may project through arbitrary transparent descendants. Native insertion
 algorithms should carry a running projected index rather than repeatedly scanning preceding
 logical nodes.
+
+### Reconciler simplification
+
+The current `Reconciler` mixes five responsibilities in one struct:
+
+1. mounted tree identity and ownership;
+2. transient state for one reconciliation pass;
+3. host/window environment;
+4. widget-specific auxiliary state;
+5. diagnostics.
+
+This is more than a file-layout problem. Independent maps require every mount, replacement, and
+unmount path to remember the same set of cleanup operations. Header, pane, templated, custom, and
+error-boundary paths have already demonstrated how easily one map can be omitted.
+
+The target shape is:
+
+```rust,ignore
+struct Reconciler<B> {
+    backend: B,
+    tree: MountedTree,
+    pass: ReconcilePass,
+    host: HostContext,
+    stats: ReconcileStats,
+}
+```
+
+`MountedTree` should own node identity, parentage, native projection, children, secondary slots,
+and teardown. `ReconcilePass` should own only reusable transient scratch such as forced paths and
+keyed-diff buffers. `HostContext` should contain the dispatcher-facing rerender request,
+marshaller, host ID, size, DPI, and context environment. `ReconcileStats` should contain counters
+only.
+
+The existing side state should move as follows:
+
+| Current state | Intended owner |
+| --- | --- |
+| `children_mirror`, `id_kinds`, header, and pane maps | Mounted native node |
+| component instances and native projections | Mounted logical component node |
+| error fallback state | Error-boundary node |
+| custom handles | Custom node |
+| templated state, selection, reorder, and deferred rows | Templated-list node |
+| pre-unmount callback | Node lifecycle state |
+| forced nodes, forced controls, traversal scratch | `ReconcilePass` |
+| marshaller, host ID, size, DPI, rerender request | `HostContext` |
+
+Do not replace the maps with one large per-control struct containing every optional field. Most
+controls do not use headers, panes, templating, or custom lifecycle state. Use node-kind enums and
+allocate auxiliary state only for node kinds that need it.
+
+The WinUI backend also has a `parent_children` mirror because it converts Reactor's logical child
+indices to native visual indices while accounting for phantom controls. Do not merge that backend
+detail into `MountedTree` without first changing the backend contract. Two structures with
+different purposes are acceptable; two structures claiming to own the same lifecycle are not.
+
+#### C# Reactor comparison
+
+C# Reactor stores one `ComponentNode` per hidden native `Border`. The state setter captures that
+node directly, marks it `SelfTriggered`, and invokes the parent component's rerender callback.
+Dirty native ancestors are then found through WinUI's visual-parent relationship.
+
+This gives C# a simpler component identity lookup, but at the cost of one native XAML control per
+component. It also makes transparent components affect the native tree. Rust must not copy that
+tradeoff: it would increase allocation, measure/layout work, visual depth, and memory.
+
+The useful C# rules are:
+
+- a state setter marks its exact component node directly;
+- component render state is owned by that node;
+- dirty propagation follows one parent relationship;
+- teardown starts from the mounted ownership tree.
+
+The C# `Reconciler` as a whole is not simpler. It spans thousands of lines and contains component,
+error-boundary, navigation, pooling, hot-reload, animation, gesture, style, and registration state.
+Rust should copy the small node invariants, not its hidden controls or accumulated registries.
+
+#### Consolidation sequence
+
+1. Finish logical dirty-path behavior without a global force mode.
+2. Introduce `MountedTree` and `HostContext` wrappers around existing state without behavior
+   changes.
+3. Move native kind, children, header, and pane ownership into mounted native nodes.
+4. Move component, provider, error-boundary, and custom lifecycle into logical node kinds.
+5. Move templated rows and their callbacks into a templated node kind.
+6. Make recursive node teardown the only unmount path.
+7. Delete the replaced side maps after each migration rather than keeping compatibility mirrors.
+
+Every consolidation step must state which fields and special-case branches it deletes. A new
+abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
 ### Typed element API
 

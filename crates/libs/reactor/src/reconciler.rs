@@ -102,15 +102,50 @@ impl Drop for LogicalParentGuard {
     }
 }
 
+#[derive(Default)]
+struct ReconcilePass {
+    forced_nodes: rustc_hash::FxHashSet<LogicalNodeId>,
+    forced_controls: rustc_hash::FxHashSet<ControlId>,
+    control_path_stack: Vec<(ControlId, bool)>,
+}
+
+struct HostContext {
+    context_stack: Rc<ContextStack>,
+    marshaller: Option<UiMarshaller>,
+    host_id: HostId,
+    inner_size: Rc<Cell<WindowSize>>,
+    dpi: Rc<Cell<u32>>,
+    request_rerender: Rc<dyn Fn()>,
+}
+
+impl HostContext {
+    fn new() -> Self {
+        Self {
+            context_stack: Rc::new(ContextStack::new()),
+            marshaller: None,
+            host_id: HostId::next(),
+            inner_size: Rc::new(Cell::new(WindowSize::default())),
+            dpi: Rc::new(Cell::new(96_u32)),
+            request_rerender: Rc::new(|| {}),
+        }
+    }
+}
+
+#[derive(Default)]
+struct MountedTree {
+    children: FxHashMap<ControlId, Vec<ControlId>>,
+    kinds: FxHashMap<ControlId, ControlKind>,
+    headers: FxHashMap<ControlId, ControlId>,
+    panes: FxHashMap<ControlId, ControlId>,
+}
+
 /// Diff/apply engine that drives a [`Backend`] from successive [`Element`] trees.
 pub struct Reconciler<B: Backend> {
     pub backend: B,
     pub debug_elements_skipped: u64,
     pub debug_elements_diffed: u64,
     pub debug_ui_elements_created: u64,
-    pub children_mirror: FxHashMap<ControlId, Vec<ControlId>>,
-    pub id_kinds: FxHashMap<ControlId, ControlKind>,
-    pub context_stack: Rc<ContextStack>,
+    tree: MountedTree,
     component_instances: FxHashMap<LogicalNodeId, ComponentInstance>,
     // Logical components projecting to a native root, innermost first.
     components_by_control: FxHashMap<ControlId, ProjectedComponents>,
@@ -118,8 +153,7 @@ pub struct Reconciler<B: Backend> {
     next_logical_node_id: u64,
     pub appeared_listener_count: usize,
     pub disappeared_listener_count: usize,
-    forced_nodes: rustc_hash::FxHashSet<LogicalNodeId>,
-    forced_controls: rustc_hash::FxHashSet<ControlId>,
+    pass: ReconcilePass,
     pub error_boundary_fallbacks: rustc_hash::FxHashSet<ControlId>,
     pub templated_lists: FxHashMap<ControlId, TemplatedListState>,
     pub custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
@@ -130,13 +164,7 @@ pub struct Reconciler<B: Backend> {
     pub reorder_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<Vec<usize>>>>>>,
     /// Pre-unmount callbacks keyed by control id.
     pub unmount_callbacks: FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
-    pub header_elements: FxHashMap<ControlId, ControlId>,
-    pub pane_elements: FxHashMap<ControlId, ControlId>,
-    pub marshaller: Option<UiMarshaller>,
-    pub host_id: HostId,
-    pub inner_size: Rc<Cell<WindowSize>>,
-    pub dpi: Rc<Cell<u32>>,
-    pub request_rerender: Rc<dyn Fn()>,
+    host: HostContext,
 }
 
 pub struct ComponentInstance {
@@ -156,17 +184,14 @@ impl<B: Backend + 'static> Reconciler<B> {
             debug_elements_skipped: 0,
             debug_elements_diffed: 0,
             debug_ui_elements_created: 0,
-            children_mirror: FxHashMap::default(),
-            id_kinds: FxHashMap::default(),
-            context_stack: Rc::new(ContextStack::new()),
+            tree: MountedTree::default(),
             component_instances: FxHashMap::default(),
             components_by_control: FxHashMap::default(),
             active_logical_parent: Rc::new(Cell::new(None)),
             next_logical_node_id: 0,
             appeared_listener_count: 0,
             disappeared_listener_count: 0,
-            forced_nodes: rustc_hash::FxHashSet::default(),
-            forced_controls: rustc_hash::FxHashSet::default(),
+            pass: ReconcilePass::default(),
             error_boundary_fallbacks: rustc_hash::FxHashSet::default(),
             templated_lists: FxHashMap::default(),
             custom_handles: FxHashMap::default(),
@@ -174,24 +199,18 @@ impl<B: Backend + 'static> Reconciler<B> {
             selection_callbacks: FxHashMap::default(),
             reorder_callbacks: FxHashMap::default(),
             unmount_callbacks: FxHashMap::default(),
-            header_elements: FxHashMap::default(),
-            pane_elements: FxHashMap::default(),
             defer_templated_unmounts: false,
             deferred_unmounts: Vec::new(),
-            marshaller: None,
-            host_id: HostId::next(),
-            inner_size: Rc::new(Cell::new(WindowSize::default())),
-            dpi: Rc::new(Cell::new(96_u32)),
-            request_rerender: Rc::new(|| {}),
+            host: HostContext::new(),
         }
     }
 
     pub fn set_marshaller(&mut self, marshaller: Option<UiMarshaller>) {
-        self.marshaller = marshaller;
+        self.host.marshaller = marshaller;
     }
 
     pub fn set_host_id(&mut self, host_id: HostId) {
-        self.host_id = host_id;
+        self.host.host_id = host_id;
     }
 
     #[cfg(feature = "test")]
@@ -203,7 +222,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn context_stack_handle(&self) -> Rc<ContextStack> {
-        Rc::clone(&self.context_stack)
+        Rc::clone(&self.host.context_stack)
     }
 
     fn is_node_state_dirty(&self, node_id: LogicalNodeId) -> bool {
@@ -213,7 +232,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn is_control_forced(&self, id: ControlId) -> bool {
-        self.forced_controls.contains(&id)
+        self.pass.forced_controls.contains(&id)
     }
 
     pub fn reset_stats(&mut self) {
@@ -224,7 +243,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     #[cfg(feature = "test")]
     pub fn debug_forced_components_len(&self) -> usize {
-        self.forced_nodes.len()
+        self.pass.forced_nodes.len()
     }
 
     #[cfg(feature = "test")]
@@ -259,8 +278,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             let Some(node) = self.component_instances.get(&id) else {
                 break;
             };
-            self.forced_nodes.insert(id);
-            self.forced_controls.insert(node.native_root);
+            self.pass.forced_nodes.insert(id);
+            self.pass.forced_controls.insert(node.native_root);
             current = node.parent;
         }
     }
@@ -272,26 +291,28 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn expand_forced_control_paths(&mut self, root_id: ControlId) {
-        if self.forced_controls.is_empty() {
+        if self.pass.forced_controls.is_empty() {
             return;
         }
 
-        let mut paths = rustc_hash::FxHashSet::default();
-        let mut stack = vec![(root_id, false)];
-        while let Some((id, visited)) = stack.pop() {
+        self.pass.control_path_stack.clear();
+        self.pass.control_path_stack.push((root_id, false));
+        while let Some((id, visited)) = self.pass.control_path_stack.pop() {
             if !visited {
-                stack.push((id, true));
-                if let Some(children) = self.children_mirror.get(&id) {
-                    stack.extend(children.iter().rev().map(|child| (*child, false)));
+                self.pass.control_path_stack.push((id, true));
+                if let Some(children) = self.tree.children.get(&id) {
+                    self.pass
+                        .control_path_stack
+                        .extend(children.iter().rev().map(|child| (*child, false)));
                 }
-                if let Some(header) = self.header_elements.get(&id) {
-                    stack.push((*header, false));
+                if let Some(header) = self.tree.headers.get(&id) {
+                    self.pass.control_path_stack.push((*header, false));
                 }
-                if let Some(pane) = self.pane_elements.get(&id) {
-                    stack.push((*pane, false));
+                if let Some(pane) = self.tree.panes.get(&id) {
+                    self.pass.control_path_stack.push((*pane, false));
                 }
                 if let Some(state) = self.templated_lists.get(&id) {
-                    stack.extend(
+                    self.pass.control_path_stack.extend(
                         state
                             .rows
                             .iter()
@@ -302,30 +323,31 @@ impl<B: Backend + 'static> Reconciler<B> {
                 continue;
             }
 
-            let child_forced = self
-                .children_mirror
+            let child_forced = self.tree.children.get(&id).is_some_and(|children| {
+                children
+                    .iter()
+                    .any(|child| self.pass.forced_controls.contains(child))
+            }) || self
+                .tree
+                .headers
                 .get(&id)
-                .is_some_and(|children| children.iter().any(|child| paths.contains(child)))
+                .is_some_and(|header| self.pass.forced_controls.contains(header))
                 || self
-                    .header_elements
+                    .tree
+                    .panes
                     .get(&id)
-                    .is_some_and(|header| paths.contains(header))
-                || self
-                    .pane_elements
-                    .get(&id)
-                    .is_some_and(|pane| paths.contains(pane))
+                    .is_some_and(|pane| self.pass.forced_controls.contains(pane))
                 || self.templated_lists.get(&id).is_some_and(|state| {
                     state
                         .rows
                         .iter()
                         .flatten()
-                        .any(|row| paths.contains(&row.content_id))
+                        .any(|row| self.pass.forced_controls.contains(&row.content_id))
                 });
-            if self.forced_controls.contains(&id) || child_forced {
-                paths.insert(id);
+            if child_forced {
+                self.pass.forced_controls.insert(id);
             }
         }
-        self.forced_controls.extend(paths);
     }
 
     #[cfg(feature = "test")]
@@ -353,9 +375,9 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.selection_callbacks.remove(&id);
         self.reorder_callbacks.remove(&id);
         self.error_boundary_fallbacks.remove(&id);
-        self.children_mirror.remove(&id);
+        self.tree.children.remove(&id);
         self.custom_handles.remove(&id);
-        self.id_kinds.insert(id, kind);
+        self.tree.kinds.insert(id, kind);
         id
     }
 
@@ -441,7 +463,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         existing: Option<ControlId>,
         request_rerender: Rc<dyn Fn()>,
     ) -> Option<ControlId> {
-        self.request_rerender = request_rerender;
+        self.host.request_rerender = request_rerender;
         let result = match (existing, old) {
             (None, _) => self.mount(new),
             (Some(id), Some(old_el)) => {
@@ -613,11 +635,10 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             }
 
-            // Header/pane element subtrees are tracked outside children_mirror.
-            if let Some(hdr_id) = self.header_elements.remove(&node) {
+            if let Some(hdr_id) = self.tree.headers.remove(&node) {
                 self.unmount(hdr_id);
             }
-            if let Some(pane_id) = self.pane_elements.remove(&node) {
+            if let Some(pane_id) = self.tree.panes.remove(&node) {
                 self.unmount(pane_id);
             }
 
@@ -635,8 +656,8 @@ impl<B: Backend + 'static> Reconciler<B> {
                 handle.before_destroy(node, &mut self.backend);
             }
 
-            self.children_mirror.remove(&node);
-            self.id_kinds.remove(&node);
+            self.tree.children.remove(&node);
+            self.tree.kinds.remove(&node);
             self.backend.destroy(node);
         }
     }
@@ -645,7 +666,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut stack = vec![id];
         while let Some(node) = stack.pop() {
             out.push(node);
-            if let Some(children) = self.children_mirror.get(&node) {
+            if let Some(children) = self.tree.children.get(&node) {
                 for child in children.iter().rev() {
                     stack.push(*child);
                 }
@@ -654,12 +675,12 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
-        self.children_mirror.entry(parent).or_default().push(child);
+        self.tree.children.entry(parent).or_default().push(child);
         self.backend.append_child(parent, child);
     }
 
     pub fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
-        if let Some(list) = self.children_mirror.get_mut(&parent)
+        if let Some(list) = self.tree.children.get_mut(&parent)
             && index < list.len()
         {
             list.remove(index);
@@ -668,7 +689,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn replace_child_tracked(&mut self, parent: ControlId, index: usize, new: ControlId) {
-        if let Some(list) = self.children_mirror.get_mut(&parent)
+        if let Some(list) = self.tree.children.get_mut(&parent)
             && index < list.len()
         {
             list[index] = new;
@@ -680,7 +701,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         if from == to {
             return;
         }
-        if let Some(list) = self.children_mirror.get_mut(&parent)
+        if let Some(list) = self.tree.children.get_mut(&parent)
             && from < list.len()
             && to < list.len()
         {
@@ -691,14 +712,15 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn insert_child_tracked(&mut self, parent: ControlId, index: usize, child: ControlId) {
-        let list = self.children_mirror.entry(parent).or_default();
+        let list = self.tree.children.entry(parent).or_default();
         let clamped = index.min(list.len());
         list.insert(clamped, child);
         self.backend.insert_child(parent, clamped, child);
     }
 
     pub fn child_at(&self, parent: ControlId, i: usize) -> Option<ControlId> {
-        self.children_mirror
+        self.tree
+            .children
             .get(&parent)
             .and_then(|v| v.get(i).copied())
     }
@@ -913,7 +935,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         if map.is_empty() {
             return;
         }
-        let kind = match self.id_kinds.get(&id) {
+        let kind = match self.tree.kinds.get(&id) {
             Some(k) => *k,
             None => return,
         };
@@ -981,7 +1003,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.diff_opt_f64(id, Prop::FontSize, old.font_size, new.font_size);
 
         if old.theme_bindings != new.theme_bindings {
-            let kind = self.id_kinds.get(&id).copied();
+            let kind = self.tree.kinds.get(&id).copied();
             if let Some(kind) = kind {
                 let bindings: Vec<(Prop, ThemeRef)> = new
                     .theme_bindings
@@ -1083,7 +1105,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                         .copied(),
                 );
             }
-            if let Some(kids) = self.children_mirror.get(&id) {
+            if let Some(kids) = self.tree.children.get(&id) {
                 for k in kids {
                     stack.push(*k);
                 }
@@ -1114,11 +1136,11 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
-        self.inner_size = cell;
+        self.host.inner_size = cell;
     }
 
     pub fn set_dpi_cell(&mut self, cell: Rc<Cell<u32>>) {
-        self.dpi = cell;
+        self.host.dpi = cell;
     }
 
     pub fn force_context_subscribers(
@@ -1134,8 +1156,8 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn clear_forced_components(&mut self) {
-        self.forced_nodes.clear();
-        self.forced_controls.clear();
+        self.pass.forced_nodes.clear();
+        self.pass.forced_controls.clear();
     }
 }
 

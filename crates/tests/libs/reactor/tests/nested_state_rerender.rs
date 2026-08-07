@@ -9,8 +9,8 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    Component, Dispatcher, DispatcherQueuePriority, Element, Prop, PropValue, RenderCx, RenderHost,
-    SetState, TextBlock, component, grid, memo, scroll_viewer, text_block,
+    Component, Dispatcher, DispatcherQueuePriority, Element, Expander, Prop, PropValue, RenderCx,
+    RenderHost, SetState, TextBlock, component, grid, memo, scroll_viewer, text_block,
 };
 
 type Job = Box<dyn FnOnce()>;
@@ -430,5 +430,66 @@ fn deep_pass_through_components_keep_identity_and_cleanup_order() {
     assert_eq!(
         host.with_reconciler(|r| r.debug_logical_component_count()),
         0
+    );
+}
+
+struct HeaderLeaf {
+    setter_out: Rc<RefCell<Option<SetState<u64>>>>,
+    renders: Rc<Cell<u32>>,
+}
+
+impl Component for HeaderLeaf {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let (value, setter) = cx.use_state(0_u64);
+        *self.setter_out.borrow_mut() = Some(setter);
+        self.renders.set(self.renders.get() + 1);
+        text_block(format!("header-state-{value}")).into()
+    }
+}
+
+struct HeaderRoot {
+    setter_out: Rc<RefCell<Option<SetState<u64>>>>,
+    renders: Rc<Cell<u32>>,
+}
+
+impl Component for HeaderRoot {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        Expander::new(text_block("body"))
+            .header_content(component(
+                HeaderLeaf {
+                    setter_out: Rc::clone(&self.setter_out),
+                    renders: Rc::clone(&self.renders),
+                },
+                (),
+            ))
+            .expanded(true)
+            .into()
+    }
+}
+
+#[test]
+fn header_component_state_reaches_secondary_owned_subtree() {
+    let dispatcher = TestDispatcher::default();
+    let setter_out = Rc::new(RefCell::new(None));
+    let renders = Rc::new(Cell::new(0));
+    let host = RenderHost::new(
+        RecordingBackend::new(),
+        Box::new(HeaderRoot {
+            setter_out: Rc::clone(&setter_out),
+            renders: Rc::clone(&renders),
+        }),
+        dispatcher.clone(),
+    );
+    host.kick();
+    dispatcher.drain();
+
+    assert_eq!(renders.get(), 1);
+    setter_out.borrow().as_ref().unwrap().call(1);
+    dispatcher.drain();
+
+    assert_eq!(renders.get(), 2);
+    assert_eq!(
+        host.with_reconciler(|r| last_text(&r.backend.ops)),
+        Some("header-state-1".to_string())
     );
 }

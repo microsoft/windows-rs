@@ -11,13 +11,13 @@ impl<B: Backend + 'static> Reconciler<B> {
             && let Some(hdr_id) = self.mount(hdr)
         {
             self.backend.set_header_element(id, Some(hdr_id));
-            self.header_elements.insert(id, hdr_id);
+            self.tree.headers.insert(id, hdr_id);
         }
         if let Some(pane) = w.pane_element()
             && let Some(pane_id) = self.mount(pane)
         {
             self.backend.set_pane_element(id, Some(pane_id));
-            self.pane_elements.insert(id, pane_id);
+            self.tree.panes.insert(id, pane_id);
         }
         if let Some(cb) = w.on_mounted_callback() {
             cb.invoke(self.backend.get_native_element(id));
@@ -107,11 +107,11 @@ impl<B: Backend + 'static> Reconciler<B> {
             (None, Some(hdr)) => {
                 if let Some(hdr_id) = self.mount(hdr) {
                     self.backend.set_header_element(id, Some(hdr_id));
-                    self.header_elements.insert(id, hdr_id);
+                    self.tree.headers.insert(id, hdr_id);
                 }
             }
             (Some(_), None) => {
-                if let Some(hdr_id) = self.header_elements.remove(&id) {
+                if let Some(hdr_id) = self.tree.headers.remove(&id) {
                     self.backend
                         .set_header_element(id, Option::<ControlId>::None);
                     self.unmount(hdr_id);
@@ -119,29 +119,29 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
             (Some(old_el), Some(new_el)) => {
                 // Reconcile in-place when possible to preserve focus/state.
-                if let Some(hdr_id) = self.header_elements.get(&id).copied() {
+                if let Some(hdr_id) = self.tree.headers.get(&id).copied() {
                     if old_el.kind_matches(new_el) {
                         let new_id = self.update(old_el, new_el, hdr_id);
                         match new_id {
                             Some(nid) if nid != hdr_id => {
                                 self.backend.set_header_element(id, Some(nid));
-                                self.header_elements.insert(id, nid);
+                                self.tree.headers.insert(id, nid);
                             }
                             None => {
                                 self.backend
                                     .set_header_element(id, Option::<ControlId>::None);
-                                self.header_elements.remove(&id);
+                                self.tree.headers.remove(&id);
                             }
                             _ => {}
                         }
                         return;
                     }
-                    self.header_elements.remove(&id);
+                    self.tree.headers.remove(&id);
                     self.unmount(hdr_id);
                 }
                 if let Some(hdr_id) = self.mount(new_el) {
                     self.backend.set_header_element(id, Some(hdr_id));
-                    self.header_elements.insert(id, hdr_id);
+                    self.tree.headers.insert(id, hdr_id);
                 }
             }
         }
@@ -153,39 +153,39 @@ impl<B: Backend + 'static> Reconciler<B> {
             (None, Some(pane)) => {
                 if let Some(pane_id) = self.mount(pane) {
                     self.backend.set_pane_element(id, Some(pane_id));
-                    self.pane_elements.insert(id, pane_id);
+                    self.tree.panes.insert(id, pane_id);
                 }
             }
             (Some(_), None) => {
-                if let Some(pane_id) = self.pane_elements.remove(&id) {
+                if let Some(pane_id) = self.tree.panes.remove(&id) {
                     self.backend.set_pane_element(id, Option::<ControlId>::None);
                     self.unmount(pane_id);
                 }
             }
             (Some(old_el), Some(new_el)) => {
                 // Reconcile in-place when possible to preserve focus/state.
-                if let Some(pane_id) = self.pane_elements.get(&id).copied() {
+                if let Some(pane_id) = self.tree.panes.get(&id).copied() {
                     if old_el.kind_matches(new_el) {
                         let new_id = self.update(old_el, new_el, pane_id);
                         match new_id {
                             Some(nid) if nid != pane_id => {
                                 self.backend.set_pane_element(id, Some(nid));
-                                self.pane_elements.insert(id, nid);
+                                self.tree.panes.insert(id, nid);
                             }
                             None => {
                                 self.backend.set_pane_element(id, Option::<ControlId>::None);
-                                self.pane_elements.remove(&id);
+                                self.tree.panes.remove(&id);
                             }
                             _ => {}
                         }
                         return;
                     }
-                    self.pane_elements.remove(&id);
+                    self.tree.panes.remove(&id);
                     self.unmount(pane_id);
                 }
                 if let Some(pane_id) = self.mount(new_el) {
                     self.backend.set_pane_element(id, Some(pane_id));
-                    self.pane_elements.insert(id, pane_id);
+                    self.tree.panes.insert(id, pane_id);
                 }
             }
         }

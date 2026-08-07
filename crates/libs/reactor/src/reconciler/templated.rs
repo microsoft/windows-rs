@@ -77,8 +77,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         // so a burst of scroll events costs about one reconcile per frame.
         let queue_r = Rc::clone(&self.realization_queue);
         let queue_c = Rc::clone(&self.realization_queue);
-        let rerender_r = Rc::clone(&self.request_rerender);
-        let rerender_c = Rc::clone(&self.request_rerender);
+        let rerender_r = Rc::clone(&self.host.request_rerender);
+        let rerender_c = Rc::clone(&self.host.request_rerender);
         let list_id = id;
         let realize: Rc<dyn Fn(usize)> = Rc::new(move |row_idx: usize| {
             queue_r
@@ -512,7 +512,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                         && inst.last_obj.has_on_appeared()
                     {
                         inst.render_cx
-                            .set_context_stack(Rc::clone(&self.context_stack));
+                            .set_context_stack(Rc::clone(&self.host.context_stack));
                         inst.last_obj.invoke_appeared(&mut inst.render_cx);
                     }
                 }
@@ -532,7 +532,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                         && inst.last_obj.has_on_disappeared()
                     {
                         inst.render_cx
-                            .set_context_stack(Rc::clone(&self.context_stack));
+                            .set_context_stack(Rc::clone(&self.host.context_stack));
                         inst.last_obj.invoke_disappeared(&mut inst.render_cx);
                     }
                 }
@@ -545,7 +545,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut stack = vec![id];
         while let Some(node) = stack.pop() {
             out.push(node);
-            if let Some(children) = self.children_mirror.get(&node) {
+            if let Some(children) = self.tree.children.get(&node) {
                 for child in children.iter().rev() {
                     stack.push(*child);
                 }
