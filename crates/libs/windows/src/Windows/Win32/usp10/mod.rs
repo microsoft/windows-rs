@@ -296,13 +296,8 @@ impl SCRIPT_ANALYSIS {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SCRIPT_CACHE(pub *mut core::ffi::c_void);
-impl Default for SCRIPT_CACHE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_CHARPROP {
@@ -686,25 +681,15 @@ impl SCRIPT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SCRIPT_STRING_ANALYSIS(pub *mut core::ffi::c_void);
-impl Default for SCRIPT_STRING_ANALYSIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_TABDEF {
     pub cTabStops: i32,
     pub iScale: i32,
     pub pTabStops: *mut i32,
     pub iTabOrigin: i32,
-}
-impl Default for SCRIPT_TABDEF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCRIPT_TAG_UNKNOWN: i32 = 0;
 pub const SCRIPT_UNDEFINED: i32 = 0;
@@ -777,15 +762,10 @@ pub const SSA_PIDX: i32 = 268435456;
 pub const SSA_RTL: i32 = 256;
 pub const SSA_TAB: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
     pub cotfRecords: i32,
-}
-impl Default for TEXTRANGE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UNISCRIBE_OPENTYPE: i32 = 256;
 pub const USP_E_SCRIPT_NOT_IN_FONT: i32 = -2147220992;

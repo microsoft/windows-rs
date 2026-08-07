@@ -1,258 +1,141 @@
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::VARIANT_BOOL,
 }
-#[cfg(feature = "wtypes")]
-impl Default for CABOOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CABSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::BSTR,
 }
-impl Default for CABSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut super::BSTRBLOB,
 }
-#[cfg(feature = "wtypes")]
-impl Default for CABSTRBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAC {
     pub cElems: u32,
     pub pElems: *mut i8,
 }
-impl Default for CAC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut super::CLIPDATA,
 }
-#[cfg(feature = "wtypes")]
-impl Default for CACLIPDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::GUID,
 }
-impl Default for CACLSID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::CY,
 }
-#[cfg(feature = "wtypes")]
-impl Default for CACY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
 }
-impl Default for CADATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
 }
-impl Default for CADBL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::FILETIME,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CAFILETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
 }
-impl Default for CAFLT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
 }
-impl Default for CAH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
 }
-impl Default for CAI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
 }
-impl Default for CAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CALPSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PSTR,
 }
-impl Default for CALPSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CALPWSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PWSTR,
 }
-impl Default for CALPWSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut PROPVARIANT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for CAPROPVARIANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut super::SCODE,
 }
-#[cfg(feature = "wtypesbase")]
-impl Default for CASCODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
 }
-impl Default for CAUB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
 }
-impl Default for CAUH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
 }
-impl Default for CAUI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
-}
-impl Default for CAUL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPPROPVARIANT = *mut PROPVARIANT;
@@ -447,28 +330,16 @@ pub struct STATPROPSETSTG {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_sys::core::PWSTR,
     pub propid: super::PROPID,
     pub vt: super::VARTYPE,
 }
-#[cfg(feature = "wtypes")]
-impl Default for STATPROPSTG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_sys::core::GUID,
     pub pStream: *mut core::ffi::c_void,
-}
-#[cfg(feature = "objidlbase")]
-impl Default for VERSIONEDSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

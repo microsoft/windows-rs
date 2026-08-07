@@ -158,11 +158,6 @@ pub unsafe fn ORSetVirtualFlags(handle: ORHKEY, dwflags: u32) -> u32 {
     unsafe { ORSetVirtualFlags(handle, dwflags) }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ORHKEY(pub *mut core::ffi::c_void);
-impl Default for ORHKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PORHKEY = *mut ORHKEY;

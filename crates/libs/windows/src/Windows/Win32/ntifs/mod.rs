@@ -1106,18 +1106,13 @@ pub const AuditOpenObjectWithTransaction: SE_AUDIT_OPERATION = 4;
 pub const AuditPrivilegeObject: SE_AUDIT_OPERATION = 0;
 pub const AuditPrivilegeService: SE_AUDIT_OPERATION = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BASE_MCB {
     pub MaximumPairCount: u32,
     pub PairCount: u32,
     pub PoolType: u16,
     pub Flags: u16,
     pub Mapping: *mut core::ffi::c_void,
-}
-impl Default for BASE_MCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -1163,19 +1158,13 @@ pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: i32 = 1;
 pub const CC_AGGRESSIVE_UNMAP_BEHIND: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CC_ASYNC_READ_CONTEXT {
     pub CompletionRoutine: PASYNC_READ_COMPLETION_CALLBACK,
     pub Context: *mut core::ffi::c_void,
     pub Mdl: super::PMDL,
     pub RequestorMode: super::KPROCESSOR_MODE,
     pub NestingLevel: u32,
-}
-#[cfg(all(feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for CC_ASYNC_READ_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1443,16 +1432,10 @@ pub const FILE_CLEANUP_UNKNOWN: i32 = 0;
 pub const FILE_CLEANUP_WRONG_DEVICE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_COMPLETION_INFORMATION {
     pub Port: super::HANDLE,
     pub Key: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for FILE_COMPLETION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1962,7 +1945,7 @@ impl Default for FILE_LOCK {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_LOCK_INFO {
     pub StartingByte: i64,
     pub Length: i64,
@@ -1971,12 +1954,6 @@ pub struct FILE_LOCK_INFO {
     pub FileObject: super::PFILE_OBJECT,
     pub ProcessId: *mut core::ffi::c_void,
     pub EndingByte: i64,
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for FILE_LOCK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2094,15 +2071,10 @@ pub const FILE_PIPE_BYTE_STREAM_MODE: i32 = 0;
 pub const FILE_PIPE_BYTE_STREAM_TYPE: i32 = 0;
 pub const FILE_PIPE_CLIENT_END: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
     pub ClientSession: *mut core::ffi::c_void,
     pub ClientProcess: *mut core::ffi::c_void,
-}
-impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2118,15 +2090,10 @@ impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
     pub ClientSession: u64,
     pub ClientProcess: *mut core::ffi::c_void,
-}
-impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_PIPE_CLOSING_STATE: i32 = 4;
 pub const FILE_PIPE_COMPLETE_OPERATION: i32 = 1;
@@ -2562,18 +2529,12 @@ pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: i32 = 2;
 pub const FSRTL_ASYNC_CACHED_READ_TOP_LEVEL_IRP: isize = 7;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_AUXILIARY_BUFFER {
     pub Buffer: *mut core::ffi::c_void,
     pub Length: u32,
     pub Flags: u32,
     pub Mdl: super::PMDL,
-}
-#[cfg(feature = "usb")]
-impl Default for FSRTL_AUXILIARY_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FSRTL_AUXILIARY_FLAG_DEALLOCATE: i32 = 1;
 pub const FSRTL_CACHE_TOP_LEVEL_IRP: isize = 2;
@@ -2663,47 +2624,29 @@ pub const FSRTL_NTFS_STREAM_LEGAL: i32 = 20;
 pub const FSRTL_OLE_LEGAL: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_PER_FILEOBJECT_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
 }
-#[cfg(feature = "winnt")]
-impl Default for FSRTL_PER_FILEOBJECT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_PER_FILE_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
     pub FreeCallback: super::PFREE_FUNCTION,
 }
-#[cfg(all(feature = "wdm", feature = "winnt"))]
-impl Default for FSRTL_PER_FILE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_PER_STREAM_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
     pub FreeCallback: super::PFREE_FUNCTION,
-}
-#[cfg(all(feature = "wdm", feature = "winnt"))]
-impl Default for FSRTL_PER_STREAM_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -2889,16 +2832,10 @@ impl Default for FS_FILTER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_0 {
     pub EndingOffset: super::PLARGE_INTEGER,
     pub ResourceToRelease: *mut super::PERESOURCE,
-}
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for FS_FILTER_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
@@ -2918,7 +2855,7 @@ pub struct FS_FILTER_PARAMETERS_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_3 {
     pub Irp: super::PIRP,
     pub FileInformation: *mut core::ffi::c_void,
@@ -2926,27 +2863,15 @@ pub struct FS_FILTER_PARAMETERS_3 {
     pub FileInformationClass: super::FILE_INFORMATION_CLASS,
     pub CompletionStatus: windows_core::NTSTATUS,
 }
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for FS_FILTER_PARAMETERS_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
     pub Argument3: *mut core::ffi::c_void,
     pub Argument4: *mut core::ffi::c_void,
     pub Argument5: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for FS_FILTER_PARAMETERS_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FS_FILTER_QUERY_OPEN: u8 = 249;
 pub const FS_FILTER_RELEASE_FOR_CC_FLUSH: u8 = 250;
@@ -3392,15 +3317,10 @@ pub struct MCB {
 pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: i32 = 1;
 pub type MEMORY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
-}
-impl Default for MEMORY_RANGE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MMFLUSH_TYPE = i32;
 pub const MM_FORCE_CLOSED_DATA: i32 = 1;
@@ -3565,17 +3485,11 @@ impl Default for MSV1_0_LM20_CHALLENGE_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MUP_PROVIDER_INFORMATION {
     pub Level: u32,
     pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: super::PULONG,
-}
-#[cfg(feature = "minwindef")]
-impl Default for MUP_PROVIDER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MemoryBasicInformation: MEMORY_INFORMATION_CLASS = 0;
 pub const MemoryType64KPage: RTL_MEMORY_TYPE = 2;
@@ -3722,13 +3636,8 @@ pub const OPEN_REPARSE_POINT_RETURN_REPARSE_DATA_BUFFER: i32 = 128;
 pub const OPEN_REPARSE_POINT_TAG_ENCOUNTERED: i32 = 1;
 pub const OPEN_REPARSE_POINT_VERSION_EX: u32 = 2147483648;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OPLOCK(pub *mut core::ffi::c_void);
-impl Default for OPLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const OPLOCK_FLAG_BACK_OUT_ATOMIC_OPLOCK: i32 = 4;
 pub const OPLOCK_FLAG_BREAKING_FOR_SHARING_VIOLATION: i32 = 128;
 pub const OPLOCK_FLAG_CLOSING_DELETE_ON_CLOSE: i32 = 32;
@@ -3749,18 +3658,12 @@ pub const OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OPLOCK_NOTIFY_REASON = 0;
 pub const OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OPLOCK_NOTIFY_REASON = 1;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPLOCK_NOTIFY_PARAMS {
     pub NotifyReason: OPLOCK_NOTIFY_REASON,
     pub NotifyContext: *mut core::ffi::c_void,
     pub Irp: super::PIRP,
     pub Status: windows_core::NTSTATUS,
-}
-#[cfg(feature = "usb")]
-impl Default for OPLOCK_NOTIFY_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type OPLOCK_NOTIFY_REASON = i32;
 pub const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: i32 = 65536;
@@ -4064,13 +3967,8 @@ pub type POPEN_REPARSE_LIST = *mut OPEN_REPARSE_LIST;
 #[cfg(feature = "winnt")]
 pub type POPEN_REPARSE_LIST_ENTRY = *mut OPEN_REPARSE_LIST_ENTRY;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct POPLOCK(pub *mut *mut core::ffi::c_void);
-impl Default for POPLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type POPLOCK_FS_PREPOST_IRP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::IRP)>;
 #[cfg(feature = "usb")]
@@ -4119,14 +4017,9 @@ pub type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PREAD_LIST = *mut READ_LIST;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PREFETCH_OPEN_ECP_CONTEXT {
     pub Context: *mut core::ffi::c_void,
-}
-impl Default for PREFETCH_OPEN_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
@@ -4138,19 +4031,13 @@ pub struct PREFIX_TABLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: *mut Self,
     pub Links: super::RTL_SPLAY_LINKS,
     pub Prefix: super::PSTRING,
-}
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl Default for PREFIX_TABLE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PREFS_COMPRESSION_FORMATS = *mut REFS_COMPRESSION_FORMATS;
 pub type PREFS_DEALLOCATE_RANGES_ALLOCATOR = *mut REFS_DEALLOCATE_RANGES_ALLOCATOR;
@@ -4267,7 +4154,7 @@ pub struct QUERY_ON_CREATE_EA_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub RequestedClasses: u32,
     pub ClassesProcessed: u32,
@@ -4282,12 +4169,6 @@ pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub UsnInformation: QUERY_ON_CREATE_USN_INFORMATION,
     pub SecurityInformationRequested: super::SECURITY_INFORMATION,
     pub SecurityInformation: QUERY_ON_CREATE_SECURITY_INFORMATION,
-}
-#[cfg(all(feature = "wdm", feature = "winnt"))]
-impl Default for QUERY_ON_CREATE_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const QUERY_ON_CREATE_ECP_CONTEXT_COMMON_BUFFER_END: u32 = 136;
@@ -4364,7 +4245,7 @@ impl Default for QUERY_PATH_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_PATH_REQUEST_EX {
     pub pSecurityContext: super::PIO_SECURITY_CONTEXT,
     pub EaLength: u32,
@@ -4374,12 +4255,6 @@ pub struct QUERY_PATH_REQUEST_EX {
     pub EcpList: PECP_LIST,
     pub Silo: super::PESILO,
     pub Reserved: usize,
-}
-#[cfg(all(feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
-impl Default for QUERY_PATH_REQUEST_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5078,7 +4953,7 @@ pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_AUDIT_INFO {
     pub Size: u32,
     pub AuditType: super::AUDIT_EVENT_TYPE,
@@ -5092,12 +4967,6 @@ pub struct SE_AUDIT_INFO {
     pub OperationId: *mut super::LUID,
     pub ObjectCreation: bool,
     pub GenerateOnClose: bool,
-}
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-impl Default for SE_AUDIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type SE_AUDIT_OPERATION = i32;
 pub const SE_BACKUP_PRIVILEGES_CHECKED: i32 = 256;
@@ -5294,7 +5163,7 @@ pub struct UNICODE_PREFIX_TABLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
@@ -5302,12 +5171,6 @@ pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub CaseMatch: *mut Self,
     pub Links: super::RTL_SPLAY_LINKS,
     pub Prefix: super::PUNICODE_STRING,
-}
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
-impl Default for UNICODE_PREFIX_TABLE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UNINITIALIZE_CACHE_MAPS: i32 = 1;
 pub const USE_PRIMARY_PASSWORD: i32 = 1;

@@ -263,17 +263,12 @@ pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflow
 #[cfg(feature = "winnt")]
 pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::HANDLE, clifcctx: super::HANDLE, event: u32, subcode: super::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TC_GEN_FILTER {
     pub AddressType: u16,
     pub PatternSize: u32,
     pub Pattern: *mut core::ffi::c_void,
     pub Mask: *mut core::ffi::c_void,
-}
-impl Default for TC_GEN_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "qos")]

@@ -125,31 +125,19 @@ pub struct HIDD_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut core::ffi::c_void,
     pub size: u32,
     pub RingBufferSize: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for HIDD_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut core::ffi::c_void,
     pub size: u32,
     pub RingBufferSize: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for HIDD_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PHIDD_ATTRIBUTES = *mut HIDD_ATTRIBUTES;
 pub type PHIDD_CONFIGURATION = *mut HIDD_CONFIGURATION;

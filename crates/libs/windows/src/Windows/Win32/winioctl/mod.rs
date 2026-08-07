@@ -1549,16 +1549,11 @@ pub struct DISK_INT13_INFO {
     pub NumberDrives: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_LOGGING {
     pub Function: u8,
     pub BufferAddress: *mut core::ffi::c_void,
     pub BufferSize: u32,
-}
-impl Default for DISK_LOGGING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DISK_LOGGING_DUMP: i32 = 2;
 pub const DISK_LOGGING_START: i32 = 0;
@@ -1619,7 +1614,7 @@ impl Default for DISK_PERFORMANCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_RECORD {
     pub ByteOffset: i64,
     pub StartTime: i64,
@@ -1628,11 +1623,6 @@ pub struct DISK_RECORD {
     pub NumberOfBytes: u32,
     pub DeviceNumber: u8,
     pub ReadRequest: bool,
-}
-impl Default for DISK_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DLT: STORAGE_MEDIA_TYPE = 39;
 pub const DMI: STORAGE_MEDIA_TYPE = 48;

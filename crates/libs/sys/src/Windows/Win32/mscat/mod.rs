@@ -77,7 +77,7 @@ impl Default for CATALOG_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
@@ -86,14 +86,9 @@ pub struct CRYPTCATATTRIBUTE {
     pub pbValue: *mut u8,
     pub dwReserved: u32,
 }
-impl Default for CRYPTCATATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTCATCDF {
     pub cbStruct: u32,
     pub hFile: super::HANDLE,
@@ -103,15 +98,9 @@ pub struct CRYPTCATCDF {
     pub pwszResultDir: windows_sys::core::PWSTR,
     pub hCATStore: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
-impl Default for CRYPTCATCDF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
@@ -125,15 +114,9 @@ pub struct CRYPTCATMEMBER {
     pub sEncodedIndirectData: super::CRYPT_ATTR_BLOB,
     pub sEncodedMemberInfo: super::CRYPT_ATTR_BLOB,
 }
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-impl Default for CRYPTCATMEMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTCATSTORE {
     pub cbStruct: u32,
     pub dwPublicVersion: u32,
@@ -145,12 +128,6 @@ pub struct CRYPTCATSTORE {
     pub hAttrs: super::HANDLE,
     pub hCryptMsg: super::HCRYPTMSG,
     pub hSorted: super::HANDLE,
-}
-#[cfg(all(feature = "wincrypt", feature = "winnt"))]
-impl Default for CRYPTCATSTORE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: i32 = 1;
 pub const CRYPTCAT_ADDCATALOG_NONE: i32 = 0;

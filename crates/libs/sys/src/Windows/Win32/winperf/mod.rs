@@ -17,7 +17,7 @@ pub const PERF_COUNTER_BULK_COUNT: i32 = 272696576;
 pub const PERF_COUNTER_COUNTER: i32 = 272696320;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -29,12 +29,6 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterType: u32,
     pub CounterSize: u32,
     pub CounterOffset: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for PERF_COUNTER_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -138,7 +132,7 @@ pub const PERF_NUMBER_HEX: i32 = 0;
 pub const PERF_OBJECT_TIMER: i32 = 2097152;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -154,12 +148,6 @@ pub struct PERF_OBJECT_TYPE {
     pub CodePage: u32,
     pub PerfTime: i64,
     pub PerfFreq: i64,
-}
-#[cfg(target_arch = "x86")]
-impl Default for PERF_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]

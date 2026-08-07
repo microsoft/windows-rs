@@ -36,15 +36,10 @@ impl DXCoreAdapterPreference {
     pub const HighPerformance: Self = Self(2);
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterProcessSetQueryInput {
     pub arraySize: u32,
     pub processIds: *mut u32,
-}
-impl Default for DXCoreAdapterProcessSetQueryInput {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -93,16 +88,11 @@ impl DXCoreAdapterState {
     pub const SingleAdapterHybridMode: Self = Self(11);
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreEngineNamePropertyInput {
     pub adapterEngineIndex: DXCoreAdapterEngineIndex,
     pub engineNameLength: u32,
     pub engineName: *mut u16,
-}
-impl Default for DXCoreEngineNamePropertyInput {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

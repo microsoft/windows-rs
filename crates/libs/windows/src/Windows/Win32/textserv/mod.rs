@@ -19,15 +19,10 @@ pub const CARET_NULL: CARET_FLAGS = 64;
 pub const CARET_ROTATE90: CARET_FLAGS = 128;
 pub const CARET_RTL: CARET_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGENOTIFY {
     pub dwChangeType: u32,
     pub pvCookieData: *mut core::ffi::c_void,
-}
-impl Default for CHANGENOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CHANGETYPE = i32;
 pub const CN_GENERIC: CHANGETYPE = 0;

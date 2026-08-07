@@ -465,15 +465,10 @@ pub const CBA_SYMBOLS_UNLOADED: i32 = 4;
 pub const CBA_UPDATE_STATUS_BAR: i32 = 1342177280;
 pub const CBA_XML_LOG: u32 = 2415919104;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: windows_sys::core::PCWSTR,
     pub pSymbolPathNonExist: windows_sys::core::PCWSTR,
-}
-impl Default for DBGHELP_DATA_REPORT_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DBHHEADER_CVMISC: i32 = 2;
 pub const DBHHEADER_DEBUGDIRS: i32 = 1;
@@ -508,44 +503,28 @@ pub const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
 pub const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_CBA_EVENT {
     pub severity: u32,
     pub code: u32,
     pub desc: super::PCHAR,
     pub object: *mut core::ffi::c_void,
 }
-#[cfg(feature = "winnt")]
-impl Default for IMAGEHLP_CBA_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_CBA_EVENTW {
     pub severity: u32,
     pub code: u32,
     pub desc: windows_sys::core::PCWSTR,
     pub object: *mut core::ffi::c_void,
 }
-impl Default for IMAGEHLP_CBA_EVENTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: u64,
     pub buf: *mut core::ffi::c_void,
     pub bytes: u32,
     pub bytesread: *mut u32,
-}
-impl Default for IMAGEHLP_CBA_READ_MEMORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type IMAGEHLP_CONTEXT = core::ffi::c_void;
 #[repr(C)]
@@ -608,37 +587,26 @@ impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
     pub Symbol: PIMAGEHLP_SYMBOL,
     pub SelectedSymbol: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Default for IMAGEHLP_DUPLICATE_SYMBOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
     pub Symbol: PIMAGEHLP_SYMBOL64,
     pub SelectedSymbol: u32,
 }
-impl Default for IMAGEHLP_DUPLICATE_SYMBOL64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type IMAGEHLP_EXTENDED_OPTIONS = i32;
 pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "minwindef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: u32,
     pub Flags: u32,
@@ -659,12 +627,6 @@ pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub NumReqsValid: u32,
     pub ReqsValid: super::PULONG64,
 }
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
-impl Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: i32 = 1;
 pub type IMAGEHLP_HD_TYPE = i32;
 #[repr(C)]
@@ -677,7 +639,7 @@ pub struct IMAGEHLP_JIT_SYMBOLMAP {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -685,16 +647,9 @@ pub struct IMAGEHLP_LINE {
     pub FileName: super::PCHAR,
     pub Address: u32,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for IMAGEHLP_LINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_LINE64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -702,16 +657,10 @@ pub struct IMAGEHLP_LINE64 {
     pub FileName: super::PCHAR,
     pub Address: u64,
 }
-#[cfg(feature = "winnt")]
-impl Default for IMAGEHLP_LINE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_LINEW {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -719,26 +668,14 @@ pub struct IMAGEHLP_LINEW {
     pub FileName: super::PCHAR,
     pub Address: u64,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for IMAGEHLP_LINEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEHLP_LINEW64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
     pub LineNumber: u32,
     pub FileName: windows_sys::core::PWSTR,
     pub Address: u64,
-}
-impl Default for IMAGEHLP_LINEW64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1131,7 +1068,7 @@ impl Default for KDHELP64 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_sys::core::PSTR,
     pub hFile: super::HANDLE,
@@ -1148,17 +1085,10 @@ pub struct LOADED_IMAGE {
     pub Links: super::LIST_ENTRY,
     pub SizeOfImage: u32,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LOADED_IMAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_sys::core::PSTR,
     pub hFile: super::HANDLE,
@@ -1174,13 +1104,6 @@ pub struct LOADED_IMAGE {
     pub Version: u8,
     pub Links: super::LIST_ENTRY,
     pub SizeOfImage: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LOADED_IMAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub type LPADDRESS = *mut ADDRESS;
@@ -1203,18 +1126,13 @@ pub struct MODLOAD_CVMISC {
     pub cImage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MODLOAD_DATA {
     pub ssize: u32,
     pub ssig: u32,
     pub data: *mut core::ffi::c_void,
     pub size: u32,
     pub flags: u32,
-}
-impl Default for MODLOAD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1425,27 +1343,16 @@ pub const SLMFLAG_NO_SYMBOLS: i32 = 4;
 pub const SLMFLAG_VIRTUAL: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOURCEFILE {
     pub ModBase: u64,
     pub FileName: super::PCHAR,
 }
-#[cfg(feature = "winnt")]
-impl Default for SOURCEFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOURCEFILEW {
     pub ModBase: u64,
     pub FileName: windows_sys::core::PWSTR,
-}
-impl Default for SOURCEFILEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

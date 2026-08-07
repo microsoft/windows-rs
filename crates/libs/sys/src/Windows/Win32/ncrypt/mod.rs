@@ -130,7 +130,7 @@ pub const NCRYPT_CIPHER_OPERATION: i32 = 1;
 pub const NCRYPT_CIPHER_OTHER_PADDING_FLAG: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -138,12 +138,6 @@ pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbIV: u32,
     pub pbOtherInfo: super::PUCHAR,
     pub cbOtherInfo: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for NCRYPT_CIPHER_PADDING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT: i32 = 3;
 pub const NCRYPT_CLAIM_AUTHORITY_ONLY: i32 = 1;
@@ -224,19 +218,13 @@ pub const NCRYPT_KEY_ACCESS_POLICY_VERSION: i32 = 1;
 pub const NCRYPT_KEY_ATTEST_MAGIC: i32 = 1146110283;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pbKeyBlob: super::PUCHAR,
     pub cbKeyBlob: u32,
     pub pbKeyAuth: super::PUCHAR,
     pub cbKeyAuth: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for NCRYPT_KEY_ATTEST_PADDING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -506,18 +494,13 @@ pub const NCRYPT_UI_APPCONTAINER_ACCESS_MEDIUM_FLAG: i32 = 8;
 pub const NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG: i32 = 4;
 pub const NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NCRYPT_UI_POLICY {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub pszCreationTitle: windows_sys::core::PCWSTR,
     pub pszFriendlyName: windows_sys::core::PCWSTR,
     pub pszDescription: windows_sys::core::PCWSTR,
-}
-impl Default for NCRYPT_UI_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NCRYPT_UI_POLICY_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("UI Policy");
 pub const NCRYPT_UI_PROTECT_KEY_FLAG: i32 = 1;
@@ -558,18 +541,13 @@ pub struct NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING {
 pub const NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING_CURRENT_VERSION: i32 = 0;
 pub const NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING_V0: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
     pub ulKeyFlags: u32,
     pub pszSignatureHashAlg: windows_sys::core::PCWSTR,
     pub ulPaddingScheme: u32,
     pub pszPaddingHashAlg: windows_sys::core::PCWSTR,
     pub ulPaddingSalt: u32,
-}
-impl Default for NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -612,45 +590,30 @@ pub const NCRYPT_VERSION_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core
 pub const NCRYPT_WINDOW_HANDLE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("HWND Handle");
 pub const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: i32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NCryptAlgorithmName {
     pub pszName: windows_sys::core::PWSTR,
     pub dwClass: u32,
     pub dwAlgOperations: u32,
     pub dwFlags: u32,
 }
-impl Default for NCryptAlgorithmName {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "bcrypt")]
 pub type NCryptBuffer = super::BCryptBuffer;
 #[cfg(feature = "bcrypt")]
 pub type NCryptBufferDesc = super::BCryptBufferDesc;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NCryptKeyName {
     pub pszName: windows_sys::core::PWSTR,
     pub pszAlgid: windows_sys::core::PWSTR,
     pub dwLegacyKeySpec: u32,
     pub dwFlags: u32,
 }
-impl Default for NCryptKeyName {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NCryptProviderName {
     pub pszName: windows_sys::core::PWSTR,
     pub pszComment: windows_sys::core::PWSTR,
-}
-impl Default for NCryptProviderName {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PFN_NCRYPT_ALLOC = Option<unsafe extern "system" fn(cbsize: usize) -> *mut core::ffi::c_void>;
 pub type PFN_NCRYPT_FREE = Option<unsafe extern "system" fn(pv: *const core::ffi::c_void)>;

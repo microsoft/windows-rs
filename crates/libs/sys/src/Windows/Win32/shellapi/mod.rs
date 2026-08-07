@@ -132,7 +132,7 @@ pub const ABS_AUTOHIDE: i32 = 1;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPBARDATA {
     pub cbSize: u32,
     pub hWnd: super::HWND,
@@ -140,18 +140,11 @@ pub struct APPBARDATA {
     pub uEdge: u32,
     pub rc: super::RECT,
     pub lParam: super::LPARAM,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for APPBARDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPBARDATA {
     pub cbSize: u32,
     pub hWnd: super::HWND,
@@ -159,13 +152,6 @@ pub struct APPBARDATA {
     pub uEdge: u32,
     pub rc: super::RECT,
     pub lParam: super::LPARAM,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for APPBARDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ASSOCCLASS = i32;
 pub const ASSOCCLASS_APP_KEY: ASSOCCLASS = 5;
@@ -183,108 +169,66 @@ pub const ASSOCCLASS_SYSTEM_STR: ASSOCCLASS = 7;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::HKEY,
     pub pszClass: windows_sys::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
-impl Default for ASSOCIATIONELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::HKEY,
     pub pszClass: windows_sys::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
-impl Default for ASSOCIATIONELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type DRAGINFO = DRAGINFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::POINT,
     pub fNC: windows_sys::core::BOOL,
     pub lpFileList: super::PZZSTR,
     pub grfKeyState: u32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for DRAGINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::POINT,
     pub fNC: windows_sys::core::BOOL,
     pub lpFileList: super::PZZSTR,
     pub grfKeyState: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for DRAGINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::POINT,
     pub fNC: windows_sys::core::BOOL,
     pub lpFileList: super::PZZWSTR,
     pub grfKeyState: u32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for DRAGINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::POINT,
     pub fNC: windows_sys::core::BOOL,
     pub lpFileList: super::PZZWSTR,
     pub grfKeyState: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for DRAGINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type FILEOP_FLAGS = u16;
 pub const FOF_ALLOWUNDO: i32 = 64;
@@ -336,16 +280,11 @@ pub const NCM_GETADDRESS: i32 = 1025;
 pub const NCM_GETALLOWTYPE: i32 = 1027;
 pub const NCM_SETALLOWTYPE: i32 = 1026;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NC_ADDRESS {
     pub pAddrInfo: *mut NET_ADDRESS_INFO_,
     pub PortNumber: u16,
     pub PrefixLength: u8,
-}
-impl Default for NC_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -596,36 +535,22 @@ pub const NOTIFYICONDATA_V3_SIZE: i32 = 520;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::HWND,
     pub uID: u32,
     pub guidItem: windows_sys::core::GUID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for NOTIFYICONIDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::HWND,
     pub uID: u32,
     pub guidItem: windows_sys::core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for NOTIFYICONIDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NOTIFYICON_VERSION: i32 = 3;
 pub const NOTIFYICON_VERSION_4: i32 = 4;
@@ -635,67 +560,43 @@ pub const OFFLINE_STATUS_REMOTE: i32 = 2;
 pub type OPEN_PRINTER_PROPS_INFO = OPEN_PRINTER_PROPS_INFOA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
     pub pszSheetName: windows_sys::core::PSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: windows_sys::core::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl Default for OPEN_PRINTER_PROPS_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
     pub pszSheetName: windows_sys::core::PSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: windows_sys::core::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for OPEN_PRINTER_PROPS_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
     pub pszSheetName: windows_sys::core::PWSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: windows_sys::core::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl Default for OPEN_PRINTER_PROPS_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
     pub pszSheetName: windows_sys::core::PWSTR,
     pub uSheetIndex: u32,
     pub dwFlags: u32,
     pub bModal: windows_sys::core::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for OPEN_PRINTER_PROPS_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PAPPBARDATA = *mut APPBARDATA;
@@ -773,7 +674,7 @@ pub const SE_ERR_SHARE: i32 = 26;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -788,18 +689,11 @@ pub struct SHCREATEPROCESSINFOW {
     pub dwCreationFlags: u32,
     pub lpStartupInfo: super::LPSTARTUPINFOW,
     pub lpProcessInformation: super::LPPROCESS_INFORMATION,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-impl Default for SHCREATEPROCESSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -814,13 +708,6 @@ pub struct SHCREATEPROCESSINFOW {
     pub dwCreationFlags: u32,
     pub lpStartupInfo: super::LPSTARTUPINFOW,
     pub lpProcessInformation: super::LPPROCESS_INFORMATION,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-impl Default for SHCREATEPROCESSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub type SHELLEXECUTEINFO = SHELLEXECUTEINFOA;
@@ -1078,7 +965,7 @@ pub type SHFILEOPSTRUCT = SHFILEOPSTRUCTA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::HWND,
     pub wFunc: u32,
@@ -1088,18 +975,11 @@ pub struct SHFILEOPSTRUCTA {
     pub fAnyOperationsAborted: windows_sys::core::BOOL,
     pub hNameMappings: *mut core::ffi::c_void,
     pub lpszProgressTitle: windows_sys::core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for SHFILEOPSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::HWND,
     pub wFunc: u32,
@@ -1109,18 +989,11 @@ pub struct SHFILEOPSTRUCTA {
     pub fAnyOperationsAborted: windows_sys::core::BOOL,
     pub hNameMappings: *mut core::ffi::c_void,
     pub lpszProgressTitle: windows_sys::core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for SHFILEOPSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::HWND,
     pub wFunc: u32,
@@ -1130,18 +1003,11 @@ pub struct SHFILEOPSTRUCTW {
     pub fAnyOperationsAborted: windows_sys::core::BOOL,
     pub hNameMappings: *mut core::ffi::c_void,
     pub lpszProgressTitle: windows_sys::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for SHFILEOPSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::HWND,
     pub wFunc: u32,
@@ -1151,13 +1017,6 @@ pub struct SHFILEOPSTRUCTW {
     pub fAnyOperationsAborted: windows_sys::core::BOOL,
     pub hNameMappings: *mut core::ffi::c_void,
     pub lpszProgressTitle: windows_sys::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for SHFILEOPSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHGFI_ADDOVERLAYS: i32 = 32;
 pub const SHGFI_ATTRIBUTES: i32 = 2048;
@@ -1200,63 +1059,39 @@ pub const SHIL_SYSSMALL: i32 = 3;
 pub type SHNAMEMAPPING = SHNAMEMAPPINGA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_sys::core::PSTR,
     pub pszNewPath: windows_sys::core::PSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SHNAMEMAPPINGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_sys::core::PSTR,
     pub pszNewPath: windows_sys::core::PSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SHNAMEMAPPINGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_sys::core::PWSTR,
     pub pszNewPath: windows_sys::core::PWSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SHNAMEMAPPINGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_sys::core::PWSTR,
     pub pszNewPath: windows_sys::core::PWSTR,
     pub cchOldPath: i32,
     pub cchNewPath: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SHNAMEMAPPINGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]

@@ -747,7 +747,7 @@ pub const AVICOMPRESSF_INTERLEAVE: i32 = 1;
 pub const AVICOMPRESSF_KEYFRAMES: i32 = 4;
 pub const AVICOMPRESSF_VALID: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AVICOMPRESSOPTIONS {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -760,11 +760,6 @@ pub struct AVICOMPRESSOPTIONS {
     pub lpParms: *mut core::ffi::c_void,
     pub cbParms: u32,
     pub dwInterleaveEvery: u32,
-}
-impl Default for AVICOMPRESSOPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const AVIERR_BADFLAGS: i32 = -2147205015;
 pub const AVIERR_BADFORMAT: i32 = -2147205018;
@@ -988,17 +983,11 @@ pub type CAPERRORCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::HWND,
 pub type CAPERRORCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::HWND, nid: i32, lpsz: windows_core::PCWSTR) -> super::LRESULT>;
 #[repr(C)]
 #[cfg(feature = "mmiscapi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: super::FOURCC,
     pub lpData: *mut core::ffi::c_void,
     pub cbData: i32,
-}
-#[cfg(feature = "mmiscapi")]
-impl Default for CAPINFOCHUNK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -1076,7 +1065,7 @@ pub struct CHANNEL_CAPS {
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPVARS {
     pub cbSize: i32,
     pub dwFlags: u32,
@@ -1094,12 +1083,6 @@ pub struct COMPVARS {
     pub lKeyCount: i32,
     pub lpState: *mut core::ffi::c_void,
     pub cbState: i32,
-}
-#[cfg(feature = "wingdi")]
-impl Default for COMPVARS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CONTROLCALLBACK_CAPTURING: i32 = 2;
 pub const CONTROLCALLBACK_PREROLL: i32 = 1;
@@ -1192,21 +1175,11 @@ pub const FIND_TYPE: i32 = 240;
 #[cfg(feature = "winnt")]
 pub type HDRAWDIB = super::HANDLE;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HIC(pub *mut core::ffi::c_void);
-impl Default for HIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HVIDEO(pub *mut core::ffi::c_void);
-impl Default for HVIDEO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 windows_core::imp::define_interface!(IAVIEditStream, IAVIEditStream_Vtbl, 0x00020024_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIEditStream, windows_core::IUnknown);
 impl IAVIEditStream {
@@ -1676,7 +1649,7 @@ impl IAVIStreaming_Vtbl {
 impl windows_core::RuntimeName for IAVIStreaming {}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICCOMPRESS {
     pub dwFlags: u32,
     pub lpbiOutput: super::LPBITMAPINFOHEADER,
@@ -1691,15 +1664,9 @@ pub struct ICCOMPRESS {
     pub lpbiPrev: super::LPBITMAPINFOHEADER,
     pub lpPrev: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "minwindef", feature = "wingdi"))]
-impl Default for ICCOMPRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICCOMPRESSFRAMES {
     pub dwFlags: u32,
     pub lpbiOutput: super::LPBITMAPINFOHEADER,
@@ -1718,17 +1685,11 @@ pub struct ICCOMPRESSFRAMES {
     pub GetData: *mut u8,
     pub PutData: *mut u8,
 }
-#[cfg(all(feature = "minwindef", feature = "wingdi"))]
-impl Default for ICCOMPRESSFRAMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ICCOMPRESSFRAMES_PADDING: i32 = 1;
 pub const ICCOMPRESS_KEYFRAME: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICDECOMPRESS {
     pub dwFlags: u32,
     pub lpbiInput: super::LPBITMAPINFOHEADER,
@@ -1737,15 +1698,9 @@ pub struct ICDECOMPRESS {
     pub lpOutput: *mut core::ffi::c_void,
     pub ckid: u32,
 }
-#[cfg(feature = "wingdi")]
-impl Default for ICDECOMPRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: u32,
     pub lpbiSrc: super::LPBITMAPINFOHEADER,
@@ -1761,30 +1716,19 @@ pub struct ICDECOMPRESSEX {
     pub dxSrc: i32,
     pub dySrc: i32,
 }
-#[cfg(feature = "wingdi")]
-impl Default for ICDECOMPRESSEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ICDECOMPRESS_HURRYUP: u32 = 2147483648;
 pub const ICDECOMPRESS_NOTKEYFRAME: i32 = 134217728;
 pub const ICDECOMPRESS_NULLFRAME: i32 = 268435456;
 pub const ICDECOMPRESS_PREROLL: i32 = 536870912;
 pub const ICDECOMPRESS_UPDATE: i32 = 1073741824;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICDRAW {
     pub dwFlags: u32,
     pub lpFormat: *mut core::ffi::c_void,
     pub lpData: *mut core::ffi::c_void,
     pub cbData: u32,
     pub lTime: i32,
-}
-impl Default for ICDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
@@ -1950,7 +1894,7 @@ pub const ICM_SET_STATUS_PROC: i32 = 16456;
 pub const ICM_USER: i32 = 16384;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICOPEN {
     pub dwSize: u32,
     pub fccType: u32,
@@ -1961,12 +1905,6 @@ pub struct ICOPEN {
     pub pV1Reserved: *mut core::ffi::c_void,
     pub pV2Reserved: *mut core::ffi::c_void,
     pub dnDevNode: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for ICOPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]
@@ -1982,17 +1920,11 @@ pub const ICQUALITY_HIGH: i32 = 10000;
 pub const ICQUALITY_LOW: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICSETSTATUSPROC {
     pub dwFlags: u32,
     pub lParam: super::LPARAM,
     pub Status: *mut u8,
-}
-#[cfg(feature = "minwindef")]
-impl Default for ICSETSTATUSPROC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ICSTATUS_END: i32 = 2;
 pub const ICSTATUS_ERROR: i32 = 3;

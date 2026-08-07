@@ -449,15 +449,9 @@ windows_link::link!("wldap32.dll" "C" fn ldap_value_free_len(vals : *mut *mut LD
 pub type BERVAL = LDAP_BERVAL;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BerElement {
     pub opaque: super::PCHAR,
-}
-#[cfg(feature = "winnt")]
-impl Default for BerElement {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "winnt")]
 pub type BerValue = LDAP_BERVAL;
@@ -513,33 +507,22 @@ impl Default for LDAP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: *mut i8,
     pub ldapaif_version: i32,
 }
-impl Default for LDAPAPIFeatureInfoA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: super::PWCHAR,
     pub ldapaif_version: i32,
 }
-#[cfg(feature = "winnt")]
-impl Default for LDAPAPIFeatureInfoW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -548,14 +531,9 @@ pub struct LDAPAPIInfoA {
     pub ldapai_vendor_name: *mut i8,
     pub ldapai_vendor_version: i32,
 }
-impl Default for LDAPAPIInfoA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -564,43 +542,25 @@ pub struct LDAPAPIInfoW {
     pub ldapai_vendor_name: super::PWCHAR,
     pub ldapai_vendor_version: i32,
 }
-#[cfg(feature = "winnt")]
-impl Default for LDAPAPIInfoW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPControlA {
     pub ldctl_oid: super::PCHAR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: bool,
 }
-#[cfg(feature = "winnt")]
-impl Default for LDAPControlA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPControlW {
     pub ldctl_oid: super::PWCHAR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: bool,
 }
-#[cfg(feature = "winnt")]
-impl Default for LDAPControlW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
     pub lm_msgtype: u32,
@@ -615,12 +575,6 @@ pub struct LDAPMessage {
     pub lm_chased: bool,
     pub lm_eom: bool,
     pub ConnectionReferenced: bool,
-}
-#[cfg(feature = "winnt")]
-impl Default for LDAPMessage {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -679,35 +633,23 @@ impl Default for LDAPModW_0 {
 pub type LDAPSearch = ldapsearch;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: super::PCHAR,
     pub sk_matchruleoid: super::PCHAR,
     pub sk_reverseorder: bool,
 }
-#[cfg(feature = "winnt")]
-impl Default for LDAPSortKeyA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: super::PWCHAR,
     pub sk_matchruleoid: super::PWCHAR,
     pub sk_reverseorder: bool,
 }
-#[cfg(feature = "winnt")]
-impl Default for LDAPSortKeyW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -717,12 +659,6 @@ pub struct LDAPVLVInfo {
     pub ldvlv_attrvalue: PBERVAL,
     pub ldvlv_context: PBERVAL,
     pub ldvlv_extradata: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for LDAPVLVInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LDAP_ABANDON_CMD: i32 = 80;
 pub const LDAP_ADD_CMD: i32 = 104;
@@ -750,16 +686,10 @@ pub const LDAP_AUTH_SSPI: i32 = 1158;
 pub const LDAP_AUTH_UNKNOWN: LDAP_RETCODE = 86;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: super::PCHAR,
-}
-#[cfg(feature = "winnt")]
-impl Default for LDAP_BERVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LDAP_BIND_CMD: i32 = 96;
 pub const LDAP_BUSY: LDAP_RETCODE = 51;

@@ -1375,7 +1375,7 @@ pub struct DATABLOCK_HEADER {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::HWND,
     pub pcmcb: core::mem::ManuallyDrop<Option<super::IContextMenuCB>>,
@@ -1386,12 +1386,6 @@ pub struct DEFCONTEXTMENU {
     pub punkAssociationInfo: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub cKeys: u32,
     pub aKeys: *const super::HKEY,
-}
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for DEFCONTEXTMENU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "shtypes")]
@@ -1677,13 +1671,8 @@ pub const GPFIDL_DEFAULT: i32 = 0;
 pub struct GPFIDL_FLAGS(pub i32);
 pub const GPFIDL_UNCPRINTER: i32 = 2;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HPSXA(pub *mut core::ffi::c_void);
-impl Default for HPSXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 windows_core::imp::define_interface!(IACList, IACList_Vtbl, 0x77a130b0_94fd_11d0_a544_00c04fd7d062);
 windows_core::imp::interface_hierarchy!(IACList, windows_core::IUnknown);
 impl IACList {
@@ -3974,19 +3963,13 @@ impl Default for PROPPRG {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QCMINFO {
     pub hmenu: super::HMENU,
     pub indexMenu: u32,
     pub idCmdFirst: u32,
     pub idCmdLast: u32,
     pub pIdMap: *const QCMINFO_IDMAP,
-}
-#[cfg(feature = "windef")]
-impl Default for QCMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4422,7 +4405,7 @@ pub const SHFMT_OPT_FULL: i32 = 1;
 pub const SHFMT_OPT_SYSONLY: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shobjidl_core")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -4439,12 +4422,6 @@ pub struct SHFOLDERCUSTOMSETTINGS {
     pub iIconIndex: i32,
     pub pszLogo: windows_core::PWSTR,
     pub cchLogo: u32,
-}
-#[cfg(feature = "shobjidl_core")]
-impl Default for SHFOLDERCUSTOMSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHGDFIL_DESCRIPTIONID: i32 = 3;
 pub const SHGDFIL_FINDDATA: i32 = 1;

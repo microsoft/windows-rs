@@ -2078,15 +2078,10 @@ pub const CLUSAPI_NODE_RESUME_FAILBACK_VMS_FORCEFULLY: i32 = 8;
 pub const CLUSAPI_NO_ACCESS: i32 = 4;
 pub const CLUSAPI_READ_ACCESS: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CLUSAPI_REASON_HANDLER {
     pub lpParameter: *mut core::ffi::c_void,
     pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
-}
-impl Default for CLUSAPI_REASON_HANDLER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: i32 = 4;
 pub const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: i32 = 2;
@@ -3230,18 +3225,13 @@ pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
 }
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
     pub wzName: windows_core::PCWSTR,
     pub lpData: *const u8,
     pub cbData: u32,
-}
-impl Default for CLUSTER_BATCH_COMMAND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CLUSTER_CHANGE = i32;
 pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = -1;
@@ -3433,7 +3423,7 @@ pub type CLUSTER_GROUP_ENUM = i32;
 pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = 3;
 pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -3448,11 +3438,6 @@ pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub pProperties: *mut core::ffi::c_void,
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
-}
-impl Default for CLUSTER_GROUP_ENUM_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: i32 = 1;
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: i32 = 1;
@@ -3535,7 +3520,7 @@ pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = 0;
 pub type CLUSTER_QUORUM_TYPE = i32;
 pub type CLUSTER_QUORUM_VALUE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_READ_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -3543,11 +3528,6 @@ pub struct CLUSTER_READ_BATCH_COMMAND {
     pub wzValueName: windows_core::PCWSTR,
     pub lpData: *const u8,
     pub cbData: u32,
-}
-impl Default for CLUSTER_READ_BATCH_COMMAND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CLUSTER_REG_COMMAND = i32;
 pub const CLUSTER_REQUEST_REPLY_TIMEOUT: windows_core::PCWSTR = windows_core::w!("RequestReplyTimeout");
@@ -3559,7 +3539,7 @@ pub type CLUSTER_RESOURCE_ENUM = i32;
 pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = 7;
 pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -3574,11 +3554,6 @@ pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub pProperties: *mut core::ffi::c_void,
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
-}
-impl Default for CLUSTER_RESOURCE_ENUM_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: i32 = 1;
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: i32 = 1;
@@ -4271,7 +4246,7 @@ pub struct CLUS_VS_TOKEN_INFO {
 }
 pub const CREATEDC_PRESENT: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_CLUSTER_CONFIG {
     pub dwVersion: u32,
     pub lpszClusterName: windows_core::PCWSTR,
@@ -4285,11 +4260,6 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub pszUserName: windows_core::PCWSTR,
     pub pszPassword: windows_core::PCWSTR,
     pub pszDomain: windows_core::PCWSTR,
-}
-impl Default for CREATE_CLUSTER_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040;
 #[repr(C)]

@@ -273,20 +273,15 @@ impl Default for COLOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COLOR_0 {
     pub reserved1: u32,
     pub reserved2: *mut core::ffi::c_void,
 }
-impl Default for COLOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type COLORDATATYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COLORMATCHSETUPA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -308,15 +303,9 @@ pub struct COLORMATCHSETUPA {
     pub lpfnApplyCallback: PCMSCALLBACKA,
     pub lParamApplyCallback: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for COLORMATCHSETUPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COLORMATCHSETUPW {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -337,12 +326,6 @@ pub struct COLORMATCHSETUPW {
     pub lParam: super::LPARAM,
     pub lpfnApplyCallback: PCMSCALLBACKW,
     pub lParamApplyCallback: super::LPARAM,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for COLORMATCHSETUPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type COLORPROFILESUBTYPE = i32;
 pub type COLORPROFILETYPE = i32;
@@ -583,16 +566,11 @@ pub type PPROFILE = *mut PROFILE;
 pub type PPROFILEHEADER = *mut PROFILEHEADER;
 pub const PRESERVEBLACK: i32 = 1048576;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROFILE {
     pub dwType: u32,
     pub pProfileData: *mut core::ffi::c_void,
     pub cbDataSize: u32,
-}
-impl Default for PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]

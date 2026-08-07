@@ -250,13 +250,8 @@ where
     unsafe { SetRestrictedErrorInfo(prestrictederrorinfo.param().abi()) }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub *mut core::ffi::c_void);
-impl Default for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const EXCEPTION_RO_ORIGINATEERROR: u32 = 1074266625;
 pub const EXCEPTION_RO_TRANSFORMERROR: u32 = 1074266626;
 pub const ForceExceptions: RoErrorReportingFlags = 2;
@@ -531,13 +526,8 @@ pub const None: RoErrorReportingFlags = 0;
 pub type PFNGETACTIVATIONFACTORY = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::HSTRING>, param1: windows_core::OutRef<super::IActivationFactory>) -> windows_core::HRESULT>;
 pub type PINSPECT_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> windows_core::HRESULT>;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ROPARAMIIDHANDLE(pub *mut core::ffi::c_void);
-impl Default for ROPARAMIIDHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type RO_ERROR_REPORTING_FLAGS = u32;
 pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = 2;
 pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = 0;

@@ -27,7 +27,7 @@ windows_link::link!("ws2_32.dll" "system" fn inet_pton(family : i32, pszaddrstri
 pub type ADDRESS_FAMILY = u16;
 pub type ADDRINFO = ADDRINFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -38,16 +38,11 @@ pub struct ADDRINFOA {
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut Self,
 }
-impl Default for ADDRINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "guiddef")]
 pub type ADDRINFOEX = ADDRINFOEXA;
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX2A {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -63,15 +58,9 @@ pub struct ADDRINFOEX2A {
     pub ai_version: i32,
     pub ai_fqdn: *mut i8,
 }
-#[cfg(feature = "guiddef")]
-impl Default for ADDRINFOEX2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX2W {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -87,15 +76,9 @@ pub struct ADDRINFOEX2W {
     pub ai_version: i32,
     pub ai_fqdn: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "guiddef")]
-impl Default for ADDRINFOEX2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX3 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -112,15 +95,9 @@ pub struct ADDRINFOEX3 {
     pub ai_fqdn: windows_sys::core::PWSTR,
     pub ai_interfaceindex: i32,
 }
-#[cfg(feature = "guiddef")]
-impl Default for ADDRINFOEX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX4 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -138,15 +115,9 @@ pub struct ADDRINFOEX4 {
     pub ai_interfaceindex: i32,
     pub ai_resolutionhandle: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
-impl Default for ADDRINFOEX4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX5 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -165,15 +136,9 @@ pub struct ADDRINFOEX5 {
     pub ai_resolutionhandle: super::HANDLE,
     pub ai_ttl: u32,
 }
-#[cfg(feature = "winnt")]
-impl Default for ADDRINFOEX5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX6 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -195,15 +160,9 @@ pub struct ADDRINFOEX6 {
     pub ai_servers: *mut ADDRINFO_DNS_SERVER,
     pub ai_responseflags: u64,
 }
-#[cfg(feature = "winnt")]
-impl Default for ADDRINFOEX6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEX7 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -226,15 +185,9 @@ pub struct ADDRINFOEX7 {
     pub ai_responseflags: u64,
     pub ai_extraflags: u64,
 }
-#[cfg(feature = "winnt")]
-impl Default for ADDRINFOEX7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEXA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -248,15 +201,9 @@ pub struct ADDRINFOEXA {
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
 }
-#[cfg(feature = "guiddef")]
-impl Default for ADDRINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOEXW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -270,12 +217,6 @@ pub struct ADDRINFOEXW {
     pub ai_provider: super::LPGUID,
     pub ai_next: *mut Self,
 }
-#[cfg(feature = "guiddef")]
-impl Default for ADDRINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ADDRINFOEX_VERSION_2: i32 = 2;
 pub const ADDRINFOEX_VERSION_3: i32 = 3;
 pub const ADDRINFOEX_VERSION_4: i32 = 4;
@@ -284,7 +225,7 @@ pub const ADDRINFOEX_VERSION_6: i32 = 6;
 pub const ADDRINFOEX_VERSION_7: i32 = 7;
 pub type ADDRINFOT = ADDRINFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADDRINFOW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -294,11 +235,6 @@ pub struct ADDRINFOW {
     pub ai_canonname: windows_sys::core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut Self,
-}
-impl Default for ADDRINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1358,16 +1294,10 @@ impl Default for SOCKADDR_IN6_LH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "in6addr")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_IN6_PAIR {
     pub SourceAddress: PSOCKADDR_IN6,
     pub DestinationAddress: PSOCKADDR_IN6,
-}
-#[cfg(feature = "in6addr")]
-impl Default for SOCKADDR_IN6_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "in6addr")]
@@ -1427,15 +1357,10 @@ impl Default for SOCKADDR_STORAGE_XP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKET_ADDRESS {
     pub lpSockaddr: LPSOCKADDR,
     pub iSockaddrLength: i32,
-}
-impl Default for SOCKET_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1543,15 +1468,10 @@ pub const UDP_NOCHECKSUM: i32 = 1;
 pub const UDP_RECV_MAX_COALESCED_SIZE: i32 = 3;
 pub const UDP_SEND_MSG_SIZE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSABUF {
     pub len: u32,
     pub buf: *mut i8,
-}
-impl Default for WSABUF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1561,7 +1481,7 @@ pub struct WSACMSGHDR {
     pub cmsg_type: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSAMSG {
     pub name: LPSOCKADDR,
     pub namelen: i32,
@@ -1569,11 +1489,6 @@ pub struct WSAMSG {
     pub dwBufferCount: u32,
     pub Control: WSABUF,
     pub dwFlags: u32,
-}
-impl Default for WSAMSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WSK_SO_BASE: i32 = 16384;
 #[repr(C)]

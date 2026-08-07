@@ -157,7 +157,7 @@ where
 pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
     pub pJoinCertificate: super::PCCERT_CONTEXT,
@@ -171,12 +171,6 @@ pub struct DSREG_JOIN_INFO {
     pub pszMdmComplianceUrl: windows_core::PWSTR,
     pub pszUserSettingSyncUrl: windows_core::PWSTR,
     pub pUserInfo: *mut DSREG_USER_INFO,
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for DSREG_JOIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DSREG_JOIN_TYPE = i32;
 pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = 0;
@@ -211,7 +205,7 @@ pub const NETSETUP_NO_ACCT_REUSE: i32 = 131072;
 pub const NETSETUP_NO_NETLOGON_CACHE: i32 = 8192;
 pub const NETSETUP_PROCESS_OFFLINE_FLAGS: i32 = 17569;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETSETUP_PROVISIONING_PARAMS {
     pub dwVersion: u32,
     pub lpDomain: windows_core::PCWSTR,
@@ -228,11 +222,6 @@ pub struct NETSETUP_PROVISIONING_PARAMS {
     pub lpNetbiosName: windows_core::PWSTR,
     pub lpSiteName: windows_core::PWSTR,
     pub lpPrimaryDNSDomain: windows_core::PWSTR,
-}
-impl Default for NETSETUP_PROVISIONING_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: i32 = 2;
 pub const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: i32 = 1;

@@ -137,7 +137,7 @@ pub struct AMSI_UAC_REQUEST_EXE_INFO {
     pub lpwszDLLParameter: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMSI_UAC_REQUEST_MSI_INFO {
     pub ulLength: u32,
     pub MsiAction: AMSI_UAC_MSI_ACTION,
@@ -150,11 +150,6 @@ pub struct AMSI_UAC_REQUEST_MSI_INFO {
     pub ulUpdates: u32,
     pub ppwszUpdates: *mut windows_core::PWSTR,
     pub ppwszUpdateSources: *mut windows_core::PWSTR,
-}
-impl Default for AMSI_UAC_REQUEST_MSI_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -179,21 +174,11 @@ pub const AMSI_UAC_TRUST_STATE_TRUSTED: AMSI_UAC_TRUST_STATE = 0;
 pub const AMSI_UAC_TRUST_STATE_UNTRUSTED: AMSI_UAC_TRUST_STATE = 1;
 pub const CAntimalware: windows_core::GUID = windows_core::GUID::from_u128(0xfdb00e52_a214_4aa1_8fba_4357bb0072ec);
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HAMSICONTEXT(pub *mut core::ffi::c_void);
-impl Default for HAMSICONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HAMSISESSION(pub *mut core::ffi::c_void);
-impl Default for HAMSISESSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 windows_core::imp::define_interface!(IAmsiStream, IAmsiStream_Vtbl, 0x3e47f2e5_81d4_4d3b_897f_545096770373);
 windows_core::imp::interface_hierarchy!(IAmsiStream, windows_core::IUnknown);
 impl IAmsiStream {

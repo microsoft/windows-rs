@@ -5,18 +5,13 @@ pub const IP_MARGIN: i32 = 4;
 pub const MAX_PACKET_BUTTON_COUNT: i32 = 32;
 pub const MAX_PACKET_PROPERTY_COUNT: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: u32,
     pub cPacketProperties: u32,
     pub pPacketProperties: *mut PACKET_PROPERTY,
     pub cButtons: u32,
     pub pguidButtons: *mut windows_sys::core::GUID,
-}
-impl Default for PACKET_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

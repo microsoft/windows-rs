@@ -10,19 +10,13 @@ pub type KSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *
 pub type KSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: *const KSEC_LIST_ENTRY)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSEC_LIST_ENTRY {
     pub List: super::LIST_ENTRY,
     pub RefCount: i32,
     pub Signature: u32,
     pub OwningList: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for KSEC_LIST_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type KSEC_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packageid: u32) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
@@ -302,21 +296,15 @@ pub type LSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: 
 pub type LSA_SET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(reason: SECPKG_FAILURE_REASON) -> windows_sys::core::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LSA_TOKEN_INFORMATION_NULL {
     pub ExpirationTime: i64,
     pub Groups: super::PTOKEN_GROUPS,
 }
-#[cfg(feature = "winnt")]
-impl Default for LSA_TOKEN_INFORMATION_NULL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type LSA_TOKEN_INFORMATION_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LSA_TOKEN_INFORMATION_V1 {
     pub ExpirationTime: i64,
     pub User: super::TOKEN_USER,
@@ -327,16 +315,10 @@ pub struct LSA_TOKEN_INFORMATION_V1 {
     pub DefaultDacl: super::TOKEN_DEFAULT_DACL,
 }
 #[cfg(feature = "winnt")]
-impl Default for LSA_TOKEN_INFORMATION_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
 pub type LSA_TOKEN_INFORMATION_V2 = LSA_TOKEN_INFORMATION_V1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LSA_TOKEN_INFORMATION_V3 {
     pub ExpirationTime: i64,
     pub User: super::TOKEN_USER,
@@ -348,12 +330,6 @@ pub struct LSA_TOKEN_INFORMATION_V3 {
     pub UserClaims: super::TOKEN_USER_CLAIMS,
     pub DeviceClaims: super::TOKEN_DEVICE_CLAIMS,
     pub DeviceGroups: super::PTOKEN_GROUPS,
-}
-#[cfg(feature = "winnt")]
-impl Default for LSA_TOKEN_INFORMATION_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type LSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
@@ -647,38 +623,23 @@ pub const SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: windows_sys::core::PCSTR = windo
 pub const SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: windows_sys::core::PCSTR = windows_sys::core::s!("RegisterMappedEntrypoints");
 pub const SAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE: windows_sys::core::PCSTR = windows_sys::core::s!("CredentialUpdateRegister");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SAM_REGISTER_MAPPING_ELEMENT {
     pub Original: windows_sys::core::PSTR,
     pub Mapped: windows_sys::core::PSTR,
     pub Continuable: bool,
 }
-impl Default for SAM_REGISTER_MAPPING_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SAM_REGISTER_MAPPING_LIST {
     pub Count: u32,
     pub Elements: PSAM_REGISTER_MAPPING_ELEMENT,
 }
-impl Default for SAM_REGISTER_MAPPING_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SAM_REGISTER_MAPPING_TABLE {
     pub Count: u32,
     pub Lists: PSAM_REGISTER_MAPPING_LIST,
-}
-impl Default for SAM_REGISTER_MAPPING_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECBUFFER_KERNEL_MAP: i32 = 536870912;
 pub const SECBUFFER_UNMAPPED: i32 = 1073741824;
@@ -699,18 +660,13 @@ pub const SECPKG_CALL_BUFFER_MARSHAL: i32 = 65536;
 pub const SECPKG_CALL_CLEANUP: i32 = 32;
 pub const SECPKG_CALL_CLOUDAP_CONNECT: i32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_CALL_INFO {
     pub ProcessId: u32,
     pub ThreadId: u32,
     pub Attributes: u32,
     pub CallCount: u32,
     pub MechOid: *mut core::ffi::c_void,
-}
-impl Default for SECPKG_CALL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_CALL_IN_PROC: i32 = 16;
 pub const SECPKG_CALL_IS_TCB: i32 = 512;
@@ -759,7 +715,7 @@ pub const SECPKG_CALL_WOWCLIENT: i32 = 64;
 pub const SECPKG_CALL_WOWX86: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_CLIENT_INFO {
     pub LogonId: super::LUID,
     pub ProcessID: u32,
@@ -771,15 +727,9 @@ pub struct SECPKG_CLIENT_INFO {
     pub ImpersonationLevel: super::SECURITY_IMPERSONATION_LEVEL,
     pub ClientToken: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
-impl Default for SECPKG_CLIENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_CLIENT_INFO_EX {
     pub LogonId: super::LUID,
     pub ProcessID: u32,
@@ -792,12 +742,6 @@ pub struct SECPKG_CLIENT_INFO_EX {
     pub ClientToken: super::HANDLE,
     pub IdentificationLogonId: super::LUID,
     pub IdentificationToken: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for SECPKG_CLIENT_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_CLIENT_PROCESS_TERMINATED: i32 = 1;
 pub const SECPKG_CLIENT_THREAD_TERMINATED: i32 = 2;
@@ -814,7 +758,7 @@ impl Default for SECPKG_CONTEXT_THUNKS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_CREDENTIAL {
     pub Version: u64,
     pub cbHeaderLength: u16,
@@ -830,12 +774,6 @@ pub struct SECPKG_CREDENTIAL {
     pub PrincipalName: SECPKG_BYTE_VECTOR,
     pub PackageList: SECPKG_BYTE_VECTOR,
     pub MarshaledSuppliedCreds: SECPKG_BYTE_VECTOR,
-}
-#[cfg(feature = "winnt")]
-impl Default for SECPKG_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_CREDENTIAL_ATTRIBUTE: i32 = 0;
 pub const SECPKG_CREDENTIAL_FLAGS_CALLER_HAS_TCB: i32 = 1;
@@ -853,18 +791,13 @@ pub struct SECPKG_DLL_FUNCTIONS {
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type SECPKG_EVENT_DOMAIN_CHANGE = SECPKG_PARAMETERS;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_EVENT_NOTIFY {
     pub EventClass: u32,
     pub Reserved: u32,
     pub EventDataSize: u32,
     pub EventData: *mut core::ffi::c_void,
     pub PackageParameter: *mut core::ffi::c_void,
-}
-impl Default for SECPKG_EVENT_NOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "sspi")]
@@ -931,7 +864,7 @@ pub struct SECPKG_FAILURE_REASON {
 pub type SECPKG_FAILURE_SPECIAL_REASON = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_FUNCTION_TABLE {
     pub InitializePackage: PLSA_AP_INITIALIZE_PACKAGE,
     pub LogonUser: PLSA_AP_LOGON_USER,
@@ -976,12 +909,6 @@ pub struct SECPKG_FUNCTION_TABLE {
     pub PreLogonUserSurrogate: PLSA_AP_PRE_LOGON_USER_SURROGATE,
     pub PostLogonUserSurrogate: PLSA_AP_POST_LOGON_USER_SURROGATE,
     pub ExtractTargetInfo: SpExtractTargetInfoFn,
-}
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
-impl Default for SECPKG_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1062,7 +989,7 @@ impl Default for SECPKG_NEGO2_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_NTLM_TARGETINFO {
     pub Flags: u32,
     pub MsvAvNbComputerName: windows_sys::core::PWSTR,
@@ -1074,18 +1001,12 @@ pub struct SECPKG_NTLM_TARGETINFO {
     pub MsvAvTimestamp: super::FILETIME,
     pub MsvAvTargetName: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SECPKG_NTLM_TARGETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SECPKG_PACKAGE_CHANGE_LOAD: i32 = 0;
 pub const SECPKG_PACKAGE_CHANGE_SELECT: i32 = 2;
 pub const SECPKG_PACKAGE_CHANGE_UNLOAD: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_PARAMETERS {
     pub Version: u32,
     pub MachineState: u32,
@@ -1094,12 +1015,6 @@ pub struct SECPKG_PARAMETERS {
     pub DomainName: super::UNICODE_STRING,
     pub DnsDomainName: super::UNICODE_STRING,
     pub DomainGuid: windows_sys::core::GUID,
-}
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-impl Default for SECPKG_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -1111,7 +1026,7 @@ pub struct SECPKG_POST_LOGON_USER_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_PRIMARY_CRED {
     pub LogonId: super::LUID,
     pub DownlevelName: super::UNICODE_STRING,
@@ -1128,15 +1043,9 @@ pub struct SECPKG_PRIMARY_CRED {
     pub Spare3: super::UNICODE_STRING,
     pub Spare4: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-impl Default for SECPKG_PRIMARY_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_PRIMARY_CRED_EX {
     pub LogonId: super::LUID,
     pub DownlevelName: super::UNICODE_STRING,
@@ -1156,16 +1065,10 @@ pub struct SECPKG_PRIMARY_CRED_EX {
     pub PrevLogonId: super::LUID,
     pub FlagsEx: u32,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-impl Default for SECPKG_PRIMARY_CRED_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: windows_sys::core::GUID,
     pub RedirectedLogonHandle: super::HANDLE,
@@ -1175,12 +1078,6 @@ pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub GetLogonCreds: PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS,
     pub GetSupplementalCreds: PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS,
     pub GetRedirectedLogonSid: PLSA_REDIRECTED_LOGON_GET_SID,
-}
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for SECPKG_REDIRECTED_LOGON_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1210,17 +1107,11 @@ pub const SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED: i32 = 2;
 pub const SECPKG_STATE_WORKSTATION: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_SUPPLEMENTAL_CRED {
     pub PackageName: super::UNICODE_STRING,
     pub CredentialSize: u32,
     pub Credentials: super::PUCHAR,
-}
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
-impl Default for SECPKG_SUPPLEMENTAL_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
@@ -1247,43 +1138,26 @@ pub struct SECPKG_SUPPLIED_CREDENTIAL {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_SURROGATE_LOGON {
     pub Version: u32,
     pub SurrogateLogonID: super::LUID,
     pub EntryCount: u32,
     pub Entries: PSECPKG_SURROGATE_LOGON_ENTRY,
 }
-#[cfg(feature = "winnt")]
-impl Default for SECPKG_SURROGATE_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_SURROGATE_LOGON_ENTRY {
     pub Type: windows_sys::core::GUID,
     pub Data: *mut core::ffi::c_void,
 }
-impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SECPKG_SURROGATE_LOGON_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECPKG_TARGETINFO {
     pub DomainSid: super::PSID,
     pub ComputerName: windows_sys::core::PCWSTR,
-}
-#[cfg(feature = "winnt")]
-impl Default for SECPKG_TARGETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648;
 pub const SECPKG_USERMODEINIT_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SpUserModeInitialize");
@@ -1315,18 +1189,12 @@ pub struct SECPKG_WOW_CLIENT_DLL {
 }
 #[repr(C)]
 #[cfg(all(feature = "sspi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECURITY_USER_DATA {
     pub UserName: super::SECURITY_STRING,
     pub LogonDomainName: super::SECURITY_STRING,
     pub LogonServer: super::SECURITY_STRING,
     pub pSid: super::PSID,
-}
-#[cfg(all(feature = "sspi", feature = "winnt"))]
-impl Default for SECURITY_USER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "minwinbase")]
 pub type SEC_ATTRS = super::LPSECURITY_ATTRIBUTES;
@@ -1370,14 +1238,9 @@ pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024
 pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026;
 pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1025;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_SaslContext {
     pub SaslContext: *mut core::ffi::c_void,
-}
-impl Default for SecPkgContext_SaslContext {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = 0;
 pub const SecpkgContextThunks: SECPKG_EXTENDED_INFORMATION_CLASS = 2;

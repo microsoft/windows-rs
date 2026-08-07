@@ -248,21 +248,11 @@ pub unsafe fn WriteLogRestartArea(pvmarshal: *mut core::ffi::c_void, pvrestartbu
     unsafe { WriteLogRestartArea(pvmarshal as _, pvrestartbuffer, cbrestartbuffer, plsnbase.unwrap_or(core::mem::zeroed()) as _, fflags, pcbwritten.unwrap_or(core::mem::zeroed()) as _, plsnnext.unwrap_or(core::mem::zeroed()) as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CLFS_LOG_ARCHIVE_CONTEXT(pub *mut core::ffi::c_void);
-impl Default for CLFS_LOG_ARCHIVE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(all(feature = "clfs", feature = "corecrt_wstdio"))]
 pub type CLFS_PRINT_RECORD_ROUTINE = Option<unsafe extern "system" fn(pstrmout: *mut super::FILE, frecordtype: super::CLFS_RECORD_TYPE, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> u32>;
 pub type PCLFS_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pvoverlapped: *mut core::ffi::c_void, ulreserved: u32)>;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PCLFS_LOG_ARCHIVE_CONTEXT(pub *mut *mut core::ffi::c_void);
-impl Default for PCLFS_LOG_ARCHIVE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}

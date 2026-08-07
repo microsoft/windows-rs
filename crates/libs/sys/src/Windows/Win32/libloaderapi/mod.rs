@@ -79,17 +79,11 @@ pub type ENUMRESTYPEPROCA = Option<unsafe extern "system" fn(hmodule: super::HMO
 pub type ENUMRESTYPEPROCW = Option<unsafe extern "system" fn(hmodule: super::HMODULE, lptype: windows_sys::core::PCWSTR, lparam: isize) -> windows_sys::core::BOOL>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: u32,
     pub SizeOfEnumUIBuffer: u32,
     pub pEnumUIBuffer: *mut super::LANGID,
-}
-#[cfg(feature = "winnt")]
-impl Default for ENUMUILANG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: i32 = 1024;
 pub const FIND_RESOURCE_DIRECTORY_NAMES: i32 = 512;
@@ -123,28 +117,18 @@ pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32,
 pub type PREDIRECTION_DESCRIPTOR = *mut REDIRECTION_DESCRIPTOR;
 pub type PREDIRECTION_FUNCTION_DESCRIPTOR = *mut REDIRECTION_FUNCTION_DESCRIPTOR;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REDIRECTION_DESCRIPTOR {
     pub Version: u32,
     pub FunctionCount: u32,
     pub Redirections: PCREDIRECTION_FUNCTION_DESCRIPTOR,
 }
-impl Default for REDIRECTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_sys::core::PCSTR,
     pub FunctionName: windows_sys::core::PCSTR,
     pub RedirectionTarget: *mut core::ffi::c_void,
-}
-impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RESOURCE_ENUM_LN: i32 = 1;
 pub const RESOURCE_ENUM_MODULE_EXACT: i32 = 16;

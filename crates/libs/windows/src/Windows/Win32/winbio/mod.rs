@@ -563,42 +563,24 @@ pub struct WINBIO_ASYNC_RESULT_0_11 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub BspCount: usize,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_13 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub StorageCount: usize,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_14 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -631,17 +613,11 @@ pub struct WINBIO_ASYNC_RESULT_0_17 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub ChangeType: WINBIO_PRESENCE_CHANGE,
     pub PresenceCount: usize,
     pub PresenceArray: *mut WINBIO_PRESENCE,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_18 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]

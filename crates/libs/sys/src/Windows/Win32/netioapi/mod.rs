@@ -182,15 +182,10 @@ pub const DNS_DOH_POLICY_DISABLE: i32 = 8;
 pub const DNS_DOH_POLICY_NOT_CONFIGURED: i32 = 4;
 pub const DNS_DOH_POLICY_REQUIRED: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: windows_sys::core::PWSTR,
     pub Flags: u64,
-}
-impl Default for DNS_DOH_SERVER_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE: i32 = 2;
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: i32 = 1;
@@ -200,16 +195,11 @@ pub const DNS_DOH_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: i32 = 32;
 pub const DNS_DOT_AUTO_UPGRADE_SERVER: i32 = 4;
 pub const DNS_DOT_POLICY_BLOCK: i32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_DOT_SERVER_SETTINGS {
     pub Hostname: windows_sys::core::PWSTR,
     pub Flags: u64,
     pub Port: u16,
-}
-impl Default for DNS_DOT_SERVER_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DNS_DOT_SERVER_SETTINGS_ENABLE: i32 = 1;
 pub const DNS_DOT_SERVER_SETTINGS_ENABLE_AUTO: i32 = 8;
@@ -225,7 +215,7 @@ pub const DNS_ENCRYPTION_POLICY_DISABLE: i32 = 8;
 pub const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: i32 = 4;
 pub const DNS_ENCRYPTION_POLICY_REQUIRED: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_INTERFACE_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -238,13 +228,8 @@ pub struct DNS_INTERFACE_SETTINGS {
     pub QueryAdapterName: u32,
     pub ProfileNameServer: windows_sys::core::PWSTR,
 }
-impl Default for DNS_INTERFACE_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_INTERFACE_SETTINGS3 {
     pub Version: u32,
     pub Flags: u64,
@@ -263,13 +248,8 @@ pub struct DNS_INTERFACE_SETTINGS3 {
     pub cProfileServerProperties: u32,
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
 }
-impl Default for DNS_INTERFACE_SETTINGS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_INTERFACE_SETTINGS4 {
     pub Version: u32,
     pub Flags: u64,
@@ -289,22 +269,12 @@ pub struct DNS_INTERFACE_SETTINGS4 {
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
     pub EncryptedDnsAdapterFlags: u32,
 }
-impl Default for DNS_INTERFACE_SETTINGS4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_INTERFACE_SETTINGS_EX {
     pub SettingsV1: DNS_INTERFACE_SETTINGS,
     pub DisableUnconstrainedQueries: u32,
     pub SupplementalSearchList: windows_sys::core::PWSTR,
-}
-impl Default for DNS_INTERFACE_SETTINGS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DNS_INTERFACE_SETTINGS_VERSION1: i32 = 1;
 pub const DNS_INTERFACE_SETTINGS_VERSION2: i32 = 2;
@@ -337,7 +307,7 @@ impl Default for DNS_SERVER_PROPERTY_TYPES {
 }
 pub const DNS_SERVER_PROPERTY_VERSION1: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -345,13 +315,8 @@ pub struct DNS_SETTINGS {
     pub Domain: windows_sys::core::PWSTR,
     pub SearchList: windows_sys::core::PWSTR,
 }
-impl Default for DNS_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DNS_SETTINGS2 {
     pub Version: u32,
     pub Flags: u64,
@@ -359,11 +324,6 @@ pub struct DNS_SETTINGS2 {
     pub Domain: windows_sys::core::PWSTR,
     pub SearchList: windows_sys::core::PWSTR,
     pub SettingFlags: u64,
-}
-impl Default for DNS_SETTINGS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DNS_SETTINGS_ENABLE_LLMNR: i32 = 128;
 pub const DNS_SETTINGS_QUERY_ADAPTER_NAME: i32 = 256;

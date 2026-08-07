@@ -10,16 +10,11 @@ pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: i32 = 16;
 pub const BLUETOOTH_GATT_FLAG_VALID_MASK: i32 = 127;
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     pub ChangedAttributeHandle: u16,
     pub CharacteristicValueDataSize: usize,
     pub CharacteristicValue: PBTH_LE_GATT_CHARACTERISTIC_VALUE,
-}
-impl Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -155,7 +155,7 @@ impl Default for SCHANNEL_CLIENT_SIGNATURE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCHANNEL_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
@@ -171,12 +171,6 @@ pub struct SCHANNEL_CRED {
     pub dwSessionLifespan: u32,
     pub dwFlags: u32,
     pub dwCredFormat: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for SCHANNEL_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCHANNEL_CRED_VERSION: i32 = 4;
 pub const SCHANNEL_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Schannel");
@@ -194,7 +188,7 @@ pub struct SCHANNEL_SESSION_TOKEN {
 pub const SCHANNEL_SHUTDOWN: i32 = 1;
 pub const SCH_ALLOW_NULL_ENCRYPTION: i32 = 33554432;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCH_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
@@ -202,11 +196,6 @@ pub struct SCH_CRED {
     pub paPublic: *mut *mut core::ffi::c_void,
     pub cMappers: u32,
     pub aphMappers: *mut *mut _HMAPPER,
-}
-impl Default for SCH_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCH_CREDENTIALS_VERSION: i32 = 5;
 pub const SCH_CRED_AUTO_CRED_VALIDATION: i32 = 32;
@@ -230,17 +219,11 @@ pub const SCH_CRED_NO_SERVERNAME_CHECK: i32 = 4;
 pub const SCH_CRED_NO_SYSTEM_MAPPER: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCH_CRED_PUBLIC_CERTCHAIN {
     pub dwType: u32,
     pub cbCertChain: u32,
     pub pCertChain: super::PBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SCH_CRED_PUBLIC_CERTCHAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCH_CRED_RESTRICTED_ROOTS: i32 = 8192;
 pub const SCH_CRED_REVOCATION_CHECK_CACHE_ONLY: i32 = 16384;
@@ -256,18 +239,12 @@ pub struct SCH_CRED_SECRET_CAPI {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCH_CRED_SECRET_PRIVKEY {
     pub dwType: u32,
     pub pPrivateKey: super::PBYTE,
     pub cbPrivateKey: u32,
     pub pszPassword: windows_sys::core::PSTR,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SCH_CRED_SECRET_PRIVKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCH_CRED_SNI_CREDENTIAL: i32 = 524288;
 pub const SCH_CRED_SNI_ENABLE_OCSP: i32 = 1048576;
@@ -280,16 +257,11 @@ pub const SCH_CRED_X509_CAPI: i32 = 2;
 pub const SCH_CRED_X509_CERTCHAIN: i32 = 1;
 pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCH_EXTENSION_DATA {
     pub ExtensionType: u16,
     pub pExtData: *const u8,
     pub cbExtData: u32,
-}
-impl Default for SCH_EXTENSION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCH_MACHINE_CERT_HASH: i32 = 1;
 pub const SCH_MAX_EXT_SUBSCRIPTIONS: i32 = 2;
@@ -383,19 +355,13 @@ pub const SSL3SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Micr
 pub type SSL_CRACK_CERTIFICATE_FN = Option<unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: windows_sys::core::BOOL, ppcertificate: *mut PX509Certificate) -> windows_sys::core::BOOL>;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SSL_CREDENTIAL_CERTIFICATE {
     pub cbPrivateKey: u32,
     pub pPrivateKey: super::PBYTE,
     pub cbCertificate: u32,
     pub pCertificate: super::PBYTE,
     pub pszPassword: windows_sys::core::PSTR,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SSL_CREDENTIAL_CERTIFICATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type SSL_EMPTY_CACHE_FN_A = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCSTR, dwflags: u32) -> windows_sys::core::BOOL>;
 pub type SSL_EMPTY_CACHE_FN_W = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCWSTR, dwflags: u32) -> windows_sys::core::BOOL>;
@@ -418,7 +384,7 @@ impl Default for SUBSCRIBE_GENERIC_TLS_EXTENSION {
 }
 pub type SchGetExtensionsOptions = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_CertInfo {
     pub dwVersion: u32,
     pub cbSubjectName: u32,
@@ -426,11 +392,6 @@ pub struct SecPkgContext_CertInfo {
     pub cbIssuerName: u32,
     pub pwszIssuerName: windows_sys::core::PWSTR,
     pub dwKeySize: u32,
-}
-impl Default for SecPkgContext_CertInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -440,17 +401,11 @@ pub struct SecPkgContext_CertificateValidationResult {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_Certificates {
     pub cCertificates: u32,
     pub cbCertificateChain: u32,
     pub pbCertificateChain: super::PBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_Certificates {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -524,17 +479,11 @@ impl Default for SecPkgContext_EapKeyBlock {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_EapPrfInfo {
     pub dwVersion: u32,
     pub cbPrfData: u32,
     pub pbPrfData: super::PBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_EapPrfInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -543,33 +492,21 @@ pub struct SecPkgContext_EarlyStart {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_IssuerListInfoEx {
     pub aIssuers: super::PCERT_NAME_BLOB,
     pub cIssuers: u32,
 }
-#[cfg(feature = "wincrypt")]
-impl Default for SecPkgContext_IssuerListInfoEx {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_KeyingMaterial {
     pub cbKeyingMaterial: u32,
     pub pbKeyingMaterial: super::PBYTE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_KeyingMaterial {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_KeyingMaterialInfo {
     pub cbLabel: u16,
     pub pszLabel: windows_sys::core::PSTR,
@@ -577,15 +514,9 @@ pub struct SecPkgContext_KeyingMaterialInfo {
     pub pbContextValue: super::PBYTE,
     pub cbKeyingMaterial: u32,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_KeyingMaterialInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_KeyingMaterial_Inproc {
     pub cbLabel: u16,
     pub pszLabel: windows_sys::core::PSTR,
@@ -595,16 +526,10 @@ pub struct SecPkgContext_KeyingMaterial_Inproc {
     pub pbKeyingMaterial: super::PBYTE,
 }
 #[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_KeyingMaterial_Inproc {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
 pub type SecPkgContext_LocalCredenitalInfo = SecPkgContext_LocalCredentialInfo;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_LocalCredentialInfo {
     pub cbCertificateChain: u32,
     pub pbCertificateChain: super::PBYTE,
@@ -612,28 +537,17 @@ pub struct SecPkgContext_LocalCredentialInfo {
     pub fFlags: u32,
     pub dwBits: u32,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_LocalCredentialInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_MappedCredAttr {
     pub dwAttribute: u32,
     pub pvBuffer: *mut core::ffi::c_void,
-}
-impl Default for SecPkgContext_MappedCredAttr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "minwindef")]
 pub type SecPkgContext_RemoteCredenitalInfo = SecPkgContext_RemoteCredentialInfo;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_RemoteCredentialInfo {
     pub cbCertificateChain: u32,
     pub pbCertificateChain: super::PBYTE,
@@ -641,25 +555,13 @@ pub struct SecPkgContext_RemoteCredentialInfo {
     pub fFlags: u32,
     pub dwBits: u32,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_RemoteCredentialInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_SessionAppData {
     pub dwFlags: u32,
     pub cbAppData: u32,
     pub pbAppData: super::PBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_SessionAppData {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -675,55 +577,32 @@ impl Default for SecPkgContext_SessionInfo {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_SrtpParameters {
     pub ProtectionProfile: u16,
     pub MasterKeyIdentifierSize: u8,
     pub MasterKeyIdentifier: super::PBYTE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_SrtpParameters {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_SupportedSignatures {
     pub cSignatureAndHashAlgorithms: u16,
     pub pSignatureAndHashAlgorithms: *mut u16,
 }
-impl Default for SecPkgContext_SupportedSignatures {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_TokenBinding {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
     pub KeyParametersSize: u16,
     pub KeyParameters: super::PBYTE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SecPkgContext_TokenBinding {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_UiInfo {
     pub hParentWindow: super::HWND,
-}
-#[cfg(feature = "windef")]
-impl Default for SecPkgContext_UiInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "wincrypt"))]
 pub type SslDeserializeCertificateStoreFn = Option<unsafe extern "system" fn(serializedcertificatestore: super::CERT_BLOB, ppcertcontext: *mut super::PCCERT_CONTEXT) -> super::SECURITY_STATUS>;

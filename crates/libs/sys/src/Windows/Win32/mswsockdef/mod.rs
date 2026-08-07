@@ -15,16 +15,11 @@ pub struct RIORESULT {
     pub RequestContext: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RIO_BUF {
     pub BufferId: RIO_BUFFERID,
     pub Offset: u32,
     pub Length: u32,
-}
-impl Default for RIO_BUF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type RIO_BUFFERID = *mut RIO_BUFFERID_t;
 #[repr(C)]

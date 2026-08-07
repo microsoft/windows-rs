@@ -69,16 +69,10 @@ windows_link::link!("advapi32.dll" "system" fn CredWriteW(credential : *const CR
 pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: super::LPBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for BINARY_BLOB_CREDENTIAL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3;
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5;
@@ -98,7 +92,7 @@ pub const CERT_HASH_LENGTH: i32 = 20;
 pub type CREDENTIAL = CREDENTIALA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDENTIALA {
     pub Flags: u32,
     pub Type: u32,
@@ -113,15 +107,9 @@ pub struct CREDENTIALA {
     pub TargetAlias: windows_sys::core::PSTR,
     pub UserName: windows_sys::core::PSTR,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CREDENTIALA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDENTIALW {
     pub Flags: u32,
     pub Type: u32,
@@ -137,31 +125,19 @@ pub struct CREDENTIALW {
     pub UserName: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "minwindef")]
-impl Default for CREDENTIALW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
 pub type CREDENTIAL_ATTRIBUTE = CREDENTIAL_ATTRIBUTEA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: windows_sys::core::PSTR,
     pub Flags: u32,
     pub ValueSize: u32,
     pub Value: super::LPBYTE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CREDENTIAL_ATTRIBUTEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: windows_sys::core::PWSTR,
     pub Flags: u32,
@@ -169,16 +145,10 @@ pub struct CREDENTIAL_ATTRIBUTEW {
     pub Value: super::LPBYTE,
 }
 #[cfg(feature = "minwindef")]
-impl Default for CREDENTIAL_ATTRIBUTEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
 pub type CREDENTIAL_TARGET_INFORMATION = CREDENTIAL_TARGET_INFORMATIONA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: windows_sys::core::PSTR,
     pub NetbiosServerName: windows_sys::core::PSTR,
@@ -191,15 +161,9 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub CredTypeCount: u32,
     pub CredTypes: super::LPDWORD,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CREDENTIAL_TARGET_INFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: windows_sys::core::PWSTR,
     pub NetbiosServerName: windows_sys::core::PWSTR,
@@ -211,12 +175,6 @@ pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub Flags: u32,
     pub CredTypeCount: u32,
     pub CredTypes: super::LPDWORD,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CREDENTIAL_TARGET_INFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CREDUIWIN_AUTHPACKAGE_ONLY: i32 = 16;
 pub const CREDUIWIN_CHECKBOX: i32 = 2;
@@ -254,7 +212,7 @@ pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: i32 = 212664322;
 pub type CREDUI_INFO = CREDUI_INFOA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
     pub hwndParent: super::HWND,
@@ -262,27 +220,15 @@ pub struct CREDUI_INFOA {
     pub pszCaptionText: windows_sys::core::PCSTR,
     pub hbmBanner: super::HBITMAP,
 }
-#[cfg(feature = "windef")]
-impl Default for CREDUI_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
     pub hwndParent: super::HWND,
     pub pszMessageText: windows_sys::core::PCWSTR,
     pub pszCaptionText: windows_sys::core::PCWSTR,
     pub hbmBanner: super::HBITMAP,
-}
-#[cfg(feature = "windef")]
-impl Default for CREDUI_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CREDUI_MAX_CAPTION_LENGTH: i32 = 128;
 pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: i32 = 337;
@@ -417,14 +363,9 @@ pub type PCRED_MARSHAL_TYPE = *mut CRED_MARSHAL_TYPE;
 pub type PCRED_PROTECTION_TYPE = *mut CRED_PROTECTION_TYPE;
 pub type PUSERNAME_TARGET_CREDENTIAL_INFO = *mut USERNAME_TARGET_CREDENTIAL_INFO;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_sys::core::PWSTR,
-}
-impl Default for USERNAME_TARGET_CREDENTIAL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = 4;
 pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = 2;

@@ -240,28 +240,18 @@ pub type PSERVER_TRANSPORT_INFO_2 = *mut SERVER_TRANSPORT_INFO_2;
 #[cfg(feature = "minwindef")]
 pub type PSERVER_TRANSPORT_INFO_3 = *mut SERVER_TRANSPORT_INFO_3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_100 {
     pub sv100_platform_id: u32,
     pub sv100_name: windows_sys::core::PWSTR,
 }
-impl Default for SERVER_INFO_100 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1005 {
     pub sv1005_comment: windows_sys::core::PWSTR,
 }
-impl Default for SERVER_INFO_1005 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_101 {
     pub sv101_platform_id: u32,
     pub sv101_name: windows_sys::core::PWSTR,
@@ -269,11 +259,6 @@ pub struct SERVER_INFO_101 {
     pub sv101_version_minor: u32,
     pub sv101_type: u32,
     pub sv101_comment: windows_sys::core::PWSTR,
-}
-impl Default for SERVER_INFO_101 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -296,7 +281,7 @@ pub struct SERVER_INFO_1018 {
     pub sv1018_anndelta: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_102 {
     pub sv102_platform_id: u32,
     pub sv102_name: windows_sys::core::PWSTR,
@@ -312,13 +297,8 @@ pub struct SERVER_INFO_102 {
     pub sv102_licenses: u32,
     pub sv102_userpath: windows_sys::core::PWSTR,
 }
-impl Default for SERVER_INFO_102 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_103 {
     pub sv103_platform_id: u32,
     pub sv103_name: windows_sys::core::PWSTR,
@@ -334,11 +314,6 @@ pub struct SERVER_INFO_103 {
     pub sv103_licenses: u32,
     pub sv103_userpath: windows_sys::core::PWSTR,
     pub sv103_capabilities: u32,
-}
-impl Default for SERVER_INFO_103 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -786,7 +761,7 @@ pub struct SERVER_INFO_1602 {
     pub sv_1598_disablestrictnamechecking: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_402 {
     pub sv402_ulist_mtime: u32,
     pub sv402_glist_mtime: u32,
@@ -820,13 +795,8 @@ pub struct SERVER_INFO_402 {
     pub sv402_maxauditsz: u32,
     pub sv402_srvheuristics: windows_sys::core::PWSTR,
 }
-impl Default for SERVER_INFO_402 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_403 {
     pub sv403_ulist_mtime: u32,
     pub sv403_glist_mtime: u32,
@@ -863,11 +833,6 @@ pub struct SERVER_INFO_403 {
     pub sv403_autoprofile: u32,
     pub sv403_autopath: windows_sys::core::PWSTR,
 }
-impl Default for SERVER_INFO_403 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_502 {
@@ -891,7 +856,7 @@ pub struct SERVER_INFO_502 {
     pub sv502_lmannounce: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_503 {
     pub sv503_sessopens: u32,
     pub sv503_sessvcs: u32,
@@ -935,11 +900,6 @@ pub struct SERVER_INFO_503 {
     pub sv503_enablesharednetdrives: windows_sys::core::BOOL,
     pub sv503_minfreeconnections: u32,
     pub sv503_maxfreeconnections: u32,
-}
-impl Default for SERVER_INFO_503 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -989,7 +949,7 @@ pub struct SERVER_INFO_598 {
     pub sv598_enableauthenticateusersharing: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_599 {
     pub sv599_sessopens: u32,
     pub sv599_sessvcs: u32,
@@ -1048,14 +1008,9 @@ pub struct SERVER_INFO_599 {
     pub sv599_scavqosinfoupdatetime: u32,
     pub sv599_maxworkitemidletime: u32,
 }
-impl Default for SERVER_INFO_599 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_numberofvcs: u32,
     pub svti0_transportname: windows_sys::core::PWSTR,
@@ -1063,15 +1018,9 @@ pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_transportaddresslength: u32,
     pub svti0_networkaddress: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SERVER_TRANSPORT_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_numberofvcs: u32,
     pub svti1_transportname: windows_sys::core::PWSTR,
@@ -1080,15 +1029,9 @@ pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_networkaddress: windows_sys::core::PWSTR,
     pub svti1_domain: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SERVER_TRANSPORT_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_numberofvcs: u32,
     pub svti2_transportname: windows_sys::core::PWSTR,
@@ -1097,12 +1040,6 @@ pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_networkaddress: windows_sys::core::PWSTR,
     pub svti2_domain: windows_sys::core::PWSTR,
     pub svti2_flags: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SERVER_TRANSPORT_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]

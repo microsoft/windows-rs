@@ -157,15 +157,10 @@ pub struct ADS_BACKLINK {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ADS_BOOLEAN(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_CASEIGNORE_LIST {
     pub Next: *mut Self,
     pub String: windows_core::PWSTR,
-}
-impl Default for ADS_CASEIGNORE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_CASE_EXACT_STRING = windows_core::PWSTR;
 pub type ADS_CASE_IGNORE_STRING = windows_core::PWSTR;
@@ -175,7 +170,7 @@ pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = 64;
 pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = 0;
 pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_CLASS_DEF {
     pub pszClassName: windows_core::PWSTR,
     pub dwMandatoryAttrs: u32,
@@ -187,11 +182,6 @@ pub struct ADS_CLASS_DEF {
     pub dwSuperClasses: u32,
     pub ppszSuperClasses: *mut *mut windows_core::PWSTR,
     pub fIsContainer: windows_core::BOOL,
-}
-impl Default for ADS_CLASS_DEF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_DEREFENUM = i32;
 pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = 3;
@@ -292,16 +282,11 @@ pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = 12;
 pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = 8;
 pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_NETADDRESS {
     pub AddressType: u32,
     pub AddressLength: u32,
     pub Address: *mut u8,
-}
-impl Default for ADS_NETADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 16;
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024;
@@ -324,16 +309,11 @@ pub struct ADS_OBJECT_INFO {
     pub pszClassName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_OCTET_LIST {
     pub Next: *mut Self,
     pub Length: u32,
     pub Data: *mut u8,
-}
-impl Default for ADS_OCTET_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]

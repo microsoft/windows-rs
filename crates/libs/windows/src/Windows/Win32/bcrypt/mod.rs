@@ -410,13 +410,8 @@ pub struct BCRYPT_ALGORITHM_IDENTIFIER {
 }
 pub const BCRYPT_ALGORITHM_NAME: windows_core::PCWSTR = windows_core::w!("AlgorithmName");
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BCRYPT_ALG_HANDLE(pub *mut core::ffi::c_void);
-impl Default for BCRYPT_ALG_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: i32 = 8;
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: i32 = 3;
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: i32 = 4;
@@ -608,15 +603,10 @@ pub const BCRYPT_ECC_CURVE_BRAINPOOLP512T1: windows_core::PCWSTR = windows_core:
 pub const BCRYPT_ECC_CURVE_EC192WAPI: windows_core::PCWSTR = windows_core::w!("ec192wapi");
 pub const BCRYPT_ECC_CURVE_NAME: windows_core::PCWSTR = windows_core::w!("ECCCurveName");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_ECC_CURVE_NAMES {
     pub dwEccCurveNames: u32,
     pub pEccCurveNames: *mut windows_core::PWSTR,
-}
-impl Default for BCRYPT_ECC_CURVE_NAMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BCRYPT_ECC_CURVE_NAME_LIST: windows_core::PCWSTR = windows_core::w!("ECCCurveNameList");
 pub const BCRYPT_ECC_CURVE_NISTP192: windows_core::PCWSTR = windows_core::w!("nistP192");
@@ -693,23 +683,13 @@ pub const BCRYPT_FUNCTION_NAME_STRING: windows_core::PCWSTR = windows_core::w!("
 pub const BCRYPT_GENERATE_IV: i32 = 32;
 pub const BCRYPT_GLOBAL_PARAMETERS: windows_core::PCWSTR = windows_core::w!("SecretAgreementParam");
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BCRYPT_HANDLE(pub *mut core::ffi::c_void);
-impl Default for BCRYPT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const BCRYPT_HASH_BLOCK_LENGTH: windows_core::PCWSTR = windows_core::w!("HashBlockLength");
 pub const BCRYPT_HASH_DONT_RESET_FLAG: i32 = 1;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BCRYPT_HASH_HANDLE(pub *mut core::ffi::c_void);
-impl Default for BCRYPT_HASH_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const BCRYPT_HASH_INTERFACE: i32 = 2;
 pub const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: i32 = 2;
 pub const BCRYPT_HASH_LENGTH: windows_core::PCWSTR = windows_core::w!("HashDigestLength");
@@ -772,13 +752,8 @@ pub const BCRYPT_KEY_DERIVATION_OPERATION: i32 = 64;
 pub const BCRYPT_KEY_ENCAPSULATION_INTERFACE: i32 = 8;
 pub const BCRYPT_KEY_ENCAPSULATION_OPERATION: i32 = 128;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BCRYPT_KEY_HANDLE(pub *mut core::ffi::c_void);
-impl Default for BCRYPT_KEY_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const BCRYPT_KEY_LENGTH: windows_core::PCWSTR = windows_core::w!("KeyLength");
 pub const BCRYPT_KEY_LENGTHS: windows_core::PCWSTR = windows_core::w!("KeyLengths");
 #[repr(C)]
@@ -872,16 +847,10 @@ pub struct BCRYPT_OID {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_OID_LIST {
     pub dwOIDCount: u32,
     pub pOIDs: *mut BCRYPT_OID,
-}
-#[cfg(feature = "minwindef")]
-impl Default for BCRYPT_OID_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BCRYPT_OPAQUE_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("OpaqueKeyBlob");
 pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = 1;
@@ -986,13 +955,8 @@ pub const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(785 
 pub const BCRYPT_SECRET_AGREEMENT_INTERFACE: i32 = 4;
 pub const BCRYPT_SECRET_AGREEMENT_OPERATION: i32 = 8;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BCRYPT_SECRET_HANDLE(pub *mut core::ffi::c_void);
-impl Default for BCRYPT_SECRET_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const BCRYPT_SHA1_ALGORITHM: windows_core::PCWSTR = windows_core::w!("SHA1");
 pub const BCRYPT_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(49 as _);
 pub const BCRYPT_SHA256_ALGORITHM: windows_core::PCWSTR = windows_core::w!("SHA256");
@@ -1049,16 +1013,11 @@ pub const BCRYPT_XMSS_PUBLIC_MAGIC: i32 = 1263553880;
 pub const BCRYPT_XTS_AES_ALGORITHM: windows_core::PCWSTR = windows_core::w!("XTS-AES");
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(897 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCryptBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
     pub pvBuffer: *mut core::ffi::c_void,
-}
-impl Default for BCryptBuffer {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1071,15 +1030,10 @@ pub const CRYPT_ALL_FUNCTIONS: i32 = 1;
 pub const CRYPT_ALL_PROVIDERS: i32 = 2;
 pub const CRYPT_ANY: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CONTEXTS {
     pub cContexts: u32,
     pub rgpszContexts: *mut windows_core::PWSTR,
-}
-impl Default for CRYPT_CONTEXTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1088,15 +1042,10 @@ pub struct CRYPT_CONTEXT_CONFIG {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTIONS {
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_core::PWSTR,
-}
-impl Default for CRYPT_CONTEXT_FUNCTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1105,15 +1054,10 @@ pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_core::PWSTR,
-}
-impl Default for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_DEFAULT_CONTEXT: windows_core::PCWSTR = windows_core::w!("Default");
 pub const CRYPT_DOMAIN: i32 = 2;
@@ -1125,29 +1069,19 @@ pub struct CRYPT_IMAGE_REF {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REG {
     pub pszImage: windows_core::PWSTR,
     pub cInterfaces: u32,
     pub rgpInterfaces: *mut PCRYPT_INTERFACE_REG,
 }
-impl Default for CRYPT_IMAGE_REG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_INTERFACE_REG {
     pub dwInterface: u32,
     pub dwFlags: u32,
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_core::PWSTR,
-}
-impl Default for CRYPT_INTERFACE_REG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_KM: i32 = 2;
 pub const CRYPT_LOCAL: i32 = 1;
@@ -1167,19 +1101,14 @@ pub struct CRYPT_PROPERTY_REF {
     pub pbValue: super::PUCHAR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_core::PWSTR,
 }
-impl Default for CRYPT_PROVIDERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REF {
     pub dwInterface: u32,
     pub pszFunction: windows_core::PWSTR,
@@ -1189,37 +1118,20 @@ pub struct CRYPT_PROVIDER_REF {
     pub pUM: PCRYPT_IMAGE_REF,
     pub pKM: PCRYPT_IMAGE_REF,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CRYPT_PROVIDER_REF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REFS {
     pub cProviders: u32,
     pub rgpProviders: *mut PCRYPT_PROVIDER_REF,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CRYPT_PROVIDER_REFS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REG {
     pub cAliases: u32,
     pub rgpszAliases: *mut windows_core::PWSTR,
     pub pUM: PCRYPT_IMAGE_REG,
     pub pKM: PCRYPT_IMAGE_REG,
-}
-impl Default for CRYPT_PROVIDER_REG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_UM: i32 = 1;
 pub type DSAFIPSVERSION_ENUM = i32;

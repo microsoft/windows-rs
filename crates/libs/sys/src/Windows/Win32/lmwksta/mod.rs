@@ -109,7 +109,7 @@ pub const WKSTA_DORMANTFILELIMIT_PARMNUM: i32 = 46;
 pub const WKSTA_ERRLOGSZ_PARMNUM: i32 = 27;
 pub const WKSTA_FORCECORECREATEMODE_PARMNUM: i32 = 60;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_100 {
     pub wki100_platform_id: u32,
     pub wki100_computername: windows_sys::core::PWSTR,
@@ -117,13 +117,8 @@ pub struct WKSTA_INFO_100 {
     pub wki100_ver_major: u32,
     pub wki100_ver_minor: u32,
 }
-impl Default for WKSTA_INFO_100 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_101 {
     pub wki101_platform_id: u32,
     pub wki101_computername: windows_sys::core::PWSTR,
@@ -131,11 +126,6 @@ pub struct WKSTA_INFO_101 {
     pub wki101_ver_major: u32,
     pub wki101_ver_minor: u32,
     pub wki101_lanroot: windows_sys::core::PWSTR,
-}
-impl Default for WKSTA_INFO_101 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -163,7 +153,7 @@ pub struct WKSTA_INFO_1018 {
     pub wki1018_sess_timeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_102 {
     pub wki102_platform_id: u32,
     pub wki102_computername: windows_sys::core::PWSTR,
@@ -172,11 +162,6 @@ pub struct WKSTA_INFO_102 {
     pub wki102_ver_minor: u32,
     pub wki102_lanroot: windows_sys::core::PWSTR,
     pub wki102_logged_on_users: u32,
-}
-impl Default for WKSTA_INFO_102 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -314,7 +299,7 @@ pub struct WKSTA_INFO_1062 {
     pub wki1062_read_ahead_throughput: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_302 {
     pub wki302_char_wait: u32,
     pub wki302_collection_time: u32,
@@ -337,13 +322,8 @@ pub struct WKSTA_INFO_302 {
     pub wki302_mailslots: u32,
     pub wki302_num_dgram_buf: u32,
 }
-impl Default for WKSTA_INFO_302 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_402 {
     pub wki402_char_wait: u32,
     pub wki402_collection_time: u32,
@@ -366,11 +346,6 @@ pub struct WKSTA_INFO_402 {
     pub wki402_mailslots: u32,
     pub wki402_num_dgram_buf: u32,
     pub wki402_max_threads: u32,
-}
-impl Default for WKSTA_INFO_402 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -441,18 +416,13 @@ pub const WKSTA_SIZCHARBUF_PARMNUM: i32 = 23;
 pub const WKSTA_SIZERROR_PARMNUM: i32 = 19;
 pub const WKSTA_SIZWORKBUF_PARMNUM: i32 = 29;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_quality_of_service: u32,
     pub wkti0_number_of_vcs: u32,
     pub wkti0_transport_name: windows_sys::core::PWSTR,
     pub wkti0_transport_address: windows_sys::core::PWSTR,
     pub wkti0_wan_ish: windows_sys::core::BOOL,
-}
-impl Default for WKSTA_TRANSPORT_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: i32 = 61;
 pub const WKSTA_USECLOSEBEHIND_PARMNUM: i32 = 50;
@@ -462,37 +432,22 @@ pub const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: i32 = 48;
 pub const WKSTA_USERAWREAD_PARMNUM: i32 = 54;
 pub const WKSTA_USERAWWRITE_PARMNUM: i32 = 55;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_USER_INFO_0 {
     pub wkui0_username: windows_sys::core::PWSTR,
 }
-impl Default for WKSTA_USER_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_USER_INFO_1 {
     pub wkui1_username: windows_sys::core::PWSTR,
     pub wkui1_logon_domain: windows_sys::core::PWSTR,
     pub wkui1_oth_domains: windows_sys::core::PWSTR,
     pub wkui1_logon_server: windows_sys::core::PWSTR,
 }
-impl Default for WKSTA_USER_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_USER_INFO_1101 {
     pub wkui1101_oth_domains: windows_sys::core::PWSTR,
-}
-impl Default for WKSTA_USER_INFO_1101 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WKSTA_USEUNLOCKBEHIND_PARMNUM: i32 = 49;
 pub const WKSTA_USEWRITERAWWITHDATA_PARMNUM: i32 = 56;

@@ -196,19 +196,13 @@ pub struct D2D1_BITMAP_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(all(feature = "dcommon", feature = "dxgi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct D2D1_BITMAP_PROPERTIES1 {
     pub pixelFormat: super::D2D1_PIXEL_FORMAT,
     pub dpiX: f32,
     pub dpiY: f32,
     pub bitmapOptions: D2D1_BITMAP_OPTIONS,
     pub colorContext: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
-impl Default for D2D1_BITMAP_PROPERTIES1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D2D1_BLEND_MODE = i32;
 pub const D2D1_BLEND_MODE_COLOR: D2D1_BLEND_MODE = 22;
@@ -519,17 +513,11 @@ pub const D2D1_EDGEDETECTION_PROP_OVERLAY_EDGES: D2D1_EDGEDETECTION_PROP = 3;
 pub const D2D1_EDGEDETECTION_PROP_STRENGTH: D2D1_EDGEDETECTION_PROP = 0;
 #[repr(C)]
 #[cfg(feature = "dcommon")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
     pub effect: *mut core::ffi::c_void,
     pub inputIndex: u32,
     pub inputRectangle: super::D2D_RECT_F,
-}
-#[cfg(feature = "dcommon")]
-impl Default for D2D1_EFFECT_INPUT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D2D1_EMBOSS_PROP = i32;
 pub const D2D1_EMBOSS_PROP_DIRECTION: D2D1_EMBOSS_PROP = 1;
@@ -665,17 +653,11 @@ pub const D2D1_HUETORGB_PROP_FORCE_DWORD: D2D1_HUETORGB_PROP = -1;
 pub const D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE: D2D1_HUETORGB_PROP = 0;
 #[repr(C)]
 #[cfg(all(feature = "dcommon", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
     pub hwnd: super::HWND,
     pub pixelSize: super::D2D_SIZE_U,
     pub presentOptions: D2D1_PRESENT_OPTIONS,
-}
-#[cfg(all(feature = "dcommon", feature = "windef"))]
-impl Default for D2D1_HWND_RENDER_TARGET_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "dcommon")]
@@ -766,15 +748,10 @@ pub const D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE: D2D1_LOOKUPTABLE3D_PROP = 1;
 pub const D2D1_LOOKUPTABLE3D_PROP_FORCE_DWORD: D2D1_LOOKUPTABLE3D_PROP = -1;
 pub const D2D1_LOOKUPTABLE3D_PROP_LUT: D2D1_LOOKUPTABLE3D_PROP = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct D2D1_MAPPED_RECT {
     pub pitch: u32,
     pub bits: *mut u8,
-}
-impl Default for D2D1_MAPPED_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D2D1_MAP_OPTIONS = u32;
 pub const D2D1_MAP_OPTIONS_DISCARD: D2D1_MAP_OPTIONS = 4;

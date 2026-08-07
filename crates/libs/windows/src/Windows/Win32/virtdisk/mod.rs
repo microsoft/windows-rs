@@ -874,7 +874,7 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: windows_core::BOOL,
     pub DataIn: u8,
@@ -885,11 +885,6 @@ pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub DataBuffer: *mut core::ffi::c_void,
     pub SenseInfo: *mut u8,
     pub Cdb: *mut u8,
-}
-impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -587,17 +587,12 @@ pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
 }
 pub type IP_ADDRESS_STRING = IP_MASK_STRING;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADDR_STRING {
     pub Next: *mut Self,
     pub IpAddress: IP_ADDRESS_STRING,
     pub IpMask: IP_MASK_STRING,
     pub Context: u32,
-}
-impl Default for IP_ADDR_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "nldef")]
 #[repr(transparent)]

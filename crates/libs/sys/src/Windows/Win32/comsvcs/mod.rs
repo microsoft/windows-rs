@@ -63,7 +63,7 @@ pub struct ApplicationProcessStatistics {
     pub Reserved4: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: windows_sys::core::GUID,
     pub ApplicationIdPrimaryApplication: windows_sys::core::GUID,
@@ -75,13 +75,8 @@ pub struct ApplicationProcessSummary {
     pub IsPaused: windows_sys::core::BOOL,
     pub IsRecycled: windows_sys::core::BOOL,
 }
-impl Default for ApplicationProcessSummary {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
@@ -90,11 +85,6 @@ pub struct ApplicationSummary {
     pub ApplicationName: windows_sys::core::PWSTR,
     pub NumTrackedComponents: u32,
     pub NumComponentInstances: u32,
-}
-impl Default for ApplicationSummary {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ByotServerEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
@@ -110,7 +100,7 @@ pub struct CLSIDDATA {
     pub m_cCallsFailed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLSIDDATA2 {
     pub m_clsid: windows_sys::core::GUID,
     pub m_appid: windows_sys::core::GUID,
@@ -126,15 +116,10 @@ pub struct CLSIDDATA2 {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl Default for CLSIDDATA2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const COMEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 pub type COMPLUS_APPTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
     pub dwPid: u32,
@@ -143,11 +128,6 @@ pub struct COMSVCSEVENTINFO {
     pub perfCount: i64,
     pub guidApp: windows_sys::core::GUID,
     pub sMachineName: windows_sys::core::PWSTR,
-}
-impl Default for COMSVCSEVENTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRMClerk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
 pub type CRMFLAGS = i32;
@@ -239,7 +219,7 @@ pub struct ComponentStatistics {
     pub Reserved4: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
@@ -247,11 +227,6 @@ pub struct ComponentSummary {
     pub Clsid: windows_sys::core::GUID,
     pub ClassName: windows_sys::core::PWSTR,
     pub ApplicationName: windows_sys::core::PWSTR,
-}
-impl Default for ComponentSummary {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]

@@ -3522,7 +3522,7 @@ pub const ACTCTX_FLAG_SET_PROCESS_DEFAULT: i32 = 16;
 pub const ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTCTX_SECTION_KEYED_DATA {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -3537,15 +3537,9 @@ pub struct ACTCTX_SECTION_KEYED_DATA {
     pub ulFlags: u32,
     pub AssemblyMetadata: ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA,
 }
-#[cfg(feature = "winnt")]
-impl Default for ACTCTX_SECTION_KEYED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -3558,25 +3552,14 @@ pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
     pub hActCtx: super::HANDLE,
     pub ulAssemblyRosterIndex: u32,
 }
-#[cfg(feature = "winnt")]
-impl Default for ACTCTX_SECTION_KEYED_DATA_2600 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     pub lpInformation: *mut core::ffi::c_void,
     pub lpSectionBase: *mut core::ffi::c_void,
     pub ulSectionLength: u32,
     pub lpSectionGlobalDataBase: *mut core::ffi::c_void,
     pub ulSectionGlobalDataLength: u32,
-}
-impl Default for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -3798,19 +3781,13 @@ pub struct COPYFILE2_CREATE_OPLOCK_KEYS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
     pub pfCancel: *mut windows_core::BOOL,
     pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for COPYFILE2_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -4673,14 +4650,8 @@ pub type LPJIT_DEBUG_INFO64 = *mut JIT_DEBUG_INFO;
 pub type LPLDT_ENTRY = super::PLDT_ENTRY;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPLDT_ENTRY(pub *mut core::ffi::c_void);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for LPLDT_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type LPMEMORYSTATUS = *mut MEMORYSTATUS;
 pub type LPOFSTRUCT = *mut OFSTRUCT;
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
@@ -5195,21 +5166,11 @@ pub const PST_TCPIP_TELNET: u32 = 258;
 pub const PST_UNSPECIFIED: u32 = 0;
 pub const PST_X25: u32 = 259;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PUMS_COMPLETION_LIST(pub *mut core::ffi::c_void);
-impl Default for PUMS_COMPLETION_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PUMS_CONTEXT(pub *mut core::ffi::c_void);
-impl Default for PUMS_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "winnt")]
 pub type PUMS_SCHEDULER_ENTRY_POINT = super::PRTL_UMS_SCHEDULER_ENTRY_POINT;
 #[cfg(feature = "winnt")]
@@ -5431,18 +5392,12 @@ pub const TWOSTOPBITS: i32 = 2;
 pub struct UMS_SCHEDULER_REASON(pub super::RTL_UMS_SCHEDULER_REASON);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub UmsVersion: u32,
     pub CompletionList: PUMS_COMPLETION_LIST,
     pub SchedulerProc: PUMS_SCHEDULER_ENTRY_POINT,
     pub SchedulerParam: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for UMS_SCHEDULER_STARTUP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -115,15 +115,10 @@ pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wUncompressedDigitalAudio: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: u16,
     pub rgIds: *mut windows_core::GUID,
-}
-impl Default for DRM_OPL_OUTPUT_IDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DRM_OPL_TYPES: i32 = 1;
 #[repr(C)]
@@ -151,15 +146,10 @@ impl Default for DRM_VAL16 {
 }
 pub type DRM_VIDEO_OUTPUT_PROTECTION = DRM_OUTPUT_PROTECTION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: u16,
     pub rgVop: *mut DRM_VIDEO_OUTPUT_PROTECTION,
-}
-impl Default for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(IWMAddressAccess, IWMAddressAccess_Vtbl, 0xbb3c6389_1633_4e92_af14_9f3173ba39d0);
 windows_core::imp::interface_hierarchy!(IWMAddressAccess, windows_core::IUnknown);
@@ -9674,18 +9664,13 @@ pub type LPCWSTR_WMSDK_TYPE_SAFE = windows_core::PCWSTR;
 pub const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1;
 pub const WEBSTREAM_SAMPLE_TYPE_RENDER: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: u32,
     pub cbEncryptedSessionKeyMessage: u32,
     pub pbEncryptedSessionKeyMessage: *mut u8,
     pub cbEncryptedKeyMessage: u32,
     pub pbEncryptedKeyMessage: *mut u8,
-}
-impl Default for WMDRM_IMPORT_INIT_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: i32 = 1;
 #[repr(C)]
@@ -9766,19 +9751,13 @@ pub const WMT_ERROR: WMT_STATUS = 0;
 pub const WMT_ERROR_WITHURL: WMT_STATUS = 30;
 #[repr(C)]
 #[cfg(feature = "wmsbuffer")]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
     pub pPayloadHeaderBuffers: *mut WMT_BUFFER_SEGMENT,
     pub cPayloadDataFragments: u32,
     pub pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
-}
-#[cfg(feature = "wmsbuffer")]
-impl Default for WMT_FILESINK_DATA_UNIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WMT_FILESINK_MODE = i32;
 pub const WMT_FM_FILESINK_DATA_UNITS: WMT_FILESINK_MODE = 2;
@@ -10108,7 +10087,7 @@ pub struct WM_LEAKY_BUCKET_PAIR {
 pub const WM_MAX_STREAMS: i32 = 63;
 pub const WM_MAX_VIDEO_STREAMS: i32 = 63;
 #[repr(C)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -10120,24 +10099,14 @@ pub struct WM_MEDIA_TYPE {
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
-impl Default for WM_MEDIA_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_PICTURE {
     pub pwszMIMEType: windows_core::PWSTR,
     pub bPictureType: u8,
     pub pwszDescription: windows_core::PWSTR,
     pub dwDataLen: u32,
     pub pbData: *mut u8,
-}
-impl Default for WM_PICTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WM_PLAYBACK_DRC_HIGH: i32 = 0;
 pub const WM_PLAYBACK_DRC_LOW: i32 = 2;
@@ -10150,7 +10119,7 @@ pub struct WM_PORT_NUMBER_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
     pub wszLang: *mut u16,
@@ -10161,12 +10130,6 @@ pub struct WM_READER_CLIENTINFO {
     pub wszHostExe: *mut u16,
     pub qwHostVersion: u64,
     pub wszPlayerUserAgent: *mut u16,
-}
-#[cfg(feature = "minwindef")]
-impl Default for WM_READER_CLIENTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10198,18 +10161,13 @@ pub struct WM_STREAM_TYPE_INFO {
     pub cbFormat: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
     pub pwszContentDescriptor: windows_core::PWSTR,
     pub dwLyricsLen: u32,
     pub pbLyrics: *mut u8,
-}
-impl Default for WM_SYNCHRONISED_LYRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WM_SampleExtension_ChromaLocation_Size: i32 = 1;
 pub const WM_SampleExtension_ColorSpaceInfo_Size: i32 = 3;

@@ -20,17 +20,11 @@ windows_link::link!("cryptui.dll" "system" fn CryptUIWizImport(dwflags : u32, hw
 pub const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_SELECTUI_INPUT {
     pub hStore: super::HCERTSTORE,
     pub prgpChain: *mut super::PCCERT_CHAIN_CONTEXT,
     pub cChain: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for CERT_SELECTUI_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPTUI_ACCEPT_DECLINE_STYLE: i32 = 64;
 pub const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: i32 = 262144;
@@ -38,19 +32,13 @@ pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: i32 = 4;
 pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: i32 = 32768;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub dwSize: u32,
     pub hwndParent: super::HWND,
     pub dwFlags: u32,
     pub pwszTitle: windows_sys::core::PCWSTR,
     pub pszInitUsageOID: windows_sys::core::PCSTR,
-}
-#[cfg(feature = "windef")]
-impl Default for CRYPTUI_CERT_MGR_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPTUI_CERT_MGR_TAB_MASK: i32 = 15;
 pub const CRYPTUI_DISABLE_ADDTOSTORE: i32 = 16;
@@ -70,16 +58,10 @@ pub const CRYPTUI_HIDE_HIERARCHYPAGE: i32 = 1;
 pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTUI_INITDIALOG_STRUCT {
     pub lParam: super::LPARAM,
     pub pCertContext: super::PCCERT_CONTEXT,
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for CRYPTUI_INITDIALOG_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPTUI_ONLY_OPEN_ROOT_STORE: i32 = 512;
 pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: i32 = 32;
@@ -177,18 +159,13 @@ pub const CRYPTUI_WARN_UNTRUSTED_ROOT: i32 = 1024;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: i32 = 1;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub dwSize: u32,
     pub pGuidSubject: *mut windows_sys::core::GUID,
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
     pub pwszDisplayName: windows_sys::core::PCWSTR,
-}
-impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: i32 = 1;
 #[repr(C)]
@@ -221,21 +198,16 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     pub dwSize: u32,
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
 }
-impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub dwSize: u32,
     pub dwAttrFlags: u32,
@@ -246,12 +218,6 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub hAdditionalCertStore: super::HCERTSTORE,
     pub psAuthenticated: super::PCRYPT_ATTRIBUTES,
     pub psUnauthenticated: super::PCRYPT_ATTRIBUTES,
-}
-#[cfg(feature = "wincrypt")]
-impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: i32 = 4;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: i32 = 2;
@@ -304,23 +270,18 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: i32 = 3;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub dwSize: u32,
     pub pwszPvkFileName: windows_sys::core::PWSTR,
     pub pwszProvName: windows_sys::core::PWSTR,
     pub dwProvType: u32,
 }
-impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: i32 = 2;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: u32,
     pub cCertStore: u32,
@@ -328,16 +289,10 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub pFilterCallback: PFNCFILTERPROC,
     pub pvCallbackData: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: i32 = 2;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub dwSize: u32,
     pub dwExportFormat: u32,
@@ -345,11 +300,6 @@ pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub fExportPrivateKeys: windows_sys::core::BOOL,
     pub pwszPassword: windows_sys::core::PCWSTR,
     pub fStrongEncryption: windows_sys::core::BOOL,
-}
-impl Default for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: i32 = 1;
 pub const CRYPTUI_WIZ_EXPORT_CERT_STORE: i32 = 4;

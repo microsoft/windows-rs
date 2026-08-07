@@ -11,13 +11,8 @@ pub struct HALF_PTR(pub i16);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HALF_PTR(pub i32);
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HANDLE64(pub *mut core::ffi::c_void);
-impl Default for HANDLE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(target_arch = "x86")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -110,13 +105,8 @@ pub type PHALF_PTR = *mut i16;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PHALF_PTR = *mut i32;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PHANDLE64(pub *mut *mut core::ffi::c_void);
-impl Default for PHANDLE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PINT16 = *mut i16;
 pub type PINT32 = *mut i32;
 pub type PINT64 = *mut i64;

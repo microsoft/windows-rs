@@ -10,15 +10,10 @@ pub type ConnectionRecoveryBehaviorOptions = i32;
 pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = 0;
 pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ExtendedProperty {
     pub PropertyName: windows_sys::core::BSTR,
     pub PropertyValue: windows_sys::core::BSTR,
-}
-impl Default for ExtendedProperty {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PropertyConditionFlags = i32;
 pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = 1;

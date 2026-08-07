@@ -2402,15 +2402,10 @@ pub const KSMICARRAY_MICTYPE_SUBCARDIOID: KSMICARRAY_MICTYPE = 1;
 pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = 3;
 pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMIDILOOPED_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
-}
-impl Default for KSMIDILOOPED_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "ks")]
@@ -2439,15 +2434,10 @@ pub struct KSMIDILOOPED_EVENT2 {
     pub ReadEvent: super::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMIDILOOPED_REGISTERS {
     pub WritePosition: *mut core::ffi::c_void,
     pub ReadPosition: *mut core::ffi::c_void,
-}
-impl Default for KSMIDILOOPED_REGISTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KSMPEGVIDMODE_LTRBOX: i32 = 2;
 pub const KSMPEGVIDMODE_PANSCAN: i32 = 1;
@@ -4611,16 +4601,11 @@ pub struct KSPROPSETID_VramCapture(pub u8);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Wave(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
     pub CallMemoryBarrier: windows_core::BOOL,
-}
-impl Default for KSRTAUDIO_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4703,18 +4688,13 @@ pub struct KSRTAUDIO_HWLATENCY {
     pub CodecDelay: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_HWREGISTER {
     pub Register: *mut core::ffi::c_void,
     pub Width: u32,
     pub Numerator: u64,
     pub Denominator: u64,
     pub Accuracy: u32,
-}
-impl Default for KSRTAUDIO_HWREGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4898,16 +4878,11 @@ impl Default for KSWAVETABLE_WAVE_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSWAVE_BUFFER {
     pub Attributes: u32,
     pub BufferSize: u32,
     pub BufferAddress: *mut core::ffi::c_void,
-}
-impl Default for KSWAVE_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: i32 = 1;
 pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: i32 = 2;

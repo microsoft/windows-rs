@@ -79,17 +79,12 @@ pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: i32 = 63;
 pub const TRANSACTION_MANAGER_VOLATILE: i32 = 1;
 pub const TRANSACTION_MAXIMUM_OPTION: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut core::ffi::c_void,
     pub TransactionNotification: u32,
     pub TmVirtualClock: i64,
     pub ArgumentLength: u32,
-}
-impl Default for TRANSACTION_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

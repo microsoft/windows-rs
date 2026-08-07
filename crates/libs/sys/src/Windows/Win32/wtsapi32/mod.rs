@@ -689,37 +689,25 @@ pub const WTS_LISTENER_NAME_LENGTH: i32 = 32;
 pub const WTS_LISTENER_UPDATE: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_sys::core::PSTR,
     pub pUserSid: super::PSID,
 }
-#[cfg(feature = "winnt")]
-impl Default for WTS_PROCESS_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_sys::core::PWSTR,
     pub pUserSid: super::PSID,
 }
-#[cfg(feature = "winnt")]
-impl Default for WTS_PROCESS_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -734,15 +722,9 @@ pub struct WTS_PROCESS_INFO_EXA {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
-#[cfg(feature = "winnt")]
-impl Default for WTS_PROCESS_INFO_EXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -756,12 +738,6 @@ pub struct WTS_PROCESS_INFO_EXW {
     pub PeakWorkingSetSize: u32,
     pub UserTime: i64,
     pub KernelTime: i64,
-}
-#[cfg(feature = "winnt")]
-impl Default for WTS_PROCESS_INFO_EXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WTS_PROCESS_INFO_LEVEL_0: i32 = 0;
 pub const WTS_PROCESS_INFO_LEVEL_1: i32 = 1;
@@ -784,35 +760,20 @@ pub const WTS_SECURITY_SET_INFORMATION: i32 = 2;
 pub const WTS_SECURITY_USER_ACCESS: i32 = 329;
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SERIALIZED_USER_CREDENTIAL {
     pub SerializationLength: u32,
     pub Serialization: *mut u8,
 }
-impl Default for WTS_SERIALIZED_USER_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SERVER_INFOA {
     pub pServerName: windows_sys::core::PSTR,
 }
-impl Default for WTS_SERVER_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SERVER_INFOW {
     pub pServerName: windows_sys::core::PWSTR,
-}
-impl Default for WTS_SERVER_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WTS_SESSIONSTATE_LOCK: i32 = 0;
 pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295;
@@ -829,31 +790,21 @@ impl Default for WTS_SESSION_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SESSION_INFOA {
     pub SessionId: u32,
     pub pWinStationName: windows_sys::core::PSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
-impl Default for WTS_SESSION_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SESSION_INFOW {
     pub SessionId: u32,
     pub pWinStationName: windows_sys::core::PWSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
-impl Default for WTS_SESSION_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SESSION_INFO_1A {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -864,13 +815,8 @@ pub struct WTS_SESSION_INFO_1A {
     pub pDomainName: windows_sys::core::PSTR,
     pub pFarmName: windows_sys::core::PSTR,
 }
-impl Default for WTS_SESSION_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTS_SESSION_INFO_1W {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -880,11 +826,6 @@ pub struct WTS_SESSION_INFO_1W {
     pub pUserName: windows_sys::core::PWSTR,
     pub pDomainName: windows_sys::core::PWSTR,
     pub pFarmName: windows_sys::core::PWSTR,
-}
-impl Default for WTS_SESSION_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WTS_TYPE_CLASS = i32;
 #[repr(C)]

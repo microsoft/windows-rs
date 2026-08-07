@@ -47,13 +47,8 @@ pub const FROM_LEFT_2ND_BUTTON_PRESSED: i32 = 4;
 pub const FROM_LEFT_3RD_BUTTON_PRESSED: i32 = 8;
 pub const FROM_LEFT_4TH_BUTTON_PRESSED: i32 = 16;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HPCON(pub *mut core::ffi::c_void);
-impl Default for HPCON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INPUT_RECORD {

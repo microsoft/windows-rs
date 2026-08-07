@@ -1597,7 +1597,7 @@ pub struct D3D11_INFO_QUEUE_FILTER {
     pub DenyList: D3D11_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D11_MESSAGE_CATEGORY,
@@ -1605,11 +1605,6 @@ pub struct D3D11_INFO_QUEUE_FILTER_DESC {
     pub pSeverityList: *mut D3D11_MESSAGE_SEVERITY,
     pub NumIDs: u32,
     pub pIDList: *mut D3D11_MESSAGE_ID,
-}
-impl Default for D3D11_INFO_QUEUE_FILTER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D11_INPUT_CLASSIFICATION = i32;
 #[repr(C)]
@@ -1632,17 +1627,12 @@ pub const D3D11_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295;
 pub const D3D11_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295;
 pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: windows_core::GUID = windows_core::GUID::from_u128(0xb1170d8a_628d_4da3_ad3b_82ddb08b4970);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
     pub HWProtectionFunctionID: u32,
     pub pInputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA,
     pub pOutputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA,
     pub Status: windows_core::HRESULT,
-}
-impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1701,16 +1691,11 @@ pub const D3D11_MAG_FILTER_SHIFT: i32 = 2;
 pub const D3D11_MAJOR_VERSION: i32 = 11;
 pub type D3D11_MAP = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_MAPPED_SUBRESOURCE {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
     pub DepthPitch: u32,
-}
-impl Default for D3D11_MAPPED_SUBRESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D11_MAP_FLAG = i32;
 pub const D3D11_MAP_FLAG_DO_NOT_WAIT: D3D11_MAP_FLAG = 1048576;
@@ -1726,18 +1711,13 @@ pub const D3D11_MAX_MULTISAMPLE_SAMPLE_COUNT: i32 = 32;
 pub const D3D11_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D11_MAX_TEXTURE_DIMENSION_2_TO_EXP: i32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_MESSAGE {
     pub Category: D3D11_MESSAGE_CATEGORY,
     pub Severity: D3D11_MESSAGE_SEVERITY,
     pub ID: D3D11_MESSAGE_ID,
     pub pDescription: *const i8,
     pub DescriptionByteLength: usize,
-}
-impl Default for D3D11_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D11_MESSAGE_CATEGORY = i32;
 pub const D3D11_MESSAGE_CATEGORY_APPLICATION_DEFINED: D3D11_MESSAGE_CATEGORY = 0;
@@ -3712,7 +3692,7 @@ pub struct D3D11_SHADER_TYPE_DESC {
     pub Name: windows_core::PCSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SHADER_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub StartOffset: u32,
@@ -3723,11 +3703,6 @@ pub struct D3D11_SHADER_VARIABLE_DESC {
     pub TextureSize: u32,
     pub StartSampler: u32,
     pub SamplerSize: u32,
-}
-impl Default for D3D11_SHADER_VARIABLE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D11_SHADER_VERSION_TYPE = i32;
 pub type D3D11_SHARED_RESOURCE_TIER = i32;
@@ -3812,16 +3787,11 @@ pub const D3D11_STENCIL_OP_REPLACE: D3D11_STENCIL_OP = 3;
 pub const D3D11_STENCIL_OP_ZERO: D3D11_STENCIL_OP = 2;
 pub const D3D11_SUBPIXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: u32,
     pub SysMemSlicePitch: u32,
-}
-impl Default for D3D11_SUBRESOURCE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4486,7 +4456,7 @@ pub struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     pub ProtectedMemorySize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     pub pCryptoSession: core::mem::ManuallyDrop<Option<ID3D11CryptoSession>>,
     pub BlobSize: u32,
@@ -4495,15 +4465,10 @@ pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     pub PrivateDataSize: u32,
     pub pPrivateData: *mut core::ffi::c_void,
 }
-impl Default for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D11_VIDEO_DECODER_BUFFER_BITSTREAM: D3D11_VIDEO_DECODER_BUFFER_TYPE = 6;
 pub const D3D11_VIDEO_DECODER_BUFFER_DEBLOCKING_CONTROL: D3D11_VIDEO_DECODER_BUFFER_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub BufferIndex: u32,
@@ -4520,13 +4485,8 @@ pub struct D3D11_VIDEO_DECODER_BUFFER_DESC {
     pub PartialEncryption: windows_core::BOOL,
     pub EncryptedBlockInfo: D3D11_ENCRYPTED_BLOCK_INFO,
 }
-impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub DataOffset: u32,
@@ -4536,13 +4496,8 @@ pub struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     pub pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
     pub SubSampleMappingCount: u32,
 }
-impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub DataOffset: u32,
@@ -4553,11 +4508,6 @@ pub struct D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     pub SubSampleMappingCount: u32,
     pub cBlocksStripeEncrypted: u32,
     pub cBlocksStripeClear: u32,
-}
-impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D11_VIDEO_DECODER_BUFFER_FILM_GRAIN: D3D11_VIDEO_DECODER_BUFFER_TYPE = 8;
 pub const D3D11_VIDEO_DECODER_BUFFER_HUFFMAN_TABLE: D3D11_VIDEO_DECODER_BUFFER_TYPE = 9;
@@ -4605,7 +4555,7 @@ pub struct D3D11_VIDEO_DECODER_DESC {
     pub OutputFormat: super::DXGI_FORMAT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_EXTENSION {
     pub Function: u32,
     pub pPrivateInputData: *mut core::ffi::c_void,
@@ -4614,11 +4564,6 @@ pub struct D3D11_VIDEO_DECODER_EXTENSION {
     pub PrivateOutputDataSize: u32,
     pub ResourceCount: u32,
     pub ppResourceList: *mut Option<ID3D11Resource>,
-}
-impl Default for D3D11_VIDEO_DECODER_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT = i32;
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_A: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT = 3;
@@ -4923,7 +4868,7 @@ pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_ROW_INTERLEAVED: D3D11_VIDEO_PROCE
 pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_SEPARATE: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT = 3;
 pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_VERTICAL: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT = 2;
 #[repr(C)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub Enable: windows_core::BOOL,
     pub OutputIndex: u32,
@@ -4936,11 +4881,6 @@ pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub ppPastSurfacesRight: *mut Option<ID3D11VideoProcessorInputView>,
     pub pInputSurfaceRight: core::mem::ManuallyDrop<Option<ID3D11VideoProcessorInputView>>,
     pub ppFutureSurfacesRight: *mut Option<ID3D11VideoProcessorInputView>,
-}
-impl Default for D3D11_VIDEO_PROCESSOR_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]

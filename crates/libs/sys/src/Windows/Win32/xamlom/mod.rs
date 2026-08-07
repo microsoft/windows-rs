@@ -19,33 +19,22 @@ pub struct BitmapDescription {
 }
 pub const Coercion: BaseValueSource = 13;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CollectionElementValue {
     pub Index: u32,
     pub ValueType: windows_sys::core::BSTR,
     pub Value: windows_sys::core::BSTR,
     pub MetadataBits: i64,
 }
-impl Default for CollectionElementValue {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DefaultStyleTrigger: BaseValueSource = 6;
 pub const E_UNKNOWNTYPE: i32 = -2144665560;
 #[repr(C)]
 #[cfg(feature = "oaidl")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EnumType {
     pub Name: windows_sys::core::BSTR,
     pub ValueInts: *mut super::SAFEARRAY,
     pub ValueStrings: *mut super::SAFEARRAY,
-}
-#[cfg(feature = "oaidl")]
-impl Default for EnumType {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ErrorInvalidResource: VisualElementState = 2;
 pub const ErrorResolved: VisualElementState = 0;
@@ -72,7 +61,7 @@ pub struct ParentChildRelation {
 pub const ParentTemplate: BaseValueSource = 10;
 pub const ParentTemplateTrigger: BaseValueSource = 11;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PropertyChainSource {
     pub Handle: InstanceHandle,
     pub TargetType: windows_sys::core::BSTR,
@@ -80,13 +69,8 @@ pub struct PropertyChainSource {
     pub Source: BaseValueSource,
     pub SrcInfo: SourceInfo,
 }
-impl Default for PropertyChainSource {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PropertyChainValue {
     pub Index: u32,
     pub Type: windows_sys::core::BSTR,
@@ -99,11 +83,6 @@ pub struct PropertyChainValue {
     pub PropertyName: windows_sys::core::BSTR,
     pub PropertyChainIndex: u32,
 }
-impl Default for PropertyChainValue {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const Remove: VisualMutationType = 1;
 pub const RenderTarget: RenderTargetBitmapOptions = 0;
 pub const RenderTargetAndChildren: RenderTargetBitmapOptions = 1;
@@ -112,7 +91,7 @@ pub type ResourceType = i32;
 pub const ResourceTypeStatic: ResourceType = 0;
 pub const ResourceTypeTheme: ResourceType = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SourceInfo {
     pub FileName: windows_sys::core::BSTR,
     pub LineNumber: u32,
@@ -120,26 +99,16 @@ pub struct SourceInfo {
     pub CharPosition: u32,
     pub Hash: windows_sys::core::BSTR,
 }
-impl Default for SourceInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const StyleTrigger: BaseValueSource = 8;
 pub const TemplateTrigger: BaseValueSource = 7;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VisualElement {
     pub Handle: InstanceHandle,
     pub SrcInfo: SourceInfo,
     pub Type: windows_sys::core::BSTR,
     pub Name: windows_sys::core::BSTR,
     pub NumChildren: u32,
-}
-impl Default for VisualElement {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type VisualElementState = i32;
 pub type VisualMutationType = i32;

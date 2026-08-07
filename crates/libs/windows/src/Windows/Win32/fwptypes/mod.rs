@@ -1,13 +1,8 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_DISPLAY_DATA0 {
     pub name: *mut u16,
     pub description: *mut u16,
-}
-impl Default for FWPM_DISPLAY_DATA0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWP_ACTION_BLOCK: i32 = 4097;
 pub const FWP_ACTION_CALLOUT_INSPECTION: i32 = 24580;
@@ -54,15 +49,10 @@ impl Default for FWP_BYTE_ARRAY6 {
 pub const FWP_BYTE_ARRAY6_SIZE: i32 = 6;
 pub const FWP_BYTE_ARRAY6_TYPE: FWP_DATA_TYPE = 18;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_BYTE_BLOB {
     pub size: u32,
     pub data: *mut u8,
-}
-impl Default for FWP_BYTE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWP_BYTE_BLOB_TYPE: FWP_DATA_TYPE = 12;
 pub const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: i32 = 128;

@@ -375,17 +375,12 @@ pub struct HTTP_CERT_CONFIG_PARAM {
 pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: i32 = 16;
 pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CHANNEL_BIND_INFO {
     pub Hardening: HTTP_AUTHENTICATION_HARDENING_LEVELS,
     pub Flags: u32,
     pub ServiceNames: *mut PHTTP_SERVICE_BINDING_BASE,
     pub NumberOfServiceNames: u32,
-}
-impl Default for HTTP_CHANNEL_BIND_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: i32 = 2;
 pub const HTTP_CHANNEL_BIND_PROXY: i32 = 1;
@@ -419,16 +414,11 @@ pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: i32 = 8;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: i32 = 1;
 pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
-}
-impl Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -462,16 +452,10 @@ impl Default for HTTP_DATA_CHUNK_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_0 {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for HTTP_DATA_CHUNK_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -510,16 +494,11 @@ pub struct HTTP_DATA_CHUNK_0_5 {
 pub type HTTP_DATA_CHUNK_TYPE = i32;
 pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
-}
-impl Default for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HTTP_DEMAND_CBT: i32 = 4;
 pub type HTTP_ENABLED_STATE = i32;
@@ -568,7 +547,7 @@ pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: i32 = 8;
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub LoggingFlags: u32,
@@ -584,12 +563,6 @@ pub struct HTTP_LOGGING_INFO {
     pub RolloverType: HTTP_LOGGING_ROLLOVER_TYPE,
     pub RolloverSize: u32,
     pub pSecurityDescriptor: super::PSECURITY_DESCRIPTOR,
-}
-#[cfg(feature = "winnt")]
-impl Default for HTTP_LOGGING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
 pub type HTTP_LOGGING_TYPE = i32;
@@ -684,16 +657,11 @@ pub const HTTP_NULL_ID: u64 = 0;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HTTP_OPAQUE_ID(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PERFORMANCE_PARAM {
     pub Type: HTTP_PERFORMANCE_PARAM_TYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
-}
-impl Default for HTTP_PERFORMANCE_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
 #[repr(C)]
@@ -717,15 +685,10 @@ pub struct HTTP_PROTECTION_LEVEL_INFO {
 }
 pub type HTTP_PROTECTION_LEVEL_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
     pub QosSetting: *mut core::ffi::c_void,
-}
-impl Default for HTTP_QOS_SETTING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type HTTP_QOS_SETTING_TYPE = i32;
 #[repr(C)]
@@ -807,7 +770,7 @@ pub type HTTP_REQUEST = HTTP_REQUEST_V2;
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "ncrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_AUTH_INFO {
     pub AuthStatus: HTTP_AUTH_STATUS,
     pub SecStatus: super::SECURITY_STATUS,
@@ -822,12 +785,6 @@ pub struct HTTP_REQUEST_AUTH_INFO {
     pub pMutualAuthData: super::PCHAR,
     pub PackageNameLength: u16,
     pub pPackageName: windows_core::PWSTR,
-}
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
-impl Default for HTTP_REQUEST_AUTH_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type HTTP_REQUEST_AUTH_TYPE = i32;
 #[repr(C)]
@@ -866,16 +823,11 @@ impl Default for HTTP_REQUEST_HEADERS {
 }
 pub type HTTP_REQUEST_ID = HTTP_OPAQUE_ID;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_INFO {
     pub InfoType: HTTP_REQUEST_INFO_TYPE,
     pub InfoLength: u32,
     pub pInfo: *mut core::ffi::c_void,
-}
-impl Default for HTTP_REQUEST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HTTP_REQUEST_INFO_FLAG_INITIAL_TTL: u64 = 1;
 #[repr(C)]
@@ -1005,16 +957,11 @@ impl Default for HTTP_RESPONSE_HEADERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_RESPONSE_INFO {
     pub Type: HTTP_RESPONSE_INFO_TYPE,
     pub Length: u32,
     pub pInfo: *mut core::ffi::c_void,
-}
-impl Default for HTTP_RESPONSE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: i32 = 1;
 pub type HTTP_RESPONSE_INFO_TYPE = i32;
@@ -1211,7 +1158,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub IpPort: super::SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub SslHashLength: u32,
     pub pSslHash: *mut core::ffi::c_void,
@@ -1223,11 +1170,6 @@ pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub pDefaultSslCtlIdentifier: windows_core::PWSTR,
     pub pDefaultSslCtlStoreName: windows_core::PWSTR,
     pub DefaultFlags: u32,
-}
-impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1426,26 +1368,16 @@ pub struct HTTP_TIMEOUT_LIMIT_INFO {
     pub MinSendRate: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_TLS_RESTRICTIONS_PARAM {
     pub RestrictionCount: u32,
     pub TlsRestrictions: *mut core::ffi::c_void,
 }
-impl Default for HTTP_TLS_RESTRICTIONS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     pub SessionTicketKeyCount: u32,
     pub SessionTicketKeys: *mut core::ffi::c_void,
-}
-impl Default for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]

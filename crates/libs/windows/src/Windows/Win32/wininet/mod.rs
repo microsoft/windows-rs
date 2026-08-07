@@ -1433,17 +1433,12 @@ pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwScriptBufferSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
-impl Default for AutoProxyHelperFunctions {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: *mut u8,
     pub GetIPAddress: *mut u8,
@@ -1454,11 +1449,6 @@ pub struct AutoProxyHelperVtbl {
     pub ResolveHostNameEx: *mut u8,
     pub IsInNetEx: *mut u8,
     pub SortIpList: *mut u8,
-}
-impl Default for AutoProxyHelperVtbl {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CACHEGROUP_ATTRIBUTE_BASIC: i32 = 1;
 pub const CACHEGROUP_ATTRIBUTE_FLAG: i32 = 2;
@@ -2013,7 +2003,7 @@ pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: i32 = 2;
 pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: i32 = 8;
 pub type INTERNET_BUFFERS = INTERNET_BUFFERSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: u32,
     pub Next: *mut Self,
@@ -2026,13 +2016,8 @@ pub struct INTERNET_BUFFERSA {
     pub dwOffsetLow: u32,
     pub dwOffsetHigh: u32,
 }
-impl Default for INTERNET_BUFFERSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: u32,
     pub Next: *mut Self,
@@ -2044,11 +2029,6 @@ pub struct INTERNET_BUFFERSW {
     pub dwBufferTotal: u32,
     pub dwOffsetLow: u32,
     pub dwOffsetHigh: u32,
-}
-impl Default for INTERNET_BUFFERSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "minwindef")]
 pub type INTERNET_CACHE_ENTRY_INFO = INTERNET_CACHE_ENTRY_INFOA;
@@ -2597,7 +2577,7 @@ pub const ISO_GLOBAL: i32 = 1;
 pub const ISO_REGISTRY: i32 = 2;
 pub const ISO_VALID_FLAGS: i32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -2606,11 +2586,6 @@ pub struct IncomingCookieState {
     pub cDowngraded: i32,
     pub cBlocked: i32,
     pub pszLocation: *const i8,
-}
-impl Default for IncomingCookieState {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2706,16 +2681,11 @@ pub const MAX_GOPHER_SELECTOR_TEXT: i32 = 256;
 pub const MIN_GOPHER_ATTRIBUTE_LENGTH: i32 = 256;
 pub const NORMAL_CACHE_ENTRY: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
     pub pszLocation: *const i8,
-}
-impl Default for OutgoingCookieState {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PFN_AUTH_NOTIFY = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
 #[cfg(feature = "windef")]

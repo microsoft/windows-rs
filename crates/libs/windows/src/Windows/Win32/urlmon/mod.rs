@@ -5529,17 +5529,12 @@ pub const PI_USE_WORKERTHREAD: PI_FLAGS = 8;
 pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
 pub type PREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROTOCOLDATA {
     pub grfFlags: u32,
     pub dwState: u32,
     pub pData: *mut core::ffi::c_void,
     pub cbData: u32,
-}
-impl Default for PROTOCOLDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]

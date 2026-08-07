@@ -43,7 +43,7 @@ impl Default for STINOTIFY {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STISUBSCRIBE {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -51,12 +51,6 @@ pub struct STISUBSCRIBE {
     pub hWndNotify: super::HWND,
     pub hEvent: super::HANDLE,
     pub uiNotificationMessage: u32,
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for STISUBSCRIBE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STI_ADD_DEVICE_BROADCAST_ACTION: windows_sys::core::PCSTR = windows_sys::core::s!("Arrival");
 pub const STI_DEVICE_CREATE_BOTH: i32 = 3;

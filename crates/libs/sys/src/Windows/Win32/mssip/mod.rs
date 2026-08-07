@@ -36,7 +36,7 @@ pub const MSSIP_FLAGS_MULTI_HASH: i32 = 262144;
 pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: i32 = 65536;
 pub const MSSIP_FLAGS_USE_CATALOG: i32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MS_ADDINFO_BLOB {
     pub cbStruct: u32,
     pub cbMemObject: u32,
@@ -44,52 +44,29 @@ pub struct MS_ADDINFO_BLOB {
     pub cbMemSignedMsg: u32,
     pub pbMemSignedMsg: *mut u8,
 }
-impl Default for MS_ADDINFO_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut super::CRYPTCATSTORE,
     pub pMember: *mut super::CRYPTCATMEMBER,
 }
-#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-impl Default for MS_ADDINFO_CATALOGMEMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MS_ADDINFO_DETACHEDSIG {
     pub cbStruct: u32,
     pub hSignatureFile: super::HANDLE,
     pub cbSignatureObject: u32,
     pub pbSignatureObject: *mut u8,
 }
-#[cfg(feature = "winnt")]
-impl Default for MS_ADDINFO_DETACHEDSIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
-}
-#[cfg(feature = "wincrypt")]
-impl Default for MS_ADDINFO_FLAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PMS_ADDINFO_BLOB = *mut MS_ADDINFO_BLOB;
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
@@ -105,7 +82,7 @@ pub type PSIP_CAP_SET_V3 = *mut SIP_CAP_SET_V3;
 #[cfg(feature = "wincrypt")]
 pub type PSIP_INDIRECT_DATA = *mut SIP_INDIRECT_DATA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
     pub pgSubject: *mut windows_sys::core::GUID,
@@ -119,11 +96,6 @@ pub struct SIP_ADD_NEWPROVIDER {
     pub pwszRemoveFuncName: *mut u16,
     pub pwszIsFunctionNameFmt2: *mut u16,
     pub pwszGetCapFuncName: windows_sys::core::PWSTR,
-}
-impl Default for SIP_ADD_NEWPROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SIP_CAP_FLAG_SEALING: i32 = 1;
 pub type SIP_CAP_SET = SIP_CAP_SET_V3;
@@ -164,7 +136,7 @@ pub const SIP_CAP_SET_VERSION_2: i32 = 2;
 pub const SIP_CAP_SET_VERSION_3: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::HANDLE,
@@ -173,12 +145,6 @@ pub struct SIP_DISPATCH_INFO {
     pub pfCreate: pCryptSIPCreateIndirectData,
     pub pfVerify: pCryptSIPVerifyIndirectData,
     pub pfRemove: pCryptSIPRemoveSignedDataMsg,
-}
-#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-impl Default for SIP_DISPATCH_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]

@@ -22,7 +22,7 @@ pub struct BIND_OPTS {
 }
 #[repr(C)]
 #[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BIND_OPTS2 {
     pub Base: BIND_OPTS,
     pub dwTrackFlags: u32,
@@ -30,24 +30,12 @@ pub struct BIND_OPTS2 {
     pub locale: super::LCID,
     pub pServerInfo: *mut super::COSERVERINFO,
 }
-#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-impl Default for BIND_OPTS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::HWND,
-}
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
-impl Default for BIND_OPTS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CALLTYPE = i32;
 pub const CALLTYPE_ASYNC: CALLTYPE = 3;
@@ -89,19 +77,13 @@ impl Default for FLAG_STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FORMATETC {
     pub cfFormat: super::CLIPFORMAT,
     pub ptd: *mut DVTARGETDEVICE,
     pub dwAspect: u32,
     pub lindex: i32,
     pub tymed: u32,
-}
-#[cfg(feature = "wtypes")]
-impl Default for FORMATETC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ForcedShutdown: ShutdownType = 1;
 #[repr(C)]
@@ -132,16 +114,11 @@ impl Default for GDI_OBJECT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERFACEINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub iid: windows_sys::core::GUID,
     pub wMethod: u16,
-}
-impl Default for INTERFACEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IdleShutdown: ShutdownType = 0;
 pub type LPBIND_OPTS = *mut BIND_OPTS;
@@ -220,18 +197,12 @@ pub const SERVERCALL_RETRYLATER: SERVERCALL = 2;
 pub type SNB = *mut windows_sys::core::PWSTR;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
     pub pAdvSink: *mut core::ffi::c_void,
     pub dwConnection: u32,
-}
-#[cfg(feature = "wtypes")]
-impl Default for STATDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub type STGMEDIUM = uSTGMEDIUM;
@@ -239,18 +210,12 @@ pub const ServerApplication: ApplicationType = 0;
 pub type ShutdownType = i32;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct StorageLayout {
     pub LayoutType: u32,
     pub pwcsElementName: *mut super::OLECHAR,
     pub cOffset: i64,
     pub cBytes: i64,
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for StorageLayout {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type TYMED = i32;
 pub const TYMED_ENHMF: TYMED = 64;
@@ -301,14 +266,9 @@ pub struct userFLAG_STGMEDIUM {
     pub Stgmed: userSTGMEDIUM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct userSTGMEDIUM {
     pub pUnkForRelease: *mut core::ffi::c_void,
-}
-impl Default for userSTGMEDIUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]

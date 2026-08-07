@@ -257,7 +257,7 @@ impl Default for CATALOG_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -265,11 +265,6 @@ pub struct CRYPTCATATTRIBUTE {
     pub cbValue: u32,
     pub pbValue: *mut u8,
     pub dwReserved: u32,
-}
-impl Default for CRYPTCATATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -285,7 +280,7 @@ pub struct CRYPTCATCDF {
 }
 #[repr(C)]
 #[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -298,12 +293,6 @@ pub struct CRYPTCATMEMBER {
     pub hReserved: super::HANDLE,
     pub sEncodedIndirectData: super::CRYPT_ATTR_BLOB,
     pub sEncodedMemberInfo: super::CRYPT_ATTR_BLOB,
-}
-#[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-impl Default for CRYPTCATMEMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "wincrypt", feature = "winnt"))]

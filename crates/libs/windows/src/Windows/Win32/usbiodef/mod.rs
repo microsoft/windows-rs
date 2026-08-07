@@ -59,15 +59,10 @@ pub const USB_GET_TT_DEVICE_HANDLE: i32 = 270;
 pub const USB_HUB_CYCLE_PORT: i32 = 273;
 pub type USB_IDLE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct USB_IDLE_CALLBACK_INFO {
     pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: *mut core::ffi::c_void,
-}
-impl Default for USB_IDLE_CALLBACK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const USB_IDLE_NOTIFICATION: i32 = 9;
 pub const USB_IDLE_NOTIFICATION_EX: i32 = 272;

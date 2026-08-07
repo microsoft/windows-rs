@@ -140,7 +140,7 @@ pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648;
 pub const BATTERY_UNKNOWN_TIME: u32 = 4294967295;
 pub const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_USB_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub Reserved: u32,
@@ -151,11 +151,6 @@ pub struct BATTERY_USB_CHARGER_STATUS {
     pub PortId: u64,
     pub PowerSourceInformation: *mut core::ffi::c_void,
     pub OemCharger: BATTERY_CHARGER_ID,
-}
-impl Default for BATTERY_USB_CHARGER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: i32 = 1;
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: i32 = 2;

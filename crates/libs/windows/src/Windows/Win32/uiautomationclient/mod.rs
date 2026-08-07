@@ -12395,10 +12395,5 @@ pub const TreeTraversalOptions_Default: TreeTraversalOptions = 0;
 pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = 2;
 pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = 1;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UIA_HWND(pub *mut core::ffi::c_void);
-impl Default for UIA_HWND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}

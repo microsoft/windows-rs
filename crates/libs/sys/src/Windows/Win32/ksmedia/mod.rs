@@ -1466,30 +1466,20 @@ pub const KSCAMERA_PERFRAMESETTING_ITEM_PHOTOCONFIRMATION: KSCAMERA_PERFRAMESETT
 pub type KSCAMERA_PERFRAMESETTING_ITEM_TYPE = i32;
 pub const KSCAMERA_PERFRAMESETTING_MANUAL: i64 = 8589934592;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
     pub ReferenceGuid: windows_sys::core::GUID,
     pub Reserved: u32,
     pub ProfileCount: u32,
     pub Profiles: PKSCAMERA_PROFILE_INFO,
 }
-impl Default for KSCAMERA_PROFILE_CONCURRENCYINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_INFO {
     pub ProfileId: windows_sys::core::GUID,
     pub Index: u32,
     pub PinCount: u32,
     pub Pins: PKSCAMERA_PROFILE_PININFO,
-}
-impl Default for KSCAMERA_PROFILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2077,17 +2067,12 @@ impl Default for KSDEVICE_PROFILE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSDEVICE_PROFILE_INFO_0_0 {
     pub Info: KSCAMERA_PROFILE_INFO,
     pub Reserved: u32,
     pub ConcurrencyCount: u32,
     pub Concurrency: PKSCAMERA_PROFILE_CONCURRENCYINFO,
-}
-impl Default for KSDEVICE_PROFILE_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KSDEVICE_PROFILE_TYPE_CAMERA: i32 = 1;
 pub const KSDEVICE_PROFILE_TYPE_UNKNOWN: i32 = 0;
@@ -2417,15 +2402,10 @@ pub const KSMICARRAY_MICTYPE_SUBCARDIOID: KSMICARRAY_MICTYPE = 1;
 pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = 3;
 pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = 15;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSMIDILOOPED_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
-}
-impl Default for KSMIDILOOPED_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "ks")]
@@ -2442,39 +2422,22 @@ impl Default for KSMIDILOOPED_BUFFER_PROPERTY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSMIDILOOPED_EVENT {
     pub WriteEvent: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
-impl Default for KSMIDILOOPED_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSMIDILOOPED_EVENT2 {
     pub WriteEvent: super::HANDLE,
     pub ReadEvent: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
-impl Default for KSMIDILOOPED_EVENT2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSMIDILOOPED_REGISTERS {
     pub WritePosition: *mut core::ffi::c_void,
     pub ReadPosition: *mut core::ffi::c_void,
-}
-impl Default for KSMIDILOOPED_REGISTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KSMPEGVIDMODE_LTRBOX: i32 = 2;
 pub const KSMPEGVIDMODE_PANSCAN: i32 = 1;
@@ -4636,16 +4599,11 @@ pub struct KSPROPSETID_VramCapture(pub u8);
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPSETID_Wave(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
     pub CallMemoryBarrier: windows_sys::core::BOOL,
-}
-impl Default for KSRTAUDIO_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -4728,18 +4686,13 @@ pub struct KSRTAUDIO_HWLATENCY {
     pub CodecDelay: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_HWREGISTER {
     pub Register: *mut core::ffi::c_void,
     pub Width: u32,
     pub Numerator: u64,
     pub Denominator: u64,
     pub Accuracy: u32,
-}
-impl Default for KSRTAUDIO_HWREGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -4804,17 +4757,11 @@ impl Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
 }
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSRTAUDIO_PACKETVREGISTER {
     pub CompletedPacketCount: super::PULONG64,
     pub CompletedPacketQPC: super::PULONG64,
     pub CompletedPacketHash: super::PULONG64,
-}
-#[cfg(feature = "basetsd")]
-impl Default for KSRTAUDIO_PACKETVREGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "ks")]
@@ -4929,16 +4876,11 @@ impl Default for KSWAVETABLE_WAVE_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KSWAVE_BUFFER {
     pub Attributes: u32,
     pub BufferSize: u32,
     pub BufferAddress: *mut core::ffi::c_void,
-}
-impl Default for KSWAVE_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: i32 = 1;
 pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: i32 = 2;

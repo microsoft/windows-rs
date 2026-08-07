@@ -53,16 +53,11 @@ pub const CHANGEKIND_MAX: CHANGEKIND = 7;
 pub const CHANGEKIND_SETDOCUMENTATION: CHANGEKIND = 3;
 pub const CHANGEKIND_SETNAMES: CHANGEKIND = 2;
 #[repr(C)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct CLEANLOCALSTORAGE {
     pub pInterface: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub pStorage: *mut core::ffi::c_void,
     pub flags: u32,
-}
-impl Default for CLEANLOCALSTORAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "wtypes")]
 pub type CURRENCY = super::CY;
@@ -111,18 +106,12 @@ pub const DISPID_UNKNOWN: i32 = -1;
 pub const DISPID_VALUE: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut VARIANTARG,
     pub rgdispidNamedArgs: *mut DISPID,
     pub cArgs: u32,
     pub cNamedArgs: u32,
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for DISPPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -152,7 +141,7 @@ impl Default for ELEMDESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
@@ -163,12 +152,6 @@ pub struct EXCEPINFO {
     pub pvReserved: *mut core::ffi::c_void,
     pub pfnDeferredFillIn: *mut u8,
     pub scode: super::SCODE,
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for EXCEPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FADF_AUTO: i32 = 1;
 pub const FADF_BSTR: i32 = 256;
@@ -3582,76 +3565,43 @@ impl Default for SAFEARRAYUNION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_BRECORD {
     pub Size: u32,
     pub aRecord: *mut wireBRECORD,
 }
-#[cfg(feature = "rpc")]
-impl Default for SAFEARR_BRECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_BSTR {
     pub Size: u32,
     pub aBstr: *mut super::wireBSTR,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for SAFEARR_BSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_DISPATCH {
     pub Size: u32,
     pub apDispatch: *mut Option<IDispatch>,
 }
-impl Default for SAFEARR_DISPATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_HAVEIID {
     pub Size: u32,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
     pub iid: windows_core::GUID,
 }
-impl Default for SAFEARR_HAVEIID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_UNKNOWN {
     pub Size: u32,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
 }
-impl Default for SAFEARR_UNKNOWN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_VARIANT {
     pub Size: u32,
     pub aVariant: *mut wireVARIANT,
-}
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for SAFEARR_VARIANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SF_BSTR: SF_TYPE = 8;
 pub const SF_DISPATCH: SF_TYPE = 9;
@@ -3927,16 +3877,10 @@ impl Default for VARIANT_0_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: core::mem::ManuallyDrop<Option<IRecordInfo>>,
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for VARIANT_0_0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type VARIANTARG = VARIANT;
@@ -3947,18 +3891,12 @@ pub const VAR_PERINSTANCE: VARKIND = 0;
 pub const VAR_STATIC: VARKIND = 1;
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
     pub pRecInfo: core::mem::ManuallyDrop<Option<IRecordInfo>>,
     pub pRecord: *mut super::byte,
-}
-#[cfg(feature = "rpc")]
-impl Default for _wireBRECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]

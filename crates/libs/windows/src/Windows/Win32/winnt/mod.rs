@@ -1089,17 +1089,12 @@ pub const ARM64_SVCR_SM: i32 = 1;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_SVCR_ZA: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_TPIDR2_BLOCK {
     pub ZaSaveBuffer: *mut core::ffi::c_void,
     pub NumZaSaveSlices: u16,
     pub Reserved1: u16,
     pub Reserved2: u32,
-}
-impl Default for ARM64_TPIDR2_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ARM64_TPIDR2_BLOCK_ALIGN: i32 = 16;
 #[cfg(target_arch = "aarch64")]
@@ -1268,15 +1263,10 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
 pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: i32 = 32;
 pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
-}
-impl Default for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1786,7 +1776,7 @@ pub const DISCHARGE_POLICY_LOW: i32 = 1;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "excpt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: u64,
     pub ImageBase: u64,
@@ -1800,20 +1790,13 @@ pub struct DISPATCHER_CONTEXT {
     pub ScopeIndex: u32,
     pub Fill0: u32,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "excpt")]
-impl Default for DISPATCHER_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "excpt", feature = "minwindef"))]
 pub type DISPATCHER_CONTEXT = DISPATCHER_CONTEXT_ARM64;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "excpt", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -1828,17 +1811,10 @@ pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPcIsUnwound: bool,
     pub NonVolatileRegisters: super::PBYTE,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "excpt", feature = "minwindef"))]
-impl Default for DISPATCHER_CONTEXT_ARM64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "excpt", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -1852,13 +1828,6 @@ pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ScopeIndex: u32,
     pub ControlPcIsUnwound: bool,
     pub NonVolatileRegisters: super::PBYTE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "excpt", feature = "minwindef"))]
-impl Default for DISPATCHER_CONTEXT_ARM64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2350,16 +2319,10 @@ impl Default for EXCEPTION_RECORD64 {
 }
 #[repr(C)]
 #[cfg(feature = "excpt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut Self,
     pub Handler: PEXCEPTION_ROUTINE,
-}
-#[cfg(feature = "excpt")]
-impl Default for EXCEPTION_REGISTRATION_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "excpt")]
@@ -3185,13 +3148,8 @@ pub const GlobalDataIdTimeZoneId: RTL_SYSTEM_GLOBAL_DATA_ID = 6;
 pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = 0;
 pub const GroupPark: POWER_INFORMATION_LEVEL = 48;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HANDLE(pub *mut core::ffi::c_void);
-impl Default for HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
@@ -3212,16 +3170,11 @@ pub const HEAP_GROWABLE: i32 = 2;
 pub type HEAP_INFORMATION_CLASS = i32;
 pub const HEAP_MAXIMUM_TAG: i32 = 4095;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_MEMORY_USAGE_ENTRY {
     pub HeapHandle: *mut core::ffi::c_void,
     pub TotalCommittedBytes: usize,
     pub TotalReservedBytes: usize,
-}
-impl Default for HEAP_MEMORY_USAGE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -6091,15 +6044,10 @@ pub const ImagePolicyIdSvn: IMAGE_POLICY_ID = 8;
 pub const ImagePolicyIdTrustletIdOverridable: IMAGE_POLICY_ID = 13;
 pub type JOBOBJECTINFOCLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     pub CompletionKey: *mut core::ffi::c_void,
     pub CompletionPort: HANDLE,
-}
-impl Default for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7036,15 +6984,10 @@ impl LDT_ENTRY_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_ENTRY {
     pub Flink: *mut Self,
     pub Blink: *mut Self,
-}
-impl Default for LIST_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7168,7 +7111,7 @@ pub const MEMORY_ALLOCATION_ALIGNMENT: i32 = 8;
 pub const MEMORY_ALLOCATION_ALIGNMENT: i32 = 16;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -7178,15 +7121,9 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Protect: u32,
     pub Type: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Default for MEMORY_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -7196,12 +7133,6 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub State: u32,
     pub Protect: u32,
     pub Type: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for MEMORY_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7260,16 +7191,11 @@ pub const MEMORY_SYSTEM_PARTITION_HANDLE: HANDLE = HANDLE(-2 as _);
 pub const MEM_4MB_PAGES: u32 = 2147483648;
 pub const MEM_64K_PAGES: i32 = 541065216;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_ADDRESS_REQUIREMENTS {
     pub LowestStartingAddress: *mut core::ffi::c_void,
     pub HighestEndingAddress: *mut core::ffi::c_void,
     pub Alignment: usize,
-}
-impl Default for MEM_ADDRESS_REQUIREMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MEM_COALESCE_PLACEHOLDERS: i32 = 1;
 pub const MEM_COMMIT: i32 = 4096;
@@ -7639,15 +7565,10 @@ impl Default for NUMA_NODE_RELATIONSHIP_0 {
 }
 pub const NUM_DISCHARGE_POLICIES: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut core::ffi::c_void,
     pub Length: usize,
-}
-impl Default for NV_MEMORY_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type NWPSTR = *mut u16;
 pub const N_BTMASK: i32 = 15;
@@ -7667,16 +7588,11 @@ pub struct OBJECTID {
 }
 pub const OBJECT_INHERIT_ACE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_TYPE_LIST {
     pub Level: u16,
     pub Sbz: u16,
     pub ObjectType: *mut windows_core::GUID,
-}
-impl Default for OBJECT_TYPE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type OSVERSIONINFO = OSVERSIONINFOA;
 #[repr(C)]
@@ -7771,13 +7687,8 @@ pub type PACCESS_DENIED_OBJECT_ACE = *mut ACCESS_DENIED_OBJECT_ACE;
 pub type PACCESS_MASK = *mut ACCESS_MASK;
 pub type PACCESS_REASONS = *mut ACCESS_REASONS;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PACCESS_TOKEN(pub *mut core::ffi::c_void);
-impl Default for PACCESS_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PACE_HEADER = *mut ACE_HEADER;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -7865,13 +7776,8 @@ pub type PCIMAGE_DELAYLOAD_DESCRIPTOR = *const IMAGE_DELAYLOAD_DESCRIPTOR;
 pub type PCIMAGE_POLICY_ENTRY = *const IMAGE_POLICY_ENTRY;
 pub type PCIMAGE_POLICY_METADATA = *const IMAGE_POLICY_METADATA;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PCLAIMS_BLOB(pub *mut core::ffi::c_void);
-impl Default for PCLAIMS_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "basetsd")]
 pub type PCLAIM_SECURITY_ATTRIBUTES_INFORMATION = *mut CLAIM_SECURITY_ATTRIBUTES_INFORMATION;
 pub type PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE = *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE;
@@ -10490,23 +10396,13 @@ pub type PSCRUB_PARITY_EXTENT = *mut SCRUB_PARITY_EXTENT;
 pub type PSCRUB_PARITY_EXTENT_DATA = *mut SCRUB_PARITY_EXTENT_DATA;
 pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> bool>;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PSECURITY_ATTRIBUTES_OPAQUE(pub *mut core::ffi::c_void);
-impl Default for PSECURITY_ATTRIBUTES_OPAQUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
 pub type PSECURITY_CONTEXT_TRACKING_MODE = *mut bool;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PSECURITY_DESCRIPTOR(pub *mut core::ffi::c_void);
-impl Default for PSECURITY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
 pub type PSECURITY_IMPERSONATION_LEVEL = *mut SECURITY_IMPERSONATION_LEVEL;
 pub type PSECURITY_INFORMATION = *mut u32;
@@ -10531,13 +10427,8 @@ pub type PSHARED_VIRTUAL_DISK_SUPPORT = *mut SHARED_VIRTUAL_DISK_SUPPORT;
 pub type PSHORT = *mut i16;
 pub type PSHUFFLE_FILE_DATA = *mut SHUFFLE_FILE_DATA;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PSID(pub *mut core::ffi::c_void);
-impl Default for PSID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PSID_AND_ATTRIBUTES = *mut SID_AND_ATTRIBUTES;
 pub type PSID_AND_ATTRIBUTES_ARRAY = *mut SID_AND_ATTRIBUTES_ARRAY;
 pub type PSID_AND_ATTRIBUTES_HASH = *mut SID_AND_ATTRIBUTES_HASH;
@@ -11032,14 +10923,9 @@ impl Default for RTL_BARRIER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_CONDITION_VARIABLE {
     pub Ptr: *mut core::ffi::c_void,
-}
-impl Default for RTL_CONDITION_VARIABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RTL_CONDITION_VARIABLE_LOCKMODE_SHARED: i32 = 1;
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: i32 = 129;
@@ -11062,7 +10948,7 @@ pub struct RTL_CRITICAL_SECTION {
 }
 pub const RTL_CRITICAL_SECTION_ALL_FLAG_BITS: u32 = 4278190080;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_CRITICAL_SECTION_DEBUG {
     pub Type: u16,
     pub CreatorBackTraceIndex: u16,
@@ -11073,11 +10959,6 @@ pub struct RTL_CRITICAL_SECTION_DEBUG {
     pub Flags: u32,
     pub CreatorBackTraceIndexHigh: u16,
     pub Identifier: u16,
-}
-impl Default for RTL_CRITICAL_SECTION_DEBUG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: i32 = 1;
 pub const RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN: i32 = 33554432;
@@ -11110,14 +10991,9 @@ pub const RTL_RUN_ONCE_CHECK_ONLY: u32 = 1;
 pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: i32 = 2;
 pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_SRWLOCK {
     pub Ptr: *mut core::ffi::c_void,
-}
-impl Default for RTL_SRWLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type RTL_SYSTEM_GLOBAL_DATA_ID = i32;
 pub type RTL_UMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
@@ -11604,7 +11480,7 @@ pub const SEF_SACL_AUTO_INHERIT: i32 = 2;
 pub const SEMAPHORE_ALL_ACCESS: i32 = 2031619;
 pub const SEMAPHORE_MODIFY_STATE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVERSILO_BASIC_INFORMATION {
     pub ServiceSessionId: u32,
     pub State: SERVERSILO_STATE,
@@ -11614,11 +11490,6 @@ pub struct SERVERSILO_BASIC_INFORMATION {
     pub HostApiSetSchema: *mut core::ffi::c_void,
     pub ContainerBuildNumber: u32,
     pub HostBuildNumber: u32,
-}
-impl Default for SERVERSILO_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -11686,7 +11557,7 @@ pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: i32 = 8;
 pub const SE_ACCESS_CHECK_VALID_FLAGS: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_ACCESS_REPLY {
     pub Size: u32,
     pub ResultListCount: u32,
@@ -11694,12 +11565,6 @@ pub struct SE_ACCESS_REPLY {
     pub AccessStatus: super::PDWORD,
     pub AccessReason: PACCESS_REASONS,
     pub Privileges: *mut PPRIVILEGE_SET,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SE_ACCESS_REPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11936,14 +11801,9 @@ impl Default for SILOOBJECT_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SINGLE_LIST_ENTRY {
     pub Next: *mut Self,
-}
-impl Default for SINGLE_LIST_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SIZEOF_RFPO_DATA: i32 = 16;
 #[cfg(target_arch = "x86")]
@@ -11952,15 +11812,9 @@ pub const SIZE_OF_80387_REGISTERS: i32 = 80;
 pub type SLIST_ENTRY = SINGLE_LIST_ENTRY;
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_ENTRY {
     pub Next: *mut Self,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SLIST_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -13089,16 +12943,11 @@ pub const TAPE_TENSION: i32 = 2;
 pub const TAPE_UNLOAD: i32 = 1;
 pub const TAPE_UNLOCK: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_WMI_OPERATIONS {
     pub Method: u32,
     pub DataBufferSize: u32,
     pub DataBuffer: *mut core::ffi::c_void,
-}
-impl Default for TAPE_WMI_OPERATIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13685,16 +13534,11 @@ pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLAS
 pub struct UCSCHAR(pub u32);
 pub const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UMS_CREATE_THREAD_ATTRIBUTES {
     pub UmsVersion: u32,
     pub UmsContext: *mut core::ffi::c_void,
     pub UmsCompletionList: *mut core::ffi::c_void,
-}
-impl Default for UMS_CREATE_THREAD_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UNICODE_NULL: u16 = 0;
 pub const UNICODE_STRING_MAX_BYTES: u16 = 65534;

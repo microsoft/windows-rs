@@ -44,17 +44,11 @@ pub struct AUDIT_OBJECT_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUDIT_OBJECT_TYPES {
     pub Count: u16,
     pub Flags: u16,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
-}
-#[cfg(feature = "winnt")]
-impl Default for AUDIT_OBJECT_TYPES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -106,18 +100,12 @@ impl Default for AUDIT_PARAM_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUDIT_PARAMS {
     pub Length: u32,
     pub Flags: u32,
     pub Count: u16,
     pub Parameters: *mut AUDIT_PARAM,
-}
-#[cfg(feature = "winnt")]
-impl Default for AUDIT_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type AUDIT_PARAM_TYPE = i32;
 pub const AUDIT_TYPE_LEGACY: i32 = 1;

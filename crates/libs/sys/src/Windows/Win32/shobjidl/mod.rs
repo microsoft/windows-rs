@@ -49,7 +49,7 @@ pub type LPVIEWSETTINGS = *mut i8;
 pub const MergedCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
 #[cfg(all(feature = "commctrl", feature = "shobjidl_core"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NSTCCUSTOMDRAW {
     pub psi: *mut core::ffi::c_void,
     pub uItemState: u32,
@@ -59,12 +59,6 @@ pub struct NSTCCUSTOMDRAW {
     pub himl: super::HIMAGELIST,
     pub iLevel: i32,
     pub iIndent: i32,
-}
-#[cfg(all(feature = "commctrl", feature = "shobjidl_core"))]
-impl Default for NSTCCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NSTCDHPOS_ONTOP: i32 = -1;
 pub type NSTCECLICKTYPE = u32;

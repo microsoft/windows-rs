@@ -215,7 +215,7 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: u64,
@@ -224,15 +224,9 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ParentPath: windows_sys::core::PCWSTR,
     pub SourcePath: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "winioctl")]
-impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: u64,
@@ -246,15 +240,9 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub SourceVirtualStorageType: super::VIRTUAL_STORAGE_TYPE,
     pub ResiliencyGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "winioctl")]
-impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: u64,
@@ -270,15 +258,9 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub SourceLimitPath: windows_sys::core::PCWSTR,
     pub BackingStorageType: super::VIRTUAL_STORAGE_TYPE,
 }
-#[cfg(feature = "winioctl")]
-impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: u64,
@@ -295,12 +277,6 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub BackingStorageType: super::VIRTUAL_STORAGE_TYPE,
     pub PmemAddressAbstractionType: windows_sys::core::GUID,
     pub DataAlignment: u64,
-}
-#[cfg(feature = "winioctl")]
-impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: i32 = 0;
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: i32 = 0;
@@ -417,14 +393,9 @@ impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ForkedVirtualDiskPath: windows_sys::core::PCWSTR,
-}
-impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type FORK_VIRTUAL_DISK_VERSION = i32;
 pub const FORK_VIRTUAL_DISK_VERSION_1: FORK_VIRTUAL_DISK_VERSION = 1;
@@ -602,14 +573,9 @@ impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MirrorVirtualDiskPath: windows_sys::core::PCWSTR,
-}
-impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MIRROR_VIRTUAL_DISK_VERSION = i32;
 pub const MIRROR_VIRTUAL_DISK_VERSION_1: MIRROR_VIRTUAL_DISK_VERSION = 1;
@@ -642,15 +608,10 @@ impl Default for MODIFY_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
     pub SnapshotFilePath: windows_sys::core::PCWSTR,
-}
-impl Default for MODIFY_VHDSET_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MODIFY_VHDSET_REMOVE_SNAPSHOT: MODIFY_VHDSET_VERSION = 2;
 pub const MODIFY_VHDSET_SNAPSHOT_PATH: MODIFY_VHDSET_VERSION = 1;
@@ -785,7 +746,7 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: windows_sys::core::BOOL,
     pub DataIn: u8,
@@ -796,11 +757,6 @@ pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub DataBuffer: *mut core::ffi::c_void,
     pub SenseInfo: *mut u8,
     pub Cdb: *mut u8,
-}
-impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -894,26 +850,16 @@ impl Default for SET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub ChildDepth: u32,
     pub ParentFilePath: windows_sys::core::PCWSTR,
 }
-impl Default for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub LinkageId: windows_sys::core::GUID,
     pub ParentFilePath: windows_sys::core::PCWSTR,
-}
-impl Default for SET_VIRTUAL_DISK_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: SET_VIRTUAL_DISK_INFO_VERSION = 6;
 pub const SET_VIRTUAL_DISK_INFO_IDENTIFIER: SET_VIRTUAL_DISK_INFO_VERSION = 2;
@@ -961,7 +907,7 @@ pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
@@ -971,12 +917,6 @@ pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub HostVolumeName: windows_sys::core::PWSTR,
     pub DependentVolumeName: windows_sys::core::PWSTR,
     pub DependentVolumeRelativePath: windows_sys::core::PWSTR,
-}
-#[cfg(feature = "winioctl")]
-impl Default for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type STORAGE_DEPENDENCY_INFO_VERSION = i32;
 pub const STORAGE_DEPENDENCY_INFO_VERSION_1: STORAGE_DEPENDENCY_INFO_VERSION = 1;

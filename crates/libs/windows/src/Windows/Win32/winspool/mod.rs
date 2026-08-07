@@ -2911,15 +2911,10 @@ impl Default for PRINTER_NOTIFY_INFO_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
-}
-impl Default for PRINTER_NOTIFY_INFO_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PRINTER_NOTIFY_INFO_DISCARDED: i32 = 1;
 #[repr(C)]
@@ -3073,15 +3068,10 @@ impl Default for PrintNamedProperty {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintPropertiesCollection {
     pub numberOfProperties: u32,
     pub propertiesCollection: *mut PrintNamedProperty,
-}
-impl Default for PrintPropertiesCollection {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3109,15 +3099,10 @@ impl Default for PrintPropertyValue_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
-}
-impl Default for PrintPropertyValue_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const REVERSE_PRINT: i32 = 1;
 pub const SERVER_ACCESS_ADMINISTER: i32 = 1;

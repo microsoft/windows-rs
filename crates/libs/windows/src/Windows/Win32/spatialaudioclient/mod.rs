@@ -718,6 +718,7 @@ pub struct SpatialAudioClientActivationParams {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
+#[derive(Default)]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -727,14 +728,9 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub EventHandle: super::HANDLE,
     pub NotifyObject: core::mem::ManuallyDrop<Option<ISpatialAudioObjectRenderStreamNotify>>,
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
-impl Default for SpatialAudioObjectRenderStreamActivationParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
+#[derive(Default)]
 pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -744,10 +740,4 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub EventHandle: super::HANDLE,
     pub NotifyObject: core::mem::ManuallyDrop<Option<ISpatialAudioObjectRenderStreamNotify>>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
-}
-#[cfg(all(feature = "audiosessiontypes", feature = "mmeapi", feature = "winnt"))]
-impl Default for SpatialAudioObjectRenderStreamActivationParams2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

@@ -188,17 +188,11 @@ pub const BTNS_SHOWTEXT: i32 = 64;
 pub const BTNS_WHOLEDROPDOWN: i32 = 128;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BUTTON_IMAGELIST {
     pub himl: HIMAGELIST,
     pub margin: super::RECT,
     pub uAlign: u32,
-}
-#[cfg(feature = "windef")]
-impl Default for BUTTON_IMAGELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: i32 = 3;
 pub const BUTTON_IMAGELIST_ALIGN_CENTER: i32 = 4;
@@ -207,18 +201,12 @@ pub const BUTTON_IMAGELIST_ALIGN_RIGHT: i32 = 1;
 pub const BUTTON_IMAGELIST_ALIGN_TOP: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BUTTON_SPLITINFO {
     pub mask: u32,
     pub himlGlyph: HIMAGELIST,
     pub uSplitStyle: u32,
     pub size: super::SIZE,
-}
-#[cfg(feature = "windef")]
-impl Default for BUTTON_SPLITINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CBEIF_DI_SETITEM: i32 = 268435456;
 pub const CBEIF_IMAGE: i32 = 2;
@@ -356,7 +344,7 @@ pub struct COLORSCHEME {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMBOBOXEXITEMA {
     pub mask: u32,
     pub iItem: isize,
@@ -368,15 +356,9 @@ pub struct COMBOBOXEXITEMA {
     pub iIndent: i32,
     pub lParam: super::LPARAM,
 }
-#[cfg(feature = "minwindef")]
-impl Default for COMBOBOXEXITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMBOBOXEXITEMW {
     pub mask: u32,
     pub iItem: isize,
@@ -388,16 +370,10 @@ pub struct COMBOBOXEXITEMW {
     pub iIndent: i32,
     pub lParam: super::LPARAM,
 }
-#[cfg(feature = "minwindef")]
-impl Default for COMBOBOXEXITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const COMCTL32_VERSION: i32 = 6;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DATETIMEPICKERINFO {
     pub cbSize: u32,
     pub rcCheck: super::RECT,
@@ -407,12 +383,6 @@ pub struct DATETIMEPICKERINFO {
     pub hwndEdit: super::HWND,
     pub hwndUD: super::HWND,
     pub hwndDropDown: super::HWND,
-}
-#[cfg(feature = "windef")]
-impl Default for DATETIMEPICKERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DATETIMEPICK_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysDateTimePick32");
 pub const DATETIMEPICK_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysDateTimePick32");
@@ -426,17 +396,11 @@ pub const DL_MOVECURSOR: i32 = 3;
 pub const DL_STOPCURSOR: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DRAGLISTINFO {
     pub uNotification: u32,
     pub hWnd: super::HWND,
     pub ptCursor: super::POINT,
-}
-#[cfg(feature = "windef")]
-impl Default for DRAGLISTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DTM_CLOSEMONTHCAL: i32 = 4109;
 pub const DTM_FIRST: i32 = 4096;
@@ -493,17 +457,12 @@ pub type EC_SEARCHWEB_ENTRYPOINT = i32;
 pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = 1;
 pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EDITBALLOONTIP {
     pub cbStruct: u32,
     pub pszTitle: windows_sys::core::PCWSTR,
     pub pszText: windows_sys::core::PCWSTR,
     pub ttiIcon: i32,
-}
-impl Default for EDITBALLOONTIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EMF_CENTERED: i32 = 1;
 pub const EM_ENABLESEARCHWEB: i32 = 5390;
@@ -580,7 +539,7 @@ pub struct HDHITTESTINFO {
 pub const HDIS_FOCUSED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HDITEMA {
     pub mask: u32,
     pub cxy: i32,
@@ -595,19 +554,13 @@ pub struct HDITEMA {
     pub pvFilter: *mut core::ffi::c_void,
     pub state: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for HDITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(target_arch = "x86")]
 pub const HDITEMA_V1_SIZE: u32 = 28;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const HDITEMA_V1_SIZE: u64 = 40;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HDITEMW {
     pub mask: u32,
     pub cxy: i32,
@@ -621,12 +574,6 @@ pub struct HDITEMW {
     pub r#type: u32,
     pub pvFilter: *mut core::ffi::c_void,
     pub state: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for HDITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const HDITEMW_V1_SIZE: u32 = 28;
@@ -649,16 +596,10 @@ pub const HDI_TEXT: i32 = 2;
 pub const HDI_WIDTH: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HDLAYOUT {
     pub prc: *mut super::RECT,
     pub pwpos: *mut super::WINDOWPOS,
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for HDLAYOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HDM_CLEARFILTER: i32 = 4632;
 pub const HDM_CREATEDRAGIMAGE: i32 = 4624;
@@ -746,26 +687,16 @@ pub const HDS_HOTTRACK: i32 = 4;
 pub const HDS_NOSIZING: i32 = 2048;
 pub const HDS_OVERFLOW: i32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HD_TEXTFILTERA {
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
 }
-impl Default for HD_TEXTFILTERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HD_TEXTFILTERW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
-}
-impl Default for HD_TEXTFILTERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HHT_ABOVE: i32 = 256;
 pub const HHT_BELOW: i32 = 512;
@@ -884,7 +815,7 @@ pub const ILS_SATURATE: i32 = 4;
 pub const ILS_SHADOW: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGEINFO {
     pub hbmImage: super::HBITMAP,
     pub hbmMask: super::HBITMAP,
@@ -892,15 +823,9 @@ pub struct IMAGEINFO {
     pub Unused2: i32,
     pub rcImage: super::RECT,
 }
-#[cfg(feature = "windef")]
-impl Default for IMAGEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGELISTDRAWPARAMS {
     pub cbSize: u32,
     pub himl: HIMAGELIST,
@@ -919,12 +844,6 @@ pub struct IMAGELISTDRAWPARAMS {
     pub fState: u32,
     pub Frame: u32,
     pub crEffect: super::COLORREF,
-}
-#[cfg(feature = "windef")]
-impl Default for IMAGELISTDRAWPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const IMAGELISTDRAWPARAMS_V3_SIZE: u32 = 56;
@@ -1276,7 +1195,7 @@ pub const LVBKIF_STYLE_TILE: i32 = 16;
 pub const LVBKIF_TYPE_WATERMARK: i32 = 268435456;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVBKIMAGEA {
     pub ulFlags: u32,
     pub hbm: super::HBITMAP,
@@ -1285,15 +1204,9 @@ pub struct LVBKIMAGEA {
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
-#[cfg(feature = "windef")]
-impl Default for LVBKIMAGEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVBKIMAGEW {
     pub ulFlags: u32,
     pub hbm: super::HBITMAP,
@@ -1301,12 +1214,6 @@ pub struct LVBKIMAGEW {
     pub cchImageMax: u32,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
-}
-#[cfg(feature = "windef")]
-impl Default for LVBKIMAGEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LVCDI_GROUP: i32 = 1;
 pub const LVCDI_ITEM: i32 = 0;
@@ -1339,7 +1246,7 @@ pub const LVCF_SUBITEM: i32 = 8;
 pub const LVCF_TEXT: i32 = 4;
 pub const LVCF_WIDTH: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVCOLUMNA {
     pub mask: u32,
     pub fmt: i32,
@@ -1353,17 +1260,12 @@ pub struct LVCOLUMNA {
     pub cxDefault: i32,
     pub cxIdeal: i32,
 }
-impl Default for LVCOLUMNA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(target_arch = "x86")]
 pub const LVCOLUMNA_V1_SIZE: u32 = 24;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LVCOLUMNA_V1_SIZE: u64 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVCOLUMNW {
     pub mask: u32,
     pub fmt: i32,
@@ -1376,11 +1278,6 @@ pub struct LVCOLUMNW {
     pub cxMin: i32,
     pub cxDefault: i32,
     pub cxIdeal: i32,
-}
-impl Default for LVCOLUMNW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const LVCOLUMNW_V1_SIZE: u32 = 24;
@@ -1395,7 +1292,7 @@ pub const LVFIF_STATE: i32 = 2;
 pub const LVFIF_TEXT: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVFINDINFOA {
     pub flags: u32,
     pub psz: windows_sys::core::PCSTR,
@@ -1403,27 +1300,15 @@ pub struct LVFINDINFOA {
     pub pt: super::POINT,
     pub vkDirection: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LVFINDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVFINDINFOW {
     pub flags: u32,
     pub psz: windows_sys::core::PCWSTR,
     pub lParam: super::LPARAM,
     pub pt: super::POINT,
     pub vkDirection: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LVFINDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LVFIS_FOCUSED: i32 = 1;
 pub const LVFI_NEARESTXY: i32 = 64;
@@ -1433,20 +1318,15 @@ pub const LVFI_STRING: i32 = 2;
 pub const LVFI_SUBSTRING: i32 = 4;
 pub const LVFI_WRAP: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVFOOTERINFO {
     pub mask: u32,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub cItems: u32,
 }
-impl Default for LVFOOTERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVFOOTERITEM {
     pub mask: u32,
     pub iItem: i32,
@@ -1454,11 +1334,6 @@ pub struct LVFOOTERITEM {
     pub cchTextMax: i32,
     pub state: u32,
     pub stateMask: u32,
-}
-impl Default for LVFOOTERITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LVGA_FOOTER_CENTER: i32 = 16;
 pub const LVGA_FOOTER_LEFT: i32 = 8;
@@ -1491,7 +1366,7 @@ pub const LVGMF_BORDERSIZE: i32 = 1;
 pub const LVGMF_NONE: i32 = 0;
 pub const LVGMF_TEXTCOLOR: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVGROUP {
     pub cbSize: u32,
     pub mask: u32,
@@ -1517,11 +1392,6 @@ pub struct LVGROUP {
     pub cItems: u32,
     pub pszSubsetTitle: windows_sys::core::PWSTR,
     pub cchSubsetTitle: u32,
-}
-impl Default for LVGROUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -1597,16 +1467,11 @@ pub const LVIF_STATE: i32 = 8;
 pub const LVIF_TEXT: i32 = 1;
 pub const LVIM_AFTER: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVINSERTGROUPSORTED {
     pub pfnGroupCompare: PFNLVGROUPCOMPARE,
     pub pvData: *mut core::ffi::c_void,
     pub lvGroup: LVGROUP,
-}
-impl Default for LVINSERTGROUPSORTED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1630,7 +1495,7 @@ pub const LVIS_SELECTED: i32 = 2;
 pub const LVIS_STATEIMAGEMASK: i32 = 61440;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVITEMA {
     pub mask: u32,
     pub iItem: i32,
@@ -1648,12 +1513,6 @@ pub struct LVITEMA {
     pub piColFmt: *mut i32,
     pub iGroup: i32,
 }
-#[cfg(feature = "minwindef")]
-impl Default for LVITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(target_arch = "x86")]
 pub const LVITEMA_V1_SIZE: u32 = 36;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1670,7 +1529,7 @@ pub struct LVITEMINDEX {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVITEMW {
     pub mask: u32,
     pub iItem: i32,
@@ -1687,12 +1546,6 @@ pub struct LVITEMW {
     pub puColumns: super::PUINT,
     pub piColFmt: *mut i32,
     pub iGroup: i32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for LVITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const LVITEMW_V1_SIZE: u32 = 36;
@@ -1932,18 +1785,13 @@ pub const LVN_SETDISPINFOW: u32 = 4294967118;
 pub const LVSCW_AUTOSIZE: i32 = -1;
 pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVSETINFOTIP {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub pszText: windows_sys::core::PWSTR,
     pub iItem: i32,
     pub iSubItem: i32,
-}
-impl Default for LVSETINFOTIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LVSICF_NOINVALIDATEALL: i32 = 1;
 pub const LVSICF_NOSCROLL: i32 = 2;
@@ -2005,19 +1853,13 @@ pub const LVS_TYPEMASK: i32 = 3;
 pub const LVS_TYPESTYLEMASK: i32 = 64512;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVTILEINFO {
     pub cbSize: u32,
     pub iItem: i32,
     pub cColumns: u32,
     pub puColumns: super::PUINT,
     pub piColFmt: *mut i32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for LVTILEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const LVTILEINFO_V5_SIZE: u32 = 16;
@@ -2070,7 +1912,7 @@ pub const MCGIP_NEXT: i32 = 1;
 pub const MCGIP_PREV: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCGRIDINFO {
     pub cbSize: u32,
     pub dwPart: u32,
@@ -2084,12 +1926,6 @@ pub struct MCGRIDINFO {
     pub rc: super::RECT,
     pub pszName: windows_sys::core::PWSTR,
     pub cchName: usize,
-}
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
-impl Default for MCGRIDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef"))]
@@ -2301,7 +2137,7 @@ pub struct NMCOMBOBOXEXW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMCUSTOMDRAW {
     pub hdr: super::NMHDR,
     pub dwDrawStage: u32,
@@ -2310,12 +2146,6 @@ pub struct NMCUSTOMDRAW {
     pub dwItemSpec: usize,
     pub uItemState: u32,
     pub lItemlParam: super::LPARAM,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -2328,7 +2158,7 @@ pub struct NMCUSTOMSPLITRECTINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMCUSTOMTEXT {
     pub hdr: super::NMHDR,
     pub hDC: super::HDC,
@@ -2337,12 +2167,6 @@ pub struct NMCUSTOMTEXT {
     pub lpRect: super::LPRECT,
     pub uFormat: u32,
     pub fLink: windows_sys::core::BOOL,
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMCUSTOMTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
@@ -2370,31 +2194,19 @@ impl Default for NMDATETIMEFORMATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMDATETIMEFORMATQUERYA {
     pub nmhdr: super::NMHDR,
     pub pszFormat: windows_sys::core::PCSTR,
     pub szMax: super::SIZE,
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMDATETIMEFORMATQUERYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: super::NMHDR,
     pub pszFormat: windows_sys::core::PCWSTR,
     pub szMax: super::SIZE,
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMDATETIMEFORMATQUERYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
@@ -2414,82 +2226,52 @@ impl Default for NMDATETIMEFORMATW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMDATETIMESTRINGA {
     pub nmhdr: super::NMHDR,
     pub pszUserString: windows_sys::core::PCSTR,
     pub st: super::SYSTEMTIME,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for NMDATETIMESTRINGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMDATETIMESTRINGW {
     pub nmhdr: super::NMHDR,
     pub pszUserString: windows_sys::core::PCWSTR,
     pub st: super::SYSTEMTIME,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for NMDATETIMESTRINGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMDATETIMEWMKEYDOWNA {
     pub nmhdr: super::NMHDR,
     pub nVirtKey: i32,
     pub pszFormat: windows_sys::core::PCSTR,
     pub st: super::SYSTEMTIME,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for NMDATETIMEWMKEYDOWNA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMDATETIMEWMKEYDOWNW {
     pub nmhdr: super::NMHDR,
     pub nVirtKey: i32,
     pub pszFormat: windows_sys::core::PCWSTR,
     pub st: super::SYSTEMTIME,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for NMDATETIMEWMKEYDOWNW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMDAYSTATE {
     pub nmhdr: super::NMHDR,
     pub stStart: super::SYSTEMTIME,
     pub cDayState: i32,
     pub prgDayState: LPMONTHDAYSTATE,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for NMDAYSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMHDDISPINFOA {
     pub hdr: super::NMHDR,
     pub iItem: i32,
@@ -2499,15 +2281,9 @@ pub struct NMHDDISPINFOA {
     pub iImage: i32,
     pub lParam: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMHDDISPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMHDDISPINFOW {
     pub hdr: super::NMHDR,
     pub iItem: i32,
@@ -2516,12 +2292,6 @@ pub struct NMHDDISPINFOW {
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::LPARAM,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMHDDISPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -2533,33 +2303,21 @@ pub struct NMHDFILTERBTNCLICK {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMHEADERA {
     pub hdr: super::NMHDR,
     pub iItem: i32,
     pub iButton: i32,
     pub pitem: *mut HDITEMA,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMHEADERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMHEADERW {
     pub hdr: super::NMHDR,
     pub iItem: i32,
     pub iButton: i32,
     pub pitem: *mut HDITEMW,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMHEADERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -2686,7 +2444,7 @@ pub struct NMLVFINDITEMW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVGETINFOTIPA {
     pub hdr: super::NMHDR,
     pub dwFlags: u32,
@@ -2696,15 +2454,9 @@ pub struct NMLVGETINFOTIPA {
     pub iSubItem: i32,
     pub lParam: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMLVGETINFOTIPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVGETINFOTIPW {
     pub hdr: super::NMHDR,
     pub dwFlags: u32,
@@ -2713,12 +2465,6 @@ pub struct NMLVGETINFOTIPW {
     pub iItem: i32,
     pub iSubItem: i32,
     pub lParam: super::LPARAM,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMLVGETINFOTIPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -2767,7 +2513,7 @@ pub struct NMMOUSE {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMOBJECTNOTIFY {
     pub hdr: super::NMHDR,
     pub iItem: i32,
@@ -2775,12 +2521,6 @@ pub struct NMOBJECTNOTIFY {
     pub pObject: *mut core::ffi::c_void,
     pub hResult: windows_sys::core::HRESULT,
     pub dwFlags: u32,
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMOBJECTNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -2893,7 +2633,7 @@ pub struct NMSELCHANGE {
 pub type NMSELECT = NMSELCHANGE;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTBCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub hbrMonoDither: super::HBRUSH,
@@ -2910,15 +2650,9 @@ pub struct NMTBCUSTOMDRAW {
     pub nHLStringBkMode: i32,
     pub iListGap: i32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMTBCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTBDISPINFOA {
     pub hdr: super::NMHDR,
     pub dwMask: u32,
@@ -2928,15 +2662,9 @@ pub struct NMTBDISPINFOA {
     pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMTBDISPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTBDISPINFOW {
     pub hdr: super::NMHDR,
     pub dwMask: u32,
@@ -2946,15 +2674,9 @@ pub struct NMTBDISPINFOW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMTBDISPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTBGETINFOTIPA {
     pub hdr: super::NMHDR,
     pub pszText: windows_sys::core::PSTR,
@@ -2962,27 +2684,15 @@ pub struct NMTBGETINFOTIPA {
     pub iItem: i32,
     pub lParam: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMTBGETINFOTIPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTBGETINFOTIPW {
     pub hdr: super::NMHDR,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub lParam: super::LPARAM,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMTBGETINFOTIPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -2995,7 +2705,7 @@ pub struct NMTBHOTITEM {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTBRESTORE {
     pub hdr: super::NMHDR,
     pub pData: *mut u32,
@@ -3006,15 +2716,9 @@ pub struct NMTBRESTORE {
     pub cbBytesPerRecord: i32,
     pub tbButton: TBBUTTON,
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMTBRESTORE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTBSAVE {
     pub hdr: super::NMHDR,
     pub pData: *mut u32,
@@ -3023,12 +2727,6 @@ pub struct NMTBSAVE {
     pub iItem: i32,
     pub cButtons: i32,
     pub tbButton: TBBUTTON,
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMTBSAVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -3040,7 +2738,7 @@ pub struct NMTCKEYDOWN {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTOOLBARA {
     pub hdr: super::NMHDR,
     pub iItem: i32,
@@ -3049,15 +2747,9 @@ pub struct NMTOOLBARA {
     pub pszText: windows_sys::core::PSTR,
     pub rcButton: super::RECT,
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMTOOLBARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTOOLBARW {
     pub hdr: super::NMHDR,
     pub iItem: i32,
@@ -3066,24 +2758,12 @@ pub struct NMTOOLBARW {
     pub pszText: windows_sys::core::PWSTR,
     pub rcButton: super::RECT,
 }
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMTOOLBARW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTOOLTIPSCREATED {
     pub hdr: super::NMHDR,
     pub hwndToolTips: super::HWND,
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMTOOLTIPSCREATED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -3168,7 +2848,7 @@ pub const NMTTDISPINFO_V1_SIZE: u32 = 104;
 pub const NMTTDISPINFO_V1_SIZE: u64 = 124;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVASYNCDRAW {
     pub hdr: super::NMHDR,
     pub pimldp: *mut IMAGELISTDRAWPARAMS,
@@ -3177,12 +2857,6 @@ pub struct NMTVASYNCDRAW {
     pub lParam: super::LPARAM,
     pub dwRetFlags: u32,
     pub iRetImageIndex: i32,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMTVASYNCDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
@@ -3227,7 +2901,7 @@ pub struct NMTVDISPINFOW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVGETINFOTIPA {
     pub hdr: super::NMHDR,
     pub pszText: windows_sys::core::PSTR,
@@ -3235,15 +2909,9 @@ pub struct NMTVGETINFOTIPA {
     pub hItem: HTREEITEM,
     pub lParam: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMTVGETINFOTIPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVGETINFOTIPW {
     pub hdr: super::NMHDR,
     pub pszText: windows_sys::core::PWSTR,
@@ -3251,15 +2919,9 @@ pub struct NMTVGETINFOTIPW {
     pub hItem: HTREEITEM,
     pub lParam: super::LPARAM,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMTVGETINFOTIPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVITEMCHANGE {
     pub hdr: super::NMHDR,
     pub uChanged: u32,
@@ -3267,12 +2929,6 @@ pub struct NMTVITEMCHANGE {
     pub uStateNew: u32,
     pub uStateOld: u32,
     pub lParam: super::LPARAM,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for NMTVITEMCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -3284,18 +2940,12 @@ pub struct NMTVKEYDOWN {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: super::NMHDR,
     pub hti: HTREEITEM,
     pub iOldStateImageIndex: i32,
     pub iNewStateImageIndex: i32,
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for NMTVSTATEIMAGECHANGING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
@@ -3592,7 +3242,7 @@ pub const RB_SHOWBAND: i32 = 1059;
 pub const RB_SIZETORECT: i32 = 1047;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REBARBANDINFOA {
     pub cbSize: u32,
     pub fMask: u32,
@@ -3617,12 +3267,6 @@ pub struct REBARBANDINFOA {
     pub rcChevronLocation: super::RECT,
     pub uChevronState: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for REBARBANDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(target_arch = "x86")]
 pub const REBARBANDINFOA_V3_SIZE: u32 = 56;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3633,7 +3277,7 @@ pub const REBARBANDINFOA_V6_SIZE: u32 = 80;
 pub const REBARBANDINFOA_V6_SIZE: u64 = 108;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REBARBANDINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -3658,12 +3302,6 @@ pub struct REBARBANDINFOW {
     pub rcChevronLocation: super::RECT,
     pub uChevronState: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for REBARBANDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(target_arch = "x86")]
 pub const REBARBANDINFOW_V3_SIZE: u32 = 56;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3683,16 +3321,11 @@ pub const REBARBANDINFO_V6_SIZE: u64 = 108;
 pub const REBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ReBarWindow32");
 pub const REBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REBARINFO {
     pub cbSize: u32,
     pub fMask: u32,
     pub himl: HIMAGELIST,
-}
-impl Default for REBARINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SBARS_SIZEGRIP: i32 = 256;
 pub const SBARS_TOOLTIPS: i32 = 2048;
@@ -3814,15 +3447,10 @@ impl Default for TASKDIALOGCONFIG_1 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
     pub pszButtonText: windows_sys::core::PCWSTR,
-}
-impl Default for TASKDIALOG_BUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type TASKDIALOG_COMMON_BUTTON_FLAGS = i32;
 pub type TASKDIALOG_ELEMENTS = i32;
@@ -3832,16 +3460,10 @@ pub type TASKDIALOG_MESSAGES = i32;
 pub type TASKDIALOG_NOTIFICATIONS = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBADDBITMAP {
     pub hInst: super::HINSTANCE,
     pub nID: usize,
-}
-#[cfg(feature = "minwindef")]
-impl Default for TBADDBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TBBF_LARGE: i32 = 1;
 #[repr(C)]
@@ -3881,7 +3503,7 @@ impl Default for TBBUTTON {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBBUTTONINFOA {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -3894,13 +3516,8 @@ pub struct TBBUTTONINFOA {
     pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
-impl Default for TBBUTTONINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBBUTTONINFOW {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -3912,11 +3529,6 @@ pub struct TBBUTTONINFOW {
     pub lParam: usize,
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
-}
-impl Default for TBBUTTONINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TBCDRF_BLENDICON: i32 = 2097152;
 pub const TBCDRF_HILITEHOTTRACK: i32 = 131072;
@@ -4039,7 +3651,7 @@ pub const TBN_WRAPACCELERATOR: u32 = 4294966570;
 pub const TBN_WRAPHOTITEM: u32 = 4294966572;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBREPLACEBITMAP {
     pub hInstOld: super::HINSTANCE,
     pub nIDOld: usize,
@@ -4047,39 +3659,21 @@ pub struct TBREPLACEBITMAP {
     pub nIDNew: usize,
     pub nButtons: i32,
 }
-#[cfg(feature = "minwindef")]
-impl Default for TBREPLACEBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::HKEY,
     pub pszSubKey: windows_sys::core::PCSTR,
     pub pszValueName: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "minwindef")]
-impl Default for TBSAVEPARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::HKEY,
     pub pszSubKey: windows_sys::core::PCWSTR,
     pub pszValueName: windows_sys::core::PCWSTR,
-}
-#[cfg(feature = "minwindef")]
-impl Default for TBSAVEPARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TBSTATE_CHECKED: i32 = 1;
 pub const TBSTATE_ELLIPSES: i32 = 64;
@@ -4272,7 +3866,7 @@ pub const TCIS_BUTTONPRESSED: i32 = 1;
 pub const TCIS_HIGHLIGHTED: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCITEMA {
     pub mask: u32,
     pub dwState: u32,
@@ -4282,14 +3876,8 @@ pub struct TCITEMA {
     pub iImage: i32,
     pub lParam: super::LPARAM,
 }
-#[cfg(feature = "minwindef")]
-impl Default for TCITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCITEMHEADERA {
     pub mask: u32,
     pub lpReserved1: u32,
@@ -4298,13 +3886,8 @@ pub struct TCITEMHEADERA {
     pub cchTextMax: i32,
     pub iImage: i32,
 }
-impl Default for TCITEMHEADERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCITEMHEADERW {
     pub mask: u32,
     pub lpReserved1: u32,
@@ -4313,14 +3896,9 @@ pub struct TCITEMHEADERW {
     pub cchTextMax: i32,
     pub iImage: i32,
 }
-impl Default for TCITEMHEADERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCITEMW {
     pub mask: u32,
     pub dwState: u32,
@@ -4329,12 +3907,6 @@ pub struct TCITEMW {
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::LPARAM,
-}
-#[cfg(feature = "minwindef")]
-impl Default for TCITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TCM_ADJUSTRECT: i32 = 4904;
 pub const TCM_DELETEALLITEMS: i32 = 4873;
@@ -4484,45 +4056,28 @@ pub const TTF_SUBCLASS: i32 = 16;
 pub const TTF_TRACK: i32 = 32;
 pub const TTF_TRANSPARENT: i32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TTGETTITLE {
     pub dwSize: u32,
     pub uTitleBitmap: u32,
     pub cch: u32,
     pub pszTitle: *mut u16,
 }
-impl Default for TTGETTITLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TTHITTESTINFOA {
     pub hwnd: super::HWND,
     pub pt: super::POINT,
     pub ti: TTTOOLINFOA,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for TTHITTESTINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TTHITTESTINFOW {
     pub hwnd: super::HWND,
     pub pt: super::POINT,
     pub ti: TTTOOLINFOW,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for TTHITTESTINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TTI_ERROR: i32 = 3;
 pub const TTI_ERROR_LARGE: i32 = 6;
@@ -4607,7 +4162,7 @@ pub const TTS_NOPREFIX: i32 = 2;
 pub const TTS_USEVISUALSTYLE: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TTTOOLINFOA {
     pub cbSize: u32,
     pub uFlags: u32,
@@ -4618,12 +4173,6 @@ pub struct TTTOOLINFOA {
     pub lpszText: windows_sys::core::PSTR,
     pub lParam: super::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for TTTOOLINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const TTTOOLINFOA_V1_SIZE: u32 = 40;
@@ -4639,7 +4188,7 @@ pub const TTTOOLINFOA_V3_SIZE: u32 = 48;
 pub const TTTOOLINFOA_V3_SIZE: u64 = 72;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TTTOOLINFOW {
     pub cbSize: u32,
     pub uFlags: u32,
@@ -4650,12 +4199,6 @@ pub struct TTTOOLINFOW {
     pub lpszText: windows_sys::core::PWSTR,
     pub lParam: super::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for TTTOOLINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const TTTOOLINFOW_V1_SIZE: u32 = 40;
@@ -4684,17 +4227,11 @@ pub const TVE_EXPANDPARTIAL: i32 = 16384;
 pub const TVE_TOGGLE: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVGETITEMPARTRECTINFO {
     pub hti: HTREEITEM,
     pub prc: *mut super::RECT,
     pub partID: TVITEMPART,
-}
-#[cfg(feature = "windef")]
-impl Default for TVGETITEMPARTRECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TVGIPR_BUTTON: TVITEMPART = 1;
 pub const TVGN_CARET: i32 = 9;
@@ -4711,17 +4248,11 @@ pub const TVGN_PREVIOUSVISIBLE: i32 = 7;
 pub const TVGN_ROOT: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVHITTESTINFO {
     pub pt: super::POINT,
     pub flags: u32,
     pub hItem: HTREEITEM,
-}
-#[cfg(feature = "windef")]
-impl Default for TVHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TVHT_ABOVE: i32 = 256;
 pub const TVHT_BELOW: i32 = 512;
@@ -4827,7 +4358,7 @@ pub const TVIS_STATEIMAGEMASK: i32 = 61440;
 pub const TVIS_USERMASK: i32 = 61440;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVITEMA {
     pub mask: u32,
     pub hItem: HTREEITEM,
@@ -4840,17 +4371,11 @@ pub struct TVITEMA {
     pub cChildren: i32,
     pub lParam: super::LPARAM,
 }
-#[cfg(feature = "minwindef")]
-impl Default for TVITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type TVITEMEX = TVITEMEXA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVITEMEXA {
     pub mask: u32,
     pub hItem: HTREEITEM,
@@ -4868,15 +4393,9 @@ pub struct TVITEMEXA {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for TVITEMEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVITEMEXW {
     pub mask: u32,
     pub hItem: HTREEITEM,
@@ -4894,16 +4413,10 @@ pub struct TVITEMEXW {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for TVITEMEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type TVITEMPART = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVITEMW {
     pub mask: u32,
     pub hItem: HTREEITEM,
@@ -4915,12 +4428,6 @@ pub struct TVITEMW {
     pub iSelectedImage: i32,
     pub cChildren: i32,
     pub lParam: super::LPARAM,
-}
-#[cfg(feature = "minwindef")]
-impl Default for TVITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TVI_FIRST: HTREEITEM = -65535 as _;
 pub const TVI_LAST: HTREEITEM = -65534 as _;
@@ -5044,17 +4551,11 @@ pub const TVSIL_STATE: i32 = 2;
 pub const TVSI_NOSINGLEEXPAND: i32 = 32768;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVSORTCB {
     pub hParent: HTREEITEM,
     pub lpfnCompare: PFNTVCOMPARE,
     pub lParam: super::LPARAM,
-}
-#[cfg(feature = "minwindef")]
-impl Default for TVSORTCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TVS_CHECKBOXES: i32 = 256;
 pub const TVS_DISABLEDRAGDROP: i32 = 16;

@@ -833,7 +833,7 @@ pub const DEBUG_PROC_DESC_NO_USER_NAME: i32 = 32;
 pub const DEBUG_PROC_DESC_WITH_ARCHITECTURE: i32 = 128;
 pub const DEBUG_PROC_DESC_WITH_PACKAGEFAMILY: i32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: u32,
     pub Flags: u32,
@@ -841,11 +841,6 @@ pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,
     pub BufferUsed: u32,
-}
-impl Default for DEBUG_READ_USER_MINIDUMP_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_REGISTERS_ALL: i32 = 7;
 pub const DEBUG_REGISTERS_DEFAULT: i32 = 0;

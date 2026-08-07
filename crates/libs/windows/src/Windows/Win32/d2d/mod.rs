@@ -937,15 +937,10 @@ pub const D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE: D2D1_LOOKUPTABLE3D_PROP = 1;
 pub const D2D1_LOOKUPTABLE3D_PROP_FORCE_DWORD: D2D1_LOOKUPTABLE3D_PROP = -1;
 pub const D2D1_LOOKUPTABLE3D_PROP_LUT: D2D1_LOOKUPTABLE3D_PROP = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_MAPPED_RECT {
     pub pitch: u32,
     pub bits: *mut u8,
-}
-impl Default for D2D1_MAPPED_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D2D1_MAP_OPTIONS = u32;
 pub const D2D1_MAP_OPTIONS_DISCARD: D2D1_MAP_OPTIONS = 4;

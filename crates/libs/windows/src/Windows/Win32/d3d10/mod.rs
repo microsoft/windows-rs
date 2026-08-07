@@ -692,7 +692,7 @@ pub struct D3D10_EFFECT_DESC {
     pub Techniques: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_EFFECT_SHADER_DESC {
     pub pInputSignature: *const u8,
     pub IsInline: windows_core::BOOL,
@@ -701,11 +701,6 @@ pub struct D3D10_EFFECT_SHADER_DESC {
     pub SODecl: windows_core::PCSTR,
     pub NumInputSignatureEntries: u32,
     pub NumOutputSignatureEntries: u32,
-}
-impl Default for D3D10_EFFECT_SHADER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D10_EFFECT_SINGLE_THREADED: i32 = 8;
 #[repr(C)]
@@ -846,7 +841,7 @@ pub struct D3D10_INFO_QUEUE_FILTER {
     pub DenyList: D3D10_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
@@ -854,11 +849,6 @@ pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub pSeverityList: *mut D3D10_MESSAGE_SEVERITY,
     pub NumIDs: u32,
     pub pIDList: *mut D3D10_MESSAGE_ID,
-}
-impl Default for D3D10_INFO_QUEUE_FILTER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D10_INPUT_CLASSIFICATION = i32;
 #[repr(C)]
@@ -881,27 +871,17 @@ pub const D3D10_LINEAR_GAMMA: f32 = 1.0;
 pub const D3D10_MAG_FILTER_SHIFT: i32 = 2;
 pub type D3D10_MAP = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE2D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
 }
-impl Default for D3D10_MAPPED_TEXTURE2D {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE3D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
     pub DepthPitch: u32,
-}
-impl Default for D3D10_MAPPED_TEXTURE3D {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D10_MAP_FLAG = i32;
 pub const D3D10_MAP_FLAG_DO_NOT_WAIT: D3D10_MAP_FLAG = 1048576;
@@ -917,18 +897,13 @@ pub const D3D10_MAX_MULTISAMPLE_SAMPLE_COUNT: i32 = 32;
 pub const D3D10_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D10_MAX_TEXTURE_DIMENSION_2_TO_EXP: i32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_MESSAGE {
     pub Category: D3D10_MESSAGE_CATEGORY,
     pub Severity: D3D10_MESSAGE_SEVERITY,
     pub ID: D3D10_MESSAGE_ID,
     pub pDescription: *const i8,
     pub DescriptionByteLength: usize,
-}
-impl Default for D3D10_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D10_MESSAGE_CATEGORY = i32;
 pub const D3D10_MESSAGE_CATEGORY_APPLICATION_DEFINED: D3D10_MESSAGE_CATEGORY = 0;
@@ -2042,18 +2017,13 @@ pub struct D3D10_SHADER_TYPE_DESC {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D10_SHADER_VARIABLE_CLASS(pub super::D3D_SHADER_VARIABLE_CLASS);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub StartOffset: u32,
     pub Size: u32,
     pub uFlags: u32,
     pub DefaultValue: *mut core::ffi::c_void,
-}
-impl Default for D3D10_SHADER_VARIABLE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "d3dcommon")]
 #[repr(transparent)]
@@ -2163,16 +2133,11 @@ pub const D3D10_STENCIL_OP_REPLACE: D3D10_STENCIL_OP = 3;
 pub const D3D10_STENCIL_OP_ZERO: D3D10_STENCIL_OP = 2;
 pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: u32,
     pub SysMemSlicePitch: u32,
-}
-impl Default for D3D10_SUBRESOURCE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: i32 = 6;
 #[repr(C)]

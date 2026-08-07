@@ -16,7 +16,7 @@ windows_link::link!("kernel32.dll" "system" fn SetIoRateControlInformationJobObj
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn TerminateJobObject(hjob : super::HANDLE, uexitcode : u32) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -24,9 +24,4 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub VolumeName: windows_sys::core::PCWSTR,
     pub BaseIoSize: u32,
     pub ControlFlags: u32,
-}
-impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

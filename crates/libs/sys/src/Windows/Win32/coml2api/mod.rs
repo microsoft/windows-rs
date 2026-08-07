@@ -65,16 +65,11 @@ pub const STGM_SIMPLE: i32 = 134217728;
 pub const STGM_TRANSACTED: i32 = 65536;
 pub const STGM_WRITE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STGOPTIONS {
     pub usVersion: u16,
     pub reserved: u16,
     pub ulSectorSize: u32,
     pub pwcsTemplateFile: *const u16,
-}
-impl Default for STGOPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STGOPTIONS_VERSION: i32 = 2;

@@ -68,32 +68,18 @@ pub const LastReservedStream: MINIDUMP_STREAM_TYPE = 65535;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-impl Default for MINIDUMP_CALLBACK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-impl Default for MINIDUMP_CALLBACK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "verrsrc", feature = "winnt"))]
@@ -484,18 +470,12 @@ pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_IO_CALLBACK {
     pub Handle: super::HANDLE,
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub BufferBytes: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for MINIDUMP_IO_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -698,7 +678,7 @@ pub struct MINIDUMP_MODULE {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: super::PWCHAR,
     pub BaseOfImage: u64,
@@ -710,12 +690,6 @@ pub struct MINIDUMP_MODULE_CALLBACK {
     pub SizeOfCvRecord: u32,
     pub MiscRecord: *mut core::ffi::c_void,
     pub SizeOfMiscRecord: u32,
-}
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-impl Default for MINIDUMP_MODULE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "verrsrc")]
@@ -1332,31 +1306,19 @@ pub struct MINIDUMP_USER_RECORD {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Default for MINIDUMP_USER_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for MINIDUMP_USER_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1374,7 +1336,7 @@ pub struct MINIDUMP_USER_STREAM_INFORMATION {
 }
 pub const MINIDUMP_VERSION: i32 = 42899;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
@@ -1382,22 +1344,12 @@ pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Completed: u32,
     pub Status: windows_core::HRESULT,
 }
-impl Default for MINIDUMP_VM_POST_READ_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub Size: u32,
-}
-impl Default for MINIDUMP_VM_PRE_READ_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]

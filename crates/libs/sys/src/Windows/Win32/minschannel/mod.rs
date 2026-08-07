@@ -52,7 +52,7 @@ pub struct SecPkgCred_CipherStrengths {
     pub dwMaximumCipherStrength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgCred_ClientCertPolicy {
     pub dwFlags: u32,
     pub guidPolicyId: windows_sys::core::GUID,
@@ -63,11 +63,6 @@ pub struct SecPkgCred_ClientCertPolicy {
     pub fOmitUsageCheck: windows_sys::core::BOOL,
     pub pwszSslCtlStoreName: windows_sys::core::PWSTR,
     pub pwszSslCtlIdentifier: windows_sys::core::PWSTR,
-}
-impl Default for SecPkgCred_ClientCertPolicy {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -83,28 +78,17 @@ impl Default for SecPkgCred_SessionTicketKey {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgCred_SessionTicketKeys {
     pub cSessionTicketKeys: u32,
     pub pSessionTicketKeys: PSecPkgCred_SessionTicketKey,
 }
-impl Default for SecPkgCred_SessionTicketKeys {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SecPkgCred_SupportedAlgs {
     pub cSupportedAlgs: u32,
     pub palgSupportedAlgs: *mut super::ALG_ID,
-}
-#[cfg(feature = "wincrypt")]
-impl Default for SecPkgCred_SupportedAlgs {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

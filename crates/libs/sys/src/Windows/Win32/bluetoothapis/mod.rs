@@ -155,15 +155,10 @@ pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METH
 pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = 4;
 pub type BLUETOOTH_AUTHENTICATION_REQUIREMENTS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLUETOOTH_COD_PAIRS {
     pub ulCODMask: u32,
     pub pcszDescription: windows_sys::core::PCWSTR,
-}
-impl Default for BLUETOOTH_COD_PAIRS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
@@ -188,7 +183,7 @@ impl Default for BLUETOOTH_DEVICE_INFO_STRUCT {
 pub const BLUETOOTH_DEVICE_NAME_SIZE: i32 = 256;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub dwSize: u32,
     pub fReturnAuthenticated: windows_sys::core::BOOL,
@@ -198,12 +193,6 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub fIssueInquiry: windows_sys::core::BOOL,
     pub cTimeoutMultiplier: u8,
     pub hRadio: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -294,7 +283,7 @@ impl Default for BLUETOOTH_RADIO_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub dwSize: u32,
     pub cNumOfClasses: u32,
@@ -311,12 +300,6 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub pvParam: *mut core::ffi::c_void,
     pub cNumDevices: u32,
     pub pDevices: PBLUETOOTH_DEVICE_INFO,
-}
-#[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "windef"))]
-impl Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BLUETOOTH_SERVICE_DISABLE: i32 = 0;
 pub const BLUETOOTH_SERVICE_ENABLE: i32 = 1;
@@ -399,55 +382,31 @@ impl Default for SDP_ELEMENT_DATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: super::LPBYTE,
     pub length: u32,
 }
-#[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-impl Default for SDP_ELEMENT_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: super::LPBYTE,
     pub length: u32,
 }
-#[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-impl Default for SDP_ELEMENT_DATA_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: super::LPBYTE,
     pub length: u32,
 }
-#[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-impl Default for SDP_ELEMENT_DATA_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: super::LPBYTE,
     pub length: u32,
-}
-#[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-impl Default for SDP_ELEMENT_DATA_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

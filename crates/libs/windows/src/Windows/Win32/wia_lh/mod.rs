@@ -2748,7 +2748,7 @@ pub struct WIA_DEV_CAP {
     pub bstrCommandline: core::mem::ManuallyDrop<windows_core::BSTR>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
     pub bstrPatternName: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -2756,11 +2756,6 @@ pub struct WIA_DITHER_PATTERN_DATA {
     pub lPatternLength: i32,
     pub cbPattern: i32,
     pub pbPattern: *mut u8,
-}
-impl Default for WIA_DITHER_PATTERN_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WIA_EVENT_HANDLER = WIA_DEV_CAP;
 #[repr(C)]

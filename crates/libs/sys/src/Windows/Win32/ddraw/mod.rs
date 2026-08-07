@@ -27,19 +27,13 @@ pub const DDBD_4: i32 = 4096;
 pub const DDBD_8: i32 = 2048;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DDBLTBATCH {
     pub lprDest: super::LPRECT,
     pub lpDDSSrc: *mut core::ffi::c_void,
     pub lprSrc: super::LPRECT,
     pub dwFlags: u32,
     pub lpDDBltFx: LPDDBLTFX,
-}
-#[cfg(feature = "windef")]
-impl Default for DDBLTBATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDBLTFAST_DESTCOLORKEY: i32 = 2;
 pub const DDBLTFAST_DONOTWAIT: i32 = 32;

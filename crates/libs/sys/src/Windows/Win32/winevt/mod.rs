@@ -93,18 +93,13 @@ pub const EVT_READ_ACCESS: i32 = 1;
 pub type EVT_RENDER_CONTEXT_FLAGS = i32;
 pub type EVT_RENDER_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_sys::core::PWSTR,
     pub User: windows_sys::core::PWSTR,
     pub Domain: windows_sys::core::PWSTR,
     pub Password: windows_sys::core::PWSTR,
     pub Flags: u32,
-}
-impl Default for EVT_RPC_LOGIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type EVT_RPC_LOGIN_FLAGS = i32;
 pub type EVT_SEEK_FLAGS = i32;

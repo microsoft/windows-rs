@@ -524,17 +524,12 @@ pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
 }
 pub type IP_ADDRESS_STRING = IP_MASK_STRING;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IP_ADDR_STRING {
     pub Next: *mut Self,
     pub IpAddress: IP_ADDRESS_STRING,
     pub IpMask: IP_MASK_STRING,
     pub Context: u32,
-}
-impl Default for IP_ADDR_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "nldef")]
 pub type IP_DAD_STATE = super::NL_DAD_STATE;
@@ -561,17 +556,12 @@ impl Default for IP_MASK_STRING {
 }
 pub type IP_PER_ADAPTER_INFO = IP_PER_ADAPTER_INFO_W2KSP1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
     pub AutoconfigEnabled: u32,
     pub AutoconfigActive: u32,
     pub CurrentDnsServer: PIP_ADDR_STRING,
     pub DnsServerList: IP_ADDR_STRING,
-}
-impl Default for IP_PER_ADAPTER_INFO_W2KSP1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "nldef")]
 pub type IP_PREFIX_ORIGIN = super::NL_PREFIX_ORIGIN;

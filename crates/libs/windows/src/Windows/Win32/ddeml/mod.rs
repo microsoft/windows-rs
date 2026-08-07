@@ -275,38 +275,18 @@ pub const EC_ENABLEONE: i32 = 128;
 pub const EC_QUERYWAITING: i32 = 2;
 pub type FNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCONV(pub *mut core::ffi::c_void);
-impl Default for HCONV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCONVLIST(pub *mut core::ffi::c_void);
-impl Default for HCONVLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const HDATA_APPOWNED: i32 = 1;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDDEDATA(pub *mut core::ffi::c_void);
-impl Default for HDDEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HSZ(pub *mut core::ffi::c_void);
-impl Default for HSZ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSZPAIR {

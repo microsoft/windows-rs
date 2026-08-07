@@ -34,15 +34,10 @@ pub const CSCONTROL_RESTART: i32 = 3;
 pub const CSCONTROL_SHUTDOWN: i32 = 1;
 pub const CSCONTROL_SUSPEND: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: *mut u16,
     pub pwszNewDatabaseName: *mut u16,
-}
-impl Default for CSEDB_RSTMAPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CSRESTORE_TYPE_CATCHUP: i32 = 4;
 pub const CSRESTORE_TYPE_FULL: i32 = 1;

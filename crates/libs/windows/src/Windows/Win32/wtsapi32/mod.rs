@@ -1024,13 +1024,8 @@ pub struct WTS_CLIENT_DISPLAY {
     pub ColorDepth: u32,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WTS_CLOUD_AUTH_HANDLE(pub *mut core::ffi::c_void);
-impl Default for WTS_CLOUD_AUTH_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WTS_COMMENT_LENGTH: i32 = 60;
 pub type WTS_CONFIG_CLASS = i32;
 pub type WTS_CONFIG_SOURCE = i32;
@@ -1127,15 +1122,10 @@ pub const WTS_SECURITY_SET_INFORMATION: i32 = 2;
 pub const WTS_SECURITY_USER_ACCESS: i32 = 329;
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_SERIALIZED_USER_CREDENTIAL {
     pub SerializationLength: u32,
     pub Serialization: *mut u8,
-}
-impl Default for WTS_SERIALIZED_USER_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

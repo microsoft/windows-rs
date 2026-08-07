@@ -50,29 +50,17 @@ pub struct ACTRL_ACCESS_ENTRYW {
 pub type ACTRL_ACCESS_ENTRY_LIST = ACTRL_ACCESS_ENTRY_LISTA;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTA {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
 }
-#[cfg(feature = "winnt")]
-impl Default for ACTRL_ACCESS_ENTRY_LISTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTW {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
-}
-#[cfg(feature = "winnt")]
-impl Default for ACTRL_ACCESS_ENTRY_LISTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ACTRL_ACCESS_INFO = ACTRL_ACCESS_INFOA;
 #[repr(C)]
@@ -333,18 +321,12 @@ pub struct OBJECTS_AND_NAME_W {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTS_AND_SID {
     pub ObjectsPresent: u32,
     pub ObjectTypeGuid: windows_core::GUID,
     pub InheritedObjectTypeGuid: windows_core::GUID,
     pub pSid: *mut super::SID,
-}
-#[cfg(feature = "winnt")]
-impl Default for OBJECTS_AND_SID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PACCESS_RIGHTS = *mut u32;
 #[cfg(feature = "winnt")]
@@ -465,19 +447,13 @@ pub type TRUSTEEW = TRUSTEE_W;
 pub type TRUSTEE_ = TRUSTEE_A;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTEE_A {
     pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: super::LPCH,
-}
-#[cfg(feature = "winnt")]
-impl Default for TRUSTEE_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type TRUSTEE_ACCESS = TRUSTEE_ACCESSA;
 #[repr(C)]
@@ -521,17 +497,11 @@ pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = 5;
 pub type TRUSTEE_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTEE_W {
     pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: super::LPWCH,
-}
-#[cfg(feature = "winnt")]
-impl Default for TRUSTEE_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

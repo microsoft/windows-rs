@@ -1,6 +1,6 @@
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: i32 = 11;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BUSDATA {
     pub BusDataType: u32,
     pub BusNumber: u32,
@@ -8,11 +8,6 @@ pub struct BUSDATA {
     pub Buffer: *mut core::ffi::c_void,
     pub Offset: u32,
     pub Length: u32,
-}
-impl Default for BUSDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CANNOT_ALLOCATE_MEMORY: i32 = 9;
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: i32 = 2048;
@@ -216,7 +211,7 @@ pub const EXT_API_VERSION_NUMBER32: i32 = 5;
 pub const EXT_API_VERSION_NUMBER64: i32 = 6;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXT_FIND_FILE {
     pub FileName: windows_sys::core::PCWSTR,
     pub IndexedSize: u64,
@@ -231,24 +226,13 @@ pub struct EXT_FIND_FILE {
     pub FoundFileName: windows_sys::core::PWSTR,
     pub FoundFileNameChars: u32,
 }
-#[cfg(feature = "winnt")]
-impl Default for EXT_FIND_FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EXT_MATCH_PATTERN_A {
     pub Str: windows_sys::core::PCSTR,
     pub Pattern: windows_sys::core::PCSTR,
     pub CaseSensitive: u32,
-}
-impl Default for EXT_MATCH_PATTERN_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EXT_TDF_PHYSICAL_CACHED: i32 = 4;
 pub const EXT_TDF_PHYSICAL_DEFAULT: i32 = 2;
@@ -345,16 +329,11 @@ pub struct FIELD_INFO_1 {
     pub Size: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_CONTEXT_EX {
     pub Status: u32,
     pub ContextSize: u32,
     pub pContext: *mut core::ffi::c_void,
-}
-impl Default for GET_CONTEXT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -370,29 +349,19 @@ pub struct GET_CURRENT_THREAD_ADDRESS {
     pub Address: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_EXPRESSION_EX {
     pub Expression: windows_sys::core::PCSTR,
     pub Remainder: windows_sys::core::PCSTR,
     pub Value: u64,
 }
-impl Default for GET_EXPRESSION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_INPUT_LINE {
     pub Prompt: windows_sys::core::PCSTR,
     pub Buffer: windows_sys::core::PSTR,
     pub BufferSize: u32,
     pub InputSize: u32,
-}
-impl Default for GET_INPUT_LINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -401,16 +370,11 @@ pub struct GET_PEB_ADDRESS {
     pub Address: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GET_SET_SYMPATH {
     pub Args: windows_sys::core::PCSTR,
     pub Result: windows_sys::core::PSTR,
     pub Length: i32,
-}
-impl Default for GET_SET_SYMPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -842,7 +806,7 @@ pub type PKDDEBUGGER_DATA32 = *mut KDDEBUGGER_DATA32;
 pub type PKDDEBUGGER_DATA64 = *mut KDDEBUGGER_DATA64;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINTER_SEARCH_PHYSICAL {
     pub Offset: u64,
     pub Length: u64,
@@ -852,12 +816,6 @@ pub struct POINTER_SEARCH_PHYSICAL {
     pub MatchOffsets: super::PULONG64,
     pub MatchOffsetsSize: u32,
     pub MatchOffsetsCount: u32,
-}
-#[cfg(feature = "basetsd")]
-impl Default for POINTER_SEARCH_PHYSICAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type POOL_HEADER_FIELD_NAME = i32;
 #[repr(C)]
@@ -1016,18 +974,13 @@ pub struct READ_WRITE_MSR {
     pub Value: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SEARCHMEMORY {
     pub SearchAddress: u64,
     pub SearchLength: u64,
     pub FoundAddress: u64,
     pub PatternLength: u32,
     pub Pattern: *mut core::ffi::c_void,
-}
-impl Default for SEARCHMEMORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SYMBOL_TYPE_INDEX_NOT_FOUND: i32 = 2;
 pub const SYMBOL_TYPE_INFO_NOT_FOUND: i32 = 3;
@@ -1090,15 +1043,10 @@ pub const WDBGEXTS_ADDRESS_RESERVED0: u32 = 2147483648;
 pub const WDBGEXTS_ADDRESS_SEG16: i32 = 1;
 pub const WDBGEXTS_ADDRESS_SEG32: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
     pub Iid: *const windows_sys::core::GUID,
     pub Iface: *mut core::ffi::c_void,
-}
-impl Default for WDBGEXTS_CLR_DATA_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1131,15 +1079,10 @@ pub struct WDBGEXTS_MODULE_IN_RANGE {
     pub FoundModSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WDBGEXTS_QUERY_INTERFACE {
     pub Iid: *const windows_sys::core::GUID,
     pub Iface: *mut core::ffi::c_void,
-}
-impl Default for WDBGEXTS_QUERY_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1157,7 +1100,7 @@ pub struct WDBGEXTS_THREAD_OS_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -1172,15 +1115,9 @@ pub struct WINDBG_EXTENSION_APIS {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
-#[cfg(feature = "winnt")]
-impl Default for WINDBG_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -1195,15 +1132,9 @@ pub struct WINDBG_EXTENSION_APIS32 {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
-#[cfg(feature = "winnt")]
-impl Default for WINDBG_EXTENSION_APIS32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -1218,14 +1149,8 @@ pub struct WINDBG_EXTENSION_APIS64 {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
-#[cfg(feature = "winnt")]
-impl Default for WINDBG_EXTENSION_APIS64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -1238,13 +1163,8 @@ pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
     pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
-impl Default for WINDBG_OLDKD_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -1252,9 +1172,4 @@ pub struct WINDBG_OLD_EXTENSION_APIS {
     pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
     pub lpDisasmRoutine: PWINDBG_DISASM,
     pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
-}
-impl Default for WINDBG_OLD_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

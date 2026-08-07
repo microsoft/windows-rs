@@ -305,15 +305,10 @@ pub const D3D_DISASM_INSTRUCTION_ONLY: i32 = 64;
 pub const D3D_DISASM_PRINT_HEX_LITERALS: i32 = 128;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_DATA {
     pub pBytecode: *const core::ffi::c_void,
     pub BytecodeLength: usize,
-}
-impl Default for D3D_SHADER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "d3dcommon")]
 pub type pD3DCompile = Option<unsafe extern "system" fn(psrcdata: *const core::ffi::c_void, srcdatasize: usize, pfilename: windows_core::PCSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: windows_core::Ref<super::ID3DInclude>, pentrypoint: windows_core::PCSTR, ptarget: windows_core::PCSTR, flags1: u32, flags2: u32, ppcode: windows_core::OutRef<super::ID3D10Blob>, pperrormsgs: windows_core::OutRef<super::ID3D10Blob>) -> windows_core::HRESULT>;

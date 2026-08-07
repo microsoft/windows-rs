@@ -311,7 +311,7 @@ pub struct MIB_IPMCAST_OIF_STATS_LH {
     pub ulOutDiscards: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -321,23 +321,13 @@ pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub ulOutPackets: u32,
     pub ulOutDiscards: u32,
 }
-impl Default for MIB_IPMCAST_OIF_STATS_W2K {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIB_IPMCAST_OIF_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
     pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
-}
-impl Default for MIB_IPMCAST_OIF_W2K {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

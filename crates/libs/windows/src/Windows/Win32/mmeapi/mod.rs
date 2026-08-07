@@ -691,77 +691,32 @@ pub const AUXCAPS_LRVOLUME: i32 = 2;
 pub const AUXCAPS_VOLUME: i32 = 1;
 pub const AUX_MAPPER: u32 = 4294967295;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HMIDI(pub *mut core::ffi::c_void);
-impl Default for HMIDI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HMIDIIN(pub *mut core::ffi::c_void);
-impl Default for HMIDIIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HMIDIOUT(pub *mut core::ffi::c_void);
-impl Default for HMIDIOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HMIDISTRM(pub *mut core::ffi::c_void);
-impl Default for HMIDISTRM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HMIXER(pub *mut core::ffi::c_void);
-impl Default for HMIXER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HMIXEROBJ(pub *mut core::ffi::c_void);
-impl Default for HMIXEROBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HWAVE(pub *mut core::ffi::c_void);
-impl Default for HWAVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HWAVEIN(pub *mut core::ffi::c_void);
-impl Default for HWAVEIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HWAVEOUT(pub *mut core::ffi::c_void);
-impl Default for HWAVEOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type KEYARRAY = [u16; 128];
 #[cfg(feature = "mmsyscom")]
 pub type LPAUXCAPS = LPAUXCAPSA;
@@ -1865,7 +1820,7 @@ pub struct WAVEFORMATEX {
     pub cbSize: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WAVEHDR {
     pub lpData: windows_core::PSTR,
     pub dwBufferLength: u32,
@@ -1875,11 +1830,6 @@ pub struct WAVEHDR {
     pub dwLoops: u32,
     pub lpNext: *mut Self,
     pub reserved: usize,
-}
-impl Default for WAVEHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "mmsyscom")]
 pub type WAVEINCAPS = WAVEINCAPSA;

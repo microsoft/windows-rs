@@ -43,26 +43,16 @@ pub type PREPL_INFO_1001 = *mut REPL_INFO_1001;
 pub type PREPL_INFO_1002 = *mut REPL_INFO_1002;
 pub type PREPL_INFO_1003 = *mut REPL_INFO_1003;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_EDIR_INFO_0 {
     pub rped0_dirname: windows_sys::core::PWSTR,
 }
-impl Default for REPL_EDIR_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_EDIR_INFO_1 {
     pub rped1_dirname: windows_sys::core::PWSTR,
     pub rped1_integrity: u32,
     pub rped1_extent: u32,
-}
-impl Default for REPL_EDIR_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -75,7 +65,7 @@ pub struct REPL_EDIR_INFO_1001 {
     pub rped1001_extent: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_EDIR_INFO_2 {
     pub rped2_dirname: windows_sys::core::PWSTR,
     pub rped2_integrity: u32,
@@ -83,28 +73,18 @@ pub struct REPL_EDIR_INFO_2 {
     pub rped2_lockcount: u32,
     pub rped2_locktime: u32,
 }
-impl Default for REPL_EDIR_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const REPL_EXPORT_EXTENT_INFOLEVEL: i32 = 1001;
 pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: i32 = 1000;
 pub const REPL_EXTENT_FILE: i32 = 1;
 pub const REPL_EXTENT_TREE: i32 = 2;
 pub const REPL_GUARDTIME_INFOLEVEL: i32 = 1002;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_IDIR_INFO_0 {
     pub rpid0_dirname: windows_sys::core::PWSTR,
 }
-impl Default for REPL_IDIR_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_IDIR_INFO_1 {
     pub rpid1_dirname: windows_sys::core::PWSTR,
     pub rpid1_state: u32,
@@ -113,13 +93,8 @@ pub struct REPL_IDIR_INFO_1 {
     pub rpid1_lockcount: u32,
     pub rpid1_locktime: u32,
 }
-impl Default for REPL_IDIR_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_INFO_0 {
     pub rp0_role: u32,
     pub rp0_exportpath: windows_sys::core::PWSTR,
@@ -131,11 +106,6 @@ pub struct REPL_INFO_0 {
     pub rp0_pulse: u32,
     pub rp0_guardtime: u32,
     pub rp0_random: u32,
-}
-impl Default for REPL_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

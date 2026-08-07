@@ -623,7 +623,7 @@ windows_link::link!("rpcrt4.dll" "system" fn UuidIsNil(uuid : *const windows_sys
 windows_link::link!("rpcrt4.dll" "system" fn UuidToStringA(uuid : *const windows_sys::core::GUID, stringuuid : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn UuidToStringW(uuid : *const windows_sys::core::GUID, stringuuid : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ARRAY_INFO {
     pub Dimension: i32,
     pub BufferConformanceMark: *mut u32,
@@ -632,21 +632,11 @@ pub struct ARRAY_INFO {
     pub OffsetArray: *mut u32,
     pub ActualCountArray: *mut u32,
 }
-impl Default for ARRAY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BinaryParam {
     pub Buffer: *mut core::ffi::c_void,
     pub Size: i16,
-}
-impl Default for BinaryParam {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -680,30 +670,20 @@ pub const EEInfoUseFileTime: i32 = 4;
 pub type EXPR_EVAL = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 pub type ExtendedErrorParamTypes = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FULL_PTR_XLAT_TABLES {
     pub RefIdToPointer: *mut core::ffi::c_void,
     pub PointerToRefId: *mut core::ffi::c_void,
     pub NextRefId: u32,
     pub XlatSide: XLAT_SIDE,
 }
-impl Default for FULL_PTR_XLAT_TABLES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GENERIC_BINDING_INFO {
     pub pObj: *mut core::ffi::c_void,
     pub Size: u32,
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
-}
-impl Default for GENERIC_BINDING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type GENERIC_BINDING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
 #[repr(C)]
@@ -743,15 +723,10 @@ pub type I_RpcProxyUpdatePerfCounterBackendServerFn = Option<unsafe extern "syst
 pub type I_RpcProxyUpdatePerfCounterFn = Option<unsafe extern "system" fn(counter: RpcPerfCounters, modifytrend: i32, size: u32)>;
 pub type LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MALLOC_FREE_STRUCT {
     pub pfnAllocate: *mut u8,
     pub pfnFree: *mut u8,
-}
-impl Default for MALLOC_FREE_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -765,7 +740,7 @@ impl Default for MIDL_FORMAT_STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_INTERCEPTION_INFO {
     pub Version: u32,
     pub ProcString: PFORMAT_STRING,
@@ -773,21 +748,11 @@ pub struct MIDL_INTERCEPTION_INFO {
     pub ProcCount: u32,
     pub TypeString: PFORMAT_STRING,
 }
-impl Default for MIDL_INTERCEPTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_INTERFACE_METHOD_PROPERTIES {
     pub MethodCount: u16,
     pub MethodProperties: *const *const MIDL_METHOD_PROPERTY_MAP,
-}
-impl Default for MIDL_INTERFACE_METHOD_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -796,19 +761,14 @@ pub struct MIDL_METHOD_PROPERTY {
     pub Value: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_METHOD_PROPERTY_MAP {
     pub Count: u32,
     pub Properties: *const MIDL_METHOD_PROPERTY,
 }
-impl Default for MIDL_METHOD_PROPERTY_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: PMIDL_STUB_DESC,
     pub DispatchTable: *const SERVER_ROUTINE,
@@ -819,15 +779,9 @@ pub struct MIDL_SERVER_INFO {
     pub nCount: usize,
     pub pSyntaxInfo: PMIDL_SYNTAX_INFO,
 }
-#[cfg(feature = "objidlbase")]
-impl Default for MIDL_SERVER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pStubDesc: PMIDL_STUB_DESC,
     pub ProcFormatString: PFORMAT_STRING,
@@ -835,12 +789,6 @@ pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pTransferSyntax: PRPC_SYNTAX_IDENTIFIER,
     pub nCount: usize,
     pub pSyntaxInfo: PMIDL_SYNTAX_INFO,
-}
-#[cfg(feature = "objidlbase")]
-impl Default for MIDL_STUBLESS_PROXY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
@@ -889,7 +837,7 @@ impl Default for MIDL_STUB_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: PRPC_MESSAGE,
     pub Buffer: *mut u8,
@@ -951,14 +899,8 @@ pub struct MIDL_STUB_MESSAGE {
     pub Reserved51_4: isize,
     pub Reserved51_5: isize,
 }
-#[cfg(feature = "objidlbase")]
-impl Default for MIDL_STUB_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_SYNTAX_INFO {
     pub TransferSyntax: RPC_SYNTAX_IDENTIFIER,
     pub DispatchTable: *mut RPC_DISPATCH_TABLE,
@@ -969,26 +911,15 @@ pub struct MIDL_SYNTAX_INFO {
     pub pMethodProperties: *const MIDL_INTERFACE_METHOD_PROPERTIES,
     pub pReserved2: usize,
 }
-impl Default for MIDL_SYNTAX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub Version: u32,
     pub TypeFormatString: PFORMAT_STRING,
     pub FormatStringSize: u16,
     pub TypeOffset: u16,
     pub StubDesc: PMIDL_STUB_DESC,
-}
-#[cfg(feature = "objidlbase")]
-impl Default for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1;
 pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = 0;
@@ -1004,15 +935,10 @@ pub const NDR_BIG_ENDIAN: u32 = 0;
 pub type NDR_CCONTEXT = *mut core::ffi::c_void;
 pub const NDR_CHAR_REP_MASK: u32 = 15;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NDR_CS_ROUTINES {
     pub pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
     pub pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
-}
-impl Default for NDR_CS_ROUTINES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1026,15 +952,10 @@ pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456;
 pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912;
 pub const NDR_EBCDIC_CHAR: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NDR_EXPR_DESC {
     pub pOffset: *const u16,
     pub pFormatExpr: PFORMAT_STRING,
-}
-impl Default for NDR_EXPR_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NDR_FLOAT_REP_MASK: u32 = 65280;
 pub const NDR_IBM_FLOAT: u32 = 768;
@@ -1176,7 +1097,7 @@ pub type PSEC_WINNT_AUTH_IDENTITY_W = *mut SEC_WINNT_AUTH_IDENTITY_W;
 #[cfg(feature = "objidlbase")]
 pub type PXMIT_ROUTINE_QUINTUPLE = *mut XMIT_ROUTINE_QUINTUPLE;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RDR_CALLOUT_STATE {
     pub LastError: windows_sys::core::RPC_STATUS,
     pub LastEEInfo: *mut core::ffi::c_void,
@@ -1192,11 +1113,6 @@ pub struct RDR_CALLOUT_STATE {
     pub SessionId: windows_sys::core::GUID,
     pub Interface: RPC_SYNTAX_IDENTIFIER,
     pub CertContext: *mut core::ffi::c_void,
-}
-impl Default for RDR_CALLOUT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPCFLG_ACCESSIBILITY_BIT1: u32 = 1048576;
 pub const RPCFLG_ACCESSIBILITY_BIT2: u32 = 2097152;
@@ -1242,44 +1158,26 @@ impl Default for RPC_ASYNC_NOTIFICATION_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::HANDLE,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-impl Default for RPC_ASYNC_NOTIFICATION_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub hIOPort: super::HANDLE,
     pub dwNumberOfBytesTransferred: u32,
     pub dwCompletionKey: usize,
     pub lpOverlapped: super::LPOVERLAPPED,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-impl Default for RPC_ASYNC_NOTIFICATION_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::HWND,
     pub Msg: u32,
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-impl Default for RPC_ASYNC_NOTIFICATION_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
@@ -1320,7 +1218,7 @@ pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub CallTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
     pub Version: u32,
     pub ServerPrincName: *mut u8,
@@ -1329,13 +1227,8 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
     pub AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_A,
     pub SecurityQos: *mut RPC_SECURITY_QOS,
 }
-impl Default for RPC_BINDING_HANDLE_SECURITY_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub Version: u32,
     pub ServerPrincName: *mut u16,
@@ -1343,11 +1236,6 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub AuthnSvc: u32,
     pub AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub SecurityQos: *mut RPC_SECURITY_QOS,
-}
-impl Default for RPC_BINDING_HANDLE_SECURITY_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1422,7 +1310,7 @@ pub type RPC_BUFPTR = *mut u8;
 #[cfg(feature = "winnt")]
 pub type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub Version: u32,
     pub Flags: u32,
@@ -1434,13 +1322,8 @@ pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub AuthenticationService: u32,
     pub NullSession: windows_sys::core::BOOL,
 }
-impl Default for RPC_CALL_ATTRIBUTES_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub Version: u32,
     pub Flags: u32,
@@ -1452,14 +1335,9 @@ pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub AuthenticationService: u32,
     pub NullSession: windows_sys::core::BOOL,
 }
-impl Default for RPC_CALL_ATTRIBUTES_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub Version: u32,
     pub Flags: u32,
@@ -1480,15 +1358,9 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub OpNum: u16,
     pub InterfaceUuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "winnt")]
-impl Default for RPC_CALL_ATTRIBUTES_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub Version: u32,
     pub Flags: u32,
@@ -1509,15 +1381,9 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub OpNum: u16,
     pub InterfaceUuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "winnt")]
-impl Default for RPC_CALL_ATTRIBUTES_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub Version: u32,
     pub Flags: u32,
@@ -1540,15 +1406,9 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
-#[cfg(feature = "winnt")]
-impl Default for RPC_CALL_ATTRIBUTES_V3_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub Version: u32,
     pub Flags: u32,
@@ -1571,45 +1431,29 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
-#[cfg(feature = "winnt")]
-impl Default for RPC_CALL_ATTRIBUTES_V3_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const RPC_CALL_ATTRIBUTES_VERSION: i32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
     pub Version: u32,
     pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,
     pub AddressFormat: RpcLocalAddressFormat,
 }
-impl Default for RPC_CALL_LOCAL_ADDRESS_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const RPC_CALL_STATUS_CANCELLED: i32 = 1;
 pub const RPC_CALL_STATUS_DISCONNECTED: i32 = 2;
 pub type RPC_CLIENT_ALLOC = Option<unsafe extern "system" fn(size: usize) -> *mut core::ffi::c_void>;
 pub type RPC_CLIENT_FREE = Option<unsafe extern "system" fn(ptr: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CLIENT_INFORMATION1 {
     pub UserName: *mut u8,
     pub ComputerName: *mut u8,
     pub Privilege: u16,
     pub AuthFlags: u32,
 }
-impl Default for RPC_CLIENT_INFORMATION1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CLIENT_INTERFACE {
     pub Length: u32,
     pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -1620,11 +1464,6 @@ pub struct RPC_CLIENT_INTERFACE {
     pub Reserved: usize,
     pub InterpreterInfo: *const core::ffi::c_void,
     pub Flags: u32,
-}
-impl Default for RPC_CLIENT_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0;
 pub const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912;
@@ -1709,15 +1548,10 @@ pub const RPC_C_OPT_BINDING_NONCAUSAL: i32 = 9;
 pub const RPC_C_OPT_CALL_TIMEOUT: i32 = 12;
 pub const RPC_C_OPT_COOKIE_AUTH: i32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub BufferSize: u32,
     pub Buffer: *mut i8,
-}
-impl Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_C_OPT_DONT_LINGER: i32 = 13;
 pub const RPC_C_OPT_MAX_OPTIONS: i32 = 17;
@@ -1777,16 +1611,11 @@ pub const RPC_C_VERS_MAJOR_ONLY: i32 = 4;
 pub const RPC_C_VERS_UPTO: i32 = 5;
 pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
     pub DispatchTable: *mut RPC_DISPATCH_FUNCTION,
     pub Reserved: isize,
-}
-impl Default for RPC_DISPATCH_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_EEINFO_VERSION: i32 = 1;
 #[repr(C)]
@@ -1816,7 +1645,7 @@ impl Default for RPC_EE_INFO_PARAM_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_ENDPOINT_TEMPLATEA {
     pub Version: u32,
     pub ProtSeq: RPC_CSTR,
@@ -1824,13 +1653,8 @@ pub struct RPC_ENDPOINT_TEMPLATEA {
     pub SecurityDescriptor: *mut core::ffi::c_void,
     pub Backlog: u32,
 }
-impl Default for RPC_ENDPOINT_TEMPLATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_ENDPOINT_TEMPLATEW {
     pub Version: u32,
     pub ProtSeq: RPC_WSTR,
@@ -1838,23 +1662,13 @@ pub struct RPC_ENDPOINT_TEMPLATEW {
     pub SecurityDescriptor: *mut core::ffi::c_void,
     pub Backlog: u32,
 }
-impl Default for RPC_ENDPOINT_TEMPLATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type RPC_EP_INQ_HANDLE = *mut I_RPC_HANDLE;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_ERROR_ENUM_HANDLE {
     pub Signature: u32,
     pub CurrentPos: *mut core::ffi::c_void,
     pub Head: *mut core::ffi::c_void,
-}
-impl Default for RPC_ERROR_ENUM_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
@@ -1896,7 +1710,7 @@ pub const RPC_FW_IF_FLAG_DCOM: i32 = 1;
 pub type RPC_HTTP_PROXY_FREE_STRING = Option<unsafe extern "system" fn(string: *const u16)>;
 pub type RPC_HTTP_REDIRECTOR_STAGE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
     pub Flags: u32,
@@ -1905,13 +1719,8 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u8,
 }
-impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
     pub Flags: u32,
@@ -1923,13 +1732,8 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub Flags: u32,
@@ -1941,13 +1745,8 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
     pub Flags: u32,
@@ -1959,13 +1758,8 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
     pub Flags: u32,
@@ -1977,13 +1771,8 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub Flags: u32,
@@ -1991,11 +1780,6 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub NumberOfAuthnSchemes: u32,
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u16,
-}
-impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH: i32 = 16;
 pub const RPC_IF_ALLOW_LOCAL_ONLY: i32 = 32;
@@ -2027,22 +1811,17 @@ pub const RPC_IF_OLE: i32 = 2;
 pub const RPC_IF_SEC_CACHE_PER_PROC: i32 = 128;
 pub const RPC_IF_SEC_NO_CACHE: i32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_IMPORT_CONTEXT_P {
     pub LookupContext: RPC_NS_HANDLE,
     pub ProposedHandle: RPC_BINDING_HANDLE,
     pub Bindings: *mut RPC_BINDING_VECTOR,
 }
-impl Default for RPC_IMPORT_CONTEXT_P {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type RPC_INTERFACE_GROUP = *mut core::ffi::c_void;
 pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = Option<unsafe extern "system" fn(ifgroup: RPC_INTERFACE_GROUP, idlecallbackcontext: *const core::ffi::c_void, isgroupidle: u32)>;
 pub const RPC_INTERFACE_HAS_PIPES: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
     pub IfSpec: RPC_IF_HANDLE,
@@ -2056,13 +1835,8 @@ pub struct RPC_INTERFACE_TEMPLATEA {
     pub Annotation: RPC_CSTR,
     pub SecurityDescriptor: *mut core::ffi::c_void,
 }
-impl Default for RPC_INTERFACE_TEMPLATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
     pub IfSpec: RPC_IF_HANDLE,
@@ -2076,14 +1850,9 @@ pub struct RPC_INTERFACE_TEMPLATEW {
     pub Annotation: RPC_WSTR,
     pub SecurityDescriptor: *mut core::ffi::c_void,
 }
-impl Default for RPC_INTERFACE_TEMPLATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type RPC_LENGTH = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_MESSAGE {
     pub Handle: RPC_BINDING_HANDLE,
     pub DataRepresentation: u32,
@@ -2096,11 +1865,6 @@ pub struct RPC_MESSAGE {
     pub ManagerEpv: *mut core::ffi::c_void,
     pub ImportContext: *mut core::ffi::c_void,
     pub RpcFlags: u32,
-}
-impl Default for RPC_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type RPC_MGMT_AUTHORIZATION_FN = Option<unsafe extern "system" fn(clientbinding: RPC_BINDING_HANDLE, requestedmgmtoperation: u32, status: *mut windows_sys::core::RPC_STATUS) -> i32>;
 pub const RPC_NCA_FLAGS_BROADCAST: i32 = 2;
@@ -2120,15 +1884,10 @@ pub struct RPC_POLICY {
     pub NICFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_PROTSEQ_ENDPOINT {
     pub RpcProtocolSequence: *mut u8,
     pub Endpoint: *mut u8,
-}
-impl Default for RPC_PROTSEQ_ENDPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_PROTSEQ_HTTP: i32 = 4;
 pub const RPC_PROTSEQ_LRPC: i32 = 3;
@@ -2396,7 +2155,7 @@ pub struct RPC_SEC_CONTEXT_KEY_INFO {
     pub SignatureAlgorithm: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_SERVER_INTERFACE {
     pub Length: u32,
     pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -2407,11 +2166,6 @@ pub struct RPC_SERVER_INTERFACE {
     pub DefaultManagerEpv: *mut core::ffi::c_void,
     pub InterpreterInfo: *const core::ffi::c_void,
     pub Flags: u32,
-}
-impl Default for RPC_SERVER_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type RPC_SETFILTER_FUNC = Option<unsafe extern "C" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
 pub type RPC_SS_THREAD_HANDLE = *mut core::ffi::c_void;
@@ -2506,18 +2260,13 @@ pub const RpcReceiveComplete: RPC_ASYNC_EVENT = 2;
 pub const RpcRequestsPerSecond: RpcPerfCounters = 4;
 pub const RpcSendComplete: RPC_ASYNC_EVENT = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCONTEXT_QUEUE {
     pub NumberOfObjects: u32,
     pub ArrayOfObjects: *mut NDR_SCONTEXT,
 }
-impl Default for SCONTEXT_QUEUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub User: *mut u8,
     pub UserLength: u32,
@@ -2527,15 +2276,10 @@ pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub PasswordLength: u32,
     pub Flags: u32,
 }
-impl Default for SEC_WINNT_AUTH_IDENTITY_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SEC_WINNT_AUTH_IDENTITY_ANSI: i32 = 1;
 pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SEC_WINNT_AUTH_IDENTITY_W {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -2544,11 +2288,6 @@ pub struct SEC_WINNT_AUTH_IDENTITY_W {
     pub Password: *mut u16,
     pub PasswordLength: u32,
     pub Flags: u32,
-}
-impl Default for SEC_WINNT_AUTH_IDENTITY_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type SERVER_ROUTINE = Option<unsafe extern "system" fn() -> i32>;
 pub const STUB_CALL_SERVER: STUB_PHASE = 1;
@@ -2592,7 +2331,7 @@ pub const USER_CALL_IS_ASYNC: i32 = 256;
 pub const USER_CALL_NEW_CORRELATION_DESC: i32 = 512;
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MARSHAL_CB {
     pub Flags: u32,
     pub pStubMsg: PMIDL_STUB_MESSAGE,
@@ -2601,12 +2340,6 @@ pub struct USER_MARSHAL_CB {
     pub CBType: USER_MARSHAL_CB_TYPE,
     pub pFormat: PFORMAT_STRING,
     pub pTypeFormat: PFORMAT_STRING,
-}
-#[cfg(feature = "objidlbase")]
-impl Default for USER_MARSHAL_CB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = 0;
 pub const USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = 3;

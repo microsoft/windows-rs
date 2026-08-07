@@ -256,7 +256,7 @@ pub const OCM_VSCROLL: i32 = 8469;
 pub const OCM__BASE: i32 = 8192;
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OCPFIPARAMS {
     pub cbStructSize: u32,
     pub hWndOwner: super::HWND,
@@ -269,12 +269,6 @@ pub struct OCPFIPARAMS {
     pub lpPages: *mut windows_sys::core::GUID,
     pub lcid: super::LCID,
     pub dispidInitialProperty: super::DISPID,
-}
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
-impl Default for OCPFIPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OLEIVERB_PROPERTIES: i32 = -7;
 #[cfg(feature = "wtypes")]
@@ -324,54 +318,30 @@ impl Default for PICTDESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::HBITMAP,
     pub hpal: super::HPALETTE,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for PICTDESC_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PICTDESC_0_1 {
     pub hmeta: super::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for PICTDESC_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PICTDESC_0_2 {
     pub hicon: super::HICON,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for PICTDESC_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PICTDESC_0_3 {
     pub hemf: super::HENHMETAFILE,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for PICTDESC_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PICTYPE_BITMAP: i32 = 1;
 pub const PICTYPE_ENHMETAFILE: i32 = 4;

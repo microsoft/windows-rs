@@ -249,7 +249,7 @@ pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = 3;
 pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = 7;
 pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WICBitmapPattern {
     pub Position: u64,
     pub Length: u32,
@@ -257,23 +257,13 @@ pub struct WICBitmapPattern {
     pub Mask: *mut u8,
     pub EndOfStream: windows_sys::core::BOOL,
 }
-impl Default for WICBitmapPattern {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WICBitmapPlane {
     pub Format: WICPixelFormatGUID,
     pub pbBuffer: *mut u8,
     pub cbStride: u32,
     pub cbBufferSize: u32,
-}
-impl Default for WICBitmapPlane {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

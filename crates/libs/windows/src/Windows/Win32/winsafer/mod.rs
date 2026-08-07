@@ -182,13 +182,8 @@ pub const SAFER_LEVELID_FULLYTRUSTED: i32 = 262144;
 pub const SAFER_LEVELID_NORMALUSER: i32 = 131072;
 pub const SAFER_LEVELID_UNTRUSTED: i32 = 4096;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SAFER_LEVEL_HANDLE(pub *mut core::ffi::c_void);
-impl Default for SAFER_LEVEL_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SAFER_LEVEL_OPEN: i32 = 1;
 pub const SAFER_MAX_DESCRIPTION_SIZE: i32 = 256;
 pub const SAFER_MAX_FRIENDLYNAME_SIZE: i32 = 256;

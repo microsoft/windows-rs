@@ -1,63 +1,37 @@
 pub type ACTIVATEFLAGS = i32;
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CADWORD {
     pub cElems: u32,
     pub pElems: *mut u32,
 }
-impl Default for CADWORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PWSTR,
 }
-impl Default for CALPOLESTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAUUID {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::GUID,
 }
-impl Default for CAUUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONNECTDATA {
     pub pUnk: *mut core::ffi::c_void,
     pub dwCookie: u32,
 }
-impl Default for CONNECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONTROLINFO {
     pub cb: u32,
     pub hAccel: super::HACCEL,
     pub cAccel: u16,
     pub dwFlags: u32,
-}
-#[cfg(feature = "windef")]
-impl Default for CONTROLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CTRLINFO = i32;
 pub const CTRLINFO_EATS_ESCAPE: CTRLINFO = 2;
@@ -141,7 +115,7 @@ pub struct POINTF {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::VARTYPE,
@@ -149,12 +123,6 @@ pub struct PROPBAG2 {
     pub dwHint: u32,
     pub pstrName: windows_sys::core::PWSTR,
     pub clsid: windows_sys::core::GUID,
-}
-#[cfg(feature = "wtypes")]
-impl Default for PROPBAG2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PROPBAG2_TYPE = i32;
 pub const PROPBAG2_TYPE_DATA: PROPBAG2_TYPE = 1;
@@ -166,7 +134,7 @@ pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = 0;
 pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROPPAGEINFO {
     pub cb: u32,
     pub pszTitle: windows_sys::core::PWSTR,
@@ -175,19 +143,13 @@ pub struct PROPPAGEINFO {
     pub pszHelpFile: windows_sys::core::PWSTR,
     pub dwHelpContext: u32,
 }
-#[cfg(feature = "windef")]
-impl Default for PROPPAGEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PROPPAGESTATUS = i32;
 pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = 4;
 pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = 1;
 pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = 2;
 #[repr(C)]
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "urlmon", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QACONTAINER {
     pub cbSize: u32,
     pub pClientSite: *mut core::ffi::c_void,
@@ -205,12 +167,6 @@ pub struct QACONTAINER {
     pub pBindHost: *mut core::ffi::c_void,
     pub pOleControlSite: *mut core::ffi::c_void,
     pub pServiceProvider: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "objidl", feature = "oleidl", feature = "urlmon", feature = "windef"))]
-impl Default for QACONTAINER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type QACONTAINERFLAGS = i32;
 pub const QACONTAINER_AUTOCLIP: QACONTAINERFLAGS = 32;

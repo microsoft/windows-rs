@@ -247,7 +247,7 @@ pub const SECURITY_FLAG_STRENGTH_MEDIUM: i32 = 1073741824;
 pub const SECURITY_FLAG_STRENGTH_STRONG: i32 = 536870912;
 pub const SECURITY_FLAG_STRENGTH_WEAK: i32 = 268435456;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct URL_COMPONENTS {
     pub dwStructSize: u32,
     pub lpszScheme: windows_sys::core::PWSTR,
@@ -264,11 +264,6 @@ pub struct URL_COMPONENTS {
     pub dwUrlPathLength: u32,
     pub lpszExtraInfo: windows_sys::core::PWSTR,
     pub dwExtraInfoLength: u32,
-}
-impl Default for URL_COMPONENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type URL_COMPONENTSW = URL_COMPONENTS;
 pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: i32 = 4;
@@ -313,7 +308,7 @@ pub const WINHTTP_AUTOPROXY_NO_CACHE_CLIENT: i32 = 524288;
 pub const WINHTTP_AUTOPROXY_NO_CACHE_SVC: i32 = 1048576;
 pub const WINHTTP_AUTOPROXY_NO_DIRECTACCESS: i32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub dwFlags: u32,
     pub dwAutoDetectFlags: u32,
@@ -321,11 +316,6 @@ pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub lpvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub fAutoLogonIfChallenged: windows_sys::core::BOOL,
-}
-impl Default for WINHTTP_AUTOPROXY_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WINHTTP_AUTOPROXY_RUN_INPROCESS: i32 = 65536;
 pub const WINHTTP_AUTOPROXY_RUN_OUTPROCESS_ONLY: i32 = 131072;
@@ -391,7 +381,7 @@ pub const WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: i32 = 67108864;
 pub const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: i32 = 1048576;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CERTIFICATE_INFO {
     pub ftExpiry: super::FILETIME,
     pub ftStart: super::FILETIME,
@@ -401,12 +391,6 @@ pub struct WINHTTP_CERTIFICATE_INFO {
     pub lpszSignatureAlgName: windows_sys::core::PWSTR,
     pub lpszEncryptionAlgName: windows_sys::core::PWSTR,
     pub dwKeySize: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for WINHTTP_CERTIFICATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -438,7 +422,7 @@ pub const WINHTTP_CONNECTION_RETRY_CONDITION_SSL_HANDSHAKE: i32 = 2;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_STALE_CONNECTION: i32 = 4;
 pub const WINHTTP_CONNS_PER_SERVER_UNLIMITED: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CREDS {
     pub lpszUserName: windows_sys::core::PSTR,
     pub lpszPassword: windows_sys::core::PSTR,
@@ -447,13 +431,8 @@ pub struct WINHTTP_CREDS {
     pub lpszHostName: windows_sys::core::PSTR,
     pub dwPort: u32,
 }
-impl Default for WINHTTP_CREDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CREDS_EX {
     pub lpszUserName: windows_sys::core::PSTR,
     pub lpszPassword: windows_sys::core::PSTR,
@@ -463,23 +442,13 @@ pub struct WINHTTP_CREDS_EX {
     pub dwPort: u32,
     pub lpszUrl: windows_sys::core::PSTR,
 }
-impl Default for WINHTTP_CREDS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     pub fAutoDetect: windows_sys::core::BOOL,
     pub lpszAutoConfigUrl: windows_sys::core::PWSTR,
     pub lpszProxy: windows_sys::core::PWSTR,
     pub lpszProxyBypass: windows_sys::core::PWSTR,
-}
-impl Default for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WINHTTP_DECOMPRESSION_FLAG_ALL: i32 = 3;
 pub const WINHTTP_DECOMPRESSION_FLAG_DEFLATE: i32 = 2;
@@ -674,16 +643,11 @@ impl Default for WINHTTP_HEADER_NAME {
 }
 pub const WINHTTP_HEADER_NAME_BY_INDEX: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_HOST_CONNECTION_GROUP {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub cConnectionGroups: u32,
     pub pConnectionGroups: PWINHTTP_CONNECTION_GROUP,
-}
-impl Default for WINHTTP_HOST_CONNECTION_GROUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -880,16 +844,11 @@ pub const WINHTTP_PROXY_DISABLE_SCHEME_KERBEROS: i32 = 8;
 pub const WINHTTP_PROXY_DISABLE_SCHEME_NEGOTIATE: i32 = 16;
 pub const WINHTTP_PROXY_DISABLE_SCHEME_NTLM: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_INFO {
     pub dwAccessType: u32,
     pub lpszProxy: windows_sys::core::PWSTR,
     pub lpszProxyBypass: windows_sys::core::PWSTR,
-}
-impl Default for WINHTTP_PROXY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WINHTTP_PROXY_INFOW = WINHTTP_PROXY_INFO;
 #[repr(C)]
@@ -904,18 +863,13 @@ impl Default for WINHTTP_PROXY_NETWORKING_KEY {
 }
 pub const WINHTTP_PROXY_NOTIFY_CHANGE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_RESULT {
     pub cEntries: u32,
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
 }
-impl Default for WINHTTP_PROXY_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub fProxy: windows_sys::core::BOOL,
     pub fBypass: windows_sys::core::BOOL,
@@ -923,29 +877,18 @@ pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub pwszProxy: windows_sys::core::PWSTR,
     pub ProxyPort: INTERNET_PORT,
 }
-impl Default for WINHTTP_PROXY_RESULT_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_RESULT_EX {
     pub cEntries: u32,
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
     pub hProxyDetectionHandle: super::HANDLE,
     pub dwProxyInterfaceAffinity: u32,
 }
-#[cfg(feature = "winnt")]
-impl Default for WINHTTP_PROXY_RESULT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_SETTINGS {
     pub dwStructSize: u32,
     pub dwFlags: u32,
@@ -964,15 +907,9 @@ pub struct WINHTTP_PROXY_SETTINGS {
     pub cNetworkKeys: u32,
     pub pNetworkKeys: PWINHTTP_PROXY_NETWORKING_KEY,
 }
-#[cfg(feature = "minwindef")]
-impl Default for WINHTTP_PROXY_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub ullGenerationId: u64,
     pub ullFlags: u64,
@@ -984,15 +921,9 @@ pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub dwInterfaceIndex: u32,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Default for WINHTTP_PROXY_SETTINGS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub ullGenerationId: u64,
     pub ullFlags: u64,
@@ -1004,39 +935,21 @@ pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub dwInterfaceIndex: u32,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WINHTTP_PROXY_SETTINGS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_SETTINGS_PARAM {
     pub ullFlags: u64,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
     pub pcwszProbeHost: windows_sys::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_PROXY_SETTINGS_PARAM {
     pub ullFlags: u64,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
     pub pcwszProbeHost: windows_sys::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WINHTTP_PROXY_SETTINGS_TYPE = i32;
 pub const WINHTTP_PROXY_TYPE_AUTO_DETECT: i32 = 8;
@@ -1056,15 +969,10 @@ pub const WINHTTP_QUERY_CACHE_CONTROL: i32 = 49;
 pub const WINHTTP_QUERY_CONNECTION: i32 = 23;
 pub const WINHTTP_QUERY_CONNECTION_GROUP_FLAG_INSECURE: u64 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     pub cHosts: u32,
     pub pHostConnectionGroups: PWINHTTP_HOST_CONNECTION_GROUP,
-}
-impl Default for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WINHTTP_QUERY_CONTENT_BASE: i32 = 50;
 pub const WINHTTP_QUERY_CONTENT_DESCRIPTION: i32 = 4;

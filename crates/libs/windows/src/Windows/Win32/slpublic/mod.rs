@@ -315,21 +315,11 @@ where
     unsafe { SLUnregisterEvent(hslc.unwrap_or(core::mem::zeroed()) as _, pwszeventid.param().abi(), papplicationid, hevent) }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HSLC(pub *mut core::ffi::c_void);
-impl Default for HSLC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HSLP(pub *mut core::ffi::c_void);
-impl Default for HSLP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ID_CAP_SLAPI: windows_core::PCWSTR = windows_core::w!("slapiQueryLicenseValue");
 pub type PSL_SYSTEM_POLICY_INFORMATION = *mut SL_SYSTEM_POLICY_INFORMATION;
 pub type SLDATATYPE = i32;
@@ -429,16 +419,11 @@ pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = 1;
 pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3;
 pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_NONGENUINE_UI_OPTIONS {
     pub cbSize: u32,
     pub pComponentId: *const SLID,
     pub hResultUI: windows_core::HRESULT,
-}
-impl Default for SL_NONGENUINE_UI_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SL_PKEY_DETECT: windows_core::PCWSTR = windows_core::w!("msft:rm/algorithm/pkey/detect");
 pub const SL_PKEY_MS2005: windows_core::PCWSTR = windows_core::w!("msft:rm/algorithm/pkey/2005");

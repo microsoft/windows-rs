@@ -443,13 +443,8 @@ pub struct POLICYSETTINGSTATUSINFO {
     pub timeLogged: super::SYSTEMTIME,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PRSOPTOKEN(pub *mut core::ffi::c_void);
-impl Default for PRSOPTOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
 pub type PRSOP_TARGET = *mut RSOP_TARGET;
 pub const PT_MANDATORY: i32 = 4;
@@ -467,7 +462,7 @@ pub const RSOPUnspecified: SETTINGSTATUS = 0;
 pub const RSOP_COMPUTER_ACCESS_DENIED: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RSOP_TARGET {
     pub pwszAccountName: *mut u16,
     pub pwszNewSOM: *mut u16,
@@ -475,12 +470,6 @@ pub struct RSOP_TARGET {
     pub pRsopToken: PRSOPTOKEN,
     pub pGPOList: PGROUP_POLICY_OBJECT,
     pub pWbemServices: core::mem::ManuallyDrop<Option<super::IWbemServices>>,
-}
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
-impl Default for RSOP_TARGET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RSOP_TEMPNAMESPACE_EXISTS: i32 = 4;
 pub const RSOP_USER_ACCESS_DENIED: i32 = 1;

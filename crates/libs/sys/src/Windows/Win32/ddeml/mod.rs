@@ -67,7 +67,7 @@ pub struct CONVCONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONVINFO {
     pub cb: u32,
     pub hUser: usize,
@@ -85,12 +85,6 @@ pub struct CONVINFO {
     pub ConvCtxt: CONVCONTEXT,
     pub hwnd: super::HWND,
     pub hwndPartner: super::HWND,
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for CONVINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CP_WINANSI: i32 = 1004;
 pub const CP_WINNEUTRAL: i32 = 1004;
@@ -156,15 +150,10 @@ pub const HDATA_APPOWNED: i32 = 1;
 pub type HDDEDATA = *mut core::ffi::c_void;
 pub type HSZ = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
-}
-impl Default for HSZPAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MAX_MONITORS: i32 = 4;
 pub const MF_CALLBACKS: i32 = 134217728;
@@ -207,7 +196,7 @@ impl Default for MONCBSTRUCT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
     pub fConnect: windows_sys::core::BOOL,
@@ -218,26 +207,14 @@ pub struct MONCONVSTRUCT {
     pub hConvClient: HCONV,
     pub hConvServer: HCONV,
 }
-#[cfg(feature = "winnt")]
-impl Default for MONCONVSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONERRSTRUCT {
     pub cb: u32,
     pub wLastError: u32,
     pub dwTime: u32,
     pub hTask: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for MONERRSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "winnt")]
 pub type MONHSZSTRUCT = MONHSZSTRUCTA;
@@ -277,7 +254,7 @@ impl Default for MONHSZSTRUCTW {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -292,15 +269,9 @@ pub struct MONLINKSTRUCT {
     pub hConvServer: HCONV,
     pub hConvClient: HCONV,
 }
-#[cfg(feature = "winnt")]
-impl Default for MONLINKSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
     pub hwndTo: super::HWND,
@@ -310,12 +281,6 @@ pub struct MONMSGSTRUCT {
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
     pub dmhd: DDEML_MSG_HOOK_DATA,
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for MONMSGSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MSGF_DDEMGR: i32 = 32769;
 #[cfg(feature = "winnt")]

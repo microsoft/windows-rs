@@ -777,7 +777,7 @@ pub struct DOT11_EXTSTA_CAPABILITY {
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uReceiveFlags: u32,
@@ -790,16 +790,10 @@ pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub pvMediaSpecificInfo: *mut core::ffi::c_void,
     pub ullTimestamp: u64,
 }
-#[cfg(feature = "objectheader")]
-impl Default for DOT11_EXTSTA_RECV_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub usExemptionActionType: u16,
@@ -807,12 +801,6 @@ pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub uDelayedSleepValue: u32,
     pub pvMediaSpecificInfo: *mut core::ffi::c_void,
     pub uSendFlags: u32,
-}
-#[cfg(feature = "objectheader")]
-impl Default for DOT11_EXTSTA_SEND_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: i32 = 1;
 pub const DOT11_FLAGS_80211B_CHANNEL_AGILITY: i32 = 4;
@@ -1238,18 +1226,12 @@ pub struct DOT11_MAC_PARAMETERS {
 pub const DOT11_MAC_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
     pub uStatus: u32,
     pub pvContext: *mut core::ffi::c_void,
-}
-#[cfg(feature = "objectheader")]
-impl Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: i32 = 1;
 pub type DOT11_MANUFACTURING_CALLBACK_TYPE = i32;
@@ -1354,15 +1336,10 @@ impl Default for DOT11_MANUFACTURING_TEST_SET_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SLEEP {
     pub uSleepTime: u32,
     pub pvContext: *mut core::ffi::c_void,
-}
-impl Default for DOT11_MANUFACTURING_TEST_SLEEP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DOT11_MANUFACTURING_TEST_TYPE = i32;
 pub const DOT11_MAX_CHANNEL_HINTS: i32 = 4;

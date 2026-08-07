@@ -4027,13 +4027,8 @@ pub const UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE: UI_ANIMATION_IDLE_BEHAVIOR = 0;
 pub const UI_ANIMATION_IDLE_BEHAVIOR_DISABLE: UI_ANIMATION_IDLE_BEHAVIOR = 1;
 pub const UI_ANIMATION_ITERATION_NONE: u32 = 4294967295;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UI_ANIMATION_KEYFRAME(pub *mut core::ffi::c_void);
-impl Default for UI_ANIMATION_KEYFRAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const UI_ANIMATION_KEYFRAME_STORYBOARD_START: UI_ANIMATION_KEYFRAME = UI_ANIMATION_KEYFRAME(-1 as _);
 pub const UI_ANIMATION_MANAGER_BUSY: UI_ANIMATION_MANAGER_STATUS = 1;
 pub const UI_ANIMATION_MANAGER_IDLE: UI_ANIMATION_MANAGER_STATUS = 0;

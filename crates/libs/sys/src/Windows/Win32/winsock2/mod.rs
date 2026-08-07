@@ -483,7 +483,7 @@ pub const SOCK_NOTIFY_REGISTER_EVENT_IN: i32 = 1;
 pub const SOCK_NOTIFY_REGISTER_EVENT_NONE: i32 = 0;
 pub const SOCK_NOTIFY_REGISTER_EVENT_OUT: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCK_NOTIFY_REGISTRATION {
     pub socket: SOCKET,
     pub completionKey: *mut core::ffi::c_void,
@@ -491,11 +491,6 @@ pub struct SOCK_NOTIFY_REGISTRATION {
     pub operation: u8,
     pub triggerFlags: u8,
     pub registrationResult: u32,
-}
-impl Default for SOCK_NOTIFY_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SOCK_NOTIFY_TRIGGER_ALL: i32 = 15;
 pub const SOCK_NOTIFY_TRIGGER_EDGE: i32 = 8;
@@ -541,56 +536,32 @@ impl Default for WSACOMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSACOMPLETION_0_0 {
     pub hWnd: super::HWND,
     pub uMsg: u32,
     pub context: super::WPARAM,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for WSACOMPLETION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSACOMPLETION_0_1 {
     pub lpOverlapped: LPWSAOVERLAPPED,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for WSACOMPLETION_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSACOMPLETION_0_2 {
     pub lpOverlapped: LPWSAOVERLAPPED,
     pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for WSACOMPLETION_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSACOMPLETION_0_3 {
     pub lpOverlapped: LPWSAOVERLAPPED,
     pub hPort: super::HANDLE,
     pub Key: usize,
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for WSACOMPLETION_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WSACOMPLETIONTYPE = i32;
 #[repr(C)]
@@ -634,7 +605,7 @@ pub type WSAECOMPARATOR = i32;
 pub type WSAESETSERVICEOP = i32;
 pub type WSANAMESPACE_INFO = WSANAMESPACE_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSANAMESPACE_INFOA {
     pub NSProviderId: windows_sys::core::GUID,
     pub dwNameSpace: u32,
@@ -642,16 +613,11 @@ pub struct WSANAMESPACE_INFOA {
     pub dwVersion: u32,
     pub lpszIdentifier: windows_sys::core::PSTR,
 }
-impl Default for WSANAMESPACE_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "wtypesbase")]
 pub type WSANAMESPACE_INFOEX = WSANAMESPACE_INFOEXA;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSANAMESPACE_INFOEXA {
     pub NSProviderId: windows_sys::core::GUID,
     pub dwNameSpace: u32,
@@ -660,15 +626,9 @@ pub struct WSANAMESPACE_INFOEXA {
     pub lpszIdentifier: windows_sys::core::PSTR,
     pub ProviderSpecific: super::BLOB,
 }
-#[cfg(feature = "wtypesbase")]
-impl Default for WSANAMESPACE_INFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSANAMESPACE_INFOEXW {
     pub NSProviderId: windows_sys::core::GUID,
     pub dwNameSpace: u32,
@@ -677,25 +637,14 @@ pub struct WSANAMESPACE_INFOEXW {
     pub lpszIdentifier: windows_sys::core::PWSTR,
     pub ProviderSpecific: super::BLOB,
 }
-#[cfg(feature = "wtypesbase")]
-impl Default for WSANAMESPACE_INFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSANAMESPACE_INFOW {
     pub NSProviderId: windows_sys::core::GUID,
     pub dwNameSpace: u32,
     pub fActive: windows_sys::core::BOOL,
     pub dwVersion: u32,
     pub lpszIdentifier: windows_sys::core::PWSTR,
-}
-impl Default for WSANAMESPACE_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -711,7 +660,7 @@ impl Default for WSANETWORKEVENTS {
 pub const WSANO_ADDRESS: i32 = 11004;
 pub type WSANSCLASSINFO = WSANSCLASSINFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSANSCLASSINFOA {
     pub lpszName: windows_sys::core::PSTR,
     pub dwNameSpace: u32,
@@ -719,24 +668,14 @@ pub struct WSANSCLASSINFOA {
     pub dwValueSize: u32,
     pub lpValue: *mut core::ffi::c_void,
 }
-impl Default for WSANSCLASSINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSANSCLASSINFOW {
     pub lpszName: windows_sys::core::PWSTR,
     pub dwNameSpace: u32,
     pub dwValueType: u32,
     pub dwValueSize: u32,
     pub lpValue: *mut core::ffi::c_void,
-}
-impl Default for WSANSCLASSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -822,7 +761,7 @@ pub type WSAQUERYSET = WSAQUERYSETA;
 pub type WSAQUERYSET2 = WSAQUERYSET2A;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSAQUERYSET2A {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_sys::core::PSTR,
@@ -839,15 +778,9 @@ pub struct WSAQUERYSET2A {
     pub dwOutputFlags: u32,
     pub lpBlob: super::LPBLOB,
 }
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for WSAQUERYSET2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSAQUERYSET2W {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_sys::core::PWSTR,
@@ -864,15 +797,9 @@ pub struct WSAQUERYSET2W {
     pub dwOutputFlags: u32,
     pub lpBlob: super::LPBLOB,
 }
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for WSAQUERYSET2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSAQUERYSETA {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_sys::core::PSTR,
@@ -890,15 +817,9 @@ pub struct WSAQUERYSETA {
     pub dwOutputFlags: u32,
     pub lpBlob: super::LPBLOB,
 }
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for WSAQUERYSETA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSAQUERYSETW {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_sys::core::PWSTR,
@@ -916,43 +837,25 @@ pub struct WSAQUERYSETW {
     pub dwOutputFlags: u32,
     pub lpBlob: super::LPBLOB,
 }
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for WSAQUERYSETW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "guiddef")]
 pub type WSASERVICECLASSINFO = WSASERVICECLASSINFOA;
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSASERVICECLASSINFOA {
     pub lpServiceClassId: super::LPGUID,
     pub lpszServiceClassName: windows_sys::core::PSTR,
     pub dwCount: u32,
     pub lpClassInfos: LPWSANSCLASSINFOA,
 }
-#[cfg(feature = "guiddef")]
-impl Default for WSASERVICECLASSINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSASERVICECLASSINFOW {
     pub lpServiceClassId: super::LPGUID,
     pub lpszServiceClassName: windows_sys::core::PWSTR,
     pub dwCount: u32,
     pub lpClassInfos: LPWSANSCLASSINFOW,
-}
-#[cfg(feature = "guiddef")]
-impl Default for WSASERVICECLASSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WSASYS_STATUS_LEN: i32 = 128;
 #[repr(C)]
@@ -1013,18 +916,13 @@ impl Default for fd_set {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct hostent {
     pub h_name: *mut i8,
     pub h_aliases: *mut *mut i8,
     pub h_addrtype: i16,
     pub h_length: i16,
     pub h_addr_list: *mut *mut i8,
-}
-impl Default for hostent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1033,59 +931,37 @@ pub struct linger {
     pub l_linger: u_short,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct netent {
     pub n_name: *mut i8,
     pub n_aliases: *mut *mut i8,
     pub n_addrtype: i16,
     pub n_net: u_long,
 }
-impl Default for netent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct protoent {
     pub p_name: *mut i8,
     pub p_aliases: *mut *mut i8,
     pub p_proto: i16,
 }
-impl Default for protoent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct servent {
     pub s_name: *mut i8,
     pub s_aliases: *mut *mut i8,
     pub s_port: i16,
     pub s_proto: *mut i8,
 }
-#[cfg(target_arch = "x86")]
-impl Default for servent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct servent {
     pub s_name: *mut i8,
     pub s_aliases: *mut *mut i8,
     pub s_proto: *mut i8,
     pub s_port: i16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for servent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

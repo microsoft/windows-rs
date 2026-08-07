@@ -548,18 +548,12 @@ pub type BP_ANIMATIONSTYLE = i32;
 pub type BP_BUFFERFORMAT = i32;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub prcExclude: *const super::RECT,
     pub pBlendFunction: *const super::BLENDFUNCTION,
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for BP_PAINTPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]

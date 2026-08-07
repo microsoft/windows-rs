@@ -12569,7 +12569,7 @@ pub const MEDIASINK_RATELESS: i32 = 4;
 pub const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: i32 = 32;
 pub type MFAudioConstriction = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub cbTotalFileSize: u64,
     pub cbPlayableDataSize: u64,
@@ -12579,11 +12579,6 @@ pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub qwExtraBufferingTimeDuringSeek: u64,
     pub qwPlayDuration: u64,
     pub dRate: f32,
-}
-impl Default for MFBYTESTREAM_BUFFERING_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MFCLOCK_CHARACTERISTICS_FLAGS = i32;
 pub const MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING: MFCLOCK_CHARACTERISTICS_FLAGS = 4;
@@ -12700,16 +12695,11 @@ pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
     pub CameraModel: MFCameraIntrinsic_CameraModel,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     pub Action: MFPOLICYMANAGER_ACTION,
     pub pbTicket: *mut u8,
     pub cbTicket: u32,
-}
-impl Default for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -12738,16 +12728,11 @@ pub const MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS: MFMEDIASOURCE_CHARACTERISTIC
 pub const MFMEDIASOURCE_HAS_SLOW_SEEK: MFMEDIASOURCE_CHARACTERISTICS = 8;
 pub const MFMEDIASOURCE_IS_LIVE: MFMEDIASOURCE_CHARACTERISTICS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFMediaKeyStatus {
     pub pbKeyId: *mut u8,
     pub cbKeyId: u32,
     pub eMediaKeyStatus: MF_MEDIAKEY_STATUS,
-}
-impl Default for MFMediaKeyStatus {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFNETSOURCE_AVGBANDWIDTHBPS_ID: MFNETSOURCE_STATISTICS_IDS = 8;
 pub const MFNETSOURCE_BUFFERINGCOUNT_ID: MFNETSOURCE_STATISTICS_IDS = 21;
@@ -12936,7 +12921,7 @@ impl Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "mfobjects")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_REGISTRATION_INFO {
     pub clsid: windows_core::GUID,
     pub guidCategory: windows_core::GUID,
@@ -12946,12 +12931,6 @@ pub struct MFT_REGISTRATION_INFO {
     pub pInTypes: *mut super::MFT_REGISTER_TYPE_INFO,
     pub cOutTypes: u32,
     pub pOutTypes: *mut super::MFT_REGISTER_TYPE_INFO,
-}
-#[cfg(feature = "mfobjects")]
-impl Default for MFT_REGISTRATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

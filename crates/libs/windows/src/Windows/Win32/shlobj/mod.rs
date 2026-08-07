@@ -103,18 +103,13 @@ impl Default for AASHELLMENUFILENAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AASHELLMENUITEM {
     pub lpReserved1: *mut core::ffi::c_void,
     pub iReserved: i32,
     pub uiReserved: u32,
     pub lpName: LPAASHELLMENUFILENAME,
     pub psz: windows_core::PWSTR,
-}
-impl Default for AASHELLMENUITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]

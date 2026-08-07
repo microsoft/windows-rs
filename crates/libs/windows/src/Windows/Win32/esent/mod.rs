@@ -1687,15 +1687,10 @@ impl Default for JET_ENUMCOLUMN_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMN_0_0 {
     pub cEnumColumnValue: JET_UINT32,
     pub rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
-}
-impl Default for JET_ENUMCOLUMN_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1704,16 +1699,11 @@ pub struct JET_ENUMCOLUMN_0_1 {
     pub pvData: JET_PVOID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ENUMCOLUMNID {
     pub columnid: JET_COLUMNID,
     pub ctagSequence: JET_UINT32,
     pub rgtagSequence: *mut JET_UINT32,
-}
-impl Default for JET_ENUMCOLUMNID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2059,21 +2049,16 @@ pub struct JET_INDEX_COLUMN {
     pub grbit: JET_GRBIT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEX_RANGE {
     pub rgStartColumns: *mut JET_INDEX_COLUMN,
     pub cStartColumns: JET_UINT32,
     pub rgEndColumns: *mut JET_INDEX_COLUMN,
     pub cEndColumns: JET_UINT32,
 }
-impl Default for JET_INDEX_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type JET_INSTANCE = JET_API_PTR;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INSTANCE_INFO_A {
     pub hInstanceId: JET_INSTANCE,
     pub szInstanceName: JET_PSTR,
@@ -2082,13 +2067,8 @@ pub struct JET_INSTANCE_INFO_A {
     pub szDatabaseDisplayName: *mut JET_PSTR,
     pub szDatabaseSLVFileName_Obsolete: *mut JET_PSTR,
 }
-impl Default for JET_INSTANCE_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INSTANCE_INFO_W {
     pub hInstanceId: JET_INSTANCE,
     pub szInstanceName: JET_PWSTR,
@@ -2096,11 +2076,6 @@ pub struct JET_INSTANCE_INFO_W {
     pub szDatabaseFileName: *mut JET_PWSTR,
     pub szDatabaseDisplayName: *mut JET_PWSTR,
     pub szDatabaseSLVFileName_Obsolete: *mut JET_PWSTR,
-}
-impl Default for JET_INSTANCE_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -2275,7 +2250,7 @@ pub struct JET_OBJECTLIST {
 }
 pub type JET_OBJTYP = JET_UINT32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE {
     pub cbStruct: JET_UINT32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -2287,13 +2262,8 @@ pub struct JET_OPENTEMPORARYTABLE {
     pub cbVarSegMac: JET_UINT32,
     pub tableid: JET_TABLEID,
 }
-impl Default for JET_OPENTEMPORARYTABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: JET_UINT32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -2304,11 +2274,6 @@ pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbKeyMost: JET_UINT32,
     pub cbVarSegMac: JET_UINT32,
     pub tableid: JET_TABLEID,
-}
-impl Default for JET_OPENTEMPORARYTABLE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2336,26 +2301,16 @@ pub const JET_OnlineDefragDisable: i32 = 0;
 pub const JET_OnlineDefragSpaceTrees: i32 = 4;
 pub type JET_PCSTR = *const JET_CHAR;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct JET_PCVOID(pub *const core::ffi::c_void);
-impl Default for JET_PCVOID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type JET_PCWSTR = *const JET_WCHAR;
 pub type JET_PFNDURABLECOMMITCALLBACK = Option<unsafe extern "system" fn(instance: JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: JET_GRBIT) -> JET_ERR>;
 pub type JET_PFNREALLOC = Option<unsafe extern "system" fn(pvcontext: JET_PVOID, pv: JET_PVOID, cb: JET_UINT32) -> JET_PVOID>;
 pub type JET_PFNSTATUS = Option<unsafe extern "system" fn(sesid: JET_SESID, snp: JET_SNP, snt: JET_SNT, pv: JET_PVOID) -> JET_ERR>;
 pub type JET_PSTR = *mut JET_CHAR;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct JET_PVOID(pub *mut core::ffi::c_void);
-impl Default for JET_PVOID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type JET_PWSTR = *mut JET_WCHAR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2586,7 +2541,7 @@ pub struct JET_SPACEHINTS {
     pub cbMaxExtent: JET_UINT32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE2_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -2603,13 +2558,8 @@ pub struct JET_TABLECREATE2_A {
     pub tableid: JET_TABLEID,
     pub cCreated: JET_UINT32,
 }
-impl Default for JET_TABLECREATE2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE2_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -2626,13 +2576,8 @@ pub struct JET_TABLECREATE2_W {
     pub tableid: JET_TABLEID,
     pub cCreated: JET_UINT32,
 }
-impl Default for JET_TABLECREATE2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE3_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -2652,13 +2597,8 @@ pub struct JET_TABLECREATE3_A {
     pub tableid: JET_TABLEID,
     pub cCreated: JET_UINT32,
 }
-impl Default for JET_TABLECREATE3_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE3_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -2678,13 +2618,8 @@ pub struct JET_TABLECREATE3_W {
     pub tableid: JET_TABLEID,
     pub cCreated: JET_UINT32,
 }
-impl Default for JET_TABLECREATE3_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE4_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -2704,13 +2639,8 @@ pub struct JET_TABLECREATE4_A {
     pub tableid: JET_TABLEID,
     pub cCreated: JET_UINT32,
 }
-impl Default for JET_TABLECREATE4_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE4_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -2730,13 +2660,8 @@ pub struct JET_TABLECREATE4_W {
     pub tableid: JET_TABLEID,
     pub cCreated: JET_UINT32,
 }
-impl Default for JET_TABLECREATE4_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE_A {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PSTR,
@@ -2751,13 +2676,8 @@ pub struct JET_TABLECREATE_A {
     pub tableid: JET_TABLEID,
     pub cCreated: JET_UINT32,
 }
-impl Default for JET_TABLECREATE_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_TABLECREATE_W {
     pub cbStruct: JET_UINT32,
     pub szTableName: JET_PWSTR,
@@ -2771,11 +2691,6 @@ pub struct JET_TABLECREATE_W {
     pub grbit: JET_GRBIT,
     pub tableid: JET_TABLEID,
     pub cCreated: JET_UINT32,
-}
-impl Default for JET_TABLECREATE_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type JET_TABLEID = JET_API_PTR;
 #[repr(C)]
@@ -2867,30 +2782,20 @@ pub struct JET_UNICODEINDEX2 {
     pub dwMapFlags: JET_UINT32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_USERDEFINEDDEFAULT_A {
     pub szCallback: JET_PSTR,
     pub pbUserData: *mut JET_BYTE,
     pub cbUserData: JET_UINT32,
     pub szDependantColumns: JET_PSTR,
 }
-impl Default for JET_USERDEFINEDDEFAULT_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_USERDEFINEDDEFAULT_W {
     pub szCallback: JET_PWSTR,
     pub pbUserData: *mut JET_BYTE,
     pub cbUserData: JET_UINT32,
     pub szDependantColumns: JET_PWSTR,
-}
-impl Default for JET_USERDEFINEDDEFAULT_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const JET_VERSION: i32 = 2560;
 pub type JET_VOID = core::ffi::c_void;

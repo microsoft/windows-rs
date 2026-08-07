@@ -699,21 +699,11 @@ pub type COWAIT_FLAGS = u32;
 pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = 4;
 pub const COWAIT_WAITALL: COWAIT_FLAGS = 1;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CO_DEVICE_CATALOG_COOKIE(pub *mut core::ffi::c_void);
-impl Default for CO_DEVICE_CATALOG_COOKIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CO_MTA_USAGE_COOKIE(pub *mut core::ffi::c_void);
-impl Default for CO_MTA_USAGE_COOKIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CWMO_DEFAULT: CWMO_FLAGS = 0;
 pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = 1;
 pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = 2;

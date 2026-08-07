@@ -1,25 +1,15 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
 }
-impl Default for BSTRBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
     pub pClipData: *mut u8,
-}
-impl Default for CLIPDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -129,21 +119,11 @@ impl Default for GDI_NONREMOTE_0 {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCONTEXT(pub *mut core::ffi::c_void);
-impl Default for HCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HMETAFILEPICT(pub *mut core::ffi::c_void);
-impl Default for HMETAFILEPICT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type LPBSTR = *mut windows_core::BSTR;
 pub type LPBSTRBLOB = *mut BSTRBLOB;
 pub type LPCY = *mut CY;
@@ -362,18 +342,12 @@ pub const WDT_INPROC_CALL: i32 = 1215587415;
 pub const WDT_REMOTE_CALL: i32 = 1383359575;
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct remoteMETAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
     pub yExt: i32,
     pub hMF: *mut userHMETAFILE,
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for remoteMETAFILEPICT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

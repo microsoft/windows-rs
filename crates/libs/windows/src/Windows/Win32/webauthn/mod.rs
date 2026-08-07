@@ -325,33 +325,21 @@ pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS_LIST {
     pub pwszPluginClsId: windows_core::PWSTR,
     pub cCredentialDetails: u32,
     pub pCredentialDetails: *mut EXPERIMENTAL_PWEBAUTHN_PLUGIN_CREDENTIAL_DETAILS,
 }
-#[cfg(feature = "minwindef")]
-impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV {
     pub hwnd: super::HWND,
     pub transactionId: *mut windows_core::GUID,
     pub r#type: EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_OPERATION_TYPE,
     pub pwszUsername: windows_core::PCWSTR,
     pub pwszContext: windows_core::PCWSTR,
-}
-#[cfg(feature = "windef")]
-impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_OPERATION_TYPE = i32;
 #[repr(C)]
@@ -550,16 +538,10 @@ pub struct WEBAUTHN_AUTHENTICATOR_DETAILS {
 pub const WEBAUTHN_AUTHENTICATOR_DETAILS_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBAUTHN_AUTHENTICATOR_DETAILS_LIST {
     pub cAuthenticatorDetails: u32,
     pub ppAuthenticatorDetails: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS,
-}
-#[cfg(feature = "minwindef")]
-impl Default for WEBAUTHN_AUTHENTICATOR_DETAILS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -571,7 +553,7 @@ pub const WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS_VERSION_1: i32 = 1;
 pub const WEBAUTHN_AUTHENTICATOR_DETAILS_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub dwVersion: u32,
     pub dwTimeoutMilliseconds: u32,
@@ -601,12 +583,6 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub cbAuthenticatorId: u32,
     pub pbAuthenticatorId: super::PBYTE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: i32 = 9;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: i32 = 1;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: i32 = 2;
@@ -620,7 +596,7 @@ pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_9: i32 = 9;
 pub const WEBAUTHN_AUTHENTICATOR_HMAC_SECRET_VALUES_FLAG: i32 = 1048576;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub dwVersion: u32,
     pub dwTimeoutMilliseconds: u32,
@@ -650,12 +626,6 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub pbPublicKeyCredentialCreationOptionsJSON: super::PBYTE,
     pub cbAuthenticatorId: u32,
     pub pbAuthenticatorId: super::PBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: i32 = 9;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: i32 = 1;
@@ -736,7 +706,7 @@ pub struct WEBAUTHN_CREDENTIALS {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub dwVersion: u32,
     pub pwszFormatType: windows_core::PCWSTR,
@@ -765,12 +735,6 @@ pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub pbClientDataJSON: super::PBYTE,
     pub cbRegistrationResponseJSON: u32,
     pub pbRegistrationResponseJSON: super::PBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for WEBAUTHN_CREDENTIAL_ATTESTATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: i32 = 8;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: i32 = 1;
@@ -802,16 +766,10 @@ pub struct WEBAUTHN_CREDENTIAL_DETAILS {
 pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL_DETAILS_LIST {
     pub cCredentialDetails: u32,
     pub ppCredentialDetails: *mut PWEBAUTHN_CREDENTIAL_DETAILS,
-}
-#[cfg(feature = "minwindef")]
-impl Default for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: i32 = 1;
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_2: i32 = 2;
@@ -833,16 +791,10 @@ pub const WEBAUTHN_CREDENTIAL_HINT_HYBRID: windows_core::PCWSTR = windows_core::
 pub const WEBAUTHN_CREDENTIAL_HINT_SECURITY_KEY: windows_core::PCWSTR = windows_core::w!("security-key");
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL_LIST {
     pub cCredentials: u32,
     pub ppCredentials: *mut PWEBAUTHN_CREDENTIAL_EX,
-}
-#[cfg(feature = "minwindef")]
-impl Default for WEBAUTHN_CREDENTIAL_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: windows_core::PCWSTR = windows_core::w!("public-key");
 #[repr(C)]
@@ -899,16 +851,11 @@ pub const WEBAUTHN_ENTERPRISE_ATTESTATION_NONE: i32 = 0;
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: i32 = 2;
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEBAUTHN_EXTENSION {
     pub pwszExtensionIdentifier: windows_core::PCWSTR,
     pub cbExtension: u32,
     pub pvExtension: *mut core::ffi::c_void,
-}
-impl Default for WEBAUTHN_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

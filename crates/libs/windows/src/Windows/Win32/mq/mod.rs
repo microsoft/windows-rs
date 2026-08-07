@@ -302,16 +302,10 @@ pub const MQCERT_REGISTER_ALWAYS: i32 = 1;
 pub const MQCERT_REGISTER_IF_NOT_EXIST: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQCOLUMNSET {
     pub cCol: u32,
     pub aCol: *mut super::PROPID,
-}
-#[cfg(feature = "wtypes")]
-impl Default for MQCOLUMNSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MQCONN_BIND_SOCKET_FAILURE: MQConnectionState = -2147483645;
 pub const MQCONN_CONNECT_SOCKET_FAILURE: MQConnectionState = -2147483644;
@@ -333,33 +327,21 @@ pub const MQCONN_UNKNOWN_FAILURE: MQConnectionState = -2147483648;
 pub type MQConnectionState = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMGMTPROPS {
     pub cProp: u32,
     pub aPropID: *mut MGMTPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for MQMGMTPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGPROPS {
     pub cProp: u32,
     pub aPropID: *mut MSGPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
-}
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for MQMSGPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: u32 = 5;
 pub const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: u32 = 14;
@@ -427,18 +409,12 @@ pub const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: i32 = 1;
 pub const MQMSG_TRACE_NONE: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQPRIVATEPROPS {
     pub cProp: u32,
     pub aPropID: *mut QMPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
-}
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for MQPRIVATEPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
@@ -463,46 +439,28 @@ impl Default for MQPROPERTYRESTRICTION {
 pub type MQPROPVARIANT = tagMQPROPVARIANT;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQQMPROPS {
     pub cProp: u32,
     pub aPropID: *mut QMPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for MQQMPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQQUEUEPROPS {
     pub cProp: u32,
     pub aPropID: *mut QUEUEPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for MQQUEUEPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQRESTRICTION {
     pub cRes: u32,
     pub paPropRes: *mut MQPROPERTYRESTRICTION,
-}
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for MQRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: i32 = 262144;
 pub const MQSEC_DELETE_JOURNAL_MESSAGE: i32 = 8;
@@ -529,16 +487,10 @@ pub struct MQSORTKEY {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQSORTSET {
     pub cCol: u32,
     pub aCol: *mut MQSORTKEY,
-}
-#[cfg(feature = "wtypes")]
-impl Default for MQSORTSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648;
 pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649;

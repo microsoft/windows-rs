@@ -177,85 +177,49 @@ pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::SID,
     pub pCertBlob: PEFS_CERTIFICATE_BLOB,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for ENCRYPTION_CERTIFICATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::SID,
     pub pHash: PEFS_HASH_BLOB,
     pub lpDisplayInformation: windows_core::PWSTR,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for ENCRYPTION_CERTIFICATE_HASH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: u32,
     pub pUsers: *mut PENCRYPTION_CERTIFICATE_HASH,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: u32,
     pub pUsers: *mut PENCRYPTION_CERTIFICATE,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for ENCRYPTION_CERTIFICATE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::SID,
     pub lpProtectorDescriptor: windows_core::PWSTR,
 }
-#[cfg(feature = "winnt")]
-impl Default for ENCRYPTION_PROTECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: u32,
     pub pProtectors: *mut PENCRYPTION_PROTECTOR,
-}
-#[cfg(feature = "winnt")]
-impl Default for ENCRYPTION_PROTECTOR_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MAX_SID_SIZE: i32 = 256;
 #[cfg(feature = "minwindef")]

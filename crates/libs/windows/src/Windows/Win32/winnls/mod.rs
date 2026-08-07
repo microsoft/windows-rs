@@ -1103,13 +1103,8 @@ pub const GSS_ALLOW_INHERITED_COMMON: i32 = 1;
 pub const HIGH_SURROGATE_END: i32 = 56319;
 pub const HIGH_SURROGATE_START: i32 = 55296;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HSAVEDUILANGUAGES(pub *mut core::ffi::c_void);
-impl Default for HSAVEDUILANGUAGES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IDN_ALLOW_UNASSIGNED: i32 = 1;
 pub const IDN_EMAIL_ADDRESS: i32 = 4;
 pub const IDN_RAW_PUNYCODE: i32 = 8;

@@ -147,16 +147,11 @@ pub struct BANDSITEINFO {
     pub dwStyle: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BANNER_NOTIFICATION {
     pub event: BANNER_NOTIFICATION_EVENT,
     pub providerIdentity: windows_sys::core::PCWSTR,
     pub contentId: windows_sys::core::PCWSTR,
-}
-impl Default for BANNER_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type BANNER_NOTIFICATION_EVENT = i32;
 pub const BFO_ADD_IE_TOCAPTIONBAR: BROWSERFRAMEOPTIONS = 512;
@@ -284,7 +279,7 @@ pub const CMIC_MASK_SHIFT_DOWN: i32 = 268435456;
 pub const CMIC_MASK_UNICODE: i32 = 16384;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: u32,
     pub fMask: u32,
@@ -296,15 +291,9 @@ pub struct CMINVOKECOMMANDINFO {
     pub dwHotKey: u32,
     pub hIcon: super::HANDLE,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for CMINVOKECOMMANDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: u32,
     pub fMask: u32,
@@ -322,15 +311,9 @@ pub struct CMINVOKECOMMANDINFOEX {
     pub lpTitleW: windows_sys::core::PCWSTR,
     pub ptInvoke: super::POINT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for CMINVOKECOMMANDINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: u32,
     pub fMask: u32,
@@ -348,12 +331,6 @@ pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub ptInvoke: super::POINT,
     pub lpVerbInt: u32,
     pub lpVerbWInt: u32,
-}
-#[cfg(feature = "windef")]
-impl Default for CMINVOKECOMMANDINFOEX_REMOTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -816,7 +793,7 @@ pub const KF_REDIRECT_WITH_UI: KF_REDIRECT_FLAGS = 32;
 pub type KNOWNDESTCATEGORY = i32;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
     pub pszName: windows_sys::core::PWSTR,
@@ -831,12 +808,6 @@ pub struct KNOWNFOLDER_DEFINITION {
     pub dwAttributes: u32,
     pub kfdFlags: KF_DEFINITION_FLAGS,
     pub ftidType: super::FOLDERTYPEID,
-}
-#[cfg(feature = "shtypes")]
-impl Default for KNOWNFOLDER_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KnownFolderManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
 pub const LFF_ALLITEMS: LIBRARYFOLDERFILTER = 3;
@@ -1063,16 +1034,10 @@ pub type PFOLDERSETTINGS = *mut FOLDERSETTINGS;
 pub type PLACEHOLDER_STATES = u32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::HACCEL,
     pub cAccelEntries: u32,
-}
-#[cfg(feature = "windef")]
-impl Default for PREVIEWHANDLERFRAMEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PROPERTYUI_FLAGS = u32;
 pub type PROPERTYUI_FORMAT_FLAGS = u32;
@@ -1193,18 +1158,12 @@ pub const SHCONTF_SHAREABLE: SHCONTF = 1024;
 pub const SHCONTF_STORAGE: SHCONTF = 2048;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::SIZE,
     pub ptOffset: super::POINT,
     pub hbmpDragImage: super::HBITMAP,
     pub crColorKey: super::COLORREF,
-}
-#[cfg(feature = "windef")]
-impl Default for SHDRAGIMAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type SHELLVIEWID = windows_sys::core::GUID;
 #[repr(C)]
@@ -1289,17 +1248,11 @@ pub const SMAE_USER: i32 = 4;
 pub const SMAE_VALID: i32 = 7;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
     pub pidl1: super::LPCITEMIDLIST,
     pub pidl2: super::LPCITEMIDLIST,
-}
-#[cfg(feature = "shtypes")]
-impl Default for SMCSHCHANGENOTIFYSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SMC_AUTOEXPANDCHANGE: i32 = 66;
 pub const SMC_CHEVRONEXPAND: i32 = 25;
@@ -1329,7 +1282,7 @@ pub const SMC_SFSELECTITEM: i32 = 10;
 pub const SMC_SHCHANGENOTIFY: i32 = 46;
 #[repr(C)]
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SMDATA {
     pub dwMask: u32,
     pub dwFlags: u32,
@@ -1343,12 +1296,6 @@ pub struct SMDATA {
     pub pidlItem: super::LPITEMIDLIST,
     pub psf: *mut core::ffi::c_void,
     pub pvUserData: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl Default for SMDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SMDM_HMENU: i32 = 2;
 pub const SMDM_SHELLFOLDER: i32 = 1;
@@ -1507,7 +1454,7 @@ pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4;
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
     pub psvPrev: *mut core::ffi::c_void,
@@ -1516,12 +1463,6 @@ pub struct SV2CVW2_PARAMS {
     pub prcView: *mut super::RECT,
     pub pvid: *const SHELLVIEWID,
     pub hwndView: super::HWND,
-}
-#[cfg(all(feature = "oleidl", feature = "windef"))]
-impl Default for SV2CVW2_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SV2GV_CURRENTVIEW: u32 = 4294967295;
 pub const SV2GV_DEFAULTVIEW: u32 = 4294967294;

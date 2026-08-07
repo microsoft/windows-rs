@@ -82,13 +82,8 @@ pub unsafe fn NCryptUnprotectSecret(phdescriptor: Option<*mut NCRYPT_DESCRIPTOR_
 }
 pub const MS_KEY_PROTECTION_PROVIDER: windows_core::PCWSTR = windows_core::w!("Microsoft Key Protection Provider");
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NCRYPT_DESCRIPTOR_HANDLE(pub *mut core::ffi::c_void);
-impl Default for NCRYPT_DESCRIPTOR_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const NCRYPT_DESCR_DELIMITER_AND: windows_core::PCWSTR = windows_core::w!("AND");
 pub const NCRYPT_DESCR_DELIMITER_OR: windows_core::PCWSTR = windows_core::w!("OR");
 pub const NCRYPT_DESCR_EQUAL: windows_core::PCWSTR = windows_core::w!("=");
@@ -107,38 +102,21 @@ pub const NCRYPT_NAMED_DESCRIPTOR_FLAG: i32 = 1;
 pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "ncrypt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
 }
-#[cfg(feature = "ncrypt")]
-impl Default for NCRYPT_PROTECT_STREAM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "ncrypt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
 }
-#[cfg(feature = "ncrypt")]
-impl Default for NCRYPT_PROTECT_STREAM_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NCRYPT_STREAM_HANDLE(pub *mut core::ffi::c_void);
-impl Default for NCRYPT_STREAM_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const NCRYPT_UNPROTECT_NO_DECRYPT: i32 = 1;
 #[cfg(feature = "ncrypt")]
 pub type PFNCryptStreamOutputCallback = Option<unsafe extern "system" fn(pvcallbackctxt: *const core::ffi::c_void, pbdata: *const u8, cbdata: usize, ffinal: windows_core::BOOL) -> super::SECURITY_STATUS>;

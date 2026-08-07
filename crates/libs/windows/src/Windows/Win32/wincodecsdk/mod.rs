@@ -1338,31 +1338,21 @@ pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = 65536;
 pub const WICMetadataCreationMask: WICMetadataCreationOptions = -65536;
 pub type WICMetadataCreationOptions = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICMetadataHeader {
     pub Position: u64,
     pub Length: u32,
     pub Header: *mut u8,
     pub DataOffset: u64,
 }
-impl Default for WICMetadataHeader {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICMetadataPattern {
     pub Position: u64,
     pub Length: u32,
     pub Pattern: *mut u8,
     pub Mask: *mut u8,
     pub DataOffset: u64,
-}
-impl Default for WICMetadataPattern {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WICPersistOptionBigEndian: WICPersistOptions = 1;
 pub const WICPersistOptionDefault: WICPersistOptions = 0;

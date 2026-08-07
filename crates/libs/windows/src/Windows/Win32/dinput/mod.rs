@@ -1460,7 +1460,7 @@ pub const DIEDFL_INCLUDEHIDDEN: i32 = 262144;
 pub const DIEDFL_INCLUDEPHANTOMS: i32 = 131072;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIEFFECT {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1476,12 +1476,6 @@ pub struct DIEFFECT {
     pub cbTypeSpecificParams: u32,
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
     pub dwStartDelay: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for DIEFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DIEFFECTINFO = DIEFFECTINFOA;
 #[repr(C)]
@@ -1516,7 +1510,7 @@ impl Default for DIEFFECTINFOW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIEFFECT_DX5 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1533,15 +1527,9 @@ pub struct DIEFFECT_DX5 {
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
 }
 #[cfg(feature = "minwindef")]
-impl Default for DIEFFECT_DX5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
 pub type DIEFFECT_DX6 = DIEFFECT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIEFFESCAPE {
     pub dwSize: u32,
     pub dwCommand: u32,
@@ -1549,11 +1537,6 @@ pub struct DIEFFESCAPE {
     pub cbInBuffer: u32,
     pub lpvOutBuffer: *mut core::ffi::c_void,
     pub cbOutBuffer: u32,
-}
-impl Default for DIEFFESCAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DIEFF_CARTESIAN: i32 = 16;
 pub const DIEFF_OBJECTIDS: i32 = 1;
@@ -2148,17 +2131,12 @@ pub const DIMOUSE_XAXISAB: u32 = 2181038592;
 pub const DIMOUSE_YAXIS: u32 = 2181038852;
 pub const DIMOUSE_YAXISAB: u32 = 2181038596;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIOBJECTDATAFORMAT {
     pub pguid: *const windows_core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-}
-impl Default for DIOBJECTDATAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -8,13 +8,8 @@ pub struct D3DKMDT_2DREGION {
     pub cy: u32,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_ADAPTER(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_ADAPTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3DKMDT_BITS_PER_COMPONENT_06: i32 = 1;
 pub const D3DKMDT_BITS_PER_COMPONENT_08: i32 = 2;
 pub const D3DKMDT_BITS_PER_COMPONENT_10: i32 = 4;
@@ -177,77 +172,32 @@ pub const D3DKMDT_GTF_COMPLIANT: D3DKMDT_GTFCOMPLIANCE = 1;
 pub const D3DKMDT_GTF_NOTCOMPLIANT: D3DKMDT_GTFCOMPLIANCE = 2;
 pub const D3DKMDT_GTF_UNINITIALIZED: D3DKMDT_GTFCOMPLIANCE = 0;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HMONITORDESCRIPTORSET(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HMONITORDESCRIPTORSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HMONITORFREQUENCYRANGESET(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HMONITORFREQUENCYRANGESET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HMONITORSOURCEMODESET(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HMONITORSOURCEMODESET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HVIDEOPRESENTSOURCESET(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HVIDEOPRESENTSOURCESET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HVIDEOPRESENTTARGETSET(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HVIDEOPRESENTTARGETSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HVIDPN(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HVIDPN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HVIDPNSOURCEMODESET(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HVIDPNSOURCEMODESET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HVIDPNTARGETMODESET(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HVIDPNTARGETMODESET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMDT_HVIDPNTOPOLOGY(pub *mut core::ffi::c_void);
-impl Default for D3DKMDT_HVIDPNTOPOLOGY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: i32 = 256;
 pub const D3DKMDT_MAX_OVERLAYS: i32 = 4;
 pub const D3DKMDT_MAX_OVERLAYS_BITCOUNT: i32 = 2;
@@ -275,18 +225,13 @@ pub type D3DKMDT_MODE_PREFERENCE = i32;
 pub type D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = i32;
 pub type D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub Id: D3DKMDT_MONITOR_DESCRIPTOR_ID,
     pub Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
     pub DataSize: usize,
     pub pData: *mut core::ffi::c_void,
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
-}
-impl Default for D3DKMDT_MONITOR_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -1583,18 +1528,12 @@ pub type DXGKARG_FENCESTORAGEVALUETYPE = i32;
 pub type DXGKARG_GETNODEMETADATA = DXGK_NODEMETADATA;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKARG_SETPALETTE {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub FirstEntry: u32,
     pub NumEntries: u32,
     pub pLookupTable: *mut D3DKMDT_PALETTEDATA,
-}
-#[cfg(feature = "d3dukmdt")]
-impl Default for DXGKARG_SETPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DXGKDT_OPM_DVI_CHARACTERISTICS = i32;
 pub type DXGKMDT_CERTIFICATE_TYPE = i32;

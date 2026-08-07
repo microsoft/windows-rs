@@ -5,7 +5,7 @@ pub const RECO_DROP: i32 = 1;
 pub const RECO_PASTE: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
@@ -17,12 +17,6 @@ pub struct REOBJECT {
     pub dvaspect: u32,
     pub dwFlags: u32,
     pub dwUser: u32,
-}
-#[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
-impl Default for REOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const REO_ALIGNTORIGHT: i32 = 256;
 pub const REO_BELOWBASELINE: i32 = 2;

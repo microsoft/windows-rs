@@ -27,7 +27,7 @@ pub struct WIA_DATA_TRANSFER_INFO {
     pub ulReserved3: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIA_DEV_CAP {
     pub guid: windows_sys::core::GUID,
     pub ulFlags: u32,
@@ -36,13 +36,8 @@ pub struct WIA_DEV_CAP {
     pub bstrIcon: windows_sys::core::BSTR,
     pub bstrCommandline: windows_sys::core::BSTR,
 }
-impl Default for WIA_DEV_CAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
     pub bstrPatternName: windows_sys::core::BSTR,
@@ -50,11 +45,6 @@ pub struct WIA_DITHER_PATTERN_DATA {
     pub lPatternLength: i32,
     pub cbPattern: i32,
     pub pbPattern: *mut u8,
-}
-impl Default for WIA_DITHER_PATTERN_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WIA_EVENT_HANDLER = WIA_DEV_CAP;
 #[repr(C)]
@@ -74,16 +64,10 @@ pub struct WIA_FORMAT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: super::PROPID,
     pub pszName: windows_sys::core::PWSTR,
-}
-#[cfg(feature = "wtypes")]
-impl Default for WIA_PROPID_TO_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WiaDevMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
 pub const WiaDevMgr2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);

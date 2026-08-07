@@ -165,16 +165,11 @@ pub const LICENSE_PREVIEWPRINT: i32 = 4;
 pub type READEMBEDPROC = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void, param2: u32) -> u32>;
 pub const TTDELETE_DONTREMOVEFONT: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TTEMBEDINFO {
     pub usStructSize: u16,
     pub usRootStrSize: u16,
     pub pusRootStr: *mut u16,
-}
-impl Default for TTEMBEDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TTEMBED_EMBEDEUDC: i32 = 32;
 pub const TTEMBED_EUDCEMBEDDED: i32 = 2;
@@ -187,16 +182,11 @@ pub const TTEMBED_VARIATIONSIMULATED: i32 = 1;
 pub const TTEMBED_WEBOBJECT: i32 = 128;
 pub const TTEMBED_XORENCRYPTDATA: i32 = 268435456;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TTLOADINFO {
     pub usStructSize: u16,
     pub usRefStrSize: u16,
     pub pusRefStr: *mut u16,
-}
-impl Default for TTLOADINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TTLOAD_EUDC_OVERWRITE: i32 = 2;
 pub const TTLOAD_EUDC_SET: i32 = 4;
@@ -204,7 +194,7 @@ pub const TTLOAD_FONT_IN_SYSSTARTUP: i32 = 2;
 pub const TTLOAD_FONT_SUBSETTED: i32 = 1;
 pub const TTLOAD_PRIVATE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TTVALIDATIONTESTSPARAMS {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -214,13 +204,8 @@ pub struct TTVALIDATIONTESTSPARAMS {
     pub usCharCodeCount: u16,
     pub pusCharCodeSet: *mut u16,
 }
-impl Default for TTVALIDATIONTESTSPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TTVALIDATIONTESTSPARAMSEX {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -229,10 +214,5 @@ pub struct TTVALIDATIONTESTSPARAMSEX {
     pub usReserved1: u16,
     pub usCharCodeCount: u16,
     pub pulCharCodeSet: *mut u32,
-}
-impl Default for TTVALIDATIONTESTSPARAMSEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WRITEEMBEDPROC = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: *const core::ffi::c_void, param2: u32) -> u32>;

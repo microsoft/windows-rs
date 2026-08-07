@@ -747,6 +747,7 @@ pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadata
 pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Default)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: super::AudioObjectType,
@@ -759,14 +760,9 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataActivationParams: *const super::PROPVARIANT,
     pub NotifyObject: core::mem::ManuallyDrop<Option<super::ISpatialAudioObjectRenderStreamNotify>>,
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Default)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const super::WAVEFORMATEX,
     pub StaticObjectTypeMask: super::AudioObjectType,
@@ -779,10 +775,4 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub MetadataActivationParams: *const super::PROPVARIANT,
     pub NotifyObject: core::mem::ManuallyDrop<Option<super::ISpatialAudioObjectRenderStreamNotify>>,
     pub Options: super::SPATIAL_AUDIO_STREAM_OPTIONS,
-}
-#[cfg(all(feature = "audiosessiontypes", feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "spatialaudioclient", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

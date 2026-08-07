@@ -402,7 +402,7 @@ impl HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: super::USAGE,
     pub LinkUsagePage: super::USAGE,
@@ -433,19 +433,12 @@ impl HIDP_LINK_COLLECTION_NODE {
     }
     pub fn set_Reserved(&mut self, value: u32) {
         self._bitfield = (self._bitfield & !(8388607 << 9)) | ((value & 8388607) << 9);
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "hidusage")]
-impl Default for HIDP_LINK_COLLECTION_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: super::USAGE,
     pub LinkUsagePage: super::USAGE,
@@ -476,13 +469,6 @@ impl HIDP_LINK_COLLECTION_NODE {
     }
     pub fn set_Reserved(&mut self, value: u32) {
         self._bitfield = (self._bitfield & !(8388607 << 9)) | ((value & 8388607) << 9);
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "hidusage")]
-impl Default for HIDP_LINK_COLLECTION_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
     }
 }
 pub const HIDP_LINK_COLLECTION_ROOT: u16 = 65535;

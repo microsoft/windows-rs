@@ -509,32 +509,18 @@ pub struct ENLINK {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: *mut i8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for ENLOWFIRTF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: *mut i8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for ENLOWFIRTF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ENM_CHANGE: i32 = 1;
 pub const ENM_CLIPFORMAT: i32 = 128;
@@ -748,36 +734,22 @@ pub const GCM_TOUCHMENU: i32 = 16384;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: u32,
     pub pt: super::POINT,
     pub pvReserved: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for GETCONTEXTMENUEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: u32,
     pub pt: super::POINT,
     pub pvReserved: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for GETCONTEXTMENUEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -836,31 +808,19 @@ pub const GT_SELECTION: i32 = 2;
 pub const GT_USECRLF: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
     pub pfnHyphenate: *mut u8,
-}
-#[cfg(target_arch = "x86")]
-impl Default for HYPHENATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
     pub pfnHyphenate: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for HYPHENATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -933,34 +893,20 @@ pub struct MSGFILTER {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub pcpPositions: *mut i32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for OBJECTPOSITIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub pcpPositions: *mut i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for OBJECTPOSITIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OLEOP_DOVERB: i32 = 1;
 #[repr(C)]

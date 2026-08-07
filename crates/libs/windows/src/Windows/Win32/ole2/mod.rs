@@ -627,15 +627,10 @@ pub struct OLESTREAM {
 }
 pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: *const windows_core::GUID, szclass: windows_core::PCWSTR, sztopicname: windows_core::PCWSTR, szitemname: windows_core::PCWSTR, szuncname: windows_core::PCWSTR, linkupdatingoption: u32, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLESTREAMVTBL {
     pub Get: *mut u8,
     pub Put: *mut u8,
-}
-impl Default for OLESTREAMVTBL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OLESTREAM_CONVERSION_DEFAULT: i32 = 0;
 pub const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1;

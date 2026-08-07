@@ -703,7 +703,7 @@ pub const OS_WOW6432: i32 = 30;
 pub const OS_XPORGREATER: i32 = 18;
 pub type PARSEDURL = PARSEDURLA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PARSEDURLA {
     pub cbSize: u32,
     pub pszProtocol: windows_sys::core::PCSTR,
@@ -712,13 +712,8 @@ pub struct PARSEDURLA {
     pub cchSuffix: u32,
     pub nScheme: u32,
 }
-impl Default for PARSEDURLA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PARSEDURLW {
     pub cbSize: u32,
     pub pszProtocol: windows_sys::core::PCWSTR,
@@ -726,11 +721,6 @@ pub struct PARSEDURLW {
     pub pszSuffix: windows_sys::core::PCWSTR,
     pub cchSuffix: u32,
     pub nScheme: u32,
-}
-impl Default for PARSEDURLW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "winnt")]
 pub type PHUSKEY = *mut HUSKEY;
@@ -745,15 +735,10 @@ pub type PPARSEDURL = PPARSEDURLA;
 pub type PPARSEDURLA = *mut PARSEDURLA;
 pub type PPARSEDURLW = *mut PARSEDURLW;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QITAB {
     pub piid: *const windows_sys::core::GUID,
     pub dwOffset: u32,
-}
-impl Default for QITAB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type SFBS_FLAGS = i32;
 pub const SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT: tagSFBS_FLAGS = 1;

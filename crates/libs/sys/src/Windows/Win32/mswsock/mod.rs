@@ -216,30 +216,18 @@ impl Default for RIO_NOTIFICATION_COMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_0 {
     pub EventHandle: super::HANDLE,
     pub NotifyReset: windows_sys::core::BOOL,
 }
-#[cfg(feature = "winnt")]
-impl Default for RIO_NOTIFICATION_COMPLETION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_1 {
     pub IocpHandle: super::HANDLE,
     pub CompletionKey: *mut core::ffi::c_void,
     pub Overlapped: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for RIO_NOTIFICATION_COMPLETION_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type RIO_NOTIFICATION_COMPLETION_TYPE = i32;
 pub const SIO_BASE_HANDLE: i32 = 1207959586;
@@ -283,17 +271,12 @@ pub const TP_USE_DEFAULT_WORKER: i32 = 0;
 pub const TP_USE_KERNEL_APC: i32 = 32;
 pub const TP_USE_SYSTEM_THREAD: i32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSMIT_FILE_BUFFERS {
     pub Head: *mut core::ffi::c_void,
     pub HeadLength: u32,
     pub Tail: *mut core::ffi::c_void,
     pub TailLength: u32,
-}
-impl Default for TRANSMIT_FILE_BUFFERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -324,16 +307,10 @@ impl Default for TRANSMIT_PACKETS_ELEMENT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSMIT_PACKETS_ELEMENT_0_0 {
     pub nFileOffset: i64,
     pub hFile: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for TRANSMIT_PACKETS_ELEMENT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winsock2")]
@@ -352,17 +329,11 @@ impl Default for WSAPOLLDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "ws2"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSASENDMSG {
     pub lpMsg: super::LPWSAMSG,
     pub dwFlags: u32,
     pub lpNumberOfBytesSent: super::LPDWORD,
     pub lpOverlapped: super::LPWSAOVERLAPPED,
     pub lpCompletionRoutine: super::LPWSAOVERLAPPED_COMPLETION_ROUTINE,
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "ws2"))]
-impl Default for WSASENDMSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

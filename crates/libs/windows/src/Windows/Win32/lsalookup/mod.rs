@@ -4,16 +4,11 @@ pub const LOOKUP_TRANSLATE_NAMES: i32 = 2048;
 pub const LOOKUP_VIEW_LOCAL_INFORMATION: i32 = 1;
 pub type LSA_LOOKUP_DOMAIN_INFO_CLASS = i32;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LSA_LOOKUP_HANDLE(pub *mut core::ffi::c_void);
-impl Default for LSA_LOOKUP_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_OBJECT_ATTRIBUTES {
     pub Length: u32,
     pub RootDirectory: super::HANDLE,
@@ -21,12 +16,6 @@ pub struct LSA_OBJECT_ATTRIBUTES {
     pub Attributes: u32,
     pub SecurityDescriptor: *mut core::ffi::c_void,
     pub SecurityQualityOfService: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for LSA_OBJECT_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -76,13 +65,8 @@ pub struct LSA_UNICODE_STRING {
 }
 pub type PLSA_LOOKUP_DOMAIN_INFO_CLASS = *mut LSA_LOOKUP_DOMAIN_INFO_CLASS;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PLSA_LOOKUP_HANDLE(pub *mut *mut core::ffi::c_void);
-impl Default for PLSA_LOOKUP_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "winnt")]
 pub type PLSA_OBJECT_ATTRIBUTES = *mut LSA_OBJECT_ATTRIBUTES;
 #[cfg(feature = "winnt")]

@@ -1115,27 +1115,17 @@ pub const D3DLINECAPS_FOG: i32 = 16;
 pub const D3DLINECAPS_TEXTURE: i32 = 1;
 pub const D3DLINECAPS_ZTEST: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DLOCKED_BOX {
     pub RowPitch: i32,
     pub SlicePitch: i32,
     pub pBits: *mut core::ffi::c_void,
 }
-impl Default for D3DLOCKED_BOX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DLOCKED_RECT {
     pub Pitch: i32,
     pub pBits: *mut core::ffi::c_void,
-}
-impl Default for D3DLOCKED_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3DLOCK_DISCARD: i32 = 8192;
 pub const D3DLOCK_DONOTWAIT: i32 = 16384;

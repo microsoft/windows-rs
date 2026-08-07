@@ -549,15 +549,10 @@ pub const D3D_SHADER_FEATURE_WRITEABLE_MSAA_TEXTURES: i32 = 1073741824;
 pub type D3D_SHADER_INPUT_FLAGS = i32;
 pub type D3D_SHADER_INPUT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct D3D_SHADER_MACRO {
     pub Name: windows_sys::core::PCSTR,
     pub Definition: windows_sys::core::PCSTR,
-}
-impl Default for D3D_SHADER_MACRO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type D3D_SHADER_VARIABLE_CLASS = i32;
 pub type D3D_SHADER_VARIABLE_FLAGS = i32;

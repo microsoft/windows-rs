@@ -10,7 +10,7 @@ windows_link::link!("vssapi.dll" "system" fn VssFreeSnapshotPropertiesInternal(p
 pub type PVSSCOMPONENTINFO = *const VSS_COMPONENTINFO;
 #[repr(C)]
 #[cfg(feature = "vswriter")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VSS_COMPONENTINFO {
     pub r#type: super::VSS_COMPONENT_TYPE,
     pub bstrLogicalPath: windows_sys::core::BSTR,
@@ -27,11 +27,5 @@ pub struct VSS_COMPONENTINFO {
     pub cDatabases: u32,
     pub cLogFiles: u32,
     pub cDependencies: u32,
-}
-#[cfg(feature = "vswriter")]
-impl Default for VSS_COMPONENTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VSS_SW_BOOTABLE_STATE: i32 = 1;

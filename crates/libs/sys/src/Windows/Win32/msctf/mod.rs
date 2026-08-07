@@ -112,16 +112,11 @@ pub const TF_GRAVITY_BACKWARD: TfGravity = 0;
 pub const TF_GRAVITY_FORWARD: TfGravity = 1;
 pub const TF_GTP_INCL_TEXT: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TF_HALTCOND {
     pub pHaltRange: *mut core::ffi::c_void,
     pub aHaltPos: TfAnchor,
     pub dwFlags: u32,
-}
-impl Default for TF_HALTCOND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TF_HF_OBJECT: i32 = 1;
 pub const TF_IAS_NOQUERY: i32 = 1;
@@ -130,7 +125,7 @@ pub const TF_IAS_QUERYONLY: i32 = 2;
 pub const TF_IE_CORRECTION: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: super::LANGID,
@@ -141,12 +136,6 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub dwCaps: u32,
     pub hkl: super::HKL,
     pub dwFlags: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for TF_INPUTPROCESSORPROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TF_INVALID_COOKIE: u32 = 4294967295;
 pub const TF_INVALID_EDIT_COOKIE: i32 = 0;
@@ -263,15 +252,10 @@ pub const TF_SD_FORWARD: TfShiftDir = 1;
 pub const TF_SD_LOADING: i32 = 2;
 pub const TF_SD_READONLY: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TF_SELECTION {
     pub range: *mut core::ffi::c_void,
     pub style: TF_SELECTIONSTYLE,
-}
-impl Default for TF_SELECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

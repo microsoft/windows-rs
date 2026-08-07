@@ -30,15 +30,10 @@ pub type BG_AUTH_TARGET = i32;
 pub const BG_AUTH_TARGET_PROXY: BG_AUTH_TARGET = 2;
 pub const BG_AUTH_TARGET_SERVER: BG_AUTH_TARGET = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BG_BASIC_CREDENTIALS {
     pub UserName: windows_sys::core::PWSTR,
     pub Password: windows_sys::core::PWSTR,
-}
-impl Default for BG_BASIC_CREDENTIALS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type BG_CERT_STORE_LOCATION = i32;
 pub const BG_CERT_STORE_LOCATION_CURRENT_SERVICE: BG_CERT_STORE_LOCATION = 2;
@@ -195,15 +190,10 @@ pub const BG_E_VALIDATION_FAILED: u32 = 2149580883;
 pub const BG_E_VOLUME_CHANGED: u32 = 2149580814;
 pub const BG_E_WATCHDOG_TIMEOUT: u32 = 2149580905;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BG_FILE_INFO {
     pub RemoteName: windows_sys::core::PWSTR,
     pub LocalName: windows_sys::core::PWSTR,
-}
-impl Default for BG_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

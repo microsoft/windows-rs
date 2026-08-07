@@ -75,29 +75,17 @@ pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = 0;
 pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: DBCOUNTITEM,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBBINDEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: DBCOUNTITEM,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBBINDEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -107,6 +95,7 @@ pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "oaidl")]
+#[derive(Default)]
 pub struct DBBINDING {
     pub iOrdinal: DBORDINAL,
     pub obValue: DBBYTEOFFSET,
@@ -123,18 +112,11 @@ pub struct DBBINDING {
     pub wType: DBTYPE,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "oaidl")]
-impl Default for DBBINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "oaidl")]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DBBINDING {
     pub iOrdinal: DBORDINAL,
     pub obValue: DBBYTEOFFSET,
@@ -151,13 +133,6 @@ pub struct DBBINDING {
     pub wType: DBTYPE,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "oaidl")]
-impl Default for DBBINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -461,7 +436,7 @@ pub const DBCOMPUTEMODE_NOTCOMPUTED: i32 = 3;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut DBID,
     pub ConstraintType: DBCONSTRAINTTYPE,
@@ -477,18 +452,11 @@ pub struct DBCONSTRAINTDESC {
     pub Deferrability: DBDEFERRABILITY,
     pub cReserved: DB_URESERVE,
     pub rgReserved: *mut DBPROPSET,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for DBCONSTRAINTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut DBID,
     pub ConstraintType: DBCONSTRAINTTYPE,
@@ -504,13 +472,6 @@ pub struct DBCONSTRAINTDESC {
     pub Deferrability: DBDEFERRABILITY,
     pub cReserved: DB_URESERVE,
     pub rgReserved: *mut DBPROPSET,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for DBCONSTRAINTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -680,56 +641,33 @@ impl Default for DBID_1 {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Default)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut windows_core::GUID,
     pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBIMPLICITSESSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut windows_core::GUID,
     pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBIMPLICITSESSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut DBID,
     pub eIndexColOrder: DBINDEX_COL_ORDER,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBINDEXCOLUMNDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut DBID,
     pub eIndexColOrder: DBINDEX_COL_ORDER,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBINDEXCOLUMNDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -932,31 +870,19 @@ pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = 0;
 pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = 2;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: DB_UPARAMS,
     pub hAccessor: HACCESSOR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: DB_UPARAMS,
     pub hAccessor: HACCESSOR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DBPARAMTYPE_INPUT: i32 = 1;
 pub const DBPARAMTYPE_INPUTOUTPUT: i32 = 2;
@@ -1074,31 +1000,19 @@ pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = 1024;
 pub struct DBPROPID(pub u32);
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut DBPROPID,
     pub cPropertyIDs: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBPROPIDSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut DBPROPID,
     pub cPropertyIDs: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBPROPIDSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -1176,34 +1090,20 @@ pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = 1;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for DBPROPSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for DBPROPSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -1900,29 +1800,17 @@ pub const DBUPDELRULE_SETDEFAULT: DBUPDELRULEENUM = 3;
 pub const DBUPDELRULE_SETNULL: DBUPDELRULEENUM = 2;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBVECTOR {
     pub size: DBLENGTH,
     pub ptr: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBVECTOR {
     pub size: DBLENGTH,
     pub ptr: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DBWATCHREGION_NULL: i32 = 0;
 pub const DB_ALL_EXCEPT_LIKE: i32 = 3;
@@ -6899,7 +6787,7 @@ impl IViewSort_Vtbl {
 impl windows_core::RuntimeName for IViewSort {}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MDAXISINFO {
     pub cbSize: DBLENGTH,
     pub iAxis: DBCOUNTITEM,
@@ -6907,16 +6795,10 @@ pub struct MDAXISINFO {
     pub cCoordinates: DBCOUNTITEM,
     pub rgcColumns: *mut DBORDINAL,
     pub rgpwszDimensionNames: *mut windows_core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for MDAXISINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MDAXISINFO {
     pub cbSize: DBLENGTH,
     pub iAxis: DBCOUNTITEM,
@@ -6924,12 +6806,6 @@ pub struct MDAXISINFO {
     pub cCoordinates: DBCOUNTITEM,
     pub rgcColumns: *mut DBORDINAL,
     pub rgpwszDimensionNames: *mut windows_core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for MDAXISINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MDAXIS_CHAPTERS: i32 = 4;
 pub const MDAXIS_COLUMNS: i32 = 0;
@@ -7124,6 +7000,7 @@ pub const PERM_WRITEPERMISSIONS: ACCESS_MASKENUM = 262144;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Default)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::ISequentialStream>>,
     pub cbData: u32,
@@ -7139,18 +7016,11 @@ pub struct RMTPACK {
     pub rgPROPVARIANT: *mut super::PROPVARIANT,
     pub cArray: u32,
     pub rgArray: *mut super::VARIANT,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for RMTPACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::ISequentialStream>>,
     pub cbData: u32,
@@ -7166,42 +7036,23 @@ pub struct RMTPACK {
     pub rgPROPVARIANT: *mut super::PROPVARIANT,
     pub cArray: u32,
     pub rgArray: *mut super::VARIANT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for RMTPACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SBYTE(pub i8);
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SEC_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SEC_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]

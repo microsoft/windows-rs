@@ -28,18 +28,13 @@ pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POL
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = 3;
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENCLAVE_INFORMATION {
     pub EnclaveType: u32,
     pub Reserved: u32,
     pub BaseAddress: *mut core::ffi::c_void,
     pub Size: usize,
     pub Identity: ENCLAVE_IDENTITY,
-}
-impl Default for ENCLAVE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -118,7 +113,7 @@ impl Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub ReturnFromEnclave: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
     pub ReturnFromException: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
@@ -133,11 +128,6 @@ pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub GenerateReport: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT,
     pub VerifyReport: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
     pub GenerateRandomData: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
-}
-impl Default for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub type VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;

@@ -210,16 +210,11 @@ pub struct USE_OPTION_GENERIC {
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_PROPERTIES {
     pub Tag: u32,
     pub pInfo: *mut core::ffi::c_void,
     pub Length: usize,
-}
-impl Default for USE_OPTION_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const USE_OPTION_SMB_COMPRESSION_PARAMS: i32 = 1349349187;
 #[repr(C)]

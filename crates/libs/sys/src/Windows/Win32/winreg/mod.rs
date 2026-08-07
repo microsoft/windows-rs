@@ -203,30 +203,20 @@ pub type PVALENTA = *mut VALENTA;
 pub type PVALENTW = *mut VALENTW;
 pub type PVALUE = PVALUEA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PVALUEA {
     pub pv_valuename: windows_sys::core::PSTR,
     pub pv_valuelen: i32,
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
 }
-impl Default for PVALUEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PVALUEW {
     pub pv_valuename: windows_sys::core::PWSTR,
     pub pv_valuelen: i32,
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
-}
-impl Default for PVALUEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type QUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
 pub const REASON_HWINSTALL: i32 = 65538;
@@ -245,7 +235,7 @@ pub const REG_ALLOW_UNSECURE_CONNECTION: i32 = 4;
 pub const REG_MUI_STRING_TRUNCATE: i32 = 1;
 pub const REG_PROCESS_APPKEY: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REG_PROVIDER {
     pub pi_R0_1val: PQUERYHANDLER,
     pub pi_R0_allvals: PQUERYHANDLER,
@@ -253,11 +243,6 @@ pub struct REG_PROVIDER {
     pub pi_R3_allvals: PQUERYHANDLER,
     pub pi_flags: u32,
     pub pi_key_context: *mut core::ffi::c_void,
-}
-impl Default for REG_PROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const REG_SECURE_CONNECTION: i32 = 1;
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: i32 = 2;
@@ -296,41 +281,26 @@ pub const SHUTDOWN_UPDATE_POWEROFF: i32 = 131072;
 pub const SHUTDOWN_VAIL_CONTAINER: i32 = 32768;
 pub type VALENT = VALENTA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VALENTA {
     pub ve_valuename: windows_sys::core::PSTR,
     pub ve_valuelen: u32,
     pub ve_valueptr: usize,
     pub ve_type: u32,
 }
-impl Default for VALENTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VALENTW {
     pub ve_valuename: windows_sys::core::PWSTR,
     pub ve_valuelen: u32,
     pub ve_valueptr: usize,
     pub ve_type: u32,
 }
-impl Default for VALENTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WIN31_CLASS: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut core::ffi::c_void,
     pub val_buff_ptr: *mut core::ffi::c_void,
-}
-impl Default for val_context {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

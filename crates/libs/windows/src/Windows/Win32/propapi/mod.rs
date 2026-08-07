@@ -5,10 +5,5 @@ pub unsafe fn StgPropertyLengthAsVariant(pprop: *const super::SERIALIZEDPROPERTY
     unsafe { StgPropertyLengthAsVariant(pprop, cbprop, codepage, breserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NTPROP(pub *mut core::ffi::c_void);
-impl Default for NTPROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}

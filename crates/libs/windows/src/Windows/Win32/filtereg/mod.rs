@@ -1,15 +1,10 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILTERED_DATA_SOURCES {
     pub pwcsExtension: *const u16,
     pub pwcsMime: *const u16,
     pub pClsid: *const windows_core::GUID,
     pub pwcsOverride: *const u16,
-}
-impl Default for FILTERED_DATA_SOURCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(ILoadFilter, ILoadFilter_Vtbl, 0xc7310722_ac80_11d1_8df3_00c04fb6ef4f);
 windows_core::imp::interface_hierarchy!(ILoadFilter, windows_core::IUnknown);

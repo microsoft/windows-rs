@@ -558,7 +558,7 @@ pub type LPSCARD_READERSTATEW = *mut SCARD_READERSTATEW;
 pub type OPENCARDNAME = OPENCARDNAMEA;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OPENCARDNAMEA {
     pub dwStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -584,15 +584,9 @@ pub struct OPENCARDNAMEA {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: SCARDHANDLE,
 }
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for OPENCARDNAMEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OPENCARDNAMEW {
     pub dwStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -619,16 +613,10 @@ pub struct OPENCARDNAMEW {
     pub hCardHandle: SCARDHANDLE,
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for OPENCARDNAMEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
 pub type OPENCARDNAME_EX = OPENCARDNAME_EXA;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: u32,
     pub hSCardContext: SCARDCONTEXT,
@@ -649,15 +637,9 @@ pub struct OPENCARDNAME_EXA {
     pub dwActiveProtocol: u32,
     pub hCardHandle: SCARDHANDLE,
 }
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for OPENCARDNAME_EXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: u32,
     pub hSCardContext: SCARDCONTEXT,
@@ -678,17 +660,11 @@ pub struct OPENCARDNAME_EXW {
     pub dwActiveProtocol: u32,
     pub hCardHandle: SCARDHANDLE,
 }
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for OPENCARDNAME_EXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "guiddef")]
 pub type OPENCARD_SEARCH_CRITERIA = OPENCARD_SEARCH_CRITERIAA;
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: u32,
     pub lpstrGroupNames: windows_core::PSTR,
@@ -704,15 +680,9 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
 }
-#[cfg(feature = "guiddef")]
-impl Default for OPENCARD_SEARCH_CRITERIAA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: u32,
     pub lpstrGroupNames: windows_core::PWSTR,
@@ -727,12 +697,6 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub pvUserData: *mut core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
-}
-#[cfg(feature = "guiddef")]
-impl Default for OPENCARD_SEARCH_CRITERIAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 pub type POPENCARDNAME = POPENCARDNAMEA;

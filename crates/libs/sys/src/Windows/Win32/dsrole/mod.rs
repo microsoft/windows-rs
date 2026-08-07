@@ -10,7 +10,7 @@ pub struct DSROLE_OPERATION_STATE_INFO {
 }
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: i32 = 16777216;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub MachineRole: DSROLE_MACHINE_ROLE,
     pub Flags: u32,
@@ -18,11 +18,6 @@ pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub DomainNameDns: windows_sys::core::PWSTR,
     pub DomainForestName: windows_sys::core::PWSTR,
     pub DomainGuid: windows_sys::core::GUID,
-}
-impl Default for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = i32;
 pub const DSROLE_PRIMARY_DS_MIXED_MODE: i32 = 2;

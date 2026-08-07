@@ -48,15 +48,10 @@ pub const DPAM_NORMAL: i32 = 2;
 pub const DPAM_SORTED: i32 = 1;
 pub const DPAM_UNION: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DPASTREAMINFO {
     pub iPos: i32,
     pub pvItem: *mut core::ffi::c_void,
-}
-impl Default for DPASTREAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DPAS_INSERTAFTER: i32 = 4;
 pub const DPAS_INSERTBEFORE: i32 = 2;

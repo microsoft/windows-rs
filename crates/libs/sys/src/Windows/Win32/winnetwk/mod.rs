@@ -72,7 +72,7 @@ pub const CONNDLG_USE_MRU: i32 = 4;
 pub type CONNECTDLGSTRUCT = CONNECTDLGSTRUCTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::HWND,
@@ -80,27 +80,15 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwFlags: u32,
     pub dwDevNum: u32,
 }
-#[cfg(feature = "windef")]
-impl Default for CONNECTDLGSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::HWND,
     pub lpConnRes: LPNETRESOURCEW,
     pub dwFlags: u32,
     pub dwDevNum: u32,
-}
-#[cfg(feature = "windef")]
-impl Default for CONNECTDLGSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CONNECT_CMD_SAVECRED: i32 = 4096;
 pub const CONNECT_COMMANDLINE: i32 = 2048;
@@ -125,7 +113,7 @@ pub const CONNECT_WRITE_THROUGH_SEMANTICS: i32 = 65536;
 pub type DISCDLGSTRUCT = DISCDLGSTRUCTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::HWND,
@@ -133,27 +121,15 @@ pub struct DISCDLGSTRUCTA {
     pub lpRemoteName: windows_sys::core::PSTR,
     pub dwFlags: u32,
 }
-#[cfg(feature = "windef")]
-impl Default for DISCDLGSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::HWND,
     pub lpLocalName: windows_sys::core::PWSTR,
     pub lpRemoteName: windows_sys::core::PWSTR,
     pub dwFlags: u32,
-}
-#[cfg(feature = "windef")]
-impl Default for DISCDLGSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DISC_NO_FORCE: i32 = 64;
 pub const DISC_UPDATE_PROFILE: i32 = 1;
@@ -207,7 +183,7 @@ pub const NETINFO_PRINTERRED: i32 = 8;
 pub const NETPROPERTY_PERSISTENT: i32 = 1;
 pub type NETRESOURCE = NETRESOURCEA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NETRESOURCEA {
     pub dwScope: u32,
     pub dwType: u32,
@@ -218,13 +194,8 @@ pub struct NETRESOURCEA {
     pub lpComment: windows_sys::core::PSTR,
     pub lpProvider: windows_sys::core::PSTR,
 }
-impl Default for NETRESOURCEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NETRESOURCEW {
     pub dwScope: u32,
     pub dwType: u32,
@@ -235,35 +206,20 @@ pub struct NETRESOURCEW {
     pub lpComment: windows_sys::core::PWSTR,
     pub lpProvider: windows_sys::core::PWSTR,
 }
-impl Default for NETRESOURCEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type REMOTE_NAME_INFO = REMOTE_NAME_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_sys::core::PSTR,
     pub lpConnectionName: windows_sys::core::PSTR,
     pub lpRemainingPath: windows_sys::core::PSTR,
 }
-impl Default for REMOTE_NAME_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_sys::core::PWSTR,
     pub lpConnectionName: windows_sys::core::PWSTR,
     pub lpRemainingPath: windows_sys::core::PWSTR,
-}
-impl Default for REMOTE_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const REMOTE_NAME_INFO_LEVEL: i32 = 2;
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: i32 = 9;
@@ -297,24 +253,14 @@ pub const RESOURCE_RECENT: i32 = 4;
 pub const RESOURCE_REMEMBERED: i32 = 3;
 pub type UNIVERSAL_NAME_INFO = UNIVERSAL_NAME_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_sys::core::PSTR,
 }
-impl Default for UNIVERSAL_NAME_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_sys::core::PWSTR,
-}
-impl Default for UNIVERSAL_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UNIVERSAL_NAME_INFO_LEVEL: i32 = 1;
 pub const WNCON_DYNAMIC: i32 = 8;

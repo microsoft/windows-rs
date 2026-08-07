@@ -1471,7 +1471,7 @@ pub struct DISK_GROW_PARTITION {
     pub BytesToGrow: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_HISTOGRAM {
     pub DiskSize: i64,
     pub Start: i64,
@@ -1485,11 +1485,6 @@ pub struct DISK_HISTOGRAM {
     pub WriteCount: u32,
     pub Histogram: PHISTOGRAM_BUCKET,
 }
-impl Default for DISK_HISTOGRAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DISK_INT13_INFO {
@@ -1500,16 +1495,11 @@ pub struct DISK_INT13_INFO {
     pub NumberDrives: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_LOGGING {
     pub Function: u8,
     pub BufferAddress: *mut core::ffi::c_void,
     pub BufferSize: u32,
-}
-impl Default for DISK_LOGGING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DISK_LOGGING_DUMP: i32 = 2;
 pub const DISK_LOGGING_START: i32 = 0;
@@ -1570,7 +1560,7 @@ impl Default for DISK_PERFORMANCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_RECORD {
     pub ByteOffset: i64,
     pub StartTime: i64,
@@ -1579,11 +1569,6 @@ pub struct DISK_RECORD {
     pub NumberOfBytes: u32,
     pub DeviceNumber: u8,
     pub ReadRequest: bool,
-}
-impl Default for DISK_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DLT: STORAGE_MEDIA_TYPE = 39;
 pub const DMI: STORAGE_MEDIA_TYPE = 48;
@@ -1655,18 +1640,12 @@ pub const DST_M: STORAGE_MEDIA_TYPE = 81;
 pub const DST_S: STORAGE_MEDIA_TYPE = 80;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DUPLICATE_EXTENTS_DATA {
     pub FileHandle: super::HANDLE,
     pub SourceFileOffset: i64,
     pub TargetFileOffset: i64,
     pub ByteCount: i64,
-}
-#[cfg(feature = "winnt")]
-impl Default for DUPLICATE_EXTENTS_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1679,7 +1658,7 @@ pub struct DUPLICATE_EXTENTS_DATA32 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub Size: usize,
     pub FileHandle: super::HANDLE,
@@ -1687,12 +1666,6 @@ pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub TargetFileOffset: i64,
     pub ByteCount: i64,
     pub Flags: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for DUPLICATE_EXTENTS_DATA_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3552,18 +3525,12 @@ pub struct MFT_ENUM_DATA_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MOVE_FILE_DATA {
     pub FileHandle: super::HANDLE,
     pub StartingVcn: i64,
     pub StartingLcn: i64,
     pub ClusterCount: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for MOVE_FILE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3576,17 +3543,11 @@ pub struct MOVE_FILE_DATA32 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MOVE_FILE_RECORD_DATA {
     pub FileHandle: super::HANDLE,
     pub SourceFileRecord: i64,
     pub TargetFileRecord: i64,
-}
-#[cfg(feature = "winnt")]
-impl Default for MOVE_FILE_RECORD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MO_3_RW: STORAGE_MEDIA_TYPE = 57;
 pub const MO_5_LIMDOW: STORAGE_MEDIA_TYPE = 60;
@@ -8250,17 +8211,11 @@ pub const TXFS_SAVEPOINT_CLEAR: i32 = 4;
 pub const TXFS_SAVEPOINT_CLEAR_ALL: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::HANDLE,
     pub ActionCode: u32,
     pub SavepointId: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for TXFS_SAVEPOINT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TXFS_SAVEPOINT_ROLLBACK: i32 = 2;
 pub const TXFS_SAVEPOINT_SET: i32 = 1;

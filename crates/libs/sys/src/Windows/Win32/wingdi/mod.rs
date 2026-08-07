@@ -795,7 +795,7 @@ pub const BANDINFO: i32 = 24;
 pub type BCHAR = u8;
 pub const BEGIN_PATH: i32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -804,11 +804,6 @@ pub struct BITMAP {
     pub bmPlanes: u16,
     pub bmBitsPixel: u16,
     pub bmBits: *mut core::ffi::c_void,
-}
-impl Default for BITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2265,7 +2260,7 @@ pub const DM_TTOPTION: i32 = 16384;
 pub const DM_YRESOLUTION: i32 = 8192;
 pub type DOCINFO = DOCINFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOCINFOA {
     pub cbSize: i32,
     pub lpszDocName: windows_sys::core::PCSTR,
@@ -2273,24 +2268,14 @@ pub struct DOCINFOA {
     pub lpszDatatype: windows_sys::core::PCSTR,
     pub fwType: u32,
 }
-impl Default for DOCINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOCINFOW {
     pub cbSize: i32,
     pub lpszDocName: windows_sys::core::PCWSTR,
     pub lpszOutput: windows_sys::core::PCWSTR,
     pub lpszDatatype: windows_sys::core::PCWSTR,
     pub fwType: u32,
-}
-impl Default for DOCINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOWNLOADFACE: i32 = 514;
 pub const DOWNLOADHEADER: i32 = 4111;
@@ -3669,7 +3654,7 @@ pub const GCP_NUMERICSLOCAL: i32 = 134217728;
 pub const GCP_REORDER: i32 = 2;
 pub type GCP_RESULTS = GCP_RESULTSA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GCP_RESULTSA {
     pub lStructSize: u32,
     pub lpOutString: windows_sys::core::PSTR,
@@ -3681,13 +3666,8 @@ pub struct GCP_RESULTSA {
     pub nGlyphs: u32,
     pub nMaxFit: i32,
 }
-impl Default for GCP_RESULTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GCP_RESULTSW {
     pub lStructSize: u32,
     pub lpOutString: windows_sys::core::PWSTR,
@@ -3698,11 +3678,6 @@ pub struct GCP_RESULTSW {
     pub lpGlyphs: windows_sys::core::PWSTR,
     pub nGlyphs: u32,
     pub nMaxFit: i32,
-}
-impl Default for GCP_RESULTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GCP_SYMSWAPOFF: i32 = 8388608;
 pub const GCP_USEKERNING: i32 = 8;
@@ -4224,18 +4199,12 @@ pub const MERGECOPY: u32 = 12583114;
 pub const MERGEPAINT: u32 = 12255782;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct METAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
     pub yExt: i32,
     pub hMF: super::HMETAFILE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for METAFILEPICT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const METAFILE_DRIVER: i32 = 2049;
 #[repr(C, packed(2))]
@@ -4526,7 +4495,7 @@ pub const OPENCHANNEL: i32 = 4110;
 pub type OUTLINETEXTMETRIC = OUTLINETEXTMETRICA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OUTLINETEXTMETRICA {
     pub otmSize: u32,
     pub otmTextMetrics: TEXTMETRICA,
@@ -4561,15 +4530,9 @@ pub struct OUTLINETEXTMETRICA {
     pub otmpStyleName: windows_sys::core::PSTR,
     pub otmpFullName: windows_sys::core::PSTR,
 }
-#[cfg(feature = "windef")]
-impl Default for OUTLINETEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OUTLINETEXTMETRICW {
     pub otmSize: u32,
     pub otmTextMetrics: TEXTMETRICW,
@@ -4603,12 +4566,6 @@ pub struct OUTLINETEXTMETRICW {
     pub otmpFaceName: windows_sys::core::PSTR,
     pub otmpStyleName: windows_sys::core::PSTR,
     pub otmpFullName: windows_sys::core::PSTR,
-}
-#[cfg(feature = "windef")]
-impl Default for OUTLINETEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OUT_CHARACTER_PRECIS: i32 = 2;
 pub const OUT_DEFAULT_PRECIS: i32 = 0;
@@ -5114,7 +5071,7 @@ pub const POLYGONALCAPS: i32 = 32;
 pub type POLYTEXT = POLYTEXTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POLYTEXTA {
     pub x: i32,
     pub y: i32,
@@ -5124,15 +5081,9 @@ pub struct POLYTEXTA {
     pub rcl: super::RECT,
     pub pdx: *mut i32,
 }
-#[cfg(feature = "windef")]
-impl Default for POLYTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POLYTEXTW {
     pub x: i32,
     pub y: i32,
@@ -5141,12 +5092,6 @@ pub struct POLYTEXTW {
     pub uiFlags: u32,
     pub rcl: super::RECT,
     pub pdx: *mut i32,
-}
-#[cfg(feature = "windef")]
-impl Default for POLYTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const POSTSCRIPT_DATA: i32 = 37;
 pub const POSTSCRIPT_IDENTIFY: i32 = 4117;
@@ -5616,16 +5561,10 @@ pub struct WCRANGE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WGLSWAP {
     pub hdc: super::HDC,
     pub uiFlags: u32,
-}
-#[cfg(feature = "windef")]
-impl Default for WGLSWAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WGL_FONT_LINES: i32 = 0;
 pub const WGL_FONT_POLYGONS: i32 = 1;

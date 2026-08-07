@@ -180,7 +180,7 @@ pub const DS_DEFAULT_LOCALE_COMPARE_FLAGS: i32 = 200707;
 pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = 3;
 pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = 12;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub NetbiosName: windows_sys::core::PSTR,
     pub DnsHostName: windows_sys::core::PSTR,
@@ -190,13 +190,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub fIsPdc: windows_sys::core::BOOL,
     pub fDsEnabled: windows_sys::core::BOOL,
 }
-impl Default for DS_DOMAIN_CONTROLLER_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub NetbiosName: windows_sys::core::PWSTR,
     pub DnsHostName: windows_sys::core::PWSTR,
@@ -206,13 +201,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub fIsPdc: windows_sys::core::BOOL,
     pub fDsEnabled: windows_sys::core::BOOL,
 }
-impl Default for DS_DOMAIN_CONTROLLER_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub NetbiosName: windows_sys::core::PSTR,
     pub DnsHostName: windows_sys::core::PSTR,
@@ -229,13 +219,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
 }
-impl Default for DS_DOMAIN_CONTROLLER_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub NetbiosName: windows_sys::core::PWSTR,
     pub DnsHostName: windows_sys::core::PWSTR,
@@ -252,13 +237,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
 }
-impl Default for DS_DOMAIN_CONTROLLER_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub NetbiosName: windows_sys::core::PSTR,
     pub DnsHostName: windows_sys::core::PSTR,
@@ -276,13 +256,8 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
 }
-impl Default for DS_DOMAIN_CONTROLLER_INFO_3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub NetbiosName: windows_sys::core::PWSTR,
     pub DnsHostName: windows_sys::core::PWSTR,
@@ -299,11 +274,6 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub ComputerObjectGuid: windows_sys::core::GUID,
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
-}
-impl Default for DS_DOMAIN_CONTROLLER_INFO_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DS_DOMAIN_SIMPLE_NAME: i32 = 8;
 pub const DS_ENTERPRISE_SIMPLE_NAME: i32 = 8;
@@ -338,50 +308,30 @@ pub const DS_NAME_LEGAL_FLAGS: i32 = 1;
 pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = 0;
 pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_NAME_RESULTA {
     pub cItems: u32,
     pub rItems: PDS_NAME_RESULT_ITEMA,
 }
-impl Default for DS_NAME_RESULTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_NAME_RESULTW {
     pub cItems: u32,
     pub rItems: PDS_NAME_RESULT_ITEMW,
 }
-impl Default for DS_NAME_RESULTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_NAME_RESULT_ITEMA {
     pub status: u32,
     pub pDomain: windows_sys::core::PSTR,
     pub pName: windows_sys::core::PSTR,
 }
-impl Default for DS_NAME_RESULT_ITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_NAME_RESULT_ITEMW {
     pub status: u32,
     pub pDomain: windows_sys::core::PWSTR,
     pub pName: windows_sys::core::PWSTR,
-}
-impl Default for DS_NAME_RESULT_ITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DS_NT4_ACCOUNT_NAME: DS_NAME_FORMAT = 2;
 pub const DS_REPADD_ASYNCHRONOUS_OPERATION: i32 = 1;
@@ -407,7 +357,7 @@ pub const DS_REPDEL_REF_OK: i32 = 64;
 pub const DS_REPDEL_WRITEABLE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_ATTR_META_DATA {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub dwVersion: u32,
@@ -416,15 +366,9 @@ pub struct DS_REPL_ATTR_META_DATA {
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_ATTR_META_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_ATTR_META_DATA_2 {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub dwVersion: u32,
@@ -433,12 +377,6 @@ pub struct DS_REPL_ATTR_META_DATA_2 {
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_ATTR_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -553,18 +491,12 @@ pub struct DS_REPL_CURSOR_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR_3W {
     pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
     pub usnAttributeFilter: super::USN,
     pub ftimeLastSyncSuccess: super::FILETIME,
     pub pszSourceDsaDN: windows_sys::core::PWSTR,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_CURSOR_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -606,19 +538,13 @@ impl Default for DS_REPL_KCC_DSA_FAILURESW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub pszDsaDN: windows_sys::core::PWSTR,
     pub uuidDsaObjGuid: windows_sys::core::GUID,
     pub ftimeFirstFailure: super::FILETIME,
     pub cNumFailures: u32,
     pub dwLastResult: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for DS_REPL_KCC_DSA_FAILUREW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -665,7 +591,7 @@ impl Default for DS_REPL_NEIGHBORSW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_NEIGHBORW {
     pub pszNamingContext: windows_sys::core::PWSTR,
     pub pszSourceDsaDN: windows_sys::core::PWSTR,
@@ -683,12 +609,6 @@ pub struct DS_REPL_NEIGHBORW {
     pub ftimeLastSyncAttempt: super::FILETIME,
     pub dwLastSyncResult: u32,
     pub cNumConsecutiveSyncFailures: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_NEIGHBORW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -741,7 +661,7 @@ impl Default for DS_REPL_OBJ_META_DATA_2 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_OPW {
     pub ftimeEnqueued: super::FILETIME,
     pub ulSerialNumber: u32,
@@ -753,12 +673,6 @@ pub struct DS_REPL_OPW {
     pub pszDsaAddress: windows_sys::core::PWSTR,
     pub uuidNamingContextObjGuid: windows_sys::core::GUID,
     pub uuidDsaObjGuid: windows_sys::core::GUID,
-}
-#[cfg(feature = "minwindef")]
-impl Default for DS_REPL_OPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -811,7 +725,7 @@ pub struct DS_REPL_QUEUE_STATISTICSW {
 pub type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
@@ -825,15 +739,9 @@ pub struct DS_REPL_VALUE_META_DATA {
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_VALUE_META_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
@@ -847,12 +755,6 @@ pub struct DS_REPL_VALUE_META_DATA_2 {
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_VALUE_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -893,7 +795,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
@@ -911,12 +813,6 @@ pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub dwPriorLinkState: u32,
     pub dwCurrentLinkState: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_VALUE_META_DATA_EXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: i32 = 1;
 pub const DS_REPMOD_UPDATE_ADDRESS: i32 = 2;
 pub const DS_REPMOD_UPDATE_FLAGS: i32 = 1;
@@ -929,30 +825,20 @@ pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: i32 = 1;
 pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: i32 = 64;
 pub const DS_REPSYNCALL_DO_NOT_SYNC: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_ERRINFOA {
     pub pszSvrId: windows_sys::core::PSTR,
     pub error: DS_REPSYNCALL_ERROR,
     pub dwWin32Err: u32,
     pub pszSrcId: windows_sys::core::PSTR,
 }
-impl Default for DS_REPSYNCALL_ERRINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_ERRINFOW {
     pub pszSvrId: windows_sys::core::PWSTR,
     pub error: DS_REPSYNCALL_ERROR,
     pub dwWin32Err: u32,
     pub pszSrcId: windows_sys::core::PWSTR,
-}
-impl Default for DS_REPSYNCALL_ERRINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DS_REPSYNCALL_ERROR = i32;
 pub type DS_REPSYNCALL_EVENT = i32;
@@ -966,7 +852,7 @@ pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: i32 = 32;
 pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = 2;
 pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: i32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_SYNCA {
     pub pszSrcId: windows_sys::core::PSTR,
     pub pszDstId: windows_sys::core::PSTR,
@@ -974,13 +860,8 @@ pub struct DS_REPSYNCALL_SYNCA {
     pub pguidSrc: *mut windows_sys::core::GUID,
     pub pguidDst: *mut windows_sys::core::GUID,
 }
-impl Default for DS_REPSYNCALL_SYNCA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_SYNCW {
     pub pszSrcId: windows_sys::core::PWSTR,
     pub pszDstId: windows_sys::core::PWSTR,
@@ -988,35 +869,20 @@ pub struct DS_REPSYNCALL_SYNCW {
     pub pguidSrc: *mut windows_sys::core::GUID,
     pub pguidDst: *mut windows_sys::core::GUID,
 }
-impl Default for DS_REPSYNCALL_SYNCW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_UPDATEA {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
     pub pSync: *mut DS_REPSYNCALL_SYNCA,
 }
-impl Default for DS_REPSYNCALL_UPDATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_UPDATEW {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
     pub pSync: *mut DS_REPSYNCALL_SYNCW,
-}
-impl Default for DS_REPSYNCALL_UPDATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = 0;
 pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = 1;
@@ -1060,28 +926,18 @@ pub const DS_SCHEMA_GUID_ATTR_SET: i32 = 2;
 pub const DS_SCHEMA_GUID_CLASS: i32 = 3;
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_SCHEMA_GUID_MAPA {
     pub guid: windows_sys::core::GUID,
     pub guidType: u32,
     pub pName: windows_sys::core::PSTR,
 }
-impl Default for DS_SCHEMA_GUID_MAPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_SCHEMA_GUID_MAPW {
     pub guid: windows_sys::core::GUID,
     pub guidType: u32,
     pub pName: windows_sys::core::PWSTR,
-}
-impl Default for DS_SCHEMA_GUID_MAPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DS_SCHEMA_GUID_NOT_FOUND: i32 = 0;
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = 10;

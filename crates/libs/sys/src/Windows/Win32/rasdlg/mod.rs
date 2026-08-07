@@ -45,7 +45,7 @@ pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super:
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASDIALDLG {
     pub dwSize: u32,
     pub hwndOwner: super::HWND,
@@ -56,18 +56,11 @@ pub struct tagRASDIALDLG {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for tagRASDIALDLG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASDIALDLG {
     pub dwSize: u32,
     pub hwndOwner: super::HWND,
@@ -78,13 +71,6 @@ pub struct tagRASDIALDLG {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for tagRASDIALDLG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -207,7 +193,7 @@ impl Default for tagRASNOUSERW {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::HWND,
@@ -219,18 +205,11 @@ pub struct tagRASPBDLGA {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for tagRASPBDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::HWND,
@@ -242,18 +221,11 @@ pub struct tagRASPBDLGA {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for tagRASPBDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::HWND,
@@ -265,18 +237,11 @@ pub struct tagRASPBDLGW {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for tagRASPBDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::HWND,
@@ -288,11 +253,4 @@ pub struct tagRASPBDLGW {
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for tagRASPBDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

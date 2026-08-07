@@ -253,26 +253,14 @@ impl MCI_STATS_0 {
 pub type PCMC_EXCEPTION = *mut MCA_EXCEPTION;
 #[cfg(target_arch = "aarch64")]
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PCMC_EXCEPTION(pub *mut core::ffi::c_void);
-#[cfg(target_arch = "aarch64")]
-impl Default for PCMC_EXCEPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type PCPE_EXCEPTION = *mut MCA_EXCEPTION;
 #[cfg(target_arch = "aarch64")]
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PCPE_EXCEPTION(pub *mut core::ffi::c_void);
-#[cfg(target_arch = "aarch64")]
-impl Default for PCPE_EXCEPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PERROR_SEVERITY = *mut u8;
 pub type PMCA_EXCEPTION = *mut MCA_EXCEPTION;

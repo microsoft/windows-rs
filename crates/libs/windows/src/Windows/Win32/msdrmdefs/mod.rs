@@ -2,7 +2,7 @@ pub type DRMATTESTTYPE = i32;
 pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = 0;
 pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMBOUNDLICENSEPARAMS {
     pub uVersion: u32,
     pub hEnablingPrincipal: DRMHANDLE,
@@ -14,11 +14,6 @@ pub struct DRMBOUNDLICENSEPARAMS {
     pub rghAuthenticators: *mut DRMHANDLE,
     pub wszDefaultEnablingPrincipalCredentials: windows_core::PWSTR,
     pub dwFlags: u32,
-}
-impl Default for DRMBOUNDLICENSEPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type DRMENCODINGTYPE = i32;
@@ -128,7 +123,7 @@ pub const DRM_EL_REVOCATIONLIST_LID: i32 = 2048;
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: i32 = 512;
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: i32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_LICENSE_ACQ_DATA {
     pub uVersion: u32,
     pub wszURL: windows_core::PWSTR,
@@ -136,11 +131,6 @@ pub struct DRM_LICENSE_ACQ_DATA {
     pub pbPostData: *mut u8,
     pub dwPostDataSize: u32,
     pub wszFriendlyName: windows_core::PWSTR,
-}
-impl Default for DRM_LICENSE_ACQ_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DRM_LOCKBOXTYPE_BLACKBOX: i32 = 2;
 pub const DRM_LOCKBOXTYPE_DEFAULT: i32 = 2;

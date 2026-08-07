@@ -98,13 +98,8 @@ pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796;
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798;
 pub const E_PRINTTICKET_FORMAT: u32 = 2147745795;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HPTPROVIDER(pub *mut core::ffi::c_void);
-impl Default for HPTPROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PRINTTICKET_ISTREAM_APIS: i32 = 1;
 pub const S_PT_CONFLICT_RESOLVED: i32 = 262146;
 pub const S_PT_NO_CONFLICT: i32 = 262145;

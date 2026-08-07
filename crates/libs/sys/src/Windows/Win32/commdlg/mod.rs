@@ -104,7 +104,7 @@ pub type CHOOSECOLOR = CHOOSECOLORA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHOOSECOLORA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -115,18 +115,11 @@ pub struct CHOOSECOLORA {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for CHOOSECOLORA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHOOSECOLORA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -137,18 +130,11 @@ pub struct CHOOSECOLORA {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for CHOOSECOLORA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHOOSECOLORW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -159,18 +145,11 @@ pub struct CHOOSECOLORW {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for CHOOSECOLORW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHOOSECOLORW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -181,20 +160,13 @@ pub struct CHOOSECOLORW {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for CHOOSECOLORW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
 pub type CHOOSEFONT = CHOOSEFONTA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHOOSEFONTA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -212,18 +184,11 @@ pub struct CHOOSEFONTA {
     pub ___MISSING_ALIGNMENT__: u16,
     pub nSizeMin: i32,
     pub nSizeMax: i32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl Default for CHOOSEFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHOOSEFONTA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -241,18 +206,11 @@ pub struct CHOOSEFONTA {
     pub ___MISSING_ALIGNMENT__: u16,
     pub nSizeMin: i32,
     pub nSizeMax: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl Default for CHOOSEFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHOOSEFONTW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -270,18 +228,11 @@ pub struct CHOOSEFONTW {
     pub ___MISSING_ALIGNMENT__: u16,
     pub nSizeMin: i32,
     pub nSizeMax: i32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl Default for CHOOSEFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHOOSEFONTW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -299,13 +250,6 @@ pub struct CHOOSEFONTW {
     pub ___MISSING_ALIGNMENT__: u16,
     pub nSizeMin: i32,
     pub nSizeMax: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl Default for CHOOSEFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COLOROKSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("commdlg_ColorOK");
 pub const COLOROKSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("commdlg_ColorOK");
@@ -337,7 +281,7 @@ pub type FINDREPLACE = FINDREPLACEA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -350,18 +294,11 @@ pub struct FINDREPLACEA {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for FINDREPLACEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -374,18 +311,11 @@ pub struct FINDREPLACEA {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for FINDREPLACEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -398,18 +328,11 @@ pub struct FINDREPLACEW {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for FINDREPLACEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -422,13 +345,6 @@ pub struct FINDREPLACEW {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for FINDREPLACEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FRM_FIRST: i32 = 1124;
 pub const FRM_LAST: i32 = 1224;
@@ -546,136 +462,80 @@ pub type OFNOTIFY = OFNOTIFYA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFNOTIFYA {
     pub hdr: super::NMHDR,
     pub lpOFN: LPOPENFILENAMEA,
     pub pszFile: windows_sys::core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for OFNOTIFYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFNOTIFYA {
     pub hdr: super::NMHDR,
     pub lpOFN: LPOPENFILENAMEA,
     pub pszFile: windows_sys::core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for OFNOTIFYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type OFNOTIFYEX = OFNOTIFYEXA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFNOTIFYEXA {
     pub hdr: super::NMHDR,
     pub lpOFN: LPOPENFILENAMEA,
     pub psf: *mut core::ffi::c_void,
     pub pidl: *mut core::ffi::c_void,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for OFNOTIFYEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFNOTIFYEXA {
     pub hdr: super::NMHDR,
     pub lpOFN: LPOPENFILENAMEA,
     pub psf: *mut core::ffi::c_void,
     pub pidl: *mut core::ffi::c_void,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for OFNOTIFYEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFNOTIFYEXW {
     pub hdr: super::NMHDR,
     pub lpOFN: LPOPENFILENAMEW,
     pub psf: *mut core::ffi::c_void,
     pub pidl: *mut core::ffi::c_void,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for OFNOTIFYEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFNOTIFYEXW {
     pub hdr: super::NMHDR,
     pub lpOFN: LPOPENFILENAMEW,
     pub psf: *mut core::ffi::c_void,
     pub pidl: *mut core::ffi::c_void,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for OFNOTIFYEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFNOTIFYW {
     pub hdr: super::NMHDR,
     pub lpOFN: LPOPENFILENAMEW,
     pub pszFile: windows_sys::core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for OFNOTIFYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFNOTIFYW {
     pub hdr: super::NMHDR,
     pub lpOFN: LPOPENFILENAMEW,
     pub pszFile: windows_sys::core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for OFNOTIFYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OFN_ALLOWMULTISELECT: i32 = 512;
 pub const OFN_CREATEPROMPT: i32 = 8192;
@@ -712,7 +572,7 @@ pub type OPENFILENAME = OPENFILENAMEA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -737,18 +597,11 @@ pub struct OPENFILENAMEA {
     pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub FlagsEx: u32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for OPENFILENAMEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -773,18 +626,11 @@ pub struct OPENFILENAMEA {
     pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub FlagsEx: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for OPENFILENAMEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -809,18 +655,11 @@ pub struct OPENFILENAMEW {
     pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub FlagsEx: u32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for OPENFILENAMEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -845,20 +684,13 @@ pub struct OPENFILENAMEW {
     pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
     pub FlagsEx: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for OPENFILENAMEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type OPENFILENAME_NT4 = OPENFILENAME_NT4A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -880,18 +712,11 @@ pub struct OPENFILENAME_NT4A {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for OPENFILENAME_NT4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -913,18 +738,11 @@ pub struct OPENFILENAME_NT4A {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for OPENFILENAME_NT4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -946,18 +764,11 @@ pub struct OPENFILENAME_NT4W {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for OPENFILENAME_NT4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -979,13 +790,6 @@ pub struct OPENFILENAME_NT4W {
     pub lCustData: super::LPARAM,
     pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: windows_sys::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for OPENFILENAME_NT4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const OPENFILENAME_SIZE_VERSION_400: u32 = 76;
@@ -1004,7 +808,7 @@ pub type PAGESETUPDLG = PAGESETUPDLGA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1020,18 +824,11 @@ pub struct PAGESETUPDLGA {
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: windows_sys::core::PCSTR,
     pub hPageSetupTemplate: super::HGLOBAL,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PAGESETUPDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1047,18 +844,11 @@ pub struct PAGESETUPDLGA {
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: windows_sys::core::PCSTR,
     pub hPageSetupTemplate: super::HGLOBAL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PAGESETUPDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1074,18 +864,11 @@ pub struct PAGESETUPDLGW {
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: windows_sys::core::PCWSTR,
     pub hPageSetupTemplate: super::HGLOBAL,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PAGESETUPDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1101,13 +884,6 @@ pub struct PAGESETUPDLGW {
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: windows_sys::core::PCWSTR,
     pub hPageSetupTemplate: super::HGLOBAL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PAGESETUPDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
 pub type PCCHOOSEFONT = PCCHOOSEFONTA;
@@ -1154,7 +930,7 @@ pub type PRINTDLG = PRINTDLGA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1175,18 +951,11 @@ pub struct PRINTDLGA {
     pub lpSetupTemplateName: windows_sys::core::PCSTR,
     pub hPrintTemplate: super::HGLOBAL,
     pub hSetupTemplate: super::HGLOBAL,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PRINTDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1207,20 +976,13 @@ pub struct PRINTDLGA {
     pub lpSetupTemplateName: windows_sys::core::PCSTR,
     pub hPrintTemplate: super::HGLOBAL,
     pub hSetupTemplate: super::HGLOBAL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PRINTDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
 pub type PRINTDLGEX = PRINTDLGEXA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1244,17 +1006,10 @@ pub struct PRINTDLGEXA {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-impl Default for PRINTDLGEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1278,17 +1033,10 @@ pub struct PRINTDLGEXA {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-impl Default for PRINTDLGEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1312,17 +1060,10 @@ pub struct PRINTDLGEXW {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-impl Default for PRINTDLGEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1346,17 +1087,10 @@ pub struct PRINTDLGEXW {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-impl Default for PRINTDLGEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1377,18 +1111,11 @@ pub struct PRINTDLGW {
     pub lpSetupTemplateName: windows_sys::core::PCWSTR,
     pub hPrintTemplate: super::HGLOBAL,
     pub hSetupTemplate: super::HGLOBAL,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PRINTDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINTDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::HWND,
@@ -1409,13 +1136,6 @@ pub struct PRINTDLGW {
     pub lpSetupTemplateName: windows_sys::core::PCWSTR,
     pub hPrintTemplate: super::HGLOBAL,
     pub hSetupTemplate: super::HGLOBAL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PRINTDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PRINTER_FONTTYPE: i32 = 16384;
 #[repr(C, packed(1))]

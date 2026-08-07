@@ -6,17 +6,12 @@ pub struct DEVPROPCOMPKEY {
     pub LocaleName: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
-}
-impl Default for DEVPROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DEVPROPGUID = windows_core::GUID;
 #[repr(transparent)]
