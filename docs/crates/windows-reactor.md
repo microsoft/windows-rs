@@ -524,14 +524,15 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Dirty descendant behind memoized widget root | Regression, fix, benchmark, and sample added |
 | Context subscriber behind memoized widget root | Regression and fix added |
 | Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
-| Logical component ownership | Instances, projections, IDs, parent scope, and listeners share one owner |
+| Logical component ownership | State and lifecycle share one owner |
 | Provider logical ownership | Providers have stable IDs, parent links, projection, and teardown |
 | Error-boundary ownership | Boundary identity and fallback state are node-owned |
 | Custom-element ownership | Handles and teardown are sparse native-node auxiliary state |
+| Templated-list ownership | Realized rows and callbacks are sparse templated-node state |
 | Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
 | Reconciler state consolidation review | Complete; mounted ownership model planned |
 | Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
-| Native ownership consolidation | `MountedTree` owns kind, parent, children, header, and pane state |
+| Native ownership consolidation | `MountedTree` owns native topology |
 | Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
 | Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
@@ -545,10 +546,10 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Logical identity | Every mounted component, provider, and error boundary has a unique stable ID. |
 | Native identity | A `ControlId` identifies one native object and is not logical identity. |
 | Parentage | Every logical node has one logical parent, except the root. |
-| Native parentage | Every owned native node has one parent across children, slots, or realized rows. |
+| Native parentage | Every owned native node has one parent across all ownership forms. |
 | Dirty state | A state write marks its owner and the logical ancestor path. |
 | Skipping | A node is skipped only when it and all logical descendants are clean. |
-| Ownership | Hooks, effects, contexts, rendered output, and cleanup belong to their logical node. |
+| Ownership | Hooks, effects, contexts, output, and cleanup belong to their logical node. |
 | Replacement | Replacement unmounts the complete old logical subtree before identity reuse. |
 | Cleanup | Every mounted node is cleaned exactly once, with children cleaned before parents. |
 | Keys | Keys identify siblings in one child collection and must affect reconciliation. |
@@ -596,14 +597,9 @@ performance risk.
 Evaluate the logical graph before expanding it. Move more state into mounted-node ownership only
 where the smaller graph cannot provide reliable replacement and teardown.
 
-Candidate ownership currently spread across maps includes:
-
-- header and pane subtrees;
-- templated rows;
-- custom element handles;
-- selection and reorder callbacks;
-- pre-unmount callbacks;
-- error fallback state.
+Header and pane subtrees, templated rows, custom handles, selection/reorder callbacks, and error
+fallback state now live under mounted ownership. Pre-unmount callbacks remain the last lifecycle
+side map on `Reconciler`.
 
 If these move into a full mounted graph, migrate one category at a time. Positional, keyed, and
 templated algorithms should decide correspondence and order, but share the same identity, dirty,
@@ -694,6 +690,19 @@ node. Mount, update, stale-ID cleanup, and `before_destroy` teardown all go thro
 optional boxed field. The headless `custom_mount` case reports 52 bytes and two allocations per
 mount/unmount cycle.
 
+Templated lists now use sparse auxiliary state beneath `MountedTree`. The list registry owns each
+list's current element, realized rows, and selection/reorder callback trampolines; the templated
+owner also holds the shared realization queue and deferred row teardown queue. This removes six
+templated fields and maps from `Reconciler`. Adding a selection or reorder handler during an update
+now attaches the missing backend trampoline instead of silently ignoring the new handler.
+
+Realized rows are stored by row index rather than in a dense `Vec<Option<RealizedRow>>`. An
+unrealized item therefore does not reserve space the size of an `Element`. Before this change, an
+unrealized 64-item list used about 54 KB per mount because every empty slot had the full
+`RealizedRow` size. The release `templated_mount` benchmark now reports 276 bytes and eight
+allocations, and the 4,096-item case has the same mount cost. Realized-row storage grows with the
+visible window rather than the item count.
+
 The existing side state should move as follows:
 
 | Current state | Intended owner |
@@ -702,7 +711,7 @@ The existing side state should move as follows:
 | component instances and native projections | Mounted logical component node |
 | error fallback state | Error-boundary node |
 | custom handles | Custom node |
-| templated state, selection, reorder, and deferred rows | Templated-list node |
+| templated state, selection, reorder, and deferred rows | Templated-list node (complete) |
 | pre-unmount callback | Node lifecycle state |
 | forced nodes, forced controls, traversal scratch | `ReconcilePass` |
 | marshaller, host ID, size, DPI, rerender request | `HostContext` |
@@ -751,13 +760,11 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 Every consolidation step must state which fields and special-case branches it deletes. A new
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
-Steps 1-3 and 6 are complete. The logical-wrapper portion of step 4 is complete for components,
-providers, and error boundaries. Child and slot storage remains sparse inside `MountedTree` rather
-than adding optional fields to every native or logical node. The custom portion of step 4 is also
-complete. The next ownership work consolidates templated-list state, selection/reorder callbacks,
-and deferred realized-row teardown. After those maps leave `Reconciler`, the remaining
-stabilization bugs can be resolved against the final ownership model before typed public wrappers
-begin.
+Steps 1-6 are complete. Child, slot, custom, and templated storage remains sparse inside
+`MountedTree` rather than adding optional fields to every native or logical node. The next
+ownership work moves pre-unmount callbacks into native-node lifecycle state and then reassesses
+the remaining `Reconciler` fields. The resource, item-key, and exit-transition bugs can then be
+resolved against the final ownership model before typed public wrappers begin.
 
 ### Typed element API
 

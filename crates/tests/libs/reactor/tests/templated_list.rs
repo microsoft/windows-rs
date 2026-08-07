@@ -190,6 +190,30 @@ fn selection_changed_invokes_user_callback() {
 }
 
 #[test]
+fn selection_handler_can_be_added_on_update() {
+    let old_el = list_view(vec![10i32, 20], |n, _| TextBlock::new(n.to_string())).build();
+    let sink = Rc::new(Cell::new(-1_i32));
+    let sink_c = Rc::clone(&sink);
+    let new_el = list_view(vec![10i32, 20], |n, _| TextBlock::new(n.to_string()))
+        .on_selection_changed(move |i| sink_c.set(i))
+        .build();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+
+    r.backend.fire_templated_selection_changed(list_id, 1);
+    assert_eq!(sink.get(), 1);
+}
+
+#[test]
 fn selected_index_propagates_on_mount() {
     let el = list_view(vec![1i32, 2, 3], |_, _| Element::Empty)
         .selected_index(1)
@@ -486,6 +510,30 @@ fn reorder_callback_refreshes_on_update() {
     r.backend.simulate_reorder(list_id, vec![1, 0]);
     assert!(!first.get(), "stale reorder closure must not fire");
     assert_eq!(second.take(), Some(vec![1, 0]));
+}
+
+#[test]
+fn reorder_handler_can_be_added_on_update() {
+    let old_el = list_view(vec![1i32, 2], |n, _| TextBlock::new(n.to_string())).build();
+    let sink: Rc<Cell<Option<Vec<usize>>>> = Rc::new(Cell::new(None));
+    let sink_c = Rc::clone(&sink);
+    let new_el = list_view(vec![1i32, 2], |n, _| TextBlock::new(n.to_string()))
+        .on_reorder(move |order| sink_c.set(Some(order)))
+        .build();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+
+    r.backend.simulate_reorder(list_id, vec![1, 0]);
+    assert_eq!(sink.take(), Some(vec![1, 0]));
 }
 
 #[test]

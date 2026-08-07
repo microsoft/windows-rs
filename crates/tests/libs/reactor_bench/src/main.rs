@@ -34,8 +34,8 @@ use std::time::Instant;
 use test_reactor::RecordingBackend;
 use windows_reactor::{
     Backend, Component, Context, ControlId, ControlKind, CustomElement, CustomElementHandle,
-    Element, ElementExt, Reconciler, RenderCx, SetState, component, error_boundary, grid, memo,
-    text_block, vstack,
+    Element, ElementExt, Reconciler, RenderCx, SetState, component, error_boundary, grid,
+    list_view, memo, text_block, vstack,
 };
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
@@ -405,6 +405,20 @@ fn main() {
         iters,
         reps,
     ));
+    for n in [64, 4096] {
+        rows.push(bench_mount_unmount(
+            "templated_mount",
+            n,
+            list_view((0..n).map(|n| n as i32).collect::<Vec<_>>(), |n, _| {
+                text_block(n.to_string())
+            })
+            .on_selection_changed(|_| {})
+            .on_reorder(|_| {})
+            .build(),
+            iters,
+            reps,
+        ));
+    }
     rows.push(bench_mount_unmount(
         "deep_pass_mount",
         4,

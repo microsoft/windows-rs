@@ -1,4 +1,4 @@
-use std::cell::{Cell, RefCell};
+use std::cell::Cell;
 use std::rc::Rc;
 
 use rustc_hash::FxHashMap;
@@ -12,8 +12,7 @@ mod widget_dispatch;
 mod wrappers;
 
 pub use self::child::compute_lis;
-pub use self::templated::TemplatedListState;
-pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_queue};
+use self::templated::MountedTemplatedTree;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 struct LogicalNodeId(u64);
@@ -137,6 +136,7 @@ struct MountedTree {
     headers: FxHashMap<ControlId, ControlId>,
     panes: FxHashMap<ControlId, ControlId>,
     custom: FxHashMap<ControlId, Box<dyn CustomElement>>,
+    templated: MountedTemplatedTree,
     logical: MountedLogicalTree,
 }
 
@@ -597,12 +597,6 @@ pub struct Reconciler<B: Backend> {
     pub debug_ui_elements_created: u64,
     tree: MountedTree,
     pass: ReconcilePass,
-    pub templated_lists: FxHashMap<ControlId, TemplatedListState>,
-    pub defer_templated_unmounts: bool,
-    pub deferred_unmounts: Vec<ControlId>,
-    pub realization_queue: RealizationQueue,
-    pub selection_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<i32>>>>>,
-    pub reorder_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<Vec<usize>>>>>>,
     /// Pre-unmount callbacks keyed by control id.
     pub unmount_callbacks: FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
     host: HostContext,
@@ -627,13 +621,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             debug_ui_elements_created: 0,
             tree: MountedTree::default(),
             pass: ReconcilePass::default(),
-            templated_lists: FxHashMap::default(),
-            realization_queue: new_realization_queue(),
-            selection_callbacks: FxHashMap::default(),
-            reorder_callbacks: FxHashMap::default(),
             unmount_callbacks: FxHashMap::default(),
-            defer_templated_unmounts: false,
-            deferred_unmounts: Vec::new(),
             host: HostContext::new(),
         }
     }
@@ -648,10 +636,15 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     #[cfg(feature = "test")]
     pub fn flush_deferred_unmounts(&mut self) {
-        let drained = std::mem::take(&mut self.deferred_unmounts);
+        let drained = std::mem::take(&mut self.tree.templated.deferred_unmounts);
         for cid in drained {
             self.unmount(cid);
         }
+    }
+
+    #[cfg(feature = "test")]
+    pub fn defer_templated_unmounts_for_test(&mut self, defer: bool) {
+        self.tree.templated.defer_unmounts = defer;
     }
 
     pub fn context_stack_handle(&self) -> Rc<ContextStack> {
@@ -750,9 +743,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             });
         }
-        self.templated_lists.remove(&id);
-        self.selection_callbacks.remove(&id);
-        self.reorder_callbacks.remove(&id);
+        self.tree.templated.lists.remove(&id);
         self.tree.register(id, Some(kind));
         id
     }
@@ -886,8 +877,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         for (parent, pane) in &self.tree.panes {
             record(*parent, *pane);
         }
-        for (parent, state) in &self.templated_lists {
-            for row in state.rows.iter().flatten() {
+        for (parent, state) in &self.tree.templated.lists {
+            for row in state.rows.values() {
                 record(*parent, row.content_id);
             }
         }
@@ -1015,8 +1006,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             if let Some(header) = self.tree.header(node) {
                 nodes.push(header);
             }
-            if let Some(state) = self.templated_lists.get(&node) {
-                nodes.extend(state.rows.iter().flatten().map(|row| row.content_id));
+            if let Some(state) = self.tree.templated.lists.get(&node) {
+                nodes.extend(state.rows.values().map(|row| row.content_id));
             }
             nodes.extend_from_slice(self.tree.children(node));
         }
@@ -1032,9 +1023,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 });
             }
 
-            self.templated_lists.remove(&node);
-            self.selection_callbacks.remove(&node);
-            self.reorder_callbacks.remove(&node);
+            self.tree.templated.lists.remove(&node);
 
             // Give external resources a chance to detach before native destroy.
             if let Some(cb) = self.unmount_callbacks.remove(&node) {

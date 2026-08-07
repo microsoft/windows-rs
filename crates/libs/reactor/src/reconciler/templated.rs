@@ -3,12 +3,32 @@ use std::rc::Rc;
 
 use super::*;
 
-pub struct TemplatedListState {
-    pub element: TemplatedListElement,
-    pub rows: Vec<Option<RealizedRow>>,
+pub(super) struct MountedTemplatedTree {
+    pub lists: FxHashMap<ControlId, TemplatedListState>,
+    pub realization_queue: RealizationQueue,
+    pub defer_unmounts: bool,
+    pub deferred_unmounts: Vec<ControlId>,
 }
 
-pub struct RealizedRow {
+impl Default for MountedTemplatedTree {
+    fn default() -> Self {
+        Self {
+            lists: FxHashMap::default(),
+            realization_queue: Rc::new(RefCell::new(Vec::new())),
+            defer_unmounts: false,
+            deferred_unmounts: Vec::new(),
+        }
+    }
+}
+
+pub(super) struct TemplatedListState {
+    pub element: TemplatedListElement,
+    pub rows: FxHashMap<usize, RealizedRow>,
+    selection_callback: Option<Rc<RefCell<Option<Callback<i32>>>>>,
+    reorder_callback: Option<Rc<RefCell<Option<Callback<Vec<usize>>>>>>,
+}
+
+pub(super) struct RealizedRow {
     pub rendered: Element,
     pub content_id: ControlId,
 }
@@ -19,11 +39,7 @@ pub enum RealizationRequest {
     Recycle { list_id: ControlId, row_idx: usize },
 }
 
-pub type RealizationQueue = Rc<RefCell<Vec<RealizationRequest>>>;
-
-pub fn new_realization_queue() -> RealizationQueue {
-    Rc::new(RefCell::new(Vec::new()))
-}
+type RealizationQueue = Rc<RefCell<Vec<RealizationRequest>>>;
 
 impl<B: Backend + 'static> Reconciler<B> {
     pub fn mount_templated_list(&mut self, tl: &TemplatedListElement) -> ControlId {
@@ -36,19 +52,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.apply_modifiers(id, &tl.modifiers);
 
         let count = tl.item_count();
-        let mut rows: Vec<Option<RealizedRow>> = Vec::with_capacity(count);
-        rows.resize_with(count, || None);
-        self.templated_lists.insert(
-            id,
-            TemplatedListState {
-                element: tl.clone(),
-                rows,
-            },
-        );
-
-        if tl.has_selection_handler() {
-            let trampoline = self.selection_callbacks.entry(id).or_default().clone();
-            *trampoline.borrow_mut() = tl.raw_selection_callback();
+        let selection_callback = tl.raw_selection_callback().map(|callback| {
+            let trampoline = Rc::new(RefCell::new(Some(callback)));
             let trampoline_c = Rc::clone(&trampoline);
             let cb = Callback::new(move |idx: i32| {
                 if let Some(inner) = trampoline_c.borrow().as_ref() {
@@ -56,11 +61,10 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             });
             self.backend.attach_templated_selection_changed(id, cb);
-        }
-
-        if tl.has_reorder_handler() {
-            let trampoline = self.reorder_callbacks.entry(id).or_default().clone();
-            *trampoline.borrow_mut() = tl.raw_reorder_callback();
+            trampoline
+        });
+        let reorder_callback = tl.raw_reorder_callback().map(|callback| {
+            let trampoline = Rc::new(RefCell::new(Some(callback)));
             let trampoline_c = Rc::clone(&trampoline);
             let cb = Callback::new(move |order: Vec<usize>| {
                 if let Some(inner) = trampoline_c.borrow().as_ref() {
@@ -68,15 +72,25 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             });
             self.backend.attach_templated_reorder(id, cb);
-        }
+            trampoline
+        });
+        self.tree.templated.lists.insert(
+            id,
+            TemplatedListState {
+                element: tl.clone(),
+                rows: FxHashMap::default(),
+                selection_callback,
+                reorder_callback,
+            },
+        );
 
         // WinUI container-recycling events (ContainerContentChanging) fire
         // during scrolling, outside any render pass. The realize/recycle
         // closures enqueue work and then ask the host to render, so the queue
         // is drained on the next UI-thread frame. `request_render` coalesces,
         // so a burst of scroll events costs about one reconcile per frame.
-        let queue_r = Rc::clone(&self.realization_queue);
-        let queue_c = Rc::clone(&self.realization_queue);
+        let queue_r = Rc::clone(&self.tree.templated.realization_queue);
+        let queue_c = Rc::clone(&self.tree.templated.realization_queue);
         let rerender_r = Rc::clone(&self.host.request_rerender);
         let rerender_c = Rc::clone(&self.host.request_rerender);
         let list_id = id;
@@ -116,7 +130,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         // events, so it can't self-virtualize. Realize every row up front; it
         // shows one item at a time, so the working set stays tiny anyway.
         if matches!(tl.kind, TemplatedKind::FlipView) {
-            let mut q = self.realization_queue.borrow_mut();
+            let mut q = self.tree.templated.realization_queue.borrow_mut();
             for row_idx in 0..count {
                 q.push(RealizationRequest::Realize {
                     list_id: id,
@@ -128,6 +142,58 @@ impl<B: Backend + 'static> Reconciler<B> {
         id
     }
 
+    fn update_selection_callback(&mut self, id: ControlId, next: Option<Callback<i32>>) {
+        let current = self
+            .tree
+            .templated
+            .lists
+            .get(&id)
+            .and_then(|state| state.selection_callback.clone());
+        if let Some(current) = current {
+            *current.borrow_mut() = next;
+        } else if let Some(next) = next {
+            let trampoline = Rc::new(RefCell::new(Some(next)));
+            let trampoline_c = Rc::clone(&trampoline);
+            self.backend.attach_templated_selection_changed(
+                id,
+                Callback::new(move |idx: i32| {
+                    if let Some(inner) = trampoline_c.borrow().as_ref() {
+                        inner.invoke(idx);
+                    }
+                }),
+            );
+            if let Some(state) = self.tree.templated.lists.get_mut(&id) {
+                state.selection_callback = Some(trampoline);
+            }
+        }
+    }
+
+    fn update_reorder_callback(&mut self, id: ControlId, next: Option<Callback<Vec<usize>>>) {
+        let current = self
+            .tree
+            .templated
+            .lists
+            .get(&id)
+            .and_then(|state| state.reorder_callback.clone());
+        if let Some(current) = current {
+            *current.borrow_mut() = next;
+        } else if let Some(next) = next {
+            let trampoline = Rc::new(RefCell::new(Some(next)));
+            let trampoline_c = Rc::clone(&trampoline);
+            self.backend.attach_templated_reorder(
+                id,
+                Callback::new(move |order: Vec<usize>| {
+                    if let Some(inner) = trampoline_c.borrow().as_ref() {
+                        inner.invoke(order);
+                    }
+                }),
+            );
+            if let Some(state) = self.tree.templated.lists.get_mut(&id) {
+                state.reorder_callback = Some(trampoline);
+            }
+        }
+    }
+
     pub fn update_templated_list(
         &mut self,
         old: &TemplatedListElement,
@@ -136,17 +202,12 @@ impl<B: Backend + 'static> Reconciler<B> {
     ) {
         self.diff_modifiers(id, &old.modifiers, &new.modifiers);
 
-        if let Some(state) = self.templated_lists.get_mut(&id) {
+        if let Some(state) = self.tree.templated.lists.get_mut(&id) {
             state.element = new.clone();
         }
 
-        if let Some(cell) = self.selection_callbacks.get(&id) {
-            *cell.borrow_mut() = new.raw_selection_callback();
-        }
-
-        if let Some(cell) = self.reorder_callbacks.get(&id) {
-            *cell.borrow_mut() = new.raw_reorder_callback();
-        }
+        self.update_selection_callback(id, new.raw_selection_callback());
+        self.update_reorder_callback(id, new.raw_reorder_callback());
 
         if old.selected_index() != new.selected_index() {
             self.backend
@@ -176,17 +237,20 @@ impl<B: Backend + 'static> Reconciler<B> {
         let new_count = new.item_count();
         if old_count != new_count {
             let to_unmount: Vec<(usize, ControlId)> = {
-                let state = self.templated_lists.get_mut(&id).unwrap();
-                let mut out = Vec::new();
-                if new_count < state.rows.len() {
-                    for (i, row) in state.rows.drain(new_count..).enumerate() {
-                        if let Some(row) = row {
-                            out.push((new_count + i, row.content_id));
-                        }
-                    }
-                }
-                state.rows.resize_with(new_count, || None);
-                out
+                let state = self.tree.templated.lists.get_mut(&id).unwrap();
+                let removed: Vec<usize> = state
+                    .rows
+                    .keys()
+                    .copied()
+                    .filter(|row_idx| *row_idx >= new_count)
+                    .collect();
+                removed
+                    .into_iter()
+                    .map(|row_idx| {
+                        let row = state.rows.remove(&row_idx).unwrap();
+                        (row_idx, row.content_id)
+                    })
+                    .collect()
             };
             for (row_idx, cid) in to_unmount {
                 self.backend.set_templated_row_content(id, row_idx, None);
@@ -198,7 +262,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             // FlipView doesn't self-virtualize, so realize any rows added by
             // the growth (ListView/GridView get these from WinUI recycling).
             if matches!(new.kind, TemplatedKind::FlipView) && new_count > old_count {
-                let mut q = self.realization_queue.borrow_mut();
+                let mut q = self.tree.templated.realization_queue.borrow_mut();
                 for row_idx in old_count..new_count {
                     q.push(RealizationRequest::Realize {
                         list_id: id,
@@ -231,13 +295,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
 
         let realized_indices: Vec<usize> = {
-            let state = self.templated_lists.get(&id).unwrap();
-            state
-                .rows
-                .iter()
-                .enumerate()
-                .filter_map(|(idx, row)| row.as_ref().map(|_| idx))
-                .collect()
+            let state = self.tree.templated.lists.get(&id).unwrap();
+            let mut indices: Vec<usize> = state.rows.keys().copied().collect();
+            indices.sort_unstable();
+            indices
         };
         if realized_indices.is_empty() {
             return false;
@@ -290,19 +351,17 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
 
         let old_rows = {
-            let state = self.templated_lists.get_mut(&id).unwrap();
+            let state = self.tree.templated.lists.get_mut(&id).unwrap();
             std::mem::take(&mut state.rows)
         };
-        let mut new_rows: Vec<Option<RealizedRow>> = Vec::with_capacity(count);
-        new_rows.resize_with(count, || None);
+        let mut new_rows = FxHashMap::default();
         let mut moved_into = vec![false; count];
         let mut dropped = Vec::new();
 
-        for (old_idx, row) in old_rows.into_iter().enumerate() {
-            let Some(row) = row else { continue };
+        for (old_idx, row) in old_rows {
             let new_idx = old_to_new[old_idx];
             if realized_slots[new_idx] {
-                new_rows[new_idx] = Some(row);
+                new_rows.insert(new_idx, row);
                 moved_into[new_idx] = old_idx != new_idx;
             } else {
                 dropped.push(row.content_id);
@@ -320,7 +379,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.unmount(content_id);
         }
 
-        if let Some(state) = self.templated_lists.get_mut(&id) {
+        if let Some(state) = self.tree.templated.lists.get_mut(&id) {
             state.rows = new_rows;
         }
 
@@ -329,9 +388,11 @@ impl<B: Backend + 'static> Reconciler<B> {
                 continue;
             }
             let existing = self
-                .templated_lists
+                .tree
+                .templated
+                .lists
                 .get_mut(&id)
-                .and_then(|state| state.rows[row_idx].take());
+                .and_then(|state| state.rows.remove(&row_idx));
             let new_el = new.build_item_view(row_idx);
 
             if let Some(row) = existing {
@@ -342,11 +403,14 @@ impl<B: Backend + 'static> Reconciler<B> {
                         self.backend
                             .set_templated_row_content(id, row_idx, Some(content_id));
                     }
-                    if let Some(state) = self.templated_lists.get_mut(&id) {
-                        state.rows[row_idx] = Some(RealizedRow {
-                            rendered: new_el,
-                            content_id,
-                        });
+                    if let Some(state) = self.tree.templated.lists.get_mut(&id) {
+                        state.rows.insert(
+                            row_idx,
+                            RealizedRow {
+                                rendered: new_el,
+                                content_id,
+                            },
+                        );
                     }
                 } else {
                     self.backend.set_templated_row_content(id, row_idx, None);
@@ -355,11 +419,14 @@ impl<B: Backend + 'static> Reconciler<B> {
                 self.tree.set_parent(content_id, id);
                 self.backend
                     .set_templated_row_content(id, row_idx, Some(content_id));
-                if let Some(state) = self.templated_lists.get_mut(&id) {
-                    state.rows[row_idx] = Some(RealizedRow {
-                        rendered: new_el,
-                        content_id,
-                    });
+                if let Some(state) = self.tree.templated.lists.get_mut(&id) {
+                    state.rows.insert(
+                        row_idx,
+                        RealizedRow {
+                            rendered: new_el,
+                            content_id,
+                        },
+                    );
                 }
                 self.dispatch_appeared(content_id);
             }
@@ -370,13 +437,10 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     fn refresh_realized_rows(&mut self, id: ControlId, new: &TemplatedListElement) {
         let realized_indices: Vec<usize> = {
-            let state = self.templated_lists.get(&id).unwrap();
-            state
-                .rows
-                .iter()
-                .enumerate()
-                .filter_map(|(i, r)| r.as_ref().map(|_| i))
-                .collect()
+            let state = self.tree.templated.lists.get(&id).unwrap();
+            let mut indices: Vec<usize> = state.rows.keys().copied().collect();
+            indices.sort_unstable();
+            indices
         };
 
         for row_idx in realized_indices {
@@ -384,16 +448,16 @@ impl<B: Backend + 'static> Reconciler<B> {
                 continue;
             }
             let (old_el, content_id) = {
-                let state = self.templated_lists.get(&id).unwrap();
-                let row = state.rows[row_idx].as_ref().unwrap();
+                let state = self.tree.templated.lists.get(&id).unwrap();
+                let row = state.rows.get(&row_idx).unwrap();
                 (row.rendered.clone(), row.content_id)
             };
             let new_el = new.build_item_view(row_idx);
 
             if can_skip_update(&old_el, &new_el) && !self.is_control_forced(content_id) {
                 self.debug_elements_skipped += 1;
-                if let Some(state) = self.templated_lists.get_mut(&id)
-                    && let Some(Some(row)) = state.rows.get_mut(row_idx)
+                if let Some(state) = self.tree.templated.lists.get_mut(&id)
+                    && let Some(row) = state.rows.get_mut(&row_idx)
                 {
                     row.rendered = new_el;
                 }
@@ -403,23 +467,22 @@ impl<B: Backend + 'static> Reconciler<B> {
             let new_id = self.update(&old_el, &new_el, content_id);
             if let Some(nid) = new_id {
                 self.tree.set_parent(nid, id);
-                if let Some(state) = self.templated_lists.get_mut(&id)
-                    && let Some(slot) = state.rows.get_mut(row_idx)
-                {
-                    *slot = Some(RealizedRow {
-                        rendered: new_el,
-                        content_id: nid,
-                    });
+                if let Some(state) = self.tree.templated.lists.get_mut(&id) {
+                    state.rows.insert(
+                        row_idx,
+                        RealizedRow {
+                            rendered: new_el,
+                            content_id: nid,
+                        },
+                    );
                 }
                 if nid != content_id {
                     self.backend
                         .set_templated_row_content(id, row_idx, Some(nid));
                 }
             } else {
-                if let Some(state) = self.templated_lists.get_mut(&id)
-                    && let Some(slot) = state.rows.get_mut(row_idx)
-                {
-                    *slot = None;
+                if let Some(state) = self.tree.templated.lists.get_mut(&id) {
+                    state.rows.remove(&row_idx);
                 }
                 self.backend.set_templated_row_content(id, row_idx, None);
             }
@@ -428,7 +491,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     pub fn drain_realizations(&mut self) {
         let drained = {
-            let mut q = self.realization_queue.borrow_mut();
+            let mut q = self.tree.templated.realization_queue.borrow_mut();
             std::mem::take(&mut *q)
         };
         for req in drained {
@@ -446,17 +509,14 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn realize_row_inner(&mut self, list_id: ControlId, row_idx: usize) {
-        let (rendered, count) = {
-            let Some(state) = self.templated_lists.get(&list_id) else {
+        let rendered = {
+            let Some(state) = self.tree.templated.lists.get(&list_id) else {
                 return;
             };
             if row_idx >= state.element.item_count() {
                 return;
             }
-            (
-                state.element.build_item_view(row_idx),
-                state.element.item_count(),
-            )
+            state.element.build_item_view(row_idx)
         };
 
         if let Some(existing) = self.clear_row_realized_state(list_id, row_idx) {
@@ -470,14 +530,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.tree.set_parent(content_id, list_id);
         self.backend
             .set_templated_row_content(list_id, row_idx, Some(content_id));
-        if let Some(state) = self.templated_lists.get_mut(&list_id) {
-            if state.rows.len() < count {
-                state.rows.resize_with(count, || None);
-            }
-            state.rows[row_idx] = Some(RealizedRow {
-                rendered,
-                content_id,
-            });
+        if let Some(state) = self.tree.templated.lists.get_mut(&list_id) {
+            state.rows.insert(
+                row_idx,
+                RealizedRow {
+                    rendered,
+                    content_id,
+                },
+            );
         }
 
         self.dispatch_appeared(content_id);
@@ -491,8 +551,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.dispatch_disappeared(existing);
         self.backend
             .set_templated_row_content(list_id, row_idx, None);
-        if self.defer_templated_unmounts {
-            self.deferred_unmounts.push(existing);
+        if self.tree.templated.defer_unmounts {
+            self.tree.templated.deferred_unmounts.push(existing);
         } else {
             self.unmount(existing);
         }
@@ -503,9 +563,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         list_id: ControlId,
         row_idx: usize,
     ) -> Option<ControlId> {
-        let state = self.templated_lists.get_mut(&list_id)?;
-        let row = state.rows.get_mut(row_idx)?;
-        let content_id = row.take().map(|r| r.content_id)?;
+        let state = self.tree.templated.lists.get_mut(&list_id)?;
+        let content_id = state.rows.remove(&row_idx)?.content_id;
         self.tree.clear_parent(content_id, list_id);
         Some(content_id)
     }
