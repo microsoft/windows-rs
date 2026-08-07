@@ -164,11 +164,28 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn mount_provider(&mut self, p: &ProviderElement) -> Option<ControlId> {
+        let node_id = self.allocate_logical_node_id();
+        let parent = self.tree.logical.active_parent();
         let pushed = self.push_provisions(&p.provisions);
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&p.child)));
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let _parent = self.enter_logical_parent(node_id);
+            self.mount(&p.child)
+        }));
         self.pop_provisions(pushed);
         match result {
-            Ok(id) => id,
+            Ok(Some(id)) => {
+                self.tree.logical.register_provider(
+                    id,
+                    LogicalWrapperNode {
+                        kind: LogicalNodeKind::Provider,
+                        node_id,
+                        parent,
+                        native_root: id,
+                    },
+                );
+                Some(id)
+            }
+            Ok(None) => None,
             Err(payload) => std::panic::resume_unwind(payload),
         }
     }
@@ -202,6 +219,16 @@ impl<B: Backend + 'static> Reconciler<B> {
             changed_ids.insert(old_id);
         }
 
+        let parent = self.tree.logical.active_parent();
+        let Some(node_id) = self
+            .tree
+            .logical
+            .current_node(id, LogicalNodeKind::Provider)
+        else {
+            self.unmount(id);
+            return self.mount_provider(new);
+        };
+
         let saved_nodes = self.pass.forced_nodes.clone();
         let saved_controls = self.pass.forced_controls.clone();
         if !changed_ids.is_empty() {
@@ -211,16 +238,28 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
         }
 
+        let Some(mut provider) = self.tree.logical.take_provider(id) else {
+            self.unmount(id);
+            return self.mount_provider(new);
+        };
+        provider.parent = parent;
+
         let pushed = self.push_provisions(&new.provisions);
-        let result =
-            std::panic::catch_unwind(AssertUnwindSafe(|| self.update(&old.child, &new.child, id)));
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let _parent = self.enter_logical_parent(node_id);
+            self.update(&old.child, &new.child, id)
+        }));
         self.pop_provisions(pushed);
 
         self.pass.forced_nodes = saved_nodes;
         self.pass.forced_controls = saved_controls;
 
         match result {
-            Ok(nid) => nid,
+            Ok(Some(nid)) => {
+                self.tree.logical.register_provider(nid, provider);
+                Some(nid)
+            }
+            Ok(None) => None,
             Err(payload) => std::panic::resume_unwind(payload),
         }
     }

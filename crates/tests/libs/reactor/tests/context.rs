@@ -68,6 +68,35 @@ fn provide_at_root_reaches_grandchild() {
 }
 
 #[test]
+fn provider_owns_stable_logical_node() {
+    let seen = Rc::new(Cell::new(String::new()));
+    let build = |value: &str| {
+        component(
+            Leaf {
+                seen: Rc::clone(&seen),
+            },
+            (),
+        )
+        .provide(&THEME, value.to_string())
+    };
+    let old = build("old");
+    let new = build("new");
+    let mut r = Reconciler::new(RecordingBackend::new());
+
+    let id = reconcile(&mut r, None, &old, None).unwrap();
+    assert_eq!(r.debug_logical_component_count(), 1);
+    assert_eq!(r.debug_logical_node_count(), 2);
+
+    let id = reconcile(&mut r, Some(&old), &new, Some(id)).unwrap();
+    assert_eq!(seen.take(), "new");
+    assert_eq!(r.debug_logical_component_count(), 1);
+    assert_eq!(r.debug_logical_node_count(), 2);
+
+    r.unmount(id);
+    assert_eq!(r.debug_logical_node_count(), 0);
+}
+
+#[test]
 fn nested_providers_shadow_outer() {
     let seen = Rc::new(Cell::new(String::new()));
     let leaf = component(

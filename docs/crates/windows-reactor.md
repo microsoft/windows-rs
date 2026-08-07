@@ -525,6 +525,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Context subscriber behind memoized widget root | Regression and fix added |
 | Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
 | Logical component ownership | Instances, projections, IDs, parent scope, and listeners share one owner |
+| Provider logical ownership | Providers have stable IDs, parent links, projection, and teardown |
 | Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
 | Reconciler state consolidation review | Complete; mounted ownership model planned |
 | Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
@@ -670,6 +671,14 @@ removal cannot update a projection without updating listener accounting through 
 This grouping is output-neutral: the headless allocation counts remain unchanged from the compact
 teardown baseline.
 
+Providers now allocate compact logical wrapper nodes and enter the logical parent scope while
+mounting or updating their child. A component below a provider therefore reaches component
+ancestors through the provider rather than stopping at an unrepresented transparent wrapper.
+Provider nodes share the projection and teardown APIs with components but use sparse wrapper
+storage, so they do not inflate every logical node to the roughly 968-byte component-state size.
+The `provider_mount` benchmark reports 527 bytes and 11 allocations for one provider plus one
+component, while component-only allocation counts remain unchanged.
+
 The existing side state should move as follows:
 
 | Current state | Intended owner |
@@ -727,11 +736,11 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 Every consolidation step must state which fields and special-case branches it deletes. A new
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
-Steps 1-3 and 6 are complete. The component portion of step 4 is complete. Child and slot storage
-remains sparse inside `MountedTree` rather than adding optional fields to every native node. The
-next slice defines logical node kinds for providers and error boundaries instead of adding more
-parallel maps. Custom handles remain native-node auxiliary state because they own a native control,
-but their teardown should move behind the same mounted-node operation.
+Steps 1-3 and 6 are complete. The component and provider portions of step 4 are complete. Child and
+slot storage remains sparse inside `MountedTree` rather than adding optional fields to every native
+or logical node. The next slice gives error boundaries the same compact logical identity and moves
+fallback state out of `Reconciler`. Custom handles remain native-node auxiliary state because they
+own a native control, but their teardown should move behind the same mounted-node operation.
 
 ### Typed element API
 

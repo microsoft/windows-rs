@@ -18,12 +18,12 @@ pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 struct LogicalNodeId(u64);
 
-enum ProjectedComponents {
+enum ProjectedNodes {
     Inline { nodes: [LogicalNodeId; 2], len: u8 },
     Heap(Vec<LogicalNodeId>),
 }
 
-impl Default for ProjectedComponents {
+impl Default for ProjectedNodes {
     fn default() -> Self {
         Self::Inline {
             nodes: [LogicalNodeId(0); 2],
@@ -32,7 +32,7 @@ impl Default for ProjectedComponents {
     }
 }
 
-impl ProjectedComponents {
+impl ProjectedNodes {
     fn as_slice(&self) -> &[LogicalNodeId] {
         match self {
             Self::Inline { nodes, len } => &nodes[..*len as usize],
@@ -146,13 +146,27 @@ struct MountedNativeNode {
 
 #[derive(Default)]
 struct MountedLogicalTree {
-    instances: FxHashMap<LogicalNodeId, ComponentInstance>,
-    // Logical components projecting to a native root, innermost first.
-    projections: FxHashMap<ControlId, ProjectedComponents>,
+    components: FxHashMap<LogicalNodeId, ComponentInstance>,
+    wrappers: FxHashMap<LogicalNodeId, LogicalWrapperNode>,
+    // Logical nodes projecting to a native root, innermost first.
+    projections: FxHashMap<ControlId, ProjectedNodes>,
     active_parent: Rc<Cell<Option<LogicalNodeId>>>,
     next_id: u64,
     appeared_listener_count: usize,
     disappeared_listener_count: usize,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+enum LogicalNodeKind {
+    Component,
+    Provider,
+}
+
+struct LogicalWrapperNode {
+    kind: LogicalNodeKind,
+    node_id: LogicalNodeId,
+    parent: Option<LogicalNodeId>,
+    native_root: ControlId,
 }
 
 impl MountedLogicalTree {
@@ -176,16 +190,46 @@ impl MountedLogicalTree {
     }
 
     fn instance(&self, node_id: LogicalNodeId) -> Option<&ComponentInstance> {
-        self.instances.get(&node_id)
+        self.components.get(&node_id)
     }
 
-    fn current_node(&self, id: ControlId) -> Option<LogicalNodeId> {
-        self.projections
-            .get(&id)
-            .and_then(ProjectedComponents::last)
+    fn node_kind(&self, node_id: LogicalNodeId) -> Option<LogicalNodeKind> {
+        if self.components.contains_key(&node_id) {
+            Some(LogicalNodeKind::Component)
+        } else {
+            self.wrappers.get(&node_id).map(|node| node.kind)
+        }
     }
 
-    fn register(&mut self, id: ControlId, mut inst: ComponentInstance) {
+    fn node_parent(&self, node_id: LogicalNodeId) -> Option<LogicalNodeId> {
+        self.components
+            .get(&node_id)
+            .and_then(|node| node.parent)
+            .or_else(|| self.wrappers.get(&node_id).and_then(|node| node.parent))
+    }
+
+    fn node_native_root(&self, node_id: LogicalNodeId) -> Option<ControlId> {
+        self.components
+            .get(&node_id)
+            .map(|node| node.native_root)
+            .or_else(|| self.wrappers.get(&node_id).map(|node| node.native_root))
+    }
+
+    #[cfg(debug_assertions)]
+    fn contains_node(&self, node_id: LogicalNodeId) -> bool {
+        self.components.contains_key(&node_id) || self.wrappers.contains_key(&node_id)
+    }
+
+    fn node_count(&self) -> usize {
+        self.components.len() + self.wrappers.len()
+    }
+
+    fn current_node(&self, id: ControlId, kind: LogicalNodeKind) -> Option<LogicalNodeId> {
+        let node_id = self.projections.get(&id).and_then(ProjectedNodes::last)?;
+        (self.node_kind(node_id) == Some(kind)).then_some(node_id)
+    }
+
+    fn register_component(&mut self, id: ControlId, inst: ComponentInstance) {
         if inst.last_obj.has_on_appeared() {
             self.appeared_listener_count += 1;
         }
@@ -193,25 +237,57 @@ impl MountedLogicalTree {
             self.disappeared_listener_count += 1;
         }
         let previous_root = inst.native_root;
-        inst.native_root = id;
         let node_id = inst.node_id;
-        let previous = self.instances.insert(node_id, inst);
+        let previous = self.components.insert(
+            node_id,
+            ComponentInstance {
+                native_root: id,
+                ..inst
+            },
+        );
         debug_assert!(previous.is_none(), "logical component registered twice");
-        self.projections.entry(id).or_default().push(node_id);
-        self.remove_empty_projection(previous_root);
+        self.register_projection(id, node_id, previous_root);
     }
 
-    fn take(&mut self, id: ControlId) -> Option<ComponentInstance> {
+    fn register_provider(&mut self, id: ControlId, mut node: LogicalWrapperNode) {
+        let previous_root = node.native_root;
+        node.native_root = id;
+        let node_id = node.node_id;
+        let previous = self.wrappers.insert(node_id, node);
+        debug_assert!(previous.is_none(), "logical provider registered twice");
+        self.register_projection(id, node_id, previous_root);
+    }
+
+    fn take_component(&mut self, id: ControlId) -> Option<ComponentInstance> {
+        let node_id = self.pop_projection(id, LogicalNodeKind::Component)?;
+        self.remove_component(node_id)
+    }
+
+    fn take_provider(&mut self, id: ControlId) -> Option<LogicalWrapperNode> {
+        let node_id = self.pop_projection(id, LogicalNodeKind::Provider)?;
+        self.wrappers.remove(&node_id)
+    }
+
+    fn pop_projection(
+        &mut self,
+        id: ControlId,
+        expected: LogicalNodeKind,
+    ) -> Option<LogicalNodeId> {
         let node_id = self.projections.get_mut(&id)?.pop()?;
-        self.remove_instance(node_id)
+        debug_assert_eq!(
+            self.node_kind(node_id),
+            Some(expected),
+            "logical projection update order disagrees with element nesting"
+        );
+        Some(node_id)
     }
 
-    fn take_projection(&mut self, id: ControlId) -> Option<ProjectedComponents> {
+    fn take_projection(&mut self, id: ControlId) -> Option<ProjectedNodes> {
         self.projections.remove(&id)
     }
 
     #[cfg(feature = "test")]
-    fn projected_nodes(&self, id: ControlId) -> Option<&ProjectedComponents> {
+    fn projected_nodes(&self, id: ControlId) -> Option<&ProjectedNodes> {
         self.projections.get(&id)
     }
 
@@ -222,7 +298,7 @@ impl MountedLogicalTree {
         parent: Option<LogicalNodeId>,
         native_root: ControlId,
     ) {
-        let Some(inst) = self.instances.get_mut(&node_id) else {
+        let Some(inst) = self.components.get_mut(&node_id) else {
             return;
         };
         inst.last_obj = obj;
@@ -244,7 +320,7 @@ impl MountedLogicalTree {
                 .as_slice()
                 .iter()
                 .filter(|node_id| {
-                    self.instances.get(node_id).is_some_and(|inst| {
+                    self.instance(**node_id).is_some_and(|inst| {
                         inst.read_contexts
                             .iter()
                             .any(|context| changed.contains(context))
@@ -254,8 +330,8 @@ impl MountedLogicalTree {
         );
     }
 
-    fn remove_instance(&mut self, node_id: LogicalNodeId) -> Option<ComponentInstance> {
-        let inst = self.instances.remove(&node_id)?;
+    fn remove_component(&mut self, node_id: LogicalNodeId) -> Option<ComponentInstance> {
+        let inst = self.components.remove(&node_id)?;
         if inst.last_obj.has_on_appeared() {
             debug_assert!(
                 self.appeared_listener_count > 0,
@@ -273,11 +349,25 @@ impl MountedLogicalTree {
         Some(inst)
     }
 
+    fn remove_wrapper(&mut self, node_id: LogicalNodeId) {
+        self.wrappers.remove(&node_id);
+    }
+
+    fn register_projection(
+        &mut self,
+        id: ControlId,
+        node_id: LogicalNodeId,
+        previous_root: ControlId,
+    ) {
+        self.projections.entry(id).or_default().push(node_id);
+        self.remove_empty_projection(previous_root);
+    }
+
     fn remove_empty_projection(&mut self, id: ControlId) {
         if self
             .projections
             .get(&id)
-            .is_some_and(ProjectedComponents::is_empty)
+            .is_some_and(ProjectedNodes::is_empty)
         {
             self.projections.remove(&id);
         }
@@ -291,7 +381,7 @@ impl MountedLogicalTree {
             return;
         };
         for node_id in node_ids.as_slice().iter().rev() {
-            if let Some(inst) = self.instances.get_mut(node_id)
+            if let Some(inst) = self.components.get_mut(node_id)
                 && inst.last_obj.has_on_appeared()
             {
                 inst.render_cx.set_context_stack(Rc::clone(context_stack));
@@ -308,7 +398,7 @@ impl MountedLogicalTree {
             return;
         };
         for node_id in node_ids.as_slice() {
-            if let Some(inst) = self.instances.get_mut(node_id)
+            if let Some(inst) = self.components.get_mut(node_id)
                 && inst.last_obj.has_on_disappeared()
             {
                 inst.render_cx.set_context_stack(Rc::clone(context_stack));
@@ -574,7 +664,12 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     #[cfg(feature = "test")]
     pub fn debug_logical_component_count(&self) -> usize {
-        self.tree.logical.instances.len()
+        self.tree.logical.components.len()
+    }
+
+    #[cfg(feature = "test")]
+    pub fn debug_logical_node_count(&self) -> usize {
+        self.tree.logical.node_count()
     }
 
     fn allocate_logical_node_id(&mut self) -> LogicalNodeId {
@@ -586,24 +681,26 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn current_component_node(&self, id: ControlId) -> Option<LogicalNodeId> {
-        self.tree.logical.current_node(id)
+        self.tree
+            .logical
+            .current_node(id, LogicalNodeKind::Component)
     }
 
     fn add_forced_node_path(&mut self, node_id: LogicalNodeId) {
         let mut current = Some(node_id);
         while let Some(id) = current {
-            let Some(node) = self.tree.logical.instance(id) else {
+            let Some(native_root) = self.tree.logical.node_native_root(id) else {
                 break;
             };
             self.pass.forced_nodes.insert(id);
-            let mut control = Some(node.native_root);
+            let mut control = Some(native_root);
             while let Some(id) = control {
                 if !self.pass.forced_controls.insert(id) {
                     break;
                 }
                 control = self.tree.parent(id);
             }
-            current = node.parent;
+            current = self.tree.logical.node_parent(id);
         }
     }
 
@@ -630,7 +727,9 @@ impl<B: Backend + 'static> Reconciler<B> {
 
         if let Some(stale) = self.tree.logical.take_projection(id) {
             stale.drain(|node_id| {
-                self.tree.logical.remove_instance(node_id);
+                if self.tree.logical.remove_component(node_id).is_none() {
+                    self.tree.logical.remove_wrapper(node_id);
+                }
             });
         }
         self.templated_lists.remove(&id);
@@ -643,11 +742,11 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn register_component_instance(&mut self, id: ControlId, inst: ComponentInstance) {
-        self.tree.logical.register(id, inst);
+        self.tree.logical.register_component(id, inst);
     }
 
     fn take_component_instance(&mut self, id: ControlId) -> Option<ComponentInstance> {
-        self.tree.logical.take(id)
+        self.tree.logical.take_component(id)
     }
 
     fn remove_empty_component_projection(&mut self, id: ControlId) {
@@ -701,38 +800,47 @@ impl<B: Backend + 'static> Reconciler<B> {
         for (control_id, nodes) in &self.tree.logical.projections {
             debug_assert!(
                 !nodes.is_empty(),
-                "empty logical component projection for {control_id:?}"
+                "empty logical projection for {control_id:?}"
             );
             for node_id in nodes.as_slice() {
                 debug_assert!(
                     indexed.insert(*node_id),
-                    "logical component {node_id:?} is indexed more than once"
+                    "logical node {node_id:?} is indexed more than once"
                 );
-                let inst = self
-                    .tree
-                    .logical
-                    .instances
-                    .get(node_id)
-                    .expect("projected logical component has no instance");
+                debug_assert!(
+                    self.tree.logical.contains_node(*node_id),
+                    "projected logical node has no instance"
+                );
                 debug_assert_eq!(
-                    inst.native_root, *control_id,
-                    "logical component native root disagrees with projection"
+                    self.tree.logical.node_native_root(*node_id),
+                    Some(*control_id),
+                    "logical node native root disagrees with projection"
                 );
             }
         }
 
         debug_assert_eq!(
             indexed.len(),
-            self.tree.logical.instances.len(),
-            "logical component index does not cover every instance"
+            self.tree.logical.node_count(),
+            "logical projection index does not cover every node"
         );
-        for inst in self.tree.logical.instances.values() {
-            if let Some(parent) = inst.parent {
+        for (node_id, node) in &self.tree.logical.components {
+            if let Some(parent) = node.parent {
                 debug_assert!(
-                    self.tree.logical.instances.contains_key(&parent),
-                    "logical component parent is not mounted"
+                    self.tree.logical.contains_node(parent),
+                    "logical node parent is not mounted"
                 );
             }
+            debug_assert_eq!(*node_id, node.node_id);
+        }
+        for (node_id, node) in &self.tree.logical.wrappers {
+            if let Some(parent) = node.parent {
+                debug_assert!(
+                    self.tree.logical.contains_node(parent),
+                    "logical node parent is not mounted"
+                );
+            }
+            debug_assert_eq!(*node_id, node.node_id);
         }
     }
 
@@ -783,7 +891,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         let dirty: Vec<LogicalNodeId> = self
             .tree
             .logical
-            .instances
+            .components
             .iter()
             .filter_map(|(node_id, inst)| inst.render_cx.peek_state_dirty().then_some(*node_id))
             .collect();
@@ -894,8 +1002,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         for node in nodes.into_iter().rev() {
             if let Some(node_ids) = self.tree.logical.take_projection(node) {
                 node_ids.drain(|node_id| {
-                    if let Some(mut inst) = self.tree.logical.remove_instance(node_id) {
+                    if let Some(mut inst) = self.tree.logical.remove_component(node_id) {
                         inst.render_cx.run_cleanups();
+                    } else {
+                        self.tree.logical.remove_wrapper(node_id);
                     }
                 });
             }

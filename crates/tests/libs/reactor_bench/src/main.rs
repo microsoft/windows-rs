@@ -26,17 +26,19 @@
 use std::alloc::{GlobalAlloc, Layout, System};
 use std::cell::RefCell;
 use std::rc::Rc;
+use std::sync::LazyLock;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
 use test_reactor::RecordingBackend;
 use windows_reactor::{
-    Component, Element, ElementExt, Reconciler, RenderCx, SetState, component, grid, memo,
+    Component, Context, Element, ElementExt, Reconciler, RenderCx, SetState, component, grid, memo,
     text_block, vstack,
 };
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
 static ALLOCS: AtomicU64 = AtomicU64::new(0);
+static BENCH_CONTEXT: LazyLock<Context<u8>> = LazyLock::new(|| Context::new(0));
 
 /// Global allocator that counts bytes and allocation calls. Wraps `System`;
 /// tracks only growth (alloc plus grow-realloc), which is enough for a
@@ -348,6 +350,13 @@ fn main() {
         "pass_through_mount",
         2,
         memo(pass_through_component, ()),
+        iters,
+        reps,
+    ));
+    rows.push(bench_mount_unmount(
+        "provider_mount",
+        2,
+        component(component_leaf, ()).provide(&BENCH_CONTEXT, 1),
         iters,
         reps,
     ));
