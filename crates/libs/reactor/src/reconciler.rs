@@ -136,6 +136,7 @@ struct MountedTree {
     nodes: FxHashMap<ControlId, MountedNativeNode>,
     headers: FxHashMap<ControlId, ControlId>,
     panes: FxHashMap<ControlId, ControlId>,
+    custom: FxHashMap<ControlId, Box<dyn CustomElement>>,
     logical: MountedLogicalTree,
 }
 
@@ -431,6 +432,7 @@ impl MountedTree {
         if let Some(pane) = self.panes.remove(&id) {
             self.clear_parent(pane, id);
         }
+        self.custom.remove(&id);
         self.nodes
             .insert(id, MountedNativeNode { kind, parent: None });
     }
@@ -490,6 +492,15 @@ impl MountedTree {
 
     fn pane(&self, parent: ControlId) -> Option<ControlId> {
         self.panes.get(&parent).copied()
+    }
+
+    fn set_custom(&mut self, id: ControlId, handle: Box<dyn CustomElement>) {
+        debug_assert!(self.nodes.contains_key(&id));
+        self.custom.insert(id, handle);
+    }
+
+    fn take_custom(&mut self, id: ControlId) -> Option<Box<dyn CustomElement>> {
+        self.custom.remove(&id)
     }
 
     fn children(&self, parent: ControlId) -> &[ControlId] {
@@ -573,6 +584,7 @@ impl MountedTree {
         if let Some(pane) = self.panes.remove(&id) {
             self.clear_parent(pane, id);
         }
+        self.custom.remove(&id);
         self.nodes.remove(&id);
     }
 }
@@ -586,7 +598,6 @@ pub struct Reconciler<B: Backend> {
     tree: MountedTree,
     pass: ReconcilePass,
     pub templated_lists: FxHashMap<ControlId, TemplatedListState>,
-    pub custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
     pub defer_templated_unmounts: bool,
     pub deferred_unmounts: Vec<ControlId>,
     pub realization_queue: RealizationQueue,
@@ -617,7 +628,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             tree: MountedTree::default(),
             pass: ReconcilePass::default(),
             templated_lists: FxHashMap::default(),
-            custom_handles: FxHashMap::default(),
             realization_queue: new_realization_queue(),
             selection_callbacks: FxHashMap::default(),
             reorder_callbacks: FxHashMap::default(),
@@ -743,7 +753,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.templated_lists.remove(&id);
         self.selection_callbacks.remove(&id);
         self.reorder_callbacks.remove(&id);
-        self.custom_handles.remove(&id);
         self.tree.register(id, Some(kind));
         id
     }
@@ -891,6 +900,12 @@ impl<B: Backend + 'static> Reconciler<B> {
                 );
             }
         }
+        for id in self.tree.custom.keys() {
+            debug_assert!(
+                self.tree.nodes.contains_key(id),
+                "custom handle {id:?} has no mounted native node"
+            );
+        }
     }
 
     /// Forces dirty components to render even when unchanged parents can be skipped.
@@ -1026,7 +1041,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 cb.invoke(self.backend.get_native_element(node));
             }
 
-            if let Some(handle) = self.custom_handles.remove(&node) {
+            if let Some(handle) = self.tree.take_custom(node) {
                 handle.before_destroy(node, &mut self.backend);
             }
 

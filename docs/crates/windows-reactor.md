@@ -527,6 +527,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Logical component ownership | Instances, projections, IDs, parent scope, and listeners share one owner |
 | Provider logical ownership | Providers have stable IDs, parent links, projection, and teardown |
 | Error-boundary ownership | Boundary identity and fallback state are node-owned |
+| Custom-element ownership | Handles and teardown are sparse native-node auxiliary state |
 | Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
 | Reconciler state consolidation review | Complete; mounted ownership model planned |
 | Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
@@ -687,6 +688,12 @@ logical parents. Fallback state is stored on the boundary node, so `Reconciler` 
 `error_boundary_mount` cycles report 399 bytes and 10 allocations, matching the component-only
 mount baseline after warmup.
 
+Custom element handles now live in sparse `MountedTree` auxiliary storage keyed by their native
+node. Mount, update, stale-ID cleanup, and `before_destroy` teardown all go through the tree, so
+`Reconciler` no longer owns a separate `custom_handles` map. Ordinary native nodes do not gain an
+optional boxed field. The headless `custom_mount` case reports 52 bytes and two allocations per
+mount/unmount cycle.
+
 The existing side state should move as follows:
 
 | Current state | Intended owner |
@@ -746,10 +753,11 @@ abstraction that only wraps the old maps without enabling their removal is not s
 
 Steps 1-3 and 6 are complete. The logical-wrapper portion of step 4 is complete for components,
 providers, and error boundaries. Child and slot storage remains sparse inside `MountedTree` rather
-than adding optional fields to every native or logical node. The next ownership work moves custom
-handles into native-node auxiliary storage, then consolidates templated-list state and callbacks.
-After those maps leave `Reconciler`, the remaining stabilization bugs can be resolved against the
-final ownership model before typed public wrappers begin.
+than adding optional fields to every native or logical node. The custom portion of step 4 is also
+complete. The next ownership work consolidates templated-list state, selection/reorder callbacks,
+and deferred realized-row teardown. After those maps leave `Reconciler`, the remaining
+stabilization bugs can be resolved against the final ownership model before typed public wrappers
+begin.
 
 ### Typed element API
 

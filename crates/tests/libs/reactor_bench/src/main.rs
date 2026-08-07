@@ -24,6 +24,7 @@
 //! controls.
 
 use std::alloc::{GlobalAlloc, Layout, System};
+use std::any::Any;
 use std::cell::RefCell;
 use std::rc::Rc;
 use std::sync::LazyLock;
@@ -32,13 +33,41 @@ use std::time::Instant;
 
 use test_reactor::RecordingBackend;
 use windows_reactor::{
-    Component, Context, Element, ElementExt, Reconciler, RenderCx, SetState, component,
-    error_boundary, grid, memo, text_block, vstack,
+    Backend, Component, Context, ControlId, ControlKind, CustomElement, CustomElementHandle,
+    Element, ElementExt, Reconciler, RenderCx, SetState, component, error_boundary, grid, memo,
+    text_block, vstack,
 };
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
 static ALLOCS: AtomicU64 = AtomicU64::new(0);
 static BENCH_CONTEXT: LazyLock<Context<u8>> = LazyLock::new(|| Context::new(0));
+
+#[derive(Clone)]
+struct BenchCustom;
+
+impl CustomElement for BenchCustom {
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
+
+    fn kind_name(&self) -> &'static str {
+        "BenchCustom"
+    }
+
+    fn eq_dyn(&self, other: &dyn CustomElement) -> bool {
+        other.as_any().is::<Self>()
+    }
+
+    fn clone_dyn(&self) -> Box<dyn CustomElement> {
+        Box::new(self.clone())
+    }
+
+    fn mount(&self, backend: &mut dyn Backend) -> ControlId {
+        backend.create(ControlKind::TextBlock)
+    }
+
+    fn update(&self, _prev: &dyn CustomElement, _id: ControlId, _backend: &mut dyn Backend) {}
+}
 
 /// Global allocator that counts bytes and allocation calls. Wraps `System`;
 /// tracks only growth (alloc plus grow-realloc), which is enough for a
@@ -366,6 +395,13 @@ fn main() {
         error_boundary(component(component_leaf, ()), |_| {
             text_block("fallback").into()
         }),
+        iters,
+        reps,
+    ));
+    rows.push(bench_mount_unmount(
+        "custom_mount",
+        1,
+        Element::Custom(CustomElementHandle::new(BenchCustom)),
         iters,
         reps,
     ));

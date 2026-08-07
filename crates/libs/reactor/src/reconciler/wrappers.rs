@@ -327,7 +327,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.debug_ui_elements_created += 1;
         let id = c.0.mount(&mut self.backend);
         self.tree.register(id, None);
-        self.custom_handles.insert(id, c.0.clone_dyn());
+        self.tree.set_custom(id, c.0.clone_dyn());
         id
     }
 
@@ -345,7 +345,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         );
         if !old.0.eq_dyn(&*new.0) {
             new.0.update(&*old.0, id, &mut self.backend);
-            self.custom_handles.insert(id, new.0.clone_dyn());
+            self.tree.set_custom(id, new.0.clone_dyn());
         }
         id
     }
