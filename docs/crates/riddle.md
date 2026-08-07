@@ -47,3 +47,19 @@ Run the command tests with:
 ```text
 cargo test -p riddle
 ```
+
+## Validation test strategy
+
+Shared validator changes should be covered at the lowest layer that can express the invalid state:
+
+| Layer | Purpose |
+|-------|---------|
+| `test_metadata` synthetic rows | Malformed ECMA relationships and states that RDL cannot author |
+| Committed metadata corpus | Check compatibility with committed Windows metadata |
+| `test_rdl` validation | Test source-to-metadata validation |
+| `riddle` command tests | Test exit codes, rendering, labels, and `check` behavior |
+| Merge/remap and roundtrip tests | Guard conversion fidelity |
+
+Every source-authorable validator rule should have an RDL or `riddle check` test in addition to its
+metadata-row test. Metadata-only tests are appropriate only when the malformed state has no RDL
+spelling. Corpus validation remains mandatory before treating a proposed common rule as valid.

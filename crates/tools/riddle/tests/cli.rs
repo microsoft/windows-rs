@@ -109,6 +109,31 @@ fn check_renders_every_independent_error() {
 }
 
 #[test]
+fn check_reports_finalized_metadata_validation() {
+    let dir = scratch("metadata_validation");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("api.rdl");
+    std::fs::write(
+        &input,
+        "#[win32]\nmod Test {\n\
+         attribute MarkerAttribute { fn(); Value: i32, }\n\
+         #[Marker(Value = 1, Value = 2)]\n\
+         struct Item {}\n\
+         }\n",
+    )
+    .unwrap();
+
+    let output = riddle().arg("check").arg(&input).output().unwrap();
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8(output.stderr).unwrap();
+    assert!(stderr.starts_with("error[RDL0001]:"));
+    assert!(stderr.contains("duplicate named field argument `Value`"));
+    assert!(stderr.contains(&input.to_string_lossy().to_string()));
+    assert!(stderr.contains("metadata row Attribute["));
+    assert!(stderr.contains('^'));
+}
+
+#[test]
 fn check_accepts_standard_input() {
     let mut child = riddle()
         .args(["check", "-"])

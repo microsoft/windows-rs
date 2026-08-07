@@ -56,7 +56,7 @@ impl Encoder<'_> {
 
         let types = params.iter().map(|param| param.ty.clone()).collect();
 
-        let mut call_flags = metadata::MethodCallAttributes::default();
+        let mut call_flags = metadata::MethodCallAttributes(0);
 
         if item.sig.variadic.is_some() {
             call_flags |= metadata::MethodCallAttributes::VARARG;

@@ -759,11 +759,21 @@ The next phase should proceed in this order:
    validation can check member existence, types, and duplicate named arguments against local or
    referenced attribute definitions. Named fields must be public writable instance fields; named
    properties require a matching public instance setter.
+   Common signature validation now rejects illegal `void` field, parameter, property, and array
+   element types and rejects `HASTHIS` on static methods. It does not require `HASTHIS` on instance
+   methods because canonical WinRT metadata commonly omits it. RDL global functions now encode a
+   static signature rather than inheriting the instance default. Win32 native-typedef wrappers
+   retain their established `Value: void` representation.
 6. Implement explicit overload authoring as transparent metadata lowering after this boundary is
    stable.
 7. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete
    diagnostic collections and unsupported-metadata findings.
 8. Move formatting to the RDL syntax tree and add range formatting if editor use justifies it.
 9. Evaluate runtime-class conveniences only after the expanded ABI can be inspected and compared.
+
+Validation testing follows the layered strategy documented for [`riddle`](riddle.md): synthetic
+metadata for unauthorable states, committed-corpus compatibility, RDL lowering tests, and
+`riddle check` process tests for source-visible diagnostics. Every validator rule that accepted RDL
+can trigger should have an end-to-end test rather than only a table-level fixture.
 
 [rdl-overloads]: https://github.com/microsoft/windows-rs/issues/4166

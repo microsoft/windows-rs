@@ -667,6 +667,25 @@ fn validate_maps<'a, M, R, I>(
 fn validate_fields(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
     let mut names = HashMap::<&str, Vec<reader::Field<'_>>>::new();
     for field in ty.fields() {
+        let field_type = field.ty();
+        let void_typedef = field_type == crate::Type::Void
+            && field.name() == "Value"
+            && ty.has_attribute("NativeTypedefAttribute");
+        if invalid_signature_type(&field_type) && !void_typedef {
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "field `{}.{}.{}` has invalid type `{}`",
+                    ty.namespace(),
+                    ty.name(),
+                    field.name(),
+                    attribute_parameter_type_name(&field_type)
+                ),
+                row: field.row_id(),
+                related: Some(ty.row_id()),
+            });
+        }
+
         let previous = names
             .entry(field.name())
             .or_default()
@@ -688,6 +707,37 @@ fn validate_properties(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
     let mut properties = HashMap::<&str, Vec<(reader::Property<'_>, crate::Signature)>>::new();
     for property in ty.properties() {
         let signature = property.signature(&generics);
+        if invalid_signature_type(&signature.return_type) {
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "property `{}.{}.{}` has invalid value type `{}`",
+                    ty.namespace(),
+                    ty.name(),
+                    property.name(),
+                    attribute_parameter_type_name(&signature.return_type)
+                ),
+                row: property.row_id(),
+                related: Some(ty.row_id()),
+            });
+        }
+        for (position, parameter) in signature.types.iter().enumerate() {
+            if invalid_signature_type(parameter) {
+                errors.push(ValidationError {
+                    category: ValidationCategory::Invalid,
+                    message: format!(
+                        "property `{}.{}.{}` index parameter {} has invalid type `{}`",
+                        ty.namespace(),
+                        ty.name(),
+                        property.name(),
+                        position + 1,
+                        attribute_parameter_type_name(parameter)
+                    ),
+                    row: property.row_id(),
+                    related: Some(ty.row_id()),
+                });
+            }
+        }
         let arches = association_arches(property.arches(), property.semantics());
         let previous = properties.entry(property.name()).or_default().iter().find(
             |(previous, previous_signature)| {
@@ -853,6 +903,40 @@ fn validate_methods(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
     let generics = generics(ty);
     for method in ty.methods() {
         let signature = method.signature(&generics);
+        let is_static = method.flags().contains(crate::MethodAttributes::Static);
+        let has_this = signature
+            .flags
+            .contains(crate::MethodCallAttributes::HASTHIS);
+        if is_static && has_this {
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "static method `{}.{}.{}` has an instance calling convention",
+                    ty.namespace(),
+                    ty.name(),
+                    method.name()
+                ),
+                row: method.row_id(),
+                related: Some(ty.row_id()),
+            });
+        }
+        for (position, parameter) in signature.types.iter().enumerate() {
+            if invalid_signature_type(parameter) {
+                errors.push(ValidationError {
+                    category: ValidationCategory::Invalid,
+                    message: format!(
+                        "method `{}.{}.{}` parameter {} has invalid type `{}`",
+                        ty.namespace(),
+                        ty.name(),
+                        method.name(),
+                        position + 1,
+                        attribute_parameter_type_name(parameter)
+                    ),
+                    row: method.row_id(),
+                    related: Some(ty.row_id()),
+                });
+            }
+        }
         let previous = methods.entry(method.name()).or_default().iter().find(
             |(previous, previous_signature)| {
                 same_method_identity(previous_signature, &signature)
@@ -871,6 +955,7 @@ fn validate_methods(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
                 ),
             ));
         }
+
         methods
             .entry(method.name())
             .or_default()
@@ -889,6 +974,18 @@ fn validate_methods(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
                 related: None,
             });
         }
+    }
+}
+
+fn invalid_signature_type(ty: &crate::Type) -> bool {
+    match ty {
+        crate::Type::Void => true,
+        crate::Type::Array(element)
+        | crate::Type::ArrayFixed(element, _)
+        | crate::Type::RefMut(element)
+        | crate::Type::RefConst(element) => invalid_signature_type(element),
+        crate::Type::PtrMut(_, _) | crate::Type::PtrConst(_, _) => false,
+        _ => false,
     }
 }
 

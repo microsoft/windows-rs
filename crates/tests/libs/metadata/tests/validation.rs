@@ -936,6 +936,83 @@ fn attribute_multiplicity_is_validated() {
 }
 
 #[test]
+fn invalid_member_signatures_are_rejected() {
+    let mut file = writer::File::new("test");
+    let ty = file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public,
+    );
+    file.Field("Bad", &Type::Void, FieldAttributes::Public);
+    file.MethodDef(
+        "StaticWithThis",
+        &Signature::default(),
+        MethodAttributes::Public | MethodAttributes::Static,
+        MethodImplAttributes::default(),
+    );
+    file.MethodDef(
+        "InstanceWithoutThis",
+        &Signature {
+            flags: MethodCallAttributes(0),
+            ..Default::default()
+        },
+        MethodAttributes::Public,
+        MethodImplAttributes::default(),
+    );
+    file.MethodDef(
+        "BadParameter",
+        &Signature {
+            types: vec![Type::Void],
+            ..Default::default()
+        },
+        MethodAttributes::Public,
+        MethodImplAttributes::default(),
+    );
+    let bad_value = file.PropertyWithSignature(
+        "BadValue",
+        &Signature {
+            return_type: Type::Void,
+            ..Default::default()
+        },
+        0,
+    );
+    file.PropertyWithSignature(
+        "BadIndex",
+        &Signature {
+            return_type: Type::I32,
+            types: vec![Type::Array(Box::new(Type::Void))],
+            ..Default::default()
+        },
+        0,
+    );
+    file.PropertyMap(ty, bad_value);
+
+    let errors = validator::validate(&index(file));
+    assert_eq!(errors.len(), 5);
+    assert_eq!(
+        errors[0].message(),
+        "field `Test.Value.Bad` has invalid type `Void`"
+    );
+    assert_eq!(
+        errors[1].message(),
+        "property `Test.Value.BadValue` has invalid value type `Void`"
+    );
+    assert_eq!(
+        errors[2].message(),
+        "property `Test.Value.BadIndex` index parameter 1 has invalid type `Void[]`"
+    );
+    assert_eq!(
+        errors[3].message(),
+        "static method `Test.Value.StaticWithThis` has an instance calling convention"
+    );
+    assert_eq!(
+        errors[4].message(),
+        "method `Test.Value.BadParameter` parameter 1 has invalid type `Void`"
+    );
+}
+
+#[test]
 fn invalid_method_semantics_are_rejected() {
     let mut file = writer::File::new("test");
     let ty = file.TypeDef(
