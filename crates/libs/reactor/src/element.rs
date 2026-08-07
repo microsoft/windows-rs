@@ -208,6 +208,29 @@ macro_rules! define_element {
                     Element::$variant(v)
                 }
             }
+
+            impl ElementExt for $variant {
+                fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
+                    Some(&mut self.modifiers)
+                }
+
+                fn with_key(mut self, key: impl Into<String>) -> Self {
+                    self.key = Some(key.into());
+                    self
+                }
+            }
+
+            impl capability::Resources for $variant {
+                fn resource_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
+
+            impl capability::Layout for $variant {
+                fn layout_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
         )*
 
         impl Element {
@@ -599,20 +622,13 @@ macro_rules! simple_setter {
     };
 }
 
-/// Builder-style modifier methods (`.margin(..)`, `.background(..)`,
-/// animations, theme bindings, ...) implemented for every widget builder
-/// and for [`Element`] itself.
+/// Builder-style visual, input, animation, and attached-property modifiers.
+///
+/// Framework layout and resource dictionary methods use separate sealed capability traits.
 pub trait ElementExt: Sized {
     fn modifiers_mut(&mut self) -> Option<&mut Modifiers>;
 
-    simple_setter!(margin, margin, Thickness, into);
     simple_setter!(padding, padding, Thickness, into);
-    simple_setter!(width, width, f64);
-    simple_setter!(height, height, f64);
-    simple_setter!(min_width, min_width, f64);
-    simple_setter!(max_width, max_width, f64);
-    simple_setter!(min_height, min_height, f64);
-    simple_setter!(max_height, max_height, f64);
 
     fn background(mut self, v: impl Into<BrushBinding>) -> Self {
         if let Some(m) = self.modifiers_mut() {
@@ -631,12 +647,6 @@ pub trait ElementExt: Sized {
     simple_setter!(opacity, opacity, f64);
     simple_setter!(font_family, font_family, String, into);
     simple_setter!(font_size, font_size, f64);
-    simple_setter!(
-        horizontal_alignment,
-        horizontal_alignment,
-        HorizontalAlignment
-    );
-    simple_setter!(vertical_alignment, vertical_alignment, VerticalAlignment);
 
     fn with_key(self, key: impl Into<String>) -> Self;
 
@@ -1049,10 +1059,71 @@ pub trait ElementExt: Sized {
 mod capability {
     use super::Modifiers;
 
+    pub trait Layout {
+        fn layout_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
     pub trait Resources {
         fn resource_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 }
+
+/// Framework layout modifiers for concrete native widget builders.
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, LayoutExt, button};
+///
+/// let element: Element = button("Save").into();
+/// let _ = element.width(100.0);
+/// ```
+pub trait LayoutExt: capability::Layout + Sized {
+    fn margin(mut self, value: impl Into<Thickness>) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).margin = Some(value.into());
+        self
+    }
+
+    fn width(mut self, value: f64) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).width = Some(value);
+        self
+    }
+
+    fn height(mut self, value: f64) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).height = Some(value);
+        self
+    }
+
+    fn min_width(mut self, value: f64) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).min_width = Some(value);
+        self
+    }
+
+    fn max_width(mut self, value: f64) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).max_width = Some(value);
+        self
+    }
+
+    fn min_height(mut self, value: f64) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).min_height = Some(value);
+        self
+    }
+
+    fn max_height(mut self, value: f64) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).max_height = Some(value);
+        self
+    }
+
+    fn horizontal_alignment(mut self, value: HorizontalAlignment) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).horizontal_alignment = Some(value);
+        self
+    }
+
+    fn vertical_alignment(mut self, value: VerticalAlignment) -> Self {
+        capability::Layout::layout_modifiers_mut(&mut self).vertical_alignment = Some(value);
+        self
+    }
+}
+
+impl<T: capability::Layout> LayoutExt for T {}
 
 /// Resource-dictionary modifiers for concrete native widget builders.
 ///
@@ -1178,88 +1249,6 @@ fn with_implicit_transition(m: &mut Modifiers, f: impl FnOnce(&mut ImplicitTrans
         .implicit_transitions
         .get_or_insert_with(Default::default);
     f(it);
-}
-
-macro_rules! impl_element_ext {
-    ($($ty:ident),* $(,)?) => {
-        $(
-            impl ElementExt for widgets::$ty {
-                fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
-                    Some(&mut self.modifiers)
-                }
-                fn with_key(mut self, key: impl Into<String>) -> Self {
-                    self.key = Some(key.into());
-                    self
-                }
-            }
-            impl capability::Resources for widgets::$ty {
-                fn resource_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
-        )*
-    };
-}
-impl_element_ext!(
-    TextBlock,
-    Button,
-    StackPanel,
-    Border,
-    CheckBox,
-    TextBox,
-    Grid,
-    ScrollViewer,
-    ToggleSwitch,
-    Slider,
-    RadioButton,
-    NumberBox,
-    ProgressBar,
-    ProgressRing,
-    Expander,
-    HyperlinkButton,
-    InfoBar,
-    InfoBadge,
-    PersonPicture,
-    Shape,
-    Image,
-    TabView,
-    NavigationView,
-    TitleBar,
-    Pivot,
-    BreadcrumbBar,
-    PasswordBox,
-    RadioButtons,
-    ComboBox,
-    Canvas,
-    ContentDialog,
-    Viewbox,
-    ScrollView,
-    TreeView,
-    CommandBar,
-    TeachingTip,
-    SelectorBar,
-    RichEditBox,
-    RelativePanel,
-    ToggleButton,
-    SwapChainPanel,
-    CompositionHost,
-    WebView2,
-);
-
-impl ElementExt for RichTextBlock {
-    fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
-        Some(&mut self.modifiers)
-    }
-    fn with_key(mut self, key: impl Into<String>) -> Self {
-        self.key = Some(key.into());
-        self
-    }
-}
-
-impl capability::Resources for RichTextBlock {
-    fn resource_modifiers_mut(&mut self) -> &mut Modifiers {
-        &mut self.modifiers
-    }
 }
 
 impl ElementExt for Element {

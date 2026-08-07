@@ -9,7 +9,7 @@
 //! 3. No `windows-reactor:` diagnostic warnings are emitted.
 
 use windows_reactor::{Canvas, Color, Element, RelativePanel};
-use windows_reactor::{ElementExt, button, text_block};
+use windows_reactor::{ElementExt, LayoutExt, button, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;

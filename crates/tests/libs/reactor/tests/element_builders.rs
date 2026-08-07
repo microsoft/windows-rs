@@ -1,6 +1,6 @@
 use windows_reactor::grid;
 use windows_reactor::{Element, GridLength, ScrollBarVisibility, Thickness};
-use windows_reactor::{ElementExt, check_box, scroll_viewer, text_block, text_box};
+use windows_reactor::{ElementExt, LayoutExt, check_box, scroll_viewer, text_block, text_box};
 
 #[test]
 fn check_box_default_state() {

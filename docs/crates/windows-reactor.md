@@ -127,12 +127,11 @@ catalog](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor
 changing, or removing that key updates the existing native `TabViewItem`; removing it also clears
 the WinUI `Tag` instead of retaining stale callback identity. See the `tab_view_item_key` sample.
 
-Layout and appearance modifiers are available on concrete widget builders through `ElementExt`:
-`.margin(..)`, `.padding(..)`, `.width(..)`, `.height(..)`, `.horizontal_alignment(..)`,
-`.vertical_alignment(..)` (with `HorizontalAlignment` and `VerticalAlignment`), `.background(..)`,
-`.foreground(..)`, `.opacity(..)`, and transition helpers such as `.with_opacity_transition(..)`.
-Apply them before converting the builder into `Element`. Spacing values use `Thickness` (with
-`Thickness::uniform(..)`).
+Framework layout modifiers are available on concrete widget builders through `LayoutExt`:
+`.margin(..)`, `.width(..)`, `.height(..)`, minimum/maximum dimensions, and horizontal/vertical
+alignment. Appearance, input, animation, and attached-property modifiers remain on `ElementExt`
+while those capability families are classified. Apply modifiers before converting the builder into
+`Element`. Spacing values use `Thickness` (with `Thickness::uniform(..)`).
 
 `transition(enter, exit)` runs lifecycle animations when an element enters or leaves the WinUI
 visual tree. The logical Reactor element is removed synchronously; WinUI Composition retains its
@@ -538,7 +537,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
 | Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
-| Typed element API and fragments | Started; resources require a concrete widget capability |
+| Typed element API and fragments | Resource and layout capabilities require concrete widgets |
 | Full mounted ownership evaluation | Complete |
 
 ### Invariants
@@ -779,8 +778,9 @@ visual samples. Typed public wrappers are now the active phase.
 ### Typed element API
 
 The erased `ElementExt` surface allows some modifier calls that compile but cannot affect a native
-element. The first capability slice moves resource dictionaries to sealed `ResourceExt`, which is
-implemented by concrete native widget builders but not by erased `Element` or logical wrappers:
+element. Resource dictionaries now use sealed `ResourceExt`, and framework layout uses sealed
+`LayoutExt`. Both are implemented by concrete native widget builders but not by erased `Element`
+or logical wrappers:
 
 ```rust,compile_fail
 # use windows_reactor::*;
@@ -788,18 +788,33 @@ let element: Element = button("Delete").into();
 element.resources([("ButtonBackground", "Red")]);
 ```
 
-Apply the capability before erasure:
+The same boundary applies to layout:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = button("Save").into();
+element.width(100.0);
+```
+
+Apply capabilities before erasure:
 
 ```rust
 # use windows_reactor::*;
 let element: Element = button("Delete")
     .resources([("ButtonBackground", "Red")])
+    .width(100.0)
     .into();
 # let _ = element;
 ```
 
+The widget enum declaration now emits `ElementExt`, `ResourceExt`, and `LayoutExt`
+implementations from one widget list. This removed a duplicated list that had omitted 13 newer
+widgets, including `AutoSuggestBox`, date/time pickers, split buttons, and menu/list controls.
+Future capability traits must use the same declaration rather than maintaining parallel coverage
+tables.
+
 The remaining modifier families still use `ElementExt` while they are classified. The target is
-for constructors to retain a concrete wrapper until insertion:
+for logical constructors to retain a concrete wrapper until insertion:
 
 ```rust,ignore
 component(app, ()) -> ComponentElement<App>

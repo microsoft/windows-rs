@@ -25,7 +25,9 @@ use windows_reactor::{
     RadioButton, Shape, Slider, TabItem, TabView, ToggleSwitch,
 };
 use windows_reactor::{Color, Element, GridLength};
-use windows_reactor::{ElementExt, border, button, check_box, scroll_viewer, text_block, text_box};
+use windows_reactor::{
+    ElementExt, LayoutExt, border, button, check_box, scroll_viewer, text_block, text_box,
+};
 use windows_reactor::{RichTextBlock, RichTextInline, RichTextRun};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
