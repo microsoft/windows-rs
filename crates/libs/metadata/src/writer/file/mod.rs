@@ -74,6 +74,12 @@ impl File {
         reader::Index::new(vec![self.finish()])
     }
 
+    /// Finalizes this writer while returning the reference index used during encoding.
+    pub fn into_stream_and_reference(mut self) -> (Vec<u8>, Option<reader::Index>) {
+        let reference = self.reference.take();
+        (self.into_stream(), reference)
+    }
+
     /// Sets the reference index used to resolve external `TypeRef` scopes.
     pub fn set_reference(&mut self, reference: reader::Index) {
         self.reference = Some(reference);

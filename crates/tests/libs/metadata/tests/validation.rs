@@ -344,6 +344,163 @@ fn duplicate_interface_implementations_are_rejected() {
 }
 
 #[test]
+fn attribute_multiplicity_is_validated() {
+    let mut reference = writer::File::new("reference");
+    let system_attribute = reference.TypeRef("System", "Attribute");
+    let attribute_targets = TypeName::named("Windows.Foundation.Metadata", "AttributeTargets");
+
+    reference.TypeDef(
+        "Windows.Foundation.Metadata",
+        "AttributeUsageAttribute",
+        writer::TypeDefOrRef::TypeRef(system_attribute),
+        TypeAttributes::Public,
+    );
+    let usage_ref = reference.TypeRef("Windows.Foundation.Metadata", "AttributeUsageAttribute");
+    let usage_ctor = reference.MemberRef(
+        ".ctor",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            return_type: Type::Void,
+            types: vec![Type::ValueName(attribute_targets.clone())],
+        },
+        writer::MemberRefParent::TypeRef(usage_ref),
+    );
+    reference.TypeDef(
+        "Windows.Foundation.Metadata",
+        "AllowMultipleAttribute",
+        writer::TypeDefOrRef::TypeRef(system_attribute),
+        TypeAttributes::Public,
+    );
+    let allow_multiple_ref =
+        reference.TypeRef("Windows.Foundation.Metadata", "AllowMultipleAttribute");
+    let allow_multiple_ctor = reference.MemberRef(
+        ".ctor",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            return_type: Type::Void,
+            ..Default::default()
+        },
+        writer::MemberRefParent::TypeRef(allow_multiple_ref),
+    );
+
+    let method_only = reference.TypeDef(
+        "Test",
+        "MethodOnlyAttribute",
+        writer::TypeDefOrRef::TypeRef(system_attribute),
+        TypeAttributes::Public,
+    );
+    reference.Attribute(
+        writer::HasAttribute::TypeDef(method_only),
+        writer::AttributeType::MemberRef(usage_ctor),
+        &[(
+            String::new(),
+            Value::EnumValue(attribute_targets, Box::new(Value::I32(64))),
+        )],
+    );
+    let repeatable = reference.TypeDef(
+        "Test",
+        "RepeatableAttribute",
+        writer::TypeDefOrRef::TypeRef(system_attribute),
+        TypeAttributes::Public,
+    );
+    reference.Attribute(
+        writer::HasAttribute::TypeDef(repeatable),
+        writer::AttributeType::MemberRef(usage_ctor),
+        &[(
+            String::new(),
+            Value::EnumValue(
+                TypeName::named("Windows.Foundation.Metadata", "AttributeTargets"),
+                Box::new(Value::I32(64)),
+            ),
+        )],
+    );
+    reference.Attribute(
+        writer::HasAttribute::TypeDef(repeatable),
+        writer::AttributeType::MemberRef(allow_multiple_ctor),
+        &[],
+    );
+    reference.TypeDef(
+        "Test",
+        "UnspecifiedAttribute",
+        writer::TypeDefOrRef::TypeRef(system_attribute),
+        TypeAttributes::Public,
+    );
+    let reference = index(reference);
+
+    let mut file = writer::File::new("test");
+    let method_only_ref = file.TypeRef("Test", "MethodOnlyAttribute");
+    let method_only_ctor = file.MemberRef(
+        ".ctor",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            return_type: Type::Void,
+            ..Default::default()
+        },
+        writer::MemberRefParent::TypeRef(method_only_ref),
+    );
+    let repeatable_ref = file.TypeRef("Test", "RepeatableAttribute");
+    let repeatable_ctor = file.MemberRef(
+        ".ctor",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            return_type: Type::Void,
+            ..Default::default()
+        },
+        writer::MemberRefParent::TypeRef(repeatable_ref),
+    );
+    let unspecified_ref = file.TypeRef("Test", "UnspecifiedAttribute");
+    let unspecified_ctor = file.MemberRef(
+        ".ctor",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            return_type: Type::Void,
+            ..Default::default()
+        },
+        writer::MemberRefParent::TypeRef(unspecified_ref),
+    );
+    file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public,
+    );
+    let field = file.Field("Value", &Type::I32, FieldAttributes::Public);
+    let expected_parent = field.row_id(0);
+    for _ in 0..2 {
+        file.Attribute(
+            writer::HasAttribute::Field(field),
+            writer::AttributeType::MemberRef(method_only_ctor),
+            &[],
+        );
+        file.Attribute(
+            writer::HasAttribute::Field(field),
+            writer::AttributeType::MemberRef(repeatable_ctor),
+            &[],
+        );
+        file.Attribute(
+            writer::HasAttribute::Field(field),
+            writer::AttributeType::MemberRef(unspecified_ctor),
+            &[],
+        );
+    }
+
+    let output = index(file);
+    assert!(validator::validate(&output).is_empty());
+
+    let errors = validator::validate_with_references(&output, &reference);
+    assert_eq!(errors.len(), 1);
+    assert_eq!(
+        errors[0].message(),
+        "duplicate attribute `Test.MethodOnlyAttribute`"
+    );
+    assert_eq!(
+        errors[0].category(),
+        validator::ValidationCategory::Duplicate
+    );
+    assert_eq!(errors[0].related(), Some(expected_parent));
+}
+
+#[test]
 fn invalid_method_semantics_are_rejected() {
     let mut file = writer::File::new("test");
     let ty = file.TypeDef(

@@ -95,9 +95,14 @@ through `attributes()` because each projection validates different public-surfac
 `validator::validate` checks a `reader::Index` independently of any source language. The current
 rules reject overlapping duplicate type, field, method, property, and event identities, malformed
 `Param.Sequence` associations, invalid method semantics, duplicate singleton accessors, malformed
-property/event ownership, and invalid or duplicate layout rows. Architecture-specific copies are
-allowed when their `SupportedArchitectureAttribute` masks do not overlap. Split property and event
-rows with complementary accessors are also valid WinMD.
+property/event ownership, invalid or duplicate layout rows, and duplicate custom attributes whose
+local definitions explicitly declare `AttributeUsageAttribute` without `AllowMultipleAttribute`.
+Definitions without an explicit usage contract and referenced definitions outside the validated
+index have unknown multiplicity. `validate_with_references` accepts a separate reference index for
+definition lookup without treating referenced types as authored output or reporting false
+duplicate types. Architecture-specific copies are allowed when their
+`SupportedArchitectureAttribute` masks do not overlap. Split property and event rows with
+complementary accessors are also valid WinMD.
 
 Every reader row exposes a `RowId` containing its file, ECMA-335 `TableId`, and row positions.
 Validation errors carry the primary row and an optional related row. Writer handles for tables
@@ -106,9 +111,17 @@ those identities to source locations without storing source paths or line number
 Sorted and deferred tables do not expose this conversion because their final row positions can
 change.
 
-The validator will grow to cover remaining table ownership, custom attribute usage, signatures,
-and WinRT profile rules. Merge, remap, and RDL lowering should use the same validator rather than
-maintaining separate interpretations of ECMA-335.
+`AttributeUsageAttribute` target masks are not base metadata validity rules. The committed Windows
+metadata applies `ApiContractAttribute` to structs despite its Enum target declaration and applies
+`ContractVersionAttribute` to API contracts despite excluding that target from its mask. Any
+target policy therefore needs an explicit Windows profile with rules for these established
+conventions. The validator will grow to cover remaining table ownership, custom attribute
+structure, signatures, and profile rules. Merge, remap, and RDL lowering should use the same
+validator rather than maintaining separate interpretations of ECMA-335.
+
+`writer::File::into_stream_and_reference` returns finalized bytes together with the reference index
+used during encoding. Metadata producers such as RDL can therefore validate the output with its
+reference context without copying or merging the reference files.
 
 ### Property and event association
 

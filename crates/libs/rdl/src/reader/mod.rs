@@ -394,12 +394,16 @@ fn encode(
         }
     }
 
-    let bytes = output.into_stream();
+    let (bytes, reference) = output.into_stream_and_reference();
     let file = metadata::reader::File::new(bytes.clone()).unwrap();
-    let validation = metadata::validator::validate(&metadata::reader::Index::new(vec![file]))
-        .into_iter()
-        .map(|error| origins.error(error))
-        .collect();
+    let output = metadata::reader::Index::new(vec![file]);
+    let validation = match reference {
+        Some(reference) => metadata::validator::validate_with_references(&output, &reference),
+        None => metadata::validator::validate(&output),
+    }
+    .into_iter()
+    .map(|error| origins.error(error))
+    .collect();
 
     Ok((bytes, validation))
 }

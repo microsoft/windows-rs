@@ -1,7 +1,7 @@
 use crate::reader::{self, AsRow, HasAttributes, RowId};
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
-/// A metadata validation failure associated with one row and, when applicable, an earlier row.
+/// A metadata validation failure associated with one row and, when applicable, a related row.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct ValidationError {
     category: ValidationCategory,
@@ -44,7 +44,23 @@ impl std::error::Error for ValidationError {}
 
 /// Validates metadata identities and associations exposed by [`reader::Index`].
 pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
+    validate_impl(index, None)
+}
+
+/// Validates metadata while resolving external definitions from a separate reference index.
+pub fn validate_with_references(
+    index: &reader::Index,
+    references: &reader::Index,
+) -> Vec<ValidationError> {
+    validate_impl(index, Some(references))
+}
+
+fn validate_impl(
+    index: &reader::Index,
+    references: Option<&reader::Index>,
+) -> Vec<ValidationError> {
     let mut errors = vec![];
+    validate_attributes(index, references, &mut errors);
     validate_property_maps(index, &mut errors);
     validate_event_maps(index, &mut errors);
     validate_layouts(index, &mut errors);
@@ -80,6 +96,76 @@ pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
     }
 
     errors
+}
+
+fn validate_attributes(
+    index: &reader::Index,
+    references: Option<&reader::Index>,
+    errors: &mut Vec<ValidationError>,
+) {
+    let mut applied = HashSet::new();
+
+    for attribute in index.attributes() {
+        let Some(definition) = attribute_definition(index, references, attribute) else {
+            continue;
+        };
+        if !definition.has_attribute("AttributeUsageAttribute") {
+            continue;
+        }
+        let Some(parent) = attribute_parent(attribute.parent()) else {
+            continue;
+        };
+
+        let key = (
+            parent,
+            definition.namespace().to_string(),
+            definition.name().to_string(),
+        );
+        if !applied.insert(key) && !definition.has_attribute("AllowMultipleAttribute") {
+            errors.push(ValidationError {
+                category: ValidationCategory::Duplicate,
+                message: format!(
+                    "duplicate attribute `{}.{}`",
+                    definition.namespace(),
+                    definition.name()
+                ),
+                row: attribute.row_id(),
+                related: Some(parent),
+            });
+        }
+    }
+}
+
+fn attribute_definition<'a>(
+    index: &'a reader::Index,
+    references: Option<&'a reader::Index>,
+    attribute: reader::Attribute<'a>,
+) -> Option<reader::TypeDef<'a>> {
+    let parent = attribute.ctor().parent();
+    let mut definitions = index.get(parent.namespace(), parent.name());
+    if let Some(definition) = definitions.next() {
+        return definitions.next().is_none().then_some(definition);
+    }
+
+    let mut definitions = references?.get(parent.namespace(), parent.name());
+    let definition = definitions.next()?;
+    definitions.next().is_none().then_some(definition)
+}
+
+fn attribute_parent(parent: reader::HasAttribute<'_>) -> Option<RowId> {
+    Some(match parent {
+        reader::HasAttribute::TypeDef(row) => row.row_id(),
+        reader::HasAttribute::Event(row) => row.row_id(),
+        reader::HasAttribute::Field(row) => row.row_id(),
+        reader::HasAttribute::MethodDef(row) => row.row_id(),
+        reader::HasAttribute::MethodParam(row) => row.row_id(),
+        reader::HasAttribute::Property(row) => row.row_id(),
+        reader::HasAttribute::InterfaceImpl(row) => row.row_id(),
+        reader::HasAttribute::TypeRef(_)
+        | reader::HasAttribute::MemberRef(_)
+        | reader::HasAttribute::TypeSpec(_)
+        | reader::HasAttribute::GenericParam(_) => return None,
+    })
 }
 
 fn validate_type_members(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {

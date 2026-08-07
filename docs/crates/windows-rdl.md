@@ -465,7 +465,9 @@ Initial validation work:
    constants, functions, architecture variants, and parameter names.
 3. Replaced: keep shared name resolution, but lower resolved declarations into the metadata builder
    rather than constructing a parallel resolved declaration tree.
-4. Add target validation for every built-in and metadata-defined attribute.
+4. Add structural custom-attribute validation. Do not enforce `AttributeUsageAttribute` target
+   masks as base metadata validity: the committed Windows metadata uses API-contract attributes
+   outside their declared masks. Target policy requires an explicit Windows profile.
 5. Done: add checks for parsed syntax that is currently ignored or not represented, including
    attributes on event shorthand, method generics, and variadic interface methods.
 6. Done: run the validator over the committed WinRT, Win32, and WDK RDL as a compatibility
@@ -738,8 +740,10 @@ The next phase should proceed in this order:
    field, method, property, event, map, layout, and generated accessor rows are mapped and shared
    validation runs after encoding. Sorted rows use their mapped association as the diagnostic
    location because their row positions are assigned during finalization.
-5. Move duplicate, attribute-target, profile, signature, layout, and association checks onto the
-   shared metadata validator where ECMA-335 represents the fact.
+5. Move duplicate, custom-attribute structure, profile, signature, layout, and association checks
+   onto the shared metadata validator where ECMA-335 represents the fact. Attribute multiplicity
+   is now checked for local definitions with explicit usage contracts; target masks remain a
+   profile decision.
 6. Implement explicit overload authoring as transparent metadata lowering after this boundary is
    stable.
 7. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete
