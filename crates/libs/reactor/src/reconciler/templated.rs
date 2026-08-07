@@ -511,42 +511,20 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn dispatch_appeared(&mut self, id: ControlId) {
-        if self.appeared_listener_count == 0 {
-            return;
-        }
         let subtree = self.collect_subtree_ids(id);
         for node in subtree {
-            if let Some(node_ids) = self.components_by_control.get(&node) {
-                for node_id in node_ids.as_slice().iter().rev() {
-                    if let Some(inst) = self.component_instances.get_mut(node_id)
-                        && inst.last_obj.has_on_appeared()
-                    {
-                        inst.render_cx
-                            .set_context_stack(Rc::clone(&self.host.context_stack));
-                        inst.last_obj.invoke_appeared(&mut inst.render_cx);
-                    }
-                }
-            }
+            self.tree
+                .logical
+                .dispatch_appeared(node, &self.host.context_stack);
         }
     }
 
     fn dispatch_disappeared(&mut self, id: ControlId) {
-        if self.disappeared_listener_count == 0 {
-            return;
-        }
         let subtree = self.collect_subtree_ids(id);
         for node in subtree {
-            if let Some(node_ids) = self.components_by_control.get(&node) {
-                for node_id in node_ids.as_slice() {
-                    if let Some(inst) = self.component_instances.get_mut(node_id)
-                        && inst.last_obj.has_on_disappeared()
-                    {
-                        inst.render_cx
-                            .set_context_stack(Rc::clone(&self.host.context_stack));
-                        inst.last_obj.invoke_disappeared(&mut inst.render_cx);
-                    }
-                }
-            }
+            self.tree
+                .logical
+                .dispatch_disappeared(node, &self.host.context_stack);
         }
     }
 

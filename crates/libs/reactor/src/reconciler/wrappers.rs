@@ -7,7 +7,7 @@ use rustc_hash::{FxHashMap, FxHashSet};
 impl<B: Backend + 'static> Reconciler<B> {
     pub fn mount_component(&mut self, ce: &ComponentElement) -> Option<ControlId> {
         let node_id = self.allocate_logical_node_id();
-        let parent = self.active_logical_parent.get();
+        let parent = self.tree.logical.active_parent();
         let mut cx = RenderCx::new(Rc::clone(&self.host.request_rerender));
         cx.set_context_stack(self.context_stack_handle());
         cx.set_marshaller(self.host.marshaller.clone());
@@ -49,14 +49,15 @@ impl<B: Backend + 'static> Reconciler<B> {
             return self.mount_component(new);
         }
 
-        let parent = self.active_logical_parent.get();
+        let parent = self.tree.logical.active_parent();
         let Some(node_id) = self.current_component_node(id) else {
             return self.mount_component(new);
         };
         let forced = self.pass.forced_nodes.contains(&node_id);
         let state_dirty = self
-            .component_instances
-            .get(&node_id)
+            .tree
+            .logical
+            .instance(node_id)
             .is_some_and(|inst| inst.render_cx.take_state_dirty());
         let needs_update = if forced || state_dirty {
             true
@@ -67,11 +68,9 @@ impl<B: Backend + 'static> Reconciler<B> {
         };
 
         if !needs_update {
-            if let Some(inst) = self.component_instances.get_mut(&node_id) {
-                inst.last_obj = Rc::clone(&new.obj);
-                inst.parent = parent;
-                inst.native_root = id;
-            }
+            self.tree
+                .logical
+                .refresh_instance(node_id, Rc::clone(&new.obj), parent, id);
             return Some(id);
         }
 

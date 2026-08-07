@@ -524,6 +524,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Dirty descendant behind memoized widget root | Regression, fix, benchmark, and sample added |
 | Context subscriber behind memoized widget root | Regression and fix added |
 | Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
+| Logical component ownership | Instances, projections, IDs, parent scope, and listeners share one owner |
 | Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
 | Reconciler state consolidation review | Complete; mounted ownership model planned |
 | Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
@@ -661,6 +662,14 @@ mount/unmount case dropped from 18,076 bytes and 281 allocations to 17,568 bytes
 allocations; the 512-node case dropped from 144,340 bytes and 2,085 allocations to 140,248 bytes
 and 2,069 allocations.
 
+Component ownership is now grouped in `MountedLogicalTree` under `MountedTree`. It owns component
+instances, native projections, logical ID allocation, the active logical parent scope, lifecycle
+listener counts, projection transfer, and appeared/disappeared dispatch. `Reconciler` no longer
+contains four component identity fields plus two listener counters, and component registration or
+removal cannot update a projection without updating listener accounting through the same owner.
+This grouping is output-neutral: the headless allocation counts remain unchanged from the compact
+teardown baseline.
+
 The existing side state should move as follows:
 
 | Current state | Intended owner |
@@ -718,10 +727,11 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 Every consolidation step must state which fields and special-case branches it deletes. A new
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
-Steps 1-3 and 6 are complete. Child and slot storage remains sparse inside `MountedTree` rather
-than adding optional fields to every native node. The next slice begins step 4 by moving component
-projection and lifecycle access behind mounted logical-node operations. Provider, error-boundary,
-and custom state follow only after component ownership has one measured path.
+Steps 1-3 and 6 are complete. The component portion of step 4 is complete. Child and slot storage
+remains sparse inside `MountedTree` rather than adding optional fields to every native node. The
+next slice defines logical node kinds for providers and error boundaries instead of adding more
+parallel maps. Custom handles remain native-node auxiliary state because they own a native control,
+but their teardown should move behind the same mounted-node operation.
 
 ### Typed element API
 
