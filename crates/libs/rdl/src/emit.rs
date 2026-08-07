@@ -144,6 +144,10 @@ pub fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 pub fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
     match value {
         metadata::Value::Bool(value) => quote! { #value },
+        metadata::Value::Char(value) => {
+            let literal = Literal::u16_unsuffixed(*value);
+            quote! { #literal }
+        }
         metadata::Value::U8(value) => {
             let literal = Literal::u8_unsuffixed(*value);
             quote! { #literal }

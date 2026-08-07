@@ -405,30 +405,28 @@ impl Encoder<'_> {
                 }
                 if self.enum_is_flags(tn) {
                     if let Some(names) = collect_bitor_variants(value) {
-                        let mut combined: i32 = 0;
+                        let Some(underlying) = self.enum_underlying_type(tn) else {
+                            return self.err(value, "enum backing type not found");
+                        };
+                        let mut combined = 0;
                         for name in &names {
                             let inner = self.find_enum_variant_value(tn, name, value)?;
-                            let metadata::Value::I32(v) = inner else {
+                            let Some(bits) = inner.integer_bits() else {
                                 return self
                                     .err(value, &format!("expected `{}` variant name", tn.name));
                             };
-                            combined |= v;
+                            combined |= bits;
                         }
-                        return Ok(metadata::Value::EnumValue(
-                            tn.clone(),
-                            Box::new(metadata::Value::I32(combined)),
-                        ));
+                        let Some(combined) = metadata::Value::from_integer(&underlying, combined)
+                        else {
+                            return self.err(value, "invalid enum backing type");
+                        };
+                        return Ok(metadata::Value::EnumValue(tn.clone(), Box::new(combined)));
                     }
-                    if let syn::Expr::Lit(syn::ExprLit {
-                        lit: syn::Lit::Int(int),
-                        ..
-                    }) = value
-                        && let Ok(v) = int.base10_parse::<i32>()
+                    if let Some(underlying) = self.enum_underlying_type(tn)
+                        && let Ok(value) = self.encode_value(&underlying, value)
                     {
-                        return Ok(metadata::Value::EnumValue(
-                            tn.clone(),
-                            Box::new(metadata::Value::I32(v)),
-                        ));
+                        return Ok(metadata::Value::EnumValue(tn.clone(), Box::new(value)));
                     }
                 }
                 self.err(value, &format!("expected `{}` variant name", tn.name))
@@ -460,6 +458,20 @@ impl Encoder<'_> {
         false
     }
 
+    fn enum_underlying_type(&self, tn: &metadata::TypeName) -> Option<metadata::Type> {
+        self.output
+            .reference()
+            .and_then(|reference| {
+                let mut definitions = reference.get(&tn.namespace, &tn.name);
+                let definition = definitions.next()?;
+                definitions
+                    .next()
+                    .is_none()
+                    .then(|| definition.underlying_type())?
+            })
+            .or_else(|| self.rdl_underlying_type(&tn.namespace, &tn.name))
+    }
+
     fn find_enum_variant_value(
         &self,
         tn: &metadata::TypeName,
@@ -474,16 +486,14 @@ impl Encoder<'_> {
                             && field.name() == variant_name
                             && let Some(constant) = field.constant()
                         {
-                            return Ok(match constant.value() {
-                                metadata::Value::I32(v) => metadata::Value::I32(v),
-                                metadata::Value::U32(v) => metadata::Value::I32(v as i32),
-                                other => {
-                                    return self.err(
-                                        spanned,
-                                        &format!("unsupported enum constant type: {other:?}"),
-                                    );
-                                }
-                            });
+                            let value = constant.value();
+                            if value.integer_bits().is_some() {
+                                return Ok(value);
+                            }
+                            return self.err(
+                                spanned,
+                                &format!("unsupported enum constant type: {value:?}"),
+                            );
                         }
                     }
                 }
@@ -498,16 +508,10 @@ impl Encoder<'_> {
                 if variant.ident == variant_name
                     && let Some((_, discriminant)) = &variant.discriminant
                 {
-                    let result = self
-                        .encode_value(&metadata::Type::I32, discriminant)
-                        .or_else(|_| {
-                            self.encode_value(&metadata::Type::U32, discriminant)
-                                .map(|v| match v {
-                                    metadata::Value::U32(n) => metadata::Value::I32(n as i32),
-                                    other => other,
-                                })
-                        });
-                    return result;
+                    let Some(underlying) = self.enum_underlying_type(tn) else {
+                        return self.err(spanned, "enum backing type not found");
+                    };
+                    return self.encode_value(&underlying, discriminant);
                 }
             }
         }

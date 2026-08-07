@@ -60,13 +60,33 @@ impl<'a> Attribute<'a> {
     }
 
     pub fn value(&self) -> Vec<(String, Value)> {
-        self.try_value().unwrap()
+        self.try_value_impl(None, true).unwrap()
     }
 
     pub fn try_value(&self) -> Result<Vec<(String, Value)>, AttributeValueError> {
+        self.try_value_impl(None, false)
+    }
+
+    pub fn try_value_with_references(
+        &self,
+        references: &Index,
+    ) -> Result<Vec<(String, Value)>, AttributeValueError> {
+        self.try_value_impl(Some(references), false)
+    }
+
+    fn try_value_impl(
+        &self,
+        references: Option<&Index>,
+        assume_i32_enums: bool,
+    ) -> Result<Vec<(String, Value)>, AttributeValueError> {
         let signature = self.ctor().signature(&[]);
         let mut values = Vec::with_capacity(signature.types.len());
-        let mut blob = AttributeBlob::new(self.value_blob());
+        let mut blob = AttributeBlob::new(
+            self.value_blob(),
+            self.to_row().index,
+            references,
+            assume_i32_enums,
+        );
 
         if blob.read_u16()? != 1 {
             return Err(blob.invalid_at(0, "invalid custom-attribute prolog"));
@@ -99,14 +119,28 @@ impl<'a> Attribute<'a> {
     }
 }
 
-struct AttributeBlob<'a> {
+struct AttributeBlob<'a, 'r> {
     bytes: &'a [u8],
+    index: &'a Index,
+    references: Option<&'r Index>,
+    assume_i32_enums: bool,
     offset: usize,
 }
 
-impl<'a> AttributeBlob<'a> {
-    fn new(bytes: &'a [u8]) -> Self {
-        Self { bytes, offset: 0 }
+impl<'a, 'r> AttributeBlob<'a, 'r> {
+    fn new(
+        bytes: &'a [u8],
+        index: &'a Index,
+        references: Option<&'r Index>,
+        assume_i32_enums: bool,
+    ) -> Self {
+        Self {
+            bytes,
+            index,
+            references,
+            assume_i32_enums,
+            offset: 0,
+        }
     }
 
     fn invalid(&self, message: &'static str) -> AttributeValueError {
@@ -250,6 +284,7 @@ impl<'a> AttributeBlob<'a> {
                 1 => Ok(Value::Bool(true)),
                 _ => Err(self.invalid_at(self.offset - 1, "invalid Boolean value")),
             },
+            Type::Char => Ok(Value::Char(self.read_u16()?)),
             Type::I8 => Ok(Value::I8(self.read_i8()?)),
             Type::U8 => Ok(Value::U8(self.read_u8()?)),
             Type::I16 => Ok(Value::I16(self.read_i16()?)),
@@ -266,16 +301,46 @@ impl<'a> AttributeBlob<'a> {
             Type::ClassName(tn) if tn == ("System", "Type") => Ok(Value::TypeName(type_name(
                 &self.read_string("null type names are not represented")?,
             ))),
-            Type::ValueName(tn) | Type::ClassName(tn) => Ok(Value::EnumValue(
-                tn.clone(),
-                Box::new(Value::I32(self.read_i32()?)),
-            )),
-            Type::Char => Err(self.unsupported("Char values are not represented")),
+            Type::ValueName(tn) | Type::ClassName(tn) => {
+                let ty = if let Some(ty) = self.enum_underlying_type(tn) {
+                    ty
+                } else if self.assume_i32_enums {
+                    Type::I32
+                } else {
+                    return Err(self.unsupported("enum backing type is unavailable"));
+                };
+                let value = match ty {
+                    Type::I8 => Value::I8(self.read_i8()?),
+                    Type::U8 => Value::U8(self.read_u8()?),
+                    Type::I16 => Value::I16(self.read_i16()?),
+                    Type::U16 => Value::U16(self.read_u16()?),
+                    Type::I32 => Value::I32(self.read_i32()?),
+                    Type::U32 => Value::U32(self.read_u32()?),
+                    Type::I64 => Value::I64(self.read_i64()?),
+                    Type::U64 => Value::U64(self.read_u64()?),
+                    _ => return Err(self.invalid("invalid enum backing type")),
+                };
+                Ok(Value::EnumValue(tn.clone(), Box::new(value)))
+            }
             Type::Object => Err(self.unsupported("boxed values are not represented")),
             Type::Array(_) => Err(self.unsupported("array values are not represented")),
             _ => Err(self.invalid("invalid custom-attribute parameter type")),
         }
     }
+
+    fn enum_underlying_type(&self, name: &TypeName) -> Option<Type> {
+        enum_underlying_type(self.index, name)
+            .or_else(|| enum_underlying_type(self.references?, name))
+    }
+}
+
+fn enum_underlying_type(index: &Index, name: &TypeName) -> Option<Type> {
+    let mut definitions = index.get(&name.namespace, &name.name);
+    let definition = definitions.next()?;
+    definitions
+        .next()
+        .is_none()
+        .then(|| definition.underlying_type())?
 }
 
 fn type_name(name: &str) -> TypeName {

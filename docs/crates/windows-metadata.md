@@ -137,8 +137,12 @@ custom-attribute arguments retain their field/property tag and exact serialized 
 
 `Attribute::value` is the trusted convenience wrapper over `try_value`, and the validator uses the
 same checked decoder. Merge and remap continue using the raw copy path. The remaining value-model
-work is to represent valid null strings, `Char`, boxed values, and arrays, and to resolve enum
-backing types instead of assuming `i32`.
+work is to represent valid null strings, boxed values, and arrays. ECMA `Char` values are preserved
+as UTF-16 `u16` code units rather than converted to Rust Unicode scalars. Enum values resolve their
+backing type from the authored index or `Validator` reference index; unresolved definitions are
+classified as unsupported by `try_value` rather than assumed to be `i32`. The trusted `value`
+convenience retains its historical `i32` fallback for callers that do not carry reference
+metadata.
 
 ### Property and event association
 

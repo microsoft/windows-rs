@@ -96,6 +96,7 @@ impl Write for Vec<u8> {
                     self.push(0);
                 }
             }
+            Value::Char(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::U8(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::I8(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::U16(value) => self.extend_from_slice(&value.to_le_bytes()),

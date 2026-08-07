@@ -780,29 +780,27 @@ fn write_enum_value(
     inner: &metadata::Value,
     index: &metadata::reader::Index,
 ) -> Result<TokenStream, Error> {
-    let inner_i32 = match inner {
-        metadata::Value::I32(n) => *n,
-        _ => return Ok(write_value(namespace, inner)),
+    let Some(inner_bits) = inner.integer_bits() else {
+        return Ok(write_value(namespace, inner));
     };
 
     let mut found_in_index = false;
     for typedef in index.get(&tn.namespace, &tn.name) {
         found_in_index = true;
         if typedef.category() == metadata::reader::TypeCategory::Enum {
+            let Some(width) = typedef.underlying_type().and_then(integer_width) else {
+                continue;
+            };
+            let target = mask_integer(inner_bits, width);
+
             for field in typedef.fields() {
                 if field.flags().contains(metadata::FieldAttributes::Literal)
                     && let Some(constant) = field.constant()
+                    && let Some(field_value) = constant.value().integer_bits()
+                    && mask_integer(field_value, width) == target
                 {
-                    let matches = match constant.value() {
-                        metadata::Value::I32(v) => v == inner_i32,
-                        // Attribute blobs carry enum values as signed integers.
-                        metadata::Value::U32(v) => v == inner_i32 as u32,
-                        _ => false,
-                    };
-                    if matches {
-                        let variant = write_ident(field.name());
-                        return Ok(quote! { #variant });
-                    }
+                    let variant = write_ident(field.name());
+                    return Ok(quote! { #variant });
                 }
             }
 
@@ -811,7 +809,7 @@ fn write_enum_value(
             });
 
             if has_flags
-                && let Some(flags_ts) = write_flags_combination(namespace, &typedef, inner_i32)
+                && let Some(flags_ts) = write_flags_combination(namespace, &typedef, target, width)
             {
                 return Ok(flags_ts);
             }
@@ -832,20 +830,17 @@ fn write_enum_value(
 fn write_flags_combination(
     _namespace: &str,
     typedef: &metadata::reader::TypeDef,
-    value: i32,
+    value: u64,
+    width: u32,
 ) -> Option<TokenStream> {
-    let mut fields: Vec<(String, i32)> = typedef
+    let mut fields: Vec<(String, u64)> = typedef
         .fields()
         .filter_map(|field| {
             if !field.flags().contains(metadata::FieldAttributes::Literal) {
                 return None;
             }
             let constant = field.constant()?;
-            let v = match constant.value() {
-                metadata::Value::I32(v) => v,
-                metadata::Value::U32(v) => v as i32,
-                _ => return None,
-            };
+            let v = mask_integer(constant.value().integer_bits()?, width);
             if v == 0 {
                 None
             } else {
@@ -855,7 +850,7 @@ fn write_flags_combination(
         .collect();
 
     // Prefer composite flags such as `All = 0xFFFFFFFF` over individual bits.
-    fields.sort_by_key(|b| std::cmp::Reverse(b.1 as u32));
+    fields.sort_by_key(|b| std::cmp::Reverse(b.1));
 
     let mut remaining = value;
     let mut components: Vec<String> = Vec::new();
@@ -882,6 +877,24 @@ fn write_flags_combination(
     });
 
     Some(result)
+}
+
+fn integer_width(ty: metadata::Type) -> Option<u32> {
+    match ty {
+        metadata::Type::I8 | metadata::Type::U8 => Some(8),
+        metadata::Type::I16 | metadata::Type::U16 => Some(16),
+        metadata::Type::I32 | metadata::Type::U32 => Some(32),
+        metadata::Type::I64 | metadata::Type::U64 => Some(64),
+        _ => None,
+    }
+}
+
+fn mask_integer(value: u64, width: u32) -> u64 {
+    if width == 64 {
+        value
+    } else {
+        value & ((1 << width) - 1)
+    }
 }
 
 /// Emits `#[arch(...)]` for a non-zero X86/X64/Arm64 bitmask.

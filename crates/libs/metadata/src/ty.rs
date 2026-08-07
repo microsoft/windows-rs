@@ -42,6 +42,7 @@ impl Type {
     pub fn code(&self) -> u8 {
         match self {
             Self::Bool => ELEMENT_TYPE_BOOLEAN,
+            Self::Char => ELEMENT_TYPE_CHAR,
             Self::U8 => ELEMENT_TYPE_U1,
             Self::I8 => ELEMENT_TYPE_I1,
             Self::U16 => ELEMENT_TYPE_U2,

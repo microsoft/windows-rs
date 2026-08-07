@@ -506,7 +506,8 @@ fn invalid_attribute_values_are_rejected() {
         &[1, 0, 65, 0, 0, 0],
     );
 
-    let errors = validator::validate(&index(file));
+    let index = index(file);
+    let errors = validator::validate(&index);
     assert_eq!(errors.len(), 4);
     assert_eq!(
         errors[0].message(),
@@ -528,6 +529,102 @@ fn invalid_attribute_values_are_rejected() {
         error.category() == validator::ValidationCategory::Invalid
             && error.related() == Some(expected_parent)
     }));
+
+    let character = index
+        .attributes()
+        .find(|attribute| attribute.name() == "CharacterAttribute")
+        .unwrap();
+    assert_eq!(
+        character.try_value().unwrap(),
+        [(String::new(), Value::Char(65))]
+    );
+}
+
+#[test]
+fn attribute_enum_values_use_reference_backing_types() {
+    let mut reference = writer::File::new("reference");
+    let system_enum = reference.TypeRef("System", "Enum");
+    reference.TypeDef(
+        "Test",
+        "SmallEnum",
+        writer::TypeDefOrRef::TypeRef(system_enum),
+        TypeAttributes::Public | TypeAttributes::Sealed,
+    );
+    reference.Field("value__", &Type::U8, FieldAttributes::Public);
+    let reference = index(reference);
+
+    let mut file = writer::File::new("test");
+    file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public,
+    );
+    let field = file.Field("Value", &Type::I32, FieldAttributes::Public);
+    let enum_name = TypeName::named("Test", "SmallEnum");
+    let ctor = attribute_ctor(
+        &mut file,
+        "EnumAttribute",
+        &Signature {
+            types: vec![Type::ValueName(enum_name.clone())],
+            ..Default::default()
+        },
+    );
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(ctor),
+        &[1, 0, 7, 0, 0],
+    );
+    let output = index(file);
+    let attribute = output.attributes().next().unwrap();
+
+    assert!(attribute.try_value().unwrap_err().is_unsupported());
+    assert_eq!(
+        attribute.try_value_with_references(&reference).unwrap(),
+        [(
+            String::new(),
+            Value::EnumValue(enum_name, Box::new(Value::U8(7)))
+        )]
+    );
+    assert!(
+        validator::Validator::new(&output)
+            .references(&reference)
+            .validate()
+            .is_empty()
+    );
+}
+
+#[test]
+fn attribute_char_values_preserve_utf16_code_units() {
+    let mut file = writer::File::new("test");
+    file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public,
+    );
+    let field = file.Field("Value", &Type::I32, FieldAttributes::Public);
+    let ctor = attribute_ctor(
+        &mut file,
+        "CharAttribute",
+        &Signature {
+            types: vec![Type::Char],
+            ..Default::default()
+        },
+    );
+    file.Attribute(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(ctor),
+        &[(String::new(), Value::Char(0xd800))],
+    );
+
+    let index = index(file);
+    let attribute = index.attributes().next().unwrap();
+    assert_eq!(
+        attribute.try_value().unwrap(),
+        [(String::new(), Value::Char(0xd800))]
+    );
+    assert!(validator::validate(&index).is_empty());
 }
 
 #[test]

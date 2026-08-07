@@ -751,9 +751,9 @@ The next phase should proceed in this order:
    reference indexes without merging them and is the boundary for future explicit profiles; target
    masks remain a profile decision. Constructor shape, calling convention, and the value-blob
    structure are now checked through one offset-reporting decoder shared by `Attribute::value` and
-   validation; merge/remap remain on the raw blob path. Null strings, `Char`, boxed values, and
-   arrays still need value-model representations, and enum decoding must resolve non-`i32` backing
-   types.
+   validation; merge/remap remain on the raw blob path. `Char` is represented as its UTF-16 code
+   unit. Null strings, boxed values, and arrays still need value-model representations. Enum
+   decoding now resolves non-`i32` backing types through the authored or reference metadata index.
 6. Implement explicit overload authoring as transparent metadata lowering after this boundary is
    stable.
 7. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete

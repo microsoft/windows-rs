@@ -122,7 +122,7 @@ fn validate_attributes(
     let mut applied = HashSet::new();
 
     for attribute in index.attributes() {
-        validate_attribute_constructor(attribute, errors);
+        validate_attribute_constructor(attribute, references, errors);
 
         let Some(definition) = attribute_definition(index, references, attribute) else {
             continue;
@@ -156,6 +156,7 @@ fn validate_attributes(
 
 fn validate_attribute_constructor(
     attribute: reader::Attribute<'_>,
+    references: Option<&reader::Index>,
     errors: &mut Vec<ValidationError>,
 ) {
     let ctor = attribute.ctor();
@@ -216,7 +217,12 @@ fn validate_attribute_constructor(
         });
     }
 
-    if let Err(error) = attribute.try_value()
+    let value = match references {
+        Some(references) => attribute.try_value_with_references(references),
+        None => attribute.try_value(),
+    };
+
+    if let Err(error) = value
         && !error.is_unsupported()
     {
         errors.push(ValidationError {

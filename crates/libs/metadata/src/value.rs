@@ -3,6 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Clone)]
 pub enum Value {
     Bool(bool),
+    Char(u16),
     U8(u8),
     I8(i8),
     U16(u16),
@@ -25,6 +26,7 @@ impl Value {
     pub fn ty(&self) -> Type {
         match self {
             Self::Bool(..) => Type::Bool,
+            Self::Char(..) => Type::Char,
             Self::U8(..) => Type::U8,
             Self::I8(..) => Type::I8,
             Self::U16(..) => Type::U16,
@@ -40,6 +42,34 @@ impl Value {
             Self::Utf8(..) | Self::Utf16(..) => Type::String,
             Self::TypeName(..) => Type::ClassName(TypeName::named("System", "Type")),
             Self::EnumValue(tn, _) => Type::ValueName(tn.clone()),
+        }
+    }
+
+    pub fn integer_bits(&self) -> Option<u64> {
+        match self {
+            Self::I8(value) => Some(*value as u64),
+            Self::U8(value) => Some((*value).into()),
+            Self::I16(value) => Some(*value as u64),
+            Self::U16(value) => Some((*value).into()),
+            Self::I32(value) => Some(*value as u64),
+            Self::U32(value) => Some((*value).into()),
+            Self::I64(value) => Some(*value as u64),
+            Self::U64(value) => Some(*value),
+            _ => None,
+        }
+    }
+
+    pub fn from_integer(ty: &Type, value: u64) -> Option<Self> {
+        match ty {
+            Type::I8 => Some(Self::I8(value as i8)),
+            Type::U8 => Some(Self::U8(value as u8)),
+            Type::I16 => Some(Self::I16(value as i16)),
+            Type::U16 => Some(Self::U16(value as u16)),
+            Type::I32 => Some(Self::I32(value as i32)),
+            Type::U32 => Some(Self::U32(value as u32)),
+            Type::I64 => Some(Self::I64(value as i64)),
+            Type::U64 => Some(Self::U64(value)),
+            _ => None,
         }
     }
 }

@@ -942,6 +942,7 @@ impl Encoder<'_> {
         }
 
         let value = match ty {
+            metadata::Type::Char => metadata::Value::Char(self.encode_lit_uint(value, 16)? as u16),
             metadata::Type::I8 => metadata::Value::I8(self.encode_lit_sint(value, 8)? as i8),
             metadata::Type::U8 => metadata::Value::U8(self.encode_lit_uint(value, 8)? as u8),
             metadata::Type::I16 => metadata::Value::I16(self.encode_lit_sint(value, 16)? as i16),
