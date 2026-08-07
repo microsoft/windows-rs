@@ -524,10 +524,10 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Dirty descendant behind memoized widget root | Regression, fix, benchmark, and sample added |
 | Context subscriber behind memoized widget root | Regression and fix added |
 | Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
-| Path-scoped dirty traversal | Global force flag removed; reusable pass scratch added |
+| Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
 | Reconciler state consolidation review | Complete; mounted ownership model planned |
 | Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
-| Native ownership consolidation | `MountedTree` now owns kind, children, header, and pane maps |
+| Native ownership consolidation | `MountedTree` owns kind, parent, children, header, and pane state |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
 | Typed element API and fragments | Not started |
 | Full mounted ownership evaluation | In progress |
@@ -539,6 +539,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Logical identity | Every mounted component, provider, and error boundary has a unique stable ID. |
 | Native identity | A `ControlId` identifies one native object and is not logical identity. |
 | Parentage | Every logical node has one logical parent, except the root. |
+| Native parentage | Every owned native node has one parent across children, slots, or realized rows. |
 | Dirty state | A state write marks its owner and the logical ancestor path. |
 | Skipping | A node is skipped only when it and all logical descendants are clean. |
 | Ownership | Hooks, effects, contexts, rendered output, and cleanup belong to their logical node. |
@@ -638,6 +639,13 @@ keyed-diff buffers. `HostContext` should contain the dispatcher-facing rerender 
 marshaller, host ID, size, DPI, and context environment. `ReconcileStats` should contain counters
 only.
 
+`MountedTree` now records the native parent on the existing per-control node entry. Normal
+children, headers, panes, custom controls, and realized templated rows use the same parent
+invariant. Dirty components walk these links to the root, stopping when they reach an already
+forced ancestor. This makes dirty propagation proportional to path depth and removes the
+root-wide ownership scan and its traversal stack. The additional parent field does not add a map
+or allocation; the headless allocation counts remain unchanged.
+
 The existing side state should move as follows:
 
 | Current state | Intended owner |
@@ -694,6 +702,11 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 
 Every consolidation step must state which fields and special-case branches it deletes. A new
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
+
+Steps 1-2 are complete. Step 3 now has native node records and direct parent paths; child and slot
+storage remains sparse inside `MountedTree`. The next slice moves the remaining native ownership
+mutations and recursive teardown behind `MountedTree` operations before logical lifecycle state
+moves into node kinds.
 
 ### Typed element API
 

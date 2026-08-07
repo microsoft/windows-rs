@@ -190,6 +190,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             };
             for (row_idx, cid) in to_unmount {
                 self.backend.set_templated_row_content(id, row_idx, None);
+                self.tree.clear_parent(cid, id);
                 self.unmount(cid);
             }
             self.backend.set_templated_item_count(id, new_count);
@@ -315,6 +316,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         for content_id in dropped {
             self.dispatch_disappeared(content_id);
+            self.tree.clear_parent(content_id, id);
             self.unmount(content_id);
         }
 
@@ -335,6 +337,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             if let Some(row) = existing {
                 let new_id = self.update(&row.rendered, &new_el, row.content_id);
                 if let Some(content_id) = new_id {
+                    self.tree.set_parent(content_id, id);
                     if moved_into[row_idx] || content_id != row.content_id {
                         self.backend
                             .set_templated_row_content(id, row_idx, Some(content_id));
@@ -349,6 +352,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                     self.backend.set_templated_row_content(id, row_idx, None);
                 }
             } else if let Some(content_id) = self.mount(&new_el) {
+                self.tree.set_parent(content_id, id);
                 self.backend
                     .set_templated_row_content(id, row_idx, Some(content_id));
                 if let Some(state) = self.templated_lists.get_mut(&id) {
@@ -398,6 +402,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
             let new_id = self.update(&old_el, &new_el, content_id);
             if let Some(nid) = new_id {
+                self.tree.set_parent(nid, id);
                 if let Some(state) = self.templated_lists.get_mut(&id)
                     && let Some(slot) = state.rows.get_mut(row_idx)
                 {
@@ -460,6 +465,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             return;
         };
 
+        self.tree.set_parent(content_id, list_id);
         self.backend
             .set_templated_row_content(list_id, row_idx, Some(content_id));
         if let Some(state) = self.templated_lists.get_mut(&list_id) {
@@ -497,7 +503,9 @@ impl<B: Backend + 'static> Reconciler<B> {
     ) -> Option<ControlId> {
         let state = self.templated_lists.get_mut(&list_id)?;
         let row = state.rows.get_mut(row_idx)?;
-        row.take().map(|r| r.content_id)
+        let content_id = row.take().map(|r| r.content_id)?;
+        self.tree.clear_parent(content_id, list_id);
+        Some(content_id)
     }
 
     fn dispatch_appeared(&mut self, id: ControlId) {

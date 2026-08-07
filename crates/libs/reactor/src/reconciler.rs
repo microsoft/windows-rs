@@ -106,7 +106,6 @@ impl Drop for LogicalParentGuard {
 struct ReconcilePass {
     forced_nodes: rustc_hash::FxHashSet<LogicalNodeId>,
     forced_controls: rustc_hash::FxHashSet<ControlId>,
-    control_path_stack: Vec<(ControlId, bool)>,
 }
 
 struct HostContext {
@@ -134,9 +133,89 @@ impl HostContext {
 #[derive(Default)]
 struct MountedTree {
     children: FxHashMap<ControlId, Vec<ControlId>>,
-    kinds: FxHashMap<ControlId, ControlKind>,
+    nodes: FxHashMap<ControlId, MountedNativeNode>,
     headers: FxHashMap<ControlId, ControlId>,
     panes: FxHashMap<ControlId, ControlId>,
+}
+
+struct MountedNativeNode {
+    kind: Option<ControlKind>,
+    parent: Option<ControlId>,
+}
+
+impl MountedTree {
+    fn register(&mut self, id: ControlId, kind: Option<ControlKind>) {
+        if let Some(children) = self.children.remove(&id) {
+            for child in children {
+                self.clear_parent(child, id);
+            }
+        }
+        if let Some(header) = self.headers.remove(&id) {
+            self.clear_parent(header, id);
+        }
+        if let Some(pane) = self.panes.remove(&id) {
+            self.clear_parent(pane, id);
+        }
+        self.nodes
+            .insert(id, MountedNativeNode { kind, parent: None });
+    }
+
+    fn kind(&self, id: ControlId) -> Option<ControlKind> {
+        self.nodes.get(&id).and_then(|node| node.kind)
+    }
+
+    fn parent(&self, id: ControlId) -> Option<ControlId> {
+        self.nodes.get(&id).and_then(|node| node.parent)
+    }
+
+    fn set_parent(&mut self, child: ControlId, parent: ControlId) {
+        let node = self
+            .nodes
+            .get_mut(&child)
+            .expect("mounted child missing native node");
+        debug_assert!(
+            node.parent.is_none() || node.parent == Some(parent),
+            "native control {child:?} already owned by {:?}",
+            node.parent
+        );
+        node.parent = Some(parent);
+    }
+
+    fn clear_parent(&mut self, child: ControlId, parent: ControlId) {
+        if let Some(node) = self.nodes.get_mut(&child)
+            && node.parent == Some(parent)
+        {
+            node.parent = None;
+        }
+    }
+
+    fn set_header(&mut self, parent: ControlId, header: Option<ControlId>) {
+        if let Some(old) = self.headers.remove(&parent) {
+            self.clear_parent(old, parent);
+        }
+        if let Some(header) = header {
+            self.set_parent(header, parent);
+            self.headers.insert(parent, header);
+        }
+    }
+
+    fn header(&self, parent: ControlId) -> Option<ControlId> {
+        self.headers.get(&parent).copied()
+    }
+
+    fn set_pane(&mut self, parent: ControlId, pane: Option<ControlId>) {
+        if let Some(old) = self.panes.remove(&parent) {
+            self.clear_parent(old, parent);
+        }
+        if let Some(pane) = pane {
+            self.set_parent(pane, parent);
+            self.panes.insert(parent, pane);
+        }
+    }
+
+    fn pane(&self, parent: ControlId) -> Option<ControlId> {
+        self.panes.get(&parent).copied()
+    }
 }
 
 /// Diff/apply engine that drives a [`Backend`] from successive [`Element`] trees.
@@ -279,7 +358,13 @@ impl<B: Backend + 'static> Reconciler<B> {
                 break;
             };
             self.pass.forced_nodes.insert(id);
-            self.pass.forced_controls.insert(node.native_root);
+            let mut control = Some(node.native_root);
+            while let Some(id) = control {
+                if !self.pass.forced_controls.insert(id) {
+                    break;
+                }
+                control = self.tree.parent(id);
+            }
             current = node.parent;
         }
     }
@@ -287,66 +372,6 @@ impl<B: Backend + 'static> Reconciler<B> {
     fn add_forced_node_paths(&mut self, node_ids: impl IntoIterator<Item = LogicalNodeId>) {
         for node_id in node_ids {
             self.add_forced_node_path(node_id);
-        }
-    }
-
-    fn expand_forced_control_paths(&mut self, root_id: ControlId) {
-        if self.pass.forced_controls.is_empty() {
-            return;
-        }
-
-        self.pass.control_path_stack.clear();
-        self.pass.control_path_stack.push((root_id, false));
-        while let Some((id, visited)) = self.pass.control_path_stack.pop() {
-            if !visited {
-                self.pass.control_path_stack.push((id, true));
-                if let Some(children) = self.tree.children.get(&id) {
-                    self.pass
-                        .control_path_stack
-                        .extend(children.iter().rev().map(|child| (*child, false)));
-                }
-                if let Some(header) = self.tree.headers.get(&id) {
-                    self.pass.control_path_stack.push((*header, false));
-                }
-                if let Some(pane) = self.tree.panes.get(&id) {
-                    self.pass.control_path_stack.push((*pane, false));
-                }
-                if let Some(state) = self.templated_lists.get(&id) {
-                    self.pass.control_path_stack.extend(
-                        state
-                            .rows
-                            .iter()
-                            .rev()
-                            .filter_map(|row| row.as_ref().map(|row| (row.content_id, false))),
-                    );
-                }
-                continue;
-            }
-
-            let child_forced = self.tree.children.get(&id).is_some_and(|children| {
-                children
-                    .iter()
-                    .any(|child| self.pass.forced_controls.contains(child))
-            }) || self
-                .tree
-                .headers
-                .get(&id)
-                .is_some_and(|header| self.pass.forced_controls.contains(header))
-                || self
-                    .tree
-                    .panes
-                    .get(&id)
-                    .is_some_and(|pane| self.pass.forced_controls.contains(pane))
-                || self.templated_lists.get(&id).is_some_and(|state| {
-                    state
-                        .rows
-                        .iter()
-                        .flatten()
-                        .any(|row| self.pass.forced_controls.contains(&row.content_id))
-                });
-            if child_forced {
-                self.pass.forced_controls.insert(id);
-            }
         }
     }
 
@@ -375,9 +400,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.selection_callbacks.remove(&id);
         self.reorder_callbacks.remove(&id);
         self.error_boundary_fallbacks.remove(&id);
-        self.tree.children.remove(&id);
         self.custom_handles.remove(&id);
-        self.tree.kinds.insert(id, kind);
+        self.tree.register(id, Some(kind));
         id
     }
 
@@ -468,7 +492,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             (None, _) => self.mount(new),
             (Some(id), Some(old_el)) => {
                 let seeded = self.force_state_dirty_components();
-                self.expand_forced_control_paths(id);
                 let result = self.update(old_el, new, id);
                 debug_assert!(
                     seeded
@@ -631,14 +654,17 @@ impl<B: Backend + 'static> Reconciler<B> {
 
             if let Some(state) = self.templated_lists.remove(&node) {
                 for row in state.rows.into_iter().flatten() {
+                    self.tree.clear_parent(row.content_id, node);
                     self.unmount(row.content_id);
                 }
             }
 
-            if let Some(hdr_id) = self.tree.headers.remove(&node) {
+            if let Some(hdr_id) = self.tree.header(node) {
+                self.tree.set_header(node, None);
                 self.unmount(hdr_id);
             }
-            if let Some(pane_id) = self.tree.panes.remove(&node) {
+            if let Some(pane_id) = self.tree.pane(node) {
+                self.tree.set_pane(node, None);
                 self.unmount(pane_id);
             }
 
@@ -657,7 +683,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
 
             self.tree.children.remove(&node);
-            self.tree.kinds.remove(&node);
+            self.tree.nodes.remove(&node);
             self.backend.destroy(node);
         }
     }
@@ -675,24 +701,34 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
+        self.tree.set_parent(child, parent);
         self.tree.children.entry(parent).or_default().push(child);
         self.backend.append_child(parent, child);
     }
 
     pub fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
-        if let Some(list) = self.tree.children.get_mut(&parent)
-            && index < list.len()
-        {
-            list.remove(index);
+        let removed = self
+            .tree
+            .children
+            .get_mut(&parent)
+            .and_then(|list| (index < list.len()).then(|| list.remove(index)));
+        if let Some(child) = removed {
+            self.tree.clear_parent(child, parent);
         }
         self.backend.remove_child(parent, index);
     }
 
     pub fn replace_child_tracked(&mut self, parent: ControlId, index: usize, new: ControlId) {
-        if let Some(list) = self.tree.children.get_mut(&parent)
-            && index < list.len()
-        {
-            list[index] = new;
+        let replaced = self.tree.children.get_mut(&parent).and_then(|list| {
+            (index < list.len()).then(|| {
+                let old = list[index];
+                list[index] = new;
+                old
+            })
+        });
+        if let Some(old) = replaced {
+            self.tree.clear_parent(old, parent);
+            self.tree.set_parent(new, parent);
         }
         self.backend.replace_child(parent, index, new);
     }
@@ -712,6 +748,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn insert_child_tracked(&mut self, parent: ControlId, index: usize, child: ControlId) {
+        self.tree.set_parent(child, parent);
         let list = self.tree.children.entry(parent).or_default();
         let clamped = index.min(list.len());
         list.insert(clamped, child);
@@ -935,9 +972,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         if map.is_empty() {
             return;
         }
-        let kind = match self.tree.kinds.get(&id) {
-            Some(k) => *k,
-            None => return,
+        let Some(kind) = self.tree.kind(id) else {
+            return;
         };
         let bindings: Vec<(Prop, ThemeRef)> = map.iter().map(|(p, t)| (*p, t.clone())).collect();
         self.backend.set_theme_bindings(id, kind, &bindings);
@@ -1003,7 +1039,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.diff_opt_f64(id, Prop::FontSize, old.font_size, new.font_size);
 
         if old.theme_bindings != new.theme_bindings {
-            let kind = self.tree.kinds.get(&id).copied();
+            let kind = self.tree.kind(id);
             if let Some(kind) = kind {
                 let bindings: Vec<(Prop, ThemeRef)> = new
                     .theme_bindings
@@ -1151,7 +1187,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         let affected = self.collect_affected_components(root_id, context_ids);
         if !affected.is_empty() {
             self.add_forced_node_paths(affected);
-            self.expand_forced_control_paths(root_id);
         }
     }
 

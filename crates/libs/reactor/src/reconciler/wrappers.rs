@@ -209,7 +209,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             let affected = self.collect_affected_components(id, &changed_ids);
             if !affected.is_empty() {
                 self.add_forced_node_paths(affected);
-                self.expand_forced_control_paths(id);
             }
         }
 
@@ -247,6 +246,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     pub fn mount_custom(&mut self, c: &CustomElementHandle) -> ControlId {
         self.debug_ui_elements_created += 1;
         let id = c.0.mount(&mut self.backend);
+        self.tree.register(id, None);
         self.custom_handles.insert(id, c.0.clone_dyn());
         id
     }

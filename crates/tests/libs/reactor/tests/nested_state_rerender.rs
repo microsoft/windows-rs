@@ -10,7 +10,7 @@ use std::rc::Rc;
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
     Component, Dispatcher, DispatcherQueuePriority, Element, Expander, Prop, PropValue, RenderCx,
-    RenderHost, SetState, TextBlock, component, grid, memo, scroll_viewer, text_block,
+    RenderHost, SetState, TextBlock, component, grid, list_view, memo, scroll_viewer, text_block,
 };
 
 type Job = Box<dyn FnOnce()>;
@@ -481,6 +481,59 @@ fn header_component_state_reaches_secondary_owned_subtree() {
         dispatcher.clone(),
     );
     host.kick();
+    dispatcher.drain();
+
+    assert_eq!(renders.get(), 1);
+    setter_out.borrow().as_ref().unwrap().call(1);
+    dispatcher.drain();
+
+    assert_eq!(renders.get(), 2);
+    assert_eq!(
+        host.with_reconciler(|r| last_text(&r.backend.ops)),
+        Some("header-state-1".to_string())
+    );
+}
+
+struct TemplatedRowRoot {
+    setter_out: Rc<RefCell<Option<SetState<u64>>>>,
+    renders: Rc<Cell<u32>>,
+}
+
+impl Component for TemplatedRowRoot {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        let setter_out = Rc::clone(&self.setter_out);
+        let renders = Rc::clone(&self.renders);
+        list_view(vec![0_u8], move |_, _| {
+            component(
+                HeaderLeaf {
+                    setter_out: Rc::clone(&setter_out),
+                    renders: Rc::clone(&renders),
+                },
+                (),
+            )
+        })
+        .build()
+    }
+}
+
+#[test]
+fn realized_row_component_state_reaches_templated_owner() {
+    let dispatcher = TestDispatcher::default();
+    let setter_out = Rc::new(RefCell::new(None));
+    let renders = Rc::new(Cell::new(0));
+    let host = RenderHost::new(
+        RecordingBackend::new(),
+        Box::new(TemplatedRowRoot {
+            setter_out: Rc::clone(&setter_out),
+            renders: Rc::clone(&renders),
+        }),
+        dispatcher.clone(),
+    );
+    host.kick();
+    dispatcher.drain();
+
+    let list_id = host.root_id().unwrap();
+    host.with_reconciler_mut(|r| r.backend.simulate_prepare_row(list_id, 0));
     dispatcher.drain();
 
     assert_eq!(renders.get(), 1);
