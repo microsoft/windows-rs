@@ -60,14 +60,9 @@ pub const REG_OPTION_VOLATILE: i32 = 1;
 pub const REG_QWORD: u32 = 11;
 pub const REG_SZ: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
-}
-impl Default for SECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
