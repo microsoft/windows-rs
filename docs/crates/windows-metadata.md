@@ -124,6 +124,12 @@ instance MethodDef signatures, so its absence is not a base validity error. A
 `NativeTypedefAttribute` wrapper may use its single `Value` field to represent a typedef of
 `void`, as established by Win32 metadata.
 
+Overload metadata is validated independently of RDL. Methods with `DefaultOverloadAttribute` must
+also have `OverloadAttribute`. Projected signatures must be unique within an overload group, and no
+more than one overlapping architecture variant may be the default. Metadata names may repeat when
+the signatures differ; this is common in Windows metadata. These rules are checked against the
+committed Windows metadata corpus.
+
 Every reader row exposes a `RowId` containing its file, ECMA-335 `TableId`, and row positions.
 Validation errors carry the primary row and an optional related row. Writer handles for tables
 whose positions survive finalization implement `RowHandle`, allowing metadata producers to map

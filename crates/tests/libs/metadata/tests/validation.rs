@@ -6,7 +6,16 @@ fn index(file: writer::File) -> reader::Index {
 }
 
 fn attribute_ctor(file: &mut writer::File, name: &str, signature: &Signature) -> writer::MemberRef {
-    let ty = file.TypeRef("Test", name);
+    attribute_ctor_in(file, "Test", name, signature)
+}
+
+fn attribute_ctor_in(
+    file: &mut writer::File,
+    namespace: &str,
+    name: &str,
+    signature: &Signature,
+) -> writer::MemberRef {
+    let ty = file.TypeRef(namespace, name);
     file.MemberRef(".ctor", signature, writer::MemberRefParent::TypeRef(ty))
 }
 
@@ -111,6 +120,102 @@ fn duplicate_field_and_method_identities_are_rejected() {
     assert_eq!(
         errors[1].message(),
         "duplicate method `Get` on `Test.IValue`"
+    );
+}
+
+#[test]
+fn invalid_overload_metadata_is_rejected() {
+    let mut file = writer::File::new("test");
+    file.TypeDef(
+        "Test",
+        "IValue",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
+    );
+
+    let first_signature = Signature {
+        types: vec![Type::I32],
+        ..Default::default()
+    };
+    let first = file.MethodDef(
+        "GetFirst",
+        &first_signature,
+        MethodAttributes::Public,
+        Default::default(),
+    );
+    let overload_ctor = attribute_ctor_in(
+        &mut file,
+        "Windows.Foundation.Metadata",
+        "OverloadAttribute",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            return_type: Type::Void,
+            types: vec![Type::String],
+        },
+    );
+    let default_ctor = attribute_ctor_in(
+        &mut file,
+        "Windows.Foundation.Metadata",
+        "DefaultOverloadAttribute",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            return_type: Type::Void,
+            types: vec![],
+        },
+    );
+    file.Attribute(
+        writer::HasAttribute::MethodDef(first),
+        writer::AttributeType::MemberRef(overload_ctor),
+        &[(String::new(), Value::Utf8("Get".to_string()))],
+    );
+    file.Attribute(
+        writer::HasAttribute::MethodDef(first),
+        writer::AttributeType::MemberRef(default_ctor),
+        &[],
+    );
+
+    let second = file.MethodDef(
+        "GetSecond",
+        &first_signature,
+        MethodAttributes::Public,
+        Default::default(),
+    );
+    file.Attribute(
+        writer::HasAttribute::MethodDef(second),
+        writer::AttributeType::MemberRef(overload_ctor),
+        &[(String::new(), Value::Utf8("Get".to_string()))],
+    );
+    file.Attribute(
+        writer::HasAttribute::MethodDef(second),
+        writer::AttributeType::MemberRef(default_ctor),
+        &[],
+    );
+
+    let plain = file.MethodDef(
+        "Plain",
+        &Signature::default(),
+        MethodAttributes::Public,
+        Default::default(),
+    );
+    file.Attribute(
+        writer::HasAttribute::MethodDef(plain),
+        writer::AttributeType::MemberRef(default_ctor),
+        &[],
+    );
+
+    let errors = validator::validate(&index(file));
+    assert_eq!(errors.len(), 3);
+    assert_eq!(
+        errors[0].message(),
+        "duplicate overload signature `Get` on `Test.IValue`"
+    );
+    assert_eq!(
+        errors[1].message(),
+        "duplicate default overload `Get` on `Test.IValue`"
+    );
+    assert_eq!(
+        errors[2].message(),
+        "method `Test.IValue.Plain` has `DefaultOverloadAttribute` without `OverloadAttribute`"
     );
 }
 

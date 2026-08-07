@@ -25,6 +25,7 @@ pub use writer::Writer;
 
 /// The metadata namespace that owns the Win32 attribute vocabulary.
 pub(crate) const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
+pub(crate) const WINRT_METADATA_NAMESPACE: &str = "Windows.Foundation.Metadata";
 
 /// Short RDL attribute spelling and the metadata attribute it maps to.
 pub(crate) struct PseudoAttr {

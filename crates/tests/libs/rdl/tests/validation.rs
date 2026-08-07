@@ -397,6 +397,155 @@ fn method_overloads_are_allowed() {
 }
 
 #[test]
+fn explicit_overloads_emit_projected_and_metadata_names() {
+    use windows_metadata::HasAttributes;
+
+    let path = out_path("explicit_overloads");
+    windows_rdl::reader()
+        .input_text(
+            "#[winrt] mod Test {
+                interface IValue {
+                    #[overload(Get)]
+                    #[default_overload]
+                    fn Get(&self, value: i32);
+                    #[overload(GetWithString)]
+                    fn Get(&self, value: String);
+                }
+            }",
+        )
+        .output(&path)
+        .write()
+        .unwrap();
+
+    let index = windows_metadata::reader::Index::read(&path).unwrap();
+    let methods: Vec<_> = index.expect("Test", "IValue").methods().collect();
+    assert_eq!(methods.len(), 2);
+    assert_eq!(methods[0].name(), "Get");
+    assert_eq!(
+        methods[0]
+            .find_attribute("OverloadAttribute")
+            .unwrap()
+            .value()[0]
+            .1,
+        windows_metadata::Value::Utf8("Get".to_string())
+    );
+    assert!(methods[0].has_attribute("DefaultOverloadAttribute"));
+    assert_eq!(methods[1].name(), "GetWithString");
+    assert_eq!(
+        methods[1]
+            .find_attribute("OverloadAttribute")
+            .unwrap()
+            .value()[0]
+            .1,
+        windows_metadata::Value::Utf8("Get".to_string())
+    );
+
+    let rdl = path.with_extension("rdl");
+    windows_rdl::writer()
+        .input(&path)
+        .output(&rdl)
+        .write()
+        .unwrap();
+    let source = std::fs::read_to_string(rdl).unwrap();
+    assert!(source.contains("#[overload(Get)]"));
+    assert!(source.contains("#[default_overload]"));
+    assert!(source.contains("#[overload(GetWithString)]"));
+    assert_eq!(source.matches("fn Get(").count(), 2);
+}
+
+#[test]
+fn overload_validation_reports_source_errors() {
+    let cases = [
+        (
+            "default_without_overload",
+            "#[winrt] mod Test {
+                interface IValue {
+                    #[default_overload]
+                    fn Get(&self);
+                }
+            }",
+            "`default_overload` requires an `overload` attribute",
+        ),
+        (
+            "duplicate_overload_signature",
+            "#[winrt] mod Test {
+                interface IValue {
+                    #[overload(GetFirst)]
+                    fn Get(&self, value: i32);
+                    #[overload(GetSecond)]
+                    fn Get(&self, value: i32);
+                }
+            }",
+            "duplicate overload signature `Get` on `Test.IValue`",
+        ),
+        (
+            "duplicate_default_overload",
+            "#[winrt] mod Test {
+                interface IValue {
+                    #[overload(GetFirst)]
+                    #[default_overload]
+                    fn Get(&self, value: i32);
+                    #[overload(GetSecond)]
+                    #[default_overload]
+                    fn Get(&self, value: String);
+                }
+            }",
+            "duplicate default overload `Get` on `Test.IValue`",
+        ),
+    ];
+
+    for (name, source, message) in cases {
+        assert_eq!(error(name, source).message, message, "{name}");
+    }
+}
+
+#[test]
+fn overload_metadata_names_may_repeat_for_distinct_signatures() {
+    windows_rdl::reader()
+        .input_text(
+            "#[winrt] mod Test {
+                interface IValue {
+                    #[overload(Get)]
+                    fn Get(&self, value: i32);
+                    #[overload(Get)]
+                    fn Get(&self, value: String);
+                }
+            }",
+        )
+        .output(out_path("repeated_overload_metadata_name"))
+        .write()
+        .unwrap();
+}
+
+#[test]
+fn unrelated_overload_attribute_is_preserved() {
+    let path = out_path("custom_overload_attribute");
+    windows_rdl::reader()
+        .input_text(
+            "#[winrt] mod Test {
+                attribute OverloadAttribute { fn(value: String); }
+                interface IValue {
+                    #[Test::Overload(\"custom\")]
+                    fn Get(&self);
+                }
+            }",
+        )
+        .output(&path)
+        .write()
+        .unwrap();
+
+    let rdl = path.with_extension("rdl");
+    windows_rdl::writer()
+        .input(&path)
+        .output(&rdl)
+        .write()
+        .unwrap();
+    let source = std::fs::read_to_string(rdl).unwrap();
+    assert!(source.contains("#[Overload(\"custom\")]"));
+    assert!(!source.contains("#[overload("));
+}
+
+#[test]
 fn disjoint_architecture_variants_are_allowed() {
     windows_rdl::reader()
         .input_text(

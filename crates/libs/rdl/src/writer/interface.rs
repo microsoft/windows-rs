@@ -333,7 +333,19 @@ fn write_method(
     item: &metadata::reader::MethodDef,
     generics: &[metadata::Type],
 ) -> Result<TokenStream, Error> {
-    let name = write_ident(item.name());
+    let overload = item.attributes().find(|attribute| {
+        attribute.namespace() == WINRT_METADATA_NAMESPACE && attribute.name() == "OverloadAttribute"
+    });
+    let public_name = overload.as_ref().and_then(|attribute| {
+        attribute.value().into_iter().find_map(|(_, value)| {
+            if let metadata::Value::Utf8(name) = value {
+                Some(name)
+            } else {
+                None
+            }
+        })
+    });
+    let name = write_ident(public_name.as_deref().unwrap_or_else(|| item.name()));
     let signature = item.signature(generics);
 
     let return_type = write_return_type(namespace, item, &signature)?;
@@ -345,7 +357,31 @@ fn write_method(
         )
         .collect::<Result<Vec<_>, Error>>()?;
 
-    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let method_attrs = write_custom_attributes(
+        item.attributes().filter(|attribute| {
+            attribute.namespace() != WINRT_METADATA_NAMESPACE
+                || !matches!(
+                    attribute.name(),
+                    "OverloadAttribute" | "DefaultOverloadAttribute"
+                )
+        }),
+        namespace,
+        item.index(),
+    )?;
+    let overload_attr = if overload.is_some() {
+        let metadata_name = write_ident(item.name());
+        quote! { #[overload(#metadata_name)] }
+    } else {
+        quote! {}
+    };
+    let default_overload_attr = if item.attributes().any(|attribute| {
+        attribute.namespace() == WINRT_METADATA_NAMESPACE
+            && attribute.name() == "DefaultOverloadAttribute"
+    }) {
+        quote! { #[default_overload] }
+    } else {
+        quote! {}
+    };
 
     // Preserve property/event methods with the built-in `#[special]` pseudo.
     let special_attr = if item
@@ -359,6 +395,8 @@ fn write_method(
 
     Ok(quote! {
         #special_attr
+        #overload_attr
+        #default_overload_attr
         #(#method_attrs)*
         fn #name(#(#params),*) #return_type;
     })

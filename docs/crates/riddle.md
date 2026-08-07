@@ -63,3 +63,5 @@ Shared validator changes should be covered at the lowest layer that can express 
 Every source-authorable validator rule should have an RDL or `riddle check` test in addition to its
 metadata-row test. Metadata-only tests are appropriate only when the malformed state has no RDL
 spelling. Corpus validation remains mandatory before treating a proposed common rule as valid.
+The command tests also inspect `riddle build` output when a lowering detail matters, such as static
+global-function calling conventions, rather than treating successful compilation as sufficient.

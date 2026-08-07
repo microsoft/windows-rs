@@ -900,6 +900,8 @@ fn semantics_conflict<'a>(
 
 fn validate_methods(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
     let mut methods = HashMap::<&str, Vec<(reader::MethodDef<'_>, crate::Signature)>>::new();
+    let mut overloads = HashMap::<String, Vec<(reader::MethodDef<'_>, crate::Signature)>>::new();
+    let mut default_overloads = HashMap::<String, Vec<reader::MethodDef<'_>>>::new();
     let generics = generics(ty);
     for method in ty.methods() {
         let signature = method.signature(&generics);
@@ -960,6 +962,90 @@ fn validate_methods(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
             .entry(method.name())
             .or_default()
             .push((method, signature.clone()));
+
+        let overload_name = method
+            .attributes()
+            .find(|attribute| {
+                attribute.namespace() == "Windows.Foundation.Metadata"
+                    && attribute.name() == "OverloadAttribute"
+            })
+            .and_then(|attribute| {
+                attribute
+                    .value()
+                    .into_iter()
+                    .find_map(|(_, value)| match value {
+                        crate::Value::Utf8(name) => Some(name),
+                        _ => None,
+                    })
+            });
+        let is_default_overload = method.attributes().any(|attribute| {
+            attribute.namespace() == "Windows.Foundation.Metadata"
+                && attribute.name() == "DefaultOverloadAttribute"
+        });
+
+        if is_default_overload && overload_name.is_none() {
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "method `{}.{}.{}` has `DefaultOverloadAttribute` without \
+                     `OverloadAttribute`",
+                    ty.namespace(),
+                    ty.name(),
+                    method.name()
+                ),
+                row: method.row_id(),
+                related: Some(ty.row_id()),
+            });
+        }
+
+        if let Some(overload_name) = overload_name {
+            let previous = overloads
+                .entry(overload_name.clone())
+                .or_default()
+                .iter()
+                .find(|(previous, previous_signature)| {
+                    same_method_identity(previous_signature, &signature)
+                        && arches_overlap(previous.arches(), method.arches())
+                });
+            if let Some((previous, _)) = previous {
+                errors.push(duplicate(
+                    method.row_id(),
+                    previous.row_id(),
+                    format!(
+                        "duplicate overload signature `{overload_name}` on `{}.{}`",
+                        ty.namespace(),
+                        ty.name()
+                    ),
+                ));
+            }
+            overloads
+                .entry(overload_name.clone())
+                .or_default()
+                .push((method, signature.clone()));
+
+            if is_default_overload {
+                let previous = default_overloads
+                    .entry(overload_name.clone())
+                    .or_default()
+                    .iter()
+                    .find(|previous| arches_overlap(previous.arches(), method.arches()));
+                if let Some(previous) = previous {
+                    errors.push(duplicate(
+                        method.row_id(),
+                        previous.row_id(),
+                        format!(
+                            "duplicate default overload `{overload_name}` on `{}.{}`",
+                            ty.namespace(),
+                            ty.name()
+                        ),
+                    ));
+                }
+                default_overloads
+                    .entry(overload_name)
+                    .or_default()
+                    .push(method);
+            }
+        }
 
         if let Err(error) = method.params_by_sequence(signature.types.len()) {
             errors.push(ValidationError {

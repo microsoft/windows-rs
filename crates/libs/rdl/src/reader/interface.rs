@@ -200,6 +200,46 @@ impl Encoder<'_> {
         for member in &item.members {
             match member {
                 InterfaceMember::Method(method) => {
+                    let public_name = method.sig.ident.unraw_to_string();
+                    let mut metadata_name = public_name.clone();
+                    let mut overload_attr = None;
+                    let mut default_overload_attr = None;
+
+                    for attr in &method.attrs {
+                        if attr.path().is_ident("overload") {
+                            if overload_attr.replace(attr).is_some() {
+                                return self.err(attr, "duplicate `overload` attribute");
+                            }
+                            if !item.winrt {
+                                return self
+                                    .err(attr, "`overload` is only supported on WinRT interfaces");
+                            }
+                            let name: syn::Ident = attr.parse_args().map_err(|_| {
+                                self.error(attr, "`overload` requires one metadata method name")
+                            })?;
+                            metadata_name = name.unraw_to_string();
+                        } else if attr.path().is_ident("default_overload") {
+                            if default_overload_attr.replace(attr).is_some() {
+                                return self.err(attr, "duplicate `default_overload` attribute");
+                            }
+                            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                                return self.err(
+                                    attr,
+                                    "`default_overload` attribute does not accept arguments",
+                                );
+                            }
+                        }
+                    }
+
+                    if let Some(default_overload_attr) = default_overload_attr
+                        && overload_attr.is_none()
+                    {
+                        return self.err(
+                            default_overload_attr,
+                            "`default_overload` requires an `overload` attribute",
+                        );
+                    }
+
                     let mut params = vec![];
 
                     if method.sig.inputs.is_empty() {
@@ -238,7 +278,7 @@ impl Encoder<'_> {
 
                     if !already_has_guid {
                         method_signatures.push((
-                            method.sig.ident.to_string(),
+                            metadata_name.clone(),
                             types.clone(),
                             return_type.clone(),
                         ));
@@ -267,7 +307,7 @@ impl Encoder<'_> {
                     }
 
                     let method_def = self.output.MethodDef(
-                        &method.sig.ident.to_string(),
+                        &metadata_name,
                         &signature,
                         flags,
                         Default::default(),
@@ -277,8 +317,19 @@ impl Encoder<'_> {
                     self.encode_attrs(
                         metadata::writer::HasAttribute::MethodDef(method_def),
                         &method.attrs,
-                        &["special"],
+                        &["special", "overload", "default_overload"],
                     )?;
+                    if overload_attr.is_some() {
+                        self.emit_overload_attribute(
+                            metadata::writer::HasAttribute::MethodDef(method_def),
+                            &public_name,
+                        );
+                    }
+                    if default_overload_attr.is_some() {
+                        self.emit_default_overload_attribute(
+                            metadata::writer::HasAttribute::MethodDef(method_def),
+                        );
+                    }
 
                     self.encode_return_attrs(&method.return_attrs)?;
                     self.encode_params(&params)?;

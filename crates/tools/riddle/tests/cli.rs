@@ -39,6 +39,48 @@ fn check_and_build_valid_rdl() {
 }
 
 #[test]
+fn build_emits_static_global_function_signature() {
+    let dir = scratch("global_function");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("api.rdl");
+    let output = dir.join("api.winmd");
+    std::fs::write(
+        &input,
+        "#[win32] mod Test { #[library(\"test.dll\")] extern fn GetValue(value: i32) -> i32; }",
+    )
+    .unwrap();
+
+    assert!(
+        riddle()
+            .args(["build", "--no-default"])
+            .arg(&input)
+            .arg("--out")
+            .arg(&output)
+            .status()
+            .unwrap()
+            .success()
+    );
+
+    let index = windows_metadata::reader::Index::read(&output).unwrap();
+    let method = index
+        .expect("Test", "Apis")
+        .methods()
+        .find(|method| method.name() == "GetValue")
+        .unwrap();
+    assert!(
+        method
+            .flags()
+            .contains(windows_metadata::MethodAttributes::Static)
+    );
+    assert!(
+        !method
+            .signature(&[])
+            .flags
+            .contains(windows_metadata::MethodCallAttributes::HASTHIS)
+    );
+}
+
+#[test]
 fn invalid_rdl_uses_terminal_diagnostic() {
     let dir = scratch("invalid");
     std::fs::create_dir_all(&dir).unwrap();
@@ -131,6 +173,37 @@ fn check_reports_finalized_metadata_validation() {
     assert!(stderr.contains(&input.to_string_lossy().to_string()));
     assert!(stderr.contains("metadata row Attribute["));
     assert!(stderr.contains('^'));
+}
+
+#[test]
+fn check_reports_invalid_overload_metadata() {
+    let dir = scratch("overload_validation");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("api.rdl");
+    std::fs::write(
+        &input,
+        "#[winrt]\nmod Test {\n\
+         interface IValue {\n\
+         #[overload(GetFirst)]\n\
+         fn Get(&self, value: i32);\n\
+         #[overload(GetSecond)]\n\
+         fn Get(&self, value: i32);\n\
+         }\n\
+         }\n",
+    )
+    .unwrap();
+
+    let output = riddle()
+        .args(["check", "--no-default"])
+        .arg(&input)
+        .output()
+        .unwrap();
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8(output.stderr).unwrap();
+    assert!(stderr.starts_with("error[RDL0001]:"));
+    assert!(stderr.contains("duplicate overload signature `Get`"));
+    assert!(stderr.contains("first declared here"));
+    assert!(stderr.matches(" --> ").count() >= 2);
 }
 
 #[test]

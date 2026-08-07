@@ -72,6 +72,22 @@ the metadata layer does not merge them with projection policy.
 Canonical output spells the input direction as `#[in]`; the reader also accepts Rust's raw
 identifier spelling, `#[r#in]`.
 
+WinRT overloads keep the projected name in the function declaration and spell the metadata method
+name explicitly:
+
+```rust
+#[overload(Get)]
+#[default_overload]
+fn Get(&self, value: i32);
+
+#[overload(GetWithString)]
+fn Get(&self, value: String);
+```
+
+This emits `OverloadAttribute("Get")` on both methods and `DefaultOverloadAttribute` on the first.
+Canonical winmd-to-RDL output retains both pseudo-attributes, so the metadata names remain visible
+in review.
+
 Some metadata states do not have a lossless RDL spelling. Parameter direction cannot be neither
 In nor Out because an omitted direction is inferred. Attributes on a void return row cannot be
 written because there is no return type to carry them. `#[len_param(N)]` and `#[size_param(N)]`

@@ -12,5 +12,8 @@ readme = "readme.md"
 [dependencies]
 windows-rdl = { workspace = true }
 
+[dev-dependencies]
+windows-metadata = { workspace = true }
+
 [lints]
 workspace = true

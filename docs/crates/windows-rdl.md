@@ -639,27 +639,34 @@ errors.
 ### Overload authoring
 
 Overloads are a suitable convenience because the metadata already carries the distinction and the
-author must still write every ABI method signature. RDL should let authors use the public method
-name while supplying or deriving the metadata ABI name.
-
-Investigate a source-level spelling along these lines:
+author must still write every ABI method signature. RDL uses the public projected name in the
+function declaration and requires the metadata ABI name in `#[overload(...)]`:
 
 ```rust
-#[overload(MethodWithValue)]
-fn Method(&self, value: i32);
+#[overload(Get)]
+#[default_overload]
+fn Get(&self, value: i32);
+
+#[overload(GetWithString)]
+fn Get(&self, value: String);
 ```
 
-The final design should make these facts clear:
+This spelling keeps all four relevant facts visible:
 
 - The public projected name.
-- The unique metadata method name.
+- The exact metadata method name.
 - The full signature used to distinguish overloads.
-- Whether a default overload is required.
+- The selected default overload.
 
-Automatic metadata-name generation may be offered, but canonical RDL should expose the generated
-name so ABI changes remain reviewable. Validation must detect duplicate signatures, reused metadata
-names, inconsistent overload groups, and invalid `DefaultOverloadAttribute` placement. This work
-should address [`windows-rdl` overload attribute should be supported directly][rdl-overloads].
+The reader lowers these pseudos directly to `OverloadAttribute` and
+`DefaultOverloadAttribute`. The writer restores the same explicit spelling. Shared metadata
+validation rejects duplicate projected signatures, more than one default, and a default without
+overload metadata. Metadata names may repeat when their signatures differ; corpus validation
+showed that this is common WinRT metadata rather than an error. The committed Windows metadata
+corpus and `riddle check` exercise the rules. Automatic metadata-name generation remains deferred
+because canonical output must expose any generated name before such a convenience is safe. This
+work addresses
+[`windows-rdl` overload attribute should be supported directly][rdl-overloads].
 
 ### Runtime-class authoring
 
@@ -698,7 +705,7 @@ resulting RDL makes the ABI at least as reviewable as the current explicit inter
 5. Done: restore a minimal `riddle check` and `riddle build` on the new library APIs.
 6. Done: replace the formatter's silent parse fallback, preserve comments, and add `riddle fmt`.
 7. Done: add named imports, aliases, grouped imports, and ambiguity diagnostics.
-8. Deferred: implement explicit overload authoring after the semantic foundation described below.
+8. Done: implement explicit overload authoring after the semantic foundation described below.
 9. Deferred: evaluate runtime-class conveniences after overload lowering is explicit and reviewable.
 
 ### Review after the initial implementation
@@ -741,12 +748,13 @@ The next phase should proceed in this order:
    `Result<T, Error>` APIs as convenience wrappers.
 2. Done: add row identities and a standalone validator to `windows-metadata`.
 3. Done: add an in-memory writer-to-reader handoff and validate merge/remap output.
-4. In progress: lower RDL directly into metadata while recording row-to-source origins. Declaration,
+4. Done: lower RDL directly into metadata while recording row-to-source origins. Declaration,
    field, method, property, event, map, layout, and generated accessor rows are mapped and shared
    validation runs after encoding. Sorted rows use their mapped association as the diagnostic
    location because their row positions are assigned during finalization.
-5. Move duplicate, custom-attribute structure, profile, signature, layout, and association checks
-   onto the shared metadata validator where ECMA-335 represents the fact. Attribute multiplicity
+5. Done for the common validation baseline: move duplicate, custom-attribute structure, signature,
+   layout, association, and overload checks onto the shared metadata validator where ECMA-335
+   represents the fact. Attribute multiplicity
    is now checked for definitions with explicit usage contracts. `Validator` carries authored and
    reference indexes without merging them and is the boundary for future explicit profiles; target
    masks remain a profile decision. Constructor shape, calling convention, and the value-blob
@@ -763,9 +771,11 @@ The next phase should proceed in this order:
    element types and rejects `HASTHIS` on static methods. It does not require `HASTHIS` on instance
    methods because canonical WinRT metadata commonly omits it. RDL global functions now encode a
    static signature rather than inheriting the instance default. Win32 native-typedef wrappers
-   retain their established `Value: void` representation.
-6. Implement explicit overload authoring as transparent metadata lowering after this boundary is
-   stable.
+   retain their established `Value: void` representation. Profile-specific policy remains
+   deferred until a profile is selected explicitly.
+6. Done: implement explicit overload authoring as transparent metadata lowering. RDL keeps the
+   projected name in the declaration, requires the metadata name in `#[overload(...)]`, preserves
+   the spelling through winmd-to-RDL output, and validates group identities in shared metadata.
 7. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete
    diagnostic collections and unsupported-metadata findings.
 8. Move formatting to the RDL syntax tree and add range formatting if editor use justifies it.

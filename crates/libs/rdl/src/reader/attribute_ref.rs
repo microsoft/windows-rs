@@ -676,6 +676,25 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
+    pub fn emit_overload_attribute(&mut self, target: metadata::writer::HasAttribute, name: &str) {
+        let attr_ref = AttributeRef {
+            type_name: metadata::TypeName::named(WINRT_METADATA_NAMESPACE, "OverloadAttribute"),
+            args: vec![(String::new(), metadata::Value::Utf8(name.to_string()))],
+        };
+        self.encode_named_attribute(target, &attr_ref);
+    }
+
+    pub fn emit_default_overload_attribute(&mut self, target: metadata::writer::HasAttribute) {
+        let attr_ref = AttributeRef {
+            type_name: metadata::TypeName::named(
+                WINRT_METADATA_NAMESPACE,
+                "DefaultOverloadAttribute",
+            ),
+            args: vec![],
+        };
+        self.encode_named_attribute(target, &attr_ref);
+    }
+
     pub fn emit_bitfield_attribute(
         &mut self,
         target: metadata::writer::HasAttribute,
