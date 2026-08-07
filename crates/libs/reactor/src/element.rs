@@ -209,25 +209,13 @@ macro_rules! impl_styling_capabilities {
     };
     ($variant:ident, Visual) => {};
     ($variant:ident, Padding) => {
-        impl capability::Padding for $variant {
-            fn padding_modifiers_mut(&mut self) -> &mut Modifiers {
-                &mut self.modifiers
-            }
-        }
+        impl capability::Padding for $variant {}
     };
     ($variant:ident, Background) => {
-        impl capability::Background for $variant {
-            fn background_modifiers_mut(&mut self) -> &mut Modifiers {
-                &mut self.modifiers
-            }
-        }
+        impl capability::Background for $variant {}
     };
     ($variant:ident, TextStyle) => {
-        impl capability::TextStyle for $variant {
-            fn text_style_modifiers_mut(&mut self) -> &mut Modifiers {
-                &mut self.modifiers
-            }
-        }
+        impl capability::TextStyle for $variant {}
     };
 }
 
@@ -254,70 +242,36 @@ macro_rules! define_element {
                 }
             }
 
-            impl ElementExt for $variant {
-                fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
-                    Some(&mut self.modifiers)
-                }
-
+            impl KeyExt for $variant {
                 fn with_key(mut self, key: impl Into<String>) -> Self {
                     self.key = Some(key.into());
                     self
                 }
             }
 
-            impl capability::Resources for $variant {
-                fn resource_modifiers_mut(&mut self) -> &mut Modifiers {
+            impl capability::Native for $variant {
+                fn native_modifiers_mut(&mut self) -> &mut Modifiers {
                     &mut self.modifiers
                 }
             }
 
-            impl capability::Layout for $variant {
-                fn layout_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
+            impl capability::Resources for $variant {}
 
-            impl capability::Input for $variant {
-                fn input_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
+            impl capability::Layout for $variant {}
 
-            impl capability::Accessibility for $variant {
-                fn accessibility_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
+            impl capability::Input for $variant {}
 
-            impl capability::Tooltip for $variant {
-                fn tooltip_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
+            impl capability::Accessibility for $variant {}
 
-            impl capability::GridChild for $variant {
-                fn grid_child_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
+            impl capability::Tooltip for $variant {}
 
-            impl capability::CanvasChild for $variant {
-                fn canvas_child_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
+            impl capability::GridChild for $variant {}
 
-            impl capability::RelativePanelChild for $variant {
-                fn relative_panel_child_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
+            impl capability::CanvasChild for $variant {}
 
-            impl capability::Visual for $variant {
-                fn visual_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
+            impl capability::RelativePanelChild for $variant {}
+
+            impl capability::Visual for $variant {}
 
             impl_styling_capabilities!($variant, $styling);
         )*
@@ -335,18 +289,6 @@ macro_rules! define_element {
                     | Element::Empty => return None,
                 })
             }
-            fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
-                match self {
-                    $( Element::$variant(v) => Some(&mut v.modifiers), )*
-                    Element::TemplatedList(tl) => Some(&mut tl.modifiers),
-                    Element::Component(_)
-                    | Element::ErrorBoundary(_)
-                    | Element::Provider(_)
-                    | Element::Group(_)
-                    | Element::Custom(_)
-                    | Element::Empty => None,
-                }
-            }
             pub fn kind_name(&self) -> &'static str {
                 match self {
                     $( Element::$variant(_) => stringify!($variant), )*
@@ -358,6 +300,22 @@ macro_rules! define_element {
                     Element::Custom(c) => c.0.kind_name(),
                     Element::Empty => "Empty",
                 }
+            }
+        }
+
+        impl KeyExt for Element {
+            fn with_key(mut self, key: impl Into<String>) -> Self {
+                let key = key.into();
+                match &mut self {
+                    $( Element::$variant(v) => v.key = Some(key), )*
+                    Element::Component(c) => c.key = Some(key),
+                    Element::ErrorBoundary(eb) => eb.key = Some(key),
+                    Element::Provider(pe) => pe.key = Some(key),
+                    Element::TemplatedList(tl) => tl.key = Some(key),
+                    Element::Group(g) => g.key = Some(key),
+                    Element::Custom(_) | Element::Empty => {}
+                }
+                self
             }
         }
     };
@@ -523,20 +481,18 @@ pub fn can_skip_update(old: &Element, new: &Element) -> bool {
     }
 }
 
-/// Builder-style identity and context modifiers.
-///
-/// Native modifiers use separate sealed capability traits.
-pub trait ElementExt: Sized {
-    fn modifiers_mut(&mut self) -> Option<&mut Modifiers>;
-
+/// Stable reconciliation identity for concrete widgets and erased elements.
+pub trait KeyExt: Sized {
     fn with_key(self, key: impl Into<String>) -> Self;
+}
 
+/// Context provision for anything convertible into an [`Element`].
+pub trait ProvideExt: Into<Element> + Sized {
     fn provide<T>(self, context: &Context<T>, value: T) -> Element
     where
         T: Clone + PartialEq + 'static,
-        Self: Into<Element>,
     {
-        let mut el: Element = self.into();
+        let mut el = self.into();
         let provision = ContextProvision::new(context.id, value);
         if let Element::Provider(ref mut existing) = el {
             existing.provisions.push(provision);
@@ -551,55 +507,85 @@ pub trait ElementExt: Sized {
     }
 }
 
+impl<T: Into<Element>> ProvideExt for T {}
+
 pub(crate) mod capability {
     use super::Modifiers;
 
-    pub trait Accessibility {
-        fn accessibility_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait Native {
+        fn native_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 
-    pub trait Background {
-        fn background_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait Accessibility: Native {
+        fn accessibility_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait Input {
-        fn input_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait Background: Native {
+        fn background_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait GridChild {
-        fn grid_child_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait Input: Native {
+        fn input_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait CanvasChild {
-        fn canvas_child_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait GridChild: Native {
+        fn grid_child_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait RelativePanelChild {
-        fn relative_panel_child_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait CanvasChild: Native {
+        fn canvas_child_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait Layout {
-        fn layout_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait RelativePanelChild: Native {
+        fn relative_panel_child_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait Padding {
-        fn padding_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait Layout: Native {
+        fn layout_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait Resources {
-        fn resource_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait Padding: Native {
+        fn padding_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait TextStyle {
-        fn text_style_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait Resources: Native {
+        fn resource_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait Tooltip {
-        fn tooltip_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait TextStyle: Native {
+        fn text_style_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 
-    pub trait Visual {
-        fn visual_modifiers_mut(&mut self) -> &mut Modifiers;
+    pub trait Tooltip: Native {
+        fn tooltip_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
+    }
+
+    pub trait Visual: Native {
+        fn visual_modifiers_mut(&mut self) -> &mut Modifiers {
+            self.native_modifiers_mut()
+        }
     }
 }
 
@@ -1297,77 +1283,4 @@ fn with_implicit_transition(m: &mut Modifiers, f: impl FnOnce(&mut ImplicitTrans
         .implicit_transitions
         .get_or_insert_with(Default::default);
     f(it);
-}
-
-impl ElementExt for Element {
-    fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
-        Self::modifiers_mut(self)
-    }
-
-    fn with_key(mut self, key: impl Into<String>) -> Self {
-        let key = key.into();
-        match &mut self {
-            Self::TextBlock(t) => t.key = Some(key),
-            Self::Button(b) => b.key = Some(key),
-            Self::StackPanel(s) => s.key = Some(key),
-            Self::Border(b) => b.key = Some(key),
-            Self::CheckBox(c) => c.key = Some(key),
-            Self::TextBox(t) => t.key = Some(key),
-            Self::Grid(g) => g.key = Some(key),
-            Self::ScrollViewer(s) => s.key = Some(key),
-            Self::ToggleSwitch(v) => v.key = Some(key),
-            Self::Slider(v) => v.key = Some(key),
-            Self::RadioButton(v) => v.key = Some(key),
-            Self::NumberBox(v) => v.key = Some(key),
-            Self::ProgressBar(v) => v.key = Some(key),
-            Self::ProgressRing(v) => v.key = Some(key),
-            Self::Expander(v) => v.key = Some(key),
-            Self::HyperlinkButton(v) => v.key = Some(key),
-            Self::InfoBar(v) => v.key = Some(key),
-            Self::InfoBadge(v) => v.key = Some(key),
-            Self::PersonPicture(v) => v.key = Some(key),
-            Self::Shape(v) => v.key = Some(key),
-            Self::Image(v) => v.key = Some(key),
-            Self::TabView(v) => v.key = Some(key),
-            Self::NavigationView(v) => v.key = Some(key),
-            Self::TitleBar(v) => v.key = Some(key),
-            Self::Pivot(v) => v.key = Some(key),
-            Self::BreadcrumbBar(v) => v.key = Some(key),
-            Self::PasswordBox(v) => v.key = Some(key),
-            Self::RadioButtons(v) => v.key = Some(key),
-            Self::ComboBox(v) => v.key = Some(key),
-            Self::Canvas(v) => v.key = Some(key),
-            Self::ContentDialog(v) => v.key = Some(key),
-            Self::RichTextBlock(v) => v.key = Some(key),
-            Self::Viewbox(v) => v.key = Some(key),
-            Self::RepeatButton(v) => v.key = Some(key),
-            Self::RatingControl(v) => v.key = Some(key),
-            Self::ColorPicker(v) => v.key = Some(key),
-            Self::DatePicker(v) => v.key = Some(key),
-            Self::TimePicker(v) => v.key = Some(key),
-            Self::CalendarDatePicker(v) => v.key = Some(key),
-            Self::CalendarView(v) => v.key = Some(key),
-            Self::ListBox(v) => v.key = Some(key),
-            Self::DropDownButton(v) => v.key = Some(key),
-            Self::SplitButton(v) => v.key = Some(key),
-            Self::AutoSuggestBox(v) => v.key = Some(key),
-            Self::SplitView(v) => v.key = Some(key),
-            Self::MenuBar(v) => v.key = Some(key),
-            Self::ScrollView(v) => v.key = Some(key),
-            Self::TreeView(v) => v.key = Some(key),
-            Self::CommandBar(v) => v.key = Some(key),
-            Self::TeachingTip(v) => v.key = Some(key),
-            Self::SelectorBar(v) => v.key = Some(key),
-            Self::RichEditBox(v) => v.key = Some(key),
-            Self::RelativePanel(v) => v.key = Some(key),
-            Self::ToggleButton(v) => v.key = Some(key),
-            Self::Component(c) => c.key = Some(key),
-            Self::ErrorBoundary(eb) => eb.key = Some(key),
-            Self::Provider(pe) => pe.key = Some(key),
-            Self::TemplatedList(tl) => tl.key = Some(key),
-            Self::Group(g) => g.key = Some(key),
-            _ => {}
-        }
-        self
-    }
 }

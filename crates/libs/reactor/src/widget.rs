@@ -531,47 +531,25 @@ impl<T: 'static> From<TemplatedListBuilder<T>> for Element {
     }
 }
 
-impl<T: 'static> capability::GridChild for TemplatedListBuilder<T> {
-    fn grid_child_modifiers_mut(&mut self) -> &mut Modifiers {
+impl<T: 'static> capability::Native for TemplatedListBuilder<T> {
+    fn native_modifiers_mut(&mut self) -> &mut Modifiers {
         &mut self.modifiers
     }
 }
 
-impl<T: 'static> capability::CanvasChild for TemplatedListBuilder<T> {
-    fn canvas_child_modifiers_mut(&mut self) -> &mut Modifiers {
-        &mut self.modifiers
-    }
-}
+impl<T: 'static> capability::GridChild for TemplatedListBuilder<T> {}
 
-impl<T: 'static> capability::RelativePanelChild for TemplatedListBuilder<T> {
-    fn relative_panel_child_modifiers_mut(&mut self) -> &mut Modifiers {
-        &mut self.modifiers
-    }
-}
+impl<T: 'static> capability::CanvasChild for TemplatedListBuilder<T> {}
 
-impl<T: 'static> capability::Visual for TemplatedListBuilder<T> {
-    fn visual_modifiers_mut(&mut self) -> &mut Modifiers {
-        &mut self.modifiers
-    }
-}
+impl<T: 'static> capability::RelativePanelChild for TemplatedListBuilder<T> {}
 
-impl<T: 'static> capability::Padding for TemplatedListBuilder<T> {
-    fn padding_modifiers_mut(&mut self) -> &mut Modifiers {
-        &mut self.modifiers
-    }
-}
+impl<T: 'static> capability::Visual for TemplatedListBuilder<T> {}
 
-impl<T: 'static> capability::Background for TemplatedListBuilder<T> {
-    fn background_modifiers_mut(&mut self) -> &mut Modifiers {
-        &mut self.modifiers
-    }
-}
+impl<T: 'static> capability::Padding for TemplatedListBuilder<T> {}
 
-impl<T: 'static> capability::TextStyle for TemplatedListBuilder<T> {
-    fn text_style_modifiers_mut(&mut self) -> &mut Modifiers {
-        &mut self.modifiers
-    }
-}
+impl<T: 'static> capability::Background for TemplatedListBuilder<T> {}
+
+impl<T: 'static> capability::TextStyle for TemplatedListBuilder<T> {}
 
 pub fn list_view<T: 'static, R: Into<Element>>(
     items: Vec<T>,

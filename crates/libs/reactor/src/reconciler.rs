@@ -224,6 +224,7 @@ impl MountedLogicalTree {
         self.components.contains_key(&node_id) || self.wrappers.contains_key(&node_id)
     }
 
+    #[cfg(any(debug_assertions, feature = "test"))]
     fn node_count(&self) -> usize {
         self.components.len() + self.wrappers.len()
     }

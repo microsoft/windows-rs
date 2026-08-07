@@ -7,7 +7,7 @@ use windows_reactor::ControlKind;
 use windows_reactor::Element;
 use windows_reactor::Reconciler;
 use windows_reactor::RenderCx;
-use windows_reactor::{ElementExt, text_block};
+use windows_reactor::{KeyExt, text_block};
 use windows_reactor::{component, memo};
 
 #[derive(Clone, PartialEq, Debug)]

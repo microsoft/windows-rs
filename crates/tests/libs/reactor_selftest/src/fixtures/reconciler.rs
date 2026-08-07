@@ -6,7 +6,7 @@ use windows_core::Interface;
 use windows_reactor::Component;
 use windows_reactor::RenderCx;
 use windows_reactor::{Element, GridLength};
-use windows_reactor::{ElementExt, GridChildExt, button, grid, text_block};
+use windows_reactor::{GridChildExt, KeyExt, button, grid, text_block};
 
 use crate::bindings::{Grid as XamlGrid, TextBlock};
 

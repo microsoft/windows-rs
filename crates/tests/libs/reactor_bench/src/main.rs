@@ -34,7 +34,7 @@ use std::time::Instant;
 use test_reactor::RecordingBackend;
 use windows_reactor::{
     Backend, Component, Context, ControlId, ControlKind, CustomElement, CustomElementHandle,
-    Element, ElementExt, Reconciler, RenderCx, SetState, component, error_boundary, grid,
+    Element, KeyExt, ProvideExt, Reconciler, RenderCx, SetState, component, error_boundary, grid,
     list_view, memo, swap_chain_panel, text_block, vstack,
 };
 

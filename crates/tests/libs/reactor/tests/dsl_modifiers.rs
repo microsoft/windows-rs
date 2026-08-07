@@ -1,6 +1,8 @@
-use windows_reactor::{BackgroundExt, ElementExt, LayoutExt, PaddingExt, TextStyleExt, VisualExt};
+use windows_reactor::{BackgroundExt, KeyExt, LayoutExt, PaddingExt, TextStyleExt, VisualExt};
 use windows_reactor::{Canvas, Color, Element, HorizontalAlignment, Thickness};
-use windows_reactor::{border, button, text_block, vstack};
+use windows_reactor::{
+    border, button, composition_host, swap_chain_panel, text_block, vstack, web_view2,
+};
 
 #[test]
 fn margin_chains_on_concrete_builder() {
@@ -45,6 +47,19 @@ fn with_key_sets_on_element_blanket() {
     let e: Element = text_block("row").into();
     let e = e.with_key("row-x");
     assert_eq!(e.key(), Some("row-x"));
+}
+
+#[test]
+fn erased_widget_keys_follow_the_authoritative_declaration() {
+    let elements: [Element; 3] = [
+        swap_chain_panel().into(),
+        composition_host().into(),
+        web_view2().into(),
+    ];
+
+    for element in elements {
+        assert_eq!(element.with_key("native").key(), Some("native"));
+    }
 }
 
 #[test]

@@ -5,7 +5,7 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    Component, ControlId, Element, ElementExt, Prop, PropValue, Reconciler, RenderCx, component,
+    Component, ControlId, Element, KeyExt, Prop, PropValue, Reconciler, RenderCx, component,
     rich_edit_box, text_block, vstack,
 };
 

@@ -6,7 +6,7 @@ use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Element;
 use windows_reactor::Reconciler;
 use windows_reactor::{Backend, ControlId, ControlKind};
-use windows_reactor::{CanvasSwapChain, ElementExt, LayoutExt, swap_chain_panel, text_block};
+use windows_reactor::{CanvasSwapChain, KeyExt, LayoutExt, swap_chain_panel, text_block};
 use windows_reactor::{Widget, animated_canvas};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {

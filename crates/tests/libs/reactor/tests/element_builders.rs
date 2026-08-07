@@ -1,7 +1,7 @@
 use windows_reactor::grid;
 use windows_reactor::{Element, GridLength, ScrollBarVisibility, Thickness};
 use windows_reactor::{
-    ElementExt, GridChildExt, LayoutExt, check_box, scroll_viewer, text_block, text_box,
+    GridChildExt, KeyExt, LayoutExt, check_box, scroll_viewer, text_block, text_box,
 };
 
 #[test]
@@ -32,7 +32,7 @@ fn check_box_disabled_clears_flag() {
 }
 
 #[test]
-fn check_box_modifiers_chain_via_element_ext() {
+fn check_box_modifiers_chain_via_capability_traits() {
     let c = check_box(false).margin(4.0).with_key("agree");
     assert_eq!(c.modifiers.margin, Some(Thickness::uniform(4.0)));
     assert_eq!(c.key.as_deref(), Some("agree"));

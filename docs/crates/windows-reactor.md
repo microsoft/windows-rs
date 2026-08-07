@@ -160,7 +160,7 @@ both target the initial property animation. The exit transition remains register
 ## Handling events
 
 Event handlers take closures. `button(..).on_click(move || ...)` is the most common. Pointer and
-keyboard handlers live on `ElementExt`: `.on_tapped(..)`, `.on_pointer_pressed(..)`,
+keyboard handlers live on `InputExt`: `.on_tapped(..)`, `.on_pointer_pressed(..)`,
 `.on_pointer_released(..)`, `.on_pointer_moved(..)`, `.on_pointer_entered(..)`,
 `.on_pointer_exited(..)`, `.keyboard_accelerator(..)`. You can pass a `SetState` or `Dispatch`
 directly wherever a handler is expected (through `IntoCallback`).
@@ -375,20 +375,15 @@ These bite anyone editing the backend by hand. The generated code already follow
 
 ### Padding, background, and foreground dispatch
 
-`Padding` has no single owning interface. `Control`, `Border`, `StackPanel`, `TextBlock`, and
-`RichTextBlock` each declare their own. `set_padding` (`backend/winui/mod.rs`) dispatches on the
-`Handle` variant: it calls the setter directly on `Border`, `StackPanel`, `TextBlock`, and
-`RichTextBlock` through their default interface, and falls back to a single `IControl` cast for
-everything else. Containers that lack a `Padding` property (for example a bare `Panel` or `Grid`)
-fall through to `diag::unhandled_modifier`, which warns in debug builds. Use `.margin(...)` there
-instead.
+`Padding` has no single owning interface. `set_padding` (`backend/winui/mod.rs`) calls the default
+interface directly for `Border`, `StackPanel`, `TextBlock`, and `RichTextBlock`; uses `IGrid` for
+`Grid` and `SwapChainPanel`; and uses `IControl` for control descendants. `PaddingExt` is generated
+only for those categories.
 
-`Background` and `Foreground` follow the same pattern and are exposed as the `ElementExt` modifiers
-`.background(...)` and `.foreground(...)`. `Border` handles them through its default interface;
-every other handle falls back to a single `IControl` cast (`set_background` and `set_foreground`).
-`BorderBrush` and `BorderThickness` use the same `IControl` fallback (`set_border_brush` and
-`set_border_thickness`) but are not `ElementExt` modifiers. They are opt-in per-widget builders,
-currently exposed by `Border` and `TextBox`.
+`BackgroundExt` is generated for `Border`, panel descendants, and control descendants.
+`TextStyleExt` provides foreground and font modifiers for text blocks and control descendants.
+The backend uses the matching default interfaces, `IPanel`, and `IControl`. `BorderBrush` and
+`BorderThickness` remain opt-in per-widget builders, currently exposed by `Border` and `TextBox`.
 
 ### Threading
 
@@ -777,17 +772,16 @@ Steps 1-7 are complete. Child, slot, custom, templated, and lifecycle storage re
 `MountedTree` rather than adding optional fields to every native or logical node. The resource,
 item-key, and exit-transition entries in the earlier audit were stale: PR #4782 already added
 resource replacement, `ItemKey` clearing, and WinUI implicit hide transitions, with regressions and
-visual samples. Typed public wrappers are now the active phase.
+visual samples. Structural typing and element cardinality are now the active phase.
 
 ### Typed element API
 
-The erased `ElementExt` surface allows some modifier calls that compile but cannot affect a native
-element. Resource dictionaries now use sealed `ResourceExt`, and framework layout uses sealed
-`LayoutExt`. Pointer, keyboard, capture, and drag/drop modifiers use sealed `InputExt`. UI
-Automation properties use sealed `AccessibilityExt`, and tooltips use sealed `TooltipExt`. These
-traits, sealed `VisualExt`, and the attached-layout traits `GridChildExt`, `CanvasChildExt`, and
-`RelativePanelChildExt` are implemented by concrete native widget builders but not by erased
-`Element` or logical wrappers:
+Native modifiers use sealed capability traits so calls that cannot affect a native element do not
+compile. Resource dictionaries use `ResourceExt`, framework layout uses `LayoutExt`, and pointer,
+keyboard, capture, and drag/drop modifiers use `InputExt`. UI Automation properties use
+`AccessibilityExt`, and tooltips use `TooltipExt`. These traits, `VisualExt`, and the attached
+layout traits `GridChildExt`, `CanvasChildExt`, and `RelativePanelChildExt` are implemented by
+concrete native widget builders but not by erased `Element` or logical wrappers:
 
 ```rust,compile_fail
 # use windows_reactor::*;
@@ -866,12 +860,12 @@ let element: Element = button("Delete")
 # let _ = element;
 ```
 
-The widget enum declaration now emits `ElementExt`, `ResourceExt`, `LayoutExt`, `InputExt`,
-`AccessibilityExt`, `TooltipExt`, `VisualExt`, `PaddingExt`, `BackgroundExt`, `TextStyleExt`, and
-the three attached-layout trait implementations from one widget list. This removed a duplicated
-list that had omitted 13 newer widgets, including `AutoSuggestBox`, date/time pickers, split
-buttons, and menu/list controls. Future capability traits must use the same declaration rather than
-maintaining parallel coverage tables.
+The widget enum declaration now emits `KeyExt`, one sealed native-modifier accessor,
+`ResourceExt`, `LayoutExt`, `InputExt`, `AccessibilityExt`, `TooltipExt`, `VisualExt`,
+`PaddingExt`, `BackgroundExt`, `TextStyleExt`, and the three attached-layout trait implementations
+from one widget list. This removed duplicated widget matches that omitted newer controls.
+`SwapChainPanel`, `CompositionHost`, and `WebView2` were missing from the erased `with_key` match;
+key dispatch now comes from the authoritative declaration.
 
 The migrations updated tests and samples to retain concrete widgets while adding modifiers, then
 erase them only at insertion. The attached-layout migration found calls made after provider
@@ -903,19 +897,15 @@ Unsupported calls now fail to compile instead of reaching `diag::unhandled_modif
 methods also leave erased `Element` unavailable, so a modifier cannot silently target a component,
 provider, error boundary, group, or empty element.
 
-`with_key` and `provide` are structural operations rather than native visual modifiers. They remain
-valid on erased or logical elements and are now the only operations left on `ElementExt`. They
-should move to structural APIs before `ElementExt` is retired. The target is for logical
-constructors to retain a concrete wrapper until insertion:
+`with_key` and `provide` are structural operations rather than native visual modifiers. `KeyExt`
+provides reconciliation identity, while `ProvideExt` wraps anything convertible into `Element` in
+a context provider. The former `ElementExt` trait and its public modifier accessor have been
+removed.
 
-```rust,ignore
-component(app, ()) -> ComponentElement<App>
-button("Save") -> WidgetElement<Button>
-```
-
-Concrete wrappers implement `Into<Element>`. Child builders accept `impl Into<Element>`. Erased
-`Element` and logical wrappers do not implement visual modifier traits, so invalid calls fail to
-compile:
+Widget constructors return concrete builders that implement native capabilities and
+`Into<Element>`. Logical constructors such as `component`, `memo`, and `error_boundary` return
+`Element`, so only structural operations remain available on them. Child builders accept
+`impl Into<Element>`, and invalid native modifier calls fail to compile:
 
 ```rust,compile_fail
 # use windows_reactor::*;
