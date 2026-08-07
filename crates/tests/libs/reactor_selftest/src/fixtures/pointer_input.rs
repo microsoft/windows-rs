@@ -24,7 +24,7 @@ use crate::bindings::{
 };
 
 use windows_reactor::{
-    Color, ElementExt, LayoutExt, PointerEventInfo, Thickness, text_block, vstack,
+    Color, ElementExt, InputExt, LayoutExt, PointerEventInfo, Thickness, text_block, vstack,
 };
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};

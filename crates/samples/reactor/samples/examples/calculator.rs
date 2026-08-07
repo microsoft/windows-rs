@@ -265,7 +265,7 @@ fn app(cx: &mut RenderCx) -> Element {
         (VirtualKey::NumberPad9, "9"),
     ];
 
-    let mut root: Element = grid((
+    let mut root = grid((
         TitleBar::new("Calculator")
             .tall(true)
             .grid_row(0)
@@ -276,8 +276,7 @@ fn app(cx: &mut RenderCx) -> Element {
     .rows([GridLength::Auto, GridLength::Auto, GridLength::Star(1.0)])
     .columns([GridLength::Star(1.0)])
     .horizontal_alignment(HorizontalAlignment::Stretch)
-    .vertical_alignment(VerticalAlignment::Stretch)
-    .into();
+    .vertical_alignment(VerticalAlignment::Stretch);
 
     for (key, digit) in numpad_digits {
         let pd = press_digit.clone();
@@ -339,7 +338,7 @@ fn app(cx: &mut RenderCx) -> Element {
             move || equals_handler(),
         ));
 
-    root
+    root.into()
 }
 
 fn format_display(s: &str) -> String {

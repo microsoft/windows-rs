@@ -231,6 +231,12 @@ macro_rules! define_element {
                     &mut self.modifiers
                 }
             }
+
+            impl capability::Input for $variant {
+                fn input_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
         )*
 
         impl Element {
@@ -553,12 +559,6 @@ impl Element {
         }
         self
     }
-    pub fn keyboard_accelerator(mut self, accel: KeyboardAccelerator) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            m.keyboard_accelerators.push(accel);
-        }
-        self
-    }
     /// `true` when both elements are the same variant (and same shape /
     /// custom type id), so an update can be considered.
     pub fn kind_matches(&self, other: &Self) -> bool {
@@ -803,93 +803,6 @@ pub trait ElementExt: Sized {
         self
     }
 
-    /// Register a `Tapped` (left-tap) handler.
-    fn on_tapped(mut self, f: impl IntoUnitCallback) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_tapped = Some(f.into_unit_callback());
-        }
-        self
-    }
-
-    /// Register a `RightTapped` handler (right-click / barrel button /
-    /// touch-and-hold).
-    fn on_right_tapped(mut self, f: impl IntoUnitCallback) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_right_tapped = Some(f.into_unit_callback());
-        }
-        self
-    }
-
-    /// Register a `PointerPressed` handler; the callback receives the
-    /// current button state.
-    fn on_pointer_pressed(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_pressed = Some(f.into_callback());
-        }
-        self
-    }
-
-    /// Register a `PointerReleased` handler; the callback receives the
-    /// button state at release.
-    fn on_pointer_released(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_released = Some(f.into_callback());
-        }
-        self
-    }
-
-    /// Register a `PointerMoved` handler; the callback receives the current
-    /// pointer position and button state. Fires continuously while the pointer
-    /// is over the element - use it for drag and hover tracking.
-    fn on_pointer_moved(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_moved = Some(f.into_callback());
-        }
-        self
-    }
-
-    /// Register a `PointerEntered` handler (pointer enters hit-test bounds);
-    /// the callback receives the entry position and button state.
-    fn on_pointer_entered(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_entered = Some(f.into_callback());
-        }
-        self
-    }
-
-    /// Register a `PointerExited` handler (pointer leaves hit-test bounds).
-    fn on_pointer_exited(mut self, f: impl IntoUnitCallback) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_exited = Some(f.into_unit_callback());
-        }
-        self
-    }
-
-    /// Capture the pressed pointer until release so moves continue outside
-    /// the element's hit-test bounds.
-    fn capture_pointer_on_press(mut self) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).capture_pointer_on_press = true;
-        }
-        self
-    }
-
-    /// Register a callback for an involuntarily lost pointer capture.
-    fn on_pointer_capture_lost(mut self, f: impl IntoUnitCallback) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_capture_lost = Some(f.into_unit_callback());
-        }
-        self
-    }
-
-    /// Register a callback for a canceled pointer interaction.
-    fn on_pointer_canceled(mut self, f: impl IntoUnitCallback) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_canceled = Some(f.into_unit_callback());
-        }
-        self
-    }
-
     // Accessibility modifiers
 
     fn automation_name(mut self, name: impl Into<String>) -> Self {
@@ -923,13 +836,6 @@ pub trait ElementExt: Sized {
     fn accessibility_live_setting(mut self, ls: AutomationLiveSetting) -> Self {
         if let Some(m) = self.modifiers_mut() {
             ensure_accessibility(m).live_setting = Some(ls);
-        }
-        self
-    }
-
-    fn keyboard_accelerator(mut self, accel: KeyboardAccelerator) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            m.keyboard_accelerators.push(accel);
         }
         self
     }
@@ -1013,51 +919,14 @@ pub trait ElementExt: Sized {
         }
         self
     }
-
-    fn allow_drop(mut self, v: bool) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            m.allow_drop = Some(v);
-        }
-        self
-    }
-
-    fn drag_enter<F: Fn(&mut DragContext) -> DragOperation + Send + Sync + 'static>(
-        mut self,
-        f: F,
-    ) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_drag_handlers(m).on_drag_enter = Some(DragAsyncCallback::new(f));
-        }
-        self
-    }
-
-    fn drag_leave<F: Fn(&DragContext) + 'static>(mut self, f: F) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_drag_handlers(m).on_drag_leave = Some(DragNotifyCallback::new(f));
-        }
-        self
-    }
-
-    fn drag_over<F: Fn(&mut DragContext) -> DragOperation + 'static>(mut self, f: F) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_drag_handlers(m).on_drag_over = Some(DragCallback::new(f));
-        }
-        self
-    }
-
-    fn drag_drop<F: Fn(&mut DragContext) -> DragOperation + Send + Sync + 'static>(
-        mut self,
-        f: F,
-    ) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_drag_handlers(m).on_drag_drop = Some(DragAsyncCallback::new(f));
-        }
-        self
-    }
 }
 
 mod capability {
     use super::Modifiers;
+
+    pub trait Input {
+        fn input_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
 
     pub trait Layout {
         fn layout_modifiers_mut(&mut self) -> &mut Modifiers;
@@ -1067,6 +936,130 @@ mod capability {
         fn resource_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 }
+
+/// Pointer, keyboard, capture, and drag/drop modifiers for concrete native widgets.
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, InputExt, button};
+///
+/// let element: Element = button("Open").into();
+/// let _ = element.on_tapped(|| {});
+/// ```
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, InputExt, KeyboardAccelerator, VirtualKey, VirtualKeyModifiers,
+///     button};
+///
+/// let element: Element = button("Save").into();
+/// let accelerator =
+///     KeyboardAccelerator::new(VirtualKey::S, VirtualKeyModifiers::Control, || {});
+/// let _ = element.keyboard_accelerator(accelerator);
+/// ```
+pub trait InputExt: capability::Input + Sized {
+    fn on_tapped(mut self, f: impl IntoUnitCallback) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self)).on_tapped =
+            Some(f.into_unit_callback());
+        self
+    }
+
+    fn on_right_tapped(mut self, f: impl IntoUnitCallback) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .on_right_tapped = Some(f.into_unit_callback());
+        self
+    }
+
+    fn on_pointer_pressed(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .on_pointer_pressed = Some(f.into_callback());
+        self
+    }
+
+    fn on_pointer_released(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .on_pointer_released = Some(f.into_callback());
+        self
+    }
+
+    fn on_pointer_moved(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .on_pointer_moved = Some(f.into_callback());
+        self
+    }
+
+    fn on_pointer_entered(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .on_pointer_entered = Some(f.into_callback());
+        self
+    }
+
+    fn on_pointer_exited(mut self, f: impl IntoUnitCallback) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .on_pointer_exited = Some(f.into_unit_callback());
+        self
+    }
+
+    fn capture_pointer_on_press(mut self) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .capture_pointer_on_press = true;
+        self
+    }
+
+    fn on_pointer_capture_lost(mut self, f: impl IntoUnitCallback) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .on_pointer_capture_lost = Some(f.into_unit_callback());
+        self
+    }
+
+    fn on_pointer_canceled(mut self, f: impl IntoUnitCallback) -> Self {
+        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
+            .on_pointer_canceled = Some(f.into_unit_callback());
+        self
+    }
+
+    fn keyboard_accelerator(mut self, accel: KeyboardAccelerator) -> Self {
+        capability::Input::input_modifiers_mut(&mut self)
+            .keyboard_accelerators
+            .push(accel);
+        self
+    }
+
+    fn allow_drop(mut self, value: bool) -> Self {
+        capability::Input::input_modifiers_mut(&mut self).allow_drop = Some(value);
+        self
+    }
+
+    fn drag_enter<F: Fn(&mut DragContext) -> DragOperation + Send + Sync + 'static>(
+        mut self,
+        f: F,
+    ) -> Self {
+        ensure_drag_handlers(capability::Input::input_modifiers_mut(&mut self)).on_drag_enter =
+            Some(DragAsyncCallback::new(f));
+        self
+    }
+
+    fn drag_leave<F: Fn(&DragContext) + 'static>(mut self, f: F) -> Self {
+        ensure_drag_handlers(capability::Input::input_modifiers_mut(&mut self)).on_drag_leave =
+            Some(DragNotifyCallback::new(f));
+        self
+    }
+
+    fn drag_over<F: Fn(&mut DragContext) -> DragOperation + 'static>(mut self, f: F) -> Self {
+        ensure_drag_handlers(capability::Input::input_modifiers_mut(&mut self)).on_drag_over =
+            Some(DragCallback::new(f));
+        self
+    }
+
+    fn drag_drop<F: Fn(&mut DragContext) -> DragOperation + Send + Sync + 'static>(
+        mut self,
+        f: F,
+    ) -> Self {
+        ensure_drag_handlers(capability::Input::input_modifiers_mut(&mut self)).on_drag_drop =
+            Some(DragAsyncCallback::new(f));
+        self
+    }
+}
+
+impl<T: capability::Input> InputExt for T {}
 
 /// Framework layout modifiers for concrete native widget builders.
 ///

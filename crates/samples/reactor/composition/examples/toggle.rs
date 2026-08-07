@@ -41,12 +41,10 @@ fn app(cx: &mut RenderCx) -> Element {
                 }),
         )
         .grid_row(0),
-        Element::from(
-            button(if shown { "Hide visual" } else { "Show visual" })
-                .on_click(move || set_shown.call(!shown)),
-        )
-        .grid_row(1)
-        .margin(Thickness::uniform(16.0)),
+        button(if shown { "Hide visual" } else { "Show visual" })
+            .on_click(move || set_shown.call(!shown))
+            .grid_row(1)
+            .margin(Thickness::uniform(16.0)),
     ))
     .rows([GridLength::STAR, GridLength::Auto])
     .into()

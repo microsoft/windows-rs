@@ -612,7 +612,7 @@ fn build_board(
     board: &Board,
     chord_preview_center: Option<(usize, usize)>,
     handlers: CellHandlers,
-) -> Element {
+) -> Border {
     let size = cell_size(board.difficulty);
     let rows = board.rows();
     let cols = board.cols();
@@ -640,10 +640,9 @@ fn build_board(
         .background(ThemeRef::LayerFill)
         .padding(Thickness::uniform(1.0))
         .horizontal_alignment(HorizontalAlignment::Center)
-        .into()
 }
 
-fn led_display(value: i32) -> Element {
+fn led_display(value: i32) -> Border {
     let clamped = value.clamp(-99, 999);
     let text = if clamped < 0 {
         format!("-{:02}", -clamped)
@@ -661,7 +660,6 @@ fn led_display(value: i32) -> Element {
     .background(Color::rgb(0x1A, 0x00, 0x00))
     .padding(Thickness::xy(8.0, 2.0))
     .min_width(64.0)
-    .into()
 }
 
 fn status_subtitle(state: &AppState) -> String {

@@ -20,7 +20,7 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Callback;
-use windows_reactor::ElementExt;
+use windows_reactor::InputExt;
 use windows_reactor::Reconciler;
 use windows_reactor::RichTextBlock;
 use windows_reactor::{
@@ -34,63 +34,76 @@ use windows_reactor::{
     TitleBar, ToggleSwitch,
 };
 
-fn one_of_every_widget() -> Vec<(&'static str, Element)> {
+fn labelled<T: InputExt + Into<Element>>(widget: T) -> (Element, KeyboardAccelerator) {
+    let accel = save_accel();
+    (widget.keyboard_accelerator(accel.clone()).into(), accel)
+}
+
+fn one_of_every_widget() -> Vec<(&'static str, Element, KeyboardAccelerator)> {
     vec![
-        ("TextBlock", TextBlock::new("t").into()),
-        ("Button", Button::new("b").into()),
-        ("StackPanel", StackPanel::vertical().into()),
-        ("Border", Border::new(Element::Empty).into()),
-        ("CheckBox", CheckBox::new(false).into()),
-        ("TextBox", TextBox::new("tf").into()),
+        ("TextBlock", labelled(TextBlock::new("t"))),
+        ("Button", labelled(Button::new("b"))),
+        ("StackPanel", labelled(StackPanel::vertical())),
+        ("Border", labelled(Border::new(Element::Empty))),
+        ("CheckBox", labelled(CheckBox::new(false))),
+        ("TextBox", labelled(TextBox::new("tf"))),
         (
             "Grid",
-            Grid {
+            labelled(Grid {
                 rows: vec![GridLength::STAR],
                 columns: vec![GridLength::STAR],
                 ..Grid::default()
-            }
-            .into(),
+            }),
         ),
-        ("ScrollViewer", ScrollViewer::new(Element::Empty).into()),
-        ("ToggleSwitch", ToggleSwitch::new(false).into()),
-        ("Slider", Slider::new(0.0).into()),
-        ("RadioButton", RadioButton::new("r").into()),
-        ("NumberBox", NumberBox::new(0.0).into()),
-        ("ProgressBar", ProgressBar::new(50.0).into()),
-        ("ProgressRing", ProgressRing::indeterminate().into()),
-        ("Expander", Expander::new(Element::Empty).into()),
-        ("HyperlinkButton", HyperlinkButton::new("h").into()),
-        ("InfoBar", InfoBar::new("i").into()),
-        ("InfoBadge", InfoBadge::dot().into()),
-        ("PersonPicture", PersonPicture::new().into()),
+        ("ScrollViewer", labelled(ScrollViewer::new(Element::Empty))),
+        ("ToggleSwitch", labelled(ToggleSwitch::new(false))),
+        ("Slider", labelled(Slider::new(0.0))),
+        ("RadioButton", labelled(RadioButton::new("r"))),
+        ("NumberBox", labelled(NumberBox::new(0.0))),
+        ("ProgressBar", labelled(ProgressBar::new(50.0))),
+        ("ProgressRing", labelled(ProgressRing::indeterminate())),
+        ("Expander", labelled(Expander::new(Element::Empty))),
+        ("HyperlinkButton", labelled(HyperlinkButton::new("h"))),
+        ("InfoBar", labelled(InfoBar::new("i"))),
+        ("InfoBadge", labelled(InfoBadge::dot())),
+        ("PersonPicture", labelled(PersonPicture::new())),
         (
             "Shape",
-            Shape::rectangle().fill(Color::rgb(255, 0, 0)).into(),
+            labelled(Shape::rectangle().fill(Color::rgb(255, 0, 0))),
         ),
-        ("Image", Image::new_with_uri("ms-appx:///x.png").into()),
+        ("Image", labelled(Image::new_with_uri("ms-appx:///x.png"))),
         (
             "TabView",
-            TabView::new([TabItem::new("a", TextBlock::new("x"))]).into(),
+            labelled(TabView::new([TabItem::new("a", TextBlock::new("x"))])),
         ),
         (
             "NavigationView",
-            NavigationView::new([NavViewItem::new("home")], Element::Empty).into(),
+            labelled(NavigationView::new(
+                [NavViewItem::new("home")],
+                Element::Empty,
+            )),
         ),
-        ("TitleBar", TitleBar::new("title").into()),
+        ("TitleBar", labelled(TitleBar::new("title"))),
         (
             "Pivot",
-            Pivot::new([PivotItem::new("a", TextBlock::new("x"))]).into(),
+            labelled(Pivot::new([PivotItem::new("a", TextBlock::new("x"))])),
         ),
-        ("BreadcrumbBar", BreadcrumbBar::new(["root"]).into()),
-        ("PasswordBox", PasswordBox::new().into()),
-        ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
-        ("ComboBox", ComboBox::new(["A", "B"]).into()),
-        ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
+        ("BreadcrumbBar", labelled(BreadcrumbBar::new(["root"]))),
+        ("PasswordBox", labelled(PasswordBox::new())),
+        ("RadioButtons", labelled(RadioButtons::new(["A", "B"]))),
+        ("ComboBox", labelled(ComboBox::new(["A", "B"]))),
+        (
+            "Canvas",
+            labelled(Canvas::new(std::iter::empty::<Element>())),
+        ),
         (
             "RichText",
-            RichTextBlock::single_paragraph(Vec::new()).into(),
+            labelled(RichTextBlock::single_paragraph(Vec::new())),
         ),
     ]
+    .into_iter()
+    .map(|(name, (element, accelerator))| (name, element, accelerator))
+    .collect()
 }
 
 fn save_accel() -> KeyboardAccelerator {
@@ -99,10 +112,8 @@ fn save_accel() -> KeyboardAccelerator {
 
 #[test]
 fn every_widget_variant_round_trips_keyboard_accelerators() {
-    for (name, el) in one_of_every_widget() {
-        let accel = save_accel();
-        let labelled = el.keyboard_accelerator(accel.clone());
-        let mods = labelled.modifiers().unwrap_or_else(|| {
+    for (name, element, accel) in one_of_every_widget() {
+        let mods = element.modifiers().unwrap_or_else(|| {
             panic!("{name}: widget has no modifiers? — keyboard_accelerator should have recorded")
         });
         let list = &mods.keyboard_accelerators;
@@ -126,12 +137,10 @@ fn every_widget_variant_round_trips_keyboard_accelerators() {
 
 #[test]
 fn every_widget_variant_emits_set_keyboard_accelerators_on_mount() {
-    for (name, el) in one_of_every_widget() {
-        let accel = save_accel();
-        let labelled = el.keyboard_accelerator(accel.clone());
+    for (name, element, _) in one_of_every_widget() {
         let mut r = Reconciler::new(RecordingBackend::new());
         let id = r
-            .reconcile(None, &labelled, None, Rc::new(|| {}))
+            .reconcile(None, &element, None, Rc::new(|| {}))
             .unwrap_or_else(|| panic!("{name}: mount produced no control id"));
 
         let mut found = false;
@@ -163,11 +172,11 @@ fn multiple_accelerators_preserve_insertion_order() {
         VirtualKeyModifiers::Control | VirtualKeyModifiers::Shift,
         || {},
     );
-    let el: Element = Button::new("b").into();
-    let el = el
+    let el: Element = Button::new("b")
         .keyboard_accelerator(a)
         .keyboard_accelerator(b)
-        .keyboard_accelerator(c);
+        .keyboard_accelerator(c)
+        .into();
 
     let mut r = Reconciler::new(RecordingBackend::new());
     let _ = r.reconcile(None, &el, None, Rc::new(|| {}));
