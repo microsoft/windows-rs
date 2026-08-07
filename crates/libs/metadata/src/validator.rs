@@ -73,13 +73,67 @@ pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
             .or_default()
             .push(ty);
 
-        validate_fields(ty, &mut errors);
-        validate_properties(ty, &mut errors);
-        validate_events(ty, &mut errors);
-        validate_methods(ty, &mut errors);
+        validate_type_members(ty, &mut errors);
+        for nested in index.nested_recursive(ty) {
+            validate_type_members(nested, &mut errors);
+        }
     }
 
     errors
+}
+
+fn validate_type_members(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
+    validate_fields(ty, errors);
+    validate_interfaces(ty, errors);
+    validate_properties(ty, errors);
+    validate_events(ty, errors);
+    validate_methods(ty, errors);
+}
+
+fn validate_interfaces(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
+    let generics = generics(ty);
+    let mut interfaces = Vec::<(reader::InterfaceImpl<'_>, crate::Type)>::new();
+    for implementation in ty.interface_impls() {
+        let interface = implementation.interface(&generics);
+        if let Some((previous, _)) = interfaces.iter().find(|(previous, previous_type)| {
+            previous_type == &interface
+                && arches_overlap(previous.arches(), implementation.arches())
+        }) {
+            errors.push(duplicate(
+                implementation.row_id(),
+                previous.row_id(),
+                format!(
+                    "duplicate interface `{}` on `{}.{}`",
+                    display_type(&interface),
+                    ty.namespace(),
+                    ty.name()
+                ),
+            ));
+        }
+
+        fn display_type(ty: &crate::Type) -> String {
+            let (crate::Type::ClassName(name) | crate::Type::ValueName(name)) = ty else {
+                return format!("{ty:?}");
+            };
+            let mut result = if name.namespace.is_empty() {
+                name.name.clone()
+            } else {
+                format!("{}.{}", name.namespace, name.name)
+            };
+            if !name.generics.is_empty() {
+                result.push('<');
+                for (index, generic) in name.generics.iter().enumerate() {
+                    if index != 0 {
+                        result.push_str(", ");
+                    }
+                    result.push_str(&display_type(generic));
+                }
+                result.push('>');
+            }
+            result
+        }
+        interfaces.push((implementation, interface));
+    }
 }
 
 fn validate_layouts(index: &reader::Index, errors: &mut Vec<ValidationError>) {
@@ -248,12 +302,7 @@ fn validate_fields(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
             errors.push(duplicate(
                 field.row_id(),
                 previous.row_id(),
-                format!(
-                    "duplicate field `{}` on `{}.{}`",
-                    field.name(),
-                    ty.namespace(),
-                    ty.name()
-                ),
+                format!("duplicate field `{}`", field.name()),
             ));
         }
         names.entry(field.name()).or_default().push(field);

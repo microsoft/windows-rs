@@ -426,11 +426,13 @@ types, functions, and constants; duplicate members and parameters; overlapping a
 variants; and method overloads with the same parameter types. Distinct method signatures,
 disjoint architecture variants, and matching split get/set properties remain valid.
 
-Top-level symbols, fields, enum variants, attribute properties, and cross-kind interface member
-conflicts remain source checks. Method, property, and event identities are now validated on
-finalized metadata rows, so aliases and qualified paths share one identity. Return types do not
-distinguish methods or non-indexed properties; complementary property/event accessor rows are valid
-only when their associated types agree. `RDL0005` rejects missing or extra generic arguments.
+Top-level symbols, enum variants, attribute properties/constructors, and cross-kind interface
+member conflicts remain source checks. Those concepts either participate in source resolution or
+lower to less-specific metadata rows, so moving them would weaken diagnostics. Field, method,
+property, event, and implemented-interface identities are validated on finalized metadata rows, so
+aliases and qualified paths share one identity. Return types do not distinguish methods or
+non-indexed properties; complementary property/event accessor rows are valid only when their
+associated types agree. `RDL0005` rejects missing or extra generic arguments.
 
 The winmd writer now preflights Property and Event rows before reconstructing shorthand. Custom
 attributes, nonzero flags, property constants, unsupported or duplicate semantics, missing
@@ -706,9 +708,9 @@ The main findings are:
 - **Resolution:** Type and attribute lookup now share `Resolver` and produce canonical
   `metadata::Type` identities. Encode those facts directly rather than retaining a second
   declaration tree.
-- **Duplicate checks:** Method, property, and event identities now use finalized metadata.
-  Attribute-constructor signatures use resolved types. Class interface lists and source-only
-  symbols still use syntax spelling.
+- **Duplicate checks:** Field, method, property, event, and implemented-interface identities use
+  finalized metadata. Attribute-constructor signatures use resolved types. Top-level and
+  source-only symbols remain syntax checks where metadata would lose the author-facing concept.
 - **Encoding:** Some unresolved or invalid states are found while the winmd writer is being
   mutated. Make the metadata builder queryable and validate its finalized rows before output.
 - **Diagnostics:** The data model supports labels, but source text is external and `riddle` renders

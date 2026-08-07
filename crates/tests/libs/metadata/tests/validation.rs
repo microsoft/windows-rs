@@ -102,10 +102,7 @@ fn duplicate_field_and_method_identities_are_rejected() {
 
     let errors = validator::validate(&index(file));
     assert_eq!(errors.len(), 2);
-    assert_eq!(
-        errors[0].message(),
-        "duplicate field `Value` on `Test.IValue`"
-    );
+    assert_eq!(errors[0].message(), "duplicate field `Value`");
     assert_eq!(
         errors[1].message(),
         "duplicate method `Get` on `Test.IValue`"
@@ -317,6 +314,32 @@ fn return_types_do_not_distinguish_member_identities() {
         errors
             .iter()
             .all(|error| error.category() == validator::ValidationCategory::Duplicate)
+    );
+}
+
+#[test]
+fn duplicate_interface_implementations_are_rejected() {
+    let mut file = writer::File::new("test");
+    let object = file.TypeRef("System", "Object");
+    let class = file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::TypeRef(object),
+        TypeAttributes::Public,
+    );
+    let interface = Type::ClassName(TypeName::named("Test", "IValue"));
+    file.InterfaceImpl(class, &interface);
+    file.InterfaceImpl(class, &interface);
+
+    let errors = validator::validate(&index(file));
+    assert_eq!(errors.len(), 1);
+    assert_eq!(
+        errors[0].message(),
+        "duplicate interface `Test.IValue` on `Test.Value`"
+    );
+    assert_eq!(
+        errors[0].category(),
+        validator::ValidationCategory::Duplicate
     );
 }
 

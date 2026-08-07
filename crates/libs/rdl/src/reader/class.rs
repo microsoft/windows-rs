@@ -106,6 +106,7 @@ impl Encoder<'_> {
         self.validate_type_is_winrt(&interface.ty, &ty)?;
 
         let interface_impl = self.output.InterfaceImpl(class, &ty);
+        self.origin(interface_impl, &interface.ty);
 
         if default {
             let default_attribute = metadata::writer::MemberRefParent::TypeRef(

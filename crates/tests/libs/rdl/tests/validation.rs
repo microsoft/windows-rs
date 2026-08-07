@@ -111,7 +111,7 @@ fn duplicate_symbols_are_rejected() {
         (
             "class_interface",
             "#[winrt] mod Test { interface IValue {} class Value { IValue, IValue, } }",
-            "duplicate class interface `IValue`",
+            "duplicate interface `Test.IValue` on `Test.Value`",
         ),
         (
             "generic_parameter",

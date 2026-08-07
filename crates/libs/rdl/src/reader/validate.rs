@@ -1,5 +1,4 @@
 use super::*;
-use quote::ToTokens;
 
 const DUPLICATE_CODE: &str = "RDL0001";
 const UNREPRESENTABLE_CODE: &str = "RDL0002";
@@ -108,6 +107,20 @@ pub fn validate_resolved_symbols(index: &Index, reference: &metadata::reader::In
                                 continue;
                             };
                             if let Err(error) = validate_signature_types(&resolver, &method.sig) {
+                                diagnostics.push(error);
+                            }
+                        }
+                    }
+                    Item::Class(item) => {
+                        let resolver = Resolver {
+                            index,
+                            reference,
+                            file,
+                            namespace,
+                            generics: &[],
+                        };
+                        for interface in &item.interfaces {
+                            if let Err(error) = resolver.resolve_path(&interface.ty) {
                                 diagnostics.push(error);
                             }
                         }
@@ -235,7 +248,7 @@ fn validate_item(file: &File, item: &Item) -> Result<(), Error> {
             reject_variadic(file, &item.sig, "callbacks")?;
             validate_signature_params(file, &item.sig)
         }
-        Item::Class(item) => validate_class(file, item),
+        Item::Class(_) => Ok(()),
         Item::Delegate(item) => {
             validate_type_generics(file, &item.sig.generics, "delegates")?;
             reject_variadic(file, &item.sig, "delegates")?;
@@ -277,24 +290,6 @@ fn validate_attribute(file: &File, item: &Attribute) -> Result<(), Error> {
         }
     }
 
-    Ok(())
-}
-
-fn validate_class(file: &File, item: &Class) -> Result<(), Error> {
-    let mut interfaces = HashMap::<String, Span>::new();
-    for interface in &item.interfaces {
-        let name = interface.ty.to_token_stream().to_string();
-        if let Some(previous) = interfaces.insert(name.clone(), interface.ty.span()) {
-            return duplicate(
-                "class interface",
-                &name,
-                file,
-                interface.ty.span(),
-                file,
-                previous,
-            );
-        }
-    }
     Ok(())
 }
 
@@ -362,11 +357,7 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
 }
 
 fn validate_fields(file: &File, fields: &[Field]) -> Result<(), Error> {
-    let mut names = HashMap::<String, Span>::new();
-
     for field in fields {
-        check_name(file, "field", &field.name, &mut names)?;
-
         let mut bitfields = HashMap::<String, Span>::new();
         for member in &field.bitfields {
             if let Some(name) = &member.name {

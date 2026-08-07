@@ -67,6 +67,7 @@ row_handles! {
     (Field, Field)
     (MethodDef, MethodDef)
     (Param, Param)
+    (InterfaceImpl, InterfaceImpl)
     (Property, Property)
     (PropertyMap, PropertyMap)
     (Event, Event)

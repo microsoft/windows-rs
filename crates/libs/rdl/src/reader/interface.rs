@@ -183,7 +183,8 @@ impl Encoder<'_> {
 
         for require in &item.requires {
             let ty = self.encode_path(require)?;
-            self.output.InterfaceImpl(interface, &ty);
+            let implementation = self.output.InterfaceImpl(interface, &ty);
+            self.origin(implementation, require);
         }
 
         let base_flags = metadata::MethodAttributes::Public
