@@ -5,11 +5,11 @@ use windows_reactor::{
     PasswordBox, PasswordRevealMode, PersonPicture, Pivot, PivotItem, ProgressBar, ProgressRing,
     RadioButton, RadioButtons, Shape, Slider, TabItem, TabView, TitleBar, ToggleSwitch, Viewbox,
 };
-use windows_reactor::{Color, CornerRadius, GridLength, RenderCx, Thickness, component};
 use windows_reactor::{
-    ElementExt, LayoutExt, ResourceExt, border, button, check_box, scroll_viewer, swap_chain_panel,
-    text_block, text_box,
+    CanvasChildExt, LayoutExt, ResourceExt, border, button, check_box, scroll_viewer,
+    swap_chain_panel, text_block, text_box,
 };
+use windows_reactor::{Color, CornerRadius, GridLength, RenderCx, Thickness, component};
 use windows_reactor::{RichTextBlock, RichTextInline, RichTextRun};
 use windows_reactor::{flip_view, grid_view, list_view};
 

@@ -26,7 +26,7 @@ use windows_reactor::{
 };
 use windows_reactor::{Color, Element, GridLength};
 use windows_reactor::{
-    ElementExt, LayoutExt, border, button, check_box, scroll_viewer, text_block, text_box,
+    GridChildExt, LayoutExt, border, button, check_box, scroll_viewer, text_block, text_box,
 };
 use windows_reactor::{RichTextBlock, RichTextInline, RichTextRun};
 

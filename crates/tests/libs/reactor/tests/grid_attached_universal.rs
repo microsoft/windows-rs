@@ -17,8 +17,9 @@ use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
 use windows_reactor::RichTextBlock;
 use windows_reactor::{
-    Border, Button, CheckBox, Color, Element, Grid, GridLength, ScrollViewer, StackPanel,
-    TextBlock, TextBox,
+    Border, Button, CanvasChildExt, CanvasPosition, CheckBox, Color, Element, Grid, GridChildExt,
+    GridLength, RelativePanelAlignment, RelativePanelChildExt, ScrollViewer, StackPanel, TextBlock,
+    TextBox, list_view,
 };
 use windows_reactor::{
     BreadcrumbBar, Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar,
@@ -30,74 +31,80 @@ use windows_reactor::{Prop, PropValue};
 
 /// One `Element` per widget variant. Use real, mountable instances so the
 /// reconciler test below also exercises a successful mount.
+fn placed<T: GridChildExt + Into<Element>>(widget: T) -> Element {
+    widget
+        .grid_row(2)
+        .grid_column(3)
+        .grid_row_span(4)
+        .grid_column_span(5)
+        .into()
+}
+
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![
-        ("TextBlock", TextBlock::new("t").into()),
-        ("Button", Button::new("b").into()),
-        ("StackPanel", StackPanel::vertical().into()),
-        ("Border", Border::new(Element::Empty).into()),
-        ("CheckBox", CheckBox::new(false).into()),
-        ("TextBox", TextBox::new("tf").into()),
+        ("TextBlock", placed(TextBlock::new("t"))),
+        ("Button", placed(Button::new("b"))),
+        ("StackPanel", placed(StackPanel::vertical())),
+        ("Border", placed(Border::new(Element::Empty))),
+        ("CheckBox", placed(CheckBox::new(false))),
+        ("TextBox", placed(TextBox::new("tf"))),
         (
             "Grid",
-            Grid {
+            placed(Grid {
                 rows: vec![GridLength::STAR],
                 columns: vec![GridLength::STAR],
                 ..Grid::default()
-            }
-            .into(),
+            }),
         ),
-        ("ScrollViewer", ScrollViewer::new(Element::Empty).into()),
-        ("ToggleSwitch", ToggleSwitch::new(false).into()),
-        ("Slider", Slider::new(0.0).into()),
-        ("RadioButton", RadioButton::new("r").into()),
-        ("NumberBox", NumberBox::new(0.0).into()),
-        ("ProgressBar", ProgressBar::new(50.0).into()),
-        ("ProgressRing", ProgressRing::indeterminate().into()),
-        ("Expander", Expander::new(Element::Empty).into()),
-        ("HyperlinkButton", HyperlinkButton::new("h").into()),
-        ("InfoBar", InfoBar::new("i").into()),
-        ("InfoBadge", InfoBadge::dot().into()),
-        ("PersonPicture", PersonPicture::new().into()),
+        ("ScrollViewer", placed(ScrollViewer::new(Element::Empty))),
+        ("ToggleSwitch", placed(ToggleSwitch::new(false))),
+        ("Slider", placed(Slider::new(0.0))),
+        ("RadioButton", placed(RadioButton::new("r"))),
+        ("NumberBox", placed(NumberBox::new(0.0))),
+        ("ProgressBar", placed(ProgressBar::new(50.0))),
+        ("ProgressRing", placed(ProgressRing::indeterminate())),
+        ("Expander", placed(Expander::new(Element::Empty))),
+        ("HyperlinkButton", placed(HyperlinkButton::new("h"))),
+        ("InfoBar", placed(InfoBar::new("i"))),
+        ("InfoBadge", placed(InfoBadge::dot())),
+        ("PersonPicture", placed(PersonPicture::new())),
         (
             "Shape",
-            Shape::rectangle().fill(Color::rgb(255, 0, 0)).into(),
+            placed(Shape::rectangle().fill(Color::rgb(255, 0, 0))),
         ),
-        ("Image", Image::new_with_uri("ms-appx:///x.png").into()),
+        ("Image", placed(Image::new_with_uri("ms-appx:///x.png"))),
         (
             "TabView",
-            TabView::new([TabItem::new("a", TextBlock::new("x"))]).into(),
+            placed(TabView::new([TabItem::new("a", TextBlock::new("x"))])),
         ),
         (
             "NavigationView",
-            NavigationView::new([NavViewItem::new("home")], Element::Empty).into(),
+            placed(NavigationView::new(
+                [NavViewItem::new("home")],
+                Element::Empty,
+            )),
         ),
-        ("TitleBar", TitleBar::new("title").into()),
+        ("TitleBar", placed(TitleBar::new("title"))),
         (
             "Pivot",
-            Pivot::new([PivotItem::new("a", TextBlock::new("x"))]).into(),
+            placed(Pivot::new([PivotItem::new("a", TextBlock::new("x"))])),
         ),
-        ("BreadcrumbBar", BreadcrumbBar::new(["root"]).into()),
-        ("PasswordBox", PasswordBox::new().into()),
-        ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
-        ("ComboBox", ComboBox::new(["A", "B"]).into()),
-        ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
+        ("BreadcrumbBar", placed(BreadcrumbBar::new(["root"]))),
+        ("PasswordBox", placed(PasswordBox::new())),
+        ("RadioButtons", placed(RadioButtons::new(["A", "B"]))),
+        ("ComboBox", placed(ComboBox::new(["A", "B"]))),
+        ("Canvas", placed(Canvas::new(std::iter::empty::<Element>()))),
         (
             "RichText",
-            RichTextBlock::single_paragraph(Vec::new()).into(),
+            placed(RichTextBlock::single_paragraph(Vec::new())),
         ),
     ]
 }
 
 #[test]
 fn every_widget_variant_round_trips_grid_placement() {
-    for (name, el) in one_of_every_widget() {
-        let placed = el
-            .grid_row(2)
-            .grid_column(3)
-            .grid_row_span(4)
-            .grid_column_span(5);
-        let p = placed.modifiers().and_then(|m| m.grid).unwrap_or_else(|| {
+    for (name, element) in one_of_every_widget() {
+        let p = element.modifiers().and_then(|m| m.grid).unwrap_or_else(|| {
             panic!("{name}: .grid_row(...)/grid_column(...) did not record grid placement")
         });
         assert_eq!(p.row, 2, "{name}: row");
@@ -113,15 +120,10 @@ fn every_widget_variant_emits_grid_attached_set_props_on_mount() {
     // reconciler emits AttachedGridRow / AttachedGridColumn / *Span set_prop
     // ops for it. This is the path that, in a real WinUI host, lands as
     // `Xaml::Grid::SetRow/SetColumn` calls on the underlying control.
-    for (name, el) in one_of_every_widget() {
-        let placed = el
-            .grid_row(2)
-            .grid_column(3)
-            .grid_row_span(4)
-            .grid_column_span(5);
+    for (name, element) in one_of_every_widget() {
         let mut r = Reconciler::new(RecordingBackend::new());
         let id = r
-            .reconcile(None, &placed, None, Rc::new(|| {}))
+            .reconcile(None, &element, None, Rc::new(|| {}))
             .unwrap_or_else(|| panic!("{name}: mount produced no control id"));
 
         let mut saw_row = false;
@@ -152,4 +154,27 @@ fn every_widget_variant_emits_grid_attached_set_props_on_mount() {
         assert!(saw_row_span, "{name}: missing AttachedGridRowSpan=4");
         assert!(saw_column_span, "{name}: missing AttachedGridColumnSpan=5");
     }
+}
+
+#[test]
+fn templated_list_builder_retains_attached_layout_capabilities() {
+    let element: Element = list_view(vec!["item"], |item, _| TextBlock::new(*item))
+        .grid_row(2)
+        .grid_column(3)
+        .canvas_left(40.0)
+        .relative_align_left()
+        .into();
+    let modifiers = element.modifiers().unwrap();
+    let grid = modifiers.grid.unwrap();
+    let attached = modifiers.attached.as_ref().unwrap();
+
+    assert_eq!(grid.row, 2);
+    assert_eq!(grid.column, 3);
+    assert_eq!(attached.get::<CanvasPosition>().unwrap().left, 40.0);
+    assert!(
+        attached
+            .get::<RelativePanelAlignment>()
+            .unwrap()
+            .align_left_with_panel
+    );
 }

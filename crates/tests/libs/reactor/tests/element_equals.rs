@@ -1,5 +1,5 @@
 use windows_reactor::{
-    Button, Color, Element, Modifiers, Orientation, StackPanel, TextBlock, Thickness,
+    Button, Color, Element, GridChildExt, Modifiers, Orientation, StackPanel, TextBlock, Thickness,
     can_skip_update,
 };
 
@@ -133,8 +133,8 @@ fn empty_matches_empty() {
 fn text_attached_difference_prevents_skip() {
     // Changing only the grid placement on a TextBlock element must still trigger
     // an update so the new placement is applied to the underlying control.
-    let a = Element::TextBlock(TextBlock::new("x")).grid_row(0);
-    let b = Element::TextBlock(TextBlock::new("x")).grid_row(2);
+    let a: Element = TextBlock::new("x").grid_row(0).into();
+    let b: Element = TextBlock::new("x").grid_row(2).into();
     assert!(!can_skip_update(&a, &b));
 }
 

@@ -1,7 +1,7 @@
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {
-    let cell = |label: &str, color: Color| -> Element {
+    let cell = |label: &str, color: Color| -> Border {
         border(
             text_block(label)
                 .bold()
@@ -9,7 +9,6 @@ fn app(_cx: &mut RenderCx) -> Element {
         )
         .background(color)
         .padding(Thickness::uniform(12.0))
-        .into()
     };
 
     grid((

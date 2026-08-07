@@ -249,6 +249,24 @@ macro_rules! define_element {
                     &mut self.modifiers
                 }
             }
+
+            impl capability::GridChild for $variant {
+                fn grid_child_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
+
+            impl capability::CanvasChild for $variant {
+                fn canvas_child_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
+
+            impl capability::RelativePanelChild for $variant {
+                fn relative_panel_child_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
         )*
 
         impl Element {
@@ -402,134 +420,8 @@ impl Element {
             _ => unreachable!("covered by as_widget"),
         }
     }
-    pub fn attached_mut(&mut self) -> Option<&mut AttachedProps> {
-        let m = self.modifiers_mut()?;
-        Some(m.attached.get_or_insert_with(AttachedProps::default))
-    }
     pub fn attached(&self) -> Option<&AttachedProps> {
         self.modifiers().and_then(|m| m.attached.as_ref())
-    }
-    pub fn grid_row(mut self, row: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let mut p = m.grid.unwrap_or_default();
-            p.row = row;
-            m.grid = Some(p);
-        }
-        self
-    }
-    pub fn grid_column(mut self, column: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let mut p = m.grid.unwrap_or_default();
-            p.column = column;
-            m.grid = Some(p);
-        }
-        self
-    }
-    pub fn grid_row_span(mut self, rs: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let mut p = m.grid.unwrap_or_default();
-            p.row_span = rs;
-            m.grid = Some(p);
-        }
-        self
-    }
-    pub fn grid_column_span(mut self, cs: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let mut p = m.grid.unwrap_or_default();
-            p.column_span = cs;
-            m.grid = Some(p);
-        }
-        self
-    }
-    pub fn canvas_left(mut self, x: f64) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag.get::<CanvasPosition>().copied().unwrap_or_default();
-            p.left = x;
-            bag.set(p);
-        }
-        self
-    }
-    pub fn canvas_top(mut self, y: f64) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag.get::<CanvasPosition>().copied().unwrap_or_default();
-            p.top = y;
-            bag.set(p);
-        }
-        self
-    }
-    pub fn canvas_z_index(mut self, z: i32) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag.get::<CanvasPosition>().copied().unwrap_or_default();
-            p.z_index = z;
-            bag.set(p);
-        }
-        self
-    }
-    pub fn relative_align_left(mut self) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_left_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-    pub fn relative_align_right(mut self) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_right_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-    pub fn relative_align_top(mut self) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_top_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-    pub fn relative_align_bottom(mut self) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_bottom_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-    pub fn relative_align_h_center(mut self) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_h_center_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-    pub fn relative_align_v_center(mut self) -> Self {
-        if let Some(bag) = self.attached_mut() {
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_v_center_with_panel = true;
-            bag.set(p);
-        }
-        self
     }
     pub fn accessibility(&self) -> Option<&AccessibilityModifiers> {
         self.modifiers().and_then(|m| m.accessibility.as_deref())
@@ -597,10 +489,10 @@ macro_rules! simple_setter {
     };
 }
 
-/// Builder-style visual, animation, and attached-property modifiers.
+/// Builder-style visual and animation modifiers.
 ///
-/// Accessibility, input, layout, resource dictionary, and tooltip methods use separate sealed
-/// capability traits.
+/// Accessibility, attached layout, input, layout, resource dictionary, and tooltip methods use
+/// separate sealed capability traits.
 pub trait ElementExt: Sized {
     fn modifiers_mut(&mut self) -> Option<&mut Modifiers>;
 
@@ -676,72 +568,6 @@ pub trait ElementExt: Sized {
         self
     }
 
-    fn grid_row(mut self, row: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let mut p = m.grid.unwrap_or_default();
-            p.row = row;
-            m.grid = Some(p);
-        }
-        self
-    }
-
-    fn grid_column(mut self, column: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let mut p = m.grid.unwrap_or_default();
-            p.column = column;
-            m.grid = Some(p);
-        }
-        self
-    }
-
-    fn grid_row_span(mut self, rs: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let mut p = m.grid.unwrap_or_default();
-            p.row_span = rs;
-            m.grid = Some(p);
-        }
-        self
-    }
-
-    fn grid_column_span(mut self, cs: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let mut p = m.grid.unwrap_or_default();
-            p.column_span = cs;
-            m.grid = Some(p);
-        }
-        self
-    }
-
-    fn canvas_left(mut self, x: f64) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag.get::<CanvasPosition>().copied().unwrap_or_default();
-            p.left = x;
-            bag.set(p);
-        }
-        self
-    }
-
-    fn canvas_top(mut self, y: f64) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag.get::<CanvasPosition>().copied().unwrap_or_default();
-            p.top = y;
-            bag.set(p);
-        }
-        self
-    }
-
-    fn canvas_z_index(mut self, z: i32) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag.get::<CanvasPosition>().copied().unwrap_or_default();
-            p.z_index = z;
-            bag.set(p);
-        }
-        self
-    }
-
     fn provide<T>(self, context: &Context<T>, value: T) -> Element
     where
         T: Clone + PartialEq + 'static,
@@ -760,89 +586,9 @@ pub trait ElementExt: Sized {
             })
         }
     }
-
-    // RelativePanel attached property helpers
-
-    fn relative_align_left(mut self) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_left_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-
-    fn relative_align_right(mut self) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_right_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-
-    fn relative_align_top(mut self) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_top_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-
-    fn relative_align_bottom(mut self) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_bottom_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-
-    fn relative_align_h_center(mut self) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_h_center_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
-
-    fn relative_align_v_center(mut self) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let bag = m.attached.get_or_insert_with(AttachedProps::default);
-            let mut p = bag
-                .get::<RelativePanelAlignment>()
-                .copied()
-                .unwrap_or_default();
-            p.align_v_center_with_panel = true;
-            bag.set(p);
-        }
-        self
-    }
 }
 
-mod capability {
+pub(crate) mod capability {
     use super::Modifiers;
 
     pub trait Accessibility {
@@ -851,6 +597,18 @@ mod capability {
 
     pub trait Input {
         fn input_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
+    pub trait GridChild {
+        fn grid_child_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
+    pub trait CanvasChild {
+        fn canvas_child_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
+    pub trait RelativePanelChild {
+        fn relative_panel_child_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 
     pub trait Layout {
@@ -902,6 +660,77 @@ pub trait AccessibilityExt: capability::Accessibility + Sized {
 }
 
 impl<T: capability::Accessibility> AccessibilityExt for T {}
+
+/// Grid row, column, and span placement for concrete native children.
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, GridChildExt, text_block};
+///
+/// let element: Element = text_block("Cell").into();
+/// let _ = element.grid_row(1);
+/// ```
+pub trait GridChildExt: capability::GridChild + Sized {
+    fn grid_row(mut self, row: i32) -> Self {
+        let modifiers = capability::GridChild::grid_child_modifiers_mut(&mut self);
+        let mut placement = modifiers.grid.unwrap_or_default();
+        placement.row = row;
+        modifiers.grid = Some(placement);
+        self
+    }
+
+    fn grid_column(mut self, column: i32) -> Self {
+        let modifiers = capability::GridChild::grid_child_modifiers_mut(&mut self);
+        let mut placement = modifiers.grid.unwrap_or_default();
+        placement.column = column;
+        modifiers.grid = Some(placement);
+        self
+    }
+
+    fn grid_row_span(mut self, row_span: i32) -> Self {
+        let modifiers = capability::GridChild::grid_child_modifiers_mut(&mut self);
+        let mut placement = modifiers.grid.unwrap_or_default();
+        placement.row_span = row_span;
+        modifiers.grid = Some(placement);
+        self
+    }
+
+    fn grid_column_span(mut self, column_span: i32) -> Self {
+        let modifiers = capability::GridChild::grid_child_modifiers_mut(&mut self);
+        let mut placement = modifiers.grid.unwrap_or_default();
+        placement.column_span = column_span;
+        modifiers.grid = Some(placement);
+        self
+    }
+}
+
+impl<T: capability::GridChild> GridChildExt for T {}
+
+/// Canvas positioning for concrete native children.
+///
+/// ```compile_fail
+/// use windows_reactor::{CanvasChildExt, Element, text_block};
+///
+/// let element: Element = text_block("Marker").into();
+/// let _ = element.canvas_left(40.0);
+/// ```
+pub trait CanvasChildExt: capability::CanvasChild + Sized {
+    fn canvas_left(mut self, left: f64) -> Self {
+        update_canvas_position(&mut self, |position| position.left = left);
+        self
+    }
+
+    fn canvas_top(mut self, top: f64) -> Self {
+        update_canvas_position(&mut self, |position| position.top = top);
+        self
+    }
+
+    fn canvas_z_index(mut self, z_index: i32) -> Self {
+        update_canvas_position(&mut self, |position| position.z_index = z_index);
+        self
+    }
+}
+
+impl<T: capability::CanvasChild> CanvasChildExt for T {}
 
 /// Pointer, keyboard, capture, and drag/drop modifiers for concrete native widgets.
 ///
@@ -1026,6 +855,63 @@ pub trait InputExt: capability::Input + Sized {
 }
 
 impl<T: capability::Input> InputExt for T {}
+
+/// RelativePanel alignment for concrete native children.
+///
+/// These methods identify valid attached-property targets. The child must still be inserted into a
+/// `RelativePanel` for WinUI to use the values.
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, RelativePanelChildExt, text_block};
+///
+/// let element: Element = text_block("Centered").into();
+/// let _ = element.relative_align_h_center();
+/// ```
+pub trait RelativePanelChildExt: capability::RelativePanelChild + Sized {
+    fn relative_align_left(mut self) -> Self {
+        update_relative_panel_alignment(&mut self, |alignment| {
+            alignment.align_left_with_panel = true;
+        });
+        self
+    }
+
+    fn relative_align_right(mut self) -> Self {
+        update_relative_panel_alignment(&mut self, |alignment| {
+            alignment.align_right_with_panel = true;
+        });
+        self
+    }
+
+    fn relative_align_top(mut self) -> Self {
+        update_relative_panel_alignment(&mut self, |alignment| {
+            alignment.align_top_with_panel = true;
+        });
+        self
+    }
+
+    fn relative_align_bottom(mut self) -> Self {
+        update_relative_panel_alignment(&mut self, |alignment| {
+            alignment.align_bottom_with_panel = true;
+        });
+        self
+    }
+
+    fn relative_align_h_center(mut self) -> Self {
+        update_relative_panel_alignment(&mut self, |alignment| {
+            alignment.align_h_center_with_panel = true;
+        });
+        self
+    }
+
+    fn relative_align_v_center(mut self) -> Self {
+        update_relative_panel_alignment(&mut self, |alignment| {
+            alignment.align_v_center_with_panel = true;
+        });
+        self
+    }
+}
+
+impl<T: capability::RelativePanelChild> RelativePanelChildExt for T {}
 
 /// Tooltip modifiers for concrete native widgets.
 ///
@@ -1172,6 +1058,40 @@ fn accessibility_modifiers_mut<T: capability::Accessibility>(
     ensure_accessibility(capability::Accessibility::accessibility_modifiers_mut(
         value,
     ))
+}
+
+fn update_canvas_position<T: capability::CanvasChild>(
+    value: &mut T,
+    update: impl FnOnce(&mut CanvasPosition),
+) {
+    let attached = attached_props_mut(capability::CanvasChild::canvas_child_modifiers_mut(value));
+    let mut position = attached
+        .get::<CanvasPosition>()
+        .copied()
+        .unwrap_or_default();
+    update(&mut position);
+    attached.set(position);
+}
+
+fn update_relative_panel_alignment<T: capability::RelativePanelChild>(
+    value: &mut T,
+    update: impl FnOnce(&mut RelativePanelAlignment),
+) {
+    let attached = attached_props_mut(
+        capability::RelativePanelChild::relative_panel_child_modifiers_mut(value),
+    );
+    let mut alignment = attached
+        .get::<RelativePanelAlignment>()
+        .copied()
+        .unwrap_or_default();
+    update(&mut alignment);
+    attached.set(alignment);
+}
+
+fn attached_props_mut(modifiers: &mut Modifiers) -> &mut AttachedProps {
+    modifiers
+        .attached
+        .get_or_insert_with(AttachedProps::default)
 }
 
 fn apply_brush_binding(m: &mut Modifiers, prop: Prop, binding: BrushBinding, is_background: bool) {

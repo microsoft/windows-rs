@@ -409,33 +409,29 @@ pub fn swap_chain_sample(_: &(), cx: &mut RenderCx) -> Element {
 
     let margin = 16.0;
     grid((
-        Element::from(
-            swap_chain_panel()
-                .on_mounted({
-                    let host = host.clone();
-                    move |handle| host.mount(handle)
-                })
-                .on_unmounted({
-                    let host = host.clone();
-                    move |_handle| host.unmount()
-                })
-                .on_resize(move |w, h| host.resize(w as u32, h as u32))
-                .margin(Thickness {
-                    left: margin,
-                    top: margin,
-                    right: margin,
-                    bottom: 0.0,
-                }),
-        )
-        .grid_row(0),
-        Element::from(
-            hstack((
-                button("Add circle").on_click(add),
-                button("Remove circle").on_click(remove),
-            ))
-            .spacing(8.0)
-            .margin(Thickness::uniform(margin)),
-        )
+        swap_chain_panel()
+            .on_mounted({
+                let host = host.clone();
+                move |handle| host.mount(handle)
+            })
+            .on_unmounted({
+                let host = host.clone();
+                move |_handle| host.unmount()
+            })
+            .on_resize(move |w, h| host.resize(w as u32, h as u32))
+            .margin(Thickness {
+                left: margin,
+                top: margin,
+                right: margin,
+                bottom: 0.0,
+            })
+            .grid_row(0),
+        hstack((
+            button("Add circle").on_click(add),
+            button("Remove circle").on_click(remove),
+        ))
+        .spacing(8.0)
+        .margin(Thickness::uniform(margin))
         .grid_row(1),
     ))
     .rows([GridLength::STAR, GridLength::Auto])

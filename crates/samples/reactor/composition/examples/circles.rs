@@ -156,36 +156,32 @@ fn app(cx: &mut RenderCx) -> Element {
 
     let margin = 16.0;
     grid((
-        Element::from(
-            composition_host()
-                .on_mounted({
-                    let scene = scene.clone();
-                    move |host| match Scene::new(&host) {
-                        Ok(mut built) => {
-                            built.set_count(count as usize).unwrap();
-                            scene.set(Some(built));
-                        }
-                        Err(e) => eprintln!("composition init failed: {e}"),
+        composition_host()
+            .on_mounted({
+                let scene = scene.clone();
+                move |host| match Scene::new(&host) {
+                    Ok(mut built) => {
+                        built.set_count(count as usize).unwrap();
+                        scene.set(Some(built));
                     }
-                })
-                .on_resize(move |w, h| {
-                    if let Some(scene) = scene.borrow_mut().as_mut() {
-                        scene.resize(w as f32, h as f32).unwrap();
-                    }
-                }),
-        )
-        .grid_row(0),
-        Element::from(
-            hstack((
-                button("Add circle").on_click(add),
-                button("Remove circle").on_click(remove),
-                text_block(format!("{count} circles"))
-                    .font_size(16.0)
-                    .opacity(0.75),
-            ))
-            .spacing(8.0)
-            .margin(Thickness::uniform(margin)),
-        )
+                    Err(e) => eprintln!("composition init failed: {e}"),
+                }
+            })
+            .on_resize(move |w, h| {
+                if let Some(scene) = scene.borrow_mut().as_mut() {
+                    scene.resize(w as f32, h as f32).unwrap();
+                }
+            })
+            .grid_row(0),
+        hstack((
+            button("Add circle").on_click(add),
+            button("Remove circle").on_click(remove),
+            text_block(format!("{count} circles"))
+                .font_size(16.0)
+                .opacity(0.75),
+        ))
+        .spacing(8.0)
+        .margin(Thickness::uniform(margin))
         .grid_row(1),
     ))
     .rows([GridLength::STAR, GridLength::Auto])

@@ -1,6 +1,8 @@
 use windows_reactor::grid;
 use windows_reactor::{Element, GridLength, ScrollBarVisibility, Thickness};
-use windows_reactor::{ElementExt, LayoutExt, check_box, scroll_viewer, text_block, text_box};
+use windows_reactor::{
+    ElementExt, GridChildExt, LayoutExt, check_box, scroll_viewer, text_block, text_box,
+};
 
 #[test]
 fn check_box_default_state() {
@@ -76,12 +78,12 @@ fn grid_builder_sets_row_and_column_definitions() {
 
 #[test]
 fn grid_placement_modifiers() {
-    let e: Element = text_block("cell").into();
-    let e = e
+    let e: Element = text_block("cell")
         .grid_row(1)
         .grid_column(2)
         .grid_row_span(2)
-        .grid_column_span(3);
+        .grid_column_span(3)
+        .into();
 
     let p = e.modifiers().unwrap().grid.unwrap();
     assert_eq!(p.row, 1);
@@ -89,12 +91,12 @@ fn grid_placement_modifiers() {
     assert_eq!(p.row_span, 2);
     assert_eq!(p.column_span, 3);
 
-    let c: Element = check_box(true).into();
-    let c = c
+    let c: Element = check_box(true)
         .grid_row(3)
         .grid_column(5)
         .grid_row_span(2)
-        .grid_column_span(4);
+        .grid_column_span(4)
+        .into();
     let p = c.modifiers().unwrap().grid.unwrap();
     assert_eq!(p.row, 3);
     assert_eq!(p.column, 5);

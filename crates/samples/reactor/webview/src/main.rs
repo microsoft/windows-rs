@@ -44,16 +44,14 @@ fn app(cx: &mut RenderCx) -> Element {
     let reload = with_web(&web, WebView::reload);
 
     let toolbar = grid((
-        Element::from(button("\u{2190}").on_click(back)).grid_column(0),
-        Element::from(button("\u{2192}").on_click(forward)).grid_column(1),
-        Element::from(button("\u{21BB}").on_click(reload)).grid_column(2),
-        Element::from(
-            text_box(address)
-                .placeholder_text("Enter a URL")
-                .on_text_changed(set_address),
-        )
-        .grid_column(3),
-        Element::from(button("Go").on_click(go)).grid_column(4),
+        button("\u{2190}").on_click(back).grid_column(0),
+        button("\u{2192}").on_click(forward).grid_column(1),
+        button("\u{21BB}").on_click(reload).grid_column(2),
+        text_box(address)
+            .placeholder_text("Enter a URL")
+            .on_text_changed(set_address)
+            .grid_column(3),
+        button("Go").on_click(go).grid_column(4),
     ))
     .columns([
         GridLength::Auto,
@@ -65,12 +63,9 @@ fn app(cx: &mut RenderCx) -> Element {
     .column_spacing(8.0)
     .margin(Thickness::uniform(8.0));
 
-    grid((
-        Element::from(toolbar).grid_row(0),
-        Element::from(webview(on_ready)).grid_row(1),
-    ))
-    .rows([GridLength::Auto, GridLength::STAR])
-    .into()
+    grid((toolbar.grid_row(0), webview(on_ready).grid_row(1)))
+        .rows([GridLength::Auto, GridLength::STAR])
+        .into()
 }
 
 fn normalize(address: &str) -> String {
