@@ -32,8 +32,8 @@ use std::time::Instant;
 
 use test_reactor::RecordingBackend;
 use windows_reactor::{
-    Component, Context, Element, ElementExt, Reconciler, RenderCx, SetState, component, grid, memo,
-    text_block, vstack,
+    Component, Context, Element, ElementExt, Reconciler, RenderCx, SetState, component,
+    error_boundary, grid, memo, text_block, vstack,
 };
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
@@ -357,6 +357,15 @@ fn main() {
         "provider_mount",
         2,
         component(component_leaf, ()).provide(&BENCH_CONTEXT, 1),
+        iters,
+        reps,
+    ));
+    rows.push(bench_mount_unmount(
+        "error_boundary_mount",
+        2,
+        error_boundary(component(component_leaf, ()), |_| {
+            text_block("fallback").into()
+        }),
         iters,
         reps,
     ));

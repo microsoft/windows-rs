@@ -526,6 +526,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
 | Logical component ownership | Instances, projections, IDs, parent scope, and listeners share one owner |
 | Provider logical ownership | Providers have stable IDs, parent links, projection, and teardown |
+| Error-boundary ownership | Boundary identity and fallback state are node-owned |
 | Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
 | Reconciler state consolidation review | Complete; mounted ownership model planned |
 | Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
@@ -679,6 +680,13 @@ storage, so they do not inflate every logical node to the roughly 968-byte compo
 The `provider_mount` benchmark reports 527 bytes and 11 allocations for one provider plus one
 component, while component-only allocation counts remain unchanged.
 
+Error boundaries use the same compact wrapper storage. The boundary node remains stable while
+recovery replaces its projected fallback or child subtree, and nested boundaries retain distinct
+logical parents. Fallback state is stored on the boundary node, so `Reconciler` no longer has an
+`error_boundary_fallbacks` map keyed by a borrowed native identity. Normal
+`error_boundary_mount` cycles report 399 bytes and 10 allocations, matching the component-only
+mount baseline after warmup.
+
 The existing side state should move as follows:
 
 | Current state | Intended owner |
@@ -736,11 +744,12 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 Every consolidation step must state which fields and special-case branches it deletes. A new
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
-Steps 1-3 and 6 are complete. The component and provider portions of step 4 are complete. Child and
-slot storage remains sparse inside `MountedTree` rather than adding optional fields to every native
-or logical node. The next slice gives error boundaries the same compact logical identity and moves
-fallback state out of `Reconciler`. Custom handles remain native-node auxiliary state because they
-own a native control, but their teardown should move behind the same mounted-node operation.
+Steps 1-3 and 6 are complete. The logical-wrapper portion of step 4 is complete for components,
+providers, and error boundaries. Child and slot storage remains sparse inside `MountedTree` rather
+than adding optional fields to every native or logical node. The next ownership work moves custom
+handles into native-node auxiliary storage, then consolidates templated-list state and callbacks.
+After those maps leave `Reconciler`, the remaining stabilization bugs can be resolved against the
+final ownership model before typed public wrappers begin.
 
 ### Typed element API
 

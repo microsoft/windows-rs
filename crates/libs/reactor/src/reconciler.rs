@@ -160,6 +160,7 @@ struct MountedLogicalTree {
 enum LogicalNodeKind {
     Component,
     Provider,
+    ErrorBoundary,
 }
 
 struct LogicalWrapperNode {
@@ -167,6 +168,7 @@ struct LogicalWrapperNode {
     node_id: LogicalNodeId,
     parent: Option<LogicalNodeId>,
     native_root: ControlId,
+    fallback: bool,
 }
 
 impl MountedLogicalTree {
@@ -249,12 +251,12 @@ impl MountedLogicalTree {
         self.register_projection(id, node_id, previous_root);
     }
 
-    fn register_provider(&mut self, id: ControlId, mut node: LogicalWrapperNode) {
+    fn register_wrapper(&mut self, id: ControlId, mut node: LogicalWrapperNode) {
         let previous_root = node.native_root;
         node.native_root = id;
         let node_id = node.node_id;
         let previous = self.wrappers.insert(node_id, node);
-        debug_assert!(previous.is_none(), "logical provider registered twice");
+        debug_assert!(previous.is_none(), "logical wrapper registered twice");
         self.register_projection(id, node_id, previous_root);
     }
 
@@ -264,7 +266,15 @@ impl MountedLogicalTree {
     }
 
     fn take_provider(&mut self, id: ControlId) -> Option<LogicalWrapperNode> {
-        let node_id = self.pop_projection(id, LogicalNodeKind::Provider)?;
+        self.take_wrapper(id, LogicalNodeKind::Provider)
+    }
+
+    fn take_error_boundary(&mut self, id: ControlId) -> Option<LogicalWrapperNode> {
+        self.take_wrapper(id, LogicalNodeKind::ErrorBoundary)
+    }
+
+    fn take_wrapper(&mut self, id: ControlId, kind: LogicalNodeKind) -> Option<LogicalWrapperNode> {
+        let node_id = self.pop_projection(id, kind)?;
         self.wrappers.remove(&node_id)
     }
 
@@ -575,7 +585,6 @@ pub struct Reconciler<B: Backend> {
     pub debug_ui_elements_created: u64,
     tree: MountedTree,
     pass: ReconcilePass,
-    pub error_boundary_fallbacks: rustc_hash::FxHashSet<ControlId>,
     pub templated_lists: FxHashMap<ControlId, TemplatedListState>,
     pub custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
     pub defer_templated_unmounts: bool,
@@ -607,7 +616,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             debug_ui_elements_created: 0,
             tree: MountedTree::default(),
             pass: ReconcilePass::default(),
-            error_boundary_fallbacks: rustc_hash::FxHashSet::default(),
             templated_lists: FxHashMap::default(),
             custom_handles: FxHashMap::default(),
             realization_queue: new_realization_queue(),
@@ -735,7 +743,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.templated_lists.remove(&id);
         self.selection_callbacks.remove(&id);
         self.reorder_callbacks.remove(&id);
-        self.error_boundary_fallbacks.remove(&id);
         self.custom_handles.remove(&id);
         self.tree.register(id, Some(kind));
         id
@@ -1018,8 +1025,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             if let Some(cb) = self.unmount_callbacks.remove(&node) {
                 cb.invoke(self.backend.get_native_element(node));
             }
-
-            self.error_boundary_fallbacks.remove(&node);
 
             if let Some(handle) = self.custom_handles.remove(&node) {
                 handle.before_destroy(node, &mut self.backend);

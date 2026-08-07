@@ -108,19 +108,20 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn mount_error_boundary(&mut self, eb: &ErrorBoundaryElement) -> Option<ControlId> {
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&eb.child)));
-        match result {
-            Ok(id) => id,
-            Err(payload) => {
-                let msg = panic_message(payload);
-                let fallback = eb.fallback.invoke(&msg);
-                let id = self.mount(&fallback);
-                if let Some(id) = id {
-                    self.error_boundary_fallbacks.insert(id);
-                }
-                id
-            }
-        }
+        let node_id = self.allocate_logical_node_id();
+        let parent = self.tree.logical.active_parent();
+        let (id, fallback) = self.mount_error_boundary_output(eb, node_id)?;
+        self.tree.logical.register_wrapper(
+            id,
+            LogicalWrapperNode {
+                kind: LogicalNodeKind::ErrorBoundary,
+                node_id,
+                parent,
+                native_root: id,
+                fallback,
+            },
+        );
+        Some(id)
     }
 
     pub fn update_error_boundary(
@@ -129,36 +130,76 @@ impl<B: Backend + 'static> Reconciler<B> {
         new: &ErrorBoundaryElement,
         id: ControlId,
     ) -> Option<ControlId> {
-        if self.error_boundary_fallbacks.remove(&id) {
+        let parent = self.tree.logical.active_parent();
+        let Some(node_id) = self
+            .tree
+            .logical
+            .current_node(id, LogicalNodeKind::ErrorBoundary)
+        else {
             self.unmount(id);
-            let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&new.child)));
-            return match result {
-                Ok(nid) => nid,
-                Err(payload) => {
-                    let msg = panic_message(payload);
-                    let fallback = new.fallback.invoke(&msg);
-                    let nid = self.mount(&fallback);
-                    if let Some(nid) = nid {
-                        self.error_boundary_fallbacks.insert(nid);
-                    }
-                    nid
-                }
-            };
+            return self.mount_error_boundary(new);
+        };
+        let Some(mut boundary) = self.tree.logical.take_error_boundary(id) else {
+            self.unmount(id);
+            return self.mount_error_boundary(new);
+        };
+        boundary.parent = parent;
+
+        if boundary.fallback {
+            self.unmount(id);
+            let (nid, fallback) = self.mount_error_boundary_output(new, node_id)?;
+            boundary.fallback = fallback;
+            self.tree.logical.register_wrapper(nid, boundary);
+            return Some(nid);
         }
 
-        let result =
-            std::panic::catch_unwind(AssertUnwindSafe(|| self.update(&old.child, &new.child, id)));
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let _parent = self.enter_logical_parent(node_id);
+            self.update(&old.child, &new.child, id)
+        }));
         match result {
-            Ok(nid) => nid,
+            Ok(Some(nid)) => {
+                boundary.fallback = false;
+                self.tree.logical.register_wrapper(nid, boundary);
+                Some(nid)
+            }
+            Ok(None) => None,
             Err(payload) => {
                 let msg = panic_message(payload);
                 let fallback = new.fallback.invoke(&msg);
                 self.unmount(id);
-                let nid = self.mount(&fallback);
+                let nid = {
+                    let _parent = self.enter_logical_parent(node_id);
+                    self.mount(&fallback)
+                };
                 if let Some(nid) = nid {
-                    self.error_boundary_fallbacks.insert(nid);
+                    boundary.fallback = true;
+                    self.tree.logical.register_wrapper(nid, boundary);
                 }
                 nid
+            }
+        }
+    }
+
+    fn mount_error_boundary_output(
+        &mut self,
+        boundary: &ErrorBoundaryElement,
+        node_id: LogicalNodeId,
+    ) -> Option<(ControlId, bool)> {
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let _parent = self.enter_logical_parent(node_id);
+            self.mount(&boundary.child)
+        }));
+        match result {
+            Ok(id) => id.map(|id| (id, false)),
+            Err(payload) => {
+                let msg = panic_message(payload);
+                let fallback = boundary.fallback.invoke(&msg);
+                let id = {
+                    let _parent = self.enter_logical_parent(node_id);
+                    self.mount(&fallback)
+                };
+                id.map(|id| (id, true))
             }
         }
     }
@@ -174,13 +215,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.pop_provisions(pushed);
         match result {
             Ok(Some(id)) => {
-                self.tree.logical.register_provider(
+                self.tree.logical.register_wrapper(
                     id,
                     LogicalWrapperNode {
                         kind: LogicalNodeKind::Provider,
                         node_id,
                         parent,
                         native_root: id,
+                        fallback: false,
                     },
                 );
                 Some(id)
@@ -256,7 +298,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
         match result {
             Ok(Some(nid)) => {
-                self.tree.logical.register_provider(nid, provider);
+                self.tree.logical.register_wrapper(nid, provider);
                 Some(nid)
             }
             Ok(None) => None,
