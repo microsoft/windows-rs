@@ -81,6 +81,52 @@ fn build_emits_static_global_function_signature() {
 }
 
 #[test]
+fn expand_shows_lowered_winrt_abi() {
+    let dir = scratch("expand");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("api.rdl");
+    std::fs::write(
+        &input,
+        "#[winrt] mod Test {
+            delegate fn ChangedHandler(sender: Object);
+            interface IValue {
+                Name: String;
+                event Changed: ChangedHandler;
+                #[overload(Get)]
+                #[default_overload]
+                fn Get(&self, value: i32);
+                #[overload(GetWithString)]
+                fn Get(&self, value: String);
+            }
+        }",
+    )
+    .unwrap();
+
+    let output = riddle()
+        .args(["expand", "--no-default"])
+        .arg(&input)
+        .output()
+        .unwrap();
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let stdout = String::from_utf8(output.stdout).unwrap();
+    assert!(stdout.contains("type Test.IValue category=Interface"));
+    assert!(stdout.contains("method get_Name() -> String"));
+    assert!(stdout.contains("method put_Name(value: String) -> void"));
+    assert!(stdout.contains("method add_Changed(handler: Test.ChangedHandler)"));
+    assert!(
+        stdout.contains("method remove_Changed(token: Windows.Foundation.EventRegistrationToken)")
+    );
+    assert!(stdout.contains("method GetWithString(value: String) -> void"));
+    assert!(stdout.contains("projected=Get"));
+    assert!(stdout.contains("property Name: String"));
+    assert!(stdout.contains("event Changed: Test.ChangedHandler"));
+}
+
+#[test]
 fn validate_accepts_valid_metadata_directory() {
     let dir = scratch("validate_valid");
     std::fs::create_dir_all(&dir).unwrap();

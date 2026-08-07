@@ -779,12 +779,16 @@ The next phase should proceed in this order:
 7. Done: split shared validation into focused attribute, member, association, method, and layout
    modules behind one private context. The public `Validator` API and metadata-first boundary remain
    unchanged.
-8. In progress: upgrade `riddle` rendering and metadata inspection. `riddle validate` now applies
+8. Done: upgrade `riddle` metadata inspection. `riddle validate` applies
    the shared validator directly to existing winmd files and directories while keeping references
-   separate. Add `dump` or `expand` next so lowered ABI is inspectable before runtime-class
-   conveniences are considered.
+   separate. `riddle expand` compiles RDL in memory and prints finalized types, signatures, flags,
+   properties, events, layouts, attributes, and overload names so lowered ABI is inspectable before
+   runtime-class conveniences are considered.
 9. Move formatting to the RDL syntax tree and add range formatting if editor use justifies it.
-10. Evaluate runtime-class conveniences only after the expanded ABI can be inspected and compared.
+10. In progress: evaluate runtime-class conveniences using `riddle expand` and the remaining
+    MIDLRT-backed activation, constructor, static, composable, `noexcept`, and reference-parameter
+    cases. Compare explicit interfaces, named member groups, and synthesis manifests before adding
+    syntax.
 
 Validation testing follows the layered strategy documented for [`riddle`](riddle.md): synthetic
 metadata for unauthorable states, committed-corpus compatibility, RDL lowering tests, and

@@ -199,6 +199,11 @@ impl Reader {
             .map_err(|error| Error::new(&error.to_string(), &self.output.to_string_lossy(), 0, 0))
     }
 
+    /// Compiles the inputs and returns finalized `.winmd` bytes with the given assembly name.
+    pub fn bytes(&self, assembly_name: &str) -> Result<Vec<u8>, Error> {
+        self.compile(assembly_name)
+    }
+
     /// Parses, validates, resolves, and encodes the inputs without writing a `.winmd`.
     pub fn check(&self) -> Result<(), Error> {
         self.compile("check").map(|_| ())

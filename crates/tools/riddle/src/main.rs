@@ -1,3 +1,5 @@
+mod expand;
+
 use std::collections::HashMap;
 use std::io::Read;
 use std::path::{Path, PathBuf};
@@ -13,6 +15,7 @@ Riddle checks and compiles RDL and validates Windows metadata.
 Usage:
   riddle check [options] <input>...
   riddle build [options] <input>... --out <path>
+  riddle expand [options] <input>...
   riddle validate [options] <input>...
   riddle fmt [--check] <input>...
 
@@ -31,6 +34,7 @@ Use - with check, build, or fmt to read RDL from standard input.
 enum Command {
     Check,
     Build,
+    Expand,
     Validate,
     Fmt,
 }
@@ -97,7 +101,7 @@ fn main() -> ExitCode {
                         ExitCode::from(1)
                     }
                 },
-                Command::Check | Command::Build => {
+                Command::Check | Command::Build | Command::Expand => {
                     let mut reader = Reader::new();
                     configure(&mut reader, &options);
                     match options.command {
@@ -122,6 +126,19 @@ fn main() -> ExitCode {
                                 }
                             }
                         }
+                        Command::Expand => match reader.bytes("expand") {
+                            Ok(bytes) => {
+                                print!("{}", expand::render(bytes));
+                                ExitCode::SUCCESS
+                            }
+                            Err(error) => {
+                                eprint!(
+                                    "{}",
+                                    render(error.diagnostic(), None, options.stdin.as_deref())
+                                );
+                                ExitCode::from(1)
+                            }
+                        },
                         Command::Validate | Command::Fmt => unreachable!(),
                     }
                 }
@@ -149,6 +166,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
     let command = match command.as_str() {
         "check" => Command::Check,
         "build" => Command::Build,
+        "expand" => Command::Expand,
         "validate" => Command::Validate,
         "fmt" => Command::Fmt,
         _ => return Err(format!("unknown command `{command}`")),
@@ -206,7 +224,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
     }
 
     match command {
-        Command::Check | Command::Validate if output.is_some() => {
+        Command::Check | Command::Expand | Command::Validate if output.is_some() => {
             return Err("`--out` is only valid with `riddle build`".to_string());
         }
         Command::Build => {
@@ -228,7 +246,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
                 return Err("references are not valid with `riddle fmt`".to_string());
             }
         }
-        Command::Check => {}
+        Command::Check | Command::Expand => {}
         Command::Validate => {
             if inputs.iter().any(|input| input == Path::new("-")) {
                 return Err("standard input is not supported by `riddle validate`".to_string());

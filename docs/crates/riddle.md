@@ -18,6 +18,12 @@ Compile one or more files or directories into a winmd:
 riddle build api.rdl shared-rdl --out api.winmd
 ```
 
+Inspect the finalized metadata shape produced by RDL:
+
+```text
+riddle expand api.rdl
+```
+
 Validate existing metadata without converting it to RDL:
 
 ```text
@@ -44,6 +50,12 @@ same pipeline as `Reader::write` but does not create a winmd. `riddle check` use
 `Reader::check_all` to report independent errors from every input rather than stopping at the first
 source or declaration. `riddle validate` reads existing winmds into one authored index and keeps
 reference metadata in a separate lookup index.
+
+`riddle expand` compiles RDL in memory and prints the finalized metadata types, inheritance,
+implemented interfaces, layouts, fields, methods, signatures, raw flags, properties, events, and
+custom-attribute identities. It is an inspection view rather than RDL source. Property and event
+accessors therefore remain visible as methods alongside their association rows, and overloads show
+both metadata and projected names.
 
 RDL diagnostics use exit code 1. Invalid command lines use exit code 2. The renderer prints stable
 diagnostic codes, source locations, labeled source lines, notes, help, and a final error count when

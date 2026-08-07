@@ -33,6 +33,7 @@ windows_rdl::writer()
 
 Use `.check()` to run the same parse, validation, resolution, and encoding pipeline without
 writing a `.winmd`. Use `.check_all()` to collect independent diagnostics from every input.
+Use `.bytes("assembly-name")` to retrieve the finalized metadata in memory.
 
 Use `.reference("dependency.winmd")` when the RDL refers to types defined by another metadata file.
 Use `.input_text(source)` or `.input_texts(sources)` for RDL already in memory. Use
