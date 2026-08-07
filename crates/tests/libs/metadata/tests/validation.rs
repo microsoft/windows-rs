@@ -417,8 +417,26 @@ fn invalid_attribute_constructors_are_rejected() {
         &[0, 0],
     );
 
+    let invalid_parameters = file.MemberRef(
+        ".ctor",
+        &Signature {
+            types: vec![
+                Type::ISize,
+                Type::PtrMut(Box::new(Type::Void), 1),
+                Type::ClassName(TypeName::named("Test", "Value")),
+            ],
+            ..Default::default()
+        },
+        attribute,
+    );
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(invalid_parameters),
+        &[1, 0],
+    );
+
     let errors = validator::validate(&index(file));
-    assert_eq!(errors.len(), 5);
+    assert_eq!(errors.len(), 8);
     assert_eq!(
         errors[0].message(),
         "attribute `Test.MarkerAttribute` constructor is named `Create` instead of `.ctor`"
@@ -438,6 +456,18 @@ fn invalid_attribute_constructors_are_rejected() {
     assert_eq!(
         errors[4].message(),
         "attribute `Test.MarkerAttribute` value is invalid at byte 0: invalid custom-attribute prolog"
+    );
+    assert_eq!(
+        errors[5].message(),
+        "attribute `Test.MarkerAttribute` constructor parameter 1 has invalid type `ISize`"
+    );
+    assert_eq!(
+        errors[6].message(),
+        "attribute `Test.MarkerAttribute` constructor parameter 2 has invalid type `PtrMut(Void, 1)`"
+    );
+    assert_eq!(
+        errors[7].message(),
+        "attribute `Test.MarkerAttribute` constructor parameter 3 has invalid type `Test.Value`"
     );
     assert!(errors.iter().all(|error| {
         error.category() == validator::ValidationCategory::Invalid

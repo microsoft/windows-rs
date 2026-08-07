@@ -101,7 +101,9 @@ Custom-attribute constructors must be default-convention instance methods named 
 return `void`. `Attribute::try_value` checks the value blob without panicking and reports malformed
 prologs, truncation, Boolean values, compressed integers, UTF-8, named-argument tags and types, and
 trailing bytes with byte offsets. Valid serialization forms not yet represented by `Value` return
-an unsupported result rather than a metadata validity error.
+an unsupported result rather than a metadata validity error. Constructor parameters are restricted
+to ECMA custom-attribute serialization types; pointer-sized integers, pointers, references, fixed
+arrays, generics, and arbitrary class types are rejected before value decoding.
 Definitions without an explicit usage contract and referenced definitions outside the validated
 index have unknown multiplicity. `Validator::references` accepts a separate reference index for
 definition lookup without treating referenced types as authored output or reporting false

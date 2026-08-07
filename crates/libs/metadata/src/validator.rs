@@ -217,26 +217,82 @@ fn validate_attribute_constructor(
         });
     }
 
-    let value = match references {
-        Some(references) => attribute.try_value_with_references(references),
-        None => attribute.try_value(),
-    };
+    let mut valid_parameters = true;
+    for (position, ty) in signature.types.iter().enumerate() {
+        if !valid_attribute_parameter_type(ty) {
+            valid_parameters = false;
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "attribute `{}.{}` constructor parameter {} has invalid type `{}`",
+                    attribute.namespace(),
+                    attribute.name(),
+                    position + 1,
+                    attribute_parameter_type_name(ty)
+                ),
+                row: attribute.row_id(),
+                related: parent,
+            });
+        }
+    }
 
-    if let Err(error) = value
-        && !error.is_unsupported()
-    {
-        errors.push(ValidationError {
-            category: ValidationCategory::Invalid,
-            message: format!(
-                "attribute `{}.{}` value is invalid at byte {}: {}",
-                attribute.namespace(),
-                attribute.name(),
-                error.offset(),
-                error.message()
-            ),
-            row: attribute.row_id(),
-            related: parent,
-        });
+    if valid_parameters {
+        let value = match references {
+            Some(references) => attribute.try_value_with_references(references),
+            None => attribute.try_value(),
+        };
+
+        if let Err(error) = value
+            && !error.is_unsupported()
+        {
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "attribute `{}.{}` value is invalid at byte {}: {}",
+                    attribute.namespace(),
+                    attribute.name(),
+                    error.offset(),
+                    error.message()
+                ),
+                row: attribute.row_id(),
+                related: parent,
+            });
+        }
+    }
+}
+
+fn valid_attribute_parameter_type(ty: &crate::Type) -> bool {
+    match ty {
+        crate::Type::Bool
+        | crate::Type::Char
+        | crate::Type::I8
+        | crate::Type::U8
+        | crate::Type::I16
+        | crate::Type::U16
+        | crate::Type::I32
+        | crate::Type::U32
+        | crate::Type::I64
+        | crate::Type::U64
+        | crate::Type::F32
+        | crate::Type::F64
+        | crate::Type::String
+        | crate::Type::Object
+        | crate::Type::ValueName(_) => true,
+        crate::Type::ClassName(name) => name == ("System", "Type"),
+        crate::Type::Array(element) => valid_attribute_parameter_type(element),
+        _ => false,
+    }
+}
+
+fn attribute_parameter_type_name(ty: &crate::Type) -> String {
+    match ty {
+        crate::Type::ClassName(name) | crate::Type::ValueName(name) => {
+            format!("{}.{}", name.namespace, name.name)
+        }
+        crate::Type::Array(element) => {
+            format!("{}[]", attribute_parameter_type_name(element))
+        }
+        _ => format!("{ty:?}"),
     }
 }
 

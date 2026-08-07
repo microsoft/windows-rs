@@ -754,6 +754,8 @@ The next phase should proceed in this order:
    validation; merge/remap remain on the raw blob path. `Char` is represented as its UTF-16 code
    unit. Null strings, boxed values, and arrays still need value-model representations. Enum
    decoding now resolves non-`i32` backing types through the authored or reference metadata index.
+   Constructor parameter types are checked against the ECMA custom-attribute serialization types
+   before the value blob is decoded.
 6. Implement explicit overload authoring as transparent metadata lowering after this boundary is
    stable.
 7. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete
