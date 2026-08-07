@@ -10,7 +10,7 @@
 
 use windows_reactor::{Canvas, Color, RelativePanel};
 use windows_reactor::{
-    CanvasChildExt, ElementExt, LayoutExt, RelativePanelChildExt, button, text_block,
+    CanvasChildExt, ElementExt, LayoutExt, RelativePanelChildExt, VisualExt, button, text_block,
 };
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};

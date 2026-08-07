@@ -267,6 +267,12 @@ macro_rules! define_element {
                     &mut self.modifiers
                 }
             }
+
+            impl capability::Visual for $variant {
+                fn visual_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
         )*
 
         impl Element {
@@ -489,10 +495,10 @@ macro_rules! simple_setter {
     };
 }
 
-/// Builder-style visual and animation modifiers.
+/// Builder-style styling, identity, and context modifiers.
 ///
-/// Accessibility, attached layout, input, layout, resource dictionary, and tooltip methods use
-/// separate sealed capability traits.
+/// Accessibility, attached layout, input, layout, resource dictionary, tooltip, and visual methods
+/// use separate sealed capability traits.
 pub trait ElementExt: Sized {
     fn modifiers_mut(&mut self) -> Option<&mut Modifiers>;
 
@@ -512,61 +518,10 @@ pub trait ElementExt: Sized {
         self
     }
 
-    simple_setter!(opacity, opacity, f64);
     simple_setter!(font_family, font_family, String, into);
     simple_setter!(font_size, font_size, f64);
 
     fn with_key(self, key: impl Into<String>) -> Self;
-
-    fn with_opacity_transition(mut self, duration: Duration) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            with_implicit_transition(m, |it| {
-                it.opacity = Some(ScalarTransition::new(duration));
-            });
-        }
-        self
-    }
-
-    fn with_scale_transition(mut self, duration: Duration) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            with_implicit_transition(m, |it| {
-                it.scale = Some(Vector3Transition::new(duration));
-            });
-        }
-        self
-    }
-
-    fn with_translation_transition(mut self, duration: Duration) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            with_implicit_transition(m, |it| {
-                it.translation = Some(Vector3Transition::new(duration));
-            });
-        }
-        self
-    }
-
-    fn with_layout_animation(mut self, config: LayoutAnimationConfig) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_animations(m).layout_animation = Some(config);
-        }
-        self
-    }
-
-    fn animate(mut self, config: AnimationConfig) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_animations(m).property_animation = Some(config);
-        }
-        self
-    }
-
-    fn transition(mut self, enter: Option<AnimationConfig>, exit: Option<AnimationConfig>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            let a = ensure_animations(m);
-            a.enter_transition = enter;
-            a.exit_transition = exit;
-        }
-        self
-    }
 
     fn provide<T>(self, context: &Context<T>, value: T) -> Element
     where
@@ -621,6 +576,10 @@ pub(crate) mod capability {
 
     pub trait Tooltip {
         fn tooltip_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
+    pub trait Visual {
+        fn visual_modifiers_mut(&mut self) -> &mut Modifiers;
     }
 }
 
@@ -912,6 +871,80 @@ pub trait RelativePanelChildExt: capability::RelativePanelChild + Sized {
 }
 
 impl<T: capability::RelativePanelChild> RelativePanelChildExt for T {}
+
+/// Opacity and composition animations for concrete native widgets.
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, VisualExt, text_block};
+///
+/// let element: Element = text_block("Faded").into();
+/// let _ = element.opacity(0.5);
+/// ```
+///
+/// ```compile_fail
+/// use std::time::Duration;
+/// use windows_reactor::{Element, VisualExt, button};
+///
+/// let element: Element = button("Open").into();
+/// let _ = element.with_opacity_transition(Duration::from_millis(100));
+/// ```
+pub trait VisualExt: capability::Visual + Sized {
+    fn opacity(mut self, opacity: f64) -> Self {
+        capability::Visual::visual_modifiers_mut(&mut self).opacity = Some(opacity);
+        self
+    }
+
+    fn with_opacity_transition(mut self, duration: Duration) -> Self {
+        with_implicit_transition(
+            capability::Visual::visual_modifiers_mut(&mut self),
+            |transitions| {
+                transitions.opacity = Some(ScalarTransition::new(duration));
+            },
+        );
+        self
+    }
+
+    fn with_scale_transition(mut self, duration: Duration) -> Self {
+        with_implicit_transition(
+            capability::Visual::visual_modifiers_mut(&mut self),
+            |transitions| {
+                transitions.scale = Some(Vector3Transition::new(duration));
+            },
+        );
+        self
+    }
+
+    fn with_translation_transition(mut self, duration: Duration) -> Self {
+        with_implicit_transition(
+            capability::Visual::visual_modifiers_mut(&mut self),
+            |transitions| {
+                transitions.translation = Some(Vector3Transition::new(duration));
+            },
+        );
+        self
+    }
+
+    fn with_layout_animation(mut self, config: LayoutAnimationConfig) -> Self {
+        ensure_animations(capability::Visual::visual_modifiers_mut(&mut self)).layout_animation =
+            Some(config);
+        self
+    }
+
+    fn animate(mut self, config: AnimationConfig) -> Self {
+        ensure_animations(capability::Visual::visual_modifiers_mut(&mut self)).property_animation =
+            Some(config);
+        self
+    }
+
+    fn transition(mut self, enter: Option<AnimationConfig>, exit: Option<AnimationConfig>) -> Self {
+        let animations = ensure_animations(capability::Visual::visual_modifiers_mut(&mut self));
+        animations.enter_transition = enter;
+        animations.exit_transition = exit;
+        self
+    }
+}
+
+impl<T: capability::Visual> VisualExt for T {}
 
 /// Tooltip modifiers for concrete native widgets.
 ///

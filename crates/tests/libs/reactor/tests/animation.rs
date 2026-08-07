@@ -6,6 +6,7 @@ use windows_reactor::Element;
 use windows_reactor::ElementExt;
 use windows_reactor::LayoutExt;
 use windows_reactor::Reconciler;
+use windows_reactor::VisualExt;
 use windows_reactor::button;
 use windows_reactor::vstack;
 use windows_reactor::{

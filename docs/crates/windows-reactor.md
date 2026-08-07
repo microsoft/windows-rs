@@ -130,11 +130,11 @@ the WinUI `Tag` instead of retaining stale callback identity. See the `tab_view_
 Framework layout modifiers are available on concrete widget builders through `LayoutExt`:
 `.margin(..)`, `.width(..)`, `.height(..)`, minimum/maximum dimensions, and horizontal/vertical
 alignment. Pointer, keyboard, capture, and drag/drop modifiers are available through `InputExt`.
-UI Automation properties use `AccessibilityExt`, and tooltips use `TooltipExt`. Appearance,
-and animation modifiers remain on `ElementExt` while those capability families are classified.
-Grid, Canvas, and RelativePanel child placement use `GridChildExt`, `CanvasChildExt`, and
-`RelativePanelChildExt`. Apply modifiers before converting the builder into `Element`. Spacing
-values use `Thickness` (with `Thickness::uniform(..)`).
+UI Automation properties use `AccessibilityExt`, tooltips use `TooltipExt`, and opacity and
+composition animations use `VisualExt`. Styling remains on `ElementExt` while its narrower
+capabilities are classified. Grid, Canvas, and RelativePanel child placement use `GridChildExt`,
+`CanvasChildExt`, and `RelativePanelChildExt`. Apply modifiers before converting the builder into
+`Element`. Spacing values use `Thickness` (with `Thickness::uniform(..)`).
 
 `transition(enter, exit)` runs lifecycle animations when an element enters or leaves the WinUI
 visual tree. The logical Reactor element is removed synchronously; WinUI Composition retains its
@@ -540,7 +540,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
 | Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
-| Typed element API | Universal and attached-layout capabilities require concrete widgets |
+| Typed element API | Universal, visual, and attached-layout capabilities are typed |
 | Full mounted ownership evaluation | Complete |
 
 ### Invariants
@@ -784,7 +784,7 @@ The erased `ElementExt` surface allows some modifier calls that compile but cann
 element. Resource dictionaries now use sealed `ResourceExt`, and framework layout uses sealed
 `LayoutExt`. Pointer, keyboard, capture, and drag/drop modifiers use sealed `InputExt`. UI
 Automation properties use sealed `AccessibilityExt`, and tooltips use sealed `TooltipExt`. These
-traits and the attached-layout traits `GridChildExt`, `CanvasChildExt`, and
+traits, sealed `VisualExt`, and the attached-layout traits `GridChildExt`, `CanvasChildExt`, and
 `RelativePanelChildExt` are implemented by concrete native widget builders but not by erased
 `Element` or logical wrappers:
 
@@ -826,6 +826,14 @@ let element: Element = text_block("Cell").into();
 element.grid_row(1);
 ```
 
+Opacity and animations have the same native-element boundary:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = text_block("Faded").into();
+element.opacity(0.5);
+```
+
 Apply capabilities before erasure:
 
 ```rust
@@ -836,30 +844,46 @@ let element: Element = button("Delete")
     .on_tapped(|| {})
     .automation_name("Delete item")
     .tooltip("Delete the selected item")
+    .opacity(0.8)
     .grid_row(1)
     .into();
 # let _ = element;
 ```
 
 The widget enum declaration now emits `ElementExt`, `ResourceExt`, `LayoutExt`, `InputExt`,
-`AccessibilityExt`, `TooltipExt`, and the three attached-layout trait implementations from one
-widget list. This removed a duplicated list that had omitted 13 newer widgets, including
-`AutoSuggestBox`, date/time pickers, split buttons, and menu/list controls. Future capability
-traits must use the same declaration rather than maintaining parallel coverage tables.
+`AccessibilityExt`, `TooltipExt`, `VisualExt`, and the three attached-layout trait implementations
+from one widget list. This removed a duplicated list that had omitted 13 newer widgets, including
+`AutoSuggestBox`, date/time pickers, split buttons, and menu/list controls. Future capability traits
+must use the same declaration rather than maintaining parallel coverage tables.
 
 The migrations updated tests and samples to retain concrete widgets while adding modifiers, then
 erase them only at insertion. The attached-layout migration found calls made after provider
 wrapping and helper functions that returned `Element` too early. Applying placement before
 `provide`, and returning concrete widget builders from helpers, makes those mistakes visible in the
-types. `TemplatedListBuilder` implements the attached-layout traits directly because it represents
-a native list control outside the widget enum.
+types. `TemplatedListBuilder` implements the attached-layout and visual traits directly because it
+represents a native list control outside the widget enum.
 
 The attached-layout traits prove that the target is a concrete native element. They cannot prove
 that the element will later be inserted under the matching Grid, Canvas, or RelativePanel parent.
 
-The remaining modifier families are visual/animation behavior and control styling. They still use
-`ElementExt` while they are classified. The target is for logical constructors to retain a
-concrete wrapper until insertion:
+The remaining modifier family is styling. The WinUI backend already exposes three different
+support sets:
+
+| Modifier family | Native support |
+| --- | --- |
+| Padding | `Border`, `StackPanel`, `Grid`, text blocks, and `Control` descendants |
+| Background | `Border`, `Panel` descendants, and `Control` descendants |
+| Foreground and fonts | text blocks and `Control` descendants |
+
+These traits cannot use the universal widget list. The authoritative widget declaration needs
+reviewed capability annotations, derived from WinUI inheritance with explicit Reactor overrides,
+before `padding`, `background`, `foreground`, `font_family`, and `font_size` leave `ElementExt`.
+Separate parallel widget lists would recreate the coverage drift already removed.
+
+`with_key` and `provide` are structural operations rather than native visual modifiers. They remain
+valid on erased or logical elements and should move to structural APIs when the styling methods
+leave `ElementExt`. The target is for logical constructors to retain a concrete wrapper until
+insertion:
 
 ```rust,ignore
 component(app, ()) -> ComponentElement<App>

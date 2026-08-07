@@ -19,7 +19,7 @@ use windows_reactor::RichTextBlock;
 use windows_reactor::{
     Border, Button, CanvasChildExt, CanvasPosition, CheckBox, Color, Element, Grid, GridChildExt,
     GridLength, RelativePanelAlignment, RelativePanelChildExt, ScrollViewer, StackPanel, TextBlock,
-    TextBox, list_view,
+    TextBox, VisualExt, list_view,
 };
 use windows_reactor::{
     BreadcrumbBar, Canvas, ComboBox, Expander, HyperlinkButton, Image, InfoBadge, InfoBar,
@@ -163,6 +163,7 @@ fn templated_list_builder_retains_attached_layout_capabilities() {
         .grid_column(3)
         .canvas_left(40.0)
         .relative_align_left()
+        .opacity(0.5)
         .into();
     let modifiers = element.modifiers().unwrap();
     let grid = modifiers.grid.unwrap();
@@ -170,6 +171,7 @@ fn templated_list_builder_retains_attached_layout_capabilities() {
 
     assert_eq!(grid.row, 2);
     assert_eq!(grid.column, 3);
+    assert_eq!(modifiers.opacity, Some(0.5));
     assert_eq!(attached.get::<CanvasPosition>().unwrap().left, 40.0);
     assert!(
         attached

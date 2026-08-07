@@ -1,5 +1,5 @@
 use windows_reactor::{Element, HorizontalAlignment, Thickness};
-use windows_reactor::{ElementExt, LayoutExt};
+use windows_reactor::{ElementExt, LayoutExt, VisualExt};
 use windows_reactor::{button, text_block, vstack};
 
 #[test]

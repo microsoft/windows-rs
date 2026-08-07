@@ -15,7 +15,7 @@ use windows_reactor::NavigationView;
 use windows_reactor::Symbol;
 use windows_reactor::vstack;
 use windows_reactor::{ComboBox, PasswordBox, RadioButtons, Slider, ToggleSwitch};
-use windows_reactor::{ElementExt, button, check_box, text_block, text_box};
+use windows_reactor::{ElementExt, VisualExt, button, check_box, text_block, text_box};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;

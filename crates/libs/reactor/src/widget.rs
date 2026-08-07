@@ -549,6 +549,12 @@ impl<T: 'static> capability::RelativePanelChild for TemplatedListBuilder<T> {
     }
 }
 
+impl<T: 'static> capability::Visual for TemplatedListBuilder<T> {
+    fn visual_modifiers_mut(&mut self) -> &mut Modifiers {
+        &mut self.modifiers
+    }
+}
+
 pub fn list_view<T: 'static, R: Into<Element>>(
     items: Vec<T>,
     view: impl Fn(&T, usize) -> R + 'static,
