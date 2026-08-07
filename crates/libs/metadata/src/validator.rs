@@ -42,17 +42,33 @@ impl std::fmt::Display for ValidationError {
 
 impl std::error::Error for ValidationError {}
 
-/// Validates metadata identities and associations exposed by [`reader::Index`].
-pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
-    validate_impl(index, None)
+/// Configures validation for authored metadata and its external definitions.
+pub struct Validator<'a> {
+    index: &'a reader::Index,
+    references: Option<&'a reader::Index>,
 }
 
-/// Validates metadata while resolving external definitions from a separate reference index.
-pub fn validate_with_references(
-    index: &reader::Index,
-    references: &reader::Index,
-) -> Vec<ValidationError> {
-    validate_impl(index, Some(references))
+impl<'a> Validator<'a> {
+    pub fn new(index: &'a reader::Index) -> Self {
+        Self {
+            index,
+            references: None,
+        }
+    }
+
+    pub fn references(mut self, references: &'a reader::Index) -> Self {
+        self.references = Some(references);
+        self
+    }
+
+    pub fn validate(self) -> Vec<ValidationError> {
+        validate_impl(self.index, self.references)
+    }
+}
+
+/// Validates metadata identities and associations exposed by [`reader::Index`].
+pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
+    Validator::new(index).validate()
 }
 
 fn validate_impl(
@@ -174,6 +190,17 @@ fn validate_attribute_constructor(
             row: attribute.row_id(),
             related: parent,
         });
+    } else if signature.flags != crate::MethodCallAttributes::HASTHIS {
+        errors.push(ValidationError {
+            category: ValidationCategory::Invalid,
+            message: format!(
+                "attribute `{}.{}` constructor must use the default calling convention",
+                attribute.namespace(),
+                attribute.name()
+            ),
+            row: attribute.row_id(),
+            related: parent,
+        });
     }
 
     if signature.return_type != crate::Type::Void {
@@ -181,6 +208,19 @@ fn validate_attribute_constructor(
             category: ValidationCategory::Invalid,
             message: format!(
                 "attribute `{}.{}` constructor must return void",
+                attribute.namespace(),
+                attribute.name()
+            ),
+            row: attribute.row_id(),
+            related: parent,
+        });
+    }
+
+    if !attribute.value_blob().starts_with(&[1, 0]) {
+        errors.push(ValidationError {
+            category: ValidationCategory::Invalid,
+            message: format!(
+                "attribute `{}.{}` value has an invalid prolog",
                 attribute.namespace(),
                 attribute.name()
             ),

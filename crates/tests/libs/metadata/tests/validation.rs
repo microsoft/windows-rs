@@ -391,8 +391,29 @@ fn invalid_attribute_constructors_are_rejected() {
         &[],
     );
 
+    let vararg_ctor = file.MemberRef(
+        ".ctor",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS | MethodCallAttributes::VARARG,
+            ..Default::default()
+        },
+        attribute,
+    );
+    file.Attribute(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(vararg_ctor),
+        &[],
+    );
+
+    let valid_ctor = file.MemberRef(".ctor", &Signature::default(), attribute);
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(valid_ctor),
+        &[0, 0],
+    );
+
     let errors = validator::validate(&index(file));
-    assert_eq!(errors.len(), 3);
+    assert_eq!(errors.len(), 5);
     assert_eq!(
         errors[0].message(),
         "attribute `Test.MarkerAttribute` constructor is named `Create` instead of `.ctor`"
@@ -404,6 +425,14 @@ fn invalid_attribute_constructors_are_rejected() {
     assert_eq!(
         errors[2].message(),
         "attribute `Test.MarkerAttribute` constructor must return void"
+    );
+    assert_eq!(
+        errors[3].message(),
+        "attribute `Test.MarkerAttribute` constructor must use the default calling convention"
+    );
+    assert_eq!(
+        errors[4].message(),
+        "attribute `Test.MarkerAttribute` value has an invalid prolog"
     );
     assert!(errors.iter().all(|error| {
         error.category() == validator::ValidationCategory::Invalid
@@ -555,7 +584,9 @@ fn attribute_multiplicity_is_validated() {
     let output = index(file);
     assert!(validator::validate(&output).is_empty());
 
-    let errors = validator::validate_with_references(&output, &reference);
+    let errors = validator::Validator::new(&output)
+        .references(&reference)
+        .validate();
     assert_eq!(errors.len(), 1);
     assert_eq!(
         errors[0].message(),

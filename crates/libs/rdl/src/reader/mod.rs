@@ -398,7 +398,9 @@ fn encode(
     let file = metadata::reader::File::new(bytes.clone()).unwrap();
     let output = metadata::reader::Index::new(vec![file]);
     let validation = match reference {
-        Some(reference) => metadata::validator::validate_with_references(&output, &reference),
+        Some(reference) => metadata::validator::Validator::new(&output)
+            .references(&reference)
+            .validate(),
         None => metadata::validator::validate(&output),
     }
     .into_iter()
