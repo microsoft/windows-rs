@@ -1218,8 +1218,8 @@ windows_core::imp::define_interface!(IEnumFORMATETC, IEnumFORMATETC_Vtbl, 0x0000
 windows_core::imp::interface_hierarchy!(IEnumFORMATETC, windows_core::IUnknown);
 impl IEnumFORMATETC {
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Next(&self, rgelt: &mut [FORMATETC], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut FORMATETC, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1303,8 +1303,8 @@ impl windows_core::RuntimeName for IEnumFORMATETC {}
 windows_core::imp::define_interface!(IEnumMoniker, IEnumMoniker_Vtbl, 0x00000102_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumMoniker, windows_core::IUnknown);
 impl IEnumMoniker {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IMoniker>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<IMoniker>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1383,8 +1383,8 @@ windows_core::imp::define_interface!(IEnumSTATDATA, IEnumSTATDATA_Vtbl, 0x000001
 windows_core::imp::interface_hierarchy!(IEnumSTATDATA, windows_core::IUnknown);
 impl IEnumSTATDATA {
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Next(&self, rgelt: &mut [STATDATA], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATDATA, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1469,8 +1469,8 @@ windows_core::imp::define_interface!(IEnumSTATSTG, IEnumSTATSTG_Vtbl, 0x0000000d
 windows_core::imp::interface_hierarchy!(IEnumSTATSTG, windows_core::IUnknown);
 impl IEnumSTATSTG {
     #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
-    pub unsafe fn Next(&self, rgelt: &mut [super::STATSTG], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut super::STATSTG, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }

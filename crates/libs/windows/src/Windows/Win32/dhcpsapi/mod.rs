@@ -967,12 +967,12 @@ where
     unsafe { DhcpServerQueryAttributes(serveripaddr.param().abi(), dwreserved, dwattribcount, pdhcpattribs, pdhcpattribarr as _) }
 }
 #[inline]
-pub unsafe fn DhcpServerQueryDnsRegCredentials<P0>(serveripaddress: P0, uname: &mut [u16], domain: &mut [u16]) -> u32
+pub unsafe fn DhcpServerQueryDnsRegCredentials<P0>(serveripaddress: P0, unamesize: u32, uname: windows_core::PWSTR, domainsize: u32, domain: windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpServerQueryDnsRegCredentials(serveripaddress : windows_core::PCWSTR, unamesize : u32, uname : windows_core::PWSTR, domainsize : u32, domain : windows_core::PWSTR) -> u32);
-    unsafe { DhcpServerQueryDnsRegCredentials(serveripaddress.param().abi(), uname.len().try_into().unwrap(), core::mem::transmute(uname.as_mut_ptr()), domain.len().try_into().unwrap(), core::mem::transmute(domain.as_mut_ptr())) }
+    unsafe { DhcpServerQueryDnsRegCredentials(serveripaddress.param().abi(), unamesize, uname, domainsize, domain) }
 }
 #[inline]
 pub unsafe fn DhcpServerRedoAuthorization<P0>(serveripaddr: P0, dwreserved: u32) -> u32

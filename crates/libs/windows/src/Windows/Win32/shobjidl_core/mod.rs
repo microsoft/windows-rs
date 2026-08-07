@@ -2496,8 +2496,8 @@ impl IBandSite {
         }
     }
     #[cfg(feature = "oleidl")]
-    pub unsafe fn QueryBand(&self, dwbandid: u32, ppstb: *mut Option<IDeskBand>, pdwstate: Option<*mut u32>, pszname: Option<&mut [u16]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryBand)(windows_core::Interface::as_raw(self), dwbandid, core::mem::transmute(ppstb), pdwstate.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    pub unsafe fn QueryBand(&self, dwbandid: u32, ppstb: *mut Option<IDeskBand>, pdwstate: Option<*mut u32>, pszname: Option<windows_core::PWSTR>, cchname: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryBand)(windows_core::Interface::as_raw(self), dwbandid, core::mem::transmute(ppstb), pdwstate.unwrap_or(core::mem::zeroed()) as _, pszname.unwrap_or(core::mem::zeroed()) as _, cchname) }
     }
     pub unsafe fn SetBandState(&self, dwbandid: u32, dwmask: u32, dwstate: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBandState)(windows_core::Interface::as_raw(self), dwbandid, dwmask, dwstate) }
@@ -5050,8 +5050,8 @@ pub const IEI_PRIORITY_MIN: i32 = 0;
 windows_core::imp::define_interface!(IEnumAssocHandlers, IEnumAssocHandlers_Vtbl, 0x973810ae_9599_4b88_9e4d_6ee98c9552da);
 windows_core::imp::interface_hierarchy!(IEnumAssocHandlers, windows_core::IUnknown);
 impl IEnumAssocHandlers {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IAssocHandler>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<IAssocHandler>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -5081,8 +5081,8 @@ impl windows_core::RuntimeName for IEnumAssocHandlers {}
 windows_core::imp::define_interface!(IEnumExplorerCommand, IEnumExplorerCommand_Vtbl, 0xa88826f8_186f_4987_aade_ea0cef8fbfe8);
 windows_core::imp::interface_hierarchy!(IEnumExplorerCommand, windows_core::IUnknown);
 impl IEnumExplorerCommand {
-    pub unsafe fn Next(&self, puicommand: &mut [Option<IExplorerCommand>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), puicommand.len().try_into().unwrap(), core::mem::transmute(puicommand.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, puicommand: *mut Option<IExplorerCommand>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(puicommand), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5240,8 +5240,8 @@ windows_core::imp::define_interface!(IEnumFullIDList, IEnumFullIDList_Vtbl, 0xd0
 windows_core::imp::interface_hierarchy!(IEnumFullIDList, windows_core::IUnknown);
 impl IEnumFullIDList {
     #[cfg(feature = "shtypes")]
-    pub unsafe fn Next(&self, rgelt: &mut [super::LPITEMIDLIST], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut super::LPITEMIDLIST, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5326,8 +5326,8 @@ windows_core::imp::define_interface!(IEnumIDList, IEnumIDList_Vtbl, 0x000214f2_0
 windows_core::imp::interface_hierarchy!(IEnumIDList, windows_core::IUnknown);
 impl IEnumIDList {
     #[cfg(feature = "shtypes")]
-    pub unsafe fn Next(&self, rgelt: &mut [super::LPITEMIDLIST], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut super::LPITEMIDLIST, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5411,8 +5411,8 @@ impl windows_core::RuntimeName for IEnumIDList {}
 windows_core::imp::define_interface!(IEnumObjects, IEnumObjects_Vtbl, 0x2c1c7e2e_2d0e_4059_831e_1e6f82335c2e);
 windows_core::imp::interface_hierarchy!(IEnumObjects, windows_core::IUnknown);
 impl IEnumObjects {
-    pub unsafe fn Next(&self, riid: *const windows_core::GUID, rgelt: &mut [*mut core::ffi::c_void], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), riid, rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, riid: *const windows_core::GUID, rgelt: *mut *mut core::ffi::c_void, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, riid, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5569,8 +5569,8 @@ impl windows_core::RuntimeName for IEnumResources {}
 windows_core::imp::define_interface!(IEnumShellItems, IEnumShellItems_Vtbl, 0x70629033_e363_4a28_a567_0db78006e6d7);
 windows_core::imp::interface_hierarchy!(IEnumShellItems, windows_core::IUnknown);
 impl IEnumShellItems {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IShellItem>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<IShellItem>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }

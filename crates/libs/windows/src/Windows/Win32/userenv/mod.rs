@@ -19,13 +19,13 @@ pub unsafe fn CreateEnvironmentBlock(lpenvironment: *mut *mut core::ffi::c_void,
     unsafe { CreateEnvironmentBlock(lpenvironment as _, htoken.unwrap_or(core::mem::zeroed()) as _, binherit.into()) }
 }
 #[inline]
-pub unsafe fn CreateProfile<P0, P1>(pszusersid: P0, pszusername: P1, pszprofilepath: &mut [u16]) -> windows_core::HRESULT
+pub unsafe fn CreateProfile<P0, P1>(pszusersid: P0, pszusername: P1, pszprofilepath: windows_core::PWSTR, cchprofilepath: u32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn CreateProfile(pszusersid : windows_core::PCWSTR, pszusername : windows_core::PCWSTR, pszprofilepath : windows_core::PWSTR, cchprofilepath : u32) -> windows_core::HRESULT);
-    unsafe { CreateProfile(pszusersid.param().abi(), pszusername.param().abi(), core::mem::transmute(pszprofilepath.as_mut_ptr()), pszprofilepath.len().try_into().unwrap()) }
+    unsafe { CreateProfile(pszusersid.param().abi(), pszusername.param().abi(), pszprofilepath, cchprofilepath) }
 }
 #[inline]
 pub unsafe fn DeleteAppContainerProfile<P0>(pszappcontainername: P0) -> windows_core::HRESULT
@@ -92,21 +92,21 @@ pub unsafe fn EnterCriticalPolicySection(bmachine: bool) -> super::HANDLE {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ExpandEnvironmentStringsForUserA<P1>(htoken: Option<super::HANDLE>, lpsrc: P1, lpdest: &mut [u8]) -> windows_core::BOOL
+pub unsafe fn ExpandEnvironmentStringsForUserA<P1>(htoken: Option<super::HANDLE>, lpsrc: P1, lpdest: windows_core::PSTR, dwsize: u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserA(htoken : super::HANDLE, lpsrc : windows_core::PCSTR, lpdest : windows_core::PSTR, dwsize : u32) -> windows_core::BOOL);
-    unsafe { ExpandEnvironmentStringsForUserA(htoken.unwrap_or(core::mem::zeroed()) as _, lpsrc.param().abi(), core::mem::transmute(lpdest.as_mut_ptr()), lpdest.len().try_into().unwrap()) }
+    unsafe { ExpandEnvironmentStringsForUserA(htoken.unwrap_or(core::mem::zeroed()) as _, lpsrc.param().abi(), lpdest, dwsize) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ExpandEnvironmentStringsForUserW<P1>(htoken: Option<super::HANDLE>, lpsrc: P1, lpdest: &mut [u16]) -> windows_core::BOOL
+pub unsafe fn ExpandEnvironmentStringsForUserW<P1>(htoken: Option<super::HANDLE>, lpsrc: P1, lpdest: windows_core::PWSTR, dwsize: u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserW(htoken : super::HANDLE, lpsrc : windows_core::PCWSTR, lpdest : windows_core::PWSTR, dwsize : u32) -> windows_core::BOOL);
-    unsafe { ExpandEnvironmentStringsForUserW(htoken.unwrap_or(core::mem::zeroed()) as _, lpsrc.param().abi(), core::mem::transmute(lpdest.as_mut_ptr()), lpdest.len().try_into().unwrap()) }
+    unsafe { ExpandEnvironmentStringsForUserW(htoken.unwrap_or(core::mem::zeroed()) as _, lpsrc.param().abi(), lpdest, dwsize) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

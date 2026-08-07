@@ -78,12 +78,12 @@ pub unsafe fn FilterFindNext(hfilterfind: super::HANDLE, dwinformationclass: sup
     unsafe { FilterFindNext(hfilterfind, dwinformationclass, lpbuffer as _, dwbuffersize, lpbytesreturned as _) }
 }
 #[inline]
-pub unsafe fn FilterGetDosName<P0>(lpvolumename: P0, lpdosname: &mut [u16]) -> windows_core::HRESULT
+pub unsafe fn FilterGetDosName<P0>(lpvolumename: P0, lpdosname: windows_core::PWSTR, dwdosnamebuffersize: u32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("fltlib.dll" "system" fn FilterGetDosName(lpvolumename : windows_core::PCWSTR, lpdosname : windows_core::PWSTR, dwdosnamebuffersize : u32) -> windows_core::HRESULT);
-    unsafe { FilterGetDosName(lpvolumename.param().abi(), core::mem::transmute(lpdosname.as_mut_ptr()), lpdosname.len().try_into().unwrap()) }
+    unsafe { FilterGetDosName(lpvolumename.param().abi(), lpdosname, dwdosnamebuffersize) }
 }
 #[cfg(all(feature = "fltuserstructures", feature = "winnt"))]
 #[inline]

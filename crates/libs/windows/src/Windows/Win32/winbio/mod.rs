@@ -61,14 +61,14 @@ pub unsafe fn WinBioCloseSession(sessionhandle: WINBIO_SESSION_HANDLE) -> window
     unsafe { WinBioCloseSession(sessionhandle) }
 }
 #[inline]
-pub unsafe fn WinBioControlUnit(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::HRESULT {
+pub unsafe fn WinBioControlUnit(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioControlUnit(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_core::HRESULT);
-    unsafe { WinBioControlUnit(sessionhandle, unitid, component, controlcode, sendbuffer.as_ptr(), sendbuffer.len().try_into().unwrap(), receivebuffer.as_mut_ptr(), receivebuffer.len().try_into().unwrap(), receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinBioControlUnit(sessionhandle, unitid, component, controlcode, sendbuffer.as_ptr(), sendbuffer.len().try_into().unwrap(), receivebuffer as _, receivebuffersize, receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::HRESULT {
+pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioControlUnitPrivileged(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_core::HRESULT);
-    unsafe { WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, sendbuffer.as_ptr(), sendbuffer.len().try_into().unwrap(), receivebuffer.as_mut_ptr(), receivebuffer.len().try_into().unwrap(), receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, sendbuffer.as_ptr(), sendbuffer.len().try_into().unwrap(), receivebuffer as _, receivebuffersize, receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WinBioDeleteTemplate(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, identity: *const WINBIO_IDENTITY, subfactor: WINBIO_BIOMETRIC_SUBTYPE) -> windows_core::HRESULT {

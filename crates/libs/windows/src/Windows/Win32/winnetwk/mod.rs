@@ -181,14 +181,14 @@ where
     unsafe { WNetGetConnectionW(lplocalname.param().abi(), lpremotename.unwrap_or(core::mem::zeroed()) as _, lpnlength as _) }
 }
 #[inline]
-pub unsafe fn WNetGetLastErrorA(lperror: *mut u32, lperrorbuf: &mut [u8], lpnamebuf: &mut [u8]) -> u32 {
+pub unsafe fn WNetGetLastErrorA(lperror: *mut u32, lperrorbuf: windows_core::PSTR, nerrorbufsize: u32, lpnamebuf: windows_core::PSTR, nnamebufsize: u32) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetGetLastErrorA(lperror : *mut u32, lperrorbuf : windows_core::PSTR, nerrorbufsize : u32, lpnamebuf : windows_core::PSTR, nnamebufsize : u32) -> u32);
-    unsafe { WNetGetLastErrorA(lperror as _, core::mem::transmute(lperrorbuf.as_mut_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_mut_ptr()), lpnamebuf.len().try_into().unwrap()) }
+    unsafe { WNetGetLastErrorA(lperror as _, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize) }
 }
 #[inline]
-pub unsafe fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: &mut [u16], lpnamebuf: &mut [u16]) -> u32 {
+pub unsafe fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: windows_core::PWSTR, nerrorbufsize: u32, lpnamebuf: windows_core::PWSTR, nnamebufsize: u32) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetGetLastErrorW(lperror : *mut u32, lperrorbuf : windows_core::PWSTR, nerrorbufsize : u32, lpnamebuf : windows_core::PWSTR, nnamebufsize : u32) -> u32);
-    unsafe { WNetGetLastErrorW(lperror as _, core::mem::transmute(lperrorbuf.as_mut_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_mut_ptr()), lpnamebuf.len().try_into().unwrap()) }
+    unsafe { WNetGetLastErrorW(lperror as _, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize) }
 }
 #[inline]
 pub unsafe fn WNetGetNetworkInformationA<P0>(lpprovider: P0, lpnetinfostruct: *mut NETINFOSTRUCT) -> u32

@@ -1447,12 +1447,12 @@ windows_core::imp::define_interface!(IWMCodecStrings, IWMCodecStrings_Vtbl, 0xa7
 windows_core::imp::interface_hierarchy!(IWMCodecStrings, windows_core::IUnknown);
 impl IWMCodecStrings {
     #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, szname: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pmt, szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcchlength as _) }
+    pub unsafe fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: u32, szname: Option<windows_core::PWSTR>, pcchlength: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pmt, cchlength, szname.unwrap_or(core::mem::zeroed()) as _, pcchlength as _) }
     }
     #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, szdescription: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pmt, szdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcchlength as _) }
+    pub unsafe fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: u32, szdescription: Option<windows_core::PWSTR>, pcchlength: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pmt, cchlength, szdescription.unwrap_or(core::mem::zeroed()) as _, pcchlength as _) }
     }
 }
 #[repr(C)]

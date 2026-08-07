@@ -58,9 +58,9 @@ where
     unsafe { ADsFreeEnumerator(penumvariant.param().abi()) }
 }
 #[inline]
-pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: &mut [u16], lpnamebuf: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: windows_core::PWSTR, dwerrorbuflen: u32, lpnamebuf: windows_core::PWSTR, dwnamebuflen: u32) -> windows_core::HRESULT {
     windows_core::link!("activeds.dll" "system" fn ADsGetLastError(lperror : *mut u32, lperrorbuf : windows_core::PWSTR, dwerrorbuflen : u32, lpnamebuf : windows_core::PWSTR, dwnamebuflen : u32) -> windows_core::HRESULT);
-    unsafe { ADsGetLastError(lperror as _, core::mem::transmute(lperrorbuf.as_mut_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_mut_ptr()), lpnamebuf.len().try_into().unwrap()) }
+    unsafe { ADsGetLastError(lperror as _, lperrorbuf, dwerrorbuflen, lpnamebuf, dwnamebuflen) }
 }
 #[inline]
 pub unsafe fn ADsGetObject<P0, T>(lpszpathname: P0) -> windows_core::Result<T>

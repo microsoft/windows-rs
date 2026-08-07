@@ -1,14 +1,14 @@
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLBrowseConnectA(hdbc: super::SQLHDBC, szconnstrin: &[super::SQLCHAR], szconnstrout: Option<&mut [super::SQLCHAR]>, pcbconnstrout: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLBrowseConnectA(hdbc: super::SQLHDBC, szconnstrin: &[super::SQLCHAR], szconnstrout: Option<*mut super::SQLCHAR>, cbconnstroutmax: super::SQLSMALLINT, pcbconnstrout: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLBrowseConnectA(hdbc : super::SQLHDBC, szconnstrin : *const super::SQLCHAR, cbconnstrin : super::SQLSMALLINT, szconnstrout : *mut super::SQLCHAR, cbconnstroutmax : super::SQLSMALLINT, pcbconnstrout : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLBrowseConnectA(hdbc, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szconnstrout.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcbconnstrout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLBrowseConnectA(hdbc, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.unwrap_or(core::mem::zeroed()) as _, cbconnstroutmax, pcbconnstrout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLBrowseConnectW(hdbc: super::SQLHDBC, szconnstrin: &[super::SQLWCHAR], szconnstrout: Option<&mut [super::SQLWCHAR]>, pcchconnstrout: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLBrowseConnectW(hdbc: super::SQLHDBC, szconnstrin: &[super::SQLWCHAR], szconnstrout: Option<*mut super::SQLWCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLBrowseConnectW(hdbc : super::SQLHDBC, szconnstrin : *const super::SQLWCHAR, cchconnstrin : super::SQLSMALLINT, szconnstrout : *mut super::SQLWCHAR, cchconnstroutmax : super::SQLSMALLINT, pcchconnstrout : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLBrowseConnectW(hdbc, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szconnstrout.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcchconnstrout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLBrowseConnectW(hdbc, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
@@ -152,112 +152,79 @@ pub unsafe fn SQLConnectW(hdbc: super::SQLHDBC, szdsn: &[super::SQLWCHAR], szuid
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDataSourcesA(henv: super::SQLHENV, fdirection: super::SQLUSMALLINT, szdsn: Option<&mut [super::SQLCHAR]>, pcbdsn: *mut super::SQLSMALLINT, szdescription: Option<&mut [super::SQLCHAR]>, pcbdescription: *mut super::SQLSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLDataSourcesA(henv: super::SQLHENV, fdirection: super::SQLUSMALLINT, szdsn: Option<*mut super::SQLCHAR>, cbdsnmax: super::SQLSMALLINT, pcbdsn: *mut super::SQLSMALLINT, szdescription: Option<*mut super::SQLCHAR>, cbdescriptionmax: super::SQLSMALLINT, pcbdescription: *mut super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDataSourcesA(henv : super::SQLHENV, fdirection : super::SQLUSMALLINT, szdsn : *mut super::SQLCHAR, cbdsnmax : super::SQLSMALLINT, pcbdsn : *mut super::SQLSMALLINT, szdescription : *mut super::SQLCHAR, cbdescriptionmax : super::SQLSMALLINT, pcbdescription : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDataSourcesA(henv, fdirection, szdsn.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szdsn.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcbdsn as _, szdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szdescription.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcbdescription as _) }
+    unsafe { SQLDataSourcesA(henv, fdirection, szdsn.unwrap_or(core::mem::zeroed()) as _, cbdsnmax, pcbdsn as _, szdescription.unwrap_or(core::mem::zeroed()) as _, cbdescriptionmax, pcbdescription as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDataSourcesW(henv: super::SQLHENV, fdirection: super::SQLUSMALLINT, szdsn: Option<&mut [super::SQLWCHAR]>, pcchdsn: Option<*mut super::SQLSMALLINT>, wszdescription: Option<&mut [super::SQLWCHAR]>, pcchdescription: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDataSourcesW(henv: super::SQLHENV, fdirection: super::SQLUSMALLINT, szdsn: Option<*mut super::SQLWCHAR>, cchdsnmax: super::SQLSMALLINT, pcchdsn: Option<*mut super::SQLSMALLINT>, wszdescription: Option<*mut super::SQLWCHAR>, cchdescriptionmax: super::SQLSMALLINT, pcchdescription: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDataSourcesW(henv : super::SQLHENV, fdirection : super::SQLUSMALLINT, szdsn : *mut super::SQLWCHAR, cchdsnmax : super::SQLSMALLINT, pcchdsn : *mut super::SQLSMALLINT, wszdescription : *mut super::SQLWCHAR, cchdescriptionmax : super::SQLSMALLINT, pcchdescription : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLDataSourcesW(
-            henv,
-            fdirection,
-            szdsn.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szdsn.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcchdsn.unwrap_or(core::mem::zeroed()) as _,
-            wszdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            wszdescription.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcchdescription.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLDataSourcesW(henv, fdirection, szdsn.unwrap_or(core::mem::zeroed()) as _, cchdsnmax, pcchdsn.unwrap_or(core::mem::zeroed()) as _, wszdescription.unwrap_or(core::mem::zeroed()) as _, cchdescriptionmax, pcchdescription.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDescribeColA(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT, szcolname: Option<&mut [super::SQLCHAR]>, pcbcolname: Option<*mut super::SQLSMALLINT>, pfsqltype: Option<*mut super::SQLSMALLINT>, pcbcoldef: Option<*mut super::SQLUINTEGER>, pibscale: Option<*mut super::SQLSMALLINT>, pfnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDescribeColA(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT, szcolname: Option<*mut super::SQLCHAR>, cbcolnamemax: super::SQLSMALLINT, pcbcolname: Option<*mut super::SQLSMALLINT>, pfsqltype: Option<*mut super::SQLSMALLINT>, pcbcoldef: Option<*mut super::SQLUINTEGER>, pibscale: Option<*mut super::SQLSMALLINT>, pfnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : super::SQLHSTMT, icol : super::SQLUSMALLINT, szcolname : *mut super::SQLCHAR, cbcolnamemax : super::SQLSMALLINT, pcbcolname : *mut super::SQLSMALLINT, pfsqltype : *mut super::SQLSMALLINT, pcbcoldef : *mut super::SQLUINTEGER, pibscale : *mut super::SQLSMALLINT, pfnullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDescribeColA(hstmt, icol, szcolname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szcolname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcbcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLDescribeColA(hstmt, icol, szcolname.unwrap_or(core::mem::zeroed()) as _, cbcolnamemax, pcbcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDescribeColA(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT, szcolname: Option<&mut [super::SQLCHAR]>, pcbcolname: Option<*mut super::SQLSMALLINT>, pfsqltype: Option<*mut super::SQLSMALLINT>, pcbcoldef: Option<*mut super::SQLULEN>, pibscale: Option<*mut super::SQLSMALLINT>, pfnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDescribeColA(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT, szcolname: Option<*mut super::SQLCHAR>, cbcolnamemax: super::SQLSMALLINT, pcbcolname: Option<*mut super::SQLSMALLINT>, pfsqltype: Option<*mut super::SQLSMALLINT>, pcbcoldef: Option<*mut super::SQLULEN>, pibscale: Option<*mut super::SQLSMALLINT>, pfnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : super::SQLHSTMT, icol : super::SQLUSMALLINT, szcolname : *mut super::SQLCHAR, cbcolnamemax : super::SQLSMALLINT, pcbcolname : *mut super::SQLSMALLINT, pfsqltype : *mut super::SQLSMALLINT, pcbcoldef : *mut super::SQLULEN, pibscale : *mut super::SQLSMALLINT, pfnullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDescribeColA(hstmt, icol, szcolname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szcolname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcbcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLDescribeColA(hstmt, icol, szcolname.unwrap_or(core::mem::zeroed()) as _, cbcolnamemax, pcbcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDescribeColW(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT, szcolname: Option<&mut [super::SQLWCHAR]>, pcchcolname: Option<*mut super::SQLSMALLINT>, pfsqltype: Option<*mut super::SQLSMALLINT>, pcbcoldef: Option<*mut super::SQLUINTEGER>, pibscale: Option<*mut super::SQLSMALLINT>, pfnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDescribeColW(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT, szcolname: Option<*mut super::SQLWCHAR>, cchcolnamemax: super::SQLSMALLINT, pcchcolname: Option<*mut super::SQLSMALLINT>, pfsqltype: Option<*mut super::SQLSMALLINT>, pcbcoldef: Option<*mut super::SQLUINTEGER>, pibscale: Option<*mut super::SQLSMALLINT>, pfnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : super::SQLHSTMT, icol : super::SQLUSMALLINT, szcolname : *mut super::SQLWCHAR, cchcolnamemax : super::SQLSMALLINT, pcchcolname : *mut super::SQLSMALLINT, pfsqltype : *mut super::SQLSMALLINT, pcbcoldef : *mut super::SQLUINTEGER, pibscale : *mut super::SQLSMALLINT, pfnullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDescribeColW(hstmt, icol, szcolname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szcolname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcchcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLDescribeColW(hstmt, icol, szcolname.unwrap_or(core::mem::zeroed()) as _, cchcolnamemax, pcchcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDescribeColW(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT, szcolname: Option<&mut [super::SQLWCHAR]>, pcchcolname: Option<*mut super::SQLSMALLINT>, pfsqltype: Option<*mut super::SQLSMALLINT>, pcbcoldef: Option<*mut super::SQLULEN>, pibscale: Option<*mut super::SQLSMALLINT>, pfnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDescribeColW(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT, szcolname: Option<*mut super::SQLWCHAR>, cchcolnamemax: super::SQLSMALLINT, pcchcolname: Option<*mut super::SQLSMALLINT>, pfsqltype: Option<*mut super::SQLSMALLINT>, pcbcoldef: Option<*mut super::SQLULEN>, pibscale: Option<*mut super::SQLSMALLINT>, pfnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : super::SQLHSTMT, icol : super::SQLUSMALLINT, szcolname : *mut super::SQLWCHAR, cchcolnamemax : super::SQLSMALLINT, pcchcolname : *mut super::SQLSMALLINT, pfsqltype : *mut super::SQLSMALLINT, pcbcoldef : *mut super::SQLULEN, pibscale : *mut super::SQLSMALLINT, pfnullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDescribeColW(hstmt, icol, szcolname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szcolname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcchcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLDescribeColW(hstmt, icol, szcolname.unwrap_or(core::mem::zeroed()) as _, cchcolnamemax, pcchcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "sqltypes", feature = "windef"))]
 #[inline]
-pub unsafe fn SQLDriverConnectA(hdbc: super::SQLHDBC, hwnd: super::SQLHWND, szconnstrin: &[super::SQLCHAR], szconnstrout: Option<&mut [super::SQLCHAR]>, pcbconnstrout: Option<*mut super::SQLSMALLINT>, fdrivercompletion: super::SQLUSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLDriverConnectA(hdbc: super::SQLHDBC, hwnd: super::SQLHWND, szconnstrin: &[super::SQLCHAR], szconnstrout: Option<*mut super::SQLCHAR>, cbconnstroutmax: super::SQLSMALLINT, pcbconnstrout: Option<*mut super::SQLSMALLINT>, fdrivercompletion: super::SQLUSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDriverConnectA(hdbc : super::SQLHDBC, hwnd : super::SQLHWND, szconnstrin : *const super::SQLCHAR, cbconnstrin : super::SQLSMALLINT, szconnstrout : *mut super::SQLCHAR, cbconnstroutmax : super::SQLSMALLINT, pcbconnstrout : *mut super::SQLSMALLINT, fdrivercompletion : super::SQLUSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDriverConnectA(hdbc, hwnd, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szconnstrout.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcbconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
+    unsafe { SQLDriverConnectA(hdbc, hwnd, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.unwrap_or(core::mem::zeroed()) as _, cbconnstroutmax, pcbconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
 }
 #[cfg(all(feature = "sqltypes", feature = "windef"))]
 #[inline]
-pub unsafe fn SQLDriverConnectW(hdbc: super::SQLHDBC, hwnd: super::SQLHWND, szconnstrin: &[super::SQLWCHAR], szconnstrout: Option<&mut [super::SQLWCHAR]>, pcchconnstrout: Option<*mut super::SQLSMALLINT>, fdrivercompletion: super::SQLUSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLDriverConnectW(hdbc: super::SQLHDBC, hwnd: super::SQLHWND, szconnstrin: &[super::SQLWCHAR], szconnstrout: Option<*mut super::SQLWCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>, fdrivercompletion: super::SQLUSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDriverConnectW(hdbc : super::SQLHDBC, hwnd : super::SQLHWND, szconnstrin : *const super::SQLWCHAR, cchconnstrin : super::SQLSMALLINT, szconnstrout : *mut super::SQLWCHAR, cchconnstroutmax : super::SQLSMALLINT, pcchconnstrout : *mut super::SQLSMALLINT, fdrivercompletion : super::SQLUSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDriverConnectW(hdbc, hwnd, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szconnstrout.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcchconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
+    unsafe { SQLDriverConnectW(hdbc, hwnd, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDriversA(henv: super::SQLHENV, fdirection: super::SQLUSMALLINT, szdriverdesc: Option<&mut [super::SQLCHAR]>, pcbdriverdesc: Option<*mut super::SQLSMALLINT>, szdriverattributes: Option<&mut [super::SQLCHAR]>, pcbdrvrattr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDriversA(henv: super::SQLHENV, fdirection: super::SQLUSMALLINT, szdriverdesc: Option<*mut super::SQLCHAR>, cbdriverdescmax: super::SQLSMALLINT, pcbdriverdesc: Option<*mut super::SQLSMALLINT>, szdriverattributes: Option<*mut super::SQLCHAR>, cbdrvrattrmax: super::SQLSMALLINT, pcbdrvrattr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDriversA(henv : super::SQLHENV, fdirection : super::SQLUSMALLINT, szdriverdesc : *mut super::SQLCHAR, cbdriverdescmax : super::SQLSMALLINT, pcbdriverdesc : *mut super::SQLSMALLINT, szdriverattributes : *mut super::SQLCHAR, cbdrvrattrmax : super::SQLSMALLINT, pcbdrvrattr : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLDriversA(
-            henv,
-            fdirection,
-            szdriverdesc.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szdriverdesc.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcbdriverdesc.unwrap_or(core::mem::zeroed()) as _,
-            szdriverattributes.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szdriverattributes.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcbdrvrattr.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLDriversA(henv, fdirection, szdriverdesc.unwrap_or(core::mem::zeroed()) as _, cbdriverdescmax, pcbdriverdesc.unwrap_or(core::mem::zeroed()) as _, szdriverattributes.unwrap_or(core::mem::zeroed()) as _, cbdrvrattrmax, pcbdrvrattr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLDriversW(henv: super::SQLHENV, fdirection: super::SQLUSMALLINT, szdriverdesc: Option<&mut [super::SQLWCHAR]>, pcchdriverdesc: Option<*mut super::SQLSMALLINT>, szdriverattributes: Option<&mut [super::SQLWCHAR]>, pcchdrvrattr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLDriversW(henv: super::SQLHENV, fdirection: super::SQLUSMALLINT, szdriverdesc: Option<*mut super::SQLWCHAR>, cchdriverdescmax: super::SQLSMALLINT, pcchdriverdesc: Option<*mut super::SQLSMALLINT>, szdriverattributes: Option<*mut super::SQLWCHAR>, cchdrvrattrmax: super::SQLSMALLINT, pcchdrvrattr: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDriversW(henv : super::SQLHENV, fdirection : super::SQLUSMALLINT, szdriverdesc : *mut super::SQLWCHAR, cchdriverdescmax : super::SQLSMALLINT, pcchdriverdesc : *mut super::SQLSMALLINT, szdriverattributes : *mut super::SQLWCHAR, cchdrvrattrmax : super::SQLSMALLINT, pcchdrvrattr : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLDriversW(
-            henv,
-            fdirection,
-            szdriverdesc.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szdriverdesc.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcchdriverdesc.unwrap_or(core::mem::zeroed()) as _,
-            szdriverattributes.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szdriverattributes.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcchdrvrattr.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLDriversW(henv, fdirection, szdriverdesc.unwrap_or(core::mem::zeroed()) as _, cchdriverdescmax, pcchdriverdesc.unwrap_or(core::mem::zeroed()) as _, szdriverattributes.unwrap_or(core::mem::zeroed()) as _, cchdrvrattrmax, pcchdrvrattr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLErrorA(henv: super::SQLHENV, hdbc: super::SQLHDBC, hstmt: super::SQLHSTMT, szsqlstate: *mut super::SQLCHAR, pfnativeerror: Option<*mut super::SQLINTEGER>, szerrormsg: Option<&mut [super::SQLCHAR]>, pcberrormsg: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLErrorA(henv: super::SQLHENV, hdbc: super::SQLHDBC, hstmt: super::SQLHSTMT, szsqlstate: *mut super::SQLCHAR, pfnativeerror: Option<*mut super::SQLINTEGER>, szerrormsg: Option<*mut super::SQLCHAR>, cberrormsgmax: super::SQLSMALLINT, pcberrormsg: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLErrorA(henv : super::SQLHENV, hdbc : super::SQLHDBC, hstmt : super::SQLHSTMT, szsqlstate : *mut super::SQLCHAR, pfnativeerror : *mut super::SQLINTEGER, szerrormsg : *mut super::SQLCHAR, cberrormsgmax : super::SQLSMALLINT, pcberrormsg : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLErrorA(henv, hdbc, hstmt, szsqlstate as _, pfnativeerror.unwrap_or(core::mem::zeroed()) as _, szerrormsg.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szerrormsg.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcberrormsg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLErrorA(henv, hdbc, hstmt, szsqlstate as _, pfnativeerror.unwrap_or(core::mem::zeroed()) as _, szerrormsg.unwrap_or(core::mem::zeroed()) as _, cberrormsgmax, pcberrormsg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLErrorW(henv: super::SQLHENV, hdbc: super::SQLHDBC, hstmt: super::SQLHSTMT, wszsqlstate: &mut [super::SQLWCHAR; 6], pfnativeerror: Option<*mut super::SQLINTEGER>, wszerrormsg: Option<&mut [super::SQLWCHAR]>, pccherrormsg: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLErrorW(henv: super::SQLHENV, hdbc: super::SQLHDBC, hstmt: super::SQLHSTMT, wszsqlstate: *mut super::SQLWCHAR, pfnativeerror: Option<*mut super::SQLINTEGER>, wszerrormsg: Option<*mut super::SQLWCHAR>, ccherrormsgmax: super::SQLSMALLINT, pccherrormsg: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLErrorW(henv : super::SQLHENV, hdbc : super::SQLHDBC, hstmt : super::SQLHSTMT, wszsqlstate : *mut super::SQLWCHAR, pfnativeerror : *mut super::SQLINTEGER, wszerrormsg : *mut super::SQLWCHAR, ccherrormsgmax : super::SQLSMALLINT, pccherrormsg : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLErrorW(henv, hdbc, hstmt, wszsqlstate.as_mut_ptr(), pfnativeerror.unwrap_or(core::mem::zeroed()) as _, wszerrormsg.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), wszerrormsg.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pccherrormsg.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLErrorW(henv, hdbc, hstmt, wszsqlstate as _, pfnativeerror.unwrap_or(core::mem::zeroed()) as _, wszerrormsg.unwrap_or(core::mem::zeroed()) as _, ccherrormsgmax, pccherrormsg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -341,15 +308,15 @@ pub unsafe fn SQLGetConnectOptionW(hdbc: super::SQLHDBC, foption: super::SQLUSMA
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetCursorNameA(hstmt: super::SQLHSTMT, szcursor: Option<&mut [super::SQLCHAR]>, pcbcursor: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetCursorNameA(hstmt: super::SQLHSTMT, szcursor: Option<*mut super::SQLCHAR>, cbcursormax: super::SQLSMALLINT, pcbcursor: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetCursorNameA(hstmt : super::SQLHSTMT, szcursor : *mut super::SQLCHAR, cbcursormax : super::SQLSMALLINT, pcbcursor : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLGetCursorNameA(hstmt, szcursor.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szcursor.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcbcursor.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLGetCursorNameA(hstmt, szcursor.unwrap_or(core::mem::zeroed()) as _, cbcursormax, pcbcursor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetCursorNameW(hstmt: super::SQLHSTMT, szcursor: Option<&mut [super::SQLWCHAR]>, pcchcursor: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetCursorNameW(hstmt: super::SQLHSTMT, szcursor: Option<*mut super::SQLWCHAR>, cchcursormax: super::SQLSMALLINT, pcchcursor: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetCursorNameW(hstmt : super::SQLHSTMT, szcursor : *mut super::SQLWCHAR, cchcursormax : super::SQLSMALLINT, pcchcursor : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLGetCursorNameW(hstmt, szcursor.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szcursor.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcchcursor.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLGetCursorNameW(hstmt, szcursor.unwrap_or(core::mem::zeroed()) as _, cchcursormax, pcchcursor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -366,86 +333,30 @@ pub unsafe fn SQLGetDescFieldW(hdesc: super::SQLHDESC, irecord: super::SQLSMALLI
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDescRecA(hdesc: super::SQLHDESC, irecord: super::SQLSMALLINT, szname: Option<&mut [super::SQLCHAR]>, pcbname: Option<*mut super::SQLSMALLINT>, pftype: Option<*mut super::SQLSMALLINT>, pfsubtype: Option<*mut super::SQLSMALLINT>, plength: Option<*mut super::SQLINTEGER>, pprecision: Option<*mut super::SQLSMALLINT>, pscale: Option<*mut super::SQLSMALLINT>, pnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetDescRecA(hdesc: super::SQLHDESC, irecord: super::SQLSMALLINT, szname: Option<*mut super::SQLCHAR>, cbnamemax: super::SQLSMALLINT, pcbname: Option<*mut super::SQLSMALLINT>, pftype: Option<*mut super::SQLSMALLINT>, pfsubtype: Option<*mut super::SQLSMALLINT>, plength: Option<*mut super::SQLINTEGER>, pprecision: Option<*mut super::SQLSMALLINT>, pscale: Option<*mut super::SQLSMALLINT>, pnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : super::SQLHDESC, irecord : super::SQLSMALLINT, szname : *mut super::SQLCHAR, cbnamemax : super::SQLSMALLINT, pcbname : *mut super::SQLSMALLINT, pftype : *mut super::SQLSMALLINT, pfsubtype : *mut super::SQLSMALLINT, plength : *mut super::SQLINTEGER, pprecision : *mut super::SQLSMALLINT, pscale : *mut super::SQLSMALLINT, pnullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLGetDescRecA(
-            hdesc,
-            irecord,
-            szname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcbname.unwrap_or(core::mem::zeroed()) as _,
-            pftype.unwrap_or(core::mem::zeroed()) as _,
-            pfsubtype.unwrap_or(core::mem::zeroed()) as _,
-            plength.unwrap_or(core::mem::zeroed()) as _,
-            pprecision.unwrap_or(core::mem::zeroed()) as _,
-            pscale.unwrap_or(core::mem::zeroed()) as _,
-            pnullable.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLGetDescRecA(hdesc, irecord, szname.unwrap_or(core::mem::zeroed()) as _, cbnamemax, pcbname.unwrap_or(core::mem::zeroed()) as _, pftype.unwrap_or(core::mem::zeroed()) as _, pfsubtype.unwrap_or(core::mem::zeroed()) as _, plength.unwrap_or(core::mem::zeroed()) as _, pprecision.unwrap_or(core::mem::zeroed()) as _, pscale.unwrap_or(core::mem::zeroed()) as _, pnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDescRecA(hdesc: super::SQLHDESC, irecord: super::SQLSMALLINT, szname: Option<&mut [super::SQLCHAR]>, pcbname: Option<*mut super::SQLSMALLINT>, pftype: Option<*mut super::SQLSMALLINT>, pfsubtype: Option<*mut super::SQLSMALLINT>, plength: Option<*mut super::SQLLEN>, pprecision: Option<*mut super::SQLSMALLINT>, pscale: Option<*mut super::SQLSMALLINT>, pnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetDescRecA(hdesc: super::SQLHDESC, irecord: super::SQLSMALLINT, szname: Option<*mut super::SQLCHAR>, cbnamemax: super::SQLSMALLINT, pcbname: Option<*mut super::SQLSMALLINT>, pftype: Option<*mut super::SQLSMALLINT>, pfsubtype: Option<*mut super::SQLSMALLINT>, plength: Option<*mut super::SQLLEN>, pprecision: Option<*mut super::SQLSMALLINT>, pscale: Option<*mut super::SQLSMALLINT>, pnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : super::SQLHDESC, irecord : super::SQLSMALLINT, szname : *mut super::SQLCHAR, cbnamemax : super::SQLSMALLINT, pcbname : *mut super::SQLSMALLINT, pftype : *mut super::SQLSMALLINT, pfsubtype : *mut super::SQLSMALLINT, plength : *mut super::SQLLEN, pprecision : *mut super::SQLSMALLINT, pscale : *mut super::SQLSMALLINT, pnullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLGetDescRecA(
-            hdesc,
-            irecord,
-            szname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcbname.unwrap_or(core::mem::zeroed()) as _,
-            pftype.unwrap_or(core::mem::zeroed()) as _,
-            pfsubtype.unwrap_or(core::mem::zeroed()) as _,
-            plength.unwrap_or(core::mem::zeroed()) as _,
-            pprecision.unwrap_or(core::mem::zeroed()) as _,
-            pscale.unwrap_or(core::mem::zeroed()) as _,
-            pnullable.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLGetDescRecA(hdesc, irecord, szname.unwrap_or(core::mem::zeroed()) as _, cbnamemax, pcbname.unwrap_or(core::mem::zeroed()) as _, pftype.unwrap_or(core::mem::zeroed()) as _, pfsubtype.unwrap_or(core::mem::zeroed()) as _, plength.unwrap_or(core::mem::zeroed()) as _, pprecision.unwrap_or(core::mem::zeroed()) as _, pscale.unwrap_or(core::mem::zeroed()) as _, pnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDescRecW(hdesc: super::SQLHDESC, irecord: super::SQLSMALLINT, szname: Option<&mut [super::SQLWCHAR]>, pcchname: Option<*mut super::SQLSMALLINT>, pftype: Option<*mut super::SQLSMALLINT>, pfsubtype: Option<*mut super::SQLSMALLINT>, plength: Option<*mut super::SQLINTEGER>, pprecision: Option<*mut super::SQLSMALLINT>, pscale: Option<*mut super::SQLSMALLINT>, pnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetDescRecW(hdesc: super::SQLHDESC, irecord: super::SQLSMALLINT, szname: Option<*mut super::SQLWCHAR>, cchnamemax: super::SQLSMALLINT, pcchname: Option<*mut super::SQLSMALLINT>, pftype: Option<*mut super::SQLSMALLINT>, pfsubtype: Option<*mut super::SQLSMALLINT>, plength: Option<*mut super::SQLINTEGER>, pprecision: Option<*mut super::SQLSMALLINT>, pscale: Option<*mut super::SQLSMALLINT>, pnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : super::SQLHDESC, irecord : super::SQLSMALLINT, szname : *mut super::SQLWCHAR, cchnamemax : super::SQLSMALLINT, pcchname : *mut super::SQLSMALLINT, pftype : *mut super::SQLSMALLINT, pfsubtype : *mut super::SQLSMALLINT, plength : *mut super::SQLINTEGER, pprecision : *mut super::SQLSMALLINT, pscale : *mut super::SQLSMALLINT, pnullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLGetDescRecW(
-            hdesc,
-            irecord,
-            szname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcchname.unwrap_or(core::mem::zeroed()) as _,
-            pftype.unwrap_or(core::mem::zeroed()) as _,
-            pfsubtype.unwrap_or(core::mem::zeroed()) as _,
-            plength.unwrap_or(core::mem::zeroed()) as _,
-            pprecision.unwrap_or(core::mem::zeroed()) as _,
-            pscale.unwrap_or(core::mem::zeroed()) as _,
-            pnullable.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLGetDescRecW(hdesc, irecord, szname.unwrap_or(core::mem::zeroed()) as _, cchnamemax, pcchname.unwrap_or(core::mem::zeroed()) as _, pftype.unwrap_or(core::mem::zeroed()) as _, pfsubtype.unwrap_or(core::mem::zeroed()) as _, plength.unwrap_or(core::mem::zeroed()) as _, pprecision.unwrap_or(core::mem::zeroed()) as _, pscale.unwrap_or(core::mem::zeroed()) as _, pnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDescRecW(hdesc: super::SQLHDESC, irecord: super::SQLSMALLINT, szname: Option<&mut [super::SQLWCHAR]>, pcchname: Option<*mut super::SQLSMALLINT>, pftype: Option<*mut super::SQLSMALLINT>, pfsubtype: Option<*mut super::SQLSMALLINT>, plength: Option<*mut super::SQLLEN>, pprecision: Option<*mut super::SQLSMALLINT>, pscale: Option<*mut super::SQLSMALLINT>, pnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLGetDescRecW(hdesc: super::SQLHDESC, irecord: super::SQLSMALLINT, szname: Option<*mut super::SQLWCHAR>, cchnamemax: super::SQLSMALLINT, pcchname: Option<*mut super::SQLSMALLINT>, pftype: Option<*mut super::SQLSMALLINT>, pfsubtype: Option<*mut super::SQLSMALLINT>, plength: Option<*mut super::SQLLEN>, pprecision: Option<*mut super::SQLSMALLINT>, pscale: Option<*mut super::SQLSMALLINT>, pnullable: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : super::SQLHDESC, irecord : super::SQLSMALLINT, szname : *mut super::SQLWCHAR, cchnamemax : super::SQLSMALLINT, pcchname : *mut super::SQLSMALLINT, pftype : *mut super::SQLSMALLINT, pfsubtype : *mut super::SQLSMALLINT, plength : *mut super::SQLLEN, pprecision : *mut super::SQLSMALLINT, pscale : *mut super::SQLSMALLINT, pnullable : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLGetDescRecW(
-            hdesc,
-            irecord,
-            szname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
-            szname.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            pcchname.unwrap_or(core::mem::zeroed()) as _,
-            pftype.unwrap_or(core::mem::zeroed()) as _,
-            pfsubtype.unwrap_or(core::mem::zeroed()) as _,
-            plength.unwrap_or(core::mem::zeroed()) as _,
-            pprecision.unwrap_or(core::mem::zeroed()) as _,
-            pscale.unwrap_or(core::mem::zeroed()) as _,
-            pnullable.unwrap_or(core::mem::zeroed()) as _,
-        )
-    }
+    unsafe { SQLGetDescRecW(hdesc, irecord, szname.unwrap_or(core::mem::zeroed()) as _, cchnamemax, pcchname.unwrap_or(core::mem::zeroed()) as _, pftype.unwrap_or(core::mem::zeroed()) as _, pfsubtype.unwrap_or(core::mem::zeroed()) as _, plength.unwrap_or(core::mem::zeroed()) as _, pprecision.unwrap_or(core::mem::zeroed()) as _, pscale.unwrap_or(core::mem::zeroed()) as _, pnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -461,15 +372,15 @@ pub unsafe fn SQLGetDiagFieldW(fhandletype: super::SQLSMALLINT, handle: super::S
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDiagRecA(fhandletype: super::SQLSMALLINT, handle: super::SQLHANDLE, irecord: super::SQLSMALLINT, szsqlstate: Option<&mut [super::SQLCHAR; 6]>, pfnativeerror: *mut super::SQLINTEGER, szerrormsg: Option<&mut [super::SQLCHAR]>, pcberrormsg: *mut super::SQLSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLGetDiagRecA(fhandletype: super::SQLSMALLINT, handle: super::SQLHANDLE, irecord: super::SQLSMALLINT, szsqlstate: Option<*mut super::SQLCHAR>, pfnativeerror: *mut super::SQLINTEGER, szerrormsg: Option<*mut super::SQLCHAR>, cberrormsgmax: super::SQLSMALLINT, pcberrormsg: *mut super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagRecA(fhandletype : super::SQLSMALLINT, handle : super::SQLHANDLE, irecord : super::SQLSMALLINT, szsqlstate : *mut super::SQLCHAR, pfnativeerror : *mut super::SQLINTEGER, szerrormsg : *mut super::SQLCHAR, cberrormsgmax : super::SQLSMALLINT, pcberrormsg : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLGetDiagRecA(fhandletype, handle, irecord, szsqlstate.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pfnativeerror as _, szerrormsg.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szerrormsg.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pcberrormsg as _) }
+    unsafe { SQLGetDiagRecA(fhandletype, handle, irecord, szsqlstate.unwrap_or(core::mem::zeroed()) as _, pfnativeerror as _, szerrormsg.unwrap_or(core::mem::zeroed()) as _, cberrormsgmax, pcberrormsg as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLGetDiagRecW(fhandletype: super::SQLSMALLINT, handle: super::SQLHANDLE, irecord: super::SQLSMALLINT, szsqlstate: Option<&mut [super::SQLWCHAR; 6]>, pfnativeerror: *mut super::SQLINTEGER, szerrormsg: Option<&mut [super::SQLWCHAR]>, pccherrormsg: *mut super::SQLSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLGetDiagRecW(fhandletype: super::SQLSMALLINT, handle: super::SQLHANDLE, irecord: super::SQLSMALLINT, szsqlstate: Option<*mut super::SQLWCHAR>, pfnativeerror: *mut super::SQLINTEGER, szerrormsg: Option<*mut super::SQLWCHAR>, ccherrormsgmax: super::SQLSMALLINT, pccherrormsg: *mut super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagRecW(fhandletype : super::SQLSMALLINT, handle : super::SQLHANDLE, irecord : super::SQLSMALLINT, szsqlstate : *mut super::SQLWCHAR, pfnativeerror : *mut super::SQLINTEGER, szerrormsg : *mut super::SQLWCHAR, ccherrormsgmax : super::SQLSMALLINT, pccherrormsg : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLGetDiagRecW(fhandletype, handle, irecord, szsqlstate.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pfnativeerror as _, szerrormsg.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szerrormsg.as_deref().map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())), pccherrormsg as _) }
+    unsafe { SQLGetDiagRecW(fhandletype, handle, irecord, szsqlstate.unwrap_or(core::mem::zeroed()) as _, pfnativeerror as _, szerrormsg.unwrap_or(core::mem::zeroed()) as _, ccherrormsgmax, pccherrormsg as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -509,15 +420,15 @@ pub unsafe fn SQLGetTypeInfoW(statementhandle: super::SQLHSTMT, datatype: super:
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLNativeSqlA(hdbc: super::SQLHDBC, szsqlstrin: &[super::SQLCHAR], szsqlstr: Option<&mut [super::SQLCHAR]>, pcbsqlstr: *mut super::SQLINTEGER) -> super::SQLRETURN {
+pub unsafe fn SQLNativeSqlA(hdbc: super::SQLHDBC, szsqlstrin: &[super::SQLCHAR], szsqlstr: Option<*mut super::SQLCHAR>, cbsqlstrmax: super::SQLINTEGER, pcbsqlstr: *mut super::SQLINTEGER) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLNativeSqlA(hdbc : super::SQLHDBC, szsqlstrin : *const super::SQLCHAR, cbsqlstrin : super::SQLINTEGER, szsqlstr : *mut super::SQLCHAR, cbsqlstrmax : super::SQLINTEGER, pcbsqlstr : *mut super::SQLINTEGER) -> super::SQLRETURN);
-    unsafe { SQLNativeSqlA(hdbc, szsqlstrin.as_ptr(), super::SQLINTEGER(szsqlstrin.len().try_into().unwrap()), szsqlstr.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szsqlstr.as_deref().map_or(super::SQLINTEGER(0), |slice| super::SQLINTEGER(slice.len().try_into().unwrap())), pcbsqlstr as _) }
+    unsafe { SQLNativeSqlA(hdbc, szsqlstrin.as_ptr(), super::SQLINTEGER(szsqlstrin.len().try_into().unwrap()), szsqlstr.unwrap_or(core::mem::zeroed()) as _, cbsqlstrmax, pcbsqlstr as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLNativeSqlW(hdbc: super::SQLHDBC, szsqlstrin: &[super::SQLWCHAR], szsqlstr: Option<&mut [super::SQLWCHAR]>, pcchsqlstr: *mut super::SQLINTEGER) -> super::SQLRETURN {
+pub unsafe fn SQLNativeSqlW(hdbc: super::SQLHDBC, szsqlstrin: &[super::SQLWCHAR], szsqlstr: Option<*mut super::SQLWCHAR>, cchsqlstrmax: super::SQLINTEGER, pcchsqlstr: *mut super::SQLINTEGER) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLNativeSqlW(hdbc : super::SQLHDBC, szsqlstrin : *const super::SQLWCHAR, cchsqlstrin : super::SQLINTEGER, szsqlstr : *mut super::SQLWCHAR, cchsqlstrmax : super::SQLINTEGER, pcchsqlstr : *mut super::SQLINTEGER) -> super::SQLRETURN);
-    unsafe { SQLNativeSqlW(hdbc, szsqlstrin.as_ptr(), super::SQLINTEGER(szsqlstrin.len().try_into().unwrap()), szsqlstr.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), szsqlstr.as_deref().map_or(super::SQLINTEGER(0), |slice| super::SQLINTEGER(slice.len().try_into().unwrap())), pcchsqlstr as _) }
+    unsafe { SQLNativeSqlW(hdbc, szsqlstrin.as_ptr(), super::SQLINTEGER(szsqlstrin.len().try_into().unwrap()), szsqlstr.unwrap_or(core::mem::zeroed()) as _, cchsqlstrmax, pcchsqlstr as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]

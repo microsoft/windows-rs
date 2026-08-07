@@ -56,38 +56,38 @@ where
     unsafe { PathCchAppendEx(core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), pszmore.param().abi(), dwflags) }
 }
 #[inline]
-pub unsafe fn PathCchCanonicalize<P2>(pszpathout: &mut [u16], pszpathin: P2) -> windows_core::HRESULT
+pub unsafe fn PathCchCanonicalize<P2>(pszpathout: windows_core::PWSTR, cchpathout: usize, pszpathin: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCanonicalize(pszpathout : windows_core::PWSTR, cchpathout : usize, pszpathin : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PathCchCanonicalize(core::mem::transmute(pszpathout.as_mut_ptr()), pszpathout.len().try_into().unwrap(), pszpathin.param().abi()) }
+    unsafe { PathCchCanonicalize(pszpathout, cchpathout, pszpathin.param().abi()) }
 }
 #[inline]
-pub unsafe fn PathCchCanonicalizeEx<P2>(pszpathout: &mut [u16], pszpathin: P2, dwflags: u32) -> windows_core::HRESULT
+pub unsafe fn PathCchCanonicalizeEx<P2>(pszpathout: windows_core::PWSTR, cchpathout: usize, pszpathin: P2, dwflags: u32) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCanonicalizeEx(pszpathout : windows_core::PWSTR, cchpathout : usize, pszpathin : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { PathCchCanonicalizeEx(core::mem::transmute(pszpathout.as_mut_ptr()), pszpathout.len().try_into().unwrap(), pszpathin.param().abi(), dwflags) }
+    unsafe { PathCchCanonicalizeEx(pszpathout, cchpathout, pszpathin.param().abi(), dwflags) }
 }
 #[inline]
-pub unsafe fn PathCchCombine<P2, P3>(pszpathout: &mut [u16], pszpathin: P2, pszmore: P3) -> windows_core::HRESULT
+pub unsafe fn PathCchCombine<P2, P3>(pszpathout: windows_core::PWSTR, cchpathout: usize, pszpathin: P2, pszmore: P3) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombine(pszpathout : windows_core::PWSTR, cchpathout : usize, pszpathin : windows_core::PCWSTR, pszmore : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PathCchCombine(core::mem::transmute(pszpathout.as_mut_ptr()), pszpathout.len().try_into().unwrap(), pszpathin.param().abi(), pszmore.param().abi()) }
+    unsafe { PathCchCombine(pszpathout, cchpathout, pszpathin.param().abi(), pszmore.param().abi()) }
 }
 #[inline]
-pub unsafe fn PathCchCombineEx<P2, P3>(pszpathout: &mut [u16], pszpathin: P2, pszmore: P3, dwflags: u32) -> windows_core::HRESULT
+pub unsafe fn PathCchCombineEx<P2, P3>(pszpathout: windows_core::PWSTR, cchpathout: usize, pszpathin: P2, pszmore: P3, dwflags: u32) -> windows_core::HRESULT
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombineEx(pszpathout : windows_core::PWSTR, cchpathout : usize, pszpathin : windows_core::PCWSTR, pszmore : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { PathCchCombineEx(core::mem::transmute(pszpathout.as_mut_ptr()), pszpathout.len().try_into().unwrap(), pszpathin.param().abi(), pszmore.param().abi(), dwflags) }
+    unsafe { PathCchCombineEx(pszpathout, cchpathout, pszpathin.param().abi(), pszmore.param().abi(), dwflags) }
 }
 #[inline]
 pub unsafe fn PathCchFindExtension<P0>(pszpath: P0, cchpath: usize) -> windows_core::Result<windows_core::PCWSTR>

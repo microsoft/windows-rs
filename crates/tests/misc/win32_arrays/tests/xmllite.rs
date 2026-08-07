@@ -68,7 +68,15 @@ fn test() -> Result<()> {
         let mut chars_read = 0;
         let mut read_count = 0;
 
-        while reader.ReadValueChunk(&mut chunk, &mut chars_read).is_ok() && chars_read > 0 {
+        while reader
+            .ReadValueChunk(
+                chunk.as_mut_ptr(),
+                chunk.len().try_into().unwrap(),
+                &mut chars_read,
+            )
+            .is_ok()
+            && chars_read > 0
+        {
             message.extend_from_slice(&chunk[0..chars_read as usize]);
             read_count += 1;
         }
@@ -91,7 +99,13 @@ fn test() -> Result<()> {
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Text);
 
-        reader.ReadValueChunk(&mut chunk, &mut chars_read).ok()?;
+        reader
+            .ReadValueChunk(
+                chunk.as_mut_ptr(),
+                chunk.len().try_into().unwrap(),
+                &mut chars_read,
+            )
+            .ok()?;
         assert_eq!(chars_read, 4);
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(

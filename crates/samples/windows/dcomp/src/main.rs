@@ -55,7 +55,8 @@ fn main() -> windows::core::Result<()> {
                 assert!(
                     BCryptGenRandom(
                         None,
-                        &mut random_bytes,
+                        random_bytes.as_mut_ptr(),
+                        random_bytes.len().try_into().unwrap(),
                         BCRYPT_USE_SYSTEM_PREFERRED_RNG as u32
                     )
                     .0 == 0
@@ -70,7 +71,8 @@ fn main() -> windows::core::Result<()> {
                 assert!(
                     BCryptGenRandom(
                         None,
-                        &mut random_bytes,
+                        random_bytes.as_mut_ptr(),
+                        random_bytes.len().try_into().unwrap(),
                         BCRYPT_USE_SYSTEM_PREFERRED_RNG as u32
                     )
                     .0 == 0

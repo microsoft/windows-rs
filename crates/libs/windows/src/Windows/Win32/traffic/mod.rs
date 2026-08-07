@@ -48,15 +48,15 @@ pub unsafe fn TcEnumerateInterfaces(clienthandle: super::HANDLE, pbuffersize: *m
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TcGetFlowNameA(flowhandle: super::HANDLE, pflowname: &mut [u8]) -> u32 {
+pub unsafe fn TcGetFlowNameA(flowhandle: super::HANDLE, strsize: u32, pflowname: windows_core::PSTR) -> u32 {
     windows_core::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::HANDLE, strsize : u32, pflowname : windows_core::PSTR) -> u32);
-    unsafe { TcGetFlowNameA(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_mut_ptr())) }
+    unsafe { TcGetFlowNameA(flowhandle, strsize, pflowname) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TcGetFlowNameW(flowhandle: super::HANDLE, pflowname: &mut [u16]) -> u32 {
+pub unsafe fn TcGetFlowNameW(flowhandle: super::HANDLE, strsize: u32, pflowname: windows_core::PWSTR) -> u32 {
     windows_core::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::HANDLE, strsize : u32, pflowname : windows_core::PWSTR) -> u32);
-    unsafe { TcGetFlowNameW(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_mut_ptr())) }
+    unsafe { TcGetFlowNameW(flowhandle, strsize, pflowname) }
 }
 #[cfg(all(feature = "qos", feature = "winnt"))]
 #[inline]

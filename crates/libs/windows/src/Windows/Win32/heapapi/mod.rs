@@ -6,9 +6,9 @@ pub unsafe fn GetProcessHeap() -> super::HANDLE {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetProcessHeaps(processheaps: &mut [super::HANDLE]) -> u32 {
+pub unsafe fn GetProcessHeaps(numberofheaps: u32, processheaps: *mut super::HANDLE) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetProcessHeaps(numberofheaps : u32, processheaps : *mut super::HANDLE) -> u32);
-    unsafe { GetProcessHeaps(processheaps.len().try_into().unwrap(), processheaps.as_mut_ptr()) }
+    unsafe { GetProcessHeaps(numberofheaps, processheaps as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

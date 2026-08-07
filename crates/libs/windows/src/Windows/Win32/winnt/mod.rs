@@ -47,9 +47,9 @@ pub unsafe fn RtlCaptureContext2(contextrecord: *mut ARM64_NT_CONTEXT) {
     unsafe { RtlCaptureContext2(contextrecord as _) }
 }
 #[inline]
-pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut core::ffi::c_void], backtracehash: Option<*mut u32>) -> u16 {
+pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, backtrace: *mut *mut core::ffi::c_void, backtracehash: Option<*mut u32>) -> u16 {
     windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
-    unsafe { RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), backtrace.as_mut_ptr(), backtracehash.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlCaptureStackBackTrace(framestoskip, framestocapture, backtrace as _, backtracehash.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: usize) -> usize {

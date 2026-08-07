@@ -204,11 +204,11 @@ impl IBrowserService {
         unsafe { (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), pszname.param().abi()) }
     }
     #[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
-    pub unsafe fn GetTitle<P0>(&self, psv: P0, pszname: &mut [u16]) -> windows_core::HRESULT
+    pub unsafe fn GetTitle<P0>(&self, psv: P0, pszname: windows_core::PWSTR, cchname: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IShellView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), pszname, cchname) }
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn GetOleObject(&self) -> windows_core::Result<super::IOleObject> {

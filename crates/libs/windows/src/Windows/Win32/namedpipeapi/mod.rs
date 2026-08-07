@@ -41,9 +41,9 @@ pub unsafe fn GetNamedPipeClientComputerNameW(pipe: super::HANDLE, clientcompute
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetNamedPipeHandleStateW(hnamedpipe: super::HANDLE, lpstate: Option<*mut u32>, lpcurinstances: Option<*mut u32>, lpmaxcollectioncount: Option<*mut u32>, lpcollectdatatimeout: Option<*mut u32>, lpusername: Option<&mut [u16]>) -> windows_core::BOOL {
+pub unsafe fn GetNamedPipeHandleStateW(hnamedpipe: super::HANDLE, lpstate: Option<*mut u32>, lpcurinstances: Option<*mut u32>, lpmaxcollectioncount: Option<*mut u32>, lpcollectdatatimeout: Option<*mut u32>, lpusername: Option<windows_core::PWSTR>, nmaxusernamesize: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetNamedPipeHandleStateW(hnamedpipe : super::HANDLE, lpstate : *mut u32, lpcurinstances : *mut u32, lpmaxcollectioncount : *mut u32, lpcollectdatatimeout : *mut u32, lpusername : windows_core::PWSTR, nmaxusernamesize : u32) -> windows_core::BOOL);
-    unsafe { GetNamedPipeHandleStateW(hnamedpipe, lpstate.unwrap_or(core::mem::zeroed()) as _, lpcurinstances.unwrap_or(core::mem::zeroed()) as _, lpmaxcollectioncount.unwrap_or(core::mem::zeroed()) as _, lpcollectdatatimeout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpusername.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpusername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetNamedPipeHandleStateW(hnamedpipe, lpstate.unwrap_or(core::mem::zeroed()) as _, lpcurinstances.unwrap_or(core::mem::zeroed()) as _, lpmaxcollectioncount.unwrap_or(core::mem::zeroed()) as _, lpcollectdatatimeout.unwrap_or(core::mem::zeroed()) as _, lpusername.unwrap_or(core::mem::zeroed()) as _, nmaxusernamesize) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

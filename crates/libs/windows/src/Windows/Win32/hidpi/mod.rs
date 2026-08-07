@@ -17,9 +17,9 @@ pub unsafe fn HidP_GetCaps(preparseddata: *const _HIDP_PREPARSED_DATA, capabilit
     unsafe { HidP_GetCaps(preparseddata, capabilities as _) }
 }
 #[inline]
-pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: *mut i8, reportlength: u32) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> windows_core::NTSTATUS);
-    unsafe { HidP_GetData(reporttype, datalist as _, datalength as _, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetData(reporttype, datalist as _, datalength as _, preparseddata, report as _, reportlength) }
 }
 #[inline]
 pub unsafe fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: *const _HIDP_PREPARSED_DATA, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> windows_core::NTSTATUS {
@@ -64,9 +64,9 @@ pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: s
 }
 #[cfg(feature = "hidusage")]
 #[inline]
-pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<u16>, usagelist: *mut u16, usagelength: *mut u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::USAGE, linkcollection: Option<u16>, usagelist: *mut u16, usagelength: *mut u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: *mut i8, reportlength: u32) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : super::USAGE, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> windows_core::NTSTATUS);
-    unsafe { HidP_GetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, report as _, reportlength) }
 }
 #[cfg(feature = "hidusage")]
 #[inline]
@@ -81,9 +81,9 @@ pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HI
     unsafe { HidP_GetValueCaps(reporttype, valuecaps as _, valuecapslength as _, preparseddata) }
 }
 #[inline]
-pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> windows_core::NTSTATUS {
+pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: *const _HIDP_PREPARSED_DATA, report: *mut i8, reportlength: u32) -> windows_core::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> windows_core::NTSTATUS);
-    unsafe { HidP_InitializeReportForID(reporttype, reportid, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_InitializeReportForID(reporttype, reportid, preparseddata, report as _, reportlength) }
 }
 #[inline]
 pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: *const _HIDP_PREPARSED_DATA) -> u32 {

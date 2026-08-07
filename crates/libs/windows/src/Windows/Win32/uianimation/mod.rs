@@ -161,14 +161,14 @@ impl IUIAnimationInterpolator2 {
             (windows_core::Interface::vtable(self).GetDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFinalValue(&self, value: &mut [f64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFinalValue)(windows_core::Interface::as_raw(self), value.as_mut_ptr(), value.len().try_into().unwrap()) }
+    pub unsafe fn GetFinalValue(&self, value: *mut f64, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFinalValue)(windows_core::Interface::as_raw(self), value as _, cdimension) }
     }
-    pub unsafe fn InterpolateValue(&self, offset: f64, value: &mut [f64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InterpolateValue)(windows_core::Interface::as_raw(self), offset, value.as_mut_ptr(), value.len().try_into().unwrap()) }
+    pub unsafe fn InterpolateValue(&self, offset: f64, value: *mut f64, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InterpolateValue)(windows_core::Interface::as_raw(self), offset, value as _, cdimension) }
     }
-    pub unsafe fn InterpolateVelocity(&self, offset: f64, velocity: &mut [f64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InterpolateVelocity)(windows_core::Interface::as_raw(self), offset, velocity.as_mut_ptr(), velocity.len().try_into().unwrap()) }
+    pub unsafe fn InterpolateVelocity(&self, offset: f64, velocity: *mut f64, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InterpolateVelocity)(windows_core::Interface::as_raw(self), offset, velocity as _, cdimension) }
     }
     pub unsafe fn GetPrimitiveInterpolation<P0>(&self, interpolation: P0, cdimension: u32) -> windows_core::HRESULT
     where
@@ -3417,8 +3417,8 @@ impl IUIAnimationVariable2 {
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetVectorValue(&self, value: &mut [f64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVectorValue)(windows_core::Interface::as_raw(self), value.as_mut_ptr(), value.len().try_into().unwrap()) }
+    pub unsafe fn GetVectorValue(&self, value: *mut f64, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVectorValue)(windows_core::Interface::as_raw(self), value as _, cdimension) }
     }
     #[cfg(feature = "dcomp")]
     pub unsafe fn GetCurve<P0>(&self, animation: P0) -> windows_core::HRESULT
@@ -3437,8 +3437,8 @@ impl IUIAnimationVariable2 {
             (windows_core::Interface::vtable(self).GetFinalValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFinalVectorValue(&self, finalvalue: &mut [f64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFinalVectorValue)(windows_core::Interface::as_raw(self), finalvalue.as_mut_ptr(), finalvalue.len().try_into().unwrap()) }
+    pub unsafe fn GetFinalVectorValue(&self, finalvalue: *mut f64, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFinalVectorValue)(windows_core::Interface::as_raw(self), finalvalue as _, cdimension) }
     }
     pub unsafe fn GetPreviousValue(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -3446,8 +3446,8 @@ impl IUIAnimationVariable2 {
             (windows_core::Interface::vtable(self).GetPreviousValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPreviousVectorValue(&self, previousvalue: &mut [f64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPreviousVectorValue)(windows_core::Interface::as_raw(self), previousvalue.as_mut_ptr(), previousvalue.len().try_into().unwrap()) }
+    pub unsafe fn GetPreviousVectorValue(&self, previousvalue: *mut f64, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPreviousVectorValue)(windows_core::Interface::as_raw(self), previousvalue as _, cdimension) }
     }
     pub unsafe fn GetIntegerValue(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -3455,8 +3455,8 @@ impl IUIAnimationVariable2 {
             (windows_core::Interface::vtable(self).GetIntegerValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetIntegerVectorValue(&self, value: &mut [i32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIntegerVectorValue)(windows_core::Interface::as_raw(self), value.as_mut_ptr(), value.len().try_into().unwrap()) }
+    pub unsafe fn GetIntegerVectorValue(&self, value: *mut i32, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIntegerVectorValue)(windows_core::Interface::as_raw(self), value as _, cdimension) }
     }
     pub unsafe fn GetFinalIntegerValue(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -3464,8 +3464,8 @@ impl IUIAnimationVariable2 {
             (windows_core::Interface::vtable(self).GetFinalIntegerValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFinalIntegerVectorValue(&self, finalvalue: &mut [i32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFinalIntegerVectorValue)(windows_core::Interface::as_raw(self), finalvalue.as_mut_ptr(), finalvalue.len().try_into().unwrap()) }
+    pub unsafe fn GetFinalIntegerVectorValue(&self, finalvalue: *mut i32, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFinalIntegerVectorValue)(windows_core::Interface::as_raw(self), finalvalue as _, cdimension) }
     }
     pub unsafe fn GetPreviousIntegerValue(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -3473,8 +3473,8 @@ impl IUIAnimationVariable2 {
             (windows_core::Interface::vtable(self).GetPreviousIntegerValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPreviousIntegerVectorValue(&self, previousvalue: &mut [i32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPreviousIntegerVectorValue)(windows_core::Interface::as_raw(self), previousvalue.as_mut_ptr(), previousvalue.len().try_into().unwrap()) }
+    pub unsafe fn GetPreviousIntegerVectorValue(&self, previousvalue: *mut i32, cdimension: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPreviousIntegerVectorValue)(windows_core::Interface::as_raw(self), previousvalue as _, cdimension) }
     }
     pub unsafe fn GetCurrentStoryboard(&self) -> windows_core::Result<IUIAnimationStoryboard2> {
         unsafe {

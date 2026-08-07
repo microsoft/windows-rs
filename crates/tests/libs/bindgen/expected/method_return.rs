@@ -89,11 +89,11 @@ impl Interface {
             )
         }
     }
-    pub unsafe fn RetvalArray(&self, result: &mut [Struct; 1]) -> windows_core::HRESULT {
+    pub unsafe fn RetvalArray(&self, result: *mut Struct) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).RetvalArray)(
                 windows_core::Interface::as_raw(self),
-                result.as_mut_ptr(),
+                result as _,
             )
         }
     }

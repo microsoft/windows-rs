@@ -555,12 +555,12 @@ pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: 
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFGetAttributesAsBlob<P0>(pattributes: P0, pbuf: &mut [u8]) -> windows_core::HRESULT
+pub unsafe fn MFGetAttributesAsBlob<P0>(pattributes: P0, pbuf: *mut u8, cbbufsize: u32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFGetAttributesAsBlob(pattributes : *mut core::ffi::c_void, pbuf : *mut u8, cbbufsize : u32) -> windows_core::HRESULT);
-    unsafe { MFGetAttributesAsBlob(pattributes.param().abi(), pbuf.as_mut_ptr(), pbuf.len().try_into().unwrap()) }
+    unsafe { MFGetAttributesAsBlob(pattributes.param().abi(), pbuf as _, cbbufsize) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -919,12 +919,12 @@ pub unsafe fn MFShutdown() -> windows_core::HRESULT {
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFSplitSample<P0>(psample: P0, poutputsamples: &mut [Option<super::IMFSample>], pdwoutputsamplecount: *mut u32) -> windows_core::HRESULT
+pub unsafe fn MFSplitSample<P0>(psample: P0, poutputsamples: *mut Option<super::IMFSample>, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<super::IMFSample>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFSplitSample(psample : *mut core::ffi::c_void, poutputsamples : *mut *mut core::ffi::c_void, dwoutputsamplemaxcount : u32, pdwoutputsamplecount : *mut u32) -> windows_core::HRESULT);
-    unsafe { MFSplitSample(psample.param().abi(), core::mem::transmute(poutputsamples.as_mut_ptr()), poutputsamples.len().try_into().unwrap(), pdwoutputsamplecount as _) }
+    unsafe { MFSplitSample(psample.param().abi(), core::mem::transmute(poutputsamples), dwoutputsamplemaxcount, pdwoutputsamplecount as _) }
 }
 #[inline]
 pub unsafe fn MFStartup(version: u32, dwflags: u32) -> windows_core::HRESULT {

@@ -161,9 +161,9 @@ pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: HPAINTBUFFER) -> window
     }
 }
 #[inline]
-pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: Option<&mut [u16]>, pszsizebuff: Option<&mut [u16]>) -> windows_core::HRESULT {
+pub unsafe fn GetCurrentThemeName(pszthemefilename: windows_core::PWSTR, cchmaxnamechars: i32, pszcolorbuff: Option<windows_core::PWSTR>, cchmaxcolorchars: i32, pszsizebuff: Option<windows_core::PWSTR>, cchmaxsizechars: i32) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetCurrentThemeName(pszthemefilename : windows_core::PWSTR, cchmaxnamechars : i32, pszcolorbuff : windows_core::PWSTR, cchmaxcolorchars : i32, pszsizebuff : windows_core::PWSTR, cchmaxsizechars : i32) -> windows_core::HRESULT);
-    unsafe { GetCurrentThemeName(core::mem::transmute(pszthemefilename.as_mut_ptr()), pszthemefilename.len().try_into().unwrap(), core::mem::transmute(pszcolorbuff.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszcolorbuff.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszsizebuff.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszsizebuff.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetCurrentThemeName(pszthemefilename, cchmaxnamechars, pszcolorbuff.unwrap_or(core::mem::zeroed()) as _, cchmaxcolorchars, pszsizebuff.unwrap_or(core::mem::zeroed()) as _, cchmaxsizechars) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
@@ -237,13 +237,13 @@ pub unsafe fn GetThemeColor(htheme: super::HTHEME, ipartid: i32, istateid: i32, 
     }
 }
 #[inline]
-pub unsafe fn GetThemeDocumentationProperty<P0, P1>(pszthemename: P0, pszpropertyname: P1, pszvaluebuff: &mut [u16]) -> windows_core::HRESULT
+pub unsafe fn GetThemeDocumentationProperty<P0, P1>(pszthemename: P0, pszpropertyname: P1, pszvaluebuff: windows_core::PWSTR, cchmaxvalchars: i32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeDocumentationProperty(pszthemename : windows_core::PCWSTR, pszpropertyname : windows_core::PCWSTR, pszvaluebuff : windows_core::PWSTR, cchmaxvalchars : i32) -> windows_core::HRESULT);
-    unsafe { GetThemeDocumentationProperty(pszthemename.param().abi(), pszpropertyname.param().abi(), core::mem::transmute(pszvaluebuff.as_mut_ptr()), pszvaluebuff.len().try_into().unwrap()) }
+    unsafe { GetThemeDocumentationProperty(pszthemename.param().abi(), pszpropertyname.param().abi(), pszvaluebuff, cchmaxvalchars) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
@@ -256,9 +256,9 @@ pub unsafe fn GetThemeEnumValue(htheme: super::HTHEME, ipartid: i32, istateid: i
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeFilename(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn GetThemeFilename(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: windows_core::PWSTR, cchmaxbuffchars: i32) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : windows_core::PWSTR, cchmaxbuffchars : i32) -> windows_core::HRESULT);
-    unsafe { GetThemeFilename(htheme, ipartid, istateid, ipropid, core::mem::transmute(pszthemefilename.as_mut_ptr()), pszthemefilename.len().try_into().unwrap()) }
+    unsafe { GetThemeFilename(htheme, ipartid, istateid, ipropid, pszthemefilename, cchmaxbuffchars) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]
@@ -343,9 +343,9 @@ pub unsafe fn GetThemeStream(htheme: super::HTHEME, ipartid: i32, istateid: i32,
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeString(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn GetThemeString(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: windows_core::PWSTR, cchmaxbuffchars: i32) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeString(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : windows_core::PWSTR, cchmaxbuffchars : i32) -> windows_core::HRESULT);
-    unsafe { GetThemeString(htheme, ipartid, istateid, ipropid, core::mem::transmute(pszbuff.as_mut_ptr()), pszbuff.len().try_into().unwrap()) }
+    unsafe { GetThemeString(htheme, ipartid, istateid, ipropid, pszbuff, cchmaxbuffchars) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
@@ -388,9 +388,9 @@ pub unsafe fn GetThemeSysSize(htheme: Option<super::HTHEME>, isizeid: i32) -> i3
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeSysString(htheme: super::HTHEME, istringid: i32, pszstringbuff: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn GetThemeSysString(htheme: super::HTHEME, istringid: i32, pszstringbuff: windows_core::PWSTR, cchmaxstringchars: i32) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : super::HTHEME, istringid : i32, pszstringbuff : windows_core::PWSTR, cchmaxstringchars : i32) -> windows_core::HRESULT);
-    unsafe { GetThemeSysString(htheme, istringid, core::mem::transmute(pszstringbuff.as_mut_ptr()), pszstringbuff.len().try_into().unwrap()) }
+    unsafe { GetThemeSysString(htheme, istringid, pszstringbuff, cchmaxstringchars) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]

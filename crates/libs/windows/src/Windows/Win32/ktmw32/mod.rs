@@ -93,9 +93,9 @@ pub unsafe fn GetTransactionId(transactionhandle: super::HANDLE, transactionid: 
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetTransactionInformation(transactionhandle: super::HANDLE, outcome: Option<*mut u32>, isolationlevel: Option<*mut u32>, isolationflags: Option<*mut u32>, timeout: Option<*mut u32>, description: Option<&mut [u16]>) -> windows_core::BOOL {
+pub unsafe fn GetTransactionInformation(transactionhandle: super::HANDLE, outcome: Option<*mut u32>, isolationlevel: Option<*mut u32>, isolationflags: Option<*mut u32>, timeout: Option<*mut u32>, bufferlength: u32, description: Option<windows_core::PWSTR>) -> windows_core::BOOL {
     windows_core::link!("ktmw32.dll" "system" fn GetTransactionInformation(transactionhandle : super::HANDLE, outcome : *mut u32, isolationlevel : *mut u32, isolationflags : *mut u32, timeout : *mut u32, bufferlength : u32, description : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { GetTransactionInformation(transactionhandle, outcome.unwrap_or(core::mem::zeroed()) as _, isolationlevel.unwrap_or(core::mem::zeroed()) as _, isolationflags.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
+    unsafe { GetTransactionInformation(transactionhandle, outcome.unwrap_or(core::mem::zeroed()) as _, isolationlevel.unwrap_or(core::mem::zeroed()) as _, isolationflags.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, bufferlength, description.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

@@ -1724,8 +1724,8 @@ impl IDirectSoundBuffer8 {
     pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: Option<*const DSEFFECTDESC>, pdwresultcodes: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFX)(windows_core::Interface::as_raw(self), dweffectscount, pdsfxdesc.unwrap_or(core::mem::zeroed()) as _, pdwresultcodes.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn AcquireResources(&self, dwflags: u32, pdwresultcodes: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AcquireResources)(windows_core::Interface::as_raw(self), dwflags, pdwresultcodes.len().try_into().unwrap(), pdwresultcodes.as_mut_ptr()) }
+    pub unsafe fn AcquireResources(&self, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AcquireResources)(windows_core::Interface::as_raw(self), dwflags, dweffectscount, pdwresultcodes as _) }
     }
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const windows_core::GUID, dwindex: u32, rguidinterface: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetObjectInPath)(windows_core::Interface::as_raw(self), rguidobject, dwindex, rguidinterface, ppobject as _) }
@@ -2030,8 +2030,8 @@ impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const windows_core::GUID, dwindex: u32, rguidinterface: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetObjectInPath)(windows_core::Interface::as_raw(self), rguidobject, dwindex, rguidinterface, ppobject as _) }
     }
-    pub unsafe fn GetFXStatus(&self, pdwfxstatus: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFXStatus)(windows_core::Interface::as_raw(self), pdwfxstatus.len().try_into().unwrap(), pdwfxstatus.as_mut_ptr()) }
+    pub unsafe fn GetFXStatus(&self, dweffectscount: u32, pdwfxstatus: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFXStatus)(windows_core::Interface::as_raw(self), dweffectscount, pdwfxstatus as _) }
     }
 }
 #[repr(C)]

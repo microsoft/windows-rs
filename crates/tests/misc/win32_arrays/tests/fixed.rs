@@ -7,7 +7,7 @@ fn keyboard_state() {
     unsafe {
         let zeroed: [u8; 256] = std::mem::zeroed();
         let mut state: [u8; 256] = std::mem::zeroed();
-        GetKeyboardState(&mut state).unwrap();
+        GetKeyboardState(state.as_mut_ptr()).unwrap();
         assert!(state != zeroed);
         SetKeyboardState(&state).unwrap();
     }

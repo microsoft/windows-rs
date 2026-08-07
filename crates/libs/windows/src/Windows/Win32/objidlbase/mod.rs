@@ -1089,8 +1089,8 @@ pub struct IEnumContextProps(pub u8);
 windows_core::imp::define_interface!(IEnumString, IEnumString_Vtbl, 0x00000101_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumString, windows_core::IUnknown);
 impl IEnumString {
-    pub unsafe fn Next(&self, rgelt: &mut [windows_core::PWSTR], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut windows_core::PWSTR, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1168,8 +1168,8 @@ impl windows_core::RuntimeName for IEnumString {}
 windows_core::imp::define_interface!(IEnumUnknown, IEnumUnknown_Vtbl, 0x00000100_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumUnknown, windows_core::IUnknown);
 impl IEnumUnknown {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<windows_core::IUnknown>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut Option<windows_core::IUnknown>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }

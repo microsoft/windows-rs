@@ -137,8 +137,8 @@ impl IXmlReader {
     pub unsafe fn GetValue(&self, ppwszvalue: *mut windows_core::PCWSTR, pcwchvalue: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), ppwszvalue as _, pcwchvalue.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn ReadValueChunk(&self, pwchbuffer: &mut [u16], pcwchread: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadValueChunk)(windows_core::Interface::as_raw(self), pwchbuffer.as_mut_ptr(), pwchbuffer.len().try_into().unwrap(), pcwchread as _) }
+    pub unsafe fn ReadValueChunk(&self, pwchbuffer: *mut u16, cwchchunksize: u32, pcwchread: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReadValueChunk)(windows_core::Interface::as_raw(self), pwchbuffer as _, cwchchunksize, pcwchread as _) }
     }
     pub unsafe fn GetBaseUri(&self, ppwszbaseuri: *mut windows_core::PCWSTR, pcwchbaseuri: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBaseUri)(windows_core::Interface::as_raw(self), ppwszbaseuri as _, pcwchbaseuri.unwrap_or(core::mem::zeroed()) as _) }

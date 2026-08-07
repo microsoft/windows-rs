@@ -159,15 +159,15 @@ pub unsafe fn GetPriorityClass(hprocess: super::HANDLE) -> u32 {
 }
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetProcessDefaultCpuSetMasks(process: super::HANDLE, cpusetmasks: Option<&mut [super::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> windows_core::BOOL {
+pub unsafe fn GetProcessDefaultCpuSetMasks(process: super::HANDLE, cpusetmasks: Option<*mut super::GROUP_AFFINITY>, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSetMasks(process : super::HANDLE, cpusetmasks : *mut super::GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> windows_core::BOOL);
-    unsafe { GetProcessDefaultCpuSetMasks(process, cpusetmasks.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
+    unsafe { GetProcessDefaultCpuSetMasks(process, cpusetmasks.unwrap_or(core::mem::zeroed()) as _, cpusetmaskcount, requiredmaskcount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetProcessDefaultCpuSets(process: super::HANDLE, cpusetids: Option<&mut [u32]>, requiredidcount: *mut u32) -> windows_core::BOOL {
+pub unsafe fn GetProcessDefaultCpuSets(process: super::HANDLE, cpusetids: Option<*mut u32>, cpusetidcount: u32, requiredidcount: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSets(process : super::HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> windows_core::BOOL);
-    unsafe { GetProcessDefaultCpuSets(process, cpusetids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount as _) }
+    unsafe { GetProcessDefaultCpuSets(process, cpusetids.unwrap_or(core::mem::zeroed()) as _, cpusetidcount, requiredidcount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -292,15 +292,15 @@ pub unsafe fn GetThreadPriorityBoost(hthread: super::HANDLE, pdisablepriorityboo
 }
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThreadSelectedCpuSetMasks(thread: super::HANDLE, cpusetmasks: Option<&mut [super::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> windows_core::BOOL {
+pub unsafe fn GetThreadSelectedCpuSetMasks(thread: super::HANDLE, cpusetmasks: Option<*mut super::GROUP_AFFINITY>, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSetMasks(thread : super::HANDLE, cpusetmasks : *mut super::GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> windows_core::BOOL);
-    unsafe { GetThreadSelectedCpuSetMasks(thread, cpusetmasks.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
+    unsafe { GetThreadSelectedCpuSetMasks(thread, cpusetmasks.unwrap_or(core::mem::zeroed()) as _, cpusetmaskcount, requiredmaskcount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetThreadSelectedCpuSets(thread: super::HANDLE, cpusetids: Option<&mut [u32]>, requiredidcount: *mut u32) -> windows_core::BOOL {
+pub unsafe fn GetThreadSelectedCpuSets(thread: super::HANDLE, cpusetids: Option<*mut u32>, cpusetidcount: u32, requiredidcount: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSets(thread : super::HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> windows_core::BOOL);
-    unsafe { GetThreadSelectedCpuSets(thread, cpusetids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount as _) }
+    unsafe { GetThreadSelectedCpuSets(thread, cpusetids.unwrap_or(core::mem::zeroed()) as _, cpusetidcount, requiredidcount as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]

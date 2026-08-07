@@ -1,10 +1,29 @@
 //! --filter Test --minimal --flat
 #[win32]
 mod Test {
+    interface Object {}
+
     interface Interface {
         fn OutFixed(&self, #[out] #[len_const(4)] buffer: *mut u32) -> i32;
         fn OutLen(&self, count: u32, #[out] #[len_param(0)] buffer: *mut u32) -> i32;
         fn OutOpt(&self, count: u32, #[opt] #[out] #[len_param(0)] buffer: *mut u32) -> i32;
+        fn OutBytes(&self, size: u32, #[out] #[size_param(0)] buffer: *mut u8) -> i32;
+        fn OutInterfaces(
+            &self,
+            count: u32,
+            #[out] #[len_param(0)] values: *mut Object,
+        ) -> i32;
+        fn InOutLen(
+            &self,
+            count: u32,
+            #[in] #[out] #[len_param(0)] buffer: *mut u32,
+        ) -> i32;
+        fn SharedCount(
+            &self,
+            count: u32,
+            #[in] #[len_param(0)] input: *const u32,
+            #[out] #[len_param(0)] output: *mut u32,
+        ) -> i32;
         fn InLen(&self, count: u32, #[in] #[len_param(0)] buffer: *const u32) -> i32;
     }
 }
@@ -17,6 +36,11 @@ mod Windows {
                 CountParamIndex: i16,
                 CountConst: i32,
                 CountFieldName: String,
+            }
+
+            attribute MemorySizeAttribute {
+                fn();
+                BytesParamIndex: i16,
             }
         }
     }

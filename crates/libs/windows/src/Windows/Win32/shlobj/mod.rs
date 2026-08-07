@@ -573,8 +573,8 @@ impl windows_core::RuntimeName for ICopyHookW {}
 windows_core::imp::define_interface!(ICurrentWorkingDirectory, ICurrentWorkingDirectory_Vtbl, 0x91956d21_9276_11d1_921a_006097df5bd4);
 windows_core::imp::interface_hierarchy!(ICurrentWorkingDirectory, windows_core::IUnknown);
 impl ICurrentWorkingDirectory {
-    pub unsafe fn GetDirectory(&self, pwzpath: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pwzpath.as_mut_ptr()), pwzpath.len().try_into().unwrap()) }
+    pub unsafe fn GetDirectory(&self, pwzpath: windows_core::PWSTR, cchsize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDirectory)(windows_core::Interface::as_raw(self), pwzpath, cchsize) }
     }
     pub unsafe fn SetDirectory<P0>(&self, pwzpath: P0) -> windows_core::HRESULT
     where
@@ -888,8 +888,8 @@ impl INewShortcutHookA {
     {
         unsafe { (windows_core::Interface::vtable(self).SetReferent)(windows_core::Interface::as_raw(self), pcszreferent.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetReferent(&self, pszreferent: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_mut_ptr()), pszreferent.len().try_into().unwrap()) }
+    pub unsafe fn GetReferent(&self, pszreferent: windows_core::PSTR, cchreferent: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), pszreferent, cchreferent) }
     }
     pub unsafe fn SetFolder<P0>(&self, pcszfolder: P0) -> windows_core::HRESULT
     where
@@ -897,14 +897,14 @@ impl INewShortcutHookA {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFolder)(windows_core::Interface::as_raw(self), pcszfolder.param().abi()) }
     }
-    pub unsafe fn GetFolder(&self, pszfolder: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_mut_ptr()), pszfolder.len().try_into().unwrap()) }
+    pub unsafe fn GetFolder(&self, pszfolder: windows_core::PSTR, cchfolder: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), pszfolder, cchfolder) }
     }
-    pub unsafe fn GetName(&self, pszname: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
+    pub unsafe fn GetName(&self, pszname: windows_core::PSTR, cchname: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pszname, cchname) }
     }
-    pub unsafe fn GetExtension(&self, pszextension: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_mut_ptr()), pszextension.len().try_into().unwrap()) }
+    pub unsafe fn GetExtension(&self, pszextension: windows_core::PSTR, cchextension: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), pszextension, cchextension) }
     }
 }
 #[repr(C)]
@@ -995,8 +995,8 @@ impl INewShortcutHookW {
     {
         unsafe { (windows_core::Interface::vtable(self).SetReferent)(windows_core::Interface::as_raw(self), pcszreferent.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetReferent(&self, pszreferent: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_mut_ptr()), pszreferent.len().try_into().unwrap()) }
+    pub unsafe fn GetReferent(&self, pszreferent: windows_core::PWSTR, cchreferent: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), pszreferent, cchreferent) }
     }
     pub unsafe fn SetFolder<P0>(&self, pcszfolder: P0) -> windows_core::HRESULT
     where
@@ -1004,14 +1004,14 @@ impl INewShortcutHookW {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFolder)(windows_core::Interface::as_raw(self), pcszfolder.param().abi()) }
     }
-    pub unsafe fn GetFolder(&self, pszfolder: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_mut_ptr()), pszfolder.len().try_into().unwrap()) }
+    pub unsafe fn GetFolder(&self, pszfolder: windows_core::PWSTR, cchfolder: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), pszfolder, cchfolder) }
     }
-    pub unsafe fn GetName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
+    pub unsafe fn GetName(&self, pszname: windows_core::PWSTR, cchname: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pszname, cchname) }
     }
-    pub unsafe fn GetExtension(&self, pszextension: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_mut_ptr()), pszextension.len().try_into().unwrap()) }
+    pub unsafe fn GetExtension(&self, pszextension: windows_core::PWSTR, cchextension: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), pszextension, cchextension) }
     }
 }
 #[repr(C)]
