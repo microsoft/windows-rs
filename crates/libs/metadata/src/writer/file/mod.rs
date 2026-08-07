@@ -61,6 +61,19 @@ impl File {
         file
     }
 
+    /// Finalizes this writer into a readable metadata file without writing it to disk.
+    ///
+    /// The current implementation serializes the metadata in memory and reads that byte stream.
+    /// This keeps one canonical finalization path.
+    pub fn finish(self) -> reader::File {
+        reader::File::new(self.into_stream()).unwrap()
+    }
+
+    /// Finalizes this writer and returns a queryable metadata index without writing a file.
+    pub fn into_index(self) -> reader::Index {
+        reader::Index::new(vec![self.finish()])
+    }
+
     /// Sets the reference index used to resolve external `TypeRef` scopes.
     pub fn set_reference(&mut self, reference: reader::Index) {
         self.reference = Some(reference);

@@ -90,12 +90,29 @@ for an unspecified direction, combine `ReservedAttribute` with `Optional`, or de
 parameter should become a language return value. Array and byte-count attributes remain available
 through `attributes()` because each projection validates different public-surface shapes.
 
+### Validation
+
+`validator::validate` checks a `reader::Index` independently of any source language. The current
+rules reject overlapping duplicate type, field, method, property, and event identities, malformed
+`Param.Sequence` associations, invalid method semantics, and duplicate singleton accessors.
+Architecture-specific copies are allowed when their `SupportedArchitectureAttribute` masks do not
+overlap. Split property and event rows with complementary accessors are also valid WinMD.
+
+Every reader row exposes a `RowId` containing its file, table, and row positions. Validation errors
+carry the primary row and an optional related row. Metadata producers can map those identities to
+source locations without storing source paths or line numbers in the winmd.
+
+The validator will grow to cover remaining table ownership, layouts, custom attribute usage,
+signatures, and WinRT profile rules. Merge, remap, and RDL lowering should use the same validator
+rather than maintaining separate interpretations of ECMA-335.
+
 ### Property and event association
 
 The reader exposes Property, PropertyMap, Event, EventMap, and MethodSemantics rows. A `TypeDef`
 provides `properties()` and `events()` iterators, while each property or event provides its
 accessor semantics. Property signatures retain index parameters rather than reducing every
-property to a return type.
+property to a return type. The index also exposes complete table iterators so validation can find
+duplicate maps and rows with no owner rather than seeing only the first map attached to a type.
 
 Merge and namespace remapping copy these rows together with WinRT runtime-class methods. They also
 preserve property and event flags, custom attributes, property constants, and the association from

@@ -265,13 +265,37 @@ impl Index {
 
     /// Iterates over every custom attribute row in the indexed files.
     pub fn attributes(&self) -> impl Iterator<Item = Attribute<'_>> + '_ {
+        self.table_rows()
+    }
+
+    /// Iterates over every property map row in the indexed files.
+    pub fn property_maps(&self) -> impl Iterator<Item = PropertyMap<'_>> + '_ {
+        self.table_rows()
+    }
+
+    /// Iterates over every property row in the indexed files.
+    pub fn properties(&self) -> impl Iterator<Item = Property<'_>> + '_ {
+        self.table_rows()
+    }
+
+    /// Iterates over every event map row in the indexed files.
+    pub fn event_maps(&self) -> impl Iterator<Item = EventMap<'_>> + '_ {
+        self.table_rows()
+    }
+
+    /// Iterates over every event row in the indexed files.
+    pub fn events(&self) -> impl Iterator<Item = Event<'_>> + '_ {
+        self.table_rows()
+    }
+
+    fn table_rows<'a, R: AsRow<'a> + 'a>(&'a self) -> impl Iterator<Item = R> + 'a {
         self.files
             .iter()
             .enumerate()
             .flat_map(move |(file, metadata)| {
                 metadata
-                    .Attribute()
-                    .map(move |pos| Attribute::from_row(Row::new(self, file, pos)))
+                    .rows(R::TABLE)
+                    .map(move |pos| R::from_row(Row::new(self, file, pos)))
             })
     }
 

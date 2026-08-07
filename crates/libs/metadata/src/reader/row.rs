@@ -1,5 +1,27 @@
 use super::*;
 
+/// Stable identity of one metadata table row within an [`Index`].
+#[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
+pub struct RowId {
+    file: usize,
+    table: usize,
+    row: usize,
+}
+
+impl RowId {
+    pub fn file(&self) -> usize {
+        self.file
+    }
+
+    pub fn table(&self) -> usize {
+        self.table
+    }
+
+    pub fn row(&self) -> usize {
+        self.row
+    }
+}
+
 #[derive(Copy, Clone)]
 pub struct Row<'a> {
     pub index: &'a Index,
@@ -66,6 +88,15 @@ pub trait AsRow<'a>: Copy {
 
     fn pos(&self) -> usize {
         self.to_row().pos
+    }
+
+    fn row_id(&self) -> RowId {
+        let row = self.to_row();
+        RowId {
+            file: row.file,
+            table: Self::TABLE,
+            row: row.pos,
+        }
     }
 
     fn usize(&self, column: usize) -> usize {

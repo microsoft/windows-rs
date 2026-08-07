@@ -263,9 +263,27 @@ impl Merger {
         }
 
         context.finish(&mut file)?;
-        let bytes = file.into_stream();
-        std::fs::write(&self.output, bytes)
+        let file = file.finish();
+        validate_output(&file)?;
+        std::fs::write(&self.output, file.bytes())
             .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output.display())))
+    }
+}
+
+fn validate_output(file: &reader::File) -> Result<(), Error> {
+    let errors = validator::validate(&reader::Index::new(vec![file.clone()]));
+    if let Some(first) = errors.first() {
+        let remaining = errors.len() - 1;
+        let suffix = if remaining == 0 {
+            String::new()
+        } else {
+            format!(" ({remaining} more validation error(s))")
+        };
+        Err(Error::new(format!(
+            "generated metadata is invalid: {first}{suffix}"
+        )))
+    } else {
+        Ok(())
     }
 }
 

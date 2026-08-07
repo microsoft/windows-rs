@@ -367,17 +367,33 @@ the lowering remains visible and predictable.
 
 ### Semantic validation
 
-The reader currently combines parsing, name resolution, validation, and metadata emission. This
-makes it difficult to report more than the first error and allows some invalid source shapes to
-reach the writer. Add a resolved RDL model and a validation pass before emitting metadata:
+RDL should lower into ECMA-335 metadata as soon as parsing, imports, and enough name resolution
+have succeeded. Metadata is already the interchange format used by `tool_win32`, `tool_winrt`,
+`tool_roundtrip`, merge, remap, and bindgen. Maintaining a second declaration model in
+`windows-rdl` would duplicate that schema and allow the representations to drift.
 
 ```text
-source -> syntax tree -> resolved model -> validation -> metadata writer
+source -> syntax tree -> metadata builder + source origins -> validation -> optional winmd
 ```
 
-The resolved model should retain source spans for declarations, names, types, attributes, attribute
-arguments, parameters, and references. Validation should produce a list of diagnostics rather than
-stopping at the first error. Metadata emission should run only when the list contains no errors.
+Syntax-only checks remain in `windows-rdl`: parsing, imports, unsupported syntax, malformed control
+attributes, and failures where a type cannot be classified well enough to encode a signature.
+Everything represented by ECMA-335 should be checked by a shared `windows-metadata` validator. The
+RDL compiler should attach an external origin map from metadata row IDs to source spans so the same
+validator can produce source diagnostics without adding private attributes to the output.
+
+`windows-metadata` currently has an append-only `writer::File` and a queryable byte-backed
+`reader::Index`. Improve that boundary in stages:
+
+1. Add a standalone validator over `reader::Index`.
+2. Add an in-memory writer-to-reader handoff, initially permitting internal serialization.
+3. Refactor merge and remap to validate their output before writing files.
+4. Add a queryable finalized metadata image if avoiding serialization makes the pipeline simpler
+   or measurably faster.
+5. Refactor RDL to lower directly into the metadata builder plus an origin map.
+
+This order validates the metadata design independently of RDL and gives the rest of the toolchain a
+useful validator even if some source-side facts must remain during lowering.
 
 Validation rules should be grouped by profile:
 
@@ -412,8 +428,8 @@ disjoint architecture variants, and matching split get/set properties remain val
 Top-level symbol and property checks still compare syntax spellings. Method overloads and attribute
 constructors now compare resolved `metadata::Type` signatures, so an import alias and a qualified
 path to the same type collide. `RDL0005` rejects missing or extra generic arguments. Moving the
-remaining checks to a resolved model and preventing every validation failure from reaching the
-encoder remain part of the work below.
+remaining checks to metadata row identities and preventing every validation failure from reaching
+serialized output remain part of the work below.
 
 The winmd writer now preflights Property and Event rows before reconstructing shorthand. Custom
 attributes, nonzero flags, property constants, unsupported or duplicate semantics, missing
@@ -444,9 +460,8 @@ Initial validation work:
 1. Done: define initial syntax-level symbol keys and legal duplicate categories.
 2. Done: add negative fixtures for duplicate properties, events, fields, methods, types,
    constants, functions, architecture variants, and parameter names.
-3. In progress: separate resolve and validate from `Encoder` so validation cannot partially mutate
-   a winmd. Type and attribute lookup now share `Resolver`; signature and generic-arity checks run
-   before encoding.
+3. Replaced: keep shared name resolution, but lower resolved declarations into the metadata builder
+   rather than constructing a parallel resolved declaration tree.
 4. Add target validation for every built-in and metadata-defined attribute.
 5. Done: add checks for parsed syntax that is currently ignored or not represented, including
    attributes on event shorthand, method generics, and variadic interface methods.
@@ -688,11 +703,12 @@ The main findings are:
 - **Validation:** Most passes stop at the first error. Collect independent semantic diagnostics
   before encoding.
 - **Resolution:** Type and attribute lookup now share `Resolver` and produce canonical
-  `metadata::Type` identities. Declaration-level resolved nodes are still needed.
+  `metadata::Type` identities. Encode those facts directly rather than retaining a second
+  declaration tree.
 - **Duplicate checks:** Method and attribute-constructor signatures now compare resolved types and
   generic arity. Properties, class interface lists, and other checks still use syntax spelling.
 - **Encoding:** Some unresolved or invalid states are found while the winmd writer is being
-  mutated. Make the encoder consume only a validated resolved model.
+  mutated. Make the metadata builder queryable and validate its finalized rows before output.
 - **Diagnostics:** The data model supports labels, but source text is external and `riddle` renders
   one label at a time. Add a source registry, diagnostic collections, color/short/JSON rendering,
   and a final count.
@@ -711,18 +727,17 @@ The next phase should proceed in this order:
 
 1. Done: introduce a source registry, canonical type identities, and a shared name resolver.
    `DiagnosticReport` and `Resolver` provide these layers while preserving the current
-   `Result<T, Error>` APIs as convenience wrappers. Stable numeric source and declaration IDs can
-   be added with the resolved model.
-2. Build a resolved model for declarations, types, attributes, parameters, and imports. Move
-   duplicate checks and import ambiguity checks onto that model, and emit no metadata when it has
-   errors.
-3. Add generic-arity, attribute-target, profile, and resolved-signature validation. Finish the
-   metadata table and custom-attribute parent inventory with rejection tests for unsupported rows.
-4. Implement explicit overload authoring and canonical expansion using resolved signatures and
-   stable metadata names.
-5. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete
+   `Result<T, Error>` APIs as convenience wrappers.
+2. Done: add row identities and a standalone validator to `windows-metadata`.
+3. Done: add an in-memory writer-to-reader handoff and validate merge/remap output.
+4. Lower RDL directly into metadata while recording row-to-source origins.
+5. Move duplicate, attribute-target, profile, signature, layout, and association checks onto the
+   shared metadata validator where ECMA-335 represents the fact.
+6. Implement explicit overload authoring as transparent metadata lowering after this boundary is
+   stable.
+7. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete
    diagnostic collections and unsupported-metadata findings.
-6. Move formatting to the RDL syntax tree and add range formatting if editor use justifies it.
-7. Evaluate runtime-class conveniences only after the expanded ABI can be inspected and compared.
+8. Move formatting to the RDL syntax tree and add range formatting if editor use justifies it.
+9. Evaluate runtime-class conveniences only after the expanded ABI can be inspected and compared.
 
 [rdl-overloads]: https://github.com/microsoft/windows-rs/issues/4166

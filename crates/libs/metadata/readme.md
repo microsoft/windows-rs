@@ -49,3 +49,11 @@ iteration for lossless metadata copying.
 `MethodParam::direction()` reports the literal `In`/`Out` combination as `ParamDirection`,
 including `Unspecified`. `is_optional`, `is_reserved`, and `is_retval_attribute` expose separate
 facts. They do not infer direction from the type or treat a reserved parameter as optional.
+
+Use `validator::validate(&index)` to check duplicate metadata identities and malformed table
+associations. Each error carries a `reader::RowId`, which metadata producers can map to their own
+source locations.
+
+`writer::File::finish()` finalizes a writer into a shareable `reader::File`, while `into_index()`
+returns a queryable `reader::Index`. Both avoid temporary files. Finalized reader files share their
+immutable bytes cheaply between validation, indexing, and output.

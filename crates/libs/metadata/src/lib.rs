@@ -30,6 +30,7 @@ pub use signature::*;
 pub use reader::{AsRow, HasAttributes};
 
 pub mod merge;
+pub mod validator;
 
 pub fn merge() -> merge::Merger {
     merge::Merger::new()

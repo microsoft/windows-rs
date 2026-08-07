@@ -1,7 +1,8 @@
 use super::*;
 
+#[derive(Clone)]
 pub struct File {
-    bytes: Vec<u8>,
+    bytes: std::sync::Arc<[u8]>,
     strings: usize,
     blobs: usize,
     tables: [Table; 24],
@@ -14,7 +15,7 @@ impl File {
 
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
         let mut result = Self {
-            bytes,
+            bytes: bytes.into(),
             strings: 0,
             blobs: 0,
             tables: Default::default(),
@@ -481,6 +482,11 @@ impl File {
         Some(result)
     }
 
+    /// Returns the complete metadata file image.
+    pub fn bytes(&self) -> &[u8] {
+        &self.bytes
+    }
+
     pub(crate) fn usize(&self, row: usize, table: usize, column: usize) -> usize {
         let table = &self.tables[table];
         let column = &table.columns[column];
@@ -640,12 +646,12 @@ impl File {
         0..self.tables[TypeDef::TABLE].len
     }
 
-    pub(crate) fn Attribute(&self) -> std::ops::Range<usize> {
-        0..self.tables[Attribute::TABLE].len
-    }
-
     pub(crate) fn NestedClass(&self) -> std::ops::Range<usize> {
         0..self.tables[NestedClass::TABLE].len
+    }
+
+    pub(crate) fn rows(&self, table: usize) -> std::ops::Range<usize> {
+        0..self.tables[table].len
     }
 }
 
@@ -717,7 +723,7 @@ impl View for [u8] {
     }
 }
 
-#[derive(Default)]
+#[derive(Clone, Copy, Default)]
 struct Table {
     offset: usize,
     len: usize,
@@ -759,7 +765,7 @@ impl Table {
     }
 }
 
-#[derive(Default)]
+#[derive(Clone, Copy, Default)]
 struct Column {
     offset: usize,
     width: usize,

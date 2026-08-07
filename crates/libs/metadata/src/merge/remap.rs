@@ -110,8 +110,9 @@ impl Remapper {
         self.split_apis(&mut file, &mut context, &apis);
 
         context.finish(&mut file)?;
-        let bytes = file.into_stream();
-        std::fs::write(&self.output, bytes)
+        let file = file.finish();
+        validate_output(&file)?;
+        std::fs::write(&self.output, file.bytes())
             .map_err(|e| Error::new(format!("failed to write `{}`: {e}", self.output.display())))
     }
 
