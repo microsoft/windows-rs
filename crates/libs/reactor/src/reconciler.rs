@@ -18,9 +18,77 @@ pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 struct LogicalNodeId(u64);
 
-struct LogicalComponent {
-    parent: Option<LogicalNodeId>,
-    native_root: ControlId,
+enum ProjectedComponents {
+    Inline { nodes: [LogicalNodeId; 2], len: u8 },
+    Heap(Vec<LogicalNodeId>),
+}
+
+impl Default for ProjectedComponents {
+    fn default() -> Self {
+        Self::Inline {
+            nodes: [LogicalNodeId(0); 2],
+            len: 0,
+        }
+    }
+}
+
+impl ProjectedComponents {
+    fn as_slice(&self) -> &[LogicalNodeId] {
+        match self {
+            Self::Inline { nodes, len } => &nodes[..*len as usize],
+            Self::Heap(nodes) => nodes,
+        }
+    }
+
+    fn is_empty(&self) -> bool {
+        self.as_slice().is_empty()
+    }
+
+    fn last(&self) -> Option<LogicalNodeId> {
+        self.as_slice().last().copied()
+    }
+
+    fn push(&mut self, node_id: LogicalNodeId) {
+        match self {
+            Self::Inline { nodes, len } if *len < 2 => {
+                nodes[*len as usize] = node_id;
+                *len += 1;
+            }
+            Self::Inline { nodes, .. } => {
+                *self = Self::Heap(vec![nodes[0], nodes[1], node_id]);
+            }
+            Self::Heap(nodes) => nodes.push(node_id),
+        }
+    }
+
+    fn pop(&mut self) -> Option<LogicalNodeId> {
+        match self {
+            Self::Inline { nodes, len } => {
+                if *len == 0 {
+                    None
+                } else {
+                    *len -= 1;
+                    Some(nodes[*len as usize])
+                }
+            }
+            Self::Heap(nodes) => nodes.pop(),
+        }
+    }
+
+    fn drain(self, mut f: impl FnMut(LogicalNodeId)) {
+        match self {
+            Self::Inline { nodes, len } => {
+                for node_id in nodes.into_iter().take(len as usize) {
+                    f(node_id);
+                }
+            }
+            Self::Heap(nodes) => {
+                for node_id in nodes {
+                    f(node_id);
+                }
+            }
+        }
+    }
 }
 
 struct LogicalParentGuard {
@@ -43,10 +111,9 @@ pub struct Reconciler<B: Backend> {
     pub children_mirror: FxHashMap<ControlId, Vec<ControlId>>,
     pub id_kinds: FxHashMap<ControlId, ControlKind>,
     pub context_stack: Rc<ContextStack>,
-    pub component_instances: FxHashMap<ControlId, ComponentInstance>,
-    // Additional logical components sharing a native root, innermost first.
-    component_instance_overflow: FxHashMap<ControlId, Vec<ComponentInstance>>,
-    logical_components: FxHashMap<LogicalNodeId, LogicalComponent>,
+    component_instances: FxHashMap<LogicalNodeId, ComponentInstance>,
+    // Logical components projecting to a native root, innermost first.
+    components_by_control: FxHashMap<ControlId, ProjectedComponents>,
     active_logical_parent: Rc<Cell<Option<LogicalNodeId>>>,
     next_logical_node_id: u64,
     pub appeared_listener_count: usize,
@@ -75,6 +142,7 @@ pub struct Reconciler<B: Backend> {
 pub struct ComponentInstance {
     node_id: LogicalNodeId,
     parent: Option<LogicalNodeId>,
+    native_root: ControlId,
     pub render_cx: RenderCx,
     pub last_rendered: Element,
     pub last_obj: Rc<dyn ComponentObject>,
@@ -92,8 +160,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             id_kinds: FxHashMap::default(),
             context_stack: Rc::new(ContextStack::new()),
             component_instances: FxHashMap::default(),
-            component_instance_overflow: FxHashMap::default(),
-            logical_components: FxHashMap::default(),
+            components_by_control: FxHashMap::default(),
             active_logical_parent: Rc::new(Cell::new(None)),
             next_logical_node_id: 0,
             appeared_listener_count: 0,
@@ -141,18 +208,13 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     /// Checks whether `id` has pending hook-state changes without clearing them.
     pub fn is_component_state_dirty(&self, id: ControlId) -> bool {
-        self.component_instances
-            .get(&id)
-            .is_some_and(|inst| inst.render_cx.peek_state_dirty())
-            || (!self.component_instance_overflow.is_empty()
-                && self
-                    .component_instance_overflow
-                    .get(&id)
-                    .is_some_and(|instances| {
-                        instances
-                            .iter()
-                            .any(|inst| inst.render_cx.peek_state_dirty())
-                    }))
+        self.components_by_control.get(&id).is_some_and(|node_ids| {
+            node_ids.as_slice().iter().any(|node_id| {
+                self.component_instances
+                    .get(node_id)
+                    .is_some_and(|inst| inst.render_cx.peek_state_dirty())
+            })
+        })
     }
 
     pub fn reset_stats(&mut self) {
@@ -168,7 +230,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     #[cfg(feature = "test")]
     pub fn debug_logical_component_count(&self) -> usize {
-        self.logical_components.len()
+        self.component_instances.len()
     }
 
     fn allocate_logical_node_id(&mut self) -> LogicalNodeId {
@@ -186,14 +248,16 @@ impl<B: Backend + 'static> Reconciler<B> {
         LogicalParentGuard { active, previous }
     }
 
-    fn remove_logical_component(&mut self, inst: &ComponentInstance) {
-        self.logical_components.remove(&inst.node_id);
+    fn current_component_node(&self, id: ControlId) -> Option<LogicalNodeId> {
+        self.components_by_control
+            .get(&id)
+            .and_then(ProjectedComponents::last)
     }
 
     fn add_forced_control_path(&mut self, node_id: LogicalNodeId) {
         let mut current = Some(node_id);
         while let Some(id) = current {
-            let Some(node) = self.logical_components.get(&id) else {
+            let Some(node) = self.component_instances.get(&id) else {
                 break;
             };
             self.forced_components.insert(node.native_root);
@@ -209,7 +273,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         for node_id in node_ids {
             let mut current = Some(node_id);
             while let Some(id) = current {
-                let Some(node) = self.logical_components.get(&id) else {
+                let Some(node) = self.component_instances.get(&id) else {
                     break;
                 };
                 result.insert(node.native_root);
@@ -223,15 +287,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.debug_ui_elements_created += 1;
         let id = self.backend.create(kind);
 
-        if let Some(stale) = self.component_instances.remove(&id) {
-            self.unregister_component_listeners(&stale);
-            self.remove_logical_component(&stale);
-        }
-        if let Some(stale) = self.component_instance_overflow.remove(&id) {
-            for inst in &stale {
-                self.unregister_component_listeners(inst);
-                self.remove_logical_component(inst);
-            }
+        if let Some(stale) = self.components_by_control.remove(&id) {
+            stale.drain(|node_id| {
+                if let Some(inst) = self.component_instances.remove(&node_id) {
+                    self.unregister_component_listeners(&inst);
+                }
+            });
         }
         self.templated_lists.remove(&id);
         self.selection_callbacks.remove(&id);
@@ -246,7 +307,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     pub fn register_component_instance(
         &mut self,
         id: ControlId,
-        inst: ComponentInstance,
+        mut inst: ComponentInstance,
     ) -> Option<ComponentInstance> {
         if inst.last_obj.has_on_appeared() {
             self.appeared_listener_count += 1;
@@ -254,42 +315,41 @@ impl<B: Backend + 'static> Reconciler<B> {
         if inst.last_obj.has_on_disappeared() {
             self.disappeared_listener_count += 1;
         }
-        self.logical_components.insert(
-            inst.node_id,
-            LogicalComponent {
-                parent: inst.parent,
-                native_root: id,
-            },
-        );
-        if let Some(previous) = self.component_instances.insert(id, inst) {
-            self.component_instance_overflow
-                .entry(id)
-                .or_insert_with(|| Vec::with_capacity(1))
-                .push(previous);
+        let previous_root = inst.native_root;
+        inst.native_root = id;
+        let node_id = inst.node_id;
+        let previous = self.component_instances.insert(node_id, inst);
+        debug_assert!(previous.is_none(), "logical component registered twice");
+        self.components_by_control
+            .entry(id)
+            .or_default()
+            .push(node_id);
+        if previous_root != id
+            && self
+                .components_by_control
+                .get(&previous_root)
+                .is_some_and(ProjectedComponents::is_empty)
+        {
+            self.components_by_control.remove(&previous_root);
         }
         None
     }
 
     pub fn take_component_instance(&mut self, id: ControlId) -> Option<ComponentInstance> {
-        let inst = self.component_instances.remove(&id)?;
-        let (previous, remove_overflow) = if self.component_instance_overflow.is_empty() {
-            (None, false)
-        } else {
-            self.component_instance_overflow
-                .get_mut(&id)
-                .map_or((None, false), |instances| {
-                    let previous = instances.pop();
-                    (previous, instances.is_empty())
-                })
-        };
-        if let Some(previous) = previous {
-            self.component_instances.insert(id, previous);
-        }
-        if remove_overflow {
-            self.component_instance_overflow.remove(&id);
-        }
+        let node_id = self.components_by_control.get_mut(&id)?.pop()?;
+        let inst = self.component_instances.remove(&node_id)?;
         self.unregister_component_listeners(&inst);
         Some(inst)
+    }
+
+    fn remove_empty_component_projection(&mut self, id: ControlId) {
+        if self
+            .components_by_control
+            .get(&id)
+            .is_some_and(ProjectedComponents::is_empty)
+        {
+            self.components_by_control.remove(&id);
+        }
     }
 
     fn unregister_component_listeners(&mut self, inst: &ComponentInstance) {
@@ -327,7 +387,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         request_rerender: Rc<dyn Fn()>,
     ) -> Option<ControlId> {
         self.request_rerender = request_rerender;
-        match (existing, old) {
+        let result = match (existing, old) {
             (None, _) => self.mount(new),
             (Some(id), Some(old_el)) => {
                 let seeded = self.force_state_dirty_components();
@@ -341,26 +401,59 @@ impl<B: Backend + 'static> Reconciler<B> {
                 result
             }
             (Some(_id), None) => self.mount(new),
+        };
+        #[cfg(debug_assertions)]
+        self.debug_assert_component_index();
+        result
+    }
+
+    #[cfg(debug_assertions)]
+    fn debug_assert_component_index(&self) {
+        let mut indexed = rustc_hash::FxHashSet::default();
+        for (control_id, nodes) in &self.components_by_control {
+            debug_assert!(
+                !nodes.is_empty(),
+                "empty logical component projection for {control_id:?}"
+            );
+            for node_id in nodes.as_slice() {
+                debug_assert!(
+                    indexed.insert(*node_id),
+                    "logical component {node_id:?} is indexed more than once"
+                );
+                let inst = self
+                    .component_instances
+                    .get(node_id)
+                    .expect("projected logical component has no instance");
+                debug_assert_eq!(
+                    inst.native_root, *control_id,
+                    "logical component native root disagrees with projection"
+                );
+            }
+        }
+        debug_assert_eq!(
+            indexed.len(),
+            self.component_instances.len(),
+            "logical component index does not cover every instance"
+        );
+        for inst in self.component_instances.values() {
+            if let Some(parent) = inst.parent {
+                debug_assert!(
+                    self.component_instances.contains_key(&parent),
+                    "logical component parent is not mounted"
+                );
+            }
         }
     }
 
     /// Forces dirty components to render even when unchanged parents can be skipped.
     fn force_state_dirty_components(&mut self) -> Vec<ControlId> {
-        let has_overflow = !self.component_instance_overflow.is_empty();
         let dirty: Vec<(ControlId, LogicalNodeId)> = self
             .component_instances
             .iter()
-            .flat_map(|(id, inst)| {
-                std::iter::once(inst)
-                    .chain(
-                        has_overflow
-                            .then(|| self.component_instance_overflow.get(id))
-                            .flatten()
-                            .into_iter()
-                            .flatten(),
-                    )
-                    .filter(|inst| inst.render_cx.peek_state_dirty())
-                    .map(|inst| (*id, inst.node_id))
+            .filter_map(|(node_id, inst)| {
+                inst.render_cx
+                    .peek_state_dirty()
+                    .then_some((inst.native_root, *node_id))
             })
             .collect();
         if !dirty.is_empty() {
@@ -459,17 +552,13 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut to_release = Vec::new();
         self.collect_subtree(id, &mut to_release);
         for node in to_release.into_iter().rev() {
-            if let Some(instances) = self.component_instance_overflow.remove(&node) {
-                for mut inst in instances {
-                    self.unregister_component_listeners(&inst);
-                    self.remove_logical_component(&inst);
-                    inst.render_cx.run_cleanups();
-                }
-            }
-            if let Some(mut inst) = self.component_instances.remove(&node) {
-                self.unregister_component_listeners(&inst);
-                self.remove_logical_component(&inst);
-                inst.render_cx.run_cleanups();
+            if let Some(node_ids) = self.components_by_control.remove(&node) {
+                node_ids.drain(|node_id| {
+                    if let Some(mut inst) = self.component_instances.remove(&node_id) {
+                        self.unregister_component_listeners(&inst);
+                        inst.render_cx.run_cleanups();
+                    }
+                });
             }
 
             if let Some(state) = self.templated_lists.remove(&node) {
@@ -935,17 +1024,17 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut affected = Vec::new();
         let mut stack = vec![root_id];
         while let Some(id) = stack.pop() {
-            if let Some(inst) = self.component_instances.get(&id)
-                && inst.read_contexts.iter().any(|c| changed.contains(c))
-            {
-                affected.push(inst.node_id);
-            }
-            if let Some(instances) = self.component_instance_overflow.get(&id) {
+            if let Some(node_ids) = self.components_by_control.get(&id) {
                 affected.extend(
-                    instances
+                    node_ids
+                        .as_slice()
                         .iter()
-                        .filter(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
-                        .map(|inst| inst.node_id),
+                        .filter(|node_id| {
+                            self.component_instances.get(node_id).is_some_and(|inst| {
+                                inst.read_contexts.iter().any(|c| changed.contains(c))
+                            })
+                        })
+                        .copied(),
                 );
             }
             if let Some(kids) = self.children_mirror.get(&id) {

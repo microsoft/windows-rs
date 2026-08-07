@@ -182,6 +182,31 @@ fn dirty_widget_tree(setter: Rc<RefCell<Option<SetState<u64>>>>) -> Element {
     memo(DirtyWidgetRoot { setter }, ())
 }
 
+struct DirtyPassThrough {
+    setter: Rc<RefCell<Option<SetState<u64>>>>,
+}
+
+impl Component<u8> for DirtyPassThrough {
+    fn render(&self, depth: &u8, cx: &mut RenderCx) -> Element {
+        if *depth == 0 {
+            let (value, setter) = cx.use_state(0_u64);
+            *self.setter.borrow_mut() = Some(setter);
+            text_block(format!("deep-dirty-{value}")).into()
+        } else {
+            component(
+                Self {
+                    setter: Rc::clone(&self.setter),
+                },
+                depth - 1,
+            )
+        }
+    }
+}
+
+fn deep_dirty_tree(setter: Rc<RefCell<Option<SetState<u64>>>>) -> Element {
+    memo(DirtyPassThrough { setter }, 3)
+}
+
 /// One reconcile A -> B per op, alternating direction so the live tree stays
 /// consistent and each op is a real diff in one direction or the other.
 fn bench_update(name: &str, n: usize, a: Element, b: Element, iters: u64, reps: u32) -> Row {
@@ -326,6 +351,13 @@ fn main() {
         iters,
         reps,
     ));
+    rows.push(bench_mount_unmount(
+        "deep_pass_mount",
+        4,
+        deep_dirty_tree(Rc::new(RefCell::new(None))),
+        iters,
+        reps,
+    ));
     {
         let setter = Rc::new(RefCell::new(None));
         rows.push(bench_dirty_component(
@@ -337,6 +369,17 @@ fn main() {
                 },
                 (),
             ),
+            setter,
+            iters,
+            reps,
+        ));
+    }
+    {
+        let setter = Rc::new(RefCell::new(None));
+        rows.push(bench_dirty_component(
+            "dirty_deep_pass",
+            4,
+            deep_dirty_tree(Rc::clone(&setter)),
             setter,
             iters,
             reps,

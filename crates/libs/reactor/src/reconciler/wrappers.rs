@@ -28,6 +28,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             ComponentInstance {
                 node_id,
                 parent,
+                native_root: rendered_id,
                 render_cx: cx,
                 last_rendered: rendered,
                 last_obj: Rc::clone(&ce.obj),
@@ -49,13 +50,13 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
 
         let parent = self.active_logical_parent.get();
-        let Some(node_id) = self.component_instances.get(&id).map(|inst| inst.node_id) else {
+        let Some(node_id) = self.current_component_node(id) else {
             return self.mount_component(new);
         };
         let forced_by_context = self.forced_components.contains(&id);
         let state_dirty = self
             .component_instances
-            .get(&id)
+            .get(&node_id)
             .is_some_and(|inst| inst.render_cx.take_state_dirty());
         let needs_update = if forced_by_context || state_dirty {
             true
@@ -66,16 +67,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         };
 
         if !needs_update {
-            if let Some(inst) = self.component_instances.get_mut(&id) {
+            if let Some(inst) = self.component_instances.get_mut(&node_id) {
                 inst.last_obj = Rc::clone(&new.obj);
                 inst.parent = parent;
-                self.logical_components.insert(
-                    inst.node_id,
-                    LogicalComponent {
-                        parent,
-                        native_root: id,
-                    },
-                );
+                inst.native_root = id;
             }
             return Some(id);
         }
@@ -107,7 +102,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.register_component_instance(nid, inst);
             Some(nid)
         } else {
-            self.remove_logical_component(&inst);
+            self.remove_empty_component_projection(inst.native_root);
             inst.render_cx.run_cleanups();
             None
         }

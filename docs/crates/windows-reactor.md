@@ -523,7 +523,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Architecture contract and topology matrix | In progress |
 | Dirty descendant behind memoized widget root | Regression, fix, benchmark, and sample added |
 | Context subscriber behind memoized widget root | Regression and fix added |
-| Logical component IDs and parent paths | Started; native-root lookup and overflow remain |
+| Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
 | Typed element API and fragments | Not started |
 | Full mounted ownership evaluation | Not started |
@@ -571,7 +571,7 @@ stable widget root.
 
 After the logical path is authoritative:
 
-- remove `component_instance_overflow`;
+- `component_instance_overflow` is removed;
 - remove component lookup and identity transfer by `ControlId`;
 - remove global force-dirty behavior;
 - make one update decision responsible for dirty-descendant traversal.

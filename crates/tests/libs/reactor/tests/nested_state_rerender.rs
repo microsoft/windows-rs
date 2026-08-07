@@ -339,3 +339,96 @@ fn dirty_descendant_rerenders_through_memoized_widget_root() {
         0
     );
 }
+
+struct DeepPassThrough {
+    cleanups: Rc<RefCell<Vec<u8>>>,
+    setter_out: Rc<RefCell<Option<SetState<u64>>>>,
+    leaf_renders: Rc<Cell<u32>>,
+}
+
+impl Component<u8> for DeepPassThrough {
+    fn render(&self, depth: &u8, cx: &mut RenderCx) -> Element {
+        let cleanup_depth = *depth;
+        let cleanups = Rc::clone(&self.cleanups);
+        cx.use_effect_with_cleanup((), move || {
+            Some(move || cleanups.borrow_mut().push(cleanup_depth))
+        });
+
+        if *depth == 0 {
+            let (value, setter) = cx.use_state(0_u64);
+            *self.setter_out.borrow_mut() = Some(setter);
+            self.leaf_renders.set(self.leaf_renders.get() + 1);
+            text_block(format!("deep-pass-through-{value}")).into()
+        } else {
+            component(
+                Self {
+                    cleanups: Rc::clone(&self.cleanups),
+                    setter_out: Rc::clone(&self.setter_out),
+                    leaf_renders: Rc::clone(&self.leaf_renders),
+                },
+                depth - 1,
+            )
+        }
+    }
+}
+
+struct DeepPassThroughRoot {
+    cleanups: Rc<RefCell<Vec<u8>>>,
+    setter_out: Rc<RefCell<Option<SetState<u64>>>>,
+    leaf_renders: Rc<Cell<u32>>,
+}
+
+impl Component for DeepPassThroughRoot {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        memo(
+            DeepPassThrough {
+                cleanups: Rc::clone(&self.cleanups),
+                setter_out: Rc::clone(&self.setter_out),
+                leaf_renders: Rc::clone(&self.leaf_renders),
+            },
+            3,
+        )
+    }
+}
+
+#[test]
+fn deep_pass_through_components_keep_identity_and_cleanup_order() {
+    let dispatcher = TestDispatcher::default();
+    let cleanups = Rc::new(RefCell::new(Vec::new()));
+    let setter_out = Rc::new(RefCell::new(None));
+    let leaf_renders = Rc::new(Cell::new(0));
+    let host = RenderHost::new(
+        RecordingBackend::new(),
+        Box::new(DeepPassThroughRoot {
+            cleanups: Rc::clone(&cleanups),
+            setter_out: Rc::clone(&setter_out),
+            leaf_renders: Rc::clone(&leaf_renders),
+        }),
+        dispatcher.clone(),
+    );
+    host.kick();
+    dispatcher.drain();
+
+    assert_eq!(leaf_renders.get(), 1);
+    assert_eq!(
+        host.with_reconciler(|r| r.debug_logical_component_count()),
+        4
+    );
+
+    setter_out.borrow().as_ref().unwrap().call(1);
+    dispatcher.drain();
+
+    assert_eq!(leaf_renders.get(), 2);
+    assert_eq!(
+        host.with_reconciler(|r| last_text(&r.backend.ops)),
+        Some("deep-pass-through-1".to_string())
+    );
+
+    let root_id = host.root_id().unwrap();
+    host.with_reconciler_mut(|r| r.unmount(root_id));
+    assert_eq!(&*cleanups.borrow(), &[0, 1, 2, 3]);
+    assert_eq!(
+        host.with_reconciler(|r| r.debug_logical_component_count()),
+        0
+    );
+}
