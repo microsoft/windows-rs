@@ -6,6 +6,8 @@ use rustc_hash::{FxHashMap, FxHashSet};
 
 impl<B: Backend + 'static> Reconciler<B> {
     pub fn mount_component(&mut self, ce: &ComponentElement) -> Option<ControlId> {
+        let node_id = self.allocate_logical_node_id();
+        let parent = self.active_logical_parent.get();
         let mut cx = RenderCx::new(Rc::clone(&self.request_rerender));
         cx.set_context_stack(self.context_stack_handle());
         cx.set_marshaller(self.marshaller.clone());
@@ -17,10 +19,15 @@ impl<B: Backend + 'static> Reconciler<B> {
         cx.flush_effects();
         let read_contexts = cx.take_read_contexts();
 
-        let rendered_id = self.mount(&rendered)?;
+        let rendered_id = {
+            let _parent = self.enter_logical_parent(node_id);
+            self.mount(&rendered)
+        }?;
         self.register_component_instance(
             rendered_id,
             ComponentInstance {
+                node_id,
+                parent,
                 render_cx: cx,
                 last_rendered: rendered,
                 last_obj: Rc::clone(&ce.obj),
@@ -41,6 +48,10 @@ impl<B: Backend + 'static> Reconciler<B> {
             return self.mount_component(new);
         }
 
+        let parent = self.active_logical_parent.get();
+        let Some(node_id) = self.component_instances.get(&id).map(|inst| inst.node_id) else {
+            return self.mount_component(new);
+        };
         let forced_by_context = self.forced_components.contains(&id);
         let state_dirty = self
             .component_instances
@@ -57,6 +68,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         if !needs_update {
             if let Some(inst) = self.component_instances.get_mut(&id) {
                 inst.last_obj = Rc::clone(&new.obj);
+                inst.parent = parent;
+                self.logical_components.insert(
+                    inst.node_id,
+                    LogicalComponent {
+                        parent,
+                        native_root: id,
+                    },
+                );
             }
             return Some(id);
         }
@@ -74,8 +93,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         let rendered = new.obj.render(&mut inst.render_cx);
         inst.render_cx.flush_effects();
         inst.read_contexts = inst.render_cx.take_read_contexts();
+        inst.parent = parent;
 
-        let new_id = self.update(&inst.last_rendered, &rendered, id);
+        let new_id = {
+            let _parent = self.enter_logical_parent(node_id);
+            self.update(&inst.last_rendered, &rendered, id)
+        };
 
         inst.last_rendered = rendered;
         inst.last_obj = Rc::clone(&new.obj);
@@ -84,6 +107,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.register_component_instance(nid, inst);
             Some(nid)
         } else {
+            self.remove_logical_component(&inst);
             inst.render_cx.run_cleanups();
             None
         }

@@ -15,6 +15,25 @@ pub use self::child::compute_lis;
 pub use self::templated::TemplatedListState;
 pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_queue};
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+struct LogicalNodeId(u64);
+
+struct LogicalComponent {
+    parent: Option<LogicalNodeId>,
+    native_root: ControlId,
+}
+
+struct LogicalParentGuard {
+    active: Rc<Cell<Option<LogicalNodeId>>>,
+    previous: Option<LogicalNodeId>,
+}
+
+impl Drop for LogicalParentGuard {
+    fn drop(&mut self) {
+        self.active.set(self.previous);
+    }
+}
+
 /// Diff/apply engine that drives a [`Backend`] from successive [`Element`] trees.
 pub struct Reconciler<B: Backend> {
     pub backend: B,
@@ -27,6 +46,9 @@ pub struct Reconciler<B: Backend> {
     pub component_instances: FxHashMap<ControlId, ComponentInstance>,
     // Additional logical components sharing a native root, innermost first.
     component_instance_overflow: FxHashMap<ControlId, Vec<ComponentInstance>>,
+    logical_components: FxHashMap<LogicalNodeId, LogicalComponent>,
+    active_logical_parent: Rc<Cell<Option<LogicalNodeId>>>,
+    next_logical_node_id: u64,
     pub appeared_listener_count: usize,
     pub disappeared_listener_count: usize,
     pub force_component_rerender: bool,
@@ -51,6 +73,8 @@ pub struct Reconciler<B: Backend> {
 }
 
 pub struct ComponentInstance {
+    node_id: LogicalNodeId,
+    parent: Option<LogicalNodeId>,
     pub render_cx: RenderCx,
     pub last_rendered: Element,
     pub last_obj: Rc<dyn ComponentObject>,
@@ -69,6 +93,9 @@ impl<B: Backend + 'static> Reconciler<B> {
             context_stack: Rc::new(ContextStack::new()),
             component_instances: FxHashMap::default(),
             component_instance_overflow: FxHashMap::default(),
+            logical_components: FxHashMap::default(),
+            active_logical_parent: Rc::new(Cell::new(None)),
+            next_logical_node_id: 0,
             appeared_listener_count: 0,
             disappeared_listener_count: 0,
             force_component_rerender: false,
@@ -139,16 +166,71 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.forced_components.len()
     }
 
+    #[cfg(feature = "test")]
+    pub fn debug_logical_component_count(&self) -> usize {
+        self.logical_components.len()
+    }
+
+    fn allocate_logical_node_id(&mut self) -> LogicalNodeId {
+        let id = LogicalNodeId(self.next_logical_node_id);
+        self.next_logical_node_id = self
+            .next_logical_node_id
+            .checked_add(1)
+            .expect("logical component id overflow");
+        id
+    }
+
+    fn enter_logical_parent(&self, node_id: LogicalNodeId) -> LogicalParentGuard {
+        let active = Rc::clone(&self.active_logical_parent);
+        let previous = active.replace(Some(node_id));
+        LogicalParentGuard { active, previous }
+    }
+
+    fn remove_logical_component(&mut self, inst: &ComponentInstance) {
+        self.logical_components.remove(&inst.node_id);
+    }
+
+    fn add_forced_control_path(&mut self, node_id: LogicalNodeId) {
+        let mut current = Some(node_id);
+        while let Some(id) = current {
+            let Some(node) = self.logical_components.get(&id) else {
+                break;
+            };
+            self.forced_components.insert(node.native_root);
+            current = node.parent;
+        }
+    }
+
+    fn forced_control_path(
+        &self,
+        node_ids: impl IntoIterator<Item = LogicalNodeId>,
+    ) -> rustc_hash::FxHashSet<ControlId> {
+        let mut result = rustc_hash::FxHashSet::default();
+        for node_id in node_ids {
+            let mut current = Some(node_id);
+            while let Some(id) = current {
+                let Some(node) = self.logical_components.get(&id) else {
+                    break;
+                };
+                result.insert(node.native_root);
+                current = node.parent;
+            }
+        }
+        result
+    }
+
     pub fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
         self.debug_ui_elements_created += 1;
         let id = self.backend.create(kind);
 
         if let Some(stale) = self.component_instances.remove(&id) {
             self.unregister_component_listeners(&stale);
+            self.remove_logical_component(&stale);
         }
         if let Some(stale) = self.component_instance_overflow.remove(&id) {
             for inst in &stale {
                 self.unregister_component_listeners(inst);
+                self.remove_logical_component(inst);
             }
         }
         self.templated_lists.remove(&id);
@@ -172,6 +254,13 @@ impl<B: Backend + 'static> Reconciler<B> {
         if inst.last_obj.has_on_disappeared() {
             self.disappeared_listener_count += 1;
         }
+        self.logical_components.insert(
+            inst.node_id,
+            LogicalComponent {
+                parent: inst.parent,
+                native_root: id,
+            },
+        );
         if let Some(previous) = self.component_instances.insert(id, inst) {
             self.component_instance_overflow
                 .entry(id)
@@ -258,28 +347,29 @@ impl<B: Backend + 'static> Reconciler<B> {
     /// Forces dirty components to render even when unchanged parents can be skipped.
     fn force_state_dirty_components(&mut self) -> Vec<ControlId> {
         let has_overflow = !self.component_instance_overflow.is_empty();
-        let dirty: Vec<ControlId> = self
+        let dirty: Vec<(ControlId, LogicalNodeId)> = self
             .component_instances
             .iter()
-            .filter(|(id, inst)| {
-                inst.render_cx.peek_state_dirty()
-                    || (has_overflow
-                        && self
-                            .component_instance_overflow
-                            .get(id)
-                            .is_some_and(|instances| {
-                                instances
-                                    .iter()
-                                    .any(|inst| inst.render_cx.peek_state_dirty())
-                            }))
+            .flat_map(|(id, inst)| {
+                std::iter::once(inst)
+                    .chain(
+                        has_overflow
+                            .then(|| self.component_instance_overflow.get(id))
+                            .flatten()
+                            .into_iter()
+                            .flatten(),
+                    )
+                    .filter(|inst| inst.render_cx.peek_state_dirty())
+                    .map(|inst| (*id, inst.node_id))
             })
-            .map(|(id, _)| *id)
             .collect();
         if !dirty.is_empty() {
             self.force_component_rerender = true;
-            self.forced_components.extend(dirty.iter().copied());
+            for (_, node_id) in &dirty {
+                self.add_forced_control_path(*node_id);
+            }
         }
-        dirty
+        dirty.into_iter().map(|(id, _)| id).collect()
     }
 
     pub fn mount(&mut self, el: &Element) -> Option<ControlId> {
@@ -372,11 +462,13 @@ impl<B: Backend + 'static> Reconciler<B> {
             if let Some(instances) = self.component_instance_overflow.remove(&node) {
                 for mut inst in instances {
                     self.unregister_component_listeners(&inst);
+                    self.remove_logical_component(&inst);
                     inst.render_cx.run_cleanups();
                 }
             }
             if let Some(mut inst) = self.component_instances.remove(&node) {
                 self.unregister_component_listeners(&inst);
+                self.remove_logical_component(&inst);
                 inst.render_cx.run_cleanups();
             }
 
@@ -840,24 +932,21 @@ impl<B: Backend + 'static> Reconciler<B> {
         root_id: ControlId,
         changed: &rustc_hash::FxHashSet<ContextId>,
     ) -> Vec<ControlId> {
-        let mut result = Vec::new();
+        let mut affected = Vec::new();
         let mut stack = vec![root_id];
         while let Some(id) = stack.pop() {
-            if self
-                .component_instances
-                .get(&id)
-                .is_some_and(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
-                || (!self.component_instance_overflow.is_empty()
-                    && self
-                        .component_instance_overflow
-                        .get(&id)
-                        .is_some_and(|instances| {
-                            instances
-                                .iter()
-                                .any(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
-                        }))
+            if let Some(inst) = self.component_instances.get(&id)
+                && inst.read_contexts.iter().any(|c| changed.contains(c))
             {
-                result.push(id);
+                affected.push(inst.node_id);
+            }
+            if let Some(instances) = self.component_instance_overflow.get(&id) {
+                affected.extend(
+                    instances
+                        .iter()
+                        .filter(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
+                        .map(|inst| inst.node_id),
+                );
             }
             if let Some(kids) = self.children_mirror.get(&id) {
                 for k in kids {
@@ -865,7 +954,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             }
         }
-        result
+        self.forced_control_path(affected).into_iter().collect()
     }
 
     pub fn notify_theme_changed(&mut self) {

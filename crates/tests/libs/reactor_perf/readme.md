@@ -7,6 +7,10 @@ The matching C# application is `StressPerf.ReactorOptimized` in
 <https://github.com/microsoft/microsoft-ui-reactor>. The optimized variant memoizes unchanged
 cells, matching the Rust harness's dirty-cell update path.
 
+The text report, JSON line, and CSV files include average and peak working set plus average and peak
+private bytes. Working set measures resident pages; private bytes is the better retained-memory
+signal when evaluating logical-node storage or repeated mount/unmount behavior.
+
 ## Running
 
 ```powershell

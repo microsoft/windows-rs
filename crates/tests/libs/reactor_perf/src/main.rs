@@ -10,7 +10,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::{Duration, Instant};
 
 use windows::Win32::GetCurrentProcess;
-use windows::Win32::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
+use windows::Win32::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS, PROCESS_MEMORY_COUNTERS_EX};
 use windows::core::Result;
 
 use windows_reactor::*;
@@ -333,6 +333,7 @@ struct PerfTracker {
     current_fps: f64,
     fps_samples: Vec<f64>,
     memory_samples: Vec<u64>,
+    private_memory_samples: Vec<u64>,
     update_time_samples: Vec<f64>,
     reconcile_time_samples: Vec<f64>,
     tree_build_samples: Vec<f64>,
@@ -371,6 +372,7 @@ impl PerfTracker {
             current_fps: 0.0,
             fps_samples: Vec::new(),
             memory_samples: Vec::new(),
+            private_memory_samples: Vec::new(),
             update_time_samples: Vec::new(),
             reconcile_time_samples: Vec::new(),
             tree_build_samples: Vec::new(),
@@ -398,7 +400,9 @@ impl PerfTracker {
         if elapsed >= 1.0 {
             self.current_fps = self.frame_count as f64 / elapsed;
             self.fps_samples.push(self.current_fps);
-            self.memory_samples.push(working_set_bytes());
+            let (working_set, private) = process_memory_bytes();
+            self.memory_samples.push(working_set);
+            self.private_memory_samples.push(private);
             self.frame_count = 0;
             self.last_sample_time = now;
         }
@@ -481,7 +485,7 @@ impl PerfTracker {
     }
 
     fn current_memory_mb() -> u64 {
-        working_set_bytes() / (1024 * 1024)
+        process_memory_bytes().0 / (1024 * 1024)
     }
 
     fn elapsed_seconds(&self) -> f64 {
@@ -567,6 +571,9 @@ impl PerfTracker {
         let mem_avg = self.memory_samples.iter().copied().sum::<u64>() as f64
             / self.memory_samples.len() as f64;
         let mem_max = *self.memory_samples.iter().max().unwrap_or(&0) as f64;
+        let private_avg = self.private_memory_samples.iter().copied().sum::<u64>() as f64
+            / self.private_memory_samples.len() as f64;
+        let private_max = *self.private_memory_samples.iter().max().unwrap_or(&0) as f64;
         s.push_str(&format!(
             "Avg Memory:  {:.1} MB\n",
             mem_avg / (1024.0 * 1024.0)
@@ -574,6 +581,14 @@ impl PerfTracker {
         s.push_str(&format!(
             "Peak Memory: {:.1} MB\n",
             mem_max / (1024.0 * 1024.0)
+        ));
+        s.push_str(&format!(
+            "Avg Private: {:.1} MB\n",
+            private_avg / (1024.0 * 1024.0)
+        ));
+        s.push_str(&format!(
+            "Peak Private: {:.1} MB\n",
+            private_max / (1024.0 * 1024.0)
         ));
         // Allocation accounting (steady-state render loop; baseline = first
         // render). Rust has no GC, so the GC-gen lines the C# harness prints are
@@ -615,12 +630,24 @@ impl PerfTracker {
                 / self.memory_samples.len() as f64
                 / (1024.0 * 1024.0)
         };
+        let peak_mem = *self.memory_samples.iter().max().unwrap_or(&0) as f64 / (1024.0 * 1024.0);
+        let avg_private = if self.private_memory_samples.is_empty() {
+            0.0
+        } else {
+            self.private_memory_samples.iter().copied().sum::<u64>() as f64
+                / self.private_memory_samples.len() as f64
+                / (1024.0 * 1024.0)
+        };
+        let peak_private =
+            *self.private_memory_samples.iter().max().unwrap_or(&0) as f64 / (1024.0 * 1024.0);
         let avg_fps = avg(&self.fps_samples);
         format!(
             "{{\"app\":\"{app_name}\",\"percent\":{percent},\"durationSeconds\":{elapsed:.4},\
              \"rendersPerSec\":{renders_per_sec:.4},\"totalRenders\":{},\
              \"avgReconcileMs\":{avg_reconcile:.4},\"avgDiffMs\":{avg_diff:.4},\
-             \"avgMemoryMB\":{avg_mem:.4},\"allocBytesPerRender\":{:.4},\
+             \"avgMemoryMB\":{avg_mem:.4},\"peakMemoryMB\":{peak_mem:.4},\
+             \"avgPrivateMemoryMB\":{avg_private:.4},\
+             \"peakPrivateMemoryMB\":{peak_private:.4},\"allocBytesPerRender\":{:.4},\
              \"gen0\":0,\"gen1\":0,\"gen2\":0,\"gen0PerKRenders\":0,\
              \"avgFps\":{avg_fps:.4},\"sampleCount\":{}}}",
             self.render_count,
@@ -651,11 +678,21 @@ impl PerfTracker {
             eprintln!("WARNING: failed to write {}: {e}", report_path.display());
         }
 
-        let mut csv = String::from("Second,FPS,Memory_MB\n");
-        let n = self.fps_samples.len().min(self.memory_samples.len());
+        let mut csv = String::from("Second,FPS,Memory_MB,Private_Memory_MB\n");
+        let n = self
+            .fps_samples
+            .len()
+            .min(self.memory_samples.len())
+            .min(self.private_memory_samples.len());
         for i in 0..n {
             let mb = self.memory_samples[i] as f64 / (1024.0 * 1024.0);
-            csv.push_str(&format!("{},{:.2},{:.1}\n", i + 1, self.fps_samples[i], mb));
+            let private_mb = self.private_memory_samples[i] as f64 / (1024.0 * 1024.0);
+            csv.push_str(&format!(
+                "{},{:.2},{:.1},{private_mb:.1}\n",
+                i + 1,
+                self.fps_samples[i],
+                mb
+            ));
         }
         let csv_path = dir.join(format!("{app_name}.samples.csv"));
         if let Err(e) = fs::write(&csv_path, csv) {
@@ -685,12 +722,22 @@ impl PerfTracker {
                 / (1024.0 * 1024.0)
         };
         let mem_peak = *self.memory_samples.iter().max().unwrap_or(&0) as f64 / (1024.0 * 1024.0);
+        let private_avg = if self.private_memory_samples.is_empty() {
+            0.0
+        } else {
+            self.private_memory_samples.iter().copied().sum::<u64>() as f64
+                / self.private_memory_samples.len() as f64
+                / (1024.0 * 1024.0)
+        };
+        let private_peak =
+            *self.private_memory_samples.iter().max().unwrap_or(&0) as f64 / (1024.0 * 1024.0);
         let summary = format!(
             "App,Percent,Duration_s,Avg_FPS,Min_FPS,Max_FPS,Avg_Update_ms,Max_Update_ms,\
              Avg_Reconcile_ms,Renders,Renders_per_s,Avg_Elements_Diffed,Avg_Elements_Skipped,\
-             Avg_Elements_Created,Avg_Memory_MB,Peak_Memory_MB\n\
+             Avg_Elements_Created,Avg_Memory_MB,Peak_Memory_MB,Avg_Private_Memory_MB,\
+             Peak_Private_Memory_MB\n\
              {app_name},{percent:.0},{elapsed:.1},{:.1},{:.1},{:.1},{:.1},{:.1},{:.1},{},{renders_per_sec:.1},\
-             {:.0},{:.0},{:.0},{mem_avg:.1},{mem_peak:.1}\n",
+             {:.0},{:.0},{:.0},{mem_avg:.1},{mem_peak:.1},{private_avg:.1},{private_peak:.1}\n",
             avg(&self.fps_samples),
             self.fps_samples
                 .iter()
@@ -734,14 +781,15 @@ impl PerfTracker {
     }
 }
 
-fn working_set_bytes() -> u64 {
+fn process_memory_bytes() -> (u64, u64) {
     unsafe {
-        let mut counters = PROCESS_MEMORY_COUNTERS::default();
-        let size = size_of::<PROCESS_MEMORY_COUNTERS>() as u32;
-        if GetProcessMemoryInfo(GetCurrentProcess(), &mut counters, size).as_bool() {
-            counters.WorkingSetSize as u64
+        let mut counters = PROCESS_MEMORY_COUNTERS_EX::default();
+        let size = size_of::<PROCESS_MEMORY_COUNTERS_EX>() as u32;
+        let base = std::ptr::from_mut(&mut counters).cast::<PROCESS_MEMORY_COUNTERS>();
+        if GetProcessMemoryInfo(GetCurrentProcess(), base, size).as_bool() {
+            (counters.WorkingSetSize as u64, counters.PrivateUsage as u64)
         } else {
-            0
+            (0, 0)
         }
     }
 }

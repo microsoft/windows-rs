@@ -505,3 +505,253 @@ resources such as `ButtonBackground` expect brushes. Use strings only for resour
 expect strings. `ThemeRef` is not accepted here: looking up a theme key and storing its current
 value would lose WinUI's element-aware `{ThemeResource}` resolution. Theme-aware control
 properties continue to use the existing theme-binding APIs.
+
+## Architecture stabilization plan
+
+Reactor's component identity, dirty propagation, element cardinality, and modifier typing need a
+coordinated correction. Recent fixes exposed the same underlying problem in different forms:
+logical components borrow native `ControlId` identity even though pass-through components may
+share a native root, while unchanged wrappers may hide a dirty logical descendant.
+
+This section tracks the planned work. It is an implementation contract, not a commitment to one
+large reconciler rewrite. Each phase must remain independently reviewable and measurable.
+
+### Progress
+
+| Work | Status |
+| --- | --- |
+| Architecture contract and topology matrix | In progress |
+| Dirty descendant behind memoized widget root | Regression, fix, benchmark, and sample added |
+| Context subscriber behind memoized widget root | Regression and fix added |
+| Logical component IDs and parent paths | Started; native-root lookup and overflow remain |
+| Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
+| Typed element API and fragments | Not started |
+| Full mounted ownership evaluation | Not started |
+
+### Invariants
+
+| Area | Required invariant |
+| --- | --- |
+| Logical identity | Every mounted component, provider, and error boundary has a unique stable ID. |
+| Native identity | A `ControlId` identifies one native object and is not logical identity. |
+| Parentage | Every logical node has one logical parent, except the root. |
+| Dirty state | A state write marks its owner and the logical ancestor path. |
+| Skipping | A node is skipped only when it and all logical descendants are clean. |
+| Ownership | Hooks, effects, contexts, rendered output, and cleanup belong to their logical node. |
+| Replacement | Replacement unmounts the complete old logical subtree before identity reuse. |
+| Cleanup | Every mounted node is cleaned exactly once, with children cleaned before parents. |
+| Keys | Keys identify siblings in one child collection and must affect reconciliation. |
+| Projection | Transparent wrappers add no hidden native control. |
+| Fragments | Multi-child values are accepted only by APIs that support multiple children. |
+| Virtualization | Only realized rows own mounted logical nodes and lifecycle state. |
+
+Debug and test builds should check these invariants after reconciliation. They must not remain
+assumptions repeated across root, positional, keyed, and templated update paths.
+
+### Phase 1: logical wrapper identity
+
+Introduce a generational logical ID for components, memoized components, providers, and error
+boundaries. Allocate the ID before first render so hook setters can retain the exact owner.
+
+The initial logical record should contain only the data needed to remove component identity from
+`ControlId`:
+
+```rust,ignore
+struct LogicalNode {
+    parent: Option<NodeId>,
+    native_root: Option<ControlId>,
+    kind: LogicalNodeKind,
+}
+```
+
+Component state continues to hold its `RenderCx`, previous object, previous rendered output, and
+context subscriptions, but it is indexed by `NodeId`. The parent relationship crosses intervening
+native widgets, so a stateful child remains reachable through a memoized component that renders a
+stable widget root.
+
+After the logical path is authoritative:
+
+- remove `component_instance_overflow`;
+- remove component lookup and identity transfer by `ControlId`;
+- remove global force-dirty behavior;
+- make one update decision responsible for dirty-descendant traversal.
+
+A full arena containing every native widget is not part of this phase. Native controls already have
+usable identity, and replacing the entire reconciler at once would create unnecessary migration and
+performance risk.
+
+### Phase 2: ownership consolidation
+
+Evaluate the logical graph before expanding it. Move more state into mounted-node ownership only
+where the smaller graph cannot provide reliable replacement and teardown.
+
+Candidate ownership currently spread across maps includes:
+
+- header and pane subtrees;
+- templated rows;
+- custom element handles;
+- selection and reorder callbacks;
+- pre-unmount callbacks;
+- error fallback state.
+
+If these move into a full mounted graph, migrate one category at a time. Positional, keyed, and
+templated algorithms should decide correspondence and order, but share the same identity, dirty,
+lifecycle, and cleanup rules.
+
+Transparent wrappers may project through arbitrary transparent descendants. Native insertion
+algorithms should carry a running projected index rather than repeatedly scanning preceding
+logical nodes.
+
+### Typed element API
+
+The erased `ElementExt` surface allows modifier calls that compile but cannot affect a native
+element. Constructors should retain a concrete wrapper until insertion:
+
+```rust,ignore
+component(app, ()) -> ComponentElement<App>
+button("Save") -> WidgetElement<Button>
+```
+
+Concrete wrappers implement `Into<Element>`. Child builders accept `impl Into<Element>`. Erased
+`Element` and logical wrappers do not implement visual modifier traits, so invalid calls fail to
+compile:
+
+```rust,compile_fail
+# use windows_reactor::*;
+# fn app(_props: &(), _cx: &mut RenderCx) -> Element { Element::Empty }
+component(app, ()).width(100.0);
+```
+
+Styling a component boundary requires an explicit native wrapper:
+
+```rust,ignore
+border(component(app, ())).width(100.0)
+```
+
+Use sealed capability traits for supported property families, including framework-element layout,
+UI-element input, control properties, text styling, panels, shapes, and attached layout
+properties. Generate implementations from explicit capability classifications in the curated
+Reactor configuration plus WinUI inheritance. Raw metadata alone does not encode every useful or
+meaningful property relationship, so generation must support reviewed semantic overrides and emit
+a coverage report.
+
+Attached properties can reject invalid element targets, but cannot always prove that the element
+will later be inserted under the matching parent. Do not claim a stronger compile-time guarantee
+than the builder types can provide.
+
+### Element cardinality
+
+Remove `Group` from mountable `Element`. Use a distinct child collection or fragment type accepted
+only by multi-child builders. Components, providers, error boundaries, and single-child controls
+continue to accept or return zero or one mountable element.
+
+This makes the current runtime-invalid cases unrepresentable:
+
+- a group as the application root;
+- a group returned from a component;
+- a group inserted into a single-child control;
+- a keyed group whose key is discarded when flattened.
+
+### Reconciliation proof
+
+One authoritative node-update path must own:
+
+1. kind and key compatibility;
+2. replacement;
+3. state and context dirtiness;
+4. memo eligibility;
+5. lifecycle dispatch;
+6. cleanup responsibility.
+
+The topology test matrix must combine:
+
+| Dimension | Cases |
+| --- | --- |
+| Root | Widget, pass-through component, empty, changed widget kind |
+| Wrappers | Component, memo, provider, error boundary |
+| Dirtiness | Parent only, child only, both, context-driven |
+| Children | Positional, keyed movement, insertion, removal |
+| Lifecycle | Mount, rerender, replacement, unmount, error recovery |
+| Effects | Dependency change, cleanup order, unmount cleanup |
+| Virtualization | Realize, recycle, key change, disappear, reappear |
+| Secondary slots | Header, pane, and custom child ownership |
+
+Debug and test checks should prove that every logical ID is reachable once, parent links agree,
+setters cannot target reused identities, native child order matches logical projection, and every
+effect and callback is cleaned exactly once.
+
+Compile-fail tests should cover modifiers on logical wrappers, modifiers on unsupported widget
+types, and fragments in single-child positions. Start with rustdoc `compile_fail` contracts where
+the exact diagnostic is not important. Add a dedicated compile-test dependency only if richer
+coverage justifies it.
+
+### Performance and memory gates
+
+Architecture work must preserve Reactor's advantage over Microsoft.UI.Reactor and should reduce
+Rust-side time and memory where possible.
+
+Before each behavior-changing phase:
+
+1. Run `cargo run -p test_reactor_bench --release` and save the full table.
+2. Run `test_reactor_perf` at 0%, 10%, 50%, and 100% updates with JSON output.
+3. Run the matched `StressPerf.ReactorOptimized` C# cases when the comparison environment changes.
+4. Record toolchain, Windows App SDK versions, hardware, and source revisions with the results.
+
+The headless suite must include component-heavy steady-state and update cases, pass-through
+nesting, dirty descendants behind memoized widget roots, keyed changes, mount/unmount, and
+virtualized row recycling. It reports `ns/op`, `bytes/op`, and `allocs/op`.
+
+The live suite remains responsible for native XAML creation, destruction, composition throughput,
+working set, and end-to-end rendering. Add process private bytes and peak working set to its JSON
+output so arena or ownership changes cannot hide retained-memory regressions behind zero Rust
+garbage collections.
+
+Performance requirements:
+
+- no hidden native controls for component identity;
+- no mounted-node allocation for unrealized virtualized rows;
+- dirty updates visit the logical dirty path rather than the whole native tree;
+- steady-state hooks retain their current zero-allocation behavior;
+- investigate any repeatable regression above 5%;
+- do not accept a regression above 10% without a measured and documented reason;
+- compare memory per mounted node and memory after repeated mount/unmount cycles.
+
+Use matched release builds, fixed update streams, warmup passes, and multiple repetitions.
+Wall-clock results are evidence only when the allocation counts and reconciler operation counts
+agree with the expected algorithmic change.
+
+### Samples
+
+Every user-visible fix or feature addition should include the smallest runnable sample that makes
+the behavior visually clear. Reconciler changes need a sample when a user can trigger the topology
+interactively, even when the same case has a headless regression test.
+
+Samples should:
+
+- isolate one behavior;
+- display the expected state in the window;
+- provide one direct interaction that would expose the old bug;
+- avoid unrelated styling or application structure;
+- name the invariant being demonstrated in the introductory text.
+
+Headless tests remain the correctness gate. Samples are the manual WinUI and visual validation
+surface.
+
+### Planned change sequence
+
+1. Add the architecture contract, missing topology regressions, benchmark cases, and minimal
+   samples.
+2. Introduce logical IDs and parent paths without changing the public API.
+3. route state and context dirtiness through logical identity.
+4. Remove component collision and global force-dirty mechanisms.
+5. Consolidate transparent-wrapper lifecycle and teardown ownership.
+6. Introduce concrete public wrappers and compile-time modifier capabilities.
+7. Separate multi-child collections from mountable elements.
+8. Generate and audit capability implementations.
+9. Consolidate remaining mounted ownership only where measurements and invariants require it.
+10. Resume dependent features such as typed element references, window lifecycle APIs, and encoded
+    image resources.
+
+Do not combine the internal identity migration with the public breaking API change. Each stage
+must pass formatting, clippy, headless tests, the relevant WinUI selftests, benchmark comparison,
+and its visual sample before the next stage begins.

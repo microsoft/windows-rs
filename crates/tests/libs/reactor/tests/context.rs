@@ -9,7 +9,7 @@ use windows_reactor::Element;
 use windows_reactor::Reconciler;
 use windows_reactor::RenderCx;
 use windows_reactor::component;
-use windows_reactor::{ElementExt, border, text_block};
+use windows_reactor::{ElementExt, border, grid, memo, text_block};
 
 use windows_reactor::vstack;
 static THEME: LazyLock<Context<String>> =
@@ -161,6 +161,69 @@ fn changing_provided_value_triggers_subscriber_rerender() {
     assert!(
         renders.get() >= 2,
         "observer must re-render on provision change"
+    );
+    assert_eq!(seen.take(), "v2");
+}
+
+struct MemoWidgetObserver {
+    renders: Rc<Cell<u32>>,
+    seen: Rc<Cell<String>>,
+}
+
+impl Component for MemoWidgetObserver {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        self.renders.set(self.renders.get() + 1);
+        let value = cx.use_context(&THEME);
+        self.seen.set(value.clone());
+        text_block(value).into()
+    }
+}
+
+struct MemoWidgetProviderChild {
+    renders: Rc<Cell<u32>>,
+    seen: Rc<Cell<String>>,
+}
+
+impl Component for MemoWidgetProviderChild {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        grid(vec![component(
+            MemoWidgetObserver {
+                renders: Rc::clone(&self.renders),
+                seen: Rc::clone(&self.seen),
+            },
+            (),
+        )])
+        .into()
+    }
+}
+
+#[test]
+fn context_change_rerenders_through_memoized_widget_root() {
+    let renders = Rc::new(Cell::new(0));
+    let seen = Rc::new(Cell::new(String::new()));
+    let build = |value: &'static str| {
+        memo(
+            MemoWidgetProviderChild {
+                renders: Rc::clone(&renders),
+                seen: Rc::clone(&seen),
+            },
+            (),
+        )
+        .provide(&THEME, value.to_string())
+    };
+
+    let tree_a = build("v1");
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let id = reconcile(&mut r, None, &tree_a, None).unwrap();
+    assert_eq!(renders.get(), 1);
+    assert_eq!(seen.take(), "v1");
+
+    let tree_b = build("v2");
+    let _ = reconcile(&mut r, Some(&tree_a), &tree_b, Some(id));
+    assert_eq!(
+        renders.get(),
+        2,
+        "a context subscriber must pierce a memoized component with a widget root"
     );
     assert_eq!(seen.take(), "v2");
 }

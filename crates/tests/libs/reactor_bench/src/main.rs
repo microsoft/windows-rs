@@ -24,13 +24,15 @@
 //! controls.
 
 use std::alloc::{GlobalAlloc, Layout, System};
+use std::cell::RefCell;
 use std::rc::Rc;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
 use test_reactor::RecordingBackend;
 use windows_reactor::{
-    Element, ElementExt, Reconciler, RenderCx, component, memo, text_block, vstack,
+    Component, Element, ElementExt, Reconciler, RenderCx, SetState, component, grid, memo,
+    text_block, vstack,
 };
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
@@ -148,6 +150,38 @@ fn pass_through_component(_props: &(), _cx: &mut RenderCx) -> Element {
     component(component_leaf, ())
 }
 
+struct DirtyLeaf {
+    setter: Rc<RefCell<Option<SetState<u64>>>>,
+}
+
+impl Component for DirtyLeaf {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let (value, setter) = cx.use_state(0_u64);
+        *self.setter.borrow_mut() = Some(setter);
+        text_block(format!("dirty-{value}")).into()
+    }
+}
+
+struct DirtyWidgetRoot {
+    setter: Rc<RefCell<Option<SetState<u64>>>>,
+}
+
+impl Component for DirtyWidgetRoot {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        grid(vec![component(
+            DirtyLeaf {
+                setter: Rc::clone(&self.setter),
+            },
+            (),
+        )])
+        .into()
+    }
+}
+
+fn dirty_widget_tree(setter: Rc<RefCell<Option<SetState<u64>>>>) -> Element {
+    memo(DirtyWidgetRoot { setter }, ())
+}
+
 /// One reconcile A -> B per op, alternating direction so the live tree stays
 /// consistent and each op is a real diff in one direction or the other.
 fn bench_update(name: &str, n: usize, a: Element, b: Element, iters: u64, reps: u32) -> Row {
@@ -222,6 +256,45 @@ fn bench_mount_unmount(name: &str, n: usize, tree: Element, iters: u64, reps: u3
     }
 }
 
+fn bench_dirty_component(
+    name: &str,
+    n: usize,
+    tree: Element,
+    setter: Rc<RefCell<Option<SetState<u64>>>>,
+    iters: u64,
+    reps: u32,
+) -> Row {
+    let rr = no_rerender();
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let id = r.reconcile(None, &tree, None, Rc::clone(&rr)).unwrap();
+    r.reset_stats();
+
+    setter.borrow().as_ref().unwrap().call(1);
+    r.reconcile(Some(&tree), &tree, Some(id), Rc::clone(&rr));
+    let counts = (
+        r.debug_elements_skipped,
+        r.debug_elements_diffed,
+        r.debug_ui_elements_created,
+    );
+    r.reset_stats();
+
+    let mut value = 1_u64;
+    let perf = measure(iters, reps, 2, || {
+        value ^= 1;
+        setter.borrow().as_ref().unwrap().call(value);
+        r.reconcile(Some(&tree), &tree, Some(id), Rc::clone(&rr));
+    });
+
+    Row {
+        name: name.to_string(),
+        n,
+        perf,
+        skipped: counts.0,
+        diffed: counts.1,
+        created: counts.2,
+    }
+}
+
 fn parse_arg(name: &str, default: u64) -> u64 {
     let args: Vec<String> = std::env::args().collect();
     for w in args.windows(2) {
@@ -253,6 +326,33 @@ fn main() {
         iters,
         reps,
     ));
+    {
+        let setter = Rc::new(RefCell::new(None));
+        rows.push(bench_dirty_component(
+            "dirty_component",
+            1,
+            component(
+                DirtyLeaf {
+                    setter: Rc::clone(&setter),
+                },
+                (),
+            ),
+            setter,
+            iters,
+            reps,
+        ));
+    }
+    {
+        let setter = Rc::new(RefCell::new(None));
+        rows.push(bench_dirty_component(
+            "dirty_memo_widget",
+            3,
+            dirty_widget_tree(Rc::clone(&setter)),
+            setter,
+            iters,
+            reps,
+        ));
+    }
     for &n in &[64usize, 512] {
         let tree = plain_stack(&labels(n, "cell"));
         rows.push(bench_mount_unmount(

@@ -10,7 +10,7 @@ use std::rc::Rc;
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
     Component, Dispatcher, DispatcherQueuePriority, Element, Prop, PropValue, RenderCx, RenderHost,
-    SetState, TextBlock, component, grid, memo, scroll_viewer,
+    SetState, TextBlock, component, grid, memo, scroll_viewer, text_block,
 };
 
 type Job = Box<dyn FnOnce()>;
@@ -261,4 +261,81 @@ fn pass_through_component_keeps_independent_state_and_effects() {
     host.with_reconciler_mut(|r| r.unmount(root_id));
     assert_eq!(PASS_THROUGH_CLEANUPS.get(), 1);
     assert_eq!(PASS_THROUGH_WRAPPER_CLEANUPS.get(), 1);
+}
+
+struct WidgetRootWrapper;
+
+impl Component for WidgetRootWrapper {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        grid(vec![component(WidgetRootLeaf, ())]).into()
+    }
+}
+
+struct WidgetRootLeaf;
+
+thread_local! {
+    static WIDGET_ROOT_SETTER: RefCell<Option<SetState<u64>>> = const { RefCell::new(None) };
+    static WIDGET_ROOT_RENDERS: Cell<u32> = const { Cell::new(0) };
+}
+
+impl Component for WidgetRootLeaf {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let (value, setter) = cx.use_state(0_u64);
+        WIDGET_ROOT_SETTER.set(Some(setter));
+        WIDGET_ROOT_RENDERS.set(WIDGET_ROOT_RENDERS.get() + 1);
+        text_block(format!("widget-root-{value}")).into()
+    }
+}
+
+struct WidgetRootMemo;
+
+impl Component for WidgetRootMemo {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        memo(WidgetRootWrapper, ())
+    }
+}
+
+#[test]
+fn dirty_descendant_rerenders_through_memoized_widget_root() {
+    WIDGET_ROOT_SETTER.set(None);
+    WIDGET_ROOT_RENDERS.set(0);
+
+    let dispatcher = TestDispatcher::default();
+    let host = RenderHost::new(
+        RecordingBackend::new(),
+        Box::new(WidgetRootMemo),
+        dispatcher.clone(),
+    );
+    host.kick();
+    dispatcher.drain();
+
+    assert_eq!(WIDGET_ROOT_RENDERS.get(), 1);
+    assert_eq!(
+        host.with_reconciler(|r| r.debug_logical_component_count()),
+        2
+    );
+    assert_eq!(
+        host.with_reconciler(|r| last_text(&r.backend.ops)),
+        Some("widget-root-0".to_string())
+    );
+
+    WIDGET_ROOT_SETTER.with_borrow(|setter| setter.as_ref().unwrap().call(1));
+    dispatcher.drain();
+
+    assert_eq!(
+        WIDGET_ROOT_RENDERS.get(),
+        2,
+        "a dirty descendant must pierce a memoized component with its own widget root"
+    );
+    assert_eq!(
+        host.with_reconciler(|r| last_text(&r.backend.ops)),
+        Some("widget-root-1".to_string())
+    );
+
+    let root_id = host.root_id().unwrap();
+    host.with_reconciler_mut(|r| r.unmount(root_id));
+    assert_eq!(
+        host.with_reconciler(|r| r.debug_logical_component_count()),
+        0
+    );
 }
