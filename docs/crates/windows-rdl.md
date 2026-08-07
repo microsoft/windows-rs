@@ -458,6 +458,11 @@ attributes on synthetic typedef, enum, or attribute-property fields. Callback an
 `Invoke` attributes use the explicit `#[invoke(Attribute(...))]` wrapper and round-trip without
 moving the attribute to the generated type.
 
+Metadata-to-metadata merge and remap copy custom-attribute value blobs without decoding them.
+Named arguments therefore retain their field/property tag and exact serialized form. RDL still
+decodes attributes when producing source because its syntax needs semantic values rather than raw
+blobs.
+
 Initial validation work:
 
 1. Done: define initial syntax-level symbol keys and legal duplicate categories.

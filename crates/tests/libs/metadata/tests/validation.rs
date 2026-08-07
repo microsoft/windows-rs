@@ -344,6 +344,74 @@ fn duplicate_interface_implementations_are_rejected() {
 }
 
 #[test]
+fn invalid_attribute_constructors_are_rejected() {
+    let mut file = writer::File::new("test");
+    file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public,
+    );
+    let field = file.Field("Value", &Type::I32, FieldAttributes::Public);
+    let expected_parent = field.row_id(0);
+    let attribute = writer::MemberRefParent::TypeRef(file.TypeRef("Test", "MarkerAttribute"));
+
+    let wrong_name = file.MemberRef("Create", &Signature::default(), attribute);
+    file.Attribute(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(wrong_name),
+        &[],
+    );
+
+    let static_ctor = file.MemberRef(
+        ".ctor",
+        &Signature {
+            flags: MethodCallAttributes(0),
+            ..Default::default()
+        },
+        attribute,
+    );
+    file.Attribute(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(static_ctor),
+        &[],
+    );
+
+    let returning_ctor = file.MemberRef(
+        ".ctor",
+        &Signature {
+            return_type: Type::I32,
+            ..Default::default()
+        },
+        attribute,
+    );
+    file.Attribute(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(returning_ctor),
+        &[],
+    );
+
+    let errors = validator::validate(&index(file));
+    assert_eq!(errors.len(), 3);
+    assert_eq!(
+        errors[0].message(),
+        "attribute `Test.MarkerAttribute` constructor is named `Create` instead of `.ctor`"
+    );
+    assert_eq!(
+        errors[1].message(),
+        "attribute `Test.MarkerAttribute` constructor must be an instance method"
+    );
+    assert_eq!(
+        errors[2].message(),
+        "attribute `Test.MarkerAttribute` constructor must return void"
+    );
+    assert!(errors.iter().all(|error| {
+        error.category() == validator::ValidationCategory::Invalid
+            && error.related() == Some(expected_parent)
+    }));
+}
+
+#[test]
 fn attribute_multiplicity_is_validated() {
     let mut reference = writer::File::new("reference");
     let system_attribute = reference.TypeRef("System", "Attribute");

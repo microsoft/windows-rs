@@ -881,7 +881,7 @@ fn callback_params(
     String,
     u16,
     ParamAttributes,
-    Vec<(String, String, Vec<(String, Value)>)>,
+    Vec<(String, String, String, Signature, Vec<u8>)>,
 )> {
     method
         .params()
@@ -898,17 +898,20 @@ fn callback_params(
 
 fn callback_attributes<'a, R: HasAttributes<'a>>(
     row: R,
-) -> Vec<(String, String, Vec<(String, Value)>)> {
+) -> Vec<(String, String, String, Signature, Vec<u8>)> {
     row.attributes()
         .filter_map(|attribute| {
-            let ty = attribute.ctor().parent();
+            let ctor = attribute.ctor();
+            let ty = ctor.parent();
             (!(ty.namespace() == "Windows.Win32.Metadata"
                 && ty.name() == "SupportedArchitectureAttribute"))
                 .then(|| {
                     (
                         ty.namespace().to_string(),
                         ty.name().to_string(),
-                        attribute.value(),
+                        ctor.name().to_string(),
+                        ctor.signature(&[]),
+                        attribute.value_blob().to_vec(),
                     )
                 })
         })
@@ -1110,12 +1113,12 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
         let attribute_ref =
             writer::MemberRefParent::TypeRef(file.TypeRef(ty.namespace(), ty.name()));
 
-        let ctor_ref = file.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
+        let ctor_ref = file.MemberRef(ctor.name(), &ctor.signature(&[]), attribute_ref);
 
-        file.Attribute(
+        file.AttributeBlob(
             parent,
             writer::AttributeType::MemberRef(ctor_ref),
-            &attribute.value(),
+            attribute.value_blob(),
         );
     }
 

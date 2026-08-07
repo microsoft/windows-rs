@@ -25,6 +25,11 @@ impl<'a> Attribute<'a> {
         self.decode(1)
     }
 
+    /// Returns the encoded custom-attribute value blob.
+    pub fn value_blob(&self) -> &'a [u8] {
+        self.file().blob(self.pos(), Self::TABLE, 2)
+    }
+
     pub fn value(&self) -> Vec<(String, Value)> {
         let signature = self.ctor().signature(&[]);
         debug_assert_eq!(signature.flags, MethodCallAttributes::HASTHIS);

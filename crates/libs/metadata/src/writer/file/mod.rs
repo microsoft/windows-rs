@@ -398,6 +398,20 @@ impl File {
             });
     }
 
+    /// Adds an `Attribute` row using an already encoded custom-attribute value blob.
+    pub fn AttributeBlob(&mut self, parent: HasAttribute, ty: AttributeType, value: &[u8]) {
+        let value = self.blobs.insert(value);
+
+        self.Attribute
+            .entry(parent)
+            .or_default()
+            .push(rec::Attribute {
+                Parent: parent,
+                Type: ty,
+                Value: value,
+            });
+    }
+
     pub fn Constant(&mut self, parent: HasConstant, value: &Value) {
         let ty = value.ty().code();
         let value = self.ConstantValue(value);

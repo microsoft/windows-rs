@@ -1,5 +1,13 @@
 use windows_metadata::*;
 
+const MARKER_VALUE: &[u8] = &[
+    0x01, 0x00, // prolog
+    0x01, 0x00, // one named argument
+    0x54, // property
+    0x08, // i32
+    0x05, b'V', b'a', b'l', b'u', b'e', 42, 0, 0, 0,
+];
+
 fn input(path: &std::path::Path) {
     let mut file = writer::File::new("semantic");
     file.TypeDef(
@@ -100,10 +108,10 @@ fn input(path: &std::path::Path) {
         },
         parent,
     );
-    file.Attribute(
+    file.AttributeBlob(
         writer::HasAttribute::Property(property),
         writer::AttributeType::MemberRef(ctor),
-        &[],
+        MARKER_VALUE,
     );
     file.Attribute(
         writer::HasAttribute::Event(event),
@@ -126,7 +134,8 @@ fn verify(path: &std::path::Path, namespace: &str) {
     assert_eq!(property.signature(&[]).return_type, Type::I32);
     assert_eq!(property.signature(&[]).types, [Type::U32]);
     assert_eq!(property.constant().unwrap().value(), Value::I32(42));
-    assert!(property.has_attribute("MarkerAttribute"));
+    let attribute = property.find_attribute("MarkerAttribute").unwrap();
+    assert_eq!(attribute.value_blob(), MARKER_VALUE);
     let mut property_semantics: Vec<_> = property
         .semantics()
         .map(|row| (row.semantics(), row.method().name()))

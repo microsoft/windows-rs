@@ -106,6 +106,8 @@ fn validate_attributes(
     let mut applied = HashSet::new();
 
     for attribute in index.attributes() {
+        validate_attribute_constructor(attribute, errors);
+
         let Some(definition) = attribute_definition(index, references, attribute) else {
             continue;
         };
@@ -133,6 +135,58 @@ fn validate_attributes(
                 related: Some(parent),
             });
         }
+    }
+}
+
+fn validate_attribute_constructor(
+    attribute: reader::Attribute<'_>,
+    errors: &mut Vec<ValidationError>,
+) {
+    let ctor = attribute.ctor();
+    let signature = ctor.signature(&[]);
+    let parent = attribute_parent(attribute.parent());
+
+    if ctor.name() != ".ctor" {
+        errors.push(ValidationError {
+            category: ValidationCategory::Invalid,
+            message: format!(
+                "attribute `{}.{}` constructor is named `{}` instead of `.ctor`",
+                attribute.namespace(),
+                attribute.name(),
+                ctor.name()
+            ),
+            row: attribute.row_id(),
+            related: parent,
+        });
+    }
+
+    if !signature
+        .flags
+        .contains(crate::MethodCallAttributes::HASTHIS)
+    {
+        errors.push(ValidationError {
+            category: ValidationCategory::Invalid,
+            message: format!(
+                "attribute `{}.{}` constructor must be an instance method",
+                attribute.namespace(),
+                attribute.name()
+            ),
+            row: attribute.row_id(),
+            related: parent,
+        });
+    }
+
+    if signature.return_type != crate::Type::Void {
+        errors.push(ValidationError {
+            category: ValidationCategory::Invalid,
+            message: format!(
+                "attribute `{}.{}` constructor must return void",
+                attribute.namespace(),
+                attribute.name()
+            ),
+            row: attribute.row_id(),
+            related: parent,
+        });
     }
 }
 

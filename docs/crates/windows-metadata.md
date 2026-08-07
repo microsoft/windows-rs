@@ -97,6 +97,7 @@ rules reject overlapping duplicate type, field, method, property, and event iden
 `Param.Sequence` associations, invalid method semantics, duplicate singleton accessors, malformed
 property/event ownership, invalid or duplicate layout rows, and duplicate custom attributes whose
 local definitions explicitly declare `AttributeUsageAttribute` without `AllowMultipleAttribute`.
+Custom-attribute constructors must be instance methods named `.ctor` that return `void`.
 Definitions without an explicit usage contract and referenced definitions outside the validated
 index have unknown multiplicity. `validate_with_references` accepts a separate reference index for
 definition lookup without treating referenced types as authored output or reporting false
@@ -122,6 +123,10 @@ validator rather than maintaining separate interpretations of ECMA-335.
 `writer::File::into_stream_and_reference` returns finalized bytes together with the reference index
 used during encoding. Metadata producers such as RDL can therefore validate the output with its
 reference context without copying or merging the reference files.
+
+`Attribute::value_blob` and `writer::File::AttributeBlob` provide a raw copy path for
+metadata-to-metadata transformations. Merge and namespace remapping use this path so named
+custom-attribute arguments retain their field/property tag and exact serialized form.
 
 ### Property and event association
 
