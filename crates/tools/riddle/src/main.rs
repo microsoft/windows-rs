@@ -2,16 +2,18 @@ use std::collections::HashMap;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::process::ExitCode;
+use windows_metadata as metadata;
 use windows_rdl::{
     Diagnostic, DiagnosticReport, Error, Label, LabelStyle, Reader, Severity, formatter,
 };
 
 const HELP: &str = "\
-Riddle checks and compiles RDL API descriptions.
+Riddle checks and compiles RDL and validates Windows metadata.
 
 Usage:
   riddle check [options] <input>...
   riddle build [options] <input>... --out <path>
+  riddle validate [options] <input>...
   riddle fmt [--check] <input>...
 
 Options:
@@ -22,13 +24,14 @@ Options:
   -h, --help              Print help
   -V, --version           Print version
 
-Use - as an input to read RDL from standard input.
+Use - with check, build, or fmt to read RDL from standard input.
 ";
 
 #[derive(Clone, Copy)]
 enum Command {
     Check,
     Build,
+    Validate,
     Fmt,
 }
 
@@ -68,8 +71,8 @@ fn main() -> ExitCode {
                 options.stdin = Some(source);
             }
 
-            if matches!(options.command, Command::Fmt) {
-                match format_inputs(&options) {
+            match options.command {
+                Command::Fmt => match format_inputs(&options) {
                     Ok(changed) if options.format_check && changed => ExitCode::from(1),
                     Ok(_) => ExitCode::SUCCESS,
                     Err(error) => {
@@ -79,33 +82,48 @@ fn main() -> ExitCode {
                         );
                         ExitCode::from(1)
                     }
-                }
-            } else {
-                let mut reader = Reader::new();
-                configure(&mut reader, &options);
-                match options.command {
-                    Command::Check => {
-                        let report = reader.check_all();
-                        if report.is_success() {
-                            ExitCode::SUCCESS
-                        } else {
-                            eprint!("{}", render_report(&report));
-                            ExitCode::from(1)
-                        }
+                },
+                Command::Validate => match validate_metadata(&options) {
+                    Ok((_, errors)) if errors.is_empty() => ExitCode::SUCCESS,
+                    Ok((paths, errors)) => {
+                        eprint!("{}", render_metadata_validation(&paths, &errors));
+                        ExitCode::from(1)
                     }
-                    Command::Build => {
-                        match reader.output(options.output.as_ref().unwrap()).write() {
-                            Ok(()) => ExitCode::SUCCESS,
-                            Err(error) => {
-                                eprint!(
-                                    "{}",
-                                    render(error.diagnostic(), None, options.stdin.as_deref())
-                                );
+                    Err(error) => {
+                        eprint!(
+                            "{}",
+                            render(error.diagnostic(), None, options.stdin.as_deref())
+                        );
+                        ExitCode::from(1)
+                    }
+                },
+                Command::Check | Command::Build => {
+                    let mut reader = Reader::new();
+                    configure(&mut reader, &options);
+                    match options.command {
+                        Command::Check => {
+                            let report = reader.check_all();
+                            if report.is_success() {
+                                ExitCode::SUCCESS
+                            } else {
+                                eprint!("{}", render_report(&report));
                                 ExitCode::from(1)
                             }
                         }
+                        Command::Build => {
+                            match reader.output(options.output.as_ref().unwrap()).write() {
+                                Ok(()) => ExitCode::SUCCESS,
+                                Err(error) => {
+                                    eprint!(
+                                        "{}",
+                                        render(error.diagnostic(), None, options.stdin.as_deref())
+                                    );
+                                    ExitCode::from(1)
+                                }
+                            }
+                        }
+                        Command::Validate | Command::Fmt => unreachable!(),
                     }
-                    Command::Fmt => unreachable!(),
                 }
             }
         }
@@ -131,6 +149,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
     let command = match command.as_str() {
         "check" => Command::Check,
         "build" => Command::Build,
+        "validate" => Command::Validate,
         "fmt" => Command::Fmt,
         _ => return Err(format!("unknown command `{command}`")),
     };
@@ -187,7 +206,7 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
     }
 
     match command {
-        Command::Check if output.is_some() => {
+        Command::Check | Command::Validate if output.is_some() => {
             return Err("`--out` is only valid with `riddle build`".to_string());
         }
         Command::Build => {
@@ -210,6 +229,11 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
             }
         }
         Command::Check => {}
+        Command::Validate => {
+            if inputs.iter().any(|input| input == Path::new("-")) {
+                return Err("standard input is not supported by `riddle validate`".to_string());
+            }
+        }
     }
     if format_check && !matches!(command, Command::Fmt) {
         return Err("`--check` is only valid with `riddle fmt`".to_string());
@@ -226,6 +250,44 @@ fn parse(args: impl Iterator<Item = String>) -> Result<ParseResult, String> {
     }))
 }
 
+fn validate_metadata(
+    options: &Options,
+) -> Result<(Vec<PathBuf>, Vec<metadata::validator::ValidationError>), Error> {
+    let paths = windows_rdl::expand_input_files(&options.inputs, "winmd")?;
+    let files = read_metadata_files(&paths)?;
+    let index = metadata::reader::Index::new(files);
+
+    let reference_paths = windows_rdl::expand_input_files(&options.references, "winmd")?;
+    let mut references = read_metadata_files(&reference_paths)?;
+    if options.reference_default {
+        references.extend(
+            [windows_default::WINRT, windows_default::WIN32]
+                .into_iter()
+                .map(|bytes| metadata::reader::File::new(bytes.to_vec()).unwrap()),
+        );
+    }
+
+    let errors = if references.is_empty() {
+        metadata::validator::validate(&index)
+    } else {
+        let references = metadata::reader::Index::new(references);
+        metadata::validator::Validator::new(&index)
+            .references(&references)
+            .validate()
+    };
+    Ok((paths, errors))
+}
+
+fn read_metadata_files(paths: &[PathBuf]) -> Result<Vec<metadata::reader::File>, Error> {
+    paths
+        .iter()
+        .map(|path| {
+            metadata::reader::File::read(path)
+                .ok_or_else(|| Error::new("invalid metadata", &path.to_string_lossy(), 0, 0))
+        })
+        .collect()
+}
+
 fn configure(reader: &mut Reader, options: &Options) {
     for input in &options.inputs {
         if input != Path::new("-") {
@@ -239,6 +301,44 @@ fn configure(reader: &mut Reader, options: &Options) {
     if options.reference_default {
         reader.reference_default();
     }
+}
+
+fn render_metadata_validation(
+    paths: &[PathBuf],
+    errors: &[metadata::validator::ValidationError],
+) -> String {
+    let mut output = String::new();
+    for error in errors {
+        output.push_str(&format!("error: {}\n", error.message()));
+        render_metadata_row(&mut output, " -->", paths, error.row());
+        if let Some(related) = error.related() {
+            render_metadata_row(&mut output, " :::", paths, related);
+        }
+    }
+    if errors.len() > 1 {
+        output.push_str(&format!(
+            "error: aborting due to {} previous errors\n",
+            errors.len()
+        ));
+    }
+    output
+}
+
+fn render_metadata_row(
+    output: &mut String,
+    marker: &str,
+    paths: &[PathBuf],
+    row: metadata::reader::RowId,
+) {
+    let path = paths
+        .get(row.file())
+        .map_or_else(|| "<metadata>".into(), |path| path.to_string_lossy());
+    output.push_str(&format!("{marker} {path}\n"));
+    output.push_str(&format!(
+        "  = note: metadata row {:?}[{}]\n",
+        row.table(),
+        row.row() + 1
+    ));
 }
 
 fn format_inputs(options: &Options) -> Result<bool, Error> {

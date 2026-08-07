@@ -18,6 +18,12 @@ Compile one or more files or directories into a winmd:
 riddle build api.rdl shared-rdl --out api.winmd
 ```
 
+Validate existing metadata without converting it to RDL:
+
+```text
+riddle validate api.winmd
+```
+
 Format files in place, or check formatting in CI without changing them:
 
 ```text
@@ -32,10 +38,12 @@ input.
 ## Implementation
 
 The binary owns command-line parsing, terminal rendering, standard input, file updates, and
-exit-code policy. Parsing, validation, resolution, formatting, and metadata encoding remain in
-`windows-rdl`. `Reader::check` runs the same pipeline as `Reader::write` but does not create a
-winmd. `riddle check` uses `Reader::check_all` to report independent errors from every input rather
-than stopping at the first source or declaration.
+exit-code policy. Parsing, RDL validation, resolution, formatting, and metadata encoding remain in
+`windows-rdl`. Shared metadata validation remains in `windows-metadata`. `Reader::check` runs the
+same pipeline as `Reader::write` but does not create a winmd. `riddle check` uses
+`Reader::check_all` to report independent errors from every input rather than stopping at the first
+source or declaration. `riddle validate` reads existing winmds into one authored index and keeps
+reference metadata in a separate lookup index.
 
 RDL diagnostics use exit code 1. Invalid command lines use exit code 2. The renderer prints stable
 diagnostic codes, source locations, labeled source lines, notes, help, and a final error count when

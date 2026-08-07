@@ -776,8 +776,10 @@ The next phase should proceed in this order:
 6. Done: implement explicit overload authoring as transparent metadata lowering. RDL keeps the
    projected name in the declaration, requires the metadata name in `#[overload(...)]`, preserves
    the spelling through winmd-to-RDL output, and validates group identities in shared metadata.
-7. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete
-   diagnostic collections and unsupported-metadata findings.
+7. In progress: upgrade `riddle` rendering and metadata inspection. `riddle validate` now applies
+   the shared validator directly to existing winmd files and directories while keeping references
+   separate. Add `dump` or `expand` next so lowered ABI is inspectable before runtime-class
+   conveniences are considered.
 8. Move formatting to the RDL syntax tree and add range formatting if editor use justifies it.
 9. Evaluate runtime-class conveniences only after the expanded ABI can be inspected and compared.
 

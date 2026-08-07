@@ -81,6 +81,73 @@ fn build_emits_static_global_function_signature() {
 }
 
 #[test]
+fn validate_accepts_valid_metadata_directory() {
+    let dir = scratch("validate_valid");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("api.winmd");
+    let mut file = windows_metadata::writer::File::new("test");
+    file.TypeDef(
+        "Test",
+        "Value",
+        windows_metadata::writer::TypeDefOrRef::default(),
+        windows_metadata::TypeAttributes::Public,
+    );
+    std::fs::write(&input, file.into_stream()).unwrap();
+
+    assert!(
+        riddle()
+            .args(["validate", "--no-default"])
+            .arg(&dir)
+            .status()
+            .unwrap()
+            .success()
+    );
+}
+
+#[test]
+fn validate_reports_metadata_rows() {
+    let dir = scratch("validate_invalid");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("api.winmd");
+    let mut file = windows_metadata::writer::File::new("test");
+    for _ in 0..2 {
+        file.TypeDef(
+            "Test",
+            "Value",
+            windows_metadata::writer::TypeDefOrRef::default(),
+            windows_metadata::TypeAttributes::Public,
+        );
+    }
+    std::fs::write(&input, file.into_stream()).unwrap();
+
+    let output = riddle()
+        .args(["validate", "--no-default"])
+        .arg(&input)
+        .output()
+        .unwrap();
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8(output.stderr).unwrap();
+    assert!(stderr.starts_with("error: duplicate type `Test.Value`"));
+    assert!(stderr.contains(&input.to_string_lossy().to_string()));
+    assert!(stderr.contains("metadata row TypeDef["));
+    assert!(stderr.contains(" ::: "));
+}
+
+#[test]
+fn validate_rejects_invalid_metadata_file() {
+    let dir = scratch("validate_bad_file");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input = dir.join("api.winmd");
+    std::fs::write(&input, b"not metadata").unwrap();
+
+    let output = riddle().arg("validate").arg(&input).output().unwrap();
+    assert_eq!(output.status.code(), Some(1));
+    let stderr = String::from_utf8(output.stderr).unwrap();
+    assert!(stderr.starts_with("error: invalid metadata"));
+    assert!(stderr.contains(&input.to_string_lossy().to_string()));
+}
+
+#[test]
 fn invalid_rdl_uses_terminal_diagnostic() {
     let dir = scratch("invalid");
     std::fs::create_dir_all(&dir).unwrap();
