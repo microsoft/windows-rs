@@ -453,6 +453,9 @@ impl OriginMap {
 
     fn error(&self, error: metadata::validator::ValidationError) -> Error {
         let mut diagnostic = Diagnostic::new(error.message(), "", 0, 0);
+        if error.category() == metadata::validator::ValidationCategory::Duplicate {
+            diagnostic = diagnostic.with_code("RDL0001");
+        }
         let related = error.related();
         let mut promoted_related = false;
 
@@ -479,7 +482,7 @@ impl OriginMap {
             && let Some(label) = self.rows.get(&related)
         {
             let mut label = self.label(*label, LabelStyle::Secondary);
-            label.message = "related declaration".to_string();
+            label.message = "first declared here".to_string();
             diagnostic = diagnostic.with_label(label);
         }
 

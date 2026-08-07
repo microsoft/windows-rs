@@ -103,32 +103,12 @@ pub fn validate_resolved_symbols(index: &Index, reference: &metadata::reader::In
                             namespace,
                             generics: &generics,
                         };
-                        let mut methods = HashMap::<String, Vec<(ResolvedSignature, Span)>>::new();
                         for member in &item.members {
                             let InterfaceMember::Method(method) = member else {
                                 continue;
                             };
-                            match resolve_signature(&resolver, &method.sig) {
-                                Ok(signature) => {
-                                    let name = method.sig.ident.to_string();
-                                    let signatures = methods.entry(name.clone()).or_default();
-                                    if let Some((_, previous)) = signatures
-                                        .iter()
-                                        .find(|(existing, _)| existing == &signature)
-                                    {
-                                        diagnostics.push(duplicate_error(
-                                            "method",
-                                            &name,
-                                            file,
-                                            method.sig.ident.span(),
-                                            file,
-                                            *previous,
-                                        ));
-                                    } else {
-                                        signatures.push((signature, method.sig.ident.span()));
-                                    }
-                                }
-                                Err(error) => diagnostics.push(error),
+                            if let Err(error) = validate_signature_types(&resolver, &method.sig) {
+                                diagnostics.push(error);
                             }
                         }
                     }
@@ -141,25 +121,16 @@ pub fn validate_resolved_symbols(index: &Index, reference: &metadata::reader::In
     diagnostics
 }
 
-#[derive(PartialEq)]
-struct ResolvedSignature {
-    receiver: bool,
-    types: Vec<metadata::Type>,
-}
-
-fn resolve_signature(
-    resolver: &Resolver,
-    signature: &syn::Signature,
-) -> Result<ResolvedSignature, Error> {
-    let mut receiver = false;
-    let mut types = vec![];
+fn validate_signature_types(resolver: &Resolver, signature: &syn::Signature) -> Result<(), Error> {
     for input in &signature.inputs {
-        match input {
-            syn::FnArg::Receiver(_) => receiver = true,
-            syn::FnArg::Typed(param) => types.push(resolver.resolve_type(&param.ty)?),
+        if let syn::FnArg::Typed(param) = input {
+            resolver.resolve_type(&param.ty)?;
         }
     }
-    Ok(ResolvedSignature { receiver, types })
+    if let syn::ReturnType::Type(_, ty) = &signature.output {
+        resolver.resolve_type(ty)?;
+    }
+    Ok(())
 }
 
 fn resolve_bare_signature(
@@ -345,8 +316,6 @@ fn validate_enum(file: &File, item: &Enum) -> Result<(), Error> {
 fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
     validate_type_generics(file, &item.generics, "interfaces")?;
 
-    let mut properties = HashMap::<String, PropertyState>::new();
-    let mut events = HashMap::<String, Span>::new();
     let mut member_kinds = HashMap::<String, (&str, Span)>::new();
 
     for member in &item.members {
@@ -376,9 +345,7 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
                 reject_variadic(file, &method.sig, "interface methods")?;
                 validate_signature_params(file, &method.sig)?;
             }
-            InterfaceMember::Property(property) => {
-                validate_property(file, property, &mut properties)?;
-            }
+            InterfaceMember::Property(_) => {}
             InterfaceMember::Event(event) => {
                 if let Some(attr) = event.attrs.first() {
                     return unsupported(
@@ -387,66 +354,8 @@ fn validate_interface(file: &File, item: &Interface) -> Result<(), Error> {
                         "attributes on event shorthand are not represented",
                     );
                 }
-                check_name(file, "event", &event.name, &mut events)?;
             }
         }
-    }
-
-    Ok(())
-}
-
-struct PropertyState {
-    get: bool,
-    set: bool,
-    ty: String,
-    span: Span,
-}
-
-fn validate_property(
-    file: &File,
-    property: &Property,
-    properties: &mut HashMap<String, PropertyState>,
-) -> Result<(), Error> {
-    let name = property.name.to_string();
-    let get_only = property
-        .attrs
-        .iter()
-        .any(|attr| attr.path().is_ident("get"));
-    let set_only = property
-        .attrs
-        .iter()
-        .any(|attr| attr.path().is_ident("set"));
-    let (get, set) = if get_only || set_only {
-        (get_only, set_only)
-    } else {
-        (true, true)
-    };
-    let ty = property.ty.to_token_stream().to_string();
-
-    if let Some(previous) = properties.get_mut(&name) {
-        if previous.ty != ty || previous.get && get || previous.set && set {
-            return duplicate(
-                "property",
-                &name,
-                file,
-                property.name.span(),
-                file,
-                previous.span,
-            );
-        }
-
-        previous.get |= get;
-        previous.set |= set;
-    } else {
-        properties.insert(
-            name,
-            PropertyState {
-                get,
-                set,
-                ty,
-                span: property.name.span(),
-            },
-        );
     }
 
     Ok(())

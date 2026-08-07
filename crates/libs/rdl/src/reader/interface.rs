@@ -387,6 +387,12 @@ impl Encoder<'_> {
 
                 InterfaceMember::Event(evt) => {
                     let handler_ty = self.encode_type(&evt.handler_ty)?;
+                    if !matches!(handler_ty, metadata::Type::ClassName(_)) {
+                        return self.err(
+                            &evt.handler_ty,
+                            "event handler must be a delegate or class type",
+                        );
+                    }
                     let token_ty =
                         metadata::Type::value_named("Windows.Foundation", "EventRegistrationToken");
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;

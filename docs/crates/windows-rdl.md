@@ -426,11 +426,11 @@ types, functions, and constants; duplicate members and parameters; overlapping a
 variants; and method overloads with the same parameter types. Distinct method signatures,
 disjoint architecture variants, and matching split get/set properties remain valid.
 
-Top-level symbol and property checks still compare syntax spellings. Method overloads and attribute
-constructors now compare resolved `metadata::Type` signatures, so an import alias and a qualified
-path to the same type collide. `RDL0005` rejects missing or extra generic arguments. Moving the
-remaining checks to metadata row identities and preventing every validation failure from reaching
-serialized output remain part of the work below.
+Top-level symbols, fields, enum variants, attribute properties, and cross-kind interface member
+conflicts remain source checks. Method, property, and event identities are now validated on
+finalized metadata rows, so aliases and qualified paths share one identity. Return types do not
+distinguish methods or non-indexed properties; complementary property/event accessor rows are valid
+only when their associated types agree. `RDL0005` rejects missing or extra generic arguments.
 
 The winmd writer now preflights Property and Event rows before reconstructing shorthand. Custom
 attributes, nonzero flags, property constants, unsupported or duplicate semantics, missing
@@ -706,8 +706,9 @@ The main findings are:
 - **Resolution:** Type and attribute lookup now share `Resolver` and produce canonical
   `metadata::Type` identities. Encode those facts directly rather than retaining a second
   declaration tree.
-- **Duplicate checks:** Method and attribute-constructor signatures now compare resolved types and
-  generic arity. Properties, class interface lists, and other checks still use syntax spelling.
+- **Duplicate checks:** Method, property, and event identities now use finalized metadata.
+  Attribute-constructor signatures use resolved types. Class interface lists and source-only
+  symbols still use syntax spelling.
 - **Encoding:** Some unresolved or invalid states are found while the winmd writer is being
   mutated. Make the metadata builder queryable and validate its finalized rows before output.
 - **Diagnostics:** The data model supports labels, but source text is external and `riddle` renders

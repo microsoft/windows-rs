@@ -258,6 +258,69 @@ fn property_overloads_and_split_accessors_are_accepted() {
 }
 
 #[test]
+fn return_types_do_not_distinguish_member_identities() {
+    let mut file = writer::File::new("test");
+    let ty = file.TypeDef(
+        "Test",
+        "IValue",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
+    );
+    file.MethodDef(
+        "Get",
+        &Signature {
+            return_type: Type::I32,
+            ..Default::default()
+        },
+        MethodAttributes::Public,
+        Default::default(),
+    );
+    file.MethodDef(
+        "Get",
+        &Signature {
+            return_type: Type::U32,
+            ..Default::default()
+        },
+        MethodAttributes::Public,
+        Default::default(),
+    );
+
+    let property = file.Property("Value", &Type::I32);
+    file.PropertyMap(ty, property);
+    file.Property("Value", &Type::U32);
+
+    let event = file.Event(
+        "Changed",
+        &Type::ClassName(TypeName::named("Test", "FirstHandler")),
+    );
+    file.EventMap(ty, event);
+    file.Event(
+        "Changed",
+        &Type::ClassName(TypeName::named("Test", "SecondHandler")),
+    );
+
+    let errors = validator::validate(&index(file));
+    assert_eq!(errors.len(), 3);
+    assert_eq!(
+        errors[0].message(),
+        "duplicate property `Value` on `Test.IValue`"
+    );
+    assert_eq!(
+        errors[1].message(),
+        "duplicate event `Changed` on `Test.IValue`"
+    );
+    assert_eq!(
+        errors[2].message(),
+        "duplicate method `Get` on `Test.IValue`"
+    );
+    assert!(
+        errors
+            .iter()
+            .all(|error| error.category() == validator::ValidationCategory::Duplicate)
+    );
+}
+
+#[test]
 fn invalid_method_semantics_are_rejected() {
     let mut file = writer::File::new("test");
     let ty = file.TypeDef(

@@ -71,27 +71,27 @@ fn duplicate_symbols_are_rejected() {
         (
             "method",
             "#[winrt] mod Test { interface IValue { fn Get(&self, value: i32); fn Get(&self, value: i32); } }",
-            "duplicate method `Get`",
+            "duplicate method `Get` on `Test.IValue`",
         ),
         (
             "return_type",
             "#[winrt] mod Test { interface IValue { fn Get(&self) -> i32; fn Get(&self) -> u32; } }",
-            "duplicate method `Get`",
+            "duplicate method `Get` on `Test.IValue`",
         ),
         (
             "property",
             "#[winrt] mod Test { interface IValue { Name: String; Name: String; } }",
-            "duplicate property `Name`",
+            "duplicate property `Name` on `Test.IValue`",
         ),
         (
             "property_type",
             "#[winrt] mod Test { interface IValue { #[get] Value: i32; #[set] Value: u32; } }",
-            "duplicate property `Value`",
+            "duplicate property `Value` on `Test.IValue`",
         ),
         (
             "event",
-            "#[winrt] mod Test { interface IValue { event Changed: Object; event Changed: Object; } }",
-            "duplicate event `Changed`",
+            "#[winrt] mod Test { delegate fn Handler(); interface IValue { event Changed: Handler; event Changed: Handler; } }",
+            "duplicate event `Changed` on `Test.IValue`",
         ),
         (
             "interface_member_kind",
@@ -182,7 +182,7 @@ mod Other {
     struct Value {}
 }
 "#,
-            "duplicate method `Get`",
+            "duplicate method `Get` on `Test.IValue`",
         ),
         (
             "resolved_attribute",
@@ -364,6 +364,20 @@ fn unrepresentable_syntax_is_rejected() {
             "{name}"
         );
     }
+}
+
+#[test]
+fn invalid_event_handler_is_rejected() {
+    let error = error(
+        "invalid_event_handler",
+        "#[winrt] mod Test { interface IValue { event Changed: Object; } }",
+    );
+    assert_eq!(
+        error.message,
+        "event handler must be a delegate or class type"
+    );
+    assert_eq!(error.file_name, "src/test.rdl");
+    assert_eq!(error.labels.len(), 1);
 }
 
 #[test]

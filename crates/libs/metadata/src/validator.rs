@@ -4,12 +4,23 @@ use std::collections::HashMap;
 /// A metadata validation failure associated with one row and, when applicable, an earlier row.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct ValidationError {
+    category: ValidationCategory,
     message: String,
     row: RowId,
     related: Option<RowId>,
 }
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ValidationCategory {
+    Duplicate,
+    Invalid,
+}
+
 impl ValidationError {
+    pub fn category(&self) -> ValidationCategory {
+        self.category
+    }
+
     pub fn message(&self) -> &str {
         &self.message
     }
@@ -63,9 +74,9 @@ pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
             .push(ty);
 
         validate_fields(ty, &mut errors);
-        validate_methods(ty, &mut errors);
         validate_properties(ty, &mut errors);
         validate_events(ty, &mut errors);
+        validate_methods(ty, &mut errors);
     }
 
     errors
@@ -90,6 +101,7 @@ fn validate_layouts(index: &reader::Index, errors: &mut Vec<ValidationError>) {
         let packing = layout.packing_size();
         if packing != 0 && (packing > 128 || !packing.is_power_of_two()) {
             errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
                 message: format!(
                     "class layout for `{}.{}` has invalid packing size {packing}",
                     parent.namespace(),
@@ -105,6 +117,7 @@ fn validate_layouts(index: &reader::Index, errors: &mut Vec<ValidationError>) {
             && !flags.contains(crate::TypeAttributes::ExplicitLayout)
         {
             errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
                 message: format!(
                     "class layout for `{}.{}` requires sequential or explicit layout",
                     parent.namespace(),
@@ -133,6 +146,7 @@ fn validate_layouts(index: &reader::Index, errors: &mut Vec<ValidationError>) {
             .contains(crate::TypeAttributes::ExplicitLayout)
         {
             errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
                 message: format!(
                     "field layout for `{}.{}.{}` requires explicit layout",
                     parent.namespace(),
@@ -213,6 +227,7 @@ fn validate_maps<'a, M, R, I>(
     for row in rows {
         if !owners.contains_key(&row.row_id()) {
             errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
                 message: format!("{kind} `{}` has no owner", name(row)),
                 row: row.row_id(),
                 related: None,
@@ -253,12 +268,13 @@ fn validate_properties(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
         let arches = association_arches(property.arches(), property.semantics());
         let previous = properties.entry(property.name()).or_default().iter().find(
             |(previous, previous_signature)| {
-                previous_signature == &signature
+                same_property_identity(previous_signature, &signature)
                     && arches_overlap(
                         association_arches(previous.arches(), previous.semantics()),
                         arches,
                     )
-                    && semantics_conflict(previous.semantics(), property.semantics(), 0x0003)
+                    && (previous_signature.return_type != signature.return_type
+                        || semantics_conflict(previous.semantics(), property.semantics(), 0x0003))
             },
         );
         if let Some((previous, _)) = previous {
@@ -300,12 +316,11 @@ fn validate_events(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
                 .or_default()
                 .iter()
                 .find(|(previous, previous_type)| {
-                    previous_type == &event_type
-                        && arches_overlap(
-                            association_arches(previous.arches(), previous.semantics()),
-                            arches,
-                        )
-                        && semantics_conflict(previous.semantics(), event.semantics(), 0x0038)
+                    arches_overlap(
+                        association_arches(previous.arches(), previous.semantics()),
+                        arches,
+                    ) && (previous_type != &event_type
+                        || semantics_conflict(previous.semantics(), event.semantics(), 0x0038))
                 });
         if let Some((previous, _)) = previous {
             errors.push(duplicate(
@@ -347,6 +362,7 @@ fn validate_semantics<'a>(
         let value = semantics.semantics();
         if !allowed.contains(&value) {
             errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
                 message: format!("{kind} `{name}` has invalid method semantics {value:#06x}"),
                 row: semantics.row_id(),
                 related: Some(association),
@@ -416,7 +432,7 @@ fn validate_methods(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
         let signature = method.signature(&generics);
         let previous = methods.entry(method.name()).or_default().iter().find(
             |(previous, previous_signature)| {
-                previous_signature == &signature
+                same_method_identity(previous_signature, &signature)
                     && arches_overlap(previous.arches(), method.arches())
             },
         );
@@ -439,6 +455,7 @@ fn validate_methods(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
 
         if let Err(error) = method.params_by_sequence(signature.types.len()) {
             errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
                 message: format!(
                     "invalid parameters for `{}.{}` method `{}`: {error}",
                     ty.namespace(),
@@ -460,10 +477,19 @@ fn generics(ty: reader::TypeDef) -> Vec<crate::Type> {
 
 fn duplicate(row: RowId, related: RowId, message: String) -> ValidationError {
     ValidationError {
+        category: ValidationCategory::Duplicate,
         message,
         row,
         related: Some(related),
     }
+}
+
+fn same_method_identity(left: &crate::Signature, right: &crate::Signature) -> bool {
+    left.flags == right.flags && left.types == right.types
+}
+
+fn same_property_identity(left: &crate::Signature, right: &crate::Signature) -> bool {
+    left.flags == right.flags && left.types == right.types
 }
 
 fn arches_overlap(left: i32, right: i32) -> bool {
