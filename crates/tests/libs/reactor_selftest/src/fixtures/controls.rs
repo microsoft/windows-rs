@@ -7,7 +7,8 @@ use windows_reactor::{
 };
 use windows_reactor::{Color, CornerRadius, GridLength, RenderCx, Thickness, component};
 use windows_reactor::{
-    ElementExt, border, button, check_box, scroll_viewer, swap_chain_panel, text_block, text_box,
+    ElementExt, ResourceExt, border, button, check_box, scroll_viewer, swap_chain_panel,
+    text_block, text_box,
 };
 use windows_reactor::{RichTextBlock, RichTextInline, RichTextRun};
 use windows_reactor::{flip_view, grid_view, list_view};

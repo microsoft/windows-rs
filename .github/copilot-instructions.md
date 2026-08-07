@@ -289,9 +289,6 @@ changes (the `gen` workflow enforces this).
 
 | Location | Issue |
 | --- | --- |
-| `reactor` `style.rs` `exit_transition` + `element.rs` `.transition` builder | `exit_transition` is set but never consumed - `enter_transition` is read in `reconciler.rs`, but exit is only tested via `.is_none()`, so `.transition(enter, exit)` silently discards the exit arg. Wire it up or drop the parameter. |
-| `reactor` `reconciler.rs` (resources guard) + `backend/winui/mod.rs` | A resource-dict change `{k:v}` -> `{}` never reaches the backend (the `&& !new.resources.is_empty()` guard skips it), and the backend handler only inserts entries, never removes - so any key removal leaves stale entries. Needs a replace-vs-merge decision. |
-| `reactor` `reconciler/widget_dispatch.rs` (`Prop::ItemKey`) | A `TabItem` key change `Some` -> `None` satisfies `o.key != n.key` but the `&& let Some(key) = &n.key` guard skips the body, retaining the stale key. Needs a backend clear path for `Prop::ItemKey`. |
 | `webview` `pump.rs` (`WM_QUIT` arm) | `Err(Error::empty())` reports a success `HRESULT(0)` (the empty sentinel maps back to 0). Intentional but easy to misread as success. |
 
 #### Duplication / refactor candidates

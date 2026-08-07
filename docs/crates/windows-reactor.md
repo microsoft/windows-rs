@@ -127,11 +127,12 @@ catalog](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor
 changing, or removing that key updates the existing native `TabViewItem`; removing it also clears
 the WinUI `Tag` instead of retaining stale callback identity. See the `tab_view_item_key` sample.
 
-Layout and appearance modifiers are available on any `Element` through the `ElementExt` trait:
+Layout and appearance modifiers are available on concrete widget builders through `ElementExt`:
 `.margin(..)`, `.padding(..)`, `.width(..)`, `.height(..)`, `.horizontal_alignment(..)`,
 `.vertical_alignment(..)` (with `HorizontalAlignment` and `VerticalAlignment`), `.background(..)`,
 `.foreground(..)`, `.opacity(..)`, and transition helpers such as `.with_opacity_transition(..)`.
-Spacing values use `Thickness` (with `Thickness::uniform(..)`).
+Apply them before converting the builder into `Element`. Spacing values use `Thickness` (with
+`Thickness::uniform(..)`).
 
 `transition(enter, exit)` runs lifecycle animations when an element enters or leaves the WinUI
 visual tree. The logical Reactor element is removed synchronously; WinUI Composition retains its
@@ -482,7 +483,7 @@ domain-prefixed alternative.
 
 ### Resource ownership and typed values
 
-`ElementExt::resources` accepts an iterator when every entry has the same Rust value type.
+`ResourceExt::resources` accepts an iterator when every entry has the same Rust value type.
 `resource_overrides` uses a consuming builder when one resource dictionary contains different
 WinUI value types:
 
@@ -537,7 +538,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
 | Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
-| Typed element API and fragments | Not started |
+| Typed element API and fragments | Started; resources require a concrete widget capability |
 | Full mounted ownership evaluation | Complete |
 
 ### Invariants
@@ -770,14 +771,35 @@ Every consolidation step must state which fields and special-case branches it de
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
 Steps 1-7 are complete. Child, slot, custom, templated, and lifecycle storage remains sparse inside
-`MountedTree` rather than adding optional fields to every native or logical node. The remaining
-resource, item-key, and exit-transition bugs can now be resolved against the consolidated
-ownership model before typed public wrappers begin.
+`MountedTree` rather than adding optional fields to every native or logical node. The resource,
+item-key, and exit-transition entries in the earlier audit were stale: PR #4782 already added
+resource replacement, `ItemKey` clearing, and WinUI implicit hide transitions, with regressions and
+visual samples. Typed public wrappers are now the active phase.
 
 ### Typed element API
 
-The erased `ElementExt` surface allows modifier calls that compile but cannot affect a native
-element. Constructors should retain a concrete wrapper until insertion:
+The erased `ElementExt` surface allows some modifier calls that compile but cannot affect a native
+element. The first capability slice moves resource dictionaries to sealed `ResourceExt`, which is
+implemented by concrete native widget builders but not by erased `Element` or logical wrappers:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = button("Delete").into();
+element.resources([("ButtonBackground", "Red")]);
+```
+
+Apply the capability before erasure:
+
+```rust
+# use windows_reactor::*;
+let element: Element = button("Delete")
+    .resources([("ButtonBackground", "Red")])
+    .into();
+# let _ = element;
+```
+
+The remaining modifier families still use `ElementExt` while they are classified. The target is
+for constructors to retain a concrete wrapper until insertion:
 
 ```rust,ignore
 component(app, ()) -> ComponentElement<App>

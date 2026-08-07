@@ -1004,30 +1004,6 @@ pub trait ElementExt: Sized {
         self
     }
 
-    fn resources<K, V>(mut self, entries: impl IntoIterator<Item = (K, V)>) -> Self
-    where
-        K: Into<String>,
-        V: Into<ResourceValue>,
-    {
-        if let Some(m) = self.modifiers_mut() {
-            m.resources = entries
-                .into_iter()
-                .map(|(key, value)| (key.into(), value.into()))
-                .collect();
-        }
-        self
-    }
-
-    fn resource_overrides(
-        mut self,
-        configure: impl FnOnce(ResourceBuilder) -> ResourceBuilder,
-    ) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            m.resources = configure(ResourceBuilder::default()).entries;
-        }
-        self
-    }
-
     fn allow_drop(mut self, v: bool) -> Self {
         if let Some(m) = self.modifiers_mut() {
             m.allow_drop = Some(v);
@@ -1069,6 +1045,50 @@ pub trait ElementExt: Sized {
         self
     }
 }
+
+mod capability {
+    use super::Modifiers;
+
+    pub trait Resources {
+        fn resource_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+}
+
+/// Resource-dictionary modifiers for concrete native widget builders.
+///
+/// Apply resources before converting a widget into [`Element`]. Logical wrappers and erased
+/// elements do not implement this capability.
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, ResourceExt, button};
+///
+/// let element: Element = button("Delete").into();
+/// let _ = element.resources([("ButtonBackground", "Red")]);
+/// ```
+pub trait ResourceExt: capability::Resources + Sized {
+    fn resources<K, V>(mut self, entries: impl IntoIterator<Item = (K, V)>) -> Self
+    where
+        K: Into<String>,
+        V: Into<ResourceValue>,
+    {
+        capability::Resources::resource_modifiers_mut(&mut self).resources = entries
+            .into_iter()
+            .map(|(key, value)| (key.into(), value.into()))
+            .collect();
+        self
+    }
+
+    fn resource_overrides(
+        mut self,
+        configure: impl FnOnce(ResourceBuilder) -> ResourceBuilder,
+    ) -> Self {
+        capability::Resources::resource_modifiers_mut(&mut self).resources =
+            configure(ResourceBuilder::default()).entries;
+        self
+    }
+}
+
+impl<T: capability::Resources> ResourceExt for T {}
 
 fn ensure_drag_handlers(m: &mut Modifiers) -> &mut DragHandlers {
     if m.allow_drop.is_none() {
@@ -1172,6 +1192,11 @@ macro_rules! impl_element_ext {
                     self
                 }
             }
+            impl capability::Resources for widgets::$ty {
+                fn resource_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
         )*
     };
 }
@@ -1228,6 +1253,12 @@ impl ElementExt for RichTextBlock {
     fn with_key(mut self, key: impl Into<String>) -> Self {
         self.key = Some(key.into());
         self
+    }
+}
+
+impl capability::Resources for RichTextBlock {
+    fn resource_modifiers_mut(&mut self) -> &mut Modifiers {
+        &mut self.modifiers
     }
 }
 
