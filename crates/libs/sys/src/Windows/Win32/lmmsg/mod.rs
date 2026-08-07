@@ -11,26 +11,16 @@ pub const MSGNAME_FORWARDED_FROM: i32 = 16;
 pub const MSGNAME_FORWARDED_TO: i32 = 4;
 pub const MSGNAME_NOT_FORWARDED: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSG_INFO_0 {
     pub msgi0_name: windows_sys::core::PWSTR,
 }
-impl Default for MSG_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSG_INFO_1 {
     pub msgi1_name: windows_sys::core::PWSTR,
     pub msgi1_forward_flag: u32,
     pub msgi1_forward: windows_sys::core::PWSTR,
-}
-impl Default for MSG_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PMSG_INFO_0 = *mut MSG_INFO_0;
 pub type PMSG_INFO_1 = *mut MSG_INFO_1;

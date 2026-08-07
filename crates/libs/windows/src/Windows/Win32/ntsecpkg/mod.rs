@@ -10,19 +10,13 @@ pub type KSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *
 pub type KSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: *const KSEC_LIST_ENTRY)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEC_LIST_ENTRY {
     pub List: super::LIST_ENTRY,
     pub RefCount: i32,
     pub Signature: u32,
     pub OwningList: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for KSEC_LIST_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type KSEC_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packageid: u32) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
@@ -419,13 +413,8 @@ pub type PLSA_CHECK_PROTECTED_USER_BY_TOKEN = Option<unsafe extern "system" fn(u
 #[cfg(feature = "sspi")]
 pub type PLSA_CLIENT_CALLBACK = Option<unsafe extern "system" fn(callback: *const i8, argument1: usize, argument2: usize, input: *const super::SecBuffer, output: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PLSA_CLIENT_REQUEST(pub *mut *mut core::ffi::c_void);
-impl Default for PLSA_CLIENT_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PLSA_CLOSE_SAM_USER = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = Option<unsafe extern "system" fn(userauthdata: *const core::ffi::c_void, userauthdatasize: u32, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::TOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, authorityname: *const super::LSA_UNICODE_STRING, token: *mut super::HANDLE, logonid: *mut super::LUID, accountname: *mut super::LSA_UNICODE_STRING, substatus: *mut i32) -> windows_core::NTSTATUS>;
@@ -675,18 +664,13 @@ pub const SECPKG_CALL_BUFFER_MARSHAL: i32 = 65536;
 pub const SECPKG_CALL_CLEANUP: i32 = 32;
 pub const SECPKG_CALL_CLOUDAP_CONNECT: i32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CALL_INFO {
     pub ProcessId: u32,
     pub ThreadId: u32,
     pub Attributes: u32,
     pub CallCount: u32,
     pub MechOid: *mut core::ffi::c_void,
-}
-impl Default for SECPKG_CALL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_CALL_IN_PROC: i32 = 16;
 pub const SECPKG_CALL_IS_TCB: i32 = 512;
@@ -811,18 +795,13 @@ pub struct SECPKG_DLL_FUNCTIONS {
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
 pub type SECPKG_EVENT_DOMAIN_CHANGE = SECPKG_PARAMETERS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_EVENT_NOTIFY {
     pub EventClass: u32,
     pub Reserved: u32,
     pub EventDataSize: u32,
     pub EventData: *mut core::ffi::c_void,
     pub PackageParameter: *mut core::ffi::c_void,
-}
-impl Default for SECPKG_EVENT_NOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "sspi")]
@@ -1171,15 +1150,10 @@ pub struct SECPKG_SURROGATE_LOGON {
     pub Entries: PSECPKG_SURROGATE_LOGON_ENTRY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON_ENTRY {
     pub Type: windows_core::GUID,
     pub Data: *mut core::ffi::c_void,
-}
-impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_SURROGATE_LOGON_VERSION_1: i32 = 1;
 #[repr(C)]
@@ -1268,14 +1242,9 @@ pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024
 pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026;
 pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1025;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_SaslContext {
     pub SaslContext: *mut core::ffi::c_void,
-}
-impl Default for SecPkgContext_SaslContext {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = 0;
 pub const SecpkgContextThunks: SECPKG_EXTENDED_INFORMATION_CLASS = 2;

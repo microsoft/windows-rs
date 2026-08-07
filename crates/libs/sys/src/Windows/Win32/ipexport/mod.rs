@@ -15,7 +15,7 @@ pub struct ICMPV6_ECHO_REPLY_LH {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntddndis"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ICMP_ECHO_REPLY {
     pub Address: super::IPAddr,
     pub Status: u32,
@@ -25,16 +25,10 @@ pub struct ICMP_ECHO_REPLY {
     pub Data: *mut core::ffi::c_void,
     pub Options: IP_OPTION_INFORMATION,
 }
-#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
-impl Default for ICMP_ECHO_REPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ICMP_ECHO_REPLY32 {
     pub Address: super::IPAddr,
     pub Status: u32,
@@ -43,13 +37,6 @@ pub struct ICMP_ECHO_REPLY32 {
     pub Reserved: u16,
     pub Data: *mut core::ffi::c_void,
     pub Options: IP_OPTION_INFORMATION32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ntddndis")]
-impl Default for ICMP_ECHO_REPLY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -142,7 +129,7 @@ pub const IP_NEGOTIATING_IPSEC: i32 = 11032;
 pub const IP_NO_RESOURCES: i32 = 11006;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IP_OPTION_INFORMATION {
     pub Ttl: u8,
     pub Tos: u8,
@@ -150,27 +137,15 @@ pub struct IP_OPTION_INFORMATION {
     pub OptionsSize: u8,
     pub OptionsData: super::PUCHAR,
 }
-#[cfg(feature = "minwindef")]
-impl Default for IP_OPTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IP_OPTION_INFORMATION32 {
     pub Ttl: u8,
     pub Tos: u8,
     pub Flags: u8,
     pub OptionsSize: u8,
     pub OptionsData: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for IP_OPTION_INFORMATION32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IP_OPTION_TOO_BIG: i32 = 11017;
 pub const IP_OPT_EOL: i32 = 0;

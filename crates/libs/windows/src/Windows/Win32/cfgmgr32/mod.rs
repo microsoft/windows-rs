@@ -2001,13 +2001,8 @@ impl Default for DMA_RESOURCE {
 pub const FILTERED_LOG_CONF: i32 = 1;
 pub const FORCED_LOG_CONF: i32 = 4;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCMNOTIFICATION(pub *mut core::ffi::c_void);
-impl Default for HCMNOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "winnt")]
 pub type HMACHINE = super::HANDLE;
 pub type HWPROFILEINFO = HWPROFILEINFO_A;

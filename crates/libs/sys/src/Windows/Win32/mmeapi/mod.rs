@@ -1394,7 +1394,7 @@ pub struct WAVEFORMATEX {
     pub cbSize: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WAVEHDR {
     pub lpData: windows_sys::core::PSTR,
     pub dwBufferLength: u32,
@@ -1404,11 +1404,6 @@ pub struct WAVEHDR {
     pub dwLoops: u32,
     pub lpNext: *mut Self,
     pub reserved: usize,
-}
-impl Default for WAVEHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "mmsyscom")]
 pub type WAVEINCAPS = WAVEINCAPSA;

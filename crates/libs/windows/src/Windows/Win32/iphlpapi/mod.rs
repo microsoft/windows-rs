@@ -518,13 +518,8 @@ pub unsafe fn UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTI
     unsafe { UnregisterInterfaceTimestampConfigChange(notificationhandle) }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HIFTIMESTAMPCHANGE(pub *mut core::ffi::c_void);
-impl Default for HIFTIMESTAMPCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP {

@@ -172,16 +172,11 @@ pub const LIST_MODULES_ALL: i32 = 3;
 pub const LIST_MODULES_DEFAULT: i32 = 0;
 pub type LPMODULEINFO = *mut MODULEINFO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODULEINFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
     pub SizeOfImage: u32,
     pub EntryPoint: *mut core::ffi::c_void,
-}
-impl Default for MODULEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PENUM_PAGE_FILE_CALLBACKA = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCWSTR) -> windows_core::BOOL>;
@@ -334,15 +329,10 @@ impl Default for PSAPI_WORKING_SET_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut core::ffi::c_void,
     pub FaultingVa: *mut core::ffi::c_void,
-}
-impl Default for PSAPI_WS_WATCH_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

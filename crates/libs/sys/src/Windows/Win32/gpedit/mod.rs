@@ -15,7 +15,7 @@ pub const GPHintSite: GROUP_POLICY_HINT_TYPE = 2;
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -28,12 +28,6 @@ pub struct GPOBROWSEINFO {
     pub dwNameSize: u32,
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
-}
-#[cfg(feature = "windef")]
-impl Default for GPOBROWSEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = 2;
 pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = 0;

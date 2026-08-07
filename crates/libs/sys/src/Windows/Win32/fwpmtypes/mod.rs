@@ -34,7 +34,7 @@ pub const FWPM_APPC_NETWORK_CAPABILITY_INTERNET_PRIVATE_NETWORK: FWPM_APPC_NETWO
 pub type FWPM_APPC_NETWORK_CAPABILITY_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_CALLOUT0 {
     pub calloutKey: windows_sys::core::GUID,
     pub displayData: super::FWPM_DISPLAY_DATA0,
@@ -44,12 +44,6 @@ pub struct FWPM_CALLOUT0 {
     pub applicableLayer: windows_sys::core::GUID,
     pub calloutId: u32,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for FWPM_CALLOUT0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_CALLOUT_CHANGE0 {
@@ -58,30 +52,20 @@ pub struct FWPM_CALLOUT_CHANGE0 {
     pub calloutId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
     pub layerKey: windows_sys::core::GUID,
-}
-impl Default for FWPM_CALLOUT_ENUM_TEMPLATE0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_CALLOUT_FLAG_PERSISTENT: i32 = 65536;
 pub const FWPM_CALLOUT_FLAG_REGISTERED: i32 = 262144;
 pub const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: i32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_CALLOUT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_CALLOUT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
-}
-impl Default for FWPM_CALLOUT_SUBSCRIPTION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_CHANGE_ADD: FWPM_CHANGE_TYPE = 1;
 pub const FWPM_CHANGE_DELETE: FWPM_CHANGE_TYPE = 2;
@@ -102,16 +86,10 @@ impl Default for FWPM_CLASSIFY_OPTION0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_CLASSIFY_OPTIONS0 {
     pub numOptions: u32,
     pub options: *mut FWPM_CLASSIFY_OPTION0,
-}
-#[cfg(all(feature = "fwptypes", feature = "winnt"))]
-impl Default for FWPM_CLASSIFY_OPTIONS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_CLASSIFY_OPTIONS_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 7;
 #[repr(C)]
@@ -177,16 +155,11 @@ pub const FWPM_CONNECTION_EVENT_DELETE: FWPM_CONNECTION_EVENT_TYPE = 1;
 pub const FWPM_CONNECTION_EVENT_MAX: FWPM_CONNECTION_EVENT_TYPE = 2;
 pub type FWPM_CONNECTION_EVENT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_CONNECTION_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_CONNECTION_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
-}
-impl Default for FWPM_CONNECTION_SUBSCRIPTION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_ENGINE_COLLECT_NET_EVENTS: FWPM_ENGINE_OPTION = 0;
 pub const FWPM_ENGINE_MONITOR_IPSEC_CONNECTIONS: FWPM_ENGINE_OPTION = 3;
@@ -202,17 +175,11 @@ pub const FWPM_ENGINE_PACKET_QUEUING: FWPM_ENGINE_OPTION = 4;
 pub const FWPM_ENGINE_TXN_WATCHDOG_TIMEOUT_IN_MSEC: FWPM_ENGINE_OPTION = 5;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_FIELD0 {
     pub fieldKey: *mut windows_sys::core::GUID,
     pub r#type: FWPM_FIELD_TYPE,
     pub dataType: super::FWP_DATA_TYPE,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for FWPM_FIELD0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_FIELD_FLAGS: FWPM_FIELD_TYPE = 2;
 pub const FWPM_FIELD_IP_ADDRESS: FWPM_FIELD_TYPE = 1;
@@ -281,7 +248,7 @@ impl Default for FWPM_FILTER_CONDITION0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
     pub layerKey: windows_sys::core::GUID,
@@ -292,12 +259,6 @@ pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub filterCondition: *mut FWPM_FILTER_CONDITION0,
     pub actionMask: u32,
     pub calloutKey: *mut windows_sys::core::GUID,
-}
-#[cfg(all(feature = "fwptypes", feature = "winnt"))]
-impl Default for FWPM_FILTER_ENUM_TEMPLATE0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_FILTER_FLAG_BOOTTIME: i32 = 2;
 pub const FWPM_FILTER_FLAG_CLEAR_ACTION_RIGHT: i32 = 8;
@@ -317,17 +278,11 @@ pub const FWPM_FILTER_FLAG_SILENT_MODE: i32 = 1024;
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_FILTER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
-}
-#[cfg(all(feature = "fwptypes", feature = "winnt"))]
-impl Default for FWPM_FILTER_SUBSCRIPTION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_GENERAL_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 8;
 pub const FWPM_IPSEC_AUTHIP_MM_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 6;
@@ -343,7 +298,7 @@ pub const FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 2;
 pub const FWPM_IPSEC_KEYING_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_LAYER0 {
     pub layerKey: windows_sys::core::GUID,
     pub displayData: super::FWPM_DISPLAY_DATA0,
@@ -352,12 +307,6 @@ pub struct FWPM_LAYER0 {
     pub field: *mut FWPM_FIELD0,
     pub defaultSubLayerKey: windows_sys::core::GUID,
     pub layerId: u16,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for FWPM_LAYER0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -395,16 +344,10 @@ impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     pub numSettings: u32,
     pub settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
-}
-#[cfg(all(feature = "fwptypes", feature = "winnt"))]
-impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "minwindef", feature = "winnt"))]
@@ -692,18 +635,12 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     pub startTime: super::FILETIME,
     pub endTime: super::FILETIME,
     pub numFilterConditions: u32,
     pub filterCondition: *mut FWPM_FILTER_CONDITION0,
-}
-#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
-impl Default for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: i32 = 32;
 pub const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: i32 = 8192;
@@ -1253,17 +1190,11 @@ pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_NET_EVENT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
-}
-#[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
-impl Default for FWPM_NET_EVENT_SUBSCRIPTION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type FWPM_NET_EVENT_TYPE = i32;
 pub const FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW: FWPM_NET_EVENT_TYPE = 8;
@@ -1280,19 +1211,13 @@ pub const FWPM_NET_EVENT_TYPE_LPM_PACKET_ARRIVAL: FWPM_NET_EVENT_TYPE = 10;
 pub const FWPM_NET_EVENT_TYPE_MAX: FWPM_NET_EVENT_TYPE = 11;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_PROVIDER0 {
     pub providerKey: windows_sys::core::GUID,
     pub displayData: super::FWPM_DISPLAY_DATA0,
     pub flags: u32,
     pub providerData: super::FWP_BYTE_BLOB,
     pub serviceName: *mut u16,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for FWPM_PROVIDER0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1476,29 +1401,19 @@ pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
     pub providerContextId: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
     pub providerContextType: FWPM_PROVIDER_CONTEXT_TYPE,
 }
-impl Default for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: i32 = 2;
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
-}
-impl Default for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type FWPM_PROVIDER_CONTEXT_TYPE = i32;
 pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = 14;
@@ -1510,16 +1425,11 @@ pub struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
 pub const FWPM_PROVIDER_FLAG_DISABLED: i32 = 16;
 pub const FWPM_PROVIDER_FLAG_PERSISTENT: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_PROVIDER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
-}
-impl Default for FWPM_PROVIDER_SUBSCRIPTION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_SERVICE_RUNNING: FWPM_SERVICE_STATE = 3;
 pub const FWPM_SERVICE_START_PENDING: FWPM_SERVICE_STATE = 1;
@@ -1529,7 +1439,7 @@ pub const FWPM_SERVICE_STOPPED: FWPM_SERVICE_STATE = 0;
 pub const FWPM_SERVICE_STOP_PENDING: FWPM_SERVICE_STATE = 2;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_SESSION0 {
     pub sessionKey: windows_sys::core::GUID,
     pub displayData: super::FWPM_DISPLAY_DATA0,
@@ -1540,12 +1450,6 @@ pub struct FWPM_SESSION0 {
     pub username: *mut u16,
     pub kernelMode: windows_sys::core::BOOL,
 }
-#[cfg(all(feature = "fwptypes", feature = "winnt"))]
-impl Default for FWPM_SESSION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
@@ -1554,7 +1458,7 @@ pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
 pub const FWPM_SESSION_FLAG_DYNAMIC: i32 = 1;
 pub const FWPM_SESSION_FLAG_RESERVED: i32 = 268435456;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_STATISTICS1 {
     pub numLayerStatistics: u32,
     pub layerStatistics: *mut FWPM_LAYER_STATISTICS1,
@@ -1593,14 +1497,9 @@ pub struct FWPM_STATISTICS1 {
     pub reauthReasonEDPPolicyChanged: u64,
     pub reauthReasonProxyHandleChanged: u64,
 }
-impl Default for FWPM_STATISTICS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_SUBLAYER0 {
     pub subLayerKey: windows_sys::core::GUID,
     pub displayData: super::FWPM_DISPLAY_DATA0,
@@ -1609,12 +1508,6 @@ pub struct FWPM_SUBLAYER0 {
     pub providerData: super::FWP_BYTE_BLOB,
     pub weight: u16,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for FWPM_SUBLAYER0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_SUBLAYER_CHANGE0 {
@@ -1622,52 +1515,32 @@ pub struct FWPM_SUBLAYER_CHANGE0 {
     pub subLayerKey: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
 }
-impl Default for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_SUBLAYER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_SUBLAYER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-impl Default for FWPM_SUBLAYER_SUBSCRIPTION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: i32 = 1;
 pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_SYSTEM_PORTS0 {
     pub numTypes: u32,
     pub types: *mut FWPM_SYSTEM_PORTS_BY_TYPE0,
 }
-impl Default for FWPM_SYSTEM_PORTS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
     pub r#type: FWPM_SYSTEM_PORT_TYPE,
     pub numPorts: u32,
     pub ports: *mut u16,
-}
-impl Default for FWPM_SYSTEM_PORTS_BY_TYPE0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_SYSTEM_PORT_IPHTTPS_IN: FWPM_SYSTEM_PORT_TYPE = 2;
 pub const FWPM_SYSTEM_PORT_IPHTTPS_OUT: FWPM_SYSTEM_PORT_TYPE = 3;
@@ -1699,27 +1572,17 @@ impl Default for FWPM_VSWITCH_EVENT0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_VSWITCH_EVENT0_0_0 {
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut windows_sys::core::PWSTR,
 }
-impl Default for FWPM_VSWITCH_EVENT0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
     pub inRequiredPosition: windows_sys::core::BOOL,
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut windows_sys::core::PWSTR,
-}
-impl Default for FWPM_VSWITCH_EVENT0_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FWPM_VSWITCH_EVENT_DISABLED_FOR_INSPECTION: FWPM_VSWITCH_EVENT_TYPE = 3;
 pub const FWPM_VSWITCH_EVENT_ENABLED_FOR_INSPECTION: FWPM_VSWITCH_EVENT_TYPE = 2;

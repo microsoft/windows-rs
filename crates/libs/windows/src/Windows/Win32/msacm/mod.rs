@@ -751,37 +751,17 @@ pub const FORMATCHOOSE_FORMATTAG_VERIFY: i32 = 0;
 pub const FORMATCHOOSE_FORMAT_VERIFY: i32 = 1;
 pub const FORMATCHOOSE_MESSAGE: i32 = 0;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HACMDRIVER(pub *mut core::ffi::c_void);
-impl Default for HACMDRIVER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HACMDRIVERID(pub *mut core::ffi::c_void);
-impl Default for HACMDRIVERID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HACMOBJ(pub *mut core::ffi::c_void);
-impl Default for HACMOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HACMSTREAM(pub *mut core::ffi::c_void);
-impl Default for HACMSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(all(feature = "mmiscapi", feature = "windef"))]
 pub type LPACMDRIVERDETAILSA = *mut ACMDRIVERDETAILSA;
 #[cfg(all(feature = "mmiscapi", feature = "windef"))]

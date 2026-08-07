@@ -318,7 +318,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_10 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Component: WINBIO_COMPONENT,
     pub ControlCode: u32,
@@ -329,50 +329,26 @@ pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub ReceiveBufferSize: usize,
     pub ReceiveDataSize: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub BspCount: usize,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_13 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub StorageCount: usize,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_14 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -405,17 +381,11 @@ pub struct WINBIO_ASYNC_RESULT_0_17 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub ChangeType: WINBIO_PRESENCE_CHANGE,
     pub PresenceCount: usize,
     pub PresenceArray: *mut WINBIO_PRESENCE,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_18 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -477,17 +447,11 @@ impl Default for WINBIO_ASYNC_RESULT_0_5 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub Sample: PWINBIO_BIR,
     pub SampleSize: usize,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for WINBIO_ASYNC_RESULT_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]

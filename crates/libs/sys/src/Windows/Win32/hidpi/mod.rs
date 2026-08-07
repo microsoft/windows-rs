@@ -224,7 +224,7 @@ pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: super::USAGE,
     pub LinkUsagePage: super::USAGE,
@@ -234,18 +234,11 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub FirstChild: u16,
     pub _bitfield: u32,
     pub UserContext: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "hidusage")]
-impl Default for HIDP_LINK_COLLECTION_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: super::USAGE,
     pub LinkUsagePage: super::USAGE,
@@ -255,13 +248,6 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub FirstChild: u16,
     pub _bitfield: u32,
     pub UserContext: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "hidusage")]
-impl Default for HIDP_LINK_COLLECTION_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HIDP_LINK_COLLECTION_ROOT: u16 = 65535;
 pub const HIDP_LINK_COLLECTION_UNSPECIFIED: u16 = 0;

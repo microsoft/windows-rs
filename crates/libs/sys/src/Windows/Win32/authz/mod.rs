@@ -52,34 +52,22 @@ pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: i32 = 1;
 pub type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHZ_ACCESS_REPLY {
     pub ResultListLength: u32,
     pub GrantedAccessMask: super::PACCESS_MASK,
     pub SaclEvaluationResults: super::PDWORD,
     pub Error: super::PDWORD,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for AUTHZ_ACCESS_REPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: super::ACCESS_MASK,
     pub PrincipalSelfSid: super::PSID,
     pub ObjectTypeList: super::POBJECT_TYPE_LIST,
     pub ObjectTypeListLength: u32,
     pub OptionalArguments: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for AUTHZ_ACCESS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type AUTHZ_AUDIT_EVENT_HANDLE = *mut core::ffi::c_void;
 pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
@@ -93,7 +81,7 @@ pub const AUTHZ_GENERATE_FAILURE_AUDIT: i32 = 2;
 pub const AUTHZ_GENERATE_SUCCESS_AUDIT: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHZ_INIT_INFO {
     pub version: u16,
     pub szResourceManagerName: windows_sys::core::PCWSTR,
@@ -103,26 +91,15 @@ pub struct AUTHZ_INIT_INFO {
     pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
     pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
 }
-#[cfg(feature = "winnt")]
-impl Default for AUTHZ_INIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const AUTHZ_INIT_INFO_VERSION_V1: i32 = 1;
 pub const AUTHZ_NO_ALLOC_STRINGS: i32 = 4;
 pub const AUTHZ_NO_FAILURE_AUDIT: i32 = 2;
 pub const AUTHZ_NO_SUCCESS_AUDIT: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_sys::core::PWSTR,
     pub dwOffset: u32,
-}
-impl Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const AUTHZ_REQUIRE_S4U_LOGON: i32 = 4;
 pub type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut core::ffi::c_void;
@@ -130,7 +107,7 @@ pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: i32 = 2;
 pub const AUTHZ_RM_FLAG_NO_AUDIT: i32 = 1;
 pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub version: u16,
     pub ObjectUuid: windows_sys::core::PWSTR,
@@ -139,11 +116,6 @@ pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub Endpoint: windows_sys::core::PWSTR,
     pub Options: windows_sys::core::PWSTR,
     pub ServerSpn: windows_sys::core::PWSTR,
-}
-impl Default for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: i32 = 1;
 #[repr(C)]
@@ -176,27 +148,17 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: i32 = 1;
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub pName: windows_sys::core::PWSTR,
 }
-impl Default for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
-}
-impl Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 2;

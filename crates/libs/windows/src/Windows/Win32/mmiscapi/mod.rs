@@ -247,13 +247,8 @@ pub const FOURCC_LIST: u32 = 1414744396;
 pub const FOURCC_MEM: u32 = 541934925;
 pub const FOURCC_RIFF: u32 = 1179011410;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HMMIO(pub *mut core::ffi::c_void);
-impl Default for HMMIO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type HPSTR = *mut i8;
 pub type LPCMMCKINFO = *const MMCKINFO;
 #[cfg(feature = "minwindef")]

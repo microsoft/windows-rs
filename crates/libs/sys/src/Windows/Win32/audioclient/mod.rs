@@ -4,7 +4,7 @@ pub type AMBISONICS_NORMALIZATION = i32;
 pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = 1;
 pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AMBISONICS_PARAMS {
     pub u32Size: u32,
     pub u32Version: u32,
@@ -14,11 +14,6 @@ pub struct AMBISONICS_PARAMS {
     pub u32Order: u32,
     pub u32NumChannels: u32,
     pub pu32ChannelMap: *mut u32,
-}
-impl Default for AMBISONICS_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const AMBISONICS_PARAM_VERSION_1: i32 = 1;
 pub type AMBISONICS_TYPE = i32;

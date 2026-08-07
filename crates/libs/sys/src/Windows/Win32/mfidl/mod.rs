@@ -154,7 +154,7 @@ pub const MEDIASINK_RATELESS: i32 = 4;
 pub const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: i32 = 32;
 pub type MFAudioConstriction = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub cbTotalFileSize: u64,
     pub cbPlayableDataSize: u64,
@@ -164,11 +164,6 @@ pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub qwExtraBufferingTimeDuringSeek: u64,
     pub qwPlayDuration: u64,
     pub dRate: f32,
-}
-impl Default for MFBYTESTREAM_BUFFERING_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MFCLOCK_CHARACTERISTICS_FLAGS = i32;
 pub const MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING: MFCLOCK_CHARACTERISTICS_FLAGS = 4;
@@ -285,16 +280,11 @@ pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
     pub CameraModel: MFCameraIntrinsic_CameraModel,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     pub Action: MFPOLICYMANAGER_ACTION,
     pub pbTicket: *mut u8,
     pub cbTicket: u32,
-}
-impl Default for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -323,16 +313,11 @@ pub const MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS: MFMEDIASOURCE_CHARACTERISTIC
 pub const MFMEDIASOURCE_HAS_SLOW_SEEK: MFMEDIASOURCE_CHARACTERISTICS = 8;
 pub const MFMEDIASOURCE_IS_LIVE: MFMEDIASOURCE_CHARACTERISTICS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MFMediaKeyStatus {
     pub pbKeyId: *mut u8,
     pub cbKeyId: u32,
     pub eMediaKeyStatus: MF_MEDIAKEY_STATUS,
-}
-impl Default for MFMediaKeyStatus {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFNETSOURCE_AVGBANDWIDTHBPS_ID: MFNETSOURCE_STATISTICS_IDS = 8;
 pub const MFNETSOURCE_BUFFERINGCOUNT_ID: MFNETSOURCE_STATISTICS_IDS = 21;
@@ -391,7 +376,7 @@ pub const MFNET_PROXYSETTING_MANUAL: MFNET_PROXYSETTINGS = 1;
 pub const MFNET_PROXYSETTING_NONE: MFNET_PROXYSETTINGS = 0;
 pub type MFNetAuthenticationFlags = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MFNetCredentialManagerGetParam {
     pub hrOp: windows_sys::core::HRESULT,
     pub fAllowLoggedOnUser: windows_sys::core::BOOL,
@@ -401,11 +386,6 @@ pub struct MFNetCredentialManagerGetParam {
     pub pszRealm: windows_sys::core::PCWSTR,
     pub pszPackage: windows_sys::core::PCWSTR,
     pub nRetries: i32,
-}
-impl Default for MFNetCredentialManagerGetParam {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MFNetCredentialOptions = i32;
 pub type MFNetCredentialRequirements = i32;
@@ -424,16 +404,11 @@ pub type MFRATE_DIRECTION = i32;
 pub const MFRATE_FORWARD: MFRATE_DIRECTION = 0;
 pub const MFRATE_REVERSE: MFRATE_DIRECTION = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MFRR_COMPONENTS {
     pub dwRRInfoVersion: u32,
     pub dwRRComponents: u32,
     pub pRRComponents: PMFRR_COMPONENT_HASH_INFO,
-}
-impl Default for MFRR_COMPONENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -527,7 +502,7 @@ impl Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "mfobjects")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MFT_REGISTRATION_INFO {
     pub clsid: windows_sys::core::GUID,
     pub guidCategory: windows_sys::core::GUID,
@@ -537,12 +512,6 @@ pub struct MFT_REGISTRATION_INFO {
     pub pInTypes: *mut super::MFT_REGISTER_TYPE_INFO,
     pub cOutTypes: u32,
     pub pOutTypes: *mut super::MFT_REGISTER_TYPE_INFO,
-}
-#[cfg(feature = "mfobjects")]
-impl Default for MFT_REGISTRATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -708,18 +677,12 @@ pub type MF_TRANSCODE_ADJUST_PROFILE_FLAGS = i32;
 pub const MF_TRANSCODE_ADJUST_PROFILE_USE_SOURCE_ATTRIBUTES: MF_TRANSCODE_ADJUST_PROFILE_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "mfobjects")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MF_TRANSCODE_SINK_INFO {
     pub dwVideoStreamID: u32,
     pub pVideoMediaType: *mut core::ffi::c_void,
     pub dwAudioStreamID: u32,
     pub pAudioMediaType: *mut core::ffi::c_void,
-}
-#[cfg(feature = "mfobjects")]
-impl Default for MF_TRANSCODE_SINK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MF_TRANSCODE_TOPOLOGYMODE_FLAGS = i32;
 pub const MF_TRANSCODE_TOPOLOGYMODE_HARDWARE_ALLOWED: MF_TRANSCODE_TOPOLOGYMODE_FLAGS = 1;

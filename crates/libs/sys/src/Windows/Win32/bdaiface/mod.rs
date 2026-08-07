@@ -55,18 +55,12 @@ pub const PBDA_Encoder_Video_MPEG4Part10: i32 = 1;
 pub const SCTE_18: LocationCodeSchemeType = 0;
 #[repr(C)]
 #[cfg(feature = "bdatypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SmartCardApplication {
     pub ApplicationType: super::ApplicationTypeType,
     pub ApplicationVersion: u16,
     pub pbstrApplicationName: windows_sys::core::BSTR,
     pub pbstrApplicationURL: windows_sys::core::BSTR,
-}
-#[cfg(feature = "bdatypes")]
-impl Default for SmartCardApplication {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type SmartCardAssociationType = i32;
 pub type SmartCardStatusType = i32;

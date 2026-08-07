@@ -467,36 +467,22 @@ pub struct ENDCOMPOSITIONNOTIFY {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::HANDLE,
     pub cp: i32,
     pub fProtected: windows_sys::core::BOOL,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for ENDROPFILES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::HANDLE,
     pub cp: i32,
     pub fProtected: windows_sys::core::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for ENDROPFILES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -523,32 +509,18 @@ pub struct ENLINK {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: *mut i8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for ENLOWFIRTF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: *mut i8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for ENLOWFIRTF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ENM_CHANGE: i32 = 1;
 pub const ENM_CLIPFORMAT: i32 = 128;
@@ -672,116 +644,68 @@ pub const ES_SUNKEN: i32 = 16384;
 pub const ES_VERTICAL: i32 = 4194304;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for FINDTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FINDTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCSTR,
     pub chrgText: CHARRANGE,
 }
-#[cfg(target_arch = "x86")]
-impl Default for FINDTEXTEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCSTR,
     pub chrgText: CHARRANGE,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FINDTEXTEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCWSTR,
     pub chrgText: CHARRANGE,
 }
-#[cfg(target_arch = "x86")]
-impl Default for FINDTEXTEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCWSTR,
     pub chrgText: CHARRANGE,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FINDTEXTEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for FINDTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FINDTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FORMATRANGE {
     pub hdc: super::HDC,
     pub hdcTarget: super::HDC,
@@ -789,30 +713,16 @@ pub struct FORMATRANGE {
     pub rcPage: super::RECT,
     pub chrg: CHARRANGE,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for FORMATRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FORMATRANGE {
     pub hdc: super::HDC,
     pub hdcTarget: super::HDC,
     pub rc: super::RECT,
     pub rcPage: super::RECT,
     pub chrg: CHARRANGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for FORMATRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GCMF_GRIPPER: i32 = 1;
 pub const GCMF_MOUSEMENU: i32 = 8192;
@@ -824,72 +734,44 @@ pub const GCM_TOUCHMENU: i32 = 16384;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: u32,
     pub pt: super::POINT,
     pub pvReserved: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for GETCONTEXTMENUEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: u32,
     pub pt: super::POINT,
     pub pvReserved: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for GETCONTEXTMENUEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: u32,
     pub codepage: u32,
     pub lpDefaultChar: windows_sys::core::PCSTR,
     pub lpUsedDefChar: super::LPBOOL,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
-impl Default for GETTEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: u32,
     pub codepage: u32,
     pub lpDefaultChar: windows_sys::core::PCSTR,
     pub lpUsedDefChar: super::LPBOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
-impl Default for GETTEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -926,31 +808,19 @@ pub const GT_SELECTION: i32 = 2;
 pub const GT_USECRLF: i32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
     pub pfnHyphenate: *mut u8,
-}
-#[cfg(target_arch = "x86")]
-impl Default for HYPHENATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
     pub pfnHyphenate: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for HYPHENATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1023,34 +893,20 @@ pub struct MSGFILTER {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub pcpPositions: *mut i32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for OBJECTPOSITIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub pcpPositions: *mut i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for OBJECTPOSITIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OLEOP_DOVERB: i32 = 1;
 #[repr(C)]
@@ -1181,29 +1037,17 @@ pub const PFN_UCLETTER: i32 = 4;
 pub const PFN_UCROMAN: i32 = 6;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PUNCTUATION {
     pub iSize: u32,
     pub szPunctuation: windows_sys::core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for PUNCTUATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PUNCTUATION {
     pub iSize: u32,
     pub szPunctuation: windows_sys::core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PUNCTUATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1242,7 +1086,7 @@ pub const RICHEDIT_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("Ri
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
     pub yHeight: i32,
@@ -1250,18 +1094,11 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub Type: i32,
     pub pwszAlternateText: windows_sys::core::PCWSTR,
     pub pIStream: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "objidlbase")]
-impl Default for RICHEDIT_IMAGE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
     pub yHeight: i32,
@@ -1269,13 +1106,6 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub Type: i32,
     pub pwszAlternateText: windows_sys::core::PCWSTR,
     pub pIStream: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "objidlbase")]
-impl Default for RICHEDIT_IMAGE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RTO_DISABLEHANDLES: i32 = 2;
 pub const RTO_READINGMODE: i32 = 3;
@@ -1419,55 +1249,31 @@ pub struct TABLEROWPARMS {
 pub type TEXTMODE = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for TEXTRANGEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for TEXTRANGEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for TEXTRANGEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for TEXTRANGEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TM_MULTICODEPAGE: TEXTMODE = 32;
 pub const TM_MULTILEVELUNDO: TEXTMODE = 8;

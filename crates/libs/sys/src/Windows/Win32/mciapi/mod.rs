@@ -194,7 +194,7 @@ pub const MCI_ANIM_OPEN_PARENT: i32 = 131072;
 pub type MCI_ANIM_OPEN_PARMS = MCI_ANIM_OPEN_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: MCIDEVICEID,
@@ -204,15 +204,9 @@ pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::HWND,
 }
-#[cfg(feature = "windef")]
-impl Default for MCI_ANIM_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: MCIDEVICEID,
@@ -221,12 +215,6 @@ pub struct MCI_ANIM_OPEN_PARMSW {
     pub lpstrAlias: windows_sys::core::PCWSTR,
     pub dwStyle: u32,
     pub hWndParent: super::HWND,
-}
-#[cfg(feature = "windef")]
-impl Default for MCI_ANIM_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_ANIM_OPEN_WS: i32 = 65536;
 pub const MCI_ANIM_PLAY_FAST: i32 = 262144;
@@ -270,17 +258,11 @@ pub const MCI_ANIM_STEP_REVERSE: i32 = 65536;
 pub const MCI_ANIM_UPDATE_HDC: i32 = 131072;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_UPDATE_PARMS {
     pub dwCallback: usize,
     pub rc: super::RECT,
     pub hDC: super::HDC,
-}
-#[cfg(feature = "windef")]
-impl Default for MCI_ANIM_UPDATE_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_ANIM_WHERE_DESTINATION: i32 = 262144;
 pub const MCI_ANIM_WHERE_SOURCE: i32 = 131072;
@@ -292,33 +274,21 @@ pub const MCI_ANIM_WINDOW_HWND: i32 = 65536;
 pub type MCI_ANIM_WINDOW_PARMS = MCI_ANIM_WINDOW_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: usize,
     pub hWnd: super::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "windef")]
-impl Default for MCI_ANIM_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: usize,
     pub hWnd: super::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCWSTR,
-}
-#[cfg(feature = "windef")]
-impl Default for MCI_ANIM_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_ANIM_WINDOW_STATE: i32 = 262144;
 pub const MCI_ANIM_WINDOW_TEXT: i32 = 524288;
@@ -328,17 +298,11 @@ pub const MCI_BREAK_KEY: i32 = 256;
 pub const MCI_BREAK_OFF: i32 = 1024;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: usize,
     pub nVirtKey: i32,
     pub hwndBreak: super::HWND,
-}
-#[cfg(feature = "windef")]
-impl Default for MCI_BREAK_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_CDA_STATUS_TYPE_TRACK: i32 = 16385;
 pub const MCI_CDA_TRACK_AUDIO: i32 = 1088;
@@ -408,28 +372,18 @@ pub const MCI_INFO_MEDIA_UPC: i32 = 1024;
 pub const MCI_INFO_NAME: i32 = 4096;
 pub type MCI_INFO_PARMS = MCI_INFO_PARMSA;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_INFO_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PSTR,
     pub dwRetSize: u32,
 }
-impl Default for MCI_INFO_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_INFO_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PWSTR,
     pub dwRetSize: u32,
-}
-impl Default for MCI_INFO_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_INFO_PRODUCT: i32 = 256;
 pub const MCI_LAST: i32 = 4095;
@@ -437,26 +391,16 @@ pub const MCI_LOAD: i32 = 2128;
 pub const MCI_LOAD_FILE: i32 = 256;
 pub type MCI_LOAD_PARMS = MCI_LOAD_PARMSA;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_LOAD_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
 }
-impl Default for MCI_LOAD_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_LOAD_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
-}
-impl Default for MCI_LOAD_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_MODE_NOT_READY: i32 = 524;
 pub const MCI_MODE_OPEN: i32 = 530;
@@ -476,7 +420,7 @@ pub const MCI_OPEN_ELEMENT: i32 = 512;
 pub const MCI_OPEN_ELEMENT_ID: i32 = 2048;
 pub type MCI_OPEN_PARMS = MCI_OPEN_PARMSA;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: MCIDEVICEID,
@@ -484,24 +428,14 @@ pub struct MCI_OPEN_PARMSA {
     pub lpstrElementName: windows_sys::core::PCSTR,
     pub lpstrAlias: windows_sys::core::PCSTR,
 }
-impl Default for MCI_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: MCIDEVICEID,
     pub lpstrDeviceType: windows_sys::core::PCWSTR,
     pub lpstrElementName: windows_sys::core::PCWSTR,
     pub lpstrAlias: windows_sys::core::PCWSTR,
-}
-impl Default for MCI_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_OPEN_SHAREABLE: i32 = 256;
 pub const MCI_OPEN_TYPE: i32 = 8192;
@@ -514,38 +448,26 @@ pub const MCI_OVLY_INFO_TEXT: i32 = 65536;
 pub type MCI_OVLY_LOAD_PARMS = MCI_OVLY_LOAD_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_LOAD_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
     pub rc: super::RECT,
 }
-#[cfg(feature = "windef")]
-impl Default for MCI_OVLY_LOAD_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_LOAD_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
     pub rc: super::RECT,
-}
-#[cfg(feature = "windef")]
-impl Default for MCI_OVLY_LOAD_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_OVLY_OPEN_PARENT: i32 = 131072;
 #[cfg(feature = "windef")]
 pub type MCI_OVLY_OPEN_PARMS = MCI_OVLY_OPEN_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: MCIDEVICEID,
@@ -555,15 +477,9 @@ pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::HWND,
 }
-#[cfg(feature = "windef")]
-impl Default for MCI_OVLY_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: MCIDEVICEID,
@@ -572,12 +488,6 @@ pub struct MCI_OVLY_OPEN_PARMSW {
     pub lpstrAlias: windows_sys::core::PCWSTR,
     pub dwStyle: u32,
     pub hWndParent: super::HWND,
-}
-#[cfg(feature = "windef")]
-impl Default for MCI_OVLY_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_OVLY_OPEN_WS: i32 = 65536;
 pub const MCI_OVLY_PUT_DESTINATION: i32 = 262144;
@@ -596,31 +506,19 @@ pub struct MCI_OVLY_RECT_PARMS {
 pub type MCI_OVLY_SAVE_PARMS = MCI_OVLY_SAVE_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
     pub rc: super::RECT,
 }
-#[cfg(feature = "windef")]
-impl Default for MCI_OVLY_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
     pub rc: super::RECT,
-}
-#[cfg(feature = "windef")]
-impl Default for MCI_OVLY_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_OVLY_STATUS_HWND: i32 = 16385;
 pub const MCI_OVLY_STATUS_STRETCH: i32 = 16386;
@@ -636,33 +534,21 @@ pub const MCI_OVLY_WINDOW_HWND: i32 = 65536;
 pub type MCI_OVLY_WINDOW_PARMS = MCI_OVLY_WINDOW_PARMSA;
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: usize,
     pub hWnd: super::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "windef")]
-impl Default for MCI_OVLY_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: usize,
     pub hWnd: super::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCWSTR,
-}
-#[cfg(feature = "windef")]
-impl Default for MCI_OVLY_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_OVLY_WINDOW_STATE: i32 = 262144;
 pub const MCI_OVLY_WINDOW_TEXT: i32 = 524288;
@@ -693,26 +579,16 @@ pub const MCI_SAVE: i32 = 2067;
 pub const MCI_SAVE_FILE: i32 = 256;
 pub type MCI_SAVE_PARMS = MCI_SAVE_PARMSA;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
 }
-impl Default for MCI_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
-}
-impl Default for MCI_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_SEEK: i32 = 2055;
 #[repr(C, packed(1))]
@@ -804,7 +680,7 @@ pub const MCI_SYSINFO_NAME: i32 = 1024;
 pub const MCI_SYSINFO_OPEN: i32 = 512;
 pub type MCI_SYSINFO_PARMS = MCI_SYSINFO_PARMSA;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_SYSINFO_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PSTR,
@@ -812,24 +688,14 @@ pub struct MCI_SYSINFO_PARMSA {
     pub dwNumber: u32,
     pub wDeviceType: u32,
 }
-impl Default for MCI_SYSINFO_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_SYSINFO_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PWSTR,
     pub dwRetSize: u32,
     pub dwNumber: u32,
     pub wDeviceType: u32,
-}
-impl Default for MCI_SYSINFO_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_SYSINFO_QUANTITY: i32 = 256;
 pub const MCI_TO: i32 = 8;
@@ -839,26 +705,16 @@ pub const MCI_UPDATE: i32 = 2132;
 pub const MCI_USER_MESSAGES: i32 = 3072;
 pub type MCI_VD_ESCAPE_PARMS = MCI_VD_ESCAPE_PARMSA;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_VD_ESCAPE_PARMSA {
     pub dwCallback: usize,
     pub lpstrCommand: windows_sys::core::PCSTR,
 }
-impl Default for MCI_VD_ESCAPE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_VD_ESCAPE_PARMSW {
     pub dwCallback: usize,
     pub lpstrCommand: windows_sys::core::PCWSTR,
-}
-impl Default for MCI_VD_ESCAPE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_VD_ESCAPE_STRING: i32 = 256;
 pub const MCI_VD_FORMAT_TRACK: i32 = 16385;
@@ -916,7 +772,7 @@ pub const MCI_WAVE_MAPPER: i32 = 1153;
 pub const MCI_WAVE_OPEN_BUFFER: i32 = 65536;
 pub type MCI_WAVE_OPEN_PARMS = MCI_WAVE_OPEN_PARMSA;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_WAVE_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: MCIDEVICEID,
@@ -925,13 +781,8 @@ pub struct MCI_WAVE_OPEN_PARMSA {
     pub lpstrAlias: windows_sys::core::PCSTR,
     pub dwBufferSeconds: u32,
 }
-impl Default for MCI_WAVE_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_WAVE_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: MCIDEVICEID,
@@ -939,11 +790,6 @@ pub struct MCI_WAVE_OPEN_PARMSW {
     pub lpstrElementName: windows_sys::core::PCWSTR,
     pub lpstrAlias: windows_sys::core::PCWSTR,
     pub dwBufferSeconds: u32,
-}
-impl Default for MCI_WAVE_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCI_WAVE_OUTPUT: i32 = 8388608;
 pub const MCI_WAVE_PCM: i32 = 1152;

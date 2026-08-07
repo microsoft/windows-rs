@@ -278,7 +278,7 @@ pub type CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = u32;
 pub const CF_CALLBACK_FETCH_PLACEHOLDERS_FLAG_NONE: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_INFO {
     pub StructSize: u32,
     pub ConnectionKey: CF_CONNECTION_KEY,
@@ -299,12 +299,6 @@ pub struct CF_CALLBACK_INFO {
     pub CorrelationVector: super::PCORRELATION_VECTOR,
     pub ProcessInfo: *mut CF_PROCESS_INFO,
     pub RequestKey: CF_REQUEST_KEY,
-}
-#[cfg(feature = "winnt")]
-impl Default for CF_CALLBACK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CF_CALLBACK_OPEN_COMPLETION_FLAGS = u32;
 pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_NONE: CF_CALLBACK_OPEN_COMPLETION_FLAGS = 0;
@@ -576,7 +570,7 @@ pub type CF_OPERATION_ACK_RENAME_FLAGS = u32;
 pub const CF_OPERATION_ACK_RENAME_FLAG_NONE: CF_OPERATION_ACK_RENAME_FLAGS = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_INFO {
     pub StructSize: u32,
     pub Type: CF_OPERATION_TYPE,
@@ -585,12 +579,6 @@ pub struct CF_OPERATION_INFO {
     pub CorrelationVector: *const super::CORRELATION_VECTOR,
     pub SyncStatus: *const CF_SYNC_STATUS,
     pub RequestKey: CF_REQUEST_KEY,
-}
-#[cfg(feature = "winnt")]
-impl Default for CF_OPERATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
@@ -626,7 +614,7 @@ impl Default for CF_OPERATION_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: windows_core::NTSTATUS,
@@ -634,27 +622,15 @@ pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(all(feature = "winbase", feature = "winnt"))]
-impl Default for CF_OPERATION_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
     pub Buffer: *mut core::ffi::c_void,
     pub Offset: i64,
     pub Length: i64,
     pub ReturnedLength: i64,
-}
-#[cfg(all(feature = "winbase", feature = "winnt"))]
-impl Default for CF_OPERATION_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
@@ -667,22 +643,16 @@ pub struct CF_OPERATION_PARAMETERS_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *const CF_FS_METADATA,
     pub FileIdentity: *const core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "winbase", feature = "winnt"))]
-impl Default for CF_OPERATION_PARAMETERS_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
     pub CompletionStatus: windows_core::NTSTATUS,
@@ -691,26 +661,14 @@ pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub PlaceholderCount: u32,
     pub EntriesProcessed: u32,
 }
-#[cfg(all(feature = "winbase", feature = "winnt"))]
-impl Default for CF_OPERATION_PARAMETERS_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: windows_core::NTSTATUS,
     pub FileIdentity: *const core::ffi::c_void,
     pub FileIdentityLength: u32,
-}
-#[cfg(all(feature = "winbase", feature = "winnt"))]
-impl Default for CF_OPERATION_PARAMETERS_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
@@ -775,7 +733,7 @@ pub const CF_PLACEHOLDER_CREATE_FLAG_NONE: CF_PLACEHOLDER_CREATE_FLAGS = 0;
 pub const CF_PLACEHOLDER_CREATE_FLAG_SUPERSEDE: CF_PLACEHOLDER_CREATE_FLAGS = 4;
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub RelativeFileName: windows_core::PCWSTR,
     pub FsMetadata: CF_FS_METADATA,
@@ -784,12 +742,6 @@ pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub Flags: CF_PLACEHOLDER_CREATE_FLAGS,
     pub Result: windows_core::HRESULT,
     pub CreateUsn: super::USN,
-}
-#[cfg(all(feature = "winbase", feature = "winnt"))]
-impl Default for CF_PLACEHOLDER_CREATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CF_PLACEHOLDER_INFO_BASIC: CF_PLACEHOLDER_INFO_CLASS = 0;
 pub type CF_PLACEHOLDER_INFO_CLASS = i32;
@@ -913,7 +865,7 @@ pub struct CF_SYNC_POLICIES {
 }
 pub type CF_SYNC_PROVIDER_STATUS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_REGISTRATION {
     pub StructSize: u32,
     pub ProviderName: windows_core::PCWSTR,
@@ -923,11 +875,6 @@ pub struct CF_SYNC_REGISTRATION {
     pub FileIdentity: *const core::ffi::c_void,
     pub FileIdentityLength: u32,
     pub ProviderId: windows_core::GUID,
-}
-impl Default for CF_SYNC_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

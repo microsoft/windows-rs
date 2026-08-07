@@ -63,16 +63,10 @@ windows_link::link!("ntdll.dll" "system" fn RtlUniform(seed : *mut u32) -> u32);
 pub type ANSI_STRING = super::STRING;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLIENT_ID {
     pub UniqueProcess: super::HANDLE,
     pub UniqueThread: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for CLIENT_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CODEINTEGRITY_OPTION_DEBUGMODE_ENABLED: i32 = 128;
 pub const CODEINTEGRITY_OPTION_ENABLED: i32 = 1;
@@ -150,18 +144,12 @@ impl Default for IO_STATUS_BLOCK_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KEY_VALUE_ENTRY {
     pub ValueName: PUNICODE_STRING,
     pub DataLength: u32,
     pub DataOffset: u32,
     pub Type: u32,
-}
-#[cfg(feature = "ntsecapi")]
-impl Default for KEY_VALUE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type KPRIORITY = i32;
 #[repr(C)]
@@ -380,19 +368,13 @@ impl Default for RTL_USER_PROCESS_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_BASICPROCESS_INFORMATION {
     pub NextEntryOffset: u32,
     pub UniqueProcessId: super::HANDLE,
     pub InheritedFromUniqueProcessId: super::HANDLE,
     pub SequenceNumber: u64,
     pub ImageName: super::UNICODE_STRING,
-}
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-impl Default for SYSTEM_BASICPROCESS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -522,16 +504,11 @@ impl Default for SYSTEM_PROCESS_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
     pub RegistryQuotaAllowed: u32,
     pub RegistryQuotaUsed: u32,
     pub Reserved1: *mut core::ffi::c_void,
-}
-impl Default for SYSTEM_REGISTRY_QUOTA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]

@@ -40,7 +40,7 @@ pub const VDS_IA_MAC: VDS_INTERCONNECT_ADDRESS_TYPE = 4;
 pub const VDS_IA_SCSI: VDS_INTERCONNECT_ADDRESS_TYPE = 5;
 pub const VDS_IA_UNKNOWN: VDS_INTERCONNECT_ADDRESS_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_INTERCONNECT {
     pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
     pub m_cbPort: u32,
@@ -48,14 +48,9 @@ pub struct VDS_INTERCONNECT {
     pub m_cbAddress: u32,
     pub m_pbAddress: *mut u8,
 }
-impl Default for VDS_INTERCONNECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type VDS_INTERCONNECT_ADDRESS_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_INFORMATION {
     pub m_version: u32,
     pub m_DeviceType: u8,
@@ -71,36 +66,21 @@ pub struct VDS_LUN_INFORMATION {
     pub m_cInterconnects: u32,
     pub m_rgInterconnects: *mut VDS_INTERCONNECT,
 }
-impl Default for VDS_LUN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type VDS_STORAGE_BUS_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     pub m_version: u32,
     pub m_cIdentifiers: u32,
     pub m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
 }
-impl Default for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER {
     pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
     pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
     pub m_cbIdentifier: u32,
     pub m_rgbIdentifier: *mut u8,
-}
-impl Default for VDS_STORAGE_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type VDS_STORAGE_IDENTIFIER_CODE_SET = i32;
 pub type VDS_STORAGE_IDENTIFIER_TYPE = i32;

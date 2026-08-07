@@ -155,7 +155,7 @@ pub type CLS_RECORD_TYPE = u8;
 #[repr(C, align(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::HANDLE,
@@ -165,17 +165,10 @@ pub struct CLS_SCAN_CONTEXT {
     pub eScanMode: CLFS_SCAN_MODE,
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for CLS_SCAN_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::HANDLE,
@@ -185,23 +178,11 @@ pub struct CLS_SCAN_CONTEXT {
     pub eScanMode: CLFS_SCAN_MODE,
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-impl Default for CLS_SCAN_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut core::ffi::c_void,
     pub ByteLength: u32,
-}
-impl Default for CLS_WRITE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ClfsContextForward: CLFS_CONTEXT_MODE = 3;
 pub const ClfsContextNone: CLFS_CONTEXT_MODE = 0;

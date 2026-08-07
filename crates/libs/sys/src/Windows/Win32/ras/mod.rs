@@ -240,29 +240,17 @@ pub struct RASCTRYINFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASDEVSPECIFICINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for RASDEVSPECIFICINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RASDIALEVENT: windows_sys::core::PCSTR = windows_sys::core::s!("RasDialEvent");
 pub type RASDIALFUNC = Option<unsafe extern "system" fn(param0: u32, param1: tagRASCONNSTATE, param2: u32)>;
@@ -594,38 +582,24 @@ pub const WM_RASDIALEVENT: i32 = 52429;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASADPARAMS {
     pub dwSize: u32,
     pub hwndOwner: super::HWND,
     pub dwFlags: u32,
     pub xDlg: i32,
     pub yDlg: i32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for tagRASADPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASADPARAMS {
     pub dwSize: u32,
     pub hwndOwner: super::HWND,
     pub dwFlags: u32,
     pub xDlg: i32,
     pub yDlg: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for tagRASADPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -897,7 +871,7 @@ impl Default for tagRASDEVINFOW {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASDIALEXTENSIONS {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -907,18 +881,11 @@ pub struct tagRASDIALEXTENSIONS {
     pub RasEapInfo: tagRASEAPINFO,
     pub fSkipPppAuth: windows_sys::core::BOOL,
     pub RasDevSpecificInfo: RASDEVSPECIFICINFO,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
-impl Default for tagRASDIALEXTENSIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASDIALEXTENSIONS {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -928,13 +895,6 @@ pub struct tagRASDIALEXTENSIONS {
     pub RasEapInfo: tagRASEAPINFO,
     pub fSkipPppAuth: windows_sys::core::BOOL,
     pub RasDevSpecificInfo: RASDEVSPECIFICINFO,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-impl Default for tagRASDIALEXTENSIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1026,29 +986,17 @@ impl Default for tagRASDIALPARAMSW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
-}
-#[cfg(target_arch = "x86")]
-impl Default for tagRASEAPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tagRASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for tagRASEAPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

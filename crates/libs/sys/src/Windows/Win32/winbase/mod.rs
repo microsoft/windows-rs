@@ -780,7 +780,7 @@ pub const ABOVE_NORMAL_PRIORITY_CLASS: i32 = 32768;
 pub type ACTCTX = ACTCTXA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTCTXA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -792,15 +792,9 @@ pub struct ACTCTXA {
     pub lpApplicationName: windows_sys::core::PCSTR,
     pub hModule: super::HMODULE,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for ACTCTXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTCTXW {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -812,12 +806,6 @@ pub struct ACTCTXW {
     pub lpApplicationName: windows_sys::core::PCWSTR,
     pub hModule: super::HMODULE,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for ACTCTXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ACTCTX_FLAG_APPLICATION_NAME_VALID: i32 = 32;
 pub const ACTCTX_FLAG_ASSEMBLY_DIRECTORY_VALID: i32 = 4;
 pub const ACTCTX_FLAG_HMODULE_VALID: i32 = 128;
@@ -828,7 +816,7 @@ pub const ACTCTX_FLAG_SET_PROCESS_DEFAULT: i32 = 16;
 pub const ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTCTX_SECTION_KEYED_DATA {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -843,15 +831,9 @@ pub struct ACTCTX_SECTION_KEYED_DATA {
     pub ulFlags: u32,
     pub AssemblyMetadata: ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA,
 }
-#[cfg(feature = "winnt")]
-impl Default for ACTCTX_SECTION_KEYED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -864,14 +846,8 @@ pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
     pub hActCtx: super::HANDLE,
     pub ulAssemblyRosterIndex: u32,
 }
-#[cfg(feature = "winnt")]
-impl Default for ACTCTX_SECTION_KEYED_DATA_2600 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     pub lpInformation: *mut core::ffi::c_void,
     pub lpSectionBase: *mut core::ffi::c_void,
@@ -879,23 +855,12 @@ pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     pub lpSectionGlobalDataBase: *mut core::ffi::c_void,
     pub ulSectionGlobalDataLength: u32,
 }
-impl Default for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
     pub hActCtx: super::HANDLE,
     pub dwFlags: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED: i32 = 1;
 pub const AC_LINE_BACKUP_POWER: i32 = 2;
@@ -1060,19 +1025,13 @@ pub struct COPYFILE2_CREATE_OPLOCK_KEYS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
     pub pfCancel: *mut windows_sys::core::BOOL,
     pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for COPYFILE2_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -1133,7 +1092,7 @@ impl Default for COPYFILE2_MESSAGE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -1144,15 +1103,9 @@ pub struct COPYFILE2_MESSAGE_0_0 {
     pub uliStreamSize: u64,
     pub uliTotalFileSize: u64,
 }
-#[cfg(feature = "winnt")]
-impl Default for COPYFILE2_MESSAGE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
@@ -1165,15 +1118,9 @@ pub struct COPYFILE2_MESSAGE_0_1 {
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
 }
-#[cfg(feature = "winnt")]
-impl Default for COPYFILE2_MESSAGE_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -1182,15 +1129,9 @@ pub struct COPYFILE2_MESSAGE_0_2 {
     pub uliStreamSize: u64,
     pub uliTotalFileSize: u64,
 }
-#[cfg(feature = "winnt")]
-impl Default for COPYFILE2_MESSAGE_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -1200,12 +1141,6 @@ pub struct COPYFILE2_MESSAGE_0_3 {
     pub uliStreamBytesTransferred: u64,
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
-}
-#[cfg(feature = "winnt")]
-impl Default for COPYFILE2_MESSAGE_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -2488,29 +2423,17 @@ pub const STARTF_USESTDHANDLES: i32 = 256;
 pub type STARTUPINFOEX = STARTUPINFOEXA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STARTUPINFOEXA {
     pub StartupInfo: super::STARTUPINFOA,
     pub lpAttributeList: super::LPPROC_THREAD_ATTRIBUTE_LIST,
 }
-#[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-impl Default for STARTUPINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STARTUPINFOEXW {
     pub StartupInfo: super::STARTUPINFOW,
     pub lpAttributeList: super::LPPROC_THREAD_ATTRIBUTE_LIST,
-}
-#[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-impl Default for STARTUPINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STD_ERROR_HANDLE: u32 = 4294967284;
 pub const STD_INPUT_HANDLE: u32 = 4294967286;
@@ -2589,18 +2512,12 @@ pub const TWOSTOPBITS: i32 = 2;
 pub type UMS_SCHEDULER_REASON = super::RTL_UMS_SCHEDULER_REASON;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub UmsVersion: u32,
     pub CompletionList: PUMS_COMPLETION_LIST,
     pub SchedulerProc: PUMS_SCHEDULER_ENTRY_POINT,
     pub SchedulerParam: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for UMS_SCHEDULER_STARTUP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

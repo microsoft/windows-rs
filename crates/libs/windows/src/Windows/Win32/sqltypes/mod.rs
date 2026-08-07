@@ -10,37 +10,17 @@ pub struct DATE_STRUCT {
     pub day: SQLUSMALLINT,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDBC(pub *mut core::ffi::c_void);
-impl Default for HDBC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HENV(pub *mut core::ffi::c_void);
-impl Default for HENV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HSTMT(pub *mut core::ffi::c_void);
-impl Default for HSTMT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PTR(pub *mut core::ffi::c_void);
-impl Default for PTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct RETCODE(pub i16);
@@ -67,13 +47,8 @@ pub struct SQLDATE(pub u8);
 pub struct SQLDECIMAL(pub u8);
 pub type SQLGUID = windows_core::GUID;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLHANDLE(pub *mut core::ffi::c_void);
-impl Default for SQLHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type SQLHDBC = SQLHANDLE;
 pub type SQLHDESC = SQLHANDLE;
 pub type SQLHENV = SQLHANDLE;
@@ -92,13 +67,8 @@ pub struct SQLLEN(pub i64);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLNUMERIC(pub u8);
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLPOINTER(pub *mut core::ffi::c_void);
-impl Default for SQLPOINTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type SQLRETURN = SQLSMALLINT;
 #[cfg(target_arch = "x86")]
 pub type SQLROWCOUNT = SQLUINTEGER;

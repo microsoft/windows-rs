@@ -588,15 +588,10 @@ pub struct DNS_CONNECTION_IFINDEX_ENTRY {
     pub dwIfIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: u32,
-}
-impl Default for DNS_CONNECTION_IFINDEX_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -609,20 +604,15 @@ impl Default for DNS_CONNECTION_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_NAME_LIST {
     pub cNames: u32,
     pub pNames: *mut DNS_CONNECTION_NAME,
 }
-impl Default for DNS_CONNECTION_NAME_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_core::PCWSTR,
     pub pwszAppId: windows_core::PCWSTR,
@@ -632,24 +622,12 @@ pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub ppwszConnections: *mut windows_core::PCWSTR,
     pub dwPolicyEntryFlags: u32,
 }
-#[cfg(feature = "minwindef")]
-impl Default for DNS_CONNECTION_POLICY_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: i32 = 1;
 pub type DNS_CONNECTION_POLICY_TAG = i32;
@@ -690,7 +668,7 @@ impl Default for DNS_CONNECTION_PROXY_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszServer: *mut u16,
     pub pwszUsername: *mut u16,
@@ -699,22 +677,12 @@ pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszExtraInfo: *mut u16,
     pub Port: u16,
 }
-impl Default for DNS_CONNECTION_PROXY_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
     pub pwszScript: *mut u16,
     pub pwszUsername: *mut u16,
     pub pwszPassword: *mut u16,
-}
-impl Default for DNS_CONNECTION_PROXY_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
@@ -746,15 +714,10 @@ pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWI
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = 2;
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: i32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_LIST {
     pub cProxies: u32,
     pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
-}
-impl Default for DNS_CONNECTION_PROXY_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DNS_CONNECTION_PROXY_TYPE = i32;
 pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = 1;
@@ -1297,7 +1260,7 @@ impl Default for DNS_QUERY_RAW_RESULT_0 {
 pub const DNS_QUERY_RAW_RESULTS_VERSION1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DNS_QUERY_REQUEST {
     pub Version: u32,
     pub QueryName: windows_core::PCWSTR,
@@ -1308,15 +1271,9 @@ pub struct DNS_QUERY_REQUEST {
     pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "minwindef")]
-impl Default for DNS_QUERY_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: u32,
     pub QueryName: windows_core::PCWSTR,
@@ -1331,31 +1288,19 @@ pub struct DNS_QUERY_REQUEST3 {
     pub cCustomServers: u32,
     pub pCustomServers: *mut DNS_CUSTOM_SERVER,
 }
-#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
-impl Default for DNS_QUERY_REQUEST3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DNS_QUERY_REQUEST_VERSION1: i32 = 1;
 pub const DNS_QUERY_REQUEST_VERSION2: i32 = 2;
 pub const DNS_QUERY_REQUEST_VERSION3: i32 = 3;
 pub const DNS_QUERY_RESERVED: u32 = 4026531840;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_QUERY_RESULT {
     pub Version: u32,
     pub QueryStatus: DNS_STATUS,
     pub QueryOptions: u64,
     pub pQueryRecords: PDNS_RECORD,
     pub Reserved: *mut core::ffi::c_void,
-}
-#[cfg(feature = "minwindef")]
-impl Default for DNS_QUERY_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DNS_QUERY_RESULTS_VERSION1: i32 = 1;
 pub const DNS_QUERY_RETURN_MESSAGE: i32 = 512;
@@ -1931,17 +1876,12 @@ impl Default for DNS_SERVICE_BROWSE_REQUEST_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SERVICE_CANCEL {
     pub reserved: *mut core::ffi::c_void,
 }
-impl Default for DNS_SERVICE_CANCEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SERVICE_INSTANCE {
     pub pszInstanceName: windows_core::PWSTR,
     pub pszHostName: windows_core::PWSTR,
@@ -1955,15 +1895,10 @@ pub struct DNS_SERVICE_INSTANCE {
     pub values: *mut windows_core::PWSTR,
     pub dwInterfaceIndex: u32,
 }
-impl Default for DNS_SERVICE_INSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type DNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -1973,26 +1908,15 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub hCredentials: super::HANDLE,
     pub unicastEnabled: windows_core::BOOL,
 }
-#[cfg(feature = "winnt")]
-impl Default for DNS_SERVICE_REGISTER_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type DNS_SERVICE_RESOLVE_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
     pub QueryName: windows_core::PWSTR,
     pub pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
     pub pQueryContext: *mut core::ffi::c_void,
-}
-impl Default for DNS_SERVICE_RESOLVE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DNS_SIG_DATA = DNS_SIG_DATAA;
 pub type DNS_SIG_DATAA = DNS_RRSIG_DATAA;
@@ -2043,17 +1967,12 @@ pub struct DNS_SRV_DATAW {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DNS_STATUS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SVCB_DATA {
     pub wSvcPriority: u16,
     pub pszTargetName: windows_core::PSTR,
     pub cSvcParams: u16,
     pub pSvcParams: *mut DNS_SVCB_PARAM,
-}
-impl Default for DNS_SVCB_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2095,15 +2014,10 @@ impl Default for DNS_SVCB_PARAM_ALPN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SVCB_PARAM_ALPN_ID {
     pub cBytes: u8,
     pub pbId: *mut u8,
-}
-impl Default for DNS_SVCB_PARAM_ALPN_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2538,7 +2452,7 @@ impl Default for MDNS_QUERY_HANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: u32,
     pub ulRefCount: u32,
@@ -2550,12 +2464,6 @@ pub struct MDNS_QUERY_REQUEST {
     pub pQueryContext: *mut core::ffi::c_void,
     pub fAnswerReceived: windows_core::BOOL,
     pub ulResendCount: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for MDNS_QUERY_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PDNS_AAAA_DATA = *mut DNS_AAAA_DATA;
 pub type PDNS_ADDR = *mut DNS_ADDR;

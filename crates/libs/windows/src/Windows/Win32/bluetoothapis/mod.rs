@@ -422,7 +422,7 @@ impl Default for BLUETOOTH_RADIO_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "windef"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub dwSize: u32,
     pub cNumOfClasses: u32,
@@ -439,12 +439,6 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub pvParam: *mut core::ffi::c_void,
     pub cNumDevices: u32,
     pub pDevices: PBLUETOOTH_DEVICE_INFO,
-}
-#[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "windef"))]
-impl Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BLUETOOTH_SERVICE_DISABLE: i32 = 0;
 pub const BLUETOOTH_SERVICE_ENABLE: i32 = 1;

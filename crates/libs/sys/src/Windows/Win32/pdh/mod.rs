@@ -172,7 +172,7 @@ pub const MAX_TIME_VALUE: i64 = 9223372036854775807;
 pub const MIN_TIME_VALUE: i64 = 0;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -185,15 +185,9 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub dwDefaultDetailLevel: u32,
     pub szDialogBoxCaption: windows_sys::core::PSTR,
 }
-#[cfg(feature = "windef")]
-impl Default for PDH_BROWSE_DLG_CONFIG_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -206,15 +200,9 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub dwDefaultDetailLevel: u32,
     pub szDialogBoxCaption: windows_sys::core::PSTR,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PDH_BROWSE_DLG_CONFIG_HA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -227,15 +215,9 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub dwDefaultDetailLevel: u32,
     pub szDialogBoxCaption: windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PDH_BROWSE_DLG_CONFIG_HW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -247,12 +229,6 @@ pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub CallBackStatus: PDH_STATUS,
     pub dwDefaultDetailLevel: u32,
     pub szDialogBoxCaption: windows_sys::core::PWSTR,
-}
-#[cfg(feature = "windef")]
-impl Default for PDH_BROWSE_DLG_CONFIG_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -288,7 +264,7 @@ impl Default for PDH_COUNTER_INFO_A_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: windows_sys::core::PSTR,
     pub szObjectName: windows_sys::core::PSTR,
@@ -296,11 +272,6 @@ pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szParentInstance: windows_sys::core::PSTR,
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PSTR,
-}
-impl Default for PDH_COUNTER_INFO_A_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -336,7 +307,7 @@ impl Default for PDH_COUNTER_INFO_W_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: windows_sys::core::PWSTR,
     pub szObjectName: windows_sys::core::PWSTR,
@@ -345,13 +316,8 @@ pub struct PDH_COUNTER_INFO_W_0_0 {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PWSTR,
 }
-impl Default for PDH_COUNTER_INFO_W_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub szMachineName: windows_sys::core::PSTR,
     pub szObjectName: windows_sys::core::PSTR,
@@ -360,13 +326,8 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PSTR,
 }
-impl Default for PDH_COUNTER_PATH_ELEMENTS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szMachineName: windows_sys::core::PWSTR,
     pub szObjectName: windows_sys::core::PWSTR,
@@ -375,38 +336,23 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PWSTR,
 }
-impl Default for PDH_COUNTER_PATH_ELEMENTS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PDH_CVERSION_WIN40: u32 = 1024;
 pub const PDH_CVERSION_WIN50: u32 = 1280;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub szMachineName: windows_sys::core::PSTR,
     pub ObjectGUID: windows_sys::core::GUID,
     pub dwItemId: u32,
     pub szInstanceName: windows_sys::core::PSTR,
 }
-impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
     pub szMachineName: windows_sys::core::PWSTR,
     pub ObjectGUID: windows_sys::core::GUID,
     pub dwItemId: u32,
     pub szInstanceName: windows_sys::core::PWSTR,
-}
-impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PDH_FLAGS_CLOSE_QUERY: u32 = 1;
 pub const PDH_FLAGS_FILE_BROWSER_ONLY: u32 = 1;
@@ -520,7 +466,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -531,15 +477,9 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlLogStartTime: super::FILETIME,
     pub PdlLogEndTime: super::FILETIME,
 }
-#[cfg(feature = "minwindef")]
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -551,12 +491,6 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlBuffersWritten: u32,
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_sys::core::PSTR,
-}
-#[cfg(feature = "minwindef")]
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -593,7 +527,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -604,15 +538,9 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlLogStartTime: super::FILETIME,
     pub PdlLogEndTime: super::FILETIME,
 }
-#[cfg(feature = "minwindef")]
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -624,12 +552,6 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlBuffersWritten: u32,
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_sys::core::PWSTR,
-}
-#[cfg(feature = "minwindef")]
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PDH_LOG_TYPE_BINARY: i32 = 8;
 pub const PDH_LOG_TYPE_CSV: i32 = 1;
@@ -665,29 +587,17 @@ pub struct PDH_RAW_COUNTER {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: windows_sys::core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
-#[cfg(feature = "minwindef")]
-impl Default for PDH_RAW_COUNTER_ITEM_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: windows_sys::core::PWSTR,
     pub RawValue: PDH_RAW_COUNTER,
-}
-#[cfg(feature = "minwindef")]
-impl Default for PDH_RAW_COUNTER_ITEM_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

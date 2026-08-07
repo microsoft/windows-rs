@@ -149,7 +149,7 @@ pub struct CRYPT_XML_ALGORITHM {
     pub Encoded: CRYPT_XML_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_ALGORITHM_INFO {
     pub cbSize: u32,
     pub wszAlgorithmURI: *mut u16,
@@ -162,26 +162,16 @@ pub struct CRYPT_XML_ALGORITHM_INFO {
     pub pvPaddingInfo: *mut core::ffi::c_void,
     pub pvExtraInfo: *mut core::ffi::c_void,
 }
-impl Default for CRYPT_XML_ALGORITHM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID: i32 = 3;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID: i32 = 4;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: i32 = 2;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_BLOB {
     pub dwCharset: CRYPT_XML_CHARSET,
     pub cbData: u32,
     pub pbData: *mut u8,
-}
-impl Default for CRYPT_XML_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_XML_BLOB_MAX: i32 = 2147483640;
 pub type CRYPT_XML_CHARSET = i32;
@@ -204,54 +194,33 @@ pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub fpCryptXmlGetAlgorithmInfo: CryptXmlDllGetAlgorithmInfo,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_DATA_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Default for CRYPT_XML_DATA_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CRYPT_XML_DATA_PROVIDER {
     pub pvCallbackState: *mut core::ffi::c_void,
     pub cbBufferSize: u32,
     pub pfnRead: PFN_CRYPT_XML_DATA_PROVIDER_READ,
     pub pfnClose: PFN_CRYPT_XML_DATA_PROVIDER_CLOSE,
 }
-impl Default for CRYPT_XML_DATA_PROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CRYPT_XML_DIGEST(pub *mut core::ffi::c_void);
-impl Default for CRYPT_XML_DIGEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: i32 = 1;
 pub const CRYPT_XML_DIGEST_VALUE_MAX: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_DOC_CTXT {
     pub cbSize: u32,
     pub hDocCtxt: HCRYPTXML,
     pub pTransformsConfig: *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG,
     pub cSignature: u32,
     pub rgpSignature: *mut PCRYPT_XML_SIGNATURE,
-}
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl Default for CRYPT_XML_DOC_CTXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_XML_E_ALGORITHM: windows_core::HRESULT = windows_core::HRESULT(0x80092104_u32 as _);
 pub const CRYPT_XML_E_BASE: windows_core::HRESULT = windows_core::HRESULT(0x80092100_u32 as _);
@@ -292,7 +261,7 @@ pub struct CRYPT_XML_ISSUER_SERIAL {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEYINFO_PARAM {
     pub wszId: windows_core::PCWSTR,
     pub wszKeyName: windows_core::PCWSTR,
@@ -302,12 +271,6 @@ pub struct CRYPT_XML_KEYINFO_PARAM {
     pub rgCertificate: *mut super::CERT_BLOB,
     pub cCRL: u32,
     pub rgCRL: *mut super::CERT_BLOB,
-}
-#[cfg(feature = "wincrypt")]
-impl Default for CRYPT_XML_KEYINFO_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CRYPT_XML_KEYINFO_SPEC = i32;
 pub const CRYPT_XML_KEYINFO_SPEC_ENCODED: CRYPT_XML_KEYINFO_SPEC = 1;
@@ -339,19 +302,13 @@ pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
 }
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_INFO {
     pub cbSize: u32,
     pub wszId: windows_core::PCWSTR,
     pub cKeyInfo: u32,
     pub rgKeyInfo: *mut CRYPT_XML_KEY_INFO_ITEM,
     pub hVerifyKey: super::BCRYPT_KEY_HANDLE,
-}
-#[cfg(feature = "bcrypt")]
-impl Default for CRYPT_XML_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -426,16 +383,11 @@ pub struct CRYPT_XML_OBJECT {
 }
 pub const CRYPT_XML_OBJECTS_MAX: i32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_PROPERTY {
     pub dwPropId: CRYPT_XML_PROPERTY_ID,
     pub pvValue: *const core::ffi::c_void,
     pub cbValue: u32,
-}
-impl Default for CRYPT_XML_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_XML_PROPERTY_DOC_DECLARATION: CRYPT_XML_PROPERTY_ID = 4;
 pub type CRYPT_XML_PROPERTY_ID = i32;
@@ -445,7 +397,7 @@ pub const CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = 2;
 pub const CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = 5;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_REFERENCE {
     pub cbSize: u32,
     pub hReference: HCRYPTXML,
@@ -457,29 +409,17 @@ pub struct CRYPT_XML_REFERENCE {
     pub cTransform: u32,
     pub rgTransform: *mut CRYPT_XML_ALGORITHM,
 }
-#[cfg(feature = "wincrypt")]
-impl Default for CRYPT_XML_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_REFERENCES {
     pub cReference: u32,
     pub rgpReference: *mut PCRYPT_XML_REFERENCE,
 }
-#[cfg(feature = "wincrypt")]
-impl Default for CRYPT_XML_REFERENCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_XML_REFERENCES_MAX: i32 = 32760;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_SIGNATURE {
     pub cbSize: u32,
     pub hSignature: HCRYPTXML,
@@ -490,17 +430,11 @@ pub struct CRYPT_XML_SIGNATURE {
     pub cObject: u32,
     pub rgpObject: *mut PCRYPT_XML_OBJECT,
 }
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl Default for CRYPT_XML_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_XML_SIGNATURES_MAX: i32 = 16;
 pub const CRYPT_XML_SIGNATURE_VALUE_MAX: i32 = 2048;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_SIGNED_INFO {
     pub cbSize: u32,
     pub wszId: windows_core::PCWSTR,
@@ -509,12 +443,6 @@ pub struct CRYPT_XML_SIGNED_INFO {
     pub cReference: u32,
     pub rgpReference: *mut PCRYPT_XML_REFERENCE,
     pub Encoded: CRYPT_XML_BLOB,
-}
-#[cfg(feature = "wincrypt")]
-impl Default for CRYPT_XML_SIGNED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_XML_SIGN_ADD_KEYVALUE: i32 = 1;
 #[repr(C)]
@@ -538,16 +466,11 @@ pub const CRYPT_XML_STATUS_NO_ERROR: i32 = 0;
 pub const CRYPT_XML_STATUS_OPENED_TO_ENCODE: u32 = 2147483648;
 pub const CRYPT_XML_STATUS_SIGNATURE_VALID: i32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     pub cbSize: u32,
     pub cTransformInfo: u32,
     pub rgpTransformInfo: *mut PCRYPT_XML_TRANSFORM_INFO,
-}
-impl Default for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -564,15 +487,10 @@ pub const CRYPT_XML_TRANSFORM_ON_STREAM: i32 = 1;
 pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: i32 = 4;
 pub const CRYPT_XML_URI_MAX: i32 = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_X509DATA {
     pub cX509Data: u32,
     pub rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,
-}
-impl Default for CRYPT_XML_X509DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -623,13 +541,8 @@ pub type CryptXmlDllSignData = Option<unsafe extern "system" fn(psignaturemethod
 #[cfg(feature = "bcrypt")]
 pub type CryptXmlDllVerifySignature = Option<unsafe extern "system" fn(psignaturemethod: *const CRYPT_XML_ALGORITHM, hkey: super::BCRYPT_KEY_HANDLE, pbinput: *const u8, cbinput: u32, pbsignature: *const u8, cbsignature: u32) -> windows_core::HRESULT>;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCRYPTXML(pub *mut core::ffi::c_void);
-impl Default for HCRYPTXML {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PCRYPT_XML_ALGORITHM = *mut CRYPT_XML_ALGORITHM;
 pub type PCRYPT_XML_ALGORITHM_INFO = *mut CRYPT_XML_ALGORITHM_INFO;
 pub type PCRYPT_XML_BLOB = *mut CRYPT_XML_BLOB;

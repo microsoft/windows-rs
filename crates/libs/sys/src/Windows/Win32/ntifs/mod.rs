@@ -316,7 +316,7 @@ pub const ANSI_DOS_QM: u32 = 62;
 pub const ANSI_DOS_STAR: u32 = 60;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub Size: u16,
     pub InFlags: u16,
@@ -337,12 +337,6 @@ pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub CaseSensitiveFlagsMask: u32,
     pub InCaseSensitiveFlags: u32,
     pub OutCaseSensitiveFlags: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for ATOMIC_CREATE_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ATOMIC_CREATE_ECP_IN_FLAG_BEST_EFFORT: i32 = 256;
 pub const ATOMIC_CREATE_ECP_IN_FLAG_EOF_SPECIFIED: i32 = 4;
@@ -389,18 +383,13 @@ pub const AuditOpenObjectWithTransaction: SE_AUDIT_OPERATION = 4;
 pub const AuditPrivilegeObject: SE_AUDIT_OPERATION = 0;
 pub const AuditPrivilegeService: SE_AUDIT_OPERATION = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BASE_MCB {
     pub MaximumPairCount: u32,
     pub PairCount: u32,
     pub PoolType: u16,
     pub Flags: u16,
     pub Mapping: *mut core::ffi::c_void,
-}
-impl Default for BASE_MCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -446,19 +435,13 @@ pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: i32 = 1;
 pub const CC_AGGRESSIVE_UNMAP_BEHIND: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CC_ASYNC_READ_CONTEXT {
     pub CompletionRoutine: PASYNC_READ_COMPLETION_CALLBACK,
     pub Context: *mut core::ffi::c_void,
     pub Mdl: super::PMDL,
     pub RequestorMode: super::KPROCESSOR_MODE,
     pub NestingLevel: u32,
-}
-#[cfg(all(feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for CC_ASYNC_READ_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -520,16 +503,10 @@ pub const COMPRESSION_FORMAT_MAX: i32 = 8;
 pub const COPY_FILE_CHUNK_DUPLICATE_EXTENTS: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COPY_INFORMATION {
     pub SourceFileObject: super::PFILE_OBJECT,
     pub SourceFileOffset: i64,
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for COPY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -732,16 +709,10 @@ pub const FILE_CLEANUP_UNKNOWN: i32 = 0;
 pub const FILE_CLEANUP_WRONG_DEVICE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_COMPLETION_INFORMATION {
     pub Port: super::HANDLE,
     pub Key: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for FILE_COMPLETION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1251,7 +1222,7 @@ impl Default for FILE_LOCK {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_LOCK_INFO {
     pub StartingByte: i64,
     pub Length: i64,
@@ -1260,12 +1231,6 @@ pub struct FILE_LOCK_INFO {
     pub FileObject: super::PFILE_OBJECT,
     pub ProcessId: *mut core::ffi::c_void,
     pub EndingByte: i64,
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for FILE_LOCK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1278,15 +1243,9 @@ pub struct FILE_MAILSLOT_QUERY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_MAILSLOT_SET_INFORMATION {
     pub ReadTimeout: super::PLARGE_INTEGER,
-}
-#[cfg(feature = "winnt")]
-impl Default for FILE_MAILSLOT_SET_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1380,30 +1339,19 @@ pub const FILE_OPLOCK_BROKEN_TO_NONE: i32 = 8;
 pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
     pub EventHandle: super::HANDLE,
     pub KeyValue: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for FILE_PIPE_ASSIGN_EVENT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_PIPE_BYTE_STREAM_MODE: i32 = 0;
 pub const FILE_PIPE_BYTE_STREAM_TYPE: i32 = 0;
 pub const FILE_PIPE_CLIENT_END: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
     pub ClientSession: *mut core::ffi::c_void,
     pub ClientProcess: *mut core::ffi::c_void,
-}
-impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1419,15 +1367,10 @@ impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
     pub ClientSession: u64,
     pub ClientProcess: *mut core::ffi::c_void,
-}
-impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_PIPE_CLOSING_STATE: i32 = 4;
 pub const FILE_PIPE_COMPLETE_OPERATION: i32 = 1;
@@ -1510,15 +1453,9 @@ pub struct FILE_PIPE_REMOTE_INFORMATION {
 pub const FILE_PIPE_SERVER_END: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE_PIPE_SILO_ARRIVAL_INPUT {
     pub JobHandle: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for FILE_PIPE_SILO_ARRIVAL_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_PIPE_SYMLINK_FLAG_GLOBAL: i32 = 1;
 pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: i32 = 2;
@@ -1865,18 +1802,12 @@ pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: i32 = 2;
 pub const FSRTL_ASYNC_CACHED_READ_TOP_LEVEL_IRP: isize = 7;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSRTL_AUXILIARY_BUFFER {
     pub Buffer: *mut core::ffi::c_void,
     pub Length: u32,
     pub Flags: u32,
     pub Mdl: super::PMDL,
-}
-#[cfg(feature = "usb")]
-impl Default for FSRTL_AUXILIARY_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FSRTL_AUXILIARY_FLAG_DEALLOCATE: i32 = 1;
 pub const FSRTL_CACHE_TOP_LEVEL_IRP: isize = 2;
@@ -1885,7 +1816,7 @@ pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY: i32 = 2;
 pub type FSRTL_CHANGE_BACKING_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSRTL_COMMON_FCB_HEADER {
     pub NodeTypeCode: super::CSHORT,
     pub NodeByteSize: super::CSHORT,
@@ -1898,12 +1829,6 @@ pub struct FSRTL_COMMON_FCB_HEADER {
     pub AllocationSize: i64,
     pub FileSize: i64,
     pub ValidDataLength: i64,
-}
-#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
-impl Default for FSRTL_COMMON_FCB_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type FSRTL_COMPARISON_RESULT = i32;
 pub const FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE: i32 = 1;
@@ -1955,47 +1880,29 @@ pub const FSRTL_NTFS_STREAM_LEGAL: i32 = 20;
 pub const FSRTL_OLE_LEGAL: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSRTL_PER_FILEOBJECT_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
 }
-#[cfg(feature = "winnt")]
-impl Default for FSRTL_PER_FILEOBJECT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSRTL_PER_FILE_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
     pub FreeCallback: super::PFREE_FUNCTION,
 }
-#[cfg(all(feature = "wdm", feature = "winnt"))]
-impl Default for FSRTL_PER_FILE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FSRTL_PER_STREAM_CONTEXT {
     pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
     pub FreeCallback: super::PFREE_FUNCTION,
-}
-#[cfg(all(feature = "wdm", feature = "winnt"))]
-impl Default for FSRTL_PER_STREAM_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type FSRTL_UNC_HARDENING_CAPABILITIES = u32;
 pub const FSRTL_UNC_HARDENING_CAPABILITIES_INTEGRITY: i32 = 2;
@@ -2131,32 +2038,20 @@ impl Default for FS_FILTER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FS_FILTER_PARAMETERS_0 {
     pub EndingOffset: super::PLARGE_INTEGER,
     pub ResourceToRelease: *mut super::PERESOURCE,
 }
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for FS_FILTER_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FS_FILTER_PARAMETERS_1 {
     pub ResourceToRelease: super::PERESOURCE,
 }
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for FS_FILTER_PARAMETERS_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FS_FILTER_PARAMETERS_2 {
     pub SyncType: FS_FILTER_SECTION_SYNC_TYPE,
     pub PageProtection: u32,
@@ -2164,15 +2059,9 @@ pub struct FS_FILTER_PARAMETERS_2 {
     pub Flags: u32,
     pub AllocationAttributes: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for FS_FILTER_PARAMETERS_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FS_FILTER_PARAMETERS_3 {
     pub Irp: super::PIRP,
     pub FileInformation: *mut core::ffi::c_void,
@@ -2180,27 +2069,15 @@ pub struct FS_FILTER_PARAMETERS_3 {
     pub FileInformationClass: super::FILE_INFORMATION_CLASS,
     pub CompletionStatus: windows_sys::core::NTSTATUS,
 }
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for FS_FILTER_PARAMETERS_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
     pub Argument3: *mut core::ffi::c_void,
     pub Argument4: *mut core::ffi::c_void,
     pub Argument5: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt"))]
-impl Default for FS_FILTER_PARAMETERS_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FS_FILTER_QUERY_OPEN: u8 = 249;
 pub const FS_FILTER_RELEASE_FOR_CC_FLUSH: u8 = 250;
@@ -2314,31 +2191,19 @@ pub const IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES: i32 = 5488640;
 pub const IO_CREATE_STREAM_FILE_LITE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IO_CREATE_STREAM_FILE_OPTIONS {
     pub Size: u16,
     pub Flags: u16,
     pub TargetDeviceObject: super::PDEVICE_OBJECT,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for IO_CREATE_STREAM_FILE_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IO_DEVICE_HINT_ECP_CONTEXT {
     pub TargetDevice: super::PDEVICE_OBJECT,
     pub RemainingName: super::UNICODE_STRING,
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for IO_DEVICE_HINT_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IO_FILE_OBJECT_NON_PAGED_POOL_CHARGE: i32 = 64;
 pub const IO_FILE_OBJECT_PAGED_POOL_CHARGE: i32 = 1024;
@@ -2558,16 +2423,10 @@ pub const KnownFolderPictures: FILE_KNOWN_FOLDER_TYPE = 5;
 pub const KnownFolderVideos: FILE_KNOWN_FOLDER_TYPE = 6;
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LARGE_MCB {
     pub GuardedMutex: super::PKGUARDED_MUTEX,
     pub BaseMcb: BASE_MCB,
-}
-#[cfg(all(feature = "wdm", feature = "winnt"))]
-impl Default for LARGE_MCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type LBN = u32;
 pub const LCN_CHECKSUM_VALID: LCN_WEAK_REFERENCE_STATE = 4;
@@ -2660,15 +2519,10 @@ pub struct MCB {
 pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: i32 = 1;
 pub type MEMORY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
-}
-impl Default for MEMORY_RANGE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MMFLUSH_TYPE = i32;
 pub const MM_FORCE_CLOSED_DATA: i32 = 1;
@@ -2702,18 +2556,12 @@ pub struct MSV1_0_ENUMUSERS_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSV1_0_ENUMUSERS_RESPONSE {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub NumberOfLoggedOnUsers: u32,
     pub LogonIds: super::PLUID,
     pub EnumHandles: super::PULONG,
-}
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for MSV1_0_ENUMUSERS_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
@@ -2777,7 +2625,7 @@ pub struct MSV1_0_GETUSERINFO_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub UserSid: super::PSID,
@@ -2785,12 +2633,6 @@ pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub LogonDomainName: super::UNICODE_STRING,
     pub LogonServer: super::UNICODE_STRING,
     pub LogonType: super::SECURITY_LOGON_TYPE,
-}
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-impl Default for MSV1_0_GETUSERINFO_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
@@ -2813,17 +2655,11 @@ impl Default for MSV1_0_LM20_CHALLENGE_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MUP_PROVIDER_INFORMATION {
     pub Level: u32,
     pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: super::PULONG,
-}
-#[cfg(feature = "minwindef")]
-impl Default for MUP_PROVIDER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MemoryBasicInformation: MEMORY_INFORMATION_CLASS = 0;
 pub const MemoryType64KPage: RTL_MEMORY_TYPE = 2;
@@ -2915,16 +2751,10 @@ pub type NETWORK_OPEN_LOCATION_QUALIFIER = i32;
 pub type NETWORK_OPEN_OUT_FLAGS = u32;
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NFS_OPEN_ECP_CONTEXT {
     pub ExportAlias: super::PUNICODE_STRING,
     pub ClientSocketAddress: PSOCKADDR_STORAGE_NFS,
-}
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
-impl Default for NFS_OPEN_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NO_8DOT3_NAME_PRESENT: i32 = 1;
 pub const NetworkOpenIntegrityAny: NETWORK_OPEN_INTEGRITY_QUALIFIER = 0;
@@ -2992,18 +2822,12 @@ pub const OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OPLOCK_NOTIFY_REASON = 0;
 pub const OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OPLOCK_NOTIFY_REASON = 1;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPLOCK_NOTIFY_PARAMS {
     pub NotifyReason: OPLOCK_NOTIFY_REASON,
     pub NotifyContext: *mut core::ffi::c_void,
     pub Irp: super::PIRP,
     pub Status: windows_sys::core::NTSTATUS,
-}
-#[cfg(feature = "usb")]
-impl Default for OPLOCK_NOTIFY_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type OPLOCK_NOTIFY_REASON = i32;
 pub const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: i32 = 65536;
@@ -3355,44 +3179,27 @@ pub type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PREAD_LIST = *mut READ_LIST;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PREFETCH_OPEN_ECP_CONTEXT {
     pub Context: *mut core::ffi::c_void,
 }
-impl Default for PREFETCH_OPEN_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PREFIX_TABLE {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: PPREFIX_TABLE_ENTRY,
 }
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl Default for PREFIX_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: *mut Self,
     pub Links: super::RTL_SPLAY_LINKS,
     pub Prefix: super::PSTRING,
-}
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl Default for PREFIX_TABLE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PREFS_COMPRESSION_FORMATS = *mut REFS_COMPRESSION_FORMATS;
 pub type PREFS_DEALLOCATE_RANGES_ALLOCATOR = *mut REFS_DEALLOCATE_RANGES_ALLOCATOR;
@@ -3502,20 +3309,14 @@ pub struct QUERY_DIRECT_ACCESS_EXTENTS {
 pub const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_ON_CREATE_EA_INFORMATION {
     pub EaBufferSize: u32,
     pub EaBuffer: super::PFILE_FULL_EA_INFORMATION,
 }
-#[cfg(feature = "wdm")]
-impl Default for QUERY_ON_CREATE_EA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub RequestedClasses: u32,
     pub ClassesProcessed: u32,
@@ -3530,12 +3331,6 @@ pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub UsnInformation: QUERY_ON_CREATE_USN_INFORMATION,
     pub SecurityInformationRequested: super::SECURITY_INFORMATION,
     pub SecurityInformation: QUERY_ON_CREATE_SECURITY_INFORMATION,
-}
-#[cfg(all(feature = "wdm", feature = "winnt"))]
-impl Default for QUERY_ON_CREATE_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const QUERY_ON_CREATE_ECP_CONTEXT_COMMON_BUFFER_END: u32 = 136;
@@ -3583,17 +3378,11 @@ pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_ON_CREATE_SECURITY_INFORMATION {
     pub Reserved: u32,
     pub SecurityDescriptorSize: u32,
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
-}
-#[cfg(feature = "winnt")]
-impl Default for QUERY_ON_CREATE_SECURITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -3618,7 +3407,7 @@ impl Default for QUERY_PATH_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_PATH_REQUEST_EX {
     pub pSecurityContext: super::PIO_SECURITY_CONTEXT,
     pub EaLength: u32,
@@ -3628,12 +3417,6 @@ pub struct QUERY_PATH_REQUEST_EX {
     pub EcpList: PECP_LIST,
     pub Silo: super::PESILO,
     pub Reserved: usize,
-}
-#[cfg(all(feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
-impl Default for QUERY_PATH_REQUEST_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -4301,23 +4084,17 @@ impl Default for RTL_SEGMENT_HEAP_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
     pub CallbackContext: super::HANDLE,
     pub AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,
     pub FreeVirtualMemory: PFREE_VIRTUAL_MEMORY_EX_CALLBACK,
     pub QueryVirtualMemory: PQUERY_VIRTUAL_MEMORY_CALLBACK,
 }
-#[cfg(feature = "winnt")]
-impl Default for RTL_SEGMENT_HEAP_VA_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: windows_sys::core::PCWSTR = windows_sys::core::w!("System Volume Information");
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SECURITY_CLIENT_CONTEXT {
     pub SecurityQos: super::SECURITY_QUALITY_OF_SERVICE,
     pub ClientToken: super::PACCESS_TOKEN,
@@ -4325,12 +4102,6 @@ pub struct SECURITY_CLIENT_CONTEXT {
     pub DirectAccessEffectiveOnly: bool,
     pub ServerIsRemote: bool,
     pub ClientTokenControl: super::TOKEN_CONTROL,
-}
-#[cfg(feature = "winnt")]
-impl Default for SECURITY_CLIENT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECURITY_DESCRIPTOR_DO_NOT_FREE: i32 = 67108864;
 pub const SEGMENT_HEAP_FLG_NO_LFH: i32 = 2;
@@ -4344,7 +4115,7 @@ pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SE_AUDIT_INFO {
     pub Size: u32,
     pub AuditType: super::AUDIT_EVENT_TYPE,
@@ -4359,18 +4130,12 @@ pub struct SE_AUDIT_INFO {
     pub ObjectCreation: bool,
     pub GenerateOnClose: bool,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-impl Default for SE_AUDIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type SE_AUDIT_OPERATION = i32;
 pub const SE_BACKUP_PRIVILEGES_CHECKED: i32 = 256;
 pub const SE_DACL_UNTRUSTED: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SE_EXPORTS {
     pub SeCreateTokenPrivilege: super::LUID,
     pub SeAssignPrimaryTokenPrivilege: super::LUID,
@@ -4449,12 +4214,6 @@ pub struct SE_EXPORTS {
     pub SeAppSiloAccessToPublisherDirectoryCapabilitySid: super::PSID,
 }
 #[cfg(feature = "winnt")]
-impl Default for SE_EXPORTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: *const super::LUID) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: *const super::LUID, pserversilo: *const super::_EJOB, context: *const core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
@@ -4477,7 +4236,7 @@ pub const SPECIAL_ENCRYPTED_OPEN: i32 = 262144;
 pub type SRV_INSTANCE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SRV_OPEN_ECP_CONTEXT {
     pub ShareName: super::PUNICODE_STRING,
     pub SocketAddress: PSOCKADDR_STORAGE_NFS,
@@ -4486,12 +4245,6 @@ pub struct SRV_OPEN_ECP_CONTEXT {
     pub OplockFinalState: bool,
     pub Version: u16,
     pub InstanceType: SRV_INSTANCE_TYPE,
-}
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
-impl Default for SRV_OPEN_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SRV_OPEN_ECP_CONTEXT_VERSION_2: i32 = 2;
 pub const SUPPORTED_FS_FEATURES_BYPASS_IO: i32 = 8;
@@ -4563,22 +4316,16 @@ impl Default for TUNNEL {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UNICODE_PREFIX_TABLE {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: PUNICODE_PREFIX_TABLE_ENTRY,
     pub LastNextEntry: PUNICODE_PREFIX_TABLE_ENTRY,
 }
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
-impl Default for UNICODE_PREFIX_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
@@ -4586,12 +4333,6 @@ pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub CaseMatch: *mut Self,
     pub Links: super::RTL_SPLAY_LINKS,
     pub Prefix: super::PUNICODE_STRING,
-}
-#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winternl"))]
-impl Default for UNICODE_PREFIX_TABLE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UNINITIALIZE_CACHE_MAPS: i32 = 1;
 pub const USE_PRIMARY_PASSWORD: i32 = 1;

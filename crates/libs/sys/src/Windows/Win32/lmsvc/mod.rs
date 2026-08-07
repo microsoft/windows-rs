@@ -33,30 +33,20 @@ pub const SERVICE_CTRL_REDIR_PRINT: i32 = 2;
 pub const SERVICE_CTRL_UNINSTALL: i32 = 3;
 pub const SERVICE_DOS_ENCRYPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("ENCRYPT");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_INFO_0 {
     pub svci0_name: windows_sys::core::PWSTR,
 }
-impl Default for SERVICE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_INFO_1 {
     pub svci1_name: windows_sys::core::PWSTR,
     pub svci1_status: u32,
     pub svci1_code: u32,
     pub svci1_pid: u32,
 }
-impl Default for SERVICE_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_INFO_2 {
     pub svci2_name: windows_sys::core::PWSTR,
     pub svci2_status: u32,
@@ -65,11 +55,6 @@ pub struct SERVICE_INFO_2 {
     pub svci2_text: windows_sys::core::PWSTR,
     pub svci2_specific_error: u32,
     pub svci2_display_name: windows_sys::core::PWSTR,
-}
-impl Default for SERVICE_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_INSTALLED: i32 = 3;
 pub const SERVICE_INSTALL_PENDING: i32 = 1;

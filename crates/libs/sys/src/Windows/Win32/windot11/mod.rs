@@ -22,18 +22,12 @@ pub struct DOT11_AKM_CIPHER_PAIR {
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub Status: DOT11_ANQP_QUERY_RESULT,
     pub hContext: super::HANDLE,
     pub uResponseLength: u32,
-}
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
-impl Default for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_ANQP_QUERY_RESULT = i32;
@@ -690,7 +684,7 @@ pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: i32 = 2;
 pub const DOT11_EXEMPT_UNICAST: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -707,12 +701,6 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub uInfraNumSupportedMcastAlgoPairs: u32,
     pub pInfraSupportedMcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
-impl Default for DOT11_EXTAP_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: i32 = 1;
 #[cfg(feature = "objectheader")]
 pub type DOT11_EXTAP_RECV_CONTEXT = DOT11_EXTSTA_RECV_CONTEXT;
@@ -722,7 +710,7 @@ pub type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
 pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -759,12 +747,6 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub bANQPQueryOffloadSupported: bool,
     pub bHESSIDConnectionSupported: bool,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
-impl Default for DOT11_EXTSTA_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_1: i32 = 1;
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_2: i32 = 2;
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_3: i32 = 3;
@@ -791,7 +773,7 @@ pub struct DOT11_EXTSTA_CAPABILITY {
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub uReceiveFlags: u32,
@@ -804,16 +786,10 @@ pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub pvMediaSpecificInfo: *mut core::ffi::c_void,
     pub ullTimestamp: u64,
 }
-#[cfg(feature = "objectheader")]
-impl Default for DOT11_EXTSTA_RECV_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub usExemptionActionType: u16,
@@ -821,12 +797,6 @@ pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub uDelayedSleepValue: u32,
     pub pvMediaSpecificInfo: *mut core::ffi::c_void,
     pub uSendFlags: u32,
-}
-#[cfg(feature = "objectheader")]
-impl Default for DOT11_EXTSTA_SEND_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: i32 = 1;
 pub const DOT11_FLAGS_80211B_CHANNEL_AGILITY: i32 = 4;
@@ -1252,18 +1222,12 @@ pub struct DOT11_MAC_PARAMETERS {
 pub const DOT11_MAC_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
     pub uStatus: u32,
     pub pvContext: *mut core::ffi::c_void,
-}
-#[cfg(feature = "objectheader")]
-impl Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: i32 = 1;
 pub type DOT11_MANUFACTURING_CALLBACK_TYPE = i32;
@@ -1368,15 +1332,10 @@ impl Default for DOT11_MANUFACTURING_TEST_SET_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOT11_MANUFACTURING_TEST_SLEEP {
     pub uSleepTime: u32,
     pub pvContext: *mut core::ffi::c_void,
-}
-impl Default for DOT11_MANUFACTURING_TEST_SLEEP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DOT11_MANUFACTURING_TEST_TYPE = i32;
 pub const DOT11_MAX_CHANNEL_HINTS: i32 = 4;
@@ -3182,18 +3141,12 @@ impl Default for DOT11_WME_UPDATE_IE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOT11_WPA_TSC {
     pub uReserved: u32,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
     pub hOffload: super::HANDLE,
     pub dot11IV48Counter: DOT11_IV48_COUNTER,
-}
-#[cfg(feature = "winnt")]
-impl Default for DOT11_WPA_TSC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DOT11_WPS_CONFIG_METHOD = i32;
 pub const DOT11_WPS_CONFIG_METHOD_DISPLAY: DOT11_WPS_CONFIG_METHOD = 8;

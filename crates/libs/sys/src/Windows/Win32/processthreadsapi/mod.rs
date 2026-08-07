@@ -170,18 +170,12 @@ windows_link::link!("kernel32.dll" "system" fn TlsSetValue(dwtlsindex : u32, lpt
 windows_link::link!("kernel32.dll" "system" fn UpdateProcThreadAttribute(lpattributelist : *mut _PROC_THREAD_ATTRIBUTE_LIST, dwflags : u32, attribute : usize, lpvalue : *const core::ffi::c_void, cbsize : usize, lppreviousvalue : *mut core::ffi::c_void, lpreturnsize : *const usize) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APC_CALLBACK_DATA {
     pub Parameter: usize,
     pub ContextRecord: super::PCONTEXT,
     pub Reserved0: usize,
     pub Reserved1: usize,
-}
-#[cfg(feature = "winnt")]
-impl Default for APC_CALLBACK_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -227,18 +221,12 @@ pub type PPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
 pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROCESS_INFORMATION {
     pub hProcess: super::HANDLE,
     pub hThread: super::HANDLE,
     pub dwProcessId: u32,
     pub dwThreadId: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for PROCESS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PROCESS_INFORMATION_CLASS = i32;
 #[repr(C)]
@@ -303,7 +291,7 @@ pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1;
 pub type STARTUPINFO = STARTUPINFOA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STARTUPINFOA {
     pub cb: u32,
     pub lpReserved: windows_sys::core::PSTR,
@@ -324,15 +312,9 @@ pub struct STARTUPINFOA {
     pub hStdOutput: super::HANDLE,
     pub hStdError: super::HANDLE,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for STARTUPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STARTUPINFOW {
     pub cb: u32,
     pub lpReserved: windows_sys::core::PWSTR,
@@ -352,12 +334,6 @@ pub struct STARTUPINFOW {
     pub hStdInput: super::HANDLE,
     pub hStdOutput: super::HANDLE,
     pub hStdError: super::HANDLE,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for STARTUPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type THREAD_INFORMATION_CLASS = i32;
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: i32 = 1;

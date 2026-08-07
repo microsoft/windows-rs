@@ -612,7 +612,7 @@ pub struct DNS_INTERFACE_SETTINGS {
     pub ProfileNameServer: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS3 {
     pub Version: u32,
     pub Flags: u64,
@@ -631,13 +631,8 @@ pub struct DNS_INTERFACE_SETTINGS3 {
     pub cProfileServerProperties: u32,
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
 }
-impl Default for DNS_INTERFACE_SETTINGS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS4 {
     pub Version: u32,
     pub Flags: u64,
@@ -656,11 +651,6 @@ pub struct DNS_INTERFACE_SETTINGS4 {
     pub cProfileServerProperties: u32,
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
     pub EncryptedDnsAdapterFlags: u32,
-}
-impl Default for DNS_INTERFACE_SETTINGS4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

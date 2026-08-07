@@ -49,7 +49,7 @@ pub const DXVA2_DECODE_GET_DRIVER_HANDLE: i32 = 1829;
 pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: i32 = 1828;
 pub const DXVA2_DeblockingControlBufferType: i32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DXVA2_DecodeBufferDesc {
     pub CompressedBufferType: u32,
     pub BufferIndex: u32,
@@ -63,36 +63,21 @@ pub struct DXVA2_DecodeBufferDesc {
     pub ReservedBits: u32,
     pub pvPVPState: *mut core::ffi::c_void,
 }
-impl Default for DXVA2_DecodeBufferDesc {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DXVA2_DecodeExecuteParams {
     pub NumCompBuffers: u32,
     pub pCompressedBuffers: *mut DXVA2_DecodeBufferDesc,
     pub pExtensionData: *mut DXVA2_DecodeExtensionData,
 }
-impl Default for DXVA2_DecodeExecuteParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DXVA2_DecodeExtensionData {
     pub Function: u32,
     pub pPrivateInputData: *mut core::ffi::c_void,
     pub PrivateInputDataSize: u32,
     pub pPrivateOutputData: *mut core::ffi::c_void,
     pub PrivateOutputDataSize: u32,
-}
-impl Default for DXVA2_DecodeExtensionData {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVA2_DeinterlaceTech_BOBLineReplicate: i32 = 1;
 pub const DXVA2_DeinterlaceTech_BOBVerticalStretch: i32 = 2;

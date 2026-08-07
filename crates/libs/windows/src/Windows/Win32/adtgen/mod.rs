@@ -23,13 +23,8 @@ pub const AP_ParamTypeMask: i32 = 255;
 pub const AP_PrimaryLogonId: i32 = 256;
 pub const AP_SidAsLogonId: i32 = 256;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AUDIT_HANDLE(pub *mut core::ffi::c_void);
-impl Default for AUDIT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_IP_ADDRESS {
@@ -51,17 +46,11 @@ pub struct AUDIT_OBJECT_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_OBJECT_TYPES {
     pub Count: u16,
     pub Flags: u16,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
-}
-#[cfg(feature = "winnt")]
-impl Default for AUDIT_OBJECT_TYPES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -113,18 +102,12 @@ impl Default for AUDIT_PARAM_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_PARAMS {
     pub Length: u32,
     pub Flags: u32,
     pub Count: u16,
     pub Parameters: *mut AUDIT_PARAM,
-}
-#[cfg(feature = "winnt")]
-impl Default for AUDIT_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type AUDIT_PARAM_TYPE = i32;
 pub const AUDIT_TYPE_LEGACY: i32 = 1;
@@ -168,13 +151,8 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
 pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: i32 = 2;
 pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: i32 = 2;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PAUDIT_HANDLE(pub *mut *mut core::ffi::c_void);
-impl Default for PAUDIT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PAUDIT_IP_ADDRESS = *mut AUDIT_IP_ADDRESS;
 #[cfg(feature = "winnt")]
 pub type PAUDIT_OBJECT_TYPE = *mut AUDIT_OBJECT_TYPE;

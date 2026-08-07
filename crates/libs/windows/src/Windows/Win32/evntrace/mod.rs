@@ -363,17 +363,11 @@ pub const ETW_BOOLEAN_TYPE_VALUE: i32 = 14;
 pub const ETW_BOOL_TYPE_VALUE: i32 = 108;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_BUFFER_CALLBACK_INFORMATION {
     pub TraceHandle: PROCESSTRACE_HANDLE,
     pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
     pub BuffersRead: u32,
-}
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-impl Default for ETW_BUFFER_CALLBACK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -438,19 +432,13 @@ pub const ETW_NULL_TYPE_VALUE: i32 = 0;
 pub const ETW_OBJECT_TYPE_VALUE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
     pub EventCallback: PEVENT_RECORD_CALLBACK,
     pub EventCallbackContext: *mut core::ffi::c_void,
     pub BufferCallback: PETW_BUFFER_CALLBACK,
     pub BufferCallbackContext: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-impl Default for ETW_OPEN_TRACE_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

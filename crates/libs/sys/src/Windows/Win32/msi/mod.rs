@@ -321,30 +321,20 @@ pub const MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE: MSIOPENPACKAGEFLAGS = 1;
 pub type MSIPATCHDATATYPE = i32;
 pub type MSIPATCHSEQUENCEINFO = MSIPATCHSEQUENCEINFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSIPATCHSEQUENCEINFOA {
     pub szPatchData: windows_sys::core::PCSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
     pub dwOrder: u32,
     pub uStatus: u32,
 }
-impl Default for MSIPATCHSEQUENCEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSIPATCHSEQUENCEINFOW {
     pub szPatchData: windows_sys::core::PCWSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
     pub dwOrder: u32,
     pub uStatus: u32,
-}
-impl Default for MSIPATCHSEQUENCEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MSIPATCHSTATE = i32;
 pub const MSIPATCHSTATE_ALL: MSIPATCHSTATE = 15;

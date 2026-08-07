@@ -1848,19 +1848,13 @@ impl Default for WHV_VPCI_INTERRUPT_TARGET {
 pub type WHV_VPCI_INTERRUPT_TARGET_FLAGS = u32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_VPCI_MMIO_MAPPING {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub Flags: WHV_VPCI_MMIO_RANGE_FLAGS,
     pub SizeInBytes: u64,
     pub OffsetInBytes: u64,
     pub VirtualAddress: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WHV_VPCI_MMIO_MAPPING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_VPCI_MMIO_RANGE_FLAGS = u32;

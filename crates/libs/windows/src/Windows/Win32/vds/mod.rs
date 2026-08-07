@@ -6886,15 +6886,10 @@ pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
 }
 pub type VDS_ISCSI_IPSEC_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_IPSEC_KEY {
     pub pKey: *mut u8,
     pub ulKeySize: u32,
-}
-impl Default for VDS_ISCSI_IPSEC_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type VDS_ISCSI_LOGIN_FLAG = i32;
 pub type VDS_ISCSI_LOGIN_TYPE = i32;
@@ -6916,15 +6911,10 @@ pub struct VDS_ISCSI_PORTAL_PROP {
 }
 pub type VDS_ISCSI_PORTAL_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_SHARED_SECRET {
     pub pSharedSecret: *mut u8,
     pub ulSharedSecretSize: u32,
-}
-impl Default for VDS_ISCSI_SHARED_SECRET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7380,7 +7370,7 @@ pub const VDS_PKF_ONLINE_ERROR: VDS_PACK_FLAG = 16;
 pub const VDS_PKF_POLICY: VDS_PACK_FLAG = 4;
 #[repr(C)]
 #[cfg(feature = "vdslun")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: u64,
     pub raidType: VDS_RAID_TYPE,
@@ -7420,12 +7410,6 @@ pub struct VDS_POOL_ATTRIBUTES {
     pub ulReserved2: u32,
     pub ullReserved1: u64,
     pub ullReserved2: u64,
-}
-#[cfg(feature = "vdslun")]
-impl Default for VDS_POOL_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216;
 pub const VDS_POOL_ATTRIB_ACCS_DIR_HINT: i32 = 2097152;
@@ -7797,7 +7781,7 @@ pub struct VDS_VOLUME_PROP {
     pub pwszName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_PROP2 {
     pub id: VDS_OBJECT_ID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -7810,11 +7794,6 @@ pub struct VDS_VOLUME_PROP2 {
     pub cbUniqueId: u32,
     pub pwszName: windows_core::PWSTR,
     pub pUniqueId: *mut u8,
-}
-impl Default for VDS_VOLUME_PROP2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type VDS_VOLUME_STATUS = i32;
 pub type VDS_VOLUME_TYPE = i32;

@@ -86,15 +86,10 @@ pub const HLINK_E_FIRST: i32 = -2147221248;
 pub const HLINK_S_DONTHIDE: i32 = 262400;
 pub const HLINK_S_FIRST: i32 = 262400;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HLITEM {
     pub uHLID: u32,
     pub pwzFriendlyName: windows_sys::core::PWSTR,
-}
-impl Default for HLITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type HLNF = i32;
 pub const HLNF_CREATENOHISTORY: HLNF = 32;

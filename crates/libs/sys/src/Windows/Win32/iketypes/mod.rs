@@ -128,16 +128,10 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
@@ -155,16 +149,10 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
@@ -199,16 +187,10 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
@@ -226,16 +208,10 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
@@ -270,42 +246,24 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     pub inboundEnterpriseStoreArraySize: u32,
     pub inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     pub inboundRootStoreArraySize: u32,
     pub inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
@@ -323,42 +281,24 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     pub outboundEnterpriseStoreArraySize: u32,
     pub outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     pub outboundRootStoreArraySize: u32,
     pub outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
@@ -379,19 +319,13 @@ pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub certData: super::FWP_BYTE_BLOB,
     pub certHash: super::FWP_BYTE_BLOB,
     pub eku: *mut IKEEXT_CERT_EKUS0,
     pub name: *mut IKEEXT_CERT_NAME0,
     pub flags: u32,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CERTIFICATE_CRITERIA0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IKEEXT_CERTIFICATE_ECDSA_P256: IKEEXT_AUTHENTICATION_METHOD_TYPE = 7;
 pub const IKEEXT_CERTIFICATE_ECDSA_P384: IKEEXT_AUTHENTICATION_METHOD_TYPE = 8;
@@ -419,15 +353,10 @@ pub const IKEEXT_CERT_CRITERIA_OU: IKEEXT_CERT_CRITERIA_NAME_TYPE = 4;
 pub const IKEEXT_CERT_CRITERIA_RFC822: IKEEXT_CERT_CRITERIA_NAME_TYPE = 2;
 pub const IKEEXT_CERT_CRITERIA_UPN: IKEEXT_CERT_CRITERIA_NAME_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERT_EKUS0 {
     pub numEku: u32,
     pub eku: *mut windows_sys::core::PSTR,
-}
-impl Default for IKEEXT_CERT_EKUS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IKEEXT_CERT_FLAG_DISABLE_REQUEST_PAYLOAD: i32 = 2;
 pub const IKEEXT_CERT_FLAG_ENABLE_ACCOUNT_MAPPING: i32 = 1;
@@ -439,15 +368,10 @@ pub const IKEEXT_CERT_FLAG_SELECT_NAP_CERTIFICATE: i32 = 64;
 pub const IKEEXT_CERT_FLAG_USE_NAP_CERTIFICATE: i32 = 4;
 pub const IKEEXT_CERT_FLAG_VERIFY_NAP_CERTIFICATE: i32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CERT_NAME0 {
     pub nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
     pub certName: windows_sys::core::PWSTR,
-}
-impl Default for IKEEXT_CERT_NAME0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
@@ -583,42 +507,24 @@ impl Default for IKEEXT_CREDENTIAL2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CREDENTIALS0 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CREDENTIALS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CREDENTIALS1 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CREDENTIALS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_CREDENTIALS2 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_CREDENTIALS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
@@ -679,45 +585,27 @@ pub const IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY: i32 = 1;
 pub const IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_EM_POLICY0 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_EM_POLICY0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_EM_POLICY1 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_EM_POLICY1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_EM_POLICY2 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_EM_POLICY2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type IKEEXT_EM_SA_STATE = i32;
 pub const IKEEXT_EM_SA_STATE_AUTH_COMPLETE: IKEEXT_EM_SA_STATE = 3;
@@ -745,19 +633,13 @@ pub const IKEEXT_INTEGRITY_TYPE_MAX: IKEEXT_INTEGRITY_TYPE = 4;
 pub const IKEEXT_IPV6_CGA: IKEEXT_AUTHENTICATION_METHOD_TYPE = 6;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     pub keyContainerName: *mut u16,
     pub cspName: *mut u16,
     pub cspType: u32,
     pub cgaModifier: super::FWP_BYTE_ARRAY16,
     pub cgaCollisionCount: u8,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -822,15 +704,10 @@ pub struct IKEEXT_KERBEROS_AUTHENTICATION0 {
     pub flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
     pub flags: u32,
     pub proxyServer: *mut u16,
-}
-impl Default for IKEEXT_KERBEROS_AUTHENTICATION1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: i32 = 1;
 pub const IKEEXT_KERB_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: i32 = 2;
@@ -879,14 +756,9 @@ pub const IKEEXT_MM_SA_STATE_NONE: IKEEXT_MM_SA_STATE = 0;
 pub const IKEEXT_MM_SA_STATE_SA_SENT: IKEEXT_MM_SA_STATE = 1;
 pub const IKEEXT_MM_SA_STATE_SSPI_SENT: IKEEXT_MM_SA_STATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_NAME_CREDENTIAL0 {
     pub principalName: *mut u16,
-}
-impl Default for IKEEXT_NAME_CREDENTIAL0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IKEEXT_NTLM_V2: IKEEXT_AUTHENTICATION_METHOD_TYPE = 5;
 #[repr(C)]
@@ -897,7 +769,7 @@ pub struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_POLICY0 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -908,15 +780,9 @@ pub struct IKEEXT_POLICY0 {
     pub flags: u32,
     pub maxDynamicFilters: u32,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_POLICY0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_POLICY1 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -928,15 +794,9 @@ pub struct IKEEXT_POLICY1 {
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
 }
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_POLICY1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IKEEXT_POLICY2 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -947,12 +807,6 @@ pub struct IKEEXT_POLICY2 {
     pub flags: u32,
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
-}
-#[cfg(feature = "fwptypes")]
-impl Default for IKEEXT_POLICY2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: i32 = 128;
 pub const IKEEXT_POLICY_FLAG_DISABLE_DIAGNOSTICS: i32 = 1;

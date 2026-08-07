@@ -31,33 +31,21 @@ pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = 1;
 pub type URLASSOCIATIONDIALOG_IN_FLAGS = i32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct URLINVOKECOMMANDINFOA {
     pub dwcbSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::HWND,
     pub pcszVerb: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "windef")]
-impl Default for URLINVOKECOMMANDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct URLINVOKECOMMANDINFOW {
     pub dwcbSize: u32,
     pub dwFlags: u32,
     pub hwndParent: super::HWND,
     pub pcszVerb: windows_sys::core::PCWSTR,
-}
-#[cfg(feature = "windef")]
-impl Default for URLINVOKECOMMANDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const URL_E_INVALID_SYNTAX: i32 = -2147217407;
 pub const URL_E_UNREGISTERED_PROTOCOL: i32 = -2147217406;

@@ -9,24 +9,14 @@ pub type PEVT_VHF_READY_FOR_NEXT_READ_REPORT = *mut EVT_VHF_READY_FOR_NEXT_READ_
 #[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
 pub type PVHF_CONFIG = *mut VHF_CONFIG;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct VHFHANDLE(pub *mut core::ffi::c_void);
-impl Default for VHFHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct VHFOPERATIONHANDLE(pub *mut core::ffi::c_void);
-impl Default for VHFOPERATIONHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VHF_CONFIG {
     pub Size: u32,
     pub VhfClientContext: *mut core::ffi::c_void,
@@ -48,10 +38,4 @@ pub struct VHF_CONFIG {
     pub EvtVhfCleanup: PEVT_VHF_CLEANUP,
     pub HardwareIDsLength: u16,
     pub HardwareIDs: windows_core::PWSTR,
-}
-#[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
-impl Default for VHF_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

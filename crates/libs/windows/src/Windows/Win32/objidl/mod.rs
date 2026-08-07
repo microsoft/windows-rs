@@ -256,19 +256,13 @@ pub struct BIND_OPTS {
 }
 #[repr(C)]
 #[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_OPTS2 {
     pub Base: BIND_OPTS,
     pub dwTrackFlags: u32,
     pub dwClassContext: u32,
     pub locale: super::LCID,
     pub pServerInfo: *mut super::COSERVERINFO,
-}
-#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-impl Default for BIND_OPTS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
@@ -322,19 +316,13 @@ impl Default for FLAG_STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORMATETC {
     pub cfFormat: super::CLIPFORMAT,
     pub ptd: *mut DVTARGETDEVICE,
     pub dwAspect: u32,
     pub lindex: i32,
     pub tymed: u32,
-}
-#[cfg(feature = "wtypes")]
-impl Default for FORMATETC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ForcedShutdown: ShutdownType = 1;
 #[repr(C)]
@@ -3973,18 +3961,12 @@ pub const ServerApplication: ApplicationType = 0;
 pub type ShutdownType = i32;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageLayout {
     pub LayoutType: u32,
     pub pwcsElementName: *mut super::OLECHAR,
     pub cOffset: i64,
     pub cBytes: i64,
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for StorageLayout {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type TYMED = i32;
 pub const TYMED_ENHMF: TYMED = 64;

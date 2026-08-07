@@ -10,15 +10,10 @@ pub const AM_LOADSTATUS_LOCATING: i32 = 3;
 pub const AM_LOADSTATUS_OPEN: i32 = 6;
 pub const AM_LOADSTATUS_OPENING: i32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_WMT_EVENT_DATA {
     pub hrStatus: windows_core::HRESULT,
     pub pData: *mut core::ffi::c_void,
-}
-impl Default for AM_WMT_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EC_ACTIVATE: i32 = 19;
 pub const EC_BANDWIDTHCHANGE: i32 = 72;

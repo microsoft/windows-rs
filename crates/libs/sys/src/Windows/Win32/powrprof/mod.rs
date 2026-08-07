@@ -159,15 +159,10 @@ pub const DEVICEPOWER_SET_WAKEENABLED: i32 = 1;
 pub const DEVICE_NOTIFY_CALLBACK: i32 = 2;
 pub type DEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut core::ffi::c_void,
-}
-impl Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EnableMultiBatteryDisplay: i32 = 2;
 pub const EnablePasswordLogon: i32 = 4;
@@ -289,7 +284,7 @@ pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, na
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PWRSCHEMESENUMPROC_V2 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_sys::core::PCWSTR, descriptionsize: u32, description: windows_sys::core::PCWSTR, policy: *const POWER_POLICY, context: super::LPARAM) -> bool>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct THERMAL_EVENT {
     pub Version: u32,
     pub Size: u32,
@@ -297,11 +292,6 @@ pub struct THERMAL_EVENT {
     pub Temperature: u32,
     pub TripPointTemperature: u32,
     pub Initiator: windows_sys::core::PWSTR,
-}
-impl Default for THERMAL_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const THERMAL_EVENT_VERSION: i32 = 1;
 #[repr(C)]

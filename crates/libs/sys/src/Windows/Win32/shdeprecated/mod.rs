@@ -2,7 +2,7 @@
 pub type BASEBROWSERDATA = BASEBROWSERDATALH;
 #[repr(C)]
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::HWND,
     pub _ptl: *mut core::ffi::c_void,
@@ -32,15 +32,9 @@ pub struct BASEBROWSERDATALH {
     pub _hwndFrame: super::HWND,
     pub _lPhishingFilterStatus: i32,
 }
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for BASEBROWSERDATALH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::HWND,
     pub _ptl: *mut core::ffi::c_void,
@@ -68,12 +62,6 @@ pub struct BASEBROWSERDATAXP {
     pub _clsidView: windows_sys::core::GUID,
     pub _clsidViewPending: windows_sys::core::GUID,
     pub _hwndFrame: super::HWND,
-}
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for BASEBROWSERDATAXP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type BNSTATE = i32;
 pub const BNS_BEGIN_NAVIGATE: BNSTATE = 1;
@@ -160,19 +148,13 @@ pub const TLOG_CURRENT: i32 = 0;
 pub const TLOG_FORE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TOOLBARITEM {
     pub ptbar: *mut core::ffi::c_void,
     pub rcBorderTool: super::BORDERWIDTHS,
     pub pwszItem: windows_sys::core::PWSTR,
     pub fShow: windows_sys::core::BOOL,
     pub hMon: super::HMONITOR,
-}
-#[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-impl Default for TOOLBARITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TrackShellMenu: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8278f931_2a3e_11d2_838f_00c04fd918d0);
 pub const VIEW_PRIORITY_CACHEHIT: i32 = 80;

@@ -231,15 +231,10 @@ pub struct CLS_SCAN_CONTEXT {
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut core::ffi::c_void,
     pub ByteLength: u32,
-}
-impl Default for CLS_WRITE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ClfsContextForward: CLFS_CONTEXT_MODE = 3;
 pub const ClfsContextNone: CLFS_CONTEXT_MODE = 0;

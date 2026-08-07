@@ -815,7 +815,7 @@ impl Default for IKEV2_PROJECTION_INFO2 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -828,15 +828,9 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwEncryptionType: u32,
     pub customPolicy: PROUTER_CUSTOM_IKEv2_POLICY0,
 }
-#[cfg(feature = "wincrypt")]
-impl Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -852,15 +846,9 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub certificateEKUs: PMPR_CERT_EKU,
     pub machineCertificateHash: super::CRYPT_HASH_BLOB,
 }
-#[cfg(feature = "wincrypt")]
-impl Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -876,12 +864,6 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub certificateEKUs: PMPR_CERT_EKU,
     pub machineCertificateHash: super::CRYPT_HASH_BLOB,
     pub dwMmSaLifeTime: u32,
-}
-#[cfg(feature = "wincrypt")]
-impl Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IPADDRESSLEN: i32 = 15;
 pub const IPXADDRESSLEN: i32 = 22;
@@ -1036,16 +1018,11 @@ pub const MPRNP_Ip: i32 = 4;
 pub const MPRNP_Ipv6: i32 = 8;
 pub const MPRNP_Ipx: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_CERT_EKU {
     pub dwSize: u32,
     pub IsEKUOID: windows_core::BOOL,
     pub pwszEKU: *mut u16,
-}
-impl Default for MPR_CERT_EKU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -2174,22 +2151,16 @@ pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = 8;
 pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = 6;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
     pub certificateName: super::CERT_NAME_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
-#[cfg(feature = "wincrypt")]
-impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -2197,15 +2168,9 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub certificateHash: super::CRYPT_HASH_BLOB,
 }
-#[cfg(feature = "wincrypt")]
-impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -2214,12 +2179,6 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub certificateHash: super::CRYPT_HASH_BLOB,
     pub dwMmSaLifeTime: u32,
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ROUTER_INTERFACE_TYPE = i32;
 #[repr(C)]

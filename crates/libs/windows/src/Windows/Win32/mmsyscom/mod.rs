@@ -6,13 +6,8 @@ pub const CALLBACK_TYPEMASK: i32 = 458752;
 pub const CALLBACK_WINDOW: i32 = 65536;
 pub type DRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDRVR(pub *mut core::ffi::c_void);
-impl Default for HDRVR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const JOYERR_BASE: i32 = 160;
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub type LPMMTIME = *mut MMTIME;

@@ -34,15 +34,10 @@ pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = 0;
 pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = 1;
 pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: u32,
     pub plainTextFiles: *mut windows_sys::core::PCWSTR,
-}
-impl Default for APPX_ENCRYPTED_EXEMPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = u32;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = 1;
@@ -50,33 +45,21 @@ pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2;
 #[repr(C)]
 #[cfg(feature = "urlmon")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
     pub useDiffusion: windows_sys::core::BOOL,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
 }
-#[cfg(feature = "urlmon")]
-impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "urlmon")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
     pub options: u32,
-}
-#[cfg(feature = "urlmon")]
-impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type APPX_FOOTPRINT_FILE_TYPE = i32;
 pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = 1;
@@ -85,17 +68,12 @@ pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = 4
 pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = 0;
 pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
     pub keyIdLength: u32,
     pub key: *mut u8,
     pub keyId: *mut u8,
-}
-impl Default for APPX_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type APPX_PACKAGE_ARCHITECTURE = i32;
 pub type APPX_PACKAGE_ARCHITECTURE2 = i32;
@@ -119,31 +97,19 @@ pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = i32;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = 0;
 #[repr(C)]
 #[cfg(feature = "urlmon")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: windows_sys::core::BOOL,
     pub hashMethod: *mut core::ffi::c_void,
 }
-#[cfg(feature = "urlmon")]
-impl Default for APPX_PACKAGE_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: *mut core::ffi::c_void,
     pub fileName: windows_sys::core::PCWSTR,
     pub contentType: windows_sys::core::PCWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,
-}
-#[cfg(feature = "objidlbase")]
-impl Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type APPX_PACKAGING_CONTEXT_CHANGE_TYPE = i32;
 pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 1;

@@ -65,16 +65,11 @@ pub type SL_ACTIVATION_TYPE = i32;
 pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = 1;
 pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SL_AD_ACTIVATION_INFO {
     pub header: SL_ACTIVATION_INFO_HEADER,
     pub pwszProductKey: windows_sys::core::PCWSTR,
     pub pwszActivationObjectName: windows_sys::core::PCWSTR,
-}
-impl Default for SL_AD_ACTIVATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SL_DATA_BINARY: SLDATATYPE = 3;
 pub const SL_DATA_DWORD: SLDATATYPE = 4;
@@ -152,16 +147,11 @@ pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = 1;
 pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3;
 pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SL_NONGENUINE_UI_OPTIONS {
     pub cbSize: u32,
     pub pComponentId: *const SLID,
     pub hResultUI: windows_sys::core::HRESULT,
-}
-impl Default for SL_NONGENUINE_UI_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SL_PKEY_DETECT: windows_sys::core::PCWSTR = windows_sys::core::w!("msft:rm/algorithm/pkey/detect");
 pub const SL_PKEY_MS2005: windows_sys::core::PCWSTR = windows_sys::core::w!("msft:rm/algorithm/pkey/2005");

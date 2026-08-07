@@ -1733,44 +1733,28 @@ pub const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
 pub const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENT {
     pub severity: u32,
     pub code: u32,
     pub desc: super::PCHAR,
     pub object: *mut core::ffi::c_void,
 }
-#[cfg(feature = "winnt")]
-impl Default for IMAGEHLP_CBA_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENTW {
     pub severity: u32,
     pub code: u32,
     pub desc: windows_core::PCWSTR,
     pub object: *mut core::ffi::c_void,
 }
-impl Default for IMAGEHLP_CBA_EVENTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: u64,
     pub buf: *mut core::ffi::c_void,
     pub bytes: u32,
     pub bytesread: *mut u32,
-}
-impl Default for IMAGEHLP_CBA_READ_MEMORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type IMAGEHLP_CONTEXT = core::ffi::c_void;
 #[repr(C)]
@@ -1852,7 +1836,7 @@ pub type IMAGEHLP_EXTENDED_OPTIONS = i32;
 pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: u32,
     pub Flags: u32,
@@ -1873,12 +1857,6 @@ pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub NumReqsValid: u32,
     pub ReqsValid: super::PULONG64,
 }
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
-impl Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: i32 = 1;
 pub type IMAGEHLP_HD_TYPE = i32;
 #[repr(C)]
@@ -1891,7 +1869,7 @@ pub struct IMAGEHLP_JIT_SYMBOLMAP {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -1899,16 +1877,9 @@ pub struct IMAGEHLP_LINE {
     pub FileName: super::PCHAR,
     pub Address: u32,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for IMAGEHLP_LINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_LINE64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -1916,16 +1887,10 @@ pub struct IMAGEHLP_LINE64 {
     pub FileName: super::PCHAR,
     pub Address: u64,
 }
-#[cfg(feature = "winnt")]
-impl Default for IMAGEHLP_LINE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_LINEW {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -1933,26 +1898,14 @@ pub struct IMAGEHLP_LINEW {
     pub FileName: super::PCHAR,
     pub Address: u64,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for IMAGEHLP_LINEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEHLP_LINEW64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
     pub LineNumber: u32,
     pub FileName: windows_core::PWSTR,
     pub Address: u64,
-}
-impl Default for IMAGEHLP_LINEW64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -2403,18 +2356,13 @@ pub struct MODLOAD_CVMISC {
     pub cImage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODLOAD_DATA {
     pub ssize: u32,
     pub ssig: u32,
     pub data: *mut core::ffi::c_void,
     pub size: u32,
     pub flags: u32,
-}
-impl Default for MODLOAD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2479,13 +2427,8 @@ pub type PIMAGEHLP_CBA_EVENT = *mut IMAGEHLP_CBA_EVENT;
 pub type PIMAGEHLP_CBA_EVENTW = *mut IMAGEHLP_CBA_EVENTW;
 pub type PIMAGEHLP_CBA_READ_MEMORY = *mut IMAGEHLP_CBA_READ_MEMORY;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PIMAGEHLP_CONTEXT(pub *mut core::ffi::c_void);
-impl Default for PIMAGEHLP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 pub type PIMAGEHLP_DEFERRED_SYMBOL_LOAD = *mut IMAGEHLP_DEFERRED_SYMBOL_LOAD;

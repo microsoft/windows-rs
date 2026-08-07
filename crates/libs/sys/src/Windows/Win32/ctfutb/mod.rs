@@ -17,15 +17,10 @@ impl Default for TF_LANGBARITEMINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: windows_sys::core::BSTR,
-}
-impl Default for TF_LBBALLOONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TF_LBI_BALLOON: i32 = 16;
 pub const TF_LBI_BITMAP: i32 = 8;

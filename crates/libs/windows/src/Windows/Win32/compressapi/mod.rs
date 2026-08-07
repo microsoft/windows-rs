@@ -59,13 +59,8 @@ pub unsafe fn SetDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE
     unsafe { SetDecompressorInformation(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize) }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct COMPRESSOR_HANDLE(pub *mut core::ffi::c_void);
-impl Default for COMPRESSOR_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const COMPRESS_ALGORITHM_INVALID: i32 = 0;
 pub const COMPRESS_ALGORITHM_LZMS: i32 = 5;
 pub const COMPRESS_ALGORITHM_MAX: i32 = 6;
@@ -74,16 +69,11 @@ pub const COMPRESS_ALGORITHM_NULL: i32 = 1;
 pub const COMPRESS_ALGORITHM_XPRESS: i32 = 3;
 pub const COMPRESS_ALGORITHM_XPRESS_HUFF: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: PFN_COMPRESS_ALLOCATE,
     pub Free: PFN_COMPRESS_FREE,
     pub UserContext: *mut core::ffi::c_void,
-}
-impl Default for COMPRESS_ALLOCATION_ROUTINES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type COMPRESS_INFORMATION_CLASS = i32;
 pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = 1;

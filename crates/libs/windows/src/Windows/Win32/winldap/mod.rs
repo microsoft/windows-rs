@@ -1913,16 +1913,11 @@ impl Default for LDAP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: *mut i8,
     pub ldapaif_version: i32,
-}
-impl Default for LDAPAPIFeatureInfoA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -1933,7 +1928,7 @@ pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_version: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -1942,14 +1937,9 @@ pub struct LDAPAPIInfoA {
     pub ldapai_vendor_name: *mut i8,
     pub ldapai_vendor_version: i32,
 }
-impl Default for LDAPAPIInfoA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -1957,12 +1947,6 @@ pub struct LDAPAPIInfoW {
     pub ldapai_extensions: *mut super::PWCHAR,
     pub ldapai_vendor_name: super::PWCHAR,
     pub ldapai_vendor_version: i32,
-}
-#[cfg(feature = "winnt")]
-impl Default for LDAPAPIInfoW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -1982,7 +1966,7 @@ pub struct LDAPControlW {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
     pub lm_msgtype: u32,
@@ -1997,12 +1981,6 @@ pub struct LDAPMessage {
     pub lm_chased: bool,
     pub lm_eom: bool,
     pub ConnectionReferenced: bool,
-}
-#[cfg(feature = "winnt")]
-impl Default for LDAPMessage {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -2077,7 +2055,7 @@ pub struct LDAPSortKeyW {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -2087,12 +2065,6 @@ pub struct LDAPVLVInfo {
     pub ldvlv_attrvalue: PBERVAL,
     pub ldvlv_context: PBERVAL,
     pub ldvlv_extradata: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for LDAPVLVInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LDAP_ABANDON_CMD: i32 = 80;
 pub const LDAP_ADD_CMD: i32 = 104;

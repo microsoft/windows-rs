@@ -187,7 +187,7 @@ impl Default for DUMP_POINTERS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
     pub DumpData: *mut core::ffi::c_void,
@@ -205,12 +205,6 @@ pub struct DUMP_POINTERS_EX {
     pub DeviceReady: super::PBOOLEAN,
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for DUMP_POINTERS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(target_arch = "x86")]
 pub const DUMP_POINTERS_EX_V2_SIZE: u32 = 32;

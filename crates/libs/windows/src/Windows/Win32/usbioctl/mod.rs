@@ -260,13 +260,8 @@ pub struct USB_BUS_NOTIFICATION {
     pub ControllerNameLength: u32,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USB_CHANGE_REGISTRATION_HANDLE(pub *mut core::ffi::c_void);
-impl Default for USB_CHANGE_REGISTRATION_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "usbspec")]
 #[derive(Clone, Copy)]

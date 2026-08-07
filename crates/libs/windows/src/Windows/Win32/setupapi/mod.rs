@@ -2420,31 +2420,19 @@ pub struct CABINET_INFO_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: windows_core::BOOL,
     pub InstallResult: u32,
     pub PrivateData: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Default for COINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: windows_core::BOOL,
     pub InstallResult: u32,
     pub PrivateData: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for COINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COPYFLG_FORCE_FILE_IN_USE: i32 = 8;
 pub const COPYFLG_IN_USE_TRY_RENAME: i32 = 16384;
@@ -3010,45 +2998,20 @@ pub const FLG_PROFITEM_GROUP: i32 = 4;
 pub const FLG_REGSVR_DLLINSTALL: i32 = 2;
 pub const FLG_REGSVR_DLLREGISTER: i32 = 1;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDEVINFO(pub *mut core::ffi::c_void);
-impl Default for HDEVINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDSKSPC(pub *mut core::ffi::c_void);
-impl Default for HDSKSPC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HINF(pub *mut core::ffi::c_void);
-impl Default for HINF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HSPFILELOG(pub *mut core::ffi::c_void);
-impl Default for HSPFILELOG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HSPFILEQ(pub *mut core::ffi::c_void);
-impl Default for HSPFILEQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IDD_DYNAWIZ_ANALYZEDEV_PAGE: i32 = 10010;
 pub const IDD_DYNAWIZ_ANALYZE_NEXTPAGE: i32 = 10004;
 pub const IDD_DYNAWIZ_ANALYZE_PREVPAGE: i32 = 10003;
@@ -3085,33 +3048,21 @@ pub const IDI_RESOURCEOVERLAYFIRST: i32 = 161;
 pub const IDI_RESOURCEOVERLAYLAST: i32 = 161;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INFCONTEXT {
     pub Inf: *mut core::ffi::c_void,
     pub CurrentInf: *mut core::ffi::c_void,
     pub Section: u32,
     pub Line: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for INFCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INFCONTEXT {
     pub Inf: *mut core::ffi::c_void,
     pub CurrentInf: *mut core::ffi::c_void,
     pub Section: u32,
     pub Line: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for INFCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const INFINFO_DEFAULT_SEARCH: i32 = 3;
 pub const INFINFO_INF_NAME_IS_ABSOLUTE: i32 = 2;
@@ -3846,31 +3797,19 @@ pub const SP_COPY_WARNIFSKIP: i32 = 16384;
 pub const SP_COPY_WINDOWS_SIGNED: i32 = 16777216;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]

@@ -649,15 +649,9 @@ pub struct CM_NOTIFY_FILTER_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub hTarget: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for CM_NOTIFY_FILTER_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]

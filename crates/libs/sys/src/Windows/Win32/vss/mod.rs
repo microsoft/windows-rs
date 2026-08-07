@@ -109,7 +109,7 @@ pub const VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY: VSS_HARDWARE_OPTIONS = 5
 pub const VSS_ONLUNSTATECHANGE_NOTIFY_READ_WRITE: VSS_HARDWARE_OPTIONS = 256;
 pub type VSS_PROVIDER_CAPABILITIES = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VSS_PROVIDER_PROP {
     pub m_ProviderId: VSS_ID,
     pub m_pwszProviderName: VSS_PWSZ,
@@ -117,11 +117,6 @@ pub struct VSS_PROVIDER_PROP {
     pub m_pwszProviderVersion: VSS_PWSZ,
     pub m_ProviderVersionId: VSS_ID,
     pub m_ClassId: windows_sys::core::GUID,
-}
-impl Default for VSS_PROVIDER_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type VSS_PROVIDER_TYPE = i32;
 pub const VSS_PROV_FILESHARE: VSS_PROVIDER_TYPE = 4;
@@ -158,7 +153,7 @@ pub const VSS_SC_DISABLE_DEFRAG: VSS_SNAPSHOT_COMPATIBILITY = 1;
 pub type VSS_SNAPSHOT_COMPATIBILITY = i32;
 pub type VSS_SNAPSHOT_CONTEXT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VSS_SNAPSHOT_PROP {
     pub m_SnapshotId: VSS_ID,
     pub m_SnapshotSetId: VSS_ID,
@@ -173,11 +168,6 @@ pub struct VSS_SNAPSHOT_PROP {
     pub m_lSnapshotAttributes: i32,
     pub m_tsCreationTimestamp: VSS_TIMESTAMP,
     pub m_eStatus: VSS_SNAPSHOT_STATE,
-}
-impl Default for VSS_SNAPSHOT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type VSS_SNAPSHOT_PROPERTY_ID = i32;
 pub type VSS_SNAPSHOT_STATE = i32;

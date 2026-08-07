@@ -63,53 +63,33 @@ pub const DOMAIN_JOIN_GUID: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const DOMAIN_LEAVE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xddaf516e_58c2_4866_9574_c3b615d42ea1);
 pub type ENUM_SERVICE_STATUS = ENUM_SERVICE_STATUSA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUM_SERVICE_STATUSA {
     pub lpServiceName: windows_sys::core::PSTR,
     pub lpDisplayName: windows_sys::core::PSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
-impl Default for ENUM_SERVICE_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUM_SERVICE_STATUSW {
     pub lpServiceName: windows_sys::core::PWSTR,
     pub lpDisplayName: windows_sys::core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
-impl Default for ENUM_SERVICE_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type ENUM_SERVICE_STATUS_PROCESS = ENUM_SERVICE_STATUS_PROCESSA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUM_SERVICE_STATUS_PROCESSA {
     pub lpServiceName: windows_sys::core::PSTR,
     pub lpDisplayName: windows_sys::core::PSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
-impl Default for ENUM_SERVICE_STATUS_PROCESSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUM_SERVICE_STATUS_PROCESSW {
     pub lpServiceName: windows_sys::core::PWSTR,
     pub lpDisplayName: windows_sys::core::PWSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
-}
-impl Default for ENUM_SERVICE_STATUS_PROCESSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FIREWALL_PORT_CLOSE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa144ed38_8e12_4de4_9d96_e64740b1a524);
 pub const FIREWALL_PORT_OPEN_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09);
@@ -183,7 +163,7 @@ pub type PSERVICE_TRIGGER_INFO = *mut SERVICE_TRIGGER_INFO;
 pub type PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM = *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM;
 pub type QUERY_SERVICE_CONFIG = QUERY_SERVICE_CONFIGA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_SERVICE_CONFIGA {
     pub dwServiceType: u32,
     pub dwStartType: u32,
@@ -195,13 +175,8 @@ pub struct QUERY_SERVICE_CONFIGA {
     pub lpServiceStartName: windows_sys::core::PSTR,
     pub lpDisplayName: windows_sys::core::PSTR,
 }
-impl Default for QUERY_SERVICE_CONFIGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_SERVICE_CONFIGW {
     pub dwServiceType: u32,
     pub dwStartType: u32,
@@ -213,35 +188,20 @@ pub struct QUERY_SERVICE_CONFIGW {
     pub lpServiceStartName: windows_sys::core::PWSTR,
     pub lpDisplayName: windows_sys::core::PWSTR,
 }
-impl Default for QUERY_SERVICE_CONFIGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type QUERY_SERVICE_LOCK_STATUS = QUERY_SERVICE_LOCK_STATUSA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_SERVICE_LOCK_STATUSA {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_sys::core::PSTR,
     pub dwLockDuration: u32,
 }
-impl Default for QUERY_SERVICE_LOCK_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERY_SERVICE_LOCK_STATUSW {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_sys::core::PWSTR,
     pub dwLockDuration: u32,
-}
-impl Default for QUERY_SERVICE_LOCK_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPC_INTERFACE_EVENT_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[repr(C)]
@@ -328,28 +288,18 @@ pub const SERVICE_CONTROL_SHUTDOWN: i32 = 5;
 pub const SERVICE_CONTROL_STATUS_REASON_INFO: i32 = 1;
 pub type SERVICE_CONTROL_STATUS_REASON_PARAMS = SERVICE_CONTROL_STATUS_REASON_PARAMSA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     pub dwReason: u32,
     pub pszComment: windows_sys::core::PSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     pub dwReason: u32,
     pub pszComment: windows_sys::core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
-}
-impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_CONTROL_STOP: i32 = 1;
 pub const SERVICE_CONTROL_SYSTEMLOWRESOURCES: i32 = 97;
@@ -394,31 +344,21 @@ pub struct SERVICE_DELAYED_AUTO_START_INFO {
 }
 pub type SERVICE_DESCRIPTION = SERVICE_DESCRIPTIONA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_DESCRIPTIONA {
     pub lpDescription: windows_sys::core::PSTR,
 }
-impl Default for SERVICE_DESCRIPTIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_DESCRIPTIONW {
     pub lpDescription: windows_sys::core::PWSTR,
-}
-impl Default for SERVICE_DESCRIPTIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type SERVICE_DIRECTORY_TYPE = i32;
 pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: i32 = 1;
 pub const SERVICE_ENUMERATE_DEPENDENTS: i32 = 8;
 pub type SERVICE_FAILURE_ACTIONS = SERVICE_FAILURE_ACTIONSA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_FAILURE_ACTIONSA {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_sys::core::PSTR,
@@ -426,24 +366,14 @@ pub struct SERVICE_FAILURE_ACTIONSA {
     pub cActions: u32,
     pub lpsaActions: *mut SC_ACTION,
 }
-impl Default for SERVICE_FAILURE_ACTIONSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_FAILURE_ACTIONSW {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_sys::core::PWSTR,
     pub lpCommand: windows_sys::core::PWSTR,
     pub cActions: u32,
     pub lpsaActions: *mut SC_ACTION,
-}
-impl Default for SERVICE_FAILURE_ACTIONSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -468,7 +398,7 @@ pub type SERVICE_NOTIFY = SERVICE_NOTIFYA;
 pub type SERVICE_NOTIFYA = SERVICE_NOTIFY_2A;
 pub type SERVICE_NOTIFYW = SERVICE_NOTIFY_2W;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -476,14 +406,9 @@ pub struct SERVICE_NOTIFY_1 {
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl Default for SERVICE_NOTIFY_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type SERVICE_NOTIFY_2 = SERVICE_NOTIFY_2A;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -493,13 +418,8 @@ pub struct SERVICE_NOTIFY_2A {
     pub dwNotificationTriggered: u32,
     pub pszServiceNames: windows_sys::core::PSTR,
 }
-impl Default for SERVICE_NOTIFY_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -508,11 +428,6 @@ pub struct SERVICE_NOTIFY_2W {
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
     pub dwNotificationTriggered: u32,
     pub pszServiceNames: windows_sys::core::PWSTR,
-}
-impl Default for SERVICE_NOTIFY_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_NOTIFY_CONTINUE_PENDING: i32 = 16;
 pub const SERVICE_NOTIFY_CREATED: i32 = 128;
@@ -547,24 +462,14 @@ pub const SERVICE_QUERY_STATUS: i32 = 4;
 pub type SERVICE_REGISTRY_STATE_TYPE = i32;
 pub type SERVICE_REQUIRED_PRIVILEGES_INFO = SERVICE_REQUIRED_PRIVILEGES_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA {
     pub pmszRequiredPrivileges: windows_sys::core::PSTR,
 }
-impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
     pub pmszRequiredPrivileges: windows_sys::core::PWSTR,
-}
-impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_RUNNING: i32 = 4;
 pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: i32 = 1;
@@ -664,26 +569,16 @@ pub const SERVICE_STOP_REASON_MINOR_UPGRADE: i32 = 4;
 pub const SERVICE_STOP_REASON_MINOR_WMI: i32 = 18;
 pub type SERVICE_TABLE_ENTRY = SERVICE_TABLE_ENTRYA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: windows_sys::core::PSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
 }
-impl Default for SERVICE_TABLE_ENTRYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: windows_sys::core::PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
-}
-impl Default for SERVICE_TABLE_ENTRYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -693,19 +588,13 @@ pub struct SERVICE_TIMECHANGE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: u32,
     pub dwAction: u32,
     pub pTriggerSubtype: *mut windows_sys::core::GUID,
     pub cDataItems: u32,
     pub pDataItems: PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SERVICE_TRIGGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_TRIGGER_ACTION_SERVICE_START: i32 = 1;
 pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: i32 = 2;
@@ -726,31 +615,19 @@ pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: i32 = 3;
 pub const SERVICE_TRIGGER_DATA_TYPE_STRING: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_TRIGGER_INFO {
     pub cTriggers: u32,
     pub pTriggers: PSERVICE_TRIGGER,
     pub pReserved: super::PBYTE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for SERVICE_TRIGGER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     pub dwDataType: u32,
     pub cbData: u32,
     pub pData: super::PBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_TRIGGER_STARTED_ARGUMENT: windows_sys::core::PCWSTR = windows_sys::core::w!("TriggerStarted");
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: i32 = 30;

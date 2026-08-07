@@ -3200,15 +3200,10 @@ pub type PPARSEDURL = PPARSEDURLA;
 pub type PPARSEDURLA = *mut PARSEDURLA;
 pub type PPARSEDURLW = *mut PARSEDURLW;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QITAB {
     pub piid: *const windows_core::GUID,
     pub dwOffset: u32,
-}
-impl Default for QITAB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

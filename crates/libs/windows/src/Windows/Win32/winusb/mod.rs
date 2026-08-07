@@ -197,21 +197,11 @@ pub const LowSpeed: i32 = 1;
 pub const MAXIMUM_TRANSFER_SIZE: i32 = 8;
 pub const PIPE_TRANSFER_TIMEOUT: i32 = 3;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PWINUSB_INTERFACE_HANDLE(pub *mut *mut core::ffi::c_void);
-impl Default for PWINUSB_INTERFACE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PWINUSB_ISOCH_BUFFER_HANDLE(pub *mut *mut core::ffi::c_void);
-impl Default for PWINUSB_ISOCH_BUFFER_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "usb")]
 pub type PWINUSB_PIPE_INFORMATION = *mut WINUSB_PIPE_INFORMATION;
 #[cfg(feature = "usb")]
@@ -222,21 +212,11 @@ pub const RESET_PIPE_ON_RESUME: i32 = 9;
 pub const SHORT_PACKET_TERMINATE: i32 = 1;
 pub const SUSPEND_DELAY: i32 = 131;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WINUSB_INTERFACE_HANDLE(pub *mut core::ffi::c_void);
-impl Default for WINUSB_INTERFACE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WINUSB_ISOCH_BUFFER_HANDLE(pub *mut core::ffi::c_void);
-impl Default for WINUSB_ISOCH_BUFFER_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "usb")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -120,15 +120,10 @@ pub const CSCONTROL_RESTART: i32 = 3;
 pub const CSCONTROL_SHUTDOWN: i32 = 1;
 pub const CSCONTROL_SUSPEND: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: *mut u16,
     pub pwszNewDatabaseName: *mut u16,
-}
-impl Default for CSEDB_RSTMAPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CSRESTORE_TYPE_CATCHUP: i32 = 4;
 pub const CSRESTORE_TYPE_FULL: i32 = 1;
@@ -152,12 +147,7 @@ pub type FNCERTSRVRESTOREREGISTERCOMPLETE = Option<unsafe extern "system" fn(hbc
 pub type FNCERTSRVRESTOREREGISTERW = Option<unsafe extern "system" fn(hbc: HCSBC, pwszcheckpointfilepath: *const u16, pwszlogpath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: *const u16, genlow: u32, genhigh: u32) -> windows_core::HRESULT>;
 pub type FNCERTSRVSERVERCONTROLW = Option<unsafe extern "system" fn(pwszservername: *const u16, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> windows_core::HRESULT>;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCSBC(pub *mut core::ffi::c_void);
-impl Default for HCSBC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const szBACKUPANNOTATION: windows_core::PCSTR = windows_core::s!("Cert Server Backup Interface");
 pub const szRESTOREANNOTATION: windows_core::PCSTR = windows_core::s!("Cert Server Restore Interface");

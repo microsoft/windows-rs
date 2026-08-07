@@ -35,7 +35,7 @@ windows_link::link!("netapi32.dll" "system" fn DsMergeForestTrustInformationW(do
 windows_link::link!("netapi32.dll" "system" fn DsValidateSubnetNameA(subnetname : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn DsValidateSubnetNameW(subnetname : windows_sys::core::PCWSTR) -> u32);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOMAIN_CONTROLLER_INFOA {
     pub DomainControllerName: windows_sys::core::PSTR,
     pub DomainControllerAddress: windows_sys::core::PSTR,
@@ -47,13 +47,8 @@ pub struct DOMAIN_CONTROLLER_INFOA {
     pub DcSiteName: windows_sys::core::PSTR,
     pub ClientSiteName: windows_sys::core::PSTR,
 }
-impl Default for DOMAIN_CONTROLLER_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DOMAIN_CONTROLLER_INFOW {
     pub DomainControllerName: windows_sys::core::PWSTR,
     pub DomainControllerAddress: windows_sys::core::PWSTR,
@@ -64,11 +59,6 @@ pub struct DOMAIN_CONTROLLER_INFOW {
     pub Flags: u32,
     pub DcSiteName: windows_sys::core::PWSTR,
     pub ClientSiteName: windows_sys::core::PWSTR,
-}
-impl Default for DOMAIN_CONTROLLER_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSGETDC_VALID_FLAGS: u32 = 3355443185;
 pub const DS_AVOID_SELF: i32 = 16384;
@@ -94,7 +84,7 @@ pub const DS_DOMAIN_PRIMARY: i32 = 8;
 pub const DS_DOMAIN_TREE_ROOT: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: windows_sys::core::PSTR,
     pub DnsDomainName: windows_sys::core::PSTR,
@@ -105,15 +95,9 @@ pub struct DS_DOMAIN_TRUSTSA {
     pub DomainSid: super::PSID,
     pub DomainGuid: windows_sys::core::GUID,
 }
-#[cfg(feature = "winnt")]
-impl Default for DS_DOMAIN_TRUSTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: windows_sys::core::PWSTR,
     pub DnsDomainName: windows_sys::core::PWSTR,
@@ -123,12 +107,6 @@ pub struct DS_DOMAIN_TRUSTSW {
     pub TrustAttributes: u32,
     pub DomainSid: super::PSID,
     pub DomainGuid: windows_sys::core::GUID,
-}
-#[cfg(feature = "winnt")]
-impl Default for DS_DOMAIN_TRUSTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DS_DOMAIN_VALID_FLAGS: i32 = 63;
 pub const DS_DS_10_FLAG: i32 = 65536;

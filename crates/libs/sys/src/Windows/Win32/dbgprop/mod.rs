@@ -37,7 +37,7 @@ pub const DBGPROP_INFO_STANDARD: i32 = 15;
 pub const DBGPROP_INFO_TYPE: i32 = 2;
 pub const DBGPROP_INFO_VALUE: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
     pub m_bstrName: windows_sys::core::BSTR,
@@ -46,11 +46,6 @@ pub struct DebugPropertyInfo {
     pub m_bstrFullName: windows_sys::core::BSTR,
     pub m_dwAttrib: u32,
     pub m_pDebugProp: *mut core::ffi::c_void,
-}
-impl Default for DebugPropertyInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EX_PROP_INFO_DEBUGEXTPROP: EX_PROP_INFO_FLAGS = 4096;
 pub type EX_PROP_INFO_FLAGS = i32;

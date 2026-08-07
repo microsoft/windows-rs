@@ -58,18 +58,12 @@ pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUE
 pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 1;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COSERVERINFO {
     pub dwReserved1: u32,
     pub pwszName: windows_sys::core::PWSTR,
     pub pAuthInfo: *mut super::COAUTHINFO,
     pub dwReserved2: u32,
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for COSERVERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CO_MARSHALING_CONTEXT_ATTRIBUTES = i32;
 pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483648;
@@ -135,16 +129,11 @@ pub const LOCK_EXCLUSIVE: LOCKTYPE = 2;
 pub const LOCK_ONLYONCE: LOCKTYPE = 4;
 pub const LOCK_WRITE: LOCKTYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MULTI_QI {
     pub pIID: *const windows_sys::core::GUID,
     pub pItf: *mut core::ffi::c_void,
     pub hr: windows_sys::core::HRESULT,
-}
-impl Default for MULTI_QI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
 pub type PRPCOLEMESSAGE = *mut RPCOLEMESSAGE;
@@ -172,7 +161,7 @@ impl Default for RPCOLEMESSAGE {
 pub type RPCOPT_PROPERTIES = i32;
 pub type RPCOPT_SERVER_LOCALITY_VALUES = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SChannelHookCallInfo {
     pub iid: windows_sys::core::GUID,
     pub cbSize: u32,
@@ -181,55 +170,34 @@ pub struct SChannelHookCallInfo {
     pub iMethod: u32,
     pub pObject: *mut core::ffi::c_void,
 }
-impl Default for SChannelHookCallInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 1;
 pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 0;
 pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOLE_AUTHENTICATION_INFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
     pub pAuthInfo: *mut core::ffi::c_void,
 }
-impl Default for SOLE_AUTHENTICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOLE_AUTHENTICATION_LIST {
     pub cAuthInfo: u32,
     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
 }
-impl Default for SOLE_AUTHENTICATION_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
     pub pPrincipalName: *mut super::OLECHAR,
     pub hr: windows_sys::core::HRESULT,
 }
-#[cfg(feature = "wtypesbase")]
-impl Default for SOLE_AUTHENTICATION_SERVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct STATSTG {
     pub pwcsName: windows_sys::core::PWSTR,
     pub r#type: u32,
@@ -242,12 +210,6 @@ pub struct STATSTG {
     pub clsid: windows_sys::core::GUID,
     pub grfStateBits: u32,
     pub reserved: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for STATSTG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type STGTY = i32;
 pub const STGTY_LOCKBYTES: STGTY = 3;

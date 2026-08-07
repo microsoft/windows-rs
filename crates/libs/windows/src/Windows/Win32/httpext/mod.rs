@@ -46,28 +46,18 @@ impl Default for EXTENSION_CONTROL_BLOCK {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCONN(pub *mut core::ffi::c_void);
-impl Default for HCONN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const HSE_APPEND_LOG_PARAMETER: i32 = 1003;
 pub const HSE_APP_FLAG_IN_PROCESS: i32 = 0;
 pub const HSE_APP_FLAG_ISOLATED_OOP: i32 = 1;
 pub const HSE_APP_FLAG_POOLED_OOP: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: *mut i8,
     pub uHttpSubError: u16,
     pub fAsync: windows_core::BOOL,
-}
-impl Default for HSE_CUSTOM_ERROR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -90,15 +80,10 @@ pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
 }
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
     pub lpbData: *mut core::ffi::c_void,
-}
-impl Default for HSE_EXEC_URL_ENTITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: i32 = 128;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: i32 = 4;
@@ -209,7 +194,7 @@ pub const HSE_TERM_ADVISORY_UNLOAD: i32 = 1;
 pub const HSE_TERM_MUST_UNLOAD: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
     pub pContext: *mut core::ffi::c_void,
@@ -222,12 +207,6 @@ pub struct HSE_TF_INFO {
     pub pTail: *mut core::ffi::c_void,
     pub TailLength: u32,
     pub dwFlags: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for HSE_TF_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -282,17 +261,12 @@ impl Default for HSE_URL_MAPEX_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: u32,
     pub pvContext: *mut core::ffi::c_void,
     pub cbOffset: u64,
     pub cbSize: u64,
-}
-impl Default for HSE_VECTOR_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: i32 = 1;
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: i32 = 0;

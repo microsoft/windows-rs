@@ -513,13 +513,8 @@ impl ITrackerOwner_Vtbl {
 #[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITrackerOwner {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TrackerHandle(pub *mut core::ffi::c_void);
-impl Default for TrackerHandle {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type XAML_REFERENCETRACKER_DISCONNECT = i32;
 pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = 0;
 pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = 1;

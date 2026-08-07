@@ -214,16 +214,11 @@ pub const PAYLOADFIELD_MODULO: PAYLOAD_OPERATOR = 8;
 pub const PAYLOADFIELD_NE: PAYLOAD_OPERATOR = 1;
 pub const PAYLOADFIELD_NOTBETWEEN: PAYLOAD_OPERATOR = 7;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PAYLOAD_FILTER_PREDICATE {
     pub FieldName: windows_sys::core::PWSTR,
     pub CompareOp: u16,
     pub Value: windows_sys::core::PWSTR,
-}
-impl Default for PAYLOAD_FILTER_PREDICATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PAYLOAD_OPERATOR = i32;
 pub type PEVENT_MAP_ENTRY = *mut EVENT_MAP_ENTRY;

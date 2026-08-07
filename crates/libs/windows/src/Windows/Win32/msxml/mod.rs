@@ -14476,15 +14476,10 @@ pub const XHR_AUTH_ALL: XHR_AUTH = 0;
 pub const XHR_AUTH_NONE: XHR_AUTH = 1;
 pub const XHR_AUTH_PROXY: XHR_AUTH = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_CERT {
     pub cbCert: u32,
     pub pbCert: *mut u8,
-}
-impl Default for XHR_CERT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = 125829120;
 pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = 33554432;
@@ -14500,7 +14495,7 @@ pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = 128;
 pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = 256;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_COOKIE {
     pub pwszUrl: *mut u16,
     pub pwszName: *mut u16,
@@ -14508,12 +14503,6 @@ pub struct XHR_COOKIE {
     pub pwszP3PPolicy: *mut u16,
     pub ftExpires: super::FILETIME,
     pub dwFlags: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for XHR_COOKIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = 128;
 pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = 64;

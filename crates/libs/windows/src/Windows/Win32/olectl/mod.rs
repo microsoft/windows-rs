@@ -343,7 +343,7 @@ pub const OCM_VSCROLL: i32 = 8469;
 pub const OCM__BASE: i32 = 8192;
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCPFIPARAMS {
     pub cbStructSize: u32,
     pub hWndOwner: super::HWND,
@@ -356,12 +356,6 @@ pub struct OCPFIPARAMS {
     pub lpPages: *mut windows_core::GUID,
     pub lcid: super::LCID,
     pub dispidInitialProperty: super::DISPID,
-}
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
-impl Default for OCPFIPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OLEIVERB_PROPERTIES: i32 = -7;
 #[cfg(feature = "wtypes")]

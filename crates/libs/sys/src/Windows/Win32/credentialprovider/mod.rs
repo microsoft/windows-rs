@@ -43,31 +43,20 @@ pub type CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = u32;
 pub type CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = u32;
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     pub ulAuthenticationPackage: u32,
     pub clsidCredentialProvider: windows_sys::core::GUID,
     pub cbSerialization: u32,
     pub rgbSerialization: *mut super::byte,
 }
-#[cfg(feature = "rpc")]
-impl Default for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
     pub dwFieldID: u32,
     pub cpft: CREDENTIAL_PROVIDER_FIELD_TYPE,
     pub pszLabel: windows_sys::core::PWSTR,
     pub guidFieldType: windows_sys::core::GUID,
-}
-impl Default for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = i32;
 pub type CREDENTIAL_PROVIDER_FIELD_STATE = i32;

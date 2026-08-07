@@ -12,7 +12,7 @@ pub const TLEF_RELATIVE_INCLUDE_CURRENT: tagTLENUMF = 1;
 pub type TLENUMF = u32;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDOWDATA {
     pub dwWindowID: u32,
     pub uiCP: u32,
@@ -20,11 +20,5 @@ pub struct WINDOWDATA {
     pub lpszUrl: windows_sys::core::PWSTR,
     pub lpszUrlLocation: windows_sys::core::PWSTR,
     pub lpszTitle: windows_sys::core::PWSTR,
-}
-#[cfg(feature = "shtypes")]
-impl Default for WINDOWDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type tagTLENUMF = i32;

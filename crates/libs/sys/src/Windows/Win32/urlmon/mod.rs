@@ -368,7 +368,7 @@ pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = 5;
 pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = 7;
 pub const CLASSIDPROP: MONIKERPROPERTY = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CODEBASEHOLD {
     pub cbSize: u32,
     pub szDistUnit: windows_sys::core::PWSTR,
@@ -377,22 +377,12 @@ pub struct CODEBASEHOLD {
     pub dwVersionLS: u32,
     pub dwStyle: u32,
 }
-impl Default for CODEBASEHOLD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONFIRMSAFETY {
     pub clsid: windows_sys::core::GUID,
     pub pUnk: *mut core::ffi::c_void,
     pub dwFlags: u32,
-}
-impl Default for CONFIRMSAFETY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CONFIRMSAFETYACTION_LOADOBJECT: i32 = 1;
 #[repr(C)]
@@ -455,19 +445,13 @@ pub const GET_FEATURE_FROM_THREAD_RESTRICTED: i32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
     pub lpszLoggedUrlName: windows_sys::core::PSTR,
     pub StartTime: super::SYSTEMTIME,
     pub EndTime: super::SYSTEMTIME,
     pub lpszExtendedInfo: windows_sys::core::PSTR,
-}
-#[cfg(feature = "minwinbase")]
-impl Default for HIT_LOGGING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type IEObjectType = i32;
 pub const IE_EPM_OBJECT_EVENT: IEObjectType = 0;
@@ -581,20 +565,15 @@ pub const PI_USE_WORKERTHREAD: PI_FLAGS = 8;
 pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
 pub type PREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROTOCOLDATA {
     pub grfFlags: u32,
     pub dwState: u32,
     pub pData: *mut core::ffi::c_void,
     pub cbData: u32,
 }
-impl Default for PROTOCOLDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
     pub pProtocolSink: *mut core::ffi::c_void,
@@ -602,22 +581,12 @@ pub struct PROTOCOLFILTERDATA {
     pub pUnk: *mut core::ffi::c_void,
     pub dwFilterFlags: u32,
 }
-impl Default for PROTOCOLFILTERDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PROTOCOLFLAG_NO_PICS_CHECK: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_sys::core::PCWSTR,
     pub szTargetUrl: windows_sys::core::PCWSTR,
-}
-impl Default for PROTOCOL_ARGUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PSUACTION = i32;
 pub const PSU_DEFAULT: PSUACTION = 1;
@@ -672,7 +641,7 @@ pub struct REMSECURITY_ATTRIBUTES {
     pub bInheritHandle: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RemBINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_sys::core::PWSTR,
@@ -687,11 +656,6 @@ pub struct RemBINDINFO {
     pub iid: windows_sys::core::GUID,
     pub pUnk: *mut core::ffi::c_void,
     pub dwReserved: u32,
-}
-impl Default for RemBINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -713,7 +677,7 @@ pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: i32 = 8;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: i32 = 128;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOFTDISTINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -729,11 +693,6 @@ pub struct SOFTDISTINFO {
     pub dwAdvertisedVersionLS: u32,
     pub dwReserved: u32,
 }
-impl Default for SOFTDISTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SOFTDIST_ADSTATE_AVAILABLE: i32 = 1;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: i32 = 2;
 pub const SOFTDIST_ADSTATE_INSTALLED: i32 = 3;
@@ -748,17 +707,11 @@ pub type SZM_FLAGS = i32;
 pub const S_ASYNCHRONOUS: i32 = 262632;
 #[repr(C)]
 #[cfg(feature = "objidl")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct StartParam {
     pub iid: windows_sys::core::GUID,
     pub pIBindCtx: *mut core::ffi::c_void,
     pub pItf: *mut core::ffi::c_void,
-}
-#[cfg(feature = "objidl")]
-impl Default for StartParam {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = 3;
 pub const UAS_EXACTLEGACY: i32 = 4096;

@@ -643,13 +643,8 @@ pub const FO_DELETE: i32 = 3;
 pub const FO_MOVE: i32 = 1;
 pub const FO_RENAME: i32 = 4;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDROP(pub *mut core::ffi::c_void);
-impl Default for HDROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPDRAGINFO = LPDRAGINFOA;
 #[cfg(all(feature = "windef", feature = "winnt"))]
@@ -677,16 +672,11 @@ pub const NCM_GETADDRESS: i32 = 1025;
 pub const NCM_GETALLOWTYPE: i32 = 1027;
 pub const NCM_SETALLOWTYPE: i32 = 1026;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NC_ADDRESS {
     pub pAddrInfo: *mut NET_ADDRESS_INFO_,
     pub PortNumber: u16,
     pub PrefixLength: u8,
-}
-impl Default for NC_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1369,7 +1359,7 @@ pub type SHFILEOPSTRUCT = SHFILEOPSTRUCTA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::HWND,
     pub wFunc: u32,
@@ -1379,18 +1369,11 @@ pub struct SHFILEOPSTRUCTA {
     pub fAnyOperationsAborted: windows_core::BOOL,
     pub hNameMappings: *mut core::ffi::c_void,
     pub lpszProgressTitle: windows_core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for SHFILEOPSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::HWND,
     pub wFunc: u32,
@@ -1400,18 +1383,11 @@ pub struct SHFILEOPSTRUCTA {
     pub fAnyOperationsAborted: windows_core::BOOL,
     pub hNameMappings: *mut core::ffi::c_void,
     pub lpszProgressTitle: windows_core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for SHFILEOPSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::HWND,
     pub wFunc: u32,
@@ -1421,18 +1397,11 @@ pub struct SHFILEOPSTRUCTW {
     pub fAnyOperationsAborted: windows_core::BOOL,
     pub hNameMappings: *mut core::ffi::c_void,
     pub lpszProgressTitle: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for SHFILEOPSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::HWND,
     pub wFunc: u32,
@@ -1442,13 +1411,6 @@ pub struct SHFILEOPSTRUCTW {
     pub fAnyOperationsAborted: windows_core::BOOL,
     pub hNameMappings: *mut core::ffi::c_void,
     pub lpszProgressTitle: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for SHFILEOPSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHGFI_ADDOVERLAYS: i32 = 32;
 pub const SHGFI_ATTRIBUTES: i32 = 2048;

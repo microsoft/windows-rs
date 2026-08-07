@@ -8,7 +8,7 @@ pub type LPPROFILEINFOW = *mut PROFILEINFOW;
 pub type PROFILEINFO = PROFILEINFOA;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROFILEINFOA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -19,15 +19,9 @@ pub struct PROFILEINFOA {
     pub lpPolicyPath: windows_sys::core::PSTR,
     pub hProfile: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
-impl Default for PROFILEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PROFILEINFOW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -37,10 +31,4 @@ pub struct PROFILEINFOW {
     pub lpServerName: windows_sys::core::PWSTR,
     pub lpPolicyPath: windows_sys::core::PWSTR,
     pub hProfile: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for PROFILEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

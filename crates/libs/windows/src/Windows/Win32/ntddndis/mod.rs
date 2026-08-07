@@ -905,19 +905,13 @@ pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: i32 = 1;
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT {
     pub Next: PNDIS_PORT,
     pub NdisReserved: *mut core::ffi::c_void,
     pub MiniportReserved: *mut core::ffi::c_void,
     pub ProtocolReserved: *mut core::ffi::c_void,
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
-}
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-impl Default for NDIS_PORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]

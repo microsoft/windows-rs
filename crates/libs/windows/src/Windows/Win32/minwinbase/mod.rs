@@ -2,7 +2,7 @@ pub const CONTROL_C_EXIT: i32 = -1073741510;
 pub const CREATE_PROCESS_DEBUG_EVENT: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CREATE_PROCESS_DEBUG_INFO {
     pub hFile: super::HANDLE,
     pub hProcess: super::HANDLE,
@@ -15,26 +15,14 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub lpImageName: *mut core::ffi::c_void,
     pub fUnicode: u16,
 }
-#[cfg(feature = "winnt")]
-impl Default for CREATE_PROCESS_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CREATE_THREAD_DEBUG_EVENT: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::HANDLE,
     pub lpThreadLocalBase: *mut core::ffi::c_void,
     pub lpStartAddress: LPTHREAD_START_ROUTINE,
-}
-#[cfg(feature = "winnt")]
-impl Default for CREATE_THREAD_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "winnt")]
 pub type CRITICAL_SECTION = super::RTL_CRITICAL_SECTION;
@@ -179,7 +167,7 @@ pub const LMEM_ZEROINIT: i32 = 64;
 pub const LOAD_DLL_DEBUG_EVENT: i32 = 6;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOAD_DLL_DEBUG_INFO {
     pub hFile: super::HANDLE,
     pub lpBaseOfDll: *mut core::ffi::c_void,
@@ -187,12 +175,6 @@ pub struct LOAD_DLL_DEBUG_INFO {
     pub nDebugInfoSize: u32,
     pub lpImageName: *mut core::ffi::c_void,
     pub fUnicode: u16,
-}
-#[cfg(feature = "winnt")]
-impl Default for LOAD_DLL_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LOCKFILE_EXCLUSIVE_LOCK: i32 = 2;
 pub const LOCKFILE_FAIL_IMMEDIATELY: i32 = 1;
@@ -350,18 +332,12 @@ impl Default for PROCESS_HEAP_ENTRY_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
     pub lpFirstBlock: *mut core::ffi::c_void,
     pub lpLastBlock: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for PROCESS_HEAP_ENTRY_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PROCESS_HEAP_ENTRY_BUSY: i32 = 4;
 pub const PROCESS_HEAP_ENTRY_DDESHARE: i32 = 32;
@@ -408,18 +384,12 @@ impl Default for REASON_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonModule: super::HMODULE,
     pub LocalizedReasonId: u32,
     pub ReasonStringCount: u32,
     pub ReasonStrings: *mut windows_core::PWSTR,
-}
-#[cfg(feature = "minwindef")]
-impl Default for REASON_CONTEXT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RIP_EVENT: i32 = 9;
 #[repr(C)]
@@ -433,16 +403,11 @@ pub const ReadDirectoryNotifyFullInformation: READ_DIRECTORY_NOTIFY_INFORMATION_
 pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 1;
 pub const ReadDirectoryNotifyMaximumInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: windows_core::BOOL,
-}
-impl Default for SECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STILL_ACTIVE: i32 = 259;
 #[repr(C)]
@@ -459,14 +424,9 @@ pub struct SYSTEMTIME {
 }
 pub const UNLOAD_DLL_DEBUG_EVENT: i32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNLOAD_DLL_DEBUG_INFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
-}
-impl Default for UNLOAD_DLL_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "minwindef")]
 pub type WIN32_FIND_DATA = WIN32_FIND_DATAA;

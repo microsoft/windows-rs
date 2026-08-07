@@ -175,13 +175,8 @@ pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: 
 }
 pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: i32 = 1;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub *mut core::ffi::c_void);
-impl Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -193,7 +188,7 @@ pub struct AUTHZ_ACCESS_REPLY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: super::ACCESS_MASK,
     pub PrincipalSelfSid: super::PSID,
@@ -201,45 +196,19 @@ pub struct AUTHZ_ACCESS_REQUEST {
     pub ObjectTypeListLength: u32,
     pub OptionalArguments: *mut core::ffi::c_void,
 }
-#[cfg(feature = "winnt")]
-impl Default for AUTHZ_ACCESS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub *mut core::ffi::c_void);
-impl Default for AUTHZ_AUDIT_EVENT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub *mut core::ffi::c_void);
-impl Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE(pub *mut core::ffi::c_void);
-impl Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub *mut core::ffi::c_void);
-impl Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const AUTHZ_COMPUTE_PRIVILEGES: i32 = 8;
 pub type AUTHZ_CONTEXT_INFORMATION_CLASS = i32;
 pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: i32 = 1;
@@ -269,13 +238,8 @@ pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
 }
 pub const AUTHZ_REQUIRE_S4U_LOGON: i32 = 4;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub *mut core::ffi::c_void);
-impl Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: i32 = 2;
 pub const AUTHZ_RM_FLAG_NO_AUDIT: i32 = 1;
 pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: i32 = 4;
@@ -328,15 +292,10 @@ pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
 }
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
-}
-impl Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 2;
@@ -388,13 +347,8 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
 pub const AUTHZ_SECURITY_ATTRIBUTE_VALID_FLAGS: i32 = 3;
 pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: i32 = 2;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub *mut core::ffi::c_void);
-impl Default for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type AUTHZ_SID_OPERATION = i32;
 pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = 2;
 pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = 3;

@@ -461,15 +461,10 @@ pub const DEVICEPOWER_SET_WAKEENABLED: i32 = 1;
 pub const DEVICE_NOTIFY_CALLBACK: i32 = 2;
 pub type DEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut core::ffi::c_void,
-}
-impl Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EnableMultiBatteryDisplay: i32 = 2;
 pub const EnablePasswordLogon: i32 = 4;

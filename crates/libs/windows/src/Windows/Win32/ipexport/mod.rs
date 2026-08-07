@@ -15,7 +15,7 @@ pub struct ICMPV6_ECHO_REPLY_LH {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntddndis"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICMP_ECHO_REPLY {
     pub Address: super::IPAddr,
     pub Status: u32,
@@ -25,16 +25,10 @@ pub struct ICMP_ECHO_REPLY {
     pub Data: *mut core::ffi::c_void,
     pub Options: IP_OPTION_INFORMATION,
 }
-#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
-impl Default for ICMP_ECHO_REPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICMP_ECHO_REPLY32 {
     pub Address: super::IPAddr,
     pub Status: u32,
@@ -43,13 +37,6 @@ pub struct ICMP_ECHO_REPLY32 {
     pub Reserved: u16,
     pub Data: *mut core::ffi::c_void,
     pub Options: IP_OPTION_INFORMATION32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ntddndis")]
-impl Default for ICMP_ECHO_REPLY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -152,19 +139,13 @@ pub struct IP_OPTION_INFORMATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_OPTION_INFORMATION32 {
     pub Ttl: u8,
     pub Tos: u8,
     pub Flags: u8,
     pub OptionsSize: u8,
     pub OptionsData: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for IP_OPTION_INFORMATION32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IP_OPTION_TOO_BIG: i32 = 11017;
 pub const IP_OPT_EOL: i32 = 0;

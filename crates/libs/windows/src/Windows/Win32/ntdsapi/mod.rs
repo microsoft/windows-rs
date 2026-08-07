@@ -1281,7 +1281,7 @@ pub struct DS_REPL_QUEUE_STATISTICSW {
 pub type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -1295,15 +1295,9 @@ pub struct DS_REPL_VALUE_META_DATA {
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_VALUE_META_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -1317,12 +1311,6 @@ pub struct DS_REPL_VALUE_META_DATA_2 {
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
     pub pszLastOriginatingDsaDN: windows_core::PWSTR,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_VALUE_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -1363,7 +1351,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -1380,12 +1368,6 @@ pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub dwUserIdentifier: u32,
     pub dwPriorLinkState: u32,
     pub dwCurrentLinkState: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for DS_REPL_VALUE_META_DATA_EXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: i32 = 1;
 pub const DS_REPMOD_UPDATE_ADDRESS: i32 = 2;
@@ -1426,7 +1408,7 @@ pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: i32 = 32;
 pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = 2;
 pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: i32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCA {
     pub pszSrcId: windows_core::PSTR,
     pub pszDstId: windows_core::PSTR,
@@ -1434,13 +1416,8 @@ pub struct DS_REPSYNCALL_SYNCA {
     pub pguidSrc: *mut windows_core::GUID,
     pub pguidDst: *mut windows_core::GUID,
 }
-impl Default for DS_REPSYNCALL_SYNCA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCW {
     pub pszSrcId: windows_core::PWSTR,
     pub pszDstId: windows_core::PWSTR,
@@ -1448,35 +1425,20 @@ pub struct DS_REPSYNCALL_SYNCW {
     pub pguidSrc: *mut windows_core::GUID,
     pub pguidDst: *mut windows_core::GUID,
 }
-impl Default for DS_REPSYNCALL_SYNCW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEA {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
     pub pSync: *mut DS_REPSYNCALL_SYNCA,
 }
-impl Default for DS_REPSYNCALL_UPDATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEW {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
     pub pSync: *mut DS_REPSYNCALL_SYNCW,
-}
-impl Default for DS_REPSYNCALL_UPDATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = 0;
 pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = 1;

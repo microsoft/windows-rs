@@ -462,7 +462,7 @@ pub struct DXGI_INFO_QUEUE_FILTER {
     pub DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -471,13 +471,8 @@ pub struct DXGI_INFO_QUEUE_FILTER_DESC {
     pub NumIDs: u32,
     pub pIDList: *mut DXGI_INFO_QUEUE_MESSAGE_ID,
 }
-impl Default for DXGI_INFO_QUEUE_FILTER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Producer: DXGI_DEBUG_ID,
     pub Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -485,11 +480,6 @@ pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub ID: DXGI_INFO_QUEUE_MESSAGE_ID,
     pub pDescription: *const i8,
     pub DescriptionByteLength: usize,
-}
-impl Default for DXGI_INFO_QUEUE_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DXGI_INFO_QUEUE_MESSAGE_CATEGORY = i32;
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_CLEANUP: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = 3;
@@ -546,15 +536,10 @@ impl Default for DXGI_JPEG_QUANTIZATION_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MAPPED_RECT {
     pub Pitch: i32,
     pub pBits: *mut u8,
-}
-impl Default for DXGI_MAPPED_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXGI_MAP_DISCARD: u32 = 4;
 pub const DXGI_MAP_READ: u32 = 1;
@@ -724,18 +709,12 @@ pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2;
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_PRESENT_PARAMETERS {
     pub DirtyRectsCount: u32,
     pub pDirtyRects: *mut super::RECT,
     pub pScrollRect: *mut super::RECT,
     pub pScrollOffset: *mut super::POINT,
-}
-#[cfg(feature = "windef")]
-impl Default for DXGI_PRESENT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXGI_PRESENT_RESTART: u32 = 4;
 pub const DXGI_PRESENT_RESTRICT_TO_OUTPUT: u32 = 64;

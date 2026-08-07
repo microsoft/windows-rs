@@ -451,16 +451,11 @@ pub const ALG_TYPE_THIRDPARTY: i32 = 4096;
 pub const AT_KEYEXCHANGE: i32 = 1;
 pub const AT_SIGNATURE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
     pub pSignerInfo: PCMSG_SIGNER_INFO,
-}
-impl Default for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -596,15 +591,10 @@ impl Default for CERT_ALT_NAME_ENTRY_0 {
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_MASK: i32 = 255;
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_SHIFT: i32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_ALT_NAME_INFO {
     pub cAltEntry: u32,
     pub rgAltEntry: PCERT_ALT_NAME_ENTRY,
-}
-impl Default for CERT_ALT_NAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_ALT_NAME_IP_ADDRESS: i32 = 8;
 pub const CERT_ALT_NAME_OTHER_NAME: i32 = 1;
@@ -617,15 +607,10 @@ pub const CERT_ALT_NAME_X400_ADDRESS: i32 = 4;
 pub const CERT_ARCHIVED_KEY_HASH_PROP_ID: i32 = 65;
 pub const CERT_ARCHIVED_PROP_ID: i32 = 19;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_AUTHORITY_INFO_ACCESS {
     pub cAccDescr: u32,
     pub rgAccDescr: PCERT_ACCESS_DESCRIPTION,
-}
-impl Default for CERT_AUTHORITY_INFO_ACCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_AUTHORITY_INFO_ACCESS_PROP_ID: i32 = 68;
 #[repr(C)]
@@ -668,18 +653,13 @@ pub struct CERT_BASIC_CONSTRAINTS2_INFO {
     pub dwPathLenConstraint: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub SubjectType: CRYPT_BIT_BLOB,
     pub fPathLenConstraint: windows_sys::core::BOOL,
     pub dwPathLenConstraint: u32,
     pub cSubtreesConstraint: u32,
     pub rgSubtreesConstraint: *mut CERT_NAME_BLOB,
-}
-impl Default for CERT_BASIC_CONSTRAINTS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -705,15 +685,10 @@ impl Default for CERT_BIOMETRIC_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_BIOMETRIC_EXT_INFO {
     pub cBiometricData: u32,
     pub rgBiometricData: PCERT_BIOMETRIC_DATA,
-}
-impl Default for CERT_BIOMETRIC_EXT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_BIOMETRIC_OID_DATA_CHOICE: i32 = 2;
 pub const CERT_BIOMETRIC_PICTURE_TYPE: i32 = 0;
@@ -728,16 +703,11 @@ pub const CERT_CA_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: i32 = 81;
 pub const CERT_CA_SUBJECT_FLAG: i32 = 128;
 pub const CERT_CEP_PROP_ID: i32 = 87;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CHAIN {
     pub cCerts: u32,
     pub certs: PCERT_BLOB,
     pub keyLocatorInfo: CRYPT_KEY_PROV_INFO,
-}
-impl Default for CERT_CHAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_CHAIN_AUTO_CURRENT_USER: i32 = 1;
 pub const CERT_CHAIN_AUTO_FLAGS_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("AutoFlags");
@@ -764,7 +734,7 @@ pub const CERT_CHAIN_CACHE_RESYNC_FILETIME_VALUE_NAME: windows_sys::core::PCWSTR
 pub const CERT_CHAIN_CONFIG_REGPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\Cryptography\\OID\\EncodingType 0\\CertDllCreateCertificateChainEngine\\Config");
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CHAIN_CONTEXT {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -776,12 +746,6 @@ pub struct CERT_CHAIN_CONTEXT {
     pub dwRevocationFreshnessTime: u32,
     pub dwCreateFlags: u32,
     pub ChainId: windows_sys::core::GUID,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_CHAIN_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_CHAIN_CRL_VALIDITY_EXT_PERIOD_HOURS_DEFAULT: i32 = 12;
 pub const CERT_CHAIN_CRL_VALIDITY_EXT_PERIOD_HOURS_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("CRLValidityExtensionPeriod");
@@ -817,7 +781,7 @@ pub const CERT_CHAIN_DISABLE_UNSUPPORTED_CRITICAL_EXTENSIONS_VALUE_NAME: windows
 pub const CERT_CHAIN_DISABLE_WEAK_FLAGS: i32 = 215285776;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: u32,
     pub pCertContext: PCCERT_CONTEXT,
@@ -826,12 +790,6 @@ pub struct CERT_CHAIN_ELEMENT {
     pub pIssuanceUsage: PCERT_ENHKEY_USAGE,
     pub pApplicationUsage: PCERT_ENHKEY_USAGE,
     pub pwszExtendedErrorInfo: windows_sys::core::PCWSTR,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_CHAIN_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_CHAIN_ENABLE_ALL_EKU_HYGIENE_FLAG: i32 = 131072;
 pub const CERT_CHAIN_ENABLE_CACHE_AUTO_UPDATE: i32 = 16;
@@ -851,7 +809,7 @@ pub const CERT_CHAIN_ENABLE_WEAK_RSA_ROOT_FLAG: i32 = 2;
 pub const CERT_CHAIN_ENABLE_WEAK_SETTINGS_FLAG: u32 = 2147483648;
 pub const CERT_CHAIN_ENABLE_WEAK_SIGNATURE_FLAGS_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableWeakSignatureFlags");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub cbSize: u32,
     pub hRestrictedRoot: HCERTSTORE,
@@ -867,11 +825,6 @@ pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub hExclusiveTrustedPeople: HCERTSTORE,
     pub dwExclusiveFlags: u32,
 }
-impl Default for CERT_CHAIN_ENGINE_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_CHAIN_EXCLUSIVE_ENABLE_CA_FLAG: i32 = 1;
 pub const CERT_CHAIN_FIND_BY_ISSUER: i32 = 1;
 pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_FLAG: i32 = 32768;
@@ -884,7 +837,7 @@ pub const CERT_CHAIN_FIND_BY_ISSUER_NO_KEY_FLAG: i32 = 16384;
 pub type CERT_CHAIN_FIND_BY_ISSUER_PARA = CERT_CHAIN_FIND_ISSUER_PARA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CHAIN_FIND_ISSUER_PARA {
     pub cbSize: u32,
     pub pszUsageIdentifier: windows_sys::core::PCSTR,
@@ -894,12 +847,6 @@ pub struct CERT_CHAIN_FIND_ISSUER_PARA {
     pub rgIssuer: *mut CERT_NAME_BLOB,
     pub pfnFindCallback: PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK,
     pub pvFindArg: *mut core::ffi::c_void,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_CHAIN_FIND_ISSUER_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_CHAIN_HAS_MOTW: i32 = 16384;
 pub const CERT_CHAIN_MAX_AIA_URL_COUNT_IN_CERT_DEFAULT: i32 = 5;
@@ -998,16 +945,11 @@ pub const CERT_CHAIN_POLICY_IGNORE_WRONG_USAGE_FLAG: i32 = 32;
 pub const CERT_CHAIN_POLICY_MICROSOFT_ROOT: windows_sys::core::PCSTR = 7 as _;
 pub const CERT_CHAIN_POLICY_NT_AUTH: windows_sys::core::PCSTR = 6 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub pvExtraPolicyPara: *mut core::ffi::c_void,
-}
-impl Default for CERT_CHAIN_POLICY_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_CHAIN_POLICY_SSL: windows_sys::core::PCSTR = 4 as _;
 pub const CERT_CHAIN_POLICY_SSL_F12: windows_sys::core::PCSTR = 9 as _;
@@ -1025,18 +967,13 @@ pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_ERROR: i32 = -1;
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_WARNING: i32 = 1;
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_SUCCESS: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
     pub lChainIndex: i32,
     pub lElementIndex: i32,
     pub pvExtraPolicyStatus: *mut core::ffi::c_void,
-}
-impl Default for CERT_CHAIN_POLICY_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_CHAIN_POLICY_THIRD_PARTY_ROOT: windows_sys::core::PCSTR = 11 as _;
 pub const CERT_CHAIN_POLICY_TRUST_TESTROOT_FLAG: i32 = 16384;
@@ -1103,7 +1040,7 @@ pub const CERT_COMPARE_SUBJECT_CERT: i32 = 11;
 pub const CERT_COMPARE_SUBJECT_INFO_ACCESS: i32 = 19;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CONTEXT {
     pub dwCertEncodingType: u32,
     pub pbCertEncoded: *mut u8,
@@ -1111,18 +1048,12 @@ pub struct CERT_CONTEXT {
     pub pCertInfo: PCERT_INFO,
     pub hCertStore: HCERTSTORE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CERT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_CONTEXT_REVOCATION_TYPE: i32 = 1;
 pub const CERT_CREATE_CONTEXT_NOCOPY_FLAG: i32 = 1;
 pub const CERT_CREATE_CONTEXT_NO_ENTRY_FLAG: i32 = 8;
 pub const CERT_CREATE_CONTEXT_NO_HCRYPTMSG_FLAG: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: u32,
     pub pfnFree: PFN_CRYPT_FREE,
@@ -1130,26 +1061,15 @@ pub struct CERT_CREATE_CONTEXT_PARA {
     pub pfnSort: PFN_CERT_CREATE_CONTEXT_SORT_FUNC,
     pub pvSort: *mut core::ffi::c_void,
 }
-impl Default for CERT_CREATE_CONTEXT_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_CREATE_CONTEXT_SORTED_FLAG: i32 = 2;
 pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: i32 = 2;
 pub const CERT_CREATE_SELFSIGN_NO_SIGN: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CRL_CONTEXT_PAIR {
     pub pCertContext: PCCERT_CONTEXT,
     pub pCrlContext: PCCRL_CONTEXT,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_CRL_CONTEXT_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_CRL_SIGN_KEY_USAGE: i32 = 2;
 pub const CERT_CROSS_CERT_DIST_POINTS_PROP_ID: i32 = 23;
@@ -1205,27 +1125,17 @@ pub const CERT_ENROLLMENT_PROP_ID: i32 = 26;
 pub const CERT_EXCLUDED_SUBTREE_BIT: u32 = 2147483648;
 pub const CERT_EXTENDED_ERROR_INFO_PROP_ID: i32 = 30;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_EXTENSION {
     pub pszObjId: windows_sys::core::PSTR,
     pub fCritical: windows_sys::core::BOOL,
     pub Value: CRYPT_OBJID_BLOB,
 }
-impl Default for CERT_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_EXTENSIONS {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
-}
-impl Default for CERT_EXTENSIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_FILE_HASH_USE_TYPE: i32 = 1;
 pub const CERT_FILE_STORE_COMMIT_ENABLE_FLAG: i32 = 65536;
@@ -1304,16 +1214,11 @@ impl Default for CERT_GENERAL_SUBTREE {
 }
 pub const CERT_GROUP_POLICY_SYSTEM_STORE_REGPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Policies\\Microsoft\\SystemCertificates");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_HASHED_URL {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_HASH_BLOB,
     pub pwszUrl: windows_sys::core::PWSTR,
-}
-impl Default for CERT_HASHED_URL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_HASH_PROP_ID: i32 = 3;
 pub const CERT_HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_PROP_ID: i32 = 79;
@@ -1348,7 +1253,7 @@ pub const CERT_IE30_RESERVED_PROP_ID: i32 = 7;
 pub const CERT_IE_DIRTY_FLAGS_REGPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\Cryptography\\IEDirtyFlags");
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_INFO {
     pub dwVersion: u32,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
@@ -1362,12 +1267,6 @@ pub struct CERT_INFO {
     pub SubjectUniqueId: CRYPT_BIT_BLOB,
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_INFO_EXTENSION_FLAG: i32 = 11;
 pub const CERT_INFO_ISSUER_FLAG: i32 = 4;
@@ -1393,32 +1292,21 @@ pub struct CERT_ISSUER_SERIAL_NUMBER {
 }
 pub const CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID: i32 = 28;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_KEYGEN_REQUEST_INFO {
     pub dwVersion: u32,
     pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
     pub pwszChallengeString: windows_sys::core::PWSTR,
 }
-impl Default for CERT_KEYGEN_REQUEST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_KEYGEN_REQUEST_V1: i32 = 0;
 pub const CERT_KEY_AGREEMENT_KEY_USAGE: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_KEY_ATTRIBUTES_INFO {
     pub KeyId: CRYPT_DATA_BLOB,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub pPrivateKeyUsagePeriod: PCERT_PRIVATE_KEY_VALIDITY,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_KEY_ATTRIBUTES_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_KEY_CERT_SIGN_KEY_USAGE: i32 = 4;
 pub const CERT_KEY_CLASSIFICATION_PROP_ID: i32 = 120;
@@ -1457,48 +1345,33 @@ pub const CERT_KEY_PROV_INFO_PROP_ID: i32 = 2;
 pub const CERT_KEY_REPAIR_ATTEMPTED_PROP_ID: i32 = 103;
 pub const CERT_KEY_SPEC_PROP_ID: i32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_KEY_USAGE_RESTRICTION_INFO {
     pub cCertPolicyId: u32,
     pub rgCertPolicyId: PCERT_POLICY_ID,
     pub RestrictedKeyUsage: CRYPT_BIT_BLOB,
-}
-impl Default for CERT_KEY_USAGE_RESTRICTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_LAST_RESERVED_PROP_ID: i32 = 32767;
 pub const CERT_LAST_USER_PROP_ID: i32 = 65535;
 pub const CERT_LDAP_STORE_AREC_EXCLUSIVE_FLAG: i32 = 131072;
 pub const CERT_LDAP_STORE_OPENED_FLAG: i32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_LDAP_STORE_OPENED_PARA {
     pub pvLdapSessionHandle: *mut core::ffi::c_void,
     pub pwszLdapUrl: windows_sys::core::PCWSTR,
-}
-impl Default for CERT_LDAP_STORE_OPENED_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_LDAP_STORE_SIGN_FLAG: i32 = 65536;
 pub const CERT_LDAP_STORE_UNBIND_FLAG: i32 = 524288;
 pub const CERT_LOCAL_MACHINE_SYSTEM_STORE_REGPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\SystemCertificates");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_LOGOTYPE_AUDIO {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeAudioInfo: PCERT_LOGOTYPE_AUDIO_INFO,
 }
-impl Default for CERT_LOGOTYPE_AUDIO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwFileSize: u32,
     pub dwPlayTime: u32,
@@ -1506,41 +1379,26 @@ pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwSampleRate: u32,
     pub pwszLanguage: windows_sys::core::PWSTR,
 }
-impl Default for CERT_LOGOTYPE_AUDIO_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_LOGOTYPE_BITS_IMAGE_RESOLUTION_CHOICE: i32 = 1;
 pub const CERT_LOGOTYPE_COLOR_IMAGE_INFO_CHOICE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_LOGOTYPE_DATA {
     pub cLogotypeImage: u32,
     pub rgLogotypeImage: PCERT_LOGOTYPE_IMAGE,
     pub cLogotypeAudio: u32,
     pub rgLogotypeAudio: PCERT_LOGOTYPE_AUDIO,
 }
-impl Default for CERT_LOGOTYPE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_LOGOTYPE_DETAILS {
     pub pwszMimeType: windows_sys::core::PWSTR,
     pub cHashedUrl: u32,
     pub rgHashedUrl: PCERT_HASHED_URL,
 }
-impl Default for CERT_LOGOTYPE_DETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cCommunityLogo: u32,
     pub rgCommunityLogo: PCERT_LOGOTYPE_INFO,
@@ -1549,22 +1407,12 @@ pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cOtherLogo: u32,
     pub rgOtherLogo: PCERT_OTHER_LOGOTYPE_INFO,
 }
-impl Default for CERT_LOGOTYPE_EXT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_LOGOTYPE_IMAGE {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeImageInfo: PCERT_LOGOTYPE_IMAGE_INFO,
-}
-impl Default for CERT_LOGOTYPE_IMAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1618,15 +1466,10 @@ impl Default for CERT_LOGOTYPE_INFO_0 {
 }
 pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_LOGOTYPE_REFERENCE {
     pub cHashedUrl: u32,
     pub rgHashedUrl: PCERT_HASHED_URL,
-}
-impl Default for CERT_LOGOTYPE_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_LOGOTYPE_TABLE_SIZE_IMAGE_RESOLUTION_CHOICE: i32 = 2;
 pub const CERT_MAX_ASN_ENCODED_DSS_SIGNATURE_LEN: i32 = 48;
@@ -1634,32 +1477,22 @@ pub const CERT_MD5_HASH_PROP_ID: i32 = 4;
 pub const CERT_NAME_ATTR_TYPE: i32 = 3;
 pub type CERT_NAME_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_NAME_CONSTRAINTS_INFO {
     pub cPermittedSubtree: u32,
     pub rgPermittedSubtree: PCERT_GENERAL_SUBTREE,
     pub cExcludedSubtree: u32,
     pub rgExcludedSubtree: PCERT_GENERAL_SUBTREE,
 }
-impl Default for CERT_NAME_CONSTRAINTS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_NAME_DISABLE_IE4_UTF8_FLAG: i32 = 65536;
 pub const CERT_NAME_DNS_TYPE: i32 = 6;
 pub const CERT_NAME_EMAIL_TYPE: i32 = 1;
 pub const CERT_NAME_FRIENDLY_DISPLAY_TYPE: i32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_NAME_INFO {
     pub cRDN: u32,
     pub rgRDN: PCERT_RDN,
-}
-impl Default for CERT_NAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_NAME_ISSUER_FLAG: i32 = 1;
 pub const CERT_NAME_RDN_TYPE: i32 = 2;
@@ -1705,27 +1538,17 @@ pub const CERT_OCSP_RESPONSE_PROP_ID: i32 = 70;
 pub const CERT_OFFLINE_CRL_SIGN_KEY_USAGE: i32 = 2;
 pub const CERT_OID_NAME_STR: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_OR_CRL_BLOB {
     pub dwChoice: u32,
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
 }
-impl Default for CERT_OR_CRL_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_OR_CRL_BUNDLE {
     pub cItem: u32,
     pub rgItem: PCERT_OR_CRL_BLOB,
-}
-impl Default for CERT_OR_CRL_BUNDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1739,15 +1562,10 @@ impl Default for CERT_OTHER_LOGOTYPE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_OTHER_NAME {
     pub pszObjId: windows_sys::core::PSTR,
     pub Value: CRYPT_OBJID_BLOB,
-}
-impl Default for CERT_OTHER_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1762,7 +1580,7 @@ pub const CERT_PHYSICAL_STORE_DS_USER_CERTIFICATE_NAME: windows_sys::core::PCWST
 pub const CERT_PHYSICAL_STORE_ENTERPRISE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!(".Enterprise");
 pub const CERT_PHYSICAL_STORE_GROUP_POLICY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!(".GroupPolicy");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_PHYSICAL_STORE_INFO {
     pub cbSize: u32,
     pub pszOpenStoreProvider: windows_sys::core::PSTR,
@@ -1771,11 +1589,6 @@ pub struct CERT_PHYSICAL_STORE_INFO {
     pub OpenParameters: CRYPT_DATA_BLOB,
     pub dwFlags: u32,
     pub dwPriority: u32,
-}
-impl Default for CERT_PHYSICAL_STORE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_PHYSICAL_STORE_INSERT_COMPUTER_NAME_ENABLE_FLAG: i32 = 8;
 pub const CERT_PHYSICAL_STORE_LOCAL_MACHINE_GROUP_POLICY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!(".LocalMachineGroupPolicy");
@@ -1793,29 +1606,19 @@ pub const CERT_PIN_RULES_CTL_FILENAME: windows_sys::core::PCWSTR = windows_sys::
 pub const CERT_PIN_RULES_CTL_FILENAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("pinrules.stl");
 pub const CERT_PIN_SHA256_HASH_PROP_ID: i32 = 124;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICIES_INFO {
     pub cPolicyInfo: u32,
     pub rgPolicyInfo: *mut CERT_POLICY_INFO,
 }
-impl Default for CERT_POLICIES_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICY95_QUALIFIER1 {
     pub pszPracticesReference: windows_sys::core::PWSTR,
     pub pszNoticeIdentifier: windows_sys::core::PSTR,
     pub pszNSINoticeIdentifier: windows_sys::core::PSTR,
     pub cCPSURLs: u32,
     pub rgCPSURLs: *mut CPS_URLS,
-}
-impl Default for CERT_POLICY95_QUALIFIER1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1826,83 +1629,48 @@ pub struct CERT_POLICY_CONSTRAINTS_INFO {
     pub dwInhibitPolicyMappingSkipCerts: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICY_ID {
     pub cCertPolicyElementId: u32,
     pub rgpszCertPolicyElementId: *mut windows_sys::core::PSTR,
 }
-impl Default for CERT_POLICY_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICY_INFO {
     pub pszPolicyIdentifier: windows_sys::core::PSTR,
     pub cPolicyQualifier: u32,
     pub rgPolicyQualifier: *mut CERT_POLICY_QUALIFIER_INFO,
 }
-impl Default for CERT_POLICY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICY_MAPPING {
     pub pszIssuerDomainPolicy: windows_sys::core::PSTR,
     pub pszSubjectDomainPolicy: windows_sys::core::PSTR,
 }
-impl Default for CERT_POLICY_MAPPING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICY_MAPPINGS_INFO {
     pub cPolicyMapping: u32,
     pub rgPolicyMapping: PCERT_POLICY_MAPPING,
 }
-impl Default for CERT_POLICY_MAPPINGS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICY_QUALIFIER_INFO {
     pub pszPolicyQualifierId: windows_sys::core::PSTR,
     pub Qualifier: CRYPT_OBJID_BLOB,
 }
-impl Default for CERT_POLICY_QUALIFIER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     pub pszOrganization: windows_sys::core::PSTR,
     pub cNoticeNumbers: u32,
     pub rgNoticeNumbers: *mut i32,
 }
-impl Default for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_POLICY_QUALIFIER_USER_NOTICE {
     pub pNoticeReference: *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE,
     pub pszDisplayText: windows_sys::core::PWSTR,
-}
-impl Default for CERT_POLICY_QUALIFIER_USER_NOTICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -1933,26 +1701,16 @@ pub struct CERT_PUBLIC_KEY_INFO {
 pub const CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: i32 = 93;
 pub const CERT_PVK_FILE_PROP_ID: i32 = 12;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_QC_STATEMENT {
     pub pszStatementId: windows_sys::core::PSTR,
     pub StatementInfo: CRYPT_OBJID_BLOB,
 }
-impl Default for CERT_QC_STATEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_QC_STATEMENTS_EXT_INFO {
     pub cStatement: u32,
     pub rgStatement: PCERT_QC_STATEMENT,
-}
-impl Default for CERT_QC_STATEMENTS_EXT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_QUERY_CONTENT_CERT: i32 = 1;
 pub const CERT_QUERY_CONTENT_CERT_PAIR: i32 = 13;
@@ -1994,28 +1752,18 @@ pub const CERT_QUERY_FORMAT_FLAG_BINARY: i32 = 2;
 pub const CERT_QUERY_OBJECT_BLOB: i32 = 2;
 pub const CERT_QUERY_OBJECT_FILE: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_RDN {
     pub cRDNAttr: u32,
     pub rgRDNAttr: PCERT_RDN_ATTR,
 }
-impl Default for CERT_RDN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_RDN_ANY_TYPE: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_RDN_ATTR {
     pub pszObjId: windows_sys::core::PSTR,
     pub dwValueType: u32,
     pub Value: CERT_RDN_VALUE_BLOB,
-}
-impl Default for CERT_RDN_ATTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_RDN_BMP_STRING: i32 = 12;
 pub const CERT_RDN_DISABLE_CHECK_TYPE_FLAG: i32 = 1073741824;
@@ -2046,16 +1794,10 @@ pub const CERT_RDN_VISIBLE_STRING: i32 = 9;
 pub const CERT_REGISTRY_STORE_CLIENT_GPT_FLAG: u32 = 2147483648;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::HKEY,
     pub pwszRegPath: windows_sys::core::PWSTR,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_REGISTRY_STORE_EXTERNAL_FLAG: i32 = 1048576;
 pub const CERT_REGISTRY_STORE_LM_GPT_FLAG: i32 = 16777216;
@@ -2064,32 +1806,21 @@ pub const CERT_REGISTRY_STORE_REMOTE_FLAG: i32 = 65536;
 pub const CERT_REGISTRY_STORE_ROAMING_FLAG: i32 = 262144;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::HKEY,
     pub pwszStoreDirectory: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CERT_REGISTRY_STORE_ROAMING_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_REGISTRY_STORE_SERIALIZED_FLAG: i32 = 131072;
 pub const CERT_RENEWAL_PROP_ID: i32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_REQUEST_INFO {
     pub dwVersion: u32,
     pub Subject: CERT_NAME_BLOB,
     pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
     pub cAttribute: u32,
     pub rgAttribute: PCRYPT_ATTRIBUTE,
-}
-impl Default for CERT_REQUEST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_REQUEST_ORIGINATOR_PROP_ID: i32 = 71;
 pub const CERT_REQUEST_V1: i32 = 0;
@@ -2103,7 +1834,7 @@ pub const CERT_RETR_BEHAVIOR_INET_STATUS_VALUE_NAME: windows_sys::core::PCWSTR =
 pub const CERT_RETR_BEHAVIOR_LDAP_VALUE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DisableLDAPSignAndEncrypt");
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_REVOCATION_CHAIN_PARA {
     pub cbSize: u32,
     pub hChainEngine: HCERTCHAINENGINE,
@@ -2114,15 +1845,9 @@ pub struct CERT_REVOCATION_CHAIN_PARA {
     pub pftCacheResync: super::LPFILETIME,
     pub cbMaxUrlRetrievalByteCount: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for CERT_REVOCATION_CHAIN_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_REVOCATION_CRL_INFO {
     pub cbSize: u32,
     pub pBaseCrlContext: PCCRL_CONTEXT,
@@ -2130,15 +1855,9 @@ pub struct CERT_REVOCATION_CRL_INFO {
     pub pCrlEntry: PCRL_ENTRY,
     pub fDeltaCrlEntry: windows_sys::core::BOOL,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CERT_REVOCATION_CRL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_REVOCATION_INFO {
     pub cbSize: u32,
     pub dwRevocationResult: u32,
@@ -2148,15 +1867,9 @@ pub struct CERT_REVOCATION_INFO {
     pub dwFreshnessTime: u32,
     pub pCrlInfo: PCERT_REVOCATION_CRL_INFO,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CERT_REVOCATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: u32,
     pub pIssuerCert: PCCERT_CONTEXT,
@@ -2164,12 +1877,6 @@ pub struct CERT_REVOCATION_PARA {
     pub rgCertStore: *mut HCERTSTORE,
     pub hCrlStore: HCERTSTORE,
     pub pftTimeToUse: super::LPFILETIME,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_REVOCATION_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2218,7 +1925,7 @@ pub const CERT_SELECT_BY_THUMBPRINT: i32 = 14;
 pub const CERT_SELECT_BY_TLS_SIGNATURES: i32 = 11;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_SELECT_CHAIN_PARA {
     pub hChainEngine: HCERTCHAINENGINE,
     pub pTime: super::PFILETIME,
@@ -2226,23 +1933,12 @@ pub struct CERT_SELECT_CHAIN_PARA {
     pub pChainPara: PCERT_CHAIN_PARA,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for CERT_SELECT_CHAIN_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_SELECT_CRITERIA {
     pub dwType: u32,
     pub cPara: u32,
     pub ppPara: *mut *mut core::ffi::c_void,
-}
-impl Default for CERT_SELECT_CRITERIA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_SELECT_DISALLOW_SELFSIGNED: i32 = 4;
 pub const CERT_SELECT_HARDWARE_ONLY: i32 = 64;
@@ -2259,20 +1955,15 @@ pub const CERT_SERIALIZABLE_KEY_CONTEXT_PROP_ID: i32 = 117;
 pub const CERT_SERIAL_CHAIN_PROP_ID: i32 = 119;
 pub const CERT_SERVER_OCSP_RESPONSE_ASYNC_FLAG: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     pub cbSize: u32,
     pub pbEncodedOcspResponse: *mut u8,
     pub cbEncodedOcspResponse: u32,
 }
-impl Default for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -2280,12 +1971,6 @@ pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub pwszOcspDirectory: windows_sys::core::PWSTR,
     pub pfnUpdateCallback: PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK,
     pub pvUpdateCallbackArg: *mut core::ffi::c_void,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_READ_FLAG: i32 = 1;
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_WRITE_FLAG: i32 = 2;
@@ -2307,7 +1992,7 @@ pub struct CERT_SIGNED_CONTENT_INFO {
 pub const CERT_SIGN_HASH_CNG_ALG_PROP_ID: i32 = 89;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_SIMPLE_CHAIN {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -2316,12 +2001,6 @@ pub struct CERT_SIMPLE_CHAIN {
     pub pTrustListInfo: PCERT_TRUST_LIST_INFO,
     pub fHasRevocationFreshnessTime: windows_sys::core::BOOL,
     pub dwRevocationFreshnessTime: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_SIMPLE_CHAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_SIMPLE_NAME_STR: i32 = 1;
 pub const CERT_SMART_CARD_DATA_PROP_ID: i32 = 16;
@@ -2395,18 +2074,13 @@ pub const CERT_STORE_PROV_FIND_CERT_FUNC: i32 = 14;
 pub const CERT_STORE_PROV_FIND_CRL_FUNC: i32 = 17;
 pub const CERT_STORE_PROV_FIND_CTL_FUNC: i32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_STORE_PROV_FIND_INFO {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
     pub dwFindFlags: u32,
     pub dwFindType: u32,
     pub pvFindPara: *const core::ffi::c_void,
-}
-impl Default for CERT_STORE_PROV_FIND_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_STORE_PROV_FREE_FIND_CERT_FUNC: i32 = 15;
 pub const CERT_STORE_PROV_FREE_FIND_CRL_FUNC: i32 = 18;
@@ -2416,7 +2090,7 @@ pub const CERT_STORE_PROV_GET_CRL_PROPERTY_FUNC: i32 = 19;
 pub const CERT_STORE_PROV_GET_CTL_PROPERTY_FUNC: i32 = 22;
 pub const CERT_STORE_PROV_GP_SYSTEM_STORE_FLAG: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_STORE_PROV_INFO {
     pub cbSize: u32,
     pub cStoreProvFunc: u32,
@@ -2424,11 +2098,6 @@ pub struct CERT_STORE_PROV_INFO {
     pub hStoreProv: HCERTSTOREPROV,
     pub dwStoreProvFlags: u32,
     pub hStoreProvFuncAddr2: HCRYPTOIDFUNCADDR,
-}
-impl Default for CERT_STORE_PROV_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_STORE_PROV_LDAP_W: windows_sys::core::PCSTR = 16 as _;
 pub const CERT_STORE_PROV_LM_SYSTEM_STORE_FLAG: i32 = 16;
@@ -2503,16 +2172,11 @@ impl Default for CERT_STRONG_SIGN_PARA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_STRONG_SIGN_SERIALIZED_INFO {
     pub dwFlags: u32,
     pub pwszCNGSignHashAlgids: windows_sys::core::PWSTR,
     pub pwszCNGPubKeyMinBitLengths: windows_sys::core::PWSTR,
-}
-impl Default for CERT_STRONG_SIGN_SERIALIZED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_STRONG_SIGN_SERIALIZED_INFO_CHOICE: i32 = 1;
 pub const CERT_SUBJECT_DISABLE_CRL_PROP_ID: i32 = 86;
@@ -2599,30 +2263,20 @@ pub const CERT_SYSTEM_STORE_UNPROTECTED_FLAG: i32 = 1073741824;
 pub const CERT_SYSTEM_STORE_USERS: i32 = 393216;
 pub const CERT_SYSTEM_STORE_USERS_ID: i32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_TEMPLATE_EXT {
     pub pszObjId: windows_sys::core::PSTR,
     pub dwMajorVersion: u32,
     pub fMinorVersion: windows_sys::core::BOOL,
     pub dwMinorVersion: u32,
 }
-impl Default for CERT_TEMPLATE_EXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CERT_TIMESTAMP_HASH_USE_TYPE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_TPM_SPECIFICATION_INFO {
     pub pwszFamily: windows_sys::core::PWSTR,
     pub dwLevel: u32,
     pub dwRevision: u32,
-}
-impl Default for CERT_TPM_SPECIFICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_TRUST_AUTO_UPDATE_CA_REVOCATION: i32 = 16;
 pub const CERT_TRUST_AUTO_UPDATE_END_REVOCATION: i32 = 32;
@@ -2670,17 +2324,11 @@ pub const CERT_TRUST_IS_SELF_SIGNED: i32 = 8;
 pub const CERT_TRUST_IS_UNTRUSTED_ROOT: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_TRUST_LIST_INFO {
     pub cbSize: u32,
     pub pCtlEntry: PCTL_ENTRY,
     pub pCtlContext: PCCTL_CONTEXT,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CERT_TRUST_LIST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CERT_TRUST_NO_ERROR: i32 = 0;
 pub const CERT_TRUST_NO_ISSUANCE_CHAIN_POLICY: i32 = 33554432;
@@ -2733,18 +2381,13 @@ pub const CERT_VERIFY_TRUSTED_SIGNERS_FLAG: i32 = 2;
 pub const CERT_VERIFY_UPDATED_CTL_FLAG: i32 = 1;
 pub const CERT_X500_NAME_STR: i32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_X942_DH_PARAMETERS {
     pub p: CRYPT_UINT_BLOB,
     pub g: CRYPT_UINT_BLOB,
     pub q: CRYPT_UINT_BLOB,
     pub j: CRYPT_UINT_BLOB,
     pub pValidationParams: PCERT_X942_DH_VALIDATION_PARAMS,
-}
-impl Default for CERT_X942_DH_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2755,7 +2398,7 @@ pub struct CERT_X942_DH_VALIDATION_PARAMS {
 pub const CERT_XML_NAME_STR: i32 = 4;
 pub const CMC_ADD_ATTRIBUTES: windows_sys::core::PCSTR = 63 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -2763,14 +2406,9 @@ pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub cAttribute: u32,
     pub rgAttribute: PCRYPT_ATTRIBUTE,
 }
-impl Default for CMC_ADD_ATTRIBUTES_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CMC_ADD_EXTENSIONS: windows_sys::core::PCSTR = 62 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMC_ADD_EXTENSIONS_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -2778,14 +2416,9 @@ pub struct CMC_ADD_EXTENSIONS_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-impl Default for CMC_ADD_EXTENSIONS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CMC_DATA: windows_sys::core::PCSTR = 59 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMC_DATA_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: PCMC_TAGGED_ATTRIBUTE,
@@ -2795,11 +2428,6 @@ pub struct CMC_DATA_INFO {
     pub rgTaggedContentInfo: PCMC_TAGGED_CONTENT_INFO,
     pub cTaggedOtherMsg: u32,
     pub rgTaggedOtherMsg: PCMC_TAGGED_OTHER_MSG,
-}
-impl Default for CMC_DATA_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMC_FAIL_BAD_ALG: i32 = 0;
 pub const CMC_FAIL_BAD_CERT_ID: i32 = 4;
@@ -2826,7 +2454,7 @@ pub struct CMC_PEND_INFO {
 }
 pub const CMC_RESPONSE: windows_sys::core::PCSTR = 60 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMC_RESPONSE_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: PCMC_TAGGED_ATTRIBUTE,
@@ -2834,11 +2462,6 @@ pub struct CMC_RESPONSE_INFO {
     pub rgTaggedContentInfo: PCMC_TAGGED_CONTENT_INFO,
     pub cTaggedOtherMsg: u32,
     pub rgTaggedOtherMsg: PCMC_TAGGED_OTHER_MSG,
-}
-impl Default for CMC_RESPONSE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMC_STATUS: windows_sys::core::PCSTR = 61 as _;
 pub const CMC_STATUS_CONFIRM_REQUIRED: i32 = 5;
@@ -2896,16 +2519,11 @@ pub struct CMC_TAGGED_CONTENT_INFO {
     pub EncodedContentInfo: CRYPT_DER_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMC_TAGGED_OTHER_MSG {
     pub dwBodyPartID: u32,
     pub pszObjId: windows_sys::core::PSTR,
     pub Value: CRYPT_OBJID_BLOB,
-}
-impl Default for CMC_TAGGED_OTHER_MSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2989,7 +2607,7 @@ impl Default for CMSG_CMS_SIGNER_INFO {
 pub const CMSG_CMS_SIGNER_INFO_PARAM: i32 = 39;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "ncrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -3000,12 +2618,6 @@ pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbContentEncryptKey: u32,
     pub hCNGContentEncryptKey: super::BCRYPT_KEY_HANDLE,
     pub pbCNGContentEncryptKeyObject: *mut u8,
-}
-#[cfg(all(feature = "bcrypt", feature = "ncrypt"))]
-impl Default for CMSG_CNG_CONTENT_DECRYPT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMSG_COMPUTED_HASH_PARAM: i32 = 22;
 pub const CMSG_CONTENTS_OCTETS_FLAG: i32 = 16;
@@ -3208,18 +2820,13 @@ pub const CMSG_CTRL_VERIFY_HASH: i32 = 5;
 pub const CMSG_CTRL_VERIFY_SIGNATURE: i32 = 1;
 pub const CMSG_CTRL_VERIFY_SIGNATURE_EX: i32 = 19;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub dwSignerIndex: u32,
     pub dwSignerType: u32,
     pub pvSigner: *mut core::ffi::c_void,
-}
-impl Default for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMSG_DATA: i32 = 1;
 pub const CMSG_DATA_FLAG: i32 = 2;
@@ -3233,16 +2840,11 @@ pub const CMSG_ENCODING_TYPE_MASK: u32 = 4294901760;
 pub const CMSG_ENCRYPTED: i32 = 6;
 pub const CMSG_ENCRYPTED_DIGEST: i32 = 27;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSG_ENCRYPTED_ENCODE_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvEncryptionAuxInfo: *mut core::ffi::c_void,
-}
-impl Default for CMSG_ENCRYPTED_ENCODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMSG_ENCRYPTED_FLAG: i32 = 64;
 pub const CMSG_ENCRYPT_PARAM: i32 = 26;
@@ -3253,7 +2855,7 @@ pub const CMSG_ENVELOPED_DATA_V0: i32 = 0;
 pub const CMSG_ENVELOPED_DATA_V2: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -3261,12 +2863,6 @@ pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub pvEncryptionAuxInfo: *mut core::ffi::c_void,
     pub cRecipients: u32,
     pub rgpRecipients: *mut PCERT_INFO,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CMSG_ENVELOPED_ENCODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMSG_ENVELOPED_FLAG: i32 = 8;
 pub const CMSG_ENVELOPED_RECIPIENT_V0: i32 = 0;
@@ -3280,17 +2876,12 @@ pub const CMSG_HASHED_DATA_PKCS_1_5_VERSION: i32 = 0;
 pub const CMSG_HASHED_DATA_V0: i32 = 0;
 pub const CMSG_HASHED_DATA_V2: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSG_HASHED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
-}
-impl Default for CMSG_HASHED_ENCODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMSG_HASHED_FLAG: i32 = 32;
 pub const CMSG_HASH_ALGORITHM_PARAM: i32 = 20;
@@ -3502,7 +3093,7 @@ impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub KeyId: CRYPT_DATA_BLOB,
@@ -3510,12 +3101,6 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub EncryptedKey: CRYPT_DATA_BLOB,
     pub Date: super::FILETIME,
     pub pOtherAttr: PCRYPT_ATTRIBUTE_TYPE_VALUE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CMSG_MAIL_LIST_RECIPIENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMSG_MAIL_LIST_VERSION: i32 = 4;
 pub const CMSG_MAX_LENGTH_FLAG: i32 = 32;
@@ -3627,7 +3212,7 @@ pub const CMSG_SIGNED_DATA_V1: i32 = 1;
 pub const CMSG_SIGNED_DATA_V3: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ncrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cbSize: u32,
     pub cSigners: u32,
@@ -3636,12 +3221,6 @@ pub struct CMSG_SIGNED_ENCODE_INFO {
     pub rgCertEncoded: PCERT_BLOB,
     pub cCrlEncoded: u32,
     pub rgCrlEncoded: PCRL_BLOB,
-}
-#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
-impl Default for CMSG_SIGNED_ENCODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMSG_SIGNED_FLAG: i32 = 4;
 pub const CMSG_SIGNER_AUTH_ATTR_PARAM: i32 = 9;
@@ -3710,16 +3289,11 @@ pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
 }
 pub const CMSG_SP3_COMPATIBLE_ENCRYPT_FLAG: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: u32,
     pub pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT,
     pub pvArg: *mut core::ffi::c_void,
-}
-impl Default for CMSG_STREAM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMSG_TRUSTED_SIGNER_FLAG: i32 = 1;
 pub const CMSG_TYPE_PARAM: i32 = 1;
@@ -3732,7 +3306,7 @@ pub const CMSG_VERIFY_SIGNER_NULL: i32 = 4;
 pub const CMSG_VERIFY_SIGNER_PUBKEY: i32 = 1;
 pub const CMSG_VERSION_PARAM: i32 = 30;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMS_DH_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
@@ -3740,23 +3314,13 @@ pub struct CMS_DH_KEY_INFO {
     pub PubInfo: CRYPT_DATA_BLOB,
     pub pReserved: *mut core::ffi::c_void,
 }
-impl Default for CMS_DH_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMS_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
     pub pbOID: *mut u8,
     pub cbOID: u32,
-}
-impl Default for CMS_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMS_SIGNER_INFO: windows_sys::core::PCSTR = 501 as _;
 pub const CNG_RSA_PRIVATE_KEY_BLOB: windows_sys::core::PCSTR = 83 as _;
@@ -3769,35 +3333,24 @@ pub const CONTEXT_OID_CTL: windows_sys::core::PCSTR = 3 as _;
 pub const CONTEXT_OID_OCSP_RESP: windows_sys::core::PCSTR = 6 as _;
 pub const CONTEXT_OID_PKCS7: windows_sys::core::PCSTR = 4 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CPS_URLS {
     pub pszURL: windows_sys::core::PWSTR,
     pub pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pDigest: *mut CRYPT_DATA_BLOB,
-}
-impl Default for CPS_URLS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: windows_sys::core::PCSTR = 1 as _;
 pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: windows_sys::core::PCSTR = 2 as _;
 pub type CRL_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRL_CONTEXT {
     pub dwCertEncodingType: u32,
     pub pbCrlEncoded: *mut u8,
     pub cbCrlEncoded: u32,
     pub pCrlInfo: PCRL_INFO,
     pub hCertStore: HCERTSTORE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CRL_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3812,15 +3365,10 @@ impl Default for CRL_DIST_POINT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRL_DIST_POINTS_INFO {
     pub cDistPoint: u32,
     pub rgDistPoint: PCRL_DIST_POINT,
-}
-impl Default for CRL_DIST_POINTS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRL_DIST_POINT_ERR_CRL_ISSUER_BIT: u32 = 2147483648;
 pub const CRL_DIST_POINT_ERR_INDEX_MASK: i32 = 127;
@@ -3851,18 +3399,12 @@ impl Default for CRL_DIST_POINT_NAME_0 {
 pub const CRL_DIST_POINT_NO_NAME: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRL_ENTRY {
     pub SerialNumber: CRYPT_INTEGER_BLOB,
     pub RevocationDate: super::FILETIME,
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CRL_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRL_FIND_ANY: i32 = 0;
 pub const CRL_FIND_EXISTING: i32 = 2;
@@ -3874,21 +3416,15 @@ pub const CRL_FIND_ISSUED_BY_SIGNATURE_FLAG: i32 = 2;
 pub const CRL_FIND_ISSUED_FOR: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
     pub pSubjectCert: PCCERT_CONTEXT,
     pub pIssuerCert: PCCERT_CONTEXT,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CRL_FIND_ISSUED_FOR_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRL_FIND_ISSUED_FOR_SET_STRONG_PROPERTIES_FLAG: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRL_INFO {
     pub dwVersion: u32,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -3899,12 +3435,6 @@ pub struct CRL_INFO {
     pub rgCRLEntry: PCRL_ENTRY,
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CRL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3941,31 +3471,20 @@ pub const CRL_REASON_UNSPECIFIED: i32 = 0;
 pub const CRL_REASON_UNUSED_FLAG: i32 = 128;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRL_REVOCATION_INFO {
     pub pCrlEntry: PCRL_ENTRY,
     pub pCrlContext: PCCRL_CONTEXT,
     pub pCrlIssuerChain: PCCERT_CHAIN_CONTEXT,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CRL_REVOCATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRL_V1: i32 = 0;
 pub const CRL_V2: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CROSS_CERT_DIST_POINTS_INFO {
     pub dwSyncDeltaTime: u32,
     pub cDistPoint: u32,
     pub rgDistPoint: PCERT_ALT_NAME_INFO,
-}
-impl Default for CROSS_CERT_DIST_POINTS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_MASK: i32 = 255;
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_SHIFT: i32 = 24;
@@ -4053,7 +3572,7 @@ pub const CRYPTNET_URL_CACHE_PRE_FETCH_PIN_RULES_CAB: i32 = 7;
 pub const CRYPTNET_URL_CACHE_RESPONSE_HTTP: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub cbSize: u32,
     pub wResponseType: u16,
@@ -4062,12 +3581,6 @@ pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub dwMaxAge: u32,
     pub pwszETag: windows_sys::core::PCWSTR,
     pub dwProxyId: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CRYPTNET_URL_CACHE_RESPONSE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPTNET_URL_CACHE_RESPONSE_NONE: i32 = 0;
 pub const CRYPTNET_URL_CACHE_RESPONSE_VALIDATED: i32 = 32768;
@@ -4124,141 +3637,86 @@ impl Default for CRYPT_AES_256_KEY_STATE {
 }
 pub const CRYPT_AIA_RETRIEVAL: i32 = 524288;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_ALGORITHM_IDENTIFIER {
     pub pszObjId: windows_sys::core::PSTR,
     pub Parameters: CRYPT_OBJID_BLOB,
-}
-impl Default for CRYPT_ALGORITHM_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_ARCHIVABLE: i32 = 16384;
 pub const CRYPT_ARCHIVE: i32 = 256;
 pub const CRYPT_ASN_ENCODING: i32 = 1;
 pub const CRYPT_ASYNC_RETRIEVAL: i32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     pub pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
     pub pvCompletion: *mut core::ffi::c_void,
 }
-impl Default for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_ATTRIBUTE {
     pub pszObjId: windows_sys::core::PSTR,
     pub cValue: u32,
     pub rgValue: PCRYPT_ATTR_BLOB,
 }
-impl Default for CRYPT_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_ATTRIBUTES {
     pub cAttr: u32,
     pub rgAttr: PCRYPT_ATTRIBUTE,
 }
-impl Default for CRYPT_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_ATTRIBUTE_TYPE_VALUE {
     pub pszObjId: windows_sys::core::PSTR,
     pub Value: CRYPT_OBJID_BLOB,
 }
-impl Default for CRYPT_ATTRIBUTE_TYPE_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type CRYPT_ATTR_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_BIT_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
     pub cUnusedBits: u32,
 }
-impl Default for CRYPT_BIT_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_BLOB_ARRAY {
     pub cBlob: u32,
     pub rgBlob: PCRYPT_DATA_BLOB,
-}
-impl Default for CRYPT_BLOB_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_BLOB_VER3: i32 = 128;
 pub const CRYPT_CACHE_ONLY_RETRIEVAL: i32 = 2;
 pub const CRYPT_CHECK_FRESHNESS_TIME_VALIDITY: i32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_CONTENT_INFO {
     pub pszObjId: windows_sys::core::PSTR,
     pub Content: CRYPT_DER_BLOB,
 }
-impl Default for CRYPT_CONTENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     pub pszObjId: windows_sys::core::PSTR,
     pub cValue: u32,
     pub rgValue: PCRYPT_DER_BLOB,
 }
-impl Default for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_CREATE_IV: i32 = 512;
 pub const CRYPT_CREATE_NEW_FLUSH_ENTRY: i32 = 268435456;
 pub const CRYPT_CREATE_SALT: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_CREDENTIALS {
     pub cbSize: u32,
     pub pszCredentialsOid: windows_sys::core::PCSTR,
     pub pvCredentials: *mut core::ffi::c_void,
 }
-impl Default for CRYPT_CREDENTIALS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_CSP_PROVIDER {
     pub dwKeySpec: u32,
     pub pwszProviderName: windows_sys::core::PWSTR,
     pub Signature: CRYPT_BIT_BLOB,
-}
-impl Default for CRYPT_CSP_PROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CRYPT_DATA_BLOB = CRYPT_INTEGER_BLOB;
 pub const CRYPT_DATA_KEY: i32 = 2048;
@@ -4279,17 +3737,12 @@ pub const CRYPT_DECODE_SHARE_OID_STRING_FLAG: i32 = 4;
 pub const CRYPT_DECODE_TO_BE_SIGNED_FLAG: i32 = 2;
 pub const CRYPT_DECRYPT: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_DECRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
     pub cCertStore: u32,
     pub rghCertStore: *mut HCERTSTORE,
-}
-impl Default for CRYPT_DECRYPT_MESSAGE_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_DECRYPT_RSA_NO_PADDING_CHECK: i32 = 32;
 pub const CRYPT_DEFAULT_CONTAINER_OPTIONAL: i32 = 128;
@@ -4297,15 +3750,10 @@ pub const CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: i32 = 1;
 pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: i32 = 1;
 pub const CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     pub cOID: u32,
     pub rgpszOID: *mut windows_sys::core::PSTR,
-}
-impl Default for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: i32 = 2;
 pub const CRYPT_DEFAULT_OID: windows_sys::core::PCSTR = windows_sys::core::s!("DEFAULT");
@@ -4344,17 +3792,12 @@ impl Default for CRYPT_ECC_CMS_SHARED_INFO {
 }
 pub const CRYPT_ECC_CMS_SHARED_INFO_SUPPPUBINFO_BYTE_LENGTH: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_ECC_PRIVATE_KEY_INFO {
     pub dwVersion: u32,
     pub PrivateKey: CRYPT_DER_BLOB,
     pub szCurveOid: windows_sys::core::PSTR,
     pub PublicKey: CRYPT_BIT_BLOB,
-}
-impl Default for CRYPT_ECC_PRIVATE_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_ECC_PRIVATE_KEY_INFO_v1: i32 = 1;
 pub const CRYPT_ENABLE_FILE_RETRIEVAL: i32 = 134217728;
@@ -4381,7 +3824,7 @@ pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
 }
 pub const CRYPT_ENCRYPT_ALG_OID_GROUP_ID: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -4391,22 +3834,12 @@ pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
-impl Default for CRYPT_ENCRYPT_MESSAGE_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_ENHKEY_USAGE_OID_GROUP_ID: i32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     pub pwszName: windows_sys::core::PWSTR,
     pub pwszValue: windows_sys::core::PWSTR,
-}
-impl Default for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_EXPORT: i32 = 4;
 pub const CRYPT_EXPORTABLE: i32 = 1;
@@ -4441,7 +3874,7 @@ pub const CRYPT_FORMAT_X509: i32 = 2;
 pub const CRYPT_GET_INSTALLED_OID_FUNC_FLAG: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub cbSize: u32,
     pub iDeltaCrlIndicator: i32,
@@ -4450,12 +3883,6 @@ pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub pMaxAgeTime: super::LPFILETIME,
     pub pChainPara: PCERT_REVOCATION_CHAIN_PARA,
     pub pDeltaCrlIndicator: PCRYPT_INTEGER_BLOB,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: i32 = 8;
 pub const CRYPT_GET_URL_FROM_EXTENSION: i32 = 2;
@@ -4470,18 +3897,13 @@ pub struct CRYPT_HASH_INFO {
     pub Hash: CRYPT_HASH_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_HASH_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
-}
-impl Default for CRYPT_HASH_MESSAGE_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_HTTP_POST_RETRIEVAL: i32 = 1048576;
 pub const CRYPT_IMPL_HARDWARE: i32 = 1;
@@ -4494,15 +3916,10 @@ pub const CRYPT_INITIATOR: i32 = 64;
 pub const CRYPT_INSTALL_OID_FUNC_BEFORE_FLAG: i32 = 1;
 pub const CRYPT_INSTALL_OID_INFO_BEFORE_FLAG: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_INTEGER_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
-}
-impl Default for CRYPT_INTEGER_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_IPSEC_HMAC_KEY: i32 = 256;
 pub const CRYPT_KDF_OID_GROUP_ID: i32 = 10;
@@ -4513,7 +3930,7 @@ pub const CRYPT_KEYID_DELETE_FLAG: i32 = 16;
 pub const CRYPT_KEYID_MACHINE_FLAG: i32 = 32;
 pub const CRYPT_KEYID_SET_NEW_FLAG: i32 = 8192;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_KEY_PROV_INFO {
     pub pwszContainerName: windows_sys::core::PWSTR,
     pub pwszProvName: windows_sys::core::PWSTR,
@@ -4523,23 +3940,13 @@ pub struct CRYPT_KEY_PROV_INFO {
     pub rgProvParam: PCRYPT_KEY_PROV_PARAM,
     pub dwKeySpec: u32,
 }
-impl Default for CRYPT_KEY_PROV_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_KEY_PROV_PARAM {
     pub dwParam: u32,
     pub pbData: *mut u8,
     pub cbData: u32,
     pub dwFlags: u32,
-}
-impl Default for CRYPT_KEY_PROV_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "ncrypt")]
@@ -4592,15 +3999,10 @@ pub const CRYPT_MAC: i32 = 32;
 pub const CRYPT_MACHINE_DEFAULT: i32 = 1;
 pub const CRYPT_MACHINE_KEYSET: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_MASK_GEN_ALGORITHM {
     pub pszObjId: windows_sys::core::PSTR,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
-}
-impl Default for CRYPT_MASK_GEN_ALGORITHM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_MATCH_ANY_ENCODING_TYPE: u32 = 4294967295;
 pub const CRYPT_MESSAGE_BARE_CONTENT_OUT_FLAG: i32 = 1;
@@ -4648,15 +4050,10 @@ pub const CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: i32 = 1;
 pub const CRYPT_OBJECT_LOCATOR_SPN_NAME_TYPE: i32 = 1;
 pub type CRYPT_OBJID_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_OBJID_TABLE {
     pub dwAlgId: u32,
     pub pszObjId: windows_sys::core::PCSTR,
-}
-impl Default for CRYPT_OBJID_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_OCSP_ONLY_RETRIEVAL: i32 = 16777216;
 pub const CRYPT_OFFLINE_CHECK_RETRIEVAL: i32 = 16384;
@@ -4677,15 +4074,10 @@ pub const CRYPT_OID_FIND_LOCALIZED_NAME_FUNC: windows_sys::core::PCSTR = windows
 pub const CRYPT_OID_FIND_OID_INFO_FUNC: windows_sys::core::PCSTR = windows_sys::core::s!("CryptDllFindOIDInfo");
 pub const CRYPT_OID_FORMAT_OBJECT_FUNC: windows_sys::core::PCSTR = windows_sys::core::s!("CryptDllFormatObject");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_OID_FUNC_ENTRY {
     pub pszOID: windows_sys::core::PCSTR,
     pub pvFuncAddr: *mut core::ffi::c_void,
-}
-impl Default for CRYPT_OID_FUNC_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_OID_IMPORT_PRIVATE_KEY_INFO_FUNC: windows_sys::core::PCSTR = windows_sys::core::s!("CryptDllImportPrivateKeyInfoEx");
 pub const CRYPT_OID_IMPORT_PUBLIC_KEY_INFO_EX2_FUNC: windows_sys::core::PCSTR = windows_sys::core::s!("CryptDllImportPublicKeyInfoEx2");
@@ -4779,28 +4171,18 @@ pub const CRYPT_PARAM_ASYNC_RETRIEVAL_COMPLETION: windows_sys::core::PCSTR = 1 a
 pub const CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: windows_sys::core::PCSTR = 2 as _;
 pub type CRYPT_PASSWORD_CREDENTIALS = CRYPT_PASSWORD_CREDENTIALSA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_PASSWORD_CREDENTIALSA {
     pub cbSize: u32,
     pub pszUsername: windows_sys::core::PSTR,
     pub pszPassword: windows_sys::core::PSTR,
 }
-impl Default for CRYPT_PASSWORD_CREDENTIALSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_PASSWORD_CREDENTIALSW {
     pub cbSize: u32,
     pub pszUsername: windows_sys::core::PWSTR,
     pub pszPassword: windows_sys::core::PWSTR,
-}
-impl Default for CRYPT_PASSWORD_CREDENTIALSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -4809,7 +4191,7 @@ pub struct CRYPT_PKCS12_PBE_PARAMS {
     pub cbSalt: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: HCRYPTPROV,
     pub dwKeySpec: u32,
@@ -4817,13 +4199,8 @@ pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub pEncryptPrivateKeyFunc: PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC,
     pub pVoidEncryptFunc: *mut core::ffi::c_void,
 }
-impl Default for CRYPT_PKCS8_EXPORT_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPT_DIGEST_BLOB,
     pub pResolvehCryptProvFunc: PCRYPT_RESOLVE_HCRYPTPROV_FUNC,
@@ -4831,38 +4208,23 @@ pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub pDecryptPrivateKeyFunc: PCRYPT_DECRYPT_PRIVATE_KEY_FUNC,
     pub pVoidDecryptFunc: *mut core::ffi::c_void,
 }
-impl Default for CRYPT_PKCS8_IMPORT_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_POLICY_OID_GROUP_ID: i32 = 8;
 pub const CRYPT_PREGEN: i32 = 64;
 pub type CRYPT_PRIVATE_KEY_BLOB_AND_PARAMS = CRYPT_PKCS8_IMPORT_PARAMS;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_PRIVATE_KEY_INFO {
     pub Version: u32,
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PrivateKey: CRYPT_DER_BLOB,
     pub pAttributes: PCRYPT_ATTRIBUTES,
 }
-impl Default for CRYPT_PRIVATE_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_PROXY_CACHE_RETRIEVAL: i32 = 2097152;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_PSOURCE_ALGORITHM {
     pub pszObjId: windows_sys::core::PSTR,
     pub EncodingParameters: CRYPT_DATA_BLOB,
-}
-impl Default for CRYPT_PSOURCE_ALGORITHM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_PSTORE: i32 = 2;
 pub const CRYPT_PUBKEY_ALG_OID_GROUP_ID: i32 = 3;
@@ -4903,7 +4265,7 @@ pub const CRYPT_REGISTER_FIRST_INDEX: i32 = 0;
 pub const CRYPT_REGISTER_LAST_INDEX: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub cbSize: u32,
     pub pLastSyncTime: *mut super::FILETIME,
@@ -4917,12 +4279,6 @@ pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub dwHttpStatusCode: u32,
     pub ppwszErrorResponseHeaders: *mut windows_sys::core::PWSTR,
     pub ppErrorContentBlob: *mut PCRYPT_DATA_BLOB,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CRYPT_RETRIEVE_AUX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_RETRIEVE_MAX_ERROR_CONTENT_LENGTH: i32 = 4096;
 pub const CRYPT_RETRIEVE_MULTIPLE_OBJECTS: i32 = 1;
@@ -4944,15 +4300,10 @@ pub struct CRYPT_RSA_SSA_PSS_PARAMETERS {
 pub const CRYPT_SECRETDIGEST: i32 = 1;
 pub const CRYPT_SEC_DESCR: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_SEQUENCE_OF_ANY {
     pub cValue: u32,
     pub rgValue: PCRYPT_DER_BLOB,
-}
-impl Default for CRYPT_SEQUENCE_OF_ANY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_SERVER: i32 = 1024;
 pub const CRYPT_SF: i32 = 256;
@@ -4962,7 +4313,7 @@ pub const CRYPT_SGC_ENUM: i32 = 4;
 pub const CRYPT_SIGN_ALG_OID_GROUP_ID: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -4980,12 +4331,6 @@ pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CRYPT_SIGN_MESSAGE_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_SILENT: i32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4999,26 +4344,16 @@ impl Default for CRYPT_SMART_CARD_ROOT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_SMIME_CAPABILITIES {
     pub cCapability: u32,
     pub rgCapability: PCRYPT_SMIME_CAPABILITY,
 }
-impl Default for CRYPT_SMIME_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_SMIME_CAPABILITY {
     pub pszObjId: windows_sys::core::PSTR,
     pub Parameters: CRYPT_OBJID_BLOB,
-}
-impl Default for CRYPT_SMIME_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: i32 = 65536;
 pub const CRYPT_SSL2_FALLBACK: i32 = 2;
@@ -5056,21 +4391,15 @@ pub struct CRYPT_TIMESTAMP_ACCURACY {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_TIMESTAMP_CONTEXT {
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
     pub pTimeStamp: PCRYPT_TIMESTAMP_INFO,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CRYPT_TIMESTAMP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_TIMESTAMP_INFO {
     pub dwVersion: u32,
     pub pszTSAPolicyId: windows_sys::core::PSTR,
@@ -5085,14 +4414,8 @@ pub struct CRYPT_TIMESTAMP_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CRYPT_TIMESTAMP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_TIMESTAMP_PARA {
     pub pszTSAPolicyId: windows_sys::core::PCSTR,
     pub fRequestCerts: windows_sys::core::BOOL,
@@ -5100,13 +4423,8 @@ pub struct CRYPT_TIMESTAMP_PARA {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-impl Default for CRYPT_TIMESTAMP_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_TIMESTAMP_REQUEST {
     pub dwVersion: u32,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -5117,13 +4435,8 @@ pub struct CRYPT_TIMESTAMP_REQUEST {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-impl Default for CRYPT_TIMESTAMP_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub dwStatus: u32,
     pub cFreeText: u32,
@@ -5131,24 +4444,14 @@ pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub FailureInfo: CRYPT_BIT_BLOB,
     pub ContentInfo: CRYPT_DER_BLOB,
 }
-impl Default for CRYPT_TIMESTAMP_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub pszTimeStampAlgorithm: windows_sys::core::PSTR,
     pub pszContentType: windows_sys::core::PSTR,
     pub Content: CRYPT_OBJID_BLOB,
     pub cAttribute: u32,
     pub rgAttribute: PCRYPT_ATTRIBUTE,
-}
-impl Default for CRYPT_TIME_STAMP_REQUEST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_TYPE2_FORMAT: i32 = 2;
 pub type CRYPT_UINT_BLOB = CRYPT_INTEGER_BLOB;
@@ -5160,28 +4463,18 @@ pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: i32 = 536870912;
 pub const CRYPT_UNICODE_NAME_ENCODE_FORCE_UTF8_UNICODE_FLAG: i32 = 268435456;
 pub const CRYPT_UPDATE_KEY: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_URL_ARRAY {
     pub cUrl: u32,
     pub rgwszUrl: *mut windows_sys::core::PWSTR,
 }
-impl Default for CRYPT_URL_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_URL_INFO {
     pub cbSize: u32,
     pub dwSyncDeltaTime: u32,
     pub cGroup: u32,
     pub rgcGroupEntry: *mut u32,
-}
-impl Default for CRYPT_URL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_USERDATA: i32 = 1;
 pub const CRYPT_USER_DEFAULT: i32 = 2;
@@ -5208,34 +4501,23 @@ pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CERT: i32 = 2;
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CRL: i32 = 3;
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_OCSP_BASIC_SIGNED_RESPONSE: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: u32,
     pub rgpwszCNGHashAlgid: *mut windows_sys::core::PCWSTR,
     pub dwWeakIndex: u32,
 }
-impl Default for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CRYPT_VERIFY_CONTEXT_SIGNATURE: i32 = 32;
 pub const CRYPT_VERIFY_DATA_HASH: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub pfnGetSignerCertificate: PFN_CRYPT_GET_SIGNER_CERTIFICATE,
     pub pvGetArg: *mut core::ffi::c_void,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CRYPT_VERIFY_MESSAGE_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRYPT_VOLATILE: i32 = 4096;
 pub const CRYPT_WIRE_ONLY_RETRIEVAL: i32 = 4;
@@ -5268,7 +4550,7 @@ pub const CTL_ANY_SUBJECT_TYPE: i32 = 1;
 pub const CTL_CERT_SUBJECT_TYPE: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CTL_CONTEXT {
     pub dwMsgAndCertEncodingType: u32,
     pub pbCtlEncoded: *mut u8,
@@ -5279,23 +4561,12 @@ pub struct CTL_CONTEXT {
     pub pbCtlContent: *mut u8,
     pub cbCtlContent: u32,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CTL_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CTL_ENTRY {
     pub SubjectIdentifier: CRYPT_DATA_BLOB,
     pub cAttribute: u32,
     pub rgAttribute: PCRYPT_ATTRIBUTE,
-}
-impl Default for CTL_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CTL_ENTRY_FROM_PROP_CHAIN_FLAG: i32 = 1;
 pub const CTL_FIND_ANY: i32 = 0;
@@ -5309,38 +4580,26 @@ pub const CTL_FIND_SHA1_HASH: i32 = 1;
 pub const CTL_FIND_SUBJECT: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CTL_FIND_SUBJECT_PARA {
     pub cbSize: u32,
     pub pUsagePara: PCTL_FIND_USAGE_PARA,
     pub dwSubjectType: u32,
     pub pvSubject: *mut core::ffi::c_void,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CTL_FIND_SUBJECT_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CTL_FIND_USAGE: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CTL_FIND_USAGE_PARA {
     pub cbSize: u32,
     pub SubjectUsage: CTL_USAGE,
     pub ListIdentifier: CRYPT_DATA_BLOB,
     pub pSigner: PCERT_INFO,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CTL_FIND_USAGE_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CTL_INFO {
     pub dwVersion: u32,
     pub SubjectUsage: CTL_USAGE,
@@ -5354,22 +4613,11 @@ pub struct CTL_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-#[cfg(feature = "minwindef")]
-impl Default for CTL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CTL_USAGE {
     pub cUsageIdentifier: u32,
     pub rgpszUsageIdentifier: *mut windows_sys::core::PSTR,
-}
-impl Default for CTL_USAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -5379,7 +4627,7 @@ pub struct CTL_USAGE_MATCH {
 }
 pub const CTL_V1: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CTL_VERIFY_USAGE_PARA {
     pub cbSize: u32,
     pub ListIdentifier: CRYPT_DATA_BLOB,
@@ -5388,14 +4636,9 @@ pub struct CTL_VERIFY_USAGE_PARA {
     pub cSignerStore: u32,
     pub rghSignerStore: *mut HCERTSTORE,
 }
-impl Default for CTL_VERIFY_USAGE_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CTL_VERIFY_USAGE_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -5404,12 +4647,6 @@ pub struct CTL_VERIFY_USAGE_STATUS {
     pub dwCtlEntryIndex: u32,
     pub ppSigner: *mut PCCERT_CONTEXT,
     pub dwSignerIndex: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for CTL_VERIFY_USAGE_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -5500,18 +4737,13 @@ pub type HCRYPTPROV = usize;
 pub type HCRYPTPROV_LEGACY = usize;
 pub type HCRYPTPROV_OR_NCRYPT_KEY_HANDLE = usize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HMAC_INFO {
     pub HashAlgid: ALG_ID,
     pub pbInnerString: *mut u8,
     pub cbInnerString: u32,
     pub pbOuterString: *mut u8,
     pub cbOuterString: u32,
-}
-impl Default for HMAC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HP_ALGID: i32 = 1;
 pub const HP_HASHSIZE: i32 = 4;
@@ -5737,19 +4969,14 @@ pub const OCSP_INTERNAL_ERROR_RESPONSE: i32 = 2;
 pub const OCSP_MALFORMED_REQUEST_RESPONSE: i32 = 1;
 pub const OCSP_REQUEST: windows_sys::core::PCSTR = 66 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OCSP_REQUEST_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-impl Default for OCSP_REQUEST_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OCSP_REQUEST_INFO {
     pub dwVersion: u32,
     pub pRequestorName: PCERT_ALT_NAME_ENTRY,
@@ -5758,49 +4985,29 @@ pub struct OCSP_REQUEST_INFO {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
-impl Default for OCSP_REQUEST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const OCSP_REQUEST_V1: i32 = 0;
 pub const OCSP_RESPONSE: windows_sys::core::PCSTR = 67 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OCSP_RESPONSE_INFO {
     pub dwStatus: u32,
     pub pszObjId: windows_sys::core::PSTR,
     pub Value: CRYPT_OBJID_BLOB,
 }
-impl Default for OCSP_RESPONSE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OCSP_SIGNATURE_INFO {
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
     pub cCertEncoded: u32,
     pub rgCertEncoded: PCERT_BLOB,
 }
-impl Default for OCSP_SIGNATURE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const OCSP_SIGNED_REQUEST: windows_sys::core::PCSTR = 65 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OCSP_SIGNED_REQUEST_INFO {
     pub ToBeSigned: CRYPT_DER_BLOB,
     pub pOptionalSignatureInfo: POCSP_SIGNATURE_INFO,
-}
-impl Default for OCSP_SIGNED_REQUEST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OCSP_SIG_REQUIRED_RESPONSE: i32 = 5;
 pub const OCSP_SUCCESSFUL_RESPONSE: i32 = 0;
@@ -6300,16 +5507,11 @@ pub const PKCS12_ONLY_CERTIFICATES_PROVIDER_TYPE: i32 = 0;
 pub const PKCS12_ONLY_NOT_ENCRYPTED_CERTIFICATES: i32 = 2048;
 pub const PKCS12_PBES2_ALG_AES256_SHA256: windows_sys::core::PCWSTR = windows_sys::core::w!("AES256-SHA256");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PKCS12_PBES2_EXPORT_PARAMS {
     pub dwSize: u32,
     pub hNcryptDescriptor: *mut core::ffi::c_void,
     pub pwszPbes2Alg: windows_sys::core::PWSTR,
-}
-impl Default for PKCS12_PBES2_EXPORT_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PKCS12_PBKDF2_ID_HMAC_SHA1: windows_sys::core::PCSTR = windows_sys::core::s!("1.2.840.113549.2.7");
 pub const PKCS12_PBKDF2_ID_HMAC_SHA256: windows_sys::core::PCSTR = windows_sys::core::s!("1.2.840.113549.2.9");
@@ -6535,16 +5737,11 @@ pub const SSL_HPKP_PKP_HEADER_INDEX: i32 = 0;
 pub const SSL_HPKP_PKP_RO_HEADER_INDEX: i32 = 1;
 pub const SSL_KEY_PIN_ERROR_TEXT_LENGTH: i32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
     pub pwszServerName: windows_sys::core::PCWSTR,
-}
-impl Default for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -113,16 +113,10 @@ pub const DSBPLAY_TERMINATEBY_TIME: i32 = 8;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: u32,
     pub hEventNotify: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for DSBPOSITIONNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSBSIZE_FX_MIN: i32 = 150;
 pub const DSBSIZE_MAX: i32 = 268435455;
@@ -135,7 +129,7 @@ pub const DSBSTATUS_PLAYING: i32 = 1;
 pub const DSBSTATUS_TERMINATED: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -144,27 +138,15 @@ pub struct DSBUFFERDESC {
     pub lpwfxFormat: super::LPWAVEFORMATEX,
     pub guid3DAlgorithm: windows_sys::core::GUID,
 }
-#[cfg(feature = "mmeapi")]
-impl Default for DSBUFFERDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwBufferBytes: u32,
     pub dwReserved: u32,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for DSBUFFERDESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DSBVOLUME_MAX: i32 = 0;
 pub const DSBVOLUME_MIN: i32 = -10000;
@@ -223,7 +205,7 @@ pub const DSCBSTATUS_CAPTURING: i32 = 1;
 pub const DSCBSTATUS_LOOPING: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSCBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -233,27 +215,15 @@ pub struct DSCBUFFERDESC {
     pub dwFXCount: u32,
     pub lpDSCFXDesc: LPDSCEFFECTDESC,
 }
-#[cfg(feature = "mmeapi")]
-impl Default for DSCBUFFERDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DSCBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwBufferBytes: u32,
     pub dwReserved: u32,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for DSCBUFFERDESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

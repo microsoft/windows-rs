@@ -19,13 +19,8 @@ pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, a
     unsafe { RegisterWaitChainCOMCallback(callstatecallback, activationstatecallback) }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HWCT(pub *mut core::ffi::c_void);
-impl Default for HWCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PCOGETACTIVATIONSTATE = Option<unsafe extern "system" fn(param0: windows_core::GUID, param1: u32, param2: *mut u32) -> windows_core::HRESULT>;
 pub type PCOGETCALLSTATE = Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> windows_core::HRESULT>;
 pub type PWAITCHAINCALLBACK = Option<unsafe extern "system" fn(wcthandle: HWCT, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut windows_core::BOOL)>;

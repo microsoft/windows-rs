@@ -173,7 +173,7 @@ pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = 1;
 pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = 2;
 pub const AM_MEDIAEVENT_NONOTIFY: tagAM_MEDIAEVENT_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AM_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
@@ -184,11 +184,6 @@ pub struct AM_MEDIA_TYPE {
     pub pUnk: *mut core::ffi::c_void,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
-}
-impl Default for AM_MEDIA_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 4;
 pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 2;
@@ -207,7 +202,7 @@ pub const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "ksmedia")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
     pub dwTypeSpecificFlags: u32,
@@ -219,12 +214,6 @@ pub struct AM_SAMPLE2_PROPERTIES {
     pub pMediaType: *mut AM_MEDIA_TYPE,
     pub pbBuffer: *mut u8,
     pub cbBuffer: i32,
-}
-#[cfg(feature = "ksmedia")]
-impl Default for AM_SAMPLE2_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const AM_SAMPLE_DATADISCONTINUITY: tagAM_SAMPLE_PROPERTY_FLAGS = 4;
 pub const AM_SAMPLE_ENDOFSTREAM: tagAM_SAMPLE_PROPERTY_FLAGS = 512;
@@ -942,15 +931,10 @@ pub struct Quality {
 }
 pub type QualityMessageType = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REGFILTER {
     pub Clsid: windows_sys::core::GUID,
     pub Name: windows_sys::core::PWSTR,
-}
-impl Default for REGFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -976,29 +960,19 @@ impl Default for REGFILTER2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REGFILTER2_0_0 {
     pub cPins: u32,
     pub rgPins: *const REGFILTERPINS,
 }
-impl Default for REGFILTER2_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REGFILTER2_0_1 {
     pub cPins2: u32,
     pub rgPins2: *const REGFILTERPINS2,
 }
-impl Default for REGFILTER2_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REGFILTERPINS {
     pub strName: windows_sys::core::PWSTR,
     pub bRendered: windows_sys::core::BOOL,
@@ -1010,13 +984,8 @@ pub struct REGFILTERPINS {
     pub nMediaTypes: u32,
     pub lpMediaType: *const REGPINTYPES,
 }
-impl Default for REGFILTERPINS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REGFILTERPINS2 {
     pub dwFlags: u32,
     pub cInstances: u32,
@@ -1026,11 +995,6 @@ pub struct REGFILTERPINS2 {
     pub lpMedium: *const REGPINMEDIUM,
     pub clsPinCategory: *const windows_sys::core::GUID,
 }
-impl Default for REGFILTERPINS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct REGPINMEDIUM {
@@ -1039,15 +1003,10 @@ pub struct REGPINMEDIUM {
     pub dw2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REGPINTYPES {
     pub clsMajorType: *const windows_sys::core::GUID,
     pub clsMinorType: *const windows_sys::core::GUID,
-}
-impl Default for REGPINTYPES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const REG_PINFLAG_B_MANY: i32 = 4;
 pub const REG_PINFLAG_B_OUTPUT: i32 = 8;
@@ -1135,7 +1094,7 @@ pub struct VIDEO_STREAM_CONFIG_CAPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VMRALLOCATIONINFO {
     pub dwFlags: u32,
     pub lpHdr: super::LPBITMAPINFOHEADER,
@@ -1146,15 +1105,9 @@ pub struct VMRALLOCATIONINFO {
     pub dwInterlaceFlags: u32,
     pub szNativeSize: super::SIZE,
 }
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
-impl Default for VMRALLOCATIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "ddraw", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
     pub hdc: super::HDC,
@@ -1163,12 +1116,6 @@ pub struct VMRALPHABITMAP {
     pub rDest: NORMALIZEDRECT,
     pub fAlpha: f32,
     pub clrSrcKey: super::COLORREF,
-}
-#[cfg(all(feature = "ddraw", feature = "windef"))]
-impl Default for VMRALPHABITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VMRBITMAP_DISABLE: i32 = 1;
 pub const VMRBITMAP_ENTIREDDS: i32 = 4;
@@ -1193,15 +1140,10 @@ pub struct VMRFrequency {
     pub dwDenominator: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VMRGUID {
     pub pGUID: *mut windows_sys::core::GUID,
     pub GUID: windows_sys::core::GUID,
-}
-impl Default for VMRGUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -1233,7 +1175,7 @@ pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
 #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
     pub lpSurf: *mut core::ffi::c_void,
@@ -1245,12 +1187,6 @@ pub struct VMRPRESENTATIONINFO {
     pub dwTypeSpecificFlags: u32,
     pub dwInterlaceFlags: u32,
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
-impl Default for VMRPRESENTATIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type VMRPresentationFlags = i32;
 pub type VMRRenderPrefs = i32;
 pub const VMRSample_Discontinuity: VMRPresentationFlags = 4;
@@ -1261,7 +1197,7 @@ pub const VMRSample_TimeValid: VMRPresentationFlags = 8;
 pub type VMRSurfaceAllocationFlags = i32;
 #[repr(C)]
 #[cfg(feature = "ddraw")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VMRVIDEOSTREAMINFO {
     pub pddsVideoSurface: *mut core::ffi::c_void,
     pub dwWidth: u32,
@@ -1270,12 +1206,6 @@ pub struct VMRVIDEOSTREAMINFO {
     pub fAlpha: f32,
     pub ddClrKey: super::DDCOLORKEY,
     pub rNormal: NORMALIZEDRECT,
-}
-#[cfg(feature = "ddraw")]
-impl Default for VMRVIDEOSTREAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

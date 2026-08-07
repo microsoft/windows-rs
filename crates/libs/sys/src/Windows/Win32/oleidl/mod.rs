@@ -68,19 +68,13 @@ pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = 4;
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = 3;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OLEINPLACEFRAMEINFO {
     pub cb: u32,
     pub fMDIApp: windows_sys::core::BOOL,
     pub hwndFrame: super::HWND,
     pub haccel: super::HACCEL,
     pub cAccelEntries: u32,
-}
-#[cfg(feature = "windef")]
-impl Default for OLEINPLACEFRAMEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type OLELINKBIND = i32;
 pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = 1;
@@ -126,17 +120,12 @@ pub type OLEUPDATE = i32;
 pub const OLEUPDATE_ALWAYS: OLEUPDATE = 1;
 pub const OLEUPDATE_ONCALL: OLEUPDATE = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OLEVERB {
     pub lVerb: i32,
     pub lpszVerbName: windows_sys::core::PWSTR,
     pub fuFlags: u32,
     pub grfAttribs: u32,
-}
-impl Default for OLEVERB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type OLEVERBATTRIB = i32;
 pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = 1;

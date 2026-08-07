@@ -1,10 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILE {
     pub _Placeholder: *mut core::ffi::c_void,
-}
-impl Default for FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

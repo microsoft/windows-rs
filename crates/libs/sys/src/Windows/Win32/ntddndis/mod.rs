@@ -793,19 +793,13 @@ pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: i32 = 1;
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NDIS_PORT {
     pub Next: PNDIS_PORT,
     pub NdisReserved: *mut core::ffi::c_void,
     pub MiniportReserved: *mut core::ffi::c_void,
     pub ProtocolReserved: *mut core::ffi::c_void,
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
-}
-#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-impl Default for NDIS_PORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
@@ -1872,28 +1866,16 @@ pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = 0;
 pub const OFFLOAD_IPSEC_CONF_RESERVED: OFFLOAD_CONF_ALGO = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
-impl Default for OFFLOAD_IPSEC_DELETE_SA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::HANDLE,
     pub EncapTypeEntryOffldHandle: super::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OFFLOAD_IPSEC_INTEGRITY_MAX: OFFLOAD_INTEGRITY_ALGO = 3;
 pub const OFFLOAD_IPSEC_INTEGRITY_MD5: OFFLOAD_INTEGRITY_ALGO = 1;

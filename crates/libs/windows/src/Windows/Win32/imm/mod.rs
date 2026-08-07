@@ -492,21 +492,11 @@ pub const GL_LEVEL_INFORMATION: i32 = 4;
 pub const GL_LEVEL_NOGUIDELINE: i32 = 0;
 pub const GL_LEVEL_WARNING: i32 = 3;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HIMC(pub *mut core::ffi::c_void);
-impl Default for HIMC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HIMCC(pub *mut core::ffi::c_void);
-impl Default for HIMCC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IACE_CHILDREN: i32 = 1;
 pub const IACE_DEFAULT: i32 = 16;
 pub const IACE_IGNORENOCONTEXT: i32 = 32;

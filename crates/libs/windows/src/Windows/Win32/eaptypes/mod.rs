@@ -1,6 +1,6 @@
 pub const CERTIFICATE_HASH_LENGTH: i32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: u32,
@@ -14,13 +14,8 @@ pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
-impl Default for EAPHOST_IDENTITY_UI_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: u32,
     pub pContextData: *mut u8,
@@ -29,49 +24,29 @@ pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
-impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const EAPHOST_METHOD_API_VERSION: i32 = 1;
 pub const EAPHOST_PEER_API_VERSION: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: u32,
     pub pValue: *mut u8,
 }
-impl Default for EAP_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
 }
-impl Default for EAP_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type EAP_ATTRIBUTE_TYPE = i32;
 pub const EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: u32,
     pub dwNumberOfFields: u32,
     pub pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
-}
-impl Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -155,7 +130,7 @@ impl Default for EAP_INTERACTIVE_UI_DATA {
 pub type EAP_INTERACTIVE_UI_DATA_TYPE = i32;
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
@@ -163,46 +138,26 @@ pub struct EAP_METHOD_INFO {
     pub eapProperties: u32,
     pub pInnerMethodInfo: *mut Self,
 }
-impl Default for EAP_METHOD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
 }
-impl Default for EAP_METHOD_INFO_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
 }
-impl Default for EAP_METHOD_INFO_ARRAY_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
     pub pwszFriendlyName: windows_core::PWSTR,
     pub eapProperties: u32,
     pub pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
-}
-impl Default for EAP_METHOD_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -217,15 +172,10 @@ impl Default for EAP_METHOD_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
-}
-impl Default for EAP_METHOD_PROPERTY_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type EAP_METHOD_PROPERTY_TYPE = i32;
 #[repr(C)]
@@ -253,15 +203,10 @@ pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub value: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
-}
-impl Default for EAP_METHOD_PROPERTY_VALUE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type EAP_METHOD_PROPERTY_VALUE_TYPE = i32;
 #[repr(C)]

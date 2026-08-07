@@ -1,25 +1,15 @@
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
 }
-impl Default for BSTRBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
     pub pClipData: *mut u8,
-}
-impl Default for CLIPDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CLIPFORMAT = u16;
 #[repr(C)]
@@ -340,18 +330,12 @@ pub const WDT_INPROC_CALL: i32 = 1215587415;
 pub const WDT_REMOTE_CALL: i32 = 1383359575;
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct remoteMETAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
     pub yExt: i32,
     pub hMF: *mut userHMETAFILE,
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for remoteMETAFILEPICT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -381,15 +365,10 @@ impl Default for uCLSSPEC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct uCLSSPEC_0_0 {
     pub pPackageName: windows_sys::core::PWSTR,
     pub PolicyId: windows_sys::core::GUID,
-}
-impl Default for uCLSSPEC_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

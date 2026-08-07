@@ -792,15 +792,10 @@ impl Default for COLOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLOR_0 {
     pub reserved1: u32,
     pub reserved2: *mut core::ffi::c_void,
-}
-impl Default for COLOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type COLORDATATYPE = i32;
 #[repr(C)]
@@ -1027,13 +1022,8 @@ pub type LPCOLORPROFILETYPE = *mut COLORPROFILETYPE;
 pub type LPCOLORTYPE = *mut COLORTYPE;
 pub type LPCOLOR_NAME = *mut COLOR_NAME;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPDEVCHARACTER(pub *mut core::ffi::c_void);
-impl Default for LPDEVCHARACTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type LPENUMTYPEA = *mut ENUMTYPEA;
 pub type LPENUMTYPEW = *mut ENUMTYPEW;
 pub type LPNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
@@ -1097,16 +1087,11 @@ pub type PPROFILE = *mut PROFILE;
 pub type PPROFILEHEADER = *mut PROFILEHEADER;
 pub const PRESERVEBLACK: i32 = 1048576;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILE {
     pub dwType: u32,
     pub pProfileData: *mut core::ffi::c_void,
     pub cbDataSize: u32,
-}
-impl Default for PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]

@@ -316,7 +316,7 @@ pub const BIF_USENEWUI: i32 = 80;
 pub const BIF_VALIDATE: i32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::HWND,
     pub pidlRoot: super::LPCITEMIDLIST,
@@ -327,15 +327,9 @@ pub struct BROWSEINFOA {
     pub lParam: super::LPARAM,
     pub iImage: i32,
 }
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl Default for BROWSEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::HWND,
     pub pidlRoot: super::LPCITEMIDLIST,
@@ -345,12 +339,6 @@ pub struct BROWSEINFOW {
     pub lpfn: BFFCALLBACK,
     pub lParam: super::LPARAM,
     pub iImage: i32,
-}
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl Default for BROWSEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -454,7 +442,7 @@ pub const COMP_TYPE_PICTURE: i32 = 1;
 pub const COMP_TYPE_WEBSITE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSFV {
     pub cbSize: u32,
     pub pshf: *mut core::ffi::c_void,
@@ -463,12 +451,6 @@ pub struct CSFV {
     pub lEvents: i32,
     pub pfnCallback: LPFNVIEWCALLBACK,
     pub fvm: super::FOLDERVIEWMODE,
-}
-#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for CSFV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CSIDL_ADMINTOOLS: i32 = 48;
 pub const CSIDL_ALTSTARTUP: i32 = 29;
@@ -541,7 +523,7 @@ pub struct DATABLOCK_HEADER {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::HWND,
     pub pcmcb: *mut core::ffi::c_void,
@@ -552,12 +534,6 @@ pub struct DEFCONTEXTMENU {
     pub punkAssociationInfo: *mut core::ffi::c_void,
     pub cKeys: u32,
     pub aKeys: *const super::HKEY,
-}
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for DEFCONTEXTMENU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "shtypes")]
@@ -577,7 +553,7 @@ impl Default for DETAILSINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DFMICS {
     pub cbSize: u32,
     pub fMask: u32,
@@ -586,12 +562,6 @@ pub struct DFMICS {
     pub idDefMax: u32,
     pub pici: super::LPCMINVOKECOMMANDINFO,
     pub punkSite: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
-impl Default for DFMICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DFM_CMD_COPY: u32 = 4294967293;
 pub const DFM_CMD_DELETE: u32 = 4294967295;
@@ -1036,16 +1006,11 @@ pub const OFASI_OPENDESKTOP: i32 = 2;
 pub const OI_ASYNC: u32 = 4294962926;
 pub const OI_DEFAULT: i32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENASINFO {
     pub pcszFile: windows_sys::core::PCWSTR,
     pub pcszClass: windows_sys::core::PCWSTR,
     pub oaifInFlags: OPEN_AS_INFO_FLAGS,
-}
-impl Default for OPENASINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type OPEN_AS_INFO_FLAGS = i32;
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
@@ -1153,19 +1118,13 @@ impl Default for PROPPRG {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QCMINFO {
     pub hmenu: super::HMENU,
     pub indexMenu: u32,
     pub idCmdFirst: u32,
     pub idCmdLast: u32,
     pub pIdMap: *const QCMINFO_IDMAP,
-}
-#[cfg(feature = "windef")]
-impl Default for QCMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1417,58 +1376,34 @@ pub const SFVS_SELECT_INVERT: i32 = 2;
 pub const SFVS_SELECT_NONE: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
     pub pshf: *mut core::ffi::c_void,
     pub psvOuter: *mut core::ffi::c_void,
     pub psfvcb: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
-impl Default for SFV_CREATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type SHARD = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "shobjidl_core")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHARDAPPIDINFO {
     pub psi: *mut core::ffi::c_void,
     pub pszAppID: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "shobjidl_core")]
-impl Default for SHARDAPPIDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: super::LPCITEMIDLIST,
     pub pszAppID: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "shtypes")]
-impl Default for SHARDAPPIDINFOIDLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "shobjidl_core")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHARDAPPIDINFOLINK {
     pub psl: *mut core::ffi::c_void,
     pub pszAppID: windows_sys::core::PCWSTR,
-}
-#[cfg(feature = "shobjidl_core")]
-impl Default for SHARDAPPIDINFOLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHARD_APPIDINFO: SHARD = 4;
 pub const SHARD_APPIDINFOIDLIST: SHARD = 5;
@@ -1533,16 +1468,10 @@ pub struct SHChangeDWORDAsIDList {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHChangeNotifyEntry {
     pub pidl: super::LPCITEMIDLIST,
     pub fRecursive: windows_sys::core::BOOL,
-}
-#[cfg(feature = "shtypes")]
-impl Default for SHChangeNotifyEntry {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1631,7 +1560,7 @@ pub const SHFMT_OPT_FULL: i32 = 1;
 pub const SHFMT_OPT_SYSONLY: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shobjidl_core")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -1648,12 +1577,6 @@ pub struct SHFOLDERCUSTOMSETTINGS {
     pub iIconIndex: i32,
     pub pszLogo: windows_sys::core::PWSTR,
     pub cchLogo: u32,
-}
-#[cfg(feature = "shobjidl_core")]
-impl Default for SHFOLDERCUSTOMSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHGDFIL_DESCRIPTIONID: i32 = 3;
 pub const SHGDFIL_FINDDATA: i32 = 1;

@@ -505,13 +505,8 @@ pub struct FindPackageDependencyCriteria {
     pub PackageFamilyName: windows_core::PCWSTR,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PACKAGEDEPENDENCY_CONTEXT(pub *mut core::ffi::c_void);
-impl Default for PACKAGEDEPENDENCY_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: i32 = 0;
 pub const PACKAGE_FILTER_ALL_LOADED: i32 = 0;
 pub const PACKAGE_FILTER_BUNDLE: i32 = 128;
@@ -672,12 +667,7 @@ pub const PackagePathType_MachineExternal: PackagePathType = 3;
 pub const PackagePathType_Mutable: PackagePathType = 1;
 pub const PackagePathType_UserExternal: PackagePathType = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
-}
-impl Default for _PACKAGE_INFO_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -9,26 +9,16 @@ pub struct SWbemAnalysisMatrix {
     pub m_pValues: *mut *mut core::ffi::c_void,
     pub m_pbTruthTable: *mut windows_sys::core::BOOL,
 }
-impl Default for SWbemAnalysisMatrix {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SWbemAnalysisMatrixList {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
     pub m_uNumMatrices: u32,
     pub m_pMatrices: *mut SWbemAnalysisMatrix,
 }
-impl Default for SWbemAnalysisMatrixList {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
@@ -43,13 +33,8 @@ pub struct SWbemAssocQueryInf {
     pub m_pszRequiredQualifier: windows_sys::core::PWSTR,
     pub m_pszRequiredAssocQualifier: windows_sys::core::PWSTR,
 }
-impl Default for SWbemAssocQueryInf {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SWbemQueryQualifiedName {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -58,11 +43,6 @@ pub struct SWbemQueryQualifiedName {
     pub m_bArraysUsed: windows_sys::core::BOOL,
     pub m_pbArrayElUsed: *mut windows_sys::core::BOOL,
     pub m_puArrayIndex: *mut u32,
-}
-impl Default for SWbemQueryQualifiedName {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -81,7 +61,7 @@ impl Default for SWbemRpnConst {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SWbemRpnEncodedQuery {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -101,11 +81,6 @@ pub struct SWbemRpnEncodedQuery {
     pub m_uOrderByListSize: u32,
     pub m_ppszOrderByList: *mut windows_sys::core::PCWSTR,
     pub m_uOrderDirectionEl: *mut u32,
-}
-impl Default for SWbemRpnEncodedQuery {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

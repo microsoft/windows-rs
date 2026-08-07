@@ -1,6 +1,6 @@
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: i32 = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUSDATA {
     pub BusDataType: u32,
     pub BusNumber: u32,
@@ -8,11 +8,6 @@ pub struct BUSDATA {
     pub Buffer: *mut core::ffi::c_void,
     pub Offset: u32,
     pub Length: u32,
-}
-impl Default for BUSDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CANNOT_ALLOCATE_MEMORY: i32 = 9;
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: i32 = 2048;
@@ -216,7 +211,7 @@ pub const EXT_API_VERSION_NUMBER32: i32 = 5;
 pub const EXT_API_VERSION_NUMBER64: i32 = 6;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXT_FIND_FILE {
     pub FileName: windows_core::PCWSTR,
     pub IndexedSize: u64,
@@ -230,12 +225,6 @@ pub struct EXT_FIND_FILE {
     pub FileHandle: super::HANDLE,
     pub FoundFileName: windows_core::PWSTR,
     pub FoundFileNameChars: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for EXT_FIND_FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: i32 = 1;
 #[repr(C)]
@@ -379,16 +368,11 @@ pub struct FIELD_INFO_1 {
     pub Size: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_CONTEXT_EX {
     pub Status: u32,
     pub ContextSize: u32,
     pub pContext: *mut core::ffi::c_void,
-}
-impl Default for GET_CONTEXT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1059,18 +1043,13 @@ pub struct READ_WRITE_MSR {
     pub Value: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCHMEMORY {
     pub SearchAddress: u64,
     pub SearchLength: u64,
     pub FoundAddress: u64,
     pub PatternLength: u32,
     pub Pattern: *mut core::ffi::c_void,
-}
-impl Default for SEARCHMEMORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SYMBOL_TYPE_INDEX_NOT_FOUND: i32 = 2;
 pub const SYMBOL_TYPE_INFO_NOT_FOUND: i32 = 3;
@@ -1166,15 +1145,10 @@ pub const WDBGEXTS_ADDRESS_RESERVED0: u32 = 2147483648;
 pub const WDBGEXTS_ADDRESS_SEG16: i32 = 1;
 pub const WDBGEXTS_ADDRESS_SEG32: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
     pub Iid: *const windows_core::GUID,
     pub Iface: *mut core::ffi::c_void,
-}
-impl Default for WDBGEXTS_CLR_DATA_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1207,15 +1181,10 @@ pub struct WDBGEXTS_MODULE_IN_RANGE {
     pub FoundModSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WDBGEXTS_QUERY_INTERFACE {
     pub Iid: *const windows_core::GUID,
     pub Iface: *mut core::ffi::c_void,
-}
-impl Default for WDBGEXTS_QUERY_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

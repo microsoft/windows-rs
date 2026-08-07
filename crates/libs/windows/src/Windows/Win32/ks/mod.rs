@@ -286,15 +286,10 @@ pub type KSDEVICE_THERMAL_STATE = i32;
 pub const KSDEVICE_THERMAL_STATE_HIGH: KSDEVICE_THERMAL_STATE = 1;
 pub const KSDEVICE_THERMAL_STATE_LOW: KSDEVICE_THERMAL_STATE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSERROR {
     pub Context: *mut core::ffi::c_void,
     pub Status: u32,
-}
-impl Default for KSERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type KSEVENT = KSIDENTIFIER;
 #[repr(C)]
@@ -660,15 +655,10 @@ pub const KSPIN_DATAFLOW_OUT: KSPIN_DATAFLOW = 2;
 pub type KSPIN_INTERFACE = KSIDENTIFIER;
 pub type KSPIN_MDL_CACHING_EVENT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION {
     pub Event: KSPIN_MDL_CACHING_EVENT,
     pub Buffer: *mut core::ffi::c_void,
-}
-impl Default for KSPIN_MDL_CACHING_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1017,29 +1007,18 @@ impl Default for KSP_TIMEFORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSQUALITY {
     pub Context: *mut core::ffi::c_void,
     pub Proportion: u32,
     pub DeltaTime: i64,
 }
-impl Default for KSQUALITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSQUALITY_MANAGER {
     pub QualityManager: super::HANDLE,
     pub Context: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for KSQUALITY_MANAGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -1154,7 +1133,7 @@ impl Default for KSSTREAMALLOCATOR_STATUS_EX {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
     pub TypeSpecificFlags: u32,
@@ -1165,15 +1144,9 @@ pub struct KSSTREAM_HEADER {
     pub Data: *mut core::ffi::c_void,
     pub OptionsFlags: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Default for KSSTREAM_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
     pub TypeSpecificFlags: u32,
@@ -1184,12 +1157,6 @@ pub struct KSSTREAM_HEADER {
     pub Data: *mut core::ffi::c_void,
     pub OptionsFlags: u32,
     pub Reserved: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for KSSTREAM_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER: i32 = 1024;
 pub const KSSTREAM_HEADER_OPTIONSF_DATADISCONTINUITY: i32 = 4;
@@ -1211,7 +1178,7 @@ pub const KSSTREAM_HEADER_OPTIONSF_TYPECHANGED: i32 = 8;
 pub const KSSTREAM_HEADER_OPTIONSF_VRAM_DATA_TRANSFER: i32 = 2048;
 pub const KSSTREAM_HEADER_TRACK_COMPLETION_NUMBERS: i32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSSTREAM_METADATA_INFO {
     pub BufferSize: u32,
     pub UsedSize: u32,
@@ -1219,11 +1186,6 @@ pub struct KSSTREAM_METADATA_INFO {
     pub SystemVa: *mut core::ffi::c_void,
     pub Flags: u32,
     pub Reserved: u32,
-}
-impl Default for KSSTREAM_METADATA_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1310,7 +1272,7 @@ pub struct KSTIME_FORMAT_MEDIA_TIME(pub u8);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTIME_FORMAT_SAMPLE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTOPOLOGY {
     pub CategoriesCount: u32,
     pub Categories: *const windows_core::GUID,
@@ -1320,11 +1282,6 @@ pub struct KSTOPOLOGY {
     pub TopologyConnections: *const KSTOPOLOGY_CONNECTION,
     pub TopologyNodesNames: *const windows_core::GUID,
     pub Reserved: u32,
-}
-impl Default for KSTOPOLOGY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1492,13 +1449,8 @@ pub type PKSTIME = *mut KSTIME;
 pub type PKSTOPOLOGY = *mut KSTOPOLOGY;
 pub type PKSTOPOLOGY_CONNECTION = *mut KSTOPOLOGY_CONNECTION;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PKSWORKER(pub *mut core::ffi::c_void);
-impl Default for PKSWORKER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PKS_COMPRESSION = *mut KS_COMPRESSION;
 pub type PKS_FRAMING_ITEM = *mut KS_FRAMING_ITEM;
 pub type PKS_FRAMING_RANGE = *mut KS_FRAMING_RANGE;

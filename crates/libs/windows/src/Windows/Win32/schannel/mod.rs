@@ -197,7 +197,7 @@ impl Default for SCHANNEL_CLIENT_SIGNATURE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
@@ -213,12 +213,6 @@ pub struct SCHANNEL_CRED {
     pub dwSessionLifespan: u32,
     pub dwFlags: u32,
     pub dwCredFormat: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for SCHANNEL_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCHANNEL_CRED_VERSION: i32 = 4;
 pub const SCHANNEL_NAME_A: windows_core::PCSTR = windows_core::s!("Schannel");
@@ -236,7 +230,7 @@ pub struct SCHANNEL_SESSION_TOKEN {
 pub const SCHANNEL_SHUTDOWN: i32 = 1;
 pub const SCH_ALLOW_NULL_ENCRYPTION: i32 = 33554432;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCH_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
@@ -244,11 +238,6 @@ pub struct SCH_CRED {
     pub paPublic: *mut *mut core::ffi::c_void,
     pub cMappers: u32,
     pub aphMappers: *mut *mut _HMAPPER,
-}
-impl Default for SCH_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCH_CREDENTIALS_VERSION: i32 = 5;
 pub const SCH_CRED_AUTO_CRED_VALIDATION: i32 = 32;
@@ -310,16 +299,11 @@ pub const SCH_CRED_X509_CAPI: i32 = 2;
 pub const SCH_CRED_X509_CERTCHAIN: i32 = 1;
 pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCH_EXTENSION_DATA {
     pub ExtensionType: u16,
     pub pExtData: *const u8,
     pub cbExtData: u32,
-}
-impl Default for SCH_EXTENSION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCH_MACHINE_CERT_HASH: i32 = 1;
 pub const SCH_MAX_EXT_SUBSCRIPTIONS: i32 = 2;
@@ -596,15 +580,10 @@ pub struct SecPkgContext_LocalCredentialInfo {
     pub dwBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_MappedCredAttr {
     pub dwAttribute: u32,
     pub pvBuffer: *mut core::ffi::c_void,
-}
-impl Default for SecPkgContext_MappedCredAttr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "minwindef")]
 pub type SecPkgContext_RemoteCredenitalInfo = SecPkgContext_RemoteCredentialInfo;
@@ -647,15 +626,10 @@ pub struct SecPkgContext_SrtpParameters {
     pub MasterKeyIdentifier: super::PBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_SupportedSignatures {
     pub cSignatureAndHashAlgorithms: u16,
     pub pSignatureAndHashAlgorithms: *mut u16,
-}
-impl Default for SecPkgContext_SupportedSignatures {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]

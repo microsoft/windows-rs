@@ -103,7 +103,7 @@ impl Default for PATCH_OLD_FILE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PATCH_OLD_FILE_INFO_A {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_sys::core::PCSTR,
@@ -112,14 +112,9 @@ pub struct PATCH_OLD_FILE_INFO_A {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
-impl Default for PATCH_OLD_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PATCH_OLD_FILE_INFO_H {
     pub SizeOfThisStruct: u32,
     pub OldFileHandle: super::HANDLE,
@@ -128,14 +123,8 @@ pub struct PATCH_OLD_FILE_INFO_H {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
-#[cfg(feature = "winnt")]
-impl Default for PATCH_OLD_FILE_INFO_H {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PATCH_OLD_FILE_INFO_W {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_sys::core::PCWSTR,
@@ -144,13 +133,8 @@ pub struct PATCH_OLD_FILE_INFO_W {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
-impl Default for PATCH_OLD_FILE_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PATCH_OPTION_DATA {
     pub SizeOfThisStruct: u32,
     pub SymbolOptionFlags: u32,
@@ -161,11 +145,6 @@ pub struct PATCH_OPTION_DATA {
     pub SymLoadContext: *mut core::ffi::c_void,
     pub InterleaveMapArray: *mut PPATCH_INTERLEAVE_MAP,
     pub MaxLzxWindowSize: u32,
-}
-impl Default for PATCH_OPTION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PATCH_OPTION_FAIL_IF_BIGGER: i32 = 1048576;
 pub const PATCH_OPTION_FAIL_IF_SAME_FILE: i32 = 524288;

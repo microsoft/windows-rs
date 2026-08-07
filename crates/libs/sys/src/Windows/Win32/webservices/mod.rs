@@ -203,27 +203,17 @@ pub const WS_ADDRESSING_VERSION_0_9: WS_ADDRESSING_VERSION = 1;
 pub const WS_ADDRESSING_VERSION_1_0: WS_ADDRESSING_VERSION = 2;
 pub const WS_ADDRESSING_VERSION_TRANSPORT: WS_ADDRESSING_VERSION = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ANY_ATTRIBUTE {
     pub localName: WS_XML_STRING,
     pub ns: WS_XML_STRING,
     pub value: *mut WS_XML_TEXT,
 }
-impl Default for WS_ANY_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ANY_ATTRIBUTES {
     pub attributes: *mut WS_ANY_ATTRIBUTE,
     pub attributeCount: u32,
-}
-impl Default for WS_ANY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_ANY_ATTRIBUTES_FIELD_MAPPING: WS_FIELD_MAPPING = 12;
 pub const WS_ANY_ATTRIBUTES_TYPE: WS_TYPE = 34;
@@ -232,15 +222,10 @@ pub const WS_ANY_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = 9;
 pub const WS_ANY_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = 4;
 pub type WS_ASYNC_CALLBACK = Option<unsafe extern "system" fn(errorcode: windows_sys::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ASYNC_CONTEXT {
     pub callback: WS_ASYNC_CALLBACK,
     pub callbackState: *mut core::ffi::c_void,
-}
-impl Default for WS_ASYNC_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_ASYNC_FUNCTION = Option<unsafe extern "system" fn(hr: windows_sys::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 #[repr(C)]
@@ -249,7 +234,7 @@ pub struct WS_ASYNC_OPERATION {
     pub function: WS_ASYNC_FUNCTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ASYNC_STATE {
     pub internal0: *mut core::ffi::c_void,
     pub internal1: *mut core::ffi::c_void,
@@ -257,23 +242,13 @@ pub struct WS_ASYNC_STATE {
     pub internal3: *mut core::ffi::c_void,
     pub internal4: *mut core::ffi::c_void,
 }
-impl Default for WS_ASYNC_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ATTRIBUTE_DESCRIPTION {
     pub attributeLocalName: *mut WS_XML_STRING,
     pub attributeNs: *mut WS_XML_STRING,
     pub r#type: WS_TYPE,
     pub typeDescription: *mut core::ffi::c_void,
-}
-impl Default for WS_ATTRIBUTE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = 1;
 pub const WS_ATTRIBUTE_TYPE_MAPPING: WS_TYPE_MAPPING = 2;
@@ -289,26 +264,16 @@ pub const WS_BOOL_TYPE: WS_TYPE = 0;
 pub const WS_BOOL_VALUE_TYPE: WS_VALUE_TYPE = 0;
 pub const WS_BUFFERED_TRANSFER_MODE: WS_TRANSFER_MODE = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_BUFFERS {
     pub bufferCount: u32,
     pub buffers: *mut WS_BYTES,
 }
-impl Default for WS_BUFFERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_BYTES {
     pub length: u32,
     pub bytes: *mut u8,
-}
-impl Default for WS_BYTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -326,16 +291,11 @@ pub struct WS_BYTE_ARRAY_DESCRIPTION {
 pub const WS_BYTE_ARRAY_TYPE: WS_TYPE = 24;
 pub type WS_CALLBACK_MODEL = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CALL_PROPERTY {
     pub id: WS_CALL_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_CALL_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_CALL_PROPERTY_CALL_ID: WS_CALL_PROPERTY_ID = 3;
 pub const WS_CALL_PROPERTY_CHECK_MUST_UNDERSTAND: WS_CALL_PROPERTY_ID = 0;
@@ -355,16 +315,10 @@ pub const WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TY
 pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *const super::CERT_CONTEXT, state: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     pub callback: WS_CERTIFICATE_VALIDATION_CALLBACK,
     pub state: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -395,7 +349,7 @@ pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
 pub const WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = 7;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub authenticator: WS_SAML_AUTHENTICATOR,
     pub trustedIssuerCerts: *const *const super::CERT_CONTEXT,
@@ -404,19 +358,13 @@ pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub samlValidator: WS_VALIDATE_SAML_CALLBACK,
     pub samlValidatorCallbackState: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WS_SAML_AUTHENTICATOR_TYPE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WS_CHANNEL(pub u8);
 pub type WS_CHANNEL_BINDING = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CHANNEL_DECODER {
     pub createContext: *mut core::ffi::c_void,
     pub createDecoderCallback: WS_CREATE_DECODER_CALLBACK,
@@ -426,13 +374,8 @@ pub struct WS_CHANNEL_DECODER {
     pub decoderEndCallback: WS_DECODER_END_CALLBACK,
     pub freeDecoderCallback: WS_FREE_DECODER_CALLBACK,
 }
-impl Default for WS_CHANNEL_DECODER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CHANNEL_ENCODER {
     pub createContext: *mut core::ffi::c_void,
     pub createEncoderCallback: WS_CREATE_ENCODER_CALLBACK,
@@ -442,33 +385,18 @@ pub struct WS_CHANNEL_ENCODER {
     pub encoderEndCallback: WS_ENCODER_END_CALLBACK,
     pub freeEncoderCallback: WS_FREE_ENCODER_CALLBACK,
 }
-impl Default for WS_CHANNEL_ENCODER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CHANNEL_PROPERTIES {
     pub properties: *mut WS_CHANNEL_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_CHANNEL_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CHANNEL_PROPERTY {
     pub id: WS_CHANNEL_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_CHANNEL_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_CHANNEL_PROPERTY_ADDRESSING_VERSION: WS_CHANNEL_PROPERTY_ID = 6;
 pub const WS_CHANNEL_PROPERTY_ALLOW_UNSECURED_FAULTS: WS_CHANNEL_PROPERTY_ID = 46;
@@ -477,17 +405,12 @@ pub const WS_CHANNEL_PROPERTY_CHANNEL_TYPE: WS_CHANNEL_PROPERTY_ID = 34;
 pub const WS_CHANNEL_PROPERTY_CLOSE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = 16;
 pub const WS_CHANNEL_PROPERTY_CONNECT_TIMEOUT: WS_CHANNEL_PROPERTY_ID = 12;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CHANNEL_PROPERTY_CONSTRAINT {
     pub id: WS_CHANNEL_PROPERTY_ID,
     pub allowedValues: *mut core::ffi::c_void,
     pub allowedValuesSize: u32,
     pub out: WS_CHANNEL_PROPERTY_CONSTRAINT_0,
-}
-impl Default for WS_CHANNEL_PROPERTY_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -572,15 +495,10 @@ pub const WS_CHAR_ARRAY_TYPE: WS_TYPE = 22;
 pub type WS_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 pub type WS_CLOSE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CONTRACT_DESCRIPTION {
     pub operationCount: u32,
     pub operations: *mut *mut WS_OPERATION_DESCRIPTION,
-}
-impl Default for WS_CONTRACT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_COOKIE_MODE = i32;
 pub type WS_CREATE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
@@ -590,19 +508,13 @@ pub type WS_CREATE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(createcon
 pub type WS_CREATE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "schannel", feature = "wincrypt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CUSTOM_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
     pub getCertCallback: WS_GET_CERT_CALLBACK,
     pub getCertCallbackState: *mut core::ffi::c_void,
     pub certIssuerListNotificationCallback: WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK,
     pub certIssuerListNotificationCallbackState: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "minwindef", feature = "schannel", feature = "wincrypt"))]
-impl Default for WS_CUSTOM_CERT_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_CUSTOM_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = 3;
 pub const WS_CUSTOM_CHANNEL_BINDING: WS_CHANNEL_BINDING = 3;
@@ -646,7 +558,7 @@ pub struct WS_CUSTOM_LISTENER_CALLBACKS {
 }
 pub const WS_CUSTOM_TYPE: WS_TYPE = 27;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_CUSTOM_TYPE_DESCRIPTION {
     pub size: u32,
     pub alignment: u32,
@@ -654,11 +566,6 @@ pub struct WS_CUSTOM_TYPE_DESCRIPTION {
     pub writeCallback: WS_WRITE_TYPE_CALLBACK,
     pub descriptionData: *mut core::ffi::c_void,
     pub isDefaultValueCallback: WS_IS_DEFAULT_VALUE_CALLBACK,
-}
-impl Default for WS_CUSTOM_TYPE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -698,15 +605,10 @@ pub type WS_DECODER_END_CALLBACK = Option<unsafe extern "system" fn(encoderconte
 pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *const core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 pub type WS_DECODER_START_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_DEFAULT_VALUE {
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_DEFAULT_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -716,15 +618,10 @@ pub struct WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 pub const WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = 2;
 pub const WS_DESCRIPTION_TYPE: WS_TYPE = 25;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     pub subStringCount: u32,
     pub subStrings: *mut *mut WS_STRING,
-}
-impl Default for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -769,17 +666,12 @@ pub type WS_DYNAMIC_STRING_CALLBACK = Option<unsafe extern "system" fn(callbacks
 pub const WS_ELEMENT_CHOICE_FIELD_MAPPING: WS_FIELD_MAPPING = 7;
 pub const WS_ELEMENT_CONTENT_TYPE_MAPPING: WS_TYPE_MAPPING = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ELEMENT_DESCRIPTION {
     pub elementLocalName: *mut WS_XML_STRING,
     pub elementNs: *mut WS_XML_STRING,
     pub r#type: WS_TYPE,
     pub typeDescription: *mut core::ffi::c_void,
-}
-impl Default for WS_ELEMENT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = 2;
 pub const WS_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = 1;
@@ -798,17 +690,12 @@ pub const WS_ENCODING_XML_UTF16BE: WS_ENCODING = 6;
 pub const WS_ENCODING_XML_UTF16LE: WS_ENCODING = 7;
 pub const WS_ENCODING_XML_UTF8: WS_ENCODING = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ENDPOINT_ADDRESS {
     pub url: WS_STRING,
     pub headers: *mut WS_XML_BUFFER,
     pub extensions: *mut WS_XML_BUFFER,
     pub identity: *mut WS_ENDPOINT_IDENTITY,
-}
-impl Default for WS_ENDPOINT_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -825,53 +712,33 @@ pub struct WS_ENDPOINT_IDENTITY {
 }
 pub type WS_ENDPOINT_IDENTITY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ENDPOINT_POLICY_EXTENSION {
     pub policyExtension: WS_POLICY_EXTENSION,
     pub assertionName: *mut WS_XML_STRING,
     pub assertionNs: *mut WS_XML_STRING,
     pub out: WS_ENDPOINT_POLICY_EXTENSION_0,
 }
-impl Default for WS_ENDPOINT_POLICY_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ENDPOINT_POLICY_EXTENSION_0 {
     pub assertionValue: *mut WS_XML_BUFFER,
 }
-impl Default for WS_ENDPOINT_POLICY_EXTENSION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WS_ENDPOINT_POLICY_EXTENSION_TYPE: WS_POLICY_EXTENSION_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ENUM_DESCRIPTION {
     pub values: *mut WS_ENUM_VALUE,
     pub valueCount: u32,
     pub maxByteCount: u32,
     pub nameIndices: *mut u32,
 }
-impl Default for WS_ENUM_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WS_ENUM_TYPE: WS_TYPE = 31;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ENUM_VALUE {
     pub value: i32,
     pub name: *mut WS_XML_STRING,
-}
-impl Default for WS_ENUM_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_ENVELOPE_VERSION = i32;
 pub const WS_ENVELOPE_VERSION_NONE: WS_ENVELOPE_VERSION = 3;
@@ -881,16 +748,11 @@ pub const WS_ENVELOPE_VERSION_SOAP_1_2: WS_ENVELOPE_VERSION = 2;
 #[derive(Clone, Copy, Default)]
 pub struct WS_ERROR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ERROR_PROPERTY {
     pub id: WS_ERROR_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_ERROR_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_ERROR_PROPERTY_ID = i32;
 pub const WS_ERROR_PROPERTY_LANGID: WS_ERROR_PROPERTY_ID = 2;
@@ -909,7 +771,7 @@ pub type WS_EXTENDED_PROTECTION_SCENARIO = i32;
 pub const WS_EXTENDED_PROTECTION_SCENARIO_BOUND_SERVER: WS_EXTENDED_PROTECTION_SCENARIO = 1;
 pub const WS_EXTENDED_PROTECTION_SCENARIO_TERMINATED_SSL: WS_EXTENDED_PROTECTION_SCENARIO = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_FAULT {
     pub code: *mut WS_FAULT_CODE,
     pub reasons: *mut WS_FAULT_REASON,
@@ -918,21 +780,11 @@ pub struct WS_FAULT {
     pub node: WS_STRING,
     pub detail: *mut WS_XML_BUFFER,
 }
-impl Default for WS_FAULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_FAULT_CODE {
     pub value: WS_XML_QNAME,
     pub subCode: *mut Self,
-}
-impl Default for WS_FAULT_CODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -940,15 +792,10 @@ pub struct WS_FAULT_DESCRIPTION {
     pub envelopeVersion: WS_ENVELOPE_VERSION,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_FAULT_DETAIL_DESCRIPTION {
     pub action: *mut WS_XML_STRING,
     pub detailElementDescription: *mut WS_ELEMENT_DESCRIPTION,
-}
-impl Default for WS_FAULT_DETAIL_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_FAULT_DISCLOSURE = i32;
 pub const WS_FAULT_ERROR_PROPERTY_ACTION: WS_FAULT_ERROR_PROPERTY_ID = 1;
@@ -965,7 +812,7 @@ pub struct WS_FAULT_REASON {
 pub const WS_FAULT_TO_HEADER: WS_HEADER_TYPE = 7;
 pub const WS_FAULT_TYPE: WS_TYPE = 29;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_FIELD_DESCRIPTION {
     pub mapping: WS_FIELD_MAPPING,
     pub localName: *mut WS_XML_STRING,
@@ -979,11 +826,6 @@ pub struct WS_FIELD_DESCRIPTION {
     pub itemLocalName: *mut WS_XML_STRING,
     pub itemNs: *mut WS_XML_STRING,
     pub itemRange: *mut WS_ITEM_RANGE,
-}
-impl Default for WS_FIELD_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_FIELD_MAPPING = i32;
 pub const WS_FIELD_NILLABLE: i32 = 4;
@@ -1021,27 +863,17 @@ pub type WS_HEADER_TYPE = i32;
 #[derive(Clone, Copy, Default)]
 pub struct WS_HEAP(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_HEAP_PROPERTIES {
     pub properties: *mut WS_HEAP_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_HEAP_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_HEAP_PROPERTY {
     pub id: WS_HEAP_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_HEAP_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_HEAP_PROPERTY_ACTUAL_SIZE: WS_HEAP_PROPERTY_ID = 3;
 pub type WS_HEAP_PROPERTY_ID = i32;
@@ -1049,15 +881,10 @@ pub const WS_HEAP_PROPERTY_MAX_SIZE: WS_HEAP_PROPERTY_ID = 0;
 pub const WS_HEAP_PROPERTY_REQUESTED_SIZE: WS_HEAP_PROPERTY_ID = 2;
 pub const WS_HEAP_PROPERTY_TRIM_SIZE: WS_HEAP_PROPERTY_ID = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_HOST_NAMES {
     pub hostNames: *mut WS_STRING,
     pub hostNameCount: u32,
-}
-impl Default for WS_HOST_NAMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1099,15 +926,10 @@ pub const WS_HTTP_HEADER_AUTH_SCHEME_NONE: i32 = 1;
 pub const WS_HTTP_HEADER_AUTH_SCHEME_NTLM: i32 = 8;
 pub const WS_HTTP_HEADER_AUTH_SCHEME_PASSPORT: i32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1121,15 +943,10 @@ pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 3;
 pub type WS_HTTP_HEADER_AUTH_TARGET = i32;
@@ -1145,7 +962,7 @@ pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1;
 pub const WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: i32 = 4;
 pub const WS_HTTP_HEADER_MAPPING_SEMICOLON_SEPARATOR: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_HTTP_MESSAGE_MAPPING {
     pub requestMappingOptions: u32,
     pub responseMappingOptions: u32,
@@ -1153,11 +970,6 @@ pub struct WS_HTTP_MESSAGE_MAPPING {
     pub requestHeaderMappingCount: u32,
     pub responseHeaderMappings: *mut *mut WS_HTTP_HEADER_MAPPING,
     pub responseHeaderMappingCount: u32,
-}
-impl Default for WS_HTTP_MESSAGE_MAPPING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1170,15 +982,10 @@ pub const WS_HTTP_PROXY_SETTING_MODE_CUSTOM: WS_HTTP_PROXY_SETTING_MODE = 3;
 pub const WS_HTTP_PROXY_SETTING_MODE_NONE: WS_HTTP_PROXY_SETTING_MODE = 2;
 pub type WS_HTTP_REDIRECT_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     pub callback: WS_HTTP_REDIRECT_CALLBACK,
     pub state: *mut core::ffi::c_void,
-}
-impl Default for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2;
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_CODE: i32 = 1;
@@ -1337,7 +1144,7 @@ pub const WS_IP_VERSION_4: WS_IP_VERSION = 1;
 pub const WS_IP_VERSION_6: WS_IP_VERSION = 2;
 pub const WS_IP_VERSION_AUTO: WS_IP_VERSION = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
@@ -1347,21 +1154,11 @@ pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     pub requestSecurityTokenPropertyConstraintCount: u32,
     pub out: WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0,
 }
-impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     pub issuerAddress: *mut WS_ENDPOINT_ADDRESS,
     pub requestSecurityTokenTemplate: *mut WS_XML_BUFFER,
-}
-impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = 6;
 pub type WS_IS_DEFAULT_VALUE_CALLBACK = Option<unsafe extern "system" fn(descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, defaultvalue: *const core::ffi::c_void, valuesize: u32, isdefault: *mut windows_sys::core::BOOL, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
@@ -1372,16 +1169,11 @@ pub struct WS_ITEM_RANGE {
     pub maxItemCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1397,42 +1189,27 @@ pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WS_LISTENER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_LISTENER_PROPERTIES {
     pub properties: *mut WS_LISTENER_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_LISTENER_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_LISTENER_PROPERTY {
     pub id: WS_LISTENER_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_LISTENER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_LISTENER_PROPERTY_ASYNC_CALLBACK_MODEL: WS_LISTENER_PROPERTY_ID = 3;
 pub const WS_LISTENER_PROPERTY_CHANNEL_BINDING: WS_LISTENER_PROPERTY_ID = 5;
@@ -1475,41 +1252,26 @@ pub const WS_MATCH_URL_THIS_HOST: i32 = 31;
 #[derive(Clone, Copy, Default)]
 pub struct WS_MESSAGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_MESSAGE_DESCRIPTION {
     pub action: *mut WS_XML_STRING,
     pub bodyElementDescription: *mut WS_ELEMENT_DESCRIPTION,
-}
-impl Default for WS_MESSAGE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_MESSAGE_DONE_CALLBACK = Option<unsafe extern "system" fn(donecallbackstate: *const core::ffi::c_void)>;
 pub const WS_MESSAGE_ID_HEADER: WS_HEADER_TYPE = 3;
 pub type WS_MESSAGE_INITIALIZATION = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_MESSAGE_PROPERTIES {
     pub properties: *mut WS_MESSAGE_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_MESSAGE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_MESSAGE_PROPERTY {
     pub id: WS_MESSAGE_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_MESSAGE_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_MESSAGE_PROPERTY_ADDRESSING_VERSION: WS_MESSAGE_PROPERTY_ID = 3;
 pub const WS_MESSAGE_PROPERTY_BODY_READER: WS_MESSAGE_PROPERTY_ID = 6;
@@ -1545,7 +1307,7 @@ pub const WS_MESSAGE_STATE_WRITING: WS_MESSAGE_STATE = 4;
 #[derive(Clone, Copy, Default)]
 pub struct WS_METADATA(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_METADATA_ENDPOINT {
     pub endpointAddress: WS_ENDPOINT_ADDRESS,
     pub endpointPolicy: *mut WS_POLICY,
@@ -1557,37 +1319,22 @@ pub struct WS_METADATA_ENDPOINT {
     pub portTypeName: *mut WS_XML_STRING,
     pub portTypeNs: *mut WS_XML_STRING,
 }
-impl Default for WS_METADATA_ENDPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_METADATA_ENDPOINTS {
     pub endpoints: *mut WS_METADATA_ENDPOINT,
     pub endpointCount: u32,
-}
-impl Default for WS_METADATA_ENDPOINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_METADATA_EXCHANGE_TYPE = i32;
 pub const WS_METADATA_EXCHANGE_TYPE_HTTP_GET: WS_METADATA_EXCHANGE_TYPE = 2;
 pub const WS_METADATA_EXCHANGE_TYPE_MEX: WS_METADATA_EXCHANGE_TYPE = 1;
 pub const WS_METADATA_EXCHANGE_TYPE_NONE: WS_METADATA_EXCHANGE_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_METADATA_PROPERTY {
     pub id: WS_METADATA_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_METADATA_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_METADATA_PROPERTY_HEAP_PROPERTIES: WS_METADATA_PROPERTY_ID = 2;
 pub const WS_METADATA_PROPERTY_HEAP_REQUESTED_SIZE: WS_METADATA_PROPERTY_ID = 4;
@@ -1618,15 +1365,10 @@ pub const WS_MOVE_TO_ROOT_ELEMENT: WS_MOVE_TO = 0;
 pub const WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: i32 = 1;
 pub const WS_NAMEDPIPE_CHANNEL_BINDING: WS_CHANNEL_BINDING = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl Default for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 9;
 #[repr(C)]
@@ -1662,15 +1404,10 @@ pub struct WS_NETTCP_URL {
 pub const WS_NON_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = 0;
 pub const WS_NO_FIELD_MAPPING: WS_FIELD_MAPPING = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
     pub opaqueAuthIdentity: *mut core::ffi::c_void,
-}
-impl Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = 3;
 pub type WS_OPEN_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
@@ -1690,7 +1427,7 @@ pub const WS_OPERATION_CONTEXT_PROPERTY_INPUT_MESSAGE: WS_OPERATION_CONTEXT_PROP
 pub const WS_OPERATION_CONTEXT_PROPERTY_LISTENER: WS_OPERATION_CONTEXT_PROPERTY_ID = 7;
 pub const WS_OPERATION_CONTEXT_PROPERTY_OUTPUT_MESSAGE: WS_OPERATION_CONTEXT_PROPERTY_ID = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_OPERATION_DESCRIPTION {
     pub versionInfo: u32,
     pub inputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
@@ -1701,11 +1438,6 @@ pub struct WS_OPERATION_DESCRIPTION {
     pub parameterDescription: *mut WS_PARAMETER_DESCRIPTION,
     pub stubCallback: WS_SERVICE_STUB_CALLBACK,
     pub style: WS_OPERATION_STYLE,
-}
-impl Default for WS_OPERATION_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_OPERATION_FREE_STATE_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void)>;
 pub type WS_OPERATION_STYLE = i32;
@@ -1725,7 +1457,7 @@ pub const WS_PARAMETER_TYPE_NORMAL: WS_PARAMETER_TYPE = 0;
 #[derive(Clone, Copy, Default)]
 pub struct WS_POLICY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_POLICY_CONSTRAINTS {
     pub channelBinding: WS_CHANNEL_BINDING,
     pub channelPropertyConstraints: *mut WS_CHANNEL_PROPERTY_CONSTRAINT,
@@ -1734,11 +1466,6 @@ pub struct WS_POLICY_CONSTRAINTS {
     pub policyExtensions: *mut *mut WS_POLICY_EXTENSION,
     pub policyExtensionCount: u32,
 }
-impl Default for WS_POLICY_CONSTRAINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WS_POLICY_EXTENSION {
@@ -1746,27 +1473,17 @@ pub struct WS_POLICY_EXTENSION {
 }
 pub type WS_POLICY_EXTENSION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_POLICY_PROPERTIES {
     pub properties: *mut WS_POLICY_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_POLICY_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_POLICY_PROPERTY {
     pub id: WS_POLICY_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_POLICY_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_POLICY_PROPERTY_ID = i32;
 pub const WS_POLICY_PROPERTY_MAX_ALTERNATIVES: WS_POLICY_PROPERTY_ID = 2;
@@ -1783,27 +1500,17 @@ pub const WS_PROTECTION_LEVEL_SIGN_AND_ENCRYPT: WS_PROTECTION_LEVEL = 3;
 pub const WS_PROXY_FAULT_LANG_ID: WS_PROXY_PROPERTY_ID = 6;
 pub type WS_PROXY_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     pub callback: WS_PROXY_MESSAGE_CALLBACK,
     pub state: *mut core::ffi::c_void,
 }
-impl Default for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_PROXY_PROPERTY {
     pub id: WS_PROXY_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_PROXY_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_PROXY_PROPERTY_CALL_TIMEOUT: WS_PROXY_PROPERTY_ID = 0;
 pub type WS_PROXY_PROPERTY_ID = i32;
@@ -1849,31 +1556,21 @@ pub const WS_REQUEST_SECURITY_TOKEN_ACTION_ISSUE: WS_REQUEST_SECURITY_TOKEN_ACTI
 pub const WS_REQUEST_SECURITY_TOKEN_ACTION_NEW_CONTEXT: WS_REQUEST_SECURITY_TOKEN_ACTION = 2;
 pub const WS_REQUEST_SECURITY_TOKEN_ACTION_RENEW_CONTEXT: WS_REQUEST_SECURITY_TOKEN_ACTION = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY {
     pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
 }
-impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_APPLIES_TO: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = 1;
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_BEARER_KEY_TYPE_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = 13;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
     pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
     pub allowedValues: *mut core::ffi::c_void,
     pub allowedValuesSize: u32,
     pub out: WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0,
-}
-impl Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1910,16 +1607,11 @@ pub struct WS_SAML_AUTHENTICATOR {
 }
 pub type WS_SAML_AUTHENTICATOR_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SAML_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub authenticator: *mut WS_SAML_AUTHENTICATOR,
-}
-impl Default for WS_SAML_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_SAML_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 7;
 pub type WS_SECURE_CONVERSATION_VERSION = i32;
@@ -1948,20 +1640,15 @@ pub const WS_SECURITY_ALGORITHM_DIGEST_SHA_512: WS_SECURITY_ALGORITHM_ID = 6;
 pub type WS_SECURITY_ALGORITHM_ID = i32;
 pub const WS_SECURITY_ALGORITHM_KEY_DERIVATION_P_SHA1: WS_SECURITY_ALGORITHM_ID = 18;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_ALGORITHM_PROPERTY {
     pub id: WS_SECURITY_ALGORITHM_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
 }
-impl Default for WS_SECURITY_ALGORITHM_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type WS_SECURITY_ALGORITHM_PROPERTY_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_ALGORITHM_SUITE {
     pub canonicalizationAlgorithm: WS_SECURITY_ALGORITHM_ID,
     pub digestAlgorithm: WS_SECURITY_ALGORITHM_ID,
@@ -1977,11 +1664,6 @@ pub struct WS_SECURITY_ALGORITHM_SUITE {
     pub maxAsymmetricKeyLength: u32,
     pub properties: *mut WS_SECURITY_ALGORITHM_PROPERTY,
     pub propertyCount: u32,
-}
-impl Default for WS_SECURITY_ALGORITHM_SUITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_SECURITY_ALGORITHM_SUITE_NAME = i32;
 pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128: WS_SECURITY_ALGORITHM_SUITE_NAME = 3;
@@ -2005,69 +1687,44 @@ pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ERRATA_01: WS_SECURITY_BEARER_
 pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SCHEMA: WS_SECURITY_BEARER_KEY_TYPE_VERSION = 2;
 pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SPECIFICATION: WS_SECURITY_BEARER_KEY_TYPE_VERSION = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_BINDING {
     pub bindingType: WS_SECURITY_BINDING_TYPE,
     pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_BINDING_CONSTRAINT {
     pub r#type: WS_SECURITY_BINDING_CONSTRAINT_TYPE,
     pub propertyConstraints: *mut WS_SECURITY_BINDING_PROPERTY_CONSTRAINT,
     pub propertyConstraintCount: u32,
 }
-impl Default for WS_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type WS_SECURITY_BINDING_CONSTRAINT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_BINDING_PROPERTIES {
     pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_SECURITY_BINDING_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_BINDING_PROPERTY {
     pub id: WS_SECURITY_BINDING_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_SECURITY_BINDING_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_SECURITY_BINDING_PROPERTY_ALLOWED_IMPERSONATION_LEVEL: WS_SECURITY_BINDING_PROPERTY_ID = 5;
 pub const WS_SECURITY_BINDING_PROPERTY_ALLOW_ANONYMOUS_CLIENTS: WS_SECURITY_BINDING_PROPERTY_ID = 4;
 pub const WS_SECURITY_BINDING_PROPERTY_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT: WS_SECURITY_BINDING_PROPERTY_ID = 23;
 pub const WS_SECURITY_BINDING_PROPERTY_CERT_FAILURES_TO_IGNORE: WS_SECURITY_BINDING_PROPERTY_ID = 20;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
     pub id: WS_SECURITY_BINDING_PROPERTY_ID,
     pub allowedValues: *mut core::ffi::c_void,
     pub allowedValuesSize: u32,
     pub out: WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0,
-}
-impl Default for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2096,44 +1753,29 @@ pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_SUPPORT_RENEW: WS_SECURI
 pub const WS_SECURITY_BINDING_PROPERTY_WINDOWS_INTEGRATED_AUTH_PACKAGE: WS_SECURITY_BINDING_PROPERTY_ID = 2;
 pub type WS_SECURITY_BINDING_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_CONSTRAINTS {
     pub securityPropertyConstraints: *mut WS_SECURITY_PROPERTY_CONSTRAINT,
     pub securityPropertyConstraintCount: u32,
     pub securityBindingConstraints: *mut *mut WS_SECURITY_BINDING_CONSTRAINT,
     pub securityBindingConstraintCount: u32,
 }
-impl Default for WS_SECURITY_CONSTRAINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_CONTEXT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub bootstrapSecurityDescription: *mut WS_SECURITY_DESCRIPTION,
 }
-impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub bootstrapSecurityConstraint: *mut WS_SECURITY_CONSTRAINTS,
-}
-impl Default for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = 8;
 #[repr(C)]
@@ -2149,16 +1791,11 @@ pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
 }
 pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_CONTEXT_PROPERTY {
     pub id: WS_SECURITY_CONTEXT_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_SECURITY_CONTEXT_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_SECURITY_CONTEXT_PROPERTY_ID = i32;
 pub const WS_SECURITY_CONTEXT_PROPERTY_IDENTIFIER: WS_SECURITY_CONTEXT_PROPERTY_ID = 1;
@@ -2178,17 +1815,12 @@ pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
     pub securityProperties: WS_SECURITY_PROPERTIES,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_DESCRIPTION {
     pub securityBindings: *mut *mut WS_SECURITY_BINDING,
     pub securityBindingCount: u32,
     pub properties: *mut WS_SECURITY_PROPERTY,
     pub propertyCount: u32,
-}
-impl Default for WS_SECURITY_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_SECURITY_HEADER_LAYOUT = i32;
 pub const WS_SECURITY_HEADER_LAYOUT_LAX: WS_SECURITY_HEADER_LAYOUT = 2;
@@ -2213,42 +1845,27 @@ pub const WS_SECURITY_KEY_TYPE_ASYMMETRIC: WS_SECURITY_KEY_TYPE = 3;
 pub const WS_SECURITY_KEY_TYPE_NONE: WS_SECURITY_KEY_TYPE = 1;
 pub const WS_SECURITY_KEY_TYPE_SYMMETRIC: WS_SECURITY_KEY_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_PROPERTIES {
     pub properties: *mut WS_SECURITY_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_SECURITY_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_PROPERTY {
     pub id: WS_SECURITY_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
 }
-impl Default for WS_SECURITY_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WS_SECURITY_PROPERTY_ALGORITHM_SUITE: WS_SECURITY_PROPERTY_ID = 2;
 pub const WS_SECURITY_PROPERTY_ALGORITHM_SUITE_NAME: WS_SECURITY_PROPERTY_ID = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SECURITY_PROPERTY_CONSTRAINT {
     pub id: WS_SECURITY_PROPERTY_ID,
     pub allowedValues: *mut core::ffi::c_void,
     pub allowedValuesSize: u32,
     pub out: WS_SECURITY_PROPERTY_CONSTRAINT_0,
-}
-impl Default for WS_SECURITY_PROPERTY_CONSTRAINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2292,19 +1909,14 @@ pub type WS_SERVICE_CANCEL_REASON = i32;
 pub const WS_SERVICE_CHANNEL_FAULTED: WS_SERVICE_CANCEL_REASON = 1;
 pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SERVICE_CONTRACT {
     pub contractDescription: *const WS_CONTRACT_DESCRIPTION,
     pub defaultMessageHandlerCallback: WS_SERVICE_MESSAGE_RECEIVE_CALLBACK,
     pub methodTable: *const core::ffi::c_void,
 }
-impl Default for WS_SERVICE_CONTRACT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SERVICE_ENDPOINT {
     pub address: WS_ENDPOINT_ADDRESS,
     pub channelBinding: WS_CHANNEL_BINDING,
@@ -2316,34 +1928,19 @@ pub struct WS_SERVICE_ENDPOINT {
     pub propertyCount: u32,
     pub channelProperties: WS_CHANNEL_PROPERTIES,
 }
-impl Default for WS_SERVICE_ENDPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SERVICE_ENDPOINT_METADATA {
     pub portName: *mut WS_XML_STRING,
     pub bindingName: *mut WS_XML_STRING,
     pub bindingNs: *mut WS_XML_STRING,
 }
-impl Default for WS_SERVICE_ENDPOINT_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SERVICE_ENDPOINT_PROPERTY {
     pub id: WS_SERVICE_ENDPOINT_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_SERVICE_ENDPOINT_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_SERVICE_ENDPOINT_PROPERTY_ACCEPT_CHANNEL_CALLBACK: WS_SERVICE_ENDPOINT_PROPERTY_ID = 0;
 pub const WS_SERVICE_ENDPOINT_PROPERTY_BODY_HEAP_MAX_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = 4;
@@ -2375,41 +1972,26 @@ pub const WS_SERVICE_HOST_STATE_OPEN: WS_SERVICE_HOST_STATE = 2;
 pub const WS_SERVICE_HOST_STATE_OPENING: WS_SERVICE_HOST_STATE = 1;
 pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SERVICE_METADATA {
     pub documentCount: u32,
     pub documents: *mut *mut WS_SERVICE_METADATA_DOCUMENT,
     pub serviceName: *mut WS_XML_STRING,
     pub serviceNs: *mut WS_XML_STRING,
 }
-impl Default for WS_SERVICE_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SERVICE_METADATA_DOCUMENT {
     pub content: *mut WS_XML_STRING,
     pub name: *mut WS_STRING,
 }
-impl Default for WS_SERVICE_METADATA_DOCUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SERVICE_PROPERTY {
     pub id: WS_SERVICE_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_SERVICE_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2440,15 +2022,10 @@ pub const WS_SERVICE_PROXY_STATE_OPEN: WS_SERVICE_PROXY_STATE = 2;
 pub const WS_SERVICE_PROXY_STATE_OPENING: WS_SERVICE_PROXY_STATE = 1;
 pub type WS_SERVICE_SECURITY_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut windows_sys::core::BOOL, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SERVICE_SECURITY_IDENTITIES {
     pub serviceIdentities: *mut WS_STRING,
     pub serviceIdentityCount: u32,
-}
-impl Default for WS_SERVICE_SECURITY_IDENTITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_SERVICE_STUB_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const core::ffi::c_void, callback: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
 pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_sys::core::HRESULT>;
@@ -2475,15 +2052,10 @@ pub struct WS_SPN_ENDPOINT_IDENTITY {
 }
 pub const WS_SPN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub localCertCredential: *mut WS_CERT_CREDENTIAL,
-}
-impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2503,15 +2075,10 @@ pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub localCertCredential: *mut WS_CERT_CREDENTIAL,
-}
-impl Default for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_SSL_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 1;
 #[repr(C)]
@@ -2523,15 +2090,10 @@ pub const WS_STREAMED_INPUT_TRANSFER_MODE: WS_TRANSFER_MODE = 1;
 pub const WS_STREAMED_OUTPUT_TRANSFER_MODE: WS_TRANSFER_MODE = 2;
 pub const WS_STREAMED_TRANSFER_MODE: WS_TRANSFER_MODE = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_STRING {
     pub length: u32,
     pub chars: *mut u16,
-}
-impl Default for WS_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2559,7 +2121,7 @@ pub struct WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 pub const WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = 1;
 pub const WS_STRUCT_ABSTRACT: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_STRUCT_DESCRIPTION {
     pub size: u32,
     pub alignment: u32,
@@ -2571,11 +2133,6 @@ pub struct WS_STRUCT_DESCRIPTION {
     pub subTypes: *mut *mut Self,
     pub subTypeCount: u32,
     pub structOptions: u32,
-}
-impl Default for WS_STRUCT_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2;
 pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4;
@@ -2654,15 +2211,10 @@ pub struct WS_TCP_SSPI_POLICY_DESCRIPTION {
     pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2671,15 +2223,10 @@ pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
 }
 pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
-}
-impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 2;
 #[repr(C)]
@@ -2980,7 +2527,7 @@ pub struct WS_UINT8_DESCRIPTION {
 pub const WS_UINT8_TYPE: WS_TYPE = 5;
 pub const WS_UINT8_VALUE_TYPE: WS_VALUE_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_UNION_DESCRIPTION {
     pub size: u32,
     pub alignment: u32,
@@ -2989,11 +2536,6 @@ pub struct WS_UNION_DESCRIPTION {
     pub enumOffset: u32,
     pub noneEnumValue: i32,
     pub valueIndices: *mut u32,
-}
-impl Default for WS_UNION_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3016,15 +2558,10 @@ pub struct WS_UNIQUE_ID_DESCRIPTION {
 }
 pub const WS_UNIQUE_ID_TYPE: WS_TYPE = 15;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_UNKNOWN_ENDPOINT_IDENTITY {
     pub identity: WS_ENDPOINT_IDENTITY,
     pub element: *mut WS_XML_BUFFER,
-}
-impl Default for WS_UNKNOWN_ENDPOINT_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_UNKNOWN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = 6;
 #[repr(C)]
@@ -3055,18 +2592,13 @@ pub struct WS_USERNAME_CREDENTIAL {
 }
 pub type WS_USERNAME_CREDENTIAL_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
     pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
     pub passwordValidatorCallbackState: *mut core::ffi::c_void,
-}
-impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3082,17 +2614,12 @@ pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
     pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
     pub passwordValidatorCallbackState: *mut core::ffi::c_void,
-}
-impl Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_USERNAME_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 4;
 #[repr(C)]
@@ -3138,7 +2665,7 @@ pub struct WS_WSZ_DESCRIPTION {
 }
 pub const WS_WSZ_TYPE: WS_TYPE = 17;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_ATTRIBUTE {
     pub singleQuote: u8,
     pub isXmlNs: u8,
@@ -3147,23 +2674,13 @@ pub struct WS_XML_ATTRIBUTE {
     pub ns: *mut WS_XML_STRING,
     pub value: *mut WS_XML_TEXT,
 }
-impl Default for WS_XML_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WS_XML_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = 6;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_BASE64_TEXT {
     pub text: WS_XML_TEXT,
     pub bytes: *mut u8,
     pub length: u32,
-}
-impl Default for WS_XML_BASE64_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3175,42 +2692,27 @@ pub struct WS_XML_BOOL_TEXT {
 #[derive(Clone, Copy, Default)]
 pub struct WS_XML_BUFFER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_BUFFER_PROPERTY {
     pub id: WS_XML_BUFFER_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
 }
-impl Default for WS_XML_BUFFER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type WS_XML_BUFFER_PROPERTY_ID = i32;
 pub const WS_XML_BUFFER_TYPE: WS_TYPE = 21;
 pub type WS_XML_CANONICALIZATION_ALGORITHM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
     pub prefixCount: u32,
     pub prefixes: *mut WS_XML_STRING,
 }
-impl Default for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_CANONICALIZATION_PROPERTY {
     pub id: WS_XML_CANONICALIZATION_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_XML_CANONICALIZATION_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_XML_CANONICALIZATION_PROPERTY_ALGORITHM: WS_XML_CANONICALIZATION_PROPERTY_ID = 0;
 pub type WS_XML_CANONICALIZATION_PROPERTY_ID = i32;
@@ -3243,17 +2745,12 @@ impl Default for WS_XML_DECIMAL_TEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_DICTIONARY {
     pub guid: windows_sys::core::GUID,
     pub strings: *mut WS_XML_STRING,
     pub stringCount: u32,
     pub isConst: windows_sys::core::BOOL,
-}
-impl Default for WS_XML_DICTIONARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3262,7 +2759,7 @@ pub struct WS_XML_DOUBLE_TEXT {
     pub value: f64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_ELEMENT_NODE {
     pub node: WS_XML_NODE,
     pub prefix: *mut WS_XML_STRING,
@@ -3271,11 +2768,6 @@ pub struct WS_XML_ELEMENT_NODE {
     pub attributeCount: u32,
     pub attributes: *mut *mut WS_XML_ATTRIBUTE,
     pub isEmpty: windows_sys::core::BOOL,
-}
-impl Default for WS_XML_ELEMENT_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3302,16 +2794,11 @@ pub struct WS_XML_INT64_TEXT {
     pub value: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_LIST_TEXT {
     pub text: WS_XML_TEXT,
     pub itemCount: u32,
     pub items: *mut *mut WS_XML_TEXT,
-}
-impl Default for WS_XML_LIST_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3319,15 +2806,10 @@ pub struct WS_XML_NODE {
     pub nodeType: WS_XML_NODE_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_NODE_POSITION {
     pub buffer: *mut WS_XML_BUFFER,
     pub node: *mut core::ffi::c_void,
-}
-impl Default for WS_XML_NODE_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_XML_NODE_TYPE = i32;
 pub const WS_XML_NODE_TYPE_BOF: WS_XML_NODE_TYPE = 9;
@@ -3353,45 +2835,30 @@ pub struct WS_XML_QNAME_DESCRIPTION {
     pub maxNsByteCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_QNAME_TEXT {
     pub text: WS_XML_TEXT,
     pub prefix: *mut WS_XML_STRING,
     pub localName: *mut WS_XML_STRING,
     pub ns: *mut WS_XML_STRING,
 }
-impl Default for WS_XML_QNAME_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WS_XML_QNAME_TYPE: WS_TYPE = 20;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WS_XML_READER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_READER_BINARY_ENCODING {
     pub encoding: WS_XML_READER_ENCODING,
     pub staticDictionary: *mut WS_XML_DICTIONARY,
     pub dynamicDictionary: *mut WS_XML_DICTIONARY,
 }
-impl Default for WS_XML_READER_BINARY_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_READER_BUFFER_INPUT {
     pub input: WS_XML_READER_INPUT,
     pub encodedData: *mut core::ffi::c_void,
     pub encodedDataSize: u32,
-}
-impl Default for WS_XML_READER_BUFFER_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3412,7 +2879,7 @@ pub type WS_XML_READER_INPUT_TYPE = i32;
 pub const WS_XML_READER_INPUT_TYPE_BUFFER: WS_XML_READER_INPUT_TYPE = 1;
 pub const WS_XML_READER_INPUT_TYPE_STREAM: WS_XML_READER_INPUT_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_READER_MTOM_ENCODING {
     pub encoding: WS_XML_READER_ENCODING,
     pub textEncoding: *mut WS_XML_READER_ENCODING,
@@ -3421,33 +2888,18 @@ pub struct WS_XML_READER_MTOM_ENCODING {
     pub boundary: WS_STRING,
     pub startUri: WS_STRING,
 }
-impl Default for WS_XML_READER_MTOM_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_READER_PROPERTIES {
     pub properties: *mut WS_XML_READER_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_XML_READER_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_READER_PROPERTY {
     pub id: WS_XML_READER_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_XML_READER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_XML_READER_PROPERTY_ALLOW_FRAGMENT: WS_XML_READER_PROPERTY_ID = 1;
 pub const WS_XML_READER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_READER_PROPERTY_ID = 13;
@@ -3471,16 +2923,11 @@ pub struct WS_XML_READER_RAW_ENCODING {
     pub encoding: WS_XML_READER_ENCODING,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_READER_STREAM_INPUT {
     pub input: WS_XML_READER_INPUT,
     pub readCallback: WS_READ_CALLBACK,
     pub readCallbackState: *mut core::ffi::c_void,
-}
-impl Default for WS_XML_READER_STREAM_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3489,16 +2936,11 @@ pub struct WS_XML_READER_TEXT_ENCODING {
     pub charSet: WS_CHARSET,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_SECURITY_TOKEN_PROPERTY {
     pub id: WS_XML_SECURITY_TOKEN_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_XML_SECURITY_TOKEN_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = 1;
 pub type WS_XML_SECURITY_TOKEN_PROPERTY_ID = i32;
@@ -3506,17 +2948,12 @@ pub const WS_XML_SECURITY_TOKEN_PROPERTY_UNATTACHED_REFERENCE: WS_XML_SECURITY_T
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_VALID_FROM_TIME: WS_XML_SECURITY_TOKEN_PROPERTY_ID = 3;
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_VALID_TILL_TIME: WS_XML_SECURITY_TOKEN_PROPERTY_ID = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_STRING {
     pub length: u32,
     pub bytes: *mut u8,
     pub dictionary: *mut WS_XML_DICTIONARY,
     pub id: u32,
-}
-impl Default for WS_XML_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3531,15 +2968,10 @@ pub struct WS_XML_TEXT {
     pub textType: WS_XML_TEXT_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_TEXT_NODE {
     pub node: WS_XML_NODE,
     pub text: *mut WS_XML_TEXT,
-}
-impl Default for WS_XML_TEXT_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WS_XML_TEXT_TYPE = i32;
 pub const WS_XML_TEXT_TYPE_BASE64: WS_XML_TEXT_TYPE = 3;
@@ -3565,16 +2997,11 @@ pub struct WS_XML_TIMESPAN_TEXT {
     pub value: WS_TIMESPAN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub xmlToken: *mut WS_SECURITY_TOKEN,
-}
-impl Default for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_XML_TOKEN_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 6;
 #[repr(C)]
@@ -3590,16 +3017,11 @@ pub struct WS_XML_UNIQUE_ID_TEXT {
     pub value: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_UTF16_TEXT {
     pub text: WS_XML_TEXT,
     pub bytes: *mut u8,
     pub byteCount: u32,
-}
-impl Default for WS_XML_UTF16_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3611,17 +3033,12 @@ pub struct WS_XML_UTF8_TEXT {
 #[derive(Clone, Copy, Default)]
 pub struct WS_XML_WRITER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_WRITER_BINARY_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub staticDictionary: *mut WS_XML_DICTIONARY,
     pub dynamicStringCallback: WS_DYNAMIC_STRING_CALLBACK,
     pub dynamicStringCallbackState: *mut core::ffi::c_void,
-}
-impl Default for WS_XML_WRITER_BINARY_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3639,7 +3056,7 @@ pub const WS_XML_WRITER_ENCODING_TYPE_MTOM: WS_XML_WRITER_ENCODING_TYPE = 3;
 pub const WS_XML_WRITER_ENCODING_TYPE_RAW: WS_XML_WRITER_ENCODING_TYPE = 4;
 pub const WS_XML_WRITER_ENCODING_TYPE_TEXT: WS_XML_WRITER_ENCODING_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_WRITER_MTOM_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub textEncoding: *mut WS_XML_WRITER_ENCODING,
@@ -3648,11 +3065,6 @@ pub struct WS_XML_WRITER_MTOM_ENCODING {
     pub startInfo: WS_STRING,
     pub startUri: WS_STRING,
     pub maxInlineByteCount: u32,
-}
-impl Default for WS_XML_WRITER_MTOM_ENCODING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3663,27 +3075,17 @@ pub type WS_XML_WRITER_OUTPUT_TYPE = i32;
 pub const WS_XML_WRITER_OUTPUT_TYPE_BUFFER: WS_XML_WRITER_OUTPUT_TYPE = 1;
 pub const WS_XML_WRITER_OUTPUT_TYPE_STREAM: WS_XML_WRITER_OUTPUT_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_WRITER_PROPERTIES {
     pub properties: *mut WS_XML_WRITER_PROPERTY,
     pub propertyCount: u32,
 }
-impl Default for WS_XML_WRITER_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_WRITER_PROPERTY {
     pub id: WS_XML_WRITER_PROPERTY_ID,
     pub value: *mut core::ffi::c_void,
     pub valueSize: u32,
-}
-impl Default for WS_XML_WRITER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WS_XML_WRITER_PROPERTY_ALLOW_FRAGMENT: WS_XML_WRITER_PROPERTY_ID = 1;
 pub const WS_XML_WRITER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_WRITER_PROPERTY_ID = 13;
@@ -3711,16 +3113,11 @@ pub struct WS_XML_WRITER_RAW_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WS_XML_WRITER_STREAM_OUTPUT {
     pub output: WS_XML_WRITER_OUTPUT,
     pub writeCallback: WS_WRITE_CALLBACK,
     pub writeCallbackState: *mut core::ffi::c_void,
-}
-impl Default for WS_XML_WRITER_STREAM_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

@@ -316,29 +316,19 @@ pub const AUTO_PROXY_FLAG_DONT_CACHE_PROXY_RESULT: i32 = 16;
 pub const AUTO_PROXY_FLAG_MIGRATED: i32 = 8;
 pub const AUTO_PROXY_FLAG_USER_SET: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwStructSize: u32,
     pub lpszScriptBuffer: windows_sys::core::PSTR,
     pub dwScriptBufferSize: u32,
 }
-impl Default for AUTO_PROXY_SCRIPT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
-impl Default for AutoProxyHelperFunctions {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: *mut u8,
     pub GetIPAddress: *mut u8,
@@ -349,11 +339,6 @@ pub struct AutoProxyHelperVtbl {
     pub ResolveHostNameEx: *mut u8,
     pub IsInNetEx: *mut u8,
     pub SortIpList: *mut u8,
-}
-impl Default for AutoProxyHelperVtbl {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CACHEGROUP_ATTRIBUTE_BASIC: i32 = 1;
 pub const CACHEGROUP_ATTRIBUTE_FLAG: i32 = 2;
@@ -505,42 +490,24 @@ pub const FTP_TRANSFER_TYPE_MASK: i32 = 3;
 pub const FTP_TRANSFER_TYPE_UNKNOWN: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: super::LPCTSTR,
     pub AbstractFile: super::LPCTSTR,
 }
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: super::LPCTSTR,
     pub EmailAddress: super::LPCTSTR,
 }
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_ADMIN_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: super::LPCTSTR,
     pub QuestionText: super::LPCTSTR,
-}
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_ASK_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> windows_sys::core::BOOL>;
@@ -660,15 +627,9 @@ pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: super::LPCTSTR,
-}
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_LOCATION_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -678,27 +639,15 @@ pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: super::LPCTSTR,
 }
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: super::LPCTSTR,
-}
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -713,15 +662,9 @@ pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: super::LPCTSTR,
-}
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_SITE_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -760,15 +703,9 @@ pub const GOPHER_TYPE_UNIX_UUENCODED: i32 = 64;
 pub const GOPHER_TYPE_UNKNOWN: i32 = 536870912;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: super::LPCTSTR,
-}
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -777,29 +714,17 @@ pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: super::LPCTSTR,
 }
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_VERSION_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: super::LPCTSTR,
     pub Language: super::LPCTSTR,
     pub Size: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for GOPHER_VIEW_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type GROUPID = i64;
 pub const GROUPNAME_MAX_LENGTH: i32 = 120;
@@ -966,7 +891,7 @@ pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: i32 = 2;
 pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: i32 = 8;
 pub type INTERNET_BUFFERS = INTERNET_BUFFERSA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: u32,
     pub Next: *mut Self,
@@ -979,13 +904,8 @@ pub struct INTERNET_BUFFERSA {
     pub dwOffsetLow: u32,
     pub dwOffsetHigh: u32,
 }
-impl Default for INTERNET_BUFFERSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: u32,
     pub Next: *mut Self,
@@ -997,11 +917,6 @@ pub struct INTERNET_BUFFERSW {
     pub dwBufferTotal: u32,
     pub dwOffsetLow: u32,
     pub dwOffsetHigh: u32,
-}
-impl Default for INTERNET_BUFFERSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "minwindef")]
 pub type INTERNET_CACHE_ENTRY_INFO = INTERNET_CACHE_ENTRY_INFOA;
@@ -1129,7 +1044,7 @@ pub struct INTERNET_CACHE_TIMESTAMPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::FILETIME,
     pub ftStart: super::FILETIME,
@@ -1139,12 +1054,6 @@ pub struct INTERNET_CERTIFICATE_INFO {
     pub lpszSignatureAlgName: super::LPTSTR,
     pub lpszEncryptionAlgName: super::LPTSTR,
     pub dwKeySize: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for INTERNET_CERTIFICATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1160,7 +1069,7 @@ pub const INTERNET_CONNECTION_OFFLINE: i32 = 32;
 pub const INTERNET_CONNECTION_PROXY: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_sys::core::PWSTR,
     pub pwszValue: windows_sys::core::PWSTR,
@@ -1169,12 +1078,6 @@ pub struct INTERNET_COOKIE2 {
     pub dwFlags: u32,
     pub ftExpires: super::FILETIME,
     pub fExpiresSet: windows_sys::core::BOOL,
-}
-#[cfg(feature = "minwindef")]
-impl Default for INTERNET_COOKIE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const INTERNET_COOKIE_APPLY_HOST_ONLY: i32 = 32768;
 pub const INTERNET_COOKIE_APPLY_P3P: i32 = 128;
@@ -1469,7 +1372,7 @@ impl Default for INTERNET_PER_CONN_OPTIONW_0 {
 pub type INTERNET_PER_CONN_OPTION_LIST = INTERNET_PER_CONN_OPTION_LISTA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwSize: u32,
     pub pszConnection: windows_sys::core::PSTR,
@@ -1477,15 +1380,9 @@ pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwOptionError: u32,
     pub pOptions: LPINTERNET_PER_CONN_OPTIONA,
 }
-#[cfg(feature = "minwindef")]
-impl Default for INTERNET_PER_CONN_OPTION_LISTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwSize: u32,
     pub pszConnection: windows_sys::core::PWSTR,
@@ -1493,28 +1390,16 @@ pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwOptionError: u32,
     pub pOptions: LPINTERNET_PER_CONN_OPTIONW,
 }
-#[cfg(feature = "minwindef")]
-impl Default for INTERNET_PER_CONN_OPTION_LISTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const INTERNET_PER_CONN_PROXY_BYPASS: i32 = 3;
 pub const INTERNET_PER_CONN_PROXY_SERVER: i32 = 2;
 pub const INTERNET_PRIORITY_FOREGROUND: i32 = 1000;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: u32,
     pub lpszProxy: super::LPCTSTR,
     pub lpszProxyBypass: super::LPCTSTR,
-}
-#[cfg(feature = "winnt")]
-impl Default for INTERNET_PROXY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const INTERNET_RAS_INSTALLED: i32 = 16;
 pub const INTERNET_REQFLAG_ASYNC: i32 = 2;
@@ -1580,7 +1465,7 @@ pub const ISO_GLOBAL: i32 = 1;
 pub const ISO_REGISTRY: i32 = 2;
 pub const ISO_VALID_FLAGS: i32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -1589,11 +1474,6 @@ pub struct IncomingCookieState {
     pub cDowngraded: i32,
     pub cBlocked: i32,
     pub pszLocation: *const i8,
-}
-impl Default for IncomingCookieState {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1689,16 +1569,11 @@ pub const MAX_GOPHER_SELECTOR_TEXT: i32 = 256;
 pub const MIN_GOPHER_ATTRIBUTE_LENGTH: i32 = 256;
 pub const NORMAL_CACHE_ENTRY: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
     pub pszLocation: *const i8,
-}
-impl Default for OutgoingCookieState {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PFN_AUTH_NOTIFY = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
 #[cfg(feature = "windef")]
@@ -1749,7 +1624,7 @@ pub const URLCACHE_FIND_DEFAULT_FILTER: i32 = 3145781;
 pub const URLHISTORY_CACHE_ENTRY: i32 = 2097152;
 #[repr(C)]
 #[cfg(feature = "winhttp")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct URL_COMPONENTSA {
     pub dwStructSize: u32,
     pub lpszScheme: windows_sys::core::PSTR,
@@ -1766,12 +1641,6 @@ pub struct URL_COMPONENTSA {
     pub dwUrlPathLength: u32,
     pub lpszExtraInfo: windows_sys::core::PSTR,
     pub dwExtraInfoLength: u32,
-}
-#[cfg(feature = "winhttp")]
-impl Default for URL_COMPONENTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WININET_API_FLAG_ASYNC: i32 = 1;
 pub const WININET_API_FLAG_SYNC: i32 = 4;

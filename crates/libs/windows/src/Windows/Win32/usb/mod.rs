@@ -41,21 +41,11 @@ pub const OS_STRING_DESCRIPTOR_INDEX: i32 = 238;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PHYSICAL_ADDRESS(pub i64);
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PIRP(pub *mut core::ffi::c_void);
-impl Default for PIRP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMDL(pub *mut core::ffi::c_void);
-impl Default for PMDL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type POS_STRING = *mut OS_STRING;
 #[cfg(feature = "usbspec")]
 pub type PURB = *mut URB;
@@ -192,31 +182,20 @@ pub const URB_FUNCTION_VENDOR_OTHER: i32 = 32;
 pub const URB_OPEN_STATIC_STREAMS_VERSION_100: i32 = 256;
 pub const USBDI_VERSION: i32 = 1536;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USBD_CONFIGURATION_HANDLE(pub *mut core::ffi::c_void);
-impl Default for USBD_CONFIGURATION_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
 pub const USBD_DEFAULT_PIPE_TRANSFER: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USBD_DEVICE_INFORMATION {
     pub OffsetNext: u32,
     pub UsbdDeviceHandle: *mut core::ffi::c_void,
     pub DeviceDescriptor: super::USB_DEVICE_DESCRIPTOR,
 }
-#[cfg(feature = "usbspec")]
-impl Default for USBD_DEVICE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub Size: u32,
     pub EndpointAddress: u16,
@@ -290,13 +269,8 @@ impl USBD_ENDPOINT_OFFLOAD_INFORMATION {
         self._bitfield2 = (self._bitfield2 & !(16383 << 18)) | ((value & 16383) << 18);
     }
 }
-impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     pub Size: u32,
     pub EndpointAddress: u16,
@@ -364,21 +338,11 @@ impl USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
         self._bitfield2 = (self._bitfield2 & !(16383 << 18)) | ((value & 16383) << 18);
     }
 }
-impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type USBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = USBD_ENDPOINT_OFFLOAD_INFORMATION;
 pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USBD_INTERFACE_HANDLE(pub *mut core::ffi::c_void);
-impl Default for USBD_INTERFACE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USBD_INTERFACE_INFORMATION {
@@ -418,13 +382,8 @@ pub const USBD_PF_VALID_MASK: i32 = 319;
 pub const USBD_PF_VIDEO_PRIORITY: i32 = 16;
 pub const USBD_PF_VOICE_PRIORITY: i32 = 32;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USBD_PIPE_HANDLE(pub *mut core::ffi::c_void);
-impl Default for USBD_PIPE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBD_PIPE_INFORMATION {
@@ -543,7 +502,7 @@ pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1;
 pub const VALID_TRANSFER_FLAGS_MASK: i32 = 15;
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -554,15 +513,9 @@ pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
 }
-#[cfg(feature = "usbspec")]
-impl Default for _URB_BULK_OR_INTERRUPT_TRANSFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -578,15 +531,9 @@ pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub LanguageId: u16,
     pub Reserved2: u16,
 }
-#[cfg(feature = "usbspec")]
-impl Default for _URB_CONTROL_DESCRIPTOR_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -600,12 +547,6 @@ pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub FeatureSelector: u16,
     pub Index: u16,
     pub Reserved1: u16,
-}
-#[cfg(feature = "usbspec")]
-impl Default for _URB_CONTROL_FEATURE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
@@ -711,7 +652,7 @@ impl Default for _URB_CONTROL_TRANSFER_EX {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -726,12 +667,6 @@ pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Value: u16,
     pub Index: u16,
     pub Reserved1: u16,
-}
-#[cfg(feature = "usbspec")]
-impl Default for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -770,18 +705,13 @@ impl Default for _URB_HCD_AREA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_HEADER {
     pub Length: u16,
     pub Function: u16,
     pub Status: USBD_STATUS,
     pub UsbdDeviceHandle: *mut core::ffi::c_void,
     pub UsbdFlags: u32,
-}
-impl Default for _URB_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
@@ -818,7 +748,7 @@ pub struct _URB_OPEN_STATIC_STREAMS {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -848,12 +778,6 @@ impl _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     }
     pub fn set_Reserved1(&mut self, value: u8) {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
-    }
-}
-#[cfg(feature = "usbspec")]
-impl Default for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]

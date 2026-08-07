@@ -1007,7 +1007,7 @@ pub const XAUDIO2D_DLL_W: windows_core::PCWSTR = windows_core::w!("xaudio2_9d.dl
 pub const XAUDIO2_1024_QUANTUM: i32 = 32768;
 pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_BUFFER {
     pub Flags: u32,
     pub AudioBytes: u32,
@@ -1019,21 +1019,11 @@ pub struct XAUDIO2_BUFFER {
     pub LoopCount: u32,
     pub pContext: *mut core::ffi::c_void,
 }
-impl Default for XAUDIO2_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_BUFFER_WMA {
     pub pDecodedPacketCumulativeBytes: *const u32,
     pub PacketCount: u32,
-}
-impl Default for XAUDIO2_BUFFER_WMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XAUDIO2_COMMIT_ALL: i32 = 0;
 pub const XAUDIO2_COMMIT_NOW: i32 = 0;
@@ -1057,15 +1047,10 @@ pub const XAUDIO2_DEFAULT_SAMPLERATE: i32 = 0;
 pub const XAUDIO2_DLL_A: windows_core::PCSTR = windows_core::s!("xaudio2_9.dll");
 pub const XAUDIO2_DLL_W: windows_core::PCWSTR = windows_core::w!("xaudio2_9.dll");
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_EFFECT_CHAIN {
     pub EffectCount: u32,
     pub pEffectDescriptors: *mut XAUDIO2_EFFECT_DESCRIPTOR,
-}
-impl Default for XAUDIO2_EFFECT_CHAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Default)]
@@ -1160,26 +1145,16 @@ pub const XAUDIO2_VOICE_NOPITCH: i32 = 2;
 pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: i32 = 256;
 pub const XAUDIO2_VOICE_NOSRC: i32 = 4;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_VOICE_SENDS {
     pub SendCount: u32,
     pub pSends: *mut XAUDIO2_SEND_DESCRIPTOR,
 }
-impl Default for XAUDIO2_VOICE_SENDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_VOICE_STATE {
     pub pCurrentBufferContext: *mut core::ffi::c_void,
     pub BuffersQueued: u32,
     pub SamplesPlayed: u64,
-}
-impl Default for XAUDIO2_VOICE_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XAUDIO2_VOICE_USEFILTER: i32 = 8;

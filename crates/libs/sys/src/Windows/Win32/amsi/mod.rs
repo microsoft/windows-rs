@@ -29,29 +29,19 @@ pub const AMSI_UAC_MSI_ACTION_MAX: AMSI_UAC_MSI_ACTION = 4;
 pub const AMSI_UAC_MSI_ACTION_UNINSTALL: AMSI_UAC_MSI_ACTION = 1;
 pub const AMSI_UAC_MSI_ACTION_UPDATE: AMSI_UAC_MSI_ACTION = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_AX_INFO {
     pub ulLength: u32,
     pub lpwszLocalInstallPath: windows_sys::core::PWSTR,
     pub lpwszSourceURL: windows_sys::core::PWSTR,
 }
-impl Default for AMSI_UAC_REQUEST_AX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_COM_INFO {
     pub ulLength: u32,
     pub lpwszServerBinary: windows_sys::core::PWSTR,
     pub lpwszRequestor: windows_sys::core::PWSTR,
     pub Clsid: windows_sys::core::GUID,
-}
-impl Default for AMSI_UAC_REQUEST_COM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -83,20 +73,15 @@ impl Default for AMSI_UAC_REQUEST_CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_EXE_INFO {
     pub ulLength: u32,
     pub lpwszApplicationName: windows_sys::core::PWSTR,
     pub lpwszCommandLine: windows_sys::core::PWSTR,
     pub lpwszDLLParameter: windows_sys::core::PWSTR,
 }
-impl Default for AMSI_UAC_REQUEST_EXE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_MSI_INFO {
     pub ulLength: u32,
     pub MsiAction: AMSI_UAC_MSI_ACTION,
@@ -110,24 +95,14 @@ pub struct AMSI_UAC_REQUEST_MSI_INFO {
     pub ppwszUpdates: *mut windows_sys::core::PWSTR,
     pub ppwszUpdateSources: *mut windows_sys::core::PWSTR,
 }
-impl Default for AMSI_UAC_REQUEST_MSI_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_PACKAGED_APP_INFO {
     pub ulLength: u32,
     pub lpwszApplicationName: windows_sys::core::PWSTR,
     pub lpwszCommandLine: windows_sys::core::PWSTR,
     pub lpPackageFamilyName: windows_sys::core::PWSTR,
     pub lpApplicationId: windows_sys::core::PWSTR,
-}
-impl Default for AMSI_UAC_REQUEST_PACKAGED_APP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type AMSI_UAC_REQUEST_TYPE = i32;
 pub const AMSI_UAC_REQUEST_TYPE_AX: AMSI_UAC_REQUEST_TYPE = 3;

@@ -461,7 +461,7 @@ pub const CT_CTYPE2: i32 = 2;
 pub const CT_CTYPE3: i32 = 4;
 pub type CURRENCYFMT = CURRENCYFMTA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CURRENCYFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -472,13 +472,8 @@ pub struct CURRENCYFMTA {
     pub PositiveOrder: u32,
     pub lpCurrencySymbol: windows_sys::core::PSTR,
 }
-impl Default for CURRENCYFMTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CURRENCYFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -488,11 +483,6 @@ pub struct CURRENCYFMTW {
     pub NegativeOrder: u32,
     pub PositiveOrder: u32,
     pub lpCurrencySymbol: windows_sys::core::PWSTR,
-}
-impl Default for CURRENCYFMTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
 pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: CALID) -> windows_sys::core::BOOL>;
@@ -882,7 +872,7 @@ pub const NORM_IGNOREWIDTH: i32 = 131072;
 pub const NORM_LINGUISTIC_CASING: i32 = 134217728;
 pub type NUMBERFMT = NUMBERFMTA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NUMBERFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -891,13 +881,8 @@ pub struct NUMBERFMTA {
     pub lpThousandSep: windows_sys::core::PSTR,
     pub NegativeOrder: u32,
 }
-impl Default for NUMBERFMTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NUMBERFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -905,11 +890,6 @@ pub struct NUMBERFMTW {
     pub lpDecimalSep: windows_sys::core::PWSTR,
     pub lpThousandSep: windows_sys::core::PWSTR,
     pub NegativeOrder: u32,
-}
-impl Default for NUMBERFMTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NormalizationC: NORM_FORM = 1;
 pub const NormalizationD: NORM_FORM = 2;

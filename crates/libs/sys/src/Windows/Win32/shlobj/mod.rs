@@ -29,7 +29,7 @@ impl Default for AASHELLMENUFILENAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AASHELLMENUITEM {
     pub lpReserved1: *mut core::ffi::c_void,
     pub iReserved: i32,
@@ -37,14 +37,9 @@ pub struct AASHELLMENUITEM {
     pub lpName: LPAASHELLMENUFILENAME,
     pub psz: windows_sys::core::PWSTR,
 }
-impl Default for AASHELLMENUITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
     pub dwStateMask: u32,
@@ -56,12 +51,6 @@ pub struct BANDINFOSFB {
     pub wAlign: u16,
     pub psf: *mut core::ffi::c_void,
     pub pidl: super::LPITEMIDLIST,
-}
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for BANDINFOSFB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BMICON_LARGE: i32 = 0;
 pub const BMICON_SMALL: i32 = 1;
@@ -159,16 +148,10 @@ pub const SFVM_SETPOINTS: i32 = 23;
 pub const SFVM_UPDATEOBJECT: i32 = 7;
 #[repr(C)]
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SFV_SETITEMPOS {
     pub pidl: super::LPCITEMIDLIST,
     pub pt: super::POINT,
-}
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl Default for SFV_SETITEMPOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHCDF_UPDATEITEM: i32 = 1;
 #[repr(C)]

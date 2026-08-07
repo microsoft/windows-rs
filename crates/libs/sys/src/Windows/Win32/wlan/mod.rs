@@ -644,7 +644,7 @@ impl Default for WLAN_CONNECTION_NOTIFICATION_DATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "windot11"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WLAN_CONNECTION_PARAMETERS {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfile: windows_sys::core::PCWSTR,
@@ -653,15 +653,9 @@ pub struct WLAN_CONNECTION_PARAMETERS {
     pub dot11BssType: DOT11_BSS_TYPE,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "objectheader", feature = "windot11"))]
-impl Default for WLAN_CONNECTION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "windot11"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfile: windows_sys::core::PCWSTR,
@@ -671,12 +665,6 @@ pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub dot11BssType: DOT11_BSS_TYPE,
     pub dwFlags: u32,
     pub pDot11AccessNetworkOptions: PDOT11_ACCESSNETWORKOPTIONS,
-}
-#[cfg(all(feature = "objectheader", feature = "windot11"))]
-impl Default for WLAN_CONNECTION_PARAMETERS_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: i32 = 16;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_CONNECTION_MODE_AUTO: i32 = 32;

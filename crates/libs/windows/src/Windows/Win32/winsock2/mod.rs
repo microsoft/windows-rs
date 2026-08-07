@@ -955,7 +955,7 @@ pub const SOCK_NOTIFY_REGISTER_EVENT_IN: i32 = 1;
 pub const SOCK_NOTIFY_REGISTER_EVENT_NONE: i32 = 0;
 pub const SOCK_NOTIFY_REGISTER_EVENT_OUT: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCK_NOTIFY_REGISTRATION {
     pub socket: SOCKET,
     pub completionKey: *mut core::ffi::c_void,
@@ -963,11 +963,6 @@ pub struct SOCK_NOTIFY_REGISTRATION {
     pub operation: u8,
     pub triggerFlags: u8,
     pub registrationResult: u32,
-}
-impl Default for SOCK_NOTIFY_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SOCK_NOTIFY_TRIGGER_ALL: i32 = 15;
 pub const SOCK_NOTIFY_TRIGGER_EDGE: i32 = 8;
@@ -1137,7 +1132,7 @@ impl Default for WSANETWORKEVENTS {
 pub const WSANO_ADDRESS: i32 = 11004;
 pub type WSANSCLASSINFO = WSANSCLASSINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANSCLASSINFOA {
     pub lpszName: windows_core::PSTR,
     pub dwNameSpace: u32,
@@ -1145,24 +1140,14 @@ pub struct WSANSCLASSINFOA {
     pub dwValueSize: u32,
     pub lpValue: *mut core::ffi::c_void,
 }
-impl Default for WSANSCLASSINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANSCLASSINFOW {
     pub lpszName: windows_core::PWSTR,
     pub dwNameSpace: u32,
     pub dwValueType: u32,
     pub dwValueSize: u32,
     pub lpValue: *mut core::ffi::c_void,
-}
-impl Default for WSANSCLASSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1403,18 +1388,13 @@ impl Default for fd_set {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct hostent {
     pub h_name: *mut i8,
     pub h_aliases: *mut *mut i8,
     pub h_addrtype: i16,
     pub h_length: i16,
     pub h_addr_list: *mut *mut i8,
-}
-impl Default for hostent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1423,59 +1403,37 @@ pub struct linger {
     pub l_linger: u_short,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct netent {
     pub n_name: *mut i8,
     pub n_aliases: *mut *mut i8,
     pub n_addrtype: i16,
     pub n_net: u_long,
 }
-impl Default for netent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct protoent {
     pub p_name: *mut i8,
     pub p_aliases: *mut *mut i8,
     pub p_proto: i16,
 }
-impl Default for protoent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct servent {
     pub s_name: *mut i8,
     pub s_aliases: *mut *mut i8,
     pub s_port: i16,
     pub s_proto: *mut i8,
 }
-#[cfg(target_arch = "x86")]
-impl Default for servent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct servent {
     pub s_name: *mut i8,
     pub s_aliases: *mut *mut i8,
     pub s_proto: *mut i8,
     pub s_port: i16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for servent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -476,28 +476,18 @@ pub struct RECONVERTSTRING {
 }
 pub type REGISTERWORD = REGISTERWORDA;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REGISTERWORDA {
     pub lpReading: windows_sys::core::PSTR,
     pub lpWord: windows_sys::core::PSTR,
 }
-impl Default for REGISTERWORDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_sys::core::PCSTR, param1: u32, lpszstring: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
 pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_sys::core::PCWSTR, param1: u32, lpszstring: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REGISTERWORDW {
     pub lpReading: windows_sys::core::PWSTR,
     pub lpWord: windows_sys::core::PWSTR,
-}
-impl Default for REGISTERWORDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCS_CAP_COMPSTR: i32 = 1;
 pub const SCS_CAP_MAKEREAD: i32 = 2;

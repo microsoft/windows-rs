@@ -74,16 +74,11 @@ pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const w
 pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::LRESULT, riid: *const windows_sys::core::GUID, wparam: super::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type LPMSAAMENUINFO = *mut MSAAMENUINFO;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,
     pub pszWText: windows_sys::core::PWSTR,
-}
-impl Default for MSAAMENUINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MSAAPROPID = windows_sys::core::GUID;
 pub const MSAA_MENU_SIG: u32 = 2853040141;

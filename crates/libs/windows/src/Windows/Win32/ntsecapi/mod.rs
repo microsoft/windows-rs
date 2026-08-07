@@ -518,7 +518,7 @@ pub const Audit_System_SecuritySubsystemExtension: windows_core::GUID = windows_
 pub const Batch: SECURITY_LOGON_TYPE = 4;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY {
     pub CAPID: super::PSID,
     pub Name: super::LSA_UNICODE_STRING,
@@ -527,12 +527,6 @@ pub struct CENTRAL_ACCESS_POLICY {
     pub Flags: u32,
     pub CAPECount: u32,
     pub CAPEs: *mut PCENTRAL_ACCESS_POLICY_ENTRY,
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for CENTRAL_ACCESS_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
@@ -1626,16 +1620,10 @@ pub struct LSA_FOREST_TRUST_BINARY_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_INFORMATION {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_COLLISION_RECORD,
-}
-#[cfg(feature = "lsalookup")]
-impl Default for LSA_FOREST_TRUST_COLLISION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
@@ -1657,29 +1645,17 @@ pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_RECORD,
 }
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for LSA_FOREST_TRUST_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION2 {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_RECORD2,
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for LSA_FOREST_TRUST_INFORMATION2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
@@ -1751,13 +1727,8 @@ pub struct LSA_FOREST_TRUST_SCANNER_INFO {
 }
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LSA_HANDLE(pub *mut core::ffi::c_void);
-impl Default for LSA_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_LAST_INTER_LOGON_INFO {
@@ -2386,13 +2357,8 @@ pub type PLSA_FOREST_TRUST_RECORD2 = *mut LSA_FOREST_TRUST_RECORD2;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
 pub type PLSA_FOREST_TRUST_SCANNER_INFO = *mut LSA_FOREST_TRUST_SCANNER_INFO;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PLSA_HANDLE(pub *mut *mut core::ffi::c_void);
-impl Default for PLSA_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type PLSA_LAST_INTER_LOGON_INFO = *mut LSA_LAST_INTER_LOGON_INFO;
 pub type PLSA_OPERATIONAL_MODE = *mut u32;
 #[cfg(feature = "winnt")]
@@ -2478,16 +2444,10 @@ pub struct POLICY_AUDIT_LOG_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_SID_ARRAY {
     pub UsersCount: u32,
     pub UserSidArray: *mut super::PSID,
-}
-#[cfg(feature = "winnt")]
-impl Default for POLICY_AUDIT_SID_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

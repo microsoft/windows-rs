@@ -9,32 +9,22 @@ pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u3
     unsafe { HttpFilterProc(pfc as _, notificationtype, pvnotification as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszURL: *const i8,
     pub pszPhysicalPath: *const i8,
     pub dwReason: u32,
 }
-impl Default for HTTP_FILTER_ACCESS_DENIED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_AUTHENT {
     pub pszUser: *mut i8,
     pub cbUserBuff: u32,
     pub pszPassword: *mut i8,
     pub cbPasswordBuff: u32,
 }
-impl Default for HTTP_FILTER_AUTHENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: *mut u8,
     pub SetHeader: *mut u8,
@@ -44,13 +34,8 @@ pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub fResetAuth: windows_core::BOOL,
     pub dwReserved: u32,
 }
-impl Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
     pub Revision: u32,
@@ -64,13 +49,8 @@ pub struct HTTP_FILTER_CONTEXT {
     pub AllocMem: *mut u8,
     pub ServerSupportFunction: *mut u8,
 }
-impl Default for HTTP_FILTER_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_LOG {
     pub pszClientHostName: *const i8,
     pub pszClientUserName: *const i8,
@@ -84,13 +64,8 @@ pub struct HTTP_FILTER_LOG {
     pub dwBytesRecvd: u32,
     pub msTimeForProcessing: u32,
 }
-impl Default for HTTP_FILTER_LOG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub GetHeader: *mut u8,
     pub SetHeader: *mut u8,
@@ -98,40 +73,25 @@ pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub HttpStatus: u32,
     pub dwReserved: u32,
 }
-impl Default for HTTP_FILTER_PREPROC_HEADERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_RAW_DATA {
     pub pvInData: *mut core::ffi::c_void,
     pub cbInData: u32,
     pub cbInBuffer: u32,
     pub dwReserved: u32,
 }
-impl Default for HTTP_FILTER_RAW_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const HTTP_FILTER_REVISION: i32 = 655360;
 pub type HTTP_FILTER_SEND_RESPONSE = HTTP_FILTER_PREPROC_HEADERS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: *const i8,
     pub pszPhysicalPath: *mut i8,
     pub cbPathBuff: u32,
 }
-impl Default for HTTP_FILTER_URL_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP_EX {
     pub pszURL: *const i8,
     pub pszPhysicalPath: *mut i8,
@@ -140,11 +100,6 @@ pub struct HTTP_FILTER_URL_MAP_EX {
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
     pub pszScriptMapEntry: *const i8,
-}
-impl Default for HTTP_FILTER_URL_MAP_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

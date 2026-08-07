@@ -20594,7 +20594,7 @@ pub const SMC_SFSELECTITEM: i32 = 10;
 pub const SMC_SHCHANGENOTIFY: i32 = 46;
 #[repr(C)]
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct SMDATA {
     pub dwMask: u32,
     pub dwFlags: u32,
@@ -20608,12 +20608,6 @@ pub struct SMDATA {
     pub pidlItem: super::LPITEMIDLIST,
     pub psf: core::mem::ManuallyDrop<Option<IShellFolder>>,
     pub pvUserData: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl Default for SMDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SMDM_HMENU: i32 = 2;
 pub const SMDM_SHELLFOLDER: i32 = 1;
@@ -20774,7 +20768,7 @@ pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4;
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "windef"))]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
     pub psvPrev: core::mem::ManuallyDrop<Option<IShellView>>,
@@ -20783,12 +20777,6 @@ pub struct SV2CVW2_PARAMS {
     pub prcView: *mut super::RECT,
     pub pvid: *const SHELLVIEWID,
     pub hwndView: super::HWND,
-}
-#[cfg(all(feature = "oleidl", feature = "windef"))]
-impl Default for SV2CVW2_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SV2GV_CURRENTVIEW: u32 = 4294967295;
 pub const SV2GV_DEFAULTVIEW: u32 = 4294967294;

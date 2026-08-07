@@ -2406,7 +2406,7 @@ pub const BANDINFO: i32 = 24;
 pub struct BCHAR(pub u8);
 pub const BEGIN_PATH: i32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -2415,11 +2415,6 @@ pub struct BITMAP {
     pub bmPlanes: u16,
     pub bmBitsPixel: u16,
     pub bmBits: *mut core::ffi::c_void,
-}
-impl Default for BITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5559,7 +5554,7 @@ pub const GCP_NUMERICSLOCAL: i32 = 134217728;
 pub const GCP_REORDER: i32 = 2;
 pub type GCP_RESULTS = GCP_RESULTSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GCP_RESULTSA {
     pub lStructSize: u32,
     pub lpOutString: windows_core::PSTR,
@@ -5571,13 +5566,8 @@ pub struct GCP_RESULTSA {
     pub nGlyphs: u32,
     pub nMaxFit: i32,
 }
-impl Default for GCP_RESULTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GCP_RESULTSW {
     pub lStructSize: u32,
     pub lpOutString: windows_core::PWSTR,
@@ -5588,11 +5578,6 @@ pub struct GCP_RESULTSW {
     pub lpGlyphs: windows_core::PWSTR,
     pub nGlyphs: u32,
     pub nMaxFit: i32,
-}
-impl Default for GCP_RESULTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GCP_SYMSWAPOFF: i32 = 8388608;
 pub const GCP_USEKERNING: i32 = 8;
@@ -6990,7 +6975,7 @@ pub const POLYGONALCAPS: i32 = 32;
 pub type POLYTEXT = POLYTEXTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLYTEXTA {
     pub x: i32,
     pub y: i32,
@@ -7000,15 +6985,9 @@ pub struct POLYTEXTA {
     pub rcl: super::RECT,
     pub pdx: *mut i32,
 }
-#[cfg(feature = "windef")]
-impl Default for POLYTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLYTEXTW {
     pub x: i32,
     pub y: i32,
@@ -7017,12 +6996,6 @@ pub struct POLYTEXTW {
     pub uiFlags: u32,
     pub rcl: super::RECT,
     pub pdx: *mut i32,
-}
-#[cfg(feature = "windef")]
-impl Default for POLYTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const POSTSCRIPT_DATA: i32 = 37;
 pub const POSTSCRIPT_IDENTIFY: i32 = 4117;

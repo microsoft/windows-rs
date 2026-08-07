@@ -15,15 +15,10 @@ pub const APPIDREGFLAGS_RESERVED8: i32 = 8192;
 pub const APPIDREGFLAGS_RESERVED9: i32 = 16384;
 pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BLOB {
     pub cbSize: u32,
     pub pBlobData: *mut u8,
-}
-impl Default for BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
@@ -40,16 +35,10 @@ impl Default for BYTE_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BYTE_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut super::byte,
-}
-#[cfg(feature = "rpc")]
-impl Default for BYTE_SIZEDARR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type CLSCTX = u32;
 pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = 262144;
@@ -84,7 +73,7 @@ pub const CLSCTX_RESERVED6: CLSCTX = 16777216;
 pub const CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE: CLSCTX = 134217728;
 pub const CLSCTX_VALID_MASK: i32 = -1612712929;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COAUTHIDENTITY {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -94,13 +83,8 @@ pub struct COAUTHIDENTITY {
     pub PasswordLength: u32,
     pub Flags: u32,
 }
-impl Default for COAUTHIDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COAUTHINFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -109,11 +93,6 @@ pub struct COAUTHINFO {
     pub dwImpersonationLevel: u32,
     pub pAuthIdentityData: *mut COAUTHIDENTITY,
     pub dwCapabilities: u32,
-}
-impl Default for COAUTHINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: i32 = 2;
 pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: i32 = 1;
@@ -133,15 +112,10 @@ impl Default for DWORD_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DWORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u32,
-}
-impl Default for DWORD_SIZEDARR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
@@ -170,15 +144,10 @@ impl Default for FLAGGED_WORD_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HYPER_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut i64,
-}
-impl Default for HYPER_SIZEDARR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type LPBLOB = *mut BLOB;
 pub type MEMCTX = i32;
@@ -226,13 +195,8 @@ impl Default for WORD_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u16,
-}
-impl Default for WORD_SIZEDARR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

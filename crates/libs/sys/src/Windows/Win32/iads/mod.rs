@@ -123,7 +123,7 @@ pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = 7;
 pub const ADS_ATTR_APPEND: i32 = 3;
 pub const ADS_ATTR_CLEAR: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_ATTR_DEF {
     pub pszAttrName: windows_sys::core::PWSTR,
     pub dwADsType: ADSTYPE,
@@ -131,15 +131,10 @@ pub struct ADS_ATTR_DEF {
     pub dwMaxRange: u32,
     pub fMultiValued: windows_sys::core::BOOL,
 }
-impl Default for ADS_ATTR_DEF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ADS_ATTR_DELETE: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: windows_sys::core::PWSTR,
     pub dwControlCode: u32,
@@ -147,37 +142,21 @@ pub struct ADS_ATTR_INFO {
     pub pADsValues: PADSVALUE,
     pub dwNumValues: u32,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl Default for ADS_ATTR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ADS_ATTR_UPDATE: i32 = 2;
 pub type ADS_AUTHENTICATION_ENUM = i32;
 pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = -2147483648;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_BACKLINK {
     pub RemoteID: u32,
     pub ObjectName: windows_sys::core::PWSTR,
 }
-impl Default for ADS_BACKLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type ADS_BOOLEAN = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_CASEIGNORE_LIST {
     pub Next: *mut Self,
     pub String: windows_sys::core::PWSTR,
-}
-impl Default for ADS_CASEIGNORE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_CASE_EXACT_STRING = windows_sys::core::PWSTR;
 pub type ADS_CASE_IGNORE_STRING = windows_sys::core::PWSTR;
@@ -187,7 +166,7 @@ pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = 64;
 pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = 0;
 pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = 32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_CLASS_DEF {
     pub pszClassName: windows_sys::core::PWSTR,
     pub dwMandatoryAttrs: u32,
@@ -199,11 +178,6 @@ pub struct ADS_CLASS_DEF {
     pub dwSuperClasses: u32,
     pub ppszSuperClasses: *mut *mut windows_sys::core::PWSTR,
     pub fIsContainer: windows_sys::core::BOOL,
-}
-impl Default for ADS_CLASS_DEF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_DEREFENUM = i32;
 pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = 3;
@@ -217,39 +191,23 @@ pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = 2;
 pub type ADS_DN_STRING = windows_sys::core::PWSTR;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_DN_WITH_BINARY {
     pub dwLength: u32,
     pub lpBinaryValue: super::LPBYTE,
     pub pszDNString: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "minwindef")]
-impl Default for ADS_DN_WITH_BINARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_DN_WITH_STRING {
     pub pszStringValue: windows_sys::core::PWSTR,
     pub pszDNString: windows_sys::core::PWSTR,
 }
-impl Default for ADS_DN_WITH_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_EMAIL {
     pub Address: windows_sys::core::PWSTR,
     pub Type: u32,
-}
-impl Default for ADS_EMAIL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = 1;
 pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = 3;
@@ -263,17 +221,11 @@ pub const ADS_EXT_MINEXTDISPID: i32 = 1;
 pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = 32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_FAXNUMBER {
     pub TelephoneNumber: windows_sys::core::PWSTR,
     pub NumberOfBits: u32,
     pub Parameters: super::LPBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for ADS_FAXNUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_FLAGTYPE_ENUM = i32;
 pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = 2;
@@ -297,15 +249,10 @@ pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = 4;
 pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = -2147483648;
 pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = 8;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_HOLD {
     pub ObjectName: windows_sys::core::PWSTR,
     pub Amount: u32,
-}
-impl Default for ADS_HOLD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_INTEGER = u32;
 pub type ADS_LARGE_INTEGER = i64;
@@ -327,36 +274,25 @@ pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = 12;
 pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = 8;
 pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = 9;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_NETADDRESS {
     pub AddressType: u32,
     pub AddressLength: u32,
     pub Address: *mut u8,
 }
-impl Default for ADS_NETADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 16;
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_NT_SECURITY_DESCRIPTOR {
     pub dwLength: u32,
     pub lpValue: super::LPBYTE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for ADS_NT_SECURITY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type ADS_NUMERIC_STRING = windows_sys::core::PWSTR;
 pub type ADS_OBJECT_CLASS = windows_sys::core::PWSTR;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_OBJECT_INFO {
     pub pszRDN: windows_sys::core::PWSTR,
     pub pszObjectDN: windows_sys::core::PWSTR,
@@ -364,35 +300,19 @@ pub struct ADS_OBJECT_INFO {
     pub pszSchemaDN: windows_sys::core::PWSTR,
     pub pszClassName: windows_sys::core::PWSTR,
 }
-impl Default for ADS_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_OCTET_LIST {
     pub Next: *mut Self,
     pub Length: u32,
     pub Data: *mut u8,
 }
-impl Default for ADS_OCTET_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: super::LPBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for ADS_OCTET_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = 8;
 pub type ADS_OPTION_ENUM = i32;
@@ -409,16 +329,11 @@ pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = 1;
 pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = 0;
 pub type ADS_PASSWORD_ENCODING_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_PATH {
     pub Type: u32,
     pub VolumeName: windows_sys::core::PWSTR,
     pub Path: windows_sys::core::PWSTR,
-}
-impl Default for ADS_PATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_PATHTYPE_ENUM = i32;
 pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = 1;
@@ -444,31 +359,20 @@ pub type ADS_PROPERTY_OPERATION_ENUM = i32;
 pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_PROV_SPECIFIC {
     pub dwLength: u32,
     pub lpValue: super::LPBYTE,
 }
-#[cfg(feature = "minwindef")]
-impl Default for ADS_PROV_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_REPLICAPOINTER {
     pub ServerName: windows_sys::core::PWSTR,
     pub ReplicaType: u32,
     pub ReplicaNumber: u32,
     pub Count: u32,
     pub ReplicaAddressHints: PADS_NETADDRESS,
-}
-impl Default for ADS_REPLICAPOINTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_RIGHTS_ENUM = i32;
 pub const ADS_RIGHT_ACCESS_SYSTEM_SECURITY: ADS_RIGHTS_ENUM = 16777216;
@@ -551,19 +455,13 @@ pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = 13;
 pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = 14;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_SEARCH_COLUMN {
     pub pszAttrName: windows_sys::core::PWSTR,
     pub dwADsType: ADSTYPE,
     pub pADsValues: PADSVALUE,
     pub dwNumValues: u32,
     pub hReserved: super::HANDLE,
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-impl Default for ADS_SEARCH_COLUMN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "winnt")]
 pub type ADS_SEARCH_HANDLE = super::HANDLE;
@@ -580,16 +478,11 @@ pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = 1;
 pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = 2;
 pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_sys::core::PWSTR,
     pub pszReserved: windows_sys::core::PWSTR,
     pub fReverseorder: bool,
-}
-impl Default for ADS_SORTKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type ADS_STATUS = ADS_STATUSENUM;
 pub type ADS_STATUSENUM = i32;
@@ -614,16 +507,11 @@ pub struct ADS_TIMESTAMP {
     pub EventID: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_TYPEDNAME {
     pub ObjectName: windows_sys::core::PWSTR,
     pub Level: u32,
     pub Interval: u32,
-}
-impl Default for ADS_TYPEDNAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = 2;
 pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = 65536;
@@ -656,7 +544,7 @@ pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = 2;
 pub type ADS_UTC_TIME = super::SYSTEMTIME;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADS_VLV {
     pub dwBeforeCount: u32,
     pub dwAfterCount: u32,
@@ -665,12 +553,6 @@ pub struct ADS_VLV {
     pub pszTarget: windows_sys::core::PWSTR,
     pub dwContextIDLength: u32,
     pub lpContextID: super::LPBYTE,
-}
-#[cfg(feature = "minwindef")]
-impl Default for ADS_VLV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ADS_VLV_RESPONSE: windows_sys::core::PCWSTR = windows_sys::core::w!("fc8cb04d-311d-406c-8cb9-1ae8b843b419");
 pub const ADSystemInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50b6327f_afd1_11d2_9cb9_0000f87a369e);

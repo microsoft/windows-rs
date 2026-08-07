@@ -180,20 +180,14 @@ pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
 pub const USBD_DEFAULT_PIPE_TRANSFER: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USBD_DEVICE_INFORMATION {
     pub OffsetNext: u32,
     pub UsbdDeviceHandle: *mut core::ffi::c_void,
     pub DeviceDescriptor: super::USB_DEVICE_DESCRIPTOR,
 }
-#[cfg(feature = "usbspec")]
-impl Default for USBD_DEVICE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub Size: u32,
     pub EndpointAddress: u16,
@@ -217,13 +211,8 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub ClientDataBufferLAOut: PHYSICAL_ADDRESS,
     pub ClientDataBufferVAOut: *mut core::ffi::c_void,
 }
-impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     pub Size: u32,
     pub EndpointAddress: u16,
@@ -240,11 +229,6 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     pub EventRingSegmentVA: *mut core::ffi::c_void,
     pub EventRingSize: usize,
     pub EventRingInitialCycleBit: u32,
-}
-impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type USBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = USBD_ENDPOINT_OFFLOAD_INFORMATION;
 pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
@@ -289,7 +273,7 @@ pub const USBD_PF_VIDEO_PRIORITY: i32 = 16;
 pub const USBD_PF_VOICE_PRIORITY: i32 = 32;
 pub type USBD_PIPE_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USBD_PIPE_INFORMATION {
     pub MaximumPacketSize: u16,
     pub EndpointAddress: u8,
@@ -298,11 +282,6 @@ pub struct USBD_PIPE_INFORMATION {
     pub PipeHandle: USBD_PIPE_HANDLE,
     pub MaximumTransferSize: u32,
     pub PipeFlags: u32,
-}
-impl Default for USBD_PIPE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type USBD_PIPE_TYPE = i32;
 pub const USBD_SHORT_TRANSFER_OK: i32 = 2;
@@ -372,17 +351,12 @@ pub const USBD_STATUS_TIMEOUT: USBD_STATUS = 0xC0006000_u32 as _;
 pub const USBD_STATUS_UNEXPECTED_PID: USBD_STATUS = 0xC0000007_u32 as _;
 pub const USBD_STATUS_XACT_ERROR: USBD_STATUS = 0xC0000011_u32 as _;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USBD_STREAM_INFORMATION {
     pub PipeHandle: USBD_PIPE_HANDLE,
     pub StreamID: u32,
     pub MaximumTransferSize: u32,
     pub PipeFlags: u32,
-}
-impl Default for USBD_STREAM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const USBD_TRANSFER_DIRECTION: i32 = 1;
 pub const USBD_TRANSFER_DIRECTION_IN: i32 = 1;
@@ -414,7 +388,7 @@ pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1;
 pub const VALID_TRANSFER_FLAGS_MASK: i32 = 15;
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -425,15 +399,9 @@ pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
 }
-#[cfg(feature = "usbspec")]
-impl Default for _URB_BULK_OR_INTERRUPT_TRANSFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -449,15 +417,9 @@ pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub LanguageId: u16,
     pub Reserved2: u16,
 }
-#[cfg(feature = "usbspec")]
-impl Default for _URB_CONTROL_DESCRIPTOR_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -471,12 +433,6 @@ pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub FeatureSelector: u16,
     pub Index: u16,
     pub Reserved1: u16,
-}
-#[cfg(feature = "usbspec")]
-impl Default for _URB_CONTROL_FEATURE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
@@ -582,7 +538,7 @@ impl Default for _URB_CONTROL_TRANSFER_EX {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -597,12 +553,6 @@ pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Value: u16,
     pub Index: u16,
     pub Reserved1: u16,
-}
-#[cfg(feature = "usbspec")]
-impl Default for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -623,17 +573,12 @@ pub struct _URB_GET_FRAME_LENGTH {
     pub FrameNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
     pub MaximumSendPathDelayInMilliSeconds: u32,
     pub MaximumCompletionPathDelayInMilliSeconds: u32,
-}
-impl Default for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -646,18 +591,13 @@ impl Default for _URB_HCD_AREA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_HEADER {
     pub Length: u16,
     pub Function: u16,
     pub Status: USBD_STATUS,
     pub UsbdDeviceHandle: *mut core::ffi::c_void,
     pub UsbdFlags: u32,
-}
-impl Default for _URB_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
@@ -683,7 +623,7 @@ impl Default for _URB_ISOCH_TRANSFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_OPEN_STATIC_STREAMS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -692,14 +632,9 @@ pub struct _URB_OPEN_STATIC_STREAMS {
     pub StreamInfoSize: u16,
     pub Streams: PUSBD_STREAM_INFORMATION,
 }
-impl Default for _URB_OPEN_STATIC_STREAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -716,50 +651,28 @@ pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub MS_FeatureDescriptorIndex: u16,
     pub Reserved3: u16,
 }
-#[cfg(feature = "usbspec")]
-impl Default for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_PIPE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
     pub Reserved: u32,
 }
-impl Default for _URB_PIPE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_SELECT_CONFIGURATION {
     pub Hdr: _URB_HEADER,
     pub ConfigurationDescriptor: super::PUSB_CONFIGURATION_DESCRIPTOR,
     pub ConfigurationHandle: USBD_CONFIGURATION_HANDLE,
     pub Interface: USBD_INTERFACE_INFORMATION,
 }
-#[cfg(feature = "usbspec")]
-impl Default for _URB_SELECT_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct _URB_SELECT_INTERFACE {
     pub Hdr: _URB_HEADER,
     pub ConfigurationHandle: USBD_CONFIGURATION_HANDLE,
     pub Interface: USBD_INTERFACE_INFORMATION,
-}
-impl Default for _URB_SELECT_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

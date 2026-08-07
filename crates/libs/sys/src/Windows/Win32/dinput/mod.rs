@@ -1061,7 +1061,7 @@ pub struct DICONDITION {
 pub type DICONFIGUREDEVICESPARAMS = DICONFIGUREDEVICESPARAMSA;
 #[repr(C)]
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
     pub dwcUsers: u32,
@@ -1072,15 +1072,9 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl Default for DICONFIGUREDEVICESPARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: u32,
     pub dwcUsers: u32,
@@ -1091,12 +1085,6 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl Default for DICONFIGUREDEVICESPARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DICONSTANTFORCE {
@@ -1104,18 +1092,12 @@ pub struct DICONSTANTFORCE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DICUSTOMFORCE {
     pub cChannels: u32,
     pub dwSamplePeriod: u32,
     pub cSamples: u32,
     pub rglForceData: super::LPLONG,
-}
-#[cfg(feature = "minwindef")]
-impl Default for DICUSTOMFORCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DIDAL_BOTTOMALIGNED: i32 = 8;
 pub const DIDAL_CENTERED: i32 = 0;
@@ -1124,7 +1106,7 @@ pub const DIDAL_MIDDLE: i32 = 0;
 pub const DIDAL_RIGHTALIGNED: i32 = 2;
 pub const DIDAL_TOPALIGNED: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIDATAFORMAT {
     pub dwSize: u32,
     pub dwObjSize: u32,
@@ -1132,11 +1114,6 @@ pub struct DIDATAFORMAT {
     pub dwDataSize: u32,
     pub dwNumObjs: u32,
     pub rgodf: LPDIOBJECTDATAFORMAT,
-}
-impl Default for DIDATAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DIDBAM_DEFAULT: i32 = 0;
 pub const DIDBAM_HWDEFAULTS: i32 = 4;
@@ -1208,7 +1185,7 @@ impl Default for DIDEVICEIMAGEINFOA {
 pub type DIDEVICEIMAGEINFOHEADER = DIDEVICEIMAGEINFOHEADERA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwSize: u32,
     pub dwSizeImageInfo: u32,
@@ -1220,15 +1197,9 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOA,
 }
-#[cfg(feature = "windef")]
-impl Default for DIDEVICEIMAGEINFOHEADERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwSize: u32,
     pub dwSizeImageInfo: u32,
@@ -1239,12 +1210,6 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwBufferSize: u32,
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: LPDIDEVICEIMAGEINFOW,
-}
-#[cfg(feature = "windef")]
-impl Default for DIDEVICEIMAGEINFOHEADERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -1486,7 +1451,7 @@ pub const DIEDFL_INCLUDEHIDDEN: i32 = 262144;
 pub const DIEDFL_INCLUDEPHANTOMS: i32 = 131072;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIEFFECT {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1502,12 +1467,6 @@ pub struct DIEFFECT {
     pub cbTypeSpecificParams: u32,
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
     pub dwStartDelay: u32,
-}
-#[cfg(feature = "minwindef")]
-impl Default for DIEFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DIEFFECTINFO = DIEFFECTINFOA;
 #[repr(C)]
@@ -1542,7 +1501,7 @@ impl Default for DIEFFECTINFOW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIEFFECT_DX5 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1559,15 +1518,9 @@ pub struct DIEFFECT_DX5 {
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
 }
 #[cfg(feature = "minwindef")]
-impl Default for DIEFFECT_DX5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
 pub type DIEFFECT_DX6 = DIEFFECT;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIEFFESCAPE {
     pub dwSize: u32,
     pub dwCommand: u32,
@@ -1575,11 +1528,6 @@ pub struct DIEFFESCAPE {
     pub cbInBuffer: u32,
     pub lpvOutBuffer: *mut core::ffi::c_void,
     pub cbOutBuffer: u32,
-}
-impl Default for DIEFFESCAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DIEFF_CARTESIAN: i32 = 16;
 pub const DIEFF_OBJECTIDS: i32 = 1;
@@ -2174,17 +2122,12 @@ pub const DIMOUSE_XAXISAB: u32 = 2181038592;
 pub const DIMOUSE_YAXIS: u32 = 2181038852;
 pub const DIMOUSE_YAXISAB: u32 = 2181038596;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIOBJECTDATAFORMAT {
     pub pguid: *const windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-}
-impl Default for DIOBJECTDATAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

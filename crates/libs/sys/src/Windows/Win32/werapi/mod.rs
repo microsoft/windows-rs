@@ -181,16 +181,10 @@ pub const WER_DUMP_NOHEAP_ONQUEUE: i32 = 1;
 pub type WER_DUMP_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: super::PEXCEPTION_POINTERS,
     pub bClientPointers: windows_sys::core::BOOL,
-}
-#[cfg(feature = "winnt")]
-impl Default for WER_EXCEPTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WER_E_CABBING_FAILURE: i32 = -2147024865;
 pub const WER_E_INSUFFICIENT_BUFFER: i32 = -2147024774;

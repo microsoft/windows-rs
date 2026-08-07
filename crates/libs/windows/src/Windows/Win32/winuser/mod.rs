@@ -4784,29 +4784,17 @@ pub struct CBTACTIVATESTRUCT {
 pub type CBT_CREATEWND = CBT_CREATEWNDA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CBT_CREATEWNDA {
     pub lpcs: *mut CREATESTRUCTA,
     pub hwndInsertAfter: super::HWND,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for CBT_CREATEWNDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CBT_CREATEWNDW {
     pub lpcs: *mut CREATESTRUCTW,
     pub hwndInsertAfter: super::HWND,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for CBT_CREATEWNDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CB_ADDSTRING: i32 = 323;
 pub const CB_DELETESTRING: i32 = 324;
@@ -4972,23 +4960,18 @@ pub const CONTACTVISUALIZATION_OFF: i32 = 0;
 pub const CONTACTVISUALIZATION_ON: i32 = 1;
 pub const CONTACTVISUALIZATION_PRESENTATIONMODE: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPYDATASTRUCT {
     pub dwData: usize,
     pub cbData: u32,
     pub lpData: *mut core::ffi::c_void,
-}
-impl Default for COPYDATASTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: windows_core::PCWSTR = windows_core::PCWSTR(1 as _);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CREATESTRUCT = CREATESTRUCTA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATESTRUCTA {
     pub lpCreateParams: *mut core::ffi::c_void,
     pub hInstance: super::HINSTANCE,
@@ -5003,15 +4986,9 @@ pub struct CREATESTRUCTA {
     pub lpszClass: windows_core::PCSTR,
     pub dwExStyle: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for CREATESTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATESTRUCTW {
     pub lpCreateParams: *mut core::ffi::c_void,
     pub hInstance: super::HINSTANCE,
@@ -5025,12 +5002,6 @@ pub struct CREATESTRUCTW {
     pub lpszName: windows_core::PCWSTR,
     pub lpszClass: windows_core::PCWSTR,
     pub dwExStyle: u32,
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for CREATESTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CSOUND_SYSTEM: i32 = 16;
 pub const CS_BYTEALIGNCLIENT: i32 = 4096;
@@ -5873,13 +5844,8 @@ pub const HC_SKIP: i32 = 2;
 pub const HC_SYSMODALOFF: i32 = 5;
 pub const HC_SYSMODALON: i32 = 4;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
-impl Default for HDEVNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "winnt")]
 pub type HDWP = super::HANDLE;
 #[repr(C)]
@@ -5953,13 +5919,8 @@ pub const HELP_TCARD_DATA: i32 = 16;
 pub const HELP_TCARD_OTHER_CALLER: i32 = 17;
 pub const HELP_WM_HELP: i32 = 12;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGESTUREINFO(pub *mut core::ffi::c_void);
-impl Default for HGESTUREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const HIDE_WINDOW: i32 = 0;
 pub type HIGHCONTRAST = HIGHCONTRASTA;
 #[repr(C)]
@@ -5982,21 +5943,11 @@ pub const HKL_PREV: i32 = 0;
 pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::WPARAM, lparam: super::LPARAM) -> super::LRESULT>;
 pub const HOVER_DEFAULT: u32 = 4294967295;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HPOWERNOTIFY(pub *mut core::ffi::c_void);
-impl Default for HPOWERNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRAWINPUT(pub *mut core::ffi::c_void);
-impl Default for HRAWINPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const HSHELL_ACCESSIBILITYSTATE: i32 = 11;
 pub const HSHELL_ACTIVATESHELLWINDOW: i32 = 3;
 pub const HSHELL_APPCOMMAND: i32 = 12;
@@ -6016,13 +5967,8 @@ pub const HSHELL_WINDOWDESTROYED: i32 = 2;
 pub const HSHELL_WINDOWREPLACED: i32 = 13;
 pub const HSHELL_WINDOWREPLACING: i32 = 14;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HSYNTHETICPOINTERDEVICE(pub *mut core::ffi::c_void);
-impl Default for HSYNTHETICPOINTERDEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const HTBORDER: i32 = 18;
 pub const HTBOTTOM: i32 = 15;
 pub const HTBOTTOMLEFT: i32 = 16;
@@ -6041,13 +5987,8 @@ pub const HTMINBUTTON: i32 = 8;
 pub const HTNOWHERE: i32 = 0;
 pub const HTOBJECT: i32 = 19;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HTOUCHINPUT(pub *mut core::ffi::c_void);
-impl Default for HTOUCHINPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const HTREDUCE: i32 = 8;
 pub const HTRIGHT: i32 = 11;
 pub const HTSIZE: i32 = 4;
@@ -6543,21 +6484,11 @@ pub type LPMENUITEMINFOA = *mut MENUITEMINFOA;
 pub type LPMENUITEMINFOW = *mut MENUITEMINFOW;
 pub type LPMENUTEMPLATE = LPMENUTEMPLATEA;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMENUTEMPLATEA(pub *mut core::ffi::c_void);
-impl Default for LPMENUTEMPLATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LPMENUTEMPLATEW(pub *mut core::ffi::c_void);
-impl Default for LPMENUTEMPLATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type LPMINIMIZEDMETRICS = *mut MINIMIZEDMETRICS;
 #[cfg(feature = "windef")]
 pub type LPMINMAXINFO = *mut MINMAXINFO;
@@ -6783,19 +6714,13 @@ pub struct MENUBARINFO {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUGETOBJECTINFO {
     pub dwFlags: u32,
     pub uPos: u32,
     pub hmenu: super::HMENU,
     pub riid: *mut core::ffi::c_void,
     pub pvObj: *mut core::ffi::c_void,
-}
-#[cfg(feature = "windef")]
-impl Default for MENUGETOBJECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -9026,7 +8951,7 @@ pub const UOI_TYPE: i32 = 3;
 pub const UOI_USER_SID: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPDATELAYEREDWINDOWINFO {
     pub cbSize: u32,
     pub hdcDst: super::HDC,
@@ -9038,12 +8963,6 @@ pub struct UPDATELAYEREDWINDOWINFO {
     pub pblend: *const super::BLENDFUNCTION,
     pub dwFlags: u32,
     pub prcDirty: *const super::RECT,
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for UPDATELAYEREDWINDOWINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
