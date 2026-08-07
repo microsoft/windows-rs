@@ -27,6 +27,15 @@ mod type_spec;
 pub use method_def::{MethodParamMap, MethodParamSequenceError};
 pub use method_param::{BufferRelationship, ParamDirection};
 
+macro_rules! table_id {
+    (MethodParam) => {
+        TableId::Param
+    };
+    ($name:ident) => {
+        TableId::$name
+    };
+}
+
 macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {
         $(
@@ -34,6 +43,7 @@ macro_rules! tables {
         pub struct $name<'a>(pub(crate) Row<'a>);
         impl<'a> AsRow<'a> for $name<'a> {
             const TABLE: usize = $table;
+            const TABLE_ID: TableId = table_id!($name);
             fn to_row(&self) -> Row<'a> {
                 self.0
             }

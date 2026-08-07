@@ -79,6 +79,7 @@ impl Encoder<'_> {
             ty,
             metadata::FieldAttributes::Public | metadata::FieldAttributes::Static,
         );
+        self.origin(field, &item.name);
 
         self.encode_guid_pseudo_attrs(metadata::writer::HasAttribute::Field(field), &item.attrs)?;
         self.output.Constant(
@@ -112,6 +113,7 @@ impl Encoder<'_> {
                 | metadata::FieldAttributes::Static
                 | metadata::FieldAttributes::Literal,
         );
+        self.origin(field, &item.name);
 
         if let Some(expr) = &item.expr {
             let value = self.encode_value(ty, expr)?;
@@ -148,6 +150,7 @@ impl Encoder<'_> {
             ty,
             metadata::FieldAttributes::Public | metadata::FieldAttributes::Static,
         );
+        self.origin(field, &item.name);
 
         let (d1, d2, d3, d4) = guid::u128_to_guid(value);
         guid::emit_guid_attribute(

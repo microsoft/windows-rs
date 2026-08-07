@@ -59,6 +59,7 @@ impl Encoder<'_> {
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
+        self.origin(callback, &item.sig.ident);
 
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(callback),
@@ -134,6 +135,7 @@ impl Encoder<'_> {
         let invoke = self
             .output
             .MethodDef("Invoke", &signature, flags, Default::default());
+        self.origin(invoke, &item.sig.ident);
         self.encode_wrapped_attrs(
             metadata::writer::HasAttribute::MethodDef(invoke),
             &item.attrs,

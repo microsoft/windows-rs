@@ -288,6 +288,16 @@ impl Index {
         self.table_rows()
     }
 
+    /// Iterates over every class layout row in the indexed files.
+    pub fn class_layouts(&self) -> impl Iterator<Item = ClassLayout<'_>> + '_ {
+        self.table_rows()
+    }
+
+    /// Iterates over every field layout row in the indexed files.
+    pub fn field_layouts(&self) -> impl Iterator<Item = FieldLayout<'_>> + '_ {
+        self.table_rows()
+    }
+
     fn table_rows<'a, R: AsRow<'a> + 'a>(&'a self) -> impl Iterator<Item = R> + 'a {
         self.files
             .iter()

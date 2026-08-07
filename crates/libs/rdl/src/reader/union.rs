@@ -32,7 +32,8 @@ impl syn::parse::Parse for Union {
 impl Encoder<'_> {
     pub fn encode_union(&mut self, item: &Union) -> Result<(), Error> {
         let name = item.name.to_string();
-        self.encode_record(&name, false, true, &item.fields, &item.attrs, None)?;
+        let type_def = self.encode_record(&name, false, true, &item.fields, &item.attrs, None)?;
+        self.origin(type_def, &item.name);
         Ok(())
     }
 }

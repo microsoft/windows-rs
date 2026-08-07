@@ -16,4 +16,8 @@ impl ClassLayout<'_> {
     pub fn class_size(&self) -> u32 {
         self.usize(1).try_into().unwrap()
     }
+
+    pub fn parent(&self) -> TypeDef<'_> {
+        self.row(2)
+    }
 }

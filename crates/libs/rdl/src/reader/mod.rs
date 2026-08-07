@@ -293,7 +293,10 @@ impl Reader {
         }
 
         match encode(assembly_name, &index, reference) {
-            Ok(output) => (Some(output), report),
+            Ok((output, errors)) => {
+                report.extend(errors);
+                (report.is_success().then_some(output), report)
+            }
             Err(error) => {
                 report.push(error);
                 (None, report)
@@ -306,9 +309,10 @@ fn encode(
     assembly_name: &str,
     index: &Index,
     reference: metadata::reader::Index,
-) -> Result<Vec<u8>, Error> {
+) -> Result<(Vec<u8>, Vec<Error>), Error> {
     let mut output = metadata::writer::File::new(assembly_name);
     output.set_reference(reference);
+    let mut origins = OriginMap::default();
 
     for (namespace, members) in &index.namespaces {
         for variants in members.types.values() {
@@ -321,6 +325,7 @@ fn encode(
                     namespace,
                     name: &name,
                     generics: vec![],
+                    origins: &mut origins,
                 };
                 match item {
                     Item::Attribute(ty) => encoder.encode_attribute(ty),
@@ -363,6 +368,7 @@ fn encode(
                         namespace,
                         name,
                         generics: vec![],
+                        origins: &mut origins,
                     }
                     .encode_fn(ty)?;
                 }
@@ -380,6 +386,7 @@ fn encode(
                         namespace,
                         name,
                         generics: vec![],
+                        origins: &mut origins,
                     }
                     .encode_const(ty)?;
                 }
@@ -387,7 +394,96 @@ fn encode(
         }
     }
 
-    Ok(output.into_stream())
+    let bytes = output.into_stream();
+    let file = metadata::reader::File::new(bytes.clone()).unwrap();
+    let validation = metadata::validator::validate(&metadata::reader::Index::new(vec![file]))
+        .into_iter()
+        .map(|error| origins.error(error))
+        .collect();
+
+    Ok((bytes, validation))
+}
+
+#[derive(Default)]
+struct OriginMap {
+    sources: Vec<String>,
+    source_ids: HashMap<String, usize>,
+    rows: HashMap<metadata::reader::RowId, SourceOrigin>,
+}
+
+#[derive(Clone, Copy)]
+struct SourceOrigin {
+    source: usize,
+    start: Position,
+    end: Position,
+}
+
+impl OriginMap {
+    fn insert<H: metadata::writer::RowHandle, S: Spanned>(
+        &mut self,
+        handle: H,
+        file: &File,
+        source: &S,
+    ) {
+        let start = source.span().start();
+        let end = source.span().end();
+        let source_id = if let Some(source) = self.source_ids.get(&file.source) {
+            *source
+        } else {
+            let source = self.sources.len();
+            self.sources.push(file.source.clone());
+            self.source_ids.insert(file.source.clone(), source);
+            source
+        };
+        self.rows.insert(
+            handle.row_id(0),
+            SourceOrigin {
+                source: source_id,
+                start: Position {
+                    line: start.line,
+                    column: start.column,
+                },
+                end: Position {
+                    line: end.line,
+                    column: end.column,
+                },
+            },
+        );
+    }
+
+    fn error(&self, error: metadata::validator::ValidationError) -> Error {
+        let mut diagnostic = Diagnostic::new(error.message(), "", 0, 0);
+
+        if let Some(primary) = self.rows.get(&error.row()) {
+            diagnostic = diagnostic.with_primary_label(self.label(*primary, LabelStyle::Primary));
+        } else {
+            diagnostic = diagnostic.with_note(&format!(
+                "metadata row {:?}[{}]",
+                error.row().table(),
+                error.row().row() + 1
+            ));
+        }
+
+        if let Some(related) = error.related()
+            && let Some(label) = self.rows.get(&related)
+        {
+            let mut label = self.label(*label, LabelStyle::Secondary);
+            label.message = "related declaration".to_string();
+            diagnostic = diagnostic.with_label(label);
+        }
+
+        Error::from(diagnostic)
+    }
+
+    fn label(&self, origin: SourceOrigin, style: LabelStyle) -> Label {
+        Label {
+            style,
+            source: self.sources[origin.source].clone(),
+            start: origin.start,
+            end: origin.end,
+            message: String::new(),
+        }
+    }
 }
 
 /// Parses one `.rdl` file and returns the items it defines under `namespace`.
@@ -710,6 +806,7 @@ pub(super) fn parse_guid_u128(lit: &syn::LitInt) -> Result<u128, ()> {
 
 struct Encoder<'a> {
     output: &'a mut metadata::writer::File,
+    origins: &'a mut OriginMap,
     index: &'a Index<'a>,
     file: &'a File,
     namespace: &'a str,
@@ -718,6 +815,10 @@ struct Encoder<'a> {
 }
 
 impl Encoder<'_> {
+    fn origin<H: metadata::writer::RowHandle, S: Spanned>(&mut self, handle: H, source: &S) {
+        self.origins.insert(handle, self.file, source);
+    }
+
     fn resolver(&self) -> Resolver<'_, '_> {
         Resolver {
             index: self.index,
@@ -842,6 +943,7 @@ impl Encoder<'_> {
                     metadata::Value::I64(v)
                 }
             }
+
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
                 let underlying = self
                     .output
@@ -1309,6 +1411,43 @@ impl IdentMethods for syn::Ident {
         use syn::ext::IdentExt;
         self.unraw().to_string()
     }
+}
+
+#[test]
+fn metadata_errors_map_to_source_labels() {
+    let source = File {
+        items: vec![],
+        imports: vec![],
+        source: "test.rdl".to_string(),
+    };
+    let name: syn::Ident = syn::parse_quote!(Value);
+    let mut output = metadata::writer::File::new("test");
+    let first = output.TypeDef(
+        "Test",
+        "Value",
+        metadata::writer::TypeDefOrRef::default(),
+        metadata::TypeAttributes::Public,
+    );
+    let second = output.TypeDef(
+        "Test",
+        "Value",
+        metadata::writer::TypeDefOrRef::default(),
+        metadata::TypeAttributes::Public,
+    );
+    let mut origins = OriginMap::default();
+    origins.insert(first, &source, &name);
+    origins.insert(second, &source, &name);
+
+    let error = metadata::validator::validate(&output.into_index())
+        .into_iter()
+        .next()
+        .unwrap();
+    let error = origins.error(error);
+
+    assert_eq!(error.file_name, "test.rdl");
+    assert_eq!(error.labels.len(), 2);
+    assert_eq!(error.labels[0].style, LabelStyle::Primary);
+    assert_eq!(error.labels[1].style, LabelStyle::Secondary);
 }
 
 #[test]

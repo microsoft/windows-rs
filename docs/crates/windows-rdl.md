@@ -379,8 +379,9 @@ source -> syntax tree -> metadata builder + source origins -> validation -> opti
 Syntax-only checks remain in `windows-rdl`: parsing, imports, unsupported syntax, malformed control
 attributes, and failures where a type cannot be classified well enough to encode a signature.
 Everything represented by ECMA-335 should be checked by a shared `windows-metadata` validator. The
-RDL compiler should attach an external origin map from metadata row IDs to source spans so the same
-validator can produce source diagnostics without adding private attributes to the output.
+RDL compiler now records an external origin map from stable metadata row IDs to compact source IDs
+and positions, then translates shared validation failures back to source labels. The map is not
+stored in the syntax tree or emitted as private attributes in the winmd.
 
 `windows-metadata` currently has an append-only `writer::File` and a queryable byte-backed
 `reader::Index`. Improve that boundary in stages:
@@ -730,7 +731,9 @@ The next phase should proceed in this order:
    `Result<T, Error>` APIs as convenience wrappers.
 2. Done: add row identities and a standalone validator to `windows-metadata`.
 3. Done: add an in-memory writer-to-reader handoff and validate merge/remap output.
-4. Lower RDL directly into metadata while recording row-to-source origins.
+4. In progress: lower RDL directly into metadata while recording row-to-source origins. Declaration,
+   field, method, property, event, and generated accessor rows are mapped and shared validation runs
+   after encoding.
 5. Move duplicate, attribute-target, profile, signature, layout, and association checks onto the
    shared metadata validator where ECMA-335 represents the fact.
 6. Implement explicit overload authoring as transparent metadata lowering after this boundary is

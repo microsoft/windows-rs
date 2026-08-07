@@ -79,6 +79,7 @@ impl Encoder<'_> {
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
+        self.origin(delegate, &item.sig.ident);
 
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(delegate),
@@ -151,6 +152,7 @@ impl Encoder<'_> {
             flags,
             metadata::MethodImplAttributes::Runtime,
         );
+        self.origin(invoke, &item.sig.ident);
         self.encode_wrapped_attrs(
             metadata::writer::HasAttribute::MethodDef(invoke),
             &item.attrs,

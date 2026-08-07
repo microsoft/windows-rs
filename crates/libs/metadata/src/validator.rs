@@ -36,6 +36,7 @@ pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
     let mut errors = vec![];
     validate_property_maps(index, &mut errors);
     validate_event_maps(index, &mut errors);
+    validate_layouts(index, &mut errors);
 
     let mut types: Vec<_> = index.types().collect();
     types.sort_by(|a, b| {
@@ -68,6 +69,81 @@ pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
     }
 
     errors
+}
+
+fn validate_layouts(index: &reader::Index, errors: &mut Vec<ValidationError>) {
+    let mut classes = HashMap::new();
+    for layout in index.class_layouts() {
+        let parent = layout.parent();
+        if let Some(previous) = classes.insert(parent.row_id(), layout) {
+            errors.push(duplicate(
+                layout.row_id(),
+                previous.row_id(),
+                format!(
+                    "duplicate class layout for `{}.{}`",
+                    parent.namespace(),
+                    parent.name()
+                ),
+            ));
+        }
+
+        let packing = layout.packing_size();
+        if packing != 0 && (packing > 128 || !packing.is_power_of_two()) {
+            errors.push(ValidationError {
+                message: format!(
+                    "class layout for `{}.{}` has invalid packing size {packing}",
+                    parent.namespace(),
+                    parent.name()
+                ),
+                row: layout.row_id(),
+                related: Some(parent.row_id()),
+            });
+        }
+
+        let flags = parent.flags();
+        if !flags.contains(crate::TypeAttributes::SequentialLayout)
+            && !flags.contains(crate::TypeAttributes::ExplicitLayout)
+        {
+            errors.push(ValidationError {
+                message: format!(
+                    "class layout for `{}.{}` requires sequential or explicit layout",
+                    parent.namespace(),
+                    parent.name()
+                ),
+                row: layout.row_id(),
+                related: Some(parent.row_id()),
+            });
+        }
+    }
+
+    let mut fields = HashMap::new();
+    for layout in index.field_layouts() {
+        let field = layout.field();
+        if let Some(previous) = fields.insert(field.row_id(), layout) {
+            errors.push(duplicate(
+                layout.row_id(),
+                previous.row_id(),
+                format!("duplicate field layout for `{}`", field.name()),
+            ));
+        }
+
+        let parent = field.parent();
+        if !parent
+            .flags()
+            .contains(crate::TypeAttributes::ExplicitLayout)
+        {
+            errors.push(ValidationError {
+                message: format!(
+                    "field layout for `{}.{}.{}` requires explicit layout",
+                    parent.namespace(),
+                    parent.name(),
+                    field.name()
+                ),
+                row: layout.row_id(),
+                related: Some(field.row_id()),
+            });
+        }
+    }
 }
 
 fn validate_property_maps(index: &reader::Index, errors: &mut Vec<ValidationError>) {

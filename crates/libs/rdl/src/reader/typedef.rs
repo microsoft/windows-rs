@@ -33,11 +33,14 @@ impl Encoder<'_> {
             metadata::writer::TypeDefOrRef::TypeRef(value_type),
             flags,
         );
+        self.origin(type_def, &item.name);
 
         // A typedef is encoded as a struct with a single field named `Value`.
         let mt = self.encode_type(&item.ty)?;
-        self.output
+        let field = self
+            .output
             .Field("Value", &mt, metadata::FieldAttributes::Public);
+        self.origin(field, &item.name);
 
         self.encode_native_typedef_attribute(metadata::writer::HasAttribute::TypeDef(type_def));
         self.encode_attrs(

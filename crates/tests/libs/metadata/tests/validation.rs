@@ -1,7 +1,26 @@
+use windows_metadata::writer::RowHandle;
 use windows_metadata::*;
 
 fn index(file: writer::File) -> reader::Index {
     file.into_index()
+}
+
+#[test]
+fn writer_handles_match_finalized_row_ids() {
+    let mut file = writer::File::new("test");
+    let handle = file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public,
+    );
+    let expected = handle.row_id(0);
+    let index = index(file);
+    let actual = index.expect("Test", "Value").row_id();
+
+    assert_eq!(actual, expected);
+    assert_eq!(actual.table(), reader::TableId::TypeDef);
+    assert_eq!(actual.table() as u8, 0x02);
 }
 
 #[test]
@@ -276,6 +295,43 @@ fn malformed_property_and_event_ownership_is_rejected() {
     assert_eq!(errors[1].message(), "property `Orphaned` has no owner");
     assert_eq!(errors[2].message(), "duplicate event map for `Test.IValue`");
     assert_eq!(errors[3].message(), "event `Orphaned` has no owner");
+}
+
+#[test]
+fn malformed_layouts_are_rejected() {
+    let mut file = writer::File::new("test");
+    let value_type = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
+    let ty = file.TypeDef(
+        "Test",
+        "Value",
+        value_type,
+        TypeAttributes::Public | TypeAttributes::SequentialLayout,
+    );
+    let field = file.Field("Value", &Type::I32, FieldAttributes::Public);
+    file.ClassLayout(ty, 3, 4);
+    file.ClassLayout(ty, 4, 4);
+    file.FieldLayout(field, 0);
+    file.FieldLayout(field, 4);
+
+    let errors = validator::validate(&index(file));
+    assert_eq!(errors.len(), 5);
+    assert_eq!(
+        errors[0].message(),
+        "class layout for `Test.Value` has invalid packing size 3"
+    );
+    assert_eq!(
+        errors[1].message(),
+        "duplicate class layout for `Test.Value`"
+    );
+    assert_eq!(
+        errors[2].message(),
+        "field layout for `Test.Value.Value` requires explicit layout"
+    );
+    assert_eq!(errors[3].message(), "duplicate field layout for `Value`");
+    assert_eq!(
+        errors[4].message(),
+        "field layout for `Test.Value.Value` requires explicit layout"
+    );
 }
 
 #[test]

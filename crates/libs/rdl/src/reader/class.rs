@@ -79,6 +79,7 @@ impl Encoder<'_> {
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
+        self.origin(class, &item.name);
 
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(class),

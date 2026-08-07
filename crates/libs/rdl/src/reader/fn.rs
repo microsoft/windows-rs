@@ -73,6 +73,7 @@ impl Encoder<'_> {
         let method_def = self
             .output
             .MethodDef(&name, &signature, flags, Default::default());
+        self.origin(method_def, &item.sig.ident);
 
         self.encode_return_attrs(&item.return_attrs)?;
         self.encode_params(&params)?;

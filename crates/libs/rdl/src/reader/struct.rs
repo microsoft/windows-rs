@@ -42,7 +42,9 @@ pub struct Enclosing {
 impl Encoder<'_> {
     pub fn encode_struct(&mut self, item: &Struct) -> Result<(), Error> {
         let name = item.name.to_string();
-        self.encode_record(&name, item.winrt, false, &item.fields, &item.attrs, None)?;
+        let type_def =
+            self.encode_record(&name, item.winrt, false, &item.fields, &item.attrs, None)?;
+        self.origin(type_def, &item.name);
         Ok(())
     }
 
@@ -117,6 +119,7 @@ impl Encoder<'_> {
             let field_id = self
                 .output
                 .Field(&field_name, &mt, metadata::FieldAttributes::Public);
+            self.origin(field_id, &field.name);
             if is_union {
                 self.output.FieldLayout(field_id, 0);
             }

@@ -145,6 +145,7 @@ impl Encoder<'_> {
             metadata::writer::TypeDefOrRef::default(),
             flags,
         );
+        self.origin(interface, &item.name);
 
         for (number, name) in self.generics.iter().enumerate() {
             self.output.GenericParam(
@@ -270,6 +271,7 @@ impl Encoder<'_> {
                         flags,
                         Default::default(),
                     );
+                    self.origin(method_def, &method.sig.ident);
 
                     self.encode_attrs(
                         metadata::writer::HasAttribute::MethodDef(method_def),
@@ -321,12 +323,14 @@ impl Encoder<'_> {
                         if !already_has_guid {
                             method_signatures.push((get_name.clone(), vec![], ty.clone()));
                         }
-                        get_method = Some(self.output.MethodDef(
+                        let method = self.output.MethodDef(
                             &get_name,
                             &signature,
                             method_flags,
                             Default::default(),
-                        ));
+                        );
+                        self.origin(method, &prop.name);
+                        get_method = Some(method);
                         self.encode_simple_params(&[])?;
                     }
 
@@ -344,16 +348,19 @@ impl Encoder<'_> {
                                 metadata::Type::Void,
                             ));
                         }
-                        put_method = Some(self.output.MethodDef(
+                        let method = self.output.MethodDef(
                             &put_name,
                             &signature,
                             method_flags,
                             Default::default(),
-                        ));
+                        );
+                        self.origin(method, &prop.name);
+                        put_method = Some(method);
                         self.encode_simple_params(&[("value", &ty)])?;
                     }
 
                     let property = self.output.Property(&prop.name.to_string(), &ty);
+                    self.origin(property, &prop.name);
 
                     if !property_map_started {
                         self.output.PropertyMap(interface, property);
@@ -402,6 +409,7 @@ impl Encoder<'_> {
                         method_flags,
                         Default::default(),
                     );
+                    self.origin(add_method, &evt.name);
                     self.encode_simple_params(&[("handler", &handler_ty)])?;
 
                     let remove_name = format!("remove_{}", evt.name);
@@ -423,9 +431,11 @@ impl Encoder<'_> {
                         method_flags,
                         Default::default(),
                     );
+                    self.origin(remove_method, &evt.name);
                     self.encode_simple_params(&[("token", &token_ty)])?;
 
                     let event = self.output.Event(&evt.name.to_string(), &handler_ty);
+                    self.origin(event, &evt.name);
 
                     if !event_map_started {
                         self.output.EventMap(interface, event);

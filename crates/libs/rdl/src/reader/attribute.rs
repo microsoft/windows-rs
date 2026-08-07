@@ -63,6 +63,7 @@ impl Encoder<'_> {
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
+        self.origin(attr_type, &item.name);
 
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(attr_type),
@@ -94,8 +95,10 @@ impl Encoder<'_> {
                 types,
             };
 
-            self.output
+            let constructor = self
+                .output
                 .MethodDef(".ctor", &signature, flags, Default::default());
+            self.origin(constructor, method);
 
             for (sequence, param) in params.iter().enumerate() {
                 let param_id = self.output.Param(
@@ -117,11 +120,12 @@ impl Encoder<'_> {
             if item.winrt {
                 self.validate_type_is_winrt(prop_ty, &ty)?;
             }
-            self.output.Field(
+            let field = self.output.Field(
                 &prop_name.to_string(),
                 &ty,
                 metadata::FieldAttributes::Public,
             );
+            self.origin(field, prop_name);
         }
 
         Ok(())

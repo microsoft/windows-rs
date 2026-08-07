@@ -94,17 +94,21 @@ through `attributes()` because each projection validates different public-surfac
 
 `validator::validate` checks a `reader::Index` independently of any source language. The current
 rules reject overlapping duplicate type, field, method, property, and event identities, malformed
-`Param.Sequence` associations, invalid method semantics, and duplicate singleton accessors.
-Architecture-specific copies are allowed when their `SupportedArchitectureAttribute` masks do not
-overlap. Split property and event rows with complementary accessors are also valid WinMD.
+`Param.Sequence` associations, invalid method semantics, duplicate singleton accessors, malformed
+property/event ownership, and invalid or duplicate layout rows. Architecture-specific copies are
+allowed when their `SupportedArchitectureAttribute` masks do not overlap. Split property and event
+rows with complementary accessors are also valid WinMD.
 
-Every reader row exposes a `RowId` containing its file, table, and row positions. Validation errors
-carry the primary row and an optional related row. Metadata producers can map those identities to
-source locations without storing source paths or line numbers in the winmd.
+Every reader row exposes a `RowId` containing its file, ECMA-335 `TableId`, and row positions.
+Validation errors carry the primary row and an optional related row. Writer handles for tables
+whose positions survive finalization implement `RowHandle`, allowing metadata producers to map
+those identities to source locations without storing source paths or line numbers in the winmd.
+Sorted and deferred tables do not expose this conversion because their final row positions can
+change.
 
-The validator will grow to cover remaining table ownership, layouts, custom attribute usage,
-signatures, and WinRT profile rules. Merge, remap, and RDL lowering should use the same validator
-rather than maintaining separate interpretations of ECMA-335.
+The validator will grow to cover remaining table ownership, custom attribute usage, signatures,
+and WinRT profile rules. Merge, remap, and RDL lowering should use the same validator rather than
+maintaining separate interpretations of ECMA-335.
 
 ### Property and event association
 
