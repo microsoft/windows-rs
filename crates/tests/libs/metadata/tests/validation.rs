@@ -658,6 +658,125 @@ fn attribute_char_values_preserve_utf16_code_units() {
 }
 
 #[test]
+fn attribute_named_arguments_are_validated() {
+    let mut reference = writer::File::new("reference");
+    let system_attribute = reference.TypeRef("System", "Attribute");
+    let definition = reference.TypeDef(
+        "Test",
+        "NamedAttribute",
+        writer::TypeDefOrRef::TypeRef(system_attribute),
+        TypeAttributes::Public,
+    );
+    reference.Field("Field", &Type::I32, FieldAttributes::Public);
+    let property = reference.PropertyWithSignature(
+        "Property",
+        &Signature {
+            return_type: Type::U32,
+            ..Default::default()
+        },
+        0,
+    );
+    let setter = reference.MethodDef(
+        "set_Property",
+        &Signature {
+            return_type: Type::Void,
+            types: vec![Type::U32],
+            ..Default::default()
+        },
+        MethodAttributes::Public | MethodAttributes::SpecialName,
+        MethodImplAttributes::default(),
+    );
+    reference.MethodSemantics(0x0001, setter, writer::HasSemantics::Property(property));
+    reference.Field(
+        "StaticField",
+        &Type::I32,
+        FieldAttributes::Public | FieldAttributes::Static,
+    );
+    reference.PropertyWithSignature(
+        "ReadOnly",
+        &Signature {
+            return_type: Type::U32,
+            ..Default::default()
+        },
+        0,
+    );
+    reference.PropertyMap(definition, property);
+    let reference = index(reference);
+
+    let mut file = writer::File::new("test");
+    file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public,
+    );
+    let field = file.Field("Value", &Type::I32, FieldAttributes::Public);
+    let expected_parent = field.row_id(0);
+    let ctor = attribute_ctor(&mut file, "NamedAttribute", &Signature::default());
+    let mut blob = vec![1, 0, 7, 0];
+    blob.extend([0x53, 0x08, 5, b'F', b'i', b'e', b'l', b'd', 1, 0, 0, 0]);
+    blob.extend([
+        0x54, 0x09, 8, b'P', b'r', b'o', b'p', b'e', b'r', b't', b'y', 2, 0, 0, 0,
+    ]);
+    blob.extend([
+        0x53, 0x08, 7, b'M', b'i', b's', b's', b'i', b'n', b'g', 3, 0, 0, 0,
+    ]);
+    blob.extend([0x53, 0x09, 5, b'F', b'i', b'e', b'l', b'd', 4, 0, 0, 0]);
+    blob.extend([
+        0x54, 0x09, 8, b'P', b'r', b'o', b'p', b'e', b'r', b't', b'y', 5, 0, 0, 0,
+    ]);
+    blob.extend([
+        0x53, 0x08, 11, b'S', b't', b'a', b't', b'i', b'c', b'F', b'i', b'e', b'l', b'd', 6, 0, 0,
+        0,
+    ]);
+    blob.extend([
+        0x54, 0x09, 8, b'R', b'e', b'a', b'd', b'O', b'n', b'l', b'y', 7, 0, 0, 0,
+    ]);
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(ctor),
+        &blob,
+    );
+    let output = index(file);
+
+    let errors = validator::Validator::new(&output)
+        .references(&reference)
+        .validate();
+    assert_eq!(errors.len(), 6);
+    assert_eq!(
+        errors[0].message(),
+        "attribute `Test.NamedAttribute` has no named field `Missing`"
+    );
+    assert_eq!(
+        errors[1].message(),
+        "attribute `Test.NamedAttribute` has duplicate named field argument `Field`"
+    );
+    assert_eq!(
+        errors[2].message(),
+        "attribute `Test.NamedAttribute` named field `Field` expects `I32` but found `U32`"
+    );
+    assert_eq!(
+        errors[3].message(),
+        "attribute `Test.NamedAttribute` has duplicate named property argument `Property`"
+    );
+    assert_eq!(
+        errors[4].message(),
+        "attribute `Test.NamedAttribute` named field `StaticField` is not a public writable instance member"
+    );
+    assert_eq!(
+        errors[5].message(),
+        "attribute `Test.NamedAttribute` named property `ReadOnly` is not a public writable instance member"
+    );
+    assert!(errors.iter().all(|error| {
+        error.related() == Some(expected_parent)
+            && matches!(
+                error.category(),
+                validator::ValidationCategory::Invalid | validator::ValidationCategory::Duplicate
+            )
+    }));
+}
+
+#[test]
 fn attribute_multiplicity_is_validated() {
     let mut reference = writer::File::new("reference");
     let system_attribute = reference.TypeRef("System", "Attribute");

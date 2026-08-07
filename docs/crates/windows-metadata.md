@@ -104,6 +104,12 @@ trailing bytes with byte offsets. Valid serialization forms not yet represented 
 an unsupported result rather than a metadata validity error. Constructor parameters are restricted
 to ECMA custom-attribute serialization types; pointer-sized integers, pointers, references, fixed
 arrays, generics, and arbitrary class types are rejected before value decoding.
+
+`Attribute::try_args` preserves positional arguments and the field/property tag on named
+arguments. The compatibility `value` and `try_value` methods continue returning `(name, value)`
+pairs. When an attribute definition is available, validation rejects missing named fields or
+properties, type mismatches, duplicate named arguments, fields that are not public writable
+instance fields, and properties without a matching public instance setter.
 Definitions without an explicit usage contract and referenced definitions outside the validated
 index have unknown multiplicity. `Validator::references` accepts a separate reference index for
 definition lookup without treating referenced types as authored output or reporting false
@@ -137,8 +143,8 @@ reference context without copying or merging the reference files.
 metadata-to-metadata transformations. Merge and namespace remapping use this path so named
 custom-attribute arguments retain their field/property tag and exact serialized form.
 
-`Attribute::value` is the trusted convenience wrapper over `try_value`, and the validator uses the
-same checked decoder. Merge and remap continue using the raw copy path. The remaining value-model
+`Attribute::value` is the trusted convenience wrapper over the same decoder, and the validator uses
+the strict argument form. Merge and remap continue using the raw copy path. The remaining value-model
 work is to represent valid null strings, boxed values, and arrays. ECMA `Char` values are preserved
 as UTF-16 `u16` code units rather than converted to Rust Unicode scalars. Enum values resolve their
 backing type from the authored index or `Validator` reference index; unresolved definitions are

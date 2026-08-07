@@ -122,34 +122,37 @@ fn validate_attributes(
     let mut applied = HashSet::new();
 
     for attribute in index.attributes() {
-        validate_attribute_constructor(attribute, references, errors);
+        let args = validate_attribute_constructor(attribute, references, errors);
 
         let Some(definition) = attribute_definition(index, references, attribute) else {
             continue;
         };
-        if !definition.has_attribute("AttributeUsageAttribute") {
-            continue;
-        }
-        let Some(parent) = attribute_parent(attribute.parent()) else {
-            continue;
-        };
+        let parent = attribute_parent(attribute.parent());
 
-        let key = (
-            parent,
-            definition.namespace().to_string(),
-            definition.name().to_string(),
-        );
-        if !applied.insert(key) && !definition.has_attribute("AllowMultipleAttribute") {
-            errors.push(ValidationError {
-                category: ValidationCategory::Duplicate,
-                message: format!(
-                    "duplicate attribute `{}.{}`",
-                    definition.namespace(),
-                    definition.name()
-                ),
-                row: attribute.row_id(),
-                related: Some(parent),
-            });
+        if let Some(args) = args {
+            validate_attribute_named_args(attribute, definition, parent, &args, errors);
+        }
+
+        if definition.has_attribute("AttributeUsageAttribute")
+            && let Some(parent) = parent
+        {
+            let key = (
+                parent,
+                definition.namespace().to_string(),
+                definition.name().to_string(),
+            );
+            if !applied.insert(key) && !definition.has_attribute("AllowMultipleAttribute") {
+                errors.push(ValidationError {
+                    category: ValidationCategory::Duplicate,
+                    message: format!(
+                        "duplicate attribute `{}.{}`",
+                        definition.namespace(),
+                        definition.name()
+                    ),
+                    row: attribute.row_id(),
+                    related: Some(parent),
+                });
+            }
         }
     }
 }
@@ -158,7 +161,7 @@ fn validate_attribute_constructor(
     attribute: reader::Attribute<'_>,
     references: Option<&reader::Index>,
     errors: &mut Vec<ValidationError>,
-) {
+) -> Option<Vec<reader::AttributeArg>> {
     let ctor = attribute.ctor();
     let signature = ctor.signature(&[]);
     let parent = attribute_parent(attribute.parent());
@@ -236,15 +239,19 @@ fn validate_attribute_constructor(
         }
     }
 
-    if valid_parameters {
-        let value = match references {
-            Some(references) => attribute.try_value_with_references(references),
-            None => attribute.try_value(),
-        };
+    if !valid_parameters {
+        return None;
+    }
 
-        if let Err(error) = value
-            && !error.is_unsupported()
-        {
+    let args = match references {
+        Some(references) => attribute.try_args_with_references(references),
+        None => attribute.try_args(),
+    };
+
+    match args {
+        Ok(args) => Some(args),
+        Err(error) if error.is_unsupported() => None,
+        Err(error) => {
             errors.push(ValidationError {
                 category: ValidationCategory::Invalid,
                 message: format!(
@@ -257,7 +264,128 @@ fn validate_attribute_constructor(
                 row: attribute.row_id(),
                 related: parent,
             });
+            None
         }
+    }
+}
+
+fn validate_attribute_named_args(
+    attribute: reader::Attribute<'_>,
+    definition: reader::TypeDef<'_>,
+    parent: Option<RowId>,
+    args: &[reader::AttributeArg],
+    errors: &mut Vec<ValidationError>,
+) {
+    let mut names = HashSet::new();
+
+    for arg in args {
+        let reader::AttributeArg::Named { kind, name, value } = arg else {
+            continue;
+        };
+
+        if !names.insert((*kind, name.as_str())) {
+            errors.push(ValidationError {
+                category: ValidationCategory::Duplicate,
+                message: format!(
+                    "attribute `{}.{}` has duplicate named {} argument `{name}`",
+                    attribute.namespace(),
+                    attribute.name(),
+                    attribute_arg_kind(*kind)
+                ),
+                row: attribute.row_id(),
+                related: parent,
+            });
+        }
+
+        let member = match kind {
+            reader::AttributeArgKind::Field => definition
+                .fields()
+                .find(|field| field.name() == name)
+                .map(|field| {
+                    let flags = field.flags();
+                    (
+                        field.ty(),
+                        flags.0 & 0x7 == crate::FieldAttributes::Public.0
+                            && !flags.contains(crate::FieldAttributes::Static)
+                            && !flags.contains(crate::FieldAttributes::InitOnly)
+                            && !flags.contains(crate::FieldAttributes::Literal),
+                    )
+                }),
+            reader::AttributeArgKind::Property => definition
+                .properties()
+                .find(|property| property.name() == name)
+                .map(|property| {
+                    let signature = property.signature(&[]);
+                    let usable = signature.types.is_empty()
+                        && property.semantics().any(|semantics| {
+                            if semantics.semantics() != 0x0001 {
+                                return false;
+                            }
+                            let method = semantics.method();
+                            let flags = method.flags();
+                            let setter = method.signature(&[]);
+                            flags.0 & 0x7 == crate::MethodAttributes::Public.0
+                                && !flags.contains(crate::MethodAttributes::Static)
+                                && setter.flags.contains(crate::MethodCallAttributes::HASTHIS)
+                                && setter.return_type == crate::Type::Void
+                                && setter.types == [signature.return_type.clone()]
+                        });
+                    (signature.return_type, usable)
+                }),
+        };
+
+        let Some((expected, usable)) = member else {
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "attribute `{}.{}` has no named {} `{name}`",
+                    attribute.namespace(),
+                    attribute.name(),
+                    attribute_arg_kind(*kind)
+                ),
+                row: attribute.row_id(),
+                related: parent,
+            });
+            continue;
+        };
+
+        if !usable {
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "attribute `{}.{}` named {} `{name}` is not a public writable instance member",
+                    attribute.namespace(),
+                    attribute.name(),
+                    attribute_arg_kind(*kind)
+                ),
+                row: attribute.row_id(),
+                related: parent,
+            });
+        }
+
+        let actual = value.ty();
+        if actual != expected {
+            errors.push(ValidationError {
+                category: ValidationCategory::Invalid,
+                message: format!(
+                    "attribute `{}.{}` named {} `{name}` expects `{}` but found `{}`",
+                    attribute.namespace(),
+                    attribute.name(),
+                    attribute_arg_kind(*kind),
+                    attribute_parameter_type_name(&expected),
+                    attribute_parameter_type_name(&actual)
+                ),
+                row: attribute.row_id(),
+                related: parent,
+            });
+        }
+    }
+}
+
+fn attribute_arg_kind(kind: reader::AttributeArgKind) -> &'static str {
+    match kind {
+        reader::AttributeArgKind::Field => "field",
+        reader::AttributeArgKind::Property => "property",
     }
 }
 

@@ -37,6 +37,22 @@ impl std::fmt::Display for AttributeValueError {
 
 impl std::error::Error for AttributeValueError {}
 
+#[derive(Clone, Copy, Debug, Hash, PartialEq, Eq)]
+pub enum AttributeArgKind {
+    Field,
+    Property,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub enum AttributeArg {
+    Fixed(Value),
+    Named {
+        kind: AttributeArgKind,
+        name: String,
+        value: Value,
+    },
+}
+
 impl<'a> Attribute<'a> {
     pub fn name(&self) -> &'a str {
         self.ctor().parent().name()
@@ -60,25 +76,40 @@ impl<'a> Attribute<'a> {
     }
 
     pub fn value(&self) -> Vec<(String, Value)> {
-        self.try_value_impl(None, true).unwrap()
+        flatten_args(self.try_args_impl(None, true).unwrap())
     }
 
     pub fn try_value(&self) -> Result<Vec<(String, Value)>, AttributeValueError> {
-        self.try_value_impl(None, false)
+        self.try_args().map(flatten_args)
     }
 
     pub fn try_value_with_references(
         &self,
         references: &Index,
     ) -> Result<Vec<(String, Value)>, AttributeValueError> {
-        self.try_value_impl(Some(references), false)
+        self.try_args_with_references(references).map(flatten_args)
     }
 
-    fn try_value_impl(
+    pub fn args(&self) -> Vec<AttributeArg> {
+        self.try_args_impl(None, true).unwrap()
+    }
+
+    pub fn try_args(&self) -> Result<Vec<AttributeArg>, AttributeValueError> {
+        self.try_args_impl(None, false)
+    }
+
+    pub fn try_args_with_references(
+        &self,
+        references: &Index,
+    ) -> Result<Vec<AttributeArg>, AttributeValueError> {
+        self.try_args_impl(Some(references), false)
+    }
+
+    fn try_args_impl(
         &self,
         references: Option<&Index>,
         assume_i32_enums: bool,
-    ) -> Result<Vec<(String, Value)>, AttributeValueError> {
+    ) -> Result<Vec<AttributeArg>, AttributeValueError> {
         let signature = self.ctor().signature(&[]);
         let mut values = Vec::with_capacity(signature.types.len());
         let mut blob = AttributeBlob::new(
@@ -94,7 +125,7 @@ impl<'a> Attribute<'a> {
 
         for ty in &signature.types {
             let value = blob.read_value(ty)?;
-            values.push((String::new(), value));
+            values.push(AttributeArg::Fixed(value));
         }
 
         let named_arg_count = blob.read_u16()?;
@@ -102,13 +133,15 @@ impl<'a> Attribute<'a> {
 
         for _ in 0..named_arg_count {
             let offset = blob.offset;
-            if !matches!(blob.read_u8()?, 0x53 | 0x54) {
-                return Err(blob.invalid_at(offset, "invalid named-argument tag"));
-            }
+            let kind = match blob.read_u8()? {
+                0x53 => AttributeArgKind::Field,
+                0x54 => AttributeArgKind::Property,
+                _ => return Err(blob.invalid_at(offset, "invalid named-argument tag")),
+            };
             let ty = blob.read_type()?;
             let name = blob.read_string("null named-argument name")?;
             let value = blob.read_value(&ty)?;
-            values.push((name, value));
+            values.push(AttributeArg::Named { kind, name, value });
         }
 
         if blob.offset != blob.bytes.len() {
@@ -117,6 +150,15 @@ impl<'a> Attribute<'a> {
 
         Ok(values)
     }
+}
+
+fn flatten_args(args: Vec<AttributeArg>) -> Vec<(String, Value)> {
+    args.into_iter()
+        .map(|arg| match arg {
+            AttributeArg::Fixed(value) => (String::new(), value),
+            AttributeArg::Named { name, value, .. } => (name, value),
+        })
+        .collect()
 }
 
 struct AttributeBlob<'a, 'r> {

@@ -755,7 +755,10 @@ The next phase should proceed in this order:
    unit. Null strings, boxed values, and arrays still need value-model representations. Enum
    decoding now resolves non-`i32` backing types through the authored or reference metadata index.
    Constructor parameter types are checked against the ECMA custom-attribute serialization types
-   before the value blob is decoded.
+   before the value blob is decoded. `Attribute::try_args` retains named field/property tags, so
+   validation can check member existence, types, and duplicate named arguments against local or
+   referenced attribute definitions. Named fields must be public writable instance fields; named
+   properties require a matching public instance setter.
 6. Implement explicit overload authoring as transparent metadata lowering after this boundary is
    stable.
 7. Upgrade `riddle` rendering and add `dump` and `validate` once the library can return complete

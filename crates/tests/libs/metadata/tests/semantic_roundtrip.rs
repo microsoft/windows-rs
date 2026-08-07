@@ -140,6 +140,14 @@ fn verify(path: &std::path::Path, namespace: &str) {
         attribute.try_value().unwrap(),
         [("Value".to_string(), Value::I32(42))]
     );
+    assert_eq!(
+        attribute.try_args().unwrap(),
+        [reader::AttributeArg::Named {
+            kind: reader::AttributeArgKind::Property,
+            name: "Value".to_string(),
+            value: Value::I32(42),
+        }]
+    );
     let mut property_semantics: Vec<_> = property
         .semantics()
         .map(|row| (row.semantics(), row.method().name()))
