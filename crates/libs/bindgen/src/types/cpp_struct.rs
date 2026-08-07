@@ -118,30 +118,6 @@ impl CppStruct {
         }
     }
 
-    // Native typedef chains to pointers prevent deriving `Default` in sys mode.
-    fn resolves_to_pointer(&self, reader: &Reader) -> bool {
-        if !self.is_native_typedef() {
-            return false;
-        }
-
-        match self
-            .def
-            .fields()
-            .next()
-            .unwrap()
-            .field_type(Some(self), reader)
-        {
-            Type::PtrConst(..)
-            | Type::PtrMut(..)
-            | Type::PCSTR
-            | Type::PCWSTR
-            | Type::PSTR
-            | Type::PWSTR => true,
-            Type::CppStruct(inner) => inner.resolves_to_pointer(reader),
-            _ => false,
-        }
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         if self.is_handle(config.reader) {
             let cfg = self.write_cfg(config);
@@ -378,53 +354,23 @@ impl CppStruct {
 
                 // Resolve transparent native-typedef aliases to a fixed-size array,
                 // which has no derivable `Default`; treat like a directly-spelled array.
-                if let Type::CppStruct(inner) = &ty {
-                    if inner.resolves_to_fixed_array(config.reader) {
-                        return true;
-                    }
-                    if config.bindgen.style.is_sys() && inner.resolves_to_pointer(config.reader) {
-                        return true;
-                    }
+                if let Type::CppStruct(inner) = &ty
+                    && inner.resolves_to_fixed_array(config.reader)
+                {
+                    return true;
                 }
 
                 if config.bindgen.style.is_sys() {
-                    if let Type::CppStruct(ty) = &ty
-                        && ty.is_handle(config.reader)
-                        && ty.def.underlying_type_ext(config.reader).is_pointer()
-                    {
-                        return true;
-                    }
-
-                    // Scoped C++ enums do not derive `Default` in sys mode, so containing structs cannot.
+                    // Scoped C++ enums do not derive `Default` in sys mode, so containing
+                    // structs cannot.
                     if let Type::CppEnum(inner) = &ty
                         && inner.def.has_attribute("ScopedEnumAttribute")
                     {
                         return true;
                     }
-
-                    matches!(
-                        &ty,
-                        Type::ArrayFixed(..)
-                            | Type::BSTR
-                            | Type::Class(..)
-                            | Type::CppInterface(..)
-                            | Type::Delegate(..)
-                            | Type::Interface(..)
-                            | Type::IUnknown
-                            | Type::Object
-                            | Type::PCSTR
-                            | Type::PCWSTR
-                            | Type::PSTR
-                            | Type::PtrConst(..)
-                            | Type::PtrMut(..)
-                            | Type::PWSTR
-                    )
-                } else {
-                    matches!(
-                        &ty,
-                        Type::ArrayFixed(..) | Type::PtrConst(..) | Type::PtrMut(..)
-                    )
                 }
+
+                matches!(&ty, Type::ArrayFixed(..))
             })
     }
 
