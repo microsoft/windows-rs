@@ -36,6 +36,18 @@ whose `call` schedules a rerender. `ReactorWindow` opens more top-level windows.
 guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for
 components, hooks, layout, styling, and widgets.
 
+Multi-child builders accept tuples, arrays, vectors, and child-only fragments:
+
+```rust,ignore
+vstack((
+    text_block("Header"),
+    fragment((text_block("Name"), text_block("Value"))),
+))
+```
+
+`Fragment` cannot be converted into `Element`, so it cannot be returned as an application root or
+inserted into a single-child control.
+
 `App::on_exit` registers synchronous cleanup or instrumentation that runs once on the UI thread
 immediately before Reactor exits the process after the final window closes.
 

@@ -84,7 +84,7 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
         ("PasswordBox", tipped(PasswordBox::new())),
         ("RadioButtons", tipped(RadioButtons::new(["A", "B"]))),
         ("ComboBox", tipped(ComboBox::new(["A", "B"]))),
-        ("Canvas", tipped(Canvas::new(std::iter::empty::<Element>()))),
+        ("Canvas", tipped(Canvas::new(()))),
         (
             "RichText",
             tipped(RichTextBlock::single_paragraph(Vec::new())),

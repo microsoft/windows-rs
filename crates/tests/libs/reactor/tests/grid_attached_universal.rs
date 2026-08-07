@@ -93,7 +93,7 @@ fn one_of_every_widget() -> Vec<(&'static str, Element)> {
         ("PasswordBox", placed(PasswordBox::new())),
         ("RadioButtons", placed(RadioButtons::new(["A", "B"]))),
         ("ComboBox", placed(ComboBox::new(["A", "B"]))),
-        ("Canvas", placed(Canvas::new(std::iter::empty::<Element>()))),
+        ("Canvas", placed(Canvas::new(()))),
         (
             "RichText",
             placed(RichTextBlock::single_paragraph(Vec::new())),

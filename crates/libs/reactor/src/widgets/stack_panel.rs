@@ -40,14 +40,14 @@ impl StackPanel {
     }
 }
 
-pub fn vstack(children: impl IntoElements) -> StackPanel {
+pub fn vstack(children: impl IntoChildren) -> StackPanel {
     let mut s = StackPanel::vertical();
-    s.children = children.into_elements();
+    s.children = children.into_children();
     s
 }
 
-pub fn hstack(children: impl IntoElements) -> StackPanel {
+pub fn hstack(children: impl IntoChildren) -> StackPanel {
     let mut s = StackPanel::horizontal();
-    s.children = children.into_elements();
+    s.children = children.into_children();
     s
 }

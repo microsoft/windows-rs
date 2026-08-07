@@ -90,6 +90,6 @@ fn styling_capabilities_match_native_support() {
     assert_eq!(border.modifiers.padding, Some(Thickness::uniform(6.0)));
     assert!(border.modifiers.background.is_some());
 
-    let canvas = Canvas::new(std::iter::empty::<Element>()).background(Color::rgb(16, 17, 18));
+    let canvas = Canvas::new(()).background(Color::rgb(16, 17, 18));
     assert!(canvas.modifiers.background.is_some());
 }

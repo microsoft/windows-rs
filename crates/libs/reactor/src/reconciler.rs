@@ -953,15 +953,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             Element::Provider(pe) => return self.mount_provider(pe),
             Element::TemplatedList(tl) => return Some(self.mount_templated_list(tl)),
             Element::Custom(c) => return Some(self.mount_custom(c)),
-            Element::Group(_) => {
-                panic!(
-                    "Element::Group can only appear inside a multi-child container's child list. \
-                     A Group at a single-child position (e.g. as a Component's render output, \
-                     or as the sole child of Border / ScrollViewer) is not supported. \
-                     Wrap the Group in a StackPanel, return its single non-empty child, or place it \
-                     directly inside a StackPanel/Grid that owns it as one of many children."
-                );
-            }
             Element::Empty => return None,
             _ => {}
         }
@@ -1001,14 +992,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
             (Element::Custom(o), Element::Custom(n)) => {
                 return Some(self.update_custom(o, n, id));
-            }
-            (Element::Group(_), Element::Group(_)) => {
-                panic!(
-                    "Element::Group reached update() with a ControlId. \
-                     Group is a fragment and cannot own a control. \
-                     This usually means a Group was placed at a single-child \
-                     position; see Element::Group docs."
-                );
             }
             (Element::Empty, Element::Empty) => return None,
             _ => {}
@@ -1522,7 +1505,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 }
 
-/// Borrowed or filtered child slice.
+/// Borrowed child slice with manually inserted empty elements removed.
 enum LiveChildren<'a> {
     Flat(&'a [Element]),
     Filtered(Vec<&'a Element>),
@@ -1530,9 +1513,7 @@ enum LiveChildren<'a> {
 
 impl<'a> LiveChildren<'a> {
     fn from_slice(slice: &'a [Element]) -> Self {
-        let needs_filter = slice
-            .iter()
-            .any(|e| matches!(e, Element::Empty | Element::Group(_)));
+        let needs_filter = slice.iter().any(|e| matches!(e, Element::Empty));
         if needs_filter {
             LiveChildren::Filtered(collect_live(slice))
         } else {
@@ -1580,23 +1561,13 @@ impl<'a> LiveChildrenRef<'a> {
     }
 }
 
-/// Flatten children for reconciliation by dropping `Empty` and splicing `Group`.
+/// Drops manually inserted empty children.
 pub fn collect_live(slice: &[Element]) -> Vec<&Element> {
-    let mut out = Vec::with_capacity(slice.len());
-    for el in slice {
-        push_live(el, &mut out);
-    }
-    out
-}
-
-fn push_live<'a>(el: &'a Element, out: &mut Vec<&'a Element>) {
-    match el {
-        Element::Empty => {}
-        Element::Group(g) => {
-            for child in &g.children {
-                push_live(child, out);
-            }
-        }
-        other => out.push(other),
-    }
+    let mut children = Vec::with_capacity(slice.len());
+    children.extend(
+        slice
+            .iter()
+            .filter(|element| !matches!(element, Element::Empty)),
+    );
+    children
 }

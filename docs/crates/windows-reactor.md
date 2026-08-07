@@ -537,6 +537,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
 | Typed element API | Universal, visual, attached-layout, and styling capabilities are typed |
+| Element cardinality | `Fragment` is child-only; `Element::Group` removed |
 | Full mounted ownership evaluation | Complete |
 
 ### Invariants
@@ -932,16 +933,39 @@ than the builder types can provide.
 
 ### Element cardinality
 
-Remove `Group` from mountable `Element`. Use a distinct child collection or fragment type accepted
-only by multi-child builders. Components, providers, error boundaries, and single-child controls
-continue to accept or return zero or one mountable element.
+`Fragment` is a child-only collection accepted by `vstack`, `hstack`, `grid`, `Canvas`, and
+`RelativePanel`. It does not implement `Into<Element>`, so components, providers, error boundaries,
+application roots, and single-child controls continue to accept or return zero or one mountable
+element:
 
-This makes the current runtime-invalid cases unrepresentable:
+```rust
+# use windows_reactor::*;
+let row = fragment((text_block("Name"), text_block("Value")));
+let panel = vstack((text_block("Header"), row));
+# let _ = panel;
+```
 
-- a group as the application root;
-- a group returned from a component;
-- a group inserted into a single-child control;
-- a keyed group whose key is discarded when flattened.
+```rust,compile_fail
+# use windows_reactor::*;
+let _ = border(fragment((text_block("a"), text_block("b"))));
+```
+
+`IntoChildren` flattens nested fragments and removes `Element::Empty` while constructing the
+parent's child vector. The reconciler therefore receives a flat slice and does not allocate a
+temporary fragment view. It retains an empty-element filter only for callers that populate public
+widget child vectors directly.
+
+Removing the mount-time child-reference vector saves one allocation per multi-child mount and eight
+bytes per child in the headless benchmark: 64-node mount/unmount fell from 17,568 to 17,056 bytes
+and 271 to 270 allocations; 512 nodes fell from 140,248 to 136,152 bytes and 2,069 to 2,068
+allocations.
+
+Removing `Element::Group` makes the former runtime-invalid cases unrepresentable:
+
+- a fragment as the application root;
+- a fragment returned from a component;
+- a fragment inserted into a single-child control;
+- a keyed fragment whose key would be discarded when flattened.
 
 ### Reconciliation proof
 

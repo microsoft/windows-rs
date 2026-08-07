@@ -92,10 +92,7 @@ fn one_of_every_widget() -> Vec<(&'static str, Element, KeyboardAccelerator)> {
         ("PasswordBox", labelled(PasswordBox::new())),
         ("RadioButtons", labelled(RadioButtons::new(["A", "B"]))),
         ("ComboBox", labelled(ComboBox::new(["A", "B"]))),
-        (
-            "Canvas",
-            labelled(Canvas::new(std::iter::empty::<Element>())),
-        ),
+        ("Canvas", labelled(Canvas::new(()))),
         (
             "RichText",
             labelled(RichTextBlock::single_paragraph(Vec::new())),

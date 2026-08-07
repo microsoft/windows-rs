@@ -111,78 +111,126 @@ pub fn panic_message(payload: Box<dyn Any + Send>) -> String {
     }
 }
 
-/// Converts a collection of items into a `Vec<Element>`.
-///
-pub trait IntoElements {
-    fn into_elements(self) -> Vec<Element>;
+/// One item accepted by a multi-child builder.
+#[doc(hidden)]
+pub trait IntoChild {
+    fn append_to(self, children: &mut Vec<Element>);
 }
 
-impl IntoElements for Vec<Element> {
-    fn into_elements(self) -> Vec<Element> {
+impl<T: Into<Element>> IntoChild for T {
+    fn append_to(self, children: &mut Vec<Element>) {
+        let element = self.into();
+        if !matches!(element, Element::Empty) {
+            children.push(element);
+        }
+    }
+}
+
+/// A child-only fragment flattened by multi-child builders.
+#[derive(Clone, Default, Debug, PartialEq)]
+pub struct Fragment {
+    children: Vec<Element>,
+}
+
+impl IntoChild for Fragment {
+    fn append_to(self, children: &mut Vec<Element>) {
+        children.extend(self.children);
+    }
+}
+
+/// Converts tuples, arrays, vectors, and fragments into a flat child list.
+pub trait IntoChildren {
+    fn into_children(self) -> Vec<Element>;
+}
+
+impl IntoChildren for Vec<Element> {
+    fn into_children(mut self) -> Vec<Element> {
+        self.retain(|element| !matches!(element, Element::Empty));
         self
     }
 }
 
-impl IntoElements for () {
-    fn into_elements(self) -> Vec<Element> {
+impl IntoChildren for Fragment {
+    fn into_children(self) -> Vec<Element> {
+        self.children
+    }
+}
+
+impl IntoChildren for () {
+    fn into_children(self) -> Vec<Element> {
         Vec::new()
     }
 }
 
-impl<T: Into<Element>, const N: usize> IntoElements for [T; N] {
-    fn into_elements(self) -> Vec<Element> {
-        self.into_iter().map(Into::into).collect()
+impl<T: IntoChild, const N: usize> IntoChildren for [T; N] {
+    fn into_children(self) -> Vec<Element> {
+        let mut children = Vec::with_capacity(N);
+        for child in self {
+            child.append_to(&mut children);
+        }
+        children
     }
 }
 
-macro_rules! impl_into_elements_for_tuple {
+macro_rules! impl_into_children_for_tuple {
     ($($idx:tt : $T:ident),+) => {
-        impl<$($T: Into<Element>),+> IntoElements for ($($T,)+) {
-            fn into_elements(self) -> Vec<Element> {
-                vec![$(self.$idx.into()),+]
+        impl<$($T: IntoChild),+> IntoChildren for ($($T,)+) {
+            fn into_children(self) -> Vec<Element> {
+                let capacity = 0 $(+ {
+                    let _ = stringify!($T);
+                    1
+                })+;
+                let mut children = Vec::with_capacity(capacity);
+                $(self.$idx.append_to(&mut children);)+
+                children
             }
         }
     };
 }
 
-impl_into_elements_for_tuple!(0: A);
-impl_into_elements_for_tuple!(0: A, 1: B);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2, 9: J);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2, 9: J, 10: K);
-impl_into_elements_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2, 9: J, 10: K, 11: L);
+impl_into_children_for_tuple!(0: A);
+impl_into_children_for_tuple!(0: A, 1: B);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2, 9: J);
+impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2, 9: J, 10: K);
+impl_into_children_for_tuple!(
+    0: A,
+    1: B,
+    2: C,
+    3: D,
+    4: E,
+    5: F,
+    6: G,
+    7: H,
+    8: I2,
+    9: J,
+    10: K,
+    11: L
+);
 
-/// Fragment-style element flattened into its parent's child list during
-/// reconciliation; only valid inside multi-child containers.
-#[derive(Clone, Default, Debug, PartialEq)]
-pub struct GroupElement {
-    pub key: Option<String>,
-    pub children: Vec<Element>,
-}
-
-impl GroupElement {
-    pub fn new(children: Vec<Element>) -> Self {
-        Self {
-            key: None,
-            children,
-        }
+/// Creates a child-only fragment for use inside a multi-child builder.
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, fragment, text_block};
+///
+/// let _: Element = fragment((text_block("a"), text_block("b"))).into();
+/// ```
+///
+/// ```compile_fail
+/// use windows_reactor::{border, fragment, text_block};
+///
+/// let _ = border(fragment((text_block("a"), text_block("b"))));
+/// ```
+pub fn fragment(children: impl IntoChildren) -> Fragment {
+    Fragment {
+        children: children.into_children(),
     }
-
-    pub fn with_key(mut self, key: impl Into<String>) -> Self {
-        self.key = Some(key.into());
-        self
-    }
-}
-
-/// Creates a fragment that is flattened into its parent's child list.
-pub fn group(children: Vec<Element>) -> Element {
-    Element::Group(GroupElement::new(children))
 }
 
 /// Built-in widget variants live here so enum arms and dispatch stay aligned.
@@ -229,7 +277,6 @@ macro_rules! define_element {
             ErrorBoundary(ErrorBoundaryElement),
             Provider(ProviderElement),
             TemplatedList(TemplatedListElement),
-            Group(GroupElement),
             Custom(CustomElementHandle),
             #[default]
             Empty,
@@ -284,7 +331,6 @@ macro_rules! define_element {
                     | Element::ErrorBoundary(_)
                     | Element::Provider(_)
                     | Element::TemplatedList(_)
-                    | Element::Group(_)
                     | Element::Custom(_)
                     | Element::Empty => return None,
                 })
@@ -296,7 +342,6 @@ macro_rules! define_element {
                     Element::ErrorBoundary(_) => "ErrorBoundary",
                     Element::Provider(_) => "Provider",
                     Element::TemplatedList(_) => "TemplatedList",
-                    Element::Group(_) => "Group",
                     Element::Custom(c) => c.0.kind_name(),
                     Element::Empty => "Empty",
                 }
@@ -312,7 +357,6 @@ macro_rules! define_element {
                     Element::ErrorBoundary(eb) => eb.key = Some(key),
                     Element::Provider(pe) => pe.key = Some(key),
                     Element::TemplatedList(tl) => tl.key = Some(key),
-                    Element::Group(g) => g.key = Some(key),
                     Element::Custom(_) | Element::Empty => {}
                 }
                 self
@@ -396,7 +440,6 @@ non_widget_from_table! {
     ErrorBoundary: ErrorBoundaryElement,
     Provider:      ProviderElement,
     TemplatedList: TemplatedListElement,
-    Group:         GroupElement,
     Custom:        CustomElementHandle,
 }
 
@@ -410,7 +453,6 @@ impl Element {
             Self::ErrorBoundary(eb) => eb.key.as_deref(),
             Self::Provider(p) => p.key.as_deref(),
             Self::TemplatedList(tl) => tl.key.as_deref(),
-            Self::Group(g) => g.key.as_deref(),
             Self::Custom(c) => c.0.key(),
             Self::Empty => None,
             _ => unreachable!("covered by as_widget"),
@@ -425,7 +467,6 @@ impl Element {
             Self::Component(_)
             | Self::ErrorBoundary(_)
             | Self::Provider(_)
-            | Self::Group(_)
             | Self::Custom(_)
             | Self::Empty => None,
             _ => unreachable!("covered by as_widget"),

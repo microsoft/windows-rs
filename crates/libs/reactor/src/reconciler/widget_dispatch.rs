@@ -47,7 +47,10 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             }
             Children::Keyed(list) => {
-                for child in collect_live(list) {
+                for child in list {
+                    if matches!(child, Element::Empty) {
+                        continue;
+                    }
                     if let Some(child_id) = self.mount(child) {
                         self.append_child_tracked(id, child_id);
                     }

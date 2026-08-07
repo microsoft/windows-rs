@@ -10,13 +10,9 @@ pub struct Canvas {
     pub children: Vec<Element>,
 }
 impl Canvas {
-    pub fn new<I>(children: I) -> Self
-    where
-        I: IntoIterator,
-        I::Item: Into<Element>,
-    {
+    pub fn new(children: impl IntoChildren) -> Self {
         Self {
-            children: children.into_iter().map(Into::into).collect(),
+            children: children.into_children(),
             ..Default::default()
         }
     }
